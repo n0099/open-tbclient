@@ -1,121 +1,91 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.database.MatrixCursor;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
+@Singleton
+@Service
 /* loaded from: classes4.dex */
-public class fv3 extends cv3 {
+public class fv3 implements kt2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947777542, "Lcom/baidu/tieba/fv3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947777542, "Lcom/baidu/tieba/fv3;");
-                return;
-            }
+    @Override // com.baidu.tieba.kt2
+    public Map<Class, Object> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
         }
-        a = gp1.a;
+        return (Map) invokeV.objValue;
     }
 
     public fv3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final Cursor a(String str) {
+    @Override // com.baidu.tieba.kt2
+    public void a(ja3 ja3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ja3Var) == null) {
+            bv3.b().a(ja3Var);
+            bv3.a().a(ja3Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.kt2
+    public Map<String, Object> b(@NonNull nx1 nx1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            MatrixCursor matrixCursor = new MatrixCursor(new String[]{"params"}, 1);
-            matrixCursor.newRow().add("params", str);
-            return matrixCursor;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nx1Var)) == null) {
+            Map<String, Object> b = bv3.b().b(nx1Var);
+            Map<String, Object> b2 = bv3.a().b(nx1Var);
+            HashMap hashMap = new HashMap();
+            if (b != null) {
+                hashMap.putAll(b);
+            }
+            if (b2 != null) {
+                hashMap.putAll(b2);
+            }
+            return hashMap;
         }
-        return (Cursor) invokeL.objValue;
+        return (Map) invokeL.objValue;
     }
 
-    public final String c(String str) {
+    @Override // com.baidu.tieba.kt2
+    public Map<String, Object> c(@NonNull nx1 nx1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nx1Var)) == null) {
+            Map<String, Object> c = bv3.b().c(nx1Var);
+            Map<String, Object> c2 = bv3.a().c(nx1Var);
+            HashMap hashMap = new HashMap();
+            if (c != null) {
+                hashMap.putAll(c);
             }
-            return Base64.encodeToString(hv3.b(str.getBytes(), "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDI4nl5QCs/mwaPjm2H4cHaxTBya7F1S1f2IXBwfEB6QD16esL+37EX+SeGR3NQ+0Xxs32Bpl/E70xlII24e/E6GJnU1vks/d1+h4rBjv987X2eppIBrT8f6COjczYcUm0OBa7IGmAMnqMCnOt/U1Wx3Mn7zniQKueT5DjQBOuxyQIDAQAB", 117), 10);
+            if (c2 != null) {
+                hashMap.putAll(c2);
+            }
+            return hashMap;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("swan_sdk_version", hp1.a());
-                jSONObject.put("swan_core_version", bi3.h(0));
-                jSONObject.put("game_core_version", bi3.h(1));
-                jSONObject.put("uid", ds2.h0().i(AppRuntime.getAppContext()));
-                jSONObject.put("puid", ds2.h0().h(AppRuntime.getAppContext()));
-                jSONObject.put("ua", s52.s());
-                jSONObject.put("ut", s52.f());
-                jSONObject.put("timestamp", System.currentTimeMillis());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.cv3
-    @Nullable
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, uri, strArr, str, strArr2, str2)) == null) {
-            String b = b();
-            if (a) {
-                Log.i("ParamsProcessor", "params: " + b);
-            }
-            String c = c(b);
-            if (a) {
-                Log.i("ParamsProcessor", "encryption params: " + c);
-            }
-            return a(c);
-        }
-        return (Cursor) invokeLLLLL.objValue;
+        return (Map) invokeL.objValue;
     }
 }

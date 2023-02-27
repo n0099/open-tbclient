@@ -6,17 +6,17 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.av7;
-import com.baidu.tieba.ev7;
+import com.baidu.tieba.az7;
+import com.baidu.tieba.fy7;
+import com.baidu.tieba.jy7;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.vv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class LegoDelegateAdapter extends ev7<LegoDelegateViewHolder> {
+public class LegoDelegateAdapter extends jy7<LegoDelegateViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId b;
@@ -29,13 +29,13 @@ public class LegoDelegateAdapter extends ev7<LegoDelegateViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LegoDelegateViewHolder(vv7<?> vv7Var) {
-            super((View) vv7Var);
+        public LegoDelegateViewHolder(az7<?> az7Var) {
+            super((View) az7Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vv7Var};
+                Object[] objArr = {az7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -85,7 +85,7 @@ public class LegoDelegateAdapter extends ev7<LegoDelegateViewHolder> {
         return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.mu7
+    @Override // com.baidu.tieba.rx7
     public final void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
@@ -100,7 +100,7 @@ public class LegoDelegateAdapter extends ev7<LegoDelegateViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            vv7 a = av7.h().a(this.c, this.d, this.a);
+            az7 a = fy7.h().a(this.c, this.d, this.a);
             if (a == null) {
                 return null;
             }
@@ -117,13 +117,13 @@ public class LegoDelegateAdapter extends ev7<LegoDelegateViewHolder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iCardInfo, legoDelegateViewHolder})) == null) {
-            vv7 vv7Var = (vv7) legoDelegateViewHolder.getView();
+            az7 az7Var = (az7) legoDelegateViewHolder.getView();
             ICardInfo iCardInfo2 = this.d;
-            if (vv7Var != null && iCardInfo2 != null) {
-                vv7Var.setPosition(i);
-                vv7Var.update(iCardInfo2);
+            if (az7Var != null && iCardInfo2 != null) {
+                az7Var.setPosition(i);
+                az7Var.update(iCardInfo2);
             }
-            return (View) vv7Var;
+            return (View) az7Var;
         }
         return (View) invokeCommon.objValue;
     }

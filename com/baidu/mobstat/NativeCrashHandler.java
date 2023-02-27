@@ -1,20 +1,11 @@
 package com.baidu.mobstat;
 
 import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes2.dex */
 public final class NativeCrashHandler {
-    public static /* synthetic */ Interceptable $ic;
     public static boolean a;
     public static Context b;
-    public transient /* synthetic */ FieldHolder $fh;
 
     public static native void nativeException();
 
@@ -25,18 +16,6 @@ public final class NativeCrashHandler {
     public static native void nativeUnint();
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1966252792, "Lcom/baidu/mobstat/NativeCrashHandler;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1966252792, "Lcom/baidu/mobstat/NativeCrashHandler;");
-                return;
-            }
-        }
         try {
             System.loadLibrary("crash_analysis");
             a = true;
@@ -44,23 +23,8 @@ public final class NativeCrashHandler {
         }
     }
 
-    public NativeCrashHandler() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
     public static void doNativeCrash() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a) {
+        if (a) {
             try {
                 nativeException();
             } catch (Throwable unused) {
@@ -69,8 +33,7 @@ public final class NativeCrashHandler {
     }
 
     public static void uninit() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65546, null) == null) && a) {
+        if (a) {
             try {
                 nativeUnint();
             } catch (Throwable unused) {
@@ -79,8 +42,7 @@ public final class NativeCrashHandler {
     }
 
     public static void init(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, context) != null) || context == null) {
+        if (context == null) {
             return;
         }
         b = context;
@@ -96,15 +58,11 @@ public final class NativeCrashHandler {
     }
 
     public static void onCrashCallbackFromNative(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            ExceptionAnalysis.getInstance().saveCrashInfo(b, System.currentTimeMillis(), str, "NativeException", 1, 0);
-        }
+        ExceptionAnalysis.getInstance().saveCrashInfo(b, System.currentTimeMillis(), str, "NativeException", 1, 0);
     }
 
     public static void process(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, str) == null) && str != null && str.length() != 0 && a) {
+        if (str != null && str.length() != 0 && a) {
             File file = new File(str);
             if (file.exists() && file.isFile()) {
                 try {

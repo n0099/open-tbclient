@@ -1,47 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public abstract class qm1 {
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Locale;
+import javax.net.ssl.HttpsURLConnection;
+/* loaded from: classes5.dex */
+public class qm1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public om1 b;
 
-    public abstract void a(int i, V8ExceptionInfo v8ExceptionInfo);
-
-    public qm1() {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str == null) {
+                return null;
             }
+            if (c(str).booleanValue() || d(str).booleanValue()) {
+                return str.split("\\?")[0];
+            }
+            return str;
         }
-        this.a = 2000L;
+        return (String) invokeL.objValue;
     }
 
-    public void b(om1 om1Var) {
+    public static HttpURLConnection b(URL url) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, om1Var) == null) {
-            this.b = om1Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, url)) == null) {
+            if (url.getProtocol().toLowerCase().equals("https")) {
+                pm1.a();
+                return (HttpsURLConnection) url.openConnection();
+            }
+            return (HttpURLConnection) url.openConnection();
         }
+        return (HttpURLConnection) invokeL.objValue;
     }
 
-    public void c(long j) {
+    public static Boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.a = j;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return e(str, UrlSchemaHelper.SCHEMA_TYPE_HTTP);
         }
+        return (Boolean) invokeL.objValue;
+    }
+
+    public static Boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return e(str, UrlSchemaHelper.SCHEMA_TYPE_HTTPS);
+        }
+        return (Boolean) invokeL.objValue;
+    }
+
+    public static Boolean e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            boolean z = false;
+            if (str != null && str.trim().toLowerCase(Locale.getDefault()).indexOf(str2) == 0) {
+                z = true;
+            }
+            return Boolean.valueOf(z);
+        }
+        return (Boolean) invokeLL.objValue;
     }
 }

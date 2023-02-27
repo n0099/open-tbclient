@@ -6,16 +6,10 @@ import android.content.res.TypedArray;
 import android.graphics.Paint;
 import androidx.annotation.NonNull;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.resources.MaterialResources;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class CalendarStyle {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final CalendarItemStyle day;
     @NonNull
@@ -34,21 +28,7 @@ public final class CalendarStyle {
     public final CalendarItemStyle year;
 
     public CalendarStyle(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(MaterialAttributes.resolveOrThrow(context, R.attr.obfuscated_res_0x7f0404b6, MaterialCalendar.class.getCanonicalName()), com.google.android.material.R.styleable.MaterialCalendar);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(MaterialAttributes.resolveOrThrow(context, R.attr.obfuscated_res_0x7f0404b8, MaterialCalendar.class.getCanonicalName()), com.google.android.material.R.styleable.MaterialCalendar);
         this.day = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(3, 0));
         this.invalidDay = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(1, 0));
         this.selectedDay = CalendarItemStyle.create(context, obtainStyledAttributes.getResourceId(2, 0));

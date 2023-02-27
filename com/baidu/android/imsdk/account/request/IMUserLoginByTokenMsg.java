@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
-import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -138,7 +137,7 @@ public class IMUserLoginByTokenMsg extends Message {
                 jSONObject.put("app_open_type", AccountManagerImpl.getInstance(this.mContext).getAppOpenType());
                 jSONObject.put("client_identifier", AccountManagerImpl.getInstance(this.mContext).getExtraSafeParams());
                 jSONObject.put("tail", this.mTail);
-                jSONObject.put(a.O, this.mTimeout);
+                jSONObject.put("timeout", this.mTimeout);
                 if (!TextUtils.isEmpty(Utility.getLoginCookie(this.mContext))) {
                     jSONObject.put("cookie", Utility.getLoginCookie(this.mContext));
                 }

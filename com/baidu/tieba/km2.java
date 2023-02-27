@@ -1,53 +1,21 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
+import android.view.KeyEvent;
 /* loaded from: classes5.dex */
-public class km2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface km2 {
+    void a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947917817, "Lcom/baidu/tieba/km2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947917817, "Lcom/baidu/tieba/km2;");
-                return;
-            }
-        }
-        boolean z = gp1.a;
-    }
+    void b();
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String[] b = wk4.a().b();
-            w52.b("SwanHistoryQueryHelper", "no history app list: " + Arrays.toString(b));
-            if (b != null && b.length != 0 && (str == null || !str.equals("sync_state=?"))) {
-                if (str != null && str.trim().length() > 0) {
-                    str2 = String.format("(%s) AND ", str.trim());
-                } else {
-                    str2 = "";
-                }
-                String format = String.format("%s %s NOT IN ('%s')", str2, String.format("%s.%s", "ai_apps_history", "app_id"), TextUtils.join("','", b));
-                w52.b("SwanHistoryQueryHelper", "origin Selection: " + str + ", created selection: " + format);
-                return format;
-            }
-            w52.b("SwanHistoryQueryHelper", "origin Selection: " + str + ", created selection: " + str);
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
+    void c();
+
+    void d();
+
+    void e();
+
+    void f();
+
+    void g();
+
+    boolean onKeyDown(int i, KeyEvent keyEvent);
 }

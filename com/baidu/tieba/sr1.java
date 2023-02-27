@@ -1,42 +1,50 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONArray;
+import java.util.Map;
+import okhttp3.HttpUrl;
 /* loaded from: classes6.dex */
-public class sr1 implements cu1 {
+public class sr1 extends it2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.cu1
-    public void a(@NonNull JSONArray jSONArray) {
+    @Override // com.baidu.tieba.wt1
+    public String C() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.cu1
-    public zc2 b(Context context, File file, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, file, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (zc2) invokeCommon.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cu1
-    public void c(@NonNull JSONArray jSONArray) {
+    @Override // com.baidu.tieba.wt1
+    public long E() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 0L;
         }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public boolean isDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public sr1() {
@@ -51,5 +59,211 @@ public class sr1 implements cu1 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public String B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return i62.v(String.format("%s/api/subscribe/v1/relation/get", g62.c()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public String D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return String.format("%s/ma/tips", Q());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public String L() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return i62.w(String.format("%s/ma/grs/brand/applist", Q()), true);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public String O() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return String.format("%s/ma/ai", Q());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String Q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return i62.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return i62.w(String.format("%s/ma/update", Q()), true);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return i62.v(String.format("%s/ma/history/sync", Q()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return String.format("%s/ma/component/comment/bos_auth", "https://ossapi.baidu.com");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return ts2.n().a();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return i62.v(String.format("%s/ma/history/list", Q()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public String v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return i62.v(String.format("%s/ma/reset", Q()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public HttpRequest F(Context context, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, map)) == null) {
+            return P("ma/accredit_v1", map);
+        }
+        return (HttpRequest) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public HttpRequest M(Context context, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, context, map)) == null) {
+            return P("ma/user/openid", map);
+        }
+        return (HttpRequest) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public HttpRequest a(Context context, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, context, map)) == null) {
+            return P("ma/user/checksessionkey", map);
+        }
+        return (HttpRequest) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public HttpRequest g(Context context, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, context, map)) == null) {
+            return P("ma/user/swanid", map);
+        }
+        return (HttpRequest) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public HttpRequest o(Context context, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, context, map)) == null) {
+            return P("ma/accredit_data", map);
+        }
+        return (HttpRequest) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public HttpRequest s(Context context, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, context, map)) == null) {
+            return P("ma/login", map);
+        }
+        return (HttpRequest) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public HttpRequest u(Context context, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, context, map)) == null) {
+            return P("ma/open/data", map);
+        }
+        return (HttpRequest) invokeLL.objValue;
+    }
+
+    public final HttpRequest P(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, map)) == null) {
+            HttpUrl parse = HttpUrl.parse(Q());
+            if (parse == null) {
+                return null;
+            }
+            HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments(str);
+            for (Map.Entry<String, String> entry : h62.b().d.entrySet()) {
+                addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
+            }
+            HttpUrl build = addPathSegments.build();
+            pg4 pg4Var = new pg4();
+            pg4Var.b = "POST";
+            pg4Var.a = i62.w(build.toString(), true);
+            pg4Var.d = ke3.b(map);
+            pg4Var.f = true;
+            pg4Var.g = true;
+            pg4Var.h = false;
+            HttpRequestBuilder a = rg4.a(pg4Var);
+            qg4.g().u(a, pg4Var);
+            return a.build();
+        }
+        return (HttpRequest) invokeLL.objValue;
     }
 }

@@ -2,66 +2,33 @@ package com.baidu.cyberplayer.sdk.statistics;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.CyberVersion;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
-    public static /* synthetic */ Interceptable $ic;
     public static a a;
-    public transient /* synthetic */ FieldHolder $fh;
-    public c b;
-    public boolean c;
-
-    public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = false;
-        this.b = new c(DpStatConstants.SESSION_TYPE_KERNEL);
-    }
+    public boolean c = false;
+    public c b = new c(DpStatConstants.SESSION_TYPE_KERNEL);
 
     public static synchronized a a() {
-        InterceptResult invokeV;
         a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (a.class) {
-                if (a == null) {
-                    a = new a();
-                }
-                aVar = a;
+        synchronized (a.class) {
+            if (a == null) {
+                a = new a();
             }
-            return aVar;
+            aVar = a;
         }
-        return (a) invokeV.objValue;
+        return aVar;
     }
 
     public JSONObject a(JSONObject jSONObject) throws JSONException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) ? this.b.a(jSONObject) : (JSONObject) invokeL.objValue;
+        return this.b.a(jSONObject);
     }
 
     public void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.c) {
+        if (this.c) {
             return;
         }
         this.c = true;

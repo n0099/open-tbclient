@@ -6,11 +6,11 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tieba.d10;
-import com.baidu.tieba.e10;
-import com.baidu.tieba.f10;
-import com.baidu.tieba.g10;
 import com.baidu.tieba.h10;
-import com.baidu.tieba.v00;
+import com.baidu.tieba.i10;
+import com.baidu.tieba.j10;
+import com.baidu.tieba.k10;
+import com.baidu.tieba.l10;
 import com.baidu.tieba.z00;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,15 +29,15 @@ public final class DeviceId {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "DeviceId";
     public static final boolean b = false;
-    public static h10.a d = null;
+    public static l10.a d = null;
     public static volatile DeviceId g = null;
     public static CuidChangeCallback i = null;
     public static boolean sDataCuidInfoShable = true;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context c;
-    public h10 e;
-    public f10 f;
-    public v00 h;
+    public l10 e;
+    public j10 f;
+    public z00 h;
     public Executor j;
 
     /* loaded from: classes.dex */
@@ -87,9 +87,9 @@ public final class DeviceId {
         } else {
             this.c = applicationContext;
         }
-        this.h = new v00();
-        this.e = new h10(this.c, new z00(this.c), this.h);
-        this.f = new f10(this.c, this.h);
+        this.h = new z00();
+        this.e = new l10(this.c, new d10(this.c), this.h);
+        this.f = new j10(this.c, this.h);
     }
 
     public static DeviceId a(Context context) {
@@ -97,7 +97,7 @@ public final class DeviceId {
         DeviceId deviceId;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            synchronized (e10.class) {
+            synchronized (i10.class) {
                 if (g == null) {
                     g = new DeviceId(context);
                 }
@@ -108,34 +108,34 @@ public final class DeviceId {
         return (DeviceId) invokeL.objValue;
     }
 
-    private h10.a a(String str) {
+    private l10.a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) ? this.e.k(str) : (h10.a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) ? this.e.k(str) : (l10.a) invokeL.objValue;
     }
 
-    private h10.a a(String str, String str2) {
+    private l10.a a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, str, str2)) == null) {
-            h10.a m = this.e.m(str2);
+            l10.a m = this.e.m(str2);
             return m == null ? b(str, str2) : m;
         }
-        return (h10.a) invokeLL.objValue;
+        return (l10.a) invokeLL.objValue;
     }
 
-    private boolean a(h10.a aVar) {
+    private boolean a(l10.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, this, aVar)) == null) ? (aVar == null || !aVar.r() || TextUtils.isEmpty(aVar.s()) || TextUtils.equals(aVar.s(), h10.l())) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, this, aVar)) == null) ? (aVar == null || !aVar.r() || TextUtils.isEmpty(aVar.s()) || TextUtils.equals(aVar.s(), l10.l())) ? false : true : invokeL.booleanValue;
     }
 
-    public static h10.a b(Context context) {
+    public static l10.a b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             if (d == null) {
-                synchronized (e10.class) {
+                synchronized (i10.class) {
                     if (d == null) {
                         SystemClock.uptimeMillis();
                         d = a(context).c();
@@ -146,30 +146,30 @@ public final class DeviceId {
             a(context).d();
             return d;
         }
-        return (h10.a) invokeL.objValue;
+        return (l10.a) invokeL.objValue;
     }
 
-    private h10.a b(String str, String str2) {
+    private l10.a b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, this, str, str2)) == null) {
-            e10 b2 = this.f.b(str);
-            if (b2 == null || TextUtils.equals(str2, b2.a) || !g10.a(b2.a)) {
+            i10 b2 = this.f.b(str);
+            if (b2 == null || TextUtils.equals(str2, b2.a) || !k10.a(b2.a)) {
                 return null;
             }
             return this.e.b(b2);
         }
-        return (h10.a) invokeLL.objValue;
+        return (l10.a) invokeLL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(h10.a aVar) {
+    public void b(l10.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, this, aVar) == null) {
             this.j.execute(new Runnable(this, aVar) { // from class: com.baidu.android.common.util.DeviceId.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ h10.a a;
+                public final /* synthetic */ l10.a a;
                 public final /* synthetic */ DeviceId b;
 
                 {
@@ -195,7 +195,7 @@ public final class DeviceId {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (e10.class) {
+                        synchronized (i10.class) {
                             if (DeviceId.i == null) {
                                 return;
                             }
@@ -211,15 +211,15 @@ public final class DeviceId {
         }
     }
 
-    private h10.a c() {
+    private l10.a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
             this.e.n();
             try {
-                h10.a e = e();
+                l10.a e = e();
                 boolean a2 = a(e);
-                boolean z = (e == null || g10.a(e.h())) ? false : true;
+                boolean z = (e == null || k10.a(e.h())) ? false : true;
                 if (!a2 && !z) {
                     if (e == null) {
                         e = a((String) null, (String) null);
@@ -230,7 +230,7 @@ public final class DeviceId {
                     c(e);
                     return e;
                 }
-                h10.a a3 = a((String) null, e.h());
+                l10.a a3 = a((String) null, e.h());
                 if (a3 == null) {
                     a3 = a((String) null);
                 }
@@ -243,10 +243,10 @@ public final class DeviceId {
                 throw th;
             }
         }
-        return (h10.a) invokeV.objValue;
+        return (l10.a) invokeV.objValue;
     }
 
-    private synchronized void c(h10.a aVar) {
+    private synchronized void c(l10.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, this, aVar) == null) {
             synchronized (this) {
@@ -255,13 +255,13 @@ public final class DeviceId {
         }
     }
 
-    private Runnable d(h10.a aVar) {
+    private Runnable d(l10.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65552, this, aVar)) == null) ? new Runnable(this, aVar) { // from class: com.baidu.android.common.util.DeviceId.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ h10.a a;
+            public final /* synthetic */ l10.a a;
             public final /* synthetic */ DeviceId b;
 
             {
@@ -300,7 +300,7 @@ public final class DeviceId {
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            h10.a aVar = d;
+            l10.a aVar = d;
             if (i == null) {
                 return;
             }
@@ -310,7 +310,7 @@ public final class DeviceId {
                 this.j.execute(new Runnable(this, aVar) { // from class: com.baidu.android.common.util.DeviceId.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ h10.a a;
+                    public final /* synthetic */ l10.a a;
                     public final /* synthetic */ DeviceId b;
 
                     {
@@ -338,7 +338,7 @@ public final class DeviceId {
                         if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || DeviceId.i == null) {
                             return;
                         }
-                        h10.a aVar2 = this.a;
+                        l10.a aVar2 = this.a;
                         if (aVar2 == null || aVar2.u() || TextUtils.isEmpty(this.a.v())) {
                             CuidChangeCallback unused = DeviceId.i = null;
                         } else {
@@ -381,24 +381,24 @@ public final class DeviceId {
         }
     }
 
-    private h10.a e() {
+    private l10.a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
-            h10.a f = f();
+            l10.a f = f();
             return f == null ? g() : f;
         }
-        return (h10.a) invokeV.objValue;
+        return (l10.a) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e(h10.a aVar) {
+    public void e(l10.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, this, aVar) == null) {
             if (aVar == null) {
                 throw new NullPointerException("cuidV270Info should not be null");
             }
-            e10 y = aVar.y();
+            i10 y = aVar.y();
             if (!aVar.r() || TextUtils.isEmpty(aVar.s())) {
                 aVar.w();
             }
@@ -411,24 +411,24 @@ public final class DeviceId {
         }
     }
 
-    private h10.a f() {
+    private l10.a f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) ? this.e.a() : (h10.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) ? this.e.a() : (l10.a) invokeV.objValue;
     }
 
-    private h10.a g() {
+    private l10.a g() {
         InterceptResult invokeV;
-        e10 e;
+        i10 e;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) {
             File file = new File(this.c.getFilesDir(), "libcuid.so");
-            if (!file.exists() || (e = e10.e(d10.a(file))) == null) {
+            if (!file.exists() || (e = i10.e(h10.a(file))) == null) {
                 return null;
             }
             return this.e.b(e);
         }
-        return (h10.a) invokeV.objValue;
+        return (l10.a) invokeV.objValue;
     }
 
     public static String getCUID(Context context) {
@@ -470,9 +470,9 @@ public final class DeviceId {
         }
     }
 
-    public h10 a() {
+    public l10 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (h10) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (l10) invokeV.objValue;
     }
 }

@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.Cdo;
-import com.baidu.tieba.ac7;
-import com.baidu.tieba.fc7;
+import com.baidu.tieba.bf7;
+import com.baidu.tieba.we7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
 /* loaded from: classes4.dex */
-public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implements ac7 {
+public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implements we7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<Cdo> mMoreTreasureTroveDataList;
@@ -39,7 +39,7 @@ public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implem
         }
     }
 
-    @Override // com.baidu.tieba.ac7
+    @Override // com.baidu.tieba.we7
     public List<Cdo> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implem
                     setError(error.errorno.intValue());
                     setErrorString(moreTreasureTroveResIdl.error.usermsg);
                 }
-                this.mMoreTreasureTroveDataList = fc7.b(moreTreasureTroveResIdl);
+                this.mMoreTreasureTroveDataList = bf7.b(moreTreasureTroveResIdl);
             }
             return moreTreasureTroveResIdl;
         }

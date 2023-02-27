@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.DynamicLottieSwitch;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.wr5;
-import com.baidu.tieba.xr5;
+import com.baidu.tieba.nt5;
+import com.baidu.tieba.ot5;
 import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -33,16 +33,16 @@ public class TBLottieAnimationView extends LottieAnimationView {
     public static /* synthetic */ Interceptable $ic;
     public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public xr5 a;
+    public ot5 a;
     public String b;
     public boolean c;
     public boolean d;
     public boolean e;
     public boolean f;
-    public xr5.a g;
+    public ot5.a g;
 
     /* loaded from: classes3.dex */
-    public class a implements xr5.a {
+    public class a implements ot5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TBLottieAnimationView a;
@@ -65,7 +65,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
             this.a = tBLottieAnimationView;
         }
 
-        @Override // com.baidu.tieba.xr5.a
+        @Override // com.baidu.tieba.ot5.a
         public void a(boolean z, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) && z && !dj.isEmpty(str)) {
@@ -438,10 +438,10 @@ public class TBLottieAnimationView extends LottieAnimationView {
         if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || dj.isEmpty(str)) {
             return;
         }
-        wr5 wr5Var = new wr5();
-        wr5Var.d(str);
-        wr5Var.c(getFristLoadInternal());
-        setImageAssetDelegate(wr5Var);
+        nt5 nt5Var = new nt5();
+        nt5Var.d(str);
+        nt5Var.c(getFristLoadInternal());
+        setImageAssetDelegate(nt5Var);
     }
 
     @Override // com.airbnb.lottie.LottieAnimationView, android.view.View
@@ -508,9 +508,9 @@ public class TBLottieAnimationView extends LottieAnimationView {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && !dj.isEmpty(str) && !str.equals(this.b)) {
             this.b = str;
-            xr5 xr5Var = new xr5(getAnimationPath(), str, this.g);
-            this.a = xr5Var;
-            xr5Var.execute(new Void[0]);
+            ot5 ot5Var = new ot5(getAnimationPath(), str, this.g);
+            this.a = ot5Var;
+            ot5Var.execute(new Void[0]);
         }
     }
 }

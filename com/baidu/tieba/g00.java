@@ -1,49 +1,92 @@
 package com.baidu.tieba;
 
-import androidx.exifinterface.media.ExifInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import java.security.SecureRandom;
 /* loaded from: classes4.dex */
 public class g00 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile byte[] a;
+    public static final SecureRandom b;
     public transient /* synthetic */ FieldHolder $fh;
+    public i00 a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947739970, "Lcom/baidu/tieba/g00;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947739970, "Lcom/baidu/tieba/g00;");
+                return;
+            }
+        }
+        b = new SecureRandom();
+    }
 
     public g00() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = null;
+        this.a = new i00(new f00(), 16);
+    }
+
+    public static byte[] c(byte[] bArr, byte[] bArr2, byte[] bArr3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, bArr, bArr2, bArr3)) == null) {
+            g00 g00Var = new g00();
+            g00Var.a(1, bArr, bArr2);
+            return g00Var.b(bArr3);
+        }
+        return (byte[]) invokeLLL.objValue;
+    }
+
+    public static byte[] d(byte[] bArr, byte[] bArr2, byte[] bArr3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, bArr, bArr2, bArr3)) == null) {
+            g00 g00Var = new g00();
+            g00Var.a(2, bArr, bArr2);
+            return g00Var.b(bArr3);
+        }
+        return (byte[]) invokeLLL.objValue;
+    }
+
+    public void a(int i, byte[] bArr, byte[] bArr2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, bArr, bArr2) == null) {
+            this.a.c(i, bArr, bArr2, b);
         }
     }
 
-    public static byte[] a() {
-        InterceptResult invokeV;
+    public final byte[] b(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (g00.class) {
-                    if (a == null) {
-                        byte[] bArr = new byte[16];
-                        System.arraycopy(n00.b(), 0, bArr, 0, 16);
-                        c00 c00Var = new c00();
-                        c00Var.a(2, bArr, bArr);
-                        a = c00Var.b(new byte[]{-71, -100, -115, 26, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, -124, 14, 14, ExifInterface.MARKER_APP1, -46, -56, 1, 25, -127, -99, -107, ExifInterface.MARKER_SOF10, 51, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 14, 68, -68, -19, 28, 66, 19, -113, 5, 25, -11, -123, 50});
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+            if (bArr != null) {
+                return this.a.e(bArr, 0, bArr.length);
             }
-            return a;
+            throw new IllegalArgumentException("Null input buffer");
         }
-        return (byte[]) invokeV.objValue;
+        return (byte[]) invokeL.objValue;
     }
 }

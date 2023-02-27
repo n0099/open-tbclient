@@ -8,6 +8,7 @@ import android.os.Process;
 import android.telephony.TelephonyManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import com.ss.android.socialbase.downloader.i.f;
 import java.io.BufferedReader;
 import java.io.File;
@@ -109,7 +110,7 @@ public class e {
     public static int d() {
         String str = null;
         try {
-            Object invoke = Class.forName("android.os.SystemProperties").getMethod("get", String.class).invoke(null, a("726f2e736563757265"));
+            Object invoke = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP).getMethod("get", String.class).invoke(null, a("726f2e736563757265"));
             if (invoke != null) {
                 str = (String) invoke;
             }

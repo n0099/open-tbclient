@@ -2,19 +2,26 @@ package com.baidu.searchbox.logsystem.logsys;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class LogExtra implements Parcelable {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<LogExtra> CREATOR;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final Parcelable.Creator<LogExtra> CREATOR = new Parcelable.Creator<LogExtra>() { // from class: com.baidu.searchbox.logsystem.logsys.LogExtra.1
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // android.os.Parcelable.Creator
+        public LogExtra createFromParcel(Parcel parcel) {
+            return new LogExtra(parcel);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // android.os.Parcelable.Creator
+        public LogExtra[] newArray(int i) {
+            if (i <= 0) {
+                return null;
+            }
+            return new LogExtra[i];
+        }
+    };
     public String mCrashThreadName;
     public String mCrashThreadPriority;
     public String mCrashTime;
@@ -31,94 +38,14 @@ public final class LogExtra implements Parcelable {
     public String mVSSRSS;
 
     public static void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-        }
     }
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-322272385, "Lcom/baidu/searchbox/logsystem/logsys/LogExtra;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-322272385, "Lcom/baidu/searchbox/logsystem/logsys/LogExtra;");
-                return;
-            }
-        }
-        CREATOR = new Parcelable.Creator<LogExtra>() { // from class: com.baidu.searchbox.logsystem.logsys.LogExtra.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.Creator
-            public LogExtra createFromParcel(Parcel parcel) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
-                    return new LogExtra(parcel);
-                }
-                return (LogExtra) invokeL.objValue;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.Creator
-            public LogExtra[] newArray(int i) {
-                InterceptResult invokeI;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                    if (i <= 0) {
-                        return null;
-                    }
-                    return new LogExtra[i];
-                }
-                return (LogExtra[]) invokeI.objValue;
-            }
-        };
+        return 0;
     }
 
     public LogExtra() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mPage = null;
         this.mCrashTime = null;
         this.mLaunchTime = null;
@@ -136,20 +63,6 @@ public final class LogExtra implements Parcelable {
     }
 
     public LogExtra(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.mPage = null;
         this.mCrashTime = null;
         this.mLaunchTime = null;
@@ -182,22 +95,19 @@ public final class LogExtra implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
-            parcel.writeString(this.mPage);
-            parcel.writeString(this.mCrashTime);
-            parcel.writeString(this.mLaunchTime);
-            parcel.writeString(this.mProcessLifeTime);
-            parcel.writeString(this.mCrashThreadName);
-            parcel.writeString(this.mCrashThreadPriority);
-            parcel.writeString(this.mForeground);
-            parcel.writeString(this.mTraceID);
-            parcel.writeString(this.mJSONAttach);
-            parcel.writeString(this.mHeapMem);
-            parcel.writeString(this.mVSSRSS);
-            parcel.writeString(this.mPSS);
-            parcel.writeString(this.mSysMem);
-            parcel.writeInt(this.mSysLowMem);
-        }
+        parcel.writeString(this.mPage);
+        parcel.writeString(this.mCrashTime);
+        parcel.writeString(this.mLaunchTime);
+        parcel.writeString(this.mProcessLifeTime);
+        parcel.writeString(this.mCrashThreadName);
+        parcel.writeString(this.mCrashThreadPriority);
+        parcel.writeString(this.mForeground);
+        parcel.writeString(this.mTraceID);
+        parcel.writeString(this.mJSONAttach);
+        parcel.writeString(this.mHeapMem);
+        parcel.writeString(this.mVSSRSS);
+        parcel.writeString(this.mPSS);
+        parcel.writeString(this.mSysMem);
+        parcel.writeInt(this.mSysLowMem);
     }
 }

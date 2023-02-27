@@ -1,107 +1,85 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.vi4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class ch4 extends wg4<xh4> {
+import java.util.HashMap;
+import java.util.Iterator;
+import org.json.JSONObject;
+/* loaded from: classes3.dex */
+public class ch4 implements vi4.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final bh4 a;
 
-    public ch4() {
+    @Override // com.baidu.tieba.vi4.a
+    public void b(String str, String str2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vi4.a
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public ch4(@Nullable bh4 bh4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bh4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = bh4Var;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wg4
-    /* renamed from: g */
-    public xh4 d(Cursor cursor) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.vi4.a
+    public void onFail(Exception exc) {
+        bh4 bh4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                return h(cursor);
-            }
-            return null;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) && (bh4Var = this.a) != null) {
+            bh4Var.onFail(exc);
         }
-        return (xh4) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.wg4
-    public List<xh4> e(Cursor cursor) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.vi4.a
+    public void c(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                do {
-                    arrayList.add(h(cursor));
-                } while (cursor.moveToNext());
-                return arrayList;
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wg4
-    /* renamed from: f */
-    public ContentValues c(xh4 xh4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, xh4Var)) == null) {
-            ContentValues a = super.a(xh4Var);
-            a.put("max_age", Long.valueOf(xh4Var.o));
-            a.put("token", xh4Var.p);
-            a.put("domains", xh4Var.q);
-            a.put("app_key", xh4Var.r);
-            a.put("app_name", xh4Var.s);
-            return a;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public final xh4 h(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
-            if (cursor != null) {
-                int columnIndex = cursor.getColumnIndex("max_age");
-                int columnIndex2 = cursor.getColumnIndex("token");
-                int columnIndex3 = cursor.getColumnIndex("domains");
-                int columnIndex4 = cursor.getColumnIndex("app_key");
-                int columnIndex5 = cursor.getColumnIndex("app_name");
-                xh4 xh4Var = new xh4();
-                if (b(cursor, xh4Var)) {
-                    xh4Var.o = cursor.getLong(columnIndex);
-                    xh4Var.p = cursor.getString(columnIndex2);
-                    xh4Var.q = cursor.getString(columnIndex3);
-                    xh4Var.r = cursor.getString(columnIndex4);
-                    xh4Var.s = cursor.getString(columnIndex5);
-                    return xh4Var;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
+            try {
+                HashMap hashMap = new HashMap();
+                JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys.hasNext()) {
+                    JSONObject optJSONObject2 = optJSONObject.optJSONObject(keys.next());
+                    if (optJSONObject2 != null) {
+                        hashMap.put(optJSONObject2.optString("appkey"), optJSONObject2.optString("openbundleid"));
+                    }
                 }
-                return null;
+                if (this.a != null) {
+                    this.a.a(hashMap);
+                }
+            } catch (Exception e) {
+                bh4 bh4Var = this.a;
+                if (bh4Var != null) {
+                    bh4Var.onFail(e);
+                }
             }
-            return null;
         }
-        return (xh4) invokeL.objValue;
     }
 }

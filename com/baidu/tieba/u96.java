@@ -1,56 +1,81 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.MutableContextWrapper;
-import android.content.res.Resources;
-import android.text.TextUtils;
-import android.util.TypedValue;
-import android.webkit.WebView;
-import androidx.annotation.NonNull;
-import androidx.appcompat.view.ContextThemeWrapper;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.ala.AlaCmdConfigHttp;
+import com.baidu.ala.AlaConfig;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.core.webview.flyweight.FlyweightWebView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectEditHttpReqMessage;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectEditHttpResMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class u96 {
+public class u96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final x96<FlyweightWebView> a;
-    public final v96<FlyweightWebView> b;
+    public b a;
+    public HttpMessageListener b;
 
     /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final u96 a;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface b {
+        void a(String str);
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-418350374, "Lcom/baidu/tieba/u96$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-418350374, "Lcom/baidu/tieba/u96$a;");
+        void b(boolean z);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u96 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(u96 u96Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u96Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new u96(null);
+            this.a = u96Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof AlaEnterEffectEditHttpResMessage)) {
+                AlaEnterEffectEditHttpResMessage alaEnterEffectEditHttpResMessage = (AlaEnterEffectEditHttpResMessage) httpResponsedMessage;
+                if (alaEnterEffectEditHttpResMessage.getError() == 0) {
+                    if ((alaEnterEffectEditHttpResMessage.getOrginalMessage() instanceof AlaEnterEffectEditHttpReqMessage) && this.a.a != null) {
+                        this.a.a.b(((AlaEnterEffectEditHttpReqMessage) alaEnterEffectEditHttpResMessage.getOrginalMessage()).isSelected());
+                    }
+                } else if (this.a.a != null) {
+                    this.a.a.a(alaEnterEffectEditHttpResMessage.getErrorString());
+                }
+            }
         }
     }
 
-    public u96() {
+    public u96(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -60,103 +85,24 @@ public final class u96 {
                 return;
             }
         }
-        this.b = new w96(8);
-        this.a = new x96<>();
+        this.b = new a(this, AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT);
+        this.a = bVar;
+        e59.e(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT, AlaConfig.ALA_UPDATE_ENTER_EFFECT, AlaEnterEffectEditHttpResMessage.class, true, true, true, true);
+        this.b.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.b);
     }
 
-    public static u96 c() {
-        InterceptResult invokeV;
+    public void b(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a.a;
-        }
-        return (u96) invokeV.objValue;
-    }
-
-    public /* synthetic */ u96(t96 t96Var) {
-        this();
-    }
-
-    @NonNull
-    public FlyweightWebView a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            ac6.b("lt-log", "我创建了新的webview:");
-            return new FlyweightWebView(new MutableContextWrapper(b(context)));
-        }
-        return (FlyweightWebView) invokeL.objValue;
-    }
-
-    public final ContextThemeWrapper b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            TypedValue typedValue = new TypedValue();
-            Resources.Theme theme = context.getTheme();
-            if (theme != null) {
-                theme.resolveAttribute(16973840, typedValue, true);
-            }
-            return new ContextThemeWrapper(context, typedValue.resourceId);
-        }
-        return (ContextThemeWrapper) invokeL.objValue;
-    }
-
-    public void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            f(a(context));
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
+            MessageManager.getInstance().sendMessage(new AlaEnterEffectEditHttpReqMessage(str, z));
         }
     }
 
-    @NonNull
-    public FlyweightWebView e(Context context, String str) {
-        InterceptResult invokeLL;
-        FlyweightWebView flyweightWebView;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                flyweightWebView = this.a.a(str);
-                if (flyweightWebView != null) {
-                    ac6.b("lt-log", "我在预热池里找到了webview");
-                }
-            } else {
-                flyweightWebView = null;
-            }
-            if (flyweightWebView == null && (flyweightWebView = this.b.a()) != null) {
-                ac6.b("lt-log", "我在复用池里找到了webview");
-            }
-            if (flyweightWebView == null) {
-                flyweightWebView = a(context);
-            } else {
-                ((MutableContextWrapper) flyweightWebView.getContext()).setBaseContext(b(context));
-            }
-            cc6.a().b();
-            return flyweightWebView;
-        }
-        return (FlyweightWebView) invokeLL.objValue;
-    }
-
-    public void f(@NonNull WebView webView) {
-        FlyweightWebView flyweightWebView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, webView) == null) {
-            if (webView instanceof FlyweightWebView) {
-                flyweightWebView = (FlyweightWebView) webView;
-            } else {
-                flyweightWebView = null;
-            }
-            if (flyweightWebView == null) {
-                return;
-            }
-            boolean z = false;
-            if (flyweightWebView.d()) {
-                z = this.a.b(flyweightWebView);
-            }
-            if (!z) {
-                this.b.c(flyweightWebView);
-            }
-            cc6.a().c();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.b);
         }
     }
 }

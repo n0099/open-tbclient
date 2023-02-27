@@ -25,6 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -510,7 +511,7 @@ public class l1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
             try {
-                Class<?> cls = Class.forName("android.os.SystemProperties");
+                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
                 String str = (String) cls.getMethod("get", String.class).invoke(cls, "gsm.version.baseband");
                 return TextUtils.isEmpty(str) ? i1.c : str;
             } catch (Throwable unused) {

@@ -1,33 +1,32 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.square.ForumSquareActivity;
+import com.baidu.tieba.fz8;
+import com.baidu.titan.sdk.common.TitanConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes4.dex */
-public class ez8 extends qn<gz8, CardViewHolder<xz8>> {
+public class ez8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public ld6<gz8> b;
+    public fz8 a;
+    public String b;
+    public boolean c;
+    public Context d;
+    public fz8.a e;
 
     /* loaded from: classes4.dex */
-    public class a extends ld6<gz8> {
+    public class a implements fz8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ez8 b;
+        public final /* synthetic */ ez8 a;
 
         public a(ez8 ez8Var) {
             Interceptable interceptable = $ic;
@@ -44,100 +43,152 @@ public class ez8 extends qn<gz8, CardViewHolder<xz8>> {
                     return;
                 }
             }
-            this.b = ez8Var;
+            this.a = ez8Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ld6
-        /* renamed from: d */
-        public void a(View view2, gz8 gz8Var) {
+        @Override // com.baidu.tieba.fz8.a
+        public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, gz8Var) == null) && gz8Var != null && (this.b.a.getPageActivity() instanceof ForumSquareActivity)) {
-                String className = ((ForumSquareActivity) this.b.a.getPageActivity()).w1().getClassName();
-                if (!"推荐".equals(className)) {
-                    StatisticItem statisticItem = new StatisticItem("c13652");
-                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.param("fid", gz8Var.a);
-                    statisticItem.param("resource_id", className);
-                    TiebaStatic.log(statisticItem);
-                    return;
-                }
-                StatisticItem statisticItem2 = new StatisticItem("c13643");
-                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem2.param("fid", gz8Var.a);
-                statisticItem2.param("obj_locate", 3);
-                TiebaStatic.log(statisticItem2);
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a.c) {
+                return;
             }
+            this.a.c = false;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ez8(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), gz8.h);
+    public ez8(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new a(this);
-        this.a = tbPageContext;
+        this.b = null;
+        this.c = false;
+        this.e = new a(this);
+        this.d = context;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: t */
-    public CardViewHolder<xz8> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            xz8 xz8Var = new xz8(this.a);
-            xz8Var.o(this.mPageId);
-            return new CardViewHolder<>(xz8Var);
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, gz8 gz8Var, CardViewHolder<xz8> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gz8Var, cardViewHolder})) == null) {
-            if (gz8Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().i(gz8Var);
-                cardViewHolder.a().n(this.b);
-                if (this.a.getPageActivity() instanceof ForumSquareActivity) {
-                    String className = ((ForumSquareActivity) this.a.getPageActivity()).w1().getClassName();
-                    if (!"推荐".equals(className)) {
-                        StatisticItem statisticItem = new StatisticItem("c13651");
-                        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                        statisticItem.param("fid", gz8Var.a);
-                        statisticItem.param("resource_id", className);
-                        TiebaStatic.log(statisticItem);
-                    } else {
-                        StatisticItem statisticItem2 = new StatisticItem("c13642");
-                        statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                        statisticItem2.param("fid", gz8Var.f());
-                        statisticItem2.param("obj_locate", 3);
-                        TiebaStatic.log(statisticItem2);
-                    }
-                }
-                return cardViewHolder.getView();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.b)) {
+                return this.b;
             }
-            return null;
+            String b = gz8.b();
+            this.b = b;
+            if (TextUtils.isEmpty(b)) {
+                this.b = gz8.c();
+            } else if (!this.b.endsWith(File.separator)) {
+                this.b += File.separator;
+            }
+            return this.b;
         }
-        return (View) invokeCommon.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            String c = c();
+            if (TextUtils.isEmpty(c)) {
+                return;
+            }
+            h();
+            if (gz8.e(c) && f(c, TitanConstant.KEY_INSTANT_INIT_CLASS, true)) {
+                this.c = true;
+            }
+        }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: com.baidu.tieba.fz8 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.tieba.fz8$a, com.baidu.tieba.fz8] */
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            fz8 fz8Var = this.a;
+            if (fz8Var != null) {
+                try {
+                    try {
+                        fz8Var.c();
+                    } catch (Exception e) {
+                        BdLog.e(e);
+                    }
+                } finally {
+                    this.a.b(null);
+                    this.a = null;
+                }
+            }
+            this.c = false;
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            h();
+        }
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            File file = new File(str);
+            if (!file.exists()) {
+                if (file.mkdirs()) {
+                    BdLog.d("folder mkdir success: " + str);
+                } else if (!file.exists()) {
+                    BdLog.d("folder mkdir failed");
+                }
+            }
+            if (file.isDirectory()) {
+                return;
+            }
+            throw new IllegalArgumentException("The logcat folder path is not a directory: " + str);
+        }
+    }
+
+    public final boolean f(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, str, str2, z)) == null) {
+            if (this.a != null) {
+                return true;
+            }
+            e(str);
+            fz8 fz8Var = new fz8(str, str2, z);
+            this.a = fz8Var;
+            fz8Var.b(this.e);
+            try {
+                this.a.start();
+                return true;
+            } catch (IllegalThreadStateException unused) {
+                return true;
+            } catch (Exception e) {
+                this.a = null;
+                BdLog.e(e);
+                return false;
+            }
+        }
+        return invokeLLZ.booleanValue;
     }
 }

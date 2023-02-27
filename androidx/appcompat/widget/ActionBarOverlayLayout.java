@@ -26,31 +26,20 @@ import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.core.graphics.Insets;
-import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.NestedScrollingParent;
 import androidx.core.view.NestedScrollingParent2;
 import androidx.core.view.NestedScrollingParent3;
 import androidx.core.view.NestedScrollingParentHelper;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"UnknownNullness"})
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ActionBarOverlayLayout extends ViewGroup implements DecorContentParent, NestedScrollingParent, NestedScrollingParent2, NestedScrollingParent3 {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTION_BAR_ANIMATE_DELAY = 600;
-    public static final int[] ATTRS;
+    public static final int[] ATTRS = {R.attr.obfuscated_res_0x7f04004d, 16842841};
     public static final String TAG = "ActionBarOverlayLayout";
-    public transient /* synthetic */ FieldHolder $fh;
     public int mActionBarHeight;
     public ActionBarContainer mActionBarTop;
     public ActionBarVisibilityCallback mActionBarVisibilityCallback;
@@ -104,416 +93,324 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
     public boolean onNestedPreFling(View view2, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
+        return false;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
     public void onNestedPreScroll(View view2, int i, int i2, int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), iArr}) == null) {
-        }
     }
 
     public void setShowingForActionMode(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048631, this, z) == null) {
-        }
     }
 
     @Override // androidx.appcompat.widget.DecorContentParent
     public void setUiOptions(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048632, this, i) == null) {
-        }
     }
 
     @Override // android.view.ViewGroup
     public boolean shouldDelayChildPressedState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return false;
     }
 
     /* loaded from: classes.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(int i, int i2) {
             super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, attributeSet};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(ViewGroup.LayoutParams layoutParams) {
             super(layoutParams);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {layoutParams};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((ViewGroup.LayoutParams) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(ViewGroup.MarginLayoutParams marginLayoutParams) {
             super(marginLayoutParams);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {marginLayoutParams};
-                interceptable.invokeUnInit(65539, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((ViewGroup.MarginLayoutParams) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65539, newInitContext);
-                    return;
-                }
-            }
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2059334553, "Landroidx/appcompat/widget/ActionBarOverlayLayout;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(2059334553, "Landroidx/appcompat/widget/ActionBarOverlayLayout;");
-                return;
-            }
-        }
-        ATTRS = new int[]{R.attr.obfuscated_res_0x7f04004d, 16842841};
     }
 
     private void addActionBarHideOffset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            haltActionBarHideOffsetAnimations();
-            this.mAddActionBarHideOffset.run();
-        }
+        haltActionBarHideOffsetAnimations();
+        this.mAddActionBarHideOffset.run();
     }
 
     private void postAddActionBarHideOffset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            haltActionBarHideOffsetAnimations();
-            postDelayed(this.mAddActionBarHideOffset, 600L);
-        }
+        haltActionBarHideOffsetAnimations();
+        postDelayed(this.mAddActionBarHideOffset, 600L);
     }
 
     private void postRemoveActionBarHideOffset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            haltActionBarHideOffsetAnimations();
-            postDelayed(this.mRemoveActionBarHideOffset, 600L);
-        }
+        haltActionBarHideOffsetAnimations();
+        postDelayed(this.mRemoveActionBarHideOffset, 600L);
     }
 
     private void removeActionBarHideOffset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            haltActionBarHideOffsetAnimations();
-            this.mRemoveActionBarHideOffset.run();
-        }
+        haltActionBarHideOffsetAnimations();
+        this.mRemoveActionBarHideOffset.run();
     }
 
     @Override // androidx.appcompat.widget.DecorContentParent
     public boolean canShowOverflowMenu() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            pullChildren();
-            return this.mDecorToolbar.canShowOverflowMenu();
-        }
-        return invokeV.booleanValue;
+        pullChildren();
+        return this.mDecorToolbar.canShowOverflowMenu();
     }
 
     @Override // androidx.appcompat.widget.DecorContentParent
     public void dismissPopups() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            pullChildren();
-            this.mDecorToolbar.dismissPopupMenus();
-        }
+        pullChildren();
+        this.mDecorToolbar.dismissPopupMenus();
     }
 
     public int getActionBarHideOffset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ActionBarContainer actionBarContainer = this.mActionBarTop;
-            if (actionBarContainer != null) {
-                return -((int) actionBarContainer.getTranslationY());
-            }
-            return 0;
+        ActionBarContainer actionBarContainer = this.mActionBarTop;
+        if (actionBarContainer != null) {
+            return -((int) actionBarContainer.getTranslationY());
         }
-        return invokeV.intValue;
+        return 0;
     }
 
     @Override // android.view.ViewGroup, androidx.core.view.NestedScrollingParent
     public int getNestedScrollAxes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.mParentHelper.getNestedScrollAxes();
-        }
-        return invokeV.intValue;
+        return this.mParentHelper.getNestedScrollAxes();
     }
 
     @Override // androidx.appcompat.widget.DecorContentParent
     public CharSequence getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            pullChildren();
-            return this.mDecorToolbar.getTitle();
-        }
-        return (CharSequence) invokeV.objValue;
+        pullChildren();
+        return this.mDecorToolbar.getTitle();
     }
 
     public void haltActionBarHideOffsetAnimations() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            removeCallbacks(this.mRemoveActionBarHideOffset);
-            removeCallbacks(this.mAddActionBarHideOffset);
-            ViewPropertyAnimator viewPropertyAnimator = this.mCurrentActionBarTopAnimator;
-            if (viewPropertyAnimator != null) {
-                viewPropertyAnimator.cancel();
-            }
+        removeCallbacks(this.mRemoveActionBarHideOffset);
+        removeCallbacks(this.mAddActionBarHideOffset);
+        ViewPropertyAnimator viewPropertyAnimator = this.mCurrentActionBarTopAnimator;
+        if (viewPropertyAnimator != null) {
+            viewPropertyAnimator.cancel();
         }
     }
 
     @Override // androidx.appcompat.widget.DecorContentParent
     public boolean hasIcon() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            pullChildren();
-            return this.mDecorToolbar.hasIcon();
-        }
-        return invokeV.booleanValue;
+        pullChildren();
+        return this.mDecorToolbar.hasIcon();
     }
 
     @Override // androidx.appcompat.widget.DecorContentParent
     public boolean hasLogo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            pullChildren();
-            return this.mDecorToolbar.hasLogo();
-        }
-        return invokeV.booleanValue;
+        pullChildren();
+        return this.mDecorToolbar.hasLogo();
     }
 
     @Override // androidx.appcompat.widget.DecorContentParent
     public boolean hideOverflowMenu() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            pullChildren();
-            return this.mDecorToolbar.hideOverflowMenu();
-        }
-        return invokeV.booleanValue;
+        pullChildren();
+        return this.mDecorToolbar.hideOverflowMenu();
     }
 
     public boolean isHideOnContentScrollEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.mHideOnContentScroll;
-        }
-        return invokeV.booleanValue;
+        return this.mHideOnContentScroll;
     }
 
     public boolean isInOverlayMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.mOverlayMode;
-        }
-        return invokeV.booleanValue;
+        return this.mOverlayMode;
     }
 
     @Override // androidx.appcompat.widget.DecorContentParent
     public boolean isOverflowMenuShowPending() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            pullChildren();
-            return this.mDecorToolbar.isOverflowMenuShowPending();
-        }
-        return invokeV.booleanValue;
+        pullChildren();
+        return this.mDecorToolbar.isOverflowMenuShowPending();
     }
 
     @Override // androidx.appcompat.widget.DecorContentParent
     public boolean isOverflowMenuShowing() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            pullChildren();
-            return this.mDecorToolbar.isOverflowMenuShowing();
-        }
-        return invokeV.booleanValue;
+        pullChildren();
+        return this.mDecorToolbar.isOverflowMenuShowing();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            super.onDetachedFromWindow();
-            haltActionBarHideOffsetAnimations();
+        super.onDetachedFromWindow();
+        haltActionBarHideOffsetAnimations();
+    }
+
+    public void pullChildren() {
+        if (this.mContent == null) {
+            this.mContent = (ContentFrameLayout) findViewById(R.id.obfuscated_res_0x7f09005c);
+            this.mActionBarTop = (ActionBarContainer) findViewById(R.id.obfuscated_res_0x7f09005d);
+            this.mDecorToolbar = getDecorToolbar(findViewById(R.id.obfuscated_res_0x7f09005b));
         }
     }
 
     @Override // androidx.appcompat.widget.DecorContentParent
     public void setMenuPrepared() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048629, this) == null) {
-            pullChildren();
-            this.mDecorToolbar.setMenuPrepared();
-        }
+        pullChildren();
+        this.mDecorToolbar.setMenuPrepared();
     }
 
     @Override // androidx.appcompat.widget.DecorContentParent
     public boolean showOverflowMenu() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
-            pullChildren();
-            return this.mDecorToolbar.showOverflowMenu();
-        }
-        return invokeV.booleanValue;
+        pullChildren();
+        return this.mDecorToolbar.showOverflowMenu();
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ActionBarOverlayLayout(@NonNull Context context) {
         this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
     }
 
     private DecorToolbar getDecorToolbar(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, view2)) == null) {
-            if (view2 instanceof DecorToolbar) {
-                return (DecorToolbar) view2;
-            }
-            if (view2 instanceof Toolbar) {
-                return ((Toolbar) view2).getWrapper();
-            }
-            throw new IllegalStateException("Can't make a decor toolbar out of " + view2.getClass().getSimpleName());
+        if (view2 instanceof DecorToolbar) {
+            return (DecorToolbar) view2;
         }
-        return (DecorToolbar) invokeL.objValue;
+        if (view2 instanceof Toolbar) {
+            return ((Toolbar) view2).getWrapper();
+        }
+        throw new IllegalStateException("Can't make a decor toolbar out of " + view2.getClass().getSimpleName());
     }
 
     private boolean shouldHideActionBarOnFling(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65546, this, f)) == null) {
-            this.mFlingEstimator.fling(0, 0, 0, (int) f, 0, 0, Integer.MIN_VALUE, Integer.MAX_VALUE);
-            if (this.mFlingEstimator.getFinalY() > this.mActionBarTop.getHeight()) {
-                return true;
-            }
-            return false;
+        this.mFlingEstimator.fling(0, 0, 0, (int) f, 0, 0, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        if (this.mFlingEstimator.getFinalY() > this.mActionBarTop.getHeight()) {
+            return true;
         }
-        return invokeF.booleanValue;
+        return false;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ActionBarOverlayLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+    @Override // android.view.ViewGroup
+    public boolean checkLayoutParams(ViewGroup.LayoutParams layoutParams) {
+        return layoutParams instanceof LayoutParams;
+    }
+
+    @Override // androidx.appcompat.widget.DecorContentParent
+    public void initFeature(int i) {
+        pullChildren();
+        if (i != 2) {
+            if (i != 5) {
+                if (i == 109) {
+                    setOverlayMode(true);
+                    return;
+                }
                 return;
             }
+            this.mDecorToolbar.initIndeterminateProgress();
+            return;
         }
+        this.mDecorToolbar.initProgress();
+    }
+
+    @Override // android.view.View
+    public void onConfigurationChanged(Configuration configuration) {
+        super.onConfigurationChanged(configuration);
+        init(getContext());
+        ViewCompat.requestApplyInsets(this);
+    }
+
+    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
+    public void onStopNestedScroll(View view2) {
+        if (this.mHideOnContentScroll && !this.mAnimatingForFling) {
+            if (this.mHideOnContentScrollReference <= this.mActionBarTop.getHeight()) {
+                postRemoveActionBarHideOffset();
+            } else {
+                postAddActionBarHideOffset();
+            }
+        }
+        ActionBarVisibilityCallback actionBarVisibilityCallback = this.mActionBarVisibilityCallback;
+        if (actionBarVisibilityCallback != null) {
+            actionBarVisibilityCallback.onContentScrollStopped();
+        }
+    }
+
+    @Override // android.view.View
+    public void onWindowVisibilityChanged(int i) {
+        super.onWindowVisibilityChanged(i);
+        this.mWindowVisibility = i;
+        ActionBarVisibilityCallback actionBarVisibilityCallback = this.mActionBarVisibilityCallback;
+        if (actionBarVisibilityCallback != null) {
+            actionBarVisibilityCallback.onWindowVisibilityChanged(i);
+        }
+    }
+
+    @Override // androidx.appcompat.widget.DecorContentParent
+    public void restoreToolbarHierarchyState(SparseArray<Parcelable> sparseArray) {
+        pullChildren();
+        this.mDecorToolbar.restoreHierarchyState(sparseArray);
+    }
+
+    @Override // androidx.appcompat.widget.DecorContentParent
+    public void saveToolbarHierarchyState(SparseArray<Parcelable> sparseArray) {
+        pullChildren();
+        this.mDecorToolbar.saveHierarchyState(sparseArray);
+    }
+
+    public void setActionBarHideOffset(int i) {
+        haltActionBarHideOffsetAnimations();
+        this.mActionBarTop.setTranslationY(-Math.max(0, Math.min(i, this.mActionBarTop.getHeight())));
+    }
+
+    public void setActionBarVisibilityCallback(ActionBarVisibilityCallback actionBarVisibilityCallback) {
+        this.mActionBarVisibilityCallback = actionBarVisibilityCallback;
+        if (getWindowToken() != null) {
+            this.mActionBarVisibilityCallback.onWindowVisibilityChanged(this.mWindowVisibility);
+            int i = this.mLastSystemUiVisibility;
+            if (i != 0) {
+                onWindowSystemUiVisibilityChanged(i);
+                ViewCompat.requestApplyInsets(this);
+            }
+        }
+    }
+
+    public void setHasNonEmbeddedTabs(boolean z) {
+        this.mHasNonEmbeddedTabs = z;
+    }
+
+    public void setHideOnContentScrollEnabled(boolean z) {
+        if (z != this.mHideOnContentScroll) {
+            this.mHideOnContentScroll = z;
+            if (!z) {
+                haltActionBarHideOffsetAnimations();
+                setActionBarHideOffset(0);
+            }
+        }
+    }
+
+    @Override // androidx.appcompat.widget.DecorContentParent
+    public void setIcon(int i) {
+        pullChildren();
+        this.mDecorToolbar.setIcon(i);
+    }
+
+    @Override // androidx.appcompat.widget.DecorContentParent
+    public void setLogo(int i) {
+        pullChildren();
+        this.mDecorToolbar.setLogo(i);
+    }
+
+    public void setOverlayMode(boolean z) {
+        boolean z2;
+        this.mOverlayMode = z;
+        if (z && getContext().getApplicationInfo().targetSdkVersion < 19) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        this.mIgnoreWindowContentOverlay = z2;
+    }
+
+    @Override // androidx.appcompat.widget.DecorContentParent
+    public void setWindowCallback(Window.Callback callback) {
+        pullChildren();
+        this.mDecorToolbar.setWindowCallback(callback);
+    }
+
+    @Override // androidx.appcompat.widget.DecorContentParent
+    public void setWindowTitle(CharSequence charSequence) {
+        pullChildren();
+        this.mDecorToolbar.setWindowTitle(charSequence);
+    }
+
+    public ActionBarOverlayLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
         this.mWindowVisibility = 0;
         this.mBaseContentInsets = new Rect();
         this.mLastBaseContentInsets = new Rect();
@@ -527,550 +424,247 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
         this.mLastBaseInnerInsets = windowInsetsCompat;
         this.mInnerInsets = windowInsetsCompat;
         this.mLastInnerInsets = windowInsetsCompat;
-        this.mTopAnimatorListener = new AnimatorListenerAdapter(this) { // from class: androidx.appcompat.widget.ActionBarOverlayLayout.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ActionBarOverlayLayout this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr3 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
+        this.mTopAnimatorListener = new AnimatorListenerAdapter() { // from class: androidx.appcompat.widget.ActionBarOverlayLayout.1
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
-                    ActionBarOverlayLayout actionBarOverlayLayout = this.this$0;
-                    actionBarOverlayLayout.mCurrentActionBarTopAnimator = null;
-                    actionBarOverlayLayout.mAnimatingForFling = false;
-                }
+                ActionBarOverlayLayout actionBarOverlayLayout = ActionBarOverlayLayout.this;
+                actionBarOverlayLayout.mCurrentActionBarTopAnimator = null;
+                actionBarOverlayLayout.mAnimatingForFling = false;
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                    ActionBarOverlayLayout actionBarOverlayLayout = this.this$0;
-                    actionBarOverlayLayout.mCurrentActionBarTopAnimator = null;
-                    actionBarOverlayLayout.mAnimatingForFling = false;
-                }
+                ActionBarOverlayLayout actionBarOverlayLayout = ActionBarOverlayLayout.this;
+                actionBarOverlayLayout.mCurrentActionBarTopAnimator = null;
+                actionBarOverlayLayout.mAnimatingForFling = false;
             }
         };
-        this.mRemoveActionBarHideOffset = new Runnable(this) { // from class: androidx.appcompat.widget.ActionBarOverlayLayout.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ActionBarOverlayLayout this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr3 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
+        this.mRemoveActionBarHideOffset = new Runnable() { // from class: androidx.appcompat.widget.ActionBarOverlayLayout.2
             @Override // java.lang.Runnable
             public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.this$0.haltActionBarHideOffsetAnimations();
-                    ActionBarOverlayLayout actionBarOverlayLayout = this.this$0;
-                    actionBarOverlayLayout.mCurrentActionBarTopAnimator = actionBarOverlayLayout.mActionBarTop.animate().translationY(0.0f).setListener(this.this$0.mTopAnimatorListener);
-                }
+                ActionBarOverlayLayout.this.haltActionBarHideOffsetAnimations();
+                ActionBarOverlayLayout actionBarOverlayLayout = ActionBarOverlayLayout.this;
+                actionBarOverlayLayout.mCurrentActionBarTopAnimator = actionBarOverlayLayout.mActionBarTop.animate().translationY(0.0f).setListener(ActionBarOverlayLayout.this.mTopAnimatorListener);
             }
         };
-        this.mAddActionBarHideOffset = new Runnable(this) { // from class: androidx.appcompat.widget.ActionBarOverlayLayout.3
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ActionBarOverlayLayout this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr3 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
+        this.mAddActionBarHideOffset = new Runnable() { // from class: androidx.appcompat.widget.ActionBarOverlayLayout.3
             @Override // java.lang.Runnable
             public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.this$0.haltActionBarHideOffsetAnimations();
-                    ActionBarOverlayLayout actionBarOverlayLayout = this.this$0;
-                    actionBarOverlayLayout.mCurrentActionBarTopAnimator = actionBarOverlayLayout.mActionBarTop.animate().translationY(-this.this$0.mActionBarTop.getHeight()).setListener(this.this$0.mTopAnimatorListener);
-                }
+                ActionBarOverlayLayout.this.haltActionBarHideOffsetAnimations();
+                ActionBarOverlayLayout actionBarOverlayLayout = ActionBarOverlayLayout.this;
+                actionBarOverlayLayout.mCurrentActionBarTopAnimator = actionBarOverlayLayout.mActionBarTop.animate().translationY(-ActionBarOverlayLayout.this.mActionBarTop.getHeight()).setListener(ActionBarOverlayLayout.this.mTopAnimatorListener);
             }
         };
         init(context);
         this.mParentHelper = new NestedScrollingParentHelper(this);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:11:0x001a  */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0025  */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0030  */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0021  */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x002c  */
+    /* JADX WARN: Removed duplicated region for block: B:9:0x0016  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private boolean applyInsets(@NonNull View view2, @NonNull Rect rect, boolean z, boolean z2, boolean z3, boolean z4) {
-        InterceptResult invokeCommon;
         boolean z5;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{view2, rect, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
-            LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
-            if (z) {
-                int i = ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin;
-                int i2 = rect.left;
-                if (i != i2) {
-                    ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin = i2;
-                    z5 = true;
-                    if (z2) {
-                        int i3 = ((ViewGroup.MarginLayoutParams) layoutParams).topMargin;
-                        int i4 = rect.top;
-                        if (i3 != i4) {
-                            ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = i4;
-                            z5 = true;
-                        }
+        LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
+        if (z) {
+            int i = ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin;
+            int i2 = rect.left;
+            if (i != i2) {
+                ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin = i2;
+                z5 = true;
+                if (z2) {
+                    int i3 = ((ViewGroup.MarginLayoutParams) layoutParams).topMargin;
+                    int i4 = rect.top;
+                    if (i3 != i4) {
+                        ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = i4;
+                        z5 = true;
                     }
-                    if (z4) {
-                        int i5 = ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
-                        int i6 = rect.right;
-                        if (i5 != i6) {
-                            ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin = i6;
-                            z5 = true;
-                        }
-                    }
-                    if (z3) {
-                        int i7 = ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
-                        int i8 = rect.bottom;
-                        if (i7 != i8) {
-                            ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = i8;
-                            return true;
-                        }
-                    }
-                    return z5;
                 }
+                if (z4) {
+                    int i5 = ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
+                    int i6 = rect.right;
+                    if (i5 != i6) {
+                        ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin = i6;
+                        z5 = true;
+                    }
+                }
+                if (z3) {
+                    int i7 = ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
+                    int i8 = rect.bottom;
+                    if (i7 != i8) {
+                        ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = i8;
+                        return true;
+                    }
+                }
+                return z5;
             }
-            z5 = false;
-            if (z2) {
-            }
-            if (z4) {
-            }
-            if (z3) {
-            }
-            return z5;
         }
-        return invokeCommon.booleanValue;
+        z5 = false;
+        if (z2) {
+        }
+        if (z4) {
+        }
+        if (z3) {
+        }
+        return z5;
     }
 
     private void init(Context context) {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
-            TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(ATTRS);
-            boolean z2 = false;
-            this.mActionBarHeight = obtainStyledAttributes.getDimensionPixelSize(0, 0);
-            Drawable drawable = obtainStyledAttributes.getDrawable(1);
-            this.mWindowContentOverlay = drawable;
-            if (drawable == null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            setWillNotDraw(z);
-            obtainStyledAttributes.recycle();
-            if (context.getApplicationInfo().targetSdkVersion < 19) {
-                z2 = true;
-            }
-            this.mIgnoreWindowContentOverlay = z2;
-            this.mFlingEstimator = new OverScroller(context);
+        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(ATTRS);
+        boolean z2 = false;
+        this.mActionBarHeight = obtainStyledAttributes.getDimensionPixelSize(0, 0);
+        Drawable drawable = obtainStyledAttributes.getDrawable(1);
+        this.mWindowContentOverlay = drawable;
+        if (drawable == null) {
+            z = true;
+        } else {
+            z = false;
         }
+        setWillNotDraw(z);
+        obtainStyledAttributes.recycle();
+        if (context.getApplicationInfo().targetSdkVersion < 19) {
+            z2 = true;
+        }
+        this.mIgnoreWindowContentOverlay = z2;
+        this.mFlingEstimator = new OverScroller(context);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            super.draw(canvas);
-            if (this.mWindowContentOverlay != null && !this.mIgnoreWindowContentOverlay) {
-                if (this.mActionBarTop.getVisibility() == 0) {
-                    i = (int) (this.mActionBarTop.getBottom() + this.mActionBarTop.getTranslationY() + 0.5f);
-                } else {
-                    i = 0;
-                }
-                this.mWindowContentOverlay.setBounds(0, i, getWidth(), this.mWindowContentOverlay.getIntrinsicHeight() + i);
-                this.mWindowContentOverlay.draw(canvas);
+        super.draw(canvas);
+        if (this.mWindowContentOverlay != null && !this.mIgnoreWindowContentOverlay) {
+            if (this.mActionBarTop.getVisibility() == 0) {
+                i = (int) (this.mActionBarTop.getBottom() + this.mActionBarTop.getTranslationY() + 0.5f);
+            } else {
+                i = 0;
             }
+            this.mWindowContentOverlay.setBounds(0, i, getWidth(), this.mWindowContentOverlay.getIntrinsicHeight() + i);
+            this.mWindowContentOverlay.draw(canvas);
         }
-    }
-
-    @Override // android.view.View
-    public boolean fitSystemWindows(Rect rect) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, rect)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                return super.fitSystemWindows(rect);
-            }
-            pullChildren();
-            boolean applyInsets = applyInsets(this.mActionBarTop, rect, true, true, false, true);
-            this.mBaseInnerInsetsRect.set(rect);
-            ViewUtils.computeFitSystemWindows(this, this.mBaseInnerInsetsRect, this.mBaseContentInsets);
-            if (!this.mLastBaseInnerInsetsRect.equals(this.mBaseInnerInsetsRect)) {
-                this.mLastBaseInnerInsetsRect.set(this.mBaseInnerInsetsRect);
-                applyInsets = true;
-            }
-            if (!this.mLastBaseContentInsets.equals(this.mBaseContentInsets)) {
-                this.mLastBaseContentInsets.set(this.mBaseContentInsets);
-                applyInsets = true;
-            }
-            if (applyInsets) {
-                requestLayout();
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 
     @Override // android.view.View
     public void onWindowSystemUiVisibilityChanged(int i) {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
-            if (Build.VERSION.SDK_INT >= 16) {
-                super.onWindowSystemUiVisibilityChanged(i);
-            }
-            pullChildren();
-            int i2 = this.mLastSystemUiVisibility ^ i;
-            this.mLastSystemUiVisibility = i;
-            boolean z2 = false;
-            if ((i & 4) == 0) {
-                z = true;
+        if (Build.VERSION.SDK_INT >= 16) {
+            super.onWindowSystemUiVisibilityChanged(i);
+        }
+        pullChildren();
+        int i2 = this.mLastSystemUiVisibility ^ i;
+        this.mLastSystemUiVisibility = i;
+        boolean z2 = false;
+        if ((i & 4) == 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        if ((i & 256) != 0) {
+            z2 = true;
+        }
+        ActionBarVisibilityCallback actionBarVisibilityCallback = this.mActionBarVisibilityCallback;
+        if (actionBarVisibilityCallback != null) {
+            actionBarVisibilityCallback.enableContentAnimations(!z2);
+            if (!z && z2) {
+                this.mActionBarVisibilityCallback.hideForSystem();
             } else {
-                z = false;
-            }
-            if ((i & 256) != 0) {
-                z2 = true;
-            }
-            ActionBarVisibilityCallback actionBarVisibilityCallback = this.mActionBarVisibilityCallback;
-            if (actionBarVisibilityCallback != null) {
-                actionBarVisibilityCallback.enableContentAnimations(!z2);
-                if (!z && z2) {
-                    this.mActionBarVisibilityCallback.hideForSystem();
-                } else {
-                    this.mActionBarVisibilityCallback.showForSystem();
-                }
-            }
-            if ((i2 & 256) != 0 && this.mActionBarVisibilityCallback != null) {
-                ViewCompat.requestApplyInsets(this);
+                this.mActionBarVisibilityCallback.showForSystem();
             }
         }
-    }
-
-    @Override // android.view.ViewGroup
-    public boolean checkLayoutParams(ViewGroup.LayoutParams layoutParams) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutParams)) == null) {
-            return layoutParams instanceof LayoutParams;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // androidx.appcompat.widget.DecorContentParent
-    public void initFeature(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            pullChildren();
-            if (i != 2) {
-                if (i != 5) {
-                    if (i == 109) {
-                        setOverlayMode(true);
-                        return;
-                    }
-                    return;
-                }
-                this.mDecorToolbar.initIndeterminateProgress();
-                return;
-            }
-            this.mDecorToolbar.initProgress();
-        }
-    }
-
-    @Override // android.view.View
-    public void onConfigurationChanged(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, configuration) == null) {
-            super.onConfigurationChanged(configuration);
-            init(getContext());
+        if ((i2 & 256) != 0 && this.mActionBarVisibilityCallback != null) {
             ViewCompat.requestApplyInsets(this);
         }
     }
 
-    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onStopNestedScroll(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, view2) == null) {
-            if (this.mHideOnContentScroll && !this.mAnimatingForFling) {
-                if (this.mHideOnContentScrollReference <= this.mActionBarTop.getHeight()) {
-                    postRemoveActionBarHideOffset();
-                } else {
-                    postAddActionBarHideOffset();
-                }
-            }
-            ActionBarVisibilityCallback actionBarVisibilityCallback = this.mActionBarVisibilityCallback;
-            if (actionBarVisibilityCallback != null) {
-                actionBarVisibilityCallback.onContentScrollStopped();
-            }
-        }
-    }
-
     @Override // android.view.View
-    public void onWindowVisibilityChanged(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
-            super.onWindowVisibilityChanged(i);
-            this.mWindowVisibility = i;
-            ActionBarVisibilityCallback actionBarVisibilityCallback = this.mActionBarVisibilityCallback;
-            if (actionBarVisibilityCallback != null) {
-                actionBarVisibilityCallback.onWindowVisibilityChanged(i);
-            }
+    public boolean fitSystemWindows(Rect rect) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            return super.fitSystemWindows(rect);
         }
-    }
-
-    @Override // androidx.appcompat.widget.DecorContentParent
-    public void restoreToolbarHierarchyState(SparseArray<Parcelable> sparseArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, sparseArray) == null) {
-            pullChildren();
-            this.mDecorToolbar.restoreHierarchyState(sparseArray);
+        pullChildren();
+        boolean applyInsets = applyInsets(this.mActionBarTop, rect, true, true, false, true);
+        this.mBaseInnerInsetsRect.set(rect);
+        ViewUtils.computeFitSystemWindows(this, this.mBaseInnerInsetsRect, this.mBaseContentInsets);
+        if (!this.mLastBaseInnerInsetsRect.equals(this.mBaseInnerInsetsRect)) {
+            this.mLastBaseInnerInsetsRect.set(this.mBaseInnerInsetsRect);
+            applyInsets = true;
         }
-    }
-
-    @Override // androidx.appcompat.widget.DecorContentParent
-    public void saveToolbarHierarchyState(SparseArray<Parcelable> sparseArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, sparseArray) == null) {
-            pullChildren();
-            this.mDecorToolbar.saveHierarchyState(sparseArray);
+        if (!this.mLastBaseContentInsets.equals(this.mBaseContentInsets)) {
+            this.mLastBaseContentInsets.set(this.mBaseContentInsets);
+            applyInsets = true;
         }
-    }
-
-    public void setActionBarHideOffset(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
-            haltActionBarHideOffsetAnimations();
-            this.mActionBarTop.setTranslationY(-Math.max(0, Math.min(i, this.mActionBarTop.getHeight())));
+        if (applyInsets) {
+            requestLayout();
         }
-    }
-
-    public void setActionBarVisibilityCallback(ActionBarVisibilityCallback actionBarVisibilityCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, actionBarVisibilityCallback) == null) {
-            this.mActionBarVisibilityCallback = actionBarVisibilityCallback;
-            if (getWindowToken() != null) {
-                this.mActionBarVisibilityCallback.onWindowVisibilityChanged(this.mWindowVisibility);
-                int i = this.mLastSystemUiVisibility;
-                if (i != 0) {
-                    onWindowSystemUiVisibilityChanged(i);
-                    ViewCompat.requestApplyInsets(this);
-                }
-            }
-        }
-    }
-
-    public void setHasNonEmbeddedTabs(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
-            this.mHasNonEmbeddedTabs = z;
-        }
-    }
-
-    public void setHideOnContentScrollEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048624, this, z) == null) && z != this.mHideOnContentScroll) {
-            this.mHideOnContentScroll = z;
-            if (!z) {
-                haltActionBarHideOffsetAnimations();
-                setActionBarHideOffset(0);
-            }
-        }
-    }
-
-    @Override // androidx.appcompat.widget.DecorContentParent
-    public void setIcon(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
-            pullChildren();
-            this.mDecorToolbar.setIcon(i);
-        }
-    }
-
-    @Override // androidx.appcompat.widget.DecorContentParent
-    public void setLogo(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048627, this, i) == null) {
-            pullChildren();
-            this.mDecorToolbar.setLogo(i);
-        }
-    }
-
-    public void setOverlayMode(boolean z) {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048630, this, z) == null) {
-            this.mOverlayMode = z;
-            if (z && getContext().getApplicationInfo().targetSdkVersion < 19) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            this.mIgnoreWindowContentOverlay = z2;
-        }
-    }
-
-    @Override // androidx.appcompat.widget.DecorContentParent
-    public void setWindowCallback(Window.Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, callback) == null) {
-            pullChildren();
-            this.mDecorToolbar.setWindowCallback(callback);
-        }
-    }
-
-    @Override // androidx.appcompat.widget.DecorContentParent
-    public void setWindowTitle(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048634, this, charSequence) == null) {
-            pullChildren();
-            this.mDecorToolbar.setWindowTitle(charSequence);
-        }
+        return true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.view.ViewGroup
     public LayoutParams generateDefaultLayoutParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return new LayoutParams(-1, -1);
-        }
-        return (LayoutParams) invokeV.objValue;
+        return new LayoutParams(-1, -1);
     }
 
     @Override // android.view.ViewGroup
     public ViewGroup.LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutParams)) == null) {
-            return new LayoutParams(layoutParams);
-        }
-        return (ViewGroup.LayoutParams) invokeL.objValue;
+        return new LayoutParams(layoutParams);
     }
 
     @Override // androidx.appcompat.widget.DecorContentParent
     public void setIcon(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048626, this, drawable) == null) {
-            pullChildren();
-            this.mDecorToolbar.setIcon(drawable);
-        }
+        pullChildren();
+        this.mDecorToolbar.setIcon(drawable);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.view.ViewGroup
     public LayoutParams generateLayoutParams(AttributeSet attributeSet) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, attributeSet)) == null) {
-            return new LayoutParams(getContext(), attributeSet);
-        }
-        return (LayoutParams) invokeL.objValue;
+        return new LayoutParams(getContext(), attributeSet);
     }
 
     @Override // android.view.View
     @RequiresApi(21)
     public WindowInsets onApplyWindowInsets(@NonNull WindowInsets windowInsets) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, windowInsets)) == null) {
-            pullChildren();
-            WindowInsetsCompat windowInsetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets);
-            boolean applyInsets = applyInsets(this.mActionBarTop, new Rect(windowInsetsCompat.getSystemWindowInsetLeft(), windowInsetsCompat.getSystemWindowInsetTop(), windowInsetsCompat.getSystemWindowInsetRight(), windowInsetsCompat.getSystemWindowInsetBottom()), true, true, false, true);
-            ViewCompat.computeSystemWindowInsets(this, windowInsetsCompat, this.mBaseContentInsets);
-            Rect rect = this.mBaseContentInsets;
-            WindowInsetsCompat inset = windowInsetsCompat.inset(rect.left, rect.top, rect.right, rect.bottom);
-            this.mBaseInnerInsets = inset;
-            boolean z = true;
-            if (!this.mLastBaseInnerInsets.equals(inset)) {
-                this.mLastBaseInnerInsets = this.mBaseInnerInsets;
-                applyInsets = true;
-            }
-            if (!this.mLastBaseContentInsets.equals(this.mBaseContentInsets)) {
-                this.mLastBaseContentInsets.set(this.mBaseContentInsets);
-            } else {
-                z = applyInsets;
-            }
-            if (z) {
-                requestLayout();
-            }
-            return windowInsetsCompat.consumeDisplayCutout().consumeSystemWindowInsets().consumeStableInsets().toWindowInsets();
+        pullChildren();
+        WindowInsetsCompat windowInsetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets);
+        boolean applyInsets = applyInsets(this.mActionBarTop, new Rect(windowInsetsCompat.getSystemWindowInsetLeft(), windowInsetsCompat.getSystemWindowInsetTop(), windowInsetsCompat.getSystemWindowInsetRight(), windowInsetsCompat.getSystemWindowInsetBottom()), true, true, false, true);
+        ViewCompat.computeSystemWindowInsets(this, windowInsetsCompat, this.mBaseContentInsets);
+        Rect rect = this.mBaseContentInsets;
+        WindowInsetsCompat inset = windowInsetsCompat.inset(rect.left, rect.top, rect.right, rect.bottom);
+        this.mBaseInnerInsets = inset;
+        boolean z = true;
+        if (!this.mLastBaseInnerInsets.equals(inset)) {
+            this.mLastBaseInnerInsets = this.mBaseInnerInsets;
+            applyInsets = true;
         }
-        return (WindowInsets) invokeL.objValue;
+        if (!this.mLastBaseContentInsets.equals(this.mBaseContentInsets)) {
+            this.mLastBaseContentInsets.set(this.mBaseContentInsets);
+        } else {
+            z = applyInsets;
+        }
+        if (z) {
+            requestLayout();
+        }
+        return windowInsetsCompat.consumeDisplayCutout().consumeSystemWindowInsets().consumeStableInsets().toWindowInsets();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            int childCount = getChildCount();
-            int paddingLeft = getPaddingLeft();
-            int paddingTop = getPaddingTop();
-            for (int i5 = 0; i5 < childCount; i5++) {
-                View childAt = getChildAt(i5);
-                if (childAt.getVisibility() != 8) {
-                    LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
-                    int measuredWidth = childAt.getMeasuredWidth();
-                    int measuredHeight = childAt.getMeasuredHeight();
-                    int i6 = ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin + paddingLeft;
-                    int i7 = ((ViewGroup.MarginLayoutParams) layoutParams).topMargin + paddingTop;
-                    childAt.layout(i6, i7, measuredWidth + i6, measuredHeight + i7);
-                }
+        int childCount = getChildCount();
+        int paddingLeft = getPaddingLeft();
+        int paddingTop = getPaddingTop();
+        for (int i5 = 0; i5 < childCount; i5++) {
+            View childAt = getChildAt(i5);
+            if (childAt.getVisibility() != 8) {
+                LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
+                int measuredWidth = childAt.getMeasuredWidth();
+                int measuredHeight = childAt.getMeasuredHeight();
+                int i6 = ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin + paddingLeft;
+                int i7 = ((ViewGroup.MarginLayoutParams) layoutParams).topMargin + paddingTop;
+                childAt.layout(i6, i7, measuredWidth + i6, measuredHeight + i7);
             }
         }
     }
@@ -1079,189 +673,146 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     public void onMeasure(int i, int i2) {
         boolean z;
         int measuredHeight;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048602, this, i, i2) == null) {
-            pullChildren();
-            measureChildWithMargins(this.mActionBarTop, i, 0, i2, 0);
-            LayoutParams layoutParams = (LayoutParams) this.mActionBarTop.getLayoutParams();
-            int max = Math.max(0, this.mActionBarTop.getMeasuredWidth() + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin + ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin);
-            int max2 = Math.max(0, this.mActionBarTop.getMeasuredHeight() + ((ViewGroup.MarginLayoutParams) layoutParams).topMargin + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin);
-            int combineMeasuredStates = View.combineMeasuredStates(0, this.mActionBarTop.getMeasuredState());
-            if ((ViewCompat.getWindowSystemUiVisibility(this) & 256) != 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                measuredHeight = this.mActionBarHeight;
-                if (this.mHasNonEmbeddedTabs && this.mActionBarTop.getTabContainer() != null) {
-                    measuredHeight += this.mActionBarHeight;
-                }
-            } else {
-                measuredHeight = this.mActionBarTop.getVisibility() != 8 ? this.mActionBarTop.getMeasuredHeight() : 0;
-            }
-            this.mContentInsets.set(this.mBaseContentInsets);
-            if (Build.VERSION.SDK_INT >= 21) {
-                this.mInnerInsets = this.mBaseInnerInsets;
-            } else {
-                this.mInnerInsetsRect.set(this.mBaseInnerInsetsRect);
-            }
-            if (!this.mOverlayMode && !z) {
-                Rect rect = this.mContentInsets;
-                rect.top += measuredHeight;
-                rect.bottom += 0;
-                if (Build.VERSION.SDK_INT >= 21) {
-                    this.mInnerInsets = this.mInnerInsets.inset(0, measuredHeight, 0, 0);
-                }
-            } else if (Build.VERSION.SDK_INT >= 21) {
-                this.mInnerInsets = new WindowInsetsCompat.Builder(this.mInnerInsets).setSystemWindowInsets(Insets.of(this.mInnerInsets.getSystemWindowInsetLeft(), this.mInnerInsets.getSystemWindowInsetTop() + measuredHeight, this.mInnerInsets.getSystemWindowInsetRight(), this.mInnerInsets.getSystemWindowInsetBottom() + 0)).build();
-            } else {
-                Rect rect2 = this.mInnerInsetsRect;
-                rect2.top += measuredHeight;
-                rect2.bottom += 0;
-            }
-            applyInsets(this.mContent, this.mContentInsets, true, true, true, true);
-            if (Build.VERSION.SDK_INT >= 21 && !this.mLastInnerInsets.equals(this.mInnerInsets)) {
-                WindowInsetsCompat windowInsetsCompat = this.mInnerInsets;
-                this.mLastInnerInsets = windowInsetsCompat;
-                ViewCompat.dispatchApplyWindowInsets(this.mContent, windowInsetsCompat);
-            } else if (Build.VERSION.SDK_INT < 21 && !this.mLastInnerInsetsRect.equals(this.mInnerInsetsRect)) {
-                this.mLastInnerInsetsRect.set(this.mInnerInsetsRect);
-                this.mContent.dispatchFitSystemWindows(this.mInnerInsetsRect);
-            }
-            measureChildWithMargins(this.mContent, i, 0, i2, 0);
-            LayoutParams layoutParams2 = (LayoutParams) this.mContent.getLayoutParams();
-            int max3 = Math.max(max, this.mContent.getMeasuredWidth() + ((ViewGroup.MarginLayoutParams) layoutParams2).leftMargin + ((ViewGroup.MarginLayoutParams) layoutParams2).rightMargin);
-            int max4 = Math.max(max2, this.mContent.getMeasuredHeight() + ((ViewGroup.MarginLayoutParams) layoutParams2).topMargin + ((ViewGroup.MarginLayoutParams) layoutParams2).bottomMargin);
-            int combineMeasuredStates2 = View.combineMeasuredStates(combineMeasuredStates, this.mContent.getMeasuredState());
-            setMeasuredDimension(View.resolveSizeAndState(Math.max(max3 + getPaddingLeft() + getPaddingRight(), getSuggestedMinimumWidth()), i, combineMeasuredStates2), View.resolveSizeAndState(Math.max(max4 + getPaddingTop() + getPaddingBottom(), getSuggestedMinimumHeight()), i2, combineMeasuredStates2 << 16));
+        pullChildren();
+        measureChildWithMargins(this.mActionBarTop, i, 0, i2, 0);
+        LayoutParams layoutParams = (LayoutParams) this.mActionBarTop.getLayoutParams();
+        int max = Math.max(0, this.mActionBarTop.getMeasuredWidth() + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin + ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin);
+        int max2 = Math.max(0, this.mActionBarTop.getMeasuredHeight() + ((ViewGroup.MarginLayoutParams) layoutParams).topMargin + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin);
+        int combineMeasuredStates = View.combineMeasuredStates(0, this.mActionBarTop.getMeasuredState());
+        if ((ViewCompat.getWindowSystemUiVisibility(this) & 256) != 0) {
+            z = true;
+        } else {
+            z = false;
         }
+        if (z) {
+            measuredHeight = this.mActionBarHeight;
+            if (this.mHasNonEmbeddedTabs && this.mActionBarTop.getTabContainer() != null) {
+                measuredHeight += this.mActionBarHeight;
+            }
+        } else {
+            measuredHeight = this.mActionBarTop.getVisibility() != 8 ? this.mActionBarTop.getMeasuredHeight() : 0;
+        }
+        this.mContentInsets.set(this.mBaseContentInsets);
+        if (Build.VERSION.SDK_INT >= 21) {
+            this.mInnerInsets = this.mBaseInnerInsets;
+        } else {
+            this.mInnerInsetsRect.set(this.mBaseInnerInsetsRect);
+        }
+        if (!this.mOverlayMode && !z) {
+            Rect rect = this.mContentInsets;
+            rect.top += measuredHeight;
+            rect.bottom += 0;
+            if (Build.VERSION.SDK_INT >= 21) {
+                this.mInnerInsets = this.mInnerInsets.inset(0, measuredHeight, 0, 0);
+            }
+        } else if (Build.VERSION.SDK_INT >= 21) {
+            this.mInnerInsets = new WindowInsetsCompat.Builder(this.mInnerInsets).setSystemWindowInsets(Insets.of(this.mInnerInsets.getSystemWindowInsetLeft(), this.mInnerInsets.getSystemWindowInsetTop() + measuredHeight, this.mInnerInsets.getSystemWindowInsetRight(), this.mInnerInsets.getSystemWindowInsetBottom() + 0)).build();
+        } else {
+            Rect rect2 = this.mInnerInsetsRect;
+            rect2.top += measuredHeight;
+            rect2.bottom += 0;
+        }
+        applyInsets(this.mContent, this.mContentInsets, true, true, true, true);
+        if (Build.VERSION.SDK_INT >= 21 && !this.mLastInnerInsets.equals(this.mInnerInsets)) {
+            WindowInsetsCompat windowInsetsCompat = this.mInnerInsets;
+            this.mLastInnerInsets = windowInsetsCompat;
+            ViewCompat.dispatchApplyWindowInsets(this.mContent, windowInsetsCompat);
+        } else if (Build.VERSION.SDK_INT < 21 && !this.mLastInnerInsetsRect.equals(this.mInnerInsetsRect)) {
+            this.mLastInnerInsetsRect.set(this.mInnerInsetsRect);
+            this.mContent.dispatchFitSystemWindows(this.mInnerInsetsRect);
+        }
+        measureChildWithMargins(this.mContent, i, 0, i2, 0);
+        LayoutParams layoutParams2 = (LayoutParams) this.mContent.getLayoutParams();
+        int max3 = Math.max(max, this.mContent.getMeasuredWidth() + ((ViewGroup.MarginLayoutParams) layoutParams2).leftMargin + ((ViewGroup.MarginLayoutParams) layoutParams2).rightMargin);
+        int max4 = Math.max(max2, this.mContent.getMeasuredHeight() + ((ViewGroup.MarginLayoutParams) layoutParams2).topMargin + ((ViewGroup.MarginLayoutParams) layoutParams2).bottomMargin);
+        int combineMeasuredStates2 = View.combineMeasuredStates(combineMeasuredStates, this.mContent.getMeasuredState());
+        setMeasuredDimension(View.resolveSizeAndState(Math.max(max3 + getPaddingLeft() + getPaddingRight(), getSuggestedMinimumWidth()), i, combineMeasuredStates2), View.resolveSizeAndState(Math.max(max4 + getPaddingTop() + getPaddingBottom(), getSuggestedMinimumHeight()), i2, combineMeasuredStates2 << 16));
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
     public boolean onNestedFling(View view2, float f, float f2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
-            if (this.mHideOnContentScroll && z) {
-                if (shouldHideActionBarOnFling(f2)) {
-                    addActionBarHideOffset();
-                } else {
-                    removeActionBarHideOffset();
-                }
-                this.mAnimatingForFling = true;
-                return true;
+        if (this.mHideOnContentScroll && z) {
+            if (shouldHideActionBarOnFling(f2)) {
+                addActionBarHideOffset();
+            } else {
+                removeActionBarHideOffset();
             }
-            return false;
+            this.mAnimatingForFling = true;
+            return true;
         }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // androidx.core.view.NestedScrollingParent2
-    public void onNestedPreScroll(View view2, int i, int i2, int[] iArr, int i3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), iArr, Integer.valueOf(i3)}) == null) && i3 == 0) {
-            onNestedPreScroll(view2, i, i2, iArr);
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedScroll(View view2, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            int i5 = this.mHideOnContentScrollReference + i2;
-            this.mHideOnContentScrollReference = i5;
-            setActionBarHideOffset(i5);
-        }
-    }
-
-    @Override // androidx.core.view.NestedScrollingParent2
-    public void onNestedScroll(View view2, int i, int i2, int i3, int i4, int i5) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) && i5 == 0) {
-            onNestedScroll(view2, i, i2, i3, i4);
-        }
-    }
-
-    @Override // androidx.core.view.NestedScrollingParent3
-    public void onNestedScroll(View view2, int i, int i2, int i3, int i4, int i5, int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr}) == null) {
-            onNestedScroll(view2, i, i2, i3, i4, i5);
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedScrollAccepted(View view2, View view3, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048610, this, view2, view3, i) == null) {
-            this.mParentHelper.onNestedScrollAccepted(view2, view3, i);
-            this.mHideOnContentScrollReference = getActionBarHideOffset();
-            haltActionBarHideOffsetAnimations();
-            ActionBarVisibilityCallback actionBarVisibilityCallback = this.mActionBarVisibilityCallback;
-            if (actionBarVisibilityCallback != null) {
-                actionBarVisibilityCallback.onContentScrollStarted();
-            }
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onStartNestedScroll(View view2, View view3, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048612, this, view2, view3, i)) == null) {
-            if ((i & 2) != 0 && this.mActionBarTop.getVisibility() == 0) {
-                return this.mHideOnContentScroll;
-            }
-            return false;
-        }
-        return invokeLLI.booleanValue;
+        return false;
     }
 
     @Override // androidx.core.view.NestedScrollingParent2
     public void onNestedScrollAccepted(View view2, View view3, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLII(1048611, this, view2, view3, i, i2) == null) && i2 == 0) {
+        if (i2 == 0) {
             onNestedScrollAccepted(view2, view3, i);
         }
     }
 
     @Override // androidx.core.view.NestedScrollingParent2
     public boolean onStartNestedScroll(View view2, View view3, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048613, this, view2, view3, i, i2)) == null) {
-            if (i2 == 0 && onStartNestedScroll(view2, view3, i)) {
-                return true;
-            }
-            return false;
+        if (i2 == 0 && onStartNestedScroll(view2, view3, i)) {
+            return true;
         }
-        return invokeLLII.booleanValue;
+        return false;
+    }
+
+    @Override // androidx.core.view.NestedScrollingParent2
+    public void onNestedPreScroll(View view2, int i, int i2, int[] iArr, int i3) {
+        if (i3 == 0) {
+            onNestedPreScroll(view2, i, i2, iArr);
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
+    public void onNestedScroll(View view2, int i, int i2, int i3, int i4) {
+        int i5 = this.mHideOnContentScrollReference + i2;
+        this.mHideOnContentScrollReference = i5;
+        setActionBarHideOffset(i5);
+    }
+
+    @Override // androidx.core.view.NestedScrollingParent2
+    public void onNestedScroll(View view2, int i, int i2, int i3, int i4, int i5) {
+        if (i5 == 0) {
+            onNestedScroll(view2, i, i2, i3, i4);
+        }
+    }
+
+    @Override // androidx.core.view.NestedScrollingParent3
+    public void onNestedScroll(View view2, int i, int i2, int i3, int i4, int i5, int[] iArr) {
+        onNestedScroll(view2, i, i2, i3, i4, i5);
+    }
+
+    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
+    public void onNestedScrollAccepted(View view2, View view3, int i) {
+        this.mParentHelper.onNestedScrollAccepted(view2, view3, i);
+        this.mHideOnContentScrollReference = getActionBarHideOffset();
+        haltActionBarHideOffsetAnimations();
+        ActionBarVisibilityCallback actionBarVisibilityCallback = this.mActionBarVisibilityCallback;
+        if (actionBarVisibilityCallback != null) {
+            actionBarVisibilityCallback.onContentScrollStarted();
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
+    public boolean onStartNestedScroll(View view2, View view3, int i) {
+        if ((i & 2) != 0 && this.mActionBarTop.getVisibility() == 0) {
+            return this.mHideOnContentScroll;
+        }
+        return false;
     }
 
     @Override // androidx.core.view.NestedScrollingParent2
     public void onStopNestedScroll(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048615, this, view2, i) == null) && i == 0) {
+        if (i == 0) {
             onStopNestedScroll(view2);
         }
     }
 
     @Override // androidx.appcompat.widget.DecorContentParent
     public void setMenu(Menu menu, MenuPresenter.Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048628, this, menu, callback) == null) {
-            pullChildren();
-            this.mDecorToolbar.setMenu(menu, callback);
-        }
-    }
-
-    public void pullChildren() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048618, this) == null) && this.mContent == null) {
-            this.mContent = (ContentFrameLayout) findViewById(R.id.obfuscated_res_0x7f09005c);
-            this.mActionBarTop = (ActionBarContainer) findViewById(R.id.obfuscated_res_0x7f09005d);
-            this.mDecorToolbar = getDecorToolbar(findViewById(R.id.obfuscated_res_0x7f09005b));
-        }
+        pullChildren();
+        this.mDecorToolbar.setMenu(menu, callback);
     }
 }

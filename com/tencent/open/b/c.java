@@ -4,133 +4,94 @@ import android.content.Context;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.log.SLog;
 import com.tencent.open.web.security.SecureJsInterface;
 /* loaded from: classes8.dex */
 public class c extends b {
-    public static /* synthetic */ Interceptable $ic;
     public static boolean a;
-    public transient /* synthetic */ FieldHolder $fh;
     public KeyEvent b;
     public com.tencent.open.web.security.a c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(Context context) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
     }
 
     @Override // android.webkit.WebView, android.view.ViewGroup, android.view.View
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        InterceptResult invokeL;
         int unicodeChar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, keyEvent)) == null) {
-            SLog.d("openSDK_LOG.SecureWebView", "-->dispatchKeyEvent, is device support: " + a);
-            if (!a) {
-                return super.dispatchKeyEvent(keyEvent);
-            }
-            if (keyEvent.getAction() == 0) {
-                int keyCode = keyEvent.getKeyCode();
-                if (keyCode != 4) {
-                    if (keyCode != 66) {
-                        if (keyCode != 67) {
-                            if (keyEvent.getUnicodeChar() == 0) {
-                                return super.dispatchKeyEvent(keyEvent);
-                            }
-                            if (SecureJsInterface.isPWDEdit && (((unicodeChar = keyEvent.getUnicodeChar()) >= 33 && unicodeChar <= 95) || (unicodeChar >= 97 && unicodeChar <= 125))) {
-                                KeyEvent keyEvent2 = new KeyEvent(0, 17);
-                                this.b = keyEvent2;
-                                return super.dispatchKeyEvent(keyEvent2);
-                            }
+        SLog.d("openSDK_LOG.SecureWebView", "-->dispatchKeyEvent, is device support: " + a);
+        if (!a) {
+            return super.dispatchKeyEvent(keyEvent);
+        }
+        if (keyEvent.getAction() == 0) {
+            int keyCode = keyEvent.getKeyCode();
+            if (keyCode != 4) {
+                if (keyCode != 66) {
+                    if (keyCode != 67) {
+                        if (keyEvent.getUnicodeChar() == 0) {
                             return super.dispatchKeyEvent(keyEvent);
                         }
-                        com.tencent.open.web.security.a.b = true;
+                        if (SecureJsInterface.isPWDEdit && (((unicodeChar = keyEvent.getUnicodeChar()) >= 33 && unicodeChar <= 95) || (unicodeChar >= 97 && unicodeChar <= 125))) {
+                            KeyEvent keyEvent2 = new KeyEvent(0, 17);
+                            this.b = keyEvent2;
+                            return super.dispatchKeyEvent(keyEvent2);
+                        }
                         return super.dispatchKeyEvent(keyEvent);
                     }
+                    com.tencent.open.web.security.a.b = true;
                     return super.dispatchKeyEvent(keyEvent);
                 }
                 return super.dispatchKeyEvent(keyEvent);
             }
             return super.dispatchKeyEvent(keyEvent);
         }
-        return invokeL.booleanValue;
+        return super.dispatchKeyEvent(keyEvent);
     }
 
     @Override // android.webkit.WebView, android.view.View
     public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorInfo)) == null) {
-            SLog.i("openSDK_LOG.SecureWebView", "-->create input connection, is edit: " + SecureJsInterface.isPWDEdit);
-            InputConnection onCreateInputConnection = super.onCreateInputConnection(editorInfo);
-            SLog.v("openSDK_LOG.SecureWebView", "-->onCreateInputConnection, inputConn is " + onCreateInputConnection);
-            if (onCreateInputConnection != null) {
-                a = true;
-                com.tencent.open.web.security.a aVar = new com.tencent.open.web.security.a(super.onCreateInputConnection(editorInfo), false);
-                this.c = aVar;
-                return aVar;
-            }
-            a = false;
-            return onCreateInputConnection;
+        SLog.i("openSDK_LOG.SecureWebView", "-->create input connection, is edit: " + SecureJsInterface.isPWDEdit);
+        InputConnection onCreateInputConnection = super.onCreateInputConnection(editorInfo);
+        SLog.v("openSDK_LOG.SecureWebView", "-->onCreateInputConnection, inputConn is " + onCreateInputConnection);
+        if (onCreateInputConnection != null) {
+            a = true;
+            com.tencent.open.web.security.a aVar = new com.tencent.open.web.security.a(super.onCreateInputConnection(editorInfo), false);
+            this.c = aVar;
+            return aVar;
         }
-        return (InputConnection) invokeL.objValue;
+        a = false;
+        return onCreateInputConnection;
     }
 
     @Override // android.webkit.WebView, android.view.View, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
         int unicodeChar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, keyEvent)) == null) {
-            SLog.d("openSDK_LOG.SecureWebView", "-->onKeyDown, is device support: " + a);
-            if (!a) {
-                return super.onKeyDown(i, keyEvent);
-            }
-            if (keyEvent.getAction() == 0) {
-                int keyCode = keyEvent.getKeyCode();
-                if (keyCode != 4) {
-                    if (keyCode != 66) {
-                        if (keyCode != 67) {
-                            if (keyEvent.getUnicodeChar() == 0) {
-                                return super.onKeyDown(i, keyEvent);
-                            }
-                            if (SecureJsInterface.isPWDEdit && (((unicodeChar = keyEvent.getUnicodeChar()) >= 33 && unicodeChar <= 95) || (unicodeChar >= 97 && unicodeChar <= 125))) {
-                                KeyEvent keyEvent2 = new KeyEvent(0, 17);
-                                this.b = keyEvent2;
-                                return super.onKeyDown(keyEvent2.getKeyCode(), this.b);
-                            }
+        SLog.d("openSDK_LOG.SecureWebView", "-->onKeyDown, is device support: " + a);
+        if (!a) {
+            return super.onKeyDown(i, keyEvent);
+        }
+        if (keyEvent.getAction() == 0) {
+            int keyCode = keyEvent.getKeyCode();
+            if (keyCode != 4) {
+                if (keyCode != 66) {
+                    if (keyCode != 67) {
+                        if (keyEvent.getUnicodeChar() == 0) {
                             return super.onKeyDown(i, keyEvent);
                         }
-                        com.tencent.open.web.security.a.b = true;
+                        if (SecureJsInterface.isPWDEdit && (((unicodeChar = keyEvent.getUnicodeChar()) >= 33 && unicodeChar <= 95) || (unicodeChar >= 97 && unicodeChar <= 125))) {
+                            KeyEvent keyEvent2 = new KeyEvent(0, 17);
+                            this.b = keyEvent2;
+                            return super.onKeyDown(keyEvent2.getKeyCode(), this.b);
+                        }
                         return super.onKeyDown(i, keyEvent);
                     }
+                    com.tencent.open.web.security.a.b = true;
                     return super.onKeyDown(i, keyEvent);
                 }
                 return super.onKeyDown(i, keyEvent);
             }
             return super.onKeyDown(i, keyEvent);
         }
-        return invokeIL.booleanValue;
+        return super.onKeyDown(i, keyEvent);
     }
 }

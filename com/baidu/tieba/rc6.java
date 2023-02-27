@@ -1,142 +1,203 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.TextView;
+import android.text.Editable;
+import android.text.Html;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import org.xml.sax.Attributes;
+import org.xml.sax.ContentHandler;
+import org.xml.sax.Locator;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
 /* loaded from: classes6.dex */
-public class rc6 extends mc6<fi6> {
+public class rc6 implements Html.TagHandler, ContentHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
-    public TextView j;
-    public TextView k;
-    public TextView l;
-    public TextView m;
-    public View n;
-    public View o;
-    public String p;
+    public XMLReader a;
+    public ContentHandler b;
+    public int c;
+    public final boolean d;
+    public final Map<String, pc6> e;
 
-    @Override // com.baidu.tieba.mc6
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d018c : invokeV.intValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rc6(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public rc6(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        r(h());
+        this.e = new HashMap();
+        this.d = z;
     }
 
-    public void t(String str) {
+    public boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.p = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (!this.e.containsKey(str) || this.e.get(str) == null) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void endPrefixMapping(String str) throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b.endPrefixMapping(str);
         }
     }
 
-    @Override // com.baidu.tieba.mc6
-    public void j(TbPageContext<?> tbPageContext, int i) {
+    @Override // org.xml.sax.ContentHandler
+    public void setDocumentLocator(Locator locator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundResource(h(), R.color.CAM_X0201);
-            SkinManager.setBackgroundResource(this.n, R.color.CAM_X0205);
-            SkinManager.setBackgroundResource(this.o, R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.i, R.color.CAM_X0106, 1);
-            SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.l, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.m, R.color.CAM_X0105, 1);
+        if (interceptable == null || interceptable.invokeL(1048587, this, locator) == null) {
+            this.b.setDocumentLocator(locator);
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    @Override // org.xml.sax.ContentHandler
+    public void skippedEntity(String str) throws SAXException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            if (view2 == this.j || view2 == this.k || view2 == this.l || view2 == this.m) {
-                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 8).param("fid", this.p));
-                UrlManager.getInstance().dealOneLink((TbPageContext) da.a(this.b.getPageActivity()), new String[]{(String) view2.getTag()}, true);
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.b.skippedEntity(str);
+        }
+    }
+
+    public final void b(String str, XMLReader xMLReader) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, xMLReader) == null) {
+            if (a(str)) {
+                this.c--;
+            }
+            if (this.c == 0) {
+                this.a.setContentHandler(this.b);
+                this.a = null;
+                this.b = null;
             }
         }
     }
 
-    public final void r(View view2) {
+    public void c(String str, pc6 pc6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09052b);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09052c);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09052d);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09052e);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09052f);
-            this.j.setOnClickListener(this);
-            this.k.setOnClickListener(this);
-            this.l.setOnClickListener(this);
-            this.m.setOnClickListener(this);
-            this.n = view2.findViewById(R.id.obfuscated_res_0x7f090864);
-            this.o = view2.findViewById(R.id.obfuscated_res_0x7f090865);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, pc6Var) == null) {
+            this.e.put(str.toLowerCase(), pc6Var);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mc6
-    /* renamed from: s */
-    public void i(fi6 fi6Var) {
+    public final void d(String str, XMLReader xMLReader) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, fi6Var) == null) && fi6Var != null && fi6Var.c() != null) {
-            if (!TextUtils.isEmpty(fi6Var.c().title)) {
-                this.i.setText(fi6Var.c().title);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, xMLReader) == null) {
+            if (a(str)) {
+                this.c++;
             }
-            this.j.setVisibility(8);
-            this.k.setVisibility(8);
-            this.l.setVisibility(8);
-            this.m.setVisibility(8);
-            if (fi6Var.c().sub_nodes.size() >= 1) {
-                this.j.setVisibility(0);
-                this.j.setTag(fi6Var.c().sub_nodes.get(0).url);
-                this.j.setText(fi6Var.c().sub_nodes.get(0).title);
+            if (this.b == null) {
+                this.b = xMLReader.getContentHandler();
+                this.a = xMLReader;
+                xMLReader.setContentHandler(this);
             }
-            if (fi6Var.c().sub_nodes.size() >= 2) {
-                this.k.setVisibility(0);
-                this.k.setTag(fi6Var.c().sub_nodes.get(1).url);
-                this.k.setText(fi6Var.c().sub_nodes.get(1).title);
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void processingInstruction(String str, String str2) throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
+            this.b.processingInstruction(str, str2);
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void startPrefixMapping(String str, String str2) throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048591, this, str, str2) == null) {
+            this.b.startPrefixMapping(str, str2);
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void characters(char[] cArr, int i, int i2) throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048579, this, cArr, i, i2) == null) {
+            this.b.characters(cArr, i, i2);
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void ignorableWhitespace(char[] cArr, int i, int i2) throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048585, this, cArr, i, i2) == null) {
+            this.b.ignorableWhitespace(cArr, i, i2);
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void endDocument() throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b.endDocument();
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void startDocument() throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.b.startDocument();
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void endElement(String str, String str2, String str3) throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, str3) == null) {
+            String lowerCase = str2.toLowerCase();
+            if (lowerCase.equalsIgnoreCase("head")) {
+                handleTag(false, lowerCase, null, this.a);
+            } else if (a(lowerCase)) {
+                this.e.get(lowerCase).a(this.d, lowerCase);
             }
-            if (fi6Var.c().sub_nodes.size() >= 3) {
-                this.l.setVisibility(0);
-                this.l.setTag(fi6Var.c().sub_nodes.get(2).url);
-                this.l.setText(fi6Var.c().sub_nodes.get(2).title);
+        }
+    }
+
+    @Override // android.text.Html.TagHandler
+    public void handleTag(boolean z, String str, Editable editable, XMLReader xMLReader) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), str, editable, xMLReader}) == null) {
+            if (z) {
+                d(str.toLowerCase(), xMLReader);
+            } else {
+                b(str.toLowerCase(), xMLReader);
             }
-            if (fi6Var.c().sub_nodes.size() >= 4) {
-                this.m.setVisibility(0);
-                this.m.setTag(fi6Var.c().sub_nodes.get(3).url);
-                this.m.setText(fi6Var.c().sub_nodes.get(3).title);
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void startElement(String str, String str2, String str3, Attributes attributes) throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048590, this, str, str2, str3, attributes) == null) {
+            String lowerCase = str2.toLowerCase();
+            if (lowerCase.equalsIgnoreCase("head")) {
+                handleTag(true, lowerCase, null, this.a);
+            } else if (a(lowerCase)) {
+                this.e.get(lowerCase).b(this.d, lowerCase, attributes);
             }
         }
     }

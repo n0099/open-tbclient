@@ -1,134 +1,118 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
+import com.baidu.tbadk.core.data.AlaInfoData;
+import com.baidu.tbadk.core.data.YyExtData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TiebaStaticHelper;
+import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class qr7 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile qr7 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public qr7() {
+    public static void a(StatisticItem statisticItem, xr7 xr7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, statisticItem, xr7Var) == null) {
+            int i = 5;
+            String str = "";
+            if (xr7Var != null) {
+                YyExtData g = xr7Var.g();
+                if (g != null) {
+                    if (g.isYyGame) {
+                        i = 3;
+                    } else {
+                        i = 2;
+                    }
+                    str = TiebaStatic.YYValues.YY_LIVE;
+                }
+                if (!TextUtils.isEmpty(xr7Var.e())) {
+                    statisticItem.param("obj_param1", xr7Var.e());
+                }
+            }
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, i);
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str);
+        }
+    }
+
+    public static void b(StatisticItem statisticItem, String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLLL(65537, null, statisticItem, str, str2, str3, str4) == null) && statisticItem != null) {
+            if (!TextUtils.isEmpty(str)) {
+                statisticItem.param("fid", str);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                statisticItem.param("fname", str2);
+            }
+            if (!TextUtils.isEmpty(str3)) {
+                statisticItem.param("uid", str3);
+            }
+            if (!TextUtils.isEmpty(str4)) {
+                statisticItem.param("tid", str4);
             }
         }
     }
 
-    public static qr7 a() {
-        InterceptResult invokeV;
+    public static void c(int i, String str, String str2, String str3, String str4, xr7 xr7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (qr7.class) {
-                    if (a == null) {
-                        a = new qr7();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, str2, str3, str4, xr7Var}) == null) {
+            StatisticItem statisticItem = new StatisticItem("c15008");
+            statisticItem.param("obj_locate", i);
+            b(statisticItem, str, str2, str3, str4);
+            if (xr7Var != null) {
+                a(statisticItem, xr7Var);
+                TiebaStaticHelper.addYYParam(statisticItem, xr7Var.g());
             }
-            return a;
-        }
-        return (qr7) invokeV.objValue;
-    }
-
-    public void b(long j, String str, String str2, String str3, String str4, long j2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), str, str2, str3, str4, Long.valueOf(j2)}) == null) && j != 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3)) {
-            al7.f().l(TbadkCoreApplication.getCurrentAccount(), str, str2, str3, str4, j, 0L, j2, true);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public void c(@Nullable List<ChatRoomInfo> list, @Nullable List<ChatRoomInfo> list2) {
+    public static void d(String str, String str2, String str3, @NonNull AlaInfoData alaInfoData) {
+        String str4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2) == null) {
-            HashMap hashMap = new HashMap();
-            HashMap hashMap2 = new HashMap();
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            if (list2 == null) {
-                list2 = new ArrayList<>();
-            }
-            for (ChatRoomInfo chatRoomInfo : list) {
-                if (chatRoomInfo != null) {
-                    hashMap.put(Long.valueOf(chatRoomInfo.getRoomId()), chatRoomInfo);
-                }
-            }
-            for (ChatRoomInfo chatRoomInfo2 : list2) {
-                if (chatRoomInfo2 != null) {
-                    hashMap2.put(Long.valueOf(chatRoomInfo2.getRoomId()), chatRoomInfo2);
-                }
-            }
-            if (z11.c(hashMap)) {
-                if (z11.c(hashMap2)) {
-                    return;
-                }
-                for (ChatRoomInfo chatRoomInfo3 : list2) {
-                    if (chatRoomInfo3 != null) {
-                        b(chatRoomInfo3.getRoomId(), chatRoomInfo3.getName(), chatRoomInfo3.getAvatar(), chatRoomInfo3.getForumId(), chatRoomInfo3.getForumName(), chatRoomInfo3.getTimestamp());
-                    }
-                }
-            } else if (z11.c(hashMap2)) {
-                if (z11.c(hashMap)) {
-                    return;
-                }
-                for (ChatRoomInfo chatRoomInfo4 : list) {
-                    if (chatRoomInfo4 != null) {
-                        d(chatRoomInfo4.getRoomId(), chatRoomInfo4.getName(), chatRoomInfo4.getAvatar(), false);
-                    }
-                }
+        if (interceptable == null || interceptable.invokeLLLL(65539, null, str, str2, str3, alaInfoData) == null) {
+            StatisticItem param = new StatisticItem("c13711").param("fid", str).param("fname", str2).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", str3);
+            String str5 = "";
+            if (alaInfoData.user_info == null) {
+                str4 = "";
             } else {
-                if (!z11.c(hashMap2) && hashMap2.entrySet() != null && hashMap2.entrySet().iterator() != null) {
-                    for (Map.Entry entry : hashMap2.entrySet()) {
-                        if (entry != null && entry.getValue() != null) {
-                            if (hashMap.containsKey(entry.getKey())) {
-                                if (!((ChatRoomInfo) hashMap.get(entry.getKey())).isSubscribe()) {
-                                    d(((ChatRoomInfo) entry.getValue()).getRoomId(), ((ChatRoomInfo) entry.getValue()).getName(), ((ChatRoomInfo) entry.getValue()).getAvatar(), true);
-                                }
-                            } else {
-                                b(((ChatRoomInfo) entry.getValue()).getRoomId(), ((ChatRoomInfo) entry.getValue()).getName(), ((ChatRoomInfo) entry.getValue()).getAvatar(), ((ChatRoomInfo) entry.getValue()).getForumId(), ((ChatRoomInfo) entry.getValue()).getForumName(), ((ChatRoomInfo) entry.getValue()).getTimestamp());
-                            }
-                        }
-                    }
-                }
-                if (!z11.c(hashMap) && hashMap.entrySet() != null && hashMap.entrySet().iterator() != null) {
-                    for (Map.Entry entry2 : hashMap.entrySet()) {
-                        if (entry2 != null && entry2.getValue() != null) {
-                            if (!hashMap2.containsKey(entry2.getKey())) {
-                                d(((ChatRoomInfo) entry2.getValue()).getRoomId(), ((ChatRoomInfo) entry2.getValue()).getName(), ((ChatRoomInfo) entry2.getValue()).getAvatar(), false);
-                            } else if (((ChatRoomInfo) hashMap2.get(entry2.getKey())).getIsShow() == 0 && TextUtils.isEmpty(((ChatRoomInfo) hashMap2.get(entry2.getKey())).getName())) {
-                                d(((ChatRoomInfo) entry2.getValue()).getRoomId(), ((ChatRoomInfo) entry2.getValue()).getName(), ((ChatRoomInfo) entry2.getValue()).getAvatar(), false);
-                            }
-                        }
-                    }
-                }
+                str4 = "" + alaInfoData.user_info.user_id;
             }
+            StatisticItem param2 = param.param("obj_param1", str4);
+            int calculateLiveType = YYLiveUtil.calculateLiveType(alaInfoData);
+            if (alaInfoData.isLegalYYLiveData()) {
+                TiebaStaticHelper.addYYParam(param2, alaInfoData.mYyExtData);
+                str5 = TiebaStatic.YYValues.YY_LIVE;
+            }
+            param2.param(TiebaStatic.Params.OBJ_PARAM2, calculateLiveType);
+            param2.param(TiebaStatic.Params.OBJ_PARAM3, str5);
+            TiebaStatic.log(param2);
         }
     }
 
-    public final void d(long j, String str, String str2, boolean z) {
+    public static void e(String str, String str2, String str3, String str4, xr7 xr7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, str2, Boolean.valueOf(z)}) == null) && j != 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            al7.f().q(TbadkCoreApplication.getCurrentAccount(), j, str, str2, z);
+        if (interceptable == null || interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3, str4, xr7Var) == null) {
+            StatisticItem statisticItem = new StatisticItem("c15007");
+            b(statisticItem, str, str2, str3, str4);
+            if (xr7Var != null) {
+                a(statisticItem, xr7Var);
+                TiebaStaticHelper.addYYParam(statisticItem, xr7Var.g());
+            }
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void f(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(65541, null, i, str, str2) == null) {
+            TiebaStatic.log(new StatisticItem("c13857").param("obj_type", i).param("post_id", str).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", str2));
         }
     }
 }

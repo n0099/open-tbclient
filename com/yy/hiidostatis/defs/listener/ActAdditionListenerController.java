@@ -1,11 +1,5 @@
 package com.yy.hiidostatis.defs.listener;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.api.StatisContent;
 import com.yy.hiidostatis.defs.interf.IAct;
 import com.yy.hiidostatis.defs.obj.Act;
@@ -15,138 +9,92 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class ActAdditionListenerController {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Map<IAct, ActListener> actMap;
+    public Map<IAct, ActListener> actMap = new HashMap();
     public HiidoSdkAdditionDelegate hiidoSdkAdditionDelegate;
 
-    public ActAdditionListenerController() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.actMap = new HashMap();
-    }
-
     public HiidoSdkAdditionDelegate getHiidoSdkAdditionDelegate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.hiidoSdkAdditionDelegate;
-        }
-        return (HiidoSdkAdditionDelegate) invokeV.objValue;
+        return this.hiidoSdkAdditionDelegate;
     }
 
     public ActListener add(ActListener actListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, actListener)) == null) {
-            ActListener put = this.actMap.put(actListener.getAct(), actListener);
-            L.info(this, "add ActListener act[%s] new listener[%s],old listener[%s]", actListener.getAct(), actListener, actListener);
-            return put;
-        }
-        return (ActListener) invokeL.objValue;
-    }
-
-    public ActListener remove(ActListener actListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, actListener)) == null) {
-            try {
-                L.info(this, "remove ActListener act[%s] listener[%s]", actListener.getAct(), actListener);
-                return this.actMap.remove(actListener.getAct());
-            } catch (Throwable th) {
-                L.error(this, "error %s", th);
-                return null;
-            }
-        }
-        return (ActListener) invokeL.objValue;
-    }
-
-    public StatisContent getActAddition(Act act, ActListener actListener) {
-        InterceptResult invokeLL;
-        Map<String, String> additionParams;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, act, actListener)) == null) {
-            StatisContent statisContent = null;
-            if (actListener != null) {
-                if (actListener instanceof ActAdditionListener) {
-                    ActAdditionListener actAdditionListener = (ActAdditionListener) actListener;
-                    if (actAdditionListener.getAdditionMap() != null && !actAdditionListener.getAdditionMap().isEmpty()) {
-                        statisContent = new StatisContent();
-                        i = actAdditionListener.getAdditionMap().size();
-                        for (Map.Entry<String, String> entry : actAdditionListener.getAdditionMap().entrySet()) {
-                            if (!Util.empty(entry.getKey()) && !Util.empty(entry.getValue())) {
-                                statisContent.put(entry.getKey(), entry.getValue());
-                            }
-                        }
-                        L.debug(this, "getActAddition act[%s], listener[%s], ActAddition size[%d]", actListener.getAct(), actListener, Integer.valueOf(i));
-                    }
-                    i = 0;
-                    L.debug(this, "getActAddition act[%s], listener[%s], ActAddition size[%d]", actListener.getAct(), actListener, Integer.valueOf(i));
-                } else {
-                    if (actListener instanceof ActBakAdditionListener) {
-                        ActBakAdditionListener actBakAdditionListener = (ActBakAdditionListener) actListener;
-                        StatisContent statisContent2 = new StatisContent();
-                        if (!Util.empty(actBakAdditionListener.getBak1())) {
-                            statisContent2.put("bak1", actBakAdditionListener.getBak1());
-                            i = 1;
-                        } else {
-                            i = 0;
-                        }
-                        if (!Util.empty(actBakAdditionListener.getBak2())) {
-                            statisContent2.put("bak2", actBakAdditionListener.getBak2());
-                            i++;
-                        }
-                        if (!Util.empty(actBakAdditionListener.getBak3())) {
-                            statisContent2.put("bak3", actBakAdditionListener.getBak3());
-                            i++;
-                        }
-                        statisContent = statisContent2;
-                        L.debug(this, "getActAddition act[%s], listener[%s], ActAddition size[%d]", actListener.getAct(), actListener, Integer.valueOf(i));
-                    }
-                    i = 0;
-                    L.debug(this, "getActAddition act[%s], listener[%s], ActAddition size[%d]", actListener.getAct(), actListener, Integer.valueOf(i));
-                }
-            }
-            HiidoSdkAdditionDelegate hiidoSdkAdditionDelegate = this.hiidoSdkAdditionDelegate;
-            if (hiidoSdkAdditionDelegate != null && (additionParams = hiidoSdkAdditionDelegate.getAdditionParams(act)) != null && !additionParams.isEmpty()) {
-                if (statisContent == null) {
-                    statisContent = new StatisContent();
-                }
-                for (Map.Entry<String, String> entry2 : additionParams.entrySet()) {
-                    if (!Util.empty(entry2.getKey()) && !Util.empty(entry2.getValue())) {
-                        statisContent.put(entry2.getKey(), entry2.getValue());
-                    }
-                }
-            }
-            return statisContent;
-        }
-        return (StatisContent) invokeLL.objValue;
+        ActListener put = this.actMap.put(actListener.getAct(), actListener);
+        L.info(this, "add ActListener act[%s] new listener[%s],old listener[%s]", actListener.getAct(), actListener, actListener);
+        return put;
     }
 
     public ActListener getListerner(IAct iAct) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, iAct)) == null) {
-            return this.actMap.get(iAct);
+        return this.actMap.get(iAct);
+    }
+
+    public ActListener remove(ActListener actListener) {
+        try {
+            L.info(this, "remove ActListener act[%s] listener[%s]", actListener.getAct(), actListener);
+            return this.actMap.remove(actListener.getAct());
+        } catch (Throwable th) {
+            L.error(this, "error %s", th);
+            return null;
         }
-        return (ActListener) invokeL.objValue;
     }
 
     public void setHiidoSdkAdditionDelegate(HiidoSdkAdditionDelegate hiidoSdkAdditionDelegate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, hiidoSdkAdditionDelegate) == null) {
-            this.hiidoSdkAdditionDelegate = hiidoSdkAdditionDelegate;
+        this.hiidoSdkAdditionDelegate = hiidoSdkAdditionDelegate;
+    }
+
+    public StatisContent getActAddition(Act act, ActListener actListener) {
+        Map<String, String> additionParams;
+        int i;
+        StatisContent statisContent = null;
+        if (actListener != null) {
+            if (actListener instanceof ActAdditionListener) {
+                ActAdditionListener actAdditionListener = (ActAdditionListener) actListener;
+                if (actAdditionListener.getAdditionMap() != null && !actAdditionListener.getAdditionMap().isEmpty()) {
+                    statisContent = new StatisContent();
+                    i = actAdditionListener.getAdditionMap().size();
+                    for (Map.Entry<String, String> entry : actAdditionListener.getAdditionMap().entrySet()) {
+                        if (!Util.empty(entry.getKey()) && !Util.empty(entry.getValue())) {
+                            statisContent.put(entry.getKey(), entry.getValue());
+                        }
+                    }
+                    L.debug(this, "getActAddition act[%s], listener[%s], ActAddition size[%d]", actListener.getAct(), actListener, Integer.valueOf(i));
+                }
+                i = 0;
+                L.debug(this, "getActAddition act[%s], listener[%s], ActAddition size[%d]", actListener.getAct(), actListener, Integer.valueOf(i));
+            } else {
+                if (actListener instanceof ActBakAdditionListener) {
+                    ActBakAdditionListener actBakAdditionListener = (ActBakAdditionListener) actListener;
+                    StatisContent statisContent2 = new StatisContent();
+                    if (!Util.empty(actBakAdditionListener.getBak1())) {
+                        statisContent2.put("bak1", actBakAdditionListener.getBak1());
+                        i = 1;
+                    } else {
+                        i = 0;
+                    }
+                    if (!Util.empty(actBakAdditionListener.getBak2())) {
+                        statisContent2.put("bak2", actBakAdditionListener.getBak2());
+                        i++;
+                    }
+                    if (!Util.empty(actBakAdditionListener.getBak3())) {
+                        statisContent2.put("bak3", actBakAdditionListener.getBak3());
+                        i++;
+                    }
+                    statisContent = statisContent2;
+                    L.debug(this, "getActAddition act[%s], listener[%s], ActAddition size[%d]", actListener.getAct(), actListener, Integer.valueOf(i));
+                }
+                i = 0;
+                L.debug(this, "getActAddition act[%s], listener[%s], ActAddition size[%d]", actListener.getAct(), actListener, Integer.valueOf(i));
+            }
         }
+        HiidoSdkAdditionDelegate hiidoSdkAdditionDelegate = this.hiidoSdkAdditionDelegate;
+        if (hiidoSdkAdditionDelegate != null && (additionParams = hiidoSdkAdditionDelegate.getAdditionParams(act)) != null && !additionParams.isEmpty()) {
+            if (statisContent == null) {
+                statisContent = new StatisContent();
+            }
+            for (Map.Entry<String, String> entry2 : additionParams.entrySet()) {
+                if (!Util.empty(entry2.getKey()) && !Util.empty(entry2.getValue())) {
+                    statisContent.put(entry2.getKey(), entry2.getValue());
+                }
+            }
+        }
+        return statisContent;
     }
 }

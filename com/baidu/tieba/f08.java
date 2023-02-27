@@ -1,16 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.ILivePlayerService;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class f08 extends ok1<ILivePlayerService> {
+public class f08 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
     public f08() {
         Interceptable interceptable = $ic;
@@ -26,15 +27,23 @@ public class f08 extends ok1<ILivePlayerService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ok1
-    /* renamed from: a */
-    public ILivePlayerService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new g08();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (ILivePlayerService) invokeV.objValue;
+        JSONObject optJSONObject = jSONObject.optJSONObject("error");
+        if (optJSONObject != null) {
+            optJSONObject.optInt("errno");
+            String optString = optJSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+            this.a = optString;
+            if (!StringUtils.isNull(optString)) {
+                this.a = optJSONObject.optString("errmsg");
+            }
+        }
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
+        if (optJSONObject2 != null) {
+            optJSONObject2.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+        }
     }
 }

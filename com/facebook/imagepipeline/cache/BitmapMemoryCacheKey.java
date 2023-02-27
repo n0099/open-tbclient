@@ -1,13 +1,6 @@
 package com.facebook.imagepipeline.cache;
 
 import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.Objects;
 import com.facebook.common.internal.Preconditions;
@@ -21,8 +14,6 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes7.dex */
 public class BitmapMemoryCacheKey implements CacheKey {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final long mCacheTime;
     public final Object mCallerContext;
     public final int mHash;
@@ -38,30 +29,11 @@ public class BitmapMemoryCacheKey implements CacheKey {
 
     @Override // com.facebook.cache.common.CacheKey
     public boolean isResourceIdForDebugging() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public BitmapMemoryCacheKey(String str, @Nullable ResizeOptions resizeOptions, RotationOptions rotationOptions, ImageDecodeOptions imageDecodeOptions, @Nullable CacheKey cacheKey, @Nullable String str2, Object obj) {
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, resizeOptions, rotationOptions, imageDecodeOptions, cacheKey, str2, obj};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mSourceString = (String) Preconditions.checkNotNull(str);
         this.mResizeOptions = resizeOptions;
         this.mRotationOptions = rotationOptions;
@@ -81,86 +53,46 @@ public class BitmapMemoryCacheKey implements CacheKey {
 
     @Override // com.facebook.cache.common.CacheKey
     public boolean containsUri(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
-            return getUriString().contains(uri.toString());
-        }
-        return invokeL.booleanValue;
+        return getUriString().contains(uri.toString());
     }
 
     @Override // com.facebook.cache.common.CacheKey
     public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (!(obj instanceof BitmapMemoryCacheKey)) {
-                return false;
-            }
-            BitmapMemoryCacheKey bitmapMemoryCacheKey = (BitmapMemoryCacheKey) obj;
-            if (this.mHash != bitmapMemoryCacheKey.mHash || !this.mSourceString.equals(bitmapMemoryCacheKey.mSourceString) || !Objects.equal(this.mResizeOptions, bitmapMemoryCacheKey.mResizeOptions) || !Objects.equal(this.mRotationOptions, bitmapMemoryCacheKey.mRotationOptions) || !Objects.equal(this.mImageDecodeOptions, bitmapMemoryCacheKey.mImageDecodeOptions) || !Objects.equal(this.mPostprocessorCacheKey, bitmapMemoryCacheKey.mPostprocessorCacheKey) || !Objects.equal(this.mPostprocessorName, bitmapMemoryCacheKey.mPostprocessorName)) {
-                return false;
-            }
-            return true;
+        if (!(obj instanceof BitmapMemoryCacheKey)) {
+            return false;
         }
-        return invokeL.booleanValue;
+        BitmapMemoryCacheKey bitmapMemoryCacheKey = (BitmapMemoryCacheKey) obj;
+        if (this.mHash != bitmapMemoryCacheKey.mHash || !this.mSourceString.equals(bitmapMemoryCacheKey.mSourceString) || !Objects.equal(this.mResizeOptions, bitmapMemoryCacheKey.mResizeOptions) || !Objects.equal(this.mRotationOptions, bitmapMemoryCacheKey.mRotationOptions) || !Objects.equal(this.mImageDecodeOptions, bitmapMemoryCacheKey.mImageDecodeOptions) || !Objects.equal(this.mPostprocessorCacheKey, bitmapMemoryCacheKey.mPostprocessorCacheKey) || !Objects.equal(this.mPostprocessorName, bitmapMemoryCacheKey.mPostprocessorName)) {
+            return false;
+        }
+        return true;
     }
 
     public Object getCallerContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mCallerContext;
-        }
-        return invokeV.objValue;
+        return this.mCallerContext;
     }
 
     public long getInBitmapCacheSince() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mCacheTime;
-        }
-        return invokeV.longValue;
+        return this.mCacheTime;
     }
 
     @Nullable
     public String getPostprocessorName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mPostprocessorName;
-        }
-        return (String) invokeV.objValue;
+        return this.mPostprocessorName;
     }
 
     @Override // com.facebook.cache.common.CacheKey
     public String getUriString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mSourceString;
-        }
-        return (String) invokeV.objValue;
+        return this.mSourceString;
     }
 
     @Override // com.facebook.cache.common.CacheKey
     public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.mHash;
-        }
-        return invokeV.intValue;
+        return this.mHash;
     }
 
     @Override // com.facebook.cache.common.CacheKey
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return String.format(null, "%s_%s_%s_%s_%s_%s_%d", this.mSourceString, this.mResizeOptions, this.mRotationOptions, this.mImageDecodeOptions, this.mPostprocessorCacheKey, this.mPostprocessorName, Integer.valueOf(this.mHash));
-        }
-        return (String) invokeV.objValue;
+        return String.format(null, "%s_%s_%s_%s_%s_%s_%d", this.mSourceString, this.mResizeOptions, this.mRotationOptions, this.mImageDecodeOptions, this.mPostprocessorCacheKey, this.mPostprocessorName, Integer.valueOf(this.mHash));
     }
 }

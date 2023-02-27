@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.bdtask.utils.UniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,12 +9,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
 public final class ir {
     public static /* synthetic */ Interceptable $ic;
-    public static final ir a;
+    public static final b d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final String b;
+    public final TaskResponseData c;
 
     static {
         InterceptResult invokeClinit;
@@ -29,38 +35,156 @@ public final class ir {
                 return;
             }
         }
-        a = new ir();
+        d = new b(null);
     }
 
-    public ir() {
+    /* loaded from: classes4.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+
+        public a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        public final ir a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                gu guVar = new gu();
+                try {
+                    JSONObject jSONObject = new JSONObject(this.a);
+                    int optInt = jSONObject.optInt("errno");
+                    String errmsg = jSONObject.optString("errmsg");
+                    String data = jSONObject.optString("data");
+                    eu a = guVar.a("response");
+                    Intrinsics.checkExpressionValueIsNotNull(data, "data");
+                    TaskResponseData taskResponseData = (TaskResponseData) a.a(data);
+                    if (taskResponseData != null) {
+                        Intrinsics.checkExpressionValueIsNotNull(errmsg, "errmsg");
+                        return new ir(optInt, errmsg, taskResponseData);
+                    }
+                    return new ir(301, "task complete request failed", null, 4, null);
+                } catch (JSONException e) {
+                    String message = e.getMessage();
+                    if (message == null) {
+                        message = "task complete request failed";
+                    }
+                    return new ir(301, message, null, 4, null);
+                }
+            }
+            return (ir) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public final a a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return new a(str);
+            }
+            return (a) invokeL.objValue;
+        }
+    }
+
+    public ir(int i, String str, TaskResponseData taskResponseData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, taskResponseData};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = i;
+        this.b = str;
+        this.c = taskResponseData;
     }
 
-    public final fr a(TaskInfo taskInfo, UniqueId uniqueId) {
-        InterceptResult invokeLL;
+    public /* synthetic */ ir(int i, String str, TaskResponseData taskResponseData, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(i, str, (i2 & 4) != 0 ? null : taskResponseData);
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskInfo, uniqueId)) == null) {
-            if (Intrinsics.areEqual(uniqueId, kr.c.a())) {
-                return new kr(taskInfo);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == 0) {
+                return true;
             }
-            if (Intrinsics.areEqual(uniqueId, lr.c.a())) {
-                return new lr(taskInfo);
-            }
-            if (Intrinsics.areEqual(uniqueId, mr.c.a())) {
-                return new mr(taskInfo);
-            }
-            return null;
+            return false;
         }
-        return (fr) invokeLL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final TaskResponseData d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (TaskResponseData) invokeV.objValue;
     }
 }

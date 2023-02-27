@@ -210,7 +210,9 @@ public abstract class TbEnum {
         public static final short MSG_CONTENT_TYPE_SHARE_CHATROOM = 37;
         public static final short MSG_CONTENT_TYPE_SHARE_FORUM = 33;
         public static final short MSG_CONTENT_TYPE_SHARE_THREAD = 32;
+        public static final int MSG_CONTENT_TYPE_START_EGG_RAIN = 7016;
         public static final short MSG_CONTENT_TYPE_STRANGER_TIP = 8001;
+        public static final int MSG_CONTENT_TYPE_SYSTEM_CURRENCY_TIPS = -7017;
         public static final int MSG_CONTENT_TYPE_SYSTEM_FROZEN = 7007;
         public static final int MSG_CONTENT_TYPE_SYSTEM_MANAGER_TIPS = -7014;
         public static final int MSG_CONTENT_TYPE_SYSTEM_MUZZLE = 7003;

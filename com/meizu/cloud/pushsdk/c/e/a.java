@@ -1,98 +1,103 @@
 package com.meizu.cloud.pushsdk.c.e;
 
-import android.content.Context;
-import com.meizu.cloud.pushsdk.c.f.e;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.meizu.cloud.pushsdk.c.c.e;
+import com.meizu.cloud.pushsdk.c.c.i;
+import com.meizu.cloud.pushsdk.c.c.k;
+import java.io.File;
+import java.io.IOException;
 /* loaded from: classes8.dex */
-public class a {
-    public static String a = "a";
-    public String b;
-    public String c;
-    public String d;
-    public int e;
-    public String f = "SQLITE";
-    public AtomicBoolean g = new AtomicBoolean(false);
-    public long h;
-    public long i;
-    public long j;
-    public Context k;
+public final class a {
+    public static String a;
 
-    public a(long j, long j2, TimeUnit timeUnit, Context context) {
-        this.c = null;
-        this.e = 0;
-        this.i = timeUnit.toMillis(j);
-        this.j = timeUnit.toMillis(j2);
-        this.k = context;
-        Map f = f();
-        if (f != null) {
-            try {
-                String obj = f.get("userId").toString();
-                String obj2 = f.get("sessionId").toString();
-                int intValue = ((Integer) f.get("sessionIndex")).intValue();
-                this.b = obj;
-                this.e = intValue;
-                this.c = obj2;
-            } catch (Exception e) {
-                com.meizu.cloud.pushsdk.c.f.c.a(a, "Exception occurred retrieving session info from file: %s", e.getMessage());
+    public static k a(com.meizu.cloud.pushsdk.c.a.b bVar) throws com.meizu.cloud.pushsdk.c.b.a {
+        try {
+            i.a a2 = new i.a().a(bVar.e());
+            a(a2, bVar);
+            int d = bVar.d();
+            if (d == 0) {
+                a2 = a2.a();
+            } else if (d == 1) {
+                a2 = a2.a(bVar.m());
+            } else if (d == 2) {
+                a2 = a2.c(bVar.m());
+            } else if (d == 3) {
+                a2 = a2.b(bVar.m());
+            } else if (d == 4) {
+                a2 = a2.b();
+            } else if (d == 5) {
+                a2 = a2.d(bVar.m());
             }
-            d();
-            g();
-            com.meizu.cloud.pushsdk.c.f.c.c(a, "Tracker Session Object created.", new Object[0]);
+            i c = a2.c();
+            bVar.a(new e());
+            return bVar.l().a(c);
+        } catch (IOException e) {
+            throw new com.meizu.cloud.pushsdk.c.b.a(e);
         }
-        this.b = e.b();
-        d();
-        g();
-        com.meizu.cloud.pushsdk.c.f.c.c(a, "Tracker Session Object created.", new Object[0]);
     }
 
-    private void d() {
-        this.d = this.c;
-        this.c = e.b();
-        this.e++;
-        com.meizu.cloud.pushsdk.c.f.c.b(a, "Session information is updated:", new Object[0]);
-        com.meizu.cloud.pushsdk.c.f.c.b(a, " + Session ID: %s", this.c);
-        com.meizu.cloud.pushsdk.c.f.c.b(a, " + Previous Session ID: %s", this.d);
-        com.meizu.cloud.pushsdk.c.f.c.b(a, " + Session Index: %s", Integer.valueOf(this.e));
-        e();
-    }
-
-    private boolean e() {
-        return com.meizu.cloud.pushsdk.c.f.a.a("snowplow_session_vars", c(), this.k);
-    }
-
-    private Map f() {
-        return com.meizu.cloud.pushsdk.c.f.a.a("snowplow_session_vars", this.k);
-    }
-
-    private void g() {
-        this.h = System.currentTimeMillis();
-    }
-
-    public com.meizu.cloud.pushsdk.c.a.b a() {
-        com.meizu.cloud.pushsdk.c.f.c.c(a, "Getting session context...", new Object[0]);
-        g();
-        return new com.meizu.cloud.pushsdk.c.a.b("client_session", c());
-    }
-
-    public void b() {
-        com.meizu.cloud.pushsdk.c.f.c.b(a, "Checking and updating session information.", new Object[0]);
-        if (e.a(this.h, System.currentTimeMillis(), this.g.get() ? this.j : this.i)) {
+    /* JADX WARN: Removed duplicated region for block: B:11:0x0020  */
+    /* JADX WARN: Removed duplicated region for block: B:17:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void a(i.a aVar, com.meizu.cloud.pushsdk.c.a.b bVar) {
+        String str;
+        com.meizu.cloud.pushsdk.c.c.c o;
+        if (bVar.h() == null) {
+            String str2 = a;
+            if (str2 != null) {
+                bVar.a(str2);
+                str = a;
+            }
+            o = bVar.o();
+            if (o == null) {
+                aVar.a(o);
+                if (bVar.h() == null || o.b().contains("User-Agent")) {
+                    return;
+                }
+                aVar.a("User-Agent", bVar.h());
+                return;
+            }
             return;
         }
-        d();
-        g();
+        str = bVar.h();
+        aVar.a("User-Agent", str);
+        o = bVar.o();
+        if (o == null) {
+        }
     }
 
-    public Map c() {
-        HashMap hashMap = new HashMap();
-        hashMap.put("userId", this.b);
-        hashMap.put("sessionId", this.c);
-        hashMap.put("previousSessionId", this.d);
-        hashMap.put("sessionIndex", Integer.valueOf(this.e));
-        hashMap.put("storageMechanism", this.f);
-        return hashMap;
+    public static k b(com.meizu.cloud.pushsdk.c.a.b bVar) throws com.meizu.cloud.pushsdk.c.b.a {
+        try {
+            i.a a2 = new i.a().a(bVar.e());
+            a(a2, bVar);
+            i c = a2.a().c();
+            bVar.a(new e());
+            k a3 = bVar.l().a(c);
+            com.meizu.cloud.pushsdk.c.h.b.a(a3, bVar.j(), bVar.k());
+            return a3;
+        } catch (IOException e) {
+            try {
+                File file = new File(bVar.j() + File.separator + bVar.k());
+                if (file.exists()) {
+                    file.delete();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            throw new com.meizu.cloud.pushsdk.c.b.a(e);
+        }
+    }
+
+    public static k c(com.meizu.cloud.pushsdk.c.a.b bVar) throws com.meizu.cloud.pushsdk.c.b.a {
+        try {
+            i.a a2 = new i.a().a(bVar.e());
+            a(a2, bVar);
+            i c = a2.a(new b(bVar.n(), bVar.i())).c();
+            bVar.a(new e());
+            return bVar.l().a(c);
+        } catch (IOException e) {
+            throw new com.meizu.cloud.pushsdk.c.b.a(e);
+        }
     }
 }

@@ -1,11 +1,23 @@
 package com.baidu.tieba;
+
+import android.content.Intent;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface lu2 {
-    void a(ev1 ev1Var);
+public final class lu2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(ev1 ev1Var);
-
-    void c(ev1 ev1Var);
-
-    void d(ev1 ev1Var);
+    public static boolean a(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, intent)) == null) {
+            if ((intent.getFlags() & 1048576) == 1048576) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 }

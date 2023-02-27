@@ -555,26 +555,26 @@ public class eg {
         return invokeCommon.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:113:0x0224, code lost:
-        if (r0 != null) goto L64;
+    /* JADX WARN: Code restructure failed: missing block: B:113:0x0226, code lost:
+        if (r0 != null) goto L72;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:130:0x02e8, code lost:
-        if (r0 != null) goto L81;
+    /* JADX WARN: Code restructure failed: missing block: B:130:0x02eb, code lost:
+        if (r0 != null) goto L80;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:138:0x0340, code lost:
-        if (r0 != null) goto L81;
+    /* JADX WARN: Code restructure failed: missing block: B:138:0x0343, code lost:
+        if (r0 != null) goto L80;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:139:0x0342, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:139:0x0345, code lost:
         r22.d = r0.i();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:75:0x0176, code lost:
-        if (r0 != null) goto L64;
+    /* JADX WARN: Code restructure failed: missing block: B:75:0x0178, code lost:
+        if (r0 != null) goto L72;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:76:0x0178, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:76:0x017a, code lost:
         r22.d = r0.i();
      */
-    /* JADX WARN: Removed duplicated region for block: B:129:0x02e6  */
-    /* JADX WARN: Removed duplicated region for block: B:137:0x033e  */
+    /* JADX WARN: Removed duplicated region for block: B:129:0x02e9  */
+    /* JADX WARN: Removed duplicated region for block: B:137:0x0341  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -730,18 +730,18 @@ public class eg {
                                     ggVar.f = System.currentTimeMillis() - currentTimeMillis;
                                     this.a.f(ggVar);
                                     ogVar.a();
-                                } catch (Exception e10) {
-                                    e = e10;
+                                } catch (Throwable th3) {
+                                    th = th3;
+                                    if (this.d <= 0 && (dgVar4 = this.b) != null) {
+                                        this.d = dgVar4.i();
+                                    }
+                                    ggVar.f = System.currentTimeMillis() - currentTimeMillis;
+                                    this.a.f(ggVar);
+                                    ogVar.a();
+                                    throw th;
                                 }
-                            } catch (Throwable th3) {
-                                th = th3;
-                                if (this.d <= 0 && (dgVar3 = this.b) != null) {
-                                    this.d = dgVar3.i();
-                                }
-                                ggVar.f = System.currentTimeMillis() - currentTimeMillis;
-                                this.a.f(ggVar);
-                                ogVar.a();
-                                throw th;
+                            } catch (Exception e10) {
+                                e = e10;
                             }
                         } catch (SocketException e11) {
                             e = e11;
@@ -801,13 +801,6 @@ public class eg {
                     } catch (Throwable th4) {
                         th = th4;
                         ogVar = ogVar2;
-                        if (this.d <= 0) {
-                            this.d = dgVar3.i();
-                        }
-                        ggVar.f = System.currentTimeMillis() - currentTimeMillis;
-                        this.a.f(ggVar);
-                        ogVar.a();
-                        throw th;
                     }
                     i11 = i9 + 1;
                     i10 = 1;
@@ -819,7 +812,7 @@ public class eg {
                         ogVar.b = 0;
                         ogVar.c = DnsModel.MSG_OK;
                         if (this.d <= 0) {
-                            dgVar4 = this.b;
+                            dgVar3 = this.b;
                         }
                         ggVar.f = System.currentTimeMillis() - currentTimeMillis;
                         this.a.f(ggVar);
@@ -878,7 +871,7 @@ public class eg {
                 ogVar.b = -10;
                 ogVar.c = Log.getStackTraceString(e);
                 if (this.d <= 0) {
-                    dgVar4 = this.b;
+                    dgVar3 = this.b;
                 }
                 ggVar.f = System.currentTimeMillis() - currentTimeMillis;
                 this.a.f(ggVar);
@@ -889,30 +882,30 @@ public class eg {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, CMP_L]}, finally: {[IGET, CMP_L, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, INVOKE, IPUT, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, IF, IGET, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, IF] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:116:0x0240, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:116:0x0241, code lost:
         if (r0 != null) goto L68;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:127:0x02a8, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:127:0x02a9, code lost:
         if (r0 != null) goto L68;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:128:0x02aa, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:128:0x02ab, code lost:
         r20.d = r0.i();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:136:0x0327, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:136:0x0328, code lost:
         if (r0 != null) goto L101;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:144:0x038f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:144:0x0390, code lost:
         if (r0 != null) goto L101;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:145:0x0391, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:145:0x0392, code lost:
         r20.d = r0.i();
      */
-    /* JADX WARN: Removed duplicated region for block: B:110:0x0208  */
-    /* JADX WARN: Removed duplicated region for block: B:111:0x020a  */
-    /* JADX WARN: Removed duplicated region for block: B:115:0x023e  */
-    /* JADX WARN: Removed duplicated region for block: B:121:0x0251  */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x0253  */
-    /* JADX WARN: Removed duplicated region for block: B:126:0x02a6  */
+    /* JADX WARN: Removed duplicated region for block: B:110:0x0209  */
+    /* JADX WARN: Removed duplicated region for block: B:111:0x020b  */
+    /* JADX WARN: Removed duplicated region for block: B:115:0x023f  */
+    /* JADX WARN: Removed duplicated region for block: B:121:0x0252  */
+    /* JADX WARN: Removed duplicated region for block: B:122:0x0254  */
+    /* JADX WARN: Removed duplicated region for block: B:126:0x02a7  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1058,19 +1051,19 @@ public class eg {
                     ogVar = ogVar2;
                     ggVar = ggVar2;
                     i12 = i15;
-                    i13 = R.string.obfuscated_res_0x7f0f0d08;
+                    i13 = R.string.obfuscated_res_0x7f0f0d11;
                 } catch (SocketException e9) {
                     e = e9;
                     i9 = i16;
                     ogVar = ogVar2;
                     ggVar = ggVar2;
-                    i11 = R.string.obfuscated_res_0x7f0f0d08;
+                    i11 = R.string.obfuscated_res_0x7f0f0d11;
                 } catch (SocketTimeoutException e10) {
                     e = e10;
                     i9 = i16;
                     ogVar = ogVar2;
                     ggVar = ggVar2;
-                    i10 = R.string.obfuscated_res_0x7f0f0d08;
+                    i10 = R.string.obfuscated_res_0x7f0f0d11;
                 }
                 if (this.a.c().b != 200) {
                     ggVar = ggVar2;
@@ -1091,7 +1084,7 @@ public class eg {
                                 ogVar.a();
                             } catch (UnsupportedOperationException e11) {
                                 e = e11;
-                                i13 = R.string.obfuscated_res_0x7f0f0d08;
+                                i13 = R.string.obfuscated_res_0x7f0f0d11;
                                 if (i12 >= i8) {
                                     z3 = true;
                                 } else {
@@ -1124,7 +1117,7 @@ public class eg {
                                     } else {
                                         z3 = false;
                                     }
-                                    ggVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0d08);
+                                    ggVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0d11);
                                     BdLog.e(th.getMessage());
                                     this.a.e(ggVar);
                                     ogVar.b = -10;
@@ -1149,7 +1142,7 @@ public class eg {
                             }
                         } catch (SocketException e12) {
                             e = e12;
-                            i11 = R.string.obfuscated_res_0x7f0f0d08;
+                            i11 = R.string.obfuscated_res_0x7f0f0d11;
                             this.a.c().c = -12;
                             jg c3 = this.a.c();
                             c3.g = e.getMessage() + Log.getStackTraceString(e);
@@ -1169,7 +1162,7 @@ public class eg {
                             i14 = 1;
                         } catch (SocketTimeoutException e13) {
                             e = e13;
-                            i10 = R.string.obfuscated_res_0x7f0f0d08;
+                            i10 = R.string.obfuscated_res_0x7f0f0d11;
                             this.a.c().c = -13;
                             jg c4 = this.a.c();
                             c4.g = e.getMessage() + Log.getStackTraceString(e);
@@ -1212,7 +1205,7 @@ public class eg {
                         return;
                     } catch (UnsupportedOperationException e17) {
                         e = e17;
-                        i13 = R.string.obfuscated_res_0x7f0f0d08;
+                        i13 = R.string.obfuscated_res_0x7f0f0d11;
                         if (i12 >= i8) {
                         }
                         this.a.c().c = -14;
@@ -1237,7 +1230,7 @@ public class eg {
                         c22.g = th.getMessage() + Log.getStackTraceString(th);
                         if (i12 >= i8) {
                         }
-                        ggVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0d08);
+                        ggVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0d11);
                         BdLog.e(th.getMessage());
                         this.a.e(ggVar);
                         ogVar.b = -10;
@@ -1257,30 +1250,30 @@ public class eg {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, CMP_L]}, finally: {[IGET, CMP_L, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, INVOKE, IPUT, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, IF, IGET, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, IF] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:116:0x0240, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:116:0x0241, code lost:
         if (r0 != null) goto L68;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:127:0x02a8, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:127:0x02a9, code lost:
         if (r0 != null) goto L68;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:128:0x02aa, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:128:0x02ab, code lost:
         r20.d = r0.i();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:136:0x0327, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:136:0x0328, code lost:
         if (r0 != null) goto L101;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:144:0x038f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:144:0x0390, code lost:
         if (r0 != null) goto L101;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:145:0x0391, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:145:0x0392, code lost:
         r20.d = r0.i();
      */
-    /* JADX WARN: Removed duplicated region for block: B:110:0x0208  */
-    /* JADX WARN: Removed duplicated region for block: B:111:0x020a  */
-    /* JADX WARN: Removed duplicated region for block: B:115:0x023e  */
-    /* JADX WARN: Removed duplicated region for block: B:121:0x0251  */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x0253  */
-    /* JADX WARN: Removed duplicated region for block: B:126:0x02a6  */
+    /* JADX WARN: Removed duplicated region for block: B:110:0x0209  */
+    /* JADX WARN: Removed duplicated region for block: B:111:0x020b  */
+    /* JADX WARN: Removed duplicated region for block: B:115:0x023f  */
+    /* JADX WARN: Removed duplicated region for block: B:121:0x0252  */
+    /* JADX WARN: Removed duplicated region for block: B:122:0x0254  */
+    /* JADX WARN: Removed duplicated region for block: B:126:0x02a7  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1426,19 +1419,19 @@ public class eg {
                     ogVar = ogVar2;
                     ggVar = ggVar2;
                     i12 = i15;
-                    i13 = R.string.obfuscated_res_0x7f0f0d08;
+                    i13 = R.string.obfuscated_res_0x7f0f0d11;
                 } catch (SocketException e9) {
                     e = e9;
                     i9 = i16;
                     ogVar = ogVar2;
                     ggVar = ggVar2;
-                    i11 = R.string.obfuscated_res_0x7f0f0d08;
+                    i11 = R.string.obfuscated_res_0x7f0f0d11;
                 } catch (SocketTimeoutException e10) {
                     e = e10;
                     i9 = i16;
                     ogVar = ogVar2;
                     ggVar = ggVar2;
-                    i10 = R.string.obfuscated_res_0x7f0f0d08;
+                    i10 = R.string.obfuscated_res_0x7f0f0d11;
                 }
                 if (this.a.c().b != 200) {
                     ggVar = ggVar2;
@@ -1459,7 +1452,7 @@ public class eg {
                                 ogVar.a();
                             } catch (UnsupportedOperationException e11) {
                                 e = e11;
-                                i13 = R.string.obfuscated_res_0x7f0f0d08;
+                                i13 = R.string.obfuscated_res_0x7f0f0d11;
                                 if (i12 >= i8) {
                                     z3 = true;
                                 } else {
@@ -1492,7 +1485,7 @@ public class eg {
                                     } else {
                                         z3 = false;
                                     }
-                                    ggVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0d08);
+                                    ggVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0d11);
                                     BdLog.e(th.getMessage());
                                     this.a.e(ggVar);
                                     ogVar.b = -10;
@@ -1517,7 +1510,7 @@ public class eg {
                             }
                         } catch (SocketException e12) {
                             e = e12;
-                            i11 = R.string.obfuscated_res_0x7f0f0d08;
+                            i11 = R.string.obfuscated_res_0x7f0f0d11;
                             this.a.c().c = -12;
                             jg c3 = this.a.c();
                             c3.g = e.getMessage() + Log.getStackTraceString(e);
@@ -1537,7 +1530,7 @@ public class eg {
                             i14 = 1;
                         } catch (SocketTimeoutException e13) {
                             e = e13;
-                            i10 = R.string.obfuscated_res_0x7f0f0d08;
+                            i10 = R.string.obfuscated_res_0x7f0f0d11;
                             this.a.c().c = -13;
                             jg c4 = this.a.c();
                             c4.g = e.getMessage() + Log.getStackTraceString(e);
@@ -1580,7 +1573,7 @@ public class eg {
                         return;
                     } catch (UnsupportedOperationException e17) {
                         e = e17;
-                        i13 = R.string.obfuscated_res_0x7f0f0d08;
+                        i13 = R.string.obfuscated_res_0x7f0f0d11;
                         if (i12 >= i8) {
                         }
                         this.a.c().c = -14;
@@ -1605,7 +1598,7 @@ public class eg {
                         c22.g = th.getMessage() + Log.getStackTraceString(th);
                         if (i12 >= i8) {
                         }
-                        ggVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0d08);
+                        ggVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0d11);
                         BdLog.e(th.getMessage());
                         this.a.e(ggVar);
                         ogVar.b = -10;

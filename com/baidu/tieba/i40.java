@@ -1,17 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface i40 {
-    String a();
+    i40 a(JSONObject jSONObject);
 
-    String a(Context context);
+    boolean a();
 
-    long b();
-
-    String b(Context context);
-
-    String c(Context context);
-
-    String d(Context context);
+    void b(JSONObject jSONObject);
 }

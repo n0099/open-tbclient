@@ -11,7 +11,6 @@ import android.os.Build;
 import android.os.IBinder;
 import android.text.TextUtils;
 import android.util.SparseArray;
-import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
 import com.ss.android.socialbase.downloader.constants.e;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
@@ -122,7 +121,7 @@ public class DownloadNotificationService extends Service {
                     ConnectivityManager connectivityManager;
                     NetworkInfo activeNetworkInfo;
                     long j;
-                    final NotificationManager notificationManager = (NotificationManager) DownloadNotificationService.this.getSystemService(ActionJsonData.TAG_NOTIFICATION);
+                    final NotificationManager notificationManager = (NotificationManager) DownloadNotificationService.this.getSystemService("notification");
                     final int intExtra = intent.getIntExtra("DOWNLOAD_NOTIFICATION_BUNDLE_EXTRA_ID", 0);
                     if (action.equals("android.ss.intent.action.DOWNLOAD_NOTIFICATION_NOTIFY")) {
                         final Notification notification = (Notification) intent.getParcelableExtra("DOWNLOAD_NOTIFICATION_BUNDLE_EXTRA");

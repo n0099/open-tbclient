@@ -1,148 +1,100 @@
 package com.baidu.sofire.face.b;
 
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.SharedPreferences;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sofire.ac.F;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.RejectedExecutionException;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
-    public static final int c;
-    public static volatile e d;
+    public static e b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadPoolExecutor a;
-    public BlockingQueue<Runnable> b;
+    public SharedPreferences a;
 
-    /* loaded from: classes3.dex */
-    public static class a implements ThreadFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicInteger a;
-        public final String b;
-        public final int c;
-
-        public a(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new AtomicInteger(1);
-            this.b = str;
-            this.c = i;
-        }
-
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, this.b + this.a.getAndIncrement());
-                if (thread.isDaemon()) {
-                    thread.setDaemon(false);
-                }
-                thread.setPriority(this.c);
-                return thread;
-            }
-            return (Thread) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-266860154, "Lcom/baidu/sofire/face/b/e;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-266860154, "Lcom/baidu/sofire/face/b/e;");
-                return;
-            }
-        }
-        c = Runtime.getRuntime().availableProcessors();
-    }
-
-    public static e a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                try {
-                    synchronized (e.class) {
-                        if (d == null) {
-                            d = new e();
-                        }
-                    }
-                } catch (Throwable unused) {
-                }
-            }
-            return d;
-        }
-        return (e) invokeV.objValue;
-    }
-
-    public e() {
+    public e(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new LinkedBlockingQueue(100);
-        int i3 = c;
-        int max = Math.max(4, i3);
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(max, Math.max(max, (i3 * 2) + 1), 10L, TimeUnit.SECONDS, this.b, new a("sofire_face_pool_thread_", 5), new ThreadPoolExecutor.AbortPolicy());
-        this.a = threadPoolExecutor;
-        if (Build.VERSION.SDK_INT >= 9) {
-            threadPoolExecutor.allowCoreThreadTimeOut(true);
-        }
+        SharedPreferences platformPrivateSharedPreferences = F.getInstance().getPlatformPrivateSharedPreferences(context);
+        this.a = platformPrivateSharedPreferences;
+        platformPrivateSharedPreferences.edit();
     }
 
-    public int a(Runnable runnable) {
+    public static synchronized e a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            try {
-                ThreadPoolExecutor threadPoolExecutor = this.a;
-                if (threadPoolExecutor != null) {
-                    threadPoolExecutor.execute(runnable);
-                    return 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            synchronized (e.class) {
+                if (context == null) {
+                    return b;
                 }
-                return -2;
-            } catch (RejectedExecutionException unused) {
-                return -1;
-            } catch (Throwable unused2) {
-                return -3;
+                if (b == null) {
+                    b = new e(context);
+                }
+                return b;
             }
         }
-        return invokeL.intValue;
+        return (e) invokeL.objValue;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.getBoolean("lt_sbwnp", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.getBoolean("lt_sdcf", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.getLong("lt_sfii", 1000L);
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.getBoolean("lt_sssf", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.getBoolean("lt_sucf", false);
+        }
+        return invokeV.booleanValue;
     }
 }

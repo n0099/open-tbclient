@@ -94,7 +94,7 @@ public final class SClient$connectSClient$$inlined$suspendCoroutineWithTimeout$1
                 this.$socket$inlined.connect(new InetSocketAddress(this.$ip$inlined, this.$port$inlined), this.$port$inlined);
                 Unit unit = Unit.INSTANCE;
                 Result.Companion companion = Result.Companion;
-                cancellableContinuationImpl.resumeWith(Result.m773constructorimpl(unit));
+                cancellableContinuationImpl.resumeWith(Result.m766constructorimpl(unit));
                 obj = cancellableContinuationImpl.getResult();
                 if (obj == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
                     DebugProbesKt.probeCoroutineSuspended(this);

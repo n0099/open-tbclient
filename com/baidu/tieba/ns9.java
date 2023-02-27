@@ -1,31 +1,28 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ls9;
-import com.baidu.tieba.os9;
+import com.baidu.android.util.connect.IDoveIoc;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public final class ns9 implements ls9.a {
+public class ns9 implements IDoveIoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ls9.a
-    public final void U() {
+    @Override // com.baidu.android.util.connect.IDoveIoc
+    public boolean enableDoveOpt() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
         }
-    }
-
-    @Override // com.baidu.tieba.ls9.a
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
+        return invokeV.booleanValue;
     }
 
     public ns9() {
@@ -39,26 +36,6 @@ public final class ns9 implements ls9.a {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.ls9.a
-    public final void a(Activity activity) {
-        os9 os9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            os9Var = os9.a.a;
-            os9Var.c(new WeakReference<>(activity));
-        }
-    }
-
-    @Override // com.baidu.tieba.ls9.a
-    public final void onActivityDestroyed(Activity activity) {
-        os9 os9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            os9Var = os9.a.a;
-            os9Var.d(activity);
         }
     }
 }

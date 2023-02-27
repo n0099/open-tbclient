@@ -1,18 +1,10 @@
 package com.baidu.searchbox.v8engine.net;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.net.NetInfo;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 @NotProguard
 /* loaded from: classes3.dex */
 public class NetRequestResult {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final byte NET_REQUEST_RESULT_FROM_TYPE_REQUEST = 0;
     public static final byte NET_REQUEST_RESULT_FROM_TYPE_RESPONSE = 1;
     public static final byte NET_REQUEST_RESULT_FROM_TYPE_UNKNOWN = 3;
@@ -60,7 +52,6 @@ public class NetRequestResult {
     public static final int STATUS_CODE_V8NET_RESULT_REQUEST_FAIL = -9;
     public static final int STATUS_CODE_V8NET_RESULT_SUCCESS = 0;
     public static final String TAG = "NetRequestResult";
-    public transient /* synthetic */ FieldHolder $fh;
     public long mCreatedTime;
     public boolean mDirty;
     public byte mFromType;
@@ -69,7 +60,7 @@ public class NetRequestResult {
     public NetInfo mNetInfo;
     public int mStatusCode;
     public String mStatusMsg;
-    public NetInfo.SwanExtra mSwanExtra;
+    public NetInfo.SwanExtra mSwanExtra = new NetInfo.SwanExtra();
     public String mUrl;
 
     private native int nativeGetFromType(long j);
@@ -87,161 +78,100 @@ public class NetRequestResult {
     private native void nativeSetStatusMsg(long j, String str);
 
     public NetRequestResult(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mSwanExtra = new NetInfo.SwanExtra();
         this.mId = j;
         this.mNativePtr = j2;
     }
 
-    private void setConnectTime(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65544, this, j) == null) {
-            this.mSwanExtra.mTiming.mConnectTime = j;
+    public void setStatusCodeAndMsg(int i, String str) {
+        this.mDirty = true;
+        this.mStatusCode = i;
+        this.mStatusMsg = str;
+        long j = this.mNativePtr;
+        if (j != 0) {
+            nativeSetStatusCode(j, i);
+            nativeSetStatusMsg(this.mNativePtr, this.mStatusMsg);
         }
+    }
+
+    private void setConnectTime(long j) {
+        this.mSwanExtra.mTiming.mConnectTime = j;
     }
 
     public long getCreatedTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mCreatedTime;
-        }
-        return invokeV.longValue;
+        return this.mCreatedTime;
     }
 
     public int getFromType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = this.mNativePtr;
-            if (j != 0) {
-                return nativeGetFromType(j);
-            }
-            return this.mFromType;
+        long j = this.mNativePtr;
+        if (j != 0) {
+            return nativeGetFromType(j);
         }
-        return invokeV.intValue;
+        return this.mFromType;
     }
 
     public long getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mId;
-        }
-        return invokeV.longValue;
+        return this.mId;
     }
 
     public NetInfo getNetInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            NetInfo netInfo = this.mNetInfo;
-            if (netInfo != null) {
-                return netInfo;
-            }
-            long j = this.mNativePtr;
-            if (j != 0) {
-                NetInfo netInfo2 = new NetInfo(nativeGetNetInfo(j), this.mSwanExtra);
-                this.mNetInfo = netInfo2;
-                return netInfo2;
-            }
-            return null;
+        NetInfo netInfo = this.mNetInfo;
+        if (netInfo != null) {
+            return netInfo;
         }
-        return (NetInfo) invokeV.objValue;
+        long j = this.mNativePtr;
+        if (j != 0) {
+            NetInfo netInfo2 = new NetInfo(nativeGetNetInfo(j), this.mSwanExtra);
+            this.mNetInfo = netInfo2;
+            return netInfo2;
+        }
+        return null;
     }
 
     public int getStatusCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.mDirty) {
-                return this.mStatusCode;
-            }
-            long j = this.mNativePtr;
-            if (j != 0) {
-                int nativeGetStatusCode = nativeGetStatusCode(j);
-                this.mStatusCode = nativeGetStatusCode;
-                return nativeGetStatusCode;
-            }
+        if (this.mDirty) {
             return this.mStatusCode;
         }
-        return invokeV.intValue;
+        long j = this.mNativePtr;
+        if (j != 0) {
+            int nativeGetStatusCode = nativeGetStatusCode(j);
+            this.mStatusCode = nativeGetStatusCode;
+            return nativeGetStatusCode;
+        }
+        return this.mStatusCode;
     }
 
     public String getStatusMsg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.mDirty) {
-                return this.mStatusMsg;
-            }
-            String str = this.mStatusMsg;
-            if (str != null) {
-                return str;
-            }
-            long j = this.mNativePtr;
-            if (j != 0) {
-                String nativeGetStatusMsg = nativeGetStatusMsg(j);
-                this.mStatusMsg = nativeGetStatusMsg;
-                return nativeGetStatusMsg;
-            }
-            return null;
+        if (this.mDirty) {
+            return this.mStatusMsg;
         }
-        return (String) invokeV.objValue;
+        String str = this.mStatusMsg;
+        if (str != null) {
+            return str;
+        }
+        long j = this.mNativePtr;
+        if (j != 0) {
+            String nativeGetStatusMsg = nativeGetStatusMsg(j);
+            this.mStatusMsg = nativeGetStatusMsg;
+            return nativeGetStatusMsg;
+        }
+        return null;
     }
 
     public String getUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String str = this.mUrl;
-            if (str != null) {
-                return str;
-            }
-            long j = this.mNativePtr;
-            if (j != 0) {
-                String nativeGetUrl = nativeGetUrl(j);
-                this.mUrl = nativeGetUrl;
-                return nativeGetUrl;
-            }
-            return null;
+        String str = this.mUrl;
+        if (str != null) {
+            return str;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void setStatusCodeAndMsg(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, str) == null) {
-            this.mDirty = true;
-            this.mStatusCode = i;
-            this.mStatusMsg = str;
-            long j = this.mNativePtr;
-            if (j != 0) {
-                nativeSetStatusCode(j, i);
-                nativeSetStatusMsg(this.mNativePtr, this.mStatusMsg);
-            }
+        long j = this.mNativePtr;
+        if (j != 0) {
+            String nativeGetUrl = nativeGetUrl(j);
+            this.mUrl = nativeGetUrl;
+            return nativeGetUrl;
         }
+        return null;
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "NetRequestResult{mDirty=" + this.mDirty + ", mId=" + this.mId + ", mUrl='" + this.mUrl + "', mStatusCode=" + this.mStatusCode + ", mStatusMsg='" + this.mStatusMsg + "', mFromType=" + ((int) this.mFromType) + ", mNativePtr=" + this.mNativePtr + ", mCreatedTime=" + this.mCreatedTime + ", mSwanExtra=" + this.mSwanExtra + ", mNetInfo=" + this.mNetInfo + '}';
-        }
-        return (String) invokeV.objValue;
+        return "NetRequestResult{mDirty=" + this.mDirty + ", mId=" + this.mId + ", mUrl='" + this.mUrl + "', mStatusCode=" + this.mStatusCode + ", mStatusMsg='" + this.mStatusMsg + "', mFromType=" + ((int) this.mFromType) + ", mNativePtr=" + this.mNativePtr + ", mCreatedTime=" + this.mCreatedTime + ", mSwanExtra=" + this.mSwanExtra + ", mNetInfo=" + this.mNetInfo + '}';
     }
 }

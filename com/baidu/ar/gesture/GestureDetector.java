@@ -3,8 +3,6 @@ package com.baidu.ar.gesture;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.media.session.MediaSessionCompat;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.pixel.FramePixels;
 import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.pixel.PixelType;
@@ -15,49 +13,12 @@ import com.baidu.ar.constants.HttpConstants;
 import com.baidu.ar.d.e;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class GestureDetector extends com.baidu.ar.b.a.a {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "GestureDetector";
-    public transient /* synthetic */ FieldHolder $fh;
-    public int oU;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-745845150, "Lcom/baidu/ar/gesture/GestureDetector;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-745845150, "Lcom/baidu/ar/gesture/GestureDetector;");
-        }
-    }
+    public int oU = 1;
 
     public GestureDetector() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.oU = 1;
         c.cd().a(this);
         PixelReadParams pixelReadParams = new PixelReadParams(PixelType.BGR);
         this.nk = pixelReadParams;
@@ -66,17 +27,12 @@ public class GestureDetector extends com.baidu.ar.b.a.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:11:0x0014 A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0017 A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:10:0x0013 A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:9:0x0010 A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public int c(int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) != null) {
-            return invokeCommon.intValue;
-        }
         if (i == -90) {
             return 0;
         }
@@ -91,214 +47,98 @@ public class GestureDetector extends com.baidu.ar.b.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int c(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, bundle)) == null) {
-            if (bundle == null) {
-                return 1;
-            }
-            String string = bundle.getString(HttpConstants.FUNCTION_TYPE, "gesture");
-            if ("gesture".equals(string)) {
-                return 1;
-            }
-            return "fingertip".equals(string) ? 2 : 0;
+        if (bundle == null) {
+            return 1;
         }
-        return invokeL.intValue;
+        String string = bundle.getString(HttpConstants.FUNCTION_TYPE, "gesture");
+        if ("gesture".equals(string)) {
+            return 1;
+        }
+        return "fingertip".equals(string) ? 2 : 0;
     }
 
     @Override // com.baidu.ar.b.a.a
-    public b a(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) ? new b(this, this.oU, bundle) { // from class: com.baidu.ar.gesture.GestureDetector.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Bundle qr;
-            public final /* synthetic */ GestureDetector qs;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(r8);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, Integer.valueOf(r8), bundle};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        super(((Integer) newInitContext.callArgs[0]).intValue());
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.qs = this;
-                this.qr = bundle;
-            }
-
+    public b a(final Bundle bundle) {
+        return new b(this.oU) { // from class: com.baidu.ar.gesture.GestureDetector.1
             @Override // com.baidu.ar.b.b.b
             public int a(com.baidu.ar.mdl.a aVar) {
-                InterceptResult invokeL2;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, aVar)) == null) {
-                    String[] strArr = aVar.tw;
-                    if (strArr == null || strArr.length == 0) {
-                        return -1;
-                    }
-                    int i = this.qr.getInt("force_ft_pose_flag", 0);
-                    float f = this.qr.getFloat("det_thresh", 0.25f);
-                    float f2 = this.qr.getFloat("first_cls_thresh", 0.75f);
-                    float f3 = this.qr.getFloat("second_cls_thresh", 0.5f);
-                    return aVar.f1058tv ? ARMdlInterfaceJNI.initGestureFromAsset(strArr[0], strArr[1], strArr[2], this.qs.c(this.qr), i, f, f2, f3, 1) : ARMdlInterfaceJNI.initGesture(strArr[0], strArr[1], strArr[2], this.qs.c(this.qr), i, f, f2, f3, 1);
+                String[] strArr = aVar.tw;
+                if (strArr == null || strArr.length == 0) {
+                    return -1;
                 }
-                return invokeL2.intValue;
+                int i = bundle.getInt("force_ft_pose_flag", 0);
+                float f = bundle.getFloat("det_thresh", 0.25f);
+                float f2 = bundle.getFloat("first_cls_thresh", 0.75f);
+                float f3 = bundle.getFloat("second_cls_thresh", 0.5f);
+                return aVar.f1033tv ? ARMdlInterfaceJNI.initGestureFromAsset(strArr[0], strArr[1], strArr[2], GestureDetector.this.c(bundle), i, f, f2, f3, 1) : ARMdlInterfaceJNI.initGesture(strArr[0], strArr[1], strArr[2], GestureDetector.this.c(bundle), i, f, f2, f3, 1);
             }
 
             @Override // com.baidu.ar.c.a
             public String getTag() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? GestureDetector.TAG : (String) invokeV.objValue;
+                return GestureDetector.TAG;
             }
-        } : (b) invokeL.objValue;
+        };
     }
 
     @Override // com.baidu.ar.b.a.a, com.baidu.ar.d.j
     public void aq() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.aq();
-            c.cd().b(this);
-        }
+        super.aq();
+        c.cd().b(this);
     }
 
     @Override // com.baidu.ar.b.a.a
     public com.baidu.ar.b.b.a at() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new com.baidu.ar.b.b.a(this, this.oU) { // from class: com.baidu.ar.gesture.GestureDetector.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ GestureDetector qs;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(r8);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, Integer.valueOf(r8)};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        super(((Integer) newInitContext.callArgs[0]).intValue());
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.qs = this;
-            }
-
+        return new com.baidu.ar.b.b.a(this.oU) { // from class: com.baidu.ar.gesture.GestureDetector.2
             @Override // com.baidu.ar.b.b.a
             public int ax() {
-                InterceptResult invokeV2;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) ? ARMdlInterfaceJNI.releaseGesture() : invokeV2.intValue;
+                return ARMdlInterfaceJNI.releaseGesture();
             }
 
             @Override // com.baidu.ar.c.a
             public String getTag() {
-                InterceptResult invokeV2;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? GestureDetector.TAG : (String) invokeV2.objValue;
+                return GestureDetector.TAG;
             }
-        } : (com.baidu.ar.b.b.a) invokeV.objValue;
+        };
     }
 
     @Override // com.baidu.ar.b.a.a
     public int au() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.oU : invokeV.intValue;
+        return this.oU;
     }
 
     @Override // com.baidu.ar.b.a.a
     public com.baidu.ar.b.b.c d(FramePixels framePixels) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, framePixels)) == null) ? new com.baidu.ar.b.b.c<a>(this, this.oU, framePixels) { // from class: com.baidu.ar.gesture.GestureDetector.3
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ GestureDetector qs;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(r9, framePixels);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, Integer.valueOf(r9), framePixels};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        Object[] objArr2 = newInitContext.callArgs;
-                        super(((Integer) objArr2[0]).intValue(), (FramePixels) objArr2[1]);
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.qs = this;
-            }
-
+        return new com.baidu.ar.b.b.c<a>(this.oU, framePixels) { // from class: com.baidu.ar.gesture.GestureDetector.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.ar.b.b.c
             /* renamed from: f */
             public a e(FramePixels framePixels2) {
-                InterceptResult invokeL2;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, framePixels2)) == null) {
-                    int c = this.qs.c(framePixels2.getOrientation().getDegree(), framePixels2.isFrontCamera());
-                    long timestamp = framePixels2.getTimestamp();
-                    float[] fArr = new float[13];
-                    long elapsedRealtime = SystemClock.elapsedRealtime();
-                    ARMdlInterfaceJNI.predictGesture(framePixels2.getPixelsAddress(), framePixels2.getWidth(), framePixels2.getHeight(), c, framePixels2.isFrontCamera(), fArr);
-                    StatisticApi.getPerformanceApi().recordAlgoTimeCost("finger_gesture", "predict", SystemClock.elapsedRealtime() - elapsedRealtime, 0);
-                    return new a(this.qs.getName(), fArr, timestamp);
-                }
-                return (a) invokeL2.objValue;
+                int c = GestureDetector.this.c(framePixels2.getOrientation().getDegree(), framePixels2.isFrontCamera());
+                long timestamp = framePixels2.getTimestamp();
+                float[] fArr = new float[13];
+                long elapsedRealtime = SystemClock.elapsedRealtime();
+                ARMdlInterfaceJNI.predictGesture(framePixels2.getPixelsAddress(), framePixels2.getWidth(), framePixels2.getHeight(), c, framePixels2.isFrontCamera(), fArr);
+                StatisticApi.getPerformanceApi().recordAlgoTimeCost("finger_gesture", "predict", SystemClock.elapsedRealtime() - elapsedRealtime, 0);
+                return new a(GestureDetector.this.getName(), fArr, timestamp);
             }
 
             @Override // com.baidu.ar.c.a
             public String getTag() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? GestureDetector.TAG : (String) invokeV.objValue;
+                return GestureDetector.TAG;
             }
-        } : (com.baidu.ar.b.b.c) invokeL.objValue;
+        };
     }
 
     @Override // com.baidu.ar.d.k
     public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? TAG : (String) invokeV.objValue;
+        return TAG;
     }
 
     @CallBack
     public void onMdlResult(a aVar) {
-        e eVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || (eVar = this.mv) == null) {
-            return;
+        e eVar = this.mv;
+        if (eVar != null) {
+            eVar.a(aVar);
         }
-        eVar.a(aVar);
     }
 }

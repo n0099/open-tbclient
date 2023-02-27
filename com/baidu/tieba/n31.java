@@ -1,88 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.ContentValues;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class n31 {
+public abstract class n31 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] a;
-    public static boolean b;
-    public static long c;
-    public static int d;
-    public static int e;
-    public static int f;
-    public static int g;
-    public static int h;
-    public static int i;
-    public static double j;
-    public static double k;
-    public static double l;
-    public static long m;
-    public static long n;
-    public static double o;
-    public static double p;
-    public static double q;
-    public static double r;
-    public static double[] s;
-    public static AtomicBoolean t;
-    public static final Object u;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947951421, "Lcom/baidu/tieba/n31;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947951421, "Lcom/baidu/tieba/n31;");
-                return;
+    public abstract m31 b();
+
+    public n31() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = new int[]{0, 1, 2, 3};
-        b = true;
-        c = 2000L;
-        d = 2;
-        e = 2;
-        f = 6;
-        g = 4;
-        h = 6;
-        i = 30;
-        j = 10.0d;
-        k = 30.0d;
-        l = 2.0d;
-        m = 500L;
-        n = 3000L;
-        o = 999.0d;
-        p = 8.0d;
-        q = 3.0d;
-        r = 1.0d;
-        s = new double[]{999.0d, 8.0d, 3.0d, 1.0d};
-        t = new AtomicBoolean(false);
-        u = new Object();
     }
 
-    public static boolean a() {
+    public ContentValues a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return t.get();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return k31.b(b().c());
         }
-        return invokeV.booleanValue;
+        return (ContentValues) invokeV.objValue;
     }
 
-    public static Object b() {
+    public String toString() {
         InterceptResult invokeV;
+        Column[] c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return u;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(getClass().getName());
+            sb.append("\n");
+            for (Column column : b().c()) {
+                sb.append("|");
+                sb.append(column.field.e);
+                sb.append("| ");
+                sb.append(column.isAssignedValue ? 1 : 0);
+                sb.append(" | ");
+                sb.append(column.stringValue());
+                sb.append("\n");
+            }
+            return sb.toString();
         }
-        return invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

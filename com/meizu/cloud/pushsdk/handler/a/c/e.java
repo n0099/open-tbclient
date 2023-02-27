@@ -1,65 +1,225 @@
 package com.meizu.cloud.pushsdk.handler.a.c;
 
-import android.app.NotificationManager;
-import android.content.Context;
-import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.android.util.io.ActionJsonData;
+import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushinternal.DebugLogger;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.handler.a.b.h;
+import com.meizu.cloud.pushsdk.handler.MessageV3;
+import com.meizu.cloud.pushsdk.handler.MzPushMessage;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class e extends com.meizu.cloud.pushsdk.handler.a.a<h> {
-    public e(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
-        super(context, aVar);
-    }
+public class e {
+    public int a;
+    public String b = String.valueOf(-1);
+    public String c = "";
+    public String d = "";
+    public int e = -1;
+    public String f = "";
 
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public int a() {
-        return 262144;
-    }
+    /* loaded from: classes8.dex */
+    public static class a {
+        public String a;
+        public String b;
+        public String c;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: a */
-    public void b(h hVar) {
-        com.meizu.cloud.pushsdk.util.d.c(c(), hVar.c(), hVar.a().b().d(), hVar.a().b().a(), hVar.a().b().e(), hVar.a().b().b());
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    public void a(h hVar, com.meizu.cloud.pushsdk.notification.c cVar) {
-        NotificationManager notificationManager = (NotificationManager) c().getSystemService(ActionJsonData.TAG_NOTIFICATION);
-        if (notificationManager != null) {
-            DebugLogger.e("AbstractMessageHandler", "start cancel notification id " + hVar.b());
-            notificationManager.cancel(hVar.b());
-        }
-    }
-
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public boolean a(Intent intent) {
-        int i;
-        DebugLogger.i("AbstractMessageHandler", "start WithDrawMessageHandler match");
-        String stringExtra = intent.getStringExtra(PushConstants.MZ_PUSH_CONTROL_MESSAGE);
-        if (!TextUtils.isEmpty(stringExtra)) {
-            com.meizu.cloud.pushsdk.handler.a.b.b a = com.meizu.cloud.pushsdk.handler.a.b.b.a(stringExtra);
-            if (a.a() != null) {
-                i = a.a().a();
-                return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && "4".equals(String.valueOf(i));
+        public a(String str) {
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                if (!jSONObject.isNull("code")) {
+                    a(jSONObject.getString("code"));
+                }
+                if (!jSONObject.isNull("message")) {
+                    b(jSONObject.getString("message"));
+                }
+                if (jSONObject.isNull("value")) {
+                    return;
+                }
+                c(jSONObject.getString("value"));
+            } catch (JSONException e) {
+                DebugLogger.e("SecurityMessage", "covert json error " + e.getMessage());
             }
         }
-        i = 0;
-        if (PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction())) {
-            return false;
+
+        public String a() {
+            return this.c;
+        }
+
+        public void a(String str) {
+            this.a = str;
+        }
+
+        public void b(String str) {
+            this.b = str;
+        }
+
+        public void c(String str) {
+            this.c = str;
+        }
+
+        public String toString() {
+            return "PublicKeyStatus{code='" + this.a + "', message='" + this.b + "', publicKey='" + this.c + "'}";
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: j */
-    public h c(Intent intent) {
-        String stringExtra = intent.getStringExtra(PushConstants.MZ_PUSH_CONTROL_MESSAGE);
-        String stringExtra2 = intent.getStringExtra(PushConstants.EXTRA_APP_PUSH_SEQ_ID);
-        return new h(intent.getStringExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE), g(intent), stringExtra, intent.getStringExtra(PushConstants.MZ_PUSH_MESSAGE_STATISTICS_IMEI_KEY), stringExtra2);
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, IF] complete} */
+    public static String a(MessageV3 messageV3) {
+        JSONObject jSONObject;
+        String notificationMessage = messageV3.getNotificationMessage();
+        String str = null;
+        try {
+            try {
+                if (!TextUtils.isEmpty(notificationMessage)) {
+                    try {
+                        JSONObject jSONObject2 = new JSONObject(notificationMessage).getJSONObject("data");
+                        if (!jSONObject2.isNull("extra")) {
+                            JSONObject jSONObject3 = jSONObject2.getJSONObject("extra");
+                            if (!jSONObject3.isNull("se")) {
+                                str = jSONObject3.getString("se");
+                            }
+                        }
+                    } catch (JSONException e) {
+                        DebugLogger.e("SecurityMessage", "parse notification message error " + e.getMessage());
+                        if (TextUtils.isEmpty(null)) {
+                            jSONObject = new JSONObject(notificationMessage);
+                        }
+                    }
+                    if (TextUtils.isEmpty(str)) {
+                        jSONObject = new JSONObject(notificationMessage);
+                        jSONObject.getString("se");
+                    }
+                }
+            } catch (Throwable th) {
+                if (TextUtils.isEmpty(null)) {
+                    try {
+                        new JSONObject(notificationMessage).getString("se");
+                    } catch (Exception unused) {
+                    }
+                }
+                throw th;
+            }
+        } catch (Exception unused2) {
+        }
+        DebugLogger.i("SecurityMessage", "encrypt message " + str);
+        return str;
+    }
+
+    public static boolean a(String str, MessageV3 messageV3) {
+        String str2;
+        e e = e(str);
+        DebugLogger.e("SecurityMessage", "securityMessage " + e);
+        if (System.currentTimeMillis() / 1000 > e.a()) {
+            str2 = "message expire";
+        } else if (!messageV3.getTitle().contains(e.c())) {
+            str2 = "invalid title";
+        } else if (!messageV3.getContent().contains(e.d())) {
+            str2 = "invalid content";
+        } else if (!String.valueOf(-1).equals(e.b()) && !e.b().equals(messageV3.getTaskId())) {
+            str2 = "invalid taskId";
+        } else if (e.e() != -1) {
+            int e2 = e.e();
+            if (e2 == 1) {
+                if (!messageV3.getActivity().contains(e.f())) {
+                    str2 = "invalid click activity";
+                }
+                return true;
+            } else if (e2 == 2) {
+                if (!messageV3.getWebUrl().contains(e.f())) {
+                    str2 = "invalid web url";
+                }
+                return true;
+            } else {
+                if (e2 == 3 && !MzPushMessage.fromMessageV3(messageV3).getSelfDefineContentString().contains(e.f())) {
+                    str2 = "invalid self define";
+                }
+                return true;
+            }
+        } else {
+            str2 = "invalid click type";
+        }
+        DebugLogger.e("SecurityMessage", str2);
+        return false;
+    }
+
+    public static e e(String str) {
+        e eVar = new e();
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            if (!jSONObject.isNull("tt")) {
+                eVar.a(jSONObject.getInt("tt"));
+            }
+            if (!jSONObject.isNull(Config.FEED_LIST_PART)) {
+                eVar.a(jSONObject.getString(Config.FEED_LIST_PART));
+            }
+            if (!jSONObject.isNull("tl")) {
+                eVar.b(jSONObject.getString("tl"));
+            }
+            if (!jSONObject.isNull("cont")) {
+                eVar.c(jSONObject.getString("cont"));
+            }
+            if (!jSONObject.isNull(Config.EXCEPTION_CRASH_TYPE)) {
+                eVar.b(jSONObject.getInt(Config.EXCEPTION_CRASH_TYPE));
+            }
+            if (!jSONObject.isNull("pm")) {
+                eVar.d(jSONObject.getString("pm"));
+            }
+        } catch (Exception e) {
+            DebugLogger.e("SecurityMessage", "parse decryptSign error " + e.getMessage());
+        }
+        return eVar;
+    }
+
+    public int a() {
+        return this.a;
+    }
+
+    public void a(int i) {
+        this.a = i;
+    }
+
+    public void a(String str) {
+        this.b = str;
+    }
+
+    public String b() {
+        return this.b;
+    }
+
+    public void b(int i) {
+        this.e = i;
+    }
+
+    public void b(String str) {
+        this.c = str;
+    }
+
+    public String c() {
+        return this.c;
+    }
+
+    public void c(String str) {
+        this.d = str;
+    }
+
+    public String d() {
+        return this.d;
+    }
+
+    public void d(String str) {
+        this.f = str;
+    }
+
+    public int e() {
+        return this.e;
+    }
+
+    public String f() {
+        return this.f;
+    }
+
+    public String toString() {
+        return "SecurityMessage{timestamp=" + this.a + ", taskId='" + this.b + "', title='" + this.c + "', content='" + this.d + "', clickType=" + this.e + ", params='" + this.f + "'}";
     }
 }

@@ -1,47 +1,67 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.ViewGroup;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.view.BdTopToast;
+import android.text.TextPaint;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
 public class db5 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "表情包";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(DownloadData downloadData) {
-        Activity currentActivity;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) && (currentActivity = TbadkApplication.getInst().getCurrentActivity()) != null && !currentActivity.isDestroyed()) {
-            BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
-            bdTopToast.h(false);
-            bdTopToast.g(currentActivity.getString(R.string.item_download_fail));
-            bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947698802, "Lcom/baidu/tieba/db5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947698802, "Lcom/baidu/tieba/db5;");
         }
     }
 
-    public static void b(DownloadData downloadData) {
-        Activity currentActivity;
+    public static String a(String str, String str2, float f, TextPaint textPaint) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, downloadData) == null) && (currentActivity = TbadkApplication.getInst().getCurrentActivity()) != null && !currentActivity.isDestroyed()) {
-            BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
-            bdTopToast.h(false);
-            bdTopToast.g(currentActivity.getString(R.string.item_download_no_net));
-            bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
+            if (textPaint == null) {
+                textPaint = new TextPaint();
+            }
+            return b(textPaint, str, f - textPaint.measureText(str2), str2);
         }
+        return (String) invokeCommon.objValue;
     }
 
-    public static void c(DownloadData downloadData) {
-        Activity currentActivity;
+    public static String b(TextPaint textPaint, String str, float f, String str2) {
+        InterceptResult invokeCommon;
+        String str3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, downloadData) == null) && (currentActivity = TbadkApplication.getInst().getCurrentActivity()) != null && !currentActivity.isDestroyed()) {
-            BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
-            bdTopToast.h(true);
-            bdTopToast.g(currentActivity.getString(R.string.item_download_success));
-            bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{textPaint, str, Float.valueOf(f), str2})) == null) {
+            float measureText = textPaint.measureText(str);
+            if (measureText > f) {
+                if (str.endsWith(a)) {
+                    str = str.substring(0, str.length() - 3);
+                }
+                str3 = StringHelper.STRING_MORE + a;
+            } else if (!str.endsWith(a)) {
+                str3 = a;
+            } else {
+                str3 = "";
+            }
+            while (str.length() > 0 && measureText > f) {
+                str = fr5.n(str, fr5.f(str) - 1);
+                measureText = textPaint.measureText(str);
+            }
+            return str + str3;
         }
+        return (String) invokeCommon.objValue;
     }
 }

@@ -1,15 +1,9 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public class df2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface df2 {
+    xe2 a();
 
-    public abstract void a();
+    boolean b();
 
-    public abstract void b();
-
-    public abstract void c();
+    boolean c(String str, String str2, String str3);
 }

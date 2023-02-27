@@ -1,79 +1,255 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class t40 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int b = 5;
-    public static int c = 40;
+public class t40 extends j40 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.baidu.helios.common.cc.a a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948131097, "Lcom/baidu/tieba/t40;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948131097, "Lcom/baidu/tieba/t40;");
-        }
-    }
 
     public t40() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        com.baidu.helios.common.cc.a aVar = new com.baidu.helios.common.cc.a(c);
-        this.a = aVar;
-        aVar.a(0, c, true);
     }
 
-    public void a(com.baidu.helios.common.cc.a aVar, int i, int i2, int i3) {
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v3, types: [java.io.BufferedReader] */
+    /* JADX WARN: Type inference failed for: r1v4, types: [java.net.HttpURLConnection] */
+    /* JADX WARN: Type inference failed for: r1v5 */
+    /* JADX WARN: Type inference failed for: r1v6 */
+    /* JADX WARN: Type inference failed for: r1v7 */
+    @Override // com.baidu.tieba.l40
+    public String a(String str, String str2, Map<String, String> map, JSONObject jSONObject) {
+        InterceptResult invokeLLLL;
+        OutputStream outputStream;
+        BufferedReader bufferedReader;
+        HttpURLConnection httpURLConnection;
+        OutputStream outputStream2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048576, this, aVar, i, i2, i3) == null) {
-            com.baidu.helios.common.cc.a d = this.a.d(i, i + i2);
-            if (i3 != 0) {
-                if (i3 != 1) {
-                    if (i3 == 2) {
-                        d.e(aVar);
-                    } else if (i3 == 3) {
-                        d.c(aVar);
+        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(1048576, this, str, str2, map, jSONObject)) != null) {
+            return (String) invokeLLLL.objValue;
+        }
+        if (TextUtils.isEmpty(str)) {
+            throw new NullPointerException("urlStr should not be null");
+        }
+        ?? r1 = 0;
+        try {
+            httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+            try {
+                httpURLConnection.setConnectTimeout(15000);
+                httpURLConnection.setReadTimeout(15000);
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setRequestMethod(str2);
+                if (map != null && map.size() > 0) {
+                    for (String str3 : map.keySet()) {
+                        httpURLConnection.setRequestProperty(str3, map.get(str3));
                     }
+                    httpURLConnection.setRequestProperty("Content-type", "application/json");
                 }
-                d.d(aVar);
-            } else {
-                d.b(aVar);
+                outputStream2 = httpURLConnection.getOutputStream();
+                try {
+                    outputStream2.write(jSONObject.toString().getBytes(IMAudioTransRequest.CHARSET));
+                    outputStream2.flush();
+                    if (httpURLConnection.getResponseCode() != 200) {
+                        if (httpURLConnection != null) {
+                            httpURLConnection.disconnect();
+                        }
+                        if (outputStream2 != null) {
+                            try {
+                                outputStream2.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        return null;
+                    }
+                    bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), IMAudioTransRequest.CHARSET));
+                    String str4 = "";
+                    while (true) {
+                        try {
+                            String readLine = bufferedReader.readLine();
+                            if (readLine == null) {
+                                break;
+                            }
+                            str4 = str4 + readLine;
+                        } catch (IOException unused) {
+                        } catch (Throwable th) {
+                            r1 = httpURLConnection;
+                            outputStream = outputStream2;
+                            th = th;
+                            if (r1 != 0) {
+                                r1.disconnect();
+                            }
+                            if (outputStream != null) {
+                                try {
+                                    outputStream.close();
+                                } catch (IOException e2) {
+                                    e2.printStackTrace();
+                                }
+                            }
+                            if (bufferedReader != null) {
+                                try {
+                                    bufferedReader.close();
+                                } catch (IOException e3) {
+                                    e3.printStackTrace();
+                                }
+                            }
+                            throw th;
+                        }
+                    }
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                    if (outputStream2 != null) {
+                        try {
+                            outputStream2.close();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                    try {
+                        bufferedReader.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
+                    }
+                    return str4;
+                } catch (UnsupportedEncodingException unused2) {
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                    if (outputStream2 != null) {
+                        try {
+                            outputStream2.close();
+                        } catch (IOException e6) {
+                            e6.printStackTrace();
+                        }
+                    }
+                    if (0 != 0) {
+                        try {
+                            r1.close();
+                        } catch (IOException e7) {
+                            e7.printStackTrace();
+                        }
+                    }
+                    return null;
+                } catch (MalformedURLException unused3) {
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                    if (outputStream2 != null) {
+                        try {
+                            outputStream2.close();
+                        } catch (IOException e8) {
+                            e8.printStackTrace();
+                        }
+                    }
+                    if (0 != 0) {
+                        try {
+                            r1.close();
+                        } catch (IOException e9) {
+                            e9.printStackTrace();
+                        }
+                    }
+                    return null;
+                } catch (ProtocolException unused4) {
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                    if (outputStream2 != null) {
+                        try {
+                            outputStream2.close();
+                        } catch (IOException e10) {
+                            e10.printStackTrace();
+                        }
+                    }
+                    if (0 != 0) {
+                        try {
+                            r1.close();
+                        } catch (IOException e11) {
+                            e11.printStackTrace();
+                        }
+                    }
+                    return null;
+                } catch (IOException unused5) {
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                    if (outputStream2 != null) {
+                        try {
+                            outputStream2.close();
+                        } catch (IOException e12) {
+                            e12.printStackTrace();
+                        }
+                    }
+                    if (0 != 0) {
+                        try {
+                            r1.close();
+                        } catch (IOException e13) {
+                            e13.printStackTrace();
+                        }
+                    }
+                    return null;
+                } catch (Throwable th2) {
+                    r1 = httpURLConnection;
+                    outputStream = outputStream2;
+                    th = th2;
+                    bufferedReader = null;
+                }
+            } catch (UnsupportedEncodingException unused6) {
+                outputStream2 = null;
+            } catch (MalformedURLException unused7) {
+                outputStream2 = null;
+            } catch (ProtocolException unused8) {
+                outputStream2 = null;
+            } catch (IOException unused9) {
+                outputStream2 = null;
+            } catch (Throwable th3) {
+                th = th3;
+                bufferedReader = null;
+                r1 = httpURLConnection;
+                outputStream = null;
             }
-            for (int i4 = 0; i4 < i2; i4++) {
-                this.a.a(i + i4, d.d(i4));
-            }
+        } catch (UnsupportedEncodingException unused10) {
+            httpURLConnection = null;
+            outputStream2 = null;
+        } catch (MalformedURLException unused11) {
+            httpURLConnection = null;
+            outputStream2 = null;
+        } catch (ProtocolException unused12) {
+            httpURLConnection = null;
+            outputStream2 = null;
+        } catch (IOException unused13) {
+            httpURLConnection = null;
+            outputStream2 = null;
+        } catch (Throwable th4) {
+            th = th4;
+            outputStream = null;
+            bufferedReader = null;
         }
-    }
-
-    public byte[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.a() : (byte[]) invokeV.objValue;
     }
 }

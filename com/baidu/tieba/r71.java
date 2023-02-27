@@ -1,90 +1,133 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Outline;
+import android.graphics.Rect;
+import android.os.Build;
+import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewOutlineProvider;
+import android.view.ViewParent;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.webpanel.PanelScrollView;
-import com.baidu.nadcore.webpanel.model.AdData;
+import com.baidu.nadcore.webpanel.proxy.WebPanelBrowserContainer;
 import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.tieba.j51;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.HashMap;
-import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class r71 extends s71 {
+public final class r71 implements v71, h91, g91 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
-    public final String d;
-    public final Object e;
-    public o71 f;
-    public k71 g;
-    public q71 h;
-    public boolean i;
-    public final t71 j;
+    public c81 a;
+    public z71 b;
+    public a81 c;
+    public final Activity d;
+
+    @Override // com.baidu.tieba.h91, com.baidu.tieba.sa1
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.h91, com.baidu.tieba.sa1
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes6.dex */
-    public static final class a extends wm0<s61> {
+    public static final class a extends ViewOutlineProvider {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r71 b;
+        public final /* synthetic */ LinearLayout a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(r71 r71Var, Class cls) {
-            super(cls);
+        public a(LinearLayout linearLayout) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {r71Var, cls};
+                Object[] objArr = {linearLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Class) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = r71Var;
+            this.a = linearLayout;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wm0
-        public void onEvent(s61 event) {
-            AbsNadBrowserView m;
+        @Override // android.view.ViewOutlineProvider
+        public void getOutline(View view2, Outline outline) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
-                Intrinsics.checkNotNullParameter(event, "event");
-                if (!TextUtils.isEmpty(event.a()) && (m = this.b.j.m()) != null) {
-                    AbsNadBrowserView.C(m, event.a(), null, 2, null);
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, outline) == null) {
+                Rect rect = new Rect(0, 0, this.a.getMeasuredWidth(), this.a.getMeasuredHeight());
+                if (outline != null) {
+                    outline.setRoundRect(rect, j51.c.a(zb1.a(), 0.0f));
                 }
             }
         }
     }
 
-    public r71(t71 container) {
+    /* loaded from: classes6.dex */
+    public static final class b extends ViewOutlineProvider {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LinearLayout a;
+
+        public b(LinearLayout linearLayout) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {linearLayout};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = linearLayout;
+        }
+
+        @Override // android.view.ViewOutlineProvider
+        public void getOutline(View view2, Outline outline) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, outline) == null) {
+                Rect rect = new Rect(0, 0, this.a.getMeasuredWidth(), this.a.getMeasuredHeight());
+                if (outline != null) {
+                    outline.setRoundRect(rect, j51.c.a(zb1.a(), 18.0f));
+                }
+            }
+        }
+    }
+
+    public r71(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {container};
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -94,228 +137,16 @@ public final class r71 extends s71 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(container, "container");
-        this.j = container;
-        this.a = "bdmedialive://bdmedialive/common/closeWebview";
-        this.b = "bdmedialive://bdmedialive/common/panelSwitchHalfScreen";
-        this.c = "bdmedialive://bdmedialive/common/panelSwitchFullScreen";
-        this.d = "nadcorevendor://vendor/ad/webPanelControl";
-        this.e = new Object();
+        Intrinsics.checkNotNullParameter(activity, "activity");
+        this.d = activity;
     }
 
-    public final void l(int i) {
+    @Override // com.baidu.tieba.v71
+    public void g(int i) {
+        c81 c81Var;
         LinearLayout e;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (e = this.j.e()) != null) {
-            ViewGroup.LayoutParams layoutParams = e.getLayoutParams();
-            layoutParams.height = i;
-            e.setLayoutParams(layoutParams);
-        }
-    }
-
-    public final void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public final void o(k71 helper) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, helper) == null) {
-            Intrinsics.checkNotNullParameter(helper, "helper");
-            this.g = helper;
-        }
-    }
-
-    public final void p(o71 o71Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, o71Var) == null) {
-            this.f = o71Var;
-        }
-    }
-
-    public final void q(q71 q71Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, q71Var) == null) {
-            this.h = q71Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.s71
-    public boolean c(u71 container, String url) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, container, url)) == null) {
-            Intrinsics.checkNotNullParameter(container, "container");
-            Intrinsics.checkNotNullParameter(url, "url");
-            if (TextUtils.isEmpty(url)) {
-                return false;
-            }
-            if (TextUtils.equals(this.a, url)) {
-                g();
-                return true;
-            } else if (TextUtils.equals(this.b, url)) {
-                s();
-                return true;
-            } else if (TextUtils.equals(this.c, url)) {
-                r();
-                return true;
-            } else if (!StringsKt__StringsJVMKt.startsWith$default(url, this.d, false, 2, null)) {
-                return false;
-            } else {
-                return f(new bj0(url));
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final void i(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            AbsNadBrowserView m = this.j.m();
-            if (z) {
-                if (i == 1) {
-                    if (m != null) {
-                        AbsNadBrowserView.C(m, "javascript:window.onDxdInvoke({'key':'1','value':'start'})", null, 2, null);
-                    }
-                } else if (i == 2 && m != null) {
-                    AbsNadBrowserView.C(m, "javascript:window.onDxdInvoke({'key':'2','value':'start'})", null, 2, null);
-                }
-            } else if (i == 1) {
-                if (m != null) {
-                    AbsNadBrowserView.C(m, "javascript:window.onDxdInvoke({'key':'1','value':'end'})", null, 2, null);
-                }
-            } else if (i == 2) {
-                f71.a.a(true);
-                if (m != null) {
-                    AbsNadBrowserView.C(m, "javascript:window.onDxdInvoke({'key':'2','value':'end'})", null, 2, null);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.s71
-    public void d(u71 container, String url) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, container, url) == null) {
-            Intrinsics.checkNotNullParameter(container, "container");
-            Intrinsics.checkNotNullParameter(url, "url");
-            AbsNadBrowserView m = container.m();
-            if (m != null) {
-                AbsNadBrowserView.C(m, "javascript:window.onDxdInvoke({'key':'0'})", null, 2, null);
-            }
-        }
-    }
-
-    public final boolean f(bj0 bj0Var) {
-        InterceptResult invokeL;
-        boolean z;
-        k71 k71Var;
-        k71 k71Var2;
-        k71 k71Var3;
-        k71 k71Var4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bj0Var)) == null) {
-            HashMap<String, String> d = bj0Var.d();
-            Intrinsics.checkNotNullExpressionValue(d, "model.params");
-            String str = (String) z11.b(d, "params");
-            if (TextUtils.isEmpty(str)) {
-                return true;
-            }
-            JSONObject c = y11.c(str);
-            Intrinsics.checkNotNullExpressionValue(c, "JSONUtils.newJSONObject(paramsJson)");
-            String optString = c.optString("type");
-            if (c.optInt(PackageTable.DISABLE, 0) == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (optString != null) {
-                switch (optString.hashCode()) {
-                    case -2119262164:
-                        if (optString.equals("slideUp") && (k71Var = this.g) != null) {
-                            k71Var.j(z);
-                            break;
-                        }
-                        break;
-                    case -796944909:
-                        if (optString.equals("slideDown") && (k71Var2 = this.g) != null) {
-                            k71Var2.i(z);
-                            break;
-                        }
-                        break;
-                    case -102095252:
-                        if (optString.equals("slideControl") && (k71Var3 = this.g) != null) {
-                            k71Var3.h(z);
-                            break;
-                        }
-                        break;
-                    case 1538155302:
-                        if (optString.equals("topAreaClick") && (k71Var4 = this.g) != null) {
-                            k71Var4.k(z);
-                            break;
-                        }
-                        break;
-                }
-            }
-            String str2 = (String) z11.b(d, WebChromeClient.KEY_ARG_CALLBACK);
-            if (!TextUtils.isEmpty(str2)) {
-                Map<String, String> v = kj0.v(optString, c.optInt(PackageTable.DISABLE, 0));
-                z11.e(v, WebChromeClient.KEY_ARG_CALLBACK, str2);
-                AbsNadBrowserView m = this.j.m();
-                if (m != null) {
-                    AbsNadBrowserView.C(m, kj0.p(v), null, 2, null);
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void g() {
-        o71 o71Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (o71Var = this.f) != null) {
-            o71Var.a(1);
-        }
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void j() {
-        AbsNadBrowserView m;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (m = this.j.m()) != null) {
-            AbsNadBrowserView.C(m, "javascript:window.onDxdInvoke({'key':'3'})", null, 2, null);
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            sm0.a().c(this.e, 1, new a(this, s61.class));
-        }
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            sm0.a().unregister(this.e);
-        }
-    }
-
-    public final void m(int i) {
-        LinearLayout e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (e = this.j.e()) != null && (e.getLayoutParams() instanceof FrameLayout.LayoutParams)) {
+        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (c81Var = this.a) != null && (e = c81Var.e()) != null && (e.getLayoutParams() instanceof FrameLayout.LayoutParams)) {
             ViewGroup.LayoutParams layoutParams = e.getLayoutParams();
             if (layoutParams != null) {
                 FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
@@ -327,55 +158,336 @@ public final class r71 extends s71 {
         }
     }
 
-    public final void r() {
-        AdData adData;
+    @Override // com.baidu.tieba.v71
+    public void p(t71 controlHelper) {
+        a81 a81Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            k71 k71Var = this.g;
-            if (k71Var != null) {
-                l(k71Var.f() + PanelScrollView.A);
-                m(0);
-                um0 a2 = sm0.a();
-                q71 q71Var = this.h;
-                if (q71Var != null) {
-                    adData = q71Var.a();
-                } else {
-                    adData = null;
+        if (interceptable == null || interceptable.invokeL(1048594, this, controlHelper) == null) {
+            Intrinsics.checkNotNullParameter(controlHelper, "controlHelper");
+            c81 c81Var = this.a;
+            if (c81Var != null) {
+                a81 a81Var2 = new a81(c81Var);
+                this.c = a81Var2;
+                if (a81Var2 != null) {
+                    a81Var2.q(this.b);
                 }
-                a2.a(new l71(3, adData));
-                this.i = true;
+                a81 a81Var3 = this.c;
+                if (a81Var3 != null) {
+                    a81Var3.o(controlHelper);
+                }
+                z71 z71Var = this.b;
+                if (z71Var != null && z71Var.t() && (a81Var = this.c) != null) {
+                    a81Var.k();
+                }
+                c81Var.n(this.c);
             }
-            q71 q71Var2 = this.h;
-            if (q71Var2 != null) {
-                w71.a(ClogBuilder.LogType.DAZZLE_TRANS_SLIDING_COUNT, "", MapBundleKey.OfflineMapKey.OFFLINE_UPDATE, q71Var2.c());
-            }
-            f71.a.a(true);
         }
     }
 
-    public final void s() {
-        AdData adData;
+    @Override // com.baidu.tieba.v71
+    public void a() {
+        a81 a81Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            k71 k71Var = this.g;
-            if (k71Var != null) {
-                l((k71Var.f() - k71Var.e()) + PanelScrollView.A);
-                m(k71Var.e());
-                um0 a2 = sm0.a();
-                q71 q71Var = this.h;
-                if (q71Var != null) {
-                    adData = q71Var.a();
-                } else {
-                    adData = null;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (a81Var = this.c) != null) {
+            a81Var.j();
+        }
+    }
+
+    @Override // com.baidu.tieba.v71
+    public ViewGroup.LayoutParams b() {
+        InterceptResult invokeV;
+        LinearLayout e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            c81 c81Var = this.a;
+            if (c81Var != null && (e = c81Var.e()) != null) {
+                return e.getLayoutParams();
+            }
+            return null;
+        }
+        return (ViewGroup.LayoutParams) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.v71
+    public void f() {
+        c81 c81Var;
+        LinearLayout e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (c81Var = this.a) != null && (e = c81Var.e()) != null && Build.VERSION.SDK_INT >= 21) {
+            e.setOutlineProvider(new a(e));
+            e.setClipToOutline(true);
+        }
+    }
+
+    @Override // com.baidu.tieba.h91, com.baidu.tieba.sa1
+    public Activity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.d;
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.v71
+    public boolean h() {
+        InterceptResult invokeV;
+        AbsNadBrowserView m;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            c81 c81Var = this.a;
+            if (c81Var != null && (m = c81Var.m()) != null && m.d()) {
+                c81 c81Var2 = this.a;
+                if (c81Var2 != null) {
+                    c81Var2.g();
                 }
-                a2.a(new l71(4, adData));
-                this.i = true;
+                return true;
             }
-            q71 q71Var2 = this.h;
-            if (q71Var2 != null) {
-                w71.a(ClogBuilder.LogType.DAZZLE_TRANS_SLIDING_COUNT, "", "down", q71Var2.c());
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.v71
+    public boolean j() {
+        InterceptResult invokeV;
+        AbsNadBrowserView m;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            c81 c81Var = this.a;
+            if (c81Var != null && (m = c81Var.m()) != null) {
+                return m.x();
             }
-            f71.a.a(false);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.v71
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            a81 a81Var = this.c;
+            if (a81Var != null) {
+                return a81Var.h();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.v71
+    public void onDestroy() {
+        a81 a81Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            z71 z71Var = this.b;
+            if (z71Var != null && z71Var.t() && (a81Var = this.c) != null) {
+                a81Var.t();
+            }
+            c81 c81Var = this.a;
+            if (c81Var != null) {
+                c81Var.onPause();
+            }
+            c81 c81Var2 = this.a;
+            if (c81Var2 != null) {
+                c81Var2.onDestroy();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.g91
+    public void q() {
+        a81 a81Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && (a81Var = this.c) != null) {
+            a81Var.g();
+        }
+    }
+
+    @Override // com.baidu.tieba.v71
+    public void v() {
+        c81 c81Var;
+        LinearLayout e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (c81Var = this.a) != null && (e = c81Var.e()) != null && Build.VERSION.SDK_INT >= 21) {
+            e.setOutlineProvider(new b(e));
+            e.setClipToOutline(true);
+        }
+    }
+
+    @Override // com.baidu.tieba.v71
+    public void e(View.OnLayoutChangeListener onLayoutChangeListener) {
+        c81 c81Var;
+        LinearLayout e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, onLayoutChangeListener) == null) && (c81Var = this.a) != null && (e = c81Var.e()) != null) {
+            e.removeOnLayoutChangeListener(onLayoutChangeListener);
+        }
+    }
+
+    @Override // com.baidu.tieba.v71
+    public void i(FrameLayout.LayoutParams params) {
+        LinearLayout e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, params) == null) {
+            Intrinsics.checkNotNullParameter(params, "params");
+            c81 c81Var = this.a;
+            if (c81Var != null && (e = c81Var.e()) != null) {
+                e.setLayoutParams(params);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.v71
+    public void k(int i) {
+        c81 c81Var;
+        LinearLayout e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (c81Var = this.a) != null && (e = c81Var.e()) != null) {
+            ViewGroup.LayoutParams layoutParams = e.getLayoutParams();
+            layoutParams.height = i;
+            e.setLayoutParams(layoutParams);
+        }
+    }
+
+    @Override // com.baidu.tieba.v71
+    public void l(z71 z71Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, z71Var) == null) {
+            this.b = z71Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.v71
+    public void m(boolean z) {
+        a81 a81Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048590, this, z) == null) && (a81Var = this.c) != null) {
+            a81Var.n(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.v71
+    public void r(String str) {
+        c81 c81Var;
+        AbsNadBrowserView m;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048596, this, str) == null) && (c81Var = this.a) != null && (m = c81Var.m()) != null) {
+            AbsNadBrowserView.C(m, str, null, 2, null);
+        }
+    }
+
+    @Override // com.baidu.tieba.v71
+    public void s(View.OnLayoutChangeListener onLayoutChangeListener) {
+        c81 c81Var;
+        LinearLayout e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048597, this, onLayoutChangeListener) == null) && (c81Var = this.a) != null && (e = c81Var.e()) != null) {
+            e.addOnLayoutChangeListener(onLayoutChangeListener);
+        }
+    }
+
+    @Override // com.baidu.tieba.v71
+    public void u(x71 x71Var) {
+        a81 a81Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048599, this, x71Var) == null) && (a81Var = this.c) != null) {
+            a81Var.p(x71Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.h91, com.baidu.tieba.sa1
+    public Intent getIntent() {
+        InterceptResult invokeV;
+        String b2;
+        String c;
+        String f;
+        String h;
+        String i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            Intent intent = new Intent();
+            HashMap hashMap = new HashMap();
+            z71 z71Var = this.b;
+            if (z71Var != null && (i = z71Var.i()) != null) {
+                hashMap.put("url", i);
+                hashMap.put("lp_real_url", i);
+                intent.putExtra("url", i);
+                intent.putExtra("lp_real_url", i);
+            }
+            z71 z71Var2 = this.b;
+            if (z71Var2 != null && (h = z71Var2.h()) != null) {
+                hashMap.put("sdk_script", h);
+                intent.putExtra("sdk_script", h);
+            }
+            z71 z71Var3 = this.b;
+            if (z71Var3 != null && (f = z71Var3.f()) != null) {
+                hashMap.put("log_switch", f);
+                intent.putExtra("log_switch", f);
+            }
+            z71 z71Var4 = this.b;
+            if (z71Var4 != null && (c = z71Var4.c()) != null) {
+                hashMap.put("ext_info", c);
+                intent.putExtra("ext_info", c);
+            }
+            z71 z71Var5 = this.b;
+            if (z71Var5 != null && (b2 = z71Var5.b()) != null) {
+                hashMap.put("charge_url", b2);
+                intent.putExtra("charge_url", b2);
+            }
+            hashMap.put("lp_org_type", "pop_web");
+            intent.putExtra("lp_org_type", "pop_web");
+            intent.putExtra("map", hashMap);
+            return intent;
+        }
+        return (Intent) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.v71
+    public void o(ViewGroup parent) {
+        ViewParent viewParent;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, parent) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            ViewGroup viewGroup = null;
+            WebPanelBrowserContainer webPanelBrowserContainer = new WebPanelBrowserContainer(this, new i81(), null);
+            this.a = webPanelBrowserContainer;
+            webPanelBrowserContainer.u0(false);
+            webPanelBrowserContainer.t0(false);
+            webPanelBrowserContainer.t();
+            webPanelBrowserContainer.z(this);
+            webPanelBrowserContainer.v();
+            v();
+            LinearLayout e = webPanelBrowserContainer.e();
+            if (e != null) {
+                e.setPadding(0, 0, 0, PanelScrollView.A);
+            }
+            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, -1);
+            FrameLayout h = webPanelBrowserContainer.h();
+            if (h != null) {
+                viewParent = h.getParent();
+            } else {
+                viewParent = null;
+            }
+            if (viewParent instanceof ViewGroup) {
+                viewGroup = viewParent;
+            }
+            ViewGroup viewGroup2 = viewGroup;
+            if (viewGroup2 != null) {
+                viewGroup2.removeView(h);
+            }
+            parent.addView(h, layoutParams);
+        }
+    }
+
+    @Override // com.baidu.tieba.v71
+    public void t(int i, boolean z) {
+        a81 a81Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) && (a81Var = this.c) != null) {
+            a81Var.i(i, z);
         }
     }
 }

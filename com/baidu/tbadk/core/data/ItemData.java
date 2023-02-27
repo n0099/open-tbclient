@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.ctrl.model.TaskProcess;
 import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.tieba.dh;
@@ -109,7 +110,7 @@ public class ItemData extends OrmObject implements Serializable {
                     builder.pkg_source = Integer.valueOf(optJSONObject.optInt("pkg_source"));
                     this.apkDetail = builder.build(true);
                 }
-                JSONArray optJSONArray = jSONObject.optJSONArray("tags");
+                JSONArray optJSONArray = jSONObject.optJSONArray(TaskProcess.keyTags);
                 ArrayList arrayList = new ArrayList();
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {

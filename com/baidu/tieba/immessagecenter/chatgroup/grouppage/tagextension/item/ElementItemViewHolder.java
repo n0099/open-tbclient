@@ -7,36 +7,36 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b35;
 import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder;
-import com.baidu.tieba.jr7;
-import com.baidu.tieba.p15;
-import com.baidu.tieba.ur7;
-import com.baidu.tieba.vr7;
+import com.baidu.tieba.ju7;
+import com.baidu.tieba.vu7;
+import com.baidu.tieba.wu7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ElementItemViewHolder extends BaseTagItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TextView c;
     public final ImageView d;
-    public jr7 e;
+    public ju7 e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vr7 a;
+        public final /* synthetic */ wu7 a;
         public final /* synthetic */ ElementItemViewHolder b;
 
-        public a(ElementItemViewHolder elementItemViewHolder, vr7 vr7Var) {
+        public a(ElementItemViewHolder elementItemViewHolder, wu7 wu7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {elementItemViewHolder, vr7Var};
+                Object[] objArr = {elementItemViewHolder, wu7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,7 +47,7 @@ public class ElementItemViewHolder extends BaseTagItemViewHolder {
                 }
             }
             this.b = elementItemViewHolder;
-            this.a = vr7Var;
+            this.a = wu7Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -61,13 +61,13 @@ public class ElementItemViewHolder extends BaseTagItemViewHolder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ElementItemViewHolder(View view2, vr7 vr7Var) {
+    public ElementItemViewHolder(View view2, wu7 wu7Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, vr7Var};
+            Object[] objArr = {view2, wu7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -78,9 +78,9 @@ public class ElementItemViewHolder extends BaseTagItemViewHolder {
                 return;
             }
         }
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092190);
-        this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09218f);
-        view2.setOnClickListener(new a(this, vr7Var));
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921d7);
+        this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0921d6);
+        view2.setOnClickListener(new a(this, wu7Var));
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder
@@ -93,17 +93,17 @@ public class ElementItemViewHolder extends BaseTagItemViewHolder {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder
-    public void d(ur7 ur7Var, Context context, int i) {
+    public void d(vu7 vu7Var, Context context, int i) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, ur7Var, context, i) == null) {
-            super.d(ur7Var, context, i);
-            if (ur7Var instanceof jr7) {
-                jr7 jr7Var = (jr7) ur7Var;
-                this.e = jr7Var;
-                this.c.setText(jr7Var.b());
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, vu7Var, context, i) == null) {
+            super.d(vu7Var, context, i);
+            if (vu7Var instanceof ju7) {
+                ju7 ju7Var = (ju7) vu7Var;
+                this.e = ju7Var;
+                this.c.setText(ju7Var.b());
                 ImageView imageView = this.d;
-                if (jr7Var.h()) {
+                if (ju7Var.h()) {
                     i2 = 0;
                 } else {
                     i2 = 8;
@@ -118,24 +118,24 @@ public class ElementItemViewHolder extends BaseTagItemViewHolder {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            p15 d = p15.d(this.itemView);
+            b35 d = b35.d(this.itemView);
             d.n(R.string.J_X19);
             d.h(R.color.CAM_X0905);
-            jr7 jr7Var = this.e;
-            if (jr7Var != null && jr7Var.i()) {
+            ju7 ju7Var = this.e;
+            if (ju7Var != null && ju7Var.i()) {
                 z = true;
             } else {
                 z = false;
             }
-            jr7 jr7Var2 = this.e;
-            if (jr7Var2 != null && jr7Var2.h()) {
+            ju7 ju7Var2 = this.e;
+            if (ju7Var2 != null && ju7Var2.h()) {
                 if (z) {
-                    WebPManager.setPureDrawable(this.d, R.drawable.obfuscated_res_0x7f080a54, R.color.CAM_X0304, null);
+                    WebPManager.setPureDrawable(this.d, R.drawable.obfuscated_res_0x7f080a58, R.color.CAM_X0304, null);
                 } else {
-                    WebPManager.setPureDrawable(this.d, R.drawable.obfuscated_res_0x7f080a55, R.color.CAM_X0304, null);
+                    WebPManager.setPureDrawable(this.d, R.drawable.obfuscated_res_0x7f080a59, R.color.CAM_X0304, null);
                 }
             }
-            p15 d2 = p15.d(this.c);
+            b35 d2 = b35.d(this.c);
             d2.z(R.dimen.T_X08);
             d2.v(R.color.CAM_X0304);
             d2.A(R.string.F_X01);

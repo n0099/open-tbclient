@@ -1,39 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import com.baidu.searchbox.v8engine.JsObject;
 /* loaded from: classes3.dex */
-public class b94 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<long[]> b;
-    public String c;
+public interface b94 {
+    void a(JsObject jsObject);
 
-    public b94() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(JsObject jsObject);
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "[ videoPath = " + this.a + "; clipPath = " + this.c + "; clipList = " + this.b + " ]";
-        }
-        return (String) invokeV.objValue;
-    }
+    void c(JsObject jsObject);
+
+    void d(JsObject jsObject);
+
+    void e(JsObject jsObject);
+
+    void f();
+
+    void g(JsObject jsObject);
+
+    void h(JsObject jsObject);
+
+    void i(JsObject jsObject);
+
+    void j();
+
+    void k(JsObject jsObject);
 }

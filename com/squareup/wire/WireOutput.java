@@ -1,7 +1,6 @@
 package com.squareup.wire;
 
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.encrypt.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,7 +21,7 @@ public final class WireOutput {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) {
-            if ((i & a.g) == 0) {
+            if ((i & (-128)) == 0) {
                 return 1;
             }
             if ((i & (-16384)) == 0) {
@@ -195,7 +194,7 @@ public final class WireOutput {
     public void writeVarint32(int i) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            while ((i & a.g) != 0) {
+            while ((i & (-128)) != 0) {
                 writeRawByte((i & 127) | 128);
                 i >>>= 7;
             }

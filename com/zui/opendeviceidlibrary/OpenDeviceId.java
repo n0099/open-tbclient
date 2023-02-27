@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.zui.deviceidservice.IDeviceidInterface;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class OpenDeviceId {
     public static /* synthetic */ Interceptable $ic = null;
     @Keep
@@ -33,7 +33,7 @@ public class OpenDeviceId {
     public IDeviceidInterface mDeviceidInterface;
 
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface CallBack<T> {
         @Keep
         void serviceConnected(T t, OpenDeviceId openDeviceId);

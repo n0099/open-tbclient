@@ -116,7 +116,7 @@ public class AlaEnterEffectAdapter extends qn<AlaEnterEffectData, ViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            return new ViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00ee, (ViewGroup) null));
+            return new ViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00ef, (ViewGroup) null));
         }
         return (ViewHolder) invokeL.objValue;
     }
@@ -129,11 +129,7 @@ public class AlaEnterEffectAdapter extends qn<AlaEnterEffectData, ViewHolder> {
         SkinManager.setBackgroundResource(viewHolder.getView(), R.color.CAM_X0201);
         SkinManager.setViewTextColor(viewHolder.d, R.color.CAM_X0109, 1, this.b);
         SkinManager.setViewTextColor(viewHolder.b, R.color.CAM_X0105, 1, this.b);
-        if (this.b == 1) {
-            viewHolder.g.setVisibility(0);
-        } else {
-            viewHolder.g.setVisibility(8);
-        }
+        viewHolder.g.setVisibility(8);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -146,7 +142,7 @@ public class AlaEnterEffectAdapter extends qn<AlaEnterEffectData, ViewHolder> {
             viewHolder.a.K(alaEnterEffectData.thumbnail_url, 10, false);
             viewHolder.b.setText(alaEnterEffectData.name);
             if (alaEnterEffectData.isUsing()) {
-                SkinManager.setViewTextColor(viewHolder.c, R.color.obfuscated_res_0x7f0607a0, 1, this.b);
+                SkinManager.setViewTextColor(viewHolder.c, R.color.obfuscated_res_0x7f060632, 1, this.b);
                 SkinManager.setBackgroundResource(viewHolder.c, R.drawable.obfuscated_res_0x7f0801d6, this.b);
                 viewHolder.c.setText(this.a.getString(R.string.obfuscated_res_0x7f0f021e));
                 viewHolder.a.setAlpha(1.0f);

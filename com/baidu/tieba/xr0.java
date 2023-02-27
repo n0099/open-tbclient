@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,101 +9,76 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class xr0 {
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringNumberConversionsKt;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public final class xr0 {
     public static /* synthetic */ Interceptable $ic;
-    public static gs0 a;
-    public static gs0 b;
+    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public final String a;
+    public int b;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948309843, "Lcom/baidu/tieba/xr0;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948309843, "Lcom/baidu/tieba/xr0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948309843, "Lcom/baidu/tieba/xr0;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948309843, "Lcom/baidu/tieba/xr0;");
-        }
+        c = new a(null);
     }
 
-    /* loaded from: classes7.dex */
-    public static class b {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof xr0) {
+                    xr0 xr0Var = (xr0) obj;
+                    return Intrinsics.areEqual(this.a, xr0Var.a) && this.b == xr0Var.b;
+                }
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String str = this.a;
+            return ((str != null ? str.hashCode() : 0) * 31) + this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "TaskCenterPolicy(invokeTaskActiveUrl=" + this.a + ", invokeTaskCoin=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public es0 a;
-        public es0 b;
 
-        /* loaded from: classes7.dex */
-        public class a implements gs0 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ es0 b;
-
-            public a(b bVar, es0 es0Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, es0Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = es0Var;
-            }
-
-            @Override // com.baidu.tieba.gs0
-            public es0 a() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    return this.b;
-                }
-                return (es0) invokeV.objValue;
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.xr0$b$b  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C0491b {
-            public static /* synthetic */ Interceptable $ic;
-            public static final b a;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            static {
-                InterceptResult invokeClinit;
-                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1502018263, "Lcom/baidu/tieba/xr0$b$b;")) != null) {
-                    Interceptable interceptable = invokeClinit.interceptor;
-                    if (interceptable != null) {
-                        $ic = interceptable;
-                    }
-                    if ((invokeClinit.flags & 1) != 0) {
-                        classClinitInterceptable.invokePostClinit(1502018263, "Lcom/baidu/tieba/xr0$b$b;");
-                        return;
-                    }
-                }
-                a = new b(null);
-            }
-        }
-
-        public b() {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,111 +88,74 @@ public class xr0 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = null;
-            this.b = null;
         }
 
-        public static b b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                return C0491b.a;
-            }
-            return (b) invokeV.objValue;
-        }
-
-        public /* synthetic */ b(a aVar) {
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
 
-        public gs0 a(String str) {
+        @JvmStatic
+        public final xr0 a(JSONObject jSONObject) {
             InterceptResult invokeL;
-            char c;
-            es0 es0Var;
+            int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                int hashCode = str.hashCode();
-                if (hashCode != -1015101340) {
-                    if (hashCode == 1544803905 && str.equals("default")) {
-                        c = 0;
-                    }
-                    c = 65535;
-                } else {
-                    if (str.equals("okhttp")) {
-                        c = 1;
-                    }
-                    c = 65535;
-                }
-                if (c != 0) {
-                    if (c == 1) {
-                        if (this.b == null) {
-                            synchronized (xr0.class) {
-                                if (this.b == null) {
-                                    this.b = vr0.a.b(str);
-                                }
-                            }
-                        }
-                        es0Var = this.b;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+                if (jSONObject != null) {
+                    String optString = jSONObject.optString("invoke_active_url");
+                    Intrinsics.checkNotNullExpressionValue(optString, "optString(\"invoke_active_url\")");
+                    String optString2 = jSONObject.optString("invoke_coin");
+                    Intrinsics.checkNotNullExpressionValue(optString2, "optString(\"invoke_coin\")");
+                    Integer intOrNull = StringsKt__StringNumberConversionsKt.toIntOrNull(optString2);
+                    if (intOrNull != null) {
+                        i = intOrNull.intValue();
                     } else {
-                        throw new IllegalStateException("Unexpected type:" + str);
+                        i = 0;
                     }
-                } else {
-                    if (this.a == null) {
-                        synchronized (xr0.class) {
-                            if (this.a == null) {
-                                this.a = vr0.a.b(str);
-                            }
-                        }
-                    }
-                    es0Var = this.a;
+                    return new xr0(optString, i);
                 }
-                return new a(this, es0Var);
+                return null;
             }
-            return (gs0) invokeL.objValue;
+            return (xr0) invokeL.objValue;
         }
     }
 
-    public xr0() {
+    public xr0(String invokeTaskActiveUrl, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {invokeTaskActiveUrl, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(invokeTaskActiveUrl, "invokeTaskActiveUrl");
+        this.a = invokeTaskActiveUrl;
+        this.b = i;
     }
 
-    public static gs0 a() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (xr0.class) {
-                    if (b == null) {
-                        if (a == null) {
-                            a = (gs0) ServiceManager.getService(gs0.a);
-                        }
-                        b = a;
-                    }
-                    if (b != null) {
-                        return b;
-                    }
-                    if (TextUtils.equals("okhttp", "mixed")) {
-                        b = b.b().a("okhttp");
-                    } else {
-                        b = vr0.a;
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (gs0) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
     }
 }

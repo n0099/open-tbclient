@@ -464,7 +464,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         this.B = paint2;
         paint2.setColor(-1);
         this.B.setTextSize(resources.getDimension(R.dimen.obfuscated_res_0x7f0701d5));
-        Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.bg_look_photo_1);
+        Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.bg_look_photo_2);
         this.C = cashBitmap;
         if (cashBitmap != null) {
             this.D = new Rect(0, 0, this.C.getWidth(), this.C.getHeight());
@@ -629,7 +629,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
             Bitmap bitmap = this.C;
             if (bitmap == null || bitmap.isRecycled()) {
-                Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.bg_look_photo_1);
+                Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.bg_look_photo_2);
                 this.C = cashBitmap;
                 if (cashBitmap != null) {
                     this.D = new Rect(0, 0, this.C.getWidth(), this.C.getHeight());

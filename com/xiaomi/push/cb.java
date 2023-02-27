@@ -1,34 +1,35 @@
 package com.xiaomi.push;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.Context;
+import com.xiaomi.push.ci;
+import java.lang.ref.WeakReference;
 /* loaded from: classes8.dex */
-public class cb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 200;
+public class cb implements Runnable {
+    public String a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static long f182a = 52428800;
+    public WeakReference<Context> f163a;
 
-    /* renamed from: a  reason: collision with other field name */
-    public static String f183a = "MessageInfo.db";
-    public transient /* synthetic */ FieldHolder $fh;
+    public cb(String str, WeakReference<Context> weakReference) {
+        this.a = str;
+        this.f163a = weakReference;
+    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-56377919, "Lcom/xiaomi/push/cb;")) == null) {
+    @Override // java.lang.Runnable
+    public void run() {
+        Context context;
+        WeakReference<Context> weakReference = this.f163a;
+        if (weakReference == null || (context = weakReference.get()) == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        if (co.a(this.a) <= ca.f161a) {
+            com.xiaomi.channel.commonutils.logger.b.b("=====> do not need clean db");
+            return;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-56377919, "Lcom/xiaomi/push/cb;");
-        }
+        ce a = ce.a(this.a);
+        cd a2 = cd.a(this.a);
+        a.a(a2);
+        a2.a(cc.a(context, this.a, 1000));
+        ci.a(context).a((ci.a) a);
     }
 }

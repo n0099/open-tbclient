@@ -1,47 +1,165 @@
 package com.xiaomi.push;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tieba.video.VideoItemModel;
+import com.xiaomi.push.dw;
+import com.xiaomi.push.fv;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class ft extends Thread {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ fs a;
+public class ft implements gh {
+    public static boolean a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ft(fs fsVar, String str) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fsVar, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* renamed from: a  reason: collision with other field name */
+    public fv f400a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public SimpleDateFormat f403a = new SimpleDateFormat("hh:mm:ss aaa");
+
+    /* renamed from: a  reason: collision with other field name */
+    public a f399a = null;
+    public a b = null;
+
+    /* renamed from: a  reason: collision with other field name */
+    public fy f401a = null;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final String f402a = "[Slim] ";
+
+    /* loaded from: classes8.dex */
+    public class a implements ga, gi {
+
+        /* renamed from: a  reason: collision with other field name */
+        public String f404a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public boolean f405a;
+
+        public a(boolean z) {
+            this.f405a = true;
+            this.f405a = z;
+            this.f404a = z ? " RCV " : " Sent ";
+        }
+
+        @Override // com.xiaomi.push.ga
+        public void a(fk fkVar) {
+            StringBuilder sb;
+            String str;
+            if (ft.a) {
+                sb = new StringBuilder();
+                sb.append("[Slim] ");
+                sb.append(ft.this.f403a.format(new Date()));
+                sb.append(this.f404a);
+                str = fkVar.toString();
+            } else {
+                sb = new StringBuilder();
+                sb.append("[Slim] ");
+                sb.append(ft.this.f403a.format(new Date()));
+                sb.append(this.f404a);
+                sb.append(" Blob [");
+                sb.append(fkVar.m399a());
+                sb.append(",");
+                sb.append(fkVar.a());
+                sb.append(",");
+                sb.append(com.xiaomi.push.service.bd.a(fkVar.e()));
+                str = PreferencesUtil.RIGHT_MOUNT;
+            }
+            sb.append(str);
+            com.xiaomi.channel.commonutils.logger.b.c(sb.toString());
+            if (fkVar == null || fkVar.a() != 99999) {
                 return;
             }
-        }
-        this.a = fsVar;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        fn fnVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                fnVar = this.a.a;
-                fnVar.m415a();
-            } catch (Exception e) {
-                this.a.c(9, e);
+            String m399a = fkVar.m399a();
+            fk fkVar2 = null;
+            if (!this.f405a) {
+                if ("BIND".equals(m399a)) {
+                    com.xiaomi.channel.commonutils.logger.b.m97a("build binded result for loopback.");
+                    dw.d dVar = new dw.d();
+                    dVar.a(true);
+                    dVar.c("login success.");
+                    dVar.b("success");
+                    dVar.a("success");
+                    fk fkVar3 = new fk();
+                    fkVar3.a(dVar.m363a(), (String) null);
+                    fkVar3.a((short) 2);
+                    fkVar3.a(VideoItemModel.TYPE_LOADING);
+                    fkVar3.a("BIND", (String) null);
+                    fkVar3.a(fkVar.e());
+                    fkVar3.b((String) null);
+                    fkVar3.c(fkVar.g());
+                    fkVar2 = fkVar3;
+                } else if (!"UBND".equals(m399a) && "SECMSG".equals(m399a)) {
+                    fk fkVar4 = new fk();
+                    fkVar4.a(VideoItemModel.TYPE_LOADING);
+                    fkVar4.a("SECMSG", (String) null);
+                    fkVar4.c(fkVar.g());
+                    fkVar4.a(fkVar.e());
+                    fkVar4.a(fkVar.m401a());
+                    fkVar4.b(fkVar.f());
+                    fkVar4.a(fkVar.m404a(com.xiaomi.push.service.bg.a().a(String.valueOf((int) VideoItemModel.TYPE_LOADING), fkVar.g()).h), (String) null);
+                    fkVar2 = fkVar4;
+                }
+            }
+            if (fkVar2 != null) {
+                for (Map.Entry<ga, fv.a> entry : ft.this.f400a.m422a().entrySet()) {
+                    if (ft.this.f399a != entry.getKey()) {
+                        entry.getValue().a(fkVar2);
+                    }
+                }
             }
         }
+
+        /* JADX DEBUG: Possible override for method com.xiaomi.push.gi.a(Lcom/xiaomi/push/gm;)Z */
+        @Override // com.xiaomi.push.ga
+        public void a(gm gmVar) {
+            StringBuilder sb;
+            String str;
+            if (ft.a) {
+                sb = new StringBuilder();
+                sb.append("[Slim] ");
+                sb.append(ft.this.f403a.format(new Date()));
+                sb.append(this.f404a);
+                sb.append(" PKT ");
+                str = gmVar.mo446a();
+            } else {
+                sb = new StringBuilder();
+                sb.append("[Slim] ");
+                sb.append(ft.this.f403a.format(new Date()));
+                sb.append(this.f404a);
+                sb.append(" PKT [");
+                sb.append(gmVar.k());
+                sb.append(",");
+                sb.append(gmVar.j());
+                str = PreferencesUtil.RIGHT_MOUNT;
+            }
+            sb.append(str);
+            com.xiaomi.channel.commonutils.logger.b.c(sb.toString());
+        }
+
+        /* JADX DEBUG: Possible override for method com.xiaomi.push.ga.a(Lcom/xiaomi/push/gm;)V */
+        @Override // com.xiaomi.push.gi
+        /* renamed from: a  reason: collision with other method in class */
+        public boolean mo417a(gm gmVar) {
+            return true;
+        }
+    }
+
+    public ft(fv fvVar) {
+        this.f400a = null;
+        this.f400a = fvVar;
+        a();
+    }
+
+    private void a() {
+        this.f399a = new a(true);
+        this.b = new a(false);
+        fv fvVar = this.f400a;
+        a aVar = this.f399a;
+        fvVar.a(aVar, aVar);
+        fv fvVar2 = this.f400a;
+        a aVar2 = this.b;
+        fvVar2.b(aVar2, aVar2);
+        this.f401a = new fu(this);
     }
 }

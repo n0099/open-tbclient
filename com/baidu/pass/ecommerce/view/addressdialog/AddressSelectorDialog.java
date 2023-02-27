@@ -10,7 +10,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.adapter.AddrListPagerAdapter;
 import com.baidu.pass.ecommerce.view.SlidingTabLayout;
 import com.baidu.pass.ecommerce.view.addressdialog.ListPagerView;
@@ -19,16 +18,10 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.ecommerce.result.AddressBean;
 import com.baidu.sapi2.ecommerce.result.AddressSelectedBean;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class AddressSelectorDialog extends Dialog implements NoProguard, ListPagerView.OnEntitySelectedListener, OnTabSelectListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public float beforeX;
     public ResultHelpBean cityBean;
     public ResultHelpBean districtBean;
@@ -46,124 +39,63 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
 
     @Override // com.baidu.pass.ecommerce.view.addressdialog.OnTabSelectListener
     public void onTabReselect(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-        }
     }
 
     /* loaded from: classes2.dex */
     public static class ResultHelpBean {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public String id;
         public String name;
 
         public ResultHelpBean() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
         }
 
         public void resetBean() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.id = "";
-                this.name = "";
-            }
+            this.id = "";
+            this.name = "";
         }
 
         public ResultHelpBean(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             this.id = str;
             this.name = str2;
         }
 
         public void refershBean(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-                this.id = str;
-                this.name = str2;
-            }
+            this.id = str;
+            this.name = str2;
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AddressSelectorDialog(@NonNull Context context) {
-        this(context, (int) R.style.obfuscated_res_0x7f1003e4);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        this(context, (int) R.style.obfuscated_res_0x7f1003e7);
+    }
+
+    @Override // com.baidu.pass.ecommerce.view.addressdialog.OnTabSelectListener
+    public void onTabSelect(int i) {
+        if (i >= this.mRealPagerNumber) {
+            return;
         }
+        this.mViewPager.setCurrentItem(i, true);
     }
 
     public void setAddressSelectedBean(AddressSelectedBean addressSelectedBean) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, addressSelectedBean) == null) {
-            if (addressSelectedBean == null) {
-                AddressSelectedBean addressSelectedBean2 = new AddressSelectedBean();
-                this.mAddressSelectedBean = addressSelectedBean2;
-                addressSelectedBean2.countryId = ListPagerView.REQUEST_PARAM_CHINA;
-                addressSelectedBean2.countryName = "中国";
-            } else if (!this.mAddressSelectedBean.compare(addressSelectedBean)) {
-                this.mAddressSelectedBean = addressSelectedBean;
-                refershTabFromEntity();
-                refershPageFromEntity();
-            }
+        if (addressSelectedBean == null) {
+            AddressSelectedBean addressSelectedBean2 = new AddressSelectedBean();
+            this.mAddressSelectedBean = addressSelectedBean2;
+            addressSelectedBean2.countryId = ListPagerView.REQUEST_PARAM_CHINA;
+            addressSelectedBean2.countryName = "中国";
+        } else if (!this.mAddressSelectedBean.compare(addressSelectedBean)) {
+            this.mAddressSelectedBean = addressSelectedBean;
+            refershTabFromEntity();
+            refershPageFromEntity();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public void setOnDialogSelectedListenter(OnDialogSelectedListenter onDialogSelectedListenter) {
+        this.mOnDialogSelectedListenter = onDialogSelectedListenter;
+    }
+
     public AddressSelectorDialog(@NonNull Context context, int i) {
         super(context, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mViewList = new ArrayList();
         this.provinceBean = new ResultHelpBean();
         this.cityBean = new ResultHelpBean();
@@ -172,203 +104,90 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
         this.mContext = context;
     }
 
-    @Override // com.baidu.pass.ecommerce.view.addressdialog.ListPagerView.OnEntitySelectedListener
-    public void onEntitySelected(int i, AddressBean addressBean) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, addressBean) != null) || addressBean == null) {
-            return;
-        }
-        String str2 = addressBean.id;
-        boolean z = addressBean.isHotCity;
-        if (addressBean.isNotSelected) {
-            str = "请选择";
-        } else {
-            str = addressBean.name;
-        }
-        String str3 = str;
-        if (addressBean.hasLeaf && i != 3) {
-            if (z && !ListPagerView.REQUEST_PARAM_CHINA.equals(addressBean.pid)) {
-                makePage(i, addressBean, addressBean.pid, addressBean.id, addressBean.pname);
-                makePage(i + 1, addressBean, addressBean.id, null, addressBean.name);
-            } else {
-                makePage(i, addressBean, str2, null, str3);
-            }
-            this.mTabLayout.setCurrentTab(this.mRealPagerNumber - 1);
-            return;
-        }
-        addTab2Layout(i, str3, true);
-        makeEntity2Result(addressBean);
-        resultWithFinsh();
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AddressSelectorDialog(@NonNull Context context, AddressSelectedBean addressSelectedBean) {
-        this(context, (int) R.style.obfuscated_res_0x7f1003e4);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, addressSelectedBean};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
+        this(context, (int) R.style.obfuscated_res_0x7f1003e7);
         this.mAddressSelectedBean = addressSelectedBean;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AddressSelectorDialog(@NonNull Context context, AddressSelectedBean addressSelectedBean, boolean z) {
-        this(context, (int) R.style.obfuscated_res_0x7f1003e4);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, addressSelectedBean, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
+        this(context, (int) R.style.obfuscated_res_0x7f1003e7);
         this.mAddressSelectedBean = addressSelectedBean;
         this.mIsDarkMode = z;
     }
 
     private void addTab2Layout(int i, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
-            List<String> titles = this.mTabLayout.getTitles();
-            titles.set(i, str);
-            if (!z) {
-                i++;
-                titles.set(i, "请选择");
-            }
-            while (true) {
-                i++;
-                if (i < titles.size()) {
-                    titles.set(i, "");
-                } else {
-                    this.mTabLayout.setTitles(titles);
-                    this.mTabLayout.notifyDataSetChanged();
-                    this.mTabLayout.postDelayed(new Runnable(this) { // from class: com.baidu.pass.ecommerce.view.addressdialog.AddressSelectorDialog.2
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ AddressSelectorDialog this$0;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.this$0.mTabLayout != null) {
-                                this.this$0.mTabLayout.smoothScrollTo(this.this$0.mTabLayout.getWidth(), 0);
-                            }
-                        }
-                    }, 100L);
-                    return;
-                }
-            }
+        List<String> titles = this.mTabLayout.getTitles();
+        titles.set(i, str);
+        if (!z) {
+            i++;
+            titles.set(i, "请选择");
         }
-    }
-
-    @Override // com.baidu.pass.ecommerce.view.addressdialog.OnTabSelectListener
-    public void onTabSelect(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048580, this, i) != null) || i >= this.mRealPagerNumber) {
-            return;
-        }
-        this.mViewPager.setCurrentItem(i, true);
-    }
-
-    public void setOnDialogSelectedListenter(OnDialogSelectedListenter onDialogSelectedListenter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, onDialogSelectedListenter) == null) {
-            this.mOnDialogSelectedListenter = onDialogSelectedListenter;
+        while (true) {
+            i++;
+            if (i < titles.size()) {
+                titles.set(i, "");
+            } else {
+                this.mTabLayout.setTitles(titles);
+                this.mTabLayout.notifyDataSetChanged();
+                this.mTabLayout.postDelayed(new Runnable() { // from class: com.baidu.pass.ecommerce.view.addressdialog.AddressSelectorDialog.2
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        if (AddressSelectorDialog.this.mTabLayout != null) {
+                            AddressSelectorDialog.this.mTabLayout.smoothScrollTo(AddressSelectorDialog.this.mTabLayout.getWidth(), 0);
+                        }
+                    }
+                }, 100L);
+                return;
+            }
         }
     }
 
     private void makeEntity2Result(AddressBean addressBean) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, addressBean) == null) {
-            String str = addressBean.type;
-            String str2 = addressBean.id;
-            String str3 = addressBean.name;
-            if (AddressLevel.PROVINCE.getName().equals(str)) {
-                this.provinceBean.refershBean(str2, str3);
-                this.cityBean.resetBean();
-                this.districtBean.resetBean();
+        String str = addressBean.type;
+        String str2 = addressBean.id;
+        String str3 = addressBean.name;
+        if (AddressLevel.PROVINCE.getName().equals(str)) {
+            this.provinceBean.refershBean(str2, str3);
+            this.cityBean.resetBean();
+            this.districtBean.resetBean();
+            this.townBean.resetBean();
+        } else if (AddressLevel.CITY.getName().equals(str)) {
+            if (addressBean.isHotCity) {
+                this.provinceBean.refershBean(addressBean.pid, addressBean.pname);
+            }
+            this.cityBean.refershBean(str2, str3);
+            this.districtBean.resetBean();
+            this.townBean.resetBean();
+        } else if (AddressLevel.DISTRICT.getName().equals(str)) {
+            this.districtBean.refershBean(str2, str3);
+            this.townBean.resetBean();
+        } else if (AddressLevel.TOWN.getName().equals(str)) {
+            if (addressBean.isNotSelected) {
                 this.townBean.resetBean();
-            } else if (AddressLevel.CITY.getName().equals(str)) {
-                if (addressBean.isHotCity) {
-                    this.provinceBean.refershBean(addressBean.pid, addressBean.pname);
-                }
-                this.cityBean.refershBean(str2, str3);
-                this.districtBean.resetBean();
-                this.townBean.resetBean();
-            } else if (AddressLevel.DISTRICT.getName().equals(str)) {
-                this.districtBean.refershBean(str2, str3);
-                this.townBean.resetBean();
-            } else if (AddressLevel.TOWN.getName().equals(str)) {
-                if (addressBean.isNotSelected) {
-                    this.townBean.resetBean();
-                } else {
-                    this.townBean.refershBean(str2, str3);
-                }
+            } else {
+                this.townBean.refershBean(str2, str3);
             }
         }
     }
 
     private void makePage(int i, AddressBean addressBean, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Integer.valueOf(i), addressBean, str, str2, str3}) == null) {
-            int i2 = i + 1;
-            ListPagerView listPagerView = this.mViewList.get(i2);
-            if (!listPagerView.getPagerAddressId().equals(str)) {
-                makeEntity2Result(addressBean);
-                addTab2Layout(i, str3, false);
-                listPagerView.setSelectedAddressId(str2);
-                listPagerView.loadData(str);
-                int i3 = i2 + 1;
-                this.mRealPagerNumber = i3;
-                this.mViewPager.setRealPagerNumber(i3);
-            }
+        int i2 = i + 1;
+        ListPagerView listPagerView = this.mViewList.get(i2);
+        if (!listPagerView.getPagerAddressId().equals(str)) {
+            makeEntity2Result(addressBean);
+            addTab2Layout(i, str3, false);
+            listPagerView.setSelectedAddressId(str2);
+            listPagerView.loadData(str);
+            int i3 = i2 + 1;
+            this.mRealPagerNumber = i3;
+            this.mViewPager.setRealPagerNumber(i3);
         }
     }
 
     private void refershPageFromEntity() {
-        AddressSelectedBean addressSelectedBean;
         int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65544, this) != null) || (addressSelectedBean = this.mAddressSelectedBean) == null) {
+        AddressSelectedBean addressSelectedBean = this.mAddressSelectedBean;
+        if (addressSelectedBean == null) {
             return;
         }
         if (!TextUtils.isEmpty(addressSelectedBean.provinceId)) {
@@ -412,8 +231,7 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
     private void refershTabFromEntity() {
         int i;
         String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65545, this) != null) || this.mAddressSelectedBean == null) {
+        if (this.mAddressSelectedBean == null) {
             return;
         }
         List<String> titles = this.mTabLayout.getTitles();
@@ -448,158 +266,64 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
         }
         this.mTabLayout.setTitles(titles);
         this.mTabLayout.notifyDataSetChanged();
-        this.mTabLayout.postDelayed(new Runnable(this) { // from class: com.baidu.pass.ecommerce.view.addressdialog.AddressSelectorDialog.3
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ AddressSelectorDialog this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
+        this.mTabLayout.postDelayed(new Runnable() { // from class: com.baidu.pass.ecommerce.view.addressdialog.AddressSelectorDialog.3
             @Override // java.lang.Runnable
             public void run() {
-                Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.this$0.mTabLayout != null) {
-                    this.this$0.mTabLayout.smoothScrollTo(this.this$0.mTabLayout.getWidth(), 0);
+                if (AddressSelectorDialog.this.mTabLayout != null) {
+                    AddressSelectorDialog.this.mTabLayout.smoothScrollTo(AddressSelectorDialog.this.mTabLayout.getWidth(), 0);
                 }
             }
         }, 100L);
         this.mTabLayout.setCurrentTab(i - 1);
     }
 
-    private void setUpView() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d0510);
-            Window window = getWindow();
-            if (window != null) {
-                window.setGravity(80);
-                WindowManager.LayoutParams attributes = window.getAttributes();
-                attributes.width = -1;
-                window.setAttributes(attributes);
-                window.setWindowAnimations(R.style.obfuscated_res_0x7f1003e6);
-            }
-            SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.obfuscated_res_0x7f091e32);
-            this.mTabLayout = slidingTabLayout;
-            slidingTabLayout.setOnTabSelectListener(this);
-            this.mTabLayout.setTextSelectColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f0609f7));
-            AddrViewPager addrViewPager = (AddrViewPager) findViewById(R.id.obfuscated_res_0x7f091eda);
-            this.mViewPager = addrViewPager;
-            this.mRealPagerNumber = 1;
-            addrViewPager.setRealPagerNumber(1);
-            findViewById(R.id.obfuscated_res_0x7f091e76).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.pass.ecommerce.view.addressdialog.AddressSelectorDialog.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressSelectorDialog this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        this.this$0.dismiss();
-                    }
-                }
-            });
-            if (this.mIsDarkMode) {
-                Resources resources = getContext().getResources();
-                findViewById(R.id.obfuscated_res_0x7f091e31).setBackgroundResource(R.drawable.obfuscated_res_0x7f0810d9);
-                ((TextView) findViewById(R.id.obfuscated_res_0x7f091e33)).setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a23));
-                findViewById(R.id.obfuscated_res_0x7f091e34).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060a21));
-                this.mTabLayout.setIndicatorColor(R.drawable.obfuscated_res_0x7f0810d1);
-            }
+    private void setUpPageData() {
+        for (int i = 0; i < 4; i++) {
+            this.mViewList.add(new ListPagerView(this.mContext, i, this.mIsDarkMode, this));
         }
+        AddrListPagerAdapter addrListPagerAdapter = new AddrListPagerAdapter(this.mViewList);
+        this.mPagerAdapter = addrListPagerAdapter;
+        this.mViewPager.setAdapter(addrListPagerAdapter);
+        this.mTabLayout.setViewPager(this.mViewPager, new String[]{"请选择", "", "", ""});
+        if (this.mIsDarkMode) {
+            this.mTabLayout.setTextUnselectColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f0608b6));
+            this.mTabLayout.setTextSelectColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f0608b6));
+            return;
+        }
+        this.mTabLayout.setTextUnselectColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f0608b5));
+        this.mTabLayout.setTextSelectColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f0608b5));
     }
 
     private void resultWithFinsh() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            if (this.mOnDialogSelectedListenter != null) {
-                this.mAddressSelectedBean.provinceId = this.provinceBean.id;
-                this.mAddressSelectedBean.provinceName = this.provinceBean.name;
-                this.mAddressSelectedBean.cityId = this.cityBean.id;
-                this.mAddressSelectedBean.cityName = this.cityBean.name;
-                this.mAddressSelectedBean.districtId = this.districtBean.id;
-                this.mAddressSelectedBean.districtName = this.districtBean.name;
-                this.mAddressSelectedBean.townId = this.townBean.id;
-                this.mAddressSelectedBean.townName = this.townBean.name;
-                this.mOnDialogSelectedListenter.onItemSelected(this.mAddressSelectedBean);
-            }
-            dismiss();
+        if (this.mOnDialogSelectedListenter != null) {
+            this.mAddressSelectedBean.provinceId = this.provinceBean.id;
+            this.mAddressSelectedBean.provinceName = this.provinceBean.name;
+            this.mAddressSelectedBean.cityId = this.cityBean.id;
+            this.mAddressSelectedBean.cityName = this.cityBean.name;
+            this.mAddressSelectedBean.districtId = this.districtBean.id;
+            this.mAddressSelectedBean.districtName = this.districtBean.name;
+            this.mAddressSelectedBean.townId = this.townBean.id;
+            this.mAddressSelectedBean.townName = this.townBean.name;
+            this.mOnDialogSelectedListenter.onItemSelected(this.mAddressSelectedBean);
         }
-    }
-
-    private void setUpPageData() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            for (int i = 0; i < 4; i++) {
-                this.mViewList.add(new ListPagerView(this.mContext, i, this.mIsDarkMode, this));
-            }
-            AddrListPagerAdapter addrListPagerAdapter = new AddrListPagerAdapter(this.mViewList);
-            this.mPagerAdapter = addrListPagerAdapter;
-            this.mViewPager.setAdapter(addrListPagerAdapter);
-            this.mTabLayout.setViewPager(this.mViewPager, new String[]{"请选择", "", "", ""});
-            if (this.mIsDarkMode) {
-                this.mTabLayout.setTextUnselectColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060a23));
-                this.mTabLayout.setTextSelectColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060a23));
-                return;
-            }
-            this.mTabLayout.setTextUnselectColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060a22));
-            this.mTabLayout.setTextSelectColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060a22));
-        }
+        dismiss();
     }
 
     private void setUpResultModel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            if (this.mAddressSelectedBean != null) {
-                refershTabFromEntity();
-                refershPageFromEntity();
-                return;
-            }
-            AddressSelectedBean addressSelectedBean = new AddressSelectedBean();
-            this.mAddressSelectedBean = addressSelectedBean;
-            addressSelectedBean.countryId = ListPagerView.REQUEST_PARAM_CHINA;
-            addressSelectedBean.countryName = "中国";
+        if (this.mAddressSelectedBean != null) {
+            refershTabFromEntity();
+            refershPageFromEntity();
+            return;
         }
+        AddressSelectedBean addressSelectedBean = new AddressSelectedBean();
+        this.mAddressSelectedBean = addressSelectedBean;
+        addressSelectedBean.countryId = ListPagerView.REQUEST_PARAM_CHINA;
+        addressSelectedBean.countryName = "中国";
     }
 
     public void destory() {
-        List<ListPagerView> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.mViewList) != null) {
+        List<ListPagerView> list = this.mViewList;
+        if (list != null) {
             for (ListPagerView listPagerView : list) {
                 listPagerView.destroy();
             }
@@ -608,26 +332,82 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
 
     @Override // android.app.Dialog
     public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.show();
+        super.show();
+    }
+
+    private void setUpView() {
+        setContentView(R.layout.obfuscated_res_0x7f0d0522);
+        Window window = getWindow();
+        if (window != null) {
+            window.setGravity(80);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.width = -1;
+            window.setAttributes(attributes);
+            window.setWindowAnimations(R.style.obfuscated_res_0x7f1003e9);
+        }
+        SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.obfuscated_res_0x7f091e76);
+        this.mTabLayout = slidingTabLayout;
+        slidingTabLayout.setOnTabSelectListener(this);
+        this.mTabLayout.setTextSelectColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f06088a));
+        AddrViewPager addrViewPager = (AddrViewPager) findViewById(R.id.obfuscated_res_0x7f091f1e);
+        this.mViewPager = addrViewPager;
+        this.mRealPagerNumber = 1;
+        addrViewPager.setRealPagerNumber(1);
+        findViewById(R.id.obfuscated_res_0x7f091eba).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.pass.ecommerce.view.addressdialog.AddressSelectorDialog.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                AddressSelectorDialog.this.dismiss();
+            }
+        });
+        if (this.mIsDarkMode) {
+            Resources resources = getContext().getResources();
+            findViewById(R.id.obfuscated_res_0x7f091e75).setBackgroundResource(R.drawable.obfuscated_res_0x7f0810dd);
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f091e77)).setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0608b6));
+            findViewById(R.id.obfuscated_res_0x7f091e78).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0608b4));
+            this.mTabLayout.setIndicatorColor(R.drawable.obfuscated_res_0x7f0810d5);
         }
     }
 
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            if (!SapiAccountManager.getInstance().getConfignation().isNightMode && !SapiAccountManager.getInstance().getConfignation().isDarkMode) {
-                this.mIsDarkMode = false;
-            } else {
-                this.mIsDarkMode = true;
-            }
-            super.onCreate(bundle);
-            setUpView();
-            setUpPageData();
-            setUpResultModel();
-            this.mViewList.get(0).loadData();
+        if (!SapiAccountManager.getInstance().getConfignation().isNightMode && !SapiAccountManager.getInstance().getConfignation().isDarkMode) {
+            this.mIsDarkMode = false;
+        } else {
+            this.mIsDarkMode = true;
         }
+        super.onCreate(bundle);
+        setUpView();
+        setUpPageData();
+        setUpResultModel();
+        this.mViewList.get(0).loadData();
+    }
+
+    @Override // com.baidu.pass.ecommerce.view.addressdialog.ListPagerView.OnEntitySelectedListener
+    public void onEntitySelected(int i, AddressBean addressBean) {
+        String str;
+        if (addressBean == null) {
+            return;
+        }
+        String str2 = addressBean.id;
+        boolean z = addressBean.isHotCity;
+        if (addressBean.isNotSelected) {
+            str = "请选择";
+        } else {
+            str = addressBean.name;
+        }
+        String str3 = str;
+        if (addressBean.hasLeaf && i != 3) {
+            if (z && !ListPagerView.REQUEST_PARAM_CHINA.equals(addressBean.pid)) {
+                makePage(i, addressBean, addressBean.pid, addressBean.id, addressBean.pname);
+                makePage(i + 1, addressBean, addressBean.id, null, addressBean.name);
+            } else {
+                makePage(i, addressBean, str2, null, str3);
+            }
+            this.mTabLayout.setCurrentTab(this.mRealPagerNumber - 1);
+            return;
+        }
+        addTab2Layout(i, str3, true);
+        makeEntity2Result(addressBean);
+        resultWithFinsh();
     }
 }

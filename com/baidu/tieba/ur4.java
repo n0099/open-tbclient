@@ -1,191 +1,135 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.sapi2.utils.ThirdPartyUtil;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import android.app.Dialog;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.view.Display;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.connect.common.Constants;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ur4 {
+public class ur4 extends Dialog implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public x9 b;
+    public float c;
+    public ViewGroup d;
+    public RoundRelativeLayout e;
+    public View f;
+    public ImageView g;
+    public ImageView h;
+    public Drawable i;
 
-    public static void a(StatisticItem statisticItem, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ur4(x9 x9Var) {
+        super(x9Var.getPageActivity(), 16973835);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, statisticItem, str) == null) {
-            String paramStr = UrlManager.getParamStr(str);
-            if (!TextUtils.isEmpty(paramStr)) {
-                b(statisticItem, UrlManager.getParamPair(paramStr));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {x9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.c = 0.33f;
+        this.b = x9Var;
+        this.a = x9Var.getPageActivity();
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ih.b(this, this.b);
         }
     }
 
-    public static void b(StatisticItem statisticItem, Map<String, String> map) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, statisticItem, map) == null) && statisticItem != null && map != null) {
-            statisticItem.param(TiebaStatic.Params.REFER, map.get(TiebaStatic.Params.REFER));
-            statisticItem.param("pid", map.get("hightlight_anchor_pid"));
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (isShowing()) {
+                ih.b(this, this.b);
+            }
+            ih.j(this, this.b);
         }
     }
 
-    public static void c(Uri uri) {
+    public void b(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, uri) == null) && uri != null) {
-            String d = d(uri);
-            String queryParameter = uri.getQueryParameter("obj_source");
-            if ("shoubai".equals(queryParameter) || ThirdPartyUtil.TYPE_WEIXIN.equals(queryParameter) || "tbShareH5".equals(queryParameter) || PbModel.WISE.equals(queryParameter) || "zhongjianye".equals(queryParameter) || "PC".equals(queryParameter) || Constants.SOURCE_QQ.equals(queryParameter)) {
-                String queryParameter2 = uri.getQueryParameter("obj_locate");
-                uri.getQueryParameter("obj_type");
-                String queryParameter3 = uri.getQueryParameter("obj_param1");
-                String queryParameter4 = uri.getQueryParameter(TiebaStatic.Params.OBJ_PARAM2);
-                String queryParameter5 = uri.getQueryParameter(TiebaStatic.Params.OBJ_PARAM3);
-                String queryParameter6 = uri.getQueryParameter("tid");
-                String queryParameter7 = uri.getQueryParameter(TiebaStatic.Params.H5_FORUM_NAME);
-                String queryParameter8 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_ORI_UGC_NID);
-                String queryParameter9 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_ORI_UGC_TID);
-                String queryParameter10 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE);
-                String queryParameter11 = uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_ORI_UGC_VID);
-                String queryParameter12 = uri.getQueryParameter("obj_name");
-                String queryParameter13 = uri.getQueryParameter(TiebaStatic.Params.EQID);
-                String queryParameter14 = uri.getQueryParameter("topic_id");
-                String queryParameter15 = uri.getQueryParameter("fid");
-                String queryParameter16 = uri.getQueryParameter("room_id");
-                String queryParameter17 = uri.getQueryParameter(TiebaStatic.Params.REFER);
-                String queryParameter18 = uri.getQueryParameter(TiebaStatic.Params.WISE_SAMPLE_ID);
-                String queryParameter19 = uri.getQueryParameter(TiebaStatic.Params.BDID);
-                String queryParameter20 = uri.getQueryParameter("hightlight_anchor_pid");
-                String queryParameter21 = uri.getQueryParameter(TiebaStatic.Params.QD);
-                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_CALL_NATIVE);
-                statisticItem.param("obj_locate", queryParameter2);
-                statisticItem.param("obj_type", d);
-                statisticItem.param("obj_param1", queryParameter3);
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, queryParameter4);
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, queryParameter5);
-                statisticItem.param("tid", queryParameter6);
-                statisticItem.param("fid", queryParameter15);
-                statisticItem.param("fname", queryParameter7);
-                statisticItem.param("room_id", queryParameter16);
-                statisticItem.param(BdUniDispatchSchemeController.PARAM_ORI_UGC_NID, queryParameter8);
-                statisticItem.param(BdUniDispatchSchemeController.PARAM_ORI_UGC_TID, queryParameter9);
-                statisticItem.param(BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE, queryParameter10);
-                statisticItem.param(BdUniDispatchSchemeController.PARAM_ORI_UGC_VID, queryParameter11);
-                statisticItem.param("obj_source", queryParameter);
-                statisticItem.param("obj_name", queryParameter12);
-                statisticItem.param("query", queryParameter13);
-                statisticItem.param("topic_id", queryParameter14);
-                statisticItem.param("obj_id", TbadkCoreApplication.getInst().getStartType());
-                statisticItem.param(TiebaStatic.Params.OBJ_TO, 1);
-                statisticItem.param(TiebaStatic.Params.WISE_SAMPLE_ID, queryParameter18);
-                statisticItem.param(TiebaStatic.Params.BDID, queryParameter19);
-                if (TextUtils.isEmpty(queryParameter17)) {
-                    queryParameter17 = StringUtil.NULL_STRING;
-                }
-                statisticItem.param(TiebaStatic.Params.REFER, queryParameter17);
-                statisticItem.param("pid", queryParameter20);
-                statisticItem.param(TiebaStatic.Params.QD, queryParameter21);
-                TiebaStatic.log(statisticItem);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable) == null) {
+            this.i = drawable;
         }
     }
 
-    public static String d(Uri uri) {
-        InterceptResult invokeL;
+    public void c(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, uri)) == null) {
-            if (uri == null) {
-                return "";
-            }
-            String uri2 = uri.toString();
-            if (TextUtils.isEmpty(uri2)) {
-                return "";
-            }
-            if (uri2.contains("unidispatch/openapp") || uri2.contains("donothing")) {
-                return "5";
-            }
-            if (!uri2.contains("tbpb") && !uri2.contains(PbModel.UNIDISPATCH_PB)) {
-                if (uri2.contains("tbfrs") || uri2.contains("unidispatch/frs")) {
-                    return "2";
-                }
-                if (uri2.contains("tbwebview")) {
-                    return "9";
-                }
-                if (!uri2.contains("tbusercenter") && !uri2.contains("unidispatch/usercenter") && !uri2.contains("usercenter")) {
-                    if (!uri2.contains("tbtopicdetail") && !uri2.contains("unidispatch/topicdetail")) {
-                        if (uri2.contains("unidispatch/hotuserrank")) {
-                            return "7";
-                        }
-                        if (BdUniDispatchSchemeController.PATH_HOMEPAGE.equals(uri.getPath())) {
-                            return "5";
-                        }
-                        if (uri2.contains("unidispatch/searchResultPage")) {
-                            if (TextUtils.isEmpty(uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_QUERY))) {
-                                return "5";
-                            }
-                            return "11";
-                        }
-                        return "10";
-                    }
-                    return "3";
-                }
-                return "4";
-            } else if ("tbpb://tieba.baidu.com".equals(uri2)) {
-                return "5";
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) {
+            this.f = viewGroup;
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.img_btn_close) {
+            a();
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+            super.onCreate(bundle);
+            requestWindowFeature(1);
+            setContentView(R.layout.dialog_card_main);
+            Display defaultDisplay = ((WindowManager) this.a.getSystemService("window")).getDefaultDisplay();
+            WindowManager.LayoutParams attributes = getWindow().getAttributes();
+            attributes.width = defaultDisplay.getWidth();
+            attributes.height = defaultDisplay.getHeight();
+            getWindow().setAttributes(attributes);
+            getWindow().setBackgroundDrawableResource(R.color.transparent);
+            getWindow().setDimAmount(this.c);
+            getWindow().setGravity(80);
+            getWindow().setWindowAnimations(0);
+            setCanceledOnTouchOutside(true);
+            setCancelable(true);
+            this.d = (ViewGroup) findViewById(R.id.card_root_layout);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
+            this.e = roundRelativeLayout;
+            roundRelativeLayout.setAllCornerRound(dh.d(TbadkCoreApplication.getInst().getString(R.string.J_X06), 31.0f));
+            ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
+            if (layoutParams != null) {
+                layoutParams.height = -1;
+                layoutParams.width = -1;
             } else {
-                if (!TextUtils.isEmpty(uri.getQueryParameter(BdUniDispatchSchemeController.PARAM_ORI_UGC_NID))) {
-                    return "6";
-                }
-                String queryParameter = uri.getQueryParameter("obj_param1");
-                if (BdUniDispatchSchemeController.PARAM_VIDEO.equals(queryParameter) || "2".equals(queryParameter)) {
-                    String queryParameter2 = uri.getQueryParameter("obj_source");
-                    String queryParameter3 = uri.getQueryParameter("tid");
-                    StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_FROM_OUTSIDE);
-                    if (BdUniDispatchSchemeController.PARAM_WISE.equals(queryParameter2)) {
-                        statisticItem.param("obj_source", 2);
-                    } else if (BdUniDispatchSchemeController.PARAM_SHOUBAI.equals(queryParameter2)) {
-                        statisticItem.param("obj_source", 3);
-                    } else if (BdUniDispatchSchemeController.PARAM_TBSHAREH5.equals(queryParameter2)) {
-                        statisticItem.param("obj_source", 4);
-                    } else if (BdUniDispatchSchemeController.PARAM_QQ.equals(queryParameter2)) {
-                        statisticItem.param("obj_source", 5);
-                    }
-                    statisticItem.param("tid", queryParameter3);
-                    TiebaStatic.log(statisticItem);
-                    return "1";
-                }
-                return "1";
+                layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void e(Uri uri) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri) == null) && uri != null) {
-            String queryParameter = uri.getQueryParameter(BdUniDispatchSchemeController.IS_NEW_SCHEMA);
-            if (!TextUtils.isEmpty(queryParameter) && queryParameter.equals("1")) {
-                String queryParameter2 = uri.getQueryParameter("obj_source");
-                String queryParameter3 = uri.getQueryParameter("obj_locate");
-                String queryParameter4 = uri.getQueryParameter("obj_type");
-                String queryParameter5 = uri.getQueryParameter("obj_param1");
-                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_PAY_PUT_TIE);
-                statisticItem.param("obj_source", queryParameter2);
-                statisticItem.param("obj_locate", queryParameter3);
-                statisticItem.param("obj_type", queryParameter4);
-                statisticItem.param("obj_param1", queryParameter5);
-                TiebaStatic.log(statisticItem);
-            }
+            this.e.addView(this.f, layoutParams);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ffa);
+            this.g = imageView;
+            imageView.setImageDrawable(this.i);
+            ImageView imageView2 = (ImageView) findViewById(R.id.img_btn_close);
+            this.h = imageView2;
+            imageView2.setOnClickListener(this);
         }
     }
 }

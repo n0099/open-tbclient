@@ -1,18 +1,12 @@
 package com.google.android.gms.internal.common;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.CheckForNull;
 /* loaded from: classes7.dex */
 public abstract class zzw extends zzj<String> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final CharSequence zzb;
     public final zzo zzc;
     public final boolean zzd;
-    public int zze;
+    public int zze = 0;
     public int zzf;
 
     public abstract int zzc(int i);
@@ -22,21 +16,6 @@ public abstract class zzw extends zzj<String> {
     public zzw(zzx zzxVar, CharSequence charSequence) {
         zzo zzoVar;
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zzxVar, charSequence};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.zze = 0;
         zzoVar = zzxVar.zza;
         this.zzc = zzoVar;
         z = zzxVar.zzb;

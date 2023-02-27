@@ -1,28 +1,112 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.collection.ArraySet;
-import androidx.core.util.Pair;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.searchbox.v8engine.V8ExceptionInfo;
+import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class hh2 {
+public class hh2 implements V8Engine.JavaScriptExceptionDelegate {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ug2 a;
+    public String b;
+
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final boolean d;
+        public transient /* synthetic */ FieldHolder $fh;
+        public JSEvent a;
+        public String b;
+        public String c;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-747243014, "Lcom/baidu/tieba/hh2$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-747243014, "Lcom/baidu/tieba/hh2$a;");
+                    return;
+                }
+            }
+            d = wp1.a;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = new JSEvent("error");
+        }
+
+        public JSEvent a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("message", this.b);
+                    jSONObject.put("stack", this.c);
+                } catch (JSONException e) {
+                    if (d) {
+                        Log.e("V8Exception", Log.getStackTraceString(e));
+                    }
+                }
+                if (jSONObject.length() > 0) {
+                    this.a.data = jSONObject;
+                }
+                return this.a;
+            }
+            return (JSEvent) invokeV.objValue;
+        }
+
+        public a b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.b = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a c(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.c = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -37,165 +121,67 @@ public class hh2 {
                 return;
             }
         }
-        a = gp1.a;
+        boolean z = wp1.a;
     }
 
-    @Nullable
-    public static Set<String> a(int i, List<String> list) {
-        InterceptResult invokeIL;
-        boolean z;
+    public hh2(ug2 ug2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                HashSet hashSet = new HashSet();
-                for (v53 v53Var : x53.k().q()) {
-                    String appId = v53Var.getAppId();
-                    if (TextUtils.isEmpty(appId)) {
-                        appId = v53Var.N();
-                    }
-                    if (!v53Var.E() && !v53Var.Q()) {
-                        z = false;
-                    } else {
-                        z = true;
-                    }
-                    if (v53Var.T() && z && list.contains(appId)) {
-                        m53 e = m53.e();
-                        o53 o53Var = new o53(i);
-                        o53Var.b(v53Var.b);
-                        e.h(o53Var);
-                        hashSet.add(appId);
-                        if (a) {
-                            Log.i("PurgerUtils", "sent msg(" + i + ") to active swan(" + appId + SmallTailInfo.EMOTION_SUFFIX);
-                        }
-                    }
-                }
-                return hashSet;
-            }
-            return null;
-        }
-        return (Set) invokeIL.objValue;
-    }
-
-    public static void b(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{file, str, str2, set, Boolean.valueOf(z)}) == null) {
-            c(file, str, str2, set, z, null);
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0077  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x008f  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00a6  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void c(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z, @Nullable ft3<Pair<String, File>> ft3Var) {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{file, str, str2, set, Boolean.valueOf(z), ft3Var}) == null) && file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
-            for (File file2 : listFiles) {
-                String name = file2.getName();
-                if (!name.isEmpty() && file2.isFile() && name.startsWith(str) && name.endsWith(str2)) {
-                    int length = name.length();
-                    int length2 = str.length();
-                    int length3 = str2.length();
-                    if (length >= length2 + length3) {
-                        String substring = name.substring(length2, length - length3);
-                        if (set == null) {
-                            set = Collections.emptySet();
-                        }
-                        if (!TextUtils.isEmpty(substring)) {
-                            if (z) {
-                                if (set.contains(substring)) {
-                                }
-                                if (a) {
-                                    Log.i("PurgerUtils", "clearByDeleteFiles : " + substring);
-                                }
-                                if (ft3Var == null) {
-                                    ft3Var.run(Pair.create(str + substring, file2));
-                                } else {
-                                    ap4.L(file2);
-                                }
-                            } else {
-                                if (!set.contains(substring)) {
-                                }
-                                if (a) {
-                                }
-                                if (ft3Var == null) {
-                                }
-                            }
-                        }
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ug2Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = "";
+        this.a = ug2Var;
     }
 
-    @Nullable
-    public static Set<String> d(List<String> list) {
-        InterceptResult invokeL;
+    public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                return a(106, list);
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, str2) != null) || this.a.n() == null) {
+            return;
         }
-        return (Set) invokeL.objValue;
+        EventTarget n = this.a.n();
+        a aVar = new a();
+        aVar.b(str + "\n" + str2);
+        aVar.c("");
+        n.dispatchEvent(aVar.a());
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0080  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00a8  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x00ab A[SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static ArraySet<String> e(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z) {
-        InterceptResult invokeCommon;
-        File[] listFiles;
-        String J;
+    @Override // com.baidu.searchbox.v8engine.V8Engine.JavaScriptExceptionDelegate
+    @SuppressLint({"SwanDebugLog"})
+    public void onV8ExceptionCallBack(V8ExceptionInfo v8ExceptionInfo) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{file, str, str2, set, Boolean.valueOf(z)})) == null) {
-            ArraySet<String> arraySet = new ArraySet<>();
-            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
-                for (File file2 : listFiles) {
-                    String name = file2.getName();
-                    if (!name.isEmpty() && file2.isFile() && name.startsWith(str) && name.endsWith(str2)) {
-                        int length = name.length();
-                        int length2 = str.length();
-                        int length3 = str2.length();
-                        if (length >= length2 + length3) {
-                            String substring = name.substring(length2, length - length3);
-                            if (set == null) {
-                                set = Collections.emptySet();
-                            }
-                            if (!TextUtils.isEmpty(substring)) {
-                                if (z) {
-                                    if (set.contains(substring)) {
-                                    }
-                                    J = ap4.J(file2);
-                                    if (a) {
-                                        Log.i("PurgerUtils", "originFile:" + file2.getAbsolutePath() + ", renameFile:" + J);
-                                    }
-                                    if (TextUtils.isEmpty(J)) {
-                                        arraySet.add(J);
-                                    }
-                                } else {
-                                    if (!set.contains(substring)) {
-                                    }
-                                    J = ap4.J(file2);
-                                    if (a) {
-                                    }
-                                    if (TextUtils.isEmpty(J)) {
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            return arraySet;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v8ExceptionInfo) != null) || v8ExceptionInfo == null) {
+            return;
         }
-        return (ArraySet) invokeCommon.objValue;
+        String str2 = "";
+        if (TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg)) {
+            str = "";
+        } else {
+            str = v8ExceptionInfo.exceptionMsg;
+        }
+        if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace)) {
+            str2 = v8ExceptionInfo.exceptionTrace;
+        }
+        Log.e("V8Exception", this.a.m0() + "msg: " + str + " ,stack: " + str2);
+        this.a.y().a(str);
+        if ((TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) || this.b.equals(str)) {
+            return;
+        }
+        this.b = str;
+        a(str, str2);
+        xq1 j = us2.j();
+        j.e(str + ParamableElem.DIVIDE_PARAM + str2);
+        gg3.b(v8ExceptionInfo);
+        us2.i().r(v8ExceptionInfo);
     }
 }

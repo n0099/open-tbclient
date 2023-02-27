@@ -1,21 +1,13 @@
 package com.baidu.ugc.audioedit;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.audioprocesswrapper.DuAudioProcess;
 import com.baidu.audioprocesswrapper.DuDelayProcess;
-import com.baidu.tieba.gx9;
-import com.baidu.tieba.ut9;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.d1a;
+import com.baidu.tieba.rx9;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import java.util.Arrays;
 /* loaded from: classes7.dex */
-public class AudioChangeOperator implements ut9 {
-    public static /* synthetic */ Interceptable $ic = null;
+public class AudioChangeOperator implements rx9 {
     public static final int DU_AUDIO_EFFECT_SHIFT_AGC = 4;
     public static final int DU_AUDIO_EFFECT_SHIFT_AIR = 20;
     public static final int DU_AUDIO_EFFECT_SHIFT_COMPRESS = 24;
@@ -32,108 +24,37 @@ public class AudioChangeOperator implements ut9 {
     public static final int VOICE_COMPRESS_ORIGIN = 600;
     public static final int VOICE_DENOISE_ORIGIN = 200;
     public static final int VOICE_EQ_ORIGIN = 400;
-    public transient /* synthetic */ FieldHolder $fh;
     public int mAgcType;
     public int mAirType;
     public AudioChangeConfig mAudioChangeConfig;
     public int mByteWidth;
     public int mChannelCount;
-    public int mCompressType;
-    public volatile int[] mCurrentEQparams;
-    public volatile double[] mCurrentReverbParams;
-    public volatile int[] mCurrentTypeArray;
     public DuDelayProcess mDelayProcess;
     public int mDenoiseType;
     public DuAudioProcess mDuAudioProcess;
     public int mEQType;
-    public int mHarmonyType;
-    public volatile int[] mLastEQparams;
-    public volatile double[] mLastReverbParams;
-    public volatile int[] mLastTypeArray;
     public int mPitchType;
     public int mReverbType;
     public int mSampleRate;
-
-    public AudioChangeOperator() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mCompressType = 601;
-        this.mHarmonyType = 700;
-        this.mCurrentTypeArray = null;
-        this.mLastTypeArray = null;
-        this.mLastEQparams = null;
-        this.mLastReverbParams = null;
-        this.mCurrentEQparams = null;
-        this.mCurrentReverbParams = null;
-    }
-
-    @Override // com.baidu.tieba.ut9
-    public boolean available() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.mReverbType <= 100 && this.mPitchType <= 0 && this.mDenoiseType <= 200 && this.mAgcType <= 300 && this.mEQType <= 400 && this.mAirType <= 500 && this.mHarmonyType <= 700 && !delayAvailable()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    private void audioSwitch() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.mDuAudioProcess.k(this.mPitchType);
-            int i = this.mReverbType;
-            int i2 = 0;
-            if (i - 100 != 15) {
-                this.mDuAudioProcess.l(Math.max(i - 100, 0));
-            } else if (i - 100 == 15 && this.mCurrentReverbParams != null) {
-                this.mDuAudioProcess.m(Math.max(this.mReverbType - 100, 0), this.mCurrentReverbParams);
-            }
-            int i3 = this.mEQType;
-            if (i3 + ErrorCode.ARGS_ERROR != 15) {
-                this.mDuAudioProcess.h(Math.max(i3 + ErrorCode.ARGS_ERROR, 0));
-            } else if (i3 + ErrorCode.ARGS_ERROR == 15 && this.mCurrentEQparams != null) {
-                this.mDuAudioProcess.i(Math.max(this.mEQType + ErrorCode.ARGS_ERROR, 0), this.mCurrentEQparams);
-            }
-            this.mDuAudioProcess.g(Math.max(this.mAirType + ErrorCode.SERVER_ERROR, 0));
-            DuAudioProcess duAudioProcess = this.mDuAudioProcess;
-            if (this.mHarmonyType >= 700) {
-                i2 = 1;
-            }
-            duAudioProcess.j(i2);
-            gx9.d("AudioChangeOperatorNew: 切换效果 mPitchType = " + this.mPitchType);
-            gx9.d("AudioChangeOperatorNew: 切换效果 mReverbType = " + this.mReverbType);
-        }
-    }
+    public int mCompressType = 601;
+    public int mHarmonyType = 700;
+    public volatile int[] mCurrentTypeArray = null;
+    public volatile int[] mLastTypeArray = null;
+    public volatile int[] mLastEQparams = null;
+    public volatile double[] mLastReverbParams = null;
+    public volatile int[] mCurrentEQparams = null;
+    public volatile double[] mCurrentReverbParams = null;
 
     private boolean canDelay() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (this.mDelayProcess != null && delayAvailable()) {
-                return true;
-            }
-            return false;
+        if (this.mDelayProcess != null && delayAvailable()) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     private void closeDelay() {
-        DuDelayProcess duDelayProcess;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) != null) || (duDelayProcess = this.mDelayProcess) == null) {
+        DuDelayProcess duDelayProcess = this.mDelayProcess;
+        if (duDelayProcess == null) {
             return;
         }
         try {
@@ -145,182 +66,173 @@ public class AudioChangeOperator implements ut9 {
     }
 
     private boolean delayAvailable() {
-        InterceptResult invokeV;
         DelayConfig delayConfig;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            AudioChangeConfig audioChangeConfig = this.mAudioChangeConfig;
-            if (audioChangeConfig == null || (delayConfig = audioChangeConfig.getDelayConfig()) == null || !delayConfig.available()) {
-                return false;
-            }
-            return true;
+        AudioChangeConfig audioChangeConfig = this.mAudioChangeConfig;
+        if (audioChangeConfig == null || (delayConfig = audioChangeConfig.getDelayConfig()) == null || !delayConfig.available()) {
+            return false;
         }
-        return invokeV.booleanValue;
+        return true;
     }
 
     private boolean initProcess() {
-        InterceptResult invokeV;
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            if (this.mDuAudioProcess != null) {
-                audioSwitch();
-                z = true;
-            } else {
-                z = false;
-            }
-            if (this.mDelayProcess != null) {
-                setDelayConfig();
-                return true;
-            }
-            return z;
+        if (this.mDuAudioProcess != null) {
+            audioSwitch();
+            z = true;
+        } else {
+            z = false;
         }
-        return invokeV.booleanValue;
+        if (this.mDelayProcess != null) {
+            setDelayConfig();
+            return true;
+        }
+        return z;
     }
 
     private void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            this.mAgcType = 300;
-            this.mDenoiseType = 200;
-            this.mPitchType = 0;
-            this.mReverbType = 100;
-            this.mHarmonyType = 700;
-        }
+        this.mAgcType = 300;
+        this.mDenoiseType = 200;
+        this.mPitchType = 0;
+        this.mReverbType = 100;
+        this.mHarmonyType = 700;
     }
 
-    @Override // com.baidu.tieba.ut9
+    @Override // com.baidu.tieba.rx9
     public int availableBytes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (canDelay()) {
-                return this.mDelayProcess.a();
-            }
-            DuAudioProcess duAudioProcess = this.mDuAudioProcess;
-            if (duAudioProcess != null) {
-                return duAudioProcess.a();
-            }
-            return 0;
+        if (canDelay()) {
+            return this.mDelayProcess.a();
         }
-        return invokeV.intValue;
+        DuAudioProcess duAudioProcess = this.mDuAudioProcess;
+        if (duAudioProcess != null) {
+            return duAudioProcess.a();
+        }
+        return 0;
     }
 
-    @Override // com.baidu.tieba.ut9
+    @Override // com.baidu.tieba.rx9
     public void clearQueues() {
-        DuAudioProcess duAudioProcess;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (duAudioProcess = this.mDuAudioProcess) != null) {
+        DuAudioProcess duAudioProcess = this.mDuAudioProcess;
+        if (duAudioProcess != null) {
             duAudioProcess.b();
         }
     }
 
-    @Override // com.baidu.tieba.ut9
+    @Override // com.baidu.tieba.rx9
     public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            DuAudioProcess duAudioProcess = this.mDuAudioProcess;
-            if (duAudioProcess != null) {
-                duAudioProcess.c();
-            }
-            if (canDelay()) {
-                this.mDelayProcess.b();
-            }
-            this.mDuAudioProcess = null;
-            this.mDelayProcess = null;
+        DuAudioProcess duAudioProcess = this.mDuAudioProcess;
+        if (duAudioProcess != null) {
+            duAudioProcess.c();
+        }
+        if (canDelay()) {
+            this.mDelayProcess.b();
+        }
+        this.mDuAudioProcess = null;
+        this.mDelayProcess = null;
+    }
+
+    @Override // com.baidu.tieba.rx9
+    public void flush() {
+        DuAudioProcess duAudioProcess = this.mDuAudioProcess;
+        if (duAudioProcess != null) {
+            duAudioProcess.d();
+        }
+        if (canDelay()) {
+            this.mDelayProcess.c();
         }
     }
 
-    @Override // com.baidu.tieba.ut9
-    public void flush() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            DuAudioProcess duAudioProcess = this.mDuAudioProcess;
-            if (duAudioProcess != null) {
-                duAudioProcess.d();
-            }
-            if (canDelay()) {
-                this.mDelayProcess.c();
-            }
+    private void audioSwitch() {
+        this.mDuAudioProcess.k(this.mPitchType);
+        int i = this.mReverbType;
+        int i2 = 0;
+        if (i - 100 != 15) {
+            this.mDuAudioProcess.l(Math.max(i - 100, 0));
+        } else if (i - 100 == 15 && this.mCurrentReverbParams != null) {
+            this.mDuAudioProcess.m(Math.max(this.mReverbType - 100, 0), this.mCurrentReverbParams);
         }
+        int i3 = this.mEQType;
+        if (i3 + ErrorCode.ARGS_ERROR != 15) {
+            this.mDuAudioProcess.h(Math.max(i3 + ErrorCode.ARGS_ERROR, 0));
+        } else if (i3 + ErrorCode.ARGS_ERROR == 15 && this.mCurrentEQparams != null) {
+            this.mDuAudioProcess.i(Math.max(this.mEQType + ErrorCode.ARGS_ERROR, 0), this.mCurrentEQparams);
+        }
+        this.mDuAudioProcess.g(Math.max(this.mAirType + ErrorCode.SERVER_ERROR, 0));
+        DuAudioProcess duAudioProcess = this.mDuAudioProcess;
+        if (this.mHarmonyType >= 700) {
+            i2 = 1;
+        }
+        duAudioProcess.j(i2);
+        d1a.d("AudioChangeOperatorNew: 切换效果 mPitchType = " + this.mPitchType);
+        d1a.d("AudioChangeOperatorNew: 切换效果 mReverbType = " + this.mReverbType);
     }
 
     private boolean checkTypesEquals(int[] iArr, int[] iArr2, double[] dArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, this, iArr, iArr2, dArr)) == null) {
-            if (this.mCurrentTypeArray == null && iArr != null) {
-                return false;
-            }
-            if (this.mCurrentTypeArray == iArr) {
-                return true;
-            }
-            if (iArr != null && iArr.length != 0) {
-                Arrays.sort(iArr);
-            }
-            if (this.mCurrentTypeArray != null && this.mCurrentTypeArray.length != 0) {
-                Arrays.sort(this.mCurrentTypeArray);
-            }
-            if (iArr != null && Arrays.equals(iArr, this.mCurrentTypeArray)) {
-                boolean z = true;
-                boolean z2 = true;
-                for (int i : iArr) {
-                    if (i == 415 && iArr2 != null && this.mCurrentEQparams != null && !Arrays.equals(iArr2, this.mCurrentEQparams)) {
-                        z = false;
-                    }
-                    if (i == 115 && dArr != null && this.mCurrentReverbParams != null && !Arrays.equals(dArr, this.mCurrentReverbParams)) {
-                        z2 = false;
-                    }
-                }
-                if (z && z2) {
-                    return true;
-                }
-            }
+        if (this.mCurrentTypeArray == null && iArr != null) {
             return false;
         }
-        return invokeLLL.booleanValue;
+        if (this.mCurrentTypeArray == iArr) {
+            return true;
+        }
+        if (iArr != null && iArr.length != 0) {
+            Arrays.sort(iArr);
+        }
+        if (this.mCurrentTypeArray != null && this.mCurrentTypeArray.length != 0) {
+            Arrays.sort(this.mCurrentTypeArray);
+        }
+        if (iArr != null && Arrays.equals(iArr, this.mCurrentTypeArray)) {
+            boolean z = true;
+            boolean z2 = true;
+            for (int i : iArr) {
+                if (i == 415 && iArr2 != null && this.mCurrentEQparams != null && !Arrays.equals(iArr2, this.mCurrentEQparams)) {
+                    z = false;
+                }
+                if (i == 115 && dArr != null && this.mCurrentReverbParams != null && !Arrays.equals(dArr, this.mCurrentReverbParams)) {
+                    z2 = false;
+                }
+            }
+            if (z && z2) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            if (checkTypesEquals(this.mLastTypeArray, this.mLastEQparams, this.mLastReverbParams) && !delayAvailable()) {
-                return;
-            }
-            this.mCurrentTypeArray = this.mLastTypeArray;
-            this.mCurrentReverbParams = this.mLastReverbParams;
-            this.mCurrentEQparams = this.mLastEQparams;
-            if (initProcess()) {
-                return;
-            }
-            long j = 0;
-            int i = this.mDenoiseType;
-            if (i > 200) {
-                j = 0 | ((i - 200) << 0);
-            }
-            int i2 = this.mCompressType;
-            if (i2 > 600) {
-                j |= (i2 - 600) << 24;
-            }
-            int i3 = this.mAgcType;
-            if (i3 > 300) {
-                j |= (i3 - 300) << 4;
-            }
-            gx9.d("AudioChangeOperatorNew: 创建DuAudioProcess开始");
-            this.mDuAudioProcess = new DuAudioProcess(this.mSampleRate, this.mChannelCount, j);
-            audioSwitch();
-            gx9.d("AudioChangeOperatorNew: 创建DuAudioProcess完成");
-            gx9.d("AudioChangeOperatorNew: 创建DuDelayProcess开始");
-            this.mDelayProcess = new DuDelayProcess(this.mSampleRate, 1);
-            setDelayConfig();
-            gx9.d("AudioChangeOperatorNew: 创建DuDelayProcess完成");
+        if (checkTypesEquals(this.mLastTypeArray, this.mLastEQparams, this.mLastReverbParams) && !delayAvailable()) {
+            return;
         }
+        this.mCurrentTypeArray = this.mLastTypeArray;
+        this.mCurrentReverbParams = this.mLastReverbParams;
+        this.mCurrentEQparams = this.mLastEQparams;
+        if (initProcess()) {
+            return;
+        }
+        long j = 0;
+        int i = this.mDenoiseType;
+        if (i > 200) {
+            j = 0 | ((i - 200) << 0);
+        }
+        int i2 = this.mCompressType;
+        if (i2 > 600) {
+            j |= (i2 - 600) << 24;
+        }
+        int i3 = this.mAgcType;
+        if (i3 > 300) {
+            j |= (i3 - 300) << 4;
+        }
+        d1a.d("AudioChangeOperatorNew: 创建DuAudioProcess开始");
+        this.mDuAudioProcess = new DuAudioProcess(this.mSampleRate, this.mChannelCount, j);
+        audioSwitch();
+        d1a.d("AudioChangeOperatorNew: 创建DuAudioProcess完成");
+        d1a.d("AudioChangeOperatorNew: 创建DuDelayProcess开始");
+        this.mDelayProcess = new DuDelayProcess(this.mSampleRate, 1);
+        setDelayConfig();
+        d1a.d("AudioChangeOperatorNew: 创建DuDelayProcess完成");
     }
 
     private void setDelayConfig() {
         AudioChangeConfig audioChangeConfig;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65545, this) != null) || this.mDelayProcess == null || (audioChangeConfig = this.mAudioChangeConfig) == null) {
+        if (this.mDelayProcess == null || (audioChangeConfig = this.mAudioChangeConfig) == null) {
             return;
         }
         DelayConfig delayConfig = audioChangeConfig.getDelayConfig();
@@ -353,83 +265,69 @@ public class AudioChangeOperator implements ut9 {
             duDelayProcess3.h(2);
             this.mDelayProcess.i(newPosition);
         }
-        gx9.d("AudioChangeOperatorNew: delayConfig = " + delayConfig.toString());
+        d1a.d("AudioChangeOperatorNew: delayConfig = " + delayConfig.toString());
     }
 
     private boolean shouldClose(DelayConfig delayConfig) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, delayConfig)) == null) {
-            if (delayConfig == null) {
-                closeDelay();
-                return true;
-            } else if (!delayConfig.available()) {
-                closeDelay();
-                return true;
-            } else {
-                return false;
-            }
+        if (delayConfig == null) {
+            closeDelay();
+            return true;
+        } else if (!delayConfig.available()) {
+            closeDelay();
+            return true;
+        } else {
+            return false;
         }
-        return invokeL.booleanValue;
     }
 
     public void setAudioChangeConfig(AudioChangeConfig audioChangeConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, audioChangeConfig) == null) {
-            this.mAudioChangeConfig = audioChangeConfig;
-        }
+        this.mAudioChangeConfig = audioChangeConfig;
     }
 
-    @Override // com.baidu.tieba.ut9
-    public int getBytes(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, bArr, i)) == null) {
-            if (canDelay()) {
-                return this.mDelayProcess.e(bArr, i);
-            }
-            DuAudioProcess duAudioProcess = this.mDuAudioProcess;
-            if (duAudioProcess != null) {
-                return duAudioProcess.f(bArr, i);
-            }
-            return 0;
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // com.baidu.tieba.ut9
-    public boolean putBytes(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, bArr, i)) == null) {
-            init();
-            DuAudioProcess duAudioProcess = this.mDuAudioProcess;
-            if (duAudioProcess != null) {
-                boolean e = duAudioProcess.e(bArr, i);
-                if (canDelay()) {
-                    return this.mDelayProcess.d(bArr, this.mDuAudioProcess.f(bArr, i));
-                }
-                return e;
-            }
+    @Override // com.baidu.tieba.rx9
+    public boolean available() {
+        if (this.mReverbType <= 100 && this.mPitchType <= 0 && this.mDenoiseType <= 200 && this.mAgcType <= 300 && this.mEQType <= 400 && this.mAirType <= 500 && this.mHarmonyType <= 700 && !delayAvailable()) {
             return false;
         }
-        return invokeLI.booleanValue;
+        return true;
     }
 
-    @Override // com.baidu.tieba.ut9
-    public void initVoiceChanger(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048582, this, i, i2, i3, i4) == null) {
-            this.mChannelCount = i2;
-            this.mSampleRate = i3;
-            this.mByteWidth = i4;
+    @Override // com.baidu.tieba.rx9
+    public int getBytes(byte[] bArr, int i) {
+        if (canDelay()) {
+            return this.mDelayProcess.e(bArr, i);
         }
+        DuAudioProcess duAudioProcess = this.mDuAudioProcess;
+        if (duAudioProcess != null) {
+            return duAudioProcess.f(bArr, i);
+        }
+        return 0;
     }
 
-    @Override // com.baidu.tieba.ut9
+    @Override // com.baidu.tieba.rx9
+    public boolean putBytes(byte[] bArr, int i) {
+        init();
+        DuAudioProcess duAudioProcess = this.mDuAudioProcess;
+        if (duAudioProcess != null) {
+            boolean e = duAudioProcess.e(bArr, i);
+            if (canDelay()) {
+                return this.mDelayProcess.d(bArr, this.mDuAudioProcess.f(bArr, i));
+            }
+            return e;
+        }
+        return false;
+    }
+
+    @Override // com.baidu.tieba.rx9
+    public void initVoiceChanger(int i, int i2, int i3, int i4) {
+        this.mChannelCount = i2;
+        this.mSampleRate = i3;
+        this.mByteWidth = i4;
+    }
+
+    @Override // com.baidu.tieba.rx9
     public void setVoiceChangeType(int[] iArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, iArr) != null) || checkTypesEquals(iArr, this.mLastEQparams, this.mLastReverbParams)) {
+        if (checkTypesEquals(iArr, this.mLastEQparams, this.mLastReverbParams)) {
             return;
         }
         this.mLastTypeArray = iArr;
@@ -455,13 +353,10 @@ public class AudioChangeOperator implements ut9 {
         }
     }
 
-    @Override // com.baidu.tieba.ut9
+    @Override // com.baidu.tieba.rx9
     public void setVoiceChangeType(int[] iArr, int[] iArr2, double[] dArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, iArr, iArr2, dArr) == null) {
-            this.mLastEQparams = iArr2;
-            this.mLastReverbParams = dArr;
-            setVoiceChangeType(iArr);
-        }
+        this.mLastEQparams = iArr2;
+        this.mLastReverbParams = dArr;
+        setVoiceChangeType(iArr);
     }
 }

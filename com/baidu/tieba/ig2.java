@@ -1,241 +1,73 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import android.webkit.JavascriptInterface;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ig2 extends eg2 {
+public class ig2 extends jb3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean o;
-    public static final Object p;
-    public static String q;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.gg2, com.baidu.searchbox.unitedscheme.TypedCallbackHandler
-    public int getInvokeSourceType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public static class a extends EventTargetImpl {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public gg2 a;
-        public xk2 b;
-        @V8JavascriptField
-        public fg2 env;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(gg2 gg2Var, String str) {
-            super(gg2Var);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gg2Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((JSRuntime) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gg2Var;
-            fg2 fg2Var = new fg2();
-            this.env = fg2Var;
-            fg2Var.basePath = str;
-        }
-
-        @JavascriptInterface
-        @SuppressLint({"BDThrowableCheck"})
-        public String getAPIs(int i) {
-            InterceptResult invokeI;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                if (ig2.o) {
-                    if (v43.p()) {
-                        str = jl3.d(i, SchemeCollecter.CLASSIFY_SWAN_V8);
-                    } else {
-                        str = "";
-                    }
-                    w52.b("SwanAppV8Engine", "getAPIs res:" + str);
-                    return str;
-                }
-                String d = jl3.d(i, SchemeCollecter.CLASSIFY_SWAN_V8);
-                w52.b("SwanAppV8Engine", "getAPIs description:" + d);
-                if (TextUtils.isEmpty(d)) {
-                    if (!ig2.o) {
-                        al3.c(jl3.b(String.format("index: %d, desc: %s, isV8: %b", Integer.valueOf(i), d, Boolean.TRUE)));
-                    } else {
-                        jl3.i();
-                        throw new RuntimeException(String.format("getAPIs cannot find index: %d, desc: %s", Integer.valueOf(i), d));
-                    }
-                } else {
-                    al3.d();
-                }
-                return d;
-            }
-            return (String) invokeI.objValue;
-        }
-
-        @JavascriptInterface
-        public String getDevToolsResponse() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (ig2.o) {
-                    Log.d("SwanAppV8Engine", "getDevToolsResponse = " + ig2.q);
-                }
-                return ig2.q;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @JavascriptInterface
-        public String getEnvVariables() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return gt2.a(this.a);
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @JavascriptInterface
-        public xk2 getFileSystemManager() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.b == null) {
-                    this.b = new xk2((eg2) this.a);
-                }
-                return this.b;
-            }
-            return (xk2) invokeV.objValue;
-        }
-
-        @JavascriptInterface
-        public JSONObject getNACanIUseMap() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                JSONObject b = xz2.b();
-                w52.k("SwanAppV8Engine", "getNACanIUseMap - " + b.toString());
-                return b;
-            }
-            return (JSONObject) invokeV.objValue;
-        }
-
-        @JavascriptInterface
-        public boolean lockMaster() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                w52.k("SwanAppV8Engine", "lockMaster");
-                synchronized (ig2.p) {
-                    try {
-                        try {
-                            ig2.p.wait();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                            return false;
-                        }
-                    } catch (Throwable th) {
-                        throw th;
-                    }
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @JavascriptInterface
-        public void setDevToolsResponse(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-                if (ig2.o) {
-                    Log.d("SwanAppV8Engine", "setDevToolsResponse = " + str);
-                }
-                ig2.q = str;
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947852469, "Lcom/baidu/tieba/ig2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947852469, "Lcom/baidu/tieba/ig2;");
-                return;
-            }
-        }
-        o = gp1.a;
-        p = new Object();
-        q = "";
-    }
-
-    @Override // com.baidu.tieba.eg2
-    @NonNull
-    public EventTarget A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a aVar = new a(this, this.b.getInitBasePath());
-            aVar.env.config = ci3.b();
-            return aVar;
-        }
-        return (EventTarget) invokeV.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ig2(@NonNull String str, @NonNull bh2 bh2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        super(str, bh2Var, v8ThreadDelegatePolicy);
+    public ig2(ja3 ja3Var) {
+        super(ja3Var, "/swanAPI/getRegionData");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, bh2Var, v8ThreadDelegatePolicy};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {ja3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (bh2) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+    }
+
+    @Override // com.baidu.tieba.jb3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m93 m93Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m93Var)) == null) {
+            if (m93Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                return false;
+            }
+            String b = xl3.b(context, "aiapps/pickerRegion.js");
+            if (TextUtils.isEmpty(b)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty regionData");
+                return false;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(b);
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("content", jSONArray);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                return true;
+            } catch (JSONException e) {
+                if (jb3.b) {
+                    e.printStackTrace();
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exec fail");
+                return false;
+            }
+        }
+        return invokeLLLL.booleanValue;
     }
 }

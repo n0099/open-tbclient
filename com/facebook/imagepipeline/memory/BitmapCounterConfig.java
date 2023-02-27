@@ -1,121 +1,45 @@
 package com.facebook.imagepipeline.memory;
-
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class BitmapCounterConfig {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_MAX_BITMAP_COUNT = 384;
-    public transient /* synthetic */ FieldHolder $fh;
     public int mMaxBitmapCount;
-
-    /* renamed from: com.facebook.imagepipeline.memory.BitmapCounterConfig$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
 
     /* loaded from: classes7.dex */
     public static class Builder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public int mMaxBitmapCount;
 
         public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.mMaxBitmapCount = 384;
         }
 
         public BitmapCounterConfig build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new BitmapCounterConfig(this);
-            }
-            return (BitmapCounterConfig) invokeV.objValue;
+            return new BitmapCounterConfig(this);
         }
 
         public int getMaxBitmapCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.mMaxBitmapCount;
-            }
-            return invokeV.intValue;
-        }
-
-        public /* synthetic */ Builder(AnonymousClass1 anonymousClass1) {
-            this();
+            return this.mMaxBitmapCount;
         }
 
         public Builder setMaxBitmapCount(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                this.mMaxBitmapCount = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
+            this.mMaxBitmapCount = i;
+            return this;
         }
     }
 
     public BitmapCounterConfig(Builder builder) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mMaxBitmapCount = 384;
         this.mMaxBitmapCount = builder.getMaxBitmapCount();
     }
 
+    public void setMaxBitmapCount(int i) {
+        this.mMaxBitmapCount = i;
+    }
+
     public static Builder newBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new Builder(null);
-        }
-        return (Builder) invokeV.objValue;
+        return new Builder();
     }
 
     public int getMaxBitmapCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mMaxBitmapCount;
-        }
-        return invokeV.intValue;
-    }
-
-    public void setMaxBitmapCount(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.mMaxBitmapCount = i;
-        }
+        return this.mMaxBitmapCount;
     }
 }

@@ -1,144 +1,35 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class md3 extends ta3 {
+public class md3 extends jb3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public class a implements ip1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ Activity d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ String f;
-        public final /* synthetic */ md3 g;
-
-        public a(md3 md3Var, boolean z, CallbackHandler callbackHandler, String str, Activity activity, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {md3Var, Boolean.valueOf(z), callbackHandler, str, activity, str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.g = md3Var;
-            this.a = z;
-            this.b = callbackHandler;
-            this.c = str;
-            this.d = activity;
-            this.e = str2;
-            this.f = str3;
-        }
-
-        @Override // com.baidu.tieba.ip1
-        public void onResult(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i == 0) {
-                    this.g.k(this.a, this.b, this.c, this.d, this.e, "snsapi_userinfo", this.f);
-                } else {
-                    this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements pn3<ie3> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ CallbackHandler d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ md3 f;
-
-        public b(md3 md3Var, Activity activity, boolean z, String str, CallbackHandler callbackHandler, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {md3Var, activity, Boolean.valueOf(z), str, callbackHandler, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = md3Var;
-            this.a = activity;
-            this.b = z;
-            this.c = str;
-            this.d = callbackHandler;
-            this.e = str2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pn3
-        /* renamed from: b */
-        public void a(ie3 ie3Var) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ie3Var) == null) {
-                w52.b("OpenData", "onOpenDataCallback:: ", ie3Var);
-                w83 c = this.f.c();
-                if (c != null) {
-                    z = c.N().e(this.a);
-                } else {
-                    z = false;
-                }
-                if (!ie3Var.E()) {
-                    if (!z && !this.b) {
-                        pf3.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 3, this.c);
-                    }
-                    ud3.n(ie3Var, this.d, this.e);
-                    return;
-                }
-                if (z && !this.b) {
-                    pf3.S("success", 3, this.c);
-                }
-                this.d.handleSchemeDispatchCallback(this.e, UnitedSchemeUtility.wrapCallbackParams(ie3Var.g, 0).toString());
-            }
-        }
-    }
+    public vv1 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public md3(t93 t93Var) {
-        super(t93Var, "/swanAPI/getUserInfo");
+    public md3(ja3 ja3Var) {
+        super(ja3Var, "/swanAPI/webviewPostMessage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t93Var};
+            Object[] objArr = {ja3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -152,69 +43,63 @@ public class md3 extends ta3 {
         }
     }
 
-    @Override // com.baidu.tieba.ta3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+    @Override // com.baidu.tieba.jb3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m93 m93Var) {
         InterceptResult invokeLLLL;
-        Activity w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
-            if (w83Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                es2.j().c(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp").toString());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m93Var)) == null) {
+            if (jb3.b) {
+                Log.d("WebViewPostMsgAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            m62.i("webviewPostMsg", "start post webview msg");
+            vv1 vv1Var = this.c;
+            if (vv1Var == null) {
+                m62.c("webviewPostMsg", "none webview widget");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none webview widget");
                 return false;
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                es2.j().c(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
+            kd3 params = vv1Var.getParams();
+            if (params == null) {
+                m62.c("webviewPostMsg", "none WWWParams");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none WWWParams");
                 return false;
             }
-            String optString = optParamsAsJo.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
-                es2.j().c(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
+            JSONObject a = jb3.a(unitedSchemeEntity, "params");
+            if (a == null) {
+                m62.c("webviewPostMsg", "none params");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none params");
                 return false;
-            }
-            if (context instanceof Activity) {
-                w = (Activity) context;
+            } else if (!a.has("data")) {
+                m62.c("webviewPostMsg", "none param data");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none param data");
+                return false;
             } else {
-                w = w83Var.w();
+                String optString = a.optString("data");
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("data", optString);
+                    jSONObject.put("eventType", "message");
+                    jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, params.c);
+                    jSONObject.put("webviewId", params.b);
+                } catch (JSONException e) {
+                    if (jb3.b) {
+                        e.printStackTrace();
+                    }
+                    m62.c("webviewPostMsg", "meet json exception");
+                }
+                to3.c(params.c, params.b, AlbumActivityConfig.FROM_WEB_VIEW, "message", jSONObject);
+                m62.i("webviewPostMsg", "post webview msg success");
+                unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
             }
-            Activity activity = w;
-            if (activity == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
-                es2.j().c(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity").toString());
-                return false;
-            }
-            String optString2 = optParamsAsJo.optString("invokeFrom");
-            if (!w83Var.N().e(context)) {
-                pf3.S("show", 3, optString2);
-            }
-            String f = u43.f(optParamsAsJo.optString("__plugin__", null));
-            jp1 N = w83Var.N();
-            boolean j = ud3.j(optParamsAsJo);
-            if (!N.e(context) && j) {
-                N.f(activity, null, new a(this, j, callbackHandler, optString, activity, f, optString2));
-            } else {
-                k(j, callbackHandler, optString, activity, f, "snsapi_userinfo", optString2);
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final void k(boolean z, CallbackHandler callbackHandler, String str, Activity activity, String str2, String str3, String str4) {
-        boolean z2;
+    public void j(vv1 vv1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), callbackHandler, str, activity, str2, str3, str4}) == null) {
-            w83 b0 = w83.b0();
-            if (b0 != null) {
-                z2 = b0.N().e(activity);
-            } else {
-                z2 = false;
-            }
-            ie3.B(activity, str3, str2, z, "getUserInfoApi", new b(this, activity, z2, str4, callbackHandler, str));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vv1Var) == null) {
+            this.c = vv1Var;
         }
     }
 }

@@ -5,125 +5,64 @@ import android.graphics.Canvas;
 import android.os.Build;
 import android.widget.EdgeEffect;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class EdgeEffectCompat {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public EdgeEffect mEdgeEffect;
 
     @Deprecated
     public EdgeEffectCompat(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mEdgeEffect = new EdgeEffect(context);
-    }
-
-    public static void onPull(@NonNull EdgeEffect edgeEffect, float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{edgeEffect, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                edgeEffect.onPull(f, f2);
-            } else {
-                edgeEffect.onPull(f);
-            }
-        }
     }
 
     @Deprecated
     public boolean draw(Canvas canvas) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, canvas)) == null) {
-            return this.mEdgeEffect.draw(canvas);
-        }
-        return invokeL.booleanValue;
+        return this.mEdgeEffect.draw(canvas);
     }
 
     @Deprecated
     public boolean onAbsorb(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            this.mEdgeEffect.onAbsorb(i);
-            return true;
-        }
-        return invokeI.booleanValue;
+        this.mEdgeEffect.onAbsorb(i);
+        return true;
     }
 
     @Deprecated
     public boolean onPull(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
-            this.mEdgeEffect.onPull(f);
-            return true;
+        this.mEdgeEffect.onPull(f);
+        return true;
+    }
+
+    public static void onPull(@NonNull EdgeEffect edgeEffect, float f, float f2) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            edgeEffect.onPull(f, f2);
+        } else {
+            edgeEffect.onPull(f);
         }
-        return invokeF.booleanValue;
     }
 
     @Deprecated
     public void finish() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mEdgeEffect.finish();
-        }
+        this.mEdgeEffect.finish();
     }
 
     @Deprecated
     public boolean isFinished() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mEdgeEffect.isFinished();
-        }
-        return invokeV.booleanValue;
+        return this.mEdgeEffect.isFinished();
     }
 
     @Deprecated
     public boolean onRelease() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            this.mEdgeEffect.onRelease();
-            return this.mEdgeEffect.isFinished();
-        }
-        return invokeV.booleanValue;
+        this.mEdgeEffect.onRelease();
+        return this.mEdgeEffect.isFinished();
     }
 
     @Deprecated
     public boolean onPull(float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            onPull(this.mEdgeEffect, f, f2);
-            return true;
-        }
-        return invokeCommon.booleanValue;
+        onPull(this.mEdgeEffect, f, f2);
+        return true;
     }
 
     @Deprecated
     public void setSize(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
-            this.mEdgeEffect.setSize(i, i2);
-        }
+        this.mEdgeEffect.setSize(i, i2);
     }
 }

@@ -1,11 +1,5 @@
 package com.google.android.exoplayer2.decoder;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.decoder.DecoderInputBuffer;
 import com.google.android.exoplayer2.decoder.OutputBuffer;
 import com.google.android.exoplayer2.util.Assertions;
@@ -13,8 +7,6 @@ import java.lang.Exception;
 import java.util.LinkedList;
 /* loaded from: classes7.dex */
 public abstract class SimpleDecoder<I extends DecoderInputBuffer, O extends OutputBuffer, E extends Exception> implements Decoder<I, O, E> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public int availableInputBufferCount;
     public final I[] availableInputBuffers;
     public int availableOutputBufferCount;
@@ -23,9 +15,9 @@ public abstract class SimpleDecoder<I extends DecoderInputBuffer, O extends Outp
     public I dequeuedInputBuffer;
     public E exception;
     public boolean flushed;
-    public final Object lock;
-    public final LinkedList<I> queuedInputBuffers;
-    public final LinkedList<O> queuedOutputBuffers;
+    public final Object lock = new Object();
+    public final LinkedList<I> queuedInputBuffers = new LinkedList<>();
+    public final LinkedList<O> queuedOutputBuffers = new LinkedList<>();
     public boolean released;
     public int skippedOutputBufferCount;
 
@@ -36,62 +28,20 @@ public abstract class SimpleDecoder<I extends DecoderInputBuffer, O extends Outp
     public abstract E decode(I i, O o, boolean z);
 
     public SimpleDecoder(I[] iArr, O[] oArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {iArr, oArr};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.lock = new Object();
-        this.queuedInputBuffers = new LinkedList<>();
-        this.queuedOutputBuffers = new LinkedList<>();
         this.availableInputBuffers = iArr;
         this.availableInputBufferCount = iArr.length;
-        for (int i3 = 0; i3 < this.availableInputBufferCount; i3++) {
-            this.availableInputBuffers[i3] = createInputBuffer();
+        for (int i = 0; i < this.availableInputBufferCount; i++) {
+            this.availableInputBuffers[i] = createInputBuffer();
         }
         this.availableOutputBuffers = oArr;
         this.availableOutputBufferCount = oArr.length;
-        for (int i4 = 0; i4 < this.availableOutputBufferCount; i4++) {
-            this.availableOutputBuffers[i4] = createOutputBuffer();
+        for (int i2 = 0; i2 < this.availableOutputBufferCount; i2++) {
+            this.availableOutputBuffers[i2] = createOutputBuffer();
         }
-        Thread thread = new Thread(this) { // from class: com.google.android.exoplayer2.decoder.SimpleDecoder.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ SimpleDecoder this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
+        Thread thread = new Thread() { // from class: com.google.android.exoplayer2.decoder.SimpleDecoder.1
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.this$0.run();
-                }
+                SimpleDecoder.this.run();
             }
         };
         this.decodeThread = thread;
@@ -99,95 +49,73 @@ public abstract class SimpleDecoder<I extends DecoderInputBuffer, O extends Outp
     }
 
     private void releaseInputBufferInternal(I i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, i) == null) {
-            i.clear();
-            I[] iArr = this.availableInputBuffers;
-            int i2 = this.availableInputBufferCount;
-            this.availableInputBufferCount = i2 + 1;
-            iArr[i2] = i;
-        }
+        i.clear();
+        I[] iArr = this.availableInputBuffers;
+        int i2 = this.availableInputBufferCount;
+        this.availableInputBufferCount = i2 + 1;
+        iArr[i2] = i;
     }
 
     private void releaseOutputBufferInternal(O o) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, this, o) == null) {
-            o.clear();
-            O[] oArr = this.availableOutputBuffers;
-            int i = this.availableOutputBufferCount;
-            this.availableOutputBufferCount = i + 1;
-            oArr[i] = o;
-        }
+        o.clear();
+        O[] oArr = this.availableOutputBuffers;
+        int i = this.availableOutputBufferCount;
+        this.availableOutputBufferCount = i + 1;
+        oArr[i] = o;
     }
 
     public final void queueInputBuffer(I i) throws Exception {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            synchronized (this.lock) {
-                maybeThrowException();
-                if (i == this.dequeuedInputBuffer) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                Assertions.checkArgument(z);
-                this.queuedInputBuffers.addLast(i);
-                maybeNotifyDecodeLoop();
-                this.dequeuedInputBuffer = null;
+        synchronized (this.lock) {
+            maybeThrowException();
+            if (i == this.dequeuedInputBuffer) {
+                z = true;
+            } else {
+                z = false;
             }
+            Assertions.checkArgument(z);
+            this.queuedInputBuffers.addLast(i);
+            maybeNotifyDecodeLoop();
+            this.dequeuedInputBuffer = null;
         }
     }
 
     public void releaseOutputBuffer(O o) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, o) == null) {
-            synchronized (this.lock) {
-                releaseOutputBufferInternal(o);
-                maybeNotifyDecodeLoop();
-            }
+        synchronized (this.lock) {
+            releaseOutputBufferInternal(o);
+            maybeNotifyDecodeLoop();
         }
     }
 
     public final void setInitialInputBufferSize(int i) {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            if (this.availableInputBufferCount == this.availableInputBuffers.length) {
-                z = true;
-            } else {
-                z = false;
-            }
-            Assertions.checkState(z);
-            for (I i2 : this.availableInputBuffers) {
-                i2.ensureSpaceForWrite(i);
-            }
+        if (this.availableInputBufferCount == this.availableInputBuffers.length) {
+            z = true;
+        } else {
+            z = false;
+        }
+        Assertions.checkState(z);
+        for (I i2 : this.availableInputBuffers) {
+            i2.ensureSpaceForWrite(i);
         }
     }
 
     private boolean canDecodeBuffer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (!this.queuedInputBuffers.isEmpty() && this.availableOutputBufferCount > 0) {
-                return true;
-            }
-            return false;
+        if (!this.queuedInputBuffers.isEmpty() && this.availableOutputBufferCount > 0) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     private void maybeNotifyDecodeLoop() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && canDecodeBuffer()) {
+        if (canDecodeBuffer()) {
             this.lock.notify();
         }
     }
 
     private void maybeThrowException() throws Exception {
-        E e;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65541, this) != null) || (e = this.exception) == null) {
+        E e = this.exception;
+        if (e == null) {
             return;
         }
         throw e;
@@ -195,149 +123,125 @@ public abstract class SimpleDecoder<I extends DecoderInputBuffer, O extends Outp
 
     /* JADX INFO: Access modifiers changed from: private */
     public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            do {
-                try {
-                } catch (InterruptedException e) {
-                    throw new IllegalStateException(e);
-                }
-            } while (decode());
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.android.exoplayer2.decoder.Decoder
-    public final O dequeueOutputBuffer() throws Exception {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this.lock) {
-                maybeThrowException();
-                if (this.queuedOutputBuffers.isEmpty()) {
-                    return null;
-                }
-                return this.queuedOutputBuffers.removeFirst();
-            }
-        }
-        return (O) invokeV.objValue;
-    }
-
-    @Override // com.google.android.exoplayer2.decoder.Decoder
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            synchronized (this.lock) {
-                this.released = true;
-                this.lock.notify();
-            }
+        do {
             try {
-                this.decodeThread.join();
-            } catch (InterruptedException unused) {
-                Thread.currentThread().interrupt();
+            } catch (InterruptedException e) {
+                throw new IllegalStateException(e);
             }
-        }
-    }
-
-    private boolean decode() throws InterruptedException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            synchronized (this.lock) {
-                while (!this.released && !canDecodeBuffer()) {
-                    this.lock.wait();
-                }
-                if (this.released) {
-                    return false;
-                }
-                I removeFirst = this.queuedInputBuffers.removeFirst();
-                O[] oArr = this.availableOutputBuffers;
-                int i = this.availableOutputBufferCount - 1;
-                this.availableOutputBufferCount = i;
-                O o = oArr[i];
-                boolean z = this.flushed;
-                this.flushed = false;
-                if (removeFirst.isEndOfStream()) {
-                    o.addFlag(4);
-                } else {
-                    if (removeFirst.isDecodeOnly()) {
-                        o.addFlag(Integer.MIN_VALUE);
-                    }
-                    E decode = decode(removeFirst, o, z);
-                    this.exception = decode;
-                    if (decode != null) {
-                        synchronized (this.lock) {
-                        }
-                        return false;
-                    }
-                }
-                synchronized (this.lock) {
-                    if (this.flushed) {
-                        releaseOutputBufferInternal(o);
-                    } else if (o.isDecodeOnly()) {
-                        this.skippedOutputBufferCount++;
-                        releaseOutputBufferInternal(o);
-                    } else {
-                        o.skippedOutputBufferCount = this.skippedOutputBufferCount;
-                        this.skippedOutputBufferCount = 0;
-                        this.queuedOutputBuffers.addLast(o);
-                    }
-                    releaseInputBufferInternal(removeFirst);
-                }
-                return true;
-            }
-        }
-        return invokeV.booleanValue;
+        } while (decode());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.decoder.Decoder
     public final I dequeueInputBuffer() throws Exception {
-        InterceptResult invokeV;
         boolean z;
         I i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this.lock) {
-                maybeThrowException();
-                if (this.dequeuedInputBuffer == null) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                Assertions.checkState(z);
-                if (this.availableInputBufferCount == 0) {
-                    i = null;
-                } else {
-                    I[] iArr = this.availableInputBuffers;
-                    int i2 = this.availableInputBufferCount - 1;
-                    this.availableInputBufferCount = i2;
-                    i = iArr[i2];
-                }
-                this.dequeuedInputBuffer = i;
+        synchronized (this.lock) {
+            maybeThrowException();
+            if (this.dequeuedInputBuffer == null) {
+                z = true;
+            } else {
+                z = false;
             }
-            return i;
+            Assertions.checkState(z);
+            if (this.availableInputBufferCount == 0) {
+                i = null;
+            } else {
+                I[] iArr = this.availableInputBuffers;
+                int i2 = this.availableInputBufferCount - 1;
+                this.availableInputBufferCount = i2;
+                i = iArr[i2];
+            }
+            this.dequeuedInputBuffer = i;
         }
-        return (I) invokeV.objValue;
+        return i;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.android.exoplayer2.decoder.Decoder
+    public final O dequeueOutputBuffer() throws Exception {
+        synchronized (this.lock) {
+            maybeThrowException();
+            if (this.queuedOutputBuffers.isEmpty()) {
+                return null;
+            }
+            return this.queuedOutputBuffers.removeFirst();
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.decoder.Decoder
+    public void release() {
+        synchronized (this.lock) {
+            this.released = true;
+            this.lock.notify();
+        }
+        try {
+            this.decodeThread.join();
+        } catch (InterruptedException unused) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    private boolean decode() throws InterruptedException {
+        synchronized (this.lock) {
+            while (!this.released && !canDecodeBuffer()) {
+                this.lock.wait();
+            }
+            if (this.released) {
+                return false;
+            }
+            I removeFirst = this.queuedInputBuffers.removeFirst();
+            O[] oArr = this.availableOutputBuffers;
+            int i = this.availableOutputBufferCount - 1;
+            this.availableOutputBufferCount = i;
+            O o = oArr[i];
+            boolean z = this.flushed;
+            this.flushed = false;
+            if (removeFirst.isEndOfStream()) {
+                o.addFlag(4);
+            } else {
+                if (removeFirst.isDecodeOnly()) {
+                    o.addFlag(Integer.MIN_VALUE);
+                }
+                E decode = decode(removeFirst, o, z);
+                this.exception = decode;
+                if (decode != null) {
+                    synchronized (this.lock) {
+                    }
+                    return false;
+                }
+            }
+            synchronized (this.lock) {
+                if (this.flushed) {
+                    releaseOutputBufferInternal(o);
+                } else if (o.isDecodeOnly()) {
+                    this.skippedOutputBufferCount++;
+                    releaseOutputBufferInternal(o);
+                } else {
+                    o.skippedOutputBufferCount = this.skippedOutputBufferCount;
+                    this.skippedOutputBufferCount = 0;
+                    this.queuedOutputBuffers.addLast(o);
+                }
+                releaseInputBufferInternal(removeFirst);
+            }
+            return true;
+        }
     }
 
     @Override // com.google.android.exoplayer2.decoder.Decoder
     public final void flush() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this.lock) {
-                this.flushed = true;
-                this.skippedOutputBufferCount = 0;
-                if (this.dequeuedInputBuffer != null) {
-                    releaseInputBufferInternal(this.dequeuedInputBuffer);
-                    this.dequeuedInputBuffer = null;
-                }
-                while (!this.queuedInputBuffers.isEmpty()) {
-                    releaseInputBufferInternal(this.queuedInputBuffers.removeFirst());
-                }
-                while (!this.queuedOutputBuffers.isEmpty()) {
-                    releaseOutputBufferInternal(this.queuedOutputBuffers.removeFirst());
-                }
+        synchronized (this.lock) {
+            this.flushed = true;
+            this.skippedOutputBufferCount = 0;
+            if (this.dequeuedInputBuffer != null) {
+                releaseInputBufferInternal(this.dequeuedInputBuffer);
+                this.dequeuedInputBuffer = null;
+            }
+            while (!this.queuedInputBuffers.isEmpty()) {
+                releaseInputBufferInternal(this.queuedInputBuffers.removeFirst());
+            }
+            while (!this.queuedOutputBuffers.isEmpty()) {
+                releaseOutputBufferInternal(this.queuedOutputBuffers.removeFirst());
             }
         }
     }

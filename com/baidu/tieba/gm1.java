@@ -1,62 +1,68 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import androidx.core.view.InputDeviceCompat;
+import android.net.Uri;
+import android.os.Build;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Future;
+import com.baidubce.http.Headers;
+import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import okhttp3.internal.http2.Http2Codec;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes4.dex */
-public abstract class gm1<T> implements Runnable {
+public class gm1 {
     public static /* synthetic */ Interceptable $ic;
-    public static b b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Future<T> a;
+    public HttpURLConnection a;
+    public b b;
+    public c c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public int h;
+    public int i;
+    public boolean j;
+    public Uri.Builder k;
+    public int l;
 
-    public abstract T b();
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(String str, int i);
 
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public void f(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
-        }
-    }
-
-    public void g(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
-        }
-    }
-
-    public void i(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-        }
+        void onSuccess(String str, String str2);
     }
 
     /* loaded from: classes4.dex */
-    public static class a<T> {
+    public interface c {
+        void a(String str, int i);
+
+        void b(InputStream inputStream, String str);
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends rm1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final gm1 a;
-        public final T b;
+        public final /* synthetic */ gm1 c;
 
-        public a(gm1 gm1Var, T t) {
+        public a(gm1 gm1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gm1Var, t};
+                Object[] objArr = {gm1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -66,135 +72,288 @@ public abstract class gm1<T> implements Runnable {
                     return;
                 }
             }
-            this.a = gm1Var;
-            this.b = t;
+            this.c = gm1Var;
+        }
+
+        @Override // com.baidu.tieba.rm1
+        public Object b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
+                return invokeV.objValue;
+            }
+            this.c.i();
+            this.c.e();
+            return null;
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                a aVar = (a) message.obj;
-                int i = message.what;
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i == 3) {
-                            aVar.a.e();
-                            return;
-                        }
-                        return;
-                    }
-                    aVar.a.f((Throwable) aVar.b);
-                    return;
-                }
-                aVar.a.g(aVar.b);
-            }
-        }
-    }
-
-    public gm1() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public gm1(int i, String str) {
+        this(i, str, "GET");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static Handler d() {
-        InterceptResult invokeV;
-        b bVar;
+    public gm1(int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (gm1.class) {
-                if (b == null) {
-                    b = new b(Looper.getMainLooper());
-                }
-                bVar = b;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return bVar;
         }
-        return (Handler) invokeV.objValue;
+        this.b = null;
+        this.c = null;
+        this.g = "text/plain";
+        this.h = 10000;
+        this.i = 10000;
+        this.j = false;
+        this.k = null;
+        this.l = i;
+        this.d = str;
+        this.e = str2;
     }
 
-    public void cancel() {
+    public void c(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            a(false);
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            c();
-        }
-    }
-
-    public void a(boolean z) {
-        Future<T> future;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (future = this.a) != null) {
-            future.cancel(z);
-            d().obtainMessage(3, new a(this, null)).sendToTarget();
+        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+            this.c = cVar;
         }
     }
 
-    public void h(Future future) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, future) == null) {
-            this.a = future;
-        }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, CONST, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public gm1 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                System.currentTimeMillis();
-                d().obtainMessage(1, new a(this, b())).sendToTarget();
-            } finally {
+                if (this.l == 1) {
+                    sm1.a().c(new a(this));
+                } else {
+                    sm1.a().c(new a(this));
+                }
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, INVOKE, IF] complete} */
+    public final void e() {
+        HttpURLConnection httpURLConnection;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
                 try {
-                    return this;
-                } finally {
+                    this.a.connect();
+                    int responseCode = this.a.getResponseCode();
+                    if (responseCode == 302 || responseCode == 301) {
+                        this.a.setInstanceFollowRedirects(false);
+                        HttpURLConnection g = g(this.a);
+                        this.a = g;
+                        responseCode = g.getResponseCode();
+                    }
+                    if (responseCode / 100 != 2) {
+                        if (this.b != null) {
+                            this.b.a(this.a.getResponseMessage(), responseCode);
+                        }
+                        if (this.c != null) {
+                            this.c.a(this.a.getResponseMessage(), responseCode);
+                        }
+                    } else {
+                        String a2 = qm1.a(this.d);
+                        if (this.b != null) {
+                            this.b.onSuccess(f(), a2);
+                        }
+                        if (this.c != null) {
+                            this.c.b(this.a.getInputStream(), a2);
+                        }
+                    }
+                    httpURLConnection = this.a;
+                    if (httpURLConnection == null) {
+                        return;
+                    }
+                } catch (Exception e) {
+                    if (this.b != null) {
+                        b bVar = this.b;
+                        bVar.a("Net Connect RuntimeError: " + e.toString(), 0);
+                    }
+                    if (this.c != null) {
+                        c cVar = this.c;
+                        cVar.a("Net Connect RuntimeError: " + e.toString(), 0);
+                    }
+                    httpURLConnection = this.a;
+                    if (httpURLConnection == null) {
+                        return;
+                    }
+                }
+                httpURLConnection.disconnect();
+            } catch (Throwable th) {
+                HttpURLConnection httpURLConnection2 = this.a;
+                if (httpURLConnection2 != null) {
+                    httpURLConnection2.disconnect();
+                }
+                throw th;
+            }
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && !TextUtils.isEmpty(this.d)) {
+            try {
+                HttpURLConnection b2 = qm1.b(new URL(this.d));
+                this.a = b2;
+                b2.setConnectTimeout(this.h);
+                this.a.setReadTimeout(this.i);
+                if (Integer.parseInt(Build.VERSION.SDK) < 8) {
+                    System.setProperty("http.keepAlive", "false");
+                }
+                this.a.setRequestMethod(this.e);
+                this.a.setUseCaches(this.j);
+                if (!TextUtils.isEmpty(this.f)) {
+                    this.a.setRequestProperty("User-Agent", this.f);
+                }
+                this.a.setRequestProperty("Content-type", this.g);
+                this.a.setRequestProperty(HTTP.CONN_DIRECTIVE, Http2Codec.KEEP_ALIVE);
+                this.a.setRequestProperty(Headers.CACHE_CONTROL, "no-cache");
+                if (this.e.equals("POST")) {
+                    this.a.setDoInput(true);
+                    this.a.setDoOutput(true);
+                    if (this.k != null) {
+                        h(this.k.build().getEncodedQuery(), this.a);
+                    }
+                }
+            } catch (ArrayIndexOutOfBoundsException e) {
+                b bVar = this.b;
+                if (bVar != null) {
+                    bVar.a("Net Create RuntimeError: " + e.toString(), 0);
+                }
+                c cVar = this.c;
+                if (cVar != null) {
+                    cVar.a("Net Create RuntimeError: " + e.toString(), 0);
+                }
+            } catch (Throwable th) {
+                b bVar2 = this.b;
+                if (bVar2 != null) {
+                    bVar2.a("Net Create RuntimeError: " + th.toString(), 0);
+                }
+                c cVar2 = this.c;
+                if (cVar2 != null) {
+                    cVar2.a("Net Create RuntimeError: " + th.toString(), 0);
                 }
             }
-            return this;
         }
-        return (gm1) invokeV.objValue;
+    }
+
+    public String f() throws Exception {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            InputStream inputStream = null;
+            try {
+                inputStream = this.a.getInputStream();
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                byte[] bArr = new byte[128];
+                while (true) {
+                    int read = inputStream.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    byteArrayOutputStream.write(bArr, 0, read);
+                }
+                byteArrayOutputStream.flush();
+                return byteArrayOutputStream.toString();
+            } finally {
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final HttpURLConnection g(HttpURLConnection httpURLConnection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, httpURLConnection)) != null) {
+            return (HttpURLConnection) invokeL.objValue;
+        }
+        while (true) {
+            try {
+                int responseCode = httpURLConnection.getResponseCode();
+                if (responseCode == 302 || responseCode == 301) {
+                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(httpURLConnection.getHeaderField("Location")).openConnection();
+                    try {
+                        httpURLConnection2.setConnectTimeout(httpURLConnection2.getConnectTimeout());
+                        httpURLConnection2.setInstanceFollowRedirects(false);
+                        httpURLConnection2.setRequestProperty("Range", "bytes=0-");
+                        httpURLConnection = httpURLConnection2;
+                    } catch (Exception unused) {
+                        return httpURLConnection2;
+                    }
+                } else {
+                    return httpURLConnection;
+                }
+            } catch (Exception unused2) {
+                return httpURLConnection;
+            }
+        }
+    }
+
+    public final void h(String str, HttpURLConnection httpURLConnection) throws IOException {
+        OutputStream outputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, httpURLConnection) == null) {
+            BufferedWriter bufferedWriter = null;
+            try {
+                outputStream = httpURLConnection.getOutputStream();
+                try {
+                    BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                    try {
+                        bufferedWriter2.write(str);
+                        bufferedWriter2.flush();
+                        bufferedWriter2.close();
+                        if (outputStream != null) {
+                            outputStream.close();
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        bufferedWriter = bufferedWriter2;
+                        if (bufferedWriter != null) {
+                            bufferedWriter.close();
+                        }
+                        if (outputStream != null) {
+                            outputStream.close();
+                        }
+                        throw th;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            } catch (Throwable th3) {
+                th = th3;
+                outputStream = null;
+            }
+        }
     }
 }

@@ -1,28 +1,42 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.VisibleForTesting;
+import androidx.exifinterface.media.ExifInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.tieba.x5a;
+import com.baidu.tieba.z5a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.ModuleConfigKs;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class s5a implements PidLoaderCreator {
+public final class s5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ModuleConfigKs a;
+    public long a;
+    public int b;
+    public int c;
+    public v5a d;
+    public final Set<Ssp> e;
+    public final Set<z5a> f;
+    public final Set<x5a> g;
 
-    public s5a(ModuleConfigKs moduleConfigKs) {
+    public s5a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {moduleConfigKs};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,98 +46,158 @@ public class s5a implements PidLoaderCreator {
                 return;
             }
         }
-        this.a = moduleConfigKs;
+        this.e = new HashSet();
+        this.f = new HashSet();
+        this.g = new HashSet();
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x0061, code lost:
-        if (r2.equals(com.fun.ad.sdk.FunAdType.KS_NATIVE_EXPRESS) == false) goto L45;
-     */
-    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public PidLoader create(Ssp.Pid pid) {
+    public boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            char c = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
             try {
-                Long.parseLong(pid.pid);
-                String str = pid.type;
-                str.hashCode();
-                switch (str.hashCode()) {
-                    case -1377301807:
-                        break;
-                    case -1291455752:
-                        if (str.equals(FunAdType.KS_FULLSCREEN_VIDEO)) {
-                            c = 1;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -1187931233:
-                        if (str.equals(FunAdType.KS_NATIVE)) {
-                            c = 2;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -1106926588:
-                        if (str.equals(FunAdType.KS_REWARD_VIDEO)) {
-                            c = 3;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -1031178769:
-                        if (str.equals(FunAdType.KS_SPLASH)) {
-                            c = 4;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1860126748:
-                        if (str.equals(FunAdType.KS_INTERSTITIAL_EXPRESS)) {
-                            c = 5;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 2017609999:
-                        if (str.equals(FunAdType.KS_DRAW_VIDEO)) {
-                            c = 6;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    default:
-                        c = 65535;
-                        break;
+                c(str);
+                LogPrinter.v("Config cfgv:%d parsed over.", Long.valueOf(this.a));
+                if (d()) {
+                    a();
+                    LogPrinter.v("Config cfgv:%d persisted over.", Long.valueOf(this.a));
+                    return true;
                 }
-                switch (c) {
-                    case 0:
-                        return new c6a(pid);
-                    case 1:
-                        return new y5a(pid, this.a);
-                    case 2:
-                        return new e6a(pid);
-                    case 3:
-                        return new h6a(pid, this.a);
-                    case 4:
-                        return new j6a(pid);
-                    case 5:
-                        return new a6a(pid, this.a);
-                    case 6:
-                        return new v5a(pid);
-                    default:
-                        return null;
+            } catch (JSONException e) {
+                LogPrinter.e(e);
+            }
+            this.e.clear();
+            this.f.clear();
+            this.g.clear();
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @VisibleForTesting
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            HashSet hashSet = new HashSet();
+            HashSet hashSet2 = new HashSet();
+            for (Ssp ssp : this.e) {
+                if (hashSet.contains(ssp.type)) {
+                    LogPrinter.e("Duplicate ssp:type(%s) found.", ssp.type);
+                    return false;
                 }
-            } catch (NumberFormatException unused) {
-                LogPrinter.d("NumberFormatException for Pid:%s" + pid.pid, new Object[0]);
-                return null;
+                hashSet.add(ssp.type);
+                for (Ssp.Pid pid : ssp.pids) {
+                    if (hashSet2.contains(Long.valueOf(pid.id))) {
+                        LogPrinter.e("Duplicate pid(%d) found.", Long.valueOf(pid.id));
+                        return false;
+                    }
+                    hashSet2.add(Long.valueOf(pid.id));
+                }
+            }
+            HashSet hashSet3 = new HashSet();
+            for (z5a z5aVar : this.f) {
+                if (hashSet3.contains(z5aVar.a)) {
+                    LogPrinter.e("Duplicate sid(%s) found in SlotId", z5aVar.a);
+                    return false;
+                }
+                hashSet3.add(z5aVar.a);
+                for (z5a.c cVar : z5aVar.e) {
+                    HashSet hashSet4 = new HashSet();
+                    for (z5a.b bVar : cVar.b) {
+                        if (!hashSet2.contains(Long.valueOf(bVar.a))) {
+                            LogPrinter.e("Unregistered adId:(%d) in SlotId", Long.valueOf(bVar.a));
+                            return false;
+                        } else if (hashSet4.contains(Long.valueOf(bVar.a))) {
+                            LogPrinter.e("Duplicate adId:(%d) found in one sid:(%s) in SlotId", Long.valueOf(bVar.a), z5aVar.a);
+                            return false;
+                        } else {
+                            hashSet4.add(Long.valueOf(bVar.a));
+                        }
+                    }
+                }
+            }
+            if (this.c == 2) {
+                for (x5a x5aVar : this.g) {
+                    if (hashSet3.contains(x5aVar.a)) {
+                        LogPrinter.e("Duplicate sid(%s) found in SerialSlotId.", x5aVar.a);
+                        return false;
+                    }
+                    hashSet3.add(x5aVar.a);
+                    for (x5a.b bVar2 : x5aVar.b) {
+                        for (x5a.a aVar : bVar2.b) {
+                            if (!hashSet2.contains(Long.valueOf(aVar.a))) {
+                                LogPrinter.e("Unregistered adId:(%d) in SerialSlotId", Long.valueOf(aVar.a));
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void a() {
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            long j = this.a;
+            int i = this.b;
+            int i2 = this.c;
+            j5a j5aVar = new j5a(this.e, this.f, this.g);
+            v5a v5aVar = this.d;
+            Object obj = g6a.a;
+            String d = p5a.d(j5aVar);
+            Object[] objArr = new Object[1];
+            if (d == null) {
+                length = -1;
+            } else {
+                length = d.length();
+            }
+            objArr[0] = Integer.valueOf(length);
+            LogPrinter.v("sspsUTF len:%d", objArr);
+            g6a.b.edit().putLong("key_config_v", j).putInt("key_config_interval", i).putInt("key_V", i2).putString("key_adcfg", d).putString("key_rptcfg", p5a.d(v5aVar)).apply();
+        }
+    }
+
+    @VisibleForTesting
+    public void c(String str) {
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            JSONObject jSONObject = new JSONObject(str);
+            JSONObject jSONObject2 = jSONObject.getJSONObject("config");
+            this.a = NumberUtils.adjustLong(jSONObject2.getLong("ver"), 0L);
+            this.b = NumberUtils.adjustInt(jSONObject2.getInt("interval"), 1, 1440);
+            this.c = NumberUtils.adjustInt(jSONObject2.optInt(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, 1), 1);
+            JSONObject jSONObject3 = jSONObject.getJSONObject("adConfig");
+            JSONArray jSONArray = jSONObject3.getJSONArray("ssps");
+            HashMap hashMap = new HashMap();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                Ssp ssp = new Ssp(jSONArray.getJSONObject(i));
+                for (Ssp.Pid pid : ssp.pids) {
+                    hashMap.put(Long.valueOf(pid.id), pid);
+                }
+                this.e.add(ssp);
+            }
+            JSONArray jSONArray2 = jSONObject3.getJSONArray(Config.SID);
+            for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                this.f.add(new z5a(jSONArray2.getJSONObject(i2), hashMap));
+            }
+            if (this.c >= 2 && (optJSONArray = jSONObject3.optJSONArray("serialSids")) != null) {
+                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                    this.g.add(new x5a(optJSONArray.getJSONObject(i3), hashMap));
+                }
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("rptConfig");
+            if (optJSONObject != null) {
+                this.d = new v5a(optJSONObject);
             }
         }
-        return (PidLoader) invokeL.objValue;
     }
 }

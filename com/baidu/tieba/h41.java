@@ -1,47 +1,64 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tieba.p41;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.thread.executor.BaseExecutorCell;
+import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
-@Autowired
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class h41 {
+public class h41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public BaseExecutorCell a;
+    @NonNull
+    public BaseExecutorCell b;
+    @NonNull
+    public BaseExecutorCell c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947773636, "Lcom/baidu/tieba/h41;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public h41() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947773636, "Lcom/baidu/tieba/h41;");
-        }
+        this.a = BaseExecutorCell.b(u31.d, BaseExecutorCell.ExecutorType.ARTERY);
+        this.b = BaseExecutorCell.b(u31.e, BaseExecutorCell.ExecutorType.ARTERY);
+        this.c = BaseExecutorCell.b(u31.f, BaseExecutorCell.ExecutorType.ARTERY);
     }
 
-    @NonNull
-    @JvmStatic
-    @Singleton
-    @Inject(force = false)
-    public static final p41 a() {
-        InterceptResult invokeV;
+    public boolean a(ElasticTask elasticTask) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new p41.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, elasticTask)) == null) {
+            int b = elasticTask.b();
+            if (b != 0 && b != 1) {
+                if (b == 2) {
+                    if (this.b.c(elasticTask)) {
+                        return true;
+                    }
+                    return this.c.c(elasticTask);
+                } else if (b == 3) {
+                    return this.c.c(elasticTask);
+                } else {
+                    return false;
+                }
+            } else if (this.a.c(elasticTask) || this.b.c(elasticTask)) {
+                return true;
+            } else {
+                return this.c.c(elasticTask);
+            }
         }
-        return (p41) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

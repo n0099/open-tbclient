@@ -10,10 +10,10 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cloudbase.download.exception.DownloadException;
 import com.baidu.tieba.h;
-import com.baidu.tieba.i10;
-import com.baidu.tieba.j10;
-import com.baidu.tieba.k10;
+import com.baidu.tieba.m10;
+import com.baidu.tieba.n10;
 import com.baidu.tieba.o10;
+import com.baidu.tieba.s10;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ public class CaptureDownloadService extends Service {
     public static final String EXTRA_TAG = "extra_tag";
     public static final String TAG = "CaptureDownloadService";
     public transient /* synthetic */ FieldHolder $fh;
-    public i10 mDownloadManager;
+    public m10 mDownloadManager;
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -48,7 +48,7 @@ public class CaptureDownloadService extends Service {
     }
 
     /* loaded from: classes2.dex */
-    public static class a extends k10 {
+    public static class a extends o10 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -77,7 +77,7 @@ public class CaptureDownloadService extends Service {
             this.c = LocalBroadcastManager.getInstance(context);
         }
 
-        @Override // com.baidu.tieba.k10
+        @Override // com.baidu.tieba.o10
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -89,7 +89,7 @@ public class CaptureDownloadService extends Service {
             }
         }
 
-        @Override // com.baidu.tieba.k10
+        @Override // com.baidu.tieba.o10
         public void f(DownloadException downloadException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, downloadException) == null) {
@@ -115,7 +115,7 @@ public class CaptureDownloadService extends Service {
             return invokeI.booleanValue;
         }
 
-        @Override // com.baidu.tieba.k10
+        @Override // com.baidu.tieba.o10
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -127,7 +127,7 @@ public class CaptureDownloadService extends Service {
             }
         }
 
-        @Override // com.baidu.tieba.k10
+        @Override // com.baidu.tieba.o10
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -137,7 +137,7 @@ public class CaptureDownloadService extends Service {
             }
         }
 
-        @Override // com.baidu.tieba.k10
+        @Override // com.baidu.tieba.o10
         public void g(long j, long j2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
@@ -147,7 +147,7 @@ public class CaptureDownloadService extends Service {
                 h hVar = this.b;
                 hVar.g = 3;
                 hVar.e = i;
-                hVar.f = o10.a(j, j2);
+                hVar.f = s10.a(j, j2);
                 if (i(i)) {
                     j(this.b);
                 }
@@ -199,7 +199,7 @@ public class CaptureDownloadService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.mDownloadManager = i10.i();
+            this.mDownloadManager = m10.i();
         }
     }
 
@@ -274,7 +274,7 @@ public class CaptureDownloadService extends Service {
     private void download(int i, h hVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(65542, this, i, hVar, str) == null) {
-            j10.a aVar = new j10.a();
+            n10.a aVar = new n10.a();
             aVar.d(hVar.d);
             this.mDownloadManager.f(aVar.a(), str, new a(i, hVar, getApplicationContext()));
         }
@@ -300,7 +300,7 @@ public class CaptureDownloadService extends Service {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0085, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0087, code lost:
         if (r0.equals(com.baidu.cloudbase.download.CaptureDownloadService.ACTION_DOWNLOAD) != false) goto L10;
      */
     @Override // android.app.Service

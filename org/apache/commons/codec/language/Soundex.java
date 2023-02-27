@@ -1,126 +1,107 @@
 package org.apache.commons.codec.language;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.common.internal.TransactionIdCreater;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringEncoder;
-@Deprecated
 /* loaded from: classes9.dex */
 public class Soundex implements StringEncoder {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final Soundex US_ENGLISH = null;
-    public static final char[] US_ENGLISH_MAPPING = null;
+    public int maxLength;
+    public final char[] soundexMapping;
     public static final String US_ENGLISH_MAPPING_STRING = "01230120022455012623010202";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(889441958, "Lorg/apache/commons/codec/language/Soundex;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(889441958, "Lorg/apache/commons/codec/language/Soundex;");
-        }
-    }
+    public static final char[] US_ENGLISH_MAPPING = US_ENGLISH_MAPPING_STRING.toCharArray();
+    public static final Soundex US_ENGLISH = new Soundex();
 
     public Soundex() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        throw new RuntimeException("Stub!");
+        this.maxLength = 4;
+        this.soundexMapping = US_ENGLISH_MAPPING;
     }
 
-    @Deprecated
+    private char[] getSoundexMapping() {
+        return this.soundexMapping;
+    }
+
     public int getMaxLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeV.intValue;
+        return this.maxLength;
     }
 
-    public Soundex(char[] cArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cArr};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        throw new RuntimeException("Stub!");
+    public Soundex(String str) {
+        this.maxLength = 4;
+        this.soundexMapping = str.toCharArray();
     }
 
-    public int difference(String str, String str2) throws EncoderException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            throw new RuntimeException("Stub!");
+    private char map(char c) {
+        int i = c - 'A';
+        if (i >= 0 && i < getSoundexMapping().length) {
+            return getSoundexMapping()[i];
         }
-        return invokeLL.intValue;
+        throw new IllegalArgumentException("The character is not mapped: " + c);
     }
 
     @Override // org.apache.commons.codec.Encoder
     public Object encode(Object obj) throws EncoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            throw new RuntimeException("Stub!");
+        if (obj instanceof String) {
+            return soundex((String) obj);
         }
-        return invokeL.objValue;
+        throw new EncoderException("Parameter supplied to Soundex encode is not of type java.lang.String");
     }
 
-    @Deprecated
     public void setMaxLength(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            throw new RuntimeException("Stub!");
-        }
+        this.maxLength = i;
     }
 
-    public String soundex(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (String) invokeL.objValue;
+    public Soundex(char[] cArr) {
+        this.maxLength = 4;
+        char[] cArr2 = new char[cArr.length];
+        this.soundexMapping = cArr2;
+        System.arraycopy(cArr, 0, cArr2, 0, cArr.length);
     }
 
     @Override // org.apache.commons.codec.StringEncoder
     public String encode(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            throw new RuntimeException("Stub!");
+        return soundex(str);
+    }
+
+    private char getMappingCode(String str, int i) {
+        char charAt;
+        char map = map(str.charAt(i));
+        if (i > 1 && map != '0' && ('H' == (charAt = str.charAt(i - 1)) || 'W' == charAt)) {
+            char charAt2 = str.charAt(i - 2);
+            if (map(charAt2) == map || 'H' == charAt2 || 'W' == charAt2) {
+                return (char) 0;
+            }
         }
-        return (String) invokeL.objValue;
+        return map;
+    }
+
+    public int difference(String str, String str2) throws EncoderException {
+        return SoundexUtils.difference(this, str, str2);
+    }
+
+    public String soundex(String str) {
+        if (str == null) {
+            return null;
+        }
+        String clean = SoundexUtils.clean(str);
+        if (clean.length() == 0) {
+            return clean;
+        }
+        char[] cArr = {TransactionIdCreater.FILL_BYTE, TransactionIdCreater.FILL_BYTE, TransactionIdCreater.FILL_BYTE, TransactionIdCreater.FILL_BYTE};
+        cArr[0] = clean.charAt(0);
+        char mappingCode = getMappingCode(clean, 0);
+        int i = 1;
+        int i2 = 1;
+        while (i < clean.length() && i2 < 4) {
+            int i3 = i + 1;
+            char mappingCode2 = getMappingCode(clean, i);
+            if (mappingCode2 != 0) {
+                if (mappingCode2 != '0' && mappingCode2 != mappingCode) {
+                    cArr[i2] = mappingCode2;
+                    i2++;
+                }
+                mappingCode = mappingCode2;
+            }
+            i = i3;
+        }
+        return new String(cArr);
     }
 }

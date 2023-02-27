@@ -1,44 +1,44 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes5.dex */
-public interface n71 {
-    public static final n71 a = new a();
+public class n71 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    m71 a(Activity activity);
-
-    /* loaded from: classes5.dex */
-    public static class a implements n71 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return false;
             }
+            return s51.a(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
         }
+        return invokeL.booleanValue;
+    }
 
-        @Override // com.baidu.tieba.n71
-        public m71 a(Activity activity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
-                return new i71(activity);
+    @SuppressLint({"ObsoleteSdkInt"})
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            boolean z = false;
+            if (context == null) {
+                return false;
             }
-            return (m71) invokeL.objValue;
+            boolean a = s51.a(context, "android.permission.WRITE_EXTERNAL_STORAGE");
+            if (Build.VERSION.SDK_INT >= 16) {
+                return (a || s51.a(context, com.kuaishou.weapon.p0.h.i)) ? true : true;
+            }
+            return a;
         }
+        return invokeL.booleanValue;
     }
 }

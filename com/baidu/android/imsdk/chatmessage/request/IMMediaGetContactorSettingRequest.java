@@ -3,12 +3,12 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
-import com.alipay.sdk.sys.a;
 import com.baidu.android.imsdk.chatmessage.IMediaContactorSettingListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.sapi2.dto.IsShowRealNameGuideDTO;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -135,7 +135,7 @@ public class IMMediaGetContactorSettingRequest extends IMMediaBaseHttpRequest {
                 if (!TextUtils.isEmpty(this.mContactorThirdid)) {
                     jSONObject.put("contacter_third_id", this.mContactorThirdid);
                 }
-                jSONObject.put(a.s, this.mSetting);
+                jSONObject.put(IsShowRealNameGuideDTO.TYPE_SETTING, this.mSetting);
                 jSONObject.put("sign", generateSign(jSONObject));
             } catch (JSONException e) {
                 LogUtils.e(TAG, "getRequestParameter Exception ", e);

@@ -1,47 +1,75 @@
 package com.baidu.tieba;
 
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.browser.core.webview.flyweight.FlyweightWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nb6 extends ma6 {
+public class nb6 extends mb6<FlyweightWebView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final z96<aa6> b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nb6(z96<aa6> z96Var) {
-        super(null);
+    public nb6(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {z96Var};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((WebChromeClient) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = z96Var;
     }
 
-    @Override // com.baidu.tieba.ma6, android.webkit.WebChromeClient
-    public void onProgressChanged(WebView webView, int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mb6
+    /* renamed from: d */
+    public synchronized FlyweightWebView a() {
+        InterceptResult invokeV;
+        FlyweightWebView flyweightWebView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, webView, i) == null) {
-            super.onProgressChanged(webView, i);
-            aa6 call = this.b.call();
-            if (call != null) {
-                call.a(webView, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                flyweightWebView = (FlyweightWebView) super.a();
+                if (flyweightWebView != null) {
+                    flyweightWebView.d();
+                }
             }
+            return flyweightWebView;
         }
+        return (FlyweightWebView) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mb6
+    /* renamed from: e */
+    public synchronized boolean c(@NonNull FlyweightWebView flyweightWebView) {
+        InterceptResult invokeL;
+        boolean c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, flyweightWebView)) == null) {
+            synchronized (this) {
+                c = super.c(flyweightWebView);
+                if (c) {
+                    flyweightWebView.c();
+                } else {
+                    flyweightWebView.destroy();
+                }
+            }
+            return c;
+        }
+        return invokeL.booleanValue;
     }
 }

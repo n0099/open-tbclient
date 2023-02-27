@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes4.dex */
 public interface eg5 {
-    void a(long j, int i, @NonNull String str);
+    String a(ImageFileInfo imageFileInfo);
 }

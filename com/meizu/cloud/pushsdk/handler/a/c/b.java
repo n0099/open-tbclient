@@ -1,163 +1,105 @@
 package com.meizu.cloud.pushsdk.handler.a.c;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.meizu.cloud.pushinternal.DebugLogger;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.handler.MessageV3;
-import com.meizu.cloud.pushsdk.handler.MzPushMessage;
-import com.meizu.cloud.pushsdk.notification.MPushMessage;
-import com.meizu.cloud.pushsdk.util.MinSdkChecker;
-import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class b extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
-    public b(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
-        super(context, aVar);
+public class b implements Parcelable {
+    public static final Parcelable.Creator<b> CREATOR = new Parcelable.Creator<b>() { // from class: com.meizu.cloud.pushsdk.handler.a.c.b.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public b createFromParcel(Parcel parcel) {
+            return new b(parcel);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public b[] newArray(int i) {
+            return new b[i];
+        }
+    };
+    public String a;
+    public a b;
+    public f c;
+
+    public b() {
     }
 
-    private Intent a(Context context, MessageV3 messageV3) {
-        Intent intent;
-        String uriPackageName = messageV3.getUriPackageName();
-        if (TextUtils.isEmpty(uriPackageName)) {
-            uriPackageName = messageV3.getUploadDataPackageName();
-        }
-        DebugLogger.i("AbstractMessageHandler", "openClassName is " + uriPackageName);
-        if (messageV3.getClickType() == 0) {
-            intent = context.getPackageManager().getLaunchIntentForPackage(uriPackageName);
-            if (intent != null && messageV3.getParamsMap() != null) {
-                for (Map.Entry<String, String> entry : messageV3.getParamsMap().entrySet()) {
-                    DebugLogger.i("AbstractMessageHandler", " launcher activity key " + entry.getKey() + " value " + entry.getValue());
-                    if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
-                        intent.putExtra(entry.getKey(), entry.getValue());
-                    }
-                }
-            }
-        } else if (1 == messageV3.getClickType()) {
-            intent = new Intent();
-            if (messageV3.getParamsMap() != null) {
-                for (Map.Entry<String, String> entry2 : messageV3.getParamsMap().entrySet()) {
-                    DebugLogger.i("AbstractMessageHandler", " key " + entry2.getKey() + " value " + entry2.getValue());
-                    if (!TextUtils.isEmpty(entry2.getKey()) && !TextUtils.isEmpty(entry2.getValue())) {
-                        intent.putExtra(entry2.getKey(), entry2.getValue());
-                    }
-                }
-            }
-            intent.setClassName(uriPackageName, messageV3.getActivity());
-            DebugLogger.i("AbstractMessageHandler", intent.toUri(1));
-        } else if (2 == messageV3.getClickType()) {
-            Intent intent2 = new Intent("android.intent.action.VIEW", Uri.parse(messageV3.getWebUrl()));
-            String uriPackageName2 = messageV3.getUriPackageName();
-            if (!TextUtils.isEmpty(uriPackageName2)) {
-                intent2.setPackage(uriPackageName2);
-                DebugLogger.i("AbstractMessageHandler", "set uri package " + uriPackageName2);
-            }
-            intent = intent2;
-        } else {
-            if (3 == messageV3.getClickType()) {
-                DebugLogger.i("AbstractMessageHandler", "CLICK_TYPE_SELF_DEFINE_ACTION");
-            }
-            intent = null;
-        }
-        if (intent != null) {
-            intent.putExtra(PushConstants.MZ_PUSH_PLATFROM_EXTRA, com.meizu.cloud.pushsdk.handler.a.b.d.a().a(messageV3.getTaskId()).a().b());
-        }
-        return intent;
+    public b(Parcel parcel) {
+        this.a = parcel.readString();
+        this.b = (a) parcel.readParcelable(a.class.getClassLoader());
+        this.c = (f) parcel.readParcelable(f.class.getClassLoader());
     }
 
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public int a() {
-        return 64;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    public void a(MessageV3 messageV3, com.meizu.cloud.pushsdk.notification.c cVar) {
-        com.meizu.cloud.pushsdk.util.b.a(c(), messageV3.getPackageName(), 0);
-        Intent a = a(c(), messageV3);
-        if (a != null) {
-            a.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            try {
-                c().startActivity(a);
-            } catch (Exception e) {
-                DebugLogger.e("AbstractMessageHandler", "Click message StartActivity error " + e.getMessage());
-            }
-        }
-        if (!TextUtils.isEmpty(messageV3.getTitle()) && !TextUtils.isEmpty(messageV3.getContent()) && b() != null) {
-            b().a(c(), MzPushMessage.fromMessageV3(messageV3));
-        }
-        if (!MinSdkChecker.isSupportSetDrawableSmallIcon()) {
-            b(messageV3);
+    public b(String str, String str2, String str3) {
+        this.a = str;
+        if (TextUtils.isEmpty(str)) {
+            this.b = new a();
+            this.c = new f();
             return;
         }
-        com.meizu.cloud.pushsdk.notification.model.a a2 = com.meizu.cloud.pushsdk.notification.model.a.a(messageV3);
-        if (a2 != null) {
-            DebugLogger.e("AbstractMessageHandler", "delete notifyId " + a2.a() + " notifyKey " + a2.b());
-            if (TextUtils.isEmpty(a2.b())) {
-                com.meizu.cloud.pushsdk.platform.a.b.a(c()).a(messageV3.getUploadDataPackageName(), a2.a());
-            } else {
-                com.meizu.cloud.pushsdk.platform.a.b.a(c()).a(messageV3.getUploadDataPackageName(), a2.b());
-            }
-        }
-    }
-
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public boolean a(Intent intent) {
-        DebugLogger.i("AbstractMessageHandler", "start NotificationClickMessageHandler match");
-        return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE.equals(i(intent));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: d */
-    public boolean g(MessageV3 messageV3) {
-        return a(messageV3);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: e */
-    public void b(MessageV3 messageV3) {
-        com.meizu.cloud.pushsdk.util.d.e(c(), messageV3.getUploadDataPackageName(), TextUtils.isEmpty(messageV3.getDeviceId()) ? d((Intent) null) : messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:13:0x0006 */
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v0, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r0v1, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r0v5, types: [com.meizu.cloud.pushsdk.notification.MPushMessage] */
-    /* JADX WARN: Type inference failed for: r4v0, types: [com.meizu.cloud.pushsdk.handler.a.c.b, com.meizu.cloud.pushsdk.handler.a.a] */
-    /* JADX WARN: Type inference failed for: r5v0, types: [android.content.Intent] */
-    /* JADX WARN: Type inference failed for: r5v1, types: [android.content.Intent] */
-    /* JADX WARN: Type inference failed for: r5v3, types: [java.lang.String] */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: j */
-    public MessageV3 c(Intent intent) {
-        MPushMessage mPushMessage;
-        String g;
-        String d;
-        String taskId;
-        ?? r0 = "parse MessageV2 to MessageV3";
-        String str = PushConstants.MZ_PUSH_PRIVATE_MESSAGE;
-        String str2 = "AbstractMessageHandler";
         try {
-            try {
-                DebugLogger.e("AbstractMessageHandler", "parse message V3");
-                MessageV3 messageV3 = (MessageV3) intent.getParcelableExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE);
-                if (messageV3 != null) {
-                    return messageV3;
-                }
-            } catch (Exception unused) {
-                DebugLogger.e("AbstractMessageHandler", "cannot get messageV3");
-            }
-            return MessageV3.parse(g, (String) d, taskId, (MPushMessage) mPushMessage);
-        } finally {
-            DebugLogger.e(str2, r0);
-            mPushMessage = (MPushMessage) intent.getSerializableExtra(str);
-            MessageV3.parse(g(intent), d(intent), mPushMessage.getTaskId(), mPushMessage);
+            JSONObject jSONObject = new JSONObject(str);
+            this.b = a.a(jSONObject.getJSONObject("ctl"));
+            f a = f.a(jSONObject.getJSONObject("statics"));
+            this.c = a;
+            a.c(str2);
+            this.c.d(str3);
+        } catch (JSONException e) {
+            this.b = new a();
+            this.c = new f();
+            DebugLogger.e("ControlMessage", "parse control message error " + e.getMessage());
         }
+    }
+
+    public static b a(String str) {
+        b bVar = new b();
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            bVar.a(a.a(jSONObject.getJSONObject("ctl")));
+            bVar.a(f.a(jSONObject.getJSONObject("statics")));
+        } catch (Exception e) {
+            DebugLogger.e("ControlMessage", "parse control message error " + e.getMessage());
+            bVar.a(new f());
+            bVar.a(new a());
+        }
+        return bVar;
+    }
+
+    public a a() {
+        return this.b;
+    }
+
+    public void a(a aVar) {
+        this.b = aVar;
+    }
+
+    public void a(f fVar) {
+        this.c = fVar;
+    }
+
+    public f b() {
+        return this.c;
+    }
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
+    }
+
+    public String toString() {
+        return "ControlMessage{controlMessage='" + this.a + "', control=" + this.b + ", statics=" + this.c + '}';
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(this.a);
+        parcel.writeParcelable(this.b, i);
+        parcel.writeParcelable(this.c, i);
     }
 }

@@ -4,16 +4,8 @@ import android.content.Context;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.storage.swankv.SwanKV;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.offline.api.core.api.ILoggerReporter;
 import com.kwad.components.offline.api.core.soloader.SoLoadListener;
 import com.kwad.components.offline.api.tk.ITkOfflineCompo;
@@ -32,44 +24,18 @@ import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
 public final class a {
-    public static /* synthetic */ Interceptable $ic;
-    public static Boolean QA;
-    public static final AtomicBoolean Qr;
-    public static final String Qs;
-    public static final String Qt;
-    public static final String Qu;
-    public static final String Qv;
-    public static final String Qw;
-    public static final String Qx;
-    public static final String Qy;
     public static long Qz;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final AtomicBoolean Qr = new AtomicBoolean(false);
+    public static final String Qs = y.format("lib%s.so", "tk_runtime_v0_0_8");
+    public static final String Qt = y.format("lib%s.so", "tk_runtime_lite_v0_0_8");
+    public static final String Qu = y.format("lib%s.so", "kwai-v8");
+    public static final String Qv = y.format("lib%s.so", "kwai-v8-lite");
+    public static final String Qw = y.format("lib%s.so", "kwad-fb");
+    public static final String Qx = y.format("lib%s.so", "kwad-yoga");
+    public static final String Qy = y.format("lib%s.so", SwanKV.LIB_CPP_SHARED);
+    public static Boolean QA = null;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(902318849, "Lcom/kwad/components/offline/tk/a/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(902318849, "Lcom/kwad/components/offline/tk/a/a;");
-                return;
-            }
-        }
-        Qr = new AtomicBoolean(false);
-        Qs = y.format("lib%s.so", "tk_runtime_v0_0_8");
-        Qt = y.format("lib%s.so", "tk_runtime_lite_v0_0_8");
-        Qu = y.format("lib%s.so", "kwai-v8");
-        Qv = y.format("lib%s.so", "kwai-v8-lite");
-        Qw = y.format("lib%s.so", "kwad-fb");
-        Qx = y.format("lib%s.so", "kwad-yoga");
-        Qy = y.format("lib%s.so", SwanKV.LIB_CPP_SHARED);
-        QA = null;
-    }
-
-    public static void a(Context context, @NonNull SoLoadListener soLoadListener) {
+    public static void a(Context context, @NonNull final SoLoadListener soLoadListener) {
         String rK;
         String str;
         String str2;
@@ -79,8 +45,7 @@ public final class a {
         String str6;
         String str7;
         String str8;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, soLoadListener) == null) || Qr.get()) {
+        if (Qr.get()) {
             return;
         }
         Qr.set(true);
@@ -138,104 +103,65 @@ public final class a {
         bVar.ayD = false;
         bVar.ayC = str2;
         bVar.ayF = hashMap;
-        com.kwai.sodler.lib.a.a eQ = i.EU().EW().EY().eQ(ITkOfflineCompo.PACKAGE_NAME);
+        final com.kwai.sodler.lib.a.a eQ = i.EU().EW().EY().eQ(ITkOfflineCompo.PACKAGE_NAME);
         com.kwad.sdk.core.e.b.d("TkSoLoadHelper", "tkOfflineCompoPlugin: " + eQ);
         if (eQ instanceof com.kwai.sodler.lib.kwai.a) {
             bVar.ayI = ((com.kwai.sodler.lib.kwai.a) eQ).Ff();
         }
-        com.kwai.sodler.kwai.a.a(context, bVar, new b.c(eQ, soLoadListener) { // from class: com.kwad.components.offline.tk.a.a.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ com.kwai.sodler.lib.a.a QB;
-            public final /* synthetic */ SoLoadListener QC;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eQ, soLoadListener};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.QB = eQ;
-                this.QC = soLoadListener;
-            }
-
+        com.kwai.sodler.kwai.a.a(context, bVar, new b.c() { // from class: com.kwad.components.offline.tk.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0661b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0651b, com.kwai.sodler.lib.ext.b
             public void a(c cVar) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(65537, this, cVar) == null) {
-                    super.a((AnonymousClass1) cVar);
-                }
+                super.a((AnonymousClass1) cVar);
             }
 
             private void a(PluginError pluginError) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(65538, this, pluginError) == null) {
-                    this.QC.onFailed(pluginError.getCode(), pluginError);
-                }
+                soLoadListener.onFailed(pluginError.getCode(), pluginError);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0661b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0651b, com.kwai.sodler.lib.ext.b
             /* renamed from: b */
             public void c(c cVar) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(65539, this, cVar) == null) {
-                    super.c((AnonymousClass1) cVar);
-                    long unused = a.Qz = SystemClock.elapsedRealtime();
-                    TkLoggerReporter.get().reportTKSODownload(ILoggerReporter.Category.APM_LOG, new TKDownloadMsg().setDownloadState(0).setRetryCount(cVar.Fp()).toJson());
-                }
+                super.c((AnonymousClass1) cVar);
+                long unused = a.Qz = SystemClock.elapsedRealtime();
+                TkLoggerReporter.get().reportTKSODownload(ILoggerReporter.Category.APM_LOG, new TKDownloadMsg().setDownloadState(0).setRetryCount(cVar.Fp()).toJson());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0661b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0651b, com.kwai.sodler.lib.ext.b
             /* renamed from: c */
             public void b(c cVar) {
                 String str9;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, cVar) == null) {
-                    super.b((AnonymousClass1) cVar);
-                    if (cVar.getState() == 1) {
-                        TkLoggerReporter.get().reportTKSODownload(ILoggerReporter.Category.APM_LOG, new TKDownloadMsg().setRetryCount(cVar.Fp()).setDownloadTime(SystemClock.elapsedRealtime() - a.Qz).setDownloadState(1).toJson());
-                        return;
-                    }
-                    if (cVar.Fm() != null) {
-                        Throwable Fm = cVar.Fm();
-                        if (Fm instanceof PluginError) {
-                            str9 = String.valueOf(((PluginError) Fm).getCode());
-                            TkLoggerReporter.get().reportTKSODownload(ILoggerReporter.Category.ERROR_LOG, new TKDownloadMsg().setRetryCount(cVar.Fp()).setErrorReason(str9).setDownloadState(2).toJson());
-                        }
-                    }
-                    str9 = ImageViewerConfig.FROM_OTHER;
-                    TkLoggerReporter.get().reportTKSODownload(ILoggerReporter.Category.ERROR_LOG, new TKDownloadMsg().setRetryCount(cVar.Fp()).setErrorReason(str9).setDownloadState(2).toJson());
+                super.b((AnonymousClass1) cVar);
+                if (cVar.getState() == 1) {
+                    TkLoggerReporter.get().reportTKSODownload(ILoggerReporter.Category.APM_LOG, new TKDownloadMsg().setRetryCount(cVar.Fp()).setDownloadTime(SystemClock.elapsedRealtime() - a.Qz).setDownloadState(1).toJson());
+                    return;
                 }
+                if (cVar.Fm() != null) {
+                    Throwable Fm = cVar.Fm();
+                    if (Fm instanceof PluginError) {
+                        str9 = String.valueOf(((PluginError) Fm).getCode());
+                        TkLoggerReporter.get().reportTKSODownload(ILoggerReporter.Category.ERROR_LOG, new TKDownloadMsg().setRetryCount(cVar.Fp()).setErrorReason(str9).setDownloadState(2).toJson());
+                    }
+                }
+                str9 = ImageViewerConfig.FROM_OTHER;
+                TkLoggerReporter.get().reportTKSODownload(ILoggerReporter.Category.ERROR_LOG, new TKDownloadMsg().setRetryCount(cVar.Fp()).setErrorReason(str9).setDownloadState(2).toJson());
             }
 
             private void qB() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(65541, this) == null) {
-                    this.QC.onLoaded();
-                }
+                soLoadListener.onLoaded();
             }
 
-            @Override // com.kwai.sodler.lib.ext.b.C0661b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0651b, com.kwai.sodler.lib.ext.b
             public final /* synthetic */ void a(f fVar, com.kwai.sodler.lib.a.a aVar) {
                 qB();
             }
 
-            @Override // com.kwai.sodler.lib.ext.b.C0661b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0651b, com.kwai.sodler.lib.ext.b
             public final /* bridge */ /* synthetic */ void a(f fVar, PluginError pluginError) {
                 a(pluginError);
             }
@@ -243,14 +169,9 @@ public final class a {
     }
 
     public static boolean useTkLite() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (QA == null) {
-                QA = Boolean.valueOf(d.useTkLite());
-            }
-            return QA.booleanValue();
+        if (QA == null) {
+            QA = Boolean.valueOf(d.useTkLite());
         }
-        return invokeV.booleanValue;
+        return QA.booleanValue();
     }
 }

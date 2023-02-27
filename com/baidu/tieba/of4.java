@@ -1,41 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import android.app.Activity;
+import android.content.Context;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class of4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface of4 {
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return b().h();
-        }
-        return invokeV.booleanValue;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(int i);
     }
 
-    @Inject
-    public static nf4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return rs2.a();
-        }
-        return (nf4) invokeV.objValue;
-    }
+    boolean a();
 
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b().isDebug();
-        }
-        return invokeV.booleanValue;
-    }
+    void b(Activity activity, uf4 uf4Var);
+
+    void c(int i, List<uf4> list);
+
+    void d(int i, List<uf4> list);
+
+    void e(int i, List<uf4> list);
+
+    void f(int i, List<uf4> list, a aVar);
+
+    void g(Activity activity, uf4 uf4Var);
+
+    void h(Context context, JSONObject jSONObject);
+
+    void i(JSONObject jSONObject);
+
+    boolean j(uf4 uf4Var);
+
+    boolean k(boolean z, int i);
 }

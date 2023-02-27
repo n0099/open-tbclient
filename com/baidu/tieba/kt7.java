@@ -1,94 +1,345 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class kt7 extends qn<it7, CardViewHolder<lt7>> {
+public abstract class kt7<Adapter extends BaseChatAdapter, Msg extends BaseMsg> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public ld6 b;
-    public String c;
+    public Adapter a;
+    public int b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kt7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getContext(), bdUniqueId);
+    /* loaded from: classes5.dex */
+    public interface e {
+        void a();
+
+        void b();
+
+        void c(int i);
+    }
+
+    public void i(@NonNull Msg msg, @NonNull e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, msg, eVar) == null) {
+        }
+    }
+
+    public abstract boolean j(@NonNull Msg msg);
+
+    public void k(BaseMsg baseMsg, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048581, this, baseMsg, i, i2) == null) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements wh5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BaseMsg a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ kt7 c;
+
+        /* loaded from: classes5.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ChatMsg a;
+            public final /* synthetic */ int b;
+            public final /* synthetic */ b c;
+
+            public a(b bVar, ChatMsg chatMsg, int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, chatMsg, Integer.valueOf(i)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = bVar;
+                this.a = chatMsg;
+                this.b = i;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                int i;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (this.a != null) {
+                        this.c.a.getCommonMsgField().setMsgId(this.a.getMsgId());
+                        this.c.a.getCommonMsgField().setLocalMsgId(false);
+                    }
+                    if (this.b == 0) {
+                        i = 5;
+                    } else {
+                        i = 4;
+                    }
+                    b bVar = this.c;
+                    bVar.c.l(bVar.a, i, bVar.b);
+                    b bVar2 = this.c;
+                    bVar2.c.k(bVar2.a, i, bVar2.b);
+                }
+            }
+        }
+
+        public b(kt7 kt7Var, BaseMsg baseMsg, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kt7Var, baseMsg, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = kt7Var;
+            this.a = baseMsg;
+            this.b = i;
+        }
+
+        @Override // com.baidu.tieba.wh5
+        public void onSendMessageResult(int i, @Nullable ChatMsg chatMsg) {
+            long j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, chatMsg) == null) {
+                a aVar = new a(this, chatMsg, i);
+                if (zw4.e()) {
+                    j = this.c.b;
+                } else {
+                    j = 0;
+                }
+                kh.f(aVar, j);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BaseMsg a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ kt7 c;
+
+        public a(kt7 kt7Var, BaseMsg baseMsg, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kt7Var, baseMsg, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = kt7Var;
+            this.a = baseMsg;
+            this.b = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.h(this.a, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BaseMsg a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ kt7 d;
+
+        public c(kt7 kt7Var, BaseMsg baseMsg, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kt7Var, baseMsg, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = kt7Var;
+            this.a = baseMsg;
+            this.b = i;
+            this.c = i2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                rq5.c(this.d.a, "必须要绑定数据适配器");
+                this.a.setItemStatus(this.b);
+                this.d.a.notifyItemChanged(this.c, 0);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BaseMsg a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ kt7 c;
+
+        @Override // com.baidu.tieba.kt7.e
+        public void c(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            }
+        }
+
+        public d(kt7 kt7Var, BaseMsg baseMsg, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kt7Var, baseMsg, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = kt7Var;
+            this.a = baseMsg;
+            this.b = i;
+        }
+
+        @Override // com.baidu.tieba.kt7.e
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.g(this.a, this.b);
+            }
+        }
+
+        @Override // com.baidu.tieba.kt7.e
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+                return;
+            }
+            this.c.l(this.a, 2, this.b);
+        }
+    }
+
+    public kt7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.qn
-    public no getOnAdapterItemClickListener() {
-        InterceptResult invokeV;
+    public final void l(@NonNull Msg msg, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return super.getOnAdapterItemClickListener();
+        if (interceptable == null || interceptable.invokeLII(1048582, this, msg, i, i2) == null) {
+            kh.c(new c(this, msg, i, i2));
         }
-        return (no) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: s */
-    public CardViewHolder<lt7> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter */
+    /* JADX WARN: Multi-variable type inference failed */
+    public void f(@Nullable BaseChatAdapter baseChatAdapter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            lt7 lt7Var = new lt7(this.a, viewGroup);
-            ld6 ld6Var = this.b;
-            if (ld6Var != null) {
-                lt7Var.n(ld6Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, baseChatAdapter) == null) {
+            this.a = baseChatAdapter;
+        }
+    }
+
+    public final void g(@NonNull Msg msg, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, msg, i) == null) {
+            kh.d(new a(this, msg, i));
+        }
+    }
+
+    public final void n(@NonNull Msg msg, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, msg, i) == null) {
+            i(msg, new d(this, msg, i));
+        }
+    }
+
+    @WorkerThread
+    public final void h(@NonNull Msg msg, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, msg, i) == null) {
+            l(msg, 3, i);
+            CommonMsgField commonMsgField = msg.getCommonMsgField();
+            msg.clearSdkMsgRedundancyFields();
+            nh5.b().i(this.a.getContext(), commonMsgField.getRoomId(), msg.getSdkMsg(), new b(this, msg, i));
+        }
+    }
+
+    public void m(@NonNull Msg msg, int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, msg, i) == null) {
+            rq5.c(this.a, "必须要绑定数据适配器");
+            int itemStatus = msg.getItemStatus();
+            if (itemStatus != 0 && itemStatus != 2) {
+                z = false;
+            } else {
+                z = true;
             }
-            return new CardViewHolder<>(lt7Var);
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, it7 it7Var, CardViewHolder<lt7> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, it7Var, cardViewHolder})) == null) {
-            if (it7Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().w(this.c);
-                cardViewHolder.a().i(it7Var);
-                return cardViewHolder.getView();
+            if (j(msg) && z) {
+                l(msg, 1, i);
+                n(msg, i);
+            } else if (itemStatus == 0 || itemStatus == 4) {
+                g(msg, i);
             }
-            return null;
         }
-        return (View) invokeCommon.objValue;
     }
 }

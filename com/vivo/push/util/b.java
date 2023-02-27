@@ -1,32 +1,34 @@
 package com.vivo.push.util;
 
+import android.app.PendingIntent;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Looper;
+import android.content.Intent;
+import android.os.Build;
 import android.text.TextUtils;
-import android.util.Base64;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.meizu.cloud.pushsdk.notification.model.AdvertisementOption;
+import com.vivo.push.model.InsideNotificationItem;
+import com.vivo.push.model.NotifyArriveCallbackByUser;
+import java.security.PublicKey;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes8.dex */
-public class b {
+public abstract class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String b;
-    public volatile SharedPreferences c;
-    public HashMap<String, String> d;
-    public HashMap<String, Long> e;
-    public HashMap<String, Integer> f;
-    public HashMap<String, Boolean> g;
+    public String a;
+    public long b;
+    public Context c;
+    public NotifyArriveCallbackByUser d;
+
+    public abstract int a();
+
+    public abstract PendingIntent a(Context context, Intent intent);
+
+    public abstract Intent a(Context context, InsideNotificationItem insideNotificationItem, NotifyArriveCallbackByUser notifyArriveCallbackByUser);
 
     public b() {
         Interceptable interceptable = $ic;
@@ -38,243 +40,96 @@ public class b {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = new HashMap<>();
-        this.e = new HashMap<>();
-        this.f = new HashMap<>();
-        this.g = new HashMap<>();
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.clear();
-            this.f.clear();
-            this.g.clear();
-            this.d.clear();
-            b();
-            if (this.c != null) {
-                SharedPreferences.Editor edit = this.c.edit();
-                edit.clear();
-                a(edit);
             }
         }
     }
 
-    public static void a(SharedPreferences.Editor editor) {
+    public final long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, editor) != null) || editor == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
         }
-        if (Looper.myLooper() == Looper.getMainLooper()) {
-            editor.apply();
-        } else {
-            editor.commit();
-        }
+        return invokeV.longValue;
     }
 
-    private void a(Map<String, String> map) {
+    public static Intent a(Context context, String str, long j, Intent intent, InsideNotificationItem insideNotificationItem) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, this, map) == null) && map.size() > 0) {
-            b();
-            if (this.c != null) {
-                SharedPreferences.Editor edit = this.c.edit();
-                for (String str : map.keySet()) {
-                    String str2 = map.get(str);
-                    this.d.put(str, str2);
-                    edit.putString(str, str2);
-                }
-                a(edit);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, Long.valueOf(j), intent, insideNotificationItem})) == null) {
+            Intent intent2 = new Intent("com.vivo.pushservice.action.RECEIVE");
+            intent2.setPackage(context.getPackageName());
+            intent2.setClassName(context.getPackageName(), "com.vivo.push.sdk.service.CommandService");
+            intent2.putExtra("command_type", "reflect_receiver");
+            intent2.putExtras(intent.getExtras());
+            a(intent2, context);
+            com.vivo.push.b.p pVar = new com.vivo.push.b.p(str, j, insideNotificationItem);
+            pVar.b(intent.getAction());
+            if (intent.getComponent() != null) {
+                pVar.c(intent.getComponent().getPackageName());
+                pVar.d(intent.getComponent().getClassName());
             }
+            if (intent.getData() != null) {
+                pVar.a(intent.getData());
+            }
+            pVar.b(intent2);
+            return intent2;
         }
+        return (Intent) invokeCommon.objValue;
     }
 
-    private void b() {
+    public static void a(Intent intent, Context context) {
+        String a;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.c == null) {
-            Context context = this.a;
-            if (context != null) {
-                this.c = context.getSharedPreferences(this.b, 0);
-                return;
-            }
-            throw new RuntimeException("SharedPreferences is not init", new Throwable());
-        }
-    }
-
-    private List<String> c(String str) {
-        InterceptResult invokeL;
-        Object a;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
-            if (this.a == null) {
-                p.c("BaseSharePreference", " parsLocalIv error mContext is null ");
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
+        if (interceptable == null || interceptable.invokeLL(65538, null, intent, context) == null) {
             try {
-                a = z.a(this.a, this.a.getPackageName(), str);
+                intent.putExtra("security_avoid_pull", a.a(context).a("com.vivo.pushservice"));
+                if (Build.VERSION.SDK_INT >= 18) {
+                    String a2 = com.vivo.push.e.b.a().a(context).a("com.vivo.pushservice");
+                    PublicKey a3 = com.vivo.push.e.b.a().a(context).a();
+                    if (TextUtils.isEmpty(a2)) {
+                        a2 = "com.vivo.pushservice";
+                    }
+                    intent.putExtra("security_avoid_pull_rsa", a2);
+                    if (a3 == null) {
+                        a = "com.vivo.pushservice";
+                    } else {
+                        a = ab.a(a3);
+                    }
+                    intent.putExtra("security_avoid_rsa_public_key", a);
+                }
             } catch (Exception e) {
-                p.c("BaseSharePreference", " parsLocalIv error e =" + e.getMessage());
-                e.printStackTrace();
+                u.a("BaseNotifyClickIntentParam", "pushNotificationBySystem encrypt ：" + e.getMessage());
+                intent.putExtra("security_avoid_pull_rsa", "com.vivo.pushservice");
+                intent.putExtra("security_avoid_rsa_public_key", "com.vivo.pushservice");
             }
-            if (a == null) {
+        }
+    }
+
+    public final Intent a(Context context, String str, long j, InsideNotificationItem insideNotificationItem, NotifyArriveCallbackByUser notifyArriveCallbackByUser) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{context, str, Long.valueOf(j), insideNotificationItem, notifyArriveCallbackByUser})) == null) {
+            this.b = j;
+            this.a = str;
+            this.c = context;
+            this.d = notifyArriveCallbackByUser;
+            Intent a = a(context, insideNotificationItem, notifyArriveCallbackByUser);
+            int a2 = a();
+            if (a2 > 0) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("messageID", String.valueOf(this.b));
+                String a3 = com.vivo.push.d.a.a().e().a();
+                if (!TextUtils.isEmpty(a3)) {
+                    hashMap.put("remoteAppId", a3);
+                }
+                hashMap.put(AdvertisementOption.AD_PACKAGE, this.a);
+                hashMap.put("clientsdkver", String.valueOf(ag.c(this.c, this.a)));
+                f.a(a2, hashMap);
                 return null;
             }
-            String str2 = new String(Base64.decode(a.toString(), 2));
-            if (!TextUtils.isEmpty(str2) && (split = str2.split(",#@")) != null && split.length >= 4) {
-                for (String str3 : split) {
-                    arrayList.add(str3.replace(",#@", ""));
-                }
-                if (arrayList.size() >= 4) {
-                    return arrayList;
-                }
-            }
-            return null;
+            return a;
         }
-        return (List) invokeL.objValue;
-    }
-
-    public final int a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Integer num = this.f.get(str);
-            if (num != null) {
-                return num.intValue();
-            }
-            b();
-            if (this.c != null) {
-                num = Integer.valueOf(this.c.getInt(str, 0));
-                if (!num.equals(0)) {
-                    this.f.put(str, num);
-                }
-            }
-            return num.intValue();
-        }
-        return invokeL.intValue;
-    }
-
-    public final void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.e.remove(str);
-            this.f.remove(str);
-            this.g.remove(str);
-            this.d.remove(str);
-            b();
-            if (this.c != null) {
-                SharedPreferences.Editor edit = this.c.edit();
-                if (this.c.contains(str)) {
-                    edit.remove(str);
-                    a(edit);
-                }
-            }
-        }
-    }
-
-    public final void a(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                this.b = str;
-                this.c = context.getSharedPreferences(str, 0);
-                this.a = context;
-                List<String> c = c("local_iv");
-                if (c != null && c.size() >= 4) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("com.vivo.push.secure_sub_iv", c.get(1));
-                    hashMap.put("com.vivo.push.secure_sub_key", c.get(2));
-                    hashMap.put("com.vivo.push.secure_cache_iv", c.get(3));
-                    hashMap.put("com.vivo.push.secure_cache_key", c.get(0));
-                    a(hashMap);
-                    return;
-                }
-                p.a("BaseSharePreference", " initSecureCode error list is null ");
-                return;
-            }
-            throw new RuntimeException("sharedFileName can't be null");
-        }
-    }
-
-    public final void a(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
-            this.f.put(str, Integer.valueOf(i));
-            b();
-            if (this.c != null) {
-                SharedPreferences.Editor edit = this.c.edit();
-                edit.putInt(str, i);
-                a(edit);
-            }
-        }
-    }
-
-    public final void a(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048580, this, str, j) == null) {
-            this.e.put(str, Long.valueOf(j));
-            b();
-            if (this.c != null) {
-                SharedPreferences.Editor edit = this.c.edit();
-                edit.putLong(str, j);
-                a(edit);
-            }
-        }
-    }
-
-    public final void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            this.d.put(str, str2);
-            b();
-            if (this.c != null) {
-                SharedPreferences.Editor edit = this.c.edit();
-                edit.putString(str, str2);
-                a(edit);
-            }
-        }
-    }
-
-    public final long b(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) {
-            Long l = this.e.get(str);
-            if (l != null) {
-                return l.longValue();
-            }
-            b();
-            if (this.c != null) {
-                l = Long.valueOf(this.c.getLong(str, j));
-                if (!l.equals(Long.valueOf(j))) {
-                    this.e.put(str, l);
-                }
-            }
-            return l.longValue();
-        }
-        return invokeLJ.longValue;
-    }
-
-    public final String b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
-            String str3 = this.d.get(str);
-            if (str3 != null) {
-                return str3;
-            }
-            b();
-            if (this.c != null) {
-                str3 = this.c.getString(str, str2);
-                if (!TextUtils.isEmpty(str3) && !str3.equals(str2)) {
-                    this.d.put(str, str3);
-                }
-            }
-            return str3;
-        }
-        return (String) invokeLL.objValue;
+        return (Intent) invokeCommon.objValue;
     }
 }

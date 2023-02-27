@@ -1,13 +1,10 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
+import android.app.ActivityManager;
+import android.os.Build;
+import android.os.Process;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.arface.utils.ThreadPool;
-import com.baidu.tieba.fg0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,17 +12,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Objects;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.RandomAccessFile;
 /* loaded from: classes3.dex */
-public class bg0 extends dg0 {
+public class bg0 {
     public static /* synthetic */ Interceptable $ic;
-    public static bg0 g;
+    public static volatile bg0 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
-    public File d;
-    public Context e;
-    public Boolean f;
+    public Long a;
+    public Long b;
+    public RandomAccessFile c;
+    public RandomAccessFile d;
+    public String e;
 
     static {
         InterceptResult invokeClinit;
@@ -42,40 +42,6 @@ public class bg0 extends dg0 {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bg0 a;
-
-        public a(bg0 bg0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bg0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bg0Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                bg0 bg0Var = this.a;
-                bg0Var.p(bg0Var.e);
-            }
-        }
-    }
-
     public bg0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -86,190 +52,313 @@ public class bg0 extends dg0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.c = "arsource";
-    }
-
-    public static synchronized void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            synchronized (bg0.class) {
-                if (g == null) {
-                    g = new bg0();
-                }
             }
         }
     }
 
-    public static final bg0 k() {
+    public static bg0 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (g == null) {
-                h();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (f == null) {
+                synchronized (bg0.class) {
+                    if (f == null) {
+                        f = new bg0();
+                    }
+                }
             }
-            return g;
+            return f;
         }
         return (bg0) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.dg0
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ThreadPool.b().e(new a(this));
-        }
-    }
-
-    public final String j() {
+    public double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            double g = g();
+            if (g <= 0.0d) {
+                g = b();
+            }
+            if (g <= 0.0d) {
+                return d();
+            }
+            return g;
         }
-        return (String) invokeV.objValue;
+        return invokeV.doubleValue;
     }
 
-    public final boolean n() {
+    public ActivityManager.MemoryInfo f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return ff0.m();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+            ((ActivityManager) jf0.getContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
+            return memoryInfo;
         }
-        return invokeV.booleanValue;
+        return (ActivityManager.MemoryInfo) invokeV.objValue;
     }
 
-    public final void q(String str) {
+    /* JADX WARN: Removed duplicated region for block: B:15:0x002a A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:24:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public double b() {
+        InterceptResult invokeV;
+        double doubleValue;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            Log.d("DuAr_AssetsLoader", str);
-        }
-    }
-
-    public final boolean i(Context context, String str, File file) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, file)) == null) {
-            if (file.isDirectory()) {
-                eg0.b(file);
-            } else {
-                eg0.d(file);
-            }
-            File file2 = new File(file + ".loading");
-            boolean a2 = new cg0(context).a(str, file2);
-            if (n()) {
-                q(a2 + " assetsToSD " + file2.getAbsolutePath());
-            }
-            if (a2) {
-                a2 = file2.renameTo(file);
-            }
-            if (n()) {
-                q(a2 + " renameTo " + file);
-            }
-            if (!a2) {
-                q("del temp ...");
-                eg0.b(file2);
-                if (file.exists()) {
-                    q("del " + file);
-                    eg0.b(file);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                String c = c(this.e);
+                if (!TextUtils.isEmpty(c)) {
+                    try {
+                        doubleValue = Double.valueOf(c).doubleValue();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if (doubleValue > 0.0d) {
+                        return 0.0d;
+                    }
+                    return doubleValue;
                 }
+                doubleValue = 0.0d;
+                if (doubleValue > 0.0d) {
+                }
+            } else {
+                return g();
             }
-            return a2;
+        } else {
+            return invokeV.doubleValue;
         }
-        return invokeLLL.booleanValue;
     }
 
-    public final File l() {
+    public final String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                Process exec = Runtime.getRuntime().exec(new String[]{"sh", "-c", "top -n 1"});
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(exec.getInputStream()));
+                while (true) {
+                    String readLine = bufferedReader.readLine();
+                    if (readLine != null) {
+                        String[] split = readLine.trim().split(" ");
+                        if (str != null && str.startsWith(split[split.length - 1].substring(0, split[split.length - 1].length() - 1))) {
+                            return split[16];
+                        }
+                    } else {
+                        try {
+                            exec.waitFor();
+                            return "";
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                            return "";
+                        }
+                    }
+                }
+            } catch (IOException e2) {
+                e2.printStackTrace();
+                return "";
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x00a1 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:86:0x0024 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:91:0x0071 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:95:0x0024 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:96:0x0024 */
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x0050, code lost:
+        r3 = r6[2].trim();
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x00a3  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x00ba A[Catch: Exception -> 0x00bd, TRY_LEAVE, TryCatch #4 {Exception -> 0x00bd, blocks: (B:63:0x00b5, B:65:0x00ba), top: B:78:0x00b5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x00b5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r3v10 */
+    /* JADX WARN: Type inference failed for: r3v12 */
+    /* JADX WARN: Type inference failed for: r3v13 */
+    /* JADX WARN: Type inference failed for: r3v14, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r3v9 */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public int d() {
         InterceptResult invokeV;
+        BufferedReader bufferedReader;
+        String str;
+        String str2;
+        String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.d == null && ff0.g() != null && !TextUtils.isEmpty(gf0.a())) {
-                this.d = new File(gf0.a());
-            }
-            return this.d;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    @SuppressLint({"NewApi"})
-    public void m(Context context, String str, File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, context, str, file) == null) {
-            this.e = ((Context) Objects.requireNonNull(context)).getApplicationContext();
-            this.c = (String) Objects.requireNonNull(str);
-            this.d = (File) Objects.requireNonNull(file);
-            if (n()) {
-                q("init " + str + " to " + file.getAbsolutePath());
-            }
-        }
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Boolean bool = this.f;
-            if (bool != null) {
-                return bool.booleanValue();
-            }
-            String j = j();
-            File l = l();
-            boolean z = false;
-            if (n()) {
-                q(String.format("from %s to %s ", j, l));
-            }
-            String str2 = null;
-            if (l != null && l.exists() && l.isDirectory()) {
-                str = eg0.h(new File(l, "version"));
-            } else {
+            int myPid = Process.myPid();
+            Process process = 0;
+            try {
+                Process exec = Runtime.getRuntime().exec("top -n 1");
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(exec.getInputStream()));
+                    while (true) {
+                        try {
+                            String readLine = bufferedReader.readLine();
+                            if (readLine == null) {
+                                break;
+                            } else if (readLine.trim().startsWith(String.valueOf(myPid)) && (split = readLine.split("\\s+")) != null) {
+                                if (split.length > 2 && split[2] != null && split[2].contains("%")) {
+                                    break;
+                                }
+                                int i = 0;
+                                while (true) {
+                                    if (i < split.length) {
+                                        if (split[i] != null && split[i].contains("%")) {
+                                            process = split[i].trim();
+                                            break;
+                                        }
+                                        i++;
+                                    } else {
+                                        break;
+                                    }
+                                }
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            str = process;
+                            process = exec;
+                            try {
+                                e.printStackTrace();
+                                if (process != null) {
+                                    try {
+                                        process.destroy();
+                                    } catch (Exception unused) {
+                                        str2 = str;
+                                        if (str2 != null) {
+                                        }
+                                        return Integer.parseInt(str2);
+                                    }
+                                }
+                                if (bufferedReader != null) {
+                                    bufferedReader.close();
+                                }
+                                str2 = str;
+                                if (str2 != null) {
+                                }
+                                return Integer.parseInt(str2);
+                            } catch (Throwable th) {
+                                th = th;
+                                if (process != null) {
+                                    try {
+                                        process.destroy();
+                                    } catch (Exception unused2) {
+                                        throw th;
+                                    }
+                                }
+                                if (bufferedReader != null) {
+                                    bufferedReader.close();
+                                }
+                                throw th;
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            process = exec;
+                            if (process != null) {
+                            }
+                            if (bufferedReader != null) {
+                            }
+                            throw th;
+                        }
+                    }
+                    if (exec != null) {
+                        try {
+                            exec.destroy();
+                        } catch (Exception unused3) {
+                            str2 = process;
+                        }
+                    }
+                    bufferedReader.close();
+                    str2 = process;
+                } catch (Exception e2) {
+                    e = e2;
+                    bufferedReader = null;
+                    process = exec;
+                    str = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    bufferedReader = null;
+                }
+            } catch (Exception e3) {
+                e = e3;
                 str = null;
+                bufferedReader = null;
+            } catch (Throwable th4) {
+                th = th4;
+                bufferedReader = null;
             }
-            if (!TextUtils.isEmpty(str)) {
-                str2 = eg0.g(this.e, j + "/version");
+            if (str2 != null) {
+                String[] split2 = str2.split("%");
+                if (split2.length > 0) {
+                    str2 = split2[0];
+                }
             }
-            if (n()) {
-                q("assets=" + str2 + ", sdcard=" + str);
+            try {
+                return Integer.parseInt(str2);
+            } catch (Exception unused4) {
+                return -1;
             }
-            z = (TextUtils.isEmpty(str) || !TextUtils.equals(str, str2)) ? true : true;
-            this.f = Boolean.valueOf(!z);
-            return !z;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public final void p(Context context) {
-        boolean z;
+    public double g() {
+        InterceptResult invokeV;
+        long parseLong;
+        long parseLong2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            if (!o()) {
-                z = i(context, j(), l());
-            } else {
-                z = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            double d = 0.0d;
+            try {
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            if (z) {
-                this.f = null;
-                d(2);
+            if (this.c != null && this.d != null) {
+                this.c.seek(0L);
+                this.d.seek(0L);
+                String readLine = this.c.readLine();
+                String readLine2 = this.d.readLine();
+                String[] split = readLine.split(" ");
+                String[] split2 = readLine2.split(" ");
+                parseLong = Long.parseLong(split[2]) + Long.parseLong(split[3]) + Long.parseLong(split[4]) + Long.parseLong(split[5]) + Long.parseLong(split[6]) + Long.parseLong(split[7]) + Long.parseLong(split[8]);
+                parseLong2 = Long.parseLong(split2[13]) + Long.parseLong(split2[14]);
+                if (this.a != null && this.b == null) {
+                    this.a = Long.valueOf(parseLong);
+                    this.b = Long.valueOf(parseLong2);
+                    return 0.0d;
+                }
+                if (this.a != null && this.b != null) {
+                    d = ((parseLong2 - this.b.longValue()) / (parseLong - this.a.longValue())) * 100.0d;
+                }
+                this.a = Long.valueOf(parseLong);
+                this.b = Long.valueOf(parseLong2);
+                return d;
             }
-            if (n()) {
-                q("arVersion=" + ff0.h() + ", arVersionName=" + ff0.i());
+            this.c = new RandomAccessFile("/proc/stat", "r");
+            this.d = new RandomAccessFile("/proc/" + Process.myPid() + "/stat", "r");
+            String readLine3 = this.c.readLine();
+            String readLine22 = this.d.readLine();
+            String[] split3 = readLine3.split(" ");
+            String[] split22 = readLine22.split(" ");
+            parseLong = Long.parseLong(split3[2]) + Long.parseLong(split3[3]) + Long.parseLong(split3[4]) + Long.parseLong(split3[5]) + Long.parseLong(split3[6]) + Long.parseLong(split3[7]) + Long.parseLong(split3[8]);
+            parseLong2 = Long.parseLong(split22[13]) + Long.parseLong(split22[14]);
+            if (this.a != null) {
             }
+            if (this.a != null) {
+                d = ((parseLong2 - this.b.longValue()) / (parseLong - this.a.longValue())) * 100.0d;
+            }
+            this.a = Long.valueOf(parseLong);
+            this.b = Long.valueOf(parseLong2);
+            return d;
         }
-    }
-
-    @SuppressLint({"NewApi"})
-    public void r(Context context, String str, File file, fg0.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048585, this, context, str, file, aVar) == null) {
-            this.e = ((Context) Objects.requireNonNull(context)).getApplicationContext();
-            this.c = (String) Objects.requireNonNull(str);
-            this.d = (File) Objects.requireNonNull(file);
-            if (n()) {
-                q("start " + str + " to " + file.getAbsolutePath());
-            }
-            super.e(aVar);
-        }
+        return invokeV.doubleValue;
     }
 }

@@ -27,6 +27,7 @@ public final class PushConstants {
     public static final int NOTIFY_STATUS_CLOSE = 0;
     public static final int NOTIFY_STATUS_OPEN = 1;
     public static final int NOTIFY_STATUS_UNKNOWN = 2;
+    public static final int NOT_CONFIRM_DIALOG = -1;
     public static final int PUSH_FREQUENCY_CHOSEN = 5;
     public static final int PUSH_FREQUENCY_CORE = 4;
     public static final int PUSH_FREQUENCY_DEF = 0;

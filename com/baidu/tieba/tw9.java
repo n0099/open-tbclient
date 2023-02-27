@@ -1,181 +1,101 @@
 package com.baidu.tieba;
 
-import android.media.AudioRecord;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.lw9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.record.RecordConstants;
-import java.nio.ByteBuffer;
+import java.util.LinkedHashMap;
 /* loaded from: classes6.dex */
-public class tw9 {
+public final class tw9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] b;
-    public static int c;
-    public static int d;
-    public static int e;
-    public static tw9 f;
-    public static byte[] g;
     public transient /* synthetic */ FieldHolder $fh;
-    public AudioRecord a;
+    public final LinkedHashMap<String, Long> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948195763, "Lcom/baidu/tieba/tw9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a extends xw9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ com.baidu.ubs.analytics.a.l a;
+
+        public a(tw9 tw9Var, com.baidu.ubs.analytics.a.l lVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tw9Var, lVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948195763, "Lcom/baidu/tieba/tw9;");
-                return;
+            this.a = lVar;
+        }
+
+        @Override // com.baidu.tieba.xw9
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                new dw9().c(this.a);
             }
         }
-        b = new int[]{1, 0, 5, 7, 6};
-        c = RecordConstants.MOVIE_ENCODE_SAMPLE_RATE;
-        d = 2048;
-        e = 24;
-        g = new byte[0];
     }
 
-    public tw9(int i) {
-        int[] iArr;
+    public tw9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int minBufferSize = AudioRecord.getMinBufferSize(c, 16, 2);
-        int i4 = d;
-        int i5 = e * i4;
-        i5 = i5 < minBufferSize ? ((minBufferSize / i4) + 1) * i4 * 2 : i5;
-        if (i != -100) {
-            try {
-                AudioRecord audioRecord = new AudioRecord(i, c, 16, 2, i5);
-                this.a = audioRecord;
-                if (audioRecord.getState() != 1) {
-                    this.a = null;
+        this.a = new LinkedHashMap<>();
+    }
+
+    public final void a(String str) {
+        lw9 lw9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str)) {
+            com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
+            synchronized (this.a) {
+                Long remove = this.a.remove(str);
+                if (remove == null) {
+                    return;
                 }
-            } catch (Exception unused) {
-                this.a = null;
-            }
-            if (this.a != null) {
-                gx9.d("audio_source:(if) ---> " + i);
-            }
-        }
-        if (this.a == null) {
-            for (int i6 : b) {
                 try {
-                    AudioRecord audioRecord2 = new AudioRecord(i6, c, 16, 2, i5);
-                    this.a = audioRecord2;
-                    if (audioRecord2.getState() != 1) {
-                        this.a = null;
-                    }
-                } catch (Exception unused2) {
-                    this.a = null;
+                    lVar.setStartTime(String.valueOf(remove));
+                    lVar.t(str);
+                    lVar.z(String.valueOf(System.currentTimeMillis()));
+                    lw9Var = lw9.a.a;
+                    lVar.setPath(lw9Var.b());
+                    lVar.x(uw9.e().I());
+                } catch (Exception e) {
+                    dx9.a(e.toString());
+                    vw9.b(e.toString());
                 }
-                if (this.a != null) {
-                    gx9.d("audio_source:(for) ---> " + i6);
-                    return;
-                }
+                ww9.c(new a(this, lVar));
             }
         }
     }
 
-    public int a(@NonNull ByteBuffer byteBuffer, int i) {
-        InterceptResult invokeLI;
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, byteBuffer, i)) == null) {
-            AudioRecord audioRecord = this.a;
-            if (audioRecord == null) {
-                return 0;
-            }
-            return audioRecord.read(byteBuffer, i);
-        }
-        return invokeLI.intValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a == null) {
-            return;
-        }
-        synchronized (g) {
-            g();
-            if (f == this) {
-                f = null;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str)) {
+            synchronized (this.a) {
+                this.a.put(str, Long.valueOf(System.currentTimeMillis()));
+                String.valueOf(System.currentTimeMillis());
             }
         }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (g) {
-                if (f == this) {
-                    return;
-                }
-                if (f != null) {
-                    f.g();
-                    f = null;
-                }
-                f();
-                f = this;
-            }
-        }
-    }
-
-    public AudioRecord d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (AudioRecord) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            AudioRecord audioRecord = this.a;
-            if (audioRecord != null) {
-                return audioRecord.getRecordingState();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void f() {
-        AudioRecord audioRecord;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (audioRecord = this.a) == null) {
-            return;
-        }
-        audioRecord.startRecording();
-    }
-
-    public final void g() {
-        AudioRecord audioRecord;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (audioRecord = this.a) == null) {
-            return;
-        }
-        this.a = null;
-        audioRecord.stop();
-        audioRecord.release();
     }
 }

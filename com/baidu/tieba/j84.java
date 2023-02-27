@@ -1,80 +1,59 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
 /* loaded from: classes5.dex */
 public class j84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public String key;
-    @V8JavascriptField
-    public String value;
+    public wg2 a;
+    public k84 b;
 
-    public j84() {
+    public j84(wg2 wg2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wg2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = wg2Var;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public l84 a(JsObject jsObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                if (this.key != null) {
-                    if (this.key.getBytes("UTF-8").length <= 128) {
-                        return true;
-                    }
-                }
-                return false;
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return true;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsObject)) == null) {
+            l84 l84Var = new l84(b(), this.a);
+            l84Var.B(jsObject);
+            return l84Var;
         }
-        return invokeV.booleanValue;
+        return (l84) invokeL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.key + ":" + this.value;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean b() {
+    @NonNull
+    public final k84 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            try {
-                if (this.key != null && this.value != null) {
-                    if (this.key.getBytes("UTF-8").length + this.value.getBytes("UTF-8").length <= 1024) {
-                        return true;
-                    }
-                }
-                return false;
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return true;
+            if (this.b == null) {
+                this.b = new k84();
             }
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (k84) invokeV.objValue;
     }
 }

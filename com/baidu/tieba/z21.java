@@ -1,60 +1,112 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface z21 {
-    a a(g31 g31Var, x21... x21VarArr);
+public class z21 extends x21 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String b;
 
-    void beginTransaction();
-
-    int delete(g31 g31Var, x21... x21VarArr);
-
-    void endTransaction();
-
-    Cursor query(l31 l31Var);
-
-    void setTransactionSuccessful();
-
-    int update(g31 g31Var, x21... x21VarArr);
-
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final long a;
-        public final int b;
-
-        public a(long j, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public z21() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            this.a = j;
-            this.b = i;
         }
+        this.b = null;
+    }
 
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Res{rowId=" + this.a + ", updateCount=" + this.b + '}';
+    @Override // com.baidu.tieba.a31
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                return f();
             }
-            return (String) invokeV.objValue;
+            return true;
         }
+        return invokeV.booleanValue;
+    }
+
+    public final void e(StringBuilder sb, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, sb, str, str2) == null) {
+            if (sb.length() > 0) {
+                sb.append('&');
+            }
+            sb.append(str);
+            sb.append('=');
+            sb.append(str2);
+        }
+    }
+
+    public final boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            zj0 d = rj0.d();
+            StringBuilder sb = new StringBuilder();
+            e(sb, "productId", d.s());
+            e(sb, HttpRequest.CLIENT_TYPE, "2");
+            e(sb, "_os_type", "2");
+            String h = jk0.c().h(false);
+            if (!TextUtils.isEmpty(h)) {
+                e(sb, "_os_version", h);
+            }
+            e(sb, "_client_version", d.w());
+            e(sb, "_sdk_version", "5.11.0.5");
+            String e = jk0.c().e(false);
+            if (!TextUtils.isEmpty(e)) {
+                e(sb, "model", e);
+            }
+            e(sb, "cuid", d.g());
+            e(sb, "net_type", String.valueOf(new os0().c()));
+            if (ch0.a) {
+                e(sb, "rd", d.x());
+                e(sb, "qa", d.y());
+                e(sb, "story_id", d.u());
+            }
+            String sb2 = sb.toString();
+            this.b = sb2;
+            return !TextUtils.isEmpty(sb2);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.x21, com.baidu.tieba.a31
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                f();
+            }
+            if (this.a.toString().contains(this.b)) {
+                return this.a.toString();
+            }
+            if (this.a.length() > 0) {
+                this.a.append('&');
+            }
+            this.a.append(this.b);
+            return this.a.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

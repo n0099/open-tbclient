@@ -1,35 +1,83 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
-import android.os.Looper;
 import android.text.TextUtils;
-import android.text.format.Formatter;
 import android.util.Log;
+import android.util.Pair;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.tt2;
-import com.baidu.tieba.w62;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.tieba.ol3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebView;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pl3 {
+public class pl3 extends px1 implements ol3.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean h;
     public transient /* synthetic */ FieldHolder $fh;
+    public String f;
+    public String g;
+
+    @Override // com.baidu.tieba.px1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "PrivateFile" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.px1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "UploadBosApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gz2 a;
+        public final /* synthetic */ pl3 b;
+
+        public a(pl3 pl3Var, gz2 gz2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pl3Var, gz2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = pl3Var;
+            this.a = gz2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!ts2.h().a(this.b.f, this.a)) {
+                    pl3 pl3Var = this.b;
+                    pl3Var.d(pl3Var.g, new m12(2003, "upload fail"));
+                    return;
+                }
+                this.b.A(this.a);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -44,394 +92,127 @@ public class pl3 {
                 return;
             }
         }
-        a = gp1.a;
+        h = wp1.a;
     }
 
-    public static String a(int i, boolean z) {
-        InterceptResult invokeCommon;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pl3(@NonNull nx1 nx1Var) {
+        super(nx1Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (a) {
-                if (v43.p()) {
-                    return jl3.d(i, SchemeCollecter.CLASSIFY_SWAN_V8);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {nx1Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((nx1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public final void A(gz2 gz2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, gz2Var) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("bosUrl", gz2Var.e);
+                d(this.g, new m12(0, jSONObject));
+            } catch (JSONException e) {
+                if (h) {
+                    e.printStackTrace();
                 }
-                return "";
-            } else if (z) {
-                return jl3.d(i, SchemeCollecter.CLASSIFY_SWAN_V8);
-            } else {
-                return jl3.d(i, SchemeCollecter.CLASSIFY_SWAN_WEBVIEW);
+                d(this.g, new m12(2003, "upload fail"));
             }
         }
-        return (String) invokeCommon.objValue;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            SwanCoreVersion M = ju2.U().M();
-            String str2 = "";
-            if (M == null) {
-                str = "";
-            } else {
-                String str3 = M.swanCoreVersionName;
-                str2 = SwanCoreVersion.getTypeString(M.swanCoreType);
-                str = str3;
-            }
-            sb.append("swanjs: ");
-            sb.append(str2);
-            sb.append("/");
-            sb.append(str);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c(Context context) {
+    public final boolean B(File file) {
         InterceptResult invokeL;
-        String w1;
-        String v1;
-        cv1 o3;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            w83 b0 = w83.b0();
-            String str2 = "";
-            if (context == null || b0 == null || b0.k() != 0) {
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {
+            if (file.length() > 52428800) {
+                return true;
             }
-            StringBuilder sb = new StringBuilder();
-            tt2.a W = b0.W();
-            String formatFileSize = Formatter.formatFileSize(AppRuntime.getAppContext(), W.i1());
-            sb.append("size: ");
-            if (TextUtils.isEmpty(formatFileSize)) {
-                formatFileSize = "";
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public m12 C(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#uploadBosFile", false);
+            if (h) {
+                Log.d("UploadBosApi", "#uploadBosFile params=" + str);
             }
-            sb.append(formatFileSize);
-            sb.append("\n");
-            sb.append("version: ");
-            if (TextUtils.isEmpty(W.w1())) {
-                w1 = "";
-            } else {
-                w1 = W.w1();
+            Pair<m12, JSONObject> s = s(str);
+            m12 m12Var = (m12) s.first;
+            if (!m12Var.isSuccess()) {
+                return m12Var;
             }
-            sb.append(w1);
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append("code: ");
-            if (TextUtils.isEmpty(W.v1())) {
-                v1 = "";
-            } else {
-                v1 = W.v1();
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("cb");
+            this.g = optString;
+            if (TextUtils.isEmpty(optString)) {
+                return new m12(202);
             }
-            sb.append(v1);
-            sb.append("\n");
-            sb.append("is opt pkg: ");
-            sb.append(bz2.g().h(W.f0()));
-            sb.append("\n");
-            sb.append("swan native: ");
-            if (rs3.getContext() != null) {
-                str2 = rs3.getContext().b();
+            String optString2 = jSONObject.optString("filePath");
+            if (TextUtils.isEmpty(optString2)) {
+                return new m12(202);
             }
-            sb.append(str2);
-            sb.append("\n");
-            sb.append(b());
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(e(0));
-            sb.append("\n");
-            sb.append("is v8 master: ");
-            sb.append(qf2.U().r0());
-            sb.append("\n");
-            String a2 = a(0, qf2.U().r0());
-            sb.append("is native desc: ");
-            sb.append(!TextUtils.isEmpty(a2));
-            sb.append("\n");
-            boolean m = mj2.m();
-            sb.append("debugDynamicLibEnable: ");
-            sb.append(m);
-            sb.append('\n');
-            if (m) {
-                List<String> o = mj2.o();
-                sb.append("debugDynamicLibList: {");
-                if (!o.isEmpty()) {
-                    sb.append('\n');
-                    for (String str3 : o) {
-                        sb.append(str3);
-                        sb.append('\n');
-                    }
+            zu2 U = zu2.U();
+            String i = U.G().i(optString2);
+            this.f = i;
+            if (TextUtils.isEmpty(i)) {
+                return new m12(2001, "file not found");
+            }
+            File file = new File(this.f);
+            if (file.exists() && file.isFile()) {
+                if (B(file)) {
+                    return new m12(2002, "file over size");
                 }
-                sb.append("}\n");
+                if (!l93.K().q().N().e(U.getActivity())) {
+                    return new m12(10004, "user not logged in");
+                }
+                ts2.h().b(U.getActivity(), this.f, this);
+                return m12.f();
             }
-            e82 H = ju2.U().H();
-            if (H != null && (o3 = H.o3()) != null) {
-                int Q = o3.Q();
-                sb.append("top fragment na-slave: ");
-                if (Q == 1) {
-                    str = "NA";
+            return new m12(2001, "file not found");
+        }
+        return (m12) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ol3.a
+    public void c(JSONObject jSONObject, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, jSONObject, str) == null) {
+            if (jSONObject == null) {
+                d(this.g, new m12(2003, "upload fail"));
+                return;
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject == null) {
+                d(this.g, new m12(2003, "upload fail"));
+                return;
+            }
+            String optString = jSONObject.optString("errno");
+            if (!TextUtils.isEmpty(optString) && TextUtils.equals(optString, "0")) {
+                gz2 a2 = gz2.a(optJSONObject, str);
+                if (TextUtils.isEmpty(a2.e)) {
+                    d(this.g, new m12(2003, "upload fail"));
+                    return;
                 } else {
-                    str = WebView.LOGTAG;
+                    ExecutorUtilsExt.postOnElastic(new a(this, a2), "doBosUpload", 2);
+                    return;
                 }
-                sb.append(str);
-                sb.append("\n");
             }
-            return sb.toString();
+            d(this.g, new m12(2003, "upload fail"));
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            return "model: " + Build.MODEL + "\nandroid: " + Build.VERSION.RELEASE + StringUtil.ARRAY_ELEMENT_SEPARATOR + "api level: " + Build.VERSION.SDK_INT + "\ncuid: " + ds2.h0().i(ds2.c()) + "\n";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e(int i) {
-        InterceptResult invokeI;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            String str2 = "";
-            if (i != 0) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            ExtensionCore T = qf2.U().T();
-            if (T == null) {
-                str = "";
-            } else {
-                String str3 = T.extensionCoreVersionName;
-                String typeString = SwanCoreVersion.getTypeString(T.extensionCoreType);
-                str = str3;
-                str2 = typeString;
-            }
-            sb.append("extensionjs: ");
-            sb.append(str2);
-            sb.append("/");
-            sb.append(str);
-            return sb.toString();
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static String h(Context context) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            ps3 context2 = rs3.getContext();
-            StringBuilder sb = new StringBuilder();
-            sb.append("name: ");
-            sb.append(ds2.n().a());
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append("version: ");
-            if (context2 != null) {
-                str = context2.h();
-            } else {
-                str = "";
-            }
-            sb.append(str);
-            sb.append("\n");
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void m(Activity activity) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65549, null, activity) != null) || activity == null) {
-            return;
-        }
-        try {
-            str = l(activity);
-        } catch (Exception e) {
-            if (!a) {
-                w52.l("SwanAppEnvironmentUtils", "getExtraInfo error", e);
-                str = "";
-            } else {
-                throw e;
-            }
-        }
-        w52.k("SwanAppEnvironmentUtils", "recordExtraInfoToLogSystem\n--------------------ExtraInfo list----------------------\n" + str + "--------------------ExtraInfo end-----------------------");
-        String k = ds2.g0().k();
-        w52.k("SwanAppEnvironmentUtils", "sid = " + k);
-        wc2.k();
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            SwanCoreVersion M = ju2.U().M();
-            sb.append("game-core version : ");
-            sb.append(bi3.i(M, 1));
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String g(Context context) {
-        InterceptResult invokeL;
-        String v1;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            w83 b0 = w83.b0();
-            String str = "";
-            if (context == null || b0 == null || b0.k() != 1) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            tt2.a W = b0.W();
-            sb.append(f());
-            sb.append("\n");
-            sb.append("host version : ");
-            sb.append(qm3.u(AppRuntime.getAppContext(), AppRuntime.getAppContext().getPackageName()));
-            sb.append("\n");
-            sb.append("enable V8: ");
-            sb.append(qf2.U().r0());
-            sb.append("\n");
-            sb.append("aps version: ");
-            if (TextUtils.isEmpty(W.v1())) {
-                v1 = "";
-            } else {
-                v1 = W.v1();
-            }
-            sb.append(v1);
-            sb.append("\n");
-            String formatFileSize = Formatter.formatFileSize(AppRuntime.getAppContext(), W.i1());
-            sb.append("app bundle size: ");
-            if (TextUtils.isEmpty(formatFileSize)) {
-                formatFileSize = "";
-            }
-            sb.append(formatFileSize);
-            sb.append("\n");
-            sb.append("app bundle version: ");
-            if (!TextUtils.isEmpty(W.w1())) {
-                str = W.w1();
-            }
-            sb.append(str);
-            sb.append("\n");
-            sb.append("app is opt pkg: ");
-            sb.append(bz2.g().h(W.f0()));
-            sb.append("\n");
-            String b = es2.h().b();
-            if (!TextUtils.isEmpty(b)) {
-                sb.append("app sconsole version: ");
-                sb.append(b);
-                sb.append("\n");
-            }
-            sb.append("game engine version: ");
-            sb.append("1.3.6.1");
-            sb.append("\n");
-            sb.append("so version: ");
-            sb.append(kh3.a().getLong("swan_so_installed_version_code_zeus", 0L));
-            sb.append("\n");
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void i(Context context, pn3<String> pn3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, context, pn3Var) == null) {
-            y82.e(pn3Var);
-        }
-    }
-
-    public static String j(@NonNull w83 w83Var) {
-        InterceptResult invokeL;
-        String str;
-        SwanAppConfigData.h hVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, w83Var)) == null) {
-            PMSAppInfo f0 = w83Var.W().f0();
-            if (f0 == null) {
-                return "no info";
-            }
-            StringBuilder sb = new StringBuilder();
-            boolean i = bz2.g().i(f0);
-            boolean j0 = qf2.U().j0();
-            boolean z = false;
-            SwanAppConfigData Q = w83Var.Q();
-            if (Q != null && (hVar = Q.t) != null) {
-                z = hVar.a;
-                str = hVar.b;
-            } else {
-                str = "";
-            }
-            sb.append("is server on: ");
-            sb.append(i);
-            sb.append("\n");
-            sb.append("app.json info: ");
-            sb.append("enabled/");
-            sb.append(z);
-            sb.append(", trigger/");
-            sb.append(str);
-            sb.append("\n");
-            sb.append("is hit: ");
-            sb.append(j0);
-            sb.append("\n");
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String k() {
-        InterceptResult invokeV;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (a) {
-                j = System.nanoTime();
-            } else {
-                j = 0;
-            }
-            w62.d g = w62.c().g();
-            if (a) {
-                Log.d("SwanAppEnvironmentUtils", "获取内存信息耗时: " + ((System.nanoTime() - j) / 1000000) + " ms");
-            }
-            return "设备总内存：" + g.c + " M，设备剩余内存：" + g.d + " M，小程序启动占用内存：" + g.a + " M，宿主APP占用内存：" + g.b + " M\n";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String l(Context context) {
-        InterceptResult invokeL;
-        long j;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
-            if (a) {
-                j = System.nanoTime();
-            } else {
-                j = 0;
-            }
-            w83 b0 = w83.b0();
-            if (b0 != null && context != null) {
-                String str = "=========================\n= " + b0.W().K() + "\n=========================\n===== 小程序信息 =====\n" + c(context) + "\n===== 设备信息 =====\n" + d(context) + "\n===== 宿主信息 =====\n" + h(context) + "\n===== 内存信息 =====\n" + k() + "\n===== onPrefetch信息 =====\n" + j(b0) + "\n";
-                if (a) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("获取启动时信息耗时：");
-                    sb.append((System.nanoTime() - j) / 1000000);
-                    sb.append(" ms 是否主线程：");
-                    if (Looper.getMainLooper() == Looper.myLooper()) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    sb.append(z);
-                    Log.d("SwanAppEnvironmentUtils", sb.toString());
-                }
-                w52.k("SwanAppEnvironmentUtils", str);
-                return str;
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
     }
 }

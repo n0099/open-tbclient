@@ -1,76 +1,130 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.CountDownLatch;
 /* loaded from: classes4.dex */
-public class do3 {
+public abstract class do3<OuT> implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final go3<OuT> a;
+    public OuT b;
 
-    public static JSONObject a(String str, String str2) {
+    public abstract void c();
+
+    /* loaded from: classes4.dex */
+    public static class a extends do3<OuT> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CountDownLatch c;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(go3 go3Var, CountDownLatch countDownLatch) {
+            super(go3Var, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {go3Var, countDownLatch};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((go3) objArr2[0], (a) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = countDownLatch;
+        }
+
+        @Override // com.baidu.tieba.do3
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.countDown();
+            }
+        }
+    }
+
+    public do3(go3<OuT> go3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {go3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = null;
+        this.a = go3Var;
+    }
+
+    public static <OuT> OuT b(go3<OuT> go3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, go3Var)) == null) {
+            return (OuT) a(Looper.getMainLooper(), go3Var);
+        }
+        return (OuT) invokeL.objValue;
+    }
+
+    public /* synthetic */ do3(go3 go3Var, a aVar) {
+        this(go3Var);
+    }
+
+    public static <OuT> OuT a(Looper looper, go3<OuT> go3Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("slaveId", str);
-                jSONObject.put("type", str2);
-            } catch (JSONException e) {
-                if (gp1.a) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, looper, go3Var)) == null) {
+            if (go3Var == null) {
+                return null;
+            }
+            if (looper != null && Thread.currentThread() != looper.getThread()) {
+                CountDownLatch countDownLatch = new CountDownLatch(1);
+                a aVar = new a(go3Var, countDownLatch);
+                new Handler(looper).post(aVar);
+                try {
+                    countDownLatch.await();
+                } catch (InterruptedException e) {
+                    m62.o("Awaiting", "callOnLooper: Thread=" + Thread.currentThread().getName() + " ret by InterruptedException " + e);
                     e.printStackTrace();
                 }
+                return aVar.b;
             }
-            return jSONObject;
+            return go3Var.create();
         }
-        return (JSONObject) invokeLL.objValue;
+        return (OuT) invokeLL.objValue;
     }
 
-    public static JSONObject b(String str, String str2, String str3, String str4, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, jSONObject)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("id", str2);
-                jSONObject3.put("action", str4);
-                jSONObject3.put("e", jSONObject);
-                JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put("type", str3);
-                jSONObject4.put("params", jSONObject3);
-                jSONObject2.put("slaveId", str);
-                jSONObject2.put("type", "abilityMessage");
-                jSONObject2.put("value", jSONObject4);
-            } catch (JSONException e) {
-                if (gp1.a) {
-                    e.printStackTrace();
+                try {
+                    this.b = this.a.create();
+                } catch (Exception e) {
+                    m62.o("Awaiting", "catch: " + e + "\n" + Log.getStackTraceString(e));
                 }
+            } finally {
+                c();
             }
-            return jSONObject2;
-        }
-        return (JSONObject) invokeLLLLL.objValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r4v1, types: [org.json.JSONObject, T] */
-    public static void c(String str, String str2, String str3, String str4, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65538, null, str, str2, str3, str4, jSONObject) == null) {
-            cj2 cj2Var = new cj2();
-            cj2Var.c = b(str, str2, str3, str4, jSONObject);
-            ju2.U().u(cj2Var);
-        }
-    }
-
-    /* JADX WARN: Type inference failed for: r5v1, types: [org.json.JSONObject, T] */
-    public static void d(String str, String str2, String str3, String str4, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65539, null, str, str2, str3, str4, jSONObject) == null) {
-            cj2 cj2Var = new cj2();
-            cj2Var.c = b(str, str2, str3, str4, jSONObject);
-            ju2.U().m(str, cj2Var);
         }
     }
 }

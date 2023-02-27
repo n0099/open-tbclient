@@ -1,8 +1,5 @@
 package com.baidu.ar.h;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,14 +9,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class t {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     public static void a(ZipInputStream zipInputStream, File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(65536, null, zipInputStream, file) != null) {
-            return;
-        }
         while (true) {
             ZipEntry nextEntry = zipInputStream.getNextEntry();
             if (nextEntry == null) {
@@ -37,37 +27,32 @@ public class t {
     }
 
     public static boolean a(File file, File file2) {
-        InterceptResult invokeLL;
         ZipInputStream zipInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, file2)) == null) {
-            ZipInputStream zipInputStream2 = null;
+        ZipInputStream zipInputStream2 = null;
+        try {
             try {
-                try {
-                    zipInputStream = new ZipInputStream(new CheckedInputStream(new FileInputStream(file), new CRC32()));
-                } catch (IOException e) {
-                    e = e;
-                }
+                zipInputStream = new ZipInputStream(new CheckedInputStream(new FileInputStream(file), new CRC32()));
             } catch (Throwable th) {
                 th = th;
             }
-            try {
-                a(zipInputStream, file2);
-                k.closeQuietly(zipInputStream);
-                return true;
-            } catch (IOException e2) {
-                e = e2;
-                zipInputStream2 = zipInputStream;
-                e.printStackTrace();
-                k.closeQuietly(zipInputStream2);
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                zipInputStream2 = zipInputStream;
-                k.closeQuietly(zipInputStream2);
-                throw th;
-            }
+        } catch (IOException e) {
+            e = e;
         }
-        return invokeLL.booleanValue;
+        try {
+            a(zipInputStream, file2);
+            k.closeQuietly(zipInputStream);
+            return true;
+        } catch (IOException e2) {
+            e = e2;
+            zipInputStream2 = zipInputStream;
+            e.printStackTrace();
+            k.closeQuietly(zipInputStream2);
+            return false;
+        } catch (Throwable th2) {
+            th = th2;
+            zipInputStream2 = zipInputStream;
+            k.closeQuietly(zipInputStream2);
+            throw th;
+        }
     }
 }

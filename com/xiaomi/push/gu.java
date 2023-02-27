@@ -1,214 +1,375 @@
 package com.xiaomi.push;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
-import java.net.URL;
+import android.text.TextUtils;
+import androidx.core.net.MailTo;
+import com.baidu.pass.biometrics.base.http.HttpClientWrap;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.xiaomi.push.gk;
+import com.xiaomi.push.go;
+import com.xiaomi.push.gq;
+import com.xiaomi.push.service.bg;
+import java.io.ByteArrayInputStream;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.HashMap;
 import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 /* loaded from: classes8.dex */
 public class gu {
-    public static /* synthetic */ Interceptable $ic;
-    public static gu a;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static XmlPullParser a;
 
-    /* renamed from: a  reason: collision with other field name */
-    public Map<String, Object> f472a;
-    public Map<String, Object> b;
-
-    public gu() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    public static gj a(String str, String str2, XmlPullParser xmlPullParser) {
+        Object m453a = gt.a().m453a("all", "xm:chat");
+        if (m453a == null || !(m453a instanceof com.xiaomi.push.service.k)) {
+            return null;
         }
-        this.f472a = new ConcurrentHashMap();
-        this.b = new ConcurrentHashMap();
-        m452a();
+        return ((com.xiaomi.push.service.k) m453a).b(xmlPullParser);
     }
 
-    public static synchronized gu a() {
-        InterceptResult invokeV;
-        gu guVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (gu.class) {
-                if (a == null) {
-                    a = new gu();
+    public static gk a(XmlPullParser xmlPullParser, fv fvVar) {
+        String attributeValue = xmlPullParser.getAttributeValue("", "id");
+        String attributeValue2 = xmlPullParser.getAttributeValue("", "to");
+        String attributeValue3 = xmlPullParser.getAttributeValue("", "from");
+        String attributeValue4 = xmlPullParser.getAttributeValue("", "chid");
+        gk.a a2 = gk.a.a(xmlPullParser.getAttributeValue("", "type"));
+        HashMap hashMap = new HashMap();
+        boolean z = false;
+        for (int i = 0; i < xmlPullParser.getAttributeCount(); i++) {
+            String attributeName = xmlPullParser.getAttributeName(i);
+            hashMap.put(attributeName, xmlPullParser.getAttributeValue("", attributeName));
+        }
+        gk gkVar = null;
+        gq gqVar = null;
+        while (!z) {
+            int next = xmlPullParser.next();
+            if (next == 2) {
+                String name = xmlPullParser.getName();
+                String namespace = xmlPullParser.getNamespace();
+                if (name.equals("error")) {
+                    gqVar = m457a(xmlPullParser);
+                } else {
+                    gkVar = new gk();
+                    gkVar.a(a(name, namespace, xmlPullParser));
                 }
-                guVar = a;
+            } else if (next == 3 && xmlPullParser.getName().equals("iq")) {
+                z = true;
             }
-            return guVar;
         }
-        return (gu) invokeV.objValue;
-    }
-
-    private String a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, str, str2)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("<");
-            sb.append(str);
-            sb.append("/>");
-            if (str != null) {
-                sb.append("<");
-                sb.append(str2);
-                sb.append("/>");
+        if (gkVar == null) {
+            if (gk.a.a == a2 || gk.a.b == a2) {
+                gv gvVar = new gv();
+                gvVar.k(attributeValue);
+                gvVar.m(attributeValue3);
+                gvVar.n(attributeValue2);
+                gvVar.a(gk.a.d);
+                gvVar.l(attributeValue4);
+                gvVar.a(new gq(gq.a.e));
+                fvVar.a(gvVar);
+                com.xiaomi.channel.commonutils.logger.b.d("iq usage error. send packet in packet parser.");
+                return null;
             }
-            return sb.toString();
+            gkVar = new gw();
         }
-        return (String) invokeLL.objValue;
+        gkVar.k(attributeValue);
+        gkVar.m(attributeValue2);
+        gkVar.l(attributeValue4);
+        gkVar.n(attributeValue3);
+        gkVar.a(a2);
+        gkVar.a(gqVar);
+        gkVar.a(hashMap);
+        return gkVar;
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    private ClassLoader[] m450a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            ClassLoader[] classLoaderArr = {gu.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < 2; i++) {
-                ClassLoader classLoader = classLoaderArr[i];
-                if (classLoader != null) {
-                    arrayList.add(classLoader);
-                }
+    public static gm a(XmlPullParser xmlPullParser) {
+        String str;
+        boolean z = false;
+        String str2 = null;
+        if ("1".equals(xmlPullParser.getAttributeValue("", "s"))) {
+            String attributeValue = xmlPullParser.getAttributeValue("", "chid");
+            String attributeValue2 = xmlPullParser.getAttributeValue("", "id");
+            String attributeValue3 = xmlPullParser.getAttributeValue("", "from");
+            String attributeValue4 = xmlPullParser.getAttributeValue("", "to");
+            String attributeValue5 = xmlPullParser.getAttributeValue("", "type");
+            bg.b a2 = com.xiaomi.push.service.bg.a().a(attributeValue, attributeValue4);
+            if (a2 == null) {
+                a2 = com.xiaomi.push.service.bg.a().a(attributeValue, attributeValue3);
             }
-            return (ClassLoader[]) arrayList.toArray(new ClassLoader[arrayList.size()]);
-        }
-        return (ClassLoader[]) invokeV.objValue;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public Object m451a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? this.f472a.get(a(str, str2)) : invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Null dom frontier in handler: Exception -> 0x0103 */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x00fa A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* renamed from: a  reason: collision with other method in class */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void m452a() {
-        Map<String, Object> map;
-        Object obj;
-        Map<String, Object> map2;
-        Object obj2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                for (ClassLoader classLoader : m450a()) {
-                    Enumeration<URL> resources = classLoader.getResources("META-INF/smack.providers");
-                    while (resources.hasMoreElements()) {
-                        InputStream openStream = resources.nextElement().openStream();
-                        XmlPullParser newPullParser = XmlPullParserFactory.newInstance().newPullParser();
-                        newPullParser.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
-                        newPullParser.setInput(openStream, "UTF-8");
-                        int eventType = newPullParser.getEventType();
-                        do {
-                            if (eventType == 2) {
-                                if (newPullParser.getName().equals("iqProvider")) {
-                                    newPullParser.next();
-                                    newPullParser.next();
-                                    String nextText = newPullParser.nextText();
-                                    newPullParser.next();
-                                    newPullParser.next();
-                                    String nextText2 = newPullParser.nextText();
-                                    newPullParser.next();
-                                    newPullParser.next();
-                                    String nextText3 = newPullParser.nextText();
-                                    String a2 = a(nextText, nextText2);
-                                    if (!this.b.containsKey(a2)) {
-                                        try {
-                                            Class<?> cls = Class.forName(nextText3);
-                                            if (gs.class.isAssignableFrom(cls)) {
-                                                map2 = this.b;
-                                                obj2 = cls.newInstance();
-                                            } else if (gl.class.isAssignableFrom(cls)) {
-                                                map2 = this.b;
-                                                obj2 = cls;
-                                            }
-                                            map2.put(a2, obj2);
-                                        } catch (ClassNotFoundException e) {
-                                            e = e;
-                                            e.printStackTrace();
-                                            eventType = newPullParser.next();
-                                            if (eventType == 1) {
-                                            }
-                                        }
-                                    }
-                                } else if (newPullParser.getName().equals("extensionProvider")) {
-                                    newPullParser.next();
-                                    newPullParser.next();
-                                    String nextText4 = newPullParser.nextText();
-                                    newPullParser.next();
-                                    newPullParser.next();
-                                    String nextText5 = newPullParser.nextText();
-                                    newPullParser.next();
-                                    newPullParser.next();
-                                    String nextText6 = newPullParser.nextText();
-                                    String a3 = a(nextText4, nextText5);
-                                    if (!this.f472a.containsKey(a3)) {
-                                        try {
-                                            Class<?> cls2 = Class.forName(nextText6);
-                                            if (gt.class.isAssignableFrom(cls2)) {
-                                                map = this.f472a;
-                                                obj = cls2.newInstance();
-                                            } else if (go.class.isAssignableFrom(cls2)) {
-                                                map = this.f472a;
-                                                obj = cls2;
-                                            }
-                                            map.put(a3, obj);
-                                        } catch (ClassNotFoundException e2) {
-                                            e = e2;
-                                            e.printStackTrace();
-                                            eventType = newPullParser.next();
-                                            if (eventType == 1) {
-                                                openStream.close();
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            eventType = newPullParser.next();
-                        } while (eventType == 1);
-                        try {
-                            openStream.close();
-                        } catch (Exception unused) {
+            if (a2 != null) {
+                gm gmVar = null;
+                while (!z) {
+                    int next = xmlPullParser.next();
+                    if (next == 2) {
+                        if (!"s".equals(xmlPullParser.getName())) {
+                            throw new gg("error while receiving a encrypted message with wrong format");
                         }
+                        if (xmlPullParser.next() != 4) {
+                            throw new gg("error while receiving a encrypted message with wrong format");
+                        }
+                        String text = xmlPullParser.getText();
+                        if ("5".equals(attributeValue) || "6".equals(attributeValue)) {
+                            gl glVar = new gl();
+                            glVar.l(attributeValue);
+                            glVar.b(true);
+                            glVar.n(attributeValue3);
+                            glVar.m(attributeValue4);
+                            glVar.k(attributeValue2);
+                            glVar.f(attributeValue5);
+                            gj gjVar = new gj("s", null, null, null);
+                            gjVar.m444a(text);
+                            glVar.a(gjVar);
+                            return glVar;
+                        }
+                        a(com.xiaomi.push.service.bp.a(com.xiaomi.push.service.bp.a(a2.h, attributeValue2), text));
+                        a.next();
+                        gmVar = a(a);
+                    } else if (next == 3 && xmlPullParser.getName().equals("message")) {
+                        z = true;
                     }
                 }
-            } catch (Exception e3) {
-                e3.printStackTrace();
+                if (gmVar != null) {
+                    return gmVar;
+                }
+                throw new gg("error while receiving a encrypted message with wrong format");
             }
+            throw new gg("the channel id is wrong while receiving a encrypted message");
+        }
+        gl glVar2 = new gl();
+        String attributeValue6 = xmlPullParser.getAttributeValue("", "id");
+        if (attributeValue6 == null) {
+            attributeValue6 = "ID_NOT_AVAILABLE";
+        }
+        glVar2.k(attributeValue6);
+        glVar2.m(xmlPullParser.getAttributeValue("", "to"));
+        glVar2.n(xmlPullParser.getAttributeValue("", "from"));
+        glVar2.l(xmlPullParser.getAttributeValue("", "chid"));
+        glVar2.a(xmlPullParser.getAttributeValue("", "appid"));
+        try {
+            str = xmlPullParser.getAttributeValue("", "transient");
+        } catch (Exception unused) {
+            str = null;
+        }
+        try {
+            String attributeValue7 = xmlPullParser.getAttributeValue("", "seq");
+            if (!TextUtils.isEmpty(attributeValue7)) {
+                glVar2.b(attributeValue7);
+            }
+        } catch (Exception unused2) {
+        }
+        try {
+            String attributeValue8 = xmlPullParser.getAttributeValue("", "mseq");
+            if (!TextUtils.isEmpty(attributeValue8)) {
+                glVar2.c(attributeValue8);
+            }
+        } catch (Exception unused3) {
+        }
+        try {
+            String attributeValue9 = xmlPullParser.getAttributeValue("", "fseq");
+            if (!TextUtils.isEmpty(attributeValue9)) {
+                glVar2.d(attributeValue9);
+            }
+        } catch (Exception unused4) {
+        }
+        try {
+            String attributeValue10 = xmlPullParser.getAttributeValue("", "status");
+            if (!TextUtils.isEmpty(attributeValue10)) {
+                glVar2.e(attributeValue10);
+            }
+        } catch (Exception unused5) {
+        }
+        glVar2.a(!TextUtils.isEmpty(str) && str.equalsIgnoreCase("true"));
+        glVar2.f(xmlPullParser.getAttributeValue("", "type"));
+        String b = b(xmlPullParser);
+        if (b == null || "".equals(b.trim())) {
+            gm.q();
+        } else {
+            glVar2.j(b);
+        }
+        while (!z) {
+            int next2 = xmlPullParser.next();
+            if (next2 == 2) {
+                String name = xmlPullParser.getName();
+                String namespace = xmlPullParser.getNamespace();
+                if (TextUtils.isEmpty(namespace)) {
+                    namespace = "xm";
+                }
+                if (name.equals(MailTo.SUBJECT)) {
+                    b(xmlPullParser);
+                    glVar2.g(m458a(xmlPullParser));
+                } else if (name.equals("body")) {
+                    String attributeValue11 = xmlPullParser.getAttributeValue("", HttpClientWrap.c);
+                    String m458a = m458a(xmlPullParser);
+                    if (TextUtils.isEmpty(attributeValue11)) {
+                        glVar2.h(m458a);
+                    } else {
+                        glVar2.a(m458a, attributeValue11);
+                    }
+                } else if (name.equals("thread")) {
+                    if (str2 == null) {
+                        str2 = xmlPullParser.nextText();
+                    }
+                } else if (name.equals("error")) {
+                    glVar2.a(m457a(xmlPullParser));
+                } else {
+                    glVar2.a(a(name, namespace, xmlPullParser));
+                }
+            } else if (next2 == 3 && xmlPullParser.getName().equals("message")) {
+                z = true;
+            }
+        }
+        glVar2.i(str2);
+        return glVar2;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static go m455a(XmlPullParser xmlPullParser) {
+        go.b bVar = go.b.available;
+        String attributeValue = xmlPullParser.getAttributeValue("", "type");
+        if (attributeValue != null && !attributeValue.equals("")) {
+            try {
+                bVar = go.b.valueOf(attributeValue);
+            } catch (IllegalArgumentException unused) {
+                PrintStream printStream = System.err;
+                printStream.println("Found invalid presence type " + attributeValue);
+            }
+        }
+        go goVar = new go(bVar);
+        goVar.m(xmlPullParser.getAttributeValue("", "to"));
+        goVar.n(xmlPullParser.getAttributeValue("", "from"));
+        goVar.l(xmlPullParser.getAttributeValue("", "chid"));
+        String attributeValue2 = xmlPullParser.getAttributeValue("", "id");
+        if (attributeValue2 == null) {
+            attributeValue2 = "ID_NOT_AVAILABLE";
+        }
+        goVar.k(attributeValue2);
+        boolean z = false;
+        while (!z) {
+            int next = xmlPullParser.next();
+            if (next == 2) {
+                String name = xmlPullParser.getName();
+                String namespace = xmlPullParser.getNamespace();
+                if (name.equals("status")) {
+                    goVar.a(xmlPullParser.nextText());
+                } else if (name.equals("priority")) {
+                    try {
+                        goVar.a(Integer.parseInt(xmlPullParser.nextText()));
+                    } catch (NumberFormatException unused2) {
+                    } catch (IllegalArgumentException unused3) {
+                        goVar.a(0);
+                    }
+                } else if (name.equals("show")) {
+                    String nextText = xmlPullParser.nextText();
+                    try {
+                        goVar.a(go.a.valueOf(nextText));
+                    } catch (IllegalArgumentException unused4) {
+                        PrintStream printStream2 = System.err;
+                        printStream2.println("Found invalid presence mode " + nextText);
+                    }
+                } else if (name.equals("error")) {
+                    goVar.a(m457a(xmlPullParser));
+                } else {
+                    goVar.a(a(name, namespace, xmlPullParser));
+                }
+            } else if (next == 3 && xmlPullParser.getName().equals("presence")) {
+                z = true;
+            }
+        }
+        return goVar;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static gp m456a(XmlPullParser xmlPullParser) {
+        gp gpVar = null;
+        boolean z = false;
+        while (!z) {
+            int next = xmlPullParser.next();
+            if (next == 2) {
+                gpVar = new gp(xmlPullParser.getName());
+            } else if (next == 3 && xmlPullParser.getName().equals("error")) {
+                z = true;
+            }
+        }
+        return gpVar;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static gq m457a(XmlPullParser xmlPullParser) {
+        ArrayList arrayList = new ArrayList();
+        boolean z = false;
+        String str = "-1";
+        String str2 = null;
+        String str3 = null;
+        for (int i = 0; i < xmlPullParser.getAttributeCount(); i++) {
+            if (xmlPullParser.getAttributeName(i).equals("code")) {
+                str = xmlPullParser.getAttributeValue("", "code");
+            }
+            if (xmlPullParser.getAttributeName(i).equals("type")) {
+                str3 = xmlPullParser.getAttributeValue("", "type");
+            }
+            if (xmlPullParser.getAttributeName(i).equals("reason")) {
+                str2 = xmlPullParser.getAttributeValue("", "reason");
+            }
+        }
+        String str4 = null;
+        String str5 = null;
+        while (!z) {
+            int next = xmlPullParser.next();
+            if (next == 2) {
+                if (xmlPullParser.getName().equals("text")) {
+                    str5 = xmlPullParser.nextText();
+                } else {
+                    String name = xmlPullParser.getName();
+                    String namespace = xmlPullParser.getNamespace();
+                    if ("urn:ietf:params:xml:ns:xmpp-stanzas".equals(namespace)) {
+                        str4 = name;
+                    } else {
+                        arrayList.add(a(name, namespace, xmlPullParser));
+                    }
+                }
+            } else if (next == 3) {
+                if (xmlPullParser.getName().equals("error")) {
+                    z = true;
+                }
+            } else if (next == 4) {
+                str5 = xmlPullParser.getText();
+            }
+        }
+        return new gq(Integer.parseInt(str), str3 == null ? "cancel" : str3, str2, str4, str5, arrayList);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static String m458a(XmlPullParser xmlPullParser) {
+        int depth = xmlPullParser.getDepth();
+        String str = "";
+        while (true) {
+            if (xmlPullParser.next() == 3 && xmlPullParser.getDepth() == depth) {
+                return str;
+            }
+            str = str + xmlPullParser.getText();
         }
     }
 
-    public void a(String str, String str2, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, obj) == null) {
-            if (!(obj instanceof gt) && !(obj instanceof Class)) {
-                throw new IllegalArgumentException("Provider must be a PacketExtensionProvider or a Class instance.");
+    public static void a(byte[] bArr) {
+        if (a == null) {
+            try {
+                XmlPullParser newPullParser = XmlPullParserFactory.newInstance().newPullParser();
+                a = newPullParser;
+                newPullParser.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
+            } catch (XmlPullParserException e) {
+                e.printStackTrace();
             }
-            this.f472a.put(a(str, str2), obj);
         }
+        a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));
+    }
+
+    public static String b(XmlPullParser xmlPullParser) {
+        for (int i = 0; i < xmlPullParser.getAttributeCount(); i++) {
+            String attributeName = xmlPullParser.getAttributeName(i);
+            if ("xml:lang".equals(attributeName) || (WebvttCueParser.TAG_LANG.equals(attributeName) && "xml".equals(xmlPullParser.getAttributePrefix(i)))) {
+                return xmlPullParser.getAttributeValue(i);
+            }
+        }
+        return null;
     }
 }

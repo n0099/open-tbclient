@@ -6,144 +6,72 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.hb;
+import com.xiaomi.push.ha;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 /* loaded from: classes8.dex */
 public class TrafficProvider extends ContentProvider {
-    public static /* synthetic */ Interceptable $ic;
     public static final UriMatcher a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Uri f845a;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final Uri f827a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
 
     /* renamed from: a  reason: collision with other field name */
-    public SQLiteOpenHelper f846a;
+    public SQLiteOpenHelper f828a;
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(579196213, "Lcom/xiaomi/push/providers/TrafficProvider;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(579196213, "Lcom/xiaomi/push/providers/TrafficProvider;");
-                return;
-            }
-        }
-        f845a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
         UriMatcher uriMatcher = new UriMatcher(-1);
         a = uriMatcher;
         uriMatcher.addURI("com.xiaomi.push.providers.TrafficProvider", "traffic", 1);
         a.addURI("com.xiaomi.push.providers.TrafficProvider", "update_imsi", 2);
     }
 
-    public TrafficProvider() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
     @Override // android.content.ContentProvider
     public int bulkInsert(Uri uri, ContentValues[] contentValuesArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, uri, contentValuesArr)) == null) {
-            return 0;
-        }
-        return invokeLL.intValue;
+        return 0;
     }
 
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) {
-            return 0;
-        }
-        return invokeLLL.intValue;
+        return 0;
     }
 
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
-            if (a.match(uri) == 1) {
-                return "vnd.android.cursor.dir/vnd.xiaomi.push.traffic";
-            }
-            throw new IllegalArgumentException("Unknown URI " + uri);
+        if (a.match(uri) == 1) {
+            return "vnd.android.cursor.dir/vnd.xiaomi.push.traffic";
         }
-        return (String) invokeL.objValue;
+        throw new IllegalArgumentException("Unknown URI " + uri);
     }
 
     @Override // android.content.ContentProvider
     public Uri insert(Uri uri, ContentValues contentValues) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, uri, contentValues)) == null) {
-            return null;
-        }
-        return (Uri) invokeLL.objValue;
+        return null;
     }
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.f846a = new a(getContext());
-            return true;
-        }
-        return invokeV.booleanValue;
+        this.f828a = new a(getContext());
+        return true;
     }
 
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
-        InterceptResult invokeLLLLL;
         Cursor query;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, uri, strArr, str, strArr2, str2)) == null) {
-            synchronized (a.f847a) {
-                if (a.match(uri) != 1) {
-                    throw new IllegalArgumentException("Unknown URI " + uri);
-                }
-                query = this.f846a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
+        synchronized (a.f829a) {
+            if (a.match(uri) != 1) {
+                throw new IllegalArgumentException("Unknown URI " + uri);
             }
-            return query;
+            query = this.f828a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
         }
-        return (Cursor) invokeLLLLL.objValue;
+        return query;
     }
 
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, uri, contentValues, str, strArr)) == null) {
-            if (a.match(uri) == 2 && contentValues != null && contentValues.containsKey(BaseStatisContent.IMSI)) {
-                hb.m468a(contentValues.getAsString(BaseStatisContent.IMSI));
-                return 0;
-            }
+        if (a.match(uri) == 2 && contentValues != null && contentValues.containsKey(BaseStatisContent.IMSI)) {
+            ha.m463a(contentValues.getAsString(BaseStatisContent.IMSI));
             return 0;
         }
-        return invokeLLLL.intValue;
+        return 0;
     }
 }

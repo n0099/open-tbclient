@@ -1,56 +1,44 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
-import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputTool.robotfloor.adapter.RobotItemViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputTool.robotfloor.adapter.RobotSkillItemViewHolder;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class br7 implements rp7 {
+public class br7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zq7 a;
 
-    public br7(zq7 zq7Var) {
+    public static long a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zq7Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return b55.m().o(b(str), 0L);
         }
-        this.a = zq7Var;
+        return invokeL.longValue;
     }
 
-    @Override // com.baidu.tieba.rp7
-    @Nullable
-    public BaseItemViewHolder a(@NonNull ViewGroup viewGroup, int i) {
-        InterceptResult invokeLI;
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
-            if (i == 5) {
-                return new RobotSkillItemViewHolder(LayoutInflater.from(SelectorHelper.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0392, viewGroup, false), this.a);
-            }
-            if (i == 4) {
-                return new RobotItemViewHolder(LayoutInflater.from(SelectorHelper.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0390, viewGroup, false));
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return "im_mark_top_index_" + TbadkCoreApplication.getCurrentAccount() + "@" + str;
         }
-        return (BaseItemViewHolder) invokeLI.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static void c(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65538, null, str, z) == null) {
+            String b = b(str);
+            if (z) {
+                b55.m().A(b, System.currentTimeMillis());
+            } else {
+                b55.m().H(b);
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921691, str));
+        }
     }
 }

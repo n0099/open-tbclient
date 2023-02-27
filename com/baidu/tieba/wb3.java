@@ -1,138 +1,74 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.view.SwanAppActionBar;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.tieba.q93;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wb3 extends ta3 {
+public abstract class wb3 extends u93 implements fo3<q93.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int b;
+    public boolean c;
+
+    public abstract void I(String str);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wb3(t93 t93Var) {
-        super(t93Var, "/swanAPI/getMenuButtonBoundingClientRect");
+    public wb3(p93 p93Var) {
+        super(p93Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t93Var};
+            Object[] objArr = {p93Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((p93) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = 0;
+        this.c = false;
     }
 
-    @Override // com.baidu.tieba.ta3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
-        InterceptResult invokeLLLL;
+    public static void K(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
-            if (w83Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            if (ta3.b) {
-                Log.d("GetMenuButtonBounding", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            f82 V = ju2.U().V();
-            if (V == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            c82 m = V.m();
-            if (m == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (w83Var.w0()) {
-                View q = es2.i().q(m);
-                if (q == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
-                unitedSchemeEntity.result = j(q);
-                return true;
-            } else {
-                SwanAppActionBar K1 = m.K1();
-                if (K1 == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
-                View rightMenu = K1.getRightMenu();
-                if (rightMenu == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
-                unitedSchemeEntity.result = j(rightMenu);
-                return true;
-            }
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            x53 Q = y53.Q("swan_kill_to_client");
+            Q.J(str);
+            Q.call();
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public final JSONObject j(View view2) {
-        InterceptResult invokeL;
-        boolean z;
-        int P;
-        JSONObject wrapCallbackParams;
+    public static void L(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            w83 M = w83.M();
-            if (M != null) {
-                z = M.w0();
-            } else {
-                z = false;
+        if (interceptable == null || interceptable.invokeLI(65538, null, str, i) == null) {
+            if (SwanAppProcessInfo.SERVICE.equals(SwanAppProcessInfo.current())) {
+                wb3 B = l93.K().B();
+                B.b = i;
+                B.I(str);
+                return;
             }
-            if (z) {
-                P = 0;
-            } else {
-                P = (int) (nm3.P(nm3.t()) + 0.5f);
-            }
-            int P2 = (int) (nm3.P(view2.getLeft()) + 0.5f);
-            int P3 = (int) (nm3.P(view2.getRight()) + 0.5f);
-            int P4 = ((int) (nm3.P(view2.getTop()) + 0.5f)) + P;
-            int P5 = ((int) (nm3.P(view2.getBottom()) + 0.5f)) + P;
-            int i = P3 - P2;
-            int i2 = P5 - P4;
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("width", i);
-                jSONObject.put("height", i2);
-                jSONObject.put("left", P2);
-                jSONObject.put("right", P3);
-                jSONObject.put("top", P4);
-                jSONObject.put("bottom", P5);
-                wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-            } catch (JSONException e) {
-                if (ta3.b) {
-                    e.printStackTrace();
-                }
-                wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "result JSONException");
-            }
-            if (ta3.b) {
-                Log.e("GetMenuButtonBounding", wrapCallbackParams.toString());
-            }
-            return wrapCallbackParams;
+            x53 w = y53.Q("swan_forbidden_kill_on_server").z("mAppId", str).w("ipc_forbidden_flag", i);
+            w.K(true);
+            w.call();
         }
-        return (JSONObject) invokeL.objValue;
+    }
+
+    public void J() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.c) {
+            j93 j93Var = new j93();
+            j93Var.f(this, "event_messenger_call");
+            u(j93Var);
+            this.c = true;
+        }
     }
 }

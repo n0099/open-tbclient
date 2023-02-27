@@ -3,217 +3,116 @@ package com.bumptech.glide.util;
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Queue;
 /* loaded from: classes7.dex */
 public final class ExceptionPassthroughInputStream extends InputStream {
-    public static /* synthetic */ Interceptable $ic;
     @GuardedBy("POOL")
-    public static final Queue<ExceptionPassthroughInputStream> POOL;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final Queue<ExceptionPassthroughInputStream> POOL = Util.createQueue(0);
     public IOException exception;
     public InputStream wrapped;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1701809936, "Lcom/bumptech/glide/util/ExceptionPassthroughInputStream;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1701809936, "Lcom/bumptech/glide/util/ExceptionPassthroughInputStream;");
-                return;
-            }
-        }
-        POOL = Util.createQueue(0);
-    }
-
-    public ExceptionPassthroughInputStream() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
     public static void clearQueue() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            synchronized (POOL) {
-                while (!POOL.isEmpty()) {
-                    POOL.remove();
-                }
+        synchronized (POOL) {
+            while (!POOL.isEmpty()) {
+                POOL.remove();
             }
         }
     }
 
     @Override // java.io.InputStream
     public int available() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.wrapped.available();
-        }
-        return invokeV.intValue;
+        return this.wrapped.available();
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.wrapped.close();
-        }
+        this.wrapped.close();
     }
 
     @Nullable
     public IOException getException() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.exception;
-        }
-        return (IOException) invokeV.objValue;
+        return this.exception;
     }
 
     @Override // java.io.InputStream
     public boolean markSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.wrapped.markSupported();
-        }
-        return invokeV.booleanValue;
+        return this.wrapped.markSupported();
     }
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            try {
-                return this.wrapped.read();
-            } catch (IOException e) {
-                this.exception = e;
-                throw e;
-            }
+        try {
+            return this.wrapped.read();
+        } catch (IOException e) {
+            this.exception = e;
+            throw e;
         }
-        return invokeV.intValue;
     }
 
     public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.exception = null;
-            this.wrapped = null;
-            synchronized (POOL) {
-                POOL.offer(this);
-            }
+        this.exception = null;
+        this.wrapped = null;
+        synchronized (POOL) {
+            POOL.offer(this);
         }
     }
 
     @Override // java.io.InputStream
     public synchronized void reset() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            synchronized (this) {
-                this.wrapped.reset();
-            }
-        }
+        this.wrapped.reset();
     }
 
     @NonNull
     public static ExceptionPassthroughInputStream obtain(@NonNull InputStream inputStream) {
-        InterceptResult invokeL;
         ExceptionPassthroughInputStream poll;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
-            synchronized (POOL) {
-                poll = POOL.poll();
-            }
-            if (poll == null) {
-                poll = new ExceptionPassthroughInputStream();
-            }
-            poll.setInputStream(inputStream);
-            return poll;
+        synchronized (POOL) {
+            poll = POOL.poll();
         }
-        return (ExceptionPassthroughInputStream) invokeL.objValue;
+        if (poll == null) {
+            poll = new ExceptionPassthroughInputStream();
+        }
+        poll.setInputStream(inputStream);
+        return poll;
     }
 
     @Override // java.io.InputStream
     public void mark(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.wrapped.mark(i);
-        }
+        this.wrapped.mark(i);
     }
 
     @Override // java.io.InputStream
     public int read(byte[] bArr) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
-            try {
-                return this.wrapped.read(bArr);
-            } catch (IOException e) {
-                this.exception = e;
-                throw e;
-            }
+        try {
+            return this.wrapped.read(bArr);
+        } catch (IOException e) {
+            this.exception = e;
+            throw e;
         }
-        return invokeL.intValue;
     }
 
     public void setInputStream(@NonNull InputStream inputStream) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, inputStream) == null) {
-            this.wrapped = inputStream;
-        }
+        this.wrapped = inputStream;
     }
 
     @Override // java.io.InputStream
     public long skip(long j) throws IOException {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-            try {
-                return this.wrapped.skip(j);
-            } catch (IOException e) {
-                this.exception = e;
-                throw e;
-            }
+        try {
+            return this.wrapped.skip(j);
+        } catch (IOException e) {
+            this.exception = e;
+            throw e;
         }
-        return invokeJ.longValue;
     }
 
     @Override // java.io.InputStream
     public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048583, this, bArr, i, i2)) == null) {
-            try {
-                return this.wrapped.read(bArr, i, i2);
-            } catch (IOException e) {
-                this.exception = e;
-                throw e;
-            }
+        try {
+            return this.wrapped.read(bArr, i, i2);
+        } catch (IOException e) {
+            this.exception = e;
+            throw e;
         }
-        return invokeLII.intValue;
     }
 }

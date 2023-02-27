@@ -1,13 +1,24 @@
 package com.meizu.cloud.pushsdk.c.a;
 
-import java.util.Map;
+import com.meizu.cloud.pushinternal.DebugLogger;
 /* loaded from: classes8.dex */
-public interface a {
-    Map a();
+public class a {
+    public static boolean a = false;
+    public static String b = "AndroidNetworking";
 
-    void a(String str, String str2);
+    public static void a() {
+        a = true;
+    }
 
-    long b();
+    public static void a(String str) {
+        if (a) {
+            DebugLogger.d(b, str);
+        }
+    }
 
-    String toString();
+    public static void b(String str) {
+        if (a) {
+            DebugLogger.i(b, str);
+        }
+    }
 }

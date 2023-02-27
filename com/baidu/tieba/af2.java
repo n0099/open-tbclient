@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import android.util.LruCache;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,13 +13,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class af2 {
+public class af2 implements xe2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static final boolean d;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
+    public final LruCache<String, Long> a;
 
     static {
         InterceptResult invokeClinit;
@@ -31,46 +32,60 @@ public class af2 {
                 return;
             }
         }
-        c = gp1.a;
-        ds2.g0().getSwitch("swan_sailor_init_delay", false);
-        d = false;
+        b = wp1.a;
     }
 
-    public af2() {
+    public af2(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = false;
+        i = i <= 0 ? 10 : i;
+        this.a = new LruCache<>(i);
+        if (b) {
+            Log.d("SwanPrelinkLocalRecorder", "lru size - " + i);
+        }
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xe2
+    public ye2 a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c) {
-                Log.d("SwanSailorUpdateModel", "isSailorOptABSwitchOn:" + d);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (b) {
+                Log.d("SwanPrelinkLocalRecorder", "prelink LRU size - " + this.a.size());
             }
-            return d;
+            Long l = this.a.get(str2);
+            if (l == null) {
+                return null;
+            }
+            ye2 ye2Var = new ye2();
+            ye2Var.a = ProcessUtils.getCurProcessName();
+            ye2Var.b = l.longValue();
+            return ye2Var;
         }
-        return invokeV.booleanValue;
+        return (ye2) invokeLL.objValue;
     }
 
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xe2
+    public void b(String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanSailorUpdateModel{scene='" + this.a + "'}";
+        if ((interceptable != null && interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) != null) || TextUtils.isEmpty(str2)) {
+            return;
         }
-        return (String) invokeV.objValue;
+        if (b) {
+            Log.d("SwanPrelinkLocalRecorder", "record : appId-" + str + ", url-" + str2);
+        }
+        this.a.put(str2, Long.valueOf(System.currentTimeMillis()));
     }
 }

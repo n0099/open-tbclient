@@ -12,7 +12,7 @@ import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.n0a;
+import com.baidu.tieba.q4a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -117,7 +117,7 @@ public class CSSParser {
         public final a D() throws CSSParseException {
             InterceptResult invokeV;
             int i;
-            n0a n0aVar;
+            q4a q4aVar;
             int d;
             a aVar;
             Interceptable interceptable = $ic;
@@ -143,16 +143,16 @@ public class CSSParser {
                         } else {
                             i = 1;
                         }
-                        n0a c = n0a.c(this.a, this.b, this.c, false);
+                        q4a c = q4a.c(this.a, this.b, this.c, false);
                         if (c != null) {
                             this.b = c.a();
                         }
                         if (!f('n') && !f('N')) {
-                            n0aVar = c;
+                            q4aVar = c;
                             c = null;
                         } else {
                             if (c == null) {
-                                c = new n0a(1L, this.b);
+                                c = new q4a(1L, this.b);
                             }
                             A();
                             boolean f = f('+');
@@ -161,15 +161,15 @@ public class CSSParser {
                             }
                             if (f) {
                                 A();
-                                n0aVar = n0a.c(this.a, this.b, this.c, false);
-                                if (n0aVar != null) {
-                                    this.b = n0aVar.a();
+                                q4aVar = q4a.c(this.a, this.b, this.c, false);
+                                if (q4aVar != null) {
+                                    this.b = q4aVar.a();
                                 } else {
                                     this.b = i2;
                                     return null;
                                 }
                             } else {
-                                n0aVar = null;
+                                q4aVar = null;
                             }
                             int i5 = i3;
                             i3 = i;
@@ -180,8 +180,8 @@ public class CSSParser {
                         } else {
                             d = i3 * c.d();
                         }
-                        if (n0aVar != null) {
-                            i4 = i * n0aVar.d();
+                        if (q4aVar != null) {
+                            i4 = i * q4aVar.d();
                         }
                         aVar = new a(d, i4);
                     }
@@ -490,8 +490,8 @@ public class CSSParser {
         /* JADX WARN: Removed duplicated region for block: B:18:0x003a  */
         /* JADX WARN: Removed duplicated region for block: B:19:0x0040  */
         /* JADX WARN: Removed duplicated region for block: B:25:0x0057  */
-        /* JADX WARN: Removed duplicated region for block: B:81:0x0132  */
-        /* JADX WARN: Removed duplicated region for block: B:83:0x0137  */
+        /* JADX WARN: Removed duplicated region for block: B:81:0x0134  */
+        /* JADX WARN: Removed duplicated region for block: B:83:0x0139  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -558,7 +558,7 @@ public class CSSParser {
                             String H4 = H();
                             if (H4 != null) {
                                 A();
-                                if (f(com.alipay.sdk.encrypt.a.h)) {
+                                if (f('=')) {
                                     attribOp = AttribOp.EQUALS;
                                 } else if (g("~=")) {
                                     attribOp = AttribOp.INCLUDES;
@@ -886,7 +886,7 @@ public class CSSParser {
         public static final MediaType tty;
 
         /* renamed from: tv  reason: collision with root package name */
-        public static final MediaType f1091tv;
+        public static final MediaType f1065tv;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -913,7 +913,7 @@ public class CSSParser {
             speech = new MediaType("speech", 8);
             tty = new MediaType("tty", 9);
             MediaType mediaType = new MediaType(Config.TARGET_SDK_VERSION, 10);
-            f1091tv = mediaType;
+            f1065tv = mediaType;
             $VALUES = new MediaType[]{all, aural, braille, embossed, handheld, print, projection, screen, speech, tty, mediaType};
         }
 
@@ -2124,7 +2124,7 @@ public class CSSParser {
                                 sb.append(bVar.c);
                             }
                         } else {
-                            sb.append(com.alipay.sdk.encrypt.a.h);
+                            sb.append('=');
                             sb.append(bVar.c);
                         }
                         sb.append(']');

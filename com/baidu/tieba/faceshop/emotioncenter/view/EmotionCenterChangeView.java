@@ -21,7 +21,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
 import com.baidu.tieba.faceshop.emotioncenter.model.EmotionChangeModel;
-import com.baidu.tieba.no6;
+import com.baidu.tieba.mr6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class EmotionCenterChangeView extends LinearLayout implements View.OnClickListener, no6 {
+public class EmotionCenterChangeView extends LinearLayout implements View.OnClickListener, mr6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -46,7 +46,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
     public Animation l;
     public List<EmotionPackageData> m;
 
-    @Override // com.baidu.tieba.no6
+    @Override // com.baidu.tieba.mr6
     public void z0(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, emotionCenterData) == null) {
@@ -141,7 +141,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             if (this.l == null) {
-                this.l = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01010a);
+                this.l = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01010f);
                 this.l.setInterpolator(new LinearInterpolator());
                 this.l.setFillAfter(true);
             }
@@ -150,7 +150,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         return (Animation) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.no6
+    @Override // com.baidu.tieba.mr6
     public void M0(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, emotionCenterData) == null) {
@@ -161,7 +161,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         }
     }
 
-    @Override // com.baidu.tieba.no6
+    @Override // com.baidu.tieba.mr6
     public void b1(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, emotionCenterData) == null) {
@@ -185,7 +185,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
             if ((view2 == this.e || view2 == this.j) && (emotionChangeModel = this.k) != null) {
-                emotionChangeModel.G(this);
+                emotionChangeModel.N(this);
                 e();
             }
         }
@@ -203,7 +203,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         EmotionChangeModel emotionChangeModel;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (emotionChangeModel = this.k) != null) {
-            emotionChangeModel.G(this);
+            emotionChangeModel.N(this);
         }
     }
 
@@ -228,7 +228,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setOrientation(1);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0250, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d025d, this);
             this.b = new EmotionHorizontalView(this.a);
             this.c = new EmotionHorizontalView(this.a);
             this.d = new EmotionHorizontalView(this.a);
@@ -241,16 +241,16 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
             this.b.setVisibility(8);
             this.c.setVisibility(8);
             this.d.setVisibility(8);
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908ee);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090615);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090929);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090653);
             this.g = relativeLayout;
             relativeLayout.setVisibility(8);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908ef);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09092a);
             this.e = imageView;
             imageView.setOnClickListener(this);
-            this.h = findViewById(R.id.obfuscated_res_0x7f0905c6);
+            this.h = findViewById(R.id.obfuscated_res_0x7f090604);
             this.i = (TextView) findViewById(R.id.emotion_title);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0908fe);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090939);
             this.j = textView;
             textView.setOnClickListener(this);
             this.k = new EmotionChangeModel(this.a);

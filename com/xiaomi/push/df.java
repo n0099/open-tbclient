@@ -1,369 +1,66 @@
 package com.xiaomi.push;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.ao;
+import com.xiaomi.push.de;
 import java.io.File;
-import java.io.IOException;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class df {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile df a;
-    public transient /* synthetic */ FieldHolder $fh;
+public class df extends de.b {
+    public final /* synthetic */ int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f230a;
+    public final /* synthetic */ de f216a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final ConcurrentLinkedQueue<b> f231a;
+    public File f217a;
 
-    /* loaded from: classes8.dex */
-    public class a extends b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ df a;
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ String f218a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(df dfVar) {
-            super(dfVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dfVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((df) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dfVar;
-        }
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ Date f219a;
 
-        @Override // com.xiaomi.push.df.b, com.xiaomi.push.ao.b
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
-            }
-        }
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ boolean f220a;
+    public final /* synthetic */ String b;
+
+    /* renamed from: b  reason: collision with other field name */
+    public final /* synthetic */ Date f221b;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public df(de deVar, int i, Date date, Date date2, String str, String str2, boolean z) {
+        super();
+        this.f216a = deVar;
+        this.a = i;
+        this.f219a = date;
+        this.f221b = date2;
+        this.f218a = str;
+        this.b = str2;
+        this.f220a = z;
     }
 
-    /* loaded from: classes8.dex */
-    public class b extends ao.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public final /* synthetic */ df b;
-
-        public b(df dfVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dfVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = dfVar;
-            this.a = System.currentTimeMillis();
-        }
-
-        /* JADX DEBUG: Possible override for method com.xiaomi.push.ao.b.a()V */
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.xiaomi.push.ao.b
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        /* JADX DEBUG: Possible override for method com.xiaomi.push.ao.b.b()V */
-        /* renamed from: b  reason: collision with other method in class */
-        public final boolean m282b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.currentTimeMillis() - this.a > 172800000 : invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c extends b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-
-        /* renamed from: a  reason: collision with other field name */
-        public final /* synthetic */ df f232a;
-
-        /* renamed from: a  reason: collision with other field name */
-        public File f233a;
-
-        /* renamed from: a  reason: collision with other field name */
-        public String f234a;
-
-        /* renamed from: a  reason: collision with other field name */
-        public boolean f235a;
-        public String b;
-
-        /* renamed from: b  reason: collision with other field name */
-        public boolean f236b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(df dfVar, String str, String str2, File file, boolean z) {
-            super(dfVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dfVar, str, str2, file, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((df) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f232a = dfVar;
-            this.f234a = str;
-            this.b = str2;
-            this.f233a = file;
-            this.f236b = z;
-        }
-
-        private boolean c() {
-            InterceptResult invokeV;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-                int i2 = 0;
-                SharedPreferences sharedPreferences = this.f232a.f230a.getSharedPreferences("log.timestamp", 0);
-                String string = sharedPreferences.getString("log.requst", "");
-                long currentTimeMillis = System.currentTimeMillis();
-                try {
-                    JSONObject jSONObject = new JSONObject(string);
-                    currentTimeMillis = jSONObject.getLong("time");
-                    i = jSONObject.getInt("times");
-                } catch (JSONException unused) {
-                    i = 0;
-                }
-                if (System.currentTimeMillis() - currentTimeMillis >= 86400000) {
-                    currentTimeMillis = System.currentTimeMillis();
-                } else if (i > 10) {
-                    return false;
-                } else {
-                    i2 = i;
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put("time", currentTimeMillis);
-                    jSONObject2.put("times", i2 + 1);
-                    sharedPreferences.edit().putString("log.requst", jSONObject2.toString()).commit();
-                } catch (JSONException e) {
-                    com.xiaomi.channel.commonutils.logger.b.c("JSONException on put " + e.getMessage());
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        /* JADX DEBUG: Possible override for method com.xiaomi.push.ao.b.a()V */
-        @Override // com.xiaomi.push.df.b
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? bj.e(this.f232a.f230a) || (this.f236b && bj.b(this.f232a.f230a)) : invokeV.booleanValue;
-        }
-
-        @Override // com.xiaomi.push.df.b, com.xiaomi.push.ao.b
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                try {
-                    if (c()) {
-                        HashMap hashMap = new HashMap();
-                        hashMap.put("uid", com.xiaomi.push.service.bv.m724a());
-                        hashMap.put("token", this.b);
-                        hashMap.put("net", bj.m211a(this.f232a.f230a));
-                        bj.a(this.f234a, hashMap, this.f233a, "file");
-                    }
-                    this.f235a = true;
-                } catch (IOException unused) {
-                }
-            }
-        }
-
-        @Override // com.xiaomi.push.ao.b
-        /* renamed from: c  reason: collision with other method in class */
-        public void mo283c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (!this.f235a) {
-                    int i = this.a + 1;
-                    this.a = i;
-                    if (i < 3) {
-                        this.f232a.f231a.add(this);
-                    }
-                }
-                if (this.f235a || this.a >= 3) {
-                    this.f233a.delete();
-                }
-                this.f232a.a((1 << this.a) * 1000);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-56376834, "Lcom/xiaomi/push/df;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-56376834, "Lcom/xiaomi/push/df;");
-        }
-    }
-
-    public df(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        ConcurrentLinkedQueue<b> concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
-        this.f231a = concurrentLinkedQueue;
-        this.f230a = context;
-        concurrentLinkedQueue.add(new a(this));
-        b(0L);
-    }
-
-    public static df a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (a == null) {
-                synchronized (df.class) {
-                    if (a == null) {
-                        a = new df(context);
-                    }
-                }
-            }
-            a.f230a = context;
-            return a;
-        }
-        return (df) invokeL.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(long j) {
-        b peek;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(65541, this, j) == null) && (peek = this.f231a.peek()) != null && peek.a()) {
-            b(j);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
+    @Override // com.xiaomi.push.de.b, com.xiaomi.push.am.b
     public void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || ad.b() || ad.m178a()) {
-            return;
-        }
-        try {
-            File file = new File(this.f230a.getExternalFilesDir(null) + "/.logcache");
-            if (file.exists() && file.isDirectory()) {
-                for (File file2 : file.listFiles()) {
-                    file2.delete();
+        if (aa.d()) {
+            try {
+                File file = new File(this.f216a.f209a.getExternalFilesDir(null) + "/.logcache");
+                file.mkdirs();
+                if (file.isDirectory()) {
+                    dd ddVar = new dd();
+                    ddVar.a(this.a);
+                    this.f217a = ddVar.a(this.f216a.f209a, this.f219a, this.f221b, file);
                 }
-            }
-        } catch (NullPointerException unused) {
-        }
-    }
-
-    private void b(long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65545, this, j) == null) || this.f231a.isEmpty()) {
-            return;
-        }
-        gz.a(new dh(this), j);
-    }
-
-    private void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            while (!this.f231a.isEmpty()) {
-                b peek = this.f231a.peek();
-                if (peek != null) {
-                    if (!peek.m282b() && this.f231a.size() <= 6) {
-                        return;
-                    }
-                    com.xiaomi.channel.commonutils.logger.b.c("remove Expired task");
-                    this.f231a.remove(peek);
-                }
+            } catch (NullPointerException unused) {
             }
         }
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c();
-            a(0L);
+    @Override // com.xiaomi.push.am.b
+    /* renamed from: c */
+    public void mo276c() {
+        File file = this.f217a;
+        if (file != null && file.exists()) {
+            this.f216a.f210a.add(new de.c(this.f218a, this.b, this.f217a, this.f220a));
         }
-    }
-
-    public void a(String str, String str2, Date date, Date date2, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, date, date2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.f231a.add(new dg(this, i, date, date2, str, str2, z));
-            b(0L);
-        }
+        this.f216a.a(0L);
     }
 }

@@ -29,7 +29,15 @@ public interface FI {
 
     SharedPreferences getPlatformSharedSharedPreferences(Context context);
 
+    Map<Long, Throwable> gg();
+
+    Map<Long, Throwable> gi();
+
     String gm(String str, String str2);
+
+    String goh(Context context);
+
+    String gom(Context context);
 
     Map<Integer, String> gpd();
 

@@ -1,17 +1,9 @@
 package com.google.android.exoplayer2.source;
 
 import android.util.Pair;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Timeline;
 /* loaded from: classes7.dex */
 public abstract class AbstractConcatenatedTimeline extends Timeline {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final int childCount;
     public final ShuffleOrder shuffleOrder;
 
@@ -30,224 +22,165 @@ public abstract class AbstractConcatenatedTimeline extends Timeline {
     public abstract Timeline getTimelineByChildIndex(int i);
 
     public AbstractConcatenatedTimeline(ShuffleOrder shuffleOrder) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {shuffleOrder};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.shuffleOrder = shuffleOrder;
         this.childCount = shuffleOrder.getLength();
     }
 
     @Override // com.google.android.exoplayer2.Timeline
     public int getFirstWindowIndex(boolean z) {
-        InterceptResult invokeZ;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            if (this.childCount == 0) {
+        if (this.childCount == 0) {
+            return -1;
+        }
+        if (z) {
+            i = this.shuffleOrder.getFirstIndex();
+        } else {
+            i = 0;
+        }
+        while (getTimelineByChildIndex(i).isEmpty()) {
+            i = getNextChildIndex(i, z);
+            if (i == -1) {
                 return -1;
             }
-            if (z) {
-                i = this.shuffleOrder.getFirstIndex();
-            } else {
-                i = 0;
-            }
-            while (getTimelineByChildIndex(i).isEmpty()) {
-                i = getNextChildIndex(i, z);
-                if (i == -1) {
-                    return -1;
-                }
-            }
-            return getFirstWindowIndexByChildIndex(i) + getTimelineByChildIndex(i).getFirstWindowIndex(z);
         }
-        return invokeZ.intValue;
+        return getFirstWindowIndexByChildIndex(i) + getTimelineByChildIndex(i).getFirstWindowIndex(z);
     }
 
     @Override // com.google.android.exoplayer2.Timeline
     public final int getIndexOfPeriod(Object obj) {
-        InterceptResult invokeL;
         int indexOfPeriod;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
-            if (!(obj instanceof Pair)) {
-                return -1;
-            }
-            Pair pair = (Pair) obj;
-            Object obj2 = pair.first;
-            Object obj3 = pair.second;
-            int childIndexByChildUid = getChildIndexByChildUid(obj2);
-            if (childIndexByChildUid == -1 || (indexOfPeriod = getTimelineByChildIndex(childIndexByChildUid).getIndexOfPeriod(obj3)) == -1) {
-                return -1;
-            }
-            return getFirstPeriodIndexByChildIndex(childIndexByChildUid) + indexOfPeriod;
+        if (!(obj instanceof Pair)) {
+            return -1;
         }
-        return invokeL.intValue;
+        Pair pair = (Pair) obj;
+        Object obj2 = pair.first;
+        Object obj3 = pair.second;
+        int childIndexByChildUid = getChildIndexByChildUid(obj2);
+        if (childIndexByChildUid == -1 || (indexOfPeriod = getTimelineByChildIndex(childIndexByChildUid).getIndexOfPeriod(obj3)) == -1) {
+            return -1;
+        }
+        return getFirstPeriodIndexByChildIndex(childIndexByChildUid) + indexOfPeriod;
     }
 
     @Override // com.google.android.exoplayer2.Timeline
     public int getLastWindowIndex(boolean z) {
-        InterceptResult invokeZ;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-            int i2 = this.childCount;
-            if (i2 == 0) {
+        int i2 = this.childCount;
+        if (i2 == 0) {
+            return -1;
+        }
+        if (z) {
+            i = this.shuffleOrder.getLastIndex();
+        } else {
+            i = i2 - 1;
+        }
+        while (getTimelineByChildIndex(i).isEmpty()) {
+            i = getPreviousChildIndex(i, z);
+            if (i == -1) {
                 return -1;
             }
-            if (z) {
-                i = this.shuffleOrder.getLastIndex();
-            } else {
-                i = i2 - 1;
-            }
-            while (getTimelineByChildIndex(i).isEmpty()) {
-                i = getPreviousChildIndex(i, z);
-                if (i == -1) {
-                    return -1;
-                }
-            }
-            return getFirstWindowIndexByChildIndex(i) + getTimelineByChildIndex(i).getLastWindowIndex(z);
         }
-        return invokeZ.intValue;
+        return getFirstWindowIndexByChildIndex(i) + getTimelineByChildIndex(i).getLastWindowIndex(z);
     }
 
     private int getNextChildIndex(int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (z) {
-                return this.shuffleOrder.getNextIndex(i);
-            }
-            if (i < this.childCount - 1) {
-                return i + 1;
-            }
-            return -1;
+        if (z) {
+            return this.shuffleOrder.getNextIndex(i);
         }
-        return invokeCommon.intValue;
+        if (i < this.childCount - 1) {
+            return i + 1;
+        }
+        return -1;
     }
 
     private int getPreviousChildIndex(int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (z) {
-                return this.shuffleOrder.getPreviousIndex(i);
-            }
-            if (i > 0) {
-                return i - 1;
-            }
-            return -1;
+        if (z) {
+            return this.shuffleOrder.getPreviousIndex(i);
         }
-        return invokeCommon.intValue;
+        if (i > 0) {
+            return i - 1;
+        }
+        return -1;
     }
 
     @Override // com.google.android.exoplayer2.Timeline
     public int getNextWindowIndex(int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
         int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            int childIndexByWindowIndex = getChildIndexByWindowIndex(i);
-            int firstWindowIndexByChildIndex = getFirstWindowIndexByChildIndex(childIndexByWindowIndex);
-            Timeline timelineByChildIndex = getTimelineByChildIndex(childIndexByWindowIndex);
-            int i4 = i - firstWindowIndexByChildIndex;
-            if (i2 == 2) {
-                i3 = 0;
-            } else {
-                i3 = i2;
-            }
-            int nextWindowIndex = timelineByChildIndex.getNextWindowIndex(i4, i3, z);
-            if (nextWindowIndex != -1) {
-                return firstWindowIndexByChildIndex + nextWindowIndex;
-            }
-            int nextChildIndex = getNextChildIndex(childIndexByWindowIndex, z);
-            while (nextChildIndex != -1 && getTimelineByChildIndex(nextChildIndex).isEmpty()) {
-                nextChildIndex = getNextChildIndex(nextChildIndex, z);
-            }
-            if (nextChildIndex != -1) {
-                return getFirstWindowIndexByChildIndex(nextChildIndex) + getTimelineByChildIndex(nextChildIndex).getFirstWindowIndex(z);
-            }
-            if (i2 != 2) {
-                return -1;
-            }
-            return getFirstWindowIndex(z);
+        int childIndexByWindowIndex = getChildIndexByWindowIndex(i);
+        int firstWindowIndexByChildIndex = getFirstWindowIndexByChildIndex(childIndexByWindowIndex);
+        Timeline timelineByChildIndex = getTimelineByChildIndex(childIndexByWindowIndex);
+        int i4 = i - firstWindowIndexByChildIndex;
+        if (i2 == 2) {
+            i3 = 0;
+        } else {
+            i3 = i2;
         }
-        return invokeCommon.intValue;
+        int nextWindowIndex = timelineByChildIndex.getNextWindowIndex(i4, i3, z);
+        if (nextWindowIndex != -1) {
+            return firstWindowIndexByChildIndex + nextWindowIndex;
+        }
+        int nextChildIndex = getNextChildIndex(childIndexByWindowIndex, z);
+        while (nextChildIndex != -1 && getTimelineByChildIndex(nextChildIndex).isEmpty()) {
+            nextChildIndex = getNextChildIndex(nextChildIndex, z);
+        }
+        if (nextChildIndex != -1) {
+            return getFirstWindowIndexByChildIndex(nextChildIndex) + getTimelineByChildIndex(nextChildIndex).getFirstWindowIndex(z);
+        }
+        if (i2 != 2) {
+            return -1;
+        }
+        return getFirstWindowIndex(z);
     }
 
     @Override // com.google.android.exoplayer2.Timeline
     public int getPreviousWindowIndex(int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
         int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            int childIndexByWindowIndex = getChildIndexByWindowIndex(i);
-            int firstWindowIndexByChildIndex = getFirstWindowIndexByChildIndex(childIndexByWindowIndex);
-            Timeline timelineByChildIndex = getTimelineByChildIndex(childIndexByWindowIndex);
-            int i4 = i - firstWindowIndexByChildIndex;
-            if (i2 == 2) {
-                i3 = 0;
-            } else {
-                i3 = i2;
-            }
-            int previousWindowIndex = timelineByChildIndex.getPreviousWindowIndex(i4, i3, z);
-            if (previousWindowIndex != -1) {
-                return firstWindowIndexByChildIndex + previousWindowIndex;
-            }
-            int previousChildIndex = getPreviousChildIndex(childIndexByWindowIndex, z);
-            while (previousChildIndex != -1 && getTimelineByChildIndex(previousChildIndex).isEmpty()) {
-                previousChildIndex = getPreviousChildIndex(previousChildIndex, z);
-            }
-            if (previousChildIndex != -1) {
-                return getFirstWindowIndexByChildIndex(previousChildIndex) + getTimelineByChildIndex(previousChildIndex).getLastWindowIndex(z);
-            }
-            if (i2 != 2) {
-                return -1;
-            }
-            return getLastWindowIndex(z);
+        int childIndexByWindowIndex = getChildIndexByWindowIndex(i);
+        int firstWindowIndexByChildIndex = getFirstWindowIndexByChildIndex(childIndexByWindowIndex);
+        Timeline timelineByChildIndex = getTimelineByChildIndex(childIndexByWindowIndex);
+        int i4 = i - firstWindowIndexByChildIndex;
+        if (i2 == 2) {
+            i3 = 0;
+        } else {
+            i3 = i2;
         }
-        return invokeCommon.intValue;
+        int previousWindowIndex = timelineByChildIndex.getPreviousWindowIndex(i4, i3, z);
+        if (previousWindowIndex != -1) {
+            return firstWindowIndexByChildIndex + previousWindowIndex;
+        }
+        int previousChildIndex = getPreviousChildIndex(childIndexByWindowIndex, z);
+        while (previousChildIndex != -1 && getTimelineByChildIndex(previousChildIndex).isEmpty()) {
+            previousChildIndex = getPreviousChildIndex(previousChildIndex, z);
+        }
+        if (previousChildIndex != -1) {
+            return getFirstWindowIndexByChildIndex(previousChildIndex) + getTimelineByChildIndex(previousChildIndex).getLastWindowIndex(z);
+        }
+        if (i2 != 2) {
+            return -1;
+        }
+        return getLastWindowIndex(z);
     }
 
     @Override // com.google.android.exoplayer2.Timeline
     public final Timeline.Period getPeriod(int i, Timeline.Period period, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), period, Boolean.valueOf(z)})) == null) {
-            int childIndexByPeriodIndex = getChildIndexByPeriodIndex(i);
-            int firstWindowIndexByChildIndex = getFirstWindowIndexByChildIndex(childIndexByPeriodIndex);
-            getTimelineByChildIndex(childIndexByPeriodIndex).getPeriod(i - getFirstPeriodIndexByChildIndex(childIndexByPeriodIndex), period, z);
-            period.windowIndex += firstWindowIndexByChildIndex;
-            if (z) {
-                period.uid = Pair.create(getChildUidByChildIndex(childIndexByPeriodIndex), period.uid);
-            }
-            return period;
+        int childIndexByPeriodIndex = getChildIndexByPeriodIndex(i);
+        int firstWindowIndexByChildIndex = getFirstWindowIndexByChildIndex(childIndexByPeriodIndex);
+        getTimelineByChildIndex(childIndexByPeriodIndex).getPeriod(i - getFirstPeriodIndexByChildIndex(childIndexByPeriodIndex), period, z);
+        period.windowIndex += firstWindowIndexByChildIndex;
+        if (z) {
+            period.uid = Pair.create(getChildUidByChildIndex(childIndexByPeriodIndex), period.uid);
         }
-        return (Timeline.Period) invokeCommon.objValue;
+        return period;
     }
 
     @Override // com.google.android.exoplayer2.Timeline
     public final Timeline.Window getWindow(int i, Timeline.Window window, boolean z, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), window, Boolean.valueOf(z), Long.valueOf(j)})) == null) {
-            int childIndexByWindowIndex = getChildIndexByWindowIndex(i);
-            int firstWindowIndexByChildIndex = getFirstWindowIndexByChildIndex(childIndexByWindowIndex);
-            int firstPeriodIndexByChildIndex = getFirstPeriodIndexByChildIndex(childIndexByWindowIndex);
-            getTimelineByChildIndex(childIndexByWindowIndex).getWindow(i - firstWindowIndexByChildIndex, window, z, j);
-            window.firstPeriodIndex += firstPeriodIndexByChildIndex;
-            window.lastPeriodIndex += firstPeriodIndexByChildIndex;
-            return window;
-        }
-        return (Timeline.Window) invokeCommon.objValue;
+        int childIndexByWindowIndex = getChildIndexByWindowIndex(i);
+        int firstWindowIndexByChildIndex = getFirstWindowIndexByChildIndex(childIndexByWindowIndex);
+        int firstPeriodIndexByChildIndex = getFirstPeriodIndexByChildIndex(childIndexByWindowIndex);
+        getTimelineByChildIndex(childIndexByWindowIndex).getWindow(i - firstWindowIndexByChildIndex, window, z, j);
+        window.firstPeriodIndex += firstPeriodIndexByChildIndex;
+        window.lastPeriodIndex += firstPeriodIndexByChildIndex;
+        return window;
     }
 }

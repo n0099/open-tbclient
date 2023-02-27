@@ -1,195 +1,129 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.RemoteException;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.ubc.Flow;
-import com.baidu.swan.ubc.IRemoteUBCService;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.ddmlib.tools.perflib.vmtrace.utils.Strings;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.load.engine.GlideException;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Set;
 /* loaded from: classes5.dex */
 public class no4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static Map<String, Integer> a(Set<String> set) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, set)) == null) {
+            HashMap hashMap = new HashMap();
+            int i = 0;
+            for (String str : set) {
+                hashMap.put(str, Integer.valueOf(i));
+                i++;
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final no4 a;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static StringBuilder b(StringBuilder... sbArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sbArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (StringBuilder sb2 : sbArr) {
+                sb.append((CharSequence) sb2);
+            }
+            return sb;
+        }
+        return (StringBuilder) invokeL.objValue;
+    }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-568943848, "Lcom/baidu/tieba/no4$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-568943848, "Lcom/baidu/tieba/no4$b;");
-                    return;
+    public static String c(List<ko4> list, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, list, str)) == null) {
+            Set<String> d = lo4.b().d();
+            int size = d.size();
+            Map<String, Integer> a = a(d);
+            StringBuilder[] sbArr = new StringBuilder[size];
+            for (int i = 0; i < size; i++) {
+                sbArr[i] = new StringBuilder();
+            }
+            for (ko4 ko4Var : list) {
+                Integer num = a.get(ko4Var.f());
+                if (num != null) {
+                    sbArr[num.intValue()].append(Strings.repeat(GlideException.IndentedAppendable.INDENT, ko4Var.d()));
+                    sbArr[num.intValue()].append("- ");
+                    StringBuilder sb = sbArr[num.intValue()];
+                    sb.append(ko4Var.b() / 1000);
+                    sb.append("ms");
+                    sbArr[num.intValue()].append("   ");
+                    sbArr[num.intValue()].append(ko4Var.f());
+                    sbArr[num.intValue()].append("   ");
+                    sbArr[num.intValue()].append(ko4Var.c().getFullName());
+                    sbArr[num.intValue()].append("\n");
                 }
             }
-            a = new no4(null);
+            String sb2 = b(sbArr).toString();
+            d(sb2, str);
+            return sb2;
         }
+        return (String) invokeLL.objValue;
     }
 
-    public no4() {
+    public static void d(String str, String str2) {
+        FileWriter fileWriter;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static no4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (no4) invokeV.objValue;
-    }
-
-    public final IRemoteUBCService c() throws RemoteException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return co4.f();
-        }
-        return (IRemoteUBCService) invokeV.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            lo4.f().q();
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            lo4.f().l();
-        }
-    }
-
-    public /* synthetic */ no4(a aVar) {
-        this();
-    }
-
-    public final void onEvent(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            e(str, "", 0);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public Flow a(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, str, str2, i)) == null) {
-            if (dk1.g()) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                return lo4.f().a(str, str2, i);
-            }
-            return d(str, po4.b(str2), i);
-        }
-        return (Flow) invokeLLI.objValue;
-    }
-
-    public final Flow d(String str, String str2, int i) {
-        Flow flow;
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, i)) == null) {
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+            FileWriter fileWriter2 = null;
             try {
-                flow = c().ubcBeginFlow(str, str2, i);
-            } catch (RemoteException e) {
+                try {
+                    try {
+                        File parentFile = new File(str2).getParentFile();
+                        if (parentFile != null && !parentFile.exists()) {
+                            parentFile.mkdirs();
+                        }
+                        fileWriter = new FileWriter(str2);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        return;
+                    }
+                } catch (IOException e2) {
+                    e = e2;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                fileWriter.write(str);
+                fileWriter.flush();
+                fileWriter.close();
+            } catch (IOException e3) {
+                e = e3;
+                fileWriter2 = fileWriter;
                 e.printStackTrace();
-                flow = null;
-            }
-            if (flow == null) {
-                return new Flow();
-            }
-            return flow;
-        }
-        return (Flow) invokeLLI.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public void e(String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, str, str2, i) == null) {
-            if (dk1.g()) {
-                if (co4.g() == null && TextUtils.isEmpty(str)) {
-                    return;
+                if (fileWriter2 != null) {
+                    fileWriter2.close();
                 }
-                lo4.f().j(str, str2, i);
-                return;
-            }
-            try {
-                c().ubcOnEvent(str, po4.b(str2), i);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public final void f(String str, Map<String, String> map, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048580, this, str, map, i) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    jSONObject.put(entry.getKey(), entry.getValue());
+            } catch (Throwable th2) {
+                th = th2;
+                fileWriter2 = fileWriter;
+                if (fileWriter2 != null) {
+                    try {
+                        fileWriter2.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
+                    }
                 }
-            } catch (JSONException unused) {
-            }
-            e(str, jSONObject.toString(), i);
-        }
-    }
-
-    public void g(String str, JSONObject jSONObject, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048581, this, str, jSONObject, i) == null) {
-            if (dk1.g()) {
-                if (co4.g() == null && TextUtils.isEmpty(str)) {
-                    return;
-                }
-                lo4.f().k(str, jSONObject, i);
-                return;
-            }
-            try {
-                c().ubcOnEvent(str, po4.c(jSONObject), i);
-            } catch (RemoteException e) {
-                e.printStackTrace();
+                throw th;
             }
         }
     }

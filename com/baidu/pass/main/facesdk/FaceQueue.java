@@ -1,109 +1,34 @@
 package com.baidu.pass.main.facesdk;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class FaceQueue {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public int nThreads;
     public LinkedList queue;
     public PoolWorker[] threads;
 
-    /* renamed from: com.baidu.pass.main.facesdk.FaceQueue$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
     /* loaded from: classes2.dex */
     public static class HolderClass {
-        public static /* synthetic */ Interceptable $ic;
-        public static final FaceQueue instance;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1280649353, "Lcom/baidu/pass/main/facesdk/FaceQueue$HolderClass;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1280649353, "Lcom/baidu/pass/main/facesdk/FaceQueue$HolderClass;");
-                    return;
-                }
-            }
-            instance = new FaceQueue(1);
-        }
-
-        public HolderClass() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
+        public static final FaceQueue instance = new FaceQueue(1);
     }
 
     /* loaded from: classes2.dex */
     public class PoolWorker extends Thread {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FaceQueue this$0;
-
-        public PoolWorker(FaceQueue faceQueue) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {faceQueue};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = faceQueue;
-        }
-
-        public /* synthetic */ PoolWorker(FaceQueue faceQueue, AnonymousClass1 anonymousClass1) {
-            this(faceQueue);
+        public PoolWorker() {
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             Runnable runnable;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
             while (true) {
-                synchronized (this.this$0.queue) {
-                    while (this.this$0.queue.isEmpty()) {
+                synchronized (FaceQueue.this.queue) {
+                    while (FaceQueue.this.queue.isEmpty()) {
                         try {
-                            this.this$0.queue.wait();
+                            FaceQueue.this.queue.wait();
                         } catch (InterruptedException unused) {
                         }
                     }
-                    runnable = (Runnable) this.this$0.queue.removeFirst();
+                    runnable = (Runnable) FaceQueue.this.queue.removeFirst();
                 }
                 try {
                     runnable.run();
@@ -115,43 +40,24 @@ public class FaceQueue {
     }
 
     public FaceQueue(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.queue = null;
         this.nThreads = i;
         this.queue = new LinkedList();
         this.threads = new PoolWorker[i];
-        for (int i4 = 0; i4 < i; i4++) {
-            this.threads[i4] = new PoolWorker(this, null);
-            this.threads[i4].start();
+        for (int i2 = 0; i2 < i; i2++) {
+            this.threads[i2] = new PoolWorker();
+            this.threads[i2].start();
         }
     }
 
     public static FaceQueue getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? HolderClass.instance : (FaceQueue) invokeV.objValue;
+        return HolderClass.instance;
     }
 
     public void execute(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            synchronized (this.queue) {
-                this.queue.addLast(runnable);
-                this.queue.notify();
-            }
+        synchronized (this.queue) {
+            this.queue.addLast(runnable);
+            this.queue.notify();
         }
     }
 }

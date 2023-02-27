@@ -1,13 +1,7 @@
 package com.baidu.searchbox.player.ubc;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FlowPartConstants {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String PART_1_TO_PLAYDURATION = "V2_P1_PlayDuration";
     public static final String PART_2_TO_PLAYDURATION = "V2_P2_PlayDuration";
     public static final String PART_CALL_PLAYER = "V2_P1_callPlayer";
@@ -20,19 +14,4 @@ public class FlowPartConstants {
     public static final String PART_PLAYER_TOTAL = "V2_P214_total";
     public static final String PART_PREPARE_INIT_PLAYER = "V2_P21_routineCheck";
     public static final String PART_ROUTER = "V2_P211_router";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public FlowPartConstants() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

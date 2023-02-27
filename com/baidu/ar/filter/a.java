@@ -1,8 +1,6 @@
 package com.baidu.ar.filter;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.DefaultParams;
 import com.baidu.ar.arrender.i;
 import com.baidu.ar.arrender.l;
@@ -10,47 +8,24 @@ import com.baidu.ar.filter.FilterParam;
 import com.baidu.ar.h.b;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public DefaultParams d;
     public String mCasePath;
     public l qh;
     public FilterStateListener qi;
-    public HashMap<FilterNode, Boolean> qj;
-    public HashMap<FilterNode, Boolean> qk;
-    public HashMap<FilterNode, Boolean> ql;
+    public HashMap<FilterNode, Boolean> qj = new HashMap<>();
+    public HashMap<FilterNode, Boolean> qk = new HashMap<>();
+    public HashMap<FilterNode, Boolean> ql = new HashMap<>();
 
     /* renamed from: com.baidu.ar.filter.a$1  reason: invalid class name */
     /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] qm;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-983249100, "Lcom/baidu/ar/filter/a$1;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-983249100, "Lcom/baidu/ar/filter/a$1;");
-                    return;
-                }
-            }
             int[] iArr = new int[FilterParam.MakeupFilter.values().length];
             qm = iArr;
             try {
@@ -73,23 +48,6 @@ public class a {
     }
 
     public a(DefaultParams defaultParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {defaultParams};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.qj = new HashMap<>();
-        this.qk = new HashMap<>();
-        this.ql = new HashMap<>();
         this.d = defaultParams;
         HashMap<FilterNode, Boolean> hashMap = this.qj;
         if (hashMap != null) {
@@ -108,57 +66,41 @@ public class a {
     }
 
     private void K(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65537, this, i) == null) || this.qh == null) {
-            return;
+        if (this.qh != null) {
+            i iVar = new i();
+            iVar.r("ability_common_filter");
+            iVar.setFilterName(FilterNode.faceFilter.getNodeName());
+            iVar.N("clearAllKnead");
+            iVar.r(i);
+            this.qh.a(iVar);
         }
-        i iVar = new i();
-        iVar.r("ability_common_filter");
-        iVar.setFilterName(FilterNode.faceFilter.getNodeName());
-        iVar.N("clearAllKnead");
-        iVar.r(i);
-        this.qh.a(iVar);
     }
 
     private String a(FilterNode filterNode) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, filterNode)) == null) ? filterNode == null ? "ability_common_filter" : filterNode.equals(FilterNode.faceFilter) ? "ability_face_filter" : filterNode.equals(FilterNode.makeupFilter) ? "ability_makeup_filter" : "ability_common_filter" : (String) invokeL.objValue;
+        return filterNode == null ? "ability_common_filter" : filterNode.equals(FilterNode.faceFilter) ? "ability_face_filter" : filterNode.equals(FilterNode.makeupFilter) ? "ability_makeup_filter" : "ability_common_filter";
     }
 
     private void a(FilterParam.MakeupFilter makeupFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, makeupFilter) == null) {
-            int i = AnonymousClass1.qm[makeupFilter.ordinal()];
-            String str = (i == 1 || i == 2) ? StatisticConstants.EVENT_MAKEUP_LIPSTICK_ENTER : i != 3 ? i != 4 ? null : StatisticConstants.EVENT_MAKEUP_HIGHLIGHT_ENTER : StatisticConstants.EVENT_MAKEUP_BLUSHER_ENTER;
-            if (str != null) {
-                StatisticApi.onEvent(str);
-            }
+        int i = AnonymousClass1.qm[makeupFilter.ordinal()];
+        String str = (i == 1 || i == 2) ? StatisticConstants.EVENT_MAKEUP_LIPSTICK_ENTER : i != 3 ? i != 4 ? null : StatisticConstants.EVENT_MAKEUP_HIGHLIGHT_ENTER : StatisticConstants.EVENT_MAKEUP_BLUSHER_ENTER;
+        if (str != null) {
+            StatisticApi.onEvent(str);
         }
     }
 
     public void a(l lVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lVar) == null) {
-            this.qh = lVar;
-        }
+        this.qh = lVar;
     }
 
     public synchronized void a(FilterNode filterNode, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, filterNode, z) == null) {
-            synchronized (this) {
-                b.c("ARFilterManager", "updateAbilityState filerName = " + filterNode + " && state = " + z);
-                if (filterNode != null && this.qk != null && this.qk.containsKey(filterNode)) {
-                    this.qk.put(filterNode, Boolean.valueOf(z));
-                }
-            }
+        b.c("ARFilterManager", "updateAbilityState filerName = " + filterNode + " && state = " + z);
+        if (filterNode != null && this.qk != null && this.qk.containsKey(filterNode)) {
+            this.qk.put(filterNode, Boolean.valueOf(z));
         }
     }
 
     public void a(FilterParam filterParam, Object obj) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, filterParam, obj) == null) || filterParam == null) {
+        if (filterParam == null) {
             return;
         }
         String str = null;
@@ -179,8 +121,7 @@ public class a {
 
     public void a(FilterParam filterParam, Object obj, String str, boolean z) {
         String str2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{filterParam, obj, str, Boolean.valueOf(z)}) == null) || filterParam == null) {
+        if (filterParam == null) {
             return;
         }
         i iVar = new i();
@@ -213,8 +154,7 @@ public class a {
     }
 
     public void a(FilterParam filterParam, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, filterParam, z) == null) || filterParam == null) {
+        if (filterParam == null) {
             return;
         }
         FilterNode filterNode = filterParam.getFilterNode();
@@ -231,137 +171,100 @@ public class a {
     }
 
     public void am(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.mCasePath = str;
-        }
+        this.mCasePath = str;
     }
 
     public void bv() {
-        l lVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (lVar = this.qh) == null) {
-            return;
+        l lVar = this.qh;
+        if (lVar != null) {
+            lVar.bv();
         }
-        lVar.bv();
     }
 
     public void clearAllFilter() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            K(1);
-        }
+        K(1);
     }
 
     public synchronized void eE() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            synchronized (this) {
-                if (this.qj != null) {
-                    this.qj.put(FilterNode.lutFilter, Boolean.TRUE);
-                    this.qj.put(FilterNode.skinFilter, Boolean.TRUE);
-                    this.qj.put(FilterNode.faceFilter, Boolean.TRUE);
-                    this.qj.put(FilterNode.makeupFilter, Boolean.TRUE);
-                    b.c("ARFilterManager", "onPipelineCreate mPipelineStates = " + this.qj.toString());
-                }
-                eF();
-            }
+        if (this.qj != null) {
+            this.qj.put(FilterNode.lutFilter, Boolean.TRUE);
+            this.qj.put(FilterNode.skinFilter, Boolean.TRUE);
+            this.qj.put(FilterNode.faceFilter, Boolean.TRUE);
+            this.qj.put(FilterNode.makeupFilter, Boolean.TRUE);
+            b.c("ARFilterManager", "onPipelineCreate mPipelineStates = " + this.qj.toString());
         }
+        eF();
     }
 
     public void eF() {
         HashMap<FilterNode, Boolean> hashMap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            HashMap<FilterNode, Boolean> hashMap2 = this.ql;
-            if (hashMap2 != null && (hashMap = this.qj) != null && this.qk != null) {
-                FilterNode filterNode = FilterNode.lutFilter;
-                boolean z = true;
-                hashMap2.put(filterNode, Boolean.valueOf(hashMap.get(filterNode).booleanValue() && this.qk.get(FilterNode.lutFilter).booleanValue()));
-                HashMap<FilterNode, Boolean> hashMap3 = this.ql;
-                FilterNode filterNode2 = FilterNode.skinFilter;
-                hashMap3.put(filterNode2, Boolean.valueOf(this.qj.get(filterNode2).booleanValue() && this.qk.get(FilterNode.skinFilter).booleanValue()));
-                HashMap<FilterNode, Boolean> hashMap4 = this.ql;
-                FilterNode filterNode3 = FilterNode.faceFilter;
-                hashMap4.put(filterNode3, Boolean.valueOf(this.qj.get(filterNode3).booleanValue() && this.qk.get(FilterNode.faceFilter).booleanValue()));
-                HashMap<FilterNode, Boolean> hashMap5 = this.ql;
-                FilterNode filterNode4 = FilterNode.makeupFilter;
-                hashMap5.put(filterNode4, Boolean.valueOf((this.qj.get(filterNode4).booleanValue() && this.qk.get(FilterNode.makeupFilter).booleanValue()) ? false : false));
-                b.c("ARFilterManager", "callbackFilterStates mFilterStates = " + this.ql.toString() + " && mCasePath = " + this.mCasePath);
-            }
-            FilterStateListener filterStateListener = this.qi;
-            if (filterStateListener != null) {
-                filterStateListener.onFilterStateChanged(this.ql, this.mCasePath);
-            }
+        HashMap<FilterNode, Boolean> hashMap2 = this.ql;
+        if (hashMap2 != null && (hashMap = this.qj) != null && this.qk != null) {
+            FilterNode filterNode = FilterNode.lutFilter;
+            boolean z = true;
+            hashMap2.put(filterNode, Boolean.valueOf(hashMap.get(filterNode).booleanValue() && this.qk.get(FilterNode.lutFilter).booleanValue()));
+            HashMap<FilterNode, Boolean> hashMap3 = this.ql;
+            FilterNode filterNode2 = FilterNode.skinFilter;
+            hashMap3.put(filterNode2, Boolean.valueOf(this.qj.get(filterNode2).booleanValue() && this.qk.get(FilterNode.skinFilter).booleanValue()));
+            HashMap<FilterNode, Boolean> hashMap4 = this.ql;
+            FilterNode filterNode3 = FilterNode.faceFilter;
+            hashMap4.put(filterNode3, Boolean.valueOf(this.qj.get(filterNode3).booleanValue() && this.qk.get(FilterNode.faceFilter).booleanValue()));
+            HashMap<FilterNode, Boolean> hashMap5 = this.ql;
+            FilterNode filterNode4 = FilterNode.makeupFilter;
+            hashMap5.put(filterNode4, Boolean.valueOf((this.qj.get(filterNode4).booleanValue() && this.qk.get(FilterNode.makeupFilter).booleanValue()) ? false : false));
+            b.c("ARFilterManager", "callbackFilterStates mFilterStates = " + this.ql.toString() + " && mCasePath = " + this.mCasePath);
+        }
+        FilterStateListener filterStateListener = this.qi;
+        if (filterStateListener != null) {
+            filterStateListener.onFilterStateChanged(this.ql, this.mCasePath);
         }
     }
 
     public synchronized void f(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
-            synchronized (this) {
-                if (list == null) {
-                    return;
-                }
-                if (this.qj != null) {
-                    this.qj.put(FilterNode.lutFilter, Boolean.valueOf(list.contains(FilterNode.lutFilter.getNodeName())));
-                    this.qj.put(FilterNode.skinFilter, Boolean.valueOf(list.contains(FilterNode.skinFilter.getNodeName())));
-                    this.qj.put(FilterNode.faceFilter, Boolean.valueOf(list.contains(FilterNode.faceFilter.getNodeName())));
-                    this.qj.put(FilterNode.makeupFilter, Boolean.valueOf(list.contains(FilterNode.makeupFilter.getNodeName())));
-                    b.c("ARFilterManager", "onPipelineChanged mPipelineStates = " + this.qj.toString());
-                }
-                eF();
-            }
+        if (list == null) {
+            return;
         }
+        if (this.qj != null) {
+            this.qj.put(FilterNode.lutFilter, Boolean.valueOf(list.contains(FilterNode.lutFilter.getNodeName())));
+            this.qj.put(FilterNode.skinFilter, Boolean.valueOf(list.contains(FilterNode.skinFilter.getNodeName())));
+            this.qj.put(FilterNode.faceFilter, Boolean.valueOf(list.contains(FilterNode.faceFilter.getNodeName())));
+            this.qj.put(FilterNode.makeupFilter, Boolean.valueOf(list.contains(FilterNode.makeupFilter.getNodeName())));
+            b.c("ARFilterManager", "onPipelineChanged mPipelineStates = " + this.qj.toString());
+        }
+        eF();
     }
 
     public synchronized void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            synchronized (this) {
-                this.d = null;
-                this.qh = null;
-                this.qi = null;
-                if (this.qj != null) {
-                    this.qj.clear();
-                    this.qj = null;
-                }
-                if (this.qk != null) {
-                    this.qk.clear();
-                    this.qk = null;
-                }
-                if (this.ql != null) {
-                    this.ql.clear();
-                    this.ql = null;
-                }
-            }
+        this.d = null;
+        this.qh = null;
+        this.qi = null;
+        if (this.qj != null) {
+            this.qj.clear();
+            this.qj = null;
+        }
+        if (this.qk != null) {
+            this.qk.clear();
+            this.qk = null;
+        }
+        if (this.ql != null) {
+            this.ql.clear();
+            this.ql = null;
         }
     }
 
     public void resetAllFilter() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            K(0);
-        }
+        K(0);
     }
 
     public void setFilterStateListener(FilterStateListener filterStateListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, filterStateListener) == null) {
-            this.qi = filterStateListener;
-        }
+        this.qi = filterStateListener;
     }
 
     public String updateFilterCase(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            l lVar = this.qh;
-            if (lVar != null) {
-                return lVar.updateFilterCase(str);
-            }
-            return null;
+        l lVar = this.qh;
+        if (lVar != null) {
+            return lVar.updateFilterCase(str);
         }
-        return (String) invokeL.objValue;
+        return null;
     }
 }

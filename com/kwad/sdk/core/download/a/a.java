@@ -20,7 +20,6 @@ import android.util.SparseArray;
 import android.widget.RemoteViews;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.util.io.ActionJsonData;
 import com.ksad.download.DownloadTask;
 import com.ksad.download.d;
 import com.ksad.download.f;
@@ -39,14 +38,14 @@ import java.util.HashMap;
 public final class a implements f {
     public static c Xd;
     public static HashMap<String, WeakReference<Bitmap>> Xc = new HashMap<>();
-    public static final Handler Xe = new HandlerC0633a();
+    public static final Handler Xe = new HandlerC0623a();
 
     /* renamed from: com.kwad.sdk.core.download.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class HandlerC0633a extends Handler {
+    public static class HandlerC0623a extends Handler {
         public final SparseArray<Long> Xf;
 
-        public HandlerC0633a() {
+        public HandlerC0623a() {
             super(Looper.getMainLooper());
             this.Xf = new SparseArray<>();
         }
@@ -57,7 +56,7 @@ public final class a implements f {
             boolean z2 = message.arg2 == 1;
             boolean z3 = message.arg2 == 2;
             Long l = this.Xf.get(message.what);
-            NotificationManager notificationManager = (NotificationManager) com.ksad.download.b.getContext().getSystemService(ActionJsonData.TAG_NOTIFICATION);
+            NotificationManager notificationManager = (NotificationManager) com.ksad.download.b.getContext().getSystemService("notification");
             if (notificationManager == null) {
                 return;
             }
@@ -213,7 +212,7 @@ public final class a implements f {
         if (context == null) {
             return;
         }
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
         try {
             if (Build.VERSION.SDK_INT >= 26) {
                 NotificationChannel notificationChannel = new NotificationChannel("download_channel", "ksad", 3);
@@ -459,6 +458,6 @@ public final class a implements f {
         if (context == null) {
             return;
         }
-        ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(i);
+        ((NotificationManager) context.getSystemService("notification")).cancel(i);
     }
 }

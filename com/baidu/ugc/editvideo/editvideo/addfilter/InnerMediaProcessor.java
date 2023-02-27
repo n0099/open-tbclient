@@ -1,18 +1,9 @@
 package com.baidu.ugc.editvideo.editvideo.addfilter;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qx9;
-import com.baidu.tieba.yx9;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.n1a;
+import com.baidu.tieba.v1a;
 /* loaded from: classes7.dex */
 public class InnerMediaProcessor extends Thread {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public boolean mAddTrack;
     public volatile boolean mCanRetry;
     public long mClipDuration;
@@ -32,65 +23,47 @@ public class InnerMediaProcessor extends Thread {
     public volatile boolean mUserInterrupted;
 
     public void extractDecodeEditEncodeMux() throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
     }
 
     public String getMuxerLog() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "no more log" : (String) invokeV.objValue;
+        return "no more log";
     }
 
     public void onInterrupt() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
     }
 
     public void onPostExecute() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
     }
 
     public void onPreExecute() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-        }
     }
 
     public void onProgress(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public InnerMediaProcessor(String str) {
         super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mAddTrack = false;
     }
 
+    public void setFrameRate(int i) {
+        this.mFrameRate = i;
+    }
+
+    public void setOutputSurface(BaseOutputSurface baseOutputSurface) {
+        this.mOutputSurface = baseOutputSurface;
+    }
+
+    public void setOutputVideoBitRate(int i) {
+        this.mOutBitRate = i;
+    }
+
+    public void setRecordConfigEncodeHevcVideo(boolean z) {
+        this.mEncodeHevcVideo = z;
+    }
+
     public void checkMuxerStart(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && !this.mMuxer.isStarted() && this.mAddTrack) {
+        if (!this.mMuxer.isStarted() && this.mAddTrack) {
             if (z) {
                 this.mMuxer.setVideoStart();
             } else {
@@ -112,174 +85,72 @@ public class InnerMediaProcessor extends Thread {
 
     @Override // java.lang.Thread
     public void interrupt() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.interrupt();
-            this.mUserInterrupted = true;
-        }
+        super.interrupt();
+        this.mUserInterrupted = true;
     }
 
     public boolean isUnInterrupted() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!Thread.currentThread().isInterrupted() && !this.mUserInterrupted) {
-                return true;
-            }
-            return false;
+        if (!Thread.currentThread().isInterrupted() && !this.mUserInterrupted) {
+            return true;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void log(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            qx9.l(str, str2);
-        }
-    }
-
-    public void setClipRange(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.mClipPoint = j;
-            this.mClipDuration = j2;
-        }
-    }
-
-    public void setErrMsg(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048588, this, z, str) == null) {
-            this.mCanRetry = z;
-            this.mErrMsg = str;
-        }
-    }
-
-    public void setOutputVideoSize(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) {
-            this.mOutWidth = i;
-            this.mOutHeight = i2;
-        }
-    }
-
-    public void setPreviewVideoSize(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) {
-            this.mPreviewWidth = i;
-            this.mPreviewHeight = i2;
-        }
+        return false;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            try {
-                extractDecodeEditEncodeMux();
-                if (isUnInterrupted()) {
-                    yx9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ InnerMediaProcessor this$0;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
+        try {
+            extractDecodeEditEncodeMux();
+            if (isUnInterrupted()) {
+                v1a.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        InnerMediaProcessor.this.onPostExecute();
+                    }
+                });
+            }
+        } catch (Exception unused) {
+            if (this.mListener != null) {
+                v1a.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.2
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        int i;
+                        InnerMediaProcessor innerMediaProcessor = InnerMediaProcessor.this;
+                        OnGenFilterVideoListener onGenFilterVideoListener = innerMediaProcessor.mListener;
+                        if (onGenFilterVideoListener != null) {
+                            if (!innerMediaProcessor.mCanRetry && !InnerMediaProcessor.this.mCurrentEncodeHevcVideo) {
+                                i = -4;
+                            } else {
+                                i = -100;
                             }
-                            this.this$0 = this;
+                            onGenFilterVideoListener.onGenFilterVideoFail(i, InnerMediaProcessor.this.mErrMsg);
                         }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.this$0.onPostExecute();
-                            }
-                        }
-                    });
-                }
-            } catch (Exception unused) {
-                if (this.mListener != null) {
-                    yx9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.2
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ InnerMediaProcessor this$0;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            InnerMediaProcessor innerMediaProcessor;
-                            OnGenFilterVideoListener onGenFilterVideoListener;
-                            int i;
-                            Interceptable interceptable2 = $ic;
-                            if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (onGenFilterVideoListener = (innerMediaProcessor = this.this$0).mListener) != null) {
-                                if (!innerMediaProcessor.mCanRetry && !this.this$0.mCurrentEncodeHevcVideo) {
-                                    i = -4;
-                                } else {
-                                    i = -100;
-                                }
-                                onGenFilterVideoListener.onGenFilterVideoFail(i, this.this$0.mErrMsg);
-                            }
-                        }
-                    });
-                }
+                    }
+                });
             }
         }
     }
 
-    public void setFrameRate(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.mFrameRate = i;
-        }
+    public void log(String str, String str2) {
+        n1a.l(str, str2);
     }
 
-    public void setOutputSurface(BaseOutputSurface baseOutputSurface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, baseOutputSurface) == null) {
-            this.mOutputSurface = baseOutputSurface;
-        }
+    public void setClipRange(long j, long j2) {
+        this.mClipPoint = j;
+        this.mClipDuration = j2;
     }
 
-    public void setOutputVideoBitRate(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.mOutBitRate = i;
-        }
+    public void setErrMsg(boolean z, String str) {
+        this.mCanRetry = z;
+        this.mErrMsg = str;
     }
 
-    public void setRecordConfigEncodeHevcVideo(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.mEncodeHevcVideo = z;
-        }
+    public void setOutputVideoSize(int i, int i2) {
+        this.mOutWidth = i;
+        this.mOutHeight = i2;
+    }
+
+    public void setPreviewVideoSize(int i, int i2) {
+        this.mPreviewWidth = i;
+        this.mPreviewHeight = i2;
     }
 }

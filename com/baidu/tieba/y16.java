@@ -1,90 +1,27 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ala.alasquare.live_tab.view.SdkDoubleLiveViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class y16 extends qn<c26, SdkDoubleLiveViewHolder> {
+public class y16 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile x16 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public g36 b;
-    public int c;
-    public boolean d;
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public y16(TbPageContext tbPageContext, int i, boolean z) {
-        super(r0, r1);
-        BdUniqueId bdUniqueId;
+    public static synchronized x16 a() {
+        InterceptResult invokeV;
+        x16 x16Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (y16.class) {
+                if (a == null) {
+                    a = new x16();
+                }
+                x16Var = a;
             }
+            return x16Var;
         }
-        Activity pageActivity = tbPageContext.getPageActivity();
-        if (z) {
-            bdUniqueId = c26.d;
-        } else {
-            bdUniqueId = c26.c;
-        }
-        this.a = tbPageContext;
-        this.c = i;
-        this.d = z;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: s */
-    public SdkDoubleLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.b = new g36(this.a, viewGroup, this.c, this.d);
-            return new SdkDoubleLiveViewHolder(this.b);
-        }
-        return (SdkDoubleLiveViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, c26 c26Var, SdkDoubleLiveViewHolder sdkDoubleLiveViewHolder) {
-        InterceptResult invokeCommon;
-        g36 g36Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, c26Var, sdkDoubleLiveViewHolder})) == null) {
-            if (sdkDoubleLiveViewHolder != null && (g36Var = sdkDoubleLiveViewHolder.a) != null) {
-                g36Var.i(c26Var);
-                sdkDoubleLiveViewHolder.a.j(this.a, TbadkCoreApplication.getInst().getSkinType());
-                return sdkDoubleLiveViewHolder.getView();
-            }
-            return null;
-        }
-        return (View) invokeCommon.objValue;
+        return (x16) invokeV.objValue;
     }
 }

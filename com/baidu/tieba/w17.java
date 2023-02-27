@@ -1,43 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.data.FeatureCardGod;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
+import com.baidu.tieba.frs.gamerecommend.data.ScoreCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import tbclient.ZoneRight.DataReq;
-import tbclient.ZoneRight.ZoneRightReqIdl;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class w17 implements ti5 {
+public class w17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public String c;
-    public int d;
-    public int e;
-
-    @Override // com.baidu.tieba.si5
-    public HashMap<String, Object> B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.si5
-    public HashMap<String, String> E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
-    }
+    public boolean a;
+    public int b;
+    public List<ThreadData> c;
+    public ScoreCardInfo d;
+    public List<FeatureCardHot> e;
+    public List<FeatureCardTopic> f;
+    public List<x17> g;
+    public List<FeatureCardCompetition> h;
+    public List<FeatureCardGod> i;
+    public List<FeatureCardGame> j;
 
     public w17() {
         Interceptable interceptable = $ic;
@@ -49,28 +38,15 @@ public class w17 implements ti5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.vi5
-    public Object g(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            DataReq.Builder builder = new DataReq.Builder();
-            int i = 1;
-            yo5.c(builder, true, false, true);
-            builder.forum_id = Long.valueOf(dh.g(this.c, 0L));
-            builder.thread_id = Long.valueOf(this.b);
-            if (this.d == 1) {
-                i = 2;
-            }
-            builder.req_type = Integer.valueOf(i);
-            ZoneRightReqIdl.Builder builder2 = new ZoneRightReqIdl.Builder();
-            builder2.data = builder.build(false);
-            return builder2.build(false);
-        }
-        return invokeZ.objValue;
+        this.c = new ArrayList();
+        this.e = new ArrayList();
+        this.f = new ArrayList();
+        this.g = new ArrayList();
+        this.h = new ArrayList();
+        this.i = new ArrayList();
+        this.j = new ArrayList();
     }
 }

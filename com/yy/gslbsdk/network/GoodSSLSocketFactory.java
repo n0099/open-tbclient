@@ -1,15 +1,7 @@
 package com.yy.gslbsdk.network;
 
 import android.os.Build;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.BdSailorConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.util.LogTools;
 import java.io.IOException;
 import java.net.InetAddress;
@@ -27,27 +19,13 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.X509TrustManager;
 /* loaded from: classes8.dex */
 public class GoodSSLSocketFactory extends SSLSocketFactory {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "GoodSSLSocketFactory";
     public static String[] cipherSuites;
     public static String[] protocols;
-    public transient /* synthetic */ FieldHolder $fh;
     public SSLSocketFactory defaultFactory;
 
     static {
         String[] supportedProtocols;
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1960147686, "Lcom/yy/gslbsdk/network/GoodSSLSocketFactory;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1960147686, "Lcom/yy/gslbsdk/network/GoodSSLSocketFactory;");
-                return;
-            }
-        }
         try {
             SSLSocket sSLSocket = (SSLSocket) SSLSocketFactory.getDefault().createSocket();
             if (sSLSocket != null) {
@@ -74,20 +52,6 @@ public class GoodSSLSocketFactory extends SSLSocketFactory {
     }
 
     public GoodSSLSocketFactory(X509TrustManager x509TrustManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x509TrustManager};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         try {
             SSLContext sSLContext = SSLContext.getInstance("TLS");
             sSLContext.init(null, x509TrustManager != null ? new X509TrustManager[]{x509TrustManager} : null, null);
@@ -99,105 +63,67 @@ public class GoodSSLSocketFactory extends SSLSocketFactory {
 
     private void upgradeTLS(SSLSocket sSLSocket) {
         String[] strArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, sSLSocket) == null) {
-            if (protocols != null) {
-                sSLSocket.setEnabledProtocols(new String[]{"TLSv1", "TLSv1.1"});
-                LogTools.printDebug(TAG, String.format(Locale.US, "getEnabledProtocols: %s", Arrays.toString(sSLSocket.getEnabledProtocols())));
-            }
-            if (Build.VERSION.SDK_INT < 21 && (strArr = cipherSuites) != null) {
-                sSLSocket.setEnabledCipherSuites(strArr);
-            }
+        if (protocols != null) {
+            sSLSocket.setEnabledProtocols(new String[]{"TLSv1", "TLSv1.1"});
+            LogTools.printDebug(TAG, String.format(Locale.US, "getEnabledProtocols: %s", Arrays.toString(sSLSocket.getEnabledProtocols())));
+        }
+        if (Build.VERSION.SDK_INT < 21 && (strArr = cipherSuites) != null) {
+            sSLSocket.setEnabledCipherSuites(strArr);
         }
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(String str, int i) throws IOException, UnknownHostException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            Socket createSocket = this.defaultFactory.createSocket(str, i);
-            if (createSocket instanceof SSLSocket) {
-                upgradeTLS((SSLSocket) createSocket);
-            }
-            return createSocket;
+        Socket createSocket = this.defaultFactory.createSocket(str, i);
+        if (createSocket instanceof SSLSocket) {
+            upgradeTLS((SSLSocket) createSocket);
         }
-        return (Socket) invokeLI.objValue;
+        return createSocket;
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(String str, int i, InetAddress inetAddress, int i2) throws IOException, UnknownHostException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i), inetAddress, Integer.valueOf(i2)})) == null) {
-            Socket createSocket = this.defaultFactory.createSocket(str, i, inetAddress, i2);
-            if (createSocket instanceof SSLSocket) {
-                upgradeTLS((SSLSocket) createSocket);
-            }
-            return createSocket;
+        Socket createSocket = this.defaultFactory.createSocket(str, i, inetAddress, i2);
+        if (createSocket instanceof SSLSocket) {
+            upgradeTLS((SSLSocket) createSocket);
         }
-        return (Socket) invokeCommon.objValue;
+        return createSocket;
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(InetAddress inetAddress, int i) throws IOException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, inetAddress, i)) == null) {
-            Socket createSocket = this.defaultFactory.createSocket(inetAddress, i);
-            if (createSocket instanceof SSLSocket) {
-                upgradeTLS((SSLSocket) createSocket);
-            }
-            return createSocket;
+        Socket createSocket = this.defaultFactory.createSocket(inetAddress, i);
+        if (createSocket instanceof SSLSocket) {
+            upgradeTLS((SSLSocket) createSocket);
         }
-        return (Socket) invokeLI.objValue;
+        return createSocket;
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(InetAddress inetAddress, int i, InetAddress inetAddress2, int i2) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{inetAddress, Integer.valueOf(i), inetAddress2, Integer.valueOf(i2)})) == null) {
-            Socket createSocket = this.defaultFactory.createSocket(inetAddress, i, inetAddress2, i2);
-            if (createSocket instanceof SSLSocket) {
-                upgradeTLS((SSLSocket) createSocket);
-            }
-            return createSocket;
+        Socket createSocket = this.defaultFactory.createSocket(inetAddress, i, inetAddress2, i2);
+        if (createSocket instanceof SSLSocket) {
+            upgradeTLS((SSLSocket) createSocket);
         }
-        return (Socket) invokeCommon.objValue;
+        return createSocket;
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
     public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{socket, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            Socket createSocket = this.defaultFactory.createSocket(socket, str, i, z);
-            if (createSocket instanceof SSLSocket) {
-                upgradeTLS((SSLSocket) createSocket);
-            }
-            return createSocket;
+        Socket createSocket = this.defaultFactory.createSocket(socket, str, i, z);
+        if (createSocket instanceof SSLSocket) {
+            upgradeTLS((SSLSocket) createSocket);
         }
-        return (Socket) invokeCommon.objValue;
+        return createSocket;
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
     public String[] getDefaultCipherSuites() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return cipherSuites;
-        }
-        return (String[]) invokeV.objValue;
+        return cipherSuites;
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
     public String[] getSupportedCipherSuites() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return cipherSuites;
-        }
-        return (String[]) invokeV.objValue;
+        return cipherSuites;
     }
 }

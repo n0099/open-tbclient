@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public interface bk0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "thirdService");
-    public static final bk0 b = new a();
+    public static final ServiceReference b = new ServiceReference("nad.core", "deviceInfoInner");
+    public static final bk0 c = new a();
 
-    String a();
+    String m();
 
     /* loaded from: classes3.dex */
     public static class a implements bk0 {
@@ -19,7 +19,7 @@ public interface bk0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.bk0
-        public String a() {
+        public String m() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;

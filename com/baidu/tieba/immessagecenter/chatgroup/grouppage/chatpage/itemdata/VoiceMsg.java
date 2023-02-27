@@ -11,9 +11,9 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dh;
+import com.baidu.tieba.i75;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
-import com.baidu.tieba.ko5;
-import com.baidu.tieba.w55;
+import com.baidu.tieba.yp5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class VoiceMsg extends BaseChatMsg<AudioMsg> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId ADAPTER_TYPE;
@@ -32,7 +32,7 @@ public class VoiceMsg extends BaseChatMsg<AudioMsg> {
     public transient /* synthetic */ FieldHolder $fh;
     public final String VOICE_THUMBNAIL_TEXT;
     @SerializedName("during_time")
-    @ko5(serialize = false)
+    @yp5(serialize = false)
     public String during;
     public boolean isLocal;
     public String path;
@@ -42,7 +42,7 @@ public class VoiceMsg extends BaseChatMsg<AudioMsg> {
     public VoiceData.VoiceModel voiceModel;
     public int voiceStatus;
     @SerializedName("voice_url")
-    @ko5(serialize = false)
+    @yp5(serialize = false)
     public String voiceUrl;
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg
@@ -53,6 +53,16 @@ public class VoiceMsg extends BaseChatMsg<AudioMsg> {
             return 3;
         }
         return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg
+    public boolean needBubbleInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     static {
@@ -203,7 +213,7 @@ public class VoiceMsg extends BaseChatMsg<AudioMsg> {
             VoiceMsg voiceMsg = new VoiceMsg();
             voiceMsg.during = String.valueOf(i);
             voiceMsg.vid = str;
-            voiceMsg.path = w55.b(str);
+            voiceMsg.path = i75.b(str);
             voiceMsg.voiceStatus = 1;
             return voiceMsg;
         }
@@ -222,49 +232,49 @@ public class VoiceMsg extends BaseChatMsg<AudioMsg> {
 
     public void setDuring(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             this.during = str;
         }
     }
 
     public void setLocal(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             this.isLocal = z;
         }
     }
 
     public void setPath(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             this.path = str;
         }
     }
 
     public void setVid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
             this.vid = str;
         }
     }
 
     public void setVoiceModel(@NonNull VoiceData.VoiceModel voiceModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, voiceModel) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, voiceModel) == null) {
             this.voiceModel = voiceModel;
         }
     }
 
     public void setVoiceStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             this.voiceStatus = i;
         }
     }
 
     public void setVoiceUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
             this.voiceUrl = str;
             getSdkMsg().setContent(str, 2, dh.e(this.during, 0));
         }

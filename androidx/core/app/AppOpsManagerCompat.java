@@ -5,93 +5,46 @@ import android.content.Context;
 import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class AppOpsManagerCompat {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int MODE_ALLOWED = 0;
     public static final int MODE_DEFAULT = 3;
     public static final int MODE_ERRORED = 2;
     public static final int MODE_IGNORED = 1;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public AppOpsManagerCompat() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     public static int noteOp(@NonNull Context context, @NonNull String str, int i, @NonNull String str2) {
-        InterceptResult invokeLLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65537, null, context, str, i, str2)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return ((AppOpsManager) context.getSystemService("appops")).noteOp(str, i, str2);
-            }
-            return 1;
+        if (Build.VERSION.SDK_INT >= 19) {
+            return ((AppOpsManager) context.getSystemService("appops")).noteOp(str, i, str2);
         }
-        return invokeLLIL.intValue;
+        return 1;
     }
 
     public static int noteOpNoThrow(@NonNull Context context, @NonNull String str, int i, @NonNull String str2) {
-        InterceptResult invokeLLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65538, null, context, str, i, str2)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return ((AppOpsManager) context.getSystemService("appops")).noteOpNoThrow(str, i, str2);
-            }
-            return 1;
+        if (Build.VERSION.SDK_INT >= 19) {
+            return ((AppOpsManager) context.getSystemService("appops")).noteOpNoThrow(str, i, str2);
         }
-        return invokeLLIL.intValue;
+        return 1;
     }
 
     public static int noteProxyOp(@NonNull Context context, @NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return ((AppOpsManager) context.getSystemService(AppOpsManager.class)).noteProxyOp(str, str2);
-            }
-            return 1;
+        if (Build.VERSION.SDK_INT >= 23) {
+            return ((AppOpsManager) context.getSystemService(AppOpsManager.class)).noteProxyOp(str, str2);
         }
-        return invokeLLL.intValue;
+        return 1;
     }
 
     public static int noteProxyOpNoThrow(@NonNull Context context, @NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return ((AppOpsManager) context.getSystemService(AppOpsManager.class)).noteProxyOpNoThrow(str, str2);
-            }
-            return 1;
+        if (Build.VERSION.SDK_INT >= 23) {
+            return ((AppOpsManager) context.getSystemService(AppOpsManager.class)).noteProxyOpNoThrow(str, str2);
         }
-        return invokeLLL.intValue;
+        return 1;
     }
 
     @Nullable
     public static String permissionToOp(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return AppOpsManager.permissionToOp(str);
-            }
-            return null;
+        if (Build.VERSION.SDK_INT >= 23) {
+            return AppOpsManager.permissionToOp(str);
         }
-        return (String) invokeL.objValue;
+        return null;
     }
 }

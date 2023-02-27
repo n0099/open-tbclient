@@ -24,7 +24,7 @@ import com.baidu.tieba.eo;
 import com.baidu.tieba.fo;
 import com.baidu.tieba.gh;
 import com.baidu.tieba.ho;
-import com.baidu.tieba.ll;
+import com.baidu.tieba.ml;
 import com.baidu.tieba.qo;
 import com.baidu.tieba.rn;
 import com.baidu.tieba.sn;
@@ -632,8 +632,8 @@ public class BdListView extends ListView implements fo<BdListView> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null) {
                 return;
             }
-            if (view2 instanceof ll) {
-                ((ll) view2).refresh();
+            if (view2 instanceof ml) {
+                ((ml) view2).refresh();
             }
             if (view2 instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view2;
@@ -1280,24 +1280,10 @@ public class BdListView extends ListView implements fo<BdListView> {
         }
     }
 
-    public void setOnFooterClickListener(l lVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, lVar) == null) {
-            this.f = lVar;
-        }
-    }
-
-    public void setOnHeaderClickListener(m mVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, mVar) == null) {
-            this.e = mVar;
-        }
-    }
-
     @Override // android.widget.AdapterView
     public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, onItemClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048613, this, onItemClickListener) == null) {
             this.b = onItemClickListener;
         }
     }
@@ -1305,7 +1291,7 @@ public class BdListView extends ListView implements fo<BdListView> {
     @Override // android.widget.AdapterView
     public void setOnItemLongClickListener(AdapterView.OnItemLongClickListener onItemLongClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, onItemLongClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048614, this, onItemLongClickListener) == null) {
             if (onItemLongClickListener == null) {
                 super.setOnItemLongClickListener(null);
                 return;
@@ -1318,7 +1304,7 @@ public class BdListView extends ListView implements fo<BdListView> {
     @Override // android.widget.AdapterView
     public void setOnItemSelectedListener(AdapterView.OnItemSelectedListener onItemSelectedListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, onItemSelectedListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048615, this, onItemSelectedListener) == null) {
             if (onItemSelectedListener == null) {
                 super.setOnItemSelectedListener(null);
                 return;
@@ -1331,57 +1317,28 @@ public class BdListView extends ListView implements fo<BdListView> {
     @Override // android.widget.AbsListView
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, onScrollListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048616, this, onScrollListener) == null) {
             this.g = onScrollListener;
-        }
-    }
-
-    public void setOnScrollToPullListener(r rVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, rVar) == null) {
-            this.i = rVar;
         }
     }
 
     public void setOnSrollToBottomListener(p pVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, pVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048618, this, pVar) == null) {
             this.m = pVar;
         }
     }
 
     public void setOnSrollToTopListener(s sVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, sVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048619, this, sVar) == null) {
             this.k = sVar;
-        }
-    }
-
-    public void setOnkbdStateListener(n nVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, nVar) == null) {
-            this.D = nVar;
-        }
-    }
-
-    public void setPrePage(rn rnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, rnVar) == null) {
-            rn rnVar2 = this.o;
-            if (rnVar2 != null) {
-                removeHeaderView(rnVar2.c());
-                this.o = null;
-            }
-            if (rnVar != null) {
-                addHeaderView(rnVar.c());
-                this.o = rnVar;
-            }
         }
     }
 
     public void setPullRefresh(sn snVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048626, this, snVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048620, this, snVar) == null) {
             t tVar = this.F;
             if (tVar != null) {
                 removeHeaderView(tVar.e().getView());
@@ -1397,14 +1354,14 @@ public class BdListView extends ListView implements fo<BdListView> {
 
     public void setScrollable(ca caVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, caVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048621, this, caVar) == null) {
             this.s = caVar;
         }
     }
 
     public void y(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048630, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048624, this, view2) == null) {
             this.a.h(view2, null, false, 0);
         }
     }
@@ -1538,7 +1495,7 @@ public class BdListView extends ListView implements fo<BdListView> {
     public void z() {
         t tVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048631, this) == null) && (tVar = this.F) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048625, this) == null) && (tVar = this.F) != null) {
             if (tVar.e() != null) {
                 this.F.a.t();
             }
@@ -1566,35 +1523,23 @@ public class BdListView extends ListView implements fo<BdListView> {
 
     public void setOnScrollStopDelayedListener(o oVar, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048619, this, oVar, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048617, this, oVar, j2) == null) {
             this.h = oVar;
             this.j = j2;
-        }
-    }
-
-    public void setOnSrollToTopListener(s sVar, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048623, this, sVar, i2) == null) {
-            this.k = sVar;
-            int i3 = i2 - 1;
-            if (i3 < 0) {
-                i3 = 0;
-            }
-            this.l = i3;
         }
     }
 
     @Override // android.widget.AbsListView
     public void setSelectionFromTop(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048628, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048622, this, i2, i3) == null) {
             super.setSelectionFromTop(i2, i3);
         }
     }
 
     public void x(View view2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048629, this, view2, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048623, this, view2, i2) == null) {
             this.a.g(view2, i2);
         }
     }

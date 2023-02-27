@@ -1,6 +1,7 @@
 package com.bytedance.sdk.openadsdk.api.plugin.a;
 
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -42,7 +43,7 @@ public class c {
 
     public static String a(String str, String str2) {
         if (str != null) {
-            String[] split = str.split(";", 0);
+            String[] split = str.split(ParamableElem.DIVIDE_PARAM, 0);
             for (int i = 1; i < split.length; i++) {
                 String[] split2 = split[i].trim().split("=", 0);
                 if (split2.length == 2 && split2[0].equals("charset")) {

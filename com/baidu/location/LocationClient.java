@@ -16,7 +16,6 @@ import android.util.Log;
 import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.location.LocationClientOption;
 import com.baidu.location.b.e;
@@ -177,7 +176,7 @@ public final class LocationClient implements e.b {
                                 Bundle data4 = message.getData();
                                 int i5 = data4.getInt("id", 0);
                                 if (i5 > 0) {
-                                    locationClient.a(i5, (Notification) data4.getParcelable(ActionJsonData.TAG_NOTIFICATION));
+                                    locationClient.a(i5, (Notification) data4.getParcelable("notification"));
                                     return;
                                 }
                                 return;
@@ -523,7 +522,7 @@ public final class LocationClient implements e.b {
         if (interceptable == null || interceptable.invokeIL(65545, this, i, notification) == null) {
             try {
                 Intent intent = new Intent(this.f, f.class);
-                intent.putExtra(ActionJsonData.TAG_NOTIFICATION, notification);
+                intent.putExtra("notification", notification);
                 intent.putExtra("id", i);
                 intent.putExtra("command", 1);
                 if (Build.VERSION.SDK_INT >= 26) {
@@ -938,7 +937,7 @@ public final class LocationClient implements e.b {
             }
             Bundle bundle = new Bundle();
             bundle.putInt("id", i);
-            bundle.putParcelable(ActionJsonData.TAG_NOTIFICATION, notification);
+            bundle.putParcelable("notification", notification);
             Message obtainMessage = this.h.obtainMessage(IMediaPlayer.MEDIA_INFO_NETWORK_BANDWIDTH);
             obtainMessage.setData(bundle);
             obtainMessage.sendToTarget();

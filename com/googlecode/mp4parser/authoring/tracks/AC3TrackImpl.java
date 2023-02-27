@@ -1,14 +1,5 @@
 package com.googlecode.mp4parser.authoring.tracks;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
 import com.coremedia.iso.boxes.SampleDependencyTypeBox;
@@ -32,9 +23,7 @@ import java.util.Date;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class AC3TrackImpl extends AbstractTrack {
-    public static /* synthetic */ Interceptable $ic;
     public static int[][][][] bitRateAndFrameSizeTable;
-    public transient /* synthetic */ FieldHolder $fh;
     public final DataSource dataSource;
     public long[] duration;
     public SampleDescriptionBox sampleDescriptionBox;
@@ -42,18 +31,6 @@ public class AC3TrackImpl extends AbstractTrack {
     public TrackMetaData trackMetaData;
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1786487136, "Lcom/googlecode/mp4parser/authoring/tracks/AC3TrackImpl;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1786487136, "Lcom/googlecode/mp4parser/authoring/tracks/AC3TrackImpl;");
-                return;
-            }
-        }
         int[][][][] iArr = (int[][][][]) Array.newInstance(int.class, 19, 2, 3, 2);
         bitRateAndFrameSizeTable = iArr;
         iArr[0][0][0][0] = 32;
@@ -288,87 +265,34 @@ public class AC3TrackImpl extends AbstractTrack {
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (List) invokeV.objValue;
+        return null;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public String getHandler() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "soun" : (String) invokeV.objValue;
+        return "soun";
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (List) invokeV.objValue;
+        return null;
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public SubSampleInformationBox getSubsampleInformationBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return null;
-        }
-        return (SubSampleInformationBox) invokeV.objValue;
+        return null;
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public long[] getSyncSamples() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return null;
-        }
-        return (long[]) invokeV.objValue;
+        return null;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AC3TrackImpl(DataSource dataSource) throws IOException {
         this(dataSource, "eng");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dataSource};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((DataSource) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
     }
 
     public AC3TrackImpl(DataSource dataSource, String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dataSource, str};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         TrackMetaData trackMetaData = new TrackMetaData();
         this.trackMetaData = trackMetaData;
         this.dataSource = dataSource;
@@ -385,228 +309,153 @@ public class AC3TrackImpl extends AbstractTrack {
     }
 
     private AudioSampleEntry createAudioSampleEntry() throws IOException {
-        InterceptResult invokeV;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            BitReaderBuffer bitReaderBuffer = new BitReaderBuffer(this.samples.get(0).asByteBuffer());
-            if (bitReaderBuffer.readBits(16) == 2935) {
-                bitReaderBuffer.readBits(16);
-                int readBits = bitReaderBuffer.readBits(2);
-                if (readBits != 0) {
-                    if (readBits != 1) {
-                        if (readBits == 2) {
-                            i = 32000;
-                        } else {
-                            throw new RuntimeException("Unsupported Sample Rate");
-                        }
+        BitReaderBuffer bitReaderBuffer = new BitReaderBuffer(this.samples.get(0).asByteBuffer());
+        if (bitReaderBuffer.readBits(16) == 2935) {
+            bitReaderBuffer.readBits(16);
+            int readBits = bitReaderBuffer.readBits(2);
+            if (readBits != 0) {
+                if (readBits != 1) {
+                    if (readBits == 2) {
+                        i = 32000;
                     } else {
-                        i = 44100;
+                        throw new RuntimeException("Unsupported Sample Rate");
                     }
                 } else {
-                    i = 48000;
+                    i = 44100;
                 }
-                int readBits2 = bitReaderBuffer.readBits(6);
-                int readBits3 = bitReaderBuffer.readBits(5);
-                int readBits4 = bitReaderBuffer.readBits(3);
-                int readBits5 = bitReaderBuffer.readBits(3);
-                if (readBits3 != 16) {
-                    if (readBits3 == 9) {
-                        i /= 2;
-                    } else if (readBits3 != 8 && readBits3 != 6) {
-                        throw new RuntimeException("Unsupported bsid");
-                    }
-                    if (readBits5 != 1 && (readBits5 & 1) == 1) {
-                        bitReaderBuffer.readBits(2);
-                    }
-                    if ((readBits5 & 4) != 0) {
-                        bitReaderBuffer.readBits(2);
-                    }
-                    if (readBits5 == 2) {
-                        bitReaderBuffer.readBits(2);
-                    }
-                    switch (readBits5) {
-                        case 0:
-                        case 1:
-                        case 2:
-                        case 3:
-                        case 4:
-                        case 5:
-                        case 6:
-                        case 7:
-                            int readBits6 = bitReaderBuffer.readBits(1);
-                            AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE8);
-                            audioSampleEntry.setChannelCount(2);
-                            audioSampleEntry.setSampleRate(i);
-                            audioSampleEntry.setDataReferenceIndex(1);
-                            audioSampleEntry.setSampleSize(16);
-                            AC3SpecificBox aC3SpecificBox = new AC3SpecificBox();
-                            aC3SpecificBox.setAcmod(readBits5);
-                            aC3SpecificBox.setBitRateCode(readBits2 >> 1);
-                            aC3SpecificBox.setBsid(readBits3);
-                            aC3SpecificBox.setBsmod(readBits4);
-                            aC3SpecificBox.setFscod(readBits);
-                            aC3SpecificBox.setLfeon(readBits6);
-                            aC3SpecificBox.setReserved(0);
-                            audioSampleEntry.addBox(aC3SpecificBox);
-                            return audioSampleEntry;
-                        default:
-                            throw new RuntimeException("Unsupported acmod");
-                    }
-                }
-                throw new RuntimeException("You cannot read E-AC-3 track with AC3TrackImpl.class - user EC3TrackImpl.class");
+            } else {
+                i = 48000;
             }
-            throw new RuntimeException("Stream doesn't seem to be AC3");
+            int readBits2 = bitReaderBuffer.readBits(6);
+            int readBits3 = bitReaderBuffer.readBits(5);
+            int readBits4 = bitReaderBuffer.readBits(3);
+            int readBits5 = bitReaderBuffer.readBits(3);
+            if (readBits3 != 16) {
+                if (readBits3 == 9) {
+                    i /= 2;
+                } else if (readBits3 != 8 && readBits3 != 6) {
+                    throw new RuntimeException("Unsupported bsid");
+                }
+                if (readBits5 != 1 && (readBits5 & 1) == 1) {
+                    bitReaderBuffer.readBits(2);
+                }
+                if ((readBits5 & 4) != 0) {
+                    bitReaderBuffer.readBits(2);
+                }
+                if (readBits5 == 2) {
+                    bitReaderBuffer.readBits(2);
+                }
+                switch (readBits5) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                        int readBits6 = bitReaderBuffer.readBits(1);
+                        AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE8);
+                        audioSampleEntry.setChannelCount(2);
+                        audioSampleEntry.setSampleRate(i);
+                        audioSampleEntry.setDataReferenceIndex(1);
+                        audioSampleEntry.setSampleSize(16);
+                        AC3SpecificBox aC3SpecificBox = new AC3SpecificBox();
+                        aC3SpecificBox.setAcmod(readBits5);
+                        aC3SpecificBox.setBitRateCode(readBits2 >> 1);
+                        aC3SpecificBox.setBsid(readBits3);
+                        aC3SpecificBox.setBsmod(readBits4);
+                        aC3SpecificBox.setFscod(readBits);
+                        aC3SpecificBox.setLfeon(readBits6);
+                        aC3SpecificBox.setReserved(0);
+                        audioSampleEntry.addBox(aC3SpecificBox);
+                        return audioSampleEntry;
+                    default:
+                        throw new RuntimeException("Unsupported acmod");
+                }
+            }
+            throw new RuntimeException("You cannot read E-AC-3 track with AC3TrackImpl.class - user EC3TrackImpl.class");
         }
-        return (AudioSampleEntry) invokeV.objValue;
+        throw new RuntimeException("Stream doesn't seem to be AC3");
     }
 
     private int getFrameSize(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, this, i, i2)) == null) {
-            int i3 = i >>> 1;
-            int i4 = i & 1;
-            if (i3 <= 18 && i4 <= 1 && i2 <= 2) {
-                return bitRateAndFrameSizeTable[i3][i4][i2][1] * 2;
-            }
-            throw new RuntimeException("Cannot determine framesize of current sample");
+        int i3 = i >>> 1;
+        int i4 = i & 1;
+        if (i3 <= 18 && i4 <= 1 && i2 <= 2) {
+            return bitRateAndFrameSizeTable[i3][i4][i2][1] * 2;
         }
-        return invokeII.intValue;
+        throw new RuntimeException("Cannot determine framesize of current sample");
     }
 
     private List<Sample> readSamples() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            ByteBuffer allocate = ByteBuffer.allocate(5);
-            ArrayList arrayList = new ArrayList();
-            while (-1 != this.dataSource.read(allocate)) {
-                long frameSize = getFrameSize(allocate.get(4) & 63, allocate.get(4) >> 6);
-                arrayList.add(new Sample(this, this.dataSource.position() - 5, frameSize, this.dataSource) { // from class: com.googlecode.mp4parser.authoring.tracks.AC3TrackImpl.1SampleImpl
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final DataSource dataSource;
-                    public final long size;
-                    public final long start;
-                    public final /* synthetic */ AC3TrackImpl this$0;
+        ByteBuffer allocate = ByteBuffer.allocate(5);
+        ArrayList arrayList = new ArrayList();
+        while (-1 != this.dataSource.read(allocate)) {
+            long frameSize = getFrameSize(allocate.get(4) & 63, allocate.get(4) >> 6);
+            arrayList.add(new Sample(this.dataSource.position() - 5, frameSize, this.dataSource) { // from class: com.googlecode.mp4parser.authoring.tracks.AC3TrackImpl.1SampleImpl
+                public final DataSource dataSource;
+                public final long size;
+                public final long start;
 
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Long.valueOf(r7), Long.valueOf(frameSize), r11};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.start = r7;
-                        this.size = frameSize;
-                        this.dataSource = r11;
-                    }
+                {
+                    this.start = r2;
+                    this.size = frameSize;
+                    this.dataSource = r6;
+                }
 
-                    @Override // com.googlecode.mp4parser.authoring.Sample
-                    public ByteBuffer asByteBuffer() {
-                        InterceptResult invokeV2;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) {
-                            try {
-                                return this.dataSource.map(this.start, this.size);
-                            } catch (IOException e) {
-                                throw new RuntimeException(e);
-                            }
-                        }
-                        return (ByteBuffer) invokeV2.objValue;
+                @Override // com.googlecode.mp4parser.authoring.Sample
+                public ByteBuffer asByteBuffer() {
+                    try {
+                        return this.dataSource.map(this.start, this.size);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
                     }
+                }
 
-                    @Override // com.googlecode.mp4parser.authoring.Sample
-                    public long getSize() {
-                        InterceptResult invokeV2;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                            return this.size;
-                        }
-                        return invokeV2.longValue;
-                    }
+                @Override // com.googlecode.mp4parser.authoring.Sample
+                public long getSize() {
+                    return this.size;
+                }
 
-                    @Override // com.googlecode.mp4parser.authoring.Sample
-                    public void writeTo(WritableByteChannel writableByteChannel) throws IOException {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, writableByteChannel) == null) {
-                            this.dataSource.transferTo(this.start, this.size, writableByteChannel);
-                        }
-                    }
-                });
-                DataSource dataSource = this.dataSource;
-                dataSource.position((dataSource.position() - 5) + frameSize);
-                allocate.rewind();
-            }
-            long[] jArr = new long[arrayList.size()];
-            this.duration = jArr;
-            Arrays.fill(jArr, 1536L);
-            return arrayList;
+                @Override // com.googlecode.mp4parser.authoring.Sample
+                public void writeTo(WritableByteChannel writableByteChannel) throws IOException {
+                    this.dataSource.transferTo(this.start, this.size, writableByteChannel);
+                }
+            });
+            DataSource dataSource = this.dataSource;
+            dataSource.position((dataSource.position() - 5) + frameSize);
+            allocate.rewind();
         }
-        return (List) invokeV.objValue;
+        long[] jArr = new long[arrayList.size()];
+        this.duration = jArr;
+        Arrays.fill(jArr, 1536L);
+        return arrayList;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public Box getMediaHeaderBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new SoundMediaHeaderBox();
-        }
-        return (Box) invokeV.objValue;
+        return new SoundMediaHeaderBox();
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public SampleDescriptionBox getSampleDescriptionBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.sampleDescriptionBox;
-        }
-        return (SampleDescriptionBox) invokeV.objValue;
+        return this.sampleDescriptionBox;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public synchronized long[] getSampleDurations() {
-        InterceptResult invokeV;
-        long[] jArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                jArr = this.duration;
-            }
-            return jArr;
-        }
-        return (long[]) invokeV.objValue;
+        return this.duration;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public List<Sample> getSamples() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.samples;
-        }
-        return (List) invokeV.objValue;
+        return this.samples;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public TrackMetaData getTrackMetaData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.trackMetaData;
-        }
-        return (TrackMetaData) invokeV.objValue;
+        return this.trackMetaData;
     }
 }

@@ -24,12 +24,10 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
-import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
@@ -54,18 +52,19 @@ import com.baidu.tbadk.switchs.WorldCupEnableSwitch;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ay;
+import com.baidu.tieba.b35;
 import com.baidu.tieba.da;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.lx;
-import com.baidu.tieba.mz;
-import com.baidu.tieba.p15;
+import com.baidu.tieba.ey;
+import com.baidu.tieba.lx8;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
-import com.baidu.tieba.ux;
+import com.baidu.tieba.px;
+import com.baidu.tieba.qz;
 import com.baidu.tieba.view.VirtualImageStatusTip;
-import com.baidu.tieba.zt8;
+import com.baidu.tieba.yx;
+import com.baidu.tieba.zu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -76,7 +75,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import tbclient.AppPosInfo;
 /* loaded from: classes2.dex */
-public class CardUserInfoLayout extends RelativeLayout implements ay {
+public class CardUserInfoLayout extends RelativeLayout implements ey {
     public static /* synthetic */ Interceptable $ic;
     public static final int R;
     public static final int S;
@@ -231,7 +230,7 @@ public class CardUserInfoLayout extends RelativeLayout implements ay {
                 if (view2.getTag(R.id.tag_nick_name_activity) != null && (view2.getTag(R.id.tag_nick_name_activity) instanceof String)) {
                     String str = (String) view2.getTag(R.id.tag_nick_name_activity);
                     if (!TextUtils.isEmpty(str) && ViewHelper.checkUpIsLogin(this.a.getContext())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(view2.getContext(), null, str, true)));
+                        zu4.v(view2.getContext(), null, str, true);
                         return;
                     }
                 }
@@ -286,7 +285,7 @@ public class CardUserInfoLayout extends RelativeLayout implements ay {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.D != null && this.a.D.getAuthor() != null) {
-                BrowserHelper.t(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.D.getAuthor().getUserId() + "&opacity=0", true, true, true);
+                zu4.x(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.D.getAuthor().getUserId() + "&opacity=0", true, true, true);
                 if (this.a.A != null) {
                     this.a.z.onClick(view2);
                 }
@@ -322,7 +321,7 @@ public class CardUserInfoLayout extends RelativeLayout implements ay {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.D != null && this.a.D.getAuthor() != null) {
-                this.a.frsVirtualImageStatistic(ux.a);
+                this.a.frsVirtualImageStatistic(yx.a);
                 if ((view2 instanceof HeadCustomImageView) && ((HeadCustomImageView) view2).b()) {
                     return;
                 }
@@ -372,7 +371,7 @@ public class CardUserInfoLayout extends RelativeLayout implements ay {
                     CommonStatisticUtils.staticNameplateOfUserLevel(2, 5, a);
                 }
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.a, null, TbConfig.USER_GROWTH_TASK_CENTER_MAIN_URL, true)));
+            zu4.v(this.a.a, null, TbConfig.USER_GROWTH_TASK_CENTER_MAIN_URL, true);
         }
     }
 
@@ -672,7 +671,7 @@ public class CardUserInfoLayout extends RelativeLayout implements ay {
             }
             this.f.setOnClickListener(null);
             if (author.getIs_bawu() == 1) {
-                p15 d2 = p15.d(this.f);
+                b35 d2 = b35.d(this.f);
                 d2.v(R.color.CAM_X0101);
                 d2.e(R.string.A_X04);
                 d2.n(R.string.J_X04);
@@ -794,7 +793,7 @@ public class CardUserInfoLayout extends RelativeLayout implements ay {
         if (interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) {
             if (TbSingleton.getInstance().isUserGrowthOpen() && ((!threadData.isFromHomPage || threadData.isVideoThreadType()) && threadData.getAuthor() != null && threadData.getAuthor().getUserGrowthData() != null && threadData.getAuthor().getUserGrowthData().a() >= 0 && threadData.getAuthor().getUserGrowthData().a() <= 10)) {
                 int a2 = threadData.getAuthor().getUserGrowthData().a();
-                this.h.setImageResource(lx.b(a2));
+                this.h.setImageResource(px.b(a2));
                 this.h.setVisibility(0);
                 this.h.setTag(threadData);
                 this.h.setOnClickListener(this.Q);
@@ -976,7 +975,7 @@ public class CardUserInfoLayout extends RelativeLayout implements ay {
             }
             boolean isSystemLocationProviderEnabled = UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst());
             if (z && isSystemLocationProviderEnabled) {
-                AppPosInfo c2 = zt8.e().c();
+                AppPosInfo c2 = lx8.e().c();
                 String str2 = c2.latitude;
                 String str3 = c2.longitude;
                 if ((UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3)) ? false : false) {
@@ -1028,15 +1027,15 @@ public class CardUserInfoLayout extends RelativeLayout implements ay {
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             VirtualImageCustomState customState = this.D.getCustomState();
             if (customState == null) {
-                this.J = ux.f;
+                this.J = yx.f;
             } else {
-                this.J = ux.e;
+                this.J = yx.e;
                 this.K = this.r.j(customState);
             }
             if (this.D.isFromFrs()) {
-                ux.a(i2, this.D.getTid(), ux.b, this.J, this.K, this.D.getAuthorId());
+                yx.a(i2, this.D.getTid(), yx.b, this.J, this.K, this.D.getAuthorId());
             } else if (this.D.isFromConcern()) {
-                ux.a(i2, this.D.getTid(), ux.c, this.J, this.K, this.D.getAuthorId());
+                yx.a(i2, this.D.getTid(), yx.c, this.J, this.K, this.D.getAuthorId());
             }
         }
     }
@@ -1269,7 +1268,7 @@ public class CardUserInfoLayout extends RelativeLayout implements ay {
     public void recoverVirtualImageAnimate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            mz.a(this.C);
+            qz.a(this.C);
             this.q.setVisibility(0);
             this.r.setVisibility(8);
             this.G.setHeadViewNormalSize();
@@ -1304,10 +1303,10 @@ public class CardUserInfoLayout extends RelativeLayout implements ay {
     public final void l() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && this.s != null) {
-            if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
-                this.s.setImageAssetsFolder("lottie_reactions_guide_left_img");
-            } else {
+            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
                 this.s.setImageAssetsFolder("lottie_reactions_guide_left_img_dark");
+            } else {
+                this.s.setImageAssetsFolder("lottie_reactions_guide_left_img");
             }
             SkinManager.setLottieAnimation(this.s, R.raw.lottie_reactions_guide_left);
         }
@@ -1407,7 +1406,7 @@ public class CardUserInfoLayout extends RelativeLayout implements ay {
         VirtualImageCustomState customState = this.D.getCustomState();
         if (customState != null && !TextUtils.isEmpty(customState.getIcon())) {
             this.q.setVisibility(8);
-            mz.b(this.C, 400);
+            qz.b(this.C, 400);
             this.r.setVisibility(0);
             this.r.setData(customState, true, str);
             this.r.f();
@@ -1467,7 +1466,7 @@ public class CardUserInfoLayout extends RelativeLayout implements ay {
         }
     }
 
-    @Override // com.baidu.tieba.ay
+    @Override // com.baidu.tieba.ey
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048600, this, tbPageContext, i2) == null) && i2 != this.b) {

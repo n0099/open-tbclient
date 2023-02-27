@@ -8,10 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class w22 extends c22 {
+public class w22 extends s22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
+    public float b;
+    public float c;
+    public float d;
+    public float e;
+    public float f;
+    public boolean g;
 
     public w22() {
         Interceptable interceptable = $ic;
@@ -23,28 +29,31 @@ public class w22 extends c22 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.g = false;
     }
 
-    @Override // com.baidu.tieba.c22
-    public void a(d22 d22Var, Canvas canvas) {
+    @Override // com.baidu.tieba.s22
+    public void a(t22 t22Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, d22Var, canvas) == null) {
-            if (d22Var.a() == 0) {
-                d22Var.b(canvas.save());
-            }
-            canvas.rotate(this.a);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, t22Var, canvas) == null) && this.g) {
+            t22Var.f.cubicTo(this.a, this.b, this.c, this.d, this.e, this.f);
         }
     }
 
-    @Override // com.baidu.tieba.c22
+    @Override // com.baidu.tieba.s22
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            float optDouble = (float) jSONArray.optDouble(0);
-            this.a = optDouble;
-            this.a = (float) Math.toDegrees(optDouble);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 5) {
+            this.a = dn3.g((float) jSONArray.optDouble(0));
+            this.b = dn3.g((float) jSONArray.optDouble(1));
+            this.c = dn3.g((float) jSONArray.optDouble(2));
+            this.d = dn3.g((float) jSONArray.optDouble(3));
+            this.e = dn3.g((float) jSONArray.optDouble(4));
+            this.f = dn3.g((float) jSONArray.optDouble(5));
+            this.g = true;
         }
     }
 }

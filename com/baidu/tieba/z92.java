@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class z92 extends x92<JSONObject, w02> {
+public class z92 extends w92 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Bitmap d;
 
     public z92() {
         Interceptable interceptable = $ic;
@@ -27,17 +26,30 @@ public class z92 extends x92<JSONObject, w02> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ba2
-    @NonNull
-    /* renamed from: c */
-    public w02 a(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static z92 a(String str, Bitmap bitmap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            new s92().c();
-            return new w02(0);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, bitmap)) == null) {
+            z92 z92Var = new z92();
+            z92Var.a = 1;
+            z92Var.b = str;
+            z92Var.c = 0L;
+            z92Var.d = bitmap;
+            return z92Var;
         }
-        return (w02) invokeL.objValue;
+        return (z92) invokeLL.objValue;
+    }
+
+    public static z92 b(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
+            z92 z92Var = new z92();
+            z92Var.a = 1;
+            z92Var.b = str;
+            z92Var.c = j;
+            return z92Var;
+        }
+        return (z92) invokeLJ.objValue;
     }
 }

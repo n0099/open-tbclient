@@ -8,6 +8,7 @@ import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.PushNotificationBuilder;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
+import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 /* loaded from: classes8.dex */
 public class c extends com.meizu.cloud.pushsdk.notification.a {
     public c(Context context, PushNotificationBuilder pushNotificationBuilder) {
@@ -16,21 +17,24 @@ public class c extends com.meizu.cloud.pushsdk.notification.a {
 
     @Override // com.meizu.cloud.pushsdk.notification.a
     public void b(Notification.Builder builder, MessageV3 messageV3) {
+        AppIconSetting appIconSetting;
         Bitmap a;
         String str;
-        AppIconSetting appIconSetting = messageV3.getmAppIconSetting();
-        if (appIconSetting != null) {
+        if ((!MzSystemUtils.isInternational() || MzSystemUtils.isMeizuAndFlyme()) && (appIconSetting = messageV3.getAppIconSetting()) != null) {
             if (appIconSetting.isDefaultLargeIcon()) {
                 PushNotificationBuilder pushNotificationBuilder = this.b;
-                if (pushNotificationBuilder != null && pushNotificationBuilder.getmLargIcon() != 0) {
-                    a = BitmapFactory.decodeResource(this.a.getResources(), this.b.getmLargIcon());
-                    str = "set largeIcon by resource id";
-                } else if (this.b.getAppLargeIcon() != null) {
-                    a = this.b.getAppLargeIcon();
-                    str = "set largeIcon by bitmap provided by user setting";
+                if (pushNotificationBuilder == null || pushNotificationBuilder.getLargeIcon() == 0) {
+                    PushNotificationBuilder pushNotificationBuilder2 = this.b;
+                    if (pushNotificationBuilder2 == null || pushNotificationBuilder2.getAppLargeIcon() == null) {
+                        a = a(this.a, messageV3.getUploadDataPackageName());
+                        str = "set largeIcon by package default large icon";
+                    } else {
+                        a = this.b.getAppLargeIcon();
+                        str = "set largeIcon by bitmap provided by user setting";
+                    }
                 } else {
-                    a = a(this.a, messageV3.getUploadDataPackageName());
-                    str = "set largeIcon by package default large icon";
+                    a = BitmapFactory.decodeResource(this.a.getResources(), this.b.getLargeIcon());
+                    str = "set largeIcon by resource id";
                 }
                 DebugLogger.i("AbstractPushNotification", str);
             } else if (Thread.currentThread() == this.a.getMainLooper().getThread()) {

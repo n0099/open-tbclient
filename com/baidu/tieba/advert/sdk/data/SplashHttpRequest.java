@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.lz5;
-import com.baidu.tieba.wy5;
+import com.baidu.tieba.c16;
+import com.baidu.tieba.n06;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.mode.CommandMessage;
+import com.heytap.mcssdk.constant.b;
 /* loaded from: classes3.dex */
 public class SplashHttpRequest extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
@@ -67,17 +67,17 @@ public class SplashHttpRequest extends HttpMessage {
         }
         if (adInfo != null && context != null) {
             addParam("pid", adInfo.placeId);
-            addParam("ver", lz5.b(context));
+            addParam("ver", c16.b(context));
             addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-            addParam(SearchJsBridge.COOKIE_MOD, wy5.c());
+            addParam(SearchJsBridge.COOKIE_MOD, n06.c());
             addParam("ot", 2);
-            addParam("ov", wy5.d());
-            addParam(CommandMessage.SDK_VERSION, "1.1.4");
-            addParam("nt", wy5.b(context).intValue());
+            addParam("ov", n06.d());
+            addParam(b.C, "1.1.4");
+            addParam("nt", n06.b(context).intValue());
             addParam(Config.EXCEPTION_CRASH_TYPE, 2);
-            addParam(TbConfig.SW_APID, wy5.f(context).intValue());
-            addParam("sh", wy5.e(context).intValue());
-            addParam("imei", wy5.a(context));
+            addParam(TbConfig.SW_APID, n06.f(context).intValue());
+            addParam("sh", n06.e(context).intValue());
+            addParam("imei", n06.a(context));
             addParam("fmt", "json");
             addParam("adw", adInfo.adWidth);
             addParam("adh", adInfo.adHeight);

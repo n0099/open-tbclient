@@ -1,48 +1,34 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.advert.sdk.data.AdLoadState;
 /* loaded from: classes7.dex */
-public class z06 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface z06 {
+    public static final boolean a;
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return ds2.M().a();
-        }
-        return invokeV.booleanValue;
-    }
+    void a();
 
-    public static void b() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            int defaultNightMode = AppCompatDelegate.getDefaultNightMode();
-            if (a()) {
-                i = 2;
-            } else {
-                i = 1;
-            }
-            if (defaultNightMode != i) {
-                AppCompatDelegate.setDefaultNightMode(i);
-            }
-        }
-    }
+    boolean b();
 
-    public static void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
-            Intent intent = new Intent("com.baidu.swan.skin.nightmodechanged");
-            intent.putExtra("key_night_mode", z);
-            LocalBroadcastManager.getInstance(AppRuntime.getAppContext()).sendBroadcast(intent);
+    String c();
+
+    AdLoadState d();
+
+    void destroy();
+
+    void e(xu4 xu4Var);
+
+    String f();
+
+    void show();
+
+    static {
+        boolean z;
+        if (!TbadkCoreApplication.getInst().isDebugMode() && !zw4.h()) {
+            z = false;
+        } else {
+            z = true;
         }
+        a = z;
     }
 }

@@ -12,14 +12,14 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
-import com.baidu.tieba.ko5;
+import com.baidu.tieba.yp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseImageMsg<SdkMsg extends com.baidu.android.imsdk.chatmessage.messages.ImageMsg> extends BaseChatMsg<SdkMsg> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,13 +27,13 @@ public abstract class BaseImageMsg<SdkMsg extends com.baidu.android.imsdk.chatme
     @SerializedName("big_size")
     public String bigSize;
     @SerializedName("big_src")
-    @ko5(serialize = false)
+    @yp5(serialize = false)
     public String bigSrc;
     public LocalCacheData cacheData;
     @SerializedName("bsize")
     public String thumbSize;
     @SerializedName("src")
-    @ko5(serialize = false)
+    @yp5(serialize = false)
     public String thumbUrl;
 
     public abstract SdkMsg createSdkMsgByChildClass();

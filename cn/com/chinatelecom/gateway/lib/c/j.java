@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
 import java.net.InetAddress;
 /* loaded from: classes.dex */
 public class j {
@@ -122,12 +121,7 @@ public class j {
                 ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
                 this.c = connectivityManager;
                 if (connectivityManager.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) != 0) {
-                    Method method = cls.getMethod("startUsingNetworkFeature", Integer.TYPE, String.class);
-                    ConnectivityManager connectivityManager2 = this.c;
-                    Object[] objArr = new Object[2];
-                    objArr[0] = 0;
-                    objArr[1] = "enableHIPRI";
-                    method.invoke(connectivityManager2, objArr);
+                    cls.getMethod("startUsingNetworkFeature", Integer.TYPE, String.class).invoke(this.c, 0, "enableHIPRI");
                     for (int i = 0; i < 5 && this.c.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) != 0; i++) {
                         Thread.sleep(500L);
                     }
@@ -135,15 +129,12 @@ public class j {
                 z = ((Boolean) cls.getMethod("requestRouteToHost", Integer.TYPE, Integer.TYPE).invoke(this.c, 5, Integer.valueOf(a(b(str))))).booleanValue();
                 this.f = System.currentTimeMillis() - this.g;
                 String str2 = a;
-                StringBuilder sb = new StringBuilder("Switch network result ： ");
-                sb.append(z);
-                sb.append(" (4.x) , expendTime ：");
-                sb.append(this.f);
-                CtAuth.info(str2, sb.toString());
+                CtAuth.info(str2, "Switch network result ： " + z + " (4.x) , expendTime ：" + this.f);
+                return z;
             } catch (Throwable th) {
                 CtAuth.warn(a, "4.x网络切换异常", th);
+                return z;
             }
-            return z;
         }
         return invokeLL.booleanValue;
     }

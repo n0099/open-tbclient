@@ -2,7 +2,6 @@ package kotlin.collections;
 
 import androidx.exifinterface.media.ExifInterface;
 import androidx.lifecycle.SavedStateHandle;
-import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
@@ -85,12 +84,12 @@ public abstract class AbstractMap<K, V> implements Map<K, V>, KMappedMarker {
             return i ^ i2;
         }
 
-        /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : 0x000a: INVOKE  (r1v0 java.lang.Object A[REMOVE]) = (r3v0 'e' java.util.Map$Entry<?, ?>) type: INTERFACE call: java.util.Map.Entry.getKey():java.lang.Object), (wrap: char : ?: SGET   com.alipay.sdk.encrypt.a.h char), (wrap: java.lang.Object : 0x0016: INVOKE  (r3v1 java.lang.Object A[REMOVE]) = (r3v0 'e' java.util.Map$Entry<?, ?>) type: INTERFACE call: java.util.Map.Entry.getValue():java.lang.Object)] */
+        /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : 0x000a: INVOKE  (r1v0 java.lang.Object A[REMOVE]) = (r3v0 'e' java.util.Map$Entry<?, ?>) type: INTERFACE call: java.util.Map.Entry.getKey():java.lang.Object), ('=' char), (wrap: java.lang.Object : 0x0016: INVOKE  (r3v1 java.lang.Object A[REMOVE]) = (r3v0 'e' java.util.Map$Entry<?, ?>) type: INTERFACE call: java.util.Map.Entry.getValue():java.lang.Object)] */
         public final String entryToString$kotlin_stdlib(Map.Entry<?, ?> e) {
             Intrinsics.checkNotNullParameter(e, "e");
             StringBuilder sb = new StringBuilder();
             sb.append(e.getKey());
-            sb.append(a.h);
+            sb.append('=');
             sb.append(e.getValue());
             return sb.toString();
         }
@@ -304,7 +303,7 @@ public abstract class AbstractMap<K, V> implements Map<K, V>, KMappedMarker {
 
     /* JADX INFO: Access modifiers changed from: private */
     public final String toString(Map.Entry<? extends K, ? extends V> entry) {
-        return toString(entry.getKey()) + a.h + toString(entry.getValue());
+        return toString(entry.getKey()) + '=' + toString(entry.getValue());
     }
 
     @Override // java.util.Map

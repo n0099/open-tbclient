@@ -1,41 +1,124 @@
 package com.baidu.tieba;
 
-import com.baidu.browser.core.async.BdRunnable;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.util.LongSparseArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.browser.core.BdCore;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+@SuppressLint({"NewApi"})
 /* loaded from: classes5.dex */
-public abstract class pw extends BdRunnable {
+public final class pw {
     public static /* synthetic */ Interceptable $ic;
+    public static pw b;
+    public static HashMap<String, cx<String, Integer>> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<BdRunnable> c;
+    public Context a;
+
+    public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448314502, "Lcom/baidu/tieba/pw;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448314502, "Lcom/baidu/tieba/pw;");
+                return;
+            }
+        }
+        c = new HashMap<>();
+    }
 
     public pw() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = new ArrayList();
+        new LongSparseArray();
     }
 
-    public List<BdRunnable> d() {
+    public static synchronized pw b() {
+        InterceptResult invokeV;
+        pw pwVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            synchronized (pw.class) {
+                if (b == null) {
+                    b = new pw();
+                }
+                pwVar = b;
+            }
+            return pwVar;
+        }
+        return (pw) invokeV.objValue;
+    }
+
+    private Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            if (this.a == null) {
+                this.a = BdCore.a().getContext();
+            }
+            Context context = this.a;
+            if (context != null) {
+                return context;
+            }
+            throw new RuntimeException("context is null!");
         }
-        return (List) invokeV.objValue;
+        return (Context) invokeV.objValue;
+    }
+
+    @Deprecated
+    public static int c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            a(str2, str);
+            cx<String, Integer> cxVar = c.get(str);
+            if (cxVar == null) {
+                cxVar = new cx<>(100);
+                c.put(str, cxVar);
+            }
+            Integer c2 = cxVar.c(str2);
+            if (c2 == null) {
+                try {
+                    int identifier = b().getContext().getResources().getIdentifier(str2, str, b().getContext().getPackageName());
+                    cxVar.d(str2, Integer.valueOf(identifier));
+                    return identifier;
+                } catch (Error e) {
+                    e.printStackTrace();
+                    return 0;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    return 0;
+                }
+            }
+            return c2.intValue();
+        }
+        return invokeLL.intValue;
     }
 }

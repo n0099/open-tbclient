@@ -357,7 +357,7 @@ public final class MutexImpl implements Mutex, SelectClause2<Object, Mutex> {
                     if (_state$FU.compareAndSet(this, obj2, empty)) {
                         Unit unit = Unit.INSTANCE;
                         Result.Companion companion = Result.Companion;
-                        orCreateCancellableContinuation.resumeWith(Result.m773constructorimpl(unit));
+                        orCreateCancellableContinuation.resumeWith(Result.m766constructorimpl(unit));
                         break;
                     }
                 }

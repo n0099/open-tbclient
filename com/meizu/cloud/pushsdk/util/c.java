@@ -1,8 +1,8 @@
 package com.meizu.cloud.pushsdk.util;
 
 import android.text.TextUtils;
+import com.baidu.android.common.security.RSAUtil;
 import com.meizu.cloud.pushinternal.DebugLogger;
-import java.io.IOException;
 import java.nio.charset.Charset;
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
@@ -34,25 +34,18 @@ public class c {
         StringBuilder sb;
         String message;
         try {
-            return (RSAPublicKey) KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(b(str)));
-        } catch (IOException e) {
+            return (RSAPublicKey) KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(b(str)));
+        } catch (NoSuchAlgorithmException e) {
             sb = new StringBuilder();
-            sb.append("loadPublicKey IOException ");
+            sb.append("loadPublicKey NoSuchAlgorithmException ");
             message = e.getMessage();
             sb.append(message);
             DebugLogger.e("RSAUtils", sb.toString());
             return null;
-        } catch (NoSuchAlgorithmException e2) {
-            sb = new StringBuilder();
-            sb.append("loadPublicKey NoSuchAlgorithmException ");
-            message = e2.getMessage();
-            sb.append(message);
-            DebugLogger.e("RSAUtils", sb.toString());
-            return null;
-        } catch (InvalidKeySpecException e3) {
+        } catch (InvalidKeySpecException e2) {
             sb = new StringBuilder();
             sb.append("loadPublicKey InvalidKeySpecException ");
-            message = e3.getMessage();
+            message = e2.getMessage();
             sb.append(message);
             DebugLogger.e("RSAUtils", sb.toString());
             return null;
@@ -65,7 +58,7 @@ public class c {
         return cipher.doFinal(bArr);
     }
 
-    public static byte[] b(String str) throws IOException {
-        return com.meizu.cloud.pushsdk.b.g.a.a(str);
+    public static byte[] b(String str) {
+        return com.meizu.cloud.pushsdk.c.g.a.a(str);
     }
 }

@@ -1,69 +1,78 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.pms.PMSConstants;
-import com.baidu.tieba.fi4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONObject;
-@Singleton
-@Service
-/* loaded from: classes5.dex */
-public class iu3 implements gj4 {
+/* loaded from: classes4.dex */
+public class iu3 implements xt3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int[] a;
+    public ju3 b;
+    public boolean c;
 
-    public iu3() {
+    public iu3(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        c(context);
+    }
+
+    @Override // com.baidu.tieba.xt3
+    public void b(int i) {
+        ju3 ju3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.c && (ju3Var = this.b) != null && ju3Var.c()) {
+            this.c = true;
+            this.b.e(i, this.a);
         }
     }
 
-    @Override // com.baidu.tieba.fi4
-    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, fi4.a aVar) {
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
-            if (PMSConstants.a(hg4.b())) {
-                zh4.b(str, map, map2, jSONObject, new zr3(aVar));
-            } else {
-                zh4.b(str, map, map2, jSONObject, new gi4(aVar));
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.b == null) {
+            this.b = ju3.b(context);
+            d();
         }
     }
 
-    @Override // com.baidu.tieba.gj4
-    public si4 c(String str, int i) throws Exception {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.xt3
+    public void a() {
+        ju3 ju3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            return qi4.a(str, i);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && (ju3Var = this.b) != null && ju3Var.c()) {
+            this.c = false;
+            this.b.f();
         }
-        return (si4) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.fi4
-    public void z(String str, Map<String, String> map, Map<String, String> map2, fi4.a aVar) {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, map, map2, aVar) == null) {
-            if (PMSConstants.a(hg4.b())) {
-                zh4.a(str, map, map2, new zr3(aVar));
-            } else {
-                zh4.a(str, map, map2, new gi4(aVar));
-            }
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.a != null) {
+            return;
+        }
+        du3 f = ku3.f();
+        if (f.a <= 4) {
+            this.a = new int[]{1082130432, 4095, 1082146816, 4095, 1098907648, 4095, 1098956800, 0, 1077936128, 1};
+        } else if (f.h && f.d()) {
+            this.a = new int[]{1082130688, 4095, 1082147072, 4095, 1082130432, 4095, 1082146816, 4095, 1082130944, 4095, 1082147328, 4095, 1098907648, 4095, 1115734016, 4095, 1115750400, 4095, 1115766784, 4095, 1098956800, 0, 1077936128, 1};
+        } else {
+            this.a = new int[]{1082130688, 4095, 1082147072, 4095, 1082130432, 4095, 1082146816, 4095, 1098907648, 4095, 1098956800, 0, 1077936128, 1};
         }
     }
 }

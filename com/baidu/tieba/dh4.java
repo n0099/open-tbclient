@@ -1,109 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.swan.pms.utils.AbiType;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import java.io.IOException;
+import java.nio.channels.ReadableByteChannel;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class dh4 extends wg4<yh4> implements Object {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface dh4<T> extends fh4 {
+    void a(T t);
 
-    public dh4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void c(T t);
 
-    public static int f(@NonNull Cursor cursor, @NonNull String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cursor, str)) == null) {
-            return cursor.getColumnIndex(str);
-        }
-        return invokeLL.intValue;
-    }
+    String d(T t);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wg4
-    /* renamed from: h */
-    public yh4 d(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                return i(cursor);
-            }
-            return null;
-        }
-        return (yh4) invokeL.objValue;
-    }
+    void e(T t, gi4 gi4Var);
 
-    @Override // com.baidu.tieba.wg4
-    public List<yh4> e(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                do {
-                    arrayList.add(i(cursor));
-                } while (cursor.moveToNext());
-                return arrayList;
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
+    void f(T t);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wg4
-    /* renamed from: g */
-    public ContentValues c(yh4 yh4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, yh4Var)) == null) {
-            ContentValues a = super.a(yh4Var);
-            a.put("max_age", Long.valueOf(yh4Var.o));
-            a.put(PackageTable.ABI, yh4Var.q.id);
-            a.put("lib_name", yh4Var.p);
-            return a;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
+    gi4 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException;
 
-    public final yh4 i(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
-            if (cursor != null) {
-                yh4 yh4Var = new yh4();
-                if (b(cursor, yh4Var)) {
-                    yh4Var.o = cursor.getLong(f(cursor, "max_age"));
-                    yh4Var.q = AbiType.findById(cursor.getString(f(cursor, PackageTable.ABI)), null);
-                    yh4Var.p = cursor.getString(f(cursor, "lib_name"));
-                    return yh4Var;
-                }
-            }
-            return null;
-        }
-        return (yh4) invokeL.objValue;
-    }
+    void i(T t);
+
+    void j(T t);
+
+    Map<String, Object> k();
 }

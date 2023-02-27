@@ -1,48 +1,21 @@
 package com.baidu.searchbox.player.event;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.message.IMessenger;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class AbsEventTrigger implements IEventTrigger {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<IMessenger> mMessengers;
-
-    public AbsEventTrigger() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mMessengers = new ArrayList<>();
-    }
+    public final ArrayList<IMessenger> mMessengers = new ArrayList<>();
 
     @PublicMethod
     public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mMessengers.clear();
-        }
+        this.mMessengers.clear();
     }
 
     @PublicMethod
     public void bindMessenger(@NonNull IMessenger iMessenger) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, iMessenger) == null) && !this.mMessengers.contains(iMessenger)) {
+        if (!this.mMessengers.contains(iMessenger)) {
             this.mMessengers.add(iMessenger);
         }
     }
@@ -50,25 +23,19 @@ public abstract class AbsEventTrigger implements IEventTrigger {
     @Override // com.baidu.searchbox.player.event.IEventTrigger
     @PublicMethod
     public void triggerEvent(@NonNull VideoEvent videoEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, videoEvent) == null) {
-            int size = this.mMessengers.size();
-            for (int i = 0; i < size; i++) {
-                IMessenger iMessenger = this.mMessengers.get(i);
-                if (i == 0) {
-                    iMessenger.notifyEvent(videoEvent);
-                } else {
-                    iMessenger.notifyEvent(VideoEvent.copy(videoEvent));
-                }
+        int size = this.mMessengers.size();
+        for (int i = 0; i < size; i++) {
+            IMessenger iMessenger = this.mMessengers.get(i);
+            if (i == 0) {
+                iMessenger.notifyEvent(videoEvent);
+            } else {
+                iMessenger.notifyEvent(VideoEvent.copy(videoEvent));
             }
         }
     }
 
     @PublicMethod
     public void unbindMessenger(@NonNull IMessenger iMessenger) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, iMessenger) == null) {
-            this.mMessengers.remove(iMessenger);
-        }
+        this.mMessengers.remove(iMessenger);
     }
 }

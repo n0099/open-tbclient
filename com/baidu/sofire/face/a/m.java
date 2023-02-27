@@ -48,7 +48,7 @@ public class m implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
     public com.baidu.sofire.face.d.c f;
     public String g;
     public String h;
-    public com.baidu.sofire.face.b.d i;
+    public com.baidu.sofire.face.b.e i;
     public boolean j;
     public int k;
     public String l;
@@ -484,7 +484,7 @@ public class m implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
         this.c = surfaceHolder;
         this.d = recordCallback;
         this.k = i;
-        this.i = com.baidu.sofire.face.b.d.a(applicationContext);
+        this.i = com.baidu.sofire.face.b.e.a(applicationContext);
         this.f = com.baidu.sofire.face.d.c.a(this.a);
         this.g = new File(this.a.getFilesDir(), "record_tmp_dir").getAbsolutePath();
     }
@@ -718,10 +718,10 @@ public class m implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.p = true;
             try {
-                if (com.baidu.sofire.face.b.e.a().a(new k(this)) != 1) {
+                if (com.baidu.sofire.face.b.f.a().a(new k(this)) != 1) {
                     a(-7);
                 }
-                com.baidu.sofire.face.b.e.a().a(new l(this));
+                com.baidu.sofire.face.b.f.a().a(new l(this));
             } catch (Throwable unused) {
             }
         }
@@ -877,7 +877,7 @@ public class m implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
             this.h = b2;
             if (!TextUtils.isEmpty(b2) && new File(this.h).exists()) {
                 this.s = true;
-                if (com.baidu.sofire.face.b.e.a().a(new e(this)) != 1) {
+                if (com.baidu.sofire.face.b.f.a().a(new e(this)) != 1) {
                     a(-7);
                 }
                 return 1;

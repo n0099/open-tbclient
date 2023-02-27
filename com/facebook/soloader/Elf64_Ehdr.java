@@ -1,12 +1,6 @@
 package com.facebook.soloader;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public final class Elf64_Ehdr {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int e_ehsize = 52;
     public static final int e_entry = 24;
     public static final int e_flags = 48;
@@ -21,19 +15,4 @@ public final class Elf64_Ehdr {
     public static final int e_shstrndx = 62;
     public static final int e_type = 16;
     public static final int e_version = 20;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public Elf64_Ehdr() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

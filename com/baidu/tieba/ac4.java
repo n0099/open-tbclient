@@ -1,484 +1,111 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.text.Editable;
-import android.text.InputFilter;
 import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.o64;
+import com.baidu.searchbox.http.callback.StringResponseCallback;
+import com.baidu.searchbox.http.request.PostBodyRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.AbstractBceClient;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ac4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout a;
-    public EditText b;
-    public EditText c;
-    public RelativeLayout d;
-    public Button e;
-    public boolean f;
-    public o64.f g;
-    public q64 h;
-    public View.OnClickListener i;
-    public TextWatcher j;
-    public TextView.OnEditorActionListener k;
 
     /* loaded from: classes3.dex */
-    public class b implements TextWatcher {
+    public static class a extends StringResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ac4 a;
 
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
             }
         }
 
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        /* loaded from: classes3.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Editable a;
-            public final /* synthetic */ b b;
-
-            public a(b bVar, Editable editable) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, editable};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = bVar;
-                this.a = editable;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (TextUtils.isEmpty(this.a.toString())) {
-                        this.b.a.e.setEnabled(false);
-                    } else if (!this.b.a.e.isEnabled()) {
-                        this.b.a.e.setEnabled(true);
-                    }
-                }
-            }
-        }
-
-        public b(ac4 ac4Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ac4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ac4Var;
-        }
-
-        @Override // android.text.TextWatcher
-        public void afterTextChanged(Editable editable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                if (this.a.g != null) {
-                    this.a.g.e(editable.toString());
-                }
-                this.a.e.post(new a(this, editable));
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ac4 a;
-
-        public a(ac4 ac4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ac4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ac4Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.c != null && this.a.f) {
-                if (this.a.g != null) {
-                    this.a.g.c(this.a.c.getText().toString());
-                }
-                if (this.a.h != null && !this.a.h.d && this.a.g != null) {
-                    this.a.g.a();
-                    this.a.m("");
                 }
             }
         }
-    }
 
-    /* loaded from: classes3.dex */
-    public class c implements TextView.OnEditorActionListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ac4 a;
-
-        public c(ac4 ac4Var) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ac4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ac4Var;
-        }
-
-        @Override // android.widget.TextView.OnEditorActionListener
-        public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-            InterceptResult invokeLIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, keyEvent)) == null) {
-                if (this.a.h != null && this.a.h.e == i && this.a.c != null && this.a.f) {
-                    if (this.a.g != null) {
-                        this.a.g.c(this.a.c.getText().toString());
-                    }
-                    if (!this.a.h.d && this.a.g != null) {
-                        this.a.g.a();
-                        this.a.m("");
-                        return true;
-                    }
-                    return true;
-                }
-                return false;
-            }
-            return invokeLIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ac4 a;
-
-        public d(ac4 ac4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ac4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ac4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e.setEnabled(false);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q64 a;
-        public final /* synthetic */ ac4 b;
-
-        public e(ac4 ac4Var, q64 q64Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ac4Var, q64Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ac4Var;
-            this.a = q64Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            int length;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && 200 == i) {
                 try {
-                    if (this.b.c.getText().length() > this.a.a.length()) {
-                        length = this.a.a.length();
-                    } else {
-                        length = this.b.c.getText().length();
+                    if (!TextUtils.isEmpty(str)) {
+                        JSONObject jSONObject = new JSONObject(str);
+                        if (ac4.a && jSONObject.optInt("errno") != 0) {
+                            Log.e("SwanGameNowUtils", "report game history error");
+                        }
                     }
-                    this.b.c.setSelection(length);
-                } catch (Exception e) {
-                    if (gp1.a) {
-                        e.printStackTrace();
-                    }
+                } catch (JSONException unused) {
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class f implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ac4 b;
-
-        public f(ac4 ac4Var, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947610359, "Lcom/baidu/tieba/ac4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ac4Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = ac4Var;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.c.setSelection(this.a.length());
-            }
-        }
-    }
-
-    @SuppressLint({"InflateParams"})
-    public ac4(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947610359, "Lcom/baidu/tieba/ac4;");
                 return;
             }
         }
-        this.f = false;
-        this.i = new a(this);
-        this.j = new b(this);
-        this.k = new c(this);
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0095, (ViewGroup) null);
-        this.a = relativeLayout;
-        this.b = (EditText) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090188);
-        this.d = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090186);
-        this.c = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f090187);
-        Button button = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f090183);
-        this.e = button;
-        button.setOnClickListener(this.i);
-        this.c.addTextChangedListener(this.j);
-        this.c.setOnEditorActionListener(this.k);
-        this.e.post(new d(this));
+        a = wp1.a;
     }
 
-    public void j(q64 q64Var) {
+    public static void b() {
+        m93 M;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, q64Var) == null) {
-            this.h = q64Var;
-            if (this.c != null && q64Var != null) {
-                if (!TextUtils.isEmpty(q64Var.a)) {
-                    this.c.setText(q64Var.a);
-                    if (q64Var.b > 0) {
-                        if (!TextUtils.isEmpty(q64Var.a) && q64Var.a.length() > q64Var.b) {
-                            q64Var.b = q64Var.a.length();
-                        }
-                        this.c.setFilters(new InputFilter[]{new InputFilter.LengthFilter(q64Var.b)});
-                    }
-                    this.c.postDelayed(new e(this, q64Var), 300L);
-                } else {
-                    this.c.setText("");
-                }
-                this.e.setEnabled(!TextUtils.isEmpty(q64Var.a));
-                if (q64Var.c) {
-                    this.c.setMinLines(1);
-                    this.c.setInputType(131073);
-                    this.e.setText(q64Var.f);
-                    return;
-                }
-                this.c.setMaxLines(1);
-                this.c.setInputType(1);
-            }
+        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || (M = m93.M()) == null) {
+            return;
         }
-    }
-
-    public void i(o64.f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-            this.g = fVar;
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("cuid", ts2.h0().i(ts2.c()));
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("game", M.O());
+            jSONObject2.put("type", 0);
+            jSONObject2.put("upload_time", System.currentTimeMillis() / 1000);
+            JSONArray jSONArray = new JSONArray();
+            jSONArray.put(jSONObject2);
+            jSONObject.put("app_infos", jSONArray);
+            str = jSONObject.toString();
+        } catch (Exception unused) {
+            str = "";
         }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.d.setVisibility(0);
-            this.c.setFocusableInTouchMode(true);
-            this.c.requestFocus();
-            this.b.setVisibility(8);
-            this.f = true;
-            o64.f fVar = this.g;
-            if (fVar != null) {
-                fVar.b(i);
-            }
-        }
-    }
-
-    public boolean m(String str) {
-        InterceptResult invokeL;
-        EditText editText;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (this.f && (editText = this.c) != null) {
-                editText.setText(str);
-                this.c.postDelayed(new f(this, str), 300L);
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public View f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void h() {
-        EditText editText;
-        EditText editText2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            InputMethodManager inputMethodManager = (InputMethodManager) AppRuntime.getAppContext().getSystemService("input_method");
-            if (inputMethodManager.isActive() && (editText = this.c) != null) {
-                inputMethodManager.hideSoftInputFromWindow(editText.getApplicationWindowToken(), 0);
-                this.f = false;
-                this.b.setVisibility(8);
-                this.d.setVisibility(8);
-                o64.f fVar = this.g;
-                if (fVar != null && (editText2 = this.c) != null) {
-                    fVar.d(editText2.getText().toString());
-                }
-            }
-        }
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f) {
-                return false;
-            }
-            this.b.setVisibility(0);
-            this.d.setVisibility(8);
-            this.b.setFocusableInTouchMode(true);
-            this.b.requestFocus();
-            ((InputMethodManager) AppRuntime.getAppContext().getSystemService("input_method")).showSoftInput(this.b, 0);
-            return true;
-        }
-        return invokeV.booleanValue;
+        ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) M.i0().postRequest().cookieManager(ts2.q().a())).url(d64.b().l())).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), str)).requestFrom(16)).requestFrom(1606)).build().executeAsync(new a());
     }
 }

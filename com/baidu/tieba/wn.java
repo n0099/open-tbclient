@@ -42,7 +42,7 @@ public class wn extends BaseCardInfo {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.a;
         }
         return (BdUniqueId) invokeV.objValue;
@@ -55,9 +55,9 @@ public class wn extends BaseCardInfo {
         }
     }
 
-    public void h(BdUniqueId bdUniqueId) {
+    public void g(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
             this.a = bdUniqueId;
         }
     }

@@ -2,8 +2,6 @@ package com.baidu.pass.main.facesdk;
 
 import android.content.Context;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.callback.Callback;
 import com.baidu.pass.main.facesdk.model.BDFaceDetectListConf;
 import com.baidu.pass.main.facesdk.model.BDFaceImageInstance;
@@ -11,50 +9,14 @@ import com.baidu.pass.main.facesdk.model.BDFaceInstance;
 import com.baidu.pass.main.facesdk.model.BDFaceSDKCommon;
 import com.baidu.pass.main.facesdk.model.BDFaceSDKConfig;
 import com.baidu.pass.main.facesdk.utils.FileUitls;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes2.dex */
 public class FaceDetect {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceDetect";
-    public transient /* synthetic */ FieldHolder $fh;
     public BDFaceInstance bdFaceInstance;
     public ReentrantLock lock;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-501446397, "Lcom/baidu/pass/main/facesdk/FaceDetect;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-501446397, "Lcom/baidu/pass/main/facesdk/FaceDetect;");
-        }
-    }
-
     public FaceDetect() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.lock = null;
         BDFaceInstance bDFaceInstance = new BDFaceInstance();
         this.bdFaceInstance = bDFaceInstance;
@@ -63,20 +25,6 @@ public class FaceDetect {
     }
 
     public FaceDetect(BDFaceInstance bDFaceInstance) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bDFaceInstance};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.lock = null;
         if (bDFaceInstance == null) {
             return;
@@ -121,488 +69,286 @@ public class FaceDetect {
     private native int nativeUninitModel(long j);
 
     public BDFaceImageInstance cropFace(BDFaceImageInstance bDFaceImageInstance, float[] fArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bDFaceImageInstance, fArr)) == null) {
-            if (bDFaceImageInstance == null || fArr == null) {
-                Log.v(TAG, "Parameter is null");
-                return null;
-            }
-            long index = this.bdFaceInstance.getIndex();
-            if (index == 0) {
-                return null;
-            }
-            return nativeCropFace(index, bDFaceImageInstance, fArr);
+        if (bDFaceImageInstance == null || fArr == null) {
+            Log.v(TAG, "Parameter is null");
+            return null;
         }
-        return (BDFaceImageInstance) invokeLL.objValue;
+        long index = this.bdFaceInstance.getIndex();
+        if (index == 0) {
+            return null;
+        }
+        return nativeCropFace(index, bDFaceImageInstance, fArr);
     }
 
     public FaceInfo[] detect(BDFaceSDKCommon.DetectType detectType, BDFaceImageInstance bDFaceImageInstance) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, detectType, bDFaceImageInstance)) == null) {
-            if (detectType == null || bDFaceImageInstance == null) {
-                Log.v(TAG, "Parameter is null");
-                return null;
-            }
-            long index = this.bdFaceInstance.getIndex();
-            if (index != 0 && this.lock.tryLock()) {
-                FaceInfo[] nativeDetect = nativeDetect(index, detectType.ordinal(), BDFaceSDKCommon.AlignType.BDFACE_ALIGN_TYPE_RGB_ACCURATE.ordinal(), bDFaceImageInstance);
-                this.lock.unlock();
-                return nativeDetect;
-            }
+        if (detectType == null || bDFaceImageInstance == null) {
+            Log.v(TAG, "Parameter is null");
             return null;
         }
-        return (FaceInfo[]) invokeLL.objValue;
+        long index = this.bdFaceInstance.getIndex();
+        if (index != 0 && this.lock.tryLock()) {
+            FaceInfo[] nativeDetect = nativeDetect(index, detectType.ordinal(), BDFaceSDKCommon.AlignType.BDFACE_ALIGN_TYPE_RGB_ACCURATE.ordinal(), bDFaceImageInstance);
+            this.lock.unlock();
+            return nativeDetect;
+        }
+        return null;
     }
 
     public FaceInfo[] detect(BDFaceSDKCommon.DetectType detectType, BDFaceSDKCommon.AlignType alignType, BDFaceImageInstance bDFaceImageInstance, FaceInfo[] faceInfoArr, BDFaceDetectListConf bDFaceDetectListConf) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, detectType, alignType, bDFaceImageInstance, faceInfoArr, bDFaceDetectListConf)) == null) {
-            if (detectType == null || bDFaceImageInstance == null || alignType == null) {
-                Log.v(TAG, "Parameter is null");
-                return null;
-            }
-            long index = this.bdFaceInstance.getIndex();
-            if (index != 0 && this.lock.tryLock()) {
-                FaceInfo[] nativeFlexibleDetect = nativeFlexibleDetect(index, detectType.ordinal(), alignType.ordinal(), bDFaceImageInstance, faceInfoArr, bDFaceDetectListConf);
-                this.lock.unlock();
-                return nativeFlexibleDetect;
-            }
+        if (detectType == null || bDFaceImageInstance == null || alignType == null) {
+            Log.v(TAG, "Parameter is null");
             return null;
         }
-        return (FaceInfo[]) invokeLLLLL.objValue;
+        long index = this.bdFaceInstance.getIndex();
+        if (index != 0 && this.lock.tryLock()) {
+            FaceInfo[] nativeFlexibleDetect = nativeFlexibleDetect(index, detectType.ordinal(), alignType.ordinal(), bDFaceImageInstance, faceInfoArr, bDFaceDetectListConf);
+            this.lock.unlock();
+            return nativeFlexibleDetect;
+        }
+        return null;
     }
 
-    public void initAttrEmo(Context context, String str, String str2, Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, context, str, str2, callback) == null) {
-            FaceQueue.getInstance().execute(new Runnable(this, context, callback, str, str2) { // from class: com.baidu.pass.main.facesdk.FaceDetect.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ FaceDetect this$0;
-                public final /* synthetic */ String val$atttibuteModel;
-                public final /* synthetic */ Callback val$callback;
-                public final /* synthetic */ Context val$context;
-                public final /* synthetic */ String val$emotionModel;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, context, callback, str, str2};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$context = context;
-                    this.val$callback = callback;
-                    this.val$atttibuteModel = str;
-                    this.val$emotionModel = str2;
+    public void initAttrEmo(final Context context, final String str, final String str2, final Callback callback) {
+        FaceQueue.getInstance().execute(new Runnable() { // from class: com.baidu.pass.main.facesdk.FaceDetect.4
+            @Override // java.lang.Runnable
+            public void run() {
+                int i;
+                if (context == null) {
+                    callback.onResponse(1, "没有初始化上下文");
+                    return;
                 }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    int i;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.val$context == null) {
-                            this.val$callback.onResponse(1, "没有初始化上下文");
-                            return;
-                        }
-                        long index = this.this$0.bdFaceInstance.getIndex();
-                        if (index == 0) {
-                            return;
-                        }
-                        byte[] modelContent = FileUitls.getModelContent(this.val$context, this.val$atttibuteModel);
-                        int i2 = -1;
-                        if (modelContent.length != 0) {
-                            i = this.this$0.nativeAttributeModelInit(index, modelContent);
-                            if (i != 0) {
-                                this.val$callback.onResponse(i, "属性模型加载失败");
-                                return;
-                            }
-                        } else {
-                            i = -1;
-                        }
-                        byte[] modelContent2 = FileUitls.getModelContent(this.val$context, this.val$emotionModel);
-                        if (modelContent2.length != 0 && (i2 = this.this$0.nativeEmotionsModelInit(index, modelContent2)) != 0) {
-                            this.val$callback.onResponse(i2, "情绪模型加载失败");
-                            return;
-                        }
-                        if (i == 0 || i2 == 0) {
-                            this.val$callback.onResponse(0, "属性模型加载成功");
-                        } else {
-                            this.val$callback.onResponse(1, "属性模型加载失败");
-                        }
-                        Log.e("bdface", "FaceAttributes initModel");
-                    }
+                long index = FaceDetect.this.bdFaceInstance.getIndex();
+                if (index == 0) {
+                    return;
                 }
-            });
-        }
+                byte[] modelContent = FileUitls.getModelContent(context, str);
+                int i2 = -1;
+                if (modelContent.length != 0) {
+                    i = FaceDetect.this.nativeAttributeModelInit(index, modelContent);
+                    if (i != 0) {
+                        callback.onResponse(i, "属性模型加载失败");
+                        return;
+                    }
+                } else {
+                    i = -1;
+                }
+                byte[] modelContent2 = FileUitls.getModelContent(context, str2);
+                if (modelContent2.length != 0 && (i2 = FaceDetect.this.nativeEmotionsModelInit(index, modelContent2)) != 0) {
+                    callback.onResponse(i2, "情绪模型加载失败");
+                    return;
+                }
+                if (i == 0 || i2 == 0) {
+                    callback.onResponse(0, "属性模型加载成功");
+                } else {
+                    callback.onResponse(1, "属性模型加载失败");
+                }
+                Log.e("bdface", "FaceAttributes initModel");
+            }
+        });
     }
 
-    public void initFaceClose(Context context, String str, String str2, Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, context, str, str2, callback) == null) {
-            FaceQueue.getInstance().execute(new Runnable(this, context, callback, str, str2) { // from class: com.baidu.pass.main.facesdk.FaceDetect.5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ FaceDetect this$0;
-                public final /* synthetic */ Callback val$callback;
-                public final /* synthetic */ Context val$context;
-                public final /* synthetic */ String val$eyecloseModel;
-                public final /* synthetic */ String val$mouthcloseModel;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, context, callback, str, str2};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$context = context;
-                    this.val$callback = callback;
-                    this.val$eyecloseModel = str;
-                    this.val$mouthcloseModel = str2;
+    public void initFaceClose(final Context context, final String str, final String str2, final Callback callback) {
+        FaceQueue.getInstance().execute(new Runnable() { // from class: com.baidu.pass.main.facesdk.FaceDetect.5
+            @Override // java.lang.Runnable
+            public void run() {
+                int i;
+                if (context == null) {
+                    callback.onResponse(1, "没有初始化上下文");
+                    return;
                 }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    int i;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.val$context == null) {
-                            this.val$callback.onResponse(1, "没有初始化上下文");
-                            return;
-                        }
-                        long index = this.this$0.bdFaceInstance.getIndex();
-                        if (index == 0) {
-                            return;
-                        }
-                        byte[] modelContent = FileUitls.getModelContent(this.val$context, this.val$eyecloseModel);
-                        int i2 = -1;
-                        if (modelContent.length != 0) {
-                            i = this.this$0.nativeFaceCloseModelInit(index, modelContent, 0);
-                            if (i != 0) {
-                                this.val$callback.onResponse(i, "眼睛闭合模型加载失败");
-                                return;
-                            }
-                        } else {
-                            i = -1;
-                        }
-                        byte[] modelContent2 = FileUitls.getModelContent(this.val$context, this.val$mouthcloseModel);
-                        if (modelContent2.length != 0 && (i2 = this.this$0.nativeFaceCloseModelInit(index, modelContent2, 1)) != 0) {
-                            this.val$callback.onResponse(i2, "嘴巴闭合模型加载失败");
-                            return;
-                        }
-                        if (i == 0 || i2 == 0) {
-                            this.val$callback.onResponse(0, "闭眼闭嘴模型加载成功");
-                        } else {
-                            this.val$callback.onResponse(1, "闭眼闭嘴模型加载失败");
-                        }
-                        Log.e("bdface", "FaceClose initModel");
-                    }
+                long index = FaceDetect.this.bdFaceInstance.getIndex();
+                if (index == 0) {
+                    return;
                 }
-            });
-        }
+                byte[] modelContent = FileUitls.getModelContent(context, str);
+                int i2 = -1;
+                if (modelContent.length != 0) {
+                    i = FaceDetect.this.nativeFaceCloseModelInit(index, modelContent, 0);
+                    if (i != 0) {
+                        callback.onResponse(i, "眼睛闭合模型加载失败");
+                        return;
+                    }
+                } else {
+                    i = -1;
+                }
+                byte[] modelContent2 = FileUitls.getModelContent(context, str2);
+                if (modelContent2.length != 0 && (i2 = FaceDetect.this.nativeFaceCloseModelInit(index, modelContent2, 1)) != 0) {
+                    callback.onResponse(i2, "嘴巴闭合模型加载失败");
+                    return;
+                }
+                if (i == 0 || i2 == 0) {
+                    callback.onResponse(0, "闭眼闭嘴模型加载成功");
+                } else {
+                    callback.onResponse(1, "闭眼闭嘴模型加载失败");
+                }
+                Log.e("bdface", "FaceClose initModel");
+            }
+        });
     }
 
-    public void initModel(Context context, String str, String str2, BDFaceSDKCommon.DetectType detectType, BDFaceSDKCommon.AlignType alignType, Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, str, str2, detectType, alignType, callback}) == null) {
-            FaceQueue.getInstance().execute(new Runnable(this, context, callback, str, detectType, str2, alignType) { // from class: com.baidu.pass.main.facesdk.FaceDetect.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ FaceDetect this$0;
-                public final /* synthetic */ String val$alignModel;
-                public final /* synthetic */ BDFaceSDKCommon.AlignType val$alignType;
-                public final /* synthetic */ Callback val$callback;
-                public final /* synthetic */ Context val$context;
-                public final /* synthetic */ String val$detectModel;
-                public final /* synthetic */ BDFaceSDKCommon.DetectType val$detectType;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, context, callback, str, detectType, str2, alignType};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$context = context;
-                    this.val$callback = callback;
-                    this.val$detectModel = str;
-                    this.val$detectType = detectType;
-                    this.val$alignModel = str2;
-                    this.val$alignType = alignType;
+    public void initModel(final Context context, final String str, final String str2, final BDFaceSDKCommon.DetectType detectType, final BDFaceSDKCommon.AlignType alignType, final Callback callback) {
+        FaceQueue.getInstance().execute(new Runnable() { // from class: com.baidu.pass.main.facesdk.FaceDetect.2
+            @Override // java.lang.Runnable
+            public void run() {
+                int i;
+                Callback callback2;
+                String str3;
+                int i2 = 1;
+                if (context == null) {
+                    callback.onResponse(1, "没有初始化上下文");
+                    return;
                 }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    int i;
-                    Callback callback2;
-                    String str3;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int i2 = 1;
-                        if (this.val$context == null) {
-                            this.val$callback.onResponse(1, "没有初始化上下文");
-                            return;
-                        }
-                        long index = this.this$0.bdFaceInstance.getIndex();
-                        if (index == 0) {
-                            return;
-                        }
-                        byte[] modelContent = FileUitls.getModelContent(this.val$context, this.val$detectModel);
-                        int i3 = -1;
-                        if (modelContent.length != 0) {
-                            i = this.this$0.nativeDetectModelInit(index, modelContent, this.val$detectType.ordinal());
-                            if (i != 0) {
-                                this.val$callback.onResponse(i, "检测模型加载失败");
-                                return;
-                            }
-                        } else {
-                            i = -1;
-                        }
-                        byte[] modelContent2 = FileUitls.getModelContent(this.val$context, this.val$alignModel);
-                        if (modelContent2.length != 0 && (i3 = this.this$0.nativeAlignModelInit(index, this.val$detectType.ordinal(), this.val$alignType.ordinal(), modelContent2)) != 0) {
-                            this.val$callback.onResponse(i3, "对齐模型加载失败");
-                            return;
-                        }
-                        int nativeLoadTrack = this.this$0.nativeLoadTrack(index, this.val$detectType.ordinal(), this.val$alignType.ordinal());
-                        if (nativeLoadTrack != 0) {
-                            this.val$callback.onResponse(nativeLoadTrack, "跟踪能力加载失败");
-                            return;
-                        }
-                        if (i == 0 && i3 == 0) {
-                            callback2 = this.val$callback;
-                            i2 = 0;
-                            str3 = "检测对齐模型加载成功";
-                        } else {
-                            callback2 = this.val$callback;
-                            str3 = "检测对齐模型加载失败";
-                        }
-                        callback2.onResponse(i2, str3);
-                        Log.e(FaceDetect.TAG, "FaceDetect initModel");
-                    }
+                long index = FaceDetect.this.bdFaceInstance.getIndex();
+                if (index == 0) {
+                    return;
                 }
-            });
-        }
+                byte[] modelContent = FileUitls.getModelContent(context, str);
+                int i3 = -1;
+                if (modelContent.length != 0) {
+                    i = FaceDetect.this.nativeDetectModelInit(index, modelContent, detectType.ordinal());
+                    if (i != 0) {
+                        callback.onResponse(i, "检测模型加载失败");
+                        return;
+                    }
+                } else {
+                    i = -1;
+                }
+                byte[] modelContent2 = FileUitls.getModelContent(context, str2);
+                if (modelContent2.length != 0 && (i3 = FaceDetect.this.nativeAlignModelInit(index, detectType.ordinal(), alignType.ordinal(), modelContent2)) != 0) {
+                    callback.onResponse(i3, "对齐模型加载失败");
+                    return;
+                }
+                int nativeLoadTrack = FaceDetect.this.nativeLoadTrack(index, detectType.ordinal(), alignType.ordinal());
+                if (nativeLoadTrack != 0) {
+                    callback.onResponse(nativeLoadTrack, "跟踪能力加载失败");
+                    return;
+                }
+                if (i == 0 && i3 == 0) {
+                    callback2 = callback;
+                    i2 = 0;
+                    str3 = "检测对齐模型加载成功";
+                } else {
+                    callback2 = callback;
+                    str3 = "检测对齐模型加载失败";
+                }
+                callback2.onResponse(i2, str3);
+                Log.e(FaceDetect.TAG, "FaceDetect initModel");
+            }
+        });
     }
 
-    public void initModel(Context context, String str, String str2, String str3, Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048582, this, context, str, str2, str3, callback) == null) {
-            FaceQueue.getInstance().execute(new Runnable(this, context, callback, str, str2, str3) { // from class: com.baidu.pass.main.facesdk.FaceDetect.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ FaceDetect this$0;
-                public final /* synthetic */ String val$alignModel;
-                public final /* synthetic */ Callback val$callback;
-                public final /* synthetic */ Context val$context;
-                public final /* synthetic */ String val$nirModel;
-                public final /* synthetic */ String val$visModel;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, context, callback, str, str2, str3};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$context = context;
-                    this.val$callback = callback;
-                    this.val$visModel = str;
-                    this.val$nirModel = str2;
-                    this.val$alignModel = str3;
+    public void initModel(final Context context, final String str, final String str2, final String str3, final Callback callback) {
+        FaceQueue.getInstance().execute(new Runnable() { // from class: com.baidu.pass.main.facesdk.FaceDetect.1
+            @Override // java.lang.Runnable
+            public void run() {
+                int i;
+                int i2;
+                Callback callback2;
+                String str4;
+                int i3 = 1;
+                if (context == null) {
+                    callback.onResponse(1, "没有初始化上下文");
+                    return;
                 }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    int i;
-                    int i2;
-                    Callback callback2;
-                    String str4;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int i3 = 1;
-                        if (this.val$context == null) {
-                            this.val$callback.onResponse(1, "没有初始化上下文");
-                            return;
-                        }
-                        long index = this.this$0.bdFaceInstance.getIndex();
-                        if (index == 0) {
-                            return;
-                        }
-                        byte[] modelContent = FileUitls.getModelContent(this.val$context, this.val$visModel);
-                        int i4 = -1;
-                        if (modelContent.length != 0) {
-                            i = this.this$0.nativeDetectModelInit(index, modelContent, BDFaceSDKCommon.DetectType.DETECT_VIS.ordinal());
-                            if (i != 0) {
-                                this.val$callback.onResponse(i, "Vis检测模型加载失败");
-                                return;
-                            }
-                        } else {
-                            i = -1;
-                        }
-                        byte[] modelContent2 = FileUitls.getModelContent(this.val$context, this.val$nirModel);
-                        if (modelContent2.length != 0) {
-                            int nativeDetectModelInit = this.this$0.nativeDetectModelInit(index, modelContent2, BDFaceSDKCommon.DetectType.DETECT_NIR.ordinal());
-                            if (nativeDetectModelInit != 0) {
-                                this.val$callback.onResponse(nativeDetectModelInit, "Nir检测模型加载失败");
-                                return;
-                            }
-                            i2 = nativeDetectModelInit;
-                        } else {
-                            i2 = -1;
-                        }
-                        byte[] modelContent3 = FileUitls.getModelContent(this.val$context, this.val$alignModel);
-                        if (modelContent3.length != 0 && (i4 = this.this$0.nativeAlignModelInit(index, BDFaceSDKCommon.DetectType.DETECT_VIS.ordinal(), BDFaceSDKCommon.AlignType.BDFACE_ALIGN_TYPE_RGB_ACCURATE.ordinal(), modelContent3)) != 0) {
-                            this.val$callback.onResponse(i4, "对齐模型加载失败");
-                            return;
-                        }
-                        int nativeLoadTrack = this.this$0.nativeLoadTrack(index, BDFaceSDKCommon.DetectType.DETECT_VIS.ordinal(), BDFaceSDKCommon.AlignType.BDFACE_ALIGN_TYPE_RGB_ACCURATE.ordinal());
-                        if (nativeLoadTrack != 0) {
-                            this.val$callback.onResponse(nativeLoadTrack, "跟踪能力加载失败");
-                            return;
-                        }
-                        if ((i == 0 || i2 == 0) && i4 == 0) {
-                            callback2 = this.val$callback;
-                            i3 = 0;
-                            str4 = "检测对齐模型加载成功";
-                        } else {
-                            callback2 = this.val$callback;
-                            str4 = "检测对齐模型加载失败";
-                        }
-                        callback2.onResponse(i3, str4);
-                        Log.e(FaceDetect.TAG, "FaceDetect initModel");
-                    }
+                long index = FaceDetect.this.bdFaceInstance.getIndex();
+                if (index == 0) {
+                    return;
                 }
-            });
-        }
+                byte[] modelContent = FileUitls.getModelContent(context, str);
+                int i4 = -1;
+                if (modelContent.length != 0) {
+                    i = FaceDetect.this.nativeDetectModelInit(index, modelContent, BDFaceSDKCommon.DetectType.DETECT_VIS.ordinal());
+                    if (i != 0) {
+                        callback.onResponse(i, "Vis检测模型加载失败");
+                        return;
+                    }
+                } else {
+                    i = -1;
+                }
+                byte[] modelContent2 = FileUitls.getModelContent(context, str2);
+                if (modelContent2.length != 0) {
+                    int nativeDetectModelInit = FaceDetect.this.nativeDetectModelInit(index, modelContent2, BDFaceSDKCommon.DetectType.DETECT_NIR.ordinal());
+                    if (nativeDetectModelInit != 0) {
+                        callback.onResponse(nativeDetectModelInit, "Nir检测模型加载失败");
+                        return;
+                    }
+                    i2 = nativeDetectModelInit;
+                } else {
+                    i2 = -1;
+                }
+                byte[] modelContent3 = FileUitls.getModelContent(context, str3);
+                if (modelContent3.length != 0 && (i4 = FaceDetect.this.nativeAlignModelInit(index, BDFaceSDKCommon.DetectType.DETECT_VIS.ordinal(), BDFaceSDKCommon.AlignType.BDFACE_ALIGN_TYPE_RGB_ACCURATE.ordinal(), modelContent3)) != 0) {
+                    callback.onResponse(i4, "对齐模型加载失败");
+                    return;
+                }
+                int nativeLoadTrack = FaceDetect.this.nativeLoadTrack(index, BDFaceSDKCommon.DetectType.DETECT_VIS.ordinal(), BDFaceSDKCommon.AlignType.BDFACE_ALIGN_TYPE_RGB_ACCURATE.ordinal());
+                if (nativeLoadTrack != 0) {
+                    callback.onResponse(nativeLoadTrack, "跟踪能力加载失败");
+                    return;
+                }
+                if ((i == 0 || i2 == 0) && i4 == 0) {
+                    callback2 = callback;
+                    i3 = 0;
+                    str4 = "检测对齐模型加载成功";
+                } else {
+                    callback2 = callback;
+                    str4 = "检测对齐模型加载失败";
+                }
+                callback2.onResponse(i3, str4);
+                Log.e(FaceDetect.TAG, "FaceDetect initModel");
+            }
+        });
     }
 
-    public void initQuality(Context context, String str, String str2, Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048583, this, context, str, str2, callback) == null) {
-            FaceQueue.getInstance().execute(new Runnable(this, context, callback, str, str2) { // from class: com.baidu.pass.main.facesdk.FaceDetect.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ FaceDetect this$0;
-                public final /* synthetic */ String val$blurModel;
-                public final /* synthetic */ Callback val$callback;
-                public final /* synthetic */ Context val$context;
-                public final /* synthetic */ String val$occlurModel;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, context, callback, str, str2};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$context = context;
-                    this.val$callback = callback;
-                    this.val$blurModel = str;
-                    this.val$occlurModel = str2;
+    public void initQuality(final Context context, final String str, final String str2, final Callback callback) {
+        FaceQueue.getInstance().execute(new Runnable() { // from class: com.baidu.pass.main.facesdk.FaceDetect.3
+            @Override // java.lang.Runnable
+            public void run() {
+                int i;
+                Callback callback2;
+                String str3;
+                int i2 = 1;
+                if (context == null) {
+                    callback.onResponse(1, "没有初始化上下文");
+                    return;
                 }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    int i;
-                    Callback callback2;
-                    String str3;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int i2 = 1;
-                        if (this.val$context == null) {
-                            this.val$callback.onResponse(1, "没有初始化上下文");
-                            return;
-                        }
-                        long index = this.this$0.bdFaceInstance.getIndex();
-                        if (index == 0) {
-                            return;
-                        }
-                        byte[] modelContent = FileUitls.getModelContent(this.val$context, this.val$blurModel);
-                        int i3 = -1;
-                        if (modelContent.length != 0) {
-                            i = this.this$0.nativeQualityModelInit(index, modelContent, BDFaceSDKCommon.FaceQualityType.BLUR.ordinal());
-                            if (i != 0) {
-                                this.val$callback.onResponse(i, "模糊模型加载失败");
-                                return;
-                            }
-                        } else {
-                            i = -1;
-                        }
-                        byte[] modelContent2 = FileUitls.getModelContent(this.val$context, this.val$occlurModel);
-                        if (modelContent2.length != 0 && (i3 = this.this$0.nativeQualityModelInit(index, modelContent2, BDFaceSDKCommon.FaceQualityType.OCCLUSION.ordinal())) != 0) {
-                            this.val$callback.onResponse(i3, "遮挡模型加载失败");
-                            return;
-                        }
-                        if (i == 0 || i3 == 0) {
-                            callback2 = this.val$callback;
-                            i2 = 0;
-                            str3 = "质量模型加载成功";
-                        } else {
-                            callback2 = this.val$callback;
-                            str3 = "质量模型加载失败";
-                        }
-                        callback2.onResponse(i2, str3);
-                        Log.e(FaceDetect.TAG, "FaceDetect initQuality");
-                    }
+                long index = FaceDetect.this.bdFaceInstance.getIndex();
+                if (index == 0) {
+                    return;
                 }
-            });
-        }
+                byte[] modelContent = FileUitls.getModelContent(context, str);
+                int i3 = -1;
+                if (modelContent.length != 0) {
+                    i = FaceDetect.this.nativeQualityModelInit(index, modelContent, BDFaceSDKCommon.FaceQualityType.BLUR.ordinal());
+                    if (i != 0) {
+                        callback.onResponse(i, "模糊模型加载失败");
+                        return;
+                    }
+                } else {
+                    i = -1;
+                }
+                byte[] modelContent2 = FileUitls.getModelContent(context, str2);
+                if (modelContent2.length != 0 && (i3 = FaceDetect.this.nativeQualityModelInit(index, modelContent2, BDFaceSDKCommon.FaceQualityType.OCCLUSION.ordinal())) != 0) {
+                    callback.onResponse(i3, "遮挡模型加载失败");
+                    return;
+                }
+                if (i == 0 || i3 == 0) {
+                    callback2 = callback;
+                    i2 = 0;
+                    str3 = "质量模型加载成功";
+                } else {
+                    callback2 = callback;
+                    str3 = "质量模型加载失败";
+                }
+                callback2.onResponse(i2, str3);
+                Log.e(FaceDetect.TAG, "FaceDetect initQuality");
+            }
+        });
     }
 
     public void loadConfig(BDFaceSDKConfig bDFaceSDKConfig) {
-        BDFaceInstance bDFaceInstance;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bDFaceSDKConfig) == null) || (bDFaceInstance = this.bdFaceInstance) == null) {
+        BDFaceInstance bDFaceInstance = this.bdFaceInstance;
+        if (bDFaceInstance == null) {
             return;
         }
         long index = bDFaceInstance.getIndex();
@@ -613,51 +359,36 @@ public class FaceDetect {
     }
 
     public FaceInfo[] track(BDFaceSDKCommon.DetectType detectType, BDFaceImageInstance bDFaceImageInstance) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, detectType, bDFaceImageInstance)) == null) {
-            if (detectType == null || bDFaceImageInstance == null) {
-                Log.v(TAG, "Parameter is null");
-                return null;
-            }
-            long index = this.bdFaceInstance.getIndex();
-            if (index != 0 && this.lock.tryLock()) {
-                FaceInfo[] nativeTrack = nativeTrack(index, detectType.ordinal(), bDFaceImageInstance);
-                this.lock.unlock();
-                return nativeTrack;
-            }
+        if (detectType == null || bDFaceImageInstance == null) {
+            Log.v(TAG, "Parameter is null");
             return null;
         }
-        return (FaceInfo[]) invokeLL.objValue;
+        long index = this.bdFaceInstance.getIndex();
+        if (index != 0 && this.lock.tryLock()) {
+            FaceInfo[] nativeTrack = nativeTrack(index, detectType.ordinal(), bDFaceImageInstance);
+            this.lock.unlock();
+            return nativeTrack;
+        }
+        return null;
     }
 
     public FaceInfo[] track(BDFaceSDKCommon.DetectType detectType, BDFaceSDKCommon.AlignType alignType, BDFaceImageInstance bDFaceImageInstance) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, detectType, alignType, bDFaceImageInstance)) == null) {
-            if (detectType == null || bDFaceImageInstance == null || alignType == null) {
-                Log.v(TAG, "Parameter is null");
-                return null;
-            }
-            long index = this.bdFaceInstance.getIndex();
-            if (index == 0) {
-                return null;
-            }
-            return nativeFastTrack(index, detectType.ordinal(), alignType.ordinal(), bDFaceImageInstance);
+        if (detectType == null || bDFaceImageInstance == null || alignType == null) {
+            Log.v(TAG, "Parameter is null");
+            return null;
         }
-        return (FaceInfo[]) invokeLLL.objValue;
+        long index = this.bdFaceInstance.getIndex();
+        if (index == 0) {
+            return null;
+        }
+        return nativeFastTrack(index, detectType.ordinal(), alignType.ordinal(), bDFaceImageInstance);
     }
 
     public int uninitModel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            long index = this.bdFaceInstance.getIndex();
-            if (index == 0) {
-                return -1;
-            }
-            return nativeUninitModel(index);
+        long index = this.bdFaceInstance.getIndex();
+        if (index == 0) {
+            return -1;
         }
-        return invokeV.intValue;
+        return nativeUninitModel(index);
     }
 }

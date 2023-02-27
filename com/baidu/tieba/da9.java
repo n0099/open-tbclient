@@ -1,100 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.ThemeColorInfo;
-import tbclient.ThemeElement;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class da9 {
+public class da9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
 
-    public static final int a(ThemeColorInfo themeColorInfoInfo) {
-        InterceptResult invokeL;
-        ThemeElement themeElement;
-        String str;
-        ThemeElement themeElement2;
-        ThemeElement themeElement3;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public da9(MainTabActivity mainTabActivity, m89 m89Var) {
+        super(2921414);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, themeColorInfoInfo)) == null) {
-            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            boolean z = true;
-            String str2 = "";
-            if (skinType == 0 ? (themeElement = themeColorInfoInfo.day) != null && (str = themeElement.common_color) != null : skinType == 1 ? (themeElement2 = themeColorInfoInfo.night) != null && (str = themeElement2.common_color) != null : skinType == 4 && (themeElement3 = themeColorInfoInfo.dark) != null && (str = themeElement3.common_color) != null) {
-                str2 = str;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, m89Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (str2.length() <= 0) {
-                z = false;
-            }
-            if (z) {
-                return p09.f(str2);
-            }
-            return Integer.MAX_VALUE;
         }
-        return invokeL.intValue;
+        this.a = mainTabActivity;
     }
 
-    public static final String b(ThemeColorInfo themeColorInfoInfo) {
-        InterceptResult invokeL;
-        String str;
-        ThemeElement themeElement;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        il9 il9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, themeColorInfoInfo)) == null) {
-            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType != 0) {
-                if (skinType != 1) {
-                    if (skinType != 4 || (themeElement = themeColorInfoInfo.dark) == null || (str = themeElement.dark_color) == null) {
-                        return "";
-                    }
-                } else {
-                    ThemeElement themeElement2 = themeColorInfoInfo.night;
-                    if (themeElement2 == null || (str = themeElement2.dark_color) == null) {
-                        return "";
-                    }
-                }
-            } else {
-                ThemeElement themeElement3 = themeColorInfoInfo.day;
-                if (themeElement3 == null || (str = themeElement3.dark_color) == null) {
-                    return "";
-                }
-            }
-            return str;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (il9Var = this.a.q) != null) {
+            il9Var.g();
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static final String c(ThemeColorInfo themeColorInfoInfo) {
-        InterceptResult invokeL;
-        String str;
-        ThemeElement themeElement;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, themeColorInfoInfo)) == null) {
-            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType != 0) {
-                if (skinType != 1) {
-                    if (skinType != 4 || (themeElement = themeColorInfoInfo.dark) == null || (str = themeElement.light_color) == null) {
-                        return "";
-                    }
-                } else {
-                    ThemeElement themeElement2 = themeColorInfoInfo.night;
-                    if (themeElement2 == null || (str = themeElement2.light_color) == null) {
-                        return "";
-                    }
-                }
-            } else {
-                ThemeElement themeElement3 = themeColorInfoInfo.day;
-                if (themeElement3 == null || (str = themeElement3.light_color) == null) {
-                    return "";
-                }
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
     }
 }

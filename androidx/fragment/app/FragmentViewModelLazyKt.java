@@ -6,11 +6,6 @@ import androidx.lifecycle.ViewModelLazy;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStore;
 import androidx.lifecycle.ViewModelStoreOwner;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Lazy;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
@@ -20,9 +15,6 @@ import kotlin.reflect.KClass;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u00002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\u001a8\u0010\u0007\u001a\b\u0012\u0004\u0012\u00028\u00000\u0006\"\n\b\u0000\u0010\u0001\u0018\u0001*\u00020\u0000*\u00020\u00022\u0010\b\n\u0010\u0005\u001a\n\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u0003H\u0087\b¢\u0006\u0004\b\u0007\u0010\b\u001aQ\u0010\r\u001a\b\u0012\u0004\u0012\u00028\u00000\u0006\"\b\b\u0000\u0010\u0001*\u00020\u0000*\u00020\u00022\f\u0010\n\u001a\b\u0012\u0004\u0012\u00028\u00000\t2\f\u0010\f\u001a\b\u0012\u0004\u0012\u00020\u000b0\u00032\u0010\b\u0002\u0010\u0005\u001a\n\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u0003H\u0007¢\u0006\u0004\b\r\u0010\u000e\u001aH\u0010\u0011\u001a\b\u0012\u0004\u0012\u00028\u00000\u0006\"\n\b\u0000\u0010\u0001\u0018\u0001*\u00020\u0000*\u00020\u00022\u000e\b\n\u0010\u0010\u001a\b\u0012\u0004\u0012\u00020\u000f0\u00032\u0010\b\n\u0010\u0005\u001a\n\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u0003H\u0087\b¢\u0006\u0004\b\u0011\u0010\u0012¨\u0006\u0013"}, d2 = {"Landroidx/lifecycle/ViewModel;", "VM", "Landroidx/fragment/app/Fragment;", "Lkotlin/Function0;", "Landroidx/lifecycle/ViewModelProvider$Factory;", "factoryProducer", "Lkotlin/Lazy;", "activityViewModels", "(Landroidx/fragment/app/Fragment;Lkotlin/Function0;)Lkotlin/Lazy;", "Lkotlin/reflect/KClass;", "viewModelClass", "Landroidx/lifecycle/ViewModelStore;", "storeProducer", "createViewModelLazy", "(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lkotlin/Function0;Lkotlin/Function0;)Lkotlin/Lazy;", "Landroidx/lifecycle/ViewModelStoreOwner;", "ownerProducer", "viewModels", "(Landroidx/fragment/app/Fragment;Lkotlin/Function0;Lkotlin/Function0;)Lkotlin/Lazy;", "fragment-ktx_release"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
 public final class FragmentViewModelLazyKt {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     @MainThread
     public static final /* synthetic */ <VM extends ViewModel> Lazy<VM> activityViewModels(Fragment fragment, Function0<? extends ViewModelProvider.Factory> function0) {
         Intrinsics.reifiedOperationMarker(4, "VM");
@@ -49,54 +41,23 @@ public final class FragmentViewModelLazyKt {
 
     @MainThread
     public static final <VM extends ViewModel> Lazy<VM> createViewModelLazy(final Fragment fragment, KClass<VM> kClass, Function0<? extends ViewModelStore> function0, Function0<? extends ViewModelProvider.Factory> function02) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, fragment, kClass, function0, function02)) == null) {
-            if (function02 == null) {
-                function02 = new Function0<ViewModelProvider.Factory>(fragment) { // from class: androidx.fragment.app.FragmentViewModelLazyKt$createViewModelLazy$factoryPromise$1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ Fragment $this_createViewModelLazy;
+        if (function02 == null) {
+            function02 = new Function0<ViewModelProvider.Factory>() { // from class: androidx.fragment.app.FragmentViewModelLazyKt$createViewModelLazy$factoryPromise$1
+                {
+                    super(0);
+                }
 
-                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                    {
-                        super(0);
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {fragment};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                super(((Integer) newInitContext.callArgs[0]).intValue());
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.$this_createViewModelLazy = fragment;
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    /* JADX WARN: Can't rename method to resolve collision */
-                    @Override // kotlin.jvm.functions.Function0
-                    public final ViewModelProvider.Factory invoke() {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                            ViewModelProvider.Factory defaultViewModelProviderFactory = this.$this_createViewModelLazy.getDefaultViewModelProviderFactory();
-                            Intrinsics.checkExpressionValueIsNotNull(defaultViewModelProviderFactory, "defaultViewModelProviderFactory");
-                            return defaultViewModelProviderFactory;
-                        }
-                        return (ViewModelProvider.Factory) invokeV.objValue;
-                    }
-                };
-            }
-            return new ViewModelLazy(kClass, function0, function02);
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
+                @Override // kotlin.jvm.functions.Function0
+                public final ViewModelProvider.Factory invoke() {
+                    ViewModelProvider.Factory defaultViewModelProviderFactory = Fragment.this.getDefaultViewModelProviderFactory();
+                    Intrinsics.checkExpressionValueIsNotNull(defaultViewModelProviderFactory, "defaultViewModelProviderFactory");
+                    return defaultViewModelProviderFactory;
+                }
+            };
         }
-        return (Lazy) invokeLLLL.objValue;
+        return new ViewModelLazy(kClass, function0, function02);
     }
 
     public static /* synthetic */ Lazy createViewModelLazy$default(Fragment fragment, KClass kClass, Function0 function0, Function0 function02, int i, Object obj) {
@@ -114,42 +75,16 @@ public final class FragmentViewModelLazyKt {
 
     public static /* synthetic */ Lazy viewModels$default(final Fragment fragment, Function0 function0, Function0 function02, int i, Object obj) {
         if ((i & 1) != 0) {
-            function0 = new Function0<Fragment>(fragment) { // from class: androidx.fragment.app.FragmentViewModelLazyKt$viewModels$1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Fragment $this_viewModels;
-
-                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            function0 = new Function0<Fragment>() { // from class: androidx.fragment.app.FragmentViewModelLazyKt$viewModels$1
                 {
                     super(0);
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {fragment};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            super(((Integer) newInitContext.callArgs[0]).intValue());
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.$this_viewModels = fragment;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // kotlin.jvm.functions.Function0
                 public final Fragment invoke() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                        return this.$this_viewModels;
-                    }
-                    return (Fragment) invokeV.objValue;
+                    return Fragment.this;
                 }
             };
         }

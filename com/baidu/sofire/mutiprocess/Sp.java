@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.sofire.d.a;
 import com.baidu.sofire.d.b;
-import com.baidu.sofire.k.o;
+import com.baidu.sofire.k.s;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +60,7 @@ public class Sp {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             Context context2 = b.a;
-            return com.baidu.sofire.k.a.k(context);
+            return com.baidu.sofire.k.b.j(context);
         }
         return invokeL.intValue;
     }
@@ -200,7 +200,7 @@ public class Sp {
                 } else if (bundle == null) {
                     a = b.a(-201);
                 } else {
-                    a = o.a(context, "sub_process_call_main_plugin", bundle, "sofire");
+                    a = s.a(context, "sub_process_call_main_plugin", bundle, "sofire");
                 }
                 return a;
             } catch (Throwable unused) {

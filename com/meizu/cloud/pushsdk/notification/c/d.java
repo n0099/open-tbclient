@@ -5,28 +5,26 @@ import android.content.res.AssetManager;
 import com.meizu.cloud.pushinternal.DebugLogger;
 /* loaded from: classes8.dex */
 public class d {
-    public static d b;
-    public Context a;
-    public AssetManager c;
+    public static d a;
+    public AssetManager b;
 
     public d(Context context) {
-        this.a = context;
-        a();
+        b(context);
     }
 
     public static d a(Context context) {
-        if (b == null) {
-            b = new d(context);
+        if (a == null) {
+            a = new d(context);
         }
-        return b;
+        return a;
     }
 
-    private void a() {
-        this.c = this.a.getAssets();
+    private void b(Context context) {
+        this.b = context.getAssets();
     }
 
-    public int a(String str, String str2) {
+    public int a(Context context, String str, String str2) {
         DebugLogger.i("ResourceReader", "Get resource type " + str2 + " " + str);
-        return this.a.getResources().getIdentifier(str, str2, this.a.getApplicationInfo().packageName);
+        return context.getResources().getIdentifier(str, str2, context.getApplicationInfo().packageName);
     }
 }

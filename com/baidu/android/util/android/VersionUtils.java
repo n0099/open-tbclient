@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.PushManager;
+import com.heytap.mcssdk.PushService;
 /* loaded from: classes.dex */
 public class VersionUtils {
     public static /* synthetic */ Interceptable $ic = null;
@@ -92,7 +92,7 @@ public class VersionUtils {
                 if (applicationInfo == null || (bundle = applicationInfo.metaData) == null) {
                     return "";
                 }
-                return bundle.getString(PushManager.APP_VERSION_NAME);
+                return bundle.getString(PushService.APP_VERSION_NAME);
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
                 return "";

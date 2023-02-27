@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.max.event.WebEventTypeEnum;
+import com.baidu.nadcore.max.event.PanelEventTypeEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class op0 implements lj0 {
+public final class op0 implements pj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WebEventTypeEnum a;
+    public final PanelEventTypeEnum a;
 
-    public op0(WebEventTypeEnum type) {
+    public op0(PanelEventTypeEnum type) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,24 +33,24 @@ public final class op0 implements lj0 {
         this.a = type;
     }
 
-    @Override // com.baidu.tieba.lj0
+    @Override // com.baidu.tieba.pj0
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             String simpleName = op0.class.getSimpleName();
-            Intrinsics.checkNotNullExpressionValue(simpleName, "WebViewEvent::class.java.simpleName");
+            Intrinsics.checkNotNullExpressionValue(simpleName, "PanelViewEvent::class.java.simpleName");
             return simpleName;
         }
         return (String) invokeV.objValue;
     }
 
-    public final WebEventTypeEnum getType() {
+    public final PanelEventTypeEnum getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (WebEventTypeEnum) invokeV.objValue;
+        return (PanelEventTypeEnum) invokeV.objValue;
     }
 }

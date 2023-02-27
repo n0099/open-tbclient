@@ -1,186 +1,85 @@
 package com.baidu.mapapi.search.poi;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.base.LanguageType;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class PoiNearbySearchOption {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public boolean mIsExtendAdcode;
-    public String mKeyword;
-    public LanguageType mLanguageType;
-    public LatLng mLocation;
-    public int mPageCapacity;
-    public int mPageNum;
-    public PoiFilter mPoiFilter;
-    public int mRadius;
-    public boolean mRadiusLimit;
-    public int mScope;
-    public String mTag;
-    public PoiSortType sortType;
+    public String mKeyword = null;
+    public LatLng mLocation = null;
+    public int mRadius = -1;
+    public int mPageNum = 0;
+    public int mPageCapacity = 10;
+    public PoiSortType sortType = PoiSortType.comprehensive;
+    public String mTag = "";
+    public int mScope = 1;
+    public boolean mRadiusLimit = false;
+    public PoiFilter mPoiFilter = null;
+    public boolean mIsExtendAdcode = true;
+    public LanguageType mLanguageType = LanguageType.LanguageTypeChinese;
 
-    public PoiNearbySearchOption() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mKeyword = null;
-        this.mLocation = null;
-        this.mRadius = -1;
-        this.mPageNum = 0;
-        this.mPageCapacity = 10;
-        this.sortType = PoiSortType.comprehensive;
-        this.mTag = "";
-        this.mScope = 1;
-        this.mRadiusLimit = false;
-        this.mPoiFilter = null;
-        this.mIsExtendAdcode = true;
-        this.mLanguageType = LanguageType.LanguageTypeChinese;
+    public boolean isExtendAdcode() {
+        return this.mIsExtendAdcode;
     }
 
     public PoiNearbySearchOption extendAdcode(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            this.mIsExtendAdcode = z;
-            return this;
-        }
-        return (PoiNearbySearchOption) invokeZ.objValue;
+        this.mIsExtendAdcode = z;
+        return this;
     }
 
     public PoiNearbySearchOption keyword(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.mKeyword = str;
-            return this;
-        }
-        return (PoiNearbySearchOption) invokeL.objValue;
+        this.mKeyword = str;
+        return this;
     }
 
     public PoiNearbySearchOption language(LanguageType languageType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, languageType)) == null) {
-            this.mLanguageType = languageType;
-            return this;
-        }
-        return (PoiNearbySearchOption) invokeL.objValue;
+        this.mLanguageType = languageType;
+        return this;
     }
 
     public PoiNearbySearchOption location(LatLng latLng) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, latLng)) == null) {
-            this.mLocation = latLng;
-            return this;
-        }
-        return (PoiNearbySearchOption) invokeL.objValue;
+        this.mLocation = latLng;
+        return this;
     }
 
     public PoiNearbySearchOption pageCapacity(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            this.mPageCapacity = i;
-            return this;
-        }
-        return (PoiNearbySearchOption) invokeI.objValue;
+        this.mPageCapacity = i;
+        return this;
     }
 
     public PoiNearbySearchOption pageNum(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            this.mPageNum = i;
-            return this;
-        }
-        return (PoiNearbySearchOption) invokeI.objValue;
+        this.mPageNum = i;
+        return this;
     }
 
     public PoiNearbySearchOption poiFilter(PoiFilter poiFilter) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, poiFilter)) == null) {
-            this.mPoiFilter = poiFilter;
-            return this;
-        }
-        return (PoiNearbySearchOption) invokeL.objValue;
+        this.mPoiFilter = poiFilter;
+        return this;
     }
 
     public PoiNearbySearchOption radius(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            this.mRadius = i;
-            return this;
-        }
-        return (PoiNearbySearchOption) invokeI.objValue;
+        this.mRadius = i;
+        return this;
     }
 
     public PoiNearbySearchOption radiusLimit(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-            this.mRadiusLimit = z;
-            return this;
-        }
-        return (PoiNearbySearchOption) invokeZ.objValue;
+        this.mRadiusLimit = z;
+        return this;
     }
 
     public PoiNearbySearchOption scope(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            this.mScope = i;
-            return this;
-        }
-        return (PoiNearbySearchOption) invokeI.objValue;
+        this.mScope = i;
+        return this;
     }
 
     public PoiNearbySearchOption sortType(PoiSortType poiSortType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, poiSortType)) == null) {
-            if (poiSortType != null) {
-                this.sortType = poiSortType;
-            }
-            return this;
+        if (poiSortType != null) {
+            this.sortType = poiSortType;
         }
-        return (PoiNearbySearchOption) invokeL.objValue;
+        return this;
     }
 
     public PoiNearbySearchOption tag(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            this.mTag = str;
-            return this;
-        }
-        return (PoiNearbySearchOption) invokeL.objValue;
-    }
-
-    public boolean isExtendAdcode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mIsExtendAdcode;
-        }
-        return invokeV.booleanValue;
+        this.mTag = str;
+        return this;
     }
 }

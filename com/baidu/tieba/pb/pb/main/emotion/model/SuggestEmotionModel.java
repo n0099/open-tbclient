@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.af8;
 import com.baidu.tieba.gh;
+import com.baidu.tieba.mi8;
 import com.baidu.tieba.pb.pb.main.emotion.message.SuggestEmotionResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,7 +31,7 @@ public class SuggestEmotionModel extends BdBaseModel {
 
     /* loaded from: classes5.dex */
     public interface c {
-        void a(af8 af8Var);
+        void a(mi8 mi8Var);
 
         void onFail(int i, String str);
     }
@@ -188,7 +188,7 @@ public class SuggestEmotionModel extends BdBaseModel {
         registerListener(this.e);
     }
 
-    public void J(String str, String str2, c cVar) {
+    public void Q(String str, String str2, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, cVar) == null) {
             this.a = cVar;

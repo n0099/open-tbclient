@@ -1,128 +1,114 @@
 package org.apache.commons.codec.binary4util;
 
 import android.annotation.SuppressLint;
-import androidx.core.view.InputDeviceCompat;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import java.math.BigInteger;
 import org.apache.commons.codec.binary4util.BaseNCodec;
+import org.apache.commons.codec.net.QCodec;
 @SuppressLint({"BDThrowableCheck"})
 /* loaded from: classes9.dex */
 public class Base64 extends BaseNCodec {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int BITS_PER_ENCODED_BYTE = 6;
     public static final int BYTES_PER_ENCODED_BLOCK = 4;
     public static final int BYTES_PER_UNENCODED_BLOCK = 3;
-    public static final byte[] CHUNK_SEPARATOR;
-    public static final byte[] DECODE_TABLE;
     public static final int MASK_6BITS = 63;
-    public static final byte[] STANDARD_ENCODE_TABLE;
-    public static final byte[] URL_SAFE_ENCODE_TABLE;
-    public transient /* synthetic */ FieldHolder $fh;
     public final int decodeSize;
     public final byte[] decodeTable;
     public final int encodeSize;
     public final byte[] encodeTable;
     public final byte[] lineSeparator;
+    public static final byte[] CHUNK_SEPARATOR = {13, 10};
+    public static final byte[] STANDARD_ENCODE_TABLE = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+    public static final byte[] URL_SAFE_ENCODE_TABLE = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, QCodec.UNDERSCORE};
+    public static final byte[] DECODE_TABLE = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 62, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, Constants.GZIP_CAST_TYPE, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, com.baidu.webkit.internal.Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 37, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, ExifInterface.START_CODE, 43, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 47, 48, 49, 50, 51};
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-878726872, "Lorg/apache/commons/codec/binary4util/Base64;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-878726872, "Lorg/apache/commons/codec/binary4util/Base64;");
-                return;
-            }
-        }
-        CHUNK_SEPARATOR = new byte[]{13, 10};
-        STANDARD_ENCODE_TABLE = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
-        URL_SAFE_ENCODE_TABLE = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 95};
-        DECODE_TABLE = new byte[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 62, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, BaseNCodec.PAD_DEFAULT, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, Constants.GZIP_CAST_TYPE, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, com.baidu.webkit.internal.Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, ExifInterface.START_CODE, 43, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 47, 48, 49, 50, 51};
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Base64() {
         this(0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
     }
 
     public boolean isUrlSafe() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.encodeTable == URL_SAFE_ENCODE_TABLE) {
-                return true;
+        if (this.encodeTable == URL_SAFE_ENCODE_TABLE) {
+            return true;
+        }
+        return false;
+    }
+
+    public Base64(int i) {
+        this(i, CHUNK_SEPARATOR);
+    }
+
+    public static byte[] decodeBase64(String str) {
+        return new Base64().decode(str);
+    }
+
+    public static BigInteger decodeInteger(byte[] bArr) {
+        return new BigInteger(1, decodeBase64(bArr));
+    }
+
+    public static byte[] encodeBase64(byte[] bArr) {
+        return encodeBase64(bArr, false);
+    }
+
+    public static byte[] encodeBase64Chunked(byte[] bArr) {
+        return encodeBase64(bArr, true);
+    }
+
+    public static String encodeBase64String(byte[] bArr) {
+        return org.apache.commons.base.binary4util.CodecStringUtils.newStringUsAscii(encodeBase64(bArr, false));
+    }
+
+    public static byte[] encodeBase64URLSafe(byte[] bArr) {
+        return encodeBase64(bArr, false, true);
+    }
+
+    public static String encodeBase64URLSafeString(byte[] bArr) {
+        return org.apache.commons.base.binary4util.CodecStringUtils.newStringUsAscii(encodeBase64(bArr, false, true));
+    }
+
+    public static byte[] encodeInteger(BigInteger bigInteger) {
+        if (bigInteger != null) {
+            return encodeBase64(toIntegerBytes(bigInteger), false);
+        }
+        throw new NullPointerException("encodeInteger called with null parameter");
+    }
+
+    @Deprecated
+    public static boolean isArrayByteBase64(byte[] bArr) {
+        return isBase64(bArr);
+    }
+
+    public static boolean isBase64(byte b) {
+        if (b != 61) {
+            if (b >= 0) {
+                byte[] bArr = DECODE_TABLE;
+                if (b >= bArr.length || bArr[b] == -1) {
+                }
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return true;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public Base64(int i) {
-        this(i, CHUNK_SEPARATOR);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), (byte[]) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+    @Override // org.apache.commons.codec.binary4util.BaseNCodec
+    public boolean isInAlphabet(byte b) {
+        if (b >= 0) {
+            byte[] bArr = this.decodeTable;
+            if (b < bArr.length && bArr[b] != -1) {
+                return true;
             }
         }
+        return false;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Base64(int i, byte[] bArr) {
         this(i, bArr, false);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), bArr};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), (byte[]) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
+    }
+
+    public static byte[] encodeBase64(byte[] bArr, boolean z) {
+        return encodeBase64(bArr, z, false);
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
@@ -133,22 +119,6 @@ public class Base64 extends BaseNCodec {
         super(3, 4, i, r1);
         int length;
         byte[] bArr2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), bArr, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
         if (bArr == null) {
             length = 0;
         } else {
@@ -183,247 +153,72 @@ public class Base64 extends BaseNCodec {
         this.encodeTable = bArr2;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Base64(boolean z) {
         this(76, CHUNK_SEPARATOR, z);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65541, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), (byte[]) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65541, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public static byte[] toIntegerBytes(BigInteger bigInteger) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, bigInteger)) == null) {
-            int bitLength = ((bigInteger.bitLength() + 7) >> 3) << 3;
-            byte[] byteArray = bigInteger.toByteArray();
-            int i = 1;
-            if (bigInteger.bitLength() % 8 != 0 && (bigInteger.bitLength() / 8) + 1 == bitLength / 8) {
-                return byteArray;
-            }
-            int length = byteArray.length;
-            if (bigInteger.bitLength() % 8 == 0) {
-                length--;
-            } else {
-                i = 0;
-            }
-            int i2 = bitLength / 8;
-            int i3 = i2 - length;
-            byte[] bArr = new byte[i2];
-            System.arraycopy(byteArray, i, bArr, i3, length);
-            return bArr;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] decodeBase64(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            return new Base64().decode(str);
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static BigInteger decodeInteger(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) {
-            return new BigInteger(1, decodeBase64(bArr));
-        }
-        return (BigInteger) invokeL.objValue;
-    }
-
-    public static byte[] encodeBase64(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bArr)) == null) {
-            return encodeBase64(bArr, false);
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] encodeBase64Chunked(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, bArr)) == null) {
-            return encodeBase64(bArr, true);
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static String encodeBase64String(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, bArr)) == null) {
-            return org.apache.commons.base.binary4util.CodecStringUtils.newStringUsAscii(encodeBase64(bArr, false));
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static byte[] encodeBase64URLSafe(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, bArr)) == null) {
-            return encodeBase64(bArr, false, true);
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static String encodeBase64URLSafeString(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, bArr)) == null) {
-            return org.apache.commons.base.binary4util.CodecStringUtils.newStringUsAscii(encodeBase64(bArr, false, true));
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static byte[] encodeInteger(BigInteger bigInteger) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, bigInteger)) == null) {
-            if (bigInteger != null) {
-                return encodeBase64(toIntegerBytes(bigInteger), false);
-            }
-            throw new NullPointerException("encodeInteger called with null parameter");
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static boolean isArrayByteBase64(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, bArr)) == null) {
-            return isBase64(bArr);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean isBase64(byte b) {
-        InterceptResult invokeB;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeB = interceptable.invokeB(65555, null, b)) == null) {
-            if (b != 61) {
-                if (b >= 0) {
-                    byte[] bArr = DECODE_TABLE;
-                    if (b >= bArr.length || bArr[b] == -1) {
-                    }
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeB.booleanValue;
-    }
-
-    @Override // org.apache.commons.codec.binary4util.BaseNCodec
-    public boolean isInAlphabet(byte b) {
-        InterceptResult invokeB;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeB = interceptable.invokeB(Constants.METHOD_SEND_USER_MSG, this, b)) == null) {
-            if (b >= 0) {
-                byte[] bArr = this.decodeTable;
-                if (b < bArr.length && bArr[b] != -1) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeB.booleanValue;
     }
 
     public static byte[] decodeBase64(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
-            return new Base64().decode(bArr);
-        }
-        return (byte[]) invokeL.objValue;
+        return new Base64().decode(bArr);
     }
 
     public static boolean isBase64(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) {
-            return isBase64(org.apache.commons.base.binary4util.CodecStringUtils.getBytesUtf8(str));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static byte[] encodeBase64(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65546, null, bArr, z)) == null) {
-            return encodeBase64(bArr, z, false);
-        }
-        return (byte[]) invokeLZ.objValue;
+        return isBase64(org.apache.commons.base.binary4util.CodecStringUtils.getBytesUtf8(str));
     }
 
     public static byte[] encodeBase64(byte[] bArr, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{bArr, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            return encodeBase64(bArr, z, z2, Integer.MAX_VALUE);
-        }
-        return (byte[]) invokeCommon.objValue;
+        return encodeBase64(bArr, z, z2, Integer.MAX_VALUE);
     }
 
     public static byte[] encodeBase64(byte[] bArr, boolean z, boolean z2, int i) {
-        InterceptResult invokeCommon;
         Base64 base64;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{bArr, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)})) == null) {
-            if (bArr != null && bArr.length != 0) {
-                if (z) {
-                    base64 = new Base64(z2);
-                } else {
-                    base64 = new Base64(0, CHUNK_SEPARATOR, z2);
-                }
-                long encodedLength = base64.getEncodedLength(bArr);
-                if (encodedLength <= i) {
-                    return base64.encode(bArr);
-                }
-                throw new IllegalArgumentException("Input array too big, the output array would be bigger (" + encodedLength + ") than the specified maximum size of " + i);
+        if (bArr != null && bArr.length != 0) {
+            if (z) {
+                base64 = new Base64(z2);
+            } else {
+                base64 = new Base64(0, CHUNK_SEPARATOR, z2);
             }
-            return bArr;
+            long encodedLength = base64.getEncodedLength(bArr);
+            if (encodedLength <= i) {
+                return base64.encode(bArr);
+            }
+            throw new IllegalArgumentException("Input array too big, the output array would be bigger (" + encodedLength + ") than the specified maximum size of " + i);
         }
-        return (byte[]) invokeCommon.objValue;
+        return bArr;
     }
 
     public static boolean isBase64(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, bArr)) == null) {
-            for (int i = 0; i < bArr.length; i++) {
-                if (!isBase64(bArr[i]) && !BaseNCodec.isWhiteSpace(bArr[i])) {
-                    return false;
-                }
+        for (int i = 0; i < bArr.length; i++) {
+            if (!isBase64(bArr[i]) && !BaseNCodec.isWhiteSpace(bArr[i])) {
+                return false;
             }
-            return true;
         }
-        return invokeL.booleanValue;
+        return true;
+    }
+
+    public static byte[] toIntegerBytes(BigInteger bigInteger) {
+        int bitLength = ((bigInteger.bitLength() + 7) >> 3) << 3;
+        byte[] byteArray = bigInteger.toByteArray();
+        int i = 1;
+        if (bigInteger.bitLength() % 8 != 0 && (bigInteger.bitLength() / 8) + 1 == bitLength / 8) {
+            return byteArray;
+        }
+        int length = byteArray.length;
+        if (bigInteger.bitLength() % 8 == 0) {
+            length--;
+        } else {
+            i = 0;
+        }
+        int i2 = bitLength / 8;
+        int i3 = i2 - length;
+        byte[] bArr = new byte[i2];
+        System.arraycopy(byteArray, i, bArr, i3, length);
+        return bArr;
     }
 
     @Override // org.apache.commons.codec.binary4util.BaseNCodec
     public void decode(byte[] bArr, int i, int i2, BaseNCodec.Context context) {
         byte b;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), context}) != null) || context.eof) {
+        if (context.eof) {
             return;
         }
         if (i2 < 0) {
@@ -493,8 +288,7 @@ public class Base64 extends BaseNCodec {
 
     @Override // org.apache.commons.codec.binary4util.BaseNCodec
     public void encode(byte[] bArr, int i, int i2, BaseNCodec.Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), context}) != null) || context.eof) {
+        if (context.eof) {
             return;
         }
         if (i2 < 0) {

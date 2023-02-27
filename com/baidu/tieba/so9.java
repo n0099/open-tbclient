@@ -1,60 +1,91 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.retrieve.inter.IFetchJob;
-import com.baidu.searchbox.retrieve.inter.upload.IUploadTask;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Intent;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tbadk.data.AtSelectData;
 import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
-@Service
+import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class so9 extends IFetchJob {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface so9 {
+    void B();
 
-    @Override // com.baidu.searchbox.retrieve.inter.IFetchJob
-    public String getFetchJobType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "tbFetch" : (String) invokeV.objValue;
-    }
+    void C();
 
-    public so9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void D(yc5 yc5Var);
 
-    public final void a(String str, String str2, String str3, long j, long j2, long j3, List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), list}) == null) {
-            ((IUploadTask) ServiceManager.getService(IUploadTask.SERVICE_REFERENCE)).fetchUpload(str, str2, str3, j, j2, j3, list);
-        }
-    }
+    void E();
 
-    @Override // com.baidu.searchbox.retrieve.inter.IFetchJob
-    public void dispatch(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("*/*");
-        a(jSONObject.optString("type", "tbFetch"), jSONObject.optString("jobId", ""), jSONObject.optString("version", ""), jSONObject.optLong("maxSizeLimit", com.baidu.down.utils.Constants.TEST_SPEED_THRESHOLD_DEFAULT), jSONObject.optLong("startTime", 0L), jSONObject.optLong("endTime", System.currentTimeMillis()), arrayList);
-    }
+    LinkedList<t65> F();
+
+    void b(boolean z);
+
+    void c(int i, boolean z);
+
+    void d();
+
+    void e();
+
+    void f(String str);
+
+    int g();
+
+    void h();
+
+    boolean i();
+
+    void j();
+
+    void k(boolean z);
+
+    void m();
+
+    void n(@Nullable ArrayList<AtSelectData> arrayList);
+
+    void o(boolean z);
+
+    void onActivityResult(int i, int i2, Intent intent);
+
+    boolean onBackPressed();
+
+    void onChangeSkinType(int i);
+
+    void onCreate(Bundle bundle);
+
+    void onDestroy();
+
+    void onNewIntent(Intent intent);
+
+    void onPause();
+
+    void onResume();
+
+    void onSaveInstanceState(Bundle bundle);
+
+    void onStart();
+
+    void onStop();
+
+    void p(boolean z);
+
+    void r();
+
+    void s();
+
+    @NonNull
+    PermissionJudgePolicy t();
+
+    void u();
+
+    void v();
+
+    void w();
+
+    void x(int[] iArr);
+
+    void y(boolean z);
+
+    void z(yc5 yc5Var);
 }

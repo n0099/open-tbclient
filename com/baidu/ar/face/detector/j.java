@@ -1,16 +1,6 @@
 package com.baidu.ar.face.detector;
-
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class j extends com.baidu.ar.d.h {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public int mCacheSize;
     public String pb;
     public String pc;
@@ -28,22 +18,8 @@ public class j extends com.baidu.ar.d.h {
     public float po;
     public float pp;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j() {
-        super(com.baidu.ar.d.i.ne);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((com.baidu.ar.d.i) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+        super(com.baidu.ar.d.i.FACE);
         this.pn = 0.03f;
         this.po = 1.0f;
         this.pp = -1.0f;
@@ -51,179 +27,110 @@ public class j extends com.baidu.ar.d.h {
     }
 
     public void I(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.pl = i;
-        }
+        this.pl = i;
     }
 
     public void J(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.pm = i;
-        }
+        this.pm = i;
     }
 
     public void ac(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.pb = str;
-        }
+        this.pb = str;
     }
 
     public void ad(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.pc = str;
-        }
+        this.pc = str;
     }
 
     public void ae(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.pd = str;
-        }
+        this.pd = str;
     }
 
     public void af(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.pe = str;
-        }
+        this.pe = str;
     }
 
     public void ag(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.pf = str;
-        }
+        this.pf = str;
     }
 
     public void ah(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.pg = str;
-        }
+        this.pg = str;
     }
 
     public void ai(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.ph = str;
-        }
+        this.ph = str;
     }
 
     public void aj(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.pi = str;
-        }
+        this.pi = str;
     }
 
     public void ak(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.pj = str;
-        }
+        this.pj = str;
     }
 
     public void al(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.pk = str;
-        }
+        this.pk = str;
     }
 
     public String en() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.pb : (String) invokeV.objValue;
+        return this.pb;
     }
 
     public String eo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.pc : (String) invokeV.objValue;
+        return this.pc;
     }
 
     public String ep() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.pd : (String) invokeV.objValue;
+        return this.pd;
     }
 
     public String eq() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.pe : (String) invokeV.objValue;
+        return this.pe;
     }
 
     public String er() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.pf : (String) invokeV.objValue;
+        return this.pf;
     }
 
     public String es() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.pg : (String) invokeV.objValue;
+        return this.pg;
     }
 
     public String et() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.ph : (String) invokeV.objValue;
+        return this.ph;
     }
 
     public String eu() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.pi : (String) invokeV.objValue;
+        return this.pi;
     }
 
     public String ev() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.pj : (String) invokeV.objValue;
+        return this.pj;
     }
 
     public String ew() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.pk : (String) invokeV.objValue;
+        return this.pk;
     }
 
     public int ex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.pl : invokeV.intValue;
+        return this.pl;
     }
 
     public int ey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.pm : invokeV.intValue;
+        return this.pm;
     }
 
     public void setTrackingMouthThreshold(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048600, this, f) == null) {
-            this.pp = f;
-        }
+        this.pp = f;
     }
 
     public void setTrackingSmoothAlpha(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048601, this, f) == null) {
-            this.pn = f;
-        }
+        this.pn = f;
     }
 
     public void setTrackingSmoothThreshold(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048602, this, f) == null) {
-            this.po = f;
-        }
+        this.po = f;
     }
 }

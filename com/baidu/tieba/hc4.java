@@ -1,108 +1,251 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewParent;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.callback.StringResponseCallback;
-import com.baidu.searchbox.http.request.PostFormRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class hc4 {
+public class hc4 implements dr1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<lo3> a;
+    public FrameLayout b;
+    public boolean c;
+    public boolean d;
 
-    /* loaded from: classes4.dex */
-    public static class a extends StringResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+    public hc4(@NonNull FrameLayout frameLayout) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frameLayout};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList<>();
+        this.d = false;
+        this.b = frameLayout;
+    }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+    @Override // com.baidu.tieba.dr1
+    public boolean a(View view2, sz2 sz2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, sz2Var)) == null) {
+            if (!d(view2)) {
+                return false;
+            }
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(sz2Var.f(), sz2Var.c());
+            layoutParams.leftMargin = sz2Var.d();
+            layoutParams.topMargin = sz2Var.e();
+            this.b.updateViewLayout(view2, layoutParams);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dr1
+    public boolean c(View view2, sz2 sz2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, sz2Var)) == null) {
+            if (view2 != null && sz2Var != null) {
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(sz2Var.f(), sz2Var.c());
+                layoutParams.leftMargin = sz2Var.d();
+                layoutParams.topMargin = sz2Var.e();
+                this.b.addView(view2, layoutParams);
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dr1
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dr1
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b.getContext();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.dr1
+    public FrameLayout getRootView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b;
+        }
+        return (FrameLayout) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.dr1
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final synchronized void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            synchronized (this) {
+                this.a.clear();
             }
         }
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public final synchronized lo3[] j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            synchronized (this) {
+                if (this.a.isEmpty()) {
+                    return null;
+                }
+                lo3[] lo3VarArr = new lo3[this.a.size()];
+                this.a.toArray(lo3VarArr);
+                return lo3VarArr;
+            }
+        }
+        return (lo3[]) invokeV.objValue;
+    }
+
+    public void k() {
+        lo3[] j;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (j = j()) != null) {
+            for (lo3 lo3Var : j) {
+                lo3Var.e();
+            }
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            lo3[] j = j();
+            if (j != null) {
+                for (lo3 lo3Var : j) {
+                    lo3Var.onViewDestroy();
+                }
+            }
+            i();
+        }
+    }
+
+    public void m() {
+        lo3[] j;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (j = j()) != null) {
+            for (lo3 lo3Var : j) {
+                lo3Var.l();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.dr1
+    public boolean d(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
+            if (view2 == null) {
+                return false;
+            }
+            ViewParent parent = view2.getParent();
+            FrameLayout frameLayout = this.b;
+            if (parent != frameLayout || frameLayout.indexOfChild(view2) < 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dr1
+    public synchronized void e(lo3 lo3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, lo3Var) == null) {
+            synchronized (this) {
+                if (lo3Var == null) {
+                    return;
+                }
+                if (!this.a.contains(lo3Var)) {
+                    this.a.add(lo3Var);
                 }
             }
         }
     }
 
-    public static Map<String, String> a(@NonNull w83 w83Var, int i, String str) {
-        InterceptResult invokeLIL;
+    @Override // com.baidu.tieba.dr1
+    public synchronized void f(lo3 lo3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, w83Var, i, str)) == null) {
-            TreeMap treeMap = new TreeMap();
-            treeMap.put("app_key", w83Var.O());
-            treeMap.put("to_app_key", str);
-            treeMap.put("source", String.valueOf(i));
-            treeMap.put("timestamp", c());
-            StringBuilder sb = new StringBuilder();
-            for (String str2 : treeMap.keySet()) {
-                sb.append(str2);
-                sb.append("=");
-                sb.append((String) treeMap.get(str2));
-                sb.append("&");
+        if (interceptable == null || interceptable.invokeL(1048581, this, lo3Var) == null) {
+            synchronized (this) {
+                if (lo3Var == null) {
+                    return;
+                }
+                this.a.remove(lo3Var);
             }
-            sb.append("dsb9Ao44");
-            treeMap.put("sign", cp4.d(sb.toString().getBytes(), false));
-            return treeMap;
         }
-        return (Map) invokeLIL.objValue;
     }
 
-    public static void b(int i, @NonNull ResponseCallback responseCallback) {
+    @Override // com.baidu.tieba.dr1
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65537, null, i, responseCallback) == null) {
-            w83 M = w83.M();
-            if (M == null) {
-                responseCallback.onFail(new Exception("framework error: swan app is null."));
-                return;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.dr1
+    public boolean removeView(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, view2)) == null) {
+            if (!d(view2)) {
+                return false;
             }
-            M.i0().getRequest().cookieManager(ds2.q().a()).url(n54.b().p()).addUrlParam("app_key", M.O()).addUrlParam(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(5)).addUrlParam("source", String.valueOf(i)).requestFrom(16).requestFrom(1607).build().executeAsync(responseCallback);
+            this.b.removeView(view2);
+            return true;
         }
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return String.valueOf(System.currentTimeMillis() / 1000);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d(int i, String str) {
-        w83 M;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(65539, null, i, str) != null) || (M = w83.M()) == null) {
-            return;
-        }
-        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) M.i0().postFormRequest().cookieManager(ds2.q().a())).url(n54.b().g())).addParams(a(M, i, str)).requestFrom(16)).requestFrom(1607)).build().executeAsync(new a());
+        return invokeL.booleanValue;
     }
 }

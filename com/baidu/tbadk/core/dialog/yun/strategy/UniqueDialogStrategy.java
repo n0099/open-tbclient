@@ -1,13 +1,15 @@
 package com.baidu.tbadk.core.dialog.yun.strategy;
 
+import android.os.Build;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.b;
-import com.baidu.tieba.i15;
-import com.baidu.tieba.log.TbLogManager;
+import com.baidu.tieba.r08;
+import com.baidu.tieba.u25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes3.dex */
-public class UniqueDialogStrategy implements i15 {
+public class UniqueDialogStrategy implements u25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,7 +59,7 @@ public class UniqueDialogStrategy implements i15 {
         }
     }
 
-    @Override // com.baidu.tieba.i15
+    @Override // com.baidu.tieba.u25
     @NonNull
     public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
         InterceptResult invokeLLL;
@@ -70,7 +72,7 @@ public class UniqueDialogStrategy implements i15 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.i15
+    @Override // com.baidu.tieba.u25
     public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -82,7 +84,12 @@ public class UniqueDialogStrategy implements i15 {
             }
             boolean isEmpty = set.isEmpty();
             if (!isEmpty) {
-                TbLogManager.logI("5001", "YunDialogManager", "UniqueDialogStrategy:isNeedShowDialog:" + b.a(",", data.currentShowingDialogList));
+                String obj = data.currentShowingDialogList.toString();
+                if (Build.VERSION.SDK_INT >= 26) {
+                    obj = b.a(",", data.currentShowingDialogList);
+                }
+                r08 yunDialogLog = YunDialogLog.getInstance();
+                yunDialogLog.c("YunDialogManager", "云弹窗命中唯一策略，当前正在显示弹窗：" + obj);
             }
             return isEmpty;
         }

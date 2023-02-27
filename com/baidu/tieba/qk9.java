@@ -1,9 +1,9 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface qk9 {
-    void l(@NonNull vk9 vk9Var);
+    void c(int i, int i2);
 
-    void q(@NonNull vk9 vk9Var, boolean z);
+    void f();
+
+    void setDragMode(int i, int i2);
 }

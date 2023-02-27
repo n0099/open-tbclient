@@ -1,176 +1,237 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Build;
-import android.os.StatFs;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.pi3;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.util.BaiduIdentityManager;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ml3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile String a;
+    public static final boolean a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
+    public static class a {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static String f = "%s/%s";
+        public static String g = "%s-%s/%s";
+        public static String h = "(Baidu; P1 %s)";
+        public static String i = "%s/%s";
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ pn3 c;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
 
-        public a(int i, long j, pn3 pn3Var) {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-600373384, "Lcom/baidu/tieba/ml3$a;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-600373384, "Lcom/baidu/tieba/ml3$a;");
+            }
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), pn3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
-            this.a = i;
-            this.b = j;
-            this.c = pn3Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public final boolean e() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    ml3.f(jSONObject, j03.c(), this.a, this.b);
-                } catch (Exception e) {
-                    wl3.f(jSONObject, "errorMsg", e.getMessage());
-                }
-                this.c.a(jSONObject);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return TextUtils.equals(BaiduIdentityManager.VALUE_OSNAME, this.c);
             }
+            return invokeV.booleanValue;
+        }
+
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                String format = String.format(f, this.a, this.b);
+                String format2 = String.format(g, this.a, this.c, this.d);
+                String format3 = String.format(i, this.c, this.d);
+                String format4 = String.format(h, this.e);
+                if (e()) {
+                    return String.format("%s %s %s %s", format, format2, format3, format4);
+                }
+                return String.format("%s %s %s", format, format2, format4);
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public a b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.a = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a c(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.c = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                this.d = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a f(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+                this.e = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a g(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+                this.b = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
     }
 
-    public ml3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947976469, "Lcom/baidu/tieba/ml3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947976469, "Lcom/baidu/tieba/ml3;");
+                return;
             }
         }
+        a = wp1.a;
+    }
+
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            String str = Build.VERSION.RELEASE;
+            if (TextUtils.isEmpty(str)) {
+                return "0.0";
+            }
+            return str.replace("_", "-");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d(SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME);
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                synchronized (ml3.class) {
-                    a = e();
-                }
-            }
-            return a;
+            return d("swan");
         }
         return (String) invokeV.objValue;
     }
 
-    public static String b(long j) {
-        InterceptResult invokeJ;
+    public static Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            return new DecimalFormat("#.##").format(j / 1.073741824E9d);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return ts2.c();
         }
-        return (String) invokeJ.objValue;
+        return (Context) invokeV.objValue;
     }
 
-    public static void d(@NonNull tt2 tt2Var, @NonNull pn3<JSONObject> pn3Var) {
+    public static String d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tt2Var, pn3Var) == null) {
-            ExecutorUtilsExt.postOnElastic(new a(tt2Var.i("host_launch_type"), tt2Var.k("box_cold_launch"), pn3Var), "getDeviceInfoAsync", 2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            String a2 = ts2.n().a();
+            a aVar = new a();
+            aVar.b(str);
+            aVar.g(xp1.a());
+            aVar.c(a2);
+            aVar.d(e());
+            aVar.f(a());
+            return aVar.a();
         }
+        return (String) invokeL.objValue;
     }
 
     public static String e() {
         InterceptResult invokeV;
-        String replace;
-        String replace2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String str = Build.MODEL;
-            String str2 = "NUL";
-            if (TextUtils.isEmpty(str)) {
-                replace = "NUL";
-            } else {
-                replace = str.replace("_", "-");
+            if (!TextUtils.isEmpty(b)) {
+                return b;
             }
-            String str3 = Build.VERSION.RELEASE;
-            if (TextUtils.isEmpty(str3)) {
-                replace2 = "0.0";
-            } else {
-                replace2 = str3.replace("_", "-");
+            try {
+                String str = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
+                b = str;
+                return str;
+            } catch (PackageManager.NameNotFoundException e) {
+                if (a) {
+                    e.printStackTrace();
+                    return "0.8";
+                }
+                return "0.8";
             }
-            int i = Build.VERSION.SDK_INT;
-            String str4 = Build.MANUFACTURER;
-            if (!TextUtils.isEmpty(str4)) {
-                str2 = str4.replace("_", "-");
-            }
-            return replace + "_" + replace2 + "_" + i + "_" + str2;
         }
         return (String) invokeV.objValue;
-    }
-
-    public static void f(@NonNull JSONObject jSONObject, int i, int i2, long j) {
-        int i3;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{jSONObject, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            wl3.f(jSONObject, "model", Build.MODEL);
-            wl3.f(jSONObject, "systemVersion", Build.VERSION.RELEASE);
-            wl3.f(jSONObject, "netStatus", Integer.valueOf(i));
-            pi3.a a2 = pi3.a(ds2.c());
-            if (a2 == null) {
-                i3 = -1;
-            } else {
-                i3 = a2.a;
-            }
-            wl3.f(jSONObject, "batteryLevel", Integer.valueOf(i3));
-            wl3.f(jSONObject, "appCurVersion", qm3.D());
-            wl3.f(jSONObject, "startupType", String.valueOf(i2));
-            wl3.f(jSONObject, "coldLaunchTime", Long.valueOf(j));
-            StatFs statFs = new StatFs(sr2.i());
-            wl3.f(jSONObject, "totalDiskSpace", b(statFs.getTotalBytes()));
-            wl3.f(jSONObject, "freeDiskSpace", b(statFs.getAvailableBytes()));
-            ActivityManager activityManager = (ActivityManager) v83.K().getSystemService("activity");
-            if (activityManager != null) {
-                ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-                activityManager.getMemoryInfo(memoryInfo);
-                wl3.f(jSONObject, "totalMemory", b(memoryInfo.totalMem));
-                wl3.f(jSONObject, "freeMemory", b(memoryInfo.availMem));
-                if (memoryInfo.lowMemory) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                wl3.f(jSONObject, "lowMemory", str);
-            }
-        }
     }
 }

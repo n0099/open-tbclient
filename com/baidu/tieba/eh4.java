@@ -1,9 +1,7 @@
 package com.baidu.tieba;
-
-import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes4.dex */
-public interface eh4<T> {
-    void a(SQLiteDatabase sQLiteDatabase);
+public interface eh4 extends fh4 {
+    void b();
 
-    void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
+    void n(String str, String str2);
 }

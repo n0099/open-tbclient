@@ -1,138 +1,145 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.BaseAdapter;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.common.util.DeviceId;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.mx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class e78 extends BaseAdapter {
+public class e78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public final Context c;
-    public List<n78> d;
-    public a e;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void z1(int i);
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    public e78(List<n78> list, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = true;
-        this.d = list;
-        this.c = context;
-    }
-
-    public List<n78> a() {
+    public static String[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (n78 n78Var : this.d) {
-                if (n78Var.e()) {
-                    arrayList.add(n78Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            try {
+                NetWork netWork = new NetWork(TbConfig.PassConfig.GET_CERT_URL);
+                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
+                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                JSONObject jSONObject = new JSONObject(new String(netWork.getNetData()));
+                return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (BdNetTypeUtil.isWifiNet()) {
+                return UtilHelper.getWifiMac(TbadkCoreApplication.getInst().getApp());
+            }
+            return UtilHelper.getGprsIpAddress();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c(ArrayList<BasicNameValuePair> arrayList, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, arrayList, str)) == null) {
+            ArrayList arrayList2 = new ArrayList();
+            HashMap hashMap = new HashMap();
+            int size = arrayList.size();
+            for (int i = 0; i < size; i++) {
+                arrayList2.add(arrayList.get(i).getName());
+                hashMap.put(arrayList.get(i).getName(), arrayList.get(i).getValue());
+            }
+            Collections.sort(arrayList2);
+            StringBuffer stringBuffer = new StringBuffer();
+            Iterator it = arrayList2.iterator();
+            while (it.hasNext()) {
+                String str2 = (String) it.next();
+                stringBuffer.append(str2);
+                stringBuffer.append("=");
+                try {
+                    String str3 = (String) hashMap.get(str2);
+                    if (!TextUtils.isEmpty(str3)) {
+                        stringBuffer.append(URLEncoder.encode(str3, "UTF-8"));
+                    }
+                } catch (UnsupportedEncodingException e) {
+                    BdLog.e(e.getMessage());
                 }
+                stringBuffer.append("&");
             }
-            return arrayList;
+            stringBuffer.append("sign_key=" + str);
+            return lj.c(stringBuffer.toString());
         }
-        return (List) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public static mx4.b d(mx4.b bVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<n78> list = this.d;
-            if (list == null) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bVar)) == null) {
+            if (bVar == null) {
+                return null;
             }
-            return list.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public void c(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.e = aVar;
-        }
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public void e(List<n78> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.d = list;
-        }
-    }
-
-    public void f(n78 n78Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, n78Var) == null) {
-            if (n78Var.e()) {
-                this.a++;
-            } else {
-                this.a--;
+            try {
+                String[] a = a();
+                if (a == null) {
+                    return null;
+                }
+                ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
+                arrayList.add(new BasicNameValuePair("crypttype", "1"));
+                arrayList.add(new BasicNameValuePair("tpl", TbConfig.PassConfig.TPL));
+                arrayList.add(new BasicNameValuePair("appid", "1"));
+                arrayList.add(new BasicNameValuePair(DnsModel.CLIENTIP_KEY, b()));
+                arrayList.add(new BasicNameValuePair("cert_id", a[0]));
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("bduss", bVar.a);
+                jSONObject.put("ptoken", bVar.b);
+                jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
+                jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
+                arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new nx4().a(a[1], jSONObject.toString())));
+                arrayList.add(new BasicNameValuePair(FunAdSdk.PLATFORM_SIG, c(arrayList, TbConfig.PassConfig.ENC_KEY)));
+                NetWork netWork = new NetWork(TbConfig.PassConfig.LOGIN_BDUSS_URL);
+                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
+                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                netWork.setPostData(arrayList);
+                netWork.getNetContext().getRequest().mRequestGzip = true;
+                netWork.getNetContext().getRequest().mIsBaiduServer = false;
+                String postNetData = netWork.postNetData();
+                if (!netWork.getNetContext().getResponse().isRequestSuccess() || dj.isEmpty(postNetData)) {
+                    return null;
+                }
+                JSONObject jSONObject2 = new JSONObject(postNetData);
+                if (!"0".equals(jSONObject2.optString("errno"))) {
+                    return null;
+                }
+                mx4.b bVar2 = new mx4.b();
+                bVar2.a = jSONObject2.optString("bduss");
+                bVar2.b = jSONObject2.optString("ptoken");
+                jSONObject2.optString("uname");
+                return bVar2;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
             }
         }
+        return (mx4.b) invokeL.objValue;
     }
 }

@@ -18,6 +18,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.searchbox.bddownload.core.Util;
+import com.huawei.hms.common.internal.TransactionIdCreater;
 import com.ss.android.socialbase.downloader.depend.ai;
 import com.ss.android.socialbase.downloader.depend.x;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
@@ -66,7 +67,7 @@ public class f {
     public static String c = null;
     public static volatile SparseArray<Boolean> d = new SparseArray<>();
     public static volatile SparseArray<List<ai>> e = new SparseArray<>();
-    public static final char[] f = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] f = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     public static Pattern g = null;
     public static Pattern h = null;
     public static ConnectivityManager i;

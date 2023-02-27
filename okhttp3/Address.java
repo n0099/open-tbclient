@@ -1,12 +1,5 @@
 package okhttp3;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.Proxy;
 import java.net.ProxySelector;
 import java.util.List;
@@ -18,8 +11,6 @@ import okhttp3.HttpUrl;
 import okhttp3.internal.Util;
 /* loaded from: classes9.dex */
 public final class Address {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public final CertificatePinner certificatePinner;
     public final List<ConnectionSpec> connectionSpecs;
@@ -38,20 +29,6 @@ public final class Address {
 
     public Address(String str, int i, Dns dns, SocketFactory socketFactory, @Nullable SSLSocketFactory sSLSocketFactory, @Nullable HostnameVerifier hostnameVerifier, @Nullable CertificatePinner certificatePinner, Authenticator authenticator, @Nullable Proxy proxy, List<Protocol> list, List<ConnectionSpec> list2, ProxySelector proxySelector) {
         String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {str, Integer.valueOf(i), dns, socketFactory, sSLSocketFactory, hostnameVerifier, certificatePinner, authenticator, proxy, list, list2, proxySelector};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         HttpUrl.Builder builder = new HttpUrl.Builder();
         if (sSLSocketFactory != null) {
             str2 = "https";
@@ -92,192 +69,117 @@ public final class Address {
 
     @Nullable
     public CertificatePinner certificatePinner() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.certificatePinner;
-        }
-        return (CertificatePinner) invokeV.objValue;
+        return this.certificatePinner;
     }
 
     public List<ConnectionSpec> connectionSpecs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.connectionSpecs;
-        }
-        return (List) invokeV.objValue;
+        return this.connectionSpecs;
     }
 
     public Dns dns() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.dns;
-        }
-        return (Dns) invokeV.objValue;
+        return this.dns;
     }
 
     @Nullable
     public HostnameVerifier hostnameVerifier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.hostnameVerifier;
-        }
-        return (HostnameVerifier) invokeV.objValue;
+        return this.hostnameVerifier;
     }
 
     public List<Protocol> protocols() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.protocols;
-        }
-        return (List) invokeV.objValue;
+        return this.protocols;
     }
 
     @Nullable
     public Proxy proxy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.proxy;
-        }
-        return (Proxy) invokeV.objValue;
+        return this.proxy;
     }
 
     public Authenticator proxyAuthenticator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.proxyAuthenticator;
-        }
-        return (Authenticator) invokeV.objValue;
+        return this.proxyAuthenticator;
     }
 
     public ProxySelector proxySelector() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.proxySelector;
-        }
-        return (ProxySelector) invokeV.objValue;
+        return this.proxySelector;
     }
 
     public SocketFactory socketFactory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.socketFactory;
-        }
-        return (SocketFactory) invokeV.objValue;
+        return this.socketFactory;
     }
 
     @Nullable
     public SSLSocketFactory sslSocketFactory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.sslSocketFactory;
-        }
-        return (SSLSocketFactory) invokeV.objValue;
+        return this.sslSocketFactory;
     }
 
     public HttpUrl url() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.url;
-        }
-        return (HttpUrl) invokeV.objValue;
+        return this.url;
     }
 
     public boolean equals(@Nullable Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (obj instanceof Address) {
-                Address address = (Address) obj;
-                if (this.url.equals(address.url) && equalsNonHost(address)) {
-                    return true;
-                }
+        if (obj instanceof Address) {
+            Address address = (Address) obj;
+            if (this.url.equals(address.url) && equalsNonHost(address)) {
+                return true;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        return false;
     }
 
     public boolean equalsNonHost(Address address) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, address)) == null) {
-            if (this.dns.equals(address.dns) && this.proxyAuthenticator.equals(address.proxyAuthenticator) && this.protocols.equals(address.protocols) && this.connectionSpecs.equals(address.connectionSpecs) && this.proxySelector.equals(address.proxySelector) && Util.equal(this.proxy, address.proxy) && Util.equal(this.sslSocketFactory, address.sslSocketFactory) && Util.equal(this.hostnameVerifier, address.hostnameVerifier) && Util.equal(this.certificatePinner, address.certificatePinner) && url().port() == address.url().port()) {
-                return true;
-            }
-            return false;
+        if (this.dns.equals(address.dns) && this.proxyAuthenticator.equals(address.proxyAuthenticator) && this.protocols.equals(address.protocols) && this.connectionSpecs.equals(address.connectionSpecs) && this.proxySelector.equals(address.proxySelector) && Util.equal(this.proxy, address.proxy) && Util.equal(this.sslSocketFactory, address.sslSocketFactory) && Util.equal(this.hostnameVerifier, address.hostnameVerifier) && Util.equal(this.certificatePinner, address.certificatePinner) && url().port() == address.url().port()) {
+            return true;
         }
-        return invokeL.booleanValue;
+        return false;
     }
 
     public int hashCode() {
-        InterceptResult invokeV;
         int i;
         int i2;
         int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int hashCode = (((((((((((527 + this.url.hashCode()) * 31) + this.dns.hashCode()) * 31) + this.proxyAuthenticator.hashCode()) * 31) + this.protocols.hashCode()) * 31) + this.connectionSpecs.hashCode()) * 31) + this.proxySelector.hashCode()) * 31;
-            Proxy proxy = this.proxy;
-            int i4 = 0;
-            if (proxy != null) {
-                i = proxy.hashCode();
-            } else {
-                i = 0;
-            }
-            int i5 = (hashCode + i) * 31;
-            SSLSocketFactory sSLSocketFactory = this.sslSocketFactory;
-            if (sSLSocketFactory != null) {
-                i2 = sSLSocketFactory.hashCode();
-            } else {
-                i2 = 0;
-            }
-            int i6 = (i5 + i2) * 31;
-            HostnameVerifier hostnameVerifier = this.hostnameVerifier;
-            if (hostnameVerifier != null) {
-                i3 = hostnameVerifier.hashCode();
-            } else {
-                i3 = 0;
-            }
-            int i7 = (i6 + i3) * 31;
-            CertificatePinner certificatePinner = this.certificatePinner;
-            if (certificatePinner != null) {
-                i4 = certificatePinner.hashCode();
-            }
-            return i7 + i4;
+        int hashCode = (((((((((((527 + this.url.hashCode()) * 31) + this.dns.hashCode()) * 31) + this.proxyAuthenticator.hashCode()) * 31) + this.protocols.hashCode()) * 31) + this.connectionSpecs.hashCode()) * 31) + this.proxySelector.hashCode()) * 31;
+        Proxy proxy = this.proxy;
+        int i4 = 0;
+        if (proxy != null) {
+            i = proxy.hashCode();
+        } else {
+            i = 0;
         }
-        return invokeV.intValue;
+        int i5 = (hashCode + i) * 31;
+        SSLSocketFactory sSLSocketFactory = this.sslSocketFactory;
+        if (sSLSocketFactory != null) {
+            i2 = sSLSocketFactory.hashCode();
+        } else {
+            i2 = 0;
+        }
+        int i6 = (i5 + i2) * 31;
+        HostnameVerifier hostnameVerifier = this.hostnameVerifier;
+        if (hostnameVerifier != null) {
+            i3 = hostnameVerifier.hashCode();
+        } else {
+            i3 = 0;
+        }
+        int i7 = (i6 + i3) * 31;
+        CertificatePinner certificatePinner = this.certificatePinner;
+        if (certificatePinner != null) {
+            i4 = certificatePinner.hashCode();
+        }
+        return i7 + i4;
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("Address{");
-            sb.append(this.url.host());
-            sb.append(":");
-            sb.append(this.url.port());
-            if (this.proxy != null) {
-                sb.append(", proxy=");
-                sb.append(this.proxy);
-            } else {
-                sb.append(", proxySelector=");
-                sb.append(this.proxySelector);
-            }
-            sb.append("}");
-            return sb.toString();
+        StringBuilder sb = new StringBuilder();
+        sb.append("Address{");
+        sb.append(this.url.host());
+        sb.append(":");
+        sb.append(this.url.port());
+        if (this.proxy != null) {
+            sb.append(", proxy=");
+            sb.append(this.proxy);
+        } else {
+            sb.append(", proxySelector=");
+            sb.append(this.proxySelector);
         }
-        return (String) invokeV.objValue;
+        sb.append("}");
+        return sb.toString();
     }
 }

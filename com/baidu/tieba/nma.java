@@ -3,63 +3,43 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.SplitMinAmountInfo;
-import java.util.List;
+import javax.annotation.Nullable;
+import org.webrtc.CalledByNative;
+import org.webrtc.VideoCodecInfo;
+import org.webrtc.VideoDecoder;
+import org.webrtc.VideoDecoderFactory;
+/* compiled from: VideoDecoderFactory.java */
 /* loaded from: classes5.dex */
-public class nma {
+public final /* synthetic */ class nma {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(List<SplitMinAmountInfo> list) {
+    @CalledByNative
+    public static VideoCodecInfo[] $default$getSupportedCodecs(VideoDecoderFactory videoDecoderFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            RLog.info("PaySplitOrderUtils", "getSplitMinAmount splitMinAmountInfoList:" + list);
-            for (SplitMinAmountInfo splitMinAmountInfo : list) {
-                if (splitMinAmountInfo.splitType == 1) {
-                    return splitMinAmountInfo.minAmount;
-                }
-            }
-            return 0;
-        }
-        return invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, videoDecoderFactory)) == null) ? new VideoCodecInfo[0] : (VideoCodecInfo[]) invokeL.objValue;
     }
 
-    public static boolean b(int i) {
-        InterceptResult invokeI;
+    @Nullable
+    @Deprecated
+    public static VideoDecoder $default$createDecoder(VideoDecoderFactory videoDecoderFactory, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            PaysSettingInfo d = rla.d();
-            if (d == null) {
-                RLog.error("PaySplitOrderUtils", "maybeShowSplitOrderDialog error settingInfo null", new Object[0]);
-                return false;
-            }
-            return c(d.splitMinAmountInfoList, i);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, videoDecoderFactory, str)) == null) {
+            throw new UnsupportedOperationException("Deprecated and not implemented.");
         }
-        return invokeI.booleanValue;
+        return (VideoDecoder) invokeLL.objValue;
     }
 
-    public static boolean c(List<SplitMinAmountInfo> list, int i) {
-        InterceptResult invokeLI;
+    @Nullable
+    @CalledByNative
+    public static VideoDecoder $default$createDecoder(VideoDecoderFactory videoDecoderFactory, VideoCodecInfo videoCodecInfo) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i)) == null) {
-            if (list != null && !list.isEmpty()) {
-                int a = a(list);
-                if (a <= 0) {
-                    RLog.info("PaySplitOrderUtils", "maybeShowSplitOrderDialog false splitMinAmount:" + a);
-                    return false;
-                }
-                RLog.info("PaySplitOrderUtils", "maybeShowSplitOrderDialog inputAmount:" + i + " splitMinAmount:" + a);
-                if (i < a) {
-                    return false;
-                }
-                return true;
-            }
-            RLog.warn("PaySplitOrderUtils", "maybeShowSplitOrderDialog error splitMinAmountInfoList null");
-            return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, videoDecoderFactory, videoCodecInfo)) == null) {
+            return videoDecoderFactory.createDecoder(videoCodecInfo.getName());
         }
-        return invokeLI.booleanValue;
+        return (VideoDecoder) invokeLL.objValue;
     }
 }

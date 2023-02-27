@@ -1,25 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-import kotlin.Pair;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class jr {
+public abstract class jr {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<hr> a;
-    public final Set<Pair<Class<? extends fr>, gr<? extends fr>>> b;
-    public TaskInfo c;
+    public final TaskInfo a;
 
     public jr(TaskInfo taskInfo) {
         Interceptable interceptable = $ic;
@@ -36,79 +27,15 @@ public final class jr {
                 return;
             }
         }
-        this.c = taskInfo;
-        this.a = new HashSet();
-        this.b = new HashSet();
+        this.a = taskInfo;
     }
 
-    public final void b(gr<? extends fr> grVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, grVar) != null) || grVar == null) {
-            return;
-        }
-        Iterator<Pair<Class<? extends fr>, gr<? extends fr>>> it = this.b.iterator();
-        while (it.hasNext()) {
-            if (Intrinsics.areEqual(it.next().getSecond(), grVar)) {
-                it.remove();
-            }
-        }
-    }
-
-    public final Set<hr> a() {
+    public final TaskInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return CollectionsKt___CollectionsKt.toSet(this.a);
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public final Set<Pair<Class<? extends fr>, gr<? extends fr>>> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return CollectionsKt___CollectionsKt.toSet(this.b);
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public final TaskInfo h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
+            return this.a;
         }
         return (TaskInfo) invokeV.objValue;
-    }
-
-    public final void c(hr hrVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hrVar) != null) || hrVar == null) {
-            return;
-        }
-        this.a.add(hrVar);
-    }
-
-    public final void d(TaskInfo taskInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, taskInfo) == null) {
-            this.c = taskInfo;
-        }
-    }
-
-    public final void g(hr hrVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, hrVar) != null) || hrVar == null) {
-            return;
-        }
-        this.a.remove(hrVar);
-    }
-
-    public final <T extends fr> void e(Class<T> cls, gr<T> grVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, cls, grVar) != null) || grVar == null) {
-            return;
-        }
-        this.b.add(new Pair<>(cls, grVar));
     }
 }

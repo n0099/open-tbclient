@@ -9,7 +9,7 @@ public interface y3 {
 
     int d();
 
-    int getDepth();
+    int e();
 
     int getHeight();
 

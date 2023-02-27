@@ -23,12 +23,12 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.Cdo;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.dj;
+import com.baidu.tieba.ej7;
 import com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel;
 import com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView;
-import com.baidu.tieba.ig7;
-import com.baidu.tieba.mg7;
+import com.baidu.tieba.ij7;
+import com.baidu.tieba.ks4;
 import com.baidu.tieba.t9;
-import com.baidu.tieba.ur4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,10 +40,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.apache.commons.codec.language.bm.ResourceConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements ig7 {
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements ej7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicDetailModel a;
@@ -53,7 +54,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
     public long e;
     public boolean f;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.vj5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.il5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -146,7 +147,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.ig7
+    @Override // com.baidu.tieba.ej7
     public void K0(int i, boolean z, List<Cdo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) {
@@ -166,7 +167,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.ig7
+    @Override // com.baidu.tieba.ej7
     public void a() {
         int i;
         String substring;
@@ -218,7 +219,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 if (topicDetailView != null && topicDetailView.getEditor() != null) {
                     this.b.getEditor().J(this.e);
                 }
-                this.a.L(this.e);
+                this.a.S(this.e);
             }
         }
     }
@@ -249,7 +250,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             long j2 = this.c + 1;
             this.c = j2;
             this.d = j;
-            this.a.M(this.e, j2, j);
+            this.a.T(this.e, j2, j);
         }
     }
 
@@ -264,7 +265,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             setContentView(topicDetailView);
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
-            this.a.N(this);
+            this.a.U(this);
             a();
             if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !t9.f().h("MainTabActivity")) {
                 this.f = true;
@@ -276,14 +277,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.ig7
-    public void t(int i, mg7 mg7Var) {
+    @Override // com.baidu.tieba.ej7
+    public void t(int i, ij7 ij7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048586, this, i, mg7Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048586, this, i, ij7Var) == null) {
             this.b.r();
-            if (i == 0 && mg7Var != null && !ListUtils.isEmpty(mg7Var.f)) {
+            if (i == 0 && ij7Var != null && !ListUtils.isEmpty(ij7Var.f)) {
                 this.b.s();
-                this.b.setData(mg7Var);
+                this.b.setData(ij7Var);
                 return;
             }
             this.b.B(true);
@@ -293,13 +294,13 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
     public final void x1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            if (str.startsWith("//")) {
+            if (str.startsWith(ResourceConstants.CMT)) {
                 str = str.substring(2);
             }
             Map<String, String> paramPair = UrlManager.getParamPair(str);
             if (paramPair != null) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-                ur4.b(statisticItem, paramPair);
+                ks4.b(statisticItem, paramPair);
                 statisticItem.param("obj_locate", paramPair.get("obj_locate"));
                 statisticItem.param("obj_type", 1);
                 statisticItem.param("tid", paramPair.get("tid"));

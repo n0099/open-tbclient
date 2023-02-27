@@ -1,68 +1,46 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class x32 extends t32 {
+public class x32 extends s22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<c22> k;
-    public l22 l;
+    public c42 a;
 
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x32(String str) {
-        super(str);
+    public x32() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.k = new ArrayList();
-        l22 l22Var = new l22(str);
-        this.l = l22Var;
-        this.k.add(l22Var);
     }
 
-    public int h() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.s22
+    public void a(t22 t22Var, Canvas canvas) {
+        c42 c42Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.l.c();
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, t22Var, canvas) == null) && (c42Var = this.a) != null && c42Var.a()) {
+            t22Var.i = this.a;
         }
-        return invokeV.intValue;
     }
 
-    public List<c22> i() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.s22
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.k;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            this.a = new c42(jSONArray);
         }
-        return (List) invokeV.objValue;
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Context;
+import android.content.res.ColorStateList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,12 +10,21 @@ public class rn4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(View view2, int i) {
+    public static int a(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, view2, i)) == null) {
-            return view2.canScrollVertically(i);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
+            return context.getColor(i);
         }
-        return invokeLI.booleanValue;
+        return invokeLI.intValue;
+    }
+
+    public static ColorStateList b(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            return context.getColorStateList(i);
+        }
+        return (ColorStateList) invokeLI.objValue;
     }
 }

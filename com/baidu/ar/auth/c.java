@@ -3,8 +3,6 @@ package com.baidu.ar.auth;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.auth.k;
 import com.baidu.ar.bean.ARConfig;
 import com.baidu.ar.bean.DuMixARConfig;
@@ -16,147 +14,83 @@ import com.baidu.ar.ihttp.HttpFactory;
 import com.baidu.ar.ihttp.IHttpRequest;
 import com.baidu.ar.ihttp.IHttpResponse;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c implements k {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public boolean jr;
     public k.a ju;
 
     public c(f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.jr = fVar.jI;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(IAuthCallback iAuthCallback, HttpException httpException) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, this, iAuthCallback, httpException) == null) || iAuthCallback == null) {
-            return;
-        }
-        if (this.jr && httpException.getCode() == 1) {
-            iAuthCallback.onSuccess();
-        } else {
-            iAuthCallback.onError(httpException.getMessage(), 0);
+        if (iAuthCallback != null) {
+            if (this.jr && httpException.getCode() == 1) {
+                iAuthCallback.onSuccess();
+            } else {
+                iAuthCallback.onError(httpException.getMessage(), 0);
+            }
         }
     }
 
     private JSONObject k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                o.g(jSONObject);
-                o.b(context, jSONObject);
-                jSONObject.put(HttpConstants.SDK_TYPE, com.baidu.ar.h.c.gx());
-                jSONObject.put(HttpConstants.FUNCTION_TYPE, com.baidu.ar.h.c.gy());
-                jSONObject.put(HttpConstants.SDK_VERSION_CODE, com.baidu.ar.h.c.getVersionCode());
-                jSONObject.put(HttpConstants.SDK_VERSION_NAME, com.baidu.ar.h.c.getVersionName());
-                jSONObject.put("os_type", "android");
-                jSONObject.put(HttpConstants.OS_VERSION, Build.VERSION.RELEASE);
-                jSONObject.put("device_id", Build.MODEL.toLowerCase());
-                jSONObject.put("ar_key", ARConfig.getARKey());
-                jSONObject.put("ar_type", ARConfig.getARType());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
+        JSONObject jSONObject = new JSONObject();
+        try {
+            o.g(jSONObject);
+            o.b(context, jSONObject);
+            jSONObject.put("sdk_type", com.baidu.ar.h.c.gx());
+            jSONObject.put(HttpConstants.FUNCTION_TYPE, com.baidu.ar.h.c.gy());
+            jSONObject.put(HttpConstants.SDK_VERSION_CODE, com.baidu.ar.h.c.getVersionCode());
+            jSONObject.put(HttpConstants.SDK_VERSION_NAME, com.baidu.ar.h.c.getVersionName());
+            jSONObject.put("os_type", "android");
+            jSONObject.put(HttpConstants.OS_VERSION, Build.VERSION.RELEASE);
+            jSONObject.put("device_id", Build.MODEL.toLowerCase());
+            jSONObject.put("ar_key", ARConfig.getARKey());
+            jSONObject.put("ar_type", ARConfig.getARType());
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        return (JSONObject) invokeL.objValue;
+        return jSONObject;
     }
 
     private String l(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
-            try {
-                String l = d.l(context);
-                if (TextUtils.isEmpty(l) || !l.contains("-")) {
-                    return l;
-                }
-                String substring = l.substring(0, l.lastIndexOf("-"));
-                return substring + "-" + DuMixARConfig.getAipAppId();
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
+        try {
+            String l = d.l(context);
+            if (TextUtils.isEmpty(l) || !l.contains("-")) {
+                return l;
             }
+            String substring = l.substring(0, l.lastIndexOf("-"));
+            return substring + "-" + DuMixARConfig.getAipAppId();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
-        return (String) invokeL.objValue;
     }
 
     @Override // com.baidu.ar.auth.k
     public void a(k.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.ju = aVar;
-        }
+        this.ju = aVar;
     }
 
     @Override // com.baidu.ar.auth.k
-    public void doAuth(Context context, IAuthCallback iAuthCallback) {
-        IHttpRequest newRequest;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, iAuthCallback) == null) || (newRequest = HttpFactory.newRequest()) == null) {
+    public void doAuth(Context context, final IAuthCallback iAuthCallback) {
+        IHttpRequest newRequest = HttpFactory.newRequest();
+        if (newRequest == null) {
             return;
         }
         newRequest.setMethod("POST").setUrl(s.gO()).addQueryField("access_token", l(context)).setBody(k(context));
-        newRequest.enqueue(new com.baidu.ar.ihttp.a(this, iAuthCallback) { // from class: com.baidu.ar.auth.c.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c jA;
-            public final /* synthetic */ IAuthCallback jl;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, iAuthCallback};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.jA = this;
-                this.jl = iAuthCallback;
-            }
-
+        newRequest.enqueue(new com.baidu.ar.ihttp.a() { // from class: com.baidu.ar.auth.c.1
             @Override // com.baidu.ar.ihttp.a
             public void a(HttpException httpException) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, httpException) == null) {
-                    this.jA.a(this.jl, httpException);
-                }
+                c.this.a(iAuthCallback, httpException);
             }
 
-            /* JADX WARN: Removed duplicated region for block: B:13:0x0038 A[RETURN] */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x0039  */
+            /* JADX WARN: Removed duplicated region for block: B:11:0x0034 A[RETURN] */
+            /* JADX WARN: Removed duplicated region for block: B:12:0x0035  */
             @Override // com.baidu.ar.ihttp.a
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
@@ -167,16 +101,12 @@ public class c implements k {
                 HttpException httpException;
                 JSONObject jSONObject;
                 String message;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null && interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iHttpResponse) != null) {
-                    return;
-                }
                 if (iHttpResponse.isSuccess()) {
                     try {
                         jSONObject = new JSONObject(iHttpResponse.getContent());
                     } catch (Exception e) {
-                        cVar = this.jA;
-                        iAuthCallback2 = this.jl;
+                        cVar = c.this;
+                        iAuthCallback2 = iAuthCallback;
                         httpException = new HttpException(4, e.getMessage());
                     }
                     if (jSONObject != null) {
@@ -188,27 +118,27 @@ public class c implements k {
                         } catch (JSONException e2) {
                             message = e2.getMessage();
                         }
-                        IAuthCallback iAuthCallback3 = this.jl;
+                        IAuthCallback iAuthCallback3 = iAuthCallback;
                         if (iAuthCallback3 != null) {
                             iAuthCallback3.onError(message, 0);
                             return;
                         }
                         return;
                     }
-                    if (this.jA.ju != null) {
+                    if (c.this.ju != null) {
                         HashSet hashSet = new HashSet();
                         hashSet.addAll(FeatureCodes.getAll());
-                        this.jA.ju.a(hashSet);
+                        c.this.ju.a(hashSet);
                     }
-                    IAuthCallback iAuthCallback4 = this.jl;
+                    IAuthCallback iAuthCallback4 = iAuthCallback;
                     if (iAuthCallback4 != null) {
                         iAuthCallback4.onSuccess();
                         return;
                     }
                     return;
                 }
-                cVar = this.jA;
-                iAuthCallback2 = this.jl;
+                cVar = c.this;
+                iAuthCallback2 = iAuthCallback;
                 httpException = new HttpException(1, iHttpResponse.getMessage());
                 cVar.a(iAuthCallback2, httpException);
                 jSONObject = null;

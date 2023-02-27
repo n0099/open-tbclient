@@ -1,127 +1,51 @@
 package com.yy.hiidostatis.inner.util;
 
 import android.os.Handler;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.log.L;
 /* loaded from: classes8.dex */
 public class Counter implements Runnable {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Callback NONE;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final Callback NONE = new Callback() { // from class: com.yy.hiidostatis.inner.util.Counter.1
+        @Override // com.yy.hiidostatis.inner.util.Counter.Callback
+        public void onCount(int i) {
+        }
+    };
     public final long INTERVAL;
     public final int STEP;
     public int counter;
-    public Callback mCallback;
     public final Handler mHandler;
-    public boolean mRunning;
+    public Callback mCallback = NONE;
+    public boolean mRunning = false;
 
     /* loaded from: classes8.dex */
     public interface Callback {
         void onCount(int i);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(609119296, "Lcom/yy/hiidostatis/inner/util/Counter;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(609119296, "Lcom/yy/hiidostatis/inner/util/Counter;");
-                return;
-            }
-        }
-        NONE = new Callback() { // from class: com.yy.hiidostatis.inner.util.Counter.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.yy.hiidostatis.inner.util.Counter.Callback
-            public void onCount(int i) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
-                }
-            }
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-        };
-    }
-
     public int count() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.counter;
-        }
-        return invokeV.intValue;
+        return this.counter;
     }
 
     public long getInterval() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.INTERVAL;
-        }
-        return invokeV.longValue;
+        return this.INTERVAL;
     }
 
     public Counter reset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return setCounter(0);
-        }
-        return (Counter) invokeV.objValue;
+        return setCounter(0);
     }
 
     public boolean running() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mRunning;
-        }
-        return invokeV.booleanValue;
+        return this.mRunning;
+    }
+
+    public Counter stop() {
+        this.mHandler.removeCallbacks(this);
+        this.mRunning = false;
+        L.verbose(this, "counter stop ,hashCode =[%d],mRunning = %b", Integer.valueOf(hashCode()), Boolean.valueOf(this.mRunning));
+        return this;
     }
 
     public Counter(Handler handler, int i, long j, boolean z) {
         int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {handler, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mCallback = NONE;
-        this.mRunning = false;
         this.mHandler = handler;
         this.counter = i;
         this.INTERVAL = j;
@@ -136,72 +60,39 @@ public class Counter implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            L.verbose(this, "counter run ,hashCode =[%d],mRunning = %b", Integer.valueOf(hashCode()), Boolean.valueOf(this.mRunning));
-            if (this.mRunning) {
-                this.mCallback.onCount(this.counter);
-                this.counter += this.STEP;
-                this.mHandler.postDelayed(this, this.INTERVAL);
-            }
+        L.verbose(this, "counter run ,hashCode =[%d],mRunning = %b", Integer.valueOf(hashCode()), Boolean.valueOf(this.mRunning));
+        if (this.mRunning) {
+            this.mCallback.onCount(this.counter);
+            this.counter += this.STEP;
+            this.mHandler.postDelayed(this, this.INTERVAL);
         }
-    }
-
-    public Counter stop() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            this.mHandler.removeCallbacks(this);
-            this.mRunning = false;
-            L.verbose(this, "counter stop ,hashCode =[%d],mRunning = %b", Integer.valueOf(hashCode()), Boolean.valueOf(this.mRunning));
-            return this;
-        }
-        return (Counter) invokeV.objValue;
     }
 
     public void setCallback(Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, callback) == null) {
-            if (callback == null) {
-                callback = NONE;
-            }
-            this.mCallback = callback;
+        if (callback == null) {
+            callback = NONE;
         }
+        this.mCallback = callback;
     }
 
     public Counter setCounter(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            this.counter = i;
-            L.verbose(this, "set to %d", Integer.valueOf(i));
-            return this;
-        }
-        return (Counter) invokeI.objValue;
-    }
-
-    public Counter toggle(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-            if (z) {
-                return start(0L);
-            }
-            return stop();
-        }
-        return (Counter) invokeZ.objValue;
+        this.counter = i;
+        L.verbose(this, "set to %d", Integer.valueOf(i));
+        return this;
     }
 
     public Counter start(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
-            this.mHandler.removeCallbacks(this);
-            this.mRunning = true;
-            this.mHandler.postDelayed(this, j);
-            L.verbose(this, "counter start,hashCode =[%d],mRunning = %b", Integer.valueOf(hashCode()), Boolean.valueOf(this.mRunning));
-            return this;
+        this.mHandler.removeCallbacks(this);
+        this.mRunning = true;
+        this.mHandler.postDelayed(this, j);
+        L.verbose(this, "counter start,hashCode =[%d],mRunning = %b", Integer.valueOf(hashCode()), Boolean.valueOf(this.mRunning));
+        return this;
+    }
+
+    public Counter toggle(boolean z) {
+        if (z) {
+            return start(0L);
         }
-        return (Counter) invokeJ.objValue;
+        return stop();
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tbadk.switchs;
 
-import com.baidu.tieba.p35;
+import com.baidu.tieba.b55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ public class ThreadCardImgClickToPBSwitch extends BaseNormalSwitch {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (p35.m().n(KEY_SWITCH, 1) == 1) {
+            if (b55.m().n(KEY_SWITCH, 1) == 1) {
                 return true;
             }
             return false;

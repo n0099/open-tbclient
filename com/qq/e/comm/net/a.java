@@ -51,7 +51,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aPPStatus)) == null) {
             JSONObject jSONObject = new JSONObject();
             if (aPPStatus != null) {
-                jSONObject.putOpt(com.alipay.sdk.sys.a.r, aPPStatus.getAPPName());
+                jSONObject.putOpt("an", aPPStatus.getAPPName());
                 jSONObject.putOpt("appkey", aPPStatus.getAPPID());
                 jSONObject.putOpt("appv", aPPStatus.getAPPVersion());
                 jSONObject.putOpt("appn", aPPStatus.getAPPRealName());

@@ -26,7 +26,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import com.tencent.connect.common.Constants;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.lang.reflect.Method;
 import java.net.URLEncoder;
 import java.util.Iterator;
@@ -207,7 +209,7 @@ public class h1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
             try {
-                Class<?> cls = Class.forName("android.os.SystemProperties");
+                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
                 return (String) cls.getMethod("get", String.class).invoke(cls, str);
             } catch (Throwable unused) {
                 return null;
@@ -297,13 +299,13 @@ public class h1 {
                 StringBuilder sb = new StringBuilder();
                 for (InputMethodInfo inputMethodInfo : inputMethodList) {
                     sb.append(inputMethodInfo.getId());
-                    sb.append(";");
+                    sb.append(ParamableElem.DIVIDE_PARAM);
                 }
                 if (TextUtils.isEmpty(sb)) {
                     return i1.c;
                 }
                 String sb2 = sb.toString();
-                return sb2.endsWith(";") ? sb2.substring(0, sb2.length() - 1) : sb2;
+                return sb2.endsWith(ParamableElem.DIVIDE_PARAM) ? sb2.substring(0, sb2.length() - 1) : sb2;
             } catch (Exception unused) {
                 return i1.d;
             }
@@ -535,7 +537,7 @@ public class h1 {
                         sb.append(next);
                         sb.append("=");
                         sb.append(string);
-                        str = ";";
+                        str = ParamableElem.DIVIDE_PARAM;
                     }
                     return sb.toString();
                 }
@@ -779,7 +781,7 @@ public class h1 {
                     if (string == null) {
                         string = StringUtil.NULL_STRING;
                     }
-                    String str2 = "1=" + string + ";";
+                    String str2 = "1=" + string + ParamableElem.DIVIDE_PARAM;
                     InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService("input_method");
                     if (inputMethodManager != null && (enabledInputMethodList = inputMethodManager.getEnabledInputMethodList()) != null) {
                         String str3 = str2 + "2=";
@@ -808,7 +810,7 @@ public class h1 {
                             sb.append(settingsActivity);
                             sb.append("-");
                             sb.append(String.format("%d", Integer.valueOf(i)));
-                            sb.append(";");
+                            sb.append(ParamableElem.DIVIDE_PARAM);
                             str3 = sb.toString();
                         }
                         return str3;

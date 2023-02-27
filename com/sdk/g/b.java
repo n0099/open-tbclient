@@ -10,21 +10,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.a.e;
+import com.sdk.a.f;
 import com.sdk.a.g;
-import com.sdk.a.h;
 import com.sdk.base.framework.bean.AInfo;
 import com.sdk.base.framework.bean.DataInfo;
 import com.sdk.base.framework.bean.KInfo;
 import com.sdk.base.framework.bean.MobileKInfo;
 import com.sdk.base.framework.bean.PInfo;
 import com.sdk.base.framework.bean.SInfo;
-import com.sdk.base.framework.utils.app.AppUtils;
 import com.sdk.base.module.config.BaseConfig;
 import com.sdk.d.j;
 import com.sdk.f.c;
-import com.sdk.f.g;
-import com.sdk.o.f;
-import com.sdk.q.f;
+import com.sdk.f.f;
+import com.sdk.p.f;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -58,7 +56,7 @@ public class b<T> {
                 return;
             }
         }
-        b = g.b;
+        b = f.a;
     }
 
     public b(Context context, com.sdk.e.a<T> aVar, c cVar) {
@@ -101,15 +99,15 @@ public class b<T> {
         this.g = null;
     }
 
-    /* JADX WARN: Type inference failed for: r3v28, types: [Params[], java.lang.Object[]] */
-    public e<T> a(String str, String str2, DataInfo dataInfo, com.sdk.e.b<T> bVar, int i, g.a aVar) {
+    /* JADX WARN: Type inference failed for: r3v30, types: [Params[], java.lang.Object[]] */
+    public e<T> a(String str, String str2, DataInfo dataInfo, com.sdk.e.b<T> bVar, int i, f.a aVar) {
         InterceptResult invokeCommon;
         DataInfo dataInfo2;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, dataInfo, bVar, Integer.valueOf(i), aVar})) == null) {
             e<T> eVar = null;
-            if (com.sdk.n.a.a(str).booleanValue()) {
+            if (com.sdk.o.a.a(str).booleanValue()) {
                 a(1, 101008, "未检测到域名");
                 return null;
             }
@@ -118,25 +116,25 @@ public class b<T> {
                     dataInfo2 = new DataInfo();
                 } catch (Exception e) {
                     e = e;
+                    com.sdk.o.b.c(e.toString());
+                    a(1, 302002, "网络访问异常:" + e.getMessage());
+                    com.sdk.o.a.a(a + "BaseProtocol sendRequest", e.toString() + "，" + e.getMessage(), Boolean.valueOf(b));
+                    return eVar;
                 }
             } else {
                 dataInfo2 = dataInfo;
             }
             TreeMap<String, Object> treeMap = new TreeMap<>();
-            String a2 = com.sdk.q.a.a(16);
-            String a3 = com.sdk.q.a.a(16);
-            String apiKey = AppUtils.getApiKey(this.h, BaseConfig.apk);
-            String str3 = com.sdk.u.a.b;
-            if ("/st/api/v1.0/ses".equals(str2)) {
-                str3 = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCgdQaZgBcrXGxxD6F1TVVXAzvbB3xpoyk2AFMNj4vOcDWZoH1b3Mx5aVcEd0BZPZR6Icb8yi8ecMUVChGCRe20O8EQWLh1aCwR8JazNL+koD3Tn6TIwVwjVEQWy9w6DeXxMtQuFBL/jAChJcU7aDwMsSD1jYpdET37aB4p8Lvn2QIDAQAB";
-            }
+            String a2 = com.sdk.r.a.a(16);
+            String a3 = com.sdk.r.a.a(16);
+            String a4 = com.sdk.j.a.a(this.h, BaseConfig.apk);
             int i2 = 2;
-            String[] strArr = {apiKey, str3};
+            String[] strArr = {a4, com.sdk.v.a.b};
             int i3 = 0;
             while (true) {
                 if (i3 < i2) {
-                    String str4 = strArr[i3];
-                    if ((str4 == null || str4.length() < 1) && com.sdk.n.a.a(str4).booleanValue()) {
+                    String str3 = strArr[i3];
+                    if ((str3 == null || str3.length() < 1) && com.sdk.o.a.a(str3).booleanValue()) {
                         z = true;
                         break;
                     }
@@ -151,37 +149,37 @@ public class b<T> {
                 a(1, 101004, "ApiKey或PublicKey不能为空");
                 return null;
             }
-            String a4 = a(dataInfo2, a2, a3);
+            String a5 = a(dataInfo2, a2, a3);
             try {
-                f a5 = f.a();
-                String a6 = a5.b.a(a5.c, a2 + a3);
-                treeMap.put("apiKey", apiKey);
-                treeMap.put("params", a4);
-                treeMap.put("paramsKey", a6);
+                com.sdk.r.f a6 = com.sdk.r.f.a();
+                String a7 = a6.b.a(a6.c, a2 + a3);
+                treeMap.put("apiKey", a4);
+                treeMap.put("params", a5);
+                treeMap.put("paramsKey", a7);
                 treeMap.put("l", Long.valueOf(System.currentTimeMillis()));
-                String a7 = com.sdk.s.a.a(apiKey, str2, treeMap);
+                String a8 = com.sdk.t.a.a(a4, str2, treeMap);
                 HashMap<String, Object> hashMap = new HashMap<>(16);
-                if (com.sdk.n.a.b(a7).booleanValue()) {
-                    treeMap.put("sign", a7);
-                    treeMap.put("sign_Type", com.sdk.u.a.e);
-                    hashMap.put("sign", a7);
+                if (com.sdk.o.a.b(a8).booleanValue()) {
+                    treeMap.put("sign", a8);
+                    treeMap.put("sign_Type", com.sdk.v.a.e);
+                    hashMap.put("sign", a8);
                     hashMap.put("api-protocol", "1.1");
                 }
-                h hVar = new h();
-                hVar.a(aVar.l);
-                hVar.b(str + str2);
-                hVar.j = bVar;
-                hVar.i = i;
-                hVar.f = treeMap;
-                hVar.g = null;
-                hVar.h = hashMap;
+                g gVar = new g();
+                gVar.a(aVar.l);
+                gVar.b(str + str2);
+                gVar.j = bVar;
+                gVar.i = i;
+                gVar.f = treeMap;
+                gVar.g = null;
+                gVar.h = hashMap;
                 if ("/dro/netm/v1.0/qc".equals(str2)) {
                     f.b bVar2 = f.b.b;
                 }
-                com.sdk.a.g gVar = new com.sdk.a.g(this.h, hVar);
-                e<T> eVar2 = new e<>(gVar);
+                com.sdk.a.f fVar = new com.sdk.a.f(this.h, gVar);
+                e<T> eVar2 = new e<>(fVar);
                 try {
-                    ?? r3 = {gVar};
+                    ?? r3 = {fVar};
                     Executor executor = com.sdk.d.e.b;
                     if (!eVar2.g) {
                         eVar2.g = true;
@@ -193,19 +191,18 @@ public class b<T> {
                 } catch (Exception e2) {
                     e = e2;
                     eVar = eVar2;
-                    com.sdk.n.b.c(e.toString());
+                    com.sdk.o.b.c(e.toString());
                     a(1, 302002, "网络访问异常:" + e.getMessage());
-                    String str5 = a;
-                    com.sdk.n.a.a(str5, e.toString() + "，" + e.getMessage(), Boolean.valueOf(b));
+                    com.sdk.o.a.a(a + "BaseProtocol sendRequest", e.toString() + "，" + e.getMessage(), Boolean.valueOf(b));
                     return eVar;
                 }
             } catch (Exception e3) {
                 a(1, 101006, "公钥出错");
-                String str6 = a;
+                String str4 = a;
                 StringBuilder sb = new StringBuilder();
                 sb.append("公钥出错：");
                 sb.append(e3);
-                com.sdk.n.a.a(str6, sb.toString(), Boolean.valueOf(b));
+                com.sdk.o.a.a(str4, sb.toString(), Boolean.valueOf(b));
                 return null;
             }
         }
@@ -255,10 +252,10 @@ public class b<T> {
                 sb.append("}");
                 str3 = sb.toString();
             } catch (Exception e) {
-                com.sdk.n.a.a(a, e.toString(), Boolean.valueOf(b));
+                com.sdk.o.a.a(a, e.toString(), Boolean.valueOf(b));
                 str3 = null;
             }
-            return com.sdk.q.f.a().b.a(str, str2, str3);
+            return com.sdk.r.f.a().b.a(str, str2, str3);
         }
         return (String) invokeLLL.objValue;
     }

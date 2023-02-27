@@ -1,16 +1,8 @@
 package com.yy.gslbsdk.db;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 /* loaded from: classes8.dex */
 public class ResultTB implements Serializable, Cloneable {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String CMD = "cmd";
     public static final String ENDTIME = "end_time";
     public static final String HOST = "host";
@@ -23,229 +15,109 @@ public class ResultTB implements Serializable, Cloneable {
     public static final String UPDATETIME = "update_time";
     public static final String VIEW = "_view";
     public static final long serialVersionUID = -3157206435418951459L;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String cmd;
-    public long endTime;
-    public String host;
-    public int id;
-    public String ip;
-    public String network;
-    public int source;
-    public int ttl;
-    public String uip;
-    public long updateTime;
+    public int id = -1;
+    public String network = null;
+    public String host = null;
+    public String ip = null;
+    public int ttl = -1;
+    public long endTime = -1;
+    public String cmd = null;
+    public long updateTime = -1;
 
     /* renamed from: view  reason: collision with root package name */
-    public String f1114view;
-
-    public ResultTB() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.id = -1;
-        this.network = null;
-        this.host = null;
-        this.ip = null;
-        this.ttl = -1;
-        this.endTime = -1L;
-        this.cmd = null;
-        this.updateTime = -1L;
-        this.f1114view = null;
-        this.uip = null;
-        this.source = 0;
-    }
+    public String f1087view = null;
+    public String uip = null;
+    public int source = 0;
 
     public Object clone() throws CloneNotSupportedException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return super.clone();
-        }
-        return invokeV.objValue;
+        return super.clone();
     }
 
     public String getCmd() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.cmd;
-        }
-        return (String) invokeV.objValue;
+        return this.cmd;
     }
 
     public long getEndTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.endTime;
-        }
-        return invokeV.longValue;
+        return this.endTime;
     }
 
     public String getHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.host;
-        }
-        return (String) invokeV.objValue;
+        return this.host;
     }
 
     public int getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.id;
-        }
-        return invokeV.intValue;
+        return this.id;
     }
 
     public String getIp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.ip;
-        }
-        return (String) invokeV.objValue;
+        return this.ip;
     }
 
     public String getNetwork() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.network;
-        }
-        return (String) invokeV.objValue;
+        return this.network;
     }
 
     public int getSource() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.source;
-        }
-        return invokeV.intValue;
+        return this.source;
     }
 
     public int getTtl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.ttl;
-        }
-        return invokeV.intValue;
+        return this.ttl;
     }
 
     public String getUip() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.uip;
-        }
-        return (String) invokeV.objValue;
+        return this.uip;
     }
 
     public long getUpdateTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.updateTime;
-        }
-        return invokeV.longValue;
+        return this.updateTime;
     }
 
     public String getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.f1114view;
-        }
-        return (String) invokeV.objValue;
+        return this.f1087view;
     }
 
     public void setCmd(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.cmd = str;
-        }
+        this.cmd = str;
     }
 
     public void setEndTime(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.endTime = j;
-        }
+        this.endTime = j;
     }
 
     public void setHost(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.host = str;
-        }
+        this.host = str;
     }
 
     public void setId(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.id = i;
-        }
+        this.id = i;
     }
 
     public void setIp(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.ip = str;
-        }
+        this.ip = str;
     }
 
     public void setNetwork(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.network = str;
-        }
+        this.network = str;
     }
 
     public void setSource(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.source = i;
-        }
+        this.source = i;
     }
 
     public void setTtl(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            this.ttl = i;
-        }
+        this.ttl = i;
     }
 
     public void setUip(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.uip = str;
-        }
+        this.uip = str;
     }
 
     public void setUpdateTime(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
-            this.updateTime = j;
-        }
+        this.updateTime = j;
     }
 
     public void setView(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
-            this.f1114view = str;
-        }
+        this.f1087view = str;
     }
 }

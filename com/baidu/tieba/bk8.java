@@ -1,21 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes3.dex */
 public class bk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public ArrayList<fk8> a;
 
     public bk8() {
         Interceptable interceptable = $ic;
@@ -30,43 +29,67 @@ public class bk8 {
                 return;
             }
         }
-        this.a = -1;
-        this.b = 0;
+        this.a = new ArrayList<>();
     }
 
-    public int a() {
+    public ArrayList<fk8> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return invokeV.intValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public void c(String str) {
+    public final boolean b(ExcContent excContent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.a = jSONObject.optInt("error_code", -1);
-            jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject != null) {
-                this.b = optJSONObject.optInt("msg_count");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, excContent)) == null) {
+            long longValue = excContent.type.longValue();
+            if (longValue == 2 || longValue == 0 || longValue == 1) {
+                return true;
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void c(TbPageContext<?> tbPageContext, List<ExcContent> list) {
+        ik8 ik8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, list) == null) && list != null && !list.isEmpty()) {
+            loop0: while (true) {
+                ik8Var = null;
+                for (ExcContent excContent : list) {
+                    if (excContent != null && excContent.type != null) {
+                        if (b(excContent)) {
+                            ek8 a = hk8.a(tbPageContext, excContent);
+                            if (a == null) {
+                                continue;
+                            } else if (a.a()) {
+                                if (ik8Var != null) {
+                                    this.a.add(ik8Var);
+                                }
+                                this.a.add(a);
+                            } else {
+                                if (ik8Var == null) {
+                                    ik8Var = new ik8();
+                                }
+                                ik8Var.c(a.b());
+                            }
+                        } else {
+                            if (ik8Var != null) {
+                                this.a.add(ik8Var);
+                            }
+                            this.a.add(hk8.b(excContent));
+                        }
+                    }
+                }
+                break loop0;
+            }
+            if (ik8Var != null) {
+                this.a.add(ik8Var);
+            }
         }
     }
 }

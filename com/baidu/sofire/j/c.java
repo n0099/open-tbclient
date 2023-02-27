@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.k.o;
+import com.baidu.sofire.k.s;
 import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -90,11 +90,11 @@ public class c implements SharedPreferences {
                 bundle.putString("defult_value", str3);
                 if (this.e) {
                     if (TextUtils.isEmpty(this.g)) {
-                        return o.a(this.b, "CallPreferences", bundle, "sofire");
+                        return s.a(this.b, "CallPreferences", bundle, "sofire");
                     }
-                    return o.a(this.b, "CallPreferences", bundle, this.g);
+                    return s.a(this.b, "CallPreferences", bundle, this.g);
                 }
-                return o.a(this.b, "CallPreferences", bundle, "sofire");
+                return s.a(this.b, "CallPreferences", bundle, "sofire");
             } catch (Throwable unused) {
                 int i = com.baidu.sofire.a.b.a;
                 return null;

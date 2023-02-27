@@ -1,14 +1,7 @@
 package org.webrtc;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.RTCLoadManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import javax.annotation.Nullable;
 import org.webrtc.Logging;
@@ -18,7 +11,6 @@ import org.webrtc.audio.AudioDeviceModule;
 import org.webrtc.audio.LegacyAudioDeviceModule;
 /* loaded from: classes9.dex */
 public class PeerConnectionFactory {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PeerConnectionFactory";
     public static final String TRIAL_ENABLED = "Enabled";
     public static final String VIDEO_CAPTURER_THREAD_NAME = "VideoCapturerThread";
@@ -31,15 +23,7 @@ public class PeerConnectionFactory {
     public static Thread signalingThread;
     @Nullable
     public static Thread workerThread;
-    public transient /* synthetic */ FieldHolder $fh;
     public long nativeFactory;
-
-    /* renamed from: org.webrtc.PeerConnectionFactory$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
 
     public static native long nativeCreateAudioSource(long j, MediaConstraints mediaConstraints);
 
@@ -85,8 +69,6 @@ public class PeerConnectionFactory {
 
     /* loaded from: classes9.dex */
     public static class InitializationOptions {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final Context applicationContext;
         public final boolean enableInternalTracer;
         public final String fieldTrials;
@@ -99,115 +81,52 @@ public class PeerConnectionFactory {
 
         /* loaded from: classes9.dex */
         public static class Builder {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
             public final Context applicationContext;
             public boolean enableInternalTracer;
-            public String fieldTrials;
             @Nullable
             public Loggable loggable;
             @Nullable
             public Logging.Severity loggableSeverity;
-            public NativeLibraryLoader nativeLibraryLoader;
-            public String nativeLibraryName;
+            public String fieldTrials = "";
+            public NativeLibraryLoader nativeLibraryLoader = new NativeLibrary.DefaultLoader();
+            public String nativeLibraryName = RTCLoadManager.JINGLE_LIB_NAME;
 
             public Builder(Context context) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {context};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.fieldTrials = "";
-                this.nativeLibraryLoader = new NativeLibrary.DefaultLoader();
-                this.nativeLibraryName = RTCLoadManager.JINGLE_LIB_NAME;
                 this.applicationContext = context;
             }
 
-            public InitializationOptions createInitializationOptions() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    return new InitializationOptions(this.applicationContext, this.fieldTrials, this.enableInternalTracer, this.nativeLibraryLoader, this.nativeLibraryName, this.loggable, this.loggableSeverity, null);
-                }
-                return (InitializationOptions) invokeV.objValue;
-            }
-
             public Builder setEnableInternalTracer(boolean z) {
-                InterceptResult invokeZ;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                    this.enableInternalTracer = z;
-                    return this;
-                }
-                return (Builder) invokeZ.objValue;
+                this.enableInternalTracer = z;
+                return this;
             }
 
             public Builder setFieldTrials(String str) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                    this.fieldTrials = str;
-                    return this;
-                }
-                return (Builder) invokeL.objValue;
+                this.fieldTrials = str;
+                return this;
             }
 
             public Builder setNativeLibraryLoader(NativeLibraryLoader nativeLibraryLoader) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, nativeLibraryLoader)) == null) {
-                    this.nativeLibraryLoader = nativeLibraryLoader;
-                    return this;
-                }
-                return (Builder) invokeL.objValue;
+                this.nativeLibraryLoader = nativeLibraryLoader;
+                return this;
             }
 
             public Builder setNativeLibraryName(String str) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                    this.nativeLibraryName = str;
-                    return this;
-                }
-                return (Builder) invokeL.objValue;
+                this.nativeLibraryName = str;
+                return this;
+            }
+
+            public InitializationOptions createInitializationOptions() {
+                return new InitializationOptions(this.applicationContext, this.fieldTrials, this.enableInternalTracer, this.nativeLibraryLoader, this.nativeLibraryName, this.loggable, this.loggableSeverity);
             }
 
             public Builder setInjectableLogger(Loggable loggable, Logging.Severity severity) {
-                InterceptResult invokeLL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, loggable, severity)) == null) {
-                    this.loggable = loggable;
-                    this.loggableSeverity = severity;
-                    return this;
-                }
-                return (Builder) invokeLL.objValue;
+                this.loggable = loggable;
+                this.loggableSeverity = severity;
+                return this;
             }
         }
 
         public InitializationOptions(Context context, String str, boolean z, NativeLibraryLoader nativeLibraryLoader, String str2, @Nullable Loggable loggable, @Nullable Logging.Severity severity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, str, Boolean.valueOf(z), nativeLibraryLoader, str2, loggable, severity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.applicationContext = context;
             this.fieldTrials = str;
             this.enableInternalTracer = z;
@@ -217,24 +136,13 @@ public class PeerConnectionFactory {
             this.loggableSeverity = severity;
         }
 
-        public /* synthetic */ InitializationOptions(Context context, String str, boolean z, NativeLibraryLoader nativeLibraryLoader, String str2, Loggable loggable, Logging.Severity severity, AnonymousClass1 anonymousClass1) {
-            this(context, str, z, nativeLibraryLoader, str2, loggable, severity);
-        }
-
         public static Builder builder(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-                return new Builder(context);
-            }
-            return (Builder) invokeL.objValue;
+            return new Builder(context);
         }
     }
 
     /* loaded from: classes9.dex */
     public static class Builder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public AudioDecoderFactoryFactory audioDecoderFactoryFactory;
         @Nullable
         public AudioDeviceModule audioDeviceModule;
@@ -253,139 +161,72 @@ public class PeerConnectionFactory {
         public VideoEncoderFactory videoEncoderFactory;
 
         public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.audioDeviceModule = new LegacyAudioDeviceModule();
             this.audioEncoderFactoryFactory = new BuiltinAudioEncoderFactoryFactory();
             this.audioDecoderFactoryFactory = new BuiltinAudioDecoderFactoryFactory();
         }
 
-        public /* synthetic */ Builder(AnonymousClass1 anonymousClass1) {
-            this();
+        public PeerConnectionFactory createPeerConnectionFactory() {
+            return new PeerConnectionFactory(this.options, this.audioDeviceModule, this.audioEncoderFactoryFactory, this.audioDecoderFactoryFactory, this.videoEncoderFactory, this.videoDecoderFactory, this.audioProcessingFactory, this.fecControllerFactoryFactory, this.mediaTransportFactoryFactory);
         }
 
         public Builder setAudioDecoderFactoryFactory(AudioDecoderFactoryFactory audioDecoderFactoryFactory) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, audioDecoderFactoryFactory)) == null) {
-                if (audioDecoderFactoryFactory != null) {
-                    this.audioDecoderFactoryFactory = audioDecoderFactoryFactory;
-                    return this;
-                }
-                throw new IllegalArgumentException("PeerConnectionFactory.Builder does not accept a null AudioDecoderFactoryFactory.");
+            if (audioDecoderFactoryFactory != null) {
+                this.audioDecoderFactoryFactory = audioDecoderFactoryFactory;
+                return this;
             }
-            return (Builder) invokeL.objValue;
+            throw new IllegalArgumentException("PeerConnectionFactory.Builder does not accept a null AudioDecoderFactoryFactory.");
         }
 
         public Builder setAudioDeviceModule(AudioDeviceModule audioDeviceModule) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, audioDeviceModule)) == null) {
-                this.audioDeviceModule = audioDeviceModule;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.audioDeviceModule = audioDeviceModule;
+            return this;
         }
 
         public Builder setAudioEncoderFactoryFactory(AudioEncoderFactoryFactory audioEncoderFactoryFactory) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, audioEncoderFactoryFactory)) == null) {
-                if (audioEncoderFactoryFactory != null) {
-                    this.audioEncoderFactoryFactory = audioEncoderFactoryFactory;
-                    return this;
-                }
-                throw new IllegalArgumentException("PeerConnectionFactory.Builder does not accept a null AudioEncoderFactoryFactory.");
+            if (audioEncoderFactoryFactory != null) {
+                this.audioEncoderFactoryFactory = audioEncoderFactoryFactory;
+                return this;
             }
-            return (Builder) invokeL.objValue;
+            throw new IllegalArgumentException("PeerConnectionFactory.Builder does not accept a null AudioEncoderFactoryFactory.");
         }
 
         public Builder setAudioProcessingFactory(AudioProcessingFactory audioProcessingFactory) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, audioProcessingFactory)) == null) {
-                if (audioProcessingFactory != null) {
-                    this.audioProcessingFactory = audioProcessingFactory;
-                    return this;
-                }
-                throw new NullPointerException("PeerConnectionFactory builder does not accept a null AudioProcessingFactory.");
+            if (audioProcessingFactory != null) {
+                this.audioProcessingFactory = audioProcessingFactory;
+                return this;
             }
-            return (Builder) invokeL.objValue;
+            throw new NullPointerException("PeerConnectionFactory builder does not accept a null AudioProcessingFactory.");
         }
 
         public Builder setFecControllerFactoryFactoryInterface(FecControllerFactoryFactoryInterface fecControllerFactoryFactoryInterface) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, fecControllerFactoryFactoryInterface)) == null) {
-                this.fecControllerFactoryFactory = fecControllerFactoryFactoryInterface;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.fecControllerFactoryFactory = fecControllerFactoryFactoryInterface;
+            return this;
         }
 
         public Builder setMediaTransportFactoryFactory(MediaTransportFactoryFactory mediaTransportFactoryFactory) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, mediaTransportFactoryFactory)) == null) {
-                this.mediaTransportFactoryFactory = mediaTransportFactoryFactory;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mediaTransportFactoryFactory = mediaTransportFactoryFactory;
+            return this;
         }
 
         public Builder setOptions(Options options) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, options)) == null) {
-                this.options = options;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.options = options;
+            return this;
         }
 
         public Builder setVideoDecoderFactory(VideoDecoderFactory videoDecoderFactory) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, videoDecoderFactory)) == null) {
-                this.videoDecoderFactory = videoDecoderFactory;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.videoDecoderFactory = videoDecoderFactory;
+            return this;
         }
 
         public Builder setVideoEncoderFactory(VideoEncoderFactory videoEncoderFactory) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, videoEncoderFactory)) == null) {
-                this.videoEncoderFactory = videoEncoderFactory;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public PeerConnectionFactory createPeerConnectionFactory() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new PeerConnectionFactory(this.options, this.audioDeviceModule, this.audioEncoderFactoryFactory, this.audioDecoderFactoryFactory, this.videoEncoderFactory, this.videoDecoderFactory, this.audioProcessingFactory, this.fecControllerFactoryFactory, this.mediaTransportFactoryFactory, null);
-            }
-            return (PeerConnectionFactory) invokeV.objValue;
+            this.videoEncoderFactory = videoEncoderFactory;
+            return this;
         }
     }
 
     /* loaded from: classes9.dex */
     public static class Options {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final int ADAPTER_TYPE_ANY = 32;
         public static final int ADAPTER_TYPE_CELLULAR = 4;
         public static final int ADAPTER_TYPE_ETHERNET = 1;
@@ -393,72 +234,28 @@ public class PeerConnectionFactory {
         public static final int ADAPTER_TYPE_UNKNOWN = 0;
         public static final int ADAPTER_TYPE_VPN = 8;
         public static final int ADAPTER_TYPE_WIFI = 2;
-        public transient /* synthetic */ FieldHolder $fh;
         public boolean disableEncryption;
         public boolean disableNetworkMonitor;
         public int networkIgnoreMask;
 
-        public Options() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
         @CalledByNative("Options")
         public boolean getDisableEncryption() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.disableEncryption;
-            }
-            return invokeV.booleanValue;
+            return this.disableEncryption;
         }
 
         @CalledByNative("Options")
         public boolean getDisableNetworkMonitor() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.disableNetworkMonitor;
-            }
-            return invokeV.booleanValue;
+            return this.disableNetworkMonitor;
         }
 
         @CalledByNative("Options")
         public int getNetworkIgnoreMask() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.networkIgnoreMask;
-            }
-            return invokeV.intValue;
+            return this.networkIgnoreMask;
         }
     }
 
     @CalledByNative
     public PeerConnectionFactory(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         checkInitializeHasBeenCalled();
         if (j != 0) {
             this.nativeFactory = j;
@@ -467,25 +264,41 @@ public class PeerConnectionFactory {
         throw new RuntimeException("Failed to initialize PeerConnectionFactory!");
     }
 
+    public static String fieldTrialsFindFullName(String str) {
+        if (NativeLibrary.isLoaded()) {
+            return nativeFindFieldTrialsFullName(str);
+        }
+        return "";
+    }
+
+    @Deprecated
+    public static void initializeFieldTrials(String str) {
+        nativeInitializeFieldTrials(str);
+    }
+
+    public static boolean startInternalTracingCapture(String str) {
+        return nativeStartInternalTracingCapture(str);
+    }
+
+    public AudioSource createAudioSource(MediaConstraints mediaConstraints) {
+        checkPeerConnectionFactoryExists();
+        return new AudioSource(nativeCreateAudioSource(this.nativeFactory, mediaConstraints));
+    }
+
+    public MediaStream createLocalMediaStream(String str) {
+        checkPeerConnectionFactoryExists();
+        return new MediaStream(nativeCreateLocalMediaStream(this.nativeFactory, str));
+    }
+
+    public VideoSource createVideoSource(boolean z) {
+        return createVideoSource(z, true);
+    }
+
     public PeerConnectionFactory(Options options, @Nullable AudioDeviceModule audioDeviceModule, AudioEncoderFactoryFactory audioEncoderFactoryFactory, AudioDecoderFactoryFactory audioDecoderFactoryFactory, @Nullable VideoEncoderFactory videoEncoderFactory, @Nullable VideoDecoderFactory videoDecoderFactory, @Nullable AudioProcessingFactory audioProcessingFactory, @Nullable FecControllerFactoryFactoryInterface fecControllerFactoryFactoryInterface, @Nullable MediaTransportFactoryFactory mediaTransportFactoryFactory) {
         long nativeAudioDeviceModulePointer;
         long createNative;
         long createNative2;
         long createNativeMediaTransportFactory;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {options, audioDeviceModule, audioEncoderFactoryFactory, audioDecoderFactoryFactory, videoEncoderFactory, videoDecoderFactory, audioProcessingFactory, fecControllerFactoryFactoryInterface, mediaTransportFactoryFactory};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         checkInitializeHasBeenCalled();
         Context applicationContext = ContextUtils.getApplicationContext();
         if (audioDeviceModule == null) {
@@ -518,229 +331,114 @@ public class PeerConnectionFactory {
         throw new RuntimeException("Failed to initialize PeerConnectionFactory!");
     }
 
-    public /* synthetic */ PeerConnectionFactory(Options options, AudioDeviceModule audioDeviceModule, AudioEncoderFactoryFactory audioEncoderFactoryFactory, AudioDecoderFactoryFactory audioDecoderFactoryFactory, VideoEncoderFactory videoEncoderFactory, VideoDecoderFactory videoDecoderFactory, AudioProcessingFactory audioProcessingFactory, FecControllerFactoryFactoryInterface fecControllerFactoryFactoryInterface, MediaTransportFactoryFactory mediaTransportFactoryFactory, AnonymousClass1 anonymousClass1) {
-        this(options, audioDeviceModule, audioEncoderFactoryFactory, audioDecoderFactoryFactory, videoEncoderFactory, videoDecoderFactory, audioProcessingFactory, fecControllerFactoryFactoryInterface, mediaTransportFactoryFactory);
-    }
-
     public static Builder builder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new Builder(null);
-        }
-        return (Builder) invokeV.objValue;
+        return new Builder();
     }
 
     private void checkInitializeHasBeenCalled() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            if (NativeLibrary.isLoaded() && ContextUtils.getApplicationContext() != null) {
-                return;
-            }
-            throw new IllegalStateException("PeerConnectionFactory.initialize was not called before creating a PeerConnectionFactory.");
+        if (NativeLibrary.isLoaded() && ContextUtils.getApplicationContext() != null) {
+            return;
         }
+        throw new IllegalStateException("PeerConnectionFactory.initialize was not called before creating a PeerConnectionFactory.");
     }
 
     private void checkPeerConnectionFactoryExists() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65541, this) != null) || this.nativeFactory != 0) {
+        if (this.nativeFactory != 0) {
             return;
         }
         throw new IllegalStateException("PeerConnectionFactory has been disposed.");
     }
 
     public static void initializeInternalTracer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            internalTracerInitialized = true;
-            nativeInitializeInternalTracer();
-        }
+        internalTracerInitialized = true;
+        nativeInitializeInternalTracer();
     }
 
     @CalledByNative
     public static void onNetworkThreadReady() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65567, null) == null) {
-            networkThread = Thread.currentThread();
-            Logging.d(TAG, "onNetworkThreadReady");
-        }
+        networkThread = Thread.currentThread();
+        Logging.d(TAG, "onNetworkThreadReady");
     }
 
     @CalledByNative
     public static void onSignalingThreadReady() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65568, null) == null) {
-            signalingThread = Thread.currentThread();
-            Logging.d(TAG, "onSignalingThreadReady");
-        }
+        signalingThread = Thread.currentThread();
+        Logging.d(TAG, "onSignalingThreadReady");
     }
 
     @CalledByNative
     public static void onWorkerThreadReady() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65569, null) == null) {
-            workerThread = Thread.currentThread();
-            Logging.d(TAG, "onWorkerThreadReady");
-        }
+        workerThread = Thread.currentThread();
+        Logging.d(TAG, "onWorkerThreadReady");
     }
 
     public static void printStackTraces() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65571, null) == null) {
-            printStackTrace(networkThread, "Network thread");
-            printStackTrace(workerThread, "Worker thread");
-            printStackTrace(signalingThread, "Signaling thread");
-        }
+        printStackTrace(networkThread, "Network thread");
+        printStackTrace(workerThread, "Worker thread");
+        printStackTrace(signalingThread, "Signaling thread");
     }
 
     public static void shutdownInternalTracer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65572, null) == null) {
-            internalTracerInitialized = false;
-            nativeShutdownInternalTracer();
-        }
+        internalTracerInitialized = false;
+        nativeShutdownInternalTracer();
     }
 
     public static void stopInternalTracingCapture() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65574, null) == null) {
-            nativeStopInternalTracingCapture();
-        }
+        nativeStopInternalTracingCapture();
     }
 
     public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            checkPeerConnectionFactoryExists();
-            nativeFreeFactory(this.nativeFactory);
-            networkThread = null;
-            workerThread = null;
-            signalingThread = null;
-            MediaCodecVideoEncoder.disposeEglContext();
-            MediaCodecVideoDecoder.disposeEglContext();
-            this.nativeFactory = 0L;
-        }
+        checkPeerConnectionFactoryExists();
+        nativeFreeFactory(this.nativeFactory);
+        networkThread = null;
+        workerThread = null;
+        signalingThread = null;
+        MediaCodecVideoEncoder.disposeEglContext();
+        MediaCodecVideoDecoder.disposeEglContext();
+        this.nativeFactory = 0L;
     }
 
     public long getNativeOwnedFactoryAndThreads() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            checkPeerConnectionFactoryExists();
-            return this.nativeFactory;
-        }
-        return invokeV.longValue;
+        checkPeerConnectionFactoryExists();
+        return this.nativeFactory;
     }
 
     public long getNativePeerConnectionFactory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            checkPeerConnectionFactoryExists();
-            return nativeGetNativePeerConnectionFactory(this.nativeFactory);
-        }
-        return invokeV.longValue;
+        checkPeerConnectionFactoryExists();
+        return nativeGetNativePeerConnectionFactory(this.nativeFactory);
     }
 
     public void stopAecDump() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            checkPeerConnectionFactoryExists();
-            nativeStopAecDump(this.nativeFactory);
-        }
+        checkPeerConnectionFactoryExists();
+        nativeStopAecDump(this.nativeFactory);
     }
 
     public void threadsCallbacks() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            checkPeerConnectionFactoryExists();
-            nativeInvokeThreadsCallbacks(this.nativeFactory);
-        }
-    }
-
-    public static String fieldTrialsFindFullName(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (NativeLibrary.isLoaded()) {
-                return nativeFindFieldTrialsFullName(str);
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static void initializeFieldTrials(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            nativeInitializeFieldTrials(str);
-        }
-    }
-
-    public static boolean startInternalTracingCapture(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, str)) == null) {
-            return nativeStartInternalTracingCapture(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public AudioSource createAudioSource(MediaConstraints mediaConstraints) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaConstraints)) == null) {
-            checkPeerConnectionFactoryExists();
-            return new AudioSource(nativeCreateAudioSource(this.nativeFactory, mediaConstraints));
-        }
-        return (AudioSource) invokeL.objValue;
-    }
-
-    public MediaStream createLocalMediaStream(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            checkPeerConnectionFactoryExists();
-            return new MediaStream(nativeCreateLocalMediaStream(this.nativeFactory, str));
-        }
-        return (MediaStream) invokeL.objValue;
-    }
-
-    public VideoSource createVideoSource(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-            return createVideoSource(z, true);
-        }
-        return (VideoSource) invokeZ.objValue;
+        checkPeerConnectionFactoryExists();
+        nativeInvokeThreadsCallbacks(this.nativeFactory);
     }
 
     public static void initialize(InitializationOptions initializationOptions) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, initializationOptions) == null) {
-            ContextUtils.initialize(initializationOptions.applicationContext);
-            NativeLibrary.initialize(initializationOptions.nativeLibraryLoader, initializationOptions.nativeLibraryName);
-            nativeInitializeAndroidGlobals();
-            nativeInitializeFieldTrials(initializationOptions.fieldTrials);
-            if (initializationOptions.enableInternalTracer && !internalTracerInitialized) {
-                initializeInternalTracer();
-            }
-            Loggable loggable = initializationOptions.loggable;
-            if (loggable != null) {
-                Logging.injectLoggable(loggable, initializationOptions.loggableSeverity);
-                nativeInjectLoggable(new JNILogging(initializationOptions.loggable), initializationOptions.loggableSeverity.ordinal());
-                return;
-            }
-            Logging.d(TAG, "PeerConnectionFactory was initialized without an injected Loggable. Any existing Loggable will be deleted.");
-            Logging.deleteInjectedLoggable();
-            nativeDeleteLoggable();
+        ContextUtils.initialize(initializationOptions.applicationContext);
+        NativeLibrary.initialize(initializationOptions.nativeLibraryLoader, initializationOptions.nativeLibraryName);
+        nativeInitializeAndroidGlobals();
+        nativeInitializeFieldTrials(initializationOptions.fieldTrials);
+        if (initializationOptions.enableInternalTracer && !internalTracerInitialized) {
+            initializeInternalTracer();
         }
+        Loggable loggable = initializationOptions.loggable;
+        if (loggable != null) {
+            Logging.injectLoggable(loggable, initializationOptions.loggableSeverity);
+            nativeInjectLoggable(new JNILogging(initializationOptions.loggable), initializationOptions.loggableSeverity.ordinal());
+            return;
+        }
+        Logging.d(TAG, "PeerConnectionFactory was initialized without an injected Loggable. Any existing Loggable will be deleted.");
+        Logging.deleteInjectedLoggable();
+        nativeDeleteLoggable();
     }
 
     public static void printStackTrace(@Nullable Thread thread, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65570, null, thread, str) == null) && thread != null) {
+        if (thread != null) {
             StackTraceElement[] stackTrace = thread.getStackTrace();
             if (stackTrace.length > 0) {
                 Logging.d(TAG, str + " stacks trace:");
@@ -751,114 +449,64 @@ public class PeerConnectionFactory {
         }
     }
 
-    public VideoSource createVideoSource(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            checkPeerConnectionFactoryExists();
-            return new VideoSource(nativeCreateVideoSource(this.nativeFactory, z, z2));
-        }
-        return (VideoSource) invokeCommon.objValue;
-    }
-
     public AudioTrack createAudioTrack(String str, AudioSource audioSource) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, audioSource)) == null) {
-            checkPeerConnectionFactoryExists();
-            return new AudioTrack(nativeCreateAudioTrack(this.nativeFactory, str, audioSource.getNativeAudioSource()));
-        }
-        return (AudioTrack) invokeLL.objValue;
+        checkPeerConnectionFactoryExists();
+        return new AudioTrack(nativeCreateAudioTrack(this.nativeFactory, str, audioSource.getNativeAudioSource()));
     }
 
     @Nullable
     public PeerConnection createPeerConnection(List<PeerConnection.IceServer> list, PeerConnection.Observer observer) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, list, observer)) == null) {
-            return createPeerConnection(new PeerConnection.RTCConfiguration(list), observer);
-        }
-        return (PeerConnection) invokeLL.objValue;
+        return createPeerConnection(new PeerConnection.RTCConfiguration(list), observer);
+    }
+
+    public VideoSource createVideoSource(boolean z, boolean z2) {
+        checkPeerConnectionFactoryExists();
+        return new VideoSource(nativeCreateVideoSource(this.nativeFactory, z, z2));
     }
 
     public VideoTrack createVideoTrack(String str, VideoSource videoSource) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, videoSource)) == null) {
-            checkPeerConnectionFactoryExists();
-            return new VideoTrack(nativeCreateVideoTrack(this.nativeFactory, str, videoSource.getNativeVideoTrackSource()));
-        }
-        return (VideoTrack) invokeLL.objValue;
+        checkPeerConnectionFactoryExists();
+        return new VideoTrack(nativeCreateVideoTrack(this.nativeFactory, str, videoSource.getNativeVideoTrackSource()));
     }
 
     public boolean startAecDump(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048591, this, i, i2)) == null) {
-            checkPeerConnectionFactoryExists();
-            return nativeStartAecDump(this.nativeFactory, i, i2);
-        }
-        return invokeII.booleanValue;
+        checkPeerConnectionFactoryExists();
+        return nativeStartAecDump(this.nativeFactory, i, i2);
     }
 
     @Nullable
     @Deprecated
     public PeerConnection createPeerConnection(List<PeerConnection.IceServer> list, MediaConstraints mediaConstraints, PeerConnection.Observer observer) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, list, mediaConstraints, observer)) == null) {
-            return createPeerConnection(new PeerConnection.RTCConfiguration(list), mediaConstraints, observer);
-        }
-        return (PeerConnection) invokeLLL.objValue;
+        return createPeerConnection(new PeerConnection.RTCConfiguration(list), mediaConstraints, observer);
     }
 
     @Nullable
     @Deprecated
     public PeerConnection createPeerConnection(PeerConnection.RTCConfiguration rTCConfiguration, MediaConstraints mediaConstraints, PeerConnection.Observer observer) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, rTCConfiguration, mediaConstraints, observer)) == null) {
-            return createPeerConnectionInternal(rTCConfiguration, mediaConstraints, observer, null);
-        }
-        return (PeerConnection) invokeLLL.objValue;
+        return createPeerConnectionInternal(rTCConfiguration, mediaConstraints, observer, null);
     }
 
     @Nullable
     public PeerConnection createPeerConnection(PeerConnection.RTCConfiguration rTCConfiguration, PeerConnection.Observer observer) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, rTCConfiguration, observer)) == null) {
-            return createPeerConnection(rTCConfiguration, (MediaConstraints) null, observer);
-        }
-        return (PeerConnection) invokeLL.objValue;
+        return createPeerConnection(rTCConfiguration, (MediaConstraints) null, observer);
     }
 
     @Nullable
     public PeerConnection createPeerConnection(PeerConnection.RTCConfiguration rTCConfiguration, PeerConnectionDependencies peerConnectionDependencies) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, rTCConfiguration, peerConnectionDependencies)) == null) {
-            return createPeerConnectionInternal(rTCConfiguration, null, peerConnectionDependencies.getObserver(), peerConnectionDependencies.getSSLCertificateVerifier());
-        }
-        return (PeerConnection) invokeLL.objValue;
+        return createPeerConnectionInternal(rTCConfiguration, null, peerConnectionDependencies.getObserver(), peerConnectionDependencies.getSSLCertificateVerifier());
     }
 
     @Nullable
     public PeerConnection createPeerConnectionInternal(PeerConnection.RTCConfiguration rTCConfiguration, MediaConstraints mediaConstraints, PeerConnection.Observer observer, SSLCertificateVerifier sSLCertificateVerifier) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rTCConfiguration, mediaConstraints, observer, sSLCertificateVerifier)) == null) {
-            checkPeerConnectionFactoryExists();
-            long createNativePeerConnectionObserver = PeerConnection.createNativePeerConnectionObserver(observer);
-            if (createNativePeerConnectionObserver == 0) {
-                return null;
-            }
-            long nativeCreatePeerConnection = nativeCreatePeerConnection(this.nativeFactory, rTCConfiguration, mediaConstraints, createNativePeerConnectionObserver, sSLCertificateVerifier);
-            if (nativeCreatePeerConnection == 0) {
-                return null;
-            }
-            return new PeerConnection(nativeCreatePeerConnection);
+        checkPeerConnectionFactoryExists();
+        long createNativePeerConnectionObserver = PeerConnection.createNativePeerConnectionObserver(observer);
+        if (createNativePeerConnectionObserver == 0) {
+            return null;
         }
-        return (PeerConnection) invokeLLLL.objValue;
+        long nativeCreatePeerConnection = nativeCreatePeerConnection(this.nativeFactory, rTCConfiguration, mediaConstraints, createNativePeerConnectionObserver, sSLCertificateVerifier);
+        if (nativeCreatePeerConnection == 0) {
+            return null;
+        }
+        return new PeerConnection(nativeCreatePeerConnection);
     }
 }

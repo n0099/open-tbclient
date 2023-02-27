@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.oo5;
-import com.baidu.tieba.qv4;
-import com.baidu.tieba.xm7;
+import com.baidu.tieba.cq5;
+import com.baidu.tieba.tp7;
+import com.baidu.tieba.xw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,7 +39,7 @@ public class ItemMsgManage extends LinearLayout {
     public TextView h;
 
     /* loaded from: classes4.dex */
-    public class a implements oo5<Boolean> {
+    public class a implements cq5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ItemMsgManage a;
@@ -63,7 +63,7 @@ public class ItemMsgManage extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oo5
+        @Override // com.baidu.tieba.cq5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -141,7 +141,7 @@ public class ItemMsgManage extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02af, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02bd, (ViewGroup) this, true);
             SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f09034a);
             this.a = settingTextSwitchView;
             settingTextSwitchView.setTextLeftMargin(R.dimen.obfuscated_res_0x7f0701d5);
@@ -157,11 +157,13 @@ public class ItemMsgManage extends LinearLayout {
     }
 
     public void b(ForumDetailActivity forumDetailActivity, int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumDetailActivity, i) == null) {
-            qv4 layoutMode = forumDetailActivity.getLayoutMode();
-            boolean z = true;
-            if (i != 1) {
+            xw4 layoutMode = forumDetailActivity.getLayoutMode();
+            if (i == 4) {
+                z = true;
+            } else {
                 z = false;
             }
             layoutMode.l(z);
@@ -240,16 +242,16 @@ public class ItemMsgManage extends LinearLayout {
                     int intValue2 = priManagerApplyInfo.assist_left_num.intValue();
                     this.e.setVisibility(0);
                     if (intValue == -1) {
-                        String format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f06c8), StringHelper.numberUniformFormat(intValue2));
+                        String format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f06cc), StringHelper.numberUniformFormat(intValue2));
                         if (intValue2 > 0) {
                             this.e.setText(format);
                         } else {
                             this.e.setVisibility(8);
                         }
                     } else if (intValue == 1) {
-                        this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06c9));
+                        this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06cd));
                     } else if (intValue == 2) {
-                        this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06c7));
+                        this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06cb));
                     } else {
                         this.e.setVisibility(8);
                     }
@@ -257,7 +259,7 @@ public class ItemMsgManage extends LinearLayout {
             } else {
                 this.e.setVisibility(8);
             }
-            xm7.j().d(TbadkCoreApplication.getCurrentAccount(), String.valueOf(recommendForumInfo.forum_id), new a(this));
+            tp7.j().d(TbadkCoreApplication.getCurrentAccount(), String.valueOf(recommendForumInfo.forum_id), new a(this));
         }
     }
 

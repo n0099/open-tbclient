@@ -20,7 +20,7 @@ import com.baidu.android.imsdk.ubc.MessageUbc;
 import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.a80;
+import com.baidu.tieba.e80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -87,7 +87,7 @@ public class IMSendMsg extends Message {
             SendMsgParam sendMsgParam;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, Boolean.valueOf(z), intent})) == null) {
-                if (!intent.hasExtra(Constants.EXTRA_PARAM) || (sendMsgParam = (SendMsgParam) intent.getSerializableExtra(Constants.EXTRA_PARAM)) == null || sendMsgParam.getChatMsg() == null) {
+                if (!intent.hasExtra("param") || (sendMsgParam = (SendMsgParam) intent.getSerializableExtra("param")) == null || sendMsgParam.getChatMsg() == null) {
                     return null;
                 }
                 return new IMSendMsg(context, sendMsgParam, (AnonymousClass1) null);
@@ -528,7 +528,7 @@ public class IMSendMsg extends Message {
                         debugInfo.msgId = msgId;
                         debugInfo.clientSource = chatMsg.getSource();
                         this.ubcData.setDebugInfo(debugInfo);
-                        a80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                        e80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                     }
                 }
                 j = jSONObject.optLong("time", -1L);
@@ -577,7 +577,7 @@ public class IMSendMsg extends Message {
                     debugInfo2.msgId = msgId;
                     debugInfo2.clientSource = chatMsg2.getSource();
                     this.ubcData.setDebugInfo(debugInfo2);
-                    a80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                    e80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                 }
                 try {
                     LogUtils.d(TAG, "handleMessageResult :" + jSONObject.toString());
@@ -609,7 +609,7 @@ public class IMSendMsg extends Message {
                     debugInfo22.msgId = msgId;
                     debugInfo22.clientSource = chatMsg22.getSource();
                     this.ubcData.setDebugInfo(debugInfo22);
-                    a80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                    e80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                 }
             } catch (Exception e5) {
                 e = e5;
@@ -639,7 +639,7 @@ public class IMSendMsg extends Message {
                 debugInfo222.msgId = msgId;
                 debugInfo222.clientSource = chatMsg222.getSource();
                 this.ubcData.setDebugInfo(debugInfo222);
-                a80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                e80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
             }
             if (i != 0 && !z) {
                 i5 = 1015;
@@ -672,7 +672,7 @@ public class IMSendMsg extends Message {
             debugInfo2222.msgId = msgId;
             debugInfo2222.clientSource = chatMsg2222.getSource();
             this.ubcData.setDebugInfo(debugInfo2222);
-            a80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+            e80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
         }
     }
 }

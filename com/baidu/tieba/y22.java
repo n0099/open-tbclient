@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
+import android.graphics.Region;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,11 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class y22 extends c22 {
+public class y22 extends s22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
+
+    @Override // com.baidu.tieba.s22
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        }
+    }
 
     public y22() {
         Interceptable interceptable = $ic;
@@ -28,23 +34,12 @@ public class y22 extends c22 {
         }
     }
 
-    @Override // com.baidu.tieba.c22
-    public void a(d22 d22Var, Canvas canvas) {
+    @Override // com.baidu.tieba.s22
+    public void a(t22 t22Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, d22Var, canvas) == null) {
-            if (d22Var.a() == 0) {
-                d22Var.b(canvas.save());
-            }
-            canvas.scale(this.a, this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.c22
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 1) {
-            this.a = (float) jSONArray.optDouble(0);
-            this.b = (float) jSONArray.optDouble(1);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, t22Var, canvas) == null) {
+            t22Var.g = true;
+            canvas.clipPath(t22Var.f, Region.Op.INTERSECT);
         }
     }
 }

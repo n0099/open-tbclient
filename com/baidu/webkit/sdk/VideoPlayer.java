@@ -2,16 +2,9 @@ package com.baidu.webkit.sdk;
 
 import android.content.Context;
 import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes7.dex */
 public abstract class VideoPlayer {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int DATA_ID_ATTRIBUTE_ID = 8;
     public static final int DATA_ID_AUTOPLAY = 15;
     public static final int DATA_ID_COOKIE = 3;
@@ -52,7 +45,6 @@ public abstract class VideoPlayer {
     public static final int NOTIFY_SET_VOLUME = 5;
     public static final int NOTIFY_SET_ZEUS_VIDEO_EXT = 8;
     public static final int NOTIFY_UPDATE_VIDEO_RECT = 7;
-    public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public VideoPlayerListener mListener;
 
@@ -72,20 +64,6 @@ public abstract class VideoPlayer {
     }
 
     public VideoPlayer(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mContext = context;
     }
 
@@ -96,9 +74,7 @@ public abstract class VideoPlayer {
     public abstract int getDuration();
 
     public int getPlayedTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getCurrentPosition() : invokeV.intValue;
+        return getCurrentPosition();
     }
 
     public abstract int getVideoHeight();
@@ -110,12 +86,7 @@ public abstract class VideoPlayer {
     public abstract boolean isPlaying();
 
     public boolean needShowDefaultController() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public abstract void notify(int i, Object obj);
@@ -125,12 +96,7 @@ public abstract class VideoPlayer {
     public abstract void play();
 
     public boolean prepareAsync() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public abstract void resume();
@@ -140,10 +106,7 @@ public abstract class VideoPlayer {
     public abstract void setDataSource(HashMap<Integer, String> hashMap);
 
     public void setListener(VideoPlayerListener videoPlayerListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, videoPlayerListener) == null) {
-            this.mListener = videoPlayerListener;
-        }
+        this.mListener = videoPlayerListener;
     }
 
     public abstract void setVideoViewHolder(FrameLayout frameLayout);

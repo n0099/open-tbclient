@@ -1,10 +1,5 @@
 package com.facebook.imagepipeline.nativecode;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.DoNotStrip;
 import com.facebook.imageformat.DefaultImageFormats;
 import com.facebook.imageformat.ImageFormat;
@@ -14,28 +9,12 @@ import javax.annotation.Nullable;
 @DoNotStrip
 /* loaded from: classes7.dex */
 public class NativeJpegTranscoderFactory implements ImageTranscoderFactory {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final boolean mEnsureTranscoderLibraryLoaded;
     public final int mMaxBitmapSize;
     public final boolean mUseDownSamplingRatio;
 
     @DoNotStrip
     public NativeJpegTranscoderFactory(int i, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mMaxBitmapSize = i;
         this.mUseDownSamplingRatio = z;
         this.mEnsureTranscoderLibraryLoaded = z2;
@@ -45,14 +24,9 @@ public class NativeJpegTranscoderFactory implements ImageTranscoderFactory {
     @DoNotStrip
     @Nullable
     public ImageTranscoder createImageTranscoder(ImageFormat imageFormat, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, imageFormat, z)) == null) {
-            if (imageFormat != DefaultImageFormats.JPEG) {
-                return null;
-            }
-            return new NativeJpegTranscoder(z, this.mMaxBitmapSize, this.mUseDownSamplingRatio, this.mEnsureTranscoderLibraryLoaded);
+        if (imageFormat != DefaultImageFormats.JPEG) {
+            return null;
         }
-        return (ImageTranscoder) invokeLZ.objValue;
+        return new NativeJpegTranscoder(z, this.mMaxBitmapSize, this.mUseDownSamplingRatio, this.mEnsureTranscoderLibraryLoaded);
     }
 }

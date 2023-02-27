@@ -5,14 +5,13 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
-import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.yo5;
+import com.baidu.tieba.mq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +52,7 @@ public class AddThreadRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            yo5.c(builder, true, true, true);
+            mq5.c(builder, true, true, true);
             builder.authsid = this.requestData.get("authsid");
             builder.sig = this.requestData.get(FunAdSdk.PLATFORM_SIG);
             builder.tbs = this.requestData.get(HttpRequest.TBS);
@@ -88,7 +87,7 @@ public class AddThreadRequest extends NetMessage {
             builder.origin_video_title = this.requestData.get("origin_video_title");
             builder.is_share = this.requestData.get("is_share");
             builder.from_tid = this.requestData.get("from_tid");
-            builder.pro_zone = this.requestData.get(EditVideoActivityConfig.KEY_PRO_ZONE);
+            builder.pro_zone = this.requestData.get("pro_zone");
             builder.call_from = this.requestData.get(IntentConfig.CALL_FROM);
             builder.title = this.requestData.get("title");
             builder.video_abstract = this.requestData.get(AlbumFloatActivityConfig.VIDEO_ABSTRACT);

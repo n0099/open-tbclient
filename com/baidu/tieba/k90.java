@@ -1,62 +1,1769 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import android.os.SystemClock;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.ResponseCode;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.upload.utils.RequsetNetworkUtils;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.lcp.sdk.client.bean.BLCPRequest;
+import com.baidu.lcp.sdk.connect.QuicMessageHandler;
+import com.baidu.tieba.d90;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tieba.g90;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
+import com.huawei.hms.framework.common.ExceptionCode;
+import com.yy.gslbsdk.db.ProbeTB;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Observable;
+import java.util.concurrent.Callable;
+import java.util.concurrent.FutureTask;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
+import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes5.dex */
-public class k90 {
+public final class k90 extends Observable {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile a90 F;
+    public static volatile k90 G;
     public transient /* synthetic */ FieldHolder $fh;
-    public l90 a;
-    public m90 b;
+    public String A;
+    public String B;
+    public String C;
+    public String D;
+    public Runnable E;
+    public AtomicInteger a;
+    public int b;
+    public boolean c;
+    public volatile LinkedList<h90> d;
+    public final HashMap<Long, h90> e;
+    public final Object f;
+    public final Object g;
+    public o90 h;
+    public Map<Long, f90> i;
+    public Map<Long, f90> j;
+    public h k;
+    public g l;
+    public f m;
+    public boolean n;
+    public AtomicInteger o;
+    public Context p;
+    public i90 q;
+    public j r;
+    public i s;
+    public HandlerThread t;
+    public e u;
+    @SuppressLint({"MobilebdThread"})
+    public Thread v;
+    public AtomicBoolean w;
+    public AtomicBoolean x;
+    public long y;
+    public long z;
 
-    public k90() {
+    public final long N(int i2) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+            if (i2 < 3) {
+                return i2 * 1000;
+            }
+            return 3000L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ k90 d;
+
+        /* renamed from: com.baidu.tieba.k90$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0312a implements g90.d {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ long a;
+            public final /* synthetic */ a b;
+
+            public C0312a(a aVar, long j) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, Long.valueOf(j)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = j;
+            }
+
+            @Override // com.baidu.tieba.g90.d
+            public void a(int i, String str, String str2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) {
+                    aa0.b("SocketTransceiver", "DNS resolve result ip: " + str2 + " cost: " + (System.currentTimeMillis() - this.a) + " ms");
+                    if (TextUtils.isEmpty(str2)) {
+                        str2 = this.b.a;
+                    }
+                    k90 k90Var = this.b.d;
+                    k90Var.A = str2;
+                    t80 g = s80.h(k90Var.p).g(601110);
+                    g.c("dns_end", System.currentTimeMillis());
+                    g.d(ClientCookie.PORT_ATTR, this.b.b);
+                    g.d("ip", str2);
+                    g.d("domain", this.b.a);
+                    g.d(ProbeTB.PROTOCOL, this.b.c);
+                    g.d("con_err_code", "P31");
+                    g.b("retry_cout", this.b.d.o.get());
+                    g.b("connect_state", 2);
+                    if (k90.F.a == -1) {
+                        a aVar = this.b;
+                        k90 k90Var2 = aVar.d;
+                        new d(k90Var2, str2, aVar.b, Integer.valueOf(k90Var2.a.incrementAndGet())).run();
+                    }
+                }
+            }
+        }
+
+        public a(k90 k90Var, String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k90Var, str, str2, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = k90Var;
+            this.a = str;
+            this.b = str2;
+            this.c = str3;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                s80.h(this.d.p).g(601110).c("dns_begin", System.currentTimeMillis());
+                g90.c(this.d.p).b(this.a, new C0312a(this, currentTimeMillis));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public final class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public Integer c;
+        public final /* synthetic */ k90 d;
+
+        /* loaded from: classes5.dex */
+        public class a implements Callable<j90> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ d a;
+
+            public a(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = dVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // java.util.concurrent.Callable
+            public j90 call() throws Exception {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    aa0.a("SocketTransceiver", "socketStateFutureTask star call()");
+                    s80.h(this.a.d.p).g(601110).d("P22", "socket connect thread start");
+                    return this.a.d.q.e(this.a.b, Integer.valueOf(this.a.a).intValue());
+                }
+                return (j90) invokeV.objValue;
+            }
+        }
+
+        public d(k90 k90Var, String str, String str2, Integer num) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k90Var, str, str2, num};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = k90Var;
+            this.b = str;
+            this.a = str2;
+            this.c = num;
+        }
+
+        @Override // java.lang.Runnable
+        @SuppressLint({"MobilebdThread"})
+        public synchronized void run() {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this) {
+                    aa0.a("SocketTransceiver", "start socket connect, connectTaskId: " + this.c);
+                    try {
+                    } catch (Exception e) {
+                        aa0.c("SocketTransceiver", "socket connect by ConnectTask occur exception: ", e);
+                        this.d.R("socket connect by ConnectTask occur exception: " + e, this.b, true);
+                    }
+                    if (k90.F.a != -1) {
+                        aa0.a("SocketTransceiver", "socketConnectState is " + this.d.U() + ", return");
+                        return;
+                    }
+                    k90.F.a = -2;
+                    if (this.d.L()) {
+                        aa0.a("SocketTransceiver", "socket create begin, but socket has created ok.");
+                        t80 g = s80.h(this.d.p).g(601110);
+                        g.d("P11", "socket create begin, but socket has created ok.");
+                        g.d("con_err_code", "P11");
+                        g.b("retry_cout", this.d.o.get());
+                        this.d.M();
+                    }
+                    if (this.d.v != null && this.d.v.isAlive()) {
+                        this.d.v.interrupt();
+                        aa0.a("SocketTransceiver", "socketConnectThread interrupt");
+                    }
+                    if (this.d.l != null && this.d.l.isAlive()) {
+                        this.d.l.interrupt();
+                        aa0.a("SocketTransceiver", "readThread interrupt");
+                    }
+                    if (this.d.k != null && this.d.k.isAlive()) {
+                        this.d.k.interrupt();
+                        aa0.a("SocketTransceiver", "sendThread interrupt");
+                    }
+                    try {
+                        aa0.a("SocketTransceiver", "socket ConnectTask start create Socket Object for connect");
+                        long currentTimeMillis = System.currentTimeMillis();
+                        t80 g2 = s80.h(this.d.p).g(601110);
+                        g2.b("connect_state", 3);
+                        g2.c("socket_begin", System.currentTimeMillis());
+                        FutureTask futureTask = new FutureTask(new a(this));
+                        this.d.v = new Thread(futureTask);
+                        this.d.v.start();
+                        aa0.a("SocketTransceiver", "ConnectTask run FutureTask by socketConnectThread for create Socket Object");
+                        j90 j90Var = (j90) futureTask.get(5000L, TimeUnit.MILLISECONDS);
+                        s80.h(this.d.p).g(601110).c("socket_end", System.currentTimeMillis());
+                        aa0.b("SocketTransceiver", "socket ConnectTask create Socket end, cost time: " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+                        if (j90Var != null) {
+                            if (this.d.L()) {
+                                aa0.a("SocketTransceiver", "socketConnect after, but socket has created ok.");
+                                t80 g3 = s80.h(this.d.p).g(601110);
+                                g3.d("P12", "socketConnect after, but socket has created ok.");
+                                g3.d("con_err_code", "P12");
+                                g3.b("retry_cout", this.d.o.get());
+                                this.d.M();
+                            }
+                            if (!j90Var.b.booleanValue()) {
+                                t80 g4 = s80.h(this.d.p).g(601110);
+                                g4.d("P14", "connect env error:" + this.b);
+                                g4.d("con_err_code", "P14");
+                                g4.b("retry_cout", this.d.o.get());
+                                this.d.o0("connect env error:", this.b);
+                                return;
+                            }
+                            aa0.a("SocketTransceiver", "socketState verified ENV approved, start setCurrentSocketState");
+                            this.d.q.c(j90Var);
+                            if (this.d.v != null && this.d.v.isAlive()) {
+                                this.d.v.interrupt();
+                                aa0.a("SocketTransceiver", "socketConnectThread interrupt");
+                            }
+                            aa0.d("SocketTransceiver", "create Socket ok");
+                            t80 g5 = s80.h(this.d.p).g(601110);
+                            g5.d("P15", "create Socket ok");
+                            g5.d("con_err_code", "P15");
+                            Context context = this.d.p;
+                            if (this.d.o.get() == 0) {
+                                i = 1;
+                            } else {
+                                i = 2;
+                            }
+                            ba0.z(context, i);
+                            g90.g(this.d.p, this.b);
+                            aa0.a("SocketTransceiver", "socket ConnectTask end, start lcp login");
+                            this.d.l0(this.d.W(true));
+                            this.d.y = SystemClock.currentThreadTimeMillis();
+                            aa0.a("SocketTransceiver", "socket connected: create socket success when currentThreadTimeMillis is " + this.d.y);
+                            this.d.n = false;
+                            this.d.k = new h(this.d, this.b);
+                            this.d.k.start();
+                            this.d.l = new g(this.d, this.b);
+                            this.d.l.start();
+                            this.d.w.set(false);
+                            aa0.b("SocketTransceiver", "connectTaskRunning.set(false)");
+                            return;
+                        }
+                        throw new RuntimeException("crate socket end, get SocketState is null");
+                    } catch (Throwable th) {
+                        String str = "ConnectTask exception: " + th;
+                        aa0.c("SocketTransceiver", str, th);
+                        aa0.b("SocketTransceiver", "socket ConnectTask create Socket end, cost time: " + (System.currentTimeMillis() - 0) + " ms");
+                        if (this.d.v != null && this.d.v.isAlive()) {
+                            this.d.v.interrupt();
+                            aa0.a("SocketTransceiver", "socketConnectThread interrupt");
+                        }
+                        s80.h(this.d.p).g(601110).c("socket_end", System.currentTimeMillis());
+                        this.d.R(str, this.b, true);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k90 a;
+
+        public b(k90 k90Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k90Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k90Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                k90 k90Var = this.a;
+                k90Var.l0(k90Var.W(false));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-704820568, "Lcom/baidu/tieba/k90$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-704820568, "Lcom/baidu/tieba/k90$c;");
+                    return;
+                }
+            }
+            int[] iArr = new int[BLCPRequest.SendTimeoutSecond.values().length];
+            a = iArr;
+            try {
+                iArr[BLCPRequest.SendTimeoutSecond.TIMEOUT_20s.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[BLCPRequest.SendTimeoutSecond.TIMEOUT_30s.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[BLCPRequest.SendTimeoutSecond.TIMEOUT_50s.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[BLCPRequest.SendTimeoutSecond.TIMEOUT_120s.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public final /* synthetic */ k90 b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(k90 k90Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k90Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = k90Var;
+        }
+
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.a = str;
+            }
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
+                super.handleMessage(message);
+                if (message.what == 1) {
+                    long j = message.arg1;
+                    synchronized (this.b.g) {
+                        this.b.e0(j, this.a);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class f implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public final /* synthetic */ k90 b;
+
+        public f(k90 k90Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k90Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = k90Var;
+            this.a = 60000L;
+        }
+
+        public /* synthetic */ f(k90 k90Var, a aVar) {
+            this(k90Var);
+        }
+
+        public void a(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                this.a = j;
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.b.u.removeCallbacks(this.b.m);
+                this.b.u.postDelayed(this.b.m, this.a);
+                k90 k90Var = this.b;
+                k90Var.l0(k90Var.h.b(this.b.p, 3L));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class g extends Thread {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public final /* synthetic */ k90 b;
+
+        public g(k90 k90Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k90Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = k90Var;
+            this.a = str;
+            setName("LCP-SocketTransceiver-readThread");
+        }
+
+        @Override // java.lang.Thread, java.lang.Runnable
+        public void run() {
+            h90 h90Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                while (!this.b.n) {
+                    try {
+                        h90 h90Var2 = null;
+                        try {
+                            h90Var2 = this.b.h.c(this.b.q.b());
+                            if (h90Var2 != null && h90Var2.o > 0) {
+                                this.b.u.removeCallbacks(this.b.r);
+                                h90Var2.n = false;
+                                if (z90.a) {
+                                    aa0.d("SocketTransceiver", "ReadThread receive a message : " + h90Var2.toString());
+                                }
+                                if (!h90Var2.l) {
+                                    if (h90Var2.j == 1 && h90Var2.i == 4) {
+                                        Context context = this.b.p;
+                                        y90.a(context, 1L, ExceptionCode.READ, h90Var2.o + "");
+                                    }
+                                    if (h90Var2.j == 50 && h90Var2.i == 2) {
+                                        Context context2 = this.b.p;
+                                        y90.a(context2, 50L, ExceptionCode.READ, h90Var2.o + "");
+                                    }
+                                    synchronized (this.b.g) {
+                                        h90Var = (h90) this.b.e.remove(Long.valueOf(h90Var2.o));
+                                        if (h90Var != null) {
+                                            aa0.a("SocketTransceiver", "ReadThread receive a msg which we request before");
+                                        }
+                                    }
+                                    this.b.c0(h90Var2, h90Var, this.a);
+                                }
+                                synchronized (this.b.g) {
+                                    if (this.b.e.size() != 0) {
+                                        aa0.a("SocketTransceiver", "ReadThread [sendMessageMap.size() != 0], restart socketReadAndWriteTimeoutRunnable");
+                                        this.b.r.b(h90Var2.o);
+                                        this.b.r.a(this.a);
+                                        this.b.u.a(this.a);
+                                        this.b.u.postDelayed(this.b.r, h90Var2.c);
+                                    }
+                                }
+                            }
+                        } catch (Exception e) {
+                            aa0.c("SocketTransceiver", "ReadThread read message exception, mClose is " + this.b.n + " exception: " + e, e);
+                            this.b.Y(h90Var2, true);
+                            if (this.b.n) {
+                                return;
+                            }
+                            this.b.c = false;
+                            k90 k90Var = this.b;
+                            k90Var.R("ReadThread read message exception: " + e, this.a, false);
+                            return;
+                        }
+                    } catch (Exception e2) {
+                        aa0.c("SocketTransceiver", "ReadThread exception, mClose is " + this.b.n + " exception: " + e2, e2);
+                        if (this.b.n) {
+                            return;
+                        }
+                        this.b.c = false;
+                        k90 k90Var2 = this.b;
+                        k90Var2.R("ReadThread exception: " + e2, this.a, false);
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class h extends Thread {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public final /* synthetic */ k90 b;
+
+        public h(k90 k90Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k90Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = k90Var;
+            this.a = str;
+            setName("LCP-SocketTransceiver-SendThread");
+        }
+
+        @Override // java.lang.Thread, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                while (!this.b.n) {
+                    try {
+                        h90 h90Var = null;
+                        try {
+                            synchronized (this.b.d) {
+                                if (this.b.d.size() == 0) {
+                                    this.b.d.wait();
+                                } else {
+                                    h90Var = (h90) this.b.d.removeFirst();
+                                }
+                            }
+                        } catch (InterruptedException e) {
+                            aa0.b("SocketTransceiver", "SendThread wait exception, mClose is " + this.b.n + ", exception: " + e);
+                            if (this.b.n) {
+                                return;
+                            }
+                            this.b.c = false;
+                            k90 k90Var = this.b;
+                            k90Var.R("SendThread wait exception: " + e, this.a, false);
+                        }
+                        if (h90Var != null) {
+                            try {
+                                if (!this.b.n) {
+                                    h90Var.n = true;
+                                    h90Var.k = k90.F.a;
+                                    if (h90Var.p) {
+                                        synchronized (this.b.g) {
+                                            if (this.b.e.isEmpty()) {
+                                                this.b.u.removeCallbacks(this.b.r);
+                                                this.b.r.b(h90Var.o);
+                                                this.b.r.a(this.a);
+                                                this.b.u.a(this.a);
+                                                this.b.u.postDelayed(this.b.r, 5000L);
+                                            }
+                                        }
+                                    }
+                                    if (z90.a) {
+                                        aa0.e("SocketTransceiver", "SendThread :" + h90Var.toString());
+                                    }
+                                    if (h90Var.j == 1 && h90Var.i == 4) {
+                                        Context context = this.b.p;
+                                        y90.a(context, 1L, "send", h90Var.o + "");
+                                    }
+                                    if (h90Var.j == 50 && h90Var.i == 2) {
+                                        Context context2 = this.b.p;
+                                        y90.a(context2, 50L, "send", h90Var.o + "");
+                                    }
+                                    h90Var.b = System.currentTimeMillis();
+                                    synchronized (this.b.f) {
+                                        this.b.q.f(h90Var);
+                                    }
+                                    if (!h90Var.l && h90Var.p) {
+                                        synchronized (this.b.g) {
+                                            this.b.e.put(Long.valueOf(h90Var.o), h90Var);
+                                        }
+                                    }
+                                } else {
+                                    this.b.d0(h90Var.o, this.a);
+                                    return;
+                                }
+                            } catch (Exception e2) {
+                                aa0.c("SocketTransceiver", "SendThread sendMessage message exception, mClose is " + this.b.n, e2);
+                                this.b.Y(h90Var, false);
+                                this.b.Z(h90Var.o, e2.toString(), this.a);
+                                if (this.b.n) {
+                                    return;
+                                }
+                                this.b.c = false;
+                                k90 k90Var2 = this.b;
+                                k90Var2.R("SendThread sendMessage Exception:" + e2, this.a, false);
+                                return;
+                            }
+                        }
+                    } catch (Exception e3) {
+                        aa0.c("SocketTransceiver", "SendThread Exception, mClose is " + this.b.n, e3);
+                        if (this.b.n) {
+                            return;
+                        }
+                        this.b.c = false;
+                        k90 k90Var3 = this.b;
+                        k90Var3.R("SendThread Exception:" + e3, this.a, false);
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class i implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public final /* synthetic */ k90 b;
+
+        public i(k90 k90Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k90Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = k90Var;
+            this.a = "";
+        }
+
+        public /* synthetic */ i(k90 k90Var, a aVar) {
+            this(k90Var);
+        }
+
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                if (str == null) {
+                    this.a = "";
+                } else {
+                    this.a = str;
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                t80 b = s80.h(this.b.p).b(601110);
+                b.c("flow_start_time", System.currentTimeMillis());
+                b.d("P18", "retry by disconnect");
+                b.d("con_err_code", "P18");
+                b.d("source", "retry : " + this.a);
+                this.b.P();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class j implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public String b;
+        public final /* synthetic */ k90 c;
+
+        public j(k90 k90Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k90Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = k90Var;
+        }
+
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.b = str;
+            }
+        }
+
+        public void b(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                this.a = j;
+            }
+        }
+
+        public /* synthetic */ j(k90 k90Var, a aVar) {
+            this(k90Var);
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.c.e0(this.a, this.b);
+                this.c.R("read and write thread timeout:", this.b, false);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947867783, "Lcom/baidu/tieba/k90;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947867783, "Lcom/baidu/tieba/k90;");
                 return;
             }
         }
-        this.a = new l90();
-        this.b = new m90();
+        F = new a90();
     }
 
-    public d90 a(d90 d90Var, boolean z) {
-        InterceptResult invokeLZ;
+    public final String U() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, d90Var, z)) == null) {
-            this.a.b(d90Var, z);
-            return d90Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (F.a == -1) {
+                return "UNCONNECTED";
+            }
+            if (F.a == -2) {
+                return "CONNECTING";
+            }
+            return "CONNECTED";
         }
-        return (d90) invokeLZ.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public d90 b(Context context, long j) {
-        InterceptResult invokeLJ;
+    public a90 X() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, j)) == null) {
-            return this.a.c(context, j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return F;
         }
-        return (d90) invokeLJ.objValue;
+        return (a90) invokeV.objValue;
     }
 
-    public d90 c(InputStream inputStream) throws Exception {
+    public void h0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            aa0.a("SocketTransceiver", "customPingRunnable send PingRequest ");
+            l0(this.h.b(this.p, 3L));
+        }
+    }
+
+    public final void j0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            aa0.a("SocketTransceiver", "resetConnectParameter");
+            this.b = 0;
+            this.o.set(0);
+            g90.i();
+        }
+    }
+
+    public synchronized void n0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            synchronized (this) {
+                aa0.a("SocketTransceiver", "socketConnect");
+                this.c = false;
+                j0();
+                P();
+            }
+        }
+    }
+
+    public k90(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new AtomicInteger(0);
+        this.b = 0;
+        this.c = false;
+        this.d = new LinkedList<>();
+        this.e = new LinkedHashMap();
+        this.f = new Object();
+        this.g = new Object();
+        this.h = new o90();
+        this.i = new LinkedHashMap();
+        this.j = new LinkedHashMap();
+        this.m = new f(this, null);
+        this.n = false;
+        this.o = new AtomicInteger(0);
+        this.r = new j(this, null);
+        this.s = new i(this, null);
+        this.w = new AtomicBoolean(false);
+        this.x = new AtomicBoolean(false);
+        this.A = "";
+        this.B = "";
+        this.C = "";
+        this.D = "";
+        this.E = new b(this);
+        this.p = context;
+        HandlerThread handlerThread = new HandlerThread("LCP HandlerThread");
+        this.t = handlerThread;
+        handlerThread.start();
+        this.u = new e(this, this.t.getLooper());
+    }
+
+    public static synchronized k90 V(Context context) {
         InterceptResult invokeL;
+        k90 k90Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream)) == null) {
-            return this.b.b(inputStream);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+            synchronized (k90.class) {
+                if (G == null) {
+                    G = new k90(context.getApplicationContext());
+                }
+                k90Var = G;
+            }
+            return k90Var;
         }
-        return (d90) invokeL.objValue;
+        return (k90) invokeL.objValue;
+    }
+
+    public synchronized void K(BLCPRequest bLCPRequest, f90 f90Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, bLCPRequest, f90Var) == null) {
+            synchronized (this) {
+                h90 h90Var = new h90();
+                h90Var.i = bLCPRequest.a;
+                h90Var.j = bLCPRequest.b;
+                h90Var.a = bLCPRequest.c;
+                if (bLCPRequest.d < 0) {
+                    h90Var.o = System.currentTimeMillis();
+                } else {
+                    h90Var.o = bLCPRequest.d;
+                }
+                int i2 = c.a[bLCPRequest.e.ordinal()];
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
+                            h90Var.c = 5000L;
+                        } else {
+                            h90Var.c = 50000L;
+                        }
+                    } else {
+                        h90Var.c = 30000L;
+                    }
+                } else {
+                    h90Var.c = 20000L;
+                }
+                if (bLCPRequest instanceof e90) {
+                    long j2 = (h90Var.i * 10000) + h90Var.j;
+                    h90Var.o = j2;
+                    m0(h90Var.i, h90Var.j, j2, true, f90Var);
+                } else {
+                    m0(h90Var.i, h90Var.j, h90Var.o, false, f90Var);
+                    this.h.a(h90Var, true);
+                    l0(h90Var);
+                }
+            }
+        }
+    }
+
+    public final void d0(long j2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048594, this, j2, str) == null) {
+            try {
+                if (this.e.size() > 0 && this.e.containsKey(Long.valueOf(j2))) {
+                    aa0.a("SocketTransceiver", "handle msg socket stoped!!! " + this.e.get(Long.valueOf(j2)).toString());
+                    h90 remove = this.e.remove(Long.valueOf(j2));
+                    if (remove == null) {
+                        return;
+                    }
+                    remove.d = 8006;
+                    remove.e = "socket stopped :";
+                    c0(remove, remove, str);
+                }
+            } catch (Exception e2) {
+                aa0.a("SocketTransceiver", "handle msg socket stoped!!! " + e2);
+            }
+        }
+    }
+
+    public final void e0(long j2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048595, this, j2, str) == null) {
+            try {
+                if (this.e.size() > 0 && this.e.containsKey(Long.valueOf(j2))) {
+                    aa0.a("SocketTransceiver", "handle msg timeout!!! " + this.e.get(Long.valueOf(j2)).toString());
+                    h90 remove = this.e.remove(Long.valueOf(j2));
+                    if (remove == null) {
+                        return;
+                    }
+                    remove.d = ResponseCode.LCP_TIME_OUT;
+                    remove.e = "socket timeout";
+                    c0(remove, remove, str);
+                }
+            } catch (Exception e2) {
+                aa0.a("SocketTransceiver", "handle msg timeout!!! " + e2);
+            }
+        }
+    }
+
+    public final boolean L() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            i90 i90Var = this.q;
+            if (i90Var != null && i90Var.a() != null && this.q.a().c != null && this.q.a().c.isConnected()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void M() {
+        j90 a2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (a2 = this.q.a()) != null && a2.a.booleanValue()) {
+            try {
+                if (a2.c != null) {
+                    a2.c.close();
+                    a2.c = null;
+                    if (a2.d != null) {
+                        a2.d.close();
+                        a2.d = null;
+                    }
+                    if (a2.e != null) {
+                        a2.e.close();
+                        a2.e = null;
+                    }
+                    aa0.a("SocketTransceiver", "closeExistedConnection ok");
+                }
+            } catch (IOException e2) {
+                aa0.c("SocketTransceiver", "closeExistedConnection :" + e2.getMessage(), e2);
+            }
+        }
+    }
+
+    public final synchronized void O(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, str3) == null) {
+            synchronized (this) {
+                if (!this.w.getAndSet(true)) {
+                    aa0.b("SocketTransceiver", "connectTaskRunning.set(true)");
+                    x90.a(this.p).b(new a(this, str, str2, str3));
+                } else {
+                    aa0.b("SocketTransceiver", "connect() return, ");
+                }
+            }
+        }
+    }
+
+    public final void c0(h90 h90Var, h90 h90Var2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048593, this, h90Var, h90Var2, str) == null) {
+            f0(h90Var2, h90Var, str);
+            long j2 = h90Var.i;
+            if (j2 == 1) {
+                a0(h90Var, str);
+            } else if (j2 != -1) {
+                g0(h90Var);
+            } else if (h90Var2 == null) {
+            } else {
+                if (h90Var2.i == 1) {
+                    a0(h90Var2, str);
+                } else {
+                    g0(h90Var2);
+                }
+            }
+        }
+    }
+
+    public final synchronized void P() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                if (!RequsetNetworkUtils.isConnected(this.p)) {
+                    t80 g2 = s80.h(this.p).g(601110);
+                    g2.d("net_connect", "false");
+                    g2.c("flow_end_time", System.currentTimeMillis());
+                    g2.d("P33", "socket connectImpl error, no net");
+                    g2.d("con_err_code", "P33");
+                    g2.b("retry_cout", this.o.get());
+                    g2.b("connect_state", -1);
+                    g2.e();
+                    j0();
+                    F.a = -1;
+                    p0(false);
+                    return;
+                }
+                aa0.d("SocketTransceiver", "connectImpl socket connect state:" + U());
+                if (F.a != 0 && F.a != -2) {
+                    this.u.removeCallbacks(this.s);
+                    this.u.removeCallbacks(this.E);
+                    this.u.removeCallbacks(this.m);
+                    i0();
+                    return;
+                }
+                t80 g3 = s80.h(this.p).g(601110);
+                g3.b("inner_connect_state", F.a);
+                g3.d("P34", "socket connectImpl repeat");
+                g3.d("con_err_code", "P34");
+                g3.b("retry_cout", this.o.get());
+            }
+        }
+    }
+
+    public final synchronized void Q(String str, String str2, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            synchronized (this) {
+                if (z90.a) {
+                    aa0.d("SocketTransceiver", "destroy socket connect start, reason : " + str + ", host: " + str2 + ", syncStatus: " + z + ", isConnectException: " + z2);
+                }
+                this.u.removeCallbacks(this.r);
+                this.n = true;
+                if (this.q != null) {
+                    synchronized (this.d) {
+                        this.d.notifyAll();
+                        aa0.d("SocketTransceiver", "destroy socket connect, sendQueue notifyAll");
+                    }
+                    try {
+                        this.q.d();
+                        aa0.a("SocketTransceiver", "destroy socket connect, socketClose success");
+                    } catch (Exception e2) {
+                        this.q.c(null);
+                        aa0.c("SocketTransceiver", "Exception destroy:", e2);
+                    }
+                }
+                F.a = -1;
+                if (z) {
+                    t80 g2 = s80.h(this.p).g(601110);
+                    g2.d("P17", str);
+                    g2.d("con_err_code", "P17");
+                    p0(true);
+                } else {
+                    if (b90.g().h() == 0) {
+                        a90 a90Var = new a90();
+                        a90Var.a = -2;
+                        setChanged();
+                        notifyObservers(a90Var);
+                        b90.g().j();
+                    }
+                    if (z2) {
+                        t80 g3 = s80.h(this.p).g(601110);
+                        g3.c("flow_end_time", System.currentTimeMillis());
+                        g3.b("retry_cout", this.o.get());
+                        g3.d("P21", "connect end by exception:" + str);
+                        g3.d("con_err_code", "P21");
+                        g3.e();
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized void R(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048583, this, str, str2, z) == null) {
+            synchronized (this) {
+                if (z90.a) {
+                    aa0.d("SocketTransceiver", "disconnectedByLcp, destroyConnection = " + this.c + ", net :" + RequsetNetworkUtils.isConnected(this.p) + ", reason : " + str);
+                }
+                S(str2);
+                if (this.c) {
+                    t80 g2 = s80.h(this.p).g(601110);
+                    g2.d("P16", "disconnectedByLcp:" + this.c);
+                    g2.d("con_err_code", "P16");
+                    g2.b("retry_cout", this.o.get());
+                    j0();
+                    return;
+                }
+                s80.h(this.p).g(601110).c("destory_starttime", System.currentTimeMillis());
+                Q(str, str2, false, z);
+                s80.h(this.p).g(601110).c("destory_endtime", System.currentTimeMillis());
+                if (z) {
+                    this.w.set(false);
+                    aa0.b("SocketTransceiver", "connectTaskRunning.set(false)");
+                }
+                k0(false, str2, str);
+            }
+        }
+    }
+
+    public final void Z(long j2, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j2), str, str2}) == null) {
+            try {
+                if (this.e.size() > 0 && this.e.containsKey(Long.valueOf(j2))) {
+                    aa0.a("SocketTransceiver", "handle msg exception!!! " + this.e.get(Long.valueOf(j2)).toString());
+                    h90 remove = this.e.remove(Long.valueOf(j2));
+                    if (remove == null) {
+                        return;
+                    }
+                    remove.d = 8005;
+                    remove.e = "socket exception :" + str;
+                    c0(remove, remove, str2);
+                }
+            } catch (Exception e2) {
+                aa0.a("SocketTransceiver", "handle msg exception!!! " + e2);
+            }
+        }
+    }
+
+    public final void b0(long j2, boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), str}) == null) {
+            try {
+                t80 g2 = s80.h(this.p).g(601110);
+                g2.c("login_end", System.currentTimeMillis());
+                g2.c("flow_end_time", System.currentTimeMillis());
+                g2.b("connect_state", 4);
+                g2.d("P55", "lcp login success");
+                g2.d("con_err_code", "lcp login success");
+                g2.b("retry_cout", this.o.get());
+                g2.e();
+                this.o.set(0);
+                F.a = 0;
+                aa0.b("SocketTransceiver", "lcm login success, cost: , lcm cost: " + (System.currentTimeMillis() - this.z) + "ms");
+                p0(false);
+                if (!z) {
+                    return;
+                }
+                this.u.a(str);
+                this.u.postDelayed(this.m, j2);
+                aa0.a("SocketTransceiver", "ping every 1分钟 ");
+            } catch (Exception e2) {
+                aa0.b("SocketTransceiver", "handleLcpLoginSuccess Exception :" + e2);
+            }
+        }
+    }
+
+    public final void S(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            try {
+                aa0.a("SocketTransceiver", "socket connect disConnect, fatalAllMessage begin ");
+                s80.h(this.p).g(601110).b("sendQueue_length", this.d.size());
+                s80.h(this.p).g(601110).c("sendQueue_starttime", System.currentTimeMillis());
+                synchronized (this.d) {
+                    while (this.d.size() > 0) {
+                        T(this.d.removeFirst(), str);
+                    }
+                    aa0.a("SocketTransceiver", "fatalAllMessage sendQueue end ");
+                }
+                s80.h(this.p).g(601110).c("sendQueue_endtime", System.currentTimeMillis());
+                s80.h(this.p).g(601110).b("sendMessageMap_length", this.e.size());
+                s80.h(this.p).g(601110).c("sendMessageMap_starttime", System.currentTimeMillis());
+                synchronized (this.g) {
+                    aa0.a("SocketTransceiver", "fatalAllMessage mSync begin");
+                    for (Long l : this.e.keySet()) {
+                        T(this.e.get(l), str);
+                    }
+                    this.e.clear();
+                    aa0.a("SocketTransceiver", "fatalAllMessage mSync end");
+                }
+                s80.h(this.p).g(601110).c("sendMessageMap_endtime", System.currentTimeMillis());
+            } catch (Exception e2) {
+                aa0.c("SocketTransceiver", "fatalAllMessage Exception", e2);
+            }
+        }
+    }
+
+    public final synchronized void l0(h90 h90Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, h90Var) == null) {
+            synchronized (this) {
+                try {
+                } catch (Exception e2) {
+                    aa0.c("SocketTransceiver", "sendMessage Exception :", e2);
+                }
+                synchronized (this.d) {
+                    boolean z = false;
+                    Iterator<h90> it = this.d.iterator();
+                    while (it.hasNext()) {
+                        h90 next = it.next();
+                        aa0.a("SocketTransceiver", "sendMessage queue :" + next.o);
+                        if (next.m) {
+                            z = true;
+                        }
+                    }
+                    if (h90Var.m) {
+                        if (!z && F.a == -2) {
+                            this.d.addFirst(h90Var);
+                            this.d.notifyAll();
+                        }
+                        aa0.b("SocketTransceiver", "sendMessage cur methodId :1, state :" + U());
+                    } else if (F.a == -1) {
+                        if (L()) {
+                            if (this.d.size() <= 0 || !z) {
+                                this.d.addFirst(W(true));
+                                this.d.notifyAll();
+                            }
+                            if (!h90Var.l) {
+                                this.d.add(h90Var);
+                                this.d.notifyAll();
+                            }
+                        } else {
+                            if (h90Var.l && b90.g().h() == -1) {
+                                b90.g().f("ping");
+                            }
+                            this.d.add(h90Var);
+                        }
+                    } else {
+                        this.d.add(h90Var);
+                        this.d.notifyAll();
+                    }
+                }
+            }
+        }
+    }
+
+    public final void T(h90 h90Var, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, h90Var, str) == null) && h90Var != null && h90Var.i != 1) {
+            aa0.b("SocketTransceiver", "fetalAndClearMsg : " + h90Var.o + ", serviceId :" + h90Var.i + ", methodId :" + h90Var.j);
+            c0(new h90(), h90Var, str);
+        }
+    }
+
+    public final void Y(h90 h90Var, boolean z) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048589, this, h90Var, z) == null) && h90Var != null && h90Var.j == 50 && h90Var.i == 2) {
+            if (z) {
+                str = "ReadThread read ImLoginMessage occur exception";
+            } else {
+                str = "SendThread send ImLoginMessage occur exception";
+            }
+            t80 g2 = s80.h(this.p).g(601110);
+            g2.c("login_end", System.currentTimeMillis());
+            g2.d("P46", str);
+            g2.d("con_err_code", "P46");
+        }
+    }
+
+    public synchronized void o0(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048605, this, str, str2) == null) {
+            synchronized (this) {
+                aa0.d("SocketTransceiver", "---socketDisconnect---");
+                this.n = true;
+                this.c = true;
+                S(str2);
+                j0();
+                this.u.removeCallbacks(this.s);
+                this.u.removeCallbacks(this.E);
+                this.u.removeCallbacks(this.m);
+                g90.h(this.p, null, false);
+                Q(str, str2, true, true);
+                this.w.set(false);
+            }
+        }
+    }
+
+    public final h90 W(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
+            if (z) {
+                this.z = System.currentTimeMillis();
+                t80 g2 = s80.h(this.p).g(601110);
+                g2.b("connect_state", 4);
+                g2.c("login_begin", System.currentTimeMillis());
+            }
+            return this.h.b(this.p, 1L);
+        }
+        return (h90) invokeZ.objValue;
+    }
+
+    public final void a0(h90 h90Var, String str) {
+        int i2;
+        long j2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048591, this, h90Var, str) == null) {
+            if (h90Var.d == 0) {
+                long j3 = h90Var.h;
+                if (j3 <= 0) {
+                    j2 = 60000;
+                } else {
+                    j2 = j3;
+                }
+                long j4 = h90Var.j;
+                if (j4 == 1) {
+                    b0(j2, true, str);
+                    return;
+                } else if (j4 == 2) {
+                    aa0.d("SocketTransceiver", "LCP logout, cur msg.connectState is " + h90Var.k);
+                    o0("LCP logout:", str);
+                    return;
+                } else if (j4 == 3) {
+                    this.m.a(j2);
+                    return;
+                } else {
+                    return;
+                }
+            }
+            String str2 = " errorcode:" + h90Var.d + " errmsg:" + h90Var.e;
+            if (!String.valueOf(h90Var.d).startsWith(PayUVEventType.THIRD_PAY_WAY_DIALOG_CHANNEL_CLICK) && (i2 = h90Var.d) != 1011 && i2 != 2001 && i2 != 2003) {
+                if (i2 == 1012) {
+                    aa0.a("SocketTransceiver", "login error :" + str2 + ", lcm cost: " + (System.currentTimeMillis() - this.z) + "ms");
+                    t80 g2 = s80.h(this.p).g(601110);
+                    g2.c("login_end", System.currentTimeMillis());
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("lcp login failed:");
+                    sb.append(str2);
+                    g2.d("P45", sb.toString());
+                    g2.d("con_err_code", "P45");
+                    if (!this.x.getAndSet(true)) {
+                        ba0.x(this.p, "");
+                        o0(str2, str);
+                        b90.g().f("lcp login failed:");
+                        this.x.set(false);
+                        return;
+                    }
+                    return;
+                } else if (i2 == 1013) {
+                    b0(60000L, false, str);
+                    return;
+                } else {
+                    aa0.a("SocketTransceiver", "login error :" + str2);
+                    t80 g3 = s80.h(this.p).g(601110);
+                    g3.c("login_end", System.currentTimeMillis());
+                    g3.d("P47", "lcp login failed:" + str2);
+                    g3.d("con_err_code", "P47");
+                    F.a = -1;
+                    k0(true, str, str2);
+                    return;
+                }
+            }
+            aa0.a("SocketTransceiver", "login error, then request token, error code :" + h90Var.d + ", lcm cost: " + (System.currentTimeMillis() - this.z) + "ms");
+            t80 g4 = s80.h(this.p).g(601110);
+            g4.c("login_end", System.currentTimeMillis());
+            StringBuilder sb2 = new StringBuilder();
+            sb2.append("lcp login failed:");
+            sb2.append(str2);
+            g4.d("P45", sb2.toString());
+            g4.d("con_err_code", "P45");
+            if (!this.x.getAndSet(true)) {
+                ba0.x(this.p, "");
+                o0(str2, str);
+                b90.g().f("lcp login failed:");
+                this.x.set(false);
+            }
+        }
+    }
+
+    public final void f0(h90 h90Var, h90 h90Var2, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048596, this, h90Var, h90Var2, str) == null) && h90Var != null) {
+            t80 b2 = s80.h(this.p).b(601111);
+            b2.c(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, h90Var2.o);
+            b2.c("service_id", h90Var2.i);
+            b2.c("method_id", h90Var2.j);
+            b2.b("error_code", h90Var2.d);
+            b2.d(GameCodeGetResponseMsg.PARAM_ERROR_MSG, h90Var2.e);
+            b2.c("request_time", h90Var.b);
+            b2.c("response_time", System.currentTimeMillis());
+            b2.d("ext", "");
+            b2.d(ProbeTB.PROTOCOL, this.B);
+            b2.d("ip", this.A);
+            b2.d("domain", this.C);
+            b2.d(ClientCookie.PORT_ATTR, this.D);
+            b2.e();
+        }
+    }
+
+    public final synchronized void g0(h90 h90Var) {
+        long j2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, h90Var) == null) {
+            synchronized (this) {
+                f90 f90Var = null;
+                try {
+                    if (!h90Var.f) {
+                        j2 = h90Var.o;
+                    } else {
+                        j2 = (h90Var.i * 10000) + h90Var.j;
+                    }
+                    Long valueOf = Long.valueOf(j2);
+                    if (z90.a) {
+                        aa0.a("SocketTransceiver", "onBLCPResponse,  key:" + valueOf + ", methodId :" + h90Var.j + ", serviceId :" + h90Var.i + ", error :" + h90Var.d + ", msgId :" + h90Var.o + ", errMsg :" + h90Var.e + ", invoke keys :" + this.i.keySet().toString() + ", notify keys :" + this.j.keySet().toString());
+                    }
+                    if (this.j.size() > 0 && this.j.containsKey(valueOf)) {
+                        f90Var = this.j.get(valueOf);
+                    } else if (this.i.size() > 0 && this.i.containsKey(valueOf)) {
+                        f90Var = this.i.remove(valueOf);
+                    }
+                    if (f90Var != null) {
+                        if (f90Var instanceof d90) {
+                            d90.a aVar = new d90.a();
+                            long j3 = h90Var.i;
+                            aVar.a = h90Var.j;
+                            aVar.b = h90Var.o;
+                            aVar.c = h90Var.g;
+                            aVar.d = h90Var.q;
+                            ((d90) f90Var).onResponse(h90Var.d, h90Var.e, aVar);
+                        } else {
+                            f90Var.onResponse(h90Var.d, h90Var.e, h90Var.i, h90Var.j, h90Var.o, h90Var.g);
+                        }
+                        if (h90Var.d == 1011) {
+                            aa0.a("SocketTransceiver", "onBLCPResponse, errorCode :" + h90Var.d + ", and will send lcm login msg .");
+                            l0(W(false));
+                        }
+                    }
+                } catch (Exception e2) {
+                    aa0.c("SocketTransceiver", "onBLCPResponse, Exception!!!", e2);
+                }
+            }
+        }
+    }
+
+    public final synchronized void i0() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            synchronized (this) {
+                if (!this.C.isEmpty() && !this.D.isEmpty() && g90.d()) {
+                    O(this.C, this.D, this.B);
+                    return;
+                }
+                aa0.f("SocketTransceiver", "protocolOption  thread :" + Thread.activeCount() + ", cur :" + Thread.currentThread() + "， protocol count :" + this.b);
+                int i2 = ba0.i(this.p);
+                String[] split = ba0.h(this.p, this.b).split(":");
+                if (split.length < 3) {
+                    if (this.b < i2) {
+                        this.b++;
+                        this.C = "";
+                        this.D = "";
+                        i0();
+                    }
+                    return;
+                }
+                if (TextUtils.isEmpty(split[0])) {
+                    str = "tcp";
+                } else {
+                    str = split[0];
+                }
+                String str2 = split[1];
+                String str3 = split[2];
+                if (this.b >= i2) {
+                    this.b = 0;
+                    aa0.a("SocketTransceiver", "protocolOption failed, connectip:" + str2 + ", port:" + str3 + ", protocolType:" + str);
+                    this.q = new l90(this.p, "tls");
+                    this.C = "lcs.baidu.com";
+                    this.D = "443";
+                    this.B = "tls";
+                    O("lcs.baidu.com", "443", "tls");
+                } else {
+                    if ("quic".equals(str) && !(this.q instanceof QuicMessageHandler)) {
+                        this.q = new QuicMessageHandler(this.p);
+                    } else if ("tcp".equals(str) || ("tls".equals(str) && !(this.q instanceof l90))) {
+                        this.q = new l90(this.p, str);
+                    }
+                    this.b++;
+                    if (this.q != null && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                        aa0.a("SocketTransceiver", "type :" + str + ", host :" + str2 + ", port :" + str3);
+                        this.C = str2;
+                        this.D = str3;
+                        this.B = str;
+                        O(str2, str3, str);
+                    } else {
+                        this.C = "";
+                        this.D = "";
+                        i0();
+                    }
+                }
+            }
+        }
+    }
+
+    public final void k0(boolean z, String str, String str2) {
+        String str3;
+        Runnable runnable;
+        Runnable runnable2;
+        int i2;
+        String str4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
+            try {
+                if (this.o.get() <= 10 && F.a == -1) {
+                    this.u.removeCallbacks(this.m);
+                    e eVar = this.u;
+                    if (z) {
+                        runnable = this.s;
+                    } else {
+                        runnable = this.E;
+                    }
+                    eVar.removeCallbacks(runnable);
+                    this.s.a(str2);
+                    if (z) {
+                        runnable2 = this.E;
+                    } else {
+                        runnable2 = this.s;
+                    }
+                    Message obtain = Message.obtain(this.u, runnable2);
+                    if (z) {
+                        i2 = 202020;
+                    } else {
+                        i2 = 101010;
+                    }
+                    obtain.what = i2;
+                    if (!this.u.hasMessages(i2)) {
+                        this.o.incrementAndGet();
+                        long N = N(this.o.get());
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("waiting Schedule retry ");
+                        if (z) {
+                            str4 = "login";
+                        } else {
+                            str4 = ExceptionCode.CONNECT;
+                        }
+                        sb.append(str4);
+                        sb.append(" , retry times: ");
+                        sb.append(this.o.get());
+                        sb.append(" time delay: ");
+                        sb.append(N);
+                        sb.append(", reason: ");
+                        sb.append(str2);
+                        String sb2 = sb.toString();
+                        t80 g2 = s80.h(this.p).g(601110);
+                        g2.d("P44", sb2);
+                        g2.d("con_err_code", "P44");
+                        this.u.sendMessageDelayed(obtain, N);
+                        aa0.d("SocketTransceiver", sb2);
+                        return;
+                    }
+                    aa0.d("SocketTransceiver", "waiting Schedule retry， but handler queue had this runnable, pass");
+                    return;
+                }
+                o0("retry strategy had cost " + this.o.get() + " and stop retry, cur connectState:" + F.a + ", reason: " + str2, str);
+            } catch (Exception e2) {
+                StringBuilder sb3 = new StringBuilder();
+                sb3.append("socket retry by ");
+                if (z) {
+                    str3 = "retryLcmLoginRunnable";
+                } else {
+                    str3 = "retrySocketConnectRunnable";
+                }
+                sb3.append(str3);
+                sb3.append(", reason: ");
+                sb3.append(str2);
+                sb3.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                sb3.append("retry exception:");
+                sb3.append(e2.getMessage());
+                String sb4 = sb3.toString();
+                aa0.b("SocketTransceiver", sb4);
+                o0(sb4, str);
+            }
+        }
+    }
+
+    public final void m0(long j2, long j3, long j4, boolean z, f90 f90Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Boolean.valueOf(z), f90Var}) == null) {
+            Long valueOf = Long.valueOf(j4);
+            if (z) {
+                if (f90Var != null) {
+                    this.j.put(valueOf, f90Var);
+                }
+            } else {
+                this.i.put(valueOf, f90Var);
+            }
+            if (z90.a) {
+                aa0.a("SocketTransceiver", "addMessageToQueue isNotify:" + z + ", methodId:" + j3 + ", invoke keys :" + this.i.keySet().toString() + ", notify keys :" + this.j.keySet().toString());
+            }
+        }
+    }
+
+    public final void p0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048606, this, z) == null) {
+            if (z90.a) {
+                aa0.a("SocketTransceiver", "socket connect state change, sync to lcp global connect state, cur socket state is " + U());
+            }
+            if (z && F.a == -1 && b90.g().h() == -2) {
+                t80 g2 = s80.h(this.p).g(601110);
+                g2.c("flow_end_time", System.currentTimeMillis());
+                g2.b("retry_cout", this.o.get());
+                g2.e();
+            }
+            setChanged();
+            notifyObservers(F);
+            b90.g().j();
+        }
     }
 }

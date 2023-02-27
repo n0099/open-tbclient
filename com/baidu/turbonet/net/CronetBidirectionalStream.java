@@ -2,8 +2,8 @@ package com.baidu.turbonet.net;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bp9;
-import com.baidu.tieba.xo9;
+import com.baidu.tieba.us9;
+import com.baidu.tieba.ys9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -125,7 +125,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
             READING_DONE = new State("READING_DONE", 4);
             CANCELED = new State("CANCELED", 5);
             ERROR = new State("ERROR", 6);
-            SUCCESS = new State(com.alipay.security.mobile.module.http.model.c.p, 7);
+            SUCCESS = new State("SUCCESS", 7);
             WAITING_FOR_FLUSH = new State("WAITING_FOR_FLUSH", 8);
             WRITING = new State("WRITING", 9);
             State state = new State("WRITING_DONE", 10);
@@ -340,7 +340,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
                 try {
                     this.a.c.a(this.a, this.a.o);
                 } catch (Exception e) {
-                    xo9.c("ChromiumNetwork", "Exception in onCanceled method", e);
+                    us9.c("ChromiumNetwork", "Exception in onCanceled method", e);
                 }
             }
         }
@@ -540,7 +540,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, exc) == null) {
             TurbonetException turbonetException = new TurbonetException("CalledByNative method has thrown an exception", exc);
-            xo9.c("ChromiumNetwork", "Exception in CalledByNative method", exc);
+            us9.c("ChromiumNetwork", "Exception in CalledByNative method", exc);
             u(turbonetException);
         }
     }
@@ -669,7 +669,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
             try {
                 this.b.execute(runnable);
             } catch (RejectedExecutionException e2) {
-                xo9.c("ChromiumNetwork", "Exception posting task to executor", e2);
+                us9.c("ChromiumNetwork", "Exception posting task to executor", e2);
                 synchronized (this.g) {
                     State state = State.ERROR;
                     this.n = state;
@@ -694,7 +694,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
                 try {
                     this.c.b(this, this.o, turbonetException);
                 } catch (Exception e2) {
-                    xo9.c("ChromiumNetwork", "Exception notifying of failed request", e2);
+                    us9.c("ChromiumNetwork", "Exception notifying of failed request", e2);
                 }
             }
         }
@@ -755,7 +755,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
                     try {
                         this.c.g(this, this.o);
                     } catch (Exception e2) {
-                        xo9.c("ChromiumNetwork", "Exception in onSucceeded method", e2);
+                        us9.c("ChromiumNetwork", "Exception in onSucceeded method", e2);
                     }
                 }
             }
@@ -767,8 +767,8 @@ public class CronetBidirectionalStream extends BidirectionalStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) {
             synchronized (this.g) {
-                bp9.b(byteBuffer);
-                bp9.a(byteBuffer);
+                ys9.b(byteBuffer);
+                ys9.a(byteBuffer);
                 if (this.m == State.WAITING_FOR_READ) {
                     if (x()) {
                         return;
@@ -792,7 +792,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
     public final void r(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            xo9.h("ChromiumNetwork", "destroyNativeStreamLocked " + toString(), new Object[0]);
+            us9.h("ChromiumNetwork", "destroyNativeStreamLocked " + toString(), new Object[0]);
             long j = this.l;
             if (j == 0) {
                 return;
@@ -812,7 +812,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048580, this, byteBuffer, z) == null) {
             synchronized (this.g) {
-                bp9.a(byteBuffer);
+                ys9.a(byteBuffer);
                 if (!byteBuffer.hasRemaining() && !z) {
                     throw new IllegalArgumentException("Empty buffer before end of stream.");
                 }

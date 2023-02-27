@@ -1,12 +1,5 @@
 package com.facebook.imagepipeline.memory;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
 import com.facebook.common.memory.NoOpMemoryTrimmableRegistry;
@@ -15,9 +8,7 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes7.dex */
 public class PoolConfig {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int BITMAP_POOL_MAX_BITMAP_SIZE_DEFAULT = 4194304;
-    public transient /* synthetic */ FieldHolder $fh;
     public final int mBitmapPoolMaxBitmapSize;
     public final int mBitmapPoolMaxPoolSize;
     public final PoolParams mBitmapPoolParams;
@@ -32,17 +23,8 @@ public class PoolConfig {
     public final PoolParams mSmallByteArrayPoolParams;
     public final PoolStatsTracker mSmallByteArrayPoolStatsTracker;
 
-    /* renamed from: com.facebook.imagepipeline.memory.PoolConfig$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
     /* loaded from: classes7.dex */
     public static class Builder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public int mBitmapPoolMaxBitmapSize;
         public int mBitmapPoolMaxPoolSize;
         public PoolParams mBitmapPoolParams;
@@ -58,160 +40,75 @@ public class PoolConfig {
         public PoolStatsTracker mSmallByteArrayPoolStatsTracker;
 
         public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
         }
 
         public PoolConfig build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new PoolConfig(this, null);
-            }
-            return (PoolConfig) invokeV.objValue;
-        }
-
-        public /* synthetic */ Builder(AnonymousClass1 anonymousClass1) {
-            this();
+            return new PoolConfig(this);
         }
 
         public Builder setBitmapPoolMaxBitmapSize(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-                this.mBitmapPoolMaxBitmapSize = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
+            this.mBitmapPoolMaxBitmapSize = i;
+            return this;
         }
 
         public Builder setBitmapPoolMaxPoolSize(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                this.mBitmapPoolMaxPoolSize = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
+            this.mBitmapPoolMaxPoolSize = i;
+            return this;
         }
 
         public Builder setBitmapPoolParams(PoolParams poolParams) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, poolParams)) == null) {
-                this.mBitmapPoolParams = (PoolParams) Preconditions.checkNotNull(poolParams);
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mBitmapPoolParams = (PoolParams) Preconditions.checkNotNull(poolParams);
+            return this;
         }
 
         public Builder setBitmapPoolStatsTracker(PoolStatsTracker poolStatsTracker) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, poolStatsTracker)) == null) {
-                this.mBitmapPoolStatsTracker = (PoolStatsTracker) Preconditions.checkNotNull(poolStatsTracker);
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mBitmapPoolStatsTracker = (PoolStatsTracker) Preconditions.checkNotNull(poolStatsTracker);
+            return this;
         }
 
         public Builder setBitmapPoolType(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.mBitmapPoolType = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mBitmapPoolType = str;
+            return this;
         }
 
         public Builder setFlexByteArrayPoolParams(PoolParams poolParams) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, poolParams)) == null) {
-                this.mFlexByteArrayPoolParams = poolParams;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mFlexByteArrayPoolParams = poolParams;
+            return this;
         }
 
         public Builder setIgnoreBitmapPoolHardCap(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-                this.mIgnoreBitmapPoolHardCap = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.mIgnoreBitmapPoolHardCap = z;
+            return this;
         }
 
         public Builder setMemoryTrimmableRegistry(MemoryTrimmableRegistry memoryTrimmableRegistry) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, memoryTrimmableRegistry)) == null) {
-                this.mMemoryTrimmableRegistry = memoryTrimmableRegistry;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mMemoryTrimmableRegistry = memoryTrimmableRegistry;
+            return this;
         }
 
         public Builder setNativeMemoryChunkPoolParams(PoolParams poolParams) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, poolParams)) == null) {
-                this.mMemoryChunkPoolParams = (PoolParams) Preconditions.checkNotNull(poolParams);
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mMemoryChunkPoolParams = (PoolParams) Preconditions.checkNotNull(poolParams);
+            return this;
         }
 
         public Builder setNativeMemoryChunkPoolStatsTracker(PoolStatsTracker poolStatsTracker) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, poolStatsTracker)) == null) {
-                this.mMemoryChunkPoolStatsTracker = (PoolStatsTracker) Preconditions.checkNotNull(poolStatsTracker);
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mMemoryChunkPoolStatsTracker = (PoolStatsTracker) Preconditions.checkNotNull(poolStatsTracker);
+            return this;
         }
 
         public Builder setRegisterLruBitmapPoolAsMemoryTrimmable(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
-                this.mRegisterLruBitmapPoolAsMemoryTrimmable = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.mRegisterLruBitmapPoolAsMemoryTrimmable = z;
+            return this;
         }
 
         public Builder setSmallByteArrayPoolParams(PoolParams poolParams) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, poolParams)) == null) {
-                this.mSmallByteArrayPoolParams = (PoolParams) Preconditions.checkNotNull(poolParams);
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mSmallByteArrayPoolParams = (PoolParams) Preconditions.checkNotNull(poolParams);
+            return this;
         }
 
         public Builder setSmallByteArrayPoolStatsTracker(PoolStatsTracker poolStatsTracker) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, poolStatsTracker)) == null) {
-                this.mSmallByteArrayPoolStatsTracker = (PoolStatsTracker) Preconditions.checkNotNull(poolStatsTracker);
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mSmallByteArrayPoolStatsTracker = (PoolStatsTracker) Preconditions.checkNotNull(poolStatsTracker);
+            return this;
         }
     }
 
@@ -226,20 +123,6 @@ public class PoolConfig {
         PoolStatsTracker poolStatsTracker3;
         String str;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         if (FrescoSystrace.isTracing()) {
             FrescoSystrace.beginSection("PoolConfig()");
         }
@@ -311,133 +194,59 @@ public class PoolConfig {
         this.mIgnoreBitmapPoolHardCap = builder.mIgnoreBitmapPoolHardCap;
     }
 
-    public /* synthetic */ PoolConfig(Builder builder, AnonymousClass1 anonymousClass1) {
-        this(builder);
-    }
-
     public static Builder newBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new Builder(null);
-        }
-        return (Builder) invokeV.objValue;
+        return new Builder();
     }
 
     public int getBitmapPoolMaxBitmapSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mBitmapPoolMaxBitmapSize;
-        }
-        return invokeV.intValue;
+        return this.mBitmapPoolMaxBitmapSize;
     }
 
     public int getBitmapPoolMaxPoolSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mBitmapPoolMaxPoolSize;
-        }
-        return invokeV.intValue;
+        return this.mBitmapPoolMaxPoolSize;
     }
 
     public PoolParams getBitmapPoolParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mBitmapPoolParams;
-        }
-        return (PoolParams) invokeV.objValue;
+        return this.mBitmapPoolParams;
     }
 
     public PoolStatsTracker getBitmapPoolStatsTracker() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mBitmapPoolStatsTracker;
-        }
-        return (PoolStatsTracker) invokeV.objValue;
+        return this.mBitmapPoolStatsTracker;
     }
 
     public String getBitmapPoolType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mBitmapPoolType;
-        }
-        return (String) invokeV.objValue;
+        return this.mBitmapPoolType;
     }
 
     public PoolParams getFlexByteArrayPoolParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mFlexByteArrayPoolParams;
-        }
-        return (PoolParams) invokeV.objValue;
+        return this.mFlexByteArrayPoolParams;
     }
 
     public PoolParams getMemoryChunkPoolParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.mMemoryChunkPoolParams;
-        }
-        return (PoolParams) invokeV.objValue;
+        return this.mMemoryChunkPoolParams;
     }
 
     public PoolStatsTracker getMemoryChunkPoolStatsTracker() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.mMemoryChunkPoolStatsTracker;
-        }
-        return (PoolStatsTracker) invokeV.objValue;
+        return this.mMemoryChunkPoolStatsTracker;
     }
 
     public MemoryTrimmableRegistry getMemoryTrimmableRegistry() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.mMemoryTrimmableRegistry;
-        }
-        return (MemoryTrimmableRegistry) invokeV.objValue;
+        return this.mMemoryTrimmableRegistry;
     }
 
     public PoolParams getSmallByteArrayPoolParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.mSmallByteArrayPoolParams;
-        }
-        return (PoolParams) invokeV.objValue;
+        return this.mSmallByteArrayPoolParams;
     }
 
     public PoolStatsTracker getSmallByteArrayPoolStatsTracker() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.mSmallByteArrayPoolStatsTracker;
-        }
-        return (PoolStatsTracker) invokeV.objValue;
+        return this.mSmallByteArrayPoolStatsTracker;
     }
 
     public boolean isIgnoreBitmapPoolHardCap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.mIgnoreBitmapPoolHardCap;
-        }
-        return invokeV.booleanValue;
+        return this.mIgnoreBitmapPoolHardCap;
     }
 
     public boolean isRegisterLruBitmapPoolAsMemoryTrimmable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.mRegisterLruBitmapPoolAsMemoryTrimmable;
-        }
-        return invokeV.booleanValue;
+        return this.mRegisterLruBitmapPoolAsMemoryTrimmable;
     }
 }

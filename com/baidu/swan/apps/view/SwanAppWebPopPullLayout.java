@@ -12,32 +12,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gp1;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.wp1;
 /* loaded from: classes3.dex */
 public class SwanAppWebPopPullLayout extends FrameLayout {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final boolean f = wp1.a;
     public final ViewDragHelper a;
     public final int b;
     @Nullable
     public c c;
     public b d;
     public View e;
-
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
 
     /* loaded from: classes3.dex */
     public interface b {
@@ -57,75 +41,35 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
 
     /* loaded from: classes3.dex */
     public class d extends ViewDragHelper.Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppWebPopPullLayout a;
-
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public boolean tryCaptureView(View view2, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, view2, i)) == null) {
-                return true;
-            }
-            return invokeLI.booleanValue;
+            return true;
         }
 
-        public d(SwanAppWebPopPullLayout swanAppWebPopPullLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppWebPopPullLayout};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = swanAppWebPopPullLayout;
+        public d() {
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public int getViewVerticalDragRange(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-                return this.a.getHeight();
-            }
-            return invokeL.intValue;
-        }
-
-        public /* synthetic */ d(SwanAppWebPopPullLayout swanAppWebPopPullLayout, a aVar) {
-            this(swanAppWebPopPullLayout);
+            return SwanAppWebPopPullLayout.this.getHeight();
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public void onViewCaptured(View view2, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view2, i) == null) && this.a.c != null) {
-                this.a.c.c();
+            if (SwanAppWebPopPullLayout.this.c != null) {
+                SwanAppWebPopPullLayout.this.c.c();
             }
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public int clampViewPositionVertical(View view2, int i, int i2) {
-            InterceptResult invokeLII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, view2, i, i2)) == null) {
-                return Math.max(0, i);
-            }
-            return invokeLII.intValue;
+            return Math.max(0, i);
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public void onViewPositionChanged(View view2, int i, int i2, int i3, int i4) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && this.a.c != null) {
-                this.a.c.d(i2 / this.a.getHeight());
+            if (SwanAppWebPopPullLayout.this.c != null) {
+                SwanAppWebPopPullLayout.this.c.d(i2 / SwanAppWebPopPullLayout.this.getHeight());
             }
         }
 
@@ -133,14 +77,13 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
         public void onViewReleased(View view2, float f, float f2) {
             int height;
             boolean z;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) != null) || this.a.c == null) {
+            if (SwanAppWebPopPullLayout.this.c == null) {
                 return;
             }
-            if (f2 > this.a.b) {
-                height = this.a.getHeight() / 6;
+            if (f2 > SwanAppWebPopPullLayout.this.b) {
+                height = SwanAppWebPopPullLayout.this.getHeight() / 6;
             } else {
-                height = this.a.getHeight() / 3;
+                height = SwanAppWebPopPullLayout.this.getHeight() / 3;
             }
             if (view2.getTop() > height) {
                 z = true;
@@ -148,184 +91,92 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
                 z = false;
             }
             if (z) {
-                this.a.c.b();
+                SwanAppWebPopPullLayout.this.c.b();
                 return;
             }
-            this.a.c.a();
-            this.a.a.settleCapturedViewAt(0, 0);
-            this.a.invalidate();
+            SwanAppWebPopPullLayout.this.c.a();
+            SwanAppWebPopPullLayout.this.a.settleCapturedViewAt(0, 0);
+            SwanAppWebPopPullLayout.this.invalidate();
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(358481052, "Lcom/baidu/swan/apps/view/SwanAppWebPopPullLayout;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(358481052, "Lcom/baidu/swan/apps/view/SwanAppWebPopPullLayout;");
-                return;
-            }
-        }
-        f = gp1.a;
     }
 
     @Override // android.view.View
     public void computeScroll() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.continueSettling(true)) {
+        if (this.a.continueSettling(true)) {
             ViewCompat.postInvalidateOnAnimation(this);
         }
     }
 
     public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.e.getTop() > 0) {
-                return true;
-            }
-            return false;
+        if (this.e.getTop() > 0) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     @Override // android.view.View
     public void onFinishInflate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onFinishInflate();
-            this.e = getChildAt(0);
-        }
+        super.onFinishInflate();
+        this.e = getChildAt(0);
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SwanAppWebPopPullLayout(Context context) {
         this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SwanAppWebPopPullLayout(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwanAppWebPopPullLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.a = ViewDragHelper.create(this, 1.0f, new d(this, null));
-        this.b = ViewConfiguration.get(context).getScaledMinimumFlingVelocity();
     }
 
     @Override // android.view.View
     @SuppressLint({"ClickableViewAccessibility"})
     public boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            try {
-                this.a.processTouchEvent(motionEvent);
-                return true;
-            } catch (Exception e) {
-                if (f) {
-                    e.printStackTrace();
-                    return true;
-                }
+        try {
+            this.a.processTouchEvent(motionEvent);
+            return true;
+        } catch (Exception e) {
+            if (f) {
+                e.printStackTrace();
                 return true;
             }
+            return true;
         }
-        return invokeL.booleanValue;
     }
 
     public void setCallback(@Nullable c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.c = cVar;
-        }
+        this.c = cVar;
     }
 
     public void setInterceptCallback(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.d = bVar;
-        }
+        this.d = bVar;
+    }
+
+    public SwanAppWebPopPullLayout(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+    }
+
+    public SwanAppWebPopPullLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.a = ViewDragHelper.create(this, 1.0f, new d());
+        this.b = ViewConfiguration.get(context).getScaledMinimumFlingVelocity();
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            if (f) {
-                Log.d("SwanAppWebPopPullLayout", "onInterceptTouchEvent");
-            }
-            boolean shouldInterceptTouchEvent = this.a.shouldInterceptTouchEvent(motionEvent);
-            b bVar = this.d;
-            if (bVar != null) {
-                shouldInterceptTouchEvent = bVar.a(motionEvent);
-            }
-            if (motionEvent.getAction() == 0 || motionEvent.getAction() == 5) {
-                try {
-                    this.a.processTouchEvent(motionEvent);
-                } catch (Exception e) {
-                    if (f) {
-                        e.printStackTrace();
-                    }
+        if (f) {
+            Log.d("SwanAppWebPopPullLayout", "onInterceptTouchEvent");
+        }
+        boolean shouldInterceptTouchEvent = this.a.shouldInterceptTouchEvent(motionEvent);
+        b bVar = this.d;
+        if (bVar != null) {
+            shouldInterceptTouchEvent = bVar.a(motionEvent);
+        }
+        if (motionEvent.getAction() == 0 || motionEvent.getAction() == 5) {
+            try {
+                this.a.processTouchEvent(motionEvent);
+            } catch (Exception e) {
+                if (f) {
+                    e.printStackTrace();
                 }
             }
-            super.onInterceptTouchEvent(motionEvent);
-            return shouldInterceptTouchEvent;
         }
-        return invokeL.booleanValue;
+        super.onInterceptTouchEvent(motionEvent);
+        return shouldInterceptTouchEvent;
     }
 }

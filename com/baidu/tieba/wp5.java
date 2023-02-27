@@ -1,223 +1,86 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.graphics.Rect;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class wp5 {
+public final class wp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Activity a;
-    @NonNull
-    public final ViewGroup b;
-    @NonNull
-    public int[] c;
-    @Nullable
-    public c d;
-    @Nullable
-    public d e;
+    public final ViewGroup a;
+    public final int b;
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(@NonNull MotionEvent motionEvent);
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof wp5) {
+                wp5 wp5Var = (wp5) obj;
+                return Intrinsics.areEqual(this.a, wp5Var.a) && this.b == wp5Var.b;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
-    public interface d {
-        boolean a();
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b : invokeV.intValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wp5 a;
-
-        public a(wp5 wp5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wp5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wp5Var;
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "DetailViewInfo(parent=" + this.a + ", childIndex=" + this.b + ')';
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.h();
-            }
-        }
+        return (String) invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements View.OnTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
-        public final List<Rect> a;
-        public final /* synthetic */ wp5 b;
-
-        public b(wp5 wp5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wp5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = wp5Var;
-            this.a = new ArrayList();
-        }
-
-        @Override // android.view.View.OnTouchListener
-        @SuppressLint({"ClickableViewAccessibility"})
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                if (this.b.e != null && !this.b.e.a()) {
-                    return false;
-                }
-                this.a.clear();
-                int[] iArr = new int[2];
-                int[] iArr2 = this.b.c;
-                int length = iArr2.length;
-                int i = 0;
-                while (true) {
-                    z = true;
-                    if (i >= length) {
-                        break;
-                    }
-                    View findViewById = this.b.a.findViewById(iArr2[i]);
-                    if (findViewById != null) {
-                        findViewById.getLocationOnScreen(iArr);
-                        this.a.add(new Rect(iArr[0], iArr[1], iArr[0] + findViewById.getWidth(), iArr[1] + findViewById.getHeight()));
-                    }
-                    i++;
-                }
-                if (motionEvent.getAction() == 0) {
-                    int rawX = (int) motionEvent.getRawX();
-                    int rawY = (int) motionEvent.getRawY();
-                    Iterator<Rect> it = this.a.iterator();
-                    while (true) {
-                        if (it.hasNext()) {
-                            if (it.next().contains(rawX, rawY)) {
-                                break;
-                            }
-                        } else {
-                            z = false;
-                            break;
-                        }
-                    }
-                    if (!z && this.b.d != null) {
-                        this.b.d.a(motionEvent);
-                    }
-                }
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    public wp5(@NonNull Activity activity) {
+    public wp5(ViewGroup parent, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {parent, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new int[0];
-        this.a = activity;
-        this.b = (ViewGroup) activity.findViewById(16908290);
+        Intrinsics.checkNotNullParameter(parent, "parent");
+        this.a = parent;
+        this.b = i;
     }
 
-    public static wp5 g(@NonNull Activity activity) {
-        InterceptResult invokeL;
+    public final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, activity)) == null) {
-            return new wp5(activity);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (wp5) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    @NonNull
-    public wp5 i(@Nullable c cVar) {
-        InterceptResult invokeL;
+    public final ViewGroup b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) {
-            this.d = cVar;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (wp5) invokeL.objValue;
-    }
-
-    @NonNull
-    public wp5 j(@IdRes int... iArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, iArr)) == null) {
-            this.c = iArr;
-            return this;
-        }
-        return (wp5) invokeL.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.post(new a(this));
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View view2 = new View(this.a);
-            view2.setOnTouchListener(new b(this));
-            this.b.addView(view2, new ViewGroup.LayoutParams(-1, -1));
-        }
+        return (ViewGroup) invokeV.objValue;
     }
 }

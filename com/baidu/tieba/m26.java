@@ -1,36 +1,62 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.livesdk.api.share.Share;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernOfflineViewHolder;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.share.ImplicitShareMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class m26 extends qn<q26, LiveTabConcernOfflineViewHolder> {
+public class m26 extends ActivityDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public ld6<q26> b;
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes5.dex */
-    public class a extends ld6<q26> {
+    public class a implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m26 b;
+        public final /* synthetic */ m26 a;
 
         public a(m26 m26Var) {
             Interceptable interceptable = $ic;
@@ -47,92 +73,197 @@ public class m26 extends qn<q26, LiveTabConcernOfflineViewHolder> {
                     return;
                 }
             }
-            this.b = m26Var;
+            this.a = m26Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ld6
-        /* renamed from: d */
-        public void a(View view2, q26 q26Var) {
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, q26Var) == null) {
-                this.b.t(q26Var);
+            if (interceptable != null && interceptable.invokeL(1048576, this, dialogInterface) != null) {
+                return;
+            }
+            this.a.f(true);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m26 a;
+
+        public b(m26 m26Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m26Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = m26Var;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, dialogInterface) != null) {
+                return;
+            }
+            this.a.f(false);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+            }
+        }
+
+        public c(m26 m26Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m26Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m26(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), q26.g);
+    public m26() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            e();
+            g(getAgent(), this.mParams.getString("options"));
+        }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public void onSelfFinish() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            h();
+        }
+    }
+
+    public final int d(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
+            if (str.equals(Share.WEIXIN_FRIEND)) {
+                return 3;
+            }
+            if (str.equals(Share.WEIXIN_TIMELINE)) {
+                return 2;
+            }
+            if (str.equals(Share.QQFRIEND)) {
+                return 8;
+            }
+            if (str.equals(Share.QQDENGLU)) {
+                return 4;
+            }
+            if (str.equals(Share.SINAWEIBO)) {
+                return 6;
+            }
+            return i;
+        }
+        return invokeIL.intValue;
+    }
+
+    public final void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.mResult.putBoolean("share_result", z);
+            h();
+            finish();
+        }
+    }
+
+    public final void g(Activity activity, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, activity, str) == null) {
+            if (activity == null) {
+                f(false);
                 return;
             }
-        }
-        this.b = new a(this);
-        this.a = tbPageContext;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: u */
-    public LiveTabConcernOfflineViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            z26 z26Var = new z26(this.a, viewGroup);
-            z26Var.n(this.b);
-            return new LiveTabConcernOfflineViewHolder(z26Var);
-        }
-        return (LiveTabConcernOfflineViewHolder) invokeL.objValue;
-    }
-
-    public final void t(q26 q26Var) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, q26Var) != null) || q26Var == null) {
-            return;
-        }
-        String str = q26Var.a;
-        if (!StringUtils.isNull(str) && dh.g(str, 0L) != 0) {
-            if (!TbadkCoreApplication.isLogin()) {
-                ViewHelper.skipToLoginActivity(this.a.getPageActivity());
-                return;
+            l26 l26Var = new l26();
+            try {
+                l26Var.q(new JSONObject(str));
+                TbadkCoreApplication.getInst().setCurAiAppid(l26Var.x0);
+                if (!TextUtils.isEmpty(l26Var.o())) {
+                    int d = d(-1, l26Var.o());
+                    if (!TextUtils.isEmpty(l26Var.n()) && !TextUtils.isEmpty(l26Var.m())) {
+                        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE);
+                        httpMessage.addParam("scheme", l26Var.n());
+                        httpMessage.setExtra(new rx4(l26Var, activity, d, new a(this)));
+                        MessageManager.getInstance().sendMessage(httpMessage);
+                        return;
+                    }
+                    MessageManager.getInstance().sendMessage(new ImplicitShareMessage(activity, d, l26Var, true));
+                    f(ma5.b(activity, d));
+                    return;
+                }
+                TiebaStatic.log(new StatisticItem("c13530").param("obj_id", l26Var.x0).param("obj_type", l26Var.y0).param("obj_source", l26Var.z0));
+                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(activity, l26Var, false);
+                shareDialogConfig.onCancelListener = new b(this);
+                shareDialogConfig.onDismissListener = new c(this);
+                JSONArray p = l26Var.p();
+                if (p != null && !TextUtils.isEmpty(l26Var.n()) && !TextUtils.isEmpty(l26Var.m())) {
+                    ArrayList arrayList = new ArrayList();
+                    for (int i = 0; i < p.length(); i++) {
+                        try {
+                            arrayList.add(Integer.valueOf(d(-1, p.getString(i))));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    if (!ListUtils.isEmpty(arrayList)) {
+                        l26Var.i(arrayList);
+                    }
+                    HttpMessage httpMessage2 = new HttpMessage(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE);
+                    httpMessage2.addParam("scheme", l26Var.n());
+                    httpMessage2.setExtra(new rx4(l26Var, activity, shareDialogConfig.onCancelListener));
+                    MessageManager.getInstance().sendMessage(httpMessage2);
+                    return;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
+            } catch (JSONException unused) {
+                f(false);
             }
-            if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.getPageActivity()).createNormalConfig(dh.g(str, 0L), z, false)));
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: v */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, q26 q26Var, LiveTabConcernOfflineViewHolder liveTabConcernOfflineViewHolder) {
-        InterceptResult invokeCommon;
-        z26 z26Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, q26Var, liveTabConcernOfflineViewHolder})) == null) {
-            if (liveTabConcernOfflineViewHolder != null && (z26Var = liveTabConcernOfflineViewHolder.a) != null) {
-                z26Var.i(q26Var);
-                return liveTabConcernOfflineViewHolder.getView();
-            }
-            return null;
-        }
-        return (View) invokeCommon.objValue;
     }
 }

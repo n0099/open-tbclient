@@ -1,225 +1,210 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.content.Context;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tieba.g25;
+import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tieba.zw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-@TargetApi(18)
 /* loaded from: classes4.dex */
-public class db9 {
+public class db9 extends g25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String b;
-    public String c;
-    public String d;
-    public boolean e;
-    public c f;
-    public hb9 g;
-    public fb9 h;
-    public gb9 i;
-    public volatile boolean j;
-    public volatile boolean k;
-    public volatile boolean l;
+    public MainTabActivity c;
+    public boolean d;
 
     /* loaded from: classes4.dex */
-    public interface c {
-        void onGenFilterVideoFail(int i, String str);
-
-        void onGenFilterVideoRecordError(int i, String str);
-
-        void onGenFilterVideoSuccess(String str);
-    }
-
-    /* loaded from: classes4.dex */
-    public class a extends hb9 {
+    public class a implements zw7.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ db9 f;
+        public final /* synthetic */ g25.a a;
+        public final /* synthetic */ db9 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(db9 db9Var, Context context, String str, String str2, gb9 gb9Var, c cVar) {
-            super(context, str, str2, gb9Var, cVar);
+        public a(db9 db9Var, g25.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {db9Var, context, str, str2, gb9Var, cVar};
+                Object[] objArr = {db9Var, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2], (gb9) objArr2[3], (c) objArr2[4]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f = db9Var;
+            this.b = db9Var;
+            this.a = aVar;
         }
 
-        @Override // com.baidu.tieba.hb9
-        public void k() {
+        @Override // com.baidu.tieba.zw7.e
+        public void a() {
+            g25.a aVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.j = true;
-                this.f.d();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (aVar = this.a) != null) {
+                aVar.a(false);
+            }
+        }
+
+        @Override // com.baidu.tieba.zw7.e
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                if (!zw7.n(this.b.c).k(this.b.c.B.intValue(), 2)) {
+                    g25.a aVar = this.a;
+                    if (aVar != null) {
+                        aVar.a(false);
+                        return;
+                    }
+                    return;
+                }
+                g25.a aVar2 = this.a;
+                if (aVar2 != null) {
+                    aVar2.a(true);
+                }
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b extends fb9 {
+    public class b implements zw7.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ db9 f;
+        public final /* synthetic */ db9 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(db9 db9Var, Context context, String str, gb9 gb9Var, c cVar) {
-            super(context, str, gb9Var, cVar);
+        public b(db9 db9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {db9Var, context, str, gb9Var, cVar};
+                Object[] objArr = {db9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1], (gb9) objArr2[2], (c) objArr2[3]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f = db9Var;
+            this.a = db9Var;
         }
 
-        @Override // com.baidu.tieba.fb9
-        public void k() {
+        @Override // com.baidu.tieba.zw7.f
+        public void dismiss() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.k = true;
-                this.f.d();
+                n25.r("insertAd");
+                this.a.c();
             }
         }
     }
 
-    public db9(Context context, String str, String str2, String str3) {
+    /* loaded from: classes4.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ db9 a;
+
+        public c(db9 db9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {db9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = db9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!zw7.n(this.a.c).H(this.a.c.B.intValue(), 2)) {
+                    this.a.c();
+                } else {
+                    n25.l("insertAd");
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public db9(TbPageContext tbPageContext, m89 m89Var, MainTabActivity mainTabActivity, boolean z) {
+        super(mainTabActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, str3};
+            Object[] objArr = {tbPageContext, m89Var, mainTabActivity, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = false;
-        this.a = context;
-        this.b = str;
-        this.c = str2;
-        this.d = str3;
+        this.c = mainTabActivity;
+        this.d = z;
     }
 
-    public void h(c cVar) {
+    @Override // com.baidu.tieba.g25
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f = cVar;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            zw7.n(this.c).l();
         }
     }
 
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.j && this.k && !this.l) {
-            this.i.f();
-            this.l = true;
-            g();
-        }
-    }
-
+    @Override // com.baidu.tieba.g25
     public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            hb9 hb9Var = this.g;
-            if (hb9Var != null) {
-                hb9Var.interrupt();
-                this.g = null;
-            }
-            fb9 fb9Var = this.h;
-            if (fb9Var != null) {
-                fb9Var.interrupt();
-                this.h = null;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            zw7.n(this.c).E(new b(this));
+            gh.a().postDelayed(new c(this), 400L);
         }
     }
 
-    public boolean f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.g25
+    public void d(g25.a aVar) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f != null) {
-                File file = new File(this.c);
-                if (file.exists() && file.length() > 0) {
-                    this.f.onGenFilterVideoSuccess(this.c);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            if (n25.i() && aVar != null) {
+                aVar.a(false);
+            } else if (!zw7.m && ((TbSingleton.getInstance().isCanShowHotSplash || zw7.m || TbSingleton.getInstance().mIsSplashClick) && !this.d)) {
+                if (aVar != null) {
+                    aVar.a(false);
+                }
+            } else {
+                zw7 n = zw7.n(this.c);
+                if (zw7.m) {
+                    str = "1";
                 } else {
-                    this.f.onGenFilterVideoFail(223, "Err empty outputFile");
+                    str = "2";
+                }
+                if (!n.B(str, this.c.B.intValue(), 2, this.c.K, new a(this, aVar), false) && aVar != null) {
+                    aVar.a(false);
                 }
             }
-            this.e = false;
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.e) {
-            return;
-        }
-        this.e = true;
-        this.j = false;
-        this.k = false;
-        this.l = false;
-        try {
-            File file = new File(new File(this.c).getParent());
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            c cVar = this.f;
-            if (cVar != null) {
-                cVar.onGenFilterVideoFail(222, u38.a(e));
-            }
-        }
-        try {
-            this.i = new gb9(this.c);
-            a aVar = new a(this, this.a, this.b, this.d, this.i, this.f);
-            this.g = aVar;
-            aVar.start();
-            b bVar = new b(this, this.a, this.b, this.i, this.f);
-            this.h = bVar;
-            bVar.start();
-        } catch (Exception unused) {
         }
     }
 }

@@ -1,131 +1,66 @@
 package com.vivo.push.util;
 
-import android.text.TextUtils;
-import com.baidu.android.common.others.lang.StringUtil;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.vivo.push.f.u;
 import com.vivo.push.model.InsideNotificationItem;
-import com.vivo.push.model.UPSNotificationMessage;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.vivo.push.model.NotifyArriveCallbackByUser;
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class q {
+public final class q implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ List a;
+    public final /* synthetic */ p b;
 
-    public static InsideNotificationItem a(String str) {
-        InterceptResult invokeL;
+    public q(p pVar, List list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            InsideNotificationItem insideNotificationItem = new InsideNotificationItem();
-            try {
-            } catch (JSONException e) {
-                p.a("MessageConvertUtil", "notify msg pack to obj error", e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pVar, list};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (TextUtils.isEmpty(str)) {
-                p.a("MessageConvertUtil", "notify msg pack to obj is null");
-                return null;
-            }
-            JSONArray jSONArray = new JSONArray(str);
-            insideNotificationItem.setTargetType(jSONArray.getInt(0));
-            insideNotificationItem.setTragetContext(jSONArray.getString(1));
-            insideNotificationItem.setTitle(jSONArray.getString(2));
-            insideNotificationItem.setContent(jSONArray.getString(3));
-            insideNotificationItem.setNotifyType(jSONArray.getInt(4));
-            insideNotificationItem.setPurePicUrl(jSONArray.getString(5));
-            insideNotificationItem.setIconUrl(jSONArray.getString(6));
-            insideNotificationItem.setCoverUrl(jSONArray.getString(7));
-            insideNotificationItem.setSkipContent(jSONArray.getString(8));
-            insideNotificationItem.setSkipType(jSONArray.getInt(9));
-            insideNotificationItem.setShowTime(jSONArray.getBoolean(10));
-            if (jSONArray.length() > 11) {
-                insideNotificationItem.setParams(m.a(new JSONObject(jSONArray.getString(11))));
-            }
-            if (jSONArray.length() > 15) {
-                insideNotificationItem.setAppType(jSONArray.getInt(12));
-                insideNotificationItem.setReactPackage(jSONArray.getString(13));
-                insideNotificationItem.setIsShowBigPicOnMobileNet(jSONArray.getBoolean(14));
-                insideNotificationItem.setSuitReactVersion(jSONArray.getString(15));
-            }
-            if (jSONArray.length() > 16) {
-                insideNotificationItem.setMessageType(jSONArray.getInt(16));
-            }
-            if (jSONArray.length() > 18) {
-                insideNotificationItem.setIsMacroReplace(jSONArray.getInt(17));
-                insideNotificationItem.setAdClickCheckUrl(jSONArray.getString(18));
-            }
-            if (jSONArray.length() > 19) {
-                insideNotificationItem.setCompatibleType(jSONArray.getInt(19));
-            }
-            if (jSONArray.length() > 20) {
-                insideNotificationItem.setInnerPriority(jSONArray.getInt(20));
-            }
-            if (jSONArray.length() > 21) {
-                insideNotificationItem.setDisplayStyle(jSONArray.getInt(21));
-            }
-            return insideNotificationItem;
         }
-        return (InsideNotificationItem) invokeL.objValue;
+        this.b = pVar;
+        this.a = list;
     }
 
-    public static String b(InsideNotificationItem insideNotificationItem) {
-        InterceptResult invokeL;
+    @Override // java.lang.Runnable
+    public final void run() {
+        InsideNotificationItem insideNotificationItem;
+        long j;
+        Context context;
+        InsideNotificationItem insideNotificationItem2;
+        long j2;
+        int i;
+        NotifyArriveCallbackByUser notifyArriveCallbackByUser;
+        u.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, insideNotificationItem)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            jSONArray.put(insideNotificationItem.getTargetType());
-            jSONArray.put(insideNotificationItem.getTragetContent());
-            jSONArray.put(insideNotificationItem.getTitle());
-            jSONArray.put(insideNotificationItem.getContent());
-            jSONArray.put(insideNotificationItem.getNotifyType());
-            jSONArray.put(insideNotificationItem.getPurePicUrl());
-            jSONArray.put(insideNotificationItem.getIconUrl());
-            jSONArray.put(insideNotificationItem.getCoverUrl());
-            jSONArray.put(insideNotificationItem.getSkipContent());
-            jSONArray.put(insideNotificationItem.getSkipType());
-            jSONArray.put(insideNotificationItem.isShowTime());
-            if (insideNotificationItem.getParams() != null) {
-                jSONArray.put(new JSONObject(insideNotificationItem.getParams()));
-            } else {
-                jSONArray.put(StringUtil.EMPTY_ARRAY);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            insideNotificationItem = this.b.b;
+            if (insideNotificationItem != null) {
+                ad b = ad.b();
+                j = this.b.c;
+                b.a("com.vivo.push.notify_key", j);
+                context = this.b.a;
+                List list = this.a;
+                insideNotificationItem2 = this.b.b;
+                j2 = this.b.c;
+                i = this.b.e;
+                notifyArriveCallbackByUser = this.b.f;
+                aVar = this.b.g;
+                NotifyAdapterUtil.pushNotification(context, list, insideNotificationItem2, j2, i, notifyArriveCallbackByUser, aVar);
             }
-            jSONArray.put(insideNotificationItem.getAppType());
-            jSONArray.put(insideNotificationItem.getReactPackage());
-            jSONArray.put(insideNotificationItem.isShowBigPicOnMobileNet());
-            jSONArray.put(insideNotificationItem.getSuitReactVersion());
-            jSONArray.put(insideNotificationItem.getMessageType());
-            jSONArray.put(insideNotificationItem.getIsMacroReplace());
-            jSONArray.put(insideNotificationItem.getAdClickCheckUrl());
-            jSONArray.put(insideNotificationItem.getCompatibleType());
-            jSONArray.put(insideNotificationItem.getInnerPriority());
-            jSONArray.put(insideNotificationItem.getDisplayStyle());
-            return jSONArray.toString();
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static UPSNotificationMessage a(InsideNotificationItem insideNotificationItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, insideNotificationItem)) == null) {
-            UPSNotificationMessage uPSNotificationMessage = new UPSNotificationMessage();
-            uPSNotificationMessage.setTargetType(insideNotificationItem.getTargetType());
-            uPSNotificationMessage.setTragetContext(insideNotificationItem.getTragetContent());
-            uPSNotificationMessage.setTitle(insideNotificationItem.getTitle());
-            uPSNotificationMessage.setContent(insideNotificationItem.getContent());
-            uPSNotificationMessage.setNotifyType(insideNotificationItem.getNotifyType());
-            uPSNotificationMessage.setPurePicUrl(insideNotificationItem.getPurePicUrl());
-            uPSNotificationMessage.setIconUrl(insideNotificationItem.getIconUrl());
-            uPSNotificationMessage.setCoverUrl(insideNotificationItem.getCoverUrl());
-            uPSNotificationMessage.setSkipContent(insideNotificationItem.getSkipContent());
-            uPSNotificationMessage.setSkipType(insideNotificationItem.getSkipType());
-            uPSNotificationMessage.setShowTime(insideNotificationItem.isShowTime());
-            uPSNotificationMessage.setMsgId(insideNotificationItem.getMsgId());
-            uPSNotificationMessage.setParams(insideNotificationItem.getParams());
-            return uPSNotificationMessage;
-        }
-        return (UPSNotificationMessage) invokeL.objValue;
     }
 }

@@ -8,7 +8,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.google.protobuf.CodedInputStream;
 import com.ss.android.download.api.config.q;
@@ -421,7 +420,7 @@ public class h {
         Intent intent = new Intent("android.intent.action.VIEW");
         intent.setData(Uri.parse(BaseConstants.MARKET_PREFIX + str));
         intent.putExtra(BaseConstants.START_ONLY_FOR_ANDROID, true);
-        intent.putExtra(Constants.EXTRA_PARAM, hashMap);
+        intent.putExtra("param", hashMap);
         String i = com.ss.android.socialbase.appdownloader.f.d.i();
         if (l.d(com.ss.android.downloadlib.addownload.j.getContext(), i)) {
             intent.setPackage(i);

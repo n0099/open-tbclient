@@ -1,81 +1,127 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Looper;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.config.ABTestConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes3.dex */
-public final class b30 {
+public class b30 {
     public static /* synthetic */ Interceptable $ic;
-    public static b30 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public String a() {
-        InterceptResult invokeV;
+    public static boolean a(Object obj, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "0.8.36" : (String) invokeV.objValue;
-    }
-
-    public b30() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, obj, z)) == null) {
+            if (obj instanceof Boolean) {
+                return ((Boolean) obj).booleanValue();
             }
+            return z;
         }
+        return invokeLZ.booleanValue;
     }
 
-    public static b30 b() {
-        InterceptResult invokeV;
+    public static String f(Object obj, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (b30.class) {
-                    if (a == null) {
-                        a = new b30();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, str)) == null) {
+            if (obj != null) {
+                return String.valueOf(obj);
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static double b(Object obj, double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{obj, Double.valueOf(d)})) == null) {
+            if (obj != null) {
+                try {
+                    if (obj instanceof Double) {
+                        return ((Double) obj).doubleValue();
+                    }
+                    if (obj instanceof Number) {
+                        return ((Number) obj).doubleValue();
+                    }
+                    if (obj instanceof String) {
+                        return Double.valueOf((String) obj).doubleValue();
+                    }
+                } catch (NumberFormatException e) {
+                    if (ABTestConfig.isDebug()) {
+                        throw new ClassCastException("getDoubleSwitch exception " + e);
                     }
                 }
             }
-            return a;
+            return d;
         }
-        return (b30) invokeV.objValue;
+        return invokeCommon.doubleValue;
     }
 
-    public void c(Context context, c30<t50> c30Var) {
+    public static int c(Object obj, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, c30Var) == null) {
-            d(context, c30Var, Looper.getMainLooper());
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, obj, i)) == null) {
+            if (obj != null) {
+                try {
+                    if (obj instanceof Integer) {
+                        return ((Integer) obj).intValue();
+                    }
+                    if (obj instanceof Number) {
+                        return ((Number) obj).intValue();
+                    }
+                    if (obj instanceof String) {
+                        return Integer.parseInt((String) obj);
+                    }
+                } catch (NumberFormatException e) {
+                    if (ABTestConfig.isDebug()) {
+                        throw new ClassCastException("getIntSwitch exception " + e);
+                    }
+                }
+            }
+            return i;
         }
+        return invokeLI.intValue;
     }
 
-    public void e(Context context, c30<List<u50>> c30Var) {
+    public static long e(Object obj, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, c30Var) == null) {
-            f(context, c30Var, Looper.getMainLooper());
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, j)) == null) {
+            if (obj != null) {
+                try {
+                    if (obj instanceof Long) {
+                        return ((Long) obj).longValue();
+                    }
+                    if (obj instanceof Number) {
+                        return ((Number) obj).longValue();
+                    }
+                    if (obj instanceof String) {
+                        return (long) Double.parseDouble((String) obj);
+                    }
+                } catch (NumberFormatException e) {
+                    if (ABTestConfig.isDebug()) {
+                        throw new ClassCastException("getLongSwitch exception " + e);
+                    }
+                }
+            }
+            return j;
         }
+        return invokeLJ.longValue;
     }
 
-    public void d(Context context, c30<t50> c30Var, Looper looper) {
+    public static int d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, c30Var, looper) == null) {
-            a30.f(context).l(c30Var, looper);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            try {
+                return Integer.parseInt(str);
+            } catch (Exception unused) {
+                return 0;
+            }
         }
-    }
-
-    public void f(Context context, c30<List<u50>> c30Var, Looper looper) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, context, c30Var, looper) == null) {
-            a30.f(context).p(c30Var, looper);
-        }
+        return invokeL.intValue;
     }
 }

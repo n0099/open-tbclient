@@ -1,14 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import java.io.File;
-import org.json.JSONArray;
-/* loaded from: classes4.dex */
+import android.content.ContentValues;
+import androidx.annotation.Nullable;
+import java.util.List;
+/* loaded from: classes3.dex */
 public interface cu1 {
-    void a(@NonNull JSONArray jSONArray);
-
-    zc2 b(Context context, File file, long j);
-
-    void c(@NonNull JSONArray jSONArray);
+    @Nullable
+    List<ContentValues> a();
 }

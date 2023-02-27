@@ -1,79 +1,81 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.content.Context;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class gc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public volatile float height;
-    @V8JavascriptField
-    public volatile float left;
-    @V8JavascriptField
-    public volatile float top;
-    @V8JavascriptField
-    public volatile float width;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-    }
-
-    public void b(a aVar) {
+    public static boolean a(View view2, sz2 sz2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-        }
-    }
-
-    public gc4() {
-        Resources resources;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, sz2Var)) == null) {
+            dr1 X = zu2.U().X();
+            if (X != null && X.c(view2, sz2Var)) {
+                return true;
             }
+            return false;
         }
-        if (ds2.c() != null) {
-            resources = ds2.c().getResources();
-        } else {
-            resources = null;
-        }
-        this.left = a(resources, R.dimen.obfuscated_res_0x7f07071c);
-        this.top = a(resources, R.dimen.obfuscated_res_0x7f07071d);
-        this.width = a(resources, R.dimen.obfuscated_res_0x7f07071e);
-        this.height = a(resources, R.dimen.obfuscated_res_0x7f07071b);
+        return invokeLL.booleanValue;
     }
 
-    public String toString() {
+    public static boolean f(View view2, sz2 sz2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, sz2Var)) == null) {
+            dr1 X = zu2.U().X();
+            if (X != null && X.a(view2, sz2Var)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static Context b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "{left=" + this.left + ", top=" + this.top + ", width=" + this.width + ", height=" + this.height + "}";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            dr1 X = zu2.U().X();
+            if (X != null) {
+                return X.getContext();
+            }
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (Context) invokeV.objValue;
     }
 
-    public final float a(Resources resources, int i) {
-        InterceptResult invokeLI;
+    public static void c(lo3 lo3Var) {
+        dr1 X;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, resources, i)) == null) {
-            if (resources != null && i != 0) {
-                return mb4.b(resources.getDimension(i));
-            }
-            return 0.0f;
+        if ((interceptable == null || interceptable.invokeL(65538, null, lo3Var) == null) && (X = zu2.U().X()) != null) {
+            X.e(lo3Var);
         }
-        return invokeLI.floatValue;
+    }
+
+    public static boolean d(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            dr1 X = zu2.U().X();
+            if (X != null && X.removeView(view2)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void e(lo3 lo3Var) {
+        dr1 X;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, lo3Var) == null) && (X = zu2.U().X()) != null) {
+            X.f(lo3Var);
+        }
     }
 }

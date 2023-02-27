@@ -1,158 +1,137 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JSExceptionType;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import androidx.media2.session.SessionCommand;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 /* loaded from: classes4.dex */
 public class ga4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final Object b;
 
-    public static String f(int i) {
-        InterceptResult invokeI;
+    public static void a(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return "boolean";
-                case 2:
-                case 3:
-                case 5:
-                    return com.baidu.sapi2.views.logindialog.view.a.k;
-                case 4:
-                default:
-                    return "unknown";
-                case 6:
-                    return "array";
-                case 7:
-                    return EMABTest.TYPE_STRING;
-                case 8:
-                    return "function";
-                case 9:
-                    return "object";
-                case 10:
-                    return "arraybuffer";
-                case 11:
-                    return StringUtil.NULL_STRING;
-                case 12:
-                    return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
-            }
+        if ((interceptable != null && interceptable.invokeLL(65536, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            return;
         }
-        return (String) invokeI.objValue;
+        na4 na4Var = new na4();
+        na4Var.a = str;
+        da4.c().a(new ca4(50000, na4Var));
     }
 
-    public ga4(String str, Object obj) {
+    public static void b(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, obj};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeLL(65537, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            return;
         }
-        this.a = str;
-        this.b = obj;
+        na4 na4Var = new na4();
+        na4Var.a = str;
+        da4.c().a(new ca4(90000, na4Var));
     }
 
-    public static Object a(gg2 gg2Var, String str, String str2, ga4 ga4Var) {
-        InterceptResult invokeLLLL;
+    public static void e(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, gg2Var, str, str2, ga4Var)) == null) {
-            if (ga4Var.g()) {
-                return ga4Var.d();
-            }
-            String a = da4.a(str, str2, ga4Var.e());
-            gg2Var.throwJSException(JSExceptionType.Error, a);
-            return a;
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            return;
         }
-        return invokeLLLL.objValue;
+        na4 na4Var = new na4();
+        na4Var.a = str;
+        da4.c().a(new ca4(60000, na4Var));
     }
 
-    public static ga4 b(@NonNull String str) {
-        InterceptResult invokeL;
+    public static void g(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return new ga4(str, null);
+        if ((interceptable != null && interceptable.invokeLL(65542, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            return;
         }
-        return (ga4) invokeL.objValue;
+        na4 na4Var = new na4();
+        na4Var.a = str;
+        da4.c().a(new ca4(SessionCommand.COMMAND_CODE_SESSION_FAST_FORWARD, na4Var));
     }
 
-    public static ga4 i(@Nullable Object obj) {
-        InterceptResult invokeL;
+    public static void i(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) {
-            return new ga4(null, obj);
+        if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
+            la4 la4Var = new la4();
+            la4Var.b = str;
+            la4Var.a = str2;
+            da4.c().a(new ca4(30000, la4Var));
         }
-        return (ga4) invokeL.objValue;
     }
 
-    public static Object h() {
-        InterceptResult invokeV;
+    public static void c(String str, int i, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return new JsObject();
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
+            ka4 ka4Var = new ka4();
+            ka4Var.b = str;
+            ka4Var.c = i;
+            ka4Var.d = z ? 1 : 0;
+            ka4Var.a = str2;
+            da4.c().a(new ca4(100000, ka4Var));
         }
-        return invokeV.objValue;
     }
 
-    public Object d() {
-        InterceptResult invokeV;
+    public static void h(String str, int i, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
+            ka4 ka4Var = new ka4();
+            ka4Var.b = str;
+            ka4Var.c = i;
+            ka4Var.d = z ? 1 : 0;
+            ka4Var.a = str2;
+            da4.c().a(new ca4(70000, ka4Var));
         }
-        return invokeV.objValue;
     }
 
-    public String e() {
-        InterceptResult invokeV;
+    public static void k(String str, int i, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
+            ka4 ka4Var = new ka4();
+            ka4Var.b = str;
+            ka4Var.c = i;
+            ka4Var.d = z ? 1 : 0;
+            ka4Var.a = str2;
+            da4.c().a(new ca4(110000, ka4Var));
         }
-        return (String) invokeV.objValue;
     }
 
-    public boolean g() {
-        InterceptResult invokeV;
+    public static void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a == null) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            na4 na4Var = new na4();
+            na4Var.a = str;
+            da4.c().a(new ca4(20000, na4Var));
         }
-        return invokeV.booleanValue;
     }
 
-    public String c(String str, String str2) {
-        InterceptResult invokeLL;
+    public static void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (g()) {
-                return da4.b(str);
-            }
-            return da4.a(str, str2, e());
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            na4 na4Var = new na4();
+            na4Var.a = str;
+            da4.c().a(new ca4(10000, na4Var));
         }
-        return (String) invokeLL.objValue;
+    }
+
+    public static void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
+            na4 na4Var = new na4();
+            na4Var.a = str;
+            da4.c().a(new ca4(120000, na4Var));
+        }
+    }
+
+    public static void j(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65545, null, str, i, str2) == null) {
+            ma4 ma4Var = new ma4();
+            ma4Var.b = str;
+            ma4Var.c = i;
+            ma4Var.a = str2;
+            da4.c().a(new ca4(80000, ma4Var));
+        }
     }
 }

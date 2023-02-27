@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.tt6;
+import com.baidu.tieba.sw6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -112,7 +112,7 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             if (this.d == null) {
-                this.d = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01010a);
+                this.d = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01010f);
                 this.d.setInterpolator(new LinearInterpolator());
                 this.d.setFillAfter(true);
             }
@@ -127,7 +127,7 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
             return;
         }
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, tt6.EntelechyPullUpRefreshView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, sw6.EntelechyPullUpRefreshView);
             this.e = obtainStyledAttributes.getResourceId(1, R.drawable.icon_frs_reload);
             this.f = obtainStyledAttributes.getBoolean(0, false);
             obtainStyledAttributes.recycle();

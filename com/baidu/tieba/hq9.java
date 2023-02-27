@@ -1,12 +1,105 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import android.os.Bundle;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes4.dex */
-public interface hq9 {
-    public static final ServiceReference a = new ServiceReference(UBCCloudControlProcessor.UBC_KEY, "yalog");
+public class hq9 extends iq9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(String str, String str2);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hq9(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull po9 po9Var, boolean z) {
+        super(tbPageContext, navigationBar, linearLayout, editorTools, po9Var, z);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, po9Var, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (po9) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    void b(String str, String str2);
+    @Override // com.baidu.tieba.iq9, com.baidu.tieba.dq9, com.baidu.tieba.eq9
+    public void M(@NonNull List<qo9<?>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            list.add(tp9.i(this.a));
+            super.M(list);
+        }
+    }
+
+    @Override // com.baidu.tieba.iq9, com.baidu.tieba.dq9, com.baidu.tieba.eq9
+    public void O(@NonNull EditorTools editorTools) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) {
+            super.O(editorTools);
+            jd5 p = editorTools.p(15);
+            if (p instanceof am9) {
+                ((am9) p).n(false);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.iq9, com.baidu.tieba.dq9, com.baidu.tieba.eq9
+    public void P(@NonNull NavigationBar navigationBar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, navigationBar) == null) {
+            super.P(navigationBar);
+            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0fb8));
+        }
+    }
+
+    @Override // com.baidu.tieba.dq9, com.baidu.tieba.eq9
+    public void U(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.U(bundle);
+            this.K.p(true);
+        }
+    }
+
+    @Override // com.baidu.tieba.dq9, com.baidu.tieba.eq9
+    public void Y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            z49.m(this);
+        }
+    }
+
+    @Override // com.baidu.tieba.dq9, com.baidu.tieba.eq9
+    public void c0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.c0();
+            z49.w(this.p);
+        }
+    }
+
+    @Override // com.baidu.tieba.dq9, com.baidu.tieba.eq9, com.baidu.tieba.so9
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.j();
+            z49.w(null);
+        }
+    }
 }

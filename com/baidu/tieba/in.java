@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.adp.titan.TitanDownloadService;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.pms.bean.PackageInfo;
@@ -15,21 +15,17 @@ import com.baidu.titan.sdk.pm.PatchInstallInfo;
 import com.baidu.titan.sdk.pm.PatchManager;
 import com.baidu.titan.sdk.pm.PatchMetaInfo;
 import com.baidu.titan.sdk.pm.TitanPaths;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class in {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements PatchManager.PatchInstallObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,10 +70,11 @@ public class in {
                 if (enVar != null) {
                     enVar.onResult(this.b.packageName, i2, str);
                 }
-                Log.d(TitanDownloadService.TAG, "patch install result = " + i);
-                Log.d(TitanDownloadService.TAG, "patch install patch version = " + this.b.version);
+                DefaultLog.getInstance().c(TitanDownloadService.TAG, "patch install result = " + i + "patch version = " + this.b.version + " packageInfo:" + this.b);
                 if (i2 == 0) {
                     in.c(this.b);
+                } else {
+                    DefaultLog.getInstance().b(TitanDownloadService.TAG, "last patch is:" + LoaderManager.getInstance().getCurrentPatchInfo());
                 }
                 if (!this.c) {
                     int loadState = LoaderManager.getInstance().getLoadState();
@@ -92,35 +89,18 @@ public class in {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448307496, "Lcom/baidu/tieba/in;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448307496, "Lcom/baidu/tieba/in;");
-                return;
-            }
-        }
-        a = ym.a;
-    }
-
     public static void b(Context context, en enVar, PackageInfo packageInfo, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, enVar, packageInfo, Boolean.valueOf(z)}) == null) {
-            if (a) {
-                Log.d(TitanDownloadService.TAG, "install file: " + packageInfo.filePath);
-            }
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, enVar, packageInfo, Boolean.valueOf(z)}) == null) {
+            r08 defaultLog = DefaultLog.getInstance();
+            defaultLog.c(TitanDownloadService.TAG, "install file: " + packageInfo.filePath);
             PatchManager.getInstance().installPatch(Uri.fromFile(new File(packageInfo.filePath)), null, new a(enVar, packageInfo, z));
         }
     }
 
     public static void c(PackageInfo packageInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, packageInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(65538, null, packageInfo) == null) {
             gn d = gn.d();
             if (packageInfo != null) {
                 long j = packageInfo.updateVersion;

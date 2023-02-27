@@ -2,43 +2,16 @@ package com.facebook.imagepipeline.platform;
 
 import android.annotation.TargetApi;
 import android.graphics.Bitmap;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.soloader.DoNotOptimize;
 @DoNotOptimize
 /* loaded from: classes7.dex */
 public class PreverificationHelper {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public PreverificationHelper() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @DoNotOptimize
     @TargetApi(26)
     public boolean shouldUseHardwareBitmapConfig(Bitmap.Config config) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, config)) == null) {
-            if (config == Bitmap.Config.HARDWARE) {
-                return true;
-            }
-            return false;
+        if (config == Bitmap.Config.HARDWARE) {
+            return true;
         }
-        return invokeL.booleanValue;
+        return false;
     }
 }

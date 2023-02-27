@@ -1,103 +1,43 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUIEventType;
-import java.util.List;
-import tv.athena.revenue.payui.model.PayFinishInfo;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes5.dex */
-public class nka implements IYYPayAmountView.Callback {
+public class nka extends jka {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public Dialog c;
-    public IYYPayAmountView.ViewParams d;
-    public Activity e;
-    public IPayCallback<CurrencyChargeMessage> f;
-    public yja g;
 
-    public nka(int i, int i2, Dialog dialog, IYYPayAmountView.ViewParams viewParams, Activity activity, IPayCallback<CurrencyChargeMessage> iPayCallback, yja yjaVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nka() {
+        super(Framedata.Opcode.TEXT);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), dialog, viewParams, activity, iPayCallback, yjaVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Framedata.Opcode) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        RLog.info("PayAmountViewCallback", "create PayAmountViewCallback appId:" + i + " userChannel:" + i2);
-        this.a = i;
-        this.b = i2;
-        this.c = dialog;
-        this.d = viewParams;
-        this.e = activity;
-        this.f = iPayCallback;
-        this.g = yjaVar;
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void onRefreshViewFail(int i, String str) {
+    @Override // com.baidu.tieba.jka, com.baidu.tieba.kka
+    public void h() throws InvalidDataException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-            PayFinishInfo a = hma.a(PayDialogType.PAY_AMOUNT_DIALOG, i, str);
-            RLog.error("PayAmountViewCallback", "showPayAmountDialog onFail code:" + i + " failReason:" + str + " message:" + a, new Object[0]);
-            this.g.j(a);
-            gma.b(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
-        }
-    }
-
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void showInputNumberDialog(Activity activity, List<PayWayInfo> list, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, list, str) == null) {
-            RLog.info("PayAmountViewCallback", "showInputNumberDialog bubbleActMsg:" + str);
-            gma.a(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
-            this.g.l(activity, list, str, this.d, this.f);
-        }
-    }
-
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void toPayWayDialog(qla qlaVar, List<PayWayInfo> list, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, qlaVar, list, str) == null) {
-            RLog.info("PayAmountViewCallback", "toPayWayDialog bubbleActMsg:" + str);
-            gma.a(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
-            this.g.t(this.e, qlaVar, list, str, this.d, this.f);
-            wla.b(this.a, this.b, PayUIEventType.purchasegotopay);
-        }
-    }
-
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void toBannerConfigWebPage(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.g.o(this.e, str);
-        }
-    }
-
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void toHelpCenterPage() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.g.u(this.e);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.h();
+            if (bla.b(a())) {
+                return;
+            }
+            throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
         }
     }
 }

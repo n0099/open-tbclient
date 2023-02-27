@@ -20,6 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 import java.util.ArrayList;
 import java.util.List;
@@ -108,7 +109,7 @@ public class a extends com.baidu.platform.base.d {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     BikingRouteLine.BikingStep bikingStep = new BikingRouteLine.BikingStep();
-                    bikingStep.setDirection(optJSONObject.optInt("direction") * 30);
+                    bikingStep.setDirection(optJSONObject.optInt(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION) * 30);
                     bikingStep.setDistance(optJSONObject.optInt("distance"));
                     bikingStep.setDuration(optJSONObject.optInt("duration"));
                     bikingStep.setName(optJSONObject.optString("name"));

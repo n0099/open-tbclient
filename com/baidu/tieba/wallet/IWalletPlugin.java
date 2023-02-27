@@ -9,6 +9,8 @@ import java.util.Map;
 public interface IWalletPlugin {
     void accessWalletEntry(Context context, String str);
 
+    void doAliAuth(Activity activity, String str, Map<String, String> map, BdUniqueId bdUniqueId);
+
     String doAliPay(Activity activity, String str, boolean z);
 
     void doAliPay(Activity activity, String str, BdUniqueId bdUniqueId);

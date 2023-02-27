@@ -1,23 +1,25 @@
 package com.baidu.tieba;
 
+import android.graphics.drawable.Drawable;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class ju5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public static void a(View view2, Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            long o = p35.m().o("key_youngster_use_time_dialog_show_time", 0L);
-            if (o > System.currentTimeMillis() || System.currentTimeMillis() - o <= 600000) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLL(65536, null, view2, runnable) == null) {
+            view2.postDelayed(runnable, 16L);
         }
-        return invokeV.booleanValue;
+    }
+
+    public static void b(View view2, Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, view2, drawable) == null) {
+            view2.setBackgroundDrawable(drawable);
+        }
     }
 }

@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.util.RomTypeUtil;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import com.ss.android.socialbase.downloader.i.f;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -144,7 +145,7 @@ public class d {
     }
 
     public static String c(String str) throws Throwable {
-        return (String) Class.forName("android.os.SystemProperties").getMethod("get", String.class).invoke(null, str);
+        return (String) Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP).getMethod("get", String.class).invoke(null, str);
     }
 
     public static boolean c() {

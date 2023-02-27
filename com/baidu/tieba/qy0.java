@@ -1,18 +1,15 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public abstract class qy0 extends iy0 {
+/* loaded from: classes5.dex */
+public class qy0 extends xy0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public yu0 o;
 
     public qy0() {
         Interceptable interceptable = $ic;
@@ -28,44 +25,32 @@ public abstract class qy0 extends iy0 {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.iy0
-    @NonNull
-    /* renamed from: K */
-    public ct0 u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (ct0) super.u();
-        }
-        return (ct0) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.iy0, com.baidu.tieba.vy0
-    public void onLayerRelease() {
+    public void m0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onLayerRelease();
+            K(new xu0());
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qy0(@NonNull Activity activity) {
-        super(activity);
+    public void n0() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            yu0 yu0Var = new yu0();
+            this.o = yu0Var;
+            K(yu0Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.xy0, com.baidu.tieba.yy0
+    public void R() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            K(new gv0());
+            K(new iv0());
+            K(new hv0());
+            K(new jv0());
+            n0();
+            m0();
         }
     }
 }

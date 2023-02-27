@@ -21,11 +21,11 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.da;
+import com.baidu.tieba.e15;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.qv4;
-import com.baidu.tieba.t19;
-import com.baidu.tieba.xz4;
-import com.baidu.tieba.zz4;
+import com.baidu.tieba.f59;
+import com.baidu.tieba.g15;
+import com.baidu.tieba.xw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -44,8 +44,8 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
     public TextView h;
     public View i;
     public TextView j;
-    public xz4 k;
-    public zz4 l;
+    public e15 k;
+    public g15 l;
     public ImageView m;
     public View n;
     public int o;
@@ -134,25 +134,25 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         h();
     }
 
-    public void f(t19 t19Var) {
+    public void f(f59 f59Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, t19Var) != null) || t19Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, f59Var) != null) || f59Var == null) {
             return;
         }
-        xz4 c = t19Var.c();
-        zz4 f = t19Var.f();
+        e15 c = f59Var.c();
+        g15 f = f59Var.f();
         this.k = c;
         this.l = f;
-        if (t19Var.h()) {
+        if (f59Var.g()) {
             this.n.setVisibility(0);
         } else {
             this.n.setVisibility(8);
         }
-        xz4 xz4Var = this.k;
-        if (xz4Var == null) {
+        e15 e15Var = this.k;
+        if (e15Var == null) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
-        } else if (StringUtils.isNull(xz4Var.g())) {
+        } else if (StringUtils.isNull(e15Var.g())) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
         } else {
@@ -201,14 +201,16 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
     }
 
     public void g(int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.o != i) {
             SkinManager.setBackgroundResource(this.m, R.drawable.icon_frs_news);
             SkinManager.setBackgroundResource(this.h, R.drawable.frs_star_btn_like);
             SkinManager.setViewTextColor(this.h, (int) R.drawable.frs_text_color_selector);
-            qv4 layoutMode = this.a.getLayoutMode();
-            boolean z = true;
-            if (i != 1) {
+            xw4 layoutMode = this.a.getLayoutMode();
+            if (i == 4) {
+                z = true;
+            } else {
                 z = false;
             }
             layoutMode.l(z);

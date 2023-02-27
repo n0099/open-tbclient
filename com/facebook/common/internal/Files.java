@@ -1,10 +1,5 @@
 package com.facebook.common.internal;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.infer.annotation.Nullsafe;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,62 +8,34 @@ import java.io.InputStream;
 @Nullsafe(Nullsafe.Mode.STRICT)
 /* loaded from: classes7.dex */
 public class Files {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public Files() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static byte[] readFile(InputStream inputStream, long j) throws IOException {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, inputStream, j)) == null) {
-            if (j <= 2147483647L) {
-                if (j == 0) {
-                    return ByteStreams.toByteArray(inputStream);
-                }
-                return ByteStreams.toByteArray(inputStream, (int) j);
+        if (j <= 2147483647L) {
+            if (j == 0) {
+                return ByteStreams.toByteArray(inputStream);
             }
-            throw new OutOfMemoryError("file is too large to fit in a byte array: " + j + " bytes");
+            return ByteStreams.toByteArray(inputStream, (int) j);
         }
-        return (byte[]) invokeLJ.objValue;
+        throw new OutOfMemoryError("file is too large to fit in a byte array: " + j + " bytes");
     }
 
     public static byte[] toByteArray(File file) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            FileInputStream fileInputStream = null;
+        FileInputStream fileInputStream = null;
+        try {
+            FileInputStream fileInputStream2 = new FileInputStream(file);
             try {
-                FileInputStream fileInputStream2 = new FileInputStream(file);
-                try {
-                    byte[] readFile = readFile(fileInputStream2, fileInputStream2.getChannel().size());
-                    fileInputStream2.close();
-                    return readFile;
-                } catch (Throwable th) {
-                    th = th;
-                    fileInputStream = fileInputStream2;
-                    if (fileInputStream != null) {
-                        fileInputStream.close();
-                    }
-                    throw th;
+                byte[] readFile = readFile(fileInputStream2, fileInputStream2.getChannel().size());
+                fileInputStream2.close();
+                return readFile;
+            } catch (Throwable th) {
+                th = th;
+                fileInputStream = fileInputStream2;
+                if (fileInputStream != null) {
+                    fileInputStream.close();
                 }
-            } catch (Throwable th2) {
-                th = th2;
+                throw th;
             }
-        } else {
-            return (byte[]) invokeL.objValue;
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 }

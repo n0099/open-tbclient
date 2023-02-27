@@ -187,11 +187,4 @@ public class BdCircleImageView extends AppCompatImageView {
             ((ShapeDrawable) getBackground()).getPaint().setColor(i);
         }
     }
-
-    public void setBackgroundColorRes(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            setBackgroundColor(getContext().getResources().getColor(i));
-        }
-    }
 }

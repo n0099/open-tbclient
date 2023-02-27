@@ -1,135 +1,257 @@
 package com.baidu.sofire.k;
 
-import android.accounts.NetworkErrorException;
 import android.content.Context;
+import android.os.Build;
+import android.os.Environment;
+import android.os.Process;
+import android.provider.Settings;
+import android.text.TextUtils;
+import android.util.Base64;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedOutputStream;
+import java.io.CharArrayWriter;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Locale;
-import java.util.concurrent.TimeUnit;
-import okhttp3.Interceptor;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.apache.http.conn.ssl.SSLSocketFactory;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.UUID;
 /* loaded from: classes3.dex */
 public class l {
-    public static /* synthetic */ Interceptable $ic;
-    public static final byte[] b;
-    public static OkHttpClient c;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    /* loaded from: classes3.dex */
-    public class a implements Interceptor {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l a;
-
-        public a(l lVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lVar;
-        }
-
-        @Override // okhttp3.Interceptor
-        public Response intercept(Interceptor.Chain chain) throws IOException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
-                System.currentTimeMillis();
-                Request request = chain.request();
-                Context context = this.a.a;
-                Response proceed = chain.proceed(request);
-                System.currentTimeMillis();
-                return proceed;
-            }
-            return (Response) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2074259202, "Lcom/baidu/sofire/k/l;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(2074259202, "Lcom/baidu/sofire/k/l;");
-                return;
-            }
-        }
-        b = new byte[1024];
-    }
-
-    public l(Context context) {
+    public l() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = context;
     }
 
-    public static boolean a(Context context) {
+    /* JADX WARN: Can't wrap try/catch for region: R(16:5|(2:7|(2:9|(6:11|(1:80)|(5:68|69|70|(1:78)(1:74)|(1:76))|18|(5:23|24|25|26|(3:29|(1:64)(1:33)|(1:35)(7:36|(2:38|(1:40))(1:63)|41|42|43|44|45))(1:28))|67)(14:81|82|(1:13)|80|(1:16)|68|69|70|(1:72)|78|(0)|18|(5:23|24|25|26|(0)(0))|67))(1:83))(1:85)|84|82|(0)|80|(0)|68|69|70|(0)|78|(0)|18|(0)|67) */
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x0092, code lost:
+        r2 = com.baidu.sofire.a.b.a;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x005c  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x006f  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x007f A[Catch: all -> 0x0092, TryCatch #0 {all -> 0x0092, blocks: (B:26:0x007b, B:28:0x007f, B:33:0x008a), top: B:83:0x007b }] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x008a A[Catch: all -> 0x0092, TRY_LEAVE, TryCatch #0 {all -> 0x0092, blocks: (B:26:0x007b, B:28:0x007f, B:33:0x008a), top: B:83:0x007b }] */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x009c A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00af  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00b0 A[Catch: all -> 0x00f7, TryCatch #3 {all -> 0x00f7, blocks: (B:42:0x00a9, B:45:0x00b0, B:47:0x00b4, B:53:0x00bf, B:55:0x00d7, B:57:0x00dd, B:59:0x00e7, B:58:0x00e4), top: B:89:0x00a9 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String a(Context context) {
         InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            return context.getPackageName().contains("com.baidu.searchbox");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                if (m.a(this.a)) {
-                    Response execute = a().newCall(a(str, (byte[]) null)).execute();
-                    int code = execute.code();
-                    if (code == 200) {
-                        return execute.body().string();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (TextUtils.isEmpty(a)) {
+                l lVar = new l();
+                String b = lVar.b(context);
+                boolean z5 = true;
+                if (TextUtils.isEmpty(b)) {
+                    b = lVar.d(context);
+                    if (TextUtils.isEmpty(b)) {
+                        b = lVar.c(context);
+                        if (TextUtils.isEmpty(b)) {
+                            b = "1|" + j.a(UUID.randomUUID().toString());
+                            z = true;
+                            z2 = true;
+                            z3 = true;
+                            if (!z || TextUtils.isEmpty(lVar.b(context))) {
+                                com.baidu.sofire.j.a.a(context).b(b);
+                            }
+                            if (!z2 || TextUtils.isEmpty(lVar.d(context))) {
+                                if (!q.d && q.b(context)) {
+                                    z4 = true;
+                                } else {
+                                    z4 = false;
+                                }
+                                if (z4) {
+                                    Settings.System.putString(context.getContentResolver(), "com.q.zi.i", b);
+                                }
+                            }
+                            if (lVar.a(context, "android.permission.WRITE_EXTERNAL_STORAGE") && (z3 || TextUtils.isEmpty(lVar.c(context)))) {
+                                FileWriter fileWriter = null;
+                                try {
+                                    if (Build.VERSION.SDK_INT < 29) {
+                                        if (!q.e || !q.b(context)) {
+                                            z5 = false;
+                                        }
+                                        if (z5) {
+                                            File file = new File(Environment.getExternalStorageDirectory(), ".zp");
+                                            File file2 = new File(file, ".icosc");
+                                            if (file.exists()) {
+                                                if (!file.isDirectory()) {
+                                                    file.delete();
+                                                    file.mkdirs();
+                                                }
+                                            } else {
+                                                file.mkdirs();
+                                            }
+                                            FileWriter fileWriter2 = new FileWriter(file2, false);
+                                            try {
+                                                fileWriter2.write(b);
+                                                fileWriter2.flush();
+                                                fileWriter2.close();
+                                            } catch (Throwable unused) {
+                                                fileWriter = fileWriter2;
+                                                try {
+                                                    int i = com.baidu.sofire.a.b.a;
+                                                    if (fileWriter != null) {
+                                                        fileWriter.close();
+                                                    }
+                                                    a = b;
+                                                    return a;
+                                                } catch (Throwable th) {
+                                                    if (fileWriter != null) {
+                                                        try {
+                                                            fileWriter.close();
+                                                        } catch (Throwable unused2) {
+                                                            int i2 = com.baidu.sofire.a.b.a;
+                                                        }
+                                                    }
+                                                    throw th;
+                                                }
+                                            }
+                                        }
+                                    }
+                                } catch (Throwable unused3) {
+                                    int i3 = com.baidu.sofire.a.b.a;
+                                }
+                            }
+                            a = b;
+                        } else {
+                            z = true;
+                            z2 = true;
+                            z3 = false;
+                            if (!z) {
+                            }
+                            com.baidu.sofire.j.a.a(context).b(b);
+                            if (!z2) {
+                            }
+                            if (!q.d) {
+                            }
+                            z4 = false;
+                            if (z4) {
+                            }
+                            if (lVar.a(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+                                FileWriter fileWriter3 = null;
+                                if (Build.VERSION.SDK_INT < 29) {
+                                }
+                            }
+                            a = b;
+                        }
+                    } else {
+                        z = true;
                     }
-                    throw new NetworkErrorException(String.valueOf(code));
+                } else {
+                    z = false;
                 }
-                throw new NetworkErrorException("Not allow background connect.");
+                z2 = false;
+                z3 = false;
+                if (!z) {
+                }
+                com.baidu.sofire.j.a.a(context).b(b);
+                if (!z2) {
+                }
+                if (!q.d) {
+                }
+                z4 = false;
+                if (z4) {
+                }
+                if (lVar.a(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+                }
+                a = b;
+            }
+            return a;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String a(File file) {
+        InterceptResult invokeL;
+        FileReader fileReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+            try {
+                fileReader = new FileReader(file);
+            } catch (Throwable unused) {
+                fileReader = null;
+            }
+            try {
+                char[] cArr = new char[8192];
+                CharArrayWriter charArrayWriter = new CharArrayWriter();
+                while (true) {
+                    int read = fileReader.read(cArr);
+                    if (read <= 0) {
+                        break;
+                    }
+                    charArrayWriter.write(cArr, 0, read);
+                }
+                String charArrayWriter2 = charArrayWriter.toString();
+                try {
+                    fileReader.close();
+                } catch (Throwable unused2) {
+                    int i = com.baidu.sofire.a.b.a;
+                }
+                return charArrayWriter2;
+            } catch (Throwable unused3) {
+                try {
+                    int i2 = com.baidu.sofire.a.b.a;
+                    return null;
+                } finally {
+                    if (fileReader != null) {
+                        try {
+                            fileReader.close();
+                        } catch (Throwable unused4) {
+                            int i3 = com.baidu.sofire.a.b.a;
+                        }
+                    }
+                }
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String b(Context context) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            try {
+                com.baidu.sofire.j.a a2 = com.baidu.sofire.j.a.a(context);
+                String string = a2.c.getString("rpnewuidn", "");
+                if (TextUtils.isEmpty(string)) {
+                    str = "";
+                } else {
+                    str = new String(f.a(com.baidu.sofire.j.a.k, Base64.decode(string, 10), true), "UTF-8");
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    return str;
+                }
+                String string2 = a2.c.getString("rpnewuid", "");
+                if (TextUtils.isEmpty(string2)) {
+                    return "";
+                }
+                a2.b(string2);
+                return string2;
             } catch (Throwable unused) {
                 int i = com.baidu.sofire.a.b.a;
                 return "";
@@ -138,81 +260,54 @@ public class l {
         return (String) invokeL.objValue;
     }
 
-    public OkHttpClient a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (c == null) {
-                synchronized (l.class) {
-                    if (c == null) {
-                        OkHttpClient.Builder builder = new OkHttpClient.Builder();
-                        builder.hostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
-                        builder.connectTimeout(AppConfig.TIMESTAMP_AVAILABLE_DURATION, TimeUnit.MILLISECONDS);
-                        builder.addInterceptor(new a(this));
-                        c = builder.build();
-                    }
-                }
-            }
-            return c;
-        }
-        return (OkHttpClient) invokeV.objValue;
-    }
-
-    public final Request a(String str, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr)) == null) {
-            try {
-                MediaType parse = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
-                String str2 = com.baidu.sofire.k.a.p(this.a)[0];
-                Request.Builder url = new Request.Builder().url(str);
-                if (bArr != null) {
-                    url.post(RequestBody.create(parse, bArr));
-                }
-                Request.Builder addHeader = url.addHeader("User-Agent", "eos/" + str2 + "/" + q.a(this.a) + "/3.5.9.6").addHeader("Pragma", "no-cache").addHeader("Accept", "*/*");
-                return addHeader.addHeader("Accept-Language", Locale.getDefault().getLanguage() + "-" + Locale.getDefault().getCountry()).addHeader("x-device-id", j.a(c.a(this.a))).build();
-            } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
-                return null;
-            }
-        }
-        return (Request) invokeLL.objValue;
-    }
-
-    public boolean a(String str, File file) {
-        InterceptResult invokeLL;
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0033 A[Catch: all -> 0x0038, TRY_LEAVE, TryCatch #0 {all -> 0x0038, blocks: (B:7:0x0009, B:9:0x000d, B:15:0x0019, B:18:0x0022, B:20:0x0033), top: B:28:0x0009 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String c(Context context) {
+        InterceptResult invokeL;
         boolean z;
+        File file;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, file)) == null) {
-            try {
-                if (m.a(this.a)) {
-                    Response execute = a().newCall(new Request.Builder().url(str).build()).execute();
-                    int code = execute.code();
-                    if (code == 200) {
-                        InputStream byteStream = execute.body().byteStream();
-                        if (byteStream != null) {
-                            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
-                            while (true) {
-                                byte[] bArr = b;
-                                int read = byteStream.read(bArr);
-                                if (read == -1) {
-                                    break;
-                                }
-                                bufferedOutputStream.write(bArr, 0, read);
-                                bufferedOutputStream.flush();
-                            }
-                            bufferedOutputStream.flush();
-                            bufferedOutputStream.close();
-                            z = true;
-                        } else {
-                            z = false;
-                        }
-                        byteStream.close();
-                        return z;
-                    }
-                    throw new NetworkErrorException(String.valueOf(code));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            if (context != null) {
+                try {
+                } catch (Throwable unused) {
+                    int i = com.baidu.sofire.a.b.a;
                 }
-                throw new NetworkErrorException("Not allow background connect.");
+                if (q.c && q.b(context)) {
+                    z = true;
+                    if (z || !a(context, com.kuaishou.weapon.p0.h.i)) {
+                        return "";
+                    }
+                    file = new File(Environment.getExternalStorageDirectory(), ".zp/.icosc");
+                    if (file.exists()) {
+                        return a(file);
+                    }
+                    return "";
+                }
+            }
+            z = false;
+            if (z) {
+                return "";
+            }
+            file = new File(Environment.getExternalStorageDirectory(), ".zp/.icosc");
+            if (file.exists()) {
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final boolean a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            try {
+                if (context.checkPermission(str, Process.myPid(), Process.myUid()) != 0) {
+                    return false;
+                }
+                return true;
             } catch (Throwable unused) {
                 int i = com.baidu.sofire.a.b.a;
                 return false;
@@ -221,25 +316,40 @@ public class l {
         return invokeLL.booleanValue;
     }
 
-    public String b(String str, byte[] bArr) {
-        InterceptResult invokeLL;
+    /* JADX WARN: Removed duplicated region for block: B:14:0x001a A[Catch: all -> 0x0023, TRY_LEAVE, TryCatch #0 {all -> 0x0023, blocks: (B:7:0x000b, B:9:0x000f, B:14:0x001a), top: B:25:0x000b }] */
+    /* JADX WARN: Removed duplicated region for block: B:28:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String d(Context context) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bArr)) == null) {
-            try {
-                if (m.a(this.a)) {
-                    Response execute = a().newCall(a(str, bArr)).execute();
-                    int code = execute.code();
-                    if (code == 200) {
-                        return execute.body().string();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            if (context != null) {
+                try {
+                    try {
+                        if (q.b && q.b(context)) {
+                            z = true;
+                            if (z) {
+                                return "";
+                            }
+                            return ApiReplaceUtil.getString(context.getContentResolver(), "com.q.zi.i");
+                        }
+                    } catch (Throwable unused) {
+                        int i = com.baidu.sofire.a.b.a;
+                        return null;
                     }
-                    throw new NetworkErrorException(String.valueOf(code));
+                } catch (Throwable unused2) {
+                    int i2 = com.baidu.sofire.a.b.a;
+                    return "";
                 }
-                throw new NetworkErrorException("Not allow background connect.");
-            } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
-                return "";
             }
+            z = false;
+            if (z) {
+            }
+        } else {
+            return (String) invokeL.objValue;
         }
-        return (String) invokeLL.objValue;
     }
 }

@@ -1,20 +1,9 @@
 package com.facebook.drawee.backends.pipeline;
-
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public final class R {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
     public static final class attr {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final int actualImageResource = 0x7f040024;
         public static final int actualImageScaleType = 0x7f040025;
         public static final int actualImageUri = 0x7f040026;
@@ -46,57 +35,24 @@ public final class R {
         public static final int roundingBorderPadding = 0x7f040360;
         public static final int roundingBorderWidth = 0x7f040361;
         public static final int viewAspectRatio = 0x7f040489;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public attr() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes7.dex */
     public static final class id {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int center = 0x7f0905fa;
-        public static final int centerCrop = 0x7f0905fe;
-        public static final int centerInside = 0x7f0905ff;
-        public static final int fitBottomStart = 0x7f090a64;
-        public static final int fitCenter = 0x7f090a65;
-        public static final int fitEnd = 0x7f090a66;
-        public static final int fitStart = 0x7f090a67;
-        public static final int fitXY = 0x7f090a69;
-        public static final int focusCrop = 0x7f090aab;
-        public static final int none = 0x7f0917f4;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public id() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        public static final int center = 0x7f090638;
+        public static final int centerCrop = 0x7f09063c;
+        public static final int centerInside = 0x7f09063d;
+        public static final int fitBottomStart = 0x7f090aa1;
+        public static final int fitCenter = 0x7f090aa2;
+        public static final int fitEnd = 0x7f090aa3;
+        public static final int fitStart = 0x7f090aa4;
+        public static final int fitXY = 0x7f090aa6;
+        public static final int focusCrop = 0x7f090ae8;
+        public static final int none = 0x7f091835;
     }
 
     /* loaded from: classes7.dex */
     public static final class styleable {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int[] GenericDraweeHierarchy;
         public static final int GenericDraweeHierarchy_actualImageScaleType = 0x00000000;
         public static final int GenericDraweeHierarchy_backgroundImage = 0x00000001;
         public static final int GenericDraweeHierarchy_fadeDuration = 0x00000002;
@@ -126,7 +82,6 @@ public final class R {
         public static final int GenericDraweeHierarchy_roundingBorderPadding = 0x0000001a;
         public static final int GenericDraweeHierarchy_roundingBorderWidth = 0x0000001b;
         public static final int GenericDraweeHierarchy_viewAspectRatio = 0x0000001c;
-        public static final int[] SimpleDraweeView;
         public static final int SimpleDraweeView_actualImageResource = 0x00000000;
         public static final int SimpleDraweeView_actualImageScaleType = 0x00000001;
         public static final int SimpleDraweeView_actualImageUri = 0x00000002;
@@ -158,51 +113,7 @@ public final class R {
         public static final int SimpleDraweeView_roundingBorderPadding = 0x0000001c;
         public static final int SimpleDraweeView_roundingBorderWidth = 0x0000001d;
         public static final int SimpleDraweeView_viewAspectRatio = 0x0000001e;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-695609125, "Lcom/facebook/drawee/backends/pipeline/R$styleable;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-695609125, "Lcom/facebook/drawee/backends/pipeline/R$styleable;");
-                    return;
-                }
-            }
-            GenericDraweeHierarchy = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f040025, com.baidu.tieba.R.attr.obfuscated_res_0x7f04005c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04015b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04015f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040160, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402a8, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402c6, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402c7, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402cf, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402d1, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402d2, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402d3, com.baidu.tieba.R.attr.obfuscated_res_0x7f040332, com.baidu.tieba.R.attr.obfuscated_res_0x7f040333, com.baidu.tieba.R.attr.obfuscated_res_0x7f04034b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04034c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04034d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04034e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04034f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040357, com.baidu.tieba.R.attr.obfuscated_res_0x7f040358, com.baidu.tieba.R.attr.obfuscated_res_0x7f040359, com.baidu.tieba.R.attr.obfuscated_res_0x7f04035a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04035c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04035e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04035f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040360, com.baidu.tieba.R.attr.obfuscated_res_0x7f040361, com.baidu.tieba.R.attr.obfuscated_res_0x7f040489};
-            SimpleDraweeView = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f040024, com.baidu.tieba.R.attr.obfuscated_res_0x7f040025, com.baidu.tieba.R.attr.obfuscated_res_0x7f040026, com.baidu.tieba.R.attr.obfuscated_res_0x7f04005c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04015b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04015f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040160, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402a8, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402c6, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402c7, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402cf, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402d1, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402d2, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402d3, com.baidu.tieba.R.attr.obfuscated_res_0x7f040332, com.baidu.tieba.R.attr.obfuscated_res_0x7f040333, com.baidu.tieba.R.attr.obfuscated_res_0x7f04034b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04034c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04034d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04034e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04034f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040357, com.baidu.tieba.R.attr.obfuscated_res_0x7f040358, com.baidu.tieba.R.attr.obfuscated_res_0x7f040359, com.baidu.tieba.R.attr.obfuscated_res_0x7f04035a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04035c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04035e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04035f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040360, com.baidu.tieba.R.attr.obfuscated_res_0x7f040361, com.baidu.tieba.R.attr.obfuscated_res_0x7f040489};
-        }
-
-        public styleable() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    public R() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+        public static final int[] GenericDraweeHierarchy = {com.baidu.tieba.R.attr.obfuscated_res_0x7f040025, com.baidu.tieba.R.attr.obfuscated_res_0x7f04005c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04015b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04015f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040160, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402a8, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402c6, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402c7, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402cf, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402d1, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402d2, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402d3, com.baidu.tieba.R.attr.obfuscated_res_0x7f040332, com.baidu.tieba.R.attr.obfuscated_res_0x7f040333, com.baidu.tieba.R.attr.obfuscated_res_0x7f04034b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04034c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04034d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04034e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04034f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040357, com.baidu.tieba.R.attr.obfuscated_res_0x7f040358, com.baidu.tieba.R.attr.obfuscated_res_0x7f040359, com.baidu.tieba.R.attr.obfuscated_res_0x7f04035a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04035c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04035e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04035f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040360, com.baidu.tieba.R.attr.obfuscated_res_0x7f040361, com.baidu.tieba.R.attr.obfuscated_res_0x7f040489};
+        public static final int[] SimpleDraweeView = {com.baidu.tieba.R.attr.obfuscated_res_0x7f040024, com.baidu.tieba.R.attr.obfuscated_res_0x7f040025, com.baidu.tieba.R.attr.obfuscated_res_0x7f040026, com.baidu.tieba.R.attr.obfuscated_res_0x7f04005c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04015b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04015f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040160, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402a8, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402c6, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402c7, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402cf, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402d1, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402d2, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402d3, com.baidu.tieba.R.attr.obfuscated_res_0x7f040332, com.baidu.tieba.R.attr.obfuscated_res_0x7f040333, com.baidu.tieba.R.attr.obfuscated_res_0x7f04034b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04034c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04034d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04034e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04034f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040357, com.baidu.tieba.R.attr.obfuscated_res_0x7f040358, com.baidu.tieba.R.attr.obfuscated_res_0x7f040359, com.baidu.tieba.R.attr.obfuscated_res_0x7f04035a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04035c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04035e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04035f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040360, com.baidu.tieba.R.attr.obfuscated_res_0x7f040361, com.baidu.tieba.R.attr.obfuscated_res_0x7f040489};
     }
 }

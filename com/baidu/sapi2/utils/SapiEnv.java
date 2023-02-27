@@ -1,6 +1,7 @@
 package com.baidu.sapi2.utils;
 /* loaded from: classes2.dex */
 public interface SapiEnv {
+    public static final String APP_UC_PASS_LOGIN = "/v3/login/appuc2passlogin";
     public static final String CAPTCHA_URI = "/cgi-bin/genimage?";
     public static final String CHECK_USER_FACE_ID = "/v3/security/sapi/faceCheck";
     public static final String CHILD_VERIFY = "/v6/child-verify";
@@ -21,9 +22,11 @@ public interface SapiEnv {
     public static final String GET_QR_LOGIN_RESULT = "/v2/api/bdusslogin";
     public static final String GET_QR_LOGIN_STATUS_CHECK = "/channel/unicast";
     public static final String GET_STOKEN_URI = "/v3/login/api/auth/";
+    public static final String GET_USER_ATTR_INFO = "https://mbd.baidu.com/userx/v1/info/get";
     public static final String GET_USER_INFO_URI = "/v2/sapi/center/getuinfo";
     public static final String GET_VR_SMS_GUIDE = "/v3/api/util/vrsmsguide";
     public static final String HASH_TIMESTAMP_URL = "https://openapi.baidu.com/oauth/2.0/token";
+    public static final String IS_SHOW_REAL_NAME_GUIDE = "/v3/api/safe/certscore";
     public static final String LOAD_ONE_KEY_LOGIN = "/v3/login/onekeylogin";
     public static final String LOGIN_URI = "/v2/sapi/login";
     public static final String NORMALIZE_GUEST_ACCOUNT_URI = "/phoenix/account/guidetouristnormalize";

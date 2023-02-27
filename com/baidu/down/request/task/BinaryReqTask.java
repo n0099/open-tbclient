@@ -155,7 +155,7 @@ public class BinaryReqTask extends AbstractTask {
                 if (binaryReqTask2.mNeedMuti && this.mSupportRange) {
                     if (binaryReqTask2.mTotalLength > AbstractTask.minSegLen && !this.mTrunked) {
                         BinaryReqTask binaryReqTask3 = this.this$0;
-                        if (binaryReqTask3.mTotalLength < DownPrefUtils.getLong(binaryReqTask2.mContext, DownPrefUtils.PREF_CONFIG_TEST_SPEED_THRESHOLD, com.baidu.down.utils.Constants.TEST_SPEED_THRESHOLD_DEFAULT) * 1024) {
+                        if (binaryReqTask3.mTotalLength < DownPrefUtils.getLong(binaryReqTask2.mContext, DownPrefUtils.PREF_CONFIG_TEST_SPEED_THRESHOLD, 10240L) * 1024) {
                             BinaryHttpResponseHandler binaryHttpResponseHandler = binaryReqTask3.mTaskHandler;
                             if (binaryHttpResponseHandler instanceof MultiSrcBinaryTaskHandler) {
                                 ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler).setNeedMultiSrc(false);
@@ -574,7 +574,7 @@ public class BinaryReqTask extends AbstractTask {
             }
             taskSpeedStat.initThreadSpeedStat(z);
             if (this.mNeedMuti) {
-                long j2 = DownPrefUtils.getLong(this.mContext, DownPrefUtils.PREF_CONFIG_TEST_SPEED_THRESHOLD, com.baidu.down.utils.Constants.TEST_SPEED_THRESHOLD_DEFAULT) * 1024;
+                long j2 = DownPrefUtils.getLong(this.mContext, DownPrefUtils.PREF_CONFIG_TEST_SPEED_THRESHOLD, 10240L) * 1024;
                 this.mThreadCount = 0;
                 ConnectManager.NetWorkType netWorkType = TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().getNetWorkType();
                 if (this.mProgressInfo.getSegmentCount() > 0) {

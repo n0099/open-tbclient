@@ -1,112 +1,57 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.tieba.t81;
+import com.baidu.nadcore.webview.activity.NadWebViewActivity;
+import com.baidu.nadcore.webview.activity.NadWebViewActivityStandard;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.s91;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
+@Service
 /* loaded from: classes5.dex */
-public final class n81 extends g81 {
+public final class n81 extends dj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
-    public ViewTreeObserver.OnGlobalLayoutListener b;
-    public View.OnLayoutChangeListener c;
-    public boolean d;
-    public final b91 e;
-    public final k81 f;
 
-    /* loaded from: classes5.dex */
-    public static final class a implements View.OnLayoutChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public final /* synthetic */ n81 b;
+    @Override // com.baidu.tieba.dj0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "easybrowse" : (String) invokeV.objValue;
+    }
 
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public a(n81 n81Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n81Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = n81Var;
-        }
-
-        @Override // android.view.View.OnLayoutChangeListener
-        public void onLayoutChange(View v, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{v, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
-                Intrinsics.checkNotNullParameter(v, "v");
-                Rect rect = new Rect();
-                v.getWindowVisibleDisplayFrame(rect);
-                String str = this.b.a;
-                n91.a(str, "preBottom: " + this.a + " bottom: " + rect.bottom);
-                int i9 = rect.bottom;
-                int i10 = this.a;
-                if (i9 != i10 && i10 != 0) {
-                    AbsNadBrowserView m = this.b.f.m();
-                    if (m != null) {
-                        int i11 = this.a - rect.bottom;
-                        if (i11 <= 200) {
-                            if (i3 == i7 && this.b.d) {
-                                r81.b(this.b.e, m.getHeight(), 0, m.getHeight(), 0);
-                                n81 n81Var = this.b;
-                                n81Var.w(n81Var.f.m(), -1, -1);
-                            }
-                            this.b.d = false;
-                        } else {
-                            this.b.d = true;
-                            if (i3 == i7) {
-                                r81.b(this.b.e, m.getHeight() - i11, i11, m.getHeight(), 0);
-                                n81 n81Var2 = this.b;
-                                n81Var2.w(n81Var2.f.m(), -1, -1);
-                            }
-                        }
-                        this.a = rect.bottom;
-                        return;
-                    }
-                    return;
-                }
-                this.a = rect.bottom;
-            }
-        }
+    @Override // com.baidu.tieba.dj0
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interceptorEasybrowse" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes5.dex */
-    public static final class b implements b91 {
+    public static final class a implements s91.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ n81 a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ HashMap c;
+        public final /* synthetic */ jj0 d;
+        public final /* synthetic */ fj0 e;
 
-        public b(n81 n81Var) {
+        public a(n81 n81Var, Context context, HashMap hashMap, jj0 jj0Var, fj0 fj0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {n81Var};
+                Object[] objArr = {n81Var, context, hashMap, jj0Var, fj0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -117,24 +62,43 @@ public final class n81 extends g81 {
                 }
             }
             this.a = n81Var;
+            this.b = context;
+            this.c = hashMap;
+            this.d = jj0Var;
+            this.e = fj0Var;
         }
 
-        @Override // com.baidu.tieba.b91
-        public final void loadUrl(String str, Map<String, String> map) {
-            AbsNadBrowserView m;
+        @Override // com.baidu.tieba.s91.b
+        public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, str, map) == null) && (m = this.a.f.m()) != null) {
-                AbsNadBrowserView.E(m, str, map, false, 4, null);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int i = 0;
+                boolean i2 = this.a.i(this.b, this.c, false);
+                String str = this.a.a;
+                x91.a(str, "调起SDK落地页, 结果 " + i2);
+                n81 n81Var = this.a;
+                jj0 jj0Var = this.d;
+                fj0 fj0Var = this.e;
+                if (!i2) {
+                    i = 1001;
+                }
+                n81Var.c(jj0Var, fj0Var, i, i2);
+            }
+        }
+
+        @Override // com.baidu.tieba.s91.b
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                x91.c(this.b, "初始化失败，降级为原生打开");
             }
         }
     }
 
-    public n81(k81 container) {
+    public n81() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {container};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -144,168 +108,110 @@ public final class n81 extends g81 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(container, "container");
-        this.f = container;
-        this.a = "KeyboardPlugin";
-        this.e = new b(this);
+        this.a = "EasyBrowseInterceptor";
     }
 
-    @Override // com.baidu.tieba.g81
-    public void d() {
+    public final boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            s();
-            t();
-            super.d();
-        }
-    }
-
-    @Override // com.baidu.tieba.g81
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (f91.b()) {
-                s();
-                t();
-            } else {
-                v();
-                u();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (ln0.b().a().a("use_nairobi", 0) != 1) {
+                return false;
             }
-            super.m();
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void t() {
-        LinearLayout e;
+    @Override // com.baidu.tieba.dj0
+    public boolean d(Context context, fj0 schemeModel, Map<String, Object> map, jj0 jj0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f.e() != null && this.c != null && (e = this.f.e()) != null) {
-            e.removeOnLayoutChangeListener(this.c);
-        }
-    }
-
-    public final void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c = new a(this);
-            LinearLayout e = this.f.e();
-            if (e != null) {
-                e.addOnLayoutChangeListener(this.c);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, schemeModel, map, jj0Var)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(schemeModel, "schemeModel");
+            int i = 0;
+            if (!j()) {
+                x91.c(context, "未命中新架构");
+                return false;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.g81
-    public void h(AbsNadBrowserView webView, String str, Bitmap bitmap) {
-        String str2;
-        AbsNadBrowserView m;
-        String str3;
-        t81.e j;
-        t81.e j2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            t81.d l = this.f.l();
-            if (l != null && (j2 = l.j()) != null) {
-                str2 = j2.b();
-            } else {
-                str2 = null;
-            }
-            if (str2 != null && (m = this.f.m()) != null) {
-                t81.d l2 = this.f.l();
-                if (l2 != null && (j = l2.j()) != null) {
-                    str3 = j.b();
+            HashMap<String, String> d = schemeModel.d();
+            Intrinsics.checkNotNullExpressionValue(d, "schemeModel.params");
+            v21.b((String) g21.b(d, "charge_url"));
+            int b = o81.b(context.getApplicationContext(), new a(this, context, d, jj0Var, schemeModel));
+            if (b == 0) {
+                c(jj0Var, schemeModel, 1001, false);
+                x91.d(new IllegalStateException("web app init failed, state=" + b));
+                return false;
+            } else if (2 != b && 1 != b) {
+                if (4 == b) {
+                    x91.c(context, "初始化失败，降级为原生打开");
+                    h(context, schemeModel, jj0Var);
+                    return true;
+                } else if (5 == b) {
+                    x91.c(context, "低版本不支持t7，降级为原生打开");
+                    h(context, schemeModel, jj0Var);
+                    return true;
                 } else {
-                    str3 = null;
+                    boolean i2 = i(context, d, false);
+                    String str = this.a;
+                    x91.a(str, "调起SDK落地页, 结果 " + i2);
+                    if (!i2) {
+                        i = 1001;
+                    }
+                    c(jj0Var, schemeModel, i, i2);
+                    return true;
                 }
-                AbsNadBrowserView.C(m, str3, null, 2, null);
-            }
-            super.h(webView, str, bitmap);
-        }
-    }
-
-    public final void w(View view2, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, i, i2) != null) || view2 == null) {
-            return;
-        }
-        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-        if (layoutParams instanceof FrameLayout.LayoutParams) {
-            view2.setLayoutParams(new FrameLayout.LayoutParams(i, i2));
-        } else if (layoutParams instanceof LinearLayout.LayoutParams) {
-            view2.setLayoutParams(new LinearLayout.LayoutParams(i, i2));
-        } else if (layoutParams instanceof RelativeLayout.LayoutParams) {
-            view2.setLayoutParams(new RelativeLayout.LayoutParams(i, i2));
-        } else if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-            view2.setLayoutParams(new ViewGroup.MarginLayoutParams(i, i2));
-        } else if (layoutParams instanceof ViewGroup.LayoutParams) {
-            view2.setLayoutParams(new ViewGroup.LayoutParams(i, i2));
-        }
-    }
-
-    @Override // com.baidu.tieba.g81
-    public void k(AbsNadBrowserView webView, String str) {
-        String str2;
-        AbsNadBrowserView m;
-        String str3;
-        t81.e j;
-        t81.e j2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            t81.d l = this.f.l();
-            if (l != null && (j2 = l.j()) != null) {
-                str2 = j2.a();
             } else {
-                str2 = null;
+                x91.c(context, "正在初始化，降级为原生打开");
+                h(context, schemeModel, jj0Var);
+                return true;
             }
-            if (str2 != null && (m = this.f.m()) != null) {
-                t81.d l2 = this.f.l();
-                if (l2 != null && (j = l2.j()) != null) {
-                    str3 = j.a();
-                } else {
-                    str3 = null;
-                }
-                AbsNadBrowserView.C(m, str3, null, 2, null);
-            }
-            super.k(webView, str);
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public final void s() {
-        ViewTreeObserver viewTreeObserver;
+    public final void h(Context context, fj0 fj0Var, jj0 jj0Var) {
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f.e() != null && this.b != null) {
-            LinearLayout e = this.f.e();
-            if (e != null) {
-                viewTreeObserver = e.getViewTreeObserver();
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, fj0Var, jj0Var) == null) {
+            HashMap<String, String> d = fj0Var.d();
+            Intrinsics.checkNotNullExpressionValue(d, "schemeModel.params");
+            d.put("downgrade_to_native", "1");
+            boolean i2 = i(context, fj0Var.d(), true);
+            if (i2) {
+                i = 0;
             } else {
-                viewTreeObserver = null;
+                i = 1001;
             }
-            if (viewTreeObserver != null && viewTreeObserver.isAlive()) {
-                viewTreeObserver.removeOnGlobalLayoutListener(this.b);
-            }
+            c(jj0Var, fj0Var, i, i2);
         }
     }
 
-    public final void u() {
+    public final boolean i(Context context, HashMap<String, String> hashMap, boolean z) {
+        InterceptResult invokeLLZ;
+        String str;
+        Class cls;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.f.e() == null) {
-                n91.a(this.a, "init keyboard config failed");
-                return;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048580, this, context, hashMap, z)) == null) {
+            if (!z && !k81.a().a(hashMap, k81.b())) {
+                x91.a(this.a, "调起SDK落地页, Activity 调起失败, 内核未成功初始化");
+                return false;
             }
-            LinearLayout e = this.f.e();
-            if (e != null) {
-                if (this.b == null) {
-                    this.b = new m81(e);
-                }
-                ViewTreeObserver viewTreeObserver = e.getViewTreeObserver();
-                Intrinsics.checkNotNullExpressionValue(viewTreeObserver, "it.viewTreeObserver");
-                if (viewTreeObserver.isAlive()) {
-                    n91.a(this.a, "add layout listener");
-                    viewTreeObserver.addOnGlobalLayoutListener(this.b);
-                }
+            if (hashMap != null) {
+                str = hashMap.remove("newbrowser");
+            } else {
+                str = null;
             }
+            if (Intrinsics.areEqual("1", str)) {
+                cls = NadWebViewActivityStandard.class;
+            } else {
+                cls = NadWebViewActivity.class;
+            }
+            Intent intent = new Intent(context, cls);
+            intent.putExtra("map", hashMap);
+            return b51.d(context, intent);
         }
+        return invokeLLZ.booleanValue;
     }
 }

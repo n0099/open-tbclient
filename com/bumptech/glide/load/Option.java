@@ -2,22 +2,15 @@ package com.bumptech.glide.load;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.Preconditions;
 import java.security.MessageDigest;
 /* loaded from: classes7.dex */
 public final class Option<T> {
-    public static /* synthetic */ Interceptable $ic;
-    public static final CacheKeyUpdater<Object> EMPTY_UPDATER;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final CacheKeyUpdater<Object> EMPTY_UPDATER = new CacheKeyUpdater<Object>() { // from class: com.bumptech.glide.load.Option.1
+        @Override // com.bumptech.glide.load.Option.CacheKeyUpdater
+        public void update(@NonNull byte[] bArr, @NonNull Object obj, @NonNull MessageDigest messageDigest) {
+        }
+    };
     public final CacheKeyUpdater<T> cacheKeyUpdater;
     public final T defaultValue;
     public final String key;
@@ -28,173 +21,66 @@ public final class Option<T> {
         void update(@NonNull byte[] bArr, @NonNull T t, @NonNull MessageDigest messageDigest);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1926557968, "Lcom/bumptech/glide/load/Option;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1926557968, "Lcom/bumptech/glide/load/Option;");
-                return;
-            }
-        }
-        EMPTY_UPDATER = new CacheKeyUpdater<Object>() { // from class: com.bumptech.glide.load.Option.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.bumptech.glide.load.Option.CacheKeyUpdater
-            public void update(@NonNull byte[] bArr, @NonNull Object obj, @NonNull MessageDigest messageDigest) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, bArr, obj, messageDigest) == null) {
-                }
-            }
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-        };
-    }
-
     @NonNull
     public static <T> CacheKeyUpdater<T> emptyUpdater() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return (CacheKeyUpdater<T>) EMPTY_UPDATER;
-        }
-        return (CacheKeyUpdater) invokeV.objValue;
+        return (CacheKeyUpdater<T>) EMPTY_UPDATER;
     }
 
     @NonNull
     private byte[] getKeyBytes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            if (this.keyBytes == null) {
-                this.keyBytes = this.key.getBytes(Key.CHARSET);
-            }
-            return this.keyBytes;
+        if (this.keyBytes == null) {
+            this.keyBytes = this.key.getBytes(Key.CHARSET);
         }
-        return (byte[]) invokeV.objValue;
+        return this.keyBytes;
     }
 
     @Nullable
     public T getDefaultValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.defaultValue;
-        }
-        return (T) invokeV.objValue;
+        return this.defaultValue;
     }
 
     public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.key.hashCode();
-        }
-        return invokeV.intValue;
+        return this.key.hashCode();
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "Option{key='" + this.key + "'}";
-        }
-        return (String) invokeV.objValue;
+        return "Option{key='" + this.key + "'}";
     }
 
     public Option(@NonNull String str, @Nullable T t, @NonNull CacheKeyUpdater<T> cacheKeyUpdater) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, t, cacheKeyUpdater};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.key = Preconditions.checkNotEmpty(str);
         this.defaultValue = t;
         this.cacheKeyUpdater = (CacheKeyUpdater) Preconditions.checkNotNull(cacheKeyUpdater);
     }
 
     @NonNull
+    public static <T> Option<T> disk(@NonNull String str, @Nullable T t, @NonNull CacheKeyUpdater<T> cacheKeyUpdater) {
+        return new Option<>(str, t, cacheKeyUpdater);
+    }
+
+    @NonNull
     public static <T> Option<T> disk(@NonNull String str, @NonNull CacheKeyUpdater<T> cacheKeyUpdater) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, cacheKeyUpdater)) == null) {
-            return new Option<>(str, null, cacheKeyUpdater);
-        }
-        return (Option) invokeLL.objValue;
+        return new Option<>(str, null, cacheKeyUpdater);
     }
 
     @NonNull
     public static <T> Option<T> memory(@NonNull String str, @NonNull T t) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, t)) == null) {
-            return new Option<>(str, t, emptyUpdater());
-        }
-        return (Option) invokeLL.objValue;
+        return new Option<>(str, t, emptyUpdater());
     }
 
     public void update(@NonNull T t, @NonNull MessageDigest messageDigest) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, t, messageDigest) == null) {
-            this.cacheKeyUpdater.update(getKeyBytes(), t, messageDigest);
-        }
-    }
-
-    @NonNull
-    public static <T> Option<T> disk(@NonNull String str, @Nullable T t, @NonNull CacheKeyUpdater<T> cacheKeyUpdater) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, t, cacheKeyUpdater)) == null) {
-            return new Option<>(str, t, cacheKeyUpdater);
-        }
-        return (Option) invokeLLL.objValue;
+        this.cacheKeyUpdater.update(getKeyBytes(), t, messageDigest);
     }
 
     @NonNull
     public static <T> Option<T> memory(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            return new Option<>(str, null, emptyUpdater());
-        }
-        return (Option) invokeL.objValue;
+        return new Option<>(str, null, emptyUpdater());
     }
 
     public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj instanceof Option) {
-                return this.key.equals(((Option) obj).key);
-            }
-            return false;
+        if (obj instanceof Option) {
+            return this.key.equals(((Option) obj).key);
         }
-        return invokeL.booleanValue;
+        return false;
     }
 }

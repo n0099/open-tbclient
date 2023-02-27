@@ -1,63 +1,78 @@
 package com.baidu.tieba;
 
+import androidx.annotation.CallSuper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewModel;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class zp {
+public abstract class zp extends dt<TaskBuoyViewData, TaskBuoyViewModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final float a;
-    public final long b;
+    public TaskBuoyViewModel a;
+    public final gt b;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof zp) {
-                    zp zpVar = (zp) obj;
-                    if (Float.compare(this.a, zpVar.a) == 0) {
-                        if (this.b == zpVar.b) {
-                        }
-                    }
+    /* loaded from: classes7.dex */
+    public static final class a implements gt {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zp a;
+
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
+        public a(zp zpVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zpVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return false;
             }
-            return true;
+            this.a = zpVar;
         }
-        return invokeL.booleanValue;
+
+        @Override // com.baidu.tieba.gt
+        public void a() {
+            TaskBuoyViewModel taskBuoyViewModel;
+            TaskInfo c;
+            TaskBuoyViewModel taskBuoyViewModel2;
+            lt<TaskBuoyViewData> a;
+            TaskBuoyViewData k;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (taskBuoyViewModel = this.a.a) != null && (c = taskBuoyViewModel.c()) != null && (taskBuoyViewModel2 = this.a.a) != null && (a = taskBuoyViewModel2.a()) != null && (k = a.k()) != null) {
+                fq.a.b(k.getUiConfig().h(), c, k.getTaskStatus());
+            }
+        }
+
+        @Override // com.baidu.tieba.gt
+        public void b() {
+            TaskBuoyViewModel taskBuoyViewModel;
+            TaskInfo c;
+            TaskBuoyViewModel taskBuoyViewModel2;
+            lt<TaskBuoyViewData> a;
+            TaskBuoyViewData k;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (taskBuoyViewModel = this.a.a) != null && (c = taskBuoyViewModel.c()) != null && (taskBuoyViewModel2 = this.a.a) != null && (a = taskBuoyViewModel2.a()) != null && (k = a.k()) != null) {
+                fq.a.a(k.getUiConfig().h(), c, k.getTaskStatus());
+            }
+        }
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long j = this.b;
-            return (Float.floatToIntBits(this.a) * 31) + ((int) (j ^ (j >>> 32)));
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "TaskSingleProcess(curRate=" + this.a + ", total=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public zp(float f, long j) {
+    public zp() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -67,25 +82,23 @@ public final class zp {
                 return;
             }
         }
-        this.a = f;
-        this.b = j;
+        this.b = new a(this);
     }
 
-    public final float a() {
+    public gt c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return invokeV.longValue;
+        return (gt) invokeV.objValue;
+    }
+
+    @CallSuper
+    public void d(TaskBuoyViewModel taskBuoyViewModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskBuoyViewModel) == null) {
+            this.a = taskBuoyViewModel;
+        }
     }
 }

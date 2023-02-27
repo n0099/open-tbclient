@@ -1,253 +1,229 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.LinearGradient;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.RectF;
-import android.graphics.Shader;
-import android.text.style.ReplacementSpan;
-import androidx.annotation.FloatRange;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.MessageQueue;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
 /* loaded from: classes6.dex */
-public class t35 extends ReplacementSpan {
+public class t35 {
     public static /* synthetic */ Interceptable $ic;
+    public static t35 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public float[] a;
+    public Handler a;
     public int b;
-    public RectF c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public Paint i;
-    public String j;
-    public int k;
-    public int l;
-    public boolean m;
-    public int n;
-    public boolean o;
-    public int p;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
 
-    public t35(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ t35 b;
+
+        public a(t35 t35Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t35Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = t35Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.h(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements MessageQueue.IdleHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public b(t35 t35Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t35Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        @Override // android.os.MessageQueue.IdleHandler
+        public boolean queueIdle() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                p35.m(this.a);
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    public t35() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i8 = newInitContext.flag;
-            if ((i8 & 1) != 0) {
-                int i9 = i8 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new float[8];
-        this.c = new RectF();
-        this.n = 255;
-        this.o = false;
-        this.p = 0;
-        if (i2 > 0) {
-            c(i2);
-        }
-        this.b = i3;
-        this.d = i4;
-        this.e = i5;
-        this.f = i6;
-        this.h = i7;
-        Paint paint = new Paint();
-        this.i = paint;
-        paint.setAntiAlias(true);
-        this.i.setStyle(Paint.Style.STROKE);
-        this.i.setTextSize(this.d);
+        this.b = 3;
+        this.c = false;
+        this.d = false;
+        this.e = false;
+        this.f = false;
+        this.g = false;
     }
 
-    public void a(@FloatRange(from = 0.0d, to = 1.0d) float f) {
+    public static t35 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
-            this.n = (int) (f * 255.0f);
-        }
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            Arrays.fill(this.a, i);
-        }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            float[] z = n15.z(i);
-            if (!Arrays.equals(this.a, z)) {
-                this.a = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (h == null) {
+                h = new t35();
             }
+            return h;
         }
+        return (t35) invokeV.objValue;
     }
 
-    public void d(int i) {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.p = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return invokeV.intValue;
     }
 
-    public void e(String str) {
+    public final Handler c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.j = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a == null) {
+                this.a = new Handler(Looper.getMainLooper());
+            }
+            return this.a;
         }
+        return (Handler) invokeV.objValue;
     }
 
-    public void f(boolean z) {
-        Paint paint;
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048582, this, z) != null) || (paint = this.i) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || this.c) {
             return;
         }
-        this.m = z;
-        if (z) {
-            paint.setStyle(Paint.Style.FILL);
-        } else {
-            paint.setStyle(Paint.Style.STROKE);
-        }
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.o = z;
-        }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.k = i;
-        }
+        p35.n(str);
+        this.e = false;
+        this.c = true;
     }
 
     public void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.l = i;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.b = i;
         }
     }
 
-    @Override // android.text.style.ReplacementSpan
-    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
-        int i6;
-        int color;
-        int color2;
+    public void j(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            this.i.setColor(SkinManager.getColor(this.b));
-            this.i.setAlpha(this.n);
-            if (this.m) {
-                this.i.setStyle(Paint.Style.FILL);
-            } else {
-                this.i.setStyle(Paint.Style.STROKE);
-            }
-            if (this.o) {
-                RectF rectF = this.c;
-                int i7 = this.k;
-                rectF.left = f + i7;
-                int i8 = this.p;
-                rectF.top = (i4 - this.h) + i8;
-                rectF.right = f + this.g + i7;
-                rectF.bottom = i4 + i8;
-            } else {
-                Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-                if (r15.b(charSequence)) {
-                    r15.a(fontMetricsInt, (int) paint.getTextSize());
-                    i6 = 0 - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
-                } else {
-                    i6 = (((fontMetricsInt.descent - fontMetricsInt.ascent) - this.h) / 2) + 0;
-                }
-                int i9 = i6 + i4 + fontMetricsInt.ascent;
-                RectF rectF2 = this.c;
-                rectF2.left = f + this.k;
-                rectF2.top = Math.max(i9, i4 + fontMetricsInt.top);
-                RectF rectF3 = this.c;
-                rectF3.right = f + this.g + this.k;
-                rectF3.bottom = Math.min(i9 + this.h, i4 + fontMetricsInt.bottom);
-            }
-            String str = this.j;
-            if (str != null) {
-                if (" 吧主".equals(str)) {
-                    color = SelectorHelper.getResources().getColor(R.color.CAM_X0302);
-                    color2 = SelectorHelper.getResources().getColor(R.color.CAM_X0302);
-                } else if (" 小吧主".equals(this.j)) {
-                    color = SelectorHelper.getResources().getColor(R.color.CAM_X0302);
-                    color2 = SelectorHelper.getResources().getColor(R.color.CAM_X0302);
-                } else if (" 楼主".equals(this.j)) {
-                    color = SelectorHelper.getResources().getColor(R.color.CAM_X0302);
-                    color2 = SelectorHelper.getResources().getColor(R.color.CAM_X0302);
-                } else {
-                    color = SelectorHelper.getResources().getColor(R.color.CAM_X0302);
-                    color2 = SelectorHelper.getResources().getColor(R.color.CAM_X0302);
-                }
-                int i10 = color;
-                int i11 = color2;
-                RectF rectF4 = this.c;
-                this.i.setShader(new LinearGradient(rectF4.left, rectF4.top, rectF4.right, rectF4.bottom, i10, i11, Shader.TileMode.CLAMP));
-            }
-            Path path = new Path();
-            path.addRoundRect(this.c, this.a, Path.Direction.CW);
-            canvas.drawPath(path, this.i);
-            this.i.setShader(null);
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if ((skinType == 1 || skinType == 4) && this.j != null) {
-                this.i.setColor(SelectorHelper.getResources().getColor(R.color.obfuscated_res_0x7f0607b2));
-                if (this.m) {
-                    this.i.setStyle(Paint.Style.FILL);
-                } else {
-                    this.i.setStyle(Paint.Style.STROKE);
-                }
-                Path path2 = new Path();
-                path2.addRoundRect(this.c, this.a, Path.Direction.CW);
-                canvas.drawPath(path2, this.i);
-            }
-            Paint.FontMetricsInt fontMetricsInt2 = this.i.getFontMetricsInt();
-            int i12 = this.e;
-            if (i12 != 0) {
-                this.i.setColor(SkinManager.getColor(i12));
-            } else {
-                this.i.setColor(SelectorHelper.getResources().getColor(R.color.CAM_X0201));
-            }
-            this.i.setStyle(Paint.Style.FILL);
-            float centerY = this.c.centerY();
-            int i13 = fontMetricsInt2.bottom;
-            canvas.drawText(charSequence, i, i2, f + this.f + this.k, (int) ((centerY + ((i13 - fontMetricsInt2.top) / 2)) - i13), this.i);
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.g = z;
         }
     }
 
-    @Override // android.text.style.ReplacementSpan
-    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
+    public void k(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            int measureText = ((int) this.i.measureText(charSequence, i, i2)) + (this.f * 2);
-            this.g = measureText;
-            return measureText + this.k + this.l;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.f = z;
         }
-        return invokeCommon.intValue;
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || this.d) {
+            return;
+        }
+        if (Looper.myLooper() != Looper.getMainLooper()) {
+            c().post(new a(this, str));
+            return;
+        }
+        Looper.myQueue().addIdleHandler(new b(this, str));
+        this.f = false;
+        this.d = true;
     }
 }

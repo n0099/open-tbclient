@@ -5,25 +5,27 @@ import android.webkit.JsPromptResult;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.callback.IdcardOcrImageCallback;
+import com.baidu.sapi2.callback.LoadDuVipPayCallBack;
 import com.baidu.sapi2.result.AccountRealNameResult;
 import com.baidu.sapi2.result.CertGuardianResult;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.shell.response.SocialResponse;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class SapiJsCallBacks {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
     public interface BdOauthCallback {
         void onCallback(String str);
+    }
+
+    /* loaded from: classes2.dex */
+    public static class BdOauthLoginParams {
+        public BdOauthCallback callback;
+        public String callingAppId;
+        public String callingPkg;
+        public String redirectUrl;
     }
 
     /* loaded from: classes2.dex */
@@ -39,6 +41,31 @@ public class SapiJsCallBacks {
     /* loaded from: classes2.dex */
     public interface CurrentAccountBdussExpiredCallback {
         void onBdussExpired();
+    }
+
+    /* loaded from: classes2.dex */
+    public static class DirectedLoginParams {
+        public String displayname;
+        public String encryptedId;
+        public String uid;
+    }
+
+    /* loaded from: classes2.dex */
+    public static abstract class FingerprintCallback {
+        public abstract void onCallback(FingerprintResult fingerprintResult);
+    }
+
+    /* loaded from: classes2.dex */
+    public static abstract class FingerprintResult {
+        public int authType;
+        public String portrait;
+
+        public abstract void setResult(int i);
+    }
+
+    /* loaded from: classes2.dex */
+    public static abstract class FocusEdittextCoordinateYCallBack {
+        public abstract void onCallback(int i);
     }
 
     /* loaded from: classes2.dex */
@@ -70,6 +97,12 @@ public class SapiJsCallBacks {
     }
 
     /* loaded from: classes2.dex */
+    public static class JoinLoginParams {
+        public LinkedHashMap<String, String> agreement;
+        public boolean hasThirdAccount;
+    }
+
+    /* loaded from: classes2.dex */
     public interface JumpToUriCallBack {
         void onJumpTo(String str);
     }
@@ -96,6 +129,11 @@ public class SapiJsCallBacks {
     }
 
     /* loaded from: classes2.dex */
+    public interface OpenDuVipPayCallback {
+        void onOpenDuVipPay(LoadDuVipPayCallBack loadDuVipPayCallBack);
+    }
+
+    /* loaded from: classes2.dex */
     public interface PageStateCallback {
         public static final int STATE_FIRST = 1;
         public static final int STATE_OTHER = 2;
@@ -112,8 +150,28 @@ public class SapiJsCallBacks {
     }
 
     /* loaded from: classes2.dex */
+    public interface RealNameSubErrorCallback {
+        void onFinish(AccountRealNameResult accountRealNameResult);
+    }
+
+    /* loaded from: classes2.dex */
+    public static abstract class ShareV2LoginParams {
+        public JSONObject pageParams;
+
+        public abstract void onError();
+
+        public abstract void onSuccess();
+    }
+
+    /* loaded from: classes2.dex */
     public interface SpeechRecognitionCallback {
         void onSpeechRecognition(SpeechRecognitionResult speechRecognitionResult);
+    }
+
+    /* loaded from: classes2.dex */
+    public static abstract class SpeechRecognitionResult {
+        public void setSpeechData(int i, String str) {
+        }
     }
 
     /* loaded from: classes2.dex */
@@ -140,33 +198,7 @@ public class SapiJsCallBacks {
     }
 
     /* loaded from: classes2.dex */
-    public static class BdOauthLoginParams {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public BdOauthCallback callback;
-        public String callingAppId;
-        public String callingPkg;
-        public String redirectUrl;
-
-        public BdOauthLoginParams() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
     public static class CallBacks {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public SapiWebView.AccountDestoryCallback accountDestoryCallback;
         public SapiWebView.AccountFreezeCallback accountFreezeCallback;
         public AuthorizationListener authorizationListener;
@@ -193,12 +225,12 @@ public class SapiJsCallBacks {
         public IsForbidRecordCallBack isForbidRecordCallBack;
         public JoinLoginParams joinLoginParams;
         public JumpToUriCallBack jumpToUriCallBack;
-        public int leftBtnIsVisible;
         public SapiWebView.LeftBtnVisibleCallback leftBtnVisibleCallback;
         public SapiWebView.LoadExternalWebViewCallback loadExternalWebViewCallback;
         public SapiWebView.LoadSlideWebViewCallback loadSlideWebViewCallback;
         public SapiWebView.LocalConfigCallback localConfigCallback;
         public LoginStatusChangeCallback loginStatusChangeCallback;
+        public OpenDuVipPayCallback mOpenDuVipPayCallback;
         public SwitchStyleForCloseBtnAndStatusBarCallBack mSwitchStyleForCloseBtnAndStatusBarCallBack;
         public SyncAccountCallBack mSyncAccountCallBack;
         public MakeVibrateCallBack makeVibrateCallBack;
@@ -212,6 +244,7 @@ public class SapiJsCallBacks {
         public SapiWebView.QrLoginCallback qrLoginCallback;
         public SapiWebView.QuickLoginHandler quickLoginHandler;
         public RealNameStatusCallback realNameStatusCallback;
+        public RealNameSubErrorCallback realNameSubErrorCallback;
         public SapiWebView.RealnameAuthenticateCallback realnameAuthenticateCallback;
         public SocialResponse rrLoginResponse;
         public SapiWebView.ShareAccountClickCallback shareAccountClickCallback;
@@ -221,214 +254,16 @@ public class SapiJsCallBacks {
         public SpeechRecognitionCallback speechRecognitionCallback;
         public StopSlideWebviewCallback stopSlideWebviewCallback;
         public SapiWebView.SwitchAccountCallback switchAccountCallback;
-        public String[] touchidPortraitAndSign;
         public SapiWebView.UniteVerifyCallback uniteVerifyCallback;
+        public SapiWebView.WebViewReceviceTitleCallback webViewReceviceTitleCallback;
         public SapiWebView.WebViewTitleCallback webViewTitleCallback;
         public WebviewPageFinishCallback webviewPageFinishCallback;
         public String weixinBindUrl;
-
-        public CallBacks() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.touchidPortraitAndSign = new String[2];
-            this.leftBtnIsVisible = 1;
-        }
+        public String[] touchidPortraitAndSign = new String[2];
+        public int leftBtnIsVisible = 1;
 
         public JsPromptResult getPromptResult() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.promptResult;
-            }
-            return (JsPromptResult) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public static class DirectedLoginParams {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String displayname;
-        public String encryptedId;
-        public String uid;
-
-        public DirectedLoginParams() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public static abstract class FingerprintCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public abstract void onCallback(FingerprintResult fingerprintResult);
-
-        public FingerprintCallback() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public static abstract class FingerprintResult {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int authType;
-        public String portrait;
-
-        public abstract void setResult(int i);
-
-        public FingerprintResult() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public static abstract class FocusEdittextCoordinateYCallBack {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public abstract void onCallback(int i);
-
-        public FocusEdittextCoordinateYCallBack() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public static class JoinLoginParams {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public LinkedHashMap<String, String> agreement;
-        public boolean hasThirdAccount;
-
-        public JoinLoginParams() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public static abstract class ShareV2LoginParams {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public JSONObject pageParams;
-
-        public abstract void onError();
-
-        public abstract void onSuccess();
-
-        public ShareV2LoginParams() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public static abstract class SpeechRecognitionResult {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public void setSpeechData(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-            }
-        }
-
-        public SpeechRecognitionResult() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public SapiJsCallBacks() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            return this.promptResult;
         }
     }
 }

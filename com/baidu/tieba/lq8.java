@@ -1,236 +1,94 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.UUID;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class lq8 implements a48 {
+public class lq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public HashMap<String, y38> c;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final a48 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-624235944, "Lcom/baidu/tieba/lq8$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-624235944, "Lcom/baidu/tieba/lq8$b;");
-                    return;
-                }
-            }
-            a = new lq8(null);
-        }
-    }
-
-    public lq8() {
+    public static void a(String str, List<Cdo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = new HashMap<>();
-    }
-
-    public static a48 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (a48) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.a48
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            n().k(this.a);
-            q(this.a);
-        }
-    }
-
-    @Override // com.baidu.tieba.a48
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = this.a;
-        }
-    }
-
-    @Override // com.baidu.tieba.a48
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a = UUID.randomUUID().toString();
-        }
-    }
-
-    @Override // com.baidu.tieba.a48
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            n().j(this.a);
-        }
-    }
-
-    public final y38 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            kq8 kq8Var = new kq8(this.a);
-            this.c.put(this.a, kq8Var);
-            return kq8Var;
-        }
-        return (y38) invokeV.objValue;
-    }
-
-    public final y38 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            y38 y38Var = this.c.get(this.a);
-            if (y38Var == null) {
-                return l();
-            }
-            return y38Var;
-        }
-        return (y38) invokeV.objValue;
-    }
-
-    public /* synthetic */ lq8(a aVar) {
-        this();
-    }
-
-    public boolean o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            return n().d(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            return n().e(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void q(String str) {
-        y38 y38Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048591, this, str) != null) || (y38Var = this.c.get(str)) == null) {
+        if ((interceptable != null && interceptable.invokeLL(65536, null, str, list) != null) || StringUtils.isNull(str)) {
             return;
         }
-        y38Var.a(str);
-        this.c.remove(str);
-    }
-
-    @Override // com.baidu.tieba.a48
-    public void a(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-            n().c(this.a, i, str);
+        if (list == null) {
+            list = new ArrayList<>();
         }
-    }
-
-    @Override // com.baidu.tieba.a48
-    public void b(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            n().f(this.a, i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.a48
-    public void h(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, str) == null) {
-            n().g(this.a, i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.a48
-    public void i(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) {
-            n().l(this.a, i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.a48
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !StringUtils.isNull(this.b)) {
-            if (!o(this.b) && !p(this.b)) {
-                x38.b(this.b);
-                this.c.remove(this.a);
-            } else {
-                q(this.b);
+        JSONArray jSONArray = new JSONArray();
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            Cdo cdo = list.get(i);
+            if (cdo instanceof lc5) {
+                lc5 lc5Var = (lc5) cdo;
+                if (!lc5Var.c()) {
+                    jSONArray.put(lc5Var.a());
+                }
             }
-            g();
-            n().h(this.b, str);
-            this.b = null;
         }
+        jSONArray.put(str);
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
+        httpMessage.addParam("pic_list", jSONArray.toString());
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    @Override // com.baidu.tieba.a48
-    public void f(int i, int i2, String str) {
+    public static String c(TbPageContext tbPageContext, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, str) == null) {
-            n().b(this.a, i, i2, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.a48
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            n().i(this.a, str);
-            if (!o(this.a) && !p(this.a)) {
-                x38.b(this.a);
-                this.c.remove(this.a);
-            } else {
-                q(this.a);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbPageContext, str)) == null) {
+            if (tbPageContext != null && !StringUtils.isNull(str)) {
+                if (tbPageContext.getResources().getDisplayMetrics().densityDpi > 240.0f) {
+                    return "http://tb.himg.baidu.com/sys/portraith/item/" + str;
+                }
+                return "http://tb.himg.baidu.com/sys/portraitl/item/" + str;
             }
-            this.a = null;
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void d(lc5 lc5Var, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65539, null, lc5Var, bdUniqueId) != null) || lc5Var == null || StringUtils.isNull(lc5Var.a()) || !ListUtils.isEmpty(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
+            return;
+        }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
+        httpMessage.addParam("pic_url", lc5Var.a());
+        httpMessage.setTag(bdUniqueId);
+        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
+    public static void b(lc5 lc5Var, List<Cdo> list) {
+        lc5 lc5Var2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, lc5Var, list) == null) && lc5Var != null && !ListUtils.isEmpty(list) && !StringUtils.isNull(lc5Var.a())) {
+            JSONArray jSONArray = new JSONArray();
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                Cdo cdo = list.get(i);
+                if ((cdo instanceof lc5) && (lc5Var2 = (lc5) cdo) != lc5Var && !lc5Var2.c()) {
+                    jSONArray.put(lc5Var2.a());
+                }
+            }
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
+            httpMessage.addParam("pic_list", jSONArray.toString());
+            if (jSONArray.length() <= 0) {
+                httpMessage.addParam("truncat", 1);
+            } else {
+                httpMessage.addParam("truncat", 0);
+            }
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 }

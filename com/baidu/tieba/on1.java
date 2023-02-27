@@ -1,25 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Handler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.cmic.sso.sdk.auth.TokenListener;
 /* loaded from: classes5.dex */
-public class on1 {
+public abstract class on1 implements TokenListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pn1 a;
-    public Context b;
+    public final long a;
 
-    public on1(Context context, Handler handler) {
+    public on1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,19 +25,15 @@ public class on1 {
                 return;
             }
         }
-        this.a = new pn1(context, handler);
-        this.b = context;
+        this.a = System.currentTimeMillis();
     }
 
-    public String a(String str, byte[] bArr) {
-        InterceptResult invokeLL;
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
-            if (str != null) {
-                return this.a.b(str, bArr, null);
-            }
-            throw new IllegalArgumentException("postToServerForm request null");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (String) invokeLL.objValue;
+        return invokeV.longValue;
     }
 }

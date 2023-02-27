@@ -12,7 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import org.apache.commons.codec.language.bm.Rule;
+/* loaded from: classes4.dex */
 public class AtUserInfo extends BaseInfo<IChatRoomEnterListener.AtUserInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +24,7 @@ public class AtUserInfo extends BaseInfo<IChatRoomEnterListener.AtUserInfo> {
     public long atUid;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class AtType {
         public static final /* synthetic */ AtType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -45,7 +46,7 @@ public class AtUserInfo extends BaseInfo<IChatRoomEnterListener.AtUserInfo> {
                 }
             }
             USER = new AtType("USER", 0);
-            AtType atType = new AtType("ALL", 1);
+            AtType atType = new AtType(Rule.ALL, 1);
             ALL = atType;
             $VALUES = new AtType[]{USER, atType};
         }

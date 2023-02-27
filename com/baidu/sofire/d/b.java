@@ -9,11 +9,10 @@ import android.text.TextUtils;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.b.d;
-import com.baidu.sofire.b.k;
+import com.baidu.sofire.b.i;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.d.a;
-import com.baidu.sofire.k.o;
+import com.baidu.sofire.k.s;
 import com.baidu.sofire.mutiprocess.BinderHolder;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -38,7 +37,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a extends a.AbstractBinderC0179a {
+    public static class a extends a.AbstractBinderC0167a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -74,10 +73,10 @@ public class b {
                             if (TextUtils.isEmpty(string)) {
                                 a = b.a(-101);
                             } else {
-                                k kVar = k.f;
-                                if (kVar == null) {
+                                i iVar = i.g;
+                                if (iVar == null) {
                                     a = b.a(-102);
-                                } else if (kVar.e(string)) {
+                                } else if (iVar.e(string)) {
                                     a = b.a(0);
                                 } else {
                                     a = b.a(-100);
@@ -91,7 +90,7 @@ public class b {
                         if (TextUtils.isEmpty(string2)) {
                             a = b.a(-101);
                         } else {
-                            d a2 = d.a(b.a);
+                            com.baidu.sofire.b.b a2 = com.baidu.sofire.b.b.a(b.a);
                             if (a2 == null) {
                                 a = b.a(-105);
                             } else if (a2.a(string2)) {
@@ -120,12 +119,12 @@ public class b {
                     if (TextUtils.isEmpty(str)) {
                         a = b.a(-101);
                     } else {
-                        k kVar = k.f;
-                        if (kVar == null) {
+                        i iVar = i.g;
+                        if (iVar == null) {
                             a = b.a(-102);
                         } else {
                             Bundle bundle = new Bundle();
-                            if (kVar.b(str) == null) {
+                            if (iVar.b(str) == null) {
                                 bundle.putInt("bundle_key_error_code", 0);
                                 bundle.putInt("status", -1);
                                 return bundle;
@@ -263,16 +262,16 @@ public class b {
                 String string = bundle.getString("bundle_key_method_name");
                 String string2 = bundle.getString("bundle_key_plugin_package_name");
                 if (!TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string)) {
-                    k kVar = k.f;
-                    if (kVar == null) {
+                    i iVar = i.g;
+                    if (iVar == null) {
                         return a(-102);
                     }
-                    ApkInfo b2 = kVar.b(string2);
-                    d dVar = d.d;
-                    if (dVar == null) {
+                    ApkInfo b2 = iVar.b(string2);
+                    com.baidu.sofire.b.b bVar = com.baidu.sofire.b.b.d;
+                    if (bVar == null) {
                         return a(-105);
                     }
-                    Pair<Integer, Object> a2 = dVar.a(b2.key, string, new Class[]{Bundle.class}, bundle);
+                    Pair<Integer, Object> a2 = bVar.a(b2.key, string, new Class[]{Bundle.class}, bundle);
                     if (((Integer) a2.first).intValue() == 0) {
                         Object obj = a2.second;
                         if (obj instanceof Bundle) {
@@ -309,19 +308,19 @@ public class b {
                     int i = bundle.getInt("bundle_key_pid");
                     BinderHolder binderHolder = (BinderHolder) bundle.getParcelable("bundle_key_binder_holder");
                     if (i > 0 && binderHolder != null && (iBinder = binderHolder.a) != null) {
-                        b.put(Integer.valueOf(i), a.AbstractBinderC0179a.a(iBinder));
+                        b.put(Integer.valueOf(i), a.AbstractBinderC0167a.a(iBinder));
                         if (d.size() <= 0) {
                             return a(0);
                         }
-                        d dVar = d.d;
-                        k kVar = k.f;
-                        if (dVar != null && kVar != null) {
+                        com.baidu.sofire.b.b bVar = com.baidu.sofire.b.b.d;
+                        i iVar = i.g;
+                        if (bVar != null && iVar != null) {
                             for (String str2 : d) {
-                                ApkInfo b2 = kVar.b(str2);
+                                ApkInfo b2 = iVar.b(str2);
                                 if (b2 == null) {
                                     return a(0);
                                 }
-                                dVar.a(b2.key, "notifyNewSubProcess", new Class[]{Integer.TYPE}, Integer.valueOf(i));
+                                bVar.a(b2.key, "notifyNewSubProcess", new Class[]{Integer.TYPE}, Integer.valueOf(i));
                             }
                             return a(0);
                         }
@@ -347,14 +346,14 @@ public class b {
             return;
         }
         try {
-            if (!com.baidu.sofire.k.a.a(context, "ampf")) {
+            if (!com.baidu.sofire.k.b.a(context, "ampf")) {
                 return;
             }
             a = context.getApplicationContext();
             Bundle bundle = new Bundle();
             bundle.putInt("bundle_key_pid", Process.myPid());
             bundle.putParcelable("bundle_key_binder_holder", new BinderHolder(e.asBinder()));
-            o.a(context, "sub_process_register_sub_process", bundle, "sofire");
+            s.a(context, "sub_process_register_sub_process", bundle, "sofire");
         } catch (Throwable unused) {
             int i = com.baidu.sofire.a.b.a;
         }

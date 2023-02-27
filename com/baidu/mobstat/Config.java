@@ -1,17 +1,8 @@
 package com.baidu.mobstat;
 
 import android.os.Build;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class Config {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String APPKEY_META_NAME = "BaiduMobAd_STAT_ID";
     public static final String APP_KEY = "k";
     public static final String APP_VERSION_CODE = "a";
@@ -269,227 +260,67 @@ public class Config {
     public static final String WIFI_LOCATION = "wl2";
     public static final String ZID = "zid";
     public static final String replace = "_";
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
     public static class AppLaunchType {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final int AppCall = 1;
         public static final int DirectCall = 0;
         public static final int PushCall = 2;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public AppLaunchType() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes2.dex */
     public static class CrashChannel {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final int SYS_TRACK = 0;
         public static final int USER_UPLOAD_ERROR = 12;
         public static final int USER_UPLOAD_EXCEPTION = 11;
         public static final int USER_UPLOAD_OTHER = 13;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public CrashChannel() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
-    public static final class EventViewType {
-        public static /* synthetic */ Interceptable $ic;
-        public static final EventViewType BUTTON;
-        public static final EventViewType EDIT;
-        public static final /* synthetic */ EventViewType[] b;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2012504581, "Lcom/baidu/mobstat/Config$EventViewType;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-2012504581, "Lcom/baidu/mobstat/Config$EventViewType;");
-                    return;
-                }
-            }
-            EDIT = new EventViewType("EDIT", 0, 0);
-            EventViewType eventViewType = new EventViewType("BUTTON", 1, 1);
-            BUTTON = eventViewType;
-            b = new EventViewType[]{EDIT, eventViewType};
-        }
-
-        public EventViewType(String str, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = i2;
-        }
-
-        public static EventViewType valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                return (EventViewType) Enum.valueOf(EventViewType.class, str);
-            }
-            return (EventViewType) invokeL.objValue;
-        }
-
-        public static EventViewType[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return (EventViewType[]) b.clone();
-            }
-            return (EventViewType[]) invokeV.objValue;
-        }
-
-        public int getValue() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // java.lang.Enum
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return String.valueOf(this.a);
-            }
-            return (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes2.dex */
     public static class SessionInvokeCategory {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final int ActivityInvoke = 1;
         public static final int ApiInvoke = 0;
         public static final int CustomInvoke = 3;
         public static final int FragmentInvoke = 2;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public SessionInvokeCategory() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes2.dex */
     public static class StartType {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final int NORMAL_START = 0;
         public static final int QUICK_START = 1;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public StartType() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes2.dex */
     public static class TraceType {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final int AUTO_TRACE = 1;
         public static final int CODE_TRACE = 0;
         public static final int EDIT_TRACE = 2;
         public static final int FULL_TRACE = 3;
-        public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        public TraceType() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    /* loaded from: classes2.dex */
+    public enum EventViewType {
+        EDIT(0),
+        BUTTON(1);
+        
+        public int a;
+
+        public int getValue() {
+            return this.a;
+        }
+
+        @Override // java.lang.Enum
+        public String toString() {
+            return String.valueOf(this.a);
+        }
+
+        EventViewType(int i) {
+            this.a = i;
         }
     }
 
     static {
-        InterceptResult invokeClinit;
         String str;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(351802000, "Lcom/baidu/mobstat/Config;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(351802000, "Lcom/baidu/mobstat/Config;");
-                return;
-            }
-        }
         if (Build.VERSION.SDK_INT < 9) {
             str = LOG_SEND_URL_NOSSL;
         } else {
@@ -506,19 +337,5 @@ public class Config {
         LAST_AP_INFO_FILE_NAME = RES_PREFIX + "ap_info_cache.json";
         STAT_CACHE_FILE_NAME = RES_PREFIX + "stat_cache.json";
         STAT_FULL_CACHE_FILE_NAME = RES_PREFIX + "stat_full_cache.json";
-    }
-
-    public Config() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
     }
 }

@@ -14,19 +14,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GamePlayServiceView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public final View.OnClickListener b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void d(int i);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,10 +134,10 @@ public class GamePlayServiceView extends RelativeLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0764, (ViewGroup) this, true);
-            findViewById(R.id.obfuscated_res_0x7f0914d9).setBackgroundColor(SkinManager.getColor(R.color.CAM_X0207));
-            findViewById(R.id.obfuscated_res_0x7f0914f3).setOnClickListener(this.b);
-            ((TextView) findViewById(R.id.obfuscated_res_0x7f0924f1)).setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d077a, (ViewGroup) this, true);
+            findViewById(R.id.obfuscated_res_0x7f09151a).setBackgroundColor(SkinManager.getColor(R.color.CAM_X0207));
+            findViewById(R.id.obfuscated_res_0x7f091534).setOnClickListener(this.b);
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f09253e)).setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         }
     }
 }

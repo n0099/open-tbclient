@@ -3,14 +3,8 @@ package com.baidu.ar.mdl;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.SparseArray;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -21,37 +15,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<a> cD;
+    public SparseArray<a> cD = new SparseArray<>();
 
-    public b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.cD = new SparseArray<>();
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0043 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x003f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String a(File file) {
-        InterceptResult invokeL;
         BufferedReader bufferedReader;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, file)) != null) {
-            return (String) invokeL.objValue;
-        }
         BufferedReader bufferedReader2 = null;
         try {
             bufferedReader = new BufferedReader(new FileReader(file));
@@ -108,8 +79,7 @@ public class b {
     }
 
     private void a(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(65538, this, str, str2, z) == null) || TextUtils.isEmpty(str)) {
+        if (TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -122,7 +92,7 @@ public class b {
                 int length2 = jSONArray2.length();
                 a aVar = new a();
                 aVar.type = i2;
-                aVar.f1058tv = z;
+                aVar.f1033tv = z;
                 aVar.tw = new String[length2];
                 for (int i3 = 0; i3 < length2; i3++) {
                     JSONObject jSONObject2 = jSONArray2.getJSONObject(i3);
@@ -152,11 +122,6 @@ public class b {
     }
 
     public static String d(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65539, null, context, str)) != null) {
-            return (String) invokeLL.objValue;
-        }
         try {
             InputStreamReader inputStreamReader = new InputStreamReader(context.getAssets().open(str), "UTF-8");
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -179,8 +144,7 @@ public class b {
     public void a(String str, Context context) {
         String a;
         boolean z;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, context) == null) || TextUtils.isEmpty(str)) {
+        if (TextUtils.isEmpty(str)) {
             return;
         }
         if (str.startsWith("file:///android_asset/")) {
@@ -198,8 +162,6 @@ public class b {
     }
 
     public SparseArray<a> fm() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cD : (SparseArray) invokeV.objValue;
+        return this.cD;
     }
 }

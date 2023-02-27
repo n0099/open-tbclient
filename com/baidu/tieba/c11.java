@@ -1,83 +1,33 @@
 package com.baidu.tieba;
 
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.TranslateAnimation;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
 public class c11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Animation a() {
-        InterceptResult invokeV;
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static void a(@Nullable Activity activity, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            AnimationSet animationSet = new AnimationSet(true);
-            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 2.0f, 1, 0.0f);
-            translateAnimation.setDuration(200L);
-            animationSet.addAnimation(translateAnimation);
-            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-            alphaAnimation.setDuration(200L);
-            animationSet.addAnimation(alphaAnimation);
-            animationSet.setInterpolator(new AccelerateInterpolator());
-            return animationSet;
+        if ((interceptable == null || interceptable.invokeLZ(65536, null, activity, z) == null) && activity != null) {
+            if (z) {
+                activity.setRequestedOrientation(8);
+            } else {
+                activity.setRequestedOrientation(0);
+            }
+            activity.getWindow().setFlags(1024, 1024);
         }
-        return (Animation) invokeV.objValue;
     }
 
-    public static Animation b() {
-        InterceptResult invokeV;
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static void b(@Nullable Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            AnimationSet animationSet = new AnimationSet(true);
-            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, 2.0f);
-            translateAnimation.setDuration(200L);
-            animationSet.addAnimation(translateAnimation);
-            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-            alphaAnimation.setDuration(200L);
-            animationSet.addAnimation(alphaAnimation);
-            animationSet.setInterpolator(new AccelerateInterpolator());
-            return animationSet;
+        if ((interceptable == null || interceptable.invokeL(65537, null, activity) == null) && activity != null) {
+            activity.setRequestedOrientation(1);
         }
-        return (Animation) invokeV.objValue;
-    }
-
-    public static Animation c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            AnimationSet animationSet = new AnimationSet(true);
-            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -0.15f, 1, 0.0f);
-            translateAnimation.setDuration(200L);
-            animationSet.addAnimation(translateAnimation);
-            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-            alphaAnimation.setDuration(200L);
-            animationSet.addAnimation(alphaAnimation);
-            animationSet.setInterpolator(new AccelerateInterpolator());
-            return animationSet;
-        }
-        return (Animation) invokeV.objValue;
-    }
-
-    public static Animation d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            AnimationSet animationSet = new AnimationSet(true);
-            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -0.15f);
-            translateAnimation.setDuration(200L);
-            animationSet.addAnimation(translateAnimation);
-            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-            alphaAnimation.setDuration(200L);
-            animationSet.addAnimation(alphaAnimation);
-            animationSet.setInterpolator(new AccelerateInterpolator());
-            return animationSet;
-        }
-        return (Animation) invokeV.objValue;
     }
 }

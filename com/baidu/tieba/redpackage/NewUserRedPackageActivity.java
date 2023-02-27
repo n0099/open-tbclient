@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.hs4;
 import com.baidu.tieba.on;
-import com.baidu.tieba.rr4;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public RoundRelativeLayout a;
     public NewUserRedPackageData b;
-    public rr4 c;
+    public hs4 c;
     public ImageView d;
     public ImageView e;
     public View.OnClickListener f;
@@ -144,17 +144,17 @@ public class NewUserRedPackageActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0045);
+            setContentView(R.layout.obfuscated_res_0x7f0d0046);
             RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
             this.a = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(ej.g(this, R.dimen.tbds31));
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fb9);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ffa);
             this.e = (ImageView) findViewById(R.id.img_btn_close);
             this.d.setOnClickListener(this.f);
             this.e.setOnClickListener(this.f);
             z1();
             TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 1));
-            this.c = new rr4();
+            this.c = new hs4();
         }
     }
 

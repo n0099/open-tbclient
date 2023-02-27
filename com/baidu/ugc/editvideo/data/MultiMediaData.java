@@ -8,18 +8,9 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import android.view.Surface;
 import androidx.annotation.IntRange;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
-import com.baidu.tieba.lx9;
-import com.baidu.tieba.su9;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.i1a;
+import com.baidu.tieba.py9;
 import com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogSimplePlayer;
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
 import com.google.gson.reflect.TypeToken;
@@ -32,11 +23,23 @@ import java.util.UUID;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class MultiMediaData implements Parcelable, Serializable, Cloneable {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<MultiMediaData> CREATOR;
+    public static final Parcelable.Creator<MultiMediaData> CREATOR = new Parcelable.Creator<MultiMediaData>() { // from class: com.baidu.ugc.editvideo.data.MultiMediaData.1
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // android.os.Parcelable.Creator
+        public MultiMediaData createFromParcel(Parcel parcel) {
+            return new MultiMediaData(parcel);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // android.os.Parcelable.Creator
+        public MultiMediaData[] newArray(int i) {
+            return new MultiMediaData[i];
+        }
+    };
     public static final float MAX_SPEED = 8.0f;
     public static final float MIN_SPEED = 0.01f;
-    public transient /* synthetic */ FieldHolder $fh;
     public boolean addDefaultEffect;
     public float angle;
     public int backupFrameTextureId;
@@ -90,70 +93,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
         public static final int TYPE_VIDEO = 1;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(932789707, "Lcom/baidu/ugc/editvideo/data/MultiMediaData;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(932789707, "Lcom/baidu/ugc/editvideo/data/MultiMediaData;");
-                return;
-            }
-        }
-        CREATOR = new Parcelable.Creator<MultiMediaData>() { // from class: com.baidu.ugc.editvideo.data.MultiMediaData.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.Creator
-            public MultiMediaData createFromParcel(Parcel parcel) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new MultiMediaData(parcel) : (MultiMediaData) invokeL.objValue;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.Creator
-            public MultiMediaData[] newArray(int i) {
-                InterceptResult invokeI;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new MultiMediaData[i] : (MultiMediaData[]) invokeI.objValue;
-            }
-        };
-    }
-
     public MultiMediaData() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mtx = new float[16];
         this.textureMode = 1;
         this.scaleType = MultiDataSourceUtil.sDefaultScaleType;
@@ -166,20 +106,6 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
     }
 
     public MultiMediaData(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.mtx = new float[16];
         this.textureMode = 1;
         this.scaleType = MultiDataSourceUtil.sDefaultScaleType;
@@ -226,218 +152,142 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
     }
 
     public static String arratToJson(List<MultiMediaData> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
-            if (lx9.e(list)) {
-                return "";
-            }
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < list.size(); i++) {
-                MultiMediaData multiMediaData = (MultiMediaData) list.get(i).clone();
-                multiMediaData.textureId = 0;
-                arrayList.add(multiMediaData);
-            }
-            return lx9.e(arrayList) ? "" : new su9().a(arrayList);
+        if (i1a.e(list)) {
+            return "";
         }
-        return (String) invokeL.objValue;
+        ArrayList arrayList = new ArrayList();
+        for (int i = 0; i < list.size(); i++) {
+            MultiMediaData multiMediaData = (MultiMediaData) list.get(i).clone();
+            multiMediaData.textureId = 0;
+            arrayList.add(multiMediaData);
+        }
+        return i1a.e(arrayList) ? "" : new py9().a(arrayList);
     }
 
     public static List<String> getExtList(List<MultiMediaData> list, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, str)) == null) {
-            if (lx9.e(list) || TextUtils.isEmpty(str)) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (MultiMediaData multiMediaData : list) {
-                if (multiMediaData != null) {
-                    String ext = multiMediaData.getExt(str);
-                    if (!TextUtils.isEmpty(ext)) {
-                        arrayList.add(ext);
-                    }
+        if (i1a.e(list) || TextUtils.isEmpty(str)) {
+            return null;
+        }
+        ArrayList arrayList = new ArrayList();
+        for (MultiMediaData multiMediaData : list) {
+            if (multiMediaData != null) {
+                String ext = multiMediaData.getExt(str);
+                if (!TextUtils.isEmpty(ext)) {
+                    arrayList.add(ext);
                 }
             }
-            return arrayList;
         }
-        return (List) invokeLL.objValue;
+        return arrayList;
     }
 
     public static List<MultiMediaData> parseArrayList(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            new ArrayList();
-            try {
-                return (List) new su9().c(str, new TypeToken<List<MultiMediaData>>() { // from class: com.baidu.ugc.editvideo.data.MultiMediaData.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                            }
-                        }
-                    }
-                }.getType());
-            } catch (Exception unused) {
-                return null;
-            }
+        if (TextUtils.isEmpty(str)) {
+            return null;
         }
-        return (List) invokeL.objValue;
+        new ArrayList();
+        try {
+            return (List) new py9().c(str, new TypeToken<List<MultiMediaData>>() { // from class: com.baidu.ugc.editvideo.data.MultiMediaData.2
+            }.getType());
+        } catch (Exception unused) {
+            return null;
+        }
     }
 
     public Object clone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return super.clone();
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-                return new MultiMediaData();
-            }
+        try {
+            return super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+            return new MultiMediaData();
         }
-        return invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
+        return 0;
     }
 
     public float getCurrentSpeed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.mSpeed <= 0.0f) {
-                this.mSpeed = 1.0f;
-            }
-            if (this.mSpeed > 8.0f) {
-                this.mSpeed = 8.0f;
-            }
-            if (this.mSpeed < 0.01f) {
-                this.mSpeed = 0.01f;
-            }
-            return this.mSpeed;
+        if (this.mSpeed <= 0.0f) {
+            this.mSpeed = 1.0f;
         }
-        return invokeV.floatValue;
+        if (this.mSpeed > 8.0f) {
+            this.mSpeed = 8.0f;
+        }
+        if (this.mSpeed < 0.01f) {
+            this.mSpeed = 0.01f;
+        }
+        return this.mSpeed;
     }
 
     public long getDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ((float) (this.end - this.start)) / getCurrentSpeed() : invokeV.longValue;
+        return ((float) (this.end - this.start)) / getCurrentSpeed();
     }
 
     public String getExt(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(this.ext)) {
-                return "";
-            }
-            try {
-                return new JSONObject(this.ext).optString(str);
-            } catch (Exception unused) {
-                return "";
-            }
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(this.ext)) {
+            return "";
         }
-        return (String) invokeL.objValue;
+        try {
+            return new JSONObject(this.ext).optString(str);
+        } catch (Exception unused) {
+            return "";
+        }
     }
 
     public boolean isFooter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? MediaSegment.SEG_TYPE_INPUT_FOOTER.equals(this.inputType) : invokeV.booleanValue;
+        return MediaSegment.SEG_TYPE_INPUT_FOOTER.equals(this.inputType);
     }
 
     public boolean isFrameSequential() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (this.frameFps == 0 || TextUtils.isEmpty(this.frameSuffix)) ? false : true : invokeV.booleanValue;
+        return (this.frameFps == 0 || TextUtils.isEmpty(this.frameSuffix)) ? false : true;
     }
 
     public boolean isHeader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? MediaSegment.SEG_TYPE_INPUT_HEADER.equals(this.inputType) : invokeV.booleanValue;
+        return MediaSegment.SEG_TYPE_INPUT_HEADER.equals(this.inputType);
     }
 
     public boolean isOtherTrack() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (TextUtils.isEmpty(this.inputType) || this.inputType.contains("input")) ? false : true : invokeV.booleanValue;
+        return (TextUtils.isEmpty(this.inputType) || this.inputType.contains("input")) ? false : true;
     }
 
     public boolean isSuperpositionFooter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? MediaSegment.SEG_TYPE_INPUT_SUPERPOSITION_FOOTER.equals(this.inputType) : invokeV.booleanValue;
+        return MediaSegment.SEG_TYPE_INPUT_SUPERPOSITION_FOOTER.equals(this.inputType);
     }
 
     public boolean isSuperpositionHeader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? MediaSegment.SEG_TYPE_INPUT_SUPERPOSITION_HEADER.equals(this.inputType) : invokeV.booleanValue;
+        return MediaSegment.SEG_TYPE_INPUT_SUPERPOSITION_HEADER.equals(this.inputType);
     }
 
     public void releasePlayer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            releasePlayer(false);
-        }
+        releasePlayer(false);
     }
 
     public void releasePlayer(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        try {
             try {
-                try {
-                    if (this.player != null) {
-                        if (z) {
-                            this.player.releaseOnInvokeThread();
-                        } else {
-                            this.player.release();
-                        }
-                        this.player = null;
+                if (this.player != null) {
+                    if (z) {
+                        this.player.releaseOnInvokeThread();
+                    } else {
+                        this.player.release();
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    this.player = null;
                 }
-            } finally {
-                this.player = null;
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+        } finally {
+            this.player = null;
         }
     }
 
-    /* JADX WARN: Type inference failed for: r0v2, types: [android.graphics.SurfaceTexture, android.view.Surface] */
+    /* JADX WARN: Type inference failed for: r0v0, types: [android.graphics.SurfaceTexture, android.view.Surface] */
     public void releaseSurface() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        try {
             try {
-                try {
-                    if (this.surfaceTexture != null) {
-                        this.surfaceTexture.release();
-                        this.surfaceTexture = null;
-                    }
-                } finally {
+                if (this.surfaceTexture != null) {
+                    this.surfaceTexture.release();
                     this.surfaceTexture = null;
                 }
             } catch (Exception e) {
@@ -455,12 +305,13 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
             } finally {
                 this.surface = null;
             }
+        } finally {
+            this.surfaceTexture = null;
         }
     }
 
     public void setExt(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) && !TextUtils.isEmpty(str) && str2 != null) {
+        if (!TextUtils.isEmpty(str) && str2 != null) {
             try {
                 JSONObject jSONObject = TextUtils.isEmpty(this.ext) ? new JSONObject() : new JSONObject(this.ext);
                 jSONObject.put(str, str2);
@@ -471,63 +322,55 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
     }
 
     public boolean updatePlayerSpeed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            VLogSimplePlayer vLogSimplePlayer = this.player;
-            if (vLogSimplePlayer != null) {
-                float speed = vLogSimplePlayer.getSpeed();
-                float f = this.mSpeed;
-                if (speed != f) {
-                    this.player.setSpeed(f);
-                    return true;
-                }
-                return false;
+        VLogSimplePlayer vLogSimplePlayer = this.player;
+        if (vLogSimplePlayer != null) {
+            float speed = vLogSimplePlayer.getSpeed();
+            float f = this.mSpeed;
+            if (speed != f) {
+                this.player.setSpeed(f);
+                return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048592, this, parcel, i) == null) {
-            parcel.writeInt(this.type);
-            parcel.writeString(this.path);
-            parcel.writeInt(this.width);
-            parcel.writeInt(this.height);
-            parcel.writeFloat(this.rotation);
-            parcel.writeFloat(this.angle);
-            parcel.writeString(this.inputType);
-            parcel.writeInt(this.textureId);
-            parcel.writeFloatArray(this.mtx);
-            parcel.writeInt(this.textureMode);
-            parcel.writeString(this.scaleType);
-            parcel.writeByte(this.mipmap ? (byte) 1 : (byte) 0);
-            parcel.writeInt(this.frameFps);
-            parcel.writeString(this.frameSuffix);
-            parcel.writeInt(this.frameCount);
-            parcel.writeInt(this.frameIndex);
-            parcel.writeInt(this.frameStartIndex);
-            parcel.writeInt(this.backupFrameTextureId);
-            parcel.writeLong(this.start);
-            parcel.writeLong(this.end);
-            parcel.writeLong(this.originalDuration);
-            parcel.writeLong(this.offset);
-            parcel.writeLong(this.currentPts);
-            parcel.writeLong(this.basePts);
-            parcel.writeByte(this.addDefaultEffect ? (byte) 1 : (byte) 0);
-            parcel.writeFloat(this.volume);
-            parcel.writeByte(this.loop ? (byte) 1 : (byte) 0);
-            parcel.writeFloat(this.x);
-            parcel.writeFloat(this.y);
-            parcel.writeFloat(this.scaleX);
-            parcel.writeFloat(this.scaleY);
-            parcel.writeString(this.subTitleText);
-            parcel.writeString(this.uuid);
-            parcel.writeFloat(this.mSpeed);
-            parcel.writeString(this.ext);
-        }
+        parcel.writeInt(this.type);
+        parcel.writeString(this.path);
+        parcel.writeInt(this.width);
+        parcel.writeInt(this.height);
+        parcel.writeFloat(this.rotation);
+        parcel.writeFloat(this.angle);
+        parcel.writeString(this.inputType);
+        parcel.writeInt(this.textureId);
+        parcel.writeFloatArray(this.mtx);
+        parcel.writeInt(this.textureMode);
+        parcel.writeString(this.scaleType);
+        parcel.writeByte(this.mipmap ? (byte) 1 : (byte) 0);
+        parcel.writeInt(this.frameFps);
+        parcel.writeString(this.frameSuffix);
+        parcel.writeInt(this.frameCount);
+        parcel.writeInt(this.frameIndex);
+        parcel.writeInt(this.frameStartIndex);
+        parcel.writeInt(this.backupFrameTextureId);
+        parcel.writeLong(this.start);
+        parcel.writeLong(this.end);
+        parcel.writeLong(this.originalDuration);
+        parcel.writeLong(this.offset);
+        parcel.writeLong(this.currentPts);
+        parcel.writeLong(this.basePts);
+        parcel.writeByte(this.addDefaultEffect ? (byte) 1 : (byte) 0);
+        parcel.writeFloat(this.volume);
+        parcel.writeByte(this.loop ? (byte) 1 : (byte) 0);
+        parcel.writeFloat(this.x);
+        parcel.writeFloat(this.y);
+        parcel.writeFloat(this.scaleX);
+        parcel.writeFloat(this.scaleY);
+        parcel.writeString(this.subTitleText);
+        parcel.writeString(this.uuid);
+        parcel.writeFloat(this.mSpeed);
+        parcel.writeString(this.ext);
     }
 }

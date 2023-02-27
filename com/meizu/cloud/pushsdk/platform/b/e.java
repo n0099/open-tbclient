@@ -3,15 +3,17 @@ package com.meizu.cloud.pushsdk.platform.b;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.meizu.cloud.pushinternal.DebugLogger;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.platform.PlatformMessageSender;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import java.util.concurrent.ScheduledExecutorService;
 /* loaded from: classes8.dex */
 public class e extends c<SubTagsStatus> {
-    public String a;
-    public int b;
-    public String c;
+    public String h;
+    public int i;
+    public String j;
 
     public e(Context context, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this(context, null, null, null, aVar, scheduledExecutorService);
@@ -19,54 +21,54 @@ public class e extends c<SubTagsStatus> {
 
     public e(Context context, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService, boolean z) {
         this(context, aVar, scheduledExecutorService);
-        this.l = z;
+        this.g = z;
     }
 
     public e(Context context, String str, String str2, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         super(context, str, str2, aVar, scheduledExecutorService);
-        this.b = 3;
+        this.i = 3;
     }
 
     public e(Context context, String str, String str2, String str3, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this(context, str, str2, aVar, scheduledExecutorService);
-        this.a = str3;
+        this.h = str3;
     }
 
     /* JADX DEBUG: Possible override for method com.meizu.cloud.pushsdk.platform.b.c.a(I)Z */
     public void a(int i) {
-        this.b = i;
+        this.i = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public void a(SubTagsStatus subTagsStatus) {
-        PlatformMessageSender.a(this.e, !TextUtils.isEmpty(this.h) ? this.h : this.e.getPackageName(), subTagsStatus);
+        PlatformMessageSender.a(this.a, !TextUtils.isEmpty(this.d) ? this.d : this.a.getPackageName(), subTagsStatus);
     }
 
     public void a(String str) {
-        this.c = str;
+        this.j = str;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public boolean a() {
-        return (TextUtils.isEmpty(this.f) || TextUtils.isEmpty(this.g) || TextUtils.isEmpty(this.a)) ? false : true;
+        return (TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c) || TextUtils.isEmpty(this.h)) ? false : true;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public Intent c() {
         Intent intent = new Intent();
-        intent.putExtra("app_id", this.f);
-        intent.putExtra("app_key", this.g);
-        intent.putExtra("strategy_package_name", this.e.getPackageName());
-        intent.putExtra("push_id", this.a);
+        intent.putExtra("app_id", this.b);
+        intent.putExtra(GameGuideConfigInfo.KEY_APP_KEY, this.c);
+        intent.putExtra("strategy_package_name", this.a.getPackageName());
+        intent.putExtra(PushConstants.REGISTER_STATUS_PUSH_ID, this.h);
         intent.putExtra("strategy_type", g());
-        intent.putExtra("strategy_child_type", this.b);
-        intent.putExtra("strategy_params", this.c);
+        intent.putExtra("strategy_child_type", this.i);
+        intent.putExtra("strategy_params", this.j);
         return intent;
     }
 
     public void e(String str) {
-        this.a = str;
+        this.h = str;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
@@ -82,10 +84,10 @@ public class e extends c<SubTagsStatus> {
         String str;
         SubTagsStatus subTagsStatus = new SubTagsStatus();
         subTagsStatus.setCode("20001");
-        if (TextUtils.isEmpty(this.f)) {
+        if (TextUtils.isEmpty(this.b)) {
             str = "appId not empty";
-        } else if (!TextUtils.isEmpty(this.g)) {
-            if (TextUtils.isEmpty(this.a)) {
+        } else if (!TextUtils.isEmpty(this.c)) {
+            if (TextUtils.isEmpty(this.h)) {
                 str = "pushId not empty";
             }
             return subTagsStatus;
@@ -103,14 +105,18 @@ public class e extends c<SubTagsStatus> {
         StringBuilder sb;
         String str;
         SubTagsStatus subTagsStatus = new SubTagsStatus();
-        int i = this.b;
-        com.meizu.cloud.pushsdk.b.a.c e = i != 0 ? i != 1 ? i != 2 ? i != 3 ? null : this.j.e(this.f, this.g, this.a) : this.j.d(this.f, this.g, this.a) : this.j.b(this.f, this.g, this.a, this.c) : this.j.a(this.f, this.g, this.a, this.c);
+        int i = this.i;
+        com.meizu.cloud.pushsdk.c.a.c e = i != 0 ? i != 1 ? i != 2 ? i != 3 ? null : this.e.e(this.b, this.c, this.h) : this.e.d(this.b, this.c, this.h) : this.e.b(this.b, this.c, this.h, this.j) : this.e.a(this.b, this.c, this.h, this.j);
+        if (e == null) {
+            DebugLogger.e("Strategy", "network anResponse is null");
+            return null;
+        }
         if (e.b()) {
             subTagsStatus = new SubTagsStatus((String) e.a());
             sb = new StringBuilder();
             str = "network subTagsStatus ";
         } else {
-            com.meizu.cloud.pushsdk.b.b.a c = e.c();
+            com.meizu.cloud.pushsdk.c.b.a c = e.c();
             if (c.a() != null) {
                 DebugLogger.e("Strategy", "status code=" + c.b() + " data=" + c.a());
             }

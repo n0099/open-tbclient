@@ -1,58 +1,56 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.RelativeLayout;
-import com.baidu.tieba.a83;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class z73 extends a83.a {
+public class z73<T> implements b83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context f;
+    public List<T> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z73(Context context) {
-        super(context);
+    public z73(List<T> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = context;
+        this.a = list;
     }
 
-    @Override // com.baidu.tieba.a83.a
-    public a83 c() {
+    @Override // com.baidu.tieba.b83
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i >= 0 && i < this.a.size()) {
+                return this.a.get(i);
+            }
+            return "";
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.b83
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.e = this.f.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700f5);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.e);
-            layoutParams.addRule(12);
-            this.a.t.setLayoutParams(layoutParams);
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, this.f.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700f3));
-            layoutParams2.addRule(2, this.a.t.getId());
-            this.a.h.setLayoutParams(layoutParams2);
-            o(R.color.obfuscated_res_0x7f060398);
-            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
-            layoutParams3.addRule(2, this.a.h.getId());
-            this.a.u.setLayoutParams(layoutParams3);
-            return super.c();
+            return this.a.size();
         }
-        return (a83) invokeV.objValue;
+        return invokeV.intValue;
     }
 }

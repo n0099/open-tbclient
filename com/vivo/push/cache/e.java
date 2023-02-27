@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.util.f;
-import com.vivo.push.util.p;
+import com.vivo.push.util.j;
+import com.vivo.push.util.u;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
@@ -51,7 +51,7 @@ public final class e extends c<com.vivo.push.model.a> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return new String(f.a(f.a(e()), f.a(f()), Base64.decode(str, 2)), IMAudioTransRequest.CHARSET);
+            return new String(j.a(j.a(e()), j.a(f()), Base64.decode(str, 2)), IMAudioTransRequest.CHARSET);
         }
         return (String) invokeL.objValue;
     }
@@ -72,7 +72,7 @@ public final class e extends c<com.vivo.push.model.a> {
                     try {
                         arrayList.add(new com.vivo.push.model.a(split[0], trim.substring(split[0].length() + 1)));
                     } catch (Exception e) {
-                        p.d("PushConfigSettings", "str2Clients E: ".concat(String.valueOf(e)));
+                        u.d("PushConfigSettings", "str2Clients E: ".concat(String.valueOf(e)));
                     }
                 }
             }

@@ -6,108 +6,39 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatCheckBox;
-import androidx.core.view.InputDeviceCompat;
 import androidx.core.widget.CompoundButtonCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 /* loaded from: classes7.dex */
 public class MaterialCheckBox extends AppCompatCheckBox {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int DEF_STYLE_RES = 2131755875;
-    public static final int[][] ENABLED_CHECKED_STATES;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final int DEF_STYLE_RES = 2131755877;
+    public static final int[][] ENABLED_CHECKED_STATES = {new int[]{16842910, 16842912}, new int[]{16842910, -16842912}, new int[]{-16842910, 16842912}, new int[]{-16842910, -16842912}};
     @Nullable
     public ColorStateList materialThemeColorsTintList;
     public boolean useMaterialThemeColors;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1337090609, "Lcom/google/android/material/checkbox/MaterialCheckBox;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1337090609, "Lcom/google/android/material/checkbox/MaterialCheckBox;");
-                return;
-            }
-        }
-        ENABLED_CHECKED_STATES = new int[][]{new int[]{16842910, 16842912}, new int[]{16842910, -16842912}, new int[]{-16842910, 16842912}, new int[]{-16842910, -16842912}};
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaterialCheckBox(Context context) {
         this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+    }
+
+    public void setUseMaterialThemeColors(boolean z) {
+        this.useMaterialThemeColors = z;
+        if (z) {
+            CompoundButtonCompat.setButtonTintList(this, getMaterialThemeColorsTintList());
+        } else {
+            CompoundButtonCompat.setButtonTintList(this, null);
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaterialCheckBox(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040133);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040135);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MaterialCheckBox(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
         Context context2 = getContext();
         TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, com.google.android.material.R.styleable.MaterialCheckBox, i, DEF_STYLE_RES, new int[0]);
         if (obtainStyledAttributes.hasValue(0)) {
@@ -118,54 +49,29 @@ public class MaterialCheckBox extends AppCompatCheckBox {
     }
 
     private ColorStateList getMaterialThemeColorsTintList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            if (this.materialThemeColorsTintList == null) {
-                int[] iArr = new int[ENABLED_CHECKED_STATES.length];
-                int color = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04016e);
-                int color2 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04017e);
-                int color3 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040177);
-                iArr[0] = MaterialColors.layer(color2, color, 1.0f);
-                iArr[1] = MaterialColors.layer(color2, color3, 0.54f);
-                iArr[2] = MaterialColors.layer(color2, color3, 0.38f);
-                iArr[3] = MaterialColors.layer(color2, color3, 0.38f);
-                this.materialThemeColorsTintList = new ColorStateList(ENABLED_CHECKED_STATES, iArr);
-            }
-            return this.materialThemeColorsTintList;
+        if (this.materialThemeColorsTintList == null) {
+            int[] iArr = new int[ENABLED_CHECKED_STATES.length];
+            int color = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040170);
+            int color2 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040180);
+            int color3 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040179);
+            iArr[0] = MaterialColors.layer(color2, color, 1.0f);
+            iArr[1] = MaterialColors.layer(color2, color3, 0.54f);
+            iArr[2] = MaterialColors.layer(color2, color3, 0.38f);
+            iArr[3] = MaterialColors.layer(color2, color3, 0.38f);
+            this.materialThemeColorsTintList = new ColorStateList(ENABLED_CHECKED_STATES, iArr);
         }
-        return (ColorStateList) invokeV.objValue;
+        return this.materialThemeColorsTintList;
     }
 
     public boolean isUseMaterialThemeColors() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.useMaterialThemeColors;
-        }
-        return invokeV.booleanValue;
+        return this.useMaterialThemeColors;
     }
 
     @Override // android.widget.TextView, android.view.View
     public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onAttachedToWindow();
-            if (this.useMaterialThemeColors && CompoundButtonCompat.getButtonTintList(this) == null) {
-                setUseMaterialThemeColors(true);
-            }
-        }
-    }
-
-    public void setUseMaterialThemeColors(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.useMaterialThemeColors = z;
-            if (z) {
-                CompoundButtonCompat.setButtonTintList(this, getMaterialThemeColorsTintList());
-            } else {
-                CompoundButtonCompat.setButtonTintList(this, null);
-            }
+        super.onAttachedToWindow();
+        if (this.useMaterialThemeColors && CompoundButtonCompat.getButtonTintList(this) == null) {
+            setUseMaterialThemeColors(true);
         }
     }
 }

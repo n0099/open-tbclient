@@ -32,7 +32,7 @@ import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
 import com.baidu.android.imsdk.ubc.ScreenUbc;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.m80;
+import com.baidu.tieba.q80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -832,7 +832,7 @@ public class MediaSessionManager extends BaseManager {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             }
             try {
-                m80.e(this.mContext).d(this.mContext, creatMethodIntent);
+                q80.e(this.mContext).d(this.mContext, creatMethodIntent);
             } catch (Exception e) {
                 LogUtils.e("MediaSessionManager", "setServerBCMsgRead Exception ", e);
                 if (bIMValueCallBack != null) {
@@ -865,7 +865,7 @@ public class MediaSessionManager extends BaseManager {
             creatMethodIntent.putExtra(Constants.EXTRA_TRIGGER_REASON, sessionParam.reason);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             creatMethodIntent.putExtra(Constants.EXTRA_SCREEN_KEY, sessionParam.screenKey);
-            m80.e(this.mContext).d(this.mContext, creatMethodIntent);
+            q80.e(this.mContext).d(this.mContext, creatMethodIntent);
         }
     }
 
@@ -1069,7 +1069,7 @@ public class MediaSessionManager extends BaseManager {
                 creatMethodIntent.putExtra("session_type", i);
             }
             try {
-                m80.e(this.mContext).d(this.mContext, creatMethodIntent);
+                q80.e(this.mContext).d(this.mContext, creatMethodIntent);
             } catch (Exception e) {
                 LogUtils.e("MediaSessionManager", "setServerBCMsgRead Exception ", e);
                 if (bIMValueCallBack != null) {

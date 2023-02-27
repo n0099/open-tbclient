@@ -13,17 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.concurrent.futures.ResolvableFuture;
 import androidx.core.util.Pair;
-import androidx.core.view.InputDeviceCompat;
 import androidx.media.AudioAttributesCompat;
 import androidx.versionedparcelable.CustomVersionedParcelable;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.extractor.mp4.MetadataUtil;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import com.google.common.util.concurrent.ListenableFuture;
@@ -36,7 +28,6 @@ import java.util.Locale;
 import java.util.concurrent.Executor;
 /* loaded from: classes.dex */
 public abstract class SessionPlayer implements Closeable {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFERING_STATE_BUFFERING_AND_PLAYABLE = 1;
     public static final int BUFFERING_STATE_BUFFERING_AND_STARVED = 2;
     public static final int BUFFERING_STATE_COMPLETE = 3;
@@ -55,15 +46,65 @@ public abstract class SessionPlayer implements Closeable {
     public static final int SHUFFLE_MODE_NONE = 0;
     public static final String TAG = "SessionPlayer";
     public static final long UNKNOWN_TIME = Long.MIN_VALUE;
-    public transient /* synthetic */ FieldHolder $fh;
+    public final Object mLock = new Object();
     @GuardedBy("mLock")
-    public final List<Pair<PlayerCallback, Executor>> mCallbacks;
-    public final Object mLock;
+    public final List<Pair<PlayerCallback, Executor>> mCallbacks = new ArrayList();
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes.dex */
     public @interface BuffState {
+    }
+
+    /* loaded from: classes.dex */
+    public static abstract class PlayerCallback {
+        public void onAudioAttributesChanged(@NonNull SessionPlayer sessionPlayer, @Nullable AudioAttributesCompat audioAttributesCompat) {
+        }
+
+        public void onBufferingStateChanged(@NonNull SessionPlayer sessionPlayer, @Nullable MediaItem mediaItem, int i) {
+        }
+
+        public void onCurrentMediaItemChanged(@NonNull SessionPlayer sessionPlayer, @NonNull MediaItem mediaItem) {
+        }
+
+        public void onPlaybackCompleted(@NonNull SessionPlayer sessionPlayer) {
+        }
+
+        public void onPlaybackSpeedChanged(@NonNull SessionPlayer sessionPlayer, float f) {
+        }
+
+        public void onPlayerStateChanged(@NonNull SessionPlayer sessionPlayer, int i) {
+        }
+
+        public void onPlaylistChanged(@NonNull SessionPlayer sessionPlayer, @Nullable List<MediaItem> list, @Nullable MediaMetadata mediaMetadata) {
+        }
+
+        public void onPlaylistMetadataChanged(@NonNull SessionPlayer sessionPlayer, @Nullable MediaMetadata mediaMetadata) {
+        }
+
+        public void onRepeatModeChanged(@NonNull SessionPlayer sessionPlayer, int i) {
+        }
+
+        public void onSeekCompleted(@NonNull SessionPlayer sessionPlayer, long j) {
+        }
+
+        public void onShuffleModeChanged(@NonNull SessionPlayer sessionPlayer, int i) {
+        }
+
+        public void onSubtitleData(@NonNull SessionPlayer sessionPlayer, @NonNull MediaItem mediaItem, @NonNull TrackInfo trackInfo, @NonNull SubtitleData subtitleData) {
+        }
+
+        public void onTrackDeselected(@NonNull SessionPlayer sessionPlayer, @NonNull TrackInfo trackInfo) {
+        }
+
+        public void onTrackSelected(@NonNull SessionPlayer sessionPlayer, @NonNull TrackInfo trackInfo) {
+        }
+
+        public void onTracksChanged(@NonNull SessionPlayer sessionPlayer, @NonNull List<TrackInfo> list) {
+        }
+
+        public void onVideoSizeChanged(@NonNull SessionPlayer sessionPlayer, @NonNull VideoSize videoSize) {
+        }
     }
 
     @Retention(RetentionPolicy.SOURCE)
@@ -173,125 +214,7 @@ public abstract class SessionPlayer implements Closeable {
     public abstract ListenableFuture<PlayerResult> updatePlaylistMetadata(@Nullable MediaMetadata mediaMetadata);
 
     /* loaded from: classes.dex */
-    public static abstract class PlayerCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public void onAudioAttributesChanged(@NonNull SessionPlayer sessionPlayer, @Nullable AudioAttributesCompat audioAttributesCompat) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, sessionPlayer, audioAttributesCompat) == null) {
-            }
-        }
-
-        public void onBufferingStateChanged(@NonNull SessionPlayer sessionPlayer, @Nullable MediaItem mediaItem, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sessionPlayer, mediaItem, i) == null) {
-            }
-        }
-
-        public void onCurrentMediaItemChanged(@NonNull SessionPlayer sessionPlayer, @NonNull MediaItem mediaItem) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sessionPlayer, mediaItem) == null) {
-            }
-        }
-
-        public void onPlaybackCompleted(@NonNull SessionPlayer sessionPlayer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, sessionPlayer) == null) {
-            }
-        }
-
-        public void onPlaybackSpeedChanged(@NonNull SessionPlayer sessionPlayer, float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLF(1048580, this, sessionPlayer, f) == null) {
-            }
-        }
-
-        public void onPlayerStateChanged(@NonNull SessionPlayer sessionPlayer, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048581, this, sessionPlayer, i) == null) {
-            }
-        }
-
-        public void onPlaylistChanged(@NonNull SessionPlayer sessionPlayer, @Nullable List<MediaItem> list, @Nullable MediaMetadata mediaMetadata) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048582, this, sessionPlayer, list, mediaMetadata) == null) {
-            }
-        }
-
-        public void onPlaylistMetadataChanged(@NonNull SessionPlayer sessionPlayer, @Nullable MediaMetadata mediaMetadata) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048583, this, sessionPlayer, mediaMetadata) == null) {
-            }
-        }
-
-        public void onRepeatModeChanged(@NonNull SessionPlayer sessionPlayer, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, sessionPlayer, i) == null) {
-            }
-        }
-
-        public void onSeekCompleted(@NonNull SessionPlayer sessionPlayer, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048585, this, sessionPlayer, j) == null) {
-            }
-        }
-
-        public void onShuffleModeChanged(@NonNull SessionPlayer sessionPlayer, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048586, this, sessionPlayer, i) == null) {
-            }
-        }
-
-        public void onSubtitleData(@NonNull SessionPlayer sessionPlayer, @NonNull MediaItem mediaItem, @NonNull TrackInfo trackInfo, @NonNull SubtitleData subtitleData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048587, this, sessionPlayer, mediaItem, trackInfo, subtitleData) == null) {
-            }
-        }
-
-        public void onTrackDeselected(@NonNull SessionPlayer sessionPlayer, @NonNull TrackInfo trackInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048588, this, sessionPlayer, trackInfo) == null) {
-            }
-        }
-
-        public void onTrackSelected(@NonNull SessionPlayer sessionPlayer, @NonNull TrackInfo trackInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048589, this, sessionPlayer, trackInfo) == null) {
-            }
-        }
-
-        public void onTracksChanged(@NonNull SessionPlayer sessionPlayer, @NonNull List<TrackInfo> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048590, this, sessionPlayer, list) == null) {
-            }
-        }
-
-        public void onVideoSizeChanged(@NonNull SessionPlayer sessionPlayer, @NonNull VideoSize videoSize) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048591, this, sessionPlayer, videoSize) == null) {
-            }
-        }
-
-        public PlayerCallback() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
     public static class PlayerResult implements BaseResult {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final long mCompletionTime;
         public final MediaItem mItem;
         public final int mResultCode;
@@ -302,42 +225,11 @@ public abstract class SessionPlayer implements Closeable {
         public @interface ResultCode {
         }
 
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public PlayerResult(int i, @Nullable MediaItem mediaItem) {
             this(i, mediaItem, SystemClock.elapsedRealtime());
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), mediaItem};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this(((Integer) objArr2[0]).intValue(), (MediaItem) objArr2[1], ((Long) objArr2[2]).longValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
         }
 
         public PlayerResult(int i, @Nullable MediaItem mediaItem, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), mediaItem, Long.valueOf(j)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             this.mResultCode = i;
             this.mItem = mediaItem;
             this.mCompletionTime = j;
@@ -346,58 +238,36 @@ public abstract class SessionPlayer implements Closeable {
         @NonNull
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
         public static ListenableFuture<PlayerResult> createFuture(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-                ResolvableFuture create = ResolvableFuture.create();
-                create.set(new PlayerResult(i, null));
-                return create;
-            }
-            return (ListenableFuture) invokeI.objValue;
+            ResolvableFuture create = ResolvableFuture.create();
+            create.set(new PlayerResult(i, null));
+            return create;
         }
 
         @Override // androidx.media2.common.BaseResult
         public long getCompletionTime() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.mCompletionTime;
-            }
-            return invokeV.longValue;
+            return this.mCompletionTime;
         }
 
         @Override // androidx.media2.common.BaseResult
         @Nullable
         public MediaItem getMediaItem() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.mItem;
-            }
-            return (MediaItem) invokeV.objValue;
+            return this.mItem;
         }
 
         @Override // androidx.media2.common.BaseResult
         public int getResultCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.mResultCode;
-            }
-            return invokeV.intValue;
+            return this.mResultCode;
         }
     }
 
     /* loaded from: classes.dex */
     public static class TrackInfo extends CustomVersionedParcelable {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_IS_SELECTABLE = "isSelectable";
         public static final int MEDIA_TRACK_TYPE_AUDIO = 2;
         public static final int MEDIA_TRACK_TYPE_METADATA = 5;
         public static final int MEDIA_TRACK_TYPE_SUBTITLE = 4;
         public static final int MEDIA_TRACK_TYPE_UNKNOWN = 0;
         public static final int MEDIA_TRACK_TYPE_VIDEO = 1;
-        public transient /* synthetic */ FieldHolder $fh;
         @Nullable
         public MediaFormat mFormat;
         public int mId;
@@ -415,123 +285,74 @@ public abstract class SessionPlayer implements Closeable {
         }
 
         public TrackInfo() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.mLock = new Object();
         }
 
         @Nullable
         public MediaFormat getFormat() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.mFormat;
-            }
-            return (MediaFormat) invokeV.objValue;
+            return this.mFormat;
         }
 
         public int getId() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.mId;
-            }
-            return invokeV.intValue;
+            return this.mId;
         }
 
         @NonNull
         public Locale getLanguage() {
-            InterceptResult invokeV;
             String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                MediaFormat mediaFormat = this.mFormat;
-                if (mediaFormat != null) {
-                    str = mediaFormat.getString("language");
-                } else {
-                    str = null;
-                }
-                if (str == null) {
-                    str = MetadataUtil.LANGUAGE_UNDEFINED;
-                }
-                return new Locale(str);
+            MediaFormat mediaFormat = this.mFormat;
+            if (mediaFormat != null) {
+                str = mediaFormat.getString("language");
+            } else {
+                str = null;
             }
-            return (Locale) invokeV.objValue;
+            if (str == null) {
+                str = MetadataUtil.LANGUAGE_UNDEFINED;
+            }
+            return new Locale(str);
         }
 
         public int getTrackType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.mTrackType;
-            }
-            return invokeV.intValue;
+            return this.mTrackType;
         }
 
         public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return this.mId;
-            }
-            return invokeV.intValue;
+            return this.mId;
         }
 
         public boolean isSelectable() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return this.mIsSelectable;
-            }
-            return invokeV.booleanValue;
+            return this.mIsSelectable;
         }
 
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public TrackInfo(int i, int i2, @Nullable MediaFormat mediaFormat) {
             this(i, i2, mediaFormat, false);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), mediaFormat};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), (MediaFormat) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
+        }
+
+        public static void putIntValueToBundle(String str, MediaFormat mediaFormat, Bundle bundle) {
+            if (mediaFormat.containsKey(str)) {
+                bundle.putInt(str, mediaFormat.getInteger(str));
+            }
+        }
+
+        public static void putStringValueToBundle(String str, MediaFormat mediaFormat, Bundle bundle) {
+            if (mediaFormat.containsKey(str)) {
+                bundle.putString(str, mediaFormat.getString(str));
+            }
+        }
+
+        public static void setIntValueToMediaFormat(String str, MediaFormat mediaFormat, Bundle bundle) {
+            if (bundle.containsKey(str)) {
+                mediaFormat.setInteger(str, bundle.getInt(str));
+            }
+        }
+
+        public static void setStringValueToMediaFormat(String str, MediaFormat mediaFormat, Bundle bundle) {
+            if (bundle.containsKey(str)) {
+                mediaFormat.setString(str, bundle.getString(str));
             }
         }
 
         public TrackInfo(int i, int i2, @Nullable MediaFormat mediaFormat, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), mediaFormat, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
             this.mLock = new Object();
             this.mId = i;
             this.mTrackType = i2;
@@ -539,54 +360,20 @@ public abstract class SessionPlayer implements Closeable {
             this.mIsSelectable = z;
         }
 
-        public static void putIntValueToBundle(String str, MediaFormat mediaFormat, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(65539, null, str, mediaFormat, bundle) == null) && mediaFormat.containsKey(str)) {
-                bundle.putInt(str, mediaFormat.getInteger(str));
-            }
-        }
-
-        public static void putStringValueToBundle(String str, MediaFormat mediaFormat, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, mediaFormat, bundle) == null) && mediaFormat.containsKey(str)) {
-                bundle.putString(str, mediaFormat.getString(str));
-            }
-        }
-
-        public static void setIntValueToMediaFormat(String str, MediaFormat mediaFormat, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(65541, null, str, mediaFormat, bundle) == null) && bundle.containsKey(str)) {
-                mediaFormat.setInteger(str, bundle.getInt(str));
-            }
-        }
-
-        public static void setStringValueToMediaFormat(String str, MediaFormat mediaFormat, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(65542, null, str, mediaFormat, bundle) == null) && bundle.containsKey(str)) {
-                mediaFormat.setString(str, bundle.getString(str));
-            }
-        }
-
         public boolean equals(@Nullable Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if ((obj instanceof TrackInfo) && this.mId == ((TrackInfo) obj).mId) {
-                    return true;
-                }
-                return false;
+            if (this == obj) {
+                return true;
             }
-            return invokeL.booleanValue;
+            if ((obj instanceof TrackInfo) && this.mId == ((TrackInfo) obj).mId) {
+                return true;
+            }
+            return false;
         }
 
         @Override // androidx.versionedparcelable.CustomVersionedParcelable
         @RestrictTo({RestrictTo.Scope.LIBRARY})
         public void onPostParceling() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.mParcelableExtras != null) {
+            if (this.mParcelableExtras != null) {
                 MediaFormat mediaFormat = new MediaFormat();
                 this.mFormat = mediaFormat;
                 setStringValueToMediaFormat("language", mediaFormat, this.mParcelableExtras);
@@ -606,211 +393,137 @@ public abstract class SessionPlayer implements Closeable {
             }
         }
 
+        @NonNull
+        public String toString() {
+            StringBuilder sb = new StringBuilder(128);
+            sb.append(TrackInfo.class.getName());
+            sb.append('#');
+            sb.append(this.mId);
+            sb.append('{');
+            int i = this.mTrackType;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 4) {
+                        if (i != 5) {
+                            sb.append("UNKNOWN");
+                        } else {
+                            sb.append("METADATA");
+                        }
+                    } else {
+                        sb.append("SUBTITLE");
+                    }
+                } else {
+                    sb.append(HlsPlaylistParser.TYPE_AUDIO);
+                }
+            } else {
+                sb.append(HlsPlaylistParser.TYPE_VIDEO);
+            }
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append(this.mFormat);
+            sb.append("}");
+            return sb.toString();
+        }
+
         @Override // androidx.versionedparcelable.CustomVersionedParcelable
         @RestrictTo({RestrictTo.Scope.LIBRARY})
         public void onPreParceling(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-                synchronized (this.mLock) {
-                    Bundle bundle = new Bundle();
-                    this.mParcelableExtras = bundle;
-                    bundle.putBoolean(KEY_IS_SELECTABLE, this.mIsSelectable);
-                    if (this.mFormat != null) {
-                        putStringValueToBundle("language", this.mFormat, this.mParcelableExtras);
-                        putStringValueToBundle("mime", this.mFormat, this.mParcelableExtras);
-                        putIntValueToBundle("is-forced-subtitle", this.mFormat, this.mParcelableExtras);
-                        putIntValueToBundle("is-autoselect", this.mFormat, this.mParcelableExtras);
-                        putIntValueToBundle("is-default", this.mFormat, this.mParcelableExtras);
-                    }
+            synchronized (this.mLock) {
+                Bundle bundle = new Bundle();
+                this.mParcelableExtras = bundle;
+                bundle.putBoolean(KEY_IS_SELECTABLE, this.mIsSelectable);
+                if (this.mFormat != null) {
+                    putStringValueToBundle("language", this.mFormat, this.mParcelableExtras);
+                    putStringValueToBundle("mime", this.mFormat, this.mParcelableExtras);
+                    putIntValueToBundle("is-forced-subtitle", this.mFormat, this.mParcelableExtras);
+                    putIntValueToBundle("is-autoselect", this.mFormat, this.mParcelableExtras);
+                    putIntValueToBundle("is-default", this.mFormat, this.mParcelableExtras);
                 }
             }
         }
-
-        @NonNull
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                StringBuilder sb = new StringBuilder(128);
-                sb.append(TrackInfo.class.getName());
-                sb.append('#');
-                sb.append(this.mId);
-                sb.append('{');
-                int i = this.mTrackType;
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 4) {
-                            if (i != 5) {
-                                sb.append(RomUtils.UNKNOWN);
-                            } else {
-                                sb.append("METADATA");
-                            }
-                        } else {
-                            sb.append("SUBTITLE");
-                        }
-                    } else {
-                        sb.append(HlsPlaylistParser.TYPE_AUDIO);
-                    }
-                } else {
-                    sb.append(HlsPlaylistParser.TYPE_VIDEO);
-                }
-                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                sb.append(this.mFormat);
-                sb.append("}");
-                return sb.toString();
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    public SessionPlayer() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mLock = new Object();
-        this.mCallbacks = new ArrayList();
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     @CallSuper
     public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.mLock) {
-                this.mCallbacks.clear();
-            }
+        synchronized (this.mLock) {
+            this.mCallbacks.clear();
         }
     }
 
     @NonNull
     public final List<Pair<PlayerCallback, Executor>> getCallbacks() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            synchronized (this.mLock) {
-                arrayList.addAll(this.mCallbacks);
-            }
-            return arrayList;
+        ArrayList arrayList = new ArrayList();
+        synchronized (this.mLock) {
+            arrayList.addAll(this.mCallbacks);
         }
-        return (List) invokeV.objValue;
+        return arrayList;
     }
 
     @NonNull
     public List<TrackInfo> getTracks() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            throw new UnsupportedOperationException("getTracks is not implemented");
-        }
-        return (List) invokeV.objValue;
+        throw new UnsupportedOperationException("getTracks is not implemented");
     }
 
     @NonNull
     public VideoSize getVideoSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            throw new UnsupportedOperationException("getVideoSize is not implemented");
-        }
-        return (VideoSize) invokeV.objValue;
+        throw new UnsupportedOperationException("getVideoSize is not implemented");
     }
 
     @NonNull
     public ListenableFuture<PlayerResult> deselectTrack(@NonNull TrackInfo trackInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, trackInfo)) == null) {
-            throw new UnsupportedOperationException("deselectTrack is not implemented");
-        }
-        return (ListenableFuture) invokeL.objValue;
+        throw new UnsupportedOperationException("deselectTrack is not implemented");
     }
 
     @Nullable
     public TrackInfo getSelectedTrack(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
-            throw new UnsupportedOperationException("getSelectedTrack is not implemented");
-        }
-        return (TrackInfo) invokeI.objValue;
+        throw new UnsupportedOperationException("getSelectedTrack is not implemented");
     }
 
     @NonNull
     public ListenableFuture<PlayerResult> selectTrack(@NonNull TrackInfo trackInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, trackInfo)) == null) {
-            throw new UnsupportedOperationException("selectTrack is not implemented");
-        }
-        return (ListenableFuture) invokeL.objValue;
+        throw new UnsupportedOperationException("selectTrack is not implemented");
     }
 
     @NonNull
     public ListenableFuture<PlayerResult> setSurface(@Nullable Surface surface) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, surface)) == null) {
-            throw new UnsupportedOperationException("setSurface is not implemented");
+        throw new UnsupportedOperationException("setSurface is not implemented");
+    }
+
+    public final void unregisterPlayerCallback(@NonNull PlayerCallback playerCallback) {
+        if (playerCallback != null) {
+            synchronized (this.mLock) {
+                for (int size = this.mCallbacks.size() - 1; size >= 0; size--) {
+                    if (this.mCallbacks.get(size).first == playerCallback) {
+                        this.mCallbacks.remove(size);
+                    }
+                }
+            }
+            return;
         }
-        return (ListenableFuture) invokeL.objValue;
+        throw new NullPointerException("callback shouldn't be null");
     }
 
     @NonNull
     public ListenableFuture<PlayerResult> movePlaylistItem(@IntRange(from = 0) int i, @IntRange(from = 0) int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048598, this, i, i2)) == null) {
-            throw new UnsupportedOperationException("movePlaylistItem is not implemented");
-        }
-        return (ListenableFuture) invokeII.objValue;
+        throw new UnsupportedOperationException("movePlaylistItem is not implemented");
     }
 
     public final void registerPlayerCallback(@NonNull Executor executor, @NonNull PlayerCallback playerCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048602, this, executor, playerCallback) == null) {
-            if (executor != null) {
-                if (playerCallback != null) {
-                    synchronized (this.mLock) {
-                        for (Pair<PlayerCallback, Executor> pair : this.mCallbacks) {
-                            if (pair.first == playerCallback && pair.second != null) {
-                                Log.w(TAG, "callback is already added. Ignoring.");
-                                return;
-                            }
-                        }
-                        this.mCallbacks.add(new Pair<>(playerCallback, executor));
-                        return;
-                    }
-                }
-                throw new NullPointerException("callback shouldn't be null");
-            }
-            throw new NullPointerException("executor shouldn't be null");
-        }
-    }
-
-    public final void unregisterPlayerCallback(@NonNull PlayerCallback playerCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, playerCallback) == null) {
+        if (executor != null) {
             if (playerCallback != null) {
                 synchronized (this.mLock) {
-                    for (int size = this.mCallbacks.size() - 1; size >= 0; size--) {
-                        if (this.mCallbacks.get(size).first == playerCallback) {
-                            this.mCallbacks.remove(size);
+                    for (Pair<PlayerCallback, Executor> pair : this.mCallbacks) {
+                        if (pair.first == playerCallback && pair.second != null) {
+                            Log.w(TAG, "callback is already added. Ignoring.");
+                            return;
                         }
                     }
+                    this.mCallbacks.add(new Pair<>(playerCallback, executor));
+                    return;
                 }
-                return;
             }
             throw new NullPointerException("callback shouldn't be null");
         }
+        throw new NullPointerException("executor shouldn't be null");
     }
 }

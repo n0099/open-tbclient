@@ -7,13 +7,13 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.core.TaxiInfo;
 import com.baidu.mapapi.search.route.WalkingRouteLine;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +74,7 @@ public class o extends k {
             RouteNode routeNode = new RouteNode();
             routeNode.setTitle(jSONObject.optString(ActVideoSetting.WIFI_DISPLAY));
             routeNode.setUid(jSONObject.optString("uid"));
-            routeNode.setLocation(CoordUtil.decodeLocation(jSONObject.optString(Config.PLATFORM_TYPE)));
+            routeNode.setLocation(CoordUtil.decodeLocation(jSONObject.optString("pt")));
             return routeNode;
         }
         return (RouteNode) invokeL.objValue;
@@ -91,7 +91,7 @@ public class o extends k {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
                         WalkingRouteLine.WalkingStep walkingStep = new WalkingRouteLine.WalkingStep();
-                        walkingStep.setDirection(optJSONObject.optInt("direction") * 30);
+                        walkingStep.setDirection(optJSONObject.optInt(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION) * 30);
                         walkingStep.setDistance(optJSONObject.optInt("distance"));
                         walkingStep.setDuration(optJSONObject.optInt("duration"));
                         walkingStep.setEntrance(RouteNode.location(CoordUtil.decodeLocation(optJSONObject.optString("start_location"))));

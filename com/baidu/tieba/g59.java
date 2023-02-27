@@ -1,166 +1,189 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.text.TextUtils;
-import android.text.format.DateFormat;
-import android.text.format.Time;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbadkSettings;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.RemindRecommendMessage;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.AuthTokenData;
+import com.baidu.tbadk.switchs.BarDetailForDirSwitch;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Calendar;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 import org.json.JSONObject;
-import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes4.dex */
 public class g59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public a b;
 
-    public static RemindRecommendMessage a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                RemindRecommendMessage remindRecommendMessage = new RemindRecommendMessage();
-                JSONObject jSONObject = new JSONObject(str);
-                remindRecommendMessage.title = jSONObject.optString("title");
-                remindRecommendMessage.url = jSONObject.optString("url");
-                remindRecommendMessage.picture = jSONObject.optString("picture");
-                remindRecommendMessage.name = jSONObject.optString("name");
-                remindRecommendMessage.isLocal = false;
-                return remindRecommendMessage;
-            } catch (JSONException unused) {
-                return null;
-            }
-        }
-        return (RemindRecommendMessage) invokeL.objValue;
+    /* loaded from: classes4.dex */
+    public interface a {
+        void a(String str, long j);
+
+        void b(String str, long j);
     }
 
-    public static String g(DataRes dataRes) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, dataRes)) == null) {
-            if (dataRes != null && dataRes.local_dialog != null) {
+    /* loaded from: classes4.dex */
+    public static class b extends BdAsyncTask<Integer, Integer, Integer> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public NetWork a;
+        public String b;
+        public long c;
+        public String d;
+        public WeakReference<a> e;
+        public int f;
+        public String g;
+
+        public b(String str, long j, String str2, a aVar, g59 g59Var, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Long.valueOf(j), str2, aVar, g59Var, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.b = null;
+            this.c = 0L;
+            this.e = null;
+            new WeakReference(g59Var);
+            this.b = str;
+            this.c = j;
+            this.e = new WeakReference<>(aVar);
+            this.d = str2;
+            this.g = str3;
+            setPriority(3);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Integer doInBackground(Integer... numArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, numArr)) == null) {
                 try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("title", dataRes.local_dialog.title);
-                    jSONObject.put("picture", dataRes.local_dialog.picture);
-                    jSONObject.put("url", dataRes.local_dialog.url);
-                    jSONObject.put("name", dataRes.local_dialog.name);
-                    return jSONObject.toString();
-                } catch (JSONException unused) {
+                    if (this.c != 0 && this.b != null) {
+                        NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.UNFAVOLIKE_ADDRESS);
+                        this.a = netWork;
+                        netWork.addPostData("fid", String.valueOf(this.c));
+                        this.a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.b);
+                        this.a.addPostData("favo_type", "1");
+                        this.a.addPostData("st_type", this.d);
+                        this.a.addPostData("authsid", this.g);
+                        this.a.getNetContext().getRequest().mIsNeedTbs = true;
+                        String postNetData = this.a.postNetData();
+                        if (!dj.isEmpty(postNetData)) {
+                            JSONObject jSONObject = new JSONObject(postNetData);
+                            this.f = jSONObject.optInt("error_code");
+                            jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+                            AuthTokenData.parse(jSONObject);
+                        }
+                        if (this.a.getNetContext().getResponse().isRequestSuccess()) {
+                            return 1;
+                        }
+                    }
+                    return 0;
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    return 0;
                 }
             }
-            return null;
+            return (Integer) invokeL.objValue;
         }
-        return (String) invokeL.objValue;
-    }
 
-    public static long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return c(System.currentTimeMillis());
-        }
-        return invokeV.longValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (p35.m().n("sync_local_dialog", 1) == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static long c(long j) {
-        InterceptResult invokeJ;
-        int i;
-        int i2;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            String str = "12:05:00";
-            String loadString = TbadkSettings.getInst().loadString(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_dialog_time", "12:05:00");
-            if (!TextUtils.isEmpty(loadString)) {
-                str = loadString;
-            }
-            String[] split = str.split(":");
-            int i4 = 5;
-            if (split != null && split.length == 3) {
-                i2 = dh.e(split[0], 12);
-                i3 = dh.e(split[1], 5);
-                i = dh.e(split[2], 0);
-            } else {
-                i = 0;
-                i2 = 12;
-                i3 = 5;
-            }
-            if (i2 >= 0 && i2 <= 23 && i3 >= 0 && i3 <= 59 && i >= 0 && i <= 59) {
-                i4 = i3;
-            } else {
-                i = 0;
-                i2 = 12;
-            }
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(j);
-            calendar.set(12, i4);
-            calendar.set(13, i);
-            Application app = TbadkCoreApplication.getInst().getApp();
-            if (app != null && app.getContentResolver() != null && DateFormat.is24HourFormat(app)) {
-                calendar.set(11, i2);
-            } else {
-                if (i2 >= 12) {
-                    i2 -= 12;
-                    calendar.set(9, 1);
-                } else {
-                    calendar.set(9, 0);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Integer num) {
+            String netException;
+            NetWork netWork;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) {
+                super.onPostExecute((b) num);
+                if (this.e != null) {
+                    v79 v79Var = new v79();
+                    v79Var.a = this.c;
+                    a aVar = this.e.get();
+                    if (aVar == null) {
+                        return;
+                    }
+                    if (num.intValue() == 1 && (netWork = this.a) != null && netWork.getNetContext().getResponse().isRequestSuccess()) {
+                        TbadkCoreApplication.getInst().delLikeForum(this.b);
+                        aVar.b(this.b, this.c);
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001336, Long.valueOf(this.c)));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001611, this.b));
+                        v79Var.b = true;
+                    } else {
+                        v79Var.b = false;
+                        NetWork netWork2 = this.a;
+                        if (netWork2 != null) {
+                            if (netWork2.isNetSuccess()) {
+                                netException = this.a.getErrorString();
+                            } else {
+                                netException = this.a.getNetException();
+                            }
+                            v79Var.c = netException;
+                            aVar.a(netException, this.f);
+                        }
+                    }
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001438, v79Var));
                 }
-                calendar.set(10, i2);
             }
-            return calendar.getTimeInMillis();
         }
-        return invokeJ.longValue;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    public g59() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (TbadkSettings.getInst().loadInt(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_server_switch", 1) == 1) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        this.a = BarDetailForDirSwitch.BAR_DETAIL_DIR;
     }
 
-    public static boolean f(long j) {
-        InterceptResult invokeJ;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) {
-            Time time = new Time();
-            time.set(j);
-            int i = time.year;
-            int i2 = time.month;
-            int i3 = time.monthDay;
-            time.set(System.currentTimeMillis());
-            if (i == time.year && i2 == time.month && i3 == time.monthDay) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a = str;
         }
-        return invokeJ.booleanValue;
+    }
+
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.b = aVar;
+        }
+    }
+
+    public void c(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) {
+            new b(str, j, this.a, this.b, this, null).execute(new Integer[0]);
+        }
     }
 }

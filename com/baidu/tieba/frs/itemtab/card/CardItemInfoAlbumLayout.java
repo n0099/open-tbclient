@@ -29,11 +29,11 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ay;
+import com.baidu.tieba.b35;
 import com.baidu.tieba.da;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.p15;
-import com.baidu.tieba.v45;
+import com.baidu.tieba.ey;
+import com.baidu.tieba.h65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.AlbumElement;
 /* loaded from: classes4.dex */
-public class CardItemInfoAlbumLayout extends LinearLayout implements ay {
+public class CardItemInfoAlbumLayout extends LinearLayout implements ey {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdRecyclerView a;
@@ -90,18 +90,18 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements ay {
                         return;
                     }
                 }
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c03);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c44);
                 this.a = tbImageView;
                 tbImageView.setConrers(15);
                 this.a.setRadiusById(R.string.J_X05);
                 this.a.setDrawCorner(true);
                 this.a.setPlaceHolder(3);
                 this.a.setPageId(da.a(view2.getContext()).getUniqueId());
-                View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090c04);
+                View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090c45);
                 this.b = findViewById;
-                p15.d(findViewById).s(R.array.Mask_X001);
-                p15.d(this.b).n(R.string.J_X05);
-                this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c05);
+                b35.d(findViewById).s(R.array.Mask_X001);
+                b35.d(this.b).n(R.string.J_X05);
+                this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c46);
             }
 
             public void a(AlbumElement albumElement) {
@@ -179,7 +179,7 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements ay {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-                a aVar = new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d032f, (ViewGroup) null));
+                a aVar = new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d033d, (ViewGroup) null));
                 aVar.c(TbadkCoreApplication.getInst().getSkinType());
                 return aVar;
             }
@@ -292,7 +292,7 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements ay {
                     x.getIntent().putExtra("from", "index");
                     MessageManager.getInstance().sendMessage(new CustomMessage(2010000, x));
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new v45(1, i + 1, albumElement.album_type.intValue())));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new h65(1, i + 1, albumElement.album_type.intValue())));
             }
         }
     }
@@ -415,7 +415,7 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements ay {
         }
     }
 
-    @Override // com.baidu.tieba.ay
+    @Override // com.baidu.tieba.ey
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {

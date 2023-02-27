@@ -16,25 +16,14 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class DrawableContainer extends Drawable implements Drawable.Callback {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final boolean DEFAULT_DITHER = true;
     public static final String TAG = "DrawableContainer";
-    public transient /* synthetic */ FieldHolder $fh;
-    public int mAlpha;
     public Runnable mAnimationRunnable;
     public BlockInvalidateCallback mBlockInvalidateCallback;
-    public int mCurIndex;
     public Drawable mCurrDrawable;
     public DrawableContainerState mDrawableContainerState;
     public long mEnterAnimationEnd;
@@ -43,78 +32,47 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
     public Rect mHotspotBounds;
     public Drawable mLastDrawable;
     public boolean mMutated;
+    public int mAlpha = 255;
+    public int mCurIndex = -1;
 
     /* loaded from: classes.dex */
     public static class BlockInvalidateCallback implements Drawable.Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public Drawable.Callback mCallback;
 
         @Override // android.graphics.drawable.Drawable.Callback
         public void invalidateDrawable(@NonNull Drawable drawable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
-            }
-        }
-
-        public BlockInvalidateCallback() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
         }
 
         public Drawable.Callback unwrap() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                Drawable.Callback callback = this.mCallback;
-                this.mCallback = null;
-                return callback;
-            }
-            return (Drawable.Callback) invokeV.objValue;
+            Drawable.Callback callback = this.mCallback;
+            this.mCallback = null;
+            return callback;
         }
 
         @Override // android.graphics.drawable.Drawable.Callback
         public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j) {
-            Drawable.Callback callback;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) && (callback = this.mCallback) != null) {
+            Drawable.Callback callback = this.mCallback;
+            if (callback != null) {
                 callback.scheduleDrawable(drawable, runnable, j);
             }
         }
 
         @Override // android.graphics.drawable.Drawable.Callback
         public void unscheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable) {
-            Drawable.Callback callback;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, drawable, runnable) == null) && (callback = this.mCallback) != null) {
+            Drawable.Callback callback = this.mCallback;
+            if (callback != null) {
                 callback.unscheduleDrawable(drawable, runnable);
             }
         }
 
         public BlockInvalidateCallback wrap(Drawable.Callback callback) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, callback)) == null) {
-                this.mCallback = callback;
-                return this;
-            }
-            return (BlockInvalidateCallback) invokeL.objValue;
+            this.mCallback = callback;
+            return this;
         }
     }
 
     /* loaded from: classes.dex */
     public static abstract class DrawableContainerState extends Drawable.ConstantState {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public boolean mAutoMirrored;
         public boolean mCanConstantState;
         public int mChangingConfigurations;
@@ -154,20 +112,6 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
         public DrawableContainerState(DrawableContainerState drawableContainerState, DrawableContainer drawableContainer, Resources resources) {
             Resources resources2;
             int i;
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {drawableContainerState, drawableContainer, resources};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.mDensity = 160;
             this.mVariablePadding = false;
             this.mConstantSize = false;
@@ -239,14 +183,14 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
                 } else {
                     this.mDrawableFutures = new SparseArray<>(this.mNumChildren);
                 }
-                int i4 = this.mNumChildren;
-                for (int i5 = 0; i5 < i4; i5++) {
-                    if (drawableArr[i5] != null) {
-                        Drawable.ConstantState constantState = drawableArr[i5].getConstantState();
+                int i2 = this.mNumChildren;
+                for (int i3 = 0; i3 < i2; i3++) {
+                    if (drawableArr[i3] != null) {
+                        Drawable.ConstantState constantState = drawableArr[i3].getConstantState();
                         if (constantState != null) {
-                            this.mDrawableFutures.put(i5, constantState);
+                            this.mDrawableFutures.put(i3, constantState);
                         } else {
-                            this.mDrawables[i5] = drawableArr[i5];
+                            this.mDrawables[i3] = drawableArr[i3];
                         }
                     }
                 }
@@ -257,9 +201,8 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
         }
 
         private void createAllFutures() {
-            SparseArray<Drawable.ConstantState> sparseArray;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (sparseArray = this.mDrawableFutures) != null) {
+            SparseArray<Drawable.ConstantState> sparseArray = this.mDrawableFutures;
+            if (sparseArray != null) {
                 int size = sparseArray.size();
                 for (int i = 0; i < size; i++) {
                     this.mDrawables[this.mDrawableFutures.keyAt(i)] = prepareDrawable(this.mDrawableFutures.valueAt(i).newDrawable(this.mSourceRes));
@@ -271,154 +214,187 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
         @Override // android.graphics.drawable.Drawable.ConstantState
         @RequiresApi(21)
         public boolean canApplyTheme() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int i = this.mNumChildren;
-                Drawable[] drawableArr = this.mDrawables;
-                for (int i2 = 0; i2 < i; i2++) {
-                    Drawable drawable = drawableArr[i2];
-                    if (drawable != null) {
-                        if (drawable.canApplyTheme()) {
-                            return true;
-                        }
-                    } else {
-                        Drawable.ConstantState constantState = this.mDrawableFutures.get(i2);
-                        if (constantState != null && constantState.canApplyTheme()) {
-                            return true;
-                        }
+            int i = this.mNumChildren;
+            Drawable[] drawableArr = this.mDrawables;
+            for (int i2 = 0; i2 < i; i2++) {
+                Drawable drawable = drawableArr[i2];
+                if (drawable != null) {
+                    if (drawable.canApplyTheme()) {
+                        return true;
+                    }
+                } else {
+                    Drawable.ConstantState constantState = this.mDrawableFutures.get(i2);
+                    if (constantState != null && constantState.canApplyTheme()) {
+                        return true;
                     }
                 }
-                return false;
             }
-            return invokeV.booleanValue;
+            return false;
         }
 
         public synchronized boolean canConstantState() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                synchronized (this) {
-                    if (this.mCheckedConstantState) {
-                        return this.mCanConstantState;
-                    }
-                    createAllFutures();
-                    this.mCheckedConstantState = true;
-                    int i = this.mNumChildren;
-                    Drawable[] drawableArr = this.mDrawables;
-                    for (int i2 = 0; i2 < i; i2++) {
-                        if (drawableArr[i2].getConstantState() == null) {
-                            this.mCanConstantState = false;
-                            return false;
-                        }
-                    }
-                    this.mCanConstantState = true;
-                    return true;
+            if (this.mCheckedConstantState) {
+                return this.mCanConstantState;
+            }
+            createAllFutures();
+            this.mCheckedConstantState = true;
+            int i = this.mNumChildren;
+            Drawable[] drawableArr = this.mDrawables;
+            for (int i2 = 0; i2 < i; i2++) {
+                if (drawableArr[i2].getConstantState() == null) {
+                    this.mCanConstantState = false;
+                    return false;
                 }
             }
-            return invokeV.booleanValue;
+            this.mCanConstantState = true;
+            return true;
+        }
+
+        public final void clearMutated() {
+            this.mMutated = false;
+        }
+
+        public final int getCapacity() {
+            return this.mDrawables.length;
+        }
+
+        @Override // android.graphics.drawable.Drawable.ConstantState
+        public int getChangingConfigurations() {
+            return this.mChangingConfigurations | this.mChildrenChangingConfigurations;
+        }
+
+        public final int getChildCount() {
+            return this.mNumChildren;
+        }
+
+        public final int getConstantHeight() {
+            if (!this.mCheckedConstantSize) {
+                computeConstantSize();
+            }
+            return this.mConstantHeight;
+        }
+
+        public final int getConstantMinimumHeight() {
+            if (!this.mCheckedConstantSize) {
+                computeConstantSize();
+            }
+            return this.mConstantMinimumHeight;
+        }
+
+        public final int getConstantMinimumWidth() {
+            if (!this.mCheckedConstantSize) {
+                computeConstantSize();
+            }
+            return this.mConstantMinimumWidth;
+        }
+
+        public final int getConstantWidth() {
+            if (!this.mCheckedConstantSize) {
+                computeConstantSize();
+            }
+            return this.mConstantWidth;
+        }
+
+        public final int getEnterFadeDuration() {
+            return this.mEnterFadeDuration;
+        }
+
+        public final int getExitFadeDuration() {
+            return this.mExitFadeDuration;
         }
 
         public final int getOpacity() {
-            InterceptResult invokeV;
             int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-                if (this.mCheckedOpacity) {
-                    return this.mOpacity;
-                }
-                createAllFutures();
-                int i2 = this.mNumChildren;
-                Drawable[] drawableArr = this.mDrawables;
-                if (i2 > 0) {
-                    i = drawableArr[0].getOpacity();
-                } else {
-                    i = -2;
-                }
-                for (int i3 = 1; i3 < i2; i3++) {
-                    i = Drawable.resolveOpacity(i, drawableArr[i3].getOpacity());
-                }
-                this.mOpacity = i;
-                this.mCheckedOpacity = true;
-                return i;
+            if (this.mCheckedOpacity) {
+                return this.mOpacity;
             }
-            return invokeV.intValue;
+            createAllFutures();
+            int i2 = this.mNumChildren;
+            Drawable[] drawableArr = this.mDrawables;
+            if (i2 > 0) {
+                i = drawableArr[0].getOpacity();
+            } else {
+                i = -2;
+            }
+            for (int i3 = 1; i3 < i2; i3++) {
+                i = Drawable.resolveOpacity(i, drawableArr[i3].getOpacity());
+            }
+            this.mOpacity = i;
+            this.mCheckedOpacity = true;
+            return i;
+        }
+
+        public void invalidateCache() {
+            this.mCheckedOpacity = false;
+            this.mCheckedStateful = false;
+        }
+
+        public final boolean isConstantSize() {
+            return this.mConstantSize;
         }
 
         public final boolean isStateful() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-                if (this.mCheckedStateful) {
-                    return this.mStateful;
-                }
-                createAllFutures();
-                int i = this.mNumChildren;
-                Drawable[] drawableArr = this.mDrawables;
-                boolean z = false;
-                int i2 = 0;
-                while (true) {
-                    if (i2 >= i) {
-                        break;
-                    } else if (drawableArr[i2].isStateful()) {
-                        z = true;
-                        break;
-                    } else {
-                        i2++;
-                    }
-                }
-                this.mStateful = z;
-                this.mCheckedStateful = true;
-                return z;
+            if (this.mCheckedStateful) {
+                return this.mStateful;
             }
-            return invokeV.booleanValue;
+            createAllFutures();
+            int i = this.mNumChildren;
+            Drawable[] drawableArr = this.mDrawables;
+            boolean z = false;
+            int i2 = 0;
+            while (true) {
+                if (i2 >= i) {
+                    break;
+                } else if (drawableArr[i2].isStateful()) {
+                    z = true;
+                    break;
+                } else {
+                    i2++;
+                }
+            }
+            this.mStateful = z;
+            this.mCheckedStateful = true;
+            return z;
+        }
+
+        public void mutate() {
+            int i = this.mNumChildren;
+            Drawable[] drawableArr = this.mDrawables;
+            for (int i2 = 0; i2 < i; i2++) {
+                if (drawableArr[i2] != null) {
+                    drawableArr[i2].mutate();
+                }
+            }
+            this.mMutated = true;
         }
 
         private Drawable prepareDrawable(Drawable drawable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, drawable)) == null) {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    drawable.setLayoutDirection(this.mLayoutDirection);
-                }
-                Drawable mutate = drawable.mutate();
-                mutate.setCallback(this.mOwner);
-                return mutate;
+            if (Build.VERSION.SDK_INT >= 23) {
+                drawable.setLayoutDirection(this.mLayoutDirection);
             }
-            return (Drawable) invokeL.objValue;
+            Drawable mutate = drawable.mutate();
+            mutate.setCallback(this.mOwner);
+            return mutate;
         }
 
         public final void setConstantSize(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
-                this.mConstantSize = z;
-            }
+            this.mConstantSize = z;
         }
 
         public final void setEnterFadeDuration(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-                this.mEnterFadeDuration = i;
-            }
+            this.mEnterFadeDuration = i;
         }
 
         public final void setExitFadeDuration(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
-                this.mExitFadeDuration = i;
-            }
+            this.mExitFadeDuration = i;
         }
 
         public final void setVariablePadding(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
-                this.mVariablePadding = z;
-            }
+            this.mVariablePadding = z;
         }
 
         public final void updateDensity(Resources resources) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048604, this, resources) == null) && resources != null) {
+            if (resources != null) {
                 this.mSourceRes = resources;
                 int resolveDensity = DrawableContainer.resolveDensity(resources, this.mDensity);
                 int i = this.mDensity;
@@ -431,57 +407,27 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
         }
 
         public final int addChild(Drawable drawable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, drawable)) == null) {
-                int i = this.mNumChildren;
-                if (i >= this.mDrawables.length) {
-                    growArray(i, i + 10);
-                }
-                drawable.mutate();
-                drawable.setVisible(false, true);
-                drawable.setCallback(this.mOwner);
-                this.mDrawables[i] = drawable;
-                this.mNumChildren++;
-                this.mChildrenChangingConfigurations = drawable.getChangingConfigurations() | this.mChildrenChangingConfigurations;
-                invalidateCache();
-                this.mConstantPadding = null;
-                this.mCheckedPadding = false;
-                this.mCheckedConstantSize = false;
-                this.mCheckedConstantState = false;
-                return i;
+            int i = this.mNumChildren;
+            if (i >= this.mDrawables.length) {
+                growArray(i, i + 10);
             }
-            return invokeL.intValue;
-        }
-
-        public final Drawable getChild(int i) {
-            InterceptResult invokeI;
-            int indexOfKey;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-                Drawable drawable = this.mDrawables[i];
-                if (drawable != null) {
-                    return drawable;
-                }
-                SparseArray<Drawable.ConstantState> sparseArray = this.mDrawableFutures;
-                if (sparseArray == null || (indexOfKey = sparseArray.indexOfKey(i)) < 0) {
-                    return null;
-                }
-                Drawable prepareDrawable = prepareDrawable(this.mDrawableFutures.valueAt(indexOfKey).newDrawable(this.mSourceRes));
-                this.mDrawables[i] = prepareDrawable;
-                this.mDrawableFutures.removeAt(indexOfKey);
-                if (this.mDrawableFutures.size() == 0) {
-                    this.mDrawableFutures = null;
-                }
-                return prepareDrawable;
-            }
-            return (Drawable) invokeI.objValue;
+            drawable.mutate();
+            drawable.setVisible(false, true);
+            drawable.setCallback(this.mOwner);
+            this.mDrawables[i] = drawable;
+            this.mNumChildren++;
+            this.mChildrenChangingConfigurations = drawable.getChangingConfigurations() | this.mChildrenChangingConfigurations;
+            invalidateCache();
+            this.mConstantPadding = null;
+            this.mCheckedPadding = false;
+            this.mCheckedConstantSize = false;
+            this.mCheckedConstantState = false;
+            return i;
         }
 
         @RequiresApi(21)
         public final void applyTheme(Resources.Theme theme) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, theme) == null) && theme != null) {
+            if (theme != null) {
                 createAllFutures();
                 int i = this.mNumChildren;
                 Drawable[] drawableArr = this.mDrawables;
@@ -495,859 +441,567 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
             }
         }
 
-        public final void clearMutated() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.mMutated = false;
+        public final Drawable getChild(int i) {
+            int indexOfKey;
+            Drawable drawable = this.mDrawables[i];
+            if (drawable != null) {
+                return drawable;
             }
-        }
-
-        public final int getCapacity() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return this.mDrawables.length;
+            SparseArray<Drawable.ConstantState> sparseArray = this.mDrawableFutures;
+            if (sparseArray == null || (indexOfKey = sparseArray.indexOfKey(i)) < 0) {
+                return null;
             }
-            return invokeV.intValue;
-        }
-
-        @Override // android.graphics.drawable.Drawable.ConstantState
-        public int getChangingConfigurations() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return this.mChangingConfigurations | this.mChildrenChangingConfigurations;
+            Drawable prepareDrawable = prepareDrawable(this.mDrawableFutures.valueAt(indexOfKey).newDrawable(this.mSourceRes));
+            this.mDrawables[i] = prepareDrawable;
+            this.mDrawableFutures.removeAt(indexOfKey);
+            if (this.mDrawableFutures.size() == 0) {
+                this.mDrawableFutures = null;
             }
-            return invokeV.intValue;
-        }
-
-        public final int getChildCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                return this.mNumChildren;
-            }
-            return invokeV.intValue;
-        }
-
-        public final int getConstantHeight() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                if (!this.mCheckedConstantSize) {
-                    computeConstantSize();
-                }
-                return this.mConstantHeight;
-            }
-            return invokeV.intValue;
-        }
-
-        public final int getConstantMinimumHeight() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                if (!this.mCheckedConstantSize) {
-                    computeConstantSize();
-                }
-                return this.mConstantMinimumHeight;
-            }
-            return invokeV.intValue;
-        }
-
-        public final int getConstantMinimumWidth() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                if (!this.mCheckedConstantSize) {
-                    computeConstantSize();
-                }
-                return this.mConstantMinimumWidth;
-            }
-            return invokeV.intValue;
-        }
-
-        public final int getConstantWidth() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-                if (!this.mCheckedConstantSize) {
-                    computeConstantSize();
-                }
-                return this.mConstantWidth;
-            }
-            return invokeV.intValue;
-        }
-
-        public final int getEnterFadeDuration() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-                return this.mEnterFadeDuration;
-            }
-            return invokeV.intValue;
-        }
-
-        public final int getExitFadeDuration() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                return this.mExitFadeDuration;
-            }
-            return invokeV.intValue;
-        }
-
-        public void invalidateCache() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-                this.mCheckedOpacity = false;
-                this.mCheckedStateful = false;
-            }
-        }
-
-        public final boolean isConstantSize() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-                return this.mConstantSize;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public void mutate() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-                int i = this.mNumChildren;
-                Drawable[] drawableArr = this.mDrawables;
-                for (int i2 = 0; i2 < i; i2++) {
-                    if (drawableArr[i2] != null) {
-                        drawableArr[i2].mutate();
-                    }
-                }
-                this.mMutated = true;
-            }
+            return prepareDrawable;
         }
 
         public void computeConstantSize() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.mCheckedConstantSize = true;
-                createAllFutures();
-                int i = this.mNumChildren;
-                Drawable[] drawableArr = this.mDrawables;
-                this.mConstantHeight = -1;
-                this.mConstantWidth = -1;
-                this.mConstantMinimumHeight = 0;
-                this.mConstantMinimumWidth = 0;
-                for (int i2 = 0; i2 < i; i2++) {
-                    Drawable drawable = drawableArr[i2];
-                    int intrinsicWidth = drawable.getIntrinsicWidth();
-                    if (intrinsicWidth > this.mConstantWidth) {
-                        this.mConstantWidth = intrinsicWidth;
-                    }
-                    int intrinsicHeight = drawable.getIntrinsicHeight();
-                    if (intrinsicHeight > this.mConstantHeight) {
-                        this.mConstantHeight = intrinsicHeight;
-                    }
-                    int minimumWidth = drawable.getMinimumWidth();
-                    if (minimumWidth > this.mConstantMinimumWidth) {
-                        this.mConstantMinimumWidth = minimumWidth;
-                    }
-                    int minimumHeight = drawable.getMinimumHeight();
-                    if (minimumHeight > this.mConstantMinimumHeight) {
-                        this.mConstantMinimumHeight = minimumHeight;
-                    }
+            this.mCheckedConstantSize = true;
+            createAllFutures();
+            int i = this.mNumChildren;
+            Drawable[] drawableArr = this.mDrawables;
+            this.mConstantHeight = -1;
+            this.mConstantWidth = -1;
+            this.mConstantMinimumHeight = 0;
+            this.mConstantMinimumWidth = 0;
+            for (int i2 = 0; i2 < i; i2++) {
+                Drawable drawable = drawableArr[i2];
+                int intrinsicWidth = drawable.getIntrinsicWidth();
+                if (intrinsicWidth > this.mConstantWidth) {
+                    this.mConstantWidth = intrinsicWidth;
+                }
+                int intrinsicHeight = drawable.getIntrinsicHeight();
+                if (intrinsicHeight > this.mConstantHeight) {
+                    this.mConstantHeight = intrinsicHeight;
+                }
+                int minimumWidth = drawable.getMinimumWidth();
+                if (minimumWidth > this.mConstantMinimumWidth) {
+                    this.mConstantMinimumWidth = minimumWidth;
+                }
+                int minimumHeight = drawable.getMinimumHeight();
+                if (minimumHeight > this.mConstantMinimumHeight) {
+                    this.mConstantMinimumHeight = minimumHeight;
                 }
             }
         }
 
         public final Rect getConstantPadding() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-                Rect rect = null;
-                if (this.mVariablePadding) {
-                    return null;
-                }
-                if (this.mConstantPadding == null && !this.mCheckedPadding) {
-                    createAllFutures();
-                    Rect rect2 = new Rect();
-                    int i = this.mNumChildren;
-                    Drawable[] drawableArr = this.mDrawables;
-                    for (int i2 = 0; i2 < i; i2++) {
-                        if (drawableArr[i2].getPadding(rect2)) {
-                            if (rect == null) {
-                                rect = new Rect(0, 0, 0, 0);
-                            }
-                            int i3 = rect2.left;
-                            if (i3 > rect.left) {
-                                rect.left = i3;
-                            }
-                            int i4 = rect2.top;
-                            if (i4 > rect.top) {
-                                rect.top = i4;
-                            }
-                            int i5 = rect2.right;
-                            if (i5 > rect.right) {
-                                rect.right = i5;
-                            }
-                            int i6 = rect2.bottom;
-                            if (i6 > rect.bottom) {
-                                rect.bottom = i6;
-                            }
+            Rect rect = null;
+            if (this.mVariablePadding) {
+                return null;
+            }
+            if (this.mConstantPadding == null && !this.mCheckedPadding) {
+                createAllFutures();
+                Rect rect2 = new Rect();
+                int i = this.mNumChildren;
+                Drawable[] drawableArr = this.mDrawables;
+                for (int i2 = 0; i2 < i; i2++) {
+                    if (drawableArr[i2].getPadding(rect2)) {
+                        if (rect == null) {
+                            rect = new Rect(0, 0, 0, 0);
+                        }
+                        int i3 = rect2.left;
+                        if (i3 > rect.left) {
+                            rect.left = i3;
+                        }
+                        int i4 = rect2.top;
+                        if (i4 > rect.top) {
+                            rect.top = i4;
+                        }
+                        int i5 = rect2.right;
+                        if (i5 > rect.right) {
+                            rect.right = i5;
+                        }
+                        int i6 = rect2.bottom;
+                        if (i6 > rect.bottom) {
+                            rect.bottom = i6;
                         }
                     }
-                    this.mCheckedPadding = true;
-                    this.mConstantPadding = rect;
-                    return rect;
                 }
-                return this.mConstantPadding;
+                this.mCheckedPadding = true;
+                this.mConstantPadding = rect;
+                return rect;
             }
-            return (Rect) invokeV.objValue;
+            return this.mConstantPadding;
         }
 
         public void growArray(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048594, this, i, i2) == null) {
-                Drawable[] drawableArr = new Drawable[i2];
-                System.arraycopy(this.mDrawables, 0, drawableArr, 0, i);
-                this.mDrawables = drawableArr;
-            }
+            Drawable[] drawableArr = new Drawable[i2];
+            System.arraycopy(this.mDrawables, 0, drawableArr, 0, i);
+            this.mDrawables = drawableArr;
         }
 
         public final boolean setLayoutDirection(int i, int i2) {
-            InterceptResult invokeII;
             boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(1048602, this, i, i2)) == null) {
-                int i3 = this.mNumChildren;
-                Drawable[] drawableArr = this.mDrawables;
-                boolean z2 = false;
-                for (int i4 = 0; i4 < i3; i4++) {
-                    if (drawableArr[i4] != null) {
-                        if (Build.VERSION.SDK_INT >= 23) {
-                            z = drawableArr[i4].setLayoutDirection(i);
-                        } else {
-                            z = false;
-                        }
-                        if (i4 == i2) {
-                            z2 = z;
-                        }
+            int i3 = this.mNumChildren;
+            Drawable[] drawableArr = this.mDrawables;
+            boolean z2 = false;
+            for (int i4 = 0; i4 < i3; i4++) {
+                if (drawableArr[i4] != null) {
+                    if (Build.VERSION.SDK_INT >= 23) {
+                        z = drawableArr[i4].setLayoutDirection(i);
+                    } else {
+                        z = false;
+                    }
+                    if (i4 == i2) {
+                        z2 = z;
                     }
                 }
-                this.mLayoutDirection = i;
-                return z2;
             }
-            return invokeII.booleanValue;
+            this.mLayoutDirection = i;
+            return z2;
         }
-    }
-
-    public DrawableContainer() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mAlpha = 255;
-        this.mCurIndex = -1;
     }
 
     private boolean needsMirroring() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (isAutoMirrored() && DrawableCompat.getLayoutDirection(this) == 1) {
-                return true;
-            }
-            return false;
+        if (isAutoMirrored() && DrawableCompat.getLayoutDirection(this) == 1) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     @Override // android.graphics.drawable.Drawable
     @RequiresApi(21)
     public boolean canApplyTheme() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mDrawableContainerState.canApplyTheme();
-        }
-        return invokeV.booleanValue;
+        return this.mDrawableContainerState.canApplyTheme();
     }
 
     public void clearMutated() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.mDrawableContainerState.clearMutated();
-            this.mMutated = false;
-        }
+        this.mDrawableContainerState.clearMutated();
+        this.mMutated = false;
     }
 
     public DrawableContainerState cloneConstantState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mDrawableContainerState;
-        }
-        return (DrawableContainerState) invokeV.objValue;
+        return this.mDrawableContainerState;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getAlpha() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.mAlpha;
-        }
-        return invokeV.intValue;
+        return this.mAlpha;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getChangingConfigurations() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return super.getChangingConfigurations() | this.mDrawableContainerState.getChangingConfigurations();
-        }
-        return invokeV.intValue;
+        return super.getChangingConfigurations() | this.mDrawableContainerState.getChangingConfigurations();
     }
 
     @Override // android.graphics.drawable.Drawable
     public final Drawable.ConstantState getConstantState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.mDrawableContainerState.canConstantState()) {
-                this.mDrawableContainerState.mChangingConfigurations = getChangingConfigurations();
-                return this.mDrawableContainerState;
-            }
-            return null;
+        if (this.mDrawableContainerState.canConstantState()) {
+            this.mDrawableContainerState.mChangingConfigurations = getChangingConfigurations();
+            return this.mDrawableContainerState;
         }
-        return (Drawable.ConstantState) invokeV.objValue;
+        return null;
     }
 
     @Override // android.graphics.drawable.Drawable
     @NonNull
     public Drawable getCurrent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.mCurrDrawable;
-        }
-        return (Drawable) invokeV.objValue;
+        return this.mCurrDrawable;
     }
 
     public int getCurrentIndex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.mCurIndex;
-        }
-        return invokeV.intValue;
+        return this.mCurIndex;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.mDrawableContainerState.isConstantSize()) {
-                return this.mDrawableContainerState.getConstantHeight();
-            }
-            Drawable drawable = this.mCurrDrawable;
-            if (drawable != null) {
-                return drawable.getIntrinsicHeight();
-            }
-            return -1;
+        if (this.mDrawableContainerState.isConstantSize()) {
+            return this.mDrawableContainerState.getConstantHeight();
         }
-        return invokeV.intValue;
+        Drawable drawable = this.mCurrDrawable;
+        if (drawable != null) {
+            return drawable.getIntrinsicHeight();
+        }
+        return -1;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.mDrawableContainerState.isConstantSize()) {
-                return this.mDrawableContainerState.getConstantWidth();
-            }
-            Drawable drawable = this.mCurrDrawable;
-            if (drawable != null) {
-                return drawable.getIntrinsicWidth();
-            }
-            return -1;
+        if (this.mDrawableContainerState.isConstantSize()) {
+            return this.mDrawableContainerState.getConstantWidth();
         }
-        return invokeV.intValue;
+        Drawable drawable = this.mCurrDrawable;
+        if (drawable != null) {
+            return drawable.getIntrinsicWidth();
+        }
+        return -1;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getMinimumHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (this.mDrawableContainerState.isConstantSize()) {
-                return this.mDrawableContainerState.getConstantMinimumHeight();
-            }
-            Drawable drawable = this.mCurrDrawable;
-            if (drawable != null) {
-                return drawable.getMinimumHeight();
-            }
-            return 0;
+        if (this.mDrawableContainerState.isConstantSize()) {
+            return this.mDrawableContainerState.getConstantMinimumHeight();
         }
-        return invokeV.intValue;
+        Drawable drawable = this.mCurrDrawable;
+        if (drawable != null) {
+            return drawable.getMinimumHeight();
+        }
+        return 0;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getMinimumWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (this.mDrawableContainerState.isConstantSize()) {
-                return this.mDrawableContainerState.getConstantMinimumWidth();
-            }
-            Drawable drawable = this.mCurrDrawable;
-            if (drawable != null) {
-                return drawable.getMinimumWidth();
-            }
-            return 0;
+        if (this.mDrawableContainerState.isConstantSize()) {
+            return this.mDrawableContainerState.getConstantMinimumWidth();
         }
-        return invokeV.intValue;
+        Drawable drawable = this.mCurrDrawable;
+        if (drawable != null) {
+            return drawable.getMinimumWidth();
+        }
+        return 0;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getOpacity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            Drawable drawable = this.mCurrDrawable;
-            if (drawable != null && drawable.isVisible()) {
-                return this.mDrawableContainerState.getOpacity();
-            }
-            return -2;
+        Drawable drawable = this.mCurrDrawable;
+        if (drawable != null && drawable.isVisible()) {
+            return this.mDrawableContainerState.getOpacity();
         }
-        return invokeV.intValue;
+        return -2;
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean isAutoMirrored() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.mDrawableContainerState.mAutoMirrored;
-        }
-        return invokeV.booleanValue;
+        return this.mDrawableContainerState.mAutoMirrored;
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean isStateful() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.mDrawableContainerState.isStateful();
-        }
-        return invokeV.booleanValue;
+        return this.mDrawableContainerState.isStateful();
     }
 
     @Override // android.graphics.drawable.Drawable
     @NonNull
     public Drawable mutate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            if (!this.mMutated && super.mutate() == this) {
-                DrawableContainerState cloneConstantState = cloneConstantState();
-                cloneConstantState.mutate();
-                setConstantState(cloneConstantState);
-                this.mMutated = true;
-            }
-            return this;
+        if (!this.mMutated && super.mutate() == this) {
+            DrawableContainerState cloneConstantState = cloneConstantState();
+            cloneConstantState.mutate();
+            setConstantState(cloneConstantState);
+            this.mMutated = true;
         }
-        return (Drawable) invokeV.objValue;
+        return this;
     }
 
     private void initializeDrawableForDisplay(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, drawable) == null) {
-            if (this.mBlockInvalidateCallback == null) {
-                this.mBlockInvalidateCallback = new BlockInvalidateCallback();
+        if (this.mBlockInvalidateCallback == null) {
+            this.mBlockInvalidateCallback = new BlockInvalidateCallback();
+        }
+        drawable.setCallback(this.mBlockInvalidateCallback.wrap(drawable.getCallback()));
+        try {
+            if (this.mDrawableContainerState.mEnterFadeDuration <= 0 && this.mHasAlpha) {
+                drawable.setAlpha(this.mAlpha);
             }
-            drawable.setCallback(this.mBlockInvalidateCallback.wrap(drawable.getCallback()));
-            try {
-                if (this.mDrawableContainerState.mEnterFadeDuration <= 0 && this.mHasAlpha) {
-                    drawable.setAlpha(this.mAlpha);
+            if (this.mDrawableContainerState.mHasColorFilter) {
+                drawable.setColorFilter(this.mDrawableContainerState.mColorFilter);
+            } else {
+                if (this.mDrawableContainerState.mHasTintList) {
+                    DrawableCompat.setTintList(drawable, this.mDrawableContainerState.mTintList);
                 }
-                if (this.mDrawableContainerState.mHasColorFilter) {
-                    drawable.setColorFilter(this.mDrawableContainerState.mColorFilter);
-                } else {
-                    if (this.mDrawableContainerState.mHasTintList) {
-                        DrawableCompat.setTintList(drawable, this.mDrawableContainerState.mTintList);
-                    }
-                    if (this.mDrawableContainerState.mHasTintMode) {
-                        DrawableCompat.setTintMode(drawable, this.mDrawableContainerState.mTintMode);
-                    }
+                if (this.mDrawableContainerState.mHasTintMode) {
+                    DrawableCompat.setTintMode(drawable, this.mDrawableContainerState.mTintMode);
                 }
-                drawable.setVisible(isVisible(), true);
-                drawable.setDither(this.mDrawableContainerState.mDither);
-                drawable.setState(getState());
-                drawable.setLevel(getLevel());
-                drawable.setBounds(getBounds());
-                if (Build.VERSION.SDK_INT >= 23) {
-                    drawable.setLayoutDirection(getLayoutDirection());
-                }
-                if (Build.VERSION.SDK_INT >= 19) {
-                    drawable.setAutoMirrored(this.mDrawableContainerState.mAutoMirrored);
-                }
-                Rect rect = this.mHotspotBounds;
-                if (Build.VERSION.SDK_INT >= 21 && rect != null) {
-                    drawable.setHotspotBounds(rect.left, rect.top, rect.right, rect.bottom);
-                }
-            } finally {
-                drawable.setCallback(this.mBlockInvalidateCallback.unwrap());
             }
+            drawable.setVisible(isVisible(), true);
+            drawable.setDither(this.mDrawableContainerState.mDither);
+            drawable.setState(getState());
+            drawable.setLevel(getLevel());
+            drawable.setBounds(getBounds());
+            if (Build.VERSION.SDK_INT >= 23) {
+                drawable.setLayoutDirection(getLayoutDirection());
+            }
+            if (Build.VERSION.SDK_INT >= 19) {
+                drawable.setAutoMirrored(this.mDrawableContainerState.mAutoMirrored);
+            }
+            Rect rect = this.mHotspotBounds;
+            if (Build.VERSION.SDK_INT >= 21 && rect != null) {
+                drawable.setHotspotBounds(rect.left, rect.top, rect.right, rect.bottom);
+            }
+        } finally {
+            drawable.setCallback(this.mBlockInvalidateCallback.unwrap());
         }
     }
 
     public static int resolveDensity(@Nullable Resources resources, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, resources, i)) == null) {
-            if (resources != null) {
-                i = resources.getDisplayMetrics().densityDpi;
-            }
-            if (i == 0) {
-                return 160;
-            }
-            return i;
+        if (resources != null) {
+            i = resources.getDisplayMetrics().densityDpi;
         }
-        return invokeLI.intValue;
+        if (i == 0) {
+            return 160;
+        }
+        return i;
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setHotspot(float f, float f2) {
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) && (drawable = this.mCurrDrawable) != null) {
+        Drawable drawable = this.mCurrDrawable;
+        if (drawable != null) {
             DrawableCompat.setHotspot(drawable, f, f2);
         }
     }
 
+    @Override // android.graphics.drawable.Drawable
+    public boolean setVisible(boolean z, boolean z2) {
+        boolean visible = super.setVisible(z, z2);
+        Drawable drawable = this.mLastDrawable;
+        if (drawable != null) {
+            drawable.setVisible(z, z2);
+        }
+        Drawable drawable2 = this.mCurrDrawable;
+        if (drawable2 != null) {
+            drawable2.setVisible(z, z2);
+        }
+        return visible;
+    }
+
     public void unscheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048619, this, drawable, runnable) == null) && drawable == this.mCurrDrawable && getCallback() != null) {
+        if (drawable == this.mCurrDrawable && getCallback() != null) {
             getCallback().unscheduleDrawable(this, runnable);
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0043  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0069  */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x006e A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:31:? A[ADDED_TO_REGION, RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x003f  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0065  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x006a A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:26:? A[ADDED_TO_REGION, RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void animate(boolean z) {
         boolean z2;
         Drawable drawable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            boolean z3 = true;
-            this.mHasAlpha = true;
-            long uptimeMillis = SystemClock.uptimeMillis();
-            Drawable drawable2 = this.mCurrDrawable;
-            if (drawable2 != null) {
-                long j = this.mEnterAnimationEnd;
-                if (j != 0) {
-                    if (j <= uptimeMillis) {
-                        drawable2.setAlpha(this.mAlpha);
-                        this.mEnterAnimationEnd = 0L;
-                    } else {
-                        drawable2.setAlpha(((255 - (((int) ((j - uptimeMillis) * 255)) / this.mDrawableContainerState.mEnterFadeDuration)) * this.mAlpha) / 255);
-                        z2 = true;
-                        drawable = this.mLastDrawable;
-                        if (drawable == null) {
-                            long j2 = this.mExitAnimationEnd;
-                            if (j2 != 0) {
-                                if (j2 <= uptimeMillis) {
-                                    drawable.setVisible(false, false);
-                                    this.mLastDrawable = null;
-                                    this.mExitAnimationEnd = 0L;
-                                } else {
-                                    drawable.setAlpha(((((int) ((j2 - uptimeMillis) * 255)) / this.mDrawableContainerState.mExitFadeDuration) * this.mAlpha) / 255);
-                                    if (z && z3) {
-                                        scheduleSelf(this.mAnimationRunnable, uptimeMillis + 16);
-                                        return;
-                                    }
+        boolean z3 = true;
+        this.mHasAlpha = true;
+        long uptimeMillis = SystemClock.uptimeMillis();
+        Drawable drawable2 = this.mCurrDrawable;
+        if (drawable2 != null) {
+            long j = this.mEnterAnimationEnd;
+            if (j != 0) {
+                if (j <= uptimeMillis) {
+                    drawable2.setAlpha(this.mAlpha);
+                    this.mEnterAnimationEnd = 0L;
+                } else {
+                    drawable2.setAlpha(((255 - (((int) ((j - uptimeMillis) * 255)) / this.mDrawableContainerState.mEnterFadeDuration)) * this.mAlpha) / 255);
+                    z2 = true;
+                    drawable = this.mLastDrawable;
+                    if (drawable == null) {
+                        long j2 = this.mExitAnimationEnd;
+                        if (j2 != 0) {
+                            if (j2 <= uptimeMillis) {
+                                drawable.setVisible(false, false);
+                                this.mLastDrawable = null;
+                                this.mExitAnimationEnd = 0L;
+                            } else {
+                                drawable.setAlpha(((((int) ((j2 - uptimeMillis) * 255)) / this.mDrawableContainerState.mExitFadeDuration) * this.mAlpha) / 255);
+                                if (z && z3) {
+                                    scheduleSelf(this.mAnimationRunnable, uptimeMillis + 16);
                                     return;
                                 }
+                                return;
                             }
-                        } else {
-                            this.mExitAnimationEnd = 0L;
                         }
-                        z3 = z2;
-                        if (z) {
-                            return;
-                        }
+                    } else {
+                        this.mExitAnimationEnd = 0L;
+                    }
+                    z3 = z2;
+                    if (z) {
                         return;
                     }
+                    return;
                 }
-            } else {
-                this.mEnterAnimationEnd = 0L;
             }
-            z2 = false;
-            drawable = this.mLastDrawable;
-            if (drawable == null) {
-            }
-            z3 = z2;
-            if (z) {
-            }
+        } else {
+            this.mEnterAnimationEnd = 0L;
+        }
+        z2 = false;
+        drawable = this.mLastDrawable;
+        if (drawable == null) {
+        }
+        z3 = z2;
+        if (z) {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:35:0x006f  */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x0077  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x006b  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0073  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean selectDrawable(int i) {
-        InterceptResult invokeI;
         Runnable runnable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i)) == null) {
-            if (i == this.mCurIndex) {
-                return false;
-            }
-            long uptimeMillis = SystemClock.uptimeMillis();
-            if (this.mDrawableContainerState.mExitFadeDuration > 0) {
-                Drawable drawable = this.mLastDrawable;
-                if (drawable != null) {
-                    drawable.setVisible(false, false);
-                }
-                Drawable drawable2 = this.mCurrDrawable;
-                if (drawable2 != null) {
-                    this.mLastDrawable = drawable2;
-                    this.mExitAnimationEnd = this.mDrawableContainerState.mExitFadeDuration + uptimeMillis;
-                } else {
-                    this.mLastDrawable = null;
-                    this.mExitAnimationEnd = 0L;
-                }
-            } else {
-                Drawable drawable3 = this.mCurrDrawable;
-                if (drawable3 != null) {
-                    drawable3.setVisible(false, false);
-                }
-            }
-            if (i >= 0) {
-                DrawableContainerState drawableContainerState = this.mDrawableContainerState;
-                if (i < drawableContainerState.mNumChildren) {
-                    Drawable child = drawableContainerState.getChild(i);
-                    this.mCurrDrawable = child;
-                    this.mCurIndex = i;
-                    if (child != null) {
-                        int i2 = this.mDrawableContainerState.mEnterFadeDuration;
-                        if (i2 > 0) {
-                            this.mEnterAnimationEnd = uptimeMillis + i2;
-                        }
-                        initializeDrawableForDisplay(child);
-                    }
-                    if (this.mEnterAnimationEnd == 0 || this.mExitAnimationEnd != 0) {
-                        runnable = this.mAnimationRunnable;
-                        if (runnable != null) {
-                            this.mAnimationRunnable = new Runnable(this) { // from class: androidx.appcompat.graphics.drawable.DrawableContainer.1
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ DrawableContainer this$0;
-
-                                {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this};
-                                        interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i3 = newInitContext.flag;
-                                        if ((i3 & 1) != 0) {
-                                            int i4 = i3 & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable2.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.this$0 = this;
-                                }
-
-                                @Override // java.lang.Runnable
-                                public void run() {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                        this.this$0.animate(true);
-                                        this.this$0.invalidateSelf();
-                                    }
-                                }
-                            };
-                        } else {
-                            unscheduleSelf(runnable);
-                        }
-                        animate(true);
-                    }
-                    invalidateSelf();
-                    return true;
-                }
-            }
-            this.mCurrDrawable = null;
-            this.mCurIndex = -1;
-            if (this.mEnterAnimationEnd == 0) {
-            }
-            runnable = this.mAnimationRunnable;
-            if (runnable != null) {
-            }
-            animate(true);
-            invalidateSelf();
-            return true;
+        if (i == this.mCurIndex) {
+            return false;
         }
-        return invokeI.booleanValue;
+        long uptimeMillis = SystemClock.uptimeMillis();
+        if (this.mDrawableContainerState.mExitFadeDuration > 0) {
+            Drawable drawable = this.mLastDrawable;
+            if (drawable != null) {
+                drawable.setVisible(false, false);
+            }
+            Drawable drawable2 = this.mCurrDrawable;
+            if (drawable2 != null) {
+                this.mLastDrawable = drawable2;
+                this.mExitAnimationEnd = this.mDrawableContainerState.mExitFadeDuration + uptimeMillis;
+            } else {
+                this.mLastDrawable = null;
+                this.mExitAnimationEnd = 0L;
+            }
+        } else {
+            Drawable drawable3 = this.mCurrDrawable;
+            if (drawable3 != null) {
+                drawable3.setVisible(false, false);
+            }
+        }
+        if (i >= 0) {
+            DrawableContainerState drawableContainerState = this.mDrawableContainerState;
+            if (i < drawableContainerState.mNumChildren) {
+                Drawable child = drawableContainerState.getChild(i);
+                this.mCurrDrawable = child;
+                this.mCurIndex = i;
+                if (child != null) {
+                    int i2 = this.mDrawableContainerState.mEnterFadeDuration;
+                    if (i2 > 0) {
+                        this.mEnterAnimationEnd = uptimeMillis + i2;
+                    }
+                    initializeDrawableForDisplay(child);
+                }
+                if (this.mEnterAnimationEnd == 0 || this.mExitAnimationEnd != 0) {
+                    runnable = this.mAnimationRunnable;
+                    if (runnable != null) {
+                        this.mAnimationRunnable = new Runnable() { // from class: androidx.appcompat.graphics.drawable.DrawableContainer.1
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                DrawableContainer.this.animate(true);
+                                DrawableContainer.this.invalidateSelf();
+                            }
+                        };
+                    } else {
+                        unscheduleSelf(runnable);
+                    }
+                    animate(true);
+                }
+                invalidateSelf();
+                return true;
+            }
+        }
+        this.mCurrDrawable = null;
+        this.mCurIndex = -1;
+        if (this.mEnterAnimationEnd == 0) {
+        }
+        runnable = this.mAnimationRunnable;
+        if (runnable != null) {
+        }
+        animate(true);
+        invalidateSelf();
+        return true;
     }
 
     @Override // android.graphics.drawable.Drawable
     @RequiresApi(21)
     public void applyTheme(@NonNull Resources.Theme theme) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, theme) == null) {
-            this.mDrawableContainerState.applyTheme(theme);
-        }
+        this.mDrawableContainerState.applyTheme(theme);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(@NonNull Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
-            Drawable drawable = this.mCurrDrawable;
-            if (drawable != null) {
-                drawable.draw(canvas);
-            }
-            Drawable drawable2 = this.mLastDrawable;
-            if (drawable2 != null) {
-                drawable2.draw(canvas);
-            }
+        Drawable drawable = this.mCurrDrawable;
+        if (drawable != null) {
+            drawable.draw(canvas);
+        }
+        Drawable drawable2 = this.mLastDrawable;
+        if (drawable2 != null) {
+            drawable2.draw(canvas);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void getHotspotBounds(@NonNull Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, rect) == null) {
-            Rect rect2 = this.mHotspotBounds;
-            if (rect2 != null) {
-                rect.set(rect2);
-            } else {
-                super.getHotspotBounds(rect);
-            }
+        Rect rect2 = this.mHotspotBounds;
+        if (rect2 != null) {
+            rect.set(rect2);
+        } else {
+            super.getHotspotBounds(rect);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     @RequiresApi(21)
     public void getOutline(@NonNull Outline outline) {
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, outline) == null) && (drawable = this.mCurrDrawable) != null) {
+        Drawable drawable = this.mCurrDrawable;
+        if (drawable != null) {
             drawable.getOutline(outline);
         }
     }
 
     public void invalidateDrawable(@NonNull Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, drawable) == null) {
-            DrawableContainerState drawableContainerState = this.mDrawableContainerState;
-            if (drawableContainerState != null) {
-                drawableContainerState.invalidateCache();
-            }
-            if (drawable == this.mCurrDrawable && getCallback() != null) {
-                getCallback().invalidateDrawable(this);
-            }
+        DrawableContainerState drawableContainerState = this.mDrawableContainerState;
+        if (drawableContainerState != null) {
+            drawableContainerState.invalidateCache();
+        }
+        if (drawable == this.mCurrDrawable && getCallback() != null) {
+            getCallback().invalidateDrawable(this);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, rect) == null) {
-            Drawable drawable = this.mLastDrawable;
-            if (drawable != null) {
-                drawable.setBounds(rect);
-            }
-            Drawable drawable2 = this.mCurrDrawable;
-            if (drawable2 != null) {
-                drawable2.setBounds(rect);
-            }
+        Drawable drawable = this.mLastDrawable;
+        if (drawable != null) {
+            drawable.setBounds(rect);
+        }
+        Drawable drawable2 = this.mCurrDrawable;
+        if (drawable2 != null) {
+            drawable2.setBounds(rect);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean onLayoutDirectionChanged(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) {
-            return this.mDrawableContainerState.setLayoutDirection(i, getCurrentIndex());
-        }
-        return invokeI.booleanValue;
+        return this.mDrawableContainerState.setLayoutDirection(i, getCurrentIndex());
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean onLevelChange(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i)) == null) {
-            Drawable drawable = this.mLastDrawable;
-            if (drawable != null) {
-                return drawable.setLevel(i);
-            }
-            Drawable drawable2 = this.mCurrDrawable;
-            if (drawable2 != null) {
-                return drawable2.setLevel(i);
-            }
-            return false;
+        Drawable drawable = this.mLastDrawable;
+        if (drawable != null) {
+            return drawable.setLevel(i);
         }
-        return invokeI.booleanValue;
+        Drawable drawable2 = this.mCurrDrawable;
+        if (drawable2 != null) {
+            return drawable2.setLevel(i);
+        }
+        return false;
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean onStateChange(int[] iArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, iArr)) == null) {
-            Drawable drawable = this.mLastDrawable;
-            if (drawable != null) {
-                return drawable.setState(iArr);
-            }
-            Drawable drawable2 = this.mCurrDrawable;
-            if (drawable2 != null) {
-                return drawable2.setState(iArr);
-            }
-            return false;
+        Drawable drawable = this.mLastDrawable;
+        if (drawable != null) {
+            return drawable.setState(iArr);
         }
-        return invokeL.booleanValue;
+        Drawable drawable2 = this.mCurrDrawable;
+        if (drawable2 != null) {
+            return drawable2.setState(iArr);
+        }
+        return false;
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
-            if (!this.mHasAlpha || this.mAlpha != i) {
-                this.mHasAlpha = true;
-                this.mAlpha = i;
-                Drawable drawable = this.mCurrDrawable;
-                if (drawable != null) {
-                    if (this.mEnterAnimationEnd == 0) {
-                        drawable.setAlpha(i);
-                    } else {
-                        animate(false);
-                    }
+        if (!this.mHasAlpha || this.mAlpha != i) {
+            this.mHasAlpha = true;
+            this.mAlpha = i;
+            Drawable drawable = this.mCurrDrawable;
+            if (drawable != null) {
+                if (this.mEnterAnimationEnd == 0) {
+                    drawable.setAlpha(i);
+                } else {
+                    animate(false);
                 }
             }
         }
@@ -1355,228 +1009,167 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
 
     @Override // android.graphics.drawable.Drawable
     public void setAutoMirrored(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
-            DrawableContainerState drawableContainerState = this.mDrawableContainerState;
-            if (drawableContainerState.mAutoMirrored != z) {
-                drawableContainerState.mAutoMirrored = z;
-                Drawable drawable = this.mCurrDrawable;
-                if (drawable != null) {
-                    DrawableCompat.setAutoMirrored(drawable, z);
-                }
+        DrawableContainerState drawableContainerState = this.mDrawableContainerState;
+        if (drawableContainerState.mAutoMirrored != z) {
+            drawableContainerState.mAutoMirrored = z;
+            Drawable drawable = this.mCurrDrawable;
+            if (drawable != null) {
+                DrawableCompat.setAutoMirrored(drawable, z);
             }
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, colorFilter) == null) {
-            DrawableContainerState drawableContainerState = this.mDrawableContainerState;
-            drawableContainerState.mHasColorFilter = true;
-            if (drawableContainerState.mColorFilter != colorFilter) {
-                drawableContainerState.mColorFilter = colorFilter;
-                Drawable drawable = this.mCurrDrawable;
-                if (drawable != null) {
-                    drawable.setColorFilter(colorFilter);
-                }
+        DrawableContainerState drawableContainerState = this.mDrawableContainerState;
+        drawableContainerState.mHasColorFilter = true;
+        if (drawableContainerState.mColorFilter != colorFilter) {
+            drawableContainerState.mColorFilter = colorFilter;
+            Drawable drawable = this.mCurrDrawable;
+            if (drawable != null) {
+                drawable.setColorFilter(colorFilter);
             }
         }
     }
 
     public void setConstantState(DrawableContainerState drawableContainerState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, drawableContainerState) == null) {
-            this.mDrawableContainerState = drawableContainerState;
-            int i = this.mCurIndex;
-            if (i >= 0) {
-                Drawable child = drawableContainerState.getChild(i);
-                this.mCurrDrawable = child;
-                if (child != null) {
-                    initializeDrawableForDisplay(child);
-                }
+        this.mDrawableContainerState = drawableContainerState;
+        int i = this.mCurIndex;
+        if (i >= 0) {
+            Drawable child = drawableContainerState.getChild(i);
+            this.mCurrDrawable = child;
+            if (child != null) {
+                initializeDrawableForDisplay(child);
             }
-            this.mLastDrawable = null;
         }
+        this.mLastDrawable = null;
     }
 
     public void setCurrentIndex(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
-            selectDrawable(i);
-        }
+        selectDrawable(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setDither(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048611, this, z) == null) {
-            DrawableContainerState drawableContainerState = this.mDrawableContainerState;
-            if (drawableContainerState.mDither != z) {
-                drawableContainerState.mDither = z;
-                Drawable drawable = this.mCurrDrawable;
-                if (drawable != null) {
-                    drawable.setDither(z);
-                }
+        DrawableContainerState drawableContainerState = this.mDrawableContainerState;
+        if (drawableContainerState.mDither != z) {
+            drawableContainerState.mDither = z;
+            Drawable drawable = this.mCurrDrawable;
+            if (drawable != null) {
+                drawable.setDither(z);
             }
         }
     }
 
     public void setEnterFadeDuration(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
-            this.mDrawableContainerState.mEnterFadeDuration = i;
-        }
+        this.mDrawableContainerState.mEnterFadeDuration = i;
     }
 
     public void setExitFadeDuration(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
-            this.mDrawableContainerState.mExitFadeDuration = i;
-        }
+        this.mDrawableContainerState.mExitFadeDuration = i;
     }
 
     @Override // android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
     public void setTintList(ColorStateList colorStateList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, colorStateList) == null) {
-            DrawableContainerState drawableContainerState = this.mDrawableContainerState;
-            drawableContainerState.mHasTintList = true;
-            if (drawableContainerState.mTintList != colorStateList) {
-                drawableContainerState.mTintList = colorStateList;
-                DrawableCompat.setTintList(this.mCurrDrawable, colorStateList);
-            }
+        DrawableContainerState drawableContainerState = this.mDrawableContainerState;
+        drawableContainerState.mHasTintList = true;
+        if (drawableContainerState.mTintList != colorStateList) {
+            drawableContainerState.mTintList = colorStateList;
+            DrawableCompat.setTintList(this.mCurrDrawable, colorStateList);
         }
     }
 
     @Override // android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
     public void setTintMode(@NonNull PorterDuff.Mode mode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, mode) == null) {
-            DrawableContainerState drawableContainerState = this.mDrawableContainerState;
-            drawableContainerState.mHasTintMode = true;
-            if (drawableContainerState.mTintMode != mode) {
-                drawableContainerState.mTintMode = mode;
-                DrawableCompat.setTintMode(this.mCurrDrawable, mode);
-            }
+        DrawableContainerState drawableContainerState = this.mDrawableContainerState;
+        drawableContainerState.mHasTintMode = true;
+        if (drawableContainerState.mTintMode != mode) {
+            drawableContainerState.mTintMode = mode;
+            DrawableCompat.setTintMode(this.mCurrDrawable, mode);
         }
     }
 
     public final void updateDensity(Resources resources) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, resources) == null) {
-            this.mDrawableContainerState.updateDensity(resources);
-        }
+        this.mDrawableContainerState.updateDensity(resources);
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean getPadding(@NonNull Rect rect) {
-        InterceptResult invokeL;
         boolean padding;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, rect)) == null) {
-            Rect constantPadding = this.mDrawableContainerState.getConstantPadding();
-            if (constantPadding != null) {
-                rect.set(constantPadding);
-                if ((constantPadding.right | constantPadding.left | constantPadding.top | constantPadding.bottom) != 0) {
-                    padding = true;
-                } else {
-                    padding = false;
-                }
+        Rect constantPadding = this.mDrawableContainerState.getConstantPadding();
+        if (constantPadding != null) {
+            rect.set(constantPadding);
+            if ((constantPadding.right | constantPadding.left | constantPadding.top | constantPadding.bottom) != 0) {
+                padding = true;
             } else {
-                Drawable drawable = this.mCurrDrawable;
-                if (drawable != null) {
-                    padding = drawable.getPadding(rect);
-                } else {
-                    padding = super.getPadding(rect);
-                }
+                padding = false;
             }
-            if (needsMirroring()) {
-                int i = rect.left;
-                rect.left = rect.right;
-                rect.right = i;
+        } else {
+            Drawable drawable = this.mCurrDrawable;
+            if (drawable != null) {
+                padding = drawable.getPadding(rect);
+            } else {
+                padding = super.getPadding(rect);
             }
-            return padding;
         }
-        return invokeL.booleanValue;
+        if (needsMirroring()) {
+            int i = rect.left;
+            rect.left = rect.right;
+            rect.right = i;
+        }
+        return padding;
     }
 
     @Override // android.graphics.drawable.Drawable
     public void jumpToCurrentState() {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            Drawable drawable = this.mLastDrawable;
-            boolean z2 = true;
-            if (drawable != null) {
-                drawable.jumpToCurrentState();
-                this.mLastDrawable = null;
-                z = true;
-            } else {
-                z = false;
+        Drawable drawable = this.mLastDrawable;
+        boolean z2 = true;
+        if (drawable != null) {
+            drawable.jumpToCurrentState();
+            this.mLastDrawable = null;
+            z = true;
+        } else {
+            z = false;
+        }
+        Drawable drawable2 = this.mCurrDrawable;
+        if (drawable2 != null) {
+            drawable2.jumpToCurrentState();
+            if (this.mHasAlpha) {
+                this.mCurrDrawable.setAlpha(this.mAlpha);
             }
-            Drawable drawable2 = this.mCurrDrawable;
-            if (drawable2 != null) {
-                drawable2.jumpToCurrentState();
-                if (this.mHasAlpha) {
-                    this.mCurrDrawable.setAlpha(this.mAlpha);
-                }
-            }
-            if (this.mExitAnimationEnd != 0) {
-                this.mExitAnimationEnd = 0L;
-                z = true;
-            }
-            if (this.mEnterAnimationEnd != 0) {
-                this.mEnterAnimationEnd = 0L;
-            } else {
-                z2 = z;
-            }
-            if (z2) {
-                invalidateSelf();
-            }
+        }
+        if (this.mExitAnimationEnd != 0) {
+            this.mExitAnimationEnd = 0L;
+            z = true;
+        }
+        if (this.mEnterAnimationEnd != 0) {
+            this.mEnterAnimationEnd = 0L;
+        } else {
+            z2 = z;
+        }
+        if (z2) {
+            invalidateSelf();
         }
     }
 
     public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) && drawable == this.mCurrDrawable && getCallback() != null) {
+        if (drawable == this.mCurrDrawable && getCallback() != null) {
             getCallback().scheduleDrawable(this, runnable, j);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setHotspotBounds(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048615, this, i, i2, i3, i4) == null) {
-            Rect rect = this.mHotspotBounds;
-            if (rect == null) {
-                this.mHotspotBounds = new Rect(i, i2, i3, i4);
-            } else {
-                rect.set(i, i2, i3, i4);
-            }
-            Drawable drawable = this.mCurrDrawable;
-            if (drawable != null) {
-                DrawableCompat.setHotspotBounds(drawable, i, i2, i3, i4);
-            }
+        Rect rect = this.mHotspotBounds;
+        if (rect == null) {
+            this.mHotspotBounds = new Rect(i, i2, i3, i4);
+        } else {
+            rect.set(i, i2, i3, i4);
         }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public boolean setVisible(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048618, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            boolean visible = super.setVisible(z, z2);
-            Drawable drawable = this.mLastDrawable;
-            if (drawable != null) {
-                drawable.setVisible(z, z2);
-            }
-            Drawable drawable2 = this.mCurrDrawable;
-            if (drawable2 != null) {
-                drawable2.setVisible(z, z2);
-            }
-            return visible;
+        Drawable drawable = this.mCurrDrawable;
+        if (drawable != null) {
+            DrawableCompat.setHotspotBounds(drawable, i, i2, i3, i4);
         }
-        return invokeCommon.booleanValue;
     }
 }

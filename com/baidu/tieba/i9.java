@@ -102,7 +102,7 @@ public class i9 {
                                 Iterator<String> keys = jSONObject.keys();
                                 while (keys.hasNext()) {
                                     String next = keys.next();
-                                    if (y20.a(next, this.c) == i) {
+                                    if (c30.a(next, this.c) == i) {
                                         arrayList.add(new o9(next, jSONObject.get(next)));
                                     }
                                 }
@@ -129,7 +129,7 @@ public class i9 {
                     try {
                         jSONObject.put("version", e);
                         jSONObject.put("data", new JSONObject(d));
-                        p20.i(jSONObject);
+                        t20.i(jSONObject);
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }

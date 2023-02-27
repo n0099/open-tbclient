@@ -1,5 +1,11 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
 public interface iq1 {
-    hx1 getInstance();
+    void a(JSONObject jSONObject);
+
+    void b();
+
+    void c(JSONObject jSONObject);
 }

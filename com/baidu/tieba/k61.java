@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.b51;
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,39 +11,41 @@ public class k61 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) {
-            return b51.c.a(nj0.b(), f);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947864931, "Lcom/baidu/tieba/k61;")) == null) {
+            return;
         }
-        return invokeF.intValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947864931, "Lcom/baidu/tieba/k61;");
+        }
     }
 
-    public static int b(float f) {
-        InterceptResult invokeF;
+    public static boolean a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
-            return b51.c.a(nj0.b(), f);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            if (context == null) {
+                return false;
+            }
+            String str = "permission_request_code=" + String.valueOf(i);
+            boolean z = r21.a().b("nad_permission_sp").getBoolean(str, true);
+            b(context, str);
+            return z;
         }
-        return invokeF.intValue;
+        return invokeLI.booleanValue;
     }
 
-    public static int c(float f) {
-        InterceptResult invokeF;
+    public static void b(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65538, null, f)) == null) {
-            return Math.round(f / 1.5f);
+        if ((interceptable != null && interceptable.invokeLL(65538, null, context, str) != null) || context == null) {
+            return;
         }
-        return invokeF.intValue;
-    }
-
-    public static int d(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f)) == null) {
-            return b(f / 1.5f);
-        }
-        return invokeF.intValue;
+        r21.a().b("nad_permission_sp").e(str, false);
     }
 }

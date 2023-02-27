@@ -1,15 +1,6 @@
 package com.google.zxing.common;
-
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public final class PerspectiveTransform {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final float a11;
     public final float a12;
     public final float a13;
@@ -21,20 +12,6 @@ public final class PerspectiveTransform {
     public final float a33;
 
     public PerspectiveTransform(float f, float f2, float f3, float f4, float f5, float f6, float f7, float f8, float f9) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.a11 = f;
         this.a12 = f4;
         this.a13 = f7;
@@ -47,133 +24,102 @@ public final class PerspectiveTransform {
     }
 
     public static PerspectiveTransform quadrilateralToQuadrilateral(float f, float f2, float f3, float f4, float f5, float f6, float f7, float f8, float f9, float f10, float f11, float f12, float f13, float f14, float f15, float f16) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9), Float.valueOf(f10), Float.valueOf(f11), Float.valueOf(f12), Float.valueOf(f13), Float.valueOf(f14), Float.valueOf(f15), Float.valueOf(f16)})) == null) {
-            return squareToQuadrilateral(f9, f10, f11, f12, f13, f14, f15, f16).times(quadrilateralToSquare(f, f2, f3, f4, f5, f6, f7, f8));
-        }
-        return (PerspectiveTransform) invokeCommon.objValue;
+        return squareToQuadrilateral(f9, f10, f11, f12, f13, f14, f15, f16).times(quadrilateralToSquare(f, f2, f3, f4, f5, f6, f7, f8));
     }
 
     public static PerspectiveTransform quadrilateralToSquare(float f, float f2, float f3, float f4, float f5, float f6, float f7, float f8) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8)})) == null) {
-            return squareToQuadrilateral(f, f2, f3, f4, f5, f6, f7, f8).buildAdjoint();
-        }
-        return (PerspectiveTransform) invokeCommon.objValue;
+        return squareToQuadrilateral(f, f2, f3, f4, f5, f6, f7, f8).buildAdjoint();
     }
 
     public static PerspectiveTransform squareToQuadrilateral(float f, float f2, float f3, float f4, float f5, float f6, float f7, float f8) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8)})) == null) {
-            float f9 = ((f - f3) + f5) - f7;
-            float f10 = ((f2 - f4) + f6) - f8;
-            if (f9 == 0.0f && f10 == 0.0f) {
-                return new PerspectiveTransform(f3 - f, f5 - f3, f, f4 - f2, f6 - f4, f2, 0.0f, 0.0f, 1.0f);
-            }
-            float f11 = f3 - f5;
-            float f12 = f7 - f5;
-            float f13 = f4 - f6;
-            float f14 = f8 - f6;
-            float f15 = (f11 * f14) - (f12 * f13);
-            float f16 = ((f14 * f9) - (f12 * f10)) / f15;
-            float f17 = ((f11 * f10) - (f9 * f13)) / f15;
-            return new PerspectiveTransform((f16 * f3) + (f3 - f), (f17 * f7) + (f7 - f), f, (f4 - f2) + (f16 * f4), (f8 - f2) + (f17 * f8), f2, f16, f17, 1.0f);
+        float f9 = ((f - f3) + f5) - f7;
+        float f10 = ((f2 - f4) + f6) - f8;
+        if (f9 == 0.0f && f10 == 0.0f) {
+            return new PerspectiveTransform(f3 - f, f5 - f3, f, f4 - f2, f6 - f4, f2, 0.0f, 0.0f, 1.0f);
         }
-        return (PerspectiveTransform) invokeCommon.objValue;
+        float f11 = f3 - f5;
+        float f12 = f7 - f5;
+        float f13 = f4 - f6;
+        float f14 = f8 - f6;
+        float f15 = (f11 * f14) - (f12 * f13);
+        float f16 = ((f14 * f9) - (f12 * f10)) / f15;
+        float f17 = ((f11 * f10) - (f9 * f13)) / f15;
+        return new PerspectiveTransform((f16 * f3) + (f3 - f), (f17 * f7) + (f7 - f), f, (f4 - f2) + (f16 * f4), (f8 - f2) + (f17 * f8), f2, f16, f17, 1.0f);
     }
 
     public PerspectiveTransform buildAdjoint() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            float f = this.a22;
-            float f2 = this.a33;
-            float f3 = this.a23;
-            float f4 = this.a32;
-            float f5 = (f * f2) - (f3 * f4);
-            float f6 = this.a31;
-            float f7 = this.a21;
-            float f8 = (f3 * f6) - (f7 * f2);
-            float f9 = (f7 * f4) - (f * f6);
-            float f10 = this.a13;
-            float f11 = this.a12;
-            float f12 = (f10 * f4) - (f11 * f2);
-            float f13 = this.a11;
-            return new PerspectiveTransform(f5, f8, f9, f12, (f2 * f13) - (f10 * f6), (f6 * f11) - (f4 * f13), (f11 * f3) - (f10 * f), (f10 * f7) - (f3 * f13), (f13 * f) - (f11 * f7));
-        }
-        return (PerspectiveTransform) invokeV.objValue;
+        float f = this.a22;
+        float f2 = this.a33;
+        float f3 = this.a23;
+        float f4 = this.a32;
+        float f5 = (f * f2) - (f3 * f4);
+        float f6 = this.a31;
+        float f7 = this.a21;
+        float f8 = (f3 * f6) - (f7 * f2);
+        float f9 = (f7 * f4) - (f * f6);
+        float f10 = this.a13;
+        float f11 = this.a12;
+        float f12 = (f10 * f4) - (f11 * f2);
+        float f13 = this.a11;
+        return new PerspectiveTransform(f5, f8, f9, f12, (f2 * f13) - (f10 * f6), (f6 * f11) - (f4 * f13), (f11 * f3) - (f10 * f), (f10 * f7) - (f3 * f13), (f13 * f) - (f11 * f7));
     }
 
     public PerspectiveTransform times(PerspectiveTransform perspectiveTransform) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, perspectiveTransform)) == null) {
-            float f = this.a11;
-            float f2 = perspectiveTransform.a11;
-            float f3 = this.a21;
-            float f4 = perspectiveTransform.a12;
-            float f5 = this.a31;
-            float f6 = perspectiveTransform.a13;
-            float f7 = (f * f2) + (f3 * f4) + (f5 * f6);
-            float f8 = perspectiveTransform.a21;
-            float f9 = perspectiveTransform.a22;
-            float f10 = perspectiveTransform.a23;
-            float f11 = (f * f8) + (f3 * f9) + (f5 * f10);
-            float f12 = perspectiveTransform.a31;
-            float f13 = perspectiveTransform.a32;
-            float f14 = perspectiveTransform.a33;
-            float f15 = (f * f12) + (f3 * f13) + (f5 * f14);
-            float f16 = this.a12;
-            float f17 = this.a22;
-            float f18 = this.a32;
-            float f19 = (f18 * f14) + (f16 * f12) + (f17 * f13);
-            float f20 = this.a13;
-            float f21 = this.a23;
-            float f22 = (f2 * f20) + (f4 * f21);
-            float f23 = this.a33;
-            return new PerspectiveTransform(f7, f11, f15, (f16 * f2) + (f17 * f4) + (f18 * f6), (f16 * f8) + (f17 * f9) + (f18 * f10), f19, (f6 * f23) + f22, (f8 * f20) + (f9 * f21) + (f10 * f23), (f20 * f12) + (f21 * f13) + (f23 * f14));
-        }
-        return (PerspectiveTransform) invokeL.objValue;
+        float f = this.a11;
+        float f2 = perspectiveTransform.a11;
+        float f3 = this.a21;
+        float f4 = perspectiveTransform.a12;
+        float f5 = this.a31;
+        float f6 = perspectiveTransform.a13;
+        float f7 = (f * f2) + (f3 * f4) + (f5 * f6);
+        float f8 = perspectiveTransform.a21;
+        float f9 = perspectiveTransform.a22;
+        float f10 = perspectiveTransform.a23;
+        float f11 = (f * f8) + (f3 * f9) + (f5 * f10);
+        float f12 = perspectiveTransform.a31;
+        float f13 = perspectiveTransform.a32;
+        float f14 = perspectiveTransform.a33;
+        float f15 = (f * f12) + (f3 * f13) + (f5 * f14);
+        float f16 = this.a12;
+        float f17 = this.a22;
+        float f18 = this.a32;
+        float f19 = (f18 * f14) + (f16 * f12) + (f17 * f13);
+        float f20 = this.a13;
+        float f21 = this.a23;
+        float f22 = (f2 * f20) + (f4 * f21);
+        float f23 = this.a33;
+        return new PerspectiveTransform(f7, f11, f15, (f16 * f2) + (f17 * f4) + (f18 * f6), (f16 * f8) + (f17 * f9) + (f18 * f10), f19, (f6 * f23) + f22, (f8 * f20) + (f9 * f21) + (f10 * f23), (f20 * f12) + (f21 * f13) + (f23 * f14));
     }
 
     public void transformPoints(float[] fArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fArr) == null) {
-            int length = fArr.length;
-            float f = this.a11;
-            float f2 = this.a12;
-            float f3 = this.a13;
-            float f4 = this.a21;
-            float f5 = this.a22;
-            float f6 = this.a23;
-            float f7 = this.a31;
-            float f8 = this.a32;
-            float f9 = this.a33;
-            for (int i = 0; i < length; i += 2) {
-                float f10 = fArr[i];
-                int i2 = i + 1;
-                float f11 = fArr[i2];
-                float f12 = (f3 * f10) + (f6 * f11) + f9;
-                fArr[i] = (((f * f10) + (f4 * f11)) + f7) / f12;
-                fArr[i2] = (((f10 * f2) + (f11 * f5)) + f8) / f12;
-            }
+        int length = fArr.length;
+        float f = this.a11;
+        float f2 = this.a12;
+        float f3 = this.a13;
+        float f4 = this.a21;
+        float f5 = this.a22;
+        float f6 = this.a23;
+        float f7 = this.a31;
+        float f8 = this.a32;
+        float f9 = this.a33;
+        for (int i = 0; i < length; i += 2) {
+            float f10 = fArr[i];
+            int i2 = i + 1;
+            float f11 = fArr[i2];
+            float f12 = (f3 * f10) + (f6 * f11) + f9;
+            fArr[i] = (((f * f10) + (f4 * f11)) + f7) / f12;
+            fArr[i2] = (((f10 * f2) + (f11 * f5)) + f8) / f12;
         }
     }
 
     public void transformPoints(float[] fArr, float[] fArr2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, fArr, fArr2) == null) {
-            int length = fArr.length;
-            for (int i = 0; i < length; i++) {
-                float f = fArr[i];
-                float f2 = fArr2[i];
-                float f3 = (this.a13 * f) + (this.a23 * f2) + this.a33;
-                fArr[i] = (((this.a11 * f) + (this.a21 * f2)) + this.a31) / f3;
-                fArr2[i] = (((this.a12 * f) + (this.a22 * f2)) + this.a32) / f3;
-            }
+        int length = fArr.length;
+        for (int i = 0; i < length; i++) {
+            float f = fArr[i];
+            float f2 = fArr2[i];
+            float f3 = (this.a13 * f) + (this.a23 * f2) + this.a33;
+            fArr[i] = (((this.a11 * f) + (this.a21 * f2)) + this.a31) / f3;
+            fArr2[i] = (((this.a12 * f) + (this.a22 * f2)) + this.a32) / f3;
         }
     }
 }

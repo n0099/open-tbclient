@@ -3,7 +3,6 @@ package com.ss.android.socialbase.appdownloader.a;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.fun.ad.sdk.FunAdSdk;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -21,9 +20,9 @@ public class i extends a {
     public Intent b() {
         String str;
         String c = this.b.c("s");
-        String a = com.ss.android.socialbase.appdownloader.f.c.a(this.b.c(ContentUtil.RESULT_KEY_AK), c);
+        String a = com.ss.android.socialbase.appdownloader.f.c.a(this.b.c("ak"), c);
         String a2 = com.ss.android.socialbase.appdownloader.f.c.a(this.b.c(FunAdSdk.PLATFORM_AM), c);
-        String a3 = com.ss.android.socialbase.appdownloader.f.c.a(this.b.c(com.alipay.sdk.sys.a.r), c);
+        String a3 = com.ss.android.socialbase.appdownloader.f.c.a(this.b.c("an"), c);
         String str2 = null;
         if (!TextUtils.isEmpty(a3) && a3.split(",").length == 2) {
             String[] split = a3.split(",");

@@ -1,58 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Service
 /* loaded from: classes4.dex */
-public class eh0 extends xi0 {
+public final class eh0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.xi0
-    public String a() {
-        InterceptResult invokeV;
+    public static boolean a(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "onDownloadBtnClick" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            if (activity != null && b(activity.getIntent())) {
+                try {
+                    activity.finish();
+                } catch (Exception unused) {
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
-    public eh0() {
+    public static boolean b(Intent intent) {
+        InterceptResult invokeL;
+        Bundle extras;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
+            if (intent != null && (extras = intent.getExtras()) != null) {
+                try {
+                    extras.isEmpty();
+                    return false;
+                } catch (Exception unused) {
+                    return true;
+                }
             }
+            return false;
         }
-    }
-
-    @Override // com.baidu.tieba.xi0
-    public boolean b(@NonNull Context context, @NonNull bj0 bj0Var, @Nullable Map<String, Object> map, @Nullable fj0 fj0Var) {
-        InterceptResult invokeLLLL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bj0Var, map, fj0Var)) == null) {
-            boolean b = super.b(context, bj0Var, map, fj0Var);
-            if (b) {
-                i = 0;
-            } else {
-                i = 1001;
-            }
-            c(fj0Var, bj0Var, i, b);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 }

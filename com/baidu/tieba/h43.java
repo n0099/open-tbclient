@@ -1,31 +1,58 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import android.os.Message;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes4.dex */
-public class h43 {
+public class h43 implements qu2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public Object c;
-    public boolean d;
-    public String e;
+    public Map<Runnable, String> c;
 
-    public h43(String str) {
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final h43 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-795236284, "Lcom/baidu/tieba/h43$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-795236284, "Lcom/baidu/tieba/h43$b;");
+                    return;
+                }
+            }
+            a = new h43(null);
+        }
+    }
+
+    public h43() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,60 +62,60 @@ public class h43 {
                 return;
             }
         }
-        this.d = false;
-        this.b = str;
+        this.c = new ConcurrentHashMap();
     }
 
-    public static String a(g43 g43Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, g43Var)) == null) {
-            if (g43Var == null) {
-                return "";
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("componentId", g43Var.f);
-                jSONObject.put("pluginProvider", g43Var.b);
-                jSONObject.put(WebChromeClient.KEY_ARG_ARRAY, g43Var.g);
-                jSONObject.put("slaveId", g43Var.e);
-            } catch (JSONException e) {
-                o43.b(Log.getStackTraceString(e));
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r1v0, types: [org.json.JSONObject, T] */
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            cj2 cj2Var = new cj2();
-            ?? jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "functionPageFinished");
-                jSONObject.put("componentId", this.b);
-                jSONObject.put("isSuccess", this.d);
-                jSONObject.put("data", this.e);
-                if (this.c != null) {
-                    jSONObject.put("error", this.c.toString());
-                }
-            } catch (JSONException e) {
-                o43.b(Log.getStackTraceString(e));
-            }
-            cj2Var.c = jSONObject;
-            ju2.U().m(this.a, cj2Var);
-            o43.b("finish event, isSuccess = " + this.d);
-        }
-    }
-
-    public String toString() {
+    public static h43 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "SwanPluginFunPageFinishEvent{eventType='functionPageFinished', componentId='" + this.b + "', error=" + this.c + ", isSuccess=" + this.d + ", resultData='" + this.e + "'}";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        return (String) invokeV.objValue;
+        return (h43) invokeV.objValue;
+    }
+
+    public /* synthetic */ h43(a aVar) {
+        this();
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (qu2.a) {
+                Log.e("SwanPerformance", "main process launch start，appId = " + str);
+            }
+            System.currentTimeMillis();
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c.isEmpty()) {
+            return;
+        }
+        if (qu2.a) {
+            Log.d("SwanPerformance", "main process batch handle thread, size = " + this.c.size());
+        }
+        for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
+            if (entry != null) {
+                ExecutorUtilsExt.postOnElastic(entry.getKey(), entry.getValue(), 2);
+            }
+        }
+        this.c.clear();
+    }
+
+    public void c(Message message) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) != null) || message == null || (obj = message.obj) == null || !(obj instanceof Bundle)) {
+            return;
+        }
+        Bundle bundle = (Bundle) obj;
+        boolean z = bundle.getBoolean("is_timeout", false);
+        String string = bundle.getString("app_id", null);
+        if (qu2.a) {
+            Log.e("SwanPerformance", "main process launch end，timeout = " + z + " ; appId = " + string);
+        }
+        a();
     }
 }

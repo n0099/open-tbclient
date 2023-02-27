@@ -1,225 +1,75 @@
 package com.baidu.mapapi.utils.route;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class RouteParaOption {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public LatLng a;
     public LatLng b;
     public String c;
     public String d;
     public String e;
-    public EBusStrategyType f;
+    public EBusStrategyType f = EBusStrategyType.bus_recommend_way;
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class EBusStrategyType {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ EBusStrategyType[] a;
-        public static final EBusStrategyType bus_no_subway;
-        public static final EBusStrategyType bus_recommend_way;
-        public static final EBusStrategyType bus_time_first;
-        public static final EBusStrategyType bus_transfer_little;
-        public static final EBusStrategyType bus_walk_little;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(203641350, "Lcom/baidu/mapapi/utils/route/RouteParaOption$EBusStrategyType;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(203641350, "Lcom/baidu/mapapi/utils/route/RouteParaOption$EBusStrategyType;");
-                    return;
-                }
-            }
-            bus_time_first = new EBusStrategyType("bus_time_first", 0);
-            bus_transfer_little = new EBusStrategyType("bus_transfer_little", 1);
-            bus_walk_little = new EBusStrategyType("bus_walk_little", 2);
-            bus_no_subway = new EBusStrategyType("bus_no_subway", 3);
-            EBusStrategyType eBusStrategyType = new EBusStrategyType("bus_recommend_way", 4);
-            bus_recommend_way = eBusStrategyType;
-            a = new EBusStrategyType[]{bus_time_first, bus_transfer_little, bus_walk_little, bus_no_subway, eBusStrategyType};
-        }
-
-        public EBusStrategyType(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public static EBusStrategyType valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                return (EBusStrategyType) Enum.valueOf(EBusStrategyType.class, str);
-            }
-            return (EBusStrategyType) invokeL.objValue;
-        }
-
-        public static EBusStrategyType[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return (EBusStrategyType[]) a.clone();
-            }
-            return (EBusStrategyType[]) invokeV.objValue;
-        }
-    }
-
-    public RouteParaOption() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f = EBusStrategyType.bus_recommend_way;
+    public enum EBusStrategyType {
+        bus_time_first,
+        bus_transfer_little,
+        bus_walk_little,
+        bus_no_subway,
+        bus_recommend_way
     }
 
     public EBusStrategyType getBusStrategyType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
-        }
-        return (EBusStrategyType) invokeV.objValue;
+        return this.f;
     }
 
     public String getCityName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
+        return this.e;
     }
 
     public String getEndName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
+        return this.d;
     }
 
     public LatLng getEndPoint() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return (LatLng) invokeV.objValue;
+        return this.b;
     }
 
     public String getStartName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
+        return this.c;
     }
 
     public LatLng getStartPoint() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.a;
-        }
-        return (LatLng) invokeV.objValue;
+        return this.a;
     }
 
     public RouteParaOption busStrategyType(EBusStrategyType eBusStrategyType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eBusStrategyType)) == null) {
-            this.f = eBusStrategyType;
-            return this;
-        }
-        return (RouteParaOption) invokeL.objValue;
+        this.f = eBusStrategyType;
+        return this;
     }
 
     public RouteParaOption cityName(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.e = str;
-            return this;
-        }
-        return (RouteParaOption) invokeL.objValue;
+        this.e = str;
+        return this;
     }
 
     public RouteParaOption endName(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.d = str;
-            return this;
-        }
-        return (RouteParaOption) invokeL.objValue;
+        this.d = str;
+        return this;
     }
 
     public RouteParaOption endPoint(LatLng latLng) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, latLng)) == null) {
-            this.b = latLng;
-            return this;
-        }
-        return (RouteParaOption) invokeL.objValue;
+        this.b = latLng;
+        return this;
     }
 
     public RouteParaOption startName(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            this.c = str;
-            return this;
-        }
-        return (RouteParaOption) invokeL.objValue;
+        this.c = str;
+        return this;
     }
 
     public RouteParaOption startPoint(LatLng latLng) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, latLng)) == null) {
-            this.a = latLng;
-            return this;
-        }
-        return (RouteParaOption) invokeL.objValue;
+        this.a = latLng;
+        return this;
     }
 }

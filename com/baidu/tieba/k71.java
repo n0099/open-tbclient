@@ -1,30 +1,202 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.ClipData;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Environment;
+import android.os.Parcelable;
+import android.provider.MediaStore;
+import android.webkit.ValueCallback;
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
+import com.baidu.nadcore.webarch.permission.NadPermissionActivity;
+import com.baidu.tieba.g61;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.PermissionRequest;
+import java.io.File;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class k71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public int f;
+    public ValueCallback<Uri> a;
+    public String b;
+    public ValueCallback<Uri[]> c;
+    public j71 d;
+    public boolean e;
+    public boolean f;
+    public Activity g;
+    public boolean h;
 
-    public k71() {
+    /* loaded from: classes5.dex */
+    public class a implements g61.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ k71 b;
+
+        public a(k71 k71Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k71Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = k71Var;
+            this.a = i;
+        }
+
+        @Override // com.baidu.tieba.g61.b
+        @RequiresApi(api = 21)
+        public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) && i == this.a) {
+                if (iArr.length == 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                for (int i2 : iArr) {
+                    if (i2 == -1) {
+                        z = false;
+                    }
+                }
+                if (z) {
+                    this.b.h = false;
+                    k71 k71Var = this.b;
+                    k71Var.startActivityForResult(k71Var.k(), 11);
+                } else if (this.b.c != null) {
+                    this.b.c.onReceiveValue(null);
+                }
+                j61.b().d(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements g61.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k71 a;
+
+        public b(k71 k71Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k71Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k71Var;
+        }
+
+        @Override // com.baidu.tieba.g61.b
+        public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) && i == 4099) {
+                if (iArr.length == 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                for (int i2 : iArr) {
+                    if (i2 == -1) {
+                        z = false;
+                    }
+                }
+                if (z) {
+                    this.a.h = true;
+                    k71 k71Var = this.a;
+                    k71Var.startActivityForResult(k71Var.j(), 11);
+                }
+                j61.b().d(4099);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements g61.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k71 a;
+
+        public c(k71 k71Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k71Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k71Var;
+        }
+
+        @Override // com.baidu.tieba.g61.b
+        public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) && i == 4099) {
+                if (iArr.length == 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                for (int i2 : iArr) {
+                    if (i2 == -1) {
+                        z = false;
+                    }
+                }
+                if (z) {
+                    this.a.h = true;
+                    this.a.g.startActivityForResult(this.a.h(), 11);
+                }
+                j61.b().d(4099);
+            }
+        }
+    }
+
+    public k71(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,158 +206,352 @@ public class k71 {
                 return;
             }
         }
-        this.a = false;
-        this.b = false;
-        this.c = false;
-        this.d = false;
-        this.e = 0;
-        this.f = 0;
+        this.h = false;
+        this.g = activity;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public boolean startActivityForResult(Intent intent, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, intent, i)) == null) {
+            try {
+                try {
+                    this.g.startActivityForResult(intent, i);
+                    return true;
+                } catch (ActivityNotFoundException unused) {
+                    g();
+                    return false;
+                }
+            } catch (ActivityNotFoundException unused2) {
+                this.f = true;
+                this.g.startActivityForResult(m(), i);
+                return true;
+            }
         }
-        return invokeV.booleanValue;
+        return invokeLI.booleanValue;
     }
 
-    public boolean b() {
+    private void requestPermissions(int i, String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65543, this, i, strArr) == null) {
+            Intent intent = new Intent(this.g.getApplicationContext(), NadPermissionActivity.class);
+            intent.putExtra("request_code", i);
+            intent.putExtra("permissions", strArr);
+            j61.b().a(i, new a(this, i));
+            try {
+                b51.c(this.g, intent);
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ValueCallback<Uri> valueCallback = this.a;
+            if (valueCallback != null) {
+                valueCallback.onReceiveValue(null);
+            }
+            ValueCallback<Uri[]> valueCallback2 = this.c;
+            if (valueCallback2 != null) {
+                valueCallback2.onReceiveValue(null);
+            }
+        }
+    }
+
+    public Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.g;
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public final Intent n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return new Intent("android.provider.MediaStore.RECORD_SOUND");
+        }
+        return (Intent) invokeV.objValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.e;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean c() {
+    public final Intent h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+            if (n71.a(this.g)) {
+                return new Intent("android.media.action.VIDEO_CAPTURE");
+            }
+            Intent intent = new Intent(this.g.getApplicationContext(), NadPermissionActivity.class);
+            intent.putExtra("request_code", 4099);
+            intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE});
+            j61.b().a(4099, new c(this));
+            return intent;
         }
-        return invokeV.booleanValue;
+        return (Intent) invokeV.objValue;
     }
 
-    public boolean d() {
+    public final Intent m() {
+        InterceptResult invokeV;
+        j71 j71Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            Intent intent = new Intent("android.intent.action.GET_CONTENT");
+            intent.addCategory("android.intent.category.OPENABLE");
+            intent.setType("*/*");
+            Intent l = l(i(), h(), n());
+            l.putExtra("android.intent.extra.INTENT", intent);
+            if (Build.VERSION.SDK_INT >= 21 && (j71Var = this.d) != null) {
+                l.putExtra("android.intent.extra.INTENT", j71Var.a());
+            }
+            return l;
+        }
+        return (Intent) invokeV.objValue;
+    }
+
+    public Intent i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+            if (n71.a(this.g) && n71.b(this.g)) {
+                return j();
+            }
+            Intent intent = new Intent(this.g.getApplicationContext(), NadPermissionActivity.class);
+            intent.putExtra("request_code", 4099);
+            String[] strArr = {PermissionRequest.RESOURCE_VIDEO_CAPTURE, "android.permission.WRITE_EXTERNAL_STORAGE"};
+            if (Build.VERSION.SDK_INT >= 29 && !Environment.isExternalStorageLegacy()) {
+                strArr = new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE};
+            }
+            intent.putExtra("permissions", strArr);
+            j61.b().a(4099, new b(this));
+            return intent;
         }
-        return invokeV.booleanValue;
+        return (Intent) invokeV.objValue;
     }
 
-    public int e() {
+    @SuppressLint({"NewApi", "ObsoleteSdkInt"})
+    public final Intent j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
+            Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+            File externalFilesDir = rj0.b().getExternalFilesDir(Environment.DIRECTORY_DCIM);
+            File file = new File(externalFilesDir.getAbsolutePath() + File.separator + "nad-browser-photos");
+            file.mkdirs();
+            this.b = file.getAbsolutePath() + File.separator + System.currentTimeMillis() + ".jpg";
+            if (Build.VERSION.SDK_INT >= 24) {
+                intent.putExtra("output", FileProvider.getUriForFile(rj0.b(), rj0.c().a().v(), new File(this.b)));
+            } else {
+                intent.putExtra("output", Uri.fromFile(new File(this.b)));
+            }
+            if (Build.VERSION.SDK_INT >= 19) {
+                intent.setFlags(3);
+            }
+            return intent;
         }
-        return invokeV.intValue;
+        return (Intent) invokeV.objValue;
     }
 
-    public int f() {
+    @RequiresApi(api = 21)
+    @SuppressLint({"ObsoleteSdkInt"})
+    public final Intent k() {
         InterceptResult invokeV;
+        String[] strArr;
+        String str;
+        boolean z;
+        Intent intent;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0037, code lost:
-        if (r0.equals("slideControl") == false) goto L25;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void g(@NonNull String str) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            JSONObject c = y11.c(str);
-            String optString = c.optString("type");
-            char c2 = 0;
-            if (c.optInt(PackageTable.DISABLE, 0) == 1) {
+            j71 j71Var = this.d;
+            if (j71Var != null) {
+                strArr = j71Var.b();
+            } else {
+                strArr = null;
+            }
+            String str2 = "*/*";
+            if (strArr == null || strArr.length <= 0) {
+                str = "*/*";
+            } else {
+                str = strArr[0];
+            }
+            if (str != null && !str.trim().isEmpty()) {
+                str2 = str;
+            }
+            ArrayList arrayList = new ArrayList();
+            j71 j71Var2 = this.d;
+            if (j71Var2 != null && j71Var2.c() == 1) {
                 z = true;
             } else {
                 z = false;
             }
-            int hashCode = optString.hashCode();
-            if (hashCode != -2119262164) {
-                if (hashCode != -796944909) {
-                    if (hashCode == -102095252) {
-                    }
-                    c2 = 65535;
-                } else {
-                    if (optString.equals("slideDown")) {
-                        c2 = 2;
-                    }
-                    c2 = 65535;
+            if (str2.equals(BdUploadHandler.IMAGE_MIME_TYPE)) {
+                arrayList.add(j());
+            } else if (str2.equals(BdUploadHandler.VIDEO_MIME_TYPE)) {
+                arrayList.add(new Intent("android.media.action.VIDEO_CAPTURE"));
+            } else if (str2.equals(BdUploadHandler.AUDIO_MIME_TYPE)) {
+                arrayList.add(n());
+            }
+            if (arrayList.isEmpty()) {
+                arrayList.add(j());
+                arrayList.add(h());
+                arrayList.add(n());
+            }
+            if (str2.equals(BdUploadHandler.IMAGE_MIME_TYPE)) {
+                intent = new Intent("android.intent.action.PICK", MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, BdUploadHandler.IMAGE_MIME_TYPE);
+                if (Build.VERSION.SDK_INT >= 18 && z) {
+                    intent.putExtra("android.intent.extra.ALLOW_MULTIPLE", true);
                 }
             } else {
-                if (optString.equals("slideUp")) {
-                    c2 = 1;
+                Intent intent2 = new Intent("android.intent.action.GET_CONTENT");
+                if (Build.VERSION.SDK_INT >= 18 && z) {
+                    intent2.putExtra("android.intent.extra.ALLOW_MULTIPLE", true);
                 }
-                c2 = 65535;
+                intent2.setType(str2);
+                intent = intent2;
             }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 == 2) {
-                        this.c = z;
-                        return;
-                    }
-                    return;
-                }
-                this.b = z;
+            Intent intent3 = new Intent("android.intent.action.CHOOSER");
+            if (!arrayList.isEmpty()) {
+                intent3.putExtra("android.intent.extra.INITIAL_INTENTS", (Parcelable[]) arrayList.toArray(new Intent[0]));
+            }
+            intent3.putExtra("android.intent.extra.INTENT", intent);
+            return intent3;
+        }
+        return (Intent) invokeV.objValue;
+    }
+
+    public final Intent l(Intent... intentArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, intentArr)) == null) {
+            Intent intent = new Intent("android.intent.action.CHOOSER");
+            intent.putExtra("android.intent.extra.INITIAL_INTENTS", intentArr);
+            intent.putExtra("android.intent.extra.TITLE", rj0.b().getResources().getString(R.string.nad_choose_upload));
+            return intent;
+        }
+        return (Intent) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r6v2, resolved type: android.webkit.ValueCallback<android.net.Uri[]> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public void p(int i, Intent intent) {
+        Uri uri;
+        Uri fromFile;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048586, this, i, intent) == null) {
+            if (this.h) {
+                this.h = false;
                 return;
             }
-            this.a = z;
+            if (i == -1 && intent == null && this.b == null) {
+                i = 0;
+            }
+            if (i == 0 && this.f) {
+                this.f = false;
+                return;
+            }
+            if (intent != null && i == -1) {
+                try {
+                    uri = intent.getData();
+                } catch (Throwable th) {
+                    th.printStackTrace();
+                    return;
+                }
+            } else {
+                uri = null;
+            }
+            if (uri == null && intent == null && i == -1) {
+                File file = new File(this.b);
+                if (file.exists()) {
+                    if (Build.VERSION.SDK_INT >= 24) {
+                        fromFile = FileProvider.getUriForFile(rj0.b(), rj0.c().a().v(), file);
+                    } else {
+                        fromFile = Uri.fromFile(file);
+                    }
+                    uri = fromFile;
+                    rj0.b().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", uri));
+                }
+            }
+            if (this.c != null) {
+                ArrayList arrayList = new ArrayList();
+                if (uri != null) {
+                    arrayList.add(uri);
+                } else if (intent != null && intent.getClipData() != null) {
+                    ClipData clipData = intent.getClipData();
+                    for (int i2 = 0; i2 < clipData.getItemCount(); i2++) {
+                        arrayList.add(clipData.getItemAt(i2).getUri());
+                    }
+                }
+                this.c.onReceiveValue(arrayList.toArray(new Uri[0]));
+            }
+            if (this.a != null) {
+                this.a.onReceiveValue(uri);
+            }
+            this.e = true;
+            this.f = false;
         }
     }
 
-    public void h(boolean z) {
+    @RequiresApi(api = 21)
+    public boolean q(@NonNull ValueCallback<Uri[]> valueCallback, @NonNull j71 j71Var) {
+        InterceptResult invokeLL;
+        String str;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, valueCallback, j71Var)) == null) {
+            this.c = valueCallback;
+            this.d = j71Var;
+            String[] b2 = j71Var.b();
+            if (b2 != null && b2.length > 0) {
+                str = b2[0];
+            } else {
+                str = "*/*";
+            }
+            ArrayList arrayList = new ArrayList();
+            if (str.equals(BdUploadHandler.IMAGE_MIME_TYPE)) {
+                if (!n71.a(this.g)) {
+                    arrayList.add(PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+                }
+                if (Build.VERSION.SDK_INT >= 29 && !Environment.isExternalStorageLegacy()) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!n71.b(this.g) && z) {
+                    arrayList.add("android.permission.WRITE_EXTERNAL_STORAGE");
+                }
+            } else if (str.equals(BdUploadHandler.VIDEO_MIME_TYPE) && !n71.a(this.g)) {
+                arrayList.add(PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+            }
+            if (arrayList.isEmpty()) {
+                if (!n71.a(this.g)) {
+                    arrayList.add(PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+                }
+                if (!n71.b(this.g)) {
+                    arrayList.add("android.permission.WRITE_EXTERNAL_STORAGE");
+                }
+            }
+            if (arrayList.size() > 0) {
+                requestPermissions(4099, (String[]) arrayList.toArray(new String[0]));
+                return true;
+            }
+            try {
+                return startActivityForResult(k(), 11);
+            } catch (Exception unused) {
+                return false;
+            }
         }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.e = i;
-        }
+        return invokeLL.booleanValue;
     }
 }

@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.f.c;
-import com.sdk.k.a;
+import com.sdk.l.a;
 /* loaded from: classes8.dex */
 public class BaseConfig implements c {
     public static /* synthetic */ Interceptable $ic = null;
     public static String apk = "com.cucc.sdk.api_key";
-    public static int c = 50;
+    public static int c = 54;
     public static String cm = "CUCC";
     public static String n = "SDKFactory";
-    public static String v = "安卓4.0.3.3专业版Z21022214";
+    public static String v = "安卓4.0.4.1开放版o20220829";
     public transient /* synthetic */ FieldHolder $fh;
     public long r;
 

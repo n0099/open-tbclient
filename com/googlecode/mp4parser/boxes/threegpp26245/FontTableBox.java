@@ -1,13 +1,5 @@
 package com.googlecode.mp4parser.boxes.threegpp26245;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.coremedia.iso.Utf8;
@@ -20,146 +12,65 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
 /* loaded from: classes8.dex */
 public class FontTableBox extends AbstractBox {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "ftab";
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
-    public transient /* synthetic */ FieldHolder $fh;
     public List<FontRecord> entries;
 
     /* loaded from: classes8.dex */
     public static class FontRecord {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public int fontId;
         public String fontname;
 
         public FontRecord() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
         }
 
         public int getSize() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return Utf8.utf8StringLengthInBytes(this.fontname) + 3;
-            }
-            return invokeV.intValue;
+            return Utf8.utf8StringLengthInBytes(this.fontname) + 3;
+        }
+
+        public String toString() {
+            return "FontRecord{fontId=" + this.fontId + ", fontname='" + this.fontname + "'}";
         }
 
         public FontRecord(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), str};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             this.fontId = i;
             this.fontname = str;
         }
 
         public void getContent(ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
-                IsoTypeWriter.writeUInt16(byteBuffer, this.fontId);
-                IsoTypeWriter.writeUInt8(byteBuffer, this.fontname.length());
-                byteBuffer.put(Utf8.convert(this.fontname));
-            }
+            IsoTypeWriter.writeUInt16(byteBuffer, this.fontId);
+            IsoTypeWriter.writeUInt8(byteBuffer, this.fontname.length());
+            byteBuffer.put(Utf8.convert(this.fontname));
         }
 
         public void parse(ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
-                this.fontId = IsoTypeReader.readUInt16(byteBuffer);
-                this.fontname = IsoTypeReader.readString(byteBuffer, IsoTypeReader.readUInt8(byteBuffer));
-            }
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return "FontRecord{fontId=" + this.fontId + ", fontname='" + this.fontname + "'}";
-            }
-            return (String) invokeV.objValue;
+            this.fontId = IsoTypeReader.readUInt16(byteBuffer);
+            this.fontname = IsoTypeReader.readString(byteBuffer, IsoTypeReader.readUInt8(byteBuffer));
         }
     }
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2084919582, "Lcom/googlecode/mp4parser/boxes/threegpp26245/FontTableBox;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-2084919582, "Lcom/googlecode/mp4parser/boxes/threegpp26245/FontTableBox;");
-                return;
-            }
-        }
         ajc$preClinit();
+    }
+
+    public FontTableBox() {
+        super(TYPE);
+        this.entries = new LinkedList();
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = 2;
-            for (FontRecord fontRecord : this.entries) {
-                i += fontRecord.getSize();
-            }
-            return i;
+        int i = 2;
+        for (FontRecord fontRecord : this.entries) {
+            i += fontRecord.getSize();
         }
-        return invokeV.longValue;
+        return i;
     }
 
     public List<FontRecord> getEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.entries;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FontTableBox() {
-        super(TYPE);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.entries = new LinkedList();
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+        return this.entries;
     }
 
     public static /* synthetic */ void ajc$preClinit() {
@@ -170,33 +81,24 @@ public class FontTableBox extends AbstractBox {
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void _parseDetails(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
-            int readUInt16 = IsoTypeReader.readUInt16(byteBuffer);
-            for (int i = 0; i < readUInt16; i++) {
-                FontRecord fontRecord = new FontRecord();
-                fontRecord.parse(byteBuffer);
-                this.entries.add(fontRecord);
-            }
+        int readUInt16 = IsoTypeReader.readUInt16(byteBuffer);
+        for (int i = 0; i < readUInt16; i++) {
+            FontRecord fontRecord = new FontRecord();
+            fontRecord.parse(byteBuffer);
+            this.entries.add(fontRecord);
         }
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void getContent(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
-            IsoTypeWriter.writeUInt16(byteBuffer, this.entries.size());
-            for (FontRecord fontRecord : this.entries) {
-                fontRecord.getContent(byteBuffer);
-            }
+        IsoTypeWriter.writeUInt16(byteBuffer, this.entries.size());
+        for (FontRecord fontRecord : this.entries) {
+            fontRecord.getContent(byteBuffer);
         }
     }
 
     public void setEntries(List<FontRecord> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, list));
-            this.entries = list;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, list));
+        this.entries = list;
     }
 }

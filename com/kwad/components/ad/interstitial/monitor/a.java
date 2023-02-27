@@ -2,9 +2,6 @@ package com.kwad.components.ad.interstitial.monitor;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.core.diskcache.a.c;
 import com.kwad.sdk.core.response.a.d;
@@ -15,54 +12,46 @@ import com.kwad.sdk.utils.o;
 import java.io.File;
 /* loaded from: classes8.dex */
 public final class a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0079  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0075  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static boolean g(@NonNull AdTemplate adTemplate) {
-        InterceptResult invokeL;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adTemplate)) == null) {
-            String A = com.kwad.sdk.core.response.a.a.A(d.bQ(adTemplate));
-            if (TextUtils.isEmpty(A)) {
-                return false;
+        String A = com.kwad.sdk.core.response.a.a.A(d.bQ(adTemplate));
+        if (TextUtils.isEmpty(A)) {
+            return false;
+        }
+        int sc = com.kwad.sdk.core.config.d.sc();
+        String str = "";
+        if (sc < 0) {
+            File ad = com.kwad.sdk.core.diskcache.a.a.sS().ad(A);
+            if (!o.I(ad)) {
+                c.a aVar = new c.a();
+                boolean a = com.kwad.sdk.core.diskcache.a.a.sS().a(A, aVar);
+                str = aVar.Qd;
+                r5 = a;
             }
-            int sc = com.kwad.sdk.core.config.d.sc();
-            String str = "";
-            if (sc < 0) {
-                File ad = com.kwad.sdk.core.diskcache.a.a.sS().ad(A);
-                if (!o.I(ad)) {
-                    c.a aVar = new c.a();
-                    boolean a = com.kwad.sdk.core.diskcache.a.a.sS().a(A, aVar);
-                    str = aVar.Qd;
-                    r5 = a;
-                }
-                adTemplate.mDownloadSize = ad != null ? ad.length() : 0L;
-                i = 2;
-            } else if (sc <= 0) {
-                adTemplate.mDownloadSize = 0L;
-                adTemplate.mDownloadType = 1;
-                if (!r5) {
-                    b.cr().a(adTemplate, str);
-                }
-                return r5;
-            } else {
-                a.C0640a c0640a = new a.C0640a();
-                f bC = com.kwad.sdk.core.videocache.b.a.bC(KsAdSDKImpl.get().getContext());
-                r5 = bC.cC(A) ? true : bC.a(A, sc * 1024, c0640a);
-                str = c0640a.Qd;
-                adTemplate.mDownloadSize = sc * 1024;
-                i = 3;
-            }
-            adTemplate.mDownloadType = i;
+            adTemplate.mDownloadSize = ad != null ? ad.length() : 0L;
+            i = 2;
+        } else if (sc <= 0) {
+            adTemplate.mDownloadSize = 0L;
+            adTemplate.mDownloadType = 1;
             if (!r5) {
+                b.cr().a(adTemplate, str);
             }
             return r5;
+        } else {
+            a.C0630a c0630a = new a.C0630a();
+            f bC = com.kwad.sdk.core.videocache.b.a.bC(KsAdSDKImpl.get().getContext());
+            r5 = bC.cC(A) ? true : bC.a(A, sc * 1024, c0630a);
+            str = c0630a.Qd;
+            adTemplate.mDownloadSize = sc * 1024;
+            i = 3;
         }
-        return invokeL.booleanValue;
+        adTemplate.mDownloadType = i;
+        if (!r5) {
+        }
+        return r5;
     }
 }

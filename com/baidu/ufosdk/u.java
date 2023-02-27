@@ -85,7 +85,7 @@ public class u extends WebChromeClient {
                 FeedbackBrowserActivity feedbackBrowserActivity = (FeedbackBrowserActivity) hVar;
                 if (feedbackBrowserActivity != null) {
                     Bitmap createBitmap = Bitmap.createBitmap(10, 10, Bitmap.Config.ARGB_8888);
-                    createBitmap.eraseColor(feedbackBrowserActivity.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060469));
+                    createBitmap.eraseColor(feedbackBrowserActivity.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603be));
                     return createBitmap;
                 }
                 throw null;
@@ -105,7 +105,7 @@ public class u extends WebChromeClient {
                 FeedbackBrowserActivity feedbackBrowserActivity = (FeedbackBrowserActivity) hVar;
                 if (feedbackBrowserActivity != null) {
                     FrameLayout frameLayout = new FrameLayout(feedbackBrowserActivity);
-                    frameLayout.setBackgroundColor(feedbackBrowserActivity.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060635));
+                    frameLayout.setBackgroundColor(feedbackBrowserActivity.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060503));
                     frameLayout.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
                     return frameLayout;
                 }

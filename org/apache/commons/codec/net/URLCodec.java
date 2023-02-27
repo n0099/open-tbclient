@@ -1,14 +1,6 @@
 package org.apache.commons.codec.net;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.BitSet;
 import org.apache.commons.codec.BinaryDecoder;
@@ -17,176 +9,177 @@ import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringDecoder;
 import org.apache.commons.codec.StringEncoder;
-@Deprecated
+import org.apache.commons.codec.binary.StringUtils;
 /* loaded from: classes9.dex */
 public class URLCodec implements BinaryEncoder, BinaryDecoder, StringEncoder, StringDecoder {
-    public static /* synthetic */ Interceptable $ic;
-    public static byte ESCAPE_CHAR;
-    public static final BitSet WWW_FORM_URL = null;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final byte ESCAPE_CHAR = 37;
+    public static final int RADIX = 16;
+    public static final BitSet WWW_FORM_URL = new BitSet(256);
     public String charset;
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1376063144, "Lorg/apache/commons/codec/net/URLCodec;")) == null) {
-            return;
+        for (int i = 97; i <= 122; i++) {
+            WWW_FORM_URL.set(i);
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        for (int i2 = 65; i2 <= 90; i2++) {
+            WWW_FORM_URL.set(i2);
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1376063144, "Lorg/apache/commons/codec/net/URLCodec;");
+        for (int i3 = 48; i3 <= 57; i3++) {
+            WWW_FORM_URL.set(i3);
         }
+        WWW_FORM_URL.set(45);
+        WWW_FORM_URL.set(95);
+        WWW_FORM_URL.set(46);
+        WWW_FORM_URL.set(42);
+        WWW_FORM_URL.set(32);
     }
 
     public URLCodec() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        throw new RuntimeException("Stub!");
+        this("UTF-8");
     }
 
     public String getDefaultCharset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (String) invokeV.objValue;
+        return this.charset;
     }
 
-    @Deprecated
     public String getEncoding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (String) invokeV.objValue;
+        return this.charset;
     }
 
     public URLCodec(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        throw new RuntimeException("Stub!");
-    }
-
-    public static final byte[] decodeUrl(byte[] bArr) throws DecoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    @Override // org.apache.commons.codec.Decoder
-    public Object decode(Object obj) throws DecoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // org.apache.commons.codec.Encoder
-    public Object encode(Object obj) throws EncoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.objValue;
-    }
-
-    public static final byte[] encodeUrl(BitSet bitSet, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitSet, bArr)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public String decode(String str, String str2) throws DecoderException, UnsupportedEncodingException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public String encode(String str, String str2) throws UnsupportedEncodingException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (String) invokeLL.objValue;
+        this.charset = str;
     }
 
     @Override // org.apache.commons.codec.StringDecoder
     public String decode(String str) throws DecoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            throw new RuntimeException("Stub!");
+        if (str == null) {
+            return null;
         }
-        return (String) invokeL.objValue;
+        try {
+            return decode(str, getDefaultCharset());
+        } catch (UnsupportedEncodingException e) {
+            throw new DecoderException(e.getMessage(), e);
+        }
     }
 
     @Override // org.apache.commons.codec.StringEncoder
     public String encode(String str) throws EncoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            throw new RuntimeException("Stub!");
+        if (str == null) {
+            return null;
         }
-        return (String) invokeL.objValue;
+        try {
+            return encode(str, getDefaultCharset());
+        } catch (UnsupportedEncodingException e) {
+            throw new EncoderException(e.getMessage(), e);
+        }
+    }
+
+    public static final byte[] decodeUrl(byte[] bArr) throws DecoderException {
+        if (bArr == null) {
+            return null;
+        }
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        int i = 0;
+        while (i < bArr.length) {
+            byte b = bArr[i];
+            if (b == 43) {
+                byteArrayOutputStream.write(32);
+            } else if (b == 37) {
+                int i2 = i + 1;
+                try {
+                    int digit16 = Utils.digit16(bArr[i2]);
+                    i = i2 + 1;
+                    byteArrayOutputStream.write((char) ((digit16 << 4) + Utils.digit16(bArr[i])));
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    throw new DecoderException("Invalid URL encoding: ", e);
+                }
+            } else {
+                byteArrayOutputStream.write(b);
+            }
+            i++;
+        }
+        return byteArrayOutputStream.toByteArray();
+    }
+
+    public static final byte[] encodeUrl(BitSet bitSet, byte[] bArr) {
+        if (bArr == null) {
+            return null;
+        }
+        if (bitSet == null) {
+            bitSet = WWW_FORM_URL;
+        }
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        int length = bArr.length;
+        for (int i = 0; i < length; i++) {
+            int i2 = bArr[i];
+            if (i2 < 0) {
+                i2 += 256;
+            }
+            if (bitSet.get(i2)) {
+                if (i2 == 32) {
+                    i2 = 43;
+                }
+                byteArrayOutputStream.write(i2);
+            } else {
+                byteArrayOutputStream.write(37);
+                char upperCase = Character.toUpperCase(Character.forDigit((i2 >> 4) & 15, 16));
+                char upperCase2 = Character.toUpperCase(Character.forDigit(i2 & 15, 16));
+                byteArrayOutputStream.write(upperCase);
+                byteArrayOutputStream.write(upperCase2);
+            }
+        }
+        return byteArrayOutputStream.toByteArray();
+    }
+
+    @Override // org.apache.commons.codec.Decoder
+    public Object decode(Object obj) throws DecoderException {
+        if (obj == null) {
+            return null;
+        }
+        if (obj instanceof byte[]) {
+            return decode((byte[]) obj);
+        }
+        if (obj instanceof String) {
+            return decode((String) obj);
+        }
+        throw new DecoderException("Objects of type " + obj.getClass().getName() + " cannot be URL decoded");
+    }
+
+    @Override // org.apache.commons.codec.Encoder
+    public Object encode(Object obj) throws EncoderException {
+        if (obj == null) {
+            return null;
+        }
+        if (obj instanceof byte[]) {
+            return encode((byte[]) obj);
+        }
+        if (obj instanceof String) {
+            return encode((String) obj);
+        }
+        throw new EncoderException("Objects of type " + obj.getClass().getName() + " cannot be URL encoded");
+    }
+
+    public String decode(String str, String str2) throws DecoderException, UnsupportedEncodingException {
+        if (str == null) {
+            return null;
+        }
+        return new String(decode(StringUtils.getBytesUsAscii(str)), str2);
+    }
+
+    public String encode(String str, String str2) throws UnsupportedEncodingException {
+        if (str == null) {
+            return null;
+        }
+        return StringUtils.newStringUsAscii(encode(str.getBytes(str2)));
     }
 
     @Override // org.apache.commons.codec.BinaryDecoder
     public byte[] decode(byte[] bArr) throws DecoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (byte[]) invokeL.objValue;
+        return decodeUrl(bArr);
     }
 
     @Override // org.apache.commons.codec.BinaryEncoder
     public byte[] encode(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bArr)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (byte[]) invokeL.objValue;
+        return encodeUrl(WWW_FORM_URL, bArr);
     }
 }

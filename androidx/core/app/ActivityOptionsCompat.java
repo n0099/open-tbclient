@@ -13,88 +13,44 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.util.Pair;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class ActivityOptionsCompat {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_USAGE_TIME_REPORT = "android.activity.usage_time";
     public static final String EXTRA_USAGE_TIME_REPORT_PACKAGES = "android.usage_time_packages";
-    public transient /* synthetic */ FieldHolder $fh;
 
     @Nullable
     public Rect getLaunchBounds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (Rect) invokeV.objValue;
+        return null;
     }
 
     public void requestUsageTimeReport(@NonNull PendingIntent pendingIntent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pendingIntent) == null) {
-        }
     }
 
     @NonNull
     public ActivityOptionsCompat setLaunchBounds(@Nullable Rect rect) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rect)) == null) ? this : (ActivityOptionsCompat) invokeL.objValue;
+        return this;
     }
 
     @Nullable
     public Bundle toBundle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (Bundle) invokeV.objValue;
+        return null;
     }
 
     public void update(@NonNull ActivityOptionsCompat activityOptionsCompat) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, activityOptionsCompat) == null) {
-        }
     }
 
     @RequiresApi(16)
     /* loaded from: classes.dex */
     public static class ActivityOptionsCompatImpl extends ActivityOptionsCompat {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final ActivityOptions mActivityOptions;
 
         public ActivityOptionsCompatImpl(ActivityOptions activityOptions) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {activityOptions};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.mActivityOptions = activityOptions;
         }
 
         @Override // androidx.core.app.ActivityOptionsCompat
         public void requestUsageTimeReport(@NonNull PendingIntent pendingIntent) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pendingIntent) == null) && Build.VERSION.SDK_INT >= 23) {
+            if (Build.VERSION.SDK_INT >= 23) {
                 this.mActivityOptions.requestUsageTimeReport(pendingIntent);
             }
         }
@@ -102,171 +58,101 @@ public class ActivityOptionsCompat {
         @Override // androidx.core.app.ActivityOptionsCompat
         @NonNull
         public ActivityOptionsCompat setLaunchBounds(@Nullable Rect rect) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rect)) == null) {
-                if (Build.VERSION.SDK_INT < 24) {
-                    return this;
-                }
-                return new ActivityOptionsCompatImpl(this.mActivityOptions.setLaunchBounds(rect));
+            if (Build.VERSION.SDK_INT < 24) {
+                return this;
             }
-            return (ActivityOptionsCompat) invokeL.objValue;
+            return new ActivityOptionsCompatImpl(this.mActivityOptions.setLaunchBounds(rect));
         }
 
         @Override // androidx.core.app.ActivityOptionsCompat
         public void update(@NonNull ActivityOptionsCompat activityOptionsCompat) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, activityOptionsCompat) == null) && (activityOptionsCompat instanceof ActivityOptionsCompatImpl)) {
+            if (activityOptionsCompat instanceof ActivityOptionsCompatImpl) {
                 this.mActivityOptions.update(((ActivityOptionsCompatImpl) activityOptionsCompat).mActivityOptions);
             }
         }
 
         @Override // androidx.core.app.ActivityOptionsCompat
         public Rect getLaunchBounds() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (Build.VERSION.SDK_INT < 24) {
-                    return null;
-                }
-                return this.mActivityOptions.getLaunchBounds();
+            if (Build.VERSION.SDK_INT < 24) {
+                return null;
             }
-            return (Rect) invokeV.objValue;
+            return this.mActivityOptions.getLaunchBounds();
         }
 
         @Override // androidx.core.app.ActivityOptionsCompat
         public Bundle toBundle() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.mActivityOptions.toBundle();
-            }
-            return (Bundle) invokeV.objValue;
-        }
-    }
-
-    public ActivityOptionsCompat() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            return this.mActivityOptions.toBundle();
         }
     }
 
     @NonNull
     public static ActivityOptionsCompat makeBasic() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return new ActivityOptionsCompatImpl(ActivityOptions.makeBasic());
-            }
-            return new ActivityOptionsCompat();
+        if (Build.VERSION.SDK_INT >= 23) {
+            return new ActivityOptionsCompatImpl(ActivityOptions.makeBasic());
         }
-        return (ActivityOptionsCompat) invokeV.objValue;
+        return new ActivityOptionsCompat();
     }
 
     @NonNull
     public static ActivityOptionsCompat makeTaskLaunchBehind() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                return new ActivityOptionsCompatImpl(ActivityOptions.makeTaskLaunchBehind());
-            }
-            return new ActivityOptionsCompat();
+        if (Build.VERSION.SDK_INT >= 21) {
+            return new ActivityOptionsCompatImpl(ActivityOptions.makeTaskLaunchBehind());
         }
-        return (ActivityOptionsCompat) invokeV.objValue;
+        return new ActivityOptionsCompat();
     }
 
     @NonNull
     public static ActivityOptionsCompat makeClipRevealAnimation(@NonNull View view2, int i, int i2, int i3, int i4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return new ActivityOptionsCompatImpl(ActivityOptions.makeClipRevealAnimation(view2, i, i2, i3, i4));
-            }
-            return new ActivityOptionsCompat();
+        if (Build.VERSION.SDK_INT >= 23) {
+            return new ActivityOptionsCompatImpl(ActivityOptions.makeClipRevealAnimation(view2, i, i2, i3, i4));
         }
-        return (ActivityOptionsCompat) invokeCommon.objValue;
+        return new ActivityOptionsCompat();
     }
 
     @NonNull
     public static ActivityOptionsCompat makeScaleUpAnimation(@NonNull View view2, int i, int i2, int i3, int i4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            if (Build.VERSION.SDK_INT >= 16) {
-                return new ActivityOptionsCompatImpl(ActivityOptions.makeScaleUpAnimation(view2, i, i2, i3, i4));
-            }
-            return new ActivityOptionsCompat();
+        if (Build.VERSION.SDK_INT >= 16) {
+            return new ActivityOptionsCompatImpl(ActivityOptions.makeScaleUpAnimation(view2, i, i2, i3, i4));
         }
-        return (ActivityOptionsCompat) invokeCommon.objValue;
+        return new ActivityOptionsCompat();
     }
 
     @NonNull
     public static ActivityOptionsCompat makeCustomAnimation(@NonNull Context context, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, context, i, i2)) == null) {
-            if (Build.VERSION.SDK_INT >= 16) {
-                return new ActivityOptionsCompatImpl(ActivityOptions.makeCustomAnimation(context, i, i2));
-            }
-            return new ActivityOptionsCompat();
+        if (Build.VERSION.SDK_INT >= 16) {
+            return new ActivityOptionsCompatImpl(ActivityOptions.makeCustomAnimation(context, i, i2));
         }
-        return (ActivityOptionsCompat) invokeLII.objValue;
+        return new ActivityOptionsCompat();
     }
 
     @NonNull
     public static ActivityOptionsCompat makeSceneTransitionAnimation(@NonNull Activity activity, @NonNull View view2, @NonNull String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, activity, view2, str)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                return new ActivityOptionsCompatImpl(ActivityOptions.makeSceneTransitionAnimation(activity, view2, str));
-            }
-            return new ActivityOptionsCompat();
+        if (Build.VERSION.SDK_INT >= 21) {
+            return new ActivityOptionsCompatImpl(ActivityOptions.makeSceneTransitionAnimation(activity, view2, str));
         }
-        return (ActivityOptionsCompat) invokeLLL.objValue;
+        return new ActivityOptionsCompat();
     }
 
     @NonNull
     public static ActivityOptionsCompat makeSceneTransitionAnimation(@NonNull Activity activity, Pair<View, String>... pairArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, activity, pairArr)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                android.util.Pair[] pairArr2 = null;
-                if (pairArr != null) {
-                    pairArr2 = new android.util.Pair[pairArr.length];
-                    for (int i = 0; i < pairArr.length; i++) {
-                        pairArr2[i] = android.util.Pair.create(pairArr[i].first, pairArr[i].second);
-                    }
+        if (Build.VERSION.SDK_INT >= 21) {
+            android.util.Pair[] pairArr2 = null;
+            if (pairArr != null) {
+                pairArr2 = new android.util.Pair[pairArr.length];
+                for (int i = 0; i < pairArr.length; i++) {
+                    pairArr2[i] = android.util.Pair.create(pairArr[i].first, pairArr[i].second);
                 }
-                return new ActivityOptionsCompatImpl(ActivityOptions.makeSceneTransitionAnimation(activity, pairArr2));
             }
-            return new ActivityOptionsCompat();
+            return new ActivityOptionsCompatImpl(ActivityOptions.makeSceneTransitionAnimation(activity, pairArr2));
         }
-        return (ActivityOptionsCompat) invokeLL.objValue;
+        return new ActivityOptionsCompat();
     }
 
     @NonNull
     public static ActivityOptionsCompat makeThumbnailScaleUpAnimation(@NonNull View view2, @NonNull Bitmap bitmap, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, null, view2, bitmap, i, i2)) == null) {
-            if (Build.VERSION.SDK_INT >= 16) {
-                return new ActivityOptionsCompatImpl(ActivityOptions.makeThumbnailScaleUpAnimation(view2, bitmap, i, i2));
-            }
-            return new ActivityOptionsCompat();
+        if (Build.VERSION.SDK_INT >= 16) {
+            return new ActivityOptionsCompatImpl(ActivityOptions.makeThumbnailScaleUpAnimation(view2, bitmap, i, i2));
         }
-        return (ActivityOptionsCompat) invokeLLII.objValue;
+        return new ActivityOptionsCompat();
     }
 }

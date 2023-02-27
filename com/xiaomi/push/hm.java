@@ -1,227 +1,142 @@
 package com.xiaomi.push;
-
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class hm implements iu<hm, Object>, Serializable, Cloneable {
-    public static /* synthetic */ Interceptable $ic;
-    public static final jc a;
+public enum hm {
+    UploadSwitch(1),
+    UploadFrequency(2),
+    ScreenSizeCollectionSwitch(3),
+    MacCollectionSwitch(4),
+    IMSICollectionSwitch(5),
+    AndroidVnCollectionSwitch(6),
+    AndroidVcCollectionSwitch(7),
+    AndroidIdCollectionSwitch(8),
+    DeviceInfoCollectionFrequency(9),
+    AppInstallListCollectionSwitch(10),
+    AppInstallListCollectionFrequency(11),
+    AppActiveListCollectionSwitch(12),
+    AppActiveListCollectionFrequency(13),
+    BluetoothCollectionSwitch(14),
+    BluetoothCollectionFrequency(15),
+    LocationCollectionSwitch(16),
+    LocationCollectionFrequency(17),
+    AccountCollectionSwitch(18),
+    AccountCollectionFrequency(19),
+    WifiCollectionSwitch(20),
+    WifiCollectionFrequency(21),
+    CellularCollectionSwitch(22),
+    CellularCollectionFrequency(23),
+    TopAppCollectionSwitch(24),
+    TopAppCollectionFrequency(25),
+    DataCollectionSwitch(26),
+    OcVersionCheckFrequency(27),
+    SyncInfoFrequency(28),
+    UploadNotificationInfoFrequency(29),
+    UploadNotificationInfoMaxNum(30),
+    CollectionNotificationInfoBaseSwitch(31),
+    CollectionNotificationInfoAppSwitch(32),
+    CollectionNotificationInfoRemovedSwitch(33),
+    ForegroundServiceSwitch(34),
+    SyncMIIDFrequency(35),
+    Upload4GSwitch(36),
+    Upload4GFrequency(37),
+    Upload3GSwitch(38),
+    Upload3GFrequency(39),
+    ShieldTypeConfig(40),
+    UploadWIFIGeoLocFrequency(41),
+    UploadNOWIFIGeoLocFrequency(42),
+    BroadcastActionCollectionSwitch(43),
+    BroadcastActionCollectionFrequency(44),
+    UploadGeoLocSwitch(45),
+    ServiceBootMode(46),
+    AppPermissionCollectionSwitch(47),
+    AppPermissionCollectionFrequency(48),
+    WifiDevicesMacCollectionSwitch(49),
+    WifiDevicesMacCollectionFrequency(50),
+    WifiDevicesMacWifiUnchangedCollectionFrequency(51),
+    AggregationSdkMonitorSwitch(52),
+    AggregationSdkMonitorFrequency(53),
+    AggregationSdkMonitorDepth(54),
+    UploadGeoAppLocSwitch(55),
+    ThirdPushControlSwitch(56),
+    ThirdPushComponentKeyWords(57),
+    ThirdPushWhiteList(58),
+    XmsfScanWhitelist(59),
+    IccidCollectionSwitch(60),
+    LimitThridPushStrategyMode(61),
+    GlobalPushChannelException(62),
+    TinyDataUploadSwitch(63),
+    TinyDataUploadFrequency(64),
+    GlobalRegionIOSwitch(65),
+    GlobalRegionIOWait(66),
+    AggregatePushSwitch(67),
+    ActivityTSSwitch(68),
+    OperatorSwitch(69),
+    DeviceIdSwitch(70),
+    DeviceBaseInfoCollectionFrequency(71),
+    UsageStatsCollectionFrequency(72),
+    UsageStatsCollectionWhiteList(73),
+    ForceHandleCrashSwitch(74),
+    Crash4GUploadSwitch(75),
+    Crash4GUploadFrequency(76),
+    CrashWIFIUploadFrequency(77),
+    EventUploadSwitch(78),
+    PerfUploadSwitch(79),
+    EventUploadFrequency(80),
+    PerfUploadFrequency(81),
+    BatteryCollectionSwitch(82),
+    BatteryCollectionFrequency(83),
+    AwakeInfoUploadWaySwitch(84),
+    AwakeAppPingSwitch(85),
+    AwakeAppPingFrequency(86),
+    StorageCollectionSwitch(87),
+    StorageCollectionFrequency(88),
+    PopupDialogWhiteList(94),
+    PopupDialogContent(95),
+    PopupDialogSwitch(96),
+    FallDownTimeRange(97),
+    AppIsInstalledCollectionSwitch(98),
+    AppIsInstalledCollectionFrequency(99),
+    AppIsInstalledList(100),
+    TopNotificationUpdateFrequency(101),
+    TopNotificationUpdatePeriod(102),
+    TopNotificationUpdateSwitch(103),
+    EventUploadNewSwitch(104),
+    ScreenOnOrChargingTinyDataUploadSwitch(105),
+    NotificationAutoGroupSwitch(106),
+    LatestNotificationNotIntoGroupSwitch(107),
+    DCJobMutualSwitch(108),
+    NotificationBelongToAppSwitch(109),
+    DCJobUploadRepeatedInterval(110),
+    LauncherAppListCollectionSwitch(111),
+    LauncherAppListCollectionFrequency(112),
+    ScenePushForegroundDuration(113),
+    ScenePushForegroundDurationLong(114),
+    ExceptionMonitorSwitch(115),
+    IntelligentHeartbeatSwitchBoolean(116),
+    IntelligentHeartbeatDataCollectSwitchBoolean(117),
+    IntelligentHeartbeatNATCountInt(118),
+    IntelligentHeartbeatUseInMobileNetworkBoolean(119),
+    StatDataUploadFrequency(120),
+    StatDataUploadNum(121),
+    StatDataProcessFrequency(122),
+    StatDataSwitch(123),
+    StatDataUploadWay(124),
+    StatDataDeleteFrequency(125),
+    SdkExceptionMonitorSwitch(126),
+    ShortHeartbeatEffectivePeriodMsLong(130),
+    CollectionDataPluginVersion(1001),
+    CollectionPluginDownloadUrl(1002),
+    CollectionPluginMd5(1003),
+    CollectionPluginForceStop(1004);
+    
 
     /* renamed from: a  reason: collision with other field name */
-    public static final jk f497a;
-    public transient /* synthetic */ FieldHolder $fh;
+    public final int f492a;
 
-    /* renamed from: a  reason: collision with other field name */
-    public List<hn> f498a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56372773, "Lcom/xiaomi/push/hm;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-56372773, "Lcom/xiaomi/push/hm;");
-                return;
-            }
-        }
-        f497a = new jk("ClientUploadData");
-        a = new jc("", (byte) 15, (short) 1);
-    }
-
-    public hm() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
+    hm(int i) {
+        this.f492a = i;
     }
 
     public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<hn> list = this.f498a;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(hm hmVar) {
-        InterceptResult invokeL;
-        int a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hmVar)) == null) {
-            if (hm.class.equals(hmVar.getClass())) {
-                int compareTo = Boolean.valueOf(m472a()).compareTo(Boolean.valueOf(hmVar.m472a()));
-                if (compareTo != 0) {
-                    return compareTo;
-                }
-                if (!m472a() || (a2 = iv.a(this.f498a, hmVar.f498a)) == 0) {
-                    return 0;
-                }
-                return a2;
-            }
-            return hm.class.getName().compareTo(hmVar.getClass().getName());
-        }
-        return invokeL.intValue;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public void m471a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f498a == null) {
-            throw new jg("Required field 'uploadDataItems' was not present! Struct: " + toString());
-        }
-    }
-
-    public void a(hn hnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, hnVar) == null) {
-            if (this.f498a == null) {
-                this.f498a = new ArrayList();
-            }
-            this.f498a.add(hnVar);
-        }
-    }
-
-    @Override // com.xiaomi.push.iu
-    public void a(jf jfVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048580, this, jfVar) != null) {
-            return;
-        }
-        jfVar.mo624a();
-        while (true) {
-            jc mo620a = jfVar.mo620a();
-            byte b = mo620a.a;
-            if (b == 0) {
-                jfVar.f();
-                m471a();
-                return;
-            }
-            if (mo620a.f833a == 1 && b == 15) {
-                jd mo621a = jfVar.mo621a();
-                this.f498a = new ArrayList(mo621a.f834a);
-                for (int i = 0; i < mo621a.f834a; i++) {
-                    hn hnVar = new hn();
-                    hnVar.a(jfVar);
-                    this.f498a.add(hnVar);
-                }
-                jfVar.i();
-            } else {
-                ji.a(jfVar, b);
-            }
-            jfVar.g();
-        }
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public boolean m472a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f498a != null : invokeV.booleanValue;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public boolean m473a(hm hmVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, hmVar)) == null) {
-            if (hmVar == null) {
-                return false;
-            }
-            boolean m472a = m472a();
-            boolean m472a2 = hmVar.m472a();
-            if (m472a || m472a2) {
-                return m472a && m472a2 && this.f498a.equals(hmVar.f498a);
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.xiaomi.push.iu
-    public void b(jf jfVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jfVar) == null) {
-            m471a();
-            jfVar.a(f497a);
-            if (this.f498a != null) {
-                jfVar.a(a);
-                jfVar.a(new jd((byte) 12, this.f498a.size()));
-                for (hn hnVar : this.f498a) {
-                    hnVar.b(jfVar);
-                }
-                jfVar.e();
-                jfVar.b();
-            }
-            jfVar.c();
-            jfVar.mo628a();
-        }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
-            if (obj != null && (obj instanceof hm)) {
-                return m473a((hm) obj);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            StringBuilder sb = new StringBuilder("ClientUploadData(");
-            sb.append("uploadDataItems:");
-            List<hn> list = this.f498a;
-            if (list == null) {
-                sb.append(StringUtil.NULL_STRING);
-            } else {
-                sb.append(list);
-            }
-            sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
+        return this.f492a;
     }
 }

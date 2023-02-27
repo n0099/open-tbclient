@@ -1,18 +1,9 @@
 package com.google.ar.core;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class Frame {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final Session a;
     public final LightEstimate b;
     public long c;
@@ -50,65 +41,24 @@ public class Frame {
     public native long[] nativeHitTestRay(long j, long j2, float[] fArr, int i, float[] fArr2, int i2);
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1863843292, "Lcom/google/ar/core/Frame;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1863843292, "Lcom/google/ar/core/Frame;");
-                return;
-            }
-        }
         new ArrayList();
         new ArrayList();
     }
 
     public Frame() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.c = 0L;
         this.c = 0L;
     }
 
     public void finalize() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.c;
-            if (j != 0) {
-                nativeDestroyFrame(j);
-            }
-            super.finalize();
+        long j = this.c;
+        if (j != 0) {
+            nativeDestroyFrame(j);
         }
+        super.finalize();
     }
 
     public Frame(Session session) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {session};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.c = 0L;
         this.a = session;
         this.c = nativeCreateFrame(session.a);

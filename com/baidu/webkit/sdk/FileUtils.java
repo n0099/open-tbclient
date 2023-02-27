@@ -3,38 +3,16 @@ package com.baidu.webkit.sdk;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
 /* loaded from: classes7.dex */
 public class FileUtils {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FileUtils";
     public static String sFileRwErrorDetail;
-    public transient /* synthetic */ FieldHolder $fh;
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2038722630, "Lcom/baidu/webkit/sdk/FileUtils;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-2038722630, "Lcom/baidu/webkit/sdk/FileUtils;");
-                return;
-            }
-        }
         try {
             System.loadLibrary("zeuslzma");
         } catch (Throwable th) {
@@ -43,140 +21,60 @@ public class FileUtils {
         sFileRwErrorDetail = "none";
     }
 
-    public FileUtils() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
     public static String checkTimestamp(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, str, str2)) == null) {
-            if (str == null) {
-                return str2;
-            }
-            try {
-                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                if (packageInfo == null) {
-                    return str2;
-                }
-                return checkTimestamp(str, str2, packageInfo.versionCode + "-" + packageInfo.lastUpdateTime);
-            } catch (PackageManager.NameNotFoundException | Exception unused) {
-                return str2;
-            }
+        if (str == null) {
+            return str2;
         }
-        return (String) invokeLLL.objValue;
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            if (packageInfo == null) {
+                return str2;
+            }
+            return checkTimestamp(str, str2, packageInfo.versionCode + "-" + packageInfo.lastUpdateTime);
+        } catch (PackageManager.NameNotFoundException | Exception unused) {
+            return str2;
+        }
     }
 
-    public static String checkTimestamp(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public static String checkTimestamp(String str, final String str2, String str3) {
         String[] list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
-            String str4 = str2 + str3;
-            File file = new File(str);
-            if (file.exists() && file.isDirectory() && (list = file.list(new FilenameFilter(str2) { // from class: com.baidu.webkit.sdk.FileUtils.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ String val$prefix;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {str2};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$prefix = str2;
+        String str4 = str2 + str3;
+        File file = new File(str);
+        if (file.exists() && file.isDirectory() && (list = file.list(new FilenameFilter() { // from class: com.baidu.webkit.sdk.FileUtils.1
+            @Override // java.io.FilenameFilter
+            public boolean accept(File file2, String str5) {
+                return str5.startsWith(str2);
+            }
+        })) != null) {
+            for (int i = 0; i < list.length; i++) {
+                if (str4.equals(list[i])) {
+                    return null;
                 }
-
-                @Override // java.io.FilenameFilter
-                public boolean accept(File file2, String str5) {
-                    InterceptResult invokeLL;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file2, str5)) == null) ? str5.startsWith(this.val$prefix) : invokeLL.booleanValue;
-                }
-            })) != null) {
-                for (int i = 0; i < list.length; i++) {
-                    if (str4.equals(list[i])) {
-                        return null;
-                    }
-                    new File(file, list[i]).delete();
-                }
-                return str4;
+                new File(file, list[i]).delete();
             }
             return str4;
         }
-        return (String) invokeLLL.objValue;
+        return str4;
     }
 
-    public static void clearTimestamp(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2) == null) {
-            File file = new File(str);
-            if (file.exists() && file.isDirectory()) {
-                String[] list = file.list(new FilenameFilter(str2) { // from class: com.baidu.webkit.sdk.FileUtils.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ String val$prefix;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {str2};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.val$prefix = str2;
-                    }
-
-                    @Override // java.io.FilenameFilter
-                    public boolean accept(File file2, String str3) {
-                        InterceptResult invokeLL;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file2, str3)) == null) ? str3.startsWith(this.val$prefix) : invokeLL.booleanValue;
-                    }
-                });
-                for (String str3 : list) {
-                    new File(file, str3).delete();
+    public static void clearTimestamp(Context context, String str, final String str2) {
+        File file = new File(str);
+        if (file.exists() && file.isDirectory()) {
+            String[] list = file.list(new FilenameFilter() { // from class: com.baidu.webkit.sdk.FileUtils.2
+                @Override // java.io.FilenameFilter
+                public boolean accept(File file2, String str3) {
+                    return str3.startsWith(str2);
                 }
+            });
+            for (String str3 : list) {
+                new File(file, str3).delete();
             }
         }
     }
 
     public static boolean copyFile(String str, String str2) {
-        InterceptResult invokeLL;
         FileOutputStream fileOutputStream;
         File parentFile;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65541, null, str, str2)) != null) {
-            return invokeLL.booleanValue;
-        }
         byte[] bArr = new byte[4096];
         if (str == null || str2 == null) {
             setFileRwErrorDetail("copy file fail, from = " + str + ", to = " + str2);
@@ -257,55 +155,37 @@ public class FileUtils {
     }
 
     public static boolean deleteDir(File file, File file2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, file, file2)) == null) {
-            if (file == null) {
-                return false;
-            }
-            if (file.isDirectory()) {
-                for (String str : file.list()) {
-                    if (!deleteDir(new File(file, str), file2)) {
-                        return false;
-                    }
+        if (file == null) {
+            return false;
+        }
+        if (file.isDirectory()) {
+            for (String str : file.list()) {
+                if (!deleteDir(new File(file, str), file2)) {
+                    return false;
                 }
             }
-            if (file.equals(file2)) {
-                return true;
-            }
-            return file.delete();
         }
-        return invokeLL.booleanValue;
+        if (file.equals(file2)) {
+            return true;
+        }
+        return file.delete();
     }
 
     public static String getFileRwErrorDetailAndReset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String str = sFileRwErrorDetail;
-            sFileRwErrorDetail = "none";
-            return str == null ? "none" : str;
-        }
-        return (String) invokeV.objValue;
+        String str = sFileRwErrorDetail;
+        sFileRwErrorDetail = "none";
+        return str == null ? "none" : str;
     }
 
     public static boolean link(String str, String str2) {
-        InterceptResult invokeLL;
         File parentFile;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
-            File file = new File(str2);
-            return (file.isDirectory() || str2 == null || ((parentFile = file.getParentFile()) != null && !parentFile.exists() && !parentFile.mkdirs()) || nativeSymlink(str, str2) != 0) ? false : true;
-        }
-        return invokeLL.booleanValue;
+        File file = new File(str2);
+        return (file.isDirectory() || str2 == null || ((parentFile = file.getParentFile()) != null && !parentFile.exists() && !parentFile.mkdirs()) || nativeSymlink(str, str2) != 0) ? false : true;
     }
 
     public static native int nativeSymlink(String str, String str2);
 
     public static void setFileRwErrorDetail(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            sFileRwErrorDetail = str;
-        }
+        sFileRwErrorDetail = str;
     }
 }

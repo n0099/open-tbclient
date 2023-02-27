@@ -2,19 +2,12 @@ package com.tencent.mm.opensdk.diffdev.a;
 
 import android.os.AsyncTask;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.diffdev.OAuthErrCode;
 import com.tencent.mm.opensdk.diffdev.OAuthListener;
 import com.tencent.mm.opensdk.utils.Log;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class f extends AsyncTask<Void, Void, a> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public OAuthListener k;
     public String n;
     public int t;
@@ -22,106 +15,70 @@ public final class f extends AsyncTask<Void, Void, a> {
 
     /* loaded from: classes8.dex */
     public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public OAuthErrCode m;
         public String u;
         public int v;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
         public static a b(byte[] bArr) {
-            InterceptResult invokeL;
             OAuthErrCode oAuthErrCode;
             String format;
             OAuthErrCode oAuthErrCode2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-                a aVar = new a();
-                Log.d("MicroMsg.SDK.NoopingResult", "star parse NoopingResult");
-                if (bArr == null || bArr.length == 0) {
-                    Log.e("MicroMsg.SDK.NoopingResult", "parse fail, buf is null");
-                    oAuthErrCode = OAuthErrCode.WechatAuth_Err_NetworkErr;
-                } else {
-                    try {
-                        try {
-                            JSONObject jSONObject = new JSONObject(new String(bArr, IMAudioTransRequest.CHARSET));
-                            int i = jSONObject.getInt("wx_errcode");
-                            aVar.v = i;
-                            Log.d("MicroMsg.SDK.NoopingResult", String.format("nooping uuidStatusCode = %d", Integer.valueOf(i)));
-                            int i2 = aVar.v;
-                            if (i2 == 408) {
-                                oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_OK;
-                            } else if (i2 != 500) {
-                                switch (i2) {
-                                    case 402:
-                                        oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_Timeout;
-                                        break;
-                                    case 403:
-                                        oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_Cancel;
-                                        break;
-                                    case 404:
-                                        oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_OK;
-                                        break;
-                                    case 405:
-                                        aVar.m = OAuthErrCode.WechatAuth_Err_OK;
-                                        aVar.u = jSONObject.getString("wx_code");
-                                        break;
-                                    default:
-                                        oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_NormalErr;
-                                        break;
-                                }
-                                return aVar;
-                            } else {
-                                oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_NormalErr;
-                            }
-                            aVar.m = oAuthErrCode2;
-                            return aVar;
-                        } catch (Exception e) {
-                            format = String.format("parse json fail, ex = %s", e.getMessage());
-                            Log.e("MicroMsg.SDK.NoopingResult", format);
-                            oAuthErrCode = OAuthErrCode.WechatAuth_Err_NormalErr;
-                            aVar.m = oAuthErrCode;
-                            return aVar;
-                        }
-                    } catch (Exception e2) {
-                        format = String.format("parse fail, build String fail, ex = %s", e2.getMessage());
-                    }
+            a aVar = new a();
+            Log.d("MicroMsg.SDK.NoopingResult", "star parse NoopingResult");
+            if (bArr != null && bArr.length != 0) {
+                try {
+                } catch (Exception e) {
+                    format = String.format("parse fail, build String fail, ex = %s", e.getMessage());
                 }
-                aVar.m = oAuthErrCode;
-                return aVar;
+                try {
+                    JSONObject jSONObject = new JSONObject(new String(bArr, IMAudioTransRequest.CHARSET));
+                    int i = jSONObject.getInt("wx_errcode");
+                    aVar.v = i;
+                    Log.d("MicroMsg.SDK.NoopingResult", String.format("nooping uuidStatusCode = %d", Integer.valueOf(i)));
+                    int i2 = aVar.v;
+                    if (i2 == 408) {
+                        oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_OK;
+                    } else if (i2 != 500) {
+                        switch (i2) {
+                            case 402:
+                                oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_Timeout;
+                                break;
+                            case 403:
+                                oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_Cancel;
+                                break;
+                            case 404:
+                                oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_OK;
+                                break;
+                            case 405:
+                                aVar.m = OAuthErrCode.WechatAuth_Err_OK;
+                                aVar.u = jSONObject.getString("wx_code");
+                                break;
+                            default:
+                                oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_NormalErr;
+                                break;
+                        }
+                        return aVar;
+                    } else {
+                        oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_NormalErr;
+                    }
+                    aVar.m = oAuthErrCode2;
+                    return aVar;
+                } catch (Exception e2) {
+                    format = String.format("parse json fail, ex = %s", e2.getMessage());
+                    Log.e("MicroMsg.SDK.NoopingResult", format);
+                    oAuthErrCode = OAuthErrCode.WechatAuth_Err_NormalErr;
+                    aVar.m = oAuthErrCode;
+                    return aVar;
+                }
             }
-            return (a) invokeL.objValue;
+            Log.e("MicroMsg.SDK.NoopingResult", "parse fail, buf is null");
+            oAuthErrCode = OAuthErrCode.WechatAuth_Err_NetworkErr;
+            aVar.m = oAuthErrCode;
+            return aVar;
         }
     }
 
     public f(String str, OAuthListener oAuthListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, oAuthListener};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.n = str;
         this.k = oAuthListener;
         this.url = String.format("https://long.open.weixin.qq.com/connect/l/qrconnect?f=json&uuid=%s", str);
@@ -164,9 +121,9 @@ public final class f extends AsyncTask<Void, Void, a> {
                 }
                 int i = b.v;
                 this.t = i;
-                if (i == g.y.getCode()) {
+                if (i == g.UUID_SCANED.getCode()) {
                     this.k.onQrcodeScanned();
-                } else if (b.v != g.A.getCode() && b.v == g.z.getCode()) {
+                } else if (b.v != g.UUID_KEEP_CONNECT.getCode() && b.v == g.UUID_CONFIRM.getCode()) {
                     String str3 = b.u;
                     if (str3 == null || str3.length() == 0) {
                         Log.e("MicroMsg.SDK.NoopingTask", "nooping fail, confirm with an empty code!!!");

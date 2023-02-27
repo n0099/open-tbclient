@@ -2,22 +2,11 @@ package com.baidu.mapapi.search.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class PoiInfo implements Parcelable {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<PoiInfo> CREATOR;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final Parcelable.Creator<PoiInfo> CREATOR = new h();
     public int a;
     public String address;
     public String area;
@@ -41,127 +30,12 @@ public class PoiInfo implements Parcelable {
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
-    public static final class POITYPE {
-        public static final /* synthetic */ POITYPE[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final POITYPE BUS_LINE;
-        public static final POITYPE BUS_STATION;
-        public static final POITYPE POINT;
-        public static final POITYPE SUBWAY_LINE;
-        public static final POITYPE SUBWAY_STATION;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1279903791, "Lcom/baidu/mapapi/search/core/PoiInfo$POITYPE;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1279903791, "Lcom/baidu/mapapi/search/core/PoiInfo$POITYPE;");
-                    return;
-                }
-            }
-            POINT = new POITYPE("POINT", 0, 0);
-            BUS_STATION = new POITYPE("BUS_STATION", 1, 1);
-            BUS_LINE = new POITYPE("BUS_LINE", 2, 2);
-            SUBWAY_STATION = new POITYPE("SUBWAY_STATION", 3, 3);
-            POITYPE poitype = new POITYPE("SUBWAY_LINE", 4, 4);
-            SUBWAY_LINE = poitype;
-            $VALUES = new POITYPE[]{POINT, BUS_STATION, BUS_LINE, SUBWAY_STATION, poitype};
-        }
-
-        public POITYPE(String str, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = i2;
-        }
-
-        public static POITYPE fromInt(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-                if (i != 0) {
-                    if (i != 1) {
-                        if (i != 2) {
-                            if (i != 3) {
-                                if (i != 4) {
-                                    return null;
-                                }
-                                return SUBWAY_LINE;
-                            }
-                            return SUBWAY_STATION;
-                        }
-                        return BUS_LINE;
-                    }
-                    return BUS_STATION;
-                }
-                return POINT;
-            }
-            return (POITYPE) invokeI.objValue;
-        }
-
-        public static POITYPE valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-                return (POITYPE) Enum.valueOf(POITYPE.class, str);
-            }
-            return (POITYPE) invokeL.objValue;
-        }
-
-        public static POITYPE[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-                return (POITYPE[]) $VALUES.clone();
-            }
-            return (POITYPE[]) invokeV.objValue;
-        }
-
-        public int getInt() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return invokeV.intValue;
-        }
+        return 0;
     }
 
     /* loaded from: classes2.dex */
     public static class ParentPoiInfo implements Parcelable {
-        public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<ParentPoiInfo> CREATOR;
-        public transient /* synthetic */ FieldHolder $fh;
+        public static final Parcelable.Creator<ParentPoiInfo> CREATOR = new i();
         public String parentPoiAddress;
         public String parentPoiDirection;
         public int parentPoiDistance;
@@ -172,122 +46,41 @@ public class PoiInfo implements Parcelable {
 
         @Override // android.os.Parcelable
         public int describeContents() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2054057445, "Lcom/baidu/mapapi/search/core/PoiInfo$ParentPoiInfo;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(2054057445, "Lcom/baidu/mapapi/search/core/PoiInfo$ParentPoiInfo;");
-                    return;
-                }
-            }
-            CREATOR = new i();
+            return 0;
         }
 
         public ParentPoiInfo() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
         }
 
         public String getParentPoiAddress() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.parentPoiAddress;
-            }
-            return (String) invokeV.objValue;
+            return this.parentPoiAddress;
         }
 
         public String getParentPoiDirection() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.parentPoiDirection;
-            }
-            return (String) invokeV.objValue;
+            return this.parentPoiDirection;
         }
 
         public int getParentPoiDistance() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.parentPoiDistance;
-            }
-            return invokeV.intValue;
+            return this.parentPoiDistance;
         }
 
         public LatLng getParentPoiLocation() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.parentPoiLocation;
-            }
-            return (LatLng) invokeV.objValue;
+            return this.parentPoiLocation;
         }
 
         public String getParentPoiName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return this.parentPoiName;
-            }
-            return (String) invokeV.objValue;
+            return this.parentPoiName;
         }
 
         public String getParentPoiTag() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return this.parentPoiTag;
-            }
-            return (String) invokeV.objValue;
+            return this.parentPoiTag;
         }
 
         public String getParentPoiUid() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return this.parentPoiUid;
-            }
-            return (String) invokeV.objValue;
+            return this.parentPoiUid;
         }
 
         public ParentPoiInfo(Parcel parcel) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {parcel};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
             this.parentPoiName = parcel.readString();
             this.parentPoiTag = parcel.readString();
             this.parentPoiAddress = parcel.readString();
@@ -298,294 +91,167 @@ public class PoiInfo implements Parcelable {
         }
 
         public void setParentPoiAddress(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-                this.parentPoiAddress = str;
-            }
+            this.parentPoiAddress = str;
         }
 
         public void setParentPoiDirection(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-                this.parentPoiDirection = str;
-            }
+            this.parentPoiDirection = str;
         }
 
         public void setParentPoiDistance(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-                this.parentPoiDistance = i;
-            }
+            this.parentPoiDistance = i;
         }
 
         public void setParentPoiLocation(LatLng latLng) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048587, this, latLng) == null) {
-                this.parentPoiLocation = latLng;
-            }
+            this.parentPoiLocation = latLng;
         }
 
         public void setParentPoiName(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-                this.parentPoiName = str;
-            }
+            this.parentPoiName = str;
         }
 
         public void setParentPoiTag(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-                this.parentPoiTag = str;
-            }
+            this.parentPoiTag = str;
         }
 
         public void setParentPoiUid(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-                this.parentPoiUid = str;
-            }
+            this.parentPoiUid = str;
         }
 
         @Override // android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048591, this, parcel, i) == null) {
-                parcel.writeString(this.parentPoiName);
-                parcel.writeString(this.parentPoiTag);
-                parcel.writeString(this.parentPoiAddress);
-                parcel.writeParcelable(this.parentPoiLocation, i);
-                parcel.writeString(this.parentPoiDirection);
-                parcel.writeInt(this.parentPoiDistance);
-                parcel.writeString(this.parentPoiUid);
-            }
+            parcel.writeString(this.parentPoiName);
+            parcel.writeString(this.parentPoiTag);
+            parcel.writeString(this.parentPoiAddress);
+            parcel.writeParcelable(this.parentPoiLocation, i);
+            parcel.writeString(this.parentPoiDirection);
+            parcel.writeInt(this.parentPoiDistance);
+            parcel.writeString(this.parentPoiUid);
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1654762479, "Lcom/baidu/mapapi/search/core/PoiInfo;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1654762479, "Lcom/baidu/mapapi/search/core/PoiInfo;");
-                return;
-            }
-        }
-        CREATOR = new h();
     }
 
     public PoiInfo() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
     }
 
     public int getAdCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
+        return this.a;
     }
 
     public String getAddress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.address;
-        }
-        return (String) invokeV.objValue;
+        return this.address;
     }
 
     public String getArea() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.area;
-        }
-        return (String) invokeV.objValue;
+        return this.area;
     }
 
     public String getCity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.city;
-        }
-        return (String) invokeV.objValue;
+        return this.city;
     }
 
     public int getDetail() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.detail;
-        }
-        return invokeV.intValue;
+        return this.detail;
     }
 
     public String getDirection() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.direction;
-        }
-        return (String) invokeV.objValue;
+        return this.direction;
     }
 
     public int getDistance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.distance;
-        }
-        return invokeV.intValue;
+        return this.distance;
     }
 
     public LatLng getLocation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.location;
-        }
-        return (LatLng) invokeV.objValue;
+        return this.location;
     }
 
     public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.name;
-        }
-        return (String) invokeV.objValue;
+        return this.name;
     }
 
     public ParentPoiInfo getParentPoi() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.parentPoiInfo;
-        }
-        return (ParentPoiInfo) invokeV.objValue;
+        return this.parentPoiInfo;
     }
 
     public String getPhoneNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.phoneNum;
-        }
-        return (String) invokeV.objValue;
+        return this.phoneNum;
     }
 
     public PoiDetailInfo getPoiDetailInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.poiDetailInfo;
-        }
-        return (PoiDetailInfo) invokeV.objValue;
+        return this.poiDetailInfo;
     }
 
     public String getPostCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.postCode;
-        }
-        return (String) invokeV.objValue;
+        return this.postCode;
     }
 
     public String getProvince() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.province;
-        }
-        return (String) invokeV.objValue;
+        return this.province;
     }
 
     public String getStreetId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.street_id;
-        }
-        return (String) invokeV.objValue;
+        return this.street_id;
     }
 
     public String getTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.tag;
-        }
-        return (String) invokeV.objValue;
+        return this.tag;
     }
 
     public POITYPE getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.type;
-        }
-        return (POITYPE) invokeV.objValue;
+        return this.type;
     }
 
     public String getUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.uid;
-        }
-        return (String) invokeV.objValue;
+        return this.uid;
     }
 
     public boolean isHasCaterDetails() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.hasCaterDetails;
-        }
-        return invokeV.booleanValue;
+        return this.hasCaterDetails;
     }
 
     public boolean isPano() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.isPano;
+        return this.isPano;
+    }
+
+    /* loaded from: classes2.dex */
+    public enum POITYPE {
+        POINT(0),
+        BUS_STATION(1),
+        BUS_LINE(2),
+        SUBWAY_STATION(3),
+        SUBWAY_LINE(4);
+        
+        public int a;
+
+        POITYPE(int i) {
+            this.a = i;
         }
-        return invokeV.booleanValue;
+
+        public static POITYPE fromInt(int i) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
+                                return null;
+                            }
+                            return SUBWAY_LINE;
+                        }
+                        return SUBWAY_STATION;
+                    }
+                    return BUS_LINE;
+                }
+                return BUS_STATION;
+            }
+            return POINT;
+        }
+
+        public int getInt() {
+            return this.a;
+        }
     }
 
     public PoiInfo(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.name = parcel.readString();
         this.uid = parcel.readString();
         this.tag = parcel.readString();
@@ -608,238 +274,170 @@ public class PoiInfo implements Parcelable {
     }
 
     public void setAdCode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            this.a = i;
-        }
+        this.a = i;
     }
 
     public void setAddress(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
-            this.address = str;
-        }
+        this.address = str;
     }
 
     public void setArea(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
-            this.area = str;
-        }
+        this.area = str;
     }
 
     public void setCity(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
-            this.city = str;
-        }
+        this.city = str;
     }
 
     public void setDetail(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
-            this.detail = i;
-        }
+        this.detail = i;
     }
 
     public void setDirection(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            this.direction = str;
-        }
+        this.direction = str;
     }
 
     public void setDistance(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
-            this.distance = i;
-        }
+        this.distance = i;
     }
 
     public void setHasCaterDetails(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
-            this.hasCaterDetails = z;
-        }
+        this.hasCaterDetails = z;
     }
 
     public void setLocation(LatLng latLng) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, latLng) == null) {
-            this.location = latLng;
-        }
+        this.location = latLng;
     }
 
     public void setName(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
-            this.name = str;
-        }
+        this.name = str;
     }
 
     public void setPano(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
-            this.isPano = z;
-        }
+        this.isPano = z;
     }
 
     public void setParentPoi(ParentPoiInfo parentPoiInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, parentPoiInfo) == null) {
-            this.parentPoiInfo = parentPoiInfo;
-        }
+        this.parentPoiInfo = parentPoiInfo;
     }
 
     public void setPhoneNum(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
-            this.phoneNum = str;
-        }
+        this.phoneNum = str;
     }
 
     public void setPoiDetailInfo(PoiDetailInfo poiDetailInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, poiDetailInfo) == null) {
-            this.poiDetailInfo = poiDetailInfo;
-        }
+        this.poiDetailInfo = poiDetailInfo;
     }
 
     public void setPostCode(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
-            this.postCode = str;
-        }
+        this.postCode = str;
     }
 
     public void setProvince(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
-            this.province = str;
-        }
+        this.province = str;
     }
 
     public void setStreetId(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
-            this.street_id = str;
-        }
+        this.street_id = str;
     }
 
     public void setTag(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, str) == null) {
-            this.tag = str;
-        }
+        this.tag = str;
     }
 
     public void setType(POITYPE poitype) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, poitype) == null) {
-            this.type = poitype;
-        }
+        this.type = poitype;
     }
 
     public void setUid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
-            this.uid = str;
-        }
+        this.uid = str;
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            StringBuffer stringBuffer = new StringBuffer("PoiInfo: ");
-            stringBuffer.append("name = ");
-            stringBuffer.append(this.name);
-            stringBuffer.append("; uid = ");
-            stringBuffer.append(this.uid);
-            stringBuffer.append("; address = ");
-            stringBuffer.append(this.address);
-            stringBuffer.append("; province = ");
-            stringBuffer.append(this.province);
-            stringBuffer.append("; city = ");
-            stringBuffer.append(this.city);
-            stringBuffer.append("; area = ");
-            stringBuffer.append(this.area);
-            stringBuffer.append("; street_id = ");
-            stringBuffer.append(this.street_id);
-            stringBuffer.append("; phoneNum = ");
-            stringBuffer.append(this.phoneNum);
-            stringBuffer.append("; postCode = ");
-            stringBuffer.append(this.postCode);
-            stringBuffer.append("; detail = ");
-            stringBuffer.append(this.detail);
-            stringBuffer.append("; location = ");
-            LatLng latLng = this.location;
-            if (latLng != null) {
-                stringBuffer.append(latLng.toString());
-            } else {
-                stringBuffer.append(StringUtil.NULL_STRING);
-            }
-            stringBuffer.append("; hasCaterDetails = ");
-            stringBuffer.append(this.hasCaterDetails);
-            stringBuffer.append("; isPano = ");
-            stringBuffer.append(this.isPano);
-            stringBuffer.append("; tag = ");
-            stringBuffer.append(this.tag);
-            stringBuffer.append("; poiDetailInfo = ");
-            PoiDetailInfo poiDetailInfo = this.poiDetailInfo;
-            if (poiDetailInfo != null) {
-                stringBuffer.append(poiDetailInfo.toString());
-            } else {
-                stringBuffer.append(StringUtil.NULL_STRING);
-            }
-            stringBuffer.append("; direction = ");
-            stringBuffer.append(this.direction);
-            stringBuffer.append("; distance = ");
-            stringBuffer.append(this.distance);
-            if (this.parentPoiInfo != null) {
-                stringBuffer.append("; parentPoiAddress = ");
-                stringBuffer.append(this.parentPoiInfo.getParentPoiAddress());
-                stringBuffer.append("; parentPoiDirection = ");
-                stringBuffer.append(this.parentPoiInfo.getParentPoiDirection());
-                stringBuffer.append("; parentPoiDistance = ");
-                stringBuffer.append(this.parentPoiInfo.getParentPoiDistance());
-                stringBuffer.append("; parentPoiName = ");
-                stringBuffer.append(this.parentPoiInfo.getParentPoiName());
-                stringBuffer.append("; parentPoiTag = ");
-                stringBuffer.append(this.parentPoiInfo.getParentPoiTag());
-                stringBuffer.append("; parentPoiUid = ");
-                stringBuffer.append(this.parentPoiInfo.getParentPoiUid());
-                stringBuffer.append("; parentPoiLocation = ");
-                stringBuffer.append(this.parentPoiInfo.getParentPoiLocation());
-            }
-            return stringBuffer.toString();
+        StringBuffer stringBuffer = new StringBuffer("PoiInfo: ");
+        stringBuffer.append("name = ");
+        stringBuffer.append(this.name);
+        stringBuffer.append("; uid = ");
+        stringBuffer.append(this.uid);
+        stringBuffer.append("; address = ");
+        stringBuffer.append(this.address);
+        stringBuffer.append("; province = ");
+        stringBuffer.append(this.province);
+        stringBuffer.append("; city = ");
+        stringBuffer.append(this.city);
+        stringBuffer.append("; area = ");
+        stringBuffer.append(this.area);
+        stringBuffer.append("; street_id = ");
+        stringBuffer.append(this.street_id);
+        stringBuffer.append("; phoneNum = ");
+        stringBuffer.append(this.phoneNum);
+        stringBuffer.append("; postCode = ");
+        stringBuffer.append(this.postCode);
+        stringBuffer.append("; detail = ");
+        stringBuffer.append(this.detail);
+        stringBuffer.append("; location = ");
+        LatLng latLng = this.location;
+        if (latLng != null) {
+            stringBuffer.append(latLng.toString());
+        } else {
+            stringBuffer.append(StringUtil.NULL_STRING);
         }
-        return (String) invokeV.objValue;
+        stringBuffer.append("; hasCaterDetails = ");
+        stringBuffer.append(this.hasCaterDetails);
+        stringBuffer.append("; isPano = ");
+        stringBuffer.append(this.isPano);
+        stringBuffer.append("; tag = ");
+        stringBuffer.append(this.tag);
+        stringBuffer.append("; poiDetailInfo = ");
+        PoiDetailInfo poiDetailInfo = this.poiDetailInfo;
+        if (poiDetailInfo != null) {
+            stringBuffer.append(poiDetailInfo.toString());
+        } else {
+            stringBuffer.append(StringUtil.NULL_STRING);
+        }
+        stringBuffer.append("; direction = ");
+        stringBuffer.append(this.direction);
+        stringBuffer.append("; distance = ");
+        stringBuffer.append(this.distance);
+        if (this.parentPoiInfo != null) {
+            stringBuffer.append("; parentPoiAddress = ");
+            stringBuffer.append(this.parentPoiInfo.getParentPoiAddress());
+            stringBuffer.append("; parentPoiDirection = ");
+            stringBuffer.append(this.parentPoiInfo.getParentPoiDirection());
+            stringBuffer.append("; parentPoiDistance = ");
+            stringBuffer.append(this.parentPoiInfo.getParentPoiDistance());
+            stringBuffer.append("; parentPoiName = ");
+            stringBuffer.append(this.parentPoiInfo.getParentPoiName());
+            stringBuffer.append("; parentPoiTag = ");
+            stringBuffer.append(this.parentPoiInfo.getParentPoiTag());
+            stringBuffer.append("; parentPoiUid = ");
+            stringBuffer.append(this.parentPoiInfo.getParentPoiUid());
+            stringBuffer.append("; parentPoiLocation = ");
+            stringBuffer.append(this.parentPoiInfo.getParentPoiLocation());
+        }
+        return stringBuffer.toString();
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048618, this, parcel, i) == null) {
-            parcel.writeString(this.name);
-            parcel.writeString(this.uid);
-            parcel.writeString(this.tag);
-            parcel.writeString(this.address);
-            parcel.writeString(this.province);
-            parcel.writeString(this.city);
-            parcel.writeString(this.area);
-            parcel.writeString(this.street_id);
-            parcel.writeString(this.phoneNum);
-            parcel.writeString(this.postCode);
-            parcel.writeValue(Integer.valueOf(this.detail));
-            parcel.writeValue(this.type);
-            parcel.writeParcelable(this.location, 1);
-            parcel.writeValue(Boolean.valueOf(this.hasCaterDetails));
-            parcel.writeValue(Boolean.valueOf(this.isPano));
-            parcel.writeParcelable(this.poiDetailInfo, 1);
-            parcel.writeString(this.direction);
-            parcel.writeInt(this.distance);
-            parcel.writeParcelable(this.parentPoiInfo, 1);
-        }
+        parcel.writeString(this.name);
+        parcel.writeString(this.uid);
+        parcel.writeString(this.tag);
+        parcel.writeString(this.address);
+        parcel.writeString(this.province);
+        parcel.writeString(this.city);
+        parcel.writeString(this.area);
+        parcel.writeString(this.street_id);
+        parcel.writeString(this.phoneNum);
+        parcel.writeString(this.postCode);
+        parcel.writeValue(Integer.valueOf(this.detail));
+        parcel.writeValue(this.type);
+        parcel.writeParcelable(this.location, 1);
+        parcel.writeValue(Boolean.valueOf(this.hasCaterDetails));
+        parcel.writeValue(Boolean.valueOf(this.isPano));
+        parcel.writeParcelable(this.poiDetailInfo, 1);
+        parcel.writeString(this.direction);
+        parcel.writeInt(this.distance);
+        parcel.writeParcelable(this.parentPoiInfo, 1);
     }
 }

@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
 import java.util.Date;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -132,7 +131,7 @@ public class k1 {
                 SharedPreferences.Editor edit8 = context2.getSharedPreferences("_prefs", 0).edit();
                 edit8.putString("bp", jSONArray2);
                 edit8.apply();
-                int optInt6 = jSONObject2.optInt(NotificationStyle.BASE_STYLE, 0);
+                int optInt6 = jSONObject2.optInt("bs", 0);
                 SharedPreferences.Editor edit9 = this.a.getSharedPreferences("_prefs", 0).edit();
                 edit9.putInt("bro_high", optInt6);
                 edit9.apply();

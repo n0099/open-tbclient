@@ -57,7 +57,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 import javax.crypto.Cipher;
-import org.apache.commons.codec.binary4util.BaseNCodec;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -65,7 +64,7 @@ import org.json.JSONObject;
 public final class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a;
-    public static C0020b e = null;
+    public static C0007b e = null;
     public static boolean f = true;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context b;
@@ -106,7 +105,7 @@ public final class b {
 
     /* renamed from: com.baidu.android.bbalbs.common.util.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0020b {
+    public static class C0007b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -114,7 +113,7 @@ public final class b {
         public int c;
         public int d;
 
-        public C0020b() {
+        public C0007b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,7 +130,7 @@ public final class b {
             this.d = 0;
         }
 
-        public /* synthetic */ C0020b(com.baidu.android.bbalbs.common.util.c cVar) {
+        public /* synthetic */ C0007b(com.baidu.android.bbalbs.common.util.c cVar) {
             this();
         }
 
@@ -147,7 +146,7 @@ public final class b {
             return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? TextUtils.isEmpty(str) : invokeL.booleanValue;
         }
 
-        public static C0020b b(String str) {
+        public static C0007b b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
@@ -169,46 +168,46 @@ public final class b {
                     int i = jSONObject.getInt(b.m("dmVy"));
                     int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
                     if (!TextUtils.isEmpty(string)) {
-                        C0020b c0020b = new C0020b();
-                        c0020b.a = string;
-                        c0020b.c = i;
-                        c0020b.d = length;
+                        C0007b c0007b = new C0007b();
+                        c0007b.a = string;
+                        c0007b.c = i;
+                        c0007b.d = length;
                         if (length < 14) {
                             if (!TextUtils.isEmpty(str3)) {
                                 str2 = str3;
                             }
-                            c0020b.b = str2;
+                            c0007b.b = str2;
                         }
-                        return c0020b;
+                        return c0007b;
                     }
                 } catch (JSONException e) {
                     b.b(e);
                 }
                 return null;
             }
-            return (C0020b) invokeL.objValue;
+            return (C0007b) invokeL.objValue;
         }
 
-        public static C0020b b(String str, String str2) {
+        public static C0007b b(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }
-                C0020b c0020b = new C0020b();
-                c0020b.a = str;
+                C0007b c0007b = new C0007b();
+                c0007b.a = str;
                 int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
-                c0020b.d = length;
+                c0007b.d = length;
                 if (length < 14) {
                     if (TextUtils.isEmpty(str2)) {
                         str2 = "0";
                     }
-                    c0020b.b = str2;
+                    c0007b.b = str2;
                 }
-                return c0020b;
+                return c0007b;
             }
-            return (C0020b) invokeLL.objValue;
+            return (C0007b) invokeLL.objValue;
         }
 
         public boolean a() {
@@ -288,8 +287,8 @@ public final class b {
                 return;
             }
         }
-        String str = new String(Base64.decode(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, BaseNCodec.PAD_DEFAULT}));
-        String str2 = new String(Base64.decode(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, BaseNCodec.PAD_DEFAULT}));
+        String str = new String(Base64.decode(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
+        String str2 = new String(Base64.decode(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
         a = str + str2;
     }
 
@@ -453,11 +452,11 @@ public final class b {
         }
     }
 
-    private synchronized void a(C0020b c0020b) {
+    private synchronized void a(C0007b c0007b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, this, c0020b) == null) {
+        if (interceptable == null || interceptable.invokeL(65546, this, c0007b) == null) {
             synchronized (this) {
-                new Thread(c(c0020b)).start();
+                new Thread(c(c0007b)).start();
             }
         }
     }
@@ -507,7 +506,7 @@ public final class b {
         return (String[]) invokeL.objValue;
     }
 
-    private C0020b b() {
+    private C0007b b() {
         InterceptResult invokeV;
         boolean z;
         String str;
@@ -529,7 +528,7 @@ public final class b {
                 }
             }
             File file = new File(this.b.getFilesDir(), "libcuid.so");
-            C0020b b = file.exists() ? C0020b.b(j(b(file))) : null;
+            C0007b b = file.exists() ? C0007b.b(j(b(file))) : null;
             if (b == null) {
                 this.c |= 16;
                 List<a> a3 = a(new Intent("com.baidu.intent.action.GALAXY"), z);
@@ -543,7 +542,7 @@ public final class b {
                     for (a aVar : a3) {
                         if (!aVar.d) {
                             File file2 = new File(new File(aVar.a.dataDir, str2), "libcuid.so");
-                            if (file2.exists() && (b = C0020b.b(j(b(file2)))) != null) {
+                            if (file2.exists() && (b = C0007b.b(j(b(file2)))) != null) {
                                 break;
                             }
                         }
@@ -551,7 +550,7 @@ public final class b {
                 }
             }
             if (b == null) {
-                b = C0020b.b(j(f("com.baidu.deviceid.v2")));
+                b = C0007b.b(j(f("com.baidu.deviceid.v2")));
             }
             boolean g = g(h.i);
             if (b == null && g) {
@@ -575,7 +574,7 @@ public final class b {
                 if (!z2) {
                     str = l("");
                 }
-                b = new C0020b(null);
+                b = new C0007b(null);
                 String c2 = c(this.b);
                 b.a = com.baidu.android.bbalbs.common.security.b.a((Build.VERSION.SDK_INT < 23 ? str + c2 + UUID.randomUUID().toString() : "com.baidu" + c2).getBytes(), true);
                 b.b = str;
@@ -584,15 +583,15 @@ public final class b {
             a(b);
             return b;
         }
-        return (C0020b) invokeV.objValue;
+        return (C0007b) invokeV.objValue;
     }
 
-    public static C0020b b(Context context) {
+    public static C0007b b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) {
             if (e == null) {
-                synchronized (C0020b.class) {
+                synchronized (C0007b.class) {
                     if (e == null) {
                         SystemClock.uptimeMillis();
                         e = new b(context).b();
@@ -602,7 +601,7 @@ public final class b {
             }
             return e;
         }
-        return (C0020b) invokeL.objValue;
+        return (C0007b) invokeL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:46:0x0043 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -704,19 +703,19 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean b(C0020b c0020b) {
+    public boolean b(C0007b c0007b) {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65562, this, c0020b)) == null) {
-            if (c0020b.b()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, this, c0007b)) == null) {
+            if (c0007b.b()) {
                 str = "O";
-            } else if (!c0020b.a()) {
+            } else if (!c0007b.a()) {
                 return false;
             } else {
                 str = "0";
             }
-            c0020b.b = str;
+            c0007b.b = str;
             return true;
         }
         return invokeL.booleanValue;
@@ -737,10 +736,10 @@ public final class b {
         return invokeLL.booleanValue;
     }
 
-    private Runnable c(C0020b c0020b) {
+    private Runnable c(C0007b c0007b) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65566, this, c0020b)) == null) ? new d(this, c0020b) : (Runnable) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65566, this, c0007b)) == null) ? new d(this, c0007b) : (Runnable) invokeL.objValue;
     }
 
     public static String c(Context context) {
@@ -788,14 +787,14 @@ public final class b {
         return (interceptable == null || (invokeV = interceptable.invokeV(65570, this)) == null) ? g("android.permission.WRITE_SETTINGS") : invokeV.booleanValue;
     }
 
-    private C0020b d() {
+    private C0007b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65572, this)) == null) ? C0020b.b(f("com.baidu.deviceid"), f("bd_setting_i")) : (C0020b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65572, this)) == null) ? C0007b.b(f("com.baidu.deviceid"), f("bd_setting_i")) : (C0007b) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0020b e() {
+    public C0007b e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65575, this)) == null) {
@@ -806,7 +805,7 @@ public final class b {
                     return null;
                 }
                 try {
-                    return C0020b.b(new String(com.baidu.android.bbalbs.common.security.a.b(a, a, Base64.decode(b.getBytes()))));
+                    return C0007b.b(new String(com.baidu.android.bbalbs.common.security.a.b(a, a, Base64.decode(b.getBytes()))));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     return null;
@@ -814,7 +813,7 @@ public final class b {
             }
             return null;
         }
-        return (C0020b) invokeV.objValue;
+        return (C0007b) invokeV.objValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
@@ -899,7 +898,7 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0020b h(String str) {
+    public C0007b h(String str) {
         InterceptResult invokeL;
         String str2;
         String[] split;
@@ -931,12 +930,12 @@ public final class b {
                     str3 = split[1];
                 } catch (FileNotFoundException | IOException | Exception unused2) {
                 }
-                return C0020b.b(str3, str2);
+                return C0007b.b(str3, str2);
             }
             str2 = "";
-            return C0020b.b(str3, str2);
+            return C0007b.b(str3, str2);
         }
-        return (C0020b) invokeL.objValue;
+        return (C0007b) invokeL.objValue;
     }
 
     public static String i(String str) {

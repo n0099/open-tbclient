@@ -1,48 +1,42 @@
 package com.baidu.tieba;
 
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.media.AudioManager;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes4.dex */
 public class ej3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ej3 i;
+    public static ej3 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public SensorManager a;
-    public SensorEventListener b;
-    public Sensor c;
-    public Sensor d;
-    public b e;
-    public float[] f;
-    public float[] g;
-    public boolean h;
+    public final ConcurrentHashMap<String, b> a;
+    public AudioManager b;
+    public boolean c;
+    public BroadcastReceiver d;
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(float[] fArr);
+        void a(int i);
     }
 
     /* loaded from: classes4.dex */
-    public class a implements SensorEventListener {
+    public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ej3 a;
-
-        @Override // android.hardware.SensorEventListener
-        public void onAccuracyChanged(Sensor sensor, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i) == null) {
-            }
-        }
+        public final /* synthetic */ ej3 this$0;
 
         public a(ej3 ej3Var) {
             Interceptable interceptable = $ic;
@@ -59,30 +53,24 @@ public class ej3 {
                     return;
                 }
             }
-            this.a = ej3Var;
+            this.this$0 = ej3Var;
         }
 
-        @Override // android.hardware.SensorEventListener
-        public void onSensorChanged(SensorEvent sensorEvent) {
-            Sensor sensor;
-            float[] g;
-            Sensor sensor2;
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) {
-                if (sensorEvent != null && (sensor2 = sensorEvent.sensor) != null && sensor2.getType() == 1) {
-                    float[] fArr = sensorEvent.values;
-                    if (fArr == null || fArr.length != 3) {
-                        return;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.media.VOLUME_CHANGED_ACTION".equals(intent.getAction()) && intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1) == 3) {
+                if (this.this$0.b == null) {
+                    this.this$0.b = (AudioManager) ts2.c().getSystemService("audio");
+                }
+                for (Map.Entry entry : this.this$0.a.entrySet()) {
+                    if (this.this$0.b != null) {
+                        i = this.this$0.b.getStreamVolume(3);
+                    } else {
+                        i = 0;
                     }
-                    this.a.f = (float[]) fArr.clone();
-                } else if (sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 2) {
-                    float[] fArr2 = sensorEvent.values;
-                    if (fArr2 != null && fArr2.length == 3) {
-                        this.a.g = (float[]) fArr2.clone();
-                    }
-                    if (this.a.e != null && this.a.f != null && this.a.g != null && (g = this.a.g()) != null) {
-                        this.a.e.a(g);
-                    }
+                    ((b) entry.getValue()).a(i);
                 }
             }
         }
@@ -93,141 +81,130 @@ public class ej3 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = false;
+        this.a = new ConcurrentHashMap<>();
+        this.d = new a(this);
     }
 
-    public static ej3 h() {
+    public static ej3 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (i == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (e == null) {
                 synchronized (ej3.class) {
-                    if (i == null) {
-                        i = new ej3();
+                    if (e == null) {
+                        e = new ej3();
                     }
                 }
             }
-            return i;
+            return e;
         }
         return (ej3) invokeV.objValue;
     }
 
-    public static void k() {
+    public static void h() {
+        ej3 ej3Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65544, null) != null) || i == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && (ej3Var = e) != null) {
+            ej3Var.g();
         }
-        i.j();
     }
 
-    public final SensorEventListener i() {
+    private void registerReceiver() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("android.media.VOLUME_CHANGED_ACTION");
+            ts2.c().registerReceiver(this.d, intentFilter);
+            this.c = true;
+        }
+    }
+
+    private void unregisterReceiver() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            try {
+                ts2.c().unregisterReceiver(this.d);
+                this.c = false;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            w52.i("SwanAppOrientationManager", "get System Sensor listener");
-            SensorEventListener sensorEventListener = this.b;
-            if (sensorEventListener != null) {
-                return sensorEventListener;
+            if (this.b == null) {
+                this.b = (AudioManager) ts2.c().getSystemService("audio");
             }
-            a aVar = new a(this);
-            this.b = aVar;
-            return aVar;
+            AudioManager audioManager = this.b;
+            if (audioManager != null) {
+                return audioManager.getStreamMaxVolume(3);
+            }
+            return 100;
         }
-        return (SensorEventListener) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final void j() {
+    public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            w52.i("SwanAppOrientationManager", "release");
-            if (this.h) {
-                m();
-            }
-            this.a = null;
-            this.c = null;
-            this.d = null;
-            this.b = null;
-            this.f = null;
-            this.g = null;
-            i = null;
-        }
-    }
-
-    @Nullable
-    public final float[] g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            float[] fArr = new float[9];
-            float[] fArr2 = new float[9];
-            float[] fArr3 = new float[3];
-            if (!SensorManager.getRotationMatrix(fArr, null, this.f, this.g) || !SensorManager.remapCoordinateSystem(fArr, 2, 129, fArr2)) {
-                return null;
-            }
-            SensorManager.getOrientation(fArr2, fArr3);
-            return fArr3;
-        }
-        return (float[]) invokeV.objValue;
-    }
-
-    public void m() {
-        SensorManager sensorManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!this.h) {
-                w52.o("SwanAppOrientationManager", "has already stop");
-                return;
-            }
-            this.h = false;
-            SensorEventListener sensorEventListener = this.b;
-            if (sensorEventListener != null && (sensorManager = this.a) != null) {
-                sensorManager.unregisterListener(sensorEventListener);
+            synchronized (this) {
+                this.a.clear();
                 this.b = null;
+                this.c = false;
             }
-            this.e = null;
-            this.a = null;
-            this.c = null;
-            this.d = null;
+            e = null;
         }
     }
 
-    public boolean l(int i2, @NonNull b bVar) {
-        InterceptResult invokeIL;
+    public void d(@NonNull String str, @NonNull b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i2, bVar)) == null) {
-            if (this.h) {
-                w52.o("SwanAppOrientationManager", "has already start, change new listener");
-                this.e = bVar;
-                return true;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, bVar) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        synchronized (this) {
+            this.a.put(str, bVar);
+            if (!this.c) {
+                registerReceiver();
             }
-            SensorManager sensorManager = (SensorManager) ds2.c().getSystemService("sensor");
-            this.a = sensorManager;
-            if (sensorManager != null) {
-                this.e = bVar;
-                this.c = sensorManager.getDefaultSensor(1);
-                Sensor defaultSensor = this.a.getDefaultSensor(2);
-                this.d = defaultSensor;
-                if (this.c != null && defaultSensor != null) {
-                    this.a.registerListener(i(), this.c, i2);
-                    this.a.registerListener(i(), this.d, i2);
-                    this.h = true;
-                    w52.i("SwanAppOrientationManager", "start listen");
-                    return true;
-                }
-                w52.c("SwanAppOrientationManager", "Accelerometer || Magnetic is null");
+            if (wp1.a) {
+                Log.d("SystemVolumeManager", "Id = " + str + " listener added, listeners count: " + this.a.size());
+            }
+        }
+    }
+
+    public boolean i(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            boolean z = false;
+            if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            w52.c("SwanAppOrientationManager", "none sensorManager");
-            return false;
+            synchronized (this) {
+                b remove = this.a.remove(str);
+                if (this.a.size() == 0 && this.c) {
+                    unregisterReceiver();
+                }
+                if (wp1.a && remove != null) {
+                    Log.d("SystemVolumeManager", "Id = " + str + " listener removed, listeners count: " + this.a.size());
+                }
+                if (remove != null) {
+                    z = true;
+                }
+            }
+            return z;
         }
-        return invokeIL.booleanValue;
+        return invokeL.booleanValue;
     }
 }

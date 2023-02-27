@@ -1,105 +1,55 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.minivideo.plugin.capture.report.ReportConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.AbstractMap;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class lx9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T> boolean a(List<T> list, List<T> list2) {
-        InterceptResult invokeLL;
+    public static void a(String str, px9 px9Var, ox9 ox9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, list, list2)) == null) {
-            if (!e(list2) && list != null) {
-                return list.addAll(list2);
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, px9Var, ox9Var) == null) {
+            if (d1a.a) {
+                d1a.c("UGC_ArKpiReport", "perf_record_arperf, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + ox9Var.toString());
             }
-            return false;
+            jx9 g = gx9.c().g();
+            if (g != null) {
+                ArrayList arrayList = null;
+                if (ox9Var != null) {
+                    arrayList = new ArrayList();
+                    arrayList.add(new AbstractMap.SimpleEntry("sft", ox9Var.a));
+                    arrayList.add(new AbstractMap.SimpleEntry("bft", ox9Var.b));
+                    arrayList.add(new AbstractMap.SimpleEntry("mem", ox9Var.f));
+                    arrayList.add(new AbstractMap.SimpleEntry("fc", ox9Var.c));
+                    arrayList.add(new AbstractMap.SimpleEntry("time", ox9Var.d + ""));
+                }
+                g.a("perf_record_arperf", str, px9Var.a, px9Var.b, px9Var.c, px9Var.d, px9Var.e, null, arrayList);
+            }
         }
-        return invokeLL.booleanValue;
     }
 
-    public static <T> T c(List<T> list, int i) {
-        InterceptResult invokeLI;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i)) == null) {
-            if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
-                return null;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            if (d1a.a) {
+                d1a.c("UGC_ArKpiReport", "perf_publish_debug, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
             }
-            return list.get(i);
-        }
-        return (T) invokeLI.objValue;
-    }
-
-    public static <T> T g(List<T> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, list, i)) == null) {
-            if (!e(list) && list != null && i >= 0 && i < list.size()) {
-                return list.remove(i);
+            jx9 g = gx9.c().g();
+            if (g != null) {
+                ArrayList arrayList = null;
+                if (str2 != null) {
+                    arrayList = new ArrayList(3);
+                    arrayList.add(new AbstractMap.SimpleEntry<>("ext", str2));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vername", b1a.a(gx9.c().getContext())));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vercode", String.valueOf(b1a.b(gx9.c().getContext()))));
+                }
+                g.a(ReportConfig.LOG_KEY_PUBLISH_DEBUG, str, null, null, null, null, null, null, arrayList);
             }
-            return null;
-        }
-        return (T) invokeLI.objValue;
-    }
-
-    public static <T> int b(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static <T> T d(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                return (T) c(list, list.size() - 1);
-            }
-            return null;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public static <T> boolean e(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
-            if (b(list) <= 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static <T> boolean f(Map map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
-            if (map != null && !map.isEmpty()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static <T> void h(List<T> list, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65543, null, list, i, i2) == null) && !e(list) && i >= 0 && i2 >= 0 && i <= b(list) - 1 && i2 <= b(list) - 1) {
-            Collections.swap(list, i, i2);
         }
     }
 }

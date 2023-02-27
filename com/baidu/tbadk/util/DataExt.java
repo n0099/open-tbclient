@@ -8,7 +8,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ko5;
+import com.baidu.tieba.yp5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -376,8 +376,8 @@ public final class DataExt {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fieldAttributes)) == null) {
-                ko5 ko5Var = (ko5) fieldAttributes.getAnnotation(ko5.class);
-                if (ko5Var != null && !ko5Var.deserialize()) {
+                yp5 yp5Var = (yp5) fieldAttributes.getAnnotation(yp5.class);
+                if (yp5Var != null && !yp5Var.deserialize()) {
                     return true;
                 }
                 return false;
@@ -420,8 +420,8 @@ public final class DataExt {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fieldAttributes)) == null) {
-                ko5 ko5Var = (ko5) fieldAttributes.getAnnotation(ko5.class);
-                if (ko5Var != null && !ko5Var.serialize()) {
+                yp5 yp5Var = (yp5) fieldAttributes.getAnnotation(yp5.class);
+                if (yp5Var != null && !yp5Var.serialize()) {
                     return true;
                 }
                 return false;

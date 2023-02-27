@@ -1,146 +1,121 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
+import android.content.Context;
+import android.view.View;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.io.JSONUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class wl3 {
+public class wl3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948274379, "Lcom/baidu/tieba/wl3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static class a extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+
+        public a(View view2) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948274379, "Lcom/baidu/tieba/wl3;");
+            this.a = view2;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                this.a.setTranslationX(0.0f);
+            }
+        }
+    }
+
+    public static void a(v82 v82Var, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, v82Var, context) == null) {
+            b(v82Var, context, 2);
+        }
+    }
+
+    public static void b(v82 v82Var, Context context, int i) {
+        View V;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65537, null, v82Var, context, i) == null) && v82Var != null && v82Var.k() >= i) {
+            s82 j = v82Var.j(v82Var.k() - i);
+            s82 m = v82Var.m();
+            if (m != null && m.E0) {
                 return;
             }
+            float o = dn3.o(context) >> 2;
+            if (j != null && (V = j.V()) != null) {
+                ObjectAnimator.ofFloat(V, Key.TRANSLATION_X, -o, 0.0f).setDuration(300L).start();
+            }
         }
-        a = gp1.a;
     }
 
-    public static <T> T a(JSONObject jSONObject, String str, Class<T> cls) {
-        InterceptResult invokeLLL;
+    public static void c(v82 v82Var, Context context) {
+        View V;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, jSONObject, str, cls)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, v82Var, context) == null) && v82Var != null && v82Var.k() >= 2) {
+            s82 j = v82Var.j(v82Var.k() - 2);
+            float o = dn3.o(context) >> 2;
+            if (j != null && (V = j.V()) != null) {
+                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(V, Key.TRANSLATION_X, 0.0f, -o);
+                ofFloat.setDuration(300L).start();
+                ofFloat.addListener(new a(V));
             }
-            T t = (T) jSONObject.opt(str);
-            if (cls.isInstance(t)) {
-                if (a) {
-                    String obj = t.toString();
-                    if (((t instanceof JSONObject) || (t instanceof JSONArray)) && obj.length() > 30) {
-                        obj = obj.substring(0, 30) + StringHelper.STRING_MORE;
-                    }
-                    if (a) {
-                        Log.d(JSONUtils.TAG, "json: " + str + "=" + obj);
-                    }
+        }
+    }
+
+    public static void d(@NonNull kn4 kn4Var, String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLII(65539, null, kn4Var, str, i, i2) != null) || kn4Var == null) {
+            return;
+        }
+        char c = 65535;
+        int hashCode = str.hashCode();
+        if (hashCode != -1876181062) {
+            if (hashCode != -983638536) {
+                if (hashCode == 1528366175 && str.equals("showModalPage")) {
+                    c = 1;
                 }
-                return t;
+            } else if (str.equals("navigateBack")) {
+                c = 0;
             }
-            if (a) {
-                if (t == null) {
-                    Log.w(JSONUtils.TAG, "Json has no value by name: '" + str + "'!");
-                } else {
-                    Log.w(JSONUtils.TAG, "Value of '" + str + "' is not a instance of '" + cls.getSimpleName() + "'!");
-                }
-            }
-            return null;
+        } else if (str.equals("hideModalPage")) {
+            c = 2;
         }
-        return (T) invokeLLL.objValue;
-    }
-
-    public static float b(JSONObject jSONObject, String str, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{jSONObject, str, Float.valueOf(f)})) == null) {
-            if (jSONObject == null) {
-                return f;
+        if (c != 0) {
+            if (c != 1 && c != 2) {
+                kn4Var.i(i, i2);
+                return;
             }
-            return (float) jSONObject.optDouble(str, f);
+            return;
         }
-        return invokeCommon.floatValue;
-    }
-
-    public static JSONObject f(JSONObject jSONObject, String str, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, jSONObject, str, obj)) == null) {
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            try {
-                jSONObject.put(str, obj);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+        v82 V = zu2.U().V();
+        s82 j = V.j(V.k() - 1);
+        if (j != null && j.E0) {
+            return;
         }
-        return (JSONObject) invokeLLL.objValue;
-    }
-
-    public static JSONArray c(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, jSONObject, str)) == null) {
-            return (JSONArray) a(jSONObject, str, JSONArray.class);
-        }
-        return (JSONArray) invokeLL.objValue;
-    }
-
-    @NonNull
-    public static JSONObject d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new JSONObject();
-            }
-            try {
-                return new JSONObject(str);
-            } catch (JSONException e) {
-                if (a) {
-                    Log.w(JSONUtils.TAG, "JSONObject parsed error!!", e);
-                }
-                return new JSONObject();
-            }
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static JSONArray e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new JSONArray();
-            }
-            try {
-                return new JSONArray(str);
-            } catch (JSONException e) {
-                if (a) {
-                    Log.w(JSONUtils.TAG, "JSONArray parsed error!!", e);
-                }
-                return new JSONArray();
-            }
-        }
-        return (JSONArray) invokeL.objValue;
+        kn4Var.i(i, i2);
     }
 }

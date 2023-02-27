@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,31 +15,185 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.lang.ref.WeakReference;
+import java.util.Timer;
+import java.util.TimerTask;
 /* loaded from: classes7.dex */
 public class yu2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static final yu2 d;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicBoolean a;
-    public final List<vu2> b;
+    public c a;
+    public a b;
+    public boolean c;
+    public final dv2 d;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface b {
+        void h(int i);
     }
 
     /* loaded from: classes7.dex */
-    public class b extends eu2 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public final /* synthetic */ yu2 b;
+        public b a;
+        public Timer b;
+        public long c;
+        public int d;
 
-        public b(yu2 yu2Var) {
+        /* renamed from: com.baidu.tieba.yu2$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0490a extends TimerTask {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public C0490a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.util.TimerTask, java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (yu2.e) {
+                        Log.d("SwanAppCollectionPolicy", "task run: " + this.a.c);
+                    }
+                    this.a.c -= 10;
+                    if (this.a.c <= 0 && this.a.a != null) {
+                        this.a.a.h(1);
+                        this.a.l();
+                    }
+                }
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = 300L;
+            this.d = 0;
+        }
+
+        public final synchronized void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this) {
+                    if (this.b != null) {
+                        this.b.cancel();
+                        this.b.purge();
+                        this.b = null;
+                    }
+                }
+            }
+        }
+
+        public final TimerTask e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new C0490a(this);
+            }
+            return (TimerTask) invokeV.objValue;
+        }
+
+        public void f() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.d == 2) {
+                return;
+            }
+            this.d = 4;
+            d();
+        }
+
+        public final void g() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.c = l33.a();
+                if (yu2.e && l53.u().getBoolean("swan_5min_back_optimize", false)) {
+                    this.c = 30L;
+                }
+            }
+        }
+
+        public void h() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.d != 4) {
+                return;
+            }
+            this.d = 3;
+            d();
+            i();
+        }
+
+        public final void i() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                Timer timer = new Timer();
+                this.b = timer;
+                timer.schedule(e(), 0L, 10000L);
+            }
+        }
+
+        public void k() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                this.d = 1;
+                g();
+                d();
+                i();
+            }
+        }
+
+        public void l() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                this.d = 2;
+                d();
+                g();
+            }
+        }
+
+        public void j(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
+                this.a = bVar;
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<yu2> mPolicyRef;
+
+        public c(yu2 yu2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,36 +208,43 @@ public class yu2 {
                     return;
                 }
             }
-            this.b = yu2Var;
-            this.a = 0;
+            this.mPolicyRef = new WeakReference<>(yu2Var);
         }
 
-        @Override // com.baidu.tieba.eu2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(@NonNull Activity activity) {
+        public static IntentFilter getIntentFilter() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-                int i = this.a + 1;
-                this.a = i;
-                if (i == 1) {
-                    this.b.d(activity);
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction("android.intent.action.SCREEN_ON");
+                intentFilter.addAction("android.intent.action.SCREEN_OFF");
+                return intentFilter;
             }
+            return (IntentFilter) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.eu2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStopped(@NonNull Activity activity) {
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            yu2 yu2Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                int i = this.a - 1;
-                this.a = i;
-                if (i == 0) {
-                    this.b.e(activity);
-                }
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || intent == null || TextUtils.isEmpty(intent.getAction()) || (yu2Var = this.mPolicyRef.get()) == null) {
+                return;
             }
-        }
-
-        public /* synthetic */ b(yu2 yu2Var, a aVar) {
-            this(yu2Var);
+            String action = intent.getAction();
+            char c = 65535;
+            int hashCode = action.hashCode();
+            if (hashCode != -2128145023) {
+                if (hashCode == -1454123155 && action.equals("android.intent.action.SCREEN_ON")) {
+                    c = 0;
+                }
+            } else if (action.equals("android.intent.action.SCREEN_OFF")) {
+                c = 1;
+            }
+            if (c == 0) {
+                yu2Var.d(true);
+            } else if (c == 1) {
+                yu2Var.d(false);
+            }
         }
     }
 
@@ -100,33 +261,46 @@ public class yu2 {
                 return;
             }
         }
-        c = gp1.a;
-        d = new yu2();
+        e = wp1.a;
     }
 
-    public static yu2 a() {
-        InterceptResult invokeV;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return d;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.f();
         }
-        return (yu2) invokeV.objValue;
     }
 
-    public final boolean c() {
-        InterceptResult invokeV;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (LifecycleProcessType.getCurrent() == LifecycleProcessType.MAIN) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.h();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (e) {
+                Log.d("SwanAppCollectionPolicy", "startCollectionTimeOut");
             }
-            return false;
+            this.d.onPause();
+            this.b.k();
         }
-        return invokeV.booleanValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (e) {
+                Log.d("SwanAppCollectionPolicy", "stopCollectionTimeOut");
+            }
+            this.d.onResume();
+            this.b.l();
+        }
     }
 
     public yu2() {
-        List<vu2> list;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -139,58 +313,58 @@ public class yu2 {
                 return;
             }
         }
-        this.a = new AtomicBoolean(false);
-        ck1<vu2> ck1Var = new xu2().a;
-        if (ck1Var == null) {
-            list = null;
-        } else {
-            list = ck1Var.getList();
-        }
-        this.b = list;
+        this.a = new c(this);
+        this.b = new a();
+        this.d = fv2.c();
     }
 
-    public void b(Context context) {
+    public void c(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && !this.a.getAndSet(true) && c()) {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext instanceof Application) {
-                ((Application) applicationContext).registerActivityLifecycleCallbacks(new b(this, null));
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, context) != null) || this.c) {
+            return;
         }
+        if (context == null && (context = ts2.c()) == null) {
+            return;
+        }
+        this.c = true;
+        context.registerReceiver(this.a, c.getIntentFilter());
     }
 
-    public void d(Activity activity) {
+    public void f(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            if (c) {
-                String curProcessName = ProcessUtils.getCurProcessName();
-                Log.d("ProcessLifecycleDispatcher", curProcessName + " to foreground");
-            }
-            if (this.b != null) {
-                LifecycleProcessType current = LifecycleProcessType.getCurrent();
-                for (vu2 vu2Var : this.b) {
-                    if (current == vu2Var.b()) {
-                        vu2Var.a(true, activity);
-                    }
-                }
+        if ((interceptable != null && interceptable.invokeL(1048579, this, context) != null) || !this.c) {
+            return;
+        }
+        if (context == null && (context = ts2.c()) == null) {
+            return;
+        }
+        this.c = false;
+        try {
+            context.unregisterReceiver(this.a);
+        } catch (IllegalArgumentException e2) {
+            if (e) {
+                e2.printStackTrace();
             }
         }
     }
 
-    public void e(Activity activity) {
+    public void h(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            if (c) {
-                String curProcessName = ProcessUtils.getCurProcessName();
-                Log.d("ProcessLifecycleDispatcher", curProcessName + " to background");
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.b.j(bVar);
+        }
+    }
+
+    public final void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (e) {
+                Log.d("SwanAppCollectionPolicy", "onScreenStatusChanged isOn: " + z);
             }
-            if (this.b != null) {
-                LifecycleProcessType current = LifecycleProcessType.getCurrent();
-                for (vu2 vu2Var : this.b) {
-                    if (current == vu2Var.b()) {
-                        vu2Var.a(false, activity);
-                    }
-                }
+            if (z) {
+                g();
+            } else {
+                e();
             }
         }
     }

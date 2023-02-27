@@ -2,20 +2,68 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
+import org.brotli.dec.BrotliRuntimeException;
 /* loaded from: classes6.dex */
-public abstract class tja {
+public final class tja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void cancelAllRequest();
-
-    public abstract gka getCurPayController();
-
-    public abstract void releaseAllPayFlowView();
-
-    public abstract void releasePayController();
+    public byte[] A;
+    public int B;
+    public int C;
+    public int D;
+    public int E;
+    public int F;
+    public int G;
+    public byte[] H;
+    public int I;
+    public int J;
+    public int K;
+    public int L;
+    public int M;
+    public int N;
+    public int O;
+    public int P;
+    public int Q;
+    public long R;
+    public byte[] S;
+    public int T;
+    public int U;
+    public int V;
+    public int W;
+    public int X;
+    public int Y;
+    public byte[] Z;
+    public int a;
+    public int b;
+    public final kja c;
+    public byte[] d;
+    public final int[] e;
+    public final int[] f;
+    public int g;
+    public boolean h;
+    public boolean i;
+    public boolean j;
+    public final qja k;
+    public final qja l;
+    public final qja m;
+    public final int[] n;
+    public final int[] o;
+    public final int[] p;
+    public final int[] q;
+    public int r;
+    public int s;
+    public int t;
+    public boolean u;
+    public int v;
+    public int w;
+    public int x;
+    public int y;
+    public byte[] z;
 
     public tja() {
         Interceptable interceptable = $ic;
@@ -27,7 +75,83 @@ public abstract class tja {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = 0;
+        this.c = new kja();
+        this.e = new int[3240];
+        this.f = new int[3240];
+        this.k = new qja();
+        this.l = new qja();
+        this.m = new qja();
+        this.n = new int[3];
+        this.o = new int[3];
+        this.p = new int[6];
+        this.q = new int[]{16, 15, 11, 4};
+        this.r = 0;
+        this.s = 0;
+        this.t = 0;
+        this.u = false;
+        this.v = 0;
+        this.Q = 0;
+        this.R = 0L;
+        this.S = new byte[0];
+        this.T = 0;
+    }
+
+    public static void a(tja tjaVar) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, tjaVar) == null) {
+            int i = tjaVar.a;
+            if (i != 0) {
+                if (i == 11) {
+                    return;
+                }
+                tjaVar.a = 11;
+                kja.b(tjaVar.c);
+                return;
+            }
+            throw new IllegalStateException("State MUST be initialized");
+        }
+    }
+
+    public static int b(kja kjaVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, kjaVar)) == null) {
+            if (kja.i(kjaVar, 1) == 0) {
+                return 16;
+            }
+            int i = kja.i(kjaVar, 3);
+            if (i != 0) {
+                return i + 17;
+            }
+            int i2 = kja.i(kjaVar, 3);
+            if (i2 == 0) {
+                return 17;
+            }
+            return i2 + 8;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void c(tja tjaVar, InputStream inputStream) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, tjaVar, inputStream) == null) {
+            if (tjaVar.a == 0) {
+                kja.e(tjaVar.c, inputStream);
+                int b = b(tjaVar.c);
+                if (b != 9) {
+                    int i = 1 << b;
+                    tjaVar.P = i;
+                    tjaVar.O = i - 16;
+                    tjaVar.a = 1;
+                    return;
+                }
+                throw new BrotliRuntimeException("Invalid 'windowBits' code");
+            }
+            throw new IllegalStateException("State MUST be uninitialized");
         }
     }
 }

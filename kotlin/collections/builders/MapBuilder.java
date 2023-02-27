@@ -2,7 +2,6 @@ package kotlin.collections.builders;
 
 import androidx.exifinterface.media.ExifInterface;
 import androidx.lifecycle.SavedStateHandle;
-import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
@@ -105,7 +104,7 @@ public final class MapBuilder<K, V> implements Map<K, V>, Serializable, KMutable
                 } else {
                     sb.append(obj);
                 }
-                sb.append(a.h);
+                sb.append('=');
                 Object[] objArr = getMap$kotlin_stdlib().valuesArray;
                 Intrinsics.checkNotNull(objArr);
                 Object obj2 = objArr[getLastIndex$kotlin_stdlib()];
@@ -209,11 +208,11 @@ public final class MapBuilder<K, V> implements Map<K, V>, Serializable, KMutable
             return i ^ i2;
         }
 
-        /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: K : 0x0005: INVOKE  (r1v0 K A[REMOVE]) = (r2v0 'this' kotlin.collections.builders.MapBuilder$EntryRef<K, V> A[IMMUTABLE_TYPE, THIS]) type: VIRTUAL call: kotlin.collections.builders.MapBuilder.EntryRef.getKey():java.lang.Object), (wrap: char : ?: SGET   com.alipay.sdk.encrypt.a.h char), (wrap: V : 0x0011: INVOKE  (r1v2 V A[REMOVE]) = (r2v0 'this' kotlin.collections.builders.MapBuilder$EntryRef<K, V> A[IMMUTABLE_TYPE, THIS]) type: VIRTUAL call: kotlin.collections.builders.MapBuilder.EntryRef.getValue():java.lang.Object)] */
+        /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: K : 0x0005: INVOKE  (r1v0 K A[REMOVE]) = (r2v0 'this' kotlin.collections.builders.MapBuilder$EntryRef<K, V> A[IMMUTABLE_TYPE, THIS]) type: VIRTUAL call: kotlin.collections.builders.MapBuilder.EntryRef.getKey():java.lang.Object), ('=' char), (wrap: V : 0x0011: INVOKE  (r1v2 V A[REMOVE]) = (r2v0 'this' kotlin.collections.builders.MapBuilder$EntryRef<K, V> A[IMMUTABLE_TYPE, THIS]) type: VIRTUAL call: kotlin.collections.builders.MapBuilder.EntryRef.getValue():java.lang.Object)] */
         public String toString() {
             StringBuilder sb = new StringBuilder();
             sb.append(getKey());
-            sb.append(a.h);
+            sb.append('=');
             sb.append(getValue());
             return sb.toString();
         }
@@ -589,7 +588,7 @@ public final class MapBuilder<K, V> implements Map<K, V>, Serializable, KMutable
         } else {
             i = 0;
         }
-        return (i * (-1640531527)) >>> this.hashShift;
+        return (i * MAGIC) >>> this.hashShift;
     }
 
     private final boolean putAllEntries(Collection<? extends Map.Entry<? extends K, ? extends V>> collection) {

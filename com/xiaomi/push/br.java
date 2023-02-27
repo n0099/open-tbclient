@@ -1,63 +1,47 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.al;
+import com.xiaomi.clientreport.processor.IEventProcessor;
+import com.xiaomi.clientreport.processor.IPerfProcessor;
 /* loaded from: classes8.dex */
-public class br extends al.a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public class br implements Runnable {
     public Context a;
 
-    public br(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+    /* renamed from: a  reason: collision with other field name */
+    public com.xiaomi.clientreport.processor.c f150a;
+
+    public void a(Context context) {
         this.a = context;
     }
 
-    private boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? com.xiaomi.clientreport.manager.a.a(this.a).m110a().isPerfUploadSwitchOpen() : invokeV.booleanValue;
-    }
-
-    @Override // com.xiaomi.push.al.a
-    /* renamed from: a */
-    public String mo224a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "100887" : (String) invokeV.objValue;
+    public void a(com.xiaomi.clientreport.processor.c cVar) {
+        this.f150a = cVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                if (a()) {
-                    com.xiaomi.clientreport.manager.a.a(this.a).c();
-                    com.xiaomi.channel.commonutils.logger.b.c(this.a.getPackageName() + " perf begin upload");
-                }
-            } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.d("fail to send perf data. " + e);
+        bv a;
+        String str;
+        long currentTimeMillis;
+        try {
+            if (this.f150a != null) {
+                this.f150a.a();
             }
+            com.xiaomi.channel.commonutils.logger.b.c("begin read and send perf / event");
+            if (this.f150a instanceof IEventProcessor) {
+                a = bv.a(this.a);
+                str = "event_last_upload_time";
+                currentTimeMillis = System.currentTimeMillis();
+            } else if (!(this.f150a instanceof IPerfProcessor)) {
+                return;
+            } else {
+                a = bv.a(this.a);
+                str = "perf_last_upload_time";
+                currentTimeMillis = System.currentTimeMillis();
+            }
+            a.m221a("sp_client_report_status", str, currentTimeMillis);
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
         }
     }
 }

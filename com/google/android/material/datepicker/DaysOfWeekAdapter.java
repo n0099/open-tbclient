@@ -9,23 +9,13 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class DaysOfWeekAdapter extends BaseAdapter {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int CALENDAR_DAY_STYLE;
     public static final int NARROW_FORMAT = 4;
-    public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final Calendar calendar;
     public final int daysInWeek;
@@ -33,28 +23,11 @@ public class DaysOfWeekAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
+        return 0L;
     }
 
     static {
-        InterceptResult invokeClinit;
         int i;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-207743915, "Lcom/google/android/material/datepicker/DaysOfWeekAdapter;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-207743915, "Lcom/google/android/material/datepicker/DaysOfWeekAdapter;");
-                return;
-            }
-        }
         if (Build.VERSION.SDK_INT >= 26) {
             i = 4;
         } else {
@@ -63,80 +36,48 @@ public class DaysOfWeekAdapter extends BaseAdapter {
         CALENDAR_DAY_STYLE = i;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.daysInWeek;
-        }
-        return invokeV.intValue;
-    }
-
     public DaysOfWeekAdapter() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         Calendar utcCalendar = UtcDates.getUtcCalendar();
         this.calendar = utcCalendar;
         this.daysInWeek = utcCalendar.getMaximum(7);
         this.firstDayOfWeek = this.calendar.getFirstDayOfWeek();
     }
 
+    @Override // android.widget.Adapter
+    public int getCount() {
+        return this.daysInWeek;
+    }
+
     private int positionToDayOfWeek(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
-            int i2 = i + this.firstDayOfWeek;
-            int i3 = this.daysInWeek;
-            if (i2 > i3) {
-                return i2 - i3;
-            }
-            return i2;
+        int i2 = i + this.firstDayOfWeek;
+        int i3 = this.daysInWeek;
+        if (i2 > i3) {
+            return i2 - i3;
         }
-        return invokeI.intValue;
+        return i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     @Nullable
     public Integer getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i >= this.daysInWeek) {
-                return null;
-            }
-            return Integer.valueOf(positionToDayOfWeek(i));
+        if (i >= this.daysInWeek) {
+            return null;
         }
-        return (Integer) invokeI.objValue;
+        return Integer.valueOf(positionToDayOfWeek(i));
     }
 
     @Override // android.widget.Adapter
     @Nullable
     @SuppressLint({"WrongConstant"})
     public View getView(int i, @Nullable View view2, @NonNull ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            TextView textView = (TextView) view2;
-            if (view2 == null) {
-                textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05d2, viewGroup, false);
-            }
-            this.calendar.set(7, positionToDayOfWeek(i));
-            textView.setText(this.calendar.getDisplayName(7, CALENDAR_DAY_STYLE, Locale.getDefault()));
-            textView.setContentDescription(String.format(viewGroup.getContext().getString(R.string.obfuscated_res_0x7f0f0bc2), this.calendar.getDisplayName(7, 2, Locale.getDefault())));
-            return textView;
+        TextView textView = (TextView) view2;
+        if (view2 == null) {
+            textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05e6, viewGroup, false);
         }
-        return (View) invokeILL.objValue;
+        this.calendar.set(7, positionToDayOfWeek(i));
+        textView.setText(this.calendar.getDisplayName(7, CALENDAR_DAY_STYLE, Locale.getDefault()));
+        textView.setContentDescription(String.format(viewGroup.getContext().getString(R.string.obfuscated_res_0x7f0f0bcb), this.calendar.getDisplayName(7, 2, Locale.getDefault())));
+        return textView;
     }
 }

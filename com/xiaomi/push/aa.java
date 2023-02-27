@@ -1,56 +1,49 @@
 package com.xiaomi.push;
 
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.os.Environment;
+import android.os.StatFs;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.down.statistic.ConfigSpeedStat;
 import java.io.File;
-import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class aa {
-    public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, String> a;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56379872, "Lcom/xiaomi/push/aa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-56379872, "Lcom/xiaomi/push/aa;");
-                return;
+    public static long a() {
+        File externalStorageDirectory;
+        if (!b() && (externalStorageDirectory = Environment.getExternalStorageDirectory()) != null && !TextUtils.isEmpty(externalStorageDirectory.getPath())) {
+            try {
+                StatFs statFs = new StatFs(externalStorageDirectory.getPath());
+                return statFs.getBlockSize() * (statFs.getAvailableBlocks() - 4);
+            } catch (Throwable unused) {
             }
         }
-        HashMap<String, String> hashMap = new HashMap<>();
-        a = hashMap;
-        hashMap.put("FFD8FF", "jpg");
-        a.put("89504E47", "png");
-        a.put("47494638", NativeConstants.TYPE_GIF);
-        a.put("474946", NativeConstants.TYPE_GIF);
-        a.put("424D", "bmp");
+        return 0L;
     }
 
-    public static long a(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            long j = 0;
-            try {
-                File[] listFiles = file.listFiles();
-                for (int i = 0; i < listFiles.length; i++) {
-                    j += listFiles[i].isDirectory() ? a(listFiles[i]) : listFiles[i].length();
-                }
-            } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.a(e);
-            }
-            return j;
+    /* renamed from: a  reason: collision with other method in class */
+    public static boolean m171a() {
+        try {
+            return Environment.getExternalStorageState().equals("removed");
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+            return true;
         }
-        return invokeL.longValue;
+    }
+
+    public static boolean b() {
+        try {
+            return true ^ Environment.getExternalStorageState().equals("mounted");
+        } catch (Exception e) {
+            Log.e("XMPush-", "check SDCard is busy: " + e);
+            return true;
+        }
+    }
+
+    public static boolean c() {
+        return a() <= ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT;
+    }
+
+    public static boolean d() {
+        return (b() || c() || m171a()) ? false : true;
     }
 }

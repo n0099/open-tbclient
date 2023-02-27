@@ -1,6 +1,8 @@
 package com.sdk.u;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,15 +10,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sdk.f.g;
+import com.sdk.f.f;
+import com.sdk.q.b;
+import java.util.TreeMap;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-    public static a a;
-    public static String b;
-    public static String c;
-    public static int d;
-    public static String e;
+    public static final String a;
+    public static Boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,15 +34,15 @@ public class a {
                 return;
             }
         }
-        boolean z = g.b;
+        new TreeMap();
+        a = a.class.getSimpleName();
+        b = Boolean.valueOf(f.a);
     }
 
-    public a(Context context) {
+    public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -51,27 +53,70 @@ public class a {
         }
     }
 
-    public static a a(Context context) {
-        InterceptResult invokeL;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (a == null) {
-                synchronized (a.class) {
-                    a = new a(context);
-                }
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
         }
-        return (a) invokeL.objValue;
     }
 
-    public void a(String str, String str2) {
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            b = str2;
-            c = str;
-            d = 0;
-            e = "B";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            try {
+                return new JSONObject(str).optLong("exp") < System.currentTimeMillis();
+            } catch (Exception e) {
+                String str2 = a;
+                com.sdk.o.a.c(str2, "out data error" + e, b);
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        String optString;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString2 = jSONObject.optString("aesKey");
+                String optString3 = jSONObject.optString("data");
+                String optString4 = jSONObject.optString("sign");
+                if (com.sdk.v.a.d == 0) {
+                    optString = b.a(optString2, com.sdk.v.a.b);
+                } else {
+                    optString = jSONObject.optString("key");
+                    com.sdk.r.f a2 = com.sdk.r.f.a();
+                    String a3 = a2.b.a(a2.c, optString, optString, optString4);
+                    if (com.sdk.o.a.a(a3).booleanValue() && !Boolean.parseBoolean(a3)) {
+                        return null;
+                    }
+                }
+                return com.sdk.r.f.a().b.b(optString, optString3);
+            } catch (Throwable th) {
+                com.sdk.o.b.b(th.toString());
+                String str2 = a;
+                com.sdk.o.a.a(str2, "SDK解密异常：" + th.toString(), b);
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void a(Context context) {
+        ConnectivityManager.NetworkCallback networkCallback;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
+            com.sdk.a.b bVar = new com.sdk.a.b();
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getApplicationContext().getSystemService("connectivity");
+            bVar.g = connectivityManager;
+            if (connectivityManager != null && (networkCallback = com.sdk.a.b.e) != null) {
+                connectivityManager.unregisterNetworkCallback(networkCallback);
+                com.sdk.a.b.d = true;
+                com.sdk.a.b.e = null;
+            }
         }
     }
 }

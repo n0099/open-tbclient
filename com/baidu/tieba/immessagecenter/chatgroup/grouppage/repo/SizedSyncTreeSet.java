@@ -25,7 +25,7 @@ import java.util.Spliterator;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
     public final Object mutex;
     public float percent;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a<E> {
         void a(boolean z, Collection<E> collection);
     }

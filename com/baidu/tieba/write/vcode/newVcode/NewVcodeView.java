@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dh;
+import com.baidu.tieba.e55;
+import com.baidu.tieba.g55;
 import com.baidu.tieba.gh;
-import com.baidu.tieba.s35;
-import com.baidu.tieba.ti9;
-import com.baidu.tieba.u35;
+import com.baidu.tieba.pm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,12 +33,12 @@ public class NewVcodeView {
     public transient /* synthetic */ FieldHolder $fh;
     public BaseActivity a;
     public int b;
-    public ti9 c;
+    public pm9 c;
     public BaseWebView d;
     public View e;
-    public s35 f;
+    public e55 f;
     public TextView g;
-    public u35 h;
+    public g55 h;
     public boolean i;
     public Runnable j;
     public float k;
@@ -106,9 +106,9 @@ public class NewVcodeView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (this.f == null) {
-                s35 s35Var = new s35(this.a.getPageContext());
-                this.f = s35Var;
-                s35Var.e(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.3
+                e55 e55Var = new e55(this.a.getPageContext());
+                this.f = e55Var;
+                e55Var.e(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ NewVcodeView a;
@@ -144,10 +144,10 @@ public class NewVcodeView {
         }
     }
 
-    public void setPresenter(ti9 ti9Var) {
+    public void setPresenter(pm9 pm9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ti9Var) == null) {
-            this.c = ti9Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, pm9Var) == null) {
+            this.c = pm9Var;
             this.i = false;
         }
     }
@@ -206,10 +206,10 @@ public class NewVcodeView {
             this.e = findViewById;
             TextView textView = (TextView) findViewById.findViewById(R.id.custom_loading_text);
             this.g = textView;
-            textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f11e8));
-            u35 u35Var = new u35();
-            this.h = u35Var;
-            u35Var.a = 1000L;
+            textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f11ea));
+            g55 g55Var = new g55();
+            this.h = g55Var;
+            g55Var.a = 1000L;
             if (this.d != null) {
                 return true;
             }
@@ -263,7 +263,7 @@ public class NewVcodeView {
                         if (interceptable2 == null || interceptable2.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i, str, str2) == null) {
                             super.onReceivedError(webView, i, str, str2);
                             this.a.h(false);
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0d11);
                             this.a.a.finish();
                         }
                     }

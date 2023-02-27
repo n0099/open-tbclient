@@ -1,23 +1,12 @@
 package androidx.constraintlayout.solver;
 
-import androidx.core.view.InputDeviceCompat;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.devices.RomUtils;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class SolverVariable {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean INTERNAL_DEBUG = false;
     public static final int MAX_STRENGTH = 9;
     public static final int STRENGTH_BARRIER = 6;
@@ -35,7 +24,6 @@ public class SolverVariable {
     public static int uniqueId = 1;
     public static int uniqueSlackId = 1;
     public static int uniqueUnrestrictedId = 1;
-    public transient /* synthetic */ FieldHolder $fh;
     public float computedValue;
     public int definitionId;
     public float[] goalStrengthVector;
@@ -54,41 +42,21 @@ public class SolverVariable {
     public float synonymDelta;
     public int usageInRowCount;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1915553854, "Landroidx/constraintlayout/solver/SolverVariable;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1915553854, "Landroidx/constraintlayout/solver/SolverVariable;");
-        }
+    /* loaded from: classes.dex */
+    public enum Type {
+        UNRESTRICTED,
+        CONSTANT,
+        SLACK,
+        ERROR,
+        UNKNOWN
     }
 
     /* renamed from: androidx.constraintlayout.solver.SolverVariable$1  reason: invalid class name */
     /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$androidx$constraintlayout$solver$SolverVariable$Type;
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1693736815, "Landroidx/constraintlayout/solver/SolverVariable$1;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1693736815, "Landroidx/constraintlayout/solver/SolverVariable$1;");
-                    return;
-                }
-            }
             int[] iArr = new int[Type.values().length];
             $SwitchMap$androidx$constraintlayout$solver$SolverVariable$Type = iArr;
             try {
@@ -114,93 +82,7 @@ public class SolverVariable {
         }
     }
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
-    public static final class Type {
-        public static final /* synthetic */ Type[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final Type CONSTANT;
-        public static final Type ERROR;
-        public static final Type SLACK;
-        public static final Type UNKNOWN;
-        public static final Type UNRESTRICTED;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-803381158, "Landroidx/constraintlayout/solver/SolverVariable$Type;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-803381158, "Landroidx/constraintlayout/solver/SolverVariable$Type;");
-                    return;
-                }
-            }
-            UNRESTRICTED = new Type("UNRESTRICTED", 0);
-            CONSTANT = new Type("CONSTANT", 1);
-            SLACK = new Type("SLACK", 2);
-            ERROR = new Type("ERROR", 3);
-            Type type = new Type(RomUtils.UNKNOWN, 4);
-            UNKNOWN = type;
-            $VALUES = new Type[]{UNRESTRICTED, CONSTANT, SLACK, ERROR, type};
-        }
-
-        public Type(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public static Type valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                return (Type) Enum.valueOf(Type.class, str);
-            }
-            return (Type) invokeL.objValue;
-        }
-
-        public static Type[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return (Type[]) $VALUES.clone();
-            }
-            return (Type[]) invokeV.objValue;
-        }
-    }
-
     public SolverVariable(Type type, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {type, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.id = -1;
         this.definitionId = -1;
         this.strength = 0;
@@ -217,21 +99,33 @@ public class SolverVariable {
         this.mType = type;
     }
 
-    public SolverVariable(String str, Type type) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, type};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+    public void setFinalValue(LinearSystem linearSystem, float f) {
+        this.computedValue = f;
+        this.isFinalValue = true;
+        this.isSynonym = false;
+        this.synonym = -1;
+        this.synonymDelta = 0.0f;
+        int i = this.mClientEquationsCount;
+        this.definitionId = -1;
+        for (int i2 = 0; i2 < i; i2++) {
+            this.mClientEquations[i2].updateFromFinalVariable(linearSystem, this, false);
         }
+        this.mClientEquationsCount = 0;
+    }
+
+    public void setType(Type type, String str) {
+        this.mType = type;
+    }
+
+    public final void updateReferencesWithNewDefinition(LinearSystem linearSystem, ArrayRow arrayRow) {
+        int i = this.mClientEquationsCount;
+        for (int i2 = 0; i2 < i; i2++) {
+            this.mClientEquations[i2].updateFromRow(linearSystem, arrayRow, false);
+        }
+        this.mClientEquationsCount = 0;
+    }
+
+    public SolverVariable(String str, Type type) {
         this.id = -1;
         this.definitionId = -1;
         this.strength = 0;
@@ -250,256 +144,180 @@ public class SolverVariable {
     }
 
     public static String getUniqueName(Type type, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, type, str)) == null) {
-            if (str != null) {
-                return str + uniqueErrorId;
-            }
-            int i = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$SolverVariable$Type[type.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i == 5) {
-                                StringBuilder sb = new StringBuilder();
-                                sb.append(ExifInterface.GPS_MEASUREMENT_INTERRUPTED);
-                                int i2 = uniqueId + 1;
-                                uniqueId = i2;
-                                sb.append(i2);
-                                return sb.toString();
-                            }
-                            throw new AssertionError(type.name());
-                        }
-                        StringBuilder sb2 = new StringBuilder();
-                        sb2.append("e");
-                        int i3 = uniqueErrorId + 1;
-                        uniqueErrorId = i3;
-                        sb2.append(i3);
-                        return sb2.toString();
-                    }
-                    StringBuilder sb3 = new StringBuilder();
-                    sb3.append(ExifInterface.LATITUDE_SOUTH);
-                    int i4 = uniqueSlackId + 1;
-                    uniqueSlackId = i4;
-                    sb3.append(i4);
-                    return sb3.toString();
-                }
-                StringBuilder sb4 = new StringBuilder();
-                sb4.append("C");
-                int i5 = uniqueConstantId + 1;
-                uniqueConstantId = i5;
-                sb4.append(i5);
-                return sb4.toString();
-            }
-            StringBuilder sb5 = new StringBuilder();
-            sb5.append("U");
-            int i6 = uniqueUnrestrictedId + 1;
-            uniqueUnrestrictedId = i6;
-            sb5.append(i6);
-            return sb5.toString();
+        if (str != null) {
+            return str + uniqueErrorId;
         }
-        return (String) invokeLL.objValue;
+        int i = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$SolverVariable$Type[type.ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 4) {
+                        if (i == 5) {
+                            StringBuilder sb = new StringBuilder();
+                            sb.append(ExifInterface.GPS_MEASUREMENT_INTERRUPTED);
+                            int i2 = uniqueId + 1;
+                            uniqueId = i2;
+                            sb.append(i2);
+                            return sb.toString();
+                        }
+                        throw new AssertionError(type.name());
+                    }
+                    StringBuilder sb2 = new StringBuilder();
+                    sb2.append("e");
+                    int i3 = uniqueErrorId + 1;
+                    uniqueErrorId = i3;
+                    sb2.append(i3);
+                    return sb2.toString();
+                }
+                StringBuilder sb3 = new StringBuilder();
+                sb3.append(ExifInterface.LATITUDE_SOUTH);
+                int i4 = uniqueSlackId + 1;
+                uniqueSlackId = i4;
+                sb3.append(i4);
+                return sb3.toString();
+            }
+            StringBuilder sb4 = new StringBuilder();
+            sb4.append("C");
+            int i5 = uniqueConstantId + 1;
+            uniqueConstantId = i5;
+            sb4.append(i5);
+            return sb4.toString();
+        }
+        StringBuilder sb5 = new StringBuilder();
+        sb5.append("U");
+        int i6 = uniqueUnrestrictedId + 1;
+        uniqueUnrestrictedId = i6;
+        sb5.append(i6);
+        return sb5.toString();
     }
 
     public static void increaseErrorId() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            uniqueErrorId++;
-        }
+        uniqueErrorId++;
     }
 
     public void clearStrengths() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (int i = 0; i < 9; i++) {
-                this.strengthVector[i] = 0.0f;
-            }
+        for (int i = 0; i < 9; i++) {
+            this.strengthVector[i] = 0.0f;
         }
     }
 
     public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mName;
+        return this.mName;
+    }
+
+    public void reset() {
+        this.mName = null;
+        this.mType = Type.UNKNOWN;
+        this.strength = 0;
+        this.id = -1;
+        this.definitionId = -1;
+        this.computedValue = 0.0f;
+        this.isFinalValue = false;
+        this.isSynonym = false;
+        this.synonym = -1;
+        this.synonymDelta = 0.0f;
+        int i = this.mClientEquationsCount;
+        for (int i2 = 0; i2 < i; i2++) {
+            this.mClientEquations[i2] = null;
         }
-        return (String) invokeV.objValue;
+        this.mClientEquationsCount = 0;
+        this.usageInRowCount = 0;
+        this.inGoal = false;
+        Arrays.fill(this.goalStrengthVector, 0.0f);
+    }
+
+    public String toString() {
+        if (this.mName != null) {
+            return "" + this.mName;
+        }
+        return "" + this.id;
     }
 
     public final void addToRow(ArrayRow arrayRow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, arrayRow) == null) {
-            int i = 0;
-            while (true) {
-                int i2 = this.mClientEquationsCount;
-                if (i < i2) {
-                    if (this.mClientEquations[i] == arrayRow) {
-                        return;
-                    }
-                    i++;
-                } else {
-                    ArrayRow[] arrayRowArr = this.mClientEquations;
-                    if (i2 >= arrayRowArr.length) {
-                        this.mClientEquations = (ArrayRow[]) Arrays.copyOf(arrayRowArr, arrayRowArr.length * 2);
-                    }
-                    ArrayRow[] arrayRowArr2 = this.mClientEquations;
-                    int i3 = this.mClientEquationsCount;
-                    arrayRowArr2[i3] = arrayRow;
-                    this.mClientEquationsCount = i3 + 1;
+        int i = 0;
+        while (true) {
+            int i2 = this.mClientEquationsCount;
+            if (i < i2) {
+                if (this.mClientEquations[i] == arrayRow) {
                     return;
                 }
+                i++;
+            } else {
+                ArrayRow[] arrayRowArr = this.mClientEquations;
+                if (i2 >= arrayRowArr.length) {
+                    this.mClientEquations = (ArrayRow[]) Arrays.copyOf(arrayRowArr, arrayRowArr.length * 2);
+                }
+                ArrayRow[] arrayRowArr2 = this.mClientEquations;
+                int i3 = this.mClientEquationsCount;
+                arrayRowArr2[i3] = arrayRow;
+                this.mClientEquationsCount = i3 + 1;
+                return;
             }
         }
     }
 
     public final void removeFromRow(ArrayRow arrayRow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, arrayRow) == null) {
-            int i = this.mClientEquationsCount;
-            int i2 = 0;
-            while (i2 < i) {
-                if (this.mClientEquations[i2] == arrayRow) {
-                    while (i2 < i - 1) {
-                        ArrayRow[] arrayRowArr = this.mClientEquations;
-                        int i3 = i2 + 1;
-                        arrayRowArr[i2] = arrayRowArr[i3];
-                        i2 = i3;
-                    }
-                    this.mClientEquationsCount--;
-                    return;
+        int i = this.mClientEquationsCount;
+        int i2 = 0;
+        while (i2 < i) {
+            if (this.mClientEquations[i2] == arrayRow) {
+                while (i2 < i - 1) {
+                    ArrayRow[] arrayRowArr = this.mClientEquations;
+                    int i3 = i2 + 1;
+                    arrayRowArr[i2] = arrayRowArr[i3];
+                    i2 = i3;
                 }
-                i2++;
+                this.mClientEquationsCount--;
+                return;
             }
-        }
-    }
-
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.mName = null;
-            this.mType = Type.UNKNOWN;
-            this.strength = 0;
-            this.id = -1;
-            this.definitionId = -1;
-            this.computedValue = 0.0f;
-            this.isFinalValue = false;
-            this.isSynonym = false;
-            this.synonym = -1;
-            this.synonymDelta = 0.0f;
-            int i = this.mClientEquationsCount;
-            for (int i2 = 0; i2 < i; i2++) {
-                this.mClientEquations[i2] = null;
-            }
-            this.mClientEquationsCount = 0;
-            this.usageInRowCount = 0;
-            this.inGoal = false;
-            Arrays.fill(this.goalStrengthVector, 0.0f);
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.mName != null) {
-                return "" + this.mName;
-            }
-            return "" + this.id;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void setFinalValue(LinearSystem linearSystem, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048581, this, linearSystem, f) == null) {
-            this.computedValue = f;
-            this.isFinalValue = true;
-            this.isSynonym = false;
-            this.synonym = -1;
-            this.synonymDelta = 0.0f;
-            int i = this.mClientEquationsCount;
-            this.definitionId = -1;
-            for (int i2 = 0; i2 < i; i2++) {
-                this.mClientEquations[i2].updateFromFinalVariable(linearSystem, this, false);
-            }
-            this.mClientEquationsCount = 0;
-        }
-    }
-
-    public void setType(Type type, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, type, str) == null) {
-            this.mType = type;
-        }
-    }
-
-    public final void updateReferencesWithNewDefinition(LinearSystem linearSystem, ArrayRow arrayRow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, linearSystem, arrayRow) == null) {
-            int i = this.mClientEquationsCount;
-            for (int i2 = 0; i2 < i; i2++) {
-                this.mClientEquations[i2].updateFromRow(linearSystem, arrayRow, false);
-            }
-            this.mClientEquationsCount = 0;
+            i2++;
         }
     }
 
     public void setName(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.mName = str;
-        }
+        this.mName = str;
     }
 
     public void setSynonym(LinearSystem linearSystem, SolverVariable solverVariable, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{linearSystem, solverVariable, Float.valueOf(f)}) == null) {
-            this.isSynonym = true;
-            this.synonym = solverVariable.id;
-            this.synonymDelta = f;
-            int i = this.mClientEquationsCount;
-            this.definitionId = -1;
-            for (int i2 = 0; i2 < i; i2++) {
-                this.mClientEquations[i2].updateFromSynonymVariable(linearSystem, this, false);
-            }
-            this.mClientEquationsCount = 0;
-            linearSystem.displayReadableRows();
+        this.isSynonym = true;
+        this.synonym = solverVariable.id;
+        this.synonymDelta = f;
+        int i = this.mClientEquationsCount;
+        this.definitionId = -1;
+        for (int i2 = 0; i2 < i; i2++) {
+            this.mClientEquations[i2].updateFromSynonymVariable(linearSystem, this, false);
         }
+        this.mClientEquationsCount = 0;
+        linearSystem.displayReadableRows();
     }
 
     public String strengthsToString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            String str = this + PreferencesUtil.LEFT_MOUNT;
-            boolean z = false;
-            boolean z2 = true;
-            for (int i = 0; i < this.strengthVector.length; i++) {
-                String str2 = str + this.strengthVector[i];
-                float[] fArr = this.strengthVector;
-                if (fArr[i] > 0.0f) {
-                    z = false;
-                } else if (fArr[i] < 0.0f) {
-                    z = true;
-                }
-                if (this.strengthVector[i] != 0.0f) {
-                    z2 = false;
-                }
-                if (i < this.strengthVector.length - 1) {
-                    str = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR;
-                } else {
-                    str = str2 + "] ";
-                }
+        String str = this + PreferencesUtil.LEFT_MOUNT;
+        boolean z = false;
+        boolean z2 = true;
+        for (int i = 0; i < this.strengthVector.length; i++) {
+            String str2 = str + this.strengthVector[i];
+            float[] fArr = this.strengthVector;
+            if (fArr[i] > 0.0f) {
+                z = false;
+            } else if (fArr[i] < 0.0f) {
+                z = true;
             }
-            if (z) {
-                str = str + " (-)";
+            if (this.strengthVector[i] != 0.0f) {
+                z2 = false;
             }
-            if (z2) {
-                return str + " (*)";
+            if (i < this.strengthVector.length - 1) {
+                str = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR;
+            } else {
+                str = str2 + "] ";
             }
-            return str;
         }
-        return (String) invokeV.objValue;
+        if (z) {
+            str = str + " (-)";
+        }
+        if (z2) {
+            return str + " (*)";
+        }
+        return str;
     }
 }

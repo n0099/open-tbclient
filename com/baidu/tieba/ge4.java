@@ -1,144 +1,213 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.TextureMapView;
+import com.baidu.location.BDLocation;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.map.MyLocationConfiguration;
+import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.tieba.mt2;
+import com.baidu.tieba.ne4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ge4 extends l42<TextureMapView, iv2> {
+public class ge4 extends yd4<yv2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String i;
-    public String j;
-    public boolean k;
-    @NonNull
-    public TextureMapView l;
-    public Context m;
-    public List<fe4> n;
-    public List<ee4> o;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ge4(@NonNull Context context, @NonNull iv2 iv2Var) {
-        super(context, iv2Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, iv2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (m42) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public class a implements ne4.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ we4 b;
+        public final /* synthetic */ ud4 c;
+        public final /* synthetic */ ge4 d;
+
+        public a(ge4 ge4Var, Context context, we4 we4Var, ud4 ud4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ge4Var, context, we4Var, ud4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = ge4Var;
+            this.a = context;
+            this.b = we4Var;
+            this.c = ud4Var;
+        }
+
+        @Override // com.baidu.tieba.ne4.c
+        public void onFail() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                m62.o("map", "location permission fail");
+            }
+        }
+
+        @Override // com.baidu.tieba.ne4.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                m62.o("map", "location permission success");
+                this.d.e(this.a, this.b, this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements mt2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ we4 a;
+        public final /* synthetic */ ud4 b;
+
+        public b(ge4 ge4Var, we4 we4Var, ud4 ud4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ge4Var, we4Var, ud4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = we4Var;
+            this.b = ud4Var;
+        }
+
+        @Override // com.baidu.tieba.mt2.a
+        public void a(lc3 lc3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, lc3Var) == null) {
+                m62.i("map", "get location " + lc3Var.a().toString());
+                BaiduMap map = this.a.l.getMap();
+                map.animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(lc3Var.c, lc3Var.b)));
+                map.setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
+                map.setMyLocationEnabled(true);
+                map.setMyLocationData(new MyLocationData.Builder().accuracy((float) lc3Var.e).latitude(lc3Var.c).longitude(lc3Var.b).build());
+                this.b.p(true);
+            }
+        }
+
+        @Override // com.baidu.tieba.mt2.a
+        public void onFailed(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                m62.i("map", "get location error " + i);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947791027, "Lcom/baidu/tieba/ge4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947791027, "Lcom/baidu/tieba/ge4;");
                 return;
             }
         }
-        this.n = new ArrayList();
-        this.o = new ArrayList();
-        this.i = iv2Var.c;
-        this.j = iv2Var.b;
-        String str = iv2Var.d;
-        this.m = context;
-        this.l = new TextureMapView(context);
-        this.k = iv2Var.r;
+        boolean z = wp1.a;
     }
 
-    public static ge4 K(Context context, iv2 iv2Var) {
-        InterceptResult invokeLL;
+    public ge4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, iv2Var)) == null) {
-            if (context != null && iv2Var != null && iv2Var.isValid()) {
-                return new ge4(context, iv2Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return null;
-        }
-        return (ge4) invokeLL.objValue;
-    }
-
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (fe4 fe4Var : this.n) {
-                this.l.removeView(fe4Var.e);
-            }
-            this.n.clear();
-            for (ee4 ee4Var : this.o) {
-                this.l.removeView(ee4Var.b);
-            }
-            this.o.clear();
-            this.l.getMap().clear();
         }
     }
 
-    public ee4 G(View view2) {
-        InterceptResult invokeL;
+    public static ge4 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            for (ee4 ee4Var : this.o) {
-                if (ee4Var.b == view2) {
-                    return ee4Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new ge4();
+        }
+        return (ge4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yd4
+    public boolean b(Context context, yv2 yv2Var, vv2 vv2Var, m93 m93Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, yv2Var, vv2Var, m93Var, jSONObject)) == null) {
+            return g(context, yv2Var, vv2Var, m93Var);
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public final void e(Context context, we4 we4Var, ud4 ud4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, we4Var, ud4Var) == null) {
+            ts2.I().b("gcj02", true, false, new b(this, we4Var, ud4Var));
+        }
+    }
+
+    public final boolean g(Context context, yv2 yv2Var, vv2 vv2Var, m93 m93Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, yv2Var, vv2Var, m93Var)) == null) {
+            m62.i("map", "MoveToLocationAction start");
+            uv1 A = zu2.U().A(yv2Var.c);
+            if (!(A instanceof sv1)) {
+                m62.c("map", "WebViewManager is null");
+                return false;
+            }
+            ud4 c = vd4.b().c((sv1) A);
+            we4 d = c.d(yv2Var.b);
+            if (d == null) {
+                m62.c("map", "can not find map by id " + yv2Var.b);
+                return false;
+            } else if (!d.k) {
+                m62.o("map", "can not move to location because showLocation is not set");
+                return false;
+            } else {
+                BDLocation e = c.e();
+                if (e != null && c.g()) {
+                    d.l.getMap().animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(e.getLatitude(), e.getLongitude())));
+                    d.l.getMap().setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
+                    d.l.getMap().setMyLocationEnabled(true);
+                    d.l.getMap().setMyLocationData(new MyLocationData.Builder().accuracy(e.getRadius()).latitude(e.getLatitude()).longitude(e.getLongitude()).build());
+                    m62.i("map", "MoveToLocationAction end");
+                    return true;
                 }
+                ne4.b(context, new a(this, context, d, c));
+                return true;
             }
-            return null;
         }
-        return (ee4) invokeL.objValue;
-    }
-
-    @Nullable
-    public fe4 H(Marker marker) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, marker)) == null) {
-            for (fe4 fe4Var : this.n) {
-                if (marker == fe4Var.b) {
-                    return fe4Var;
-                }
-            }
-            return null;
-        }
-        return (fe4) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.l42
-    @NonNull
-    /* renamed from: J */
-    public TextureMapView v(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            return this.l;
-        }
-        return (TextureMapView) invokeL.objValue;
-    }
-
-    public List<fe4> I(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            ArrayList arrayList = new ArrayList(1);
-            for (fe4 fe4Var : this.n) {
-                qv2 qv2Var = fe4Var.a;
-                if (qv2Var != null && TextUtils.equals(str, qv2Var.a)) {
-                    arrayList.add(fe4Var);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

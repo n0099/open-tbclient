@@ -9,14 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.a.e;
-import com.sdk.a.g;
+import com.sdk.a.f;
 import com.sdk.base.api.CallBack;
 import com.sdk.base.framework.bean.DataInfo;
 import com.sdk.base.module.manager.SDKManager;
-import com.sdk.n.a;
-import com.sdk.w.b;
-import com.sdk.w.c;
-import com.sdk.w.d;
+import com.sdk.o.a;
+import com.sdk.y.d;
+import com.sdk.y.f;
 /* loaded from: classes8.dex */
 public class OauthManager extends SDKManager {
     public static /* synthetic */ Interceptable $ic;
@@ -61,7 +60,7 @@ public class OauthManager extends SDKManager {
     public <T> void getAuthoriseCode(int i, CallBack<T> callBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, callBack) == null) {
-            new d(this.mContext, i, callBack).a(1);
+            new f(this.mContext, i, callBack).a(1);
         }
     }
 
@@ -73,20 +72,20 @@ public class OauthManager extends SDKManager {
                 SDKManager.toFailed(callBack, 101001, "授权码不能为空");
                 return;
             }
-            d dVar = new d(this.mContext, i, callBack);
-            com.sdk.b.a.a(dVar.d);
-            com.sdk.x.a aVar = new com.sdk.x.a(dVar.d, new c(dVar));
+            f fVar = new f(this.mContext, i, callBack);
+            com.sdk.b.a.a(fVar.e);
+            com.sdk.z.a aVar = new com.sdk.z.a(fVar.e, new com.sdk.y.e(fVar));
             if (a.a(null).booleanValue()) {
                 DataInfo dataInfo = new DataInfo();
                 dataInfo.putData(YYInnerSSOLoginActivity.o, str);
-                a = aVar.a(aVar.i, "/api/netm/v1.0/qhbt", dataInfo, new com.sdk.g.a(aVar), 0, g.a.b);
+                a = aVar.a(aVar.i, "/api/netm/v1.0/qhbt", dataInfo, new com.sdk.g.a(aVar), 0, f.a.b);
             } else {
                 DataInfo dataInfo2 = new DataInfo();
                 dataInfo2.putData(YYInnerSSOLoginActivity.o, str);
                 dataInfo2.putData("mobile", null);
-                a = aVar.a(aVar.i, "/api/netm/v1.0/qhbv", dataInfo2, new com.sdk.g.a(aVar), 0, g.a.b);
+                a = aVar.a(aVar.i, "/api/netm/v1.0/qhbv", dataInfo2, new com.sdk.g.a(aVar), 0, f.a.b);
             }
-            dVar.f = a;
+            fVar.g = a;
         }
     }
 
@@ -103,22 +102,22 @@ public class OauthManager extends SDKManager {
                 i2 = 101002;
                 str3 = "认证的手机号不能为空";
             } else {
-                d dVar = new d(this.mContext, i, callBack);
-                Context context = dVar.d;
+                com.sdk.y.f fVar = new com.sdk.y.f(this.mContext, i, callBack);
+                Context context = fVar.e;
                 a.b(com.sdk.b.a.a, "oauth cache clear", com.sdk.b.a.b);
-                com.sdk.j.a.a(context, "accessCode1");
-                com.sdk.x.a aVar = new com.sdk.x.a(dVar.d, new b(dVar));
+                com.sdk.k.a.a(context, "accessCode1");
+                com.sdk.z.a aVar = new com.sdk.z.a(fVar.e, new d(fVar));
                 if (a.a(str2).booleanValue()) {
                     DataInfo dataInfo = new DataInfo();
                     dataInfo.putData(YYInnerSSOLoginActivity.o, str);
-                    a = aVar.a(aVar.i, "/api/netm/v1.0/qhbt", dataInfo, new com.sdk.g.a(aVar), 0, g.a.b);
+                    a = aVar.a(aVar.i, "/api/netm/v1.0/qhbt", dataInfo, new com.sdk.g.a(aVar), 0, f.a.b);
                 } else {
                     DataInfo dataInfo2 = new DataInfo();
                     dataInfo2.putData(YYInnerSSOLoginActivity.o, str);
                     dataInfo2.putData("mobile", str2);
-                    a = aVar.a(aVar.i, "/api/netm/v1.0/qhbv", dataInfo2, new com.sdk.g.a(aVar), 0, g.a.b);
+                    a = aVar.a(aVar.i, "/api/netm/v1.0/qhbv", dataInfo2, new com.sdk.g.a(aVar), 0, f.a.b);
                 }
-                dVar.f = a;
+                fVar.g = a;
                 return;
             }
             SDKManager.toFailed(callBack, i2, str3);

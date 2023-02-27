@@ -1,269 +1,52 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
 /* loaded from: classes5.dex */
-public final class pk3 {
+public abstract class pk3 extends jb3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public String d;
-    public String e;
-    public final StringBuilder f;
-    public boolean g;
 
-    public pk3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pk3(ja3 ja3Var, String str) {
+        super(ja3Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ja3Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0L;
-        this.b = 0L;
-        this.c = 2L;
-        this.d = "";
-        this.e = "";
-        this.f = new StringBuilder();
-        this.g = false;
     }
 
-    public long a() {
+    public static yk3 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (o() * 10000000) + (j() * 10000) + (h() * 1);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return my1.z();
         }
-        return invokeV.longValue;
+        return (yk3) invokeV.objValue;
     }
 
-    public String e() {
+    public static boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public StringBuilder g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
-        }
-        return (StringBuilder) invokeV.objValue;
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return my1.B();
         }
         return invokeV.booleanValue;
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.g = true;
-        }
-    }
-
-    public long o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
-    }
-
-    public String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return s(-100);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public pk3 b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            p(j / 10000000);
-            long j2 = j % 10000000;
-            k(j2 / 10000);
-            i((j2 % 10000) / 1);
-            return this;
-        }
-        return (pk3) invokeJ.objValue;
-    }
-
-    public pk3 d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (str == null) {
-                str = "";
-            }
-            this.d = str;
-            return this;
-        }
-        return (pk3) invokeL.objValue;
-    }
-
-    public pk3 f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            StringBuilder sb = this.f;
-            sb.append(str);
-            sb.append("\n");
-            return this;
-        }
-        return (pk3) invokeL.objValue;
-    }
-
-    public pk3 i(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
-            this.b = m(j, 9999L, "error");
-            return this;
-        }
-        return (pk3) invokeJ.objValue;
-    }
-
-    public pk3 k(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
-            this.a = m(j, 999L, "feature");
-            return this;
-        }
-        return (pk3) invokeJ.objValue;
-    }
-
-    public pk3 p(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048591, this, j)) == null) {
-            this.c = m(j, 9L, com.tencent.connect.common.Constants.PARAM_PLATFORM);
-            return this;
-        }
-        return (pk3) invokeJ.objValue;
-    }
-
-    public pk3 q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            if (str == null) {
-                str = "";
-            }
-            this.e = str;
-            return this;
-        }
-        return (pk3) invokeL.objValue;
-    }
-
-    public pk3 c(qh4 qh4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qh4Var)) == null) {
-            if (qh4Var != null) {
-                i(qh4Var.a);
-                d(qh4Var.b);
-                q(qh4Var.e);
-                if (!TextUtils.isEmpty(qh4Var.d)) {
-                    f(qh4Var.d);
-                }
-            }
-            return this;
-        }
-        return (pk3) invokeL.objValue;
-    }
-
-    public final long m(long j, long j2, String str) {
-        InterceptResult invokeCommon;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str})) == null) {
-            if (j >= 0 && j <= j2) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                f("illegalFallback " + str + "::" + j);
-            }
-            if (z) {
-                return j2;
-            }
-            return j;
-        }
-        return invokeCommon.longValue;
-    }
-
-    public String s(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(a()), Long.valueOf(o()), Long.valueOf(j()), Long.valueOf(h()), e()));
-            if (i >= -200) {
-                sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(o()), Long.valueOf(j()), Long.valueOf(h())));
-            }
-            if (i >= -100) {
-                sb.append(String.format(Locale.getDefault(), "  details(%s) \n", g()));
-            }
-            return sb.toString();
-        }
-        return (String) invokeI.objValue;
     }
 }

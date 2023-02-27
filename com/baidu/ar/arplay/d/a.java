@@ -6,75 +6,34 @@ import android.graphics.PorterDuff;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.webkit.WebView;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.engine.ARPEngine;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class a extends WebView {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public C0064a fZ;
+    public C0049a fZ;
     public boolean ga;
 
     /* renamed from: com.baidu.ar.arplay.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0064a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static class C0049a {
         public int dM;
         public boolean gd;
         public String ge;
         public int height;
         public String url;
         public int width;
-
-        public C0064a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.ga = false;
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.fZ == null || canvas == null || !this.ga) {
+        if (this.fZ == null || canvas == null || !this.ga) {
             return;
         }
-        c p = d.bp().p(this.fZ.dM);
+        final c p = d.bp().p(this.fZ.dM);
         if (p == null) {
             Log.e("GLWebView", "HtmlTextureHolder is null: mTextureId: " + this.fZ.dM);
             return;
@@ -88,68 +47,32 @@ public class a extends WebView {
             super.draw(lockCanvas);
         }
         p.bo();
-        ARPEngine.getInstance().getARPRenderer().runSyncOnRenderContext(new Runnable(this, p) { // from class: com.baidu.ar.arplay.d.a.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c gb;
-            public final /* synthetic */ a gc;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, p};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.gc = this;
-                this.gb = p;
-            }
-
+        ARPEngine.getInstance().getARPRenderer().runSyncOnRenderContext(new Runnable() { // from class: com.baidu.ar.arplay.d.a.1
             @Override // java.lang.Runnable
             public void run() {
-                c cVar;
-                Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (cVar = this.gb) == null) {
-                    return;
+                c cVar = p;
+                if (cVar != null) {
+                    cVar.update();
+                    a.this.ga = false;
                 }
-                cVar.update();
-                this.gc.ga = false;
             }
         });
     }
 
-    public C0064a getWebViewData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.fZ : (C0064a) invokeV.objValue;
+    public C0049a getWebViewData() {
+        return this.fZ;
     }
 
     @Override // android.webkit.WebView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) ? super.onTouchEvent(motionEvent) : invokeL.booleanValue;
+        return super.onTouchEvent(motionEvent);
     }
 
     public void setIsNeedRender(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.ga = z;
-        }
+        this.ga = z;
     }
 
-    public void setWebViewData(C0064a c0064a) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, c0064a) == null) {
-            this.fZ = c0064a;
-        }
+    public void setWebViewData(C0049a c0049a) {
+        this.fZ = c0049a;
     }
 }

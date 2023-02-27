@@ -8,9 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.PushManager;
-import com.heytap.mcssdk.mode.CommandMessage;
-import com.heytap.mcssdk.mode.MessageStat;
+import com.heytap.mcssdk.PushService;
+import com.heytap.mcssdk.constant.MessageConstant;
+import com.heytap.msp.push.mode.MessageStat;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -41,7 +41,7 @@ public class StatUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            String mcsPackageName = PushManager.getMcsPackageName(context);
+            String mcsPackageName = PushService.getInstance().getMcsPackageName(context);
             return Utils.isExistPackage(context, mcsPackageName) && Utils.getVersionCode(context, mcsPackageName) >= 1017;
         }
         return invokeL.booleanValue;
@@ -56,28 +56,31 @@ public class StatUtil {
         }
     }
 
-    public static void statisticMessage(Context context, List<MessageStat> list) {
+    public static boolean statisticMessage(Context context, List<MessageStat> list) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, list) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, list)) == null) {
             LinkedList linkedList = new LinkedList();
             linkedList.addAll(list);
-            LogUtil.d("isSupportStatisticByMcs:" + isSupportStatisticByMcs(context) + ",list size:" + linkedList.size());
+            d.b("isSupportStatisticByMcs:" + isSupportStatisticByMcs(context) + ",list size:" + linkedList.size());
             if (linkedList.size() <= 0 || !isSupportStatisticByMcs(context)) {
-                return;
+                return false;
             }
-            statisticMessageByMcs(context, linkedList);
+            return statisticMessageByMcs(context, linkedList);
         }
+        return invokeLL.booleanValue;
     }
 
-    public static void statisticMessageByMcs(Context context, List<MessageStat> list) {
+    public static boolean statisticMessageByMcs(Context context, List<MessageStat> list) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list)) == null) {
             try {
                 Intent intent = new Intent();
-                intent.setAction(PushManager.getReceiveSdkAction(context));
-                intent.setPackage(PushManager.getMcsPackageName(context));
+                intent.setAction(PushService.getInstance().getReceiveSdkAction(context));
+                intent.setPackage(PushService.getInstance().getMcsPackageName(context));
                 intent.putExtra("appPackage", context.getPackageName());
-                intent.putExtra("type", CommandMessage.COMMAND_STATISTIC);
+                intent.putExtra("type", MessageConstant.CommandId.COMMAND_STATISTIC);
                 intent.putExtra("count", list.size());
                 ArrayList<String> arrayList = new ArrayList<>();
                 for (MessageStat messageStat : list) {
@@ -85,9 +88,12 @@ public class StatUtil {
                 }
                 intent.putStringArrayListExtra("list", arrayList);
                 context.startService(intent);
+                return true;
             } catch (Exception e) {
-                LogUtil.e("statisticMessage--Exception" + e.getMessage());
+                d.e("statisticMessage--Exception" + e.getMessage());
+                return false;
             }
         }
+        return invokeLL.booleanValue;
     }
 }

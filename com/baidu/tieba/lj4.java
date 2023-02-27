@@ -1,144 +1,213 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import org.json.JSONObject;
+import java.io.File;
+import java.io.IOException;
+import java.nio.channels.ReadableByteChannel;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class lj4 extends ci4<rj4> {
+public class lj4<T> implements dh4<T> {
     public static /* synthetic */ Interceptable $ic;
+    public static final om4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
+    public dh4<T> a;
+    public int b;
 
-    @Override // com.baidu.tieba.ci4
-    public String h() {
+    public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getpkg" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lj4(String str, rg4 rg4Var, ck4 ck4Var) {
-        super(rg4Var, ck4Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947944787, "Lcom/baidu/tieba/lj4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947944787, "Lcom/baidu/tieba/lj4;");
+                return;
+            }
+        }
+        c = om4.e();
+    }
+
+    @Override // com.baidu.tieba.dh4
+    public Map<String, Object> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.a.k();
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public lj4(dh4<T> dh4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, rg4Var, ck4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {dh4Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((rg4) objArr2[0], (ck4) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = str;
+        this.b = 0;
+        this.a = dh4Var;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci4
-    /* renamed from: y */
-    public rj4 u(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.dh4
+    public String d(T t) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject)) == null) {
-            return dm4.g(this.d, jSONObject);
-        }
-        return (rj4) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci4
-    /* renamed from: w */
-    public boolean s(rj4 rj4Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, rj4Var, i)) == null) {
-            if (rj4Var != null) {
-                r(rj4Var.e);
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            dh4<T> dh4Var = this.a;
+            if (dh4Var != null) {
+                str = dh4Var.d(t);
+            } else {
+                str = null;
             }
-            return false;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci4
-    /* renamed from: v */
-    public boolean f(rj4 rj4Var) {
-        InterceptResult invokeL;
-        List<wh4> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, rj4Var)) == null) {
-            if (rj4Var == null) {
-                return false;
-            }
-            if (rj4Var.a == null && (((list = rj4Var.b) == null || list.isEmpty()) && rj4Var.d == null && rj4Var.f == null && rj4Var.e == null)) {
-                return false;
-            }
-            vh4 vh4Var = rj4Var.a;
-            if (vh4Var != null && !vh4Var.a()) {
-                return false;
-            }
-            List<wh4> list2 = rj4Var.b;
-            if (list2 != null) {
-                for (wh4 wh4Var : list2) {
-                    if (!wh4Var.a()) {
-                        return false;
-                    }
+            if (str == null) {
+                try {
+                    return sm4.d(AppRuntime.getAppContext()).getAbsolutePath();
+                } catch (Exception e) {
+                    c.g("PMSDownStreamCallbackGuard", "#getDownloadPath getPmsDir出错", e);
+                    return str;
                 }
             }
-            th4 th4Var = rj4Var.d;
-            if (th4Var != null && !th4Var.a()) {
-                return false;
-            }
-            rh4 rh4Var = rj4Var.f;
-            if (rh4Var != null && !rh4Var.a()) {
-                return false;
-            }
-            PMSAppInfo pMSAppInfo = rj4Var.e;
-            if (pMSAppInfo != null && !pMSAppInfo.checkValid()) {
-                return false;
-            }
-            return true;
+            return str;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci4
-    /* renamed from: x */
-    public qh4 t(rj4 rj4Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.dh4
+    public void a(T t) {
+        dh4<T> dh4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, rj4Var)) == null) {
-            this.a.E();
-            em4 em4Var = new em4();
-            o(rj4Var.a, em4Var);
-            p(rj4Var.b, em4Var);
-            n(g(rj4Var.c), em4Var);
-            m(rj4Var.d, em4Var);
-            l(rj4Var.f, em4Var);
-            r(rj4Var.e);
-            if (em4Var.n() == 0) {
-                this.a.F();
-                return null;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, t) == null) && (dh4Var = this.a) != null) {
+            try {
+                dh4Var.a(t);
+            } catch (Exception e) {
+                c.g("PMSDownStreamCallbackGuard", "#onDownloadProgress 错误", e);
             }
-            this.a.G(em4Var);
-            hi4.b(rj4Var, this.a);
-            return null;
         }
-        return (qh4) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.dh4
+    public void c(T t) {
+        dh4<T> dh4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) && (dh4Var = this.a) != null) {
+            try {
+                dh4Var.c(t);
+            } catch (Exception e) {
+                c.g("PMSDownStreamCallbackGuard", "#onDownloadStart 错误", e);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.dh4
+    public void f(T t) {
+        dh4<T> dh4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, t) == null) && (dh4Var = this.a) != null) {
+            try {
+                dh4Var.f(t);
+            } catch (Exception e) {
+                c.g("PMSDownStreamCallbackGuard", "#onDownloading 错误", e);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.dh4
+    public void i(T t) {
+        dh4<T> dh4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, t) == null) && (dh4Var = this.a) != null) {
+            try {
+                dh4Var.i(t);
+            } catch (Exception e) {
+                c.g("PMSDownStreamCallbackGuard", "#onDownloadFinish 错误", e);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.dh4
+    public void j(T t) {
+        dh4<T> dh4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) && (dh4Var = this.a) != null) {
+            try {
+                dh4Var.j(t);
+            } catch (Exception e) {
+                c.g("PMSDownStreamCallbackGuard", "#onDownloadStop 错误", e);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.dh4
+    public void e(T t, gi4 gi4Var) {
+        dh4<T> dh4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, t, gi4Var) == null) && (dh4Var = this.a) != null) {
+            try {
+                dh4Var.e(t, gi4Var);
+            } catch (Exception e) {
+                c.g("PMSDownStreamCallbackGuard", "#onDownloadError 错误", e);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.fh4
+    @NonNull
+    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, bundle, set)) == null) {
+            dh4<T> dh4Var = this.a;
+            if (dh4Var == null) {
+                return new Bundle();
+            }
+            return dh4Var.m(bundle, set);
+        }
+        return (Bundle) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.dh4
+    public gi4 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{t, file, Long.valueOf(j), readableByteChannel})) == null) {
+            dh4<T> dh4Var = this.a;
+            if (dh4Var != null) {
+                return dh4Var.h(t, file, j, readableByteChannel);
+            }
+            return new gi4(2302, "业务层默认不处理下载流");
+        }
+        return (gi4) invokeCommon.objValue;
     }
 }

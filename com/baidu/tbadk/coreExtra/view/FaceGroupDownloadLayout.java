@@ -22,9 +22,9 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b35;
+import com.baidu.tieba.db5;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.p15;
-import com.baidu.tieba.r95;
 import com.baidu.tieba.tbadkCore.data.FaceGroupInfoData;
 import com.baidu.tieba.y9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -222,18 +222,18 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            p15 d = p15.d(this.a);
+            b35 d = b35.d(this.a);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0215);
-            p15 d2 = p15.d(this.e);
+            b35 d2 = b35.d(this.e);
             d2.v(R.color.CAM_X0101);
             d2.z(R.dimen.T_X08);
             d2.A(R.string.F_X01);
-            p15 d3 = p15.d(this.c);
+            b35 d3 = b35.d(this.c);
             d3.v(R.color.CAM_X0101);
             d3.z(R.dimen.T_X06);
             d3.A(R.string.F_X01);
-            p15.d(this.b).v(R.string.J_X04);
+            b35.d(this.b).v(R.string.J_X04);
             WebPManager.setPureDrawable(this.d, R.drawable.icon_emotion_arrow, R.color.CAM_X0101, null);
         }
     }
@@ -298,7 +298,7 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
                 int g = (((getResources().getDisplayMetrics().widthPixels - ej.g(TbadkApplication.getInst(), R.dimen.tbds94)) - ej.g(TbadkApplication.getInst(), R.dimen.tbds180)) - ej.g(TbadkApplication.getInst(), R.dimen.tbds75)) - ej.g(TbadkApplication.getInst(), R.dimen.tbds200);
                 TextPaint paint = this.c.getPaint();
                 String name = this.f.getName();
-                this.c.setText(r95.a(name, StringHelper.STRING_MORE + j, g, paint));
+                this.c.setText(db5.a(name, StringHelper.STRING_MORE + j, g, paint));
                 CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921699, Boolean.class, this.f.getId());
                 if (runTask != null && ((Boolean) runTask.getData()).booleanValue()) {
                     this.f.updateStatus(FaceGroupInfoData.Status.FINISH);
@@ -329,7 +329,7 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
                 this.e.setText(String.format(getResources().getString(R.string.item_download_progress), Integer.valueOf(this.f.getProgress())));
                 return;
             }
-            this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0651));
+            this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0655));
             return;
         }
         this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f00db));

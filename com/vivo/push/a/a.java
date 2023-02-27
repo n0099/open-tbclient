@@ -9,11 +9,10 @@ import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.vivo.push.b;
-import com.vivo.push.c.d;
+import com.vivo.push.e.b;
 import com.vivo.push.o;
-import com.vivo.push.util.p;
-import com.vivo.push.util.t;
+import com.vivo.push.util.aa;
+import com.vivo.push.util.ab;
 import com.vivo.push.util.u;
 import java.util.List;
 /* loaded from: classes8.dex */
@@ -29,13 +28,13 @@ public final class a {
                     context.startService(intent);
                     return;
                 } catch (Exception e) {
-                    p.a("CommandBridge", "start service error", e);
+                    u.a("CommandBridge", "start service error", e);
                     intent.setComponent(null);
                     context.sendBroadcast(intent);
                     return;
                 }
             }
-            p.d("CommandBridge", "enter startService context is null");
+            u.d("CommandBridge", "enter startService context is null");
             throw new Exception("context is null");
         }
     }
@@ -46,7 +45,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, context, oVar, str) == null) {
             try {
-                boolean d = t.d(context, str);
+                boolean d = aa.d(context, str);
                 if (d) {
                     str2 = "com.vivo.pushservice.action.RECEIVE";
                 } else {
@@ -73,18 +72,18 @@ public final class a {
                         oVar.b(intent);
                         intent.putExtra("command_type", "reflect_receiver");
                         if (Build.VERSION.SDK_INT >= 18) {
-                            intent.putExtra("security_avoid_pull_rsa", d.a(context).a().a("com.vivo.pushservice"));
-                            intent.putExtra("security_avoid_rsa_public_key", u.a(d.a(context).a().a()));
+                            intent.putExtra("security_avoid_pull_rsa", b.a().a(context).a("com.vivo.pushservice"));
+                            intent.putExtra("security_avoid_rsa_public_key", ab.a(b.a().a(context).a()));
                         }
                         a(context, intent);
                         return;
                     }
                     return;
                 }
-                p.c(context, "消息接受者包名为空！");
+                u.c(context, "消息接受者包名为空！");
                 throw new Exception("消息接受者包名为空！");
             } catch (Exception e) {
-                p.a("CommandBridge", "CommandBridge sendCommandToClient exception", e);
+                u.a("CommandBridge", "CommandBridge sendCommandToClient exception", e);
             }
         }
     }
@@ -100,7 +99,7 @@ public final class a {
             } else {
                 str2 = "com.vivo.vms.aidlservice";
             }
-            b a = b.a(context, str2);
+            com.vivo.push.b a = com.vivo.push.b.a(context, str2);
             boolean a2 = a.a();
             if (TextUtils.isEmpty(oVar.a())) {
                 oVar.a(context.getPackageName());
@@ -111,8 +110,8 @@ public final class a {
                 if (a.a(aVar.b())) {
                     return;
                 }
-                p.b("CommandBridge", "send command error by aidl");
-                p.c(context, "send command error by aidl");
+                u.b("CommandBridge", "send command error by aidl");
+                u.c(context, "send command error by aidl");
             }
             Intent intent = new Intent("com.vivo.pushservice.action.METHOD");
             intent.setPackage(str);
@@ -126,7 +125,7 @@ public final class a {
             try {
                 a(context, intent);
             } catch (Exception e) {
-                p.a("CommandBridge", "CommandBridge startService exception: ", e);
+                u.a("CommandBridge", "CommandBridge startService exception: ", e);
             }
         }
     }
@@ -142,10 +141,10 @@ public final class a {
                 if (queryBroadcastReceivers != null && queryBroadcastReceivers.size() > 0) {
                     return true;
                 }
-                p.b("CommandBridge", "action check error：action>>" + str + ";pkgname>>" + str2);
+                u.b("CommandBridge", "action check error：action>>" + str + ";pkgname>>" + str2);
                 return false;
             } catch (Exception unused) {
-                p.b("CommandBridge", "queryBroadcastReceivers error");
+                u.b("CommandBridge", "queryBroadcastReceivers error");
                 return false;
             }
         }

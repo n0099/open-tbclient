@@ -1,14 +1,7 @@
 package com.google.zxing.client.result;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.Result;
+import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.ArrayList;
@@ -17,244 +10,166 @@ import java.util.Map;
 import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
 public abstract class ResultParser {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final Pattern AMPERSAND;
     public static final String BYTE_ORDER_MARK = "\ufeff";
-    public static final Pattern DIGITS;
-    public static final Pattern EQUALS;
-    public static final ResultParser[] PARSERS;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final ResultParser[] PARSERS = {new BookmarkDoCoMoResultParser(), new AddressBookDoCoMoResultParser(), new EmailDoCoMoResultParser(), new AddressBookAUResultParser(), new VCardResultParser(), new BizcardResultParser(), new VEventResultParser(), new EmailAddressResultParser(), new SMTPResultParser(), new TelResultParser(), new SMSMMSResultParser(), new SMSTOMMSTOResultParser(), new GeoResultParser(), new WifiResultParser(), new URLTOResultParser(), new URIResultParser(), new ISBNResultParser(), new ProductResultParser(), new ExpandedProductResultParser(), new VINResultParser()};
+    public static final Pattern DIGITS = Pattern.compile("\\d+");
+    public static final Pattern AMPERSAND = Pattern.compile("&");
+    public static final Pattern EQUALS = Pattern.compile("=");
 
     public static String[] maybeWrap(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            return new String[]{str};
+        if (str == null) {
+            return null;
         }
-        return (String[]) invokeL.objValue;
+        return new String[]{str};
     }
 
     public static int parseHexDigit(char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Character.valueOf(c)})) == null) {
-            if (c < '0' || c > '9') {
-                char c2 = 'a';
-                if (c < 'a' || c > 'f') {
-                    c2 = 'A';
-                    if (c < 'A' || c > 'F') {
-                        return -1;
-                    }
+        if (c < '0' || c > '9') {
+            char c2 = 'a';
+            if (c < 'a' || c > 'f') {
+                c2 = 'A';
+                if (c < 'A' || c > 'F') {
+                    return -1;
                 }
-                return (c - c2) + 10;
             }
-            return c - '0';
+            return (c - c2) + 10;
         }
-        return invokeCommon.intValue;
+        return c - TransactionIdCreater.FILL_BYTE;
     }
 
     public abstract ParsedResult parse(Result result);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1505461398, "Lcom/google/zxing/client/result/ResultParser;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1505461398, "Lcom/google/zxing/client/result/ResultParser;");
-                return;
-            }
-        }
-        PARSERS = new ResultParser[]{new BookmarkDoCoMoResultParser(), new AddressBookDoCoMoResultParser(), new EmailDoCoMoResultParser(), new AddressBookAUResultParser(), new VCardResultParser(), new BizcardResultParser(), new VEventResultParser(), new EmailAddressResultParser(), new SMTPResultParser(), new TelResultParser(), new SMSMMSResultParser(), new SMSTOMMSTOResultParser(), new GeoResultParser(), new WifiResultParser(), new URLTOResultParser(), new URIResultParser(), new ISBNResultParser(), new ProductResultParser(), new ExpandedProductResultParser(), new VINResultParser()};
-        DIGITS = Pattern.compile("\\d+");
-        AMPERSAND = Pattern.compile("&");
-        EQUALS = Pattern.compile("=");
-    }
-
-    public ResultParser() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
     public static void appendKeyValue(CharSequence charSequence, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, charSequence, map) == null) {
-            String[] split = EQUALS.split(charSequence, 2);
-            if (split.length == 2) {
-                try {
-                    map.put(split[0], urlDecode(split[1]));
-                } catch (IllegalArgumentException unused) {
-                }
+        String[] split = EQUALS.split(charSequence, 2);
+        if (split.length == 2) {
+            try {
+                map.put(split[0], urlDecode(split[1]));
+            } catch (IllegalArgumentException unused) {
             }
         }
     }
 
     public static int countPrecedingBackslashes(CharSequence charSequence, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, charSequence, i)) == null) {
-            int i2 = 0;
-            for (int i3 = i - 1; i3 >= 0 && charSequence.charAt(i3) == '\\'; i3--) {
-                i2++;
-            }
-            return i2;
+        int i2 = 0;
+        for (int i3 = i - 1; i3 >= 0 && charSequence.charAt(i3) == '\\'; i3--) {
+            i2++;
         }
-        return invokeLI.intValue;
+        return i2;
     }
 
     public static boolean isStringOfDigits(CharSequence charSequence, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, charSequence, i)) == null) {
-            if (charSequence != null && i > 0 && i == charSequence.length() && DIGITS.matcher(charSequence).matches()) {
-                return true;
-            }
-            return false;
+        if (charSequence != null && i > 0 && i == charSequence.length() && DIGITS.matcher(charSequence).matches()) {
+            return true;
         }
-        return invokeLI.booleanValue;
+        return false;
     }
 
     public static void maybeAppend(String str, StringBuilder sb) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65545, null, str, sb) == null) && str != null) {
+        if (str != null) {
             sb.append('\n');
             sb.append(str);
         }
     }
 
     public static String getMassagedText(Result result) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, result)) == null) {
-            String text = result.getText();
-            if (text.startsWith(BYTE_ORDER_MARK)) {
-                return text.substring(1);
-            }
-            return text;
+        String text = result.getText();
+        if (text.startsWith(BYTE_ORDER_MARK)) {
+            return text.substring(1);
         }
-        return (String) invokeL.objValue;
+        return text;
+    }
+
+    public static Map<String, String> parseNameValuePairs(String str) {
+        int indexOf = str.indexOf(63);
+        if (indexOf < 0) {
+            return null;
+        }
+        HashMap hashMap = new HashMap(3);
+        for (String str2 : AMPERSAND.split(str.substring(indexOf + 1))) {
+            appendKeyValue(str2, hashMap);
+        }
+        return hashMap;
     }
 
     public static ParsedResult parseResult(Result result) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, result)) == null) {
-            for (ResultParser resultParser : PARSERS) {
-                ParsedResult parse = resultParser.parse(result);
-                if (parse != null) {
-                    return parse;
-                }
+        for (ResultParser resultParser : PARSERS) {
+            ParsedResult parse = resultParser.parse(result);
+            if (parse != null) {
+                return parse;
             }
-            return new TextParsedResult(result.getText(), null);
         }
-        return (ParsedResult) invokeL.objValue;
+        return new TextParsedResult(result.getText(), null);
     }
 
     public static String urlDecode(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
-            try {
-                return URLDecoder.decode(str, "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                throw new IllegalStateException(e);
-            }
+        try {
+            return URLDecoder.decode(str, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            throw new IllegalStateException(e);
         }
-        return (String) invokeL.objValue;
     }
 
     public static boolean isSubstringOfDigits(CharSequence charSequence, int i, int i2) {
-        InterceptResult invokeLII;
         int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, charSequence, i, i2)) == null) {
-            if (charSequence == null || i2 <= 0 || charSequence.length() < (i3 = i2 + i) || !DIGITS.matcher(charSequence.subSequence(i, i3)).matches()) {
-                return false;
-            }
-            return true;
+        if (charSequence == null || i2 <= 0 || charSequence.length() < (i3 = i2 + i) || !DIGITS.matcher(charSequence.subSequence(i, i3)).matches()) {
+            return false;
         }
-        return invokeLII.booleanValue;
+        return true;
     }
 
     public static String[] matchPrefixedField(String str, String str2, char c, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, str2, Character.valueOf(c), Boolean.valueOf(z)})) == null) {
-            int length = str2.length();
-            ArrayList arrayList = null;
-            int i = 0;
-            while (i < length) {
-                int indexOf = str2.indexOf(str, i);
-                if (indexOf < 0) {
-                    break;
-                }
-                int length2 = indexOf + str.length();
-                ArrayList arrayList2 = arrayList;
-                boolean z2 = true;
-                int i2 = length2;
-                while (z2) {
-                    int indexOf2 = str2.indexOf(c, i2);
-                    if (indexOf2 < 0) {
-                        i2 = str2.length();
-                    } else if (countPrecedingBackslashes(str2, indexOf2) % 2 != 0) {
-                        i2 = indexOf2 + 1;
-                    } else {
-                        if (arrayList2 == null) {
-                            arrayList2 = new ArrayList(3);
-                        }
-                        String unescapeBackslash = unescapeBackslash(str2.substring(length2, indexOf2));
-                        if (z) {
-                            unescapeBackslash = unescapeBackslash.trim();
-                        }
-                        if (!unescapeBackslash.isEmpty()) {
-                            arrayList2.add(unescapeBackslash);
-                        }
-                        i2 = indexOf2 + 1;
+        int length = str2.length();
+        ArrayList arrayList = null;
+        int i = 0;
+        while (i < length) {
+            int indexOf = str2.indexOf(str, i);
+            if (indexOf < 0) {
+                break;
+            }
+            int length2 = indexOf + str.length();
+            ArrayList arrayList2 = arrayList;
+            boolean z2 = true;
+            int i2 = length2;
+            while (z2) {
+                int indexOf2 = str2.indexOf(c, i2);
+                if (indexOf2 < 0) {
+                    i2 = str2.length();
+                } else if (countPrecedingBackslashes(str2, indexOf2) % 2 != 0) {
+                    i2 = indexOf2 + 1;
+                } else {
+                    if (arrayList2 == null) {
+                        arrayList2 = new ArrayList(3);
                     }
-                    z2 = false;
+                    String unescapeBackslash = unescapeBackslash(str2.substring(length2, indexOf2));
+                    if (z) {
+                        unescapeBackslash = unescapeBackslash.trim();
+                    }
+                    if (!unescapeBackslash.isEmpty()) {
+                        arrayList2.add(unescapeBackslash);
+                    }
+                    i2 = indexOf2 + 1;
                 }
-                i = i2;
-                arrayList = arrayList2;
+                z2 = false;
             }
-            if (arrayList == null || arrayList.isEmpty()) {
-                return null;
-            }
-            return (String[]) arrayList.toArray(new String[arrayList.size()]);
+            i = i2;
+            arrayList = arrayList2;
         }
-        return (String[]) invokeCommon.objValue;
+        if (arrayList == null || arrayList.isEmpty()) {
+            return null;
+        }
+        return (String[]) arrayList.toArray(new String[arrayList.size()]);
     }
 
     public static String matchSinglePrefixedField(String str, String str2, char c, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, str2, Character.valueOf(c), Boolean.valueOf(z)})) == null) {
-            String[] matchPrefixedField = matchPrefixedField(str, str2, c, z);
-            if (matchPrefixedField == null) {
-                return null;
-            }
-            return matchPrefixedField[0];
+        String[] matchPrefixedField = matchPrefixedField(str, str2, c, z);
+        if (matchPrefixedField == null) {
+            return null;
         }
-        return (String) invokeCommon.objValue;
+        return matchPrefixedField[0];
     }
 
     public static void maybeAppend(String[] strArr, StringBuilder sb) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, null, strArr, sb) == null) && strArr != null) {
+        if (strArr != null) {
             for (String str : strArr) {
                 sb.append('\n');
                 sb.append(str);
@@ -262,47 +177,25 @@ public abstract class ResultParser {
         }
     }
 
-    public static Map<String, String> parseNameValuePairs(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            int indexOf = str.indexOf(63);
-            if (indexOf < 0) {
-                return null;
-            }
-            HashMap hashMap = new HashMap(3);
-            for (String str2 : AMPERSAND.split(str.substring(indexOf + 1))) {
-                appendKeyValue(str2, hashMap);
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
     public static String unescapeBackslash(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
-            int indexOf = str.indexOf(92);
-            if (indexOf < 0) {
-                return str;
-            }
-            int length = str.length();
-            StringBuilder sb = new StringBuilder(length - 1);
-            sb.append(str.toCharArray(), 0, indexOf);
-            boolean z = false;
-            while (indexOf < length) {
-                char charAt = str.charAt(indexOf);
-                if (!z && charAt == '\\') {
-                    z = true;
-                } else {
-                    sb.append(charAt);
-                    z = false;
-                }
-                indexOf++;
-            }
-            return sb.toString();
+        int indexOf = str.indexOf(92);
+        if (indexOf < 0) {
+            return str;
         }
-        return (String) invokeL.objValue;
+        int length = str.length();
+        StringBuilder sb = new StringBuilder(length - 1);
+        sb.append(str.toCharArray(), 0, indexOf);
+        boolean z = false;
+        while (indexOf < length) {
+            char charAt = str.charAt(indexOf);
+            if (!z && charAt == '\\') {
+                z = true;
+            } else {
+                sb.append(charAt);
+                z = false;
+            }
+            indexOf++;
+        }
+        return sb.toString();
     }
 }

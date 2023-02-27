@@ -1,5 +1,6 @@
 package com.cmic.sso.sdk.c;
 
+import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -9,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.cmic.sso.sdk.e.c;
 import java.net.InetAddress;
 import java.net.Socket;
 import javax.net.ssl.SSLSocket;
@@ -20,6 +20,7 @@ public class b extends SSLSocketFactory {
     public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
     public final SSLSocketFactory a;
+    public com.cmic.sso.sdk.a c;
 
     public String toString() {
         InterceptResult invokeV;
@@ -73,12 +74,12 @@ public class b extends SSLSocketFactory {
         return (String[]) invokeV.objValue;
     }
 
-    public b(SSLSocketFactory sSLSocketFactory) {
+    public b(SSLSocketFactory sSLSocketFactory, com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sSLSocketFactory};
+            Object[] objArr = {sSLSocketFactory, aVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -89,20 +90,23 @@ public class b extends SSLSocketFactory {
             }
         }
         this.a = sSLSocketFactory;
+        this.c = aVar;
     }
 
     private Socket a(Socket socket) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, socket)) == null) {
-            if (socket instanceof SSLSocket) {
+            if ((socket instanceof SSLSocket) && Build.VERSION.SDK_INT < 20) {
+                com.cmic.sso.sdk.e.c.b("Tls12SocketFactory", "5.0以下启动tls 1.2");
                 SSLSocket sSLSocket = (SSLSocket) socket;
                 for (String str : sSLSocket.getEnabledProtocols()) {
-                    c.a("enableProtocol", str);
+                    com.cmic.sso.sdk.e.c.a("enableProtocol", str);
                 }
                 sSLSocket.setEnabledProtocols(b);
                 sSLSocket.setEnabledCipherSuites(new String[]{"TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"});
             }
+            this.c.a("socketip", socket.getLocalAddress().getHostAddress());
             return socket;
         }
         return (Socket) invokeL.objValue;

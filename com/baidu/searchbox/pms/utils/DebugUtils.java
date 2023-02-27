@@ -1,41 +1,18 @@
 package com.baidu.searchbox.pms.utils;
 
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DebugUtils {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public DebugUtils() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static void log(boolean z, Object... objArr) {
         String str;
         String substring;
         boolean z2;
         String json;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZL(65537, null, z, objArr) != null) || !AppConfig.isDebug()) {
+        if (!AppConfig.isDebug()) {
             return;
         }
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
@@ -89,37 +66,28 @@ public class DebugUtils {
     }
 
     public static void log(Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, objArr) == null) {
-            log(false, objArr);
-        }
+        log(false, objArr);
     }
 
     public static void logE(Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, objArr) == null) {
-            log(true, objArr);
-        }
+        log(true, objArr);
     }
 
     public static void printStackTrace(Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) && AppConfig.isDebug()) {
+        if (AppConfig.isDebug()) {
             th.printStackTrace();
         }
     }
 
     public static void throwExceptionForDebug(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65541, null, str) != null) || !AppConfig.isDebug()) {
+        if (!AppConfig.isDebug()) {
             return;
         }
         throw new RuntimeException(str);
     }
 
     public static void throwExceptionForDebug(Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, th) != null) || !AppConfig.isDebug()) {
+        if (!AppConfig.isDebug()) {
             return;
         }
         throw new RuntimeException(th);

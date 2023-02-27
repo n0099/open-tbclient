@@ -1,24 +1,15 @@
 package com.yy.mobile.framework.revenuesdk.payapi.bean;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class ProductInfo {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public Double chargeRate;
     public int cid;
     public String currencyCode;
     public long destAmount;
     public String expand;
     public long firstRushAmount;
-    public List<GiftBagTagInfo> giftBagTagInfos;
-    public List<GiftBagsInfo> giftbags;
     public boolean hasAct;
     public boolean hasCurrencyAct;
     public boolean hasDestCurrencyAct;
@@ -33,14 +24,12 @@ public class ProductInfo {
     public String offers_currency_name;
     public boolean offers_currency_same;
     public int offers_currency_type;
-    public List<CurrencyInfo> otherCurrencies;
     public int otherCurrenciesSum;
     public String otherPrice;
     public String payChannel;
     public String payMethod;
     public String payType;
     public String productId;
-    public List<PropsInfo> props;
     public int propsSum;
     public long spAmount;
     public long spSumAmount;
@@ -48,32 +37,12 @@ public class ProductInfo {
     public String srcCurrencySymbol;
     public String subChannel;
     public int usedChannelType;
-
-    public ProductInfo() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.otherCurrencies = new ArrayList();
-        this.props = new ArrayList();
-        this.giftbags = new ArrayList();
-        this.giftBagTagInfos = new ArrayList();
-    }
+    public List<CurrencyInfo> otherCurrencies = new ArrayList();
+    public List<PropsInfo> props = new ArrayList();
+    public List<GiftBagsInfo> giftbags = new ArrayList();
+    public List<GiftBagTagInfo> giftBagTagInfos = new ArrayList();
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "ProductInfo{cid=" + this.cid + ", offersTips='" + this.offersTips + "', name='" + this.name + "', level=" + this.level + ", srcAmount=" + this.srcAmount + ", srcCurrencySymbol=" + this.srcCurrencySymbol + ", destAmount=" + this.destAmount + ", offersType=" + this.offersType + ", offersRate=" + this.offersRate + ", offers_currency_same=" + this.offers_currency_same + ", offers_currency_type=" + this.offers_currency_type + ", offers_currency_name='" + this.offers_currency_name + "', hasAct=" + this.hasAct + ", hasCurrencyAct=" + this.hasCurrencyAct + ", hasDestCurrencyAct=" + this.hasDestCurrencyAct + ", spAmount=" + this.spAmount + ", spSumAmount=" + this.spSumAmount + ", hasOtherCurrencyAct=" + this.hasOtherCurrencyAct + ", otherCurrenciesSum=" + this.otherCurrenciesSum + ", otherCurrencies=" + this.otherCurrencies + ", giftbags=" + this.giftbags + ", giftBagTagInfos=" + this.giftBagTagInfos + ", hasFirstRush=" + this.hasFirstRush + ", firstRushAmount=" + this.firstRushAmount + ", hasPropsAct=" + this.hasPropsAct + ", propsSum=" + this.propsSum + ", props=" + this.props + ", chargeRate=" + this.chargeRate + ", productId='" + this.productId + "', expand=" + this.expand + ", currencyCode=" + this.currencyCode + ", otherPrice=" + this.otherPrice + ", payChannel=" + this.payChannel + ", payMethod=" + this.payMethod + ", subChannel=" + this.subChannel + ", payType=" + this.payType + ", usedChannelType=" + this.usedChannelType + '}';
-        }
-        return (String) invokeV.objValue;
+        return "ProductInfo{cid=" + this.cid + ", offersTips='" + this.offersTips + "', name='" + this.name + "', level=" + this.level + ", srcAmount=" + this.srcAmount + ", srcCurrencySymbol=" + this.srcCurrencySymbol + ", destAmount=" + this.destAmount + ", offersType=" + this.offersType + ", offersRate=" + this.offersRate + ", offers_currency_same=" + this.offers_currency_same + ", offers_currency_type=" + this.offers_currency_type + ", offers_currency_name='" + this.offers_currency_name + "', hasAct=" + this.hasAct + ", hasCurrencyAct=" + this.hasCurrencyAct + ", hasDestCurrencyAct=" + this.hasDestCurrencyAct + ", spAmount=" + this.spAmount + ", spSumAmount=" + this.spSumAmount + ", hasOtherCurrencyAct=" + this.hasOtherCurrencyAct + ", otherCurrenciesSum=" + this.otherCurrenciesSum + ", otherCurrencies=" + this.otherCurrencies + ", giftbags=" + this.giftbags + ", giftBagTagInfos=" + this.giftBagTagInfos + ", hasFirstRush=" + this.hasFirstRush + ", firstRushAmount=" + this.firstRushAmount + ", hasPropsAct=" + this.hasPropsAct + ", propsSum=" + this.propsSum + ", props=" + this.props + ", chargeRate=" + this.chargeRate + ", productId='" + this.productId + "', expand=" + this.expand + ", currencyCode=" + this.currencyCode + ", otherPrice=" + this.otherPrice + ", payChannel=" + this.payChannel + ", payMethod=" + this.payMethod + ", subChannel=" + this.subChannel + ", payType=" + this.payType + ", usedChannelType=" + this.usedChannelType + '}';
     }
 }

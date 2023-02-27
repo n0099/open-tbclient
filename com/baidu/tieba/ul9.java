@@ -1,4 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.tbadk.album.MediaFileInfo;
 /* loaded from: classes6.dex */
-public interface ul9 extends mb5 {
+public interface ul9 {
+    void a(int i, MediaFileInfo mediaFileInfo);
 }

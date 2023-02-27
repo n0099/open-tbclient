@@ -10,7 +10,7 @@ public final class UShortArrayKt {
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: ushortArrayOf-rL5Bavg  reason: not valid java name */
-    public static final short[] m1119ushortArrayOfrL5Bavg(short... elements) {
+    public static final short[] m1112ushortArrayOfrL5Bavg(short... elements) {
         Intrinsics.checkNotNullParameter(elements, "elements");
         return elements;
     }
@@ -22,8 +22,8 @@ public final class UShortArrayKt {
         Intrinsics.checkNotNullParameter(init, "init");
         short[] sArr = new short[i];
         for (int i2 = 0; i2 < i; i2++) {
-            sArr[i2] = init.invoke(Integer.valueOf(i2)).m1100unboximpl();
+            sArr[i2] = init.invoke(Integer.valueOf(i2)).m1093unboximpl();
         }
-        return UShortArray.m1103constructorimpl(sArr);
+        return UShortArray.m1096constructorimpl(sArr);
     }
 }

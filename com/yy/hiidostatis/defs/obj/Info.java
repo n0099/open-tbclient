@@ -1,13 +1,6 @@
 package com.yy.hiidostatis.defs.obj;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.defs.obj.Elem;
 import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.log.L;
@@ -21,145 +14,88 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes8.dex */
 public class Info<T extends Elem> implements Serializable {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String DIVIDE_ELEM = "|";
     public static final long serialVersionUID = 1;
-    public transient /* synthetic */ FieldHolder $fh;
-    public List<T> elems;
-
-    public Info() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.elems = new CopyOnWriteArrayList();
-    }
+    public List<T> elems = new CopyOnWriteArrayList();
 
     public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.elems.clear();
-        }
+        this.elems.clear();
     }
 
     public int getElemsCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.elems.size();
-        }
-        return invokeV.intValue;
+        return this.elems.size();
     }
 
     public Iterator<T> iterator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.elems.iterator();
-        }
-        return (Iterator) invokeV.objValue;
+        return this.elems.iterator();
     }
 
     private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, objectInputStream) == null) {
-            try {
-                this.elems = (List) objectInputStream.readObject();
-            } catch (Throwable th) {
-                L.debug(this, "Failed to read object from stream for %s", th);
-                this.elems = new CopyOnWriteArrayList();
-            }
-            if (this.elems == null) {
-                L.brief("read elements is null, create an empty array list.", new Object[0]);
-                this.elems = new ArrayList();
-            }
+        try {
+            this.elems = (List) objectInputStream.readObject();
+        } catch (Throwable th) {
+            L.debug(this, "Failed to read object from stream for %s", th);
+            this.elems = new CopyOnWriteArrayList();
+        }
+        if (this.elems == null) {
+            L.brief("read elements is null, create an empty array list.", new Object[0]);
+            this.elems = new ArrayList();
         }
     }
 
     private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, objectOutputStream) == null) {
-            objectOutputStream.writeObject(this.elems);
-        }
+        objectOutputStream.writeObject(this.elems);
     }
 
     public void add(Info<T> info) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, info) == null) {
-            Iterator<T> it = info.iterator();
-            while (it.hasNext()) {
-                addElem(it.next());
-            }
+        Iterator<T> it = info.iterator();
+        while (it.hasNext()) {
+            addElem(it.next());
         }
     }
 
     public void addElem(T t) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) != null) || t == null) {
+        if (t == null) {
             return;
         }
         this.elems.add(t);
     }
 
     public T getElem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return this.elems.get(i);
-        }
-        return (T) invokeI.objValue;
+        return this.elems.get(i);
     }
 
     public void removeElem(T t) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, t) != null) || t == null) {
+        if (t == null) {
             return;
         }
         this.elems.remove(t);
     }
 
     public String getResult() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (Util.empty(this.elems)) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            for (T t : this.elems) {
-                sb.append(Util.replaceEncode(t.getStringRep(), "|"));
-                sb.append("|");
-            }
-            String sb2 = sb.toString();
-            if (sb2.length() <= 1) {
-                return sb2;
-            }
-            return sb2.substring(0, sb2.length() - 1);
+        if (Util.empty(this.elems)) {
+            return "";
         }
-        return (String) invokeV.objValue;
+        StringBuilder sb = new StringBuilder();
+        for (T t : this.elems) {
+            sb.append(Util.replaceEncode(t.getStringRep(), "|"));
+            sb.append("|");
+        }
+        String sb2 = sb.toString();
+        if (sb2.length() <= 1) {
+            return sb2;
+        }
+        return sb2.substring(0, sb2.length() - 1);
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(PreferencesUtil.LEFT_MOUNT);
-            for (T t : this.elems) {
-                sb.append(t.toString());
-                sb.append(" ");
-            }
-            sb.append(PreferencesUtil.RIGHT_MOUNT);
-            return sb.toString();
+        StringBuilder sb = new StringBuilder();
+        sb.append(PreferencesUtil.LEFT_MOUNT);
+        for (T t : this.elems) {
+            sb.append(t.toString());
+            sb.append(" ");
         }
-        return (String) invokeV.objValue;
+        sb.append(PreferencesUtil.RIGHT_MOUNT);
+        return sb.toString();
     }
 }

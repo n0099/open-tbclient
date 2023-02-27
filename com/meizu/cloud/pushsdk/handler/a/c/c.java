@@ -1,49 +1,79 @@
 package com.meizu.cloud.pushsdk.handler.a.c;
 
-import android.content.Context;
-import android.content.Intent;
-import com.meizu.cloud.pushinternal.DebugLogger;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import android.os.Parcel;
+import android.os.Parcelable;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
-import com.meizu.cloud.pushsdk.handler.MzPushMessage;
 /* loaded from: classes8.dex */
-public class c extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
-    public c(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
-        super(context, aVar);
-    }
-
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public int a() {
-        return 128;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    public void a(MessageV3 messageV3, com.meizu.cloud.pushsdk.notification.c cVar) {
-        if (b() == null || messageV3 == null) {
-            return;
+public class c implements Parcelable {
+    public static final Parcelable.Creator<c> CREATOR = new Parcelable.Creator<c>() { // from class: com.meizu.cloud.pushsdk.handler.a.c.c.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public c createFromParcel(Parcel parcel) {
+            return new c(parcel);
         }
-        b().c(c(), MzPushMessage.fromMessageV3(messageV3));
-        b(messageV3);
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public c[] newArray(int i) {
+            return new c[i];
+        }
+    };
+    public MessageV3 a;
+    public String b;
+    public int c;
+    public int d;
+
+    public c(Parcel parcel) {
+        this.a = (MessageV3) parcel.readParcelable(MessageV3.class.getClassLoader());
+        this.b = parcel.readString();
+        this.c = parcel.readInt();
+        this.d = parcel.readInt();
     }
 
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public boolean a(Intent intent) {
-        DebugLogger.i("AbstractMessageHandler", "start NotificationDeleteMessageHandler match");
-        return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_NOTIFICATION_DELETE.equals(i(intent));
+    public c(MessageV3 messageV3) {
+        this.a = messageV3;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: d */
-    public void b(MessageV3 messageV3) {
-        com.meizu.cloud.pushsdk.util.d.b(c(), messageV3.getUploadDataPackageName(), messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
+    public MessageV3 a() {
+        return this.a;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: j */
-    public MessageV3 c(Intent intent) {
-        return (MessageV3) intent.getParcelableExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE);
+    public void a(int i) {
+        this.c = i;
+    }
+
+    public void a(String str) {
+        this.b = str;
+    }
+
+    public int b() {
+        return this.c;
+    }
+
+    public void b(int i) {
+        this.d = i;
+    }
+
+    public int c() {
+        return this.d;
+    }
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
+    }
+
+    public String toString() {
+        return "NotificationState{messageV3=" + this.a + ", notificationPkg='" + this.b + "', notificationId='" + this.c + "', state='" + this.d + "'}";
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeParcelable(this.a, i);
+        parcel.writeString(this.b);
+        parcel.writeInt(this.c);
+        parcel.writeInt(this.d);
     }
 }

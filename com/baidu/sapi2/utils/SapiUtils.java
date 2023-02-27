@@ -34,9 +34,7 @@ import android.text.TextUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.util.DeviceId;
-import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.base.utils.PassBioEnv;
 import com.baidu.pass.common.SecurityUtil;
@@ -54,16 +52,10 @@ import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
 import com.kuaishou.weapon.p0.h;
 import com.kuaishou.weapon.p0.k1;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -96,12 +88,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class SapiUtils implements NoProguard {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String COOKIE_EXPIRES_DATE_FORMAT = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
     public static final String COOKIE_HTTPS_URL_PREFIX = "https://";
     public static final String COOKIE_URL_PREFIX = "https://www.";
-    public static final String DELIMITER2;
-    public static final String DELIMITER3;
+    public static final String DELIMITER2 = Character.toString(2);
+    public static final String DELIMITER3 = Character.toString(3);
     public static final String KEY_QR_LOGIN_CLIENT_ID = "client_id";
     public static final String KEY_QR_LOGIN_CMD = "cmd";
     public static final String KEY_QR_LOGIN_ENCUID = "encuid";
@@ -131,1291 +122,1282 @@ public class SapiUtils implements NoProguard {
     public static final String QR_LOGIN_LP_APP = "app";
     public static final String QR_LOGIN_LP_PC = "pc";
     public static String iccid;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(607552353, "Lcom/baidu/sapi2/utils/SapiUtils;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(607552353, "Lcom/baidu/sapi2/utils/SapiUtils;");
-                return;
-            }
-        }
-        DELIMITER2 = Character.toString((char) 2);
-        DELIMITER3 = Character.toString((char) 3);
-    }
-
-    public SapiUtils() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
 
     public static List<String> getAuthorizedDomains() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
-            return SapiContext.getInstance().getAuthorizedDomains();
-        }
-        return (List) invokeV.objValue;
+        return SapiContext.getInstance().getAuthorizedDomains();
     }
 
     public static List<String> getAuthorizedDomainsForPtoken() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
-            return SapiContext.getInstance().getAuthorizedDomainsForPtoken();
-        }
-        return (List) invokeV.objValue;
+        return SapiContext.getInstance().getAuthorizedDomainsForPtoken();
     }
 
     public static String getCookieBduss() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
-            return getCookie(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL), HttpRequest.BDUSS);
+        return getCookie(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL), HttpRequest.BDUSS);
+    }
+
+    public static String getCookieBdussBfess() {
+        return getCookie(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL), HttpRequest.BDUSS);
+    }
+
+    public static String getCookiePtoken() {
+        SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
+        String cookie = getCookie(confignation.environment.getWap(), "PTOKEN");
+        if (TextUtils.isEmpty(cookie)) {
+            return getCookie(confignation.environment.getURL(), "PTOKEN");
         }
-        return (String) invokeV.objValue;
+        return cookie;
     }
 
     public static List<String> getCuidAuthorizedDomains() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
-            return SapiContext.getInstance().getCuidAuthorizedDomains();
-        }
-        return (List) invokeV.objValue;
+        return SapiContext.getInstance().getCuidAuthorizedDomains();
     }
 
     public static boolean getDefaultHttpsEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) {
-            return SapiContext.getInstance().getDefaultHttpsEnabled();
-        }
-        return invokeV.booleanValue;
+        return SapiContext.getInstance().getDefaultHttpsEnabled();
     }
 
     public static String getDeviceName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
-            try {
-                return ServiceManager.getInstance().getIsAccountManager().getConfignation().deviceName;
-            } catch (Exception e) {
-                Log.e(e);
-                return "";
-            }
+        try {
+            return ServiceManager.getInstance().getIsAccountManager().getConfignation().deviceName;
+        } catch (Exception e) {
+            Log.e(e);
+            return "";
         }
-        return (String) invokeV.objValue;
+    }
+
+    public static long getInternalAvailableMemorySize() {
+        try {
+            StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
+            return (statFs.getBlockSize() * statFs.getAvailableBlocks()) / 1024;
+        } catch (Throwable th) {
+            Log.e(th);
+            return 0L;
+        }
+    }
+
+    public static long getInternalMemorySize() {
+        try {
+            StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
+            return (statFs.getBlockSize() * statFs.getBlockCount()) / 1024;
+        } catch (Throwable th) {
+            Log.e(th);
+            return 0L;
+        }
     }
 
     public static int getLastLoginType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
-            return Enums.LastLoginType.getValueByName(SapiContext.getInstance().getString(SapiContext.KEY_PRE_LOGIN_TYPE));
-        }
-        return invokeV.intValue;
+        return Enums.LastLoginType.getValueByName(SapiContext.getInstance().getString(SapiContext.KEY_PRE_LOGIN_TYPE));
     }
 
     public static String getLoginType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) {
-            return SapiContext.getInstance().getAccountActionType();
-        }
-        return (String) invokeV.objValue;
+        return SapiContext.getInstance().getAccountActionType();
     }
 
     public static long getTimeSinceBoot() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65581, null)) == null) {
-            return SystemClock.elapsedRealtime() / 1000;
+        return SystemClock.elapsedRealtime() / 1000;
+    }
+
+    public static boolean isRoot() {
+        if ((new File("/system/bin/su").exists() && isExecutable("/system/bin/su")) || (new File("/system/xbin/su").exists() && isExecutable("/system/xbin/su"))) {
+            return true;
         }
-        return invokeV.longValue;
+        return false;
+    }
+
+    public static String buildBDUSSBFESSCookie(String str, String str2) {
+        return buildBDUSSBFESSCookie(str, "BDUSS_BFESS", str2);
     }
 
     public static String buildBDUSSCookie(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            return buildBDUSSCookie(str, HttpRequest.BDUSS, str2);
-        }
-        return (String) invokeLL.objValue;
+        return buildBDUSSCookie(str, HttpRequest.BDUSS, str2);
+    }
+
+    public static String buildCuidCookie(String str, String str2) {
+        return "cuid=" + str2 + ";domain=" + str + ";path=/;httponly";
     }
 
     public static String buildPtokenCookie(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
-            return buildPtokenCookie(str, "PTOKEN", str2);
+        return buildPtokenCookie(str, "PTOKEN", str2);
+    }
+
+    public static String buildSidCookie(String str, String str2) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.add(5, 7);
+        return buildCookie(str, "sid", str2, calendar.getTime(), false);
+    }
+
+    public static String buildStokenCookie(String str, String str2) {
+        int i;
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        if (TextUtils.isEmpty(str2)) {
+            i = -8;
+        } else {
+            i = 8;
         }
-        return (String) invokeLL.objValue;
+        calendar.add(1, i);
+        return buildCookie(str, "STOKEN", str2, calendar.getTime(), true);
+    }
+
+    public static String buildTplCuidCookie(String str, String str2) {
+        return "tcuid=" + str2 + ";domain=" + str + ";path=/;httponly";
+    }
+
+    public static boolean checkAppInstalled(Context context, String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        try {
+            context.getPackageManager().getPackageInfo(str, 0);
+            return true;
+        } catch (Exception unused) {
+            return false;
+        }
     }
 
     @TargetApi(23)
     public static boolean checkRequestPermission(String str, Context context) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, str, context)) == null) {
-            try {
-                if (Build.VERSION.SDK_INT < 23 || context.checkSelfPermission(str) != 0) {
-                    if (Build.VERSION.SDK_INT >= 23) {
-                        return false;
-                    }
-                    if (context.checkCallingOrSelfPermission(str) != 0) {
-                        return false;
-                    }
+        try {
+            if (Build.VERSION.SDK_INT < 23 || context.checkSelfPermission(str) != 0) {
+                if (Build.VERSION.SDK_INT >= 23) {
+                    return false;
                 }
-                return true;
-            } catch (Exception unused) {
-                return false;
+                if (context.checkCallingOrSelfPermission(str) != 0) {
+                    return false;
+                }
             }
+            return true;
+        } catch (Exception unused) {
+            return false;
         }
-        return invokeLL.booleanValue;
     }
 
     public static int dip2px(Context context, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65553, null, context, f)) == null) {
-            if (context != null) {
-                return (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f);
-            }
-            throw new IllegalArgumentException("Context can't be null");
+        if (context != null) {
+            return (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f);
         }
-        return invokeLF.intValue;
+        throw new IllegalArgumentException("Context can't be null");
     }
 
     public static boolean isAppInstalled(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65586, null, context, str)) == null) {
-            if (context != null && !TextUtils.isEmpty(str)) {
-                try {
-                    if (context.getPackageManager().getPackageInfo(str, 0) != null) {
-                        return true;
-                    }
-                } catch (PackageManager.NameNotFoundException unused) {
+        if (context != null && !TextUtils.isEmpty(str)) {
+            try {
+                if (context.getPackageManager().getPackageInfo(str, 0) != null) {
+                    return true;
                 }
+            } catch (PackageManager.NameNotFoundException unused) {
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+        return false;
     }
 
     public static void notEmpty(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65602, null, str, str2) != null) || !TextUtils.isEmpty(str)) {
+        if (!TextUtils.isEmpty(str)) {
             return;
         }
         throw new IllegalArgumentException(str2);
     }
 
     public static void notNull(Object obj, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65603, null, obj, str) != null) || obj != null) {
+        if (obj != null) {
             return;
         }
         throw new IllegalArgumentException(str);
     }
 
     public static int px2sp(Context context, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65606, null, context, f)) == null) {
-            return (int) ((f / context.getResources().getDisplayMetrics().scaledDensity) + 0.5f);
-        }
-        return invokeLF.intValue;
+        return (int) ((f / context.getResources().getDisplayMetrics().scaledDensity) + 0.5f);
     }
 
     public static boolean webLogin(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65614, null, context, str)) == null) {
-            return ServiceManager.getInstance().getIsAccountManager().getIsAccountService().webLogin(context, str);
+        return ServiceManager.getInstance().getIsAccountManager().getIsAccountService().webLogin(context, str);
+    }
+
+    public static String buildBDUSSBFESSCookie(String str, String str2, String str3) {
+        int i;
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        if (TextUtils.isEmpty(str3)) {
+            i = -8;
+        } else {
+            i = 8;
         }
-        return invokeLL.booleanValue;
+        calendar.add(1, i);
+        return buildCookie(str, str2, str3, calendar.getTime(), true, "None");
     }
 
     public static String buildBDUSSCookie(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(new Date());
-            if (TextUtils.isEmpty(str3)) {
-                i = -8;
-            } else {
-                i = 8;
-            }
-            calendar.add(1, i);
-            return buildCookie(str, str2, str3, calendar.getTime(), false);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        if (TextUtils.isEmpty(str3)) {
+            i = -8;
+        } else {
+            i = 8;
         }
-        return (String) invokeLLL.objValue;
+        calendar.add(1, i);
+        return buildCookie(str, str2, str3, calendar.getTime(), false);
     }
 
     public static String buildDeviceInfoCookie(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, str, str2, str3)) == null) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(new Date());
-            if (TextUtils.isEmpty(str3)) {
-                i = -8;
-            } else {
-                i = 8;
-            }
-            calendar.add(1, i);
-            return buildCookie(str, str2, str3, calendar.getTime(), true);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        if (TextUtils.isEmpty(str3)) {
+            i = -8;
+        } else {
+            i = 8;
         }
-        return (String) invokeLLL.objValue;
+        calendar.add(1, i);
+        return buildCookie(str, str2, str3, calendar.getTime(), true);
     }
 
     public static String buildIqiyiCookie(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, str, str2, str3)) == null) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(new Date());
-            if (TextUtils.isEmpty(str3)) {
-                i = -2;
-            } else {
-                i = 2;
-            }
-            calendar.add(5, i);
-            return buildCookie(str, str2, str3, calendar.getTime(), false);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        if (TextUtils.isEmpty(str3)) {
+            i = -2;
+        } else {
+            i = 2;
         }
-        return (String) invokeLLL.objValue;
+        calendar.add(5, i);
+        return buildCookie(str, str2, str3, calendar.getTime(), false);
     }
 
     public static String buildPtokenCookie(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, str, str2, str3)) == null) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(new Date());
-            if (TextUtils.isEmpty(str3)) {
-                i = -8;
-            } else {
-                i = 8;
-            }
-            calendar.add(1, i);
-            return buildCookie(str, str2, str3, calendar.getTime(), true);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        if (TextUtils.isEmpty(str3)) {
+            i = -8;
+        } else {
+            i = 8;
         }
-        return (String) invokeLLL.objValue;
+        calendar.add(1, i);
+        return buildCookie(str, str2, str3, calendar.getTime(), true);
+    }
+
+    public static String buildStokenCookie(String str, String str2, String str3) {
+        int i;
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        if (TextUtils.isEmpty(str2)) {
+            i = -8;
+        } else {
+            i = 8;
+        }
+        calendar.add(1, i);
+        return buildCookie(str, "STOKEN", str2, calendar.getTime(), true, str3);
+    }
+
+    public static boolean webLogin(Context context, String str, String str2) {
+        return ServiceManager.getInstance().getIsAccountManager().getIsAccountService().webLogin(context, str, str2);
     }
 
     public static String buildCookie(String str, String str2, String str3, Date date, boolean z) {
-        InterceptResult invokeCommon;
         String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, date, Boolean.valueOf(z)})) == null) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
-            simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
-            StringBuilder sb = new StringBuilder();
-            sb.append(str2);
-            sb.append("=");
-            sb.append(str3);
-            sb.append(";domain=");
-            sb.append(str);
-            sb.append(";path=/;expires=");
-            sb.append(simpleDateFormat.format(date));
-            sb.append(";httponly");
-            if (z) {
-                str4 = ";secure";
-            } else {
-                str4 = "";
-            }
-            sb.append(str4);
-            return sb.toString();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
+        simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
+        StringBuilder sb = new StringBuilder();
+        sb.append(str2);
+        sb.append("=");
+        sb.append(str3);
+        sb.append(";domain=");
+        sb.append(str);
+        sb.append(";path=/;expires=");
+        sb.append(simpleDateFormat.format(date));
+        sb.append(";httponly");
+        if (z) {
+            str4 = ";secure";
+        } else {
+            str4 = "";
         }
-        return (String) invokeCommon.objValue;
+        sb.append(str4);
+        return sb.toString();
     }
 
-    public static String buildCuidCookie(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            return "cuid=" + str2 + ";domain=" + str + ";path=/;httponly";
+    public static String buildCookie(String str, String str2, String str3, Date date, boolean z, String str4) {
+        String str5;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
+        simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
+        StringBuilder sb = new StringBuilder();
+        sb.append(str2);
+        sb.append("=");
+        sb.append(str3);
+        sb.append(";domain=");
+        sb.append(str);
+        sb.append(";path=/;expires=");
+        sb.append(simpleDateFormat.format(date));
+        sb.append(";httponly");
+        String str6 = "";
+        if (!z) {
+            str5 = "";
+        } else {
+            str5 = ";secure";
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String buildSidCookie(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, str, str2)) == null) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(new Date());
-            calendar.add(5, 7);
-            return buildCookie(str, "sid", str2, calendar.getTime(), false);
+        sb.append(str5);
+        if (!TextUtils.isEmpty(str4)) {
+            str6 = ";SameSite=" + str4;
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String buildStokenCookie(String str, String str2) {
-        InterceptResult invokeLL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(new Date());
-            if (TextUtils.isEmpty(str2)) {
-                i = -8;
-            } else {
-                i = 8;
-            }
-            calendar.add(1, i);
-            return buildCookie(str, "STOKEN", str2, calendar.getTime(), true);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String buildTplCuidCookie(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, str, str2)) == null) {
-            return "tcuid=" + str2 + ";domain=" + str + ";path=/;httponly";
-        }
-        return (String) invokeLL.objValue;
+        sb.append(str6);
+        return sb.toString();
     }
 
     public static String buildDarkModeCookie(String str, String str2) {
-        InterceptResult invokeLL;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(new Date());
-            if (TextUtils.isEmpty(str2)) {
-                i = -1;
-            } else {
-                i = 1;
-            }
-            calendar.add(5, i);
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
-            simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
-            return "passtheme=" + str2 + ";domain=" + str + ";path=/;expires=" + simpleDateFormat.format(calendar.getTime());
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        if (TextUtils.isEmpty(str2)) {
+            i = -1;
+        } else {
+            i = 1;
         }
-        return (String) invokeLL.objValue;
+        calendar.add(5, i);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
+        simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
+        return "passtheme=" + str2 + ";domain=" + str + ";path=/;expires=" + simpleDateFormat.format(calendar.getTime());
+    }
+
+    public static String getPackageSign(Context context, String str) {
+        String str2 = "";
+        if (context != null && !TextUtils.isEmpty(str)) {
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
+                if (packageInfo.signatures.length > 0) {
+                    str2 = SecurityUtil.md5(packageInfo.signatures[0].toByteArray(), false);
+                }
+            } catch (Throwable th) {
+                Log.e(th);
+            }
+            if (TextUtils.isEmpty(str2)) {
+                Log.d("get pgkSign error, for pkgName=" + str, new Object[0]);
+            }
+        }
+        return str2;
     }
 
     public static String calculateSig(Map<String, String> map, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, map, str)) == null) {
-            map.remove(FunAdSdk.PLATFORM_SIG);
-            ArrayList arrayList = new ArrayList();
-            for (String str2 : map.keySet()) {
-                arrayList.add(str2);
-            }
-            Collections.sort(arrayList);
-            StringBuilder sb = new StringBuilder();
-            Iterator it = arrayList.iterator();
-            while (it.hasNext()) {
-                String str3 = (String) it.next();
-                try {
-                    String str4 = map.get(str3);
-                    if (!TextUtils.isEmpty(str4)) {
-                        sb.append(str3);
-                        sb.append("=");
-                        sb.append(URLEncoder.encode(str4, "UTF-8"));
-                        sb.append("&");
-                    }
-                } catch (UnsupportedEncodingException e) {
-                    Log.e(e);
-                }
-            }
-            sb.append("sign_key=");
-            sb.append(str);
-            return SecurityUtil.md5(sb.toString().getBytes(), false);
+        map.remove(FunAdSdk.PLATFORM_SIG);
+        ArrayList arrayList = new ArrayList();
+        for (String str2 : map.keySet()) {
+            arrayList.add(str2);
         }
-        return (String) invokeLL.objValue;
+        Collections.sort(arrayList);
+        StringBuilder sb = new StringBuilder();
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            String str3 = (String) it.next();
+            try {
+                String str4 = map.get(str3);
+                if (!TextUtils.isEmpty(str4)) {
+                    sb.append(str3);
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(str4, "UTF-8"));
+                    sb.append("&");
+                }
+            } catch (UnsupportedEncodingException e) {
+                Log.e(e);
+            }
+        }
+        sb.append("sign_key=");
+        sb.append(str);
+        return SecurityUtil.md5(sb.toString().getBytes(), false);
     }
 
     public static String getCookie(String str, String str2) {
-        InterceptResult invokeLL;
         int indexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, str, str2)) == null) {
-            try {
-                CookieSyncManager.createInstance(ServiceManager.getInstance().getIsAccountManager().getConfignation().context);
-                String cookie = CookieManager.getInstance().getCookie(str);
-                if (TextUtils.isEmpty(cookie)) {
-                    return "";
-                }
-                for (String str3 : cookie.split(";")) {
-                    String trim = str3.trim();
-                    if (!TextUtils.isEmpty(trim) && (indexOf = trim.indexOf("=")) > -1) {
-                        String[] strArr = new String[2];
-                        strArr[0] = trim.substring(0, indexOf);
-                        int i = indexOf + 1;
-                        if (i < trim.length()) {
-                            strArr[1] = trim.substring(i, trim.length());
-                        }
-                        if (strArr[0].equals(str2)) {
-                            return strArr[1];
-                        }
-                    }
-                }
-                return "";
-            } catch (Throwable th) {
-                Log.e(th);
+        try {
+            CookieSyncManager.createInstance(ServiceManager.getInstance().getIsAccountManager().getConfignation().context);
+            String cookie = CookieManager.getInstance().getCookie(str);
+            if (TextUtils.isEmpty(cookie)) {
                 return "";
             }
+            for (String str3 : cookie.split(ParamableElem.DIVIDE_PARAM)) {
+                String trim = str3.trim();
+                if (!TextUtils.isEmpty(trim) && (indexOf = trim.indexOf("=")) > -1) {
+                    String[] strArr = new String[2];
+                    strArr[0] = trim.substring(0, indexOf);
+                    int i = indexOf + 1;
+                    if (i < trim.length()) {
+                        strArr[1] = trim.substring(i, trim.length());
+                    }
+                    if (strArr[0].equals(str2)) {
+                        return strArr[1];
+                    }
+                }
+            }
+            return "";
+        } catch (Throwable th) {
+            Log.e(th);
+            return "";
         }
-        return (String) invokeLL.objValue;
     }
 
     public static String[] getPkgIconAndName(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65578, null, context, str)) == null) {
-            String[] strArr = new String[2];
-            PackageManager packageManager = context.getPackageManager();
-            try {
-                PackageInfo packageInfo = packageManager.getPackageInfo(str, 0);
-                strArr[1] = packageInfo.applicationInfo.loadLabel(packageManager).toString();
-                Bitmap createScaledBitmap = Bitmap.createScaledBitmap(drawableToBitamp(packageInfo.applicationInfo.loadIcon(packageManager)), 80, 80, true);
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                int i = 100;
-                createScaledBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-                while (byteArrayOutputStream.toByteArray().length > 524288 && i > 0) {
-                    i /= 2;
-                    byteArrayOutputStream.reset();
-                    createScaledBitmap.compress(Bitmap.CompressFormat.PNG, i, byteArrayOutputStream);
-                }
-                strArr[0] = "data:image/png;base64," + SecurityUtil.base64Encode(byteArrayOutputStream.toByteArray());
-                byteArrayOutputStream.close();
-            } catch (Exception e) {
-                Log.e(e);
+        String[] strArr = new String[2];
+        PackageManager packageManager = context.getPackageManager();
+        try {
+            PackageInfo packageInfo = packageManager.getPackageInfo(str, 0);
+            strArr[1] = packageInfo.applicationInfo.loadLabel(packageManager).toString();
+            Bitmap createScaledBitmap = Bitmap.createScaledBitmap(drawableToBitamp(packageInfo.applicationInfo.loadIcon(packageManager)), 80, 80, true);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            int i = 100;
+            createScaledBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+            while (byteArrayOutputStream.toByteArray().length > 524288 && i > 0) {
+                i /= 2;
+                byteArrayOutputStream.reset();
+                createScaledBitmap.compress(Bitmap.CompressFormat.PNG, i, byteArrayOutputStream);
             }
-            return strArr;
+            strArr[0] = "data:image/png;base64," + SecurityUtil.base64Encode(byteArrayOutputStream.toByteArray());
+            byteArrayOutputStream.close();
+        } catch (Exception e) {
+            Log.e(e);
         }
-        return (String[]) invokeLL.objValue;
+        return strArr;
     }
 
     public static String mapToUrlParams(Map<String, String> map, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65601, null, map, z)) == null) {
-            if (map == null) {
-                return "";
+        if (map == null) {
+            return "";
+        }
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            if (sb.length() <= 0 && !z) {
+                sb.append("?");
+            } else {
+                sb.append("&");
             }
-            StringBuilder sb = new StringBuilder();
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                String key = entry.getKey();
-                String value = entry.getValue();
-                if (sb.length() <= 0 && !z) {
-                    sb.append("?");
-                } else {
-                    sb.append("&");
-                }
-                if (value == null) {
-                    try {
-                        sb.append(key);
-                        sb.append("=");
-                    } catch (Exception e) {
-                        sb.append(key);
-                        sb.append("=");
-                        sb.append((Object) value);
-                        e.printStackTrace();
-                    }
-                } else {
+            if (value == null) {
+                try {
                     sb.append(key);
                     sb.append("=");
-                    sb.append(URLEncoder.encode(value.toString(), "UTF-8"));
+                } catch (Exception e) {
+                    sb.append(key);
+                    sb.append("=");
+                    sb.append((Object) value);
+                    e.printStackTrace();
                 }
+            } else {
+                sb.append(key);
+                sb.append("=");
+                sb.append(URLEncoder.encode(value.toString(), "UTF-8"));
             }
-            return sb.toString();
         }
-        return (String) invokeLZ.objValue;
+        return sb.toString();
     }
 
     public static String createRequestParams(List<PassNameValuePair> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, list)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (list != null) {
-                for (PassNameValuePair passNameValuePair : list) {
-                    if (!TextUtils.isEmpty(passNameValuePair.getName()) && !TextUtils.isEmpty(passNameValuePair.getValue())) {
-                        if (TextUtils.isEmpty(sb.toString())) {
-                            sb.append(passNameValuePair.getName());
-                            sb.append("=");
-                            sb.append(passNameValuePair.getValue());
-                        } else {
-                            sb.append("&");
-                            sb.append(passNameValuePair.getName());
-                            sb.append("=");
-                            sb.append(passNameValuePair.getValue());
-                        }
+        StringBuilder sb = new StringBuilder();
+        if (list != null) {
+            for (PassNameValuePair passNameValuePair : list) {
+                if (!TextUtils.isEmpty(passNameValuePair.getName()) && !TextUtils.isEmpty(passNameValuePair.getValue())) {
+                    if (TextUtils.isEmpty(sb.toString())) {
+                        sb.append(passNameValuePair.getName());
+                        sb.append("=");
+                        sb.append(passNameValuePair.getValue());
+                    } else {
+                        sb.append("&");
+                        sb.append(passNameValuePair.getName());
+                        sb.append("=");
+                        sb.append(passNameValuePair.getValue());
                     }
                 }
             }
-            return sb.toString();
         }
-        return (String) invokeL.objValue;
+        return sb.toString();
+    }
+
+    public static String getIccid(Context context) {
+        if (!ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
+            return "";
+        }
+        if (!TextUtils.isEmpty(iccid)) {
+            return iccid;
+        }
+        try {
+            if (Build.VERSION.SDK_INT >= 22) {
+                StringBuilder sb = new StringBuilder();
+                List<SubscriptionInfo> activeSubscriptionInfoList = SubscriptionManager.from(context).getActiveSubscriptionInfoList();
+                if (activeSubscriptionInfoList == null) {
+                    return null;
+                }
+                for (SubscriptionInfo subscriptionInfo : activeSubscriptionInfoList) {
+                    if (Build.VERSION.SDK_INT >= 30) {
+                        sb.append(subscriptionInfo.getSubscriptionId());
+                        sb.append(DELIMITER2);
+                    } else {
+                        sb.append(subscriptionInfo.getIccId());
+                        sb.append(DELIMITER2);
+                    }
+                }
+                if (sb.length() > 0) {
+                    String substring = sb.toString().substring(0, sb.length() - 1);
+                    iccid = substring;
+                    return substring;
+                }
+            } else {
+                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+                if (telephonyManager != null) {
+                    String simSerialNumber = ApiReplaceUtil.getSimSerialNumber(telephonyManager);
+                    iccid = simSerialNumber;
+                    return simSerialNumber;
+                }
+            }
+        } catch (Exception unused) {
+        }
+        return null;
     }
 
     @TargetApi(3)
     public static String getNetworkClass(Context context) {
-        InterceptResult invokeL;
         NetworkInfo activeNetworkInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, context)) == null) {
-            try {
-                activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            } catch (Throwable th) {
-                Log.e(th);
-            }
-            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
-                if (activeNetworkInfo.getType() == 1) {
-                    return "WIFI";
-                }
-                if (activeNetworkInfo.getType() == 0) {
-                    int subtype = activeNetworkInfo.getSubtype();
-                    if (subtype != 20) {
-                        switch (subtype) {
-                            case 1:
-                            case 2:
-                            case 4:
-                            case 7:
-                            case 11:
-                                return "2G";
-                            case 3:
-                            case 5:
-                            case 6:
-                            case 8:
-                            case 9:
-                            case 10:
-                            case 12:
-                            case 14:
-                            case 15:
-                                return "3G";
-                            case 13:
-                                return "4G";
-                            default:
-                                return RomUtils.UNKNOWN;
-                        }
-                    }
-                    return "5G";
-                }
-                return RomUtils.UNKNOWN;
-            }
-            return "UNCNCT";
+        try {
+            activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+        } catch (Throwable th) {
+            Log.e(th);
         }
-        return (String) invokeL.objValue;
+        if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+            if (activeNetworkInfo.getType() == 1) {
+                return "WIFI";
+            }
+            if (activeNetworkInfo.getType() == 0) {
+                int subtype = activeNetworkInfo.getSubtype();
+                if (subtype != 20) {
+                    switch (subtype) {
+                        case 1:
+                        case 2:
+                        case 4:
+                        case 7:
+                        case 11:
+                            return "2G";
+                        case 3:
+                        case 5:
+                        case 6:
+                        case 8:
+                        case 9:
+                        case 10:
+                        case 12:
+                        case 14:
+                        case 15:
+                            return "3G";
+                        case 13:
+                            return "4G";
+                        default:
+                            return "UNKNOWN";
+                    }
+                }
+                return "5G";
+            }
+            return "UNKNOWN";
+        }
+        return "UNCNCT";
     }
 
     @TargetApi(4)
     public static boolean isEmulator(Context context) {
-        InterceptResult invokeL;
         String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65588, null, context)) == null) {
-            if (!SapiDeviceUtils.isForbidDangerousPermissionApp(context) && ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
-                if (Build.VERSION.SDK_INT > 27 && context.getApplicationInfo().targetSdkVersion > 27) {
-                    if (checkRequestPermission(h.c, context)) {
-                        try {
-                            str = Build.getSerial();
-                        } catch (Throwable unused) {
-                        }
+        if (!SapiDeviceUtils.isForbidDangerousPermissionApp(context) && ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
+            if (Build.VERSION.SDK_INT > 27 && context.getApplicationInfo().targetSdkVersion > 27) {
+                if (checkRequestPermission(h.c, context)) {
+                    try {
+                        str = Build.getSerial();
+                    } catch (Throwable unused) {
                     }
-                } else {
-                    str = Build.SERIAL;
                 }
-                if (Config.NULL_DEVICE_ID.equals(SapiDeviceUtils.getIMEI(context)) && !Build.FINGERPRINT.contains("test-keys") && !Build.FINGERPRINT.startsWith("unknown") && !Build.BRAND.startsWith("generic") && !Build.BOARD.equals("unknown") && !"unknown".equals(str)) {
-                    return false;
-                }
-                return true;
+            } else {
+                str = Build.SERIAL;
             }
-            str = null;
-            if (Config.NULL_DEVICE_ID.equals(SapiDeviceUtils.getIMEI(context))) {
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean isExternalQrLoginSchema(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65590, null, str)) == null) {
-            if (isOauthQrLoginSchema(str)) {
-                return true;
-            }
-            if (TextUtils.isEmpty(str) || !str.contains("response_type") || !str.contains("client_id") || !str.contains("redirect_uri")) {
-                return false;
-            }
-            Map<String, String> urlParamsToMap = urlParamsToMap(str);
-            if (!TextUtils.isEmpty(urlParamsToMap.get("response_type")) && !TextUtils.isEmpty(urlParamsToMap.get("client_id")) && !TextUtils.isEmpty(urlParamsToMap.get("redirect_uri"))) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean isOauthQrLoginSchema(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65592, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || !str.contains("qrsign") || !str.contains("scope") || !str.contains("channelid") || !str.contains("client_id")) {
-                return false;
-            }
-            Map<String, String> urlParamsToMap = urlParamsToMap(str);
-            if (TextUtils.isEmpty(urlParamsToMap.get("qrsign")) || TextUtils.isEmpty(urlParamsToMap.get("scope")) || TextUtils.isEmpty(urlParamsToMap.get("channelid")) || TextUtils.isEmpty(urlParamsToMap.get("client_id"))) {
+            if (Config.NULL_DEVICE_ID.equals(SapiDeviceUtils.getIMEI(context)) && !Build.FINGERPRINT.contains("test-keys") && !Build.FINGERPRINT.startsWith("unknown") && !Build.BRAND.startsWith("generic") && !Build.BOARD.equals("unknown") && !"unknown".equals(str)) {
                 return false;
             }
             return true;
         }
-        return invokeL.booleanValue;
+        str = null;
+        if (Config.NULL_DEVICE_ID.equals(SapiDeviceUtils.getIMEI(context))) {
+        }
+        return true;
     }
 
-    @TargetApi(4)
     public static boolean isOnline(SapiConfiguration sapiConfiguration) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65593, null, sapiConfiguration)) == null) {
-            Context context = sapiConfiguration.context;
-            String packageName = context.getPackageName();
-            if (TextUtils.isEmpty(packageName)) {
-                return false;
-            }
-            if (packageName.matches("com.baidu.sapi2.(.*)")) {
-                return true;
-            }
-            if (isDebug(context)) {
-                Log.e(ShareUtils.TAG, "isDebug=true  isSupportDebugShareLogin=" + sapiConfiguration.isSupportDebugShareLogin);
-                return sapiConfiguration.isSupportDebugShareLogin;
-            }
-            Map<String, String> authorizedPackages = SapiContext.getInstance().getAuthorizedPackages();
-            String packageSign = getPackageSign(context, packageName);
-            for (String str : authorizedPackages.keySet()) {
-                if (packageName.matches(str) && packageSign.equals(authorizedPackages.get(str))) {
-                    return true;
-                }
-            }
-            Log.e(ShareUtils.TAG, "share: don't have match pkg");
+        Context context = sapiConfiguration.context;
+        String packageName = context.getPackageName();
+        if (TextUtils.isEmpty(packageName)) {
             return false;
         }
-        return invokeL.booleanValue;
+        if (packageName.matches("com.baidu.sapi2.(.*)")) {
+            return true;
+        }
+        if (isDebug(context)) {
+            Log.e(ShareUtils.TAG, "isDebug=true  isSupportDebugShareLogin=" + sapiConfiguration.isSupportDebugShareLogin);
+            return sapiConfiguration.isSupportDebugShareLogin;
+        }
+        Map<String, String> authorizedPackages = SapiContext.getInstance().getAuthorizedPackages();
+        String packageSign = getPackageSign(context, packageName);
+        for (String str : authorizedPackages.keySet()) {
+            if (packageName.matches(str) && packageSign.equals(authorizedPackages.get(str))) {
+                return true;
+            }
+        }
+        Log.e(ShareUtils.TAG, "share: don't have match pkg");
+        return false;
+    }
+
+    public static String[] isQrArtificialAppeal(String str) {
+        Domain environment;
+        String host = Uri.parse(ServiceManager.getInstance().getIsAccountManager().getConfignation().getEnvironment().getWap()).getHost();
+        Uri parse = Uri.parse(str);
+        String str2 = Uri.parse(environment.getWap()).getHost() + "/v3/getpass/artificialappeal";
+        if (!TextUtils.isEmpty(str) && str.contains(str2)) {
+            String[] strArr = {Uri.decode(parse.getQueryParameter("title")), Uri.decode(parse.getQueryParameter("url"))};
+            Uri parse2 = Uri.parse(strArr[1]);
+            if (!TextUtils.isEmpty(strArr[1]) && host.equals(parse2.getHost())) {
+                return strArr;
+            }
+        }
+        return null;
     }
 
     public static boolean isQrLoginSchema(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65596, null, str)) == null) {
-            if (isOauthQrLoginSchema(str) || isExternalQrLoginSchema(str)) {
-                return true;
-            }
-            if (TextUtils.isEmpty(str) || !str.contains("error") || !str.contains("sign") || !str.contains("cmd") || !str.contains(KEY_QR_LOGIN_LP)) {
-                return false;
-            }
-            Map<String, String> urlParamsToMap = urlParamsToMap(str);
-            if (!TextUtils.isEmpty(urlParamsToMap.get("error")) && !TextUtils.isEmpty(urlParamsToMap.get("sign")) && !TextUtils.isEmpty(urlParamsToMap.get("cmd")) && !TextUtils.isEmpty(urlParamsToMap.get(KEY_QR_LOGIN_LP))) {
-                return true;
-            }
+        if (isOauthQrLoginSchema(str) || isExternalQrLoginSchema(str)) {
+            return true;
+        }
+        if (TextUtils.isEmpty(str) || !str.contains("error") || !str.contains("sign") || !str.contains("cmd") || !str.contains(KEY_QR_LOGIN_LP)) {
             return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static Map<String, String> parseQrLoginSchema(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65605, null, str)) == null) {
-            HashMap hashMap = new HashMap();
-            if (isOauthQrLoginSchema(str)) {
-                hashMap.put(KEY_QR_LOGIN_LP, "pc");
-                return hashMap;
-            } else if (!isQrLoginSchema(str)) {
-                return hashMap;
-            } else {
-                Map<String, String> urlParamsToMap = urlParamsToMap(str);
-                if ("pc".equals(urlParamsToMap.get(KEY_QR_LOGIN_LP))) {
-                    HashMap hashMap2 = new HashMap();
-                    if (ServiceManager.getInstance().getIsAccountManager().getSession() == null) {
-                        hashMap2.put("islogin", "0");
-                    } else {
-                        hashMap2.put("islogin", "1");
-                    }
-                    hashMap2.put("client", "android");
-                    StatService.onEvent(StatService.STAT_ENENT_QR_LOGIN_ENTER, hashMap2);
-                }
-                return urlParamsToMap;
-            }
+        Map<String, String> urlParamsToMap = urlParamsToMap(str);
+        if (!TextUtils.isEmpty(urlParamsToMap.get("error")) && !TextUtils.isEmpty(urlParamsToMap.get("sign")) && !TextUtils.isEmpty(urlParamsToMap.get("cmd")) && !TextUtils.isEmpty(urlParamsToMap.get(KEY_QR_LOGIN_LP))) {
+            return true;
         }
-        return (Map) invokeL.objValue;
+        return false;
     }
 
     public static Bitmap drawableToBitamp(Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, drawable)) == null) {
-            if (drawable == null) {
-                return null;
-            }
-            if (Build.VERSION.SDK_INT >= 26 && (drawable instanceof AdaptiveIconDrawable)) {
-                AdaptiveIconDrawable adaptiveIconDrawable = (AdaptiveIconDrawable) drawable;
-                LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{adaptiveIconDrawable.getBackground(), adaptiveIconDrawable.getForeground()});
-                Bitmap createBitmap = Bitmap.createBitmap(layerDrawable.getIntrinsicWidth(), layerDrawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-                Canvas canvas = new Canvas(createBitmap);
-                layerDrawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
-                layerDrawable.draw(canvas);
-                return createBitmap;
-            }
-            return ((BitmapDrawable) drawable).getBitmap();
+        if (drawable == null) {
+            return null;
         }
-        return (Bitmap) invokeL.objValue;
+        if (Build.VERSION.SDK_INT >= 26 && (drawable instanceof AdaptiveIconDrawable)) {
+            AdaptiveIconDrawable adaptiveIconDrawable = (AdaptiveIconDrawable) drawable;
+            LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{adaptiveIconDrawable.getBackground(), adaptiveIconDrawable.getForeground()});
+            Bitmap createBitmap = Bitmap.createBitmap(layerDrawable.getIntrinsicWidth(), layerDrawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(createBitmap);
+            layerDrawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+            layerDrawable.draw(canvas);
+            return createBitmap;
+        }
+        return ((BitmapDrawable) drawable).getBitmap();
     }
 
-    public static String getClientId(Context context) {
-        InterceptResult invokeL;
-        ISAccountManager isAccountManager;
-        SapiConfiguration confignation;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
-            ServiceManager serviceManager = ServiceManager.getInstance();
-            if (serviceManager == null || (isAccountManager = serviceManager.getIsAccountManager()) == null || (confignation = isAccountManager.getConfignation()) == null) {
-                return null;
-            }
-            if (!confignation.isAgreeDangerousProtocol() && !confignation.isSupportBrowseMode()) {
-                return null;
-            }
-            if (TextUtils.isEmpty(confignation.clientId)) {
-                confignation.clientId = getDeviceID(context);
-            }
-            return confignation.clientId;
+    public static boolean isExternalQrLoginSchema(String str) {
+        if (isOauthQrLoginSchema(str)) {
+            return true;
         }
-        return (String) invokeL.objValue;
+        if (TextUtils.isEmpty(str) || !str.contains("response_type") || !str.contains("client_id") || !str.contains("redirect_uri")) {
+            return false;
+        }
+        Map<String, String> urlParamsToMap = urlParamsToMap(str);
+        if (!TextUtils.isEmpty(urlParamsToMap.get("response_type")) && !TextUtils.isEmpty(urlParamsToMap.get("client_id")) && !TextUtils.isEmpty(urlParamsToMap.get("redirect_uri"))) {
+            return true;
+        }
+        return false;
     }
 
-    public static String getDeviceID(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, context)) == null) {
-            try {
-                return DeviceId.getDeviceID(context);
-            } catch (Throwable unused) {
-                Random random = new Random();
-                random.setSeed(System.currentTimeMillis());
-                return "123456789" + SecurityUtil.md5(String.valueOf(random.nextInt(100)).getBytes(), false);
-            }
+    public static boolean isOauthQrLoginSchema(String str) {
+        if (TextUtils.isEmpty(str) || !str.contains("qrsign") || !str.contains("scope") || !str.contains("channelid") || !str.contains("client_id")) {
+            return false;
         }
-        return (String) invokeL.objValue;
+        Map<String, String> urlParamsToMap = urlParamsToMap(str);
+        if (TextUtils.isEmpty(urlParamsToMap.get("qrsign")) || TextUtils.isEmpty(urlParamsToMap.get("scope")) || TextUtils.isEmpty(urlParamsToMap.get("channelid")) || TextUtils.isEmpty(urlParamsToMap.get("client_id"))) {
+            return false;
+        }
+        return true;
     }
 
-    public static List<String> getPackageList(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, context)) == null) {
-            ArrayList arrayList = new ArrayList();
-            List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(new Intent("baidu.intent.action.account.SHARE_SERVICE"), 32);
-            if (queryIntentServices != null) {
-                for (ResolveInfo resolveInfo : queryIntentServices) {
-                    ServiceInfo serviceInfo = resolveInfo.serviceInfo;
-                    if (serviceInfo != null) {
-                        arrayList.add(serviceInfo.packageName);
-                    }
+    public static Map<String, String> parseQrLoginSchema(String str) {
+        HashMap hashMap = new HashMap();
+        if (isOauthQrLoginSchema(str)) {
+            hashMap.put(KEY_QR_LOGIN_LP, "pc");
+            return hashMap;
+        } else if (!isQrLoginSchema(str)) {
+            return hashMap;
+        } else {
+            Map<String, String> urlParamsToMap = urlParamsToMap(str);
+            if ("pc".equals(urlParamsToMap.get(KEY_QR_LOGIN_LP))) {
+                HashMap hashMap2 = new HashMap();
+                if (ServiceManager.getInstance().getIsAccountManager().getSession() == null) {
+                    hashMap2.put("islogin", "0");
+                } else {
+                    hashMap2.put("islogin", "1");
                 }
+                hashMap2.put("client", "android");
+                StatService.onEvent(StatService.STAT_ENENT_QR_LOGIN_ENTER, hashMap2);
             }
-            return arrayList;
+            return urlParamsToMap;
         }
-        return (List) invokeL.objValue;
-    }
-
-    public static String parseQrFaceAuthSchema(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65604, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            String[] strArr = {"ucenter/qrlivingnav", "url", "tpl"};
-            for (int i = 0; i < 3; i++) {
-                if (!str.contains(strArr[i])) {
-                    return null;
-                }
-            }
-            return URLDecoder.decode(str.substring(str.indexOf("url=") + 4, str.length()));
-        }
-        return (String) invokeL.objValue;
     }
 
     public static Map<String, String> urlParamsToMap(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65611, null, str)) == null) {
-            HashMap hashMap = new HashMap();
-            if (TextUtils.isEmpty(str)) {
-                return hashMap;
-            }
-            if (str.contains("?")) {
-                try {
-                    str = str.substring(str.indexOf("?") + 1, str.length());
-                } catch (Exception e) {
-                    Log.e(e);
-                }
-            }
-            for (String str2 : str.split("&")) {
-                String[] split = str2.split("=");
-                if (split.length == 2) {
-                    hashMap.put(split[0], split[1]);
-                }
-            }
+        HashMap hashMap = new HashMap();
+        if (TextUtils.isEmpty(str)) {
             return hashMap;
         }
-        return (Map) invokeL.objValue;
-    }
-
-    public static String getAppName(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) {
+        if (str.contains("?")) {
             try {
-                PackageManager packageManager = context.getPackageManager();
-                return packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString();
-            } catch (Throwable unused) {
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String getVersionName(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (Throwable th) {
-                Log.e(th);
-                return "0";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean hasActiveNetwork(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, context)) == null) {
-            if (context == null) {
-                return false;
-            }
-            try {
-                if (((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo() == null) {
-                    return false;
-                }
-                return true;
-            } catch (Throwable th) {
-                Log.e(th);
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @TargetApi(4)
-    public static boolean isDebug(Context context) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65587, null, context)) == null) {
-            try {
-                if ((context.getApplicationInfo().flags & 2) != 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
+                str = str.substring(str.indexOf("?") + 1, str.length());
             } catch (Exception e) {
                 Log.e(e);
             }
-            if (!z) {
-                return false;
-            }
-            return true;
         }
-        return invokeL.booleanValue;
+        for (String str2 : str.split("&")) {
+            String[] split = str2.split("=");
+            if (split.length == 2) {
+                hashMap.put(split[0], split[1]);
+            }
+        }
+        return hashMap;
     }
 
-    public static boolean isValidPhoneNumber(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65598, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return Pattern.compile("^(1)\\d{10}$").matcher(str).matches();
+    public static String getAppName(Context context) {
+        try {
+            PackageManager packageManager = context.getPackageManager();
+            return packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString();
+        } catch (Throwable unused) {
+            return null;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean isValidUsername(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65599, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.length() <= 14) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean statExtraValid(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65609, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.getBytes().length <= SapiContext.getInstance().getLoginStatExtraLimitLen()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean validateMobile(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65612, null, str)) == null) {
-            if (Pattern.compile("1[3456789]\\d{9}").matcher(str).matches()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 
     @TargetApi(3)
     public static String getBlueToothDeviceName(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, context)) == null) {
-            try {
-                SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
-                if (confignation != null && confignation.isAgreeDangerousProtocol()) {
-                    return ApiReplaceUtil.Overload.getString(context.getContentResolver(), "bluetooth_name");
-                }
-                return "";
-            } catch (Exception e) {
-                Log.e(e);
-                return "";
+        try {
+            SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
+            if (confignation != null && confignation.isAgreeDangerousProtocol()) {
+                return ApiReplaceUtil.Overload.getString(context.getContentResolver(), "bluetooth_name");
             }
+            return "";
+        } catch (Exception e) {
+            Log.e(e);
+            return "";
         }
-        return (String) invokeL.objValue;
     }
 
     @TargetApi(3)
     public static String getCurProcessName(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, context)) == null) {
-            try {
-                int myPid = Process.myPid();
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
-                    if (runningAppProcessInfo.pid == myPid) {
-                        return runningAppProcessInfo.processName;
-                    }
-                }
-                return "";
-            } catch (Throwable th) {
-                Log.e(th);
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String getSmsCheckCode(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65580, null, str)) == null) {
-            for (String str2 : str.replaceAll("[^0-9]*([0-9]*)[^0-9]*", "$1-").split("-")) {
-                if (str2.length() == 6) {
-                    return str2;
+        try {
+            int myPid = Process.myPid();
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
+                if (runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.processName;
                 }
             }
             return "";
+        } catch (Throwable th) {
+            Log.e(th);
+            return "";
         }
-        return (String) invokeL.objValue;
+    }
+
+    public static String getSmsCheckCode(String str) {
+        String[] split;
+        for (String str2 : str.replaceAll("[^0-9]*([0-9]*)[^0-9]*", "$1-").split("-")) {
+            if (str2.length() == 6) {
+                return str2;
+            }
+        }
+        return "";
+    }
+
+    public static String getVersionName(Context context) {
+        try {
+            return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+        } catch (Throwable th) {
+            Log.e(th);
+            return "0";
+        }
+    }
+
+    public static boolean hasActiveNetwork(Context context) {
+        if (context == null) {
+            return false;
+        }
+        try {
+            if (((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo() == null) {
+                return false;
+            }
+            return true;
+        } catch (Throwable th) {
+            Log.e(th);
+            return false;
+        }
     }
 
     @TargetApi(3)
     public static void hideSoftInput(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65585, null, activity) == null) {
-            InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService("input_method");
-            if (inputMethodManager.isActive() && activity.getCurrentFocus() != null && activity.getCurrentFocus().getWindowToken() != null) {
-                inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 2);
-            }
+        InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService("input_method");
+        if (inputMethodManager.isActive() && activity.getCurrentFocus() != null && activity.getCurrentFocus().getWindowToken() != null) {
+            inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 2);
         }
+    }
+
+    public static boolean isDebug(Context context) {
+        boolean z;
+        try {
+            if ((context.getApplicationInfo().flags & 2) != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+        } catch (Exception e) {
+            Log.e(e);
+        }
+        if (!z) {
+            return false;
+        }
+        return true;
     }
 
     public static boolean isQrLoginEnuidSchema(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65595, null, str)) == null) {
-            if (isOauthQrLoginSchema(str)) {
-                return true;
-            }
-            if (!TextUtils.isEmpty(str) && str.contains(KEY_QR_LOGIN_ENCUID)) {
-                return !TextUtils.isEmpty(urlParamsToMap(str).get(KEY_QR_LOGIN_ENCUID));
-            }
+        if (isOauthQrLoginSchema(str)) {
+            return true;
+        }
+        if (!TextUtils.isEmpty(str) && str.contains(KEY_QR_LOGIN_ENCUID)) {
+            return !TextUtils.isEmpty(urlParamsToMap(str).get(KEY_QR_LOGIN_ENCUID));
+        }
+        return false;
+    }
+
+    public static boolean isValidPhoneNumber(String str) {
+        if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return invokeL.booleanValue;
+        return Pattern.compile("^(1)\\d{10}$").matcher(str).matches();
     }
 
-    public static String getCookiePtoken() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
-            SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
-            String cookie = getCookie(confignation.environment.getWap(), "PTOKEN");
-            if (TextUtils.isEmpty(cookie)) {
-                return getCookie(confignation.environment.getURL(), "PTOKEN");
-            }
-            return cookie;
+    public static boolean isValidUsername(String str) {
+        if (!TextUtils.isEmpty(str) && str.length() <= 14) {
+            return true;
         }
-        return (String) invokeV.objValue;
+        return false;
     }
 
-    public static long getInternalAvailableMemorySize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
-            try {
-                StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                return (statFs.getBlockSize() * statFs.getAvailableBlocks()) / 1024;
-            } catch (Throwable th) {
-                Log.e(th);
-                return 0L;
-            }
+    public static boolean statExtraValid(String str) {
+        if (!TextUtils.isEmpty(str) && str.getBytes().length <= SapiContext.getInstance().getLoginStatExtraLimitLen()) {
+            return true;
         }
-        return invokeV.longValue;
+        return false;
     }
 
-    public static long getInternalMemorySize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) {
-            try {
-                StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                return (statFs.getBlockSize() * statFs.getBlockCount()) / 1024;
-            } catch (Throwable th) {
-                Log.e(th);
-                return 0L;
-            }
+    public static boolean validateMobile(String str) {
+        if (Pattern.compile("1[3456789]\\d{9}").matcher(str).matches()) {
+            return true;
         }
-        return invokeV.longValue;
+        return false;
     }
 
-    public static boolean isRoot() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65597, null)) == null) {
-            if ((new File("/system/bin/su").exists() && isExecutable("/system/bin/su")) || (new File("/system/xbin/su").exists() && isExecutable("/system/xbin/su"))) {
-                return true;
-            }
-            return false;
+    public static String getClientId(Context context) {
+        ISAccountManager isAccountManager;
+        SapiConfiguration confignation;
+        ServiceManager serviceManager = ServiceManager.getInstance();
+        if (serviceManager == null || (isAccountManager = serviceManager.getIsAccountManager()) == null || (confignation = isAccountManager.getConfignation()) == null) {
+            return null;
         }
-        return invokeV.booleanValue;
+        if (!confignation.isAgreeDangerousProtocol() && !confignation.isSupportBrowseMode()) {
+            return null;
+        }
+        if (TextUtils.isEmpty(confignation.clientId)) {
+            confignation.clientId = getDeviceID(context);
+        }
+        return confignation.clientId;
+    }
+
+    public static String getDeviceID(Context context) {
+        try {
+            return DeviceId.getDeviceID(context);
+        } catch (Throwable unused) {
+            Random random = new Random();
+            random.setSeed(System.currentTimeMillis());
+            return "123456789" + SecurityUtil.md5(String.valueOf(random.nextInt(100)).getBytes(), false);
+        }
+    }
+
+    public static List<String> getPackageList(Context context) {
+        ArrayList arrayList = new ArrayList();
+        List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(new Intent("baidu.intent.action.account.SHARE_SERVICE"), 32);
+        if (queryIntentServices != null) {
+            for (ResolveInfo resolveInfo : queryIntentServices) {
+                ServiceInfo serviceInfo = resolveInfo.serviceInfo;
+                if (serviceInfo != null) {
+                    arrayList.add(serviceInfo.packageName);
+                }
+            }
+        }
+        return arrayList;
+    }
+
+    public static String parseQrFaceAuthSchema(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        String[] strArr = {"ucenter/qrlivingnav", "url", "tpl"};
+        for (int i = 0; i < 3; i++) {
+            if (!str.contains(strArr[i])) {
+                return null;
+            }
+        }
+        return URLDecoder.decode(str.substring(str.indexOf("url=") + 4, str.length()));
     }
 
     public static String getCpuName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
-            try {
-                FileReader fileReader = new FileReader(k1.a);
-                String readLine = new BufferedReader(fileReader).readLine();
-                fileReader.close();
-                if (!TextUtils.isEmpty(readLine)) {
-                    String[] split = readLine.split(":\\s+", 2);
-                    if (split.length <= 1) {
-                        return "";
-                    }
-                    return split[1];
+        try {
+            FileReader fileReader = new FileReader(k1.a);
+            String readLine = new BufferedReader(fileReader).readLine();
+            fileReader.close();
+            if (!TextUtils.isEmpty(readLine)) {
+                String[] split = readLine.split(":\\s+", 2);
+                if (split.length <= 1) {
+                    return "";
                 }
-            } catch (FileNotFoundException e) {
-                Log.e(e);
-            } catch (IOException e2) {
-                Log.e(e2);
+                return split[1];
             }
-            return "";
+        } catch (FileNotFoundException e) {
+            Log.e(e);
+        } catch (IOException e2) {
+            Log.e(e2);
         }
-        return (String) invokeV.objValue;
+        return "";
+    }
+
+    public static String getRamMemorySize() {
+        try {
+            FileReader fileReader = new FileReader(HardwareInfoUtils.MEM_INFO_FILE);
+            String readLine = new BufferedReader(fileReader).readLine();
+            fileReader.close();
+            if (!TextUtils.isEmpty(readLine)) {
+                String[] split = readLine.split(":\\s+", 2);
+                if (split.length <= 1) {
+                    return "";
+                }
+                return split[1].replace("kB", "").trim();
+            }
+        } catch (FileNotFoundException e) {
+            Log.e(e);
+        } catch (IOException e2) {
+            Log.e(e2);
+        }
+        return "";
     }
 
     public static String getLocalIpAddress() {
         String hostAddress;
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
-            try {
-                if (ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
-                    Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-                    while (networkInterfaces.hasMoreElements()) {
-                        Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
-                        while (inetAddresses.hasMoreElements()) {
-                            InetAddress nextElement = inetAddresses.nextElement();
-                            if (!nextElement.isLoopbackAddress() && (hostAddress = nextElement.getHostAddress()) != null && hostAddress.length() > 0 && (nextElement instanceof Inet4Address)) {
-                                return hostAddress;
-                            }
+        try {
+            if (ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
+                Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+                while (networkInterfaces.hasMoreElements()) {
+                    Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
+                    while (inetAddresses.hasMoreElements()) {
+                        InetAddress nextElement = inetAddresses.nextElement();
+                        if (!nextElement.isLoopbackAddress() && (hostAddress = nextElement.getHostAddress()) != null && hostAddress.length() > 0 && (nextElement instanceof Inet4Address)) {
+                            return hostAddress;
                         }
                     }
-                    return null;
                 }
                 return null;
-            } catch (Throwable th) {
-                Log.e(th);
-                return null;
             }
+            return null;
+        } catch (Throwable th) {
+            Log.e(th);
+            return null;
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String getRamMemorySize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) {
-            try {
-                FileReader fileReader = new FileReader(HardwareInfoUtils.MEM_INFO_FILE);
-                String readLine = new BufferedReader(fileReader).readLine();
-                fileReader.close();
-                if (!TextUtils.isEmpty(readLine)) {
-                    String[] split = readLine.split(":\\s+", 2);
-                    if (split.length <= 1) {
-                        return "";
-                    }
-                    return split[1].replace("kB", "").trim();
-                }
-            } catch (FileNotFoundException e) {
-                Log.e(e);
-            } catch (IOException e2) {
-                Log.e(e2);
-            }
+    public static String getWifiInfo(Context context) {
+        WifiInfo wifiInfo;
+        String str;
+        String str2;
+        int i;
+        String str3;
+        String str4 = "";
+        if (!ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
             return "";
         }
-        return (String) invokeV.objValue;
+        StringBuffer stringBuffer = new StringBuffer();
+        try {
+            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
+            List<ScanResult> list = null;
+            if (ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
+                wifiInfo = wifiManager.getConnectionInfo();
+            } else {
+                wifiInfo = null;
+            }
+            int i2 = 0;
+            if (wifiInfo == null) {
+                str = "";
+                str2 = str;
+                i = 0;
+            } else {
+                i = StrictMath.abs(wifiInfo.getRssi());
+                str2 = wifiInfo.getSSID();
+                if (str2 != null) {
+                    str2 = str2.replace("\"", "");
+                }
+                str = wifiInfo.getBSSID();
+                if (str != null) {
+                    str = str.replace(":", "");
+                }
+            }
+            if (checkRequestPermission(h.h, context) && checkRequestPermission(h.g, context)) {
+                list = wifiManager.getScanResults();
+            }
+            if (list != null) {
+                for (ScanResult scanResult : list) {
+                    String str5 = scanResult.BSSID;
+                    String str6 = scanResult.SSID;
+                    int abs = StrictMath.abs(scanResult.level);
+                    if (str5 == null) {
+                        str3 = "";
+                    } else {
+                        str3 = str5.replace(":", "");
+                    }
+                    if (!str3.equals(str) && abs != 0) {
+                        if (i2 >= 10) {
+                            break;
+                        }
+                        stringBuffer.append(DELIMITER2);
+                        stringBuffer.append(str3);
+                        stringBuffer.append(DELIMITER3);
+                        stringBuffer.append(abs);
+                        stringBuffer.append(DELIMITER3);
+                        stringBuffer.append(str6);
+                        stringBuffer.append(DELIMITER3);
+                        stringBuffer.append("2");
+                        i2++;
+                    }
+                }
+            }
+            if (!TextUtils.isEmpty(str)) {
+                str4 = DELIMITER2 + str + DELIMITER3 + i + DELIMITER3 + str2 + DELIMITER3 + '1';
+            }
+        } catch (Exception e) {
+            Log.e(e);
+        }
+        return str4 + stringBuffer.toString();
     }
 
-    public static String getIccid(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) {
-            if (!ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
-                return "";
+    public static boolean webLogout(Context context) {
+        if (context == null) {
+            return false;
+        }
+        try {
+            ArrayList arrayList = new ArrayList();
+            for (String str : getAuthorizedDomains()) {
+                arrayList.add(new PassNameValuePair(COOKIE_URL_PREFIX + str, buildBDUSSBFESSCookie(str, "")));
+                arrayList.add(new PassNameValuePair(COOKIE_URL_PREFIX + str, buildBDUSSCookie(str, "")));
             }
-            if (!TextUtils.isEmpty(iccid)) {
-                return iccid;
+            for (String str2 : getAuthorizedDomainsForPtoken()) {
+                arrayList.add(new PassNameValuePair(COOKIE_URL_PREFIX + str2, buildPtokenCookie(str2, "")));
+                arrayList.add(new PassNameValuePair("https://" + str2, buildPtokenCookie(str2, "")));
             }
-            try {
-                if (Build.VERSION.SDK_INT >= 22) {
-                    StringBuilder sb = new StringBuilder();
-                    List<SubscriptionInfo> activeSubscriptionInfoList = SubscriptionManager.from(context).getActiveSubscriptionInfoList();
-                    if (activeSubscriptionInfoList == null) {
-                        return null;
+            for (String str3 : getAuthorizedDomainsForPtoken()) {
+                arrayList.add(new PassNameValuePair("https://" + str3, buildStokenCookie(str3, "")));
+            }
+            syncCookies(context, arrayList);
+            return true;
+        } catch (Throwable unused) {
+            return false;
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:58:0x00a0  */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x00b2  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x00a8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x0096 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:87:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean isExecutable(String str) {
+        Process process;
+        Process process2;
+        BufferedReader bufferedReader;
+        BufferedReader bufferedReader2 = null;
+        String readLine = null;
+        bufferedReader2 = null;
+        bufferedReader2 = null;
+        bufferedReader2 = null;
+        try {
+            if ("/system/bin/su".equals(str)) {
+                process2 = Runtime.getRuntime().exec("ls -l /system/bin/su");
+            } else if ("/system/xbin/su".equals(str)) {
+                process2 = Runtime.getRuntime().exec("ls -l /system/xbin/su");
+            } else {
+                process2 = null;
+            }
+            if (process2 != null) {
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(process2.getInputStream()));
+                    try {
+                        readLine = bufferedReader.readLine();
+                    } catch (IOException e) {
+                        BufferedReader bufferedReader3 = bufferedReader;
+                        process = process2;
+                        e = e;
+                        bufferedReader2 = bufferedReader3;
+                        try {
+                            Log.e(e);
+                            if (bufferedReader2 != null) {
+                                try {
+                                    bufferedReader2.close();
+                                } catch (Exception e2) {
+                                    Log.e(e2);
+                                }
+                            }
+                            if (process == null) {
+                                process.destroy();
+                                return false;
+                            }
+                            return false;
+                        } catch (Throwable th) {
+                            th = th;
+                            if (bufferedReader2 != null) {
+                                try {
+                                    bufferedReader2.close();
+                                } catch (Exception e3) {
+                                    Log.e(e3);
+                                }
+                            }
+                            if (process != null) {
+                                process.destroy();
+                            }
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        BufferedReader bufferedReader4 = bufferedReader;
+                        process = process2;
+                        th = th2;
+                        bufferedReader2 = bufferedReader4;
+                        if (bufferedReader2 != null) {
+                        }
+                        if (process != null) {
+                        }
+                        throw th;
                     }
-                    for (SubscriptionInfo subscriptionInfo : activeSubscriptionInfoList) {
-                        if (Build.VERSION.SDK_INT >= 30) {
-                            sb.append(subscriptionInfo.getSubscriptionId());
-                            sb.append(DELIMITER2);
-                        } else {
-                            sb.append(subscriptionInfo.getIccId());
-                            sb.append(DELIMITER2);
+                } catch (IOException e4) {
+                    process = process2;
+                    e = e4;
+                    Log.e(e);
+                    if (bufferedReader2 != null) {
+                    }
+                    if (process == null) {
+                    }
+                } catch (Throwable th3) {
+                    process = process2;
+                    th = th3;
+                    if (bufferedReader2 != null) {
+                    }
+                    if (process != null) {
+                    }
+                    throw th;
+                }
+            } else {
+                bufferedReader = null;
+            }
+            if (readLine != null && readLine.length() >= 4) {
+                char charAt = readLine.charAt(3);
+                if (charAt == 's' || charAt == 'x') {
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (Exception e5) {
+                            Log.e(e5);
                         }
                     }
-                    if (sb.length() > 0) {
-                        String substring = sb.toString().substring(0, sb.length() - 1);
-                        iccid = substring;
-                        return substring;
+                    if (process2 != null) {
+                        process2.destroy();
                     }
-                } else {
-                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (telephonyManager != null) {
-                        String simSerialNumber = ApiReplaceUtil.getSimSerialNumber(telephonyManager);
-                        iccid = simSerialNumber;
-                        return simSerialNumber;
-                    }
-                }
-            } catch (Exception unused) {
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String[] isQrArtificialAppeal(String str) {
-        InterceptResult invokeL;
-        Domain environment;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65594, null, str)) == null) {
-            String host = Uri.parse(ServiceManager.getInstance().getIsAccountManager().getConfignation().getEnvironment().getWap()).getHost();
-            Uri parse = Uri.parse(str);
-            String str2 = Uri.parse(environment.getWap()).getHost() + "/v3/getpass/artificialappeal";
-            if (!TextUtils.isEmpty(str) && str.contains(str2)) {
-                String[] strArr = {Uri.decode(parse.getQueryParameter("title")), Uri.decode(parse.getQueryParameter("url"))};
-                Uri parse2 = Uri.parse(strArr[1]);
-                if (!TextUtils.isEmpty(strArr[1]) && host.equals(parse2.getHost())) {
-                    return strArr;
+                    return true;
                 }
             }
-            return null;
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    public static String getPackageSign(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65577, null, context, str)) == null) {
-            String str2 = "";
-            if (context != null && !TextUtils.isEmpty(str)) {
+            if (bufferedReader != null) {
                 try {
-                    PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
-                    if (packageInfo.signatures.length > 0) {
-                        str2 = SecurityUtil.md5(packageInfo.signatures[0].toByteArray(), false);
-                    }
-                } catch (Throwable th) {
-                    Log.e(th);
-                }
-                if (TextUtils.isEmpty(str2)) {
-                    Log.d("get pgkSign error, for pkgName=" + str, new Object[0]);
+                    bufferedReader.close();
+                } catch (Exception e6) {
+                    Log.e(e6);
                 }
             }
-            return str2;
+            if (process2 != null) {
+                process2.destroy();
+                return false;
+            }
+            return false;
+        } catch (IOException e7) {
+            e = e7;
+            process = null;
+        } catch (Throwable th4) {
+            th = th4;
+            process = null;
         }
-        return (String) invokeLL.objValue;
+    }
+
+    public static boolean isMethodOverWrited(Object obj, String str, Class cls, Class... clsArr) {
+        if (cls.equals(obj.getClass().getMethod(str, clsArr).getDeclaringClass())) {
+            return false;
+        }
+        return true;
+    }
+
+    public static JSONArray map2JsonArray(Map<String, Long> map, String str, String str2) {
+        JSONArray jSONArray = new JSONArray();
+        if (map != null && !map.isEmpty()) {
+            for (Map.Entry<String, Long> entry : map.entrySet()) {
+                JSONObject jSONObject = new JSONObject();
+                if (!TextUtils.isEmpty(entry.getKey())) {
+                    try {
+                        jSONObject.put(str, entry.getKey());
+                        jSONObject.put(str2, entry.getValue());
+                    } catch (JSONException unused) {
+                    }
+                }
+                jSONArray.put(jSONObject);
+            }
+        }
+        return jSONArray;
+    }
+
+    public static void sendSms(Context context, String str, List<String> list) {
+        String str2;
+        String str3;
+        String defaultSmsPackage;
+        if ("Samsung".equalsIgnoreCase(Build.MANUFACTURER)) {
+            str2 = ",";
+        } else {
+            str2 = ParamableElem.DIVIDE_PARAM;
+        }
+        if (list != null && !list.isEmpty()) {
+            str3 = TextUtils.join(str2, list);
+        } else {
+            str3 = "";
+        }
+        Uri parse = Uri.parse("smsto:" + str3);
+        Intent intent = new Intent();
+        intent.setData(parse);
+        intent.putExtra("sms_body", str);
+        intent.setAction("android.intent.action.SENDTO");
+        if (Build.VERSION.SDK_INT >= 19 && (defaultSmsPackage = Telephony.Sms.getDefaultSmsPackage(context)) != null) {
+            intent.setPackage(defaultSmsPackage);
+        }
+        if (!(context instanceof Activity)) {
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+        }
+        try {
+            context.startActivity(intent);
+        } catch (Exception unused) {
+        }
     }
 
     public static void setCookiesTPLCuid(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65608, null, context, str) != null) || TextUtils.isEmpty(str)) {
+        if (TextUtils.isEmpty(str)) {
             return;
         }
         CookieSyncManager.createInstance(context);
@@ -1430,409 +1412,84 @@ public class SapiUtils implements NoProguard {
         }
     }
 
-    public static String getWifiInfo(Context context) {
-        InterceptResult invokeL;
-        WifiInfo wifiInfo;
-        String str;
-        String str2;
-        int i;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, context)) == null) {
-            String str4 = "";
-            if (!ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
-                return "";
-            }
-            StringBuffer stringBuffer = new StringBuffer();
-            try {
-                WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
-                List<ScanResult> list = null;
-                if (ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
-                    wifiInfo = wifiManager.getConnectionInfo();
-                } else {
-                    wifiInfo = null;
-                }
-                int i2 = 0;
-                if (wifiInfo == null) {
-                    str = "";
-                    str2 = str;
-                    i = 0;
-                } else {
-                    i = StrictMath.abs(wifiInfo.getRssi());
-                    str2 = wifiInfo.getSSID();
-                    if (str2 != null) {
-                        str2 = str2.replace("\"", "");
-                    }
-                    str = wifiInfo.getBSSID();
-                    if (str != null) {
-                        str = str.replace(":", "");
-                    }
-                }
-                if (checkRequestPermission(h.h, context) && checkRequestPermission(h.g, context)) {
-                    list = wifiManager.getScanResults();
-                }
-                if (list != null) {
-                    for (ScanResult scanResult : list) {
-                        String str5 = scanResult.BSSID;
-                        String str6 = scanResult.SSID;
-                        int abs = StrictMath.abs(scanResult.level);
-                        if (str5 == null) {
-                            str3 = "";
-                        } else {
-                            str3 = str5.replace(":", "");
-                        }
-                        if (!str3.equals(str) && abs != 0) {
-                            if (i2 >= 10) {
-                                break;
-                            }
-                            stringBuffer.append(DELIMITER2);
-                            stringBuffer.append(str3);
-                            stringBuffer.append(DELIMITER3);
-                            stringBuffer.append(abs);
-                            stringBuffer.append(DELIMITER3);
-                            stringBuffer.append(str6);
-                            stringBuffer.append(DELIMITER3);
-                            stringBuffer.append("2");
-                            i2++;
-                        }
-                    }
-                }
-                if (!TextUtils.isEmpty(str)) {
-                    str4 = DELIMITER2 + str + DELIMITER3 + i + DELIMITER3 + str2 + DELIMITER3 + '1';
-                }
-            } catch (Exception e) {
-                Log.e(e);
-            }
-            return str4 + stringBuffer.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:60:0x00a4  */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x00b6  */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x00ac A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:78:0x009a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:93:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean isExecutable(String str) {
-        InterceptResult invokeL;
-        Process process;
-        Process process2;
-        BufferedReader bufferedReader;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65589, null, str)) == null) {
-            BufferedReader bufferedReader2 = null;
-            String readLine = null;
-            bufferedReader2 = null;
-            bufferedReader2 = null;
-            bufferedReader2 = null;
-            try {
-                if ("/system/bin/su".equals(str)) {
-                    process2 = Runtime.getRuntime().exec("ls -l /system/bin/su");
-                } else if ("/system/xbin/su".equals(str)) {
-                    process2 = Runtime.getRuntime().exec("ls -l /system/xbin/su");
-                } else {
-                    process2 = null;
-                }
-                if (process2 != null) {
-                    try {
-                        bufferedReader = new BufferedReader(new InputStreamReader(process2.getInputStream()));
-                        try {
-                            readLine = bufferedReader.readLine();
-                        } catch (IOException e) {
-                            BufferedReader bufferedReader3 = bufferedReader;
-                            process = process2;
-                            e = e;
-                            bufferedReader2 = bufferedReader3;
-                            try {
-                                Log.e(e);
-                                if (bufferedReader2 != null) {
-                                    try {
-                                        bufferedReader2.close();
-                                    } catch (Exception e2) {
-                                        Log.e(e2);
-                                    }
-                                }
-                                if (process == null) {
-                                    process.destroy();
-                                    return false;
-                                }
-                                return false;
-                            } catch (Throwable th) {
-                                th = th;
-                                if (bufferedReader2 != null) {
-                                    try {
-                                        bufferedReader2.close();
-                                    } catch (Exception e3) {
-                                        Log.e(e3);
-                                    }
-                                }
-                                if (process != null) {
-                                    process.destroy();
-                                }
-                                throw th;
-                            }
-                        } catch (Throwable th2) {
-                            BufferedReader bufferedReader4 = bufferedReader;
-                            process = process2;
-                            th = th2;
-                            bufferedReader2 = bufferedReader4;
-                            if (bufferedReader2 != null) {
-                            }
-                            if (process != null) {
-                            }
-                            throw th;
-                        }
-                    } catch (IOException e4) {
-                        process = process2;
-                        e = e4;
-                        Log.e(e);
-                        if (bufferedReader2 != null) {
-                        }
-                        if (process == null) {
-                        }
-                    } catch (Throwable th3) {
-                        process = process2;
-                        th = th3;
-                        if (bufferedReader2 != null) {
-                        }
-                        if (process != null) {
-                        }
-                        throw th;
-                    }
-                } else {
-                    bufferedReader = null;
-                }
-                if (readLine != null && readLine.length() >= 4) {
-                    char charAt = readLine.charAt(3);
-                    if (charAt == 's' || charAt == 'x') {
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (Exception e5) {
-                                Log.e(e5);
-                            }
-                        }
-                        if (process2 != null) {
-                            process2.destroy();
-                        }
-                        return true;
-                    }
-                }
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (Exception e6) {
-                        Log.e(e6);
-                    }
-                }
-                if (process2 != null) {
-                    process2.destroy();
-                    return false;
-                }
-                return false;
-            } catch (IOException e7) {
-                e = e7;
-                process = null;
-            } catch (Throwable th4) {
-                th = th4;
-                process = null;
-            }
-        } else {
-            return invokeL.booleanValue;
-        }
-    }
-
-    public static boolean webLogout(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65616, null, context)) == null) {
-            if (context == null) {
-                return false;
-            }
-            try {
-                ArrayList arrayList = new ArrayList();
-                for (String str : getAuthorizedDomains()) {
-                    arrayList.add(new PassNameValuePair(COOKIE_URL_PREFIX + str, buildBDUSSCookie(str, "")));
-                }
-                for (String str2 : getAuthorizedDomainsForPtoken()) {
-                    arrayList.add(new PassNameValuePair(COOKIE_URL_PREFIX + str2, buildPtokenCookie(str2, "")));
-                    arrayList.add(new PassNameValuePair("https://" + str2, buildPtokenCookie(str2, "")));
-                }
-                for (String str3 : getAuthorizedDomainsForPtoken()) {
-                    arrayList.add(new PassNameValuePair("https://" + str3, buildStokenCookie(str3, "")));
-                }
-                syncCookies(context, arrayList);
-                return true;
-            } catch (Throwable unused) {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean isMethodOverWrited(Object obj, String str, Class cls, Class... clsArr) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65591, null, obj, str, cls, clsArr)) == null) {
-            if (cls.equals(obj.getClass().getMethod(str, clsArr).getDeclaringClass())) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public static JSONArray map2JsonArray(Map<String, Long> map, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65600, null, map, str, str2)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            if (map != null && !map.isEmpty()) {
-                for (Map.Entry<String, Long> entry : map.entrySet()) {
-                    JSONObject jSONObject = new JSONObject();
-                    if (!TextUtils.isEmpty(entry.getKey())) {
-                        try {
-                            jSONObject.put(str, entry.getKey());
-                            jSONObject.put(str2, entry.getValue());
-                        } catch (JSONException unused) {
-                        }
-                    }
-                    jSONArray.put(jSONObject);
-                }
-            }
-            return jSONArray;
-        }
-        return (JSONArray) invokeLLL.objValue;
-    }
-
-    public static void sendSms(Context context, String str, List<String> list) {
-        String str2;
-        String str3;
-        String defaultSmsPackage;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65607, null, context, str, list) == null) {
-            if ("Samsung".equalsIgnoreCase(Build.MANUFACTURER)) {
-                str2 = ",";
-            } else {
-                str2 = ";";
-            }
-            if (list != null && !list.isEmpty()) {
-                str3 = TextUtils.join(str2, list);
-            } else {
-                str3 = "";
-            }
-            Uri parse = Uri.parse("smsto:" + str3);
-            Intent intent = new Intent();
-            intent.setData(parse);
-            intent.putExtra("sms_body", str);
-            intent.setAction("android.intent.action.SENDTO");
-            if (Build.VERSION.SDK_INT >= 19 && (defaultSmsPackage = Telephony.Sms.getDefaultSmsPackage(context)) != null) {
-                intent.setPackage(defaultSmsPackage);
-            }
-            if (!(context instanceof Activity)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
-            try {
-                context.startActivity(intent);
-            } catch (Exception unused) {
-            }
-        }
-    }
-
     public static void syncCookies(Context context, List<PassNameValuePair> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65610, null, context, list) == null) {
-            CookieSyncManager.createInstance(context);
-            CookieManager cookieManager = CookieManager.getInstance();
-            cookieManager.setAcceptCookie(true);
-            SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
-            List<String> cuidAuthorizedDomains = getCuidAuthorizedDomains();
-            if (confignation.getEnvironment() != Domain.DOMAIN_ONLINE) {
-                String replaceAll = confignation.environment.getWap().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
-                String replaceAll2 = confignation.environment.getURL().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
-                cuidAuthorizedDomains.add(replaceAll);
-                cuidAuthorizedDomains.add(replaceAll2);
+        CookieSyncManager.createInstance(context);
+        CookieManager cookieManager = CookieManager.getInstance();
+        cookieManager.setAcceptCookie(true);
+        SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
+        List<String> cuidAuthorizedDomains = getCuidAuthorizedDomains();
+        if (confignation.getEnvironment() != Domain.DOMAIN_ONLINE) {
+            String replaceAll = confignation.environment.getWap().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
+            String replaceAll2 = confignation.environment.getURL().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
+            cuidAuthorizedDomains.add(replaceAll);
+            cuidAuthorizedDomains.add(replaceAll2);
+        }
+        for (String str : cuidAuthorizedDomains) {
+            cookieManager.setCookie("https://" + str, buildCuidCookie(str, getClientId(context)));
+            String searchBoxSid = SapiContext.getInstance().getSearchBoxSid();
+            if (!TextUtils.isEmpty(searchBoxSid)) {
+                cookieManager.setCookie("https://" + str, buildSidCookie(str, searchBoxSid));
             }
-            for (String str : cuidAuthorizedDomains) {
-                cookieManager.setCookie("https://" + str, buildCuidCookie(str, getClientId(context)));
-                String searchBoxSid = SapiContext.getInstance().getSearchBoxSid();
-                if (!TextUtils.isEmpty(searchBoxSid)) {
-                    cookieManager.setCookie("https://" + str, buildSidCookie(str, searchBoxSid));
+        }
+        if (list != null) {
+            for (PassNameValuePair passNameValuePair : list) {
+                if (!TextUtils.isEmpty(passNameValuePair.getName()) && !TextUtils.isEmpty(passNameValuePair.getValue())) {
+                    cookieManager.setCookie(passNameValuePair.getName(), passNameValuePair.getValue());
                 }
             }
-            if (list != null) {
-                for (PassNameValuePair passNameValuePair : list) {
-                    if (!TextUtils.isEmpty(passNameValuePair.getName()) && !TextUtils.isEmpty(passNameValuePair.getValue())) {
-                        cookieManager.setCookie(passNameValuePair.getName(), passNameValuePair.getValue());
-                    }
-                }
-            }
+        }
+        try {
             if (Build.VERSION.SDK_INT < 21) {
                 CookieSyncManager.getInstance().sync();
             } else {
                 cookieManager.flush();
             }
+        } catch (Exception e) {
+            Log.e(e.getMessage(), new Object[0]);
         }
     }
 
     public static int versionCompareTo(String str, String str2) {
-        InterceptResult invokeLL;
         String replaceAll;
         int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65613, null, str, str2)) == null) {
-            String str3 = "0";
-            if (TextUtils.isEmpty(str)) {
-                replaceAll = "0";
-            } else {
-                replaceAll = str.replaceAll("[^\\d\\.]+", "");
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                str3 = str2.replaceAll("[^\\d\\.]+", "");
-            }
-            String[] split = replaceAll.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-            String[] split2 = str3.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-            ArrayList arrayList = new ArrayList();
-            ArrayList arrayList2 = new ArrayList();
-            for (String str4 : split) {
-                arrayList.add(Integer.valueOf(Integer.parseInt(str4)));
-            }
-            for (String str5 : split2) {
-                arrayList2.add(Integer.valueOf(Integer.parseInt(str5)));
-            }
-            if (arrayList.size() > arrayList2.size()) {
-                size = arrayList.size();
-            } else {
-                size = arrayList2.size();
-            }
-            while (arrayList.size() < size) {
-                arrayList.add(0);
-            }
-            while (arrayList2.size() < size) {
-                arrayList2.add(0);
-            }
-            for (int i = 0; i < size; i++) {
-                if (((Integer) arrayList.get(i)).intValue() > ((Integer) arrayList2.get(i)).intValue()) {
-                    return 1;
-                }
-                if (((Integer) arrayList.get(i)).intValue() < ((Integer) arrayList2.get(i)).intValue()) {
-                    return -1;
-                }
-            }
-            return 0;
+        String str3 = "0";
+        if (TextUtils.isEmpty(str)) {
+            replaceAll = "0";
+        } else {
+            replaceAll = str.replaceAll("[^\\d\\.]+", "");
         }
-        return invokeLL.intValue;
-    }
-
-    public static boolean webLogin(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65615, null, context, str, str2)) == null) {
-            return ServiceManager.getInstance().getIsAccountManager().getIsAccountService().webLogin(context, str, str2);
+        if (!TextUtils.isEmpty(str2)) {
+            str3 = str2.replaceAll("[^\\d\\.]+", "");
         }
-        return invokeLLL.booleanValue;
+        String[] split = replaceAll.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+        String[] split2 = str3.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+        ArrayList arrayList = new ArrayList();
+        ArrayList arrayList2 = new ArrayList();
+        for (String str4 : split) {
+            arrayList.add(Integer.valueOf(Integer.parseInt(str4)));
+        }
+        for (String str5 : split2) {
+            arrayList2.add(Integer.valueOf(Integer.parseInt(str5)));
+        }
+        if (arrayList.size() > arrayList2.size()) {
+            size = arrayList.size();
+        } else {
+            size = arrayList2.size();
+        }
+        while (arrayList.size() < size) {
+            arrayList.add(0);
+        }
+        while (arrayList2.size() < size) {
+            arrayList2.add(0);
+        }
+        for (int i = 0; i < size; i++) {
+            if (((Integer) arrayList.get(i)).intValue() > ((Integer) arrayList2.get(i)).intValue()) {
+                return 1;
+            }
+            if (((Integer) arrayList.get(i)).intValue() < ((Integer) arrayList2.get(i)).intValue()) {
+                return -1;
+            }
+        }
+        return 0;
     }
 }

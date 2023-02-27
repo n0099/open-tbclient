@@ -29,6 +29,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
+import org.apache.commons.codec.language.bm.ResourceConstants;
 /* loaded from: classes.dex */
 public final class UrlUtils {
     public static /* synthetic */ Interceptable $ic = null;
@@ -366,7 +367,7 @@ public final class UrlUtils {
                     if (!str.startsWith("http:/") && !str.startsWith("https:/") && !str.startsWith("rtsp:/")) {
                         return str.replaceFirst(":", "://");
                     }
-                    return str.replaceFirst("/", "//");
+                    return str.replaceFirst("/", ResourceConstants.CMT);
                 }
                 return str;
             }

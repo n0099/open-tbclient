@@ -22,11 +22,11 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap5;
+import com.baidu.tieba.b35;
+import com.baidu.tieba.b49;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.p09;
-import com.baidu.tieba.p15;
-import com.baidu.tieba.sw4;
+import com.baidu.tieba.oq5;
+import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,9 +55,9 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
     public TbImageView o;
     public View p;
     public b q;
-    public p15 r;
-    public p15 s;
-    public p15 t;
+    public b35 r;
+    public b35 s;
+    public b35 t;
     public int u;
     public boolean v;
     public TbPageContext w;
@@ -256,7 +256,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
     public void m(ThemeElement themeElement) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, themeElement) == null) && j(themeElement)) {
-            this.n.setTextColor(p09.f(themeElement.common_color));
+            this.n.setTextColor(b49.f(themeElement.common_color));
         }
     }
 
@@ -343,7 +343,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
                 this.l.setVisibility(8);
             }
             if (!TextUtils.isEmpty(this.d.b) && !TextUtils.isEmpty(this.d.e)) {
-                this.m.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.d.b, this.b, StringHelper.STRING_MORE) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06b6) + StringHelper.cutChineseAndEnglishWithSuffix(this.d.e, this.a, StringHelper.STRING_MORE));
+                this.m.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.d.b, this.b, StringHelper.STRING_MORE) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06ba) + StringHelper.cutChineseAndEnglishWithSuffix(this.d.e, this.a, StringHelper.STRING_MORE));
             } else if (!TextUtils.isEmpty(this.d.e)) {
                 this.m.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.d.e, this.a, StringHelper.STRING_MORE));
             }
@@ -366,7 +366,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
             return;
         }
         if (NewWebHotTopicPageSwitch.isOn() && (tbPageContext = this.w) != null) {
-            ap5.e(tbPageContext, String.valueOf(j), null);
+            oq5.e(tbPageContext, String.valueOf(j), null);
         } else {
             new HotTopicActivityConfig(getContext()).createNormalConfig(String.valueOf(j), null, null, "2").start();
         }
@@ -418,9 +418,9 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.r = p15.d(this.e);
-            this.s = p15.d(this.j);
-            this.t = p15.d(this.k);
+            this.r = b35.d(this.e);
+            this.s = b35.d(this.j);
+            this.t = b35.d(this.k);
         }
     }
 
@@ -463,9 +463,9 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.r.n(R.string.J_X01);
             if (this.v) {
-                p15 p15Var = this.s;
-                p15Var.n(R.string.J_X03);
-                p15Var.f(R.color.CAM_X0108);
+                b35 b35Var = this.s;
+                b35Var.n(R.string.J_X03);
+                b35Var.f(R.color.CAM_X0108);
                 this.t.v(R.color.CAM_X0108);
                 int skinType = TbadkApplication.getInst().getSkinType();
                 if (skinType != this.u) {
@@ -473,36 +473,28 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
                     d dVar = this.c;
                     ThemeColorInfo themeColorInfo4 = dVar.b;
                     if (themeColorInfo4 != null && (themeColorInfo = dVar.c) != null && (themeColorInfo2 = dVar.d) != null && (themeColorInfo3 = dVar.a) != null) {
-                        if (skinType != 1) {
-                            if (skinType != 4) {
-                                l(themeColorInfo4.day, themeColorInfo.day, themeColorInfo2.day, themeColorInfo3.day);
-                            } else {
-                                l(themeColorInfo4.dark, themeColorInfo.dark, themeColorInfo2.dark, themeColorInfo3.dark);
-                            }
+                        if (skinType != 4) {
+                            l(themeColorInfo4.day, themeColorInfo.day, themeColorInfo2.day, themeColorInfo3.day);
                         } else {
-                            l(themeColorInfo4.night, themeColorInfo.night, themeColorInfo2.night, themeColorInfo3.night);
+                            l(themeColorInfo4.dark, themeColorInfo.dark, themeColorInfo2.dark, themeColorInfo3.dark);
                         }
                     }
                     ThemeColorInfo themeColorInfo5 = this.c.e;
                     if (themeColorInfo5 != null) {
-                        if (skinType != 1) {
-                            if (skinType != 4) {
-                                m(themeColorInfo5.day);
-                                return;
-                            } else {
-                                m(themeColorInfo5.dark);
-                                return;
-                            }
+                        if (skinType != 4) {
+                            m(themeColorInfo5.day);
+                            return;
+                        } else {
+                            m(themeColorInfo5.dark);
+                            return;
                         }
-                        m(themeColorInfo5.night);
-                        return;
                     }
                     return;
                 }
                 return;
             }
             this.r.f(R.color.CAM_X0209);
-            p15 d2 = p15.d(this.m);
+            b35 d2 = b35.d(this.m);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0107);
@@ -513,24 +505,24 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048587, this, themeElement, themeElement2, themeElement3, themeElement4) == null) {
             if (j(themeElement)) {
-                this.g.setTextColor(p09.f(themeElement.common_color));
+                this.g.setTextColor(b49.f(themeElement.common_color));
             }
             if (j(themeElement2)) {
-                this.h.setBackgroundColor(p09.f(themeElement2.common_color));
+                this.h.setBackgroundColor(b49.f(themeElement2.common_color));
             }
             if (j(themeElement3)) {
-                this.i.setTextColor(p09.f(themeElement3.common_color));
+                this.i.setTextColor(b49.f(themeElement3.common_color));
             }
             if (j(themeElement4)) {
-                this.r.g(p09.f(themeElement4.common_color));
+                this.r.g(b49.f(themeElement4.common_color));
             }
         }
     }
 
-    public void setData(sw4 sw4Var) {
+    public void setData(zx4 zx4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, sw4Var) == null) && sw4Var != null && sw4Var.getThreadData() != null) {
-            ThreadData threadData = sw4Var.getThreadData();
+        if ((interceptable == null || interceptable.invokeL(1048590, this, zx4Var) == null) && zx4Var != null && zx4Var.getThreadData() != null) {
+            ThreadData threadData = zx4Var.getThreadData();
             if (threadData.getThreadRecommendInfoDataList() != null && threadData.getThreadRecommendInfoDataList().size() > 0) {
                 boolean z = false;
                 ThreadRecommendInfoData threadRecommendInfoData = threadData.getThreadRecommendInfoDataList().get(0);

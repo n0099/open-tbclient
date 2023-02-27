@@ -2,39 +2,13 @@ package com.baidu.sapi2.dto;
 
 import android.view.View;
 import com.baidu.sapi2.enums.LoginTypes;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class SapiWebDTO extends SapiDTO {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int closeEnterAnimId;
-    public int closeExitAnimId;
     public LoginTypes excludeTypes;
     public View loadingView;
-    public int openEnterAnimId;
-    public int openExitAnimId;
-    public boolean sweepLightLoading;
-
-    public SapiWebDTO() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.openEnterAnimId = 0;
-        this.closeExitAnimId = 0;
-        this.openExitAnimId = 0;
-        this.closeEnterAnimId = 0;
-        this.sweepLightLoading = true;
-    }
+    public int openEnterAnimId = 0;
+    public int closeExitAnimId = 0;
+    public int openExitAnimId = 0;
+    public int closeEnterAnimId = 0;
+    public boolean sweepLightLoading = true;
 }

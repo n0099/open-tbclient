@@ -1,13 +1,6 @@
 package com.xiaomi.push.service;
-
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
 public abstract class bk {
-    public static /* synthetic */ Interceptable $ic = null;
     public static String A = "ext_cloud_attr";
     public static String B = "ext_pkg_name";
     public static String C = "ext_notify_id";
@@ -48,78 +41,57 @@ public abstract class bk {
     public static String x = "ext_security";
     public static String y = "ext_kick";
     public static String z = "ext_client_attr";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1071163325, "Lcom/xiaomi/push/service/bk;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1071163325, "Lcom/xiaomi/push/service/bk;");
-        }
-    }
 
     public static String a(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
-            switch (i2) {
-                case 0:
-                    return "ERROR_OK";
-                case 1:
-                    return "ERROR_SERVICE_NOT_INSTALLED";
-                case 2:
-                    return "ERROR_NETWORK_NOT_AVAILABLE";
-                case 3:
-                    return "ERROR_NETWORK_FAILED";
-                case 4:
-                    return "ERROR_ACCESS_DENIED";
-                case 5:
-                    return "ERROR_AUTH_FAILED";
-                case 6:
-                    return "ERROR_MULTI_LOGIN";
-                case 7:
-                    return "ERROR_SERVER_ERROR";
-                case 8:
-                    return "ERROR_RECEIVE_TIMEOUT";
-                case 9:
-                    return "ERROR_READ_ERROR";
-                case 10:
-                    return "ERROR_SEND_ERROR";
-                case 11:
-                    return "ERROR_RESET";
-                case 12:
-                    return "ERROR_NO_CLIENT";
-                case 13:
-                    return "ERROR_SERVER_STREAM";
-                case 14:
-                    return "ERROR_THREAD_BLOCK";
-                case 15:
-                    return "ERROR_SERVICE_DESTROY";
-                case 16:
-                    return "ERROR_SESSION_CHANGED";
-                case 17:
-                    return "ERROR_READ_TIMEOUT";
-                case 18:
-                    return "ERROR_CONNECTIING_TIMEOUT";
-                case 19:
-                    return "ERROR_USER_BLOCKED";
-                case 20:
-                    return "ERROR_REDIRECT";
-                case 21:
-                    return "ERROR_BIND_TIMEOUT";
-                case 22:
-                    return "ERROR_PING_TIMEOUT";
-                default:
-                    return String.valueOf(i2);
-            }
+        switch (i2) {
+            case 0:
+                return "ERROR_OK";
+            case 1:
+                return "ERROR_SERVICE_NOT_INSTALLED";
+            case 2:
+                return "ERROR_NETWORK_NOT_AVAILABLE";
+            case 3:
+                return "ERROR_NETWORK_FAILED";
+            case 4:
+                return "ERROR_ACCESS_DENIED";
+            case 5:
+                return "ERROR_AUTH_FAILED";
+            case 6:
+                return "ERROR_MULTI_LOGIN";
+            case 7:
+                return "ERROR_SERVER_ERROR";
+            case 8:
+                return "ERROR_RECEIVE_TIMEOUT";
+            case 9:
+                return "ERROR_READ_ERROR";
+            case 10:
+                return "ERROR_SEND_ERROR";
+            case 11:
+                return "ERROR_RESET";
+            case 12:
+                return "ERROR_NO_CLIENT";
+            case 13:
+                return "ERROR_SERVER_STREAM";
+            case 14:
+                return "ERROR_THREAD_BLOCK";
+            case 15:
+                return "ERROR_SERVICE_DESTROY";
+            case 16:
+                return "ERROR_SESSION_CHANGED";
+            case 17:
+                return "ERROR_READ_TIMEOUT";
+            case 18:
+                return "ERROR_CONNECTIING_TIMEOUT";
+            case 19:
+                return "ERROR_USER_BLOCKED";
+            case 20:
+                return "ERROR_REDIRECT";
+            case 21:
+                return "ERROR_BIND_TIMEOUT";
+            case 22:
+                return "ERROR_PING_TIMEOUT";
+            default:
+                return String.valueOf(i2);
         }
-        return (String) invokeI.objValue;
     }
 }

@@ -1,15 +1,6 @@
 package com.googlecode.mp4parser.boxes.apple;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.gesture.GestureAR;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
@@ -20,7 +11,6 @@ import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
 /* loaded from: classes8.dex */
 public class BaseMediaInfoAtom extends AbstractFullBox {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "gmin";
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
@@ -35,7 +25,6 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_7 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_8 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_9 = null;
-    public transient /* synthetic */ FieldHolder $fh;
     public short balance;
     public short graphicsMode;
     public int opColorB;
@@ -45,110 +34,49 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 16L;
-        }
-        return invokeV.longValue;
+        return 16L;
     }
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-566642238, "Lcom/googlecode/mp4parser/boxes/apple/BaseMediaInfoAtom;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-566642238, "Lcom/googlecode/mp4parser/boxes/apple/BaseMediaInfoAtom;");
-                return;
-            }
-        }
         ajc$preClinit();
     }
 
-    public short getBalance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this));
-            return this.balance;
-        }
-        return invokeV.shortValue;
-    }
-
-    public short getGraphicsMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.graphicsMode;
-        }
-        return invokeV.shortValue;
-    }
-
-    public int getOpColorB() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this));
-            return this.opColorB;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getOpColorG() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
-            return this.opColorG;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getOpColorR() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return this.opColorR;
-        }
-        return invokeV.intValue;
-    }
-
-    public short getReserved() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_10, this, this));
-            return this.reserved;
-        }
-        return invokeV.shortValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BaseMediaInfoAtom() {
         super(TYPE);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.graphicsMode = (short) 64;
         this.opColorR = 32768;
         this.opColorG = 32768;
         this.opColorB = 32768;
+    }
+
+    public short getBalance() {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this));
+        return this.balance;
+    }
+
+    public short getGraphicsMode() {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+        return this.graphicsMode;
+    }
+
+    public int getOpColorB() {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this));
+        return this.opColorB;
+    }
+
+    public int getOpColorG() {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
+        return this.opColorG;
+    }
+
+    public int getOpColorR() {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+        return this.opColorR;
+    }
+
+    public short getReserved() {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_10, this, this));
+        return this.reserved;
     }
 
     public static /* synthetic */ void ajc$preClinit() {
@@ -170,87 +98,58 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void _parseDetails(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
-            parseVersionAndFlags(byteBuffer);
-            this.graphicsMode = byteBuffer.getShort();
-            this.opColorR = IsoTypeReader.readUInt16(byteBuffer);
-            this.opColorG = IsoTypeReader.readUInt16(byteBuffer);
-            this.opColorB = IsoTypeReader.readUInt16(byteBuffer);
-            this.balance = byteBuffer.getShort();
-            this.reserved = byteBuffer.getShort();
-        }
+        parseVersionAndFlags(byteBuffer);
+        this.graphicsMode = byteBuffer.getShort();
+        this.opColorR = IsoTypeReader.readUInt16(byteBuffer);
+        this.opColorG = IsoTypeReader.readUInt16(byteBuffer);
+        this.opColorB = IsoTypeReader.readUInt16(byteBuffer);
+        this.balance = byteBuffer.getShort();
+        this.reserved = byteBuffer.getShort();
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void getContent(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
-            writeVersionAndFlags(byteBuffer);
-            byteBuffer.putShort(this.graphicsMode);
-            IsoTypeWriter.writeUInt16(byteBuffer, this.opColorR);
-            IsoTypeWriter.writeUInt16(byteBuffer, this.opColorG);
-            IsoTypeWriter.writeUInt16(byteBuffer, this.opColorB);
-            byteBuffer.putShort(this.balance);
-            byteBuffer.putShort(this.reserved);
-        }
+        writeVersionAndFlags(byteBuffer);
+        byteBuffer.putShort(this.graphicsMode);
+        IsoTypeWriter.writeUInt16(byteBuffer, this.opColorR);
+        IsoTypeWriter.writeUInt16(byteBuffer, this.opColorG);
+        IsoTypeWriter.writeUInt16(byteBuffer, this.opColorB);
+        byteBuffer.putShort(this.balance);
+        byteBuffer.putShort(this.reserved);
     }
 
     public void setBalance(short s) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Short.valueOf(s)}) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_9, this, this, Conversions.shortObject(s)));
-            this.balance = s;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_9, this, this, Conversions.shortObject(s)));
+        this.balance = s;
     }
 
     public void setGraphicsMode(short s) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Short.valueOf(s)}) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.shortObject(s)));
-            this.graphicsMode = s;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.shortObject(s)));
+        this.graphicsMode = s;
     }
 
     public void setOpColorB(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.intObject(i)));
-            this.opColorB = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.intObject(i)));
+        this.opColorB = i;
     }
 
     public void setOpColorG(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.intObject(i)));
-            this.opColorG = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.intObject(i)));
+        this.opColorG = i;
     }
 
     public void setOpColorR(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i)));
-            this.opColorR = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i)));
+        this.opColorR = i;
     }
 
     public void setReserved(short s) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Short.valueOf(s)}) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_11, this, this, Conversions.shortObject(s)));
-            this.reserved = s;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_11, this, this, Conversions.shortObject(s)));
+        this.reserved = s;
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_12, this, this));
-            return "BaseMediaInfoAtom{graphicsMode=" + ((int) this.graphicsMode) + ", opColorR=" + this.opColorR + ", opColorG=" + this.opColorG + ", opColorB=" + this.opColorB + ", balance=" + ((int) this.balance) + ", reserved=" + ((int) this.reserved) + '}';
-        }
-        return (String) invokeV.objValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_12, this, this));
+        return "BaseMediaInfoAtom{graphicsMode=" + ((int) this.graphicsMode) + ", opColorR=" + this.opColorR + ", opColorG=" + this.opColorG + ", opColorB=" + this.opColorB + ", balance=" + ((int) this.balance) + ", reserved=" + ((int) this.reserved) + '}';
     }
 }

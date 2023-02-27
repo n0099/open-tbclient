@@ -9,14 +9,8 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.constraintlayout.motion.widget.Key;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qm3;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.gn3;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
@@ -25,8 +19,6 @@ import kotlin.jvm.internal.Intrinsics;
 @SuppressLint({"SwanCommentErr"})
 /* loaded from: classes3.dex */
 public final class SwanLoadingTipsView extends RelativeLayout {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public Function0<Unit> a;
     public TextView b;
     public ObjectAnimator c;
@@ -35,331 +27,195 @@ public final class SwanLoadingTipsView extends RelativeLayout {
 
     /* loaded from: classes3.dex */
     public static final class a implements Animator.AnimatorListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanLoadingTipsView a;
-
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            }
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
         }
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public a(SwanLoadingTipsView swanLoadingTipsView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {swanLoadingTipsView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = swanLoadingTipsView;
+        public a() {
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                qm3.b0(this.a.e, 2000L);
-            }
+            gn3.b0(SwanLoadingTipsView.this.e, 2000L);
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.a.setVisibility(0);
-            }
+            SwanLoadingTipsView.this.setVisibility(0);
         }
     }
 
     /* loaded from: classes3.dex */
     public static final class b implements Animator.AnimatorListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanLoadingTipsView a;
-
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            }
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            }
         }
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public b(SwanLoadingTipsView swanLoadingTipsView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {swanLoadingTipsView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = swanLoadingTipsView;
+        public b() {
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.setVisibility(8);
-                Function0<Unit> tipsAnimationFinishCallback = this.a.getTipsAnimationFinishCallback();
-                if (tipsAnimationFinishCallback != null) {
-                    tipsAnimationFinishCallback.invoke();
-                }
+            SwanLoadingTipsView.this.setVisibility(8);
+            Function0<Unit> tipsAnimationFinishCallback = SwanLoadingTipsView.this.getTipsAnimationFinishCallback();
+            if (tipsAnimationFinishCallback != null) {
+                tipsAnimationFinishCallback.invoke();
             }
         }
     }
 
     /* loaded from: classes3.dex */
     public static final class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanLoadingTipsView a;
-
-        public c(SwanLoadingTipsView swanLoadingTipsView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {swanLoadingTipsView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = swanLoadingTipsView;
+        public c() {
         }
 
         @Override // java.lang.Runnable
         public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.f();
+            SwanLoadingTipsView.this.f();
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SwanLoadingTipsView(Context context) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.e = new c(this);
+        this.e = new c();
         d(context);
+    }
+
+    public final void d(Context context) {
+        View.inflate(context, R.layout.obfuscated_res_0x7f0d00af, this);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090193);
+    }
+
+    public final void setTipsAnimationFinishCallback(Function0<Unit> function0) {
+        this.a = function0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SwanLoadingTipsView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attrs};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(attrs, "attrs");
-        this.e = new c(this);
+        this.e = new c();
         d(context);
     }
 
-    public final void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            View.inflate(context, R.layout.obfuscated_res_0x7f0d00ae, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090193);
-        }
-    }
-
-    public final void setTipsAnimationFinishCallback(Function0<Unit> function0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, function0) == null) {
-            this.a = function0;
-        }
-    }
-
     public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-            Runnable runnable = this.e;
-            if (runnable != null) {
-                qm3.d0(runnable);
-            }
-            ObjectAnimator objectAnimator = this.c;
-            if (objectAnimator != null) {
-                if (objectAnimator != null) {
-                    objectAnimator.removeAllListeners();
-                }
-                ObjectAnimator objectAnimator2 = this.c;
-                if (objectAnimator2 != null) {
-                    objectAnimator2.cancel();
-                }
-                this.c = null;
-            }
-            ObjectAnimator objectAnimator3 = this.d;
-            if (objectAnimator3 != null) {
-                if (objectAnimator3 != null) {
-                    objectAnimator3.removeAllListeners();
-                }
-                ObjectAnimator objectAnimator4 = this.d;
-                if (objectAnimator4 != null) {
-                    objectAnimator4.cancel();
-                }
-                this.d = null;
-            }
+        this.a = null;
+        Runnable runnable = this.e;
+        if (runnable != null) {
+            gn3.d0(runnable);
         }
-    }
-
-    public final void e(String str) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return;
-            }
-            TextView textView = this.b;
-            if (textView != null) {
-                textView.setText(str);
-            }
-            setVisibility(8);
-            ObjectAnimator objectAnimator = this.c;
+        ObjectAnimator objectAnimator = this.c;
+        if (objectAnimator != null) {
             if (objectAnimator != null) {
-                if (objectAnimator != null) {
-                    objectAnimator.removeAllListeners();
-                }
-                ObjectAnimator objectAnimator2 = this.c;
-                if (objectAnimator2 != null) {
-                    objectAnimator2.cancel();
-                }
+                objectAnimator.removeAllListeners();
             }
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, Key.ALPHA, 0.0f, 1.0f);
-            this.c = ofFloat;
-            if (ofFloat != null) {
-                ofFloat.setDuration(500L);
+            ObjectAnimator objectAnimator2 = this.c;
+            if (objectAnimator2 != null) {
+                objectAnimator2.cancel();
             }
-            ObjectAnimator objectAnimator3 = this.c;
-            if (objectAnimator3 != null) {
-                objectAnimator3.setStartDelay(1000L);
-            }
-            ObjectAnimator objectAnimator4 = this.c;
-            if (objectAnimator4 != null) {
-                objectAnimator4.addListener(new a(this));
-            }
-            ObjectAnimator objectAnimator5 = this.c;
-            if (objectAnimator5 != null) {
-                objectAnimator5.start();
-            }
+            this.c = null;
         }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ObjectAnimator objectAnimator = this.d;
-            if (objectAnimator != null) {
-                if (objectAnimator != null) {
-                    objectAnimator.removeAllListeners();
-                }
-                ObjectAnimator objectAnimator2 = this.d;
-                if (objectAnimator2 != null) {
-                    objectAnimator2.cancel();
-                }
-            }
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, Key.ALPHA, 1.0f, 0.0f);
-            this.d = ofFloat;
-            if (ofFloat != null) {
-                ofFloat.setDuration(500L);
-            }
-            ObjectAnimator objectAnimator3 = this.d;
+        ObjectAnimator objectAnimator3 = this.d;
+        if (objectAnimator3 != null) {
             if (objectAnimator3 != null) {
-                objectAnimator3.addListener(new b(this));
+                objectAnimator3.removeAllListeners();
             }
             ObjectAnimator objectAnimator4 = this.d;
             if (objectAnimator4 != null) {
-                objectAnimator4.start();
+                objectAnimator4.cancel();
             }
+            this.d = null;
         }
     }
 
     public final Function0<Unit> getTipsAnimationFinishCallback() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
+        return this.a;
+    }
+
+    public final void e(String str) {
+        boolean z;
+        if (str != null && str.length() != 0) {
+            z = false;
+        } else {
+            z = true;
         }
-        return (Function0) invokeV.objValue;
+        if (z) {
+            return;
+        }
+        TextView textView = this.b;
+        if (textView != null) {
+            textView.setText(str);
+        }
+        setVisibility(8);
+        ObjectAnimator objectAnimator = this.c;
+        if (objectAnimator != null) {
+            if (objectAnimator != null) {
+                objectAnimator.removeAllListeners();
+            }
+            ObjectAnimator objectAnimator2 = this.c;
+            if (objectAnimator2 != null) {
+                objectAnimator2.cancel();
+            }
+        }
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, Key.ALPHA, 0.0f, 1.0f);
+        this.c = ofFloat;
+        if (ofFloat != null) {
+            ofFloat.setDuration(500L);
+        }
+        ObjectAnimator objectAnimator3 = this.c;
+        if (objectAnimator3 != null) {
+            objectAnimator3.setStartDelay(1000L);
+        }
+        ObjectAnimator objectAnimator4 = this.c;
+        if (objectAnimator4 != null) {
+            objectAnimator4.addListener(new a());
+        }
+        ObjectAnimator objectAnimator5 = this.c;
+        if (objectAnimator5 != null) {
+            objectAnimator5.start();
+        }
+    }
+
+    public final void f() {
+        ObjectAnimator objectAnimator = this.d;
+        if (objectAnimator != null) {
+            if (objectAnimator != null) {
+                objectAnimator.removeAllListeners();
+            }
+            ObjectAnimator objectAnimator2 = this.d;
+            if (objectAnimator2 != null) {
+                objectAnimator2.cancel();
+            }
+        }
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, Key.ALPHA, 1.0f, 0.0f);
+        this.d = ofFloat;
+        if (ofFloat != null) {
+            ofFloat.setDuration(500L);
+        }
+        ObjectAnimator objectAnimator3 = this.d;
+        if (objectAnimator3 != null) {
+            objectAnimator3.addListener(new b());
+        }
+        ObjectAnimator objectAnimator4 = this.d;
+        if (objectAnimator4 != null) {
+            objectAnimator4.start();
+        }
     }
 }

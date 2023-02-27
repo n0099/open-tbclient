@@ -1,25 +1,16 @@
 package com.baidu.webkit.internal.monitor;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.Log;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public C0519a a;
+    public C0505a a;
 
     /* renamed from: com.baidu.webkit.internal.monitor.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C0519a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public class C0505a {
         public boolean a;
         public boolean b;
         public long c;
@@ -27,87 +18,49 @@ public final class a {
         public boolean e;
         public boolean f;
         public Map<String, Long> g;
-        public final /* synthetic */ a h;
 
-        public C0519a(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = aVar;
+        public C0505a() {
             this.b = true;
             this.c = -1L;
             this.d = -1L;
             this.g = new HashMap();
         }
 
-        public /* synthetic */ C0519a(a aVar, byte b) {
-            this(aVar);
+        public /* synthetic */ C0505a(a aVar, byte b) {
+            this();
         }
 
         public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a = false;
-                this.b = true;
-                this.c = -1L;
-                this.d = -1L;
-                this.e = false;
-                this.f = false;
-                this.g.clear();
-            }
-        }
-    }
-
-    public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            this.a = false;
+            this.b = true;
+            this.c = -1L;
+            this.d = -1L;
+            this.e = false;
+            this.f = false;
+            this.g.clear();
         }
     }
 
     public final JSONObject a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                if (this.a != null && this.a.f) {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("coldbootfirst", this.a.a);
-                    jSONObject.put("loadasycsearch", this.a.b);
-                    jSONObject.put("starttosearch", this.a.c);
-                    jSONObject.put("starttofragment", this.a.d);
-                    jSONObject.put("state50", this.a.e);
-                    for (String str : this.a.g.keySet()) {
-                        jSONObject.put(str, this.a.g.get(str));
-                    }
-                    this.a.a();
-                    return jSONObject;
+        try {
+            if (this.a != null && this.a.f) {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("coldbootfirst", this.a.a);
+                jSONObject.put("loadasycsearch", this.a.b);
+                jSONObject.put("starttosearch", this.a.c);
+                jSONObject.put("starttofragment", this.a.d);
+                jSONObject.put("state50", this.a.e);
+                for (String str : this.a.g.keySet()) {
+                    jSONObject.put(str, this.a.g.get(str));
                 }
-                return null;
-            } catch (Throwable th) {
-                Log.printStackTrace(th);
                 this.a.a();
-                return null;
+                return jSONObject;
             }
+            return null;
+        } catch (Throwable th) {
+            Log.printStackTrace(th);
+            this.a.a();
+            return null;
         }
-        return (JSONObject) invokeV.objValue;
     }
 }

@@ -1,213 +1,141 @@
 package com.baidu.searchbox.pms.utils;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.pms.bean.ErrorInfo;
 import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.searchbox.pms.constants.ErrorConstant;
 import com.baidu.searchbox.pms.statistic.PackageFileStatisticManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import org.apache.commons.codec.digest4util.MD5Utils;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DownloadUtils {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String PMS_DIR = "pms";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public DownloadUtils() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     public static File getPmsFileDir() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), PMS_DIR);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return file;
+        File file = new File(AppRuntime.getAppContext().getFilesDir(), PMS_DIR);
+        if (!file.exists()) {
+            file.mkdirs();
         }
-        return (File) invokeV.objValue;
+        return file;
     }
 
     public static boolean copyTo(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return false;
-            }
-            File file = new File(str);
-            File file2 = new File(str2);
-            if ((file2.exists() && !file2.delete()) || !makeDirs(file2.getParentFile()) || FileUtils.copyFile(file, file2) <= 0) {
-                return false;
-            }
-            return true;
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return false;
         }
-        return invokeLL.booleanValue;
+        File file = new File(str);
+        File file2 = new File(str2);
+        if ((file2.exists() && !file2.delete()) || !makeDirs(file2.getParentFile()) || FileUtils.copyFile(file, file2) <= 0) {
+            return false;
+        }
+        return true;
     }
 
     public static String createFileLayer(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            if (file == null) {
-                return "root_exist=bad_path";
-            }
-            boolean exists = file.exists();
-            String str = "not_exist=" + file.getAbsolutePath() + ",";
-            while (!exists) {
-                file = file.getParentFile();
-                if (file == null) {
-                    return str + "root_exist=bad_path";
-                }
-                exists = file.exists();
-                if (exists) {
-                    return str + "root_exist=" + file.getAbsolutePath();
-                }
-                str = str + "not_exist=" + file.getAbsolutePath() + ",";
-            }
-            return str;
+        if (file == null) {
+            return "root_exist=bad_path";
         }
-        return (String) invokeL.objValue;
+        boolean exists = file.exists();
+        String str = "not_exist=" + file.getAbsolutePath() + ",";
+        while (!exists) {
+            file = file.getParentFile();
+            if (file == null) {
+                return str + "root_exist=bad_path";
+            }
+            exists = file.exists();
+            if (exists) {
+                return str + "root_exist=" + file.getAbsolutePath();
+            }
+            str = str + "not_exist=" + file.getAbsolutePath() + ",";
+        }
+        return str;
+    }
+
+    public static ErrorInfo ubcFileExist(PackageInfo packageInfo) {
+        String str;
+        ErrorInfo errorInfo;
+        int i;
+        File file = new File(packageInfo.filePath);
+        if (file.exists()) {
+            errorInfo = null;
+            str = String.format(ErrorConstant.ErrorMsg.DOWNLOAD_FILE_EXIST, packageInfo.toString());
+            i = ErrorConstant.Code.DOWNLOAD_FILE_EXIST;
+        } else {
+            String format = String.format(ErrorConstant.ErrorMsg.DOWNLOAD_FILE_INEXIST, packageInfo.toString());
+            String createFileLayer = createFileLayer(file);
+            ErrorInfo errorInfo2 = new ErrorInfo();
+            errorInfo2.code = ErrorConstant.Code.DOWNLOAD_ERROR_WRITE;
+            errorInfo2.errorMsg = ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_WRITE + CommonUtils.createErrorJson("exception", format, "file_layer", createFileLayer);
+            errorInfo2.tipMsg = ErrorConstant.TipMsg.DOWNLOAD_ERROR_WRITE;
+            str = format;
+            errorInfo = errorInfo2;
+            i = ErrorConstant.Code.DOWNLOAD_FILE_INEXIST;
+        }
+        PackageFileStatisticManager.getInstance().addDownloadStatistic2(i, str, packageInfo.channelId, packageInfo.packageName, packageInfo.version, packageInfo.downloadUrl, "", 0, packageInfo.retryCount);
+        return errorInfo;
     }
 
     public static String createFileName(PackageInfo packageInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, packageInfo)) == null) {
-            String key = packageInfo.getKey();
-            if (TextUtils.isEmpty(key)) {
-                DebugUtils.throwExceptionForDebug("key is empty");
-                return "";
-            }
-            return key.replace(File.separator, "");
+        String key = packageInfo.getKey();
+        if (TextUtils.isEmpty(key)) {
+            DebugUtils.throwExceptionForDebug("key is empty");
+            return "";
         }
-        return (String) invokeL.objValue;
+        return key.replace(File.separator, "");
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x0013, code lost:
-        if (makeDirs(r0) != false) goto L7;
+    /* JADX WARN: Code restructure failed: missing block: B:5:0x000f, code lost:
+        if (makeDirs(r0) != false) goto L5;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static File getOutputDir(String str) {
-        InterceptResult invokeL;
         File file;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                file = new File(str);
-            }
-            file = null;
-            if (file == null) {
-                return getPmsFileDir();
-            }
-            return file;
+        if (!TextUtils.isEmpty(str)) {
+            file = new File(str);
         }
-        return (File) invokeL.objValue;
+        file = null;
+        if (file == null) {
+            return getPmsFileDir();
+        }
+        return file;
     }
 
     public static boolean makeDirs(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, file)) == null) {
-            if (file == null) {
-                return false;
-            }
-            if (file.exists()) {
-                return file.isDirectory();
-            }
-            return file.mkdirs();
+        if (file == null) {
+            return false;
         }
-        return invokeL.booleanValue;
+        if (file.exists()) {
+            return file.isDirectory();
+        }
+        return file.mkdirs();
     }
 
     public static String getOutputFile(PackageInfo packageInfo, String str) {
-        InterceptResult invokeLL;
         File outputDir;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, packageInfo, str)) == null) {
-            if (packageInfo == null || (outputDir = getOutputDir(str)) == null) {
-                return null;
-            }
-            return CommonUtils.mergePath(outputDir.getAbsolutePath(), createFileName(packageInfo));
+        if (packageInfo == null || (outputDir = getOutputDir(str)) == null) {
+            return null;
         }
-        return (String) invokeLL.objValue;
+        return CommonUtils.mergePath(outputDir.getAbsolutePath(), createFileName(packageInfo));
     }
 
     public static boolean isSameMD5(File file, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, file, str)) == null) {
-            if (file != null && file.exists()) {
-                String md5 = MD5Utils.toMd5(file, true);
-                if (str != null && md5 != null) {
-                    return str.toUpperCase().equals(md5);
-                }
+        if (file != null && file.exists()) {
+            String md5 = MD5Utils.toMd5(file, true);
+            if (str != null && md5 != null) {
+                return str.toUpperCase().equals(md5);
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+        return false;
     }
 
     public static boolean isSameMD5(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return isSameMD5(new File(str), str2);
+        if (TextUtils.isEmpty(str)) {
+            return false;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static ErrorInfo ubcFileExist(PackageInfo packageInfo) {
-        InterceptResult invokeL;
-        String str;
-        ErrorInfo errorInfo;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, packageInfo)) == null) {
-            File file = new File(packageInfo.filePath);
-            if (file.exists()) {
-                errorInfo = null;
-                str = String.format(ErrorConstant.ErrorMsg.DOWNLOAD_FILE_EXIST, packageInfo.toString());
-                i = ErrorConstant.Code.DOWNLOAD_FILE_EXIST;
-            } else {
-                String format = String.format(ErrorConstant.ErrorMsg.DOWNLOAD_FILE_INEXIST, packageInfo.toString());
-                String createFileLayer = createFileLayer(file);
-                ErrorInfo errorInfo2 = new ErrorInfo();
-                errorInfo2.code = ErrorConstant.Code.DOWNLOAD_ERROR_WRITE;
-                errorInfo2.errorMsg = ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_WRITE + CommonUtils.createErrorJson("exception", format, "file_layer", createFileLayer);
-                errorInfo2.tipMsg = ErrorConstant.TipMsg.DOWNLOAD_ERROR_WRITE;
-                str = format;
-                errorInfo = errorInfo2;
-                i = ErrorConstant.Code.DOWNLOAD_FILE_INEXIST;
-            }
-            PackageFileStatisticManager.getInstance().addDownloadStatistic2(i, str, packageInfo.channelId, packageInfo.packageName, packageInfo.version, packageInfo.downloadUrl, "", 0, packageInfo.retryCount);
-            return errorInfo;
-        }
-        return (ErrorInfo) invokeL.objValue;
+        return isSameMD5(new File(str), str2);
     }
 }

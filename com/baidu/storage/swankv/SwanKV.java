@@ -13,8 +13,8 @@ import androidx.exifinterface.media.ExifInterface;
 import androidx.lifecycle.SavedStateHandle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tieba.dp1;
-import com.baidu.tieba.ep1;
+import com.baidu.tieba.tp1;
+import com.baidu.tieba.up1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,7 +49,7 @@ public class SwanKV {
     public static final a Companion;
     public static final String DEFAULT_NAME = "default";
     public static final String FLAVOR_SHARED = "shared";
-    public static final Vector<ep1> HANDLER_LISTENERS;
+    public static final Vector<up1> HANDLER_LISTENERS;
     public static final String LIB_CPP_SHARED = "c++_shared";
     public static final String LIB_SWANKV = "swanKV";
     public static final int MAX_FILE_NAME = 100;
@@ -104,10 +104,10 @@ public class SwanKV {
     }
 
     @JvmStatic
-    public static final boolean initialize(dp1 dp1Var) {
+    public static final boolean initialize(tp1 tp1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, dp1Var)) == null) ? Companion.g(dp1Var) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, tp1Var)) == null) ? Companion.g(tp1Var) : invokeL.booleanValue;
     }
 
     private final native boolean nClean(long j);
@@ -182,10 +182,10 @@ public class SwanKV {
     }
 
     @JvmStatic
-    public static final void registerEventHandler(ep1 ep1Var) {
+    public static final void registerEventHandler(up1 up1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65586, null, ep1Var) == null) {
-            Companion.j(ep1Var);
+        if (interceptable == null || interceptable.invokeL(65586, null, up1Var) == null) {
+            Companion.j(up1Var);
         }
     }
 
@@ -193,10 +193,10 @@ public class SwanKV {
     public static final native void registerNAHandler(boolean z);
 
     @JvmStatic
-    public static final void unregisterEventHandler(ep1 ep1Var) {
+    public static final void unregisterEventHandler(up1 up1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65588, null, ep1Var) == null) {
-            Companion.l(ep1Var);
+        if (interceptable == null || interceptable.invokeL(65588, null, up1Var) == null) {
+            Companion.l(up1Var);
         }
     }
 
@@ -230,13 +230,13 @@ public class SwanKV {
         }
 
         @JvmStatic
-        public final void j(ep1 ep1Var) {
+        public final void j(up1 up1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, ep1Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, up1Var) == null) {
                 if (SwanKV.HANDLER_LISTENERS.isEmpty()) {
                     k(true);
                 }
-                SwanKV.HANDLER_LISTENERS.add(ep1Var);
+                SwanKV.HANDLER_LISTENERS.add(up1Var);
             }
         }
 
@@ -250,10 +250,10 @@ public class SwanKV {
         }
 
         @JvmStatic
-        public final void l(ep1 ep1Var) {
+        public final void l(up1 up1Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048585, this, ep1Var) == null) && ep1Var != null) {
-                SwanKV.HANDLER_LISTENERS.remove(ep1Var);
+            if ((interceptable == null || interceptable.invokeL(1048585, this, up1Var) == null) && up1Var != null) {
+                SwanKV.HANDLER_LISTENERS.remove(up1Var);
                 if (SwanKV.HANDLER_LISTENERS.isEmpty()) {
                     k(false);
                 }
@@ -311,10 +311,10 @@ public class SwanKV {
             InterceptResult invokeLLZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, context, bVar, z)) == null) {
-                dp1 dp1Var = new dp1(context);
-                dp1Var.e(bVar);
-                dp1Var.d(z);
-                return g(dp1Var);
+                tp1 tp1Var = new tp1(context);
+                tp1Var.e(bVar);
+                tp1Var.d(z);
+                return g(tp1Var);
             }
             return invokeLLZ.booleanValue;
         }
@@ -332,22 +332,22 @@ public class SwanKV {
         public final void i(int i, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048582, this, i, str, str2) == null) {
-                for (ep1 ep1Var : SwanKV.HANDLER_LISTENERS) {
-                    ep1Var.a(i, str, str2);
+                for (up1 up1Var : SwanKV.HANDLER_LISTENERS) {
+                    up1Var.a(i, str, str2);
                 }
             }
         }
 
         @JvmStatic
-        public final boolean g(dp1 dp1Var) {
+        public final boolean g(tp1 tp1Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, dp1Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tp1Var)) == null) {
                 if (!SwanKV.isInitFinish.compareAndSet(false, true)) {
                     return true;
                 }
-                if (dp1Var.c() != null) {
-                    b c = dp1Var.c();
+                if (tp1Var.c() != null) {
+                    b c = tp1Var.c();
                     if (c == null) {
                         Intrinsics.throwNpe();
                     }
@@ -355,7 +355,7 @@ public class SwanKV {
                 } else {
                     System.loadLibrary(SwanKV.LIB_SWANKV);
                 }
-                File file = new File(dp1Var.getContext().getFilesDir(), SwanKV.PREFS_SEGMENT);
+                File file = new File(tp1Var.getContext().getFilesDir(), SwanKV.PREFS_SEGMENT);
                 if (!file.exists() || !file.isDirectory()) {
                     if (!file.isDirectory()) {
                         file.delete();
@@ -366,7 +366,7 @@ public class SwanKV {
                 }
                 String absolutePath = file.getAbsolutePath();
                 Intrinsics.checkExpressionValueIsNotNull(absolutePath, "baseDir.absolutePath");
-                h(absolutePath, dp1Var.a(), dp1Var.b());
+                h(absolutePath, tp1Var.a(), tp1Var.b());
                 return true;
             }
             return invokeL.booleanValue;

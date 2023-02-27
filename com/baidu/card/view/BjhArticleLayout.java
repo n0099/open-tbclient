@@ -18,31 +18,31 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ay;
+import com.baidu.tieba.b35;
+import com.baidu.tieba.dy;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ld6;
-import com.baidu.tieba.p15;
-import com.baidu.tieba.sw4;
-import com.baidu.tieba.xc6;
-import com.baidu.tieba.zx;
+import com.baidu.tieba.ey;
+import com.baidu.tieba.jf6;
+import com.baidu.tieba.xf6;
+import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class BjhArticleLayout extends RelativeLayout implements zx<sw4>, View.OnClickListener, ay {
+public class BjhArticleLayout extends RelativeLayout implements dy<zx4>, View.OnClickListener, ey {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public TextView b;
     public TbImageView c;
     public View d;
-    public sw4 e;
+    public zx4 e;
     public float f;
     public float g;
     public float h;
-    public ld6<sw4> i;
+    public xf6<zx4> i;
     public View.OnClickListener j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -101,9 +101,9 @@ public class BjhArticleLayout extends RelativeLayout implements zx<sw4>, View.On
             if (onClickListener != null) {
                 onClickListener.onClick(view2);
             }
-            ld6<sw4> ld6Var = this.i;
-            if (ld6Var != null) {
-                ld6Var.a(view2, this.e);
+            xf6<zx4> xf6Var = this.i;
+            if (xf6Var != null) {
+                xf6Var.a(view2, this.e);
             }
         }
     }
@@ -115,10 +115,10 @@ public class BjhArticleLayout extends RelativeLayout implements zx<sw4>, View.On
         }
     }
 
-    public void setSubClickListener(ld6<sw4> ld6Var) {
+    public void setSubClickListener(xf6<zx4> xf6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ld6Var) == null) {
-            this.i = ld6Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, xf6Var) == null) {
+            this.i = xf6Var;
         }
     }
 
@@ -128,13 +128,13 @@ public class BjhArticleLayout extends RelativeLayout implements zx<sw4>, View.On
             LayoutInflater.from(getContext()).inflate(R.layout.bjh_article_layout, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             setId(R.id.bjh_content);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09235a);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0923a4);
             this.a = textView;
-            p15 d = p15.d(textView);
+            b35 d = b35.d(textView);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X06);
             this.a.setOnClickListener(this);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090ef6);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090f37);
             this.b = textView2;
             textView2.setOnClickListener(this);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.cover_img);
@@ -156,15 +156,15 @@ public class BjhArticleLayout extends RelativeLayout implements zx<sw4>, View.On
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zx
+    @Override // com.baidu.tieba.dy
     /* renamed from: c */
-    public void a(sw4 sw4Var) {
+    public void a(zx4 zx4Var) {
         int i;
         OriginalThreadInfo originalThreadInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sw4Var) == null) {
-            this.e = sw4Var;
-            ThreadData threadData = sw4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zx4Var) == null) {
+            this.e = zx4Var;
+            ThreadData threadData = zx4Var.getThreadData();
             if (threadData.isShareThread && (originalThreadInfo = threadData.originalThreadData) != null) {
                 if (!originalThreadInfo.m && !threadData.shouldShowBlockedState()) {
                     threadData = threadData.originalThreadData.b();
@@ -191,7 +191,7 @@ public class BjhArticleLayout extends RelativeLayout implements zx<sw4>, View.On
             } else {
                 i = R.color.CAM_X0105;
             }
-            xc6.l(textView, id, i, R.color.CAM_X0109);
+            jf6.l(textView, id, i, R.color.CAM_X0109);
         }
     }
 
@@ -213,13 +213,13 @@ public class BjhArticleLayout extends RelativeLayout implements zx<sw4>, View.On
         return (TextView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ay
+    @Override // com.baidu.tieba.ey
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
-            sw4 sw4Var = this.e;
-            if (sw4Var != null && sw4Var.getThreadData() != null) {
+            zx4 zx4Var = this.e;
+            if (zx4Var != null && zx4Var.getThreadData() != null) {
                 TextView textView = this.a;
                 String id = this.e.getThreadData().getId();
                 if (this.c.getVisibility() == 0) {
@@ -227,7 +227,7 @@ public class BjhArticleLayout extends RelativeLayout implements zx<sw4>, View.On
                 } else {
                     i2 = R.color.CAM_X0105;
                 }
-                xc6.l(textView, id, i2, R.color.CAM_X0109);
+                jf6.l(textView, id, i2, R.color.CAM_X0109);
             }
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0101);
             TBSelector.makeDrawableSelector().setShape(0).defaultColorNotAutoChangeSkinType(R.color.CAM_X0606).radius(this.f).into(this.b);

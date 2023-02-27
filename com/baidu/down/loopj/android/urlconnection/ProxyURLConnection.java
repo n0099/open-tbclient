@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.encrypt.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.common.NameValuePair;
 import com.baidu.down.loopj.android.http.ConnectManager;
@@ -128,7 +127,7 @@ public class ProxyURLConnection {
                     name = Uri.encode(name);
                 }
                 stringBuffer.append(name);
-                stringBuffer.append(a.h);
+                stringBuffer.append('=');
                 stringBuffer.append(Uri.encode(nameValuePair.getValue()));
             }
             return stringBuffer.toString();

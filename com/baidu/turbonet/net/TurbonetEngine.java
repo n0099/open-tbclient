@@ -5,9 +5,9 @@ import android.os.Environment;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.devices.RomUtils;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.tieba.cp9;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tieba.zs9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -196,7 +196,7 @@ public abstract class TurbonetEngine {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
-                r(SchemeCollecter.CLASSIFY_BASE, "user_agent", str);
+                r(SchemeCollecter.CLASSIFY_BASE, HttpRequest.USER_AGENT, str);
                 this.d = str;
                 return this;
             }
@@ -216,7 +216,7 @@ public abstract class TurbonetEngine {
                 }
                 r(SchemeCollecter.CLASSIFY_BASE, "config_path", str);
                 if (i() == null) {
-                    u(cp9.a(this.a));
+                    u(zs9.a(this.a));
                 }
                 return TurbonetEngine.c(this);
             }
@@ -466,7 +466,7 @@ public abstract class TurbonetEngine {
                     return;
                 }
             }
-            UNKNOWN = new QUICConnectStatus(RomUtils.UNKNOWN, 0);
+            UNKNOWN = new QUICConnectStatus("UNKNOWN", 0);
             REACHABLE = new QUICConnectStatus("REACHABLE", 1);
             QUICConnectStatus qUICConnectStatus = new QUICConnectStatus("UNREACHABLE", 2);
             UNREACHABLE = qUICConnectStatus;
@@ -534,7 +534,7 @@ public abstract class TurbonetEngine {
                     return;
                 }
             }
-            UNKNOWN = new TCPNetworkQualityStatus(RomUtils.UNKNOWN, 0);
+            UNKNOWN = new TCPNetworkQualityStatus("UNKNOWN", 0);
             WEAK = new TCPNetworkQualityStatus("WEAK", 1);
             TCPNetworkQualityStatus tCPNetworkQualityStatus = new TCPNetworkQualityStatus("NORMAL", 2);
             NORMAL = tCPNetworkQualityStatus;

@@ -39,7 +39,6 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.appcompat.view.SupportMenuInflater;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.statistic.StatisticConstants;
@@ -68,6 +67,7 @@ import com.baidu.ufosdk.q1;
 import com.baidu.ufosdk.s1;
 import com.baidu.ufosdk.t1;
 import com.baidu.ufosdk.z0;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -814,8 +814,8 @@ public class FeedbackReportActivity extends Activity {
             this.a = feedbackReportActivity;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:64:0x01f3  */
-        /* JADX WARN: Removed duplicated region for block: B:65:0x01fb  */
+        /* JADX WARN: Removed duplicated region for block: B:64:0x01fc  */
+        /* JADX WARN: Removed duplicated region for block: B:65:0x0204  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -1202,7 +1202,7 @@ public class FeedbackReportActivity extends Activity {
         this.N = -1;
         this.O = "";
         this.P = "";
-        this.Q = SupportMenuInflater.XML_MENU;
+        this.Q = "menu";
         this.R = "";
     }
 
@@ -1216,7 +1216,7 @@ public class FeedbackReportActivity extends Activity {
                 if (i == arrayList.size() - 1) {
                     str = str + arrayList.get(i);
                 } else {
-                    str = str + arrayList.get(i) + ";";
+                    str = str + arrayList.get(i) + ParamableElem.DIVIDE_PARAM;
                 }
             }
             return str;
@@ -1423,7 +1423,7 @@ public class FeedbackReportActivity extends Activity {
             hashMap.put("extend_feedback_channel", Integer.valueOf(this.c));
             hashMap.put("resource_id", this.O);
             hashMap.put("daily_type", "24961");
-            if (this.Q.equals(SupportMenuInflater.XML_MENU)) {
+            if (this.Q.equals("menu")) {
                 str6 = "框架";
             } else {
                 str6 = "落地页";
@@ -1573,8 +1573,8 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:65:0x0106  */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x0124  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x0108  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x0126  */
     @Override // android.app.Activity
     /*
         Code decompiled incorrectly, please refer to instructions dump.

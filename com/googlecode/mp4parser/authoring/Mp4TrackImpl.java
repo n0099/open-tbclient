@@ -1,12 +1,5 @@
 package com.googlecode.mp4parser.authoring;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.IsoFile;
 import com.coremedia.iso.boxes.AbstractMediaHeaderBox;
 import com.coremedia.iso.boxes.Box;
@@ -39,8 +32,6 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class Mp4TrackImpl extends AbstractTrack {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public List<CompositionTimeToSample.Entry> compositionTimeEntries;
     public long[] decodingTimes;
     public String handler;
@@ -50,16 +41,11 @@ public class Mp4TrackImpl extends AbstractTrack {
     public List<CencSampleAuxiliaryDataFormat> sampleEncryptionEntries;
     public List<Sample> samples;
     public long[] syncSamples;
-    public TrackMetaData trackMetaData;
+    public TrackMetaData trackMetaData = new TrackMetaData();
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public SubSampleInformationBox getSubsampleInformationBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return null;
-        }
-        return (SubSampleInformationBox) invokeV.objValue;
+        return null;
     }
 
     public Mp4TrackImpl(TrackBox trackBox, IsoFile... isoFileArr) {
@@ -68,23 +54,8 @@ public class Mp4TrackImpl extends AbstractTrack {
         Iterator it2;
         SampleFlags defaultSampleFlags;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {trackBox, isoFileArr};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        int i4 = 0;
+        int i2 = 0;
         this.syncSamples = new long[0];
-        this.trackMetaData = new TrackMetaData();
         long trackId = trackBox.getTrackHeaderBox().getTrackId();
         this.samples = new SampleList(trackBox, isoFileArr);
         SampleTableBox sampleTableBox = trackBox.getMediaBox().getMediaInformationBox().getSampleTableBox();
@@ -126,14 +97,14 @@ public class Mp4TrackImpl extends AbstractTrack {
                                     while (it4.hasNext()) {
                                         TrackRunBox trackRunBox = (TrackRunBox) it4.next();
                                         TrackFragmentHeaderBox trackFragmentHeaderBox = ((TrackFragmentBox) trackRunBox.getParent()).getTrackFragmentHeaderBox();
-                                        int i5 = 1;
+                                        int i3 = 1;
                                         boolean z = true;
                                         for (TrackRunBox.Entry entry : trackRunBox.getEntries()) {
                                             if (trackRunBox.isSampleDurationPresent()) {
                                                 if (arrayList.size() != 0) {
                                                     it = it3;
                                                     if (((TimeToSampleBox.Entry) arrayList.get(arrayList.size() - 1)).getDelta() == entry.getSampleDuration()) {
-                                                        TimeToSampleBox.Entry entry2 = (TimeToSampleBox.Entry) arrayList.get(arrayList.size() - i5);
+                                                        TimeToSampleBox.Entry entry2 = (TimeToSampleBox.Entry) arrayList.get(arrayList.size() - i3);
                                                         j = trackId;
                                                         it2 = it4;
                                                         entry2.setCount(entry2.getCount() + 1);
@@ -184,18 +155,18 @@ public class Mp4TrackImpl extends AbstractTrack {
                                             it3 = it;
                                             it4 = it2;
                                             trackId = j;
-                                            i5 = 1;
+                                            i3 = 1;
                                             z = false;
                                         }
                                     }
                                 }
                             }
-                            i4 = 0;
+                            i2 = 0;
                         }
                         long[] jArr = this.syncSamples;
                         long[] jArr2 = new long[jArr.length + linkedList.size()];
                         this.syncSamples = jArr2;
-                        System.arraycopy(jArr, i4, jArr2, i4, jArr.length);
+                        System.arraycopy(jArr, i2, jArr2, i2, jArr.length);
                         int length = jArr.length;
                         for (Long l : linkedList) {
                             this.syncSamples[length] = l.longValue();
@@ -222,114 +193,55 @@ public class Mp4TrackImpl extends AbstractTrack {
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.compositionTimeEntries;
-        }
-        return (List) invokeV.objValue;
+        return this.compositionTimeEntries;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public String getHandler() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.handler;
-        }
-        return (String) invokeV.objValue;
+        return this.handler;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.googlecode.mp4parser.authoring.Track
     public AbstractMediaHeaderBox getMediaHeaderBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mihd;
-        }
-        return (AbstractMediaHeaderBox) invokeV.objValue;
+        return this.mihd;
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.sampleDependencies;
-        }
-        return (List) invokeV.objValue;
+        return this.sampleDependencies;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public SampleDescriptionBox getSampleDescriptionBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.sampleDescriptionBox;
-        }
-        return (SampleDescriptionBox) invokeV.objValue;
+        return this.sampleDescriptionBox;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public synchronized long[] getSampleDurations() {
-        InterceptResult invokeV;
-        long[] jArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                jArr = this.decodingTimes;
-            }
-            return jArr;
-        }
-        return (long[]) invokeV.objValue;
+        return this.decodingTimes;
     }
 
     public List<CencSampleAuxiliaryDataFormat> getSampleEncryptionEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.sampleEncryptionEntries;
-        }
-        return (List) invokeV.objValue;
+        return this.sampleEncryptionEntries;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public List<Sample> getSamples() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.samples;
-        }
-        return (List) invokeV.objValue;
+        return this.samples;
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public long[] getSyncSamples() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.syncSamples;
-        }
-        return (long[]) invokeV.objValue;
+        return this.syncSamples;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public TrackMetaData getTrackMetaData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.trackMetaData;
-        }
-        return (TrackMetaData) invokeV.objValue;
+        return this.trackMetaData;
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return "Mp4TrackImpl{handler='" + this.handler + "'}";
-        }
-        return (String) invokeV.objValue;
+        return "Mp4TrackImpl{handler='" + this.handler + "'}";
     }
 }

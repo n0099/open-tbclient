@@ -1,104 +1,70 @@
 package rx.internal.operators;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.dea;
-import com.baidu.tieba.eea;
-import com.baidu.tieba.gfa;
-import com.baidu.tieba.zda;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.boa;
+import com.baidu.tieba.uma;
+import com.baidu.tieba.yma;
+import com.baidu.tieba.zma;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes9.dex */
-public final class OperatorPublish$InnerProducer<T> extends AtomicLong implements zda, eea {
-    public static /* synthetic */ Interceptable $ic = null;
+public final class OperatorPublish$InnerProducer<T> extends AtomicLong implements uma, zma {
     public static final long NOT_REQUESTED = -4611686018427387904L;
     public static final long UNSUBSCRIBED = Long.MIN_VALUE;
     public static final long serialVersionUID = -4453897557930727610L;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final dea<? super T> child;
-    public final gfa<T> parent;
+    public final yma<? super T> child;
+    public final boa<T> parent;
 
-    public OperatorPublish$InnerProducer(gfa<T> gfaVar, dea<? super T> deaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {gfaVar, deaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.parent = gfaVar;
-        this.child = deaVar;
+    public OperatorPublish$InnerProducer(boa<T> boaVar, yma<? super T> ymaVar) {
+        this.parent = boaVar;
+        this.child = ymaVar;
         lazySet(-4611686018427387904L);
     }
 
-    @Override // com.baidu.tieba.eea
+    @Override // com.baidu.tieba.zma
     public boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (get() == Long.MIN_VALUE) {
-                return true;
-            }
-            return false;
+        if (get() == Long.MIN_VALUE) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
-    @Override // com.baidu.tieba.eea
+    @Override // com.baidu.tieba.zma
     public void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && get() != Long.MIN_VALUE && getAndSet(Long.MIN_VALUE) != Long.MIN_VALUE) {
+        if (get() != Long.MIN_VALUE && getAndSet(Long.MIN_VALUE) != Long.MIN_VALUE) {
             this.parent.h(this);
             this.parent.g();
         }
     }
 
     public long produced(long j) {
-        InterceptResult invokeJ;
         long j2;
         long j3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            if (j > 0) {
-                do {
-                    j2 = get();
-                    if (j2 != -4611686018427387904L) {
-                        if (j2 == Long.MIN_VALUE) {
-                            return Long.MIN_VALUE;
-                        }
-                        j3 = j2 - j;
-                        if (j3 < 0) {
-                            throw new IllegalStateException("More produced (" + j + ") than requested (" + j2 + SmallTailInfo.EMOTION_SUFFIX);
-                        }
-                    } else {
-                        throw new IllegalStateException("Produced without request");
+        if (j > 0) {
+            do {
+                j2 = get();
+                if (j2 != -4611686018427387904L) {
+                    if (j2 == Long.MIN_VALUE) {
+                        return Long.MIN_VALUE;
                     }
-                } while (!compareAndSet(j2, j3));
-                return j3;
-            }
-            throw new IllegalArgumentException("Cant produce zero or less");
+                    j3 = j2 - j;
+                    if (j3 < 0) {
+                        throw new IllegalStateException("More produced (" + j + ") than requested (" + j2 + SmallTailInfo.EMOTION_SUFFIX);
+                    }
+                } else {
+                    throw new IllegalStateException("Produced without request");
+                }
+            } while (!compareAndSet(j2, j3));
+            return j3;
         }
-        return invokeJ.longValue;
+        throw new IllegalArgumentException("Cant produce zero or less");
     }
 
-    @Override // com.baidu.tieba.zda
+    @Override // com.baidu.tieba.uma
     public void request(long j) {
-        int i;
         long j2;
         long j3;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) != null) || j < 0) {
+        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i < 0) {
             return;
         }
         do {

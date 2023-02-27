@@ -1,51 +1,31 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import com.baidu.live.business.model.data.LiveRoomEntity;
+import com.baidu.live.business.model.data.LiveSearchResultInfo;
+import com.baidu.live.feed.search.model.data.LiveSearchSuggestion;
+import com.baidu.live.feed.search.model.data.SearchResultBean;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class ib0 extends Handler {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<a> a;
+public interface ib0 {
+    void B0();
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(Message message);
-    }
+    void X0(List<String> list);
 
-    public ib0(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new WeakReference<>(aVar);
-    }
+    void e0();
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            if (this.a == null || (aVar = this.a.get()) == null) {
-                return;
-            }
-            aVar.a(message);
-            super.handleMessage(message);
-        }
-    }
+    void f0(List<? extends LiveSearchResultInfo> list, List<? extends LiveSearchSuggestion> list2);
+
+    void k(int i);
+
+    void l();
+
+    void q(jb0 jb0Var);
+
+    void showToast(String str);
+
+    void t(List<String> list);
+
+    void u(SearchResultBean searchResultBean);
+
+    void w0(List<? extends LiveRoomEntity> list);
 }

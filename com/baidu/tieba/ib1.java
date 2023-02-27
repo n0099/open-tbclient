@@ -1,173 +1,246 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.graphics.Rect;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.view.ViewTreeObserver;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b51;
+import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.io.Serializable;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ib1 implements ViewTreeObserver.OnGlobalLayoutListener {
+public class ib1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public WeakReference<View> c;
+    public String a;
+    public c b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public a j;
+    public b k;
 
     /* loaded from: classes4.dex */
-    public class a implements Application.ActivityLifecycleCallbacks {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Application a;
-        public final /* synthetic */ ib1 b;
+        public String a;
+        public int b;
+        public double c;
 
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityPaused(@NonNull Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(@NonNull Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStopped(@NonNull Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-            }
-        }
-
-        public a(ib1 ib1Var, Application application) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ib1Var, application};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = ib1Var;
-            this.a = application;
         }
 
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
-            View view2;
+        public boolean a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, activity, bundle) != null) || (view2 = (View) this.b.c.get()) == null || activity != view2.getContext()) {
-                return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                int i = this.b;
+                if ((i == 2 || i == 3) && this.c > 0.0d && !TextUtils.isEmpty(this.a)) {
+                    return true;
+                }
+                return false;
             }
-            this.b.a = false;
+            return invokeV.booleanValue;
         }
 
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityDestroyed(@NonNull Activity activity) {
-            View view2;
-            Application application;
+        public static a b(@NonNull String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && (view2 = (View) this.b.c.get()) != null && activity == view2.getContext() && (application = this.a) != null) {
-                application.unregisterActivityLifecycleCallbacks(this);
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                a aVar = new a();
+                JSONObject c = f21.c(str);
+                aVar.a = c.optString("defer_charge_url");
+                aVar.b = c.optInt("defer_type", 3);
+                aVar.c = c.optDouble("defer_time", 0.0d);
+                return aVar;
             }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityResumed(@NonNull Activity activity) {
-            View view2;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && (view2 = (View) this.b.c.get()) != null && activity == view2.getContext()) {
-                this.b.a = true;
-            }
+            return (a) invokeL.objValue;
         }
     }
 
-    public ib1(View view2) {
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static b a(@NonNull String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                b bVar = new b();
+                JSONObject c = f21.c(str);
+                bVar.e = c.optString("key");
+                c.optString(EmotionResourceInfo.JSON_KEY_PKG_NAME);
+                bVar.a = c.optString("download_url");
+                c.optString(BreakpointSQLiteKey.CONTENT_LENGTH);
+                bVar.b = c.optString("close_virtual_progress");
+                bVar.c = c.optString("apk_label");
+                bVar.d = c.optString("apk_icon");
+                return bVar;
+            }
+            return (b) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static c a(@NonNull String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                c cVar = new c();
+                JSONObject c = f21.c(str);
+                cVar.a = c.optString("receive_title_script");
+                c.optString("start_load_script");
+                return cVar;
+            }
+            return (c) invokeL.objValue;
+        }
+    }
+
+    public ib1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = false;
-        this.b = -1;
-        this.c = new WeakReference<>(view2);
-        c();
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !TextUtils.equals(this.e, "0");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static ib1 b(@NonNull Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
+            Bundle extras = intent.getExtras();
+            ib1 ib1Var = null;
+            if (extras == null) {
+                return null;
+            }
+            Serializable serializable = extras.getSerializable("map");
+            if (!(serializable instanceof HashMap)) {
+                return null;
+            }
+            HashMap hashMap = (HashMap) serializable;
+            if (hashMap != null && !hashMap.isEmpty()) {
+                ib1Var = new ib1();
+                ib1Var.c = (String) g21.b(hashMap, LegoListActivityConfig.AD_ID);
+                ib1Var.a = (String) g21.b(hashMap, "url");
+                ib1Var.f = (String) g21.b(hashMap, "ext_info");
+                ib1Var.g = (String) g21.b(hashMap, TiebaStatic.Params.REFER);
+                ib1Var.d = (String) g21.b(hashMap, "charge_url");
+                ib1Var.e = (String) g21.b(hashMap, "ad_invoke_flag");
+                ib1Var.h = (String) g21.b(hashMap, "lp_real_url");
+                String str = (String) g21.b(hashMap, "log_switch");
+                if (TextUtils.isEmpty(str)) {
+                    str = "1";
+                }
+                ib1Var.i = str;
+                String str2 = (String) g21.b(hashMap, "sdk_script");
+                if (!TextUtils.isEmpty(str2)) {
+                    ib1Var.b = c.a(str2);
+                }
+                String str3 = (String) g21.b(hashMap, "defer_charge");
+                if (!TextUtils.isEmpty(str3)) {
+                    ib1Var.j = a.b(str3);
+                }
+                String str4 = (String) g21.b(hashMap, "download");
+                if (!TextUtils.isEmpty(str4)) {
+                    ib1Var.k = b.a(str4);
+                }
+                ib1Var.c();
+            }
+            return ib1Var;
+        }
+        return (ib1) invokeL.objValue;
     }
 
     public final void c() {
-        Application application;
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (ma1.b() instanceof Application) {
-                application = (Application) ma1.b();
-            } else {
-                application = (Application) ma1.b().getApplicationContext();
-            }
-            application.registerActivityLifecycleCallbacks(new a(this, application));
-        }
-    }
-
-    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-    public void onGlobalLayout() {
-        View view2;
-        int measuredHeight;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (view2 = this.c.get()) == null) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || TextUtils.isEmpty(this.g)) {
             return;
         }
-        if (this.b >= ((int) (b51.c.f(view2.getContext()) * 0.85f)) && !this.a) {
-            return;
+        if (this.g.contains("__CHARGE_URL__") && !TextUtils.isEmpty(this.d)) {
+            this.g = this.g.replace("__CHARGE_URL__", this.d);
         }
-        if (ViewCompat.isAttachedToWindow(view2)) {
-            Rect rect = new Rect();
-            view2.getWindowVisibleDisplayFrame(rect);
-            int i = rect.top;
-            if (i == 0) {
-                i = b51.c.g();
-            }
-            measuredHeight = rect.bottom - i;
-        } else {
-            measuredHeight = view2.getMeasuredHeight();
-        }
-        if (this.b != measuredHeight && measuredHeight > 0) {
-            this.b = measuredHeight;
-            view2.getLayoutParams().height = measuredHeight;
-            view2.requestLayout();
+        if (this.g.contains("__DEFER_CHARGE_URL__") && (aVar = this.j) != null && !TextUtils.isEmpty(aVar.a)) {
+            this.g = this.g.replace("__DEFER_CHARGE_URL__", this.j.a);
         }
     }
 }

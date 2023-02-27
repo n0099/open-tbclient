@@ -1,201 +1,120 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class pja {
+public final class pja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a() {
-        InterceptResult invokeV;
+    public static int b(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            try {
-                Class<?> cls = Class.forName("android.os.SystemProperties");
-                String str = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, "ro.build.hw_emui_api_level");
-                if (TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str)) {
-                    return 0;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
+            int i3 = 1 << (i2 - 1);
+            while ((i & i3) != 0) {
+                i3 >>= 1;
+            }
+            return (i & (i3 - 1)) + i3;
+        }
+        return invokeII.intValue;
+    }
+
+    public static void a(int[] iArr, int i, int i2, int[] iArr2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{iArr, Integer.valueOf(i), Integer.valueOf(i2), iArr2, Integer.valueOf(i3)}) == null) {
+            int[] iArr3 = new int[i3];
+            int[] iArr4 = new int[16];
+            int[] iArr5 = new int[16];
+            int i4 = 0;
+            for (int i5 = 0; i5 < i3; i5++) {
+                int i6 = iArr2[i5];
+                iArr4[i6] = iArr4[i6] + 1;
+            }
+            iArr5[1] = 0;
+            int i7 = 1;
+            while (i7 < 15) {
+                int i8 = i7 + 1;
+                iArr5[i8] = iArr5[i7] + iArr4[i7];
+                i7 = i8;
+            }
+            for (int i9 = 0; i9 < i3; i9++) {
+                if (iArr2[i9] != 0) {
+                    int i10 = iArr2[i9];
+                    int i11 = iArr5[i10];
+                    iArr5[i10] = i11 + 1;
+                    iArr3[i11] = i9;
                 }
-                return Integer.parseInt(str);
-            } catch (Exception unused) {
-                return 0;
             }
-        }
-        return invokeV.intValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (!g()) {
-                return "";
-            }
-            return f("ro.build.version.emui", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return f(RomUtils.PROP_RO_BUILD_DISPLAY_ID, "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!j()) {
-                return "";
-            }
-            return f(RomUtils.PROP_RO_BUILD_DISPLAY_ID, "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (!l()) {
-                return "";
-            }
-            return f("ro.miui.ui.version.name", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (a() > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (b().contains("EmotionUI_3.0")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String b = b();
-            if (!"EmotionUI 3".equals(b) && !b.contains("EmotionUI_3.1")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return c().toLowerCase().contains("flyme");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return !TextUtils.isEmpty(f("ro.miui.ui.version.name", ""));
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            String e = e();
-            if (e.isEmpty()) {
-                return false;
-            }
-            try {
-                if (Integer.valueOf(e.substring(1)).intValue() < 6) {
-                    return false;
+            int i12 = 1 << i2;
+            if (iArr5[15] == 1) {
+                for (int i13 = 0; i13 < i12; i13++) {
+                    iArr[i + i13] = iArr3[0];
                 }
-                return true;
-            } catch (NumberFormatException unused) {
-                return false;
+                return;
             }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return "OPPO".equals(Build.MANUFACTURER);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            try {
-                Class<?> cls = Class.forName("android.os.SystemProperties");
-                return (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, str2);
-            } catch (Exception unused) {
-                return str2;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean k() {
-        InterceptResult invokeV;
-        int intValue;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            String d = d();
-            if (d.isEmpty()) {
-                return false;
-            }
-            try {
-                if (d.toLowerCase().contains("os")) {
-                    intValue = Integer.valueOf(d.substring(9, 10)).intValue();
-                } else {
-                    intValue = Integer.valueOf(d.substring(6, 7)).intValue();
+            int i14 = 2;
+            int i15 = 0;
+            int i16 = 1;
+            int i17 = 2;
+            while (i16 <= i2) {
+                while (iArr4[i16] > 0) {
+                    d(iArr, i + i4, i17, i12, iArr3[i15] | (i16 << 16));
+                    i4 = b(i4, i16);
+                    iArr4[i16] = iArr4[i16] - 1;
+                    i15++;
                 }
-                if (intValue < 4) {
-                    return false;
+                i16++;
+                i17 <<= 1;
+            }
+            int i18 = i12 - 1;
+            int i19 = -1;
+            int i20 = i2 + 1;
+            int i21 = i;
+            while (i20 <= 15) {
+                while (iArr4[i20] > 0) {
+                    int i22 = i4 & i18;
+                    if (i22 != i19) {
+                        i21 += i12;
+                        int c = c(iArr4, i20, i2);
+                        iArr[i + i22] = ((c + i2) << 16) | ((i21 - i) - i22);
+                        i12 = 1 << c;
+                        i19 = i22;
+                    }
+                    d(iArr, (i4 >> i2) + i21, i14, i12, ((i20 - i2) << 16) | iArr3[i15]);
+                    i4 = b(i4, i20);
+                    iArr4[i20] = iArr4[i20] - 1;
+                    i15++;
                 }
-                return true;
-            } catch (NumberFormatException unused) {
-                return false;
+                i20++;
+                i14 <<= 1;
             }
         }
-        return invokeV.booleanValue;
+    }
+
+    public static int c(int[] iArr, int i, int i2) {
+        InterceptResult invokeLII;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, iArr, i, i2)) == null) {
+            int i4 = 1 << (i - i2);
+            while (i < 15 && (i3 = i4 - iArr[i]) > 0) {
+                i++;
+                i4 = i3 << 1;
+            }
+            return i - i2;
+        }
+        return invokeLII.intValue;
+    }
+
+    public static void d(int[] iArr, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{iArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            do {
+                i3 -= i2;
+                iArr[i + i3] = i4;
+            } while (i3 > 0);
+        }
     }
 }

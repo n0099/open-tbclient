@@ -5,17 +5,8 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class ZoomImageView extends BdImageViewTouch {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public boolean J;
     public float K;
     public float L;
@@ -38,24 +29,8 @@ public class ZoomImageView extends BdImageViewTouch {
         boolean c(ZoomImageView zoomImageView, MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ZoomImageView(Context context) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.J = false;
         this.K = -1.0f;
         this.L = -1.0f;
@@ -63,25 +38,48 @@ public class ZoomImageView extends BdImageViewTouch {
         this.N = null;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @Override // com.baidu.swan.facade.picture.widget.BdImageViewTouchBase, android.widget.ImageView
+    public void setImageBitmap(Bitmap bitmap) {
+        boolean z;
+        a aVar = this.M;
+        if (aVar != null) {
+            aVar.b(bitmap);
+        }
+        super.setImageBitmap(bitmap, null, this.K, this.L);
+        if (bitmap != null) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.J = z;
+    }
+
+    @Override // com.baidu.swan.facade.picture.widget.BdImageViewTouchBase, android.widget.ImageView
+    public void setImageDrawable(Drawable drawable) {
+        boolean z;
+        a aVar = this.M;
+        if (aVar != null) {
+            aVar.a(drawable);
+        }
+        super.setImageDrawable(drawable, null, this.K, this.L);
+        if (drawable != null) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.J = z;
+    }
+
+    public void setOnSetImageBitmapListener(a aVar) {
+        this.M = aVar;
+    }
+
+    public void setOnUpdateRectListener(b bVar) {
+        this.N = bVar;
+    }
+
     public ZoomImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.J = false;
         this.K = -1.0f;
         this.L = -1.0f;
@@ -89,25 +87,27 @@ public class ZoomImageView extends BdImageViewTouch {
         this.N = null;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public void setZoomRange(float f, float f2) {
+        this.L = f2;
+        this.K = f;
+    }
+
+    @Override // com.baidu.swan.facade.picture.widget.BdImageViewTouchBase
+    public void t(double d, double d2) {
+        boolean z;
+        b bVar = this.N;
+        if (bVar != null) {
+            z = bVar.a(this, d, d2);
+        } else {
+            z = false;
+        }
+        if (!z) {
+            super.t(d, d2);
+        }
+    }
+
     public ZoomImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.J = false;
         this.K = -1.0f;
         this.L = -1.0f;
@@ -117,127 +117,35 @@ public class ZoomImageView extends BdImageViewTouch {
 
     @Override // com.baidu.swan.facade.picture.widget.BdImageViewTouch
     public boolean H(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        InterceptResult invokeCommon;
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            b bVar = this.N;
-            if (bVar != null) {
-                z = bVar.c(this, motionEvent, motionEvent2, f, f2);
-            } else {
-                z = false;
-            }
-            if (!z) {
-                return super.H(motionEvent, motionEvent2, f, f2);
-            }
-            return z;
+        b bVar = this.N;
+        if (bVar != null) {
+            z = bVar.c(this, motionEvent, motionEvent2, f, f2);
+        } else {
+            z = false;
         }
-        return invokeCommon.booleanValue;
+        if (!z) {
+            return super.H(motionEvent, motionEvent2, f, f2);
+        }
+        return z;
     }
 
     @Override // com.baidu.swan.facade.picture.widget.BdImageViewTouch
     public boolean I(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        InterceptResult invokeCommon;
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            b bVar = this.N;
-            if (bVar != null) {
-                z = bVar.b(this, motionEvent, motionEvent2, f, f2);
-            } else {
-                z = false;
-            }
-            if (!z) {
-                return super.I(motionEvent, motionEvent2, f, f2);
-            }
-            return z;
+        b bVar = this.N;
+        if (bVar != null) {
+            z = bVar.b(this, motionEvent, motionEvent2, f, f2);
+        } else {
+            z = false;
         }
-        return invokeCommon.booleanValue;
+        if (!z) {
+            return super.I(motionEvent, motionEvent2, f, f2);
+        }
+        return z;
     }
 
     public boolean M() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.J;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.swan.facade.picture.widget.BdImageViewTouchBase, android.widget.ImageView
-    public void setImageBitmap(Bitmap bitmap) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bitmap) == null) {
-            a aVar = this.M;
-            if (aVar != null) {
-                aVar.b(bitmap);
-            }
-            super.setImageBitmap(bitmap, null, this.K, this.L);
-            if (bitmap != null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.J = z;
-        }
-    }
-
-    @Override // com.baidu.swan.facade.picture.widget.BdImageViewTouchBase, android.widget.ImageView
-    public void setImageDrawable(Drawable drawable) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, drawable) == null) {
-            a aVar = this.M;
-            if (aVar != null) {
-                aVar.a(drawable);
-            }
-            super.setImageDrawable(drawable, null, this.K, this.L);
-            if (drawable != null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.J = z;
-        }
-    }
-
-    public void setOnSetImageBitmapListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.M = aVar;
-        }
-    }
-
-    public void setOnUpdateRectListener(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.N = bVar;
-        }
-    }
-
-    public void setZoomRange(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            this.L = f2;
-            this.K = f;
-        }
-    }
-
-    @Override // com.baidu.swan.facade.picture.widget.BdImageViewTouchBase
-    public void t(double d, double d2) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d), Double.valueOf(d2)}) == null) {
-            b bVar = this.N;
-            if (bVar != null) {
-                z = bVar.a(this, d, d2);
-            } else {
-                z = false;
-            }
-            if (!z) {
-                super.t(d, d2);
-            }
-        }
+        return this.J;
     }
 }

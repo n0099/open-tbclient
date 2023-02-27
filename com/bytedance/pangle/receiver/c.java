@@ -4,12 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.log.ZeusLogger;
 import java.util.Iterator;
 import java.util.Map;
@@ -18,41 +12,31 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
 /* loaded from: classes7.dex */
 public final class c {
-    public static /* synthetic */ Interceptable $ic;
     public static c d;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, a> a;
-    public final Map<PluginBroadcastReceiver, BroadcastReceiver> b;
-    public final Set<Integer> c;
+    public final Map<String, a> a = new ConcurrentHashMap();
+    public final Map<PluginBroadcastReceiver, BroadcastReceiver> b = new ConcurrentHashMap();
+    public final Set<Integer> c = new CopyOnWriteArraySet();
+
+    public static c a() {
+        if (d == null) {
+            synchronized (com.bytedance.pangle.service.a.a.class) {
+                if (d == null) {
+                    d = new c();
+                }
+            }
+        }
+        return d;
+    }
 
     /* loaded from: classes7.dex */
     public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public String a;
-        public final Set<PluginBroadcastReceiver> b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = new CopyOnWriteArraySet();
-        }
+        public final Set<PluginBroadcastReceiver> b = new CopyOnWriteArraySet();
 
         public final void a(Context context, Intent intent) {
-            Set<PluginBroadcastReceiver> set;
             String str;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && (set = this.b) != null && set.size() > 0) {
+            Set<PluginBroadcastReceiver> set = this.b;
+            if (set != null && set.size() > 0) {
                 for (PluginBroadcastReceiver pluginBroadcastReceiver : this.b) {
                     if (pluginBroadcastReceiver != null) {
                         try {
@@ -71,52 +55,16 @@ public final class c {
         }
 
         public final void a(PluginBroadcastReceiver pluginBroadcastReceiver) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pluginBroadcastReceiver) == null) && pluginBroadcastReceiver != null) {
+            if (pluginBroadcastReceiver != null) {
                 ZeusLogger.i(ZeusLogger.TAG_RECEIVER, "plugin-receiver:" + pluginBroadcastReceiver.getClass().getSimpleName() + ",action=" + this.a + "[注册完成]");
                 this.b.add(pluginBroadcastReceiver);
             }
         }
     }
 
-    public c() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ConcurrentHashMap();
-        this.b = new ConcurrentHashMap();
-        this.c = new CopyOnWriteArraySet();
-    }
-
-    public static c a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (com.bytedance.pangle.service.a.a.class) {
-                    if (d == null) {
-                        d = new c();
-                    }
-                }
-            }
-            return d;
-        }
-        return (c) invokeV.objValue;
-    }
-
     public final void a(Context context, Intent intent) {
         a value;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent != null && intent.getAction() != null) {
+        if (intent != null && intent.getAction() != null) {
             String action = intent.getAction();
             Map<String, a> map = this.a;
             if (map != null && map.size() > 0) {
@@ -131,8 +79,7 @@ public final class c {
     }
 
     public final void a(IntentFilter intentFilter, PluginBroadcastReceiver pluginBroadcastReceiver) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intentFilter, pluginBroadcastReceiver) == null) && intentFilter != null && intentFilter.actionsIterator() != null) {
+        if (intentFilter != null && intentFilter.actionsIterator() != null) {
             Iterator<String> actionsIterator = intentFilter.actionsIterator();
             while (actionsIterator.hasNext()) {
                 String next = actionsIterator.next();

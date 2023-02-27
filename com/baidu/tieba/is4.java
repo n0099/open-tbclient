@@ -1,36 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.app.Activity;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.biometrics.base.http.HttpClientWrap;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes5.dex */
+import java.util.Date;
+import java.util.Iterator;
+/* loaded from: classes4.dex */
 public class is4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public boolean d;
-    public String e;
-    public final Map<String, String> f;
-    public final List<ns4> g;
+    public js4 a;
+    public long b;
+    public CustomMessageListener c;
 
-    public is4(String str, String str2, String str3) {
+    /* loaded from: classes4.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ is4 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(is4 is4Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {is4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = is4Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null) {
+                this.a.g();
+            }
+        }
+    }
+
+    public is4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,69 +76,83 @@ public class is4 {
                 return;
             }
         }
-        this.f = new LinkedHashMap();
-        this.g = new ArrayList();
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        if (!StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
-            a();
-            b();
-            c();
-            return;
-        }
-        this.d = false;
+        this.c = new a(this, 2001371);
+        this.a = new js4();
+        MessageManager.getInstance().registerListener(this.c);
+        g();
+        this.b = b55.m().o("key_redpacket_pop_last_time", 0L);
     }
 
-    public final void a() {
+    public final boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g.add(new ts4());
-            this.g.add(new rs4());
-            this.g.add(new ps4());
-            this.g.add(new us4());
-            this.g.add(new ss4());
-            this.g.add(new vs4());
-            this.g.add(new qs4());
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || StringUtils.isNull(this.b)) {
-            return;
-        }
-        String valueOf = String.valueOf(this.b.charAt(0));
-        String[] split = this.b.split("@");
-        for (ns4 ns4Var : this.g) {
-            if (valueOf.equals(ns4Var.b())) {
-                String a = ns4Var.a(split, this.f);
-                this.e = a;
-                if (!StringUtils.isNull(a)) {
-                    this.d = true;
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (ListUtils.isEmpty(this.a.c())) {
+                return false;
+            }
+            Date date = new Date();
+            Iterator<ns4> it = this.a.c().iterator();
+            while (it.hasNext()) {
+                ns4 next = it.next();
+                if (date.getTime() >= next.b() && date.getTime() <= next.a() && !c(next)) {
+                    return true;
                 }
-                return;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !dj.isEmpty(this.a.d())) {
+            this.b = System.currentTimeMillis();
+            b55.m().A("key_redpacket_pop_last_time", this.b);
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RED_PACKET_POP_WINDOW_SHOW));
+            String str = this.a.d() + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE;
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity != null) {
+                zu4.v(currentActivity, "", str, true);
             }
         }
     }
 
-    public final void b() {
+    public final boolean c(ns4 ns4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f.put("@d", BdUniDispatchSchemeController.PARAM_ORI_UGC_NID);
-            this.f.put("@n", BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE);
-            this.f.put("@v", BdUniDispatchSchemeController.PARAM_ORI_UGC_TID);
-            this.f.put("@rid", HttpClientWrap.f);
-            this.f.put("@sid", TiebaStatic.Params.WISE_SAMPLE_ID);
-            this.f.put("@c", TiebaStatic.Params.QD);
-            this.f.put("@p", "obj_source");
-            this.f.put("@eq", TiebaStatic.Params.EQID);
-            this.f.put("@1p", "obj_param1");
-            this.f.put("@2p", TiebaStatic.Params.OBJ_PARAM2);
-            this.f.put("@m", "obj_name");
-            this.f.put("@re", TiebaStatic.Params.REFER);
-            this.f.put("@lo", "obj_locate");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ns4Var)) == null) {
+            if (ns4Var != null && this.b >= ns4Var.b() && this.b <= ns4Var.a()) {
+                return true;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && d() && e()) {
+            f();
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.e(b55.m().s("key_redpacket_pop", ""));
+        }
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Date date = new Date();
+            if (date.getTime() >= this.a.b() && date.getTime() <= this.a.a()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

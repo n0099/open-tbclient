@@ -1,5 +1,5 @@
 package com.baidu.searchbox.retrieve.inter.upload;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface IActiveUploadListener {
     public static final String DIR_ERR_MSG = "dir error";
     public static final String PARAM_ERR_MSG = "params error";

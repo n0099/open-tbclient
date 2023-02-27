@@ -143,6 +143,8 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(DynamicLottieSwitch.class);
             SwitchManager.getInstance().registerSwitch(ImageCacheOptimizeSwitch.class);
             SwitchManager.getInstance().registerSwitch(BigImageCacheOptimizeSwitch.class);
+            SwitchManager.getInstance().registerSwitch(UploadLogButtonSwitch.class);
+            SwitchManager.getInstance().registerSwitch(EnableYaLogSwitch.class);
         }
     }
 }

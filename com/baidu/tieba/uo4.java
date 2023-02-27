@@ -1,49 +1,45 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"StaticFieldLeak"})
 /* loaded from: classes6.dex */
-public final class uo4 extends gp4 {
+public class uo4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile uo4 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
+    public String f;
+    public int g;
+    public String h;
+    public int i;
+    public int j;
+    public String k;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uo4() {
-        super("aiapp_open_stat");
+    public uo4(String str, String str2, String str3, int i, String str4, String str5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, Integer.valueOf(i), str4, str5};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    public static uo4 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (uo4.class) {
-                    if (d == null) {
-                        d = new uo4();
-                    }
-                }
-            }
-            return d;
-        }
-        return (uo4) invokeV.objValue;
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+        this.d = i;
+        this.e = str4;
+        this.f = str5;
     }
 }

@@ -1,110 +1,56 @@
 package com.vivo.push.util;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.os.UserHandle;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.Base64;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import java.lang.reflect.Method;
 /* loaded from: classes8.dex */
-public final class w extends b {
-    public static /* synthetic */ Interceptable $ic;
-    public static w b;
+public final class w {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public w() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(744178821, "Lcom/vivo/push/util/w;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(744178821, "Lcom/vivo/push/util/w;");
         }
     }
 
-    public static synchronized w b() {
+    public static int a() {
         InterceptResult invokeV;
-        w wVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (w.class) {
-                if (b == null) {
-                    b = new w();
-                }
-                wVar = b;
+            if (Build.VERSION.SDK_INT < 17) {
+                return 0;
             }
-            return wVar;
-        }
-        return (w) invokeV.objValue;
-    }
-
-    public static byte[] c(String str) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            byte[] bArr = null;
+            int i = a;
+            if (i != -1) {
+                return i;
+            }
             try {
-                String[] split = str.split(",");
-                if (split.length > 0) {
-                    bArr = new byte[split.length];
-                    i = split.length;
-                } else {
-                    i = 0;
-                }
-                for (int i2 = 0; i2 < i; i2++) {
-                    bArr[i2] = Byte.parseByte(split[i2].trim());
-                }
+                Method declaredMethod = UserHandle.class.getDeclaredMethod("myUserId", new Class[0]);
+                declaredMethod.setAccessible(true);
+                a = ((Integer) declaredMethod.invoke(null, null)).intValue();
+                u.d("MultiUserManager", "getMyUserId = " + a);
+                return a;
             } catch (Exception e) {
-                p.a("SharePreferenceManager", "getCodeBytes error:" + e.getMessage());
-            }
-            return bArr;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public final synchronized void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    this.a = context;
-                    a(context, "com.vivo.push_preferences");
-                }
+                u.a("MultiUserManager", "getMyUserId error " + e.getMessage());
+                return 0;
             }
         }
-    }
-
-    public final byte[] c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            byte[] c = c(b("com.vivo.push.secure_cache_iv", ""));
-            if (c == null || c.length <= 0) {
-                return new byte[]{34, 32, 33, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 33, 34, 32, 33, 33, 33, 34, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, Base64.INTERNAL_PADDING, 32, 32, 32};
-            }
-            return c;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public final byte[] d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            byte[] c = c(b("com.vivo.push.secure_cache_key", ""));
-            if (c == null || c.length <= 0) {
-                return new byte[]{33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 32, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Base64.INTERNAL_PADDING, 34, 33};
-            }
-            return c;
-        }
-        return (byte[]) invokeV.objValue;
+        return invokeV.intValue;
     }
 }

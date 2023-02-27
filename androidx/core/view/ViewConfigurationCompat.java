@@ -7,34 +7,13 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.ViewConfiguration;
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public final class ViewConfigurationCompat {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ViewConfigCompat";
     public static Method sGetScaledScrollFactorMethod;
-    public transient /* synthetic */ FieldHolder $fh;
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(779267932, "Landroidx/core/view/ViewConfigurationCompat;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(779267932, "Landroidx/core/view/ViewConfigurationCompat;");
-                return;
-            }
-        }
         if (Build.VERSION.SDK_INT == 25) {
             try {
                 sGetScaledScrollFactorMethod = ViewConfiguration.class.getDeclaredMethod("getScaledScrollFactor", new Class[0]);
@@ -44,111 +23,62 @@ public final class ViewConfigurationCompat {
         }
     }
 
-    public ViewConfigurationCompat() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
     public static float getLegacyScrollFactor(ViewConfiguration viewConfiguration, Context context) {
-        InterceptResult invokeLL;
         Method method;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, viewConfiguration, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 25 && (method = sGetScaledScrollFactorMethod) != null) {
-                try {
-                    return ((Integer) method.invoke(viewConfiguration, new Object[0])).intValue();
-                } catch (Exception unused) {
-                    Log.i(TAG, "Could not find method getScaledScrollFactor() on ViewConfiguration");
-                }
+        if (Build.VERSION.SDK_INT >= 25 && (method = sGetScaledScrollFactorMethod) != null) {
+            try {
+                return ((Integer) method.invoke(viewConfiguration, new Object[0])).intValue();
+            } catch (Exception unused) {
+                Log.i(TAG, "Could not find method getScaledScrollFactor() on ViewConfiguration");
             }
-            TypedValue typedValue = new TypedValue();
-            if (context.getTheme().resolveAttribute(16842829, typedValue, true)) {
-                return typedValue.getDimension(context.getResources().getDisplayMetrics());
-            }
-            return 0.0f;
         }
-        return invokeLL.floatValue;
+        TypedValue typedValue = new TypedValue();
+        if (context.getTheme().resolveAttribute(16842829, typedValue, true)) {
+            return typedValue.getDimension(context.getResources().getDisplayMetrics());
+        }
+        return 0.0f;
     }
 
     public static float getScaledHorizontalScrollFactor(@NonNull ViewConfiguration viewConfiguration, @NonNull Context context) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, viewConfiguration, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                return viewConfiguration.getScaledHorizontalScrollFactor();
-            }
-            return getLegacyScrollFactor(viewConfiguration, context);
+        if (Build.VERSION.SDK_INT >= 26) {
+            return viewConfiguration.getScaledHorizontalScrollFactor();
         }
-        return invokeLL.floatValue;
+        return getLegacyScrollFactor(viewConfiguration, context);
     }
 
     public static float getScaledVerticalScrollFactor(@NonNull ViewConfiguration viewConfiguration, @NonNull Context context) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, viewConfiguration, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                return viewConfiguration.getScaledVerticalScrollFactor();
-            }
-            return getLegacyScrollFactor(viewConfiguration, context);
+        if (Build.VERSION.SDK_INT >= 26) {
+            return viewConfiguration.getScaledVerticalScrollFactor();
         }
-        return invokeLL.floatValue;
+        return getLegacyScrollFactor(viewConfiguration, context);
+    }
+
+    public static boolean shouldShowMenuShortcutsWhenKeyboardPresent(ViewConfiguration viewConfiguration, @NonNull Context context) {
+        if (Build.VERSION.SDK_INT >= 28) {
+            return viewConfiguration.shouldShowMenuShortcutsWhenKeyboardPresent();
+        }
+        Resources resources = context.getResources();
+        int identifier = resources.getIdentifier("config_showMenuShortcutsWhenKeyboardPresent", "bool", "android");
+        if (identifier != 0 && resources.getBoolean(identifier)) {
+            return true;
+        }
+        return false;
     }
 
     public static int getScaledHoverSlop(ViewConfiguration viewConfiguration) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewConfiguration)) == null) {
-            if (Build.VERSION.SDK_INT >= 28) {
-                return viewConfiguration.getScaledHoverSlop();
-            }
-            return viewConfiguration.getScaledTouchSlop() / 2;
+        if (Build.VERSION.SDK_INT >= 28) {
+            return viewConfiguration.getScaledHoverSlop();
         }
-        return invokeL.intValue;
+        return viewConfiguration.getScaledTouchSlop() / 2;
     }
 
     @Deprecated
     public static int getScaledPagingTouchSlop(ViewConfiguration viewConfiguration) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, viewConfiguration)) == null) {
-            return viewConfiguration.getScaledPagingTouchSlop();
-        }
-        return invokeL.intValue;
+        return viewConfiguration.getScaledPagingTouchSlop();
     }
 
     @Deprecated
     public static boolean hasPermanentMenuKey(ViewConfiguration viewConfiguration) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, viewConfiguration)) == null) {
-            return viewConfiguration.hasPermanentMenuKey();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean shouldShowMenuShortcutsWhenKeyboardPresent(ViewConfiguration viewConfiguration, @NonNull Context context) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, viewConfiguration, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 28) {
-                return viewConfiguration.shouldShowMenuShortcutsWhenKeyboardPresent();
-            }
-            Resources resources = context.getResources();
-            int identifier = resources.getIdentifier("config_showMenuShortcutsWhenKeyboardPresent", "bool", "android");
-            if (identifier != 0 && resources.getBoolean(identifier)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+        return viewConfiguration.hasPermanentMenuKey();
     }
 }

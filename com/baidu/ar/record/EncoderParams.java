@@ -1,15 +1,6 @@
 package com.baidu.ar.record;
-
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class EncoderParams {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int AAC_SAMPLES_PER_FRAME = 1024;
     public static final int AUDIO_BIT_RATE = 128000;
     public static final int AUDIO_CHANNEL = 1;
@@ -25,260 +16,148 @@ public class EncoderParams {
     public static final int VIDEO_I_FRAME_INTERVAL = 1;
     public static final String VIDEO_MIME_TYPE = "video/avc";
     public static final int VIDEO_WIDTH = 720;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int mAudioBitrate;
-    public int mAudioChannel;
-    public String mAudioCodec;
-    public int mAudioFrameSize;
-    public boolean mAudioIncluded;
-    public int mAudioSampleRate;
-    public String mOutputFile;
-    public int mOutputFormat;
-    public long mOutputTotalMs;
-    public int mVideoBitrate;
-    public String mVideoCodec;
-    public int mVideoFrameRate;
-    public int mVideoHeight;
-    public int mVideoIFrameInterval;
-    public boolean mVideoIncluded;
-    public int mVideoWidth;
-
-    public EncoderParams() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mOutputFile = OUTPUT_FILE;
-        this.mOutputFormat = 0;
-        this.mOutputTotalMs = 0L;
-        this.mVideoIncluded = true;
-        this.mVideoWidth = 720;
-        this.mVideoHeight = 1280;
-        this.mVideoCodec = "video/avc";
-        this.mVideoBitrate = VIDEO_BIT_RATE;
-        this.mVideoFrameRate = 30;
-        this.mVideoIFrameInterval = 1;
-        this.mAudioIncluded = true;
-        this.mAudioCodec = "audio/mp4a-latm";
-        this.mAudioChannel = 1;
-        this.mAudioBitrate = AUDIO_BIT_RATE;
-        this.mAudioSampleRate = 44100;
-        this.mAudioFrameSize = 10240;
-    }
+    public String mOutputFile = OUTPUT_FILE;
+    public int mOutputFormat = 0;
+    public long mOutputTotalMs = 0;
+    public boolean mVideoIncluded = true;
+    public int mVideoWidth = 720;
+    public int mVideoHeight = 1280;
+    public String mVideoCodec = "video/avc";
+    public int mVideoBitrate = VIDEO_BIT_RATE;
+    public int mVideoFrameRate = 30;
+    public int mVideoIFrameInterval = 1;
+    public boolean mAudioIncluded = true;
+    public String mAudioCodec = "audio/mp4a-latm";
+    public int mAudioChannel = 1;
+    public int mAudioBitrate = AUDIO_BIT_RATE;
+    public int mAudioSampleRate = 44100;
+    public int mAudioFrameSize = 10240;
 
     public int getAudioBitrate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAudioBitrate : invokeV.intValue;
+        return this.mAudioBitrate;
     }
 
     public int getAudioChannel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAudioChannel : invokeV.intValue;
+        return this.mAudioChannel;
     }
 
     public String getAudioCodec() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAudioCodec : (String) invokeV.objValue;
+        return this.mAudioCodec;
     }
 
     public int getAudioFrameSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAudioFrameSize : invokeV.intValue;
+        return this.mAudioFrameSize;
     }
 
     public int getAudioSampleRate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mAudioSampleRate : invokeV.intValue;
+        return this.mAudioSampleRate;
     }
 
     public String getOutputFile() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mOutputFile : (String) invokeV.objValue;
+        return this.mOutputFile;
     }
 
     public int getOutputFormat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mOutputFormat : invokeV.intValue;
+        return this.mOutputFormat;
     }
 
     public long getOutputTotalMs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mOutputTotalMs : invokeV.longValue;
+        return this.mOutputTotalMs;
     }
 
     public int getVideoBitrate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mVideoBitrate : invokeV.intValue;
+        return this.mVideoBitrate;
     }
 
     public String getVideoCodec() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mVideoCodec : (String) invokeV.objValue;
+        return this.mVideoCodec;
     }
 
     public int getVideoFrameRate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mVideoFrameRate : invokeV.intValue;
+        return this.mVideoFrameRate;
     }
 
     public int getVideoHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mVideoHeight : invokeV.intValue;
+        return this.mVideoHeight;
     }
 
     public int getVideoIFrameInterval() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mVideoIFrameInterval : invokeV.intValue;
+        return this.mVideoIFrameInterval;
     }
 
     public int getVideoWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mVideoWidth : invokeV.intValue;
+        return this.mVideoWidth;
     }
 
     public boolean isAudioIncluded() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mAudioIncluded : invokeV.booleanValue;
+        return this.mAudioIncluded;
     }
 
     public boolean isVideoIncluded() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mVideoIncluded : invokeV.booleanValue;
+        return this.mVideoIncluded;
     }
 
     public void setAudioBitrate(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.mAudioBitrate = i;
-        }
+        this.mAudioBitrate = i;
     }
 
     public void setAudioChannel(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.mAudioChannel = i;
-        }
+        this.mAudioChannel = i;
     }
 
     public void setAudioCodec(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.mAudioCodec = str;
-        }
+        this.mAudioCodec = str;
     }
 
     public void setAudioFrameSize(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            this.mAudioFrameSize = i;
-        }
+        this.mAudioFrameSize = i;
     }
 
     public void setAudioIncluded(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.mAudioIncluded = z;
-        }
+        this.mAudioIncluded = z;
     }
 
     public void setAudioSampleRate(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            this.mAudioSampleRate = i;
-        }
+        this.mAudioSampleRate = i;
     }
 
     public void setOutputFile(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
-            this.mOutputFile = str;
-        }
+        this.mOutputFile = str;
     }
 
     public void setOutputFormat(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
-            this.mOutputFormat = i;
-        }
+        this.mOutputFormat = i;
     }
 
     public void setOutputTotalMs(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
-            this.mOutputTotalMs = j;
-        }
+        this.mOutputTotalMs = j;
     }
 
     public void setVideoBitrate(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
-            this.mVideoBitrate = i;
-        }
+        this.mVideoBitrate = i;
     }
 
     public void setVideoCodec(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            this.mVideoCodec = str;
-        }
+        this.mVideoCodec = str;
     }
 
     public void setVideoFrameRate(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
-            this.mVideoFrameRate = i;
-        }
+        this.mVideoFrameRate = i;
     }
 
     public void setVideoHeight(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
-            this.mVideoHeight = i;
-        }
+        this.mVideoHeight = i;
     }
 
     public void setVideoIFrameInterval(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
-            this.mVideoIFrameInterval = i;
-        }
+        this.mVideoIFrameInterval = i;
     }
 
     public void setVideoIncluded(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048606, this, z) == null) {
-            this.mVideoIncluded = z;
-        }
+        this.mVideoIncluded = z;
     }
 
     public void setVideoWidth(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
-            this.mVideoWidth = i;
-        }
+        this.mVideoWidth = i;
     }
 }

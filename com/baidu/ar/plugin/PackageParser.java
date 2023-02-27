@@ -12,18 +12,11 @@ import android.content.pm.ProviderInfo;
 import android.content.pm.ServiceInfo;
 import android.content.pm.Signature;
 import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class PackageParser {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int PARSE_CHATTY = 2;
     public static final int PARSE_COLLECT_CERTIFICATES = 256;
     public static final int PARSE_FORWARD_LOCK = 16;
@@ -34,7 +27,6 @@ public abstract class PackageParser {
     public static final int PARSE_MUST_BE_APK = 4;
     public static final int PARSE_ON_SDCARD = 32;
     public static final int PARSE_TRUSTED_OVERLAY = 512;
-    public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public Object mPackageParser;
 
@@ -83,41 +75,17 @@ public abstract class PackageParser {
     public abstract void writeSignature(Signature[] signatureArr);
 
     public PackageParser(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mContext = context;
     }
 
     public static PackageParser newPluginParser(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 22) {
-                return new PackageParserAPI22(context);
-            }
-            return null;
+        if (Build.VERSION.SDK_INT >= 22) {
+            return new PackageParserAPI22(context);
         }
-        return (PackageParser) invokeL.objValue;
+        return null;
     }
 
     public ActivityInfo generateReceiverInfo(Object obj, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj, i)) == null) {
-            return generateActivityInfo(obj, i);
-        }
-        return (ActivityInfo) invokeLI.objValue;
+        return generateActivityInfo(obj, i);
     }
 }

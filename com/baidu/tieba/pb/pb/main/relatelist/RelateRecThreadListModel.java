@@ -11,8 +11,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cv4;
-import com.baidu.tieba.s19;
+import com.baidu.tieba.e59;
+import com.baidu.tieba.jw4;
 import com.baidu.tieba.wb;
 import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +31,7 @@ public class RelateRecThreadListModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public RelateRecThreadRequestMessage b;
-    public cv4 c;
+    public jw4 c;
     public wb d;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -108,7 +108,7 @@ public class RelateRecThreadListModel extends BdBaseModel {
                     }
                     Log.e("RecThreadList", "errno=" + error + ",errmsg=" + errorString);
                     if (StringUtils.isNull(errorString)) {
-                        errorString = this.a.K(R.string.obfuscated_res_0x7f0f05eb);
+                        errorString = this.a.R(R.string.obfuscated_res_0x7f0f05ef);
                     }
                     if (this.a.c != null) {
                         this.a.c.onError(error, errorString);
@@ -139,10 +139,10 @@ public class RelateRecThreadListModel extends BdBaseModel {
         this.a = false;
         this.d = new a(this, CmdConfigHttp.CMD_RELATE_REC_THREAD, 309701);
         setUniqueId(bdUniqueId);
-        L();
+        S();
     }
 
-    public final String K(int i) {
+    public final String R(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -151,25 +151,25 @@ public class RelateRecThreadListModel extends BdBaseModel {
         return (String) invokeI.objValue;
     }
 
-    public void N(cv4 cv4Var) {
+    public void U(jw4 jw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cv4Var) == null) {
-            this.c = cv4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jw4Var) == null) {
+            this.c = jw4Var;
         }
     }
 
-    public void L() {
+    public void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            s19.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
-            s19.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
+            e59.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
+            e59.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
             this.d.getHttpMessageListener().setSelfListener(true);
             this.d.getSocketMessageListener().setSelfListener(true);
             registerListener(this.d);
         }
     }
 
-    public boolean M(long j, long j2, int i, int i2, String str) {
+    public boolean T(long j, long j2, int i, int i2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), str})) == null) {

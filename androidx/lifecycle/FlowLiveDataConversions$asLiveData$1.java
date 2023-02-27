@@ -1,12 +1,6 @@
 package androidx.lifecycle;
 
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import kotlin.Metadata;
 import kotlin.ResultKt;
@@ -22,8 +16,6 @@ import kotlinx.coroutines.flow.Flow;
 @DebugMetadata(c = "androidx.lifecycle.FlowLiveDataConversions$asLiveData$1", f = "FlowLiveData.kt", i = {0, 0}, l = {Cea708Decoder.COMMAND_TGW}, m = "invokeSuspend", n = {"$this$liveData", "$this$collect$iv"}, s = {"L$0", "L$1"})
 /* loaded from: classes.dex */
 public final class FlowLiveDataConversions$asLiveData$1<T> extends SuspendLambda implements Function2<LiveDataScope<T>, Continuation<? super Unit>, Object> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Flow $this_asLiveData;
     public Object L$0;
     public Object L$1;
@@ -33,74 +25,46 @@ public final class FlowLiveDataConversions$asLiveData$1<T> extends SuspendLambda
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlowLiveDataConversions$asLiveData$1(Flow flow, Continuation continuation) {
         super(2, continuation);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {flow, continuation};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.$this_asLiveData = flow;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, continuation)) == null) {
-            FlowLiveDataConversions$asLiveData$1 flowLiveDataConversions$asLiveData$1 = new FlowLiveDataConversions$asLiveData$1(this.$this_asLiveData, continuation);
-            flowLiveDataConversions$asLiveData$1.p$ = (LiveDataScope) obj;
-            return flowLiveDataConversions$asLiveData$1;
-        }
-        return (Continuation) invokeLL.objValue;
+        FlowLiveDataConversions$asLiveData$1 flowLiveDataConversions$asLiveData$1 = new FlowLiveDataConversions$asLiveData$1(this.$this_asLiveData, continuation);
+        flowLiveDataConversions$asLiveData$1.p$ = (LiveDataScope) obj;
+        return flowLiveDataConversions$asLiveData$1;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
     public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, continuation)) == null) ? ((FlowLiveDataConversions$asLiveData$1) create(obj, continuation)).invokeSuspend(Unit.INSTANCE) : invokeLL.objValue;
+        return ((FlowLiveDataConversions$asLiveData$1) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-            int i = this.label;
-            if (i != 0) {
-                if (i == 1) {
-                    Flow flow = (Flow) this.L$1;
-                    LiveDataScope liveDataScope = (LiveDataScope) this.L$0;
-                    ResultKt.throwOnFailure(obj);
-                } else {
-                    throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
-                }
-            } else {
+        Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
+        int i = this.label;
+        if (i != 0) {
+            if (i == 1) {
+                Flow flow = (Flow) this.L$1;
+                LiveDataScope liveDataScope = (LiveDataScope) this.L$0;
                 ResultKt.throwOnFailure(obj);
-                LiveDataScope liveDataScope2 = this.p$;
-                Flow flow2 = this.$this_asLiveData;
-                FlowLiveDataConversions$asLiveData$1$invokeSuspend$$inlined$collect$1 flowLiveDataConversions$asLiveData$1$invokeSuspend$$inlined$collect$1 = new FlowLiveDataConversions$asLiveData$1$invokeSuspend$$inlined$collect$1(liveDataScope2);
-                this.L$0 = liveDataScope2;
-                this.L$1 = flow2;
-                this.label = 1;
-                if (flow2.collect(flowLiveDataConversions$asLiveData$1$invokeSuspend$$inlined$collect$1, this) == coroutine_suspended) {
-                    return coroutine_suspended;
-                }
+            } else {
+                throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
             }
-            return Unit.INSTANCE;
+        } else {
+            ResultKt.throwOnFailure(obj);
+            LiveDataScope liveDataScope2 = this.p$;
+            Flow flow2 = this.$this_asLiveData;
+            FlowLiveDataConversions$asLiveData$1$invokeSuspend$$inlined$collect$1 flowLiveDataConversions$asLiveData$1$invokeSuspend$$inlined$collect$1 = new FlowLiveDataConversions$asLiveData$1$invokeSuspend$$inlined$collect$1(liveDataScope2);
+            this.L$0 = liveDataScope2;
+            this.L$1 = flow2;
+            this.label = 1;
+            if (flow2.collect(flowLiveDataConversions$asLiveData$1$invokeSuspend$$inlined$collect$1, this) == coroutine_suspended) {
+                return coroutine_suspended;
+            }
         }
-        return invokeL.objValue;
+        return Unit.INSTANCE;
     }
 }

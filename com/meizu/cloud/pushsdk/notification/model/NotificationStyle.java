@@ -70,8 +70,8 @@ public class NotificationStyle implements Parcelable {
         NotificationStyle notificationStyle = new NotificationStyle();
         if (jSONObject != null) {
             try {
-                if (!jSONObject.isNull(BASE_STYLE)) {
-                    notificationStyle.setBaseStyle(jSONObject.getInt(BASE_STYLE));
+                if (!jSONObject.isNull("bs")) {
+                    notificationStyle.setBaseStyle(jSONObject.getInt("bs"));
                 }
                 if (!jSONObject.isNull("is")) {
                     notificationStyle.setInnerStyle(jSONObject.getInt("is"));

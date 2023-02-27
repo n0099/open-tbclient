@@ -1,95 +1,129 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.tieba.pb.pb.main.PbLoadPreReplyViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes5.dex */
-public class pg8 {
+public class pg8 extends yf8<pd8, PbLoadPreReplyViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<tg8> a;
+    public View.OnClickListener g;
+    public PbLoadPreReplyViewHolder h;
 
-    public pg8() {
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ pg8 b;
+
+        public a(pg8 pg8Var, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pg8Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = pg8Var;
+            this.a = view2;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.x(1);
+                if (this.b.g != null) {
+                    this.b.g.onClick(this.a);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pg8(tk8 tk8Var, BdUniqueId bdUniqueId) {
+        super(tk8Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tk8Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((tk8) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
     }
 
-    public ArrayList<tg8> a() {
-        InterceptResult invokeV;
+    public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
+            this.g = onClickListener;
         }
-        return (ArrayList) invokeV.objValue;
     }
 
-    public final boolean b(ExcContent excContent) {
+    public void x(int i) {
+        PbLoadPreReplyViewHolder pbLoadPreReplyViewHolder;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (pbLoadPreReplyViewHolder = this.h) != null) {
+            pbLoadPreReplyViewHolder.b(i);
+        }
+    }
+
+    @Override // com.baidu.tieba.yf8, com.baidu.tieba.qn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        w(i, view2, viewGroup, (pd8) obj, (PbLoadPreReplyViewHolder) viewHolder);
+        return view2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: v */
+    public PbLoadPreReplyViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, excContent)) == null) {
-            long longValue = excContent.type.longValue();
-            if (longValue == 2 || longValue == 0 || longValue == 1) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d071f, viewGroup, false);
+            inflate.findViewById(R.id.obfuscated_res_0x7f092557).setOnClickListener(new a(this, inflate));
+            return new PbLoadPreReplyViewHolder(this.mContext, inflate);
         }
-        return invokeL.booleanValue;
+        return (PbLoadPreReplyViewHolder) invokeL.objValue;
     }
 
-    public void c(TbPageContext<?> tbPageContext, List<ExcContent> list) {
-        wg8 wg8Var;
+    public View w(int i, View view2, ViewGroup viewGroup, pd8 pd8Var, PbLoadPreReplyViewHolder pbLoadPreReplyViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, list) == null) && list != null && !list.isEmpty()) {
-            loop0: while (true) {
-                wg8Var = null;
-                for (ExcContent excContent : list) {
-                    if (excContent != null && excContent.type != null) {
-                        if (b(excContent)) {
-                            sg8 a = vg8.a(tbPageContext, excContent);
-                            if (a == null) {
-                                continue;
-                            } else if (a.a()) {
-                                if (wg8Var != null) {
-                                    this.a.add(wg8Var);
-                                }
-                                this.a.add(a);
-                            } else {
-                                if (wg8Var == null) {
-                                    wg8Var = new wg8();
-                                }
-                                wg8Var.c(a.b());
-                            }
-                        } else {
-                            if (wg8Var != null) {
-                                this.a.add(wg8Var);
-                            }
-                            this.a.add(vg8.b(excContent));
-                        }
-                    }
-                }
-                break loop0;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pd8Var, pbLoadPreReplyViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) pd8Var, (pd8) pbLoadPreReplyViewHolder);
+            if (pbLoadPreReplyViewHolder != null && pd8Var != null) {
+                this.h = pbLoadPreReplyViewHolder;
+                pbLoadPreReplyViewHolder.c(pd8Var.a());
+                pbLoadPreReplyViewHolder.a();
             }
-            if (wg8Var != null) {
-                this.a.add(wg8Var);
-            }
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 }

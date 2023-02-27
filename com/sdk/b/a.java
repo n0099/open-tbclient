@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.sdk.base.module.manager.SDKManager;
-import com.sdk.f.g;
+import com.sdk.f.f;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a {
@@ -32,15 +32,15 @@ public class a {
                 return;
             }
         }
-        b = Boolean.valueOf(g.b);
+        b = Boolean.valueOf(f.a);
     }
 
     public static String a(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
-            String a2 = com.sdk.l.a.a();
-            if (com.sdk.n.a.b(a2).booleanValue()) {
+            String a2 = com.sdk.m.a.a();
+            if (com.sdk.o.a.b(a2).booleanValue()) {
                 return YYInnerSSOLoginActivity.o + i + str + a2;
             }
             return null;
@@ -66,8 +66,8 @@ public class a {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
-            com.sdk.n.a.b(a, "cache clear", b);
-            com.sdk.j.a.a(context, YYInnerSSOLoginActivity.o);
+            com.sdk.o.a.b(a, "cache clear", b);
+            com.sdk.k.a.a(context, YYInnerSSOLoginActivity.o);
         }
     }
 
@@ -85,24 +85,20 @@ public class a {
                 return null;
             }
             String a2 = a(i, str);
-            if (com.sdk.n.a.b(a2).booleanValue()) {
-                String c = com.sdk.j.a.c(context, a2);
-                if (com.sdk.n.a.b(c).booleanValue()) {
+            if (com.sdk.o.a.b(a2).booleanValue()) {
+                String c = com.sdk.k.a.c(context, a2);
+                if (com.sdk.o.a.b(c).booleanValue()) {
                     String b2 = b(c);
-                    String a3 = com.sdk.t.a.a(a(c));
-                    if (!com.sdk.t.a.b(a3)) {
-                        com.sdk.n.a.b(a, "can use cache", b);
+                    String a3 = com.sdk.u.a.a(c.split("-")[0]);
+                    if (!com.sdk.u.a.b(a3)) {
+                        com.sdk.o.a.b(a, "can use cache", b);
                         JSONObject jSONObject = new JSONObject(a3);
                         if (i == 1) {
                             jSONObject.remove(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
                         }
-                        StringBuilder sb = new StringBuilder();
-                        sb.append(jSONObject.toString());
-                        sb.append("-");
-                        sb.append(b2);
-                        return sb.toString();
+                        return jSONObject.toString() + "-" + b2;
                     }
-                    com.sdk.n.a.b(a, "OutDate cache invalid", b);
+                    com.sdk.o.a.b(a, "OutDate cache invalid", b);
                 }
             }
             return null;
@@ -112,10 +108,10 @@ public class a {
 
     public static void a(Context context, int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLILL(65542, null, context, i, str, str2) == null) && SDKManager.useCache && com.sdk.n.a.b(str).booleanValue()) {
+        if ((interceptable == null || interceptable.invokeLILL(65542, null, context, i, str, str2) == null) && SDKManager.useCache && com.sdk.o.a.b(str).booleanValue()) {
             String a2 = a(i, str2);
-            if (com.sdk.n.a.b(a2).booleanValue()) {
-                com.sdk.j.a.a(context, a2, str);
+            if (com.sdk.o.a.b(a2).booleanValue()) {
+                com.sdk.k.a.a(context, a2, str);
             }
         }
     }

@@ -1,7 +1,6 @@
 package com.baidu.clientupdate.download;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,7 +43,7 @@ public final class DownloadState {
         FAILED = new DownloadState("FAILED", 3);
         CANCEL = new DownloadState("CANCEL", 4);
         FINISH = new DownloadState("FINISH", 5);
-        UNKNOWN = new DownloadState(RomUtils.UNKNOWN, 6);
+        UNKNOWN = new DownloadState("UNKNOWN", 6);
         MEAGESTART = new DownloadState("MEAGESTART", 7);
         DownloadState downloadState = new DownloadState("MEAGEEND", 8);
         MEAGEEND = downloadState;

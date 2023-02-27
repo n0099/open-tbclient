@@ -1,18 +1,14 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.messages.gfh.GfhKeyValue;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -34,70 +30,158 @@ public class fn3 {
                 return;
             }
         }
-        a = gp1.a;
+        a = wp1.a;
     }
 
-    public static List<JSONObject> a(String str) {
-        InterceptResult invokeL;
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String schemesDes = SchemeCollecter.getSchemesDes(str, 0);
-            ArrayList arrayList = new ArrayList();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (m93.M() != null) {
+                return m93.M().b;
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return am3.b(am3.a(), "yyyy-MM-dd");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            JSONObject d = d(a());
+            if (d == null) {
+                return 0;
+            }
+            return d.optInt("launch_count", 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            i(a(), "visit_duration", Long.valueOf(e()));
+        }
+    }
+
+    public static JSONObject d(String str) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            String string = ai3.a().getString("dailyInfo", "");
+            if (a) {
+                Log.i("SwanAppUserVisitInfoUtils", "dailyInfo:" + string);
+            }
+            JSONObject jSONObject2 = null;
             try {
-                JSONObject jSONObject = new JSONObject(schemesDes);
-                arrayList.add(jSONObject);
-                int i = jSONObject.getInt("totalSlices");
-                for (int i2 = 1; i2 < i; i2++) {
-                    arrayList.add(new JSONObject(SchemeCollecter.getSchemesDes(str, i2)));
+                if (TextUtils.isEmpty(string)) {
+                    jSONObject = new JSONObject();
+                } else {
+                    jSONObject = new JSONObject(string);
                 }
-                return arrayList;
+                if (f(jSONObject)) {
+                    jSONObject.put(GfhKeyValue.TYPE_DATE, b());
+                }
+                jSONObject2 = jSONObject.optJSONObject(str);
+                if (jSONObject2 == null) {
+                    jSONObject.put(str, new JSONObject());
+                    ai3.a().putString("dailyInfo", jSONObject.toString());
+                    return jSONObject2;
+                }
             } catch (JSONException e) {
                 if (a) {
-                    Log.e("SwanAppCompat", "getDescriptions", e);
-                    return null;
+                    Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
                 }
-                return null;
             }
+            return jSONObject2;
         }
-        return (List) invokeL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    @Nullable
-    public static List<JSONObject> b(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
+    public static long e() {
+        InterceptResult invokeV;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            List<JSONObject> a2 = a(str);
-            if (a2 != null && !a2.isEmpty()) {
-                for (JSONObject jSONObject : a2) {
-                    JSONArray optJSONArray = jSONObject.optJSONArray("descriptions");
-                    if (optJSONArray != null) {
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                            if (optJSONObject != null) {
-                                Iterator<lt2> it = kt2.b().iterator();
-                                while (true) {
-                                    if (it.hasNext()) {
-                                        lt2 next = it.next();
-                                        String optString = optJSONObject.optString("name");
-                                        if (next.a(str, optString)) {
-                                            try {
-                                                optJSONArray.put(i, next.c(optString, optJSONObject));
-                                                break;
-                                            } catch (JSONException e) {
-                                                e.printStackTrace();
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return a2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            JSONObject d = d(a());
+            if (d != null) {
+                j = d.optLong("foreground_aiapp_last_time_local", 0L);
+            } else {
+                j = 0;
             }
-            return null;
+            if (d == null) {
+                return 0L;
+            }
+            return d.optLong("visit_duration", 0L) + (currentTimeMillis - j);
         }
-        return (List) invokeLL.objValue;
+        return invokeV.longValue;
+    }
+
+    public static boolean f(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, jSONObject)) == null) {
+            String b = b();
+            String optString = jSONObject.optString(GfhKeyValue.TYPE_DATE, "");
+            if (!TextUtils.isEmpty(optString) && optString.equals(b)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65543, null, j) == null) {
+            i(a(), "foreground_aiapp_last_time_local", Long.valueOf(j));
+        }
+    }
+
+    public static void i(String str, String str2, Object obj) {
+        JSONObject jSONObject;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65545, null, str, str2, obj) == null) {
+            String string = ai3.a().getString("dailyInfo", "");
+            if (a) {
+                if (TextUtils.isEmpty(string)) {
+                    str3 = "dailyinfo is null";
+                } else {
+                    str3 = string;
+                }
+                Log.i("SwanAppUserVisitInfoUtils", str3);
+            }
+            try {
+                if (TextUtils.isEmpty(string)) {
+                    jSONObject = new JSONObject();
+                } else {
+                    jSONObject = new JSONObject(string);
+                }
+                JSONObject optJSONObject = jSONObject.optJSONObject(str);
+                if (optJSONObject != null) {
+                    optJSONObject.put(str2, obj);
+                } else {
+                    jSONObject.put(str, new JSONObject());
+                }
+                ai3.a().putString("dailyInfo", jSONObject.toString());
+            } catch (JSONException e) {
+                if (a) {
+                    Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
+                }
+            }
+        }
     }
 }

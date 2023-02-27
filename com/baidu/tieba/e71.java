@@ -1,44 +1,74 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Build;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.PermissionRequest;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class e71 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface e71 {
+    public static final e71 a = new a();
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
+    boolean a(Context context, String str, String str2, @Nullable jj0 jj0Var);
+
+    /* loaded from: classes4.dex */
+    public static class a implements e71 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.e71
+        public boolean a(Context context, String str, String str2, @Nullable jj0 jj0Var) {
+            InterceptResult invokeLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, str2, jj0Var)) == null) {
+                if (str != null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(TiebaStatic.Params.REFER, str2);
+                    hashMap.put("from_web_view", Boolean.TRUE);
+                    return aj0.e(str, context, hashMap, jj0Var);
+                }
                 return false;
             }
-            return k51.a(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+            return invokeLLLL.booleanValue;
         }
-        return invokeL.booleanValue;
     }
 
-    @SuppressLint({"ObsoleteSdkInt"})
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            boolean z = false;
-            if (context == null) {
-                return false;
+    @Autowired
+    /* loaded from: classes4.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @NonNull
+        @Inject(force = false)
+        public static e71 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+                return e71.a;
             }
-            boolean a = k51.a(context, "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (Build.VERSION.SDK_INT >= 16) {
-                return (a || k51.a(context, com.kuaishou.weapon.p0.h.i)) ? true : true;
-            }
-            return a;
+            return (e71) invokeV.objValue;
         }
-        return invokeL.booleanValue;
     }
 }

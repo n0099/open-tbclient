@@ -1,498 +1,197 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.behavior.record.BehaviorServiceFetcher;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.searchbox.abtest.ioc.AbTestServiceFetcher;
+import com.baidu.searchbox.devicescore.DeviceScoreCollectFetcher;
+import com.baidu.searchbox.devicescore.DeviceScoreConfigFetcher;
+import com.baidu.searchbox.devicescore.DeviceScoreFetcher;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePlayUrlServiceFetcher;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceFetcher;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceFetcher;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceFetcher;
+import com.baidu.searchbox.live.service.Media2YYServiceFetcher;
+import com.baidu.searchbox.live.service.PluginInvokeServiceFetcher;
+import com.baidu.searchbox.live.service.YY2MediaServiceFetcher;
+import com.baidu.searchbox.live.service.YYPluginProgressInvokeServiceFetcher;
+import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerServiceFetcher;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
+import com.baidu.searchbox.retrieve.core.task.FetchTaskFetcher;
+import com.baidu.searchbox.retrieve.core.task.UploadTaskFetcher;
+import com.baidu.searchbox.retrieve.inter.IFetchTask;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.searchbox.retrieve.stats.service.StatServiceFetcher;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.tbadk.abtest.helper.HttpsExperimentFetcher;
+import com.baidu.tbadk.abtest.helper.NetExperimentFetcher;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.ubc.UBC;
+import com.baidu.webkit.sdk.WebViewFactoryProvider;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
 public class bl1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ConcurrentHashMap<ServiceReference, al1<?>> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject a;
 
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public JSONObject a;
-
-        public b(String str, String str2) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947648706, "Lcom/baidu/tieba/bl1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = new JSONObject();
-            G("material_type", str);
-            G("material_url", str2);
-        }
-
-        public b A(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                try {
-                    this.a.put("skip_btn_type", i);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b B(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-                try {
-                    this.a.put("skip_btn_width", i);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b C(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                try {
-                    this.a.put("skipTime", i);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b D(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-                try {
-                    this.a.put("small_logo_height", i);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b E(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                try {
-                    this.a.put("small_logo_width", i);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b F(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jSONObject)) == null) {
-                try {
-                    this.a.put("style", jSONObject);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b b(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-                try {
-                    this.a.put("ad_click_opt", i);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b c(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-                try {
-                    this.a.put("ad_label", str);
-                    if (TextUtils.isEmpty(str)) {
-                        this.a.put("hide_ad_logo", false);
-                    }
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b d(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-                try {
-                    this.a.put("ad_label_height", i);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b e(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-                try {
-                    this.a.put("ad_label_width", i);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b f(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-                try {
-                    this.a.put("bottom_logo_height", i);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b g(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-                try {
-                    this.a.put("close_type", i);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b h(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
-                try {
-                    this.a.put("bitmapDisplayMode", i);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b i(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
-                try {
-                    this.a.put("full_screen", z);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public b j(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-                G("gesture_lottie_url", str);
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b k(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048593, this, f)) == null) {
-                try {
-                    this.a.put("gesture_lottie_sensitivity", f);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeF.objValue;
-        }
-
-        public b l(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
-                try {
-                    this.a.put("gesture_lottie_type", i);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b m(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
-                try {
-                    this.a.put("host_big_logo_res_id", i);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b n(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
-                try {
-                    this.a.put("host_small_logo_res_id", i);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b o(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048597, this, z)) == null) {
-                try {
-                    this.a.put("show_host_small_logo", z);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public b p(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, jSONObject)) == null) {
-                try {
-                    this.a.put("inner_style", jSONObject);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b q(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
-                G("lottie_url", str);
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b r(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, str)) == null) {
-                try {
-                    this.a.put("mantleActionText", str);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b s(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) {
-                try {
-                    this.a.put("mantleBottomMargin", i);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b t(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
-                G("prod", str);
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b u(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048603, this, f)) == null) {
-                try {
-                    this.a.put("shake_action_delay_time", f);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeF.objValue;
-        }
-
-        public b v(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i)) == null) {
-                try {
-                    this.a.put("shake_direction_count", i);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b w(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i)) == null) {
-                try {
-                    this.a.put("shake_update_interval", i);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b x(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048606, this, z)) == null) {
-                try {
-                    this.a.put("lottie_show", z);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public b y(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048607, this, z)) == null) {
-                try {
-                    this.a.put("show_wifi_view", z);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public b z(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i)) == null) {
-                try {
-                    this.a.put("skip_btn_height", i);
-                } catch (JSONException unused) {
-                }
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public final void G(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
-                try {
-                    this.a.put(str, str2);
-                } catch (Throwable unused) {
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947648706, "Lcom/baidu/tieba/bl1;");
+                return;
             }
         }
-
-        public bl1 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return new bl1(this.a, null);
-            }
-            return (bl1) invokeV.objValue;
-        }
+        a = new ConcurrentHashMap<>();
+        d();
     }
 
-    public bl1(JSONObject jSONObject) {
+    public bl1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = jSONObject;
     }
 
-    public /* synthetic */ bl1(JSONObject jSONObject, a aVar) {
-        this(jSONObject);
-    }
-
-    public JSONObject a() {
-        InterceptResult invokeV;
+    public static <T> T a(ServiceReference serviceReference) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, serviceReference)) == null) {
+            al1<?> al1Var = a.get(serviceReference);
+            if (al1Var != null) {
+                return (T) al1Var.getService();
+            }
+            return null;
         }
-        return (JSONObject) invokeV.objValue;
+        return (T) invokeL.objValue;
+    }
+
+    public static <T> void b(ServiceReference serviceReference, al1<T> al1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, serviceReference, al1Var) == null) {
+            a.put(serviceReference, al1Var);
+        }
+    }
+
+    public static <T> void c(String str, String str2, Class<? extends al1<T>> cls) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, cls) == null) {
+            try {
+                b(new ServiceReference(str, str2), cls.newInstance());
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            c("AlaLiveSdk", "IMSdkService", wz7.class);
+            c("AlaSquare", "SecondFloorService", c56.class);
+            c(IFetchTask.NAME_SPACE, "report", FetchTaskFetcher.class);
+            c("Frames", "ISafetyConfig", ac6.class);
+            c("Frames", "JsPromptBridge", tb6.class);
+            c("Frs", "FrsService", ov6.class);
+            c("HotTopic", "HotTopicRequest", hw5.class);
+            c("ImMessageCenter", "ChatBoxDialogService", ds7.class);
+            c("ImMessageCenter", "ChatFloatEntranceService", ct7.class);
+            c("ImMessageCenter", "GroupChatService", bs7.class);
+            c(WebViewFactoryProvider.SETTING_MONITOR, "IMonitorBehavior", pe6.class);
+            c("abtest", "service", AbTestServiceFetcher.class);
+            c("behavior-api", "behavior-api", BehaviorServiceFetcher.class);
+            c("device_score", "DEVICE_SCORE", DeviceScoreFetcher.class);
+            c("device_score", "DEVICE_SCORE_COLLECT", DeviceScoreCollectFetcher.class);
+            c("device_score", "DEVICE_SCORE_CONFIG", DeviceScoreConfigFetcher.class);
+            c("live", DI.AB_NAME, k28.class);
+            c("live", DI.ACCOUNT, z18.class);
+            c("live", DI.APP_INFO_NAME, b28.class);
+            c("live", DI.EXT.EXT_LIVE_JUMP_PAGE, u28.class);
+            c("live", DI.EXT.EXT_LIVE_LOG, b38.class);
+            c("live", DI.FOLLOW_STATUS, q28.class);
+            c("live", DI.LIGHTBROWSER_VIEW, g28.class);
+            c("live", DI.LIVE_CUSTOM_SETTINGS, x38.class);
+            c("live", DI.LIVE_EVENT_DISPATCHER, o28.class);
+            c("live", DI.LIVE_LIKE, w28.class);
+            c("live", DI.LIVE_LOCATION, z28.class);
+            c("live", DI.LIVE_PLAY_URL, LivePlayUrlServiceFetcher.class);
+            c("live", DI.LIVE_REAL_AUTH, d28.class);
+            c("live", DI.LIVE_SHOW_VIDEO_PLAYER, j38.class);
+            c("live", DI.LIVE_USER_SECURITY_BEHAVIOR, m28.class);
+            c("live", DI.LIVE_USER_SECURITY_DEVICE_INFO, n28.class);
+            c("live", DI.MINI_SHELL.MEDIA_2_YY, Media2YYServiceFetcher.class);
+            c("live", "multi_plugin", MultiPluginManagerServiceFetcher.class);
+            c("live", "net", d38.class);
+            c("live", DI.PAY_CHANNEL, i28.class);
+            c("live", DI.LIVE_PLAYER, q38.class);
+            c("live", DI.MINI_SHELL.PLUGIN_MANAGER, PluginInvokeServiceFetcher.class);
+            c("live", DI.LIVE_PRE_START_PLAYER, LivePreStartPlayServiceFetcher.class);
+            c("live", DI.ROUTER_NAME, v38.class);
+            c("live", "share", b48.class);
+            c("live", DI.TB.SHARE_CHANNEL, z38.class);
+            c("live", DI.THIRD_PART_ACCOUNT, d48.class);
+            c("live", DI.YY.THIRD_PART_ALI_RECHARGE, e48.class);
+            c("live", DI.YY.THIRD_PART_WX_RECHARGE, g48.class);
+            c("live", "toast", i48.class);
+            c("live", DI.MINI_SHELL.YY_2_MEDIA, YY2MediaServiceFetcher.class);
+            c("live", DI.YY.YY_MULTI_PLUGIN_PROGRESS, YYPluginProgressInvokeServiceFetcher.class);
+            c("live", DI.YYPAY.YY_PAY, g38.class);
+            c("live", DI.YY.YY_PLUGIN, YYPluginManageServiceFetcher.class);
+            c(com.baidu.searchbox.live.game.interfaces.DI.MODULE_NAME, "common", s28.class);
+            c("logsystem", "exceptionhandler", ExceptionHandlerServiceFetcher.class);
+            c("nad.business", "rewardVideoLpTaskCenter", qo0.class);
+            c("nad.core", "adRequester", c21.class);
+            c("nad.core", "browserDownload", el0.class);
+            c("nad.core", "cmd", p06.class);
+            c("nad.core", "config", q06.class);
+            c("nad.core", "crius", qk0.class);
+            c("nad.core", "deviceInfo.bag", c.class);
+            c("nad.core", "deviceInfoInner", wh0.class);
+            c("nad.core", "eventbus", vm0.class);
+            c("nad.core", "exp", kn0.class);
+            c("nad.core", "ipdx", zh0.class);
+            c("nad.core", "loadImage", fh0.class);
+            c("nad.core", "loadVideo", yx0.class);
+            c("nad.core", "maxUI", s06.class);
+            c("nad.core", "nativeCookieMgr", c91.class);
+            c("nad.core", "navBarTool", u06.class);
+            c("nad.core", "splash.config", v06.class);
+            c("nad.core", "splash.host", w06.class);
+            c("nad.core", "thirdService", t06.class);
+            c("nad.core", "uad", x06.class);
+            c(StatConstants.VALUE_FROM_RETRIEVE, "stat", StatServiceFetcher.class);
+            c(StatConstants.VALUE_FROM_RETRIEVE, StatConstants.VALUE_TYPE_UPLOAD, UploadTaskFetcher.class);
+            c("speed", "runtime", SpeedRuntimeProvider.class);
+            c("tbBaseEmotion", "EmotionService", bm6.class);
+            c("tbadkcore", "IHttpsExperiment", HttpsExperimentFetcher.class);
+            c("tbadkcore", "INetExperiment", NetExperimentFetcher.class);
+            c("tbadkcore", "ISoProcess", uj5.class);
+            c("tbadkcore", "tbadkcore", vx5.class);
+            c(UBCCloudControlProcessor.UBC_KEY, UBC.TAG, pu9.class);
+            c("voyager", StatConstants.VALUE_TYPE_UPLOAD, l3a.class);
+            c("yaLog", "yaLogConfig", k4a.class);
+        }
     }
 }

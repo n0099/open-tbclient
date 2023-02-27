@@ -1,64 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class cj0 {
+import java.util.ArrayList;
+/* loaded from: classes3.dex */
+public class cj0 implements jk1 {
     public static /* synthetic */ Interceptable $ic;
-    public static ej0 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947676544, "Lcom/baidu/tieba/cj0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947676544, "Lcom/baidu/tieba/cj0;");
-        }
-    }
 
     public cj0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static ej0 a() {
+    @Override // com.baidu.tieba.jk1
+    public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (cj0.class) {
-                    if (a == null) {
-                        a = (ej0) ServiceManager.getService(ej0.a);
-                    }
-                    if (a == null) {
-                        a = ej0.b;
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new hh0());
+            arrayList.add(new ih0());
+            arrayList.add(new jh0());
+            arrayList.add(new kh0());
+            arrayList.add(new lh0());
+            arrayList.add(new mh0());
+            arrayList.add(new oh0());
+            arrayList.add(new ji0());
+            arrayList.add(new cp0());
+            arrayList.add(new dp0());
+            arrayList.add(new jp0());
+            arrayList.add(new v91());
+            arrayList.add(new qa1());
+            arrayList.add(new qy5());
+            return arrayList;
         }
-        return (ej0) invokeV.objValue;
+        return invokeV.objValue;
     }
 }

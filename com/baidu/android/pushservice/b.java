@@ -3,7 +3,7 @@ package com.baidu.android.pushservice;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.adp.framework.cmdRouter.MultiDexHelper;
-import com.baidu.android.pushservice.h.a.b;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,8 +13,7 @@ import java.lang.Thread;
 public class b implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final Thread.UncaughtExceptionHandler b;
+    public final Thread.UncaughtExceptionHandler a;
 
     public b(Context context, Thread.UncaughtExceptionHandler uncaughtExceptionHandler) {
         Interceptable interceptable = $ic;
@@ -31,26 +30,22 @@ public class b implements Thread.UncaughtExceptionHandler {
                 return;
             }
         }
-        this.a = context;
-        this.b = uncaughtExceptionHandler;
+        this.a = uncaughtExceptionHandler;
     }
 
-    private void a(Throwable th) {
+    public final void a(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, th) == null) {
-            String stackTraceString = Log.getStackTraceString(th);
-            if (stackTraceString.contains(MultiDexHelper.PUSH_SDK_PREFIX)) {
-                new b.c(this.a).a(stackTraceString).a(201002L).a();
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+            Log.getStackTraceString(th).contains(MultiDexHelper.PUSH_SDK_PREFIX);
         }
     }
 
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, thread, th) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thread, th) == null) {
             a(th);
-            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.b;
+            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.a;
             if (uncaughtExceptionHandler != null) {
                 uncaughtExceptionHandler.uncaughtException(thread, th);
             }

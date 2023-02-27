@@ -3,8 +3,6 @@ package com.baidu.ar.arplay.core.engine;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.engine.ARPContent;
 import com.baidu.ar.arplay.core.engine.ARPDataInteraction;
 import com.baidu.ar.arplay.core.engine.engine3d.AbstractARPEngine3D;
@@ -15,70 +13,28 @@ import com.baidu.ar.arplay.core.renderer.ARPRenderer;
 import com.baidu.ar.arplay.core.renderer.IARPRenderer;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.sapi2.activity.OauthActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.SoftReference;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class ARPEngine implements c {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ENGINE_3D_CLASS_NAME = "com.baidu.ar.arplay.core.engine3d.ARPEngine3D";
     public static final String LOWEST_VERSION_KEY = "compatible_version";
     public static final String TAG = "ARPEngine";
     public static ARPEngine self;
-    public transient /* synthetic */ FieldHolder $fh;
-    public ARPContent mARPContent;
     public ARPDataInteraction mARPDataInteraction;
     public AbstractARPEngine3D mARPEngine3D;
     public ARPEngineParams mARPEngineParams;
-    public ARPFilter mARPFilter;
-    public ARPRenderer mARPRenderer;
-    public volatile boolean mIsEngineCreated;
-    public boolean mIsInitNative;
-    public boolean mIsPaused;
     public boolean mScenePausedByUser;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1512562321, "Lcom/baidu/ar/arplay/core/engine/ARPEngine;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1512562321, "Lcom/baidu/ar/arplay/core/engine/ARPEngine;");
-        }
-    }
+    public boolean mIsInitNative = false;
+    public volatile boolean mIsEngineCreated = false;
+    public boolean mIsPaused = false;
+    public ARPContent mARPContent = new ARPContent();
+    public ARPFilter mARPFilter = new ARPFilter();
+    public ARPRenderer mARPRenderer = new ARPRenderer();
 
     public ARPEngine() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mIsInitNative = false;
-        this.mIsEngineCreated = false;
-        this.mIsPaused = false;
-        this.mARPContent = new ARPContent();
-        this.mARPFilter = new ARPFilter();
-        this.mARPRenderer = new ARPRenderer();
         ARPDataInteraction aRPDataInteraction = new ARPDataInteraction();
         this.mARPDataInteraction = aRPDataInteraction;
         this.mARPContent.registerCaseLoadListener(aRPDataInteraction);
@@ -86,52 +42,39 @@ public class ARPEngine implements c {
     }
 
     private boolean createApp(int i, int i2, int i3, int i4, float f, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f), str})) == null) {
-            com.baidu.ar.arplay.c.b.b(TAG, "createApp [width*height]: [" + i + "*" + i2 + PreferencesUtil.RIGHT_MOUNT);
-            boolean nativeCreateApp = nativeCreateApp(i, i2, i3, i4, f, str);
-            this.mIsEngineCreated = true;
-            ARPContent aRPContent = this.mARPContent;
-            if (aRPContent != null) {
-                aRPContent.setEngineCreated(this.mIsEngineCreated);
-            }
-            return nativeCreateApp;
+        com.baidu.ar.arplay.c.b.b(TAG, "createApp [width*height]: [" + i + "*" + i2 + PreferencesUtil.RIGHT_MOUNT);
+        boolean nativeCreateApp = nativeCreateApp(i, i2, i3, i4, f, str);
+        this.mIsEngineCreated = true;
+        ARPContent aRPContent = this.mARPContent;
+        if (aRPContent != null) {
+            aRPContent.setEngineCreated(this.mIsEngineCreated);
         }
-        return invokeCommon.booleanValue;
+        return nativeCreateApp;
     }
 
     public static synchronized ARPEngine getInstance() {
-        InterceptResult invokeV;
         ARPEngine aRPEngine;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (ARPEngine.class) {
-                if (self == null) {
-                    self = new ARPEngine();
-                }
-                aRPEngine = self;
+        synchronized (ARPEngine.class) {
+            if (self == null) {
+                self = new ARPEngine();
             }
-            return aRPEngine;
+            aRPEngine = self;
         }
-        return (ARPEngine) invokeV.objValue;
+        return aRPEngine;
     }
 
     private void initEngine3DInstance() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            try {
-                Object newInstance = Class.forName(ENGINE_3D_CLASS_NAME).newInstance();
-                if (newInstance instanceof IARPEngine3D) {
-                    this.mARPEngine3D = (AbstractARPEngine3D) newInstance;
-                }
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e2) {
-                e2.printStackTrace();
-            } catch (InstantiationException e3) {
-                e3.printStackTrace();
+        try {
+            Object newInstance = Class.forName(ENGINE_3D_CLASS_NAME).newInstance();
+            if (newInstance instanceof IARPEngine3D) {
+                this.mARPEngine3D = (AbstractARPEngine3D) newInstance;
             }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e2) {
+            e2.printStackTrace();
+        } catch (InstantiationException e3) {
+            e3.printStackTrace();
         }
     }
 
@@ -140,318 +83,226 @@ public class ARPEngine implements c {
     private native boolean nativeSetup(Object obj, String str);
 
     public static synchronized void releaseInstance() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            synchronized (ARPEngine.class) {
-                if (self != null) {
-                    self.destroy();
-                }
-                self = null;
+        synchronized (ARPEngine.class) {
+            if (self != null) {
+                self.destroy();
             }
+            self = null;
         }
     }
 
     public void addAlgoType(int[] iArr, int i) {
-        ARPDataInteraction aRPDataInteraction;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, iArr, i) == null) || (aRPDataInteraction = this.mARPDataInteraction) == null) {
-            return;
+        ARPDataInteraction aRPDataInteraction = this.mARPDataInteraction;
+        if (aRPDataInteraction != null) {
+            aRPDataInteraction.addAlgoType(iArr, i);
         }
-        aRPDataInteraction.addAlgoType(iArr, i);
     }
 
     public String adjustFilterWithCasePathParam(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            ARPFilter aRPFilter = this.mARPFilter;
-            if (aRPFilter != null) {
-                aRPFilter.adjustFilterWithCasePathParam(str);
-                return null;
-            }
+        ARPFilter aRPFilter = this.mARPFilter;
+        if (aRPFilter != null) {
+            aRPFilter.adjustFilterWithCasePathParam(str);
             return null;
         }
-        return (String) invokeL.objValue;
+        return null;
     }
 
     public void adjustFilterWithFloatArrayParam(String str, String str2, float[] fArr, long j) {
-        ARPFilter aRPFilter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, fArr, Long.valueOf(j)}) == null) || (aRPFilter = this.mARPFilter) == null) {
-            return;
+        ARPFilter aRPFilter = this.mARPFilter;
+        if (aRPFilter != null) {
+            aRPFilter.adjustFilterWithFloatArrayParam(str, str2, fArr, j);
         }
-        aRPFilter.adjustFilterWithFloatArrayParam(str, str2, fArr, j);
     }
 
     public void adjustFilterWithFloatParam(String str, String str2, float f, long j) {
-        ARPFilter aRPFilter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Float.valueOf(f), Long.valueOf(j)}) == null) || (aRPFilter = this.mARPFilter) == null) {
-            return;
+        ARPFilter aRPFilter = this.mARPFilter;
+        if (aRPFilter != null) {
+            aRPFilter.adjustFilterWithFloatParam(str, str2, f, j);
         }
-        aRPFilter.adjustFilterWithFloatParam(str, str2, f, j);
     }
 
     public void adjustFilterWithIntParam(String str, String str2, int i, long j) {
-        ARPFilter aRPFilter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (aRPFilter = this.mARPFilter) == null) {
-            return;
+        ARPFilter aRPFilter = this.mARPFilter;
+        if (aRPFilter != null) {
+            aRPFilter.adjustFilterWithIntParam(str, str2, i, j);
         }
-        aRPFilter.adjustFilterWithIntParam(str, str2, i, j);
     }
 
     public String adjustFilterWithJsonPathParam(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            ARPFilter aRPFilter = this.mARPFilter;
-            if (aRPFilter != null) {
-                return aRPFilter.adjustFilterWithJsonPathParam(str);
-            }
-            return null;
+        ARPFilter aRPFilter = this.mARPFilter;
+        if (aRPFilter != null) {
+            return aRPFilter.adjustFilterWithJsonPathParam(str);
         }
-        return (String) invokeL.objValue;
+        return null;
     }
 
     public void adjustFilterWithStringParam(String str, String str2, String str3, long j) {
-        ARPFilter aRPFilter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, str3, Long.valueOf(j)}) == null) || (aRPFilter = this.mARPFilter) == null) {
-            return;
+        ARPFilter aRPFilter = this.mARPFilter;
+        if (aRPFilter != null) {
+            aRPFilter.adjustFilterWithStringParam(str, str2, str3, j);
         }
-        aRPFilter.adjustFilterWithStringParam(str, str2, str3, j);
     }
 
     public void clearARMemory() {
-        ARPDataInteraction aRPDataInteraction;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aRPDataInteraction = this.mARPDataInteraction) == null) {
-            return;
+        ARPDataInteraction aRPDataInteraction = this.mARPDataInteraction;
+        if (aRPDataInteraction != null) {
+            aRPDataInteraction.clearARMemory();
         }
-        aRPDataInteraction.clearARMemory();
     }
 
     public void clearAlgoCache() {
-        ARPDataInteraction aRPDataInteraction;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (aRPDataInteraction = this.mARPDataInteraction) == null) {
-            return;
+        ARPDataInteraction aRPDataInteraction = this.mARPDataInteraction;
+        if (aRPDataInteraction != null) {
+            aRPDataInteraction.clearAlgoCache();
         }
-        aRPDataInteraction.clearAlgoCache();
     }
 
     public boolean createEngine(ARPEngineParams aRPEngineParams) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, aRPEngineParams)) == null) {
-            synchronized (this) {
-                boolean z = false;
-                if (aRPEngineParams == null) {
-                    return false;
-                }
-                this.mARPEngineParams = aRPEngineParams;
-                if (!this.mIsInitNative) {
-                    z = nativeSetup(new WeakReference(this), "5.1.0");
-                    this.mIsInitNative = true;
-                }
-                if (!this.mIsEngineCreated) {
-                    z = createApp(this.mARPEngineParams.getInputWidth(), this.mARPEngineParams.getInputHeight(), this.mARPEngineParams.getOutputWidth(), this.mARPEngineParams.getOutputHeight(), this.mARPEngineParams.getDensity(), this.mARPEngineParams.getShaderDBPath());
-                    if (this.mARPDataInteraction != null) {
-                        this.mARPDataInteraction.setup();
-                    }
-                }
-                if (this.mARPEngine3D != null) {
-                    this.mARPEngine3D.setIsActiveByARPlayVersionCase(isDriverdByARPVersion());
-                }
-                this.mARPContent.setIsFrontCamera(this.mARPEngineParams.isIsFrontCamera());
-                return z;
+        synchronized (this) {
+            boolean z = false;
+            if (aRPEngineParams == null) {
+                return false;
             }
+            this.mARPEngineParams = aRPEngineParams;
+            if (!this.mIsInitNative) {
+                z = nativeSetup(new WeakReference(this), "5.1.0");
+                this.mIsInitNative = true;
+            }
+            if (!this.mIsEngineCreated) {
+                z = createApp(this.mARPEngineParams.getInputWidth(), this.mARPEngineParams.getInputHeight(), this.mARPEngineParams.getOutputWidth(), this.mARPEngineParams.getOutputHeight(), this.mARPEngineParams.getDensity(), this.mARPEngineParams.getShaderDBPath());
+                if (this.mARPDataInteraction != null) {
+                    this.mARPDataInteraction.setup();
+                }
+            }
+            if (this.mARPEngine3D != null) {
+                this.mARPEngine3D.setIsActiveByARPlayVersionCase(isDriverdByARPVersion());
+            }
+            this.mARPContent.setIsFrontCamera(this.mARPEngineParams.isIsFrontCamera());
+            return z;
         }
-        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.ar.arplay.core.engine.d
     public synchronized void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            synchronized (this) {
-                com.baidu.ar.arplay.c.b.b(TAG, "destroy");
-                if (this.mARPRenderer != null) {
-                    this.mARPRenderer.destroy();
-                }
-            }
+        com.baidu.ar.arplay.c.b.b(TAG, "destroy");
+        if (this.mARPRenderer != null) {
+            this.mARPRenderer.destroy();
         }
     }
 
     public synchronized void destroyEngine() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            synchronized (this) {
-                com.baidu.ar.arplay.c.b.b(TAG, "destroyEngine");
-                this.mIsEngineCreated = false;
-                if (this.mARPFilter != null) {
-                    this.mARPFilter.destroy();
-                }
-                if (this.mARPContent != null) {
-                    this.mARPContent.setEngineCreated(this.mIsEngineCreated);
-                    this.mARPContent.destroy();
-                }
-                if (this.mARPEngine3D != null) {
-                    this.mARPEngine3D.destroy();
-                }
-                nativeSetEngineBlendState(0);
-                nativeDestroyEngine();
-                if (this.mARPDataInteraction != null) {
-                    this.mARPDataInteraction.destroy();
-                }
-            }
+        com.baidu.ar.arplay.c.b.b(TAG, "destroyEngine");
+        this.mIsEngineCreated = false;
+        if (this.mARPFilter != null) {
+            this.mARPFilter.destroy();
+        }
+        if (this.mARPContent != null) {
+            this.mARPContent.setEngineCreated(this.mIsEngineCreated);
+            this.mARPContent.destroy();
+        }
+        if (this.mARPEngine3D != null) {
+            this.mARPEngine3D.destroy();
+        }
+        nativeSetEngineBlendState(0);
+        nativeDestroyEngine();
+        if (this.mARPDataInteraction != null) {
+            this.mARPDataInteraction.destroy();
         }
     }
 
     public void destroyMockAlgoHandle(long j) {
-        ARPDataInteraction aRPDataInteraction;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048588, this, j) == null) || (aRPDataInteraction = this.mARPDataInteraction) == null) {
-            return;
+        ARPDataInteraction aRPDataInteraction = this.mARPDataInteraction;
+        if (aRPDataInteraction != null) {
+            aRPDataInteraction.destroyMockAlgoHandle(j);
         }
-        aRPDataInteraction.destroyMockAlgoHandle(j);
     }
 
     public void disableCaseLutTexture() {
-        ARPFilter aRPFilter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (aRPFilter = this.mARPFilter) == null) {
-            return;
+        ARPFilter aRPFilter = this.mARPFilter;
+        if (aRPFilter != null) {
+            aRPFilter.disableCaseLutTexture();
         }
-        aRPFilter.disableCaseLutTexture();
     }
 
     public void disableFilterByAuthCode(int i) {
-        ARPFilter aRPFilter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048590, this, i) == null) || (aRPFilter = this.mARPFilter) == null) {
-            return;
+        ARPFilter aRPFilter = this.mARPFilter;
+        if (aRPFilter != null) {
+            aRPFilter.disableFilterByAuthCode(i);
         }
-        aRPFilter.disableFilterByAuthCode(i);
     }
 
     public IARPRenderer getARPRenderer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mARPRenderer : (IARPRenderer) invokeV.objValue;
+        return this.mARPRenderer;
     }
 
     public IARPScene getCurrentScene() {
-        InterceptResult invokeV;
         AbstractARPEngine3D abstractARPEngine3D;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (isEngineCanAccess() && (abstractARPEngine3D = this.mARPEngine3D) != null) {
-                return abstractARPEngine3D.getCurrentScene();
-            }
-            return null;
+        if (isEngineCanAccess() && (abstractARPEngine3D = this.mARPEngine3D) != null) {
+            return abstractARPEngine3D.getCurrentScene();
         }
-        return (IARPScene) invokeV.objValue;
+        return null;
     }
 
     public float[] getWindowSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            ARPContent aRPContent = this.mARPContent;
-            return aRPContent != null ? aRPContent.getWindowSize() : new float[0];
-        }
-        return (float[]) invokeV.objValue;
+        ARPContent aRPContent = this.mARPContent;
+        return aRPContent != null ? aRPContent.getWindowSize() : new float[0];
     }
 
     public void initDataStore(SharedPreferences sharedPreferences) {
-        ARPDataInteraction aRPDataInteraction;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, sharedPreferences) == null) || (aRPDataInteraction = this.mARPDataInteraction) == null) {
-            return;
+        ARPDataInteraction aRPDataInteraction = this.mARPDataInteraction;
+        if (aRPDataInteraction != null) {
+            aRPDataInteraction.initDataStore(sharedPreferences);
         }
-        aRPDataInteraction.initDataStore(sharedPreferences);
     }
 
     public void initWorldAxis() {
-        AbstractARPEngine3D abstractARPEngine3D;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (abstractARPEngine3D = this.mARPEngine3D) == null) {
-            return;
+        AbstractARPEngine3D abstractARPEngine3D = this.mARPEngine3D;
+        if (abstractARPEngine3D != null) {
+            abstractARPEngine3D.initWorldAxis();
         }
-        abstractARPEngine3D.initWorldAxis();
     }
 
     public boolean isAppControllerInterrupt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? nativeIsAppControllerInterrupt() : invokeV.booleanValue;
+        return nativeIsAppControllerInterrupt();
     }
 
     public boolean isDriverdByARPVersion() {
-        InterceptResult invokeV;
         String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            Object sharedEnvironmentValue = ARPScriptEnvironment.getInstance().getSharedEnvironmentValue("caseinfo");
-            if (sharedEnvironmentValue != null && (sharedEnvironmentValue instanceof HashMap)) {
-                HashMap hashMap = (HashMap) sharedEnvironmentValue;
-                return (hashMap.get(LOWEST_VERSION_KEY) instanceof String) && (str = (String) hashMap.get(LOWEST_VERSION_KEY)) != "" && str.compareTo(OauthActivity.N) >= 0;
-            }
-            return false;
+        Object sharedEnvironmentValue = ARPScriptEnvironment.getInstance().getSharedEnvironmentValue("caseinfo");
+        if (sharedEnvironmentValue != null && (sharedEnvironmentValue instanceof HashMap)) {
+            HashMap hashMap = (HashMap) sharedEnvironmentValue;
+            return (hashMap.get(LOWEST_VERSION_KEY) instanceof String) && (str = (String) hashMap.get(LOWEST_VERSION_KEY)) != "" && str.compareTo(OauthActivity.N) >= 0;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public boolean isEngineCanAccess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.mIsEngineCreated && this.mARPContent.isCaseCreated() : invokeV.booleanValue;
+        return this.mIsEngineCreated && this.mARPContent.isCaseCreated();
     }
 
     public boolean isPaused() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.mIsPaused : invokeV.booleanValue;
+        return this.mIsPaused;
     }
 
     public synchronized int loadCaseWithResPath(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, str)) == null) {
-            synchronized (this) {
-                if (this.mARPContent == null || this.mARPRenderer == null) {
-                    return -1;
-                }
-                return this.mARPContent.loadCaseWithResPath(str, this.mARPRenderer.getCameraPreviewWidth(), this.mARPRenderer.getCameraPreviewHeight());
-            }
+        if (this.mARPContent == null || this.mARPRenderer == null) {
+            return -1;
         }
-        return invokeL.intValue;
+        return this.mARPContent.loadCaseWithResPath(str, this.mARPRenderer.getCameraPreviewWidth(), this.mARPRenderer.getCameraPreviewHeight());
     }
 
     public synchronized void loadTempleteWithResPath(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
-            synchronized (this) {
-                if (this.mARPContent != null && this.mARPRenderer != null) {
-                    this.mARPContent.loadTempleteWithResPath(str, this.mARPRenderer.getCameraPreviewWidth(), this.mARPRenderer.getCameraPreviewHeight());
-                }
-            }
+        if (this.mARPContent != null && this.mARPRenderer != null) {
+            this.mARPContent.loadTempleteWithResPath(str, this.mARPRenderer.getCameraPreviewWidth(), this.mARPRenderer.getCameraPreviewHeight());
         }
     }
 
     public long mockFaceAlgoHandle(long j, float[] fArr) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048602, this, j, fArr)) == null) {
-            ARPDataInteraction aRPDataInteraction = this.mARPDataInteraction;
-            if (aRPDataInteraction != null) {
-                return aRPDataInteraction.mockFaceAlgoHandle(j, fArr);
-            }
-            return -1L;
+        ARPDataInteraction aRPDataInteraction = this.mARPDataInteraction;
+        if (aRPDataInteraction != null) {
+            return aRPDataInteraction.mockFaceAlgoHandle(j, fArr);
         }
-        return invokeJL.longValue;
+        return -1L;
     }
 
     public native boolean nativeCreateApp(int i, int i2, int i3, int i4, float f, String str);
@@ -471,322 +322,226 @@ public class ARPEngine implements c {
     public native void nativeSetLocalDeviceGrade(int i);
 
     public synchronized void onCaseLoadCompleted(Map map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, map) == null) {
-            synchronized (this) {
-                if (map == null) {
-                    return;
-                }
-                if (this.mARPContent != null && this.mARPContent.checkValid(ARPContent.b.ek)) {
-                    if (this.mARPRenderer != null) {
-                        this.mARPRenderer.clearAllAsyncRenderTask();
-                    }
-                    this.mARPContent.onCaseLoadCompleted(map);
-                }
-                if (this.mIsPaused) {
-                    nativeOnPause();
-                }
+        if (map == null) {
+            return;
+        }
+        if (this.mARPContent != null && this.mARPContent.checkValid(ARPContent.b.OnCaseLoaded)) {
+            if (this.mARPRenderer != null) {
+                this.mARPRenderer.clearAllAsyncRenderTask();
             }
+            this.mARPContent.onCaseLoadCompleted(map);
+        }
+        if (this.mIsPaused) {
+            nativeOnPause();
         }
     }
 
     public void onCaseUnloadCompleted() {
-        ARPContent aRPContent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048612, this) == null) || (aRPContent = this.mARPContent) == null) {
-            return;
+        ARPContent aRPContent = this.mARPContent;
+        if (aRPContent != null) {
+            aRPContent.onCaseUnloadCompleted();
         }
-        aRPContent.onCaseUnloadCompleted();
     }
 
     public void onGestureUpdate(int i, long j, int i2, float f, float f2, float f3, float f4, int i3, float f5, float f6, float f7, float f8, int i4, float f9) {
         ARPDataInteraction aRPDataInteraction;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i3), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Integer.valueOf(i4), Float.valueOf(f9)}) == null) && isEngineCanAccess() && (aRPDataInteraction = this.mARPDataInteraction) != null) {
+        if (isEngineCanAccess() && (aRPDataInteraction = this.mARPDataInteraction) != null) {
             aRPDataInteraction.onGestureUpdate(i, j, i2, f, f2, f3, f4, i3, f5, f6, f7, f8, i4, f9);
         }
     }
 
     public void onGestureUpdateWithScaleFinish(int i, long j, int i2, float f, float f2, float f3, float f4, int i3, float f5, float f6, float f7, float f8, int i4, float f9, boolean z) {
         ARPDataInteraction aRPDataInteraction;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i3), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Integer.valueOf(i4), Float.valueOf(f9), Boolean.valueOf(z)}) == null) && isEngineCanAccess() && (aRPDataInteraction = this.mARPDataInteraction) != null) {
+        if (isEngineCanAccess() && (aRPDataInteraction = this.mARPDataInteraction) != null) {
             aRPDataInteraction.onGestureUpdateWithScaleFinish(i, j, i2, f, f2, f3, f4, i3, f5, f6, f7, f8, i4, f9, z);
         }
     }
 
     public synchronized void onTempleLoadCompleted(Map map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, map) == null) {
-            synchronized (this) {
-                if (map == null) {
-                    return;
-                }
-                if (this.mARPContent != null) {
-                    if (this.mARPRenderer != null) {
-                        this.mARPRenderer.clearAllAsyncRenderTask();
-                    }
-                    this.mARPContent.onTempleLoadCompleted(map);
-                }
+        if (map == null) {
+            return;
+        }
+        if (this.mARPContent != null) {
+            if (this.mARPRenderer != null) {
+                this.mARPRenderer.clearAllAsyncRenderTask();
             }
+            this.mARPContent.onTempleLoadCompleted(map);
         }
     }
 
     public void onTouchUpdate(int i, float f, float f2, float f3, float f4, long j, int i2, float f5) {
         ARPDataInteraction aRPDataInteraction;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f5)}) == null) && isEngineCanAccess() && (aRPDataInteraction = this.mARPDataInteraction) != null) {
+        if (isEngineCanAccess() && (aRPDataInteraction = this.mARPDataInteraction) != null) {
             aRPDataInteraction.onTouchUpdate(i, f, f2, f3, f4, j, i2, f5);
         }
     }
 
     public synchronized void pause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
-            synchronized (this) {
-                this.mIsPaused = true;
-                if (isEngineCanAccess()) {
-                    nativeOnPause();
-                }
-                if (this.mARPRenderer != null) {
-                    this.mARPRenderer.pause();
-                }
-            }
+        this.mIsPaused = true;
+        if (isEngineCanAccess()) {
+            nativeOnPause();
+        }
+        if (this.mARPRenderer != null) {
+            this.mARPRenderer.pause();
         }
     }
 
     public synchronized void pauseScene() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
-            synchronized (this) {
-                this.mIsPaused = true;
-                if (isEngineCanAccess()) {
-                    nativeOnPause();
-                }
-                this.mScenePausedByUser = true;
-            }
+        this.mIsPaused = true;
+        if (isEngineCanAccess()) {
+            nativeOnPause();
         }
+        this.mScenePausedByUser = true;
     }
 
     public void removeAlgoType(int[] iArr) {
-        ARPDataInteraction aRPDataInteraction;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048619, this, iArr) == null) || (aRPDataInteraction = this.mARPDataInteraction) == null) {
-            return;
+        ARPDataInteraction aRPDataInteraction = this.mARPDataInteraction;
+        if (aRPDataInteraction != null) {
+            aRPDataInteraction.removeAlgoType(iArr);
         }
-        aRPDataInteraction.removeAlgoType(iArr);
     }
 
     public synchronized void resume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
-            synchronized (this) {
-                if (!this.mScenePausedByUser) {
-                    resumeScene();
-                }
-                if (this.mARPRenderer != null) {
-                    this.mARPRenderer.resume();
-                }
-            }
+        if (!this.mScenePausedByUser) {
+            resumeScene();
+        }
+        if (this.mARPRenderer != null) {
+            this.mARPRenderer.resume();
         }
     }
 
     public synchronized void resumeScene() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
-            synchronized (this) {
-                this.mIsPaused = false;
-                if (isEngineCanAccess()) {
-                    nativeOnResume();
-                }
-                this.mScenePausedByUser = false;
-            }
+        this.mIsPaused = false;
+        if (isEngineCanAccess()) {
+            nativeOnResume();
         }
+        this.mScenePausedByUser = false;
     }
 
     public void sceneRotateToCamera() {
-        AbstractARPEngine3D abstractARPEngine3D;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048622, this) == null) || (abstractARPEngine3D = this.mARPEngine3D) == null) {
-            return;
+        AbstractARPEngine3D abstractARPEngine3D = this.mARPEngine3D;
+        if (abstractARPEngine3D != null) {
+            abstractARPEngine3D.sceneRotateToCamera();
         }
-        abstractARPEngine3D.sceneRotateToCamera();
     }
 
     public void sceneWorldPositionToOrigin() {
-        AbstractARPEngine3D abstractARPEngine3D;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048623, this) == null) || (abstractARPEngine3D = this.mARPEngine3D) == null) {
-            return;
+        AbstractARPEngine3D abstractARPEngine3D = this.mARPEngine3D;
+        if (abstractARPEngine3D != null) {
+            abstractARPEngine3D.sceneWorldPositionToOrigin();
         }
-        abstractARPEngine3D.sceneWorldPositionToOrigin();
     }
 
     public synchronized void setAlgoDataHandle(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048624, this, j) == null) {
-            synchronized (this) {
-                if (this.mARPDataInteraction != null) {
-                    this.mARPDataInteraction.setAlgoDataHandle(j);
-                }
-            }
+        if (this.mARPDataInteraction != null) {
+            this.mARPDataInteraction.setAlgoDataHandle(j);
         }
     }
 
     public void setAuthPic(Bitmap bitmap, float[] fArr) {
-        ARPFilter aRPFilter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048625, this, bitmap, fArr) == null) || (aRPFilter = this.mARPFilter) == null) {
-            return;
+        ARPFilter aRPFilter = this.mARPFilter;
+        if (aRPFilter != null) {
+            aRPFilter.setAuthPic(bitmap, fArr);
         }
-        aRPFilter.setAuthPic(bitmap, fArr);
     }
 
     public void setConfig(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048626, this, str, str2) == null) {
-            com.baidu.ar.arplay.c.b.b(TAG, "syncServerConfig :" + str2);
-            nativeSetConfig(str, str2);
-        }
+        com.baidu.ar.arplay.c.b.b(TAG, "syncServerConfig :" + str2);
+        nativeSetConfig(str, str2);
     }
 
     public void setContext(SoftReference<Context> softReference) {
-        ARPFilter aRPFilter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048627, this, softReference) == null) || (aRPFilter = this.mARPFilter) == null) {
-            return;
+        ARPFilter aRPFilter = this.mARPFilter;
+        if (aRPFilter != null) {
+            aRPFilter.setContext(softReference);
         }
-        aRPFilter.setContext(softReference);
     }
 
     public void setEngineBlendState(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048628, this, i) == null) {
-            nativeSetEngineBlendState(i);
-        }
+        nativeSetEngineBlendState(i);
     }
 
     public void setFaceLandMarkFrameAcheMode(int i) {
-        ARPDataInteraction aRPDataInteraction;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048629, this, i) == null) || (aRPDataInteraction = this.mARPDataInteraction) == null) {
-            return;
+        ARPDataInteraction aRPDataInteraction = this.mARPDataInteraction;
+        if (aRPDataInteraction != null) {
+            aRPDataInteraction.setFaceLandMarkFrameAcheMode(i);
         }
-        aRPDataInteraction.setFaceLandMarkFrameAcheMode(i);
     }
 
     public synchronized void setHtmlUpdateCallback(ARPDataInteraction.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048630, this, aVar) == null) {
-            synchronized (this) {
-                if (this.mARPDataInteraction != null) {
-                    this.mARPDataInteraction.setHtmlUpdateCallback(aVar);
-                }
-            }
+        if (this.mARPDataInteraction != null) {
+            this.mARPDataInteraction.setHtmlUpdateCallback(aVar);
         }
     }
 
     public void setInteraction(ARPDataInteraction.b bVar) {
-        ARPDataInteraction aRPDataInteraction;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048631, this, bVar) == null) || (aRPDataInteraction = this.mARPDataInteraction) == null) {
-            return;
+        ARPDataInteraction aRPDataInteraction = this.mARPDataInteraction;
+        if (aRPDataInteraction != null) {
+            aRPDataInteraction.setInteraction(bVar);
         }
-        aRPDataInteraction.setInteraction(bVar);
     }
 
     public void setIsFrontCamera(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048632, this, z) == null) {
-            this.mARPContent.setIsFrontCamera(z);
-        }
+        this.mARPContent.setIsFrontCamera(z);
     }
 
     public void setLocalDeviceGrade(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048633, this, i) == null) {
-            com.baidu.ar.arplay.c.b.b(TAG, "setLocalDeviceGrade :" + i);
-            nativeSetLocalDeviceGrade(i);
-        }
+        com.baidu.ar.arplay.c.b.b(TAG, "setLocalDeviceGrade :" + i);
+        nativeSetLocalDeviceGrade(i);
     }
 
     public void setPreviewSize(int i, int i2) {
-        ARPContent aRPContent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048634, this, i, i2) == null) || (aRPContent = this.mARPContent) == null) {
-            return;
+        ARPContent aRPContent = this.mARPContent;
+        if (aRPContent != null) {
+            aRPContent.setPreviewSize(i, i2);
         }
-        aRPContent.setPreviewSize(i, i2);
     }
 
     public synchronized void setVideoUpdateCallback(ARPDataInteraction.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048635, this, cVar) == null) {
-            synchronized (this) {
-                if (this.mARPDataInteraction != null) {
-                    this.mARPDataInteraction.setVideoUpdateCallback(cVar);
-                }
-            }
+        if (this.mARPDataInteraction != null) {
+            this.mARPDataInteraction.setVideoUpdateCallback(cVar);
         }
     }
 
     public void setWatermark(String str, Bitmap bitmap, float[] fArr) {
-        ARPFilter aRPFilter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048636, this, str, bitmap, fArr) == null) || (aRPFilter = this.mARPFilter) == null) {
-            return;
+        ARPFilter aRPFilter = this.mARPFilter;
+        if (aRPFilter != null) {
+            aRPFilter.setWatermark(str, bitmap, fArr);
         }
-        aRPFilter.setWatermark(str, bitmap, fArr);
     }
 
     public void setWindowSize(int i, int i2) {
-        ARPContent aRPContent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048637, this, i, i2) == null) || (aRPContent = this.mARPContent) == null) {
-            return;
+        ARPContent aRPContent = this.mARPContent;
+        if (aRPContent != null) {
+            aRPContent.setWindowSize(i, i2);
         }
-        aRPContent.setWindowSize(i, i2);
     }
 
     public synchronized void unloadCase() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048638, this) == null) {
-            synchronized (this) {
-                if (this.mARPContent != null && this.mARPContent.checkValid(ARPContent.b.ej)) {
-                    if (this.mARPRenderer != null) {
-                        this.mARPRenderer.clearAllAsyncRenderTask();
-                    }
-                    this.mARPContent.unloadCase();
-                }
+        if (this.mARPContent != null && this.mARPContent.checkValid(ARPContent.b.UnloadCase)) {
+            if (this.mARPRenderer != null) {
+                this.mARPRenderer.clearAllAsyncRenderTask();
             }
+            this.mARPContent.unloadCase();
         }
     }
 
     public synchronized void unloadTemplete() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048639, this) == null) {
-            synchronized (this) {
-                com.baidu.ar.arplay.c.b.b(TAG, "unloadTemplete");
-                this.mARPContent.unloadTemplete();
-            }
-        }
+        com.baidu.ar.arplay.c.b.b(TAG, "unloadTemplete");
+        this.mARPContent.unloadTemplete();
     }
 
     public void updateAlgoDataToNode(int i, int i2, byte[] bArr) {
         ARPDataInteraction aRPDataInteraction;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048640, this, i, i2, bArr) == null) {
-            com.baidu.ar.arplay.c.b.c(TAG, "updateAlgoDataToNode");
-            if (isEngineCanAccess() && (aRPDataInteraction = this.mARPDataInteraction) != null) {
-                aRPDataInteraction.updateAlgoDataToNode(i, i2, bArr);
-            }
+        com.baidu.ar.arplay.c.b.c(TAG, "updateAlgoDataToNode");
+        if (isEngineCanAccess() && (aRPDataInteraction = this.mARPDataInteraction) != null) {
+            aRPDataInteraction.updateAlgoDataToNode(i, i2, bArr);
         }
     }
 
     public void updateNodeUniform(String str, HashMap<String, Object> hashMap) {
         AbstractARPEngine3D abstractARPEngine3D;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048641, this, str, hashMap) == null) || !isEngineCanAccess() || isAppControllerInterrupt() || (abstractARPEngine3D = this.mARPEngine3D) == null) {
+        if (!isEngineCanAccess() || isAppControllerInterrupt() || (abstractARPEngine3D = this.mARPEngine3D) == null) {
             return;
         }
         abstractARPEngine3D.updateNodeUniform(str, hashMap);

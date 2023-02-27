@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.e;
-import com.baidu.android.pushservice.i.m;
+import com.baidu.android.pushservice.util.Utility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,10 +37,10 @@ public class HwNotifyActivity extends Activity {
             try {
                 Intent intent = getIntent();
                 if (intent != null && intent.getData() != null) {
-                    String d = e.d(this, intent);
+                    String b = e.b(this, intent);
                     String c = e.c(this, intent);
                     if (!TextUtils.isEmpty(c)) {
-                        m.c(getApplicationContext(), intent, d, c);
+                        Utility.b(getApplicationContext(), intent, b, c);
                     }
                 }
             } catch (Exception unused) {

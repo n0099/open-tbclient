@@ -1,77 +1,71 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.addresslist.relationship.ResponseGetAddressListMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLEncoder;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class qz5 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes5.dex */
+public class qz5 extends ub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    public static String a(String str, String str2, String str3, Integer num) {
-        InterceptResult invokeLLLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qz5() {
+        super(304001);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, num)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            StringBuilder sb = new StringBuilder();
-            sb.append("tiebaclient://");
-            if (num.intValue() > 0) {
-                sb.append("swangame/");
-            } else {
-                sb.append("swan/");
-            }
-            sb.append(str);
-            if (!TextUtils.isEmpty(str2)) {
-                if (!str2.startsWith("/")) {
-                    sb.append("/");
-                }
-                sb.append(str2);
-            } else {
-                sb.append("/");
-            }
-            if (!TextUtils.isEmpty(Uri.parse(sb.toString()).getQuery())) {
-                sb.append("&");
-            } else {
-                if (!sb.toString().endsWith("/")) {
-                    sb.append("/");
-                }
-                sb.append("?");
-            }
-            sb.append("_baiduboxapp=");
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", str3);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            sb.append(URLEncoder.encode(jSONObject.toString()));
-            sb.append("&callback=_bdbox_js_275&upgrade=0");
-            return sb.toString();
         }
-        return (String) invokeLLLL.objValue;
     }
 
-    public static final boolean b(String str, String str2, String str3, Integer num) {
-        InterceptResult invokeLLLL;
-        String a;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
+    @Override // com.baidu.tieba.rb
+    public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
+        c(socketResponsedMessage2);
+        return socketResponsedMessage2;
+    }
+
+    public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, str3, num)) == null) {
-            if (TextUtils.isEmpty(str) || (a = a(str, str2, str3, num)) == null || !a.startsWith("tiebaclient://")) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
+            if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
+                yz5 addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
+                this.a = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
+                if (addressListData != null) {
+                    for (c06 c06Var : addressListData.a()) {
+                        List<ja5> a = c06Var.a();
+                        ArrayList arrayList = new ArrayList();
+                        for (ja5 ja5Var : a) {
+                            if (!this.a && ja5Var.h() == 1) {
+                                arrayList.add(ja5Var);
+                            }
+                        }
+                        a.removeAll(arrayList);
+                    }
+                }
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921361, a));
-            return true;
+            return socketResponsedMessage;
         }
-        return invokeLLLL.booleanValue;
+        return (SocketResponsedMessage) invokeL.objValue;
     }
 }

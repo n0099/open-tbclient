@@ -1,57 +1,25 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.AnyThread;
-import androidx.annotation.LayoutRes;
-import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
+import com.facebook.common.internal.Sets;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class g33 implements au2 {
+public class g33 implements i33 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<Integer, CopyOnWriteArrayList<View>> c;
-
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final g33 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-824788956, "Lcom/baidu/tieba/g33$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-824788956, "Lcom/baidu/tieba/g33$b;");
-                    return;
-                }
-            }
-            a = new g33(null);
-        }
-    }
+    public String b;
+    public Set<String> c;
 
     public g33() {
         Interceptable interceptable = $ic;
@@ -66,115 +34,72 @@ public class g33 implements au2 {
                 return;
             }
         }
-        this.c = new ConcurrentHashMap<>();
+        this.b = "boxjs.";
+        this.c = Sets.newHashSet("getAppInfoSync", "performpanel", "statisticEvent", "ubcReport", "getSlaveIdSync", "ubcFlowJar");
     }
 
-    public static g33 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.i33
+    public List<u23> a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (g33) invokeV.objValue;
-    }
-
-    public /* synthetic */ g33(a aVar) {
-        this();
-    }
-
-    @Nullable
-    @UiThread
-    public View b(@LayoutRes int i, @Nullable ViewGroup viewGroup, boolean z) {
-        InterceptResult invokeCommon;
-        ViewGroup.LayoutParams layoutParams;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), viewGroup, Boolean.valueOf(z)})) == null) {
-            View d = d(i);
-            if (d != null && viewGroup != null && (layoutParams = viewGroup.getLayoutParams()) != null) {
-                ViewGroup.LayoutParams layoutParams2 = d.getLayoutParams();
-                if (layoutParams2 == null) {
-                    layoutParams2 = new ViewGroup.LayoutParams(layoutParams);
-                } else {
-                    layoutParams2.width = layoutParams.width;
-                    layoutParams2.height = layoutParams.height;
-                }
-                d.setLayoutParams(layoutParams2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            ArrayList arrayList = new ArrayList();
+            String optString = jSONObject.optString("apiName");
+            c("api-name " + optString);
+            if (TextUtils.isEmpty(optString)) {
+                return arrayList;
             }
-            if (d == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                View inflate = LayoutInflater.from(ds2.c()).inflate(i, viewGroup, z);
-                long currentTimeMillis2 = System.currentTimeMillis();
-                if (au2.a) {
-                    Log.d("SwanPerformance", "getView resId = " + i + " ；inflate new view cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
-                }
-                return inflate;
+            int optInt = jSONObject.optInt("count");
+            c("api-count " + optInt);
+            if (optInt <= 0) {
+                return arrayList;
             }
-            return d;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    @AnyThread
-    public void c(@LayoutRes int... iArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) && iArr != null && iArr.length != 0) {
-            try {
-                long currentTimeMillis = System.currentTimeMillis();
-                int length = iArr.length;
-                LayoutInflater from = LayoutInflater.from(ds2.c());
-                for (int i : iArr) {
-                    View inflate = from.inflate(i, (ViewGroup) null);
-                    CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
-                    if (copyOnWriteArrayList == null) {
-                        copyOnWriteArrayList = new CopyOnWriteArrayList<>();
+            JSONArray optJSONArray = jSONObject.optJSONArray("startTime");
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("endTime");
+            if (optJSONArray != null && optJSONArray2 != null) {
+                int min = Math.min(optJSONArray.length(), optJSONArray2.length());
+                if (min <= 0) {
+                    return arrayList;
+                }
+                for (int i = 0; i < min; i++) {
+                    u23 u23Var = new u23();
+                    u23Var.f(optString);
+                    u23Var.g(b(u23Var));
+                    u23Var.i(optJSONArray.optLong(i));
+                    u23Var.h(optJSONArray2.optLong(i));
+                    arrayList.add(u23Var);
+                    if (i33.a) {
+                        c(u23Var.toString());
                     }
-                    copyOnWriteArrayList.add(inflate);
-                    this.c.put(Integer.valueOf(i), copyOnWriteArrayList);
                 }
-                if (au2.a) {
-                    long currentTimeMillis2 = System.currentTimeMillis();
-                    Log.d("SwanPerformance", "inflateLayoutRes count = " + length + "; cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
-                }
-            } catch (Exception e) {
-                if (au2.a) {
-                    Log.d("SwanPerformance", Log.getStackTraceString(e));
-                }
+                return arrayList;
             }
+            c("startTimes or endTimes is empty");
+            return arrayList;
         }
+        return (List) invokeL.objValue;
     }
 
-    @Nullable
-    @AnyThread
-    public View d(@LayoutRes int i) {
-        InterceptResult invokeI;
-        String str;
+    public final int b(u23 u23Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            View view2 = null;
-            try {
-                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
-                if (copyOnWriteArrayList != null && !copyOnWriteArrayList.isEmpty()) {
-                    view2 = copyOnWriteArrayList.remove(0);
-                }
-            } catch (Exception e) {
-                if (au2.a) {
-                    Log.d("SwanPerformance", Log.getStackTraceString(e));
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u23Var)) == null) {
+            String a = u23Var.a();
+            if (TextUtils.isEmpty(a)) {
+                return 0;
             }
-            if (au2.a) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("tryObtainLayoutByResId resId = ");
-                sb.append(i);
-                if (view2 == null) {
-                    str = " cache view is null";
-                } else {
-                    str = " adopt cached view";
-                }
-                sb.append(str);
-                Log.d("SwanPerformance", sb.toString());
+            if (!a.startsWith(this.b) && !this.c.contains(a)) {
+                return 0;
             }
-            return view2;
+            return 1;
         }
-        return (View) invokeI.objValue;
+        return invokeL.intValue;
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && i33.a) {
+            Log.d("Api-Parser", str);
+        }
     }
 }

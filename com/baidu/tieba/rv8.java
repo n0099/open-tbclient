@@ -1,123 +1,27 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tieba.j05;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.graphics.drawable.Drawable;
+import com.baidu.tieba.qw8;
+import com.baidu.tieba.video.VideoItemModel;
 /* loaded from: classes6.dex */
-public class rv8 extends j05 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout a;
-    public EditText b;
+public interface rv8 {
+    void onDestroy();
 
-    /* loaded from: classes6.dex */
-    public class a implements j05.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ rv8 b;
+    void onPause();
 
-        public a(rv8 rv8Var, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rv8Var, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = rv8Var;
-            this.a = activity;
-        }
+    void onPrimary(boolean z);
 
-        @Override // com.baidu.tieba.j05.e
-        public void onClick(j05 j05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, j05Var) == null) {
-                if (!dj.isEmpty(this.b.b.getText().toString())) {
-                    TbSingleton.getInstance().setVisitPreviewServer(true);
-                    String obj = this.b.b.getText().toString();
-                    TbSingleton.getInstance().setPubEnvValue(obj);
-                    ej.P(this.a, R.string.obfuscated_res_0x7f0f03b2);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921508, obj));
-                }
-                this.b.dismiss();
-            }
-        }
-    }
+    void onUserVisibleHint(boolean z);
 
-    /* loaded from: classes6.dex */
-    public class b implements j05.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rv8 a;
+    void onViewClick();
 
-        public b(rv8 rv8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rv8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rv8Var;
-        }
+    void onViewDoubleClick();
 
-        @Override // com.baidu.tieba.j05.e
-        public void onClick(j05 j05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, j05Var) == null) {
-                this.a.dismiss();
-            }
-        }
-    }
+    void onViewDragToRight();
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rv8(Activity activity) {
-        super(activity);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d0239, (ViewGroup) null);
-        this.a = linearLayout;
-        setContentView(linearLayout);
-        this.b = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f0909b6);
-        setPositiveButton(R.string.obfuscated_res_0x7f0f045b, new a(this, activity));
-        setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new b(this));
-    }
+    void setDrawables(Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4, Drawable drawable5, Drawable drawable6);
+
+    void setPageChangeHandler(qw8.a aVar, int i);
+
+    void updateTiebaData(int i, VideoItemModel videoItemModel);
 }

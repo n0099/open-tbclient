@@ -42,12 +42,21 @@ public class zb extends bc<CustomMessage<?>, CustomMessageTask, mb, CustomRespon
         this.e = ec.c();
     }
 
+    public <T> CustomResponsedMessage<T> A(CustomMessage<?> customMessage, CustomMessageTask customMessageTask, Class<T> cls) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, customMessage, customMessageTask, cls)) == null) {
+            return this.i.k(customMessage, customMessageTask, cls);
+        }
+        return (CustomResponsedMessage) invokeLLL.objValue;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oa
-    /* renamed from: A */
+    /* renamed from: B */
     public void f(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, customMessage, customMessageTask) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage, customMessageTask) == null) {
             this.i.f(customMessage, customMessageTask);
         }
     }
@@ -56,7 +65,7 @@ public class zb extends bc<CustomMessage<?>, CustomMessageTask, mb, CustomRespon
     public LinkedList<CustomMessage<?>> e(int i, BdUniqueId bdUniqueId) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bdUniqueId)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId)) == null) {
             return this.i.e(i, bdUniqueId);
         }
         return (LinkedList) invokeIL.objValue;
@@ -65,45 +74,36 @@ public class zb extends bc<CustomMessage<?>, CustomMessageTask, mb, CustomRespon
     @Override // com.baidu.tieba.oa
     public void h(int i, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, bdUniqueId) == null) {
             this.i.h(i, bdUniqueId);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.bc
-    /* renamed from: x */
+    /* renamed from: y */
     public CustomMessage<?> m(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, customMessage, customMessageTask)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, customMessage, customMessageTask)) == null) {
             return this.a.getController().e(customMessage, customMessageTask);
         }
         return (CustomMessage) invokeLL.objValue;
     }
 
-    public LinkedList<CustomMessage<?>> w(BdUniqueId bdUniqueId) {
+    public LinkedList<CustomMessage<?>> x(BdUniqueId bdUniqueId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bdUniqueId)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bdUniqueId)) == null) {
             return this.i.i(bdUniqueId);
         }
         return (LinkedList) invokeL.objValue;
     }
 
-    public void y(BdUniqueId bdUniqueId) {
+    public void z(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
             this.i.j(bdUniqueId);
         }
-    }
-
-    public <T> CustomResponsedMessage<T> z(CustomMessage<?> customMessage, CustomMessageTask customMessageTask, Class<T> cls) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, customMessage, customMessageTask, cls)) == null) {
-            return this.i.k(customMessage, customMessageTask, cls);
-        }
-        return (CustomResponsedMessage) invokeLLL.objValue;
     }
 }

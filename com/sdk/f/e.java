@@ -5,9 +5,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sdk.f.g;
+import com.sdk.f.f;
 /* loaded from: classes8.dex */
-public enum e extends g.a {
+public enum e extends f.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,10 +32,10 @@ public enum e extends g.a {
         }
     }
 
-    @Override // com.sdk.f.g.a
+    @Override // com.sdk.f.f.a
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.sdk.m.a.a("cucc/host_cucc.properties", "PRODUCE_STATISTICAL") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.sdk.n.a.a("cucc/host_cucc.properties", "PRODUCE_DZH") : (String) invokeV.objValue;
     }
 }

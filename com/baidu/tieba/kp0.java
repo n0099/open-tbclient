@@ -1,56 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.max.event.PanelEventTypeEnum;
+import com.baidu.nadcore.max.event.NestedEvent;
+import com.baidu.nadcore.max.event.WebEventTypeEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class kp0 implements lj0 {
+public final /* synthetic */ class kp0 {
+    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+    public static final /* synthetic */ int[] $EnumSwitchMapping$1;
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final PanelEventTypeEnum a;
 
-    public kp0(PanelEventTypeEnum type) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {type};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(type, "type");
-        this.a = type;
-    }
-
-    @Override // com.baidu.tieba.lj0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String simpleName = kp0.class.getSimpleName();
-            Intrinsics.checkNotNullExpressionValue(simpleName, "PanelViewEvent::class.java.simpleName");
-            return simpleName;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final PanelEventTypeEnum getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (PanelEventTypeEnum) invokeV.objValue;
+    static {
+        int[] iArr = new int[NestedEvent.values().length];
+        $EnumSwitchMapping$0 = iArr;
+        iArr[NestedEvent.UP_SHOW_WEB.ordinal()] = 1;
+        $EnumSwitchMapping$0[NestedEvent.UP_SHOW_VIDEO.ordinal()] = 2;
+        int[] iArr2 = new int[WebEventTypeEnum.values().length];
+        $EnumSwitchMapping$1 = iArr2;
+        iArr2[WebEventTypeEnum.WEB_INIT_SUCCESS.ordinal()] = 1;
+        $EnumSwitchMapping$1[WebEventTypeEnum.WEB_DESTROY.ordinal()] = 2;
     }
 }

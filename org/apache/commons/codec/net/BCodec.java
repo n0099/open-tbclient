@@ -1,141 +1,98 @@
 package org.apache.commons.codec.net;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringDecoder;
 import org.apache.commons.codec.StringEncoder;
-@Deprecated
+import org.apache.commons.codec.binary.Base64;
 /* loaded from: classes9.dex */
 public class BCodec extends RFC1522Codec implements StringEncoder, StringDecoder {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public BCodec() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        throw new RuntimeException("Stub!");
-    }
-
-    public String getDefaultCharset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (String) invokeV.objValue;
-    }
+    public final String charset;
 
     @Override // org.apache.commons.codec.net.RFC1522Codec
     public String getEncoding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (String) invokeV.objValue;
+        return "B";
+    }
+
+    public BCodec() {
+        this("UTF-8");
+    }
+
+    public String getDefaultCharset() {
+        return this.charset;
     }
 
     public BCodec(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.commons.codec.Decoder
-    public Object decode(Object obj) throws DecoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // org.apache.commons.codec.net.RFC1522Codec
-    public byte[] doDecoding(byte[] bArr) throws DecoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    @Override // org.apache.commons.codec.net.RFC1522Codec
-    public byte[] doEncoding(byte[] bArr) throws EncoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    @Override // org.apache.commons.codec.Encoder
-    public Object encode(Object obj) throws EncoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.objValue;
+        this.charset = str;
     }
 
     @Override // org.apache.commons.codec.StringDecoder
     public String decode(String str) throws DecoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            throw new RuntimeException("Stub!");
+        if (str == null) {
+            return null;
         }
-        return (String) invokeL.objValue;
+        try {
+            return decodeText(str);
+        } catch (UnsupportedEncodingException e) {
+            throw new DecoderException(e.getMessage(), e);
+        }
+    }
+
+    @Override // org.apache.commons.codec.net.RFC1522Codec
+    public byte[] doDecoding(byte[] bArr) {
+        if (bArr == null) {
+            return null;
+        }
+        return Base64.decodeBase64(bArr);
+    }
+
+    @Override // org.apache.commons.codec.net.RFC1522Codec
+    public byte[] doEncoding(byte[] bArr) {
+        if (bArr == null) {
+            return null;
+        }
+        return Base64.encodeBase64(bArr);
     }
 
     @Override // org.apache.commons.codec.StringEncoder
     public String encode(String str) throws EncoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            throw new RuntimeException("Stub!");
+        if (str == null) {
+            return null;
         }
-        return (String) invokeL.objValue;
+        return encode(str, getDefaultCharset());
+    }
+
+    @Override // org.apache.commons.codec.Decoder
+    public Object decode(Object obj) throws DecoderException {
+        if (obj == null) {
+            return null;
+        }
+        if (obj instanceof String) {
+            return decode((String) obj);
+        }
+        throw new DecoderException("Objects of type " + obj.getClass().getName() + " cannot be decoded using BCodec");
+    }
+
+    @Override // org.apache.commons.codec.Encoder
+    public Object encode(Object obj) throws EncoderException {
+        if (obj == null) {
+            return null;
+        }
+        if (obj instanceof String) {
+            return encode((String) obj);
+        }
+        throw new EncoderException("Objects of type " + obj.getClass().getName() + " cannot be encoded using BCodec");
     }
 
     public String encode(String str, String str2) throws EncoderException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
-            throw new RuntimeException("Stub!");
+        if (str == null) {
+            return null;
         }
-        return (String) invokeLL.objValue;
+        try {
+            return encodeText(str, str2);
+        } catch (UnsupportedEncodingException e) {
+            throw new EncoderException(e.getMessage(), e);
+        }
     }
 }

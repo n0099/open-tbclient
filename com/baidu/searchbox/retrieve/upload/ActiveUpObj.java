@@ -1,40 +1,16 @@
 package com.baidu.searchbox.retrieve.upload;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ActiveUpObj {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public String mDataId;
     public String mFileID;
     public String mFileMeta;
-    public String mFileType;
+    public String mFileType = "1";
     public List<String> mSpace;
     public String mType;
 
     public ActiveUpObj(String str, String str2, List<String> list, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, list, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mFileType = "1";
         this.mType = str;
         this.mDataId = str2;
         this.mSpace = list;
@@ -42,107 +18,54 @@ public class ActiveUpObj {
     }
 
     public String getDataId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mDataId;
-        }
-        return (String) invokeV.objValue;
+        return this.mDataId;
     }
 
     public String getFileID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mFileID;
-        }
-        return (String) invokeV.objValue;
+        return this.mFileID;
     }
 
     public String getFileMeta() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mFileMeta;
-        }
-        return (String) invokeV.objValue;
+        return this.mFileMeta;
     }
 
     public String getFileType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mFileType;
-        }
-        return (String) invokeV.objValue;
+        return this.mFileType;
     }
 
     public List<String> getSpace() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mSpace;
-        }
-        return (List) invokeV.objValue;
+        return this.mSpace;
     }
 
     public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mType;
-        }
-        return (String) invokeV.objValue;
+        return this.mType;
     }
 
     public void setDataId(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.mDataId = str;
-        }
+        this.mDataId = str;
     }
 
     public void setFileID(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.mFileID = str;
-        }
+        this.mFileID = str;
     }
 
     public void setFileMeta(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.mFileMeta = str;
-        }
+        this.mFileMeta = str;
     }
 
     public void setFileType(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.mFileType = str;
-        }
+        this.mFileType = str;
     }
 
     public void setSpace(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
-            this.mSpace = list;
-        }
+        this.mSpace = list;
     }
 
     public void setType(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.mType = str;
-        }
+        this.mType = str;
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return "ActiveUpObj{mType='" + this.mType + "', mDataId='" + this.mDataId + "', mSpace='" + this.mSpace.toString() + "', mFileId'" + this.mFileID + "', mFileType'" + this.mFileType + "', mFileMeta='" + this.mFileMeta + "'}";
-        }
-        return (String) invokeV.objValue;
+        return "ActiveUpObj{mType='" + this.mType + "', mDataId='" + this.mDataId + "', mSpace='" + this.mSpace.toString() + "', mFileId'" + this.mFileID + "', mFileType'" + this.mFileType + "', mFileMeta='" + this.mFileMeta + "'}";
     }
 }

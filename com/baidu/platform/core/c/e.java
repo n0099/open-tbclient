@@ -20,6 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -51,7 +52,7 @@ public class e extends com.baidu.platform.base.d {
             if (jSONObject != null && jSONObject.length() != 0) {
                 PoiInfo.ParentPoiInfo parentPoiInfo = new PoiInfo.ParentPoiInfo();
                 parentPoiInfo.setParentPoiAddress(jSONObject.optString(DuPaBInfoMsg.B_ADDR));
-                parentPoiInfo.setParentPoiDirection(jSONObject.optString("direction"));
+                parentPoiInfo.setParentPoiDirection(jSONObject.optString(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION));
                 parentPoiInfo.setParentPoiDistance(jSONObject.optInt("distance"));
                 parentPoiInfo.setParentPoiName(jSONObject.optString("name"));
                 parentPoiInfo.setParentPoiTag(jSONObject.optString("tag"));
@@ -124,7 +125,7 @@ public class e extends com.baidu.platform.base.d {
                     poiInfo.setName(optJSONObject.optString("name"));
                     poiInfo.setLocation(d(optJSONObject, Config.EVENT_HEAT_POINT));
                     poiInfo.setCity(str2);
-                    poiInfo.setDirection(optJSONObject.optString("direction"));
+                    poiInfo.setDirection(optJSONObject.optString(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION));
                     poiInfo.setDistance(optJSONObject.optInt("distance"));
                     poiInfo.setTag(optJSONObject.optString("tag"));
                     poiInfo.setParentPoi(a(optJSONObject.optJSONObject("parent_poi")));
@@ -248,7 +249,7 @@ public class e extends com.baidu.platform.base.d {
             addressComponent.streetNumber = optJSONObject.optString("street_number");
             addressComponent.countryName = optJSONObject.optString("country");
             addressComponent.countryCode = optJSONObject.optInt("country_code");
-            addressComponent.setDirection(optJSONObject.optString("direction"));
+            addressComponent.setDirection(optJSONObject.optString(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION));
             addressComponent.setDistance(optJSONObject.optString("distance"));
             addressComponent.countryCodeIso = optJSONObject.optString("country_code_iso");
             addressComponent.countryCodeIso2 = optJSONObject.optString("country_code_iso2");

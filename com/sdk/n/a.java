@@ -1,70 +1,52 @@
 package com.sdk.n;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.sdk.base.module.manager.SDKManager;
+import com.sdk.f.f;
+import java.util.Properties;
 /* loaded from: classes8.dex */
 public class a {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "a";
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(String str, String str2, Boolean bool) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, bool)) == null) {
-            if (str2 == null) {
-                str2 = "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1592929014, "Lcom/sdk/n/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (bool.booleanValue()) {
-                return Log.e(str, str2);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1592929014, "Lcom/sdk/n/a;");
+                return;
             }
-            return -1;
         }
-        return invokeLLL.intValue;
+        b = f.a;
     }
 
-    public static Boolean a(String str) {
-        InterceptResult invokeL;
+    public static String a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? (str == null || str.length() == 0 || str.trim().length() == 0 || StringUtil.NULL_STRING.equals(str)) ? Boolean.TRUE : Boolean.FALSE : (Boolean) invokeL.objValue;
-    }
-
-    public static int b(String str, String str2, Boolean bool) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, bool)) == null) {
-            if (str2 == null) {
-                str2 = "";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if (com.sdk.o.a.a(str2).booleanValue()) {
+                return null;
             }
-            if (bool.booleanValue()) {
-                return Log.i(str, str2);
+            Properties properties = new Properties();
+            try {
+                properties.load(SDKManager.mContext.getAssets().open(str));
+            } catch (Exception unused) {
+                String str3 = a;
+                com.sdk.o.a.a(str3, "域名读取失败！《" + str2 + "+》", Boolean.valueOf(b));
             }
-            return -1;
+            return properties.getProperty(str2);
         }
-        return invokeLLL.intValue;
-    }
-
-    public static Boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (str == null || str.length() == 0 || str.trim().length() == 0 || StringUtil.NULL_STRING.equals(str) || str.equals("")) ? Boolean.FALSE : Boolean.TRUE : (Boolean) invokeL.objValue;
-    }
-
-    public static int c(String str, String str2, Boolean bool) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, bool)) == null) {
-            if (str2 == null) {
-                str2 = "";
-            }
-            if (bool.booleanValue()) {
-                return Log.w(str, str2);
-            }
-            return -1;
-        }
-        return invokeLLL.intValue;
+        return (String) invokeLL.objValue;
     }
 }

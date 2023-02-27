@@ -1,122 +1,168 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class ko1 {
+public class ko1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
+    public static String a;
+    public static String b;
+    public static String c;
+    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947919708, "Lcom/baidu/tieba/ko1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947919708, "Lcom/baidu/tieba/ko1;");
-                return;
-            }
-        }
-        a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:4:0x0004 */
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: byte */
-    /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: int */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r4v5, types: [int] */
-    public static String a(byte b) {
-        InterceptResult invokeB;
+    public ko1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeB = interceptable.invokeB(65537, null, b)) == null) {
-            if (b < 0) {
-                b += 256;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return a[b / 16] + a[b % 16];
         }
-        return (String) invokeB.objValue;
     }
 
-    public static String b(String str) {
+    public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            String str2 = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                if (TextUtils.isEmpty(str)) {
+                if (TextUtils.isEmpty(a)) {
+                    a = vo1.b(context);
+                }
+                if (TextUtils.isEmpty(a)) {
                     return "";
                 }
-                String str3 = new String(str);
-                try {
-                    return c(MessageDigest.getInstance("MD5").digest(str3.getBytes()));
-                } catch (Throwable th) {
-                    th = th;
-                    str2 = str3;
-                    go1.d(th);
-                    return str2;
+                return a;
+            } catch (Throwable th) {
+                vo1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            try {
+                if (TextUtils.isEmpty(b)) {
+                    b = vo1.e(context);
                 }
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            return (String) invokeL.objValue;
-        }
-    }
-
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            for (byte b : bArr) {
-                stringBuffer.append(a(b));
-            }
-            return stringBuffer.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
-            if (bArr == null || bArr.length <= 0) {
-                return "";
-            }
-            try {
-                return c(MessageDigest.getInstance("MD5").digest(bArr));
+                if (TextUtils.isEmpty(b)) {
+                    return "";
+                }
+                return b;
             } catch (Throwable th) {
-                go1.d(th);
+                vo1.d(th);
                 return "";
             }
         }
         return (String) invokeL.objValue;
     }
 
-    public static byte[] e(byte[] bArr) {
+    public static String e(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
-            if (bArr == null || bArr.length <= 0) {
-                return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
-                return MessageDigest.getInstance("MD5").digest(bArr);
+                if (TextUtils.isEmpty(c)) {
+                    c = context.getPackageName();
+                }
+                if (TextUtils.isEmpty(c)) {
+                    return "";
+                }
+                return c;
             } catch (Throwable th) {
-                go1.d(th);
+                vo1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static JSONObject c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("1", b(context));
+                jSONObject.put("3", d(context));
+                jSONObject.put("2", e(context));
+                jSONObject.put("4", f(context));
+                jSONObject.put("5", str);
+                jSONObject.put("6", System.currentTimeMillis());
+                jSONObject.put("7", "0");
+                jSONObject.put("8", en1.b);
+                jSONObject.put("9", AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
+                jSONObject.put("10", "1.2.1");
+                jSONObject.put("14", vo1.g(context));
+                jSONObject.put("23", ho1.a(context));
+                jSONObject.put("26", "");
+                jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_PAGE_SHOW, fn1.g(context).F());
+                return jSONObject;
+            } catch (Throwable th) {
+                vo1.d(th);
                 return null;
             }
         }
-        return (byte[]) invokeL.objValue;
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public static String f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            try {
+                if (!TextUtils.isEmpty(d)) {
+                    return d;
+                }
+                String b2 = wo1.b(context);
+                d = b2;
+                return b2;
+            } catch (Throwable unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public no1 a(Context context, String str, String str2, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                JSONArray jSONArray = new JSONArray(str);
+                JSONObject c2 = c(context, str2);
+                c2.put("module_section", jSONArray);
+                no1 no1Var = new no1();
+                no1Var.e(i);
+                no1Var.c(c2.toString());
+                no1Var.g(i2);
+                return no1Var;
+            } catch (Throwable th) {
+                vo1.d(th);
+                return null;
+            }
+        }
+        return (no1) invokeCommon.objValue;
     }
 }

@@ -10,25 +10,18 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dr0;
-import com.baidu.tieba.jd1;
-import com.baidu.tieba.u41;
-import com.baidu.tieba.z41;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.b51;
+import com.baidu.tieba.g51;
+import com.baidu.tieba.hr0;
+import com.baidu.tieba.td1;
 /* loaded from: classes2.dex */
 public class NadRewardCountDownView extends RelativeLayout {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public TextView b;
     public TextView c;
-    public z41 d;
+    public g51 d;
     public int e;
     public int f;
     public int g;
@@ -37,7 +30,7 @@ public class NadRewardCountDownView extends RelativeLayout {
     public String j;
     public int k;
     public g l;
-    public jd1 m;
+    public td1 m;
 
     /* loaded from: classes2.dex */
     public interface g {
@@ -58,323 +51,161 @@ public class NadRewardCountDownView extends RelativeLayout {
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NadRewardCountDownView a;
-
-        public a(NadRewardCountDownView nadRewardCountDownView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nadRewardCountDownView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nadRewardCountDownView;
+        public a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.k == 1) {
+            if (NadRewardCountDownView.this.k == 1) {
                 return;
             }
-            if (this.a.k == 2) {
-                this.a.r();
-                if (this.a.m != null) {
-                    u41.b(this.a.m);
-                    if (this.a.l != null) {
-                        this.a.l.d();
+            if (NadRewardCountDownView.this.k == 2) {
+                NadRewardCountDownView.this.r();
+                if (NadRewardCountDownView.this.m != null) {
+                    b51.b(NadRewardCountDownView.this.m);
+                    if (NadRewardCountDownView.this.l != null) {
+                        NadRewardCountDownView.this.l.d();
                     }
                 }
-            } else if (this.a.k == 3 && this.a.l != null) {
-                this.a.l.f();
+            } else if (NadRewardCountDownView.this.k == 3 && NadRewardCountDownView.this.l != null) {
+                NadRewardCountDownView.this.l.f();
             }
         }
     }
 
     /* loaded from: classes2.dex */
     public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NadRewardCountDownView a;
-
-        public b(NadRewardCountDownView nadRewardCountDownView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nadRewardCountDownView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nadRewardCountDownView;
+        public b() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.k == 4 && this.a.l != null) {
-                this.a.l.e();
+            if (NadRewardCountDownView.this.k == 4 && NadRewardCountDownView.this.l != null) {
+                NadRewardCountDownView.this.l.e();
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public class c extends z41.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NadRewardCountDownView a;
-
-        public c(NadRewardCountDownView nadRewardCountDownView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nadRewardCountDownView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nadRewardCountDownView;
+    public class c extends g51.c {
+        public c() {
         }
 
-        @Override // com.baidu.tieba.z41.c
+        @Override // com.baidu.tieba.g51.c
         public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                super.b();
-                if (this.a.k < 3) {
-                    NadRewardCountDownView nadRewardCountDownView = this.a;
-                    nadRewardCountDownView.i = "恭喜您已获得" + this.a.h + "!";
-                    this.a.k = 3;
-                }
-                if (this.a.b.getVisibility() != 0) {
-                    this.a.b.setVisibility(0);
-                }
-                this.a.a.setText(String.format(this.a.i, Integer.valueOf(this.a.f)));
-                this.a.invalidate();
+            super.b();
+            if (NadRewardCountDownView.this.k < 3) {
+                NadRewardCountDownView nadRewardCountDownView = NadRewardCountDownView.this;
+                nadRewardCountDownView.i = "恭喜您已获得" + NadRewardCountDownView.this.h + "!";
+                NadRewardCountDownView.this.k = 3;
             }
+            if (NadRewardCountDownView.this.b.getVisibility() != 0) {
+                NadRewardCountDownView.this.b.setVisibility(0);
+            }
+            NadRewardCountDownView.this.a.setText(String.format(NadRewardCountDownView.this.i, Integer.valueOf(NadRewardCountDownView.this.f)));
+            NadRewardCountDownView.this.invalidate();
         }
 
-        @Override // com.baidu.tieba.z41.c
+        @Override // com.baidu.tieba.g51.c
         public void f(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                super.f(j);
-                this.a.f = (((int) j) / 1000) + 1;
-                if (this.a.k < 2 && this.a.g > 0 && this.a.e - this.a.f > this.a.g) {
-                    if (this.a.b.getVisibility() != 0) {
-                        this.a.b.setVisibility(0);
-                    }
-                    this.a.k = 2;
+            super.f(j);
+            NadRewardCountDownView.this.f = (((int) j) / 1000) + 1;
+            if (NadRewardCountDownView.this.k < 2 && NadRewardCountDownView.this.g > 0 && NadRewardCountDownView.this.e - NadRewardCountDownView.this.f > NadRewardCountDownView.this.g) {
+                if (NadRewardCountDownView.this.b.getVisibility() != 0) {
+                    NadRewardCountDownView.this.b.setVisibility(0);
                 }
-                this.a.a.setText(String.format(this.a.i, Integer.valueOf(this.a.f)));
-                this.a.invalidate();
+                NadRewardCountDownView.this.k = 2;
             }
+            NadRewardCountDownView.this.a.setText(String.format(NadRewardCountDownView.this.i, Integer.valueOf(NadRewardCountDownView.this.f)));
+            NadRewardCountDownView.this.invalidate();
         }
     }
 
     /* loaded from: classes2.dex */
-    public class d implements jd1.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NadRewardCountDownView a;
-
-        public d(NadRewardCountDownView nadRewardCountDownView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nadRewardCountDownView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nadRewardCountDownView;
+    public class d implements td1.b {
+        public d() {
         }
 
-        @Override // com.baidu.tieba.jd1.b
+        @Override // com.baidu.tieba.td1.b
         public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.a.m.dismiss();
-                if (z && this.a.l != null) {
-                    this.a.l.c();
-                }
-                this.a.t();
+            NadRewardCountDownView.this.m.dismiss();
+            if (z && NadRewardCountDownView.this.l != null) {
+                NadRewardCountDownView.this.l.c();
             }
+            NadRewardCountDownView.this.t();
         }
     }
 
     /* loaded from: classes2.dex */
     public class e implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NadRewardCountDownView a;
-
-        public e(NadRewardCountDownView nadRewardCountDownView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nadRewardCountDownView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nadRewardCountDownView;
+        public e() {
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) && this.a.l != null) {
-                this.a.l.g();
+            if (NadRewardCountDownView.this.l != null) {
+                NadRewardCountDownView.this.l.g();
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public class f extends z41.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NadRewardCountDownView a;
-
-        public f(NadRewardCountDownView nadRewardCountDownView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nadRewardCountDownView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nadRewardCountDownView;
+    public class f extends g51.c {
+        public f() {
         }
 
-        @Override // com.baidu.tieba.z41.c
+        @Override // com.baidu.tieba.g51.c
         public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                super.b();
-                if (this.a.k != 4) {
-                    this.a.j = "";
-                    this.a.k = 4;
-                }
-                this.a.c.setText(this.a.j);
-                this.a.c.setBackground(this.a.getResources().getDrawable(R.drawable.nad_reward_close_icon_bg));
-                this.a.requestLayout();
+            super.b();
+            if (NadRewardCountDownView.this.k != 4) {
+                NadRewardCountDownView.this.j = "";
+                NadRewardCountDownView.this.k = 4;
             }
+            NadRewardCountDownView.this.c.setText(NadRewardCountDownView.this.j);
+            NadRewardCountDownView.this.c.setBackground(NadRewardCountDownView.this.getResources().getDrawable(R.drawable.nad_reward_close_icon_bg));
+            NadRewardCountDownView.this.requestLayout();
         }
 
-        @Override // com.baidu.tieba.z41.c
+        @Override // com.baidu.tieba.g51.c
         public void f(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                super.f(j);
-                this.a.f = (((int) j) / 1000) + 1;
-                this.a.c.setText(String.format(this.a.j, Integer.valueOf(this.a.f)));
-                this.a.invalidate();
-            }
+            super.f(j);
+            NadRewardCountDownView.this.f = (((int) j) / 1000) + 1;
+            NadRewardCountDownView.this.c.setText(String.format(NadRewardCountDownView.this.j, Integer.valueOf(NadRewardCountDownView.this.f)));
+            NadRewardCountDownView.this.invalidate();
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NadRewardCountDownView(Context context) {
         this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchWindowVisibilityChanged(int i) {
+        boolean z;
+        super.dispatchWindowVisibilityChanged(i);
+        if (i == 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        if (z) {
+            t();
+        }
+        if (!z) {
+            r();
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public void setRewardDownInnerListener(g gVar) {
+        this.l = gVar;
+    }
+
     public NadRewardCountDownView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NadRewardCountDownView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.g = -1;
         this.h = "奖励";
         this.i = "%2ss后可以领取" + this.h;
@@ -383,55 +214,24 @@ public class NadRewardCountDownView extends RelativeLayout {
         q(context);
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    public void dispatchWindowVisibilityChanged(int i) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            super.dispatchWindowVisibilityChanged(i);
-            if (i == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                t();
-            }
-            if (!z) {
-                r();
-            }
-        }
-    }
-
-    public void setRewardDownInnerListener(g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) {
-            this.l = gVar;
-        }
-    }
-
     public final void q(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.nad_reward_count_down_view, (ViewGroup) this, true);
-            TextView textView = (TextView) findViewById(R.id.nad_skip_view);
-            this.b = textView;
-            textView.setText("跳过");
-            this.b.setVisibility(8);
-            this.a = (TextView) findViewById(R.id.nad_count_down_view);
-            this.c = (TextView) findViewById(R.id.nad_tail_count_down_view);
-            this.a.setClickable(true);
-            this.b.setOnClickListener(new a(this));
-            this.c.setOnClickListener(new b(this));
-            setVisibility(8);
-        }
+        LayoutInflater.from(context).inflate(R.layout.nad_reward_count_down_view, (ViewGroup) this, true);
+        TextView textView = (TextView) findViewById(R.id.nad_skip_view);
+        this.b = textView;
+        textView.setText("跳过");
+        this.b.setVisibility(8);
+        this.a = (TextView) findViewById(R.id.nad_count_down_view);
+        this.c = (TextView) findViewById(R.id.nad_tail_count_down_view);
+        this.a.setClickable(true);
+        this.b.setOnClickListener(new a());
+        this.c.setOnClickListener(new b());
+        setVisibility(8);
     }
 
     public void r() {
-        z41 z41Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (z41Var = this.d) != null) {
-            z41Var.d();
+        g51 g51Var = this.d;
+        if (g51Var != null) {
+            g51Var.d();
             g gVar = this.l;
             if (gVar != null) {
                 gVar.b();
@@ -440,19 +240,17 @@ public class NadRewardCountDownView extends RelativeLayout {
     }
 
     public void s() {
-        z41 z41Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (z41Var = this.d) != null) {
-            z41Var.b();
+        g51 g51Var = this.d;
+        if (g51Var != null) {
+            g51Var.b();
             this.d = null;
         }
     }
 
     public void t() {
-        z41 z41Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (z41Var = this.d) != null) {
-            z41Var.e();
+        g51 g51Var = this.d;
+        if (g51Var != null) {
+            g51Var.e();
             g gVar = this.l;
             if (gVar != null) {
                 gVar.a();
@@ -461,28 +259,24 @@ public class NadRewardCountDownView extends RelativeLayout {
     }
 
     public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            s();
-            this.b.setVisibility(8);
-            this.a.setVisibility(8);
-            this.c.setVisibility(0);
-            z41 z41Var = new z41(3000L, 1000L);
-            this.d = z41Var;
-            z41Var.f(new f(this));
-            this.d.g();
-        }
+        s();
+        this.b.setVisibility(8);
+        this.a.setVisibility(8);
+        this.c.setVisibility(0);
+        g51 g51Var = new g51(3000L, 1000L);
+        this.d = g51Var;
+        g51Var.f(new f());
+        this.d.g();
     }
 
     public void update(AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, adBaseModel) == null) && adBaseModel != null && adBaseModel.j != null) {
+        if (adBaseModel != null && adBaseModel.j != null) {
             setTag(adBaseModel);
-            dr0 dr0Var = adBaseModel.p;
+            hr0 hr0Var = adBaseModel.p;
             float f2 = 1.0f;
-            if (dr0Var != null) {
-                this.g = dr0Var.e;
-                String str = dr0Var.i;
+            if (hr0Var != null) {
+                this.g = hr0Var.e;
+                String str = hr0Var.i;
                 if (!TextUtils.isEmpty(str) && str.length() <= 4) {
                     this.h = str;
                     this.i = "%2ss后可以领取" + this.h;
@@ -495,12 +289,12 @@ public class NadRewardCountDownView extends RelativeLayout {
             int floor = (int) Math.floor(adBaseModel.j.c * f2);
             this.e = floor;
             this.f = floor;
-            z41 z41Var = new z41(floor * 1000, 1000L);
-            this.d = z41Var;
-            z41Var.f(new c(this));
-            jd1 jd1Var = new jd1(getContext(), adBaseModel, new d(this));
-            this.m = jd1Var;
-            jd1Var.setOnDismissListener(new e(this));
+            g51 g51Var = new g51(floor * 1000, 1000L);
+            this.d = g51Var;
+            g51Var.f(new c());
+            td1 td1Var = new td1(getContext(), adBaseModel, new d());
+            this.m = td1Var;
+            td1Var.setOnDismissListener(new e());
             this.a.setVisibility(0);
             setVisibility(0);
             this.d.g();

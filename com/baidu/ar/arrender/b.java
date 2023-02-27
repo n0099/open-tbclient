@@ -3,7 +3,6 @@ package com.baidu.ar.arrender;
 import android.content.Context;
 import android.graphics.PointF;
 import android.opengl.Matrix;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.DuMixInput;
 import com.baidu.ar.DuMixOutput;
 import com.baidu.ar.arplay.core.engine.rotate.Orientation;
@@ -15,39 +14,18 @@ import com.baidu.ar.bean.RotationType;
 import com.baidu.ar.bean.ScaleType;
 import com.baidu.ar.bean.Size;
 import com.baidu.ar.h.q;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class b {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.ar.arrender.b$1  reason: invalid class name */
     /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$ar$arplay$core$engine$rotate$Orientation;
-        public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] gG;
         public static final /* synthetic */ int[] gH;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1752735900, "Lcom/baidu/ar/arrender/b$1;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1752735900, "Lcom/baidu/ar/arrender/b$1;");
-                    return;
-                }
-            }
             int[] iArr = new int[ScaleType.values().length];
             gH = iArr;
             try {
@@ -98,192 +76,164 @@ public class b {
     }
 
     public static PixelRotation a(RotationType rotationType, MirriorType mirriorType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, rotationType, mirriorType)) == null) {
-            PixelRotation pixelRotation = PixelRotation.NoRotation;
-            int i = AnonymousClass1.gG[rotationType.ordinal()];
-            if (i == 1) {
-                if (mirriorType == MirriorType.NO_MIRRIOR) {
-                    return PixelRotation.NoRotation;
-                }
-                if (mirriorType != MirriorType.VERTICAL_MIRRIOR) {
-                    if (mirriorType != MirriorType.HORIZONTAL_MIRRIOR) {
-                        return pixelRotation;
-                    }
-                    return PixelRotation.FlipHorizontal;
-                }
-                return PixelRotation.FlipVertical;
-            } else if (i == 2) {
-                if (mirriorType == MirriorType.NO_MIRRIOR) {
-                    return PixelRotation.RotateRight;
-                }
-                if (mirriorType != MirriorType.VERTICAL_MIRRIOR) {
-                    if (mirriorType != MirriorType.HORIZONTAL_MIRRIOR) {
-                        return pixelRotation;
-                    }
-                    return PixelRotation.RotateRightFlipHorizontal;
-                }
-                return PixelRotation.RotateRightFlipVertical;
-            } else if (i == 3) {
-                if (mirriorType == MirriorType.NO_MIRRIOR) {
-                    return PixelRotation.Rotate180;
-                }
-                if (mirriorType != MirriorType.VERTICAL_MIRRIOR) {
-                    if (mirriorType != MirriorType.HORIZONTAL_MIRRIOR) {
-                        return pixelRotation;
-                    }
-                    return PixelRotation.FlipVertical;
+        PixelRotation pixelRotation = PixelRotation.NoRotation;
+        int i = AnonymousClass1.gG[rotationType.ordinal()];
+        if (i == 1) {
+            if (mirriorType == MirriorType.NO_MIRRIOR) {
+                return PixelRotation.NoRotation;
+            }
+            if (mirriorType != MirriorType.VERTICAL_MIRRIOR) {
+                if (mirriorType != MirriorType.HORIZONTAL_MIRRIOR) {
+                    return pixelRotation;
                 }
                 return PixelRotation.FlipHorizontal;
-            } else if (i != 4) {
-                return pixelRotation;
-            } else {
-                if (mirriorType == MirriorType.NO_MIRRIOR) {
-                    return PixelRotation.RotateLeft;
-                }
-                if (mirriorType != MirriorType.VERTICAL_MIRRIOR) {
-                    if (mirriorType != MirriorType.HORIZONTAL_MIRRIOR) {
-                        return pixelRotation;
-                    }
-                    return PixelRotation.RotateRightFlipVertical;
+            }
+            return PixelRotation.FlipVertical;
+        } else if (i == 2) {
+            if (mirriorType == MirriorType.NO_MIRRIOR) {
+                return PixelRotation.RotateRight;
+            }
+            if (mirriorType != MirriorType.VERTICAL_MIRRIOR) {
+                if (mirriorType != MirriorType.HORIZONTAL_MIRRIOR) {
+                    return pixelRotation;
                 }
                 return PixelRotation.RotateRightFlipHorizontal;
             }
+            return PixelRotation.RotateRightFlipVertical;
+        } else if (i == 3) {
+            if (mirriorType == MirriorType.NO_MIRRIOR) {
+                return PixelRotation.Rotate180;
+            }
+            if (mirriorType != MirriorType.VERTICAL_MIRRIOR) {
+                if (mirriorType != MirriorType.HORIZONTAL_MIRRIOR) {
+                    return pixelRotation;
+                }
+                return PixelRotation.FlipVertical;
+            }
+            return PixelRotation.FlipHorizontal;
+        } else if (i != 4) {
+            return pixelRotation;
+        } else {
+            if (mirriorType == MirriorType.NO_MIRRIOR) {
+                return PixelRotation.RotateLeft;
+            }
+            if (mirriorType != MirriorType.VERTICAL_MIRRIOR) {
+                if (mirriorType != MirriorType.HORIZONTAL_MIRRIOR) {
+                    return pixelRotation;
+                }
+                return PixelRotation.RotateRightFlipVertical;
+            }
+            return PixelRotation.RotateRightFlipHorizontal;
         }
-        return (PixelRotation) invokeLL.objValue;
     }
 
     public static PixelRotation a(boolean z, RotationType rotationType, MirriorType mirriorType) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), rotationType, mirriorType})) == null) ? z ? PixelRotation.FlipVertical : a(rotationType, mirriorType) : (PixelRotation) invokeCommon.objValue;
+        return z ? PixelRotation.FlipVertical : a(rotationType, mirriorType);
     }
 
     public static OutputFillMode a(ScaleType scaleType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, scaleType)) == null) {
-            int i = AnonymousClass1.gH[scaleType.ordinal()];
-            if (i != 1) {
-                if (i == 2 || i == 3) {
-                    return OutputFillMode.KeepRatioFill;
-                }
-                return null;
+        int i = AnonymousClass1.gH[scaleType.ordinal()];
+        if (i != 1) {
+            if (i == 2 || i == 3) {
+                return OutputFillMode.KeepRatioFill;
             }
-            return OutputFillMode.KeepRatioCrop;
+            return null;
         }
-        return (OutputFillMode) invokeL.objValue;
+        return OutputFillMode.KeepRatioCrop;
     }
 
     public static Size a(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65539, null, i, i2, i3, i4)) == null) {
-            Size size = new Size(i, i2);
-            if (i > 0 && i2 > 0 && i3 > 0 && i4 > 0) {
-                float f = i;
-                float f2 = i2;
-                float f3 = f / f2;
-                float f4 = i3 / i4;
-                if (f3 < f4) {
-                    size.setWidth((int) (f2 * f4));
-                    size.setHeight(i2);
-                } else if (f3 > f4) {
-                    size.setWidth(i);
-                    size.setHeight((int) (f / f4));
-                }
+        Size size = new Size(i, i2);
+        if (i > 0 && i2 > 0 && i3 > 0 && i4 > 0) {
+            float f = i;
+            float f2 = i2;
+            float f3 = f / f2;
+            float f4 = i3 / i4;
+            if (f3 < f4) {
+                size.setWidth((int) (f2 * f4));
+                size.setHeight(i2);
+            } else if (f3 > f4) {
+                size.setWidth(i);
+                size.setHeight((int) (f / f4));
             }
-            return size;
         }
-        return (Size) invokeIIII.objValue;
+        return size;
     }
 
     public static HashMap a(Orientation orientation) {
-        InterceptResult invokeL;
         String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, orientation)) == null) {
-            HashMap hashMap = new HashMap();
-            int i = AnonymousClass1.$SwitchMap$com$baidu$ar$arplay$core$engine$rotate$Orientation[orientation.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    str = i == 3 ? "landscape_left" : "landscape_right";
-                }
-                hashMap.put("orient", str);
-                return hashMap;
+        HashMap hashMap = new HashMap();
+        int i = AnonymousClass1.$SwitchMap$com$baidu$ar$arplay$core$engine$rotate$Orientation[orientation.ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                str = i == 3 ? "landscape_left" : "landscape_right";
             }
-            hashMap.put("orient", "portrait");
+            hashMap.put("orient", str);
             return hashMap;
         }
-        return (HashMap) invokeL.objValue;
+        hashMap.put("orient", "portrait");
+        return hashMap;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x0018, code lost:
-        if (r5 != false) goto L14;
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x0016, code lost:
+        r1 = com.baidu.ar.arplay.core.pixel.PixelRotation.Rotate180;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x001a, code lost:
-        r4 = com.baidu.ar.arplay.core.pixel.PixelRotation.Rotate180;
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0019, code lost:
+        r1 = com.baidu.ar.arplay.core.pixel.PixelRotation.NoRotation;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x001d, code lost:
-        r4 = com.baidu.ar.arplay.core.pixel.PixelRotation.NoRotation;
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0033, code lost:
+        if (r2 != false) goto L13;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0037, code lost:
-        if (r5 != false) goto L15;
+    /* JADX WARN: Code restructure failed: missing block: B:9:0x0014, code lost:
+        if (r2 != false) goto L12;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void a(Context context, boolean z, PixelReadParams pixelReadParams) {
         PixelRotation pixelRotation;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, Boolean.valueOf(z), pixelReadParams}) == null) {
-            if (q.gL()) {
-                if (pixelReadParams.getIsPortrait()) {
-                    if (!z) {
-                        pixelRotation = PixelRotation.RotateRight;
-                    }
-                    pixelRotation = PixelRotation.RotateRightFlipVertical;
-                }
-            } else if (!q.gM()) {
-                if (!q.E(context) || !pixelReadParams.getIsPortrait() || !z) {
-                    return;
+        if (q.gL()) {
+            if (pixelReadParams.getIsPortrait()) {
+                if (!z) {
+                    pixelRotation = PixelRotation.RotateRight;
                 }
                 pixelRotation = PixelRotation.RotateRightFlipVertical;
-            } else if (pixelReadParams.getIsPortrait()) {
-                pixelRotation = z ? PixelRotation.RotateRightFlipHorizontal : PixelRotation.RotateLeft;
             }
-            pixelReadParams.setPixelRotate(pixelRotation);
+        } else if (!q.gM()) {
+            if (!q.E(context) || !pixelReadParams.getIsPortrait() || !z) {
+                return;
+            }
+            pixelRotation = PixelRotation.RotateRightFlipVertical;
+        } else if (pixelReadParams.getIsPortrait()) {
+            pixelRotation = z ? PixelRotation.RotateRightFlipHorizontal : PixelRotation.RotateLeft;
         }
+        pixelReadParams.setPixelRotate(pixelRotation);
     }
 
     public static void a(Context context, float[] fArr, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65542, null, context, fArr, z) == null) {
-            Matrix.setIdentityM(fArr, 0);
-            if (q.gL() || q.E(context)) {
-                Matrix.rotateM(fArr, 0, 90.0f, 0.0f, 0.0f, 1.0f);
-                Matrix.translateM(fArr, 0, 0.0f, -1.0f, 0.0f);
-                if (z) {
-                    return;
-                }
-                Matrix.rotateM(fArr, 0, 180.0f, 0.0f, 1.0f, 0.0f);
-            } else if (q.gM()) {
-                Matrix.rotateM(fArr, 0, 270.0f, 0.0f, 0.0f, 1.0f);
-                Matrix.translateM(fArr, 0, -1.0f, 0.0f, 0.0f);
-                if (z) {
-                    return;
-                }
-                Matrix.rotateM(fArr, 0, 180.0f, 0.0f, 1.0f, 0.0f);
-            } else if (z) {
-                Matrix.rotateM(fArr, 0, 270.0f, 0.0f, 0.0f, 1.0f);
-            } else {
-                Matrix.rotateM(fArr, 0, 90.0f, 0.0f, 0.0f, 1.0f);
-                Matrix.translateM(fArr, 0, 0.0f, -1.0f, 0.0f);
-                Matrix.rotateM(fArr, 0, 180.0f, 0.0f, 1.0f, 0.0f);
+        Matrix.setIdentityM(fArr, 0);
+        if (q.gL() || q.E(context)) {
+            Matrix.rotateM(fArr, 0, 90.0f, 0.0f, 0.0f, 1.0f);
+            Matrix.translateM(fArr, 0, 0.0f, -1.0f, 0.0f);
+            if (z) {
+                return;
             }
+            Matrix.rotateM(fArr, 0, 180.0f, 0.0f, 1.0f, 0.0f);
+        } else if (q.gM()) {
+            Matrix.rotateM(fArr, 0, 270.0f, 0.0f, 0.0f, 1.0f);
             Matrix.translateM(fArr, 0, -1.0f, 0.0f, 0.0f);
+            if (z) {
+                return;
+            }
+            Matrix.rotateM(fArr, 0, 180.0f, 0.0f, 1.0f, 0.0f);
+        } else if (z) {
+            Matrix.rotateM(fArr, 0, 270.0f, 0.0f, 0.0f, 1.0f);
+        } else {
+            Matrix.rotateM(fArr, 0, 90.0f, 0.0f, 0.0f, 1.0f);
+            Matrix.translateM(fArr, 0, 0.0f, -1.0f, 0.0f);
+            Matrix.rotateM(fArr, 0, 180.0f, 0.0f, 1.0f, 0.0f);
         }
+        Matrix.translateM(fArr, 0, -1.0f, 0.0f, 0.0f);
     }
 
     public static void a(PointF pointF, boolean z, DuMixInput duMixInput, DuMixOutput duMixOutput, boolean z2) {
@@ -291,8 +241,7 @@ public class b {
         int inputHeight;
         float outputWidth;
         int outputHeight;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{pointF, Boolean.valueOf(z), duMixInput, duMixOutput, Boolean.valueOf(z2)}) == null) || pointF == null || duMixInput == null || duMixOutput == null || duMixOutput.getScaleType() == ScaleType.FIT_XY) {
+        if (pointF == null || duMixInput == null || duMixOutput == null || duMixOutput.getScaleType() == ScaleType.FIT_XY) {
             return;
         }
         if (z) {
@@ -328,25 +277,20 @@ public class b {
     }
 
     public static Size b(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65544, null, i, i2, i3, i4)) == null) {
-            Size size = new Size(i, i2);
-            if (i > 0 && i2 > 0 && i3 > 0 && i4 > 0) {
-                float f = i;
-                float f2 = i2;
-                float f3 = f / f2;
-                float f4 = i3 / i4;
-                if (f3 > f4) {
-                    size.setWidth((int) (f2 * f4));
-                    size.setHeight(i2);
-                } else if (f3 < f4) {
-                    size.setWidth(i);
-                    size.setHeight((int) (f / f4));
-                }
+        Size size = new Size(i, i2);
+        if (i > 0 && i2 > 0 && i3 > 0 && i4 > 0) {
+            float f = i;
+            float f2 = i2;
+            float f3 = f / f2;
+            float f4 = i3 / i4;
+            if (f3 > f4) {
+                size.setWidth((int) (f2 * f4));
+                size.setHeight(i2);
+            } else if (f3 < f4) {
+                size.setWidth(i);
+                size.setHeight((int) (f / f4));
             }
-            return size;
         }
-        return (Size) invokeIIII.objValue;
+        return size;
     }
 }

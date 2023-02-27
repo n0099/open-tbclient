@@ -50,17 +50,19 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cq7;
-import com.baidu.tieba.cr7;
+import com.baidu.tieba.at7;
+import com.baidu.tieba.b25;
+import com.baidu.tieba.b35;
+import com.baidu.tieba.b55;
+import com.baidu.tieba.cu7;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.gh;
-import com.baidu.tieba.hq7;
+import com.baidu.tieba.gt7;
 import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfoMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.ImageAdapter;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.ManagerTipsAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.NoticeModifyAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.RecallAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.ShareForumAdapter;
@@ -68,6 +70,7 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.Shar
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.TextAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.TextGenImageAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.TimestampAdapter;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.TipsAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.VoiceAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AtUserInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
@@ -76,7 +79,6 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.ReMsgIn
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BaseImageMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BigEmotionMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.ImageMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.ManagerTipsSysMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.NoticeModifySysMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.RecallSysMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.ShareForumSysMsg;
@@ -85,33 +87,32 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.Tex
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextGenImageUpdateSysMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TimestampSysMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TipsSysMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.VoiceMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.EffectSlice;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputTool.GroupInputTool;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputTool.GroupInputViewController;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputTool.robotfloor.data.UserReplyInfoData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
-import com.baidu.tieba.ir7;
-import com.baidu.tieba.jq7;
+import com.baidu.tieba.it7;
+import com.baidu.tieba.iu7;
+import com.baidu.tieba.js7;
+import com.baidu.tieba.jt7;
 import com.baidu.tieba.kh;
-import com.baidu.tieba.kq7;
-import com.baidu.tieba.lq7;
-import com.baidu.tieba.mq7;
-import com.baidu.tieba.np7;
-import com.baidu.tieba.oq7;
-import com.baidu.tieba.p15;
-import com.baidu.tieba.p35;
+import com.baidu.tieba.kt7;
+import com.baidu.tieba.lt7;
+import com.baidu.tieba.nt7;
 import com.baidu.tieba.po;
-import com.baidu.tieba.pr7;
-import com.baidu.tieba.qq7;
-import com.baidu.tieba.s05;
-import com.baidu.tieba.tq7;
-import com.baidu.tieba.u05;
+import com.baidu.tieba.pt7;
+import com.baidu.tieba.qu7;
+import com.baidu.tieba.rs7;
+import com.baidu.tieba.tt7;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.vp7;
-import com.baidu.tieba.vq7;
-import com.baidu.tieba.wq7;
+import com.baidu.tieba.vt7;
+import com.baidu.tieba.wt7;
+import com.baidu.tieba.z15;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -125,8 +126,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
-/* loaded from: classes5.dex */
-public class ChatPage implements LifecycleObserver, wq7 {
+/* loaded from: classes4.dex */
+public class ChatPage implements LifecycleObserver, wt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Runnable A;
@@ -136,7 +137,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
     public final GroupChatFragment b;
     @NonNull
     public final GroupChatRepo c;
-    public ManagerTipsAdapter d;
+    public TipsAdapter d;
     public RecallAdapter e;
     public NoticeModifyAdapter f;
     public TextGenImageAdapter g;
@@ -147,7 +148,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
     public long l;
     public String m;
     @Nullable
-    public vp7 n;
+    public rs7 n;
     public boolean o;
     public d0 p;
     public GestureDetector q;
@@ -155,15 +156,15 @@ public class ChatPage implements LifecycleObserver, wq7 {
     public ChatRoomDetail r;
     public final CustomMessageListener s;
     public final GroupChatRepo.n<TreeSet<ChatMsg>> t;
-    public final jq7<BaseMsg> u;
-    public final kq7<BaseMsg> v;
+    public final it7<BaseMsg> u;
+    public final jt7<BaseMsg> v;
     public final GroupChatRepo.o<TreeSet<ChatMsg>> w;
     public boolean x;
     public final CustomMessageListener y;
     public Runnable z;
 
     /* loaded from: classes4.dex */
-    public class l implements cr7.h {
+    public class l implements cu7.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final po a;
@@ -179,12 +180,12 @@ public class ChatPage implements LifecycleObserver, wq7 {
 
             /* renamed from: com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage$l$a$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
-            public class RunnableC0318a implements Runnable {
+            public class RunnableC0294a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0318a(a aVar) {
+                public RunnableC0294a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -206,7 +207,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
                 public void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        this.a.c.b.p0();
+                        this.a.c.b.x0();
                     }
                 }
             }
@@ -237,7 +238,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     this.c.b.p.b.I(this.a, true, BaseMsg.DIFF_ITEM_CALLBACK);
                     if (this.b) {
-                        kh.c(new RunnableC0318a(this));
+                        kh.c(new RunnableC0294a(this));
                     }
                 }
             }
@@ -262,11 +263,11 @@ public class ChatPage implements LifecycleObserver, wq7 {
             this.a = new po(this.b.p.b);
         }
 
-        @Override // com.baidu.tieba.cr7.h
+        @Override // com.baidu.tieba.cu7.h
         @MainThread
-        public void a(long j, @NonNull List<BaseMsg> list, @NonNull cr7.i iVar) {
+        public void a(long j, @NonNull List<BaseMsg> list, @NonNull cu7.i iVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), list, iVar}) != null) || this.b.b.U1()) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), list, iVar}) != null) || this.b.b.Y1()) {
                 return;
             }
             boolean z = true;
@@ -278,20 +279,20 @@ public class ChatPage implements LifecycleObserver, wq7 {
     }
 
     /* loaded from: classes4.dex */
-    public class e0<Adapter extends BaseChatAdapter> extends lq7<Adapter, BaseImageMsg<?>> {
+    public class e0<Adapter extends BaseChatAdapter> extends kt7<Adapter, BaseImageMsg<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatPage c;
 
         /* loaded from: classes4.dex */
-        public class a implements vq7 {
+        public class a implements vt7 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ lq7.e a;
+            public final /* synthetic */ kt7.e a;
             public final /* synthetic */ BaseImageMsg b;
             public final /* synthetic */ e0 c;
 
-            public a(e0 e0Var, lq7.e eVar, BaseImageMsg baseImageMsg) {
+            public a(e0 e0Var, kt7.e eVar, BaseImageMsg baseImageMsg) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -311,7 +312,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
                 this.b = baseImageMsg;
             }
 
-            @Override // com.baidu.tieba.vq7
+            @Override // com.baidu.tieba.vt7
             public void a(int i, int i2, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
@@ -319,7 +320,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
                 }
             }
 
-            @Override // com.baidu.tieba.vq7
+            @Override // com.baidu.tieba.vt7
             public void b(int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
@@ -327,7 +328,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
                 }
             }
 
-            @Override // com.baidu.tieba.vq7
+            @Override // com.baidu.tieba.vt7
             public void c(int i, String str, String str2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, str2) == null) {
@@ -336,7 +337,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
                     this.b.setSdkMsg(str2, str);
                     this.a.a();
                     if (this.c.c.r != null && this.c.c.r.getBasicInfo() != null) {
-                        pr7.a("c15090", 2, this.c.c.r.getBasicInfo().getForumId(), this.c.c.r.getBasicInfo().getId(), TbadkCoreApplication.getCurrentAccount());
+                        qu7.a("c15090", 2, this.c.c.r.getBasicInfo().getForumId(), this.c.c.r.getBasicInfo().getId(), TbadkCoreApplication.getCurrentAccount());
                     }
                 }
             }
@@ -361,7 +362,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lq7
+        @Override // com.baidu.tieba.kt7
         /* renamed from: p */
         public boolean j(@NonNull BaseImageMsg<?> baseImageMsg) {
             InterceptResult invokeL;
@@ -377,31 +378,31 @@ public class ChatPage implements LifecycleObserver, wq7 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lq7
+        @Override // com.baidu.tieba.kt7
         /* renamed from: o */
-        public void i(@NonNull BaseImageMsg<?> baseImageMsg, @NonNull lq7.e eVar) {
+        public void i(@NonNull BaseImageMsg<?> baseImageMsg, @NonNull kt7.e eVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, baseImageMsg, eVar) == null) && this.c.b.b2() != null && !StringUtils.isNull(baseImageMsg.getThumbUrl())) {
-                this.c.b.b2().n1(baseImageMsg.getThumbUrl(), new a(this, eVar, baseImageMsg));
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, baseImageMsg, eVar) == null) && this.c.b.f2() != null && !StringUtils.isNull(baseImageMsg.getThumbUrl())) {
+                this.c.b.f2().u1(baseImageMsg.getThumbUrl(), new a(this, eVar, baseImageMsg));
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class o extends lq7<BaseChatAdapter, VoiceMsg> {
+    public class o extends kt7<BaseChatAdapter, VoiceMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatPage c;
 
         /* loaded from: classes4.dex */
-        public class a implements tq7 {
+        public class a implements tt7 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ lq7.e a;
+            public final /* synthetic */ kt7.e a;
             public final /* synthetic */ VoiceMsg b;
             public final /* synthetic */ o c;
 
-            public a(o oVar, lq7.e eVar, VoiceMsg voiceMsg) {
+            public a(o oVar, kt7.e eVar, VoiceMsg voiceMsg) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -421,19 +422,19 @@ public class ChatPage implements LifecycleObserver, wq7 {
                 this.b = voiceMsg;
             }
 
-            @Override // com.baidu.tieba.tq7
+            @Override // com.baidu.tieba.tt7
             public void a(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                     this.b.setVoiceUrl(str);
                     this.a.a();
                     if (this.c.c.r != null && this.c.c.r.getBasicInfo() != null) {
-                        pr7.a("c15090", 3, this.c.c.r.getBasicInfo().getForumId(), this.c.c.r.getBasicInfo().getId(), TbadkCoreApplication.getCurrentAccount());
+                        qu7.a("c15090", 3, this.c.c.r.getBasicInfo().getForumId(), this.c.c.r.getBasicInfo().getId(), TbadkCoreApplication.getCurrentAccount());
                     }
                 }
             }
 
-            @Override // com.baidu.tieba.tq7
+            @Override // com.baidu.tieba.tt7
             public void isFailed() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -461,7 +462,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lq7
+        @Override // com.baidu.tieba.kt7
         /* renamed from: p */
         public boolean j(@NonNull VoiceMsg voiceMsg) {
             InterceptResult invokeL;
@@ -473,12 +474,12 @@ public class ChatPage implements LifecycleObserver, wq7 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lq7
+        @Override // com.baidu.tieba.kt7
         /* renamed from: o */
-        public void i(@NonNull VoiceMsg voiceMsg, @NonNull lq7.e eVar) {
+        public void i(@NonNull VoiceMsg voiceMsg, @NonNull kt7.e eVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, voiceMsg, eVar) == null) && this.c.b.b2() != null && !StringUtils.isNull(voiceMsg.getPath())) {
-                this.c.b.b2().o1(voiceMsg.getPath(), new a(this, eVar, voiceMsg));
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, voiceMsg, eVar) == null) && this.c.b.f2() != null && !StringUtils.isNull(voiceMsg.getPath())) {
+                this.c.b.f2().v1(voiceMsg.getPath(), new a(this, eVar, voiceMsg));
             }
         }
     }
@@ -517,7 +518,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.b.s0();
+                    this.a.b.A0();
                 }
             }
         }
@@ -556,7 +557,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048581, this, i, str, treeSet) == null) {
                 super.b(i, str, treeSet);
-                this.b.x0();
+                this.b.F0();
             }
         }
 
@@ -659,7 +660,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
                 if (data instanceof Boolean) {
                     this.a.x = ((Boolean) data).booleanValue();
                     if (!this.a.x) {
-                        this.a.w0();
+                        this.a.E0();
                     }
                 }
             }
@@ -694,9 +695,9 @@ public class ChatPage implements LifecycleObserver, wq7 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.c.E(this.a.l, this.a.m, this.a.w);
-                this.a.v0();
-                this.a.Y();
+                this.a.c.L(this.a.l, this.a.m, this.a.w);
+                this.a.D0();
+                this.a.g0();
             }
         }
     }
@@ -785,8 +786,8 @@ public class ChatPage implements LifecycleObserver, wq7 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.c.D();
-                this.a.V();
+                this.a.c.K();
+                this.a.d0();
             }
         }
     }
@@ -868,7 +869,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
         public BdTypeRecyclerView b;
-        public qq7 c;
+        public pt7 c;
         public TextView d;
         public ImageView e;
         public LinearLayout f;
@@ -897,16 +898,16 @@ public class ChatPage implements LifecycleObserver, wq7 {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 d0 d0Var = new d0();
                 d0Var.a = view2;
-                d0Var.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09063f);
-                BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090646);
+                d0Var.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09067d);
+                BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090684);
                 d0Var.b = bdTypeRecyclerView;
-                d0Var.c = new qq7(bdTypeRecyclerView);
-                d0Var.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0925c9);
-                d0Var.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090494);
-                d0Var.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09049e);
-                d0Var.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090885);
-                d0Var.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090884);
-                d0Var.j = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091424);
+                d0Var.c = new pt7(bdTypeRecyclerView);
+                d0Var.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092616);
+                d0Var.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904d1);
+                d0Var.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904db);
+                d0Var.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0908c0);
+                d0Var.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0908bf);
+                d0Var.j = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091465);
                 return d0Var;
             }
             return (d0) invokeL.objValue;
@@ -941,7 +942,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
         public void onScrollToTop() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c.t(this.a.w);
+                this.a.c.w(this.a.w);
             }
         }
     }
@@ -974,7 +975,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c.v(this.a.t);
+                this.a.c.z(this.a.t);
             }
         }
     }
@@ -1008,18 +1009,18 @@ public class ChatPage implements LifecycleObserver, wq7 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048576, this, recyclerView, i, i2) == null) {
                 super.onScrolled(recyclerView, i, i2);
-                if (!this.a.p.b.canScrollVertically(1) && !this.a.c.B()) {
+                if (!this.a.p.b.canScrollVertically(1) && !this.a.c.G()) {
                     ChatPage chatPage = this.a;
                     chatPage.i = chatPage.p.b.getFirstVisiblePosition();
-                    this.a.V();
+                    this.a.d0();
                 }
                 if (i2 < 0) {
-                    this.a.s0();
+                    this.a.A0();
                 }
                 int firstVisiblePosition = this.a.p.b.getFirstVisiblePosition();
                 List<Cdo> data = ((RecyclerViewTypeAdapter) this.a.p.b.getWrappedAdapter()).getData();
                 if ((ListUtils.getItem(data, firstVisiblePosition) instanceof BaseMsg) && ((BaseMsg) ListUtils.getItem(data, firstVisiblePosition)).getCommonMsgField().getMsgId() == this.a.l && this.a.p.f.getVisibility() == 0) {
-                    this.a.v0();
+                    this.a.D0();
                 }
             }
         }
@@ -1090,7 +1091,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
             if (interceptable != null && (invokeL = interceptable.invokeL(1048581, this, motionEvent)) != null) {
                 return invokeL.booleanValue;
             }
-            this.a.T();
+            this.a.a0();
             return false;
         }
 
@@ -1100,7 +1101,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
                 if (Math.abs(f - f2) > 1.0f) {
-                    this.a.T();
+                    this.a.a0();
                     return false;
                 }
                 return false;
@@ -1205,7 +1206,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
                             firstVisiblePosition++;
                         }
                         if (arrayList.isEmpty()) {
-                            this.a.j0();
+                            this.a.r0();
                         }
                     }
                 }
@@ -1244,15 +1245,15 @@ public class ChatPage implements LifecycleObserver, wq7 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.l0()) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.t0()) {
                 return;
             }
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ir7)) {
-                ir7 ir7Var = (ir7) customResponsedMessage.getData();
-                if (this.a.b.b2() != null) {
-                    GroupInputViewController b2 = this.a.b.b2();
-                    b2.b1(ir7Var.c(), ir7Var.b(), this.a.Q(ir7Var.b()));
-                    b2.O0(GroupInputViewController.SourceType.TWO, true);
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof iu7)) {
+                iu7 iu7Var = (iu7) customResponsedMessage.getData();
+                if (this.a.b.f2() != null) {
+                    GroupInputViewController f2 = this.a.b.f2();
+                    f2.j1(iu7Var.c(), iu7Var.b(), this.a.X(iu7Var.b()));
+                    f2.V0(GroupInputViewController.SourceType.TWO, true);
                 }
             }
             if (this.a.r != null && this.a.r.getBasicInfo() != null && this.a.r.getBots() != null && this.a.r.getBots().getBotList() != null) {
@@ -1272,13 +1273,13 @@ public class ChatPage implements LifecycleObserver, wq7 {
     }
 
     /* loaded from: classes4.dex */
-    public class m extends lq7<TextAdapter, TextMsg> {
+    public class m extends kt7<TextAdapter, TextMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatPage c;
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lq7
+        @Override // com.baidu.tieba.kt7
         /* renamed from: o */
         public boolean j(@NonNull TextMsg textMsg) {
             InterceptResult invokeL;
@@ -1307,7 +1308,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
             this.c = chatPage;
         }
 
-        @Override // com.baidu.tieba.lq7
+        @Override // com.baidu.tieba.kt7
         public void k(BaseMsg baseMsg, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseMsg, i, i2) == null) {
@@ -1316,7 +1317,11 @@ public class ChatPage implements LifecycleObserver, wq7 {
                     long forumId = this.c.r.getBasicInfo().getForumId();
                     long id = this.c.r.getBasicInfo().getId();
                     if (i == 5) {
-                        pr7.a("c15090", 1, forumId, id, TbadkCoreApplication.getCurrentAccount());
+                        qu7.a("c15090", 1, forumId, id, TbadkCoreApplication.getCurrentAccount());
+                        String text = ((TextMsg) baseMsg).getText();
+                        if (this.c.b0() != null) {
+                            this.c.b0().G(text, baseMsg.getCommonMsgField().getRoomId(), !baseMsg.isLeft());
+                        }
                     }
                 }
             }
@@ -1324,7 +1329,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
     }
 
     /* loaded from: classes4.dex */
-    public class n implements jq7<NoticeModifySysMsg> {
+    public class n implements it7<NoticeModifySysMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatPage a;
@@ -1348,7 +1353,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jq7
+        @Override // com.baidu.tieba.it7
         /* renamed from: b */
         public void a(@NonNull View view2, @NonNull NoticeModifySysMsg noticeModifySysMsg, int i) {
             Interceptable interceptable = $ic;
@@ -1363,12 +1368,12 @@ public class ChatPage implements LifecycleObserver, wq7 {
     }
 
     /* loaded from: classes4.dex */
-    public class p extends lq7<BaseChatAdapter, ShareForumSysMsg> {
+    public class p extends kt7<BaseChatAdapter, ShareForumSysMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lq7
+        @Override // com.baidu.tieba.kt7
         /* renamed from: o */
         public boolean j(@NonNull ShareForumSysMsg shareForumSysMsg) {
             InterceptResult invokeL;
@@ -1397,12 +1402,12 @@ public class ChatPage implements LifecycleObserver, wq7 {
     }
 
     /* loaded from: classes4.dex */
-    public class q extends lq7<BaseChatAdapter, ShareThreadSysMsg> {
+    public class q extends kt7<BaseChatAdapter, ShareThreadSysMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lq7
+        @Override // com.baidu.tieba.kt7
         /* renamed from: o */
         public boolean j(@NonNull ShareThreadSysMsg shareThreadSysMsg) {
             InterceptResult invokeL;
@@ -1431,12 +1436,12 @@ public class ChatPage implements LifecycleObserver, wq7 {
     }
 
     /* loaded from: classes4.dex */
-    public class r extends lq7<TextGenImageAdapter, TextGenImageMsg> {
+    public class r extends kt7<TextGenImageAdapter, TextGenImageMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lq7
+        @Override // com.baidu.tieba.kt7
         /* renamed from: o */
         public boolean j(@NonNull TextGenImageMsg textGenImageMsg) {
             InterceptResult invokeL;
@@ -1501,7 +1506,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
             if (interceptable != null && interceptable.invokeL(1048576, this, animation) != null) {
                 return;
             }
-            this.a.W();
+            this.a.e0();
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -1514,21 +1519,21 @@ public class ChatPage implements LifecycleObserver, wq7 {
     }
 
     /* loaded from: classes4.dex */
-    public class t implements u05.f {
+    public class t implements b25.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ mq7 b;
+        public final /* synthetic */ lt7 b;
         public final /* synthetic */ BaseMsg c;
         public final /* synthetic */ int d;
-        public final /* synthetic */ s05 e;
+        public final /* synthetic */ z15 e;
 
-        public t(ChatPage chatPage, String str, mq7 mq7Var, BaseMsg baseMsg, int i, s05 s05Var) {
+        public t(ChatPage chatPage, String str, lt7 lt7Var, BaseMsg baseMsg, int i, z15 z15Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {chatPage, str, mq7Var, baseMsg, Integer.valueOf(i), s05Var};
+                Object[] objArr = {chatPage, str, lt7Var, baseMsg, Integer.valueOf(i), z15Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -1539,16 +1544,16 @@ public class ChatPage implements LifecycleObserver, wq7 {
                 }
             }
             this.a = str;
-            this.b = mq7Var;
+            this.b = lt7Var;
             this.c = baseMsg;
             this.d = i;
-            this.e = s05Var;
+            this.e = z15Var;
         }
 
-        @Override // com.baidu.tieba.u05.f
-        public void J0(u05 u05Var, int i, View view2) {
+        @Override // com.baidu.tieba.b25.f
+        public void J0(b25 b25Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLIL(1048576, this, u05Var, i, view2) != null) || !(view2 instanceof TextView)) {
+            if ((interceptable != null && interceptable.invokeLIL(1048576, this, b25Var, i, view2) != null) || !(view2 instanceof TextView)) {
                 return;
             }
             if (TextUtils.equals(((TextView) view2).getText().toString(), this.a)) {
@@ -1617,7 +1622,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048581, this, i, str, treeSet) == null) {
                 super.b(i, str, treeSet);
-                this.b.x0();
+                this.b.F0();
             }
         }
 
@@ -1627,7 +1632,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 super.c();
                 this.b.p.c.f();
-                this.b.w0();
+                this.b.E0();
             }
         }
 
@@ -1644,7 +1649,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
         public void f() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.b.p0();
+                this.b.x0();
             }
         }
 
@@ -1652,14 +1657,14 @@ public class ChatPage implements LifecycleObserver, wq7 {
         public void g() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.b.S();
-                this.b.R();
+                this.b.Z();
+                this.b.Y();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class w implements jq7<BaseMsg> {
+    public class w implements it7<BaseMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatPage a;
@@ -1682,26 +1687,26 @@ public class ChatPage implements LifecycleObserver, wq7 {
             this.a = chatPage;
         }
 
-        @Override // com.baidu.tieba.jq7
+        @Override // com.baidu.tieba.it7
         public void a(@NonNull View view2, @NonNull BaseMsg baseMsg, int i) {
             ReMsgInfo reMsgInfo;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, view2, baseMsg, i) == null) {
                 if (view2.getId() == R.id.btn_msgitem_resend) {
-                    mq7 b = mq7.b(view2);
+                    lt7 b = lt7.b(view2);
                     if (b == null) {
                         return;
                     }
-                    this.a.u0(b, baseMsg, i);
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f090dc5 && (reMsgInfo = baseMsg.getReMsgInfo()) != null) {
-                    this.a.c.E(reMsgInfo.getMsgId(), reMsgInfo.getMsgKey(), this.a.w);
+                    this.a.C0(b, baseMsg, i);
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f090e06 && (reMsgInfo = baseMsg.getReMsgInfo()) != null) {
+                    this.a.c.L(reMsgInfo.getMsgId(), reMsgInfo.getMsgKey(), this.a.w);
                 }
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class x implements kq7<BaseMsg> {
+    public class x implements jt7<BaseMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatPage a;
@@ -1724,15 +1729,15 @@ public class ChatPage implements LifecycleObserver, wq7 {
             this.a = chatPage;
         }
 
-        @Override // com.baidu.tieba.kq7
+        @Override // com.baidu.tieba.jt7
         public boolean a(@NonNull View view2, @NonNull BaseMsg baseMsg, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, view2, baseMsg, i)) == null) {
                 int id = view2.getId();
-                if (id == R.id.obfuscated_res_0x7f090718 || id == R.id.obfuscated_res_0x7f090dcc || id == R.id.obfuscated_res_0x7f090dad || id == R.id.obfuscated_res_0x7f090dd1 || id == R.id.obfuscated_res_0x7f090dc8 || id == R.id.obfuscated_res_0x7f090dc9 || id == R.id.obfuscated_res_0x7f090dc5) {
-                    this.a.t0(baseMsg);
-                    this.a.T();
+                if (id == R.id.obfuscated_res_0x7f090755 || id == R.id.obfuscated_res_0x7f090e0d || id == R.id.obfuscated_res_0x7f090dee || id == R.id.obfuscated_res_0x7f090e12 || id == R.id.obfuscated_res_0x7f090e09 || id == R.id.obfuscated_res_0x7f090e0a || id == R.id.obfuscated_res_0x7f090e06) {
+                    this.a.B0(baseMsg);
+                    this.a.a0();
                     return false;
                 }
                 return false;
@@ -1742,7 +1747,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
     }
 
     /* loaded from: classes4.dex */
-    public class y implements hq7 {
+    public class y implements gt7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseMsg a;
@@ -1767,11 +1772,11 @@ public class ChatPage implements LifecycleObserver, wq7 {
             this.a = baseMsg;
         }
 
-        @Override // com.baidu.tieba.hq7
+        @Override // com.baidu.tieba.gt7
         public void a(@NonNull UserReplyInfoData userReplyInfoData) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, userReplyInfoData) == null) && this.b.b.b2() != null) {
-                this.b.b.b2().D0(userReplyInfoData, this.a);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, userReplyInfoData) == null) && this.b.b.f2() != null) {
+                this.b.b.f2().K0(userReplyInfoData, this.a);
             }
         }
     }
@@ -1805,14 +1810,14 @@ public class ChatPage implements LifecycleObserver, wq7 {
         this.a = groupChatFragment.getPageContext();
         this.b = groupChatFragment;
         this.c = groupChatRepo;
-        groupChatRepo.L(this.t);
+        groupChatRepo.S(this.t);
     }
 
     @NonNull
-    public List<AtUserInfo> o0(List<AtSelectData> list, Map<String, Integer> map) {
+    public List<AtUserInfo> w0(List<AtSelectData> list, Map<String, Integer> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048604, this, list, map)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048611, this, list, map)) == null) {
             if (!ListUtils.isEmpty(list) && !map.isEmpty()) {
                 ArrayList arrayList = new ArrayList();
                 for (AtSelectData atSelectData : list) {
@@ -1829,45 +1834,45 @@ public class ChatPage implements LifecycleObserver, wq7 {
         return (List) invokeLL.objValue;
     }
 
-    public void t0(@NonNull BaseMsg baseMsg) {
+    public void B0(@NonNull BaseMsg baseMsg) {
         ChatRoomDetail chatRoomDetail;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048609, this, baseMsg) != null) || (chatRoomDetail = this.r) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseMsg) != null) || (chatRoomDetail = this.r) == null) {
             return;
         }
-        this.n = np7.c(this.a, baseMsg, chatRoomDetail, new y(this, baseMsg));
+        this.n = js7.c(this.a, baseMsg, chatRoomDetail, new y(this, baseMsg));
     }
 
-    @Override // com.baidu.tieba.wq7
+    @Override // com.baidu.tieba.wt7
     public void b(@NonNull String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048588, this, str, i2) == null) {
-            this.c.J(VoiceMsg.create(str, i2));
+        if (interceptable == null || interceptable.invokeLI(1048587, this, str, i2) == null) {
+            this.c.Q(VoiceMsg.create(str, i2));
         }
     }
 
-    @Override // com.baidu.tieba.wq7
+    @Override // com.baidu.tieba.wt7
     public void d(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, str, str2) == null) {
-            this.c.J(ImageMsg.create(str, str2));
+        if (interceptable == null || interceptable.invokeLL(1048591, this, str, str2) == null) {
+            this.c.Q(ImageMsg.create(str, str2));
         }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     private void onCreate() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65561, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65564, this) == null) {
             this.p = d0.a(this.b.requireView());
             this.b.registerListener(this.y);
-            i0();
+            q0();
         }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     private void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65562, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65565, this) == null) {
             if (this.z != null) {
                 gh.a().removeCallbacks(this.z);
             }
@@ -1880,93 +1885,14 @@ public class ChatPage implements LifecycleObserver, wq7 {
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     private void onStart() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65563, this) == null) && this.b.b2() != null) {
-            this.b.b2().S0(new b0(this));
+        if ((interceptable == null || interceptable.invokeV(65566, this) == null) && this.b.f2() != null) {
+            this.b.f2().Z0(new b0(this));
         }
     }
 
-    public final void T() {
+    public void D0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.b.b2() != null) {
-            GroupInputViewController b2 = this.b.b2();
-            if (b2.U()) {
-                b2.m0();
-            }
-        }
-    }
-
-    @Nullable
-    public vp7 U() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.n;
-        }
-        return (vp7) invokeV.objValue;
-    }
-
-    public void V() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.p.h.getVisibility() == 0) {
-            this.p.h.setVisibility(8);
-        }
-    }
-
-    public final void W() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.p.f.getVisibility() == 0) {
-            this.p.f.setVisibility(8);
-        }
-    }
-
-    public final void Y() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.p.h.getVisibility() != 0) {
-            this.p.h.setVisibility(0);
-            this.p.h.setOnClickListener(new c(this));
-        }
-    }
-
-    @NonNull
-    public final ManagerTipsAdapter a0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            this.c.G(-7014, ManagerTipsSysMsg.class);
-            ManagerTipsAdapter managerTipsAdapter = new ManagerTipsAdapter(this.a, ManagerTipsSysMsg.ADAPTER_TYPE);
-            this.d = managerTipsAdapter;
-            return managerTipsAdapter;
-        }
-        return (ManagerTipsAdapter) invokeV.objValue;
-    }
-
-    @NonNull
-    public final RecallAdapter c0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            this.c.H(RecallSysMsg.MSG_TYPE_LIST, RecallSysMsg.class);
-            RecallAdapter recallAdapter = new RecallAdapter(this.a, RecallSysMsg.ADAPTER_TYPE);
-            this.e = recallAdapter;
-            return recallAdapter;
-        }
-        return (RecallAdapter) invokeV.objValue;
-    }
-
-    @NonNull
-    public final TimestampAdapter h0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            this.c.G(-7013, TimestampSysMsg.class);
-            return new TimestampAdapter(this.a, TimestampSysMsg.ADAPTER_TYPE);
-        }
-        return (TimestampAdapter) invokeV.objValue;
-    }
-
-    public void v0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.k = false;
             TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, 1000.0f, 0.0f, 0.0f);
             translateAnimation.setDuration(1000L);
@@ -1975,69 +1901,279 @@ public class ChatPage implements LifecycleObserver, wq7 {
         }
     }
 
-    public final void w0() {
+    public final void E0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048612, this) == null) && this.p.b.canScrollVertically(1)) {
-            Y();
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.p.b.canScrollVertically(1)) {
+            g0();
         }
     }
 
-    public final void x0() {
+    public final void F0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048613, this) == null) && !BdNetTypeUtil.isNetWorkAvailable()) {
-            ej.M(this.b.requireContext(), R.string.obfuscated_res_0x7f0f0d08);
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !BdNetTypeUtil.isNetWorkAvailable()) {
+            ej.M(this.b.requireContext(), R.string.obfuscated_res_0x7f0f0d11);
+        }
+    }
+
+    public final void a0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.b.f2() != null) {
+            GroupInputViewController f2 = this.b.f2();
+            if (f2.b0()) {
+                f2.t0();
+            }
+        }
+    }
+
+    @Nullable
+    public EffectSlice b0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.b.g2();
+        }
+        return (EffectSlice) invokeV.objValue;
+    }
+
+    @Nullable
+    public rs7 c0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.n;
+        }
+        return (rs7) invokeV.objValue;
+    }
+
+    public void d0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.p.h.getVisibility() == 0) {
+            this.p.h.setVisibility(8);
+        }
+    }
+
+    public final void e0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && this.p.f.getVisibility() == 0) {
+            this.p.f.setVisibility(8);
+        }
+    }
+
+    public final void g0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && this.p.h.getVisibility() != 0) {
+            this.p.h.setVisibility(0);
+            this.p.h.setOnClickListener(new c(this));
         }
     }
 
     @NonNull
-    public final cq7 Q(@NonNull TextGenImageMsg textGenImageMsg) {
+    public final RecallAdapter j0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            this.c.O(RecallSysMsg.MSG_TYPE_LIST, RecallSysMsg.class);
+            RecallAdapter recallAdapter = new RecallAdapter(this.a, RecallSysMsg.ADAPTER_TYPE);
+            this.e = recallAdapter;
+            return recallAdapter;
+        }
+        return (RecallAdapter) invokeV.objValue;
+    }
+
+    @NonNull
+    public final TimestampAdapter o0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            this.c.N(-7013, TimestampSysMsg.class);
+            return new TimestampAdapter(this.a, TimestampSysMsg.ADAPTER_TYPE);
+        }
+        return (TimestampAdapter) invokeV.objValue;
+    }
+
+    @NonNull
+    public final TipsAdapter p0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            this.c.O(TipsSysMsg.MSG_TYPE_LIST, TipsSysMsg.class);
+            TipsAdapter tipsAdapter = new TipsAdapter(this.a, TipsSysMsg.ADAPTER_TYPE);
+            this.d = tipsAdapter;
+            return tipsAdapter;
+        }
+        return (TipsAdapter) invokeV.objValue;
+    }
+
+    public void A0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            int lastVisiblePosition = this.p.b.getLastVisiblePosition();
+            GroupChatFragment groupChatFragment = this.b;
+            if ((groupChatFragment == null || groupChatFragment.a2() == null || this.b.a2().D() == null || this.b.a2().D().getHeight() <= 0) && lastVisiblePosition < this.i) {
+                g0();
+            }
+        }
+    }
+
+    public final void Y() {
+        ChatRoomDetail chatRoomDetail;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (chatRoomDetail = this.r) != null) {
+            boolean z2 = false;
+            if (chatRoomDetail.getAtInfo() == null) {
+                this.k = false;
+            } else {
+                this.k = (this.r.getAtInfo().getAllMsgCount() > 0 || this.r.getAtInfo().getSingleMsgCount() > 0) ? true : true;
+            }
+        }
+    }
+
+    @NonNull
+    public final ImageAdapter f0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            this.c.N(4, BigEmotionMsg.class);
+            ImageAdapter imageAdapter = new ImageAdapter(this.a, BigEmotionMsg.ADAPTER_TYPE);
+            imageAdapter.w(this.u, null);
+            imageAdapter.x(this.v, null);
+            imageAdapter.z(new e0(this, null));
+            return imageAdapter;
+        }
+        return (ImageAdapter) invokeV.objValue;
+    }
+
+    @NonNull
+    public final ImageAdapter h0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            this.c.N(2, ImageMsg.class);
+            ImageAdapter imageAdapter = new ImageAdapter(this.a, ImageMsg.ADAPTER_TYPE);
+            imageAdapter.w(this.u, null);
+            imageAdapter.x(this.v, null);
+            imageAdapter.z(new e0(this, null));
+            return imageAdapter;
+        }
+        return (ImageAdapter) invokeV.objValue;
+    }
+
+    @NonNull
+    public final NoticeModifyAdapter i0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            this.c.N(7001, NoticeModifySysMsg.class);
+            NoticeModifyAdapter noticeModifyAdapter = new NoticeModifyAdapter(this.a, NoticeModifySysMsg.ADAPTER_TYPE);
+            this.f = noticeModifyAdapter;
+            noticeModifyAdapter.w(null, new n(this));
+            return this.f;
+        }
+        return (NoticeModifyAdapter) invokeV.objValue;
+    }
+
+    @NonNull
+    public final ShareForumAdapter k0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            this.c.N(7009, ShareForumSysMsg.class);
+            ShareForumAdapter shareForumAdapter = new ShareForumAdapter(this.a, ShareForumSysMsg.ADAPTER_TYPE);
+            shareForumAdapter.x(this.v, null);
+            shareForumAdapter.z(new p(this));
+            return shareForumAdapter;
+        }
+        return (ShareForumAdapter) invokeV.objValue;
+    }
+
+    @NonNull
+    public final ShareThreadAdapter l0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            this.c.N(7010, ShareThreadSysMsg.class);
+            ShareThreadAdapter shareThreadAdapter = new ShareThreadAdapter(this.a, ShareThreadSysMsg.ADAPTER_TYPE);
+            shareThreadAdapter.x(this.v, null);
+            shareThreadAdapter.z(new q(this));
+            return shareThreadAdapter;
+        }
+        return (ShareThreadAdapter) invokeV.objValue;
+    }
+
+    @NonNull
+    public final TextAdapter m0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            this.c.N(1, TextMsg.class);
+            TextAdapter textAdapter = new TextAdapter(this.a, TextMsg.ADAPTER_TYPE);
+            textAdapter.z(new m(this));
+            textAdapter.w(this.u, null);
+            textAdapter.x(this.v, null);
+            return textAdapter;
+        }
+        return (TextAdapter) invokeV.objValue;
+    }
+
+    public final void C0(@NonNull lt7 lt7Var, @NonNull BaseMsg baseMsg, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, lt7Var, baseMsg, i2) == null) {
+            z15 z15Var = new z15(this.a);
+            String string = this.a.getString(R.string.msg_resend);
+            z15Var.i(null, new String[]{string}, new t(this, string, lt7Var, baseMsg, i2, z15Var));
+            z15Var.k();
+        }
+    }
+
+    @NonNull
+    public final at7 X(@NonNull TextGenImageMsg textGenImageMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, textGenImageMsg)) == null) {
-            cq7 cq7Var = new cq7();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, textGenImageMsg)) == null) {
+            at7 at7Var = new at7();
             BotsDTO.BotListDTO.UserDTO userDTO = new BotsDTO.BotListDTO.UserDTO();
-            cq7Var.a = userDTO;
+            at7Var.a = userDTO;
             userDTO.setName(textGenImageMsg.getCommonMsgField().getUserName());
-            cq7Var.a.setNameShow(textGenImageMsg.getCommonMsgField().getUserName());
-            cq7Var.a.setPortrait(textGenImageMsg.getCommonMsgField().getPortrait());
-            cq7Var.a.setUk(BIMManager.getBdUKFromBdUid(String.valueOf(textGenImageMsg.getCommonMsgField().getUserId())));
-            cq7Var.b = new BotsDTO.BotListDTO.SkillDTO();
+            at7Var.a.setNameShow(textGenImageMsg.getCommonMsgField().getUserName());
+            at7Var.a.setPortrait(textGenImageMsg.getCommonMsgField().getPortrait());
+            at7Var.a.setUk(BIMManager.getBdUKFromBdUid(String.valueOf(textGenImageMsg.getCommonMsgField().getUserId())));
+            at7Var.b = new BotsDTO.BotListDTO.SkillDTO();
             if (textGenImageMsg.getSubSkillConfig() != null) {
-                cq7Var.b.setSubSkill(textGenImageMsg.getSubSkillConfig().a);
+                at7Var.b.setSubSkill(textGenImageMsg.getSubSkillConfig().a);
             }
-            return cq7Var;
+            return at7Var;
         }
-        return (cq7) invokeL.objValue;
+        return (at7) invokeL.objValue;
     }
 
     @SuppressLint({"NotifyDataSetChanged"})
-    public void n0(int i2) {
+    public void v0(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
             this.p.c.h(i2);
             RecyclerView.Adapter adapter = this.p.b.getAdapter();
             if (adapter != null) {
                 adapter.notifyDataSetChanged();
             }
             this.p.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.up_positioning_bubble_icon, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-            p15 d2 = p15.d(this.p.f);
+            b35 d2 = b35.d(this.p.f);
             d2.n(R.string.J_X20);
             d2.f(R.color.CAM_X0207);
-            p15 d3 = p15.d(this.p.d);
+            b35 d3 = b35.d(this.p.d);
             d3.A(R.string.F_X01);
             d3.v(R.color.CAM_X0105);
             d3.z(R.dimen.T_X07);
-            p15 d4 = p15.d(this.p.h);
+            b35 d4 = b35.d(this.p.h);
             d4.n(R.string.J_X01);
             d4.f(R.color.CAM_X0207);
             this.p.g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.down_positioning_bubble_icon, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-            np7.b();
+            js7.b();
         }
     }
 
-    public void r0(@NonNull ChatRoomDetail chatRoomDetail) {
+    public void z0(@NonNull ChatRoomDetail chatRoomDetail) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, chatRoomDetail) == null) {
+        if (interceptable == null || interceptable.invokeL(1048614, this, chatRoomDetail) == null) {
             this.r = chatRoomDetail;
             this.d.G(chatRoomDetail.getBasicInfo().getForumId());
             this.d.H(chatRoomDetail.getBasicInfo().getId());
@@ -2051,156 +2187,45 @@ public class ChatPage implements LifecycleObserver, wq7 {
         }
     }
 
-    public final void R() {
-        ChatRoomDetail chatRoomDetail;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (chatRoomDetail = this.r) != null) {
-            boolean z2 = false;
-            if (chatRoomDetail.getAtInfo() == null) {
-                this.k = false;
-            } else {
-                this.k = (this.r.getAtInfo().getAllMsgCount() > 0 || this.r.getAtInfo().getSingleMsgCount() > 0) ? true : true;
-            }
-        }
-    }
-
-    @NonNull
-    public final ImageAdapter X() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            this.c.G(4, BigEmotionMsg.class);
-            ImageAdapter imageAdapter = new ImageAdapter(this.a, BigEmotionMsg.ADAPTER_TYPE);
-            imageAdapter.w(this.u, null);
-            imageAdapter.x(this.v, null);
-            imageAdapter.z(new e0(this, null));
-            return imageAdapter;
-        }
-        return (ImageAdapter) invokeV.objValue;
-    }
-
-    @NonNull
-    public final ImageAdapter Z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            this.c.G(2, ImageMsg.class);
-            ImageAdapter imageAdapter = new ImageAdapter(this.a, ImageMsg.ADAPTER_TYPE);
-            imageAdapter.w(this.u, null);
-            imageAdapter.x(this.v, null);
-            imageAdapter.z(new e0(this, null));
-            return imageAdapter;
-        }
-        return (ImageAdapter) invokeV.objValue;
-    }
-
-    @NonNull
-    public final NoticeModifyAdapter b0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            this.c.G(7001, NoticeModifySysMsg.class);
-            NoticeModifyAdapter noticeModifyAdapter = new NoticeModifyAdapter(this.a, NoticeModifySysMsg.ADAPTER_TYPE);
-            this.f = noticeModifyAdapter;
-            noticeModifyAdapter.w(null, new n(this));
-            return this.f;
-        }
-        return (NoticeModifyAdapter) invokeV.objValue;
-    }
-
-    @NonNull
-    public final ShareForumAdapter d0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            this.c.G(7009, ShareForumSysMsg.class);
-            ShareForumAdapter shareForumAdapter = new ShareForumAdapter(this.a, ShareForumSysMsg.ADAPTER_TYPE);
-            shareForumAdapter.x(this.v, null);
-            shareForumAdapter.z(new p(this));
-            return shareForumAdapter;
-        }
-        return (ShareForumAdapter) invokeV.objValue;
-    }
-
-    @NonNull
-    public final ShareThreadAdapter e0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            this.c.G(7010, ShareThreadSysMsg.class);
-            ShareThreadAdapter shareThreadAdapter = new ShareThreadAdapter(this.a, ShareThreadSysMsg.ADAPTER_TYPE);
-            shareThreadAdapter.x(this.v, null);
-            shareThreadAdapter.z(new q(this));
-            return shareThreadAdapter;
-        }
-        return (ShareThreadAdapter) invokeV.objValue;
-    }
-
-    @NonNull
-    public final TextAdapter f0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            this.c.G(1, TextMsg.class);
-            TextAdapter textAdapter = new TextAdapter(this.a, TextMsg.ADAPTER_TYPE);
-            textAdapter.z(new m(this));
-            textAdapter.w(this.u, null);
-            textAdapter.x(this.v, null);
-            return textAdapter;
-        }
-        return (TextAdapter) invokeV.objValue;
-    }
-
-    public void s0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            int lastVisiblePosition = this.p.b.getLastVisiblePosition();
-            GroupChatFragment groupChatFragment = this.b;
-            if ((groupChatFragment == null || groupChatFragment.W1() == null || this.b.W1().z() == null || this.b.W1().z().getHeight() <= 0) && lastVisiblePosition < this.i) {
-                Y();
-            }
-        }
-    }
-
-    public final void S() {
+    public final void Z() {
         ChatRoomDetail chatRoomDetail;
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (chatRoomDetail = this.r) != null && chatRoomDetail.getBots() != null && !ListUtils.isEmpty(this.r.getBots().getBotList())) {
-            String s2 = p35.m().s("key_show_bot_tip_list", "");
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (chatRoomDetail = this.r) != null && chatRoomDetail.getBots() != null && !ListUtils.isEmpty(this.r.getBots().getBotList())) {
+            String s2 = b55.m().s("key_show_bot_tip_list", "");
             List asList = Arrays.asList(s2.split(","));
             List<BotsDTO.BotListDTO> botList = this.r.getBots().getBotList();
             for (int i2 = 0; i2 < botList.size(); i2++) {
                 BotsDTO.BotListDTO botListDTO = botList.get(i2);
                 if (botListDTO != null && botListDTO.getUser() != null && !TextUtils.isEmpty(botListDTO.getUser().getUk()) && !asList.contains(botListDTO.getUser().getUk()) && !TextUtils.equals(BIMManager.getBdUidFromBdUK(botListDTO.getUser().getUk()), String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
-                    q0(botListDTO);
+                    y0(botListDTO);
                     if (TextUtils.isEmpty(s2)) {
                         str = botListDTO.getUser().getUk();
                     } else {
                         str = s2 + "," + botListDTO.getUser().getUk();
                     }
-                    p35.m().B("key_show_bot_tip_list", str);
+                    b55.m().B("key_show_bot_tip_list", str);
                     return;
                 }
             }
         }
     }
 
-    public final void i0() {
+    public final void q0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(f0());
-            arrayList.add(b0());
+            arrayList.add(m0());
+            arrayList.add(i0());
+            arrayList.add(o0());
+            arrayList.add(p0());
+            arrayList.add(j0());
+            arrayList.add(s0());
             arrayList.add(h0());
-            arrayList.add(a0());
-            arrayList.add(c0());
             arrayList.add(k0());
-            arrayList.add(Z());
-            arrayList.add(d0());
-            arrayList.add(e0());
-            arrayList.add(X());
-            arrayList.add(g0());
+            arrayList.add(l0());
+            arrayList.add(f0());
+            arrayList.add(n0());
             this.p.b.a(arrayList);
             ViewCommonUtil.setViewMargin(this.p.i, -1, UtilHelper.getStatusBarHeight(), -1, -1);
             d dVar = new d(this, this.b.getContext());
@@ -2212,25 +2237,25 @@ public class ChatPage implements LifecycleObserver, wq7 {
             this.q = new GestureDetector(this.b.getContext(), new h(this));
             this.p.b.setRecyclerViewTouchListener(new i(this));
             this.p.b.addOnLayoutChangeListener(new j(this));
-            this.c.M(new l(this));
+            this.c.T(new l(this));
             this.b.registerListener(this.s);
         }
     }
 
-    @Override // com.baidu.tieba.wq7
+    @Override // com.baidu.tieba.wt7
     public void a(@NonNull String str, @NonNull String str2, @NonNull Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, str, str2, map) == null) {
-            this.c.J(BigEmotionMsg.create(str, str2, map));
+        if (interceptable == null || interceptable.invokeLLL(1048585, this, str, str2, map) == null) {
+            this.c.Q(BigEmotionMsg.create(str, str2, map));
         }
     }
 
-    @Override // com.baidu.tieba.wq7
-    public void c(@NonNull String str, @Nullable Object obj, @Nullable cq7 cq7Var, @Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map, int i2) {
+    @Override // com.baidu.tieba.wt7
+    public void c(@NonNull String str, @Nullable Object obj, @Nullable at7 at7Var, @Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map, int i2) {
         BaseMsg baseMsg;
         TextMsg e2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, obj, cq7Var, list, map, Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{str, obj, at7Var, list, map, Integer.valueOf(i2)}) == null) {
             if (obj instanceof BaseMsg) {
                 baseMsg = (BaseMsg) obj;
             } else {
@@ -2247,22 +2272,22 @@ public class ChatPage implements LifecycleObserver, wq7 {
                         e2.setReMsgInfo(ReMsgInfo.create(baseMsg, ((Object) baseMsg.getReplyPrefix()) + baseMsg.getThumbnailText().toString()));
                     }
                 }
-                e2.addAtUserInfo(o0(list, map));
-                this.c.J(e2);
+                e2.addAtUserInfo(w0(list, map));
+                this.c.Q(e2);
             }
-            e2 = oq7.e(str, baseMsg, cq7Var);
-            e2.addAtUserInfo(o0(list, map));
-            this.c.J(e2);
+            e2 = nt7.e(str, baseMsg, at7Var);
+            e2.addAtUserInfo(w0(list, map));
+            this.c.Q(e2);
         }
     }
 
     @NonNull
-    public final TextGenImageAdapter g0() {
+    public final TextGenImageAdapter n0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            this.c.G(101, TextGenImageMsg.class);
-            this.c.G(7014, TextGenImageUpdateSysMsg.class);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            this.c.N(101, TextGenImageMsg.class);
+            this.c.N(7014, TextGenImageUpdateSysMsg.class);
             TextGenImageAdapter textGenImageAdapter = new TextGenImageAdapter(this.a, TextGenImageMsg.ADAPTER_TYPE);
             this.g = textGenImageAdapter;
             textGenImageAdapter.w(this.u, null);
@@ -2274,17 +2299,17 @@ public class ChatPage implements LifecycleObserver, wq7 {
     }
 
     @NonNull
-    public final VoiceAdapter k0() {
+    public final VoiceAdapter s0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            this.c.G(3, VoiceMsg.class);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            this.c.N(3, VoiceMsg.class);
             VoiceAdapter voiceAdapter = new VoiceAdapter(this.a, VoiceMsg.ADAPTER_TYPE);
             voiceAdapter.w(this.u, null);
             voiceAdapter.x(this.v, null);
             GroupChatFragment groupChatFragment = this.b;
-            if (groupChatFragment != null && groupChatFragment.b2() != null) {
-                voiceAdapter.T(this.b.b2().u0());
+            if (groupChatFragment != null && groupChatFragment.f2() != null) {
+                voiceAdapter.U(this.b.f2().u0());
             }
             voiceAdapter.z(new o(this));
             return voiceAdapter;
@@ -2292,10 +2317,10 @@ public class ChatPage implements LifecycleObserver, wq7 {
         return (VoiceAdapter) invokeV.objValue;
     }
 
-    public final boolean m0() {
+    public final boolean u0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
             ChatRoomDetail chatRoomDetail = this.r;
             if (chatRoomDetail != null && chatRoomDetail.getAtInfo() != null) {
                 AtInfo atInfo = this.r.getAtInfo();
@@ -2313,9 +2338,9 @@ public class ChatPage implements LifecycleObserver, wq7 {
         return invokeV.booleanValue;
     }
 
-    public final void p0() {
+    public final void x0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
             int lastVisiblePosition = this.p.b.getLastVisiblePosition();
             int firstVisiblePosition = this.p.b.getFirstVisiblePosition();
             if (lastVisiblePosition != -1 && this.p.b.getCount() > 0 && this.p.b.getCount() - 1 == lastVisiblePosition) {
@@ -2328,19 +2353,19 @@ public class ChatPage implements LifecycleObserver, wq7 {
         }
     }
 
-    public final void j0() {
+    public final void r0() {
         AtInfoMsg atInfoMsg;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048599, this) != null) || this.r.getAtInfo() == null) {
+        if ((interceptable != null && interceptable.invokeV(1048606, this) != null) || this.r.getAtInfo() == null) {
             return;
         }
         this.p.f.setVisibility(0);
-        if (!m0()) {
-            this.p.d.setText(R.string.obfuscated_res_0x7f0f03c2);
+        if (!u0()) {
+            this.p.d.setText(R.string.obfuscated_res_0x7f0f03c3);
         } else {
-            this.p.d.setText(R.string.obfuscated_res_0x7f0f03c1);
+            this.p.d.setText(R.string.obfuscated_res_0x7f0f03c2);
         }
-        if (!m0()) {
+        if (!u0()) {
             atInfoMsg = this.r.getAtInfo().getSingleMsgList().get(0);
         } else {
             atInfoMsg = this.r.getAtInfo().getAllMsgList().get(0);
@@ -2352,11 +2377,11 @@ public class ChatPage implements LifecycleObserver, wq7 {
         this.p.f.setOnClickListener(new b(this));
     }
 
-    public final boolean l0() {
+    public final boolean t0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            if (this.r.getExtraInfo() != null && this.r.getUserInfo() != null && this.b.b2() != null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            if (this.r.getExtraInfo() != null && this.r.getUserInfo() != null && this.b.f2() != null) {
                 if (this.r.getExtraInfo().getIsFreezing() == 1) {
                     BdTopToast bdTopToast = new BdTopToast(this.b.getContext());
                     bdTopToast.g(this.b.getContext().getString(R.string.group_chat_group_had_close));
@@ -2381,7 +2406,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
                     bdTopToast4.h(false);
                     bdTopToast4.i((ViewGroup) this.b.getView());
                     return true;
-                } else if (this.b.b2().Z(this.r.getExtraInfo().getTalkThresholdLevel(), this.r.getUserInfo().getForumLevel())) {
+                } else if (this.b.f2().g0(this.r.getExtraInfo().getTalkThresholdLevel(), this.r.getUserInfo().getForumLevel())) {
                     String format = String.format(this.b.getStringSafely(R.string.obfuscated_res_0x7f0f0878), Integer.valueOf(this.r.getExtraInfo().getTalkThresholdLevel()));
                     BdTopToast bdTopToast5 = new BdTopToast(this.b.getContext());
                     bdTopToast5.g(format);
@@ -2395,29 +2420,19 @@ public class ChatPage implements LifecycleObserver, wq7 {
         return invokeV.booleanValue;
     }
 
-    public final void q0(BotsDTO.BotListDTO botListDTO) {
+    public final void y0(BotsDTO.BotListDTO botListDTO) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, botListDTO) == null) {
+        if (interceptable == null || interceptable.invokeL(1048613, this, botListDTO) == null) {
             if (botListDTO != null && botListDTO.getUser() != null) {
                 BotsDTO.BotListDTO.UserDTO user = botListDTO.getUser();
                 TextMsg create = TextMsg.create("@" + TbadkCoreApplication.getCurrentAccountNameShow() + " " + botListDTO.getAtGuide());
-                create.setMockSenderInfo(dh.g(BIMManager.getBdUidFromBdUK(user.getUk()), 0L), user.getNameShow(), user.getPortrait(), 4, user.getRobotRole(), user.getForumLevel());
+                create.setMockSenderInfo(dh.g(BIMManager.getBdUidFromBdUK(user.getUk()), 0L), user.getNameShow(), user.getPortrait(), 64, user.getRobotRole(), user.getForumLevel());
                 AtUserInfo.AtType atType = AtUserInfo.AtType.USER;
                 long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
                 create.addAtUserInfo(AtUserInfo.create(atType, currentAccountId, "@" + TbadkCoreApplication.getCurrentAccountNameShow(), TbadkCoreApplication.getCurrentPortrait(), 0));
                 create.setRobotGuideMsg(true);
-                this.c.J(create);
+                this.c.Q(create);
             }
-        }
-    }
-
-    public final void u0(@NonNull mq7 mq7Var, @NonNull BaseMsg baseMsg, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048610, this, mq7Var, baseMsg, i2) == null) {
-            s05 s05Var = new s05(this.a);
-            String string = this.a.getString(R.string.msg_resend);
-            s05Var.i(null, new String[]{string}, new t(this, string, mq7Var, baseMsg, i2, s05Var));
-            s05Var.k();
         }
     }
 }

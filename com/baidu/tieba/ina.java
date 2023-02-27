@@ -1,10 +1,5 @@
 package com.baidu.tieba;
-
-import android.content.DialogInterface;
-import tv.athena.revenue.payui.view.dialog.CancelType;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface ina {
-    void a(CancelType cancelType);
-
-    boolean b(DialogInterface dialogInterface, CancelType cancelType);
+    void cancel() throws Exception;
 }

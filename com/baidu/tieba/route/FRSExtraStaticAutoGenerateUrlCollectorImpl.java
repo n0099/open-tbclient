@@ -57,7 +57,6 @@ public final class FRSExtraStaticAutoGenerateUrlCollectorImpl implements ICmdRou
             arrayList.add("VideoEasterEggActivityConfig");
             arrayList.add("VideoAggregationActivityConfig");
             arrayList.add("VideoMiddlePageActivityConfig");
-            arrayList.add("FrsProfessionIntroActivityConfig");
             arrayList.add("FrsMoreFeedForumsConfig");
             arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_VIDEO_MIDDLE_PAGE);
             hashMap.put("com.baidu.tieba.frs.FRSExtraStatic", arrayList);

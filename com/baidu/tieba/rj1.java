@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import com.baidu.prologue.business.data.SplashStyleRecorder;
+import com.baidu.tieba.ml1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,58 +12,100 @@ public class rj1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948123440, "Lcom/baidu/tieba/rj1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    @NonNull
+    public static ml1 a(@NonNull vj1 vj1Var) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        int b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, vj1Var)) == null) {
+            ml1.b bVar = new ml1.b(vj1Var.j(), vj1Var.g);
+            bVar.u("rsplash");
+            boolean z3 = false;
+            if (vj1Var.f == 1) {
+                z = true;
+            } else {
+                z = false;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948123440, "Lcom/baidu/tieba/rj1;");
-                return;
+            bVar.i(z);
+            bVar.f(b());
+            bVar.n(c());
+            if (vj1Var.f == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
             }
+            bVar.p(z2);
+            bVar.o(d(vj1Var.m));
+            bVar.D(vj1Var.n * 1000);
+            bVar.B(1);
+            bVar.G(SplashStyleRecorder.a());
+            bVar.g(5);
+            bVar.z(false);
+            bVar.c(vj1Var.l);
+            bVar.e(25);
+            bVar.d(13);
+            bVar.C(72);
+            bVar.A(30);
+            bVar.F(68);
+            bVar.E(30);
+            bVar.h(17);
+            bVar.r(vj1Var.z);
+            if (vj1Var.A == 1) {
+                z3 = true;
+            }
+            bVar.y(z3);
+            bVar.b(vj1Var.B);
+            bVar.q(vj1Var.f());
+            bVar.s("跳转详情页或第三方应用");
+            if (vj1Var.l()) {
+                b = 47;
+            } else {
+                b = b() + 39;
+            }
+            bVar.t(b);
+            bVar.k(vj1Var.H);
+            bVar.m(vj1Var.G);
+            bVar.l(vj1Var.e());
+            bVar.j(vj1Var.X);
+            bVar.x(vj1Var.i());
+            bVar.w(vj1Var.h());
+            bVar.v(vj1Var.g());
+            return bVar.a();
         }
-        vj1 e = vj1.e();
-        wj1 wj1Var = new wj1();
-        e.f("splash_ad", wj1Var);
-        e.g(wj1Var);
+        return (ml1) invokeL.objValue;
     }
 
-    public static boolean a(Context context, String str, oj1 oj1Var) {
-        InterceptResult invokeLLL;
+    public static int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, oj1Var)) == null) {
-            if (xj1.g(str)) {
-                return c(context, Uri.parse(str), oj1Var);
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return hj1.a().b();
         }
-        return invokeLLL.booleanValue;
+        return invokeV.intValue;
     }
 
-    public static boolean c(Context context, Uri uri, oj1 oj1Var) {
-        InterceptResult invokeLLL;
+    @IdRes
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, uri, oj1Var)) == null) {
-            return b(context, uri, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE, oj1Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return hj1.a().c();
         }
-        return invokeLLL.booleanValue;
+        return invokeV.intValue;
     }
 
-    public static boolean b(Context context, Uri uri, String str, oj1 oj1Var) {
-        InterceptResult invokeLLLL;
+    @IdRes
+    public static int d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, uri, str, oj1Var)) == null) {
-            if (context == null) {
-                context = qj1.a();
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i == 1) {
+                return hj1.a().h();
             }
-            vj1 e = vj1.e();
-            uj1 uj1Var = new uj1(uri, str);
-            uj1Var.g(false);
-            return e.b(context, uj1Var, oj1Var);
+            return hj1.a().g();
         }
-        return invokeLLLL.booleanValue;
+        return invokeI.intValue;
     }
 }

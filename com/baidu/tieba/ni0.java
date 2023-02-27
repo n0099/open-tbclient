@@ -1,476 +1,97 @@
 package com.baidu.tieba;
 
-import android.util.LruCache;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.PriorityQueue;
 /* loaded from: classes5.dex */
-public class ni0 extends LruCache<String, mi0<File>> {
+public class ni0 extends vd1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<e> a;
-    public final String b;
-    public HashMap<mi0<File>, byte[]> c;
-    public long d;
-    public volatile boolean e;
-    public int f;
-    public long g;
+    public AdBaseModel a;
+    public View b;
+    public View.OnClickListener c;
 
-    /* loaded from: classes5.dex */
-    public interface e {
-        void a(String str, mi0<File> mi0Var);
-
-        void b(String str, mi0<File> mi0Var);
-
-        void c(String str, mi0<File> mi0Var);
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ni0 b;
-
-        public a(String str, ni0 ni0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, ni0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = ni0Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    File file = new File(this.a);
-                    if (!file.exists()) {
-                        file.mkdirs();
-                    }
-                    this.b.o(file.listFiles(), currentTimeMillis);
-                } catch (Exception unused) {
-                    this.b.e = true;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ byte[] a;
-        public final /* synthetic */ mi0 b;
-        public final /* synthetic */ ni0 c;
-
-        public b(ni0 ni0Var, byte[] bArr, mi0 mi0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ni0Var, bArr, mi0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = ni0Var;
-            this.a = bArr;
-            this.b = mi0Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    System.currentTimeMillis();
-                    e51.i(this.a, (File) this.b.a());
-                    this.c.put(((File) this.b.a()).getName(), this.b);
-                    ni0.b(this.c);
-                    if (!this.c.a.isEmpty()) {
-                        for (e eVar : this.c.a) {
-                            eVar.c(((File) this.b.a()).getName(), this.b);
-                        }
-                    }
-                    System.currentTimeMillis();
-                    this.c.f();
-                } catch (Throwable unused) {
-                    if (!this.c.a.isEmpty()) {
-                        for (e eVar2 : this.c.a) {
-                            eVar2.a(((File) this.b.a()).getName(), this.b);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mi0 a;
-        public final /* synthetic */ ni0 b;
-
-        public c(ni0 ni0Var, mi0 mi0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ni0Var, mi0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ni0Var;
-            this.a = mi0Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a != null) {
-                        System.currentTimeMillis();
-                        ((File) this.a.a()).getName();
-                        ni0.c(this.b);
-                        this.a.e();
-                        System.currentTimeMillis();
-                    }
-                    this.b.f();
-                } catch (Throwable unused) {
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements Comparator<File> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d(ni0 ni0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ni0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(File file, File file2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
-                return Long.compare(file.lastModified(), file2.lastModified());
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948003284, "Lcom/baidu/tieba/ni0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948003284, "Lcom/baidu/tieba/ni0;");
-            }
-        }
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ni0(int i, String str) {
-        super(i);
+    public ni0(AdBaseModel adBaseModel, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            Object[] objArr = {adBaseModel, view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.e = false;
-        this.f = 0;
-        this.g = 2592000000L;
-        this.b = str;
-        this.c = new HashMap<>();
+        this.a = adBaseModel;
+        this.b = view2;
     }
 
-    public final void o(File[] fileArr, long j) {
+    @Override // com.baidu.tieba.vd1
+    public void a(String str) {
+        AdBaseModel adBaseModel;
+        xq0 xq0Var;
+        sq0 sq0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048587, this, fileArr, j) == null) {
-            if (fileArr != null && fileArr.length > 0) {
-                PriorityQueue priorityQueue = new PriorityQueue(11, new d(this));
-                if (priorityQueue.size() > 0) {
-                    File file = (File) priorityQueue.peek();
-                    if (file != null) {
-                        this.d = file.lastModified();
-                    }
-                } else {
-                    this.d = System.currentTimeMillis();
-                }
-                priorityQueue.addAll(Arrays.asList(fileArr));
-                while (!priorityQueue.isEmpty()) {
-                    File file2 = (File) priorityQueue.poll();
-                    if (file2 != null) {
-                        m(file2.getName(), file2);
-                    }
-                }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (adBaseModel = this.a) != null && (xq0Var = adBaseModel.f) != null && !TextUtils.isEmpty(xq0Var.d)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.FREE_CLICK);
+            clogBuilder.j(str);
+            tq0 tq0Var = adBaseModel.m;
+            if (tq0Var != null && (sq0Var = tq0Var.q) != null) {
+                clogBuilder.v(sq0Var.a);
             }
-            System.currentTimeMillis();
-            k();
+            clogBuilder.p(adBaseModel.f.d);
+            u21.b(clogBuilder);
         }
     }
 
-    public static /* synthetic */ int b(ni0 ni0Var) {
-        int i = ni0Var.f;
-        ni0Var.f = i + 1;
-        return i;
-    }
-
-    public static /* synthetic */ int c(ni0 ni0Var) {
-        int i = ni0Var.f;
-        ni0Var.f = i - 1;
-        return i;
-    }
-
-    public void delete(String str) {
+    @Override // com.baidu.tieba.vd1
+    public void b(@NonNull dr0 dr0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && super.get(str) != null) {
-            g((mi0) super.remove(str));
-        }
-    }
-
-    public void e(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-            x11.b(this.a, eVar);
-        }
-    }
-
-    public final void g(mi0<File> mi0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mi0Var) == null) {
-            o31.c(new c(this, mi0Var), "delete_disk_file_async", 3);
-        }
-    }
-
-    @Nullable
-    public mi0<File> i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            mi0<File> mi0Var = (mi0) super.get(str);
-            if (mi0Var != null) {
-                try {
-                    mi0Var.a().setLastModified(System.currentTimeMillis());
-                } catch (Throwable unused) {
-                }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dr0Var) == null) {
+            if (dr0Var.c) {
+                aj0.b(dr0Var.a);
+                g(ClogBuilder.LogType.CLICK, "detailbtn", this.a);
             }
-            return mi0Var;
-        }
-        return (mi0) invokeL.objValue;
-    }
-
-    public void n(e eVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, eVar) == null) && this.a.contains(eVar)) {
-            this.a.remove(eVar);
-        }
-    }
-
-    public boolean query(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            mi0<File> i = i(str);
-            if (i != null && i.a().exists()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static ni0 l(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
-            ni0 ni0Var = new ni0(i, str);
-            ni0Var.e = false;
-            o31.c(new a(str, ni0Var), "restore_cache_from_disk", 3);
-            return ni0Var;
-        }
-        return (ni0) invokeLI.objValue;
-    }
-
-    public final void m(String str, File file) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, file) == null) && file.exists()) {
-            super.put(str, new mi0(file));
-            this.f++;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.util.LruCache
-    /* renamed from: p */
-    public int sizeOf(String str, mi0<File> mi0Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, mi0Var)) == null) {
-            if (mi0Var == null) {
-                return super.sizeOf(null, null);
-            }
-            return mi0Var.f();
-        }
-        return invokeLL.intValue;
-    }
-
-    public void q(byte[] bArr, mi0<File> mi0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048589, this, bArr, mi0Var) == null) && mi0Var != null) {
-            if (this.e) {
-                r(mi0Var, bArr);
-            } else {
-                this.c.put(mi0Var, bArr);
+            View.OnClickListener onClickListener = this.c;
+            if (onClickListener != null) {
+                onClickListener.onClick(this.b);
             }
         }
     }
 
-    public final void r(mi0<File> mi0Var, byte[] bArr) {
+    public void h(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, mi0Var, bArr) == null) {
-            o31.c(new b(this, bArr, mi0Var), "store_cache_to_disk", 3);
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.c = onClickListener;
         }
     }
 
-    public synchronized void f() {
+    public final void g(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
+        xq0 xq0Var;
+        sq0 sq0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                if (System.currentTimeMillis() - this.d < this.g) {
-                    return;
-                }
-                System.currentTimeMillis();
-                Map snapshot = super.snapshot();
-                this.d = System.currentTimeMillis();
-                for (String str : snapshot.keySet()) {
-                    mi0 mi0Var = (mi0) snapshot.get(str);
-                    if (mi0Var.d(this.g)) {
-                        ((File) ((mi0) super.remove(str)).a()).delete();
-                        this.f--;
-                    } else if (((File) mi0Var.a()).lastModified() < this.d) {
-                        this.d = ((File) mi0Var.a()).lastModified();
-                    }
-                }
-                System.currentTimeMillis();
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, logType, str, adBaseModel) == null) && adBaseModel != null && (xq0Var = adBaseModel.f) != null && !TextUtils.isEmpty(xq0Var.d)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(logType);
+            clogBuilder.j(str);
+            tq0 tq0Var = adBaseModel.m;
+            if (tq0Var != null && (sq0Var = tq0Var.q) != null) {
+                clogBuilder.v(sq0Var.a);
             }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.util.LruCache
-    /* renamed from: h */
-    public void entryRemoved(boolean z, String str, mi0<File> mi0Var, mi0<File> mi0Var2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), str, mi0Var, mi0Var2}) == null) {
-            super.entryRemoved(z, str, mi0Var, mi0Var2);
-            if (z && mi0Var != null) {
-                g(mi0Var);
-            }
-            if (z && !this.a.isEmpty()) {
-                for (e eVar : this.a) {
-                    eVar.b(str, mi0Var);
-                }
-            }
-        }
-    }
-
-    public final synchronized void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            synchronized (this) {
-                this.e = true;
-                if (this.c != null) {
-                    for (mi0<File> mi0Var : this.c.keySet()) {
-                        r(mi0Var, this.c.get(mi0Var));
-                    }
-                    this.c.clear();
-                    this.c = null;
-                }
-            }
+            clogBuilder.p(adBaseModel.f.d);
+            u21.b(clogBuilder);
         }
     }
 }

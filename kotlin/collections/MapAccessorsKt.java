@@ -1,7 +1,7 @@
 package kotlin.collections;
 
 import androidx.exifinterface.media.ExifInterface;
-import com.heytap.mcssdk.mode.MessageStat;
+import com.heytap.msp.push.mode.MessageStat;
 import java.util.Map;
 import kotlin.Metadata;
 import kotlin.internal.InlineOnly;

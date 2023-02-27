@@ -1,13 +1,20 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
+
+import android.view.View;
+import org.json.JSONObject;
+/* loaded from: classes3.dex */
 public interface cy3 {
-    void a(int i);
+    void a(String str, JSONObject jSONObject);
 
-    void b(boolean z, String str);
+    boolean b();
 
-    void c(boolean z, String str);
+    boolean c(View view2);
 
-    void d(boolean z, int i);
+    boolean d(View view2, ww3 ww3Var);
 
-    void onError(String str);
+    void e();
+
+    boolean f(View view2, ww3 ww3Var);
+
+    boolean removeView(View view2);
 }

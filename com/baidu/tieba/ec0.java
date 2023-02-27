@@ -1,113 +1,85 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Matrix;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import androidx.annotation.RestrictTo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.WeakHashMap;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes4.dex */
 public class ec0 {
     public static /* synthetic */ Interceptable $ic;
-    public static ec0 b;
-    public static WeakHashMap<Object, List<cc0>> c;
+    public static final ThreadLocal<Matrix> a;
+    public static final ThreadLocal<RectF> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public fc0 a;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ec0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-837807623, "Lcom/baidu/tieba/ec0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-837807623, "Lcom/baidu/tieba/ec0$b;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947729399, "Lcom/baidu/tieba/ec0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new ec0(null);
-        }
-    }
-
-    public ec0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947729399, "Lcom/baidu/tieba/ec0;");
                 return;
             }
         }
-        c = new WeakHashMap<>();
-        this.a = new fc0();
+        a = new ThreadLocal<>();
+        b = new ThreadLocal<>();
     }
 
-    public static ec0 a() {
-        InterceptResult invokeV;
+    public static void a(ViewGroup viewGroup, View view2, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                b = b.a;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, viewGroup, view2, rect) == null) {
+            rect.set(0, 0, view2.getWidth(), view2.getHeight());
+            c(viewGroup, view2, rect);
+        }
+    }
+
+    public static void b(ViewParent viewParent, View view2, Matrix matrix) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, viewParent, view2, matrix) == null) {
+            ViewParent parent = view2.getParent();
+            if ((parent instanceof View) && parent != viewParent) {
+                View view3 = (View) parent;
+                b(viewParent, view3, matrix);
+                matrix.preTranslate(-view3.getScrollX(), -view3.getScrollY());
             }
-            return b;
-        }
-        return (ec0) invokeV.objValue;
-    }
-
-    public /* synthetic */ ec0(a aVar) {
-        this();
-    }
-
-    public void b(Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, obj) != null) || obj == null || c.isEmpty()) {
-            return;
-        }
-        this.a.c(c, obj);
-    }
-
-    public void e(Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && obj != null && !c.isEmpty() && c.containsKey(obj)) {
-            this.a.e(c, obj);
-        }
-    }
-
-    public void c(Object obj, Class<?> cls, int i, bc0 bc0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, cls, i, bc0Var) == null) && obj != null && cls != null && bc0Var != null && gc0.a(i)) {
-            this.a.d(c, obj, cls, i, bc0Var);
-        }
-    }
-
-    public synchronized void d(Object obj, Class<?> cls, bc0 bc0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, obj, cls, bc0Var) == null) {
-            synchronized (this) {
-                c(obj, cls, 1, bc0Var);
+            matrix.preTranslate(view2.getLeft(), view2.getTop());
+            if (!view2.getMatrix().isIdentity()) {
+                matrix.preConcat(view2.getMatrix());
             }
+        }
+    }
+
+    public static void c(ViewGroup viewGroup, View view2, Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, viewGroup, view2, rect) == null) {
+            Matrix matrix = a.get();
+            if (matrix == null) {
+                matrix = new Matrix();
+                a.set(matrix);
+            } else {
+                matrix.reset();
+            }
+            b(viewGroup, view2, matrix);
+            RectF rectF = b.get();
+            if (rectF == null) {
+                rectF = new RectF();
+                b.set(rectF);
+            }
+            rectF.set(rect);
+            matrix.mapRect(rectF);
+            rect.set((int) (rectF.left + 0.5f), (int) (rectF.top + 0.5f), (int) (rectF.right + 0.5f), (int) (rectF.bottom + 0.5f));
         }
     }
 }

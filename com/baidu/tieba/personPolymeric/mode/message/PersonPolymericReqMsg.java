@@ -5,10 +5,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.aw4;
+import com.baidu.tieba.bm8;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.pi8;
-import com.baidu.tieba.yo5;
+import com.baidu.tieba.hx4;
+import com.baidu.tieba.mq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,13 +23,13 @@ public class PersonPolymericReqMsg extends NetMessage {
     public int pn;
     public long uid;
 
-    public pi8 getPersonCenterData() {
+    public bm8 getPersonCenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (pi8) invokeV.objValue;
+        return (bm8) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,10 +61,10 @@ public class PersonPolymericReqMsg extends NetMessage {
             builder.pn = Integer.valueOf(this.pn);
             builder.scr_w = Integer.valueOf(ej.l(TbadkCoreApplication.getInst().getApp()));
             builder.scr_h = Integer.valueOf(ej.j(TbadkCoreApplication.getInst().getApp()));
-            builder.q_type = Integer.valueOf(aw4.c().e());
+            builder.q_type = Integer.valueOf(hx4.c().e());
             builder.scr_dip = Double.valueOf(ej.i(TbadkCoreApplication.getInst().getApp()));
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                yo5.a(builder, true);
+                mq5.a(builder, true);
             }
             PersonalReqIdl.Builder builder2 = new PersonalReqIdl.Builder();
             builder2.data = builder.build(false);

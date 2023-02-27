@@ -1,74 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes3.dex */
-public class am7 extends lb {
+public class am7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public am7() {
-        super(2016007);
+    public static bn5 a(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rb
-    /* renamed from: c */
-    public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
-        InterceptResult invokeL;
-        List<ImMessageCenterPojo> data;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage)) == null) {
-            ImMessageCenterPojo imMessageCenterPojo = null;
-            if (customResponsedMessage == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, cls)) == null) {
+            try {
+                bn5 bn5Var = new bn5(i, cls.newInstance());
+                MessageManager.getInstance().registerTask(bn5Var);
+                return bn5Var;
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return null;
+            } catch (InstantiationException e2) {
+                e2.printStackTrace();
                 return null;
             }
-            if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
-                ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
-                if (responsedMemoryListMessage.getType() == 1 && (data = responsedMemoryListMessage.getData()) != null) {
-                    ImMessageCenterPojo imMessageCenterPojo2 = null;
-                    for (ImMessageCenterPojo imMessageCenterPojo3 : data) {
-                        if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == -8) {
-                            imMessageCenterPojo = imMessageCenterPojo3;
-                        }
-                        if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == -7) {
-                            imMessageCenterPojo2 = imMessageCenterPojo3;
-                        }
-                    }
-                    if (imMessageCenterPojo != null) {
-                        data.remove(imMessageCenterPojo);
-                        data.add(fj7.a(imMessageCenterPojo));
-                    }
-                    if (imMessageCenterPojo2 != null) {
-                        data.remove(imMessageCenterPojo2);
-                        data.add(gj7.a(imMessageCenterPojo2));
-                    }
-                }
-            }
-            return customResponsedMessage;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (bn5) invokeIL.objValue;
+    }
+
+    public static cn5 b(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)})) == null) {
+            cn5 cn5Var = new cn5(i);
+            cn5Var.setResponsedClass(cls);
+            cn5Var.h(z);
+            cn5Var.setParallel(TiebaIMConfig.getParallel());
+            MessageManager.getInstance().registerTask(cn5Var);
+            return cn5Var;
+        }
+        return (cn5) invokeCommon.objValue;
     }
 }

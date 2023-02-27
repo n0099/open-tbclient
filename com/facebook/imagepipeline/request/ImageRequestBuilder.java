@@ -1,13 +1,6 @@
 package com.facebook.imagepipeline.request;
 
 import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.util.UriUtil;
 import com.facebook.imagepipeline.common.BytesRange;
@@ -22,542 +15,270 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class ImageRequestBuilder {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public BytesRange mBytesRange;
-    public ImageRequest.CacheChoice mCacheChoice;
-    @Nullable
-    public Boolean mDecodePrefetches;
-    public boolean mDiskCacheEnabled;
-    public ImageDecodeOptions mImageDecodeOptions;
-    public boolean mLocalThumbnailPreviewsEnabled;
-    public String mLogTag;
-    public ImageRequest.RequestLevel mLowestPermittedRequestLevel;
-    public boolean mMemoryCacheEnabled;
-    public Map<String, String> mNetRequestHeader;
-    @Nullable
-    public Postprocessor mPostprocessor;
-    public boolean mProgressiveRenderingEnabled;
     @Nullable
     public RequestListener mRequestListener;
-    public Priority mRequestPriority;
+    public Uri mSourceUri = null;
+    public ImageRequest.RequestLevel mLowestPermittedRequestLevel = ImageRequest.RequestLevel.FULL_FETCH;
     @Nullable
-    public ResizeOptions mResizeOptions;
+    public ResizeOptions mResizeOptions = null;
     @Nullable
-    public Boolean mResizingAllowedOverride;
+    public RotationOptions mRotationOptions = null;
+    public ImageDecodeOptions mImageDecodeOptions = ImageDecodeOptions.defaults();
+    public ImageRequest.CacheChoice mCacheChoice = ImageRequest.CacheChoice.DEFAULT;
+    public boolean mProgressiveRenderingEnabled = ImagePipelineConfig.getDefaultImageRequestConfig().isProgressiveRenderingEnabled();
+    public boolean mLocalThumbnailPreviewsEnabled = false;
+    public Priority mRequestPriority = Priority.HIGH;
     @Nullable
-    public RotationOptions mRotationOptions;
-    public Uri mSourceUri;
-    public String mTag;
+    public Postprocessor mPostprocessor = null;
+    public boolean mDiskCacheEnabled = true;
+    public boolean mMemoryCacheEnabled = true;
+    @Nullable
+    public Boolean mDecodePrefetches = null;
+    @Nullable
+    public BytesRange mBytesRange = null;
+    @Nullable
+    public Boolean mResizingAllowedOverride = null;
+    public Map<String, String> mNetRequestHeader = null;
+    public String mTag = null;
+    public String mLogTag = null;
 
     /* loaded from: classes7.dex */
     public static class BuilderException extends RuntimeException {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public BuilderException(String str) {
             super("Invalid request builder: " + str);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
         }
-    }
-
-    public ImageRequestBuilder() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mSourceUri = null;
-        this.mLowestPermittedRequestLevel = ImageRequest.RequestLevel.FULL_FETCH;
-        this.mResizeOptions = null;
-        this.mRotationOptions = null;
-        this.mImageDecodeOptions = ImageDecodeOptions.defaults();
-        this.mCacheChoice = ImageRequest.CacheChoice.DEFAULT;
-        this.mProgressiveRenderingEnabled = ImagePipelineConfig.getDefaultImageRequestConfig().isProgressiveRenderingEnabled();
-        this.mLocalThumbnailPreviewsEnabled = false;
-        this.mRequestPriority = Priority.HIGH;
-        this.mPostprocessor = null;
-        this.mDiskCacheEnabled = true;
-        this.mMemoryCacheEnabled = true;
-        this.mDecodePrefetches = null;
-        this.mBytesRange = null;
-        this.mResizingAllowedOverride = null;
-        this.mNetRequestHeader = null;
-        this.mTag = null;
-        this.mLogTag = null;
     }
 
     public static ImageRequestBuilder fromRequest(ImageRequest imageRequest) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageRequest)) == null) {
-            return newBuilderWithSource(imageRequest.getSourceUri()).setImageDecodeOptions(imageRequest.getImageDecodeOptions()).setBytesRange(imageRequest.getBytesRange()).setCacheChoice(imageRequest.getCacheChoice()).setLocalThumbnailPreviewsEnabled(imageRequest.getLocalThumbnailPreviewsEnabled()).setLowestPermittedRequestLevel(imageRequest.getLowestPermittedRequestLevel()).setPostprocessor(imageRequest.getPostprocessor()).setProgressiveRenderingEnabled(imageRequest.getProgressiveRenderingEnabled()).setRequestPriority(imageRequest.getPriority()).setResizeOptions(imageRequest.getResizeOptions()).setRequestListener(imageRequest.getRequestListener()).setRotationOptions(imageRequest.getRotationOptions()).setShouldDecodePrefetches(imageRequest.shouldDecodePrefetches()).setNetRequestHeader(imageRequest.getNetRequestHeader()).setTag(imageRequest.mTag).setLogTag(imageRequest.mLogTag);
-        }
-        return (ImageRequestBuilder) invokeL.objValue;
+        return newBuilderWithSource(imageRequest.getSourceUri()).setImageDecodeOptions(imageRequest.getImageDecodeOptions()).setBytesRange(imageRequest.getBytesRange()).setCacheChoice(imageRequest.getCacheChoice()).setLocalThumbnailPreviewsEnabled(imageRequest.getLocalThumbnailPreviewsEnabled()).setLowestPermittedRequestLevel(imageRequest.getLowestPermittedRequestLevel()).setPostprocessor(imageRequest.getPostprocessor()).setProgressiveRenderingEnabled(imageRequest.getProgressiveRenderingEnabled()).setRequestPriority(imageRequest.getPriority()).setResizeOptions(imageRequest.getResizeOptions()).setRequestListener(imageRequest.getRequestListener()).setRotationOptions(imageRequest.getRotationOptions()).setShouldDecodePrefetches(imageRequest.shouldDecodePrefetches()).setNetRequestHeader(imageRequest.getNetRequestHeader()).setTag(imageRequest.mTag).setLogTag(imageRequest.mLogTag);
     }
 
     public static ImageRequestBuilder newBuilderWithResourceId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            return newBuilderWithSource(UriUtil.getUriForResourceId(i));
-        }
-        return (ImageRequestBuilder) invokeI.objValue;
+        return newBuilderWithSource(UriUtil.getUriForResourceId(i));
     }
 
     public static ImageRequestBuilder newBuilderWithSource(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, uri)) == null) {
-            return new ImageRequestBuilder().setSource(uri);
-        }
-        return (ImageRequestBuilder) invokeL.objValue;
+        return new ImageRequestBuilder().setSource(uri);
     }
 
     @Deprecated
     public ImageRequestBuilder setAutoRotateEnabled(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048597, this, z)) == null) {
-            if (z) {
-                return setRotationOptions(RotationOptions.autoRotate());
-            }
-            return setRotationOptions(RotationOptions.disableRotation());
+        if (z) {
+            return setRotationOptions(RotationOptions.autoRotate());
         }
-        return (ImageRequestBuilder) invokeZ.objValue;
+        return setRotationOptions(RotationOptions.disableRotation());
     }
 
     public ImageRequestBuilder setBytesRange(@Nullable BytesRange bytesRange) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, bytesRange)) == null) {
-            this.mBytesRange = bytesRange;
-            return this;
-        }
-        return (ImageRequestBuilder) invokeL.objValue;
+        this.mBytesRange = bytesRange;
+        return this;
     }
 
     public ImageRequestBuilder setCacheChoice(ImageRequest.CacheChoice cacheChoice) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, cacheChoice)) == null) {
-            this.mCacheChoice = cacheChoice;
-            return this;
-        }
-        return (ImageRequestBuilder) invokeL.objValue;
+        this.mCacheChoice = cacheChoice;
+        return this;
     }
 
     public ImageRequestBuilder setImageDecodeOptions(ImageDecodeOptions imageDecodeOptions) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, imageDecodeOptions)) == null) {
-            this.mImageDecodeOptions = imageDecodeOptions;
-            return this;
-        }
-        return (ImageRequestBuilder) invokeL.objValue;
+        this.mImageDecodeOptions = imageDecodeOptions;
+        return this;
     }
 
     public ImageRequestBuilder setLocalThumbnailPreviewsEnabled(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048601, this, z)) == null) {
-            this.mLocalThumbnailPreviewsEnabled = z;
-            return this;
-        }
-        return (ImageRequestBuilder) invokeZ.objValue;
+        this.mLocalThumbnailPreviewsEnabled = z;
+        return this;
     }
 
     public ImageRequestBuilder setLogTag(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
-            this.mLogTag = str;
-            return this;
-        }
-        return (ImageRequestBuilder) invokeL.objValue;
+        this.mLogTag = str;
+        return this;
     }
 
     public ImageRequestBuilder setLowestPermittedRequestLevel(ImageRequest.RequestLevel requestLevel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, requestLevel)) == null) {
-            this.mLowestPermittedRequestLevel = requestLevel;
-            return this;
-        }
-        return (ImageRequestBuilder) invokeL.objValue;
+        this.mLowestPermittedRequestLevel = requestLevel;
+        return this;
     }
 
     public ImageRequestBuilder setNetRequestHeader(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, map)) == null) {
-            this.mNetRequestHeader = map;
-            return this;
-        }
-        return (ImageRequestBuilder) invokeL.objValue;
+        this.mNetRequestHeader = map;
+        return this;
     }
 
     public ImageRequestBuilder setPostprocessor(@Nullable Postprocessor postprocessor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, postprocessor)) == null) {
-            this.mPostprocessor = postprocessor;
-            return this;
-        }
-        return (ImageRequestBuilder) invokeL.objValue;
+        this.mPostprocessor = postprocessor;
+        return this;
     }
 
     public ImageRequestBuilder setProgressiveRenderingEnabled(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048606, this, z)) == null) {
-            this.mProgressiveRenderingEnabled = z;
-            return this;
-        }
-        return (ImageRequestBuilder) invokeZ.objValue;
+        this.mProgressiveRenderingEnabled = z;
+        return this;
     }
 
     public ImageRequestBuilder setRequestListener(RequestListener requestListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, requestListener)) == null) {
-            this.mRequestListener = requestListener;
-            return this;
-        }
-        return (ImageRequestBuilder) invokeL.objValue;
+        this.mRequestListener = requestListener;
+        return this;
     }
 
     public ImageRequestBuilder setRequestPriority(Priority priority) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, priority)) == null) {
-            this.mRequestPriority = priority;
-            return this;
-        }
-        return (ImageRequestBuilder) invokeL.objValue;
+        this.mRequestPriority = priority;
+        return this;
     }
 
     public ImageRequestBuilder setResizeOptions(@Nullable ResizeOptions resizeOptions) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, resizeOptions)) == null) {
-            this.mResizeOptions = resizeOptions;
-            return this;
-        }
-        return (ImageRequestBuilder) invokeL.objValue;
+        this.mResizeOptions = resizeOptions;
+        return this;
     }
 
     public ImageRequestBuilder setResizingAllowedOverride(@Nullable Boolean bool) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, bool)) == null) {
-            this.mResizingAllowedOverride = bool;
-            return this;
-        }
-        return (ImageRequestBuilder) invokeL.objValue;
+        this.mResizingAllowedOverride = bool;
+        return this;
     }
 
     public ImageRequestBuilder setRotationOptions(@Nullable RotationOptions rotationOptions) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, rotationOptions)) == null) {
-            this.mRotationOptions = rotationOptions;
-            return this;
-        }
-        return (ImageRequestBuilder) invokeL.objValue;
+        this.mRotationOptions = rotationOptions;
+        return this;
     }
 
     public ImageRequestBuilder setShouldDecodePrefetches(@Nullable Boolean bool) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, bool)) == null) {
-            this.mDecodePrefetches = bool;
-            return this;
-        }
-        return (ImageRequestBuilder) invokeL.objValue;
+        this.mDecodePrefetches = bool;
+        return this;
     }
 
     public ImageRequestBuilder setSource(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, uri)) == null) {
-            Preconditions.checkNotNull(uri);
-            this.mSourceUri = uri;
-            return this;
-        }
-        return (ImageRequestBuilder) invokeL.objValue;
+        Preconditions.checkNotNull(uri);
+        this.mSourceUri = uri;
+        return this;
     }
 
     public ImageRequestBuilder setTag(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, str)) == null) {
-            this.mTag = str;
-            return this;
-        }
-        return (ImageRequestBuilder) invokeL.objValue;
+        this.mTag = str;
+        return this;
     }
 
     public ImageRequest build() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            validate();
-            return new ImageRequest(this);
-        }
-        return (ImageRequest) invokeV.objValue;
+        validate();
+        return new ImageRequest(this);
     }
 
     public ImageRequestBuilder disableDiskCache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.mDiskCacheEnabled = false;
-            return this;
-        }
-        return (ImageRequestBuilder) invokeV.objValue;
+        this.mDiskCacheEnabled = false;
+        return this;
     }
 
     public ImageRequestBuilder disableMemoryCache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            this.mMemoryCacheEnabled = false;
-            return this;
-        }
-        return (ImageRequestBuilder) invokeV.objValue;
+        this.mMemoryCacheEnabled = false;
+        return this;
     }
 
     @Nullable
     public BytesRange getBytesRange() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mBytesRange;
-        }
-        return (BytesRange) invokeV.objValue;
+        return this.mBytesRange;
     }
 
     public ImageRequest.CacheChoice getCacheChoice() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mCacheChoice;
-        }
-        return (ImageRequest.CacheChoice) invokeV.objValue;
+        return this.mCacheChoice;
     }
 
     public ImageDecodeOptions getImageDecodeOptions() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mImageDecodeOptions;
-        }
-        return (ImageDecodeOptions) invokeV.objValue;
+        return this.mImageDecodeOptions;
     }
 
     public String getLogTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.mLogTag;
-        }
-        return (String) invokeV.objValue;
+        return this.mLogTag;
     }
 
     public ImageRequest.RequestLevel getLowestPermittedRequestLevel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.mLowestPermittedRequestLevel;
-        }
-        return (ImageRequest.RequestLevel) invokeV.objValue;
+        return this.mLowestPermittedRequestLevel;
     }
 
     public Map<String, String> getNetRequestHeader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.mNetRequestHeader;
-        }
-        return (Map) invokeV.objValue;
+        return this.mNetRequestHeader;
     }
 
     @Nullable
     public Postprocessor getPostprocessor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.mPostprocessor;
-        }
-        return (Postprocessor) invokeV.objValue;
+        return this.mPostprocessor;
     }
 
     @Nullable
     public RequestListener getRequestListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.mRequestListener;
-        }
-        return (RequestListener) invokeV.objValue;
+        return this.mRequestListener;
     }
 
     public Priority getRequestPriority() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.mRequestPriority;
-        }
-        return (Priority) invokeV.objValue;
+        return this.mRequestPriority;
     }
 
     @Nullable
     public ResizeOptions getResizeOptions() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.mResizeOptions;
-        }
-        return (ResizeOptions) invokeV.objValue;
+        return this.mResizeOptions;
     }
 
     @Nullable
     public Boolean getResizingAllowedOverride() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.mResizingAllowedOverride;
-        }
-        return (Boolean) invokeV.objValue;
+        return this.mResizingAllowedOverride;
     }
 
     @Nullable
     public RotationOptions getRotationOptions() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.mRotationOptions;
-        }
-        return (RotationOptions) invokeV.objValue;
+        return this.mRotationOptions;
     }
 
     public Uri getSourceUri() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.mSourceUri;
-        }
-        return (Uri) invokeV.objValue;
+        return this.mSourceUri;
     }
 
     public String getTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.mTag;
-        }
-        return (String) invokeV.objValue;
+        return this.mTag;
     }
 
     public boolean isDiskCacheEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (this.mDiskCacheEnabled && UriUtil.isNetworkUri(this.mSourceUri)) {
-                return true;
-            }
-            return false;
+        if (this.mDiskCacheEnabled && UriUtil.isNetworkUri(this.mSourceUri)) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public boolean isLocalThumbnailPreviewsEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.mLocalThumbnailPreviewsEnabled;
-        }
-        return invokeV.booleanValue;
+        return this.mLocalThumbnailPreviewsEnabled;
     }
 
     public boolean isMemoryCacheEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.mMemoryCacheEnabled;
-        }
-        return invokeV.booleanValue;
+        return this.mMemoryCacheEnabled;
     }
 
     public boolean isProgressiveRenderingEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.mProgressiveRenderingEnabled;
-        }
-        return invokeV.booleanValue;
+        return this.mProgressiveRenderingEnabled;
     }
 
     @Nullable
     public Boolean shouldDecodePrefetches() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
-            return this.mDecodePrefetches;
-        }
-        return (Boolean) invokeV.objValue;
+        return this.mDecodePrefetches;
     }
 
     public void validate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
-            Uri uri = this.mSourceUri;
-            if (uri != null) {
-                if (UriUtil.isLocalResourceUri(uri)) {
-                    if (this.mSourceUri.isAbsolute()) {
-                        if (!this.mSourceUri.getPath().isEmpty()) {
-                            try {
-                                Integer.parseInt(this.mSourceUri.getPath().substring(1));
-                            } catch (NumberFormatException unused) {
-                                throw new BuilderException("Resource URI path must be a resource id.");
-                            }
-                        } else {
-                            throw new BuilderException("Resource URI must not be empty");
+        Uri uri = this.mSourceUri;
+        if (uri != null) {
+            if (UriUtil.isLocalResourceUri(uri)) {
+                if (this.mSourceUri.isAbsolute()) {
+                    if (!this.mSourceUri.getPath().isEmpty()) {
+                        try {
+                            Integer.parseInt(this.mSourceUri.getPath().substring(1));
+                        } catch (NumberFormatException unused) {
+                            throw new BuilderException("Resource URI path must be a resource id.");
                         }
                     } else {
-                        throw new BuilderException("Resource URI path must be absolute.");
+                        throw new BuilderException("Resource URI must not be empty");
                     }
+                } else {
+                    throw new BuilderException("Resource URI path must be absolute.");
                 }
-                if (UriUtil.isLocalAssetUri(this.mSourceUri) && !this.mSourceUri.isAbsolute()) {
-                    throw new BuilderException("Asset URI path must be absolute.");
-                }
-                return;
             }
-            throw new BuilderException("Source must be set!");
+            if (UriUtil.isLocalAssetUri(this.mSourceUri) && !this.mSourceUri.isAbsolute()) {
+                throw new BuilderException("Asset URI path must be absolute.");
+            }
+            return;
         }
+        throw new BuilderException("Source must be set!");
     }
 }

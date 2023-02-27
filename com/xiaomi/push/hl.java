@@ -1,186 +1,702 @@
 package com.xiaomi.push;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.WebGLImageLoader;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import java.io.Serializable;
+import java.util.BitSet;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public final class hl {
-    public static /* synthetic */ Interceptable $ic;
-    public static final hl a;
+public class hl implements is<hl, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ hl[] f495a;
-    public static final hl b;
-    public static final hl c;
-    public static final hl d;
-    public static final hl e;
-    public static final hl f;
-    public static final hl g;
-    public static final hl h;
-    public static final hl i;
-    public static final hl j;
-    public static final hl k;
-    public static final hl l;
-    public static final hl m;
-    public static final hl n;
-    public static final hl o;
-    public static final hl p;
-    public static final hl q;
-    public static final hl r;
-    public static final hl s;
-    public static final hl t;
-    public static final hl u;
-    public static final hl v;
-    public static final hl w;
-    public static final hl x;
-    public transient /* synthetic */ FieldHolder $fh;
+    public long f479a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f496a;
+    public String f480a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56372804, "Lcom/xiaomi/push/hl;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* renamed from: a  reason: collision with other field name */
+    public BitSet f481a = new BitSet(3);
+
+    /* renamed from: a  reason: collision with other field name */
+    public Map<String, String> f482a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public boolean f483a;
+
+    /* renamed from: b  reason: collision with other field name */
+    public long f484b;
+
+    /* renamed from: b  reason: collision with other field name */
+    public String f485b;
+
+    /* renamed from: c  reason: collision with other field name */
+    public String f486c;
+
+    /* renamed from: d  reason: collision with other field name */
+    public String f487d;
+
+    /* renamed from: e  reason: collision with other field name */
+    public String f488e;
+
+    /* renamed from: f  reason: collision with other field name */
+    public String f489f;
+
+    /* renamed from: g  reason: collision with other field name */
+    public String f490g;
+
+    /* renamed from: a  reason: collision with other field name */
+    public static final ji f478a = new ji("ClientUploadDataItem");
+    public static final ja a = new ja("", Constants.GZIP_CAST_TYPE, 1);
+    public static final ja b = new ja("", Constants.GZIP_CAST_TYPE, 2);
+    public static final ja c = new ja("", Constants.GZIP_CAST_TYPE, 3);
+    public static final ja d = new ja("", (byte) 10, 4);
+    public static final ja e = new ja("", (byte) 10, 5);
+    public static final ja f = new ja("", (byte) 2, 6);
+    public static final ja g = new ja("", Constants.GZIP_CAST_TYPE, 7);
+    public static final ja h = new ja("", Constants.GZIP_CAST_TYPE, 8);
+    public static final ja i = new ja("", Constants.GZIP_CAST_TYPE, 9);
+    public static final ja j = new ja("", (byte) 13, 10);
+    public static final ja k = new ja("", Constants.GZIP_CAST_TYPE, 11);
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(hl hlVar) {
+        int a2;
+        int a3;
+        int a4;
+        int a5;
+        int a6;
+        int a7;
+        int a8;
+        int a9;
+        int a10;
+        int a11;
+        int a12;
+        if (hl.class.equals(hlVar.getClass())) {
+            int compareTo = Boolean.valueOf(m473a()).compareTo(Boolean.valueOf(hlVar.m473a()));
+            if (compareTo != 0) {
+                return compareTo;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-56372804, "Lcom/xiaomi/push/hl;");
-                return;
+            if (!m473a() || (a12 = it.a(this.f480a, hlVar.f480a)) == 0) {
+                int compareTo2 = Boolean.valueOf(m475b()).compareTo(Boolean.valueOf(hlVar.m475b()));
+                if (compareTo2 != 0) {
+                    return compareTo2;
+                }
+                if (!m475b() || (a11 = it.a(this.f485b, hlVar.f485b)) == 0) {
+                    int compareTo3 = Boolean.valueOf(m476c()).compareTo(Boolean.valueOf(hlVar.m476c()));
+                    if (compareTo3 != 0) {
+                        return compareTo3;
+                    }
+                    if (!m476c() || (a10 = it.a(this.f486c, hlVar.f486c)) == 0) {
+                        int compareTo4 = Boolean.valueOf(m477d()).compareTo(Boolean.valueOf(hlVar.m477d()));
+                        if (compareTo4 != 0) {
+                            return compareTo4;
+                        }
+                        if (!m477d() || (a9 = it.a(this.f479a, hlVar.f479a)) == 0) {
+                            int compareTo5 = Boolean.valueOf(m478e()).compareTo(Boolean.valueOf(hlVar.m478e()));
+                            if (compareTo5 != 0) {
+                                return compareTo5;
+                            }
+                            if (!m478e() || (a8 = it.a(this.f484b, hlVar.f484b)) == 0) {
+                                int compareTo6 = Boolean.valueOf(f()).compareTo(Boolean.valueOf(hlVar.f()));
+                                if (compareTo6 != 0) {
+                                    return compareTo6;
+                                }
+                                if (!f() || (a7 = it.a(this.f483a, hlVar.f483a)) == 0) {
+                                    int compareTo7 = Boolean.valueOf(g()).compareTo(Boolean.valueOf(hlVar.g()));
+                                    if (compareTo7 != 0) {
+                                        return compareTo7;
+                                    }
+                                    if (!g() || (a6 = it.a(this.f487d, hlVar.f487d)) == 0) {
+                                        int compareTo8 = Boolean.valueOf(h()).compareTo(Boolean.valueOf(hlVar.h()));
+                                        if (compareTo8 != 0) {
+                                            return compareTo8;
+                                        }
+                                        if (!h() || (a5 = it.a(this.f488e, hlVar.f488e)) == 0) {
+                                            int compareTo9 = Boolean.valueOf(i()).compareTo(Boolean.valueOf(hlVar.i()));
+                                            if (compareTo9 != 0) {
+                                                return compareTo9;
+                                            }
+                                            if (!i() || (a4 = it.a(this.f489f, hlVar.f489f)) == 0) {
+                                                int compareTo10 = Boolean.valueOf(j()).compareTo(Boolean.valueOf(hlVar.j()));
+                                                if (compareTo10 != 0) {
+                                                    return compareTo10;
+                                                }
+                                                if (!j() || (a3 = it.a(this.f482a, hlVar.f482a)) == 0) {
+                                                    int compareTo11 = Boolean.valueOf(k()).compareTo(Boolean.valueOf(hlVar.k()));
+                                                    if (compareTo11 != 0) {
+                                                        return compareTo11;
+                                                    }
+                                                    if (!k() || (a2 = it.a(this.f490g, hlVar.f490g)) == 0) {
+                                                        return 0;
+                                                    }
+                                                    return a2;
+                                                }
+                                                return a3;
+                                            }
+                                            return a4;
+                                        }
+                                        return a5;
+                                    }
+                                    return a6;
+                                }
+                                return a7;
+                            }
+                            return a8;
+                        }
+                        return a9;
+                    }
+                    return a10;
+                }
+                return a11;
             }
+            return a12;
         }
-        a = new hl("DeviceInfo", 0, 1);
-        b = new hl("AppInstallList", 1, 2);
-        c = new hl("AppActiveList", 2, 3);
-        d = new hl("Bluetooth", 3, 4);
-        e = new hl("Location", 4, 5);
-        f = new hl("Account", 5, 6);
-        g = new hl("WIFI", 6, 7);
-        h = new hl("Cellular", 7, 8);
-        i = new hl("TopApp", 8, 9);
-        j = new hl("BroadcastAction", 9, 10);
-        k = new hl("BroadcastActionAdded", 10, 11);
-        l = new hl("BroadcastActionRemoved", 11, 12);
-        m = new hl("BroadcastActionReplaced", 12, 13);
-        n = new hl("BroadcastActionDataCleared", 13, 14);
-        o = new hl("BroadcastActionRestarted", 14, 15);
-        p = new hl("BroadcastActionChanged", 15, 16);
-        q = new hl("AppPermission", 16, 17);
-        r = new hl("WifiDevicesMac", 17, 18);
-        s = new hl("ActivityActiveTimeStamp", 18, 19);
-        t = new hl("DeviceBaseInfo", 19, 20);
-        u = new hl("DeviceInfoV2", 20, 21);
-        v = new hl("Battery", 21, 22);
-        w = new hl("Storage", 22, 23);
-        hl hlVar = new hl("AppIsInstalled", 23, 24);
-        x = hlVar;
-        f495a = new hl[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, hlVar};
+        return hl.class.getName().compareTo(hlVar.getClass().getName());
     }
 
-    public hl(String str, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                String str2 = (String) objArr2[0];
-                ((Integer) objArr2[1]).intValue();
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f496a = i3;
+    public long a() {
+        return this.f484b;
     }
 
-    public static hl a(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            switch (i2) {
+    public hl a(long j2) {
+        this.f479a = j2;
+        m472a(true);
+        return this;
+    }
+
+    public hl a(String str) {
+        this.f480a = str;
+        return this;
+    }
+
+    public hl a(Map<String, String> map) {
+        this.f482a = map;
+        return this;
+    }
+
+    public hl a(boolean z) {
+        this.f483a = z;
+        c(true);
+        return this;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public String m469a() {
+        return this.f480a;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public Map<String, String> m470a() {
+        return this.f482a;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public void m471a() {
+    }
+
+    @Override // com.xiaomi.push.is
+    public void a(jd jdVar) {
+        jdVar.mo617a();
+        while (true) {
+            ja mo613a = jdVar.mo613a();
+            byte b2 = mo613a.a;
+            if (b2 == 0) {
+                jdVar.f();
+                m471a();
+                return;
+            }
+            switch (mo613a.f813a) {
                 case 1:
-                    return a;
+                    if (b2 == 11) {
+                        this.f480a = jdVar.mo618a();
+                        continue;
+                        jdVar.g();
+                    }
+                    break;
                 case 2:
-                    return b;
+                    if (b2 == 11) {
+                        this.f485b = jdVar.mo618a();
+                        continue;
+                        jdVar.g();
+                    }
+                    break;
                 case 3:
-                    return c;
+                    if (b2 == 11) {
+                        this.f486c = jdVar.mo618a();
+                        continue;
+                        jdVar.g();
+                    }
+                    break;
                 case 4:
-                    return d;
+                    if (b2 == 10) {
+                        this.f479a = jdVar.mo612a();
+                        m472a(true);
+                        continue;
+                        jdVar.g();
+                    }
+                    break;
                 case 5:
-                    return e;
+                    if (b2 == 10) {
+                        this.f484b = jdVar.mo612a();
+                        b(true);
+                        continue;
+                        jdVar.g();
+                    }
+                    break;
                 case 6:
-                    return f;
+                    if (b2 == 2) {
+                        this.f483a = jdVar.mo623a();
+                        c(true);
+                        continue;
+                        jdVar.g();
+                    }
+                    break;
                 case 7:
-                    return g;
+                    if (b2 == 11) {
+                        this.f487d = jdVar.mo618a();
+                        continue;
+                        jdVar.g();
+                    }
+                    break;
                 case 8:
-                    return h;
+                    if (b2 == 11) {
+                        this.f488e = jdVar.mo618a();
+                        continue;
+                        jdVar.g();
+                    }
+                    break;
                 case 9:
-                    return i;
+                    if (b2 == 11) {
+                        this.f489f = jdVar.mo618a();
+                        continue;
+                        jdVar.g();
+                    }
+                    break;
                 case 10:
-                    return j;
+                    if (b2 == 13) {
+                        jc mo615a = jdVar.mo615a();
+                        this.f482a = new HashMap(mo615a.f815a * 2);
+                        for (int i2 = 0; i2 < mo615a.f815a; i2++) {
+                            this.f482a.put(jdVar.mo618a(), jdVar.mo618a());
+                        }
+                        jdVar.h();
+                        continue;
+                        jdVar.g();
+                    }
+                    break;
                 case 11:
-                    return k;
-                case 12:
-                    return l;
-                case 13:
-                    return m;
-                case 14:
-                    return n;
-                case 15:
-                    return o;
-                case 16:
-                    return p;
-                case 17:
-                    return q;
-                case 18:
-                    return r;
-                case 19:
-                    return s;
-                case 20:
-                    return t;
-                case 21:
-                    return u;
-                case 22:
-                    return v;
-                case 23:
-                    return w;
-                case 24:
-                    return x;
-                default:
-                    return null;
+                    if (b2 == 11) {
+                        this.f490g = jdVar.mo618a();
+                        continue;
+                        jdVar.g();
+                    }
+                    break;
+            }
+            jg.a(jdVar, b2);
+            jdVar.g();
+        }
+    }
+
+    public void a(String str, String str2) {
+        if (this.f482a == null) {
+            this.f482a = new HashMap();
+        }
+        this.f482a.put(str, str2);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public void m472a(boolean z) {
+        this.f481a.set(0, z);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m473a() {
+        return this.f480a != null;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m474a(hl hlVar) {
+        if (hlVar == null) {
+            return false;
+        }
+        boolean m473a = m473a();
+        boolean m473a2 = hlVar.m473a();
+        if ((m473a || m473a2) && !(m473a && m473a2 && this.f480a.equals(hlVar.f480a))) {
+            return false;
+        }
+        boolean m475b = m475b();
+        boolean m475b2 = hlVar.m475b();
+        if ((m475b || m475b2) && !(m475b && m475b2 && this.f485b.equals(hlVar.f485b))) {
+            return false;
+        }
+        boolean m476c = m476c();
+        boolean m476c2 = hlVar.m476c();
+        if ((m476c || m476c2) && !(m476c && m476c2 && this.f486c.equals(hlVar.f486c))) {
+            return false;
+        }
+        boolean m477d = m477d();
+        boolean m477d2 = hlVar.m477d();
+        if ((m477d || m477d2) && !(m477d && m477d2 && this.f479a == hlVar.f479a)) {
+            return false;
+        }
+        boolean m478e = m478e();
+        boolean m478e2 = hlVar.m478e();
+        if ((m478e || m478e2) && !(m478e && m478e2 && this.f484b == hlVar.f484b)) {
+            return false;
+        }
+        boolean f2 = f();
+        boolean f3 = hlVar.f();
+        if ((f2 || f3) && !(f2 && f3 && this.f483a == hlVar.f483a)) {
+            return false;
+        }
+        boolean g2 = g();
+        boolean g3 = hlVar.g();
+        if ((g2 || g3) && !(g2 && g3 && this.f487d.equals(hlVar.f487d))) {
+            return false;
+        }
+        boolean h2 = h();
+        boolean h3 = hlVar.h();
+        if ((h2 || h3) && !(h2 && h3 && this.f488e.equals(hlVar.f488e))) {
+            return false;
+        }
+        boolean i2 = i();
+        boolean i3 = hlVar.i();
+        if ((i2 || i3) && !(i2 && i3 && this.f489f.equals(hlVar.f489f))) {
+            return false;
+        }
+        boolean j2 = j();
+        boolean j3 = hlVar.j();
+        if ((j2 || j3) && !(j2 && j3 && this.f482a.equals(hlVar.f482a))) {
+            return false;
+        }
+        boolean k2 = k();
+        boolean k3 = hlVar.k();
+        if (k2 || k3) {
+            return k2 && k3 && this.f490g.equals(hlVar.f490g);
+        }
+        return true;
+    }
+
+    public hl b(long j2) {
+        this.f484b = j2;
+        b(true);
+        return this;
+    }
+
+    public hl b(String str) {
+        this.f485b = str;
+        return this;
+    }
+
+    public String b() {
+        return this.f486c;
+    }
+
+    @Override // com.xiaomi.push.is
+    public void b(jd jdVar) {
+        m471a();
+        jdVar.a(f478a);
+        if (this.f480a != null && m473a()) {
+            jdVar.a(a);
+            jdVar.a(this.f480a);
+            jdVar.b();
+        }
+        if (this.f485b != null && m475b()) {
+            jdVar.a(b);
+            jdVar.a(this.f485b);
+            jdVar.b();
+        }
+        if (this.f486c != null && m476c()) {
+            jdVar.a(c);
+            jdVar.a(this.f486c);
+            jdVar.b();
+        }
+        if (m477d()) {
+            jdVar.a(d);
+            jdVar.a(this.f479a);
+            jdVar.b();
+        }
+        if (m478e()) {
+            jdVar.a(e);
+            jdVar.a(this.f484b);
+            jdVar.b();
+        }
+        if (f()) {
+            jdVar.a(f);
+            jdVar.a(this.f483a);
+            jdVar.b();
+        }
+        if (this.f487d != null && g()) {
+            jdVar.a(g);
+            jdVar.a(this.f487d);
+            jdVar.b();
+        }
+        if (this.f488e != null && h()) {
+            jdVar.a(h);
+            jdVar.a(this.f488e);
+            jdVar.b();
+        }
+        if (this.f489f != null && i()) {
+            jdVar.a(i);
+            jdVar.a(this.f489f);
+            jdVar.b();
+        }
+        if (this.f482a != null && j()) {
+            jdVar.a(j);
+            jdVar.a(new jc(Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, this.f482a.size()));
+            for (Map.Entry<String, String> entry : this.f482a.entrySet()) {
+                jdVar.a(entry.getKey());
+                jdVar.a(entry.getValue());
+            }
+            jdVar.d();
+            jdVar.b();
+        }
+        if (this.f490g != null && k()) {
+            jdVar.a(k);
+            jdVar.a(this.f490g);
+            jdVar.b();
+        }
+        jdVar.c();
+        jdVar.mo621a();
+    }
+
+    public void b(boolean z) {
+        this.f481a.set(1, z);
+    }
+
+    /* renamed from: b  reason: collision with other method in class */
+    public boolean m475b() {
+        return this.f485b != null;
+    }
+
+    public hl c(String str) {
+        this.f486c = str;
+        return this;
+    }
+
+    public String c() {
+        return this.f488e;
+    }
+
+    public void c(boolean z) {
+        this.f481a.set(2, z);
+    }
+
+    /* renamed from: c  reason: collision with other method in class */
+    public boolean m476c() {
+        return this.f486c != null;
+    }
+
+    public hl d(String str) {
+        this.f487d = str;
+        return this;
+    }
+
+    public String d() {
+        return this.f489f;
+    }
+
+    /* renamed from: d  reason: collision with other method in class */
+    public boolean m477d() {
+        return this.f481a.get(0);
+    }
+
+    public hl e(String str) {
+        this.f488e = str;
+        return this;
+    }
+
+    public String e() {
+        return this.f490g;
+    }
+
+    /* renamed from: e  reason: collision with other method in class */
+    public boolean m478e() {
+        return this.f481a.get(1);
+    }
+
+    public boolean equals(Object obj) {
+        if (obj != null && (obj instanceof hl)) {
+            return m474a((hl) obj);
+        }
+        return false;
+    }
+
+    public hl f(String str) {
+        this.f489f = str;
+        return this;
+    }
+
+    public boolean f() {
+        return this.f481a.get(2);
+    }
+
+    public hl g(String str) {
+        this.f490g = str;
+        return this;
+    }
+
+    public boolean g() {
+        return this.f487d != null;
+    }
+
+    public boolean h() {
+        return this.f488e != null;
+    }
+
+    public int hashCode() {
+        return 0;
+    }
+
+    public boolean i() {
+        return this.f489f != null;
+    }
+
+    public boolean j() {
+        return this.f482a != null;
+    }
+
+    public boolean k() {
+        return this.f490g != null;
+    }
+
+    public String toString() {
+        boolean z;
+        StringBuilder sb = new StringBuilder("ClientUploadDataItem(");
+        boolean z2 = false;
+        if (m473a()) {
+            sb.append("channel:");
+            String str = this.f480a;
+            if (str == null) {
+                sb.append(StringUtil.NULL_STRING);
+            } else {
+                sb.append(str);
+            }
+            z = false;
+        } else {
+            z = true;
+        }
+        if (m475b()) {
+            if (!z) {
+                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            }
+            sb.append(WebGLImageLoader.DATA_URL);
+            String str2 = this.f485b;
+            if (str2 == null) {
+                sb.append(StringUtil.NULL_STRING);
+            } else {
+                sb.append(str2);
+            }
+            z = false;
+        }
+        if (m476c()) {
+            if (!z) {
+                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            }
+            sb.append("name:");
+            String str3 = this.f486c;
+            if (str3 == null) {
+                sb.append(StringUtil.NULL_STRING);
+            } else {
+                sb.append(str3);
+            }
+            z = false;
+        }
+        if (m477d()) {
+            if (!z) {
+                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            }
+            sb.append("counter:");
+            sb.append(this.f479a);
+            z = false;
+        }
+        if (m478e()) {
+            if (!z) {
+                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            }
+            sb.append("timestamp:");
+            sb.append(this.f484b);
+            z = false;
+        }
+        if (f()) {
+            if (!z) {
+                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            }
+            sb.append("fromSdk:");
+            sb.append(this.f483a);
+            z = false;
+        }
+        if (g()) {
+            if (!z) {
+                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            }
+            sb.append("category:");
+            String str4 = this.f487d;
+            if (str4 == null) {
+                sb.append(StringUtil.NULL_STRING);
+            } else {
+                sb.append(str4);
+            }
+            z = false;
+        }
+        if (h()) {
+            if (!z) {
+                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            }
+            sb.append("sourcePackage:");
+            String str5 = this.f488e;
+            if (str5 == null) {
+                sb.append(StringUtil.NULL_STRING);
+            } else {
+                sb.append(str5);
+            }
+            z = false;
+        }
+        if (i()) {
+            if (!z) {
+                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            }
+            sb.append("id:");
+            String str6 = this.f489f;
+            if (str6 == null) {
+                sb.append(StringUtil.NULL_STRING);
+            } else {
+                sb.append(str6);
+            }
+            z = false;
+        }
+        if (j()) {
+            if (!z) {
+                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            }
+            sb.append("extra:");
+            Map<String, String> map = this.f482a;
+            if (map == null) {
+                sb.append(StringUtil.NULL_STRING);
+            } else {
+                sb.append(map);
+            }
+        } else {
+            z2 = z;
+        }
+        if (k()) {
+            if (!z2) {
+                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            }
+            sb.append("pkgName:");
+            String str7 = this.f490g;
+            if (str7 == null) {
+                sb.append(StringUtil.NULL_STRING);
+            } else {
+                sb.append(str7);
             }
         }
-        return (hl) invokeI.objValue;
-    }
-
-    public static hl valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (hl) Enum.valueOf(hl.class, str) : (hl) invokeL.objValue;
-    }
-
-    public static hl[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hl[]) f495a.clone() : (hl[]) invokeV.objValue;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f496a : invokeV.intValue;
+        sb.append(SmallTailInfo.EMOTION_SUFFIX);
+        return sb.toString();
     }
 }

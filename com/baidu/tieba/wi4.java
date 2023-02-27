@@ -1,22 +1,27 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import com.baidu.tieba.vi4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wi4 {
+public class wi4 extends ti4<String> {
     public static /* synthetic */ Interceptable $ic;
-    public static wi4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public mi4 a;
+    public final vi4.a a;
 
-    public wi4() {
+    public wi4(vi4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,90 +31,73 @@ public class wi4 {
                 return;
             }
         }
-        this.a = new mi4();
+        this.a = aVar;
     }
 
-    public static wi4 b() {
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    public void onFail(Exception exc) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, exc) == null) && a()) {
+            this.a.onFail(exc);
+        }
+    }
+
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            wi4 wi4Var = b;
-            if (wi4Var != null) {
-                return wi4Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a != null) {
+                return true;
             }
-            synchronized (wi4.class) {
-                if (b == null) {
-                    b = new wi4();
-                }
-            }
-            return b;
+            return false;
         }
-        return (wi4) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public ii4 a(yi4 yi4Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.vi4.a
+    public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, yi4Var)) == null) {
-            if (yi4Var == null) {
-                return null;
-            }
-            return new dj4(yi4Var, false);
-        }
-        return (ii4) invokeL.objValue;
-    }
-
-    public synchronized boolean c(String str) {
-        InterceptResult invokeL;
-        boolean e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            synchronized (this) {
-                e = this.a.e(str);
-            }
-            return e;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized boolean d(String str) {
-        InterceptResult invokeL;
-        boolean f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            synchronized (this) {
-                f = this.a.f(str);
-            }
-            return f;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized void e(ui4 ui4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ui4Var) == null) {
-            synchronized (this) {
-                this.a.c(ui4Var);
-            }
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && a()) {
+            this.a.onStart();
         }
     }
 
-    public synchronized <T> void f(yi4<T> yi4Var) {
+    @Override // com.baidu.tieba.vi4.a
+    public void b(String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, yi4Var) == null) {
-            synchronized (this) {
-                yi4Var.s(false);
-                this.a.h(yi4Var);
-            }
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) && a()) {
+            this.a.b(str, str2, jSONObject);
         }
     }
 
-    public synchronized void g(ui4 ui4Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    /* renamed from: c */
+    public void onSuccess(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ui4Var) == null) {
-            synchronized (this) {
-                this.a.i(ui4Var);
-            }
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) && a()) {
+            this.a.c(str, i);
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    /* renamed from: d */
+    public String parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
+        InterceptResult invokeLIL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, response, i, networkStatRecord)) == null) {
+            String str2 = "";
+            if (response == null || response.body() == null) {
+                str = "";
+            } else {
+                str2 = response.request().url().toString();
+                str = response.body().string();
+            }
+            b(str2, str, networkStatRecord.toUBCJson());
+            return str;
+        }
+        return (String) invokeLIL.objValue;
     }
 }

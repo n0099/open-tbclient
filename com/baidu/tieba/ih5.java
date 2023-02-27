@@ -1,206 +1,116 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Process;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ih5 implements hh5 {
+public class ih5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public gh5 b;
-    public Application c;
+    public String a;
+    public String b;
+    public String c;
     public String d;
-    public final nh5 e;
-    public final oh5 f;
+    public String e;
+    public String f;
+    public String g;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public class b extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ih5 this$0;
-
-        public b(ih5 ih5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ih5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = ih5Var;
-        }
-
-        public /* synthetic */ b(ih5 ih5Var, a aVar) {
-            this(ih5Var);
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            eh5 a;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || intent == null) {
-                return;
-            }
-            if (!jh5.i()) {
-                String c = jh5.c();
-                jh5.m(c + " Process Not In WhiteList，No Receive");
-            } else if (!"intent.action.ACTION.TB.MUTI_PROCESS".equals(intent.getAction()) || (a = this.this$0.e.a(intent)) == null) {
-            } else {
-                int myPid = Process.myPid();
-                int pid = a.getPid();
-                if (a != null && a.getType() == 1) {
-                    if (myPid == pid) {
-                        return;
-                    }
-                } else if (a.getType() == 2) {
-                    if (myPid != pid) {
-                        return;
-                    }
-                } else if (a.getType() == 3 && !jh5.l()) {
-                    return;
-                }
-                if (this.this$0.b != null) {
-                    this.this$0.b.a(a);
-                }
-            }
-        }
-    }
-
-    public ih5(Application application) {
+    public ih5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {application};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = null;
-        this.e = new nh5();
-        this.f = new oh5();
-        this.c = application;
-    }
-
-    public final void f(eh5 eh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, eh5Var) == null) {
-            if (eh5Var != null) {
-                try {
-                    Intent intent = new Intent();
-                    intent.setPackage(e());
-                    intent.setAction("intent.action.ACTION.TB.MUTI_PROCESS");
-                    this.f.a(intent, eh5Var);
-                    this.c.sendBroadcast(intent);
-                    return;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return;
-                }
-            }
-            throw new NullPointerException("send multi-process message is null");
-        }
-    }
-
-    @Override // com.baidu.tieba.hh5
-    public void a(eh5 eh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, eh5Var) == null) {
-            f(eh5Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.hh5
-    public void b(gh5 gh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gh5Var) == null) {
-            this.b = gh5Var;
-        }
-    }
-
-    private void registerReceiver() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            try {
-                unregisterReceiver();
-                this.a = new b(this, null);
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.setPriority(1000);
-                intentFilter.addAction("intent.action.ACTION.TB.MUTI_PROCESS");
-                this.c.registerReceiver(this.a, intentFilter);
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         }
     }
 
-    private void unregisterReceiver() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            try {
-                if (this.a != null && this.c != null) {
-                    this.c.unregisterReceiver(this.a);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public final String e() {
+    public String a() {
         InterceptResult invokeV;
-        Application application;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.d == null && (application = this.c) != null) {
-                this.d = application.getPackageName();
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (StringUtils.isNull(this.e)) {
+                return this.d;
             }
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.d;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.hh5
-    public void startService() {
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            registerReceiver();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void stopService() {
+    public String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            unregisterReceiver();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) && jSONObject != null) {
+            this.a = jSONObject.optString("background_day_img");
+            this.b = jSONObject.optString("background_night_img");
+            this.c = jSONObject.optString("background_dark_img");
+            this.d = jSONObject.optString("nav_bar_day_color");
+            jSONObject.optString("nav_bar_night_color");
+            this.e = jSONObject.optString("nav_bar_dark_color");
+            this.f = jSONObject.optString("text_normal_color");
+            this.g = jSONObject.optString("text_selected_color");
         }
     }
 }

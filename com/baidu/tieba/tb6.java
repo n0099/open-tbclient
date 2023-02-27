@@ -1,16 +1,39 @@
 package com.baidu.tieba;
 
-import android.webkit.JsPromptResult;
-import android.webkit.WebView;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import java.util.HashMap;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface tb6 {
-    public static final ServiceReference a = new ServiceReference("Frames", "JsPromptBridge");
+public class tb6 extends zk1<ce6> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(WebView webView, String str, HashMap<String, Object> hashMap);
+    public tb6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    boolean b(WebView webView, String str, JsPromptResult jsPromptResult);
-
-    void c(vb6 vb6Var, Object obj);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zk1
+    /* renamed from: a */
+    public ce6 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new ub6();
+        }
+        return (ce6) invokeV.objValue;
+    }
 }

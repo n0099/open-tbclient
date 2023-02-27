@@ -1,74 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-@Service
 /* loaded from: classes5.dex */
-public class pm2 extends UnitedSchemeBaseInterceptor {
+public class pm2 extends px1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
-    public String getInterceptorName() {
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @Override // com.baidu.tieba.px1
+    public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "GameCenter" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.px1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "GameCenterApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class b implements qm2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ String b;
-
-        public a(pm2 pm2Var, Context context, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pm2Var, context, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                lm2.n().f(this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
+        public String a;
+        public final /* synthetic */ pm2 b;
 
         public b(pm2 pm2Var, String str) {
             Interceptable interceptable = $ic;
@@ -85,96 +58,158 @@ public class pm2 extends UnitedSchemeBaseInterceptor {
                     return;
                 }
             }
+            this.b = pm2Var;
             this.a = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public /* synthetic */ b(pm2 pm2Var, String str, a aVar) {
+            this(pm2Var, str);
+        }
+
+        @Override // com.baidu.tieba.qm2
+        public void a(@Nullable JSONObject jSONObject) {
+            m12 m12Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean i = nm2.c().i(this.a);
-                lm2 n = lm2.n();
-                n.p("cloneResult = " + i);
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+                if (jSONObject == null) {
+                    m12Var = new m12(0);
+                } else {
+                    m12Var = new m12(0, jSONObject);
+                }
+                this.b.d(this.a, m12Var);
+            }
+        }
+
+        @Override // com.baidu.tieba.qm2
+        public void onFail(int i, @Nullable String str) {
+            m12 m12Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                if (str == null) {
+                    m12Var = new m12(i);
+                } else {
+                    m12Var = new m12(i, str);
+                }
+                this.b.d(this.a, m12Var);
             }
         }
     }
 
-    public pm2() {
+    /* loaded from: classes5.dex */
+    public class c implements qm2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.qm2
+        public void a(@Nullable JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.qm2
+        public void onFail(int i, @Nullable String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            }
+        }
+
+        public c(pm2 pm2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pm2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ c(pm2 pm2Var, a aVar) {
+            this(pm2Var);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pm2(@NonNull nx1 nx1Var) {
+        super(nx1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {nx1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((nx1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public final String a(UnitedSchemeEntity unitedSchemeEntity) {
+    public m12 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, unitedSchemeEntity)) == null) {
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            Pair<m12, JSONObject> s = s(str);
+            m12 m12Var = (m12) s.first;
+            if (!m12Var.isSuccess()) {
+                m62.c("GameCenterApi", "parse fail");
+                return m12Var;
             }
-            return optParamsAsJo.optString("appKey");
+            return z((JSONObject) s.second, new c(this, null));
         }
-        return (String) invokeL.objValue;
+        return (m12) invokeL.objValue;
     }
 
-    public final boolean b(@Nullable String str) {
+    public m12 x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#postGameCenterMessage", false);
+            Pair<m12, JSONObject> s = s(str);
+            m12 m12Var = (m12) s.first;
+            if (!m12Var.isSuccess()) {
+                m62.c("GameCenterApi", "parse fail");
+                return m12Var;
             }
-            String trim = str.trim();
-            if (trim.length() == 0 || trim.contains("../")) {
-                return false;
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                m62.c("GameCenterApi", "empty cb");
+                return new m12(202, "empty cb");
             }
-            return true;
+            return z(jSONObject, new b(this, optString, null));
         }
-        return invokeL.booleanValue;
+        return (m12) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor, com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeAbsInterceptor
-    public boolean shouldInterceptDispatch(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        InterceptResult invokeLLL;
+    public final m12 z(@NonNull JSONObject jSONObject, @NonNull qm2 qm2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, unitedSchemeEntity, callbackHandler)) == null) {
-            Uri uri = unitedSchemeEntity.getUri();
-            if (uri == null || !TextUtils.equals(uri.getHost(), "swanAPI")) {
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, jSONObject, qm2Var)) == null) {
+            String optString = jSONObject.optString("api");
+            if (TextUtils.isEmpty(optString)) {
+                return new m12(202, "empty api name");
             }
-            String path = uri.getPath();
-            if (TextUtils.isEmpty(path)) {
-                return false;
+            JSONObject optJSONObject = jSONObject.optJSONObject("params");
+            if (optJSONObject == null) {
+                optJSONObject = new JSONObject();
             }
-            if (TextUtils.equals(path, "/clone")) {
-                String a2 = a(unitedSchemeEntity);
-                if (!b(a2)) {
-                    return false;
-                }
-                ql3.k(new a(this, context, a2), "cloneSwanAppRunnable");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
-                return true;
-            } else if (!TextUtils.equals(path, "/install")) {
-                return false;
-            } else {
-                String a3 = a(unitedSchemeEntity);
-                if (TextUtils.isEmpty(a3)) {
-                    return false;
-                }
-                ql3.k(new b(this, a3), "installSwanAppRunnable");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
-                return true;
+            m12 a2 = ts2.v0().a(optString, optJSONObject, qm2Var);
+            if (a2 == null) {
+                return new m12(0);
             }
+            return a2;
         }
-        return invokeLLL.booleanValue;
+        return (m12) invokeLL.objValue;
     }
 }

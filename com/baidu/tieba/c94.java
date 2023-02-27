@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.y84;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,55 +12,116 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-/* loaded from: classes4.dex */
-public class c94 {
+import kotlin.jvm.internal.Intrinsics;
+@Autowired
+/* loaded from: classes3.dex */
+public final class c94 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final c94 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<y84> a;
-    public String b;
-    public String c;
-    public int d;
 
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
+    /* loaded from: classes3.dex */
+    public static final class a implements b94 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a94 a;
-        public final /* synthetic */ c94 b;
 
-        public a(c94 c94Var, a94 a94Var) {
+        @Override // com.baidu.tieba.b94
+        public void a(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.b94
+        public void b(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.b94
+        public void c(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.b94
+        public void d(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.b94
+        public void e(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.b94
+        public void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.b94
+        public void g(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.b94
+        public void h(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.b94
+        public void i(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.b94
+        public void j() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.b94
+        public void k(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c94Var, a94Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
-            }
-            this.b = c94Var;
-            this.a = a94Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ArrayList<long[]> e = this.b.e();
-                b94 b94Var = new b94();
-                b94Var.a = this.b.b;
-                b94Var.b = e;
-                b94Var.c = this.b.c;
-                n54.i().b(b94Var, this.a);
             }
         }
     }
@@ -76,88 +139,30 @@ public class c94 {
                 return;
             }
         }
-        e = gp1.a;
+        a = new c94();
     }
 
-    public c94(ArrayList<z84> arrayList, String str, String str2) {
+    public c94() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {arrayList, str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        if (e) {
-            Log.d("ClipVideoTask", "videoPath=" + str + "clipList=" + arrayList);
-        }
-        ArrayList<y84> d = d(arrayList);
-        this.a = d;
-        this.b = str;
-        this.c = str2;
-        this.d = d.size();
     }
 
-    public void c(a94 a94Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, a94Var) != null) || a94Var == null) {
-            return;
-        }
-        ql3.l(new a(this, a94Var), "clipVideo");
-    }
-
-    public final ArrayList<y84> d(ArrayList<z84> arrayList) {
-        InterceptResult invokeL;
-        y84 a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList)) == null) {
-            ArrayList<y84> arrayList2 = new ArrayList<>();
-            if (arrayList != null && arrayList.size() != 0) {
-                Iterator<z84> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    z84 next = it.next();
-                    if (next != null && (a2 = next.a()) != null) {
-                        arrayList2.add(a2);
-                    }
-                }
-            }
-            return arrayList2;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public ArrayList<long[]> e() {
+    @Inject(force = false)
+    public final b94 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList<long[]> arrayList = new ArrayList<>();
-            if (this.d == 0) {
-                return arrayList;
-            }
-            if (e) {
-                Log.d("ClipVideoTask", "mergeRange mRangeList = " + this.a);
-            }
-            Collections.sort(this.a, new y84.a());
-            y84 y84Var = this.a.get(0);
-            for (int i = 1; i < this.d; i++) {
-                y84 y84Var2 = this.a.get(i);
-                if (!y84Var.b(y84Var2)) {
-                    arrayList.add(y84.a(y84Var));
-                    y84Var = y84Var2;
-                }
-            }
-            arrayList.add(y84.a(y84Var));
-            if (e) {
-                Log.d("ClipVideoTask", "mergeRange mergeList = " + arrayList);
-            }
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a();
         }
-        return (ArrayList) invokeV.objValue;
+        return (b94) invokeV.objValue;
     }
 }

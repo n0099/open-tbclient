@@ -21,6 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
@@ -494,7 +495,7 @@ public class ni {
                     lhVar.b("c_logid", str3);
                 }
                 if (!TextUtils.isEmpty(str4) && !str.equals("stat")) {
-                    lhVar.b("seq_id", str4);
+                    lhVar.b(PushConstants.SEQ_ID, str4);
                 }
                 if (!str.equals("stat")) {
                     lhVar.b("net", ph.a(BdBaseApplication.getInst()));

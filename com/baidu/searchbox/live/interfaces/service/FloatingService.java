@@ -1,25 +1,27 @@
 package com.baidu.searchbox.live.interfaces.service;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.Notification;
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.searchbox.player.layer.AbsLayer;
+import com.baidu.webkit.sdk.WebChromeClient;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
-import com.kwad.sdk.core.scene.URLPackage;
 import kotlin.Metadata;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000R\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0013\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\t\bf\u0018\u0000 92\u00020\u0001:\u00049:;<J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0005\u0010\u0006J\u000f\u0010\u0007\u001a\u00020\u0004H&¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\t\u001a\u00020\u0004H&¢\u0006\u0004\b\t\u0010\bJC\u0010\u0012\u001a\u0004\u0018\u00010\u00112\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\n2\b\b\u0002\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\f2\u0006\u0010\u000f\u001a\u00020\f2\u0006\u0010\u0010\u001a\u00020\fH&¢\u0006\u0004\b\u0012\u0010\u0013J\u000f\u0010\u0014\u001a\u00020\u0004H&¢\u0006\u0004\b\u0014\u0010\bJ\u0011\u0010\u0015\u001a\u0004\u0018\u00010\fH&¢\u0006\u0004\b\u0015\u0010\u0016J\u000f\u0010\u0018\u001a\u00020\u0017H&¢\u0006\u0004\b\u0018\u0010\u0019J\u000f\u0010\u001a\u001a\u00020\u0004H&¢\u0006\u0004\b\u001a\u0010\bJ\u000f\u0010\u001b\u001a\u00020\u0004H&¢\u0006\u0004\b\u001b\u0010\bJ\u0017\u0010\u001d\u001a\u00020\u00042\u0006\u0010\u001c\u001a\u00020\fH&¢\u0006\u0004\b\u001d\u0010\u001eJ\u000f\u0010\u001f\u001a\u00020\u0017H&¢\u0006\u0004\b\u001f\u0010\u0019J\u001b\u0010!\u001a\u00020\u00172\n\b\u0002\u0010 \u001a\u0004\u0018\u00010\fH&¢\u0006\u0004\b!\u0010\"J\u001b\u0010#\u001a\u00020\u00172\n\b\u0002\u0010 \u001a\u0004\u0018\u00010\fH&¢\u0006\u0004\b#\u0010\"J\u001b\u0010$\u001a\u00020\u00172\n\b\u0002\u0010 \u001a\u0004\u0018\u00010\fH&¢\u0006\u0004\b$\u0010\"J\u0017\u0010&\u001a\u00020\u00172\u0006\u0010%\u001a\u00020\u0004H&¢\u0006\u0004\b&\u0010'J\u0017\u0010(\u001a\u00020\u00172\u0006\u0010%\u001a\u00020\u0004H&¢\u0006\u0004\b(\u0010'J\u001f\u0010)\u001a\u00020\u00172\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u001c\u001a\u00020\fH\u0016¢\u0006\u0004\b)\u0010*J)\u0010)\u001a\u00020\u00172\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u001c\u001a\u00020\f2\b\u0010,\u001a\u0004\u0018\u00010+H\u0016¢\u0006\u0004\b)\u0010-J\u0017\u00100\u001a\u00020\u00172\u0006\u0010/\u001a\u00020.H&¢\u0006\u0004\b0\u00101J'\u00106\u001a\u00020\u00172\u0006\u0010/\u001a\u00020.2\u0006\u00103\u001a\u0002022\u0006\u00105\u001a\u000204H&¢\u0006\u0004\b6\u00107J\u000f\u00108\u001a\u00020\u0017H&¢\u0006\u0004\b8\u0010\u0019¨\u0006="}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/FloatingService;", "Lkotlin/Any;", "Landroid/content/Context;", "context", "", "checkPermission", "(Landroid/content/Context;)Z", "getAlertAuthState", "()Z", "getFloatingAbState", "", "icon", "", URLPackage.KEY_CHANNEL_ID, "channelName", "title", "content", "Landroid/app/Notification;", "getFloatingNotification", "(Landroid/content/Context;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/app/Notification;", "getSettingSwitcherState", "getSettingTipsGuideActivity", "()Ljava/lang/String;", "", "initBDPlayer", "()V", "isFloatViewShowing", "isKernelPlayerInitFinished", "source", "needShowFloatOpenGuideDialog", "(Ljava/lang/String;)Z", "registerFloatingLifecycle", "roomId", "reportFloatingAuthClickLater", "(Ljava/lang/String;)V", "reportFloatingAuthClickOpen", "reportFloatingAuthShow", "enable", "setAlertAuthState", "(Z)V", "setSettingSwitcher", "showFloatOpenGuideDialog", "(Landroid/content/Context;Ljava/lang/String;)V", "Lcom/baidu/searchbox/live/interfaces/service/FloatingService$OnShowFloatOpenGuideDialogListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "(Landroid/content/Context;Ljava/lang/String;Lcom/baidu/searchbox/live/interfaces/service/FloatingService$OnShowFloatOpenGuideDialogListener;)V", "Landroid/app/Activity;", "activity", "showFloatingNotSupport", "(Landroid/app/Activity;)V", "Lcom/baidu/searchbox/live/interfaces/service/FloatingService$OnPermissionResultListener;", "resultListener", "Lcom/baidu/searchbox/live/interfaces/service/FloatingService$OnPermissionCancelListener;", "cancelListener", "showGuideDialog", "(Landroid/app/Activity;Lcom/baidu/searchbox/live/interfaces/service/FloatingService$OnPermissionResultListener;Lcom/baidu/searchbox/live/interfaces/service/FloatingService$OnPermissionCancelListener;)V", "unregisterFloatingLifecycle", "Companion", "OnPermissionCancelListener", "OnPermissionResultListener", "OnShowFloatOpenGuideDialogListener", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000p\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010\u0002\n\u0002\b\u0010\n\u0002\u0010\u0000\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\t\bf\u0018\u0000 I2\u00020\u0001:\u0005IJKLMJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0005\u0010\u0006J\u000f\u0010\u0007\u001a\u00020\u0004H&¢\u0006\u0004\b\u0007\u0010\bJ\u001b\u0010\f\u001a\u0004\u0018\u00010\u000b2\b\u0010\n\u001a\u0004\u0018\u00010\tH&¢\u0006\u0004\b\f\u0010\rJ\u000f\u0010\u000e\u001a\u00020\u0004H&¢\u0006\u0004\b\u000e\u0010\bJC\u0010\u0017\u001a\u0004\u0018\u00010\u00162\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0010\u001a\u00020\u000f2\b\b\u0002\u0010\u0012\u001a\u00020\u00112\u0006\u0010\u0013\u001a\u00020\u00112\u0006\u0010\u0014\u001a\u00020\u00112\u0006\u0010\u0015\u001a\u00020\u0011H&¢\u0006\u0004\b\u0017\u0010\u0018J\u000f\u0010\u0019\u001a\u00020\u0011H&¢\u0006\u0004\b\u0019\u0010\u001aJ\u000f\u0010\u001b\u001a\u00020\u000fH&¢\u0006\u0004\b\u001b\u0010\u001cJ\u000f\u0010\u001d\u001a\u00020\u0004H&¢\u0006\u0004\b\u001d\u0010\bJ\u0011\u0010\u001e\u001a\u0004\u0018\u00010\u0011H&¢\u0006\u0004\b\u001e\u0010\u001aJ\u000f\u0010\u001f\u001a\u00020\u0011H&¢\u0006\u0004\b\u001f\u0010\u001aJ\u000f\u0010!\u001a\u00020 H&¢\u0006\u0004\b!\u0010\"J\u000f\u0010#\u001a\u00020\u0004H&¢\u0006\u0004\b#\u0010\bJ\u000f\u0010$\u001a\u00020\u0004H&¢\u0006\u0004\b$\u0010\bJ\u0017\u0010&\u001a\u00020\u00042\u0006\u0010%\u001a\u00020\u0011H&¢\u0006\u0004\b&\u0010'J\u000f\u0010(\u001a\u00020 H&¢\u0006\u0004\b(\u0010\"J\u001b\u0010*\u001a\u00020 2\n\b\u0002\u0010)\u001a\u0004\u0018\u00010\u0011H&¢\u0006\u0004\b*\u0010+J\u001b\u0010,\u001a\u00020 2\n\b\u0002\u0010)\u001a\u0004\u0018\u00010\u0011H&¢\u0006\u0004\b,\u0010+J\u001b\u0010-\u001a\u00020 2\n\b\u0002\u0010)\u001a\u0004\u0018\u00010\u0011H&¢\u0006\u0004\b-\u0010+J\u0017\u0010/\u001a\u00020 2\u0006\u0010.\u001a\u00020\u0004H&¢\u0006\u0004\b/\u00100J\u0019\u00103\u001a\u00020 2\b\u00102\u001a\u0004\u0018\u000101H&¢\u0006\u0004\b3\u00104J\u0017\u00105\u001a\u00020 2\u0006\u0010.\u001a\u00020\u0004H&¢\u0006\u0004\b5\u00100J\u001f\u00106\u001a\u00020 2\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010%\u001a\u00020\u0011H\u0016¢\u0006\u0004\b6\u00107J)\u00106\u001a\u00020 2\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010%\u001a\u00020\u00112\b\u00109\u001a\u0004\u0018\u000108H\u0016¢\u0006\u0004\b6\u0010:J\u0017\u0010=\u001a\u00020 2\u0006\u0010<\u001a\u00020;H&¢\u0006\u0004\b=\u0010>J'\u0010C\u001a\u00020 2\u0006\u0010<\u001a\u00020;2\u0006\u0010@\u001a\u00020?2\u0006\u0010B\u001a\u00020AH&¢\u0006\u0004\bC\u0010DJ+\u0010F\u001a\u0004\u0018\u00010E2\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010%\u001a\u00020\u00112\b\u00109\u001a\u0004\u0018\u000108H&¢\u0006\u0004\bF\u0010GJ\u000f\u0010H\u001a\u00020 H&¢\u0006\u0004\bH\u0010\"¨\u0006N"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/FloatingService;", "Lkotlin/Any;", "Landroid/content/Context;", "context", "", "checkPermission", "(Landroid/content/Context;)Z", "getAlertAuthState", "()Z", "Lcom/baidu/searchbox/live/interfaces/service/FloatingService$LayerCallback;", WebChromeClient.KEY_ARG_CALLBACK, "Lcom/baidu/searchbox/player/layer/AbsLayer;", "getFloatLayer", "(Lcom/baidu/searchbox/live/interfaces/service/FloatingService$LayerCallback;)Lcom/baidu/searchbox/player/layer/AbsLayer;", "getFloatingAbState", "", "icon", "", "channelId", "channelName", "title", "content", "Landroid/app/Notification;", "getFloatingNotification", "(Landroid/content/Context;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/app/Notification;", "getGestureAction", "()Ljava/lang/String;", "getGestureKey", "()I", "getSettingSwitcherState", "getSettingTipsGuideActivity", "getSingleTapAction", "", "initBDPlayer", "()V", "isFloatViewShowing", "isKernelPlayerInitFinished", "source", "needShowFloatOpenGuideDialog", "(Ljava/lang/String;)Z", "registerFloatingLifecycle", "roomId", "reportFloatingAuthClickLater", "(Ljava/lang/String;)V", "reportFloatingAuthClickOpen", "reportFloatingAuthShow", "enable", "setAlertAuthState", "(Z)V", "", "config", "setConfigPropertyCompat", "(Ljava/lang/Object;)V", "setSettingSwitcher", "showFloatOpenGuideDialog", "(Landroid/content/Context;Ljava/lang/String;)V", "Lcom/baidu/searchbox/live/interfaces/service/FloatingService$OnShowFloatOpenGuideDialogListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "(Landroid/content/Context;Ljava/lang/String;Lcom/baidu/searchbox/live/interfaces/service/FloatingService$OnShowFloatOpenGuideDialogListener;)V", "Landroid/app/Activity;", "activity", "showFloatingNotSupport", "(Landroid/app/Activity;)V", "Lcom/baidu/searchbox/live/interfaces/service/FloatingService$OnPermissionResultListener;", "resultListener", "Lcom/baidu/searchbox/live/interfaces/service/FloatingService$OnPermissionCancelListener;", "cancelListener", "showGuideDialog", "(Landroid/app/Activity;Lcom/baidu/searchbox/live/interfaces/service/FloatingService$OnPermissionResultListener;Lcom/baidu/searchbox/live/interfaces/service/FloatingService$OnPermissionCancelListener;)V", "Landroid/app/Dialog;", "showOpenGuideDialog", "(Landroid/content/Context;Ljava/lang/String;Lcom/baidu/searchbox/live/interfaces/service/FloatingService$OnShowFloatOpenGuideDialogListener;)Landroid/app/Dialog;", "unregisterFloatingLifecycle", "Companion", "LayerCallback", "OnPermissionCancelListener", "OnPermissionResultListener", "OnShowFloatOpenGuideDialogListener", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public interface FloatingService {
     public static final Companion Companion = Companion.$$INSTANCE;
+
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\bf\u0018\u00002\u00020\u0001J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0005\u0010\u0006J\u000f\u0010\u0007\u001a\u00020\u0004H&¢\u0006\u0004\b\u0007\u0010\b¨\u0006\t"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/FloatingService$LayerCallback;", "Lkotlin/Any;", "Landroid/content/Context;", "context", "", "onBackClick", "(Landroid/content/Context;)V", "onCloseClick", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes2.dex */
+    public interface LayerCallback {
+        void onBackClick(Context context);
+
+        void onCloseClick();
+    }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\bf\u0018\u00002\u00020\u0001J\u000f\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0003\u0010\u0004¨\u0006\u0005"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/FloatingService$OnPermissionCancelListener;", "Lkotlin/Any;", "", "onCancel", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
@@ -49,13 +51,21 @@ public interface FloatingService {
 
     boolean getAlertAuthState();
 
+    AbsLayer getFloatLayer(LayerCallback layerCallback);
+
     boolean getFloatingAbState();
 
     Notification getFloatingNotification(Context context, int i, String str, String str2, String str3, String str4);
 
+    String getGestureAction();
+
+    int getGestureKey();
+
     boolean getSettingSwitcherState();
 
     String getSettingTipsGuideActivity();
+
+    String getSingleTapAction();
 
     void initBDPlayer();
 
@@ -75,6 +85,8 @@ public interface FloatingService {
 
     void setAlertAuthState(boolean z);
 
+    void setConfigPropertyCompat(Object obj);
+
     void setSettingSwitcher(boolean z);
 
     void showFloatOpenGuideDialog(Context context, String str);
@@ -85,73 +97,28 @@ public interface FloatingService {
 
     void showGuideDialog(Activity activity, OnPermissionResultListener onPermissionResultListener, OnPermissionCancelListener onPermissionCancelListener);
 
+    Dialog showOpenGuideDialog(Context context, String str, OnShowFloatOpenGuideDialogListener onShowFloatOpenGuideDialogListener);
+
     void unregisterFloatingLifecycle();
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0007R\u0019\u0010\u0002\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/FloatingService$Companion;", "Lcom/baidu/pyramid/runtime/service/ServiceReference;", "SERVICE_REFERENCE", "Lcom/baidu/pyramid/runtime/service/ServiceReference;", "getSERVICE_REFERENCE", "()Lcom/baidu/pyramid/runtime/service/ServiceReference;", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
     public static final class Companion {
-        public static final /* synthetic */ Companion $$INSTANCE;
-        public static /* synthetic */ Interceptable $ic;
-        public static final ServiceReference SERVICE_REFERENCE;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1859057386, "Lcom/baidu/searchbox/live/interfaces/service/FloatingService$Companion;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1859057386, "Lcom/baidu/searchbox/live/interfaces/service/FloatingService$Companion;");
-                    return;
-                }
-            }
-            $$INSTANCE = new Companion();
-            SERVICE_REFERENCE = DI.INSTANCE.getServiceRef(DI.LIVE_FLOATING);
-        }
-
-        public Companion() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
+        public static final /* synthetic */ Companion $$INSTANCE = new Companion();
+        public static final ServiceReference SERVICE_REFERENCE = DI.INSTANCE.getServiceRef(DI.LIVE_FLOATING);
 
         public final ServiceReference getSERVICE_REFERENCE() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return SERVICE_REFERENCE;
-            }
-            return (ServiceReference) invokeV.objValue;
+            return SERVICE_REFERENCE;
         }
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
     public static final class DefaultImpls {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
         public static void showFloatOpenGuideDialog(FloatingService floatingService, Context context, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, floatingService, context, str) == null) {
-            }
         }
 
         public static void showFloatOpenGuideDialog(FloatingService floatingService, Context context, String str, OnShowFloatOpenGuideDialogListener onShowFloatOpenGuideDialogListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(65541, null, floatingService, context, str, onShowFloatOpenGuideDialogListener) == null) {
-            }
         }
 
         public static /* synthetic */ Notification getFloatingNotification$default(FloatingService floatingService, Context context, int i, String str, String str2, String str3, String str4, int i2, Object obj) {

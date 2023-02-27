@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p35;
-import com.baidu.tieba.y78;
+import com.baidu.tieba.b55;
+import com.baidu.tieba.jb8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public y78 a;
+    public jb8 a;
     public int b;
     public boolean c;
     public ArrayList<Integer> d;
@@ -41,7 +41,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // androidx.activity.ComponentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -66,9 +66,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             p1();
-            y78 y78Var = new y78(this, this.b, this.c, this.d, this.e, this.f);
-            this.a = y78Var;
-            setContentView(y78Var.d());
+            jb8 jb8Var = new jb8(this, this.b, this.c, this.d, this.e, this.f);
+            this.a = jb8Var;
+            setContentView(jb8Var.d());
             q1();
         }
     }
@@ -89,7 +89,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             TbSingleton.getInstance().setShowedInterestGuide(true);
             String str = "";
-            String s = p35.m().s("key_interest_guide_show", "");
+            String s = b55.m().s("key_interest_guide_show", "");
             StringBuilder sb = new StringBuilder();
             sb.append(s);
             if (!StringUtils.isNull(s)) {
@@ -97,9 +97,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             }
             sb.append(str);
             String sb2 = sb.toString();
-            p35 m = p35.m();
+            b55 m = b55.m();
             m.B("key_interest_guide_show", sb2 + System.currentTimeMillis());
-            p35.m().A("key_interest_panel_show_time", System.currentTimeMillis());
+            b55.m().A("key_interest_panel_show_time", System.currentTimeMillis());
         }
     }
 }

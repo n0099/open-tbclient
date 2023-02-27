@@ -1,203 +1,99 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class ca7 extends BaseAdapter {
+import tbclient.PlaceOrder.DataRes;
+/* loaded from: classes3.dex */
+public class ca7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ka7> a;
-    public TbPageContext b;
+    public String a;
+    public int b;
     public int c;
-    public int d;
-    public BdUniqueId e;
-    public boolean f;
+    public long d;
+    public String e;
+    public int f;
+    public String g;
+    public String h;
+    public long i;
+    public int j;
+    public int k;
+    public long l;
+    public int m;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public BarImageView b;
-        public ImageView c;
-
-        public b(ca7 ca7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ca7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(ca7 ca7Var, a aVar) {
-            this(ca7Var);
-        }
-    }
-
-    public ca7(TbPageContext tbPageContext, int i, BdUniqueId bdUniqueId) {
+    public ca7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i), bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = -1;
-        this.f = false;
-        this.b = tbPageContext;
-        this.e = bdUniqueId;
-        this.d = i;
-        this.c = p35.m().n("key_game_video_tab_has_choosed_sub_class_id", -1);
-    }
-
-    public final void a(b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, bVar) != null) || bVar == null) {
-            return;
-        }
-        SkinManager.setViewTextColor(bVar.a, (int) R.color.CAM_X0107);
-        SkinManager.setImageResource(bVar.c, R.drawable.icon_game_video_tab_choose_select);
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return ListUtils.getItem(this.a, i);
-        }
-        return invokeI.objValue;
-    }
-
-    public void b(List<ka7> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
-            if (!this.f && !ListUtils.isEmpty(list)) {
-                for (ka7 ka7Var : list) {
-                    if (!StringUtils.isNull(ka7Var.c)) {
-                        zg.h().m(ka7Var.c, 10, null, this.e);
-                    }
-                }
-                this.f = true;
             }
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return ListUtils.getCount(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        View view3;
-        b bVar;
-        String str;
+    public PaymentConfirmRequestData a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                bVar = new b(this, null);
-                view3 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0383, (ViewGroup) null);
-                bVar.a = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f090f19);
-                bVar.b = (BarImageView) view3.findViewById(R.id.obfuscated_res_0x7f090f17);
-                bVar.c = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f090f18);
-                bVar.b.setShowOval(true);
-                bVar.b.setAutoChangeStyle(true);
-                bVar.b.setBorderColor(this.b.getResources().getColor(R.color.black_alpha8));
-                bVar.b.setBorderWidth(this.b.getResources().getDimensionPixelOffset(R.dimen.tbds3));
-                view3.setTag(bVar);
-            } else {
-                view3 = view2;
-                bVar = (b) view2.getTag();
-            }
-            a(bVar);
-            ka7 ka7Var = (ka7) ListUtils.getItem(this.a, i);
-            if (ka7Var != null) {
-                TextView textView = bVar.a;
-                if (StringUtils.isNull(ka7Var.b)) {
-                    str = "";
-                } else {
-                    str = ka7Var.b;
-                }
-                textView.setText(str);
-                bVar.b.K(ka7Var.c, 10, false);
-                if (ka7Var.d == 1) {
-                    bVar.b.setAlpha(1);
-                    bVar.a.setAlpha(1.0f);
-                } else {
-                    bVar.b.setAlpha(0.5f);
-                    bVar.a.setAlpha(0.5f);
-                }
-                if (ka7Var.a == this.c && this.d != 101) {
-                    bVar.c.setVisibility(0);
-                } else {
-                    bVar.c.setVisibility(8);
-                }
-            }
-            return view3;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            PaymentConfirmRequestData paymentConfirmRequestData = new PaymentConfirmRequestData();
+            paymentConfirmRequestData.setTdou_num(this.i);
+            paymentConfirmRequestData.setOpen_id(this.l);
+            paymentConfirmRequestData.setOrder_id(this.g);
+            paymentConfirmRequestData.setScene_id(this.b);
+            paymentConfirmRequestData.setGoods_name(this.a);
+            paymentConfirmRequestData.setGoods_pic(this.e);
+            paymentConfirmRequestData.setTerminal("" + this.f);
+            paymentConfirmRequestData.setGoods_num((long) this.j);
+            paymentConfirmRequestData.setGoods_unit(this.h);
+            paymentConfirmRequestData.setGoods_duration(this.d);
+            paymentConfirmRequestData.setGoods_user_level(this.c);
+            paymentConfirmRequestData.setPay_type(this.k);
+            paymentConfirmRequestData.setCurrency(this.m);
+            return paymentConfirmRequestData;
         }
-        return (View) invokeILL.objValue;
+        return (PaymentConfirmRequestData) invokeV.objValue;
+    }
+
+    public void c(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        dataRes.timestamp.intValue();
+        this.a = dataRes.goods_name;
+        this.b = dataRes.scene_id.intValue();
+        this.c = dataRes.goods_user_level.intValue();
+        this.d = dataRes.goods_duration.intValue();
+        this.e = dataRes.goods_pic;
+        this.f = dataRes.terminal.intValue();
+        this.g = dataRes.order_id;
+        this.h = dataRes.goods_unit;
+        this.i = dataRes.tdou_num.intValue();
+        dataRes.goods_price.intValue();
+        this.j = dataRes.goods_num.intValue();
+        this.k = dataRes.pay_type.intValue();
+        dataRes.user_id.longValue();
+        dataRes.tb_timestamp.intValue();
+        this.l = dataRes.open_id.longValue();
+        dataRes.gift_count.intValue();
+        this.m = dataRes.currency.intValue();
     }
 }

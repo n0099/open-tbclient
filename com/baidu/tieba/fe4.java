@@ -1,18 +1,11 @@
 package com.baidu.tieba;
 
-import android.animation.ValueAnimator;
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BitmapDescriptor;
-import com.baidu.mapapi.map.BitmapDescriptorFactory;
-import com.baidu.mapapi.map.MapViewLayoutParams;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.MarkerOptions;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.tieba.qv2;
+import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,70 +13,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fe4 {
+public class fe4 extends yd4<xv2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-    public qv2 a;
-    public Marker b;
-    public Marker c;
-    public View d;
-    public ViewGroup e;
-    public Marker f;
-    public ValueAnimator g;
-
-    /* loaded from: classes4.dex */
-    public interface b {
-        void onAnimationEnd();
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public final /* synthetic */ ge4 b;
-        public final /* synthetic */ b c;
-        public final /* synthetic */ fe4 d;
-
-        public a(fe4 fe4Var, ge4 ge4Var, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fe4Var, ge4Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = fe4Var;
-            this.b = ge4Var;
-            this.c = bVar;
-            this.a = false;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                float animatedFraction = valueAnimator.getAnimatedFraction();
-                this.d.a(this.b, (LatLng) valueAnimator.getAnimatedValue());
-                if (!this.a && animatedFraction > 0.99d) {
-                    this.a = true;
-                    b bVar = this.c;
-                    if (bVar != null) {
-                        bVar.onAnimationEnd();
-                    }
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -98,7 +33,7 @@ public class fe4 {
                 return;
             }
         }
-        h = Boolean.TRUE;
+        boolean z = wp1.a;
     }
 
     public fe4() {
@@ -115,99 +50,67 @@ public class fe4 {
         }
     }
 
-    public void a(ge4 ge4Var, LatLng latLng) {
-        Marker marker;
+    public static fe4 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, ge4Var, latLng) != null) || (marker = this.b) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new fe4();
         }
-        marker.setPosition(latLng);
-        pv2 pv2Var = this.a.b;
-        pv2Var.a = latLng.latitude;
-        pv2Var.b = latLng.longitude;
-        Marker marker2 = this.f;
-        if (marker2 != null) {
-            marker2.setPosition(latLng);
-        }
-        if (!h.booleanValue()) {
-            return;
-        }
-        Marker marker3 = this.c;
-        if (marker3 != null) {
-            marker3.setPosition(latLng);
-        }
-        ViewGroup viewGroup = this.e;
-        if (viewGroup != null) {
-            ge4Var.l.removeView(viewGroup);
-            MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
-            builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
-            builder.position(latLng);
-            ge4Var.l.addView(this.e, builder.build());
-            this.e.setAlpha(0.0f);
-        }
+        return (fe4) invokeV.objValue;
     }
 
-    public void b(ge4 ge4Var) {
-        qv2 qv2Var;
-        qv2.b bVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yd4
+    /* renamed from: d */
+    public boolean b(Context context, xv2 xv2Var, vv2 vv2Var, m93 m93Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ge4Var) == null) && (qv2Var = this.a) != null && (bVar = qv2Var.i) != null && bVar.isValid()) {
-            qv2 qv2Var2 = this.a;
-            if (qv2Var2.k != null && this.d == null && !TextUtils.equals(qv2Var2.i.g, "ALWAYS")) {
-                ge4Var.l.removeView(this.e);
-                this.e.removeView(this.d);
-                View a2 = ud4.a(ge4Var, this.a);
-                this.d = a2;
-                this.e.addView(a2, 0);
-                this.e.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-                MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
-                builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
-                builder.position(this.b.getPosition());
-                Bitmap bitmap = this.b.getIcon().getBitmap();
-                builder.yOffset((int) ((bitmap.getHeight() * (1.0d - this.a.k.b)) + 0.0d));
-                ge4Var.l.addView(this.e, builder.build());
-                this.e.setAlpha(0.0f);
-                Marker marker = this.f;
-                if (marker != null) {
-                    marker.remove();
-                }
-                BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(this.e);
-                if (fromView == null) {
-                    return;
-                }
-                Bitmap bitmap2 = fromView.getBitmap();
-                if (bitmap2.getHeight() > 0 && bitmap2.getWidth() > 0) {
-                    float width = ((float) (((bitmap2.getWidth() - bitmap.getWidth()) / 2.0f) + (this.a.k.a * bitmap.getWidth()))) / bitmap2.getWidth();
-                    float height = ((float) (((float) ((bitmap2.getHeight() - 0.0d) - bitmap.getHeight())) + (this.a.k.b * bitmap.getHeight()))) / fromView.getBitmap().getHeight();
-                    MarkerOptions markerOptions = new MarkerOptions();
-                    pv2 pv2Var = this.a.b;
-                    this.f = (Marker) ge4Var.l.getMap().addOverlay(markerOptions.position(new LatLng(pv2Var.a, pv2Var.b)).icon(fromView).zIndex(66).anchor(width, height));
-                }
-            }
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, xv2Var, vv2Var, m93Var, jSONObject)) == null) {
+            return f(context, xv2Var, vv2Var, m93Var);
         }
+        return invokeLLLLL.booleanValue;
     }
 
-    public void c(ge4 ge4Var, LatLng latLng, lv2 lv2Var, b bVar) {
-        Marker marker;
+    public final boolean f(Context context, xv2 xv2Var, vv2 vv2Var, m93 m93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, ge4Var, latLng, lv2Var, bVar) == null) {
-            ValueAnimator valueAnimator = this.g;
-            if ((valueAnimator != null && valueAnimator.isRunning()) || (marker = this.b) == null) {
-                return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, xv2Var, vv2Var, m93Var)) == null) {
+            m62.i("map", "IncludePointsAction start");
+            uv1 A = zu2.U().A(xv2Var.c);
+            if (!(A instanceof sv1)) {
+                m62.c("map", "WebViewManager is null");
+                return false;
             }
-            float f = 360.0f - ((float) lv2Var.B);
-            if (f >= 0.0f && f <= 360.0f) {
-                marker.setRotate(f);
+            we4 d = vd4.b().c((sv1) A).d(xv2Var.b);
+            if (d == null) {
+                m62.c("map", "can not find map by id " + xv2Var.b);
+                return false;
             }
-            int i = lv2Var.C;
-            if (i < 0) {
-                i = -i;
-            }
-            ValueAnimator ofObject = ValueAnimator.ofObject(new td4(), this.b.getPosition(), new LatLng(latLng.latitude, latLng.longitude));
-            this.g = ofObject;
-            ofObject.setDuration(i);
-            this.g.addUpdateListener(new a(this, ge4Var, bVar));
-            this.g.start();
+            m62.i("map", "IncludePointsAction end");
+            return g(xv2Var, d);
         }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final boolean g(xv2 xv2Var, we4 we4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, xv2Var, we4Var)) == null) {
+            if (xv2Var == null || !xv2Var.isValid()) {
+                return false;
+            }
+            BaiduMap map = we4Var.l.getMap();
+            LatLngBounds.Builder builder = new LatLngBounds.Builder();
+            Iterator<fw2> it = xv2Var.z.iterator();
+            while (it.hasNext()) {
+                fw2 next = it.next();
+                builder.include(new LatLng(next.a, next.b));
+            }
+            LatLngBounds build = builder.build();
+            int[] iArr = xv2Var.A;
+            map.animateMapStatus(MapStatusUpdateFactory.newLatLngBounds(build, iArr[3], iArr[0], iArr[1], iArr[2]));
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

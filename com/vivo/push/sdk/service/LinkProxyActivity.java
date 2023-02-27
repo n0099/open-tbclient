@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
-import com.vivo.push.util.p;
-import com.vivo.push.util.z;
+import com.vivo.push.util.ag;
+import com.vivo.push.util.u;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class LinkProxyActivity extends Activity {
@@ -50,7 +50,7 @@ public class LinkProxyActivity extends Activity {
             super.onCreate(bundle);
             Intent intent = getIntent();
             if (intent == null) {
-                p.d("LinkProxyActivity", "enter RequestPermissionsActivity onCreate, intent is null, finish");
+                u.d("LinkProxyActivity", "enter RequestPermissionsActivity onCreate, intent is null, finish");
                 finish();
                 return;
             }
@@ -65,26 +65,26 @@ public class LinkProxyActivity extends Activity {
                 attributes.width = 1;
                 window.setAttributes(attributes);
             } catch (Throwable th) {
-                p.b("LinkProxyActivity", "enter onCreate error ", th);
+                u.b("LinkProxyActivity", "enter onCreate error ", th);
             }
             String packageName = getPackageName();
-            p.d("LinkProxyActivity", hashCode() + " enter onCreate " + packageName);
+            u.d("LinkProxyActivity", hashCode() + " enter onCreate " + packageName);
             if ("com.vivo.abe".equals(packageName)) {
                 try {
                     if (intent == null) {
-                        p.d("LinkProxyActivity", "adapterToService intent is null");
+                        u.d("LinkProxyActivity", "adapterToService intent is null");
                     } else if (intent.getExtras() == null) {
-                        p.d("LinkProxyActivity", "adapterToService getExtras() is null");
+                        u.d("LinkProxyActivity", "adapterToService getExtras() is null");
                     } else {
                         Intent intent2 = (Intent) intent.getExtras().get("previous_intent");
                         if (intent2 == null) {
-                            p.d("LinkProxyActivity", "adapterToService proxyIntent is null");
+                            u.d("LinkProxyActivity", "adapterToService proxyIntent is null");
                         } else {
-                            z.a(this, intent2);
+                            ag.a(this, intent2);
                         }
                     }
                 } catch (Exception e) {
-                    p.a("LinkProxyActivity", e.toString(), e);
+                    u.a("LinkProxyActivity", e.toString(), e);
                 }
             } else {
                 try {
@@ -94,7 +94,7 @@ public class LinkProxyActivity extends Activity {
                             if (!z) {
                                 startService(intent3);
                             } else {
-                                p.b("LinkProxyActivity", "service's exported is ".concat(String.valueOf(z)));
+                                u.b("LinkProxyActivity", "service's exported is ".concat(String.valueOf(z)));
                             }
                         }
                         z = false;
@@ -102,7 +102,7 @@ public class LinkProxyActivity extends Activity {
                         }
                     }
                 } catch (Exception e2) {
-                    p.a("LinkProxyActivity", e2.toString(), e2);
+                    u.a("LinkProxyActivity", e2.toString(), e2);
                 }
             }
             finish();
@@ -114,7 +114,7 @@ public class LinkProxyActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            p.d("LinkProxyActivity", hashCode() + " onDestory " + getPackageName());
+            u.d("LinkProxyActivity", hashCode() + " onDestory " + getPackageName());
         }
     }
 }

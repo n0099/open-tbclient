@@ -1,182 +1,95 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicLong;
-import java.util.concurrent.atomic.AtomicReferenceArray;
+import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public final class lga<E> extends jga<E> {
+public final class lga<TResult> implements aga<TResult> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Integer g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicLong c;
-    public long d;
-    public final AtomicLong e;
-    public final int f;
+    public dga<TResult> a;
+    public Executor b;
+    public final Object c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947943299, "Lcom/baidu/tieba/lga;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ega a;
+        public final /* synthetic */ lga b;
+
+        public a(lga lgaVar, ega egaVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947943299, "Lcom/baidu/tieba/lga;");
-                return;
-            }
-        }
-        g = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
-    }
-
-    public final long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e.get();
-        }
-        return invokeV.longValue;
-    }
-
-    public final long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c.get();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (g() == f()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.util.Queue
-    public E peek() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return c(a(this.e.get()));
-        }
-        return (E) invokeV.objValue;
-    }
-
-    @Override // java.util.Queue
-    public E poll() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            long j = this.e.get();
-            int a = a(j);
-            AtomicReferenceArray<E> atomicReferenceArray = this.a;
-            E d = d(atomicReferenceArray, a);
-            if (d == null) {
-                return null;
-            }
-            e(atomicReferenceArray, a, null);
-            h(j + 1);
-            return d;
-        }
-        return (E) invokeV.objValue;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            long f = f();
-            while (true) {
-                long g2 = g();
-                long f2 = f();
-                if (f == f2) {
-                    return (int) (g2 - f2);
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lgaVar, egaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                f = f2;
             }
-        } else {
-            return invokeV.intValue;
+            this.b = lgaVar;
+            this.a = egaVar;
+        }
+
+        /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: com.baidu.tieba.dga */
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // java.lang.Runnable
+        public final void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this.b.c) {
+                    if (this.b.a != null) {
+                        this.b.a.onSuccess(this.a.e());
+                    }
+                }
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lga(int i) {
-        super(i);
+    public lga(Executor executor, dga<TResult> dgaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            Object[] objArr = {executor, dgaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new AtomicLong();
-        this.e = new AtomicLong();
-        this.f = Math.min(i / 4, g.intValue());
+        this.c = new Object();
+        this.a = dgaVar;
+        this.b = executor;
     }
 
-    @Override // java.util.Queue
-    public boolean offer(E e) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.aga
+    public final void cancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e)) == null) {
-            if (e != null) {
-                AtomicReferenceArray<E> atomicReferenceArray = this.a;
-                int i = this.b;
-                long j = this.c.get();
-                int b = b(j, i);
-                if (j >= this.d) {
-                    long j2 = this.f + j;
-                    if (d(atomicReferenceArray, b(j2, i)) == null) {
-                        this.d = j2;
-                    } else if (d(atomicReferenceArray, b) != null) {
-                        return false;
-                    }
-                }
-                e(atomicReferenceArray, b, e);
-                i(j + 1);
-                return true;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.c) {
+                this.a = null;
             }
-            throw new NullPointerException("Null is not a valid element");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.e.lazySet(j);
         }
     }
 
-    public final void i(long j) {
+    @Override // com.baidu.tieba.aga
+    public final void onComplete(ega<TResult> egaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.c.lazySet(j);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, egaVar) == null) && egaVar.h() && !egaVar.f()) {
+            this.b.execute(new a(this, egaVar));
         }
     }
 }

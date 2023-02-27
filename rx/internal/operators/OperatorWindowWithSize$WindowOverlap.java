@@ -1,17 +1,11 @@
 package rx.internal.operators;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dea;
-import com.baidu.tieba.kea;
-import com.baidu.tieba.pia;
-import com.baidu.tieba.sea;
-import com.baidu.tieba.xda;
-import com.baidu.tieba.zda;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.fna;
+import com.baidu.tieba.kra;
+import com.baidu.tieba.nna;
+import com.baidu.tieba.sma;
+import com.baidu.tieba.uma;
+import com.baidu.tieba.yma;
 import java.util.ArrayDeque;
 import java.util.Iterator;
 import java.util.Queue;
@@ -20,216 +14,191 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.subjects.UnicastSubject;
 /* loaded from: classes9.dex */
-public final class OperatorWindowWithSize$WindowOverlap<T> extends dea<T> implements kea {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final dea<? super xda<T>> e;
+public final class OperatorWindowWithSize$WindowOverlap<T> extends yma<T> implements fna {
+    public final yma<? super sma<T>> e;
     public final int f;
     public final int g;
     public final AtomicInteger h;
-    public final ArrayDeque<pia<T, T>> i;
+    public final ArrayDeque<kra<T, T>> i;
     public final AtomicLong j;
     public final AtomicInteger k;
-    public final Queue<pia<T, T>> l;
+    public final Queue<kra<T, T>> l;
     public Throwable m;
     public volatile boolean n;
     public int o;
     public int p;
 
     /* loaded from: classes9.dex */
-    public final class WindowOverlapProducer extends AtomicBoolean implements zda {
-        public static /* synthetic */ Interceptable $ic = null;
+    public final class WindowOverlapProducer extends AtomicBoolean implements uma {
         public static final long serialVersionUID = 4625807964358024108L;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ OperatorWindowWithSize$WindowOverlap this$0;
 
-        public WindowOverlapProducer(OperatorWindowWithSize$WindowOverlap operatorWindowWithSize$WindowOverlap) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {operatorWindowWithSize$WindowOverlap};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = operatorWindowWithSize$WindowOverlap;
+        public WindowOverlapProducer() {
         }
 
-        @Override // com.baidu.tieba.zda
+        @Override // com.baidu.tieba.uma
         public void request(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-                if (i >= 0) {
-                    if (i != 0) {
-                        OperatorWindowWithSize$WindowOverlap operatorWindowWithSize$WindowOverlap = this.this$0;
-                        if (!get() && compareAndSet(false, true)) {
-                            operatorWindowWithSize$WindowOverlap.e(sea.a(sea.c(operatorWindowWithSize$WindowOverlap.g, j - 1), operatorWindowWithSize$WindowOverlap.f));
-                        } else {
-                            this.this$0.e(sea.c(operatorWindowWithSize$WindowOverlap.g, j));
-                        }
-                        sea.b(operatorWindowWithSize$WindowOverlap.j, j);
-                        operatorWindowWithSize$WindowOverlap.j();
-                        return;
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i >= 0) {
+                if (i != 0) {
+                    OperatorWindowWithSize$WindowOverlap operatorWindowWithSize$WindowOverlap = OperatorWindowWithSize$WindowOverlap.this;
+                    if (!get() && compareAndSet(false, true)) {
+                        operatorWindowWithSize$WindowOverlap.e(nna.a(nna.c(operatorWindowWithSize$WindowOverlap.g, j - 1), operatorWindowWithSize$WindowOverlap.f));
+                    } else {
+                        OperatorWindowWithSize$WindowOverlap.this.e(nna.c(operatorWindowWithSize$WindowOverlap.g, j));
                     }
+                    nna.b(operatorWindowWithSize$WindowOverlap.j, j);
+                    operatorWindowWithSize$WindowOverlap.j();
                     return;
                 }
-                throw new IllegalArgumentException("n >= 0 required but it was " + j);
+                return;
             }
+            throw new IllegalArgumentException("n >= 0 required but it was " + j);
         }
     }
 
-    @Override // com.baidu.tieba.kea
+    @Override // com.baidu.tieba.fna
     public void call() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.h.decrementAndGet() == 0) {
+        if (this.h.decrementAndGet() == 0) {
             unsubscribe();
         }
     }
 
-    @Override // com.baidu.tieba.yda
+    @Override // com.baidu.tieba.tma
     public void onCompleted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Iterator<pia<T, T>> it = this.i.iterator();
-            while (it.hasNext()) {
-                it.next().onCompleted();
-            }
-            this.i.clear();
-            this.n = true;
-            j();
+        Iterator<kra<T, T>> it = this.i.iterator();
+        while (it.hasNext()) {
+            it.next().onCompleted();
         }
+        this.i.clear();
+        this.n = true;
+        j();
     }
 
-    public boolean i(boolean z, boolean z2, dea<? super pia<T, T>> deaVar, Queue<pia<T, T>> queue) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), deaVar, queue})) == null) {
-            if (deaVar.isUnsubscribed()) {
+    public boolean i(boolean z, boolean z2, yma<? super kra<T, T>> ymaVar, Queue<kra<T, T>> queue) {
+        if (ymaVar.isUnsubscribed()) {
+            queue.clear();
+            return true;
+        } else if (z) {
+            Throwable th = this.m;
+            if (th != null) {
                 queue.clear();
+                ymaVar.onError(th);
                 return true;
-            } else if (z) {
-                Throwable th = this.m;
-                if (th != null) {
-                    queue.clear();
-                    deaVar.onError(th);
-                    return true;
-                } else if (z2) {
-                    deaVar.onCompleted();
-                    return true;
-                } else {
-                    return false;
-                }
+            } else if (z2) {
+                ymaVar.onCompleted();
+                return true;
             } else {
                 return false;
             }
+        } else {
+            return false;
         }
-        return invokeCommon.booleanValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r15v0, resolved type: rx.internal.operators.OperatorWindowWithSize$WindowOverlap<T> */
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x003a, code lost:
+        if (r11 != 0) goto L22;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0046, code lost:
+        if (i(r15.n, r2.isEmpty(), r1, r2) == false) goto L22;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0048, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x004b, code lost:
+        if (r9 == 0) goto L27;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0054, code lost:
+        if (r5 == Long.MAX_VALUE) goto L27;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0056, code lost:
+        r15.j.addAndGet(-r9);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x005c, code lost:
+        r4 = r0.addAndGet(-r4);
+     */
     /* JADX WARN: Multi-variable type inference failed */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void j() {
-        int i;
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            AtomicInteger atomicInteger = this.k;
-            if (atomicInteger.getAndIncrement() != 0) {
-                return;
-            }
-            dea<? super xda<T>> deaVar = this.e;
-            Queue<pia<T, T>> queue = this.l;
-            int i2 = 1;
-            do {
-                long j = this.j.get();
-                long j2 = 0;
-                while (true) {
-                    i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
-                    if (i == 0) {
-                        break;
-                    }
-                    boolean z2 = this.n;
-                    pia<T, T> poll = queue.poll();
-                    if (poll == null) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (i(z2, z, deaVar, queue)) {
-                        return;
-                    }
-                    if (z) {
-                        break;
-                    }
-                    deaVar.onNext(poll);
-                    j2++;
+        AtomicInteger atomicInteger = this.k;
+        if (atomicInteger.getAndIncrement() != 0) {
+            return;
+        }
+        yma<? super sma<T>> ymaVar = this.e;
+        Queue<kra<T, T>> queue = this.l;
+        int i = 1;
+        do {
+            long j = this.j.get();
+            long j2 = 0;
+            while (true) {
+                int i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                if (i2 == 0) {
+                    break;
                 }
-                if (i == 0 && i(this.n, queue.isEmpty(), deaVar, queue)) {
+                boolean z2 = this.n;
+                kra<T, T> poll = queue.poll();
+                if (poll == null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (i(z2, z, ymaVar, queue)) {
                     return;
                 }
-                if (j2 != 0 && j != Long.MAX_VALUE) {
-                    this.j.addAndGet(-j2);
+                if (z) {
+                    break;
                 }
-                i2 = atomicInteger.addAndGet(-i2);
-            } while (i2 != 0);
-        }
+                ymaVar.onNext(poll);
+                j2++;
+            }
+        } while (i != 0);
     }
 
-    @Override // com.baidu.tieba.yda
+    @Override // com.baidu.tieba.tma
     public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
-            Iterator<pia<T, T>> it = this.i.iterator();
-            while (it.hasNext()) {
-                it.next().onError(th);
-            }
-            this.i.clear();
-            this.m = th;
-            this.n = true;
+        Iterator<kra<T, T>> it = this.i.iterator();
+        while (it.hasNext()) {
+            it.next().onError(th);
+        }
+        this.i.clear();
+        this.m = th;
+        this.n = true;
+        j();
+    }
+
+    @Override // com.baidu.tieba.tma
+    public void onNext(T t) {
+        int i = this.o;
+        ArrayDeque<kra<T, T>> arrayDeque = this.i;
+        if (i == 0 && !this.e.isUnsubscribed()) {
+            this.h.getAndIncrement();
+            UnicastSubject D = UnicastSubject.D(16, this);
+            arrayDeque.offer(D);
+            this.l.offer(D);
             j();
         }
-    }
-
-    @Override // com.baidu.tieba.yda
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-            int i = this.o;
-            ArrayDeque<pia<T, T>> arrayDeque = this.i;
-            if (i == 0 && !this.e.isUnsubscribed()) {
-                this.h.getAndIncrement();
-                UnicastSubject D = UnicastSubject.D(16, this);
-                arrayDeque.offer(D);
-                this.l.offer(D);
-                j();
+        Iterator<kra<T, T>> it = this.i.iterator();
+        while (it.hasNext()) {
+            it.next().onNext(t);
+        }
+        int i2 = this.p + 1;
+        if (i2 == this.f) {
+            this.p = i2 - this.g;
+            kra<T, T> poll = arrayDeque.poll();
+            if (poll != null) {
+                poll.onCompleted();
             }
-            Iterator<pia<T, T>> it = this.i.iterator();
-            while (it.hasNext()) {
-                it.next().onNext(t);
-            }
-            int i2 = this.p + 1;
-            if (i2 == this.f) {
-                this.p = i2 - this.g;
-                pia<T, T> poll = arrayDeque.poll();
-                if (poll != null) {
-                    poll.onCompleted();
-                }
-            } else {
-                this.p = i2;
-            }
-            int i3 = i + 1;
-            if (i3 == this.g) {
-                this.o = 0;
-            } else {
-                this.o = i3;
-            }
+        } else {
+            this.p = i2;
+        }
+        int i3 = i + 1;
+        if (i3 == this.g) {
+            this.o = 0;
+        } else {
+            this.o = i3;
         }
     }
 }

@@ -7,13 +7,14 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
-import com.meizu.cloud.pushsdk.handler.a.b.d;
+import com.meizu.cloud.pushsdk.handler.a.c.d;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.platform.message.PushSwitchStatus;
 import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
+import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 /* loaded from: classes8.dex */
 public class PlatformMessageSender {
@@ -25,20 +26,26 @@ public class PlatformMessageSender {
         BasicPushStatus b();
 
         String c();
+
+        String d();
     }
 
     public static void a(Context context, int i, boolean z, String str) {
-        String appVersionName = MzSystemUtils.getAppVersionName(context, "com.meizu.cloud");
+        String appVersionName = MzSystemUtils.getAppVersionName(context, PushConstants.PUSH_PACKAGE_NAME);
         DebugLogger.i("PlatformMessageSender", context.getPackageName() + " switchPushMessageSetting cloudVersion_name " + appVersionName);
-        if (TextUtils.isEmpty(appVersionName) || !appVersionName.startsWith("6")) {
+        if (TextUtils.isEmpty(appVersionName) || Integer.parseInt(appVersionName.substring(0, 1)) < 6) {
             return;
         }
         Intent intent = new Intent(PushConstants.MZ_PUSH_ON_MESSAGE_SWITCH_SETTING);
         intent.putExtra(PushConstants.EXTRA_APP_PUSH_SWITCH_SETTING_TYPE, i);
         intent.putExtra(PushConstants.EXTRA_APP_PUSH_SWITCH_SETTING_STATUS, z);
         intent.putExtra(PushConstants.EXTRA_APP_PUSH_SWITCH_SETTING_PACKAGE_NAME, str);
-        intent.setClassName("com.meizu.cloud", "com.meizu.cloud.pushsdk.pushservice.MzPushService");
-        context.startService(intent);
+        intent.setClassName(PushConstants.PUSH_PACKAGE_NAME, PushConstants.MZ_PUSH_SERVICE_NAME);
+        try {
+            context.startService(intent);
+        } catch (Exception e) {
+            DebugLogger.e("PlatformMessageSender", "start switch push message setting service error " + e.getMessage());
+        }
     }
 
     public static void a(Context context, String str, a aVar) {
@@ -46,9 +53,13 @@ public class PlatformMessageSender {
         intent.addCategory(str);
         intent.setPackage(str);
         intent.putExtra("method", aVar.a());
-        intent.putExtra(aVar.c(), aVar.b());
+        if (MinSdkChecker.isSupportTransmitMessageValue(context, str)) {
+            intent.putExtra(PushConstants.MZ_MESSAGE_VALUE, aVar.d());
+        } else {
+            intent.putExtra(aVar.c(), aVar.b());
+        }
         MzSystemUtils.sendMessageFromBroadcast(context, intent, PushConstants.MZ_PUSH_ON_MESSAGE_ACTION, str);
-        MzSystemUtils.sendMessageFromBroadcast(context, new Intent("com.meizu.cloud.pushservice.action.PUSH_SERVICE_START"), null, str);
+        com.meizu.cloud.pushsdk.a.a(context);
     }
 
     public static void a(Context context, String str, final PushSwitchStatus pushSwitchStatus) {
@@ -66,6 +77,11 @@ public class PlatformMessageSender {
             @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
             public String c() {
                 return PushConstants.EXTRA_APP_PUSH_SWITCH_STATUS;
+            }
+
+            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
+            public String d() {
+                return com.meizu.cloud.pushsdk.platform.message.a.a(PushSwitchStatus.this);
             }
         });
     }
@@ -86,6 +102,11 @@ public class PlatformMessageSender {
             public String c() {
                 return PushConstants.EXTRA_APP_PUSH_REGISTER_STATUS;
             }
+
+            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
+            public String d() {
+                return com.meizu.cloud.pushsdk.platform.message.a.a(RegisterStatus.this);
+            }
         });
     }
 
@@ -104,6 +125,11 @@ public class PlatformMessageSender {
             @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
             public String c() {
                 return PushConstants.EXTRA_APP_PUSH_SUBALIAS_STATUS;
+            }
+
+            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
+            public String d() {
+                return com.meizu.cloud.pushsdk.platform.message.a.a(SubAliasStatus.this);
             }
         });
     }
@@ -124,6 +150,11 @@ public class PlatformMessageSender {
             public String c() {
                 return PushConstants.EXTRA_APP_PUSH_SUBTAGS_STATUS;
             }
+
+            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
+            public String d() {
+                return com.meizu.cloud.pushsdk.platform.message.a.a(SubTagsStatus.this);
+            }
         });
     }
 
@@ -142,6 +173,11 @@ public class PlatformMessageSender {
             @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
             public String c() {
                 return PushConstants.EXTRA_APP_PUSH_UNREGISTER_STATUS;
+            }
+
+            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
+            public String d() {
+                return com.meizu.cloud.pushsdk.platform.message.a.a(UnRegisterStatus.this);
             }
         });
     }
@@ -181,7 +217,7 @@ public class PlatformMessageSender {
         intent.setClassName(context.getPackageName(), "com.meizu.cloud.pushsdk.NotificationService");
         intent.putExtra("command_type", "reflect_receiver");
         try {
-            DebugLogger.e("PlatformMessageSender", "start noficationservice to show notification");
+            DebugLogger.e("PlatformMessageSender", "start notification service to show notification");
             context.startService(intent);
         } catch (Exception e) {
             DebugLogger.e("PlatformMessageSender", "showNotification error " + e.getMessage());

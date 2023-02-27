@@ -1,52 +1,91 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
 import java.util.List;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes6.dex */
-public class x67 extends BaseAdapter {
+public final class x67 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public List<cy4> b;
-    public int c;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948252400, "Lcom/baidu/tieba/x67;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948252400, "Lcom/baidu/tieba/x67;");
+                return;
+            }
+        }
+        a = new a(null);
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    @JvmStatic
+    public static final boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? a.a(str) : invokeL.booleanValue;
+    }
+
+    @JvmStatic
+    public static final boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a.b(str) : invokeL.booleanValue;
+    }
+
+    @JvmStatic
+    public static final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            a.c();
+        }
+    }
+
+    @JvmStatic
+    public static final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.d() : invokeV.booleanValue;
+    }
+
+    @JvmStatic
+    public static final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            a.e();
+        }
     }
 
     /* loaded from: classes6.dex */
-    public static class b {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public TbImageView b;
-        public View c;
-        public TextView d;
-        public TextView e;
 
-        public b() {
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,130 +99,174 @@ public class x67 extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ b(a aVar) {
-            this();
+        @JvmStatic
+        public final boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return b55.m().i(b55.q("forum_group_feed_card_has_show"), false);
+            }
+            return invokeV.booleanValue;
         }
-    }
 
-    public x67(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        @JvmStatic
+        public final void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                b55.m().w(b55.q("forum_group_feed_card_has_show"), true);
             }
         }
-        this.c = -1;
-        this.a = context;
-    }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public cy4 getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i >= 0 && i < getCount()) {
-                return this.b.get(i);
-            }
-            return null;
-        }
-        return (cy4) invokeI.objValue;
-    }
-
-    public void c(List<cy4> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b = list;
-            notifyDataSetChanged();
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<cy4> list = this.b;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (view2 != null && view2.getTag() != null) {
-                bVar = (b) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0386, (ViewGroup) null);
-                bVar = new b(null);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f76);
-                bVar.a = tbImageView;
-                tbImageView.setDefaultBgResource(R.drawable.transparent_bg);
-                TbImageView tbImageView2 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915aa);
-                bVar.b = tbImageView2;
-                tbImageView2.setDefaultBgResource(R.drawable.transparent_bg);
-                bVar.b.setDefaultResource(R.drawable.transparent_bg);
-                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0915c0);
-                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091727);
-                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b8e);
-                view2.setTag(bVar);
-            }
-            SkinManager.setViewTextColor(bVar.d, R.color.CAM_X0105, 1);
-            if (i == this.c) {
-                SkinManager.setBackgroundResource(bVar.c, R.drawable.chx_box_gift_s);
-            } else {
-                bVar.c.setBackgroundResource(R.color.common_color_10022);
-            }
-            cy4 item = getItem(i);
-            if (item != null) {
-                bVar.d.setText(item.b);
-                bVar.a.K(item.d, 10, false);
-                bVar.b.K(item.g, 10, false);
-                int i2 = item.f;
-                if (i2 == 5) {
-                    bVar.e.setVisibility(8);
-                } else if (i2 == 3) {
-                    bVar.e.setVisibility(0);
-                    bVar.e.setText(c77.b(item.a(), false, item.s));
+        /* JADX WARN: Code restructure failed: missing block: B:13:0x0015, code lost:
+            r2 = com.baidu.tieba.y67.j();
+         */
+        @JvmStatic
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public final boolean a(String str) {
+            InterceptResult invokeL;
+            boolean z;
+            int j;
+            String h;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                if (str != null && str.length() != 0) {
+                    z = false;
                 } else {
-                    bVar.e.setVisibility(0);
-                    bVar.e.setText(c77.b(item.b(), false, item.s));
+                    z = true;
+                }
+                if (z || j <= 0) {
+                    return false;
+                }
+                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
+                h = y67.h();
+                Intrinsics.checkNotNullExpressionValue(h, "feedCardHasShowArrayStr()");
+                List<String> split$default = StringsKt__StringsKt.split$default((CharSequence) h, new String[]{"_"}, false, 0, 6, (Object) null);
+                if (split$default.size() > 1 && Intrinsics.areEqual(valueOf, split$default.get(0))) {
+                    int i = 0;
+                    for (String str2 : split$default) {
+                        if (Intrinsics.areEqual(str2, str)) {
+                            i++;
+                        }
+                    }
+                    if (i >= j) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @JvmStatic
+        public final void f(String str) {
+            boolean z;
+            String h;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                if (str != null && str.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (z) {
+                    return;
+                }
+                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
+                h = y67.h();
+                Intrinsics.checkNotNullExpressionValue(h, "feedCardHasShowArrayStr()");
+                List mutableList = CollectionsKt___CollectionsKt.toMutableList((Collection) StringsKt__StringsKt.split$default((CharSequence) h, new String[]{"_"}, false, 0, 6, (Object) null));
+                if (mutableList.isEmpty()) {
+                    mutableList.add(valueOf);
+                } else if (mutableList.size() == 1) {
+                    mutableList.clear();
+                    mutableList.add(valueOf);
+                } else if (!Intrinsics.areEqual(valueOf, mutableList.get(0))) {
+                    mutableList.clear();
+                    mutableList.add(valueOf);
+                }
+                mutableList.add(str);
+                y67.l(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
+            }
+        }
+
+        /* JADX WARN: Code restructure failed: missing block: B:13:0x0015, code lost:
+            r2 = com.baidu.tieba.y67.i();
+         */
+        @JvmStatic
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public final boolean b(String str) {
+            InterceptResult invokeL;
+            boolean z;
+            int i;
+            String g;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                if (str != null && str.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (z || i <= 0) {
+                    return false;
+                }
+                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
+                g = y67.g();
+                Intrinsics.checkNotNullExpressionValue(g, "entranceGuideHasShowArrayStr()");
+                List mutableList = CollectionsKt___CollectionsKt.toMutableList((Collection) StringsKt__StringsKt.split$default((CharSequence) g, new String[]{"_"}, false, 0, 6, (Object) null));
+                if (mutableList.isEmpty()) {
+                    mutableList.add(valueOf);
+                    mutableList.add(str);
+                    y67.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
+                    return true;
+                } else if (mutableList.size() == 1) {
+                    mutableList.clear();
+                    mutableList.add(valueOf);
+                    mutableList.add(str);
+                    y67.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
+                    return true;
+                } else if (Intrinsics.areEqual(valueOf, mutableList.get(0))) {
+                    if (mutableList.contains(str) || mutableList.size() - 1 >= i) {
+                        return false;
+                    }
+                    mutableList.add(str);
+                    y67.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
+                    return true;
+                } else {
+                    mutableList.clear();
+                    mutableList.add(valueOf);
+                    mutableList.add(str);
+                    y67.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
+                    return true;
                 }
             }
-            return view2;
+            return invokeL.booleanValue;
         }
-        return (View) invokeILL.objValue;
+
+        @JvmStatic
+        public final void c() {
+            int i;
+            String g;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
+                g = y67.g();
+                Intrinsics.checkNotNullExpressionValue(g, "entranceGuideHasShowArrayStr()");
+                List mutableList = CollectionsKt___CollectionsKt.toMutableList((Collection) StringsKt__StringsKt.split$default((CharSequence) g, new String[]{"_"}, false, 0, 6, (Object) null));
+                if (mutableList.isEmpty()) {
+                    mutableList.add(valueOf);
+                } else if (mutableList.size() == 1) {
+                    mutableList.clear();
+                    mutableList.add(valueOf);
+                }
+                for (i = y67.i(); -1 < i; i--) {
+                    mutableList.add(String.valueOf(i));
+                }
+                y67.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
+            }
+        }
     }
 }

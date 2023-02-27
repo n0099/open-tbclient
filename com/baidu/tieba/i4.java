@@ -112,12 +112,12 @@ public class i4 implements o7 {
 
         /* renamed from: com.baidu.tieba.i4$c$c  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0307c implements o<q> {
+        public class C0284c implements o<q> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
 
-            public C0307c(c cVar, String[] strArr) {
+            public C0284c(c cVar, String[] strArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -727,7 +727,7 @@ public class i4 implements o7 {
                 d8Var2.i("offset", new n(this, strArr));
                 d8Var2.i("orig", new a(this, strArr));
                 d8Var2.i(SevenZipUtils.LZMA_META_KEY_OFFSET, new b(this, strArr));
-                d8Var2.i("rotate", new C0307c(this, strArr));
+                d8Var2.i("rotate", new C0284c(this, strArr));
                 d8Var2.i("index", new d(this, strArr, zArr));
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(q3Var.m()), 1024);
                 try {

@@ -1,7 +1,6 @@
 package com.cmic.sso.sdk.auth;
 
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.sapi2.activity.BaseActivity;
@@ -41,7 +40,7 @@ public class c {
             try {
                 b = aVar.b("operatortype", "0");
             } catch (Exception e) {
-                Log.e("AuthnResult", "JSONException", e);
+                e.printStackTrace();
             }
             if (!"0".equals(b) && !TextUtils.isEmpty(b)) {
                 jSONObject.put("operatorType", strArr[Integer.parseInt(b)]);
@@ -66,7 +65,7 @@ public class c {
                 jSONObject.put("resultCode", str);
                 jSONObject.put("desc", str2);
             } catch (Exception e) {
-                Log.e("AuthnResult", "Exception", e);
+                e.printStackTrace();
             }
             return jSONObject;
         }

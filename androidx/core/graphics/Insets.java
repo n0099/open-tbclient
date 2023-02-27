@@ -4,77 +4,26 @@ import android.graphics.Rect;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class Insets {
-    public static /* synthetic */ Interceptable $ic;
     @NonNull
-    public static final Insets NONE;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final Insets NONE = new Insets(0, 0, 0, 0);
     public final int bottom;
     public final int left;
     public final int right;
     public final int top;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-501789065, "Landroidx/core/graphics/Insets;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-501789065, "Landroidx/core/graphics/Insets;");
-                return;
-            }
-        }
-        NONE = new Insets(0, 0, 0, 0);
-    }
-
     public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (((((this.left * 31) + this.top) * 31) + this.right) * 31) + this.bottom;
-        }
-        return invokeV.intValue;
+        return (((((this.left * 31) + this.top) * 31) + this.right) * 31) + this.bottom;
     }
 
     @NonNull
     @RequiresApi(api = 29)
     public android.graphics.Insets toPlatformInsets() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return android.graphics.Insets.of(this.left, this.top, this.right, this.bottom);
-        }
-        return (android.graphics.Insets) invokeV.objValue;
+        return android.graphics.Insets.of(this.left, this.top, this.right, this.bottom);
     }
 
     public Insets(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.left = i;
         this.top = i2;
         this.right = i3;
@@ -82,77 +31,42 @@ public final class Insets {
     }
 
     @NonNull
-    public static Insets add(@NonNull Insets insets, @NonNull Insets insets2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, insets, insets2)) == null) {
-            return of(insets.left + insets2.left, insets.top + insets2.top, insets.right + insets2.right, insets.bottom + insets2.bottom);
+    public static Insets of(int i, int i2, int i3, int i4) {
+        if (i == 0 && i2 == 0 && i3 == 0 && i4 == 0) {
+            return NONE;
         }
-        return (Insets) invokeLL.objValue;
+        return new Insets(i, i2, i3, i4);
     }
 
     @NonNull
-    public static Insets subtract(@NonNull Insets insets, @NonNull Insets insets2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, insets, insets2)) == null) {
-            return of(insets.left - insets2.left, insets.top - insets2.top, insets.right - insets2.right, insets.bottom - insets2.bottom);
-        }
-        return (Insets) invokeLL.objValue;
+    public static Insets add(@NonNull Insets insets, @NonNull Insets insets2) {
+        return of(insets.left + insets2.left, insets.top + insets2.top, insets.right + insets2.right, insets.bottom + insets2.bottom);
     }
 
     @NonNull
     public static Insets max(@NonNull Insets insets, @NonNull Insets insets2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, insets, insets2)) == null) {
-            return of(Math.max(insets.left, insets2.left), Math.max(insets.top, insets2.top), Math.max(insets.right, insets2.right), Math.max(insets.bottom, insets2.bottom));
-        }
-        return (Insets) invokeLL.objValue;
+        return of(Math.max(insets.left, insets2.left), Math.max(insets.top, insets2.top), Math.max(insets.right, insets2.right), Math.max(insets.bottom, insets2.bottom));
     }
 
     @NonNull
     public static Insets min(@NonNull Insets insets, @NonNull Insets insets2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, insets, insets2)) == null) {
-            return of(Math.min(insets.left, insets2.left), Math.min(insets.top, insets2.top), Math.min(insets.right, insets2.right), Math.min(insets.bottom, insets2.bottom));
-        }
-        return (Insets) invokeLL.objValue;
+        return of(Math.min(insets.left, insets2.left), Math.min(insets.top, insets2.top), Math.min(insets.right, insets2.right), Math.min(insets.bottom, insets2.bottom));
     }
 
     @NonNull
-    public static Insets of(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, null, i, i2, i3, i4)) == null) {
-            if (i == 0 && i2 == 0 && i3 == 0 && i4 == 0) {
-                return NONE;
-            }
-            return new Insets(i, i2, i3, i4);
-        }
-        return (Insets) invokeIIII.objValue;
+    public static Insets subtract(@NonNull Insets insets, @NonNull Insets insets2) {
+        return of(insets.left - insets2.left, insets.top - insets2.top, insets.right - insets2.right, insets.bottom - insets2.bottom);
     }
 
     @NonNull
     public static Insets of(@NonNull Rect rect) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, rect)) == null) {
-            return of(rect.left, rect.top, rect.right, rect.bottom);
-        }
-        return (Insets) invokeL.objValue;
+        return of(rect.left, rect.top, rect.right, rect.bottom);
     }
 
     @NonNull
     @RequiresApi(api = 29)
     public static Insets toCompatInsets(@NonNull android.graphics.Insets insets) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, insets)) == null) {
-            return of(insets.left, insets.top, insets.right, insets.bottom);
-        }
-        return (Insets) invokeL.objValue;
+        return of(insets.left, insets.top, insets.right, insets.bottom);
     }
 
     @NonNull
@@ -160,39 +74,24 @@ public final class Insets {
     @RequiresApi(api = 29)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static Insets wrap(@NonNull android.graphics.Insets insets) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, insets)) == null) {
-            return toCompatInsets(insets);
-        }
-        return (Insets) invokeL.objValue;
+        return toCompatInsets(insets);
     }
 
     public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || Insets.class != obj.getClass()) {
-                return false;
-            }
-            Insets insets = (Insets) obj;
-            if (this.bottom == insets.bottom && this.left == insets.left && this.right == insets.right && this.top == insets.top) {
-                return true;
-            }
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || Insets.class != obj.getClass()) {
             return false;
         }
-        return invokeL.booleanValue;
+        Insets insets = (Insets) obj;
+        if (this.bottom == insets.bottom && this.left == insets.left && this.right == insets.right && this.top == insets.top) {
+            return true;
+        }
+        return false;
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "Insets{left=" + this.left + ", top=" + this.top + ", right=" + this.right + ", bottom=" + this.bottom + '}';
-        }
-        return (String) invokeV.objValue;
+        return "Insets{left=" + this.left + ", top=" + this.top + ", right=" + this.right + ", bottom=" + this.bottom + '}';
     }
 }

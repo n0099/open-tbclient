@@ -1,61 +1,70 @@
 package com.sdk.o;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.sdk.o.f;
 /* loaded from: classes8.dex */
 public class a {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "com.sdk.o.a";
-    public static final Boolean b;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1592899223, "Lcom/sdk/o/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static int a(String str, String str2, Boolean bool) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, bool)) == null) {
+            if (str2 == null) {
+                str2 = "";
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1592899223, "Lcom/sdk/o/a;");
-                return;
+            if (bool.booleanValue()) {
+                return Log.e(str, str2);
             }
+            return -1;
         }
-        b = Boolean.valueOf(com.sdk.f.g.b);
+        return invokeLLL.intValue;
     }
 
-    /* JADX DEBUG: Incorrect args count in method signature: (Landroid/content/Context;Ljava/util/ArrayList<Ljava/lang/String;>;Z)Lcom/sdk/o/f$a; */
-    public static f.a a(Context context) {
+    public static Boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            f.a aVar = f.a.c;
-            if (context == null) {
-                return aVar;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? (str == null || str.length() == 0 || str.trim().length() == 0 || StringUtil.NULL_STRING.equals(str)) ? Boolean.TRUE : Boolean.FALSE : (Boolean) invokeL.objValue;
+    }
+
+    public static int b(String str, String str2, Boolean bool) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, bool)) == null) {
+            if (str2 == null) {
+                str2 = "";
             }
-            try {
-                NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-                if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
-                    String typeName = activeNetworkInfo.getTypeName();
-                    if ("MOBILE".equalsIgnoreCase(typeName)) {
-                        aVar = f.a.b;
-                    } else if ("WIFI".equalsIgnoreCase(typeName)) {
-                        aVar = f.a.a;
-                    }
-                }
-            } catch (Throwable th) {
-                com.sdk.n.a.a(a, th.getMessage(), b);
+            if (bool.booleanValue()) {
+                return Log.i(str, str2);
             }
-            return aVar;
+            return -1;
         }
-        return (f.a) invokeL.objValue;
+        return invokeLLL.intValue;
+    }
+
+    public static Boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (str == null || str.length() == 0 || str.trim().length() == 0 || StringUtil.NULL_STRING.equals(str) || str.equals("")) ? Boolean.FALSE : Boolean.TRUE : (Boolean) invokeL.objValue;
+    }
+
+    public static int c(String str, String str2, Boolean bool) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, bool)) == null) {
+            if (str2 == null) {
+                str2 = "";
+            }
+            if (bool.booleanValue()) {
+                return Log.w(str, str2);
+            }
+            return -1;
+        }
+        return invokeLLL.intValue;
     }
 }

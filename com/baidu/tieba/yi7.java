@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,16 +10,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetSugTopic.TopicList;
-import tbclient.GetSugTopic.TopicListModule;
 /* loaded from: classes7.dex */
 public class yi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public List<zi7> c;
-    public List<bj7> d;
+    public final List<ThreadData> a;
 
     public yi7() {
         Interceptable interceptable = $ic;
@@ -33,81 +29,57 @@ public class yi7 {
                 return;
             }
         }
-        this.b = -1;
-        this.c = new ArrayList();
-        this.d = new ArrayList();
+        this.a = new ArrayList();
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<zi7> b() {
+    public List<ThreadData> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.a;
         }
         return (List) invokeV.objValue;
     }
 
-    public List<bj7> c() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public void d(TopicListModule topicListModule) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, topicListModule) == null) && topicListModule != null) {
-            this.a = topicListModule.module_title;
-            List<TopicList> list = topicListModule.topic_list;
+            List<ThreadData> list = this.a;
             if (list == null) {
-                return;
+                return false;
             }
-            int count = ListUtils.getCount(list);
-            for (int i = 0; i < count; i++) {
-                zi7 zi7Var = new zi7();
-                TopicList topicList = (TopicList) ListUtils.getItem(topicListModule.topic_list, i);
-                if (topicList != null) {
-                    zi7Var.c(topicList);
-                    if (!dj.isEmptyStringAfterTrim(zi7Var.b())) {
-                        this.c.add(zi7Var);
-                        this.d.add(new bj7(topicList));
-                    }
+            return !ListUtils.isEmpty(list);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public xi7 a(boolean z, vi7 vi7Var) {
+        InterceptResult invokeZL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(1048576, this, z, vi7Var)) == null) {
+            xi7 xi7Var = new xi7();
+            xi7Var.c = vi7Var.i();
+            xi7Var.e = vi7Var.a();
+            xi7Var.f = vi7Var.c();
+            ArrayList<ThreadData> h = vi7Var.h();
+            if (z) {
+                if (!ListUtils.isEmpty(h)) {
+                    this.a.clear();
+                    this.a.addAll(h);
                 }
+            } else if (!ListUtils.isEmpty(h)) {
+                this.a.addAll(h);
             }
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(this.a);
+            uh7.e(true, arrayList, vi7Var.e());
+            uh7.e(true, arrayList, vi7Var.f());
+            uh7.e(true, arrayList, vi7Var.d());
+            uh7.e(true, arrayList, vi7Var.g());
+            xi7Var.a = uh7.c(arrayList);
+            return xi7Var;
         }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.b = i;
-        }
+        return (xi7) invokeZL.objValue;
     }
 }

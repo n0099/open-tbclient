@@ -1,178 +1,161 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
+import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
-import java.util.HashMap;
-import java.util.Map;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
+import java.io.File;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ey1 {
+public class ey1 extends dy1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String f;
-    public static final MediaType g;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Map<String, String> b;
-    public Map<String, String> c;
-    public boolean d;
-    public String e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947750572, "Lcom/baidu/tieba/ey1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947750572, "Lcom/baidu/tieba/ey1;");
-                return;
-            }
-        }
-        boolean z = gp1.a;
-        f = String.format("%s/ma/call", q52.b());
-        g = d03.a;
-    }
-
-    public final void b() {
-        w83 b0;
+    @Override // com.baidu.tieba.px1
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (b0 = w83.b0()) == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ImageApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ File a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ m93 d;
+        public final /* synthetic */ ey1 e;
+
+        public a(ey1 ey1Var, File file, int i, String str, m93 m93Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ey1Var, file, Integer.valueOf(i), str, m93Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = ey1Var;
+            this.a = file;
+            this.b = i;
+            this.c = str;
+            this.d = m93Var;
         }
-        int k = b0.k();
-        String i = bi3.i(ju2.U().M(), k);
-        if (k == 0) {
-            this.c.put("swan_ver", i);
-        } else if (k == 1) {
-            this.c.put("game_ver", i);
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                File k = km3.k(this.a.getName());
+                if (!km3.b(this.a, k, this.b)) {
+                    m62.c("ImageApi", "compress image failed");
+                    this.e.d(this.c, new m12(1001, "compress image failed"));
+                    return;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("tempFilePath", ug3.J(k.getAbsolutePath(), this.d.b));
+                } catch (JSONException e) {
+                    m62.c("ImageApi", e.toString());
+                }
+                this.e.d(this.c, new m12(0, jSONObject));
+            }
         }
     }
 
-    public ey1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ey1(@NonNull nx1 nx1Var) {
+        super(nx1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {nx1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((nx1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = f + "?";
-        this.b = new HashMap();
-        this.c = new HashMap();
-        this.d = false;
-        this.e = "";
-        d();
-        e();
     }
 
-    public final void a() {
-        w83 b0;
-        PMSAppInfo f0;
+    public m12 x(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (b0 = w83.b0()) == null || (f0 = b0.W().f0()) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#compressImage", false);
+            Pair<m12, JSONObject> s = s(str);
+            m12 m12Var = (m12) s.first;
+            if (!m12Var.isSuccess()) {
+                return m12Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                m62.c("ImageApi", "cb is empty");
+                return new m12(202, "cb is empty");
+            }
+            return y(optString, jSONObject.optString("src"), jSONObject.optInt("quality", 80));
         }
-        this.c.put("app_ver", String.valueOf(f0.versionCode));
+        return (m12) invokeL.objValue;
     }
 
-    public final void e() {
-        int i;
+    public final m12 y(String str, String str2, int i) {
+        InterceptResult invokeLLI;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Map<String, String> map = this.b;
-            if (SwanAppAllianceLoginHelper.d.f()) {
-                i = 2;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, i)) == null) {
+            m93 b0 = m93.b0();
+            if (b0 == null) {
+                return new m12(1001, "swan app is null");
+            }
+            if (i >= 0 && i <= 100) {
+                i2 = i;
             } else {
-                i = 0;
+                i2 = 80;
             }
-            map.put("mnpunion", String.valueOf(i));
-            this.b.put("Referer", dm3.b());
-        }
-    }
-
-    public void c(@NonNull ResponseCallback<JSONObject> responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, responseCallback) == null) {
-            if (!this.d) {
-                responseCallback.onFail(new InvalidParameterException("no service has been set"));
-                return;
+            if (TextUtils.isEmpty(str2)) {
+                m62.c("ImageApi", "src is null");
+                return new m12(202, "src is null");
             }
-            String b = om3.b(this.a, this.c);
-            this.a = b;
-            this.a = s52.b(b);
-            zf4 zf4Var = new zf4(this.a, RequestBody.create(g, this.e), responseCallback);
-            zf4Var.c = this.b;
-            zf4Var.g = true;
-            w52.i("CallServiceRequest", "Start request cloud ability: " + this.c.get("service"));
-            ag4.g().e(zf4Var);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (rs3.getContext() == null) {
-                w52.c("CallServiceRequest", Log.getStackTraceString(new AssertionError("Assertion failed: SwanConfigRuntime.getContext() == null")));
-                return;
+            PathType s = ug3.s(str2);
+            String str3 = null;
+            if (s == PathType.BD_FILE) {
+                str3 = ug3.M(str2, b0.b);
+            } else if (s == PathType.RELATIVE) {
+                str3 = ug3.L(str2, b0, b0.k0());
             }
-            this.c.put("host_os", xo4.f());
-            this.c.put("host_os_ver", xo4.g());
-            this.c.put("host_app", rs3.getContext().c());
-            this.c.put("host_app_ver", rs3.getContext().h());
-            this.c.put("sdk_ver", rs3.getContext().b());
-            this.c.put("ua", fp4.b(rs3.getContext().h()));
-            this.c.put("ut", s52.f());
-            this.c.put("network", xo4.e());
-            this.c.put("bundle_Id", v83.K().getAppId());
-            this.c.put("cuid", rs3.getContext().g());
-            this.c.put("uuid", rs3.getContext().e());
-            Map<String, String> map = this.c;
-            map.put("sid", ds2.g0().k() + "");
-            this.c.put("source", "swan_sdk");
-            this.c.put("timestamp", String.valueOf(System.currentTimeMillis()));
-            b();
-            a();
-        }
-    }
-
-    public void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            if (jSONObject == null) {
-                this.e = "";
-            } else {
-                this.e = jSONObject.toString();
+            if (TextUtils.isEmpty(str3)) {
+                m62.c("ImageApi", "file path error");
+                return new m12(2001, "file path error");
             }
+            File file = new File(str3);
+            if (!file.exists()) {
+                m62.c("ImageApi", "file does not exist");
+                return new m12(2001, "file does not exist");
+            }
+            gm3.k(new a(this, file, i2, str, b0), "compressImage");
+            return m12.f();
         }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !TextUtils.isEmpty(str)) {
-            this.c.put("service", str);
-            this.d = true;
-        }
+        return (m12) invokeLLI.objValue;
     }
 }

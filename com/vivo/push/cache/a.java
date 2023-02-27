@@ -10,15 +10,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.util.f;
-import com.vivo.push.util.p;
-import com.vivo.push.util.z;
+import com.vivo.push.util.j;
+import com.vivo.push.util.u;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public final class a extends c<com.vivo.push.model.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (i == -1 || (i & 1) == 0) ? false : true : invokeI.booleanValue;
+    }
 
     @Override // com.vivo.push.cache.c
     public final String a() {
@@ -52,7 +57,7 @@ public final class a extends c<com.vivo.push.model.a> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return new String(f.a(f.a(e()), f.a(f()), Base64.decode(str, 2)), IMAudioTransRequest.CHARSET);
+            return new String(j.a(j.a(e()), j.a(f()), Base64.decode(str, 2)), IMAudioTransRequest.CHARSET);
         }
         return (String) invokeL.objValue;
     }
@@ -74,21 +79,6 @@ public final class a extends c<com.vivo.push.model.a> {
         return (com.vivo.push.model.a) invokeL.objValue;
     }
 
-    public static boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i != -1) {
-                if ((i & 1) != 0) {
-                    return true;
-                }
-                return false;
-            }
-            return z.b("persist.sys.log.ctrl", "no").equals("yes");
-        }
-        return invokeI.booleanValue;
-    }
-
     @Override // com.vivo.push.cache.c
     public final List<com.vivo.push.model.a> a(String str) {
         InterceptResult invokeL;
@@ -106,7 +96,7 @@ public final class a extends c<com.vivo.push.model.a> {
                         try {
                             arrayList.add(new com.vivo.push.model.a(split[0], trim.substring(split[0].length() + 1)));
                         } catch (Exception e) {
-                            p.d("AppConfigSettings", "str2Clients E: ".concat(String.valueOf(e)));
+                            u.d("AppConfigSettings", "str2Clients E: ".concat(String.valueOf(e)));
                         }
                     }
                 }

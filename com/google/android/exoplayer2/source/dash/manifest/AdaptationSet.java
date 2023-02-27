@@ -1,16 +1,10 @@
 package com.google.android.exoplayer2.source.dash.manifest;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class AdaptationSet {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int ID_UNSET = -1;
-    public transient /* synthetic */ FieldHolder $fh;
     public final List<Descriptor> accessibilityDescriptors;
     public final int id;
     public final List<Representation> representations;
@@ -20,20 +14,6 @@ public class AdaptationSet {
     public AdaptationSet(int i, int i2, List<Representation> list, List<Descriptor> list2, List<Descriptor> list3) {
         List<Descriptor> unmodifiableList;
         List<Descriptor> unmodifiableList2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), list, list2, list3};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.id = i;
         this.type = i2;
         this.representations = Collections.unmodifiableList(list);

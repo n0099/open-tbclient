@@ -6,15 +6,6 @@ import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.drawee.drawable.ScalingUtils;
 import java.util.Arrays;
@@ -22,11 +13,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class GenericDraweeHierarchyBuilder {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final ScalingUtils.ScaleType DEFAULT_ACTUAL_IMAGE_SCALE_TYPE;
     public static final int DEFAULT_FADE_DURATION = 150;
-    public static final ScalingUtils.ScaleType DEFAULT_SCALE_TYPE;
-    public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public ColorFilter mActualImageColorFilter;
     @Nullable
@@ -63,28 +50,35 @@ public class GenericDraweeHierarchyBuilder {
     @Nullable
     public RoundingParams mRoundingParams;
     public boolean mUseGlobalColorFilter;
+    public static final ScalingUtils.ScaleType DEFAULT_SCALE_TYPE = ScalingUtils.ScaleType.CENTER_INSIDE;
+    public static final ScalingUtils.ScaleType DEFAULT_ACTUAL_IMAGE_SCALE_TYPE = ScalingUtils.ScaleType.CENTER_CROP;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(671174126, "Lcom/facebook/drawee/generic/GenericDraweeHierarchyBuilder;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(671174126, "Lcom/facebook/drawee/generic/GenericDraweeHierarchyBuilder;");
-                return;
-            }
-        }
-        DEFAULT_SCALE_TYPE = ScalingUtils.ScaleType.CENTER_INSIDE;
-        DEFAULT_ACTUAL_IMAGE_SCALE_TYPE = ScalingUtils.ScaleType.CENTER_CROP;
+    private void init() {
+        this.mFadeDuration = 150;
+        this.mUseGlobalColorFilter = true;
+        this.mDesiredAspectRatio = 0.0f;
+        this.mPlaceholderImage = null;
+        ScalingUtils.ScaleType scaleType = DEFAULT_SCALE_TYPE;
+        this.mPlaceholderImageScaleType = scaleType;
+        this.mRetryImage = null;
+        this.mRetryImageScaleType = scaleType;
+        this.mFailureImage = null;
+        this.mFailureImageScaleType = scaleType;
+        this.mProgressBarImage = null;
+        this.mProgressBarImageScaleType = scaleType;
+        this.mActualImageScaleType = DEFAULT_ACTUAL_IMAGE_SCALE_TYPE;
+        this.mActualImageMatrix = null;
+        this.mActualImageFocusPoint = null;
+        this.mActualImageColorFilter = null;
+        this.mBackground = null;
+        this.mOverlays = null;
+        this.mPressedStateOverlay = null;
+        this.mRoundingParams = null;
     }
 
     private void validate() {
-        List<Drawable> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && (list = this.mOverlays) != null) {
+        List<Drawable> list = this.mOverlays;
+        if (list != null) {
             for (Drawable drawable : list) {
                 Preconditions.checkNotNull(drawable);
             }
@@ -92,591 +86,286 @@ public class GenericDraweeHierarchyBuilder {
     }
 
     public GenericDraweeHierarchy build() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            validate();
-            return new GenericDraweeHierarchy(this);
-        }
-        return (GenericDraweeHierarchy) invokeV.objValue;
+        validate();
+        return new GenericDraweeHierarchy(this);
     }
 
     @Nullable
     public ColorFilter getActualImageColorFilter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mActualImageColorFilter;
-        }
-        return (ColorFilter) invokeV.objValue;
+        return this.mActualImageColorFilter;
     }
 
     @Nullable
     public PointF getActualImageFocusPoint() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mActualImageFocusPoint;
-        }
-        return (PointF) invokeV.objValue;
+        return this.mActualImageFocusPoint;
     }
 
     @Nullable
     public ScalingUtils.ScaleType getActualImageScaleType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mActualImageScaleType;
-        }
-        return (ScalingUtils.ScaleType) invokeV.objValue;
+        return this.mActualImageScaleType;
     }
 
     @Nullable
     public Drawable getBackground() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mBackground;
-        }
-        return (Drawable) invokeV.objValue;
+        return this.mBackground;
     }
 
     public float getDesiredAspectRatio() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mDesiredAspectRatio;
-        }
-        return invokeV.floatValue;
+        return this.mDesiredAspectRatio;
     }
 
     public int getFadeDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.mFadeDuration;
-        }
-        return invokeV.intValue;
+        return this.mFadeDuration;
     }
 
     @Nullable
     public Drawable getFailureImage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.mFailureImage;
-        }
-        return (Drawable) invokeV.objValue;
+        return this.mFailureImage;
     }
 
     @Nullable
     public ScalingUtils.ScaleType getFailureImageScaleType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.mFailureImageScaleType;
-        }
-        return (ScalingUtils.ScaleType) invokeV.objValue;
+        return this.mFailureImageScaleType;
     }
 
     @Nullable
     public List<Drawable> getOverlays() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.mOverlays;
-        }
-        return (List) invokeV.objValue;
+        return this.mOverlays;
     }
 
     @Nullable
     public Drawable getPlaceholderImage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.mPlaceholderImage;
-        }
-        return (Drawable) invokeV.objValue;
+        return this.mPlaceholderImage;
     }
 
     @Nullable
     public ScalingUtils.ScaleType getPlaceholderImageScaleType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.mPlaceholderImageScaleType;
-        }
-        return (ScalingUtils.ScaleType) invokeV.objValue;
+        return this.mPlaceholderImageScaleType;
     }
 
     @Nullable
     public Drawable getPressedStateOverlay() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.mPressedStateOverlay;
-        }
-        return (Drawable) invokeV.objValue;
+        return this.mPressedStateOverlay;
     }
 
     @Nullable
     public Drawable getProgressBarImage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.mProgressBarImage;
-        }
-        return (Drawable) invokeV.objValue;
+        return this.mProgressBarImage;
     }
 
     @Nullable
     public ScalingUtils.ScaleType getProgressBarImageScaleType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.mProgressBarImageScaleType;
-        }
-        return (ScalingUtils.ScaleType) invokeV.objValue;
+        return this.mProgressBarImageScaleType;
     }
 
     public Resources getResources() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.mResources;
-        }
-        return (Resources) invokeV.objValue;
+        return this.mResources;
     }
 
     @Nullable
     public Drawable getRetryImage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.mRetryImage;
-        }
-        return (Drawable) invokeV.objValue;
+        return this.mRetryImage;
     }
 
     @Nullable
     public ScalingUtils.ScaleType getRetryImageScaleType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.mRetryImageScaleType;
-        }
-        return (ScalingUtils.ScaleType) invokeV.objValue;
+        return this.mRetryImageScaleType;
     }
 
     @Nullable
     public RoundingParams getRoundingParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.mRoundingParams;
-        }
-        return (RoundingParams) invokeV.objValue;
+        return this.mRoundingParams;
     }
 
     public boolean getUseGlobalColorFilter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.mUseGlobalColorFilter;
-        }
-        return invokeV.booleanValue;
+        return this.mUseGlobalColorFilter;
     }
 
     public GenericDraweeHierarchyBuilder reset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            init();
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeV.objValue;
+        init();
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder(Resources resources) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {resources};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mResources = resources;
         init();
     }
 
-    private void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.mFadeDuration = 150;
-            this.mUseGlobalColorFilter = true;
-            this.mDesiredAspectRatio = 0.0f;
-            this.mPlaceholderImage = null;
-            ScalingUtils.ScaleType scaleType = DEFAULT_SCALE_TYPE;
-            this.mPlaceholderImageScaleType = scaleType;
-            this.mRetryImage = null;
-            this.mRetryImageScaleType = scaleType;
-            this.mFailureImage = null;
-            this.mFailureImageScaleType = scaleType;
-            this.mProgressBarImage = null;
-            this.mProgressBarImageScaleType = scaleType;
-            this.mActualImageScaleType = DEFAULT_ACTUAL_IMAGE_SCALE_TYPE;
-            this.mActualImageMatrix = null;
-            this.mActualImageFocusPoint = null;
-            this.mActualImageColorFilter = null;
-            this.mBackground = null;
-            this.mOverlays = null;
-            this.mPressedStateOverlay = null;
-            this.mRoundingParams = null;
-        }
-    }
-
     public static GenericDraweeHierarchyBuilder newInstance(Resources resources) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, resources)) == null) {
-            return new GenericDraweeHierarchyBuilder(resources);
-        }
-        return (GenericDraweeHierarchyBuilder) invokeL.objValue;
+        return new GenericDraweeHierarchyBuilder(resources);
     }
 
     public GenericDraweeHierarchyBuilder setActualImageColorFilter(@Nullable ColorFilter colorFilter) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, colorFilter)) == null) {
-            this.mActualImageColorFilter = colorFilter;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeL.objValue;
+        this.mActualImageColorFilter = colorFilter;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setActualImageFocusPoint(@Nullable PointF pointF) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, pointF)) == null) {
-            this.mActualImageFocusPoint = pointF;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeL.objValue;
+        this.mActualImageFocusPoint = pointF;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setActualImageScaleType(@Nullable ScalingUtils.ScaleType scaleType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, scaleType)) == null) {
-            this.mActualImageScaleType = scaleType;
-            this.mActualImageMatrix = null;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeL.objValue;
+        this.mActualImageScaleType = scaleType;
+        this.mActualImageMatrix = null;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setBackground(@Nullable Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, drawable)) == null) {
-            this.mBackground = drawable;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeL.objValue;
+        this.mBackground = drawable;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setDesiredAspectRatio(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048601, this, f)) == null) {
-            this.mDesiredAspectRatio = f;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeF.objValue;
+        this.mDesiredAspectRatio = f;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setFadeDuration(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i)) == null) {
-            this.mFadeDuration = i;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeI.objValue;
+        this.mFadeDuration = i;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setFailureImage(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i)) == null) {
-            this.mFailureImage = this.mResources.getDrawable(i);
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeI.objValue;
+        this.mFailureImage = this.mResources.getDrawable(i);
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setFailureImageScaleType(@Nullable ScalingUtils.ScaleType scaleType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, scaleType)) == null) {
-            this.mFailureImageScaleType = scaleType;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeL.objValue;
+        this.mFailureImageScaleType = scaleType;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setOverlay(@Nullable Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, drawable)) == null) {
-            if (drawable == null) {
-                this.mOverlays = null;
-            } else {
-                this.mOverlays = Arrays.asList(drawable);
-            }
-            return this;
+        if (drawable == null) {
+            this.mOverlays = null;
+        } else {
+            this.mOverlays = Arrays.asList(drawable);
         }
-        return (GenericDraweeHierarchyBuilder) invokeL.objValue;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setOverlays(@Nullable List<Drawable> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, list)) == null) {
-            this.mOverlays = list;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeL.objValue;
+        this.mOverlays = list;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setPlaceholderImage(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048610, this, i)) == null) {
-            this.mPlaceholderImage = this.mResources.getDrawable(i);
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeI.objValue;
+        this.mPlaceholderImage = this.mResources.getDrawable(i);
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setPlaceholderImageScaleType(@Nullable ScalingUtils.ScaleType scaleType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, scaleType)) == null) {
-            this.mPlaceholderImageScaleType = scaleType;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeL.objValue;
+        this.mPlaceholderImageScaleType = scaleType;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setPressedStateOverlay(@Nullable Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, drawable)) == null) {
-            if (drawable == null) {
-                this.mPressedStateOverlay = null;
-            } else {
-                StateListDrawable stateListDrawable = new StateListDrawable();
-                stateListDrawable.addState(new int[]{16842919}, drawable);
-                this.mPressedStateOverlay = stateListDrawable;
-            }
-            return this;
+        if (drawable == null) {
+            this.mPressedStateOverlay = null;
+        } else {
+            StateListDrawable stateListDrawable = new StateListDrawable();
+            stateListDrawable.addState(new int[]{16842919}, drawable);
+            this.mPressedStateOverlay = stateListDrawable;
         }
-        return (GenericDraweeHierarchyBuilder) invokeL.objValue;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setProgressBarImage(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048616, this, i)) == null) {
-            this.mProgressBarImage = this.mResources.getDrawable(i);
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeI.objValue;
+        this.mProgressBarImage = this.mResources.getDrawable(i);
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setProgressBarImageScaleType(@Nullable ScalingUtils.ScaleType scaleType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, scaleType)) == null) {
-            this.mProgressBarImageScaleType = scaleType;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeL.objValue;
+        this.mProgressBarImageScaleType = scaleType;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setRetryImage(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048621, this, i)) == null) {
-            this.mRetryImage = this.mResources.getDrawable(i);
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeI.objValue;
+        this.mRetryImage = this.mResources.getDrawable(i);
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setRetryImageScaleType(@Nullable ScalingUtils.ScaleType scaleType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, scaleType)) == null) {
-            this.mRetryImageScaleType = scaleType;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeL.objValue;
+        this.mRetryImageScaleType = scaleType;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setRoundingParams(@Nullable RoundingParams roundingParams) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, roundingParams)) == null) {
-            this.mRoundingParams = roundingParams;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeL.objValue;
+        this.mRoundingParams = roundingParams;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setUseGlobalColorFilter(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048627, this, z)) == null) {
-            this.mUseGlobalColorFilter = z;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeZ.objValue;
+        this.mUseGlobalColorFilter = z;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setFailureImage(int i, @Nullable ScalingUtils.ScaleType scaleType) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048604, this, i, scaleType)) == null) {
-            this.mFailureImage = this.mResources.getDrawable(i);
-            this.mFailureImageScaleType = scaleType;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeIL.objValue;
+        this.mFailureImage = this.mResources.getDrawable(i);
+        this.mFailureImageScaleType = scaleType;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setPlaceholderImage(int i, @Nullable ScalingUtils.ScaleType scaleType) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048611, this, i, scaleType)) == null) {
-            this.mPlaceholderImage = this.mResources.getDrawable(i);
-            this.mPlaceholderImageScaleType = scaleType;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeIL.objValue;
+        this.mPlaceholderImage = this.mResources.getDrawable(i);
+        this.mPlaceholderImageScaleType = scaleType;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setProgressBarImage(int i, @Nullable ScalingUtils.ScaleType scaleType) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048617, this, i, scaleType)) == null) {
-            this.mProgressBarImage = this.mResources.getDrawable(i);
-            this.mProgressBarImageScaleType = scaleType;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeIL.objValue;
+        this.mProgressBarImage = this.mResources.getDrawable(i);
+        this.mProgressBarImageScaleType = scaleType;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setRetryImage(int i, @Nullable ScalingUtils.ScaleType scaleType) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048622, this, i, scaleType)) == null) {
-            this.mRetryImage = this.mResources.getDrawable(i);
-            this.mRetryImageScaleType = scaleType;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeIL.objValue;
+        this.mRetryImage = this.mResources.getDrawable(i);
+        this.mRetryImageScaleType = scaleType;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setFailureImage(@Nullable Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, drawable)) == null) {
-            this.mFailureImage = drawable;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeL.objValue;
+        this.mFailureImage = drawable;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setPlaceholderImage(@Nullable Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, drawable)) == null) {
-            this.mPlaceholderImage = drawable;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeL.objValue;
+        this.mPlaceholderImage = drawable;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setProgressBarImage(@Nullable Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, drawable)) == null) {
-            this.mProgressBarImage = drawable;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeL.objValue;
+        this.mProgressBarImage = drawable;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setRetryImage(@Nullable Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, drawable)) == null) {
-            this.mRetryImage = drawable;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeL.objValue;
+        this.mRetryImage = drawable;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setFailureImage(Drawable drawable, @Nullable ScalingUtils.ScaleType scaleType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048606, this, drawable, scaleType)) == null) {
-            this.mFailureImage = drawable;
-            this.mFailureImageScaleType = scaleType;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeLL.objValue;
+        this.mFailureImage = drawable;
+        this.mFailureImageScaleType = scaleType;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setPlaceholderImage(Drawable drawable, @Nullable ScalingUtils.ScaleType scaleType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048613, this, drawable, scaleType)) == null) {
-            this.mPlaceholderImage = drawable;
-            this.mPlaceholderImageScaleType = scaleType;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeLL.objValue;
+        this.mPlaceholderImage = drawable;
+        this.mPlaceholderImageScaleType = scaleType;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setProgressBarImage(Drawable drawable, @Nullable ScalingUtils.ScaleType scaleType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048619, this, drawable, scaleType)) == null) {
-            this.mProgressBarImage = drawable;
-            this.mProgressBarImageScaleType = scaleType;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeLL.objValue;
+        this.mProgressBarImage = drawable;
+        this.mProgressBarImageScaleType = scaleType;
+        return this;
     }
 
     public GenericDraweeHierarchyBuilder setRetryImage(Drawable drawable, @Nullable ScalingUtils.ScaleType scaleType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048624, this, drawable, scaleType)) == null) {
-            this.mRetryImage = drawable;
-            this.mRetryImageScaleType = scaleType;
-            return this;
-        }
-        return (GenericDraweeHierarchyBuilder) invokeLL.objValue;
+        this.mRetryImage = drawable;
+        this.mRetryImageScaleType = scaleType;
+        return this;
     }
 }

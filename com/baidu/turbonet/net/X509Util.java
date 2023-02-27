@@ -20,6 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.ContextUtils;
 import com.baidu.turbonet.base.annotations.JNINamespace;
+import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
@@ -203,7 +204,7 @@ public class X509Util {
             }
         }
         j = new Object();
-        l = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        l = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
     public X509Util() {

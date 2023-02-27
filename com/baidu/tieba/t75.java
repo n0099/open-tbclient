@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.collection.ArrayMap;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,58 +10,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 /* loaded from: classes6.dex */
 public class t75 {
     public static /* synthetic */ Interceptable $ic;
-    public static final t75 d;
+    public static volatile t75 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
-    public Map<String, u75> b;
-    public int c;
+    public boolean a;
+    public int b;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948134135, "Lcom/baidu/tieba/t75;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948134135, "Lcom/baidu/tieba/t75;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948134135, "Lcom/baidu/tieba/t75;")) == null) {
+            return;
         }
-        d = new t75(false);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948134135, "Lcom/baidu/tieba/t75;");
+        }
     }
 
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public t75(boolean z) {
+    public t75() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -71,62 +47,70 @@ public class t75 {
                 return;
             }
         }
-        this.a = z;
-    }
-
-    public static t75 e(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return d;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("push_strategy");
-            t75 t75Var = new t75(true);
-            t75Var.a(optJSONObject);
-            return t75Var;
-        }
-        return (t75) invokeL.objValue;
-    }
-
-    public u75 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.b != null && !TextUtils.isEmpty(str)) {
-                return this.b.get(str);
-            }
-            return null;
-        }
-        return (u75) invokeL.objValue;
-    }
-
-    public final void a(JSONObject jSONObject) {
-        int length;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray("scene");
-        if (optJSONArray == null) {
-            length = 0;
-        } else {
-            length = optJSONArray.length();
-        }
-        this.b = new ArrayMap(length);
-        for (int i = 0; i < length; i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-            if (optJSONObject != null) {
-                u75 d2 = u75.d(optJSONObject);
-                if (!TextUtils.isEmpty(d2.a())) {
-                    this.b.put(d2.a(), d2);
+        this.a = false;
+        this.b = 0;
+        try {
+            wc wcVar = new wc("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
+            wcVar.setSdCard(true);
+            wcVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            if (wcVar.call()) {
+                String a = wcVar.a();
+                if (a != null) {
+                    this.b = Integer.parseInt(a);
+                }
+                if (this.b == 1 || this.b == 2) {
+                    this.a = true;
                 }
             }
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
         }
-        try {
-            this.c = Integer.parseInt(jSONObject.optString("freq"));
-        } catch (Exception unused) {
-            this.c = 0;
+    }
+
+    public static t75 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (t75.class) {
+                    if (c == null) {
+                        c = new t75();
+                    }
+                }
+            }
+            return c;
         }
+        return (t75) invokeV.objValue;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = "pub_env=" + this.b + ParamableElem.DIVIDE_PARAM;
+            if (!this.a) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
     }
 }

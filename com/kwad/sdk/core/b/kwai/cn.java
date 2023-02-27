@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.b.kwai;
 
+import android.net.http.Headers;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class cn implements com.kwad.sdk.core.d<com.kwad.components.a.kwai.a> {
@@ -16,8 +17,8 @@ public final class cn implements com.kwad.sdk.core.d<com.kwad.components.a.kwai.
         if (jSONObject.opt("Timing-Allow-Origin") == JSONObject.NULL) {
             aVar.PT = "";
         }
-        aVar.PU = jSONObject.optString("content-type");
-        if (jSONObject.opt("content-type") == JSONObject.NULL) {
+        aVar.PU = jSONObject.optString(Headers.CONTENT_TYPE);
+        if (jSONObject.opt(Headers.CONTENT_TYPE) == JSONObject.NULL) {
             aVar.PU = "";
         }
         aVar.PV = jSONObject.optString("Date");
@@ -41,7 +42,7 @@ public final class cn implements com.kwad.sdk.core.d<com.kwad.components.a.kwai.
         }
         String str3 = aVar.PU;
         if (str3 != null && !str3.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "content-type", aVar.PU);
+            com.kwad.sdk.utils.r.putValue(jSONObject, Headers.CONTENT_TYPE, aVar.PU);
         }
         String str4 = aVar.PV;
         if (str4 != null && !str4.equals("")) {

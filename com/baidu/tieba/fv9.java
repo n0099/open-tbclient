@@ -1,135 +1,142 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes4.dex */
-public class fv9 implements yu9 {
+public class fv9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile av9 a;
+    public static xu9 b;
+    public static zu9 c;
+    public static yu9 d;
+    public static zt9 e;
+    public static du9 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public av9 a;
-    public zu9 b;
 
-    public fv9(av9 av9Var, xu9 xu9Var) {
+    public fv9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {av9Var, xu9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = av9Var;
-        zu9 zu9Var = new zu9();
-        this.b = zu9Var;
-        zu9Var.k(xu9Var);
     }
 
-    @Override // com.baidu.tieba.yu9
-    public void a(DownloadException downloadException) {
+    public static av9 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, downloadException) == null) {
-            this.b.m(downloadException);
-            this.b.r(108);
-            this.a.a(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            synchronized (fv9.class) {
+                if (a == null) {
+                    a = ev9.a();
+                }
+            }
+            return a;
         }
+        return (av9) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yu9
-    public void b(DownloadException downloadException) {
+    public static xu9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
-            this.b.m(downloadException);
-            this.b.r(108);
-            this.a.a(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            xu9 xu9Var = b;
+            if (xu9Var != null) {
+                return xu9Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                b = a.a();
+            }
+            return b;
         }
+        return (xu9) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yu9
-    public void onDownloadCompleted(String str) {
+    public static yu9 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.b.r(105);
-            this.b.q(str);
-            this.a.a(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            yu9 yu9Var = d;
+            if (yu9Var != null) {
+                return yu9Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                d = a.e();
+            }
+            return d;
         }
+        return (yu9) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yu9
-    public void onConnectCanceled() {
+    public static zu9 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.r(107);
-            this.a.a(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            zu9 zu9Var = c;
+            if (zu9Var != null) {
+                return zu9Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                c = a.b();
+            }
+            return c;
         }
+        return (zu9) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yu9
-    public void onConnecting() {
+    public static zt9 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.r(102);
-            this.a.a(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            zt9 zt9Var = e;
+            if (zt9Var != null) {
+                return zt9Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                e = a.c();
+            }
+            return e;
         }
+        return (zt9) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yu9
-    public void onDownloadCanceled() {
+    public static du9 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b.r(107);
-            this.a.a(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            du9 du9Var = f;
+            if (du9Var != null) {
+                return du9Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                f = a.d();
+            }
+            return f;
         }
-    }
-
-    @Override // com.baidu.tieba.yu9
-    public void onDownloadPaused() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.b.r(106);
-            this.a.a(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.yu9
-    public void onStarted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.b.r(101);
-            this.b.a().h();
-        }
-    }
-
-    @Override // com.baidu.tieba.yu9
-    public void onConnected(long j, long j2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            this.b.s(j);
-            this.b.j(z);
-            this.b.r(103);
-            this.a.a(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.yu9
-    public void onDownloadProgress(long j, long j2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
-            this.b.n(j);
-            this.b.o(j2);
-            this.b.p(i);
-            this.b.r(104);
-            this.a.a(this.b);
-        }
+        return (du9) invokeV.objValue;
     }
 }

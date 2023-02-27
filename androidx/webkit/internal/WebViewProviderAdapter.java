@@ -8,118 +8,62 @@ import androidx.webkit.WebMessagePortCompat;
 import androidx.webkit.WebViewCompat;
 import androidx.webkit.WebViewRenderProcess;
 import androidx.webkit.WebViewRenderProcessClient;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationHandler;
 import java.util.concurrent.Executor;
 import org.chromium.support_lib_boundary.WebViewProviderBoundaryInterface;
 import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
 /* loaded from: classes.dex */
 public class WebViewProviderAdapter {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public WebViewProviderBoundaryInterface mImpl;
 
     public WebViewProviderAdapter(WebViewProviderBoundaryInterface webViewProviderBoundaryInterface) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {webViewProviderBoundaryInterface};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mImpl = webViewProviderBoundaryInterface;
     }
 
     public WebMessagePortCompat[] createWebMessageChannel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            InvocationHandler[] createWebMessageChannel = this.mImpl.createWebMessageChannel();
-            WebMessagePortCompat[] webMessagePortCompatArr = new WebMessagePortCompat[createWebMessageChannel.length];
-            for (int i = 0; i < createWebMessageChannel.length; i++) {
-                webMessagePortCompatArr[i] = new WebMessagePortImpl(createWebMessageChannel[i]);
-            }
-            return webMessagePortCompatArr;
+        InvocationHandler[] createWebMessageChannel = this.mImpl.createWebMessageChannel();
+        WebMessagePortCompat[] webMessagePortCompatArr = new WebMessagePortCompat[createWebMessageChannel.length];
+        for (int i = 0; i < createWebMessageChannel.length; i++) {
+            webMessagePortCompatArr[i] = new WebMessagePortImpl(createWebMessageChannel[i]);
         }
-        return (WebMessagePortCompat[]) invokeV.objValue;
+        return webMessagePortCompatArr;
     }
 
     public WebChromeClient getWebChromeClient() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mImpl.getWebChromeClient();
-        }
-        return (WebChromeClient) invokeV.objValue;
+        return this.mImpl.getWebChromeClient();
     }
 
     public WebViewClient getWebViewClient() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mImpl.getWebViewClient();
-        }
-        return (WebViewClient) invokeV.objValue;
+        return this.mImpl.getWebViewClient();
     }
 
     public WebViewRenderProcess getWebViewRenderProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return WebViewRenderProcessImpl.forInvocationHandler(this.mImpl.getWebViewRenderer());
-        }
-        return (WebViewRenderProcess) invokeV.objValue;
+        return WebViewRenderProcessImpl.forInvocationHandler(this.mImpl.getWebViewRenderer());
     }
 
     public WebViewRenderProcessClient getWebViewRenderProcessClient() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            InvocationHandler webViewRendererClient = this.mImpl.getWebViewRendererClient();
-            if (webViewRendererClient == null) {
-                return null;
-            }
-            return ((WebViewRenderProcessClientAdapter) BoundaryInterfaceReflectionUtil.getDelegateFromInvocationHandler(webViewRendererClient)).getWebViewRenderProcessClient();
+        InvocationHandler webViewRendererClient = this.mImpl.getWebViewRendererClient();
+        if (webViewRendererClient == null) {
+            return null;
         }
-        return (WebViewRenderProcessClient) invokeV.objValue;
+        return ((WebViewRenderProcessClientAdapter) BoundaryInterfaceReflectionUtil.getDelegateFromInvocationHandler(webViewRendererClient)).getWebViewRenderProcessClient();
     }
 
     public void insertVisualStateCallback(long j, WebViewCompat.VisualStateCallback visualStateCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048581, this, j, visualStateCallback) == null) {
-            this.mImpl.insertVisualStateCallback(j, BoundaryInterfaceReflectionUtil.createInvocationHandlerFor(new VisualStateCallbackAdapter(visualStateCallback)));
-        }
+        this.mImpl.insertVisualStateCallback(j, BoundaryInterfaceReflectionUtil.createInvocationHandlerFor(new VisualStateCallbackAdapter(visualStateCallback)));
     }
 
     public void postWebMessage(WebMessageCompat webMessageCompat, Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, webMessageCompat, uri) == null) {
-            this.mImpl.postMessageToMainFrame(BoundaryInterfaceReflectionUtil.createInvocationHandlerFor(new WebMessageAdapter(webMessageCompat)), uri);
-        }
+        this.mImpl.postMessageToMainFrame(BoundaryInterfaceReflectionUtil.createInvocationHandlerFor(new WebMessageAdapter(webMessageCompat)), uri);
     }
 
     public void setWebViewRenderProcessClient(Executor executor, WebViewRenderProcessClient webViewRenderProcessClient) {
         InvocationHandler invocationHandler;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, executor, webViewRenderProcessClient) == null) {
-            if (webViewRenderProcessClient != null) {
-                invocationHandler = BoundaryInterfaceReflectionUtil.createInvocationHandlerFor(new WebViewRenderProcessClientAdapter(executor, webViewRenderProcessClient));
-            } else {
-                invocationHandler = null;
-            }
-            this.mImpl.setWebViewRendererClient(invocationHandler);
+        if (webViewRenderProcessClient != null) {
+            invocationHandler = BoundaryInterfaceReflectionUtil.createInvocationHandlerFor(new WebViewRenderProcessClientAdapter(executor, webViewRenderProcessClient));
+        } else {
+            invocationHandler = null;
         }
+        this.mImpl.setWebViewRendererClient(invocationHandler);
     }
 }

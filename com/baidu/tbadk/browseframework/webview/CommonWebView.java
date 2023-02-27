@@ -22,13 +22,14 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.i69;
 import com.baidu.tieba.ih;
-import com.baidu.tieba.qu4;
-import com.baidu.tieba.w29;
-import com.baidu.tieba.y29;
+import com.baidu.tieba.k69;
+import com.baidu.tieba.zu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,9 +51,9 @@ public class CommonWebView extends WebView {
     public h j;
     public i k;
     public g l;
-    public w29 m;
+    public i69 m;
     public CommonTbJsBridge n;
-    public y29 o;
+    public k69 o;
 
     /* loaded from: classes3.dex */
     public interface d {
@@ -97,7 +98,7 @@ public class CommonWebView extends WebView {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements y29 {
+    public class a implements k69 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonWebView a;
@@ -120,15 +121,15 @@ public class CommonWebView extends WebView {
             this.a = commonWebView;
         }
 
-        @Override // com.baidu.tieba.y29
+        @Override // com.baidu.tieba.k69
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
                 CommonWebView commonWebView = this.a;
-                w29 w29Var = commonWebView.m;
-                if (w29Var != null) {
-                    return w29Var.c(commonWebView.getWebView(), str, jsPromptResult);
+                i69 i69Var = commonWebView.m;
+                if (i69Var != null) {
+                    return i69Var.c(commonWebView.getWebView(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -169,7 +170,7 @@ public class CommonWebView extends WebView {
                     return true;
                 }
                 try {
-                    BrowserHelper.m(this.a.a, str);
+                    zu4.o(this.a.a, str);
                 } catch (Exception e) {
                     BdLog.e(e.toString());
                 }
@@ -228,7 +229,7 @@ public class CommonWebView extends WebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, renderProcessGoneDetail)) == null) {
-                qu4.a("BaseWebView", webView);
+                hv4.a(BaseWebView.TAG, webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -486,10 +487,10 @@ public class CommonWebView extends WebView {
         }
     }
 
-    public void setOnJsPromptCallback(y29 y29Var) {
+    public void setOnJsPromptCallback(k69 k69Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, y29Var) == null) {
-            this.o = y29Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, k69Var) == null) {
+            this.o = k69Var;
         }
     }
 
@@ -604,10 +605,10 @@ public class CommonWebView extends WebView {
             getSettings().setCacheMode(2);
             getSettings().setUseWideViewPort(true);
             getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + SkinManager.getCurrentSkinTypeString());
-            BrowserHelper.a(getSettings());
+            zu4.a(getSettings());
             this.c = new c(this);
             this.d = new k(this, null);
-            this.m = new w29();
+            this.m = new i69();
             setWebViewClient(this.c);
             setWebChromeClient(this.d);
             if (Build.VERSION.SDK_INT >= 11) {
@@ -615,7 +616,7 @@ public class CommonWebView extends WebView {
                 removeJavascriptInterface("accessibility");
                 removeJavascriptInterface("accessibilityTraversal");
             }
-            BrowserHelper.h(getContext());
+            zu4.j(getContext());
             if (Build.VERSION.SDK_INT >= 21) {
                 setAcceptThirdPartyCookies(true);
                 getSettings().setMixedContentMode(0);

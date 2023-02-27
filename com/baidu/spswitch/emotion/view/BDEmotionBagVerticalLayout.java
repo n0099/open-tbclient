@@ -1108,7 +1108,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(1048576, this, i, titleTemplateData) == null) && titleTemplateData != null) {
                 this.mTitle.setText(titleTemplateData.sectionTitle);
-                this.mTitle.setTextColor(this.mCtx.getResources().getColor(R.color.obfuscated_res_0x7f06022a));
+                this.mTitle.setTextColor(this.mCtx.getResources().getColor(R.color.obfuscated_res_0x7f060171));
                 int i2 = titleTemplateData.sectionType;
                 if (i2 == 0) {
                     this.mTitle.setPadding(0, this.mCommonPaddingTop, 0, 0);
@@ -1434,7 +1434,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
             }
             LayoutInflater.from(this.mCtx).inflate(R.layout.emotion_vertical_panel_root, this);
             this.mViewPager = (ViewPager) findViewById(R.id.view_pager);
-            this.mIndicator = (CircleIndicator) findViewById(R.id.obfuscated_res_0x7f091013);
+            this.mIndicator = (CircleIndicator) findViewById(R.id.obfuscated_res_0x7f091054);
             ArrayList arrayList = new ArrayList();
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mCtx).inflate(R.layout.emotion_vertical_panel_page1_root, (ViewGroup) this, false);
             ImageView imageView = (ImageView) viewGroup.findViewById(R.id.delete_btn);

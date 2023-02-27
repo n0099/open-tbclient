@@ -1,34 +1,646 @@
 package com.baidu.tieba;
 
+import android.annotation.TargetApi;
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.config.AppConfig;
+import androidx.media2.session.MediaUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.request.db.DownloadDataConstants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tieba.a1a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.editvideo.muxer.VLogMultiAudioMixer;
+import com.baidu.ugc.utils.FileUtils;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.channels.FileChannel;
+import java.nio.ByteOrder;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
 /* loaded from: classes6.dex */
 public class sz9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static byte[] f(short s, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Short.valueOf(s), Boolean.valueOf(z)})) == null) {
+            byte[] bArr = new byte[2];
+            if (z) {
+                bArr[1] = (byte) (s & 255);
+                bArr[0] = (byte) (((short) (s >> 8)) & 255);
+            } else {
+                bArr[0] = (byte) (s & 255);
+                bArr[1] = (byte) (((short) (s >> 8)) & 255);
+            }
+            return bArr;
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    public static short h(byte b2, byte b3, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3), Boolean.valueOf(z)})) == null) {
+            return (short) (z ? ((short) (((short) ((b2 & 255) | 0)) << 8)) | (b3 & 255) : (b2 & 255) | ((short) (((short) ((b3 & 255) | 0)) << 8)));
+        }
+        return invokeCommon.shortValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a implements a1a.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a1a.a a;
+        public final /* synthetic */ a1a b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+
+        public a(a1a.a aVar, a1a a1aVar, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, a1aVar, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+            this.b = a1aVar;
+            this.c = str;
+            this.d = str2;
+        }
+
+        @Override // com.baidu.tieba.a1a.a
+        public void onCompletion() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                d1a.e("FFmpegCmdExecutor-modifyAudioProperty", "onCompletion:src:" + this.c + ",:dest:" + this.d);
+                a1a.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onCompletion();
+                }
+                d1a.e("FFmpegCmdExecutor-modifyAudioProperty", "release");
+                this.b.release();
+            }
+        }
+
+        @Override // com.baidu.tieba.a1a.a
+        public boolean onError(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("onError i = ");
+                sb.append(i);
+                sb.append(" i1 = ");
+                sb.append(i2);
+                sb.append(" o ");
+                if (obj != null) {
+                    str = obj.toString();
+                } else {
+                    str = " null ";
+                }
+                sb.append(str);
+                d1a.e("FFmpegCmdExecutor-modifyAudioProperty", sb.toString());
+                a1a.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onError(i, i2, obj);
+                }
+                d1a.e("FFmpegCmdExecutor-modifyAudioProperty", "release");
+                this.b.release();
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.a1a.a
+        public boolean onInfo(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("onInfo i = ");
+                sb.append(i);
+                sb.append(" i1 = ");
+                sb.append(i2);
+                sb.append(" o ");
+                if (obj != null) {
+                    str = obj.toString();
+                } else {
+                    str = " null ";
+                }
+                sb.append(str);
+                d1a.j("FFmpegCmdExecutor-modifyAudioProperty", sb.toString());
+                a1a.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onInfo(i, i2, obj);
+                    return false;
+                }
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements a1a.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a1a.a a;
+        public final /* synthetic */ a1a b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+
+        public b(a1a.a aVar, a1a a1aVar, String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, a1aVar, str, str2, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+            this.b = a1aVar;
+            this.c = str;
+            this.d = str2;
+            this.e = str3;
+        }
+
+        @Override // com.baidu.tieba.a1a.a
+        public void onCompletion() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                d1a.e("FFmpegCmdExecutor-mixAudio", "onCompletion:src:" + this.c + "," + this.d + ",:dest:" + this.e);
+                a1a.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onCompletion();
+                }
+                d1a.e("FFmpegCmdExecutor-mixAudio", "release");
+                this.b.release();
+            }
+        }
+
+        @Override // com.baidu.tieba.a1a.a
+        public boolean onError(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("onError i = ");
+                sb.append(i);
+                sb.append(" i1 = ");
+                sb.append(i2);
+                sb.append(" o ");
+                if (obj != null) {
+                    str = obj.toString();
+                } else {
+                    str = " null ";
+                }
+                sb.append(str);
+                d1a.e("FFmpegCmdExecutor-mixAudio", sb.toString());
+                a1a.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onError(i, i2, obj);
+                }
+                d1a.e("FFmpegCmdExecutor-mixAudio", "release");
+                this.b.release();
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.a1a.a
+        public boolean onInfo(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("onInfo i = ");
+                sb.append(i);
+                sb.append(" i1 = ");
+                sb.append(i2);
+                sb.append(" o ");
+                if (obj != null) {
+                    str = obj.toString();
+                } else {
+                    str = " null ";
+                }
+                sb.append(str);
+                d1a.e("FFmpegCmdExecutor-mixAudio", sb.toString());
+                a1a.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onInfo(i, i2, obj);
+                    return false;
+                }
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c implements a1a.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a1a.a a;
+        public final /* synthetic */ a1a b;
+
+        public c(a1a.a aVar, a1a a1aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, a1aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+            this.b = a1aVar;
+        }
+
+        @Override // com.baidu.tieba.a1a.a
+        public void onCompletion() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                a1a.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onCompletion();
+                }
+                this.b.release();
+            }
+        }
+
+        @Override // com.baidu.tieba.a1a.a
+        public boolean onError(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("onError i = ");
+                sb.append(i);
+                sb.append(" i1 = ");
+                sb.append(i2);
+                sb.append(" o ");
+                if (obj != null) {
+                    str = obj.toString();
+                } else {
+                    str = " null ";
+                }
+                sb.append(str);
+                d1a.e("FFmpegCmdExecutor-mixAudio", sb.toString());
+                a1a.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onError(i, i2, obj);
+                }
+                this.b.release();
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.a1a.a
+        public boolean onInfo(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("onInfo i = ");
+                sb.append(i);
+                sb.append(" i1 = ");
+                sb.append(i2);
+                sb.append(" o ");
+                if (obj != null) {
+                    str = obj.toString();
+                } else {
+                    str = " null ";
+                }
+                sb.append(str);
+                d1a.j("FFmpegCmdExecutor-mixAudio", sb.toString());
+                a1a.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onInfo(i, i2, obj);
+                    return false;
+                }
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d implements a1a.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a1a.a a;
+        public final /* synthetic */ a1a b;
+        public final /* synthetic */ List c;
+        public final /* synthetic */ String d;
+
+        public d(a1a.a aVar, a1a a1aVar, List list, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, a1aVar, list, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+            this.b = a1aVar;
+            this.c = list;
+            this.d = str;
+        }
+
+        @Override // com.baidu.tieba.a1a.a
+        public void onCompletion() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                d1a.j("FFmpegCmdExecutor-concat", "onCompletion:inputsize:" + this.c.size() + ",dest:" + this.d);
+                a1a.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onCompletion();
+                }
+                this.b.release();
+            }
+        }
+
+        @Override // com.baidu.tieba.a1a.a
+        public boolean onError(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("onError i = ");
+                sb.append(i);
+                sb.append(" i1 = ");
+                sb.append(i2);
+                sb.append(" o ");
+                if (obj != null) {
+                    str = obj.toString();
+                } else {
+                    str = " null ";
+                }
+                sb.append(str);
+                d1a.j("FFmpegCmdExecutor-concat", sb.toString());
+                a1a.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onError(i, i2, obj);
+                }
+                this.b.release();
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.a1a.a
+        public boolean onInfo(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("onInfo i = ");
+                sb.append(i);
+                sb.append(" i1 = ");
+                sb.append(i2);
+                sb.append(" o ");
+                if (obj != null) {
+                    str = obj.toString();
+                } else {
+                    str = " null ";
+                }
+                sb.append(str);
+                d1a.j("FFmpegCmdExecutor-concat", sb.toString());
+                a1a.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onInfo(i, i2, obj);
+                    return false;
+                }
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class e implements a1a.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a1a.a a;
+        public final /* synthetic */ a1a b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+
+        public e(a1a.a aVar, a1a a1aVar, String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, a1aVar, str, str2, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+            this.b = a1aVar;
+            this.c = str;
+            this.d = str2;
+            this.e = str3;
+        }
+
+        @Override // com.baidu.tieba.a1a.a
+        public void onCompletion() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                d1a.e("FFmpegCmdExecutor-muxAudioVideo", "onCompletion:video:" + this.c + ",audio" + this.d + ",:dest:" + this.e);
+                a1a.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onCompletion();
+                }
+                d1a.e("FFmpegCmdExecutor-muxAudioVideo", "release");
+                this.b.release();
+            }
+        }
+
+        @Override // com.baidu.tieba.a1a.a
+        public boolean onError(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("onError i = ");
+                sb.append(i);
+                sb.append(" i1 = ");
+                sb.append(i2);
+                sb.append(" o ");
+                if (obj != null) {
+                    str = obj.toString();
+                } else {
+                    str = " null ";
+                }
+                sb.append(str);
+                d1a.e("FFmpegCmdExecutor-muxAudioVideo", sb.toString());
+                a1a.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onError(i, i2, obj);
+                }
+                d1a.e("FFmpegCmdExecutor-muxAudioVideo", "release");
+                this.b.release();
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.a1a.a
+        public boolean onInfo(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("onInfo i = ");
+                sb.append(i);
+                sb.append(" i1 = ");
+                sb.append(i2);
+                sb.append(" o ");
+                if (obj != null) {
+                    str = obj.toString();
+                } else {
+                    str = " null ";
+                }
+                sb.append(str);
+                d1a.e("FFmpegCmdExecutor-muxAudioVideo", sb.toString());
+                a1a.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onInfo(i, i2, obj);
+                    return false;
+                }
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public int c;
+        public String d;
+        public int e;
+
+        public f() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 48000;
+            this.b = 1;
+            this.c = 16;
+            this.e = 0;
+        }
+
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                int i = this.e;
+                if (i != 5 && i != 6 && i != 8 && i != 9) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                int i = this.e;
+                if (i != 3 && i != 4 && i != 8 && i != 9) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                int i = this.e;
+                if (i == 1 || i == 4 || i == 6 || i == 9) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -43,627 +655,476 @@ public class sz9 {
                 return;
             }
         }
-        a = AppConfig.isDebug();
-    }
-
-    public static boolean a(File file, File file2) {
-        FileChannel fileChannel;
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, file2)) == null) {
-            try {
-                if (!file2.getParentFile().exists()) {
-                    file2.getParentFile().mkdirs();
-                }
-                if (!file2.exists()) {
-                    file2.createNewFile();
-                }
-                FileChannel fileChannel2 = null;
-                try {
-                    FileChannel channel = new FileInputStream(file).getChannel();
-                    try {
-                        fileChannel2 = new FileOutputStream(file2).getChannel();
-                        fileChannel2.transferFrom(channel, 0L, channel.size());
-                        if (channel != null) {
-                            channel.close();
-                        }
-                        if (fileChannel2 != null) {
-                            fileChannel2.close();
-                            return true;
-                        }
-                        return true;
-                    } catch (Throwable th) {
-                        th = th;
-                        FileChannel fileChannel3 = fileChannel2;
-                        fileChannel2 = channel;
-                        fileChannel = fileChannel3;
-                        if (fileChannel2 != null) {
-                            fileChannel2.close();
-                        }
-                        if (fileChannel != null) {
-                            fileChannel.close();
-                        }
-                        throw th;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileChannel = null;
-                }
-            } catch (IOException e) {
-                if (a) {
-                    e.printStackTrace();
-                    return false;
-                }
-                return false;
-            }
+        if (ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN) {
+            a = true;
         } else {
-            return invokeLL.booleanValue;
+            a = false;
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x004f, code lost:
-        if (com.baidu.tieba.sz9.a == false) goto L32;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x0051, code lost:
-        r4.printStackTrace();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x0066, code lost:
-        if (com.baidu.tieba.sz9.a == false) goto L32;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean g(String str, File file) {
-        InterceptResult invokeLL;
-        FileOutputStream fileOutputStream;
+    public static byte[] a(byte b2, byte b3, byte b4, byte b5, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, file)) == null) {
-            if (TextUtils.isEmpty(str) || !file.exists()) {
-                return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3), Byte.valueOf(b4), Byte.valueOf(b5), Boolean.valueOf(z)})) == null) {
+            return f((short) ((h(b2, b3, z) / 2) + (h(b4, b5, z) / 2)), z);
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    public static void b(List<String> list, String str, String str2, a1a.a aVar, boolean z, boolean z2) {
+        File file;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{list, str, str2, aVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            a1a a1aVar = (a1a) t1a.a("com.baidu.ugc.api.ffmpeg.MFFmpegCmdExecutor");
+            if (i1a.e(list)) {
+                if (aVar != null) {
+                    aVar.onError(-1, -1, "input list null");
+                }
+            } else if (a1aVar == null) {
+                if (aVar != null) {
+                    aVar.onError(-1, -1, "can not find MFFmpegCmdExecutor");
+                }
+            } else {
+                a1aVar.setListener(new d(aVar, a1aVar, list, str));
+                if (TextUtils.isEmpty(str2)) {
+                    file = new File(FileUtils.removeExtention(str) + System.currentTimeMillis() + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION);
+                } else {
+                    String fileNameWithOutExtention = FileUtils.getFileNameWithOutExtention(str);
+                    file = new File(str2 + fileNameWithOutExtention + System.currentTimeMillis() + "concat.txt");
+                }
+                d1a.j("FFmpegCmdExecutor-concat", "inputfilename:" + file.getPath());
+                StringBuilder sb = new StringBuilder();
+                for (String str3 : list) {
+                    sb.append("file '");
+                    sb.append(str3);
+                    sb.append("'\n");
+                }
+                FileUtils.writeFile(file, sb.toString(), false);
+                ArrayList<String> arrayList = new ArrayList<>();
+                arrayList.add("-f");
+                arrayList.add("concat");
+                arrayList.add("-safe");
+                arrayList.add("0");
+                arrayList.add("-i");
+                arrayList.add(file.getPath());
+                if (!z) {
+                    arrayList.add("-vn");
+                }
+                arrayList.add("-c");
+                if (z2) {
+                    arrayList.add("aac");
+                } else {
+                    arrayList.add("copy");
+                }
+                arrayList.add(str);
+                a1aVar.setSource(arrayList);
+                d1a.e("FFmpegCmdExecutor-mixAudio", "start");
+                a1aVar.start();
             }
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    fileOutputStream = new FileOutputStream(file);
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (FileNotFoundException e) {
-                e = e;
-            } catch (IOException e2) {
-                e = e2;
+        }
+    }
+
+    public static byte[] c(int i, int i2, byte[] bArr) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65539, null, i, i2, bArr)) == null) {
+            d1a.b("convertByteWidth sourceByteWidth = " + i + " outputByteWidth = " + i2);
+            if (i == i2) {
+                return bArr;
             }
-            try {
-                fileOutputStream.write(str.getBytes("UTF-8"));
-                fileOutputStream.flush();
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e3) {
-                    if (a) {
-                        e3.printStackTrace();
+            int length = bArr.length;
+            if (i != 1) {
+                if (i == 2 && i2 == 1) {
+                    int i3 = length / 2;
+                    byte[] bArr2 = new byte[i3];
+                    for (int i4 = 0; i4 < i3; i4++) {
+                        int i5 = i4 * 2;
+                        bArr2[i4] = (byte) (h(bArr[i5], bArr[i5 + 1], a) / 256);
                     }
+                    return bArr2;
                 }
-                return true;
-            } catch (FileNotFoundException e4) {
-                e = e4;
-                fileOutputStream2 = fileOutputStream;
-                if (a) {
-                    e.printStackTrace();
+            } else if (i2 == 2) {
+                byte[] bArr3 = new byte[length * 2];
+                for (int i6 = 0; i6 < length; i6++) {
+                    byte[] f2 = f((short) (bArr[i6] * 256), a);
+                    int i7 = i6 * 2;
+                    bArr3[i7] = f2[0];
+                    bArr3[i7 + 1] = f2[1];
                 }
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException e5) {
-                        e = e5;
-                    }
-                }
-                return false;
-            } catch (IOException e6) {
-                e = e6;
-                fileOutputStream2 = fileOutputStream;
-                if (a) {
-                    e.printStackTrace();
-                }
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException e7) {
-                        e = e7;
-                    }
-                }
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException e8) {
-                        if (a) {
-                            e8.printStackTrace();
+                return bArr3;
+            }
+            return bArr;
+        }
+        return (byte[]) invokeIIL.objValue;
+    }
+
+    public static byte[] d(int i, int i2, int i3, byte[] bArr) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bArr})) == null) {
+            d1a.b("convertChannelCount sourceChannelCount = " + i + " outputChannelCount = " + i2);
+            if (i == i2) {
+                return bArr;
+            }
+            if (i3 != 1 && i3 != 2) {
+                return bArr;
+            }
+            int length = bArr.length;
+            int i4 = 0;
+            if (i != 1) {
+                if (i == 2 && i2 == 1) {
+                    int i5 = length / 2;
+                    byte[] bArr2 = new byte[i5];
+                    if (i3 != 1) {
+                        if (i3 == 2) {
+                            for (int i6 = 0; i6 < i5; i6 += 2) {
+                                int i7 = i6 * 2;
+                                byte[] a2 = a(bArr[i7], bArr[i7 + 1], bArr[i7 + 2], bArr[i7 + 3], a);
+                                bArr2[i6] = a2[0];
+                                bArr2[i6 + 1] = a2[1];
+                            }
+                        }
+                    } else {
+                        while (i4 < i5) {
+                            int i8 = i4 * 2;
+                            bArr2[i4] = (byte) (((short) (bArr[i8] + bArr[i8 + 1])) >> 1);
+                            i4 += 2;
                         }
                     }
+                    return bArr2;
                 }
-                throw th;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void b(File file) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, file) == null) && file != null && file.exists() && file.isDirectory()) {
-            File[] listFiles = file.listFiles();
-            if (listFiles != null && listFiles.length > 0) {
-                for (File file2 : listFiles) {
-                    if (file2.isFile()) {
-                        file2.delete();
-                    } else if (file2.isDirectory()) {
-                        b(file2);
+            } else if (i2 == 2) {
+                byte[] bArr3 = new byte[length * 2];
+                if (i3 != 1) {
+                    if (i3 == 2) {
+                        while (i4 < length) {
+                            byte b2 = bArr[i4];
+                            byte b3 = bArr[i4 + 1];
+                            int i9 = i4 * 2;
+                            bArr3[i9] = b2;
+                            bArr3[i9 + 1] = b3;
+                            bArr3[i9 + 2] = b2;
+                            bArr3[i9 + 3] = b3;
+                            i4 += 2;
+                        }
+                    }
+                } else {
+                    while (i4 < length) {
+                        byte b4 = bArr[i4];
+                        int i10 = i4 * 2;
+                        bArr3[i10] = b4;
+                        bArr3[i10 + 1] = b4;
+                        i4++;
                     }
                 }
+                return bArr3;
             }
-            file.delete();
+            return bArr;
         }
+        return (byte[]) invokeCommon.objValue;
     }
 
-    public static void c(ArrayList<File> arrayList) {
+    public static void k(List<String> list, String str, int i, a1a.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, arrayList) == null) && arrayList != null && arrayList.size() != 0) {
-            Iterator<File> it = arrayList.iterator();
-            while (it.hasNext()) {
-                it.next().delete();
+        if (interceptable == null || interceptable.invokeLLIL(65547, null, list, str, i, aVar) == null) {
+            if (i1a.b(list) == 2) {
+                j(list.get(0), list.get(1), str, i, aVar);
+                return;
             }
-        }
-    }
-
-    public static void d(File file, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, str) == null) && file != null && file.exists() && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str)) {
-            File file2 = new File(file, str);
-            if (file2.exists() && file2.isFile()) {
-                file2.delete();
-            }
-        }
-    }
-
-    public static void e(File file, List<String> list) {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, file, list) == null) && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
-            for (File file2 : listFiles) {
-                if (file2.isFile()) {
-                    list.add(file2.getAbsolutePath());
-                } else {
-                    e(file2, list);
+            a1a a1aVar = (a1a) t1a.a("com.baidu.ugc.api.ffmpeg.MFFmpegCmdExecutor");
+            if (a1aVar == null) {
+                if (aVar != null) {
+                    aVar.onError(-1, -1, "can not find MFFmpegCmdExecutor");
+                    return;
                 }
+                return;
             }
+            a1aVar.setListener(new c(aVar, a1aVar));
+            ArrayList<String> arrayList = new ArrayList<>();
+            StringBuilder sb = new StringBuilder();
+            StringBuilder sb2 = new StringBuilder();
+            int i2 = 0;
+            for (String str2 : list) {
+                arrayList.add("-i");
+                arrayList.add(str2);
+                sb.append(PreferencesUtil.LEFT_MOUNT);
+                sb.append(i2);
+                sb.append(":a]volume=1");
+                sb.append(PreferencesUtil.LEFT_MOUNT);
+                sb.append("a");
+                i2++;
+                sb.append(i2);
+                sb.append("];");
+                sb2.append(PreferencesUtil.LEFT_MOUNT);
+                sb2.append("a");
+                sb2.append(i2);
+                sb2.append(PreferencesUtil.RIGHT_MOUNT);
+            }
+            arrayList.add("-filter_complex");
+            arrayList.add(String.format("%s%samix=inputs=%s[aout]", sb.toString(), sb2.toString(), Integer.valueOf(list.size())));
+            arrayList.add("-map");
+            arrayList.add("[aout]");
+            if (i > 0) {
+                arrayList.add("-ac");
+                arrayList.add(String.valueOf(i));
+            }
+            arrayList.add(str);
+            a1aVar.setSource(arrayList);
+            a1aVar.start();
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x004b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x004d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x00b6 */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x008c, code lost:
-        if (com.baidu.tieba.sz9.a == false) goto L48;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x008e, code lost:
-        r6.printStackTrace();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:76:0x00b2, code lost:
-        if (com.baidu.tieba.sz9.a == false) goto L48;
-     */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:102:0x00b9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x00c1 A[Catch: IOException -> 0x00bd, TryCatch #12 {IOException -> 0x00bd, blocks: (B:81:0x00b9, B:85:0x00c1, B:87:0x00c6), top: B:102:0x00b9 }] */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x00c6 A[Catch: IOException -> 0x00bd, TRY_LEAVE, TryCatch #12 {IOException -> 0x00bd, blocks: (B:81:0x00b9, B:85:0x00c1, B:87:0x00c6), top: B:102:0x00b9 }] */
-    /* JADX WARN: Type inference failed for: r3v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
-    /* JADX WARN: Type inference failed for: r3v12 */
-    /* JADX WARN: Type inference failed for: r3v2 */
-    /* JADX WARN: Type inference failed for: r3v5 */
-    /* JADX WARN: Type inference failed for: r3v6, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r3v9 */
-    /* JADX WARN: Type inference failed for: r6v0, types: [java.lang.Object, java.io.File] */
-    /* JADX WARN: Type inference failed for: r6v11, types: [java.io.BufferedInputStream] */
-    /* JADX WARN: Type inference failed for: r6v14 */
-    /* JADX WARN: Type inference failed for: r6v15 */
-    /* JADX WARN: Type inference failed for: r6v16, types: [java.io.BufferedInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r6v2 */
-    /* JADX WARN: Type inference failed for: r6v3 */
-    /* JADX WARN: Type inference failed for: r6v5 */
-    /* JADX WARN: Type inference failed for: r6v6, types: [java.io.BufferedInputStream] */
-    /* JADX WARN: Type inference failed for: r6v8, types: [java.io.BufferedInputStream] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String f(File file) {
-        ?? r3;
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        BufferedReader bufferedReader;
+    public static void m(String str, String str2, String str3, a1a.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = (r3 = interceptable).invokeL(65542, null, file)) == null) {
-            if (file == 0 || !file.exists()) {
+        if (interceptable == null || interceptable.invokeLLLL(65549, null, str, str2, str3, aVar) == null) {
+            a1a a1aVar = (a1a) t1a.a("com.baidu.ugc.api.ffmpeg.MFFmpegCmdExecutor");
+            if (a1aVar == null) {
+                if (aVar != null) {
+                    aVar.onError(-1, -1, "can not find MFFmpegCmdExecutor");
+                    return;
+                }
+                return;
+            }
+            a1aVar.setListener(new e(aVar, a1aVar, str, str2, str3));
+            long b2 = y1a.b(str2);
+            long f2 = y1a.f(str);
+            d1a.j("VideoMuxer", "muxAudioVideo,audioduration:" + b2 + ",videoDuration:" + f2);
+            ArrayList<String> arrayList = new ArrayList<>();
+            arrayList.add("-i");
+            arrayList.add(str);
+            arrayList.add("-i");
+            arrayList.add(str2);
+            if (Math.abs(f2 - b2) >= 100 && b2 <= f2) {
+                arrayList.add("-filter_complex");
+                arrayList.add("[1:a]aloop=loop=-1:size=2e+09[aout]");
+                arrayList.add("-map");
+                arrayList.add("0:v");
+                arrayList.add("-map");
+                arrayList.add("[aout]");
+                arrayList.add("-c:v");
+                arrayList.add("copy");
+            } else {
+                arrayList.add("-c");
+                arrayList.add("copy");
+                arrayList.add("-map");
+                arrayList.add("0:v");
+                arrayList.add("-map");
+                arrayList.add("1:a");
+            }
+            arrayList.add("-shortest");
+            arrayList.add(str3);
+            a1aVar.setSource(arrayList);
+            d1a.e("FFmpegCmdExecutor-muxAudioVideo", "start");
+            a1aVar.start();
+        }
+    }
+
+    @TargetApi(16)
+    public static f e(String str) {
+        InterceptResult invokeL;
+        MediaFormat mediaFormat;
+        int i;
+        int i2;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            MediaExtractor mediaExtractor = new MediaExtractor();
+            try {
+                mediaExtractor.setDataSource(str);
+                int i4 = 0;
+                while (true) {
+                    if (i4 < mediaExtractor.getTrackCount()) {
+                        mediaFormat = mediaExtractor.getTrackFormat(i4);
+                        if (mediaFormat.getString("mime").startsWith("audio/")) {
+                            mediaExtractor.selectTrack(i4);
+                            break;
+                        }
+                        i4++;
+                    } else {
+                        mediaFormat = null;
+                        break;
+                    }
+                }
+                if (mediaFormat == null) {
+                    mediaExtractor.release();
+                    return null;
+                }
+                f fVar = new f();
+                fVar.d = mediaFormat.getString("mime");
+                if (mediaFormat.containsKey("sample-rate")) {
+                    i = mediaFormat.getInteger("sample-rate");
+                } else {
+                    i = 48000;
+                }
+                fVar.a = i;
+                if (mediaFormat.containsKey("channel-count")) {
+                    i2 = mediaFormat.getInteger("channel-count");
+                } else {
+                    i2 = 1;
+                }
+                fVar.b = i2;
+                if (mediaFormat.containsKey("bit-width")) {
+                    i3 = mediaFormat.getInteger("bit-width");
+                } else {
+                    i3 = 16;
+                }
+                fVar.c = i3;
+                mediaExtractor.release();
+                return fVar;
+            } catch (IOException e2) {
+                e2.printStackTrace();
                 return null;
             }
-            StringBuilder sb = new StringBuilder();
-            try {
-                try {
-                    fileInputStream = new FileInputStream((File) file);
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (FileNotFoundException e) {
-                e = e;
-                file = 0;
-                fileInputStream = null;
-                bufferedReader = null;
-            } catch (IOException e2) {
-                e = e2;
-                file = 0;
-                fileInputStream = null;
-                bufferedReader = null;
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream = null;
-                r3 = 0;
+        }
+        return (f) invokeL.objValue;
+    }
+
+    public static int g(MediaFormat mediaFormat) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, mediaFormat)) == null) {
+            String string = mediaFormat.getString("mime");
+            if (string.startsWith(com.sina.weibo.sdk.utils.FileUtils.VIDEO_FILE_START)) {
+                return 1;
             }
-            try {
-                file = new BufferedInputStream(fileInputStream);
-                try {
-                    bufferedReader = new BufferedReader(new InputStreamReader((InputStream) file, "UTF-8"));
-                    while (true) {
-                        try {
-                            String readLine = bufferedReader.readLine();
-                            if (readLine == null) {
-                                break;
-                            }
-                            sb.append(readLine);
-                        } catch (FileNotFoundException e3) {
-                            e = e3;
-                            if (a) {
-                                e.printStackTrace();
-                            }
-                            if (bufferedReader != null) {
-                                try {
-                                    bufferedReader.close();
-                                } catch (IOException e4) {
-                                    e = e4;
-                                }
-                            }
-                            if (file != 0) {
-                                file.close();
-                            }
-                            if (fileInputStream != null) {
-                                fileInputStream.close();
-                            }
-                            return null;
-                        } catch (IOException e5) {
-                            e = e5;
-                            if (a) {
-                                e.printStackTrace();
-                            }
-                            if (bufferedReader != null) {
-                                try {
-                                    bufferedReader.close();
-                                } catch (IOException e6) {
-                                    e = e6;
-                                }
-                            }
-                            if (file != 0) {
-                                file.close();
-                            }
-                            if (fileInputStream != null) {
-                                fileInputStream.close();
-                            }
-                            return null;
-                        }
-                    }
-                    String sb2 = sb.toString();
-                    try {
-                        bufferedReader.close();
-                        file.close();
-                        fileInputStream.close();
-                    } catch (IOException e7) {
-                        if (a) {
-                            e7.printStackTrace();
-                        }
-                    }
-                    return sb2;
-                } catch (FileNotFoundException e8) {
-                    e = e8;
-                    bufferedReader = null;
-                } catch (IOException e9) {
-                    e = e9;
-                    bufferedReader = null;
-                } catch (Throwable th3) {
-                    r3 = 0;
-                    th = th3;
-                    if (r3 != 0) {
-                        try {
-                            r3.close();
-                        } catch (IOException e10) {
-                            if (a) {
-                                e10.printStackTrace();
-                            }
-                            throw th;
-                        }
-                    }
-                    if (file != 0) {
-                        file.close();
-                    }
-                    if (fileInputStream != null) {
-                        fileInputStream.close();
-                    }
-                    throw th;
-                }
-            } catch (FileNotFoundException e11) {
-                e = e11;
-                file = 0;
-                bufferedReader = null;
-            } catch (IOException e12) {
-                e = e12;
-                file = 0;
-                bufferedReader = null;
-            } catch (Throwable th4) {
-                th = th4;
-                r3 = 0;
-                th = th;
-                file = r3;
-                if (r3 != 0) {
-                }
-                if (file != 0) {
-                }
-                if (fileInputStream != null) {
-                }
-                throw th;
+            if (string.startsWith("audio/")) {
+                return 2;
             }
-        } else {
-            return (String) invokeL.objValue;
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean i(f... fVarArr) {
+        InterceptResult invokeL;
+        f fVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, fVarArr)) == null) {
+            if (fVarArr == null || fVarArr.length < 2 || (fVar = fVarArr[0]) == null) {
+                return false;
+            }
+            boolean z = true;
+            for (int i = 1; i < fVarArr.length; i++) {
+                if (fVar.a != fVarArr[i].a) {
+                    fVarArr[i].e++;
+                    z = false;
+                }
+                if (fVar.b != fVarArr[i].b) {
+                    fVarArr[i].e += 3;
+                    z = false;
+                }
+                if (fVar.c != fVarArr[i].c) {
+                    fVarArr[i].e += 5;
+                    z = false;
+                }
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void j(String str, String str2, String str3, int i, a1a.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, str2, str3, Integer.valueOf(i), aVar}) == null) {
+            a1a a1aVar = (a1a) t1a.a("com.baidu.ugc.api.ffmpeg.MFFmpegCmdExecutor");
+            if (a1aVar == null) {
+                if (aVar != null) {
+                    aVar.onError(-1, -1, "can not find MFFmpegCmdExecutor");
+                    return;
+                }
+                return;
+            }
+            d1a.e("FFmpegCmdExecutor-mixAudio", "new mixAudio");
+            a1aVar.setListener(new b(aVar, a1aVar, str, str2, str3));
+            ArrayList<String> arrayList = new ArrayList<>();
+            arrayList.add("-i");
+            arrayList.add(str);
+            arrayList.add("-i");
+            arrayList.add(str2);
+            arrayList.add("-filter_complex");
+            arrayList.add("[0:a] [1:a]amerge=inputs=2[aout]");
+            arrayList.add("-map");
+            arrayList.add("[aout]");
+            if (i > 0) {
+                arrayList.add("-ac");
+                arrayList.add(String.valueOf(i));
+            }
+            arrayList.add(str3);
+            a1aVar.setSource(arrayList);
+            a1aVar.start();
         }
     }
 
-    public static boolean h(File file, String str) {
-        InterceptResult invokeLL;
-        FileOutputStream fileOutputStream;
-        ZipOutputStream zipOutputStream;
+    public static void l(String str, String str2, int i, int i2, float f2, int i3, float f3, float f4, boolean z, a1a.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, file, str)) == null) {
-            ZipOutputStream zipOutputStream2 = null;
-            try {
-                try {
-                    ArrayList<String> arrayList = new ArrayList();
-                    e(file, arrayList);
-                    if (arrayList.size() == 0) {
-                        return false;
-                    }
-                    fileOutputStream = new FileOutputStream(str);
-                    try {
-                        zipOutputStream = new ZipOutputStream(fileOutputStream);
-                    } catch (IOException e) {
-                        e = e;
-                    }
-                    try {
-                        for (String str2 : arrayList) {
-                            if (a) {
-                                Log.d("VoyagerFileUtil", "Zipping " + str2);
-                            }
-                            zipOutputStream.putNextEntry(new ZipEntry(str2.substring(file.getAbsolutePath().length() + 1, str2.length())));
-                            FileInputStream fileInputStream = new FileInputStream(str2);
-                            byte[] bArr = new byte[8192];
-                            while (true) {
-                                int read = fileInputStream.read(bArr);
-                                if (read > 0) {
-                                    zipOutputStream.write(bArr, 0, read);
-                                }
-                            }
-                            zipOutputStream.closeEntry();
-                            fileInputStream.close();
-                        }
-                        try {
-                            zipOutputStream.close();
-                        } catch (IOException e2) {
-                            if (a) {
-                                e2.printStackTrace();
-                            }
-                        }
-                        try {
-                            fileOutputStream.close();
-                        } catch (IOException e3) {
-                            if (a) {
-                                e3.printStackTrace();
-                            }
-                        }
-                        return true;
-                    } catch (IOException e4) {
-                        e = e4;
-                        zipOutputStream2 = zipOutputStream;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        if (zipOutputStream2 != null) {
-                            try {
-                                zipOutputStream2.close();
-                            } catch (IOException e5) {
-                                if (a) {
-                                    e5.printStackTrace();
-                                }
-                            }
-                        }
-                        if (fileOutputStream != null) {
-                            try {
-                                fileOutputStream.close();
-                            } catch (IOException e6) {
-                                if (a) {
-                                    e6.printStackTrace();
-                                }
-                            }
-                        }
-                        return false;
-                    } catch (Throwable th) {
-                        th = th;
-                        zipOutputStream2 = zipOutputStream;
-                        if (zipOutputStream2 != null) {
-                            try {
-                                zipOutputStream2.close();
-                            } catch (IOException e7) {
-                                if (a) {
-                                    e7.printStackTrace();
-                                }
-                            }
-                        }
-                        if (fileOutputStream != null) {
-                            try {
-                                fileOutputStream.close();
-                            } catch (IOException e8) {
-                                if (a) {
-                                    e8.printStackTrace();
-                                }
-                            }
-                        }
-                        throw th;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                }
-            } catch (IOException e9) {
-                e = e9;
-                fileOutputStream = null;
-            } catch (Throwable th3) {
-                th = th3;
-                fileOutputStream = null;
+        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3), Float.valueOf(f3), Float.valueOf(f4), Boolean.valueOf(z), aVar}) == null) {
+            float f5 = f3 * 1000.0f;
+            if (r9 < (f4 * 1000.0f) + f5 || f4 <= 0.0f) {
+                f4 = (r9 - f5) / 1000.0f;
             }
-        } else {
-            return invokeLL.booleanValue;
+            d1a.c(VLogMultiAudioMixer.TAG, "modifyAudioProperty - duration" + f4);
+            a1a a1aVar = (a1a) t1a.a("com.baidu.ugc.api.ffmpeg.MFFmpegCmdExecutor");
+            d1a.e("FFmpegCmdExecutor-modifyAudioProperty", "MFFmpegCmdExecutor modifyAudioProperty new");
+            if (a1aVar == null) {
+                if (aVar != null) {
+                    aVar.onError(-1, -1, "can not find MFFmpegCmdExecutor");
+                    return;
+                }
+                return;
+            }
+            a1aVar.setListener(new a(aVar, a1aVar, str, str2));
+            ArrayList<String> arrayList = new ArrayList<>();
+            arrayList.add("-i");
+            arrayList.add(str);
+            if (f4 > 0.0f) {
+                arrayList.add("-ss");
+                arrayList.add(String.valueOf(f3));
+                arrayList.add("-t");
+                arrayList.add(String.valueOf(f4));
+            }
+            if (i > 0) {
+                arrayList.add("-ar");
+                arrayList.add(String.valueOf(i));
+            }
+            if (i2 > 0) {
+                arrayList.add("-ac");
+                arrayList.add(String.valueOf(i2));
+            }
+            if (f2 >= 0.0f) {
+                arrayList.add("-af");
+                arrayList.add("volume=" + f2);
+            }
+            arrayList.add("-acodec");
+            arrayList.add("aac");
+            arrayList.add(str2);
+            a1aVar.setSource(arrayList);
+            d1a.e("FFmpegCmdExecutor-modifyAudioProperty", "start");
+            a1aVar.start();
         }
     }
 
-    public static boolean i(List<String> list, String str, String str2) {
-        InterceptResult invokeLLL;
-        FileOutputStream fileOutputStream;
-        ZipOutputStream zipOutputStream;
-        ZipEntry zipEntry;
+    public static boolean n(String str, String str2, int i, int i2) {
+        InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, list, str, str2)) == null) {
-            if (list != null) {
-                ZipOutputStream zipOutputStream2 = null;
-                try {
-                    if (list.size() != 0) {
-                        int length = str2.length();
-                        if (!new File(str2).exists()) {
-                            if (a) {
-                                Log.d("VoyagerFileUtil", "rootDir " + str2 + "path not exists");
-                            }
-                            return false;
-                        }
-                        fileOutputStream = new FileOutputStream(str);
-                        try {
-                            try {
-                                zipOutputStream = new ZipOutputStream(fileOutputStream);
-                            } catch (IOException e) {
-                                e = e;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                        }
-                        try {
-                            for (String str3 : list) {
-                                if (a) {
-                                    Log.d("VoyagerFileUtil", "Zipping " + str3);
-                                }
-                                if (length > 0 && str3.startsWith(str2)) {
-                                    zipEntry = new ZipEntry(str3.substring(length + 1));
-                                } else {
-                                    zipEntry = new ZipEntry(str3.substring(str3.lastIndexOf(File.separator)));
-                                }
-                                zipOutputStream.putNextEntry(zipEntry);
-                                FileInputStream fileInputStream = new FileInputStream(str3);
-                                byte[] bArr = new byte[8192];
-                                while (true) {
-                                    int read = fileInputStream.read(bArr);
-                                    if (read > 0) {
-                                        zipOutputStream.write(bArr, 0, read);
-                                    }
-                                }
-                                zipOutputStream.closeEntry();
-                                fileInputStream.close();
-                            }
-                            try {
-                                zipOutputStream.close();
-                            } catch (IOException e2) {
-                                if (a) {
-                                    e2.printStackTrace();
-                                }
-                            }
-                            try {
-                                fileOutputStream.close();
-                                return true;
-                            } catch (IOException e3) {
-                                if (a) {
-                                    e3.printStackTrace();
-                                    return true;
-                                }
-                                return true;
-                            }
-                        } catch (IOException e4) {
-                            e = e4;
-                            zipOutputStream2 = zipOutputStream;
-                            if (a) {
-                                e.printStackTrace();
-                            }
-                            if (zipOutputStream2 != null) {
-                                try {
-                                    zipOutputStream2.close();
-                                } catch (IOException e5) {
-                                    if (a) {
-                                        e5.printStackTrace();
-                                    }
-                                }
-                            }
-                            if (fileOutputStream != null) {
-                                try {
-                                    fileOutputStream.close();
-                                } catch (IOException e6) {
-                                    if (a) {
-                                        e6.printStackTrace();
-                                    }
-                                }
-                            }
-                            return false;
-                        } catch (Throwable th2) {
-                            th = th2;
-                            zipOutputStream2 = zipOutputStream;
-                            if (zipOutputStream2 != null) {
-                                try {
-                                    zipOutputStream2.close();
-                                } catch (IOException e7) {
-                                    if (a) {
-                                        e7.printStackTrace();
-                                    }
-                                }
-                            }
-                            if (fileOutputStream != null) {
-                                try {
-                                    fileOutputStream.close();
-                                } catch (IOException e8) {
-                                    if (a) {
-                                        e8.printStackTrace();
-                                    }
-                                }
-                            }
-                            throw th;
-                        }
-                    }
-                } catch (IOException e9) {
-                    e = e9;
-                    fileOutputStream = null;
-                } catch (Throwable th3) {
-                    th = th3;
-                    fileOutputStream = null;
-                }
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65550, null, str, str2, i, i2)) == null) {
+            if (i2 == i) {
+                return false;
             }
-            return false;
+            File file = new File(str);
+            File file2 = new File(str2);
+            try {
+                FileInputStream fileInputStream = new FileInputStream(file);
+                FileOutputStream fileOutputStream = new FileOutputStream(file2);
+                new uz9(fileInputStream, fileOutputStream, i, i2, 2, 2, 1, Integer.MAX_VALUE, 0.0d, 0, true);
+                fileInputStream.close();
+                fileOutputStream.close();
+                return true;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                d1a.e(MediaUtils.TAG, "resamplefail:" + e2.getMessage());
+                return false;
+            }
         }
-        return invokeLLL.booleanValue;
+        return invokeLLII.booleanValue;
     }
 }

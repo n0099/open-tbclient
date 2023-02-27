@@ -1,36 +1,46 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.KeyEvent;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import androidx.lifecycle.SavedStateHandle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tieba.px1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.Collection;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nz1 {
+public class nz1 extends mz1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
-    public static volatile nz1 h;
-    public static hr2 i;
-    public static boolean j;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, Boolean> a;
-    public HashMap<String, hr2> b;
-    public int c;
-    public pn3<Integer> d;
-    public lu2 e;
-    public tl2 f;
+
+    public boolean M() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.px1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? "StorageApi" : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes5.dex */
-    public class a extends tl2 {
+    public class a implements px1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nz1 a;
@@ -53,341 +63,536 @@ public class nz1 {
             this.a = nz1Var;
         }
 
-        @Override // com.baidu.tieba.tl2, com.baidu.tieba.ul2
-        public boolean onKeyDown(int i, KeyEvent keyEvent) {
-            InterceptResult invokeIL;
+        @Override // com.baidu.tieba.px1.a
+        public m12 a(m93 m93Var, JSONObject jSONObject, @Nullable String str) {
+            InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, keyEvent)) == null) {
-                if (i == 4 && this.a.d != null && this.a.g()) {
-                    this.a.d.a(1);
-                    return true;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, m93Var, jSONObject, str)) == null) {
+                String Q = nz1.Q(jSONObject);
+                if (Q == null) {
+                    return new m12(202);
                 }
-                return false;
+                if (vg3.b(Q)) {
+                    return new m12(1001, "exceed storage key max length");
+                }
+                String P = nz1.P(jSONObject);
+                if (P == null) {
+                    return new m12(202);
+                }
+                if (vg3.c(P)) {
+                    return new m12(1001, "exceed storage item max length");
+                }
+                if (this.a.N(m93Var, Q, P)) {
+                    return new m12(1003, "exceed storage max length");
+                }
+                nz1 nz1Var = this.a;
+                nz1Var.q("#setStorageImpl dataKey=" + Q + " dataValue=" + P, false);
+                this.a.F(m93Var).putString(Q, P);
+                this.a.X();
+                return m12.f();
             }
-            return invokeIL.booleanValue;
+            return (m12) invokeLLL.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948019652, "Lcom/baidu/tieba/nz1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class b implements px1.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nz1 a;
+
+        public b(nz1 nz1Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948019652, "Lcom/baidu/tieba/nz1;");
-                return;
-            }
-        }
-        g = gp1.a;
-    }
-
-    public static nz1 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (h == null) {
-                synchronized (nz1.class) {
-                    if (h == null) {
-                        h = new nz1();
-                    }
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nz1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return h;
+            this.a = nz1Var;
         }
-        return (nz1) invokeV.objValue;
-    }
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            w52.i("SwanInlinePlayerManager", "clearCacheVideo: ");
-            i = null;
-            j = false;
-        }
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i2 = this.c;
-            if (i2 != 90 && i2 != -90) {
-                return false;
+        @Override // com.baidu.tieba.px1.a
+        public m12 a(m93 m93Var, JSONObject jSONObject, @Nullable String str) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeLLL = interceptable.invokeLLL(1048576, this, m93Var, jSONObject, str)) != null) {
+                return (m12) invokeLLL.objValue;
             }
-            return true;
+            this.a.q("#clearStorageImpl clear", false);
+            this.a.F(m93Var).edit().clear().apply();
+            this.a.X();
+            return m12.f();
         }
-        return invokeV.booleanValue;
     }
 
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.c == 0) {
-                return true;
+    /* loaded from: classes5.dex */
+    public class c implements px1.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nz1 a;
+
+        public c(nz1 nz1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nz1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return false;
+            this.a = nz1Var;
         }
-        return invokeV.booleanValue;
-    }
 
-    public void i() {
-        pn3<Integer> pn3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && g() && (pn3Var = this.d) != null) {
-            pn3Var.a(0);
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            ju2.U().getActivity().t0(this.f);
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            synchronized (this) {
-                x();
-                w();
-                this.a = null;
-                this.b.clear();
-                this.d = null;
+        @Override // com.baidu.tieba.px1.a
+        public m12 a(m93 m93Var, JSONObject jSONObject, @Nullable String str) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, m93Var, jSONObject, str)) == null) {
+                String Q = nz1.Q(jSONObject);
+                if (Q == null) {
+                    return new m12(202);
+                }
+                nz1 nz1Var = this.a;
+                nz1Var.q("#removeStorageImpl dataKey=" + Q, false);
+                this.a.F(m93Var).remove(Q);
+                this.a.X();
+                return m12.f();
             }
-            h = null;
+            return (m12) invokeLLL.objValue;
         }
     }
 
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.d = null;
+    /* loaded from: classes5.dex */
+    public class d implements px1.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nz1 a;
+
+        public d(nz1 nz1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nz1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nz1Var;
+        }
+
+        @Override // com.baidu.tieba.px1.a
+        public m12 a(m93 m93Var, JSONObject jSONObject, @Nullable String str) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, m93Var, jSONObject, str)) == null) {
+                String Q = nz1.Q(jSONObject);
+                if (Q == null) {
+                    return new m12(202);
+                }
+                JSONObject O = nz1.O(this.a.F(m93Var).getString(Q, null));
+                if (O == null) {
+                    return new m12(202, "JSONException");
+                }
+                return new m12(0, O);
+            }
+            return (m12) invokeLLL.objValue;
         }
     }
 
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            w52.i("SwanInlinePlayerManager", "setCacheInUsed: true");
-            j = true;
+    /* loaded from: classes5.dex */
+    public class e implements px1.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e(nz1 nz1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nz1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.px1.a
+        public m12 a(m93 m93Var, JSONObject jSONObject, @Nullable String str) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, m93Var, jSONObject, str)) == null) {
+                vg3 f0 = m93Var.f0();
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    jSONObject2.put(SavedStateHandle.KEYS, new JSONArray((Collection) f0.g().a()));
+                    jSONObject2.put(CommonTbJsBridge.FILE_DOWNLOAD_CURRENT_SIZE, f0.e() / 1024);
+                    jSONObject2.put("limitSize", f0.n() / 1024);
+                    return new m12(0, jSONObject2);
+                } catch (JSONException unused) {
+                    return new m12(202, "JSONException");
+                }
+            }
+            return (m12) invokeLLL.objValue;
         }
     }
 
-    public void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            SwanAppActivity activity = ju2.U().getActivity();
-            tl2 tl2Var = this.f;
-            if (tl2Var != null && activity != null) {
-                activity.F0(tl2Var);
+    /* loaded from: classes5.dex */
+    public class f implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ px1.a b;
+        public final /* synthetic */ m93 c;
+        public final /* synthetic */ JSONObject d;
+        public final /* synthetic */ nz1 e;
+
+        public f(nz1 nz1Var, String str, px1.a aVar, m93 m93Var, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nz1Var, str, aVar, m93Var, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = nz1Var;
+            this.a = str;
+            this.b = aVar;
+            this.c = m93Var;
+            this.d = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                nz1 nz1Var = this.e;
+                String str = this.a;
+                nz1Var.d(str, this.b.a(this.c, this.d, str));
             }
         }
     }
 
-    public void x() {
-        lu2 lu2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (lu2Var = this.e) != null) {
-            mu2.f(lu2Var);
-            this.e = null;
-        }
-    }
-
-    public nz1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nz1(@NonNull nx1 nx1Var) {
+        super(nx1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {nx1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((nx1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = -1;
-        this.d = null;
-        this.e = null;
-        this.f = new a(this);
     }
 
-    public hr2 d() {
+    @Nullable
+    public static JSONObject O(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    if (jSONObject.has("key")) {
+                        jSONObject.remove("key");
+                    }
+                    return jSONObject;
+                } catch (JSONException unused) {
+                }
+            }
+            JSONObject jSONObject2 = new JSONObject();
+            if (str == null) {
+                str = "";
+            }
+            try {
+                jSONObject2.put("data", str);
+                return jSONObject2;
+            } catch (JSONException unused2) {
+                return null;
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public m12 U(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
+            q("#setStorage", false);
+            if (str != null && str.length() > 3145728) {
+                return new m12(1001, "exceed storage item max length");
+            }
+            return V(str, true);
+        }
+        return (m12) invokeL.objValue;
+    }
+
+    @Nullable
+    public static String P(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject.isNull("data")) {
+                return null;
+            }
+            return jSONObject.optString("data");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Nullable
+    public static String Q(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            if (jSONObject.isNull("key")) {
+                return null;
+            }
+            return jSONObject.optString("key");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public m12 D(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            q("#getStorage", false);
+            return E(str, true);
+        }
+        return (m12) invokeL.objValue;
+    }
+
+    public op4 F(@NonNull m93 m93Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, m93Var)) == null) {
+            return m93Var.f0().g();
+        }
+        return (op4) invokeL.objValue;
+    }
+
+    public m12 H(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            q("#getStorageInfoAsync", false);
+            return I(str, true);
+        }
+        return (m12) invokeL.objValue;
+    }
+
+    public m12 K(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            q("#getStorageSync", false);
+            return E(str, false);
+        }
+        return (m12) invokeL.objValue;
+    }
+
+    public m12 R(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            q("#removeStorage", false);
+            return S(str, true);
+        }
+        return (m12) invokeL.objValue;
+    }
+
+    public m12 T(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+            q("#removeStorageSync", false);
+            return S(str, false);
+        }
+        return (m12) invokeL.objValue;
+    }
+
+    public m12 W(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            q("#setStorageSync", false);
+            return V(str, false);
+        }
+        return (m12) invokeL.objValue;
+    }
+
+    public boolean N(@Nullable m93 m93Var, @NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, m93Var, str, str2)) == null) {
+            if (m93Var == null) {
+                return false;
+            }
+            return m93Var.f0().m(str, str2);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public m12 A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            q("#clearStorage", false);
+            return B(null, true);
+        }
+        return (m12) invokeV.objValue;
+    }
+
+    public m12 C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (g && i != null) {
-                Log.i("SwanInlinePlayerManager", "getCacheVideoPlayer: " + i.c());
-            }
-            return i;
+            q("#clearStorageSync", false);
+            return B(null, false);
         }
-        return (hr2) invokeV.objValue;
+        return (m12) invokeV.objValue;
     }
 
-    public boolean f() {
+    public m12 G() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            boolean z2 = true;
-            if (d() != null && d().e0() == null) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            q("#getStorageInfo", false);
+            return I(null, true);
+        }
+        return (m12) invokeV.objValue;
+    }
+
+    public m12 J() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            q("#getStorageInfoSync", false);
+            return I(null, false);
+        }
+        return (m12) invokeV.objValue;
+    }
+
+    public void X() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            il3.h.update();
+        }
+    }
+
+    public m12 B(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
+            return L(str, z, new b(this));
+        }
+        return (m12) invokeLZ.objValue;
+    }
+
+    public m12 E(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, str, z)) == null) {
+            return L(str, z, new d(this));
+        }
+        return (m12) invokeLZ.objValue;
+    }
+
+    public m12 I(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, z)) == null) {
+            return L(str, z, new e(this));
+        }
+        return (m12) invokeLZ.objValue;
+    }
+
+    public m12 S(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048591, this, str, z)) == null) {
+            return L(str, z, new c(this));
+        }
+        return (m12) invokeLZ.objValue;
+    }
+
+    public final m12 V(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048594, this, str, z)) == null) {
+            return L(str, z, new a(this));
+        }
+        return (m12) invokeLZ.objValue;
+    }
+
+    public final m12 L(@Nullable String str, boolean z, @NonNull px1.a aVar) {
+        InterceptResult invokeCommon;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, Boolean.valueOf(z), aVar})) == null) {
+            m93 M = m93.M();
+            if (M() && M == null) {
+                return new m12(1001, "swan app is null");
             }
-            z2 = (!z || j) ? false : false;
-            w52.i("SwanInlinePlayerManager", "hasCacheVideo: " + z2);
-            return z2;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void b(hr2 hr2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, hr2Var) == null) && hr2Var != null && !TextUtils.isEmpty(hr2Var.c())) {
-            this.b.put(hr2Var.c(), hr2Var);
-        }
-    }
-
-    public void r(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, str) == null) && !TextUtils.isEmpty(str)) {
-            this.b.remove(str);
-        }
-    }
-
-    public void t(hr2 hr2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, hr2Var) == null) {
-            if (g) {
-                Log.i("SwanInlinePlayerManager", "setCacheVideo: " + hr2Var.toString());
-            }
-            i = hr2Var;
-        }
-    }
-
-    public void u(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.c = i2;
-        }
-    }
-
-    public void v(pn3<Integer> pn3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, pn3Var) == null) {
-            this.d = pn3Var;
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            e82 H = ju2.U().H();
-            if (g()) {
-                if (g) {
-                    Log.i("SwanInlinePlayerManager", "onForegroundChange: full screen ");
-                }
-                if (H != null) {
-                    H.R3(false);
-                }
-                s73.g();
-                s73.m(true);
-            } else if (h()) {
-                if (g) {
-                    Log.i("SwanInlinePlayerManager", "onForegroundChange: Setting portrait fullscreen immersion.");
-                }
-                if (H != null) {
-                    H.R3(true);
-                }
-            } else {
-                if (g) {
-                    Log.i("SwanInlinePlayerManager", "onForegroundChange: vertical screen. ");
-                }
-                if (H != null) {
-                    H.R3(false);
-                }
-            }
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                if (g) {
-                    Log.i("SwanInlinePlayerManager", "pauseOtherPlayers: empty player id ");
-                    return;
-                }
-                return;
+                return aVar.a(M, new JSONObject(), null);
             }
-            HashMap<String, hr2> hashMap = this.b;
-            if (hashMap != null && hashMap.size() > 0) {
-                int i2 = 0;
-                for (String str2 : this.b.keySet()) {
-                    if (str2.equals(str)) {
-                        if (g) {
-                            Log.i("SwanInlinePlayerManager", "pauseOtherPlayers: skip itself." + str);
-                        }
-                    } else {
-                        hr2 hr2Var = this.b.get(str2);
-                        if (hr2Var != null) {
-                            if (i2 < 3) {
-                                if (!hr2Var.i0()) {
-                                    hr2Var.pause();
-                                    hr2Var.Q().c(hr2Var.c());
-                                } else {
-                                    i2++;
-                                }
-                            } else {
-                                hr2Var.pause();
-                                hr2Var.Q().c(hr2Var.c());
-                            }
-                        }
-                    }
-                }
+            Pair<m12, JSONObject> s = s(str);
+            m12 m12Var = (m12) s.first;
+            if (!m12Var.isSuccess()) {
+                return m12Var;
             }
-        }
-    }
-
-    public void l(String str, boolean z) {
-        HashMap<String, Boolean> hashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048585, this, str, z) == null) && (hashMap = this.a) != null) {
-            hashMap.put(str, Boolean.valueOf(z));
-        }
-    }
-
-    public void o(hr2 hr2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048588, this, hr2Var) != null) || hr2Var == null) {
-            return;
-        }
-        if (d() == null) {
-            j = false;
-        } else if (TextUtils.equals(d().c(), hr2Var.c())) {
-            w52.i("SwanInlinePlayerManager", "releaseCacheVideo: clear cache video " + hr2Var.c());
-            i = null;
-            j = false;
-        }
-    }
-
-    public void q(String str) {
-        HashMap<String, Boolean> hashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && (hashMap = this.a) != null) {
-            hashMap.remove(str);
-            int size = this.a.keySet().size();
-            if (g) {
-                Log.i("SwanInlinePlayerManager", "removePlayerState: last player count " + size);
+            JSONObject jSONObject = (JSONObject) s.second;
+            if (z) {
+                str2 = jSONObject.optString("cb");
+            } else {
+                str2 = null;
             }
+            if (z && !TextUtils.isEmpty(str2)) {
+                gm3.k(new f(this, str2, aVar, M, jSONObject), "StorageApi");
+                return m12.f();
+            }
+            return aVar.a(M, jSONObject, null);
         }
+        return (m12) invokeCommon.objValue;
     }
 }

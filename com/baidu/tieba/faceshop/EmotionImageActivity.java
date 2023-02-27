@@ -16,10 +16,10 @@ import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kn6;
+import com.baidu.tieba.dq5;
+import com.baidu.tieba.jq6;
 import com.baidu.tieba.on;
-import com.baidu.tieba.po5;
-import com.baidu.tieba.qv4;
+import com.baidu.tieba.xw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -155,7 +155,7 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d024e);
+            setContentView(R.layout.obfuscated_res_0x7f0d025b);
             y1(bundle);
             z1();
         }
@@ -163,16 +163,18 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            qv4 layoutMode = getLayoutMode();
-            boolean z = true;
-            if (i != 1) {
+            xw4 layoutMode = getLayoutMode();
+            if (i == 4) {
+                z = true;
+            } else {
                 z = false;
             }
             layoutMode.l(z);
-            getLayoutMode().k(findViewById(R.id.obfuscated_res_0x7f090903));
+            getLayoutMode().k(findViewById(R.id.obfuscated_res_0x7f090940));
             this.a.onChangeSkinType(getPageContext(), i);
         }
     }
@@ -239,16 +241,16 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
             this.a = navigationBar;
-            navigationBar.setTitleText(getString(R.string.obfuscated_res_0x7f0f0591));
+            navigationBar.setTitleText(getString(R.string.obfuscated_res_0x7f0f0595));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.b = (GifView) findViewById(R.id.obfuscated_res_0x7f090d6d);
+            this.b = (GifView) findViewById(R.id.obfuscated_res_0x7f090dae);
             if (this.l != 0 && this.m != 0) {
                 layoutParams = new FrameLayout.LayoutParams(this.l, this.m, 17);
             } else {
                 layoutParams = new FrameLayout.LayoutParams(this.n, this.o, 17);
             }
             this.b.setLayoutParams(layoutParams);
-            boolean c = po5.c();
+            boolean c = dq5.c();
             GifInfo gifInfo = new GifInfo();
             gifInfo.mSharpText = this.k;
             gifInfo.mGid = this.f;
@@ -260,19 +262,19 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
                 gifInfo.mStaticUrl = this.j;
             }
             this.b.i0(gifInfo);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090902);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09093f);
             if (!TextUtils.isEmpty(this.h)) {
                 this.c.K(this.h, 10, false);
             } else {
-                Bitmap f = kn6.f(this.f, "panel.png");
+                Bitmap f = jq6.f(this.f, "panel.png");
                 if (f != null) {
                     new on(f, false).h(this.c);
                 }
             }
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090926);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090963);
             this.d = textView;
             textView.setText(this.g);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0908f2);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09092d);
             this.e = textView2;
             textView2.setOnClickListener(new b(this));
         }

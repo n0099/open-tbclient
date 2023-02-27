@@ -1,154 +1,183 @@
 package com.baidu.tieba;
 
+import android.media.MediaPlayer;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SignData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.forumMember.member.ForumMemberHttpResponseMessage;
-import com.baidu.tieba.forumMember.member.ForumMemberReadCacheRequestMessage;
-import com.baidu.tieba.forumMember.member.ForumMemberReadCacheResponseMessage;
-import com.baidu.tieba.forumMember.member.ForumMemberRequestMessage;
-import com.baidu.tieba.forumMember.member.ForumMemberSocketResponseMessage;
+import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
+import com.baidu.tbadk.data.TbMusicData;
+import com.baidu.tieba.aq6;
+import com.baidu.tieba.external.music.data.MusicData;
+import com.baidu.tieba.external.music.model.SelectMusicModel;
+import com.baidu.tieba.uk9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetMemberInfo.ManagerApplyInfo;
-import tbclient.GetMemberInfo.MemberGodInfo;
-import tbclient.MemberGroupInfo;
-import tbclient.PriManagerApplyInfo;
-import tbclient.User;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class zp6 implements ht6 {
+public class zp6 implements xp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public String b;
-    public String c;
-    public k19 d;
-    public List<MemberGroupInfo> e;
-    public MemberGodInfo f;
-    public ManagerApplyInfo g;
+    public SelectMusicModel a;
+    public MediaPlayer b;
+    public int c;
+    public TbMusicData d;
+    public String e;
+    public boolean f;
+    public TbPageContext g;
     public boolean h;
-    public boolean i;
-    public PriManagerApplyInfo j;
-    public lt6 k;
-    public boolean l;
-    public wt6 m;
-    public wb n;
-    public CustomMessageListener o;
-    public CustomMessageListener p;
-    public CustomMessageListener q;
+    public l78 i;
 
     /* loaded from: classes7.dex */
-    public class a extends wb {
+    public class a implements aq6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zp6 a;
+        public final /* synthetic */ uk9.a a;
+        public final /* synthetic */ MusicData b;
+        public final /* synthetic */ zp6 c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(zp6 zp6Var, int i, int i2) {
-            super(i, i2);
+        public a(zp6 zp6Var, uk9.a aVar, MusicData musicData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zp6Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {zp6Var, aVar, musicData};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = zp6Var;
+            this.c = zp6Var;
+            this.a = aVar;
+            this.b = musicData;
         }
 
-        @Override // com.baidu.tieba.wb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.baidu.tieba.aq6.b
+        public void a(String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a.d != this.c.c) {
                 return;
             }
-            boolean z = responsedMessage instanceof ForumMemberHttpResponseMessage;
-            if (!z && !(responsedMessage instanceof ForumMemberSocketResponseMessage)) {
-                return;
+            this.c.h = false;
+            this.a.b.setVisibility(4);
+            this.a.a.setDrawBorder(true);
+            this.a.a.invalidate();
+            ej.Q(TbadkCoreApplication.getInst(), str);
+            if (this.c.i != null) {
+                this.c.i.b(3, str);
             }
-            if (responsedMessage.getError() == 0) {
-                if (z) {
-                    ForumMemberHttpResponseMessage forumMemberHttpResponseMessage = (ForumMemberHttpResponseMessage) responsedMessage;
-                    this.a.d = forumMemberHttpResponseMessage.getUserInfo();
-                    this.a.e = forumMemberHttpResponseMessage.getMemberGroupInfoList();
-                    this.a.f = forumMemberHttpResponseMessage.getMemberGodInfo();
-                    this.a.g = forumMemberHttpResponseMessage.getManagerApplyInfo();
-                    this.a.i = forumMemberHttpResponseMessage.isBawuShow();
-                    this.a.h = forumMemberHttpResponseMessage.isPrivateForum();
-                    this.a.j = forumMemberHttpResponseMessage.getPrivateMgrApplyInfo();
-                } else if (responsedMessage instanceof ForumMemberSocketResponseMessage) {
-                    ForumMemberSocketResponseMessage forumMemberSocketResponseMessage = (ForumMemberSocketResponseMessage) responsedMessage;
-                    this.a.d = forumMemberSocketResponseMessage.getUserInfo();
-                    this.a.e = forumMemberSocketResponseMessage.getMemberGroupInfoList();
-                    this.a.f = forumMemberSocketResponseMessage.getMemberGodInfo();
-                    this.a.g = forumMemberSocketResponseMessage.getManagerApplyInfo();
-                    this.a.i = forumMemberSocketResponseMessage.isBawuShow();
-                    this.a.h = forumMemberSocketResponseMessage.isPrivateForum();
-                    this.a.j = forumMemberSocketResponseMessage.getPrivateMgrApplyInfo();
+        }
+
+        @Override // com.baidu.tieba.aq6.b
+        public void b() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.d == this.c.c) {
+                this.c.h = false;
+                this.a.a.setDrawBorder(true);
+                this.a.a.invalidate();
+                this.a.b.setVisibility(4);
+            }
+        }
+
+        @Override // com.baidu.tieba.aq6.b
+        public void c(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && this.a.d == this.c.c) {
+                this.c.h = false;
+                if (!TextUtils.isEmpty(str2)) {
+                    str = str2;
                 }
+                this.c.n(str, this.b);
+                this.a.b.setVisibility(4);
+                this.a.a.setDrawBorder(true);
+                this.a.a.invalidate();
             }
-            this.a.l = false;
-            this.a.m.e = responsedMessage.getError();
-            this.a.m.f = responsedMessage.getErrorString();
-            this.a.m.g = false;
-            this.a.m.i = false;
-            this.a.m.h = false;
-            this.a.m.b = this.a.b;
-            this.a.m.a = this.a.c;
-            this.a.m.c = 1;
-            if (this.a.k != null) {
-                lt6 lt6Var = this.a.k;
-                wt6 wt6Var = this.a.m;
-                zp6 zp6Var = this.a;
-                lt6Var.a(3, 0, wt6Var, zp6Var.y(zp6Var.d, this.a.e, this.a.f, this.a.g, this.a.i, this.a.h, this.a.j));
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001352, this.a.d));
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b extends CustomMessageListener {
+    public class b implements aq6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zp6 a;
+        public final /* synthetic */ MusicData a;
+        public final /* synthetic */ zp6 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(zp6 zp6Var, int i) {
-            super(i);
+        @Override // com.baidu.tieba.aq6.b
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        public b(zp6 zp6Var, MusicData musicData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zp6Var, Integer.valueOf(i)};
+                Object[] objArr = {zp6Var, musicData};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = zp6Var;
+            this.a = musicData;
+        }
+
+        @Override // com.baidu.tieba.aq6.b
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                ej.Q(TbadkCoreApplication.getInst(), str);
+                if (this.b.i != null) {
+                    this.b.i.b(3, str);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.aq6.b
+        public void c(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+                if (!TextUtils.isEmpty(str2)) {
+                    str = str2;
+                }
+                this.b.n(str, this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements MediaPlayer.OnPreparedListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zp6 a;
+
+        public c(zp6 zp6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zp6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -157,66 +186,32 @@ public class zp6 implements ht6 {
             this.a = zp6Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // android.media.MediaPlayer.OnPreparedListener
+        public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof ForumMemberReadCacheResponseMessage)) {
-                return;
-            }
-            ForumMemberReadCacheResponseMessage forumMemberReadCacheResponseMessage = (ForumMemberReadCacheResponseMessage) customResponsedMessage;
-            if (customResponsedMessage.getError() == 0) {
-                this.a.d = forumMemberReadCacheResponseMessage.getUserInfo();
-                this.a.e = forumMemberReadCacheResponseMessage.getMemberGroupInfoList();
-                this.a.f = forumMemberReadCacheResponseMessage.getMemberGodInfo();
-                this.a.g = forumMemberReadCacheResponseMessage.getManagerApplyInfo();
-                this.a.i = forumMemberReadCacheResponseMessage.isBawuShow();
-                this.a.h = forumMemberReadCacheResponseMessage.isPrivateForum();
-                this.a.j = forumMemberReadCacheResponseMessage.getPrivateMgrApplyInfo();
-            }
-            this.a.m.e = customResponsedMessage.getError();
-            this.a.m.f = customResponsedMessage.getErrorString();
-            this.a.m.g = false;
-            this.a.m.i = false;
-            this.a.m.h = false;
-            this.a.m.b = this.a.b;
-            this.a.m.a = this.a.c;
-            this.a.m.c = 1;
-            if (this.a.k != null) {
-                zp6 zp6Var = this.a;
-                ArrayList<Cdo> y = zp6Var.y(zp6Var.d, this.a.e, this.a.f, this.a.g, this.a.i, this.a.h, this.a.j);
-                if (y != null && y.size() > 0) {
-                    this.a.k.a(3, 0, this.a.m, y);
-                } else if (!this.a.l) {
-                    this.a.k.a(3, 0, this.a.m, y);
-                }
-            }
-            if (this.a.l) {
-                zp6 zp6Var2 = this.a;
-                zp6Var2.x(dh.g(zp6Var2.b, 0L), this.a.c);
+            if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
+                this.a.b.setLooping(true);
+                this.a.b.start();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c extends CustomMessageListener {
+    public class d implements MediaPlayer.OnErrorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zp6 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(zp6 zp6Var, int i) {
-            super(i);
+        public d(zp6 zp6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zp6Var, Integer.valueOf(i)};
+                Object[] objArr = {zp6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -225,77 +220,29 @@ public class zp6 implements ht6 {
             this.a = zp6Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // android.media.MediaPlayer.OnErrorListener
+        public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
+            InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof k19)) {
-                this.a.m.e = customResponsedMessage.getError();
-                this.a.m.f = customResponsedMessage.getErrorString();
-                this.a.m.g = false;
-                this.a.m.i = false;
-                this.a.m.h = false;
-                this.a.m.b = this.a.b;
-                this.a.m.a = this.a.c;
-                this.a.m.c = 1;
-                k19 k19Var = (k19) customResponsedMessage.getData();
-                if (k19Var != null && k19Var.n() == 0 && this.a.d != null) {
-                    k19Var.u(this.a.d.c());
-                    k19Var.x(this.a.d.i());
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i, i2)) == null) {
+                if (this.a.i != null) {
+                    l78 l78Var = this.a.i;
+                    l78Var.b(4, "what-->" + i + "  extra-->" + i2);
+                    return false;
                 }
-                this.a.d = k19Var;
-                if (this.a.k != null) {
-                    lt6 lt6Var = this.a.k;
-                    wt6 wt6Var = this.a.m;
-                    zp6 zp6Var = this.a;
-                    lt6Var.a(3, 0, wt6Var, zp6Var.y(zp6Var.d, this.a.e, this.a.f, this.a.g, this.a.i, this.a.h, this.a.j));
-                }
+                return false;
             }
+            return invokeLII.booleanValue;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class d extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zp6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(zp6 zp6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zp6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zp6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData)) {
-                zp6 zp6Var = this.a;
-                zp6Var.x(dh.g(zp6Var.b, 0L), this.a.c);
-            }
-        }
-    }
-
-    public zp6() {
+    public zp6(TbPageContext tbPageContext, yp6 yp6Var) {
+        p78 p78Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, yp6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -305,256 +252,240 @@ public class zp6 implements ht6 {
                 return;
             }
         }
-        this.h = false;
-        this.i = false;
-        this.l = true;
-        this.m = new wt6();
-        this.n = new a(this, CmdConfigHttp.FRS_MEMBER_TAB_CMD, 301004);
-        this.o = new b(this, 2003009);
-        this.p = new c(this, 2001266);
-        this.q = new d(this, 2001222);
-    }
-
-    @Override // com.baidu.tieba.ht6
-    public void D(lt6 lt6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, lt6Var) == null) {
-            this.k = lt6Var;
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, p78.class);
+        if (runTask != null) {
+            p78Var = (p78) runTask.getData();
+        } else {
+            p78Var = null;
         }
+        if (p78Var != null) {
+            this.i = p78Var.get();
+        }
+        this.g = tbPageContext;
+        this.a = new SelectMusicModel(tbPageContext, yp6Var);
+        m();
     }
 
-    public void E(BdUniqueId bdUniqueId) {
+    @Override // com.baidu.tieba.xp6
+    public void c(MusicData musicData, Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, bdUniqueId) != null) || bdUniqueId == null) {
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, musicData, obj) != null) || musicData == null) {
             return;
         }
-        this.a = bdUniqueId;
-    }
-
-    public void w(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            ForumMemberReadCacheRequestMessage forumMemberReadCacheRequestMessage = new ForumMemberReadCacheRequestMessage();
-            BdUniqueId bdUniqueId = this.a;
-            if (bdUniqueId != null) {
-                forumMemberReadCacheRequestMessage.setTag(bdUniqueId);
-            }
-            forumMemberReadCacheRequestMessage.setForumName(str);
-            MessageManager.getInstance().sendMessage(forumMemberReadCacheRequestMessage);
-        }
-    }
-
-    public final void A(MemberGodInfo memberGodInfo, ArrayList<Cdo> arrayList) {
-        List<User> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, memberGodInfo, arrayList) == null) && memberGodInfo != null && (list = memberGodInfo.forum_god_list) != null && list.size() > 0 && arrayList != null) {
-            List<User> list2 = memberGodInfo.forum_god_list;
-            if (memberGodInfo.forum_god_num.intValue() != 0 && list2.size() != 0) {
-                tp6 tp6Var = new tp6();
-                tp6Var.c(memberGodInfo);
-                arrayList.add(tp6Var);
-                boolean z = false;
-                for (int i = 0; i < list2.size(); i++) {
-                    User user = list2.get(i);
-                    if (user != null && user.god_data.type.intValue() == 2) {
-                        vp6 vp6Var = new vp6();
-                        vp6Var.q(user, i);
-                        arrayList.add(vp6Var);
-                        if (!z) {
-                            z = true;
-                        }
-                    }
+        int i = musicData.editMusicType;
+        if (i != 0) {
+            if (i != 1) {
+                if (i == 2) {
+                    CloudMusicActivityConfig cloudMusicActivityConfig = new CloudMusicActivityConfig(this.g.getPageActivity(), 25032);
+                    cloudMusicActivityConfig.setCurrentMusicData(this.d);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, cloudMusicActivityConfig));
+                    return;
                 }
-                if (!z) {
-                    arrayList.remove(tp6Var);
-                }
+                return;
             }
+            releasePlayer();
+            return;
+        }
+        o(obj, musicData);
+    }
+
+    public final void n(String str, MusicData musicData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, musicData) != null) || this.f) {
+            return;
+        }
+        if (this.b == null) {
+            MediaPlayer mediaPlayer = new MediaPlayer();
+            this.b = mediaPlayer;
+            mediaPlayer.setAudioStreamType(3);
+        }
+        try {
+            this.e = str;
+            this.b.reset();
+            this.b.setDataSource(str);
+            this.b.prepare();
+            this.b.setOnPreparedListener(new c(this));
+            this.b.setOnErrorListener(new d(this));
+        } catch (Exception e) {
+            e.printStackTrace();
+            p(str, musicData);
         }
     }
 
-    public final void B() {
+    @Override // com.baidu.tieba.xp6
+    public void e(TbMusicData tbMusicData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            wt6 wt6Var = this.m;
-            wt6Var.e = 0;
-            wt6Var.g = false;
-            wt6Var.i = false;
-            wt6Var.h = false;
-            wt6Var.b = this.b;
-            wt6Var.a = this.c;
-            wt6Var.c = 1;
-            lt6 lt6Var = this.k;
-            if (lt6Var != null) {
-                lt6Var.a(3, 0, wt6Var, y(this.d, this.e, this.f, this.g, this.i, this.h, this.j));
+        if (interceptable == null || interceptable.invokeL(1048580, this, tbMusicData) == null) {
+            this.d = tbMusicData;
+        }
+    }
+
+    @Override // com.baidu.tieba.xp6
+    public void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
+            this.f = false;
+            this.e = str;
+            n(str, null);
+        }
+    }
+
+    @Override // com.baidu.tieba.xp6
+    public void a(float f) {
+        MediaPlayer mediaPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(1048576, this, f) == null) && (mediaPlayer = this.b) != null && mediaPlayer.getDuration() > 0) {
+            if (f < 0.0f) {
+                f = 0.0f;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.ht6
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.n);
-            MessageManager.getInstance().unRegisterListener(this.o);
-            MessageManager.getInstance().unRegisterListener(this.p);
-            MessageManager.getInstance().unRegisterListener(this.q);
-        }
-    }
-
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            s19.h(301004, ForumMemberSocketResponseMessage.class, false, false);
-            s19.c(301004, CmdConfigHttp.FRS_MEMBER_TAB_CMD, TbConfig.GET_MEMBER_INFO, ForumMemberHttpResponseMessage.class, false, false, false, false);
-            s19.b(2003009, aq6.class);
-        }
-    }
-
-    @Override // com.baidu.tieba.ht6
-    public void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            C();
-            BdUniqueId bdUniqueId = this.a;
-            if (bdUniqueId != null) {
-                this.o.setTag(bdUniqueId);
-                this.n.setTag(this.a);
-                this.o.setSelfListener(true);
-                if (this.n.getHttpMessageListener() != null) {
-                    this.n.getHttpMessageListener().setSelfListener(true);
-                }
-                if (this.n.getSocketMessageListener() != null) {
-                    this.n.getSocketMessageListener().setSelfListener(true);
-                }
+            if (f > this.b.getDuration()) {
+                f %= this.b.getDuration();
             }
-            MessageManager.getInstance().registerListener(this.o);
-            MessageManager.getInstance().registerListener(this.n);
-            MessageManager.getInstance().registerListener(this.p);
-            MessageManager.getInstance().registerListener(this.q);
+            this.b.seekTo((int) (f * 1000.0f));
+            this.b.start();
         }
     }
 
-    public final ds6 v() {
+    @Override // com.baidu.tieba.xp6
+    public String b() {
         InterceptResult invokeV;
-        int g;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.xp6
+    public void d() {
+        SelectMusicModel selectMusicModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (selectMusicModel = this.a) != null) {
+            selectMusicModel.cancelLoadData();
+        }
+    }
+
+    @Override // com.baidu.tieba.xp6
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.h;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            List<MemberGroupInfo> list = this.e;
-            if (list != null && list.size() > 0) {
-                ds6 ds6Var = new ds6();
-                int j = ej.j(TbadkCoreApplication.getInst().getContext());
-                int g2 = ej.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07019a);
-                int g3 = ej.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070309);
-                int g4 = ej.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07029f);
-                int size = this.e.size();
-                if (TbadkCoreApplication.isLogin()) {
-                    g = ej.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07029a);
-                } else {
-                    g = ej.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07026d);
-                }
-                ds6Var.f(j - (((g2 + g3) + g) + (g4 * size)));
-                ds6Var.c(R.drawable.transparent_bg);
-                return ds6Var;
-            }
-            return null;
+            this.a.O();
+            return true;
         }
-        return (ds6) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void x(long j, String str) {
+    @Override // com.baidu.tieba.xp6
+    public void onPause() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJL(1048585, this, j, str) == null) && j > 0 && !StringUtils.isNull(str)) {
-            ForumMemberRequestMessage forumMemberRequestMessage = new ForumMemberRequestMessage();
-            BdUniqueId bdUniqueId = this.a;
-            if (bdUniqueId != null) {
-                forumMemberRequestMessage.setTag(bdUniqueId);
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.f = true;
+            MediaPlayer mediaPlayer = this.b;
+            if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+                this.b.pause();
             }
-            forumMemberRequestMessage.setForumId(j);
-            forumMemberRequestMessage.setForumName(str);
-            MessageManager.getInstance().sendMessage(forumMemberRequestMessage);
         }
     }
 
-    public ArrayList<Cdo> y(k19 k19Var, List<MemberGroupInfo> list, MemberGodInfo memberGodInfo, ManagerApplyInfo managerApplyInfo, boolean z, boolean z2, PriManagerApplyInfo priManagerApplyInfo) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.xp6
+    public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{k19Var, list, memberGodInfo, managerApplyInfo, Boolean.valueOf(z), Boolean.valueOf(z2), priManagerApplyInfo})) == null) {
-            if (k19Var == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.f = false;
+            MediaPlayer mediaPlayer = this.b;
+            if (mediaPlayer != null) {
+                mediaPlayer.start();
+                this.b.seekTo(0);
             }
-            ArrayList<Cdo> arrayList = new ArrayList<>();
-            if (k19Var.n() == 1) {
-                dq6 dq6Var = new dq6();
-                dq6Var.h(k19Var);
-                dq6Var.f(this.b);
-                dq6Var.g(this.c);
-                arrayList.add(dq6Var);
-            }
-            if (list != null && list.size() > 0) {
-                int size = list.size();
-                for (int i = 0; i < size; i++) {
-                    if (list.get(i) != null && list.get(i).member_group_num != null && list.get(i).member_group_num.intValue() > 0 && ListUtils.getCount(list.get(i).member_group_list) > 0) {
-                        fq6 fq6Var = new fq6();
-                        fq6Var.c(this.b);
-                        fq6Var.f(this.c);
-                        fq6Var.g(list.get(i));
-                        if (i == size - 1) {
-                            fq6Var.h(true);
-                        } else {
-                            fq6Var.h(false);
-                        }
-                        arrayList.add(fq6Var);
-                    }
-                }
-            }
-            if (this.h) {
-                if (this.i && priManagerApplyInfo != null) {
-                    jq6 jq6Var = new jq6();
-                    jq6Var.i(priManagerApplyInfo.assist_left_num.intValue());
-                    jq6Var.h(priManagerApplyInfo.assist_apply_url);
-                    jq6Var.g(priManagerApplyInfo.assist_apply_status.intValue());
-                    arrayList.add(jq6Var);
-                }
-            } else {
-                hq6 hq6Var = new hq6();
-                if (managerApplyInfo != null) {
-                    hq6Var.k(managerApplyInfo.manager_left_num.intValue());
-                    hq6Var.i(managerApplyInfo.manager_apply_url);
-                    hq6Var.g(managerApplyInfo.assist_left_num.intValue());
-                    hq6Var.f(managerApplyInfo.assist_apply_url);
-                    hq6Var.h(managerApplyInfo.manager_apply_status.intValue());
-                }
-                arrayList.add(hq6Var);
-                xp6 xp6Var = new xp6();
-                xp6Var.a = R.string.obfuscated_res_0x7f0f044b;
-                xp6Var.b = "https://tieba.baidu.com/tb/cms/redpacket/page/complain.html?id=" + this.b;
-                arrayList.add(xp6Var);
-            }
-            A(memberGodInfo, arrayList);
-            Cdo v = v();
-            if (v != null) {
-                arrayList.add(v);
-            }
-            return arrayList;
         }
-        return (ArrayList) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.ht6
-    public void z(int i, int i2, rt6 rt6Var) {
+    @Override // com.baidu.tieba.xp6
+    public void pause() {
+        MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(1048587, this, i, i2, rt6Var) == null) && i == 3 && rt6Var != null) {
-            String str = rt6Var.b;
-            this.b = str;
-            String str2 = rt6Var.a;
-            this.c = str2;
-            if (this.l) {
-                w(str2);
-            } else if (rt6Var.c == -1) {
-                x(dh.g(str, 0L), rt6Var.a);
-            } else {
-                B();
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (mediaPlayer = this.b) != null && mediaPlayer.isPlaying()) {
+            this.b.pause();
+        }
+    }
+
+    @Override // com.baidu.tieba.xp6
+    public void releasePlayer() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            MediaPlayer mediaPlayer = this.b;
+            if (mediaPlayer != null) {
+                if (mediaPlayer.isPlaying()) {
+                    this.b.stop();
+                }
+                this.b.release();
+                this.b = null;
             }
+            this.e = null;
+        }
+    }
+
+    @Override // com.baidu.tieba.xp6
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            releasePlayer();
+        }
+    }
+
+    public final void o(Object obj, MusicData musicData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, obj, musicData) == null) && musicData != null && !TextUtils.isEmpty(musicData.resource)) {
+            MediaPlayer mediaPlayer = this.b;
+            if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+                this.b.stop();
+            }
+            this.h = false;
+            String str = musicData.id;
+            String g = aq6.h().g(musicData.resource);
+            if (obj != null && (obj instanceof uk9.a)) {
+                this.c = ((uk9.a) obj).d;
+            }
+            if (TextUtils.isEmpty(g)) {
+                if (obj instanceof uk9.a) {
+                    uk9.a aVar = (uk9.a) obj;
+                    aVar.b.setVisibility(0);
+                    aVar.a.setDrawBorder(false);
+                    aVar.a.invalidate();
+                    this.h = true;
+                    aq6.h().f(musicData.id, musicData.resource, new a(this, aVar, musicData));
+                    return;
+                }
+                aq6.h().f(musicData.id, musicData.resource, new b(this, musicData));
+                return;
+            }
+            n(g, musicData);
+        }
+    }
+
+    public final void p(String str, MusicData musicData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, str, musicData) == null) {
+            this.e = null;
+            releasePlayer();
+            if (str.startsWith("/")) {
+                File file = new File(str);
+                if (file.exists()) {
+                    file.delete();
+                }
+                aq6.h().e();
+            }
+            o(null, musicData);
         }
     }
 }

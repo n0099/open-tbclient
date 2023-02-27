@@ -4,15 +4,14 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import com.alipay.sdk.widget.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tbadk.data.VideoCategoryClassData;
-import com.baidu.tieba.n19;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.tieba.write.write.work.model.WorkPublishViewModel;
+import com.baidu.tieba.z49;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +25,7 @@ import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Metadata(d1 = {"\u0000d\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0012\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\t\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u0006\u0010B\u001a\u00020CJ\u0006\u0010D\u001a\u00020\u000fJ\u0006\u0010E\u001a\u00020\u000fJ\u0006\u0010F\u001a\u00020\u000fJ\u0006\u0010G\u001a\u00020\u000fJ\u0006\u0010H\u001a\u00020CJ\u0006\u0010I\u001a\u00020\u0019J\u0006\u0010J\u001a\u00020CJ\u000e\u0010K\u001a\u00020C2\u0006\u0010L\u001a\u00020\u0019J\u000e\u0010M\u001a\u00020C2\u0006\u0010N\u001a\u00020OJ\u0006\u0010P\u001a\u00020CJ\u000e\u0010Q\u001a\u00020C2\u0006\u0010R\u001a\u00020\u0004J\u0016\u0010S\u001a\u00020C2\u0006\u0010T\u001a\u00020\u00192\u0006\u0010U\u001a\u00020\u0004J\u000e\u0010V\u001a\u00020C2\u0006\u0010W\u001a\u00020<R\u0014\u0010\u0003\u001a\u00020\u0004X\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R \u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\t0\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\n\u0010\u000b\"\u0004\b\f\u0010\rR\u001a\u0010\u000e\u001a\u00020\u000fX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0010\u0010\u0011\"\u0004\b\u0012\u0010\u0013R \u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00150\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0016\u0010\u000b\"\u0004\b\u0017\u0010\rR \u0010\u0018\u001a\b\u0012\u0004\u0012\u00020\u00190\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001a\u0010\u000b\"\u0004\b\u001b\u0010\rR\u001a\u0010\u001c\u001a\u00020\tX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001d\u0010\u001e\"\u0004\b\u001f\u0010 R \u0010!\u001a\b\u0012\u0004\u0012\u00020\u000f0\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b!\u0010\u000b\"\u0004\b\"\u0010\rR \u0010#\u001a\b\u0012\u0004\u0012\u00020$0\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b%\u0010\u000b\"\u0004\b&\u0010\rR0\u0010'\u001a\u0018\u0012\u0014\u0012\u0012\u0012\u0004\u0012\u00020\u00190(j\b\u0012\u0004\u0012\u00020\u0019`)0\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b*\u0010\u000b\"\u0004\b+\u0010\rR \u0010,\u001a\b\u0012\u0004\u0012\u00020\u00190\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b-\u0010\u000b\"\u0004\b.\u0010\rR\u001a\u0010/\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b0\u0010\u0006\"\u0004\b1\u00102R\u001a\u00103\u001a\u00020\u0019X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b4\u00105\"\u0004\b6\u00107R0\u00108\u001a\u0018\u0012\u0014\u0012\u0012\u0012\u0004\u0012\u00020\u00190(j\b\u0012\u0004\u0012\u00020\u0019`)0\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b9\u0010\u000b\"\u0004\b:\u0010\rR \u0010;\u001a\b\u0012\u0004\u0012\u00020<0\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b=\u0010\u000b\"\u0004\b>\u0010\rR \u0010?\u001a\b\u0012\u0004\u0012\u00020\u00040\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b@\u0010\u000b\"\u0004\bA\u0010\r¨\u0006X"}, d2 = {"Lcom/baidu/tieba/write/write/work/model/WorkPublishViewModel;", "Landroidx/lifecycle/ViewModel;", "()V", "STATE_SUCCESS", "", "getSTATE_SUCCESS", "()I", "barInfo", "Landroidx/lifecycle/MutableLiveData;", "Lcom/baidu/tbadk/data/SelectForumData;", "getBarInfo", "()Landroidx/lifecycle/MutableLiveData;", "setBarInfo", "(Landroidx/lifecycle/MutableLiveData;)V", "canChangeBarName", "", "getCanChangeBarName", "()Z", "setCanChangeBarName", "(Z)V", "classInfo", "Lcom/baidu/tbadk/data/VideoCategoryClassData;", "getClassInfo", "setClassInfo", "desc", "", "getDesc", "setDesc", "intentBarInfo", "getIntentBarInfo", "()Lcom/baidu/tbadk/data/SelectForumData;", "setIntentBarInfo", "(Lcom/baidu/tbadk/data/SelectForumData;)V", "isLegal", "setLegal", "posInfo", "Lcom/baidu/tieba/tbadkCore/location/ResponsedSelectLocation;", "getPosInfo", "setPosInfo", "tagInfo", "Ljava/util/ArrayList;", "Lkotlin/collections/ArrayList;", "getTagInfo", "setTagInfo", "title", "getTitle", d.o, "titleLength", "getTitleLength", "setTitleLength", "(I)V", "topicFromLastPage", "getTopicFromLastPage", "()Ljava/lang/String;", "setTopicFromLastPage", "(Ljava/lang/String;)V", "topicInfo", "getTopicInfo", "setTopicInfo", "videoInfo", "Lcom/baidu/tbadk/coreExtra/data/VideoInfo;", "getVideoInfo", "setVideoInfo", "videoMixStatus", "getVideoMixStatus", "setVideoMixStatus", "checkIsAllLegal", "", "checkIsClassAndTagLegal", "checkIsTitleLegal", "checkIsVideoLegal", "checkIsVideoMixStatusLegal", "clearDraft", "generateDraftString", "loadDraft", "parseDataFromDraft", "json", "parseWriteData", "writeData", "Lcom/baidu/tbadk/coreExtra/data/WriteData;", "saveDraft", "updateMixStatus", "status", "updateTitle", "newTitle", "newTitleLength", "updateVideo", "newVideo", "write_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+@Metadata(d1 = {"\u0000d\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0012\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\t\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u0006\u0010B\u001a\u00020CJ\u0006\u0010D\u001a\u00020\u000fJ\u0006\u0010E\u001a\u00020\u000fJ\u0006\u0010F\u001a\u00020\u000fJ\u0006\u0010G\u001a\u00020\u000fJ\u0006\u0010H\u001a\u00020CJ\u0006\u0010I\u001a\u00020\u0019J\u0006\u0010J\u001a\u00020CJ\u000e\u0010K\u001a\u00020C2\u0006\u0010L\u001a\u00020\u0019J\u000e\u0010M\u001a\u00020C2\u0006\u0010N\u001a\u00020OJ\u0006\u0010P\u001a\u00020CJ\u000e\u0010Q\u001a\u00020C2\u0006\u0010R\u001a\u00020\u0004J\u0016\u0010S\u001a\u00020C2\u0006\u0010T\u001a\u00020\u00192\u0006\u0010U\u001a\u00020\u0004J\u000e\u0010V\u001a\u00020C2\u0006\u0010W\u001a\u00020<R\u0014\u0010\u0003\u001a\u00020\u0004X\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R \u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\t0\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\n\u0010\u000b\"\u0004\b\f\u0010\rR\u001a\u0010\u000e\u001a\u00020\u000fX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0010\u0010\u0011\"\u0004\b\u0012\u0010\u0013R \u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00150\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0016\u0010\u000b\"\u0004\b\u0017\u0010\rR \u0010\u0018\u001a\b\u0012\u0004\u0012\u00020\u00190\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001a\u0010\u000b\"\u0004\b\u001b\u0010\rR\u001a\u0010\u001c\u001a\u00020\tX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001d\u0010\u001e\"\u0004\b\u001f\u0010 R \u0010!\u001a\b\u0012\u0004\u0012\u00020\u000f0\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b!\u0010\u000b\"\u0004\b\"\u0010\rR \u0010#\u001a\b\u0012\u0004\u0012\u00020$0\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b%\u0010\u000b\"\u0004\b&\u0010\rR0\u0010'\u001a\u0018\u0012\u0014\u0012\u0012\u0012\u0004\u0012\u00020\u00190(j\b\u0012\u0004\u0012\u00020\u0019`)0\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b*\u0010\u000b\"\u0004\b+\u0010\rR \u0010,\u001a\b\u0012\u0004\u0012\u00020\u00190\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b-\u0010\u000b\"\u0004\b.\u0010\rR\u001a\u0010/\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b0\u0010\u0006\"\u0004\b1\u00102R\u001a\u00103\u001a\u00020\u0019X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b4\u00105\"\u0004\b6\u00107R0\u00108\u001a\u0018\u0012\u0014\u0012\u0012\u0012\u0004\u0012\u00020\u00190(j\b\u0012\u0004\u0012\u00020\u0019`)0\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b9\u0010\u000b\"\u0004\b:\u0010\rR \u0010;\u001a\b\u0012\u0004\u0012\u00020<0\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b=\u0010\u000b\"\u0004\b>\u0010\rR \u0010?\u001a\b\u0012\u0004\u0012\u00020\u00040\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b@\u0010\u000b\"\u0004\bA\u0010\r¨\u0006X"}, d2 = {"Lcom/baidu/tieba/write/write/work/model/WorkPublishViewModel;", "Landroidx/lifecycle/ViewModel;", "()V", "STATE_SUCCESS", "", "getSTATE_SUCCESS", "()I", "barInfo", "Landroidx/lifecycle/MutableLiveData;", "Lcom/baidu/tbadk/data/SelectForumData;", "getBarInfo", "()Landroidx/lifecycle/MutableLiveData;", "setBarInfo", "(Landroidx/lifecycle/MutableLiveData;)V", "canChangeBarName", "", "getCanChangeBarName", "()Z", "setCanChangeBarName", "(Z)V", "classInfo", "Lcom/baidu/tbadk/data/VideoCategoryClassData;", "getClassInfo", "setClassInfo", "desc", "", "getDesc", "setDesc", "intentBarInfo", "getIntentBarInfo", "()Lcom/baidu/tbadk/data/SelectForumData;", "setIntentBarInfo", "(Lcom/baidu/tbadk/data/SelectForumData;)V", "isLegal", "setLegal", "posInfo", "Lcom/baidu/tieba/tbadkCore/location/ResponsedSelectLocation;", "getPosInfo", "setPosInfo", "tagInfo", "Ljava/util/ArrayList;", "Lkotlin/collections/ArrayList;", "getTagInfo", "setTagInfo", "title", "getTitle", "setTitle", "titleLength", "getTitleLength", "setTitleLength", "(I)V", "topicFromLastPage", "getTopicFromLastPage", "()Ljava/lang/String;", "setTopicFromLastPage", "(Ljava/lang/String;)V", "topicInfo", "getTopicInfo", "setTopicInfo", "videoInfo", "Lcom/baidu/tbadk/coreExtra/data/VideoInfo;", "getVideoInfo", "setVideoInfo", "videoMixStatus", "getVideoMixStatus", "setVideoMixStatus", "checkIsAllLegal", "", "checkIsClassAndTagLegal", "checkIsTitleLegal", "checkIsVideoLegal", "checkIsVideoMixStatusLegal", "clearDraft", "generateDraftString", "loadDraft", "parseDataFromDraft", "json", "parseWriteData", "writeData", "Lcom/baidu/tbadk/coreExtra/data/WriteData;", "saveDraft", "updateMixStatus", "status", "updateTitle", "newTitle", "newTitleLength", "updateVideo", "newVideo", "write_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
 public final class WorkPublishViewModel extends ViewModel {
     public static /* synthetic */ Interceptable $ic;
@@ -122,7 +121,7 @@ public final class WorkPublishViewModel extends ViewModel {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            n19.y("");
+            z49.y("");
         }
     }
 
@@ -210,11 +209,11 @@ public final class WorkPublishViewModel extends ViewModel {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            n19.o(new n19.h() { // from class: com.baidu.tieba.co9
+            z49.o(new z49.h() { // from class: com.baidu.tieba.yr9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.n19.h
+                @Override // com.baidu.tieba.z49.h
                 public final void a(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -228,7 +227,7 @@ public final class WorkPublishViewModel extends ViewModel {
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            n19.y(f());
+            z49.y(f());
         }
     }
 
@@ -274,9 +273,9 @@ public final class WorkPublishViewModel extends ViewModel {
 
     public final String f() {
         InterceptResult invokeV;
-        String firstClass;
-        String secondClass;
         String str;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             JSONObject jSONObject = new JSONObject();
@@ -285,20 +284,20 @@ public final class WorkPublishViewModel extends ViewModel {
                 jSONObject.put("mDesc", this.e.getValue());
                 jSONObject.put("mClass", this.f.getValue());
                 VideoCategoryClassData value = this.f.getValue();
-                String str2 = null;
-                if (value == null) {
-                    firstClass = null;
+                String str4 = null;
+                if (value != null) {
+                    str = value.getFirstClass();
                 } else {
-                    firstClass = value.getFirstClass();
+                    str = null;
                 }
-                jSONObject.put("mFirstClass", firstClass);
+                jSONObject.put("mFirstClass", str);
                 VideoCategoryClassData value2 = this.f.getValue();
-                if (value2 == null) {
-                    secondClass = null;
+                if (value2 != null) {
+                    str2 = value2.getSecondClass();
                 } else {
-                    secondClass = value2.getSecondClass();
+                    str2 = null;
                 }
-                jSONObject.put("mSecondClass", secondClass);
+                jSONObject.put("mSecondClass", str2);
                 JSONArray jSONArray = new JSONArray();
                 if (this.k.getValue() != null) {
                     ArrayList<String> value3 = this.k.getValue();
@@ -314,17 +313,17 @@ public final class WorkPublishViewModel extends ViewModel {
                 }
                 if (this.g.getValue() != null) {
                     SelectForumData value4 = this.g.getValue();
-                    if (value4 == null) {
-                        str = null;
+                    if (value4 != null) {
+                        str3 = value4.forumId;
                     } else {
-                        str = value4.forumId;
+                        str3 = null;
                     }
-                    jSONObject.put("forum_id", str);
+                    jSONObject.put("forum_id", str3);
                     SelectForumData value5 = this.g.getValue();
                     if (value5 != null) {
-                        str2 = value5.forumName;
+                        str4 = value5.forumName;
                     }
-                    jSONObject.put("forum_name", str2);
+                    jSONObject.put("forum_name", str4);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -365,17 +364,9 @@ public final class WorkPublishViewModel extends ViewModel {
                     JSONArray optJSONArray = jSONObject.optJSONArray("mTag");
                     Intrinsics.checkNotNullExpressionValue(optJSONArray, "jsonObject.optJSONArray(\"mTag\")");
                     ArrayList<String> arrayList = new ArrayList<>();
-                    int i = 0;
                     int length = optJSONArray.length();
-                    if (length > 0) {
-                        while (true) {
-                            int i2 = i + 1;
-                            arrayList.add(optJSONArray.getString(i));
-                            if (i2 >= length) {
-                                break;
-                            }
-                            i = i2;
-                        }
+                    for (int i = 0; i < length; i++) {
+                        arrayList.add(optJSONArray.getString(i));
                     }
                     this.k.setValue(arrayList);
                 }

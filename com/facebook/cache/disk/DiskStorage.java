@@ -1,9 +1,5 @@
 package com.facebook.cache.disk;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.binaryresource.BinaryResource;
 import com.facebook.cache.common.WriterCallback;
 import java.io.IOException;
@@ -14,6 +10,12 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public interface DiskStorage {
+
+    /* loaded from: classes7.dex */
+    public static class DiskDumpInfo {
+        public List<DiskDumpInfoEntry> entries = new ArrayList();
+        public Map<String, Integer> typeCounts = new HashMap();
+    }
 
     /* loaded from: classes7.dex */
     public interface Entry {
@@ -62,34 +64,7 @@ public interface DiskStorage {
     boolean touch(String str, Object obj) throws IOException;
 
     /* loaded from: classes7.dex */
-    public static class DiskDumpInfo {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public List<DiskDumpInfoEntry> entries;
-        public Map<String, Integer> typeCounts;
-
-        public DiskDumpInfo() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.entries = new ArrayList();
-            this.typeCounts = new HashMap();
-        }
-    }
-
-    /* loaded from: classes7.dex */
     public static class DiskDumpInfoEntry {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final String firstBits;
         public final String id;
         public final String path;
@@ -97,20 +72,6 @@ public interface DiskStorage {
         public final String type;
 
         public DiskDumpInfoEntry(String str, String str2, String str3, float f, String str4) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3, Float.valueOf(f), str4};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.id = str;
             this.path = str2;
             this.type = str3;

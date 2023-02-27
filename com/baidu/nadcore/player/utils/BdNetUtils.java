@@ -5,219 +5,93 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g41;
-import com.baidu.tieba.nj0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.n41;
+import com.baidu.tieba.rj0;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public class BdNetUtils {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+    /* loaded from: classes2.dex */
+    public enum NetStatus {
+        NET_DOWN,
+        NET_WIFI,
+        NET_MOBILE
     }
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
-    public static final class NetStatus {
-        public static final /* synthetic */ NetStatus[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final NetStatus NET_DOWN;
-        public static final NetStatus NET_MOBILE;
-        public static final NetStatus NET_WIFI;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948085979, "Lcom/baidu/nadcore/player/utils/BdNetUtils$NetStatus;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1948085979, "Lcom/baidu/nadcore/player/utils/BdNetUtils$NetStatus;");
-                    return;
-                }
-            }
-            NET_DOWN = new NetStatus("NET_DOWN", 0);
-            NET_WIFI = new NetStatus("NET_WIFI", 1);
-            NetStatus netStatus = new NetStatus("NET_MOBILE", 2);
-            NET_MOBILE = netStatus;
-            $VALUES = new NetStatus[]{NET_DOWN, NET_WIFI, netStatus};
-        }
-
-        public NetStatus(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public static NetStatus valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                return (NetStatus) Enum.valueOf(NetStatus.class, str);
-            }
-            return (NetStatus) invokeL.objValue;
-        }
-
-        public static NetStatus[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return (NetStatus[]) $VALUES.clone();
-            }
-            return (NetStatus[]) invokeV.objValue;
-        }
+    public static boolean c() {
+        return false;
     }
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-190732442, "Lcom/baidu/nadcore/player/utils/BdNetUtils;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-190732442, "Lcom/baidu/nadcore/player/utils/BdNetUtils;");
-                return;
-            }
-        }
         NetStatus netStatus = NetStatus.NET_DOWN;
     }
 
     public static NetStatus a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            NetworkInfo b = b();
-            if (b == null) {
-                return NetStatus.NET_DOWN;
-            }
-            if (1 == b.getType()) {
-                return NetStatus.NET_WIFI;
-            }
-            return NetStatus.NET_MOBILE;
+        NetworkInfo b = b();
+        if (b == null) {
+            return NetStatus.NET_DOWN;
         }
-        return (NetStatus) invokeV.objValue;
+        if (1 == b.getType()) {
+            return NetStatus.NET_WIFI;
+        }
+        return NetStatus.NET_MOBILE;
     }
 
     @SuppressLint({"MissingPermission"})
     public static NetworkInfo b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            try {
-                return ((ConnectivityManager) nj0.b().getSystemService("connectivity")).getActiveNetworkInfo();
-            } catch (Exception unused) {
-                return null;
-            }
+        try {
+            return ((ConnectivityManager) rj0.b().getSystemService("connectivity")).getActiveNetworkInfo();
+        } catch (Exception unused) {
+            return null;
         }
-        return (NetworkInfo) invokeV.objValue;
     }
 
     public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            NetworkInfo b = b();
-            if (b == null) {
-                return false;
-            }
-            return !"wifi".equals(b.getTypeName().toLowerCase(Locale.getDefault()));
+        NetworkInfo b = b();
+        if (b == null) {
+            return false;
         }
-        return invokeV.booleanValue;
+        return !"wifi".equals(b.getTypeName().toLowerCase(Locale.getDefault()));
     }
 
     public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (b() == null) {
-                return true;
-            }
-            return false;
+        if (b() == null) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (b() != null) {
-                return true;
-            }
-            return false;
+        if (b() != null) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            NetworkInfo b = b();
-            if (b == null) {
-                return false;
-            }
-            return "wifi".equals(b.getTypeName().toLowerCase(Locale.getDefault()));
+        NetworkInfo b = b();
+        if (b == null) {
+            return false;
         }
-        return invokeV.booleanValue;
+        return "wifi".equals(b.getTypeName().toLowerCase(Locale.getDefault()));
     }
 
     public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (!c() && !g()) {
-                return false;
-            }
-            return true;
+        if (!c() && !g()) {
+            return false;
         }
-        return invokeV.booleanValue;
+        return true;
     }
 
     public static void i(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, context, str) == null) {
-            StringBuilder sb = new StringBuilder(context.getString(R.string.nad_player_message_network_3g));
-            if (!TextUtils.isEmpty(str)) {
-                sb.append("，\n");
-                sb.append(context.getString(R.string.nad_video_net_tip_size_toast));
-                sb.append(str);
-                sb.append("MB");
-            }
-            g41.a().showToast(context, sb.toString());
+        StringBuilder sb = new StringBuilder(context.getString(R.string.nad_player_message_network_3g));
+        if (!TextUtils.isEmpty(str)) {
+            sb.append("，\n");
+            sb.append(context.getString(R.string.nad_video_net_tip_size_toast));
+            sb.append(str);
+            sb.append("MB");
         }
+        n41.a().showToast(context, sb.toString());
     }
 }

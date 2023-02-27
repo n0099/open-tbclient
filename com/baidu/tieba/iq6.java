@@ -1,21 +1,16 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.database.Cursor;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.forumMember.member.PrivateMgrApplyViewHolder;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.EmotionUtil;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.img.UploadedImageInfo;
+import com.baidu.tieba.faceshop.MyEmotionGroupData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,200 +18,240 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class iq6 extends as6<jq6, PrivateMgrApplyViewHolder> {
-    public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: n */
-    public static final int obfuscated = 2131303330;
+import java.io.File;
+import java.io.InputStream;
+import java.util.LinkedList;
+import java.util.List;
+/* loaded from: classes4.dex */
+public class iq6 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final iq6 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public t95 l;
-    public View.OnClickListener m;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947862203, "Lcom/baidu/tieba/iq6;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947862203, "Lcom/baidu/tieba/iq6;");
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iq6 a;
-
-        public a(iq6 iq6Var) {
-            Interceptable interceptable = $ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947862203, "Lcom/baidu/tieba/iq6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iq6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = iq6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (TbadkCoreApplication.isLogin() && StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
-                    this.a.K(TbadkCoreApplication.getCurrentAccountInfo());
-                    return;
-                }
-                Object tag = view2.getTag(iq6.obfuscated);
-                if (tag != null && !tag.toString().equals("")) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) da.a(this.a.mContext), new String[]{tag.toString()});
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947862203, "Lcom/baidu/tieba/iq6;");
+                return;
             }
         }
+        a = new iq6();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public iq6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    public iq6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.m = new a(this);
     }
 
-    public void onDestroy() {
-        t95 t95Var;
+    public static iq6 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (t95Var = this.l) != null) {
-            t95Var.s();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
+        return (iq6) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: H */
-    public PrivateMgrApplyViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public final boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new PrivateMgrApplyViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0787, (ViewGroup) null));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (new File(TbadkCoreApplication.getInst().getFilesDir(), str).exists()) {
+                return true;
+            }
+            return false;
         }
-        return (PrivateMgrApplyViewHolder) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public View J(int i, View view2, ViewGroup viewGroup, jq6 jq6Var, PrivateMgrApplyViewHolder privateMgrApplyViewHolder) {
-        InterceptResult invokeCommon;
+    public boolean b(MyEmotionGroupData myEmotionGroupData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jq6Var, privateMgrApplyViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) jq6Var, (jq6) privateMgrApplyViewHolder);
-            if (jq6Var != null && !jq6Var.f() && privateMgrApplyViewHolder != null) {
-                if (jq6Var.f()) {
-                    privateMgrApplyViewHolder.e.setVisibility(8);
-                    return view2;
-                }
-                boolean z = true;
-                if (privateMgrApplyViewHolder.f != this.f) {
-                    SkinManager.setBackgroundColor(privateMgrApplyViewHolder.d, R.color.CAM_X0204);
-                    SkinManager.setViewTextColor(privateMgrApplyViewHolder.b, R.color.CAM_X0109, 1);
-                    SkinManager.setViewTextColor(privateMgrApplyViewHolder.a, R.color.CAM_X0105, 1);
-                    SkinManager.setBackgroundResource(privateMgrApplyViewHolder.c, R.drawable.frs_member_manito_bg);
-                }
-                int a2 = jq6Var.a();
-                String string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1486);
-                if (a2 == -1) {
-                    int c = jq6Var.c();
-                    String numberUniformFormat = StringHelper.numberUniformFormat(c);
-                    if (c > 0) {
-                        string = String.format(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1480), numberUniformFormat);
-                        privateMgrApplyViewHolder.c.setOnClickListener(this.m);
-                        privateMgrApplyViewHolder.b.setText(string);
-                        privateMgrApplyViewHolder.c.setTag(obfuscated, jq6Var.b());
-                        privateMgrApplyViewHolder.c.setEnabled(z);
-                        privateMgrApplyViewHolder.c.setClickable(z);
-                        privateMgrApplyViewHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-                        privateMgrApplyViewHolder.f = this.f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, myEmotionGroupData)) == null) {
+            if (myEmotionGroupData == null) {
+                return false;
+            }
+            fa mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            try {
+                mainDBDatabaseManager.f().delete(EmotionUtil.TABLE_NAME_USER_EMOTIONS, "uid = ? and groupId = ?", new String[]{myEmotionGroupData.uid, myEmotionGroupData.groupId});
+                return true;
+            } catch (Throwable th) {
+                mainDBDatabaseManager.i(th, "EmotionsDBManager.deleteMyEmotion");
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public MyEmotionGroupData d(String str, String str2) {
+        InterceptResult invokeLL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            fa mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            try {
+                cursor = mainDBDatabaseManager.f().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{str, str2});
+                try {
+                    if (cursor.moveToNext()) {
+                        return i(cursor);
                     }
-                    z = false;
-                    privateMgrApplyViewHolder.c.setOnClickListener(this.m);
-                    privateMgrApplyViewHolder.b.setText(string);
-                    privateMgrApplyViewHolder.c.setTag(obfuscated, jq6Var.b());
-                    privateMgrApplyViewHolder.c.setEnabled(z);
-                    privateMgrApplyViewHolder.c.setClickable(z);
-                    privateMgrApplyViewHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-                    privateMgrApplyViewHolder.f = this.f;
-                } else {
-                    if (a2 == 0) {
-                        string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1484);
-                    } else if (a2 == 1) {
-                        string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1482);
-                    } else {
-                        if (a2 == 2) {
-                            string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1481);
+                } catch (Throwable th) {
+                    th = th;
+                    try {
+                        mainDBDatabaseManager.i(th, "EmotionsDBManager.getMyEmotion");
+                        return null;
+                    } finally {
+                        fj.a(cursor);
+                    }
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                cursor = null;
+            }
+            return null;
+        }
+        return (MyEmotionGroupData) invokeLL.objValue;
+    }
+
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            fa mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            Cursor cursor = null;
+            try {
+                cursor = mainDBDatabaseManager.f().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{TbadkCoreApplication.getCurrentAccount(), str});
+                if (!cursor.moveToNext()) {
+                    return false;
+                }
+                return true;
+            } catch (Throwable th) {
+                try {
+                    mainDBDatabaseManager.i(th, "EmotionsDBManager.hasEmotionByPckID");
+                    return false;
+                } finally {
+                    fj.a(cursor);
+                }
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, CONST_STR, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    public List<MyEmotionGroupData> h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            LinkedList linkedList = new LinkedList();
+            if (TextUtils.isEmpty(str)) {
+                return linkedList;
+            }
+            Cursor cursor = null;
+            try {
+                cursor = TiebaDatabase.getInstance().getMainDBDatabaseManager().f().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{str});
+                while (cursor.moveToNext()) {
+                    linkedList.add(i(cursor));
+                }
+            } finally {
+                try {
+                    return linkedList;
+                } finally {
+                }
+            }
+            return linkedList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public MyEmotionGroupData i(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cursor)) == null) {
+            MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
+            myEmotionGroupData.id = cursor.getInt(cursor.getColumnIndex("id"));
+            myEmotionGroupData.uid = cursor.getString(cursor.getColumnIndex("uid"));
+            myEmotionGroupData.groupId = cursor.getString(cursor.getColumnIndex(TbEnum.SystemMessage.KEY_GROUP_ID));
+            myEmotionGroupData.updateTime = cursor.getLong(cursor.getColumnIndex("updateTime"));
+            return myEmotionGroupData;
+        }
+        return (MyEmotionGroupData) invokeL.objValue;
+    }
+
+    public int f(r98 r98Var) {
+        InterceptResult invokeL;
+        List<s98> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, r98Var)) == null) {
+            if (r98Var == null || (list = r98Var.e) == null || list.size() == 0) {
+                return 0;
+            }
+            String str = ".emotions/" + r98Var.a;
+            qq6 o = qq6.o();
+            List<s98> list2 = r98Var.e;
+            int i = 0;
+            for (int i2 = 0; i2 < list2.size(); i2++) {
+                s98 s98Var = list2.get(i2);
+                if (a(str + "/" + s98Var.c)) {
+                    if (a(str + "/" + s98Var.d)) {
+                        StringBuilder sb = new StringBuilder(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
+                        sb.append(r98Var.a + "_" + s98Var.b);
+                        sb.append(",");
+                        sb.append(s98Var.f);
+                        sb.append(",");
+                        sb.append(s98Var.e);
+                        sb.append(",");
+                        String str2 = SmallTailInfo.EMOTION_PREFIX + sb.toString() + lj.c(sb.toString() + UploadedImageInfo.MD5_KEY).toLowerCase() + SmallTailInfo.EMOTION_SUFFIX;
+                        boolean isGifImage = FileHelper.isGifImage(zh5.b.e(r98Var.a, s98Var.c));
+                        jq6.g(r98Var.a, s98Var.d, jq6.c(str2, true, false));
+                        jq6.g(r98Var.a, s98Var.c, jq6.c(str2, false, isGifImage));
+                        if (o.f(str2, r98Var.a, i2 + 1)) {
+                            i++;
                         }
-                        z = false;
                     }
-                    privateMgrApplyViewHolder.c.setOnClickListener(this.m);
-                    privateMgrApplyViewHolder.b.setText(string);
-                    privateMgrApplyViewHolder.c.setTag(obfuscated, jq6Var.b());
-                    privateMgrApplyViewHolder.c.setEnabled(z);
-                    privateMgrApplyViewHolder.c.setClickable(z);
-                    privateMgrApplyViewHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-                    privateMgrApplyViewHolder.f = this.f;
                 }
             }
-            return view2;
+            return i;
         }
-        return (View) invokeCommon.objValue;
+        return invokeL.intValue;
     }
 
-    public final void K(AccountData accountData) {
-        Activity activity;
+    public int g(String str, InputStream inputStream) throws Exception {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-            x9<?> a2 = da.a(this.mContext);
-            if (a2 instanceof TbPageContext) {
-                activity = ((TbPageContext) a2).getPageActivity();
-            } else {
-                activity = null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, inputStream)) == null) {
+            qq6 o = qq6.o();
+            List<String> a2 = jq6.a(str, inputStream);
+            int i = 0;
+            int i2 = 0;
+            while (i < a2.size()) {
+                i++;
+                if (o.f(a2.get(i), str, i)) {
+                    i2++;
+                }
             }
-            if (this.l == null) {
-                this.l = new t95(activity);
-            }
-            this.l.p();
-            this.l.u(accountData);
-            this.l.z(1);
+            return i2;
         }
-    }
-
-    @Override // com.baidu.tieba.as6, com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        J(i, view2, viewGroup, (jq6) obj, (PrivateMgrApplyViewHolder) viewHolder);
-        return view2;
+        return invokeLL.intValue;
     }
 }

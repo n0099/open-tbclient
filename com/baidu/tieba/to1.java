@@ -1,46 +1,73 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.SecureRandom;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes6.dex */
-public class to1 implements qo1 {
+public final class to1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public so1 a;
 
-    public to1() {
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            try {
+                byte[] bArr2 = new byte[32];
+                new SecureRandom().nextBytes(bArr2);
+                byte[] bArr3 = new byte[16];
+                System.arraycopy(bArr2, 8, bArr3, 0, 16);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr3);
+                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
+                Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
+                cipher.init(1, secretKeySpec, ivParameterSpec);
+                byte[] doFinal = cipher.doFinal(bArr);
+                byte[] bArr4 = new byte[doFinal.length + 32];
+                System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
+                System.arraycopy(bArr2, 0, bArr4, doFinal.length, 32);
+                return Base64.encodeToString(bArr4, 0);
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return null;
             }
         }
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.qo1
-    public String a() {
-        InterceptResult invokeV;
+    public static byte[] b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qo1
-    public void a(Context context, ro1 ro1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ro1Var) == null) {
-            so1 so1Var = new so1(context);
-            this.a = so1Var;
-            so1Var.b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                byte[] decode = Base64.decode(str, 0);
+                if (decode != null && decode.length >= 32) {
+                    byte[] bArr = new byte[32];
+                    int length = decode.length - 32;
+                    byte[] bArr2 = new byte[length];
+                    System.arraycopy(decode, 0, bArr2, 0, length);
+                    System.arraycopy(decode, length, bArr, 0, 32);
+                    SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
+                    Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
+                    byte[] bArr3 = new byte[16];
+                    System.arraycopy(bArr, 8, bArr3, 0, 16);
+                    cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
+                    return cipher.doFinal(bArr2);
+                }
+                return decode;
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return null;
+            }
         }
+        return (byte[]) invokeL.objValue;
     }
 }

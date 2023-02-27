@@ -1,16 +1,10 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import java.io.File;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
 /* loaded from: classes7.dex */
 public interface yl0 {
-    void a(int i, long j, long j2);
+    void a(@NonNull AdDownloadAction adDownloadAction, @NonNull gl0 gl0Var);
 
-    void b(long j, File file);
-
-    void c(int i, int i2);
-
-    void d(@Nullable kl0 kl0Var);
-
-    void onSuccess(int i);
+    gl0 getData();
 }

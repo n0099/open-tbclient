@@ -6,18 +6,14 @@ import android.view.View;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.ecommerce.AddressStatUtil;
+import com.baidu.pass.ecommerce.StatKey;
 import com.baidu.pass.ecommerce.common.dialog.BaseDialogFragment;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+@SuppressLint({"ValidFragment"})
 /* loaded from: classes2.dex */
 public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnClickListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public TextView cancelTv;
     public TextView chooseImgTv;
     public boolean isDarkMode;
@@ -34,74 +30,59 @@ public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnCli
 
     @Override // com.baidu.pass.ecommerce.common.dialog.BaseDialogFragment
     public int getLayoutResId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0518 : invokeV.intValue;
+        return R.layout.obfuscated_res_0x7f0d052a;
     }
 
     @SuppressLint({"ValidFragment"})
     public ImgOcrOptionDialog(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.isDarkMode = z;
+    }
+
+    public void setOptionOnClickListener(OptionOnClickListener optionOnClickListener) {
+        this.optionOnClickListener = optionOnClickListener;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            if (this.optionOnClickListener != null) {
-                int id = view2.getId();
-                if (id == R.id.obfuscated_res_0x7f091ebb) {
-                    this.optionOnClickListener.onOptionClick(1001);
-                } else if (id == R.id.obfuscated_res_0x7f091e47) {
-                    this.optionOnClickListener.onOptionClick(1002);
-                }
+        if (this.optionOnClickListener != null) {
+            int id = view2.getId();
+            if (id == R.id.obfuscated_res_0x7f091eff) {
+                this.optionOnClickListener.onOptionClick(1001);
+                HashMap hashMap = new HashMap();
+                hashMap.put("stage", "camera");
+                AddressStatUtil.statAddressOption(StatKey.EDITADDR_OCR_STAGE, hashMap);
+            } else if (id == R.id.obfuscated_res_0x7f091e8b) {
+                this.optionOnClickListener.onOptionClick(1002);
+                HashMap hashMap2 = new HashMap();
+                hashMap2.put("stage", StatKey.EDITADDR_OCR_STAGE_PHOTO_ALBUM);
+                AddressStatUtil.statAddressOption(StatKey.EDITADDR_OCR_STAGE, hashMap2);
+            } else if (id == R.id.obfuscated_res_0x7f091ee9) {
+                HashMap hashMap3 = new HashMap();
+                hashMap3.put("stage", "cancel");
+                AddressStatUtil.statAddressOption(StatKey.EDITADDR_OCR_STAGE, hashMap3);
             }
-            dismiss();
         }
+        dismiss();
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, bundle) == null) {
-            super.onViewCreated(view2, bundle);
-            this.takePhotoTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ebb);
-            this.chooseImgTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e47);
-            this.cancelTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ea5);
-            if (this.isDarkMode) {
-                this.takePhotoTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081119);
-                this.takePhotoTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609fe));
-                view2.findViewById(R.id.obfuscated_res_0x7f091ebc).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06097f));
-                this.chooseImgTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081117);
-                this.chooseImgTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609fe));
-                view2.findViewById(R.id.obfuscated_res_0x7f091e48).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609a9));
-                this.cancelTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081117);
-                this.cancelTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609fe));
-            }
-            this.takePhotoTv.setOnClickListener(this);
-            this.chooseImgTv.setOnClickListener(this);
-            this.cancelTv.setOnClickListener(this);
+        super.onViewCreated(view2, bundle);
+        this.takePhotoTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091eff);
+        this.chooseImgTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e8b);
+        this.cancelTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ee9);
+        if (this.isDarkMode) {
+            this.takePhotoTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f08111f);
+            this.takePhotoTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060891));
+            view2.findViewById(R.id.obfuscated_res_0x7f091f00).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060811));
+            this.chooseImgTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f08111d);
+            this.chooseImgTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060891));
+            view2.findViewById(R.id.obfuscated_res_0x7f091e8c).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06083b));
+            this.cancelTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f08111d);
+            this.cancelTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060891));
         }
-    }
-
-    public void setOptionOnClickListener(OptionOnClickListener optionOnClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, optionOnClickListener) == null) {
-            this.optionOnClickListener = optionOnClickListener;
-        }
+        this.takePhotoTv.setOnClickListener(this);
+        this.chooseImgTv.setOnClickListener(this);
+        this.cancelTv.setOnClickListener(this);
     }
 }

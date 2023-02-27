@@ -1,15 +1,6 @@
 package com.google.protobuf;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.ByteString;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,9 +15,7 @@ import java.util.NoSuchElementException;
 import java.util.Stack;
 /* loaded from: classes8.dex */
 public class RopeByteString extends ByteString {
-    public static /* synthetic */ Interceptable $ic;
     public static final int[] minLengthByDepth;
-    public transient /* synthetic */ FieldHolder $fh;
     public int hash;
     public final ByteString left;
     public final int leftLength;
@@ -34,360 +23,204 @@ public class RopeByteString extends ByteString {
     public final int totalLength;
     public final int treeDepth;
 
-    /* renamed from: com.google.protobuf.RopeByteString$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
     /* loaded from: classes8.dex */
     public static class Balancer {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final Stack<ByteString> prefixesStack;
 
         public Balancer() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.prefixesStack = new Stack<>();
         }
 
-        public /* synthetic */ Balancer(AnonymousClass1 anonymousClass1) {
-            this();
-        }
-
         private int getDepthBinForLength(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i)) == null) {
-                int binarySearch = Arrays.binarySearch(RopeByteString.minLengthByDepth, i);
-                if (binarySearch < 0) {
-                    return (-(binarySearch + 1)) - 1;
-                }
-                return binarySearch;
+            int binarySearch = Arrays.binarySearch(RopeByteString.minLengthByDepth, i);
+            if (binarySearch < 0) {
+                return (-(binarySearch + 1)) - 1;
             }
-            return invokeI.intValue;
+            return binarySearch;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public ByteString balance(ByteString byteString, ByteString byteString2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, byteString, byteString2)) == null) {
-                doBalance(byteString);
-                doBalance(byteString2);
-                ByteString pop = this.prefixesStack.pop();
-                while (!this.prefixesStack.isEmpty()) {
-                    pop = new RopeByteString(this.prefixesStack.pop(), pop, null);
-                }
-                return pop;
+            doBalance(byteString);
+            doBalance(byteString2);
+            ByteString pop = this.prefixesStack.pop();
+            while (!this.prefixesStack.isEmpty()) {
+                pop = new RopeByteString(this.prefixesStack.pop(), pop);
             }
-            return (ByteString) invokeLL.objValue;
+            return pop;
         }
 
         private void doBalance(ByteString byteString) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, byteString) == null) {
-                if (byteString.isBalanced()) {
-                    insert(byteString);
-                } else if (byteString instanceof RopeByteString) {
-                    RopeByteString ropeByteString = (RopeByteString) byteString;
-                    doBalance(ropeByteString.left);
-                    doBalance(ropeByteString.right);
-                } else {
-                    throw new IllegalArgumentException("Has a new type of ByteString been created? Found " + byteString.getClass());
-                }
+            if (byteString.isBalanced()) {
+                insert(byteString);
+            } else if (byteString instanceof RopeByteString) {
+                RopeByteString ropeByteString = (RopeByteString) byteString;
+                doBalance(ropeByteString.left);
+                doBalance(ropeByteString.right);
+            } else {
+                throw new IllegalArgumentException("Has a new type of ByteString been created? Found " + byteString.getClass());
             }
         }
 
         private void insert(ByteString byteString) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65542, this, byteString) == null) {
-                int depthBinForLength = getDepthBinForLength(byteString.size());
-                int i = RopeByteString.minLengthByDepth[depthBinForLength + 1];
-                if (!this.prefixesStack.isEmpty() && this.prefixesStack.peek().size() < i) {
-                    int i2 = RopeByteString.minLengthByDepth[depthBinForLength];
-                    ByteString pop = this.prefixesStack.pop();
-                    while (!this.prefixesStack.isEmpty() && this.prefixesStack.peek().size() < i2) {
-                        pop = new RopeByteString(this.prefixesStack.pop(), pop, null);
-                    }
-                    RopeByteString ropeByteString = new RopeByteString(pop, byteString, null);
-                    while (!this.prefixesStack.isEmpty()) {
-                        if (this.prefixesStack.peek().size() >= RopeByteString.minLengthByDepth[getDepthBinForLength(ropeByteString.size()) + 1]) {
-                            break;
-                        }
-                        ropeByteString = new RopeByteString(this.prefixesStack.pop(), ropeByteString, null);
-                    }
-                    this.prefixesStack.push(ropeByteString);
-                    return;
+            int depthBinForLength = getDepthBinForLength(byteString.size());
+            int i = RopeByteString.minLengthByDepth[depthBinForLength + 1];
+            if (!this.prefixesStack.isEmpty() && this.prefixesStack.peek().size() < i) {
+                int i2 = RopeByteString.minLengthByDepth[depthBinForLength];
+                ByteString pop = this.prefixesStack.pop();
+                while (!this.prefixesStack.isEmpty() && this.prefixesStack.peek().size() < i2) {
+                    pop = new RopeByteString(this.prefixesStack.pop(), pop);
                 }
-                this.prefixesStack.push(byteString);
+                RopeByteString ropeByteString = new RopeByteString(pop, byteString);
+                while (!this.prefixesStack.isEmpty()) {
+                    if (this.prefixesStack.peek().size() >= RopeByteString.minLengthByDepth[getDepthBinForLength(ropeByteString.size()) + 1]) {
+                        break;
+                    }
+                    ropeByteString = new RopeByteString(this.prefixesStack.pop(), ropeByteString);
+                }
+                this.prefixesStack.push(ropeByteString);
+                return;
             }
+            this.prefixesStack.push(byteString);
         }
     }
 
     /* loaded from: classes8.dex */
     public static class PieceIterator implements Iterator<LiteralByteString> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final Stack<RopeByteString> breadCrumbs;
         public LiteralByteString next;
 
         public PieceIterator(ByteString byteString) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {byteString};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.breadCrumbs = new Stack<>();
             this.next = getLeafByLeft(byteString);
         }
 
-        public /* synthetic */ PieceIterator(ByteString byteString, AnonymousClass1 anonymousClass1) {
-            this(byteString);
-        }
-
         private LiteralByteString getLeafByLeft(ByteString byteString) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, byteString)) == null) {
-                while (byteString instanceof RopeByteString) {
-                    RopeByteString ropeByteString = (RopeByteString) byteString;
-                    this.breadCrumbs.push(ropeByteString);
-                    byteString = ropeByteString.left;
-                }
-                return (LiteralByteString) byteString;
+            while (byteString instanceof RopeByteString) {
+                RopeByteString ropeByteString = (RopeByteString) byteString;
+                this.breadCrumbs.push(ropeByteString);
+                byteString = ropeByteString.left;
             }
-            return (LiteralByteString) invokeL.objValue;
+            return (LiteralByteString) byteString;
         }
 
         private LiteralByteString getNextNonEmptyLeaf() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-                while (!this.breadCrumbs.isEmpty()) {
-                    LiteralByteString leafByLeft = getLeafByLeft(this.breadCrumbs.pop().right);
-                    if (!leafByLeft.isEmpty()) {
-                        return leafByLeft;
-                    }
+            while (!this.breadCrumbs.isEmpty()) {
+                LiteralByteString leafByLeft = getLeafByLeft(this.breadCrumbs.pop().right);
+                if (!leafByLeft.isEmpty()) {
+                    return leafByLeft;
                 }
-                return null;
             }
-            return (LiteralByteString) invokeV.objValue;
+            return null;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.next != null) {
-                    return true;
-                }
-                return false;
+            if (this.next != null) {
+                return true;
             }
-            return invokeV.booleanValue;
+            return false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.Iterator
         public LiteralByteString next() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                LiteralByteString literalByteString = this.next;
-                if (literalByteString != null) {
-                    this.next = getNextNonEmptyLeaf();
-                    return literalByteString;
-                }
-                throw new NoSuchElementException();
+            LiteralByteString literalByteString = this.next;
+            if (literalByteString != null) {
+                this.next = getNextNonEmptyLeaf();
+                return literalByteString;
             }
-            return (LiteralByteString) invokeV.objValue;
+            throw new NoSuchElementException();
         }
 
         @Override // java.util.Iterator
         public void remove() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                throw new UnsupportedOperationException();
-            }
+            throw new UnsupportedOperationException();
         }
     }
 
     /* loaded from: classes8.dex */
     public class RopeByteIterator implements ByteString.ByteIterator {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public ByteString.ByteIterator bytes;
         public int bytesRemaining;
         public final PieceIterator pieces;
-        public final /* synthetic */ RopeByteString this$0;
 
-        /* JADX WARN: Type inference failed for: r0v3, types: [com.google.protobuf.ByteString$ByteIterator] */
-        public RopeByteIterator(RopeByteString ropeByteString) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ropeByteString};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = ropeByteString;
-            PieceIterator pieceIterator = new PieceIterator(ropeByteString, null);
+        /* JADX WARN: Type inference failed for: r0v2, types: [com.google.protobuf.ByteString$ByteIterator] */
+        public RopeByteIterator() {
+            PieceIterator pieceIterator = new PieceIterator(RopeByteString.this);
             this.pieces = pieceIterator;
             this.bytes = pieceIterator.next().iterator();
-            this.bytesRemaining = ropeByteString.size();
-        }
-
-        public /* synthetic */ RopeByteIterator(RopeByteString ropeByteString, AnonymousClass1 anonymousClass1) {
-            this(ropeByteString);
+            this.bytesRemaining = RopeByteString.this.size();
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.bytesRemaining > 0) {
-                    return true;
-                }
-                return false;
+            if (this.bytesRemaining > 0) {
+                return true;
             }
-            return invokeV.booleanValue;
+            return false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.Iterator
         public Byte next() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return Byte.valueOf(nextByte());
-            }
-            return (Byte) invokeV.objValue;
+            return Byte.valueOf(nextByte());
         }
 
-        /* JADX WARN: Type inference failed for: r0v10, types: [com.google.protobuf.ByteString$ByteIterator] */
+        /* JADX WARN: Type inference failed for: r0v8, types: [com.google.protobuf.ByteString$ByteIterator] */
         @Override // com.google.protobuf.ByteString.ByteIterator
         public byte nextByte() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (!this.bytes.hasNext()) {
-                    this.bytes = this.pieces.next().iterator();
-                }
-                this.bytesRemaining--;
-                return this.bytes.nextByte();
+            if (!this.bytes.hasNext()) {
+                this.bytes = this.pieces.next().iterator();
             }
-            return invokeV.byteValue;
+            this.bytesRemaining--;
+            return this.bytes.nextByte();
         }
 
         @Override // java.util.Iterator
         public void remove() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                throw new UnsupportedOperationException();
-            }
+            throw new UnsupportedOperationException();
         }
     }
 
     /* loaded from: classes8.dex */
     public class RopeInputStream extends InputStream {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public LiteralByteString currentPiece;
         public int currentPieceIndex;
         public int currentPieceOffsetInRope;
         public int currentPieceSize;
         public int mark;
         public PieceIterator pieceIterator;
-        public final /* synthetic */ RopeByteString this$0;
 
         @Override // java.io.InputStream
         public boolean markSupported() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
+            return true;
         }
 
-        public RopeInputStream(RopeByteString ropeByteString) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ropeByteString};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = ropeByteString;
+        public RopeInputStream() {
             initialize();
         }
 
         @Override // java.io.InputStream
         public void mark(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                this.mark = this.currentPieceOffsetInRope + this.currentPieceIndex;
-            }
+            this.mark = this.currentPieceOffsetInRope + this.currentPieceIndex;
         }
 
         @Override // java.io.InputStream
         public long skip(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-                if (j >= 0) {
-                    if (j > 2147483647L) {
-                        j = 2147483647L;
-                    }
-                    return readSkipInternal(null, 0, (int) j);
+            if (j >= 0) {
+                if (j > 2147483647L) {
+                    j = 2147483647L;
                 }
-                throw new IndexOutOfBoundsException();
+                return readSkipInternal(null, 0, (int) j);
             }
-            return invokeJ.longValue;
+            throw new IndexOutOfBoundsException();
         }
 
         private void advanceIfCurrentPieceFullyRead() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.currentPiece != null) {
+            if (this.currentPiece != null) {
                 int i = this.currentPieceIndex;
                 int i2 = this.currentPieceSize;
                 if (i == i2) {
@@ -406,115 +239,75 @@ public class RopeByteString extends ByteString {
         }
 
         private void initialize() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-                PieceIterator pieceIterator = new PieceIterator(this.this$0, null);
-                this.pieceIterator = pieceIterator;
-                LiteralByteString next = pieceIterator.next();
-                this.currentPiece = next;
-                this.currentPieceSize = next.size();
-                this.currentPieceIndex = 0;
-                this.currentPieceOffsetInRope = 0;
-            }
+            PieceIterator pieceIterator = new PieceIterator(RopeByteString.this);
+            this.pieceIterator = pieceIterator;
+            LiteralByteString next = pieceIterator.next();
+            this.currentPiece = next;
+            this.currentPieceSize = next.size();
+            this.currentPieceIndex = 0;
+            this.currentPieceOffsetInRope = 0;
         }
 
         @Override // java.io.InputStream
         public int available() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.this$0.size() - (this.currentPieceOffsetInRope + this.currentPieceIndex);
-            }
-            return invokeV.intValue;
+            return RopeByteString.this.size() - (this.currentPieceOffsetInRope + this.currentPieceIndex);
         }
 
         @Override // java.io.InputStream
         public int read() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                advanceIfCurrentPieceFullyRead();
-                LiteralByteString literalByteString = this.currentPiece;
-                if (literalByteString == null) {
-                    return -1;
-                }
-                int i = this.currentPieceIndex;
-                this.currentPieceIndex = i + 1;
-                return literalByteString.byteAt(i) & 255;
+            advanceIfCurrentPieceFullyRead();
+            LiteralByteString literalByteString = this.currentPiece;
+            if (literalByteString == null) {
+                return -1;
             }
-            return invokeV.intValue;
+            int i = this.currentPieceIndex;
+            this.currentPieceIndex = i + 1;
+            return literalByteString.byteAt(i) & 255;
         }
 
         @Override // java.io.InputStream
         public synchronized void reset() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                synchronized (this) {
-                    initialize();
-                    readSkipInternal(null, 0, this.mark);
-                }
-            }
+            initialize();
+            readSkipInternal(null, 0, this.mark);
         }
 
         private int readSkipInternal(byte[] bArr, int i, int i2) {
-            InterceptResult invokeLII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, this, bArr, i, i2)) == null) {
-                int i3 = i2;
-                while (true) {
-                    if (i3 <= 0) {
-                        break;
-                    }
-                    advanceIfCurrentPieceFullyRead();
-                    if (this.currentPiece == null) {
-                        if (i3 == i2) {
-                            return -1;
-                        }
-                    } else {
-                        int min = Math.min(this.currentPieceSize - this.currentPieceIndex, i3);
-                        if (bArr != null) {
-                            this.currentPiece.copyTo(bArr, this.currentPieceIndex, i, min);
-                            i += min;
-                        }
-                        this.currentPieceIndex += min;
-                        i3 -= min;
-                    }
+            int i3 = i2;
+            while (true) {
+                if (i3 <= 0) {
+                    break;
                 }
-                return i2 - i3;
+                advanceIfCurrentPieceFullyRead();
+                if (this.currentPiece == null) {
+                    if (i3 == i2) {
+                        return -1;
+                    }
+                } else {
+                    int min = Math.min(this.currentPieceSize - this.currentPieceIndex, i3);
+                    if (bArr != null) {
+                        this.currentPiece.copyTo(bArr, this.currentPieceIndex, i, min);
+                        i += min;
+                    }
+                    this.currentPieceIndex += min;
+                    i3 -= min;
+                }
             }
-            return invokeLII.intValue;
+            return i2 - i3;
         }
 
         @Override // java.io.InputStream
         public int read(byte[] bArr, int i, int i2) {
-            InterceptResult invokeLII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
-                if (bArr != null) {
-                    if (i >= 0 && i2 >= 0 && i2 <= bArr.length - i) {
-                        return readSkipInternal(bArr, i, i2);
-                    }
-                    throw new IndexOutOfBoundsException();
+            if (bArr != null) {
+                if (i >= 0 && i2 >= 0 && i2 <= bArr.length - i) {
+                    return readSkipInternal(bArr, i, i2);
                 }
-                throw null;
+                throw new IndexOutOfBoundsException();
             }
-            return invokeLII.intValue;
+            throw null;
         }
     }
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(53469160, "Lcom/google/protobuf/RopeByteString;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(53469160, "Lcom/google/protobuf/RopeByteString;");
-                return;
-            }
-        }
         ArrayList arrayList = new ArrayList();
         int i = 1;
         int i2 = 1;
@@ -539,20 +332,6 @@ public class RopeByteString extends ByteString {
     }
 
     public RopeByteString(ByteString byteString, ByteString byteString2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {byteString, byteString2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.hash = 0;
         this.left = byteString;
         this.right = byteString2;
@@ -562,118 +341,136 @@ public class RopeByteString extends ByteString {
         this.treeDepth = Math.max(byteString.getTreeDepth(), byteString2.getTreeDepth()) + 1;
     }
 
-    public /* synthetic */ RopeByteString(ByteString byteString, ByteString byteString2, AnonymousClass1 anonymousClass1) {
-        this(byteString, byteString2);
+    public static LiteralByteString concatenateBytes(ByteString byteString, ByteString byteString2) {
+        int size = byteString.size();
+        int size2 = byteString2.size();
+        byte[] bArr = new byte[size + size2];
+        byteString.copyTo(bArr, 0, 0, size);
+        byteString2.copyTo(bArr, 0, size, size2);
+        return new LiteralByteString(bArr);
+    }
+
+    public static RopeByteString newInstanceForTest(ByteString byteString, ByteString byteString2) {
+        return new RopeByteString(byteString, byteString2);
+    }
+
+    @Override // com.google.protobuf.ByteString
+    public int partialHash(int i, int i2, int i3) {
+        int i4 = i2 + i3;
+        int i5 = this.leftLength;
+        if (i4 <= i5) {
+            return this.left.partialHash(i, i2, i3);
+        }
+        if (i2 >= i5) {
+            return this.right.partialHash(i, i2 - i5, i3);
+        }
+        int i6 = i5 - i2;
+        return this.right.partialHash(this.left.partialHash(i, i2, i6), 0, i3 - i6);
+    }
+
+    @Override // com.google.protobuf.ByteString
+    public int partialIsValidUtf8(int i, int i2, int i3) {
+        int i4 = i2 + i3;
+        int i5 = this.leftLength;
+        if (i4 <= i5) {
+            return this.left.partialIsValidUtf8(i, i2, i3);
+        }
+        if (i2 >= i5) {
+            return this.right.partialIsValidUtf8(i, i2 - i5, i3);
+        }
+        int i6 = i5 - i2;
+        return this.right.partialIsValidUtf8(this.left.partialIsValidUtf8(i, i2, i6), 0, i3 - i6);
     }
 
     @Override // com.google.protobuf.ByteString
     public void copyTo(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) {
-            this.left.copyTo(byteBuffer);
-            this.right.copyTo(byteBuffer);
+        this.left.copyTo(byteBuffer);
+        this.right.copyTo(byteBuffer);
+    }
+
+    @Override // com.google.protobuf.ByteString
+    public boolean equals(Object obj) {
+        int peekCachedHashCode;
+        if (obj == this) {
+            return true;
         }
+        if (!(obj instanceof ByteString)) {
+            return false;
+        }
+        ByteString byteString = (ByteString) obj;
+        if (this.totalLength != byteString.size()) {
+            return false;
+        }
+        if (this.totalLength == 0) {
+            return true;
+        }
+        if (this.hash != 0 && (peekCachedHashCode = byteString.peekCachedHashCode()) != 0 && this.hash != peekCachedHashCode) {
+            return false;
+        }
+        return equalsFragments(byteString);
     }
 
     @Override // com.google.protobuf.ByteString
     public String toString(String str) throws UnsupportedEncodingException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
-            return new String(toByteArray(), str);
-        }
-        return (String) invokeL.objValue;
+        return new String(toByteArray(), str);
     }
 
     @Override // com.google.protobuf.ByteString
     public void writeTo(OutputStream outputStream) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, outputStream) == null) {
-            this.left.writeTo(outputStream);
-            this.right.writeTo(outputStream);
-        }
+        this.left.writeTo(outputStream);
+        this.right.writeTo(outputStream);
     }
 
     @Override // com.google.protobuf.ByteString
     public ByteBuffer asReadOnlyByteBuffer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ByteBuffer.wrap(toByteArray()).asReadOnlyBuffer();
-        }
-        return (ByteBuffer) invokeV.objValue;
+        return ByteBuffer.wrap(toByteArray()).asReadOnlyBuffer();
     }
 
     @Override // com.google.protobuf.ByteString
     public List<ByteBuffer> asReadOnlyByteBufferList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            PieceIterator pieceIterator = new PieceIterator(this, null);
-            while (pieceIterator.hasNext()) {
-                arrayList.add(pieceIterator.next().asReadOnlyByteBuffer());
-            }
-            return arrayList;
+        ArrayList arrayList = new ArrayList();
+        PieceIterator pieceIterator = new PieceIterator(this);
+        while (pieceIterator.hasNext()) {
+            arrayList.add(pieceIterator.next().asReadOnlyByteBuffer());
         }
-        return (List) invokeV.objValue;
+        return arrayList;
     }
 
     @Override // com.google.protobuf.ByteString
     public int getTreeDepth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.treeDepth;
-        }
-        return invokeV.intValue;
+        return this.treeDepth;
     }
 
     @Override // com.google.protobuf.ByteString
     public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i = this.hash;
+        int i = this.hash;
+        if (i == 0) {
+            int i2 = this.totalLength;
+            i = partialHash(i2, 0, i2);
             if (i == 0) {
-                int i2 = this.totalLength;
-                i = partialHash(i2, 0, i2);
-                if (i == 0) {
-                    i = 1;
-                }
-                this.hash = i;
+                i = 1;
             }
-            return i;
+            this.hash = i;
         }
-        return invokeV.intValue;
+        return i;
     }
 
     @Override // com.google.protobuf.ByteString
     public boolean isBalanced() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.totalLength >= minLengthByDepth[this.treeDepth]) {
-                return true;
-            }
-            return false;
+        if (this.totalLength >= minLengthByDepth[this.treeDepth]) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     @Override // com.google.protobuf.ByteString
     public boolean isValidUtf8() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            int partialIsValidUtf8 = this.left.partialIsValidUtf8(0, 0, this.leftLength);
-            ByteString byteString = this.right;
-            if (byteString.partialIsValidUtf8(partialIsValidUtf8, 0, byteString.size()) != 0) {
-                return false;
-            }
-            return true;
+        int partialIsValidUtf8 = this.left.partialIsValidUtf8(0, 0, this.leftLength);
+        ByteString byteString = this.right;
+        if (byteString.partialIsValidUtf8(partialIsValidUtf8, 0, byteString.size()) != 0) {
+            return false;
         }
-        return invokeV.booleanValue;
+        return true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -681,294 +478,158 @@ public class RopeByteString extends ByteString {
     @Override // com.google.protobuf.ByteString, java.lang.Iterable
     /* renamed from: iterator */
     public Iterator<Byte> iterator2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return new RopeByteIterator(this, null);
-        }
-        return (ByteString.ByteIterator) invokeV.objValue;
+        return new RopeByteIterator();
     }
 
     @Override // com.google.protobuf.ByteString
     public CodedInputStream newCodedInput() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return CodedInputStream.newInstance(new RopeInputStream(this));
-        }
-        return (CodedInputStream) invokeV.objValue;
+        return CodedInputStream.newInstance(new RopeInputStream());
     }
 
     @Override // com.google.protobuf.ByteString
     public InputStream newInput() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return new RopeInputStream(this);
-        }
-        return (InputStream) invokeV.objValue;
+        return new RopeInputStream();
     }
 
     @Override // com.google.protobuf.ByteString
     public int peekCachedHashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.hash;
-        }
-        return invokeV.intValue;
+        return this.hash;
     }
 
     @Override // com.google.protobuf.ByteString
     public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.totalLength;
-        }
-        return invokeV.intValue;
+        return this.totalLength;
     }
 
     public static ByteString concatenate(ByteString byteString, ByteString byteString2) {
-        InterceptResult invokeLL;
         RopeByteString ropeByteString;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, byteString, byteString2)) == null) {
-            if (byteString instanceof RopeByteString) {
-                ropeByteString = (RopeByteString) byteString;
-            } else {
-                ropeByteString = null;
-            }
-            if (byteString2.size() != 0) {
-                if (byteString.size() != 0) {
-                    int size = byteString.size() + byteString2.size();
-                    if (size < 128) {
-                        return concatenateBytes(byteString, byteString2);
-                    }
-                    if (ropeByteString != null && ropeByteString.right.size() + byteString2.size() < 128) {
-                        byteString2 = new RopeByteString(ropeByteString.left, concatenateBytes(ropeByteString.right, byteString2));
-                    } else if (ropeByteString != null && ropeByteString.left.getTreeDepth() > ropeByteString.right.getTreeDepth() && ropeByteString.getTreeDepth() > byteString2.getTreeDepth()) {
-                        byteString2 = new RopeByteString(ropeByteString.left, new RopeByteString(ropeByteString.right, byteString2));
-                    } else if (size < minLengthByDepth[Math.max(byteString.getTreeDepth(), byteString2.getTreeDepth()) + 1]) {
-                        return new Balancer(null).balance(byteString, byteString2);
-                    } else {
-                        return new RopeByteString(byteString, byteString2);
-                    }
-                }
-                return byteString2;
-            }
-            return byteString;
+        if (byteString instanceof RopeByteString) {
+            ropeByteString = (RopeByteString) byteString;
+        } else {
+            ropeByteString = null;
         }
-        return (ByteString) invokeLL.objValue;
+        if (byteString2.size() != 0) {
+            if (byteString.size() != 0) {
+                int size = byteString.size() + byteString2.size();
+                if (size < 128) {
+                    return concatenateBytes(byteString, byteString2);
+                }
+                if (ropeByteString != null && ropeByteString.right.size() + byteString2.size() < 128) {
+                    byteString2 = new RopeByteString(ropeByteString.left, concatenateBytes(ropeByteString.right, byteString2));
+                } else if (ropeByteString != null && ropeByteString.left.getTreeDepth() > ropeByteString.right.getTreeDepth() && ropeByteString.getTreeDepth() > byteString2.getTreeDepth()) {
+                    byteString2 = new RopeByteString(ropeByteString.left, new RopeByteString(ropeByteString.right, byteString2));
+                } else {
+                    if (size < minLengthByDepth[Math.max(byteString.getTreeDepth(), byteString2.getTreeDepth()) + 1]) {
+                        return new Balancer().balance(byteString, byteString2);
+                    }
+                    return new RopeByteString(byteString, byteString2);
+                }
+            }
+            return byteString2;
+        }
+        return byteString;
     }
 
     @Override // com.google.protobuf.ByteString
     public ByteString substring(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048594, this, i, i2)) == null) {
-            if (i >= 0) {
-                int i3 = this.totalLength;
-                if (i2 <= i3) {
-                    int i4 = i2 - i;
-                    if (i4 >= 0) {
-                        if (i4 == 0) {
-                            return ByteString.EMPTY;
-                        }
-                        if (i4 == i3) {
-                            return this;
-                        }
-                        int i5 = this.leftLength;
-                        if (i2 <= i5) {
-                            return this.left.substring(i, i2);
-                        }
-                        if (i >= i5) {
-                            return this.right.substring(i - i5, i2 - i5);
-                        }
-                        return new RopeByteString(this.left.substring(i), this.right.substring(0, i2 - this.leftLength));
+        if (i >= 0) {
+            int i3 = this.totalLength;
+            if (i2 <= i3) {
+                int i4 = i2 - i;
+                if (i4 >= 0) {
+                    if (i4 == 0) {
+                        return ByteString.EMPTY;
                     }
-                    throw new IndexOutOfBoundsException("Beginning index larger than ending index: " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2);
+                    if (i4 == i3) {
+                        return this;
+                    }
+                    int i5 = this.leftLength;
+                    if (i2 <= i5) {
+                        return this.left.substring(i, i2);
+                    }
+                    if (i >= i5) {
+                        return this.right.substring(i - i5, i2 - i5);
+                    }
+                    return new RopeByteString(this.left.substring(i), this.right.substring(0, i2 - this.leftLength));
                 }
-                throw new IndexOutOfBoundsException("End index: " + i2 + " > " + this.totalLength);
+                throw new IndexOutOfBoundsException("Beginning index larger than ending index: " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2);
             }
-            throw new IndexOutOfBoundsException("Beginning index: " + i + " < 0");
+            throw new IndexOutOfBoundsException("End index: " + i2 + " > " + this.totalLength);
         }
-        return (ByteString) invokeII.objValue;
-    }
-
-    public static LiteralByteString concatenateBytes(ByteString byteString, ByteString byteString2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, byteString, byteString2)) == null) {
-            int size = byteString.size();
-            int size2 = byteString2.size();
-            byte[] bArr = new byte[size + size2];
-            byteString.copyTo(bArr, 0, 0, size);
-            byteString2.copyTo(bArr, 0, size, size2);
-            return new LiteralByteString(bArr);
-        }
-        return (LiteralByteString) invokeLL.objValue;
-    }
-
-    public static RopeByteString newInstanceForTest(ByteString byteString, ByteString byteString2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, byteString, byteString2)) == null) {
-            return new RopeByteString(byteString, byteString2);
-        }
-        return (RopeByteString) invokeLL.objValue;
+        throw new IndexOutOfBoundsException("Beginning index: " + i + " < 0");
     }
 
     private boolean equalsFragments(ByteString byteString) {
-        InterceptResult invokeL;
         boolean equalsRange;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, byteString)) == null) {
-            PieceIterator pieceIterator = new PieceIterator(this, null);
-            LiteralByteString next = pieceIterator.next();
-            PieceIterator pieceIterator2 = new PieceIterator(byteString, null);
-            LiteralByteString next2 = pieceIterator2.next();
-            int i = 0;
-            int i2 = 0;
-            int i3 = 0;
-            while (true) {
-                int size = next.size() - i;
-                int size2 = next2.size() - i2;
-                int min = Math.min(size, size2);
-                if (i == 0) {
-                    equalsRange = next.equalsRange(next2, i2, min);
-                } else {
-                    equalsRange = next2.equalsRange(next, i, min);
-                }
-                if (!equalsRange) {
-                    return false;
-                }
-                i3 += min;
-                int i4 = this.totalLength;
-                if (i3 >= i4) {
-                    if (i3 == i4) {
-                        return true;
-                    }
-                    throw new IllegalStateException();
-                }
-                if (min == size) {
-                    next = pieceIterator.next();
-                    i = 0;
-                } else {
-                    i += min;
-                }
-                if (min == size2) {
-                    next2 = pieceIterator2.next();
-                    i2 = 0;
-                } else {
-                    i2 += min;
-                }
+        PieceIterator pieceIterator = new PieceIterator(this);
+        LiteralByteString next = pieceIterator.next();
+        PieceIterator pieceIterator2 = new PieceIterator(byteString);
+        LiteralByteString next2 = pieceIterator2.next();
+        int i = 0;
+        int i2 = 0;
+        int i3 = 0;
+        while (true) {
+            int size = next.size() - i;
+            int size2 = next2.size() - i2;
+            int min = Math.min(size, size2);
+            if (i == 0) {
+                equalsRange = next.equalsRange(next2, i2, min);
+            } else {
+                equalsRange = next2.equalsRange(next, i, min);
             }
-        } else {
-            return invokeL.booleanValue;
+            if (!equalsRange) {
+                return false;
+            }
+            i3 += min;
+            int i4 = this.totalLength;
+            if (i3 >= i4) {
+                if (i3 == i4) {
+                    return true;
+                }
+                throw new IllegalStateException();
+            }
+            if (min == size) {
+                next = pieceIterator.next();
+                i = 0;
+            } else {
+                i += min;
+            }
+            if (min == size2) {
+                next2 = pieceIterator2.next();
+                i2 = 0;
+            } else {
+                i2 += min;
+            }
         }
     }
 
     @Override // com.google.protobuf.ByteString
     public byte byteAt(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (i >= 0) {
-                if (i <= this.totalLength) {
-                    int i2 = this.leftLength;
-                    if (i < i2) {
-                        return this.left.byteAt(i);
-                    }
-                    return this.right.byteAt(i - i2);
+        if (i >= 0) {
+            if (i <= this.totalLength) {
+                int i2 = this.leftLength;
+                if (i < i2) {
+                    return this.left.byteAt(i);
                 }
-                throw new ArrayIndexOutOfBoundsException("Index > length: " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.totalLength);
+                return this.right.byteAt(i - i2);
             }
-            throw new ArrayIndexOutOfBoundsException("Index < 0: " + i);
+            throw new ArrayIndexOutOfBoundsException("Index > length: " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.totalLength);
         }
-        return invokeI.byteValue;
+        throw new ArrayIndexOutOfBoundsException("Index < 0: " + i);
     }
 
     @Override // com.google.protobuf.ByteString
     public void copyToInternal(byte[] bArr, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048580, this, bArr, i, i2, i3) == null) {
-            int i4 = i + i3;
-            int i5 = this.leftLength;
-            if (i4 <= i5) {
-                this.left.copyToInternal(bArr, i, i2, i3);
-            } else if (i >= i5) {
-                this.right.copyToInternal(bArr, i - i5, i2, i3);
-            } else {
-                int i6 = i5 - i;
-                this.left.copyToInternal(bArr, i, i2, i6);
-                this.right.copyToInternal(bArr, 0, i2 + i6, i3 - i6);
-            }
+        int i4 = i + i3;
+        int i5 = this.leftLength;
+        if (i4 <= i5) {
+            this.left.copyToInternal(bArr, i, i2, i3);
+        } else if (i >= i5) {
+            this.right.copyToInternal(bArr, i - i5, i2, i3);
+        } else {
+            int i6 = i5 - i;
+            this.left.copyToInternal(bArr, i, i2, i6);
+            this.right.copyToInternal(bArr, 0, i2 + i6, i3 - i6);
         }
-    }
-
-    @Override // com.google.protobuf.ByteString
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        int peekCachedHashCode;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof ByteString)) {
-                return false;
-            }
-            ByteString byteString = (ByteString) obj;
-            if (this.totalLength != byteString.size()) {
-                return false;
-            }
-            if (this.totalLength == 0) {
-                return true;
-            }
-            if (this.hash != 0 && (peekCachedHashCode = byteString.peekCachedHashCode()) != 0 && this.hash != peekCachedHashCode) {
-                return false;
-            }
-            return equalsFragments(byteString);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.google.protobuf.ByteString
-    public int partialHash(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048590, this, i, i2, i3)) == null) {
-            int i4 = i2 + i3;
-            int i5 = this.leftLength;
-            if (i4 <= i5) {
-                return this.left.partialHash(i, i2, i3);
-            }
-            if (i2 >= i5) {
-                return this.right.partialHash(i, i2 - i5, i3);
-            }
-            int i6 = i5 - i2;
-            return this.right.partialHash(this.left.partialHash(i, i2, i6), 0, i3 - i6);
-        }
-        return invokeIII.intValue;
-    }
-
-    @Override // com.google.protobuf.ByteString
-    public int partialIsValidUtf8(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048591, this, i, i2, i3)) == null) {
-            int i4 = i2 + i3;
-            int i5 = this.leftLength;
-            if (i4 <= i5) {
-                return this.left.partialIsValidUtf8(i, i2, i3);
-            }
-            if (i2 >= i5) {
-                return this.right.partialIsValidUtf8(i, i2 - i5, i3);
-            }
-            int i6 = i5 - i2;
-            return this.right.partialIsValidUtf8(this.left.partialIsValidUtf8(i, i2, i6), 0, i3 - i6);
-        }
-        return invokeIII.intValue;
     }
 }

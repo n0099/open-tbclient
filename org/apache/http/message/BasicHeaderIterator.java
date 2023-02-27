@@ -1,95 +1,44 @@
 package org.apache.http.message;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.NoSuchElementException;
 import org.apache.http.Header;
 import org.apache.http.HeaderIterator;
 @Deprecated
 /* loaded from: classes9.dex */
 public class BasicHeaderIterator implements HeaderIterator {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final Header[] allHeaders;
+    public final Header[] allHeaders = null;
     public int currentIndex;
     public String headerName;
 
     public BasicHeaderIterator(Header[] headerArr, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {headerArr, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.allHeaders = null;
         throw new RuntimeException("Stub!");
     }
 
     public boolean filterHeader(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeI.booleanValue;
+        throw new RuntimeException("Stub!");
     }
 
     public int findNext(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeI.intValue;
+        throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.HeaderIterator, java.util.Iterator
     public boolean hasNext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeV.booleanValue;
+        throw new RuntimeException("Stub!");
     }
 
     @Override // java.util.Iterator
     public final Object next() throws NoSuchElementException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeV.objValue;
+        throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.HeaderIterator
     public Header nextHeader() throws NoSuchElementException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (Header) invokeV.objValue;
+        throw new RuntimeException("Stub!");
     }
 
     @Override // java.util.Iterator
     public void remove() throws UnsupportedOperationException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            throw new RuntimeException("Stub!");
-        }
+        throw new RuntimeException("Stub!");
     }
 }

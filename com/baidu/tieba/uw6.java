@@ -1,17 +1,81 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface uw6 {
-    void a(b57 b57Var, FrsViewData frsViewData);
+public class uw6 implements ew6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(View view2);
+    public uw6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(b57 b57Var, gs6 gs6Var, FrsViewData frsViewData);
+    @Override // com.baidu.tieba.ew6
+    public qn<? extends d15, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) {
+            return new nz6(tbPageContext, ThreadData.TYPE_STAR_INTERVIEW, bdUniqueId, z);
+        }
+        return (qn) invokeLLZ.objValue;
+    }
 
-    int d(int i, FrsRequestData frsRequestData);
+    @Override // com.baidu.tieba.ew6
+    public zu6<ICardInfo, ? extends TypeAdapter.ViewHolder> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
+            return new r37(tbPageContext, bdUniqueId, bdUniqueId2);
+        }
+        return (zu6) invokeLLL.objValue;
+    }
 
-    boolean e(int i);
+    @Override // com.baidu.tieba.ew6
+    public qn<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
+            if (bdUniqueId == ThreadData.TYPE_LOTTERY) {
+                return new qy6(tbPageContext, bdUniqueId, bdUniqueId2);
+            }
+            throw new IllegalArgumentException("Unsupported adapter type.");
+        }
+        return (qn) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ew6
+    public qn<? extends ThreadData, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
+            if (bdUniqueId == y49.d) {
+                return new ny6(tbPageContext, bdUniqueId, z);
+            }
+            if (bdUniqueId == ThreadData.TYPE_STAR_INTERVIEW) {
+                return new oz6(tbPageContext, bdUniqueId, bdUniqueId2, z);
+            }
+            throw new IllegalArgumentException("Unsupported adapter type.");
+        }
+        return (qn) invokeCommon.objValue;
+    }
 }

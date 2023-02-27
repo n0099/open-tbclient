@@ -29,12 +29,12 @@ public class j implements com.kwai.sodler.lib.a.e {
 
         /* renamed from: com.kwai.sodler.lib.j$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class C0663a extends a {
+        public static class C0653a extends a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0663a(com.kwai.sodler.lib.a.e eVar) {
+            public C0653a(com.kwai.sodler.lib.a.e eVar) {
                 super(eVar);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -151,7 +151,7 @@ public class j implements com.kwai.sodler.lib.a.e {
         public static a a(com.kwai.sodler.lib.a.e eVar, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, eVar, i)) == null) ? i != 1 ? i != 256 ? new b(eVar) : new C0663a(eVar) : new c(eVar) : (a) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, eVar, i)) == null) ? i != 1 ? i != 256 ? new b(eVar) : new C0653a(eVar) : new c(eVar) : (a) invokeLI.objValue;
         }
 
         public abstract void m(com.kwai.sodler.lib.a.f fVar);

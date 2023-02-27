@@ -1,15 +1,6 @@
 package com.baidu.webkit.sdk;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.File;
@@ -23,7 +14,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class LoadErrorCode {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int APK_FILE_NOT_EXIST = 1009;
     public static final String COLON = ":";
     public static final int CREATE_PATH_FAIL = 1016;
@@ -91,22 +81,18 @@ public class LoadErrorCode {
     public static final int WRONG_FILE_LENGTH = 1010;
     public static final int WRONG_FILE_MD5 = 1011;
     public static LoadErrorCode mInstance;
-    public transient /* synthetic */ FieldHolder $fh;
     public volatile StringBuilder mDetails;
     public volatile JSONArray mDownloadInfo;
     public volatile int mErrorCode;
 
     /* loaded from: classes7.dex */
     public static class Statistics {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final boolean DEBUG = true;
         public static final String KEY_ERROR_CNT = "error_cnt";
         public static final String KEY_ERROR_CODE = "error_code";
         public static final String KEY_ERROR_REASON = "error_reason";
         public static final String KEY_T7_ERROR_LIST = "t7_error_list";
         public static final String KEY_T7_STRAT_CNT = "t7_start_cnt";
-        public static final String RECORD_FILE_NAME;
-        public static final String RECORD_RELATIVE_PATH;
         public static final String TAG = "LoadErrorStatistics";
         public static volatile StringBuilder mInfo;
         public static volatile List<ErrorItem> sBkupList;
@@ -114,53 +100,21 @@ public class LoadErrorCode {
         public static volatile boolean sIsInited;
         public static volatile boolean sIsUploading;
         public static volatile File sRecordFile;
-        public transient /* synthetic */ FieldHolder $fh;
+        public static final String RECORD_RELATIVE_PATH = "/zeus/statistics/".replace((char) WebvttCueParser.CHAR_SLASH, File.separatorChar);
+        public static final String RECORD_FILE_NAME = "/load_error.json".replace((char) WebvttCueParser.CHAR_SLASH, File.separatorChar);
 
         /* loaded from: classes7.dex */
         public static class ErrorItem {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
             public int mCount;
             public String mDetails;
             public int mEngineType;
             public int mErrorCode;
 
-            /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
             public ErrorItem(int i, int i2, String str) {
                 this(i, i2, str, 1);
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        Object[] objArr2 = newInitContext.callArgs;
-                        this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), (String) objArr2[2], ((Integer) objArr2[3]).intValue());
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
             }
 
             public ErrorItem(int i, int i2, String str, int i3) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3)};
-                    interceptable.invokeUnInit(65537, newInitContext);
-                    int i4 = newInitContext.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65537, newInitContext);
-                        return;
-                    }
-                }
                 this.mEngineType = i;
                 this.mErrorCode = i2;
                 this.mDetails = str;
@@ -168,169 +122,121 @@ public class LoadErrorCode {
             }
         }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1116831729, "Lcom/baidu/webkit/sdk/LoadErrorCode$Statistics;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1116831729, "Lcom/baidu/webkit/sdk/LoadErrorCode$Statistics;");
-                    return;
-                }
-            }
-            RECORD_RELATIVE_PATH = "/zeus/statistics/".replace((char) WebvttCueParser.CHAR_SLASH, File.separatorChar);
-            RECORD_FILE_NAME = "/load_error.json".replace((char) WebvttCueParser.CHAR_SLASH, File.separatorChar);
-        }
-
-        public Statistics() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0036 */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0038 */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x0048 */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0010 */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x0010 */
-        /* JADX WARN: Removed duplicated region for block: B:25:0x004a  */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0032 */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0034 */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:? */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x0044 */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x000c */
+        /* JADX WARN: Removed duplicated region for block: B:23:0x0046  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public static boolean JSONToFile(JSONObject jSONObject) {
-            InterceptResult invokeL;
             byte[] bytes;
             FileOutputStream fileOutputStream;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-                sRecordFile.delete();
-                try {
-                    sRecordFile.createNewFile();
-                } catch (Exception unused) {
-                }
-                FileOutputStream fileOutputStream2 = null;
-                fileOutputStream2 = null;
-                fileOutputStream2 = null;
-                boolean z = false;
+            sRecordFile.delete();
+            try {
+                sRecordFile.createNewFile();
+            } catch (Exception unused) {
+            }
+            FileOutputStream fileOutputStream2 = null;
+            fileOutputStream2 = null;
+            fileOutputStream2 = null;
+            boolean z = false;
+            try {
                 try {
                     try {
-                        try {
-                            bytes = jSONObject.toString().getBytes();
-                            fileOutputStream = new FileOutputStream(sRecordFile);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    } catch (Exception e2) {
-                        e = e2;
+                        bytes = jSONObject.toString().getBytes();
+                        fileOutputStream = new FileOutputStream(sRecordFile);
+                    } catch (Throwable th) {
+                        th = th;
                     }
-                } catch (Throwable th) {
-                    th = th;
+                } catch (Exception e) {
+                    e = e;
                 }
-                try {
-                    int length = bytes.length;
-                    fileOutputStream.write(bytes, 0, length);
-                    fileOutputStream.flush();
-                    z = true;
-                    fileOutputStream.close();
-                    fileOutputStream2 = length;
-                } catch (Exception e3) {
-                    e = e3;
-                    fileOutputStream2 = fileOutputStream;
-                    addInfo(e.getMessage());
-                    e.printStackTrace();
-                    if (fileOutputStream2 != null) {
-                        fileOutputStream2.close();
-                        fileOutputStream2 = fileOutputStream2;
-                    }
-                    if (!z) {
-                    }
-                    return z;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileOutputStream2 = fileOutputStream;
-                    if (fileOutputStream2 != null) {
-                        try {
-                            fileOutputStream2.close();
-                        } catch (Exception e4) {
-                            e4.printStackTrace();
-                        }
-                    }
-                    throw th;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            try {
+                int length = bytes.length;
+                fileOutputStream.write(bytes, 0, length);
+                fileOutputStream.flush();
+                z = true;
+                fileOutputStream.close();
+                fileOutputStream2 = length;
+            } catch (Exception e3) {
+                e = e3;
+                fileOutputStream2 = fileOutputStream;
+                addInfo(e.getMessage());
+                e.printStackTrace();
+                if (fileOutputStream2 != null) {
+                    fileOutputStream2.close();
+                    fileOutputStream2 = fileOutputStream2;
                 }
                 if (!z) {
-                    sRecordFile.delete();
                 }
                 return z;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                if (fileOutputStream2 != null) {
+                    try {
+                        fileOutputStream2.close();
+                    } catch (Exception e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                throw th;
             }
-            return invokeL.booleanValue;
+            if (!z) {
+                sRecordFile.delete();
+            }
+            return z;
         }
 
         public static boolean JSONToList(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-                boolean z = false;
-                try {
-                    JSONArray jSONArray = jSONObject.getJSONArray(KEY_T7_ERROR_LIST);
-                    int length = jSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        JSONObject jSONObject2 = jSONArray.getJSONObject(i);
-                        sErrorList.add(new ErrorItem(1, jSONObject2.getInt("error_code"), jSONObject2.getString(KEY_ERROR_REASON), jSONObject2.getInt(KEY_ERROR_CNT)));
-                    }
-                    z = true;
-                } catch (Exception e) {
-                    addInfo(e.getMessage());
-                    e.printStackTrace();
+            boolean z = false;
+            try {
+                JSONArray jSONArray = jSONObject.getJSONArray(KEY_T7_ERROR_LIST);
+                int length = jSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject jSONObject2 = jSONArray.getJSONObject(i);
+                    sErrorList.add(new ErrorItem(1, jSONObject2.getInt("error_code"), jSONObject2.getString(KEY_ERROR_REASON), jSONObject2.getInt(KEY_ERROR_CNT)));
                 }
-                if (!z) {
-                    sRecordFile.delete();
-                    sErrorList.clear();
-                }
-                return z;
+                z = true;
+            } catch (Exception e) {
+                addInfo(e.getMessage());
+                e.printStackTrace();
             }
-            return invokeL.booleanValue;
+            if (!z) {
+                sRecordFile.delete();
+                sErrorList.clear();
+            }
+            return z;
         }
 
         public static void addBkupList(ErrorItem errorItem) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, errorItem) == null) {
-                if (sBkupList == null) {
-                    sBkupList = new LinkedList();
-                }
-                sBkupList.add(errorItem);
+            if (sBkupList == null) {
+                sBkupList = new LinkedList();
             }
+            sBkupList.add(errorItem);
         }
 
         public static synchronized void addInfo(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-                synchronized (Statistics.class) {
-                    if (mInfo == null) {
-                        mInfo = new StringBuilder();
-                    }
-                    if (mInfo.length() > 0) {
-                        mInfo.append(LoadErrorCode.TOKEN_NEXT.concat(String.valueOf(str)));
-                    } else {
-                        mInfo.append(str);
-                    }
+            synchronized (Statistics.class) {
+                if (mInfo == null) {
+                    mInfo = new StringBuilder();
+                }
+                if (mInfo.length() > 0) {
+                    mInfo.append(LoadErrorCode.TOKEN_NEXT.concat(String.valueOf(str)));
+                } else {
+                    mInfo.append(str);
                 }
             }
         }
 
         public static void cleanBkupList() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(65542, null) == null) || sBkupList == null) {
+            if (sBkupList == null) {
                 return;
             }
             for (ErrorItem errorItem : sBkupList) {
@@ -340,43 +246,34 @@ public class LoadErrorCode {
         }
 
         public static synchronized void destroy() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-                synchronized (Statistics.class) {
-                    addInfo("destroy");
-                    if (sIsInited) {
-                        cleanBkupList();
-                        JSONToFile(listToJSON());
-                        sErrorList.clear();
-                        sIsUploading = false;
-                        sIsInited = false;
-                    }
+            synchronized (Statistics.class) {
+                addInfo("destroy");
+                if (sIsInited) {
+                    cleanBkupList();
+                    JSONToFile(listToJSON());
+                    sErrorList.clear();
+                    sIsUploading = false;
+                    sIsInited = false;
                 }
             }
         }
 
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x0060 */
-        /* JADX WARN: Multi-variable type inference failed */
-        /* JADX WARN: Type inference failed for: r0v3, types: [boolean] */
-        /* JADX WARN: Type inference failed for: r0v4, types: [java.io.FileInputStream] */
-        /* JADX WARN: Type inference failed for: r0v6 */
+        /* JADX WARN: Removed duplicated region for block: B:37:0x005f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
         public static JSONObject fileToJSON() {
-            InterceptResult invokeV;
+            Throwable th;
+            FileInputStream fileInputStream;
             JSONObject jSONObject;
             Exception e;
-            FileInputStream fileInputStream;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(65544, null)) != null) {
-                return (JSONObject) invokeV.objValue;
-            }
-            ?? exists = sRecordFile.exists();
             JSONObject jSONObject2 = null;
+            if (!sRecordFile.exists()) {
+                return null;
+            }
             try {
-                if (exists == 0) {
-                    return null;
-                }
+                fileInputStream = new FileInputStream(sRecordFile);
                 try {
-                    fileInputStream = new FileInputStream(sRecordFile);
                     try {
                         int available = fileInputStream.available();
                         if (available > 0) {
@@ -408,183 +305,164 @@ public class LoadErrorCode {
                         jSONObject = null;
                         e = e3;
                     }
-                } catch (Exception e4) {
-                    jSONObject = null;
-                    e = e4;
-                    fileInputStream = null;
-                } catch (Throwable th) {
-                    th = th;
-                    exists = 0;
-                    if (exists != 0) {
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (fileInputStream != null) {
                         try {
-                            exists.close();
+                            fileInputStream.close();
                         } catch (IOException unused3) {
                         }
                     }
                     throw th;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Exception e4) {
+                jSONObject = null;
+                e = e4;
+                fileInputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                fileInputStream = null;
+                if (fileInputStream != null) {
+                }
+                throw th;
             }
         }
 
         public static synchronized String getString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-                synchronized (Statistics.class) {
-                    if (sIsInited) {
-                        if (sIsUploading) {
-                            cleanBkupList();
-                        }
-                        sIsUploading = true;
-                        String map = map(listToJSON());
-                        if (map != null) {
-                            map = map.trim();
-                        }
-                        if (map != null && !map.isEmpty()) {
-                            return map;
-                        }
-                    } else {
-                        Log.e(TAG, "[ERROR]getString before init");
+            synchronized (Statistics.class) {
+                if (sIsInited) {
+                    if (sIsUploading) {
+                        cleanBkupList();
                     }
-                    StringBuilder sb = new StringBuilder(mInfo == null ? "" : mInfo);
-                    sb.append(LoadErrorCode.TOKEN_NEXT);
-                    sb.append(String.valueOf(sIsInited));
-                    sb.append(LoadErrorCode.TOKEN_NEXT);
-                    sb.append(String.valueOf(sIsUploading));
-                    sb.append(LoadErrorCode.TOKEN_NEXT);
-                    sb.append(String.valueOf(LoadErrorCode.getInstance().getInt()));
-                    sb.append(LoadErrorCode.TOKEN_NEXT);
-                    sb.append(LoadErrorCode.getInstance().getString());
-                    mInfo = null;
-                    if (sb.length() >= 512) {
-                        sb.substring(0, 511);
+                    sIsUploading = true;
+                    String map = map(listToJSON());
+                    if (map != null) {
+                        map = map.trim();
                     }
-                    try {
-                        JSONArray jSONArray = new JSONArray();
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("error_code", 514);
-                        jSONObject.put(KEY_ERROR_REASON, sb.toString());
-                        jSONObject.put(KEY_ERROR_CNT, 1);
-                        jSONArray.put(jSONObject);
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put(KEY_T7_ERROR_LIST, jSONArray);
-                        return jSONObject2.toString();
-                    } catch (JSONException e) {
-                        return e.getMessage();
+                    if (map != null && !map.isEmpty()) {
+                        return map;
                     }
+                } else {
+                    Log.e(TAG, "[ERROR]getString before init");
+                }
+                StringBuilder sb = new StringBuilder(mInfo == null ? "" : mInfo);
+                sb.append(LoadErrorCode.TOKEN_NEXT);
+                sb.append(String.valueOf(sIsInited));
+                sb.append(LoadErrorCode.TOKEN_NEXT);
+                sb.append(String.valueOf(sIsUploading));
+                sb.append(LoadErrorCode.TOKEN_NEXT);
+                sb.append(String.valueOf(LoadErrorCode.getInstance().getInt()));
+                sb.append(LoadErrorCode.TOKEN_NEXT);
+                sb.append(LoadErrorCode.getInstance().getString());
+                mInfo = null;
+                if (sb.length() >= 512) {
+                    sb.substring(0, 511);
+                }
+                try {
+                    JSONArray jSONArray = new JSONArray();
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("error_code", 514);
+                    jSONObject.put(KEY_ERROR_REASON, sb.toString());
+                    jSONObject.put(KEY_ERROR_CNT, 1);
+                    jSONArray.put(jSONObject);
+                    JSONObject jSONObject2 = new JSONObject();
+                    jSONObject2.put(KEY_T7_ERROR_LIST, jSONArray);
+                    return jSONObject2.toString();
+                } catch (JSONException e) {
+                    return e.getMessage();
                 }
             }
-            return (String) invokeV.objValue;
         }
 
         public static synchronized void init(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
-                synchronized (Statistics.class) {
-                    addInfo("init");
-                    if (context == null) {
-                        Log.e(TAG, "[ERROR]init ctx null");
-                    } else if (sIsInited) {
-                    } else {
-                        sRecordFile = new File(new File(WebViewFactory.getContext().getFilesDir(), RECORD_RELATIVE_PATH), RECORD_FILE_NAME);
-                        sErrorList = new LinkedList();
-                        JSONObject fileToJSON = fileToJSON();
-                        if (fileToJSON != null) {
-                            JSONToList(fileToJSON);
-                        }
-                        sIsInited = true;
+            synchronized (Statistics.class) {
+                addInfo("init");
+                if (context == null) {
+                    Log.e(TAG, "[ERROR]init ctx null");
+                } else if (sIsInited) {
+                } else {
+                    sRecordFile = new File(new File(WebViewFactory.getContext().getFilesDir(), RECORD_RELATIVE_PATH), RECORD_FILE_NAME);
+                    sErrorList = new LinkedList();
+                    JSONObject fileToJSON = fileToJSON();
+                    if (fileToJSON != null) {
+                        JSONToList(fileToJSON);
                     }
+                    sIsInited = true;
                 }
             }
         }
 
         public static JSONObject listToJSON() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-                try {
-                    JSONArray jSONArray = new JSONArray();
-                    for (ErrorItem errorItem : sErrorList) {
-                        if (errorItem.mErrorCode != 0) {
-                            JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("error_code", errorItem.mErrorCode);
-                            jSONObject.put(KEY_ERROR_REASON, errorItem.mDetails);
-                            jSONObject.put(KEY_ERROR_CNT, errorItem.mCount);
-                            if (errorItem.mEngineType == 1) {
-                                jSONArray.put(jSONObject);
-                            }
+            try {
+                JSONArray jSONArray = new JSONArray();
+                for (ErrorItem errorItem : sErrorList) {
+                    if (errorItem.mErrorCode != 0) {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("error_code", errorItem.mErrorCode);
+                        jSONObject.put(KEY_ERROR_REASON, errorItem.mDetails);
+                        jSONObject.put(KEY_ERROR_CNT, errorItem.mCount);
+                        if (errorItem.mEngineType == 1) {
+                            jSONArray.put(jSONObject);
                         }
                     }
-                    JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put(KEY_T7_ERROR_LIST, jSONArray);
-                    return jSONObject2;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    addInfo(e.getMessage());
-                    return null;
                 }
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put(KEY_T7_ERROR_LIST, jSONArray);
+                return jSONObject2;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                addInfo(e.getMessage());
+                return null;
             }
-            return (JSONObject) invokeV.objValue;
         }
 
         public static String map(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                byte[] bytes = jSONObject.toString().getBytes();
-                for (int i = 0; i < bytes.length; i++) {
-                    byte b = bytes[i];
-                    if (b == 34) {
-                        bytes[i] = 47;
-                    } else if (b == 91) {
-                        bytes[i] = 60;
-                    } else if (b == 93) {
-                        bytes[i] = 62;
-                    } else if (b == 123) {
-                        bytes[i] = 40;
-                    } else if (b == 125) {
-                        bytes[i] = Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING;
-                    }
-                }
-                return new String(bytes);
+            if (jSONObject == null) {
+                return null;
             }
-            return (String) invokeL.objValue;
+            byte[] bytes = jSONObject.toString().getBytes();
+            for (int i = 0; i < bytes.length; i++) {
+                byte b = bytes[i];
+                if (b == 34) {
+                    bytes[i] = 47;
+                } else if (b == 91) {
+                    bytes[i] = 60;
+                } else if (b == 93) {
+                    bytes[i] = 62;
+                } else if (b == 123) {
+                    bytes[i] = 40;
+                } else if (b == 125) {
+                    bytes[i] = Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING;
+                }
+            }
+            return new String(bytes);
         }
 
         public static synchronized void record() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-                synchronized (Statistics.class) {
-                    addInfo("record");
-                    LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
-                    if (!sIsInited) {
-                        Log.e(TAG, "[ERROR]record before init");
-                    } else if (loadErrorCode == null) {
-                        Log.e(TAG, "[ERORR]record error code null");
+            synchronized (Statistics.class) {
+                addInfo("record");
+                LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
+                if (!sIsInited) {
+                    Log.e(TAG, "[ERROR]record before init");
+                } else if (loadErrorCode == null) {
+                    Log.e(TAG, "[ERORR]record error code null");
+                } else {
+                    int engineType = loadErrorCode.getEngineType();
+                    if (engineType != 1) {
+                        return;
+                    }
+                    ErrorItem errorItem = new ErrorItem(engineType, loadErrorCode.getInt(), loadErrorCode.getString());
+                    if (sIsUploading) {
+                        addBkupList(errorItem);
                     } else {
-                        int engineType = loadErrorCode.getEngineType();
-                        if (engineType != 1) {
-                            return;
-                        }
-                        ErrorItem errorItem = new ErrorItem(engineType, loadErrorCode.getInt(), loadErrorCode.getString());
-                        if (sIsUploading) {
-                            addBkupList(errorItem);
-                        } else {
-                            record(errorItem);
-                        }
+                        record(errorItem);
                     }
                 }
             }
         }
 
         public static void record(ErrorItem errorItem) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(65550, null, errorItem) == null) && errorItem.mEngineType == 1 && errorItem.mErrorCode != 0) {
+            if (errorItem.mEngineType == 1 && errorItem.mErrorCode != 0) {
                 for (ErrorItem errorItem2 : sErrorList) {
                     if (errorItem2.mEngineType == errorItem.mEngineType && errorItem2.mErrorCode == errorItem.mErrorCode) {
                         errorItem2.mCount++;
@@ -596,232 +474,119 @@ public class LoadErrorCode {
         }
 
         public static synchronized void reset() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65551, null) == null) {
-                synchronized (Statistics.class) {
-                    addInfo("reset");
-                    if (!sIsInited) {
-                        Log.e(TAG, "[ERROR]reset before init");
-                        return;
-                    }
-                    sRecordFile.delete();
-                    sErrorList.clear();
-                    sIsUploading = false;
-                    cleanBkupList();
+            synchronized (Statistics.class) {
+                addInfo("reset");
+                if (!sIsInited) {
+                    Log.e(TAG, "[ERROR]reset before init");
+                    return;
                 }
+                sRecordFile.delete();
+                sErrorList.clear();
+                sIsUploading = false;
+                cleanBkupList();
             }
         }
     }
 
     public LoadErrorCode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mErrorCode = i;
         this.mDetails = new StringBuilder();
         this.mDownloadInfo = new JSONArray();
     }
 
     public LoadErrorCode(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mErrorCode = i;
         this.mDetails = new StringBuilder(str);
         this.mDownloadInfo = new JSONArray();
     }
 
     public static synchronized LoadErrorCode getInstance() {
-        InterceptResult invokeV;
         LoadErrorCode loadErrorCode;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (LoadErrorCode.class) {
-                if (mInstance == null) {
-                    mInstance = new LoadErrorCode(0);
-                }
-                loadErrorCode = mInstance;
+        synchronized (LoadErrorCode.class) {
+            if (mInstance == null) {
+                mInstance = new LoadErrorCode(0);
             }
-            return loadErrorCode;
+            loadErrorCode = mInstance;
         }
-        return (LoadErrorCode) invokeV.objValue;
+        return loadErrorCode;
     }
 
     public static Throwable getRootCause(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, th)) == null) {
-            if (th != null) {
-                while (th.getCause() != null) {
-                    th = th.getCause();
-                }
+        if (th != null) {
+            while (th.getCause() != null) {
+                th = th.getCause();
             }
-            return th;
         }
-        return (Throwable) invokeL.objValue;
+        return th;
     }
 
     public static String getRootMessage(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th)) == null) {
-            Throwable rootCause = getRootCause(th);
-            return rootCause == null ? "" : rootCause.toString();
-        }
-        return (String) invokeL.objValue;
+        Throwable rootCause = getRootCause(th);
+        return rootCause == null ? "" : rootCause.toString();
     }
 
     public synchronized void addDownloadInfo(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            synchronized (this) {
-                addDownloadInfo(String.valueOf(i));
-            }
-        }
+        addDownloadInfo(String.valueOf(i));
     }
 
     public synchronized void addDownloadInfo(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            synchronized (this) {
-                if (this.mDownloadInfo == null) {
-                    this.mDownloadInfo = new JSONArray();
-                }
-                this.mDownloadInfo.put(str);
-            }
+        if (this.mDownloadInfo == null) {
+            this.mDownloadInfo = new JSONArray();
         }
+        this.mDownloadInfo.put(str);
     }
 
     public synchronized void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.mErrorCode = 0;
-                this.mDetails = null;
-                this.mDownloadInfo = null;
-            }
-        }
+        this.mErrorCode = 0;
+        this.mDetails = null;
+        this.mDownloadInfo = null;
     }
 
     public synchronized JSONArray getDownloadInfo() {
-        InterceptResult invokeV;
-        JSONArray jSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                if (this.mDownloadInfo == null || this.mDownloadInfo.length() <= 0) {
-                    addDownloadInfo(0);
-                }
-                jSONArray = this.mDownloadInfo;
-            }
-            return jSONArray;
+        if (this.mDownloadInfo == null || this.mDownloadInfo.length() <= 0) {
+            addDownloadInfo(0);
         }
-        return (JSONArray) invokeV.objValue;
+        return this.mDownloadInfo;
     }
 
     public synchronized int getEngineType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-            }
-            return 1;
-        }
-        return invokeV.intValue;
+        return 1;
     }
 
     public synchronized int getInt() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                i = this.mErrorCode;
-            }
-            return i;
-        }
-        return invokeV.intValue;
+        return this.mErrorCode;
     }
 
     public synchronized String getString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                if (this.mDetails != null && this.mDetails.length() > 0) {
-                    return this.mDetails.toString();
-                }
-                return "none";
-            }
+        if (this.mDetails != null && this.mDetails.length() > 0) {
+            return this.mDetails.toString();
         }
-        return (String) invokeV.objValue;
+        return "none";
     }
 
     public synchronized void set(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            synchronized (this) {
-                if (this.mErrorCode == 0) {
-                    this.mErrorCode = i;
-                }
-            }
+        if (this.mErrorCode == 0) {
+            this.mErrorCode = i;
         }
     }
 
     public synchronized void set(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) {
-            synchronized (this) {
-                set(i);
-                trace(str);
-            }
-        }
+        set(i);
+        trace(str);
     }
 
     public synchronized void trace(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            synchronized (this) {
-                trace(String.valueOf(i));
-            }
-        }
+        trace(String.valueOf(i));
     }
 
     public synchronized void trace(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            synchronized (this) {
-                if (this.mDetails == null) {
-                    this.mDetails = new StringBuilder(str);
-                    return;
-                }
-                if (this.mDetails.length() > 0) {
-                    this.mDetails.append(TOKEN_NEXT);
-                }
-                this.mDetails.append(str);
-            }
+        if (this.mDetails == null) {
+            this.mDetails = new StringBuilder(str);
+            return;
         }
+        if (this.mDetails.length() > 0) {
+            this.mDetails.append(TOKEN_NEXT);
+        }
+        this.mDetails.append(str);
     }
 }

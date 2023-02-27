@@ -7,55 +7,29 @@ import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class c {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final float a = 0.4f;
     public static final float b = 15.0f;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public c() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     public static Bitmap a(Context context, Bitmap bitmap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, bitmap)) == null) {
-            Bitmap.Config config = bitmap.getConfig();
-            Bitmap.Config config2 = Bitmap.Config.ARGB_8888;
-            if (config != config2) {
-                bitmap = bitmap.copy(config2, true);
-            }
-            Bitmap createScaledBitmap = Bitmap.createScaledBitmap(bitmap, Math.round(bitmap.getWidth() * 0.4f), Math.round(bitmap.getHeight() * 0.4f), false);
-            Bitmap createBitmap = Bitmap.createBitmap(createScaledBitmap);
-            RenderScript create = RenderScript.create(context);
-            ScriptIntrinsicBlur create2 = ScriptIntrinsicBlur.create(create, Element.U8_4(create));
-            Allocation createFromBitmap = Allocation.createFromBitmap(create, createScaledBitmap);
-            Allocation createFromBitmap2 = Allocation.createFromBitmap(create, createBitmap);
-            if (Build.VERSION.SDK_INT >= 17) {
-                create2.setRadius(15.0f);
-                create2.setInput(createFromBitmap);
-                create2.forEach(createFromBitmap2);
-            }
-            createFromBitmap2.copyTo(createBitmap);
-            return createBitmap;
+        Bitmap.Config config = bitmap.getConfig();
+        Bitmap.Config config2 = Bitmap.Config.ARGB_8888;
+        if (config != config2) {
+            bitmap = bitmap.copy(config2, true);
         }
-        return (Bitmap) invokeLL.objValue;
+        Bitmap createScaledBitmap = Bitmap.createScaledBitmap(bitmap, Math.round(bitmap.getWidth() * 0.4f), Math.round(bitmap.getHeight() * 0.4f), false);
+        Bitmap createBitmap = Bitmap.createBitmap(createScaledBitmap);
+        RenderScript create = RenderScript.create(context);
+        ScriptIntrinsicBlur create2 = ScriptIntrinsicBlur.create(create, Element.U8_4(create));
+        Allocation createFromBitmap = Allocation.createFromBitmap(create, createScaledBitmap);
+        Allocation createFromBitmap2 = Allocation.createFromBitmap(create, createBitmap);
+        if (Build.VERSION.SDK_INT >= 17) {
+            create2.setRadius(15.0f);
+            create2.setInput(createFromBitmap);
+            create2.forEach(createFromBitmap2);
+        }
+        createFromBitmap2.copyTo(createBitmap);
+        return createBitmap;
     }
 }

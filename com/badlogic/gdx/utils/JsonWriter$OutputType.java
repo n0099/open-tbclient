@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Pattern;
 import kotlin.text.Typography;
+import org.apache.commons.codec.language.bm.ResourceConstants;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes.dex */
 public final class JsonWriter$OutputType {
@@ -103,7 +104,7 @@ public final class JsonWriter$OutputType {
             q8Var.G('\t', "\\t");
             int i = x7.a[ordinal()];
             if (i == 1) {
-                if (!str.contains("//") && !str.contains("/*") && minimalNamePattern.matcher(q8Var).matches()) {
+                if (!str.contains(ResourceConstants.CMT) && !str.contains(ResourceConstants.EXT_CMT_START) && minimalNamePattern.matcher(q8Var).matches()) {
                     return q8Var.toString();
                 }
             }
@@ -135,7 +136,7 @@ public final class JsonWriter$OutputType {
                 q8Var.G('\r', "\\r");
                 q8Var.G('\n', "\\n");
                 q8Var.G('\t', "\\t");
-                if (this == minimal && !obj2.equals("true") && !obj2.equals("false") && !obj2.equals(StringUtil.NULL_STRING) && !obj2.contains("//") && !obj2.contains("/*") && (length = q8Var.length()) > 0 && q8Var.charAt(length - 1) != ' ' && minimalValuePattern.matcher(q8Var).matches()) {
+                if (this == minimal && !obj2.equals("true") && !obj2.equals("false") && !obj2.equals(StringUtil.NULL_STRING) && !obj2.contains(ResourceConstants.CMT) && !obj2.contains(ResourceConstants.EXT_CMT_START) && (length = q8Var.length()) > 0 && q8Var.charAt(length - 1) != ' ' && minimalValuePattern.matcher(q8Var).matches()) {
                     return q8Var.toString();
                 }
                 StringBuilder sb = new StringBuilder();

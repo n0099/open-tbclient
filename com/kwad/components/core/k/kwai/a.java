@@ -2,20 +2,12 @@ package com.kwad.components.core.k.kwai;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.core.response.model.AdResultData;
 import com.kwad.sdk.core.network.f;
 import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.List;
 /* loaded from: classes8.dex */
 public final class a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final b EI;
     @NonNull
@@ -29,163 +21,87 @@ public final class a {
 
     /* renamed from: com.kwad.components.core.k.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0603a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static class C0593a {
         public b EI;
         public com.kwad.components.core.k.b HN;
         public boolean HP;
         public boolean HQ;
 
-        public C0603a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+        public final C0593a a(@NonNull com.kwad.components.core.k.b bVar) {
+            this.HN = bVar;
+            return this;
         }
 
-        public final C0603a a(@NonNull com.kwad.components.core.k.b bVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-                this.HN = bVar;
-                return this;
-            }
-            return (C0603a) invokeL.objValue;
+        public final C0593a aw(boolean z) {
+            this.HP = true;
+            return this;
         }
 
-        public final C0603a aw(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.HP = true;
-                return this;
-            }
-            return (C0603a) invokeZ.objValue;
+        public final C0593a ax(boolean z) {
+            this.HQ = z;
+            return this;
         }
 
-        public final C0603a ax(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.HQ = z;
-                return this;
-            }
-            return (C0603a) invokeZ.objValue;
-        }
-
-        public final C0603a c(b bVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) {
-                this.EI = bVar;
-                return this;
-            }
-            return (C0603a) invokeL.objValue;
+        public final C0593a c(b bVar) {
+            this.EI = bVar;
+            return this;
         }
 
         public final a oo() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (com.kwad.components.ad.d.a.aw.booleanValue() && (this.EI == null || this.HN == null)) {
-                    throw new IllegalStateException("AdRequestParams build Illegal");
-                }
-                return new a(this, (byte) 0);
+            if (com.kwad.components.ad.d.a.aw.booleanValue() && (this.EI == null || this.HN == null)) {
+                throw new IllegalStateException("AdRequestParams build Illegal");
             }
-            return (a) invokeV.objValue;
+            return new a(this, (byte) 0);
         }
     }
 
-    public a(C0603a c0603a) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {c0603a};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.EI = c0603a.EI;
-        this.HN = c0603a.HN;
-        this.HP = c0603a.HP;
-        this.HQ = c0603a.HQ;
+    public a(C0593a c0593a) {
+        this.EI = c0593a.EI;
+        this.HN = c0593a.HN;
+        this.HP = c0593a.HP;
+        this.HQ = c0593a.HQ;
     }
 
-    public /* synthetic */ a(C0603a c0603a, byte b) {
-        this(c0603a);
+    public /* synthetic */ a(C0593a c0593a, byte b) {
+        this(c0593a);
     }
 
     public static void a(@NonNull a aVar, int i, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{aVar, Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
-            aVar.HN.a(i, str, z);
-        }
+        aVar.HN.a(i, str, z);
     }
 
     public static void a(@NonNull a aVar, AdResultData adResultData, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65539, null, aVar, adResultData, z) == null) {
-            boolean isAdResultDataEmpty = adResultData.isAdResultDataEmpty();
-            com.kwad.components.core.k.b bVar = aVar.HN;
-            if (!isAdResultDataEmpty) {
-                bVar.a(adResultData, z);
-                return;
-            }
-            f fVar = f.Yd;
-            bVar.a(fVar.errorCode, fVar.Qd, z);
+        boolean isAdResultDataEmpty = adResultData.isAdResultDataEmpty();
+        com.kwad.components.core.k.b bVar = aVar.HN;
+        if (!isAdResultDataEmpty) {
+            bVar.a(adResultData, z);
+            return;
         }
+        f fVar = f.Yd;
+        bVar.a(fVar.errorCode, fVar.Qd, z);
     }
 
     public final int getAdNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            SceneImpl sceneImpl = this.EI.HS;
-            if (sceneImpl != null) {
-                return sceneImpl.getAdNum();
-            }
-            return 1;
+        SceneImpl sceneImpl = this.EI.HS;
+        if (sceneImpl != null) {
+            return sceneImpl.getAdNum();
         }
-        return invokeV.intValue;
+        return 1;
     }
 
     public final int getAdStyle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            SceneImpl sceneImpl = this.EI.HS;
-            if (sceneImpl != null) {
-                return sceneImpl.adStyle;
-            }
-            return 0;
+        SceneImpl sceneImpl = this.EI.HS;
+        if (sceneImpl != null) {
+            return sceneImpl.adStyle;
         }
-        return invokeV.intValue;
+        return 0;
     }
 
     public final long getPosId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            SceneImpl sceneImpl = this.EI.HS;
-            if (sceneImpl != null) {
-                return sceneImpl.getPosId();
-            }
-            return -1L;
+        SceneImpl sceneImpl = this.EI.HS;
+        if (sceneImpl != null) {
+            return sceneImpl.getPosId();
         }
-        return invokeV.longValue;
+        return -1L;
     }
 }

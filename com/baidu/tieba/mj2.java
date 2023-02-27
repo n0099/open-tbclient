@@ -1,14 +1,11 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Pair;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.sr2;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,44 +13,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class mj2 {
+public abstract class mj2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final File a;
-    public static final byte[] b;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+
+    public abstract void m(Map<String, Object> map);
 
     /* loaded from: classes5.dex */
-    public static class a implements sr2.c {
+    public class a extends kj2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ k82 c;
+        public final /* synthetic */ String d;
 
-        @Override // com.baidu.tieba.sr2.c
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
-
-        public a(CallbackHandler callbackHandler, String str, String str2) {
+        public a(mj2 mj2Var, k82 k82Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {callbackHandler, str, str2};
+                Object[] objArr = {mj2Var, k82Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -63,45 +50,60 @@ public final class mj2 {
                     return;
                 }
             }
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = str2;
+            this.c = k82Var;
+            this.d = str;
         }
 
-        @Override // com.baidu.tieba.sr2.c
-        public void onFailed() {
+        @Override // com.baidu.tieba.kj2
+        public void c() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                w52.k("DebugDynamicLibControl", "debug动态库下载失败 url=" + this.c);
-                if (this.a != null && !TextUtils.isEmpty(this.b)) {
-                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.sr2.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.a != null && !TextUtils.isEmpty(this.b)) {
-                    File j = mj2.j();
-                    w52.k("DebugDynamicLibControl", "debug动态库下载成功 file=" + j.getAbsolutePath());
-                    Pair g = mj2.g(j);
-                    if (!((Boolean) g.first).booleanValue()) {
-                        w52.k("DebugDynamicLibControl", "debug动态库解密失败 file=" + j.getAbsolutePath());
-                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug动态库解密失败").toString());
-                        return;
-                    } else if (((Boolean) mj2.s((File) g.second).first).booleanValue()) {
-                        mj2.r(true);
-                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-                        return;
-                    } else {
-                        w52.k("DebugDynamicLibControl", "debug动态库解压失败 file=" + j.getAbsolutePath());
-                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug动态库解压失败").toString());
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.c.isDestroyed()) {
+                    if (mj2.b) {
+                        Log.e("JSEventDispatcher", Log.getStackTraceString(new Exception("webview is destroyed. dispatch action:" + this.d)));
                         return;
                     }
+                    return;
                 }
-                w52.k("DebugDynamicLibControl", "debug动态库下载成功，但是 handler=" + this.a + " cb=" + this.b);
+                this.c.evaluateJavascript(this.d, null);
+                q23.a("postMessage", "dispatchJSEvent evaluateJavascript");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends kj2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k82 c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ mj2 e;
+
+        public b(mj2 mj2Var, k82 k82Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mj2Var, k82Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = mj2Var;
+            this.c = k82Var;
+            this.d = str;
+        }
+
+        @Override // com.baidu.tieba.kj2
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.e.l(this.c, this.d);
             }
         }
     }
@@ -119,259 +121,275 @@ public final class mj2 {
                 return;
             }
         }
-        a = sr2.q();
-        b = "rMzurs3ur83vsM7vss/vtNHwt9LwuNPx".getBytes(StandardCharsets.UTF_8);
+        b = wp1.a;
     }
 
-    public static void f() {
+    public mj2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            r(false);
-            e();
-        }
-    }
-
-    public static File j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return new File(ot2.d().get(0).a, "debugDynamicLib.zip");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return new File(ot2.d().get(0).a, "aiapps_debug_dynamic_lib");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return kh3.a().getBoolean("KEY_SWAN_APP_DEBUG_DYNAMIC_LIB_MODE", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return l();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
-            r(true);
-        }
-    }
-
-    public static void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65554, null, z) == null) {
-            kh3.a().putBoolean("KEY_SWAN_APP_DEBUG_DYNAMIC_LIB_MODE", z);
-        }
-    }
-
-    public static File d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return new File(a.getAbsolutePath() + File.separator + str + File.separator + "debug_dynamic");
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public static Pair<Boolean, File> i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            File d = d(str);
-            if (d.exists() && d.isDirectory()) {
-                return new Pair<>(Boolean.TRUE, d);
-            }
-            return new Pair<>(Boolean.FALSE, null);
-        }
-        return (Pair) invokeL.objValue;
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            ap4.j(j());
-            ap4.j(k());
-            for (File file : n()) {
-                ap4.j(file);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION, THROW, THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static Pair<Boolean, File> g(File file) {
-        InterceptResult invokeL;
+    public final void b(@NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {
-            if (file != null && file.exists()) {
-                File file2 = new File(file.getAbsolutePath() + ".zip");
-                try {
-                    FileInputStream fileInputStream = new FileInputStream(file);
-                    FileOutputStream fileOutputStream = new FileOutputStream(file2);
-                    try {
-                        byte[] bArr = new byte[16];
-                        fileInputStream.skip(10L);
-                        fileInputStream.read(bArr, 0, 10);
-                        fileInputStream.skip(5L);
-                        fileInputStream.read(bArr, 10, 6);
-                        fileInputStream.skip(3L);
-                        byte[] bArr2 = new byte[fileInputStream.available()];
-                        fileInputStream.read(bArr2);
-                        file2.deleteOnExit();
-                        file2.createNewFile();
-                        IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr);
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(b, "AES");
-                        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                        cipher.init(2, secretKeySpec, ivParameterSpec);
-                        fileOutputStream.write(cipher.doFinal(bArr2));
-                        fileOutputStream.flush();
-                        Pair<Boolean, File> pair = new Pair<>(Boolean.TRUE, file2);
-                        fileOutputStream.close();
-                        fileInputStream.close();
-                        return pair;
-                    } finally {
-                    }
-                } catch (Exception e) {
-                    w52.l("DebugDynamicLibControl", "debug动态库解密失败: ", e);
-                    return new Pair<>(Boolean.FALSE, null);
-                }
-            } else {
-                return new Pair<>(Boolean.FALSE, null);
-            }
-        } else {
-            return (Pair) invokeL.objValue;
-        }
-    }
-
-    public static synchronized void h(@NonNull String str, @Nullable CallbackHandler callbackHandler, @Nullable String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, str, callbackHandler, str2) == null) {
-            synchronized (mj2.class) {
-                if (TextUtils.isEmpty(str)) {
-                    w52.k("DebugDynamicLibControl", "download url is empty");
-                } else {
-                    sr2.H(str, new a(callbackHandler, str2, str));
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            try {
+                jSONObject.put("type", this.a);
+            } catch (JSONException e) {
+                if (b) {
+                    e.printStackTrace();
                 }
             }
         }
     }
 
-    public static List<File> n() {
-        InterceptResult invokeV;
-        File[] C;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (File file : ap4.C(a)) {
-                if (file.isDirectory()) {
-                    File[] C2 = ap4.C(file);
-                    int length = C2.length;
-                    int i = 0;
-                    while (true) {
-                        if (i < length) {
-                            File file2 = C2[i];
-                            if (file2.isDirectory() && "debug_dynamic".equals(file2.getName())) {
-                                arrayList.add(file2);
-                                break;
-                            }
-                            i++;
-                        }
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @NonNull
-    public static List<String> o() {
-        InterceptResult invokeV;
-        File[] C;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (File file : ap4.C(a)) {
-                if (file.isDirectory()) {
-                    File[] C2 = ap4.C(file);
-                    int length = C2.length;
-                    int i = 0;
-                    while (true) {
-                        if (i < length) {
-                            File file2 = C2[i];
-                            if (file2.isDirectory() && "debug_dynamic".equals(file2.getName())) {
-                                arrayList.add(file.getName());
-                                break;
-                            }
-                            i++;
-                        }
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public static String q(File file) throws Exception {
+    public String c(k82 k82Var) {
         InterceptResult invokeL;
-        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, file)) == null) {
-            if (file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length == 1 && listFiles[0].isDirectory()) {
-                ap4.e(listFiles[0], file);
-                ap4.j(listFiles[0]);
-            }
-            return (String) new JSONObject(ap4.E(new File(file, "dynamicLib.json"))).get("name");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k82Var)) == null) {
+            return d("event", k82Var);
         }
         return (String) invokeL.objValue;
     }
 
-    public static Pair<Boolean, String> s(File file) {
+    public boolean f(k82 k82Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, file)) == null) {
-            String str = "";
-            boolean z = false;
-            try {
-                File k = k();
-                ap4.l(k);
-                if (file.exists() && ap4.U(file.getAbsolutePath(), k.getAbsolutePath())) {
-                    str = q(k);
-                    File d = d(str);
-                    if (d.exists()) {
-                        ap4.j(d);
-                    }
-                    d.mkdirs();
-                    ap4.e(k, d);
-                    ap4.j(k);
-                    ap4.j(file);
-                    z = true;
-                }
-            } catch (Exception e) {
-                w52.k("DebugDynamicLibControl", "debug动态库解压异常: " + e.toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k82Var)) == null) {
+            if (k82Var != null && !k82Var.isWebView() && (k82Var instanceof wg2)) {
+                return true;
             }
-            w52.k("DebugDynamicLibControl", "debug动态库解压结果: unzipSuccess=" + z + " dynamicLibName=" + str);
-            return new Pair<>(Boolean.valueOf(z), str);
+            return false;
         }
-        return (Pair) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public void g(k82 k82Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, k82Var) != null) || k82Var == null) {
+            return;
+        }
+        q23.a("postMessage", "dispatchJSEvent start.");
+        if (lj2.b) {
+            r(k82Var);
+        } else {
+            q(k82Var);
+        }
+        q23.a("postMessage", "dispatchJSEvent buildEvent");
+    }
+
+    public final boolean p(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
+            if (obj == null) {
+                return false;
+            }
+            if (!(obj instanceof String)) {
+                return true;
+            }
+            return !TextUtils.isEmpty((String) obj);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void r(@NonNull k82 k82Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, k82Var) == null) {
+            if (f(k82Var)) {
+                h(k82Var);
+            } else {
+                i(k82Var);
+            }
+        }
+    }
+
+    public String d(String str, k82 k82Var) {
+        InterceptResult invokeLL;
+        String format;
+        String b2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, k82Var)) == null) {
+            if (k82Var != null && !TextUtils.isEmpty(this.a)) {
+                if (TextUtils.isEmpty(str)) {
+                    str = "event";
+                }
+                Locale locale = Locale.getDefault();
+                if (k82Var.isWebView()) {
+                    format = String.format(locale, "var %s = new Event('%s');", str, this.a);
+                    b2 = "";
+                } else {
+                    format = String.format(locale, "var %s = new Object();", str);
+                    b2 = ij2.b(str, "type", this.a);
+                }
+                return format + (b2 + o(str)) + String.format(locale, "%s.dispatchEvent(%s);", ij2.c(k82Var), str);
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public JSEvent e(k82 k82Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, k82Var)) == null) {
+            if (k82Var != null && !TextUtils.isEmpty(this.a)) {
+                JSEvent jSEvent = new JSEvent(this.a);
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    n(jSONObject);
+                } catch (Exception e) {
+                    if (b) {
+                        e.printStackTrace();
+                    }
+                }
+                b(jSONObject);
+                jSEvent.data = jSONObject;
+                return jSEvent;
+            }
+            return null;
+        }
+        return (JSEvent) invokeL.objValue;
+    }
+
+    public void n(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
+            HashMap hashMap = new HashMap();
+            m(hashMap);
+            for (String str : hashMap.keySet()) {
+                if (!TextUtils.isEmpty(str)) {
+                    Object obj = hashMap.get(str);
+                    if (p(obj)) {
+                        jSONObject.put(str, obj);
+                    }
+                }
+            }
+        }
+    }
+
+    public void h(k82 k82Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, k82Var) != null) || k82Var == null) {
+            return;
+        }
+        if (b) {
+            Log.d("JSEventDispatcher", "dispatch event - " + this.a + " on v8");
+        }
+        JSEvent e = e(k82Var);
+        if (e == null) {
+            return;
+        }
+        j(k82Var, e);
+        if (b) {
+            Log.d("JSEventDispatcher", "dispatchJSEvent action - " + e.type + " on v8 : " + e.data);
+        }
+    }
+
+    public final void q(k82 k82Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, k82Var) == null) {
+            String c = c(k82Var);
+            if (TextUtils.isEmpty(c)) {
+                return;
+            }
+            String format = String.format(Locale.getDefault(), "javascript:(function(){%s})();", c);
+            if (b) {
+                Log.d("JSEventDispatcher", "dispatchJSEvent action: " + format);
+            }
+            if (k82Var.isWebView()) {
+                jj2.b().c(new b(this, k82Var, format), null);
+            } else {
+                l(k82Var, format);
+            }
+        }
+    }
+
+    public void i(k82 k82Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, k82Var) != null) || k82Var == null) {
+            return;
+        }
+        if (b) {
+            Log.d("JSEventDispatcher", "dispatch event - " + this.a + " on webView");
+        }
+        String c = c(k82Var);
+        if (TextUtils.isEmpty(c)) {
+            return;
+        }
+        String format = String.format(Locale.getDefault(), "javascript:(function(){%s})();", c);
+        k(k82Var, format);
+        if (b) {
+            Log.d("JSEventDispatcher", "dispatchJSEvent action on webView: " + format);
+        }
+    }
+
+    public String o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            Map<String, Object> hashMap = new HashMap<>();
+            m(hashMap);
+            StringBuilder sb = new StringBuilder();
+            for (String str2 : hashMap.keySet()) {
+                if (!TextUtils.isEmpty(str2)) {
+                    Object obj = hashMap.get(str2);
+                    if (p(obj)) {
+                        if (obj instanceof String) {
+                            obj = JSONObject.quote((String) obj);
+                        }
+                        sb.append(str);
+                        sb.append(".");
+                        sb.append(str2);
+                        sb.append("=");
+                        sb.append(obj);
+                        sb.append(ParamableElem.DIVIDE_PARAM);
+                    }
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void j(k82 k82Var, JSEvent jSEvent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k82Var, jSEvent) != null) || k82Var.isDestroyed()) {
+            return;
+        }
+        if (k82Var instanceof wg2) {
+            ((wg2) k82Var).dispatchEvent(jSEvent);
+        }
+        q23.a("postMessage", "dispatchJSEvent evaluateJavascript");
+    }
+
+    public void k(k82 k82Var, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, k82Var, str) == null) && k82Var != null && !TextUtils.isEmpty(str)) {
+            jj2.b().c(new a(this, k82Var, str), null);
+        }
+    }
+
+    public final void l(k82 k82Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, k82Var, str) == null) {
+            if (k82Var.isDestroyed()) {
+                if (b) {
+                    Log.e("JSEventDispatcher", Log.getStackTraceString(new Exception("webview is destroyed. dispatch action:" + str)));
+                    return;
+                }
+                return;
+            }
+            k82Var.evaluateJavascript(str, null);
+            q23.a("postMessage", "dispatchJSEvent evaluateJavascript");
+        }
     }
 }

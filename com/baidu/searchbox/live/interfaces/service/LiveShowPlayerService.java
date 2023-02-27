@@ -6,13 +6,6 @@ import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.live.interfaces.liveshowplayer.LiveShowPlayerCallback;
 import com.baidu.searchbox.live.interfaces.liveshowplayer.LiveShowPlayerStatusCallback;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
 import kotlin.Metadata;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000J\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0017\n\u0002\u0018\u0002\n\u0002\b\u0010\bf\u0018\u0000 E2\u00020\u0001:\u0001EJ\u001f\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u0004H&¢\u0006\u0004\b\u0007\u0010\bJ\u001f\u0010\r\u001a\u00020\f2\u0006\u0010\t\u001a\u00020\u00062\u0006\u0010\u000b\u001a\u00020\nH&¢\u0006\u0004\b\r\u0010\u000eJ\u0017\u0010\u0010\u001a\u00020\u000f2\u0006\u0010\t\u001a\u00020\u0006H&¢\u0006\u0004\b\u0010\u0010\u0011J\u0017\u0010\u0012\u001a\u00020\u000f2\u0006\u0010\t\u001a\u00020\u0006H&¢\u0006\u0004\b\u0012\u0010\u0011J!\u0010\u0014\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\b\u0010\u0013\u001a\u0004\u0018\u00010\u0004H&¢\u0006\u0004\b\u0014\u0010\bJ\u0019\u0010\u0016\u001a\u0004\u0018\u00010\u00152\u0006\u0010\t\u001a\u00020\u0006H&¢\u0006\u0004\b\u0016\u0010\u0017J\u0017\u0010\u0018\u001a\u00020\u000f2\u0006\u0010\t\u001a\u00020\u0006H&¢\u0006\u0004\b\u0018\u0010\u0011J\u0017\u0010\u0019\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u0006H&¢\u0006\u0004\b\u0019\u0010\u001aJ\u0017\u0010\u001b\u001a\u00020\u000f2\u0006\u0010\t\u001a\u00020\u0006H&¢\u0006\u0004\b\u001b\u0010\u0011J\u000f\u0010\u001c\u001a\u00020\nH&¢\u0006\u0004\b\u001c\u0010\u001dJ\u001f\u0010!\u001a\u00020\f2\u0006\u0010\u001f\u001a\u00020\u001e2\u0006\u0010 \u001a\u00020\u000fH&¢\u0006\u0004\b!\u0010\"J\u0017\u0010#\u001a\u00020\n2\u0006\u0010 \u001a\u00020\u000fH&¢\u0006\u0004\b#\u0010$J\u0017\u0010%\u001a\u00020\n2\u0006\u0010\t\u001a\u00020\u0006H&¢\u0006\u0004\b%\u0010&J\u0017\u0010'\u001a\u00020\n2\u0006\u0010\t\u001a\u00020\u0006H&¢\u0006\u0004\b'\u0010&J\u001f\u0010(\u001a\u00020\f2\u0006\u0010\t\u001a\u00020\u00062\u0006\u0010(\u001a\u00020\nH&¢\u0006\u0004\b(\u0010\u000eJ\u0017\u0010)\u001a\u00020\f2\u0006\u0010\t\u001a\u00020\u0006H&¢\u0006\u0004\b)\u0010*J\u0017\u0010+\u001a\u00020\f2\u0006\u0010\t\u001a\u00020\u0006H&¢\u0006\u0004\b+\u0010*J\u0017\u0010,\u001a\u00020\f2\u0006\u0010\t\u001a\u00020\u0006H&¢\u0006\u0004\b,\u0010*J\u001f\u0010.\u001a\u00020\f2\u0006\u0010\t\u001a\u00020\u00062\u0006\u0010-\u001a\u00020\u000fH&¢\u0006\u0004\b.\u0010/J'\u00102\u001a\u00020\f2\u0006\u0010\t\u001a\u00020\u00062\u0006\u00100\u001a\u00020\u00042\u0006\u00101\u001a\u00020\u0006H&¢\u0006\u0004\b2\u00103J!\u00104\u001a\u00020\f2\u0006\u0010\t\u001a\u00020\u00062\b\u0010\u001f\u001a\u0004\u0018\u00010\u001eH&¢\u0006\u0004\b4\u00105J!\u00104\u001a\u00020\f2\u0006\u0010\t\u001a\u00020\u00062\b\u0010\u001f\u001a\u0004\u0018\u000106H&¢\u0006\u0004\b4\u00107J\u001f\u00109\u001a\u00020\f2\u0006\u0010\t\u001a\u00020\u00062\u0006\u00108\u001a\u00020\u0004H&¢\u0006\u0004\b9\u0010:J\u001f\u0010;\u001a\u00020\f2\u0006\u0010\t\u001a\u00020\u00062\u0006\u0010-\u001a\u00020\u000fH&¢\u0006\u0004\b;\u0010/J\u001f\u0010<\u001a\u00020\f2\u0006\u0010\t\u001a\u00020\u00062\u0006\u0010-\u001a\u00020\u000fH&¢\u0006\u0004\b<\u0010/J/\u0010@\u001a\u00020\u00062\u0006\u0010\t\u001a\u00020\u00062\u0006\u0010=\u001a\u00020\u00152\u0006\u0010>\u001a\u00020\u00042\u0006\u0010?\u001a\u00020\u001eH&¢\u0006\u0004\b@\u0010AJ\u0017\u0010B\u001a\u00020\f2\u0006\u0010\t\u001a\u00020\u0006H&¢\u0006\u0004\bB\u0010*J\u0017\u0010C\u001a\u00020\f2\u0006\u0010\t\u001a\u00020\u0006H&¢\u0006\u0004\bC\u0010*J\u0017\u0010D\u001a\u00020\f2\u0006\u0010\t\u001a\u00020\u0006H&¢\u0006\u0004\bD\u0010*¨\u0006F"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/LiveShowPlayerService;", "Lkotlin/Any;", "Landroid/content/Context;", "context", "", "url", "", "createPlayerWithUrl", "(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/Object;", DI.LIVE_PLAYER, "", "stop", "", "dismissFloating", "(Ljava/lang/Object;Z)V", "", "getCurrentPosition", "(Ljava/lang/Object;)I", "getDuration", "liveid", "getLivePlayer", "Landroid/view/View;", "getPlayerView", "(Ljava/lang/Object;)Landroid/view/View;", "getVideoHeight", "getVideoPath", "(Ljava/lang/Object;)Ljava/lang/String;", "getVideoWidth", "hasFloatingPermission", "()Z", "Lcom/baidu/searchbox/live/interfaces/liveshowplayer/LiveShowPlayerCallback;", WebChromeClient.KEY_ARG_CALLBACK, "type", "initCyberCore", "(Lcom/baidu/searchbox/live/interfaces/liveshowplayer/LiveShowPlayerCallback;I)V", "isCoreLoaded", "(I)Z", "isFloatShowing", "(Ljava/lang/Object;)Z", "isPlaying", "mute", "pause", "(Ljava/lang/Object;)V", "release", "resume", "mode", "setDecodeMode", "(Ljava/lang/Object;I)V", "key", "value", "setExternalInfo", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)V", "setPlayerCallback", "(Ljava/lang/Object;Lcom/baidu/searchbox/live/interfaces/liveshowplayer/LiveShowPlayerCallback;)V", "Lcom/baidu/searchbox/live/interfaces/liveshowplayer/LiveShowPlayerStatusCallback;", "(Ljava/lang/Object;Lcom/baidu/searchbox/live/interfaces/liveshowplayer/LiveShowPlayerStatusCallback;)V", "path", "setVideoPath", "(Ljava/lang/Object;Ljava/lang/String;)V", "setVideoRotation", "setVideoScalingMode", "v", "liveInfo", "cb", "showFloating", "(Ljava/lang/Object;Landroid/view/View;Ljava/lang/String;Lcom/baidu/searchbox/live/interfaces/liveshowplayer/LiveShowPlayerCallback;)Ljava/lang/Object;", "start", "stopPlayback", "switchNormal", "Companion", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
@@ -81,49 +74,11 @@ public interface LiveShowPlayerService {
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0007R\u0019\u0010\u0002\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/LiveShowPlayerService$Companion;", "Lcom/baidu/pyramid/runtime/service/ServiceReference;", "SERVICE_REFERENCE", "Lcom/baidu/pyramid/runtime/service/ServiceReference;", "getSERVICE_REFERENCE", "()Lcom/baidu/pyramid/runtime/service/ServiceReference;", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
     public static final class Companion {
-        public static final /* synthetic */ Companion $$INSTANCE;
-        public static /* synthetic */ Interceptable $ic;
-        public static final ServiceReference SERVICE_REFERENCE;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1983575982, "Lcom/baidu/searchbox/live/interfaces/service/LiveShowPlayerService$Companion;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1983575982, "Lcom/baidu/searchbox/live/interfaces/service/LiveShowPlayerService$Companion;");
-                    return;
-                }
-            }
-            $$INSTANCE = new Companion();
-            SERVICE_REFERENCE = DI.INSTANCE.getServiceRef(DI.LIVE_SHOW_VIDEO_PLAYER);
-        }
-
-        public Companion() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
+        public static final /* synthetic */ Companion $$INSTANCE = new Companion();
+        public static final ServiceReference SERVICE_REFERENCE = DI.INSTANCE.getServiceRef(DI.LIVE_SHOW_VIDEO_PLAYER);
 
         public final ServiceReference getSERVICE_REFERENCE() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return SERVICE_REFERENCE;
-            }
-            return (ServiceReference) invokeV.objValue;
+            return SERVICE_REFERENCE;
         }
     }
 }

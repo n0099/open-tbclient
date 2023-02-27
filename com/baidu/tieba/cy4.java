@@ -1,34 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class cy4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public String a;
     public String b;
-    public long c;
+    public int c;
     public String d;
     public String e;
-    public int f;
+    public String f;
     public String g;
-    public long h;
-    public long i;
+    public boolean h;
+    public String i;
     public long j;
-    public int k;
-    public int l;
-    public long m;
-    public long n;
-    public String o;
-    public long p;
-    public int q;
-    public int r;
-    public int s;
 
     public cy4() {
         Interceptable interceptable = $ic;
@@ -42,23 +31,5 @@ public class cy4 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.j;
-        }
-        return invokeV.longValue;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
     }
 }

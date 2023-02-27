@@ -1,41 +1,108 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.view.ViewConfiguration;
+import android.view.ViewStub;
+import android.webkit.WebView;
+import android.widget.LinearLayout;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.pb.pb.report.UEGReportResponsedMessage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import com.baidu.tieba.pb.view.PbGiftListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class dg8 implements e99 {
+public class dg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public BdUniqueId b;
-    public eg8 c;
-    public s35 d;
-    public u35 e;
-    public HttpMessageListener f;
+    public View a;
+    public ViewStub b;
+    public PbGiftListView c;
+    public ViewStub d;
+    public LinearLayout e;
+    public View f;
+    public BaseWebView g;
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        }
+    }
 
     /* loaded from: classes4.dex */
-    public class a implements DialogInterface.OnCancelListener {
+    public class a implements BaseWebView.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
+        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        public a(dg8 dg8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dg8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements BaseWebView.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(dg8 dg8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dg8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
+        public void onPageFinished(WebView webView, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
+                webView.loadUrl("javascript:(function(){var iframe=document.getElementsByClassName(\"video_iframe\");if(iframe&&iframe.length>0){for(var i=iframe.length-1;i>=0;i--){iframe[i].contentWindow.document.getElementsByClassName(\"tvp_fullscreen_button\")[0].style.display=\"none\"}}})();");
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dg8 a;
 
-        public a(dg8 dg8Var) {
+        public c(dg8 dg8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,72 +120,28 @@ public class dg8 implements e99 {
             this.a = dg8Var;
         }
 
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                MessageManager.getInstance().removeMessage(this.a.b);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a.g != null) {
+                        this.a.g.destroy();
+                        this.a.g = null;
+                    }
+                } catch (Throwable th) {
+                    BdLog.e(th);
+                }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dg8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(dg8 dg8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dg8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dg8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof UEGReportResponsedMessage)) {
-                return;
-            }
-            if (this.a.d != null) {
-                this.a.d.h(false);
-            }
-            UEGReportResponsedMessage uEGReportResponsedMessage = (UEGReportResponsedMessage) httpResponsedMessage;
-            String url = uEGReportResponsedMessage.getUrl();
-            if (StringUtils.isNull(url)) {
-                String errorString = uEGReportResponsedMessage.getErrorString();
-                if (StringUtils.isNull(errorString)) {
-                    errorString = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d08);
-                }
-                this.a.e.c(errorString);
-                return;
-            }
-            this.a.h(url);
-        }
-    }
-
-    public dg8(Context context) {
+    public dg8(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -128,75 +151,101 @@ public class dg8 implements e99 {
                 return;
             }
         }
-        this.f = new b(this, CmdConfigHttp.CMD_UEG_REPORT);
-        this.a = context;
-        this.c = new eg8();
-        u35 u35Var = new u35();
-        this.e = u35Var;
-        u35Var.a = 1000L;
+        this.a = view2;
+        this.b = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f090d9b);
+        this.d = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f09145a);
     }
 
-    @Override // com.baidu.tieba.e99
-    public void a(String str) {
+    public void a() {
+        BaseWebView baseWebView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            j();
-            this.c.a(str);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (baseWebView = this.g) != null) {
+            baseWebView.removeAllViews();
+            this.g.getSettings().setBuiltInZoomControls(true);
+            this.g.setVisibility(8);
+            gh.a().postDelayed(new c(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
         }
     }
 
-    @Override // com.baidu.tieba.e99
-    public void b(BdUniqueId bdUniqueId) {
+    public void b(c05 c05Var, String str, String str2, long j, long j2, long j3) {
+        ViewStub viewStub;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) {
-            this.b = bdUniqueId;
-            this.c.c(bdUniqueId);
-            this.f.setTag(bdUniqueId);
-            this.f.setSelfListener(true);
-            MessageManager.getInstance().registerListener(this.f);
-        }
-    }
-
-    @Override // com.baidu.tieba.e99
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            j();
-            this.c.b(str);
-        }
-    }
-
-    public final void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.pb_web_view_report_title), str, true)));
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = null;
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.d == null) {
-                TbPageContext tbPageContext = null;
-                x9<?> a2 = da.a(this.a);
-                if (a2 instanceof TbPageContext) {
-                    tbPageContext = (TbPageContext) a2;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{c05Var, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if (c05Var != null && !ListUtils.isEmpty(c05Var.a()) && (viewStub = this.b) != null) {
+                if (this.c == null) {
+                    this.c = (PbGiftListView) viewStub.inflate();
                 }
-                if (tbPageContext == null) {
+                this.c.setVisibility(0);
+                this.c.g(c05Var, str, str2, j, j2, j3);
+                this.c.i();
+                return;
+            }
+            PbGiftListView pbGiftListView = this.c;
+            if (pbGiftListView != null) {
+                pbGiftListView.setVisibility(8);
+            }
+        }
+    }
+
+    public void c(rz4 rz4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rz4Var) == null) && rz4Var != null && !dj.isEmpty(rz4Var.e())) {
+            BaseWebView baseWebView = this.g;
+            if ((baseWebView == null || !baseWebView.getIsLoaded()) && rz4Var.c() == rz4.g && this.d != null) {
+                if (rz4Var.f()) {
+                    LinearLayout linearLayout = this.e;
+                    if (linearLayout != null) {
+                        linearLayout.setVisibility(8);
+                        return;
+                    }
                     return;
                 }
-                s35 s35Var = new s35(tbPageContext);
-                this.d = s35Var;
-                s35Var.e(new a(this));
+                if (this.e == null) {
+                    LinearLayout linearLayout2 = (LinearLayout) this.d.inflate();
+                    this.e = linearLayout2;
+                    this.f = linearLayout2.findViewById(R.id.obfuscated_res_0x7f091455);
+                    this.g = (BaseWebView) this.e.findViewById(R.id.obfuscated_res_0x7f09145b);
+                }
+                this.f.setVisibility(0);
+                SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
+                this.g.setVisibility(0);
+                this.g.setFocusable(false);
+                this.g.setBackgroundColor(0);
+                this.g.getSettings().setCacheMode(-1);
+                this.g.setVerticalScrollBarEnabled(false);
+                this.g.setHorizontalScrollBarEnabled(false);
+                this.g.getSettings().setAllowFileAccess(true);
+                this.g.getSettings().setAppCacheEnabled(true);
+                this.g.getSettings().setDomStorageEnabled(true);
+                this.g.getSettings().setDatabaseEnabled(true);
+                this.g.setOnLoadUrlListener(new a(this));
+                this.g.setOnPageFinishedListener(new b(this));
+                this.g.loadUrl(rz4Var.e());
             }
-            this.d.h(true);
+        }
+    }
+
+    public void d() {
+        BaseWebView baseWebView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (baseWebView = this.g) != null) {
+            try {
+                baseWebView.onPause();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void e() {
+        BaseWebView baseWebView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (baseWebView = this.g) != null) {
+            try {
+                baseWebView.onResume();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

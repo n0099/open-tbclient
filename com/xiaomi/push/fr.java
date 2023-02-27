@@ -1,53 +1,193 @@
 package com.xiaomi.push;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
+import android.os.SystemClock;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.xiaomi.push.dw;
+import com.xiaomi.push.fv;
+import com.xiaomi.push.service.XMPushService;
+import com.xiaomi.push.service.bg;
 /* loaded from: classes8.dex */
-public final class fr extends fl {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public class fr extends gc {
+    public fm a;
 
-    public fr() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        a("PING", (String) null);
-        a("0");
-        a(0);
+    /* renamed from: a  reason: collision with other field name */
+    public fn f396a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public Thread f397a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public byte[] f398a;
+
+    public fr(XMPushService xMPushService, fw fwVar) {
+        super(xMPushService, fwVar);
     }
 
-    @Override // com.xiaomi.push.fl
+    private fk a(boolean z) {
+        fq fqVar = new fq();
+        if (z) {
+            fqVar.a("1");
+        }
+        byte[] m398a = fi.m398a();
+        if (m398a != null) {
+            dw.j jVar = new dw.j();
+            jVar.a(a.a(m398a));
+            fqVar.a(jVar.m363a(), (String) null);
+        }
+        return fqVar;
+    }
+
+    private void h() {
+        try {
+            this.a = new fm(((gc) this).f428a.getInputStream(), this, ((fv) this).f411a);
+            this.f396a = new fn(((gc) this).f428a.getOutputStream(), this);
+            fs fsVar = new fs(this, "Blob Reader (" + ((fv) this).b + SmallTailInfo.EMOTION_SUFFIX);
+            this.f397a = fsVar;
+            fsVar.start();
+        } catch (Exception e) {
+            throw new gg("Error to init reader and writer", e);
+        }
+    }
+
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.fv.a()Lcom/xiaomi/push/fw; */
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.fv.a()Ljava/lang/String; */
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.fv.a()Ljava/util/Map; */
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.fv.a()Z */
+    @Override // com.xiaomi.push.gc
     /* renamed from: a */
-    public ByteBuffer mo407a(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, byteBuffer)) == null) ? m410a().length == 0 ? byteBuffer : super.mo407a(byteBuffer) : (ByteBuffer) invokeL.objValue;
+    public synchronized void mo441a() {
+        h();
+        this.f396a.a();
     }
 
-    @Override // com.xiaomi.push.fl
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (m410a().length == 0) {
-                return 0;
-            }
-            return super.c();
+    @Override // com.xiaomi.push.gc
+    public synchronized void a(int i, Exception exc) {
+        if (this.a != null) {
+            this.a.b();
+            this.a = null;
         }
-        return invokeV.intValue;
+        if (this.f396a != null) {
+            try {
+                this.f396a.b();
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
+            }
+            this.f396a = null;
+        }
+        this.f398a = null;
+        super.a(i, exc);
+    }
+
+    public void a(fk fkVar) {
+        if (fkVar == null) {
+            return;
+        }
+        if (fkVar.m402a()) {
+            com.xiaomi.channel.commonutils.logger.b.m97a("[Slim] RCV blob chid=" + fkVar.a() + "; id=" + fkVar.e() + "; errCode=" + fkVar.b() + "; err=" + fkVar.m406c());
+        }
+        if (fkVar.a() == 0) {
+            if ("PING".equals(fkVar.m399a())) {
+                com.xiaomi.channel.commonutils.logger.b.m97a("[Slim] RCV ping id=" + fkVar.e());
+                g();
+            } else if ("CLOSE".equals(fkVar.m399a())) {
+                c(13, null);
+            }
+        }
+        for (fv.a aVar : ((fv) this).f415a.values()) {
+            aVar.a(fkVar);
+        }
+    }
+
+    @Override // com.xiaomi.push.fv
+    @Deprecated
+    public void a(gm gmVar) {
+        b(fk.a(gmVar, (String) null));
+    }
+
+    @Override // com.xiaomi.push.fv
+    public synchronized void a(bg.b bVar) {
+        fj.a(bVar, c(), this);
+    }
+
+    @Override // com.xiaomi.push.fv
+    public synchronized void a(String str, String str2) {
+        fj.a(str, str2, this);
+    }
+
+    @Override // com.xiaomi.push.gc
+    /* renamed from: a  reason: collision with other method in class */
+    public void mo412a(boolean z) {
+        if (this.f396a == null) {
+            throw new gg("The BlobWriter is null.");
+        }
+        fk a = a(z);
+        com.xiaomi.channel.commonutils.logger.b.m97a("[Slim] SND ping id=" + a.e());
+        b(a);
+        f();
+    }
+
+    @Override // com.xiaomi.push.gc, com.xiaomi.push.fv
+    public void a(fk[] fkVarArr) {
+        for (fk fkVar : fkVarArr) {
+            b(fkVar);
+        }
+    }
+
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.gc.a()Ljava/lang/String; */
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.gc.a()Ljava/net/Socket; */
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.gc.a()V */
+    @Override // com.xiaomi.push.fv
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean mo413a() {
+        return true;
+    }
+
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.fv.a()I */
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.fv.a()J */
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.fv.a()Lcom/xiaomi/push/fw; */
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.fv.a()Ljava/lang/String; */
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.fv.a()Ljava/util/Map; */
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.fv.a()Z */
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.gc.a()Ljava/lang/String; */
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.gc.a()Ljava/net/Socket; */
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.gc.a()V */
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized byte[] m414a() {
+        if (this.f398a == null && !TextUtils.isEmpty(((fv) this).f412a)) {
+            String m721a = com.xiaomi.push.service.bv.m721a();
+            this.f398a = com.xiaomi.push.service.bp.a(((fv) this).f412a.getBytes(), (((fv) this).f412a.substring(((fv) this).f412a.length() / 2) + m721a.substring(m721a.length() / 2)).getBytes());
+        }
+        return this.f398a;
+    }
+
+    @Override // com.xiaomi.push.fv
+    public void b(fk fkVar) {
+        fn fnVar = this.f396a;
+        if (fnVar == null) {
+            throw new gg("the writer is null.");
+        }
+        try {
+            int a = fnVar.a(fkVar);
+            ((fv) this).d = SystemClock.elapsedRealtime();
+            String f = fkVar.f();
+            if (!TextUtils.isEmpty(f)) {
+                ha.a(((fv) this).f411a, f, a, false, true, System.currentTimeMillis());
+            }
+            for (fv.a aVar : ((fv) this).f418b.values()) {
+                aVar.a(fkVar);
+            }
+        } catch (Exception e) {
+            throw new gg(e);
+        }
+    }
+
+    public void b(gm gmVar) {
+        if (gmVar == null) {
+            return;
+        }
+        for (fv.a aVar : ((fv) this).f415a.values()) {
+            aVar.a(gmVar);
+        }
     }
 }

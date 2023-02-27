@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.meizu.cloud.pushsdk.notification.model.AdvertisementOption;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.ArrayList;
@@ -87,7 +88,7 @@ public final class n {
             hashMap.put("sdkversion", "SDK-JJ-v3.7.5");
             hashMap.put("networkType", cn.com.chinatelecom.gateway.lib.b.a.g(context));
             hashMap.put(MapBundleKey.MapObjKey.OBJ_POI_ONLINETYPE, cn.com.chinatelecom.gateway.lib.b.a.h(context));
-            hashMap.put("aip", context.getPackageName());
+            hashMap.put(AdvertisementOption.AD_INSTALL_PACKAGE, context.getPackageName());
             String a = cn.com.chinatelecom.gateway.lib.a.d.a(str4, cn.com.chinatelecom.gateway.lib.a.d.a());
             String a2 = cn.com.chinatelecom.gateway.lib.a.a.a(a(hashMap, "&"), str4);
             HashMap hashMap2 = new HashMap();

@@ -1,76 +1,77 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.turbonet.net.UploadDataProvider;
+import java.io.IOException;
+import java.io.OutputStream;
 /* loaded from: classes4.dex */
-public final class ht9 {
+public abstract class ht9 extends OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public IOException a;
+    public boolean b;
+    public boolean c;
 
-    /* loaded from: classes4.dex */
-    public static class a extends at9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public abstract void e() throws IOException;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    public abstract UploadDataProvider f();
 
-        @Override // com.baidu.tieba.at9
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (dt9.a(com.baidu.ubs.analytics.d.a.b)) {
-                    for (File file : ht9.a(com.baidu.ubs.analytics.d.a.b)) {
-                        if (ks9.c(ks9.a(file, "http://absample.baidu.com/appabapp/appapi/sdkerrorlog"), null)) {
-                            dt9.b(file.getPath());
-                        }
-                    }
-                }
-                if (dt9.a(com.baidu.ubs.analytics.d.a.c)) {
-                    for (File file2 : ht9.a(com.baidu.ubs.analytics.d.a.c)) {
-                        if (!file2.getName().equals(ys9.e()) && ks9.c(ks9.a(file2, "http://absample.baidu.com/appabapp/appapi/sdklog"), null)) {
-                            dt9.b(file2.getPath());
-                        }
-                    }
-                }
-            }
-        }
-    }
+    public abstract void g() throws IOException;
 
-    public static /* synthetic */ List a(String str) {
-        ArrayList arrayList = new ArrayList();
-        File[] listFiles = new File(str).listFiles();
-        if (listFiles != null) {
-            for (int i = 0; i < listFiles.length; i++) {
-                String name = listFiles[i].getName();
-                if (name.endsWith("txt") || name.endsWith("log")) {
-                    arrayList.add(listFiles[i]);
-                }
-            }
-        }
-        return arrayList;
-    }
-
-    public static void b() {
+    public ht9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            zs9.a(new a());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void a() throws IOException {
+        IOException iOException;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (iOException = this.a) == null) {
+            return;
+        }
+        throw iOException;
+    }
+
+    public void c() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (!this.c) {
+                if (!this.b) {
+                    return;
+                }
+                throw new IOException("Stream has been closed.");
+            }
+            a();
+            throw new IOException("Writing after request completed.");
+        }
+    }
+
+    @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = true;
+        }
+    }
+
+    public void h(IOException iOException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, iOException) == null) {
+            this.a = iOException;
+            this.c = true;
         }
     }
 }

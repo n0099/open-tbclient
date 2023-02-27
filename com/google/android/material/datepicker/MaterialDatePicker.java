@@ -25,19 +25,10 @@ import androidx.annotation.StringRes;
 import androidx.annotation.StyleRes;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.util.Pair;
-import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentTransaction;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.datepicker.CalendarConstraints;
 import com.google.android.material.dialog.InsetDialogOnTouchListener;
 import com.google.android.material.internal.CheckableImageButton;
@@ -47,12 +38,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class MaterialDatePicker<S> extends DialogFragment {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String CALENDAR_CONSTRAINTS_KEY = "CALENDAR_CONSTRAINTS_KEY";
-    public static final Object CANCEL_BUTTON_TAG;
-    public static final Object CONFIRM_BUTTON_TAG;
     public static final String DATE_SELECTOR_KEY = "DATE_SELECTOR_KEY";
     public static final int INPUT_MODE_CALENDAR = 0;
     public static final String INPUT_MODE_KEY = "INPUT_MODE_KEY";
@@ -60,8 +48,6 @@ public final class MaterialDatePicker<S> extends DialogFragment {
     public static final String OVERRIDE_THEME_RES_ID = "OVERRIDE_THEME_RES_ID";
     public static final String TITLE_TEXT_KEY = "TITLE_TEXT_KEY";
     public static final String TITLE_TEXT_RES_ID_KEY = "TITLE_TEXT_RES_ID_KEY";
-    public static final Object TOGGLE_BUTTON_TAG;
-    public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public MaterialShapeDrawable background;
     public MaterialCalendar<S> calendar;
@@ -74,797 +60,446 @@ public final class MaterialDatePicker<S> extends DialogFragment {
     public TextView headerSelectionText;
     public CheckableImageButton headerToggleButton;
     public int inputMode;
-    public final LinkedHashSet<DialogInterface.OnCancelListener> onCancelListeners;
-    public final LinkedHashSet<DialogInterface.OnDismissListener> onDismissListeners;
-    public final LinkedHashSet<View.OnClickListener> onNegativeButtonClickListeners;
-    public final LinkedHashSet<MaterialPickerOnPositiveButtonClickListener<? super S>> onPositiveButtonClickListeners;
     @StyleRes
     public int overrideThemeResId;
     public PickerFragment<S> pickerFragment;
     public CharSequence titleText;
     @StringRes
     public int titleTextResId;
+    public static final Object CONFIRM_BUTTON_TAG = "CONFIRM_BUTTON_TAG";
+    public static final Object CANCEL_BUTTON_TAG = "CANCEL_BUTTON_TAG";
+    public static final Object TOGGLE_BUTTON_TAG = "TOGGLE_BUTTON_TAG";
+    public final LinkedHashSet<MaterialPickerOnPositiveButtonClickListener<? super S>> onPositiveButtonClickListeners = new LinkedHashSet<>();
+    public final LinkedHashSet<View.OnClickListener> onNegativeButtonClickListeners = new LinkedHashSet<>();
+    public final LinkedHashSet<DialogInterface.OnCancelListener> onCancelListeners = new LinkedHashSet<>();
+    public final LinkedHashSet<DialogInterface.OnDismissListener> onDismissListeners = new LinkedHashSet<>();
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public @interface InputMode {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder<S> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public CalendarConstraints calendarConstraints;
         public final DateSelector<S> dateSelector;
-        public int inputMode;
-        public int overrideThemeResId;
+        public int overrideThemeResId = 0;
+        public int titleTextResId = 0;
+        public CharSequence titleText = null;
         @Nullable
-        public S selection;
-        public CharSequence titleText;
-        public int titleTextResId;
+        public S selection = null;
+        public int inputMode = 0;
 
         public Builder(DateSelector<S> dateSelector) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dateSelector};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.overrideThemeResId = 0;
-            this.titleTextResId = 0;
-            this.titleText = null;
-            this.selection = null;
-            this.inputMode = 0;
             this.dateSelector = dateSelector;
         }
 
         @NonNull
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
         public static <S> Builder<S> customDatePicker(@NonNull DateSelector<S> dateSelector) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, dateSelector)) == null) {
-                return new Builder<>(dateSelector);
-            }
-            return (Builder) invokeL.objValue;
+            return new Builder<>(dateSelector);
         }
 
         @NonNull
         public Builder<S> setCalendarConstraints(CalendarConstraints calendarConstraints) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, calendarConstraints)) == null) {
-                this.calendarConstraints = calendarConstraints;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.calendarConstraints = calendarConstraints;
+            return this;
         }
 
         @NonNull
         public Builder<S> setInputMode(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                this.inputMode = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
+            this.inputMode = i;
+            return this;
         }
 
         @NonNull
         public Builder<S> setSelection(S s) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, s)) == null) {
-                this.selection = s;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.selection = s;
+            return this;
         }
 
         @NonNull
         public Builder<S> setTheme(@StyleRes int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                this.overrideThemeResId = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
+            this.overrideThemeResId = i;
+            return this;
         }
 
         @NonNull
         public Builder<S> setTitleText(@StringRes int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-                this.titleTextResId = i;
-                this.titleText = null;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
+            this.titleTextResId = i;
+            this.titleText = null;
+            return this;
         }
 
         @NonNull
         public static Builder<Long> datePicker() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                return new Builder<>(new SingleDateSelector());
-            }
-            return (Builder) invokeV.objValue;
+            return new Builder<>(new SingleDateSelector());
         }
 
         @NonNull
         public static Builder<Pair<Long, Long>> dateRangePicker() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return new Builder<>(new RangeDateSelector());
-            }
-            return (Builder) invokeV.objValue;
+            return new Builder<>(new RangeDateSelector());
         }
 
         @NonNull
         public MaterialDatePicker<S> build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.calendarConstraints == null) {
-                    this.calendarConstraints = new CalendarConstraints.Builder().build();
-                }
-                if (this.titleTextResId == 0) {
-                    this.titleTextResId = this.dateSelector.getDefaultTitleResId();
-                }
-                S s = this.selection;
-                if (s != null) {
-                    this.dateSelector.setSelection(s);
-                }
-                return MaterialDatePicker.newInstance(this);
+            if (this.calendarConstraints == null) {
+                this.calendarConstraints = new CalendarConstraints.Builder().build();
             }
-            return (MaterialDatePicker) invokeV.objValue;
+            if (this.titleTextResId == 0) {
+                this.titleTextResId = this.dateSelector.getDefaultTitleResId();
+            }
+            S s = this.selection;
+            if (s != null) {
+                this.dateSelector.setSelection(s);
+            }
+            return MaterialDatePicker.newInstance(this);
         }
 
         @NonNull
         public Builder<S> setTitleText(@Nullable CharSequence charSequence) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, charSequence)) == null) {
-                this.titleText = charSequence;
-                this.titleTextResId = 0;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.titleText = charSequence;
+            this.titleTextResId = 0;
+            return this;
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-328593071, "Lcom/google/android/material/datepicker/MaterialDatePicker;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-328593071, "Lcom/google/android/material/datepicker/MaterialDatePicker;");
-                return;
-            }
-        }
-        CONFIRM_BUTTON_TAG = "CONFIRM_BUTTON_TAG";
-        CANCEL_BUTTON_TAG = "CANCEL_BUTTON_TAG";
-        TOGGLE_BUTTON_TAG = "TOGGLE_BUTTON_TAG";
     }
 
     public static long thisMonthInUtcMilliseconds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
-            return Month.current().timeInMillis;
-        }
-        return invokeV.longValue;
+        return Month.current().timeInMillis;
     }
 
     public static long todayInUtcMilliseconds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
-            return UtcDates.getTodayCalendar().getTimeInMillis();
-        }
-        return invokeV.longValue;
+        return UtcDates.getTodayCalendar().getTimeInMillis();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateHeader() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65556, this) == null) {
-            String headerText = getHeaderText();
-            this.headerSelectionText.setContentDescription(String.format(getString(R.string.obfuscated_res_0x7f0f0bbc), headerText));
-            this.headerSelectionText.setText(headerText);
-        }
+        String headerText = getHeaderText();
+        this.headerSelectionText.setContentDescription(String.format(getString(R.string.obfuscated_res_0x7f0f0bc5), headerText));
+        this.headerSelectionText.setText(headerText);
     }
 
     public void clearOnCancelListeners() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.onCancelListeners.clear();
-        }
+        this.onCancelListeners.clear();
     }
 
     public void clearOnDismissListeners() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.onDismissListeners.clear();
-        }
+        this.onDismissListeners.clear();
     }
 
     public void clearOnNegativeButtonClickListeners() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.onNegativeButtonClickListeners.clear();
-        }
+        this.onNegativeButtonClickListeners.clear();
     }
 
     public void clearOnPositiveButtonClickListeners() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.onPositiveButtonClickListeners.clear();
-        }
+        this.onPositiveButtonClickListeners.clear();
     }
 
     public String getHeaderText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.dateSelector.getSelectionDisplayString(getContext());
-        }
-        return (String) invokeV.objValue;
+        return this.dateSelector.getSelectionDisplayString(getContext());
     }
 
     @Nullable
     public final S getSelection() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.dateSelector.getSelection();
-        }
-        return (S) invokeV.objValue;
+        return this.dateSelector.getSelection();
     }
 
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
     public void onStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.pickerFragment.clearOnSelectionChangedListeners();
-            super.onStop();
-        }
-    }
-
-    public MaterialDatePicker() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.onPositiveButtonClickListeners = new LinkedHashSet<>();
-        this.onNegativeButtonClickListeners = new LinkedHashSet<>();
-        this.onCancelListeners = new LinkedHashSet<>();
-        this.onDismissListeners = new LinkedHashSet<>();
-    }
-
-    private int getThemeResId(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, context)) == null) {
-            int i = this.overrideThemeResId;
-            if (i != 0) {
-                return i;
-            }
-            return this.dateSelector.getDefaultThemeResId(context);
-        }
-        return invokeL.intValue;
-    }
-
-    public boolean addOnCancelListener(DialogInterface.OnCancelListener onCancelListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onCancelListener)) == null) {
-            return this.onCancelListeners.add(onCancelListener);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean addOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onDismissListener)) == null) {
-            return this.onDismissListeners.add(onDismissListener);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean addOnNegativeButtonClickListener(View.OnClickListener onClickListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener)) == null) {
-            return this.onNegativeButtonClickListeners.add(onClickListener);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean addOnPositiveButtonClickListener(MaterialPickerOnPositiveButtonClickListener<? super S> materialPickerOnPositiveButtonClickListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, materialPickerOnPositiveButtonClickListener)) == null) {
-            return this.onPositiveButtonClickListeners.add(materialPickerOnPositiveButtonClickListener);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // androidx.fragment.app.DialogFragment, android.content.DialogInterface.OnCancelListener
-    public final void onCancel(@NonNull DialogInterface dialogInterface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, dialogInterface) == null) {
-            Iterator<DialogInterface.OnCancelListener> it = this.onCancelListeners.iterator();
-            while (it.hasNext()) {
-                it.next().onCancel(dialogInterface);
-            }
-            super.onCancel(dialogInterface);
-        }
-    }
-
-    public boolean removeOnCancelListener(DialogInterface.OnCancelListener onCancelListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, onCancelListener)) == null) {
-            return this.onCancelListeners.remove(onCancelListener);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean removeOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, onDismissListener)) == null) {
-            return this.onDismissListeners.remove(onDismissListener);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean removeOnNegativeButtonClickListener(View.OnClickListener onClickListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, onClickListener)) == null) {
-            return this.onNegativeButtonClickListeners.remove(onClickListener);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean removeOnPositiveButtonClickListener(MaterialPickerOnPositiveButtonClickListener<? super S> materialPickerOnPositiveButtonClickListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, materialPickerOnPositiveButtonClickListener)) == null) {
-            return this.onPositiveButtonClickListeners.remove(materialPickerOnPositiveButtonClickListener);
-        }
-        return invokeL.booleanValue;
+        this.pickerFragment.clearOnSelectionChangedListeners();
+        super.onStop();
     }
 
     @NonNull
     public static Drawable createHeaderToggleDrawable(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            StateListDrawable stateListDrawable = new StateListDrawable();
-            stateListDrawable.addState(new int[]{16842912}, AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080dc1));
-            stateListDrawable.addState(new int[0], AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080dc3));
-            return stateListDrawable;
-        }
-        return (Drawable) invokeL.objValue;
+        StateListDrawable stateListDrawable = new StateListDrawable();
+        stateListDrawable.addState(new int[]{16842912}, AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080dc4));
+        stateListDrawable.addState(new int[0], AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080dc6));
+        return stateListDrawable;
     }
 
     public static int getPaddedPickerWidth(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
-            Resources resources = context.getResources();
-            int dimensionPixelOffset = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07045d);
-            int i = Month.current().daysInWeek;
-            return (dimensionPixelOffset * 2) + (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070463) * i) + ((i - 1) * resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070471));
+        Resources resources = context.getResources();
+        int dimensionPixelOffset = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07045d);
+        int i = Month.current().daysInWeek;
+        return (dimensionPixelOffset * 2) + (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070463) * i) + ((i - 1) * resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070471));
+    }
+
+    private int getThemeResId(Context context) {
+        int i = this.overrideThemeResId;
+        if (i != 0) {
+            return i;
         }
-        return invokeL.intValue;
+        return this.dateSelector.getDefaultThemeResId(context);
     }
 
     private void initHeaderToggle(Context context) {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, this, context) == null) {
-            this.headerToggleButton.setTag(TOGGLE_BUTTON_TAG);
-            this.headerToggleButton.setImageDrawable(createHeaderToggleDrawable(context));
-            CheckableImageButton checkableImageButton = this.headerToggleButton;
-            if (this.inputMode != 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            checkableImageButton.setChecked(z);
-            ViewCompat.setAccessibilityDelegate(this.headerToggleButton, null);
-            updateToggleContentDescription(this.headerToggleButton);
-            this.headerToggleButton.setOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.datepicker.MaterialDatePicker.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MaterialDatePicker this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        this.this$0.confirmButton.setEnabled(this.this$0.dateSelector.isSelectionComplete());
-                        this.this$0.headerToggleButton.toggle();
-                        MaterialDatePicker materialDatePicker = this.this$0;
-                        materialDatePicker.updateToggleContentDescription(materialDatePicker.headerToggleButton);
-                        this.this$0.startPickerFragment();
-                    }
-                }
-            });
+        this.headerToggleButton.setTag(TOGGLE_BUTTON_TAG);
+        this.headerToggleButton.setImageDrawable(createHeaderToggleDrawable(context));
+        CheckableImageButton checkableImageButton = this.headerToggleButton;
+        if (this.inputMode != 0) {
+            z = true;
+        } else {
+            z = false;
         }
+        checkableImageButton.setChecked(z);
+        ViewCompat.setAccessibilityDelegate(this.headerToggleButton, null);
+        updateToggleContentDescription(this.headerToggleButton);
+        this.headerToggleButton.setOnClickListener(new View.OnClickListener() { // from class: com.google.android.material.datepicker.MaterialDatePicker.4
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                MaterialDatePicker.this.confirmButton.setEnabled(MaterialDatePicker.this.dateSelector.isSelectionComplete());
+                MaterialDatePicker.this.headerToggleButton.toggle();
+                MaterialDatePicker materialDatePicker = MaterialDatePicker.this;
+                materialDatePicker.updateToggleContentDescription(materialDatePicker.headerToggleButton);
+                MaterialDatePicker.this.startPickerFragment();
+            }
+        });
     }
 
     public static boolean isFullscreen(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(MaterialAttributes.resolveOrThrow(context, R.attr.obfuscated_res_0x7f0404b6, MaterialCalendar.class.getCanonicalName()), new int[]{16843277});
-            boolean z = obtainStyledAttributes.getBoolean(0, false);
-            obtainStyledAttributes.recycle();
-            return z;
-        }
-        return invokeL.booleanValue;
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(MaterialAttributes.resolveOrThrow(context, R.attr.obfuscated_res_0x7f0404b8, MaterialCalendar.class.getCanonicalName()), new int[]{16843277});
+        boolean z = obtainStyledAttributes.getBoolean(0, false);
+        obtainStyledAttributes.recycle();
+        return z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateToggleContentDescription(@NonNull CheckableImageButton checkableImageButton) {
         String string;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65557, this, checkableImageButton) == null) {
-            if (this.headerToggleButton.isChecked()) {
-                string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0bd5);
-            } else {
-                string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0bd7);
-            }
-            this.headerToggleButton.setContentDescription(string);
+        if (this.headerToggleButton.isChecked()) {
+            string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0bde);
+        } else {
+            string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0be0);
         }
+        this.headerToggleButton.setContentDescription(string);
+    }
+
+    public boolean addOnCancelListener(DialogInterface.OnCancelListener onCancelListener) {
+        return this.onCancelListeners.add(onCancelListener);
+    }
+
+    public boolean addOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
+        return this.onDismissListeners.add(onDismissListener);
+    }
+
+    public boolean addOnNegativeButtonClickListener(View.OnClickListener onClickListener) {
+        return this.onNegativeButtonClickListeners.add(onClickListener);
+    }
+
+    public boolean addOnPositiveButtonClickListener(MaterialPickerOnPositiveButtonClickListener<? super S> materialPickerOnPositiveButtonClickListener) {
+        return this.onPositiveButtonClickListeners.add(materialPickerOnPositiveButtonClickListener);
+    }
+
+    @Override // androidx.fragment.app.DialogFragment, android.content.DialogInterface.OnCancelListener
+    public final void onCancel(@NonNull DialogInterface dialogInterface) {
+        Iterator<DialogInterface.OnCancelListener> it = this.onCancelListeners.iterator();
+        while (it.hasNext()) {
+            it.next().onCancel(dialogInterface);
+        }
+        super.onCancel(dialogInterface);
     }
 
     @Override // androidx.fragment.app.DialogFragment, android.content.DialogInterface.OnDismissListener
     public final void onDismiss(@NonNull DialogInterface dialogInterface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, dialogInterface) == null) {
-            Iterator<DialogInterface.OnDismissListener> it = this.onDismissListeners.iterator();
-            while (it.hasNext()) {
-                it.next().onDismiss(dialogInterface);
-            }
-            ViewGroup viewGroup = (ViewGroup) getView();
-            if (viewGroup != null) {
-                viewGroup.removeAllViews();
-            }
-            super.onDismiss(dialogInterface);
+        Iterator<DialogInterface.OnDismissListener> it = this.onDismissListeners.iterator();
+        while (it.hasNext()) {
+            it.next().onDismiss(dialogInterface);
         }
+        ViewGroup viewGroup = (ViewGroup) getView();
+        if (viewGroup != null) {
+            viewGroup.removeAllViews();
+        }
+        super.onDismiss(dialogInterface);
+    }
+
+    public boolean removeOnCancelListener(DialogInterface.OnCancelListener onCancelListener) {
+        return this.onCancelListeners.remove(onCancelListener);
+    }
+
+    public boolean removeOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
+        return this.onDismissListeners.remove(onDismissListener);
+    }
+
+    public boolean removeOnNegativeButtonClickListener(View.OnClickListener onClickListener) {
+        return this.onNegativeButtonClickListeners.remove(onClickListener);
+    }
+
+    public boolean removeOnPositiveButtonClickListener(MaterialPickerOnPositiveButtonClickListener<? super S> materialPickerOnPositiveButtonClickListener) {
+        return this.onPositiveButtonClickListeners.remove(materialPickerOnPositiveButtonClickListener);
     }
 
     public static int getDialogPickerHeight(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            Resources resources = context.getResources();
-            return resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070474) + resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070475) + resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070473) + resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070464) + (MonthAdapter.MAXIMUM_WEEKS * resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07045f)) + ((MonthAdapter.MAXIMUM_WEEKS - 1) * resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070472)) + resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07045c);
-        }
-        return invokeL.intValue;
+        Resources resources = context.getResources();
+        return resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070474) + resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070475) + resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070473) + resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070464) + (MonthAdapter.MAXIMUM_WEEKS * resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07045f)) + ((MonthAdapter.MAXIMUM_WEEKS - 1) * resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070472)) + resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07045c);
     }
 
     @NonNull
     public static <S> MaterialDatePicker<S> newInstance(@NonNull Builder<S> builder) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, builder)) == null) {
-            MaterialDatePicker<S> materialDatePicker = new MaterialDatePicker<>();
-            Bundle bundle = new Bundle();
-            bundle.putInt(OVERRIDE_THEME_RES_ID, builder.overrideThemeResId);
-            bundle.putParcelable("DATE_SELECTOR_KEY", builder.dateSelector);
-            bundle.putParcelable("CALENDAR_CONSTRAINTS_KEY", builder.calendarConstraints);
-            bundle.putInt(TITLE_TEXT_RES_ID_KEY, builder.titleTextResId);
-            bundle.putCharSequence(TITLE_TEXT_KEY, builder.titleText);
-            bundle.putInt(INPUT_MODE_KEY, builder.inputMode);
-            materialDatePicker.setArguments(bundle);
-            return materialDatePicker;
-        }
-        return (MaterialDatePicker) invokeL.objValue;
+        MaterialDatePicker<S> materialDatePicker = new MaterialDatePicker<>();
+        Bundle bundle = new Bundle();
+        bundle.putInt(OVERRIDE_THEME_RES_ID, builder.overrideThemeResId);
+        bundle.putParcelable("DATE_SELECTOR_KEY", builder.dateSelector);
+        bundle.putParcelable("CALENDAR_CONSTRAINTS_KEY", builder.calendarConstraints);
+        bundle.putInt(TITLE_TEXT_RES_ID_KEY, builder.titleTextResId);
+        bundle.putCharSequence(TITLE_TEXT_KEY, builder.titleText);
+        bundle.putInt(INPUT_MODE_KEY, builder.inputMode);
+        materialDatePicker.setArguments(bundle);
+        return materialDatePicker;
     }
 
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
     public final void onCreate(@Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
-            super.onCreate(bundle);
-            if (bundle == null) {
-                bundle = getArguments();
-            }
-            this.overrideThemeResId = bundle.getInt(OVERRIDE_THEME_RES_ID);
-            this.dateSelector = (DateSelector) bundle.getParcelable("DATE_SELECTOR_KEY");
-            this.calendarConstraints = (CalendarConstraints) bundle.getParcelable("CALENDAR_CONSTRAINTS_KEY");
-            this.titleTextResId = bundle.getInt(TITLE_TEXT_RES_ID_KEY);
-            this.titleText = bundle.getCharSequence(TITLE_TEXT_KEY);
-            this.inputMode = bundle.getInt(INPUT_MODE_KEY);
+        super.onCreate(bundle);
+        if (bundle == null) {
+            bundle = getArguments();
         }
+        this.overrideThemeResId = bundle.getInt(OVERRIDE_THEME_RES_ID);
+        this.dateSelector = (DateSelector) bundle.getParcelable("DATE_SELECTOR_KEY");
+        this.calendarConstraints = (CalendarConstraints) bundle.getParcelable("CALENDAR_CONSTRAINTS_KEY");
+        this.titleTextResId = bundle.getInt(TITLE_TEXT_RES_ID_KEY);
+        this.titleText = bundle.getCharSequence(TITLE_TEXT_KEY);
+        this.inputMode = bundle.getInt(INPUT_MODE_KEY);
     }
 
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
     public final void onSaveInstanceState(@NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) {
-            super.onSaveInstanceState(bundle);
-            bundle.putInt(OVERRIDE_THEME_RES_ID, this.overrideThemeResId);
-            bundle.putParcelable("DATE_SELECTOR_KEY", this.dateSelector);
-            CalendarConstraints.Builder builder = new CalendarConstraints.Builder(this.calendarConstraints);
-            if (this.calendar.getCurrentMonth() != null) {
-                builder.setOpenAt(this.calendar.getCurrentMonth().timeInMillis);
-            }
-            bundle.putParcelable("CALENDAR_CONSTRAINTS_KEY", builder.build());
-            bundle.putInt(TITLE_TEXT_RES_ID_KEY, this.titleTextResId);
-            bundle.putCharSequence(TITLE_TEXT_KEY, this.titleText);
+        super.onSaveInstanceState(bundle);
+        bundle.putInt(OVERRIDE_THEME_RES_ID, this.overrideThemeResId);
+        bundle.putParcelable("DATE_SELECTOR_KEY", this.dateSelector);
+        CalendarConstraints.Builder builder = new CalendarConstraints.Builder(this.calendarConstraints);
+        if (this.calendar.getCurrentMonth() != null) {
+            builder.setOpenAt(this.calendar.getCurrentMonth().timeInMillis);
         }
+        bundle.putParcelable("CALENDAR_CONSTRAINTS_KEY", builder.build());
+        bundle.putInt(TITLE_TEXT_RES_ID_KEY, this.titleTextResId);
+        bundle.putCharSequence(TITLE_TEXT_KEY, this.titleText);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startPickerFragment() {
         PickerFragment<S> pickerFragment;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            this.calendar = MaterialCalendar.newInstance(this.dateSelector, getThemeResId(requireContext()), this.calendarConstraints);
-            if (this.headerToggleButton.isChecked()) {
-                pickerFragment = MaterialTextInputPicker.newInstance(this.dateSelector, this.calendarConstraints);
-            } else {
-                pickerFragment = this.calendar;
-            }
-            this.pickerFragment = pickerFragment;
-            updateHeader();
-            FragmentTransaction beginTransaction = getChildFragmentManager().beginTransaction();
-            beginTransaction.replace(R.id.obfuscated_res_0x7f091692, this.pickerFragment);
-            beginTransaction.commitNow();
-            this.pickerFragment.addOnSelectionChangedListener(new OnSelectionChangedListener<S>(this) { // from class: com.google.android.material.datepicker.MaterialDatePicker.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MaterialDatePicker this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.google.android.material.datepicker.OnSelectionChangedListener
-                public void onSelectionChanged(S s) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null && interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, s) != null) {
-                        return;
-                    }
-                    this.this$0.updateHeader();
-                    this.this$0.confirmButton.setEnabled(this.this$0.dateSelector.isSelectionComplete());
-                }
-
-                @Override // com.google.android.material.datepicker.OnSelectionChangedListener
-                public void onIncompleteSelectionChanged() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.confirmButton.setEnabled(false);
-                    }
-                }
-            });
+        this.calendar = MaterialCalendar.newInstance(this.dateSelector, getThemeResId(requireContext()), this.calendarConstraints);
+        if (this.headerToggleButton.isChecked()) {
+            pickerFragment = MaterialTextInputPicker.newInstance(this.dateSelector, this.calendarConstraints);
+        } else {
+            pickerFragment = this.calendar;
         }
+        this.pickerFragment = pickerFragment;
+        updateHeader();
+        FragmentTransaction beginTransaction = getChildFragmentManager().beginTransaction();
+        beginTransaction.replace(R.id.obfuscated_res_0x7f0916d3, this.pickerFragment);
+        beginTransaction.commitNow();
+        this.pickerFragment.addOnSelectionChangedListener(new OnSelectionChangedListener<S>() { // from class: com.google.android.material.datepicker.MaterialDatePicker.3
+            @Override // com.google.android.material.datepicker.OnSelectionChangedListener
+            public void onSelectionChanged(S s) {
+                MaterialDatePicker.this.updateHeader();
+                MaterialDatePicker.this.confirmButton.setEnabled(MaterialDatePicker.this.dateSelector.isSelectionComplete());
+            }
+
+            @Override // com.google.android.material.datepicker.OnSelectionChangedListener
+            public void onIncompleteSelectionChanged() {
+                MaterialDatePicker.this.confirmButton.setEnabled(false);
+            }
+        });
     }
 
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
     public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            super.onStart();
-            Window window = requireDialog().getWindow();
-            if (this.fullscreen) {
-                window.setLayout(-1, -1);
-                window.setBackgroundDrawable(this.background);
-            } else {
-                window.setLayout(-2, -2);
-                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070465);
-                Rect rect = new Rect(dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset);
-                window.setBackgroundDrawable(new InsetDrawable((Drawable) this.background, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset));
-                window.getDecorView().setOnTouchListener(new InsetDialogOnTouchListener(requireDialog(), rect));
-            }
-            startPickerFragment();
+        super.onStart();
+        Window window = requireDialog().getWindow();
+        if (this.fullscreen) {
+            window.setLayout(-1, -1);
+            window.setBackgroundDrawable(this.background);
+        } else {
+            window.setLayout(-2, -2);
+            int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070465);
+            Rect rect = new Rect(dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset);
+            window.setBackgroundDrawable(new InsetDrawable((Drawable) this.background, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset));
+            window.getDecorView().setOnTouchListener(new InsetDialogOnTouchListener(requireDialog(), rect));
         }
+        startPickerFragment();
     }
 
     @Override // androidx.fragment.app.DialogFragment
     @NonNull
     public final Dialog onCreateDialog(@Nullable Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, bundle)) == null) {
-            Dialog dialog = new Dialog(requireContext(), getThemeResId(requireContext()));
-            Context context = dialog.getContext();
-            this.fullscreen = isFullscreen(context);
-            int resolveOrThrow = MaterialAttributes.resolveOrThrow(context, R.attr.obfuscated_res_0x7f04017e, MaterialDatePicker.class.getCanonicalName());
-            MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context, null, R.attr.obfuscated_res_0x7f0404b6, R.style.obfuscated_res_0x7f10036b);
-            this.background = materialShapeDrawable;
-            materialShapeDrawable.initializeElevationOverlay(context);
-            this.background.setFillColor(ColorStateList.valueOf(resolveOrThrow));
-            this.background.setElevation(ViewCompat.getElevation(dialog.getWindow().getDecorView()));
-            return dialog;
-        }
-        return (Dialog) invokeL.objValue;
+        Dialog dialog = new Dialog(requireContext(), getThemeResId(requireContext()));
+        Context context = dialog.getContext();
+        this.fullscreen = isFullscreen(context);
+        int resolveOrThrow = MaterialAttributes.resolveOrThrow(context, R.attr.obfuscated_res_0x7f040180, MaterialDatePicker.class.getCanonicalName());
+        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context, null, R.attr.obfuscated_res_0x7f0404b8, R.style.obfuscated_res_0x7f10036d);
+        this.background = materialShapeDrawable;
+        materialShapeDrawable.initializeElevationOverlay(context);
+        this.background.setFillColor(ColorStateList.valueOf(resolveOrThrow));
+        this.background.setElevation(ViewCompat.getElevation(dialog.getWindow().getDecorView()));
+        return dialog;
     }
 
     @Override // androidx.fragment.app.Fragment
     @NonNull
     public final View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        InterceptResult invokeLLL;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, layoutInflater, viewGroup, bundle)) == null) {
-            if (this.fullscreen) {
-                i = R.layout.obfuscated_res_0x7f0d05df;
-            } else {
-                i = R.layout.obfuscated_res_0x7f0d05de;
-            }
-            View inflate = layoutInflater.inflate(i, viewGroup);
-            Context context = inflate.getContext();
-            if (this.fullscreen) {
-                inflate.findViewById(R.id.obfuscated_res_0x7f091692).setLayoutParams(new LinearLayout.LayoutParams(getPaddedPickerWidth(context), -2));
-            } else {
-                View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091693);
-                View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f091692);
-                findViewById.setLayoutParams(new LinearLayout.LayoutParams(getPaddedPickerWidth(context), -1));
-                findViewById2.setMinimumHeight(getDialogPickerHeight(requireContext()));
-            }
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09169e);
-            this.headerSelectionText = textView;
-            ViewCompat.setAccessibilityLiveRegion(textView, 1);
-            this.headerToggleButton = (CheckableImageButton) inflate.findViewById(R.id.obfuscated_res_0x7f0916a0);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916a4);
-            CharSequence charSequence = this.titleText;
-            if (charSequence != null) {
-                textView2.setText(charSequence);
-            } else {
-                textView2.setText(this.titleTextResId);
-            }
-            initHeaderToggle(context);
-            this.confirmButton = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f09070b);
-            if (this.dateSelector.isSelectionComplete()) {
-                this.confirmButton.setEnabled(true);
-            } else {
-                this.confirmButton.setEnabled(false);
-            }
-            this.confirmButton.setTag(CONFIRM_BUTTON_TAG);
-            this.confirmButton.setOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.datepicker.MaterialDatePicker.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MaterialDatePicker this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener */
-                /* JADX WARN: Multi-variable type inference failed */
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        Iterator it = this.this$0.onPositiveButtonClickListeners.iterator();
-                        while (it.hasNext()) {
-                            ((MaterialPickerOnPositiveButtonClickListener) it.next()).onPositiveButtonClick(this.this$0.getSelection());
-                        }
-                        this.this$0.dismiss();
-                    }
-                }
-            });
-            Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f0904ba);
-            button.setTag(CANCEL_BUTTON_TAG);
-            button.setOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.datepicker.MaterialDatePicker.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MaterialDatePicker this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        Iterator it = this.this$0.onNegativeButtonClickListeners.iterator();
-                        while (it.hasNext()) {
-                            ((View.OnClickListener) it.next()).onClick(view2);
-                        }
-                        this.this$0.dismiss();
-                    }
-                }
-            });
-            return inflate;
+        if (this.fullscreen) {
+            i = R.layout.obfuscated_res_0x7f0d05f3;
+        } else {
+            i = R.layout.obfuscated_res_0x7f0d05f2;
         }
-        return (View) invokeLLL.objValue;
+        View inflate = layoutInflater.inflate(i, viewGroup);
+        Context context = inflate.getContext();
+        if (this.fullscreen) {
+            inflate.findViewById(R.id.obfuscated_res_0x7f0916d3).setLayoutParams(new LinearLayout.LayoutParams(getPaddedPickerWidth(context), -2));
+        } else {
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0916d4);
+            View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f0916d3);
+            findViewById.setLayoutParams(new LinearLayout.LayoutParams(getPaddedPickerWidth(context), -1));
+            findViewById2.setMinimumHeight(getDialogPickerHeight(requireContext()));
+        }
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916df);
+        this.headerSelectionText = textView;
+        ViewCompat.setAccessibilityLiveRegion(textView, 1);
+        this.headerToggleButton = (CheckableImageButton) inflate.findViewById(R.id.obfuscated_res_0x7f0916e1);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916e5);
+        CharSequence charSequence = this.titleText;
+        if (charSequence != null) {
+            textView2.setText(charSequence);
+        } else {
+            textView2.setText(this.titleTextResId);
+        }
+        initHeaderToggle(context);
+        this.confirmButton = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090748);
+        if (this.dateSelector.isSelectionComplete()) {
+            this.confirmButton.setEnabled(true);
+        } else {
+            this.confirmButton.setEnabled(false);
+        }
+        this.confirmButton.setTag(CONFIRM_BUTTON_TAG);
+        this.confirmButton.setOnClickListener(new View.OnClickListener() { // from class: com.google.android.material.datepicker.MaterialDatePicker.1
+            /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener */
+            /* JADX WARN: Multi-variable type inference failed */
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Iterator it = MaterialDatePicker.this.onPositiveButtonClickListeners.iterator();
+                while (it.hasNext()) {
+                    ((MaterialPickerOnPositiveButtonClickListener) it.next()).onPositiveButtonClick(MaterialDatePicker.this.getSelection());
+                }
+                MaterialDatePicker.this.dismiss();
+            }
+        });
+        Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f0904f8);
+        button.setTag(CANCEL_BUTTON_TAG);
+        button.setOnClickListener(new View.OnClickListener() { // from class: com.google.android.material.datepicker.MaterialDatePicker.2
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Iterator it = MaterialDatePicker.this.onNegativeButtonClickListeners.iterator();
+                while (it.hasNext()) {
+                    ((View.OnClickListener) it.next()).onClick(view2);
+                }
+                MaterialDatePicker.this.dismiss();
+            }
+        });
+        return inflate;
     }
 }

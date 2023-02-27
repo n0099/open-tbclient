@@ -1,169 +1,361 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.uh6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import com.baidu.ugc.utils.FileUtils;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class vh6 {
+public class vh6 implements uh6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public float b;
-    public boolean c;
-    public float d;
-    public long e;
+    public List<String> a;
+    public b b;
+    public uh6.a c;
+    public TbPageContext d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948240837, "Lcom/baidu/tieba/vh6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948240837, "Lcom/baidu/tieba/vh6;");
-                return;
-            }
-        }
-        f = new a(null);
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes6.dex */
-    public static final class a {
+    public class b extends BdAsyncTask<List<String>, Void, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public List<String> a;
+        public c0a b;
+        public final /* synthetic */ vh6 c;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+        /* loaded from: classes6.dex */
+        public class a implements c0a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.baidu.tieba.c0a
+            public void a() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                }
+            }
+
+            @Override // com.baidu.tieba.c0a
+            public void b(long j) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                }
+            }
+
+            @Override // com.baidu.tieba.c0a
+            public void c(int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                }
+            }
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
         }
 
-        public a() {
+        public b(vh6 vh6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vh6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = vh6Var;
+            this.b = new a(this);
+        }
+
+        public /* synthetic */ b(vh6 vh6Var, a aVar) {
+            this(vh6Var);
+        }
+
+        /* JADX WARN: Code restructure failed: missing block: B:48:0x010d, code lost:
+            if (com.baidu.tieba.y1a.h(r6, r7[0], r1, r5.b) != false) goto L18;
+         */
+        /* JADX WARN: Removed duplicated region for block: B:40:0x00bf  */
+        /* JADX WARN: Removed duplicated region for block: B:54:0x011d A[LOOP:0: B:52:0x0117->B:54:0x011d, LOOP_END] */
+        /* JADX WARN: Removed duplicated region for block: B:56:0x012f A[RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:57:0x0130 A[RETURN] */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public final String b(StringBuilder sb, List<String>[] listArr) {
+            InterceptResult invokeLL;
+            List<String> list;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sb, listArr)) == null) {
+                if (listArr[0] != null && listArr[0].size() != 0) {
+                    String str = he9.f + "rec_tmp_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION;
+                    if (!StringUtils.isNull(str)) {
+                        File file = new File(str);
+                        if (!file.getParentFile().exists()) {
+                            file.getParentFile().mkdirs();
+                        }
+                    }
+                    boolean z2 = true;
+                    try {
+                        if (listArr[0].size() == 1) {
+                            try {
+                                z = rd9.b(listArr[0].get(0), str, this.b);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                                if (sb != null) {
+                                    sb.append(e.toString());
+                                }
+                                if (FileHelper.CheckFile(listArr[0].get(0))) {
+                                    list = listArr[0];
+                                }
+                                z = false;
+                                if (!z) {
+                                }
+                                while (r6.hasNext()) {
+                                }
+                                if (z2) {
+                                }
+                            } catch (Exception e2) {
+                                if (sb != null) {
+                                    sb.append(e2.toString());
+                                }
+                                if (FileHelper.CheckFile(listArr[0].get(0))) {
+                                    list = listArr[0];
+                                }
+                                z = false;
+                                if (!z) {
+                                }
+                                while (r6.hasNext()) {
+                                }
+                                if (z2) {
+                                }
+                            }
+                            if (!z && FileHelper.CheckFile(listArr[0].get(0))) {
+                                list = listArr[0];
+                                str = list.get(0);
+                                z = true;
+                            }
+                            if (!z) {
+                                boolean isExists = FileUtils.isExists(listArr[0].get(0));
+                                if (sb != null) {
+                                    sb.append(" 源文件存在 ： ");
+                                    sb.append(isExists);
+                                    sb.append(" , 拍摄视频页不需要拼接时复制失败 from ");
+                                    sb.append(listArr[0].get(0));
+                                    sb.append("to ");
+                                    sb.append(str);
+                                }
+                                z2 = false;
+                            }
+                            for (String str2 : listArr[0]) {
+                                this.c.a.add(str2);
+                            }
+                            if (z2) {
+                                return str;
+                            }
+                            return "";
+                        }
+                    } catch (Throwable th) {
+                        if (FileHelper.CheckFile(listArr[0].get(0))) {
+                            listArr[0].get(0);
+                        }
+                        throw th;
+                    }
+                } else if (sb != null) {
+                    sb.append("拍摄视频页需要拼接文件列表为空");
+                    return null;
+                } else {
+                    return null;
+                }
+            } else {
+                return (String) invokeLL.objValue;
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                cancel(true);
+                if (this.c.c != null) {
+                    this.c.c.a();
                 }
             }
         }
 
-        public final long b() {
-            InterceptResult invokeV;
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onCancelled() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return System.nanoTime();
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                super.onCancelled();
             }
-            return invokeV.longValue;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreExecute() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                if (this.c.c != null) {
+                    this.c.c.b();
+                }
+                super.onPreExecute();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public String doInBackground(List<String>... listArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, listArr)) == null) {
+                if (ListUtils.isEmpty(listArr[0])) {
+                    return "";
+                }
+                if (this.a == null) {
+                    this.a = new ArrayList();
+                }
+                this.a.clear();
+                this.a.addAll(listArr[0]);
+                Iterator<String> it = this.a.iterator();
+                while (it.hasNext()) {
+                    if (b0a.a(it.next()) <= 0) {
+                        return "";
+                    }
+                }
+                return b(new StringBuilder(), listArr);
+            }
+            return (String) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+                super.onPostExecute((b) str);
+                c0a c0aVar = this.b;
+                if (c0aVar != null) {
+                    c0aVar.a();
+                }
+                if (this.c.c != null) {
+                    this.c.c.c(str);
+                }
+            }
         }
     }
 
-    public vh6() {
+    public vh6(TbPageContext tbPageContext, uh6.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 1.0f;
-        this.c = true;
+        this.a = new ArrayList();
+        this.d = tbPageContext;
+        this.c = aVar;
     }
 
-    public final long a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.uh6
+    public void a() {
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e / 1000000;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.b) != null) {
+            bVar.cancel();
         }
-        return invokeV.longValue;
     }
 
-    public final float b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.uh6
+    public boolean b(List<String> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static /* synthetic */ void f(vh6 vh6Var, long j, float f2, int i, Object obj) {
-        if ((i & 1) != 0) {
-            j = vh6Var.a();
-        }
-        if ((i & 2) != 0) {
-            f2 = vh6Var.b;
-        }
-        vh6Var.e(j, f2);
-    }
-
-    public final void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public final void e(long j, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Float.valueOf(f2)}) == null) {
-            this.c = false;
-            this.e = j * 1000000;
-            this.b = f2;
-            this.a = f.b();
-        }
-    }
-
-    public final void g(Float f2) {
-        Long valueOf;
-        long longValue;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, f2) == null) {
-            long b = f.b();
-            if (this.c) {
-                longValue = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return false;
+            }
+            if (FileHelper.getAvailableSize() < 52428800) {
+                BdToast.b(this.d.getPageActivity(), this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0b38)).k();
+                return false;
+            }
+            b bVar = this.b;
+            if (bVar != null) {
+                bVar.cancel();
+            }
+            if (e(list)) {
+                b bVar2 = new b(this, null);
+                this.b = bVar2;
+                bVar2.execute(list);
             } else {
-                if (f2 == null) {
-                    valueOf = null;
-                } else {
-                    valueOf = Long.valueOf(f2.floatValue() * 1000000000);
-                }
-                if (valueOf == null) {
-                    longValue = b - this.a;
-                } else {
-                    longValue = valueOf.longValue();
+                BdToast.b(this.d.getPageActivity(), this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0b39)).k();
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean e(List<String> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
+            float f = 0.0f;
+            for (int i = 0; i < list.size(); i++) {
+                String str = list.get(i);
+                if (!TextUtils.isEmpty(str)) {
+                    f += o1a.f(str);
                 }
             }
-            long j = ((float) longValue) * this.b;
-            this.e += j;
-            this.d = ((float) j) / 1.0E9f;
-            this.a = b;
+            if (f < 3000.0f) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

@@ -4,14 +4,7 @@ import android.content.Context;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.ad.e.a.e;
 import com.kwad.components.ad.e.a.f;
 import com.kwad.components.ad.e.a.g;
@@ -29,8 +22,6 @@ import com.kwad.sdk.widget.KSFrameLayout;
 import com.kwad.sdk.widget.j;
 /* loaded from: classes8.dex */
 public final class d extends KSFrameLayout {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public com.kwad.components.core.widget.kwai.b aM;
     public j bx;
     public KsNativeAd.VideoPlayListener jA;
@@ -44,171 +35,102 @@ public final class d extends KSFrameLayout {
     public DetailVideoView mDetailVideoView;
     public Presenter mPresenter;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(@NonNull Context context) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.bx = new j(this) { // from class: com.kwad.components.ad.e.d.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d jO;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.jO = this;
-            }
-
+        this.bx = new j() { // from class: com.kwad.components.ad.e.d.1
             @Override // com.kwad.sdk.widget.j
             public final void av() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    k.cj(this.jO.mAdTemplate);
-                }
+                k.cj(d.this.mAdTemplate);
             }
         };
         initView();
     }
 
     private Presenter ap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            Presenter presenter = new Presenter();
-            presenter.a(new e());
-            presenter.a(new com.kwad.components.ad.e.a.c());
-            presenter.a(new i());
-            presenter.a(new com.kwad.components.ad.e.a.j());
-            presenter.a(new com.kwad.components.ad.e.a.d());
-            presenter.a(new com.kwad.components.ad.e.a.b());
-            presenter.a(new com.kwad.components.ad.e.a.k());
-            presenter.a(new com.kwad.components.ad.e.a.a(this.jN));
-            presenter.a(new g());
-            presenter.a(com.kwad.sdk.core.response.a.a.am(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate)) ? new f() : new h());
-            return presenter;
-        }
-        return (Presenter) invokeV.objValue;
+        Presenter presenter = new Presenter();
+        presenter.a(new e());
+        presenter.a(new com.kwad.components.ad.e.a.c());
+        presenter.a(new i());
+        presenter.a(new com.kwad.components.ad.e.a.j());
+        presenter.a(new com.kwad.components.ad.e.a.d());
+        presenter.a(new com.kwad.components.ad.e.a.b());
+        presenter.a(new com.kwad.components.ad.e.a.k());
+        presenter.a(new com.kwad.components.ad.e.a.a(this.jN));
+        presenter.a(new g());
+        presenter.a(com.kwad.sdk.core.response.a.a.am(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate)) ? new f() : new h());
+        return presenter;
     }
 
     private com.kwad.components.ad.e.kwai.b eo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            com.kwad.components.ad.e.kwai.b bVar = new com.kwad.components.ad.e.kwai.b();
-            bVar.jK = this.jK;
-            AdTemplate adTemplate = this.mAdTemplate;
-            bVar.mAdTemplate = adTemplate;
-            bVar.jC = this.jC;
-            bVar.jA = this.jA;
-            bVar.mApkDownloadHelper = (this.mApkDownloadHelper == null && com.kwad.sdk.core.response.a.a.am(com.kwad.sdk.core.response.a.d.bQ(adTemplate))) ? new com.kwad.components.core.c.a.c(this.mAdTemplate) : this.mApkDownloadHelper;
-            bVar.jM = this.jM;
-            return bVar;
-        }
-        return (com.kwad.components.ad.e.kwai.b) invokeV.objValue;
+        com.kwad.components.ad.e.kwai.b bVar = new com.kwad.components.ad.e.kwai.b();
+        bVar.jK = this.jK;
+        AdTemplate adTemplate = this.mAdTemplate;
+        bVar.mAdTemplate = adTemplate;
+        bVar.jC = this.jC;
+        bVar.jA = this.jA;
+        bVar.mApkDownloadHelper = (this.mApkDownloadHelper == null && com.kwad.sdk.core.response.a.a.am(com.kwad.sdk.core.response.a.d.bQ(adTemplate))) ? new com.kwad.components.core.c.a.c(this.mAdTemplate) : this.mApkDownloadHelper;
+        bVar.jM = this.jM;
+        return bVar;
     }
 
     private void initView() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d045a, this);
-            AdBasePvFrameLayout adBasePvFrameLayout = (AdBasePvFrameLayout) findViewById(R.id.obfuscated_res_0x7f0912ca);
-            this.jK = adBasePvFrameLayout;
-            DetailVideoView detailVideoView = (DetailVideoView) adBasePvFrameLayout.findViewById(R.id.obfuscated_res_0x7f091320);
-            this.mDetailVideoView = detailVideoView;
-            detailVideoView.setAd(true);
-        }
+        View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d046a, this);
+        AdBasePvFrameLayout adBasePvFrameLayout = (AdBasePvFrameLayout) findViewById(R.id.obfuscated_res_0x7f09130b);
+        this.jK = adBasePvFrameLayout;
+        DetailVideoView detailVideoView = (DetailVideoView) adBasePvFrameLayout.findViewById(R.id.obfuscated_res_0x7f091361);
+        this.mDetailVideoView = detailVideoView;
+        detailVideoView.setAd(true);
     }
 
     public final void a(@NonNull AdTemplate adTemplate, @Nullable com.kwad.components.core.c.a.c cVar, @Nullable KsAdVideoPlayConfig ksAdVideoPlayConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, adTemplate, cVar, ksAdVideoPlayConfig) == null) {
-            this.mAdTemplate = adTemplate;
-            this.mApkDownloadHelper = cVar;
-            this.jN = ksAdVideoPlayConfig;
-            this.jK.setVisibleListener(this.bx);
-            this.aM = new com.kwad.components.core.widget.kwai.b(getParent() == null ? this : (View) getParent(), 30);
-        }
+        this.mAdTemplate = adTemplate;
+        this.mApkDownloadHelper = cVar;
+        this.jN = ksAdVideoPlayConfig;
+        this.jK.setVisibleListener(this.bx);
+        this.aM = new com.kwad.components.core.widget.kwai.b(getParent() == null ? this : (View) getParent(), 30);
     }
 
     @Override // com.kwad.sdk.widget.KSFrameLayout
     public final void am() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.am();
-            if (this.jM == null) {
-                this.jM = new com.kwad.components.ad.e.b.a(this.mAdTemplate, this.aM, this.mDetailVideoView, this.jN);
-            }
-            this.jL = eo();
-            Presenter ap = ap();
-            this.mPresenter = ap;
-            ap.B(this.jK);
-            this.mPresenter.e(this.jL);
-            this.aM.qi();
-            this.jM.aO();
+        super.am();
+        if (this.jM == null) {
+            this.jM = new com.kwad.components.ad.e.b.a(this.mAdTemplate, this.aM, this.mDetailVideoView, this.jN);
         }
+        this.jL = eo();
+        Presenter ap = ap();
+        this.mPresenter = ap;
+        ap.B(this.jK);
+        this.mPresenter.e(this.jL);
+        this.aM.qi();
+        this.jM.aO();
     }
 
     @Override // com.kwad.sdk.widget.KSFrameLayout
     public final void an() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.an();
-            com.kwad.components.core.widget.kwai.b bVar = this.aM;
-            if (bVar != null) {
-                bVar.release();
-            }
-            com.kwad.components.ad.e.b.a aVar = this.jM;
-            if (aVar != null) {
-                aVar.aP();
-            }
-            com.kwad.components.ad.e.kwai.b bVar2 = this.jL;
-            if (bVar2 != null) {
-                bVar2.release();
-            }
-            Presenter presenter = this.mPresenter;
-            if (presenter != null) {
-                presenter.destroy();
-            }
+        super.an();
+        com.kwad.components.core.widget.kwai.b bVar = this.aM;
+        if (bVar != null) {
+            bVar.release();
+        }
+        com.kwad.components.ad.e.b.a aVar = this.jM;
+        if (aVar != null) {
+            aVar.aP();
+        }
+        com.kwad.components.ad.e.kwai.b bVar2 = this.jL;
+        if (bVar2 != null) {
+            bVar2.release();
+        }
+        Presenter presenter = this.mPresenter;
+        if (presenter != null) {
+            presenter.destroy();
         }
     }
 
     public final void setInnerAdInteractionListener(c.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.jC = aVar;
-        }
+        this.jC = aVar;
     }
 
     public final void setVideoPlayListener(KsNativeAd.VideoPlayListener videoPlayListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, videoPlayListener) == null) {
-            this.jA = videoPlayListener;
-        }
+        this.jA = videoPlayListener;
     }
 }

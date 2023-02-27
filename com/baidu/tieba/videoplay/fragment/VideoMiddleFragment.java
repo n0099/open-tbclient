@@ -1,7 +1,9 @@
 package com.baidu.tieba.videoplay.fragment;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.fragment.app.Fragment;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -23,22 +25,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class VideoMiddleFragment extends AbsVideoChannelFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CustomMessageListener F;
+    public CustomMessageListener x;
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public int U1() {
+    public int L1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return 2;
         }
         return invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public void e2() {
+    public void V1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
@@ -70,7 +72,7 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
         public void a(int i, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-                this.a.i.n(0, 0, false);
+                this.a.c.n(0, 0, false);
             }
         }
     }
@@ -103,7 +105,7 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
         public void a(int i, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-                this.a.i.n(0, 0, false);
+                this.a.c.n(0, 0, false);
             }
         }
     }
@@ -149,14 +151,14 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
                 }
                 if ((this.a.getActivity() == null || !(this.a.getActivity() instanceof VideoPlayActivity)) ? false : false) {
                     if (z) {
-                        this.a.i.setVisibility(0);
-                        this.a.k.setVisibility(0);
-                        this.a.j.setVisibility(0);
+                        this.a.c.setVisibility(0);
+                        this.a.e.setVisibility(0);
+                        this.a.d.setVisibility(0);
                         return;
                     }
-                    this.a.i.setVisibility(8);
-                    this.a.k.setVisibility(8);
-                    this.a.j.setVisibility(8);
+                    this.a.c.setVisibility(8);
+                    this.a.e.setVisibility(8);
+                    this.a.d.setVisibility(8);
                 }
             }
         }
@@ -175,58 +177,60 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
                 return;
             }
         }
-        this.F = new c(this, 2921665);
+        this.x = new c(this, 2921665);
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public Fragment W1() {
+    public Fragment N1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new VideoAttentionPageFragment(this.a, new a(this), 0, 2);
+        }
+        return (Fragment) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
+    public Fragment O1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new VideoAttentionPageFragment(this.g, new a(this), 0, 2);
+            return new VideoVerticalPageFragment(this.a, new b(this), 1, 1);
         }
         return (Fragment) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public Fragment X1() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new VideoVerticalPageFragment(this.g, new b(this), 1, 1);
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+            super.onCreate(bundle);
+            BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_HOME_TAB);
+            registerListener(this.x);
         }
-        return (Fragment) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment, com.baidu.tbadk.core.LazyBaseFragment
-    public void F1(View view2, Bundle bundle) {
+    @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, bundle) == null) {
-            super.F1(view2, bundle);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
             if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
-                VideoChannelHeaderLayout videoChannelHeaderLayout = this.i;
+                VideoChannelHeaderLayout videoChannelHeaderLayout = this.c;
                 if (videoChannelHeaderLayout != null) {
                     videoChannelHeaderLayout.setVisibility(8);
                 }
-                ImageView imageView = this.k;
+                ImageView imageView = this.e;
                 if (imageView != null) {
                     imageView.setVisibility(8);
                 }
-                AlaLiveTipView alaLiveTipView = this.j;
+                AlaLiveTipView alaLiveTipView = this.d;
                 if (alaLiveTipView != null) {
                     alaLiveTipView.setVisibility(8);
                 }
             }
+            return super.onCreateView(layoutInflater, viewGroup, bundle);
         }
-    }
-
-    @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment, com.baidu.tbadk.core.LazyBaseFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            super.onCreate(bundle);
-            BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_HOME_TAB);
-            registerListener(this.F);
-        }
+        return (View) invokeLLL.objValue;
     }
 }

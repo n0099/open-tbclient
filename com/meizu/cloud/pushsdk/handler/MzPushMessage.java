@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.handler;
 
 import android.text.TextUtils;
 import com.meizu.cloud.pushinternal.DebugLogger;
-import com.meizu.cloud.pushsdk.c.f.e;
+import com.meizu.cloud.pushsdk.d.f.e;
 import java.io.Serializable;
 import java.util.Map;
 /* loaded from: classes8.dex */

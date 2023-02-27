@@ -1,12 +1,5 @@
 package com.google.gson;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.internal.Streams;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
@@ -15,240 +8,113 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 /* loaded from: classes8.dex */
 public abstract class JsonElement {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     public abstract JsonElement deepCopy();
 
-    public JsonElement() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public BigDecimal getAsBigDecimal() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            throw new UnsupportedOperationException(getClass().getSimpleName());
-        }
-        return (BigDecimal) invokeV.objValue;
+        throw new UnsupportedOperationException(getClass().getSimpleName());
     }
 
     public BigInteger getAsBigInteger() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            throw new UnsupportedOperationException(getClass().getSimpleName());
-        }
-        return (BigInteger) invokeV.objValue;
+        throw new UnsupportedOperationException(getClass().getSimpleName());
     }
 
     public boolean getAsBoolean() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            throw new UnsupportedOperationException(getClass().getSimpleName());
-        }
-        return invokeV.booleanValue;
+        throw new UnsupportedOperationException(getClass().getSimpleName());
     }
 
     public Boolean getAsBooleanWrapper() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            throw new UnsupportedOperationException(getClass().getSimpleName());
-        }
-        return (Boolean) invokeV.objValue;
+        throw new UnsupportedOperationException(getClass().getSimpleName());
     }
 
     public byte getAsByte() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            throw new UnsupportedOperationException(getClass().getSimpleName());
-        }
-        return invokeV.byteValue;
+        throw new UnsupportedOperationException(getClass().getSimpleName());
     }
 
     public char getAsCharacter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            throw new UnsupportedOperationException(getClass().getSimpleName());
-        }
-        return invokeV.charValue;
+        throw new UnsupportedOperationException(getClass().getSimpleName());
     }
 
     public double getAsDouble() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            throw new UnsupportedOperationException(getClass().getSimpleName());
-        }
-        return invokeV.doubleValue;
+        throw new UnsupportedOperationException(getClass().getSimpleName());
     }
 
     public float getAsFloat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            throw new UnsupportedOperationException(getClass().getSimpleName());
-        }
-        return invokeV.floatValue;
+        throw new UnsupportedOperationException(getClass().getSimpleName());
     }
 
     public int getAsInt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            throw new UnsupportedOperationException(getClass().getSimpleName());
-        }
-        return invokeV.intValue;
-    }
-
-    public long getAsLong() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            throw new UnsupportedOperationException(getClass().getSimpleName());
-        }
-        return invokeV.longValue;
-    }
-
-    public Number getAsNumber() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            throw new UnsupportedOperationException(getClass().getSimpleName());
-        }
-        return (Number) invokeV.objValue;
-    }
-
-    public short getAsShort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            throw new UnsupportedOperationException(getClass().getSimpleName());
-        }
-        return invokeV.shortValue;
-    }
-
-    public String getAsString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            throw new UnsupportedOperationException(getClass().getSimpleName());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean isJsonArray() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this instanceof JsonArray;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isJsonNull() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this instanceof JsonNull;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isJsonObject() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this instanceof JsonObject;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isJsonPrimitive() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this instanceof JsonPrimitive;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            try {
-                StringWriter stringWriter = new StringWriter();
-                JsonWriter jsonWriter = new JsonWriter(stringWriter);
-                jsonWriter.setLenient(true);
-                Streams.write(this, jsonWriter);
-                return stringWriter.toString();
-            } catch (IOException e) {
-                throw new AssertionError(e);
-            }
-        }
-        return (String) invokeV.objValue;
+        throw new UnsupportedOperationException(getClass().getSimpleName());
     }
 
     public JsonArray getAsJsonArray() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (isJsonArray()) {
-                return (JsonArray) this;
-            }
-            throw new IllegalStateException("Not a JSON Array: " + this);
+        if (isJsonArray()) {
+            return (JsonArray) this;
         }
-        return (JsonArray) invokeV.objValue;
+        throw new IllegalStateException("Not a JSON Array: " + this);
     }
 
     public JsonNull getAsJsonNull() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (isJsonNull()) {
-                return (JsonNull) this;
-            }
-            throw new IllegalStateException("Not a JSON Null: " + this);
+        if (isJsonNull()) {
+            return (JsonNull) this;
         }
-        return (JsonNull) invokeV.objValue;
+        throw new IllegalStateException("Not a JSON Null: " + this);
     }
 
     public JsonObject getAsJsonObject() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (isJsonObject()) {
-                return (JsonObject) this;
-            }
-            throw new IllegalStateException("Not a JSON Object: " + this);
+        if (isJsonObject()) {
+            return (JsonObject) this;
         }
-        return (JsonObject) invokeV.objValue;
+        throw new IllegalStateException("Not a JSON Object: " + this);
     }
 
     public JsonPrimitive getAsJsonPrimitive() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (isJsonPrimitive()) {
-                return (JsonPrimitive) this;
-            }
-            throw new IllegalStateException("Not a JSON Primitive: " + this);
+        if (isJsonPrimitive()) {
+            return (JsonPrimitive) this;
         }
-        return (JsonPrimitive) invokeV.objValue;
+        throw new IllegalStateException("Not a JSON Primitive: " + this);
+    }
+
+    public long getAsLong() {
+        throw new UnsupportedOperationException(getClass().getSimpleName());
+    }
+
+    public Number getAsNumber() {
+        throw new UnsupportedOperationException(getClass().getSimpleName());
+    }
+
+    public short getAsShort() {
+        throw new UnsupportedOperationException(getClass().getSimpleName());
+    }
+
+    public String getAsString() {
+        throw new UnsupportedOperationException(getClass().getSimpleName());
+    }
+
+    public boolean isJsonArray() {
+        return this instanceof JsonArray;
+    }
+
+    public boolean isJsonNull() {
+        return this instanceof JsonNull;
+    }
+
+    public boolean isJsonObject() {
+        return this instanceof JsonObject;
+    }
+
+    public boolean isJsonPrimitive() {
+        return this instanceof JsonPrimitive;
+    }
+
+    public String toString() {
+        try {
+            StringWriter stringWriter = new StringWriter();
+            JsonWriter jsonWriter = new JsonWriter(stringWriter);
+            jsonWriter.setLenient(true);
+            Streams.write(this, jsonWriter);
+            return stringWriter.toString();
+        } catch (IOException e) {
+            throw new AssertionError(e);
+        }
     }
 }

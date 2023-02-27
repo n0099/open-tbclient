@@ -2,25 +2,31 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.webkit.ValueCallback;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.HttpManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collections;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.net.MalformedURLException;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 /* loaded from: classes5.dex */
-public class lh2 {
+public class lh2 implements kh2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Map<String, Integer> b;
-    public static final Object c;
-    public static boolean d;
+    public static final boolean f;
+    public static volatile lh2 g;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, mh2> a;
+    public HashMap<String, ArrayList<ValueCallback<String>>> b;
+    public String c;
+    public HttpManager d;
+    public final Object e;
 
     static {
         InterceptResult invokeClinit;
@@ -35,114 +41,154 @@ public class lh2 {
                 return;
             }
         }
-        a = gp1.a;
-        b = new HashMap();
-        c = new Object();
-        d = mh2.a();
+        f = wp1.a;
     }
 
-    @NonNull
-    public static Set<String> b() {
+    public static lh2 e() {
         InterceptResult invokeV;
-        String[] strArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!d) {
-                return Collections.emptySet();
+            if (g == null) {
+                synchronized (lh2.class) {
+                    if (g == null) {
+                        g = new lh2();
+                    }
+                }
             }
-            synchronized (c) {
-                strArr = (String[]) b.keySet().toArray(new String[0]);
-            }
-            return an3.a(strArr);
+            return g;
         }
-        return (Set) invokeV.objValue;
+        return (lh2) invokeV.objValue;
     }
 
-    public static void a() {
+    public lh2() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || !d) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        if (a) {
-            Log.d("ExcludeRecorder", "remove all exclude appIds");
-        }
-        synchronized (c) {
-            b.clear();
-        }
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.e = new Object();
+        this.d = us2.l().a();
+        this.c = us2.f().a();
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        boolean containsKey;
+    @Override // com.baidu.tieba.kh2
+    public void a(String str, String str2) {
+        ArrayList<ValueCallback<String>> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!d || TextUtils.isEmpty(str)) {
-                return false;
-            }
-            synchronized (c) {
-                containsKey = b.containsKey(str);
-            }
-            if (a) {
-                Log.d("ExcludeRecorder", "appId - " + str + " needExclude - " + containsKey);
-            }
-            return containsKey;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || !d) {
-            return;
-        }
-        if (a) {
-            Log.d("ExcludeRecorder", "record one appId for exclude - " + str);
-        }
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        synchronized (c) {
-            Integer num = b.get(str);
-            if (num == null) {
-                b.put(str, 1);
-            } else {
-                b.put(str, Integer.valueOf(num.intValue() + 1));
-            }
-        }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || !d) {
-            return;
-        }
-        if (a) {
-            Log.d("ExcludeRecorder", "remove one appId for exclude - " + str);
-        }
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        synchronized (c) {
-            Integer num = b.get(str);
-            if (num != null) {
-                int intValue = num.intValue() - 1;
-                if (intValue <= 0) {
-                    b.remove(str);
-                } else {
-                    b.put(str, Integer.valueOf(intValue));
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            synchronized (this.e) {
+                if (f(str) && (arrayList = this.b.get(str)) != null) {
+                    int size = arrayList.size();
+                    for (int i = 0; i < size; i++) {
+                        arrayList.get(i).onReceiveValue(str2);
+                        if (f) {
+                            Log.e("ImageDownloadManager", i + " load success url = " + str + " path = " + str2);
+                        }
+                    }
+                    this.a.remove(str);
                 }
             }
         }
     }
 
-    public static void e(em4 em4Var) {
+    public void g(String str, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, em4Var) == null) && d && em4Var != null) {
-            for (uh4 uh4Var : em4Var.j()) {
-                if (uh4Var instanceof vh4) {
-                    d(uh4Var.g);
-                } else if (uh4Var instanceof wh4) {
-                    d(((wh4) uh4Var).o);
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, valueCallback) == null) {
+            if (TextUtils.isEmpty(str)) {
+                valueCallback.onReceiveValue(null);
+                return;
+            }
+            try {
+                String d = d(str);
+                if (TextUtils.isEmpty(d)) {
+                    return;
+                }
+                File file = new File(d(str));
+                if (file.exists() && !file.isDirectory()) {
+                    if (valueCallback != null) {
+                        valueCallback.onReceiveValue(d);
+                        return;
+                    }
+                    return;
+                }
+                synchronized (this.e) {
+                    if (!f(str)) {
+                        c(str);
+                    }
+                    b(str, valueCallback);
+                }
+            } catch (Exception e) {
+                if (f) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public final void b(String str, ValueCallback<String> valueCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, valueCallback) == null) {
+            if (this.b.containsKey(str)) {
+                this.b.get(str).add(valueCallback);
+                return;
+            }
+            ArrayList<ValueCallback<String>> arrayList = new ArrayList<>();
+            arrayList.add(valueCallback);
+            this.b.put(str, arrayList);
+        }
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (f) {
+                Log.d("ImageDownloadManager", "ImageDownloadManager SwanGamePreloadManager url:" + str);
+            }
+            mh2 mh2Var = new mh2(this.d, this.c, str, this);
+            this.a.put(str, mh2Var);
+            mh2Var.e();
+        }
+    }
+
+    public final String d(String str) throws MalformedURLException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return this.c + us2.f().c(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return this.a.containsKey(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.kh2
+    public void fail(int i, String str) {
+        ArrayList<ValueCallback<String>> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
+            synchronized (this.e) {
+                if (f(str) && (arrayList = this.b.get(str)) != null) {
+                    int size = arrayList.size();
+                    for (int i2 = 0; i2 < size; i2++) {
+                        arrayList.get(i2).onReceiveValue("");
+                    }
+                    this.a.remove(str);
                 }
             }
         }

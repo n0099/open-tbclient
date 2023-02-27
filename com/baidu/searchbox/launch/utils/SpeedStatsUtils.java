@@ -3,18 +3,12 @@ package com.baidu.searchbox.launch.utils;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class SpeedStatsUtils {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String IS_NIGHT_MODE = "isNightMode";
     public static final int LAUNCH_TYPE_NEWINSTALL = 2;
     public static final int LAUNCH_TYPE_NORMAL = 0;
@@ -69,61 +63,36 @@ public class SpeedStatsUtils {
     public static final String UBC_VALUE_SPLASH_BANNER_SKIN = "splashBannerSkin";
     public static final String UBC_VALUE_SPLASH_SKIN = "splashSkin";
     public static final String WRITE_EXTERNAL_STORAGE_PERMISSION = "android.permission.WRITE_EXTERNAL_STORAGE";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public SpeedStatsUtils() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     public static JSONObject getJsonData(long j, Map<String, String> map) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65537, null, j, map)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("duration", j);
-                if (map != null && map.size() > 0) {
-                    JSONArray jSONArray = new JSONArray();
-                    for (Map.Entry<String, String> entry : map.entrySet()) {
-                        if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
-                            JSONObject jSONObject2 = new JSONObject();
-                            jSONObject2.put(entry.getKey(), entry.getValue());
-                            jSONArray.put(jSONObject2);
-                        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("duration", j);
+            if (map != null && map.size() > 0) {
+                JSONArray jSONArray = new JSONArray();
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
+                        JSONObject jSONObject2 = new JSONObject();
+                        jSONObject2.put(entry.getKey(), entry.getValue());
+                        jSONArray.put(jSONObject2);
                     }
-                    jSONObject.put("part", jSONArray);
                 }
-                return jSONObject;
-            } catch (JSONException e) {
-                if (AppConfig.isDebug()) {
-                    e.printStackTrace();
-                    return null;
-                }
+                jSONObject.put("part", jSONArray);
+            }
+            return jSONObject;
+        } catch (JSONException e) {
+            if (AppConfig.isDebug()) {
+                e.printStackTrace();
                 return null;
             }
+            return null;
         }
-        return (JSONObject) invokeJL.objValue;
     }
 
     public static boolean hasPermission(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            if (context.checkCallingOrSelfPermission(str) == 0) {
-                return true;
-            }
-            return false;
+        if (context.checkCallingOrSelfPermission(str) == 0) {
+            return true;
         }
-        return invokeLL.booleanValue;
+        return false;
     }
 }

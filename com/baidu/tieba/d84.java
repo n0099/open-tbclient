@@ -1,114 +1,63 @@
 package com.baidu.tieba;
 
+import android.net.http.Headers;
 import android.text.TextUtils;
 import android.util.Log;
-import android.webkit.JavascriptInterface;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.dns.transmit.model.DnsModel;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.v8engine.FontParser;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
+import com.baidu.searchbox.v8engine.JsArrayBuffer;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.Sets;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
+import okhttp3.internal.http.HttpMethod;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpOptions;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.client.methods.HttpTrace;
 import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class d84 extends c84 {
+public class d84 extends s74 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Set<String> h;
+    public static final Set<String> i;
     public transient /* synthetic */ FieldHolder $fh;
-    public gg2 b;
 
     /* loaded from: classes4.dex */
-    public class a extends ResponseCallback<i84> {
+    public class a implements Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k84 a;
-        public final /* synthetic */ d12 b;
-        public final /* synthetic */ d84 c;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ t74 d;
+        public final /* synthetic */ d84 e;
 
-        /* renamed from: com.baidu.tieba.d84$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class RunnableC0246a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ i84 a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0246a(a aVar, i84 i84Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, i84Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = i84Var;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ib4.call(this.b.b, true, this.a);
-                }
-            }
-        }
-
-        /* loaded from: classes4.dex */
-        public class b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    a aVar = this.a;
-                    ib4.call(aVar.b, false, aVar.a);
-                }
-            }
-        }
-
-        public a(d84 d84Var, k84 k84Var, d12 d12Var) {
+        public a(d84 d84Var, String str, long j, String str2, t74 t74Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {d84Var, k84Var, d12Var};
+                Object[] objArr = {d84Var, str, Long.valueOf(j), str2, t74Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -118,120 +67,291 @@ public class d84 extends c84 {
                     return;
                 }
             }
-            this.c = d84Var;
-            this.a = k84Var;
-            this.b = d12Var;
+            this.e = d84Var;
+            this.a = str;
+            this.b = j;
+            this.c = str2;
+            this.d = t74Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(i84 i84Var, int i) {
+        @Override // okhttp3.Callback
+        public void onFailure(Call call, IOException iOException) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, i84Var, i) == null) {
-                if (c84.a) {
-                    Log.d("CheckAdvisedToRestApi", "on success");
-                }
-                this.c.b.post(new RunnableC0246a(this, i84Var));
+            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
+                this.d.cancelTag(this.e.c);
+                this.e.W(this.a, 0, iOException.getMessage(), this.b);
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: b */
-        public i84 parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
+        @Override // okhttp3.Callback
+        public void onResponse(Call call, Response response) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
-                ResponseBody body = response.body();
-                if (body == null) {
-                    return null;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
+                if (!response.isSuccessful()) {
+                    this.e.W(this.a, response.code(), response.message(), this.b);
+                    return;
                 }
-                String string = body.string();
-                if (c84.a) {
-                    Log.d("CheckAdvisedToRestApi", "parse response: " + string);
-                }
-                JSONObject jSONObject = new JSONObject(string);
-                String optString = jSONObject.optString("errno");
-                if (!TextUtils.equals(optString, "0")) {
-                    if (c84.a) {
-                        Log.d("CheckAdvisedToRestApi", "errno = " + optString);
+                try {
+                    JSEvent jSEvent = new JSEvent("headersReceived");
+                    jSEvent.data = new f84(this.e.I(response.headers()));
+                    this.e.dispatchEvent(jSEvent);
+                } catch (JSONException e) {
+                    if (s74.e) {
+                        e.printStackTrace();
                     }
-                    k84 k84Var = this.a;
-                    k84Var.errNo = optString;
-                    k84Var.errMsg = String.format("%s: fail Error: %s", "checkIsUserAdvisedToRest", jSONObject.optString("errmsg"));
-                    return null;
                 }
-                String optString2 = jSONObject.optJSONObject("data").optString("result");
-                i84 i84Var = new i84();
-                i84Var.result = !TextUtils.equals(optString2, "0");
-                i84Var.errNo = "0";
-                i84Var.errMsg = ib4.b("checkIsUserAdvisedToRest", DnsModel.MSG_OK);
-                return i84Var;
-            }
-            return (i84) invokeLI.objValue;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                if (c84.a) {
-                    Log.e("CheckAdvisedToRestApi", "on fail");
+                String str = this.c;
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 3556653) {
+                    if (hashCode == 1154818009 && str.equals("arraybuffer")) {
+                        c = 0;
+                    }
+                } else if (str.equals("text")) {
+                    c = 1;
                 }
-                if (TextUtils.isEmpty(this.a.errMsg)) {
-                    k84 k84Var = this.a;
-                    k84Var.errNo = "100";
-                    k84Var.errMsg = String.format("%s: fail Error: %s", "checkIsUserAdvisedToRest", exc.getMessage());
+                if (c != 0) {
+                    this.e.X(this.a, response);
+                } else {
+                    this.e.V(this.a, response);
                 }
-                this.c.b.post(new b(this));
+                int code = response.code();
+                String message = response.message();
+                if (s74.e) {
+                    Log.d("RequestTask", "onResponse: id:" + this.e.c + ",respCode: " + code + ", url=" + this.a + ", msg=" + message);
+                }
+                fg3.O(code, this.a, 1, message, this.b, System.currentTimeMillis());
             }
         }
     }
 
-    public d84(@NonNull gg2 gg2Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947658409, "Lcom/baidu/tieba/d84;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947658409, "Lcom/baidu/tieba/d84;");
+                return;
+            }
+        }
+        h = Sets.newHashSet("text", "arraybuffer");
+        i = Sets.newHashSet(HttpOptions.METHOD_NAME, "GET", "HEAD", "POST", HttpPut.METHOD_NAME, HttpDelete.METHOD_NAME, HttpTrace.METHOD_NAME, "CONNECT");
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d84(wg2 wg2Var, t12 t12Var) {
+        super(wg2Var, t12Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {gg2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {wg2Var, t12Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((wg2) objArr2[0], (t12) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = gg2Var;
+        this.a = 1;
     }
 
-    @JavascriptInterface
-    public void checkIsUserAdvisedToRest(JsObject jsObject) {
-        d12 F;
+    public void start() {
+        Request R;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) && (F = d12.F(jsObject)) != null && this.b != null) {
-            k84 k84Var = new k84();
-            try {
-                int d = F.d("todayPlayedTime");
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("ma_id", w83.g0());
-                    jSONObject.put("todayPlayedTime", String.valueOf(d));
-                } catch (JSONException e) {
-                    if (c84.a) {
-                        e.printStackTrace();
-                    }
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || this.b == null || (R = R()) == null) {
+            return;
+        }
+        T(R);
+    }
+
+    @Override // com.baidu.tieba.s74
+    public void C(String str, int i2, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) {
+            super.C(str, i2, str2);
+            ga4.h(str, i2, str2, SwanAppNetworkUtils.i(null));
+        }
+    }
+
+    @NonNull
+    public static String U(@NonNull t12 t12Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, t12Var)) == null) {
+            String lowerCase = t12Var.B("responseType").toLowerCase(Locale.US);
+            if (!h.contains(lowerCase)) {
+                return "text";
+            }
+            return lowerCase;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final Request R() {
+        InterceptResult invokeV;
+        RequestBody S;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String z = z();
+            if (TextUtils.isEmpty(z)) {
+                if (s74.e) {
+                    Log.d("RequestTask", "buildRequest url =" + z);
                 }
-                a(n54.b().f(), jSONObject.toString(), new a(this, k84Var, F));
-            } catch (JSTypeMismatchException e2) {
-                if (c84.a) {
-                    e2.printStackTrace();
+                return null;
+            }
+            String B = this.b.B("method");
+            if (TextUtils.isEmpty(B)) {
+                B = "GET";
+            }
+            String upperCase = B.toUpperCase(Locale.US);
+            if (!i.contains(upperCase)) {
+                C(z, -1, "request:method is invalid");
+                return null;
+            }
+            HashMap hashMap = new HashMap();
+            Request.Builder builder = new Request.Builder();
+            boolean z2 = true;
+            G(builder, this.b.w("header"), hashMap, true);
+            if (s74.e) {
+                Log.d("RequestTask", "lowerCaseHeaderMap =" + hashMap);
+            }
+            Object C = this.b.C("data", null);
+            if (C == null) {
+                C = this.b.t("data", null);
+            }
+            if (C == null) {
+                z2 = false;
+            }
+            if (z2 && !HttpMethod.permitsRequestBody(upperCase)) {
+                return builder.url(z).method(upperCase, null).tag(this.c).build();
+            }
+            if (!z2 && !HttpMethod.requiresRequestBody(upperCase)) {
+                S = null;
+            } else {
+                S = S(C, hashMap);
+            }
+            if (HttpMethod.requiresRequestBody(upperCase) && S == null) {
+                return null;
+            }
+            return builder.url(z).method(upperCase, S).tag(this.c).build();
+        }
+        return (Request) invokeV.objValue;
+    }
+
+    @Nullable
+    public final RequestBody S(Object obj, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, map)) == null) {
+            String str = map.get(Headers.CONTENT_TYPE);
+            MediaType mediaType = t03.a;
+            if (!TextUtils.isEmpty(str)) {
+                mediaType = MediaType.parse(str);
+            }
+            if (obj instanceof JsArrayBuffer) {
+                byte[] buffer = ((JsArrayBuffer) obj).buffer();
+                if (buffer == null) {
+                    return RequestBody.create(mediaType, "");
                 }
-                k84Var.errNo = FontParser.sFontWeightDefault;
-                k84Var.errMsg = ib4.a("checkIsUserAdvisedToRest", e2);
-                ib4.call(F, false, k84Var);
+                return RequestBody.create(mediaType, buffer);
+            } else if (obj instanceof String) {
+                if (s74.e) {
+                    Log.d("RequestTask", "createBody = " + obj);
+                }
+                return RequestBody.create(mediaType, (String) obj);
+            } else {
+                return RequestBody.create(mediaType, "");
+            }
+        }
+        return (RequestBody) invokeLL.objValue;
+    }
+
+    public final void X(String str, Response response) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048582, this, str, response) != null) || response == null) {
+            return;
+        }
+        ResponseBody body = response.body();
+        try {
+            e84 e84Var = new e84();
+            e84Var.statusCode = response.code();
+            e84Var.header = I(response.headers());
+            if (body != null) {
+                e84Var.data = body.string();
+                if (s74.e) {
+                    Log.d("RequestTask", "onStringResponse = " + e84Var.data);
+                }
+            }
+            D(e84Var);
+        } catch (IOException | JSONException e) {
+            if (s74.e) {
+                Log.d("RequestTask", Log.getStackTraceString(e));
+            }
+            C(str, -1, e.getMessage());
+        }
+    }
+
+    public void T(Request request) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, request) == null) {
+            String U = U(this.b);
+            String httpUrl = request.url().toString();
+            if (m93.M() == null) {
+                C("", -1, "request:swanApp is null");
+                return;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            fg3.B(httpUrl, 1, null);
+            t74 t74Var = (t74) m93.M().i0();
+            t74Var.call(request, new a(this, httpUrl, currentTimeMillis, U, t74Var));
+        }
+    }
+
+    public final void V(String str, Response response) {
+        byte[] bytes;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, response) != null) || response == null) {
+            return;
+        }
+        try {
+            b84 b84Var = new b84();
+            b84Var.statusCode = response.code();
+            b84Var.header = I(response.headers());
+            ResponseBody body = response.body();
+            if (body != null && (bytes = body.bytes()) != null) {
+                b84Var.data = new JsArrayBuffer(bytes, bytes.length);
+            }
+            D(b84Var);
+        } catch (IOException | JSONException e) {
+            if (s74.e) {
+                Log.d("RequestTask", Log.getStackTraceString(e));
+            }
+            C(str, -1, e.getMessage());
+        }
+    }
+
+    public final void W(String str, int i2, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Integer.valueOf(i2), str2, Long.valueOf(j)}) == null) {
+            if (s74.e) {
+                Log.d("RequestTask", "onFailure: " + str2);
+            }
+            if ("Canceled".equalsIgnoreCase(str2)) {
+                str2 = "request:fail abort";
+            }
+            String str3 = str2;
+            C(str, i2, str3);
+            if (SwanAppNetworkUtils.i(null)) {
+                fg3.O(i2, str, 1, str3, j, System.currentTimeMillis());
             }
         }
     }

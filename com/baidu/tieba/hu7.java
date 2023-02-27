@@ -1,14 +1,17 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hu7 {
+public class hu7 extends vu7 {
     public static /* synthetic */ Interceptable $ic;
-    public static int[] a;
+    public static final int a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -24,6 +27,30 @@ public class hu7 {
                 return;
             }
         }
-        a = new int[]{R.color.CAM_X0313, R.color.CAM_X0308, R.color.CAM_X0314, R.color.CAM_X0204};
+        a = BdUniqueId.gen().getId();
+    }
+
+    public hu7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.vu7
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return a;
+        }
+        return invokeV.intValue;
     }
 }

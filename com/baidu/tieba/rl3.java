@@ -1,61 +1,25 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.view.View;
+import android.widget.AbsoluteLayout;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import androidx.annotation.Nullable;
+import com.baidu.browser.sailor.BdSailorWebView;
+import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
 public class rl3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ boolean b;
-
-        public a(String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + rl3.b;
-                if (rl3.a) {
-                    Log.d("SwanAppFeedbackUtils", "recordFeedbackExtInfo: " + this.a);
-                }
-                zr2.b(str, this.a, this.b);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -70,14 +34,51 @@ public class rl3 {
                 return;
             }
         }
-        a = gp1.a;
-        b = "aiapps_folder" + File.separator + "feed_back_record.txt";
+        a = wp1.a;
     }
 
-    public static void c(@NonNull String str, boolean z) {
+    public static void a(@NonNull BdSailorWebView bdSailorWebView) {
+        AbsoluteLayout webView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65539, null, str, z) == null) {
-            ql3.k(new a(str, z), "record_feedback_ext_info");
+        if (interceptable == null || interceptable.invokeL(65537, null, bdSailorWebView) == null) {
+            Drawable d = pn4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f0811d5);
+            Drawable d2 = pn4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f0811d4);
+            if (BdZeusUtil.isWebkitLoaded()) {
+                webView = bdSailorWebView.getCurrentWebView();
+            } else {
+                webView = bdSailorWebView.getCurrentWebView().getWebView();
+            }
+            if (Build.VERSION.SDK_INT >= 29) {
+                webView.setVerticalScrollbarThumbDrawable(d);
+                webView.setHorizontalScrollbarThumbDrawable(d2);
+                return;
+            }
+            b(webView, d, d2);
+        }
+    }
+
+    public static void b(@Nullable View view2, Drawable drawable, Drawable drawable2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65538, null, view2, drawable, drawable2) != null) || view2 == null) {
+            return;
+        }
+        try {
+            Field declaredField = View.class.getDeclaredField("mScrollCache");
+            declaredField.setAccessible(true);
+            Object obj = declaredField.get(view2);
+            Field declaredField2 = obj.getClass().getDeclaredField("scrollBar");
+            declaredField2.setAccessible(true);
+            Object obj2 = declaredField2.get(obj);
+            Method declaredMethod = obj2.getClass().getDeclaredMethod("setVerticalThumbDrawable", Drawable.class);
+            declaredMethod.setAccessible(true);
+            declaredMethod.invoke(obj2, drawable);
+            Method declaredMethod2 = obj2.getClass().getDeclaredMethod("setHorizontalThumbDrawable", Drawable.class);
+            declaredMethod2.setAccessible(true);
+            declaredMethod2.invoke(obj2, drawable2);
+        } catch (Throwable th) {
+            if (a) {
+                th.printStackTrace();
+            }
         }
     }
 }

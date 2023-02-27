@@ -8,13 +8,10 @@ import android.os.Process;
 import android.text.TextUtils;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.handler.a.b.b;
 import com.meizu.cloud.pushsdk.util.d;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class NotificationService extends IntentService {
-    public Object a;
-
     public NotificationService() {
         super("NotificationService");
     }
@@ -48,12 +45,12 @@ public class NotificationService extends IntentService {
         try {
             d.a(this, intent, "reflectReceiver startservice", 2003);
             intent.setClassName(getPackageName(), a);
-            com.meizu.cloud.pushsdk.base.a.d a2 = com.meizu.cloud.pushsdk.base.a.a.a(a).a((Class<?>[]) null).a(null);
+            com.meizu.cloud.pushsdk.b.b.d a2 = com.meizu.cloud.pushsdk.b.b.a.a(a).a((Class<?>[]) null).a(null);
             if (!a2.a || a2.b == 0) {
                 return;
             }
-            DebugLogger.i("NotificationService", "Reflect MzPushReceiver " + a2.a);
-            com.meizu.cloud.pushsdk.base.a.a.a(a2.b).a("onReceive", Context.class, Intent.class).a(a2.b, getApplicationContext(), intent);
+            DebugLogger.i("NotificationService", "Reflect MzPushReceiver true");
+            com.meizu.cloud.pushsdk.b.b.a.a(a2.b).a("onReceive", Context.class, Intent.class).a(a2.b, getApplicationContext(), intent);
         } catch (Exception e) {
             DebugLogger.i("NotificationService", "reflect e: " + e);
             d.a(this, intent, e.getMessage(), 2004);
@@ -63,7 +60,6 @@ public class NotificationService extends IntentService {
     @Override // android.app.IntentService, android.app.Service
     public void onDestroy() {
         DebugLogger.i("NotificationService", "NotificationService destroy");
-        this.a = null;
         super.onDestroy();
     }
 
@@ -71,31 +67,33 @@ public class NotificationService extends IntentService {
     public void onHandleIntent(Intent intent) {
         boolean z;
         Process.setThreadPriority(10);
-        if (intent != null) {
-            try {
-                DebugLogger.i("NotificationService", "onHandleIntentaction " + intent.getAction());
-                String stringExtra = intent.getStringExtra("command_type");
-                if (!PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && !PushConstants.MZ_PUSH_ON_REGISTER_ACTION.equals(intent.getAction()) && !PushConstants.MZ_PUSH_ON_UNREGISTER_ACTION.equals(intent.getAction())) {
-                    z = false;
-                    DebugLogger.d("NotificationService", "-- command_type -- " + stringExtra + " legalAction " + z);
-                    if (TextUtils.isEmpty(stringExtra) && stringExtra.equals("reflect_receiver") && z) {
-                        String stringExtra2 = intent.getStringExtra(PushConstants.MZ_PUSH_CONTROL_MESSAGE);
-                        DebugLogger.i("NotificationService", "control message is " + stringExtra2);
-                        if (!TextUtils.isEmpty(stringExtra2)) {
-                            com.meizu.cloud.pushsdk.c.a.a(this, new b(stringExtra2, null, null).b().c());
-                        }
-                        a(intent);
-                        return;
+        if (intent == null) {
+            return;
+        }
+        try {
+            DebugLogger.i("NotificationService", "onHandleIntent action " + intent.getAction());
+            intent.getStringExtra("method");
+            String stringExtra = intent.getStringExtra("command_type");
+            if (!PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && !PushConstants.MZ_PUSH_ON_REGISTER_ACTION.equals(intent.getAction()) && !PushConstants.MZ_PUSH_ON_UNREGISTER_ACTION.equals(intent.getAction())) {
+                z = false;
+                DebugLogger.d("NotificationService", "-- command_type -- " + stringExtra + " legalAction " + z);
+                if (TextUtils.isEmpty(stringExtra) && "reflect_receiver".equals(stringExtra) && z) {
+                    String stringExtra2 = intent.getStringExtra(PushConstants.MZ_PUSH_CONTROL_MESSAGE);
+                    DebugLogger.i("NotificationService", "control message is " + stringExtra2);
+                    if (!TextUtils.isEmpty(stringExtra2)) {
+                        com.meizu.cloud.pushsdk.d.a.a(this, new com.meizu.cloud.pushsdk.handler.a.c.b(stringExtra2, null, null).b().c());
                     }
+                    a(intent);
                     return;
                 }
-                z = true;
-                DebugLogger.d("NotificationService", "-- command_type -- " + stringExtra + " legalAction " + z);
-                if (TextUtils.isEmpty(stringExtra)) {
-                }
-            } catch (Exception e) {
-                DebugLogger.e("NotificationService", "onHandleIntent error " + e.getMessage());
+                return;
             }
+            z = true;
+            DebugLogger.d("NotificationService", "-- command_type -- " + stringExtra + " legalAction " + z);
+            if (TextUtils.isEmpty(stringExtra)) {
+            }
+        } catch (Exception e) {
+            DebugLogger.e("NotificationService", "onHandleIntent error " + e.getMessage());
         }
     }
 

@@ -1,8 +1,25 @@
 package com.baidu.tieba;
 
+import android.content.ContentResolver;
+import android.content.Context;
+import android.database.ContentObserver;
+import android.database.Cursor;
+import android.graphics.BitmapFactory;
+import android.graphics.Point;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.provider.MediaStore;
+import android.text.TextUtils;
+import android.view.Display;
+import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.ar.statistic.StatisticConstants;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,51 +27,82 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class wq5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int o;
-    public static final int p;
-    public static final int q;
-    public static final int r;
-    public static final int s;
-    public static final int t;
-    public static final int u;
-    public static final int v;
-    public static final int w;
-    public static final int x;
+    public static final String[] g;
+    public static final String[] h;
+    public static final String[] i;
+    public static Point j;
+    public static final List<String> k;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public long i;
-    public long j;
-    public long k;
-    public long l;
-    public long m;
-    public long n;
+    public Context a;
+    public b b;
+    public long c;
+    public a d;
+    public a e;
+    public final Handler f;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface b {
+        void onShot(String str);
     }
 
     /* loaded from: classes6.dex */
-    public static class b {
+    public class a extends ContentObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final wq5 a;
+        public Uri a;
+        public final /* synthetic */ wq5 b;
 
-        public b() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(wq5 wq5Var, Uri uri, Handler handler) {
+            super(handler);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wq5Var, uri, handler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Handler) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = wq5Var;
+            this.a = uri;
+        }
+
+        @Override // android.database.ContentObserver
+        public void onChange(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                super.onChange(z);
+                this.b.i(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c extends yq5<Cursor> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<Context> a;
+        public Uri b;
+
+        public c(Context context, Uri uri) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, uri};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -64,16 +112,66 @@ public class wq5 {
                     return;
                 }
             }
-            this.a = new wq5(null);
+            this.b = uri;
+            this.a = new WeakReference<>(context);
         }
 
-        public wq5 a() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.yq5
+        /* renamed from: a */
+        public Cursor doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
+                Context context = this.a.get();
+                if (context == null) {
+                    return null;
+                }
+                try {
+                    return context.getContentResolver().query(this.b, Build.VERSION.SDK_INT < 16 ? wq5.g : wq5.h, null, null, "date_added desc limit 1");
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return null;
+                }
             }
-            return (wq5) invokeV.objValue;
+            return (Cursor) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d implements cq5<Cursor> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<wq5> a;
+
+        public d(wq5 wq5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wq5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(wq5Var);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cq5
+        /* renamed from: a */
+        public void onReturnDataInUI(Cursor cursor) {
+            wq5 wq5Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, cursor) != null) || (wq5Var = this.a.get()) == null) {
+                return;
+            }
+            wq5Var.j(cursor);
         }
     }
 
@@ -90,183 +188,295 @@ public class wq5 {
                 return;
             }
         }
-        o = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds130);
-        p = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds130);
-        q = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds47);
-        r = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds224);
-        s = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds280);
-        t = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds280);
-        u = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds228);
-        v = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds128);
-        w = ej.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X006);
-        x = ej.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X006);
+        g = new String[]{"_data", "datetaken"};
+        h = new String[]{"_data", "datetaken", "width", "height"};
+        i = new String[]{StatisticConstants.SCREENSHOT, "screen_shot", "screen-shot", "screen shot", "screencapture", "screen_capture", "screen-capture", "screen capture", "screencap", "screen_cap", "screen-cap", "screen cap"};
+        k = new ArrayList();
     }
 
-    public wq5() {
+    public void o() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || !l()) {
+            return;
+        }
+        if (this.d != null) {
+            try {
+                this.a.getContentResolver().unregisterContentObserver(this.d);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            this.d = null;
+        }
+        if (this.e != null) {
+            try {
+                this.a.getContentResolver().unregisterContentObserver(this.e);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            this.e = null;
+        }
+        this.c = 0L;
+        this.b = null;
+    }
+
+    public wq5(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = o;
-        this.b = p;
-        this.c = q;
-        this.d = r;
-        this.e = s;
-        this.f = t;
-        this.g = w;
-        this.h = x;
-        this.i = 300L;
-        this.j = 400L;
-        this.k = 200L;
-        this.l = 720L;
-        this.m = 4000L;
-        this.n = 1000L;
+        this.f = new Handler(Looper.getMainLooper());
+        this.a = context;
+        if (j == null) {
+            Point h2 = h();
+            j = h2;
+            if (h2 != null) {
+                BdLog.d("ScreenShotListenManager: Screen Real Size: " + j.x + " * " + j.y);
+                return;
+            }
+            BdLog.d("ScreenShotListenManager: Get screen real size failed.");
+        }
     }
 
-    public /* synthetic */ wq5(a aVar) {
-        this();
-    }
-
-    public static wq5 a() {
+    public static boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new b().a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (Looper.myLooper() != Looper.getMainLooper()) {
+                return false;
+            }
+            return true;
         }
-        return (wq5) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public long b() {
-        InterceptResult invokeV;
+    public final boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.m;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (k.contains(str)) {
+                BdLog.d("ScreenShotListenManager: ScreenShot: imgPath has done; imagePath = " + str);
+                return true;
+            }
+            if (k.size() >= 20) {
+                for (int i2 = 0; i2 < 5; i2++) {
+                    k.remove(0);
+                }
+            }
+            k.add(str);
+            return false;
         }
-        return invokeV.longValue;
+        return invokeL.booleanValue;
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    public final void i(Uri uri) {
+        String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+        if (interceptable == null || interceptable.invokeL(1048580, this, uri) == null) {
+            if (AsyncGetClipboardSwitch.isOn()) {
+                cr5.b(new c(this.a, uri), new d(this));
+                return;
+            }
+            Cursor cursor = null;
+            try {
+                ContentResolver contentResolver = this.a.getContentResolver();
+                if (Build.VERSION.SDK_INT < 16) {
+                    strArr = g;
+                } else {
+                    strArr = h;
+                }
+                cursor = contentResolver.query(uri, strArr, null, null, "date_added desc limit 1");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            j(cursor);
         }
-        return invokeV.intValue;
     }
 
-    public long d() {
-        InterceptResult invokeV;
+    public final boolean f(String str, long j2, int i2, int i3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.j;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (j2 >= this.c && System.currentTimeMillis() - j2 <= 10000) {
+                Point point = j;
+                if (point != null && (i2 > point.x || i3 > point.y)) {
+                    Point point2 = j;
+                    if (i3 > point2.x || i2 > point2.y) {
+                        return false;
+                    }
+                }
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                String lowerCase = str.toLowerCase();
+                for (String str2 : i) {
+                    if (lowerCase.contains(str2)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
-        return invokeV.longValue;
+        return invokeCommon.booleanValue;
     }
 
-    public int e() {
+    public final Point g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(str, options);
+            return new Point(options.outWidth, options.outHeight);
+        }
+        return (Point) invokeL.objValue;
+    }
+
+    public void m(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
+            this.b = bVar;
+        }
+    }
+
+    public final Point h() {
         InterceptResult invokeV;
+        Exception e;
+        Point point;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
+            if (!l() || this.a == null) {
+                return null;
+            }
+            try {
+                point = new Point();
+            } catch (Exception e2) {
+                e = e2;
+                point = null;
+            }
+            try {
+                Display defaultDisplay = ((WindowManager) this.a.getSystemService("window")).getDefaultDisplay();
+                if (Build.VERSION.SDK_INT >= 17) {
+                    defaultDisplay.getRealSize(point);
+                } else {
+                    try {
+                        point.set(((Integer) Display.class.getMethod("getRawWidth", new Class[0]).invoke(defaultDisplay, new Object[0])).intValue(), ((Integer) Display.class.getMethod("getRawHeight", new Class[0]).invoke(defaultDisplay, new Object[0])).intValue());
+                    } catch (Exception e3) {
+                        point.set(defaultDisplay.getWidth(), defaultDisplay.getHeight());
+                        BdLog.e(e3);
+                    }
+                }
+            } catch (Exception e4) {
+                e = e4;
+                BdLog.e(e);
+                return point;
+            }
+            return point;
         }
-        return invokeV.intValue;
+        return (Point) invokeV.objValue;
     }
 
-    public int f() {
-        InterceptResult invokeV;
+    public void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || !l() || !PermissionUtil.isAgreePrivacyPolicy()) {
+            return;
         }
-        return invokeV.intValue;
+        this.c = System.currentTimeMillis();
+        this.d = new a(this, MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.f);
+        this.e = new a(this, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.f);
+        if (Build.VERSION.SDK_INT >= 29) {
+            this.a.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, true, this.d);
+            this.a.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.e);
+            return;
+        }
+        this.a.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.d);
+        this.a.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.e);
     }
 
-    public int g() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE] complete} */
+    public final void j(Cursor cursor) {
+        int i2;
+        int i3;
+        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeL(1048581, this, cursor) == null) {
+            try {
+                if (cursor == null) {
+                    if (cursor != null && !cursor.isClosed()) {
+                        cursor.close();
+                        return;
+                    }
+                    return;
+                }
+                try {
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    if (cursor == null || cursor.isClosed()) {
+                        return;
+                    }
+                }
+                if (!cursor.moveToFirst()) {
+                    if (cursor != null && !cursor.isClosed()) {
+                        cursor.close();
+                        return;
+                    }
+                    return;
+                }
+                int columnIndex = cursor.getColumnIndex("_data");
+                int columnIndex2 = cursor.getColumnIndex("datetaken");
+                int i5 = -1;
+                if (Build.VERSION.SDK_INT >= 16) {
+                    i5 = cursor.getColumnIndex("width");
+                    i2 = cursor.getColumnIndex("height");
+                } else {
+                    i2 = -1;
+                }
+                String string = cursor.getString(columnIndex);
+                long j2 = cursor.getLong(columnIndex2);
+                if (i5 >= 0 && i2 >= 0) {
+                    i4 = cursor.getInt(i5);
+                    i3 = cursor.getInt(i2);
+                } else {
+                    Point g2 = g(string);
+                    int i6 = g2.x;
+                    i3 = g2.y;
+                    i4 = i6;
+                }
+                k(string, j2, i4, i3);
+                if (cursor == null || cursor.isClosed()) {
+                    return;
+                }
+                cursor.close();
+            } catch (Throwable th) {
+                if (cursor != null && !cursor.isClosed()) {
+                    cursor.close();
+                }
+                throw th;
+            }
         }
-        return invokeV.intValue;
     }
 
-    public long h() {
-        InterceptResult invokeV;
+    public final void k(String str, long j2, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.i;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            if (f(str, j2, i2, i3)) {
+                BdLog.d("ScreenShotListenManager: ScreenShot: path = " + str + "; size = " + i2 + " * " + i3 + "; date = " + j2);
+                if (this.b != null && !e(str)) {
+                    this.b.onShot(str);
+                    return;
+                }
+                return;
+            }
+            BdLog.d("ScreenShotListenManager: Media content changed, but not screenshot: path = " + str + "; size = " + i2 + " * " + i3 + "; date = " + j2);
         }
-        return invokeV.longValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public long l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.n;
-        }
-        return invokeV.longValue;
-    }
-
-    public long m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.l;
-        }
-        return invokeV.longValue;
-    }
-
-    public long n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.k;
-        }
-        return invokeV.longValue;
-    }
-
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
     }
 }

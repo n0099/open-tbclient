@@ -5,11 +5,10 @@ import android.graphics.ColorFilter;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hr5;
+import com.baidu.tieba.ys5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -96,18 +95,7 @@ public class FrsTabItemCustomeView extends RelativeLayout {
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.d != null && this.b != null && (tbImage = this.a) != null) {
             tbImage.getLayoutParams().height = this.c;
             this.b.getLayoutParams().height = this.c;
-            if (TbadkApplication.getInst().getSkinType() == 1 && this.d.dark != null) {
-                this.a.getLayoutParams().width = c(this.d.dark.pic_width.intValue(), this.d.dark.pic_height.intValue());
-                this.b.getLayoutParams().width = c(this.d.dark.pic_width.intValue(), this.d.dark.pic_height.intValue());
-                if (!this.d.dark.unselected_pic_url.equals(this.b.getTag())) {
-                    this.b.c(this.d.dark.unselected_pic_url);
-                    this.b.setTag(this.d.dark.unselected_pic_url);
-                }
-                if (!this.d.dark.selected_pic_url.equals(this.a.getTag())) {
-                    this.a.c(this.d.dark.selected_pic_url);
-                    this.a.setTag(this.d.dark.selected_pic_url);
-                }
-            } else if (this.d.normal != null) {
+            if (this.d.normal != null) {
                 this.a.getLayoutParams().width = c(this.d.normal.pic_width.intValue(), this.d.normal.pic_height.intValue());
                 this.b.getLayoutParams().width = c(this.d.normal.pic_width.intValue(), this.d.normal.pic_height.intValue());
                 if (!this.d.normal.unselected_pic_url.equals(this.b.getTag())) {
@@ -183,12 +171,12 @@ public class FrsTabItemCustomeView extends RelativeLayout {
             layoutParams.addRule(13);
             this.a.setLayoutParams(layoutParams);
             this.a.setVisibility(4);
-            this.a.setPlaceHolderDrawable(hr5.a.a());
+            this.a.setPlaceHolderDrawable(ys5.a.a());
             addView(this.a);
             this.b = new TbImage(context);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams2.addRule(13);
-            this.b.setPlaceHolderDrawable(hr5.a.a());
+            this.b.setPlaceHolderDrawable(ys5.a.a());
             this.b.setLayoutParams(layoutParams2);
             addView(this.b);
         }

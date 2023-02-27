@@ -1,34 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.browser.core.webview.scroll.NestedScrollWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* compiled from: NestedScrollWebView.java */
 /* loaded from: classes6.dex */
-public abstract class rd6 extends BaseCardInfo {
+public final /* synthetic */ class rd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String mBottomLink;
-    public String mBottomText;
-    public String mGroupTitle;
-    public int mRightIconResId;
-    public boolean showBottomDivider;
-    public boolean showTopDivider;
 
-    public rd6() {
+    public static void a(NestedScrollWebView.a aVar, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{aVar, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
         }
-        this.showBottomDivider = true;
+    }
+
+    public static void b(NestedScrollWebView.a aVar, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{aVar, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        }
     }
 }

@@ -1,128 +1,75 @@
 package com.baidu.pass.biometrics.base.utils;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.biometrics.base.debug.Log;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class PassBioFileUtils {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PassBioFileUtils";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public PassBioFileUtils() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     public static boolean checkAndCreadFile(File file) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            if (!file.exists()) {
-                file.getParentFile().mkdirs();
-                return file.createNewFile();
-            }
-            return true;
+        if (!file.exists()) {
+            file.getParentFile().mkdirs();
+            return file.createNewFile();
         }
-        return invokeL.booleanValue;
+        return true;
     }
 
     public static boolean deleteFile(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            try {
-                return file.delete();
-            } catch (Exception e) {
-                Log.e(e);
-                return false;
-            }
+        try {
+            return file.delete();
+        } catch (Exception e) {
+            Log.e(e);
+            return false;
         }
-        return invokeL.booleanValue;
     }
 
     public static boolean isFileExist(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str == null) {
-                return false;
-            }
-            return new File(str).exists();
+        if (str == null) {
+            return false;
         }
-        return invokeL.booleanValue;
+        return new File(str).exists();
     }
 
     public static boolean deleteFile(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            if (!isFileExist(str)) {
-                return true;
-            }
-            return deleteFile(new File(str));
+        if (TextUtils.isEmpty(str)) {
+            return false;
         }
-        return invokeL.booleanValue;
+        if (!isFileExist(str)) {
+            return true;
+        }
+        return deleteFile(new File(str));
     }
 
     public static boolean write(File file, byte[] bArr) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, file, bArr)) == null) {
-            return write(file, bArr, true);
-        }
-        return invokeLL.booleanValue;
+        return write(file, bArr, true);
     }
 
     public static boolean write(File file, byte[] bArr, boolean z) throws IOException {
-        InterceptResult invokeLLZ;
         FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, file, bArr, z)) == null) {
-            try {
-                if (!file.exists()) {
-                    file.getParentFile().mkdirs();
-                    file.createNewFile();
-                }
-                if (!file.canWrite()) {
-                    return false;
-                }
-                fileOutputStream = new FileOutputStream(file, z);
-                try {
-                    fileOutputStream.write(bArr);
-                    fileOutputStream.close();
-                    return true;
-                } catch (Throwable unused) {
-                    if (fileOutputStream != null) {
-                        fileOutputStream.close();
-                    }
-                    return false;
-                }
-            } catch (Throwable unused2) {
-                fileOutputStream = null;
+        try {
+            if (!file.exists()) {
+                file.getParentFile().mkdirs();
+                file.createNewFile();
             }
-        } else {
-            return invokeLLZ.booleanValue;
+            if (!file.canWrite()) {
+                return false;
+            }
+            fileOutputStream = new FileOutputStream(file, z);
+            try {
+                fileOutputStream.write(bArr);
+                fileOutputStream.close();
+                return true;
+            } catch (Throwable unused) {
+                if (fileOutputStream != null) {
+                    fileOutputStream.close();
+                }
+                return false;
+            }
+        } catch (Throwable unused2) {
+            fileOutputStream = null;
         }
     }
 }

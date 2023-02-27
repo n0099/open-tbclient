@@ -80,7 +80,7 @@ public class x3 extends v3 {
             }
             this.i = y3Var;
             a();
-            l1.g.O(35866, 0, y3Var.b(), y3Var.getWidth(), y3Var.getHeight(), y3Var.getDepth(), 0, y3Var.b(), y3Var.d(), null);
+            l1.g.O(35866, 0, y3Var.b(), y3Var.getWidth(), y3Var.getHeight(), y3Var.d(), 0, y3Var.b(), y3Var.e(), null);
             if (!y3Var.isPrepared()) {
                 y3Var.prepare();
             }

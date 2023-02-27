@@ -1,140 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.BdSailor;
-import com.baidu.browser.sailor.util.BdZeusUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.monitor.MonitorType;
+import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 import com.baidu.webkit.sdk.Log;
-import com.baidu.webkit.sdk.WebView;
+import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class fx {
     public static /* synthetic */ Interceptable $ic;
-    public static final String d;
-    public static fx e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public WebView b;
-    public boolean c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448304923, "Lcom/baidu/tieba/fx;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448304923, "Lcom/baidu/tieba/fx;");
-                return;
-            }
-        }
-        d = BdSailor.class.getName();
-    }
+    public gx a;
+    public JSONObject b;
+    public JSONObject c;
+    public boolean d;
 
     public fx() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static fx a() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            fx fxVar = e;
-            if (fxVar == null) {
-                e = new fx();
-            } else if (fxVar.b != null && (fxVar.c ^ BdZeusUtil.isWebkitLoaded())) {
-                Log.d(d, "BdWebViewSingleton, re-new instance need because of the kernel changed");
-                e.f();
-                e.e();
-            }
-            return e;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c == null) {
+            return;
         }
-        return (fx) invokeV.objValue;
+        SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.c.toString());
+        this.c = null;
     }
 
-    public static void b() {
+    public final void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            fx a = a();
-            a.f();
-            a.a = null;
-            e = null;
-        }
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Log.d(d, "BdWebViewSingleton pauseTimer");
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
             try {
-                e();
-                this.b.pauseTimers();
-                return true;
-            } catch (Exception e2) {
-                Log.printStackTrace(e2);
-                return false;
+                if (this.b == null) {
+                    JSONObject jSONObject = new JSONObject();
+                    this.b = jSONObject;
+                    jSONObject.put("type", MonitorType.MONITOR_TYPE_INIT_WEBKIT);
+                }
+                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                    return;
+                }
+                this.b.put(str, str2);
+            } catch (Exception unused) {
+                Log.e("staticWebkitInit JSON error");
             }
         }
-        return invokeV.booleanValue;
     }
 
-    public final boolean d() {
-        InterceptResult invokeV;
+    public final void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Log.d(d, "BdWebViewSingleton resumeTimer");
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
             try {
-                e();
-                this.b.resumeTimers();
-                return true;
-            } catch (Exception e2) {
-                Log.printStackTrace(e2);
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b == null && this.a != null) {
-            if (BdZeusUtil.isWebkitLoaded()) {
-                this.c = true;
-            } else {
-                this.c = false;
-                Log.d(d, "BdWebViewSingleton init system webview,zeus was not load complete");
-            }
-            this.b = new WebView(this.a);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Log.w(d, "BdWebViewSingleton, old instance has been destroyed");
-            WebView webView = this.b;
-            if (webView != null) {
-                webView.destroy();
-                this.b = null;
+                if (this.c == null) {
+                    JSONObject jSONObject = new JSONObject();
+                    this.c = jSONObject;
+                    jSONObject.put("type", MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT);
+                }
+                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                    return;
+                }
+                this.c.put(str, str2);
+            } catch (Exception unused) {
+                Log.e("mWebkitDownloadStatics JSON error");
             }
         }
     }

@@ -4,17 +4,9 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Build;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.log.ZeusLogger;
 import com.bytedance.pangle.util.FieldUtils;
@@ -30,25 +22,10 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public final class a {
-    public static /* synthetic */ Interceptable $ic;
-    public static Map<String, Integer> a;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static Map<String, Integer> a = new HashMap();
     public LinkedHashMap<String, Integer> b;
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1192650551, "Lcom/bytedance/pangle/res/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1192650551, "Lcom/bytedance/pangle/res/a;");
-                return;
-            }
-        }
-        a = new HashMap();
         List<String> a2 = i.a();
         if (a2 != null && a2.size() > 0) {
             for (String str : a2) {
@@ -58,251 +35,219 @@ public final class a {
     }
 
     public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<>();
         this.b = linkedHashMap;
         linkedHashMap.put(Zeus.getAppApplication().getApplicationInfo().sourceDir, 0);
     }
 
     private AssetManager a(AssetManager assetManager, String str) {
-        InterceptResult invokeLL;
         AssetManager assetManager2;
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, assetManager, str)) == null) {
-            List<String> a2 = i.a(assetManager);
-            ArrayList<String> arrayList = new ArrayList();
-            StringBuilder sb = new StringBuilder();
-            for (String str2 : a2) {
-                if (!a.containsKey(str2) && !this.b.containsKey(str2) && !str2.equals(str)) {
-                    arrayList.add(str2);
-                }
+        List<String> a2 = i.a(assetManager);
+        ArrayList<String> arrayList = new ArrayList();
+        StringBuilder sb = new StringBuilder();
+        for (String str2 : a2) {
+            if (!a.containsKey(str2) && !this.b.containsKey(str2) && !str2.equals(str)) {
+                arrayList.add(str2);
             }
-            ZeusLogger.d(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager, runtimeAdditionalAssets");
-            try {
-                if (assetManager.getClass().getName().equals("android.content.res.BaiduAssetManager")) {
-                    assetManager2 = (AssetManager) Class.forName("android.content.res.BaiduAssetManager").getConstructor(new Class[0]).newInstance(new Object[0]);
-                } else {
-                    assetManager2 = (AssetManager) AssetManager.class.newInstance();
-                }
-                ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager = ".concat(String.valueOf(assetManager2)));
-                synchronized (this.b) {
-                    for (Map.Entry<String, Integer> entry : this.b.entrySet()) {
-                        if (!a.containsKey(entry.getKey())) {
-                            sb.append(entry.getKey());
-                            b(assetManager2, entry.getKey(), false);
-                        }
-                    }
-                }
-                if (!sb.toString().contains(Zeus.getAppApplication().getApplicationInfo().sourceDir)) {
-                    b(assetManager2, Zeus.getAppApplication().getApplicationInfo().sourceDir, false);
-                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager lost host path : " + a.containsKey(Zeus.getAppApplication().getApplicationInfo().sourceDir));
-                }
-                sb.append(str);
-                b(assetManager2, str, false);
-                if (!arrayList.isEmpty()) {
-                    for (String str3 : arrayList) {
-                        sb.append(str3);
-                        b(assetManager2, str3, false);
-                    }
-                }
-                if (Build.VERSION.SDK_INT >= 21 && Build.VERSION.SDK_INT < 23) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z && !sb.toString().toLowerCase().contains(AlbumActivityConfig.FROM_WEB_VIEW)) {
-                    try {
-                        Resources resources = Zeus.getAppApplication().getResources();
-                        String str4 = Zeus.getAppApplication().createPackageContext(resources.getString(resources.getIdentifier("android:string/config_webViewPackageName", EMABTest.TYPE_STRING, "android")), 0).getApplicationInfo().sourceDir;
-                        if (!TextUtils.isEmpty(str4)) {
-                            b(assetManager2, str4, false);
-                        }
-                    } catch (Exception e) {
-                        ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager appendAsset webview failed.", e);
-                    }
-                }
-                assetManager = assetManager2;
-            } catch (Exception e2) {
-                ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager failed.", e2);
-                b(assetManager, str, false);
-            }
-            try {
-                MethodUtils.invokeMethod(assetManager, "ensureStringBlocks", new Object[0]);
-                ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor ensureStringBlocks");
-            } catch (Exception e3) {
-                ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor ensureStringBlocks failed.", e3);
-            }
-            return assetManager;
         }
-        return (AssetManager) invokeLL.objValue;
+        ZeusLogger.d(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager, runtimeAdditionalAssets");
+        try {
+            if (assetManager.getClass().getName().equals("android.content.res.BaiduAssetManager")) {
+                assetManager2 = (AssetManager) Class.forName("android.content.res.BaiduAssetManager").getConstructor(new Class[0]).newInstance(new Object[0]);
+            } else {
+                assetManager2 = (AssetManager) AssetManager.class.newInstance();
+            }
+            ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager = ".concat(String.valueOf(assetManager2)));
+            synchronized (this.b) {
+                for (Map.Entry<String, Integer> entry : this.b.entrySet()) {
+                    if (!a.containsKey(entry.getKey())) {
+                        sb.append(entry.getKey());
+                        b(assetManager2, entry.getKey(), false);
+                    }
+                }
+            }
+            if (!sb.toString().contains(Zeus.getAppApplication().getApplicationInfo().sourceDir)) {
+                b(assetManager2, Zeus.getAppApplication().getApplicationInfo().sourceDir, false);
+                ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager lost host path : " + a.containsKey(Zeus.getAppApplication().getApplicationInfo().sourceDir));
+            }
+            sb.append(str);
+            b(assetManager2, str, false);
+            if (!arrayList.isEmpty()) {
+                for (String str3 : arrayList) {
+                    sb.append(str3);
+                    b(assetManager2, str3, false);
+                }
+            }
+            if (Build.VERSION.SDK_INT >= 21 && Build.VERSION.SDK_INT < 23) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z && !sb.toString().toLowerCase().contains(AlbumActivityConfig.FROM_WEB_VIEW)) {
+                try {
+                    Resources resources = Zeus.getAppApplication().getResources();
+                    String str4 = Zeus.getAppApplication().createPackageContext(resources.getString(resources.getIdentifier("android:string/config_webViewPackageName", EMABTest.TYPE_STRING, "android")), 0).getApplicationInfo().sourceDir;
+                    if (!TextUtils.isEmpty(str4)) {
+                        b(assetManager2, str4, false);
+                    }
+                } catch (Exception e) {
+                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager appendAsset webview failed.", e);
+                }
+            }
+            assetManager = assetManager2;
+        } catch (Exception e2) {
+            ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager failed.", e2);
+            b(assetManager, str, false);
+        }
+        try {
+            MethodUtils.invokeMethod(assetManager, "ensureStringBlocks", new Object[0]);
+            ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor ensureStringBlocks");
+        } catch (Exception e3) {
+            ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor ensureStringBlocks failed.", e3);
+        }
+        return assetManager;
     }
 
     public static AssetManager b(AssetManager assetManager, String str, boolean z) {
-        InterceptResult invokeLLZ;
         String str2;
         boolean z2;
         int intValue;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, assetManager, str, z)) == null) {
-            String str3 = V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD;
-            if (z) {
-                str2 = "addAssetPathAsSharedLibrary";
-            } else {
-                str2 = V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD;
-            }
-            int i = Build.VERSION.SDK_INT;
-            if (i < 30 && (i != 29 || Build.VERSION.PREVIEW_SDK_INT <= 0)) {
-                z2 = false;
-            } else {
-                z2 = true;
-            }
-            if (z2 && !z && str.startsWith("/product/overlay/")) {
-                str2 = "addOverlayPath";
-            }
-            Method accessibleMethod = MethodUtils.getAccessibleMethod(AssetManager.class, str2, String.class);
-            if (accessibleMethod == null && z) {
-                accessibleMethod = MethodUtils.getAccessibleMethod(AssetManager.class, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, String.class);
-                ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor AssetManager.addAssetPath() invoke addAssetPathAsSharedLibrary failed. use addAssetPath.");
-            } else {
-                str3 = str2;
-            }
-            if (accessibleMethod != null) {
-                int i2 = 3;
-                while (true) {
-                    int i3 = i2 - 1;
-                    if (i2 < 0) {
-                        break;
-                    }
-                    try {
-                        intValue = ((Integer) accessibleMethod.invoke(assetManager, str)).intValue();
-                    } catch (Exception e) {
-                        ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor invoke AssetManager.addAssetPath() failed. asSharedLibrary = " + z + ", methodName = " + str3, e);
-                    }
-                    if (intValue != 0) {
-                        ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor invoke AssetManager.addAssetPath() success, cookie = " + intValue + ", path = " + str);
-                        break;
-                    }
-                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor invoke AssetManager.addAssetPath() failed, cookie = ".concat(String.valueOf(intValue)));
-                    i2 = i3;
-                }
-            } else {
-                ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor reflect AssetManager.addAssetPath() failed. addAssetPathMethod == null. asSharedLibrary = " + z + " methodName:" + str3);
-            }
-            return assetManager;
+        String str3 = V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD;
+        if (z) {
+            str2 = "addAssetPathAsSharedLibrary";
+        } else {
+            str2 = V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD;
         }
-        return (AssetManager) invokeLLZ.objValue;
-    }
-
-    public static AssetManager c(AssetManager assetManager, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        int i;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, assetManager, str, z)) == null) {
+        int i = Build.VERSION.SDK_INT;
+        if (i < 30 && (i != 29 || Build.VERSION.PREVIEW_SDK_INT <= 0)) {
+            z2 = false;
+        } else {
+            z2 = true;
+        }
+        if (z2 && !z && str.startsWith("/product/overlay/")) {
+            str2 = "addOverlayPath";
+        }
+        Method accessibleMethod = MethodUtils.getAccessibleMethod(AssetManager.class, str2, String.class);
+        if (accessibleMethod == null && z) {
+            accessibleMethod = MethodUtils.getAccessibleMethod(AssetManager.class, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, String.class);
+            ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor AssetManager.addAssetPath() invoke addAssetPathAsSharedLibrary failed. use addAssetPath.");
+        } else {
+            str3 = str2;
+        }
+        if (accessibleMethod != null) {
             int i2 = 3;
-            Throwable th = null;
-            int i3 = 3;
             while (true) {
-                int i4 = i3 - 1;
-                if (i3 < 0) {
+                int i3 = i2 - 1;
+                if (i2 < 0) {
                     break;
                 }
                 try {
-                    synchronized (assetManager) {
-                        int i5 = 0;
-                        for (int i6 = 0; i6 < i2; i6++) {
-                            if (h.b()) {
-                                i5 = ((Integer) MethodUtils.invokeMethod(assetManager, "addAssetPathNative", new Object[]{str}, new Class[]{String.class})).intValue();
+                    intValue = ((Integer) accessibleMethod.invoke(assetManager, str)).intValue();
+                } catch (Exception e) {
+                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor invoke AssetManager.addAssetPath() failed. asSharedLibrary = " + z + ", methodName = " + str3, e);
+                }
+                if (intValue != 0) {
+                    ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor invoke AssetManager.addAssetPath() success, cookie = " + intValue + ", path = " + str);
+                    break;
+                }
+                ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor invoke AssetManager.addAssetPath() failed, cookie = ".concat(String.valueOf(intValue)));
+                i2 = i3;
+            }
+        } else {
+            ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor reflect AssetManager.addAssetPath() failed. addAssetPathMethod == null. asSharedLibrary = " + z + " methodName:" + str3);
+        }
+        return assetManager;
+    }
+
+    public static AssetManager c(AssetManager assetManager, String str, boolean z) {
+        int i;
+        boolean z2;
+        int i2 = 3;
+        Throwable th = null;
+        int i3 = 3;
+        while (true) {
+            int i4 = i3 - 1;
+            if (i3 < 0) {
+                break;
+            }
+            try {
+                synchronized (assetManager) {
+                    int i5 = 0;
+                    for (int i6 = 0; i6 < i2; i6++) {
+                        if (h.b()) {
+                            i5 = ((Integer) MethodUtils.invokeMethod(assetManager, "addAssetPathNative", new Object[]{str}, new Class[]{String.class})).intValue();
+                        } else {
+                            if (Build.VERSION.SDK_INT >= 24 && Build.VERSION.SDK_INT <= 25) {
+                                z2 = true;
                             } else {
-                                if (Build.VERSION.SDK_INT >= 24 && Build.VERSION.SDK_INT <= 25) {
-                                    z2 = true;
-                                } else {
-                                    z2 = false;
-                                }
-                                if (z2) {
-                                    i5 = ((Integer) MethodUtils.invokeMethod(assetManager, "addAssetPathNative", new Object[]{str, Boolean.valueOf(z)}, new Class[]{String.class, Boolean.TYPE})).intValue();
-                                }
+                                z2 = false;
                             }
-                            if (i5 != 0) {
-                                break;
+                            if (z2) {
+                                i5 = ((Integer) MethodUtils.invokeMethod(assetManager, "addAssetPathNative", new Object[]{str, Boolean.valueOf(z)}, new Class[]{String.class, Boolean.TYPE})).intValue();
                             }
                         }
                         if (i5 != 0) {
-                            Object readField = FieldUtils.readField(assetManager, "mStringBlocks");
-                            if (readField != null) {
-                                i = Array.getLength(readField);
-                            } else {
-                                i = 0;
-                            }
-                            int intValue = ((Integer) MethodUtils.invokeMethod(assetManager, "getStringBlockCount", new Object[0])).intValue();
-                            Object newInstance = Array.newInstance(readField.getClass().getComponentType(), intValue);
-                            for (int i7 = 0; i7 < intValue; i7++) {
-                                if (i7 < i) {
-                                    Array.set(newInstance, i7, Array.get(readField, i7));
-                                } else {
-                                    Array.set(newInstance, i7, MethodUtils.invokeConstructor(readField.getClass().getComponentType(), new Object[]{Long.valueOf(((Long) MethodUtils.invokeMethod(assetManager, "getNativeStringBlock", new Object[]{Integer.valueOf(i7)}, new Class[]{Integer.TYPE})).longValue()), Boolean.TRUE}, new Class[]{Long.TYPE, Boolean.TYPE}));
-                                }
-                            }
-                            FieldUtils.writeField(assetManager, "mStringBlocks", newInstance);
-                            ZeusLogger.d(ZeusLogger.TAG_LOAD, "AssetManagerProcessor appendAssetPathSafely success, sourceDir = ".concat(String.valueOf(str)));
+                            break;
                         }
                     }
-                } catch (Throwable th2) {
-                    th = th2;
-                    i3 = i4;
-                    i2 = 3;
+                    if (i5 != 0) {
+                        Object readField = FieldUtils.readField(assetManager, "mStringBlocks");
+                        if (readField != null) {
+                            i = Array.getLength(readField);
+                        } else {
+                            i = 0;
+                        }
+                        int intValue = ((Integer) MethodUtils.invokeMethod(assetManager, "getStringBlockCount", new Object[0])).intValue();
+                        Object newInstance = Array.newInstance(readField.getClass().getComponentType(), intValue);
+                        for (int i7 = 0; i7 < intValue; i7++) {
+                            if (i7 < i) {
+                                Array.set(newInstance, i7, Array.get(readField, i7));
+                            } else {
+                                Array.set(newInstance, i7, MethodUtils.invokeConstructor(readField.getClass().getComponentType(), new Object[]{Long.valueOf(((Long) MethodUtils.invokeMethod(assetManager, "getNativeStringBlock", new Object[]{Integer.valueOf(i7)}, new Class[]{Integer.TYPE})).longValue()), Boolean.TRUE}, new Class[]{Long.TYPE, Boolean.TYPE}));
+                            }
+                        }
+                        FieldUtils.writeField(assetManager, "mStringBlocks", newInstance);
+                        ZeusLogger.d(ZeusLogger.TAG_LOAD, "AssetManagerProcessor appendAssetPathSafely success, sourceDir = ".concat(String.valueOf(str)));
+                    }
                 }
+            } catch (Throwable th2) {
+                th = th2;
+                i3 = i4;
+                i2 = 3;
             }
-            if (th != null) {
-                ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor appendAssetPathSafely failed, sourceDir = ".concat(String.valueOf(str)), th);
-            }
-            return assetManager;
         }
-        return (AssetManager) invokeLLZ.objValue;
+        if (th != null) {
+            ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor appendAssetPathSafely failed, sourceDir = ".concat(String.valueOf(str)), th);
+        }
+        return assetManager;
     }
 
     public final AssetManager a(AssetManager assetManager, String str, boolean z) {
-        InterceptResult invokeLLZ;
         AssetManager a2;
         boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, assetManager, str, z)) == null) {
-            if (h.a()) {
-                int i = Build.VERSION.SDK_INT;
-                if (i >= 21 && i <= 25) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                if (z2) {
-                    a2 = c(assetManager, str, z);
-                    if (!i.a(a2, str)) {
-                        a2 = b(assetManager, str, z);
-                    }
-                } else {
+        if (h.a()) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 21 && i <= 25) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (z2) {
+                a2 = c(assetManager, str, z);
+                if (!i.a(a2, str)) {
                     a2 = b(assetManager, str, z);
                 }
             } else {
-                a2 = a(assetManager, str);
+                a2 = b(assetManager, str, z);
             }
-            synchronized (this.b) {
-                this.b.put(str, 0);
-            }
-            ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor updateAssetManager, newAssetManager=" + a2 + ", assets=" + i.b(a2));
-            return a2;
+        } else {
+            a2 = a(assetManager, str);
         }
-        return (AssetManager) invokeLLZ.objValue;
+        synchronized (this.b) {
+            this.b.put(str, 0);
+        }
+        ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor updateAssetManager, newAssetManager=" + a2 + ", assets=" + i.b(a2));
+        return a2;
     }
 }

@@ -11,15 +11,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Objects;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.interfaces.DraweeHierarchy;
@@ -28,48 +19,15 @@ import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
-    public static /* synthetic */ Interceptable $ic;
     public static boolean sGlobalLegacyVisibilityHandlingEnabled;
-    public transient /* synthetic */ FieldHolder $fh;
     public float mAspectRatio;
     public DraweeHolder<DH> mDraweeHolder;
     public boolean mInitialised;
     public boolean mLegacyVisibilityHandlingEnabled;
     public final AspectRatioMeasure.Spec mMeasureSpec;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(175694276, "Lcom/facebook/drawee/view/DraweeView;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(175694276, "Lcom/facebook/drawee/view/DraweeView;");
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DraweeView(Context context) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mMeasureSpec = new AspectRatioMeasure.Spec();
         this.mAspectRatio = 0.0f;
         this.mInitialised = false;
@@ -77,25 +35,74 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
         init(context);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public static void setGlobalLegacyVisibilityHandlingEnabled(boolean z) {
+        sGlobalLegacyVisibilityHandlingEnabled = z;
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        if (this.mDraweeHolder.onTouchEvent(motionEvent)) {
+            return true;
+        }
+        return super.onTouchEvent(motionEvent);
+    }
+
+    public void setAspectRatio(float f) {
+        if (f == this.mAspectRatio) {
+            return;
+        }
+        this.mAspectRatio = f;
+        requestLayout();
+    }
+
+    public void setController(@Nullable DraweeController draweeController) {
+        this.mDraweeHolder.setController(draweeController);
+        super.setImageDrawable(this.mDraweeHolder.getTopLevelDrawable());
+    }
+
+    public void setHierarchy(DH dh) {
+        this.mDraweeHolder.setHierarchy(dh);
+        super.setImageDrawable(this.mDraweeHolder.getTopLevelDrawable());
+    }
+
+    @Override // android.widget.ImageView
+    @Deprecated
+    public void setImageBitmap(Bitmap bitmap) {
+        init(getContext());
+        this.mDraweeHolder.setController(null);
+        super.setImageBitmap(bitmap);
+    }
+
+    @Override // android.widget.ImageView
+    @Deprecated
+    public void setImageDrawable(Drawable drawable) {
+        init(getContext());
+        this.mDraweeHolder.setController(null);
+        super.setImageDrawable(drawable);
+    }
+
+    @Override // android.widget.ImageView
+    @Deprecated
+    public void setImageResource(int i) {
+        init(getContext());
+        this.mDraweeHolder.setController(null);
+        super.setImageResource(i);
+    }
+
+    @Override // android.widget.ImageView
+    @Deprecated
+    public void setImageURI(Uri uri) {
+        init(getContext());
+        this.mDraweeHolder.setController(null);
+        super.setImageURI(uri);
+    }
+
+    public void setLegacyVisibilityHandlingEnabled(boolean z) {
+        this.mLegacyVisibilityHandlingEnabled = z;
+    }
+
     public DraweeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.mMeasureSpec = new AspectRatioMeasure.Spec();
         this.mAspectRatio = 0.0f;
         this.mInitialised = false;
@@ -103,25 +110,24 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
         init(context);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @Override // android.widget.ImageView, android.view.View
+    public void onMeasure(int i, int i2) {
+        AspectRatioMeasure.Spec spec = this.mMeasureSpec;
+        spec.width = i;
+        spec.height = i2;
+        AspectRatioMeasure.updateMeasureSpec(spec, this.mAspectRatio, getLayoutParams(), getPaddingLeft() + getPaddingRight(), getPaddingTop() + getPaddingBottom());
+        AspectRatioMeasure.Spec spec2 = this.mMeasureSpec;
+        super.onMeasure(spec2.width, spec2.height);
+    }
+
+    @Override // android.view.View
+    public void onVisibilityChanged(View view2, int i) {
+        super.onVisibilityChanged(view2, i);
+        maybeOverrideVisibilityHandling();
+    }
+
     public DraweeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
         this.mMeasureSpec = new AspectRatioMeasure.Spec();
         this.mAspectRatio = 0.0f;
         this.mInitialised = false;
@@ -129,26 +135,9 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
         init(context);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @TargetApi(21)
     public DraweeView(Context context, AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
         this.mMeasureSpec = new AspectRatioMeasure.Spec();
         this.mAspectRatio = 0.0f;
         this.mInitialised = false;
@@ -159,43 +148,40 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
     private void init(Context context) {
         boolean isTracing;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, context) == null) {
-            try {
-                if (FrescoSystrace.isTracing()) {
-                    FrescoSystrace.beginSection("DraweeView#init");
+        try {
+            if (FrescoSystrace.isTracing()) {
+                FrescoSystrace.beginSection("DraweeView#init");
+            }
+            if (this.mInitialised) {
+                if (isTracing) {
+                    return;
                 }
-                if (this.mInitialised) {
-                    if (isTracing) {
+                return;
+            }
+            boolean z = true;
+            this.mInitialised = true;
+            this.mDraweeHolder = DraweeHolder.create(null, context);
+            if (Build.VERSION.SDK_INT >= 21) {
+                ColorStateList imageTintList = getImageTintList();
+                if (imageTintList == null) {
+                    if (FrescoSystrace.isTracing()) {
+                        FrescoSystrace.endSection();
                         return;
                     }
                     return;
                 }
-                boolean z = true;
-                this.mInitialised = true;
-                this.mDraweeHolder = DraweeHolder.create(null, context);
-                if (Build.VERSION.SDK_INT >= 21) {
-                    ColorStateList imageTintList = getImageTintList();
-                    if (imageTintList == null) {
-                        if (FrescoSystrace.isTracing()) {
-                            FrescoSystrace.endSection();
-                            return;
-                        }
-                        return;
-                    }
-                    setColorFilter(imageTintList.getDefaultColor());
-                }
-                if (!sGlobalLegacyVisibilityHandlingEnabled || context.getApplicationInfo().targetSdkVersion < 24) {
-                    z = false;
-                }
-                this.mLegacyVisibilityHandlingEnabled = z;
-                if (FrescoSystrace.isTracing()) {
-                    FrescoSystrace.endSection();
-                }
-            } finally {
-                if (FrescoSystrace.isTracing()) {
-                    FrescoSystrace.endSection();
-                }
+                setColorFilter(imageTintList.getDefaultColor());
+            }
+            if (!sGlobalLegacyVisibilityHandlingEnabled || context.getApplicationInfo().targetSdkVersion < 24) {
+                z = false;
+            }
+            this.mLegacyVisibilityHandlingEnabled = z;
+            if (FrescoSystrace.isTracing()) {
+                FrescoSystrace.endSection();
+            }
+        } finally {
+            if (FrescoSystrace.isTracing()) {
+                FrescoSystrace.endSection();
             }
         }
     }
@@ -203,8 +189,7 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
     private void maybeOverrideVisibilityHandling() {
         Drawable drawable;
         boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65542, this) == null) && this.mLegacyVisibilityHandlingEnabled && (drawable = getDrawable()) != null) {
+        if (this.mLegacyVisibilityHandlingEnabled && (drawable = getDrawable()) != null) {
             if (getVisibility() == 0) {
                 z = true;
             } else {
@@ -215,265 +200,88 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
     }
 
     public void doAttach() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mDraweeHolder.onAttach();
-        }
+        this.mDraweeHolder.onAttach();
     }
 
     public void doDetach() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mDraweeHolder.onDetach();
-        }
+        this.mDraweeHolder.onDetach();
     }
 
     public float getAspectRatio() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mAspectRatio;
-        }
-        return invokeV.floatValue;
+        return this.mAspectRatio;
     }
 
     @Nullable
     public DraweeController getController() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mDraweeHolder.getController();
-        }
-        return (DraweeController) invokeV.objValue;
+        return this.mDraweeHolder.getController();
     }
 
     public DH getHierarchy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mDraweeHolder.getHierarchy();
-        }
-        return (DH) invokeV.objValue;
+        return this.mDraweeHolder.getHierarchy();
     }
 
     @Nullable
     public Drawable getTopLevelDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mDraweeHolder.getTopLevelDrawable();
-        }
-        return (Drawable) invokeV.objValue;
+        return this.mDraweeHolder.getTopLevelDrawable();
     }
 
     public boolean hasController() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.mDraweeHolder.getController() != null) {
-                return true;
-            }
-            return false;
+        if (this.mDraweeHolder.getController() != null) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public boolean hasHierarchy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.mDraweeHolder.hasHierarchy();
-        }
-        return invokeV.booleanValue;
+        return this.mDraweeHolder.hasHierarchy();
     }
 
     public void onAttach() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            doAttach();
-        }
+        doAttach();
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.onAttachedToWindow();
-            maybeOverrideVisibilityHandling();
-            onAttach();
-        }
+        super.onAttachedToWindow();
+        maybeOverrideVisibilityHandling();
+        onAttach();
     }
 
     public void onDetach() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            doDetach();
-        }
+        doDetach();
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            super.onDetachedFromWindow();
-            maybeOverrideVisibilityHandling();
-            onDetach();
-        }
+        super.onDetachedFromWindow();
+        maybeOverrideVisibilityHandling();
+        onDetach();
     }
 
     @Override // android.view.View
     public void onFinishTemporaryDetach() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            super.onFinishTemporaryDetach();
-            maybeOverrideVisibilityHandling();
-            onAttach();
-        }
+        super.onFinishTemporaryDetach();
+        maybeOverrideVisibilityHandling();
+        onAttach();
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            super.onStartTemporaryDetach();
-            maybeOverrideVisibilityHandling();
-            onDetach();
-        }
+        super.onStartTemporaryDetach();
+        maybeOverrideVisibilityHandling();
+        onDetach();
     }
 
     @Override // android.view.View
     public String toString() {
-        InterceptResult invokeV;
         String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            Objects.ToStringHelper stringHelper = Objects.toStringHelper(this);
-            DraweeHolder<DH> draweeHolder = this.mDraweeHolder;
-            if (draweeHolder != null) {
-                str = draweeHolder.toString();
-            } else {
-                str = "<no holder set>";
-            }
-            return stringHelper.add("holder", str).toString();
+        Objects.ToStringHelper stringHelper = Objects.toStringHelper(this);
+        DraweeHolder<DH> draweeHolder = this.mDraweeHolder;
+        if (draweeHolder != null) {
+            str = draweeHolder.toString();
+        } else {
+            str = "<no holder set>";
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static void setGlobalLegacyVisibilityHandlingEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            sGlobalLegacyVisibilityHandlingEnabled = z;
-        }
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, motionEvent)) == null) {
-            if (this.mDraweeHolder.onTouchEvent(motionEvent)) {
-                return true;
-            }
-            return super.onTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setAspectRatio(float f) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeF(1048593, this, f) != null) || f == this.mAspectRatio) {
-            return;
-        }
-        this.mAspectRatio = f;
-        requestLayout();
-    }
-
-    public void setController(@Nullable DraweeController draweeController) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, draweeController) == null) {
-            this.mDraweeHolder.setController(draweeController);
-            super.setImageDrawable(this.mDraweeHolder.getTopLevelDrawable());
-        }
-    }
-
-    public void setHierarchy(DH dh) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, dh) == null) {
-            this.mDraweeHolder.setHierarchy(dh);
-            super.setImageDrawable(this.mDraweeHolder.getTopLevelDrawable());
-        }
-    }
-
-    @Override // android.widget.ImageView
-    @Deprecated
-    public void setImageBitmap(Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, bitmap) == null) {
-            init(getContext());
-            this.mDraweeHolder.setController(null);
-            super.setImageBitmap(bitmap);
-        }
-    }
-
-    @Override // android.widget.ImageView
-    @Deprecated
-    public void setImageDrawable(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, drawable) == null) {
-            init(getContext());
-            this.mDraweeHolder.setController(null);
-            super.setImageDrawable(drawable);
-        }
-    }
-
-    @Override // android.widget.ImageView
-    @Deprecated
-    public void setImageResource(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            init(getContext());
-            this.mDraweeHolder.setController(null);
-            super.setImageResource(i);
-        }
-    }
-
-    @Override // android.widget.ImageView
-    @Deprecated
-    public void setImageURI(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, uri) == null) {
-            init(getContext());
-            this.mDraweeHolder.setController(null);
-            super.setImageURI(uri);
-        }
-    }
-
-    public void setLegacyVisibilityHandlingEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-            this.mLegacyVisibilityHandlingEnabled = z;
-        }
-    }
-
-    @Override // android.widget.ImageView, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048589, this, i, i2) == null) {
-            AspectRatioMeasure.Spec spec = this.mMeasureSpec;
-            spec.width = i;
-            spec.height = i2;
-            AspectRatioMeasure.updateMeasureSpec(spec, this.mAspectRatio, getLayoutParams(), getPaddingLeft() + getPaddingRight(), getPaddingTop() + getPaddingBottom());
-            AspectRatioMeasure.Spec spec2 = this.mMeasureSpec;
-            super.onMeasure(spec2.width, spec2.height);
-        }
-    }
-
-    @Override // android.view.View
-    public void onVisibilityChanged(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048592, this, view2, i) == null) {
-            super.onVisibilityChanged(view2, i);
-            maybeOverrideVisibilityHandling();
-        }
+        return stringHelper.add("holder", str).toString();
     }
 }

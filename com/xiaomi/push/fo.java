@@ -1,141 +1,151 @@
 package com.xiaomi.push;
 
-import android.os.Build;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.dx;
-import java.io.BufferedOutputStream;
-import java.io.OutputStream;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.nio.ByteBuffer;
-import java.util.Locale;
-import java.util.TimeZone;
-import java.util.zip.Adler32;
+import java.nio.ByteOrder;
+import java.util.zip.GZIPInputStream;
 /* loaded from: classes8.dex */
 public class fo {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public static final byte[] a = {80, 85, 83, 72};
 
     /* renamed from: a  reason: collision with other field name */
-    public fs f407a;
+    public byte f392a;
 
     /* renamed from: a  reason: collision with other field name */
-    public OutputStream f408a;
+    public int f393a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ByteBuffer f409a;
+    public short f394a;
+    public byte[] b;
 
-    /* renamed from: a  reason: collision with other field name */
-    public Adler32 f410a;
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static final c a = new c();
 
-    /* renamed from: a  reason: collision with other field name */
-    public byte[] f411a;
-    public int b;
+        /* renamed from: a  reason: collision with other field name */
+        public static final d f395a = new d();
 
-    /* renamed from: b  reason: collision with other field name */
-    public ByteBuffer f412b;
-
-    public fo(OutputStream outputStream, fs fsVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {outputStream, fsVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        public static byte[] a(byte[] bArr) {
+            return a(bArr, f395a);
         }
-        this.f409a = ByteBuffer.allocate(2048);
-        this.f412b = ByteBuffer.allocate(4);
-        this.f410a = new Adler32();
-        this.f408a = new BufferedOutputStream(outputStream);
-        this.f407a = fsVar;
-        TimeZone timeZone = TimeZone.getDefault();
-        this.a = timeZone.getRawOffset() / 3600000;
-        this.b = timeZone.useDaylightTime() ? 1 : 0;
+
+        public static byte[] a(byte[] bArr, b bVar) {
+            if (fo.m410a(bArr)) {
+                fo a2 = fo.a(bArr);
+                return (a2.f392a == 0 || a2.f392a != bVar.a()) ? a2.b : bVar.a(a2.b, a2.f393a);
+            }
+            return bArr;
+        }
     }
 
-    public int a(fl flVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, flVar)) == null) {
-            int c = flVar.c();
-            if (c > 32768) {
-                com.xiaomi.channel.commonutils.logger.b.m105a("Blob size=" + c + " should be less than 32768 Drop blob chid=" + flVar.a() + " id=" + flVar.e());
-                return 0;
-            }
-            this.f409a.clear();
-            int i = c + 8 + 4;
-            if (i > this.f409a.capacity() || this.f409a.capacity() > 4096) {
-                this.f409a = ByteBuffer.allocate(i);
-            }
-            this.f409a.putShort((short) -15618);
-            this.f409a.putShort((short) 5);
-            this.f409a.putInt(c);
-            int position = this.f409a.position();
-            this.f409a = flVar.mo407a(this.f409a);
-            if (!"CONN".equals(flVar.m406a())) {
-                if (this.f411a == null) {
-                    this.f411a = this.f407a.m421a();
+    /* loaded from: classes8.dex */
+    public interface b {
+        byte a();
+
+        byte[] a(byte[] bArr, int i);
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class c {
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class d implements b {
+        @Override // com.xiaomi.push.fo.b
+        public byte a() {
+            return (byte) 2;
+        }
+
+        @Override // com.xiaomi.push.fo.b
+        public byte[] a(byte[] bArr, int i) {
+            GZIPInputStream gZIPInputStream = null;
+            try {
+                GZIPInputStream gZIPInputStream2 = new GZIPInputStream(new ByteArrayInputStream(bArr), i);
+                try {
+                    byte[] bArr2 = new byte[i];
+                    gZIPInputStream2.read(bArr2);
+                    try {
+                        gZIPInputStream2.close();
+                    } catch (IOException unused) {
+                    }
+                    return bArr2;
+                } catch (IOException unused2) {
+                    gZIPInputStream = gZIPInputStream2;
+                    if (gZIPInputStream != null) {
+                        try {
+                            gZIPInputStream.close();
+                        } catch (IOException unused3) {
+                        }
+                    }
+                    return bArr;
+                } catch (Throwable th) {
+                    th = th;
+                    gZIPInputStream = gZIPInputStream2;
+                    if (gZIPInputStream != null) {
+                        try {
+                            gZIPInputStream.close();
+                        } catch (IOException unused4) {
+                        }
+                    }
+                    throw th;
                 }
-                com.xiaomi.push.service.bp.a(this.f411a, this.f409a.array(), true, position, c);
+            } catch (IOException unused5) {
+            } catch (Throwable th2) {
+                th = th2;
             }
-            this.f410a.reset();
-            this.f410a.update(this.f409a.array(), 0, this.f409a.position());
-            this.f412b.putInt(0, (int) this.f410a.getValue());
-            this.f408a.write(this.f409a.array(), 0, this.f409a.position());
-            this.f408a.write(this.f412b.array(), 0, 4);
-            this.f408a.flush();
-            int position2 = this.f409a.position() + 4;
-            com.xiaomi.channel.commonutils.logger.b.c("[Slim] Wrote {cmd=" + flVar.m406a() + ";chid=" + flVar.a() + ";len=" + position2 + "}");
-            return position2;
-        }
-        return invokeL.intValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            dx.e eVar = new dx.e();
-            eVar.a(106);
-            eVar.a(Build.MODEL);
-            eVar.b(v.m764a());
-            eVar.c(com.xiaomi.push.service.bv.m724a());
-            eVar.b(48);
-            eVar.d(this.f407a.m430b());
-            eVar.e(this.f407a.mo428a());
-            eVar.f(Locale.getDefault().toString());
-            eVar.c(Build.VERSION.SDK_INT);
-            byte[] mo436a = this.f407a.m427a().mo436a();
-            if (mo436a != null) {
-                eVar.a(dx.b.a(mo436a));
-            }
-            fl flVar = new fl();
-            flVar.a(0);
-            flVar.a("CONN", (String) null);
-            flVar.a(0L, "xiaomi.com", null);
-            flVar.a(eVar.m370a(), (String) null);
-            a(flVar);
-            com.xiaomi.channel.commonutils.logger.b.m105a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=48 tz=" + this.a + ":" + this.b + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
         }
     }
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            fl flVar = new fl();
-            flVar.a("CLOSE", (String) null);
-            a(flVar);
-            this.f408a.close();
+    public fo(byte b2, int i, byte[] bArr) {
+        this((short) 1, b2, i, bArr);
+    }
+
+    public fo(short s, byte b2, int i, byte[] bArr) {
+        this.f394a = (short) 1;
+        this.f394a = s;
+        this.f392a = b2;
+        this.f393a = i;
+        this.b = bArr;
+    }
+
+    public static fo a(byte b2, int i, byte[] bArr) {
+        return new fo(b2, i, bArr);
+    }
+
+    public static fo a(short s, byte b2, int i, byte[] bArr) {
+        return new fo(s, b2, i, bArr);
+    }
+
+    public static fo a(byte[] bArr) {
+        if (m410a(bArr)) {
+            ByteBuffer order = ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN);
+            order.getInt();
+            short s = order.getShort();
+            byte b2 = order.get();
+            int i = order.getInt();
+            byte[] bArr2 = new byte[order.getInt()];
+            order.get(bArr2);
+            return a(s, b2, i, bArr2);
         }
+        return a((byte) 0, bArr.length, bArr);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static boolean m410a(byte[] bArr) {
+        byte[] bArr2 = a;
+        return a(bArr2, bArr, bArr2.length);
+    }
+
+    public static boolean a(byte[] bArr, byte[] bArr2, int i) {
+        if (bArr.length < i || bArr2.length < i) {
+            return false;
+        }
+        for (int i2 = 0; i2 < i; i2++) {
+            if (bArr[i2] != bArr2[i2]) {
+                return false;
+            }
+        }
+        return true;
     }
 }

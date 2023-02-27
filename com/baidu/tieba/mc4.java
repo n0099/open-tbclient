@@ -1,87 +1,82 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.swan.games.view.button.userinfo.UserInfoButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mc4 {
+public class mc4 extends jc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static RecommendItemModel a(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            RecommendItemModel recommendItemModel = new RecommendItemModel();
-            recommendItemModel.appName = jSONObject.optString("app_name");
-            recommendItemModel.appKey = jSONObject.optString("app_key");
-            recommendItemModel.iconUrl = jSONObject.optString("icon_url");
-            recommendItemModel.scheme = jSONObject.optString("scheme");
-            recommendItemModel.desc = jSONObject.optString("desc");
-            JSONObject optJSONObject = jSONObject.optJSONObject(NativeConstants.ID_BUTTON);
-            if (optJSONObject != null) {
-                recommendItemModel.buttonText = optJSONObject.optString("text");
-            }
-            return recommendItemModel;
-        }
-        return (RecommendItemModel) invokeL.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mc4 a;
 
-    @NonNull
-    public static lc4 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            lc4 lc4Var = new lc4();
-            if (jSONObject == null) {
-                return lc4Var;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("game_center");
-            if (optJSONObject != null) {
-                lc4Var.a = a(optJSONObject);
-            }
-            lc4Var.b = new ArrayList();
-            JSONArray optJSONArray = jSONObject.optJSONArray("app_list");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    lc4Var.b.add(a(optJSONArray.optJSONObject(i)));
+        public a(mc4 mc4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mc4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return lc4Var;
+            this.a = mc4Var;
         }
-        return (lc4) invokeL.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || gc4.b() == null) {
+                return;
+            }
+            this.a.a = new UserInfoButton(gc4.b(), this.a);
+            this.a.a.setType(this.a.type);
+            this.a.a.setButtonText(this.a.text);
+            this.a.a.setImageUrl(this.a.image);
+            this.a.a.setApiButtonStyle(this.a.style);
+            this.a.y();
+            this.a.J();
+        }
     }
 
-    @NonNull
-    public static nc4 c(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mc4(JsObject jsObject, wg2 wg2Var) {
+        super(jsObject, wg2Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            nc4 nc4Var = new nc4();
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                nc4Var.a = jSONObject.getInt("errno");
-                nc4Var.b = jSONObject.optString("errmsg");
-                nc4Var.c = jSONObject.optJSONObject("data");
-                return nc4Var;
-            } catch (JSONException e) {
-                nc4Var.a = -1;
-                nc4Var.b = "network error: response parse failed.";
-                if (gp1.a) {
-                    Log.e("RecommendModelParser", "parseResponseModel error:" + e);
-                }
-                return nc4Var;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jsObject, wg2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((JsObject) objArr2[0], (wg2) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (nc4) invokeL.objValue;
+        gn3.e0(new a(this));
+    }
+
+    public final void J() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !ja4.d()) {
+            ga4.l("Button shows early.");
+        }
     }
 }

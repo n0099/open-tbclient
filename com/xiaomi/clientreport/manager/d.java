@@ -1,56 +1,29 @@
 package com.xiaomi.clientreport.manager;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.al;
+import com.xiaomi.push.aj;
 import java.util.concurrent.ExecutorService;
 /* loaded from: classes8.dex */
-public class d extends al.a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public class d extends aj.a {
     public final /* synthetic */ a a;
 
     public d(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.a = aVar;
     }
 
-    @Override // com.xiaomi.push.al.a
+    @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo224a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "100888" : (String) invokeV.objValue;
+    public String mo217a() {
+        return "100888";
     }
 
     @Override // java.lang.Runnable
     public void run() {
         int a;
         ExecutorService executorService;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a = this.a.a();
-            if (a > 0) {
-                executorService = this.a.f49a;
-                executorService.execute(new e(this));
-            }
+        a = this.a.a();
+        if (a > 0) {
+            executorService = this.a.f26a;
+            executorService.execute(new e(this));
         }
     }
 }

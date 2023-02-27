@@ -1,38 +1,59 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import com.baidu.webkit.sdk.WebResourceRequest;
+import com.baidu.webkit.sdk.WebResourceResponse;
+import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes5.dex */
-public final class od2 implements fd2 {
+public class od2 implements vd2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a b;
-    public OutputStream c;
-    public File d;
-    public boolean e;
+    public CopyOnWriteArrayList<ae2> b;
 
     /* loaded from: classes5.dex */
-    public interface a {
-        void a(File file);
-
-        void b(File file);
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public od2(File file, a aVar) {
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final od2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-550533010, "Lcom/baidu/tieba/od2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-550533010, "Lcom/baidu/tieba/od2$b;");
+                    return;
+                }
+            }
+            a = new od2(null);
+        }
+    }
+
+    public od2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {file, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,69 +63,52 @@ public final class od2 implements fd2 {
                 return;
             }
         }
-        this.d = file;
-        this.b = aVar;
-        b(file);
+        this.b = new CopyOnWriteArrayList<>();
     }
 
-    public void a() {
+    public static od2 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        a aVar = this.b;
-        if (aVar != null) {
-            if (this.e) {
-                aVar.a(this.d);
-            } else {
-                aVar.b(this.d);
+        return (od2) invokeV.objValue;
+    }
+
+    public /* synthetic */ od2(a aVar) {
+        this();
+    }
+
+    public void a(ae2 ae2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, ae2Var) == null) && ae2Var != null && !this.b.contains(ae2Var)) {
+            this.b.add(ae2Var);
+        }
+    }
+
+    @RequiresApi(api = 21)
+    public WebResourceResponse c(WebResourceRequest webResourceRequest, boolean z) {
+        InterceptResult invokeLZ;
+        Uri url;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webResourceRequest, z)) == null) {
+            if (webResourceRequest == null || (url = webResourceRequest.getUrl()) == null) {
+                return null;
             }
+            return d(url.toString(), webResourceRequest.getRequestHeaders(), z);
         }
-        ap4.d(this.c);
+        return (WebResourceResponse) invokeLZ.objValue;
     }
 
-    public final void b(File file) {
+    public final WebResourceResponse d(String str, Map<String, String> map, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) {
-            try {
-                if (this.c == null && file != null) {
-                    ap4.h(this.d);
-                    this.c = new FileOutputStream(file);
-                }
-            } catch (Exception e) {
-                if (fd2.a) {
-                    Log.e("HybridIntercept", Log.getStackTraceString(e));
-                }
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, map, z)) == null) {
+            if (this.b.isEmpty() || TextUtils.isEmpty(str) || str.startsWith("file://")) {
+                return null;
             }
+            return new de2(this.b, str, map, 0, z).b(str, map, z);
         }
-    }
-
-    public void c(InputStream inputStream) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream) == null) && inputStream != null && !this.e) {
-            ap4.Q(inputStream, this.d);
-            this.e = true;
-        }
-    }
-
-    public void d(byte[] bArr, int i, int i2) {
-        OutputStream outputStream;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048579, this, bArr, i, i2) == null) && (outputStream = this.c) != null) {
-            try {
-                if (i2 > 0) {
-                    outputStream.write(bArr, i, i2);
-                } else {
-                    this.e = true;
-                }
-            } catch (IOException unused) {
-                ap4.d(this.c);
-                this.c = null;
-                a aVar = this.b;
-                if (aVar != null) {
-                    aVar.b(this.d);
-                }
-            }
-        }
+        return (WebResourceResponse) invokeLLZ.objValue;
     }
 }

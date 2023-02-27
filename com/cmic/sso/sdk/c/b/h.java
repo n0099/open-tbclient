@@ -13,8 +13,8 @@ import org.json.JSONObject;
 public class h extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String x;
     public String y;
+    public String z;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -29,8 +29,8 @@ public class h extends a {
                 return;
             }
         }
-        this.x = "";
         this.y = "";
+        this.z = "";
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
@@ -38,7 +38,7 @@ public class h extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return this.b + this.c + this.d + this.e + this.f + this.g + this.h + this.i + this.j + this.m + this.n + str + this.o + this.q + this.r + this.s + this.t + this.u + this.v + this.x + this.y + this.w;
+            return this.b + this.c + this.d + this.e + this.f + this.g + this.h + this.i + this.j + this.m + this.n + str + this.o + this.q + this.r + this.s + this.t + this.u + this.v + this.y + this.z + this.w + this.x;
         }
         return (String) invokeL.objValue;
     }
@@ -51,17 +51,17 @@ public class h extends a {
         }
     }
 
-    public void v(String str) {
+    public void w(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.x = t(str);
+            this.y = t(str);
         }
     }
 
-    public void w(String str) {
+    public void x(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.y = t(str);
+            this.z = t(str);
         }
     }
 
@@ -94,9 +94,10 @@ public class h extends a {
                 jSONObject.put("ipv6_list", this.t);
                 jSONObject.put("sdkType", this.u);
                 jSONObject.put("tempPDR", this.v);
-                jSONObject.put("scrip", this.x);
-                jSONObject.put("userCapaid", this.y);
+                jSONObject.put("scrip", this.y);
+                jSONObject.put("userCapaid", this.z);
                 jSONObject.put("funcType", this.w);
+                jSONObject.put("socketip", this.x);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -109,7 +110,7 @@ public class h extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a + "&" + this.b + "&" + this.c + "&" + this.d + "&" + this.e + "&" + this.f + "&" + this.g + "&" + this.h + "&" + this.i + "&" + this.j + "&" + this.k + "&" + this.l + "&" + this.m + "&" + this.n + "&" + this.o + "&" + this.p + "&" + this.q + "&" + this.r + "&&" + this.s + "&" + this.t + "&" + this.u + "&" + this.v + "&" + this.x + "&" + this.y + "&" + this.w;
+            return this.a + "&" + this.b + "&" + this.c + "&" + this.d + "&" + this.e + "&" + this.f + "&" + this.g + "&" + this.h + "&" + this.i + "&" + this.j + "&" + this.k + "&" + this.l + "&" + this.m + "&" + this.n + "&" + this.o + "&" + this.p + "&" + this.q + "&" + this.r + "&&" + this.s + "&" + this.t + "&" + this.u + "&" + this.v + "&" + this.y + "&" + this.z + "&" + this.w + "&" + this.x;
         }
         return (String) invokeV.objValue;
     }

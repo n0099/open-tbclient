@@ -1,55 +1,29 @@
 package com.baidu.ar.b.b;
 
 import com.baidu.ar.arplay.core.pixel.FramePixels;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public abstract class c<T> extends com.baidu.ar.c.a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public int cI;
 
     /* renamed from: cn  reason: collision with root package name */
-    public FramePixels f1056cn;
+    public FramePixels f1031cn;
 
     public c(int i, FramePixels framePixels) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), framePixels};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.cI = i;
-        this.f1056cn = framePixels;
+        this.f1031cn = framePixels;
     }
 
     @Override // com.baidu.ar.c.a
     public T ay() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (com.baidu.ar.b.a.as().c(this.cI)) {
-                try {
-                    com.baidu.ar.b.a.as().a(this.cI, true);
-                    return e(this.f1056cn);
-                } finally {
-                    com.baidu.ar.b.a.as().a(this.cI, false);
-                }
+        if (com.baidu.ar.b.a.as().c(this.cI)) {
+            try {
+                com.baidu.ar.b.a.as().a(this.cI, true);
+                return e(this.f1031cn);
+            } finally {
+                com.baidu.ar.b.a.as().a(this.cI, false);
             }
-            return null;
         }
-        return (T) invokeV.objValue;
+        return null;
     }
 
     public abstract T e(FramePixels framePixels);

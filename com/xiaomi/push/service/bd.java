@@ -1,49 +1,38 @@
 package com.xiaomi.push.service;
 
 import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
 public class bd {
-    public static /* synthetic */ Interceptable $ic = null;
     public static long a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f946a = "";
-    public transient /* synthetic */ FieldHolder $fh;
+    public static String f924a = "";
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1071163108, "Lcom/xiaomi/push/service/bd;")) == null) {
-            return;
+    public static String a() {
+        if (TextUtils.isEmpty(f924a)) {
+            f924a = com.xiaomi.push.bo.a(4);
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        StringBuilder sb = new StringBuilder();
+        sb.append(f924a);
+        long j = a;
+        a = 1 + j;
+        sb.append(j);
+        return sb.toString();
+    }
+
+    public static String a(String str) {
+        if (TextUtils.isEmpty(str) || str.length() < 32) {
+            return str;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1071163108, "Lcom/xiaomi/push/service/bd;");
+        try {
+            return "BlockId_" + str.substring(8);
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.d("Exception occurred when filtering registration packet id for log. " + e);
+            return "UnexpectedId";
         }
     }
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (TextUtils.isEmpty(f946a)) {
-                f946a = com.xiaomi.push.bp.a(4);
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append(f946a);
-            long j = a;
-            a = 1 + j;
-            sb.append(j);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
+    public static String b() {
+        return com.xiaomi.push.bo.a(32);
     }
 }

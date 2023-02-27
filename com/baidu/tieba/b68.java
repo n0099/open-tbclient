@@ -1,320 +1,335 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.exp.ADConfigError;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.memberCenter.tail.data.TailData;
+import com.baidu.tieba.memberCenter.tail.message.AddTailHttpResponseMessage;
+import com.baidu.tieba.memberCenter.tail.message.AddTailNetMessage;
+import com.baidu.tieba.memberCenter.tail.message.AddTailSocketResponseMessage;
+import com.baidu.tieba.memberCenter.tail.message.SetTailNetMessage;
+import com.baidu.tieba.memberCenter.tail.message.UpdateTailHttpResponseMessage;
+import com.baidu.tieba.memberCenter.tail.message.UpdateTailNetMessage;
+import com.baidu.tieba.memberCenter.tail.message.UpdateTailSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
+import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class b68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public TailData c;
+    public TailData d;
+    public TbPageContext<?> e;
+    public w68<Integer> f;
+    public w68<Integer> g;
+    public wb h;
+    public wb i;
+
+    public boolean l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i == 50 : invokeI.booleanValue;
+    }
+
+    public boolean m(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i > 50 : invokeI.booleanValue;
+    }
 
     /* loaded from: classes3.dex */
-    public static class a implements gb5 {
+    public class a extends wb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f68 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ g68 c;
+        public final /* synthetic */ b68 a;
 
-        @Override // com.baidu.tieba.gb5
-        public boolean onFileDownloaded(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.gb5
-        public boolean onPreDownload(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        /* renamed from: com.baidu.tieba.b68$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0231a extends BdAsyncTask<Void, Void, Boolean> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ DownloadData a;
-            public final /* synthetic */ a b;
-
-            public C0231a(a aVar, DownloadData downloadData) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, downloadData};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = downloadData;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public Boolean doInBackground(Void... voidArr) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                    FileHelper.deleteFileOrDir(new File(this.b.b));
-                    if (b68.g(this.a.getPath(), this.b.c)) {
-                        a aVar = this.b;
-                        return Boolean.valueOf(b68.f(aVar.c, aVar.b));
-                    }
-                    return Boolean.FALSE;
-                }
-                return (Boolean) invokeL.objValue;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public void onPostExecute(Boolean bool) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
-                    if (bool.booleanValue()) {
-                        a aVar = this.b;
-                        aVar.a.onSuccess(aVar.b);
-                        return;
-                    }
-                    this.b.a.onFail("fail to download");
-                }
-            }
-        }
-
-        public a(f68 f68Var, String str, g68 g68Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(b68 b68Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {f68Var, str, g68Var};
+                Object[] objArr = {b68Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = f68Var;
-            this.b = str;
-            this.c = g68Var;
+            this.a = b68Var;
         }
 
-        @Override // com.baidu.tieba.gb5
-        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+        @Override // com.baidu.tieba.wb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            v58 v58Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
-                a68.a("【表情下载】 onFileDownloadFailed = " + str);
-                if (this.a != null) {
-                    String str2 = "faile to download:";
-                    if (downloadData != null && !TextUtils.isEmpty(downloadData.getUrl())) {
-                        str2 = "faile to download:" + downloadData.getUrl();
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                this.a.a = false;
+                if (this.a.f != null) {
+                    Integer num = null;
+                    if (responsedMessage instanceof AddTailHttpResponseMessage) {
+                        v58Var = ((AddTailHttpResponseMessage) responsedMessage).getResultData();
+                    } else if (responsedMessage instanceof AddTailSocketResponseMessage) {
+                        v58Var = ((AddTailSocketResponseMessage) responsedMessage).getResultData();
+                    } else {
+                        v58Var = null;
                     }
-                    this.a.onFail(str2);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.gb5
-        public void onFileDownloadSucceed(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
-                a68.a("【表情下载】 onFileDownloadSucceed = " + this.b);
-                new C0231a(this, downloadData).execute(new Void[0]);
-            }
-        }
-
-        @Override // com.baidu.tieba.gb5
-        public void onFileUpdateProgress(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) {
-                f68 f68Var = this.a;
-                if (f68Var != null) {
-                    f68Var.onProgress(downloadData.getProcess());
-                }
-                a68.a("【表情下载】 onFileUpdateProgress = " + downloadData.getProcess());
-            }
-        }
-    }
-
-    public static void c(g68 g68Var, f68 f68Var) {
-        List<h68> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, g68Var, f68Var) == null) {
-            if (g68Var != null && (list = g68Var.e) != null && list.size() != 0 && !TextUtils.isEmpty(g68Var.d)) {
-                a68.a("【表情下载】 url = " + g68Var.d);
-                a aVar = new a(f68Var, c68.c + g68Var.a + "/", g68Var);
-                new File(c68.c).mkdirs();
-                d(g68Var, c68.c, aVar);
-                return;
-            }
-            if (f68Var != null) {
-                f68Var.onFail("group data null");
-            }
-            a68.a("【表情下载】 fail = 参数异常");
-        }
-    }
-
-    public static void d(g68 g68Var, String str, gb5 gb5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, g68Var, str, gb5Var) == null) {
-            if (g68Var != null && !TextUtils.isEmpty(g68Var.d)) {
-                String str2 = g68Var.a + ".zip";
-                DownloadData downloadData = new DownloadData(g68Var.a, str2, Uri.encode(g68Var.d, "-![.:/,%?&=]"), gb5Var);
-                downloadData.setPath(str + str2);
-                hb5.k().l(downloadData);
-            } else if (gb5Var != null) {
-                gb5Var.onFileDownloadFailed(null, 0, ADConfigError.REASON_NULL_DATA);
-            }
-        }
-    }
-
-    public static String e(String str, String str2, Bitmap bitmap, int i) {
-        InterceptResult invokeLLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, bitmap, i)) == null) {
-            if (bitmap != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                File file = new File(str + str2);
-                try {
-                    if ((file.exists() && !file.delete()) || !file.createNewFile()) {
-                        return null;
-                    }
-                    FileOutputStream fileOutputStream = new FileOutputStream(file);
-                    bitmap.compress(Bitmap.CompressFormat.PNG, i, fileOutputStream);
-                    fileOutputStream.flush();
-                    fileOutputStream.close();
-                    return file.getPath();
-                } catch (Exception unused) {
-                }
-            }
-            return null;
-        }
-        return (String) invokeLLLI.objValue;
-    }
-
-    public static boolean f(g68 g68Var, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, g68Var, str)) == null) {
-            File file = new File(str + "panel.png");
-            File file2 = new File(str + "panel_momo.png");
-            if (file.exists() && file2.exists()) {
-                a68.a("【表情下载】 savePanelImage");
-                return true;
-            }
-            if (!new File(str + g68Var.c).exists()) {
-                return false;
-            }
-            Bitmap bitmap = null;
-            try {
-                bitmap = BitmapFactory.decodeFile(str + g68Var.c);
-            } catch (OutOfMemoryError e) {
-                e.printStackTrace();
-            }
-            if (bitmap == null) {
-                return false;
-            }
-            if (!file.exists() && TextUtils.isEmpty(e(str, "panel.png", bitmap, 60))) {
-                return false;
-            }
-            if (!file2.exists() && TextUtils.isEmpty(e(str, "panel_momo.png", bitmap, 60))) {
-                return false;
-            }
-            a68.a("【表情下载】 savePanelImage = " + g68Var.c);
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean g(String str, g68 g68Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, g68Var)) == null) {
-            ZipInputStream zipInputStream = null;
-            try {
-                try {
-                    ZipInputStream zipInputStream2 = new ZipInputStream(new BufferedInputStream(new FileInputStream(str)));
-                    while (true) {
-                        try {
-                            ZipEntry nextEntry = zipInputStream2.getNextEntry();
-                            if (nextEntry != null) {
-                                if (!nextEntry.isDirectory()) {
-                                    String str2 = ".emotions/" + g68Var.a;
-                                    String str3 = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + str2 + "/" + nextEntry.getName();
-                                    FileHelper.saveFileByStream(str3, zipInputStream2);
-                                    a68.a("【表情下载】 unZipEmotion = " + str3);
-                                }
-                            } else {
-                                zipInputStream2.close();
-                                FileHelper.deleteFile(new File(str));
-                                fj.e(zipInputStream2);
-                                return true;
-                            }
-                        } catch (FileNotFoundException e) {
-                            e = e;
-                            zipInputStream = zipInputStream2;
-                            e.printStackTrace();
-                            fj.e(zipInputStream);
-                            return false;
-                        } catch (IOException e2) {
-                            e = e2;
-                            zipInputStream = zipInputStream2;
-                            e.printStackTrace();
-                            fj.e(zipInputStream);
-                            return false;
-                        } catch (Throwable th) {
-                            th = th;
-                            zipInputStream = zipInputStream2;
-                            fj.e(zipInputStream);
-                            throw th;
+                    if (v58Var != null) {
+                        num = Integer.valueOf(v58Var.a());
+                        if (this.a.b) {
+                            this.a.p(num.intValue());
                         }
                     }
-                } catch (Throwable th2) {
-                    th = th2;
+                    this.a.f.a(responsedMessage.hasError(), responsedMessage.getErrorString(), num);
                 }
-            } catch (FileNotFoundException e3) {
-                e = e3;
-            } catch (IOException e4) {
-                e = e4;
             }
-        } else {
-            return invokeLL.booleanValue;
         }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b extends wb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b68 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(b68 b68Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b68Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = b68Var;
+        }
+
+        @Override // com.baidu.tieba.wb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            a68 a68Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                this.a.a = false;
+                if (this.a.g != null) {
+                    Integer num = null;
+                    if (responsedMessage instanceof UpdateTailHttpResponseMessage) {
+                        a68Var = ((UpdateTailHttpResponseMessage) responsedMessage).getResultData();
+                    } else if (responsedMessage instanceof UpdateTailSocketResponseMessage) {
+                        a68Var = ((UpdateTailSocketResponseMessage) responsedMessage).getResultData();
+                    } else {
+                        a68Var = null;
+                    }
+                    if (a68Var != null) {
+                        num = Integer.valueOf(a68Var.a());
+                    }
+                    this.a.g.a(responsedMessage.hasError(), responsedMessage.getErrorString(), num);
+                }
+            }
+        }
+    }
+
+    public b68(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.b = false;
+        this.h = new a(this, CmdConfigHttp.CMD_TAIL_ADD, 305101);
+        this.i = new b(this, CmdConfigHttp.CMD_TAIL_UPDATE, 305102);
+        this.e = tbPageContext;
+        tbPageContext.registerListener(this.h);
+        this.e.registerListener(this.i);
+        this.d = new TailData();
+    }
+
+    public int e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return Pattern.compile("#\\([^#\\)\\(]+\\)").matcher(str).replaceAll(" ").length();
+        }
+        return invokeL.intValue;
+    }
+
+    public String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str != null && str.length() > 0) {
+                return str.substring(0, str.length() - 1);
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            while (e(str) > 50) {
+                str = f(str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void n(w68<Integer> w68Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, w68Var) == null) {
+            this.f = w68Var;
+        }
+    }
+
+    public void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.d.setFontColor(str);
+        }
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            MessageManager.getInstance().sendMessage(new SetTailNetMessage(i, 1));
+        }
+    }
+
+    public void q(w68<Integer> w68Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, w68Var) == null) {
+            this.g = w68Var;
+        }
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d.getFontColor();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public TailData i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (TailData) invokeV.objValue;
+    }
+
+    public void j(int i, String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, str2, Boolean.valueOf(z)}) == null) {
+            TailData tailData = new TailData();
+            this.d = tailData;
+            if (i != 0) {
+                TailData tailData2 = new TailData();
+                this.c = tailData2;
+                tailData2.setId(i);
+                this.c.setContent(str);
+                this.c.setFontColor(str2);
+                this.d.setId(i);
+                this.d.setContent(str);
+                this.d.setFontColor(str2);
+                return;
+            }
+            tailData.setContent("");
+            this.d.setFontColor("7a7c80");
+            this.b = z;
+        }
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            TailData tailData = this.d;
+            if (tailData != null && tailData.getFontColor() != null) {
+                TailData tailData2 = this.c;
+                if (tailData2 == null) {
+                    if (!StringUtils.isNull(this.d.getContent()) || !this.d.getFontColor().equals("7a7c80")) {
+                        return true;
+                    }
+                } else if (tailData2.getContent() != null && this.c.getFontColor() != null && (!this.c.getContent().equals(this.d.getContent()) || !this.c.getFontColor().equals(this.d.getFontColor()))) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048589, this, str) != null) || this.a) {
+            return;
+        }
+        String f = z68.f(str);
+        if (!StringUtils.isNull(f)) {
+            this.e.showToast(f);
+            return;
+        }
+        String b2 = z68.b(str);
+        this.d.setContent(b2);
+        this.a = true;
+        TailData tailData = this.c;
+        if (tailData != null && tailData.getId() > 0) {
+            this.e.sendMessage(new UpdateTailNetMessage(this.c.getId(), b2, this.d.getFontColor(), this.e.getString(R.string.tail_default_font)));
+        } else {
+            this.e.sendMessage(new AddTailNetMessage(b2, this.d.getFontColor(), this.e.getString(R.string.tail_default_font)));
+        }
+    }
+
+    public boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (StringUtils.isNull(this.d.getContent()) || !k() || !StringUtils.isNull(z68.f(this.d.getContent()))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

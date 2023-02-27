@@ -1,46 +1,18 @@
 package com.xiaomi.push.service;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.gk;
+import com.xiaomi.push.gj;
+import com.xiaomi.push.gs;
 import com.xiaomi.push.gt;
-import com.xiaomi.push.gu;
-import com.xiaomi.push.gy;
+import com.xiaomi.push.gx;
 import java.util.ArrayList;
 import org.xmlpull.v1.XmlPullParser;
 /* loaded from: classes8.dex */
-public class k implements gt {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public k() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static gk a(XmlPullParser xmlPullParser) {
-        InterceptResult invokeL;
+public class k implements gs {
+    public static gj a(XmlPullParser xmlPullParser) {
         String[] strArr;
         String[] strArr2;
         String str;
         ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, xmlPullParser)) != null) {
-            return (gk) invokeL.objValue;
-        }
         if (xmlPullParser.getEventType() != 2) {
             return null;
         }
@@ -51,7 +23,7 @@ public class k implements gt {
             String[] strArr4 = new String[xmlPullParser.getAttributeCount()];
             for (int i = 0; i < xmlPullParser.getAttributeCount(); i++) {
                 strArr3[i] = xmlPullParser.getAttributeName(i);
-                strArr4[i] = gy.b(xmlPullParser.getAttributeValue(i));
+                strArr4[i] = gx.b(xmlPullParser.getAttributeValue(i));
             }
             strArr = strArr3;
             str = null;
@@ -66,7 +38,7 @@ public class k implements gt {
         while (true) {
             int next = xmlPullParser.next();
             if (next == 3) {
-                return new gk(name, namespace, strArr, strArr2, str, arrayList);
+                return new gj(name, namespace, strArr, strArr2, str, arrayList);
             }
             if (next == 4) {
                 str = xmlPullParser.getText().trim();
@@ -74,7 +46,7 @@ public class k implements gt {
                 if (arrayList == null) {
                     arrayList = new ArrayList();
                 }
-                gk a = a(xmlPullParser);
+                gj a = a(xmlPullParser);
                 if (a != null) {
                     arrayList.add(a);
                 }
@@ -83,25 +55,17 @@ public class k implements gt {
     }
 
     public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            gu.a().a("all", "xm:chat", this);
-        }
+        gt.a().a("all", "xm:chat", this);
     }
 
-    public gk b(XmlPullParser xmlPullParser) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xmlPullParser)) == null) {
-            int eventType = xmlPullParser.getEventType();
-            while (eventType != 1 && eventType != 2) {
-                eventType = xmlPullParser.next();
-            }
-            if (eventType == 2) {
-                return a(xmlPullParser);
-            }
-            return null;
+    public gj b(XmlPullParser xmlPullParser) {
+        int eventType = xmlPullParser.getEventType();
+        while (eventType != 1 && eventType != 2) {
+            eventType = xmlPullParser.next();
         }
-        return (gk) invokeL.objValue;
+        if (eventType == 2) {
+            return a(xmlPullParser);
+        }
+        return null;
     }
 }

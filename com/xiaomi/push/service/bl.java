@@ -3,20 +3,14 @@ package com.xiaomi.push.service;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.cv;
+import com.xiaomi.push.cu;
+import com.xiaomi.push.dv;
 import com.xiaomi.push.dw;
-import com.xiaomi.push.dx;
-import com.xiaomi.push.ez;
-import com.xiaomi.push.fh;
-import com.xiaomi.push.fj;
-import com.xiaomi.push.fw;
-import com.xiaomi.push.gy;
+import com.xiaomi.push.ey;
+import com.xiaomi.push.fg;
+import com.xiaomi.push.fi;
+import com.xiaomi.push.fv;
+import com.xiaomi.push.gx;
 import com.xiaomi.push.service.bv;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.IOException;
@@ -24,182 +18,110 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes8.dex */
-public class bl extends bv.a implements cv.a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public class bl extends bv.a implements cu.a {
     public long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public XMPushService f966a;
+    public XMPushService f944a;
 
     /* loaded from: classes8.dex */
-    public static class a implements cv.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.xiaomi.push.cv.b
+    public static class a implements cu.b {
+        @Override // com.xiaomi.push.cu.b
         public String a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                Uri.Builder buildUpon = Uri.parse(str).buildUpon();
-                buildUpon.appendQueryParameter(BaseStatisContent.SDKVER, String.valueOf(48));
-                buildUpon.appendQueryParameter("osver", String.valueOf(Build.VERSION.SDK_INT));
-                buildUpon.appendQueryParameter("os", gy.a(Build.MODEL + ":" + Build.VERSION.INCREMENTAL));
-                buildUpon.appendQueryParameter("mi", String.valueOf(com.xiaomi.push.v.a()));
-                String builder = buildUpon.toString();
-                com.xiaomi.channel.commonutils.logger.b.c("fetch bucket from : " + builder);
-                URL url = new URL(builder);
-                int port = url.getPort() == -1 ? 80 : url.getPort();
-                try {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    String a = com.xiaomi.push.bj.a(com.xiaomi.push.v.m763a(), url);
-                    long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                    fj.a(url.getHost() + ":" + port, (int) currentTimeMillis2, null);
-                    return a;
-                } catch (IOException e) {
-                    fj.a(url.getHost() + ":" + port, -1, e);
-                    throw e;
-                }
+            Uri.Builder buildUpon = Uri.parse(str).buildUpon();
+            buildUpon.appendQueryParameter(BaseStatisContent.SDKVER, String.valueOf(48));
+            buildUpon.appendQueryParameter("osver", String.valueOf(Build.VERSION.SDK_INT));
+            buildUpon.appendQueryParameter("os", gx.a(Build.MODEL + ":" + Build.VERSION.INCREMENTAL));
+            buildUpon.appendQueryParameter("mi", String.valueOf(com.xiaomi.push.s.a()));
+            String builder = buildUpon.toString();
+            com.xiaomi.channel.commonutils.logger.b.c("fetch bucket from : " + builder);
+            URL url = new URL(builder);
+            int port = url.getPort() == -1 ? 80 : url.getPort();
+            try {
+                long currentTimeMillis = System.currentTimeMillis();
+                String a = com.xiaomi.push.bi.a(com.xiaomi.push.s.m639a(), url);
+                long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+                fi.a(url.getHost() + ":" + port, (int) currentTimeMillis2, null);
+                return a;
+            } catch (IOException e) {
+                fi.a(url.getHost() + ":" + port, -1, e);
+                throw e;
             }
-            return (String) invokeL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class b extends cv {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Context context, com.xiaomi.push.cu cuVar, cv.b bVar, String str) {
-            super(context, cuVar, bVar, str);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, cuVar, bVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (com.xiaomi.push.cu) objArr2[1], (cv.b) objArr2[2], (String) objArr2[3]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
+    public static class b extends com.xiaomi.push.cu {
+        public b(Context context, com.xiaomi.push.ct ctVar, cu.b bVar, String str) {
+            super(context, ctVar, bVar, str);
         }
 
-        @Override // com.xiaomi.push.cv
+        @Override // com.xiaomi.push.cu
         public String a(ArrayList<String> arrayList, String str, String str2, boolean z) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{arrayList, str, str2, Boolean.valueOf(z)})) == null) {
-                try {
-                    if (fh.m399a().m404a()) {
-                        str2 = bv.m724a();
-                    }
-                    return super.a(arrayList, str, str2, z);
-                } catch (IOException e) {
-                    fj.a(0, ez.u.a(), 1, null, com.xiaomi.push.bj.c(cv.a) ? 1 : 0);
-                    throw e;
+            try {
+                if (fg.m392a().m397a()) {
+                    str2 = bv.m721a();
                 }
+                return super.a(arrayList, str, str2, z);
+            } catch (IOException e) {
+                fi.a(0, ey.GSLB_ERR.a(), 1, null, com.xiaomi.push.bi.c(com.xiaomi.push.cu.a) ? 1 : 0);
+                throw e;
             }
-            return (String) invokeCommon.objValue;
         }
     }
 
     public bl(XMPushService xMPushService) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xMPushService};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f966a = xMPushService;
+        this.f944a = xMPushService;
     }
 
     public static void a(XMPushService xMPushService) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, xMPushService) == null) {
-            bl blVar = new bl(xMPushService);
-            bv.a().a(blVar);
-            synchronized (cv.class) {
-                cv.a(blVar);
-                cv.a(xMPushService, null, new a(), "0", "push", "2.2");
-            }
+        bl blVar = new bl(xMPushService);
+        bv.a().a(blVar);
+        synchronized (com.xiaomi.push.cu.class) {
+            com.xiaomi.push.cu.a(blVar);
+            com.xiaomi.push.cu.a(xMPushService, null, new a(), "0", "push", "2.2");
         }
     }
 
-    @Override // com.xiaomi.push.cv.a
-    public cv a(Context context, com.xiaomi.push.cu cuVar, cv.b bVar, String str) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, cuVar, bVar, str)) == null) ? new b(context, cuVar, bVar, str) : (cv) invokeLLLL.objValue;
+    @Override // com.xiaomi.push.cu.a
+    public com.xiaomi.push.cu a(Context context, com.xiaomi.push.ct ctVar, cu.b bVar, String str) {
+        return new b(context, ctVar, bVar, str);
     }
 
     @Override // com.xiaomi.push.service.bv.a
-    public void a(dw.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-        }
+    public void a(dv.a aVar) {
     }
 
     @Override // com.xiaomi.push.service.bv.a
-    public void a(dx.b bVar) {
-        com.xiaomi.push.cr b2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) && bVar.m314b() && bVar.m313a() && System.currentTimeMillis() - this.a > 3600000) {
-            com.xiaomi.channel.commonutils.logger.b.m105a("fetch bucket :" + bVar.m313a());
+    public void a(dw.b bVar) {
+        com.xiaomi.push.cq b2;
+        if (bVar.m307b() && bVar.m306a() && System.currentTimeMillis() - this.a > 3600000) {
+            com.xiaomi.channel.commonutils.logger.b.m97a("fetch bucket :" + bVar.m306a());
             this.a = System.currentTimeMillis();
-            cv a2 = cv.a();
-            a2.m271a();
-            a2.m274b();
-            fw m665a = this.f966a.m665a();
-            if (m665a == null || (b2 = a2.b(m665a.m427a().c())) == null) {
+            com.xiaomi.push.cu a2 = com.xiaomi.push.cu.a();
+            a2.m264a();
+            a2.m267b();
+            fv m662a = this.f944a.m662a();
+            if (m662a == null || (b2 = a2.b(m662a.m420a().c())) == null) {
                 return;
             }
-            ArrayList<String> m259a = b2.m259a();
+            ArrayList<String> m252a = b2.m252a();
             boolean z = true;
-            Iterator<String> it = m259a.iterator();
+            Iterator<String> it = m252a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
-                } else if (it.next().equals(m665a.mo428a())) {
+                } else if (it.next().equals(m662a.mo421a())) {
                     z = false;
                     break;
                 }
             }
-            if (!z || m259a.isEmpty()) {
+            if (!z || m252a.isEmpty()) {
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m105a("bucket changed, force reconnect");
-            this.f966a.a(0, (Exception) null);
-            this.f966a.a(false);
+            com.xiaomi.channel.commonutils.logger.b.m97a("bucket changed, force reconnect");
+            this.f944a.a(0, (Exception) null);
+            this.f944a.a(false);
         }
     }
 }

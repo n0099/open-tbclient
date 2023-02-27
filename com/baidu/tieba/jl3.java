@@ -1,12 +1,9 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,31 +11,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.facebook.common.internal.Sets;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class jl3 {
+public final class jl3 implements gl3, il3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static List<String> b;
-    public static List<String> c;
-    public static final Object d;
-    public static int e;
-    public static int f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<hl3<?>, Set<b>> l;
 
     /* loaded from: classes5.dex */
-    public static abstract class a {
+    public interface b extends fo3<Set<hl3<?>>> {
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final boolean a;
+        public final /* synthetic */ Set a;
+        public final /* synthetic */ Set b;
 
-        public a(boolean z) {
+        public a(jl3 jl3Var, Set set, Set set2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z)};
+                Object[] objArr = {jl3Var, set, set2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,284 +48,216 @@ public class jl3 {
                     return;
                 }
             }
-            this.a = z;
+            this.a = set;
+            this.b = set2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                for (b bVar : this.a) {
+                    bVar.a(this.b);
+                }
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947887096, "Lcom/baidu/tieba/jl3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes5.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final jl3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-686260775, "Lcom/baidu/tieba/jl3$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-686260775, "Lcom/baidu/tieba/jl3$c;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947887096, "Lcom/baidu/tieba/jl3;");
+            a = new jl3();
+        }
+    }
+
+    public jl3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = gp1.a;
-        b = new ArrayList();
-        c = new ArrayList();
-        d = new Object();
-        e = 0;
-        f = 0;
+        this.l = new HashMap();
     }
 
-    public static boolean a() {
+    public static jl3 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (e()) {
-                if (a) {
-                    Log.d("SwanAppCompat", "has used ab description");
-                }
-                return true;
-            }
-            return !kh3.a().getBoolean("swan_app_js_native_ab_update_key", false);
+            return c.a;
         }
-        return invokeV.booleanValue;
+        return (jl3) invokeV.objValue;
     }
 
-    public static void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            if (a) {
-                Log.d("SwanAppCompat", "on App upgrade");
-            }
-            if (hg4.b() != null && dl4.b()) {
-                hg4.b().i().putString("key_online_description_fix_version", "0");
-            }
-            kh3.a().putBoolean("swan_app_js_native_ab_update_key", true);
-        }
-    }
-
-    public static void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            if (a) {
-                Log.d("SwanAppCompat", "start release descriptions");
-            }
-            synchronized (d) {
-                e = 0;
-                b = new ArrayList();
-                c = new ArrayList();
-            }
-        }
-    }
-
-    public static void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            if (a) {
-                Log.d("SwanAppCompat", "start prepare ab description");
-            }
-            synchronized (d) {
-                l(true);
-                l(false);
-            }
-            if (a) {
-                Log.d("SwanAppCompat", "end prepare ab description");
-            }
-        }
-    }
-
-    public static String b(String str) {
+    public final <T> boolean b(T... tArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            w52.c("JsNative", f + "-true");
-            return f + "-true-" + str + "-" + c();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            synchronized (d) {
-                if (b != null) {
-                    sb.append("v8list:{");
-                    for (String str : b) {
-                        if (!TextUtils.isEmpty(str)) {
-                            if (str.length() > 100) {
-                                sb.append(str.substring(0, 99));
-                                sb.append(StringHelper.STRING_MORE);
-                            } else {
-                                sb.append(str);
-                            }
-                            sb.append(";");
-                        }
-                    }
-                    sb.append("},");
-                }
-                if (c != null) {
-                    sb.append("weblist:{");
-                    for (String str2 : c) {
-                        if (!TextUtils.isEmpty(str2)) {
-                            if (str2.length() > 100) {
-                                sb.append(str2.substring(0, 99));
-                                sb.append(StringHelper.STRING_MORE);
-                            } else {
-                                sb.append(str2);
-                            }
-                            sb.append(";");
-                        }
-                    }
-                    sb.append("}");
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d(int i, String str) {
-        InterceptResult invokeIL;
-        List<String> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
-            f = 0;
-            if (e == 1) {
-                w52.i("SwanAppCompat", "type support default");
-                f = 1;
-                return SchemeCollecter.getSchemesDes(str, i);
-            } else if (TextUtils.equals(str, "swan/web")) {
-                return SchemeCollecter.getSchemesDes(str, i);
-            } else {
-                if (a() && !kt2.b().isEmpty()) {
-                    synchronized (d) {
-                        if (TextUtils.equals(str, SchemeCollecter.CLASSIFY_SWAN_V8)) {
-                            list = b;
-                        } else {
-                            list = c;
-                        }
-                        if (list != null && list.size() > 0) {
-                            if (a) {
-                                Log.d("SwanAppCompat", "support ab js native descriptions");
-                            }
-                            e = 2;
-                            f = 2;
-                            return list.get(i);
-                        } else if (list != null) {
-                            f = 3;
-                        } else {
-                            f = 4;
-                        }
-                    }
-                }
-                if (a) {
-                    Log.d("SwanAppCompat", "use default descriptions");
-                }
-                e = 1;
-                return SchemeCollecter.getSchemesDes(str, i);
-            }
-        }
-        return (String) invokeIL.objValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (e == 2) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tArr)) == null) {
+            if (tArr == null || tArr.length < 1) {
                 return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public static boolean f() {
-        InterceptResult invokeV;
+    public jl3 e(hl3<?>... hl3VarArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return !lm3.f("3.320.0");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, hl3VarArr)) == null) {
+            c(Sets.newHashSet(hl3VarArr));
+            return this;
         }
-        return invokeV.booleanValue;
+        return (jl3) invokeL.objValue;
     }
 
-    public static boolean g() {
-        InterceptResult invokeV;
+    public jl3 f(fl3 fl3Var) {
+        InterceptResult invokeL;
+        String fl3Var2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return !lm3.f("3.120.2");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65545, null) == null) && a) {
-            Log.e("JsNative", f + "-true");
-        }
-    }
-
-    public static void l(boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
-            if (a) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("start prepare ab description :");
-                if (z) {
-                    str = V8Engine.TYPE_V8;
-                } else {
-                    str = AlbumActivityConfig.FROM_WEB_VIEW;
-                }
-                sb.append(str);
-                Log.d("SwanAppCompat", sb.toString());
-            }
-            hn3 hn3Var = new hn3(z);
-            String a2 = kt2.a();
-            String string = kh3.a().getString("swan_app_js_native_ab_sign", null);
-            if (!TextUtils.equals(a2, string)) {
-                if (a) {
-                    Log.w("SwanAppCompat", "js desc sign change: old=" + string + ", new=" + a2);
-                }
-                if (!hn3Var.a(3)) {
-                    return;
-                }
-                kh3.a().putString("swan_app_js_native_ab_sign", a2);
-            } else if (kh3.a().getBoolean("swan_app_js_native_ab_update_key", false)) {
-                if (!hn3Var.a(3)) {
-                    return;
-                }
-                kh3.a().putBoolean("swan_app_js_native_ab_update_key", false);
-            }
-            List<String> d2 = hn3Var.d();
-            if (d2 != null) {
-                m(d2, z);
-            }
-        }
-    }
-
-    public static void m(List<String> list, boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(65549, null, list, z) != null) || list == null || e != 0) {
-            return;
-        }
-        if (z) {
-            b = list;
-        } else {
-            c = list;
-        }
-        if (a) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("has update descriptions, list :");
-            sb.append(list.toString());
-            sb.append(" type :");
-            if (z) {
-                str = V8Engine.TYPE_V8;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, fl3Var)) == null) {
+            if (fl3Var == null) {
+                fl3Var2 = "";
             } else {
-                str = AlbumActivityConfig.FROM_WEB_VIEW;
+                fl3Var2 = fl3Var.toString();
             }
-            sb.append(str);
-            Log.d("SwanAppCompat", sb.toString());
+            if (gl3.a) {
+                Log.i("Tracer-ErrCode", fl3Var2);
+            }
+            m62.c("Tracer-ErrCode", fl3Var2);
+            return this;
         }
+        return (jl3) invokeL.objValue;
+    }
+
+    public final Set<b> i(@NonNull hl3<?> hl3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, hl3Var)) == null) {
+            Set<b> set = this.l.get(hl3Var);
+            if (set == null) {
+                HashSet hashSet = new HashSet();
+                this.l.put(hl3Var, hashSet);
+                return hashSet;
+            }
+            return set;
+        }
+        return (Set) invokeL.objValue;
+    }
+
+    public jl3 c(Set<hl3<?>> set) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, set)) == null) {
+            if (set.isEmpty()) {
+                return this;
+            }
+            HashSet hashSet = new HashSet();
+            synchronized (this.l) {
+                for (hl3<?> hl3Var : set) {
+                    hashSet.addAll(i(hl3Var));
+                }
+            }
+            d(hashSet, set);
+            return this;
+        }
+        return (jl3) invokeL.objValue;
+    }
+
+    public jl3 h(hl3<?>... hl3VarArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, hl3VarArr)) == null) {
+            synchronized (this.l) {
+                for (hl3<?> hl3Var : hl3VarArr) {
+                    if (!this.l.containsKey(hl3Var)) {
+                        this.l.put(hl3Var, new HashSet());
+                    }
+                }
+            }
+            return this;
+        }
+        return (jl3) invokeL.objValue;
+    }
+
+    public final jl3 d(Set<b> set, Set<hl3<?>> set2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, set, set2)) == null) {
+            e33.j().i(new a(this, set, set2));
+            return this;
+        }
+        return (jl3) invokeLL.objValue;
+    }
+
+    public jl3 g(b bVar, hl3<?>... hl3VarArr) {
+        InterceptResult invokeLL;
+        Set<hl3<?>> newHashSet;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, bVar, hl3VarArr)) == null) {
+            if (bVar != null) {
+                synchronized (this.l) {
+                    if (b(hl3VarArr)) {
+                        newHashSet = this.l.keySet();
+                    } else {
+                        newHashSet = Sets.newHashSet(hl3VarArr);
+                    }
+                    for (hl3<?> hl3Var : newHashSet) {
+                        if (hl3Var != null) {
+                            i(hl3Var).add(bVar);
+                        }
+                    }
+                    d(Sets.newHashSet(bVar), newHashSet);
+                }
+            }
+            return this;
+        }
+        return (jl3) invokeLL.objValue;
+    }
+
+    public jl3 j(b bVar, hl3<?>... hl3VarArr) {
+        InterceptResult invokeLL;
+        Set<hl3<?>> newHashSet;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar, hl3VarArr)) == null) {
+            if (bVar != null) {
+                synchronized (this.l) {
+                    if (b(hl3VarArr)) {
+                        newHashSet = this.l.keySet();
+                    } else {
+                        newHashSet = Sets.newHashSet(hl3VarArr);
+                    }
+                    for (hl3<?> hl3Var : newHashSet) {
+                        if (hl3Var != null) {
+                            i(hl3Var).remove(bVar);
+                        }
+                    }
+                }
+            }
+            return this;
+        }
+        return (jl3) invokeLL.objValue;
     }
 }

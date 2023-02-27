@@ -1,52 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.view.ViewGroup;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class qc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qa5 a;
-    public int b;
 
-    public qc5(qa5 qa5Var, int i) {
+    public static void a(DownloadData downloadData) {
+        Activity currentActivity;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qa5Var, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) && (currentActivity = TbadkApplication.getInst().getCurrentActivity()) != null && !currentActivity.isDestroyed()) {
+            BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
+            bdTopToast.h(false);
+            bdTopToast.g(currentActivity.getString(R.string.item_download_fail));
+            bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
         }
-        this.a = qa5Var;
-        this.b = i;
     }
 
-    public qa5 a() {
-        InterceptResult invokeV;
+    public static void b(DownloadData downloadData) {
+        Activity currentActivity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeL(65537, null, downloadData) == null) && (currentActivity = TbadkApplication.getInst().getCurrentActivity()) != null && !currentActivity.isDestroyed()) {
+            BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
+            bdTopToast.h(false);
+            bdTopToast.g(currentActivity.getString(R.string.item_download_no_net));
+            bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
         }
-        return (qa5) invokeV.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public static void c(DownloadData downloadData) {
+        Activity currentActivity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeL(65538, null, downloadData) == null) && (currentActivity = TbadkApplication.getInst().getCurrentActivity()) != null && !currentActivity.isDestroyed()) {
+            BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
+            bdTopToast.h(true);
+            bdTopToast.g(currentActivity.getString(R.string.item_download_success));
+            bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
         }
-        return invokeV.intValue;
     }
 }

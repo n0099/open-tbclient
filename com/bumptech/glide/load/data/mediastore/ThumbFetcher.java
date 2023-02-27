@@ -8,15 +8,6 @@ import android.provider.MediaStore;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
@@ -27,214 +18,97 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes7.dex */
 public class ThumbFetcher implements DataFetcher<InputStream> {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MediaStoreThumbFetcher";
-    public transient /* synthetic */ FieldHolder $fh;
     public InputStream inputStream;
     public final Uri mediaStoreImageUri;
     public final ThumbnailStreamOpener opener;
 
     @Override // com.bumptech.glide.load.data.DataFetcher
     public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+    }
+
+    @VisibleForTesting
+    public ThumbFetcher(Uri uri, ThumbnailStreamOpener thumbnailStreamOpener) {
+        this.mediaStoreImageUri = uri;
+        this.opener = thumbnailStreamOpener;
+    }
+
+    public static ThumbFetcher buildImageFetcher(Context context, Uri uri) {
+        return build(context, uri, new ImageThumbnailQuery(context.getContentResolver()));
+    }
+
+    public static ThumbFetcher buildVideoFetcher(Context context, Uri uri) {
+        return build(context, uri, new VideoThumbnailQuery(context.getContentResolver()));
+    }
+
+    @Override // com.bumptech.glide.load.data.DataFetcher
+    public void loadData(@NonNull Priority priority, @NonNull DataFetcher.DataCallback<? super InputStream> dataCallback) {
+        try {
+            InputStream openThumbInputStream = openThumbInputStream();
+            this.inputStream = openThumbInputStream;
+            dataCallback.onDataReady(openThumbInputStream);
+        } catch (FileNotFoundException e) {
+            if (Log.isLoggable(TAG, 3)) {
+                Log.d(TAG, "Failed to find thumbnail file", e);
+            }
+            dataCallback.onLoadFailed(e);
         }
     }
 
     /* loaded from: classes7.dex */
     public static class ImageThumbnailQuery implements ThumbnailQuery {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final String[] PATH_PROJECTION;
+        public static final String[] PATH_PROJECTION = {"_data"};
         public static final String PATH_SELECTION = "kind = 1 AND image_id = ?";
-        public transient /* synthetic */ FieldHolder $fh;
         public final ContentResolver contentResolver;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1517971636, "Lcom/bumptech/glide/load/data/mediastore/ThumbFetcher$ImageThumbnailQuery;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1517971636, "Lcom/bumptech/glide/load/data/mediastore/ThumbFetcher$ImageThumbnailQuery;");
-                    return;
-                }
-            }
-            PATH_PROJECTION = new String[]{"_data"};
-        }
-
         public ImageThumbnailQuery(ContentResolver contentResolver) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {contentResolver};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             this.contentResolver = contentResolver;
         }
 
         @Override // com.bumptech.glide.load.data.mediastore.ThumbnailQuery
         public Cursor query(Uri uri) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
-                return this.contentResolver.query(MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI, PATH_PROJECTION, PATH_SELECTION, new String[]{uri.getLastPathSegment()}, null);
-            }
-            return (Cursor) invokeL.objValue;
+            return this.contentResolver.query(MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI, PATH_PROJECTION, PATH_SELECTION, new String[]{uri.getLastPathSegment()}, null);
         }
     }
 
     /* loaded from: classes7.dex */
     public static class VideoThumbnailQuery implements ThumbnailQuery {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final String[] PATH_PROJECTION;
+        public static final String[] PATH_PROJECTION = {"_data"};
         public static final String PATH_SELECTION = "kind = 1 AND video_id = ?";
-        public transient /* synthetic */ FieldHolder $fh;
         public final ContentResolver contentResolver;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1662867860, "Lcom/bumptech/glide/load/data/mediastore/ThumbFetcher$VideoThumbnailQuery;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1662867860, "Lcom/bumptech/glide/load/data/mediastore/ThumbFetcher$VideoThumbnailQuery;");
-                    return;
-                }
-            }
-            PATH_PROJECTION = new String[]{"_data"};
-        }
-
         public VideoThumbnailQuery(ContentResolver contentResolver) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {contentResolver};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             this.contentResolver = contentResolver;
         }
 
         @Override // com.bumptech.glide.load.data.mediastore.ThumbnailQuery
         public Cursor query(Uri uri) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
-                return this.contentResolver.query(MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI, PATH_PROJECTION, PATH_SELECTION, new String[]{uri.getLastPathSegment()}, null);
-            }
-            return (Cursor) invokeL.objValue;
+            return this.contentResolver.query(MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI, PATH_PROJECTION, PATH_SELECTION, new String[]{uri.getLastPathSegment()}, null);
         }
-    }
-
-    @VisibleForTesting
-    public ThumbFetcher(Uri uri, ThumbnailStreamOpener thumbnailStreamOpener) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uri, thumbnailStreamOpener};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mediaStoreImageUri = uri;
-        this.opener = thumbnailStreamOpener;
     }
 
     public static ThumbFetcher build(Context context, Uri uri, ThumbnailQuery thumbnailQuery) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, uri, thumbnailQuery)) == null) {
-            return new ThumbFetcher(uri, new ThumbnailStreamOpener(Glide.get(context).getRegistry().getImageHeaderParsers(), thumbnailQuery, Glide.get(context).getArrayPool(), context.getContentResolver()));
-        }
-        return (ThumbFetcher) invokeLLL.objValue;
-    }
-
-    public static ThumbFetcher buildImageFetcher(Context context, Uri uri) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, uri)) == null) {
-            return build(context, uri, new ImageThumbnailQuery(context.getContentResolver()));
-        }
-        return (ThumbFetcher) invokeLL.objValue;
-    }
-
-    public static ThumbFetcher buildVideoFetcher(Context context, Uri uri) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, uri)) == null) {
-            return build(context, uri, new VideoThumbnailQuery(context.getContentResolver()));
-        }
-        return (ThumbFetcher) invokeLL.objValue;
-    }
-
-    @Override // com.bumptech.glide.load.data.DataFetcher
-    public void loadData(@NonNull Priority priority, @NonNull DataFetcher.DataCallback<? super InputStream> dataCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, priority, dataCallback) == null) {
-            try {
-                InputStream openThumbInputStream = openThumbInputStream();
-                this.inputStream = openThumbInputStream;
-                dataCallback.onDataReady(openThumbInputStream);
-            } catch (FileNotFoundException e) {
-                if (Log.isLoggable(TAG, 3)) {
-                    Log.d(TAG, "Failed to find thumbnail file", e);
-                }
-                dataCallback.onLoadFailed(e);
-            }
-        }
+        return new ThumbFetcher(uri, new ThumbnailStreamOpener(Glide.get(context).getRegistry().getImageHeaderParsers(), thumbnailQuery, Glide.get(context).getArrayPool(), context.getContentResolver()));
     }
 
     private InputStream openThumbInputStream() throws FileNotFoundException {
-        InterceptResult invokeV;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            InputStream open = this.opener.open(this.mediaStoreImageUri);
-            if (open != null) {
-                i = this.opener.getOrientation(this.mediaStoreImageUri);
-            } else {
-                i = -1;
-            }
-            if (i != -1) {
-                return new ExifOrientationStream(open, i);
-            }
-            return open;
+        InputStream open = this.opener.open(this.mediaStoreImageUri);
+        if (open != null) {
+            i = this.opener.getOrientation(this.mediaStoreImageUri);
+        } else {
+            i = -1;
         }
-        return (InputStream) invokeV.objValue;
+        if (i != -1) {
+            return new ExifOrientationStream(open, i);
+        }
+        return open;
     }
 
     @Override // com.bumptech.glide.load.data.DataFetcher
     public void cleanup() {
-        InputStream inputStream;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (inputStream = this.inputStream) != null) {
+        InputStream inputStream = this.inputStream;
+        if (inputStream != null) {
             try {
                 inputStream.close();
             } catch (IOException unused) {
@@ -245,22 +119,12 @@ public class ThumbFetcher implements DataFetcher<InputStream> {
     @Override // com.bumptech.glide.load.data.DataFetcher
     @NonNull
     public Class<InputStream> getDataClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return InputStream.class;
-        }
-        return (Class) invokeV.objValue;
+        return InputStream.class;
     }
 
     @Override // com.bumptech.glide.load.data.DataFetcher
     @NonNull
     public DataSource getDataSource() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return DataSource.LOCAL;
-        }
-        return (DataSource) invokeV.objValue;
+        return DataSource.LOCAL;
     }
 }

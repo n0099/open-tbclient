@@ -5,9 +5,9 @@ import android.text.TextUtils;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
 import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tieba.ay8;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.ou8;
-import com.baidu.tieba.uo5;
+import com.baidu.tieba.iq5;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class VideoPlayDispatcher implements ou8 {
+public class VideoPlayDispatcher implements ay8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,7 +36,7 @@ public class VideoPlayDispatcher implements ou8 {
         }
     }
 
-    @Override // com.baidu.tieba.ou8
+    @Override // com.baidu.tieba.ay8
     public void dispatch(JSONObject jSONObject, Context context) {
         boolean z;
         boolean z2;
@@ -78,7 +78,7 @@ public class VideoPlayDispatcher implements ou8 {
             if (TextUtils.isEmpty(videoItemData.video_url)) {
                 new VideoRecommentPlayActivityConfig(context, arrayList, (String) null, VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE, z2).start();
             } else {
-                uo5.d(context, arrayList, videoItemData.nid, z, 0, null, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", z2, false, dh.g(videoItemData.forum_id, 0L));
+                iq5.d(context, arrayList, videoItemData.nid, z, 0, null, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", z2, false, dh.g(videoItemData.forum_id, 0L));
             }
         }
     }

@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -82,8 +83,8 @@ public class m1 {
                                 }
                             } else if (!TextUtils.isEmpty(readLine)) {
                                 String a = o1.a(readLine);
-                                if (a.contains("-") && a.contains(";")) {
-                                    String[] split = a.replace(";;;", ";").split(";");
+                                if (a.contains("-") && a.contains(ParamableElem.DIVIDE_PARAM)) {
+                                    String[] split = a.replace(";;;", ParamableElem.DIVIDE_PARAM).split(ParamableElem.DIVIDE_PARAM);
                                     if (split.length > 1) {
                                         jSONObject.put(split[0], split[1]);
                                     }

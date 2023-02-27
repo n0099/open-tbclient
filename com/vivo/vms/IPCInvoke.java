@@ -15,12 +15,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.vms.IPCCallback;
 /* loaded from: classes8.dex */
 public interface IPCInvoke extends IInterface {
+    public static final String DESCRIPTOR = "com.vivo.vms.IPCInvoke";
+
     Bundle asyncCall(Bundle bundle, IPCCallback iPCCallback) throws RemoteException;
 
     /* loaded from: classes8.dex */
     public static abstract class Stub extends Binder implements IPCInvoke {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final String DESCRIPTOR = "com.vivo.vms.IPCInvoke";
         public static final int TRANSACTION_asyncCall = 1;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,7 +42,7 @@ public interface IPCInvoke extends IInterface {
             public String getInterfaceDescriptor() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Stub.DESCRIPTOR : (String) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? IPCInvoke.DESCRIPTOR : (String) invokeV.objValue;
             }
 
             public Proxy(IBinder iBinder) {
@@ -81,7 +82,7 @@ public interface IPCInvoke extends IInterface {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
-                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                        obtain.writeInterfaceToken(IPCInvoke.DESCRIPTOR);
                         if (bundle != null) {
                             obtain.writeInt(1);
                             bundle.writeToParcel(obtain, 0);
@@ -125,7 +126,7 @@ public interface IPCInvoke extends IInterface {
                     return;
                 }
             }
-            attachInterface(this, DESCRIPTOR);
+            attachInterface(this, IPCInvoke.DESCRIPTOR);
         }
 
         public static IPCInvoke getDefaultImpl() {
@@ -144,7 +145,7 @@ public interface IPCInvoke extends IInterface {
                 if (iBinder == null) {
                     return null;
                 }
-                IInterface queryLocalInterface = iBinder.queryLocalInterface(DESCRIPTOR);
+                IInterface queryLocalInterface = iBinder.queryLocalInterface(IPCInvoke.DESCRIPTOR);
                 if (queryLocalInterface != null && (queryLocalInterface instanceof IPCInvoke)) {
                     return (IPCInvoke) queryLocalInterface;
                 }
@@ -157,11 +158,14 @@ public interface IPCInvoke extends IInterface {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iPCInvoke)) == null) {
-                if (Proxy.sDefaultImpl == null && iPCInvoke != null) {
-                    Proxy.sDefaultImpl = iPCInvoke;
-                    return true;
+                if (Proxy.sDefaultImpl == null) {
+                    if (iPCInvoke != null) {
+                        Proxy.sDefaultImpl = iPCInvoke;
+                        return true;
+                    }
+                    return false;
                 }
-                return false;
+                throw new IllegalStateException("setDefaultImpl() called twice");
             }
             return invokeL.booleanValue;
         }
@@ -172,27 +176,27 @@ public interface IPCInvoke extends IInterface {
             Bundle bundle;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
-                if (i != 1) {
-                    if (i != 1598968902) {
+                if (i != 1598968902) {
+                    if (i != 1) {
                         return super.onTransact(i, parcel, parcel2, i2);
                     }
-                    parcel2.writeString(DESCRIPTOR);
+                    parcel.enforceInterface(IPCInvoke.DESCRIPTOR);
+                    if (parcel.readInt() != 0) {
+                        bundle = (Bundle) Bundle.CREATOR.createFromParcel(parcel);
+                    } else {
+                        bundle = null;
+                    }
+                    Bundle asyncCall = asyncCall(bundle, IPCCallback.Stub.asInterface(parcel.readStrongBinder()));
+                    parcel2.writeNoException();
+                    if (asyncCall != null) {
+                        parcel2.writeInt(1);
+                        asyncCall.writeToParcel(parcel2, 1);
+                    } else {
+                        parcel2.writeInt(0);
+                    }
                     return true;
                 }
-                parcel.enforceInterface(DESCRIPTOR);
-                if (parcel.readInt() != 0) {
-                    bundle = (Bundle) Bundle.CREATOR.createFromParcel(parcel);
-                } else {
-                    bundle = null;
-                }
-                Bundle asyncCall = asyncCall(bundle, IPCCallback.Stub.asInterface(parcel.readStrongBinder()));
-                parcel2.writeNoException();
-                if (asyncCall != null) {
-                    parcel2.writeInt(1);
-                    asyncCall.writeToParcel(parcel2, 1);
-                } else {
-                    parcel2.writeInt(0);
-                }
+                parcel2.writeString(IPCInvoke.DESCRIPTOR);
                 return true;
             }
             return invokeCommon.booleanValue;

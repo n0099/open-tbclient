@@ -1,14 +1,19 @@
 package com.baidu.tieba;
-
-import com.baidu.swan.apps.SwanAppActivity;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface ot1 {
-    void a();
+    void a(String str, tw2 tw2Var);
 
-    void b(String str, mx1 mx1Var);
+    int getDuration();
 
-    void c(SwanAppActivity swanAppActivity, String str, mx1 mx1Var);
+    boolean isPlaying();
 
-    void d(String str, String str2, JSONObject jSONObject, mx1 mx1Var);
+    void onRelease();
+
+    void pause();
+
+    void play();
+
+    void seek(int i);
+
+    void stop();
 }

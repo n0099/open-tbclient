@@ -3,25 +3,14 @@ package com.baidu.mapapi.map;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import vi.com.gdi.bgl.android.java.EnvDrawText;
 /* loaded from: classes2.dex */
 public final class Text extends Overlay {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String k = "Text";
-    public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public LatLng b;
     public int c;
@@ -33,262 +22,158 @@ public final class Text extends Overlay {
     public float i;
     public int j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1025219688, "Lcom/baidu/mapapi/map/Text;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1025219688, "Lcom/baidu/mapapi/map/Text;");
-        }
-    }
-
     public Text() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.type = com.baidu.mapsdkplatform.comapi.map.i.e;
     }
 
     @Override // com.baidu.mapapi.map.Overlay
     public Bundle a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Typeface typeface = this.f;
-            if (typeface != null) {
-                EnvDrawText.removeFontCache(typeface.hashCode());
-            }
-            return super.a();
+        Typeface typeface = this.f;
+        if (typeface != null) {
+            EnvDrawText.removeFontCache(typeface.hashCode());
         }
-        return (Bundle) invokeV.objValue;
+        return super.a();
     }
 
     public float getAlignX() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
-        }
-        return invokeV.floatValue;
+        return this.g;
     }
 
     public float getAlignY() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
-        }
-        return invokeV.floatValue;
+        return this.h;
     }
 
     public int getBgColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
+        return this.c;
     }
 
     public int getFontColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
+        return this.d;
     }
 
     public int getFontSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
+        return this.e;
     }
 
     public LatLng getPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return (LatLng) invokeV.objValue;
+        return this.b;
     }
 
     public float getRotate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.i;
-        }
-        return invokeV.floatValue;
+        return this.i;
     }
 
     public String getText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
+        return this.a;
     }
 
     public Typeface getTypeface() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.f;
-        }
-        return (Typeface) invokeV.objValue;
+        return this.f;
     }
 
     @Override // com.baidu.mapapi.map.Overlay
     public Bundle a(Bundle bundle) {
-        InterceptResult invokeL;
         float f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
-            super.a(bundle);
-            if (this.b != null) {
-                bundle.putString("text", this.a);
-                GeoPoint ll2mc = CoordUtil.ll2mc(this.b);
-                bundle.putDouble("location_x", ll2mc.getLongitudeE6());
-                bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-                int i = this.d;
-                bundle.putInt("font_color", Color.argb(i >>> 24, i & 255, (i >> 8) & 255, (i >> 16) & 255));
-                int i2 = this.c;
-                bundle.putInt("bg_color", Color.argb(i2 >>> 24, i2 & 255, (i2 >> 8) & 255, (i2 >> 16) & 255));
-                bundle.putInt("font_size", this.e);
-                Typeface typeface = this.f;
-                if (typeface != null) {
-                    EnvDrawText.registFontCache(typeface.hashCode(), this.f);
-                    bundle.putInt("type_face", this.f.hashCode());
-                }
-                int i3 = this.g;
-                float f2 = 1.0f;
-                if (i3 != 1) {
-                    if (i3 != 2) {
-                        f = 0.5f;
-                    } else {
-                        f = 1.0f;
-                    }
-                } else {
-                    f = 0.0f;
-                }
-                bundle.putFloat("align_x", f);
-                int i4 = this.h;
-                if (i4 != 8) {
-                    if (i4 != 16) {
-                        f2 = 0.5f;
-                    }
-                } else {
-                    f2 = 0.0f;
-                }
-                bundle.putFloat("align_y", f2);
-                bundle.putFloat("rotate", this.i);
-                bundle.putInt(StickerDataChangeType.UPDATE, this.j);
-                return bundle;
+        super.a(bundle);
+        if (this.b != null) {
+            bundle.putString("text", this.a);
+            GeoPoint ll2mc = CoordUtil.ll2mc(this.b);
+            bundle.putDouble("location_x", ll2mc.getLongitudeE6());
+            bundle.putDouble("location_y", ll2mc.getLatitudeE6());
+            int i = this.d;
+            int i2 = (i >> 8) & 255;
+            bundle.putInt("font_color", Color.argb(i >>> 24, i & 255, i2, (i >> 16) & 255));
+            int i3 = this.c;
+            int i4 = (i3 >> 8) & 255;
+            bundle.putInt("bg_color", Color.argb(i3 >>> 24, i3 & 255, i4, (i3 >> 16) & 255));
+            bundle.putInt("font_size", this.e);
+            Typeface typeface = this.f;
+            if (typeface != null) {
+                EnvDrawText.registFontCache(typeface.hashCode(), this.f);
+                bundle.putInt("type_face", this.f.hashCode());
             }
-            throw new IllegalStateException("BDMapSDKException: when you add a text overlay, you must provide text and the position info.");
+            int i5 = this.g;
+            float f2 = 1.0f;
+            if (i5 != 1) {
+                if (i5 != 2) {
+                    f = 0.5f;
+                } else {
+                    f = 1.0f;
+                }
+            } else {
+                f = 0.0f;
+            }
+            bundle.putFloat("align_x", f);
+            int i6 = this.h;
+            if (i6 != 8) {
+                if (i6 != 16) {
+                    f2 = 0.5f;
+                }
+            } else {
+                f2 = 0.0f;
+            }
+            bundle.putFloat("align_y", f2);
+            bundle.putFloat("rotate", this.i);
+            bundle.putInt(StickerDataChangeType.UPDATE, this.j);
+            return bundle;
         }
-        return (Bundle) invokeL.objValue;
+        throw new IllegalStateException("BDMapSDKException: when you add a text overlay, you must provide text and the position info.");
     }
 
     public void setAlign(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
-            this.g = i;
-            this.h = i2;
-            this.j = 1;
-            this.listener.c(this);
-        }
+        this.g = i;
+        this.h = i2;
+        this.j = 1;
+        this.listener.c(this);
     }
 
     public void setBgColor(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.c = i;
-            this.j = 1;
-            this.listener.c(this);
-        }
+        this.c = i;
+        this.j = 1;
+        this.listener.c(this);
     }
 
     public void setFontColor(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.d = i;
-            this.j = 1;
-            this.listener.c(this);
-        }
+        this.d = i;
+        this.j = 1;
+        this.listener.c(this);
     }
 
     public void setFontSize(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.e = i;
-            this.j = 1;
-            this.listener.c(this);
-        }
+        this.e = i;
+        this.j = 1;
+        this.listener.c(this);
     }
 
     public void setPosition(LatLng latLng) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, latLng) == null) {
-            if (latLng != null) {
-                this.b = latLng;
-                this.j = 1;
-                this.listener.c(this);
-                return;
-            }
-            throw new IllegalArgumentException("BDMapSDKException: position can not be null");
+        if (latLng != null) {
+            this.b = latLng;
+            this.j = 1;
+            this.listener.c(this);
+            return;
         }
+        throw new IllegalArgumentException("BDMapSDKException: position can not be null");
     }
 
     public void setRotate(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048592, this, f) == null) {
-            this.i = f;
-            this.j = 1;
-            this.listener.c(this);
-        }
+        this.i = f;
+        this.j = 1;
+        this.listener.c(this);
     }
 
     public void setText(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            if (str != null && !str.equals("")) {
-                this.a = str;
-                this.j = 1;
-                this.listener.c(this);
-                return;
-            }
-            throw new IllegalArgumentException("BDMapSDKException: text can not be null or empty");
+        if (str != null && !str.equals("")) {
+            this.a = str;
+            this.j = 1;
+            this.listener.c(this);
+            return;
         }
+        throw new IllegalArgumentException("BDMapSDKException: text can not be null or empty");
     }
 
     public void setTypeface(Typeface typeface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, typeface) == null) {
-            this.f = typeface;
-            this.j = 1;
-            this.listener.c(this);
-        }
+        this.f = typeface;
+        this.j = 1;
+        this.listener.c(this);
     }
 }

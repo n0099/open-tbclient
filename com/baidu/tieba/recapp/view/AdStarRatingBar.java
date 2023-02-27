@@ -93,7 +93,7 @@ public class AdStarRatingBar extends FrameLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d006f, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0070, this);
             this.a = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f0900ed);
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900ee);
             int intrinsicHeight = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080abd).getIntrinsicHeight();

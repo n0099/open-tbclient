@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.j05;
+import com.baidu.tieba.q15;
 import com.baidu.tieba.wallet.CurrencySwitchModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,7 +22,7 @@ public class CurrencySwitchTDouYBeanDialog {
     public static final int MAX_RETRY_TIME = 3;
     public transient /* synthetic */ FieldHolder $fh;
     public int countNum;
-    public j05 dialog;
+    public q15 dialog;
     public CurrencySwitchModel mCurrencySwitchModel;
     public TbPageContext mPageContext;
 
@@ -85,8 +85,8 @@ public class CurrencySwitchTDouYBeanDialog {
                 if (i == 0) {
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_CURRENCY_SWITCH_DIALOG_CLICK_SUCCESS).param("uid", TbadkCoreApplication.getCurrentAccountId()));
                     TbSingleton.getInstance().getYYLiveConfig().updateStatusAndCache(1);
-                    j05 j05Var = this.dialog;
-                    if (j05Var != null && j05Var.isShowing()) {
+                    q15 q15Var = this.dialog;
+                    if (q15Var != null && q15Var.isShowing()) {
                         this.dialog.dismiss();
                         return;
                     }
@@ -119,8 +119,8 @@ public class CurrencySwitchTDouYBeanDialog {
                 currencySwitchModel.onDestroy();
                 this.mCurrencySwitchModel = null;
             }
-            j05 j05Var = this.dialog;
-            if (j05Var != null && j05Var.isShowing()) {
+            q15 q15Var = this.dialog;
+            if (q15Var != null && q15Var.isShowing()) {
                 this.dialog.dismiss();
             }
         }
@@ -129,9 +129,9 @@ public class CurrencySwitchTDouYBeanDialog {
     public void showDialog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            j05 j05Var = this.dialog;
-            if (j05Var != null) {
-                j05Var.dismiss();
+            q15 q15Var = this.dialog;
+            if (q15Var != null) {
+                q15Var.dismiss();
                 this.dialog = null;
             }
             int i = this.countNum;
@@ -140,12 +140,12 @@ public class CurrencySwitchTDouYBeanDialog {
             }
             this.countNum = i + 1;
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_CURRENCY_SWITCH_DIALOG_SHOW).param("uid", TbadkCoreApplication.getCurrentAccountId()));
-            j05 j05Var2 = new j05(this.mPageContext.getPageActivity());
-            this.dialog = j05Var2;
-            j05Var2.setCanceledOnTouchOutside(false);
+            q15 q15Var2 = new q15(this.mPageContext.getPageActivity());
+            this.dialog = q15Var2;
+            q15Var2.setCanceledOnTouchOutside(false);
             this.dialog.setMessageShowCenter(true);
             this.dialog.setMessage(this.mPageContext.getResources().getString(R.string.wallet_t_dou_switch_to_y_bean_tip));
-            this.dialog.setPositiveButton(R.string.wallet_t_dou_switch_to_y_bean_i_know, new j05.e(this) { // from class: com.baidu.tieba.wallet.CurrencySwitchTDouYBeanDialog.2
+            this.dialog.setPositiveButton(R.string.wallet_t_dou_switch_to_y_bean_i_know, new q15.e(this) { // from class: com.baidu.tieba.wallet.CurrencySwitchTDouYBeanDialog.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ CurrencySwitchTDouYBeanDialog this$0;
@@ -168,10 +168,10 @@ public class CurrencySwitchTDouYBeanDialog {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.j05.e
-                public void onClick(j05 j05Var3) {
+                @Override // com.baidu.tieba.q15.e
+                public void onClick(q15 q15Var3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, j05Var3) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, q15Var3) == null) {
                         TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_CURRENCY_SWITCH_DIALOG_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()));
                         if (this.this$0.mCurrencySwitchModel != null) {
                             this.this$0.mCurrencySwitchModel.sendSwitchRequest();

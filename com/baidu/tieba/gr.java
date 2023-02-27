@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.fr;
+import com.baidu.bdtask.model.response.TaskResponseData;
 /* loaded from: classes4.dex */
-public interface gr<T extends fr> {
-    void a(T t);
+public interface gr {
+    void a(TaskResponseData taskResponseData);
+
+    void onError(int i, String str);
 }

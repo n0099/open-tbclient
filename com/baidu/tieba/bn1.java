@@ -1,16 +1,19 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8ExceptionInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.cmic.sso.sdk.auth.TokenListener;
 /* loaded from: classes3.dex */
-public abstract class bn1 implements TokenListener {
+public abstract class bn1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
+    public long a;
+    public zm1 b;
+
+    public abstract void a(int i, V8ExceptionInfo v8ExceptionInfo);
 
     public bn1() {
         Interceptable interceptable = $ic;
@@ -25,15 +28,20 @@ public abstract class bn1 implements TokenListener {
                 return;
             }
         }
-        this.a = System.currentTimeMillis();
+        this.a = 2000L;
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public void b(zm1 zm1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zm1Var) == null) {
+            this.b = zm1Var;
         }
-        return invokeV.longValue;
+    }
+
+    public void c(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.a = j;
+        }
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sdk.a.g;
+import com.sdk.a.f;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
 public class d {
@@ -70,7 +70,7 @@ public class d {
         }
         ConcurrentHashMap<String, Boolean> concurrentHashMap = new ConcurrentHashMap<>(10);
         b = concurrentHashMap;
-        concurrentHashMap.put(g.a.a.l, Boolean.TRUE);
+        concurrentHashMap.put(f.a.a.l, Boolean.TRUE);
         new ConcurrentHashMap(10);
     }
 

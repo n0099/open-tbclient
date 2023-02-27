@@ -1,148 +1,26 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.j10;
-import com.baidu.tieba.n10;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.io.UnsupportedEncodingException;
+import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class i10 implements n10.a {
+public class i10 {
     public static /* synthetic */ Interceptable $ic;
-    public static i10 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, n10> a;
-    public r b;
-    public ExecutorService c;
-    public m10 d;
-    public Handler e;
-
-    public void delete(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ i10 b;
-
-        public a(i10 i10Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i10Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = i10Var;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a.containsKey(this.a)) {
-                this.b.a.remove(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i10 a;
-
-        public b(i10 i10Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i10Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i10Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (n10 n10Var : this.a.a.values()) {
-                    if (n10Var != null && n10Var.isRunning()) {
-                        n10Var.pause();
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i10 a;
-
-        public c(i10 i10Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i10Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i10Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (n10 n10Var : this.a.a.values()) {
-                    if (n10Var != null && n10Var.isRunning()) {
-                        n10Var.cancel();
-                    }
-                }
-            }
-        }
-    }
+    public String a;
+    public String b;
+    public int c;
+    public int d;
 
     public i10() {
         Interceptable interceptable = $ic;
@@ -157,173 +35,182 @@ public class i10 implements n10.a {
                 return;
             }
         }
-        this.e = new Handler(Looper.getMainLooper());
-        this.a = new LinkedHashMap();
-        j(new r());
+        this.c = 2;
+        this.d = 0;
     }
 
-    public void c(String str) {
+    public static i10 a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            String e = e(str);
-            if (this.a.containsKey(e)) {
-                n10 n10Var = this.a.get(e);
-                if (n10Var != null) {
-                    n10Var.cancel();
-                }
-                this.a.remove(e);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
+            i10 i10Var = new i10();
+            i10Var.a = str;
+            int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
+            i10Var.d = length;
+            if (length < 14) {
+                if (TextUtils.isEmpty(str2)) {
+                    str2 = "0";
+                }
+                i10Var.b = str2;
+            }
+            return i10Var;
         }
+        return (i10) invokeLL.objValue;
     }
 
-    public final String e(String str) {
+    public static boolean c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >= 14 : invokeI.booleanValue;
+    }
+
+    public static boolean d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (str != null) {
-                return String.valueOf(str.hashCode());
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? TextUtils.isEmpty(str) : invokeL.booleanValue;
+    }
+
+    public static i10 e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? g(j(str)) : (i10) invokeL.objValue;
+    }
+
+    public static i10 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            throw new IllegalArgumentException("Tag can't be null!");
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                Iterator<String> keys = jSONObject.keys();
+                String str2 = "0";
+                String str3 = "0";
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    if (!i("ZGV2aWNlaWQ=").equals(next) && !i("dmVy").equals(next)) {
+                        str3 = jSONObject.optString(next, "0");
+                    }
+                }
+                String string = jSONObject.getString(i("ZGV2aWNlaWQ="));
+                int i = jSONObject.getInt(i("dmVy"));
+                int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
+                if (!TextUtils.isEmpty(string)) {
+                    i10 i10Var = new i10();
+                    i10Var.a = string;
+                    i10Var.c = i;
+                    i10Var.d = length;
+                    if (length < 14) {
+                        if (!TextUtils.isEmpty(str3)) {
+                            str2 = str3;
+                        }
+                        i10Var.b = str2;
+                    }
+                    i10Var.k();
+                    return i10Var;
+                }
+            } catch (JSONException e) {
+                h10.c(e);
+            }
+            return null;
+        }
+        return (i10) invokeL.objValue;
+    }
+
+    public static String i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? new String(a10.b(str.getBytes())) : (String) invokeL.objValue;
+    }
+
+    public static String j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                byte[] a = k00.a();
+                return new String(g00.d(a, a, a10.b(str.getBytes())));
+            } catch (Exception e) {
+                h10.c(e);
+                return "";
+            }
         }
         return (String) invokeL.objValue;
     }
 
-    public final void j(@NonNull r rVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rVar) == null) {
-            int i = rVar.b;
-            int i2 = rVar.a;
-            if (i <= i2) {
-                this.b = rVar;
-                this.c = Executors.newFixedThreadPool(i2);
-                this.d = new p(this.e);
-                return;
-            }
-            throw new IllegalArgumentException("thread num must < max thread num");
-        }
-    }
-
-    public boolean l(String str) {
+    public static String m(String str) {
         InterceptResult invokeL;
-        n10 n10Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            String e = e(str);
-            if (this.a.containsKey(e) && (n10Var = this.a.get(e)) != null) {
-                return n10Var.isRunning();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            return false;
+            try {
+                byte[] a = k00.a();
+                return a10.a(g00.c(a, a, str.getBytes()), IMAudioTransRequest.CHARSET);
+            } catch (UnsupportedEncodingException | Exception e) {
+                h10.c(e);
+                return "";
+            }
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public static i10 i() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f == null) {
-                synchronized (i10.class) {
-                    if (f == null) {
-                        f = new i10();
-                    }
-                }
-            }
-            return f;
-        }
-        return (i10) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d(this.b) : invokeV.booleanValue;
     }
 
-    public void d() {
+    public boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e.post(new c(this));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.d) : invokeV.booleanValue;
     }
 
-    public void n() {
+    public String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.e.post(new b(this));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? m(l()) : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.n10.a
-    public void a(String str, n10 n10Var) {
+    public boolean k() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, n10Var) == null) {
-            this.e.post(new a(this, str));
-        }
-    }
-
-    public void f(j10 j10Var, String str, k10 k10Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, j10Var, str, k10Var) == null) {
-            String e = e(str);
-            if (!k(e)) {
-                o oVar = new o(j10Var, new i(this.d, k10Var), this.c, e, this.b, this);
-                this.a.put(e, oVar);
-                oVar.start();
-            }
-        }
-    }
-
-    public final void g(j10 j10Var, String str, k10 k10Var, m10 m10Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048582, this, j10Var, str, k10Var, m10Var) == null) {
-            Log.d("RtcDownSo", "start down judge is downloading");
-            String e = e(str);
-            if (!k(e)) {
-                Log.d("RtcDownSo", "real start down ...");
-                o oVar = new o(j10Var, new i(m10Var, k10Var), this.c, e, this.b, this);
-                this.a.put(e, oVar);
-                oVar.start();
-            }
-        }
-    }
-
-    public void h(String str, String str2, String str3, Looper looper, k10 k10Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, str, str2, str3, looper, k10Var) == null) {
-            if (looper == null) {
-                looper = Looper.getMainLooper();
-            }
-            j10.a aVar = new j10.a();
-            aVar.d(str);
-            aVar.b(new File(str2));
-            aVar.c(str3);
-            g(aVar.a(), str, k10Var, new p(new Handler(looper)));
-        }
-    }
-
-    public final boolean k(String str) {
-        InterceptResult invokeL;
-        n10 n10Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (this.a.containsKey(str) && (n10Var = this.a.get(str)) != null) {
-                if (n10Var.isRunning()) {
-                    q10.c("DownloadInfo has been started!");
-                    return true;
-                }
-                q10.c("DownloadInfo not started!");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (f()) {
+                str = "O";
+            } else if (!b()) {
                 return false;
+            } else {
+                str = "0";
             }
-            return false;
+            this.b = str;
+            return true;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public void m(String str) {
+    public final String l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            String e = e(str);
-            if (this.a.containsKey(e)) {
-                n10 n10Var = this.a.get(e);
-                if (n10Var != null && n10Var.isRunning()) {
-                    n10Var.pause();
-                }
-                this.a.remove(e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                return new JSONObject().put(i("ZGV2aWNlaWQ="), this.a).put(i("aW1laQ=="), this.b).put(i("dmVy"), this.c).toString();
+            } catch (JSONException e) {
+                h10.c(e);
+                return null;
             }
         }
+        return (String) invokeV.objValue;
     }
 }

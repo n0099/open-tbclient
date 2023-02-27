@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cloudbase.download.exception.DownloadException;
 import com.baidu.tieba.f;
 import com.baidu.tieba.g;
-import com.baidu.tieba.n10;
+import com.baidu.tieba.r10;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,26 +17,26 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public class o implements n10, f.a, g.a {
+public class o implements r10, f.a, g.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j10 a;
+    public n10 a;
     public i b;
     public Executor c;
     public String d;
     public r e;
-    public n10.a f;
+    public r10.a f;
     public int g;
     public k h;
     public f i;
     public List<g> j;
 
-    public o(j10 j10Var, i iVar, Executor executor, String str, r rVar, n10.a aVar) {
+    public o(n10 n10Var, i iVar, Executor executor, String str, r rVar, r10.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {j10Var, iVar, executor, str, rVar, aVar};
+            Object[] objArr = {n10Var, iVar, executor, str, rVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,13 +46,13 @@ public class o implements n10, f.a, g.a {
                 return;
             }
         }
-        this.a = j10Var;
+        this.a = n10Var;
         this.b = iVar;
         this.c = executor;
         this.d = str;
         this.e = rVar;
         this.f = aVar;
-        this.h = new k(j10Var.b().toString(), this.a.c(), this.a.a());
+        this.h = new k(n10Var.b().toString(), this.a.c(), this.a.a());
         this.j = new LinkedList();
     }
 
@@ -86,7 +86,7 @@ public class o implements n10, f.a, g.a {
         }
     }
 
-    @Override // com.baidu.tieba.n10
+    @Override // com.baidu.tieba.r10
     public boolean isRunning() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -197,7 +197,7 @@ public class o implements n10, f.a, g.a {
         }
     }
 
-    @Override // com.baidu.tieba.n10
+    @Override // com.baidu.tieba.r10
     public void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -268,7 +268,7 @@ public class o implements n10, f.a, g.a {
         }
     }
 
-    @Override // com.baidu.tieba.n10
+    @Override // com.baidu.tieba.r10
     public void pause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -286,7 +286,7 @@ public class o implements n10, f.a, g.a {
         }
     }
 
-    @Override // com.baidu.tieba.n10
+    @Override // com.baidu.tieba.r10
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {

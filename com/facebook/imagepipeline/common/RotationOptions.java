@@ -1,30 +1,19 @@
 package com.facebook.imagepipeline.common;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.HashCodeUtil;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes7.dex */
 public class RotationOptions {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int DISABLE_ROTATION = -2;
     public static final int NO_ROTATION = 0;
     public static final int ROTATE_180 = 180;
     public static final int ROTATE_270 = 270;
     public static final int ROTATE_90 = 90;
-    public static final RotationOptions ROTATION_OPTIONS_AUTO_ROTATE;
-    public static final RotationOptions ROTATION_OPTIONS_DISABLE_ROTATION;
-    public static final RotationOptions ROTATION_OPTIONS_ROTATE_AT_RENDER_TIME;
+    public static final RotationOptions ROTATION_OPTIONS_AUTO_ROTATE = new RotationOptions(-1, false);
+    public static final RotationOptions ROTATION_OPTIONS_DISABLE_ROTATION = new RotationOptions(-2, false);
+    public static final RotationOptions ROTATION_OPTIONS_ROTATE_AT_RENDER_TIME = new RotationOptions(-1, true);
     public static final int USE_EXIF_ROTATION_ANGLE = -1;
-    public transient /* synthetic */ FieldHolder $fh;
     public final boolean mDeferUntilRendered;
     public final int mRotation;
 
@@ -33,158 +22,71 @@ public class RotationOptions {
     public @interface RotationAngle {
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1425608002, "Lcom/facebook/imagepipeline/common/RotationOptions;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1425608002, "Lcom/facebook/imagepipeline/common/RotationOptions;");
-                return;
-            }
+    public static RotationOptions autoRotate() {
+        return ROTATION_OPTIONS_AUTO_ROTATE;
+    }
+
+    public static RotationOptions autoRotateAtRenderTime() {
+        return ROTATION_OPTIONS_ROTATE_AT_RENDER_TIME;
+    }
+
+    public static RotationOptions disableRotation() {
+        return ROTATION_OPTIONS_DISABLE_ROTATION;
+    }
+
+    public boolean canDeferUntilRendered() {
+        return this.mDeferUntilRendered;
+    }
+
+    public int getForcedAngle() {
+        if (!useImageMetadata()) {
+            return this.mRotation;
         }
-        ROTATION_OPTIONS_AUTO_ROTATE = new RotationOptions(-1, false);
-        ROTATION_OPTIONS_DISABLE_ROTATION = new RotationOptions(-2, false);
-        ROTATION_OPTIONS_ROTATE_AT_RENDER_TIME = new RotationOptions(-1, true);
+        throw new IllegalStateException("Rotation is set to use EXIF");
+    }
+
+    public int hashCode() {
+        return HashCodeUtil.hashCode(Integer.valueOf(this.mRotation), Boolean.valueOf(this.mDeferUntilRendered));
+    }
+
+    public boolean rotationEnabled() {
+        if (this.mRotation != -2) {
+            return true;
+        }
+        return false;
+    }
+
+    public String toString() {
+        return String.format(null, "%d defer:%b", Integer.valueOf(this.mRotation), Boolean.valueOf(this.mDeferUntilRendered));
+    }
+
+    public boolean useImageMetadata() {
+        if (this.mRotation == -1) {
+            return true;
+        }
+        return false;
     }
 
     public RotationOptions(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mRotation = i;
         this.mDeferUntilRendered = z;
     }
 
-    public static RotationOptions autoRotate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return ROTATION_OPTIONS_AUTO_ROTATE;
-        }
-        return (RotationOptions) invokeV.objValue;
-    }
-
-    public static RotationOptions autoRotateAtRenderTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return ROTATION_OPTIONS_ROTATE_AT_RENDER_TIME;
-        }
-        return (RotationOptions) invokeV.objValue;
-    }
-
-    public static RotationOptions disableRotation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return ROTATION_OPTIONS_DISABLE_ROTATION;
-        }
-        return (RotationOptions) invokeV.objValue;
-    }
-
-    public boolean canDeferUntilRendered() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mDeferUntilRendered;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int getForcedAngle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!useImageMetadata()) {
-                return this.mRotation;
-            }
-            throw new IllegalStateException("Rotation is set to use EXIF");
-        }
-        return invokeV.intValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return HashCodeUtil.hashCode(Integer.valueOf(this.mRotation), Boolean.valueOf(this.mDeferUntilRendered));
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean rotationEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.mRotation != -2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return String.format(null, "%d defer:%b", Integer.valueOf(this.mRotation), Boolean.valueOf(this.mDeferUntilRendered));
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean useImageMetadata() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.mRotation == -1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public static RotationOptions forceRotation(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            return new RotationOptions(i, false);
-        }
-        return (RotationOptions) invokeI.objValue;
+        return new RotationOptions(i, false);
     }
 
     public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof RotationOptions)) {
-                return false;
-            }
-            RotationOptions rotationOptions = (RotationOptions) obj;
-            if (this.mRotation == rotationOptions.mRotation && this.mDeferUntilRendered == rotationOptions.mDeferUntilRendered) {
-                return true;
-            }
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof RotationOptions)) {
             return false;
         }
-        return invokeL.booleanValue;
+        RotationOptions rotationOptions = (RotationOptions) obj;
+        if (this.mRotation == rotationOptions.mRotation && this.mDeferUntilRendered == rotationOptions.mDeferUntilRendered) {
+            return true;
+        }
+        return false;
     }
 }

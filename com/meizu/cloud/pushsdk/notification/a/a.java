@@ -18,7 +18,7 @@ public class a extends c {
         Bitmap a;
         if (MinSdkChecker.isSupportNotificationBuild()) {
             Notification.BigPictureStyle bigPictureStyle = new Notification.BigPictureStyle();
-            if (messageV3.getmNotificationStyle() == null || a() || TextUtils.isEmpty(messageV3.getmNotificationStyle().getExpandableImageUrl()) || (a = a(messageV3.getmNotificationStyle().getExpandableImageUrl())) == null) {
+            if (messageV3.getNotificationStyle() == null || a() || TextUtils.isEmpty(messageV3.getNotificationStyle().getExpandableImageUrl()) || (a = a(messageV3.getNotificationStyle().getExpandableImageUrl())) == null) {
                 return;
             }
             bigPictureStyle.setBigContentTitle(messageV3.getTitle());

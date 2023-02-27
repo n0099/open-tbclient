@@ -7,108 +7,74 @@ import android.annotation.SuppressLint;
 import android.os.Build;
 import android.view.View;
 import android.view.animation.Interpolator;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public final class ViewPropertyAnimatorCompat {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int LISTENER_TAG_ID = 2113929216;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Runnable mEndAction;
-    public int mOldLayerType;
-    public Runnable mStartAction;
     public WeakReference<View> mView;
+    public Runnable mStartAction = null;
+    public Runnable mEndAction = null;
+    public int mOldLayerType = -1;
 
     /* loaded from: classes.dex */
     public static class ViewPropertyAnimatorListenerApi14 implements ViewPropertyAnimatorListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public boolean mAnimEndCalled;
         public ViewPropertyAnimatorCompat mVpa;
 
         public ViewPropertyAnimatorListenerApi14(ViewPropertyAnimatorCompat viewPropertyAnimatorCompat) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {viewPropertyAnimatorCompat};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.mVpa = viewPropertyAnimatorCompat;
         }
 
         @Override // androidx.core.view.ViewPropertyAnimatorListener
         public void onAnimationCancel(View view2) {
             ViewPropertyAnimatorListener viewPropertyAnimatorListener;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Object tag = view2.getTag(ViewPropertyAnimatorCompat.LISTENER_TAG_ID);
-                if (tag instanceof ViewPropertyAnimatorListener) {
-                    viewPropertyAnimatorListener = (ViewPropertyAnimatorListener) tag;
-                } else {
-                    viewPropertyAnimatorListener = null;
-                }
-                if (viewPropertyAnimatorListener != null) {
-                    viewPropertyAnimatorListener.onAnimationCancel(view2);
-                }
+            Object tag = view2.getTag(ViewPropertyAnimatorCompat.LISTENER_TAG_ID);
+            if (tag instanceof ViewPropertyAnimatorListener) {
+                viewPropertyAnimatorListener = (ViewPropertyAnimatorListener) tag;
+            } else {
+                viewPropertyAnimatorListener = null;
+            }
+            if (viewPropertyAnimatorListener != null) {
+                viewPropertyAnimatorListener.onAnimationCancel(view2);
+            }
+        }
+
+        @Override // androidx.core.view.ViewPropertyAnimatorListener
+        public void onAnimationStart(View view2) {
+            this.mAnimEndCalled = false;
+            ViewPropertyAnimatorListener viewPropertyAnimatorListener = null;
+            if (this.mVpa.mOldLayerType > -1) {
+                view2.setLayerType(2, null);
+            }
+            ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = this.mVpa;
+            Runnable runnable = viewPropertyAnimatorCompat.mStartAction;
+            if (runnable != null) {
+                viewPropertyAnimatorCompat.mStartAction = null;
+                runnable.run();
+            }
+            Object tag = view2.getTag(ViewPropertyAnimatorCompat.LISTENER_TAG_ID);
+            if (tag instanceof ViewPropertyAnimatorListener) {
+                viewPropertyAnimatorListener = (ViewPropertyAnimatorListener) tag;
+            }
+            if (viewPropertyAnimatorListener != null) {
+                viewPropertyAnimatorListener.onAnimationStart(view2);
             }
         }
 
         @Override // androidx.core.view.ViewPropertyAnimatorListener
         @SuppressLint({"WrongConstant"})
         public void onAnimationEnd(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-                int i = this.mVpa.mOldLayerType;
-                ViewPropertyAnimatorListener viewPropertyAnimatorListener = null;
-                if (i > -1) {
-                    view2.setLayerType(i, null);
-                    this.mVpa.mOldLayerType = -1;
-                }
-                if (Build.VERSION.SDK_INT >= 16 || !this.mAnimEndCalled) {
-                    ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = this.mVpa;
-                    Runnable runnable = viewPropertyAnimatorCompat.mEndAction;
-                    if (runnable != null) {
-                        viewPropertyAnimatorCompat.mEndAction = null;
-                        runnable.run();
-                    }
-                    Object tag = view2.getTag(ViewPropertyAnimatorCompat.LISTENER_TAG_ID);
-                    if (tag instanceof ViewPropertyAnimatorListener) {
-                        viewPropertyAnimatorListener = (ViewPropertyAnimatorListener) tag;
-                    }
-                    if (viewPropertyAnimatorListener != null) {
-                        viewPropertyAnimatorListener.onAnimationEnd(view2);
-                    }
-                    this.mAnimEndCalled = true;
-                }
+            int i = this.mVpa.mOldLayerType;
+            ViewPropertyAnimatorListener viewPropertyAnimatorListener = null;
+            if (i > -1) {
+                view2.setLayerType(i, null);
+                this.mVpa.mOldLayerType = -1;
             }
-        }
-
-        @Override // androidx.core.view.ViewPropertyAnimatorListener
-        public void onAnimationStart(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-                this.mAnimEndCalled = false;
-                ViewPropertyAnimatorListener viewPropertyAnimatorListener = null;
-                if (this.mVpa.mOldLayerType > -1) {
-                    view2.setLayerType(2, null);
-                }
+            if (Build.VERSION.SDK_INT >= 16 || !this.mAnimEndCalled) {
                 ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = this.mVpa;
-                Runnable runnable = viewPropertyAnimatorCompat.mStartAction;
+                Runnable runnable = viewPropertyAnimatorCompat.mEndAction;
                 if (runnable != null) {
-                    viewPropertyAnimatorCompat.mStartAction = null;
+                    viewPropertyAnimatorCompat.mEndAction = null;
                     runnable.run();
                 }
                 Object tag = view2.getTag(ViewPropertyAnimatorCompat.LISTENER_TAG_ID);
@@ -116,621 +82,361 @@ public final class ViewPropertyAnimatorCompat {
                     viewPropertyAnimatorListener = (ViewPropertyAnimatorListener) tag;
                 }
                 if (viewPropertyAnimatorListener != null) {
-                    viewPropertyAnimatorListener.onAnimationStart(view2);
+                    viewPropertyAnimatorListener.onAnimationEnd(view2);
                 }
+                this.mAnimEndCalled = true;
             }
         }
     }
 
     public ViewPropertyAnimatorCompat(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mStartAction = null;
-        this.mEndAction = null;
-        this.mOldLayerType = -1;
         this.mView = new WeakReference<>(view2);
     }
 
-    public ViewPropertyAnimatorCompat setListener(ViewPropertyAnimatorListener viewPropertyAnimatorListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, viewPropertyAnimatorListener)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                if (Build.VERSION.SDK_INT >= 16) {
-                    setListenerInternal(view2, viewPropertyAnimatorListener);
-                } else {
-                    view2.setTag(LISTENER_TAG_ID, viewPropertyAnimatorListener);
-                    setListenerInternal(view2, new ViewPropertyAnimatorListenerApi14(this));
-                }
-            }
-            return this;
-        }
-        return (ViewPropertyAnimatorCompat) invokeL.objValue;
-    }
-
-    public ViewPropertyAnimatorCompat setUpdateListener(ViewPropertyAnimatorUpdateListener viewPropertyAnimatorUpdateListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, viewPropertyAnimatorUpdateListener)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null && Build.VERSION.SDK_INT >= 19) {
-                ValueAnimator.AnimatorUpdateListener animatorUpdateListener = null;
-                if (viewPropertyAnimatorUpdateListener != null) {
-                    animatorUpdateListener = new ValueAnimator.AnimatorUpdateListener(this, viewPropertyAnimatorUpdateListener, view2) { // from class: androidx.core.view.ViewPropertyAnimatorCompat.2
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ ViewPropertyAnimatorCompat this$0;
-                        public final /* synthetic */ ViewPropertyAnimatorUpdateListener val$listener;
-                        public final /* synthetic */ View val$view;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, viewPropertyAnimatorUpdateListener, view2};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$listener = viewPropertyAnimatorUpdateListener;
-                            this.val$view = view2;
-                        }
-
-                        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
-                                this.val$listener.onAnimationUpdate(this.val$view);
-                            }
-                        }
-                    };
-                }
-                view2.animate().setUpdateListener(animatorUpdateListener);
-            }
-            return this;
-        }
-        return (ViewPropertyAnimatorCompat) invokeL.objValue;
-    }
-
-    public ViewPropertyAnimatorCompat withEndAction(Runnable runnable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, runnable)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                if (Build.VERSION.SDK_INT >= 16) {
-                    view2.animate().withEndAction(runnable);
-                } else {
-                    setListenerInternal(view2, new ViewPropertyAnimatorListenerApi14(this));
-                    this.mEndAction = runnable;
-                }
-            }
-            return this;
-        }
-        return (ViewPropertyAnimatorCompat) invokeL.objValue;
-    }
-
-    public ViewPropertyAnimatorCompat withStartAction(Runnable runnable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, runnable)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                if (Build.VERSION.SDK_INT >= 16) {
-                    view2.animate().withStartAction(runnable);
-                } else {
-                    setListenerInternal(view2, new ViewPropertyAnimatorListenerApi14(this));
-                    this.mStartAction = runnable;
-                }
-            }
-            return this;
-        }
-        return (ViewPropertyAnimatorCompat) invokeL.objValue;
-    }
-
-    private void setListenerInternal(View view2, ViewPropertyAnimatorListener viewPropertyAnimatorListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, this, view2, viewPropertyAnimatorListener) == null) {
-            if (viewPropertyAnimatorListener != null) {
-                view2.animate().setListener(new AnimatorListenerAdapter(this, viewPropertyAnimatorListener, view2) { // from class: androidx.core.view.ViewPropertyAnimatorCompat.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ViewPropertyAnimatorCompat this$0;
-                    public final /* synthetic */ ViewPropertyAnimatorListener val$listener;
-                    public final /* synthetic */ View val$view;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, viewPropertyAnimatorListener, view2};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$listener = viewPropertyAnimatorListener;
-                        this.val$view = view2;
-                    }
-
-                    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                    public void onAnimationCancel(Animator animator) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
-                            this.val$listener.onAnimationCancel(this.val$view);
-                        }
-                    }
-
-                    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                    public void onAnimationEnd(Animator animator) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                            this.val$listener.onAnimationEnd(this.val$view);
-                        }
-                    }
-
-                    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                    public void onAnimationStart(Animator animator) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                            this.val$listener.onAnimationStart(this.val$view);
-                        }
-                    }
-                });
-            } else {
-                view2.animate().setListener(null);
-            }
-        }
-    }
-
     public ViewPropertyAnimatorCompat alpha(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().alpha(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().alpha(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat alphaBy(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().alphaBy(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().alphaBy(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat rotation(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().rotation(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().rotation(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat rotationBy(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048583, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().rotationBy(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().rotationBy(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat rotationX(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().rotationX(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().rotationX(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat rotationXBy(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048585, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().rotationXBy(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().rotationXBy(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat rotationY(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048586, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().rotationY(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().rotationY(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat rotationYBy(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().rotationYBy(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().rotationYBy(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat scaleX(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048588, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().scaleX(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().scaleX(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat scaleXBy(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048589, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().scaleXBy(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().scaleXBy(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat scaleY(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048590, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().scaleY(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().scaleY(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat scaleYBy(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048591, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().scaleYBy(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().scaleYBy(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat setDuration(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().setDuration(j);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().setDuration(j);
         }
-        return (ViewPropertyAnimatorCompat) invokeJ.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat setInterpolator(Interpolator interpolator) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, interpolator)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().setInterpolator(interpolator);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().setInterpolator(interpolator);
         }
-        return (ViewPropertyAnimatorCompat) invokeL.objValue;
+        return this;
+    }
+
+    public ViewPropertyAnimatorCompat setListener(ViewPropertyAnimatorListener viewPropertyAnimatorListener) {
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            if (Build.VERSION.SDK_INT >= 16) {
+                setListenerInternal(view2, viewPropertyAnimatorListener);
+            } else {
+                view2.setTag(LISTENER_TAG_ID, viewPropertyAnimatorListener);
+                setListenerInternal(view2, new ViewPropertyAnimatorListenerApi14(this));
+            }
+        }
+        return this;
     }
 
     public ViewPropertyAnimatorCompat setStartDelay(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().setStartDelay(j);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().setStartDelay(j);
         }
-        return (ViewPropertyAnimatorCompat) invokeJ.objValue;
+        return this;
+    }
+
+    public ViewPropertyAnimatorCompat setUpdateListener(final ViewPropertyAnimatorUpdateListener viewPropertyAnimatorUpdateListener) {
+        final View view2 = this.mView.get();
+        if (view2 != null && Build.VERSION.SDK_INT >= 19) {
+            ValueAnimator.AnimatorUpdateListener animatorUpdateListener = null;
+            if (viewPropertyAnimatorUpdateListener != null) {
+                animatorUpdateListener = new ValueAnimator.AnimatorUpdateListener() { // from class: androidx.core.view.ViewPropertyAnimatorCompat.2
+                    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+                    public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                        viewPropertyAnimatorUpdateListener.onAnimationUpdate(view2);
+                    }
+                };
+            }
+            view2.animate().setUpdateListener(animatorUpdateListener);
+        }
+        return this;
     }
 
     public ViewPropertyAnimatorCompat translationX(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048598, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().translationX(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().translationX(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat translationXBy(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048599, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().translationXBy(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().translationXBy(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat translationY(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048600, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().translationY(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().translationY(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat translationYBy(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048601, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().translationYBy(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().translationYBy(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat translationZ(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048602, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null && Build.VERSION.SDK_INT >= 21) {
-                view2.animate().translationZ(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null && Build.VERSION.SDK_INT >= 21) {
+            view2.animate().translationZ(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat translationZBy(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048603, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null && Build.VERSION.SDK_INT >= 21) {
-                view2.animate().translationZBy(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null && Build.VERSION.SDK_INT >= 21) {
+            view2.animate().translationZBy(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
+    }
+
+    public ViewPropertyAnimatorCompat withEndAction(Runnable runnable) {
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            if (Build.VERSION.SDK_INT >= 16) {
+                view2.animate().withEndAction(runnable);
+            } else {
+                setListenerInternal(view2, new ViewPropertyAnimatorListenerApi14(this));
+                this.mEndAction = runnable;
+            }
+        }
+        return this;
+    }
+
+    public ViewPropertyAnimatorCompat withStartAction(Runnable runnable) {
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            if (Build.VERSION.SDK_INT >= 16) {
+                view2.animate().withStartAction(runnable);
+            } else {
+                setListenerInternal(view2, new ViewPropertyAnimatorListenerApi14(this));
+                this.mStartAction = runnable;
+            }
+        }
+        return this;
     }
 
     public ViewPropertyAnimatorCompat x(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048607, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().x(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().x(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat xBy(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048608, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().xBy(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().xBy(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat y(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048609, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().y(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().y(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat yBy(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048610, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                view2.animate().yBy(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            view2.animate().yBy(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat z(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048611, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null && Build.VERSION.SDK_INT >= 21) {
-                view2.animate().z(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null && Build.VERSION.SDK_INT >= 21) {
+            view2.animate().z(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
     }
 
     public ViewPropertyAnimatorCompat zBy(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048612, this, f)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null && Build.VERSION.SDK_INT >= 21) {
-                view2.animate().zBy(f);
-            }
-            return this;
+        View view2 = this.mView.get();
+        if (view2 != null && Build.VERSION.SDK_INT >= 21) {
+            view2.animate().zBy(f);
         }
-        return (ViewPropertyAnimatorCompat) invokeF.objValue;
+        return this;
+    }
+
+    private void setListenerInternal(final View view2, final ViewPropertyAnimatorListener viewPropertyAnimatorListener) {
+        if (viewPropertyAnimatorListener != null) {
+            view2.animate().setListener(new AnimatorListenerAdapter() { // from class: androidx.core.view.ViewPropertyAnimatorCompat.1
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationCancel(Animator animator) {
+                    viewPropertyAnimatorListener.onAnimationCancel(view2);
+                }
+
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationEnd(Animator animator) {
+                    viewPropertyAnimatorListener.onAnimationEnd(view2);
+                }
+
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationStart(Animator animator) {
+                    viewPropertyAnimatorListener.onAnimationStart(view2);
+                }
+            });
+        } else {
+            view2.animate().setListener(null);
+        }
     }
 
     public void cancel() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (view2 = this.mView.get()) != null) {
+        View view2 = this.mView.get();
+        if (view2 != null) {
             view2.animate().cancel();
         }
     }
 
     public long getDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                return view2.animate().getDuration();
-            }
-            return 0L;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            return view2.animate().getDuration();
         }
-        return invokeV.longValue;
+        return 0L;
     }
 
     public Interpolator getInterpolator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null && Build.VERSION.SDK_INT >= 18) {
-                return (Interpolator) view2.animate().getInterpolator();
-            }
-            return null;
+        View view2 = this.mView.get();
+        if (view2 != null && Build.VERSION.SDK_INT >= 18) {
+            return (Interpolator) view2.animate().getInterpolator();
         }
-        return (Interpolator) invokeV.objValue;
+        return null;
     }
 
     public long getStartDelay() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                return view2.animate().getStartDelay();
-            }
-            return 0L;
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            return view2.animate().getStartDelay();
         }
-        return invokeV.longValue;
+        return 0L;
     }
 
     public void start() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (view2 = this.mView.get()) != null) {
+        View view2 = this.mView.get();
+        if (view2 != null) {
             view2.animate().start();
         }
     }
 
     @SuppressLint({"WrongConstant"})
     public ViewPropertyAnimatorCompat withLayer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            View view2 = this.mView.get();
-            if (view2 != null) {
-                if (Build.VERSION.SDK_INT >= 16) {
-                    view2.animate().withLayer();
-                } else {
-                    this.mOldLayerType = view2.getLayerType();
-                    setListenerInternal(view2, new ViewPropertyAnimatorListenerApi14(this));
-                }
+        View view2 = this.mView.get();
+        if (view2 != null) {
+            if (Build.VERSION.SDK_INT >= 16) {
+                view2.animate().withLayer();
+            } else {
+                this.mOldLayerType = view2.getLayerType();
+                setListenerInternal(view2, new ViewPropertyAnimatorListenerApi14(this));
             }
-            return this;
         }
-        return (ViewPropertyAnimatorCompat) invokeV.objValue;
+        return this;
     }
 }

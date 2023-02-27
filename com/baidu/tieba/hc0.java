@@ -1,11 +1,5 @@
 package com.baidu.tieba;
-
-import com.baidu.searchbox.live.interfaces.net.NetResponse;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes4.dex */
-public interface hc0<T> {
-    void onNetResponse(NetResponse netResponse, T t, Map<String, String> map, List<String> list);
-
-    T onParseResponseInBackground(NetResponse netResponse);
+public interface hc0 {
+    void a(int i, Object obj, fc0 fc0Var);
 }

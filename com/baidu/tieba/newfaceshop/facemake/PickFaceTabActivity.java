@@ -24,8 +24,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
-import com.baidu.tieba.n68;
-import com.baidu.tieba.qv4;
+import com.baidu.tieba.xw4;
+import com.baidu.tieba.y98;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public class PickFaceTabActivity extends BaseFragmentActivity implements n68 {
+public class PickFaceTabActivity extends BaseFragmentActivity implements y98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -176,7 +176,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements n68 {
         this.k = new b(this);
     }
 
-    @Override // com.baidu.tieba.n68
+    @Override // com.baidu.tieba.y98
     public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -185,7 +185,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements n68 {
         }
     }
 
-    @Override // com.baidu.tieba.n68
+    @Override // com.baidu.tieba.y98
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -197,7 +197,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements n68 {
         }
     }
 
-    @Override // com.baidu.tieba.n68
+    @Override // com.baidu.tieba.y98
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -212,11 +212,13 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements n68 {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            qv4 layoutMode = getLayoutMode();
-            boolean z = true;
-            if (i != 1) {
+            xw4 layoutMode = getLayoutMode();
+            if (i == 4) {
+                z = true;
+            } else {
                 z = false;
             }
             layoutMode.l(z);
@@ -238,8 +240,8 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements n68 {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             this.j = getPageContext().getPageActivity();
-            setContentView(R.layout.obfuscated_res_0x7f0d076a);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f09215e);
+            setContentView(R.layout.obfuscated_res_0x7f0d0780);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f0921a4);
             this.e = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.e.setOnPageChangeListener(this.k);
@@ -264,7 +266,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements n68 {
                 this.c.setTitle(this.j.getText(R.string.album_all).toString());
                 return;
             }
-            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f0648).toString());
+            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f064c).toString());
         }
     }
 
@@ -315,8 +317,8 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements n68 {
                     x1();
                 }
             }
-            t1(this.f, 1, this.j.getText(R.string.obfuscated_res_0x7f0f0644).toString());
-            t1(this.h, 3, this.j.getText(R.string.obfuscated_res_0x7f0f0640).toString());
+            t1(this.f, 1, this.j.getText(R.string.obfuscated_res_0x7f0f0648).toString());
+            t1(this.h, 3, this.j.getText(R.string.obfuscated_res_0x7f0f0644).toString());
             t1(this.g, 2, this.j.getText(R.string.my_mark).toString());
             this.e.k(1);
             this.e.setCurrentTab(0);

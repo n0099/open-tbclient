@@ -1,40 +1,49 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.framework.utils.DebugTrace;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
+import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public final class as {
+public final class as implements fs {
     public static /* synthetic */ Interceptable $ic;
+    public static final b c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ur a;
-    public xr b;
-    public byte[] c;
+    public final Integer a;
+    public final byte[] b;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public as() {
-        this(null, null, null, 7, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((ur) objArr[0], (xr) objArr[1], (byte[]) objArr[2], ((Integer) objArr[3]).intValue(), (DefaultConstructorMarker) objArr[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448299963, "Lcom/baidu/tieba/as;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448299963, "Lcom/baidu/tieba/as;");
                 return;
             }
         }
+        c = new b(null);
+    }
+
+    @JvmStatic
+    public static final a a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a() : (a) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -44,7 +53,7 @@ public final class as {
             if (this != obj) {
                 if (obj instanceof as) {
                     as asVar = (as) obj;
-                    return Intrinsics.areEqual(this.a, asVar.a) && Intrinsics.areEqual(this.b, asVar.b) && Intrinsics.areEqual(this.c, asVar.c);
+                    return Intrinsics.areEqual(this.a, asVar.a) && Intrinsics.areEqual(this.b, asVar.b);
                 }
                 return false;
             }
@@ -57,12 +66,10 @@ public final class as {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ur urVar = this.a;
-            int hashCode = (urVar != null ? urVar.hashCode() : 0) * 31;
-            xr xrVar = this.b;
-            int hashCode2 = (hashCode + (xrVar != null ? xrVar.hashCode() : 0)) * 31;
-            byte[] bArr = this.c;
-            return hashCode2 + (bArr != null ? Arrays.hashCode(bArr) : 0);
+            Integer num = this.a;
+            int hashCode = (num != null ? num.hashCode() : 0) * 31;
+            byte[] bArr = this.b;
+            return hashCode + (bArr != null ? Arrays.hashCode(bArr) : 0);
         }
         return invokeV.intValue;
     }
@@ -71,17 +78,119 @@ public final class as {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "HandshakeParams(clientHello=" + this.a + ", serverHello=" + this.b + ", encodeDHPublicKey=" + Arrays.toString(this.c) + SmallTailInfo.EMOTION_SUFFIX;
+            return "Random(GMTUnixTime=" + this.a + ", randomBytes=" + Arrays.toString(this.b) + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
 
-    public as(ur urVar, xr xrVar, byte[] bArr) {
+    /* loaded from: classes3.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Integer a;
+        public byte[] b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final as c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return new as(this.a, au.c(this.b));
+            }
+            return (as) invokeV.objValue;
+        }
+
+        public final a a(Integer num) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, num)) == null) {
+                this.a = num;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public final a b(byte[] bArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+                this.b = bArr;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final a a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new a();
+            }
+            return (a) invokeV.objValue;
+        }
+
+        public /* synthetic */ b(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public final as b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    return new as(Integer.valueOf(jSONObject.optInt("GMTUnixTime")), au.b(jSONObject.optString("RandomBytes")));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    DebugTrace debugTrace = DebugTrace.a;
+                    debugTrace.a("parse random fail:" + e.getMessage());
+                    return null;
+                }
+            }
+            return (as) invokeL.objValue;
+        }
+    }
+
+    public as(Integer num, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {urVar, xrVar, bArr};
+            Object[] objArr = {num, bArr};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -91,19 +200,20 @@ public final class as {
                 return;
             }
         }
-        this.a = urVar;
-        this.b = xrVar;
-        this.c = bArr;
+        this.a = num;
+        this.b = bArr;
     }
 
-    public /* synthetic */ as(ur urVar, xr xrVar, byte[] bArr, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? null : urVar, (i & 2) != 0 ? null : xrVar, (i & 4) != 0 ? null : bArr);
-    }
-
-    public final void a(xr xrVar) {
+    @Override // com.baidu.tieba.fs
+    public JSONObject c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, xrVar) == null) {
-            this.b = xrVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.putOpt("GMTUnixTime", this.a);
+            jSONObject.putOpt("RandomBytes", au.a(this.b));
+            return jSONObject;
         }
+        return (JSONObject) invokeV.objValue;
     }
 }

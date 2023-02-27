@@ -2,22 +2,14 @@ package com.baidu.searchbox.bddownload.core.download;
 
 import android.net.Uri;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.BdDownload;
 import com.baidu.searchbox.bddownload.DownloadTask;
 import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.searchbox.bddownload.core.breakpoint.BreakpointInfo;
 import com.baidu.searchbox.bddownload.core.cause.ResumeFailedCause;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class BreakpointLocalCheck {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public boolean dirty;
     public boolean fileExist;
     public final BreakpointInfo info;
@@ -27,20 +19,6 @@ public class BreakpointLocalCheck {
     public final DownloadTask task;
 
     public BreakpointLocalCheck(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {downloadTask, breakpointInfo, Long.valueOf(j)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.task = downloadTask;
         this.info = breakpointInfo;
         this.responseInstanceLength = j;
@@ -48,114 +26,81 @@ public class BreakpointLocalCheck {
 
     public void check() {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.fileExist = isFileExistToResume();
-            this.infoRight = isInfoRightToResume();
-            boolean isOutputStreamSupportResume = isOutputStreamSupportResume();
-            this.outputStreamSupport = isOutputStreamSupportResume;
-            if (this.infoRight && this.fileExist && isOutputStreamSupportResume) {
-                z = false;
-            } else {
-                z = true;
-            }
-            this.dirty = z;
+        this.fileExist = isFileExistToResume();
+        this.infoRight = isInfoRightToResume();
+        boolean isOutputStreamSupportResume = isOutputStreamSupportResume();
+        this.outputStreamSupport = isOutputStreamSupportResume;
+        if (this.infoRight && this.fileExist && isOutputStreamSupportResume) {
+            z = false;
+        } else {
+            z = true;
         }
-    }
-
-    public boolean isDirty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.dirty;
-        }
-        return invokeV.booleanValue;
+        this.dirty = z;
     }
 
     @NonNull
     public ResumeFailedCause getCauseOrThrow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!this.infoRight) {
-                return ResumeFailedCause.INFO_DIRTY;
-            }
-            if (!this.fileExist) {
-                return ResumeFailedCause.FILE_NOT_EXIST;
-            }
-            if (!this.outputStreamSupport) {
-                return ResumeFailedCause.OUTPUT_STREAM_NOT_SUPPORT;
-            }
-            throw new IllegalStateException("No cause find with dirty: " + this.dirty);
+        if (!this.infoRight) {
+            return ResumeFailedCause.INFO_DIRTY;
         }
-        return (ResumeFailedCause) invokeV.objValue;
+        if (!this.fileExist) {
+            return ResumeFailedCause.FILE_NOT_EXIST;
+        }
+        if (!this.outputStreamSupport) {
+            return ResumeFailedCause.OUTPUT_STREAM_NOT_SUPPORT;
+        }
+        throw new IllegalStateException("No cause find with dirty: " + this.dirty);
+    }
+
+    public boolean isDirty() {
+        return this.dirty;
     }
 
     public boolean isFileExistToResume() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Uri uri = this.task.getUri();
-            if (Util.isUriContentScheme(uri)) {
-                if (Util.getSizeFromContentUri(uri) > 0) {
-                    return true;
-                }
-                return false;
-            }
-            File file = this.task.getFile();
-            if (file != null && file.exists()) {
+        Uri uri = this.task.getUri();
+        if (Util.isUriContentScheme(uri)) {
+            if (Util.getSizeFromContentUri(uri) > 0) {
                 return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        File file = this.task.getFile();
+        if (file != null && file.exists()) {
+            return true;
+        }
+        return false;
     }
 
     public boolean isOutputStreamSupportResume() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (BdDownload.with().outputStreamFactory().supportSeek()) {
-                return true;
-            }
-            if (this.info.getBlockCount() == 1 && !BdDownload.with().processFileStrategy().isPreAllocateLength(this.task)) {
-                return true;
-            }
-            return false;
+        if (BdDownload.with().outputStreamFactory().supportSeek()) {
+            return true;
         }
-        return invokeV.booleanValue;
+        if (this.info.getBlockCount() == 1 && !BdDownload.with().processFileStrategy().isPreAllocateLength(this.task)) {
+            return true;
+        }
+        return false;
     }
 
     public boolean isInfoRightToResume() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int blockCount = this.info.getBlockCount();
-            if (blockCount <= 0 || this.info.isChunked() || this.info.getFile() == null) {
-                return false;
-            }
-            if (!this.info.getFile().equals(this.task.getFile()) || this.info.getFile().length() > this.info.getTotalLength()) {
-                return false;
-            }
-            if (this.responseInstanceLength > 0 && this.info.getTotalLength() != this.responseInstanceLength) {
-                return false;
-            }
-            for (int i = 0; i < blockCount; i++) {
-                if (this.info.getBlock(i).getContentLength() <= 0) {
-                    return false;
-                }
-            }
-            return true;
+        int blockCount = this.info.getBlockCount();
+        if (blockCount <= 0 || this.info.isChunked() || this.info.getFile() == null) {
+            return false;
         }
-        return invokeV.booleanValue;
+        if (!this.info.getFile().equals(this.task.getFile()) || this.info.getFile().length() > this.info.getTotalLength()) {
+            return false;
+        }
+        if (this.responseInstanceLength > 0 && this.info.getTotalLength() != this.responseInstanceLength) {
+            return false;
+        }
+        for (int i = 0; i < blockCount; i++) {
+            if (this.info.getBlock(i).getContentLength() <= 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "fileExist[" + this.fileExist + "] infoRight[" + this.infoRight + "] outputStreamSupport[" + this.outputStreamSupport + "] " + super.toString();
-        }
-        return (String) invokeV.objValue;
+        return "fileExist[" + this.fileExist + "] infoRight[" + this.infoRight + "] outputStreamSupport[" + this.outputStreamSupport + "] " + super.toString();
     }
 }

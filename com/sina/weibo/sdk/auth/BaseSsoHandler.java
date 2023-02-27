@@ -32,6 +32,7 @@ import com.sina.weibo.sdk.web.WeiboCallbackManager;
 import com.sina.weibo.sdk.web.WeiboSdkWebActivity;
 import com.sina.weibo.sdk.web.param.AuthWebViewRequestParam;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
+import org.apache.commons.codec.language.bm.Rule;
 /* loaded from: classes8.dex */
 public class BaseSsoHandler {
     public static /* synthetic */ Interceptable $ic = null;
@@ -73,7 +74,7 @@ public class BaseSsoHandler {
                     return;
                 }
             }
-            ALL = new AuthType("ALL", 0);
+            ALL = new AuthType(Rule.ALL, 0);
             SsoOnly = new AuthType("SsoOnly", 1);
             AuthType authType = new AuthType("WebOnly", 2);
             WebOnly = authType;

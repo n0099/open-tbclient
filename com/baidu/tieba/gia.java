@@ -1,16 +1,15 @@
 package com.baidu.tieba;
 
+import android.graphics.Path;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class gia extends fia {
+public final class gia {
     public static /* synthetic */ Interceptable $ic;
-    public static final gia a;
+    public static final Path a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,29 +25,15 @@ public final class gia extends fia {
                 return;
             }
         }
-        a = new gia();
+        a = new Path();
     }
 
-    public gia() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static fia f() {
+    public static final Path a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             return a;
         }
-        return (fia) invokeV.objValue;
+        return (Path) invokeV.objValue;
     }
 }

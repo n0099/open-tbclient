@@ -3,10 +3,6 @@ package com.baidu.searchbox.logsystem.util;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.util.io.Closeables;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,54 +11,22 @@ import java.io.IOException;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ZipUtils {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class ZipSrc {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         @NonNull
         public File mFile;
         @NonNull
         public String mOutName;
 
         public ZipSrc(@NonNull File file) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {file};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.mFile = file;
             this.mOutName = file.getName();
         }
 
         public ZipSrc(@NonNull File file, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {file, str};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             this.mFile = file;
             if (TextUtils.isEmpty(str)) {
                 this.mOutName = this.mFile.getName();
@@ -72,27 +36,12 @@ public class ZipUtils {
         }
     }
 
-    public ZipUtils() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r4v2, types: [java.io.FileInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r4v1, types: [java.io.FileInputStream, java.io.InputStream] */
     public static void zip(File file, List<ZipSrc> list) throws IOException {
         byte[] bArr;
         ZipOutputStream zipOutputStream;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, file, list) == null) && file != null && file.exists() && list != null && list.size() != 0) {
+        if (file != null && file.exists() && list != null && list.size() != 0) {
             ZipOutputStream zipOutputStream2 = null;
             try {
                 try {
@@ -134,13 +83,13 @@ public class ZipUtils {
                                     throw th;
                                 }
                             }
-                        } catch (FileNotFoundException e3) {
-                            e = e3;
+                        } catch (Throwable th3) {
+                            th = th3;
                         }
-                        Closeables.closeSafely(zipOutputStream2);
-                    } catch (Throwable th3) {
-                        th = th3;
+                    } catch (FileNotFoundException e3) {
+                        e = e3;
                     }
+                    Closeables.closeSafely(zipOutputStream2);
                 }
                 zipOutputStream.flush();
                 Closeables.closeSafely(zipOutputStream);

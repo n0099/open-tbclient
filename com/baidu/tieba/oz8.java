@@ -1,68 +1,31 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tieba.square.square.BarFolderFirstDirActivity;
-import com.baidu.tieba.square.view.BestStringsFitTextView;
+import com.baidu.tbadk.core.util.resourceLoaderProc.EmotionShareLoaderProc;
+import com.baidu.tbadk.switchs.QqShareH5Switch;
+import com.baidu.tieba.nz8;
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.connect.share.QQShare;
+import com.tencent.tauth.IUiListener;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class oz8 extends BaseAdapter {
+public class oz8 extends nz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public ArrayList<rz8> b;
-    public View.OnClickListener c;
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return 4;
-        }
-        return invokeV.intValue;
-    }
+    public IUiListener p;
+    public final yg<EmotionShareLoaderProc.EmotionShare> q;
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public class a extends yg<EmotionShareLoaderProc.EmotionShare> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ oz8 a;
@@ -85,195 +48,162 @@ public class oz8 extends BaseAdapter {
             this.a = oz8Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            rz8 rz8Var;
+        @Override // com.baidu.tieba.yg
+        public void onCancelled(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Object tag = view2.getTag();
-                if (!(tag instanceof b) || (rz8Var = ((b) tag).d) == null) {
-                    return;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                super.onCancelled(str);
+                this.a.u(3, 4);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.yg
+        /* renamed from: a */
+        public void onLoaded(EmotionShareLoaderProc.EmotionShare emotionShare, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, emotionShare, str, i) == null) {
+                super.onLoaded(emotionShare, str, i);
+                if (emotionShare == null || emotionShare.image == null || TextUtils.isEmpty(emotionShare.path)) {
+                    this.a.u(2, 4);
                 }
-                if (rz8Var.a == null) {
-                    BarFolderFirstDirActivity.C1(this.a.getContext(), null);
-                } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(this.a.getContext(), rz8Var.b, rz8Var.a, rz8Var.c)));
+                if (emotionShare != null && !TextUtils.isEmpty(emotionShare.path)) {
+                    this.a.R(emotionShare.path);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public BarImageView a;
-        public TextView b;
-        public BestStringsFitTextView c;
-        public rz8 d;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public oz8(Activity activity, pz8 pz8Var, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oz8(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, pz8Var, Boolean.valueOf(z)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new a(this);
-        this.a = activity;
-        this.b = pz8Var.h();
+        this.q = new a(this);
+        this.l = 4;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    public final void R(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
-            int itemViewType = getItemViewType(i);
-            if (view2 == null) {
-                view2 = a(viewGroup, itemViewType);
-                ViewHelper.prepareNewView(view2);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("imageLocalUrl", str);
+            bundle.putInt("req_type", 5);
+            bundle.putInt("cflag", 1);
+            IUiListener iUiListener = this.p;
+            if (iUiListener != null) {
+                this.k.shareToQQ((Activity) this.b, bundle, iUiListener);
             }
-            ViewHelper.processCurrentSkin(view2);
-            if (itemViewType == 3) {
-                return view2;
-            }
-            TbadkCoreApplication.getInst().getSkinType();
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090718);
-            SkinManager.setBackgroundResource(findViewById, R.drawable.addresslist_item_bg);
-            if (itemViewType == 2) {
-                if (getCount() > 1) {
-                    findViewById.setVisibility(0);
-                }
-            } else if (itemViewType == 1) {
-                b(viewGroup, (b) view2.getTag(), i);
-            }
-            return view2;
         }
-        return (View) invokeILL.objValue;
     }
 
-    public final View a(ViewGroup viewGroup, int i) {
-        InterceptResult invokeLI;
+    public final void P(ShareEntity shareEntity, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
-            if (i == 3) {
-                return LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d013c, viewGroup, false);
-            }
-            if (i == 2) {
-                return LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0137, viewGroup, false);
-            }
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0138, viewGroup, false);
-            inflate.setOnClickListener(this.c);
-            b bVar = new b();
-            bVar.a = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091b4c);
-            bVar.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091727);
-            bVar.c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
-            inflate.setTag(bVar);
-            return inflate;
-        }
-        return (View) invokeLI.objValue;
-    }
-
-    public final void b(ViewGroup viewGroup, b bVar, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, bVar, i) == null) {
-            rz8 rz8Var = this.b.get(i / 2);
-            bVar.d = rz8Var;
-            bVar.b.setText(rz8Var.b);
-            if (rz8Var.e != null) {
-                bVar.c.setVisibility(0);
-                String[] strArr = new String[rz8Var.e.size()];
-                for (int i2 = 0; i2 < rz8Var.e.size(); i2++) {
-                    strArr[i2] = rz8Var.e.get(i2).b;
-                }
-                bVar.c.setTextArray(strArr);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, shareEntity, iUiListener) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putInt("req_type", 7);
+            bundle.putString("title", vz8.a(this.b));
+            if (!StringUtils.isNull(shareEntity.getTitle())) {
+                bundle.putString("summary", shareEntity.getTitle());
+            } else if (!StringUtils.isNull(shareEntity.getContent())) {
+                bundle.putString("summary", shareEntity.getContent());
             } else {
-                bVar.c.setVisibility(8);
+                bundle.putString("summary", this.b.getString(R.string.obfuscated_res_0x7f0f1223));
             }
-            if (rz8Var.d != null) {
-                int d = ej.d(this.a, 45.0f);
-                bVar.a.setTag(rz8Var.d);
-                bVar.a.G(rz8Var.d, 10, d, d, false);
+            bundle.putString("targetUrl", shareEntity.getLinkUrl());
+            ArrayList<String> arrayList = new ArrayList<>();
+            if (!TextUtils.isEmpty(shareEntity.getImgUrl())) {
+                arrayList.add(shareEntity.getImgUrl());
+            } else {
+                arrayList.add("http://tb3.bdstatic.com/public/img/fcf10e29473417fa5e0d4a1e6.fcf10e29.png");
+            }
+            bundle.putStringArrayList("imageUrl", arrayList);
+            bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_APPID, "1111264064");
+            bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_TYPE, "3");
+            bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_PATH, "pages/pb/pb?tid=" + shareEntity.getTid());
+            if (iUiListener != null) {
+                this.k.shareToQzone((Activity) this.b, bundle, iUiListener);
             }
         }
     }
 
-    public ArrayList<rz8> c() {
-        InterceptResult invokeV;
+    public final void Q(ShareEntity shareEntity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public Activity getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (Activity) invokeV.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList<rz8> arrayList = this.b;
-            if (arrayList == null) {
-                return 0;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareEntity) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putInt("req_type", 1);
+            bundle.putString("title", shareEntity.getTitle());
+            bundle.putString("summary", shareEntity.getContent());
+            bundle.putString("targetUrl", shareEntity.getLinkUrl());
+            ArrayList<String> arrayList = new ArrayList<>();
+            if (!TextUtils.isEmpty(shareEntity.getImgUrl())) {
+                arrayList.add(shareEntity.getImgUrl());
             }
-            return (arrayList.size() * 2) + 1;
-        }
-        return invokeV.intValue;
-    }
-
-    public void d(ArrayList<rz8> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            this.b = arrayList;
+            bundle.putStringArrayList("imageUrl", arrayList);
+            IUiListener iUiListener = this.p;
+            if (iUiListener != null) {
+                this.k.shareToQzone((Activity) this.b, bundle, iUiListener);
+            }
         }
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
+    public final void S(ShareEntity shareEntity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            if (getCount() > 0 && i == getCount() - 1) {
-                return 2;
+        if (interceptable == null || interceptable.invokeL(1048579, this, shareEntity) == null) {
+            if (q(shareEntity.getLocalFile())) {
+                R(shareEntity.getLocalFile());
+            } else if (p(shareEntity.getImageUri())) {
+                R(shareEntity.getImageUri().getPath());
+            } else {
+                zg.h().k(shareEntity.getImgUrl(), 34, this.q, 0, 0, j(), new Object[0]);
             }
-            if (Math.abs(i) % 2 != 1) {
-                return 1;
-            }
-            return 3;
         }
-        return invokeI.intValue;
+    }
+
+    @Override // com.baidu.tieba.nz8, com.baidu.tieba.sz8
+    public void a(ShareEntity shareEntity, tz8 tz8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, shareEntity, tz8Var) == null) {
+            if (shareEntity != null && this.k != null) {
+                this.e = shareEntity;
+                Context context = this.b;
+                if (context != null && (context instanceof Activity)) {
+                    this.p = new nz8.c(this, tz8Var);
+                    if (!QqShareH5Switch.isOn() && !StringUtils.isNull(shareEntity.getTid()) && !"0".equals(shareEntity.getTid())) {
+                        P(shareEntity, this.p);
+                        return;
+                    } else if (shareEntity.getShareType() != 0) {
+                        S(shareEntity);
+                        return;
+                    } else {
+                        Q(shareEntity);
+                        return;
+                    }
+                }
+                u(2, 4);
+                if (tz8Var != null) {
+                    tz8Var.b1(0, 2);
+                    return;
+                }
+                return;
+            }
+            u(2, 4);
+            if (tz8Var != null) {
+                tz8Var.b1(0, 2);
+            }
+        }
     }
 }

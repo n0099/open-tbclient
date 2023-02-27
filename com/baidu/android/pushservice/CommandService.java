@@ -3,9 +3,7 @@ package com.baidu.android.pushservice;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -66,12 +64,10 @@ public class CommandService extends Service {
                 return 2;
             }
             String action = intent.getAction();
-            try {
-            } catch (RuntimeException e) {
-                new b.c(getApplicationContext()).a(Log.getStackTraceString(e)).a();
-            }
             if ("com.baidu.android.pushservice.action.passthrough.notification.CLICK".equals(action)) {
-                new b.a(this).a("0").b(intent.hasExtra("msg_id") ? intent.getStringExtra("msg_id") : null).a(System.currentTimeMillis()).b(601011L).a();
+                if (intent.hasExtra("msg_id")) {
+                    intent.getStringExtra("msg_id");
+                }
                 stopSelf();
                 return 2;
             }
@@ -79,7 +75,7 @@ public class CommandService extends Service {
                 stopSelf();
                 return 2;
             }
-            ((PublicMsg) intent.getParcelableExtra("public_msg")).handlePrivateNotification(getApplicationContext(), action, intent.getStringExtra("msg_id"), intent.getStringExtra("app_id"), intent.getByteArrayExtra("baidu_message_secur_info"), intent.getByteArrayExtra("baidu_message_body"));
+            ((PublicMsg) intent.getParcelableExtra("public_msg")).handlePrivateNotification(getApplicationContext(), action, intent.getStringExtra("msg_id"), intent.getStringExtra("app_id"), intent.getByteArrayExtra("baidu_message_secur_info"), intent.getByteArrayExtra("baidu_message_body"), 0, intent.getStringExtra("notification_log_ext"));
             stopSelf();
             return 2;
         }

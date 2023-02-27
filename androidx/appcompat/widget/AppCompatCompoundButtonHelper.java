@@ -14,50 +14,43 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.CompoundButtonCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class AppCompatCompoundButtonHelper {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public ColorStateList mButtonTintList;
-    public PorterDuff.Mode mButtonTintMode;
-    public boolean mHasButtonTint;
-    public boolean mHasButtonTintMode;
+    public ColorStateList mButtonTintList = null;
+    public PorterDuff.Mode mButtonTintMode = null;
+    public boolean mHasButtonTint = false;
+    public boolean mHasButtonTintMode = false;
     public boolean mSkipNextApply;
     @NonNull
     public final CompoundButton mView;
 
     public AppCompatCompoundButtonHelper(@NonNull CompoundButton compoundButton) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {compoundButton};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mButtonTintList = null;
-        this.mButtonTintMode = null;
-        this.mHasButtonTint = false;
-        this.mHasButtonTintMode = false;
         this.mView = compoundButton;
     }
 
-    public void applyButtonTint() {
+    public int getCompoundPaddingLeft(int i) {
         Drawable buttonDrawable;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (buttonDrawable = CompoundButtonCompat.getButtonDrawable(this.mView)) != null) {
+        if (Build.VERSION.SDK_INT < 17 && (buttonDrawable = CompoundButtonCompat.getButtonDrawable(this.mView)) != null) {
+            return i + buttonDrawable.getIntrinsicWidth();
+        }
+        return i;
+    }
+
+    public void setSupportButtonTintList(ColorStateList colorStateList) {
+        this.mButtonTintList = colorStateList;
+        this.mHasButtonTint = true;
+        applyButtonTint();
+    }
+
+    public void setSupportButtonTintMode(@Nullable PorterDuff.Mode mode) {
+        this.mButtonTintMode = mode;
+        this.mHasButtonTintMode = true;
+        applyButtonTint();
+    }
+
+    public void applyButtonTint() {
+        Drawable buttonDrawable = CompoundButtonCompat.getButtonDrawable(this.mView);
+        if (buttonDrawable != null) {
             if (this.mHasButtonTint || this.mHasButtonTintMode) {
                 Drawable mutate = DrawableCompat.wrap(buttonDrawable).mutate();
                 if (this.mHasButtonTint) {
@@ -74,108 +67,61 @@ public class AppCompatCompoundButtonHelper {
         }
     }
 
-    public int getCompoundPaddingLeft(int i) {
-        InterceptResult invokeI;
-        Drawable buttonDrawable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (Build.VERSION.SDK_INT < 17 && (buttonDrawable = CompoundButtonCompat.getButtonDrawable(this.mView)) != null) {
-                return i + buttonDrawable.getIntrinsicWidth();
-            }
-            return i;
-        }
-        return invokeI.intValue;
-    }
-
-    public void setSupportButtonTintList(ColorStateList colorStateList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, colorStateList) == null) {
-            this.mButtonTintList = colorStateList;
-            this.mHasButtonTint = true;
-            applyButtonTint();
-        }
-    }
-
-    public void setSupportButtonTintMode(@Nullable PorterDuff.Mode mode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, mode) == null) {
-            this.mButtonTintMode = mode;
-            this.mHasButtonTintMode = true;
-            applyButtonTint();
-        }
-    }
-
     public ColorStateList getSupportButtonTintList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mButtonTintList;
-        }
-        return (ColorStateList) invokeV.objValue;
+        return this.mButtonTintList;
     }
 
     public PorterDuff.Mode getSupportButtonTintMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mButtonTintMode;
-        }
-        return (PorterDuff.Mode) invokeV.objValue;
+        return this.mButtonTintMode;
     }
 
     public void onSetButtonDrawable() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.mSkipNextApply) {
-                this.mSkipNextApply = false;
-                return;
-            }
-            this.mSkipNextApply = true;
-            applyButtonTint();
+        if (this.mSkipNextApply) {
+            this.mSkipNextApply = false;
+            return;
         }
+        this.mSkipNextApply = true;
+        applyButtonTint();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0065 A[Catch: all -> 0x0088, TryCatch #0 {all -> 0x0088, blocks: (B:5:0x0024, B:7:0x002a, B:9:0x0030, B:13:0x0043, B:15:0x0049, B:17:0x004f, B:18:0x005e, B:20:0x0065, B:21:0x006e, B:23:0x0075), top: B:33:0x0024 }] */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0075 A[Catch: all -> 0x0088, TRY_LEAVE, TryCatch #0 {all -> 0x0088, blocks: (B:5:0x0024, B:7:0x002a, B:9:0x0030, B:13:0x0043, B:15:0x0049, B:17:0x004f, B:18:0x005e, B:20:0x0065, B:21:0x006e, B:23:0x0075), top: B:33:0x0024 }] */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0061 A[Catch: all -> 0x0084, TryCatch #0 {all -> 0x0084, blocks: (B:3:0x0020, B:5:0x0026, B:7:0x002c, B:11:0x003f, B:13:0x0045, B:15:0x004b, B:16:0x005a, B:18:0x0061, B:19:0x006a, B:21:0x0071), top: B:28:0x0020 }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0071 A[Catch: all -> 0x0084, TRY_LEAVE, TryCatch #0 {all -> 0x0084, blocks: (B:3:0x0020, B:5:0x0026, B:7:0x002c, B:11:0x003f, B:13:0x0045, B:15:0x004b, B:16:0x005a, B:18:0x0061, B:19:0x006a, B:21:0x0071), top: B:28:0x0020 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void loadFromAttributes(@Nullable AttributeSet attributeSet, int i) {
         int resourceId;
         int resourceId2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, attributeSet, i) == null) {
-            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R.styleable.CompoundButton, i, 0);
-            CompoundButton compoundButton = this.mView;
-            ViewCompat.saveAttributeDataForStyleable(compoundButton, compoundButton.getContext(), R.styleable.CompoundButton, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
-            boolean z = true;
-            try {
-                if (obtainStyledAttributes.hasValue(1) && (resourceId2 = obtainStyledAttributes.getResourceId(1, 0)) != 0) {
-                    try {
-                        this.mView.setButtonDrawable(AppCompatResources.getDrawable(this.mView.getContext(), resourceId2));
-                    } catch (Resources.NotFoundException unused) {
-                    }
-                    if (!z && obtainStyledAttributes.hasValue(0) && (resourceId = obtainStyledAttributes.getResourceId(0, 0)) != 0) {
-                        this.mView.setButtonDrawable(AppCompatResources.getDrawable(this.mView.getContext(), resourceId));
-                    }
-                    if (obtainStyledAttributes.hasValue(2)) {
-                        CompoundButtonCompat.setButtonTintList(this.mView, obtainStyledAttributes.getColorStateList(2));
-                    }
-                    if (obtainStyledAttributes.hasValue(3)) {
-                        CompoundButtonCompat.setButtonTintMode(this.mView, DrawableUtils.parseTintMode(obtainStyledAttributes.getInt(3, -1), null));
-                    }
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R.styleable.CompoundButton, i, 0);
+        CompoundButton compoundButton = this.mView;
+        ViewCompat.saveAttributeDataForStyleable(compoundButton, compoundButton.getContext(), R.styleable.CompoundButton, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
+        boolean z = true;
+        try {
+            if (obtainStyledAttributes.hasValue(1) && (resourceId2 = obtainStyledAttributes.getResourceId(1, 0)) != 0) {
+                try {
+                    this.mView.setButtonDrawable(AppCompatResources.getDrawable(this.mView.getContext(), resourceId2));
+                } catch (Resources.NotFoundException unused) {
                 }
-                z = false;
-                if (!z) {
+                if (!z && obtainStyledAttributes.hasValue(0) && (resourceId = obtainStyledAttributes.getResourceId(0, 0)) != 0) {
                     this.mView.setButtonDrawable(AppCompatResources.getDrawable(this.mView.getContext(), resourceId));
                 }
                 if (obtainStyledAttributes.hasValue(2)) {
+                    CompoundButtonCompat.setButtonTintList(this.mView, obtainStyledAttributes.getColorStateList(2));
                 }
                 if (obtainStyledAttributes.hasValue(3)) {
+                    CompoundButtonCompat.setButtonTintMode(this.mView, DrawableUtils.parseTintMode(obtainStyledAttributes.getInt(3, -1), null));
                 }
-            } finally {
-                obtainStyledAttributes.recycle();
             }
+            z = false;
+            if (!z) {
+                this.mView.setButtonDrawable(AppCompatResources.getDrawable(this.mView.getContext(), resourceId));
+            }
+            if (obtainStyledAttributes.hasValue(2)) {
+            }
+            if (obtainStyledAttributes.hasValue(3)) {
+            }
+        } finally {
+            obtainStyledAttributes.recycle();
         }
     }
 }

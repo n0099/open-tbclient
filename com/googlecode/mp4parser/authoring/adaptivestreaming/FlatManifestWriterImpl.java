@@ -1,15 +1,6 @@
 package com.googlecode.mp4parser.authoring.adaptivestreaming;
 
-import androidx.core.view.InputDeviceCompat;
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.Hex;
 import com.coremedia.iso.boxes.SoundMediaHeaderBox;
 import com.coremedia.iso.boxes.VideoMediaHeaderBox;
@@ -46,558 +37,448 @@ import org.w3c.dom.Element;
 /* loaded from: classes8.dex */
 public class FlatManifestWriterImpl extends AbstractManifestWriter {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
-    public static /* synthetic */ Interceptable $ic;
-    public static final Logger LOG;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final Logger LOG = Logger.getLogger(FlatManifestWriterImpl.class.getName());
 
     public Document customizeManifest(Document document) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, document)) == null) ? document : (Document) invokeL.objValue;
+        return document;
     }
 
     /* loaded from: classes8.dex */
     public class DependentSubstreamMask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public byte dWChannelMaskFirstByte;
         public byte dWChannelMaskSecondByte;
         public EC3SpecificBox.Entry entry;
-        public final /* synthetic */ FlatManifestWriterImpl this$0;
 
-        public DependentSubstreamMask(FlatManifestWriterImpl flatManifestWriterImpl, byte b, byte b2, EC3SpecificBox.Entry entry) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {flatManifestWriterImpl, Byte.valueOf(b), Byte.valueOf(b2), entry};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = flatManifestWriterImpl;
+        public DependentSubstreamMask(byte b, byte b2, EC3SpecificBox.Entry entry) {
             this.dWChannelMaskFirstByte = b;
             this.dWChannelMaskSecondByte = b2;
             this.entry = entry;
         }
 
         public byte getdWChannelMaskFirstByte() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.dWChannelMaskFirstByte;
-            }
-            return invokeV.byteValue;
+            return this.dWChannelMaskFirstByte;
         }
 
         public byte getdWChannelMaskSecondByte() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.dWChannelMaskSecondByte;
-            }
-            return invokeV.byteValue;
+            return this.dWChannelMaskSecondByte;
         }
 
         public DependentSubstreamMask process() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int i = this.entry.chan_loc;
-                if (i != 0) {
-                    if (i != 1) {
-                        if (i != 2) {
-                            if (i != 3) {
-                                if (i != 6) {
-                                    if (i == 7) {
-                                        this.dWChannelMaskSecondByte = (byte) (this.dWChannelMaskSecondByte | 2);
-                                    }
-                                } else {
-                                    this.dWChannelMaskSecondByte = (byte) (this.dWChannelMaskSecondByte | 5);
+            int i = this.entry.chan_loc;
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 6) {
+                                if (i == 7) {
+                                    this.dWChannelMaskSecondByte = (byte) (this.dWChannelMaskSecondByte | 2);
                                 }
                             } else {
-                                this.dWChannelMaskSecondByte = (byte) (this.dWChannelMaskSecondByte | 8);
+                                this.dWChannelMaskSecondByte = (byte) (this.dWChannelMaskSecondByte | 5);
                             }
                         } else {
-                            this.dWChannelMaskSecondByte = (byte) (this.dWChannelMaskSecondByte | 128);
+                            this.dWChannelMaskSecondByte = (byte) (this.dWChannelMaskSecondByte | 8);
                         }
                     } else {
-                        this.dWChannelMaskFirstByte = (byte) (this.dWChannelMaskFirstByte | 12);
+                        this.dWChannelMaskSecondByte = (byte) (this.dWChannelMaskSecondByte | 128);
                     }
                 } else {
-                    this.dWChannelMaskFirstByte = (byte) (this.dWChannelMaskFirstByte | 3);
+                    this.dWChannelMaskFirstByte = (byte) (this.dWChannelMaskFirstByte | 12);
                 }
-                return this;
+            } else {
+                this.dWChannelMaskFirstByte = (byte) (this.dWChannelMaskFirstByte | 3);
             }
-            return (DependentSubstreamMask) invokeV.objValue;
+            return this;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(598214551, "Lcom/googlecode/mp4parser/authoring/adaptivestreaming/FlatManifestWriterImpl;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(598214551, "Lcom/googlecode/mp4parser/authoring/adaptivestreaming/FlatManifestWriterImpl;");
-                return;
-            }
-        }
-        LOG = Logger.getLogger(FlatManifestWriterImpl.class.getName());
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlatManifestWriterImpl(FragmentIntersectionFinder fragmentIntersectionFinder) {
         super(fragmentIntersectionFinder);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fragmentIntersectionFinder};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((FragmentIntersectionFinder) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    private AudioQuality getAacAudioQuality(Track track, AudioSampleEntry audioSampleEntry) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, track, audioSampleEntry)) == null) {
-            AudioQuality audioQuality = new AudioQuality();
-            AudioSpecificConfig audioSpecificInfo = ((ESDescriptorBox) audioSampleEntry.getBoxes(ESDescriptorBox.class).get(0)).getEsDescriptor().getDecoderConfigDescriptor().getAudioSpecificInfo();
-            if (audioSpecificInfo.getSbrPresentFlag() == 1) {
-                audioQuality.fourCC = "AACH";
-            } else if (audioSpecificInfo.getPsPresentFlag() == 1) {
-                audioQuality.fourCC = "AACP";
-            } else {
-                audioQuality.fourCC = "AACL";
-            }
-            audioQuality.bitrate = getBitrate(track);
-            audioQuality.audioTag = 255;
-            audioQuality.samplingRate = audioSampleEntry.getSampleRate();
-            audioQuality.channels = audioSampleEntry.getChannelCount();
-            audioQuality.bitPerSample = audioSampleEntry.getSampleSize();
-            audioQuality.packetSize = 4;
-            audioQuality.codecPrivateData = getAudioCodecPrivateData(audioSpecificInfo);
-            return audioQuality;
-        }
-        return (AudioQuality) invokeLL.objValue;
-    }
-
-    private VideoQuality getVideoQuality(Track track, VisualSampleEntry visualSampleEntry) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, this, track, visualSampleEntry)) == null) {
-            if ("avc1".equals(getFormat(visualSampleEntry))) {
-                AvcConfigurationBox avcConfigurationBox = (AvcConfigurationBox) visualSampleEntry.getBoxes(AvcConfigurationBox.class).get(0);
-                VideoQuality videoQuality = new VideoQuality();
-                videoQuality.bitrate = getBitrate(track);
-                videoQuality.codecPrivateData = Hex.encodeHex(getAvcCodecPrivateData(avcConfigurationBox));
-                videoQuality.fourCC = "AVC1";
-                videoQuality.width = visualSampleEntry.getWidth();
-                videoQuality.height = visualSampleEntry.getHeight();
-                videoQuality.nalLength = avcConfigurationBox.getLengthSizeMinusOne() + 1;
-                return videoQuality;
-            }
-            throw new InternalError("I don't know how to handle video of type " + getFormat(visualSampleEntry));
-        }
-        return (VideoQuality) invokeLL.objValue;
     }
 
     private String getAudioCodecPrivateData(AudioSpecificConfig audioSpecificConfig) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, audioSpecificConfig)) == null) {
-            return Hex.encodeHex(audioSpecificConfig.getConfigBytes());
+        return Hex.encodeHex(audioSpecificConfig.getConfigBytes());
+    }
+
+    private AudioQuality getAacAudioQuality(Track track, AudioSampleEntry audioSampleEntry) {
+        AudioQuality audioQuality = new AudioQuality();
+        AudioSpecificConfig audioSpecificInfo = ((ESDescriptorBox) audioSampleEntry.getBoxes(ESDescriptorBox.class).get(0)).getEsDescriptor().getDecoderConfigDescriptor().getAudioSpecificInfo();
+        if (audioSpecificInfo.getSbrPresentFlag() == 1) {
+            audioQuality.fourCC = "AACH";
+        } else if (audioSpecificInfo.getPsPresentFlag() == 1) {
+            audioQuality.fourCC = "AACP";
+        } else {
+            audioQuality.fourCC = "AACL";
         }
-        return (String) invokeL.objValue;
+        audioQuality.bitrate = getBitrate(track);
+        audioQuality.audioTag = 255;
+        audioQuality.samplingRate = audioSampleEntry.getSampleRate();
+        audioQuality.channels = audioSampleEntry.getChannelCount();
+        audioQuality.bitPerSample = audioSampleEntry.getSampleSize();
+        audioQuality.packetSize = 4;
+        audioQuality.codecPrivateData = getAudioCodecPrivateData(audioSpecificInfo);
+        return audioQuality;
     }
 
     private AudioQuality getAudioQuality(Track track, AudioSampleEntry audioSampleEntry) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, track, audioSampleEntry)) == null) {
-            if (getFormat(audioSampleEntry).equals(AudioSampleEntry.TYPE3)) {
-                return getAacAudioQuality(track, audioSampleEntry);
-            }
-            if (getFormat(audioSampleEntry).equals(AudioSampleEntry.TYPE9)) {
-                return getEc3AudioQuality(track, audioSampleEntry);
-            }
-            if (getFormat(audioSampleEntry).startsWith("dts")) {
-                return getDtsAudioQuality(track, audioSampleEntry);
-            }
-            throw new InternalError("I don't know what to do with audio of type " + getFormat(audioSampleEntry));
+        if (getFormat(audioSampleEntry).equals(AudioSampleEntry.TYPE3)) {
+            return getAacAudioQuality(track, audioSampleEntry);
         }
-        return (AudioQuality) invokeLL.objValue;
+        if (getFormat(audioSampleEntry).equals(AudioSampleEntry.TYPE9)) {
+            return getEc3AudioQuality(track, audioSampleEntry);
+        }
+        if (getFormat(audioSampleEntry).startsWith("dts")) {
+            return getDtsAudioQuality(track, audioSampleEntry);
+        }
+        throw new InternalError("I don't know what to do with audio of type " + getFormat(audioSampleEntry));
+    }
+
+    private VideoQuality getVideoQuality(Track track, VisualSampleEntry visualSampleEntry) {
+        if ("avc1".equals(getFormat(visualSampleEntry))) {
+            AvcConfigurationBox avcConfigurationBox = (AvcConfigurationBox) visualSampleEntry.getBoxes(AvcConfigurationBox.class).get(0);
+            VideoQuality videoQuality = new VideoQuality();
+            videoQuality.bitrate = getBitrate(track);
+            videoQuality.codecPrivateData = Hex.encodeHex(getAvcCodecPrivateData(avcConfigurationBox));
+            videoQuality.fourCC = "AVC1";
+            videoQuality.width = visualSampleEntry.getWidth();
+            videoQuality.height = visualSampleEntry.getHeight();
+            videoQuality.nalLength = avcConfigurationBox.getLengthSizeMinusOne() + 1;
+            return videoQuality;
+        }
+        throw new InternalError("I don't know how to handle video of type " + getFormat(visualSampleEntry));
     }
 
     private byte[] getAvcCodecPrivateData(AvcConfigurationBox avcConfigurationBox) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, avcConfigurationBox)) == null) {
-            List<byte[]> sequenceParameterSets = avcConfigurationBox.getSequenceParameterSets();
-            List<byte[]> pictureParameterSets = avcConfigurationBox.getPictureParameterSets();
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            try {
-                byte[] bArr = new byte[4];
-                bArr[3] = 1;
-                byteArrayOutputStream.write(bArr);
-                for (byte[] bArr2 : sequenceParameterSets) {
-                    byteArrayOutputStream.write(bArr2);
-                }
-                byte[] bArr3 = new byte[4];
-                bArr3[3] = 1;
-                byteArrayOutputStream.write(bArr3);
-                for (byte[] bArr4 : pictureParameterSets) {
-                    byteArrayOutputStream.write(bArr4);
-                }
-                return byteArrayOutputStream.toByteArray();
-            } catch (IOException unused) {
-                throw new RuntimeException("ByteArrayOutputStream do not throw IOException ?!?!?");
+        List<byte[]> sequenceParameterSets = avcConfigurationBox.getSequenceParameterSets();
+        List<byte[]> pictureParameterSets = avcConfigurationBox.getPictureParameterSets();
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        try {
+            byte[] bArr = new byte[4];
+            bArr[3] = 1;
+            byteArrayOutputStream.write(bArr);
+            for (byte[] bArr2 : sequenceParameterSets) {
+                byteArrayOutputStream.write(bArr2);
             }
+            byte[] bArr3 = new byte[4];
+            bArr3[3] = 1;
+            byteArrayOutputStream.write(bArr3);
+            for (byte[] bArr4 : pictureParameterSets) {
+                byteArrayOutputStream.write(bArr4);
+            }
+            return byteArrayOutputStream.toByteArray();
+        } catch (IOException unused) {
+            throw new RuntimeException("ByteArrayOutputStream do not throw IOException ?!?!?");
         }
-        return (byte[]) invokeL.objValue;
     }
 
     private AudioQuality getDtsAudioQuality(Track track, AudioSampleEntry audioSampleEntry) {
-        InterceptResult invokeLL;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, track, audioSampleEntry)) == null) {
-            DTSSpecificBox dTSSpecificBox = (DTSSpecificBox) audioSampleEntry.getBoxes(DTSSpecificBox.class).get(0);
-            if (dTSSpecificBox != null) {
-                ByteBuffer allocate = ByteBuffer.allocate(22);
-                int frameDuration = dTSSpecificBox.getFrameDuration();
-                if (frameDuration != 0) {
-                    if (frameDuration != 1) {
-                        if (frameDuration != 2) {
-                            if (frameDuration != 3) {
-                                i = 0;
-                            } else {
-                                i = 4096;
-                            }
+        DTSSpecificBox dTSSpecificBox = (DTSSpecificBox) audioSampleEntry.getBoxes(DTSSpecificBox.class).get(0);
+        if (dTSSpecificBox != null) {
+            ByteBuffer allocate = ByteBuffer.allocate(22);
+            int frameDuration = dTSSpecificBox.getFrameDuration();
+            if (frameDuration != 0) {
+                if (frameDuration != 1) {
+                    if (frameDuration != 2) {
+                        if (frameDuration != 3) {
+                            i = 0;
                         } else {
-                            i = 2048;
+                            i = 4096;
                         }
                     } else {
-                        i = 1024;
+                        i = 2048;
                     }
                 } else {
-                    i = 512;
+                    i = 1024;
                 }
-                allocate.put((byte) (i & 255));
-                allocate.put((byte) (i >>> 8));
-                int i2 = getNumChannelsAndMask(dTSSpecificBox)[1];
-                allocate.put((byte) (i2 & 255));
-                allocate.put((byte) (i2 >>> 8));
-                allocate.put((byte) (i2 >>> 16));
-                allocate.put((byte) (i2 >>> 24));
-                allocate.put(new byte[]{-82, -28, -65, 94, 97, 94, 65, -121, -110, -4, -92, -127, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -103, 2, 17});
-                ByteBuffer allocate2 = ByteBuffer.allocate(8);
-                allocate2.put((byte) dTSSpecificBox.getStreamConstruction());
-                int channelLayout = dTSSpecificBox.getChannelLayout();
-                allocate2.put((byte) (channelLayout & 255));
-                allocate2.put((byte) (channelLayout >>> 8));
-                allocate2.put((byte) (channelLayout >>> 16));
-                allocate2.put((byte) (channelLayout >>> 24));
-                allocate2.put((byte) (((byte) (dTSSpecificBox.getMultiAssetFlag() << 1)) | dTSSpecificBox.getLBRDurationMod()));
-                allocate2.put(new byte[2]);
-                AudioQuality audioQuality = new AudioQuality();
-                audioQuality.fourCC = getFormat(audioSampleEntry);
-                audioQuality.bitrate = dTSSpecificBox.getAvgBitRate();
-                audioQuality.audioTag = 65534;
-                audioQuality.samplingRate = dTSSpecificBox.getDTSSamplingFrequency();
-                audioQuality.channels = getNumChannelsAndMask(dTSSpecificBox)[0];
-                audioQuality.bitPerSample = 16;
-                audioQuality.packetSize = (int) track.getSamples().get(0).getSize();
-                audioQuality.codecPrivateData = String.valueOf(Hex.encodeHex(allocate.array())) + Hex.encodeHex(allocate2.array());
-                return audioQuality;
+            } else {
+                i = 512;
             }
-            throw new RuntimeException("DTS track misses DTSSpecificBox!");
+            allocate.put((byte) (i & 255));
+            allocate.put((byte) (i >>> 8));
+            int i2 = getNumChannelsAndMask(dTSSpecificBox)[1];
+            allocate.put((byte) (i2 & 255));
+            allocate.put((byte) (i2 >>> 8));
+            allocate.put((byte) (i2 >>> 16));
+            allocate.put((byte) (i2 >>> 24));
+            allocate.put(new byte[]{-82, -28, -65, 94, 97, 94, 65, -121, -110, -4, -92, -127, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -103, 2, 17});
+            ByteBuffer allocate2 = ByteBuffer.allocate(8);
+            allocate2.put((byte) dTSSpecificBox.getStreamConstruction());
+            int channelLayout = dTSSpecificBox.getChannelLayout();
+            allocate2.put((byte) (channelLayout & 255));
+            allocate2.put((byte) (channelLayout >>> 8));
+            allocate2.put((byte) (channelLayout >>> 16));
+            allocate2.put((byte) (channelLayout >>> 24));
+            allocate2.put((byte) (((byte) (dTSSpecificBox.getMultiAssetFlag() << 1)) | dTSSpecificBox.getLBRDurationMod()));
+            allocate2.put(new byte[2]);
+            AudioQuality audioQuality = new AudioQuality();
+            audioQuality.fourCC = getFormat(audioSampleEntry);
+            audioQuality.bitrate = dTSSpecificBox.getAvgBitRate();
+            audioQuality.audioTag = 65534;
+            audioQuality.samplingRate = dTSSpecificBox.getDTSSamplingFrequency();
+            audioQuality.channels = getNumChannelsAndMask(dTSSpecificBox)[0];
+            audioQuality.bitPerSample = 16;
+            audioQuality.packetSize = (int) track.getSamples().get(0).getSize();
+            audioQuality.codecPrivateData = String.valueOf(Hex.encodeHex(allocate.array())) + Hex.encodeHex(allocate2.array());
+            return audioQuality;
         }
-        return (AudioQuality) invokeLL.objValue;
+        throw new RuntimeException("DTS track misses DTSSpecificBox!");
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:57:0x019f A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x001f A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x019b A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x001b A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private AudioQuality getEc3AudioQuality(Track track, AudioSampleEntry audioSampleEntry) {
-        InterceptResult invokeLL;
         int i;
         byte b;
         int i2;
         int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, track, audioSampleEntry)) == null) {
-            EC3SpecificBox eC3SpecificBox = (EC3SpecificBox) audioSampleEntry.getBoxes(EC3SpecificBox.class).get(0);
-            if (eC3SpecificBox != null) {
-                byte b2 = 0;
-                byte b3 = 0;
-                short s = 0;
-                short s2 = 0;
-                for (EC3SpecificBox.Entry entry : eC3SpecificBox.getEntries()) {
-                    switch (entry.acmod) {
-                        case 0:
-                            throw new RuntimeException("Smooth Streaming doesn't support DDP 1+1 mode");
-                        case 1:
-                            s = (short) (s + 1);
-                            if (entry.num_dep_sub > 0) {
-                                DependentSubstreamMask process = new DependentSubstreamMask(this, b2, b3, entry).process();
-                                b2 = (byte) (b2 | process.getdWChannelMaskFirstByte());
-                                b = process.getdWChannelMaskSecondByte();
-                                i3 = b3 | b;
-                                b3 = (byte) i3;
-                                if (entry.lfeon == 1) {
-                                    s2 = (short) (s2 + 1);
-                                    b2 = (byte) (b2 | 16);
-                                }
-                            } else {
-                                i = b2 | 32;
-                                b2 = (byte) i;
-                                if (entry.lfeon == 1) {
-                                }
+        EC3SpecificBox eC3SpecificBox = (EC3SpecificBox) audioSampleEntry.getBoxes(EC3SpecificBox.class).get(0);
+        if (eC3SpecificBox != null) {
+            byte b2 = 0;
+            byte b3 = 0;
+            short s = 0;
+            short s2 = 0;
+            for (EC3SpecificBox.Entry entry : eC3SpecificBox.getEntries()) {
+                switch (entry.acmod) {
+                    case 0:
+                        throw new RuntimeException("Smooth Streaming doesn't support DDP 1+1 mode");
+                    case 1:
+                        s = (short) (s + 1);
+                        if (entry.num_dep_sub > 0) {
+                            DependentSubstreamMask process = new DependentSubstreamMask(b2, b3, entry).process();
+                            b2 = (byte) (b2 | process.getdWChannelMaskFirstByte());
+                            b = process.getdWChannelMaskSecondByte();
+                            i3 = b3 | b;
+                            b3 = (byte) i3;
+                            if (entry.lfeon == 1) {
+                                s2 = (short) (s2 + 1);
+                                b2 = (byte) (b2 | 16);
                             }
-                        case 2:
-                            s = (short) (s + 2);
-                            if (entry.num_dep_sub > 0) {
-                                DependentSubstreamMask process2 = new DependentSubstreamMask(this, b2, b3, entry).process();
-                                b2 = (byte) (b2 | process2.getdWChannelMaskFirstByte());
-                                b = process2.getdWChannelMaskSecondByte();
-                                i3 = b3 | b;
-                                b3 = (byte) i3;
-                                if (entry.lfeon == 1) {
-                                }
-                            } else {
-                                i = b2 | ExifInterface.MARKER_SOF0;
-                                b2 = (byte) i;
-                                if (entry.lfeon == 1) {
-                                }
-                            }
-                            break;
-                        case 3:
-                            s = (short) (s + 3);
-                            if (entry.num_dep_sub > 0) {
-                                DependentSubstreamMask process3 = new DependentSubstreamMask(this, b2, b3, entry).process();
-                                b2 = (byte) (b2 | process3.getdWChannelMaskFirstByte());
-                                b = process3.getdWChannelMaskSecondByte();
-                                i3 = b3 | b;
-                                b3 = (byte) i3;
-                                if (entry.lfeon == 1) {
-                                }
-                            } else {
-                                i = b2 | 224;
-                                b2 = (byte) i;
-                                if (entry.lfeon == 1) {
-                                }
-                            }
-                            break;
-                        case 4:
-                            s = (short) (s + 3);
-                            if (entry.num_dep_sub > 0) {
-                                DependentSubstreamMask process4 = new DependentSubstreamMask(this, b2, b3, entry).process();
-                                b2 = (byte) (b2 | process4.getdWChannelMaskFirstByte());
-                                b = process4.getdWChannelMaskSecondByte();
-                                i3 = b3 | b;
-                                b3 = (byte) i3;
-                                if (entry.lfeon == 1) {
-                                }
-                            } else {
-                                i2 = b2 | ExifInterface.MARKER_SOF0;
-                                b2 = (byte) i2;
-                                i3 = b3 | 128;
-                                b3 = (byte) i3;
-                                if (entry.lfeon == 1) {
-                                }
-                            }
-                            break;
-                        case 5:
-                            s = (short) (s + 4);
-                            if (entry.num_dep_sub > 0) {
-                                DependentSubstreamMask process5 = new DependentSubstreamMask(this, b2, b3, entry).process();
-                                b2 = (byte) (b2 | process5.getdWChannelMaskFirstByte());
-                                b = process5.getdWChannelMaskSecondByte();
-                                i3 = b3 | b;
-                                b3 = (byte) i3;
-                                if (entry.lfeon == 1) {
-                                }
-                            } else {
-                                i2 = b2 | 224;
-                                b2 = (byte) i2;
-                                i3 = b3 | 128;
-                                b3 = (byte) i3;
-                                if (entry.lfeon == 1) {
-                                }
-                            }
-                            break;
-                        case 6:
-                            s = (short) (s + 4);
-                            if (entry.num_dep_sub > 0) {
-                                DependentSubstreamMask process6 = new DependentSubstreamMask(this, b2, b3, entry).process();
-                                b2 = (byte) (b2 | process6.getdWChannelMaskFirstByte());
-                                b = process6.getdWChannelMaskSecondByte();
-                                i3 = b3 | b;
-                                b3 = (byte) i3;
-                                if (entry.lfeon == 1) {
-                                }
-                            } else {
-                                i = b2 | 204;
-                                b2 = (byte) i;
-                                if (entry.lfeon == 1) {
-                                }
-                            }
-                            break;
-                        case 7:
-                            s = (short) (s + 5);
-                            if (entry.num_dep_sub > 0) {
-                                DependentSubstreamMask process7 = new DependentSubstreamMask(this, b2, b3, entry).process();
-                                b2 = (byte) (b2 | process7.getdWChannelMaskFirstByte());
-                                b = process7.getdWChannelMaskSecondByte();
-                                i3 = b3 | b;
-                                b3 = (byte) i3;
-                                if (entry.lfeon == 1) {
-                                }
-                            } else {
-                                i = b2 | 236;
-                                b2 = (byte) i;
-                                if (entry.lfeon == 1) {
-                                }
-                            }
-                            break;
-                        default:
+                        } else {
+                            i = b2 | 32;
+                            b2 = (byte) i;
                             if (entry.lfeon == 1) {
                             }
-                            break;
-                    }
+                        }
+                    case 2:
+                        s = (short) (s + 2);
+                        if (entry.num_dep_sub > 0) {
+                            DependentSubstreamMask process2 = new DependentSubstreamMask(b2, b3, entry).process();
+                            b2 = (byte) (b2 | process2.getdWChannelMaskFirstByte());
+                            b = process2.getdWChannelMaskSecondByte();
+                            i3 = b3 | b;
+                            b3 = (byte) i3;
+                            if (entry.lfeon == 1) {
+                            }
+                        } else {
+                            i = b2 | ExifInterface.MARKER_SOF0;
+                            b2 = (byte) i;
+                            if (entry.lfeon == 1) {
+                            }
+                        }
+                        break;
+                    case 3:
+                        s = (short) (s + 3);
+                        if (entry.num_dep_sub > 0) {
+                            DependentSubstreamMask process3 = new DependentSubstreamMask(b2, b3, entry).process();
+                            b2 = (byte) (b2 | process3.getdWChannelMaskFirstByte());
+                            b = process3.getdWChannelMaskSecondByte();
+                            i3 = b3 | b;
+                            b3 = (byte) i3;
+                            if (entry.lfeon == 1) {
+                            }
+                        } else {
+                            i = b2 | 224;
+                            b2 = (byte) i;
+                            if (entry.lfeon == 1) {
+                            }
+                        }
+                        break;
+                    case 4:
+                        s = (short) (s + 3);
+                        if (entry.num_dep_sub > 0) {
+                            DependentSubstreamMask process4 = new DependentSubstreamMask(b2, b3, entry).process();
+                            b2 = (byte) (b2 | process4.getdWChannelMaskFirstByte());
+                            b = process4.getdWChannelMaskSecondByte();
+                            i3 = b3 | b;
+                            b3 = (byte) i3;
+                            if (entry.lfeon == 1) {
+                            }
+                        } else {
+                            i2 = b2 | ExifInterface.MARKER_SOF0;
+                            b2 = (byte) i2;
+                            i3 = b3 | 128;
+                            b3 = (byte) i3;
+                            if (entry.lfeon == 1) {
+                            }
+                        }
+                        break;
+                    case 5:
+                        s = (short) (s + 4);
+                        if (entry.num_dep_sub > 0) {
+                            DependentSubstreamMask process5 = new DependentSubstreamMask(b2, b3, entry).process();
+                            b2 = (byte) (b2 | process5.getdWChannelMaskFirstByte());
+                            b = process5.getdWChannelMaskSecondByte();
+                            i3 = b3 | b;
+                            b3 = (byte) i3;
+                            if (entry.lfeon == 1) {
+                            }
+                        } else {
+                            i2 = b2 | 224;
+                            b2 = (byte) i2;
+                            i3 = b3 | 128;
+                            b3 = (byte) i3;
+                            if (entry.lfeon == 1) {
+                            }
+                        }
+                        break;
+                    case 6:
+                        s = (short) (s + 4);
+                        if (entry.num_dep_sub > 0) {
+                            DependentSubstreamMask process6 = new DependentSubstreamMask(b2, b3, entry).process();
+                            b2 = (byte) (b2 | process6.getdWChannelMaskFirstByte());
+                            b = process6.getdWChannelMaskSecondByte();
+                            i3 = b3 | b;
+                            b3 = (byte) i3;
+                            if (entry.lfeon == 1) {
+                            }
+                        } else {
+                            i = b2 | 204;
+                            b2 = (byte) i;
+                            if (entry.lfeon == 1) {
+                            }
+                        }
+                        break;
+                    case 7:
+                        s = (short) (s + 5);
+                        if (entry.num_dep_sub > 0) {
+                            DependentSubstreamMask process7 = new DependentSubstreamMask(b2, b3, entry).process();
+                            b2 = (byte) (b2 | process7.getdWChannelMaskFirstByte());
+                            b = process7.getdWChannelMaskSecondByte();
+                            i3 = b3 | b;
+                            b3 = (byte) i3;
+                            if (entry.lfeon == 1) {
+                            }
+                        } else {
+                            i = b2 | 236;
+                            b2 = (byte) i;
+                            if (entry.lfeon == 1) {
+                            }
+                        }
+                        break;
+                    default:
+                        if (entry.lfeon == 1) {
+                        }
+                        break;
                 }
-                ByteBuffer allocate = ByteBuffer.allocate(22);
-                allocate.put(new byte[]{0, 6});
-                allocate.put(b2);
-                allocate.put(b3);
-                allocate.put(new byte[2]);
-                allocate.put(new byte[]{-81, -121, -5, -89, 2, 45, -5, 66, -92, -44, 5, ExifInterface.MARKER_SOF13, -109, -124, 59, -35});
-                ByteBuffer allocate2 = ByteBuffer.allocate((int) eC3SpecificBox.getContentSize());
-                eC3SpecificBox.getContent(allocate2);
-                AudioQuality audioQuality = new AudioQuality();
-                audioQuality.fourCC = "EC-3";
-                audioQuality.bitrate = getBitrate(track);
-                audioQuality.audioTag = 65534;
-                audioQuality.samplingRate = audioSampleEntry.getSampleRate();
-                audioQuality.channels = s + s2;
-                audioQuality.bitPerSample = 16;
-                audioQuality.packetSize = (int) track.getSamples().get(0).getSize();
-                audioQuality.codecPrivateData = String.valueOf(Hex.encodeHex(allocate.array())) + Hex.encodeHex(allocate2.array());
-                return audioQuality;
             }
-            throw new RuntimeException("EC-3 track misses EC3SpecificBox!");
+            ByteBuffer allocate = ByteBuffer.allocate(22);
+            allocate.put(new byte[]{0, 6});
+            allocate.put(b2);
+            allocate.put(b3);
+            allocate.put(new byte[2]);
+            allocate.put(new byte[]{-81, -121, -5, -89, 2, 45, -5, 66, -92, -44, 5, ExifInterface.MARKER_SOF13, -109, -124, 59, -35});
+            ByteBuffer allocate2 = ByteBuffer.allocate((int) eC3SpecificBox.getContentSize());
+            eC3SpecificBox.getContent(allocate2);
+            AudioQuality audioQuality = new AudioQuality();
+            audioQuality.fourCC = "EC-3";
+            audioQuality.bitrate = getBitrate(track);
+            audioQuality.audioTag = 65534;
+            audioQuality.samplingRate = audioSampleEntry.getSampleRate();
+            audioQuality.channels = s + s2;
+            audioQuality.bitPerSample = 16;
+            audioQuality.packetSize = (int) track.getSamples().get(0).getSize();
+            audioQuality.codecPrivateData = String.valueOf(Hex.encodeHex(allocate.array())) + Hex.encodeHex(allocate2.array());
+            return audioQuality;
         }
-        return (AudioQuality) invokeLL.objValue;
+        throw new RuntimeException("EC-3 track misses EC3SpecificBox!");
     }
 
     private int[] getNumChannelsAndMask(DTSSpecificBox dTSSpecificBox) {
-        InterceptResult invokeL;
         int i;
         int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, dTSSpecificBox)) == null) {
-            int channelLayout = dTSSpecificBox.getChannelLayout();
-            if ((channelLayout & 1) == 1) {
-                i = 1;
-                i2 = 4;
-            } else {
-                i = 0;
-                i2 = 0;
-            }
-            if ((channelLayout & 2) == 2) {
-                i += 2;
-                i2 = i2 | 1 | 2;
-            }
-            if ((channelLayout & 4) == 4) {
-                i += 2;
-                i2 = i2 | 16 | 32;
-            }
-            if ((channelLayout & 8) == 8) {
-                i++;
-                i2 |= 8;
-            }
-            if ((channelLayout & 16) == 16) {
-                i++;
-                i2 |= 256;
-            }
-            if ((channelLayout & 32) == 32) {
-                i += 2;
-                i2 = i2 | 4096 | 16384;
-            }
-            if ((channelLayout & 64) == 64) {
-                i += 2;
-                i2 = i2 | 16 | 32;
-            }
-            if ((channelLayout & 128) == 128) {
-                i++;
-                i2 |= 8192;
-            }
-            if ((channelLayout & 256) == 256) {
-                i++;
-                i2 |= 2048;
-            }
-            if ((channelLayout & 512) == 512) {
-                i += 2;
-                i2 = i2 | 64 | 128;
-            }
-            if ((channelLayout & 1024) == 1024) {
-                i += 2;
-                i2 = i2 | 512 | 1024;
-            }
-            if ((channelLayout & 2048) == 2048) {
-                i += 2;
-                i2 = i2 | 16 | 32;
-            }
-            if ((channelLayout & 4096) == 4096) {
-                i++;
-                i2 |= 8;
-            }
-            if ((channelLayout & 8192) == 8192) {
-                i += 2;
-                i2 = i2 | 16 | 32;
-            }
-            if ((channelLayout & 16384) == 16384) {
-                i++;
-                i2 |= 65536;
-            }
-            if ((channelLayout & 32768) == 32768) {
-                i += 2;
-                i2 = 32768 | i2 | 131072;
-            }
-            if ((channelLayout & 65536) == 65536) {
-                i++;
-            }
-            if ((channelLayout & 131072) == 131072) {
-                i += 2;
-            }
-            return new int[]{i, i2};
+        int channelLayout = dTSSpecificBox.getChannelLayout();
+        if ((channelLayout & 1) == 1) {
+            i = 1;
+            i2 = 4;
+        } else {
+            i = 0;
+            i2 = 0;
         }
-        return (int[]) invokeL.objValue;
+        if ((channelLayout & 2) == 2) {
+            i += 2;
+            i2 = i2 | 1 | 2;
+        }
+        if ((channelLayout & 4) == 4) {
+            i += 2;
+            i2 = i2 | 16 | 32;
+        }
+        if ((channelLayout & 8) == 8) {
+            i++;
+            i2 |= 8;
+        }
+        if ((channelLayout & 16) == 16) {
+            i++;
+            i2 |= 256;
+        }
+        if ((channelLayout & 32) == 32) {
+            i += 2;
+            i2 = i2 | 4096 | 16384;
+        }
+        if ((channelLayout & 64) == 64) {
+            i += 2;
+            i2 = i2 | 16 | 32;
+        }
+        if ((channelLayout & 128) == 128) {
+            i++;
+            i2 |= 8192;
+        }
+        if ((channelLayout & 256) == 256) {
+            i++;
+            i2 |= 2048;
+        }
+        if ((channelLayout & 512) == 512) {
+            i += 2;
+            i2 = i2 | 64 | 128;
+        }
+        if ((channelLayout & 1024) == 1024) {
+            i += 2;
+            i2 = i2 | 512 | 1024;
+        }
+        if ((channelLayout & 2048) == 2048) {
+            i += 2;
+            i2 = i2 | 16 | 32;
+        }
+        if ((channelLayout & 4096) == 4096) {
+            i++;
+            i2 |= 8;
+        }
+        if ((channelLayout & 8192) == 8192) {
+            i += 2;
+            i2 = i2 | 16 | 32;
+        }
+        if ((channelLayout & 16384) == 16384) {
+            i++;
+            i2 |= 65536;
+        }
+        if ((channelLayout & 32768) == 32768) {
+            i += 2;
+            i2 = 32768 | i2 | 131072;
+        }
+        if ((channelLayout & 65536) == 65536) {
+            i++;
+        }
+        if ((channelLayout & 131072) == 131072) {
+            i += 2;
+        }
+        return new int[]{i, i2};
     }
 
     @Override // com.googlecode.mp4parser.authoring.adaptivestreaming.ManifestWriter
     public String getManifest(Movie movie) throws IOException {
-        InterceptResult invokeL;
         Element element;
         String str;
         String str2;
@@ -606,157 +487,154 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
         String str5;
         String str6;
         String str7;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, movie)) == null) {
-            LinkedList linkedList = new LinkedList();
-            LinkedList linkedList2 = new LinkedList();
-            long j = -1;
-            long j2 = -1;
-            for (Track track : movie.getTracks()) {
-                if (track.getMediaHeaderBox() instanceof VideoMediaHeaderBox) {
-                    this.videoFragmentsDurations = checkFragmentsAlign(this.videoFragmentsDurations, calculateFragmentDurations(track, movie));
-                    linkedList.add(getVideoQuality(track, (VisualSampleEntry) track.getSampleDescriptionBox().getSampleEntry()));
-                    if (j == -1) {
-                        j = track.getTrackMetaData().getTimescale();
-                    }
-                }
-                if (track.getMediaHeaderBox() instanceof SoundMediaHeaderBox) {
-                    this.audioFragmentsDurations = checkFragmentsAlign(this.audioFragmentsDurations, calculateFragmentDurations(track, movie));
-                    linkedList2.add(getAudioQuality(track, (AudioSampleEntry) track.getSampleDescriptionBox().getSampleEntry()));
-                    if (j2 == -1) {
-                        j2 = track.getTrackMetaData().getTimescale();
-                    }
+        LinkedList linkedList = new LinkedList();
+        LinkedList linkedList2 = new LinkedList();
+        long j = -1;
+        long j2 = -1;
+        for (Track track : movie.getTracks()) {
+            if (track.getMediaHeaderBox() instanceof VideoMediaHeaderBox) {
+                this.videoFragmentsDurations = checkFragmentsAlign(this.videoFragmentsDurations, calculateFragmentDurations(track, movie));
+                linkedList.add(getVideoQuality(track, (VisualSampleEntry) track.getSampleDescriptionBox().getSampleEntry()));
+                if (j == -1) {
+                    j = track.getTrackMetaData().getTimescale();
                 }
             }
-            try {
-                Document newDocument = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
-                Element createElement = newDocument.createElement(SsManifestParser.SmoothStreamingMediaParser.TAG);
-                newDocument.appendChild(createElement);
-                createElement.setAttribute(SsManifestParser.SmoothStreamingMediaParser.KEY_MAJOR_VERSION, "2");
-                createElement.setAttribute(SsManifestParser.SmoothStreamingMediaParser.KEY_MINOR_VERSION, "1");
-                createElement.setAttribute(SsManifestParser.SmoothStreamingMediaParser.KEY_DURATION, "0");
-                createElement.appendChild(newDocument.createComment(Version.VERSION));
-                String str8 = SsManifestParser.StreamIndexParser.TAG;
-                Element createElement2 = newDocument.createElement(SsManifestParser.StreamIndexParser.TAG);
-                String str9 = "Type";
-                createElement2.setAttribute("Type", "video");
-                String str10 = "TimeScale";
-                createElement2.setAttribute("TimeScale", Long.toString(j));
-                String str11 = "Chunks";
-                createElement2.setAttribute("Chunks", Integer.toString(this.videoFragmentsDurations.length));
-                String str12 = SsManifestParser.StreamIndexParser.KEY_URL;
-                createElement2.setAttribute(SsManifestParser.StreamIndexParser.KEY_URL, "video/{bitrate}/{start time}");
-                String str13 = "QualityLevels";
-                createElement2.setAttribute("QualityLevels", Integer.toString(linkedList.size()));
-                createElement.appendChild(createElement2);
-                int i = 0;
-                while (true) {
-                    int size = linkedList.size();
-                    LinkedList linkedList3 = linkedList;
-                    element = createElement2;
-                    str = SsManifestParser.QualityLevelParser.KEY_CODEC_PRIVATE_DATA;
-                    str2 = SsManifestParser.QualityLevelParser.KEY_BITRATE;
-                    str3 = SsManifestParser.QualityLevelParser.KEY_INDEX;
-                    str4 = SsManifestParser.QualityLevelParser.KEY_FOUR_CC;
-                    str5 = SsManifestParser.QualityLevelParser.TAG;
-                    if (i >= size) {
-                        break;
-                    }
-                    String str14 = str9;
-                    String str15 = str11;
-                    createElement2 = element;
-                    linkedList = linkedList3;
-                    VideoQuality videoQuality = (VideoQuality) linkedList.get(i);
-                    Element createElement3 = newDocument.createElement(SsManifestParser.QualityLevelParser.TAG);
-                    createElement3.setAttribute(SsManifestParser.QualityLevelParser.KEY_INDEX, Integer.toString(i));
-                    createElement3.setAttribute(str2, Long.toString(videoQuality.bitrate));
-                    createElement3.setAttribute(str4, videoQuality.fourCC);
-                    createElement3.setAttribute("MaxWidth", Long.toString(videoQuality.width));
-                    createElement3.setAttribute("MaxHeight", Long.toString(videoQuality.height));
-                    createElement3.setAttribute(str, videoQuality.codecPrivateData);
-                    createElement3.setAttribute("NALUnitLengthField", Integer.toString(videoQuality.nalLength));
-                    createElement2.appendChild(createElement3);
-                    i++;
-                    str13 = str13;
-                    createElement = createElement;
-                    str8 = str8;
-                    str12 = str12;
-                    str10 = str10;
-                    str9 = str14;
-                    str11 = str15;
+            if (track.getMediaHeaderBox() instanceof SoundMediaHeaderBox) {
+                this.audioFragmentsDurations = checkFragmentsAlign(this.audioFragmentsDurations, calculateFragmentDurations(track, movie));
+                linkedList2.add(getAudioQuality(track, (AudioSampleEntry) track.getSampleDescriptionBox().getSampleEntry()));
+                if (j2 == -1) {
+                    j2 = track.getTrackMetaData().getTimescale();
                 }
-                int i2 = 0;
-                while (true) {
-                    str6 = str3;
-                    str7 = str5;
-                    if (i2 >= this.videoFragmentsDurations.length) {
-                        break;
-                    }
-                    Element element2 = createElement;
-                    Element createElement4 = newDocument.createElement("c");
-                    createElement4.setAttribute("n", Integer.toString(i2));
-                    createElement4.setAttribute("d", Long.toString(this.videoFragmentsDurations[i2]));
-                    element.appendChild(createElement4);
-                    i2++;
-                    str3 = str6;
-                    str5 = str7;
-                    str10 = str10;
-                    str9 = str9;
-                    str11 = str11;
-                    str4 = str4;
-                    str8 = str8;
-                    str = str;
-                    createElement = element2;
-                    str2 = str2;
-                    str12 = str12;
-                }
-                if (this.audioFragmentsDurations != null) {
-                    Element createElement5 = newDocument.createElement(str8);
-                    createElement5.setAttribute(str9, "audio");
-                    createElement5.setAttribute(str10, Long.toString(j2));
-                    createElement5.setAttribute(str11, Integer.toString(this.audioFragmentsDurations.length));
-                    createElement5.setAttribute(str12, "audio/{bitrate}/{start time}");
-                    createElement5.setAttribute(str13, Integer.toString(linkedList2.size()));
-                    createElement.appendChild(createElement5);
-                    for (int i3 = 0; i3 < linkedList2.size(); i3++) {
-                        AudioQuality audioQuality = (AudioQuality) linkedList2.get(i3);
-                        Element createElement6 = newDocument.createElement(str7);
-                        createElement6.setAttribute(str6, Integer.toString(i3));
-                        createElement6.setAttribute(str4, audioQuality.fourCC);
-                        createElement6.setAttribute(str2, Long.toString(audioQuality.bitrate));
-                        createElement6.setAttribute("AudioTag", Integer.toString(audioQuality.audioTag));
-                        createElement6.setAttribute(SsManifestParser.QualityLevelParser.KEY_SAMPLING_RATE, Long.toString(audioQuality.samplingRate));
-                        createElement6.setAttribute(SsManifestParser.QualityLevelParser.KEY_CHANNELS, Integer.toString(audioQuality.channels));
-                        createElement6.setAttribute(ExifInterface.TAG_BITS_PER_SAMPLE, Integer.toString(audioQuality.bitPerSample));
-                        createElement6.setAttribute("PacketSize", Integer.toString(audioQuality.packetSize));
-                        createElement6.setAttribute(str, audioQuality.codecPrivateData);
-                        createElement5.appendChild(createElement6);
-                    }
-                    for (int i4 = 0; i4 < this.audioFragmentsDurations.length; i4++) {
-                        Element createElement7 = newDocument.createElement("c");
-                        createElement7.setAttribute("n", Integer.toString(i4));
-                        createElement7.setAttribute("d", Long.toString(this.audioFragmentsDurations[i4]));
-                        createElement5.appendChild(createElement7);
-                    }
-                }
-                newDocument.setXmlStandalone(true);
-                DOMSource dOMSource = new DOMSource(customizeManifest(newDocument));
-                StringWriter stringWriter = new StringWriter();
-                StreamResult streamResult = new StreamResult(stringWriter);
-                try {
-                    Transformer newTransformer = TransformerFactory.newInstance().newTransformer();
-                    newTransformer.setOutputProperty("indent", "yes");
-                    newTransformer.transform(dOMSource, streamResult);
-                    return stringWriter.getBuffer().toString();
-                } catch (TransformerConfigurationException e) {
-                    throw new IOException(e);
-                } catch (TransformerException e2) {
-                    throw new IOException(e2);
-                }
-            } catch (ParserConfigurationException e3) {
-                throw new IOException(e3);
             }
         }
-        return (String) invokeL.objValue;
+        try {
+            Document newDocument = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
+            Element createElement = newDocument.createElement(SsManifestParser.SmoothStreamingMediaParser.TAG);
+            newDocument.appendChild(createElement);
+            createElement.setAttribute(SsManifestParser.SmoothStreamingMediaParser.KEY_MAJOR_VERSION, "2");
+            createElement.setAttribute(SsManifestParser.SmoothStreamingMediaParser.KEY_MINOR_VERSION, "1");
+            createElement.setAttribute(SsManifestParser.SmoothStreamingMediaParser.KEY_DURATION, "0");
+            createElement.appendChild(newDocument.createComment(Version.VERSION));
+            String str8 = SsManifestParser.StreamIndexParser.TAG;
+            Element createElement2 = newDocument.createElement(SsManifestParser.StreamIndexParser.TAG);
+            String str9 = "Type";
+            createElement2.setAttribute("Type", "video");
+            String str10 = "TimeScale";
+            createElement2.setAttribute("TimeScale", Long.toString(j));
+            String str11 = "Chunks";
+            createElement2.setAttribute("Chunks", Integer.toString(this.videoFragmentsDurations.length));
+            String str12 = SsManifestParser.StreamIndexParser.KEY_URL;
+            createElement2.setAttribute(SsManifestParser.StreamIndexParser.KEY_URL, "video/{bitrate}/{start time}");
+            String str13 = "QualityLevels";
+            createElement2.setAttribute("QualityLevels", Integer.toString(linkedList.size()));
+            createElement.appendChild(createElement2);
+            int i = 0;
+            while (true) {
+                int size = linkedList.size();
+                LinkedList linkedList3 = linkedList;
+                element = createElement2;
+                str = SsManifestParser.QualityLevelParser.KEY_CODEC_PRIVATE_DATA;
+                str2 = SsManifestParser.QualityLevelParser.KEY_BITRATE;
+                str3 = SsManifestParser.QualityLevelParser.KEY_INDEX;
+                str4 = SsManifestParser.QualityLevelParser.KEY_FOUR_CC;
+                str5 = SsManifestParser.QualityLevelParser.TAG;
+                if (i >= size) {
+                    break;
+                }
+                String str14 = str9;
+                String str15 = str11;
+                createElement2 = element;
+                linkedList = linkedList3;
+                VideoQuality videoQuality = (VideoQuality) linkedList.get(i);
+                Element createElement3 = newDocument.createElement(SsManifestParser.QualityLevelParser.TAG);
+                createElement3.setAttribute(SsManifestParser.QualityLevelParser.KEY_INDEX, Integer.toString(i));
+                createElement3.setAttribute(str2, Long.toString(videoQuality.bitrate));
+                createElement3.setAttribute(str4, videoQuality.fourCC);
+                createElement3.setAttribute("MaxWidth", Long.toString(videoQuality.width));
+                createElement3.setAttribute("MaxHeight", Long.toString(videoQuality.height));
+                createElement3.setAttribute(str, videoQuality.codecPrivateData);
+                createElement3.setAttribute("NALUnitLengthField", Integer.toString(videoQuality.nalLength));
+                createElement2.appendChild(createElement3);
+                i++;
+                str13 = str13;
+                createElement = createElement;
+                str8 = str8;
+                str12 = str12;
+                str10 = str10;
+                str9 = str14;
+                str11 = str15;
+            }
+            int i2 = 0;
+            while (true) {
+                str6 = str3;
+                str7 = str5;
+                if (i2 >= this.videoFragmentsDurations.length) {
+                    break;
+                }
+                Element element2 = createElement;
+                String str16 = str;
+                Element createElement4 = newDocument.createElement("c");
+                createElement4.setAttribute("n", Integer.toString(i2));
+                createElement4.setAttribute("d", Long.toString(this.videoFragmentsDurations[i2]));
+                element.appendChild(createElement4);
+                i2++;
+                str3 = str6;
+                str5 = str7;
+                str10 = str10;
+                str9 = str9;
+                str11 = str11;
+                str4 = str4;
+                str8 = str8;
+                str = str16;
+                createElement = element2;
+                str2 = str2;
+                str12 = str12;
+            }
+            if (this.audioFragmentsDurations != null) {
+                Element createElement5 = newDocument.createElement(str8);
+                createElement5.setAttribute(str9, "audio");
+                createElement5.setAttribute(str10, Long.toString(j2));
+                createElement5.setAttribute(str11, Integer.toString(this.audioFragmentsDurations.length));
+                createElement5.setAttribute(str12, "audio/{bitrate}/{start time}");
+                createElement5.setAttribute(str13, Integer.toString(linkedList2.size()));
+                createElement.appendChild(createElement5);
+                for (int i3 = 0; i3 < linkedList2.size(); i3++) {
+                    AudioQuality audioQuality = (AudioQuality) linkedList2.get(i3);
+                    Element createElement6 = newDocument.createElement(str7);
+                    createElement6.setAttribute(str6, Integer.toString(i3));
+                    createElement6.setAttribute(str4, audioQuality.fourCC);
+                    createElement6.setAttribute(str2, Long.toString(audioQuality.bitrate));
+                    createElement6.setAttribute("AudioTag", Integer.toString(audioQuality.audioTag));
+                    createElement6.setAttribute(SsManifestParser.QualityLevelParser.KEY_SAMPLING_RATE, Long.toString(audioQuality.samplingRate));
+                    createElement6.setAttribute(SsManifestParser.QualityLevelParser.KEY_CHANNELS, Integer.toString(audioQuality.channels));
+                    createElement6.setAttribute(ExifInterface.TAG_BITS_PER_SAMPLE, Integer.toString(audioQuality.bitPerSample));
+                    createElement6.setAttribute("PacketSize", Integer.toString(audioQuality.packetSize));
+                    createElement6.setAttribute(str, audioQuality.codecPrivateData);
+                    createElement5.appendChild(createElement6);
+                }
+                for (int i4 = 0; i4 < this.audioFragmentsDurations.length; i4++) {
+                    Element createElement7 = newDocument.createElement("c");
+                    createElement7.setAttribute("n", Integer.toString(i4));
+                    createElement7.setAttribute("d", Long.toString(this.audioFragmentsDurations[i4]));
+                    createElement5.appendChild(createElement7);
+                }
+            }
+            newDocument.setXmlStandalone(true);
+            DOMSource dOMSource = new DOMSource(customizeManifest(newDocument));
+            StringWriter stringWriter = new StringWriter();
+            StreamResult streamResult = new StreamResult(stringWriter);
+            try {
+                Transformer newTransformer = TransformerFactory.newInstance().newTransformer();
+                newTransformer.setOutputProperty("indent", "yes");
+                newTransformer.transform(dOMSource, streamResult);
+                return stringWriter.getBuffer().toString();
+            } catch (TransformerConfigurationException e) {
+                throw new IOException(e);
+            } catch (TransformerException e2) {
+                throw new IOException(e2);
+            }
+        } catch (ParserConfigurationException e3) {
+            throw new IOException(e3);
+        }
     }
 }

@@ -1,105 +1,81 @@
 package com.meizu.cloud.pushsdk.handler.a.b;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-import android.text.TextUtils;
+import android.os.Environment;
+import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushinternal.DebugLogger;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 /* loaded from: classes8.dex */
-public class b implements Parcelable {
-    public static final Parcelable.Creator<b> CREATOR = new Parcelable.Creator<b>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.b.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: a */
-        public b createFromParcel(Parcel parcel) {
-            return new b(parcel);
-        }
+public class b {
+    public final File a;
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: a */
-        public b[] newArray(int i) {
-            return new b[i];
-        }
-    };
-    public String a;
-    public a b;
-    public f c;
-
-    public b() {
+    public b(String str) {
+        this.a = new File(str);
     }
 
-    public b(Parcel parcel) {
-        this.a = parcel.readString();
-        this.b = (a) parcel.readParcelable(a.class.getClassLoader());
-        this.c = (f) parcel.readParcelable(f.class.getClassLoader());
-    }
-
-    public b(String str, String str2, String str3) {
-        this.a = str;
-        if (TextUtils.isEmpty(str)) {
-            this.b = new a();
-            this.c = new f();
+    private void a(File file, ZipOutputStream zipOutputStream, String str) throws Exception {
+        StringBuilder sb = new StringBuilder();
+        sb.append(str);
+        sb.append(str.trim().length() == 0 ? "" : File.separator);
+        sb.append(file.getName());
+        String sb2 = sb.toString();
+        if (file.isDirectory()) {
+            File[] listFiles = file.listFiles();
+            int length = listFiles.length;
+            for (File file2 : listFiles) {
+                a(file2, zipOutputStream, sb2);
+            }
             return;
         }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.b = a.a(jSONObject.getJSONObject("ctl"));
-            f a = f.a(jSONObject.getJSONObject("statics"));
-            this.c = a;
-            a.c(str2);
-            this.c.d(str3);
-        } catch (JSONException e) {
-            this.b = new a();
-            this.c = new f();
-            DebugLogger.e("ControlMessage", "parse control message error " + e.getMessage());
+        DebugLogger.i("ZipTask", "current file " + sb2 + "/" + file.getName() + " size is " + (file.length() / 1024) + "KB");
+        if (file.length() >= Config.FULL_TRACE_LOG_LIMIT) {
+            return;
+        }
+        byte[] bArr = new byte[1048576];
+        BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(file), 1048576);
+        zipOutputStream.putNextEntry(new ZipEntry(sb2));
+        while (true) {
+            int read = bufferedInputStream.read(bArr);
+            if (read == -1) {
+                bufferedInputStream.close();
+                zipOutputStream.flush();
+                zipOutputStream.closeEntry();
+                return;
+            }
+            zipOutputStream.write(bArr, 0, read);
         }
     }
 
-    public static b a(String str) {
-        b bVar = new b();
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            bVar.a(a.a(jSONObject.getJSONObject("ctl")));
-            bVar.a(f.a(jSONObject.getJSONObject("statics")));
-        } catch (Exception e) {
-            DebugLogger.e("ControlMessage", "parse control message error " + e.getMessage());
-            bVar.a(new f());
-            bVar.a(new a());
+    private void a(Collection<File> collection, File file) throws Exception {
+        ZipOutputStream zipOutputStream = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(file), 1048576));
+        for (File file2 : collection) {
+            a(file2, zipOutputStream, "");
         }
-        return bVar;
+        zipOutputStream.close();
     }
 
-    public a a() {
-        return this.b;
-    }
-
-    public void a(a aVar) {
-        this.b = aVar;
-    }
-
-    public void a(f fVar) {
-        this.c = fVar;
-    }
-
-    public f b() {
-        return this.c;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        return 0;
-    }
-
-    public String toString() {
-        return "ControlMessage{controlMessage='" + this.a + "', control=" + this.b + ", statics=" + this.c + '}';
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.a);
-        parcel.writeParcelable(this.b, i);
-        parcel.writeParcelable(this.c, i);
+    public void a(List<String> list) throws Exception {
+        if (!this.a.exists()) {
+            this.a.getParentFile().mkdirs();
+        }
+        ArrayList arrayList = new ArrayList();
+        String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+        Iterator<String> it = list.iterator();
+        while (it.hasNext()) {
+            File file = new File(absolutePath + it.next());
+            if (file.exists()) {
+                arrayList.add(file);
+            }
+        }
+        a(arrayList, this.a);
     }
 }

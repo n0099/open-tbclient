@@ -1,35 +1,74 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.wv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import java.util.Random;
 /* loaded from: classes5.dex */
 public class ks5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wv5 a;
-    public as5 b;
-    public TbPageContext c;
+    public final c a;
+    public int b;
+    public int c;
+    public float d;
+    public float e;
+    public float f;
+    public int g;
+    public int h;
+    public b i;
+    public int j;
+    public int k;
+    public float l;
+    public final boolean m;
+    public final boolean n;
+    public final int o;
+    public final int p;
+    public final int q;
+    public final boolean r;
+    public final boolean s;
+    public Random t;
+    public Bitmap u;
 
     /* loaded from: classes5.dex */
-    public class a implements wv5.i {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ks5 a;
+    }
 
-        public a(ks5 ks5Var) {
+    /* loaded from: classes5.dex */
+    public interface c {
+        float a();
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public Bitmap b;
+        public boolean c;
+        public boolean d;
+        public boolean e;
+        public boolean f;
+        public int g;
+        public int h;
+        public int i;
+        public c j;
+
+        public b(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ks5Var};
+                Object[] objArr = {bitmap};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -39,28 +78,85 @@ public class ks5 {
                     return;
                 }
             }
-            this.a = ks5Var;
+            this.a = 10;
+            this.b = bitmap;
+            this.c = false;
+            this.d = false;
+            this.e = false;
+            this.f = false;
         }
 
-        @Override // com.baidu.tieba.wv5.i
-        public void a(JSONArray jSONArray) {
+        public b m(c cVar) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-                String JsonArrayToString = StringHelper.JsonArrayToString(jSONArray);
-                if (this.a.b != null) {
-                    this.a.b.g(JsonArrayToString);
-                    this.a.b.e();
-                }
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) {
+                this.j = cVar;
+                return this;
             }
+            return (b) invokeL.objValue;
+        }
+
+        public ks5 k() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new ks5(this, null);
+            }
+            return (ks5) invokeV.objValue;
+        }
+
+        public b l(int i, int i2) {
+            InterceptResult invokeII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
+                this.h = i;
+                this.i = i2;
+                return this;
+            }
+            return (b) invokeII.objValue;
+        }
+
+        public b o(int i, boolean z) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+                this.a = i;
+                this.c = z;
+                return this;
+            }
+            return (b) invokeCommon.objValue;
+        }
+
+        public b p(boolean z, boolean z2) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+                this.e = z;
+                this.f = z2;
+                return this;
+            }
+            return (b) invokeCommon.objValue;
+        }
+
+        public b n(int i, int i2, boolean z) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+                this.g = i;
+                this.b = ks5.a(this.b, i, i2);
+                this.d = z;
+                return this;
+            }
+            return (b) invokeCommon.objValue;
         }
     }
 
-    public ks5(TbPageContext tbPageContext, as5 as5Var) {
+    public ks5(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, as5Var};
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -70,51 +166,195 @@ public class ks5 {
                 return;
             }
         }
-        this.b = as5Var;
-        this.c = tbPageContext;
+        this.c = 0;
+        this.i = bVar;
+        this.u = bVar.b;
+        this.o = bVar.g;
+        this.p = bVar.h;
+        this.a = bVar.j;
+        this.q = bVar.i;
+        this.b = bVar.a;
+        this.n = bVar.d;
+        this.r = bVar.e;
+        this.s = bVar.f;
+        this.m = bVar.c;
     }
 
-    public void b() {
+    public ks5(b bVar, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            wv5 wv5Var = this.a;
-            if (wv5Var != null) {
-                wv5Var.w();
-                this.a.x();
-                this.a = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            this.b = null;
-            this.c = null;
+        }
+        this.c = 0;
+        this.i = bVar;
+        this.j = i;
+        this.k = i2;
+        Random random = new Random();
+        this.t = random;
+        this.g = random.nextInt((i * 8) / 9);
+        int nextInt = this.t.nextInt(i2) - i2;
+        this.h = nextInt;
+        this.d = this.g;
+        this.e = nextInt;
+        this.m = bVar.c;
+        this.n = bVar.d;
+        this.a = bVar.j;
+        this.p = bVar.h;
+        this.q = bVar.i;
+        this.o = bVar.g;
+        this.r = bVar.e;
+        this.s = bVar.f;
+        this.b = bVar.a;
+        g();
+        f();
+        h();
+    }
+
+    public /* synthetic */ ks5(b bVar, a aVar) {
+        this(bVar);
+    }
+
+    public static Bitmap a(Bitmap bitmap, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bitmap, i, i2)) == null) {
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            Matrix matrix = new Matrix();
+            matrix.postScale(i / width, i2 / height);
+            return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+        }
+        return (Bitmap) invokeLII.objValue;
+    }
+
+    public boolean b(Canvas canvas, Paint paint) {
+        InterceptResult invokeLL;
+        Bitmap bitmap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, canvas, paint)) == null) {
+            float f = this.e;
+            if (f <= this.k && f >= 0.0f) {
+                canvas.drawBitmap(this.u, this.d, f, (Paint) null);
+                return true;
+            } else if (this.e > this.k && (bitmap = this.u) != null && !bitmap.isRecycled()) {
+                this.u.recycle();
+                return false;
+            } else {
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            d();
+            e();
         }
     }
 
-    public void c(int i) {
-        as5 as5Var;
-        String str;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (as5Var = this.b) != null && as5Var.b() != null && this.c != null) {
-            vv5 vv5Var = new vv5(this.b.b().f(), this.b.b().e(), this.b.b().d());
-            vv5Var.i(this.b.b().b(), this.b.b().c());
-            vv5Var.h(this.b.b().a());
-            vv5Var.j(this.b.b().j());
-            UserData i2 = this.b.b().i();
-            TbPageContext tbPageContext = this.c;
-            this.a = new wv5(tbPageContext, tbPageContext.getPageActivity().getWindow().getDecorView(), vv5Var, i2);
-            py4 py4Var = new py4();
-            py4Var.j(this.b.b().h());
-            this.a.H(new String[]{this.c.getString(R.string.delete_thread_reason_1), this.c.getString(R.string.delete_thread_reason_2), this.c.getString(R.string.delete_thread_reason_3), this.c.getString(R.string.delete_thread_reason_4), this.c.getString(R.string.delete_thread_reason_5)});
-            this.a.G(py4Var);
-            this.a.I(new a(this));
-            if (i != 2 && i != 1) {
-                if (i == 3) {
-                    str = "6";
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.e += this.f;
+        }
+    }
+
+    public final void d() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.d = (float) (this.d + (Math.sin(this.l) * 10.0d));
+            if (this.s) {
+                double d = this.l;
+                if (this.t.nextBoolean()) {
+                    i = -1;
                 } else {
-                    str = "0";
+                    i = 1;
                 }
-            } else {
-                str = "5";
+                this.l = (float) (d + (i * Math.random() * 0.0025d));
             }
-            this.a.J(str);
+            float f = this.d;
+            int i2 = this.j;
+            int i3 = this.o;
+            if (f > i2 - i3) {
+                this.d = i2 - i3;
+            }
+        }
+    }
+
+    public final void h() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (this.r) {
+                if (this.t.nextBoolean()) {
+                    i = -1;
+                } else {
+                    i = 1;
+                }
+                this.l = (float) (((i * Math.random()) * this.c) / 50.0d);
+            } else {
+                this.l = this.c / 50.0f;
+            }
+            float f = this.l;
+            if (f > 1.5707964f) {
+                this.l = 1.5707964f;
+            } else if (f < -1.5707964f) {
+                this.l = -1.5707964f;
+            }
+        }
+    }
+
+    public final void f() {
+        float nextInt;
+        float f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.n) {
+                c cVar = this.a;
+                if (cVar != null) {
+                    nextInt = cVar.a();
+                } else {
+                    nextInt = (this.t.nextInt(10) + 1) * 0.1f;
+                }
+                int i = this.p;
+                float f2 = 0.0f;
+                if (i > 0) {
+                    f = Math.max(i, this.i.b.getWidth() * nextInt);
+                } else {
+                    f = 0.0f;
+                }
+                if (this.q > 0) {
+                    f2 = Math.max(nextInt * this.i.b.getHeight(), this.q);
+                }
+                this.u = a(this.i.b, (int) f, (int) f2);
+            } else {
+                this.u = this.i.b;
+            }
+            this.u.getHeight();
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.m) {
+                this.f = ((float) (((this.t.nextInt(3) + 1) * 0.1d) + 1.0d)) * this.b;
+            } else {
+                this.f = this.b;
+            }
         }
     }
 }

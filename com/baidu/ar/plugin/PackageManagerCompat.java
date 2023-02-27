@@ -1,12 +1,6 @@
 package com.baidu.ar.plugin;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class PackageManagerCompat {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int DELETE_FAILED_INTERNAL_ERROR = -1;
     public static final int DELETE_SUCCEEDED = 1;
     public static final int INSTALL_FAILED_ALREADY_EXISTS = -1;
@@ -15,19 +9,4 @@ public class PackageManagerCompat {
     public static final int INSTALL_FAILED_NOT_SUPPORT_ABI = -3;
     public static final int INSTALL_REPLACE_EXISTING = 2;
     public static final int INSTALL_SUCCEEDED = 1;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public PackageManagerCompat() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

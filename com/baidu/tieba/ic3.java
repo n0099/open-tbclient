@@ -7,30 +7,28 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.f82;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.t83;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.UUID;
-import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
 /* loaded from: classes4.dex */
-public class ic3 extends ta3 {
+public class ic3 extends jb3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ic3(t93 t93Var) {
-        super(t93Var, "/swanAPI/navigateBack");
+    public ic3(ja3 ja3Var) {
+        super(ja3Var, "/swanAPI/showLoading");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t93Var};
+            Object[] objArr = {ja3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,91 +42,62 @@ public class ic3 extends ta3 {
         }
     }
 
-    @Override // com.baidu.tieba.ta3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+    @Override // com.baidu.tieba.jb3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m93 m93Var) {
         InterceptResult invokeLLLL;
-        int optInt;
-        wy2 wy2Var;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
-            if (ta3.b) {
-                Log.d("NavigateBackAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m93Var)) == null) {
+            if (jb3.b) {
+                Log.d("ShowLoadingAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            String uuid = UUID.randomUUID().toString();
-            c23.b(uuid);
-            String str2 = unitedSchemeEntity.getParams().get("params");
-            if (!TextUtils.isEmpty(str2)) {
-                try {
-                    optInt = new JSONObject(str2).optInt("delta", 1);
-                } catch (JSONException e) {
-                    if (ta3.b) {
-                        e.printStackTrace();
-                    }
-                    w52.c("navigateBack", "params parse fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+            if (m93Var != null && m93Var.n0()) {
+                if (jb3.b) {
+                    Log.d("ShowLoadingAction", "ShowLoadingAction does not supported when app is invisible.");
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
+                return false;
+            } else if (!(context instanceof SwanAppActivity)) {
+                m62.c("showLoading", "context not support");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "context not support");
+                return false;
+            } else {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    m62.c("showLoading", "none params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
                 }
-            } else {
-                optInt = 1;
+                m62.i("showLoading", "handleShowLoading : joParams = \n" + optParamsAsJo);
+                String optString = optParamsAsJo.optString("title");
+                if (TextUtils.isEmpty(optString)) {
+                    m62.c("showLoading", "none title");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                boolean optBoolean = optParamsAsJo.optBoolean("mask", false);
+                v82 X = ((SwanAppActivity) context).X();
+                if (X == null) {
+                    m62.c("showLoading", "none fragment");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none fragment");
+                    return false;
+                }
+                s82 m = X.m();
+                if (!(m instanceof t83.a)) {
+                    m62.c("showLoading", "fragment not support");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
+                    return false;
+                }
+                t83 d = ((t83.a) m).d();
+                if (d == null) {
+                    m62.c("showLoading", "can't get floatLayer");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can't create floatLayer");
+                    return false;
+                }
+                u83.f(d, context, optString, optBoolean);
+                m62.i("showLoading", "show loading success");
+                unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
             }
-            f82 V = ju2.U().V();
-            if (V == null) {
-                w52.c("navigateBack", "fragmentManager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            int k = V.k();
-            if (ta3.b) {
-                Log.d("NavigateBackAction", "back delta: " + optInt);
-            }
-            if (k == 1) {
-                w52.c("NavigateBackAction", "navigateBack api can only work when slave's count greater than 1");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "navigateBack api can only work when slave's count greater than 1");
-                return false;
-            }
-            if (optInt >= k) {
-                optInt = k - 1;
-            }
-            if (ta3.b) {
-                Log.d("NavigateBackAction", "real back delta: " + optInt);
-            }
-            c82 j = V.j((k - optInt) - 1);
-            wy2 wy2Var2 = null;
-            if (j instanceof e82) {
-                wy2Var = ((e82) j).m3();
-                wy2Var.e = "1";
-                wy2Var.f = uuid;
-            } else {
-                wy2Var = null;
-            }
-            kf3.g(wy2Var);
-            c23.c(1, uuid);
-            gl3.a(V, context);
-            f82.b i = V.i("navigateBack");
-            i.n(f82.i, f82.h);
-            i.h(optInt);
-            i.a();
-            e82 o = V.o();
-            if (o != null) {
-                wy2Var2 = o.m3();
-            }
-            b23.q("route", uuid).F(new UbcFlowEvent("na_push_page_end"));
-            c23.a(uuid, wy2Var2);
-            if (!(V.m() instanceof e82)) {
-                w52.c("navigateBack", "top fragment error");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                kf3.i(wy2Var);
-                return false;
-            }
-            e82 e82Var = (e82) V.m();
-            if (e82Var != null) {
-                str = e82Var.t3();
-            } else {
-                str = "";
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(fc3.c(str), 0));
-            return true;
         }
         return invokeLLLL.booleanValue;
     }

@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.a80;
+import com.baidu.tieba.e80;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -131,7 +131,7 @@ public class CaseUbc {
             if (jSONObject.length() > 0) {
                 jSONArray.put(jSONObject);
             }
-            a80.d().f(jSONArray, UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+            e80.d().f(jSONArray, UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
         }
     }
 

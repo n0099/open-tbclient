@@ -1,224 +1,124 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qj4;
+import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.Set;
-import org.json.JSONObject;
+import okhttp3.RequestBody;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpOptions;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.client.methods.HttpTrace;
 /* loaded from: classes6.dex */
-public abstract class rg4 implements og4 {
+public class rg4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ng4<wh4> A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (ng4) invokeV.objValue;
-    }
-
-    public Map<String, String> B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public void C(qh4 qh4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qh4Var) == null) {
-        }
-    }
-
-    public void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    public void G(em4 em4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, em4Var) == null) {
-        }
-    }
-
-    public void H(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) {
-        }
-    }
-
-    public void I(String str, String str2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, jSONObject) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.og4
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.og4
-    public void n(@Nullable String str, @Nullable String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
-        }
-    }
-
-    public qg4 p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return null;
-        }
-        return (qg4) invokeV.objValue;
-    }
-
-    public ng4<xh4> q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return null;
-        }
-        return (ng4) invokeV.objValue;
-    }
-
-    public ng4<rh4> r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return null;
-        }
-        return (ng4) invokeV.objValue;
-    }
-
-    public ng4<th4> s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return null;
-        }
-        return (ng4) invokeV.objValue;
-    }
-
-    public Map<String, String> t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return null;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public ng4<vh4> u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return null;
-        }
-        return (ng4) invokeV.objValue;
-    }
-
-    public jg4<qj4.a> v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return null;
-        }
-        return (jg4) invokeV.objValue;
-    }
-
-    public ql4 w(String str) {
+    public static HttpRequestBuilder a(@NonNull pg4 pg4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pg4Var)) == null) {
+            return b(pg4Var, null);
         }
-        return (ql4) invokeL.objValue;
+        return (HttpRequestBuilder) invokeL.objValue;
     }
 
-    public ng4<xh4> x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return null;
-        }
-        return (ng4) invokeV.objValue;
-    }
-
-    public Map<String, String> y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return null;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public ng4<yh4> z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return null;
-        }
-        return (ng4) invokeV.objValue;
-    }
-
-    public rg4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.pg4
     @NonNull
-    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
+    public static HttpRequestBuilder b(@NonNull pg4 pg4Var, @Nullable qg4 qg4Var) {
         InterceptResult invokeLL;
+        HttpCommonRequestBuilder o;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, bundle, set)) == null) {
-            Bundle bundle2 = new Bundle();
-            if (set.contains("event_performance_ubc")) {
-                n(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
-                set.remove("event_performance_ubc");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pg4Var, qg4Var)) == null) {
+            if (qg4Var == null) {
+                qg4Var = qg4.g();
             }
-            return bundle2;
+            String str = pg4Var.b;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -531492226:
+                    if (str.equals(HttpOptions.METHOD_NAME)) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 70454:
+                    if (str.equals("GET")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 79599:
+                    if (str.equals(HttpPut.METHOD_NAME)) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 2213344:
+                    if (str.equals("HEAD")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 2461856:
+                    if (str.equals("POST")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 80083237:
+                    if (str.equals(HttpTrace.METHOD_NAME)) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 1669334218:
+                    if (str.equals("CONNECT")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case 2012838315:
+                    if (str.equals(HttpDelete.METHOD_NAME)) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    return qg4Var.getRequest();
+                case 1:
+                    return qg4Var.headerRequest();
+                case 2:
+                    o = qg4Var.o();
+                    break;
+                case 3:
+                    o = qg4Var.postRequest();
+                    break;
+                case 4:
+                    o = qg4Var.putRequest();
+                    break;
+                case 5:
+                    o = qg4Var.deleteRequest();
+                    break;
+                case 6:
+                    o = qg4Var.y();
+                    break;
+                case 7:
+                    o = qg4Var.a();
+                    break;
+                default:
+                    return qg4Var.getRequest();
+            }
+            RequestBody requestBody = pg4Var.d;
+            if (requestBody != null) {
+                o.requestBody(requestBody);
+            }
+            return o;
         }
-        return (Bundle) invokeLL.objValue;
+        return (HttpRequestBuilder) invokeLL.objValue;
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.rtc.logreport;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.platform.comapi.map.NodeType;
 import com.baidu.rtc.CommonDefine;
 import com.baidu.sapi2.activity.BaseActivity;
@@ -355,7 +356,7 @@ public class ErrorInfoReport {
                 jSONObject.put("env", this.env);
                 jSONObject.put("timestamp", System.currentTimeMillis());
                 jSONObject.put("version", this.version);
-                jSONObject.put("device", RtcLogReport.getDeviceModel());
+                jSONObject.put(Config.DEVICE_PART, RtcLogReport.getDeviceModel());
                 jSONObject.put("clientIp", this.clientIp);
                 jSONObject.put("serverIp", str2);
                 jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.appId);

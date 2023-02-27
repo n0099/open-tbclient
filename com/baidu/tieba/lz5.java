@@ -1,70 +1,139 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.common.util.CommonParam;
-import com.baidu.tieba.advert.sdk.data.AdInfo;
+import android.os.CountDownTimer;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.heytap.mcssdk.mode.CommandMessage;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class lz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public CountDownTimer b;
 
-    public static String a(Context context, AdInfo adInfo) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, adInfo)) == null) {
-            if (adInfo != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("placeId", adInfo.placeId);
-                    jSONObject.put(CommandMessage.SDK_VERSION, "1.1.4");
-                    jSONObject.put("adType", adInfo.adShowType.getValue());
-                    if (TextUtils.isEmpty(adInfo.redirectUrl)) {
-                        jSONObject.put("landingPage", adInfo.downLoadUrl);
-                    } else {
-                        jSONObject.put("landingPage", adInfo.redirectUrl);
-                    }
-                    jSONObject.put("showStamp", String.valueOf(System.currentTimeMillis()));
-                    jSONObject.put("packageName", adInfo.packageName);
-                    jSONObject.put("finalPrice", adInfo.finalPrice);
-                    jSONObject.put("chargingMode", adInfo.chargingMode);
-                    jSONObject.put("token", adInfo.token);
-                    jSONObject.put("adpUserId", adInfo.adpUserId);
-                    jSONObject.put("bdId", CommonParam.getCUID(context));
-                    jSONObject.put("unitId", adInfo.unitId);
-                    jSONObject.put("planId", adInfo.planId);
-                    jSONObject.put("ideaId", adInfo.ideaId);
-                    jSONObject.put("ideaType", adInfo.sourceType);
-                    jSONObject.put("s", "0");
-                    return jSONObject.toString();
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                    return "";
-                }
-            }
-            return "";
-        }
-        return (String) invokeLL.objValue;
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(long j, long j2);
+
+        void b();
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                BdLog.e(e);
-                return null;
+    /* loaded from: classes5.dex */
+    public class a extends CountDownTimer {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ lz5 b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(lz5 lz5Var, long j, long j2, long j3) {
+            super(j, j2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lz5Var, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = lz5Var;
+            this.a = j3;
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
+                this.b.a.b();
             }
         }
-        return (String) invokeL.objValue;
+
+        @Override // android.os.CountDownTimer
+        public void onTick(long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && this.b.a != null) {
+                this.b.a.a(this.a, j);
+            }
+        }
+    }
+
+    public lz5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void b() {
+        CountDownTimer countDownTimer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (countDownTimer = this.b) != null) {
+            countDownTimer.cancel();
+        }
+    }
+
+    public void d(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.a = bVar;
+        }
+    }
+
+    public String c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            long j2 = j / 1000;
+            long j3 = j2 / 3600;
+            StringBuilder sb = new StringBuilder();
+            if (j3 > 0) {
+                if (j3 < 10) {
+                    sb.append("0");
+                }
+                sb.append(j3);
+                sb.append(":");
+            }
+            Long.signum(j3);
+            long j4 = j2 - (j3 * 3600);
+            long j5 = j4 / 60;
+            if (j5 < 10) {
+                sb.append("0");
+            }
+            sb.append(j5);
+            sb.append(":");
+            long j6 = j4 - (j5 * 60);
+            if (j6 < 10) {
+                sb.append("0");
+            }
+            sb.append(j6);
+            return sb.toString();
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public void e(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            b();
+            this.b = new a(this, j2, 1000L, j).start();
+        }
     }
 }

@@ -12,28 +12,19 @@ import androidx.annotation.FloatRange;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jf1;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.tf1;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes2.dex */
 public class SwipeBackLayout extends ViewGroup {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String t = "SwipeBackLayout";
     public static final int u = 1;
     public static final int v = 2;
     public static final int w = 4;
     public static final int x = 8;
-    public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public final ViewDragHelper b;
     public View c;
@@ -68,365 +59,224 @@ public class SwipeBackLayout extends ViewGroup {
 
     /* loaded from: classes2.dex */
     public class a implements d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwipeBackLayout a;
-
-        public a(SwipeBackLayout swipeBackLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {swipeBackLayout};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = swipeBackLayout;
+        public a() {
         }
 
         @Override // com.baidu.sapi2.views.swipeback.SwipeBackLayout.d
         public void a(View view2, float f, float f2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                this.a.invalidate();
-            }
+            SwipeBackLayout.this.invalidate();
         }
 
         @Override // com.baidu.sapi2.views.swipeback.SwipeBackLayout.d
         public void a(View view2, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) == null) && z) {
-                this.a.a();
+            if (z) {
+                SwipeBackLayout.this.a();
             }
         }
     }
 
     /* loaded from: classes2.dex */
     public class c extends ViewDragHelper.Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwipeBackLayout a;
-
-        public c(SwipeBackLayout swipeBackLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {swipeBackLayout};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = swipeBackLayout;
+        public c() {
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public int getViewHorizontalDragRange(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) != null) {
-                return invokeL.intValue;
-            }
-            return this.a.e;
+            return SwipeBackLayout.this.e;
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public int getViewVerticalDragRange(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(1048579, this, view2)) != null) {
-                return invokeL.intValue;
-            }
-            return this.a.f;
+            return SwipeBackLayout.this.f;
         }
 
         public /* synthetic */ c(SwipeBackLayout swipeBackLayout, a aVar) {
-            this(swipeBackLayout);
+            this();
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public void onEdgeTouched(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-                super.onEdgeTouched(i, i2);
-                this.a.q = i;
-            }
+            super.onEdgeTouched(i, i2);
+            SwipeBackLayout.this.q = i;
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public boolean tryCaptureView(View view2, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, i)) == null) {
-                if (view2 == this.a.c) {
-                    return true;
-                }
-                return false;
+            if (view2 == SwipeBackLayout.this.c) {
+                return true;
             }
-            return invokeLI.booleanValue;
+            return false;
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public int clampViewPositionHorizontal(View view2, int i, int i2) {
-            InterceptResult invokeLII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, view2, i, i2)) == null) {
-                SwipeBackLayout swipeBackLayout = this.a;
-                swipeBackLayout.n = swipeBackLayout.getPaddingLeft();
-                if (this.a.c()) {
-                    if (this.a.a == 1 && !com.baidu.sapi2.views.swipeback.a.a.c(this.a.d, this.a.l, this.a.m, false)) {
-                        SwipeBackLayout swipeBackLayout2 = this.a;
-                        swipeBackLayout2.n = Math.min(Math.max(i, swipeBackLayout2.getPaddingLeft()), this.a.e);
-                    } else if (this.a.a == 2 && !com.baidu.sapi2.views.swipeback.a.a.b(this.a.d, this.a.l, this.a.m, false)) {
-                        SwipeBackLayout swipeBackLayout3 = this.a;
-                        swipeBackLayout3.n = Math.min(Math.max(i, -swipeBackLayout3.e), this.a.getPaddingRight());
-                    }
+            SwipeBackLayout swipeBackLayout = SwipeBackLayout.this;
+            swipeBackLayout.n = swipeBackLayout.getPaddingLeft();
+            if (SwipeBackLayout.this.c()) {
+                if (SwipeBackLayout.this.a == 1 && !com.baidu.sapi2.views.swipeback.a.a.c(SwipeBackLayout.this.d, SwipeBackLayout.this.l, SwipeBackLayout.this.m, false)) {
+                    SwipeBackLayout swipeBackLayout2 = SwipeBackLayout.this;
+                    swipeBackLayout2.n = Math.min(Math.max(i, swipeBackLayout2.getPaddingLeft()), SwipeBackLayout.this.e);
+                } else if (SwipeBackLayout.this.a == 2 && !com.baidu.sapi2.views.swipeback.a.a.b(SwipeBackLayout.this.d, SwipeBackLayout.this.l, SwipeBackLayout.this.m, false)) {
+                    SwipeBackLayout swipeBackLayout3 = SwipeBackLayout.this;
+                    swipeBackLayout3.n = Math.min(Math.max(i, -swipeBackLayout3.e), SwipeBackLayout.this.getPaddingRight());
                 }
-                return this.a.n;
             }
-            return invokeLII.intValue;
+            return SwipeBackLayout.this.n;
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public int clampViewPositionVertical(View view2, int i, int i2) {
-            InterceptResult invokeLII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i, i2)) == null) {
-                SwipeBackLayout swipeBackLayout = this.a;
-                swipeBackLayout.o = swipeBackLayout.getPaddingTop();
-                if (this.a.c()) {
-                    if (this.a.a == 4 && !com.baidu.sapi2.views.swipeback.a.a.d(this.a.d, this.a.l, this.a.m, false)) {
-                        SwipeBackLayout swipeBackLayout2 = this.a;
-                        swipeBackLayout2.o = Math.min(Math.max(i, swipeBackLayout2.getPaddingTop()), this.a.f);
-                    } else if (this.a.a == 8 && !com.baidu.sapi2.views.swipeback.a.a.a(this.a.d, this.a.l, this.a.m, false)) {
-                        SwipeBackLayout swipeBackLayout3 = this.a;
-                        swipeBackLayout3.o = Math.min(Math.max(i, -swipeBackLayout3.f), this.a.getPaddingBottom());
-                    }
+            SwipeBackLayout swipeBackLayout = SwipeBackLayout.this;
+            swipeBackLayout.o = swipeBackLayout.getPaddingTop();
+            if (SwipeBackLayout.this.c()) {
+                if (SwipeBackLayout.this.a == 4 && !com.baidu.sapi2.views.swipeback.a.a.d(SwipeBackLayout.this.d, SwipeBackLayout.this.l, SwipeBackLayout.this.m, false)) {
+                    SwipeBackLayout swipeBackLayout2 = SwipeBackLayout.this;
+                    swipeBackLayout2.o = Math.min(Math.max(i, swipeBackLayout2.getPaddingTop()), SwipeBackLayout.this.f);
+                } else if (SwipeBackLayout.this.a == 8 && !com.baidu.sapi2.views.swipeback.a.a.a(SwipeBackLayout.this.d, SwipeBackLayout.this.l, SwipeBackLayout.this.m, false)) {
+                    SwipeBackLayout swipeBackLayout3 = SwipeBackLayout.this;
+                    swipeBackLayout3.o = Math.min(Math.max(i, -swipeBackLayout3.f), SwipeBackLayout.this.getPaddingBottom());
                 }
-                return this.a.o;
             }
-            return invokeLII.intValue;
-        }
-
-        @Override // androidx.customview.widget.ViewDragHelper.Callback
-        public void onViewReleased(View view2, float f, float f2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                super.onViewReleased(view2, f, f2);
-                SwipeBackLayout swipeBackLayout = this.a;
-                boolean z = false;
-                swipeBackLayout.n = swipeBackLayout.o = 0;
-                if (!this.a.c()) {
-                    this.a.q = -1;
-                    return;
-                }
-                this.a.q = -1;
-                if ((this.a.a(f, f2) || this.a.i >= this.a.h) ? true : true) {
-                    int i = this.a.a;
-                    if (i != 1) {
-                        if (i != 2) {
-                            if (i != 4) {
-                                if (i == 8) {
-                                    SwipeBackLayout swipeBackLayout2 = this.a;
-                                    swipeBackLayout2.b(-swipeBackLayout2.f);
-                                    return;
-                                }
-                                return;
-                            }
-                            SwipeBackLayout swipeBackLayout3 = this.a;
-                            swipeBackLayout3.b(swipeBackLayout3.f);
-                            return;
-                        }
-                        SwipeBackLayout swipeBackLayout4 = this.a;
-                        swipeBackLayout4.a(-swipeBackLayout4.e);
-                        return;
-                    }
-                    SwipeBackLayout swipeBackLayout5 = this.a;
-                    swipeBackLayout5.a(swipeBackLayout5.e);
-                    return;
-                }
-                int i2 = this.a.a;
-                if (i2 != 1 && i2 != 2) {
-                    if (i2 == 4 || i2 == 8) {
-                        SwipeBackLayout swipeBackLayout6 = this.a;
-                        swipeBackLayout6.b(swipeBackLayout6.getPaddingTop());
-                        return;
-                    }
-                    return;
-                }
-                SwipeBackLayout swipeBackLayout7 = this.a;
-                swipeBackLayout7.a(swipeBackLayout7.getPaddingLeft());
-            }
+            return SwipeBackLayout.this.o;
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public void onViewDragStateChanged(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-                super.onViewDragStateChanged(i);
-                if (i == 0 && this.a.r != null) {
-                    if (this.a.i == 0.0f) {
-                        this.a.r.a(this.a.c, false);
-                    } else if (this.a.i == 1.0f) {
-                        this.a.r.a(this.a.c, true);
-                    }
+            super.onViewDragStateChanged(i);
+            if (i == 0 && SwipeBackLayout.this.r != null) {
+                if (SwipeBackLayout.this.i == 0.0f) {
+                    SwipeBackLayout.this.r.a(SwipeBackLayout.this.c, false);
+                } else if (SwipeBackLayout.this.i == 1.0f) {
+                    SwipeBackLayout.this.r.a(SwipeBackLayout.this.c, true);
                 }
             }
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public void onViewPositionChanged(View view2, int i, int i2, int i3, int i4) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-                super.onViewPositionChanged(view2, i, i2, i3, i4);
-                int abs = Math.abs(i);
-                int abs2 = Math.abs(i2);
-                int i5 = this.a.a;
-                if (i5 != 1 && i5 != 2) {
-                    if (i5 == 4 || i5 == 8) {
-                        SwipeBackLayout swipeBackLayout = this.a;
-                        swipeBackLayout.i = (abs2 * 1.0f) / swipeBackLayout.f;
-                    }
-                } else {
-                    SwipeBackLayout swipeBackLayout2 = this.a;
-                    swipeBackLayout2.i = (abs * 1.0f) / swipeBackLayout2.e;
+            super.onViewPositionChanged(view2, i, i2, i3, i4);
+            int abs = Math.abs(i);
+            int abs2 = Math.abs(i2);
+            int i5 = SwipeBackLayout.this.a;
+            if (i5 != 1 && i5 != 2) {
+                if (i5 == 4 || i5 == 8) {
+                    SwipeBackLayout swipeBackLayout = SwipeBackLayout.this;
+                    swipeBackLayout.i = (abs2 * 1.0f) / swipeBackLayout.f;
                 }
-                if (this.a.r != null) {
-                    this.a.r.a(this.a.c, this.a.i, this.a.h);
-                }
+            } else {
+                SwipeBackLayout swipeBackLayout2 = SwipeBackLayout.this;
+                swipeBackLayout2.i = (abs * 1.0f) / swipeBackLayout2.e;
             }
+            if (SwipeBackLayout.this.r != null) {
+                SwipeBackLayout.this.r.a(SwipeBackLayout.this.c, SwipeBackLayout.this.i, SwipeBackLayout.this.h);
+            }
+        }
+
+        @Override // androidx.customview.widget.ViewDragHelper.Callback
+        public void onViewReleased(View view2, float f, float f2) {
+            super.onViewReleased(view2, f, f2);
+            SwipeBackLayout swipeBackLayout = SwipeBackLayout.this;
+            boolean z = false;
+            swipeBackLayout.n = swipeBackLayout.o = 0;
+            if (!SwipeBackLayout.this.c()) {
+                SwipeBackLayout.this.q = -1;
+                return;
+            }
+            SwipeBackLayout.this.q = -1;
+            if ((SwipeBackLayout.this.a(f, f2) || SwipeBackLayout.this.i >= SwipeBackLayout.this.h) ? true : true) {
+                int i = SwipeBackLayout.this.a;
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 4) {
+                            if (i == 8) {
+                                SwipeBackLayout swipeBackLayout2 = SwipeBackLayout.this;
+                                swipeBackLayout2.b(-swipeBackLayout2.f);
+                                return;
+                            }
+                            return;
+                        }
+                        SwipeBackLayout swipeBackLayout3 = SwipeBackLayout.this;
+                        swipeBackLayout3.b(swipeBackLayout3.f);
+                        return;
+                    }
+                    SwipeBackLayout swipeBackLayout4 = SwipeBackLayout.this;
+                    swipeBackLayout4.a(-swipeBackLayout4.e);
+                    return;
+                }
+                SwipeBackLayout swipeBackLayout5 = SwipeBackLayout.this;
+                swipeBackLayout5.a(swipeBackLayout5.e);
+                return;
+            }
+            int i2 = SwipeBackLayout.this.a;
+            if (i2 != 1 && i2 != 2) {
+                if (i2 == 4 || i2 == 8) {
+                    SwipeBackLayout swipeBackLayout6 = SwipeBackLayout.this;
+                    swipeBackLayout6.b(swipeBackLayout6.getPaddingTop());
+                    return;
+                }
+                return;
+            }
+            SwipeBackLayout swipeBackLayout7 = SwipeBackLayout.this;
+            swipeBackLayout7.a(swipeBackLayout7.getPaddingLeft());
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SwipeBackLayout(@NonNull Context context) {
         this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SwipeBackLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean a(float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            int i = this.a;
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 4) {
-                        if (i != 8 || f2 >= (-this.p)) {
-                            return false;
-                        }
-                        return true;
-                    } else if (f2 <= this.p) {
-                        return false;
-                    } else {
-                        return true;
-                    }
-                } else if (f >= (-this.p)) {
-                    return false;
-                } else {
-                    return true;
-                }
-            } else if (f <= this.p) {
-                return false;
-            } else {
-                return true;
-            }
-        }
-        return invokeCommon.booleanValue;
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048589, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            int childCount = getChildCount();
-            if (childCount <= 1) {
-                int i4 = 0;
-                if (childCount > 0) {
-                    measureChildren(i, i2);
-                    View childAt = getChildAt(0);
-                    this.c = childAt;
-                    i4 = childAt.getMeasuredWidth();
-                    i3 = this.c.getMeasuredHeight();
-                } else {
-                    i3 = 0;
-                }
-                setMeasuredDimension(View.resolveSize(i4, i) + getPaddingLeft() + getPaddingRight(), View.resolveSize(i3, i2) + getPaddingTop() + getPaddingBottom());
-                return;
-            }
-            throw new IllegalStateException("SwipeBackLayout must contains only one direct child.");
-        }
+    public void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        this.b.processTouchEvent(motionEvent);
+        return true;
+    }
+
+    public void setAutoFinishedVelocityLimit(float f) {
+        this.p = f;
+    }
+
+    public void setDirectionMode(int i) {
+        this.a = i;
+        this.b.setEdgeTrackingEnabled(i);
+    }
+
+    public void setMaskAlpha(@IntRange(from = 0, to = 255) int i) {
+        if (i > 255) {
+            i = 255;
+        } else if (i < 0) {
+            i = 0;
+        }
+        this.j = i;
+    }
+
+    public void setSwipeBackFactor(@FloatRange(from = 0.0d, to = 1.0d) float f) {
+        if (f > 1.0f) {
+            f = 1.0f;
+        } else if (f < 0.0f) {
+            f = 0.0f;
+        }
+        this.h = f;
+    }
+
+    public void setSwipeBackListener(d dVar) {
+        this.r = dVar;
+    }
+
+    public void setSwipeFromEdge(boolean z) {
+        this.k = z;
+    }
+
+    public SwipeBackLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+    }
+
     public SwipeBackLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.a = 1;
         this.h = 0.5f;
         this.j = 125;
@@ -435,7 +285,7 @@ public class SwipeBackLayout extends ViewGroup {
         this.o = 0;
         this.p = 2000.0f;
         this.q = -1;
-        this.s = new a(this);
+        this.s = new a();
         setWillNotDraw(false);
         ViewDragHelper create = ViewDragHelper.create(this, 1.0f, new c(this, null));
         this.b = create;
@@ -445,248 +295,155 @@ public class SwipeBackLayout extends ViewGroup {
         a(context, attributeSet);
     }
 
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, canvas) == null) {
-            super.onDraw(canvas);
-        }
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, motionEvent)) == null) {
-            this.b.processTouchEvent(motionEvent);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setAutoFinishedVelocityLimit(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048591, this, f) == null) {
-            this.p = f;
-        }
-    }
-
-    public void setDirectionMode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.a = i;
-            this.b.setEdgeTrackingEnabled(i);
-        }
-    }
-
-    public void setMaskAlpha(@IntRange(from = 0, to = 255) int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            if (i > 255) {
-                i = 255;
-            } else if (i < 0) {
-                i = 0;
-            }
-            this.j = i;
-        }
-    }
-
-    public void setSwipeBackFactor(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048594, this, f) == null) {
-            if (f > 1.0f) {
-                f = 1.0f;
-            } else if (f < 0.0f) {
-                f = 0.0f;
-            }
-            this.h = f;
-        }
-    }
-
-    public void setSwipeBackListener(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, dVar) == null) {
-            this.r = dVar;
-        }
-    }
-
-    public void setSwipeFromEdge(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.k = z;
-        }
-    }
-
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, jf1.sapi_sdk_SwipeBackLayout);
-            setDirectionMode(obtainStyledAttributes.getInt(0, this.a));
-            setSwipeBackFactor(obtainStyledAttributes.getFloat(3, this.h));
-            setMaskAlpha(obtainStyledAttributes.getInteger(2, this.j));
-            this.k = obtainStyledAttributes.getBoolean(1, this.k);
-            obtainStyledAttributes.recycle();
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, tf1.sapi_sdk_SwipeBackLayout);
+        setDirectionMode(obtainStyledAttributes.getInt(0, this.a));
+        setSwipeBackFactor(obtainStyledAttributes.getFloat(3, this.h));
+        setMaskAlpha(obtainStyledAttributes.getInteger(2, this.j));
+        this.k = obtainStyledAttributes.getBoolean(1, this.k);
+        obtainStyledAttributes.recycle();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean a(float f, float f2) {
+        int i = this.a;
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 4) {
+                    if (i != 8 || f2 >= (-this.p)) {
+                        return false;
+                    }
+                    return true;
+                } else if (f2 <= this.p) {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else if (f >= (-this.p)) {
+                return false;
+            } else {
+                return true;
+            }
+        } else if (f <= this.p) {
+            return false;
+        } else {
+            return true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
-            if (!this.k) {
-                return true;
-            }
-            int i = this.a;
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 4) {
-                        if (i != 8 || this.q == 8) {
-                            return true;
-                        }
-                        return false;
-                    } else if (this.q == 4) {
+        if (!this.k) {
+            return true;
+        }
+        int i = this.a;
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 4) {
+                    if (i != 8 || this.q == 8) {
                         return true;
-                    } else {
-                        return false;
                     }
-                } else if (this.q == 2) {
+                    return false;
+                } else if (this.q == 4) {
                     return true;
                 } else {
                     return false;
                 }
-            } else if (this.q == 1) {
+            } else if (this.q == 2) {
                 return true;
             } else {
                 return false;
             }
+        } else if (this.q == 1) {
+            return true;
+        } else {
+            return false;
         }
-        return invokeV.booleanValue;
     }
 
     public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ((Activity) getContext()).finish();
-        }
+        ((Activity) getContext()).finish();
     }
 
     public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.k;
-        }
-        return invokeV.booleanValue;
+        return this.k;
     }
 
     @Override // android.view.View
     public void computeScroll() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b.continueSettling(true)) {
+        if (this.b.continueSettling(true)) {
             ViewCompat.postInvalidateOnAnimation(this);
         }
     }
 
     public float getAutoFinishedVelocityLimit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.p;
-        }
-        return invokeV.floatValue;
+        return this.p;
     }
 
     public int getDirectionMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
+        return this.a;
     }
 
     public int getMaskAlpha() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
+        return this.j;
     }
 
     public float getSwipeBackFactor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.h;
-        }
-        return invokeV.floatValue;
+        return this.h;
     }
 
     public void a(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.b.settleCapturedViewAt(i, getPaddingTop())) {
+        if (this.b.settleCapturedViewAt(i, getPaddingTop())) {
             ViewCompat.postInvalidateOnAnimation(this);
         }
     }
 
     public void b(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && this.b.settleCapturedViewAt(getPaddingLeft(), i)) {
+        if (this.b.settleCapturedViewAt(getPaddingLeft(), i)) {
             ViewCompat.postInvalidateOnAnimation(this);
         }
     }
 
     public void a(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
-            ViewGroup viewGroup2 = (ViewGroup) viewGroup.getChildAt(0);
-            viewGroup2.setBackgroundColor(0);
-            viewGroup.removeView(viewGroup2);
-            addView(viewGroup2);
-            viewGroup.addView(this);
-        }
+        ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
+        ViewGroup viewGroup2 = (ViewGroup) viewGroup.getChildAt(0);
+        viewGroup2.setBackgroundColor(0);
+        viewGroup.removeView(viewGroup2);
+        addView(viewGroup2);
+        viewGroup.addView(this);
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
         View view2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, motionEvent)) == null) {
-            int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
-            if (actionMasked != 0) {
-                if (actionMasked == 2 && (view2 = this.d) != null && com.baidu.sapi2.views.swipeback.a.a.a(view2, this.l, this.m)) {
-                    float abs = Math.abs(motionEvent.getRawX() - this.l);
-                    float abs2 = Math.abs(motionEvent.getRawY() - this.m);
-                    int i = this.a;
-                    if (i != 1 && i != 2) {
-                        if ((i == 4 || i == 8) && abs > this.g && abs > abs2) {
-                            return super.onInterceptTouchEvent(motionEvent);
-                        }
-                    } else if (abs2 > this.g && abs2 > abs) {
+        int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
+        if (actionMasked != 0) {
+            if (actionMasked == 2 && (view2 = this.d) != null && com.baidu.sapi2.views.swipeback.a.a.a(view2, this.l, this.m)) {
+                float abs = Math.abs(motionEvent.getRawX() - this.l);
+                float abs2 = Math.abs(motionEvent.getRawY() - this.m);
+                int i = this.a;
+                if (i != 1 && i != 2) {
+                    if ((i == 4 || i == 8) && abs > this.g && abs > abs2) {
                         return super.onInterceptTouchEvent(motionEvent);
                     }
+                } else if (abs2 > this.g && abs2 > abs) {
+                    return super.onInterceptTouchEvent(motionEvent);
                 }
-            } else {
-                this.l = motionEvent.getRawX();
-                this.m = motionEvent.getRawY();
             }
-            boolean shouldInterceptTouchEvent = this.b.shouldInterceptTouchEvent(motionEvent);
-            if (!shouldInterceptTouchEvent) {
-                return super.onInterceptTouchEvent(motionEvent);
-            }
-            return shouldInterceptTouchEvent;
+        } else {
+            this.l = motionEvent.getRawX();
+            this.m = motionEvent.getRawY();
         }
-        return invokeL.booleanValue;
+        boolean shouldInterceptTouchEvent = this.b.shouldInterceptTouchEvent(motionEvent);
+        if (!shouldInterceptTouchEvent) {
+            return super.onInterceptTouchEvent(motionEvent);
+        }
+        return shouldInterceptTouchEvent;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) != null) || getChildCount() == 0) {
+        if (getChildCount() == 0) {
             return;
         }
         int paddingLeft = getPaddingLeft() + this.n;
@@ -697,5 +454,27 @@ public class SwipeBackLayout extends ViewGroup {
             this.f = getHeight();
         }
         this.d = com.baidu.sapi2.views.swipeback.a.a.a((ViewGroup) this);
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        int i3;
+        super.onMeasure(i, i2);
+        int childCount = getChildCount();
+        if (childCount <= 1) {
+            int i4 = 0;
+            if (childCount > 0) {
+                measureChildren(i, i2);
+                View childAt = getChildAt(0);
+                this.c = childAt;
+                i4 = childAt.getMeasuredWidth();
+                i3 = this.c.getMeasuredHeight();
+            } else {
+                i3 = 0;
+            }
+            setMeasuredDimension(View.resolveSize(i4, i) + getPaddingLeft() + getPaddingRight(), View.resolveSize(i3, i2) + getPaddingTop() + getPaddingBottom());
+            return;
+        }
+        throw new IllegalStateException("SwipeBackLayout must contains only one direct child.");
     }
 }

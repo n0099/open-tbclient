@@ -1,12 +1,15 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class qr1 implements bu1 {
+import org.json.JSONArray;
+/* loaded from: classes5.dex */
+public class qr1 implements ut1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,11 +27,29 @@ public class qr1 implements bu1 {
         }
     }
 
-    @Override // com.baidu.tieba.bu1
-    public void b(w83 w83Var, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.ut1
+    public long a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, w83Var, jSONObject) == null) {
-            f13.e().b(w83Var, jSONObject);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            return h62.b().a;
+        }
+        return invokeL.longValue;
+    }
+
+    @Override // com.baidu.tieba.ut1
+    public void b(Context context, String str, fo3<String> fo3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, fo3Var) == null) {
+            mw1.d(str, fo3Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.ut1
+    public void c(Context context, JSONArray jSONArray, fo3<String> fo3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONArray, fo3Var) == null) {
+            mw1.e(jSONArray, fo3Var);
         }
     }
 }

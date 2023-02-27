@@ -15,25 +15,14 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jf1;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.tf1;
 /* loaded from: classes2.dex */
 public class CircleImageView extends ImageView {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final ImageView.ScaleType p;
-    public static final Bitmap.Config q;
+    public static final ImageView.ScaleType p = ImageView.ScaleType.CENTER_CROP;
+    public static final Bitmap.Config q = Bitmap.Config.ARGB_8888;
     public static final int r = 1;
     public static final int s = 0;
     public static final int t = -16777216;
-    public transient /* synthetic */ FieldHolder $fh;
     public final RectF a;
     public final RectF b;
     public final Matrix c;
@@ -52,86 +41,32 @@ public class CircleImageView extends ImageView {
 
     @Override // android.widget.ImageView
     public void setScaleType(ImageView.ScaleType scaleType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, scaleType) == null) {
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(266815940, "Lcom/baidu/sapi2/views/logindialog/view/CircleImageView;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(266815940, "Lcom/baidu/sapi2/views/logindialog/view/CircleImageView;");
-                return;
-            }
-        }
-        p = ImageView.ScaleType.CENTER_CROP;
-        q = Bitmap.Config.ARGB_8888;
     }
 
     private void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            super.setScaleType(p);
-            this.n = true;
-            if (this.o) {
-                b();
-                this.o = false;
-            }
+        super.setScaleType(p);
+        this.n = true;
+        if (this.o) {
+            b();
+            this.o = false;
         }
     }
 
     public int getBorderColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
+        return this.f;
     }
 
     public int getBorderWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
+        return this.g;
     }
 
     @Override // android.widget.ImageView
     public ImageView.ScaleType getScaleType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return p;
-        }
-        return (ImageView.ScaleType) invokeV.objValue;
+        return p;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CircleImageView(Context context) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.a = new RectF();
         this.b = new RectF();
         this.c = new Matrix();
@@ -140,169 +75,10 @@ public class CircleImageView extends ImageView {
         this.f = -16777216;
         this.g = 0;
         a();
-    }
-
-    private Bitmap a(Drawable drawable) {
-        InterceptResult invokeL;
-        Bitmap createBitmap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, drawable)) == null) {
-            if (drawable == null) {
-                return null;
-            }
-            if (drawable instanceof BitmapDrawable) {
-                return ((BitmapDrawable) drawable).getBitmap();
-            }
-            try {
-                if (drawable instanceof ColorDrawable) {
-                    createBitmap = Bitmap.createBitmap(1, 1, q);
-                } else {
-                    createBitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), q);
-                }
-                Canvas canvas = new Canvas(createBitmap);
-                drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
-                drawable.draw(canvas);
-                return createBitmap;
-            } catch (OutOfMemoryError unused) {
-                return null;
-            }
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CircleImageView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CircleImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.a = new RectF();
-        this.b = new RectF();
-        this.c = new Matrix();
-        this.d = new Paint();
-        this.e = new Paint();
-        this.f = -16777216;
-        this.g = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, jf1.sapi_sdk_circle_image_view, i, 0);
-        this.g = obtainStyledAttributes.getDimensionPixelSize(1, 0);
-        this.f = obtainStyledAttributes.getColor(0, -16777216);
-        obtainStyledAttributes.recycle();
-        a();
-    }
-
-    private void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            if (!this.n) {
-                this.o = true;
-                return;
-            }
-            Bitmap bitmap = this.h;
-            if (bitmap == null) {
-                return;
-            }
-            Shader.TileMode tileMode = Shader.TileMode.CLAMP;
-            this.i = new BitmapShader(bitmap, tileMode, tileMode);
-            this.d.setAntiAlias(true);
-            this.d.setShader(this.i);
-            this.e.setStyle(Paint.Style.STROKE);
-            this.e.setAntiAlias(true);
-            this.e.setColor(this.f);
-            this.e.setStrokeWidth(this.g);
-            this.k = this.h.getHeight();
-            this.j = this.h.getWidth();
-            this.b.set(0.0f, 0.0f, getWidth(), getHeight());
-            this.m = Math.min((this.b.height() - this.g) / 2.0f, (this.b.width() - this.g) / 2.0f);
-            RectF rectF = this.a;
-            float f = this.g;
-            rectF.set(f, f, this.b.width() - this.g, this.b.height() - this.g);
-            this.l = Math.min(this.a.height() / 2.0f, this.a.width() / 2.0f);
-            c();
-            invalidate();
-        }
-    }
-
-    private void c() {
-        float width;
-        float height;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.c.set(null);
-            float f = 0.0f;
-            if (this.j * this.a.height() > this.a.width() * this.k) {
-                width = this.a.height() / this.k;
-                f = (this.a.width() - (this.j * width)) * 0.5f;
-                height = 0.0f;
-            } else {
-                width = this.a.width() / this.j;
-                height = (this.a.height() - (this.k * width)) * 0.5f;
-            }
-            this.c.setScale(width, width);
-            Matrix matrix = this.c;
-            int i = this.g;
-            matrix.postTranslate(((int) (f + 0.5f)) + i, ((int) (height + 0.5f)) + i);
-            this.i.setLocalMatrix(this.c);
-        }
-    }
-
-    @Override // android.widget.ImageView, android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, canvas) != null) || getDrawable() == null) {
-            return;
-        }
-        canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.l, this.d);
-        if (this.g != 0) {
-            canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.m, this.e);
-        }
-    }
-
-    @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048580, this, i, i2, i3, i4) == null) {
-            super.onSizeChanged(i, i2, i3, i4);
-            b();
-        }
     }
 
     public void setBorderColor(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048581, this, i) != null) || i == this.f) {
+        if (i == this.f) {
             return;
         }
         this.f = i;
@@ -311,8 +87,7 @@ public class CircleImageView extends ImageView {
     }
 
     public void setBorderWidth(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048582, this, i) != null) || i == this.g) {
+        if (i == this.g) {
             return;
         }
         this.g = i;
@@ -321,41 +96,138 @@ public class CircleImageView extends ImageView {
 
     @Override // android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bitmap) == null) {
-            super.setImageBitmap(bitmap);
-            this.h = bitmap;
-            b();
-        }
+        super.setImageBitmap(bitmap);
+        this.h = bitmap;
+        b();
     }
 
     @Override // android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, drawable) == null) {
-            super.setImageDrawable(drawable);
-            this.h = a(drawable);
-            b();
-        }
+        super.setImageDrawable(drawable);
+        this.h = a(drawable);
+        b();
     }
 
     @Override // android.widget.ImageView
     public void setImageResource(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            super.setImageResource(i);
-            this.h = a(getDrawable());
-            b();
-        }
+        super.setImageResource(i);
+        this.h = a(getDrawable());
+        b();
     }
 
     @Override // android.widget.ImageView
     public void setImageURI(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, uri) == null) {
-            super.setImageURI(uri);
-            this.h = a(getDrawable());
-            b();
+        super.setImageURI(uri);
+        this.h = a(getDrawable());
+        b();
+    }
+
+    public CircleImageView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+    }
+
+    public CircleImageView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.a = new RectF();
+        this.b = new RectF();
+        this.c = new Matrix();
+        this.d = new Paint();
+        this.e = new Paint();
+        this.f = -16777216;
+        this.g = 0;
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, tf1.sapi_sdk_circle_image_view, i, 0);
+        this.g = obtainStyledAttributes.getDimensionPixelSize(1, 0);
+        this.f = obtainStyledAttributes.getColor(0, -16777216);
+        obtainStyledAttributes.recycle();
+        a();
+    }
+
+    private Bitmap a(Drawable drawable) {
+        Bitmap createBitmap;
+        if (drawable == null) {
+            return null;
         }
+        if (drawable instanceof BitmapDrawable) {
+            return ((BitmapDrawable) drawable).getBitmap();
+        }
+        try {
+            if (drawable instanceof ColorDrawable) {
+                createBitmap = Bitmap.createBitmap(1, 1, q);
+            } else {
+                createBitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), q);
+            }
+            Canvas canvas = new Canvas(createBitmap);
+            drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+            drawable.draw(canvas);
+            return createBitmap;
+        } catch (OutOfMemoryError unused) {
+            return null;
+        }
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public void onDraw(Canvas canvas) {
+        if (getDrawable() == null) {
+            return;
+        }
+        canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.l, this.d);
+        if (this.g != 0) {
+            canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.m, this.e);
+        }
+    }
+
+    private void b() {
+        if (!this.n) {
+            this.o = true;
+            return;
+        }
+        Bitmap bitmap = this.h;
+        if (bitmap == null) {
+            return;
+        }
+        Shader.TileMode tileMode = Shader.TileMode.CLAMP;
+        this.i = new BitmapShader(bitmap, tileMode, tileMode);
+        this.d.setAntiAlias(true);
+        this.d.setShader(this.i);
+        this.e.setStyle(Paint.Style.STROKE);
+        this.e.setAntiAlias(true);
+        this.e.setColor(this.f);
+        this.e.setStrokeWidth(this.g);
+        this.k = this.h.getHeight();
+        this.j = this.h.getWidth();
+        this.b.set(0.0f, 0.0f, getWidth(), getHeight());
+        this.m = Math.min((this.b.height() - this.g) / 2.0f, (this.b.width() - this.g) / 2.0f);
+        RectF rectF = this.a;
+        float f = this.g;
+        rectF.set(f, f, this.b.width() - this.g, this.b.height() - this.g);
+        this.l = Math.min(this.a.height() / 2.0f, this.a.width() / 2.0f);
+        c();
+        invalidate();
+    }
+
+    private void c() {
+        float width;
+        float height;
+        this.c.set(null);
+        float f = 0.0f;
+        if (this.j * this.a.height() > this.a.width() * this.k) {
+            width = this.a.height() / this.k;
+            f = (this.a.width() - (this.j * width)) * 0.5f;
+            height = 0.0f;
+        } else {
+            width = this.a.width() / this.j;
+            height = (this.a.height() - (this.k * width)) * 0.5f;
+        }
+        this.c.setScale(width, width);
+        Matrix matrix = this.c;
+        int i = this.g;
+        matrix.postTranslate(((int) (f + 0.5f)) + i, ((int) (height + 0.5f)) + i);
+        this.i.setLocalMatrix(this.c);
+    }
+
+    @Override // android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        super.onSizeChanged(i, i2, i3, i4);
+        b();
     }
 }

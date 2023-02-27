@@ -1,236 +1,200 @@
 package com.baidu.tieba;
 
+import android.app.Application;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.text.TextUtils;
-import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.url.UrlUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.module.hottopic.HotTopicStat;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.nps.utils.Constant;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.PbContent;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class pg5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public ThreadData a;
-    @NonNull
-    public PbContent b;
-    public boolean c;
-    public int d;
-    public int e;
-    @Nullable
-    public PostData f;
-    @NonNull
-    public HotTopicStat.Locate g;
-    @Nullable
-    public String h;
-    public boolean i;
 
-    public pg5(@NonNull ThreadData threadData, @NonNull PbContent pbContent) {
+    public static void a(DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadData, pbContent};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) {
+            k65.a(downloadData, 400);
+            tw8.o().i(downloadData.getUrl(), downloadData.getId());
         }
-        this.g = HotTopicStat.Locate.UNDEFINED;
-        this.a = threadData;
-        this.b = pbContent;
-        this.c = TextUtils.equals(UrlUtils.getParamValue(pbContent.link, "is_video_topic"), "1");
     }
 
-    @NonNull
-    public static pg5 f(@NonNull ThreadData threadData, @NonNull PbContent pbContent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, threadData, pbContent)) == null) {
-            return new pg5(threadData, pbContent);
-        }
-        return (pg5) invokeLL.objValue;
-    }
-
-    @NonNull
-    public pg5 a(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            this.i = z;
-            return this;
-        }
-        return (pg5) invokeZ.objValue;
-    }
-
-    @NonNull
-    public pg5 b(@NonNull HotTopicStat.Locate locate) {
+    public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locate)) == null) {
-            this.g = locate;
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return tw8.o().u(str);
         }
-        return (pg5) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @NonNull
-    public pg5 c(@Nullable PostData postData) {
+    public static String g(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, postData)) == null) {
-            this.f = postData;
-            return this;
-        }
-        return (pg5) invokeL.objValue;
-    }
-
-    @NonNull
-    public pg5 d(@ColorRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            this.d = i;
-            return this;
-        }
-        return (pg5) invokeI.objValue;
-    }
-
-    @NonNull
-    public pg5 e(@ColorRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            this.e = i;
-            return this;
-        }
-        return (pg5) invokeI.objValue;
-    }
-
-    public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    @NonNull
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return String.valueOf(this.a.getFid());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.h == null) {
-                this.h = UrlUtils.appendParam(this.b.link, "locate", i().toString());
-            }
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public HotTopicStat.Locate i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.g;
-        }
-        return (HotTopicStat.Locate) invokeV.objValue;
-    }
-
-    @NonNull
-    public PbContent j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
-        }
-        return (PbContent) invokeV.objValue;
-    }
-
-    @Nullable
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            PostData postData = this.f;
-            if (postData == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, intent)) == null) {
+            String dataString = intent.getDataString();
+            if (TextUtils.isEmpty(dataString)) {
                 return null;
             }
-            return postData.O();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public ThreadData l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    @ColorRes
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (o()) {
-                int i = this.e;
-                if (i != 0) {
-                    return i;
-                }
-            } else {
-                int i2 = this.d;
-                if (i2 != 0) {
-                    return i2;
-                }
+            String[] split = dataString.split(":");
+            if (split.length == 2) {
+                return split[1];
             }
-            return R.color.CAM_X0304;
+            return dataString;
         }
-        return invokeV.intValue;
+        return (String) invokeL.objValue;
     }
 
-    public boolean n() {
-        InterceptResult invokeV;
+    public static int h(@NonNull DownloadData downloadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, downloadData)) == null) {
+            int l = tw8.o().l(downloadData.getId(), downloadData.getName());
+            if (l >= 0 && l <= 100) {
+                return l;
+            }
+            return 0;
         }
-        return invokeV.booleanValue;
+        return invokeL.intValue;
     }
 
-    public boolean o() {
-        InterceptResult invokeV;
+    public static void k(String str) {
+        Context context;
+        Intent f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.c;
+        if ((interceptable != null && interceptable.invokeL(65546, null, str) != null) || TextUtils.isEmpty(str) || (f = f((context = TbadkCoreApplication.getInst().getContext()), str)) == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        try {
+            context.startActivity(f);
+        } catch (Exception unused) {
+        }
+    }
+
+    public static boolean l(DownloadData downloadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, downloadData)) == null) {
+            if (ej.F()) {
+                return new as6().h(downloadData);
+            }
+            qc5.b(downloadData);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int c(@NonNull DownloadData downloadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, downloadData)) == null) {
+            if (tw8.o().s(downloadData.getId())) {
+                return 5;
+            }
+            if (tw8.o().v(downloadData.getId())) {
+                return 1;
+            }
+            if (tw8.o().r(downloadData.getId(), downloadData.getName())) {
+                return 7;
+            }
+            return 6;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            if (rc5.q().t(str)) {
+                return 1;
+            }
+            if (rc5.q().r(str)) {
+                return 5;
+            }
+            File m = rc5.q().m(str, str2);
+            if (m != null && m.exists()) {
+                return 7;
+            }
+            return 6;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static PackageInfo e(String str) {
+        InterceptResult invokeL;
+        PackageInfo packageInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                packageInfo = TbadkApplication.getInst().getPackageManager().getPackageInfo(str, 0);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (!str.equals(packageInfo.packageName)) {
+                return null;
+            }
+            return packageInfo;
+        }
+        return (PackageInfo) invokeL.objValue;
+    }
+
+    public static void i(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, downloadData) == null) {
+            k65.a(downloadData, 800);
+            Application app = TbadkCoreApplication.getInst().getApp();
+            UtilHelper.install_apk(app, downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+        }
+    }
+
+    public static Intent f(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
+            try {
+                return context.getPackageManager().getLaunchIntentForPackage(str);
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (Intent) invokeLL.objValue;
+    }
+
+    public static DownloadData j(ItemData itemData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, itemData)) == null) {
+            String str = itemData.pkgName + ".v" + itemData.apkDetail.version;
+            DownloadData downloadData = new DownloadData();
+            downloadData.setType(12);
+            downloadData.setId(str);
+            downloadData.setName(itemData.mTitle);
+            downloadData.setUrl(itemData.buttonLink);
+            downloadData.setNotifyId(tw8.p(str).intValue());
+            downloadData.setNeedInvokeApk(true);
+            downloadData.setNeedNotify(false);
+            ItemDownloadExtraData itemDownloadExtraData = new ItemDownloadExtraData(itemData.apkDetail.pkg_source.intValue());
+            itemDownloadExtraData.appName = itemData.mTitle;
+            itemDownloadExtraData.pkgName = itemData.pkgName;
+            downloadData.setExtra(itemDownloadExtraData);
+            return downloadData;
+        }
+        return (DownloadData) invokeL.objValue;
     }
 }

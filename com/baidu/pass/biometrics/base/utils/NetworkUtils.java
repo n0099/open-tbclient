@@ -4,15 +4,8 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class NetworkUtils {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int NETWORK_2G = 2;
     public static final int NETWORK_3G = 3;
     public static final int NETWORK_4G = 4;
@@ -38,82 +31,57 @@ public final class NetworkUtils {
     public static final int NETWORK_TYPE_UNKNOWN = 0;
     public static final int NETWORK_UNKNOW = 0;
     public static final int NETWORK_WIFI = 1;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public NetworkUtils() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     @TargetApi(3)
     public static String getNetworkClass(Context context) {
-        InterceptResult invokeL;
         NetworkInfo activeNetworkInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            } catch (Throwable unused) {
-            }
-            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
-                if (activeNetworkInfo.getType() == 1) {
-                    return "WIFI";
-                }
-                if (activeNetworkInfo.getType() == 0) {
-                    int subtype = activeNetworkInfo.getSubtype();
-                    if (subtype != 20) {
-                        switch (subtype) {
-                            case 1:
-                            case 2:
-                            case 4:
-                            case 7:
-                            case 11:
-                                return "2G";
-                            case 3:
-                            case 5:
-                            case 6:
-                            case 8:
-                            case 9:
-                            case 10:
-                            case 12:
-                            case 14:
-                            case 15:
-                                return "3G";
-                            case 13:
-                                return "4G";
-                            default:
-                                return RomUtils.UNKNOWN;
-                        }
-                    }
-                    return "5G";
-                }
-                return RomUtils.UNKNOWN;
-            }
-            return "UNCNCT";
+        try {
+            activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+        } catch (Throwable unused) {
         }
-        return (String) invokeL.objValue;
+        if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+            if (activeNetworkInfo.getType() == 1) {
+                return "WIFI";
+            }
+            if (activeNetworkInfo.getType() == 0) {
+                int subtype = activeNetworkInfo.getSubtype();
+                if (subtype != 20) {
+                    switch (subtype) {
+                        case 1:
+                        case 2:
+                        case 4:
+                        case 7:
+                        case 11:
+                            return "2G";
+                        case 3:
+                        case 5:
+                        case 6:
+                        case 8:
+                        case 9:
+                        case 10:
+                        case 12:
+                        case 14:
+                        case 15:
+                            return "3G";
+                        case 13:
+                            return "4G";
+                        default:
+                            return "UNKNOWN";
+                    }
+                }
+                return "5G";
+            }
+            return "UNKNOWN";
+        }
+        return "UNCNCT";
     }
 
     public static boolean isNetworkAvailable(Context context) {
-        InterceptResult invokeL;
         ConnectivityManager connectivityManager;
         NetworkInfo activeNetworkInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (context == null || (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null || !activeNetworkInfo.isAvailable()) {
-                return false;
-            }
-            return true;
+        if (context == null || (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null || !activeNetworkInfo.isAvailable()) {
+            return false;
         }
-        return invokeL.booleanValue;
+        return true;
     }
 }

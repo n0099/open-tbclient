@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sdk.a.g;
+import com.sdk.a.f;
 import com.sdk.base.module.manager.SDKManager;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -40,7 +40,7 @@ public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c
     public Boolean v;
     public Boolean w;
     public Boolean x;
-    public h<T> y;
+    public g<T> y;
     public long z;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -74,7 +74,7 @@ public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c
             c = new a("LOADING", 2, 2);
             d = new a("FAILURE", 3, 3);
             e = new a("CANCELLED", 4, 4);
-            a aVar = new a(com.alipay.security.mobile.module.http.model.c.p, 5, 5);
+            a aVar = new a("SUCCESS", 5, 5);
             f = aVar;
             g = new a[]{a, b, c, d, e, aVar};
         }
@@ -145,12 +145,12 @@ public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c
         return (String) invokeV.objValue;
     }
 
-    public e(g<T> gVar) {
+    public e(f<T> fVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {gVar};
+            Object[] objArr = {fVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -169,30 +169,30 @@ public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c
         this.v = bool;
         this.w = bool;
         this.x = bool;
-        if (gVar != null) {
-            h<T> hVar = gVar.f;
-            this.y = hVar;
-            if (hVar != null) {
-                this.n = hVar.c;
-                this.o = hVar.d;
-                this.q = hVar.i;
-                this.m = hVar.j;
+        if (fVar != null) {
+            g<T> gVar = fVar.e;
+            this.y = gVar;
+            if (gVar != null) {
+                this.n = gVar.c;
+                this.o = gVar.d;
+                this.q = gVar.i;
+                this.m = gVar.j;
             }
         }
     }
 
-    public final i<T> a(g<T> gVar, HttpURLConnection httpURLConnection) {
+    public final h<T> a(f<T> fVar, HttpURLConnection httpURLConnection) {
         InterceptResult invokeLL;
         byte[] bArr;
         boolean z;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, gVar, httpURLConnection)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, fVar, httpURLConnection)) == null) {
             if (this.e.get()) {
-                return new i<>(1, "网络访问已取消", false);
+                return new h<>(1, "网络访问已取消", false);
             }
             try {
-                com.sdk.n.b.a(httpURLConnection.getURL().toString(), System.currentTimeMillis() - this.z);
+                com.sdk.o.b.a(httpURLConnection.getURL().toString(), System.currentTimeMillis() - this.z);
                 int responseCode = httpURLConnection.getResponseCode();
                 StringBuilder sb = new StringBuilder();
                 sb.append("net请求host：");
@@ -216,8 +216,12 @@ public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c
                     sb3.append(responseCode);
                     sb3.append(";耗时=");
                     sb3.append(System.currentTimeMillis() - this.z);
-                    com.sdk.n.a.b("PriorityAsyncTask", sb3.toString(), this.h);
+                    com.sdk.o.a.b("PriorityAsyncTask", sb3.toString(), this.h);
                 }
+                StringBuilder sb4 = new StringBuilder();
+                sb4.append("geturlgetpath: ");
+                sb4.append(httpURLConnection.getURL().getPath());
+                Log.d("PriorityAsyncTask", sb4.toString());
                 if (httpURLConnection.getURL().getPath() == null) {
                     System.currentTimeMillis();
                     new ArrayList();
@@ -228,14 +232,14 @@ public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c
                 if (responseCode < 300) {
                     this.r = false;
                     if (this.u) {
-                        if (this.v.booleanValue() && com.sdk.l.a.b(httpURLConnection)) {
+                        if (this.v.booleanValue() && com.sdk.m.a.b(httpURLConnection)) {
                             z = true;
                         } else {
                             z = false;
                         }
                         this.v = Boolean.valueOf(z);
                         if (this.w.booleanValue()) {
-                            str = com.sdk.l.a.a(httpURLConnection);
+                            str = com.sdk.m.a.a(httpURLConnection);
                         } else {
                             str = null;
                         }
@@ -262,10 +266,10 @@ public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c
                             bArr = a2;
                         }
                     }
-                    return new i<>(0, bArr, false);
+                    return new h<>(0, bArr, false);
                 }
                 if (responseCode == 301 || responseCode == 302) {
-                    com.sdk.n.b.a(gVar.f.d, System.currentTimeMillis() - this.z);
+                    com.sdk.o.b.a(fVar.e.d, System.currentTimeMillis() - this.z);
                     String headerField = httpURLConnection.getHeaderField("Location");
                     String headerField2 = httpURLConnection.getHeaderField("Set-Cookie");
                     String path = httpURLConnection.getURL().getPath();
@@ -276,36 +280,37 @@ public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c
                         new ArrayList();
                         String str3 = "qcandroidabc000" + System.currentTimeMillis();
                     }
-                    if (com.sdk.n.a.b(headerField).booleanValue()) {
-                        gVar.f.d = headerField;
-                        HttpURLConnection a3 = gVar.a(headerField, com.sdk.l.a.a(headerField));
-                        if (com.sdk.n.a.b(headerField2).booleanValue()) {
+                    if (com.sdk.o.a.b(headerField).booleanValue()) {
+                        fVar.e.d = headerField;
+                        HttpURLConnection a3 = fVar.a(headerField, com.sdk.m.a.a(headerField));
+                        if (com.sdk.o.a.b(headerField2).booleanValue()) {
                             if ("/ctcnet/gctcmc.do".equals(path)) {
-                                com.sdk.j.a.a(SDKManager.mContext, "ctc", headerField2);
-                                com.sdk.n.a.b("PriorityAsyncTask", "mdb Cookie cache", this.h);
+                                com.sdk.k.a.a(SDKManager.mContext, "ctc", headerField2);
+                                com.sdk.o.a.b("PriorityAsyncTask", "mdb Cookie cache", this.h);
                             }
                             a3.setRequestProperty("Cookie", headerField2);
                         } else {
-                            a3.setRequestProperty("Cookie", com.sdk.j.a.c(SDKManager.mContext, "ctc"));
+                            a3.setRequestProperty("Cookie", com.sdk.k.a.c(SDKManager.mContext, "ctc"));
                         }
                         if (a3 == null) {
-                            return new i<>(0, b(), false);
+                            return new h<>(0, b(), false);
                         }
-                        gVar.f.a(g.a.a.l);
-                        return b(gVar, a3);
+                        fVar.e.a(f.a.a.l);
+                        return b(fVar, a3);
                     }
                 }
-                com.sdk.n.b.c("服务异常 ResponseCode = " + responseCode);
-                com.sdk.n.a.a("PriorityAsyncTask", "服务异常 ResponseCode = " + responseCode, this.h);
-                return new i<>(0, "服务端数据格式出错", false);
+                com.sdk.o.b.c("服务异常 ResponseCode = " + responseCode);
+                com.sdk.o.a.a("PriorityAsyncTask", "服务异常 ResponseCode = " + responseCode, this.h);
+                return new h<>(0, "服务端数据格式出错", false);
             } catch (Exception e) {
-                com.sdk.n.b.a(gVar.f.d, System.currentTimeMillis() - this.z);
-                com.sdk.n.b.c(e.toString());
-                com.sdk.n.a.a("PriorityAsyncTask", e.toString(), this.h);
-                return new i<>(1, "网络访问异常", false);
+                com.sdk.o.b.a(fVar.e.d, System.currentTimeMillis() - this.z);
+                com.sdk.o.b.c(e.toString());
+                com.sdk.o.a.a("PriorityAsyncTask", e.toString(), this.h);
+                Log.e("PriorityAsyncTask", "HttpHandler handleResponse");
+                return new h<>(1, "网络访问异常", false);
             }
         }
-        return (i) invokeLL.objValue;
+        return (h) invokeLL.objValue;
     }
 
     public void a() {
@@ -317,7 +322,7 @@ public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c
                     this.e.set(true);
                     this.d.cancel(true);
                 } catch (Throwable th) {
-                    com.sdk.n.a.a("PriorityAsyncTask", th.getMessage(), this.h);
+                    com.sdk.o.a.a("PriorityAsyncTask", th.getMessage(), this.h);
                 }
             }
             com.sdk.e.b<T> bVar = this.m;
@@ -355,26 +360,27 @@ public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c
         return invokeCommon.booleanValue;
     }
 
-    public final i<T> b(g<T> gVar, HttpURLConnection httpURLConnection) {
+    public final h<T> b(f<T> fVar, HttpURLConnection httpURLConnection) {
         InterceptResult invokeLL;
         long j2;
         String a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, gVar, httpURLConnection)) == null) {
-            i<T> iVar = null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, fVar, httpURLConnection)) == null) {
+            h<T> hVar = null;
             try {
             } catch (Throwable th) {
-                com.sdk.n.b.c(th.toString());
-                com.sdk.n.a.a("PriorityAsyncTask", "网络访问异常：" + th.toString(), this.h);
+                com.sdk.o.b.c(th.toString());
+                com.sdk.o.a.a("PriorityAsyncTask", "访问异常HttpHandler：" + th.toString(), this.h);
                 int i = this.q;
                 if (i > 0) {
                     this.q = i - 1;
-                    iVar = b(gVar, httpURLConnection);
+                    hVar = b(fVar, httpURLConnection);
                 }
             }
             if (j.b(this.n) && (a2 = j.a(this.o)) != null) {
-                return new i<>(0, a2, true);
+                return new h<>(0, a2, true);
             }
+            Log.d("PriorityAsyncTask", "sendRequest: ");
             if (this.v.booleanValue() && this.u) {
                 File file = new File(this.t);
                 if (file.isFile() && file.exists()) {
@@ -392,13 +398,15 @@ public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c
             }
             if (!this.e.get()) {
                 this.z = System.currentTimeMillis();
-                iVar = a(gVar, gVar.a(httpURLConnection));
+                hVar = a(fVar, fVar.a(httpURLConnection));
             }
-            if (iVar == null) {
-                return new i<>(1, "网络访问异常", false);
+            if (hVar == null) {
+                h<T> hVar2 = new h<>(1, "网络访问异常", false);
+                com.sdk.o.a.a("PriorityAsyncTask", "HttpHandler：responseInfo=null网络访问异常", this.h);
+                return hVar2;
             }
-            return iVar;
+            return hVar;
         }
-        return (i) invokeLL.objValue;
+        return (h) invokeLL.objValue;
     }
 }

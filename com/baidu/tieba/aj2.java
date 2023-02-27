@@ -1,50 +1,81 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.tieba.zi2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import com.facebook.common.internal.Sets;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 /* loaded from: classes3.dex */
-public class aj2 extends wi2 {
+public class aj2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Set<String> a;
+    public static final Set<String> b;
+    public static final Set<String> c;
+    public static final Map<String, zi2> d;
+    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
 
-    public aj2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947617024, "Lcom/baidu/tieba/aj2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947617024, "Lcom/baidu/tieba/aj2;");
                 return;
             }
         }
-        this.a = "route";
+        a = Sets.newHashSet(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
+        b = new HashSet(a);
+        c = new HashSet(b);
+        d = new HashMap();
+        e = false;
     }
 
-    @Override // com.baidu.tieba.wi2
-    public void m(Map<String, Object> map) {
+    public static zi2 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            map.put("fromId", this.c);
-            map.put("toId", this.d);
-            map.put("toTabIndex", this.g);
-            if (!TextUtils.isEmpty(this.e)) {
-                map.put("routeType", this.e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            c();
+            return d.get(str);
+        }
+        return (zi2) invokeL.objValue;
+    }
+
+    public static zi2 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            zi2.b bVar = new zi2.b();
+            bVar.d(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
+            bVar.e(ts2.w0().a());
+            bVar.b(ts2.w0().d());
+            return bVar.a();
+        }
+        return (zi2) invokeV.objValue;
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            if (!e) {
+                for (String str : c) {
+                    if (ZeusWebViewPreloadClass.ZEUS_FILE_DIR.equals(str)) {
+                        d.put(str, b());
+                    }
+                }
             }
-            if (!TextUtils.isEmpty(this.f)) {
-                map.put("toPage", this.f);
-            }
+            e = true;
         }
     }
 }

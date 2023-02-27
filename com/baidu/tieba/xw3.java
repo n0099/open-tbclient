@@ -1,17 +1,662 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
-/* loaded from: classes7.dex */
-public interface xw3 {
-    void a(int i);
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.swan.game.ad.downloader.model.DownloadParams;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
+import com.baidu.swan.game.ad.jsbridge.CommandType;
+import com.baidu.tieba.ny3;
+import com.baidu.tieba.zw3;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.TreeMap;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class xw3 implements yx3, zw3.e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public String b;
+    public String c;
+    public bx3 d;
+    public yw3 e;
+    public my3 f;
+    public AdElementInfo g;
+    public zw3 h;
+    public boolean i;
+    public String j;
+    public boolean k;
+    public fx3 l;
+    public Map<String, String> m;
+    public cy3 n;
 
-    void b();
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xw3 a;
 
-    void c(DownloadState downloadState, int i);
+        public a(xw3 xw3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xw3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xw3Var;
+        }
 
-    void d(String str);
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.h != null && this.a.h.f() != null && this.a.n.c(this.a.h.f())) {
+                this.a.n.removeView(this.a.h.f());
+            }
+        }
+    }
 
-    String e();
+    /* loaded from: classes6.dex */
+    public class b implements ay3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xw3 a;
 
-    void f(boolean z);
+        @Override // com.baidu.tieba.ay3
+        public void d(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            }
+        }
+
+        public b(xw3 xw3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xw3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xw3Var;
+        }
+
+        @Override // com.baidu.tieba.ay3
+        public void f(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || !this.a.k) {
+                return;
+            }
+            this.a.A(view2);
+            if (this.a.d != null) {
+                this.a.d.onClick();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements wx3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xw3 a;
+
+        public c(xw3 xw3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xw3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xw3Var;
+        }
+
+        @Override // com.baidu.tieba.wx3
+        public void b(CommandType commandType, Uri uri) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, commandType, uri) == null) && this.a.g != null) {
+                String clickUrl = this.a.g.getClickUrl();
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.putOpt("monitorUrl", vy3.b("landingPageLoad", this.a.m));
+                } catch (JSONException unused) {
+                }
+                this.a.n.a(clickUrl, jSONObject);
+                vy3.g(this.a.g, this.a.f);
+                vy3.n("lpClick", this.a.m, this.a.f);
+                vy3.n("click", this.a.m, this.a.f);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ xw3 b;
+
+        public d(xw3 xw3Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xw3Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = xw3Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                yw3 yw3Var = this.b.e;
+                if (yw3Var.c != yw3Var.e) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.b.x();
+                if (this.b.h != null) {
+                    this.b.h.e(this.b.e.c);
+                    this.b.n.f(this.b.h.f(), new ww3(fz3.a(this.b.e.a), fz3.a(this.b.e.b), fz3.a(this.b.e.e), fz3.a(this.b.e.f)));
+                }
+                if (this.a.equals("width") && z && this.b.d != null) {
+                    bx3 bx3Var = this.b.d;
+                    yw3 yw3Var2 = this.b.e;
+                    bx3Var.d(yw3Var2.e, yw3Var2.f);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xw3 a;
+
+        public e(xw3 xw3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xw3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xw3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.h != null && this.a.n.c(this.a.h.f())) {
+                    this.a.h.l();
+                    if (this.a.d != null) {
+                        this.a.d.c(true);
+                    }
+                    vy3.n("showSuccess", this.a.m, this.a.f);
+                    if (this.a.i) {
+                        return;
+                    }
+                    this.a.i = true;
+                    if (this.a.k) {
+                        xy3.f(this.a.g, this.a.f);
+                        return;
+                    }
+                    vy3.j(this.a.g, this.a.f);
+                    String str = this.a.c;
+                    xw3 xw3Var = this.a;
+                    vy3.f(str, xw3Var.b, xw3Var.j, this.a.f);
+                    vy3.n("show", this.a.m, this.a.f);
+                } else if (this.a.d != null) {
+                    this.a.d.c(false);
+                    this.a.d.onError("3010010");
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class f implements ay3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xw3 a;
+
+        @Override // com.baidu.tieba.ay3
+        public void f(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            }
+        }
+
+        public f(xw3 xw3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xw3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xw3Var;
+        }
+
+        @Override // com.baidu.tieba.ay3
+        public void d(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && !TextUtils.isEmpty(str2)) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("url", str2);
+                    if (this.a.l == null) {
+                        this.a.l = new fx3(this.a.a, this.a.g, this.a.f);
+                    }
+                    this.a.l.k(str);
+                    ey3.b().d(this.a.a, jSONObject, DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.a.l);
+                } catch (JSONException unused) {
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class g implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xw3 a;
+
+        public g(xw3 xw3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xw3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xw3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.h != null) {
+                this.a.h.g();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class h implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xw3 a;
+
+        public h(xw3 xw3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xw3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xw3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.h != null) {
+                    this.a.n.removeView(this.a.h.f());
+                }
+                this.a.h = null;
+                this.a.d = null;
+                this.a.g = null;
+                if (this.a.l != null) {
+                    this.a.l.i();
+                    this.a.l = null;
+                }
+            }
+        }
+    }
+
+    public xw3(String str, String str2, bx3 bx3Var, cy3 cy3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, bx3Var, cy3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = null;
+        this.m = new TreeMap();
+        Context appContext = AppRuntime.getAppContext();
+        this.a = appContext;
+        this.c = str;
+        this.b = str2;
+        this.d = bx3Var;
+        this.n = cy3Var;
+        this.f = new my3(appContext);
+        this.k = false;
+        E(10, 10, 350, 50);
+        D();
+    }
+
+    public void F(Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, map) == null) {
+            this.m = map;
+        }
+    }
+
+    public void G(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) {
+            bz3.c(new e(this));
+        }
+    }
+
+    public void H(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            bz3.c(new d(this, str));
+        }
+    }
+
+    @Override // com.baidu.tieba.yx3
+    public void c(AdElementInfo adElementInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, adElementInfo) == null) {
+            this.g = adElementInfo;
+            C();
+        }
+    }
+
+    public final void A(View view2) {
+        AdElementInfo adElementInfo;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.k && (adElementInfo = this.g) != null && this.e != null && view2 != null) {
+            xy3.d(adElementInfo, this.f);
+            uy3 uy3Var = new uy3();
+            uy3Var.a = String.valueOf(this.e.c);
+            uy3Var.b = String.valueOf(this.e.d);
+            uy3Var.c = String.valueOf(this.e.c);
+            uy3Var.d = String.valueOf(this.e.d);
+            uy3Var.e = String.valueOf((int) view2.getX());
+            uy3Var.f = String.valueOf((int) view2.getY());
+            uy3Var.g = String.valueOf((int) view2.getX());
+            uy3Var.h = String.valueOf((int) view2.getY());
+            if (this.g.getActionType() == 2) {
+                xy3.a(uy3Var, this.g, this.f, new f(this));
+                return;
+            }
+            AdElementInfo adElementInfo2 = this.g;
+            if (adElementInfo2 != null) {
+                this.n.a(xy3.c(adElementInfo2.getClickUrl(), uy3Var), new JSONObject());
+            }
+        }
+    }
+
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            bz3.c(new g(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.zw3.e
+    public void b() {
+        bx3 bx3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (bx3Var = this.d) != null) {
+            bx3Var.onClose();
+        }
+    }
+
+    public void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            bz3.c(new h(this));
+        }
+    }
+
+    public final void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            zw3 zw3Var = new zw3(this.a, this.g, this.b, this.k);
+            this.h = zw3Var;
+            zw3Var.i(this);
+            if (this.k) {
+                this.h.k(new b(this));
+            } else {
+                this.h.j(new c(this));
+            }
+            this.h.e(this.e.c);
+            if (this.n.c(this.h.f())) {
+                this.n.removeView(this.h.f());
+            }
+            if (this.n.d(this.h.f(), new ww3(fz3.a(this.e.a), fz3.a(this.e.b), fz3.a(this.e.e), fz3.a(this.e.f)))) {
+                bx3 bx3Var = this.d;
+                if (bx3Var != null) {
+                    bx3Var.b(true, "");
+                    return;
+                }
+                return;
+            }
+            bx3 bx3Var2 = this.d;
+            if (bx3Var2 != null) {
+                bx3Var2.onError("3010000");
+            }
+        }
+    }
+
+    public final void D() {
+        py3 oy3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            vy3.n("loadApi", this.m, this.f);
+            String appKey = ey3.b().getAppKey();
+            ny3.b bVar = new ny3.b();
+            bVar.m(this.c);
+            bVar.j(this.b);
+            bVar.o(appKey);
+            bVar.n("game");
+            bVar.k(SpeedStatsUtils.UBC_VALUE_BANNER);
+            bVar.l(this.e.c);
+            bVar.i(this.e.d);
+            ny3 h2 = bVar.h();
+            if (this.k) {
+                oy3Var = new qy3(this.a, h2, 1, z());
+            } else {
+                oy3Var = new oy3(this.a, h2);
+                this.j = oy3Var.c();
+            }
+            ky3 ky3Var = new ky3(this.a, false);
+            ky3Var.k(this);
+            ky3Var.i(oy3Var, this.f);
+        }
+    }
+
+    public final void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            zw3 zw3Var = new zw3(this.a);
+            this.h = zw3Var;
+            zw3Var.e(this.e.c);
+            if (this.h.f() == null) {
+                return;
+            }
+            if (this.n.c(this.h.f())) {
+                this.n.removeView(this.h.f());
+            }
+            this.n.d(this.h.f(), new ww3(fz3.a(this.e.a), fz3.a(this.e.b), fz3.a(this.e.e), fz3.a(this.e.f)));
+            this.h.f().postDelayed(new a(this), 20000L);
+        }
+    }
+
+    public final void x() {
+        yw3 yw3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || (yw3Var = this.e) == null) {
+            return;
+        }
+        if (fz3.a(yw3Var.c) < 300) {
+            this.e.c = fz3.p(300.0f);
+        }
+        int k = ey3.b().k();
+        int j = ey3.b().j();
+        if (fz3.a(this.e.c) > k) {
+            this.e.c = fz3.p(k);
+        }
+        yw3 yw3Var2 = this.e;
+        yw3Var2.d = (int) (yw3Var2.c / ax3.a);
+        if (yw3Var2.a < 0) {
+            yw3Var2.a = 0;
+        }
+        int p = fz3.p(k);
+        yw3 yw3Var3 = this.e;
+        int i = p - yw3Var3.c;
+        if (yw3Var3.a > i) {
+            yw3Var3.a = i;
+        }
+        yw3 yw3Var4 = this.e;
+        if (yw3Var4.b < 0) {
+            yw3Var4.b = 0;
+        }
+        int p2 = fz3.p(j);
+        yw3 yw3Var5 = this.e;
+        int i2 = p2 - yw3Var5.d;
+        if (yw3Var5.b > i2) {
+            yw3Var5.b = i2;
+        }
+        yw3 yw3Var6 = this.e;
+        yw3Var6.e = yw3Var6.c;
+        yw3Var6.f = yw3Var6.d;
+    }
+
+    public void E(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048580, this, i, i2, i3, i4) == null) {
+            this.e = new yw3(i, i2, i3, i4);
+            x();
+        }
+    }
+
+    @Override // com.baidu.tieba.yx3
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            bx3 bx3Var = this.d;
+            if (bx3Var != null) {
+                bx3Var.onError(str);
+            }
+            String appId = ey3.b().getAppId();
+            if (appId.lastIndexOf("_dev") >= 0 && appId.lastIndexOf("_dev") < appId.length() && str.equals("201000")) {
+                w();
+            }
+            bx3 bx3Var2 = this.d;
+            if (bx3Var2 != null) {
+                bx3Var2.b(false, "");
+            }
+        }
+    }
+
+    public final int z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (this.e == null) {
+                return 2;
+            }
+            int p = fz3.p(ey3.b().j());
+            int i = this.e.b;
+            int i2 = p / 3;
+            if (i < i2) {
+                return 1;
+            }
+            if (i >= i2 * 2) {
+                return 2;
+            }
+            return 4;
+        }
+        return invokeV.intValue;
+    }
 }

@@ -1,9 +1,9 @@
 package com.xiaomi.push;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public /* synthetic */ class at {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface at {
+    /* renamed from: a */
+    String mo182a();
+
+    /* renamed from: a */
+    boolean mo183a();
 }

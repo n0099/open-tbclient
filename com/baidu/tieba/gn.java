@@ -2,16 +2,14 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.adp.titan.TitanDownloadService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.launch.stats.AppBeforeCreateSpeedStats;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,39 +27,22 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class gn {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile gn e;
+    public static volatile gn d;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public long b;
     public int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448305574, "Lcom/baidu/tieba/gn;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448305574, "Lcom/baidu/tieba/gn;");
-                return;
-            }
-        }
-        d = ym.a;
-    }
-
     public gn() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
@@ -74,12 +55,12 @@ public class gn {
         InterceptResult invokeV;
         gn gnVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (gn.class) {
-                if (e == null) {
-                    e = new gn();
+                if (d == null) {
+                    d = new gn();
                 }
-                gnVar = e;
+                gnVar = d;
             }
             return gnVar;
         }
@@ -135,13 +116,12 @@ public class gn {
                 Context appContext = AppRuntime.getAppContext();
                 PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
                 if (packageInfo != null) {
-                    if (d) {
-                        Log.d(TitanDownloadService.TAG, "cur host version code = " + packageInfo.versionCode);
-                    }
+                    r08 defaultLog = DefaultLog.getInstance();
+                    defaultLog.a(TitanDownloadService.TAG, "cur host version code = " + packageInfo.versionCode);
                     return packageInfo.versionCode;
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return 0;
         }
@@ -160,8 +140,8 @@ public class gn {
             try {
                 try {
                     dataInputStream = new DataInputStream(new FileInputStream(f));
-                } catch (IOException e2) {
-                    e = e2;
+                } catch (IOException e) {
+                    e = e;
                 }
             } catch (Throwable th) {
                 th = th;
@@ -171,8 +151,8 @@ public class gn {
                 this.b = dataInputStream.readLong();
                 this.c = dataInputStream.readInt();
                 Closeables.closeSafely(dataInputStream);
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 dataInputStream2 = dataInputStream;
                 e.printStackTrace();
                 Closeables.closeSafely(dataInputStream2);
@@ -215,8 +195,8 @@ public class gn {
                 jSONObject.put("updateVersion", this.a);
                 jSONObject.put("lastUpdateTime", this.b);
                 jSONObject.put("hostVersionCode", this.c);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }
@@ -232,23 +212,29 @@ public class gn {
         return (String) invokeV.objValue;
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0067 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0080 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v2, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    /* JADX WARN: Type inference failed for: r2v5, types: [java.io.File] */
+    /* JADX WARN: Type inference failed for: r2v9, types: [java.io.File] */
     public void l() {
         File file;
         DataOutputStream dataOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (d) {
-                Log.d(TitanDownloadService.TAG, "updateToFile value = " + toString());
-            }
+            File file2 = TitanDownloadService.TAG;
+            DefaultLog.getInstance().a(TitanDownloadService.TAG, "updateToFile value = " + toString());
             File f = f();
             DataOutputStream dataOutputStream2 = null;
             try {
                 try {
-                    file = File.createTempFile(AppBeforeCreateSpeedStats.TITAN_DETAILS, Scopes.PROFILE, f.getParentFile());
+                    file2 = File.createTempFile(AppBeforeCreateSpeedStats.TITAN_DETAILS, Scopes.PROFILE, f.getParentFile());
                     try {
-                        dataOutputStream = new DataOutputStream(new FileOutputStream(file));
-                    } catch (IOException e2) {
-                        e = e2;
+                        dataOutputStream = new DataOutputStream(new FileOutputStream((File) file2));
+                    } catch (IOException e) {
+                        e = e;
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -259,37 +245,46 @@ public class gn {
                     dataOutputStream.writeInt(this.c);
                     dataOutputStream.close();
                     f.delete();
-                    file.renameTo(f);
+                    file2.renameTo(f);
                     Closeables.closeSafely(dataOutputStream);
-                    if (file == null || !file.exists()) {
-                        return;
-                    }
-                } catch (IOException e3) {
-                    e = e3;
+                } catch (IOException e2) {
+                    e = e2;
                     dataOutputStream2 = dataOutputStream;
                     e.printStackTrace();
                     Closeables.closeSafely(dataOutputStream2);
-                    if (file == null || !file.exists()) {
-                        return;
+                    if (file2 != null) {
+                        boolean exists = file2.exists();
+                        file = file2;
+                        if (!exists) {
+                            return;
+                        }
+                        file.delete();
                     }
-                    file.delete();
+                    return;
                 } catch (Throwable th2) {
                     th = th2;
                     dataOutputStream2 = dataOutputStream;
                     Closeables.closeSafely(dataOutputStream2);
-                    if (file != null && file.exists()) {
-                        file.delete();
+                    if (file2 != 0 && file2.exists()) {
+                        file2.delete();
                     }
                     throw th;
                 }
-            } catch (IOException e4) {
-                e = e4;
-                file = null;
+            } catch (IOException e3) {
+                e = e3;
+                file2 = null;
             } catch (Throwable th3) {
                 th = th3;
-                file = null;
+                file2 = 0;
             }
-            file.delete();
+            if (file2 != 0) {
+                boolean exists2 = file2.exists();
+                file = file2;
+                if (!exists2) {
+                    return;
+                }
+                file.delete();
+            }
         }
     }
 }

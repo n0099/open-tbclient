@@ -6,14 +6,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.MalformedURLException;
@@ -21,268 +13,150 @@ import java.net.URL;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class UriUtil {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String DATA_SCHEME = "data";
     public static final String HTTPS_SCHEME = "https";
     public static final String HTTP_SCHEME = "http";
     public static final String LOCAL_ASSET_SCHEME = "asset";
-    public static final Uri LOCAL_CONTACT_IMAGE_URI;
+    public static final Uri LOCAL_CONTACT_IMAGE_URI = Uri.withAppendedPath(ContactsContract.AUTHORITY_URI, "display_photo");
     public static final String LOCAL_CONTENT_SCHEME = "content";
     public static final String LOCAL_FILE_SCHEME = "file";
     public static final String LOCAL_RESOURCE_SCHEME = "res";
     public static final String QUALIFIED_RESOURCE_SCHEME = "android.resource";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1536819621, "Lcom/facebook/common/util/UriUtil;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1536819621, "Lcom/facebook/common/util/UriUtil;");
-                return;
-            }
-        }
-        LOCAL_CONTACT_IMAGE_URI = Uri.withAppendedPath(ContactsContract.AUTHORITY_URI, "display_photo");
-    }
-
-    public UriUtil() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
 
     @Nullable
     public static AssetFileDescriptor getAssetFileDescriptor(ContentResolver contentResolver, Uri uri) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, contentResolver, uri)) == null) {
-            if (isLocalContentUri(uri)) {
-                try {
-                    return contentResolver.openAssetFileDescriptor(uri, "r");
-                } catch (FileNotFoundException unused) {
-                }
+        if (isLocalContentUri(uri)) {
+            try {
+                return contentResolver.openAssetFileDescriptor(uri, "r");
+            } catch (FileNotFoundException unused) {
             }
-            return null;
         }
-        return (AssetFileDescriptor) invokeLL.objValue;
+        return null;
     }
 
     public static Uri getUriForQualifiedResource(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
-            return new Uri.Builder().scheme(QUALIFIED_RESOURCE_SCHEME).authority(str).path(String.valueOf(i)).build();
-        }
-        return (Uri) invokeLI.objValue;
+        return new Uri.Builder().scheme(QUALIFIED_RESOURCE_SCHEME).authority(str).path(String.valueOf(i)).build();
     }
 
     @Nullable
     public static String getRealPathFromUri(ContentResolver contentResolver, Uri uri) {
-        InterceptResult invokeLL;
         int columnIndex;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, contentResolver, uri)) == null) {
-            Cursor cursor = null;
-            r1 = null;
-            r1 = null;
-            String string = null;
-            if (isLocalContentUri(uri)) {
-                try {
-                    Cursor query = contentResolver.query(uri, null, null, null, null);
-                    if (query != null) {
-                        try {
-                            if (query.moveToFirst() && (columnIndex = query.getColumnIndex("_data")) != -1) {
-                                string = query.getString(columnIndex);
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                            cursor = query;
-                            if (cursor != null) {
-                                cursor.close();
-                            }
-                            throw th;
+        Cursor cursor = null;
+        r1 = null;
+        r1 = null;
+        String string = null;
+        if (isLocalContentUri(uri)) {
+            try {
+                Cursor query = contentResolver.query(uri, null, null, null, null);
+                if (query != null) {
+                    try {
+                        if (query.moveToFirst() && (columnIndex = query.getColumnIndex("_data")) != -1) {
+                            string = query.getString(columnIndex);
                         }
+                    } catch (Throwable th) {
+                        th = th;
+                        cursor = query;
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        throw th;
                     }
-                    if (query != null) {
-                        query.close();
-                        return string;
-                    }
-                    return string;
-                } catch (Throwable th2) {
-                    th = th2;
                 }
-            } else if (!isLocalFileUri(uri)) {
-                return null;
-            } else {
-                return uri.getPath();
+                if (query != null) {
+                    query.close();
+                    return string;
+                }
+                return string;
+            } catch (Throwable th2) {
+                th = th2;
             }
+        } else if (!isLocalFileUri(uri)) {
+            return null;
         } else {
-            return (String) invokeLL.objValue;
+            return uri.getPath();
         }
     }
 
     @Nullable
     public static String getSchemeOrNull(@Nullable Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) {
-            if (uri == null) {
-                return null;
-            }
-            return uri.getScheme();
+        if (uri == null) {
+            return null;
         }
-        return (String) invokeL.objValue;
+        return uri.getScheme();
     }
 
     public static Uri getUriForFile(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) {
-            return Uri.fromFile(file);
-        }
-        return (Uri) invokeL.objValue;
+        return Uri.fromFile(file);
     }
 
     public static Uri getUriForResourceId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
-            return new Uri.Builder().scheme(LOCAL_RESOURCE_SCHEME).path(String.valueOf(i)).build();
-        }
-        return (Uri) invokeI.objValue;
+        return new Uri.Builder().scheme(LOCAL_RESOURCE_SCHEME).path(String.valueOf(i)).build();
     }
 
     public static boolean isDataUri(@Nullable Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, uri)) == null) {
-            return "data".equals(getSchemeOrNull(uri));
-        }
-        return invokeL.booleanValue;
+        return "data".equals(getSchemeOrNull(uri));
     }
 
     public static boolean isLocalAssetUri(@Nullable Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, uri)) == null) {
-            return "asset".equals(getSchemeOrNull(uri));
+        return "asset".equals(getSchemeOrNull(uri));
+    }
+
+    public static boolean isLocalCameraUri(Uri uri) {
+        String uri2 = uri.toString();
+        if (!uri2.startsWith(MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString()) && !uri2.startsWith(MediaStore.Images.Media.INTERNAL_CONTENT_URI.toString())) {
+            return false;
         }
-        return invokeL.booleanValue;
+        return true;
+    }
+
+    public static boolean isLocalContactUri(Uri uri) {
+        if (isLocalContentUri(uri) && "com.android.contacts".equals(uri.getAuthority()) && !uri.getPath().startsWith(LOCAL_CONTACT_IMAGE_URI.getPath())) {
+            return true;
+        }
+        return false;
     }
 
     public static boolean isLocalContentUri(@Nullable Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, uri)) == null) {
-            return "content".equals(getSchemeOrNull(uri));
-        }
-        return invokeL.booleanValue;
+        return "content".equals(getSchemeOrNull(uri));
     }
 
     public static boolean isLocalFileUri(@Nullable Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, uri)) == null) {
-            return "file".equals(getSchemeOrNull(uri));
-        }
-        return invokeL.booleanValue;
+        return "file".equals(getSchemeOrNull(uri));
     }
 
     public static boolean isLocalResourceUri(@Nullable Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, uri)) == null) {
-            return LOCAL_RESOURCE_SCHEME.equals(getSchemeOrNull(uri));
-        }
-        return invokeL.booleanValue;
+        return LOCAL_RESOURCE_SCHEME.equals(getSchemeOrNull(uri));
     }
 
     public static boolean isNetworkUri(@Nullable Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, uri)) == null) {
-            String schemeOrNull = getSchemeOrNull(uri);
-            if (!"https".equals(schemeOrNull) && !"http".equals(schemeOrNull)) {
-                return false;
-            }
-            return true;
+        String schemeOrNull = getSchemeOrNull(uri);
+        if (!"https".equals(schemeOrNull) && !"http".equals(schemeOrNull)) {
+            return false;
         }
-        return invokeL.booleanValue;
+        return true;
     }
 
     public static boolean isQualifiedResourceUri(@Nullable Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, uri)) == null) {
-            return QUALIFIED_RESOURCE_SCHEME.equals(getSchemeOrNull(uri));
-        }
-        return invokeL.booleanValue;
+        return QUALIFIED_RESOURCE_SCHEME.equals(getSchemeOrNull(uri));
     }
 
     @Nullable
     public static Uri parseUriOrNull(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) {
-            if (str != null) {
-                return Uri.parse(str);
-            }
-            return null;
+        if (str != null) {
+            return Uri.parse(str);
         }
-        return (Uri) invokeL.objValue;
+        return null;
     }
 
     @Nullable
     public static URL uriToUrl(@Nullable Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, uri)) == null) {
-            if (uri == null) {
-                return null;
-            }
-            try {
-                return new URL(uri.toString());
-            } catch (MalformedURLException e) {
-                throw new RuntimeException(e);
-            }
+        if (uri == null) {
+            return null;
         }
-        return (URL) invokeL.objValue;
-    }
-
-    public static boolean isLocalCameraUri(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, uri)) == null) {
-            String uri2 = uri.toString();
-            if (!uri2.startsWith(MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString()) && !uri2.startsWith(MediaStore.Images.Media.INTERNAL_CONTENT_URI.toString())) {
-                return false;
-            }
-            return true;
+        try {
+            return new URL(uri.toString());
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean isLocalContactUri(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, uri)) == null) {
-            if (isLocalContentUri(uri) && "com.android.contacts".equals(uri.getAuthority()) && !uri.getPath().startsWith(LOCAL_CONTACT_IMAGE_URI.getPath())) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

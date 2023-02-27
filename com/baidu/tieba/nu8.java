@@ -1,49 +1,75 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
+import android.content.Intent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.pushdialog.PushDialogActivity;
+import com.baidu.tieba.pushdialog.data.PushDialogHttpResMsg;
+import com.baidu.tieba.pushdialog.data.PushDialogReqNetMsg;
+import com.baidu.tieba.pushdialog.data.PushDialogSocketResMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class nu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<a> a;
+    public PushDialogActivity a;
+    public String b;
+    public long c;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public class a extends wb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public int b;
+        public final /* synthetic */ nu8 a;
 
-        public a(boolean z, int i) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(nu8 nu8Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
+                Object[] objArr = {nu8Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = z;
-            this.b = i;
+            this.a = nu8Var;
+        }
+
+        @Override // com.baidu.tieba.wb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                if (responsedMessage instanceof PushDialogHttpResMsg) {
+                    this.a.f((PushDialogHttpResMsg) responsedMessage);
+                } else if (responsedMessage instanceof PushDialogSocketResMsg) {
+                    this.a.g((PushDialogSocketResMsg) responsedMessage);
+                }
+            }
         }
     }
 
-    public nu8(SparseArray<a> sparseArray) {
+    public nu8(PushDialogActivity pushDialogActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sparseArray};
+            Object[] objArr = {pushDialogActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,6 +79,74 @@ public class nu8 {
                 return;
             }
         }
-        this.a = sparseArray;
+        this.a = pushDialogActivity;
+        pushDialogActivity.registerListener(new a(this, CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, 309614));
+        Intent intent = this.a.getIntent();
+        if (intent != null) {
+            this.b = intent.getStringExtra("thread_id");
+            this.c = intent.getLongExtra("task_id", 0L);
+            if (StringUtils.isNull(this.b)) {
+                this.a.finish();
+            }
+        }
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long g = dh.g(this.b, 0L);
+            if (g == 0) {
+                PushDialogActivity pushDialogActivity = this.a;
+                if (pushDialogActivity != null) {
+                    pushDialogActivity.z1(false, null);
+                    return;
+                }
+                return;
+            }
+            PushDialogReqNetMsg pushDialogReqNetMsg = new PushDialogReqNetMsg();
+            pushDialogReqNetMsg.setTask_id(this.c);
+            pushDialogReqNetMsg.setTid(g);
+            MessageManager.getInstance().sendMessage(pushDialogReqNetMsg);
+        }
+    }
+
+    public final void f(PushDialogHttpResMsg pushDialogHttpResMsg) {
+        PushDialogActivity pushDialogActivity;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, pushDialogHttpResMsg) == null) && (pushDialogActivity = this.a) != null) {
+            if (pushDialogHttpResMsg.getError() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            pushDialogActivity.z1(z, pushDialogHttpResMsg.getData());
+        }
+    }
+
+    public final void g(PushDialogSocketResMsg pushDialogSocketResMsg) {
+        PushDialogActivity pushDialogActivity;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, pushDialogSocketResMsg) == null) && (pushDialogActivity = this.a) != null) {
+            pushDialogActivity.z1(!pushDialogSocketResMsg.hasError(), pushDialogSocketResMsg.getData());
+        }
     }
 }

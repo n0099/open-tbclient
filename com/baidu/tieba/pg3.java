@@ -1,67 +1,186 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.tieba.ju2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
-@Deprecated
 /* loaded from: classes5.dex */
-public class pg3 extends ta3 {
+public class pg3 extends og3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SwanCoreVersion k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
+    public String u;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pg3(t93 t93Var) {
-        super(t93Var, "/swanAPI/removeStorage");
+    public pg3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t93Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.l = "";
+        this.m = "";
+        this.n = "";
+        this.o = "";
+        this.p = "";
+        this.q = "";
+        this.r = "";
+        this.s = "";
+        this.t = "";
+        eg3.i(this);
+        eg3.h(this);
+        eg3.f(this);
+        eg3.g(this);
     }
 
-    @Override // com.baidu.tieba.ta3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.og3
+    public JSONObject f() {
+        int i;
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
-            if (w83Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                m93 D = zu2.U().D();
+                if (TextUtils.equals(this.a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME)) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                String i2 = ri3.i(this.k, i);
+                if (D != null && D.Y() != null) {
+                    ju2.a Y = D.Y();
+                    if (TextUtils.isEmpty(this.l)) {
+                        this.l = D.k0();
+                    }
+                    if (TextUtils.isEmpty(this.m)) {
+                        this.m = Y.w1();
+                    }
+                    Bundle P = Y.P();
+                    if (P != null) {
+                        this.o = P.getString("aiapp_extra_need_download", "");
+                    }
+                    if (TextUtils.isEmpty(this.p)) {
+                        this.p = Y.W();
+                    }
+                    this.p = eg3.b(this.p);
+                    if (TextUtils.isEmpty(this.g) && !TextUtils.isEmpty(Y.e0())) {
+                        this.s = Y.e0();
+                    }
+                    String b = eg3.b(this.s);
+                    this.s = b;
+                    if (b == null) {
+                        this.s = "";
+                    }
+                    if (TextUtils.isEmpty(this.u)) {
+                        this.u = Y.V();
+                    }
+                }
+                this.n = SwanAppNetworkUtils.f().type;
+                if (this.h == null) {
+                    this.h = new JSONObject();
+                }
+                this.h.put("swan", i2);
+                this.h.put("appversion", this.l);
+                this.h.put("thirdversion", this.m);
+                this.h.put("net", this.n);
+                this.h.put("needdown", this.o);
+                this.h.put("scheme", this.p);
+                this.h.put("page", this.s);
+                this.h.put("launchid", this.u);
+                if (!TextUtils.isEmpty(this.t)) {
+                    this.h.put("error_code", this.t);
+                }
+                if (!TextUtils.isEmpty(this.q)) {
+                    this.h.put("canceltime", this.q);
+                }
+                if (!TextUtils.isEmpty(this.r)) {
+                    this.h.put("successtime", this.r);
+                }
+                if (og3.j) {
+                    Log.d("SwanAppUBCEvent", "SwanAppUBCEvent: mExt=" + this.h + "\t " + Thread.currentThread().getId());
+                }
+            } catch (JSONException e) {
+                if (og3.j) {
+                    e.printStackTrace();
+                }
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                return false;
-            }
-            String Q = xy1.Q(optParamsAsJo);
-            if (Q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            w83Var.f0().g().remove(Q);
-            sk3.h.update();
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
+            return super.f();
         }
-        return invokeLLLL.booleanValue;
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.u;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void h(mu2 mu2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mu2Var) == null) {
+            if (mu2Var == null) {
+                if (og3.j) {
+                    Log.w("SwanAppUBCEvent", "launchinfo is null");
+                    return;
+                }
+                return;
+            }
+            this.f = mu2Var.H();
+            this.c = mu2Var.T();
+            this.o = mu2Var.s0().getString("aiapp_extra_need_download", "");
+            this.p = mu2Var.W();
+            this.s = mu2Var.e0();
+            this.u = mu2Var.V();
+        }
+    }
+
+    public void i(mu2 mu2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, mu2Var) == null) {
+            h(mu2Var);
+        }
+    }
+
+    public void j(mu2 mu2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mu2Var) == null) {
+            h(mu2Var);
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.u = str;
+        }
     }
 }

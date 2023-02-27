@@ -1,6 +1,7 @@
 package com.baidu.titan.sdk.verifier;
 
 import android.util.Pair;
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.titan.sdk.internal.util.Closes;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -611,7 +612,7 @@ public class ApkSignatureSchemeV2Verifier {
                     case SIGNATURE_RSA_PSS_WITH_SHA512 /* 258 */:
                     case SIGNATURE_RSA_PKCS1_V1_5_WITH_SHA256 /* 259 */:
                     case 260:
-                        return "RSA";
+                        return RSAUtil.ALGORITHM_RSA;
                     default:
                         throw new IllegalArgumentException("Unknown signature algorithm: 0x" + Long.toHexString(i & (-1)));
                 }

@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.gv4;
+import com.baidu.tieba.nw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ public class ClickableHeaderImageView extends HeadImageView {
     public ThreadData T0;
     public boolean U0;
     public View.OnClickListener V0;
-    public gv4 W0;
+    public nw4 W0;
     public View.OnClickListener X0;
 
     /* loaded from: classes3.dex */
@@ -59,8 +59,8 @@ public class ClickableHeaderImageView extends HeadImageView {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                gv4 gv4Var = this.a.W0;
-                if ((gv4Var != null && gv4Var.a(view2)) || this.a.T0 == null) {
+                nw4 nw4Var = this.a.W0;
+                if ((nw4Var != null && nw4Var.a(view2)) || this.a.T0 == null) {
                     return;
                 }
                 if (this.a.U0) {
@@ -149,10 +149,10 @@ public class ClickableHeaderImageView extends HeadImageView {
         setData(threadData);
     }
 
-    public void setOnInterceptClickEventListener(gv4 gv4Var) {
+    public void setOnInterceptClickEventListener(nw4 nw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, gv4Var) == null) {
-            this.W0 = gv4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, nw4Var) == null) {
+            this.W0 = nw4Var;
         }
     }
 

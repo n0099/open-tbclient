@@ -1,39 +1,24 @@
 package com.google.android.exoplayer2.extractor.ogg;
 
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.ParserException;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.Arrays;
 /* loaded from: classes7.dex */
 public final class VorbisUtil {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "VorbisUtil";
-    public transient /* synthetic */ FieldHolder $fh;
 
     public static int iLog(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            int i2 = 0;
-            while (i > 0) {
-                i2++;
-                i >>>= 1;
-            }
-            return i2;
+        int i2 = 0;
+        while (i > 0) {
+            i2++;
+            i >>>= 1;
         }
-        return invokeI.intValue;
+        return i2;
     }
 
     /* loaded from: classes7.dex */
     public static final class CodeBook {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final int dimensions;
         public final int entries;
         public final boolean isOrdered;
@@ -41,20 +26,6 @@ public final class VorbisUtil {
         public final int lookupType;
 
         public CodeBook(int i, int i2, long[] jArr, int i3, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), jArr, Integer.valueOf(i3), Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.dimensions = i;
             this.entries = i2;
             this.lengthMap = jArr;
@@ -65,27 +36,11 @@ public final class VorbisUtil {
 
     /* loaded from: classes7.dex */
     public static final class CommentHeader {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final String[] comments;
         public final int length;
         public final String vendor;
 
         public CommentHeader(String str, String[] strArr, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, strArr, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.vendor = str;
             this.comments = strArr;
             this.length = i;
@@ -94,28 +49,12 @@ public final class VorbisUtil {
 
     /* loaded from: classes7.dex */
     public static final class Mode {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final boolean blockFlag;
         public final int mapping;
         public final int transformType;
         public final int windowType;
 
         public Mode(boolean z, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.blockFlag = z;
             this.windowType = i;
             this.transformType = i2;
@@ -125,8 +64,6 @@ public final class VorbisUtil {
 
     /* loaded from: classes7.dex */
     public static final class VorbisIdHeader {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final int bitrateMax;
         public final int bitrateMin;
         public final int bitrateNominal;
@@ -139,20 +76,6 @@ public final class VorbisUtil {
         public final long version;
 
         public VorbisIdHeader(long j, int i, long j2, int i2, int i3, int i4, int i5, int i6, boolean z, byte[] bArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r3;
-                Object[] objArr = {Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Boolean.valueOf(z), bArr};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i7 = newInitContext.flag;
-                if ((i7 & 1) != 0) {
-                    int i8 = i7 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.version = j;
             this.channels = i;
             this.sampleRate = j2;
@@ -166,155 +89,123 @@ public final class VorbisUtil {
         }
 
         public int getApproximateBitrate() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i = this.bitrateNominal;
-                if (i == 0) {
-                    return (this.bitrateMin + this.bitrateMax) / 2;
-                }
-                return i;
+            int i = this.bitrateNominal;
+            if (i == 0) {
+                return (this.bitrateMin + this.bitrateMax) / 2;
             }
-            return invokeV.intValue;
-        }
-    }
-
-    public VorbisUtil() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            return i;
         }
     }
 
     public static long mapType1QuantValues(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return (long) Math.floor(Math.pow(j, 1.0d / j2));
-        }
-        return invokeCommon.longValue;
+        return (long) Math.floor(Math.pow(j, 1.0d / j2));
     }
 
     public static CodeBook readBook(VorbisBitArray vorbisBitArray) throws ParserException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, vorbisBitArray)) == null) {
-            if (vorbisBitArray.readBits(24) == 5653314) {
-                int readBits = vorbisBitArray.readBits(16);
-                int readBits2 = vorbisBitArray.readBits(24);
-                long[] jArr = new long[readBits2];
-                boolean readBit = vorbisBitArray.readBit();
-                long j = 0;
-                if (!readBit) {
-                    boolean readBit2 = vorbisBitArray.readBit();
-                    for (int i = 0; i < readBits2; i++) {
-                        if (readBit2) {
-                            if (vorbisBitArray.readBit()) {
-                                jArr[i] = vorbisBitArray.readBits(5) + 1;
-                            } else {
-                                jArr[i] = 0;
-                            }
-                        } else {
+        if (vorbisBitArray.readBits(24) == 5653314) {
+            int readBits = vorbisBitArray.readBits(16);
+            int readBits2 = vorbisBitArray.readBits(24);
+            long[] jArr = new long[readBits2];
+            boolean readBit = vorbisBitArray.readBit();
+            long j = 0;
+            if (!readBit) {
+                boolean readBit2 = vorbisBitArray.readBit();
+                for (int i = 0; i < readBits2; i++) {
+                    if (readBit2) {
+                        if (vorbisBitArray.readBit()) {
                             jArr[i] = vorbisBitArray.readBits(5) + 1;
-                        }
-                    }
-                } else {
-                    int readBits3 = vorbisBitArray.readBits(5) + 1;
-                    int i2 = 0;
-                    while (i2 < readBits2) {
-                        int readBits4 = vorbisBitArray.readBits(iLog(readBits2 - i2));
-                        for (int i3 = 0; i3 < readBits4 && i2 < readBits2; i3++) {
-                            jArr[i2] = readBits3;
-                            i2++;
-                        }
-                        readBits3++;
-                    }
-                }
-                int readBits5 = vorbisBitArray.readBits(4);
-                if (readBits5 <= 2) {
-                    if (readBits5 == 1 || readBits5 == 2) {
-                        vorbisBitArray.skipBits(32);
-                        vorbisBitArray.skipBits(32);
-                        int readBits6 = vorbisBitArray.readBits(4) + 1;
-                        vorbisBitArray.skipBits(1);
-                        if (readBits5 == 1) {
-                            if (readBits != 0) {
-                                j = mapType1QuantValues(readBits2, readBits);
-                            }
                         } else {
-                            j = readBits2 * readBits;
+                            jArr[i] = 0;
                         }
-                        vorbisBitArray.skipBits((int) (j * readBits6));
+                    } else {
+                        jArr[i] = vorbisBitArray.readBits(5) + 1;
                     }
-                    return new CodeBook(readBits, readBits2, jArr, readBits5, readBit);
                 }
-                throw new ParserException("lookup type greater than 2 not decodable: " + readBits5);
+            } else {
+                int readBits3 = vorbisBitArray.readBits(5) + 1;
+                int i2 = 0;
+                while (i2 < readBits2) {
+                    int readBits4 = vorbisBitArray.readBits(iLog(readBits2 - i2));
+                    for (int i3 = 0; i3 < readBits4 && i2 < readBits2; i3++) {
+                        jArr[i2] = readBits3;
+                        i2++;
+                    }
+                    readBits3++;
+                }
             }
-            throw new ParserException("expected code book to start with [0x56, 0x43, 0x42] at " + vorbisBitArray.getPosition());
+            int readBits5 = vorbisBitArray.readBits(4);
+            if (readBits5 <= 2) {
+                if (readBits5 == 1 || readBits5 == 2) {
+                    vorbisBitArray.skipBits(32);
+                    vorbisBitArray.skipBits(32);
+                    int readBits6 = vorbisBitArray.readBits(4) + 1;
+                    vorbisBitArray.skipBits(1);
+                    if (readBits5 == 1) {
+                        if (readBits != 0) {
+                            j = mapType1QuantValues(readBits2, readBits);
+                        }
+                    } else {
+                        j = readBits2 * readBits;
+                    }
+                    vorbisBitArray.skipBits((int) (j * readBits6));
+                }
+                return new CodeBook(readBits, readBits2, jArr, readBits5, readBit);
+            }
+            throw new ParserException("lookup type greater than 2 not decodable: " + readBits5);
         }
-        return (CodeBook) invokeL.objValue;
+        throw new ParserException("expected code book to start with [0x56, 0x43, 0x42] at " + vorbisBitArray.getPosition());
     }
 
     public static void readFloors(VorbisBitArray vorbisBitArray) throws ParserException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, vorbisBitArray) == null) {
-            int readBits = vorbisBitArray.readBits(6) + 1;
-            for (int i = 0; i < readBits; i++) {
-                int readBits2 = vorbisBitArray.readBits(16);
-                if (readBits2 != 0) {
-                    if (readBits2 == 1) {
-                        int readBits3 = vorbisBitArray.readBits(5);
-                        int i2 = -1;
-                        int[] iArr = new int[readBits3];
-                        for (int i3 = 0; i3 < readBits3; i3++) {
-                            iArr[i3] = vorbisBitArray.readBits(4);
-                            if (iArr[i3] > i2) {
-                                i2 = iArr[i3];
-                            }
+        int readBits = vorbisBitArray.readBits(6) + 1;
+        for (int i = 0; i < readBits; i++) {
+            int readBits2 = vorbisBitArray.readBits(16);
+            if (readBits2 != 0) {
+                if (readBits2 == 1) {
+                    int readBits3 = vorbisBitArray.readBits(5);
+                    int i2 = -1;
+                    int[] iArr = new int[readBits3];
+                    for (int i3 = 0; i3 < readBits3; i3++) {
+                        iArr[i3] = vorbisBitArray.readBits(4);
+                        if (iArr[i3] > i2) {
+                            i2 = iArr[i3];
                         }
-                        int i4 = i2 + 1;
-                        int[] iArr2 = new int[i4];
-                        for (int i5 = 0; i5 < i4; i5++) {
-                            iArr2[i5] = vorbisBitArray.readBits(3) + 1;
-                            int readBits4 = vorbisBitArray.readBits(2);
-                            if (readBits4 > 0) {
-                                vorbisBitArray.skipBits(8);
-                            }
-                            for (int i6 = 0; i6 < (1 << readBits4); i6++) {
-                                vorbisBitArray.skipBits(8);
-                            }
+                    }
+                    int i4 = i2 + 1;
+                    int[] iArr2 = new int[i4];
+                    for (int i5 = 0; i5 < i4; i5++) {
+                        iArr2[i5] = vorbisBitArray.readBits(3) + 1;
+                        int readBits4 = vorbisBitArray.readBits(2);
+                        if (readBits4 > 0) {
+                            vorbisBitArray.skipBits(8);
                         }
-                        vorbisBitArray.skipBits(2);
-                        int readBits5 = vorbisBitArray.readBits(4);
-                        int i7 = 0;
-                        int i8 = 0;
-                        for (int i9 = 0; i9 < readBits3; i9++) {
-                            i7 += iArr2[iArr[i9]];
-                            while (i8 < i7) {
-                                vorbisBitArray.skipBits(readBits5);
-                                i8++;
-                            }
+                        for (int i6 = 0; i6 < (1 << readBits4); i6++) {
+                            vorbisBitArray.skipBits(8);
                         }
-                    } else {
-                        throw new ParserException("floor type greater than 1 not decodable: " + readBits2);
+                    }
+                    vorbisBitArray.skipBits(2);
+                    int readBits5 = vorbisBitArray.readBits(4);
+                    int i7 = 0;
+                    int i8 = 0;
+                    for (int i9 = 0; i9 < readBits3; i9++) {
+                        i7 += iArr2[iArr[i9]];
+                        while (i8 < i7) {
+                            vorbisBitArray.skipBits(readBits5);
+                            i8++;
+                        }
                     }
                 } else {
+                    throw new ParserException("floor type greater than 1 not decodable: " + readBits2);
+                }
+            } else {
+                vorbisBitArray.skipBits(8);
+                vorbisBitArray.skipBits(16);
+                vorbisBitArray.skipBits(16);
+                vorbisBitArray.skipBits(6);
+                vorbisBitArray.skipBits(8);
+                int readBits6 = vorbisBitArray.readBits(4) + 1;
+                for (int i10 = 0; i10 < readBits6; i10++) {
                     vorbisBitArray.skipBits(8);
-                    vorbisBitArray.skipBits(16);
-                    vorbisBitArray.skipBits(16);
-                    vorbisBitArray.skipBits(6);
-                    vorbisBitArray.skipBits(8);
-                    int readBits6 = vorbisBitArray.readBits(4) + 1;
-                    for (int i10 = 0; i10 < readBits6; i10++) {
-                        vorbisBitArray.skipBits(8);
-                    }
                 }
             }
         }
@@ -322,195 +213,164 @@ public final class VorbisUtil {
 
     public static void readMappings(int i, VorbisBitArray vorbisBitArray) throws ParserException {
         int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65541, null, i, vorbisBitArray) == null) {
-            int readBits = vorbisBitArray.readBits(6) + 1;
-            for (int i3 = 0; i3 < readBits; i3++) {
-                int readBits2 = vorbisBitArray.readBits(16);
-                if (readBits2 != 0) {
-                    Log.e(TAG, "mapping type other than 0 not supported: " + readBits2);
+        int readBits = vorbisBitArray.readBits(6) + 1;
+        for (int i3 = 0; i3 < readBits; i3++) {
+            int readBits2 = vorbisBitArray.readBits(16);
+            if (readBits2 != 0) {
+                Log.e(TAG, "mapping type other than 0 not supported: " + readBits2);
+            } else {
+                if (vorbisBitArray.readBit()) {
+                    i2 = vorbisBitArray.readBits(4) + 1;
                 } else {
-                    if (vorbisBitArray.readBit()) {
-                        i2 = vorbisBitArray.readBits(4) + 1;
-                    } else {
-                        i2 = 1;
+                    i2 = 1;
+                }
+                if (vorbisBitArray.readBit()) {
+                    int readBits3 = vorbisBitArray.readBits(8) + 1;
+                    for (int i4 = 0; i4 < readBits3; i4++) {
+                        int i5 = i - 1;
+                        vorbisBitArray.skipBits(iLog(i5));
+                        vorbisBitArray.skipBits(iLog(i5));
                     }
-                    if (vorbisBitArray.readBit()) {
-                        int readBits3 = vorbisBitArray.readBits(8) + 1;
-                        for (int i4 = 0; i4 < readBits3; i4++) {
-                            int i5 = i - 1;
-                            vorbisBitArray.skipBits(iLog(i5));
-                            vorbisBitArray.skipBits(iLog(i5));
+                }
+                if (vorbisBitArray.readBits(2) == 0) {
+                    if (i2 > 1) {
+                        for (int i6 = 0; i6 < i; i6++) {
+                            vorbisBitArray.skipBits(4);
                         }
                     }
-                    if (vorbisBitArray.readBits(2) == 0) {
-                        if (i2 > 1) {
-                            for (int i6 = 0; i6 < i; i6++) {
-                                vorbisBitArray.skipBits(4);
-                            }
-                        }
-                        for (int i7 = 0; i7 < i2; i7++) {
-                            vorbisBitArray.skipBits(8);
-                            vorbisBitArray.skipBits(8);
-                            vorbisBitArray.skipBits(8);
-                        }
-                    } else {
-                        throw new ParserException("to reserved bits must be zero after mapping coupling steps");
+                    for (int i7 = 0; i7 < i2; i7++) {
+                        vorbisBitArray.skipBits(8);
+                        vorbisBitArray.skipBits(8);
+                        vorbisBitArray.skipBits(8);
                     }
+                } else {
+                    throw new ParserException("to reserved bits must be zero after mapping coupling steps");
                 }
             }
         }
     }
 
     public static Mode[] readModes(VorbisBitArray vorbisBitArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, vorbisBitArray)) == null) {
-            int readBits = vorbisBitArray.readBits(6) + 1;
-            Mode[] modeArr = new Mode[readBits];
-            for (int i = 0; i < readBits; i++) {
-                modeArr[i] = new Mode(vorbisBitArray.readBit(), vorbisBitArray.readBits(16), vorbisBitArray.readBits(16), vorbisBitArray.readBits(8));
-            }
-            return modeArr;
+        int readBits = vorbisBitArray.readBits(6) + 1;
+        Mode[] modeArr = new Mode[readBits];
+        for (int i = 0; i < readBits; i++) {
+            modeArr[i] = new Mode(vorbisBitArray.readBit(), vorbisBitArray.readBits(16), vorbisBitArray.readBits(16), vorbisBitArray.readBits(8));
         }
-        return (Mode[]) invokeL.objValue;
+        return modeArr;
     }
 
     public static void readResidues(VorbisBitArray vorbisBitArray) throws ParserException {
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, vorbisBitArray) == null) {
-            int readBits = vorbisBitArray.readBits(6) + 1;
-            for (int i2 = 0; i2 < readBits; i2++) {
-                if (vorbisBitArray.readBits(16) <= 2) {
-                    vorbisBitArray.skipBits(24);
-                    vorbisBitArray.skipBits(24);
-                    vorbisBitArray.skipBits(24);
-                    int readBits2 = vorbisBitArray.readBits(6) + 1;
-                    vorbisBitArray.skipBits(8);
-                    int[] iArr = new int[readBits2];
-                    for (int i3 = 0; i3 < readBits2; i3++) {
-                        int readBits3 = vorbisBitArray.readBits(3);
-                        if (vorbisBitArray.readBit()) {
-                            i = vorbisBitArray.readBits(5);
-                        } else {
-                            i = 0;
-                        }
-                        iArr[i3] = (i * 8) + readBits3;
+        int readBits = vorbisBitArray.readBits(6) + 1;
+        for (int i2 = 0; i2 < readBits; i2++) {
+            if (vorbisBitArray.readBits(16) <= 2) {
+                vorbisBitArray.skipBits(24);
+                vorbisBitArray.skipBits(24);
+                vorbisBitArray.skipBits(24);
+                int readBits2 = vorbisBitArray.readBits(6) + 1;
+                vorbisBitArray.skipBits(8);
+                int[] iArr = new int[readBits2];
+                for (int i3 = 0; i3 < readBits2; i3++) {
+                    int readBits3 = vorbisBitArray.readBits(3);
+                    if (vorbisBitArray.readBit()) {
+                        i = vorbisBitArray.readBits(5);
+                    } else {
+                        i = 0;
                     }
-                    for (int i4 = 0; i4 < readBits2; i4++) {
-                        for (int i5 = 0; i5 < 8; i5++) {
-                            if ((iArr[i4] & (1 << i5)) != 0) {
-                                vorbisBitArray.skipBits(8);
-                            }
-                        }
-                    }
-                } else {
-                    throw new ParserException("residueType greater than 2 is not decodable");
+                    iArr[i3] = (i * 8) + readBits3;
                 }
+                for (int i4 = 0; i4 < readBits2; i4++) {
+                    for (int i5 = 0; i5 < 8; i5++) {
+                        if ((iArr[i4] & (1 << i5)) != 0) {
+                            vorbisBitArray.skipBits(8);
+                        }
+                    }
+                }
+            } else {
+                throw new ParserException("residueType greater than 2 is not decodable");
             }
         }
     }
 
     public static CommentHeader readVorbisCommentHeader(ParsableByteArray parsableByteArray) throws ParserException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, parsableByteArray)) == null) {
-            verifyVorbisHeaderCapturePattern(3, parsableByteArray, false);
-            String readString = parsableByteArray.readString((int) parsableByteArray.readLittleEndianUnsignedInt());
-            int length = 11 + readString.length();
-            long readLittleEndianUnsignedInt = parsableByteArray.readLittleEndianUnsignedInt();
-            String[] strArr = new String[(int) readLittleEndianUnsignedInt];
-            int i = length + 4;
-            for (int i2 = 0; i2 < readLittleEndianUnsignedInt; i2++) {
-                strArr[i2] = parsableByteArray.readString((int) parsableByteArray.readLittleEndianUnsignedInt());
-                i = i + 4 + strArr[i2].length();
-            }
-            if ((parsableByteArray.readUnsignedByte() & 1) != 0) {
-                return new CommentHeader(readString, strArr, i + 1);
-            }
-            throw new ParserException("framing bit expected to be set");
+        verifyVorbisHeaderCapturePattern(3, parsableByteArray, false);
+        String readString = parsableByteArray.readString((int) parsableByteArray.readLittleEndianUnsignedInt());
+        int length = 11 + readString.length();
+        long readLittleEndianUnsignedInt = parsableByteArray.readLittleEndianUnsignedInt();
+        String[] strArr = new String[(int) readLittleEndianUnsignedInt];
+        int i = length + 4;
+        for (int i2 = 0; i2 < readLittleEndianUnsignedInt; i2++) {
+            strArr[i2] = parsableByteArray.readString((int) parsableByteArray.readLittleEndianUnsignedInt());
+            i = i + 4 + strArr[i2].length();
         }
-        return (CommentHeader) invokeL.objValue;
+        if ((parsableByteArray.readUnsignedByte() & 1) != 0) {
+            return new CommentHeader(readString, strArr, i + 1);
+        }
+        throw new ParserException("framing bit expected to be set");
     }
 
     public static VorbisIdHeader readVorbisIdentificationHeader(ParsableByteArray parsableByteArray) throws ParserException {
-        InterceptResult invokeL;
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, parsableByteArray)) == null) {
-            verifyVorbisHeaderCapturePattern(1, parsableByteArray, false);
-            long readLittleEndianUnsignedInt = parsableByteArray.readLittleEndianUnsignedInt();
-            int readUnsignedByte = parsableByteArray.readUnsignedByte();
-            long readLittleEndianUnsignedInt2 = parsableByteArray.readLittleEndianUnsignedInt();
-            int readLittleEndianInt = parsableByteArray.readLittleEndianInt();
-            int readLittleEndianInt2 = parsableByteArray.readLittleEndianInt();
-            int readLittleEndianInt3 = parsableByteArray.readLittleEndianInt();
-            int readUnsignedByte2 = parsableByteArray.readUnsignedByte();
-            int pow = (int) Math.pow(2.0d, readUnsignedByte2 & 15);
-            int pow2 = (int) Math.pow(2.0d, (readUnsignedByte2 & 240) >> 4);
-            if ((parsableByteArray.readUnsignedByte() & 1) > 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            return new VorbisIdHeader(readLittleEndianUnsignedInt, readUnsignedByte, readLittleEndianUnsignedInt2, readLittleEndianInt, readLittleEndianInt2, readLittleEndianInt3, pow, pow2, z, Arrays.copyOf(parsableByteArray.data, parsableByteArray.limit()));
+        verifyVorbisHeaderCapturePattern(1, parsableByteArray, false);
+        long readLittleEndianUnsignedInt = parsableByteArray.readLittleEndianUnsignedInt();
+        int readUnsignedByte = parsableByteArray.readUnsignedByte();
+        long readLittleEndianUnsignedInt2 = parsableByteArray.readLittleEndianUnsignedInt();
+        int readLittleEndianInt = parsableByteArray.readLittleEndianInt();
+        int readLittleEndianInt2 = parsableByteArray.readLittleEndianInt();
+        int readLittleEndianInt3 = parsableByteArray.readLittleEndianInt();
+        int readUnsignedByte2 = parsableByteArray.readUnsignedByte();
+        int pow = (int) Math.pow(2.0d, readUnsignedByte2 & 15);
+        int pow2 = (int) Math.pow(2.0d, (readUnsignedByte2 & 240) >> 4);
+        if ((parsableByteArray.readUnsignedByte() & 1) > 0) {
+            z = true;
+        } else {
+            z = false;
         }
-        return (VorbisIdHeader) invokeL.objValue;
+        return new VorbisIdHeader(readLittleEndianUnsignedInt, readUnsignedByte, readLittleEndianUnsignedInt2, readLittleEndianInt, readLittleEndianInt2, readLittleEndianInt3, pow, pow2, z, Arrays.copyOf(parsableByteArray.data, parsableByteArray.limit()));
     }
 
     public static Mode[] readVorbisModes(ParsableByteArray parsableByteArray, int i) throws ParserException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, parsableByteArray, i)) == null) {
-            verifyVorbisHeaderCapturePattern(5, parsableByteArray, false);
-            int readUnsignedByte = parsableByteArray.readUnsignedByte() + 1;
-            VorbisBitArray vorbisBitArray = new VorbisBitArray(parsableByteArray.data);
-            vorbisBitArray.skipBits(parsableByteArray.getPosition() * 8);
-            for (int i2 = 0; i2 < readUnsignedByte; i2++) {
-                readBook(vorbisBitArray);
-            }
-            int readBits = vorbisBitArray.readBits(6) + 1;
-            for (int i3 = 0; i3 < readBits; i3++) {
-                if (vorbisBitArray.readBits(16) != 0) {
-                    throw new ParserException("placeholder of time domain transforms not zeroed out");
-                }
-            }
-            readFloors(vorbisBitArray);
-            readResidues(vorbisBitArray);
-            readMappings(i, vorbisBitArray);
-            Mode[] readModes = readModes(vorbisBitArray);
-            if (vorbisBitArray.readBit()) {
-                return readModes;
-            }
-            throw new ParserException("framing bit after modes not set as expected");
+        verifyVorbisHeaderCapturePattern(5, parsableByteArray, false);
+        int readUnsignedByte = parsableByteArray.readUnsignedByte() + 1;
+        VorbisBitArray vorbisBitArray = new VorbisBitArray(parsableByteArray.data);
+        vorbisBitArray.skipBits(parsableByteArray.getPosition() * 8);
+        for (int i2 = 0; i2 < readUnsignedByte; i2++) {
+            readBook(vorbisBitArray);
         }
-        return (Mode[]) invokeLI.objValue;
+        int readBits = vorbisBitArray.readBits(6) + 1;
+        for (int i3 = 0; i3 < readBits; i3++) {
+            if (vorbisBitArray.readBits(16) != 0) {
+                throw new ParserException("placeholder of time domain transforms not zeroed out");
+            }
+        }
+        readFloors(vorbisBitArray);
+        readResidues(vorbisBitArray);
+        readMappings(i, vorbisBitArray);
+        Mode[] readModes = readModes(vorbisBitArray);
+        if (vorbisBitArray.readBit()) {
+            return readModes;
+        }
+        throw new ParserException("framing bit after modes not set as expected");
     }
 
     public static boolean verifyVorbisHeaderCapturePattern(int i, ParsableByteArray parsableByteArray, boolean z) throws ParserException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Integer.valueOf(i), parsableByteArray, Boolean.valueOf(z)})) == null) {
-            if (parsableByteArray.bytesLeft() < 7) {
-                if (z) {
-                    return false;
-                }
-                throw new ParserException("too short header: " + parsableByteArray.bytesLeft());
-            } else if (parsableByteArray.readUnsignedByte() != i) {
-                if (z) {
-                    return false;
-                }
-                throw new ParserException("expected header type " + Integer.toHexString(i));
-            } else if (parsableByteArray.readUnsignedByte() == 118 && parsableByteArray.readUnsignedByte() == 111 && parsableByteArray.readUnsignedByte() == 114 && parsableByteArray.readUnsignedByte() == 98 && parsableByteArray.readUnsignedByte() == 105 && parsableByteArray.readUnsignedByte() == 115) {
-                return true;
-            } else {
-                if (z) {
-                    return false;
-                }
-                throw new ParserException("expected characters 'vorbis'");
+        if (parsableByteArray.bytesLeft() < 7) {
+            if (z) {
+                return false;
             }
+            throw new ParserException("too short header: " + parsableByteArray.bytesLeft());
+        } else if (parsableByteArray.readUnsignedByte() != i) {
+            if (z) {
+                return false;
+            }
+            throw new ParserException("expected header type " + Integer.toHexString(i));
+        } else if (parsableByteArray.readUnsignedByte() == 118 && parsableByteArray.readUnsignedByte() == 111 && parsableByteArray.readUnsignedByte() == 114 && parsableByteArray.readUnsignedByte() == 98 && parsableByteArray.readUnsignedByte() == 105 && parsableByteArray.readUnsignedByte() == 115) {
+            return true;
+        } else {
+            if (z) {
+                return false;
+            }
+            throw new ParserException("expected characters 'vorbis'");
         }
-        return invokeCommon.booleanValue;
     }
 }

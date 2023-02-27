@@ -1,21 +1,14 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
+import android.graphics.Typeface;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.u05;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.view.SortSwitchButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,28 +16,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.SmartApp;
+import tbclient.PbPage.PbSortType;
 /* loaded from: classes5.dex */
 public class nl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public Context b;
-    public s05 c;
-    public u05 d;
-    public List<q05> e;
-    public q05 f;
-    public b g;
-    public SmartApp h;
-    public u05.e i;
+    public View a;
+    public TextView b;
+    public TextView c;
+    public SortSwitchButton d;
+    public SortSwitchButton.f e;
+    public int f;
+    public View.OnClickListener g;
+    public int h;
+    public int i;
+    public SortSwitchButton.f j;
+    public View.OnClickListener k;
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a(String str);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements u05.e {
+    public class a implements SortSwitchButton.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nl8 a;
@@ -67,101 +57,209 @@ public class nl8 {
             this.a = nl8Var;
         }
 
-        @Override // com.baidu.tieba.u05.e
-        public void onClick() {
+        @Override // com.baidu.tieba.view.SortSwitchButton.f
+        public boolean a(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.h == null) {
-                return;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                if (this.a.e != null) {
+                    return this.a.e.a(i);
+                }
+                return true;
             }
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SMART_APP_DEL_BROWSE_HISTORY);
-            httpMessage.addParam("swan_app_key", this.a.h.id);
-            MessageManager.getInstance().sendMessage(httpMessage);
-            if (this.a.g != null) {
-                this.a.g.a(this.a.h.id);
-            }
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SMART_APP_HISTORY_DELETE_CLICK);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_id", this.a.h.naws_app_id.longValue());
-            statisticItem.param("obj_name", this.a.h.name);
-            TiebaStatic.log(statisticItem);
-            if (this.a.c != null) {
-                this.a.c.dismiss();
-            }
+            return invokeI.booleanValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948006415, "Lcom/baidu/tieba/nl8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nl8 a;
+
+        public b(nl8 nl8Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nl8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948006415, "Lcom/baidu/tieba/nl8;");
-                return;
+            this.a = nl8Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.g != null) {
+                    this.a.g.onClick(view2);
+                }
+                if (BdNetTypeUtil.isNetWorkAvailable()) {
+                    if (view2 != null && (view2.getTag() instanceof Boolean) && !((Boolean) view2.getTag()).booleanValue()) {
+                        return;
+                    }
+                    if (view2 == this.a.b) {
+                        this.a.k(0);
+                    } else if (view2 == this.a.c) {
+                        this.a.k(1);
+                    }
+                }
             }
         }
-        MessageManager.getInstance().registerTask(new TbHttpMessageTask(CmdConfigHttp.CMD_SMART_APP_DEL_BROWSE_HISTORY, TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_DEL_BROWSE_HISTORY));
     }
 
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c != null) {
-            return;
-        }
-        q05 q05Var = new q05(this.b.getString(R.string.obfuscated_res_0x7f0f04d8), this.d);
-        this.f = q05Var;
-        q05Var.m(this.i);
-        this.e.add(this.f);
-        this.d.k(this.e);
-        this.c = new s05(this.a, this.d);
-    }
-
-    public nl8(TbPageContext tbPageContext) {
+    public nl8(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = new a(this);
-        this.a = tbPageContext;
-        Activity pageActivity = tbPageContext.getPageActivity();
-        this.b = pageActivity;
-        this.d = new u05(pageActivity);
-        this.e = new ArrayList();
-    }
-
-    public void d(SmartApp smartApp) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, smartApp) == null) {
-            this.h = smartApp;
-        }
-    }
-
-    public void f(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.g = bVar;
-        }
-    }
-
-    public void g() {
-        s05 s05Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (s05Var = this.c) == null) {
+        this.f = 0;
+        this.j = new a(this);
+        this.k = new b(this);
+        if (view2 == null) {
             return;
         }
-        s05Var.k();
+        this.a = view2;
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090272);
+        this.b = textView;
+        textView.setOnClickListener(this.k);
+        TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0918cd);
+        this.c = textView2;
+        textView2.setOnClickListener(this.k);
+        SortSwitchButton sortSwitchButton = (SortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f092708);
+        this.d = sortSwitchButton;
+        sortSwitchButton.setOnSwitchChangeListener(this.j);
+        this.d.w(2);
+        h(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (z) {
+                k(1);
+            } else {
+                k(0);
+            }
+        }
+    }
+
+    public void i(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.g = onClickListener;
+        }
+    }
+
+    public void j(SortSwitchButton.f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
+            this.e = fVar;
+        }
+    }
+
+    public void e(ud8 ud8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, ud8Var) != null) || ud8Var == null) {
+            return;
+        }
+        int i = 0;
+        if (ud8Var.b == ud8.i) {
+            this.b.setClickable(true);
+            this.b.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f027c));
+            this.c.setVisibility(0);
+            f(ud8Var.d);
+        }
+        if (ud8Var.e) {
+            this.c.setVisibility(8);
+            this.d.setVisibility(8);
+        } else if (ud8Var.f) {
+            this.c.setVisibility(8);
+        } else {
+            this.c.setVisibility(0);
+        }
+        if (!ud8Var.e && ud8Var.g != null) {
+            this.d.setVisibility(0);
+            int i2 = 0;
+            while (true) {
+                if (i2 < ud8Var.g.size()) {
+                    if (ud8Var.g.get(i2) != null && ud8Var.c == ud8Var.g.get(i2).sort_type.intValue()) {
+                        i = i2;
+                        break;
+                    }
+                    i2++;
+                } else {
+                    break;
+                }
+            }
+            g(ud8Var.g, i);
+        }
+        h(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public void g(List<PbSortType> list, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, list, i) == null) {
+            if (ListUtils.isEmpty(list)) {
+                this.d.setVisibility(8);
+                return;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (PbSortType pbSortType : list) {
+                y59 y59Var = new y59();
+                y59Var.c(pbSortType.sort_type.intValue());
+                y59Var.d(pbSortType.sort_name);
+                arrayList.add(y59Var);
+            }
+            this.d.setVisibility(0);
+            this.d.setData(arrayList, i);
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0205);
+            this.i = SkinManager.getColor(R.color.CAM_X0105);
+            this.h = SkinManager.getColor(R.color.CAM_X0107);
+            k(this.f);
+            this.d.H();
+        }
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.f = i;
+            if (i == 0) {
+                this.b.setTypeface(Typeface.defaultFromStyle(1));
+                this.c.setTypeface(Typeface.defaultFromStyle(0));
+                this.b.setTextColor(this.i);
+                this.c.setTextColor(this.h);
+            } else if (i == 1) {
+                this.b.setTypeface(Typeface.defaultFromStyle(0));
+                this.c.setTypeface(Typeface.defaultFromStyle(1));
+                this.b.setTextColor(this.h);
+                this.c.setTextColor(this.i);
+            }
+        }
     }
 }

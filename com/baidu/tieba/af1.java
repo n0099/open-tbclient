@@ -1,354 +1,166 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
+import android.os.Build;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.aperf.bosuploader.FileUtil;
+import com.baidu.nps.pm.BundleInfo;
+import com.baidu.nps.utils.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Array;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes3.dex */
 public class af1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile af1 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, cf1> a;
 
-    public static boolean a(Context context, String str, String str2) {
+    public af1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap();
+    }
+
+    public static af1 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (af1.class) {
+                    if (b == null) {
+                        b = new af1();
+                    }
+                }
+            }
+            return b;
+        }
+        return (af1) invokeV.objValue;
+    }
+
+    public static <T> T[] a(Class<T> cls, Object[] objArr, Object[] objArr2) {
         InterceptResult invokeLLL;
-        FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, str, str2)) == null) {
-            if (context == null) {
-                if (ze1.a()) {
-                    Log.e(FileUtil.TAG, "copyAssetsTo: context is null");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, objArr, objArr2)) == null) {
+            T[] tArr = (T[]) ((Object[]) Array.newInstance((Class<?>) cls, objArr.length + objArr2.length));
+            System.arraycopy(objArr, 0, tArr, 0, objArr.length);
+            System.arraycopy(objArr2, 0, tArr, objArr.length, objArr2.length);
+            return tArr;
+        }
+        return (T[]) ((Object[]) invokeLLL.objValue);
+    }
+
+    public static void e(Field field, Object obj, Object obj2) throws IllegalAccessException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, field, obj, obj2) == null) {
+            field.set(obj, c((Object[]) field.get(obj), (Object[]) field.get(obj2)));
+        }
+    }
+
+    public static Object[] c(Object[] objArr, Object[] objArr2) throws IllegalArgumentException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, objArr, objArr2)) == null) {
+            ArrayList arrayList = new ArrayList(Arrays.asList(objArr));
+            for (Object obj : objArr2) {
+                if (!arrayList.contains(obj)) {
+                    arrayList.add(obj);
                 }
-                return false;
             }
+            Object[] objArr3 = (Object[]) Array.newInstance(objArr.getClass().getComponentType(), arrayList.size());
+            for (int i = 0; i < objArr3.length; i++) {
+                objArr3[i] = arrayList.get(i);
+            }
+            return objArr3;
+        }
+        return (Object[]) invokeLL.objValue;
+    }
+
+    public static void f(Field field, Object obj, Object obj2) throws IllegalAccessException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, field, obj, obj2) == null) {
+            List list = (List) field.get(obj);
+            list.addAll((List) field.get(obj2));
+            field.set(obj, list);
+            Field b2 = pf1.b(obj.getClass(), "nativeLibraryPathElements");
+            b2.set(obj, c((Object[]) b2.get(obj), (Object[]) b2.get(obj2)));
+        }
+    }
+
+    public static ClassLoader g(cf1 cf1Var, cf1 cf1Var2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, cf1Var, cf1Var2)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                h(cf1Var, cf1Var2);
+                return cf1Var;
+            }
+            return null;
+        }
+        return (ClassLoader) invokeLL.objValue;
+    }
+
+    public static ClassLoader h(cf1 cf1Var, cf1 cf1Var2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, cf1Var, cf1Var2)) == null) {
+            Field b2 = pf1.b(cf1.class, "pathList");
             try {
-                InputStream open = context.getAssets().open(str);
-                if (open == null) {
+                Object obj = b2.get(cf1Var);
+                Field b3 = pf1.b(obj.getClass(), "dexElements");
+                Field b4 = pf1.b(obj.getClass(), "nativeLibraryDirectories");
+                Object[] objArr = (Object[]) b3.get(obj);
+                Object obj2 = b2.get(cf1Var2);
+                b3.set(obj, a(objArr.getClass().getComponentType(), objArr, (Object[]) b3.get(obj2)));
+                if (Build.VERSION.SDK_INT >= 23) {
+                    f(b4, obj, obj2);
+                } else {
+                    e(b4, obj, obj2);
                 }
-                File file = new File(str2);
-                if (file.exists()) {
-                    file.delete();
-                }
-                FileOutputStream fileOutputStream2 = null;
-                try {
-                    try {
-                        fileOutputStream = new FileOutputStream(file);
-                    } catch (Throwable th) {
-                        th = th;
-                    }
-                } catch (IOException e) {
-                    e = e;
-                }
-                try {
-                    byte[] bArr = new byte[4096];
-                    if (open == null) {
-                        if (open != null) {
-                            try {
-                                open.close();
-                            } catch (IOException unused) {
-                            }
-                        }
-                        try {
-                            fileOutputStream.close();
-                        } catch (IOException unused2) {
-                        }
-                        return false;
-                    }
-                    while (true) {
-                        int read = open.read(bArr);
-                        if (read < 0) {
-                            break;
-                        }
-                        fileOutputStream.write(bArr, 0, read);
-                    }
-                    fileOutputStream.flush();
-                    if (open != null) {
-                        try {
-                            open.close();
-                        } catch (IOException unused3) {
-                        }
-                    }
-                    try {
-                        fileOutputStream.close();
-                        return true;
-                    } catch (IOException unused4) {
-                        return true;
-                    }
-                } catch (IOException e2) {
-                    e = e2;
-                    fileOutputStream2 = fileOutputStream;
-                    if (ze1.a()) {
-                        Log.e(FileUtil.TAG, "copyAssetsTo: destOutputStream e=" + e.toString());
-                    }
-                    if (open != null) {
-                        try {
-                            open.close();
-                        } catch (IOException unused5) {
-                        }
-                    }
-                    if (fileOutputStream2 != null) {
-                        try {
-                            fileOutputStream2.close();
-                        } catch (IOException unused6) {
-                        }
-                    }
-                    return false;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileOutputStream2 = fileOutputStream;
-                    if (open != null) {
-                        try {
-                            open.close();
-                        } catch (IOException unused7) {
-                        }
-                    }
-                    if (fileOutputStream2 != null) {
-                        try {
-                            fileOutputStream2.close();
-                        } catch (IOException unused8) {
-                        }
-                    }
-                    throw th;
-                }
-            } catch (IOException e3) {
-                if (ze1.a()) {
-                    Log.e(FileUtil.TAG, "copyAssetsTo: sourceInputStream e=" + e3.toString());
-                }
-                return false;
-            } finally {
-                Log.e(FileUtil.TAG, "copyAssetsTo: sourceInputStream is null");
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            return cf1Var;
         }
-        return invokeLLL.booleanValue;
+        return (ClassLoader) invokeLL.objValue;
     }
 
-    public static boolean b(File file, File file2) {
-        InterceptResult invokeLL;
-        FileOutputStream fileOutputStream;
-        FileOutputStream fileOutputStream2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, file2)) == null) {
-            FileInputStream fileInputStream = null;
-            try {
-                FileInputStream fileInputStream2 = new FileInputStream(file);
-                try {
-                    if (file2.exists()) {
-                        file2.delete();
-                    }
-                    fileOutputStream2 = new FileOutputStream(file2);
-                    try {
-                        byte[] bArr = new byte[4096];
-                        while (true) {
-                            int read = fileInputStream2.read(bArr);
-                            if (read >= 0) {
-                                fileOutputStream2.write(bArr, 0, read);
-                            } else {
-                                fileOutputStream2.flush();
-                                try {
-                                    fileInputStream2.close();
-                                    fileOutputStream2.close();
-                                    return true;
-                                } catch (IOException unused) {
-                                    return true;
-                                }
-                            }
-                        }
-                    } catch (FileNotFoundException unused2) {
-                        fileInputStream = fileInputStream2;
-                        if (fileInputStream != null) {
-                            try {
-                                fileInputStream.close();
-                            } catch (IOException unused3) {
-                                return false;
-                            }
-                        }
-                        if (fileOutputStream2 != null) {
-                            fileOutputStream2.close();
-                        }
-                        return false;
-                    } catch (IOException unused4) {
-                        fileInputStream = fileInputStream2;
-                        if (fileInputStream != null) {
-                            try {
-                                fileInputStream.close();
-                            } catch (IOException unused5) {
-                                return false;
-                            }
-                        }
-                        if (fileOutputStream2 != null) {
-                            fileOutputStream2.close();
-                        }
-                        return false;
-                    } catch (Throwable th) {
-                        fileInputStream = fileInputStream2;
-                        fileOutputStream = fileOutputStream2;
-                        th = th;
-                        if (fileInputStream != null) {
-                            try {
-                                fileInputStream.close();
-                            } catch (IOException unused6) {
-                                throw th;
-                            }
-                        }
-                        if (fileOutputStream != null) {
-                            fileOutputStream.close();
-                        }
-                        throw th;
-                    }
-                } catch (FileNotFoundException unused7) {
-                    fileOutputStream2 = null;
-                } catch (IOException unused8) {
-                    fileOutputStream2 = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileOutputStream = null;
-                    fileInputStream = fileInputStream2;
-                }
-            } catch (FileNotFoundException unused9) {
-                fileOutputStream2 = null;
-            } catch (IOException unused10) {
-                fileOutputStream2 = null;
-            } catch (Throwable th3) {
-                th = th3;
-                fileOutputStream = null;
-            }
-        } else {
-            return invokeLL.booleanValue;
-        }
-    }
-
-    public static boolean c(InputStream inputStream, File file) {
-        InterceptResult invokeLL;
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, file)) == null) {
-            if (inputStream != null && file != null) {
-                if (file.exists()) {
-                    file.delete();
-                }
-                FileOutputStream fileOutputStream2 = null;
-                try {
-                    fileOutputStream = new FileOutputStream(file);
-                } catch (IOException unused) {
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    byte[] bArr = new byte[4096];
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read < 0) {
-                            break;
-                        }
-                        fileOutputStream.write(bArr, 0, read);
-                    }
-                    fileOutputStream.flush();
-                    try {
-                        fileOutputStream.close();
-                    } catch (IOException unused2) {
-                    }
-                    return true;
-                } catch (IOException unused3) {
-                    fileOutputStream2 = fileOutputStream;
-                    if (fileOutputStream2 != null) {
-                        try {
-                            fileOutputStream2.close();
-                        } catch (IOException unused4) {
-                        }
-                    }
-                    return false;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileOutputStream2 = fileOutputStream;
-                    if (fileOutputStream2 != null) {
-                        try {
-                            fileOutputStream2.close();
-                        } catch (IOException unused5) {
-                        }
-                    }
-                    throw th;
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static File d(Context context, String str) {
+    public cf1 b(BundleInfo bundleInfo, Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            return new File(i(context), str);
-        }
-        return (File) invokeLL.objValue;
-    }
-
-    public static File e(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            File file = new File(f(context, str), "lib");
-            if (!file.exists()) {
-                file.mkdirs();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bundleInfo, context)) == null) {
+            boolean z = !TextUtils.isEmpty(bundleInfo.getGroupName());
+            cf1 cf1Var = new cf1(kf1.d(context, bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), kf1.f(context, bundleInfo.getPackageName()).getAbsolutePath(), kf1.e(context, bundleInfo.getPackageName()).getAbsolutePath(), context);
+            if (z && Build.VERSION.SDK_INT >= 21) {
+                cf1 cf1Var2 = this.a.get(bundleInfo.getGroupName());
+                if (cf1Var2 == null) {
+                    this.a.put(bundleInfo.getGroupName(), cf1Var);
+                    return cf1Var;
+                }
+                g(cf1Var2, cf1Var);
+                return cf1Var2;
             }
-            return file;
+            return cf1Var;
         }
-        return (File) invokeLL.objValue;
-    }
-
-    public static File f(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
-            File file = new File(i(context), str);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return file;
-        }
-        return (File) invokeLL.objValue;
-    }
-
-    public static File g(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
-            return new File(h(context), str);
-        }
-        return (File) invokeLL.objValue;
-    }
-
-    public static File h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            File dir = context.getDir("nps_download", 0);
-            if (!dir.exists()) {
-                dir.mkdirs();
-            }
-            return dir;
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public static File i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            File dir = context.getDir("nps", 0);
-            if (!dir.exists()) {
-                dir.mkdirs();
-            }
-            return dir;
-        }
-        return (File) invokeL.objValue;
+        return (cf1) invokeLL.objValue;
     }
 }

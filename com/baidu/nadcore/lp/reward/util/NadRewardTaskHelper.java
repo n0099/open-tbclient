@@ -8,34 +8,27 @@ import android.net.Uri;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.widget.Toast;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
-import com.baidu.tieba.bj0;
-import com.baidu.tieba.cp0;
-import com.baidu.tieba.ep0;
-import com.baidu.tieba.fr0;
-import com.baidu.tieba.gr0;
-import com.baidu.tieba.lq0;
-import com.baidu.tieba.nj0;
-import com.baidu.tieba.nr0;
-import com.baidu.tieba.ph0;
-import com.baidu.tieba.po0;
+import com.baidu.tieba.an0;
+import com.baidu.tieba.br0;
+import com.baidu.tieba.dn0;
+import com.baidu.tieba.fj0;
+import com.baidu.tieba.gp0;
+import com.baidu.tieba.ip0;
+import com.baidu.tieba.kr0;
+import com.baidu.tieba.lr0;
 import com.baidu.tieba.pq0;
-import com.baidu.tieba.pr0;
-import com.baidu.tieba.rr0;
-import com.baidu.tieba.sm0;
+import com.baidu.tieba.rj0;
+import com.baidu.tieba.sr0;
+import com.baidu.tieba.th0;
+import com.baidu.tieba.to0;
 import com.baidu.tieba.tq0;
+import com.baidu.tieba.ur0;
 import com.baidu.tieba.wm0;
 import com.baidu.tieba.xq0;
-import com.baidu.tieba.zm0;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.xr0;
 import java.util.HashMap;
 import kotlin.Metadata;
 import kotlin.Result;
@@ -48,12 +41,10 @@ import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000D\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\f\u0018\u0000B\u0007¢\u0006\u0004\b5\u0010\u000bJ%\u0010\b\u001a\u00020\u00072\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0006\u001a\u00020\u0005¢\u0006\u0004\b\b\u0010\tJ\u000f\u0010\n\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\n\u0010\u000bJ\u000f\u0010\f\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\f\u0010\u000bJ\u000f\u0010\r\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\r\u0010\u000bJ\u0017\u0010\u0011\u001a\u00020\u00102\u0006\u0010\u000f\u001a\u00020\u000eH\u0002¢\u0006\u0004\b\u0011\u0010\u0012J!\u0010\u0011\u001a\u00020\u00102\b\u0010\u0013\u001a\u0004\u0018\u00010\u00052\u0006\u0010\u000f\u001a\u00020\u000eH\u0002¢\u0006\u0004\b\u0011\u0010\u0014J\u0017\u0010\u0015\u001a\u00020\u00102\u0006\u0010\u000f\u001a\u00020\u000eH\u0002¢\u0006\u0004\b\u0015\u0010\u0012J\r\u0010\u0016\u001a\u00020\u0010¢\u0006\u0004\b\u0016\u0010\u0017J\u000f\u0010\u0018\u001a\u00020\u0010H\u0002¢\u0006\u0004\b\u0018\u0010\u0017J\u000f\u0010\u0019\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\u0019\u0010\u000bJ\u000f\u0010\u001a\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\u001a\u0010\u000bJ\u000f\u0010\u001b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\u001b\u0010\u000bJ\r\u0010\u001c\u001a\u00020\u0007¢\u0006\u0004\b\u001c\u0010\u000bJ\u000f\u0010\u001d\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\u001d\u0010\u000bJ\u0015\u0010 \u001a\u00020\u00072\u0006\u0010\u001f\u001a\u00020\u001e¢\u0006\u0004\b \u0010!R\u0018\u0010\u001f\u001a\u0004\u0018\u00010\u001e8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001f\u0010\"R\u0016\u0010\u000f\u001a\u00020\u000e8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u000f\u0010#R\u0016\u0010%\u001a\u00020$8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b%\u0010&R\u0016\u0010'\u001a\u00020\u00108\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b'\u0010(R\u0016\u0010)\u001a\u00020\u00108\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b)\u0010(R\u0016\u0010+\u001a\u00020*8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b+\u0010,R\u0018\u0010-\u001a\u0004\u0018\u00010$8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b-\u0010&R\u0016\u0010.\u001a\u00020$8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b.\u0010&R\u0016\u0010/\u001a\u00020\u00108\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b/\u0010(R\u0016\u00100\u001a\u00020\u00108\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b0\u0010(R\u0016\u00101\u001a\u00020\u00108\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b1\u0010(R\u0016\u00102\u001a\u00020\u00108\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b2\u0010(R\u0018\u00103\u001a\u0004\u0018\u00010\u00018\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b3\u00104¨\u00066"}, d2 = {"Lcom/baidu/nadcore/lp/reward/util/NadRewardTaskHelper;", "Lcom/baidu/nadcore/lp/reward/data/NadTaskRewardResponse;", "response", "Lcom/baidu/nadcore/download/consts/AdDownloadStatus;", "downloadStatus", "", "ext", "", "activateDownloadTask", "(Lcom/baidu/nadcore/lp/reward/data/NadTaskRewardResponse;Lcom/baidu/nadcore/download/consts/AdDownloadStatus;Ljava/lang/String;)V", "activateInvokeTask", "()V", "checkDownloadTaskComplete", "checkInvokeTaskComplete", "Landroid/content/Context;", "context", "", "isAppInstalled", "(Landroid/content/Context;)Z", "scheme", "(Ljava/lang/String;Landroid/content/Context;)Z", "isDownloadAvailable", "isDownloadTaskActivated", "()Z", "isInvokeAvailable", "postDownloadTaskEvent", "postInvokeTaskEvent", "registerBackForegroundEvent", "removeTask", "resetRewardTaskStatus", "Lcom/baidu/nadcore/model/AdRewardVideoLpModel;", "adModel", "setData", "(Lcom/baidu/nadcore/model/AdRewardVideoLpModel;)V", "Lcom/baidu/nadcore/model/AdRewardVideoLpModel;", "Landroid/content/Context;", "Ljava/lang/Runnable;", "downloadTask", "Ljava/lang/Runnable;", "downloadTaskActivated", "Z", "downloadTaskComplete", "Landroid/os/Handler;", "handler", "Landroid/os/Handler;", "invokeActiveTask", "invokeTask", "invokeTaskActivated", "invokeTaskComplete", "receivedDownloadReward", "receivedInvokeReward", "taskRewardResponse", "Lcom/baidu/nadcore/lp/reward/data/NadTaskRewardResponse;", "<init>", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public final class NadRewardTaskHelper {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public Handler b;
-    public xq0 c;
-    public po0 d;
+    public br0 c;
+    public to0 d;
     public boolean e;
     public boolean f;
     public boolean g;
@@ -66,396 +57,205 @@ public final class NadRewardTaskHelper {
 
     /* loaded from: classes2.dex */
     public static final class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NadRewardTaskHelper a;
-
-        public a(NadRewardTaskHelper nadRewardTaskHelper) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nadRewardTaskHelper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nadRewardTaskHelper;
+        public a() {
         }
 
         @Override // java.lang.Runnable
         public final void run() {
-            pr0 g;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            ur0 h;
+            br0 br0Var = NadRewardTaskHelper.this.c;
+            if (br0Var != null && (h = br0Var.h()) != null && h.a()) {
                 return;
             }
-            xq0 xq0Var = this.a.c;
-            if (xq0Var != null && (g = xq0Var.g()) != null && g.a()) {
-                return;
-            }
-            this.a.i = true;
-            this.a.D();
+            NadRewardTaskHelper.this.i = true;
+            NadRewardTaskHelper.this.D();
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NadRewardTaskHelper a;
-
-        public b(NadRewardTaskHelper nadRewardTaskHelper) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nadRewardTaskHelper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nadRewardTaskHelper;
+        public b() {
         }
 
         @Override // java.lang.Runnable
         public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.f = true;
+            NadRewardTaskHelper.this.f = true;
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NadRewardTaskHelper a;
-
-        public c(NadRewardTaskHelper nadRewardTaskHelper) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nadRewardTaskHelper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nadRewardTaskHelper;
+        public c() {
         }
 
         @Override // java.lang.Runnable
         public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.j = true;
+            NadRewardTaskHelper.this.j = true;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class d extends wm0<zm0> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NadRewardTaskHelper b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(NadRewardTaskHelper nadRewardTaskHelper, Class cls) {
+    public static final class d extends an0<dn0> {
+        public d(Class cls) {
             super(cls);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nadRewardTaskHelper, cls};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Class) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = nadRewardTaskHelper;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wm0
-        public void onEvent(zm0 event) {
+        @Override // com.baidu.tieba.an0
+        public void onEvent(dn0 event) {
+            br0 br0Var;
+            kr0 c;
+            Long k;
             xq0 xq0Var;
-            fr0 b;
-            Long h;
-            tq0 tq0Var;
-            xq0 xq0Var2;
-            fr0 b2;
-            Long d;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
-                Intrinsics.checkNotNullParameter(event, "event");
-                String str = null;
-                if (event.a) {
-                    this.b.b.removeCallbacksAndMessages(null);
-                    this.b.v();
-                    this.b.w();
-                    return;
+            br0 br0Var2;
+            kr0 c2;
+            Long g;
+            Intrinsics.checkNotNullParameter(event, "event");
+            String str = null;
+            if (event.a) {
+                NadRewardTaskHelper.this.b.removeCallbacksAndMessages(null);
+                NadRewardTaskHelper.this.v();
+                NadRewardTaskHelper.this.w();
+                return;
+            }
+            if (!NadRewardTaskHelper.this.g && NadRewardTaskHelper.this.e && !NadRewardTaskHelper.this.f) {
+                NadRewardTaskHelper nadRewardTaskHelper = NadRewardTaskHelper.this;
+                if (nadRewardTaskHelper.x(nadRewardTaskHelper.a) && (br0Var2 = NadRewardTaskHelper.this.c) != null && (c2 = br0Var2.c()) != null && (g = c2.g()) != null) {
+                    NadRewardTaskHelper.this.b.postDelayed(NadRewardTaskHelper.this.h, g.longValue());
                 }
-                if (!this.b.g && this.b.e && !this.b.f) {
-                    NadRewardTaskHelper nadRewardTaskHelper = this.b;
-                    if (nadRewardTaskHelper.x(nadRewardTaskHelper.a) && (xq0Var2 = this.b.c) != null && (b2 = xq0Var2.b()) != null && (d = b2.d()) != null) {
-                        this.b.b.postDelayed(this.b.h, d.longValue());
-                    }
+            }
+            if (!NadRewardTaskHelper.this.k && NadRewardTaskHelper.this.i && !NadRewardTaskHelper.this.j) {
+                NadRewardTaskHelper nadRewardTaskHelper2 = NadRewardTaskHelper.this;
+                br0 br0Var3 = nadRewardTaskHelper2.c;
+                if (br0Var3 != null && (xq0Var = br0Var3.f) != null) {
+                    str = xq0Var.c;
                 }
-                if (!this.b.k && this.b.i && !this.b.j) {
-                    NadRewardTaskHelper nadRewardTaskHelper2 = this.b;
-                    xq0 xq0Var3 = nadRewardTaskHelper2.c;
-                    if (xq0Var3 != null && (tq0Var = xq0Var3.f) != null) {
-                        str = tq0Var.c;
-                    }
-                    if (nadRewardTaskHelper2.y(str, this.b.a) && (xq0Var = this.b.c) != null && (b = xq0Var.b()) != null && (h = b.h()) != null) {
-                        this.b.b.postDelayed(this.b.l, h.longValue());
-                    }
+                if (nadRewardTaskHelper2.y(str, NadRewardTaskHelper.this.a) && (br0Var = NadRewardTaskHelper.this.c) != null && (c = br0Var.c()) != null && (k = c.k()) != null) {
+                    NadRewardTaskHelper.this.b.postDelayed(NadRewardTaskHelper.this.l, k.longValue());
                 }
             }
         }
     }
 
     public NadRewardTaskHelper() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Context b2 = nj0.b();
+        Context b2 = rj0.b();
         Intrinsics.checkNotNullExpressionValue(b2, "AdRuntime.applicationContext()");
         this.a = b2;
         this.b = new Handler(this.a.getMainLooper());
-        this.h = new b(this);
-        this.l = new c(this);
-    }
-
-    public final void H(xq0 adModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, adModel) == null) {
-            Intrinsics.checkNotNullParameter(adModel, "adModel");
-            this.c = adModel;
-            G();
-            u();
-        }
+        this.h = new b();
+        this.l = new c();
     }
 
     public final boolean A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.e && !this.f) {
-                return true;
-            }
-            return false;
+        if (this.e && !this.f) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public final void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            sm0.a().b(this, new d(this, zm0.class));
-        }
+        wm0.a().b(this, new d(dn0.class));
     }
 
     public final void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b.removeCallbacksAndMessages(null);
-            sm0.a().unregister(this);
-        }
+        this.b.removeCallbacksAndMessages(null);
+        wm0.a().unregister(this);
     }
 
     public final void G() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.e = false;
-            this.f = false;
-            this.g = false;
-            this.d = null;
-            this.i = false;
-            this.j = false;
-            this.k = false;
-            this.b.removeCallbacksAndMessages(null);
+        this.e = false;
+        this.f = false;
+        this.g = false;
+        this.d = null;
+        this.i = false;
+        this.j = false;
+        this.k = false;
+        this.b.removeCallbacksAndMessages(null);
+    }
+
+    public final void u() {
+        kr0 c2;
+        Long k;
+        if (!B()) {
+            return;
         }
+        this.m = new a();
+        br0 br0Var = this.c;
+        if (br0Var != null && (c2 = br0Var.c()) != null && (k = c2.k()) != null) {
+            long longValue = k.longValue();
+            Handler handler = this.b;
+            Runnable runnable = this.m;
+            Intrinsics.checkNotNull(runnable);
+            handler.postDelayed(runnable, longValue);
+        }
+        E();
+    }
+
+    public final void H(br0 adModel) {
+        Intrinsics.checkNotNullParameter(adModel, "adModel");
+        this.c = adModel;
+        G();
+        u();
     }
 
     public final boolean B() {
-        InterceptResult invokeV;
         int i;
         String str;
-        rr0 rr0Var;
-        nr0 f;
-        nr0 f2;
-        fr0 b2;
-        tq0 tq0Var;
-        tq0 tq0Var2;
-        nr0 f3;
-        rr0 q;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            xq0 xq0Var = this.c;
-            if (xq0Var != null && (f3 = xq0Var.f()) != null && (q = f3.q()) != null) {
-                i = q.b();
-            } else {
-                i = -1;
+        xr0 xr0Var;
+        sr0 g;
+        sr0 g2;
+        kr0 c2;
+        xq0 xq0Var;
+        xq0 xq0Var2;
+        sr0 g3;
+        xr0 q;
+        br0 br0Var = this.c;
+        if (br0Var != null && (g3 = br0Var.g()) != null && (q = g3.q()) != null) {
+            i = q.b();
+        } else {
+            i = -1;
+        }
+        lr0 lr0Var = null;
+        r2 = null;
+        String str2 = null;
+        lr0Var = null;
+        if (i <= 0) {
+            br0 br0Var2 = this.c;
+            if (br0Var2 != null && (xq0Var2 = br0Var2.f) != null) {
+                str2 = xq0Var2.d;
             }
-            gr0 gr0Var = null;
-            r2 = null;
-            String str2 = null;
-            gr0Var = null;
-            if (i <= 0) {
-                xq0 xq0Var2 = this.c;
-                if (xq0Var2 != null && (tq0Var2 = xq0Var2.f) != null) {
-                    str2 = tq0Var2.d;
-                }
-                ep0.e(str2, "18", "18002");
-                return false;
-            }
-            xq0 xq0Var3 = this.c;
-            if (xq0Var3 != null && (tq0Var = xq0Var3.f) != null) {
-                str = tq0Var.c;
-            } else {
-                str = null;
-            }
-            if (!y(str, this.a)) {
-                return false;
-            }
-            xq0 xq0Var4 = this.c;
-            if (xq0Var4 != null && (b2 = xq0Var4.b()) != null && b2.i() == 0) {
-                return false;
-            }
-            xq0 xq0Var5 = this.c;
-            if (xq0Var5 != null && (f2 = xq0Var5.f()) != null) {
-                rr0Var = f2.q();
-            } else {
-                rr0Var = null;
-            }
-            if (rr0Var != null) {
-                xq0 xq0Var6 = this.c;
-                if (xq0Var6 != null && (f = xq0Var6.f()) != null) {
-                    gr0Var = f.f();
-                }
-                if (gr0Var != null) {
-                    return true;
-                }
-            }
+            ip0.e(str2, "18", "18002");
             return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final void C() {
-        Integer num;
-        pq0 pq0Var;
-        String str;
-        pq0 pq0Var2;
-        fr0 b2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ph0 ph0Var = new ph0();
-            ph0Var.a = "2";
-            xq0 xq0Var = this.c;
-            String str2 = null;
-            if (xq0Var != null && (b2 = xq0Var.b()) != null) {
-                num = Integer.valueOf(b2.e());
-            } else {
-                num = null;
-            }
-            ph0Var.b = String.valueOf(num);
-            po0 po0Var = this.d;
-            if (po0Var != null) {
-                str2 = po0Var.h();
-            }
-            ph0Var.c = str2;
-            xq0 xq0Var2 = this.c;
-            String str3 = "";
-            ph0Var.d = (xq0Var2 == null || (pq0Var2 = xq0Var2.m) == null || (r1 = pq0Var2.i) == null) ? "" : "";
-            xq0 xq0Var3 = this.c;
-            if (xq0Var3 != null && (pq0Var = xq0Var3.m) != null && (str = pq0Var.j) != null) {
-                str3 = str;
-            }
-            ph0Var.e = str3;
-            AdDownloadStatus adDownloadStatus = AdDownloadStatus.NONE;
-            ph0Var.h = this.f;
-            new Function0<Unit>(this) { // from class: com.baidu.nadcore.lp.reward.util.NadRewardTaskHelper$postDownloadTaskEvent$1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ NadRewardTaskHelper this$0;
-
-                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                {
-                    super(0);
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            super(((Integer) newInitContext.callArgs[0]).intValue());
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-                @Override // kotlin.jvm.functions.Function0
-                public /* bridge */ /* synthetic */ Unit invoke() {
-                    invoke2();
-                    return Unit.INSTANCE;
-                }
-
-                /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
-                /* renamed from: invoke  reason: avoid collision after fix types in other method */
-                public final void invoke2() {
-                    xq0 xq0Var4;
-                    fr0 b3;
-                    Long d2;
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.this$0.e && !this.this$0.f && (xq0Var4 = this.this$0.c) != null && (b3 = xq0Var4.b()) != null && (d2 = b3.d()) != null) {
-                        this.this$0.b.postDelayed(this.this$0.h, d2.longValue());
-                    }
-                }
-            };
-            sm0.a().a(ph0Var);
+        br0 br0Var3 = this.c;
+        if (br0Var3 != null && (xq0Var = br0Var3.f) != null) {
+            str = xq0Var.c;
+        } else {
+            str = null;
         }
+        if (!y(str, this.a)) {
+            return false;
+        }
+        br0 br0Var4 = this.c;
+        if (br0Var4 != null && (c2 = br0Var4.c()) != null && c2.l() == 0) {
+            return false;
+        }
+        br0 br0Var5 = this.c;
+        if (br0Var5 != null && (g2 = br0Var5.g()) != null) {
+            xr0Var = g2.q();
+        } else {
+            xr0Var = null;
+        }
+        if (xr0Var != null) {
+            br0 br0Var6 = this.c;
+            if (br0Var6 != null && (g = br0Var6.g()) != null) {
+                lr0Var = g.f();
+            }
+            if (lr0Var != null) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public final void D() {
@@ -464,109 +264,84 @@ public final class NadRewardTaskHelper {
         String str2;
         String str3;
         String str4;
+        xq0 xq0Var;
         tq0 tq0Var;
-        pq0 pq0Var;
-        pq0 pq0Var2;
-        pq0 pq0Var3;
-        pq0 pq0Var4;
-        nr0 f;
-        rr0 q;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ph0 ph0Var = new ph0();
-            ph0Var.a = "4";
-            xq0 xq0Var = this.c;
-            String str5 = null;
-            if (xq0Var != null && (f = xq0Var.f()) != null && (q = f.q()) != null) {
-                num = Integer.valueOf(q.b());
-            } else {
-                num = null;
-            }
-            ph0Var.c = String.valueOf(num);
-            xq0 xq0Var2 = this.c;
-            if (xq0Var2 != null && (pq0Var4 = xq0Var2.m) != null) {
-                str = pq0Var4.k;
-            } else {
-                str = null;
-            }
-            ph0Var.d = str;
-            xq0 xq0Var3 = this.c;
-            if (xq0Var3 != null && (pq0Var3 = xq0Var3.m) != null) {
-                str2 = pq0Var3.l;
-            } else {
-                str2 = null;
-            }
-            ph0Var.e = str2;
-            xq0 xq0Var4 = this.c;
-            if (xq0Var4 != null && (pq0Var2 = xq0Var4.m) != null) {
-                str3 = pq0Var2.m;
-            } else {
-                str3 = null;
-            }
-            ph0Var.f = str3;
-            xq0 xq0Var5 = this.c;
-            if (xq0Var5 != null && (pq0Var = xq0Var5.m) != null) {
-                str4 = pq0Var.n;
-            } else {
-                str4 = null;
-            }
-            ph0Var.g = str4;
-            ph0Var.h = this.j;
-            xq0 xq0Var6 = this.c;
-            if (xq0Var6 != null && (tq0Var = xq0Var6.f) != null) {
-                str5 = tq0Var.d;
-            }
-            ph0Var.i = str5;
-            sm0.a().a(ph0Var);
+        tq0 tq0Var2;
+        tq0 tq0Var3;
+        tq0 tq0Var4;
+        sr0 g;
+        xr0 q;
+        th0 th0Var = new th0();
+        th0Var.a = "4";
+        br0 br0Var = this.c;
+        String str5 = null;
+        if (br0Var != null && (g = br0Var.g()) != null && (q = g.q()) != null) {
+            num = Integer.valueOf(q.b());
+        } else {
+            num = null;
         }
+        th0Var.c = String.valueOf(num);
+        br0 br0Var2 = this.c;
+        if (br0Var2 != null && (tq0Var4 = br0Var2.m) != null) {
+            str = tq0Var4.k;
+        } else {
+            str = null;
+        }
+        th0Var.d = str;
+        br0 br0Var3 = this.c;
+        if (br0Var3 != null && (tq0Var3 = br0Var3.m) != null) {
+            str2 = tq0Var3.l;
+        } else {
+            str2 = null;
+        }
+        th0Var.e = str2;
+        br0 br0Var4 = this.c;
+        if (br0Var4 != null && (tq0Var2 = br0Var4.m) != null) {
+            str3 = tq0Var2.m;
+        } else {
+            str3 = null;
+        }
+        th0Var.f = str3;
+        br0 br0Var5 = this.c;
+        if (br0Var5 != null && (tq0Var = br0Var5.m) != null) {
+            str4 = tq0Var.n;
+        } else {
+            str4 = null;
+        }
+        th0Var.g = str4;
+        th0Var.h = this.j;
+        br0 br0Var6 = this.c;
+        if (br0Var6 != null && (xq0Var = br0Var6.f) != null) {
+            str5 = xq0Var.d;
+        }
+        th0Var.i = str5;
+        wm0.a().a(th0Var);
     }
 
     public final void v() {
-        nr0 nr0Var;
-        nr0 f;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || this.g) {
+        sr0 sr0Var;
+        sr0 g;
+        if (this.g) {
             return;
         }
-        po0 po0Var = this.d;
-        if (!this.e || po0Var == null || !po0Var.a() || !x(this.a)) {
+        to0 to0Var = this.d;
+        if (!this.e || to0Var == null || !to0Var.a() || !x(this.a)) {
             return;
         }
         if (this.f) {
-            cp0 cp0Var = cp0.a;
-            xq0 xq0Var = this.c;
-            if (xq0Var != null) {
-                nr0Var = xq0Var.f();
+            gp0 gp0Var = gp0.a;
+            br0 br0Var = this.c;
+            if (br0Var != null) {
+                sr0Var = br0Var.g();
             } else {
-                nr0Var = null;
+                sr0Var = null;
             }
-            nr0 nr0Var2 = nr0Var;
-            String g = po0Var.g();
-            xq0 xq0Var2 = this.c;
-            cp0Var.c(nr0Var2, g, (xq0Var2 == null || (f = xq0Var2.f()) == null || (r0 = f.e()) == null) ? "" : "", new Function2<String, String, Unit>(this) { // from class: com.baidu.nadcore.lp.reward.util.NadRewardTaskHelper$checkDownloadTaskComplete$1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ NadRewardTaskHelper this$0;
-
-                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            sr0 sr0Var2 = sr0Var;
+            String g2 = to0Var.g();
+            br0 br0Var2 = this.c;
+            gp0Var.c(sr0Var2, g2, (br0Var2 == null || (g = br0Var2.g()) == null || (r0 = g.e()) == null) ? "" : "", new Function2<String, String, Unit>() { // from class: com.baidu.nadcore.lp.reward.util.NadRewardTaskHelper$checkDownloadTaskComplete$1
                 {
                     super(2);
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            super(((Integer) newInitContext.callArgs[0]).intValue());
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
                 }
 
                 /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
@@ -580,45 +355,21 @@ public final class NadRewardTaskHelper {
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2(String coin, String str) {
                     String str2;
-                    tq0 tq0Var;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coin, str) == null) {
-                        Intrinsics.checkNotNullParameter(coin, "coin");
-                        Intrinsics.checkNotNullParameter(str, "<anonymous parameter 1>");
-                        Toast.makeText(this.this$0.a, "恭喜！成功领取金币啦～", 0).show();
-                        xq0 xq0Var3 = this.this$0.c;
-                        if (xq0Var3 != null && (tq0Var = xq0Var3.f) != null) {
-                            str2 = tq0Var.d;
-                        } else {
-                            str2 = null;
-                        }
-                        ep0.g(str2, "2", coin);
+                    xq0 xq0Var;
+                    Intrinsics.checkNotNullParameter(coin, "coin");
+                    Intrinsics.checkNotNullParameter(str, "<anonymous parameter 1>");
+                    Toast.makeText(NadRewardTaskHelper.this.a, "恭喜！成功领取金币啦～", 0).show();
+                    br0 br0Var3 = NadRewardTaskHelper.this.c;
+                    if (br0Var3 != null && (xq0Var = br0Var3.f) != null) {
+                        str2 = xq0Var.d;
+                    } else {
+                        str2 = null;
                     }
+                    ip0.g(str2, "2", coin);
                 }
-            }, new Function2<Throwable, Integer, Unit>(this) { // from class: com.baidu.nadcore.lp.reward.util.NadRewardTaskHelper$checkDownloadTaskComplete$2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ NadRewardTaskHelper this$0;
-
-                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            }, new Function2<Throwable, Integer, Unit>() { // from class: com.baidu.nadcore.lp.reward.util.NadRewardTaskHelper$checkDownloadTaskComplete$2
                 {
                     super(2);
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            super(((Integer) newInitContext.callArgs[0]).intValue());
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
                 }
 
                 /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
@@ -630,26 +381,26 @@ public final class NadRewardTaskHelper {
                 }
 
                 public final void invoke(Throwable th, int i) {
-                    tq0 tq0Var;
-                    tq0 tq0Var2;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, i) == null) {
-                        Intrinsics.checkNotNullParameter(th, "<anonymous parameter 0>");
-                        String str = null;
-                        if (i == 1) {
-                            xq0 xq0Var3 = this.this$0.c;
-                            if (xq0Var3 != null && (tq0Var2 = xq0Var3.f) != null) {
-                                str = tq0Var2.d;
-                            }
-                            ep0.l(str, "2");
-                            return;
+                    String str;
+                    xq0 xq0Var;
+                    xq0 xq0Var2;
+                    Intrinsics.checkNotNullParameter(th, "<anonymous parameter 0>");
+                    String str2 = null;
+                    if (i == 1) {
+                        br0 br0Var3 = NadRewardTaskHelper.this.c;
+                        if (br0Var3 != null && (xq0Var2 = br0Var3.f) != null) {
+                            str2 = xq0Var2.d;
                         }
-                        xq0 xq0Var4 = this.this$0.c;
-                        if (xq0Var4 != null && (tq0Var = xq0Var4.f) != null) {
-                            str = tq0Var.d;
-                        }
-                        ep0.k(str, "2");
+                        ip0.n(str2, "2");
+                        return;
                     }
+                    br0 br0Var4 = NadRewardTaskHelper.this.c;
+                    if (br0Var4 != null && (xq0Var = br0Var4.f) != null) {
+                        str = xq0Var.d;
+                    } else {
+                        str = null;
+                    }
+                    ip0.m(str, "2", null, 4, null);
                 }
             });
             this.g = true;
@@ -659,137 +410,150 @@ public final class NadRewardTaskHelper {
         Toast.makeText(this.a, "哎呀！差一点就成功啦，再试一次", 0).show();
     }
 
-    public final void t(po0 response, AdDownloadStatus downloadStatus, String ext) {
-        boolean z;
-        String str;
+    public final void C() {
+        Integer num;
         tq0 tq0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, response, downloadStatus, ext) == null) {
-            Intrinsics.checkNotNullParameter(response, "response");
-            Intrinsics.checkNotNullParameter(downloadStatus, "downloadStatus");
-            Intrinsics.checkNotNullParameter(ext, "ext");
-            if (response.h().length() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                ep0.e(ext, "18", "18001");
-            }
-            if (!response.a() || !z(this.a) || downloadStatus != AdDownloadStatus.NONE) {
-                return;
-            }
-            this.d = response;
-            C();
-            this.e = true;
-            xq0 xq0Var = this.c;
-            if (xq0Var != null && (tq0Var = xq0Var.f) != null) {
-                str = tq0Var.d;
-            } else {
-                str = null;
-            }
-            ep0.c(str, "2", response.h());
-            E();
+        String str;
+        tq0 tq0Var2;
+        kr0 c2;
+        th0 th0Var = new th0();
+        th0Var.a = "2";
+        br0 br0Var = this.c;
+        String str2 = null;
+        if (br0Var != null && (c2 = br0Var.c()) != null) {
+            num = Integer.valueOf(c2.h());
+        } else {
+            num = null;
         }
+        th0Var.b = String.valueOf(num);
+        to0 to0Var = this.d;
+        if (to0Var != null) {
+            str2 = to0Var.h();
+        }
+        th0Var.c = str2;
+        br0 br0Var2 = this.c;
+        String str3 = "";
+        th0Var.d = (br0Var2 == null || (tq0Var2 = br0Var2.m) == null || (r1 = tq0Var2.i) == null) ? "" : "";
+        br0 br0Var3 = this.c;
+        if (br0Var3 != null && (tq0Var = br0Var3.m) != null && (str = tq0Var.j) != null) {
+            str3 = str;
+        }
+        th0Var.e = str3;
+        AdDownloadStatus adDownloadStatus = AdDownloadStatus.NONE;
+        th0Var.h = this.f;
+        new Function0<Unit>() { // from class: com.baidu.nadcore.lp.reward.util.NadRewardTaskHelper$postDownloadTaskEvent$1
+            {
+                super(0);
+            }
+
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function0
+            public /* bridge */ /* synthetic */ Unit invoke() {
+                invoke2();
+                return Unit.INSTANCE;
+            }
+
+            /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final void invoke2() {
+                br0 br0Var4;
+                kr0 c3;
+                Long g;
+                if (NadRewardTaskHelper.this.e && !NadRewardTaskHelper.this.f && (br0Var4 = NadRewardTaskHelper.this.c) != null && (c3 = br0Var4.c()) != null && (g = c3.g()) != null) {
+                    NadRewardTaskHelper.this.b.postDelayed(NadRewardTaskHelper.this.h, g.longValue());
+                }
+            }
+        };
+        wm0.a().a(th0Var);
     }
 
-    public final void u() {
-        fr0 b2;
-        Long h;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || !B()) {
+    public final void t(to0 response, AdDownloadStatus downloadStatus, String ext) {
+        boolean z;
+        String str;
+        xq0 xq0Var;
+        Intrinsics.checkNotNullParameter(response, "response");
+        Intrinsics.checkNotNullParameter(downloadStatus, "downloadStatus");
+        Intrinsics.checkNotNullParameter(ext, "ext");
+        if (response.h().length() == 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        if (z) {
+            ip0.e(ext, "18", "18001");
+        }
+        if (!response.a() || !z(this.a) || downloadStatus != AdDownloadStatus.NONE) {
             return;
         }
-        this.m = new a(this);
-        xq0 xq0Var = this.c;
-        if (xq0Var != null && (b2 = xq0Var.b()) != null && (h = b2.h()) != null) {
-            long longValue = h.longValue();
-            Handler handler = this.b;
-            Runnable runnable = this.m;
-            Intrinsics.checkNotNull(runnable);
-            handler.postDelayed(runnable, longValue);
+        this.d = response;
+        C();
+        this.e = true;
+        br0 br0Var = this.c;
+        if (br0Var != null && (xq0Var = br0Var.f) != null) {
+            str = xq0Var.d;
+        } else {
+            str = null;
         }
+        ip0.c(str, "2", response.h());
         E();
     }
 
     public final void w() {
-        nr0 f;
-        rr0 rr0Var;
-        gr0 gr0Var;
-        nr0 nr0Var;
-        rr0 rr0Var2;
-        gr0 gr0Var2;
-        nr0 f2;
-        nr0 f3;
-        nr0 f4;
-        nr0 f5;
-        nr0 f6;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || this.k || !this.i) {
+        sr0 g;
+        xr0 xr0Var;
+        lr0 lr0Var;
+        sr0 sr0Var;
+        xr0 xr0Var2;
+        lr0 lr0Var2;
+        sr0 g2;
+        sr0 g3;
+        sr0 g4;
+        sr0 g5;
+        sr0 g6;
+        if (this.k || !this.i) {
             return;
         }
         String str = null;
         if (this.j) {
-            xq0 xq0Var = this.c;
-            if (xq0Var != null && (f6 = xq0Var.f()) != null) {
-                rr0Var = f6.q();
+            br0 br0Var = this.c;
+            if (br0Var != null && (g6 = br0Var.g()) != null) {
+                xr0Var = g6.q();
             } else {
-                rr0Var = null;
+                xr0Var = null;
             }
-            if (rr0Var != null) {
-                xq0 xq0Var2 = this.c;
-                if (xq0Var2 != null && (f5 = xq0Var2.f()) != null) {
-                    gr0Var = f5.f();
+            if (xr0Var != null) {
+                br0 br0Var2 = this.c;
+                if (br0Var2 != null && (g5 = br0Var2.g()) != null) {
+                    lr0Var = g5.f();
                 } else {
-                    gr0Var = null;
+                    lr0Var = null;
                 }
-                if (gr0Var != null) {
-                    cp0 cp0Var = cp0.a;
-                    xq0 xq0Var3 = this.c;
-                    if (xq0Var3 != null) {
-                        nr0Var = xq0Var3.f();
+                if (lr0Var != null) {
+                    gp0 gp0Var = gp0.a;
+                    br0 br0Var3 = this.c;
+                    if (br0Var3 != null) {
+                        sr0Var = br0Var3.g();
                     } else {
-                        nr0Var = null;
+                        sr0Var = null;
                     }
-                    xq0 xq0Var4 = this.c;
-                    if (xq0Var4 != null && (f4 = xq0Var4.f()) != null) {
-                        rr0Var2 = f4.q();
+                    br0 br0Var4 = this.c;
+                    if (br0Var4 != null && (g4 = br0Var4.g()) != null) {
+                        xr0Var2 = g4.q();
                     } else {
-                        rr0Var2 = null;
+                        xr0Var2 = null;
                     }
-                    Intrinsics.checkNotNull(rr0Var2);
-                    String a2 = rr0Var2.a();
-                    xq0 xq0Var5 = this.c;
-                    if (xq0Var5 != null && (f3 = xq0Var5.f()) != null) {
-                        gr0Var2 = f3.f();
+                    Intrinsics.checkNotNull(xr0Var2);
+                    String a2 = xr0Var2.a();
+                    br0 br0Var5 = this.c;
+                    if (br0Var5 != null && (g3 = br0Var5.g()) != null) {
+                        lr0Var2 = g3.f();
                     } else {
-                        gr0Var2 = null;
+                        lr0Var2 = null;
                     }
-                    Intrinsics.checkNotNull(gr0Var2);
-                    cp0Var.c(nr0Var, a2, gr0Var2.c(), new Function2<String, String, Unit>(this) { // from class: com.baidu.nadcore.lp.reward.util.NadRewardTaskHelper$checkInvokeTaskComplete$1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ NadRewardTaskHelper this$0;
-
-                        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    Intrinsics.checkNotNull(lr0Var2);
+                    gp0Var.c(sr0Var, a2, lr0Var2.d(), new Function2<String, String, Unit>() { // from class: com.baidu.nadcore.lp.reward.util.NadRewardTaskHelper$checkInvokeTaskComplete$1
                         {
                             super(2);
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
                         }
 
                         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
@@ -803,49 +567,25 @@ public final class NadRewardTaskHelper {
                         /* renamed from: invoke  reason: avoid collision after fix types in other method */
                         public final void invoke2(String coin, String nextCoin) {
                             String str2;
-                            nr0 f7;
-                            tq0 tq0Var;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coin, nextCoin) == null) {
-                                Intrinsics.checkNotNullParameter(coin, "coin");
-                                Intrinsics.checkNotNullParameter(nextCoin, "nextCoin");
-                                xq0 xq0Var6 = this.this$0.c;
-                                if (xq0Var6 != null && (tq0Var = xq0Var6.f) != null) {
-                                    str2 = tq0Var.d;
-                                } else {
-                                    str2 = null;
-                                }
-                                ep0.g(str2, "4", coin);
-                                xq0 xq0Var7 = this.this$0.c;
-                                if (xq0Var7 != null && (f7 = xq0Var7.f()) != null) {
-                                    f7.D(nextCoin);
-                                }
+                            sr0 g7;
+                            xq0 xq0Var;
+                            Intrinsics.checkNotNullParameter(coin, "coin");
+                            Intrinsics.checkNotNullParameter(nextCoin, "nextCoin");
+                            br0 br0Var6 = NadRewardTaskHelper.this.c;
+                            if (br0Var6 != null && (xq0Var = br0Var6.f) != null) {
+                                str2 = xq0Var.d;
+                            } else {
+                                str2 = null;
+                            }
+                            ip0.g(str2, "4", coin);
+                            br0 br0Var7 = NadRewardTaskHelper.this.c;
+                            if (br0Var7 != null && (g7 = br0Var7.g()) != null) {
+                                g7.D(nextCoin);
                             }
                         }
-                    }, new Function2<Throwable, Integer, Unit>(this) { // from class: com.baidu.nadcore.lp.reward.util.NadRewardTaskHelper$checkInvokeTaskComplete$2
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ NadRewardTaskHelper this$0;
-
-                        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    }, new Function2<Throwable, Integer, Unit>() { // from class: com.baidu.nadcore.lp.reward.util.NadRewardTaskHelper$checkInvokeTaskComplete$2
                         {
                             super(2);
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
                         }
 
                         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
@@ -857,32 +597,32 @@ public final class NadRewardTaskHelper {
                         }
 
                         public final void invoke(Throwable th, int i) {
-                            tq0 tq0Var;
-                            tq0 tq0Var2;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, i) == null) {
-                                Intrinsics.checkNotNullParameter(th, "<anonymous parameter 0>");
-                                String str2 = null;
-                                if (i == 1) {
-                                    xq0 xq0Var6 = this.this$0.c;
-                                    if (xq0Var6 != null && (tq0Var2 = xq0Var6.f) != null) {
-                                        str2 = tq0Var2.d;
-                                    }
-                                    ep0.l(str2, "4");
-                                    return;
+                            String str2;
+                            xq0 xq0Var;
+                            xq0 xq0Var2;
+                            Intrinsics.checkNotNullParameter(th, "<anonymous parameter 0>");
+                            String str3 = null;
+                            if (i == 1) {
+                                br0 br0Var6 = NadRewardTaskHelper.this.c;
+                                if (br0Var6 != null && (xq0Var2 = br0Var6.f) != null) {
+                                    str3 = xq0Var2.d;
                                 }
-                                xq0 xq0Var7 = this.this$0.c;
-                                if (xq0Var7 != null && (tq0Var = xq0Var7.f) != null) {
-                                    str2 = tq0Var.d;
-                                }
-                                ep0.k(str2, "4");
+                                ip0.n(str3, "4");
+                                return;
                             }
+                            br0 br0Var7 = NadRewardTaskHelper.this.c;
+                            if (br0Var7 != null && (xq0Var = br0Var7.f) != null) {
+                                str2 = xq0Var.d;
+                            } else {
+                                str2 = null;
+                            }
+                            ip0.m(str2, "4", null, 4, null);
                         }
                     });
                     Context context = this.a;
-                    xq0 xq0Var6 = this.c;
-                    if (xq0Var6 != null && (f2 = xq0Var6.f()) != null) {
-                        str = f2.g();
+                    br0 br0Var6 = this.c;
+                    if (br0Var6 != null && (g2 = br0Var6.g()) != null) {
+                        str = g2.g();
                     }
                     Toast.makeText(context, String.valueOf(str), 0).show();
                     this.k = true;
@@ -894,162 +634,147 @@ public final class NadRewardTaskHelper {
             return;
         }
         Context context2 = this.a;
-        xq0 xq0Var7 = this.c;
-        if (xq0Var7 != null && (f = xq0Var7.f()) != null) {
-            str = f.h();
+        br0 br0Var7 = this.c;
+        if (br0Var7 != null && (g = br0Var7.g()) != null) {
+            str = g.h();
         }
         Toast.makeText(context2, String.valueOf(str), 0).show();
     }
 
     public final boolean x(Context context) {
-        InterceptResult invokeL;
         String str;
         boolean z;
         String str2;
+        tq0 tq0Var;
         pq0 pq0Var;
-        lq0 lq0Var;
+        tq0 tq0Var2;
         pq0 pq0Var2;
-        lq0 lq0Var2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, context)) == null) {
-            xq0 xq0Var = this.c;
-            PackageInfo packageInfo = null;
-            if (xq0Var != null && (pq0Var2 = xq0Var.m) != null && (lq0Var2 = pq0Var2.p) != null) {
-                str = lq0Var2.a;
-            } else {
-                str = null;
-            }
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return false;
-            }
-            try {
-                PackageManager packageManager = context.getPackageManager();
-                xq0 xq0Var2 = this.c;
-                if (xq0Var2 != null && (pq0Var = xq0Var2.m) != null && (lq0Var = pq0Var.p) != null) {
-                    str2 = lq0Var.a;
-                } else {
-                    str2 = null;
-                }
-                Intrinsics.checkNotNull(str2);
-                packageInfo = packageManager.getPackageInfo(str2, 0);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (packageInfo != null) {
-                return true;
-            }
+        br0 br0Var = this.c;
+        PackageInfo packageInfo = null;
+        if (br0Var != null && (tq0Var2 = br0Var.m) != null && (pq0Var2 = tq0Var2.p) != null) {
+            str = pq0Var2.a;
+        } else {
+            str = null;
+        }
+        if (str != null && str.length() != 0) {
+            z = false;
+        } else {
+            z = true;
+        }
+        if (z) {
             return false;
         }
-        return invokeL.booleanValue;
+        try {
+            PackageManager packageManager = context.getPackageManager();
+            br0 br0Var2 = this.c;
+            if (br0Var2 != null && (tq0Var = br0Var2.m) != null && (pq0Var = tq0Var.p) != null) {
+                str2 = pq0Var.a;
+            } else {
+                str2 = null;
+            }
+            Intrinsics.checkNotNull(str2);
+            packageInfo = packageManager.getPackageInfo(str2, 0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (packageInfo != null) {
+            return true;
+        }
+        return false;
     }
 
     public final boolean y(String str, Context context) {
-        InterceptResult invokeLL;
-        Object m773constructorimpl;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, context)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            HashMap<String, String> d2 = new bj0(str).d();
-            Intrinsics.checkNotNullExpressionValue(d2, "entity.params");
-            String str2 = d2.get("params");
-            if (TextUtils.isEmpty(str2)) {
-                return false;
-            }
-            try {
-                Result.Companion companion = Result.Companion;
-                Intrinsics.checkNotNull(str2);
-                m773constructorimpl = Result.m773constructorimpl(new JSONObject(str2).optString(DeepLinkItem.DEEPLINK_APPURL_KEY));
-            } catch (Throwable th) {
-                Result.Companion companion2 = Result.Companion;
-                m773constructorimpl = Result.m773constructorimpl(ResultKt.createFailure(th));
-            }
-            if (Result.m779isFailureimpl(m773constructorimpl)) {
-                m773constructorimpl = null;
-            }
-            String str3 = (String) m773constructorimpl;
-            if (TextUtils.isEmpty(str3)) {
-                return false;
-            }
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str3));
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            if (context.getPackageManager().queryIntentActivities(intent, 0).size() <= 0) {
-                return false;
-            }
-            return true;
+        Object m766constructorimpl;
+        if (TextUtils.isEmpty(str)) {
+            return false;
         }
-        return invokeLL.booleanValue;
+        HashMap<String, String> d2 = new fj0(str).d();
+        Intrinsics.checkNotNullExpressionValue(d2, "entity.params");
+        String str2 = d2.get("params");
+        if (TextUtils.isEmpty(str2)) {
+            return false;
+        }
+        try {
+            Result.Companion companion = Result.Companion;
+            Intrinsics.checkNotNull(str2);
+            m766constructorimpl = Result.m766constructorimpl(new JSONObject(str2).optString(DeepLinkItem.DEEPLINK_APPURL_KEY));
+        } catch (Throwable th) {
+            Result.Companion companion2 = Result.Companion;
+            m766constructorimpl = Result.m766constructorimpl(ResultKt.createFailure(th));
+        }
+        if (Result.m772isFailureimpl(m766constructorimpl)) {
+            m766constructorimpl = null;
+        }
+        String str3 = (String) m766constructorimpl;
+        if (TextUtils.isEmpty(str3)) {
+            return false;
+        }
+        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str3));
+        intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+        if (context.getPackageManager().queryIntentActivities(intent, 0).size() <= 0) {
+            return false;
+        }
+        return true;
     }
 
     public final boolean z(Context context) {
-        InterceptResult invokeL;
-        fr0 fr0Var;
-        fr0 fr0Var2;
+        kr0 kr0Var;
+        kr0 kr0Var2;
         String str;
         boolean z;
         boolean z2;
-        nr0 f;
-        nr0 f2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, context)) == null) {
-            xq0 xq0Var = this.c;
-            if ((xq0Var != null && !xq0Var.l()) || x(context)) {
-                return false;
-            }
-            xq0 xq0Var2 = this.c;
-            String str2 = null;
-            if (xq0Var2 != null) {
-                fr0Var = xq0Var2.b();
-            } else {
-                fr0Var = null;
-            }
-            if (fr0Var == null) {
-                return false;
-            }
-            xq0 xq0Var3 = this.c;
-            if (xq0Var3 != null) {
-                fr0Var2 = xq0Var3.b();
-            } else {
-                fr0Var2 = null;
-            }
-            Intrinsics.checkNotNull(fr0Var2);
-            if (fr0Var2.e() <= 0) {
-                return false;
-            }
-            xq0 xq0Var4 = this.c;
-            if (xq0Var4 != null && (f2 = xq0Var4.f()) != null) {
-                str = f2.d();
-            } else {
-                str = null;
-            }
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return false;
-            }
-            xq0 xq0Var5 = this.c;
-            if (xq0Var5 != null && (f = xq0Var5.f()) != null) {
-                str2 = f.e();
-            }
-            if (str2 != null && str2.length() != 0) {
-                z2 = false;
-            } else {
-                z2 = true;
-            }
-            if (z2) {
-                return false;
-            }
-            return true;
+        sr0 g;
+        sr0 g2;
+        br0 br0Var = this.c;
+        if ((br0Var != null && !br0Var.m()) || x(context)) {
+            return false;
         }
-        return invokeL.booleanValue;
+        br0 br0Var2 = this.c;
+        String str2 = null;
+        if (br0Var2 != null) {
+            kr0Var = br0Var2.c();
+        } else {
+            kr0Var = null;
+        }
+        if (kr0Var == null) {
+            return false;
+        }
+        br0 br0Var3 = this.c;
+        if (br0Var3 != null) {
+            kr0Var2 = br0Var3.c();
+        } else {
+            kr0Var2 = null;
+        }
+        Intrinsics.checkNotNull(kr0Var2);
+        if (kr0Var2.h() <= 0) {
+            return false;
+        }
+        br0 br0Var4 = this.c;
+        if (br0Var4 != null && (g2 = br0Var4.g()) != null) {
+            str = g2.d();
+        } else {
+            str = null;
+        }
+        if (str != null && str.length() != 0) {
+            z = false;
+        } else {
+            z = true;
+        }
+        if (z) {
+            return false;
+        }
+        br0 br0Var5 = this.c;
+        if (br0Var5 != null && (g = br0Var5.g()) != null) {
+            str2 = g.e();
+        }
+        if (str2 != null && str2.length() != 0) {
+            z2 = false;
+        } else {
+            z2 = true;
+        }
+        if (z2) {
+            return false;
+        }
+        return true;
     }
 }

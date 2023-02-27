@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.qz5;
-import com.baidu.tieba.sw4;
-import com.baidu.tieba.zx;
+import com.baidu.tieba.dy;
+import com.baidu.tieba.h16;
+import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.SmartApp;
 /* loaded from: classes3.dex */
-public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClickListener, zx<sw4> {
+public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClickListener, dy<zx4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
@@ -129,13 +129,13 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zx
+    @Override // com.baidu.tieba.dy
     /* renamed from: c */
-    public void a(sw4 sw4Var) {
+    public void a(zx4 zx4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sw4Var) == null) {
-            if (sw4Var != null && sw4Var.getThreadData() != null && sw4Var.getThreadData().getSmartApp() != null) {
-                SmartApp smartApp = sw4Var.getThreadData().getSmartApp();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zx4Var) == null) {
+            if (zx4Var != null && zx4Var.getThreadData() != null && zx4Var.getThreadData().getSmartApp() != null) {
+                SmartApp smartApp = zx4Var.getThreadData().getSmartApp();
                 this.d = smartApp;
                 if (!dj.isEmpty(smartApp.avatar)) {
                     this.a.L(this.d.avatar, 10, false, false);
@@ -173,7 +173,7 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
         if ((interceptable != null && interceptable.invokeL(1048580, this, view2) != null) || (smartApp = this.d) == null) {
             return;
         }
-        if (!qz5.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
+        if (!h16.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
             if (dj.isEmpty(this.d.h5_url)) {
                 return;
             }

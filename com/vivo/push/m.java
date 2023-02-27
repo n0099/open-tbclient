@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.vivo.push.util.u;
 /* loaded from: classes8.dex */
 public final class m {
     public static /* synthetic */ Interceptable $ic;
@@ -42,7 +43,7 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, lVar) == null) {
             if (lVar == null) {
-                com.vivo.push.util.p.a("PushClientThread", "client thread error, task is null!");
+                u.a("PushClientThread", "client thread error, task is null!");
                 return;
             }
             int a2 = lVar.a();

@@ -243,7 +243,7 @@ public class lh {
                             sb.append('&');
                         }
                         sb.append(next.getName());
-                        sb.append(com.alipay.sdk.encrypt.a.h);
+                        sb.append('=');
                         try {
                             sb.append(URLEncoder.encode(i(next.getValue()), IMAudioTransRequest.CHARSET));
                         } catch (UnsupportedEncodingException e) {

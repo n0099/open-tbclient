@@ -1,31 +1,12 @@
 package com.baidu.mapapi.map;
 
 import com.baidu.mapapi.map.MyLocationConfiguration;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes2.dex */
 public /* synthetic */ class b {
-    public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ int[] a;
     public static final /* synthetic */ int[] b;
-    public transient /* synthetic */ FieldHolder $fh;
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-961215153, "Lcom/baidu/mapapi/map/b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-961215153, "Lcom/baidu/mapapi/map/b;");
-                return;
-            }
-        }
         int[] iArr = new int[com.baidu.mapsdkplatform.comapi.map.w.values().length];
         b = iArr;
         try {

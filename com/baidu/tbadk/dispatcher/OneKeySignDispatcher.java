@@ -7,15 +7,15 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
-import com.baidu.tieba.cr4;
-import com.baidu.tieba.ou8;
+import com.baidu.tieba.ay8;
+import com.baidu.tieba.sr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class OneKeySignDispatcher implements ou8 {
+public class OneKeySignDispatcher implements ay8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PREFIX = "com.baidu.tieba://unidispatch/onekeysign";
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class OneKeySignDispatcher implements ou8 {
         }
     }
 
-    @Override // com.baidu.tieba.ou8
+    @Override // com.baidu.tieba.ay8
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) {
@@ -45,7 +45,7 @@ public class OneKeySignDispatcher implements ou8 {
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(1)));
             }
-            cr4.w().L(true);
+            sr4.w().L(true);
         }
     }
 }

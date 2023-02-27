@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.dh;
@@ -71,30 +70,20 @@ public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.ah
     public on getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
-        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            boolean z2 = true;
-            if (TbadkCoreApplication.getInst().getSkinType() != 1) {
-                z2 = false;
-            }
-            if (z2) {
-                str3 = SkinManager.nightSufix;
-            } else {
-                str3 = "";
-            }
-            String str4 = str + str3;
-            on t = TbImageMemoryCache.n().t(str4);
-            if (t == null) {
+            String str3 = str + "";
+            on w = TbImageMemoryCache.p().w(str3);
+            if (w == null) {
                 Bitmap bitmap = SkinManager.getBitmap(dh.e(str2, 0));
                 if (bitmap == null) {
                     return null;
                 }
                 on onVar = new on(bitmap, false, str2);
-                TbImageMemoryCache.n().f(str4, onVar);
+                TbImageMemoryCache.p().g(str3, onVar);
                 return onVar;
             }
-            return t;
+            return w;
         }
         return (on) invokeCommon.objValue;
     }

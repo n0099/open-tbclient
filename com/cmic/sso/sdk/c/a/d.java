@@ -1,6 +1,7 @@
 package com.cmic.sso.sdk.c.a;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
 import android.net.Network;
 import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
@@ -48,21 +49,22 @@ public class d implements b {
             }
             r a = r.a((Context) null);
             if (Build.VERSION.SDK_INT >= 21) {
-                a.a(new r.a(this, aVar, cVar, cVar2) { // from class: com.cmic.sso.sdk.c.a.d.1
+                a.a(new r.a(this, aVar, cVar, cVar2, a) { // from class: com.cmic.sso.sdk.c.a.d.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ com.cmic.sso.sdk.a a;
                     public final /* synthetic */ com.cmic.sso.sdk.c.c.c b;
                     public final /* synthetic */ com.cmic.sso.sdk.c.d.c c;
-                    public final /* synthetic */ d d;
-                    public final AtomicBoolean e;
+                    public final /* synthetic */ r d;
+                    public final /* synthetic */ d e;
+                    public final AtomicBoolean f;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, aVar, cVar, cVar2};
+                            Object[] objArr = {this, aVar, cVar, cVar2, a};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -72,22 +74,24 @@ public class d implements b {
                                 return;
                             }
                         }
-                        this.d = this;
+                        this.e = this;
                         this.a = aVar;
                         this.b = cVar;
                         this.c = cVar2;
-                        this.e = new AtomicBoolean(false);
+                        this.d = a;
+                        this.f = new AtomicBoolean(false);
                     }
 
                     @Override // com.cmic.sso.sdk.e.r.a
-                    public void a(Network network) {
+                    public void a(Network network, ConnectivityManager.NetworkCallback networkCallback) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeL(1048576, this, network) == null) && !this.e.getAndSet(true)) {
-                            n.a(new n.a(this, null, this.a, network) { // from class: com.cmic.sso.sdk.c.a.d.1.1
+                        if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, network, networkCallback) == null) && !this.f.getAndSet(true)) {
+                            n.a(new n.a(this, null, this.a, network, networkCallback) { // from class: com.cmic.sso.sdk.c.a.d.1.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ Network a;
-                                public final /* synthetic */ AnonymousClass1 b;
+                                public final /* synthetic */ ConnectivityManager.NetworkCallback b;
+                                public final /* synthetic */ AnonymousClass1 c;
 
                                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                                 {
@@ -96,7 +100,7 @@ public class d implements b {
                                     if (interceptable3 != null) {
                                         InitContext newInitContext = TitanRuntime.newInitContext();
                                         newInitContext.initArgs = r2;
-                                        Object[] objArr = {this, r9, r10, network};
+                                        Object[] objArr = {this, r9, r10, network, networkCallback};
                                         interceptable3.invokeUnInit(65536, newInitContext);
                                         int i = newInitContext.flag;
                                         if ((i & 1) != 0) {
@@ -108,8 +112,9 @@ public class d implements b {
                                             return;
                                         }
                                     }
-                                    this.b = this;
+                                    this.c = this;
                                     this.a = network;
+                                    this.b = networkCallback;
                                 }
 
                                 @Override // com.cmic.sso.sdk.e.n.a
@@ -118,12 +123,13 @@ public class d implements b {
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         if (this.a != null) {
                                             com.cmic.sso.sdk.e.c.b("WifiChangeInterceptor", "onAvailable");
-                                            this.b.b.a(this.a);
-                                            AnonymousClass1 anonymousClass1 = this.b;
-                                            anonymousClass1.d.b(anonymousClass1.b, anonymousClass1.c, anonymousClass1.a);
-                                            return;
+                                            this.c.b.a(this.a);
+                                            AnonymousClass1 anonymousClass1 = this.c;
+                                            anonymousClass1.e.b(anonymousClass1.b, anonymousClass1.c, anonymousClass1.a);
+                                        } else {
+                                            this.c.c.a(com.cmic.sso.sdk.c.d.a.a(102508));
                                         }
-                                        this.b.c.a(com.cmic.sso.sdk.c.d.a.a(102508));
+                                        this.c.d.a(this.b);
                                     }
                                 }
                             });

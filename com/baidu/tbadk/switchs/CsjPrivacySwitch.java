@@ -1,8 +1,8 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.b55;
 import com.baidu.tieba.debugtool.annotation.Modify;
-import com.baidu.tieba.p35;
 import com.baidu.tieba.qf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -90,7 +90,7 @@ public class CsjPrivacySwitch extends qf {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (p35.m().n("pref_key_splash_csj_privacy_enable", 0) != 1) {
+            if (b55.m().n("pref_key_splash_csj_privacy_enable", 0) != 1) {
                 return false;
             }
             return true;

@@ -7,16 +7,8 @@ import android.view.inputmethod.InputContentInfo;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class InputContentInfoCompat {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final InputContentInfoCompatImpl mImpl;
 
     /* loaded from: classes.dex */
@@ -41,112 +33,54 @@ public final class InputContentInfoCompat {
     @RequiresApi(25)
     /* loaded from: classes.dex */
     public static final class InputContentInfoCompatApi25Impl implements InputContentInfoCompatImpl {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         @NonNull
         public final InputContentInfo mObject;
 
         public InputContentInfoCompatApi25Impl(@NonNull Uri uri, @NonNull ClipDescription clipDescription, @Nullable Uri uri2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uri, clipDescription, uri2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.mObject = new InputContentInfo(uri, clipDescription, uri2);
         }
 
         public InputContentInfoCompatApi25Impl(@NonNull Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {obj};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             this.mObject = (InputContentInfo) obj;
         }
 
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
         @NonNull
         public Uri getContentUri() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.mObject.getContentUri();
-            }
-            return (Uri) invokeV.objValue;
+            return this.mObject.getContentUri();
         }
 
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
         @NonNull
         public ClipDescription getDescription() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.mObject.getDescription();
-            }
-            return (ClipDescription) invokeV.objValue;
+            return this.mObject.getDescription();
         }
 
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
         @Nullable
         public Object getInputContentInfo() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.mObject;
-            }
-            return invokeV.objValue;
+            return this.mObject;
         }
 
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
         @Nullable
         public Uri getLinkUri() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.mObject.getLinkUri();
-            }
-            return (Uri) invokeV.objValue;
+            return this.mObject.getLinkUri();
         }
 
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
         public void releasePermission() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.mObject.releasePermission();
-            }
+            this.mObject.releasePermission();
         }
 
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
         public void requestPermission() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.mObject.requestPermission();
-            }
+            this.mObject.requestPermission();
         }
     }
 
     /* loaded from: classes.dex */
     public static final class InputContentInfoCompatBaseImpl implements InputContentInfoCompatImpl {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         @NonNull
         public final Uri mContentUri;
         @NonNull
@@ -157,43 +91,18 @@ public final class InputContentInfoCompat {
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
         @Nullable
         public Object getInputContentInfo() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return null;
-            }
-            return invokeV.objValue;
+            return null;
         }
 
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
         public void releasePermission() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
         }
 
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
         public void requestPermission() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            }
         }
 
         public InputContentInfoCompatBaseImpl(@NonNull Uri uri, @NonNull ClipDescription clipDescription, @Nullable Uri uri2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uri, clipDescription, uri2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.mContentUri = uri;
             this.mDescription = clipDescription;
             this.mLinkUri = uri2;
@@ -202,52 +111,23 @@ public final class InputContentInfoCompat {
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
         @NonNull
         public Uri getContentUri() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.mContentUri;
-            }
-            return (Uri) invokeV.objValue;
+            return this.mContentUri;
         }
 
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
         @NonNull
         public ClipDescription getDescription() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.mDescription;
-            }
-            return (ClipDescription) invokeV.objValue;
+            return this.mDescription;
         }
 
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
         @Nullable
         public Uri getLinkUri() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.mLinkUri;
-            }
-            return (Uri) invokeV.objValue;
+            return this.mLinkUri;
         }
     }
 
     public InputContentInfoCompat(@NonNull Uri uri, @NonNull ClipDescription clipDescription, @Nullable Uri uri2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uri, clipDescription, uri2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         if (Build.VERSION.SDK_INT >= 25) {
             this.mImpl = new InputContentInfoCompatApi25Impl(uri, clipDescription, uri2);
         } else {
@@ -256,87 +136,42 @@ public final class InputContentInfoCompat {
     }
 
     public InputContentInfoCompat(@NonNull InputContentInfoCompatImpl inputContentInfoCompatImpl) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputContentInfoCompatImpl};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mImpl = inputContentInfoCompatImpl;
     }
 
     @Nullable
     public static InputContentInfoCompat wrap(@Nullable Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) {
-            if (obj == null || Build.VERSION.SDK_INT < 25) {
-                return null;
-            }
-            return new InputContentInfoCompat(new InputContentInfoCompatApi25Impl(obj));
+        if (obj == null || Build.VERSION.SDK_INT < 25) {
+            return null;
         }
-        return (InputContentInfoCompat) invokeL.objValue;
+        return new InputContentInfoCompat(new InputContentInfoCompatApi25Impl(obj));
     }
 
     @NonNull
     public Uri getContentUri() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mImpl.getContentUri();
-        }
-        return (Uri) invokeV.objValue;
+        return this.mImpl.getContentUri();
     }
 
     @NonNull
     public ClipDescription getDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mImpl.getDescription();
-        }
-        return (ClipDescription) invokeV.objValue;
+        return this.mImpl.getDescription();
     }
 
     @Nullable
     public Uri getLinkUri() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mImpl.getLinkUri();
-        }
-        return (Uri) invokeV.objValue;
+        return this.mImpl.getLinkUri();
     }
 
     public void releasePermission() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.mImpl.releasePermission();
-        }
+        this.mImpl.releasePermission();
     }
 
     public void requestPermission() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.mImpl.requestPermission();
-        }
+        this.mImpl.requestPermission();
     }
 
     @Nullable
     public Object unwrap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mImpl.getInputContentInfo();
-        }
-        return invokeV.objValue;
+        return this.mImpl.getInputContentInfo();
     }
 }

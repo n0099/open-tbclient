@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import com.baidu.tbadk.core.data.ShakeAdSwitchData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +9,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class AdSettingActivityConfig extends IntentConfig {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String KEY_SHOW_SHAKE_AD_DATA = "show_shake_ad_data";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -28,6 +30,13 @@ public class AdSettingActivityConfig extends IntentConfig {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
+        }
+    }
+
+    public void setShakeAdData(ShakeAdSwitchData shakeAdSwitchData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, shakeAdSwitchData) == null) {
+            getIntent().putExtra(KEY_SHOW_SHAKE_AD_DATA, shakeAdSwitchData);
         }
     }
 }

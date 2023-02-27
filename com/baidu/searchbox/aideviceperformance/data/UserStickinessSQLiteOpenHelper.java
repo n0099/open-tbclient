@@ -4,86 +4,37 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.aideviceperformance.data.DBItemModel;
 import com.baidu.searchbox.aideviceperformance.data.DBTableConfig;
 import com.baidu.searchbox.aideviceperformance.stickiness.IUserStickinessBusinessDataProvider;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import org.apache.commons.codec.net.RFC1522Codec;
 /* loaded from: classes2.dex */
 public class UserStickinessSQLiteOpenHelper extends DataBaseOpenHelper {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String COLUMN_SPACER = "_";
     public static final String COUNT_PREFIX = "count_";
     public static final boolean DEBUG = false;
     public static final String FIRST_TIME_PREFIX = "first_time_";
     public static String TAG = "UserStickinessSQLiteOpenHelper";
-    public transient /* synthetic */ FieldHolder $fh;
     public boolean isChecked;
     public ArrayList<String> mBusinessIdListInDB;
     public List<String> mRegisterIds;
     public IUserStickinessBusinessDataProvider mUserStickinessHandler;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-96588338, "Lcom/baidu/searchbox/aideviceperformance/data/UserStickinessSQLiteOpenHelper;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-96588338, "Lcom/baidu/searchbox/aideviceperformance/data/UserStickinessSQLiteOpenHelper;");
-        }
-    }
-
     @Override // com.baidu.searchbox.aideviceperformance.data.DataBaseOpenHelper
     public String getBatchDeleteSqlStr() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "delete from user_stickiness where event_time in ( select event_time from user_stickiness order by event_time limit 50)" : (String) invokeV.objValue;
+        return "delete from user_stickiness where event_time in ( select event_time from user_stickiness order by event_time limit 50)";
     }
 
     @Override // com.baidu.searchbox.aideviceperformance.data.DataBaseOpenHelper
     public int getRestrictionNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 150;
-        }
-        return invokeV.intValue;
+        return 150;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public UserStickinessSQLiteOpenHelper(Context context, IUserStickinessBusinessDataProvider iUserStickinessBusinessDataProvider) {
         super(context, DBTableConfig.UserStickinessDBTable.DB_NAME, 3);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, iUserStickinessBusinessDataProvider};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mBusinessIdListInDB = new ArrayList<>();
         this.isChecked = false;
         this.mUserStickinessHandler = iUserStickinessBusinessDataProvider;
@@ -93,8 +44,7 @@ public class UserStickinessSQLiteOpenHelper extends DataBaseOpenHelper {
     }
 
     private void checkDB(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, this, sQLiteDatabase) != null) || this.mUserStickinessHandler == null || this.mRegisterIds == null || this.mBusinessIdListInDB == null) {
+        if (this.mUserStickinessHandler == null || this.mRegisterIds == null || this.mBusinessIdListInDB == null) {
             return;
         }
         synchronized (this) {
@@ -135,126 +85,96 @@ public class UserStickinessSQLiteOpenHelper extends DataBaseOpenHelper {
         }
     }
 
-    public void updateLast(DBItemModel.UserStickinessItemModel userStickinessItemModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, userStickinessItemModel) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("event_time", Long.valueOf(userStickinessItemModel.timeStamp));
-            HashMap<String, DBItemModel.UserStickinessItemModel.ItemDetailModel> idToItemDetailMap = userStickinessItemModel.getIdToItemDetailMap();
-            for (int i = 0; i < this.mRegisterIds.size(); i++) {
-                String str = this.mRegisterIds.get(i);
-                if (idToItemDetailMap.containsKey(str)) {
-                    DBItemModel.UserStickinessItemModel.ItemDetailModel itemDetailModel = idToItemDetailMap.get(str);
-                    contentValues.put(COUNT_PREFIX + str, Integer.valueOf(itemDetailModel.count));
-                    contentValues.put(FIRST_TIME_PREFIX + str, Long.valueOf(itemDetailModel.firstTime));
-                } else {
-                    contentValues.put(COUNT_PREFIX + this.mBusinessIdListInDB.get(i), (Integer) 0);
-                    contentValues.put(FIRST_TIME_PREFIX + this.mBusinessIdListInDB.get(i), (Long) 0L);
-                }
-            }
-            DBItemModel.UserStickinessItemModel queryLast = queryLast();
-            if (queryLast != null) {
-                String[] strArr = new String[(this.mRegisterIds.size() * 2) + 1];
-                HashMap<String, DBItemModel.UserStickinessItemModel.ItemDetailModel> idToItemDetailMap2 = queryLast.getIdToItemDetailMap();
-                String str2 = "";
-                for (int i2 = 0; i2 < this.mRegisterIds.size(); i2++) {
-                    String str3 = this.mRegisterIds.get(i2);
-                    str2 = str2 + COUNT_PREFIX + str3 + "=? AND " + FIRST_TIME_PREFIX + str3 + "=? AND ";
-                    DBItemModel.UserStickinessItemModel.ItemDetailModel itemDetailModel2 = idToItemDetailMap2.get(str3);
-                    int i3 = i2 * 2;
-                    strArr[i3] = String.valueOf(itemDetailModel2.count);
-                    strArr[i3 + 1] = String.valueOf(itemDetailModel2.firstTime);
-                }
-                strArr[this.mRegisterIds.size() * 2] = String.valueOf(userStickinessItemModel.timeStamp);
-                update(DBTableConfig.UserStickinessDBTable.TABLE_NAME, contentValues, str2 + "event_time=?", strArr);
-            }
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:23:0x004d A[Catch: Exception -> 0x0051, TRY_ENTER, TRY_LEAVE, TryCatch #3 {Exception -> 0x0051, blocks: (B:23:0x004d, B:35:0x0064, B:5:0x000d, B:7:0x0013, B:9:0x001a, B:12:0x0021, B:15:0x002a, B:17:0x0030, B:19:0x0040, B:20:0x0045), top: B:42:0x000d, inners: #4 }] */
-    /* JADX WARN: Removed duplicated region for block: B:45:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0049 A[Catch: Exception -> 0x004d, TRY_ENTER, TRY_LEAVE, TryCatch #2 {Exception -> 0x004d, blocks: (B:21:0x0049, B:33:0x0060, B:3:0x0009, B:5:0x000f, B:7:0x0016, B:10:0x001d, B:13:0x0026, B:15:0x002c, B:17:0x003c, B:18:0x0041), top: B:35:0x0009, inners: #4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:40:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void getBusinessIdListInDB(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, sQLiteDatabase) == null) {
-            Cursor rawQuery = sQLiteDatabase.rawQuery("PRAGMA table_info(user_stickiness)", null);
+        Cursor rawQuery = sQLiteDatabase.rawQuery("PRAGMA table_info(user_stickiness)", null);
+        try {
             try {
-                try {
-                    if (rawQuery.moveToFirst()) {
-                        do {
-                            String string = rawQuery.getString(1);
-                            if (string != null && !string.isEmpty() && !"event_time".equals(string) && string.contains("_")) {
-                                String[] split = string.split("_");
-                                String str = split[split.length - 1];
-                                if (!this.mBusinessIdListInDB.contains(str)) {
-                                    this.mBusinessIdListInDB.add(str);
-                                }
+                if (rawQuery.moveToFirst()) {
+                    do {
+                        String string = rawQuery.getString(1);
+                        if (string != null && !string.isEmpty() && !"event_time".equals(string) && string.contains("_")) {
+                            String[] split = string.split("_");
+                            String str = split[split.length - 1];
+                            if (!this.mBusinessIdListInDB.contains(str)) {
+                                this.mBusinessIdListInDB.add(str);
                             }
-                        } while (rawQuery.moveToNext());
-                        if (rawQuery == null) {
-                            rawQuery.close();
                         }
-                    } else if (rawQuery == null) {
-                    }
-                } catch (Exception unused) {
-                    if (rawQuery != null) {
+                    } while (rawQuery.moveToNext());
+                    if (rawQuery == null) {
                         rawQuery.close();
                     }
-                } catch (Throwable th) {
-                    if (rawQuery != null) {
-                        try {
-                            rawQuery.close();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    throw th;
+                } else if (rawQuery == null) {
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+        } catch (Exception unused) {
+            if (rawQuery != null) {
+                rawQuery.close();
+            }
+        } catch (Throwable th) {
+            if (rawQuery != null) {
+                try {
+                    rawQuery.close();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            }
+            throw th;
         }
     }
 
     private void insert(ContentValues contentValues) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, contentValues) == null) {
-            insert(DBTableConfig.UserStickinessDBTable.TABLE_NAME, contentValues);
-        }
+        insert(DBTableConfig.UserStickinessDBTable.TABLE_NAME, contentValues);
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, sQLiteDatabase) == null) && sQLiteDatabase != null) {
+        if (sQLiteDatabase != null) {
             sQLiteDatabase.execSQL(DBTableConfig.UserStickinessDBTable.getCreateTableSql());
         }
     }
 
     public void delete(DBItemModel.UserStickinessItemModel userStickinessItemModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, userStickinessItemModel) == null) {
-            String[] strArr = new String[(this.mRegisterIds.size() * 2) + 1];
-            HashMap<String, DBItemModel.UserStickinessItemModel.ItemDetailModel> idToItemDetailMap = userStickinessItemModel.getIdToItemDetailMap();
-            String str = "";
-            for (int i = 0; i < this.mRegisterIds.size(); i++) {
-                String str2 = this.mRegisterIds.get(i);
-                str = str + COUNT_PREFIX + str2 + "=? AND " + FIRST_TIME_PREFIX + str2 + "=? AND ";
-                DBItemModel.UserStickinessItemModel.ItemDetailModel itemDetailModel = idToItemDetailMap.get(str2);
-                int i2 = i * 2;
-                strArr[i2] = String.valueOf(itemDetailModel.count);
-                strArr[i2 + 1] = String.valueOf(itemDetailModel.firstTime);
-            }
-            strArr[this.mRegisterIds.size() * 2] = String.valueOf(userStickinessItemModel.timeStamp);
-            delete(DBTableConfig.UserStickinessDBTable.TABLE_NAME, str + "event_time=?", strArr);
+        String[] strArr = new String[(this.mRegisterIds.size() * 2) + 1];
+        HashMap<String, DBItemModel.UserStickinessItemModel.ItemDetailModel> idToItemDetailMap = userStickinessItemModel.getIdToItemDetailMap();
+        String str = "";
+        for (int i = 0; i < this.mRegisterIds.size(); i++) {
+            String str2 = this.mRegisterIds.get(i);
+            str = str + COUNT_PREFIX + str2 + "=? AND " + FIRST_TIME_PREFIX + str2 + "=? AND ";
+            DBItemModel.UserStickinessItemModel.ItemDetailModel itemDetailModel = idToItemDetailMap.get(str2);
+            int i2 = i * 2;
+            strArr[i2] = String.valueOf(itemDetailModel.count);
+            strArr[i2 + 1] = String.valueOf(itemDetailModel.firstTime);
         }
+        strArr[this.mRegisterIds.size() * 2] = String.valueOf(userStickinessItemModel.timeStamp);
+        delete(DBTableConfig.UserStickinessDBTable.TABLE_NAME, str + "event_time" + RFC1522Codec.PREFIX, strArr);
+    }
+
+    public void deleteAll() {
+        deleteAll(DBTableConfig.UserStickinessDBTable.TABLE_NAME);
+    }
+
+    @Override // com.baidu.searchbox.aideviceperformance.data.DataBaseOpenHelper
+    public Boolean isEnableCountRestriction() {
+        return Boolean.TRUE;
+    }
+
+    public DBItemModel.UserStickinessItemModel queryLast() {
+        List<DBItemModel.UserStickinessItemModel> queryLast = queryLast(1);
+        if (queryLast != null && queryLast.size() > 0) {
+            return queryLast.get(0);
+        }
+        return null;
     }
 
     public void insert(DBItemModel.UserStickinessItemModel userStickinessItemModel) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, userStickinessItemModel) == null) && this.mUserStickinessHandler != null && this.mRegisterIds != null) {
+        if (this.mUserStickinessHandler != null && this.mRegisterIds != null) {
             ContentValues contentValues = new ContentValues();
             HashMap<String, DBItemModel.UserStickinessItemModel.ItemDetailModel> idToItemDetailMap = userStickinessItemModel.getIdToItemDetailMap();
             if (this.mRegisterIds != null && idToItemDetailMap != null) {
@@ -276,103 +196,95 @@ public class UserStickinessSQLiteOpenHelper extends DataBaseOpenHelper {
     }
 
     public List<DBItemModel.UserStickinessItemModel> queryLast(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (this.mUserStickinessHandler != null && this.mRegisterIds != null) {
-                Cursor cursor = null;
+        ArrayList arrayList = new ArrayList();
+        if (this.mUserStickinessHandler != null && this.mRegisterIds != null) {
+            Cursor cursor = null;
+            try {
                 try {
-                    try {
-                        cursor = query(DBTableConfig.UserStickinessDBTable.TABLE_NAME, null, null, null, null, null, "ROWID DESC", String.valueOf(i));
-                        if (cursor != null) {
-                            while (cursor.moveToNext()) {
-                                DBItemModel.UserStickinessItemModel userStickinessItemModel = new DBItemModel.UserStickinessItemModel(cursor.getLong(cursor.getColumnIndex("event_time")));
-                                for (int i2 = 0; i2 < this.mRegisterIds.size(); i2++) {
-                                    String str = this.mRegisterIds.get(i2);
-                                    int i3 = cursor.getInt(cursor.getColumnIndex(COUNT_PREFIX + str));
-                                    userStickinessItemModel.putIdToItemDetailMap(str, new DBItemModel.UserStickinessItemModel.ItemDetailModel(i3, cursor.getInt(cursor.getColumnIndex(FIRST_TIME_PREFIX + str))));
-                                }
-                                arrayList.add(userStickinessItemModel);
+                    cursor = query(DBTableConfig.UserStickinessDBTable.TABLE_NAME, null, null, null, null, null, "ROWID DESC", String.valueOf(i));
+                    if (cursor != null) {
+                        while (cursor.moveToNext()) {
+                            DBItemModel.UserStickinessItemModel userStickinessItemModel = new DBItemModel.UserStickinessItemModel(cursor.getLong(cursor.getColumnIndex("event_time")));
+                            for (int i2 = 0; i2 < this.mRegisterIds.size(); i2++) {
+                                String str = this.mRegisterIds.get(i2);
+                                int i3 = cursor.getInt(cursor.getColumnIndex(COUNT_PREFIX + str));
+                                userStickinessItemModel.putIdToItemDetailMap(str, new DBItemModel.UserStickinessItemModel.ItemDetailModel(i3, cursor.getInt(cursor.getColumnIndex(FIRST_TIME_PREFIX + str))));
                             }
-                            if (cursor != null) {
-                                try {
-                                    cursor.close();
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                            return arrayList;
-                        } else if (cursor != null) {
-                            cursor.close();
+                            arrayList.add(userStickinessItemModel);
                         }
-                    } catch (Exception unused) {
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                    } catch (Throwable th) {
                         if (cursor != null) {
                             try {
                                 cursor.close();
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
                         }
-                        throw th;
+                        return arrayList;
+                    } else if (cursor != null) {
+                        cursor.close();
                     }
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
+            } catch (Exception unused) {
+                if (cursor != null) {
+                    cursor.close();
+                }
+            } catch (Throwable th) {
+                if (cursor != null) {
+                    try {
+                        cursor.close();
+                    } catch (Exception e3) {
+                        e3.printStackTrace();
+                    }
+                }
+                throw th;
             }
-            return arrayList;
         }
-        return (List) invokeI.objValue;
-    }
-
-    public void deleteAll() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            deleteAll(DBTableConfig.UserStickinessDBTable.TABLE_NAME);
-        }
-    }
-
-    @Override // com.baidu.searchbox.aideviceperformance.data.DataBaseOpenHelper
-    public Boolean isEnableCountRestriction() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return Boolean.TRUE;
-        }
-        return (Boolean) invokeV.objValue;
-    }
-
-    public DBItemModel.UserStickinessItemModel queryLast() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            List<DBItemModel.UserStickinessItemModel> queryLast = queryLast(1);
-            if (queryLast != null && queryLast.size() > 0) {
-                return queryLast.get(0);
-            }
-            return null;
-        }
-        return (DBItemModel.UserStickinessItemModel) invokeV.objValue;
+        return arrayList;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048583, this, sQLiteDatabase, i, i2) == null) {
-            checkDB(sQLiteDatabase);
-        }
+        checkDB(sQLiteDatabase);
     }
 
     @Override // com.baidu.searchbox.aideviceperformance.data.DataBaseOpenHelper, android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, i, i2) == null) {
-            super.onUpgrade(sQLiteDatabase, i, i2);
-            checkDB(sQLiteDatabase);
+        super.onUpgrade(sQLiteDatabase, i, i2);
+        checkDB(sQLiteDatabase);
+    }
+
+    public void updateLast(DBItemModel.UserStickinessItemModel userStickinessItemModel) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("event_time", Long.valueOf(userStickinessItemModel.timeStamp));
+        HashMap<String, DBItemModel.UserStickinessItemModel.ItemDetailModel> idToItemDetailMap = userStickinessItemModel.getIdToItemDetailMap();
+        for (int i = 0; i < this.mRegisterIds.size(); i++) {
+            String str = this.mRegisterIds.get(i);
+            if (idToItemDetailMap.containsKey(str)) {
+                DBItemModel.UserStickinessItemModel.ItemDetailModel itemDetailModel = idToItemDetailMap.get(str);
+                contentValues.put(COUNT_PREFIX + str, Integer.valueOf(itemDetailModel.count));
+                contentValues.put(FIRST_TIME_PREFIX + str, Long.valueOf(itemDetailModel.firstTime));
+            } else {
+                contentValues.put(COUNT_PREFIX + this.mBusinessIdListInDB.get(i), (Integer) 0);
+                contentValues.put(FIRST_TIME_PREFIX + this.mBusinessIdListInDB.get(i), (Long) 0L);
+            }
+        }
+        DBItemModel.UserStickinessItemModel queryLast = queryLast();
+        if (queryLast != null) {
+            String[] strArr = new String[(this.mRegisterIds.size() * 2) + 1];
+            HashMap<String, DBItemModel.UserStickinessItemModel.ItemDetailModel> idToItemDetailMap2 = queryLast.getIdToItemDetailMap();
+            String str2 = "";
+            for (int i2 = 0; i2 < this.mRegisterIds.size(); i2++) {
+                String str3 = this.mRegisterIds.get(i2);
+                str2 = str2 + COUNT_PREFIX + str3 + "=? AND " + FIRST_TIME_PREFIX + str3 + "=? AND ";
+                DBItemModel.UserStickinessItemModel.ItemDetailModel itemDetailModel2 = idToItemDetailMap2.get(str3);
+                int i3 = i2 * 2;
+                strArr[i3] = String.valueOf(itemDetailModel2.count);
+                strArr[i3 + 1] = String.valueOf(itemDetailModel2.firstTime);
+            }
+            strArr[this.mRegisterIds.size() * 2] = String.valueOf(userStickinessItemModel.timeStamp);
+            update(DBTableConfig.UserStickinessDBTable.TABLE_NAME, contentValues, str2 + "event_time" + RFC1522Codec.PREFIX, strArr);
         }
     }
 }

@@ -1,194 +1,158 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.util.DeviceId;
-import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.searchbox.common.security.DeviceIdBag;
-import com.baidu.searchbox.common.security.DeviceInfoManager;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.tieba.en1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class sn1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = false;
-    public static boolean b = false;
-    public static String c = null;
-    public static String d = "";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i == 1) {
+                return 2010;
+            }
+            if (i == 2) {
+                return IMConstants.IM_MSG_TYPE_SHIELD;
+            }
+            if (i == 3) {
+                return 2012;
+            }
+            if (i == 4) {
+                return 2013;
+            }
+            if (i == 5) {
+                return 2014;
+            }
+            return i == 6 ? 2015 : 2009;
+        }
+        return invokeI.intValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ en1.a a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ ArrayList d;
+
+        /* renamed from: com.baidu.tieba.sn1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0419a extends qo1 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ en1.a b;
+            public final /* synthetic */ a c;
+
+            public C0419a(a aVar, en1.a aVar2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, aVar2};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = aVar;
+                this.b = aVar2;
+            }
+
+            @Override // com.baidu.tieba.qo1
+            public void b() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.b.onFinish(this.c.b);
+                }
+            }
+        }
+
+        public a(en1.a aVar, String str, int i, ArrayList arrayList) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, str, Integer.valueOf(i), arrayList};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+            this.b = str;
+            this.c = i;
+            this.d = arrayList;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                en1.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onFinish(this.b);
+                }
+                if (this.c == 1 && this.d != null) {
+                    for (int i = 0; i < this.d.size(); i++) {
+                        en1.a aVar2 = (en1.a) this.d.get(i);
+                        if (aVar2 != null) {
+                            so1.c().b(new C0419a(this, aVar2));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public static void b(en1.a aVar, pn1 pn1Var, int i, ArrayList<en1.a> arrayList, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{aVar, pn1Var, Integer.valueOf(i), arrayList, Boolean.valueOf(z)}) == null) && pn1Var != null) {
             try {
-                if (!um1.f(context).d()) {
-                    return "";
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("0", pn1Var.a);
+                jSONObject.put("1", pn1Var.b);
+                jSONObject.put("2", String.valueOf(pn1Var.c));
+                jSONObject.put("3", pn1Var.d);
+                String jSONObject2 = jSONObject.toString();
+                if (i == 1) {
+                    if (z) {
+                        kn1.j().f(false);
+                    }
+                } else if (i == 2) {
+                    if (z) {
+                        kn1.j().c(false);
+                    }
+                } else if (i == 3) {
+                    if (z) {
+                        kn1.j().k(false);
+                    }
+                } else if (z) {
+                    kn1.j().n(false);
                 }
-                return DeviceId.getCUID(context);
+                new Thread(new a(aVar, jSONObject2, i, arrayList)).start();
             } catch (Throwable th) {
-                go1.d(th);
-                return "";
+                vo1.d(th);
             }
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(DeviceIdBag deviceIdBag) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, deviceIdBag)) == null) {
-            if (deviceIdBag == null) {
-                return "";
-            }
-            if (deviceIdBag.errorCode == 3) {
-                return String.valueOf(-1004);
-            }
-            if (TextUtils.isEmpty(deviceIdBag.deviceId)) {
-                return "";
-            }
-            return deviceIdBag.deviceId;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            if (!a) {
-                if ("com.baidu.searchbox".equals(context.getPackageName())) {
-                    b = true;
-                }
-                a = true;
-            }
-            return b;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String b(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            try {
-            } catch (Throwable th) {
-                go1.d(th);
-            }
-            if (f(context)) {
-                return d(DeviceInfoManager.INSTANCE.getAndroidId(context, AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO, str));
-            }
-            if (!um1.f(context).d()) {
-                return d;
-            }
-            if (!TextUtils.isEmpty(d)) {
-                return d;
-            }
-            if (!go1.n(context)) {
-                return "";
-            }
-            String string = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
-            d = string;
-            if (TextUtils.isEmpty(string)) {
-                d = "";
-            }
-            return d;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String c(Context context, boolean z, boolean z2, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2), str})) == null) {
-            try {
-                if (f(context)) {
-                    return d(DeviceInfoManager.INSTANCE.getOAID(AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO, str));
-                }
-                if (!um1.f(context).d()) {
-                    return oo1.b(String.valueOf(-1000), z2);
-                }
-                if (z && !TextUtils.isEmpty(c)) {
-                    return c;
-                }
-                if (!go1.n(context)) {
-                    return oo1.b(String.valueOf(-1002), z2);
-                }
-                String a2 = po1.b().a();
-                if (TextUtils.isEmpty(a2)) {
-                    return oo1.b(String.valueOf(-1003), z2);
-                }
-                c = a2;
-                return a2;
-            } catch (Throwable th) {
-                go1.d(th);
-                return "";
-            }
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static String e(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            try {
-                if (f(context)) {
-                    return d(DeviceInfoManager.INSTANCE.getManufacturer(AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO, str));
-                }
-                return Build.MANUFACTURER;
-            } catch (Throwable th) {
-                go1.d(th);
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String g(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
-            try {
-                if (f(context)) {
-                    return d(DeviceInfoManager.INSTANCE.getModel(AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO, str));
-                }
-                return Build.MODEL;
-            } catch (Throwable th) {
-                go1.d(th);
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String h(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
-            try {
-                if (f(context)) {
-                    return d(DeviceInfoManager.INSTANCE.getOperator(context, AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO, str, true));
-                }
-                if (!um1.f(context).d()) {
-                    return "";
-                }
-                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                if (telephonyManager != null) {
-                    return telephonyManager.getSimOperator();
-                }
-                return String.valueOf(-1003);
-            } catch (Throwable th) {
-                go1.d(th);
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
     }
 }

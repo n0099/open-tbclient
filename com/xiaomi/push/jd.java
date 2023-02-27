@@ -1,53 +1,96 @@
 package com.xiaomi.push;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.ByteBuffer;
 /* loaded from: classes8.dex */
-public final class jd {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final byte a;
+public abstract class jd {
+    public jn a;
 
-    /* renamed from: a  reason: collision with other field name */
-    public final int f834a;
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public jd() {
-        this((byte) 0, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this(((Byte) objArr[0]).byteValue(), ((Integer) objArr[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+    public jd(jn jnVar) {
+        this.a = jnVar;
     }
 
-    public jd(byte b, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Byte.valueOf(b), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = b;
-        this.f834a = i;
+    public abstract byte a();
+
+    /* renamed from: a */
+    public abstract double mo610a();
+
+    /* renamed from: a */
+    public abstract int mo611a();
+
+    /* renamed from: a */
+    public abstract long mo612a();
+
+    /* renamed from: a */
+    public abstract ja mo613a();
+
+    /* renamed from: a */
+    public abstract jb mo614a();
+
+    /* renamed from: a */
+    public abstract jc mo615a();
+
+    /* renamed from: a */
+    public abstract jh mo616a();
+
+    /* renamed from: a */
+    public abstract ji mo617a();
+
+    /* renamed from: a */
+    public abstract String mo618a();
+
+    /* renamed from: a */
+    public abstract ByteBuffer mo619a();
+
+    /* renamed from: a */
+    public abstract short mo620a();
+
+    /* renamed from: a */
+    public abstract void mo621a();
+
+    public abstract void a(byte b);
+
+    /* renamed from: a */
+    public abstract void mo622a(int i);
+
+    public abstract void a(long j);
+
+    public abstract void a(ja jaVar);
+
+    public abstract void a(jb jbVar);
+
+    public abstract void a(jc jcVar);
+
+    public abstract void a(ji jiVar);
+
+    public abstract void a(String str);
+
+    public abstract void a(ByteBuffer byteBuffer);
+
+    public abstract void a(short s);
+
+    public abstract void a(boolean z);
+
+    /* renamed from: a */
+    public abstract boolean mo623a();
+
+    public abstract void b();
+
+    public abstract void c();
+
+    public abstract void d();
+
+    public abstract void e();
+
+    public abstract void f();
+
+    public abstract void g();
+
+    public abstract void h();
+
+    public abstract void i();
+
+    public abstract void j();
+
+    public void k() {
     }
 }

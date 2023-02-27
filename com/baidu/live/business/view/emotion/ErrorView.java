@@ -8,125 +8,66 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fd0;
-import com.baidu.tieba.oa0;
-import com.baidu.tieba.wa0;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.ab0;
+import com.baidu.tieba.jd0;
+import com.baidu.tieba.sa0;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes2.dex */
 public class ErrorView extends LinearLayout {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public SimpleDraweeView b;
     public TextView c;
-    public wa0 d;
+    public ab0 d;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ErrorView a;
-
-        public a(ErrorView errorView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {errorView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = errorView;
+        public a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (!oa0.f(this.a.getContext())) {
-                    Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0aa5, 1).show();
-                } else if (this.a.d != null) {
-                    this.a.d.a(view2);
-                }
+            if (!sa0.f(ErrorView.this.getContext())) {
+                Toast.makeText(ErrorView.this.getContext(), (int) R.string.obfuscated_res_0x7f0f0aae, 1).show();
+            } else if (ErrorView.this.d != null) {
+                ErrorView.this.d.a(view2);
             }
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ErrorView(Context context) {
         this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    }
+
+    public void d(int i) {
+        e(i, LiveFeedPageSdk.HOST_LIVE_TAB);
+    }
+
+    public void setActionCallback(ab0 ab0Var) {
+        this.d = ab0Var;
+    }
+
+    public void setImageResource(int i) {
+        if (i != -1) {
+            this.b.setActualImageResource(i);
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ErrorView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+    }
+
+    public void e(int i, String str) {
+        super.setVisibility(i);
+        if (i == 0) {
+            c(str);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ErrorView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0558, this);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d056d, this);
         setOrientation(1);
         setGravity(17);
         this.b = (SimpleDraweeView) findViewById(R.id.errorview_img);
@@ -135,65 +76,28 @@ public class ErrorView extends LinearLayout {
         b();
     }
 
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            e(i, LiveFeedPageSdk.HOST_LIVE_TAB);
-        }
-    }
-
-    public void setActionCallback(wa0 wa0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, wa0Var) == null) {
-            this.d = wa0Var;
-        }
-    }
-
-    public void setImageResource(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && i != -1) {
-            this.b.setActualImageResource(i);
-        }
-    }
-
     public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.setOnClickListener(new a(this));
-        }
+        this.a.setOnClickListener(new a());
     }
 
     public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (oa0.f(getContext())) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-                layoutParams.width = oa0.b(getContext(), EmotionStrategy.getInstance().errorWidth);
-                layoutParams.height = oa0.b(getContext(), EmotionStrategy.getInstance().errorHeight);
-                this.b.setLayoutParams(layoutParams);
-                setImageResource(fd0.f().c(str));
-                this.c.setText(R.string.obfuscated_res_0x7f0f0aa4);
-            } else {
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-                layoutParams2.width = oa0.b(getContext(), EmotionStrategy.getInstance().networkWidth);
-                layoutParams2.height = oa0.b(getContext(), EmotionStrategy.getInstance().networkHeight);
-                this.b.setLayoutParams(layoutParams2);
-                setImageResource(fd0.f().d(str));
-                this.c.setText(R.string.obfuscated_res_0x7f0f0aa5);
-            }
-            this.c.setTextColor(fd0.f().a(getContext(), str, "color_8585852"));
-            this.a.setTextColor(fd0.f().a(getContext(), str, "color_5252522"));
-            this.a.setBackground(fd0.f().o(getContext(), str));
+        if (sa0.f(getContext())) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
+            layoutParams.width = sa0.b(getContext(), EmotionStrategy.getInstance().errorWidth);
+            layoutParams.height = sa0.b(getContext(), EmotionStrategy.getInstance().errorHeight);
+            this.b.setLayoutParams(layoutParams);
+            setImageResource(jd0.f().c(str));
+            this.c.setText(R.string.obfuscated_res_0x7f0f0aad);
+        } else {
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.b.getLayoutParams();
+            layoutParams2.width = sa0.b(getContext(), EmotionStrategy.getInstance().networkWidth);
+            layoutParams2.height = sa0.b(getContext(), EmotionStrategy.getInstance().networkHeight);
+            this.b.setLayoutParams(layoutParams2);
+            setImageResource(jd0.f().d(str));
+            this.c.setText(R.string.obfuscated_res_0x7f0f0aae);
         }
-    }
-
-    public void e(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
-            super.setVisibility(i);
-            if (i == 0) {
-                c(str);
-            }
-        }
+        this.c.setTextColor(jd0.f().a(getContext(), str, "color_8585852"));
+        this.a.setTextColor(jd0.f().a(getContext(), str, "color_5252522"));
+        this.a.setBackground(jd0.f().o(getContext(), str));
     }
 }

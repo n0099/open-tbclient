@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m45;
+import com.baidu.tieba.y55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -128,16 +128,16 @@ public class DownloadManagerNotLoginLayout extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d023e, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d024b, (ViewGroup) this, true);
             this.a = context;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09088f);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090890);
-            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f09088e);
-            m45 m45Var = new m45();
-            this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0416));
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0908ca);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0908cb);
+            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f0908c9);
+            y55 y55Var = new y55();
+            this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0417));
             this.d.setTextSize(R.dimen.T_X06);
             this.d.setTextHorizontalCenter(true);
-            this.d.setConfig(m45Var);
+            this.d.setConfig(y55Var);
             this.d.setOnClickListener(new a(this));
         }
     }

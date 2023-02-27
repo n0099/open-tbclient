@@ -1,5 +1,6 @@
 package com.kwad.sdk.utils.kwai;
 
+import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.io.Closeable;
 import java.io.File;
 import java.io.RandomAccessFile;
@@ -12,7 +13,7 @@ public final class h {
     /* loaded from: classes8.dex */
     public static class a {
         public static final SecureRandom aqs = new SecureRandom();
-        public static final char[] aqt = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        public static final char[] aqt = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
     public static String Bt() {

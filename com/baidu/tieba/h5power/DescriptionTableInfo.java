@@ -3,6 +3,7 @@ package com.baidu.tieba.h5power;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.location.BDLocation;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -37,7 +38,7 @@ public class DescriptionTableInfo {
         mModuleSet = linkedHashSet;
         linkedHashSet.add("hybrid");
         mModuleSet.add("host");
-        mModuleSet.add("device");
+        mModuleSet.add(Config.DEVICE_PART);
         mModuleSet.add(DI.ACCOUNT);
         mModuleSet.add(DI.ROUTER_NAME);
         mModuleSet.add("toast");

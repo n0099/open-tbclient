@@ -3,20 +3,12 @@ package com.baidu.nadcore.video.videoplayer.ui.loading;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.l61;
-import com.baidu.tieba.n61;
-import com.baidu.tieba.o61;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.u61;
+import com.baidu.tieba.w61;
+import com.baidu.tieba.x61;
 /* loaded from: classes2.dex */
 public class BdVideoLoadingView extends ImageView {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public l61 a;
+    public u61 a;
     public a b;
 
     /* loaded from: classes2.dex */
@@ -26,86 +18,38 @@ public class BdVideoLoadingView extends ImageView {
         void b();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdVideoLoadingView(Context context) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        a(context);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdVideoLoadingView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         a(context);
     }
 
     public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            setLoadingRenderer(new o61(context));
-        }
+        setLoadingRenderer(new x61(context));
     }
 
     public void setLoadingAnimListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.b = aVar;
-        }
+        this.b = aVar;
     }
 
-    public void setLoadingRenderer(n61 n61Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, n61Var) == null) {
-            l61 l61Var = new l61(n61Var);
-            this.a = l61Var;
-            setImageDrawable(l61Var);
-        }
+    public void setLoadingRenderer(w61 w61Var) {
+        u61 u61Var = new u61(w61Var);
+        this.a = u61Var;
+        setImageDrawable(u61Var);
+    }
+
+    public BdVideoLoadingView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        a(context);
     }
 
     public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.isRunning();
-        }
-        return invokeV.booleanValue;
+        return this.a.isRunning();
     }
 
     public void c() {
-        l61 l61Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (l61Var = this.a) != null) {
-            l61Var.start();
+        u61 u61Var = this.a;
+        if (u61Var != null) {
+            u61Var.start();
             a aVar = this.b;
             if (aVar != null) {
                 aVar.a();
@@ -114,10 +58,9 @@ public class BdVideoLoadingView extends ImageView {
     }
 
     public void d() {
-        l61 l61Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (l61Var = this.a) != null) {
-            l61Var.stop();
+        u61 u61Var = this.a;
+        if (u61Var != null) {
+            u61Var.stop();
             a aVar = this.b;
             if (aVar != null) {
                 aVar.b();

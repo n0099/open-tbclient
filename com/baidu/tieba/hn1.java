@@ -1,151 +1,31 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.IntentFilter;
-import android.os.Message;
 import android.text.TextUtils;
-import android.util.Pair;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tm1;
+import com.baidu.mobstat.Config;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import com.fun.ad.sdk.FunAdSdk;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class hn1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile hn1 g;
+    public static volatile hn1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Integer, dn1> a;
-    public final ArrayList<tm1.a> b;
-    public com.baidu.sso.h.h c;
-    public Context d;
-    public boolean e;
-    public int f;
+    public Context a;
 
-    /* loaded from: classes4.dex */
-    public class a implements tm1.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dn1 a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ tm1.a e;
-
-        public a(hn1 hn1Var, dn1 dn1Var, Context context, int i, long j, tm1.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hn1Var, dn1Var, context, Integer.valueOf(i), Long.valueOf(j), aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dn1Var;
-            this.b = context;
-            this.c = i;
-            this.d = j;
-            this.e = aVar;
-        }
-
-        @Override // com.baidu.tieba.tm1.a
-        public void onFinish(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                try {
-                    if (new JSONObject(str).optInt("0", -1) == 0) {
-                        this.a.j(this.b, this.c, this.d);
-                        return;
-                    }
-                    if (this.e != null) {
-                        this.e.onFinish(str);
-                    }
-                    zm1.c().d(false);
-                } catch (Throwable unused) {
-                    tm1.a aVar = this.e;
-                    if (aVar != null) {
-                        aVar.onFinish(str);
-                    }
-                    zm1.c().d(false);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements tm1.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dn1 a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ tm1.a e;
-
-        public b(hn1 hn1Var, dn1 dn1Var, Context context, int i, long j, tm1.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hn1Var, dn1Var, context, Integer.valueOf(i), Long.valueOf(j), aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dn1Var;
-            this.b = context;
-            this.c = i;
-            this.d = j;
-            this.e = aVar;
-        }
-
-        @Override // com.baidu.tieba.tm1.a
-        public void onFinish(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                try {
-                    if (new JSONObject(str).optInt("0", -1) == 0) {
-                        this.a.p(this.b, this.c, this.d);
-                        return;
-                    }
-                    if (this.e != null) {
-                        this.e.onFinish(str);
-                    }
-                    zm1.c().n(false);
-                } catch (Throwable unused) {
-                    tm1.a aVar = this.e;
-                    if (aVar != null) {
-                        aVar.onFinish(str);
-                    }
-                    zm1.c().n(false);
-                }
-            }
-        }
-    }
-
-    public hn1() {
+    public hn1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -155,422 +35,280 @@ public class hn1 {
                 return;
             }
         }
-        this.a = new HashMap();
-        this.b = new ArrayList<>();
-        this.f = -1;
+        this.a = context;
     }
 
-    public static hn1 j() {
-        InterceptResult invokeV;
+    public static hn1 a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (g == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (b == null) {
                 synchronized (hn1.class) {
-                    if (g == null) {
-                        g = new hn1();
+                    if (b == null) {
+                        b = new hn1(context);
                     }
                 }
             }
-            return g;
+            return b;
         }
-        return (hn1) invokeV.objValue;
+        return (hn1) invokeL.objValue;
     }
 
-    public int a() {
+    public String b(JSONObject jSONObject, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, jSONObject, j)) == null) {
+            if (jSONObject != null) {
+                try {
+                    if (jSONObject.length() != 0) {
+                        String d = new do1(this.a, null).d(jSONObject, j);
+                        if (!TextUtils.isEmpty(d)) {
+                            return d;
+                        }
+                    }
+                } catch (Throwable th) {
+                    vo1.d(th);
+                }
+            }
+            return "";
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public String f(JSONObject jSONObject, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, jSONObject, j)) == null) {
+            if (jSONObject != null) {
+                try {
+                    if (jSONObject.length() != 0) {
+                        String i = new do1(this.a, null).i(jSONObject, j);
+                        if (!TextUtils.isEmpty(i)) {
+                            return i;
+                        }
+                    }
+                } catch (Throwable th) {
+                    vo1.d(th);
+                }
+            }
+            return "";
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public final void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            if (jSONObject != null) {
+                JSONArray optJSONArray = jSONObject.optJSONArray("1");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    fn1.g(this.a).l("k_retry_code_cm", optJSONArray.toString());
+                } else {
+                    fn1.g(this.a).l("k_retry_code_cm", "");
+                }
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("2");
+                if (optJSONArray2 != null && optJSONArray2.length() > 0) {
+                    fn1.g(this.a).l("k_retry_code_cu", optJSONArray2.toString());
+                } else {
+                    fn1.g(this.a).l("k_retry_code_cu", "");
+                }
+                JSONArray optJSONArray3 = jSONObject.optJSONArray("3");
+                if (optJSONArray3 != null && optJSONArray3.length() > 0) {
+                    fn1.g(this.a).l("k_retry_code_ct", optJSONArray3.toString());
+                    return;
+                } else {
+                    fn1.g(this.a).l("k_retry_code_ct", "");
+                    return;
+                }
+            }
+            fn1.g(this.a).l("k_retry_code_cm", "");
+            fn1.g(this.a).l("k_retry_code_cu", "");
+            fn1.g(this.a).l("k_retry_code_ct", "");
+        }
+    }
+
+    public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int b(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
-            if (this.a.size() == 1) {
-                return Integer.valueOf(this.a.get(this.a.keySet().iterator().next()).c).intValue();
-            }
-            if (this.a.size() == 2 && i2 < 4 && i2 > 0) {
-                return i2;
-            }
-            return i;
-        }
-        return invokeII.intValue;
-    }
-
-    public synchronized void c(int i, int i2, int i3, int i4, String str, gn1 gn1Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, gn1Var, Boolean.valueOf(z)}) == null) {
-            synchronized (this) {
-                if (gn1Var == null) {
-                    return;
-                }
-                Pair<Boolean, tm1.a> b2 = zm1.c().b(i);
-                if (!((Boolean) b2.first).booleanValue()) {
-                    return;
-                }
-                jn1.a().b(i);
-                h((tm1.a) b2.second, new cn1(i2, i3, i4, str), gn1Var.a, z);
-                if (i2 == 1) {
-                    gn1Var.b = 1;
-                }
-                if (z) {
-                    int i5 = gn1Var.a;
-                    if (i5 == 1) {
-                        wn1.b(this.d, i4, gn1Var.b, i3, str);
-                    } else if (i5 == 3) {
-                        wn1.f(this.d, i4, gn1Var.b, i3, str);
-                    } else if (i5 == 2) {
-                        if (i2 == 3 && i3 == 2019) {
-                            um1.f(this.d).z(System.currentTimeMillis());
-                            um1.f(this.d).i(i3);
-                        }
-                        wn1.a(this.d, i4, i2, i3, gn1Var.c, gn1Var.d);
-                    } else {
-                        if (i2 == 3 && i3 == 2019) {
-                            um1.f(this.d).L(System.currentTimeMillis());
-                            um1.f(this.d).q(i3);
-                        }
-                        wn1.e(this.d, i4, i2, i3, gn1Var.c, gn1Var.d);
-                    }
-                }
-            }
-        }
-    }
-
-    public synchronized void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            synchronized (this) {
-                try {
-                    if (this.e) {
-                        return;
-                    }
-                    this.d = context.getApplicationContext();
-                    if (!sn1.f(context)) {
-                        po1.b().a(this.d, null);
-                    }
-                    boolean z = false;
-                    if (!wm1.a(this.d).d() && go1.j(this.d) == 0) {
-                        z = true;
-                    }
-                    g(this.d, z);
-                    go1.l(this.d);
-                    this.a.put(1, new an1(this.d));
-                    this.a.put(3, new kn1(this.d));
-                    this.a.put(2, new mn1(this.d));
-                    this.e = true;
-                }
-            }
-        }
-    }
-
-    public synchronized void e(Context context, int i, Pair<Integer, Integer> pair, long j, tm1.a aVar) {
-        Pair<Integer, Integer> pair2;
-        int intValue;
-        int intValue2;
-        int intValue3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Integer.valueOf(i), pair, Long.valueOf(j), aVar}) == null) {
-            synchronized (this) {
-                int i2 = -1;
-                if (zm1.c().g()) {
-                    this.b.add(aVar);
-                    return;
-                }
-                this.b.clear();
-                int a2 = zm1.c().a(aVar);
-                try {
-                    Message message = new Message();
-                    message.what = a2;
-                    message.arg1 = -1;
-                    message.arg2 = 1;
-                    this.f = -1;
-                    jn1.a().c(message, j);
-                    if (pair == null) {
-                        pair2 = oo1.c(context);
-                    } else {
-                        pair2 = pair;
-                    }
-                    intValue = ((Integer) pair2.first).intValue();
-                    intValue2 = ((Integer) pair2.second).intValue();
-                    intValue3 = ((Integer) pair2.second).intValue();
-                } catch (Throwable unused) {
-                    i2 = a2;
-                    gn1 gn1Var = new gn1();
-                    gn1Var.a = 1;
-                    c(i2, 3, 2009, -1, "auth login unknown error.", gn1Var, true);
-                }
-                if (!i(a2, intValue2, intValue, 1)) {
-                    return;
-                }
-                int b2 = b(intValue2, i);
-                this.f = b2;
-                zm1.c().i(false, true);
-                if (b2 != 1 && b2 != 2 && b2 != 3) {
-                    gn1 gn1Var2 = new gn1();
-                    gn1Var2.a = 1;
-                    c(a2, 3, 2004, b2, "has no op.", gn1Var2, true);
-                    return;
-                }
-                dn1 dn1Var = this.a.get(Integer.valueOf(b2));
-                if (dn1Var == null) {
-                    gn1 gn1Var3 = new gn1();
-                    gn1Var3.a = 1;
-                    c(a2, 3, 2002, b2, "not support current operator", gn1Var3, true);
-                } else {
-                    dn1Var.m(intValue3);
-                    dn1Var.i(context, intValue, a2);
-                    wn1.d(context, intValue3, 1, dn1.q);
-                }
-            }
-        }
-    }
-
-    public void k(Context context, int i, Pair<Integer, Integer> pair, long j, tm1.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{context, Integer.valueOf(i), pair, Long.valueOf(j), aVar}) == null) {
-            int a2 = zm1.c().a(aVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                Message message = new Message();
-                message.what = a2;
-                message.arg1 = -1;
-                message.arg2 = 3;
-                this.f = -1;
-                jn1.a().c(message, j);
-                if (pair == null) {
-                    pair = oo1.c(context);
+                if (System.currentTimeMillis() - fn1.g(this.a).k0() > fn1.g(this.a).y()) {
+                    return false;
                 }
-                int intValue = ((Integer) pair.first).intValue();
-                int intValue2 = ((Integer) pair.second).intValue();
-                int intValue3 = ((Integer) pair.second).intValue();
-                if (!i(a2, intValue2, intValue, 3)) {
-                    return;
+                String p0 = fn1.g(this.a).p0();
+                String K = fn1.g(this.a).K();
+                String g0 = fn1.g(this.a).g0();
+                if (TextUtils.isEmpty(p0) && TextUtils.isEmpty(K) && TextUtils.isEmpty(g0)) {
+                    return false;
                 }
-                int b2 = b(intValue2, i);
-                this.f = b2;
-                if (!zm1.c().m(false, true)) {
-                    gn1 gn1Var = new gn1();
-                    gn1Var.a = 3;
-                    c(a2, 3, 998, b2, "is doing auth prelogin.", gn1Var, false);
-                } else if (b2 != 1 && b2 != 2 && b2 != 3) {
-                    gn1 gn1Var2 = new gn1();
-                    gn1Var2.a = 3;
-                    c(a2, 3, 2004, b2, "has no op.", gn1Var2, true);
-                } else {
-                    dn1 dn1Var = this.a.get(Integer.valueOf(b2));
-                    if (dn1Var == null) {
-                        gn1 gn1Var3 = new gn1();
-                        gn1Var3.a = 3;
-                        c(a2, 3, 2002, b2, "not support current operator", gn1Var3, true);
-                        return;
+                if (!TextUtils.isEmpty(p0)) {
+                    JSONObject jSONObject = new JSONObject(p0);
+                    String string = jSONObject.getString("app_id");
+                    String string2 = jSONObject.getString(GameGuideConfigInfo.KEY_APP_KEY);
+                    if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2)) {
+                        qn1.k(FunAdSdk.PLATFORM_CM, string, string2);
                     }
-                    dn1Var.m(intValue3);
-                    dn1Var.h(context, a2);
-                    wn1.d(context, intValue3, 3, dn1.r);
                 }
-            } catch (Throwable unused) {
-                gn1 gn1Var4 = new gn1();
-                gn1Var4.a = 3;
-                c(a2, 3, 2009, -1, "auth login unknown error.", gn1Var4, true);
-            }
-        }
-    }
-
-    public void f(Context context, long j, tm1.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, Long.valueOf(j), aVar}) == null) {
-            int a2 = zm1.c().a(aVar);
-            Pair<Integer, Integer> c = oo1.c(context);
-            int intValue = ((Integer) c.first).intValue();
-            int intValue2 = ((Integer) c.second).intValue();
-            if (!i(a2, intValue2, intValue, 2)) {
-                return;
-            }
-            if (intValue2 != 1 && intValue2 != 2 && intValue2 != 3) {
-                gn1 gn1Var = new gn1();
-                gn1Var.a = 2;
-                c(a2, 3, 2004, intValue2, "has no op.", gn1Var, true);
-                return;
-            }
-            dn1 dn1Var = this.a.get(Integer.valueOf(intValue2));
-            if (dn1Var == null) {
-                gn1 gn1Var2 = new gn1();
-                gn1Var2.a = 2;
-                c(a2, 3, 2002, intValue2, "not support current operator", gn1Var2, true);
-            } else if (!zm1.c().e(false, true)) {
-                gn1 gn1Var3 = new gn1();
-                gn1Var3.a = 2;
-                c(a2, 3, 998, intValue2, "is doing auth login.", gn1Var3, false);
-            } else {
-                wn1.d(context, intValue2, 2, dn1.q);
-                if (!dn1Var.l()) {
-                    dn1Var.j(context, a2, j);
-                } else if (zm1.c().g()) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    while (zm1.c().g()) {
-                        long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                        if (currentTimeMillis2 > 0 && currentTimeMillis2 < j) {
-                            try {
-                                Thread.sleep(100L);
-                                if (!dn1Var.l()) {
-                                    dn1Var.j(context, a2, j);
-                                    return;
-                                }
-                            } catch (Throwable th) {
-                                go1.d(th);
-                                gn1 gn1Var4 = new gn1();
-                                gn1Var4.a = 2;
-                                c(a2, 3, IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER, intValue2, "auth out time", gn1Var4, true);
-                                return;
-                            }
-                        } else {
-                            gn1 gn1Var5 = new gn1();
-                            gn1Var5.a = 2;
-                            c(a2, 3, IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER, intValue2, "auth out time", gn1Var5, true);
-                            return;
-                        }
+                if (!TextUtils.isEmpty(K)) {
+                    JSONObject jSONObject2 = new JSONObject(K);
+                    String string3 = jSONObject2.getString("app_id");
+                    String string4 = jSONObject2.getString(GameGuideConfigInfo.KEY_APP_KEY);
+                    if (!TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string4)) {
+                        qn1.k(Config.EXCEPTION_CRASH_TYPE, string3, string4);
                     }
-                } else {
-                    e(context, 0, c, j, new a(this, dn1Var, context, a2, j, aVar));
                 }
-            }
-        }
-    }
-
-    public void l(Context context, long j, tm1.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{context, Long.valueOf(j), aVar}) == null) {
-            int a2 = zm1.c().a(aVar);
-            Pair<Integer, Integer> c = oo1.c(context);
-            int intValue = ((Integer) c.first).intValue();
-            int intValue2 = ((Integer) c.second).intValue();
-            if (!i(a2, intValue2, intValue, 4)) {
-                return;
-            }
-            if (intValue2 != 1 && intValue2 != 2 && intValue2 != 3) {
-                gn1 gn1Var = new gn1();
-                gn1Var.a = 4;
-                c(a2, 3, 2004, intValue2, "has no op.", gn1Var, true);
-                return;
-            }
-            dn1 dn1Var = this.a.get(Integer.valueOf(intValue2));
-            if (dn1Var == null) {
-                gn1 gn1Var2 = new gn1();
-                gn1Var2.a = 4;
-                c(a2, 3, 2002, intValue2, "not support current operator", gn1Var2, true);
-            } else if (!zm1.c().o(false, true)) {
-                gn1 gn1Var3 = new gn1();
-                gn1Var3.a = 4;
-                c(a2, 3, 998, intValue2, "is doing auth verify.", gn1Var3, false);
-            } else {
-                wn1.d(context, intValue2, 4, dn1.r);
-                if (!dn1Var.q()) {
-                    dn1Var.p(context, a2, j);
-                } else if (zm1.c().k()) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    while (zm1.c().k()) {
-                        long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                        if (currentTimeMillis2 > 0 && currentTimeMillis2 < j) {
-                            try {
-                                Thread.sleep(100L);
-                                if (!dn1Var.q()) {
-                                    dn1Var.p(context, a2, j);
-                                    return;
-                                }
-                            } catch (Throwable th) {
-                                go1.d(th);
-                                gn1 gn1Var4 = new gn1();
-                                gn1Var4.a = 4;
-                                c(a2, 3, IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER, intValue2, "auth out time", gn1Var4, true);
-                                return;
-                            }
-                        } else {
-                            gn1 gn1Var5 = new gn1();
-                            gn1Var5.a = 4;
-                            c(a2, 3, IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER, intValue2, "auth out time", gn1Var5, true);
-                            return;
-                        }
+                if (!TextUtils.isEmpty(g0)) {
+                    JSONObject jSONObject3 = new JSONObject(g0);
+                    String optString = jSONObject3.optString("app_id");
+                    String optString2 = jSONObject3.optString(GameGuideConfigInfo.KEY_APP_KEY);
+                    if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                        qn1.k("cu", optString, optString2);
+                        return true;
                     }
-                } else {
-                    k(context, 0, c, j, new b(this, dn1Var, context, a2, j, aVar));
+                    return true;
                 }
-            }
-        }
-    }
-
-    public synchronized void g(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048582, this, context, z) == null) {
-            synchronized (this) {
-                try {
-                    m(context);
-                    this.c = new com.baidu.sso.h.h();
-                    IntentFilter intentFilter = new IntentFilter();
-                    intentFilter.addAction("sso_action_t_m");
-                    if (z) {
-                        intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                    }
-                    context.registerReceiver(this.c, intentFilter);
-                } catch (Throwable th) {
-                    go1.d(th);
-                }
-            }
-        }
-    }
-
-    public final synchronized void h(tm1.a aVar, cn1 cn1Var, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{aVar, cn1Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            synchronized (this) {
-                if (i == 1) {
-                    this.b.clear();
-                    fn1.b(aVar, cn1Var, i, (ArrayList) this.b.clone(), z);
-                } else {
-                    fn1.b(aVar, cn1Var, i, null, z);
-                }
-            }
-        }
-    }
-
-    public final boolean i(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3, i4)) == null) {
-            gn1 gn1Var = new gn1();
-            gn1Var.a = i4;
-            if (!this.e) {
-                c(i, 3, 2001, i2, "has no init.", gn1Var, false);
-                return false;
-            } else if (TextUtils.isEmpty(tm1.b) && TextUtils.isEmpty(tm1.c)) {
-                c(i, 3, 2007, i2, "has no key.", gn1Var, false);
-                return false;
-            } else if (this.a.isEmpty()) {
-                c(i, 3, 2002, i2, "has no sdk.", gn1Var, false);
-                return false;
-            } else if (i3 == 0) {
-                c(i, 3, 2003, i2, "has no net.", gn1Var, false);
-                return false;
-            } else {
                 return true;
+            } catch (Throwable th) {
+                vo1.d(th);
+                return false;
             }
         }
-        return invokeIIII.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public final void m(Context context) {
+    /* JADX WARN: Removed duplicated region for block: B:20:0x004a  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x0061 A[DONT_GENERATE] */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0063 A[Catch: all -> 0x0029, TRY_ENTER, TryCatch #1 {all -> 0x0029, blocks: (B:7:0x0009, B:9:0x0022, B:14:0x002f, B:18:0x0037, B:22:0x004d, B:25:0x0058, B:26:0x005b, B:30:0x0063, B:32:0x0072, B:37:0x008b, B:41:0x0095, B:43:0x009e, B:45:0x00b0, B:47:0x00b6, B:48:0x00bb, B:50:0x00c4, B:53:0x00d9, B:52:0x00d0, B:54:0x00e6, B:56:0x00ee, B:58:0x0100, B:60:0x0106, B:61:0x010b, B:63:0x0114, B:66:0x0129, B:65:0x0120, B:67:0x0136, B:69:0x013e, B:71:0x0150, B:73:0x0156, B:74:0x015b, B:76:0x0164, B:79:0x0179, B:78:0x0170, B:80:0x0186, B:82:0x018e, B:84:0x01a5, B:86:0x01ab, B:87:0x01b8, B:89:0x01d1, B:90:0x022e, B:33:0x007c), top: B:107:0x0009 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public synchronized boolean e(boolean z) {
+        InterceptResult invokeZ;
+        boolean z2;
+        String b2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, context) == null) {
-            try {
-                if (this.c != null) {
-                    context.unregisterReceiver(this.c);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            synchronized (this) {
+                if (z) {
+                    try {
+                        if (System.currentTimeMillis() - fn1.g(this.a).W() < uo1.c * 5) {
+                            zo1.b("pullConfig->force pull");
+                            z2 = true;
+                            if (z2 && d()) {
+                                return true;
+                            }
+                            do1 do1Var = new do1(this.a, null);
+                            b2 = do1Var.b();
+                            if (TextUtils.isEmpty(b2)) {
+                                for (int i = 0; i < 3; i++) {
+                                    b2 = do1Var.b();
+                                    if (!TextUtils.isEmpty(b2)) {
+                                        break;
+                                    }
+                                }
+                            }
+                            if (!TextUtils.isEmpty(b2)) {
+                                return false;
+                            }
+                            JSONObject jSONObject = new JSONObject(b2);
+                            int optInt = jSONObject.optInt("0", -1);
+                            if (optInt == 2) {
+                                fn1.g(this.a).V(false);
+                            } else {
+                                fn1.g(this.a).V(true);
+                            }
+                            if (optInt != 1 && optInt != 3) {
+                                JSONObject optJSONObject = jSONObject.optJSONObject("1");
+                                if (optJSONObject == null) {
+                                    return false;
+                                }
+                                JSONObject optJSONObject2 = optJSONObject.optJSONObject("yd_config");
+                                if (optJSONObject2 != null) {
+                                    String optString = optJSONObject2.optString("app_id");
+                                    String optString2 = optJSONObject2.optString(GameGuideConfigInfo.KEY_APP_KEY);
+                                    if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                                        qn1.k(FunAdSdk.PLATFORM_CM, optString, optString2);
+                                    }
+                                    int optInt2 = optJSONObject2.optInt("status", -1);
+                                    if (optInt2 == 1) {
+                                        fn1.g(this.a).m(true);
+                                    } else if (optInt2 == 2) {
+                                        fn1.g(this.a).m(false);
+                                    }
+                                    fn1.g(this.a).Y(optJSONObject2.toString());
+                                }
+                                JSONObject optJSONObject3 = optJSONObject.optJSONObject("dx_config");
+                                if (optJSONObject3 != null) {
+                                    String optString3 = optJSONObject3.optString("app_id");
+                                    String optString4 = optJSONObject3.optString(GameGuideConfigInfo.KEY_APP_KEY);
+                                    if (!TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString4)) {
+                                        qn1.k(Config.EXCEPTION_CRASH_TYPE, optString3, optString4);
+                                    }
+                                    int optInt3 = optJSONObject3.optInt("status", -1);
+                                    if (optInt3 == 1) {
+                                        fn1.g(this.a).x(true);
+                                    } else if (optInt3 == 2) {
+                                        fn1.g(this.a).x(false);
+                                    }
+                                    fn1.g(this.a).k(optJSONObject3.toString());
+                                }
+                                JSONObject optJSONObject4 = optJSONObject.optJSONObject("lt_config");
+                                if (optJSONObject4 != null) {
+                                    String optString5 = optJSONObject4.optString("app_id");
+                                    String optString6 = optJSONObject4.optString(GameGuideConfigInfo.KEY_APP_KEY);
+                                    if (!TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString6)) {
+                                        qn1.k("cu", optString5, optString6);
+                                    }
+                                    int optInt4 = optJSONObject4.optInt("status", -1);
+                                    if (optInt4 == 1) {
+                                        fn1.g(this.a).E(true);
+                                    } else if (optInt4 == 2) {
+                                        fn1.g(this.a).E(false);
+                                    }
+                                    fn1.g(this.a).H(optJSONObject4.toString());
+                                }
+                                JSONObject optJSONObject5 = optJSONObject.optJSONObject("auto_config");
+                                if (optJSONObject5 != null) {
+                                    String optString7 = optJSONObject5.optString(GameGuideConfigInfo.KEY_APP_KEY, "");
+                                    String optString8 = optJSONObject5.optString("secret_key", "");
+                                    if (!TextUtils.isEmpty(optString7) && !TextUtils.isEmpty(optString8)) {
+                                        en1.b = optString7;
+                                        en1.c = optString8;
+                                        fn1.g(this.a).v(optString7, optString8);
+                                    }
+                                }
+                                fn1.g(this.a).Q(optJSONObject.optString("encrypt_key", ""));
+                                JSONObject optJSONObject6 = jSONObject.optJSONObject("a_setting");
+                                if (optJSONObject6 != null) {
+                                    fn1.g(this.a).J("1".equals(optJSONObject6.optString("1", "1")));
+                                    fn1.g(this.a).A(optJSONObject6.optInt("2"));
+                                    fn1.g(this.a).R("1".equals(optJSONObject6.optString("3", "0")));
+                                    c(optJSONObject6.optJSONObject("4"));
+                                    fn1.g(this.a).N("1".equals(optJSONObject6.optString("5", "1")));
+                                }
+                                fn1.g(this.a).j(jSONObject.optLong("3", 300L) * 1000);
+                                fn1.g(this.a).T(System.currentTimeMillis());
+                                return true;
+                            }
+                            return true;
+                        }
+                    } catch (Throwable th) {
+                        vo1.d(th);
+                        return false;
+                    }
                 }
-                this.c = null;
-            } catch (Throwable th) {
-                go1.d(th);
+                z2 = false;
+                if (z2) {
+                }
+                do1 do1Var2 = new do1(this.a, null);
+                b2 = do1Var2.b();
+                if (TextUtils.isEmpty(b2)) {
+                }
+                if (!TextUtils.isEmpty(b2)) {
+                }
             }
+        } else {
+            return invokeZ.booleanValue;
         }
     }
 }

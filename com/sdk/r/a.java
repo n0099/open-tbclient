@@ -1,59 +1,119 @@
 package com.sdk.r;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sdk.p.b;
-import com.sdk.q.e;
+import java.util.Random;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes8.dex */
-public class a {
-    public static /* synthetic */ Interceptable $ic;
+public class a extends com.sdk.i.a {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "com.sdk.r.a";
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1592809850, "Lcom/sdk/r/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1592809850, "Lcom/sdk/r/a;");
+                return;
             }
         }
+        b = com.sdk.f.f.a;
     }
 
-    public String a(String str) {
-        InterceptResult invokeL;
+    public static String a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? e.a(str) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            Random random = new Random();
+            String str = "";
+            for (int i2 = 0; i2 < i; i2++) {
+                String str2 = random.nextInt(2) % 2 == 0 ? "char" : "num";
+                if ("char".equalsIgnoreCase(str2)) {
+                    int i3 = random.nextInt(2) % 2 == 0 ? 65 : 97;
+                    str = str + ((char) (random.nextInt(26) + i3));
+                } else if ("num".equalsIgnoreCase(str2)) {
+                    str = str + String.valueOf(random.nextInt(10));
+                }
+            }
+            return str;
+        }
+        return (String) invokeI.objValue;
     }
 
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) ? b.b(str, str2) : (String) invokeLL.objValue;
-    }
-
-    public String a(String str, String str2, String str3) {
+    public static String a(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3)) == null) ? com.sdk.q.a.b(str3, str, str2) : (String) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+            if (str != null) {
+                try {
+                    if (str.length() != 0 && str.trim().length() != 0) {
+                        if (str2 != null) {
+                            if (str2.length() == 16) {
+                                if (str3.length() == 16) {
+                                    byte[] a2 = c.a(str);
+                                    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                                    cipher.init(2, new SecretKeySpec(str2.getBytes(IMAudioTransRequest.CHARSET), "AES"), new IvParameterSpec(str3.getBytes(IMAudioTransRequest.CHARSET)));
+                                    return new String(cipher.doFinal(a2), IMAudioTransRequest.CHARSET);
+                                }
+                                throw new Exception(" iv decrypt key length error");
+                            }
+                            throw new Exception("decrypt key length error");
+                        }
+                        throw new Exception("decrypt key is null");
+                    }
+                    return null;
+                } catch (Exception e) {
+                    throw new Exception("decrypt errot", e);
+                }
+            }
+            return null;
+        }
+        return (String) invokeLLL.objValue;
     }
 
-    public String a(String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLL;
+    public static String b(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, str, str2, str3, str4)) == null) ? b.a(str3, str) : (String) invokeLLLL.objValue;
-    }
-
-    public String b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) ? com.sdk.q.a.a(str2, str.substring(0, 16), str.substring(16)) : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
+            if (str != null) {
+                try {
+                    if (str.length() != 0 && str.trim().length() != 0) {
+                        if (str2 == null) {
+                            com.sdk.i.a.a(a, "EncryptCbcIv", "encrypt key is null", b);
+                            return null;
+                        } else if (str2.length() != 16) {
+                            com.sdk.i.a.a(a, "EncryptCbcIv", "encrypt key length error", b);
+                            return null;
+                        } else if (str3.length() != 16) {
+                            com.sdk.i.a.a(a, "EncryptCbcIv", "ivStr length error", b);
+                            return null;
+                        } else {
+                            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                            cipher.init(1, new SecretKeySpec(str2.getBytes(IMAudioTransRequest.CHARSET), "AES"), new IvParameterSpec(str3.getBytes(IMAudioTransRequest.CHARSET)));
+                            return c.a(cipher.doFinal(str.getBytes(IMAudioTransRequest.CHARSET)));
+                        }
+                    }
+                } catch (Exception e) {
+                    com.sdk.i.a.a(a, "EncryptCbcIv", e.getMessage(), b);
+                    return null;
+                }
+            }
+            com.sdk.i.a.a(a, "EncryptCbcIv", "encrypt content is null", b);
+            return null;
+        }
+        return (String) invokeLLL.objValue;
     }
 }

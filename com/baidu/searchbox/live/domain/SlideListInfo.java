@@ -2,27 +2,20 @@ package com.baidu.searchbox.live.domain;
 
 import android.net.Uri;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class SlideListInfo {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public int hasMore;
     public ArrayList<SlideInfo> list;
     public String pageSession;
 
     /* loaded from: classes2.dex */
     public static class SlideInfo {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public String avcUrl;
         public String bgCover;
         public String cRoomId;
@@ -37,6 +30,7 @@ public class SlideListInfo {
         public String liveType;
         public JSONObject multiRate;
         public JSONObject originJson;
+        public int playRateSetting = 0;
         public String playUrl;
         public String quic;
         public String roomId;
@@ -51,23 +45,8 @@ public class SlideListInfo {
         public String title;
         public JSONObject vrParams;
 
-        public SlideInfo() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
         public void loadFromJson(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null) {
+            if (jSONObject != null) {
                 this.cover = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
                 this.roomId = jSONObject.optString("room_id");
                 this.scheme = jSONObject.optString("cmd");
@@ -98,6 +77,7 @@ public class SlideListInfo {
                 this.highlightUrl = jSONObject.optString("high_light_url");
                 this.kabrSpts = jSONObject.optString("kabr_spts");
                 this.multiRate = jSONObject.optJSONObject("multirate");
+                this.playRateSetting = jSONObject.optInt(LivePreStartPlayServiceImpl.K_LIVE_PLAY_RATE_SETTING_OPTION);
                 JSONObject optJSONObject = jSONObject.optJSONObject("vr");
                 this.vrParams = optJSONObject;
                 if (optJSONObject == null) {
@@ -114,24 +94,9 @@ public class SlideListInfo {
         }
     }
 
-    public SlideListInfo() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public void loadFromJson(String str) throws JSONException {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (optJSONObject = new JSONObject(str).optJSONObject("data")) != null) {
+        JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
+        if (optJSONObject != null) {
             this.pageSession = optJSONObject.optString("page_session");
             this.hasMore = optJSONObject.optInt("has_more");
             JSONArray optJSONArray = optJSONObject.optJSONArray("list");

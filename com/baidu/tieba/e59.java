@@ -1,87 +1,141 @@
 package com.baidu.tieba;
 
-import android.content.res.Configuration;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.splashad.SplashAdView;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
 public class e59 {
-    public static /* synthetic */ Interceptable $ic;
-    public static e59 b;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<SplashAdView> a;
 
-    public e59() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947685472, "Lcom/baidu/tieba/e59;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947685472, "Lcom/baidu/tieba/e59;");
+        }
+    }
+
+    public static String a(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            return TbConfig.SERVER_ADDRESS + str + "?cmd=" + i;
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public static bn5 b(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, cls)) == null) {
+            try {
+                bn5 bn5Var = new bn5(i, cls.newInstance());
+                MessageManager.getInstance().registerTask(bn5Var);
+                return bn5Var;
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return null;
+            } catch (InstantiationException e2) {
+                e2.printStackTrace();
+                return null;
             }
         }
+        return (bn5) invokeIL.objValue;
     }
 
-    public static e59 a() {
-        InterceptResult invokeV;
+    public static TbHttpMessageTask c(int i, int i2, String str, Class<? extends HttpResponsedMessage> cls, boolean z, boolean z2, boolean z3, boolean z4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                b = new e59();
-            }
-            return b;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, cls, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i2, a(str, i));
+            tbHttpMessageTask.setIsNeedLogin(z);
+            tbHttpMessageTask.setIsNeedTbs(z2);
+            tbHttpMessageTask.setIsNeedAddCommenParam(z3);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(z4);
+            tbHttpMessageTask.setResponsedClass(cls);
+            MessageManager.getInstance().unRegisterTask(i2);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            return tbHttpMessageTask;
         }
-        return (e59) invokeV.objValue;
+        return (TbHttpMessageTask) invokeCommon.objValue;
     }
 
-    public void c() {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
+    public static void d(int i, int i2, String str, Class<? extends HttpResponsedMessage> cls, Class<? extends SocketResponsedMessage> cls2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.a();
-        }
-    }
-
-    public void d() {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.b();
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, cls, cls2}) == null) {
+            h(i2, cls2, false, false);
+            c(i2, i, str, cls, false, true, true, false);
         }
     }
 
-    public void b(Configuration configuration) {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
+    public static TbHttpMessageTask e(int i, String str, Class<? extends HttpResponsedMessage> cls, boolean z, boolean z2, boolean z3, boolean z4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.onConfigurationChanged(configuration);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), str, cls, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i, TbConfig.SERVER_ADDRESS + str);
+            tbHttpMessageTask.setIsNeedLogin(z);
+            tbHttpMessageTask.setIsNeedTbs(z2);
+            tbHttpMessageTask.setIsNeedAddCommenParam(z3);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(z4);
+            tbHttpMessageTask.setResponsedClass(cls);
+            MessageManager.getInstance().unRegisterTask(i);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            return tbHttpMessageTask;
         }
+        return (TbHttpMessageTask) invokeCommon.objValue;
     }
 
-    public void e(MainTabActivity mainTabActivity) {
+    public static cn5 f(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, mainTabActivity) == null) && mainTabActivity != null) {
-            SplashAdView splashAdView = new SplashAdView(mainTabActivity, 2);
-            this.a = new WeakReference<>(splashAdView);
-            mainTabActivity.getWindow().setFlags(1024, 1024);
-            ViewGroup viewGroup = (ViewGroup) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f092072);
-            if (viewGroup != null) {
-                viewGroup.setVisibility(0);
-                viewGroup.addView(splashAdView);
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)})) == null) {
+            return g(i, cls, z, SocketMessageTask.DupLicateMode.NONE, true);
         }
+        return (cn5) invokeCommon.objValue;
+    }
+
+    public static cn5 g(int i, Class<? extends SocketResponsedMessage> cls, boolean z, SocketMessageTask.DupLicateMode dupLicateMode, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z), dupLicateMode, Boolean.valueOf(z2)})) == null) {
+            cn5 cn5Var = new cn5(i);
+            cn5Var.setResponsedClass(cls);
+            cn5Var.h(z);
+            cn5Var.f(dupLicateMode);
+            cn5Var.setRetry(a);
+            MessageManager.getInstance().unRegisterTask(i);
+            MessageManager.getInstance().registerTask(cn5Var);
+            cn5Var.setNeedEncrypt(z2);
+            return cn5Var;
+        }
+        return (cn5) invokeCommon.objValue;
+    }
+
+    public static cn5 h(int i, Class<? extends SocketResponsedMessage> cls, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return g(i, cls, z, SocketMessageTask.DupLicateMode.NONE, z2);
+        }
+        return (cn5) invokeCommon.objValue;
     }
 }

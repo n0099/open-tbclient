@@ -1,24 +1,26 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.widget.multidelmenu.view.MultiDelPostMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class du5 extends Handler {
+public class du5 extends cu5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WheelView a;
+    public MultiDelPostMenuView c;
+    public ViewGroup d;
 
-    public du5(WheelView wheelView) {
+    public du5(TbPageContext tbPageContext, ViewGroup viewGroup, st5 st5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView};
+            Object[] objArr = {tbPageContext, viewGroup, st5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,26 +30,52 @@ public final class du5 extends Handler {
                 return;
             }
         }
-        this.a = wheelView;
+        this.d = viewGroup;
+        au5 au5Var = new au5(tbPageContext, new tt5(st5Var));
+        this.b = au5Var;
+        au5Var.d(this);
+        this.c = new MultiDelPostMenuView(tbPageContext, this);
     }
 
-    @Override // android.os.Handler
-    public final void handleMessage(Message message) {
+    @Override // com.baidu.tieba.cu5
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            int i = message.what;
-            if (i != 1000) {
-                if (i != 2000) {
-                    if (i == 3000) {
-                        this.a.n();
-                        return;
-                    }
-                    return;
-                }
-                this.a.r(WheelView.ACTION.FLING);
-                return;
-            }
-            this.a.invalidate();
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a) {
+            return;
+        }
+        this.a = false;
+        MultiDelPostMenuView multiDelPostMenuView = this.c;
+        if (multiDelPostMenuView != null && this.d != null && multiDelPostMenuView.getParent() != null) {
+            this.d.removeView(this.c);
+        }
+        zt5 zt5Var = this.b;
+        if (zt5Var != null) {
+            zt5Var.dismiss();
+        }
+        this.c = null;
+        this.d = null;
+        this.b = null;
+    }
+
+    @Override // com.baidu.tieba.cu5
+    public void d(int i) {
+        MultiDelPostMenuView multiDelPostMenuView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (multiDelPostMenuView = this.c) != null) {
+            multiDelPostMenuView.setDelCount(i);
+        }
+    }
+
+    @Override // com.baidu.tieba.cu5
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a) {
+            return;
+        }
+        this.a = true;
+        ViewGroup viewGroup = this.d;
+        if (viewGroup != null) {
+            viewGroup.addView(this.c, new ViewGroup.LayoutParams(-1, -1));
         }
     }
 }

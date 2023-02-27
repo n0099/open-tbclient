@@ -1,32 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.danmu.layout.retainer.AkTopRetainer;
-import com.baidu.tieba.nh6;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tbadk.core.data.TransmitForumData;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public final class ih6 extends eh6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ih6 {
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ih6() {
-        super(new AkTopRetainer(0.0f, 0.5f, 1, null), new lh6());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((nh6) objArr[0], (nh6.a) objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+    /* loaded from: classes4.dex */
+    public interface a {
+        void a(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2);
     }
+
+    void a(a aVar);
+
+    void b();
 }

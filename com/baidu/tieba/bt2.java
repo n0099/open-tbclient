@@ -1,19 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public interface bt2 {
+public class bt2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile at2 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a();
-
-        void b();
+    public static synchronized at2 a() {
+        InterceptResult invokeV;
+        at2 at2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (bt2.class) {
+                if (a == null) {
+                    a = new at2();
+                }
+                at2Var = a;
+            }
+            return at2Var;
+        }
+        return (at2) invokeV.objValue;
     }
-
-    void a(Context context, JSONObject jSONObject, a aVar);
-
-    void b(Context context, String str, Uri uri);
 }

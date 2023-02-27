@@ -19,19 +19,19 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseCha
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BaseImageMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.LocalCacheData;
-import com.baidu.tieba.oj7;
+import com.baidu.tieba.km7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Holder extends BaseViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,7 +151,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
                 thumbUrl = baseImageMsg.getThumbUrl();
                 thumbSize = baseImageMsg.getThumbSize();
             }
-            baseImageMsg.setThumbSize(oj7.c(chatImageWithTailView, thumbUrl, thumbSize, R.drawable.icon_pic_im_image_default));
+            baseImageMsg.setThumbSize(km7.c(chatImageWithTailView, thumbUrl, thumbSize, R.drawable.icon_pic_im_image_default));
         }
     }
 
@@ -180,7 +180,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
             ChatImageWithTailView chatImageWithTailView = new ChatImageWithTailView(viewGroup.getContext());
             chatImageWithTailView.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            chatImageWithTailView.getImage().setId(R.id.obfuscated_res_0x7f090dad);
+            chatImageWithTailView.getImage().setId(R.id.obfuscated_res_0x7f090dee);
             return new Holder(chatImageWithTailView);
         }
         return (Holder) invokeL.objValue;
@@ -196,7 +196,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
             ChatImageWithTailView chatImageWithTailView = new ChatImageWithTailView(viewGroup.getContext());
             chatImageWithTailView.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            chatImageWithTailView.getImage().setId(R.id.obfuscated_res_0x7f090dad);
+            chatImageWithTailView.getImage().setId(R.id.obfuscated_res_0x7f090dee);
             return new Holder(chatImageWithTailView);
         }
         return (Holder) invokeL.objValue;

@@ -3,11 +3,11 @@ package com.baidu.turbonet.net;
 import android.annotation.TargetApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ap9;
-import com.baidu.tieba.dp9;
-import com.baidu.tieba.ep9;
-import com.baidu.tieba.ip9;
-import com.baidu.tieba.xo9;
+import com.baidu.tieba.at9;
+import com.baidu.tieba.bt9;
+import com.baidu.tieba.ft9;
+import com.baidu.tieba.us9;
+import com.baidu.tieba.xs9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -28,25 +28,25 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocketFactory;
 /* loaded from: classes7.dex */
-public class ProxyURLConnection extends HttpsURLConnection implements ep9 {
+public class ProxyURLConnection extends HttpsURLConnection implements bt9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ap9 a;
+    public xs9 a;
     public HttpURLConnection b;
-    public ip9 c;
+    public ft9 c;
     public TurbonetEngine d;
     public ProxyConfig e;
 
-    @Override // com.baidu.tieba.ep9
+    @Override // com.baidu.tieba.bt9
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            ap9 ap9Var = this.a;
-            ap9Var.e = j;
-            ap9Var.c();
-            ap9 ap9Var2 = this.a;
-            ap9Var2.c = -12;
-            ap9Var2.d(this.d);
+            xs9 xs9Var = this.a;
+            xs9Var.e = j;
+            xs9Var.c();
+            xs9 xs9Var2 = this.a;
+            xs9Var2.c = -12;
+            xs9Var2.d(this.d);
         }
     }
 
@@ -89,16 +89,16 @@ public class ProxyURLConnection extends HttpsURLConnection implements ep9 {
         return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ep9
+    @Override // com.baidu.tieba.bt9
     public void onComplete(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048620, this, j) == null) {
-            ap9 ap9Var = this.a;
-            ap9Var.e = j;
-            ap9Var.c();
-            ap9 ap9Var2 = this.a;
-            ap9Var2.c = 0;
-            ap9Var2.d(this.d);
+            xs9 xs9Var = this.a;
+            xs9Var.e = j;
+            xs9Var.c();
+            xs9 xs9Var2 = this.a;
+            xs9Var2.c = 0;
+            xs9Var2.d(this.d);
         }
     }
 
@@ -269,13 +269,13 @@ public class ProxyURLConnection extends HttpsURLConnection implements ep9 {
         }
     }
 
-    @Override // com.baidu.tieba.ep9
+    @Override // com.baidu.tieba.bt9
     public void b(Exception exc, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, exc, j) == null) {
-            ap9 ap9Var = this.a;
-            ap9Var.e = j;
-            ap9Var.c();
+            xs9 xs9Var = this.a;
+            xs9Var.e = j;
+            xs9Var.c();
             this.a.a(exc);
             this.a.d(this.d);
         }
@@ -323,7 +323,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements ep9 {
     public void connect() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            xo9.a("ProxyURLConn", "connect by libtype: " + this.e.toString());
+            us9.a("ProxyURLConn", "connect by libtype: " + this.e.toString());
             if (!this.e.a()) {
                 this.c.connect();
                 return;
@@ -341,7 +341,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements ep9 {
     public void disconnect() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            xo9.a("ProxyURLConn", "disconnect by libtype: " + this.e.toString());
+            us9.a("ProxyURLConn", "disconnect by libtype: " + this.e.toString());
             if (!this.e.a()) {
                 this.c.disconnect();
             } else {
@@ -809,12 +809,12 @@ public class ProxyURLConnection extends HttpsURLConnection implements ep9 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            xo9.a("ProxyURLConn", "getInputStream by libtype: " + this.e.toString());
+            us9.a("ProxyURLConn", "getInputStream by libtype: " + this.e.toString());
             if (!this.e.a()) {
                 return this.c.getInputStream();
             }
             try {
-                return new dp9(this.b.getInputStream(), this);
+                return new at9(this.b.getInputStream(), this);
             } catch (IOException e) {
                 b(e, 0L);
                 throw e;
@@ -845,7 +845,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements ep9 {
                     throw e;
                 }
             }
-            xo9.a("ProxyURLConn", "getResponseCode: " + i + " by libtype: " + this.e.toString());
+            us9.a("ProxyURLConn", "getResponseCode: " + i + " by libtype: " + this.e.toString());
             return i;
         }
         return invokeV.intValue;
@@ -862,7 +862,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements ep9 {
             } else {
                 responseMessage = this.b.getResponseMessage();
             }
-            xo9.a("ProxyURLConn", "getResponseMessage by libtype: " + this.e.toString() + " Message: " + responseMessage);
+            us9.a("ProxyURLConn", "getResponseMessage by libtype: " + this.e.toString() + " Message: " + responseMessage);
             return responseMessage;
         }
         return (String) invokeV.objValue;

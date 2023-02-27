@@ -1,21 +1,15 @@
 package rx.internal.operators;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.aia;
-import com.baidu.tieba.dea;
-import com.baidu.tieba.eea;
-import com.baidu.tieba.jea;
-import com.baidu.tieba.pea;
-import com.baidu.tieba.qea;
-import com.baidu.tieba.ria;
-import com.baidu.tieba.xda;
-import com.baidu.tieba.yda;
-import com.baidu.tieba.zha;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.ena;
+import com.baidu.tieba.kna;
+import com.baidu.tieba.lna;
+import com.baidu.tieba.mra;
+import com.baidu.tieba.sma;
+import com.baidu.tieba.tma;
+import com.baidu.tieba.uqa;
+import com.baidu.tieba.vqa;
+import com.baidu.tieba.yma;
+import com.baidu.tieba.zma;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,346 +17,212 @@ import java.util.Map;
 import rx.subjects.PublishSubject;
 import rx.subscriptions.RefCountSubscription;
 /* loaded from: classes9.dex */
-public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements xda.a<R> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final xda<T1> a;
-    public final xda<T2> b;
-    public final pea<? super T1, ? extends xda<D1>> c;
-    public final pea<? super T2, ? extends xda<D2>> d;
-    public final qea<? super T1, ? super xda<T2>, ? extends R> e;
+public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements sma.a<R> {
+    public final sma<T1> a;
+    public final sma<T2> b;
+    public final kna<? super T1, ? extends sma<D1>> c;
+    public final kna<? super T2, ? extends sma<D2>> d;
+    public final lna<? super T1, ? super sma<T2>, ? extends R> e;
 
     /* loaded from: classes9.dex */
-    public final class ResultManager extends HashMap<Integer, yda<T2>> implements eea {
-        public static /* synthetic */ Interceptable $ic = null;
+    public final class ResultManager extends HashMap<Integer, tma<T2>> implements zma {
         public static final long serialVersionUID = -3035156013812425335L;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final RefCountSubscription cancel;
-        public final ria group;
         public boolean leftDone;
         public int leftIds;
         public boolean rightDone;
         public int rightIds;
-        public final Map<Integer, T2> rightMap;
-        public final dea<? super R> subscriber;
-        public final /* synthetic */ OnSubscribeGroupJoin this$0;
+        public final yma<? super R> subscriber;
+        public final Map<Integer, T2> rightMap = new HashMap();
+        public final mra group = new mra();
+        public final RefCountSubscription cancel = new RefCountSubscription(this.group);
 
-        public Map<Integer, yda<T2>> leftMap() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (Map) invokeV.objValue;
+        public Map<Integer, tma<T2>> leftMap() {
+            return this;
         }
 
         /* loaded from: classes9.dex */
-        public final class a extends dea<D1> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        public final class a extends yma<D1> {
             public final int e;
-            public boolean f;
-            public final /* synthetic */ ResultManager g;
+            public boolean f = true;
 
-            public a(ResultManager resultManager, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {resultManager, Integer.valueOf(i)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.g = resultManager;
-                this.f = true;
+            public a(int i) {
                 this.e = i;
             }
 
-            @Override // com.baidu.tieba.yda
+            @Override // com.baidu.tieba.tma
             public void onCompleted() {
-                yda<T2> remove;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f) {
+                tma<T2> remove;
+                if (this.f) {
                     this.f = false;
-                    synchronized (this.g) {
-                        remove = this.g.leftMap().remove(Integer.valueOf(this.e));
+                    synchronized (ResultManager.this) {
+                        remove = ResultManager.this.leftMap().remove(Integer.valueOf(this.e));
                     }
                     if (remove != null) {
                         remove.onCompleted();
                     }
-                    this.g.group.b(this);
+                    ResultManager.this.group.b(this);
                 }
             }
 
-            @Override // com.baidu.tieba.yda
+            @Override // com.baidu.tieba.tma
             public void onError(Throwable th) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                    this.g.errorMain(th);
-                }
+                ResultManager.this.errorMain(th);
             }
 
-            @Override // com.baidu.tieba.yda
+            @Override // com.baidu.tieba.tma
             public void onNext(D1 d1) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d1) == null) {
-                    onCompleted();
-                }
+                onCompleted();
             }
         }
 
         /* loaded from: classes9.dex */
-        public final class b extends dea<T1> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ResultManager e;
-
-            public b(ResultManager resultManager) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {resultManager};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.e = resultManager;
+        public final class b extends yma<T1> {
+            public b() {
             }
 
-            @Override // com.baidu.tieba.yda
+            @Override // com.baidu.tieba.tma
             public void onError(Throwable th) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                    this.e.errorAll(th);
-                }
+                ResultManager.this.errorAll(th);
             }
 
-            @Override // com.baidu.tieba.yda
+            @Override // com.baidu.tieba.tma
             public void onCompleted() {
                 ArrayList arrayList;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    synchronized (this.e) {
-                        this.e.leftDone = true;
-                        if (this.e.rightDone) {
-                            arrayList = new ArrayList(this.e.leftMap().values());
-                            this.e.leftMap().clear();
-                            this.e.rightMap.clear();
-                        } else {
-                            arrayList = null;
-                        }
+                synchronized (ResultManager.this) {
+                    ResultManager.this.leftDone = true;
+                    if (ResultManager.this.rightDone) {
+                        arrayList = new ArrayList(ResultManager.this.leftMap().values());
+                        ResultManager.this.leftMap().clear();
+                        ResultManager.this.rightMap.clear();
+                    } else {
+                        arrayList = null;
                     }
-                    this.e.complete(arrayList);
                 }
+                ResultManager.this.complete(arrayList);
             }
 
-            @Override // com.baidu.tieba.yda
+            @Override // com.baidu.tieba.tma
             public void onNext(T1 t1) {
                 int i;
                 ArrayList<Object> arrayList;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t1) == null) {
-                    try {
-                        PublishSubject D = PublishSubject.D();
-                        zha zhaVar = new zha(D);
-                        synchronized (this.e) {
-                            ResultManager resultManager = this.e;
-                            i = resultManager.leftIds;
-                            resultManager.leftIds = i + 1;
-                            this.e.leftMap().put(Integer.valueOf(i), zhaVar);
-                        }
-                        xda a = xda.a(new a(D, this.e.cancel));
-                        a aVar = new a(this.e, i);
-                        this.e.group.a(aVar);
-                        this.e.this$0.c.call(t1).B(aVar);
-                        R call = this.e.this$0.e.call(t1, a);
-                        synchronized (this.e) {
-                            arrayList = new ArrayList(this.e.rightMap.values());
-                        }
-                        this.e.subscriber.onNext(call);
-                        for (Object obj : arrayList) {
-                            zhaVar.onNext(obj);
-                        }
-                    } catch (Throwable th) {
-                        jea.f(th, this);
+                try {
+                    PublishSubject D = PublishSubject.D();
+                    uqa uqaVar = new uqa(D);
+                    synchronized (ResultManager.this) {
+                        ResultManager resultManager = ResultManager.this;
+                        i = resultManager.leftIds;
+                        resultManager.leftIds = i + 1;
+                        ResultManager.this.leftMap().put(Integer.valueOf(i), uqaVar);
                     }
+                    sma a = sma.a(new a(D, ResultManager.this.cancel));
+                    a aVar = new a(i);
+                    ResultManager.this.group.a(aVar);
+                    OnSubscribeGroupJoin.this.c.call(t1).B(aVar);
+                    R call = OnSubscribeGroupJoin.this.e.call(t1, a);
+                    synchronized (ResultManager.this) {
+                        arrayList = new ArrayList(ResultManager.this.rightMap.values());
+                    }
+                    ResultManager.this.subscriber.onNext(call);
+                    for (Object obj : arrayList) {
+                        uqaVar.onNext(obj);
+                    }
+                } catch (Throwable th) {
+                    ena.f(th, this);
                 }
             }
         }
 
         /* loaded from: classes9.dex */
-        public final class c extends dea<D2> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        public final class c extends yma<D2> {
             public final int e;
-            public boolean f;
-            public final /* synthetic */ ResultManager g;
+            public boolean f = true;
 
-            public c(ResultManager resultManager, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {resultManager, Integer.valueOf(i)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.g = resultManager;
-                this.f = true;
+            public c(int i) {
                 this.e = i;
             }
 
-            @Override // com.baidu.tieba.yda
+            @Override // com.baidu.tieba.tma
             public void onCompleted() {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f) {
+                if (this.f) {
                     this.f = false;
-                    synchronized (this.g) {
-                        this.g.rightMap.remove(Integer.valueOf(this.e));
+                    synchronized (ResultManager.this) {
+                        ResultManager.this.rightMap.remove(Integer.valueOf(this.e));
                     }
-                    this.g.group.b(this);
+                    ResultManager.this.group.b(this);
                 }
             }
 
-            @Override // com.baidu.tieba.yda
+            @Override // com.baidu.tieba.tma
             public void onError(Throwable th) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                    this.g.errorMain(th);
-                }
+                ResultManager.this.errorMain(th);
             }
 
-            @Override // com.baidu.tieba.yda
+            @Override // com.baidu.tieba.tma
             public void onNext(D2 d2) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2) == null) {
-                    onCompleted();
-                }
+                onCompleted();
             }
         }
 
         /* loaded from: classes9.dex */
-        public final class d extends dea<T2> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ResultManager e;
-
-            public d(ResultManager resultManager) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {resultManager};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.e = resultManager;
+        public final class d extends yma<T2> {
+            public d() {
             }
 
-            @Override // com.baidu.tieba.yda
+            @Override // com.baidu.tieba.tma
             public void onError(Throwable th) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                    this.e.errorAll(th);
-                }
+                ResultManager.this.errorAll(th);
             }
 
-            @Override // com.baidu.tieba.yda
+            @Override // com.baidu.tieba.tma
             public void onCompleted() {
                 ArrayList arrayList;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    synchronized (this.e) {
-                        this.e.rightDone = true;
-                        if (this.e.leftDone) {
-                            arrayList = new ArrayList(this.e.leftMap().values());
-                            this.e.leftMap().clear();
-                            this.e.rightMap.clear();
-                        } else {
-                            arrayList = null;
-                        }
+                synchronized (ResultManager.this) {
+                    ResultManager.this.rightDone = true;
+                    if (ResultManager.this.leftDone) {
+                        arrayList = new ArrayList(ResultManager.this.leftMap().values());
+                        ResultManager.this.leftMap().clear();
+                        ResultManager.this.rightMap.clear();
+                    } else {
+                        arrayList = null;
                     }
-                    this.e.complete(arrayList);
                 }
+                ResultManager.this.complete(arrayList);
             }
 
-            @Override // com.baidu.tieba.yda
+            @Override // com.baidu.tieba.tma
             public void onNext(T2 t2) {
                 int i;
-                ArrayList<yda> arrayList;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t2) == null) {
-                    try {
-                        synchronized (this.e) {
-                            ResultManager resultManager = this.e;
-                            i = resultManager.rightIds;
-                            resultManager.rightIds = i + 1;
-                            this.e.rightMap.put(Integer.valueOf(i), t2);
-                        }
-                        c cVar = new c(this.e, i);
-                        this.e.group.a(cVar);
-                        this.e.this$0.d.call(t2).B(cVar);
-                        synchronized (this.e) {
-                            arrayList = new ArrayList(this.e.leftMap().values());
-                        }
-                        for (yda ydaVar : arrayList) {
-                            ydaVar.onNext(t2);
-                        }
-                    } catch (Throwable th) {
-                        jea.f(th, this);
+                ArrayList<tma> arrayList;
+                try {
+                    synchronized (ResultManager.this) {
+                        ResultManager resultManager = ResultManager.this;
+                        i = resultManager.rightIds;
+                        resultManager.rightIds = i + 1;
+                        ResultManager.this.rightMap.put(Integer.valueOf(i), t2);
                     }
+                    c cVar = new c(i);
+                    ResultManager.this.group.a(cVar);
+                    OnSubscribeGroupJoin.this.d.call(t2).B(cVar);
+                    synchronized (ResultManager.this) {
+                        arrayList = new ArrayList(ResultManager.this.leftMap().values());
+                    }
+                    for (tma tmaVar : arrayList) {
+                        tmaVar.onNext(t2);
+                    }
+                } catch (Throwable th) {
+                    ena.f(th, this);
                 }
             }
         }
 
-        public ResultManager(OnSubscribeGroupJoin onSubscribeGroupJoin, dea<? super R> deaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {onSubscribeGroupJoin, deaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = onSubscribeGroupJoin;
-            this.rightMap = new HashMap();
-            this.subscriber = deaVar;
-            this.group = new ria();
-            this.cancel = new RefCountSubscription(this.group);
+        public ResultManager(yma<? super R> ymaVar) {
+            this.subscriber = ymaVar;
         }
 
-        public void complete(List<yda<T2>> list) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && list != null) {
-                for (yda<T2> ydaVar : list) {
-                    ydaVar.onCompleted();
+        public void complete(List<tma<T2>> list) {
+            if (list != null) {
+                for (tma<T2> tmaVar : list) {
+                    tmaVar.onCompleted();
                 }
                 this.subscriber.onCompleted();
                 this.cancel.unsubscribe();
@@ -370,175 +230,109 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements xda.a<R> {
         }
 
         public void errorMain(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                synchronized (this) {
-                    leftMap().clear();
-                    this.rightMap.clear();
-                }
-                this.subscriber.onError(th);
-                this.cancel.unsubscribe();
+            synchronized (this) {
+                leftMap().clear();
+                this.rightMap.clear();
             }
+            this.subscriber.onError(th);
+            this.cancel.unsubscribe();
         }
 
         public void errorAll(Throwable th) {
-            ArrayList<yda> arrayList;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                synchronized (this) {
-                    arrayList = new ArrayList(leftMap().values());
-                    leftMap().clear();
-                    this.rightMap.clear();
-                }
-                for (yda ydaVar : arrayList) {
-                    ydaVar.onError(th);
-                }
-                this.subscriber.onError(th);
-                this.cancel.unsubscribe();
+            ArrayList<tma> arrayList;
+            synchronized (this) {
+                arrayList = new ArrayList(leftMap().values());
+                leftMap().clear();
+                this.rightMap.clear();
             }
+            for (tma tmaVar : arrayList) {
+                tmaVar.onError(th);
+            }
+            this.subscriber.onError(th);
+            this.cancel.unsubscribe();
         }
 
         public void init() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                b bVar = new b(this);
-                d dVar = new d(this);
-                this.group.a(bVar);
-                this.group.a(dVar);
-                this.this$0.a.B(bVar);
-                this.this$0.b.B(dVar);
-            }
+            b bVar = new b();
+            d dVar = new d();
+            this.group.a(bVar);
+            this.group.a(dVar);
+            OnSubscribeGroupJoin.this.a.B(bVar);
+            OnSubscribeGroupJoin.this.b.B(dVar);
         }
 
-        @Override // com.baidu.tieba.eea
+        @Override // com.baidu.tieba.zma
         public boolean isUnsubscribed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.cancel.isUnsubscribed();
-            }
-            return invokeV.booleanValue;
+            return this.cancel.isUnsubscribed();
         }
 
-        @Override // com.baidu.tieba.eea
+        @Override // com.baidu.tieba.zma
         public void unsubscribe() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                this.cancel.unsubscribe();
-            }
+            this.cancel.unsubscribe();
         }
     }
 
     /* loaded from: classes9.dex */
-    public static final class a<T> implements xda.a<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static final class a<T> implements sma.a<T> {
         public final RefCountSubscription a;
-        public final xda<T> b;
+        public final sma<T> b;
 
         /* renamed from: rx.internal.operators.OnSubscribeGroupJoin$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public final class C0747a extends dea<T> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final dea<? super T> e;
-            public final eea f;
+        public final class C0738a extends yma<T> {
+            public final yma<? super T> e;
+            public final zma f;
 
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0747a(a aVar, dea<? super T> deaVar, eea eeaVar) {
-                super(deaVar);
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, deaVar, eeaVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        super((dea) newInitContext.callArgs[0]);
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.e = deaVar;
-                this.f = eeaVar;
+            public C0738a(a aVar, yma<? super T> ymaVar, zma zmaVar) {
+                super(ymaVar);
+                this.e = ymaVar;
+                this.f = zmaVar;
             }
 
-            @Override // com.baidu.tieba.yda
+            @Override // com.baidu.tieba.tma
             public void onCompleted() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.e.onCompleted();
-                    this.f.unsubscribe();
-                }
+                this.e.onCompleted();
+                this.f.unsubscribe();
             }
 
-            @Override // com.baidu.tieba.yda
+            @Override // com.baidu.tieba.tma
             public void onError(Throwable th) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                    this.e.onError(th);
-                    this.f.unsubscribe();
-                }
+                this.e.onError(th);
+                this.f.unsubscribe();
             }
 
-            @Override // com.baidu.tieba.yda
+            @Override // com.baidu.tieba.tma
             public void onNext(T t) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                    this.e.onNext(t);
-                }
+                this.e.onNext(t);
             }
         }
 
-        public a(xda<T> xdaVar, RefCountSubscription refCountSubscription) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xdaVar, refCountSubscription};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
+        public a(sma<T> smaVar, RefCountSubscription refCountSubscription) {
             this.a = refCountSubscription;
-            this.b = xdaVar;
+            this.b = smaVar;
         }
 
-        public void call(dea<? super T> deaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, deaVar) == null) {
-                eea a = this.a.a();
-                C0747a c0747a = new C0747a(this, deaVar, a);
-                c0747a.b(a);
-                this.b.B(c0747a);
-            }
+        public void call(yma<? super T> ymaVar) {
+            zma a = this.a.a();
+            C0738a c0738a = new C0738a(this, ymaVar, a);
+            c0738a.b(a);
+            this.b.B(c0738a);
         }
 
-        @Override // com.baidu.tieba.xda.a, com.baidu.tieba.lea
+        @Override // com.baidu.tieba.sma.a, com.baidu.tieba.gna
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((dea) ((dea) obj));
+            call((yma) ((yma) obj));
         }
     }
 
-    public void call(dea<? super R> deaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, deaVar) == null) {
-            ResultManager resultManager = new ResultManager(this, new aia(deaVar));
-            deaVar.b(resultManager);
-            resultManager.init();
-        }
+    public void call(yma<? super R> ymaVar) {
+        ResultManager resultManager = new ResultManager(new vqa(ymaVar));
+        ymaVar.b(resultManager);
+        resultManager.init();
     }
 
-    @Override // com.baidu.tieba.xda.a, com.baidu.tieba.lea
+    @Override // com.baidu.tieba.sma.a, com.baidu.tieba.gna
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((dea) ((dea) obj));
+        call((yma) ((yma) obj));
     }
 }

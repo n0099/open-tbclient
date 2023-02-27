@@ -1,60 +1,55 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.service.AsyncService;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.SpeedStats;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.EnterForePvThread;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.PvThread;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tbadk.mutiprocess.event.AppBackgroundSwitchEvent;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.template.model.LoadType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class lo5 {
     public static /* synthetic */ Interceptable $ic;
-    public static lo5 j;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public long d;
-    public int e;
-    public AtomicBoolean f;
-    public boolean g;
-    public Handler h;
-    public Runnable i;
+    public BdUniqueId a;
+    public BdTypeRecyclerView b;
+    public final List<Cdo> c;
+    public CustomMessageListener d;
+    public CustomMessageListener e;
 
     /* loaded from: classes5.dex */
-    public class a implements Handler.Callback {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ lo5 a;
 
-        public a(lo5 lo5Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(lo5 lo5Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lo5Var};
+                Object[] objArr = {lo5Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -63,107 +58,61 @@ public class lo5 {
             this.a = lo5Var;
         }
 
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
-            InterceptResult invokeL;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                if (message.what == 5) {
-                    if (!Boolean.TRUE.equals(message.obj)) {
-                        this.a.n();
-                        return false;
-                    }
-                    this.a.q();
-                    this.a.m();
-                    return false;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lo5 a;
-
-        public b(lo5 lo5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lo5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lo5Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 lo5 lo5Var = this.a;
-                if (lo5Var.f == null) {
-                    lo5Var.f = new AtomicBoolean(false);
-                }
-                if (this.a.f.get()) {
-                    return;
-                }
-                this.a.f.set(true);
-                if (this.a.l(true)) {
-                    TbadkCoreApplication.getInst().fixOppoTimeout();
-                    MessageManager.getInstance().dispatchResponsedMessage(new BackgroundSwitchMessage(Boolean.TRUE));
-                    lh5.i(new AppBackgroundSwitchEvent(true));
-                    TiebaStaticHelper.setCurrentActivity(null);
-                    TiebaStatic.save();
-                }
+                lo5Var.c(lo5Var.b, customResponsedMessage);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements Runnable {
+    public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lo5 a;
 
-        public c(lo5 lo5Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(lo5 lo5Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lo5Var};
+                Object[] objArr = {lo5Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = lo5Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                rw4.c().b();
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                lo5 lo5Var = this.a;
+                lo5Var.c(lo5Var.b, customResponsedMessage);
             }
         }
     }
 
-    public lo5() {
+    public lo5(BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -173,233 +122,141 @@ public class lo5 {
                 return;
             }
         }
-        this.a = 0;
-        this.b = 0L;
-        this.c = 0L;
-        this.d = 0L;
-        this.e = 0;
-        this.f = null;
-        this.g = false;
-        this.h = new Handler(Looper.getMainLooper(), new a(this));
-        this.i = new b(this);
+        this.c = new ArrayList();
+        this.d = new a(this, 2016488);
+        this.e = new b(this, 2016553);
+        this.b = bdTypeRecyclerView;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public final void c(BdTypeRecyclerView bdTypeRecyclerView, CustomResponsedMessage<?> customResponsedMessage) {
+        d15 d15Var;
+        ThreadData threadData;
+        ThreadData threadData2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (l(false)) {
-                if (!this.g) {
-                    return true;
-                }
-                Intent intent = new Intent("com.tieba.baidu.notifyprocess");
-                intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-                intent.putExtra("message", true);
-                TbadkCoreApplication.getInst().sendBroadcast(intent);
-                return false;
-            }
-            Intent intent2 = new Intent("com.tieba.baidu.notifyprocess");
-            intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
-            intent2.putExtra("message", false);
-            TbadkCoreApplication.getInst().sendBroadcast(intent2);
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean l(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-            return TbadkCoreApplication.getInst().isMainProcess(z);
-        }
-        return invokeZ.booleanValue;
-    }
-
-    public void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.g = !z;
-        }
-    }
-
-    public static lo5 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (j == null) {
-                synchronized (lo5.class) {
-                    if (j == null) {
-                        j = new lo5();
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, bdTypeRecyclerView, customResponsedMessage) == null) && bdTypeRecyclerView != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
+            JSONObject jSONObject = (JSONObject) customResponsedMessage.getData();
+            String optString = jSONObject.optString("tid");
+            if (StringUtils.isNull(optString)) {
+                String optString2 = jSONObject.optString("liveid");
+                if (bdTypeRecyclerView != null && !TextUtils.isEmpty(optString2)) {
+                    int i = 0;
+                    while (true) {
+                        if (i >= bdTypeRecyclerView.getCount()) {
+                            break;
+                        }
+                        Cdo E = bdTypeRecyclerView.E(i);
+                        if (E instanceof zx4) {
+                            zx4 zx4Var = (zx4) E;
+                            if (zx4Var.getThreadData() != null && zx4Var.getThreadData().getThreadAlaInfo() != null && optString2.equals(String.valueOf(zx4Var.getThreadData().getThreadAlaInfo().live_id))) {
+                                optString = zx4Var.getThreadData().getTid();
+                                break;
+                            }
+                        }
+                        i++;
                     }
                 }
             }
-            return j;
-        }
-        return (lo5) invokeV.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e++;
-            p();
-            nc.b().a("CornerManager", new c(this));
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e--;
-            p();
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a = 0;
-        }
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            AtomicBoolean atomicBoolean = this.f;
-            if (atomicBoolean == null) {
-                return true;
-            }
-            return atomicBoolean.get();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            AtomicBoolean atomicBoolean = this.f;
-            if (atomicBoolean == null) {
-                return false;
-            }
-            return atomicBoolean.get();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            AsyncService.INSTANCE.sendRunnable(this.i);
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            Handler handler = this.h;
-            handler.sendMessageDelayed(handler.obtainMessage(5, Boolean.TRUE), 1000L);
-        }
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.b = System.currentTimeMillis();
-            new EnterForePvThread().start();
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            AsyncService.INSTANCE.removeRunnable(this.i);
-            if (this.f == null) {
-                this.f = new AtomicBoolean(true);
-            }
-            if (!this.f.get()) {
+            if (StringUtils.isNull(optString)) {
                 return;
             }
-            this.f.set(false);
-            this.a++;
-            if (l(true)) {
-                long currentTimeMillis = System.currentTimeMillis();
-                long j2 = this.b;
-                if ((currentTimeMillis - j2 > 3600000 || j2 == 0) && PermissionUtil.isAgreePrivacyPolicy()) {
-                    s();
+            Iterator<Cdo> it = this.c.iterator();
+            while (it.hasNext()) {
+                Cdo next = it.next();
+                if ((next instanceof zx4) && (threadData2 = ((zx4) next).getThreadData()) != null && !TextUtils.isEmpty(threadData2.getTid()) && optString.equals(threadData2.getTid())) {
+                    it.remove();
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new BackgroundSwitchMessage(Boolean.FALSE));
-                lh5.i(new AppBackgroundSwitchEvent(false));
             }
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (this.e < 0) {
-                this.e = 0;
-            }
-            if (l(true) && this.c == 0 && this.e > 0) {
-                this.c = System.nanoTime();
-                this.d = System.currentTimeMillis();
-            }
-            this.h.removeMessages(5);
-            if (this.e == 0) {
-                SpeedStats.getInstance().onAppBackground();
-                r();
+            List<Cdo> data = bdTypeRecyclerView.getData();
+            if (ListUtils.isEmpty(data)) {
                 return;
             }
-            AtomicBoolean atomicBoolean = this.f;
-            if (atomicBoolean == null || atomicBoolean.get()) {
-                SpeedStats.getInstance().onAppForeground();
-                Handler handler = this.h;
-                handler.sendMessageDelayed(handler.obtainMessage(5, Boolean.FALSE), 1000L);
+            Iterator<Cdo> it2 = data.iterator();
+            int i2 = -1;
+            int i3 = -1;
+            int i4 = -1;
+            int i5 = 0;
+            while (it2.hasNext()) {
+                Cdo next2 = it2.next();
+                if ((next2 instanceof d15) && (threadData = (d15Var = (d15) next2).t) != null) {
+                    if (i2 >= 0) {
+                        if (d15Var.position != i2) {
+                            break;
+                        }
+                        it2.remove();
+                        i4 = i5;
+                    } else if (StringHelper.equals(optString, threadData.getTid())) {
+                        i2 = d15Var.position;
+                        it2.remove();
+                        i3 = i5;
+                    }
+                }
+                i5++;
+            }
+            if (i3 < i4) {
+                bdTypeRecyclerView.H(i3, i4);
             }
         }
     }
 
-    public final void q() {
+    public co5 d(LoadType loadType, do5 do5Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && this.e == 0 && this.c > 0) {
-            long nanoTime = ((System.nanoTime() - this.c) / 1000000) / 1000;
-            if (nanoTime >= TbadkCoreApplication.getInst().getUseTimeInterval()) {
-                if (PermissionUtil.isAgreePrivacyPolicy()) {
-                    new PvThread(TbConfig.ST_TYPE_USE, String.valueOf(nanoTime)).start();
-                }
-                TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), TbConfig.ST_TYPE_USE, null, 1, "st_param", String.valueOf(nanoTime));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, loadType, do5Var)) == null) {
+            if (do5Var == null) {
+                co5 co5Var = new co5();
+                co5Var.a = null;
+                return co5Var;
             }
-            this.c = 0L;
-            this.d = 0L;
+            List<ThreadData> f = do5Var.f();
+            List<zx4> e = do5Var.e();
+            do5Var.h(f);
+            vo5.b("response threadList =  " + ListUtils.getCount(f));
+            if (!ListUtils.isEmpty(f)) {
+                if (loadType == LoadType.REFRESH) {
+                    this.c.clear();
+                    this.c.addAll(f);
+                } else if (loadType == LoadType.PREPEND) {
+                    this.c.addAll(0, f);
+                } else {
+                    this.c.addAll(f);
+                }
+            }
+            ArrayList arrayList = new ArrayList(ListUtils.getCount(this.c) + ListUtils.getCount(e));
+            arrayList.addAll(this.c);
+            vo5.b("dataList = " + ListUtils.getCount(arrayList));
+            vo5.b("floorList = " + ListUtils.getCount(e));
+            if (!ListUtils.isEmpty(e)) {
+                for (zx4 zx4Var : e) {
+                    wo5.b(arrayList, zx4Var);
+                }
+            }
+            List<Cdo> d = do5Var.d(arrayList);
+            if (d == null) {
+                d = wo5.a(arrayList);
+            }
+            int count = ListUtils.getCount(d);
+            int count2 = ListUtils.getCount(f);
+            vo5.b("addThreadCount=" + count2 + ",resultThreadList=" + count);
+            co5 co5Var2 = new co5();
+            co5Var2.a = d;
+            do5Var.g(co5Var2);
+            return co5Var2;
+        }
+        return (co5) invokeLL.objValue;
+    }
+
+    public void e(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
+            if (this.a != bdUniqueId) {
+                this.d.setTag(bdUniqueId);
+                this.e.setTag(bdUniqueId);
+                MessageManager.getInstance().unRegisterListener(this.d);
+                MessageManager.getInstance().unRegisterListener(this.e);
+                MessageManager.getInstance().registerListener(this.d);
+                MessageManager.getInstance().registerListener(this.e);
+            }
+            this.a = bdUniqueId;
         }
     }
 }

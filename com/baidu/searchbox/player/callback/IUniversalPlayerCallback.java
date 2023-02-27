@@ -1,7 +1,7 @@
 package com.baidu.searchbox.player.callback;
 
 import android.view.MotionEvent;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface IUniversalPlayerCallback {
     void onBeforeSwitchToFull();
 

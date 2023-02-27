@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
@@ -254,7 +255,7 @@ public class SdpPrefer {
                 if (audioSdpAttribute.cbr) {
                     c2 = '1';
                 } else {
-                    c2 = '0';
+                    c2 = TransactionIdCreater.FILL_BYTE;
                 }
                 sb3.append(c2);
                 str = sb3.toString();
@@ -289,7 +290,7 @@ public class SdpPrefer {
                 if (audioSdpAttribute.usedtx) {
                     c = '1';
                 } else {
-                    c = '0';
+                    c = TransactionIdCreater.FILL_BYTE;
                 }
                 sb5.append(c);
                 str = sb5.toString();
@@ -303,7 +304,7 @@ public class SdpPrefer {
                 sb6.append(AUDIO_STEREO);
                 sb6.append("=");
                 if (!audioSdpAttribute.stereo) {
-                    c3 = '0';
+                    c3 = TransactionIdCreater.FILL_BYTE;
                 }
                 sb6.append(c3);
                 return sb6.toString();

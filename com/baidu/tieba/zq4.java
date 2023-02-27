@@ -1,13 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.request.db.DownloadDataConstants;
-import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.swan.videoplayer.media.video.view.MediaGestureMode;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,17 +13,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class zq4 {
+public final class zq4 extends GestureDetector.SimpleOnGestureListener {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public final GestureDetector b;
+    public ar4 c;
+    public MediaGestureMode d;
+    public int e;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final zq4 a;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -41,246 +43,190 @@ public class zq4 {
                     return;
                 }
             }
-            a = new zq4();
+            int[] iArr = new int[MediaGestureMode.values().length];
+            a = iArr;
+            try {
+                iArr[MediaGestureMode.VOLUME.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[MediaGestureMode.BRIGHTNESS.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[MediaGestureMode.FAST_FORWARD.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
         }
     }
 
-    public zq4() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948368588, "Lcom/baidu/tieba/zq4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948368588, "Lcom/baidu/tieba/zq4;");
+                return;
+            }
+        }
+        f = wp1.a;
+    }
+
+    public zq4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.d = MediaGestureMode.INTI;
+        this.a = context;
+        this.b = new GestureDetector(context, this);
     }
 
-    public static final zq4 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
-        }
-        return (zq4) invokeV.objValue;
-    }
-
-    public synchronized long a(br4 br4Var) {
-        InterceptResult invokeL;
-        long h;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, br4Var)) == null) {
-            synchronized (this) {
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                h = h(f, br4Var);
-                f.setTransactionSuccessful();
-                f.endTransaction();
-            }
-            return h;
-        }
-        return invokeL.longValue;
-    }
-
-    public synchronized long i(br4 br4Var) {
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
+    public boolean onDoubleTap(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, br4Var)) == null) {
-            synchronized (this) {
-                if (br4Var == null) {
-                    return -1L;
-                }
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                long j = j(f, br4Var);
-                f.setTransactionSuccessful();
-                f.endTransaction();
-                return j;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
+            if (f) {
+                Log.d("MediaGestureDetector", "onDoubleTap:" + motionEvent);
             }
-        }
-        return invokeL.longValue;
-    }
-
-    public synchronized void b(List<br4> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            synchronized (this) {
-                if (ListUtils.isEmpty(list)) {
-                    return;
-                }
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                for (br4 br4Var : list) {
-                    h(f, br4Var);
-                }
-                f.setTransactionSuccessful();
-                f.endTransaction();
+            ar4 ar4Var = this.c;
+            if (ar4Var != null) {
+                return ar4Var.onDoubleTap(motionEvent);
             }
-        }
-    }
-
-    public synchronized boolean e(br4 br4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, br4Var)) == null) {
-            synchronized (this) {
-                boolean z = false;
-                if (br4Var == null) {
-                    return false;
-                }
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                int delete = f.delete("activity_mission_info", "activityid = ? and missionid = ?", new String[]{String.valueOf(br4Var.d()), String.valueOf(br4Var.q())});
-                f.setTransactionSuccessful();
-                f.endTransaction();
-                if (delete >= 0) {
-                    z = true;
-                }
-                return z;
-            }
+            return super.onDoubleTap(motionEvent);
         }
         return invokeL.booleanValue;
     }
 
-    public synchronized void k(List<br4> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            synchronized (this) {
-                if (ListUtils.isEmpty(list)) {
-                    return;
-                }
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                for (br4 br4Var : list) {
-                    j(f, br4Var);
-                }
-                f.setTransactionSuccessful();
-                f.endTransaction();
-            }
-        }
-    }
-
-    public final ContentValues c(br4 br4Var) {
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public boolean onDown(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, br4Var)) == null) {
-            if (br4Var == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
+            if (f) {
+                Log.d("MediaGestureDetector", "onDown:" + motionEvent);
             }
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("activityid", Integer.valueOf(br4Var.d()));
-            contentValues.put("missionid", Integer.valueOf(br4Var.q()));
-            contentValues.put("activitysource", br4Var.e());
-            contentValues.put("calltype", Integer.valueOf(br4Var.i()));
-            contentValues.put(DownloadDataConstants.Columns.COLUMN_TASK_TYPE, Integer.valueOf(br4Var.x()));
-            contentValues.put("browsetimepage", br4Var.g());
-            contentValues.put("browsetime", Long.valueOf(br4Var.f()));
-            contentValues.put("threadnum", Integer.valueOf(br4Var.A()));
-            contentValues.put("forumnum", Integer.valueOf(br4Var.p()));
-            contentValues.put("cleartype", Integer.valueOf(br4Var.k()));
-            contentValues.put("cleartime", Long.valueOf(br4Var.j()));
-            contentValues.put("specificcleartime", Long.valueOf(br4Var.t()));
-            contentValues.put("tid", Long.valueOf(br4Var.C()));
-            contentValues.put("fid", Long.valueOf(br4Var.o()));
-            contentValues.put("threadtext", br4Var.B());
-            contentValues.put("threadimg", br4Var.z());
-            contentValues.put("threadforum", Long.valueOf(br4Var.y()));
-            contentValues.put("totalLimit", Integer.valueOf(br4Var.F()));
-            contentValues.put("completedLimitCount", Integer.valueOf(br4Var.w()));
-            contentValues.put("token", br4Var.E());
-            contentValues.put("executingMissionList", br4Var.b());
-            return contentValues;
+            this.d = MediaGestureMode.INTI;
+            ar4 ar4Var = this.c;
+            if (ar4Var != null) {
+                return ar4Var.onDown(motionEvent);
+            }
+            return super.onDown(motionEvent);
         }
-        return (ContentValues) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final br4 d(Cursor cursor) {
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public boolean onSingleTapUp(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cursor)) == null) {
-            if (cursor != null && !cursor.isClosed()) {
-                br4 br4Var = new br4();
-                br4Var.T(cursor.getInt(cursor.getColumnIndex("activityid")));
-                br4Var.c0(cursor.getInt(cursor.getColumnIndex("missionid")));
-                br4Var.U(cursor.getString(cursor.getColumnIndex("activitysource")));
-                br4Var.X(cursor.getInt(cursor.getColumnIndex("calltype")));
-                br4Var.g0(cursor.getInt(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TASK_TYPE)));
-                br4Var.W(cursor.getString(cursor.getColumnIndex("browsetimepage")));
-                br4Var.V(cursor.getLong(cursor.getColumnIndex("browsetime")));
-                br4Var.j0(cursor.getInt(cursor.getColumnIndex("threadnum")));
-                br4Var.b0(cursor.getInt(cursor.getColumnIndex("forumnum")));
-                br4Var.Z(cursor.getInt(cursor.getColumnIndex("cleartype")));
-                br4Var.Y(cursor.getLong(cursor.getColumnIndex("cleartime")));
-                br4Var.e0(cursor.getLong(cursor.getColumnIndex("specificcleartime")));
-                br4Var.l0(cursor.getLong(cursor.getColumnIndex("tid")));
-                br4Var.a0(cursor.getLong(cursor.getColumnIndex("fid")));
-                br4Var.k0(cursor.getString(cursor.getColumnIndex("threadtext")));
-                br4Var.i0(cursor.getString(cursor.getColumnIndex("threadimg")));
-                br4Var.h0(cursor.getInt(cursor.getColumnIndex("threadforum")));
-                br4Var.n0(cursor.getInt(cursor.getColumnIndex("totalLimit")));
-                br4Var.f0(cursor.getInt(cursor.getColumnIndex("completedLimitCount")));
-                br4Var.Q(br4Var.x(), cursor.getString(cursor.getColumnIndex("executingMissionList")));
-                br4Var.m0(cursor.getString(cursor.getColumnIndex("token")));
-                return br4Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
+            if (f) {
+                Log.d("MediaGestureDetector", "onSingleTapUp:" + motionEvent);
             }
-            return null;
+            ar4 ar4Var = this.c;
+            if (ar4Var != null) {
+                return ar4Var.a(motionEvent);
+            }
+            return super.onSingleTapUp(motionEvent);
         }
-        return (br4) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public synchronized List<br4> f() {
-        InterceptResult invokeV;
-        LinkedList linkedList;
+    public boolean a(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        ar4 ar4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                linkedList = new LinkedList();
-                Cursor rawQuery = f.rawQuery("SELECT * FROM activity_mission_info", null);
-                while (rawQuery.moveToNext()) {
-                    br4 d = d(rawQuery);
-                    if (d != null) {
-                        linkedList.add(d);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            if (motionEvent.getAction() == 1 && (ar4Var = this.c) != null) {
+                ar4Var.b(motionEvent, this.d);
+            }
+            return this.b.onTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void d(ar4 ar4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ar4Var) == null) {
+            this.c = ar4Var;
+        }
+    }
+
+    public final MediaGestureMode b(MediaGestureMode mediaGestureMode, float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{mediaGestureMode, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            if (mediaGestureMode == MediaGestureMode.INTI) {
+                if (Math.abs(f3) - Math.abs(f4) > 3.0f) {
+                    mediaGestureMode = MediaGestureMode.FAST_FORWARD;
+                    if (f) {
+                        Log.d("MediaGestureDetector", "horizontal slide");
+                    }
+                } else if (f2 <= this.e / 2) {
+                    mediaGestureMode = MediaGestureMode.BRIGHTNESS;
+                    if (f) {
+                        Log.d("MediaGestureDetector", "brightness slide");
+                    }
+                } else {
+                    mediaGestureMode = MediaGestureMode.VOLUME;
+                    if (f) {
+                        Log.d("MediaGestureDetector", "volume slide");
                     }
                 }
-                f.setTransactionSuccessful();
-                fj.a(rawQuery);
-                f.endTransaction();
             }
-            return linkedList;
+            return mediaGestureMode;
         }
-        return (List) invokeV.objValue;
+        return (MediaGestureMode) invokeCommon.objValue;
     }
 
-    public final long h(SQLiteDatabase sQLiteDatabase, br4 br4Var) {
-        InterceptResult invokeLL;
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, br4Var)) == null) {
-            try {
-                return sQLiteDatabase.insert("activity_mission_info", null, c(br4Var));
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return -1L;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            if (f) {
+                Log.d("MediaGestureDetector", "onScroll:" + motionEvent + " e2:" + motionEvent2 + " distanceX:" + f2 + " distanceY:" + f3);
             }
-        }
-        return invokeLL.longValue;
-    }
-
-    public final long j(SQLiteDatabase sQLiteDatabase, br4 br4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, br4Var)) == null) {
-            try {
-                return sQLiteDatabase.update("activity_mission_info", c(br4Var), "activityid = ? and missionid = ?", new String[]{String.valueOf(br4Var.d()), String.valueOf(br4Var.q())});
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return -1L;
+            if (this.c == null) {
+                return super.onScroll(motionEvent, motionEvent2, f2, f3);
             }
+            MediaGestureMode b = b(this.d, motionEvent.getX(), f2, f3);
+            this.d = b;
+            int i = a.a[b.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return false;
+                    }
+                    return this.c.d(motionEvent, motionEvent2, f2, f3);
+                }
+                return this.c.e(motionEvent, motionEvent2, f2, f3);
+            }
+            return this.c.c(motionEvent, motionEvent2, f2, f3);
         }
-        return invokeLL.longValue;
+        return invokeCommon.booleanValue;
     }
 }

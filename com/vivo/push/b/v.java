@@ -62,7 +62,7 @@ public abstract class v extends s {
         return invokeV.longValue;
     }
 
-    public final String i() {
+    public final String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

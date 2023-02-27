@@ -1,41 +1,61 @@
 package com.xiaomi.push;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes8.dex */
-public class cw implements cu {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ cv a;
+public class cw extends cq {
+    public cq a;
 
-    public cw(cv cvVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cvVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ cu f200a;
+    public final /* synthetic */ cq b;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cw(cu cuVar, String str, cq cqVar) {
+        super(str);
+        this.f200a = cuVar;
+        this.b = cqVar;
+        cq cqVar2 = this.b;
+        this.a = cqVar2;
+        ((cq) this).f186b = ((cq) this).f186b;
+        if (cqVar2 != null) {
+            this.f = cqVar2.f;
         }
-        this.a = cvVar;
     }
 
-    @Override // com.xiaomi.push.cu
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return true;
+    @Override // com.xiaomi.push.cq
+    public synchronized ArrayList<String> a(boolean z) {
+        ArrayList<String> arrayList;
+        arrayList = new ArrayList<>();
+        if (this.a != null) {
+            arrayList.addAll(this.a.a(true));
         }
-        return invokeL.booleanValue;
+        synchronized (cu.b) {
+            cq cqVar = cu.b.get(((cq) this).f186b);
+            if (cqVar != null) {
+                Iterator<String> it = cqVar.a(true).iterator();
+                while (it.hasNext()) {
+                    String next = it.next();
+                    if (arrayList.indexOf(next) == -1) {
+                        arrayList.add(next);
+                    }
+                }
+                arrayList.remove(((cq) this).f186b);
+                arrayList.add(((cq) this).f186b);
+            }
+        }
+        return arrayList;
+    }
+
+    @Override // com.xiaomi.push.cq
+    public synchronized void a(String str, cp cpVar) {
+        if (this.a != null) {
+            this.a.a(str, cpVar);
+        }
+    }
+
+    @Override // com.xiaomi.push.cq
+    public boolean b() {
+        return false;
     }
 }

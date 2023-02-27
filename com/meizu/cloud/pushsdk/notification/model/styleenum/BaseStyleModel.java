@@ -5,7 +5,7 @@ public enum BaseStyleModel {
     PURE_PICTURE(1),
     ANDROID(2);
     
-    public int code;
+    public final int code;
 
     BaseStyleModel(int i) {
         this.code = i;

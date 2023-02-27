@@ -1,67 +1,48 @@
 package com.xiaomi.push;
 
-import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidParameterException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.TreeMap;
+import kotlin.jvm.internal.ByteCompanionObject;
 /* loaded from: classes8.dex */
 public class bn {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                return String.valueOf(bm.a(MessageDigest.getInstance("SHA1").digest(str.getBytes("UTF-8"))));
-            } catch (UnsupportedEncodingException | NoSuchAlgorithmException | Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.a("CloudCoder.hash4SHA1 ", e);
-                throw new IllegalStateException("failed to SHA1");
-            }
-        }
-        return (String) invokeL.objValue;
+    public static String a(byte b) {
+        int i = (b & ByteCompanionObject.MAX_VALUE) + (b < 0 ? 128 : 0);
+        StringBuilder sb = new StringBuilder();
+        sb.append(i < 16 ? "0" : "");
+        sb.append(Integer.toHexString(i).toLowerCase());
+        return sb.toString();
     }
 
-    public static String a(String str, String str2, Map<String, String> map, String str3) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, map, str3)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                throw new InvalidParameterException("security is not nullable");
+    public static String a(String str) {
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            StringBuffer stringBuffer = new StringBuffer();
+            messageDigest.update(str.getBytes(), 0, str.length());
+            for (byte b : messageDigest.digest()) {
+                stringBuffer.append(a(b));
             }
-            ArrayList<String> arrayList = new ArrayList();
-            if (str != null) {
-                arrayList.add(str.toUpperCase());
-            }
-            if (str2 != null) {
-                arrayList.add(Uri.parse(str2).getEncodedPath());
-            }
-            boolean z = true;
-            if (map != null && !map.isEmpty()) {
-                for (Map.Entry entry : new TreeMap(map).entrySet()) {
-                    arrayList.add(String.format("%s=%s", entry.getKey(), entry.getValue()));
-                }
-            }
-            arrayList.add(str3);
-            StringBuilder sb = new StringBuilder();
-            for (String str4 : arrayList) {
-                if (!z) {
-                    sb.append('&');
-                }
-                sb.append(str4);
-                z = false;
-            }
-            return a(sb.toString());
+            return stringBuffer.toString();
+        } catch (NoSuchAlgorithmException unused) {
+            return null;
         }
-        return (String) invokeLLLL.objValue;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static byte[] m214a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.update(str.getBytes());
+            return messageDigest.digest();
+        } catch (Exception unused) {
+            return null;
+        }
+    }
+
+    public static String b(String str) {
+        return a(str).subSequence(8, 24).toString();
     }
 }

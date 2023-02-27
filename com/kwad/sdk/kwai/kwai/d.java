@@ -94,7 +94,7 @@ public final class d implements View.OnClickListener {
         if (ae.length() >= 8) {
             ae = ae.substring(0, 7) + StringHelper.STRING_MORE;
         }
-        this.Ry.setText(this.mContext.getString(this.Ru ? R.string.obfuscated_res_0x7f0f0a5b : R.string.obfuscated_res_0x7f0f0a5c, ae));
+        this.Ry.setText(this.mContext.getString(this.Ru ? R.string.obfuscated_res_0x7f0f0a64 : R.string.obfuscated_res_0x7f0f0a65, ae));
     }
 
     @SuppressLint({"InflateParams"})
@@ -103,17 +103,17 @@ public final class d implements View.OnClickListener {
         int i;
         if (this.Ru && this.Rv) {
             from = LayoutInflater.from(this.mContext);
-            i = R.layout.obfuscated_res_0x7f0d044a;
+            i = R.layout.obfuscated_res_0x7f0d045a;
         } else {
             from = LayoutInflater.from(this.mContext);
-            i = R.layout.obfuscated_res_0x7f0d0449;
+            i = R.layout.obfuscated_res_0x7f0d0459;
         }
         this.mRootView = from.inflate(i, (ViewGroup) null);
         ViewCompat.setElevation(this.mRootView, this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f07036f));
-        this.Rw = this.mRootView.findViewById(R.id.obfuscated_res_0x7f0911b9);
-        this.Rx = (ImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0911bb);
-        this.Ry = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0911ba);
-        this.Rz = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0911bc);
+        this.Rw = this.mRootView.findViewById(R.id.obfuscated_res_0x7f0911fa);
+        this.Rx = (ImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0911fc);
+        this.Ry = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0911fb);
+        this.Rz = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0911fd);
         return this.mRootView;
     }
 
@@ -167,8 +167,8 @@ public final class d implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public final void onClick(View view2) {
         dismiss();
-        if (view2.getId() != R.id.obfuscated_res_0x7f0911bc) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0911b9) {
+        if (view2.getId() != R.id.obfuscated_res_0x7f0911fd) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0911fa) {
                 if (!this.Ru) {
                     com.kwad.sdk.core.report.a.p(this.mAdTemplate, 48);
                 } else if (!this.RC) {

@@ -1,39 +1,252 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
+import android.annotation.SuppressLint;
+import android.app.ActivityManager;
+import android.os.Handler;
+import android.os.Message;
+import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.appcompat.R;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.tieba.ef3;
+import android.view.Choreographer;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.jl3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.lang.reflect.Field;
-import java.nio.channels.FileChannel;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 /* loaded from: classes5.dex */
 public class j72 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean i;
+    public static final String j;
+    public static final String k;
+    public static final String l;
+    public static final String m;
+    public static final String n;
+    public static final String o;
+    public static final String p;
+    public static final String q;
+    public static final String r;
     public transient /* synthetic */ FieldHolder $fh;
+    public e a;
+    public f b;
+    public c c;
+    public b d;
+    public ConcurrentMap<String, Object> e;
+    public boolean f;
+    public int g;
+    public int h;
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public final /* synthetic */ j72 b;
+
+        public b(j72 j72Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j72Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = j72Var;
+        }
+
+        public /* synthetic */ b(j72 j72Var, a aVar) {
+            this(j72Var);
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a = true;
+                String a = l72.a();
+                if (!TextUtils.isEmpty(a)) {
+                    this.b.e.put("cpu", a);
+                }
+                this.a = false;
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements Choreographer.FrameCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public int b;
+        public final /* synthetic */ j72 c;
+
+        public c(j72 j72Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j72Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = j72Var;
+            this.a = -1L;
+            this.b = -1;
+        }
+
+        public /* synthetic */ c(j72 j72Var, a aVar) {
+            this(j72Var);
+        }
+
+        @Override // android.view.Choreographer.FrameCallback
+        public void doFrame(long j) {
+            int i;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeJ(1048576, this, j) != null) || !this.c.f) {
+                return;
+            }
+            long j2 = this.a;
+            if (j2 > 0 && this.b != (i = (int) ((1.0d / (j - j2)) * 1.0E9d))) {
+                this.b = i;
+                this.c.e.put("frame", Integer.valueOf(i));
+            }
+            this.a = j;
+            Choreographer.getInstance().postFrameCallback(this);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final j72 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-735237148, "Lcom/baidu/tieba/j72$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-735237148, "Lcom/baidu/tieba/j72$d;");
+                    return;
+                }
+            }
+            a = new j72(null);
+        }
+    }
+
+    @SuppressLint({"HandlerLeak"})
+    /* loaded from: classes5.dex */
+    public class e extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j72 a;
+
+        public e(j72 j72Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j72Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j72Var;
+        }
+
+        public /* synthetic */ e(j72 j72Var, a aVar) {
+            this(j72Var);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && this.a.e != null) {
+                this.a.f();
+                this.a.e.put("mem", Long.valueOf(((ActivityManager) ts2.c().getSystemService("activity")).getProcessMemoryInfo(new int[]{Process.myPid()})[0].getTotalPss() / 1000));
+                if (this.a.a != null) {
+                    this.a.a.sendEmptyMessageDelayed(0, this.a.g);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class f implements jl3.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j72 a;
+
+        public f(j72 j72Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j72Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j72Var;
+        }
+
+        public /* synthetic */ f(j72 j72Var, a aVar) {
+            this(j72Var);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fo3
+        /* renamed from: b */
+        public void a(Set<hl3<?>> set) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, set) == null) && set != null && set.size() > 0) {
+                for (hl3<?> hl3Var : set) {
+                    this.a.e.put(hl3Var.a, hl3Var.a());
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -48,289 +261,128 @@ public class j72 {
                 return;
             }
         }
-        a = gp1.a;
+        i = wp1.a;
+        j = il3.d.a;
+        k = il3.b.a;
+        l = il3.c.a;
+        String str = il3.g.a;
+        m = il3.i.a;
+        n = il3.e.a;
+        o = il3.f.a;
+        p = il3.h.a;
+        q = il3.j.a;
+        r = il3.k.a;
     }
 
-    public static boolean d() {
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (!this.f) {
+                if (i) {
+                    Log.d("PropertyMonitor", "System monitor not started yet");
+                    return;
+                }
+                return;
+            }
+            this.f = false;
+            e eVar = this.a;
+            if (eVar != null) {
+                eVar.removeMessages(0);
+                this.a = null;
+            }
+            if (this.b != null) {
+                jl3.a().j(this.b, new hl3[0]);
+                this.b = null;
+            }
+            this.c = null;
+            this.d = null;
+            if (i) {
+                Log.d("PropertyMonitor", "Stop system monitor");
+            }
+        }
+    }
+
+    public j72() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.e = new ConcurrentHashMap();
+        this.g = 1000;
+    }
+
+    public static j72 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return ds2.o().N();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return d.a;
         }
-        return invokeV.booleanValue;
+        return (j72) invokeV.objValue;
     }
 
-    public static void a(File file, File file2) throws IOException {
-        FileChannel fileChannel;
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, file, file2) == null) {
-            FileChannel fileChannel2 = 0;
-            try {
-                FileChannel channel = new FileInputStream(file).getChannel();
-                try {
-                    fileChannel2 = new FileOutputStream(file2).getChannel();
-                    fileChannel2.transferFrom(channel, 0L, channel.size());
-                    ap4.d(channel);
-                    ap4.d(fileChannel2);
-                } catch (Throwable th) {
-                    th = th;
-                    FileChannel fileChannel3 = fileChannel2;
-                    fileChannel2 = channel;
-                    fileChannel = fileChannel3;
-                    ap4.d(fileChannel2);
-                    ap4.d(fileChannel);
-                    throw th;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                fileChannel = null;
-            }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.d.a) {
+            gm3.k(this.d, "swanAppCpuMonitor");
         }
     }
 
-    public static void b(String str, String str2, String str3) {
+    public Map<String, Object> h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
-            c(str, str2, str3, false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            this.h++;
+            j();
+            return this.e;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int i2 = this.h - 1;
+            this.h = i2;
+            if (i2 <= 0) {
+                k();
+            }
         }
     }
 
-    public static void c(String str, String str2, String str3, boolean z) {
-        FileInputStream fileInputStream;
-        BufferedWriter bufferedWriter;
-        File file;
-        File file2;
-        File file3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
-            BufferedReader bufferedReader = null;
-            try {
-                file = new File(str);
-                String absolutePath = file.getParentFile().getAbsolutePath();
-                String name = file.getName();
-                file2 = new File(absolutePath + File.separator + name + ".tmp");
-                file3 = new File(absolutePath + File.separator + name + ".bak");
-            } catch (Exception e) {
-                e = e;
-                fileInputStream = null;
-                bufferedWriter = null;
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream = null;
-                bufferedWriter = null;
-            }
-            if (z) {
-                if (file3.exists()) {
-                    file3.renameTo(file);
-                }
-                ap4.d(null);
-                ap4.d(null);
-                ap4.d(null);
-                return;
-            }
-            FileInputStream fileInputStream2 = new FileInputStream(file);
-            try {
-                BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(fileInputStream2));
-                try {
-                    if (file3.exists()) {
-                        a(file3, file);
-                    } else {
-                        a(file, file3);
-                    }
-                    bufferedWriter = new BufferedWriter(new FileWriter(file2));
-                    boolean z2 = false;
-                    while (true) {
-                        try {
-                            String readLine = bufferedReader2.readLine();
-                            if (readLine == null) {
-                                break;
-                            }
-                            if (readLine.contains(str2)) {
-                                bufferedWriter.write(str3 + "\n");
-                                z2 = true;
-                            }
-                            bufferedWriter.write(readLine + "\n");
-                        } catch (Exception e2) {
-                            e = e2;
-                            bufferedReader = bufferedReader2;
-                            Exception exc = e;
-                            fileInputStream = fileInputStream2;
-                            e = exc;
-                            try {
-                                e.printStackTrace();
-                                ap4.d(bufferedReader);
-                                ap4.d(fileInputStream);
-                                ap4.d(bufferedWriter);
-                            } catch (Throwable th2) {
-                                th = th2;
-                                ap4.d(bufferedReader);
-                                ap4.d(fileInputStream);
-                                ap4.d(bufferedWriter);
-                                throw th;
-                            }
-                        } catch (Throwable th3) {
-                            th = th3;
-                            bufferedReader = bufferedReader2;
-                            Throwable th4 = th;
-                            fileInputStream = fileInputStream2;
-                            th = th4;
-                            ap4.d(bufferedReader);
-                            ap4.d(fileInputStream);
-                            ap4.d(bufferedWriter);
-                            throw th;
-                        }
-                    }
-                    bufferedWriter.flush();
-                    if (z2) {
-                        file2.renameTo(file);
-                    } else {
-                        file2.delete();
-                    }
-                    ap4.d(bufferedReader2);
-                    ap4.d(fileInputStream2);
-                } catch (Exception e3) {
-                    e = e3;
-                    bufferedWriter = null;
-                } catch (Throwable th5) {
-                    th = th5;
-                    bufferedWriter = null;
-                }
-            } catch (Exception e4) {
-                e = e4;
-                bufferedWriter = null;
-            } catch (Throwable th6) {
-                th = th6;
-                bufferedWriter = null;
-            }
-            ap4.d(bufferedWriter);
-        }
+    public /* synthetic */ j72(a aVar) {
+        this();
     }
 
-    public static void e(@NonNull Context context) {
-        boolean z;
-        boolean z2;
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                Class<?> cls = Class.forName("android.content.res.AssetManager");
-                Field declaredField = cls.getDeclaredField("mStringBlocks");
-                boolean z3 = true;
-                declaredField.setAccessible(true);
-                Object[] objArr = (Object[]) declaredField.get(context.getAssets());
-                if (objArr == null) {
-                    jSONObject.put("stringBlocks", StringUtil.NULL_STRING);
-                } else {
-                    jSONObject.put("stringBlocks size", objArr.length);
-                    for (int i = 0; i < objArr.length; i++) {
-                        String str = "stringBlocks " + i;
-                        StringBuilder sb = new StringBuilder();
-                        sb.append(" == null :");
-                        if (objArr[i] == null) {
-                            z = true;
-                        } else {
-                            z = false;
-                        }
-                        sb.append(z);
-                        jSONObject.put(str, sb.toString());
-                    }
-                }
-                Field declaredField2 = cls.getDeclaredField("sSystem");
-                declaredField2.setAccessible(true);
-                Object obj = declaredField2.get(cls);
-                Field declaredField3 = cls.getDeclaredField("mStringBlocks");
-                declaredField3.setAccessible(true);
-                Object[] objArr2 = (Object[]) declaredField3.get(obj);
-                if (objArr2 == null) {
-                    jSONObject.put("stringBlocksSys", StringUtil.NULL_STRING);
-                } else {
-                    jSONObject.put("stringBlocksSys size", objArr2.length);
-                    for (int i2 = 0; i2 < objArr2.length; i2++) {
-                        String str2 = "stringBlocksSys " + i2;
-                        StringBuilder sb2 = new StringBuilder();
-                        sb2.append(" == null :");
-                        if (objArr2[i2] == null) {
-                            z2 = true;
-                        } else {
-                            z2 = false;
-                        }
-                        sb2.append(z2);
-                        jSONObject.put(str2, sb2.toString());
-                    }
-                }
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(null, R.styleable.View, Resources.getSystem().getIdentifier("webViewStyle", "attr", "android"), 0);
-                if (obtainStyledAttributes == null) {
-                    jSONObject.put("TypedArray", StringUtil.NULL_STRING);
-                } else {
-                    jSONObject.put("TypedArray ", obtainStyledAttributes.toString());
-                    jSONObject.put("TypedArray mLength", obtainStyledAttributes.length());
-                    Field declaredField4 = obtainStyledAttributes.getClass().getDeclaredField("mRecycled");
-                    declaredField4.setAccessible(true);
-                    jSONObject.put("TypedArray mRecycled", declaredField4.get(obtainStyledAttributes));
-                    Field declaredField5 = obtainStyledAttributes.getClass().getDeclaredField("mAssets");
-                    declaredField5.setAccessible(true);
-                    if (declaredField5.get(obtainStyledAttributes) != context.getAssets()) {
-                        z3 = false;
-                    }
-                    jSONObject.put("TypedArray mAssets", z3);
-                    obtainStyledAttributes.recycle();
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-            String jSONObject2 = jSONObject.toString();
-            if (TextUtils.isEmpty(jSONObject2)) {
-                if (a) {
-                    Log.d("SwanAppCoreUtils", "reportFatalInfo: empty");
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.f) {
+                if (i) {
+                    Log.d("PropertyMonitor", "System monitor already started");
                     return;
                 }
                 return;
             }
-            if (a) {
-                Log.d("SwanAppCoreUtils", "reportFatalInfo: " + jSONObject2);
+            this.f = true;
+            this.c = new c(this, null);
+            Choreographer.getInstance().postFrameCallback(this.c);
+            this.d = new b(this, null);
+            this.b = new f(this, null);
+            jl3.a().g(this.b, il3.d, il3.b, il3.c, il3.i, il3.e, il3.f, il3.g, il3.h, il3.j, il3.k);
+            e eVar = new e(this, null);
+            this.a = eVar;
+            eVar.sendEmptyMessage(0);
+            if (i) {
+                Log.d("PropertyMonitor", "Start system monitor");
             }
-            ef3.b bVar = new ef3.b(10006);
-            bVar.i(jSONObject2);
-            bVar.h(w83.g0());
-            bVar.m();
-        }
-    }
-
-    public static void f(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("url", str);
-                jSONObject.put("package", AppRuntime.getApplication().getPackageName());
-                jSONObject.put("processName", ProcessUtils.getCurProcessName());
-                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, str2);
-                jSONObject.put("errMessage", str3);
-                jSONObject.put("isMainThread", qm3.O());
-                String jSONObject2 = jSONObject.toString();
-                if (a && TextUtils.isEmpty(jSONObject2)) {
-                    Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: empty");
-                    return;
-                }
-                if (a) {
-                    Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: " + jSONObject2);
-                }
-                ef3.b bVar = new ef3.b(10008);
-                bVar.i(jSONObject2);
-                bVar.h(w83.g0());
-                bVar.m();
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public static void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            c(str, null, null, true);
         }
     }
 }

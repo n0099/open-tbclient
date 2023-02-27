@@ -3,108 +3,147 @@ package com.baidu.sofire.k;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.UUID;
 /* loaded from: classes3.dex */
-public class d {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
+public final class d {
+    public static /* synthetic */ Interceptable $ic;
+    public static byte[] a;
+    public static String b;
+    public static Object c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
-            com.baidu.sofire.j.a a2 = com.baidu.sofire.j.a.a(context);
-            a2.d.putString("rpandid", "");
-            a2.d.commit();
-            a2.d.putString("rpiiem", "");
-            a2.d.commit();
-            if (TextUtils.isEmpty("")) {
-                a2.d.putString("rpiiemn", "");
-                a2.d.commit();
-            } else {
-                try {
-                    a2.d.putString("rpiiemn", new String(Base64.encode(e.b("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), "".getBytes("UTF-8"), true), 10), "UTF-8"));
-                    a2.d.commit();
-                } catch (Throwable unused) {
-                    int i = com.baidu.sofire.a.b.a;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2074258954, "Lcom/baidu/sofire/k/d;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (TextUtils.isEmpty("")) {
-                a2.b.putString("p_s_o_d_t", "");
-                a2.b.commit();
-            } else {
-                try {
-                    a2.b.putString("p_s_o_d_t", new String(Base64.encode(e.b("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), "".getBytes("UTF-8"), true), 10), "UTF-8"));
-                    a2.b.commit();
-                } catch (Throwable unused2) {
-                    int i2 = com.baidu.sofire.a.b.a;
-                }
-            }
-            a2.b.putLong("p_s_o_d_t_t", 0L);
-            a2.b.commit();
-            if (TextUtils.isEmpty("")) {
-                a2.b.putString("p_s_s_o_t", "");
-                a2.b.commit();
-            } else {
-                try {
-                    a2.b.putString("p_s_s_o_t", new String(Base64.encode(e.b("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), "".getBytes("UTF-8"), true), 10), "UTF-8"));
-                    a2.b.commit();
-                } catch (Throwable unused3) {
-                    int i3 = com.baidu.sofire.a.b.a;
-                }
-            }
-            a2.b.putLong("p_s_s_o_t_t", 0L);
-            a2.b.commit();
-            if (TextUtils.isEmpty("")) {
-                a2.b.putString("p_s_n_o_t", "");
-                a2.b.commit();
-            } else {
-                try {
-                    a2.b.putString("p_s_n_o_t", new String(Base64.encode(e.b("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), "".getBytes("UTF-8"), true), 10), "UTF-8"));
-                    a2.b.commit();
-                } catch (Throwable unused4) {
-                    int i4 = com.baidu.sofire.a.b.a;
-                }
-            }
-            a2.b.putLong("p_s_n_o_t_t", 0L);
-            a2.b.commit();
-            if (b(context)) {
-                a2.c("");
-                a2.b(0L);
-                a2.g("");
-                a2.d(0L);
-                a2.b("");
-                a2.a(0L);
-                a2.e("");
-                a2.c(0L);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(2074258954, "Lcom/baidu/sofire/k/d;");
+                return;
             }
         }
+        a = f.a(16);
+        b = "";
+        c = new Object();
     }
 
-    public static synchronized boolean b(Context context) {
-        InterceptResult invokeL;
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            synchronized (d.class) {
-                int i = a;
-                boolean z = false;
-                if (i != -1) {
-                    if (i == 1) {
-                        z = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            byte[] bytes = UUID.randomUUID().toString().getBytes();
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bytes);
+                byte[] digest = messageDigest.digest();
+                StringBuilder sb = new StringBuilder();
+                for (byte b2 : digest) {
+                    String upperCase = Integer.toHexString(b2 & 255).toUpperCase();
+                    if (upperCase.length() == 1) {
+                        sb.append("0");
                     }
-                    return z;
+                    sb.append(upperCase);
+                    sb.append("");
                 }
-                String packageName = context.getPackageName();
-                if (TextUtils.isEmpty(packageName)) {
-                    return false;
-                }
-                packageName.toLowerCase().contains("baidu");
-                a = 1;
-                return true;
+                return sb.toString();
+            } catch (NoSuchAlgorithmException unused) {
+                int i = com.baidu.sofire.a.b.a;
+                return null;
             }
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                if (!TextUtils.isEmpty(b)) {
+                    return b;
+                }
+                com.baidu.sofire.j.a a2 = com.baidu.sofire.j.a.a(context);
+                String d = a2.d();
+                if (!TextUtils.isEmpty(d)) {
+                    String c2 = b.c(d);
+                    if (!TextUtils.isEmpty(c2)) {
+                        b = c2;
+                        return c2;
+                    }
+                }
+                String a3 = a2.a();
+                if (!TextUtils.isEmpty(a3)) {
+                    a2.d.putString("xyusec", new String(Base64.encode(f.b(a, a3.getBytes("UTF-8"), true), 10), "UTF-8"));
+                    a2.d.commit();
+                    b = a3;
+                    return a3;
+                } else if (TextUtils.isEmpty(b)) {
+                    UUID.randomUUID();
+                    synchronized (c) {
+                        if (TextUtils.isEmpty(b)) {
+                            String str = a() + "|0";
+                            b = str;
+                            if (TextUtils.isEmpty(str)) {
+                                return b;
+                            }
+                            String str2 = new String(Base64.encode(f.b(a, str.getBytes("UTF-8"), true), 10), "UTF-8");
+                            String a4 = a2.a();
+                            if (TextUtils.isEmpty(a4)) {
+                                a2.d.putString("xyus", str);
+                                a2.d.commit();
+                                a2.d.putString("xyusec", str2);
+                                a2.d.commit();
+                                return b;
+                            }
+                            b = a4;
+                            return a4;
+                        }
+                        return b;
+                    }
+                } else {
+                    return b;
+                }
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void b(Context context) {
+        String[] split;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            try {
+                com.baidu.sofire.j.a a2 = com.baidu.sofire.j.a.a(context);
+                String d = a2.d();
+                if (TextUtils.isEmpty(d)) {
+                    return;
+                }
+                String c2 = b.c(d);
+                if (!TextUtils.isEmpty(c2) && (split = c2.split(WebChromeClient.PARAM_SEPARATOR)) != null && split.length == 2 && !TextUtils.isEmpty(split[0]) && !TextUtils.isEmpty(split[1]) && !split[1].equals("0")) {
+                    String str = split[0] + "|0";
+                    a2.d.putString("xyusec", new String(Base64.encode(f.b(a, str.getBytes("UTF-8"), true), 10), "UTF-8"));
+                    a2.d.commit();
+                    a2.d.putString("xyus", str);
+                    a2.d.commit();
+                }
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+            }
+        }
     }
 }

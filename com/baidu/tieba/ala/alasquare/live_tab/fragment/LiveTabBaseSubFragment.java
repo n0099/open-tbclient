@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lf5;
+import com.baidu.tieba.yg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +19,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public LinearLayout b;
-    public lf5 c;
+    public yg5 c;
     public boolean d;
     public boolean e;
     public int f;
@@ -113,7 +113,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.b.setVisibility(0);
             if (this.c == null) {
-                this.c = new lf5(this.a, null);
+                this.c = new yg5(this.a, null);
             }
             this.c.e();
             this.c.i(R.drawable.new_pic_emotion_03);
@@ -131,9 +131,9 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
-            lf5 lf5Var = this.c;
-            if (lf5Var != null) {
-                lf5Var.onChangeSkinType();
+            yg5 yg5Var = this.c;
+            if (yg5Var != null) {
+                yg5Var.onChangeSkinType();
             }
         }
     }

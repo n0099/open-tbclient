@@ -1,377 +1,156 @@
 package com.yy.hiidostatis.api;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import com.yy.hiidostatis.inner.util.StringUtil;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
 public class StatisContent extends BaseStatisContent {
-    public static /* synthetic */ Interceptable $ic;
-    public static AtomicInteger TMP_START_ID;
-    public transient /* synthetic */ FieldHolder $fh;
-    public boolean fillCommon;
-    public boolean fillConcrete;
-    public boolean isCover;
+    public static AtomicInteger TMP_START_ID = new AtomicInteger(0);
     public String mAct;
     public long mAutoId;
     public int mCrepid;
     public String mGuid;
-    public boolean notSave;
-    public Priority priority;
-    public int tmpId;
+    public boolean fillCommon = true;
+    public boolean fillConcrete = true;
+    public boolean isCover = true;
+    public boolean notSave = false;
+    public Priority priority = Priority.PRIORITY_NORMAL;
+    public int tmpId = TMP_START_ID.incrementAndGet();
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class Priority {
-        public static final /* synthetic */ Priority[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final Priority PRIORITY_HIGH;
-        public static final Priority PRIORITY_LOW;
-        public static final Priority PRIORITY_NORMAL;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2135480966, "Lcom/yy/hiidostatis/api/StatisContent$Priority;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(2135480966, "Lcom/yy/hiidostatis/api/StatisContent$Priority;");
-                    return;
-                }
-            }
-            PRIORITY_HIGH = new Priority("PRIORITY_HIGH", 0);
-            PRIORITY_NORMAL = new Priority("PRIORITY_NORMAL", 1);
-            Priority priority = new Priority("PRIORITY_LOW", 2);
-            PRIORITY_LOW = priority;
-            $VALUES = new Priority[]{PRIORITY_HIGH, PRIORITY_NORMAL, priority};
-        }
-
-        public Priority(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public static Priority valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                return (Priority) Enum.valueOf(Priority.class, str);
-            }
-            return (Priority) invokeL.objValue;
-        }
-
-        public static Priority[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return (Priority[]) $VALUES.clone();
-            }
-            return (Priority[]) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1889897560, "Lcom/yy/hiidostatis/api/StatisContent;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1889897560, "Lcom/yy/hiidostatis/api/StatisContent;");
-                return;
-            }
-        }
-        TMP_START_ID = new AtomicInteger(0);
-    }
-
-    public static String createGuid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return StringUtil.geneGuid();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getAct() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mAct;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long getAutoId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mAutoId;
-        }
-        return invokeV.longValue;
-    }
-
-    public int getCrepid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mCrepid;
-        }
-        return invokeV.intValue;
-    }
-
-    public String getGuid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.mGuid;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Priority getPriority() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.priority;
-        }
-        return (Priority) invokeV.objValue;
-    }
-
-    public int getTmpId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.tmpId;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean isCover() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.isCover;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isFillCommon() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.fillCommon;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isFillConcrete() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.fillConcrete;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isNotSave() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.notSave;
-        }
-        return invokeV.booleanValue;
+    public enum Priority {
+        PRIORITY_HIGH,
+        PRIORITY_NORMAL,
+        PRIORITY_LOW
     }
 
     public StatisContent() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.fillCommon = true;
-        this.fillConcrete = true;
-        this.isCover = true;
-        this.notSave = false;
-        this.priority = Priority.PRIORITY_NORMAL;
-        this.tmpId = TMP_START_ID.incrementAndGet();
         setGuid(createGuid());
     }
 
+    public static String createGuid() {
+        return StringUtil.geneGuid();
+    }
+
+    public String getAct() {
+        return this.mAct;
+    }
+
+    public long getAutoId() {
+        return this.mAutoId;
+    }
+
+    public int getCrepid() {
+        return this.mCrepid;
+    }
+
+    public String getGuid() {
+        return this.mGuid;
+    }
+
+    public Priority getPriority() {
+        return this.priority;
+    }
+
+    public int getTmpId() {
+        return this.tmpId;
+    }
+
+    public boolean isCover() {
+        return this.isCover;
+    }
+
+    public boolean isFillCommon() {
+        return this.fillCommon;
+    }
+
+    public boolean isFillConcrete() {
+        return this.fillConcrete;
+    }
+
+    public boolean isNotSave() {
+        return this.notSave;
+    }
+
     public StatisContent(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.fillCommon = true;
-        this.fillConcrete = true;
-        this.isCover = true;
-        this.notSave = false;
-        this.priority = Priority.PRIORITY_NORMAL;
-        this.tmpId = TMP_START_ID.incrementAndGet();
         this.mAct = str;
         setGuid(createGuid());
+    }
+
+    public void setAct(String str) {
+        this.mAct = str;
+    }
+
+    public void setAutoId(long j) {
+        this.mAutoId = j;
+    }
+
+    public void setCover(boolean z) {
+        this.isCover = z;
+    }
+
+    public void setCrepid(int i) {
+        this.mCrepid = i;
+    }
+
+    public void setFillCommon(boolean z) {
+        this.fillCommon = z;
+    }
+
+    public void setFillConcrete(boolean z) {
+        this.fillConcrete = z;
+    }
+
+    public void setGuid(String str) {
+        this.mGuid = str;
+        put(BaseStatisContent.GUID, str);
+    }
+
+    public void setNotSave(boolean z) {
+        this.notSave = z;
+    }
+
+    public void setPriority(Priority priority) {
+        this.priority = priority;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.yy.hiidostatis.inner.BaseStatisContent
     public StatisContent copy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            StatisContent statisContent = new StatisContent();
-            TreeMap<String, String> treeMap = new TreeMap<>(BaseStatisContent.COMPARATOR);
-            statisContent.raw = treeMap;
-            treeMap.putAll(this.raw);
-            statisContent.setAct(this.mAct);
-            statisContent.setAutoId(this.mAutoId);
-            statisContent.setCover(this.isCover);
-            statisContent.setCrepid(this.mCrepid);
-            statisContent.setFillCommon(this.fillCommon);
-            statisContent.setFillConcrete(this.fillConcrete);
-            statisContent.setNotSave(this.notSave);
-            statisContent.setPriority(this.priority);
-            statisContent.setGuid(this.mGuid);
-            return statisContent;
-        }
-        return (StatisContent) invokeV.objValue;
+        StatisContent statisContent = new StatisContent();
+        TreeMap<String, String> treeMap = new TreeMap<>(BaseStatisContent.COMPARATOR);
+        statisContent.raw = treeMap;
+        treeMap.putAll(this.raw);
+        statisContent.setAct(this.mAct);
+        statisContent.setAutoId(this.mAutoId);
+        statisContent.setCover(this.isCover);
+        statisContent.setCrepid(this.mCrepid);
+        statisContent.setFillCommon(this.fillCommon);
+        statisContent.setFillConcrete(this.fillConcrete);
+        statisContent.setNotSave(this.notSave);
+        statisContent.setPriority(this.priority);
+        statisContent.setGuid(this.mGuid);
+        return statisContent;
     }
 
     public StatisContent copyByNewGuid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StatisContent statisContent = new StatisContent();
-            TreeMap<String, String> treeMap = new TreeMap<>(BaseStatisContent.COMPARATOR);
-            statisContent.raw = treeMap;
-            treeMap.putAll(this.raw);
-            statisContent.setAct(this.mAct);
-            statisContent.setAutoId(this.mAutoId);
-            statisContent.setCover(this.isCover);
-            statisContent.setCrepid(this.mCrepid);
-            statisContent.setFillCommon(this.fillCommon);
-            statisContent.setFillConcrete(this.fillConcrete);
-            statisContent.setNotSave(this.notSave);
-            statisContent.setPriority(this.priority);
-            return statisContent;
-        }
-        return (StatisContent) invokeV.objValue;
+        StatisContent statisContent = new StatisContent();
+        TreeMap<String, String> treeMap = new TreeMap<>(BaseStatisContent.COMPARATOR);
+        statisContent.raw = treeMap;
+        treeMap.putAll(this.raw);
+        statisContent.setAct(this.mAct);
+        statisContent.setAutoId(this.mAutoId);
+        statisContent.setCover(this.isCover);
+        statisContent.setCrepid(this.mCrepid);
+        statisContent.setFillCommon(this.fillCommon);
+        statisContent.setFillConcrete(this.fillConcrete);
+        statisContent.setNotSave(this.notSave);
+        statisContent.setPriority(this.priority);
+        return statisContent;
     }
 
     public void putContent(StatisContent statisContent, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048589, this, statisContent, z) == null) {
-            super.putContent((BaseStatisContent) statisContent, z);
-        }
-    }
-
-    public void setAct(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.mAct = str;
-        }
-    }
-
-    public void setAutoId(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.mAutoId = j;
-        }
-    }
-
-    public void setCover(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.isCover = z;
-        }
-    }
-
-    public void setCrepid(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.mCrepid = i;
-        }
-    }
-
-    public void setFillCommon(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.fillCommon = z;
-        }
-    }
-
-    public void setFillConcrete(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.fillConcrete = z;
-        }
-    }
-
-    public void setGuid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.mGuid = str;
-            put(BaseStatisContent.GUID, str);
-        }
-    }
-
-    public void setNotSave(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
-            this.notSave = z;
-        }
-    }
-
-    public void setPriority(Priority priority) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, priority) == null) {
-            this.priority = priority;
-        }
+        super.putContent((BaseStatisContent) statisContent, z);
     }
 }

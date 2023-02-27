@@ -1,12 +1,5 @@
 package com.facebook.datasource;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.executors.CallerThreadExecutor;
 import com.facebook.common.internal.Objects;
 import com.facebook.common.internal.Preconditions;
@@ -21,16 +14,12 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes7.dex */
 public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSource<T>> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final boolean mDataSourceLazy;
     public final List<Supplier<DataSource<T>>> mDataSourceSuppliers;
 
     @ThreadSafe
     /* loaded from: classes7.dex */
     public class IncreasingQualityDataSource extends AbstractDataSource<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         @GuardedBy("IncreasingQualityDataSource.this")
         @Nullable
         public ArrayList<DataSource<T>> mDataSources;
@@ -42,149 +31,89 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
         @GuardedBy("IncreasingQualityDataSource.this")
         public int mIndexOfDataSourceWithResult;
         public int mNumberOfDataSources;
-        public final /* synthetic */ IncreasingQualityDataSourceSupplier this$0;
 
         /* loaded from: classes7.dex */
         public class InternalDataSubscriber implements DataSubscriber<T> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
             public int mIndex;
-            public final /* synthetic */ IncreasingQualityDataSource this$1;
 
             @Override // com.facebook.datasource.DataSubscriber
             public void onCancellation(DataSource<T> dataSource) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
-                }
             }
 
-            public InternalDataSubscriber(IncreasingQualityDataSource increasingQualityDataSource, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {increasingQualityDataSource, Integer.valueOf(i)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$1 = increasingQualityDataSource;
+            public InternalDataSubscriber(int i) {
                 this.mIndex = i;
             }
 
             @Override // com.facebook.datasource.DataSubscriber
             public void onFailure(DataSource<T> dataSource) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
-                    this.this$1.onDataSourceFailed(this.mIndex, dataSource);
-                }
+                IncreasingQualityDataSource.this.onDataSourceFailed(this.mIndex, dataSource);
             }
 
             @Override // com.facebook.datasource.DataSubscriber
             public void onNewResult(DataSource<T> dataSource) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataSource) == null) {
-                    if (dataSource.hasResult()) {
-                        this.this$1.onDataSourceNewResult(this.mIndex, dataSource);
-                    } else if (dataSource.isFinished()) {
-                        this.this$1.onDataSourceFailed(this.mIndex, dataSource);
-                    }
+                if (dataSource.hasResult()) {
+                    IncreasingQualityDataSource.this.onDataSourceNewResult(this.mIndex, dataSource);
+                } else if (dataSource.isFinished()) {
+                    IncreasingQualityDataSource.this.onDataSourceFailed(this.mIndex, dataSource);
                 }
             }
 
             @Override // com.facebook.datasource.DataSubscriber
             public void onProgressUpdate(DataSource<T> dataSource) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048579, this, dataSource) == null) && this.mIndex == 0) {
-                    this.this$1.setProgress(dataSource.getProgress());
+                if (this.mIndex == 0) {
+                    IncreasingQualityDataSource.this.setProgress(dataSource.getProgress());
                 }
             }
         }
 
-        public IncreasingQualityDataSource(IncreasingQualityDataSourceSupplier increasingQualityDataSourceSupplier) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {increasingQualityDataSourceSupplier};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = increasingQualityDataSourceSupplier;
-            if (!increasingQualityDataSourceSupplier.mDataSourceLazy) {
+        public IncreasingQualityDataSource() {
+            if (!IncreasingQualityDataSourceSupplier.this.mDataSourceLazy) {
                 ensureDataSourceInitialized();
             }
         }
 
         private void closeSafely(DataSource<T> dataSource) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(65539, this, dataSource) == null) && dataSource != null) {
+            if (dataSource != null) {
                 dataSource.close();
             }
         }
 
         @Nullable
         private synchronized DataSource<T> getAndClearDataSource(int i) {
-            InterceptResult invokeI;
             DataSource<T> dataSource;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i)) == null) {
-                synchronized (this) {
-                    dataSource = null;
-                    if (this.mDataSources != null && i < this.mDataSources.size()) {
-                        dataSource = this.mDataSources.set(i, null);
-                    }
-                }
-                return dataSource;
+            dataSource = null;
+            if (this.mDataSources != null && i < this.mDataSources.size()) {
+                dataSource = this.mDataSources.set(i, null);
             }
-            return (DataSource) invokeI.objValue;
+            return dataSource;
         }
 
         @Nullable
         private synchronized DataSource<T> getDataSource(int i) {
-            InterceptResult invokeI;
             DataSource<T> dataSource;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) {
-                synchronized (this) {
-                    if (this.mDataSources != null && i < this.mDataSources.size()) {
-                        dataSource = this.mDataSources.get(i);
-                    } else {
-                        dataSource = null;
-                    }
-                }
-                return dataSource;
+            if (this.mDataSources != null && i < this.mDataSources.size()) {
+                dataSource = this.mDataSources.get(i);
+            } else {
+                dataSource = null;
             }
-            return (DataSource) invokeI.objValue;
+            return dataSource;
         }
 
         private void ensureDataSourceInitialized() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) != null) || this.mFinishedDataSources != null) {
+            if (this.mFinishedDataSources != null) {
                 return;
             }
             synchronized (this) {
                 if (this.mFinishedDataSources == null) {
                     this.mFinishedDataSources = new AtomicInteger(0);
-                    int size = this.this$0.mDataSourceSuppliers.size();
+                    int size = IncreasingQualityDataSourceSupplier.this.mDataSourceSuppliers.size();
                     this.mNumberOfDataSources = size;
                     this.mIndexOfDataSourceWithResult = size;
                     this.mDataSources = new ArrayList<>(size);
                     for (int i = 0; i < size; i++) {
-                        DataSource<T> dataSource = (DataSource) ((Supplier) this.this$0.mDataSourceSuppliers.get(i)).get();
+                        DataSource<T> dataSource = (DataSource) ((Supplier) IncreasingQualityDataSourceSupplier.this.mDataSourceSuppliers.get(i)).get();
                         this.mDataSources.add(dataSource);
-                        dataSource.subscribe(new InternalDataSubscriber(this, i), CallerThreadExecutor.getInstance());
+                        dataSource.subscribe(new InternalDataSubscriber(i), CallerThreadExecutor.getInstance());
                         if (dataSource.hasResult()) {
                             break;
                         }
@@ -195,22 +124,12 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
 
         @Nullable
         private synchronized DataSource<T> getDataSourceWithResult() {
-            InterceptResult invokeV;
-            DataSource<T> dataSource;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-                synchronized (this) {
-                    dataSource = getDataSource(this.mIndexOfDataSourceWithResult);
-                }
-                return dataSource;
-            }
-            return (DataSource) invokeV.objValue;
+            return getDataSource(this.mIndexOfDataSourceWithResult);
         }
 
         private void maybeSetFailure() {
             Throwable th;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(65544, this) == null) && this.mFinishedDataSources.incrementAndGet() == this.mNumberOfDataSources && (th = this.mDelayedError) != null) {
+            if (this.mFinishedDataSources.incrementAndGet() == this.mNumberOfDataSources && (th = this.mDelayedError) != null) {
                 setFailure(th, this.mDelayedExtras);
             }
         }
@@ -218,68 +137,51 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.DataSource
         @Nullable
         public synchronized T getResult() {
-            InterceptResult invokeV;
             T t;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                synchronized (this) {
-                    if (this.this$0.mDataSourceLazy) {
-                        ensureDataSourceInitialized();
-                    }
-                    DataSource<T> dataSourceWithResult = getDataSourceWithResult();
-                    if (dataSourceWithResult != null) {
-                        t = dataSourceWithResult.getResult();
-                    } else {
-                        t = null;
-                    }
-                }
-                return t;
+            if (IncreasingQualityDataSourceSupplier.this.mDataSourceLazy) {
+                ensureDataSourceInitialized();
             }
-            return (T) invokeV.objValue;
+            DataSource<T> dataSourceWithResult = getDataSourceWithResult();
+            if (dataSourceWithResult != null) {
+                t = dataSourceWithResult.getResult();
+            } else {
+                t = null;
+            }
+            return t;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.DataSource
         public synchronized boolean hasResult() {
-            InterceptResult invokeV;
             boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                synchronized (this) {
-                    if (this.this$0.mDataSourceLazy) {
-                        ensureDataSourceInitialized();
-                    }
-                    DataSource<T> dataSourceWithResult = getDataSourceWithResult();
-                    if (dataSourceWithResult != null) {
-                        if (dataSourceWithResult.hasResult()) {
-                            z = true;
-                        }
-                    }
-                    z = false;
-                }
-                return z;
+            if (IncreasingQualityDataSourceSupplier.this.mDataSourceLazy) {
+                ensureDataSourceInitialized();
             }
-            return invokeV.booleanValue;
+            DataSource<T> dataSourceWithResult = getDataSourceWithResult();
+            if (dataSourceWithResult != null) {
+                if (dataSourceWithResult.hasResult()) {
+                    z = true;
+                }
+            }
+            z = false;
+            return z;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:20:0x0028 A[LOOP:0: B:19:0x0026->B:20:0x0028, LOOP_END] */
+        /* JADX WARN: Removed duplicated region for block: B:18:0x0024 A[LOOP:0: B:17:0x0022->B:18:0x0024, LOOP_END] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         private void maybeSetIndexOfDataSourceWithResult(int i, DataSource<T> dataSource, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{Integer.valueOf(i), dataSource, Boolean.valueOf(z)}) == null) {
-                synchronized (this) {
-                    int i2 = this.mIndexOfDataSourceWithResult;
-                    if (dataSource == getDataSource(i) && i != this.mIndexOfDataSourceWithResult) {
-                        if (getDataSourceWithResult() != null && (!z || i >= this.mIndexOfDataSourceWithResult)) {
-                            i = i2;
-                            for (int i3 = this.mIndexOfDataSourceWithResult; i3 > i; i3--) {
-                                closeSafely(getAndClearDataSource(i3));
-                            }
+            synchronized (this) {
+                int i2 = this.mIndexOfDataSourceWithResult;
+                if (dataSource == getDataSource(i) && i != this.mIndexOfDataSourceWithResult) {
+                    if (getDataSourceWithResult() != null && (!z || i >= this.mIndexOfDataSourceWithResult)) {
+                        i = i2;
+                        for (int i3 = this.mIndexOfDataSourceWithResult; i3 > i; i3--) {
+                            closeSafely(getAndClearDataSource(i3));
                         }
-                        this.mIndexOfDataSourceWithResult = i;
-                        while (i3 > i) {
-                        }
+                    }
+                    this.mIndexOfDataSourceWithResult = i;
+                    while (i3 > i) {
                     }
                 }
             }
@@ -287,159 +189,97 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
 
         /* JADX INFO: Access modifiers changed from: private */
         public void onDataSourceFailed(int i, DataSource<T> dataSource) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(65546, this, i, dataSource) == null) {
-                closeSafely(tryGetAndClearDataSource(i, dataSource));
-                if (i == 0) {
-                    this.mDelayedError = dataSource.getFailureCause();
-                    this.mDelayedExtras = dataSource.getExtras();
-                }
-                maybeSetFailure();
+            closeSafely(tryGetAndClearDataSource(i, dataSource));
+            if (i == 0) {
+                this.mDelayedError = dataSource.getFailureCause();
+                this.mDelayedExtras = dataSource.getExtras();
             }
-        }
-
-        @Nullable
-        private synchronized DataSource<T> tryGetAndClearDataSource(int i, DataSource<T> dataSource) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(65548, this, i, dataSource)) == null) {
-                synchronized (this) {
-                    if (dataSource == getDataSourceWithResult()) {
-                        return null;
-                    }
-                    if (dataSource == getDataSource(i)) {
-                        return getAndClearDataSource(i);
-                    }
-                    return dataSource;
-                }
-            }
-            return (DataSource) invokeIL.objValue;
+            maybeSetFailure();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void onDataSourceNewResult(int i, DataSource<T> dataSource) {
             boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(65547, this, i, dataSource) == null) {
-                maybeSetIndexOfDataSourceWithResult(i, dataSource, dataSource.isFinished());
-                if (dataSource == getDataSourceWithResult()) {
-                    if (i == 0 && dataSource.isFinished()) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    setResult(null, z, dataSource.getExtras());
+            maybeSetIndexOfDataSourceWithResult(i, dataSource, dataSource.isFinished());
+            if (dataSource == getDataSourceWithResult()) {
+                if (i == 0 && dataSource.isFinished()) {
+                    z = true;
+                } else {
+                    z = false;
                 }
-                maybeSetFailure();
+                setResult(null, z, dataSource.getExtras());
             }
+            maybeSetFailure();
+        }
+
+        @Nullable
+        private synchronized DataSource<T> tryGetAndClearDataSource(int i, DataSource<T> dataSource) {
+            if (dataSource == getDataSourceWithResult()) {
+                return null;
+            }
+            if (dataSource == getDataSource(i)) {
+                return getAndClearDataSource(i);
+            }
+            return dataSource;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.DataSource
         public boolean close() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.this$0.mDataSourceLazy) {
-                    ensureDataSourceInitialized();
+            if (IncreasingQualityDataSourceSupplier.this.mDataSourceLazy) {
+                ensureDataSourceInitialized();
+            }
+            synchronized (this) {
+                if (!super.close()) {
+                    return false;
                 }
-                synchronized (this) {
-                    if (!super.close()) {
-                        return false;
-                    }
-                    ArrayList<DataSource<T>> arrayList = this.mDataSources;
-                    this.mDataSources = null;
-                    if (arrayList != null) {
-                        for (int i = 0; i < arrayList.size(); i++) {
-                            closeSafely(arrayList.get(i));
-                        }
-                        return true;
+                ArrayList<DataSource<T>> arrayList = this.mDataSources;
+                this.mDataSources = null;
+                if (arrayList != null) {
+                    for (int i = 0; i < arrayList.size(); i++) {
+                        closeSafely(arrayList.get(i));
                     }
                     return true;
                 }
+                return true;
             }
-            return invokeV.booleanValue;
         }
     }
 
     public IncreasingQualityDataSourceSupplier(List<Supplier<DataSource<T>>> list, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         Preconditions.checkArgument(!list.isEmpty(), "List of suppliers is empty!");
         this.mDataSourceSuppliers = list;
         this.mDataSourceLazy = z;
     }
 
+    public static <T> IncreasingQualityDataSourceSupplier<T> create(List<Supplier<DataSource<T>>> list, boolean z) {
+        return new IncreasingQualityDataSourceSupplier<>(list, z);
+    }
+
     public static <T> IncreasingQualityDataSourceSupplier<T> create(List<Supplier<DataSource<T>>> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
-            return create(list, false);
-        }
-        return (IncreasingQualityDataSourceSupplier) invokeL.objValue;
+        return create(list, false);
     }
 
     public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof IncreasingQualityDataSourceSupplier)) {
-                return false;
-            }
-            return Objects.equal(this.mDataSourceSuppliers, ((IncreasingQualityDataSourceSupplier) obj).mDataSourceSuppliers);
+        if (obj == this) {
+            return true;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static <T> IncreasingQualityDataSourceSupplier<T> create(List<Supplier<DataSource<T>>> list, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, list, z)) == null) {
-            return new IncreasingQualityDataSourceSupplier<>(list, z);
+        if (!(obj instanceof IncreasingQualityDataSourceSupplier)) {
+            return false;
         }
-        return (IncreasingQualityDataSourceSupplier) invokeLZ.objValue;
+        return Objects.equal(this.mDataSourceSuppliers, ((IncreasingQualityDataSourceSupplier) obj).mDataSourceSuppliers);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.Supplier
     public DataSource<T> get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new IncreasingQualityDataSource(this);
-        }
-        return (DataSource) invokeV.objValue;
+        return new IncreasingQualityDataSource();
     }
 
     public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mDataSourceSuppliers.hashCode();
-        }
-        return invokeV.intValue;
+        return this.mDataSourceSuppliers.hashCode();
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return Objects.toStringHelper(this).add("list", this.mDataSourceSuppliers).toString();
-        }
-        return (String) invokeV.objValue;
+        return Objects.toStringHelper(this).add("list", this.mDataSourceSuppliers).toString();
     }
 }

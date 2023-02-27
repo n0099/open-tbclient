@@ -2,19 +2,11 @@ package androidx.constraintlayout.solver.widgets;
 
 import androidx.constraintlayout.solver.LinearSystem;
 import androidx.constraintlayout.solver.widgets.ConstraintWidget;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class Flow extends VirtualLayout {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int HORIZONTAL_ALIGN_CENTER = 2;
     public static final int HORIZONTAL_ALIGN_END = 1;
     public static final int HORIZONTAL_ALIGN_START = 0;
@@ -25,223 +17,195 @@ public class Flow extends VirtualLayout {
     public static final int WRAP_ALIGNED = 2;
     public static final int WRAP_CHAIN = 1;
     public static final int WRAP_NONE = 0;
-    public transient /* synthetic */ FieldHolder $fh;
-    public ConstraintWidget[] mAlignedBiggestElementsInCols;
-    public ConstraintWidget[] mAlignedBiggestElementsInRows;
-    public int[] mAlignedDimensions;
-    public ArrayList<WidgetsList> mChainList;
     public ConstraintWidget[] mDisplayedWidgets;
-    public int mDisplayedWidgetsCount;
-    public float mFirstHorizontalBias;
-    public int mFirstHorizontalStyle;
-    public float mFirstVerticalBias;
-    public int mFirstVerticalStyle;
-    public int mHorizontalAlign;
-    public float mHorizontalBias;
-    public int mHorizontalGap;
-    public int mHorizontalStyle;
-    public float mLastHorizontalBias;
-    public int mLastHorizontalStyle;
-    public float mLastVerticalBias;
-    public int mLastVerticalStyle;
-    public int mMaxElementsWrap;
-    public int mOrientation;
-    public int mVerticalAlign;
-    public float mVerticalBias;
-    public int mVerticalGap;
-    public int mVerticalStyle;
-    public int mWrapMode;
+    public int mHorizontalStyle = -1;
+    public int mVerticalStyle = -1;
+    public int mFirstHorizontalStyle = -1;
+    public int mFirstVerticalStyle = -1;
+    public int mLastHorizontalStyle = -1;
+    public int mLastVerticalStyle = -1;
+    public float mHorizontalBias = 0.5f;
+    public float mVerticalBias = 0.5f;
+    public float mFirstHorizontalBias = 0.5f;
+    public float mFirstVerticalBias = 0.5f;
+    public float mLastHorizontalBias = 0.5f;
+    public float mLastVerticalBias = 0.5f;
+    public int mHorizontalGap = 0;
+    public int mVerticalGap = 0;
+    public int mHorizontalAlign = 2;
+    public int mVerticalAlign = 2;
+    public int mWrapMode = 0;
+    public int mMaxElementsWrap = -1;
+    public int mOrientation = 0;
+    public ArrayList<WidgetsList> mChainList = new ArrayList<>();
+    public ConstraintWidget[] mAlignedBiggestElementsInRows = null;
+    public ConstraintWidget[] mAlignedBiggestElementsInCols = null;
+    public int[] mAlignedDimensions = null;
+    public int mDisplayedWidgetsCount = 0;
 
     /* loaded from: classes.dex */
     public class WidgetsList {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ConstraintWidget biggest;
-        public int biggestDimension;
         public ConstraintAnchor mBottom;
-        public int mCount;
-        public int mHeight;
         public ConstraintAnchor mLeft;
         public int mMax;
-        public int mNbMatchConstraintsWidgets;
         public int mOrientation;
         public int mPaddingBottom;
         public int mPaddingLeft;
         public int mPaddingRight;
         public int mPaddingTop;
         public ConstraintAnchor mRight;
-        public int mStartIndex;
         public ConstraintAnchor mTop;
-        public int mWidth;
-        public final /* synthetic */ Flow this$0;
+        public ConstraintWidget biggest = null;
+        public int biggestDimension = 0;
+        public int mWidth = 0;
+        public int mHeight = 0;
+        public int mStartIndex = 0;
+        public int mCount = 0;
+        public int mNbMatchConstraintsWidgets = 0;
 
-        public WidgetsList(Flow flow, int i, ConstraintAnchor constraintAnchor, ConstraintAnchor constraintAnchor2, ConstraintAnchor constraintAnchor3, ConstraintAnchor constraintAnchor4, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {flow, Integer.valueOf(i), constraintAnchor, constraintAnchor2, constraintAnchor3, constraintAnchor4, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = flow;
+        public WidgetsList(int i, ConstraintAnchor constraintAnchor, ConstraintAnchor constraintAnchor2, ConstraintAnchor constraintAnchor3, ConstraintAnchor constraintAnchor4, int i2) {
             this.mOrientation = 0;
-            this.biggest = null;
-            this.biggestDimension = 0;
             this.mPaddingLeft = 0;
             this.mPaddingTop = 0;
             this.mPaddingRight = 0;
             this.mPaddingBottom = 0;
-            this.mWidth = 0;
-            this.mHeight = 0;
-            this.mStartIndex = 0;
-            this.mCount = 0;
-            this.mNbMatchConstraintsWidgets = 0;
             this.mMax = 0;
             this.mOrientation = i;
             this.mLeft = constraintAnchor;
             this.mTop = constraintAnchor2;
             this.mRight = constraintAnchor3;
             this.mBottom = constraintAnchor4;
-            this.mPaddingLeft = flow.getPaddingLeft();
-            this.mPaddingTop = flow.getPaddingTop();
-            this.mPaddingRight = flow.getPaddingRight();
-            this.mPaddingBottom = flow.getPaddingBottom();
+            this.mPaddingLeft = Flow.this.getPaddingLeft();
+            this.mPaddingTop = Flow.this.getPaddingTop();
+            this.mPaddingRight = Flow.this.getPaddingRight();
+            this.mPaddingBottom = Flow.this.getPaddingBottom();
             this.mMax = i2;
         }
 
         public void setStartIndex(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-                this.mStartIndex = i;
-            }
+            this.mStartIndex = i;
         }
 
         private void recomputeDimensions() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-                this.mWidth = 0;
-                this.mHeight = 0;
-                this.biggest = null;
-                this.biggestDimension = 0;
-                int i = this.mCount;
-                for (int i2 = 0; i2 < i && this.mStartIndex + i2 < this.this$0.mDisplayedWidgetsCount; i2++) {
-                    ConstraintWidget constraintWidget = this.this$0.mDisplayedWidgets[this.mStartIndex + i2];
-                    if (this.mOrientation != 0) {
-                        int widgetWidth = this.this$0.getWidgetWidth(constraintWidget, this.mMax);
-                        int widgetHeight = this.this$0.getWidgetHeight(constraintWidget, this.mMax);
-                        int i3 = this.this$0.mVerticalGap;
-                        if (constraintWidget.getVisibility() == 8) {
-                            i3 = 0;
-                        }
-                        this.mHeight += widgetHeight + i3;
-                        if (this.biggest == null || this.biggestDimension < widgetWidth) {
-                            this.biggest = constraintWidget;
-                            this.biggestDimension = widgetWidth;
-                            this.mWidth = widgetWidth;
-                        }
-                    } else {
-                        int width = constraintWidget.getWidth();
-                        int i4 = this.this$0.mHorizontalGap;
-                        if (constraintWidget.getVisibility() == 8) {
-                            i4 = 0;
-                        }
-                        this.mWidth += width + i4;
-                        int widgetHeight2 = this.this$0.getWidgetHeight(constraintWidget, this.mMax);
-                        if (this.biggest == null || this.biggestDimension < widgetHeight2) {
-                            this.biggest = constraintWidget;
-                            this.biggestDimension = widgetHeight2;
-                            this.mHeight = widgetHeight2;
-                        }
+            this.mWidth = 0;
+            this.mHeight = 0;
+            this.biggest = null;
+            this.biggestDimension = 0;
+            int i = this.mCount;
+            for (int i2 = 0; i2 < i && this.mStartIndex + i2 < Flow.this.mDisplayedWidgetsCount; i2++) {
+                ConstraintWidget constraintWidget = Flow.this.mDisplayedWidgets[this.mStartIndex + i2];
+                if (this.mOrientation != 0) {
+                    int widgetWidth = Flow.this.getWidgetWidth(constraintWidget, this.mMax);
+                    int widgetHeight = Flow.this.getWidgetHeight(constraintWidget, this.mMax);
+                    int i3 = Flow.this.mVerticalGap;
+                    if (constraintWidget.getVisibility() == 8) {
+                        i3 = 0;
+                    }
+                    this.mHeight += widgetHeight + i3;
+                    if (this.biggest == null || this.biggestDimension < widgetWidth) {
+                        this.biggest = constraintWidget;
+                        this.biggestDimension = widgetWidth;
+                        this.mWidth = widgetWidth;
+                    }
+                } else {
+                    int width = constraintWidget.getWidth();
+                    int i4 = Flow.this.mHorizontalGap;
+                    if (constraintWidget.getVisibility() == 8) {
+                        i4 = 0;
+                    }
+                    this.mWidth += width + i4;
+                    int widgetHeight2 = Flow.this.getWidgetHeight(constraintWidget, this.mMax);
+                    if (this.biggest == null || this.biggestDimension < widgetHeight2) {
+                        this.biggest = constraintWidget;
+                        this.biggestDimension = widgetHeight2;
+                        this.mHeight = widgetHeight2;
                     }
                 }
             }
         }
 
         public void add(ConstraintWidget constraintWidget) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, constraintWidget) == null) {
-                int i = 0;
-                if (this.mOrientation == 0) {
-                    int widgetWidth = this.this$0.getWidgetWidth(constraintWidget, this.mMax);
-                    if (constraintWidget.getHorizontalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
-                        this.mNbMatchConstraintsWidgets++;
-                        widgetWidth = 0;
-                    }
-                    int i2 = this.this$0.mHorizontalGap;
-                    if (constraintWidget.getVisibility() != 8) {
-                        i = i2;
-                    }
-                    this.mWidth += widgetWidth + i;
-                    int widgetHeight = this.this$0.getWidgetHeight(constraintWidget, this.mMax);
-                    if (this.biggest == null || this.biggestDimension < widgetHeight) {
-                        this.biggest = constraintWidget;
-                        this.biggestDimension = widgetHeight;
-                        this.mHeight = widgetHeight;
-                    }
-                } else {
-                    int widgetWidth2 = this.this$0.getWidgetWidth(constraintWidget, this.mMax);
-                    int widgetHeight2 = this.this$0.getWidgetHeight(constraintWidget, this.mMax);
-                    if (constraintWidget.getVerticalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
-                        this.mNbMatchConstraintsWidgets++;
-                        widgetHeight2 = 0;
-                    }
-                    int i3 = this.this$0.mVerticalGap;
-                    if (constraintWidget.getVisibility() != 8) {
-                        i = i3;
-                    }
-                    this.mHeight += widgetHeight2 + i;
-                    if (this.biggest == null || this.biggestDimension < widgetWidth2) {
-                        this.biggest = constraintWidget;
-                        this.biggestDimension = widgetWidth2;
-                        this.mWidth = widgetWidth2;
-                    }
+            int i = 0;
+            if (this.mOrientation == 0) {
+                int widgetWidth = Flow.this.getWidgetWidth(constraintWidget, this.mMax);
+                if (constraintWidget.getHorizontalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
+                    this.mNbMatchConstraintsWidgets++;
+                    widgetWidth = 0;
                 }
-                this.mCount++;
+                int i2 = Flow.this.mHorizontalGap;
+                if (constraintWidget.getVisibility() != 8) {
+                    i = i2;
+                }
+                this.mWidth += widgetWidth + i;
+                int widgetHeight = Flow.this.getWidgetHeight(constraintWidget, this.mMax);
+                if (this.biggest == null || this.biggestDimension < widgetHeight) {
+                    this.biggest = constraintWidget;
+                    this.biggestDimension = widgetHeight;
+                    this.mHeight = widgetHeight;
+                }
+            } else {
+                int widgetWidth2 = Flow.this.getWidgetWidth(constraintWidget, this.mMax);
+                int widgetHeight2 = Flow.this.getWidgetHeight(constraintWidget, this.mMax);
+                if (constraintWidget.getVerticalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
+                    this.mNbMatchConstraintsWidgets++;
+                    widgetHeight2 = 0;
+                }
+                int i3 = Flow.this.mVerticalGap;
+                if (constraintWidget.getVisibility() != 8) {
+                    i = i3;
+                }
+                this.mHeight += widgetHeight2 + i;
+                if (this.biggest == null || this.biggestDimension < widgetWidth2) {
+                    this.biggest = constraintWidget;
+                    this.biggestDimension = widgetWidth2;
+                    this.mWidth = widgetWidth2;
+                }
             }
+            this.mCount++;
+        }
+
+        public void measureMatchConstraints(int i) {
+            int i2 = this.mNbMatchConstraintsWidgets;
+            if (i2 == 0) {
+                return;
+            }
+            int i3 = this.mCount;
+            int i4 = i / i2;
+            for (int i5 = 0; i5 < i3 && this.mStartIndex + i5 < Flow.this.mDisplayedWidgetsCount; i5++) {
+                ConstraintWidget constraintWidget = Flow.this.mDisplayedWidgets[this.mStartIndex + i5];
+                if (this.mOrientation == 0) {
+                    if (constraintWidget != null && constraintWidget.getHorizontalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && constraintWidget.mMatchConstraintDefaultWidth == 0) {
+                        Flow.this.measure(constraintWidget, ConstraintWidget.DimensionBehaviour.FIXED, i4, constraintWidget.getVerticalDimensionBehaviour(), constraintWidget.getHeight());
+                    }
+                } else if (constraintWidget != null && constraintWidget.getVerticalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && constraintWidget.mMatchConstraintDefaultHeight == 0) {
+                    Flow.this.measure(constraintWidget, constraintWidget.getHorizontalDimensionBehaviour(), constraintWidget.getWidth(), ConstraintWidget.DimensionBehaviour.FIXED, i4);
+                }
+            }
+            recomputeDimensions();
         }
 
         public void clear() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.biggestDimension = 0;
-                this.biggest = null;
-                this.mWidth = 0;
-                this.mHeight = 0;
-                this.mStartIndex = 0;
-                this.mCount = 0;
-                this.mNbMatchConstraintsWidgets = 0;
-            }
+            this.biggestDimension = 0;
+            this.biggest = null;
+            this.mWidth = 0;
+            this.mHeight = 0;
+            this.mStartIndex = 0;
+            this.mCount = 0;
+            this.mNbMatchConstraintsWidgets = 0;
         }
 
         public int getHeight() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.mOrientation == 1) {
-                    return this.mHeight - this.this$0.mVerticalGap;
-                }
-                return this.mHeight;
+            if (this.mOrientation == 1) {
+                return this.mHeight - Flow.this.mVerticalGap;
             }
-            return invokeV.intValue;
+            return this.mHeight;
         }
 
         public int getWidth() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (this.mOrientation == 0) {
-                    return this.mWidth - this.this$0.mHorizontalGap;
-                }
-                return this.mWidth;
+            if (this.mOrientation == 0) {
+                return this.mWidth - Flow.this.mHorizontalGap;
             }
-            return invokeV.intValue;
+            return this.mWidth;
         }
 
         public void createConstraints(boolean z, int i, boolean z2) {
@@ -250,452 +214,328 @@ public class Flow extends VirtualLayout {
             int i2;
             int i3;
             int i4;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
-                int i5 = this.mCount;
-                for (int i6 = 0; i6 < i5 && this.mStartIndex + i6 < this.this$0.mDisplayedWidgetsCount; i6++) {
-                    ConstraintWidget constraintWidget2 = this.this$0.mDisplayedWidgets[this.mStartIndex + i6];
-                    if (constraintWidget2 != null) {
-                        constraintWidget2.resetAnchors();
+            int i5 = this.mCount;
+            for (int i6 = 0; i6 < i5 && this.mStartIndex + i6 < Flow.this.mDisplayedWidgetsCount; i6++) {
+                ConstraintWidget constraintWidget2 = Flow.this.mDisplayedWidgets[this.mStartIndex + i6];
+                if (constraintWidget2 != null) {
+                    constraintWidget2.resetAnchors();
+                }
+            }
+            if (i5 != 0 && this.biggest != null) {
+                if (z2 && i == 0) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                int i7 = -1;
+                int i8 = -1;
+                for (int i9 = 0; i9 < i5; i9++) {
+                    if (z) {
+                        i4 = (i5 - 1) - i9;
+                    } else {
+                        i4 = i9;
+                    }
+                    if (this.mStartIndex + i4 >= Flow.this.mDisplayedWidgetsCount) {
+                        break;
+                    }
+                    if (Flow.this.mDisplayedWidgets[this.mStartIndex + i4].getVisibility() == 0) {
+                        if (i7 == -1) {
+                            i7 = i9;
+                        }
+                        i8 = i9;
                     }
                 }
-                if (i5 != 0 && this.biggest != null) {
-                    if (z2 && i == 0) {
-                        z3 = true;
-                    } else {
-                        z3 = false;
+                ConstraintWidget constraintWidget3 = null;
+                if (this.mOrientation == 0) {
+                    ConstraintWidget constraintWidget4 = this.biggest;
+                    constraintWidget4.setVerticalChainStyle(Flow.this.mVerticalStyle);
+                    int i10 = this.mPaddingTop;
+                    if (i > 0) {
+                        i10 += Flow.this.mVerticalGap;
                     }
-                    int i7 = -1;
-                    int i8 = -1;
-                    for (int i9 = 0; i9 < i5; i9++) {
-                        if (z) {
-                            i4 = (i5 - 1) - i9;
-                        } else {
-                            i4 = i9;
-                        }
-                        if (this.mStartIndex + i4 >= this.this$0.mDisplayedWidgetsCount) {
-                            break;
-                        }
-                        if (this.this$0.mDisplayedWidgets[this.mStartIndex + i4].getVisibility() == 0) {
-                            if (i7 == -1) {
-                                i7 = i9;
-                            }
-                            i8 = i9;
-                        }
+                    constraintWidget4.mTop.connect(this.mTop, i10);
+                    if (z2) {
+                        constraintWidget4.mBottom.connect(this.mBottom, this.mPaddingBottom);
                     }
-                    ConstraintWidget constraintWidget3 = null;
-                    if (this.mOrientation == 0) {
-                        ConstraintWidget constraintWidget4 = this.biggest;
-                        constraintWidget4.setVerticalChainStyle(this.this$0.mVerticalStyle);
-                        int i10 = this.mPaddingTop;
-                        if (i > 0) {
-                            i10 += this.this$0.mVerticalGap;
-                        }
-                        constraintWidget4.mTop.connect(this.mTop, i10);
-                        if (z2) {
-                            constraintWidget4.mBottom.connect(this.mBottom, this.mPaddingBottom);
-                        }
-                        if (i > 0) {
-                            this.mTop.mOwner.mBottom.connect(constraintWidget4.mTop, 0);
-                        }
-                        if (this.this$0.mVerticalAlign == 3 && !constraintWidget4.hasBaseline()) {
-                            for (int i11 = 0; i11 < i5; i11++) {
-                                if (z) {
-                                    i3 = (i5 - 1) - i11;
-                                } else {
-                                    i3 = i11;
-                                }
-                                if (this.mStartIndex + i3 >= this.this$0.mDisplayedWidgetsCount) {
-                                    break;
-                                }
-                                constraintWidget = this.this$0.mDisplayedWidgets[this.mStartIndex + i3];
-                                if (constraintWidget.hasBaseline()) {
-                                    break;
-                                }
-                            }
-                        }
-                        constraintWidget = constraintWidget4;
-                        int i12 = 0;
-                        while (i12 < i5) {
+                    if (i > 0) {
+                        this.mTop.mOwner.mBottom.connect(constraintWidget4.mTop, 0);
+                    }
+                    if (Flow.this.mVerticalAlign == 3 && !constraintWidget4.hasBaseline()) {
+                        for (int i11 = 0; i11 < i5; i11++) {
                             if (z) {
-                                i2 = (i5 - 1) - i12;
+                                i3 = (i5 - 1) - i11;
                             } else {
-                                i2 = i12;
+                                i3 = i11;
                             }
-                            if (this.mStartIndex + i2 < this.this$0.mDisplayedWidgetsCount) {
-                                ConstraintWidget constraintWidget5 = this.this$0.mDisplayedWidgets[this.mStartIndex + i2];
-                                if (i12 == 0) {
-                                    constraintWidget5.connect(constraintWidget5.mLeft, this.mLeft, this.mPaddingLeft);
+                            if (this.mStartIndex + i3 >= Flow.this.mDisplayedWidgetsCount) {
+                                break;
+                            }
+                            constraintWidget = Flow.this.mDisplayedWidgets[this.mStartIndex + i3];
+                            if (constraintWidget.hasBaseline()) {
+                                break;
+                            }
+                        }
+                    }
+                    constraintWidget = constraintWidget4;
+                    int i12 = 0;
+                    while (i12 < i5) {
+                        if (z) {
+                            i2 = (i5 - 1) - i12;
+                        } else {
+                            i2 = i12;
+                        }
+                        if (this.mStartIndex + i2 < Flow.this.mDisplayedWidgetsCount) {
+                            ConstraintWidget constraintWidget5 = Flow.this.mDisplayedWidgets[this.mStartIndex + i2];
+                            if (i12 == 0) {
+                                constraintWidget5.connect(constraintWidget5.mLeft, this.mLeft, this.mPaddingLeft);
+                            }
+                            if (i2 == 0) {
+                                int i13 = Flow.this.mHorizontalStyle;
+                                float f = Flow.this.mHorizontalBias;
+                                if (this.mStartIndex == 0 && Flow.this.mFirstHorizontalStyle != -1) {
+                                    i13 = Flow.this.mFirstHorizontalStyle;
+                                    f = Flow.this.mFirstHorizontalBias;
+                                } else if (z2 && Flow.this.mLastHorizontalStyle != -1) {
+                                    i13 = Flow.this.mLastHorizontalStyle;
+                                    f = Flow.this.mLastHorizontalBias;
                                 }
-                                if (i2 == 0) {
-                                    int i13 = this.this$0.mHorizontalStyle;
-                                    float f = this.this$0.mHorizontalBias;
-                                    if (this.mStartIndex == 0 && this.this$0.mFirstHorizontalStyle != -1) {
-                                        i13 = this.this$0.mFirstHorizontalStyle;
-                                        f = this.this$0.mFirstHorizontalBias;
-                                    } else if (z2 && this.this$0.mLastHorizontalStyle != -1) {
-                                        i13 = this.this$0.mLastHorizontalStyle;
-                                        f = this.this$0.mLastHorizontalBias;
-                                    }
-                                    constraintWidget5.setHorizontalChainStyle(i13);
-                                    constraintWidget5.setHorizontalBiasPercent(f);
+                                constraintWidget5.setHorizontalChainStyle(i13);
+                                constraintWidget5.setHorizontalBiasPercent(f);
+                            }
+                            if (i12 == i5 - 1) {
+                                constraintWidget5.connect(constraintWidget5.mRight, this.mRight, this.mPaddingRight);
+                            }
+                            if (constraintWidget3 != null) {
+                                constraintWidget5.mLeft.connect(constraintWidget3.mRight, Flow.this.mHorizontalGap);
+                                if (i12 == i7) {
+                                    constraintWidget5.mLeft.setGoneMargin(this.mPaddingLeft);
                                 }
-                                if (i12 == i5 - 1) {
-                                    constraintWidget5.connect(constraintWidget5.mRight, this.mRight, this.mPaddingRight);
+                                constraintWidget3.mRight.connect(constraintWidget5.mLeft, 0);
+                                if (i12 == i8 + 1) {
+                                    constraintWidget3.mRight.setGoneMargin(this.mPaddingRight);
                                 }
-                                if (constraintWidget3 != null) {
-                                    constraintWidget5.mLeft.connect(constraintWidget3.mRight, this.this$0.mHorizontalGap);
-                                    if (i12 == i7) {
-                                        constraintWidget5.mLeft.setGoneMargin(this.mPaddingLeft);
-                                    }
-                                    constraintWidget3.mRight.connect(constraintWidget5.mLeft, 0);
-                                    if (i12 == i8 + 1) {
-                                        constraintWidget3.mRight.setGoneMargin(this.mPaddingRight);
-                                    }
-                                }
-                                if (constraintWidget5 != constraintWidget4) {
-                                    if (this.this$0.mVerticalAlign != 3 || !constraintWidget.hasBaseline() || constraintWidget5 == constraintWidget || !constraintWidget5.hasBaseline()) {
-                                        int i14 = this.this$0.mVerticalAlign;
-                                        if (i14 != 0) {
-                                            if (i14 != 1) {
-                                                if (z3) {
-                                                    constraintWidget5.mTop.connect(this.mTop, this.mPaddingTop);
-                                                    constraintWidget5.mBottom.connect(this.mBottom, this.mPaddingBottom);
-                                                } else {
-                                                    constraintWidget5.mTop.connect(constraintWidget4.mTop, 0);
-                                                    constraintWidget5.mBottom.connect(constraintWidget4.mBottom, 0);
-                                                }
+                            }
+                            if (constraintWidget5 != constraintWidget4) {
+                                if (Flow.this.mVerticalAlign != 3 || !constraintWidget.hasBaseline() || constraintWidget5 == constraintWidget || !constraintWidget5.hasBaseline()) {
+                                    int i14 = Flow.this.mVerticalAlign;
+                                    if (i14 != 0) {
+                                        if (i14 != 1) {
+                                            if (z3) {
+                                                constraintWidget5.mTop.connect(this.mTop, this.mPaddingTop);
+                                                constraintWidget5.mBottom.connect(this.mBottom, this.mPaddingBottom);
                                             } else {
+                                                constraintWidget5.mTop.connect(constraintWidget4.mTop, 0);
                                                 constraintWidget5.mBottom.connect(constraintWidget4.mBottom, 0);
                                             }
                                         } else {
-                                            constraintWidget5.mTop.connect(constraintWidget4.mTop, 0);
+                                            constraintWidget5.mBottom.connect(constraintWidget4.mBottom, 0);
                                         }
                                     } else {
-                                        constraintWidget5.mBaseline.connect(constraintWidget.mBaseline, 0);
-                                    }
-                                }
-                                i12++;
-                                constraintWidget3 = constraintWidget5;
-                            } else {
-                                return;
-                            }
-                        }
-                        return;
-                    }
-                    ConstraintWidget constraintWidget6 = this.biggest;
-                    constraintWidget6.setHorizontalChainStyle(this.this$0.mHorizontalStyle);
-                    int i15 = this.mPaddingLeft;
-                    if (i > 0) {
-                        i15 += this.this$0.mHorizontalGap;
-                    }
-                    if (z) {
-                        constraintWidget6.mRight.connect(this.mRight, i15);
-                        if (z2) {
-                            constraintWidget6.mLeft.connect(this.mLeft, this.mPaddingRight);
-                        }
-                        if (i > 0) {
-                            this.mRight.mOwner.mLeft.connect(constraintWidget6.mRight, 0);
-                        }
-                    } else {
-                        constraintWidget6.mLeft.connect(this.mLeft, i15);
-                        if (z2) {
-                            constraintWidget6.mRight.connect(this.mRight, this.mPaddingRight);
-                        }
-                        if (i > 0) {
-                            this.mLeft.mOwner.mRight.connect(constraintWidget6.mLeft, 0);
-                        }
-                    }
-                    int i16 = 0;
-                    while (i16 < i5 && this.mStartIndex + i16 < this.this$0.mDisplayedWidgetsCount) {
-                        ConstraintWidget constraintWidget7 = this.this$0.mDisplayedWidgets[this.mStartIndex + i16];
-                        if (i16 == 0) {
-                            constraintWidget7.connect(constraintWidget7.mTop, this.mTop, this.mPaddingTop);
-                            int i17 = this.this$0.mVerticalStyle;
-                            float f2 = this.this$0.mVerticalBias;
-                            if (this.mStartIndex == 0 && this.this$0.mFirstVerticalStyle != -1) {
-                                i17 = this.this$0.mFirstVerticalStyle;
-                                f2 = this.this$0.mFirstVerticalBias;
-                            } else if (z2 && this.this$0.mLastVerticalStyle != -1) {
-                                i17 = this.this$0.mLastVerticalStyle;
-                                f2 = this.this$0.mLastVerticalBias;
-                            }
-                            constraintWidget7.setVerticalChainStyle(i17);
-                            constraintWidget7.setVerticalBiasPercent(f2);
-                        }
-                        if (i16 == i5 - 1) {
-                            constraintWidget7.connect(constraintWidget7.mBottom, this.mBottom, this.mPaddingBottom);
-                        }
-                        if (constraintWidget3 != null) {
-                            constraintWidget7.mTop.connect(constraintWidget3.mBottom, this.this$0.mVerticalGap);
-                            if (i16 == i7) {
-                                constraintWidget7.mTop.setGoneMargin(this.mPaddingTop);
-                            }
-                            constraintWidget3.mBottom.connect(constraintWidget7.mTop, 0);
-                            if (i16 == i8 + 1) {
-                                constraintWidget3.mBottom.setGoneMargin(this.mPaddingBottom);
-                            }
-                        }
-                        if (constraintWidget7 != constraintWidget6) {
-                            if (z) {
-                                int i18 = this.this$0.mHorizontalAlign;
-                                if (i18 != 0) {
-                                    if (i18 != 1) {
-                                        if (i18 == 2) {
-                                            constraintWidget7.mLeft.connect(constraintWidget6.mLeft, 0);
-                                            constraintWidget7.mRight.connect(constraintWidget6.mRight, 0);
-                                        }
-                                    } else {
-                                        constraintWidget7.mLeft.connect(constraintWidget6.mLeft, 0);
+                                        constraintWidget5.mTop.connect(constraintWidget4.mTop, 0);
                                     }
                                 } else {
-                                    constraintWidget7.mRight.connect(constraintWidget6.mRight, 0);
+                                    constraintWidget5.mBaseline.connect(constraintWidget.mBaseline, 0);
                                 }
-                            } else {
-                                int i19 = this.this$0.mHorizontalAlign;
-                                if (i19 != 0) {
-                                    if (i19 != 1) {
-                                        if (i19 == 2) {
-                                            if (z3) {
-                                                constraintWidget7.mLeft.connect(this.mLeft, this.mPaddingLeft);
-                                                constraintWidget7.mRight.connect(this.mRight, this.mPaddingRight);
-                                            } else {
-                                                constraintWidget7.mLeft.connect(constraintWidget6.mLeft, 0);
-                                                constraintWidget7.mRight.connect(constraintWidget6.mRight, 0);
-                                            }
-                                        }
-                                    } else {
+                            }
+                            i12++;
+                            constraintWidget3 = constraintWidget5;
+                        } else {
+                            return;
+                        }
+                    }
+                    return;
+                }
+                ConstraintWidget constraintWidget6 = this.biggest;
+                constraintWidget6.setHorizontalChainStyle(Flow.this.mHorizontalStyle);
+                int i15 = this.mPaddingLeft;
+                if (i > 0) {
+                    i15 += Flow.this.mHorizontalGap;
+                }
+                if (z) {
+                    constraintWidget6.mRight.connect(this.mRight, i15);
+                    if (z2) {
+                        constraintWidget6.mLeft.connect(this.mLeft, this.mPaddingRight);
+                    }
+                    if (i > 0) {
+                        this.mRight.mOwner.mLeft.connect(constraintWidget6.mRight, 0);
+                    }
+                } else {
+                    constraintWidget6.mLeft.connect(this.mLeft, i15);
+                    if (z2) {
+                        constraintWidget6.mRight.connect(this.mRight, this.mPaddingRight);
+                    }
+                    if (i > 0) {
+                        this.mLeft.mOwner.mRight.connect(constraintWidget6.mLeft, 0);
+                    }
+                }
+                int i16 = 0;
+                while (i16 < i5 && this.mStartIndex + i16 < Flow.this.mDisplayedWidgetsCount) {
+                    ConstraintWidget constraintWidget7 = Flow.this.mDisplayedWidgets[this.mStartIndex + i16];
+                    if (i16 == 0) {
+                        constraintWidget7.connect(constraintWidget7.mTop, this.mTop, this.mPaddingTop);
+                        int i17 = Flow.this.mVerticalStyle;
+                        float f2 = Flow.this.mVerticalBias;
+                        if (this.mStartIndex == 0 && Flow.this.mFirstVerticalStyle != -1) {
+                            i17 = Flow.this.mFirstVerticalStyle;
+                            f2 = Flow.this.mFirstVerticalBias;
+                        } else if (z2 && Flow.this.mLastVerticalStyle != -1) {
+                            i17 = Flow.this.mLastVerticalStyle;
+                            f2 = Flow.this.mLastVerticalBias;
+                        }
+                        constraintWidget7.setVerticalChainStyle(i17);
+                        constraintWidget7.setVerticalBiasPercent(f2);
+                    }
+                    if (i16 == i5 - 1) {
+                        constraintWidget7.connect(constraintWidget7.mBottom, this.mBottom, this.mPaddingBottom);
+                    }
+                    if (constraintWidget3 != null) {
+                        constraintWidget7.mTop.connect(constraintWidget3.mBottom, Flow.this.mVerticalGap);
+                        if (i16 == i7) {
+                            constraintWidget7.mTop.setGoneMargin(this.mPaddingTop);
+                        }
+                        constraintWidget3.mBottom.connect(constraintWidget7.mTop, 0);
+                        if (i16 == i8 + 1) {
+                            constraintWidget3.mBottom.setGoneMargin(this.mPaddingBottom);
+                        }
+                    }
+                    if (constraintWidget7 != constraintWidget6) {
+                        if (z) {
+                            int i18 = Flow.this.mHorizontalAlign;
+                            if (i18 != 0) {
+                                if (i18 != 1) {
+                                    if (i18 == 2) {
+                                        constraintWidget7.mLeft.connect(constraintWidget6.mLeft, 0);
                                         constraintWidget7.mRight.connect(constraintWidget6.mRight, 0);
                                     }
                                 } else {
                                     constraintWidget7.mLeft.connect(constraintWidget6.mLeft, 0);
                                 }
-                                i16++;
-                                constraintWidget3 = constraintWidget7;
+                            } else {
+                                constraintWidget7.mRight.connect(constraintWidget6.mRight, 0);
                             }
+                        } else {
+                            int i19 = Flow.this.mHorizontalAlign;
+                            if (i19 != 0) {
+                                if (i19 != 1) {
+                                    if (i19 == 2) {
+                                        if (z3) {
+                                            constraintWidget7.mLeft.connect(this.mLeft, this.mPaddingLeft);
+                                            constraintWidget7.mRight.connect(this.mRight, this.mPaddingRight);
+                                        } else {
+                                            constraintWidget7.mLeft.connect(constraintWidget6.mLeft, 0);
+                                            constraintWidget7.mRight.connect(constraintWidget6.mRight, 0);
+                                        }
+                                    }
+                                } else {
+                                    constraintWidget7.mRight.connect(constraintWidget6.mRight, 0);
+                                }
+                            } else {
+                                constraintWidget7.mLeft.connect(constraintWidget6.mLeft, 0);
+                            }
+                            i16++;
+                            constraintWidget3 = constraintWidget7;
                         }
-                        i16++;
-                        constraintWidget3 = constraintWidget7;
                     }
+                    i16++;
+                    constraintWidget3 = constraintWidget7;
                 }
             }
-        }
-
-        public void measureMatchConstraints(int i) {
-            int i2;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeI(1048581, this, i) != null) || (i2 = this.mNbMatchConstraintsWidgets) == 0) {
-                return;
-            }
-            int i3 = this.mCount;
-            int i4 = i / i2;
-            for (int i5 = 0; i5 < i3 && this.mStartIndex + i5 < this.this$0.mDisplayedWidgetsCount; i5++) {
-                ConstraintWidget constraintWidget = this.this$0.mDisplayedWidgets[this.mStartIndex + i5];
-                if (this.mOrientation == 0) {
-                    if (constraintWidget != null && constraintWidget.getHorizontalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && constraintWidget.mMatchConstraintDefaultWidth == 0) {
-                        this.this$0.measure(constraintWidget, ConstraintWidget.DimensionBehaviour.FIXED, i4, constraintWidget.getVerticalDimensionBehaviour(), constraintWidget.getHeight());
-                    }
-                } else if (constraintWidget != null && constraintWidget.getVerticalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && constraintWidget.mMatchConstraintDefaultHeight == 0) {
-                    this.this$0.measure(constraintWidget, constraintWidget.getHorizontalDimensionBehaviour(), constraintWidget.getWidth(), ConstraintWidget.DimensionBehaviour.FIXED, i4);
-                }
-            }
-            recomputeDimensions();
         }
 
         public void setup(int i, ConstraintAnchor constraintAnchor, ConstraintAnchor constraintAnchor2, ConstraintAnchor constraintAnchor3, ConstraintAnchor constraintAnchor4, int i2, int i3, int i4, int i5, int i6) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), constraintAnchor, constraintAnchor2, constraintAnchor3, constraintAnchor4, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-                this.mOrientation = i;
-                this.mLeft = constraintAnchor;
-                this.mTop = constraintAnchor2;
-                this.mRight = constraintAnchor3;
-                this.mBottom = constraintAnchor4;
-                this.mPaddingLeft = i2;
-                this.mPaddingTop = i3;
-                this.mPaddingRight = i4;
-                this.mPaddingBottom = i5;
-                this.mMax = i6;
-            }
+            this.mOrientation = i;
+            this.mLeft = constraintAnchor;
+            this.mTop = constraintAnchor2;
+            this.mRight = constraintAnchor3;
+            this.mBottom = constraintAnchor4;
+            this.mPaddingLeft = i2;
+            this.mPaddingTop = i3;
+            this.mPaddingRight = i4;
+            this.mPaddingBottom = i5;
+            this.mMax = i6;
         }
-    }
-
-    public Flow() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mHorizontalStyle = -1;
-        this.mVerticalStyle = -1;
-        this.mFirstHorizontalStyle = -1;
-        this.mFirstVerticalStyle = -1;
-        this.mLastHorizontalStyle = -1;
-        this.mLastVerticalStyle = -1;
-        this.mHorizontalBias = 0.5f;
-        this.mVerticalBias = 0.5f;
-        this.mFirstHorizontalBias = 0.5f;
-        this.mFirstVerticalBias = 0.5f;
-        this.mLastHorizontalBias = 0.5f;
-        this.mLastVerticalBias = 0.5f;
-        this.mHorizontalGap = 0;
-        this.mVerticalGap = 0;
-        this.mHorizontalAlign = 2;
-        this.mVerticalAlign = 2;
-        this.mWrapMode = 0;
-        this.mMaxElementsWrap = -1;
-        this.mOrientation = 0;
-        this.mChainList = new ArrayList<>();
-        this.mAlignedBiggestElementsInRows = null;
-        this.mAlignedBiggestElementsInCols = null;
-        this.mAlignedDimensions = null;
-        this.mDisplayedWidgetsCount = 0;
     }
 
     public void setFirstHorizontalBias(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
-            this.mFirstHorizontalBias = f;
-        }
+        this.mFirstHorizontalBias = f;
     }
 
     public void setFirstHorizontalStyle(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.mFirstHorizontalStyle = i;
-        }
+        this.mFirstHorizontalStyle = i;
     }
 
     public void setFirstVerticalBias(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
-            this.mFirstVerticalBias = f;
-        }
+        this.mFirstVerticalBias = f;
     }
 
     public void setFirstVerticalStyle(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.mFirstVerticalStyle = i;
-        }
+        this.mFirstVerticalStyle = i;
     }
 
     public void setHorizontalAlign(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.mHorizontalAlign = i;
-        }
+        this.mHorizontalAlign = i;
     }
 
     public void setHorizontalBias(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
-            this.mHorizontalBias = f;
-        }
+        this.mHorizontalBias = f;
     }
 
     public void setHorizontalGap(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.mHorizontalGap = i;
-        }
+        this.mHorizontalGap = i;
     }
 
     public void setHorizontalStyle(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.mHorizontalStyle = i;
-        }
+        this.mHorizontalStyle = i;
     }
 
     public void setLastHorizontalBias(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048587, this, f) == null) {
-            this.mLastHorizontalBias = f;
-        }
+        this.mLastHorizontalBias = f;
     }
 
     public void setLastHorizontalStyle(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.mLastHorizontalStyle = i;
-        }
+        this.mLastHorizontalStyle = i;
     }
 
     public void setLastVerticalBias(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
-            this.mLastVerticalBias = f;
-        }
+        this.mLastVerticalBias = f;
     }
 
     public void setLastVerticalStyle(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.mLastVerticalStyle = i;
-        }
+        this.mLastVerticalStyle = i;
     }
 
     public void setMaxElementsWrap(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.mMaxElementsWrap = i;
-        }
+        this.mMaxElementsWrap = i;
     }
 
     public void setOrientation(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.mOrientation = i;
-        }
+        this.mOrientation = i;
     }
 
     public void setVerticalAlign(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.mVerticalAlign = i;
-        }
+        this.mVerticalAlign = i;
     }
 
     public void setVerticalBias(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048594, this, f) == null) {
-            this.mVerticalBias = f;
-        }
+        this.mVerticalBias = f;
     }
 
     public void setVerticalGap(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            this.mVerticalGap = i;
-        }
+        this.mVerticalGap = i;
     }
 
     public void setVerticalStyle(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            this.mVerticalStyle = i;
-        }
+        this.mVerticalStyle = i;
     }
 
     public void setWrapMode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            this.mWrapMode = i;
-        }
+        this.mWrapMode = i;
     }
 
     private void createAlignedConstraints(boolean z) {
         ConstraintWidget constraintWidget;
         int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65557, this, z) == null) && this.mAlignedDimensions != null && this.mAlignedBiggestElementsInCols != null && this.mAlignedBiggestElementsInRows != null) {
+        if (this.mAlignedDimensions != null && this.mAlignedBiggestElementsInCols != null && this.mAlignedBiggestElementsInRows != null) {
             for (int i2 = 0; i2 < this.mDisplayedWidgetsCount; i2++) {
                 this.mDisplayedWidgets[i2].resetAnchors();
             }
@@ -770,103 +610,124 @@ public class Flow extends VirtualLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public final int getWidgetHeight(ConstraintWidget constraintWidget, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65558, this, constraintWidget, i)) == null) {
-            if (constraintWidget == null) {
+        if (constraintWidget == null) {
+            return 0;
+        }
+        if (constraintWidget.getVerticalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
+            int i2 = constraintWidget.mMatchConstraintDefaultHeight;
+            if (i2 == 0) {
                 return 0;
             }
-            if (constraintWidget.getVerticalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
-                int i2 = constraintWidget.mMatchConstraintDefaultHeight;
-                if (i2 == 0) {
-                    return 0;
+            if (i2 == 2) {
+                int i3 = (int) (constraintWidget.mMatchConstraintPercentHeight * i);
+                if (i3 != constraintWidget.getHeight()) {
+                    constraintWidget.setMeasureRequested(true);
+                    measure(constraintWidget, constraintWidget.getHorizontalDimensionBehaviour(), constraintWidget.getWidth(), ConstraintWidget.DimensionBehaviour.FIXED, i3);
                 }
-                if (i2 == 2) {
-                    int i3 = (int) (constraintWidget.mMatchConstraintPercentHeight * i);
-                    if (i3 != constraintWidget.getHeight()) {
-                        constraintWidget.setMeasureRequested(true);
-                        measure(constraintWidget, constraintWidget.getHorizontalDimensionBehaviour(), constraintWidget.getWidth(), ConstraintWidget.DimensionBehaviour.FIXED, i3);
-                    }
-                    return i3;
-                } else if (i2 == 1) {
-                    return constraintWidget.getHeight();
-                } else {
-                    if (i2 == 3) {
-                        return (int) ((constraintWidget.getWidth() * constraintWidget.mDimensionRatio) + 0.5f);
-                    }
+                return i3;
+            } else if (i2 == 1) {
+                return constraintWidget.getHeight();
+            } else {
+                if (i2 == 3) {
+                    return (int) ((constraintWidget.getWidth() * constraintWidget.mDimensionRatio) + 0.5f);
                 }
             }
-            return constraintWidget.getHeight();
         }
-        return invokeLI.intValue;
+        return constraintWidget.getHeight();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final int getWidgetWidth(ConstraintWidget constraintWidget, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65559, this, constraintWidget, i)) == null) {
-            if (constraintWidget == null) {
+        if (constraintWidget == null) {
+            return 0;
+        }
+        if (constraintWidget.getHorizontalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
+            int i2 = constraintWidget.mMatchConstraintDefaultWidth;
+            if (i2 == 0) {
                 return 0;
             }
-            if (constraintWidget.getHorizontalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
-                int i2 = constraintWidget.mMatchConstraintDefaultWidth;
-                if (i2 == 0) {
-                    return 0;
+            if (i2 == 2) {
+                int i3 = (int) (constraintWidget.mMatchConstraintPercentWidth * i);
+                if (i3 != constraintWidget.getWidth()) {
+                    constraintWidget.setMeasureRequested(true);
+                    measure(constraintWidget, ConstraintWidget.DimensionBehaviour.FIXED, i3, constraintWidget.getVerticalDimensionBehaviour(), constraintWidget.getHeight());
                 }
-                if (i2 == 2) {
-                    int i3 = (int) (constraintWidget.mMatchConstraintPercentWidth * i);
-                    if (i3 != constraintWidget.getWidth()) {
-                        constraintWidget.setMeasureRequested(true);
-                        measure(constraintWidget, ConstraintWidget.DimensionBehaviour.FIXED, i3, constraintWidget.getVerticalDimensionBehaviour(), constraintWidget.getHeight());
-                    }
-                    return i3;
-                } else if (i2 == 1) {
-                    return constraintWidget.getWidth();
-                } else {
-                    if (i2 == 3) {
-                        return (int) ((constraintWidget.getHeight() * constraintWidget.mDimensionRatio) + 0.5f);
-                    }
+                return i3;
+            } else if (i2 == 1) {
+                return constraintWidget.getWidth();
+            } else {
+                if (i2 == 3) {
+                    return (int) ((constraintWidget.getHeight() * constraintWidget.mDimensionRatio) + 0.5f);
                 }
             }
-            return constraintWidget.getWidth();
         }
-        return invokeLI.intValue;
+        return constraintWidget.getWidth();
+    }
+
+    @Override // androidx.constraintlayout.solver.widgets.ConstraintWidget
+    public void addToSolver(LinearSystem linearSystem, boolean z) {
+        boolean z2;
+        boolean z3;
+        super.addToSolver(linearSystem, z);
+        if (getParent() != null) {
+            z2 = ((ConstraintWidgetContainer) getParent()).isRtl();
+        } else {
+            z2 = false;
+        }
+        int i = this.mWrapMode;
+        if (i != 0) {
+            if (i != 1) {
+                if (i == 2) {
+                    createAlignedConstraints(z2);
+                }
+            } else {
+                int size = this.mChainList.size();
+                for (int i2 = 0; i2 < size; i2++) {
+                    WidgetsList widgetsList = this.mChainList.get(i2);
+                    if (i2 == size - 1) {
+                        z3 = true;
+                    } else {
+                        z3 = false;
+                    }
+                    widgetsList.createConstraints(z2, i2, z3);
+                }
+            }
+        } else if (this.mChainList.size() > 0) {
+            this.mChainList.get(0).createConstraints(z2, 0, true);
+        }
+        needsCallbackFromSolver(false);
     }
 
     @Override // androidx.constraintlayout.solver.widgets.HelperWidget, androidx.constraintlayout.solver.widgets.ConstraintWidget
     public void copy(ConstraintWidget constraintWidget, HashMap<ConstraintWidget, ConstraintWidget> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, constraintWidget, hashMap) == null) {
-            super.copy(constraintWidget, hashMap);
-            Flow flow = (Flow) constraintWidget;
-            this.mHorizontalStyle = flow.mHorizontalStyle;
-            this.mVerticalStyle = flow.mVerticalStyle;
-            this.mFirstHorizontalStyle = flow.mFirstHorizontalStyle;
-            this.mFirstVerticalStyle = flow.mFirstVerticalStyle;
-            this.mLastHorizontalStyle = flow.mLastHorizontalStyle;
-            this.mLastVerticalStyle = flow.mLastVerticalStyle;
-            this.mHorizontalBias = flow.mHorizontalBias;
-            this.mVerticalBias = flow.mVerticalBias;
-            this.mFirstHorizontalBias = flow.mFirstHorizontalBias;
-            this.mFirstVerticalBias = flow.mFirstVerticalBias;
-            this.mLastHorizontalBias = flow.mLastHorizontalBias;
-            this.mLastVerticalBias = flow.mLastVerticalBias;
-            this.mHorizontalGap = flow.mHorizontalGap;
-            this.mVerticalGap = flow.mVerticalGap;
-            this.mHorizontalAlign = flow.mHorizontalAlign;
-            this.mVerticalAlign = flow.mVerticalAlign;
-            this.mWrapMode = flow.mWrapMode;
-            this.mMaxElementsWrap = flow.mMaxElementsWrap;
-            this.mOrientation = flow.mOrientation;
-        }
+        super.copy(constraintWidget, hashMap);
+        Flow flow = (Flow) constraintWidget;
+        this.mHorizontalStyle = flow.mHorizontalStyle;
+        this.mVerticalStyle = flow.mVerticalStyle;
+        this.mFirstHorizontalStyle = flow.mFirstHorizontalStyle;
+        this.mFirstVerticalStyle = flow.mFirstVerticalStyle;
+        this.mLastHorizontalStyle = flow.mLastHorizontalStyle;
+        this.mLastVerticalStyle = flow.mLastVerticalStyle;
+        this.mHorizontalBias = flow.mHorizontalBias;
+        this.mVerticalBias = flow.mVerticalBias;
+        this.mFirstHorizontalBias = flow.mFirstHorizontalBias;
+        this.mFirstVerticalBias = flow.mFirstVerticalBias;
+        this.mLastHorizontalBias = flow.mLastHorizontalBias;
+        this.mLastVerticalBias = flow.mLastVerticalBias;
+        this.mHorizontalGap = flow.mHorizontalGap;
+        this.mVerticalGap = flow.mVerticalGap;
+        this.mHorizontalAlign = flow.mHorizontalAlign;
+        this.mVerticalAlign = flow.mVerticalAlign;
+        this.mWrapMode = flow.mWrapMode;
+        this.mMaxElementsWrap = flow.mMaxElementsWrap;
+        this.mOrientation = flow.mOrientation;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:47:0x006c  */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:107:0x011f -> B:44:0x0067). Please submit an issue!!! */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:108:0x0121 -> B:44:0x0067). Please submit an issue!!! */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:110:0x0127 -> B:44:0x0067). Please submit an issue!!! */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:111:0x0129 -> B:44:0x0067). Please submit an issue!!! */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x0068  */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:105:0x011b -> B:42:0x0063). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:106:0x011d -> B:42:0x0063). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:108:0x0123 -> B:42:0x0063). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:109:0x0125 -> B:42:0x0063). Please submit an issue!!! */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -875,136 +736,133 @@ public class Flow extends VirtualLayout {
         int i5;
         boolean z;
         ConstraintWidget constraintWidget;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65560, this, new Object[]{constraintWidgetArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), iArr}) == null) {
-            if (i2 == 0) {
-                int i6 = this.mMaxElementsWrap;
-                if (i6 <= 0) {
-                    i6 = 0;
-                    int i7 = 0;
-                    for (int i8 = 0; i8 < i; i8++) {
-                        if (i8 > 0) {
-                            i7 += this.mHorizontalGap;
+        if (i2 == 0) {
+            int i6 = this.mMaxElementsWrap;
+            if (i6 <= 0) {
+                i6 = 0;
+                int i7 = 0;
+                for (int i8 = 0; i8 < i; i8++) {
+                    if (i8 > 0) {
+                        i7 += this.mHorizontalGap;
+                    }
+                    ConstraintWidget constraintWidget2 = constraintWidgetArr[i8];
+                    if (constraintWidget2 != null) {
+                        i7 += getWidgetWidth(constraintWidget2, i3);
+                        if (i7 > i3) {
+                            break;
                         }
-                        ConstraintWidget constraintWidget2 = constraintWidgetArr[i8];
-                        if (constraintWidget2 != null) {
-                            i7 += getWidgetWidth(constraintWidget2, i3);
-                            if (i7 > i3) {
-                                break;
-                            }
-                            i6++;
-                        }
+                        i6++;
                     }
                 }
-                i5 = i6;
+            }
+            i5 = i6;
+            i4 = 0;
+        } else {
+            i4 = this.mMaxElementsWrap;
+            if (i4 <= 0) {
                 i4 = 0;
-            } else {
-                i4 = this.mMaxElementsWrap;
-                if (i4 <= 0) {
-                    i4 = 0;
-                    int i9 = 0;
-                    for (int i10 = 0; i10 < i; i10++) {
-                        if (i10 > 0) {
-                            i9 += this.mVerticalGap;
+                int i9 = 0;
+                for (int i10 = 0; i10 < i; i10++) {
+                    if (i10 > 0) {
+                        i9 += this.mVerticalGap;
+                    }
+                    ConstraintWidget constraintWidget3 = constraintWidgetArr[i10];
+                    if (constraintWidget3 != null) {
+                        i9 += getWidgetHeight(constraintWidget3, i3);
+                        if (i9 > i3) {
+                            break;
                         }
-                        ConstraintWidget constraintWidget3 = constraintWidgetArr[i10];
-                        if (constraintWidget3 != null) {
-                            i9 += getWidgetHeight(constraintWidget3, i3);
-                            if (i9 > i3) {
-                                break;
-                            }
-                            i4++;
-                        }
+                        i4++;
                     }
                 }
-                i5 = 0;
             }
-            if (this.mAlignedDimensions == null) {
-                this.mAlignedDimensions = new int[2];
-            }
-            if ((i4 != 0 || i2 != 1) && (i5 != 0 || i2 != 0)) {
-                z = false;
-                while (!z) {
-                    if (i2 == 0) {
-                        i4 = (int) Math.ceil(i / i5);
-                    } else {
-                        i5 = (int) Math.ceil(i / i4);
-                    }
-                    ConstraintWidget[] constraintWidgetArr2 = this.mAlignedBiggestElementsInCols;
-                    if (constraintWidgetArr2 != null && constraintWidgetArr2.length >= i5) {
-                        Arrays.fill(constraintWidgetArr2, (Object) null);
-                    } else {
-                        this.mAlignedBiggestElementsInCols = new ConstraintWidget[i5];
-                    }
-                    ConstraintWidget[] constraintWidgetArr3 = this.mAlignedBiggestElementsInRows;
-                    if (constraintWidgetArr3 != null && constraintWidgetArr3.length >= i4) {
-                        Arrays.fill(constraintWidgetArr3, (Object) null);
-                    } else {
-                        this.mAlignedBiggestElementsInRows = new ConstraintWidget[i4];
-                    }
-                    for (int i11 = 0; i11 < i5; i11++) {
-                        for (int i12 = 0; i12 < i4; i12++) {
-                            int i13 = (i12 * i5) + i11;
-                            if (i2 == 1) {
-                                i13 = (i11 * i4) + i12;
-                            }
-                            if (i13 < constraintWidgetArr.length && (constraintWidget = constraintWidgetArr[i13]) != null) {
-                                int widgetWidth = getWidgetWidth(constraintWidget, i3);
-                                ConstraintWidget[] constraintWidgetArr4 = this.mAlignedBiggestElementsInCols;
-                                if (constraintWidgetArr4[i11] == null || constraintWidgetArr4[i11].getWidth() < widgetWidth) {
-                                    this.mAlignedBiggestElementsInCols[i11] = constraintWidget;
-                                }
-                                int widgetHeight = getWidgetHeight(constraintWidget, i3);
-                                ConstraintWidget[] constraintWidgetArr5 = this.mAlignedBiggestElementsInRows;
-                                if (constraintWidgetArr5[i12] == null || constraintWidgetArr5[i12].getHeight() < widgetHeight) {
-                                    this.mAlignedBiggestElementsInRows[i12] = constraintWidget;
-                                }
-                            }
-                        }
-                    }
-                    int i14 = 0;
-                    for (int i15 = 0; i15 < i5; i15++) {
-                        ConstraintWidget constraintWidget4 = this.mAlignedBiggestElementsInCols[i15];
-                        if (constraintWidget4 != null) {
-                            if (i15 > 0) {
-                                i14 += this.mHorizontalGap;
-                            }
-                            i14 += getWidgetWidth(constraintWidget4, i3);
-                        }
-                    }
-                    int i16 = 0;
-                    for (int i17 = 0; i17 < i4; i17++) {
-                        ConstraintWidget constraintWidget5 = this.mAlignedBiggestElementsInRows[i17];
-                        if (constraintWidget5 != null) {
-                            if (i17 > 0) {
-                                i16 += this.mVerticalGap;
-                            }
-                            i16 += getWidgetHeight(constraintWidget5, i3);
-                        }
-                    }
-                    iArr[0] = i14;
-                    iArr[1] = i16;
-                    if (i2 == 0) {
-                        if (i14 > i3 && i5 > 1) {
-                            i5--;
-                        }
-                    } else if (i16 > i3 && i4 > 1) {
-                        i4--;
-                    }
-                    while (!z) {
-                    }
-                }
-                int[] iArr2 = this.mAlignedDimensions;
-                iArr2[0] = i5;
-                iArr2[1] = i4;
-            }
-            z = true;
-            while (!z) {
-            }
-            int[] iArr22 = this.mAlignedDimensions;
-            iArr22[0] = i5;
-            iArr22[1] = i4;
+            i5 = 0;
         }
+        if (this.mAlignedDimensions == null) {
+            this.mAlignedDimensions = new int[2];
+        }
+        if ((i4 != 0 || i2 != 1) && (i5 != 0 || i2 != 0)) {
+            z = false;
+            while (!z) {
+                if (i2 == 0) {
+                    i4 = (int) Math.ceil(i / i5);
+                } else {
+                    i5 = (int) Math.ceil(i / i4);
+                }
+                ConstraintWidget[] constraintWidgetArr2 = this.mAlignedBiggestElementsInCols;
+                if (constraintWidgetArr2 != null && constraintWidgetArr2.length >= i5) {
+                    Arrays.fill(constraintWidgetArr2, (Object) null);
+                } else {
+                    this.mAlignedBiggestElementsInCols = new ConstraintWidget[i5];
+                }
+                ConstraintWidget[] constraintWidgetArr3 = this.mAlignedBiggestElementsInRows;
+                if (constraintWidgetArr3 != null && constraintWidgetArr3.length >= i4) {
+                    Arrays.fill(constraintWidgetArr3, (Object) null);
+                } else {
+                    this.mAlignedBiggestElementsInRows = new ConstraintWidget[i4];
+                }
+                for (int i11 = 0; i11 < i5; i11++) {
+                    for (int i12 = 0; i12 < i4; i12++) {
+                        int i13 = (i12 * i5) + i11;
+                        if (i2 == 1) {
+                            i13 = (i11 * i4) + i12;
+                        }
+                        if (i13 < constraintWidgetArr.length && (constraintWidget = constraintWidgetArr[i13]) != null) {
+                            int widgetWidth = getWidgetWidth(constraintWidget, i3);
+                            ConstraintWidget[] constraintWidgetArr4 = this.mAlignedBiggestElementsInCols;
+                            if (constraintWidgetArr4[i11] == null || constraintWidgetArr4[i11].getWidth() < widgetWidth) {
+                                this.mAlignedBiggestElementsInCols[i11] = constraintWidget;
+                            }
+                            int widgetHeight = getWidgetHeight(constraintWidget, i3);
+                            ConstraintWidget[] constraintWidgetArr5 = this.mAlignedBiggestElementsInRows;
+                            if (constraintWidgetArr5[i12] == null || constraintWidgetArr5[i12].getHeight() < widgetHeight) {
+                                this.mAlignedBiggestElementsInRows[i12] = constraintWidget;
+                            }
+                        }
+                    }
+                }
+                int i14 = 0;
+                for (int i15 = 0; i15 < i5; i15++) {
+                    ConstraintWidget constraintWidget4 = this.mAlignedBiggestElementsInCols[i15];
+                    if (constraintWidget4 != null) {
+                        if (i15 > 0) {
+                            i14 += this.mHorizontalGap;
+                        }
+                        i14 += getWidgetWidth(constraintWidget4, i3);
+                    }
+                }
+                int i16 = 0;
+                for (int i17 = 0; i17 < i4; i17++) {
+                    ConstraintWidget constraintWidget5 = this.mAlignedBiggestElementsInRows[i17];
+                    if (constraintWidget5 != null) {
+                        if (i17 > 0) {
+                            i16 += this.mVerticalGap;
+                        }
+                        i16 += getWidgetHeight(constraintWidget5, i3);
+                    }
+                }
+                iArr[0] = i14;
+                iArr[1] = i16;
+                if (i2 == 0) {
+                    if (i14 > i3 && i5 > 1) {
+                        i5--;
+                    }
+                } else if (i16 > i3 && i4 > 1) {
+                    i4--;
+                }
+                while (!z) {
+                }
+            }
+            int[] iArr2 = this.mAlignedDimensions;
+            iArr2[0] = i5;
+            iArr2[1] = i4;
+        }
+        z = true;
+        while (!z) {
+        }
+        int[] iArr22 = this.mAlignedDimensions;
+        iArr22[0] = i5;
+        iArr22[1] = i4;
     }
 
     private void measureChainWrap(ConstraintWidget[] constraintWidgetArr, int i, int i2, int i3, int[] iArr) {
@@ -1019,12 +877,11 @@ public class Flow extends VirtualLayout {
         int paddingBottom;
         boolean z3;
         int i7;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65561, this, new Object[]{constraintWidgetArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), iArr}) != null) || i == 0) {
+        if (i == 0) {
             return;
         }
         this.mChainList.clear();
-        WidgetsList widgetsList = new WidgetsList(this, i2, this.mLeft, this.mTop, this.mRight, this.mBottom, i3);
+        WidgetsList widgetsList = new WidgetsList(i2, this.mLeft, this.mTop, this.mRight, this.mBottom, i3);
         this.mChainList.add(widgetsList);
         if (i2 == 0) {
             i4 = 0;
@@ -1046,7 +903,7 @@ public class Flow extends VirtualLayout {
                     z3 = true;
                 }
                 if (z3) {
-                    widgetsList = new WidgetsList(this, i2, this.mLeft, this.mTop, this.mRight, this.mBottom, i3);
+                    widgetsList = new WidgetsList(i2, this.mLeft, this.mTop, this.mRight, this.mBottom, i3);
                     widgetsList.setStartIndex(i9);
                     this.mChainList.add(widgetsList);
                 } else if (i9 > 0) {
@@ -1080,7 +937,7 @@ public class Flow extends VirtualLayout {
                     z = true;
                 }
                 if (z) {
-                    widgetsList = new WidgetsList(this, i2, this.mLeft, this.mTop, this.mRight, this.mBottom, i3);
+                    widgetsList = new WidgetsList(i2, this.mLeft, this.mTop, this.mRight, this.mBottom, i3);
                     widgetsList.setStartIndex(i12);
                     this.mChainList.add(widgetsList);
                 } else if (i12 > 0) {
@@ -1194,12 +1051,11 @@ public class Flow extends VirtualLayout {
 
     private void measureNoWrap(ConstraintWidget[] constraintWidgetArr, int i, int i2, int i3, int[] iArr) {
         WidgetsList widgetsList;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65562, this, new Object[]{constraintWidgetArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), iArr}) != null) || i == 0) {
+        if (i == 0) {
             return;
         }
         if (this.mChainList.size() == 0) {
-            widgetsList = new WidgetsList(this, i2, this.mLeft, this.mTop, this.mRight, this.mBottom, i3);
+            widgetsList = new WidgetsList(i2, this.mLeft, this.mTop, this.mRight, this.mBottom, i3);
             this.mChainList.add(widgetsList);
         } else {
             WidgetsList widgetsList2 = this.mChainList.get(0);
@@ -1214,48 +1070,11 @@ public class Flow extends VirtualLayout {
         iArr[1] = widgetsList.getHeight();
     }
 
-    @Override // androidx.constraintlayout.solver.widgets.ConstraintWidget
-    public void addToSolver(LinearSystem linearSystem, boolean z) {
-        boolean z2;
-        boolean z3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, linearSystem, z) == null) {
-            super.addToSolver(linearSystem, z);
-            if (getParent() != null) {
-                z2 = ((ConstraintWidgetContainer) getParent()).isRtl();
-            } else {
-                z2 = false;
-            }
-            int i = this.mWrapMode;
-            if (i != 0) {
-                if (i != 1) {
-                    if (i == 2) {
-                        createAlignedConstraints(z2);
-                    }
-                } else {
-                    int size = this.mChainList.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        WidgetsList widgetsList = this.mChainList.get(i2);
-                        if (i2 == size - 1) {
-                            z3 = true;
-                        } else {
-                            z3 = false;
-                        }
-                        widgetsList.createConstraints(z2, i2, z3);
-                    }
-                }
-            } else if (this.mChainList.size() > 0) {
-                this.mChainList.get(0).createConstraints(z2, 0, true);
-            }
-            needsCallbackFromSolver(false);
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:57:0x00e0  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x00e2  */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x00ef  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x00f1  */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x010a  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x00dc  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x00de  */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x00eb  */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x00ed  */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x0106  */
     @Override // androidx.constraintlayout.solver.widgets.VirtualLayout
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1266,124 +1085,121 @@ public class Flow extends VirtualLayout {
         int[] iArr;
         boolean z;
         char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
-            if (this.mWidgetsCount > 0 && !measureChildren()) {
-                setMeasure(0, 0);
-                needsCallbackFromSolver(false);
-                return;
+        if (this.mWidgetsCount > 0 && !measureChildren()) {
+            setMeasure(0, 0);
+            needsCallbackFromSolver(false);
+            return;
+        }
+        int paddingLeft = getPaddingLeft();
+        int paddingRight = getPaddingRight();
+        int paddingTop = getPaddingTop();
+        int paddingBottom = getPaddingBottom();
+        int[] iArr2 = new int[2];
+        int i7 = (i2 - paddingLeft) - paddingRight;
+        if (this.mOrientation == 1) {
+            i7 = (i4 - paddingTop) - paddingBottom;
+        }
+        int i8 = i7;
+        if (this.mOrientation == 0) {
+            if (this.mHorizontalStyle == -1) {
+                this.mHorizontalStyle = 0;
             }
-            int paddingLeft = getPaddingLeft();
-            int paddingRight = getPaddingRight();
-            int paddingTop = getPaddingTop();
-            int paddingBottom = getPaddingBottom();
-            int[] iArr2 = new int[2];
-            int i7 = (i2 - paddingLeft) - paddingRight;
-            if (this.mOrientation == 1) {
-                i7 = (i4 - paddingTop) - paddingBottom;
+            if (this.mVerticalStyle == -1) {
+                this.mVerticalStyle = 0;
             }
-            int i8 = i7;
-            if (this.mOrientation == 0) {
-                if (this.mHorizontalStyle == -1) {
-                    this.mHorizontalStyle = 0;
-                }
-                if (this.mVerticalStyle == -1) {
-                    this.mVerticalStyle = 0;
-                }
-            } else {
-                if (this.mHorizontalStyle == -1) {
-                    this.mHorizontalStyle = 0;
-                }
-                if (this.mVerticalStyle == -1) {
-                    this.mVerticalStyle = 0;
+        } else {
+            if (this.mHorizontalStyle == -1) {
+                this.mHorizontalStyle = 0;
+            }
+            if (this.mVerticalStyle == -1) {
+                this.mVerticalStyle = 0;
+            }
+        }
+        ConstraintWidget[] constraintWidgetArr = this.mWidgets;
+        int i9 = 0;
+        int i10 = 0;
+        while (true) {
+            i5 = this.mWidgetsCount;
+            if (i9 >= i5) {
+                break;
+            }
+            if (this.mWidgets[i9].getVisibility() == 8) {
+                i10++;
+            }
+            i9++;
+        }
+        if (i10 > 0) {
+            constraintWidgetArr = new ConstraintWidget[i5 - i10];
+            int i11 = 0;
+            for (int i12 = 0; i12 < this.mWidgetsCount; i12++) {
+                ConstraintWidget constraintWidget = this.mWidgets[i12];
+                if (constraintWidget.getVisibility() != 8) {
+                    constraintWidgetArr[i11] = constraintWidget;
+                    i11++;
                 }
             }
-            ConstraintWidget[] constraintWidgetArr = this.mWidgets;
-            int i9 = 0;
-            int i10 = 0;
-            while (true) {
-                i5 = this.mWidgetsCount;
-                if (i9 >= i5) {
-                    break;
-                }
-                if (this.mWidgets[i9].getVisibility() == 8) {
-                    i10++;
-                }
-                i9++;
-            }
-            if (i10 > 0) {
-                constraintWidgetArr = new ConstraintWidget[i5 - i10];
-                int i11 = 0;
-                for (int i12 = 0; i12 < this.mWidgetsCount; i12++) {
-                    ConstraintWidget constraintWidget = this.mWidgets[i12];
-                    if (constraintWidget.getVisibility() != 8) {
-                        constraintWidgetArr[i11] = constraintWidget;
-                        i11++;
-                    }
-                }
-                i6 = i11;
-            } else {
-                i6 = i5;
-            }
-            this.mDisplayedWidgets = constraintWidgetArr;
-            this.mDisplayedWidgetsCount = i6;
-            int i13 = this.mWrapMode;
-            if (i13 != 0) {
-                if (i13 != 1) {
-                    if (i13 != 2) {
-                        iArr = iArr2;
-                        c = 0;
-                        z = true;
-                        int i14 = iArr[c] + paddingLeft + paddingRight;
-                        int i15 = iArr[z ? 1 : 0] + paddingTop + paddingBottom;
-                        if (i != 1073741824) {
-                            i14 = i2;
-                        } else if (i == Integer.MIN_VALUE) {
-                            i14 = Math.min(i14, i2);
-                        } else if (i != 0) {
-                            i14 = 0;
-                        }
-                        if (i3 != 1073741824) {
-                            i15 = i4;
-                        } else if (i3 == Integer.MIN_VALUE) {
-                            i15 = Math.min(i15, i4);
-                        } else if (i3 != 0) {
-                            i15 = 0;
-                        }
-                        setMeasure(i14, i15);
-                        setWidth(i14);
-                        setHeight(i15);
-                        if (this.mWidgetsCount <= 0) {
-                            z = false;
-                        }
-                        needsCallbackFromSolver(z);
-                    }
-                    z = true;
+            i6 = i11;
+        } else {
+            i6 = i5;
+        }
+        this.mDisplayedWidgets = constraintWidgetArr;
+        this.mDisplayedWidgetsCount = i6;
+        int i13 = this.mWrapMode;
+        if (i13 != 0) {
+            if (i13 != 1) {
+                if (i13 != 2) {
                     iArr = iArr2;
-                    measureAligned(constraintWidgetArr, i6, this.mOrientation, i8, iArr2);
-                } else {
-                    iArr = iArr2;
+                    c = 0;
                     z = true;
-                    measureChainWrap(constraintWidgetArr, i6, this.mOrientation, i8, iArr2);
+                    int i14 = iArr[c] + paddingLeft + paddingRight;
+                    int i15 = iArr[z ? 1 : 0] + paddingTop + paddingBottom;
+                    if (i != 1073741824) {
+                        i14 = i2;
+                    } else if (i == Integer.MIN_VALUE) {
+                        i14 = Math.min(i14, i2);
+                    } else if (i != 0) {
+                        i14 = 0;
+                    }
+                    if (i3 != 1073741824) {
+                        i15 = i4;
+                    } else if (i3 == Integer.MIN_VALUE) {
+                        i15 = Math.min(i15, i4);
+                    } else if (i3 != 0) {
+                        i15 = 0;
+                    }
+                    setMeasure(i14, i15);
+                    setWidth(i14);
+                    setHeight(i15);
+                    if (this.mWidgetsCount <= 0) {
+                        z = false;
+                    }
+                    needsCallbackFromSolver(z);
                 }
+                z = true;
+                iArr = iArr2;
+                measureAligned(constraintWidgetArr, i6, this.mOrientation, i8, iArr2);
             } else {
                 iArr = iArr2;
                 z = true;
-                measureNoWrap(constraintWidgetArr, i6, this.mOrientation, i8, iArr2);
+                measureChainWrap(constraintWidgetArr, i6, this.mOrientation, i8, iArr2);
             }
-            c = 0;
-            int i142 = iArr[c] + paddingLeft + paddingRight;
-            int i152 = iArr[z ? 1 : 0] + paddingTop + paddingBottom;
-            if (i != 1073741824) {
-            }
-            if (i3 != 1073741824) {
-            }
-            setMeasure(i142, i152);
-            setWidth(i142);
-            setHeight(i152);
-            if (this.mWidgetsCount <= 0) {
-            }
-            needsCallbackFromSolver(z);
+        } else {
+            iArr = iArr2;
+            z = true;
+            measureNoWrap(constraintWidgetArr, i6, this.mOrientation, i8, iArr2);
         }
+        c = 0;
+        int i142 = iArr[c] + paddingLeft + paddingRight;
+        int i152 = iArr[z ? 1 : 0] + paddingTop + paddingBottom;
+        if (i != 1073741824) {
+        }
+        if (i3 != 1073741824) {
+        }
+        setMeasure(i142, i152);
+        setWidth(i142);
+        setHeight(i152);
+        if (this.mWidgetsCount <= 0) {
+        }
+        needsCallbackFromSolver(z);
     }
 }

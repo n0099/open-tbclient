@@ -1,51 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.stamp.model.FetchStampModel;
+import android.util.ArrayMap;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.BdNetSwitch;
+import com.baidu.tbadk.switchs.PBCacheBlockSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes4.dex */
 public class g09 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, Long> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public FetchStampModel a;
-    public d09 b;
 
-    public g09(TbPageContext tbPageContext, d09<zz8> d09Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, d09Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947740249, "Lcom/baidu/tieba/g09;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947740249, "Lcom/baidu/tieba/g09;");
                 return;
             }
         }
-        this.b = d09Var;
-        this.a = new FetchStampModel(tbPageContext, d09Var);
+        a = new ArrayMap();
     }
 
-    public void a() {
-        FetchStampModel fetchStampModel;
+    public static void a(String str, boolean z) {
+        Long remove;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (fetchStampModel = this.a) != null) {
-            fetchStampModel.cancelLoadData();
+        if ((interceptable != null && interceptable.invokeLZ(65537, null, str, z) != null) || (remove = a.remove(str)) == null) {
+            return;
         }
+        StatisticItem addParam = new StatisticItem("shoubai_http_net_test").addParam("obj_name", str).addParam("obj_type", BdNetTypeUtil.getNetType());
+        StatisticItem addParam2 = addParam.addParam("obj_source", BdNetSwitch.getIsOn() + " " + PBCacheBlockSwitch.getIsOn());
+        StringBuilder sb = new StringBuilder();
+        sb.append(z);
+        sb.append("");
+        TiebaStatic.log(addParam2.addParam("obj_param1", sb.toString()).addParam(TiebaStatic.Params.OBJ_PARAM2, System.currentTimeMillis() - remove.longValue()));
     }
 
-    public void b() {
-        FetchStampModel fetchStampModel;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (fetchStampModel = this.a) != null) {
-            fetchStampModel.loadData();
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            a.put(str, Long.valueOf(System.currentTimeMillis()));
         }
     }
 }

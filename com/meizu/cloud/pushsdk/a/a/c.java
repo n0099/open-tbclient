@@ -4,8 +4,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class c {
-    public int a;
-    public String b;
+    public final int a;
+    public final String b;
 
     public c(int i, String str) {
         this.a = i;

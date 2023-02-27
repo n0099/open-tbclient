@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj8;
+import com.baidu.tieba.pm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,19 +47,19 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
         this.d = 3;
         this.a = view2.findViewById(R.id.obfuscated_res_0x7f090129);
         this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090122);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09234c);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092396);
     }
 
     public void a(Cdo cdo) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, cdo) != null) || !(cdo instanceof dj8)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, cdo) != null) || !(cdo instanceof pm8)) {
             return;
         }
         this.e = cdo;
-        dj8 dj8Var = (dj8) cdo;
+        pm8 pm8Var = (pm8) cdo;
         SkinManager.setImageResource(this.b, R.drawable.icon_mine_pic_add);
-        if (dj8Var.a() > 0) {
-            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08d6), Integer.valueOf(dj8Var.a())));
+        if (pm8Var.a() > 0) {
+            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08d6), Integer.valueOf(pm8Var.a())));
         }
         getView().setOnClickListener(this.f);
         c(TbadkCoreApplication.getInst().getSkinType());

@@ -4,51 +4,24 @@ import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.utils.Log;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class FingerprintUtil {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public FingerprintUtil() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static int getFingerPrintState(SapiConfiguration sapiConfiguration) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sapiConfiguration)) == null) {
-            if (Build.VERSION.SDK_INT < 23) {
-                return 101;
-            }
-            if (!sapiConfiguration.isSupportTouchLogin()) {
-                return 102;
-            }
-            FingerprintManager fingerprintManager = null;
-            try {
-                fingerprintManager = (FingerprintManager) sapiConfiguration.context.getSystemService(FingerprintManager.class);
-            } catch (Exception e) {
-                Log.e(e);
-            }
-            if (fingerprintManager != null && fingerprintManager.isHardwareDetected() && fingerprintManager.hasEnrolledFingerprints()) {
-                return 0;
-            }
-            return 104;
+        if (Build.VERSION.SDK_INT < 23) {
+            return 101;
         }
-        return invokeL.intValue;
+        if (!sapiConfiguration.isSupportTouchLogin()) {
+            return 102;
+        }
+        FingerprintManager fingerprintManager = null;
+        try {
+            fingerprintManager = (FingerprintManager) sapiConfiguration.context.getSystemService(FingerprintManager.class);
+        } catch (Exception e) {
+            Log.e(e);
+        }
+        if (fingerprintManager != null && fingerprintManager.isHardwareDetected() && fingerprintManager.hasEnrolledFingerprints()) {
+            return 0;
+        }
+        return 104;
     }
 }

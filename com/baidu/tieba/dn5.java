@@ -1,27 +1,26 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.template.state.ViewType;
-import com.baidu.tieba.gn5;
+import com.baidu.tbadk.template.model.LoadType;
+import com.baidu.tieba.fo5;
+import com.baidu.tieba.go5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class dn5 extends cn5<zm5, gn5.a> {
+public class dn5<Q extends fo5, P extends go5> implements en5<Q, P> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> e;
+    public boolean a;
+    public int b;
+    public int c;
 
-    public dn5(TbPageContext<?> tbPageContext) {
+    public dn5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,28 +30,65 @@ public class dn5 extends cn5<zm5, gn5.a> {
                 return;
             }
         }
-        this.e = tbPageContext;
+        this.a = true;
+        this.b = 1;
+        this.c = 1;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn5
-    /* renamed from: g */
-    public void d(ViewType viewType, zm5 zm5Var, gn5.a aVar) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, zm5Var, aVar) == null) {
-            zm5Var.b(aVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn5
-    /* renamed from: h */
-    public zm5 f(ViewType viewType, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.en5
+    public void a(Q q, P p) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) {
-            return new zm5(this.e.getPageActivity());
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, q, p) != null) || p == null) {
+            return;
         }
-        return (zm5) invokeLL.objValue;
+        if (p.getPageInfo() != null) {
+            ao5 pageInfo = p.getPageInfo();
+            this.c = pageInfo.a;
+            this.a = pageInfo.b;
+            if (q != null && q.c() != null) {
+                q.c().d = pageInfo.c;
+            }
+        }
+        if (this.c <= 0 && q != null && q.c() != null && q.c().c > 0) {
+            this.c = q.c().c;
+            this.a = true;
+        }
+        vo5.b("onResp--->pn=" + this.c + ",hasMore=" + this.a);
+    }
+
+    @Override // com.baidu.tieba.en5
+    public void b(Q q, boolean z) {
+        LoadType loadType;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q, z) == null) && q != null && q.c() != null) {
+            zn5 c = q.c();
+            if (z) {
+                if (!c.a()) {
+                    this.c = this.b;
+                }
+                if (c.a()) {
+                    loadType = LoadType.PREPEND;
+                } else {
+                    loadType = LoadType.REFRESH;
+                }
+                c.b = loadType;
+                c.c = this.c;
+            } else {
+                int i = this.c + 1;
+                this.c = i;
+                c.b = LoadType.APPEND;
+                c.c = i;
+            }
+            vo5.b("onReq--->pn=" + this.c + ",hasMore=" + this.a + ",isPullRefresh=" + z + ",loadType=" + c.b);
+        }
     }
 }

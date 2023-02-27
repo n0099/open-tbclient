@@ -1,22 +1,26 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import android.app.Activity;
+import android.app.Dialog;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.InetSocketAddress;
-import java.net.Socket;
 /* loaded from: classes3.dex */
 public class aa5 {
     public static /* synthetic */ Interceptable $ic;
+    public static aa5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
+    public v95 a;
+    public String b;
 
     public aa5() {
         Interceptable interceptable = $ic;
@@ -31,106 +35,148 @@ public class aa5 {
                 return;
             }
         }
-        this.a = false;
-        this.b = 0;
+        this.a = b();
     }
 
-    public int b() {
+    public static aa5 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (aa5.class) {
+                    if (c == null) {
+                        c = new aa5();
+                    }
+                }
+            }
+            return c;
+        }
+        return (aa5) invokeV.objValue;
+    }
+
+    public final v95 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2156675, v95.class);
+            if (runTask != null) {
+                return (v95) runTask.getData();
+            }
+            return null;
         }
-        return invokeV.intValue;
+        return (v95) invokeV.objValue;
     }
 
-    public final int c() {
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int netType = BdNetTypeUtil.netType();
-            if (netType != 1) {
-                if (netType != 2) {
-                    return 5000;
-                }
-                return 10000;
+            v95 v95Var = this.a;
+            if (v95Var != null) {
+                return v95Var.g();
             }
-            return 3000;
+            return 0;
         }
         return invokeV.intValue;
     }
 
-    public boolean d() {
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+            v95 v95Var = this.a;
+            if (v95Var != null) {
+                return v95Var.b();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            v95 v95Var = this.a;
+            if (v95Var != null) {
+                return v95Var.a();
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void a(String str) {
-        int lastIndexOf;
-        String str2;
+    public void l() {
+        v95 v95Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a = false;
-            this.b = 0;
-            if (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(":")) < 5) {
-                return;
-            }
-            String str3 = null;
-            try {
-                str2 = str.substring(5, lastIndexOf);
-            } catch (Exception e) {
-                e = e;
-                str2 = null;
-            }
-            try {
-                str3 = str.substring(lastIndexOf + 1);
-            } catch (Exception e2) {
-                e = e2;
-                BdLog.e(e.getMessage());
-                if (TextUtils.isEmpty(str2)) {
-                }
-                return;
-            }
-            if (TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                int i = 0;
-                int i2 = 0;
-                for (int i3 = 0; i3 < 3; i3++) {
-                    Socket socket = new Socket();
-                    long currentTimeMillis = System.currentTimeMillis();
-                    try {
-                        try {
-                            socket.connect(new InetSocketAddress(str2, dh.e(String.valueOf(str3), 8000)), c());
-                            if (socket.isConnected()) {
-                                i++;
-                                i2 = (int) (i2 + (System.currentTimeMillis() - currentTimeMillis));
-                                this.a = true;
-                            }
-                            try {
-                                socket.close();
-                            } catch (Exception e3) {
-                                BdLog.e(e3.getMessage());
-                            }
-                        } catch (Throwable th) {
-                            try {
-                                socket.close();
-                            } catch (Exception e4) {
-                                BdLog.e(e4.getMessage());
-                            }
-                            throw th;
-                        }
-                    } catch (Exception e5) {
-                        BdLog.e(e5.getMessage());
-                        socket.close();
-                    }
-                }
-                if (this.a && i > 0) {
-                    this.b = i2 / i;
-                }
-            }
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (v95Var = this.a) != null) {
+            v95Var.c();
         }
+    }
+
+    public void a(int i, TbPageContext tbPageContext, ViewGroup viewGroup, boolean z) {
+        v95 v95Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), tbPageContext, viewGroup, Boolean.valueOf(z)}) == null) && (v95Var = this.a) != null) {
+            v95Var.f(i, tbPageContext, viewGroup, z);
+        }
+    }
+
+    public void h(boolean z, int i, int i2) {
+        v95 v95Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) && (v95Var = this.a) != null) {
+            v95Var.i(z, i, i2);
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public NavigationBarCoverTip j(Activity activity, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, viewGroup)) == null) {
+            v95 v95Var = this.a;
+            if (v95Var != null) {
+                return v95Var.e(activity, viewGroup);
+            }
+            return null;
+        }
+        return (NavigationBarCoverTip) invokeLL.objValue;
+    }
+
+    public void m(boolean z, long j) {
+        v95 v95Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) && (v95Var = this.a) != null) {
+            v95Var.h(z, j);
+        }
+    }
+
+    public Dialog k(int i, TbPageContext tbPageContext, hv5 hv5Var, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), tbPageContext, hv5Var, Boolean.valueOf(z)})) == null) {
+            v95 v95Var = this.a;
+            if (v95Var != null) {
+                return v95Var.d(i, tbPageContext, hv5Var, z);
+            }
+            return null;
+        }
+        return (Dialog) invokeCommon.objValue;
     }
 }

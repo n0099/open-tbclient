@@ -1,118 +1,66 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveFragment;
+import android.text.TextUtils;
+import com.baidu.ala.data.SdkLiveInfoData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ForumUserLiveActiivtyConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class f56 extends qf5 {
+public class f56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaFrsLiveFragment c;
 
-    @Override // com.baidu.tieba.qf5
-    public boolean d() {
-        InterceptResult invokeV;
+    public static void a(g36 g36Var, String str, String str2) {
+        SdkLiveInfoData sdkLiveInfoData;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        int i;
+        SdkLiveInfoData.YYExt yYExt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public f56(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLLL(65536, null, g36Var, str, str2) == null) && g36Var != null && (sdkLiveInfoData = g36Var.a) != null) {
+            SdkLiveInfoData.AlaLiveInfo alaLiveInfo = sdkLiveInfoData.liveInfo;
+            String str7 = "";
+            if (alaLiveInfo == null || (yYExt = alaLiveInfo.yyExt) == null) {
+                str3 = "";
+                str4 = str3;
+                str5 = str4;
+                str6 = str5;
+            } else {
+                str4 = yYExt.sid;
+                str5 = yYExt.ssid;
+                str6 = yYExt.yyUid;
+                str3 = yYExt.templateId;
             }
-        }
-        AlaFrsLiveFragment alaFrsLiveFragment = new AlaFrsLiveFragment();
-        this.c = alaFrsLiveFragment;
-        alaFrsLiveFragment.Q1(z);
-        b().a = this.c;
-    }
-
-    @Override // com.baidu.tieba.qf5
-    public rf5 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            rf5 rf5Var = new rf5();
-            rf5Var.e = 2;
-            rf5Var.b = R.string.ala_live;
-            rf5Var.i = rf5.k;
-            return rf5Var;
-        }
-        return (rf5) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qf5
-    public TbFragmentTabIndicator c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
-        }
-        return (TbFragmentTabIndicator) invokeL.objValue;
-    }
-
-    public void g(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (alaFrsLiveFragment = this.c) != null) {
-            alaFrsLiveFragment.M1(str);
+            StatisticItem param = new StatisticItem(str).param("fid", g36Var.c).param("liveid", g36Var.a.liveId).param("hdid", TbadkCoreApplication.getInst().getHdid()).param(TiebaStatic.YYParams.YYSID, str4).param(TiebaStatic.YYParams.YYSSID, str5).param(TiebaStatic.YYParams.YYUID, str6).param("template_id", str3);
+            if (!TextUtils.isEmpty(str4)) {
+                str7 = "1";
+            }
+            StatisticItem param2 = param.param(TiebaStatic.YYParams.YYLIVEID, str7).param(TiebaStatic.Params.VID, g36Var.a.nid);
+            if (TextUtils.equals(ForumUserLiveActiivtyConfig.KEY_FROM_FRS_CARD, str2)) {
+                i = 1;
+            } else {
+                i = 2;
+            }
+            TiebaStatic.log(param2.param("obj_source", i));
         }
     }
 
-    public void h(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
+    public static void b(g36 g36Var, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (alaFrsLiveFragment = this.c) != null) {
-            alaFrsLiveFragment.N1(str);
+        if (interceptable == null || interceptable.invokeLL(65537, null, g36Var, str) == null) {
+            a(g36Var, "c14705", str);
         }
     }
 
-    public void i(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
+    public static void c(g36 g36Var, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (alaFrsLiveFragment = this.c) != null) {
-            alaFrsLiveFragment.O1(str);
-        }
-    }
-
-    public void j(int i) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (alaFrsLiveFragment = this.c) != null) {
-            alaFrsLiveFragment.P1(i);
-        }
-    }
-
-    public void k(boolean z) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (alaFrsLiveFragment = this.c) != null) {
-            alaFrsLiveFragment.R1(z);
+        if (interceptable == null || interceptable.invokeLL(65538, null, g36Var, str) == null) {
+            a(g36Var, "c14704", str);
         }
     }
 }

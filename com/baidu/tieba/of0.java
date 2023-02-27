@@ -1,165 +1,211 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
-import com.baidu.searchbox.pms.db.PackageTable;
+import android.graphics.Point;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class of0 extends vf0 {
-    public static /* synthetic */ Interceptable $ic;
+public class of0 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static float j = 0.0f;
+    public static float k = 0.0f;
+    public static float l = 1.0f;
+    public static float m = 1.0f;
+    public static float n;
+    public static List<Point> o;
+    public static List<Point> p;
+    public static List<Point> q;
+    public static List<Point> r;
+    public static List<List<Point>> s;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public float e;
+    public List<Point> f;
+    public List<Point> g;
+    public List<Point> h;
+    public List<Point> i;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948030192, "Lcom/baidu/tieba/of0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
             }
-        }
-
-        public static a a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    a aVar = new a();
-                    aVar.a = jSONObject.optString("name");
-                    aVar.b = jSONObject.optString("path");
-                    aVar.c = jSONObject.optString(PackageTable.MD5);
-                    return aVar;
-                } catch (Exception unused) {
-                    return null;
-                }
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public of0(pf0 pf0Var) {
-        super(pf0Var.b, pf0Var.g);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pf0Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (File) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948030192, "Lcom/baidu/tieba/of0;");
                 return;
             }
         }
+        a();
     }
 
-    public static boolean t(File file) {
+    public of0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = j;
+        this.b = k;
+        this.c = l;
+        this.d = m;
+        this.e = n;
+        this.f = o;
+        this.g = p;
+        this.h = q;
+        this.i = r;
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            ArrayList arrayList = new ArrayList();
+            o = arrayList;
+            arrayList.add(new Point(0, 0));
+            o.add(new Point(255, 255));
+            ArrayList arrayList2 = new ArrayList();
+            p = arrayList2;
+            arrayList2.add(new Point(0, 0));
+            p.add(new Point(255, 255));
+            ArrayList arrayList3 = new ArrayList();
+            q = arrayList3;
+            arrayList3.add(new Point(0, 0));
+            q.add(new Point(255, 255));
+            ArrayList arrayList4 = new ArrayList();
+            r = arrayList4;
+            arrayList4.add(new Point(0, 0));
+            r.add(new Point(255, 255));
+            ArrayList arrayList5 = new ArrayList();
+            s = arrayList5;
+            arrayList5.add(o);
+            s.add(p);
+            s.add(q);
+            s.add(r);
+        }
+    }
+
+    public static of0 b(JSONObject jSONObject) {
         InterceptResult invokeL;
-        File file2;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        int i7;
+        int i8;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            if (jSONObject == null || jSONObject.length() == 0) {
+                return null;
+            }
+            of0 of0Var = new of0();
             try {
-                file2 = new File(file, "files.json");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (!file2.exists()) {
-                return false;
-            }
-            FileInputStream fileInputStream = new FileInputStream(file2);
-            byte[] bArr = new byte[fileInputStream.available()];
-            fileInputStream.read(bArr);
-            String str = new String(bArr);
-            fileInputStream.close();
-            JSONArray optJSONArray = new JSONObject(str).optJSONArray(NetDiskFileMsg.JSON_KEY_FILES);
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                ArrayList arrayList = new ArrayList();
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    arrayList.add(a.a(optJSONArray.getString(i)));
+                JSONObject jSONObject2 = jSONObject.getJSONObject("female");
+                if (jSONObject2 != null) {
+                    jSONObject2.optDouble("intensity_smooth");
+                    jSONObject2.optDouble("intensity_white");
                 }
-                return u(file, arrayList);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean u(File file, ArrayList<a> arrayList) {
-        InterceptResult invokeLL;
-        File file2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, file, arrayList)) == null) {
-            if (arrayList == null || arrayList.size() <= 0) {
-                return false;
-            }
-            try {
-                Iterator<a> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    a next = it.next();
-                    String str = next.b;
-                    if (TextUtils.isEmpty(str)) {
-                        file2 = new File(file, next.a);
-                    } else {
-                        file2 = new File(file, str + File.separator + next.a);
+                JSONObject jSONObject3 = jSONObject.getJSONObject("male");
+                if (jSONObject3 != null) {
+                    jSONObject3.optDouble("intensity_smooth");
+                    jSONObject3.optDouble("intensity_white");
+                }
+                of0Var.a = (float) jSONObject.optDouble("intensity_sharpness");
+                of0Var.b = (float) jSONObject.optDouble("intensity_brightness");
+                of0Var.c = (float) jSONObject.optDouble("intensity_contrast");
+                of0Var.d = (float) jSONObject.optDouble("intensity_saturation");
+                JSONObject optJSONObject = jSONObject.optJSONObject("curves");
+                if (optJSONObject != null && optJSONObject.length() > 0) {
+                    of0Var.e = (float) optJSONObject.optDouble("intensity_curves");
+                    JSONArray jSONArray = optJSONObject.getJSONArray("composite");
+                    if (jSONArray != null && jSONArray.length() > 0) {
+                        of0Var.f = new CopyOnWriteArrayList();
+                        for (int i9 = 0; i9 < jSONArray.length(); i9++) {
+                            JSONObject jSONObject4 = jSONArray.getJSONObject(i9);
+                            if (jSONObject4 != null && jSONObject4.length() > 0) {
+                                i8 = jSONObject4.optInt("x");
+                                i7 = jSONObject4.optInt("y");
+                            } else {
+                                i7 = 0;
+                                i8 = 0;
+                            }
+                            of0Var.f.add(new Point(i8, i7));
+                        }
                     }
-                    if (!file2.exists()) {
-                        return false;
+                    JSONArray jSONArray2 = optJSONObject.getJSONArray("red");
+                    if (jSONArray2 != null && jSONArray2.length() > 0) {
+                        of0Var.g = new CopyOnWriteArrayList();
+                        for (int i10 = 0; i10 < jSONArray2.length(); i10++) {
+                            JSONObject jSONObject5 = jSONArray2.getJSONObject(i10);
+                            if (jSONObject5 != null && jSONObject5.length() > 0) {
+                                i6 = jSONObject5.optInt("x");
+                                i5 = jSONObject5.optInt("y");
+                            } else {
+                                i5 = 0;
+                                i6 = 0;
+                            }
+                            of0Var.g.add(new Point(i6, i5));
+                        }
                     }
-                    String a2 = rf0.a(file2.getAbsolutePath());
-                    boolean equals = TextUtils.equals(a2, next.c);
-                    if (!equals) {
-                        vf0.j(equals + " " + a2 + "!=" + next.c + StringUtil.ARRAY_ELEMENT_SEPARATOR + file2.getAbsolutePath());
-                        return false;
+                    JSONArray jSONArray3 = optJSONObject.getJSONArray("green");
+                    if (jSONArray3 != null && jSONArray3.length() > 0) {
+                        of0Var.h = new CopyOnWriteArrayList();
+                        for (int i11 = 0; i11 < jSONArray3.length(); i11++) {
+                            JSONObject jSONObject6 = jSONArray3.getJSONObject(i11);
+                            if (jSONObject6 != null && jSONObject6.length() > 0) {
+                                i4 = jSONObject6.optInt("x");
+                                i3 = jSONObject6.optInt("y");
+                            } else {
+                                i3 = 0;
+                                i4 = 0;
+                            }
+                            of0Var.h.add(new Point(i4, i3));
+                        }
+                    }
+                    JSONArray jSONArray4 = optJSONObject.getJSONArray("blue");
+                    if (jSONArray4 != null && jSONArray4.length() > 0) {
+                        of0Var.i = new CopyOnWriteArrayList();
+                        for (int i12 = 0; i12 < jSONArray4.length(); i12++) {
+                            JSONObject jSONObject7 = jSONArray4.getJSONObject(i12);
+                            if (jSONObject7 != null && jSONObject7.length() > 0) {
+                                i2 = jSONObject7.optInt("x");
+                                i = jSONObject7.optInt("y");
+                            } else {
+                                i = 0;
+                                i2 = 0;
+                            }
+                            of0Var.i.add(new Point(i2, i));
+                        }
                     }
                 }
-                return true;
-            } catch (Exception unused) {
-                return false;
+                return of0Var;
+            } catch (JSONException unused) {
+                return null;
             }
         }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.vf0
-    public boolean i(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-            return t(file);
-        }
-        return invokeL.booleanValue;
+        return (of0) invokeL.objValue;
     }
 }

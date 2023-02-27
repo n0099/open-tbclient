@@ -10,7 +10,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.os.Looper;
 import android.os.Message;
 import android.support.v4.media.session.MediaControllerCompat;
 import android.support.v4.media.session.MediaSessionCompat;
@@ -18,21 +17,13 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import androidx.core.view.InputDeviceCompat;
 import androidx.media.MediaBrowserServiceCompat;
 import androidx.versionedparcelable.VersionedParcelable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class SessionToken implements VersionedParcelable {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_SEND_TOKEN2_FOR_LEGACY_SESSION = 1000;
     public static final String TAG = "SessionToken";
     public static final int TYPE_BROWSER_SERVICE_LEGACY = 101;
@@ -41,7 +32,6 @@ public final class SessionToken implements VersionedParcelable {
     public static final int TYPE_SESSION_LEGACY = 100;
     public static final int TYPE_SESSION_SERVICE = 1;
     public static final long WAIT_TIME_MS_FOR_SESSION_READY = 300;
-    public transient /* synthetic */ FieldHolder $fh;
     public SessionTokenImpl mImpl;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -80,135 +70,60 @@ public final class SessionToken implements VersionedParcelable {
     }
 
     public SessionToken() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public Object getBinder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mImpl.getBinder();
-        }
-        return invokeV.objValue;
+        return this.mImpl.getBinder();
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public ComponentName getComponentName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mImpl.getComponentName();
-        }
-        return (ComponentName) invokeV.objValue;
+        return this.mImpl.getComponentName();
     }
 
     @NonNull
     public Bundle getExtras() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Bundle extras = this.mImpl.getExtras();
-            if (extras != null && !MediaUtils.doesBundleHaveCustomParcelable(extras)) {
-                return new Bundle(extras);
-            }
-            return Bundle.EMPTY;
+        Bundle extras = this.mImpl.getExtras();
+        if (extras != null && !MediaUtils.doesBundleHaveCustomParcelable(extras)) {
+            return new Bundle(extras);
         }
-        return (Bundle) invokeV.objValue;
+        return Bundle.EMPTY;
     }
 
     @NonNull
     public String getPackageName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mImpl.getPackageName();
-        }
-        return (String) invokeV.objValue;
+        return this.mImpl.getPackageName();
     }
 
     @Nullable
     public String getServiceName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mImpl.getServiceName();
-        }
-        return (String) invokeV.objValue;
+        return this.mImpl.getServiceName();
     }
 
     public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.mImpl.getType();
-        }
-        return invokeV.intValue;
+        return this.mImpl.getType();
     }
 
     public int getUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.mImpl.getUid();
-        }
-        return invokeV.intValue;
+        return this.mImpl.getUid();
     }
 
     public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.mImpl.hashCode();
-        }
-        return invokeV.intValue;
+        return this.mImpl.hashCode();
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean isLegacySession() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.mImpl.isLegacySession();
-        }
-        return invokeV.booleanValue;
+        return this.mImpl.isLegacySession();
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.mImpl.toString();
-        }
-        return (String) invokeV.objValue;
+        return this.mImpl.toString();
     }
 
     public SessionToken(@NonNull Context context, @NonNull ComponentName componentName) {
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, componentName};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         if (context != null) {
             if (componentName != null) {
                 PackageManager packageManager = context.getPackageManager();
@@ -236,225 +151,110 @@ public final class SessionToken implements VersionedParcelable {
     }
 
     public SessionToken(SessionTokenImpl sessionTokenImpl) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sessionTokenImpl};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.mImpl = sessionTokenImpl;
     }
 
     public static void quitHandlerThread(HandlerThread handlerThread) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, handlerThread) == null) {
-            if (Build.VERSION.SDK_INT >= 18) {
-                handlerThread.quitSafely();
-            } else {
-                handlerThread.quit();
-            }
+        if (Build.VERSION.SDK_INT >= 18) {
+            handlerThread.quitSafely();
+        } else {
+            handlerThread.quit();
         }
     }
 
     public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (!(obj instanceof SessionToken)) {
-                return false;
-            }
-            return this.mImpl.equals(((SessionToken) obj).mImpl);
+        if (!(obj instanceof SessionToken)) {
+            return false;
         }
-        return invokeL.booleanValue;
+        return this.mImpl.equals(((SessionToken) obj).mImpl);
     }
 
     public static MediaControllerCompat createMediaControllerCompat(Context context, MediaSessionCompat.Token token) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, token)) == null) {
-            return new MediaControllerCompat(context, token);
-        }
-        return (MediaControllerCompat) invokeLL.objValue;
+        return new MediaControllerCompat(context, token);
     }
 
     public static int getUid(PackageManager packageManager, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, packageManager, str)) == null) {
-            try {
-                return packageManager.getApplicationInfo(str, 0).uid;
-            } catch (PackageManager.NameNotFoundException unused) {
-                throw new IllegalArgumentException("Cannot find package " + str);
-            }
+        try {
+            return packageManager.getApplicationInfo(str, 0).uid;
+        } catch (PackageManager.NameNotFoundException unused) {
+            throw new IllegalArgumentException("Cannot find package " + str);
         }
-        return invokeLL.intValue;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public static void createSessionToken(@NonNull Context context, @NonNull MediaSessionCompat.Token token, @NonNull OnSessionTokenCreatedListener onSessionTokenCreatedListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, token, onSessionTokenCreatedListener) == null) {
-            if (context != null) {
-                if (token != null) {
-                    if (onSessionTokenCreatedListener != null) {
-                        VersionedParcelable session2Token = token.getSession2Token();
-                        if (session2Token instanceof SessionToken) {
-                            onSessionTokenCreatedListener.onSessionTokenCreated(token, (SessionToken) session2Token);
-                            return;
-                        }
-                        MediaControllerCompat createMediaControllerCompat = createMediaControllerCompat(context, token);
-                        String packageName = createMediaControllerCompat.getPackageName();
-                        int uid = getUid(context.getPackageManager(), packageName);
-                        HandlerThread handlerThread = new HandlerThread(TAG);
-                        handlerThread.start();
-                        Handler handler = new Handler(handlerThread.getLooper(), onSessionTokenCreatedListener, createMediaControllerCompat, token, packageName, uid, handlerThread) { // from class: androidx.media2.session.SessionToken.1
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ MediaSessionCompat.Token val$compatToken;
-                            public final /* synthetic */ MediaControllerCompat val$controller;
-                            public final /* synthetic */ OnSessionTokenCreatedListener val$listener;
-                            public final /* synthetic */ String val$packageName;
-                            public final /* synthetic */ HandlerThread val$thread;
-                            public final /* synthetic */ int val$uid;
-
-                            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                            {
-                                super(r7);
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {r7, onSessionTokenCreatedListener, createMediaControllerCompat, token, packageName, Integer.valueOf(uid), handlerThread};
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i = newInitContext.flag;
-                                    if ((i & 1) != 0) {
-                                        int i2 = i & 2;
-                                        super((Looper) newInitContext.callArgs[0]);
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.val$listener = onSessionTokenCreatedListener;
-                                this.val$controller = createMediaControllerCompat;
-                                this.val$compatToken = token;
-                                this.val$packageName = packageName;
-                                this.val$uid = uid;
-                                this.val$thread = handlerThread;
-                            }
-
-                            @Override // android.os.Handler
-                            public void handleMessage(Message message) {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
-                                    synchronized (this.val$listener) {
-                                        if (message.what != 1000) {
-                                            return;
-                                        }
-                                        this.val$controller.unregisterCallback((MediaControllerCompat.Callback) message.obj);
-                                        SessionToken sessionToken = new SessionToken(new SessionTokenImplLegacy(this.val$compatToken, this.val$packageName, this.val$uid, this.val$controller.getSessionInfo()));
-                                        this.val$compatToken.setSession2Token(sessionToken);
-                                        this.val$listener.onSessionTokenCreated(this.val$compatToken, sessionToken);
-                                        SessionToken.quitHandlerThread(this.val$thread);
-                                    }
-                                }
-                            }
-                        };
-                        MediaControllerCompat.Callback callback = new MediaControllerCompat.Callback(onSessionTokenCreatedListener, handler, createMediaControllerCompat, token, packageName, uid, handlerThread) { // from class: androidx.media2.session.SessionToken.2
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ MediaSessionCompat.Token val$compatToken;
-                            public final /* synthetic */ MediaControllerCompat val$controller;
-                            public final /* synthetic */ Handler val$handler;
-                            public final /* synthetic */ OnSessionTokenCreatedListener val$listener;
-                            public final /* synthetic */ String val$packageName;
-                            public final /* synthetic */ HandlerThread val$thread;
-                            public final /* synthetic */ int val$uid;
-
-                            {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {onSessionTokenCreatedListener, handler, createMediaControllerCompat, token, packageName, Integer.valueOf(uid), handlerThread};
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i = newInitContext.flag;
-                                    if ((i & 1) != 0) {
-                                        int i2 = i & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.val$listener = onSessionTokenCreatedListener;
-                                this.val$handler = handler;
-                                this.val$controller = createMediaControllerCompat;
-                                this.val$compatToken = token;
-                                this.val$packageName = packageName;
-                                this.val$uid = uid;
-                                this.val$thread = handlerThread;
-                            }
-
-                            @Override // android.support.v4.media.session.MediaControllerCompat.Callback
-                            public void onSessionReady() {
-                                SessionToken sessionToken;
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    synchronized (this.val$listener) {
-                                        this.val$handler.removeMessages(1000);
-                                        this.val$controller.unregisterCallback(this);
-                                        if (this.val$compatToken.getSession2Token() instanceof SessionToken) {
-                                            sessionToken = (SessionToken) this.val$compatToken.getSession2Token();
-                                        } else {
-                                            sessionToken = new SessionToken(new SessionTokenImplLegacy(this.val$compatToken, this.val$packageName, this.val$uid, this.val$controller.getSessionInfo()));
-                                            this.val$compatToken.setSession2Token(sessionToken);
-                                        }
-                                        this.val$listener.onSessionTokenCreated(this.val$compatToken, sessionToken);
-                                        SessionToken.quitHandlerThread(this.val$thread);
-                                    }
-                                }
-                            }
-                        };
-                        synchronized (onSessionTokenCreatedListener) {
-                            createMediaControllerCompat.registerCallback(callback, handler);
-                            handler.sendMessageDelayed(handler.obtainMessage(1000, callback), 300L);
-                        }
+    public static void createSessionToken(@NonNull Context context, @NonNull final MediaSessionCompat.Token token, @NonNull final OnSessionTokenCreatedListener onSessionTokenCreatedListener) {
+        if (context != null) {
+            if (token != null) {
+                if (onSessionTokenCreatedListener != null) {
+                    VersionedParcelable session2Token = token.getSession2Token();
+                    if (session2Token instanceof SessionToken) {
+                        onSessionTokenCreatedListener.onSessionTokenCreated(token, (SessionToken) session2Token);
                         return;
                     }
-                    throw new NullPointerException("listener shouldn't be null");
+                    final MediaControllerCompat createMediaControllerCompat = createMediaControllerCompat(context, token);
+                    final String packageName = createMediaControllerCompat.getPackageName();
+                    final int uid = getUid(context.getPackageManager(), packageName);
+                    final HandlerThread handlerThread = new HandlerThread(TAG);
+                    handlerThread.start();
+                    final Handler handler = new Handler(handlerThread.getLooper()) { // from class: androidx.media2.session.SessionToken.1
+                        @Override // android.os.Handler
+                        public void handleMessage(Message message) {
+                            synchronized (onSessionTokenCreatedListener) {
+                                if (message.what != 1000) {
+                                    return;
+                                }
+                                createMediaControllerCompat.unregisterCallback((MediaControllerCompat.Callback) message.obj);
+                                SessionToken sessionToken = new SessionToken(new SessionTokenImplLegacy(token, packageName, uid, createMediaControllerCompat.getSessionInfo()));
+                                token.setSession2Token(sessionToken);
+                                onSessionTokenCreatedListener.onSessionTokenCreated(token, sessionToken);
+                                SessionToken.quitHandlerThread(handlerThread);
+                            }
+                        }
+                    };
+                    MediaControllerCompat.Callback callback = new MediaControllerCompat.Callback() { // from class: androidx.media2.session.SessionToken.2
+                        @Override // android.support.v4.media.session.MediaControllerCompat.Callback
+                        public void onSessionReady() {
+                            SessionToken sessionToken;
+                            synchronized (OnSessionTokenCreatedListener.this) {
+                                handler.removeMessages(1000);
+                                createMediaControllerCompat.unregisterCallback(this);
+                                if (token.getSession2Token() instanceof SessionToken) {
+                                    sessionToken = (SessionToken) token.getSession2Token();
+                                } else {
+                                    sessionToken = new SessionToken(new SessionTokenImplLegacy(token, packageName, uid, createMediaControllerCompat.getSessionInfo()));
+                                    token.setSession2Token(sessionToken);
+                                }
+                                OnSessionTokenCreatedListener.this.onSessionTokenCreated(token, sessionToken);
+                                SessionToken.quitHandlerThread(handlerThread);
+                            }
+                        }
+                    };
+                    synchronized (onSessionTokenCreatedListener) {
+                        createMediaControllerCompat.registerCallback(callback, handler);
+                        handler.sendMessageDelayed(handler.obtainMessage(1000, callback), 300L);
+                    }
+                    return;
                 }
-                throw new NullPointerException("compatToken shouldn't be null");
+                throw new NullPointerException("listener shouldn't be null");
             }
-            throw new NullPointerException("context shouldn't be null");
+            throw new NullPointerException("compatToken shouldn't be null");
         }
+        throw new NullPointerException("context shouldn't be null");
     }
 
     public static boolean isInterfaceDeclared(PackageManager packageManager, String str, ComponentName componentName) {
-        InterceptResult invokeLLL;
         ServiceInfo serviceInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, packageManager, str, componentName)) == null) {
-            Intent intent = new Intent(str);
-            intent.setPackage(componentName.getPackageName());
-            List<ResolveInfo> queryIntentServices = packageManager.queryIntentServices(intent, 128);
-            if (queryIntentServices != null) {
-                for (int i = 0; i < queryIntentServices.size(); i++) {
-                    ResolveInfo resolveInfo = queryIntentServices.get(i);
-                    if (resolveInfo != null && (serviceInfo = resolveInfo.serviceInfo) != null && TextUtils.equals(serviceInfo.name, componentName.getClassName())) {
-                        return true;
-                    }
+        Intent intent = new Intent(str);
+        intent.setPackage(componentName.getPackageName());
+        List<ResolveInfo> queryIntentServices = packageManager.queryIntentServices(intent, 128);
+        if (queryIntentServices != null) {
+            for (int i = 0; i < queryIntentServices.size(); i++) {
+                ResolveInfo resolveInfo = queryIntentServices.get(i);
+                if (resolveInfo != null && (serviceInfo = resolveInfo.serviceInfo) != null && TextUtils.equals(serviceInfo.name, componentName.getClassName())) {
+                    return true;
                 }
             }
-            return false;
         }
-        return invokeLLL.booleanValue;
+        return false;
     }
 }

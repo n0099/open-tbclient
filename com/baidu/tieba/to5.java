@@ -1,59 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.template.state.ViewType;
+import com.baidu.tieba.uo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class to5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "";
-    public static String b = null;
-    public static String c = null;
-    public static String d = "floor";
+public class to5 extends qo5<xg5, uo5.d> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948187951, "Lcom/baidu/tieba/to5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public to5(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948187951, "Lcom/baidu/tieba/to5;");
+        this.e = tbPageContext;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qo5
+    /* renamed from: g */
+    public void d(ViewType viewType, xg5 xg5Var, uo5.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, xg5Var, dVar) == null) {
+            xg5Var.t(dVar.b);
+            xg5Var.k().setText(dVar.a);
+            xg5Var.onChangeSkinType();
         }
     }
 
-    public static void a(String str, String str2, String str3, int i, x9 x9Var, BaijiahaoData baijiahaoData) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qo5
+    /* renamed from: h */
+    public xg5 f(ViewType viewType, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, Integer.valueOf(i), x9Var, baijiahaoData}) == null) {
-            b = str;
-            c = str2;
-            a = str3;
-            if (!StringUtils.isNull(str3) && x9Var != null && x9Var.getPageActivity() != null) {
-                if (d.equals(a)) {
-                    SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(x9Var.getPageActivity()).createSubPbActivityConfig(b, c, "search_post", true);
-                    createSubPbActivityConfig.setKeyPageStartFrom(8);
-                    createSubPbActivityConfig.setBjhData(baijiahaoData);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
-                    return;
-                }
-                PbActivityConfig createNormalCfg = new PbActivityConfig(x9Var.getPageActivity()).createNormalCfg(b, c, "search_post");
-                createNormalCfg.setStartFrom(8);
-                createNormalCfg.setBjhData(baijiahaoData);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) {
+            return new xg5(this.e.getPageActivity());
         }
+        return (xg5) invokeLL.objValue;
     }
 }

@@ -2,7 +2,6 @@ package com.baidu.ar.seg;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.pixel.PixelRotation;
 import com.baidu.ar.arplay.representation.Vector4f;
 import com.baidu.ar.arrender.j;
@@ -14,81 +13,56 @@ import com.baidu.ar.databasic.AlgoHandleController;
 import com.baidu.ar.lua.LuaMsgListener;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class SegAR extends c {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SegAR";
-    public static final float[] vo;
-    public static final float[] vp;
-    public static final float[] vq;
-    public static final float[] vr;
-    public static final float[] vs;
-    public static final float[] vt;
-    public static final float[] vu;
-    public static final float[] vv;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String bD;
-    public AlgoHandleController cb;
+    public static final float[] vo = {0.0f, -1.0f, 1.0f, 0.0f};
+    public static final float[] vp = {0.0f, 1.0f, -1.0f, 0.0f};
+    public static final float[] vq = {1.0f, 0.0f, 0.0f, -1.0f};
+    public static final float[] vr = {-1.0f, 0.0f, 0.0f, 1.0f};
+    public static final float[] vs = {0.0f, 1.0f, 1.0f, 0.0f};
+    public static final float[] vt = {0.0f, -1.0f, -1.0f, 0.0f};
+    public static final float[] vu = {-1.0f, 0.0f, 0.0f, -1.0f};
+    public static final float[] vv = {1.0f, 0.0f, 0.0f, 1.0f};
     public LuaMsgListener cc;
-
-    /* renamed from: io  reason: collision with root package name */
-    public byte[] f1059io;
     public e mv;
-    public int oU;
-    public boolean pH;
     public SegDetector uY;
-    public boolean uZ;
     public String va;
-    public int vb;
-    public Vector4f vc;
-    public float vd;
-    public float ve;
-    public int vf;
-    public float vg;
-    public float vh;
+    public int oU = 2;
+    public String bD = "ability_image_segmentation";
+    public boolean uZ = true;
+    public boolean pH = true;
+    public int vb = 0;
+    public Vector4f vc = new Vector4f();
+    public float vd = 0.0f;
+    public float ve = 0.0f;
+    public int vf = 0;
+    public float vg = 0.0f;
+    public float vh = 0.0f;
 
     /* renamed from: vi  reason: collision with root package name */
-    public float f1060vi;
-    public float vj;
-    public float vk;
-    public float vl;
-    public float vm;
-    public float vn;
-    public int vw;
-    public int vx;
-    public long vy;
-    public int vz;
+    public float f1034vi = 0.0f;
+    public float vj = 0.0f;
+    public float vk = 0.0f;
+    public float vl = 0.0f;
+    public float vm = 0.0f;
+    public float vn = 1.0f;
+    public int vw = 0;
+    public int vx = 0;
+    public byte[] io = null;
+    public long vy = 0;
+    public AlgoHandleController cb = null;
+    public int vz = -1;
 
     /* renamed from: com.baidu.ar.seg.SegAR$3  reason: invalid class name */
     /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass3 {
-        public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] vB;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1675521680, "Lcom/baidu/ar/seg/SegAR$3;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1675521680, "Lcom/baidu/ar/seg/SegAR$3;");
-                    return;
-                }
-            }
             int[] iArr = new int[PixelRotation.values().length];
             vB = iArr;
             try {
@@ -126,197 +100,96 @@ public class SegAR extends c {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(530099487, "Lcom/baidu/ar/seg/SegAR;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(530099487, "Lcom/baidu/ar/seg/SegAR;");
-                return;
-            }
-        }
-        vo = new float[]{0.0f, -1.0f, 1.0f, 0.0f};
-        vp = new float[]{0.0f, 1.0f, -1.0f, 0.0f};
-        vq = new float[]{1.0f, 0.0f, 0.0f, -1.0f};
-        vr = new float[]{-1.0f, 0.0f, 0.0f, 1.0f};
-        vs = new float[]{0.0f, 1.0f, 1.0f, 0.0f};
-        vt = new float[]{0.0f, -1.0f, -1.0f, 0.0f};
-        vu = new float[]{-1.0f, 0.0f, 0.0f, -1.0f};
-        vv = new float[]{1.0f, 0.0f, 0.0f, 1.0f};
-    }
-
-    public SegAR() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.oU = 2;
-        this.bD = "ability_image_segmentation";
-        this.uZ = true;
-        this.pH = true;
-        this.vb = 0;
-        this.vc = new Vector4f();
-        this.vd = 0.0f;
-        this.ve = 0.0f;
-        this.vf = 0;
-        this.vg = 0.0f;
-        this.vh = 0.0f;
-        this.f1060vi = 0.0f;
-        this.vj = 0.0f;
-        this.vk = 0.0f;
-        this.vl = 0.0f;
-        this.vm = 0.0f;
-        this.vn = 1.0f;
-        this.vw = 0;
-        this.vx = 0;
-        this.f1059io = null;
-        this.vy = 0L;
-        this.cb = null;
-        this.vz = -1;
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public HashMap<String, Object> a(a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, aVar)) == null) {
-            int i = this.oU;
-            if (i != 4) {
-                if (i == 2) {
-                    getImgSegOrientation(aVar.getOrientation());
-                    HashMap<String, Object> hashMap = new HashMap<>();
-                    hashMap.put("u_maskRotate", this.vc);
-                    return hashMap;
-                } else if (i == 5) {
-                    getSkySegOrientation(aVar.getOrientation());
-                    HashMap<String, Object> hashMap2 = new HashMap<>();
-                    hashMap2.put("u_maskRotate", this.vc);
-                    return hashMap2;
-                } else {
-                    return null;
-                }
+        int i = this.oU;
+        if (i != 4) {
+            if (i == 2) {
+                getImgSegOrientation(aVar.getOrientation());
+                HashMap<String, Object> hashMap = new HashMap<>();
+                hashMap.put("u_maskRotate", this.vc);
+                return hashMap;
+            } else if (i == 5) {
+                getSkySegOrientation(aVar.getOrientation());
+                HashMap<String, Object> hashMap2 = new HashMap<>();
+                hashMap2.put("u_maskRotate", this.vc);
+                return hashMap2;
+            } else {
+                return null;
             }
-            getHairSegOrientation(aVar.getOrientation());
-            b(aVar.gc(), aVar.getWidth(), aVar.getHeight());
-            HashMap<String, Object> hashMap3 = new HashMap<>();
-            hashMap3.put("enableSeq", Float.valueOf(1.0f));
-            hashMap3.put("cameraFront", Integer.valueOf(this.pH ? 1 : 0));
-            hashMap3.put("deviceOrientation", Integer.valueOf(this.vb));
-            hashMap3.put("u_maskRotate", this.vc);
-            hashMap3.put("hairBlendType", Integer.valueOf(this.vf));
-            hashMap3.put("hairThreshold", Float.valueOf(this.vd));
-            hashMap3.put("hairBlendAlpha", Float.valueOf(this.ve));
-            hashMap3.put("hairTopPos", Float.valueOf(this.vm));
-            hashMap3.put("hairBottomPos", Float.valueOf(this.vn));
-            hashMap3.put("hairTop", new Vector4f(this.vj, this.vk, this.vl, 1.0f));
-            hashMap3.put("hairBottom", new Vector4f(this.vg, this.vh, this.f1060vi, 1.0f));
-            return hashMap3;
         }
-        return (HashMap) invokeL.objValue;
+        getHairSegOrientation(aVar.getOrientation());
+        b(aVar.gc(), aVar.getWidth(), aVar.getHeight());
+        HashMap<String, Object> hashMap3 = new HashMap<>();
+        hashMap3.put("enableSeq", Float.valueOf(1.0f));
+        hashMap3.put("cameraFront", Integer.valueOf(this.pH ? 1 : 0));
+        hashMap3.put("deviceOrientation", Integer.valueOf(this.vb));
+        hashMap3.put("u_maskRotate", this.vc);
+        hashMap3.put("hairBlendType", Integer.valueOf(this.vf));
+        hashMap3.put("hairThreshold", Float.valueOf(this.vd));
+        hashMap3.put("hairBlendAlpha", Float.valueOf(this.ve));
+        hashMap3.put("hairTopPos", Float.valueOf(this.vm));
+        hashMap3.put("hairBottomPos", Float.valueOf(this.vn));
+        hashMap3.put("hairTop", new Vector4f(this.vj, this.vk, this.vl, 1.0f));
+        hashMap3.put("hairBottom", new Vector4f(this.vg, this.vh, this.f1034vi, 1.0f));
+        return hashMap3;
     }
 
     private void a(PixelRotation pixelRotation) {
         float[] fArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, this, pixelRotation) == null) {
-            switch (AnonymousClass3.vB[pixelRotation.ordinal()]) {
-                case 1:
-                    fArr = vo;
-                    break;
-                case 2:
-                    fArr = vp;
-                    break;
-                case 3:
-                    fArr = vq;
-                    break;
-                case 4:
-                    fArr = vr;
-                    break;
-                case 5:
-                    fArr = vs;
-                    break;
-                case 6:
-                    fArr = vt;
-                    break;
-                case 7:
-                    fArr = vu;
-                    break;
-                default:
-                    fArr = vv;
-                    break;
-            }
-            this.vc.setXYZW(fArr[0], fArr[1], fArr[2], fArr[3]);
+        switch (AnonymousClass3.vB[pixelRotation.ordinal()]) {
+            case 1:
+                fArr = vo;
+                break;
+            case 2:
+                fArr = vp;
+                break;
+            case 3:
+                fArr = vq;
+                break;
+            case 4:
+                fArr = vr;
+                break;
+            case 5:
+                fArr = vs;
+                break;
+            case 6:
+                fArr = vt;
+                break;
+            case 7:
+                fArr = vu;
+                break;
+            default:
+                fArr = vv;
+                break;
         }
+        this.vc.setXYZW(fArr[0], fArr[1], fArr[2], fArr[3]);
     }
 
     private void al() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            if (this.cc == null) {
-                this.cc = new LuaMsgListener(this) { // from class: com.baidu.ar.seg.SegAR.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ SegAR vA;
+        if (this.cc == null) {
+            this.cc = new LuaMsgListener() { // from class: com.baidu.ar.seg.SegAR.2
+                @Override // com.baidu.ar.lua.LuaMsgListener
+                public List<String> getMsgKeyListened() {
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.add("event_name");
+                    return arrayList;
+                }
 
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.vA = this;
+                @Override // com.baidu.ar.lua.LuaMsgListener
+                public void onLuaMessage(HashMap<String, Object> hashMap) {
+                    if ("adjust_hair_segmentation".equals((String) hashMap.get("event_name"))) {
+                        SegAR.this.m(hashMap);
                     }
-
-                    @Override // com.baidu.ar.lua.LuaMsgListener
-                    public List<String> getMsgKeyListened() {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                            ArrayList arrayList = new ArrayList();
-                            arrayList.add("event_name");
-                            return arrayList;
-                        }
-                        return (List) invokeV.objValue;
-                    }
-
-                    @Override // com.baidu.ar.lua.LuaMsgListener
-                    public void onLuaMessage(HashMap<String, Object> hashMap) {
-                        Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) && "adjust_hair_segmentation".equals((String) hashMap.get("event_name"))) {
-                            this.vA.m(hashMap);
-                        }
-                    }
-                };
-            }
-            a(this.cc);
+                }
+            };
         }
+        a(this.cc);
     }
 
     private void b(long j) {
-        AlgoHandleController algoHandleController;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65551, this, j) == null) || (algoHandleController = this.cb) == null || j <= 0) {
+        AlgoHandleController algoHandleController = this.cb;
+        if (algoHandleController == null || j <= 0) {
             return;
         }
         long handleType = algoHandleController.getHandleType(j);
@@ -328,8 +201,7 @@ public class SegAR extends c {
     }
 
     private void b(byte[] bArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65553, this, bArr, i, i2) == null) || bArr == null || i <= 0 || i2 <= 0 || bArr.length < i * i2) {
+        if (bArr == null || i <= 0 || i2 <= 0 || bArr.length < i * i2) {
             return;
         }
         this.vm = c(bArr, i, i2);
@@ -343,46 +215,36 @@ public class SegAR extends c {
     }
 
     private float c(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65555, this, bArr, i, i2)) == null) {
-            int i3 = 0;
-            while (i3 < i2) {
-                for (int i4 = 0; i4 < i; i4++) {
-                    if ((bArr[(i3 * i) + i4] & 255) > ((int) (this.vd * 255.0f))) {
-                        return (i3 >= 3 ? i3 - 3 : 0) / i2;
-                    }
+        int i3 = 0;
+        while (i3 < i2) {
+            for (int i4 = 0; i4 < i; i4++) {
+                if ((bArr[(i3 * i) + i4] & 255) > ((int) (this.vd * 255.0f))) {
+                    return (i3 >= 3 ? i3 - 3 : 0) / i2;
                 }
-                i3 += 3;
             }
-            return 0.0f;
+            i3 += 3;
         }
-        return invokeLII.floatValue;
+        return 0.0f;
     }
 
     private float d(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65557, this, bArr, i, i2)) == null) {
-            int i3 = i2 - 1;
-            for (int i4 = i3; i4 > 0; i4 -= 3) {
-                for (int i5 = 0; i5 < i; i5++) {
-                    if ((bArr[(i4 * i) + i5] & 255) > ((int) (this.vd * 255.0f))) {
-                        int i6 = i4 + 3;
-                        if (i6 <= i3) {
-                            i3 = i6;
-                        }
-                        return i3 / i2;
+        int i3 = i2 - 1;
+        for (int i4 = i3; i4 > 0; i4 -= 3) {
+            for (int i5 = 0; i5 < i; i5++) {
+                if ((bArr[(i4 * i) + i5] & 255) > ((int) (this.vd * 255.0f))) {
+                    int i6 = i4 + 3;
+                    if (i6 <= i3) {
+                        i3 = i6;
                     }
+                    return i3 / i2;
                 }
             }
-            return 1.0f;
         }
-        return invokeLII.floatValue;
+        return 1.0f;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00a9  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00b1  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x00a5  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00ad  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -390,340 +252,287 @@ public class SegAR extends c {
         String str;
         int i;
         int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65564, this, hashMap) == null) {
-            if (com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1) == 5011) {
+        if (com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1) == 5011) {
+            StatisticApi.onEvent(StatisticConstants.MDL_IMG_SEG_OPEN);
+            this.oU = 2;
+            this.vz = 11;
+            this.bD = "ability_image_segmentation";
+            String a = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
+            if (TextUtils.isEmpty(a)) {
+                return;
+            }
+            this.va = a;
+            return;
+        }
+        String a2 = com.baidu.ar.arplay.c.c.a(hashMap.get("event_name"), (String) null);
+        if (a2 == null) {
+            return;
+        }
+        if (a2.equals("start_hair_segmentation")) {
+            StatisticApi.onEvent(StatisticConstants.MDL_HAIR_SEG_OPEN);
+            m(hashMap);
+            this.oU = 4;
+            str = "ability_hair_segmentation";
+        } else if (!a2.equals("start_sky_segmentation")) {
+            if (a2.equals("start_image_segmentation")) {
                 StatisticApi.onEvent(StatisticConstants.MDL_IMG_SEG_OPEN);
+                String a3 = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
+                if (!TextUtils.isEmpty(a3)) {
+                    this.va = a3;
+                }
                 this.oU = 2;
-                this.vz = 11;
                 this.bD = "ability_image_segmentation";
-                String a = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
-                if (TextUtils.isEmpty(a)) {
-                    return;
-                }
-                this.va = a;
-                return;
-            }
-            String a2 = com.baidu.ar.arplay.c.c.a(hashMap.get("event_name"), (String) null);
-            if (a2 == null) {
-                return;
-            }
-            if (a2.equals("start_hair_segmentation")) {
-                StatisticApi.onEvent(StatisticConstants.MDL_HAIR_SEG_OPEN);
-                m(hashMap);
-                this.oU = 4;
-                str = "ability_hair_segmentation";
-            } else if (!a2.equals("start_sky_segmentation")) {
-                if (a2.equals("start_image_segmentation")) {
-                    StatisticApi.onEvent(StatisticConstants.MDL_IMG_SEG_OPEN);
-                    String a3 = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
-                    if (!TextUtils.isEmpty(a3)) {
-                        this.va = a3;
-                    }
-                    this.oU = 2;
-                    this.bD = "ability_image_segmentation";
-                } else {
-                    this.oU = -10;
-                }
-                i = this.oU;
-                if (i != 4) {
-                    i2 = 13;
-                } else if (i != 5) {
-                    this.vz = 11;
-                    return;
-                } else {
-                    i2 = 12;
-                }
-                this.vz = i2;
             } else {
-                StatisticApi.onEvent(StatisticConstants.MDL_SKY_SEG_OPEN);
-                String a4 = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
-                if (!TextUtils.isEmpty(a4)) {
-                    this.va = a4;
-                }
-                this.oU = 5;
-                str = "ability_sky_segmentation";
+                this.oU = -10;
             }
-            this.bD = str;
             i = this.oU;
             if (i != 4) {
+                i2 = 13;
+            } else if (i != 5) {
+                this.vz = 11;
+                return;
+            } else {
+                i2 = 12;
             }
             this.vz = i2;
+        } else {
+            StatisticApi.onEvent(StatisticConstants.MDL_SKY_SEG_OPEN);
+            String a4 = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
+            if (!TextUtils.isEmpty(a4)) {
+                this.va = a4;
+            }
+            this.oU = 5;
+            str = "ability_sky_segmentation";
         }
+        this.bD = str;
+        i = this.oU;
+        if (i != 4) {
+        }
+        this.vz = i2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void m(HashMap<String, Object> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65565, this, hashMap) == null) {
-            String a = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
-            this.vd = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_threshold"), 0.0f);
-            this.ve = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_blend_alpha"), 0.0f);
-            this.vf = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_blend_type"), 0);
-            this.vg = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_r"), 0.0f);
-            this.vh = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_g"), 0.0f);
-            this.f1060vi = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_b"), 0.0f);
-            this.vj = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_r"), 0.0f);
-            this.vk = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_g"), 0.0f);
-            this.vl = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_b"), 0.0f);
-            if (!TextUtils.isEmpty(a)) {
-                this.va = a;
-            }
-            SegDetector segDetector = this.uY;
-            if (segDetector != null) {
-                segDetector.f(this.vd);
-            }
+        String a = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
+        this.vd = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_threshold"), 0.0f);
+        this.ve = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_blend_alpha"), 0.0f);
+        this.vf = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_blend_type"), 0);
+        this.vg = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_r"), 0.0f);
+        this.vh = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_g"), 0.0f);
+        this.f1034vi = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_bottom_color_b"), 0.0f);
+        this.vj = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_r"), 0.0f);
+        this.vk = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_g"), 0.0f);
+        this.vl = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_b"), 0.0f);
+        if (!TextUtils.isEmpty(a)) {
+            this.va = a;
+        }
+        SegDetector segDetector = this.uY;
+        if (segDetector != null) {
+            segDetector.f(this.vd);
         }
     }
 
     @Override // com.baidu.ar.c
     public void a(long j) {
         AlgoHandleController algoHandleController;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            super.a(j);
-            if (j <= 0 || (algoHandleController = this.cb) == null || algoHandleController.getHandleType(j) != this.vz) {
-                return;
-            }
-            b(j);
+        super.a(j);
+        if (j <= 0 || (algoHandleController = this.cb) == null || algoHandleController.getHandleType(j) != this.vz) {
+            return;
         }
+        b(j);
     }
 
     public void getHairSegOrientation(int i) {
         PixelRotation pixelRotation;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (i != 0) {
-                if (i == 90) {
-                    this.vb = this.pH ? 2 : 0;
-                    pixelRotation = this.pH ? PixelRotation.FlipVertical : PixelRotation.NoRotation;
-                } else if (i != 180) {
-                    this.vb = this.pH ? 0 : 2;
-                    pixelRotation = this.pH ? PixelRotation.FlipHorizontal : PixelRotation.Rotate180;
-                } else {
-                    this.vb = 3;
-                    pixelRotation = this.pH ? PixelRotation.RotateRightFlipVertical : PixelRotation.RotateLeft;
-                }
+        if (i != 0) {
+            if (i == 90) {
+                this.vb = this.pH ? 2 : 0;
+                pixelRotation = this.pH ? PixelRotation.FlipVertical : PixelRotation.NoRotation;
+            } else if (i != 180) {
+                this.vb = this.pH ? 0 : 2;
+                pixelRotation = this.pH ? PixelRotation.FlipHorizontal : PixelRotation.Rotate180;
             } else {
-                this.vb = 1;
-                pixelRotation = this.pH ? PixelRotation.RotateRightFlipHorizontal : PixelRotation.RotateRight;
+                this.vb = 3;
+                pixelRotation = this.pH ? PixelRotation.RotateRightFlipVertical : PixelRotation.RotateLeft;
             }
-            a(pixelRotation);
+        } else {
+            this.vb = 1;
+            pixelRotation = this.pH ? PixelRotation.RotateRightFlipHorizontal : PixelRotation.RotateRight;
         }
+        a(pixelRotation);
     }
 
     public void getImgSegOrientation(int i) {
         PixelRotation pixelRotation;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            if (i != 0) {
-                if (i == 1) {
-                    this.vb = this.pH ? 2 : 0;
-                    pixelRotation = this.pH ? PixelRotation.FlipVertical : PixelRotation.NoRotation;
-                } else if (i != 2) {
-                    this.vb = this.pH ? 0 : 2;
-                    pixelRotation = this.pH ? PixelRotation.FlipHorizontal : PixelRotation.Rotate180;
-                } else {
-                    this.vb = this.pH ? 3 : 1;
-                    pixelRotation = this.pH ? PixelRotation.RotateRightFlipVertical : PixelRotation.RotateLeft;
-                }
+        if (i != 0) {
+            if (i == 1) {
+                this.vb = this.pH ? 2 : 0;
+                pixelRotation = this.pH ? PixelRotation.FlipVertical : PixelRotation.NoRotation;
+            } else if (i != 2) {
+                this.vb = this.pH ? 0 : 2;
+                pixelRotation = this.pH ? PixelRotation.FlipHorizontal : PixelRotation.Rotate180;
             } else {
-                this.vb = this.pH ? 1 : 3;
-                pixelRotation = this.pH ? PixelRotation.RotateRightFlipHorizontal : PixelRotation.RotateRight;
+                this.vb = this.pH ? 3 : 1;
+                pixelRotation = this.pH ? PixelRotation.RotateRightFlipVertical : PixelRotation.RotateLeft;
             }
-            a(pixelRotation);
+        } else {
+            this.vb = this.pH ? 1 : 3;
+            pixelRotation = this.pH ? PixelRotation.RotateRightFlipHorizontal : PixelRotation.RotateRight;
         }
+        a(pixelRotation);
     }
 
     public void getSkySegOrientation(int i) {
         PixelRotation pixelRotation;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (i != 0) {
-                if (i == 1) {
-                    this.vb = this.pH ? 2 : 0;
-                    pixelRotation = this.pH ? PixelRotation.FlipVertical : PixelRotation.NoRotation;
-                } else if (i != 2) {
-                    this.vb = this.pH ? 0 : 2;
-                    pixelRotation = this.pH ? PixelRotation.FlipHorizontal : PixelRotation.Rotate180;
-                } else {
-                    this.vb = this.pH ? 3 : 1;
-                    pixelRotation = this.pH ? PixelRotation.RotateRightFlipVertical : PixelRotation.RotateLeft;
-                }
+        if (i != 0) {
+            if (i == 1) {
+                this.vb = this.pH ? 2 : 0;
+                pixelRotation = this.pH ? PixelRotation.FlipVertical : PixelRotation.NoRotation;
+            } else if (i != 2) {
+                this.vb = this.pH ? 0 : 2;
+                pixelRotation = this.pH ? PixelRotation.FlipHorizontal : PixelRotation.Rotate180;
             } else {
-                this.vb = this.pH ? 1 : 3;
-                pixelRotation = this.pH ? PixelRotation.RotateRightFlipHorizontal : PixelRotation.RotateRight;
+                this.vb = this.pH ? 3 : 1;
+                pixelRotation = this.pH ? PixelRotation.RotateRightFlipVertical : PixelRotation.RotateLeft;
             }
-            a(pixelRotation);
+        } else {
+            this.vb = this.pH ? 1 : 3;
+            pixelRotation = this.pH ? PixelRotation.RotateRightFlipHorizontal : PixelRotation.RotateRight;
         }
+        a(pixelRotation);
     }
 
     @Override // com.baidu.ar.c
     public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b(false);
-            com.baidu.ar.h.b.k(TAG, "enableSyncRender false");
-            SegDetector segDetector = this.uY;
-            if (segDetector != null) {
-                segDetector.y(false);
-            }
-            b(this.cc);
-            SegDetector segDetector2 = this.uY;
-            if (segDetector2 != null) {
-                segDetector2.a((AlgoHandleController) null);
-                this.uY.av();
-                a(this.uY);
-            }
-            AlgoHandleController algoHandleController = this.cb;
-            if (algoHandleController != null) {
-                algoHandleController.release();
-                this.cb = null;
-            }
-            l r = r();
-            if (r != null) {
-                r.q(this.vz);
-            }
-            super.release();
+        b(false);
+        com.baidu.ar.h.b.k(TAG, "enableSyncRender false");
+        SegDetector segDetector = this.uY;
+        if (segDetector != null) {
+            segDetector.y(false);
         }
+        b(this.cc);
+        SegDetector segDetector2 = this.uY;
+        if (segDetector2 != null) {
+            segDetector2.a((AlgoHandleController) null);
+            this.uY.av();
+            a(this.uY);
+        }
+        AlgoHandleController algoHandleController = this.cb;
+        if (algoHandleController != null) {
+            algoHandleController.release();
+            this.cb = null;
+        }
+        l r = r();
+        if (r != null) {
+            r.q(this.vz);
+        }
+        super.release();
     }
 
     @Override // com.baidu.ar.c
     public void setup(HashMap<String, Object> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, hashMap) == null) {
-            super.setup(hashMap);
-            String str = TAG;
-            com.baidu.ar.h.b.k(str, "setup(luaParams):" + hashMap.toString());
-            if (this.cb == null) {
-                this.cb = new AlgoHandleController();
-            }
-            l(hashMap);
-            if (this.oU < -1) {
-                String str2 = TAG;
-                com.baidu.ar.h.b.b(str2, "无法解析能力类型 mMdlType:" + this.oU);
-                return;
-            }
-            SegDetector segDetector = new SegDetector(this.oU);
-            this.uY = segDetector;
-            segDetector.a(this.cb);
-            this.mv = new e(this) { // from class: com.baidu.ar.seg.SegAR.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ SegAR vA;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.vA = this;
-                }
-
-                @Override // com.baidu.ar.d.e
-                public void a(com.baidu.ar.d.b bVar) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, bVar) == null) && (bVar instanceof b)) {
-                        b bVar2 = (b) bVar;
-                        if (bVar2.gd() != null) {
-                            if (this.vA.uZ) {
-                                this.vA.uZ = false;
-                                HashMap hashMap2 = new HashMap();
-                                hashMap2.put("event_name", "first_bgseg_detect");
-                                this.vA.d(hashMap2);
-                            }
-                            l r = this.vA.r();
-                            long de = bVar.de();
-                            if (de > 0 && r != null) {
-                                r.a(de, this.vA.bD);
-                                this.vA.a(de);
-                            }
-                            a gd = bVar2.gd();
-                            if (gd != null) {
-                                this.vA.pH = gd.isFrontCamera();
-                                int width = gd.getWidth();
-                                int height = gd.getHeight();
-                                if (gd.getOrientation() == 0 || gd.getOrientation() == 180 || gd.getOrientation() == 2) {
-                                    gd.setWidth(height);
-                                    gd.setHeight(width);
-                                }
-                                if (r != null) {
-                                    this.vA.vw = gd.getWidth();
-                                    this.vA.vx = gd.getHeight();
-                                    this.vA.f1059io = gd.gc();
-                                    this.vA.vy = bVar.getTimestamp();
-                                    if (this.vA.vw <= 0 || this.vA.vx <= 0 || this.vA.f1059io == null) {
-                                        return;
-                                    }
-                                    j jVar = new j();
-                                    jVar.r(this.vA.bD);
-                                    jVar.P(this.vA.va);
-                                    jVar.h(this.vA.a(gd));
-                                    r.a(jVar);
-                                    if (bVar.dd() instanceof o) {
-                                        r.a((o) bVar.dd(), true);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                @Override // com.baidu.ar.d.e
-                public void a(com.baidu.ar.d.l lVar) {
-                    String str3;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) {
-                        String str4 = SegAR.TAG;
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("SegDetector onSetup result:");
-                        if (lVar != null) {
-                            str3 = lVar.dc() + "," + lVar.dk();
-                        } else {
-                            str3 = null;
-                        }
-                        sb.append(str3);
-                        com.baidu.ar.h.b.k(str4, sb.toString());
-                        l r = this.vA.r();
-                        if (r == null || this.vA.uY == null || lVar == null) {
-                            return;
-                        }
-                        r.b(lVar.dk(), this.vA.uY.dj());
-                    }
-                }
-
-                @Override // com.baidu.ar.d.e
-                public void b(com.baidu.ar.d.l lVar) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
-                        String str3 = SegAR.TAG;
-                        com.baidu.ar.h.b.k(str3, "SegDetector onRelease aogoTyope = " + lVar.dk());
-                    }
-                }
-            };
-            b(true);
-            com.baidu.ar.h.b.k(TAG, "enableSyncRender true");
-            SegDetector segDetector2 = this.uY;
-            if (segDetector2 != null) {
-                segDetector2.y(true);
-            }
-            a(this.uY, this.mv);
-            com.baidu.ar.b.a.as().a(getContext(), getMdlConfigs());
-            SegDetector segDetector3 = this.uY;
-            if (segDetector3 != null) {
-                segDetector3.b((Bundle) null);
-            }
-            al();
+        super.setup(hashMap);
+        String str = TAG;
+        com.baidu.ar.h.b.k(str, "setup(luaParams):" + hashMap.toString());
+        if (this.cb == null) {
+            this.cb = new AlgoHandleController();
         }
+        l(hashMap);
+        if (this.oU < -1) {
+            String str2 = TAG;
+            com.baidu.ar.h.b.b(str2, "无法解析能力类型 mMdlType:" + this.oU);
+            return;
+        }
+        SegDetector segDetector = new SegDetector(this.oU);
+        this.uY = segDetector;
+        segDetector.a(this.cb);
+        this.mv = new e() { // from class: com.baidu.ar.seg.SegAR.1
+            @Override // com.baidu.ar.d.e
+            public void a(com.baidu.ar.d.b bVar) {
+                if (bVar instanceof b) {
+                    b bVar2 = (b) bVar;
+                    if (bVar2.gd() != null) {
+                        if (SegAR.this.uZ) {
+                            SegAR.this.uZ = false;
+                            HashMap hashMap2 = new HashMap();
+                            hashMap2.put("event_name", "first_bgseg_detect");
+                            SegAR.this.d(hashMap2);
+                        }
+                        l r = SegAR.this.r();
+                        long de = bVar.de();
+                        if (de > 0 && r != null) {
+                            r.a(de, SegAR.this.bD);
+                            SegAR.this.a(de);
+                        }
+                        a gd = bVar2.gd();
+                        if (gd != null) {
+                            SegAR.this.pH = gd.isFrontCamera();
+                            int width = gd.getWidth();
+                            int height = gd.getHeight();
+                            if (gd.getOrientation() == 0 || gd.getOrientation() == 180 || gd.getOrientation() == 2) {
+                                gd.setWidth(height);
+                                gd.setHeight(width);
+                            }
+                            if (r != null) {
+                                SegAR.this.vw = gd.getWidth();
+                                SegAR.this.vx = gd.getHeight();
+                                SegAR.this.io = gd.gc();
+                                SegAR.this.vy = bVar.getTimestamp();
+                                if (SegAR.this.vw <= 0 || SegAR.this.vx <= 0 || SegAR.this.io == null) {
+                                    return;
+                                }
+                                j jVar = new j();
+                                jVar.r(SegAR.this.bD);
+                                jVar.P(SegAR.this.va);
+                                jVar.h(SegAR.this.a(gd));
+                                r.a(jVar);
+                                if (bVar.dd() instanceof o) {
+                                    r.a((o) bVar.dd(), true);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            @Override // com.baidu.ar.d.e
+            public void a(com.baidu.ar.d.l lVar) {
+                String str3;
+                String str4 = SegAR.TAG;
+                StringBuilder sb = new StringBuilder();
+                sb.append("SegDetector onSetup result:");
+                if (lVar != null) {
+                    str3 = lVar.dc() + "," + lVar.dk();
+                } else {
+                    str3 = null;
+                }
+                sb.append(str3);
+                com.baidu.ar.h.b.k(str4, sb.toString());
+                l r = SegAR.this.r();
+                if (r == null || SegAR.this.uY == null || lVar == null) {
+                    return;
+                }
+                r.b(lVar.dk(), SegAR.this.uY.dj());
+            }
+
+            @Override // com.baidu.ar.d.e
+            public void b(com.baidu.ar.d.l lVar) {
+                String str3 = SegAR.TAG;
+                com.baidu.ar.h.b.k(str3, "SegDetector onRelease aogoTyope = " + lVar.dk());
+            }
+        };
+        b(true);
+        com.baidu.ar.h.b.k(TAG, "enableSyncRender true");
+        SegDetector segDetector2 = this.uY;
+        if (segDetector2 != null) {
+            segDetector2.y(true);
+        }
+        a(this.uY, this.mv);
+        com.baidu.ar.b.a.as().a(getContext(), getMdlConfigs());
+        SegDetector segDetector3 = this.uY;
+        if (segDetector3 != null) {
+            segDetector3.b((Bundle) null);
+        }
+        al();
     }
 }

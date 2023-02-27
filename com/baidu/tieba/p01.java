@@ -2,141 +2,148 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.constants.PlayerStatus;
-import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.tieba.r01;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class p01 {
+public class p01<T extends r01> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public cz0 a;
-    public PlayerStatus b;
-    public StringBuilder c;
+    public final Object[] a;
+    public int b;
+    public int c;
+    public final int d;
 
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public p01() {
+    public p01(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = PlayerStatus.IDLE;
-        d();
+        this.c = 0;
+        i = i <= 0 ? 2 : i;
+        this.d = i;
+        this.a = new Object[i];
     }
 
-    @NonNull
-    public PlayerStatus c() {
+    public final void d(T t) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || e(t)) {
+            return;
+        }
+        int i = this.b;
+        Object[] objArr = this.a;
+        if (i < objArr.length) {
+            objArr[i] = t;
+            this.b = i + 1;
+            return;
+        }
+        int i2 = 0;
+        while (true) {
+            Object[] objArr2 = this.a;
+            if (i2 < objArr2.length - 1) {
+                int i3 = i2 + 1;
+                objArr2[i2] = objArr2[i3];
+                i2 = i3;
+            } else {
+                objArr2[this.b - 1] = t;
+                return;
+            }
+        }
+    }
+
+    public T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (PlayerStatus) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            h();
-            this.b = PlayerStatus.IDLE;
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a = null;
-        }
-    }
-
-    public void a(vv0 vv0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, vv0Var) == null) {
-            if (vv0Var.getType() != 4 && vv0Var.getType() != 2) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b <= 0) {
+                return null;
             }
-            String c = vv0Var.c();
-            char c2 = 65535;
-            switch (c.hashCode()) {
-                case -525235558:
-                    if (c.equals(PlayerEvent.ACTION_ON_PREPARED)) {
-                        c2 = 2;
-                        break;
-                    }
-                    break;
-                case -461848373:
-                    if (c.equals(PlayerEvent.ACTION_ON_ERROR)) {
-                        c2 = 3;
-                        break;
-                    }
-                    break;
-                case 154871702:
-                    if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
-                        c2 = 1;
-                        break;
-                    }
-                    break;
-                case 1370689931:
-                    if (c.equals(PlayerEvent.ACTION_ON_INFO)) {
-                        c2 = 0;
-                        break;
-                    }
-                    break;
+            if (this.c >= this.d) {
+                l11.j("acquire(), active player is overSize : " + this.d);
             }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2) {
-                        if (c2 == 3) {
-                            g(PlayerStatus.ERROR);
-                            return;
-                        }
-                        return;
-                    }
-                    g(PlayerStatus.PREPARED);
-                    return;
-                }
-                g(PlayerStatus.COMPLETE);
-                return;
-            }
-            int g = vv0Var.g(1);
-            if (904 == g || 956 == g) {
-                g(PlayerStatus.PLAYING);
-            }
+            int i = this.b;
+            int i2 = i - 1;
+            Object[] objArr = this.a;
+            T t = (T) objArr[i2];
+            objArr[i2] = null;
+            this.b = i - 1;
+            this.c++;
+            t.onInit();
+            return t;
         }
+        return (T) invokeV.objValue;
     }
 
-    public void b(@NonNull cz0 cz0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cz0Var) == null) {
-            this.a = cz0Var;
-        }
-    }
-
-    public boolean e(@NonNull PlayerStatus... playerStatusArr) {
+    @Nullable
+    public T b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, playerStatusArr)) == null) {
-            for (PlayerStatus playerStatus : playerStatusArr) {
-                if (playerStatus == c()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.b > 0) {
+                if (this.c >= this.d) {
+                    l11.j("acquire(" + str + "), active player is overSize : " + this.d);
+                }
+                int i = -1;
+                for (int i2 = 0; i2 < this.b; i2++) {
+                    if (((r01) this.a[i2]).verify(str)) {
+                        i = i2;
+                    }
+                }
+                if (i != -1) {
+                    this.c++;
+                    Object[] objArr = this.a;
+                    T t = (T) objArr[i];
+                    objArr[i] = null;
+                    while (true) {
+                        int i3 = this.b;
+                        if (i < i3 - 1) {
+                            Object[] objArr2 = this.a;
+                            int i4 = i + 1;
+                            objArr2[i] = objArr2[i4];
+                            i = i4;
+                        } else {
+                            this.a[i3 - 1] = null;
+                            this.b = i3 - 1;
+                            t.onInit();
+                            return t;
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public void c(T t) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || e(t)) {
+            return;
+        }
+        d(t);
+        t.onInit();
+    }
+
+    public final boolean e(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, t)) == null) {
+            for (int i = 0; i < this.b; i++) {
+                if (this.a[i] == t) {
                     return true;
                 }
             }
@@ -145,43 +152,13 @@ public final class p01 {
         return invokeL.booleanValue;
     }
 
-    public void g(PlayerStatus playerStatus) {
-        PlayerStatus playerStatus2;
+    public void f(@NonNull T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, playerStatus) != null) || playerStatus == (playerStatus2 = this.b)) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, t) != null) || e(t)) {
             return;
         }
-        this.b = playerStatus;
-        cz0 cz0Var = this.a;
-        if (cz0Var != null) {
-            cz0Var.d(qv0.w(playerStatus2, playerStatus));
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (at0.f()) {
-                StringBuilder sb = this.c;
-                if (sb == null) {
-                    this.c = new StringBuilder();
-                } else if (sb.length() > 0) {
-                    StringBuilder sb2 = this.c;
-                    sb2.delete(0, sb2.length());
-                }
-                StringBuilder sb3 = this.c;
-                sb3.append("，Courier :");
-                sb3.append(this.a);
-                sb3.append("，status :");
-                sb3.append(this.b);
-                sb3.append("，hash :");
-                sb3.append(hashCode());
-                sb3.append("】");
-                return this.c.toString();
-            }
-            return super.toString();
-        }
-        return (String) invokeV.objValue;
+        d(t);
+        this.c--;
+        t.onRelease();
     }
 }

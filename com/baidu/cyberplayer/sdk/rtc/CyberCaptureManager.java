@@ -2,20 +2,11 @@ package com.baidu.cyberplayer.sdk.rtc;
 
 import android.content.Context;
 import android.view.Surface;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.d;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
 /* loaded from: classes2.dex */
 public class CyberCaptureManager {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public CaptureManagerProvider a;
 
     @Keep
@@ -25,229 +16,165 @@ public class CyberCaptureManager {
     }
 
     public CyberCaptureManager(Context context, int i, int i2, int i3, int i4, int i5, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.a = a.a().a(context, i, i2, i3, i4, i5, z);
     }
 
     public static void enableDebug(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            d.b(z);
-        }
+        d.b(z);
     }
 
     public void destroySurface() {
-        CaptureManagerProvider captureManagerProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (captureManagerProvider = this.a) == null) {
-            return;
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.destroySurface();
         }
-        captureManagerProvider.destroySurface();
     }
 
     public void doAutoFocus() {
-        CaptureManagerProvider captureManagerProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (captureManagerProvider = this.a) == null) {
-            return;
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.doAutoFocus();
         }
-        captureManagerProvider.doAutoFocus();
     }
 
     public void doFocus(int i, int i2, int i3, int i4) {
-        CaptureManagerProvider captureManagerProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) || (captureManagerProvider = this.a) == null) {
-            return;
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.doFocus(i, i2, i3, i4);
         }
-        captureManagerProvider.doFocus(i, i2, i3, i4);
     }
 
     public void enableZoom(boolean z) {
-        CaptureManagerProvider captureManagerProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (captureManagerProvider = this.a) == null) {
-            return;
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.enableZoom(z);
         }
-        captureManagerProvider.enableZoom(z);
     }
 
     public boolean isFrontCamera() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            CaptureManagerProvider captureManagerProvider = this.a;
-            if (captureManagerProvider != null) {
-                return captureManagerProvider.isFrontCamera();
-            }
-            return false;
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            return captureManagerProvider.isFrontCamera();
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public void muteCamera(boolean z) {
-        CaptureManagerProvider captureManagerProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (captureManagerProvider = this.a) == null) {
-            return;
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.muteCamera(z);
         }
-        captureManagerProvider.muteCamera(z);
     }
 
     public void pause() {
-        CaptureManagerProvider captureManagerProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (captureManagerProvider = this.a) == null) {
-            return;
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.pause();
         }
-        captureManagerProvider.pause();
     }
 
     public void release() {
-        CaptureManagerProvider captureManagerProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (captureManagerProvider = this.a) == null) {
-            return;
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.release();
         }
-        captureManagerProvider.release();
     }
 
     public void resume() {
-        CaptureManagerProvider captureManagerProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (captureManagerProvider = this.a) == null) {
-            return;
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.resume();
         }
-        captureManagerProvider.resume();
     }
 
     public void setBeautyBlure(float f) {
-        CaptureManagerProvider captureManagerProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048585, this, f) == null) || (captureManagerProvider = this.a) == null) {
-            return;
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.setBeautyBlure(f);
         }
-        captureManagerProvider.setBeautyBlure(f);
     }
 
     public void setBeautyWhite(float f) {
-        CaptureManagerProvider captureManagerProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048586, this, f) == null) || (captureManagerProvider = this.a) == null) {
-            return;
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.setBeautyWhite(f);
         }
-        captureManagerProvider.setBeautyWhite(f);
     }
 
     public void setCameraFace(boolean z) {
-        CaptureManagerProvider captureManagerProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || (captureManagerProvider = this.a) == null) {
-            return;
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.setCameraFace(z);
         }
-        captureManagerProvider.setCameraFace(z);
     }
 
     public void setCaptureReadyCallback(OnCaptureReadyCallback onCaptureReadyCallback) {
-        CaptureManagerProvider captureManagerProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, onCaptureReadyCallback) == null) || (captureManagerProvider = this.a) == null) {
-            return;
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.setCaptureReadyCallback(onCaptureReadyCallback);
         }
-        captureManagerProvider.setCaptureReadyCallback(onCaptureReadyCallback);
     }
 
     public void setCheekThin(float f) {
-        CaptureManagerProvider captureManagerProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048589, this, f) == null) || (captureManagerProvider = this.a) == null) {
-            return;
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.setCheekThin(f);
         }
-        captureManagerProvider.setCheekThin(f);
     }
 
     public void setEnlargeEye(float f) {
-        CaptureManagerProvider captureManagerProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048590, this, f) == null) || (captureManagerProvider = this.a) == null) {
-            return;
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.setEnlargeEye(f);
         }
-        captureManagerProvider.setEnlargeEye(f);
     }
 
     public void setFlip(boolean z) {
-        CaptureManagerProvider captureManagerProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || (captureManagerProvider = this.a) == null) {
-            return;
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.setFlip(z);
         }
-        captureManagerProvider.setFlip(z);
     }
 
     public void setRtcExternalCapture(CyberRTCRoom cyberRTCRoom) {
-        CaptureManagerProvider captureManagerProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, cyberRTCRoom) == null) || (captureManagerProvider = this.a) == null) {
-            return;
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.setRtcExternalCapture(cyberRTCRoom.getProvider());
         }
-        captureManagerProvider.setRtcExternalCapture(cyberRTCRoom.getProvider());
     }
 
     public void setRtcRemoteFlip(boolean z) {
-        CaptureManagerProvider captureManagerProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048593, this, z) == null) || (captureManagerProvider = this.a) == null) {
-            return;
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.setRtcRemoteFlip(z);
         }
-        captureManagerProvider.setRtcRemoteFlip(z);
     }
 
     public void setSurface(Surface surface) {
-        CaptureManagerProvider captureManagerProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, surface) == null) || (captureManagerProvider = this.a) == null) {
-            return;
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.setSurface(surface);
         }
-        captureManagerProvider.setSurface(surface);
     }
 
     public void setSurfaceSize(int i, int i2) {
-        CaptureManagerProvider captureManagerProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048595, this, i, i2) == null) || (captureManagerProvider = this.a) == null) {
-            return;
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.setSurfaceSize(i, i2);
         }
-        captureManagerProvider.setSurfaceSize(i, i2);
     }
 
     public void switchCamera() {
-        CaptureManagerProvider captureManagerProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (captureManagerProvider = this.a) == null) {
-            return;
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.switchCamera();
         }
-        captureManagerProvider.switchCamera();
     }
 
     public void zoom(int i) {
-        CaptureManagerProvider captureManagerProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048597, this, i) == null) || (captureManagerProvider = this.a) == null) {
-            return;
+        CaptureManagerProvider captureManagerProvider = this.a;
+        if (captureManagerProvider != null) {
+            captureManagerProvider.zoom(i);
         }
-        captureManagerProvider.zoom(i);
     }
 }

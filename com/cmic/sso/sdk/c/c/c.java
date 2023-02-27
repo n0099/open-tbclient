@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.cmic.sso.sdk.auth.AuthnHelper;
 import com.cmic.sso.sdk.c.b.g;
 import com.cmic.sso.sdk.e.e;
-import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
@@ -87,12 +86,12 @@ public class c {
     private void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.c.put(CommandMessage.SDK_VERSION, AuthnHelper.SDK_VERSION);
+            this.c.put(com.heytap.mcssdk.constant.b.C, AuthnHelper.SDK_VERSION);
             this.c.put("Content-Type", "application/json");
             this.c.put("CMCC-EncryptType", "STD");
             this.c.put("traceId", this.f);
             this.c.put("appid", this.i);
-            this.c.put(HTTP.CONN_DIRECTIVE, "close");
+            this.c.put("connection", HTTP.CONN_KEEP_ALIVE);
         }
     }
 

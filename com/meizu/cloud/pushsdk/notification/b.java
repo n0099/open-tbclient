@@ -1,8 +1,10 @@
 package com.meizu.cloud.pushsdk.notification;
 
 import android.app.Notification;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.text.TextUtils;
 import android.widget.RemoteViews;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.model.styleenum.InnerStyleLayout;
@@ -14,9 +16,9 @@ public class b extends com.meizu.cloud.pushsdk.notification.b.c {
     }
 
     @Override // com.meizu.cloud.pushsdk.notification.a
-    public void b(Notification notification, MessageV3 messageV3) {
+    public void a(Notification notification, MessageV3 messageV3, PendingIntent pendingIntent) {
         if (MinSdkChecker.isSupportNotificationBuild()) {
-            Bitmap a = a(messageV3.getmNotificationStyle().getBannerImageUrl());
+            Bitmap a = a(messageV3.getNotificationStyle().getBannerImageUrl());
             if (a() || a == null) {
                 return;
             }
@@ -25,8 +27,8 @@ public class b extends com.meizu.cloud.pushsdk.notification.b.c {
             remoteViews.setViewVisibility(com.meizu.cloud.pushsdk.notification.c.c.j(this.a), 8);
             remoteViews.setViewVisibility(com.meizu.cloud.pushsdk.notification.c.c.i(this.a), 0);
             notification.contentView = remoteViews;
-            if (messageV3.getmNotificationStyle().getInnerStyle() == InnerStyleLayout.EXPANDABLE_PIC.getCode()) {
-                Bitmap a2 = a(messageV3.getmNotificationStyle().getExpandableImageUrl());
+            if (messageV3.getNotificationStyle().getInnerStyle() == InnerStyleLayout.EXPANDABLE_PIC.getCode()) {
+                Bitmap a2 = a(messageV3.getNotificationStyle().getExpandableImageUrl());
                 if (a() || a2 == null) {
                     return;
                 }
@@ -35,6 +37,11 @@ public class b extends com.meizu.cloud.pushsdk.notification.b.c {
                 remoteViews2.setViewVisibility(com.meizu.cloud.pushsdk.notification.c.c.j(this.a), 0);
                 remoteViews2.setViewVisibility(com.meizu.cloud.pushsdk.notification.c.c.i(this.a), 8);
                 notification.bigContentView = remoteViews2;
+                if (messageV3.getAdvertisementOption() == null || TextUtils.isEmpty(messageV3.getAdvertisementOption().getAdInstallPackage())) {
+                    return;
+                }
+                remoteViews2.setViewVisibility(com.meizu.cloud.pushsdk.notification.c.c.m(this.a), 0);
+                remoteViews2.setOnClickPendingIntent(com.meizu.cloud.pushsdk.notification.c.c.m(this.a), pendingIntent);
             }
         }
     }

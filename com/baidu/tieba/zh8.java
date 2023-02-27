@@ -1,49 +1,104 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.net.Uri;
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
+import android.util.DisplayMetrics;
+import androidx.core.view.InputDeviceCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearSmoothScroller;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.model.CheckRealNameModel;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.share.AddExperiencedModel;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.MessageFormat;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class zh8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements DialogInterface.OnDismissListener {
+    public static class a extends LinearSmoothScroller {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PbModel a;
-        public final /* synthetic */ AbsPbActivity b;
-        public final /* synthetic */ View c;
+        public final /* synthetic */ BdTypeRecyclerView a;
 
-        public a(PbModel pbModel, AbsPbActivity absPbActivity, View view2) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
+            super(context);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pbModel, absPbActivity, view2};
+                Object[] objArr = {context, bdTypeRecyclerView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bdTypeRecyclerView;
+        }
+
+        @Override // androidx.recyclerview.widget.LinearSmoothScroller
+        public int calculateDtToFit(int i, int i2, int i3, int i4, int i5) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
+                int calculateDtToFit = super.calculateDtToFit(i, i2, i3, i4, i5);
+                if (calculateDtToFit == 0) {
+                    return calculateDtToFit;
+                }
+                int[] iArr = new int[2];
+                this.a.getLocationOnScreen(iArr);
+                return ((calculateDtToFit - zh8.a) - ((iArr[1] + this.a.getHeight()) - ej.j(TbadkCoreApplication.getInst().getApp()))) + ui.b(TbadkCoreApplication.getInst().getApp());
+            }
+            return invokeCommon.intValue;
+        }
+
+        @Override // androidx.recyclerview.widget.LinearSmoothScroller
+        public float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
+            InterceptResult invokeL;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, displayMetrics)) == null) {
+                if (displayMetrics != null && (i = displayMetrics.densityDpi) != 0) {
+                    return 300.0f / i;
+                }
+                return super.calculateSpeedPerPixel(displayMetrics);
+            }
+            return invokeL.floatValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BdTypeRecyclerView a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ LinearSmoothScroller c;
+
+        public b(BdTypeRecyclerView bdTypeRecyclerView, String str, LinearSmoothScroller linearSmoothScroller) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdTypeRecyclerView, str, linearSmoothScroller};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,211 +108,217 @@ public class zh8 {
                     return;
                 }
             }
-            this.a = pbModel;
-            this.b = absPbActivity;
-            this.c = view2;
+            this.a = bdTypeRecyclerView;
+            this.b = str;
+            this.c = linearSmoothScroller;
         }
 
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            PbModel pbModel;
-            View view2;
+        @Override // java.lang.Runnable
+        public void run() {
+            int b;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) && (pbModel = this.a) != null && pbModel.l1() != null && this.a.l1().y0() && !TbSingleton.getInstance().isNotchScreen(this.b) && !TbSingleton.getInstance().isCutoutScreen(this.b) && (view2 = this.c) != null) {
-                view2.setSystemUiVisibility(4);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (b = zh8.b(this.a, this.b)) >= 0) {
+                this.c.setTargetPosition(b);
+                RecyclerView.LayoutManager layoutManager = this.a.getLayoutManager();
+                if (layoutManager != null) {
+                    layoutManager.startSmoothScroll(this.c);
+                }
             }
         }
     }
 
-    public static int a(ThreadData threadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, threadData)) == null) {
-            if (threadData == null) {
-                return 0;
+    /* loaded from: classes7.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BdTypeRecyclerView a;
+        public final /* synthetic */ int b;
+
+        public c(BdTypeRecyclerView bdTypeRecyclerView, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdTypeRecyclerView, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (threadData.isVideoWorksInfo()) {
-                return 11;
-            }
-            if (threadData.isBJHArticleThreadType()) {
-                return 10;
-            }
-            if (threadData.isBJHVideoThreadType()) {
-                return 9;
-            }
-            if (threadData.isBJHVideoDynamicThreadType()) {
-                return 8;
-            }
-            if (threadData.isBJHNormalThreadType()) {
-                return 7;
-            }
-            if (threadData.isShareThread) {
-                return 6;
-            }
-            int i = threadData.threadType;
-            if (i == 0) {
-                return 1;
-            }
-            if (i == 40) {
-                return 2;
-            }
-            if (i == 49) {
-                return 3;
-            }
-            if (i == 54) {
-                return 4;
-            }
-            return 5;
+            this.a = bdTypeRecyclerView;
+            this.b = i;
         }
-        return invokeL.intValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.smoothScrollToPosition(this.b - 1);
+            }
+        }
     }
 
-    public static int b(v98 v98Var) {
-        InterceptResult invokeL;
-        ThreadData Q;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, v98Var)) == null) {
-            if (v98Var != null && (Q = v98Var.Q()) != null) {
-                if (Q.isRealGod()) {
-                    return 4;
-                }
-                if (Q.getIsLive() == 1) {
-                    return 3;
-                }
-                if (Q.isBJHArticleThreadType()) {
-                    return 5;
-                }
-                if (Q.isBJHVideoThreadType()) {
-                    return 6;
-                }
-                if (Q.isBJHNormalThreadType()) {
-                    return 7;
-                }
-                if (Q.isBJHVideoDynamicThreadType()) {
-                    return 8;
-                }
-                if (!Q.isRealVideoThread()) {
-                    return 1;
-                }
-                return 2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948360063, "Lcom/baidu/tieba/zh8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void c(AbsPbActivity absPbActivity, int i, int i2) {
-        String F1;
-        String str;
-        Uri parse;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65538, null, absPbActivity, i, i2) == null) && absPbActivity != null && absPbActivity.H1() != null) {
-            PbModel H1 = absPbActivity.H1();
-            View rootView = absPbActivity.getRootView();
-            if (!H1.a()) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948360063, "Lcom/baidu/tieba/zh8;");
                 return;
             }
-            TiebaStatic.eventStat(absPbActivity, CheckRealNameModel.TYPE_PB_SHARE, "pbclick", 1, new Object[0]);
-            v98 l1 = H1.l1();
-            String title = l1.Q().getTitle();
-            boolean O0 = H1.O0();
-            if (l1.l() != null) {
-                if (l1.l().isLike() == 1) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    AddExperiencedModel.L(l1.m());
-                }
-            }
-            ThreadData Q = H1.l1().Q();
-            if (Q.isUgcThreadType()) {
-                F1 = Q.getBaijiahaoData().oriUgcTid;
-                str = "?share=9105&fr=dshare&see_lz=" + (O0 ? 1 : 0) + "&dtype=" + Q.getBaijiahaoData().oriUgcType + "&dvid=" + Q.getBaijiahaoData().oriUgcVid + "&nid=" + Q.getBaijiahaoData().oriUgcNid;
-            } else {
-                F1 = H1.F1();
-                str = "?share=9105&fr=sharewise&see_lz=" + (O0 ? 1 : 0);
-            }
-            String str2 = TbConfig.HTTPS_PB_PREFIX + F1 + (str + "&share_from=post");
-            String[] O = l1.O();
-            String str3 = O[0];
-            if (!StringUtils.isNull(str3) && str3.startsWith(TbConfig.URL_IMAGE_PREFIX)) {
-                str3 = str3.substring(37);
-            }
-            if (str3 == null) {
-                parse = null;
-            } else {
-                parse = Uri.parse(str3);
-            }
-            String str4 = O[1];
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (i == 1) {
-                xg8.u("c10399", l1.m(), l1.S(), currentAccount);
-            }
-            String string = TbadkCoreApplication.getInst().getResources().getString(R.string.default_share_content_tpl);
-            if (l1.l0() && Q.getAuthor() != null) {
-                if (TextUtils.isEmpty(title) || TextUtils.isEmpty(str4) || Q.isBJHVideoDynamicThreadType() || Q.isBJHVideoThreadType()) {
-                    if (TextUtils.isEmpty(title)) {
-                        title = O[1];
+        }
+        a = ej.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds150);
+        b = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds562);
+    }
+
+    public static boolean a(BdTypeRecyclerView bdTypeRecyclerView) {
+        InterceptResult invokeL;
+        List<Cdo> data;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bdTypeRecyclerView)) == null) {
+            if (bdTypeRecyclerView != null && (data = bdTypeRecyclerView.getData()) != null && data.size() > 0) {
+                for (int i = 0; i < data.size(); i++) {
+                    Cdo cdo = data.get(i);
+                    if ((cdo instanceof PostData) && cdo.getType() == PostData.Q0) {
+                        return true;
                     }
-                    str4 = MessageFormat.format(string, Q.getAuthor().getName_show(), TbadkCoreApplication.getInst().getResources().getString(R.string.default_share_content_tpl_suffix));
                 }
-            } else if (dj.isEmpty(str4)) {
-                str4 = title;
             }
-            String cutString = dj.cutString(title, 100);
-            String cutString2 = dj.cutString(str4, 100);
-            ShareItem shareItem = new ShareItem();
-            shareItem.v = cutString;
-            shareItem.w = cutString2;
-            if (l1.l0()) {
-                shareItem.H = cutString2;
-                shareItem.W = -1L;
-            } else if (l1.Q() != null && l1.Q().getThreadVideoInfo() != null && !l1.Q().isUgcThreadType()) {
-                shareItem.W = l1.Q().getThreadVideoInfo().play_count.intValue();
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int c(BdTypeRecyclerView bdTypeRecyclerView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bdTypeRecyclerView)) == null) {
+            if (bdTypeRecyclerView == null) {
+                return -1;
             }
-            shareItem.x = str2;
-            shareItem.c = true;
-            shareItem.u = H1.F1();
-            shareItem.J = 3;
-            shareItem.I = i2;
-            shareItem.N = H1.getForumId();
-            shareItem.O = H1.F1();
-            shareItem.R = b(l1);
-            shareItem.S = TbadkCoreApplication.getCurrentAccount();
-            if (parse != null) {
-                shareItem.z = parse;
+            List<Cdo> data = bdTypeRecyclerView.getData();
+            int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
+            if (data != null && data.size() > 0) {
+                int size = data.size();
+                for (int i = 0; i < size; i++) {
+                    if (data.get(i) instanceof ud8) {
+                        return i + headerViewsCount;
+                    }
+                }
             }
-            if (i2 == 2) {
-                shareItem.J = H1.P0();
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int b(BdTypeRecyclerView bdTypeRecyclerView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bdTypeRecyclerView, str)) == null) {
+            if (bdTypeRecyclerView != null && !TextUtils.isEmpty(str)) {
+                List<Cdo> data = bdTypeRecyclerView.getData();
+                int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
+                if (data != null && data.size() > 0) {
+                    int size = data.size();
+                    for (int i = 0; i < size; i++) {
+                        Cdo cdo = data.get(i);
+                        if ((cdo instanceof PostData) && cdo.getType() == PostData.Q0 && str.equals(((PostData) cdo).O())) {
+                            return i + headerViewsCount;
+                        }
+                    }
+                }
             }
-            if (l1.l0()) {
-                shareItem.v0 = false;
+            return -1;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static int d(BdTypeRecyclerView bdTypeRecyclerView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bdTypeRecyclerView)) == null) {
+            if (bdTypeRecyclerView == null) {
+                return -1;
             }
-            shareItem.a0 = OriginalThreadInfo.ShareInfo.generateShareInfo(Q);
-            if (l1 != null && l1.H() != null && l1.H().size() > 0) {
-                shareItem.d0 = ShareItem.ForwardInfo.generateForwardInfo(Q, 1, l1.H().get(0));
-            } else {
-                shareItem.d0 = ShareItem.ForwardInfo.generateForwardInfo(Q, 1, null);
+            List<Cdo> data = bdTypeRecyclerView.getData();
+            int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
+            if (data != null && data.size() > 0) {
+                int size = data.size();
+                for (int i = 0; i < size; i++) {
+                    Cdo cdo = data.get(i);
+                    if ((cdo instanceof ud8) && ((ud8) cdo).b == ud8.j) {
+                        return i + headerViewsCount;
+                    }
+                }
             }
-            TbadkCoreApplication.getInst().setShareItem(shareItem);
-            if (Q != null) {
-                shareItem.t0 = Q.getShareImageUrl();
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void e(BdTypeRecyclerView bdTypeRecyclerView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65541, null, bdTypeRecyclerView) != null) || bdTypeRecyclerView == null) {
+            return;
+        }
+        int d = d(bdTypeRecyclerView);
+        if (d < 0) {
+            d = c(bdTypeRecyclerView);
+        }
+        if (d >= 0) {
+            RecyclerView.LayoutManager layoutManager = bdTypeRecyclerView.getLayoutManager();
+            if (layoutManager instanceof LinearLayoutManager) {
+                ((LinearLayoutManager) layoutManager).scrollToPositionWithOffset(d, 0);
             }
-            shareItem.K = a(Q);
-            Bundle bundle = new Bundle();
-            bundle.putInt("obj_param1", shareItem.J);
-            bundle.putInt("obj_type", shareItem.R);
-            bundle.putString("fid", shareItem.N);
-            bundle.putString("tid", shareItem.O);
-            bundle.putString("uid", shareItem.S);
-            shareItem.l(bundle);
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) absPbActivity, shareItem, true, true);
-            shareDialogConfig.setOnDismissListener(new a(H1, absPbActivity, rootView));
-            shareDialogConfig.setFrom(ShareDialogConfig.From.PB);
-            cf6.c().l(shareDialogConfig);
+        }
+    }
+
+    public static void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65545, null, i) == null) {
+            b = i;
+        }
+    }
+
+    public static void f(BdTypeRecyclerView bdTypeRecyclerView, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, bdTypeRecyclerView, str) == null) && bdTypeRecyclerView != null && !TextUtils.isEmpty(str)) {
+            e(bdTypeRecyclerView);
+            bdTypeRecyclerView.post(new c(bdTypeRecyclerView, b(bdTypeRecyclerView, str)));
+        }
+    }
+
+    public static void g(BdTypeRecyclerView bdTypeRecyclerView, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65543, null, bdTypeRecyclerView, str) != null) || bdTypeRecyclerView == null) {
+            return;
+        }
+        bdTypeRecyclerView.getLayoutManager().scrollToPosition(b(bdTypeRecyclerView, str));
+    }
+
+    public static void h(BdTypeRecyclerView bdTypeRecyclerView, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(65544, null, bdTypeRecyclerView, str, z) == null) && bdTypeRecyclerView != null && !TextUtils.isEmpty(str)) {
+            a aVar = new a(bdTypeRecyclerView.getContext(), bdTypeRecyclerView);
+            e(bdTypeRecyclerView);
+            if (z) {
+                int b2 = b(bdTypeRecyclerView, str);
+                RecyclerView.LayoutManager layoutManager = bdTypeRecyclerView.getLayoutManager();
+                if (layoutManager instanceof LinearLayoutManager) {
+                    ((LinearLayoutManager) layoutManager).scrollToPositionWithOffset(b2, (UtilHelper.getScreenHeight(bdTypeRecyclerView.getContext()) - b) / 5);
+                    return;
+                }
+                return;
+            }
+            gh.a().post(new b(bdTypeRecyclerView, str, aVar));
         }
     }
 }

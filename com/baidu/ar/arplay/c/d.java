@@ -5,101 +5,48 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.arplay.c.e;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d extends BroadcastReceiver {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String TAG;
-    public static boolean fQ;
     public static e.a fR;
-    public static ArrayList<a> fS;
     public static volatile BroadcastReceiver fT;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1109084131, "Lcom/baidu/ar/arplay/c/d;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1109084131, "Lcom/baidu/ar/arplay/c/d;");
-                return;
-            }
-        }
-        TAG = d.class.getSimpleName();
-        fQ = false;
-        fS = new ArrayList<>();
-    }
-
-    public d() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    public static final String TAG = d.class.getSimpleName();
+    public static boolean fQ = false;
+    public static ArrayList<a> fS = new ArrayList<>();
 
     public static void a(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
-            if (fS == null) {
-                fS = new ArrayList<>();
-            }
-            fS.add(aVar);
+        if (fS == null) {
+            fS = new ArrayList<>();
         }
+        fS.add(aVar);
     }
 
     public static void b(a aVar) {
-        ArrayList<a> arrayList;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, aVar) == null) && (arrayList = fS) != null && arrayList.contains(aVar)) {
-            fS.remove(aVar);
+        ArrayList<a> arrayList = fS;
+        if (arrayList == null || !arrayList.contains(aVar)) {
+            return;
         }
+        fS.remove(aVar);
     }
 
     public static BroadcastReceiver bj() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (fT == null) {
-                synchronized (d.class) {
-                    if (fT == null) {
-                        fT = new d();
-                    }
+        if (fT == null) {
+            synchronized (d.class) {
+                if (fT == null) {
+                    fT = new d();
                 }
             }
-            return fT;
         }
-        return (BroadcastReceiver) invokeV.objValue;
+        return fT;
     }
 
     public static boolean bk() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? fQ : invokeV.booleanValue;
+        return fQ;
     }
 
     private void bl() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || fS.isEmpty()) {
+        if (fS.isEmpty()) {
             return;
         }
         int size = fS.size();
@@ -116,19 +63,15 @@ public class d extends BroadcastReceiver {
     }
 
     public static void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("com.baidu.ar.baiduarsdk.CONNECTIVITY_CHANGE");
-            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            context.getApplicationContext().registerReceiver(bj(), intentFilter);
-        }
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.baidu.ar.baiduarsdk.CONNECTIVITY_CHANGE");
+        intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+        context.getApplicationContext().registerReceiver(bj(), intentFilter);
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null) {
+        if (intent == null) {
             return;
         }
         fT = this;

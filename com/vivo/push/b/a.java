@@ -1,6 +1,7 @@
 package com.vivo.push.b;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.ctrl.model.TaskProcess;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,7 +50,7 @@ public final class a extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            aVar.a("tags", this.a);
+            aVar.a(TaskProcess.keyTags, this.a);
         }
     }
 
@@ -58,7 +59,7 @@ public final class a extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             super.d(aVar);
-            this.a = aVar.c("tags");
+            this.a = aVar.c(TaskProcess.keyTags);
         }
     }
 

@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import java.util.HashMap;
+import com.baidu.tieba.ri5;
 /* loaded from: classes6.dex */
-public interface si5 extends ni5 {
-    HashMap<String, Object> B();
-
-    HashMap<String, String> E();
+public interface si5<T extends ri5> {
+    boolean onEvent(T t);
 }

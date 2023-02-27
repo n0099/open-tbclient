@@ -1,41 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.android.util.connect.IDoveIoc;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
-/* loaded from: classes6.dex */
-public class qo9 implements IDoveIoc {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import java.util.List;
+/* loaded from: classes5.dex */
+public interface qo9<D> {
+    void a(@NonNull WriteData writeData);
 
-    @Override // com.baidu.android.util.connect.IDoveIoc
-    public boolean enableDoveOpt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    void c(WriteData writeData);
 
-    public qo9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void d();
+
+    void e(@NonNull WriteData writeData);
+
+    boolean g();
+
+    void h(@Nullable String str, @NonNull WriteData writeData);
+
+    void j(@NonNull so9 so9Var);
+
+    void m(Bundle bundle, Intent intent, @NonNull WriteData writeData);
+
+    boolean o();
+
+    void onActivityResult(int i, int i2, Intent intent);
+
+    void onChangeSkinType(int i);
+
+    void onPause();
+
+    void onResume();
+
+    void onSaveInstanceState(Bundle bundle);
+
+    void q(@NonNull List<qo9<?>> list);
+
+    void r(yc5 yc5Var);
+
+    View s(@NonNull ViewGroup viewGroup);
+
+    boolean t();
 }

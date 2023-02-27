@@ -25,9 +25,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.on;
+import com.baidu.tieba.q96;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yg;
-import com.baidu.tieba.z76;
 import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -43,7 +43,7 @@ public class AlaEffectPreviewView extends LinearLayout {
     public View c;
     public ImageView d;
     public TextView e;
-    public z76.c f;
+    public q96.c f;
     public ObjectAnimator g;
     public LinearLayout h;
     public ImageView i;
@@ -324,7 +324,7 @@ public class AlaEffectPreviewView extends LinearLayout {
         e();
     }
 
-    public void setAnimCompleteCallback(z76.c cVar) {
+    public void setAnimCompleteCallback(q96.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             this.f = cVar;
@@ -334,7 +334,7 @@ public class AlaEffectPreviewView extends LinearLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d00ef, this);
+            this.c = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d00f0, this);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901e3);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0901e2);
             this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0901c9);

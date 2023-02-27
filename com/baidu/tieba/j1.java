@@ -1,5 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface j1 {
     void a(String str, String str2, Throwable th);
 

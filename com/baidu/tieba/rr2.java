@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.tieba.cu2;
-import com.baidu.tieba.ur2;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,15 +12,48 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.nio.channels.Pipe;
 /* loaded from: classes6.dex */
-public class rr2 extends ur2.f {
+public class rr2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final vr2 a;
+    public static volatile vr2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
-    public final og4 e;
+
+    /* loaded from: classes6.dex */
+    public static class a implements fo3<HybridUbcFlow> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fo3
+        /* renamed from: b */
+        public void a(HybridUbcFlow hybridUbcFlow) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
+                if (!TextUtils.equals(hybridUbcFlow.m().optString("type"), "3") && !hybridUbcFlow.p("na_first_meaningful_paint")) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                rr2.b().b(z, hybridUbcFlow);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,73 +68,57 @@ public class rr2 extends ur2.f {
                 return;
             }
         }
-        f = gp1.a;
+        wr2 wr2Var = new wr2();
+        a = wr2Var;
+        b = wr2Var;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rr2(String str, og4 og4Var) {
-        super("check_sign");
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, og4Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            b().c();
         }
-        this.d = str;
-        this.e = og4Var;
     }
 
-    @Override // com.baidu.tieba.ur2.f
-    public boolean g(Pipe.SourceChannel sourceChannel, Bundle bundle) {
-        InterceptResult invokeLL;
-        pk3 pk3Var;
+    @NonNull
+    public static vr2 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sourceChannel, bundle)) == null) {
-            bu2 d = bu2.d(bundle.getString("launch_id"));
-            cu2.b e = d.e();
-            e.b("SignChecker");
-            boolean z = true;
-            e.d(1);
-            long currentTimeMillis = System.currentTimeMillis();
-            try {
-                try {
-                    pk3Var = oc2.a(sourceChannel, this.d, this.e);
-                } catch (IOException e2) {
-                    if (f) {
-                        e2.printStackTrace();
-                    }
-                    pk3 pk3Var2 = new pk3();
-                    pk3Var2.k(11L);
-                    pk3Var2.i(2300L);
-                    pk3Var2.f("inputStream IOException:" + e2.toString());
-                    tk3.a().f(pk3Var2);
-                    d.g("SignChecker", pk3Var2.toString());
-                    jn3.a(sourceChannel);
-                    pk3Var = pk3Var2;
-                }
-                d.g("SignChecker", "Cost: " + (System.currentTimeMillis() - currentTimeMillis));
-                if (pk3Var != null) {
-                    z = false;
-                }
-                if (pk3Var != null) {
-                    d.g("SignChecker", pk3Var.toString());
-                    c().putLong("result_error_code", pk3Var.a());
-                }
-                d.g("SignChecker", "done: " + z);
-                return z;
-            } finally {
-                jn3.a(sourceChannel);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return (vr2) invokeV.objValue;
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            f(a);
+        }
+    }
+
+    public static void c(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(65539, null, i) == null) && i != 3) {
+            b().c();
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            if (TextUtils.equals(str, "3")) {
+                f(new ur2(str));
+            } else {
+                f(new tr2(str));
             }
         }
-        return invokeLL.booleanValue;
+    }
+
+    public static void f(@NonNull vr2 vr2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, vr2Var) == null) {
+            b = vr2Var;
+        }
     }
 }

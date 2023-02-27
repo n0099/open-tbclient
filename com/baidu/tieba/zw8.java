@@ -1,19 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zw8 implements e20 {
+public class zw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
 
     public zw8() {
         Interceptable interceptable = $ic;
@@ -29,13 +28,19 @@ public class zw8 implements e20 {
         }
     }
 
-    @Override // com.baidu.tieba.e20
-    public String getAppVersion() {
-        InterceptResult invokeV;
+    public static zw8 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return TbConfig.getVersion();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            zw8 zw8Var = new zw8();
+            zw8Var.a = jSONObject.optString("apk_name");
+            zw8Var.b = jSONObject.optString("apk_url");
+            zw8Var.c = jSONObject.optString("download_key");
+            return zw8Var;
         }
-        return (String) invokeV.objValue;
+        return (zw8) invokeL.objValue;
     }
 }

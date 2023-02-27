@@ -16,19 +16,10 @@ import android.util.AttributeSet;
 import android.util.Pair;
 import android.view.MotionEvent;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.nm3;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.dn3;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes3.dex */
 public class DrawableCenterTextView extends TextView {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public GradientDrawable a;
     public Paint b;
     public Pair<Object, Object> c;
@@ -43,46 +34,34 @@ public class DrawableCenterTextView extends TextView {
     public float l;
     public boolean m;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DrawableCenterTextView(Context context) {
         this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    }
+
+    public void b(int i) {
+        this.k = i;
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onDraw(Canvas canvas) {
+        f(canvas);
+        h(canvas);
+        super.onDraw(canvas);
+    }
+
+    public void setAnimationModeActive(boolean z) {
+        this.m = z;
+    }
+
+    public void setAnimationPercent(float f) {
+        if (this.l != f) {
+            this.l = f;
+            postInvalidate();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DrawableCenterTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.a = new GradientDrawable();
         this.b = null;
         new Path();
@@ -93,8 +72,7 @@ public class DrawableCenterTextView extends TextView {
     }
 
     public final void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a == null) {
+        if (this.a == null) {
             return;
         }
         int[] iArr = {getWidth(), getHeight()};
@@ -106,41 +84,8 @@ public class DrawableCenterTextView extends TextView {
         this.a.setBounds(width - (iArr[0] / 2), 0, width + (iArr[0] / 2), getHeight());
     }
 
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.k = i;
-        }
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
-            f(canvas);
-            h(canvas);
-            super.onDraw(canvas);
-        }
-    }
-
-    public void setAnimationModeActive(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.m = z;
-        }
-    }
-
-    public void setAnimationPercent(float f) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048587, this, f) == null) && this.l != f) {
-            this.l = f;
-            postInvalidate();
-        }
-    }
-
     public void c(Drawable drawable, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, drawable, i, i2, i3) == null) && drawable != null && i > -1 && i <= 3) {
+        if (drawable != null && i > -1 && i <= 3) {
             if (i2 <= 0 || i3 <= 0) {
                 i2 = drawable.getIntrinsicWidth();
                 i3 = drawable.getIntrinsicHeight();
@@ -165,9 +110,43 @@ public class DrawableCenterTextView extends TextView {
         }
     }
 
+    @Override // android.widget.TextView
+    public void setShadowLayer(float f, float f2, float f3, int i) {
+        int i2;
+        int i3;
+        int i4;
+        d();
+        RectF rectF = new RectF(f, f, f, f);
+        rectF.offset(f2, f3);
+        float f4 = rectF.left;
+        int i5 = 0;
+        if (f4 < 0.0f) {
+            i2 = 0;
+        } else {
+            i2 = (int) (f4 + 0.5f);
+        }
+        float f5 = rectF.right;
+        if (f5 < 0.0f) {
+            i3 = 0;
+        } else {
+            i3 = (int) (f5 + 0.5f);
+        }
+        float f6 = rectF.top;
+        if (f6 < 0.0f) {
+            i4 = 0;
+        } else {
+            i4 = (int) (f6 + 0.5f);
+        }
+        float f7 = rectF.bottom;
+        if (f7 >= 0.0f) {
+            i5 = (int) (f7 + 0.5f);
+        }
+        setPadding(i2, i4, i3, i5);
+        this.b.setShadowLayer(f, f2, f3, i);
+    }
+
     public final void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.b == null) {
+        if (this.b == null) {
             Paint paint = new Paint();
             this.b = paint;
             paint.setColor(0);
@@ -178,20 +157,14 @@ public class DrawableCenterTextView extends TextView {
     }
 
     public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.g && this.c != null) {
-                return true;
-            }
-            return false;
+        if (this.g && this.c != null) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public final void f(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, canvas) != null) || !e()) {
+        if (!e()) {
             return;
         }
         float f = this.k;
@@ -201,7 +174,7 @@ public class DrawableCenterTextView extends TextView {
             this.a.setCornerRadius(4.0f);
         }
         if (this.h) {
-            int f2 = nm3.f(getContext(), 0.5f);
+            int f2 = dn3.f(getContext(), 0.5f);
             Object obj = this.d;
             if (obj instanceof String) {
                 this.a.setStroke(f2, Color.parseColor(obj.toString()));
@@ -241,49 +214,46 @@ public class DrawableCenterTextView extends TextView {
         float f;
         float f2;
         float f3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
-            float width = getWidth();
-            float height = getHeight();
-            Paint paint = new Paint();
-            paint.setStrokeWidth(nm3.f(getContext(), 0.5f));
-            Object obj = this.e;
-            if (obj instanceof String) {
-                paint.setColor(Color.parseColor(obj.toString()));
-            } else if (obj instanceof Integer) {
-                paint.setColor(getResources().getColor(Integer.valueOf(this.e.toString()).intValue()));
-            }
-            int i = this.f;
-            float f4 = 0.0f;
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            f3 = width;
-                            f = height;
-                        } else {
-                            f3 = width;
-                            f = height;
-                            f2 = getHeight();
-                        }
+        float width = getWidth();
+        float height = getHeight();
+        Paint paint = new Paint();
+        paint.setStrokeWidth(dn3.f(getContext(), 0.5f));
+        Object obj = this.e;
+        if (obj instanceof String) {
+            paint.setColor(Color.parseColor(obj.toString()));
+        } else if (obj instanceof Integer) {
+            paint.setColor(getResources().getColor(Integer.valueOf(this.e.toString()).intValue()));
+        }
+        int i = this.f;
+        float f4 = 0.0f;
+        if (i != 0) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        f3 = width;
+                        f = height;
                     } else {
                         f3 = width;
                         f = height;
-                        f4 = getWidth();
+                        f2 = getHeight();
                     }
-                    f2 = 0.0f;
                 } else {
                     f3 = width;
-                    f2 = 0.0f;
-                    f = 0.0f;
+                    f = height;
+                    f4 = getWidth();
                 }
-            } else {
-                f = height;
                 f2 = 0.0f;
-                f3 = 0.0f;
+            } else {
+                f3 = width;
+                f2 = 0.0f;
+                f = 0.0f;
             }
-            canvas.drawLine(f4, f2, f3, f, paint);
+        } else {
+            f = height;
+            f2 = 0.0f;
+            f3 = 0.0f;
         }
+        canvas.drawLine(f4, f2, f3, f, paint);
     }
 
     public final void h(Canvas canvas) {
@@ -295,135 +265,89 @@ public class DrawableCenterTextView extends TextView {
         int i5;
         int i6;
         int i7;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
-            Drawable[] compoundDrawables = getCompoundDrawables();
-            int i8 = 0;
-            if (compoundDrawables != null) {
-                i = 0;
-                while (i < compoundDrawables.length) {
-                    if (compoundDrawables[i] != null) {
-                        drawable = compoundDrawables[i];
-                        break;
-                    }
-                    i++;
+        Drawable[] compoundDrawables = getCompoundDrawables();
+        int i8 = 0;
+        if (compoundDrawables != null) {
+            i = 0;
+            while (i < compoundDrawables.length) {
+                if (compoundDrawables[i] != null) {
+                    drawable = compoundDrawables[i];
+                    break;
                 }
+                i++;
             }
-            drawable = null;
-            i = -1;
-            int w = nm3.w(this);
-            int v = nm3.v(this);
-            int compoundDrawablePadding = getCompoundDrawablePadding();
-            if (drawable != null) {
-                Rect bounds = drawable.getBounds();
-                i2 = bounds.right - bounds.left;
-                i3 = bounds.bottom - bounds.top;
-            } else {
-                i2 = 0;
-                i3 = 0;
-            }
-            if (i != 0 && i != 2) {
-                if (i != 1 && i != 3) {
-                    i5 = 0;
-                } else {
-                    i5 = v + i3 + compoundDrawablePadding;
-                }
-                i4 = 0;
-            } else {
-                i4 = i2 + w + compoundDrawablePadding;
+        }
+        drawable = null;
+        i = -1;
+        int w = dn3.w(this);
+        int v = dn3.v(this);
+        int compoundDrawablePadding = getCompoundDrawablePadding();
+        if (drawable != null) {
+            Rect bounds = drawable.getBounds();
+            i2 = bounds.right - bounds.left;
+            i3 = bounds.bottom - bounds.top;
+        } else {
+            i2 = 0;
+            i3 = 0;
+        }
+        if (i != 0 && i != 2) {
+            if (i != 1 && i != 3) {
                 i5 = 0;
+            } else {
+                i5 = v + i3 + compoundDrawablePadding;
             }
-            int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
-            int height = (getHeight() - getPaddingTop()) - getPaddingBottom();
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            setGravity(19);
-                            i6 = width - w;
-                        } else {
-                            setGravity(81);
-                            i7 = i5 - height;
-                        }
+            i4 = 0;
+        } else {
+            i4 = i2 + w + compoundDrawablePadding;
+            i5 = 0;
+        }
+        int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
+        int height = (getHeight() - getPaddingTop()) - getPaddingBottom();
+        if (i != 0) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        setGravity(19);
+                        i6 = width - w;
                     } else {
-                        setGravity(21);
-                        i8 = i4 - width;
-                        i7 = 0;
+                        setGravity(81);
+                        i7 = i5 - height;
                     }
                 } else {
-                    setGravity(49);
-                    i7 = height - i5;
+                    setGravity(21);
+                    i8 = i4 - width;
+                    i7 = 0;
                 }
-                canvas.translate(i8 / 2, i7 / 2);
+            } else {
+                setGravity(49);
+                i7 = height - i5;
             }
-            setGravity(19);
-            i6 = width - i4;
-            i8 = i6;
-            i7 = 0;
             canvas.translate(i8 / 2, i7 / 2);
         }
+        setGravity(19);
+        i6 = width - i4;
+        i8 = i6;
+        i7 = 0;
+        canvas.translate(i8 / 2, i7 / 2);
     }
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action != 0) {
-                if (action != 1) {
-                    if (action == 3 && e()) {
-                        this.j = false;
-                        invalidate();
-                    }
-                } else if (e()) {
+        int action = motionEvent.getAction();
+        if (action != 0) {
+            if (action != 1) {
+                if (action == 3 && e()) {
                     this.j = false;
                     invalidate();
                 }
             } else if (e()) {
-                this.j = true;
+                this.j = false;
                 invalidate();
             }
-            return super.onTouchEvent(motionEvent);
+        } else if (e()) {
+            this.j = true;
+            invalidate();
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.widget.TextView
-    public void setShadowLayer(float f, float f2, float f3, int i) {
-        int i2;
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i)}) == null) {
-            d();
-            RectF rectF = new RectF(f, f, f, f);
-            rectF.offset(f2, f3);
-            float f4 = rectF.left;
-            int i5 = 0;
-            if (f4 < 0.0f) {
-                i2 = 0;
-            } else {
-                i2 = (int) (f4 + 0.5f);
-            }
-            float f5 = rectF.right;
-            if (f5 < 0.0f) {
-                i3 = 0;
-            } else {
-                i3 = (int) (f5 + 0.5f);
-            }
-            float f6 = rectF.top;
-            if (f6 < 0.0f) {
-                i4 = 0;
-            } else {
-                i4 = (int) (f6 + 0.5f);
-            }
-            float f7 = rectF.bottom;
-            if (f7 >= 0.0f) {
-                i5 = (int) (f7 + 0.5f);
-            }
-            setPadding(i2, i4, i3, i5);
-            this.b.setShadowLayer(f, f2, f3, i);
-        }
+        return super.onTouchEvent(motionEvent);
     }
 }

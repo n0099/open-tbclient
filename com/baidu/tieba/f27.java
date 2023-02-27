@@ -1,112 +1,38 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.HotUserRankActivityConfig;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
-import com.baidu.tbadk.widget.TbClipImageView;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.view.ImageOverlayView;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import tbclient.ShortUserInfo;
 /* loaded from: classes4.dex */
-public class f27 implements e27, d27 {
+public class f27 extends dh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public TextView b;
-    public TextView c;
-    public TextView d;
-    public TbClipImageView e;
-    public q19 f;
-    public ImageView g;
-    public ImageOverlayView h;
-    public FrsViewData i;
-    public View.OnClickListener j;
 
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f27 a;
-
-        public a(f27 f27Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f27Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = f27Var;
+    @Override // com.baidu.tieba.dh5
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.f != null && "tiebaclient://accelerator".equals(this.a.f.d)) {
-                    CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new cu6(3));
-                    CustomMessage customMessage = new CustomMessage(2921662);
-                    customMessage.setTag(this.a.i.getFrsFragmentTag());
-                    customResponsedMessage.setOrginalMessage(customMessage);
-                    MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-                }
-                if (TextUtils.equals(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f093d), this.a.f.b) && this.a.i != null && this.a.i.getForum() != null && !TextUtils.isEmpty(this.a.i.getForum().getId())) {
-                    HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(view2.getContext());
-                    hotUserRankActivityConfig.setForumId(Long.valueOf(dh.g(this.a.i.getForum().getId(), 0L)));
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
-                    StatisticItem statisticItem = new StatisticItem("c13666");
-                    statisticItem.param("fid", this.a.i.getForum().getId());
-                    TiebaStatic.log(statisticItem);
-                    return;
-                }
-                if (this.a.f != null && this.a.f.f != null) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.a.f.g).param("obj_source", "frs_card").param("obj_id", this.a.f.f.b).param("obj_name", this.a.f.f.a).param("obj_param1", this.a.f.f.d.intValue()));
-                }
-                if (this.a.f != null && !"tiebaclient://accelerator".equals(this.a.f.d)) {
-                    g27.b(view2.getContext(), this.a.f);
-                }
-                g27.c(this.a.f);
-            }
-        }
+        return invokeV.booleanValue;
     }
 
-    public f27(Context context) {
+    public f27(FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -116,105 +42,41 @@ public class f27 implements e27, d27 {
                 return;
             }
         }
-        this.j = new a(this);
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0348, (ViewGroup) null);
-        this.a = inflate;
-        this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c85);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c87);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c89);
-        TbClipImageView tbClipImageView = (TbClipImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090c88);
-        this.e = tbClipImageView;
-        tbClipImageView.setDrawerType(1);
-        this.e.setIsRound(true);
-        this.e.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds57);
-        int dimensionPixelOffset2 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds1);
-        int dimensionPixelOffset3 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds15);
-        ImageOverlayView imageOverlayView = (ImageOverlayView) this.a.findViewById(R.id.obfuscated_res_0x7f090f81);
-        this.h = imageOverlayView;
-        imageOverlayView.a(3, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, R.color.CAM_X0618, dimensionPixelOffset3);
-        this.h.setStrokeStyle(1);
-        this.h.setLoadImageType(12);
-        this.a.setOnClickListener(this.j);
-        this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090c86);
+        b().a = frsFragment;
     }
 
-    @Override // com.baidu.tieba.e27
-    public void a(p19 p19Var, FrsViewData frsViewData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, p19Var, frsViewData) == null) && p19Var != null && !ListUtils.isEmpty(p19Var.b)) {
-            this.i = frsViewData;
-            q19 q19Var = p19Var.b.get(0);
-            if (q19Var == null) {
-                return;
-            }
-            this.f = q19Var;
-            if (!TextUtils.equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f093d), this.f.b)) {
-                this.c.setText(this.a.getContext().getString(R.string.forum_exclusive));
-            } else {
-                this.c.setText(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f07aa));
-                this.b.setText(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0910));
-            }
-            this.d.setText(StringHelper.cutStringWithEllipsisStrict(q19Var.c, 20));
-            if (TextUtils.equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f093d), q19Var.b)) {
-                this.h.setVisibility(0);
-                this.e.setVisibility(8);
-                f(frsViewData);
-            } else {
-                this.e.K(q19Var.b, 10, false);
-                this.e.setVisibility(0);
-                this.h.setVisibility(8);
-            }
-            g27.d(q19Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.d27
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            TBSelector.makeDrawableSelector().setShape(0).cornerRadius(ej.g(getView().getContext(), R.dimen.tbds10)).defaultColorValue(i).into(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.e27
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0101);
-            WebPManager.setPureDrawable(this.g, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
-            this.h.d();
-        }
-    }
-
-    public final boolean f(FrsViewData frsViewData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, frsViewData)) == null) {
-            if (frsViewData.getHotUserRankData() != null && frsViewData.getHotUserRankData().hot_user != null && frsViewData.getHotUserRankData().hot_user.size() > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (ShortUserInfo shortUserInfo : frsViewData.getHotUserRankData().hot_user) {
-                    if (shortUserInfo != null) {
-                        arrayList.add(shortUserInfo.portrait);
-                    }
-                }
-                this.h.setData(arrayList);
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.e27
-    public View getView() {
+    @Override // com.baidu.tieba.dh5
+    public eh5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            eh5 eh5Var = new eh5();
+            eh5Var.e = 1;
+            eh5Var.b = R.string.chosen_pb_title;
+            eh5Var.i = eh5.k;
+            return eh5Var;
         }
-        return (View) invokeV.objValue;
+        return (eh5) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.dh5
+    public TbFragmentTabIndicator c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+            this.b = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
+            return this.b;
+        }
+        return (TbFragmentTabIndicator) invokeL.objValue;
+    }
+
+    public void g(zv6 zv6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, zv6Var) != null) || zv6Var == null || !zv6Var.h(1)) {
+            return;
+        }
+        zv6Var.a(this);
     }
 }

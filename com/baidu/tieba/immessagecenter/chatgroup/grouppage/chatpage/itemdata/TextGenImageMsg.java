@@ -12,12 +12,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dr7;
-import com.baidu.tieba.fn6;
+import com.baidu.tieba.du7;
+import com.baidu.tieba.eq6;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.Action;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.TaskInfo;
-import com.baidu.tieba.ko5;
+import com.baidu.tieba.yp5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,23 +26,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TextGenImageMsg extends BaseImageMsg<TextImageMsg> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId ADAPTER_TYPE;
     public static final int MSG_TYPE = 101;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    @ko5(serialize = false)
+    @yp5(serialize = false)
     public CharSequence cacheText;
     @Nullable
     @SerializedName("sec_gen_msg")
     public String lastPrompt;
     @SerializedName("sec_gen_config")
-    public dr7 subSkillConfig;
-    @ko5(serialize = false)
+    public du7 subSkillConfig;
+    @yp5(serialize = false)
     public String text;
-    @ko5(serialize = false)
+    @yp5(serialize = false)
     public SpannableStringBuilder thumbnailText;
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg
@@ -55,8 +55,8 @@ public class TextGenImageMsg extends BaseImageMsg<TextImageMsg> {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements fn6.i {
+    /* loaded from: classes4.dex */
+    public class a implements eq6.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TextGenImageMsg a;
@@ -79,7 +79,7 @@ public class TextGenImageMsg extends BaseImageMsg<TextImageMsg> {
             this.a = textGenImageMsg;
         }
 
-        @Override // com.baidu.tieba.fn6.i
+        @Override // com.baidu.tieba.eq6.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) && this.a.thumbnailText.length() <= 0) {
@@ -129,13 +129,13 @@ public class TextGenImageMsg extends BaseImageMsg<TextImageMsg> {
     }
 
     @Nullable
-    public dr7 getSubSkillConfig() {
+    public du7 getSubSkillConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.subSkillConfig;
         }
-        return (dr7) invokeV.objValue;
+        return (du7) invokeV.objValue;
     }
 
     public String getText() {
@@ -245,7 +245,7 @@ public class TextGenImageMsg extends BaseImageMsg<TextImageMsg> {
                 return spannableStringBuilder;
             }
             this.thumbnailText = new SpannableStringBuilder();
-            fn6.d(TbadkApplication.getInst(), this.text, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this));
+            eq6.d(TbadkApplication.getInst(), this.text, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this));
             if (this.thumbnailText.length() <= 0) {
                 this.thumbnailText.append((CharSequence) this.text);
             }

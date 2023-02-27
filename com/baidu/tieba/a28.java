@@ -1,57 +1,53 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.account.utils.SocialEncodeUtils;
+import com.baidu.searchbox.live.interfaces.data.UserAccount;
+import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterHttpResMessage;
-import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterRequestMessage;
-import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterSocketResMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.GetMemberTaskList.ImgInfo;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 /* loaded from: classes3.dex */
-public class a28 {
+public class a28 implements AccountManagerService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ImgInfo> a;
-    public long b;
-    public List<w18> c;
-    public b d;
-    public wb e;
+    public AccountManagerService.AccountStatusChangedListener a;
+    public AccountManagerService.LoginResultListener b;
 
     /* loaded from: classes3.dex */
-    public interface b {
-        void a(int i, String str);
-
-        void b(List<ImgInfo> list, List<w18> list2, long j);
-    }
-
-    /* loaded from: classes3.dex */
-    public class a extends wb {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a28 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(a28 a28Var, int i, int i2) {
-            super(i, i2);
+        public a(a28 a28Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {a28Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {a28Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -60,50 +56,22 @@ public class a28 {
             this.a = a28Var;
         }
 
-        @Override // com.baidu.tieba.wb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            int i;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
-                return;
-            }
-            boolean z = responsedMessage instanceof MemberTaskCenterHttpResMessage;
-            if (!z && !(responsedMessage instanceof MemberTaskCenterSocketResMessage)) {
-                return;
-            }
-            if (z) {
-                MemberTaskCenterHttpResMessage memberTaskCenterHttpResMessage = (MemberTaskCenterHttpResMessage) responsedMessage;
-                if (memberTaskCenterHttpResMessage.hasError()) {
-                    if (this.a.d != null) {
-                        this.a.d.a(memberTaskCenterHttpResMessage.getError(), memberTaskCenterHttpResMessage.getErrorString());
-                        return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
+                if (this.a.b != null) {
+                    if (this.a.isLogin(2)) {
+                        i = 0;
+                    } else {
+                        i = -2;
                     }
-                    return;
+                    this.a.b.onResult(i);
                 }
-                this.a.a = memberTaskCenterHttpResMessage.getImageList();
-                this.a.c = memberTaskCenterHttpResMessage.getTaskList();
-                if (memberTaskCenterHttpResMessage.getUserPointInfo() != null) {
-                    this.a.b = memberTaskCenterHttpResMessage.getUserPointInfo().points_total.longValue();
-                }
-                if (this.a.d != null) {
-                    this.a.d.b(this.a.a, this.a.c, this.a.b);
-                }
-            }
-            if (responsedMessage instanceof MemberTaskCenterSocketResMessage) {
-                MemberTaskCenterSocketResMessage memberTaskCenterSocketResMessage = (MemberTaskCenterSocketResMessage) responsedMessage;
-                if (memberTaskCenterSocketResMessage.hasError()) {
-                    if (this.a.d != null) {
-                        this.a.d.a(memberTaskCenterSocketResMessage.getError(), memberTaskCenterSocketResMessage.getErrorString());
-                        return;
-                    }
-                    return;
-                }
-                this.a.a = memberTaskCenterSocketResMessage.getImageList();
-                this.a.c = memberTaskCenterSocketResMessage.getTaskList();
-                if (memberTaskCenterSocketResMessage.getUserPointInfo() != null) {
-                    this.a.b = memberTaskCenterSocketResMessage.getUserPointInfo().points_total.longValue();
-                }
-                if (this.a.d != null) {
-                    this.a.d.b(this.a.a, this.a.c, this.a.b);
+                if (this.a.a != null) {
+                    this.a.a.onAccountStatusChanged(this.a.isLogin(2));
                 }
             }
         }
@@ -122,55 +90,113 @@ public class a28 {
                 return;
             }
         }
-        this.e = new a(this, CmdConfigHttp.CMD_MEMBER_TASK, 309427);
-        s19.h(309427, MemberTaskCenterSocketResMessage.class, false, false);
-        s19.c(309427, CmdConfigHttp.CMD_MEMBER_TASK, TbConfig.GET_MEMBER_TASK, MemberTaskCenterHttpResMessage.class, false, false, false, false);
-        MessageManager.getInstance().registerListener(this.e);
+        MessageManager.getInstance().registerListener(new a(this, 2005016));
     }
 
-    public void l(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.b = j;
-        }
-    }
-
-    public void m(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.d = bVar;
-        }
-    }
-
-    public long h() {
+    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
+    public String getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            UserAccount account = getAccount();
+            if (account != null) {
+                return account.getUid();
+            }
+            return "";
         }
-        return invokeV.longValue;
+        return (String) invokeV.objValue;
     }
 
-    public List<w18> i() {
+    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
+    public void addLoginStatusChangedListener(AccountManagerService.AccountStatusChangedListener accountStatusChangedListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, accountStatusChangedListener) == null) {
+            this.a = accountStatusChangedListener;
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
+    public boolean isLogin(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return TbadkCoreApplication.isLogin();
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
+    public void removeLoginStatusChangedListener(AccountManagerService.AccountStatusChangedListener accountStatusChangedListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, accountStatusChangedListener) == null) {
+            this.a = null;
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
+    public UserAccount getAccount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            UserAccount userAccount = new UserAccount();
+            AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+            if (currentAccountInfo != null) {
+                userAccount.setDisplayname(currentAccountInfo.getAccountNameShow());
+                userAccount.setBduss(currentAccountInfo.getBDUSS());
+                userAccount.setUid(currentAccountInfo.getID());
+                userAccount.setProtrait(TbConfig.getBigPhotoAdress() + currentAccountInfo.getPortrait());
+                userAccount.setNickName(currentAccountInfo.getAccountNameShow());
+                userAccount.setUk(getSocialEncryption(currentAccountInfo.getID(), "baiduuid_"));
+            }
+            return userAccount;
         }
-        return (List) invokeV.objValue;
+        return (UserAccount) invokeV.objValue;
     }
 
-    public void j() {
+    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
+    public String getSocialDecrypt(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().sendMessage(new MemberTaskCenterRequestMessage());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return "";
+            }
+            try {
+                return SocialEncodeUtils.getSocialDecrypt(str, str2);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
+    public void login(Context context, AccountManagerService.LoginResultListener loginResultListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, context, loginResultListener) == null) {
+            this.b = loginResultListener;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) TbadkCoreApplication.getInst(), true)));
         }
     }
 
-    public void k() {
+    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
+    public String getSocialEncryption(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.e);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            String str3 = "";
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return "";
+            }
+            try {
+                str3 = SocialEncodeUtils.getSocialEncryption(str, str2);
+                return URLEncoder.encode(str3, IMAudioTransRequest.CHARSET);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return str3;
+            }
         }
+        return (String) invokeLL.objValue;
     }
 }

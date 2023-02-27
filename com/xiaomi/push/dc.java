@@ -1,78 +1,13 @@
 package com.xiaomi.push;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.Context;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
-public /* synthetic */ class dc {
-    public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ int[] a;
-    public transient /* synthetic */ FieldHolder $fh;
+public class dc {
+    public static ThreadPoolExecutor a = new ThreadPoolExecutor(1, 1, 15, TimeUnit.SECONDS, new LinkedBlockingQueue());
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56376927, "Lcom/xiaomi/push/dc;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-56376927, "Lcom/xiaomi/push/dc;");
-                return;
-            }
-        }
-        int[] iArr = new int[hj.values().length];
-        a = iArr;
-        try {
-            iArr[hj.a.ordinal()] = 1;
-        } catch (NoSuchFieldError unused) {
-        }
-        try {
-            a[hj.b.ordinal()] = 2;
-        } catch (NoSuchFieldError unused2) {
-        }
-        try {
-            a[hj.c.ordinal()] = 3;
-        } catch (NoSuchFieldError unused3) {
-        }
-        try {
-            a[hj.d.ordinal()] = 4;
-        } catch (NoSuchFieldError unused4) {
-        }
-        try {
-            a[hj.e.ordinal()] = 5;
-        } catch (NoSuchFieldError unused5) {
-        }
-        try {
-            a[hj.f.ordinal()] = 6;
-        } catch (NoSuchFieldError unused6) {
-        }
-        try {
-            a[hj.g.ordinal()] = 7;
-        } catch (NoSuchFieldError unused7) {
-        }
-        try {
-            a[hj.h.ordinal()] = 8;
-        } catch (NoSuchFieldError unused8) {
-        }
-        try {
-            a[hj.k.ordinal()] = 9;
-        } catch (NoSuchFieldError unused9) {
-        }
-        try {
-            a[hj.l.ordinal()] = 10;
-        } catch (NoSuchFieldError unused10) {
-        }
-        try {
-            a[hj.i.ordinal()] = 11;
-        } catch (NoSuchFieldError unused11) {
-        }
-        try {
-            a[hj.j.ordinal()] = 12;
-        } catch (NoSuchFieldError unused12) {
-        }
+    public static void a(Context context) {
     }
 }

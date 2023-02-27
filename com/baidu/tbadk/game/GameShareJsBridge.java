@@ -2,6 +2,7 @@ package com.baidu.tbadk.game;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -152,7 +153,7 @@ public class GameShareJsBridge {
                 this.mShareContentUrl = String.valueOf(jSONObject.opt("app_link"));
                 this.mShareImage = String.valueOf(jSONObject.opt("img"));
                 this.mShareName = String.valueOf(jSONObject.opt("app_name"));
-                this.mGameId = String.valueOf(jSONObject.opt("app_key"));
+                this.mGameId = String.valueOf(jSONObject.opt(GameGuideConfigInfo.KEY_APP_KEY));
             } catch (JSONException e) {
                 e.printStackTrace();
             } catch (Exception e2) {

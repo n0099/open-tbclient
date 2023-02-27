@@ -1,160 +1,43 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tbadk.core.util.httpNet.NetWorkUtil;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
-import com.baidu.tbadk.coreExtra.message.UpdateClientInfoMessage;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
-import com.baidu.tbadk.switchs.NetDeleteSwitch;
-import com.baidu.tbadk.switchs.NetTypeFixedSwitch;
-import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.fw4;
-import com.baidu.tieba.yunpush.BaiduYunPushMessageReceiver;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.coreExtra.data.ChannelIconConfigFinalData;
+import com.baidu.tbadk.coreExtra.message.ChannelConfigResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ca5 {
     public static /* synthetic */ Interceptable $ic;
-    public static ca5 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public gb b;
-    public UpdateClientInfoMessage c;
+    public i85 a;
+    public b b;
+    public int c;
     public int d;
-    public final gb e;
+    public ChannelIconConfigFinalData e;
+    public HttpMessageListener f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947668050, "Lcom/baidu/tieba/ca5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947668050, "Lcom/baidu/tieba/ca5;");
-        }
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(boolean z, i85 i85Var);
     }
 
-    /* loaded from: classes4.dex */
-    public class a implements gb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ca5 a;
-
-        public a(ca5 ca5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ca5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ca5Var;
-        }
-
-        @Override // com.baidu.tieba.gb
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.a.b != null) {
-                this.a.b.a(str);
-            }
-        }
-
-        @Override // com.baidu.tieba.gb
-        public void c(zj zjVar) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zjVar) == null) && this.a.b != null) {
-                this.a.b.c(zjVar);
-            }
-        }
-
-        @Override // com.baidu.tieba.gb
-        public void d(hk hkVar) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, hkVar) == null) && this.a.b != null) {
-                this.a.b.d(hkVar);
-            }
-        }
-
-        @Override // com.baidu.tieba.gb
-        public boolean b(int i, String str) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
-                df5.b(0, 2, 0, 0, 0);
-                if (this.a.b != null) {
-                    this.a.b.b(i, str);
-                }
-                return false;
-            }
-            return invokeIL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.gb
-        public void g(Map<String, String> map) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
-                df5.b(0, 1, 0, 0, 0);
-                if (this.a.b != null) {
-                    this.a.b.g(map);
-                }
-                if (!m85.d().e()) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2921695, ""));
-                }
-                bb.a("TbOnline", 1001, 0, "begin_online", 0, "begin online");
-                if (PerformanceLoggerHelper.getInstance().isSmallFlow() && ca5.b(this.a) < 10) {
-                    bb.e();
-                }
-                df5.b(1001, 0, 0, 3, 0);
-                ca5 ca5Var = this.a;
-                ca5Var.c = ca5Var.i();
-                MessageManager.getInstance().sendMessage(this.a.c);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b extends ub {
+    /* loaded from: classes3.dex */
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ca5 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(ca5 ca5Var, int i) {
+        public a(ca5 ca5Var, int i) {
             super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -175,36 +58,19 @@ public class ca5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rb
-        /* renamed from: c */
-        public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-            InterceptResult invokeL;
-            long j;
-            int i;
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-                if (socketResponsedMessage instanceof ResponseOnlineMessage) {
-                    ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
-                    if (responseOnlineMessage.getOrginalMessage() != null && (responseOnlineMessage.getOrginalMessage() instanceof SocketMessage)) {
-                        i = ((SocketMessage) responseOnlineMessage.getOrginalMessage()).getSquencedId();
-                        j = ((SocketMessage) responseOnlineMessage.getOrginalMessage()).getClientLogID();
-                    } else {
-                        j = 0;
-                        i = 0;
-                    }
-                    if (responseOnlineMessage.getError() == 0) {
-                        this.a.m();
-                        bb.b("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_succ", 0, "online succ. retry count-" + this.a.a);
-                        return socketResponsedMessage;
-                    }
-                    this.a.o(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
-                    bb.b("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_failed", responseOnlineMessage.getError(), responseOnlineMessage.getErrorString() + "online failed. count-" + this.a.a);
-                    return null;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof ChannelConfigResponseMessage)) {
+                ChannelConfigResponseMessage channelConfigResponseMessage = (ChannelConfigResponseMessage) httpResponsedMessage;
+                this.a.a = channelConfigResponseMessage.getData();
+                if (this.a.b != null) {
+                    this.a.b.a(channelConfigResponseMessage.isSuccess(), channelConfigResponseMessage.getData());
                 }
-                this.a.o(socketResponsedMessage.getCmd(), -1, null);
-                return null;
+                if (channelConfigResponseMessage.isSuccess()) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921493, null));
+                }
             }
-            return (SocketResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -212,216 +78,58 @@ public class ca5 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = null;
-        this.c = null;
-        this.d = 0;
-        this.e = new a(this);
-        MessageManager.getInstance().addResponsedMessageRule(new b(this, 1001));
+        this.f = new a(this, CmdConfigHttp.CMD_GET_CHANNEL_CONFIG);
+        MessageManager.getInstance().registerListener(this.f);
+        this.c = b55.m().n("key_common_category_version", 0);
+        this.d = b55.m().n("key_special_category_version", 0);
     }
 
-    public static synchronized ca5 j() {
+    public ChannelIconConfigFinalData c() {
         InterceptResult invokeV;
-        ca5 ca5Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            synchronized (ca5.class) {
-                if (f == null) {
-                    synchronized (ca5.class) {
-                        if (f == null) {
-                            f = new ca5();
-                        }
-                    }
-                }
-                ca5Var = f;
-            }
-            return ca5Var;
-        }
-        return (ca5) invokeV.objValue;
-    }
-
-    public static /* synthetic */ int b(ca5 ca5Var) {
-        int i = ca5Var.d + 1;
-        ca5Var.d = i;
-        return i;
-    }
-
-    public void p(gb gbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, gbVar) == null) {
-            this.b = gbVar;
-        }
-    }
-
-    public final UpdateClientInfoMessage i() {
-        InterceptResult invokeV;
-        String valueOf;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            UpdateClientInfoMessage updateClientInfoMessage = new UpdateClientInfoMessage();
-            String str = "2";
-            updateClientInfoMessage.addUserInfo(HttpRequest.CLIENT_TYPE, "2");
-            updateClientInfoMessage.addUserInfo("_client_version", TbConfig.getVersion());
-            updateClientInfoMessage.addUserInfo("user_agent", cq5.b());
-            if (TbadkCoreApplication.getInst().getImei() != null) {
-                updateClientInfoMessage.addUserInfo(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
+            ChannelIconConfigFinalData channelIconConfigFinalData = this.e;
+            if (channelIconConfigFinalData != null) {
+                return channelIconConfigFinalData;
             }
-            String clientId = TbadkCoreApplication.getClientId();
-            if (clientId != null) {
-                updateClientInfoMessage.addUserInfo(HttpRequest.CLIENT_ID, clientId);
+            if (this.a == null) {
+                return null;
             }
-            if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
-                updateClientInfoMessage.addUserInfo(HttpRequest.SUBAPP_TYPE, TbConfig.getSubappType());
-            }
-            String from = TbadkCoreApplication.getFrom();
-            if (from != null && from.length() > 0) {
-                updateClientInfoMessage.addUserInfo("from", from);
-            }
-            if (NetTypeFixedSwitch.isOn()) {
-                updateClientInfoMessage.addUserInfo("net_type", String.valueOf(BdNetTypeUtil.netType()));
+            ChannelIconConfigFinalData channelIconConfigFinalData2 = new ChannelIconConfigFinalData();
+            i85 i85Var = this.a;
+            if (i85Var != null && i85Var.b() != null && this.d < this.a.b().e()) {
+                channelIconConfigFinalData2.setIcon(this.a.b().a());
+                channelIconConfigFinalData2.setPopText(this.a.b().b());
+                channelIconConfigFinalData2.setTabCode(this.a.b().c());
+                channelIconConfigFinalData2.setTid(this.a.b().d());
+                channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_SPECIAL);
             } else {
-                String netType = NetWorkUtil.getNetType();
-                if (netType != null) {
-                    updateClientInfoMessage.addUserInfo("net_type", netType);
+                i85 i85Var2 = this.a;
+                if (i85Var2 != null && i85Var2.a() > 0 && this.c < this.a.a()) {
+                    channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_COMMON);
+                } else {
+                    channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_NONE);
                 }
             }
-            if (!NetDeleteSwitch.isOn() && (valueOf = String.valueOf(BdNetTypeUtil.netType())) != null) {
-                updateClientInfoMessage.addUserInfo("net", valueOf);
-            }
-            updateClientInfoMessage.addUserInfo("cuid", TbadkCoreApplication.getInst().getCuid());
-            updateClientInfoMessage.addUserInfo("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
-            updateClientInfoMessage.addUserInfo("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
-            updateClientInfoMessage.addUserInfo(TiebaStatic.Params.CUID_GID, TbadkCoreApplication.getInst().getCuidGid());
-            updateClientInfoMessage.addUserInfo("timestamp", Long.toString(System.currentTimeMillis()));
-            updateClientInfoMessage.addUserInfo("model", gj.g());
-            updateClientInfoMessage.addUserInfo(TiebaStatic.Params.SAMPLE_ID, TbSingleton.getInstance().getSampleId());
-            updateClientInfoMessage.addUserInfo("z_id", TbadkCoreApplication.getInst().getZid());
-            updateClientInfoMessage.addUserInfo("mac", PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
-            updateClientInfoMessage.addUserInfo(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, Build.BRAND);
-            updateClientInfoMessage.addUserInfo(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
-            updateClientInfoMessage.addUserInfo("baiduid", TbSingleton.getInstance().getBaiduIdForAnti());
-            updateClientInfoMessage.addUserInfo("sdk_ver", TbadkCoreApplication.getInst().getSdk_ver());
-            updateClientInfoMessage.addUserInfo("framework_ver", TbadkCoreApplication.getInst().getFramework_ver());
-            updateClientInfoMessage.addUserInfo("naws_game_ver", TbadkCoreApplication.getInst().getNaws_game_ver());
-            updateClientInfoMessage.addUserInfo("_os_version", gj.k());
-            StringBuffer stringBuffer = new StringBuffer(15);
-            stringBuffer.append(String.valueOf(ej.l(TbadkCoreApplication.getInst().getApp())));
-            stringBuffer.append(",");
-            stringBuffer.append(String.valueOf(ej.j(TbadkCoreApplication.getInst().getApp())));
-            updateClientInfoMessage.addUserInfo("_phone_screen", stringBuffer.toString());
-            if (m85.d().f() > 0) {
-                updateClientInfoMessage.addUserInfo("_msg_status", "0");
-            } else {
-                updateClientInfoMessage.addUserInfo("_msg_status", "1");
-            }
-            updateClientInfoMessage.addUserInfo("_pic_quality", String.valueOf(aw4.c().e()));
-            String yunpushChannelId = TbadkCoreApplication.getInst().getYunpushChannelId();
-            Log.i(BaiduYunPushMessageReceiver.TAG, "channel_id " + yunpushChannelId);
-            if (!TextUtils.isEmpty(yunpushChannelId)) {
-                updateClientInfoMessage.addUserInfo("channel_id", yunpushChannelId);
-            }
-            try {
-                if (TbadkCoreApplication.isLogin()) {
-                    fw4.b c = fw4.b().c(TbadkCoreApplication.getCurrentBduss());
-                    String a2 = ew4.a(TbadkCoreApplication.getCurrentAccountInfo());
-                    if (c != null) {
-                        updateClientInfoMessage.setBduss(c.a, a2);
-                    } else {
-                        updateClientInfoMessage.setBduss(TbadkCoreApplication.getCurrentBduss(), a2);
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            int d = ej.d(TbadkCoreApplication.getInst().getContext(), 70.0f);
-            updateClientInfoMessage.setHeight(ej.d(TbadkCoreApplication.getInst().getContext(), 70.0f));
-            updateClientInfoMessage.setWidth(d);
-            if (h65.b().d()) {
-                updateClientInfoMessage.setPub_env(Integer.valueOf(h65.b().c()));
-            }
-            if (TbSingleton.getInstance().isVisitPreviewServer()) {
-                updateClientInfoMessage.setPub_env(Integer.valueOf(dh.e(TbSingleton.getInstance().getPubEnvValue(), 0)));
-            }
-            updateClientInfoMessage.setSecretKey(fb.a().c());
-            updateClientInfoMessage.addUserInfo("pversion", TiebaIMConfig.PROTOBUF_VERSION);
-            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-            updateClientInfoMessage.addUserInfo("q_type", String.valueOf(aw4.c().e()));
-            updateClientInfoMessage.addUserInfo("scr_h", String.valueOf(ej.j(inst)));
-            updateClientInfoMessage.addUserInfo("scr_w", String.valueOf(ej.l(inst)));
-            updateClientInfoMessage.addUserInfo("scr_dip", String.valueOf(Double.valueOf(ej.i(inst))));
-            updateClientInfoMessage.addUserInfo("active_timestamp", TbSingleton.getInstance().getActiveTimeStamp() + "");
-            updateClientInfoMessage.addUserInfo("first_install_time", TbSingleton.getInstance().getAppFirstInstallTime() + "");
-            updateClientInfoMessage.addUserInfo(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, TbSingleton.getInstance().getAppLastUpdateTime() + "");
-            updateClientInfoMessage.addUserInfo("event_day", TbSingleton.getInstance().getData());
-            updateClientInfoMessage.addUserInfo(HttpRequest.ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
-            if (PermissionUtil.isAgreePrivacyPolicy()) {
-                str = "1";
-            }
-            updateClientInfoMessage.addUserInfo("cmode", str);
-            updateClientInfoMessage.addUserInfo("extra", p35.m().s("key_sync_extra_field", ""));
-            updateClientInfoMessage.addUserInfo("personalized_rec_switch", String.valueOf(TbSingleton.getInstance().getPersonalizedRecSwitch()));
-            if (SocketAddCommonParamSwitch.getIsOn()) {
-                updateClientInfoMessage.addUserInfo("start_type", d25.f + "");
-                updateClientInfoMessage.addUserInfo("start_scheme", d25.e());
-            }
-            return updateClientInfoMessage;
+            this.e = channelIconConfigFinalData2;
+            return channelIconConfigFinalData2;
         }
-        return (UpdateClientInfoMessage) invokeV.objValue;
+        return (ChannelIconConfigFinalData) invokeV.objValue;
     }
 
-    public void k() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().getSocketClient().F(this.e);
-        }
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.a >= 5) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a = 0;
-            MessageManager.getInstance().getSocketClient().H();
-            NoNetworkView.f();
-            BdSocketLinkService.stopReConnStrategy("online succ");
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a++;
-            if (l()) {
-                BdSocketLinkService.setAvailable(false);
-                NoNetworkView.f();
-            }
-        }
-    }
-
-    public final void o(int i, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, str) == null) {
-            n();
-            BdSocketLinkService.close(8, "online error = " + i2);
+            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_CHANNEL_CONFIG));
         }
     }
 }

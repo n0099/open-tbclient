@@ -1,46 +1,37 @@
 package com.xiaomi.push;
 
-import android.app.KeyguardManager;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.SharedPreferences;
+import com.xiaomi.push.aj;
 /* loaded from: classes8.dex */
-public class ak {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public class ak extends aj.b {
+    public final /* synthetic */ aj a;
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-                return ((KeyguardManager) context.getSystemService("keyguard")).inKeyguardRestrictedInputMode();
-            } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.a(e);
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ String f101a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ boolean f102a;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ak(aj ajVar, aj.a aVar, boolean z, String str) {
+        super(aVar);
+        this.a = ajVar;
+        this.f102a = z;
+        this.f101a = str;
     }
 
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            Intent intent = null;
-            try {
-                intent = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-            } catch (Exception unused) {
-            }
-            if (intent == null) {
-                return false;
-            }
-            int intExtra = intent.getIntExtra("status", -1);
-            return intExtra == 2 || intExtra == 5;
+    @Override // com.xiaomi.push.aj.b
+    public void a() {
+        super.a();
+    }
+
+    @Override // com.xiaomi.push.aj.b
+    public void b() {
+        SharedPreferences sharedPreferences;
+        if (this.f102a) {
+            return;
         }
-        return invokeL.booleanValue;
+        sharedPreferences = this.a.f97a;
+        sharedPreferences.edit().putLong(this.f101a, System.currentTimeMillis()).commit();
     }
 }

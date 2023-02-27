@@ -16,11 +16,11 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.hu7;
-import com.baidu.tieba.il5;
-import com.baidu.tieba.j19;
 import com.baidu.tieba.lego.card.model.RankScoreCard;
-import com.baidu.tieba.uu7;
+import com.baidu.tieba.mx7;
+import com.baidu.tieba.v49;
+import com.baidu.tieba.wm5;
+import com.baidu.tieba.zx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,7 +74,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                j19.c(this.b.i, this.a.getD2Scheme());
+                v49.c(this.b.i, this.a.getD2Scheme());
             }
         }
     }
@@ -111,7 +111,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.b.getContext())) {
                 return;
             }
-            uu7 a = uu7.a();
+            zx7 a = zx7.a();
             RankScoreCard rankScoreCard = this.a;
             a.e(rankScoreCard, rankScoreCard.getPostUrl(), null, null);
         }
@@ -211,7 +211,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
     public void t(RankScoreCard rankScoreCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rankScoreCard, i) == null) {
-            il5.a(this.i, getRootView());
+            wm5.a(this.i, getRootView());
             SkinManager.setBackgroundResource(this.m, R.drawable.addresslist_item_bg);
             SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0106);
             SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0106);
@@ -293,7 +293,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
                     } else {
                         SkinManager.setViewTextColor(this.t, (int) R.color.CAM_X0111);
                     }
-                    SkinManager.setBackgroundColor(this.t, hu7.a[i]);
+                    SkinManager.setBackgroundColor(this.t, mx7.a[i]);
                     this.t.setText(rankScoreCard.getRank() + "");
                 }
             }
@@ -306,17 +306,17 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01b4, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01c1, (ViewGroup) null);
             this.m = linearLayout;
             this.n = (RelativeLayout) l(linearLayout, R.id.rl_content);
-            this.o = (TextView) l(this.m, R.id.obfuscated_res_0x7f091ef3);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f0907e8);
-            this.q = (TextView) l(this.m, R.id.obfuscated_res_0x7f0907e9);
-            this.r = (RelativeLayout) l(this.m, R.id.obfuscated_res_0x7f091d89);
-            this.s = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f091adc);
-            this.t = (TextView) l(this.m, R.id.obfuscated_res_0x7f0913be);
-            this.u = (TextView) l(this.m, R.id.obfuscated_res_0x7f091d42);
-            this.v = (TextView) l(this.m, R.id.obfuscated_res_0x7f09046e);
+            this.o = (TextView) l(this.m, R.id.obfuscated_res_0x7f091f37);
+            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f090825);
+            this.q = (TextView) l(this.m, R.id.obfuscated_res_0x7f090826);
+            this.r = (RelativeLayout) l(this.m, R.id.obfuscated_res_0x7f091dcd);
+            this.s = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f091b1d);
+            this.t = (TextView) l(this.m, R.id.obfuscated_res_0x7f0913ff);
+            this.u = (TextView) l(this.m, R.id.obfuscated_res_0x7f091d86);
+            this.v = (TextView) l(this.m, R.id.obfuscated_res_0x7f0904ab);
             return this.m;
         }
         return (View) invokeV.objValue;

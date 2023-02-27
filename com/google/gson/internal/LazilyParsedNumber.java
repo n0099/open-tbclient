@@ -1,133 +1,71 @@
 package com.google.gson.internal;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ObjectStreamException;
 import java.math.BigDecimal;
 /* loaded from: classes8.dex */
 public final class LazilyParsedNumber extends Number {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final String value;
 
     public LazilyParsedNumber(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.value = str;
     }
 
     public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (!(obj instanceof LazilyParsedNumber)) {
-                return false;
-            }
-            String str = this.value;
-            String str2 = ((LazilyParsedNumber) obj).value;
-            if (str == str2 || str.equals(str2)) {
-                return true;
-            }
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof LazilyParsedNumber)) {
             return false;
         }
-        return invokeL.booleanValue;
+        String str = this.value;
+        String str2 = ((LazilyParsedNumber) obj).value;
+        if (str == str2 || str.equals(str2)) {
+            return true;
+        }
+        return false;
     }
 
     private Object writeReplace() throws ObjectStreamException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            return new BigDecimal(this.value);
-        }
-        return invokeV.objValue;
+        return new BigDecimal(this.value);
     }
 
     @Override // java.lang.Number
     public double doubleValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return Double.parseDouble(this.value);
-        }
-        return invokeV.doubleValue;
+        return Double.parseDouble(this.value);
     }
 
     @Override // java.lang.Number
     public float floatValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return Float.parseFloat(this.value);
-        }
-        return invokeV.floatValue;
+        return Float.parseFloat(this.value);
     }
 
     public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.value.hashCode();
-        }
-        return invokeV.intValue;
+        return this.value.hashCode();
     }
 
     @Override // java.lang.Number
     public int intValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        try {
             try {
-                try {
-                    return Integer.parseInt(this.value);
-                } catch (NumberFormatException unused) {
-                    return new BigDecimal(this.value).intValue();
-                }
-            } catch (NumberFormatException unused2) {
+                return Integer.parseInt(this.value);
+            } catch (NumberFormatException unused) {
                 return (int) Long.parseLong(this.value);
             }
+        } catch (NumberFormatException unused2) {
+            return new BigDecimal(this.value).intValue();
         }
-        return invokeV.intValue;
     }
 
     @Override // java.lang.Number
     public long longValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            try {
-                return Long.parseLong(this.value);
-            } catch (NumberFormatException unused) {
-                return new BigDecimal(this.value).longValue();
-            }
+        try {
+            return Long.parseLong(this.value);
+        } catch (NumberFormatException unused) {
+            return new BigDecimal(this.value).longValue();
         }
-        return invokeV.longValue;
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.value;
-        }
-        return (String) invokeV.objValue;
+        return this.value;
     }
 }

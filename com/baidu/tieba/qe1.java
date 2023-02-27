@@ -1,166 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.utils.Constant;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IWebViewDataDirectoryManager;
+import com.baidu.nps.interfa.IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class qe1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile qe1 b;
+    public static qe1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, se1> a;
+    @Inject
+    public mk1<IWebViewDataDirectoryManager> a;
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            kk1 b2 = kk1.b();
+            this.a = b2;
+            b2.a(new IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider());
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948088844, "Lcom/baidu/tieba/qe1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948088844, "Lcom/baidu/tieba/qe1;");
+                return;
+            }
+        }
+        b = new qe1();
+    }
 
     public qe1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
+        b();
     }
 
-    public static qe1 d() {
+    public static qe1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (qe1.class) {
-                    if (b == null) {
-                        b = new qe1();
-                    }
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return b;
         }
         return (qe1) invokeV.objValue;
     }
 
-    public static <T> T[] a(Class<T> cls, Object[] objArr, Object[] objArr2) {
-        InterceptResult invokeLLL;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, objArr, objArr2)) == null) {
-            T[] tArr = (T[]) ((Object[]) Array.newInstance((Class<?>) cls, objArr.length + objArr2.length));
-            System.arraycopy(objArr, 0, tArr, 0, objArr.length);
-            System.arraycopy(objArr2, 0, tArr, objArr.length, objArr2.length);
-            return tArr;
-        }
-        return (T[]) ((Object[]) invokeLLL.objValue);
-    }
-
-    public static void e(Field field, Object obj, Object obj2) throws IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, field, obj, obj2) == null) {
-            field.set(obj, c((Object[]) field.get(obj), (Object[]) field.get(obj2)));
-        }
-    }
-
-    public static Object[] c(Object[] objArr, Object[] objArr2) throws IllegalArgumentException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, objArr, objArr2)) == null) {
-            ArrayList arrayList = new ArrayList(Arrays.asList(objArr));
-            for (Object obj : objArr2) {
-                if (!arrayList.contains(obj)) {
-                    arrayList.add(obj);
-                }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (jf1.a()) {
+                Log.i("NPS-WebViewDataDirec", "webViewDataDirectoryManagerHolder class=" + this.a.getClass());
             }
-            Object[] objArr3 = (Object[]) Array.newInstance(objArr.getClass().getComponentType(), arrayList.size());
-            for (int i = 0; i < objArr3.length; i++) {
-                objArr3[i] = arrayList.get(i);
-            }
-            return objArr3;
+            this.a.get().setDataDirectorySuffix();
         }
-        return (Object[]) invokeLL.objValue;
-    }
-
-    public static void f(Field field, Object obj, Object obj2) throws IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, field, obj, obj2) == null) {
-            List list = (List) field.get(obj);
-            list.addAll((List) field.get(obj2));
-            field.set(obj, list);
-            Field b2 = ff1.b(obj.getClass(), "nativeLibraryPathElements");
-            b2.set(obj, c((Object[]) b2.get(obj), (Object[]) b2.get(obj2)));
-        }
-    }
-
-    public static ClassLoader g(se1 se1Var, se1 se1Var2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, se1Var, se1Var2)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                h(se1Var, se1Var2);
-                return se1Var;
-            }
-            return null;
-        }
-        return (ClassLoader) invokeLL.objValue;
-    }
-
-    public static ClassLoader h(se1 se1Var, se1 se1Var2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, se1Var, se1Var2)) == null) {
-            Field b2 = ff1.b(se1.class, "pathList");
-            try {
-                Object obj = b2.get(se1Var);
-                Field b3 = ff1.b(obj.getClass(), "dexElements");
-                Field b4 = ff1.b(obj.getClass(), "nativeLibraryDirectories");
-                Object[] objArr = (Object[]) b3.get(obj);
-                Object obj2 = b2.get(se1Var2);
-                b3.set(obj, a(objArr.getClass().getComponentType(), objArr, (Object[]) b3.get(obj2)));
-                if (Build.VERSION.SDK_INT >= 23) {
-                    f(b4, obj, obj2);
-                } else {
-                    e(b4, obj, obj2);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return se1Var;
-        }
-        return (ClassLoader) invokeLL.objValue;
-    }
-
-    public se1 b(BundleInfo bundleInfo, Context context) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bundleInfo, context)) == null) {
-            boolean z = !TextUtils.isEmpty(bundleInfo.getGroupName());
-            se1 se1Var = new se1(af1.d(context, bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), af1.f(context, bundleInfo.getPackageName()).getAbsolutePath(), af1.e(context, bundleInfo.getPackageName()).getAbsolutePath(), context);
-            if (z && Build.VERSION.SDK_INT >= 21) {
-                se1 se1Var2 = this.a.get(bundleInfo.getGroupName());
-                if (se1Var2 == null) {
-                    this.a.put(bundleInfo.getGroupName(), se1Var);
-                    return se1Var;
-                }
-                g(se1Var2, se1Var);
-                return se1Var2;
-            }
-            return se1Var;
-        }
-        return (se1) invokeLL.objValue;
     }
 }

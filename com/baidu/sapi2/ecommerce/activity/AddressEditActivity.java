@@ -2,6 +2,7 @@ package com.baidu.sapi2.ecommerce.activity;
 
 import android.content.Intent;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -12,6 +13,7 @@ import android.view.ViewStub;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -19,8 +21,6 @@ import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.AddressStatUtil;
 import com.baidu.pass.ecommerce.ContactUtil;
 import com.baidu.pass.ecommerce.StatKey;
@@ -61,11 +61,6 @@ import com.baidu.sapi2.utils.SoftKeyBoardListener;
 import com.baidu.sapi2.utils.ToastUtil;
 import com.baidu.sapi2.views.ViewUtility;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import com.kuaishou.weapon.p0.h;
 import java.io.Serializable;
@@ -74,7 +69,6 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class AddressEditActivity extends BaseAddressActivity<AddressEditPresenter> implements ImgOcrOptionDialog.OptionOnClickListener, OnDialogSelectedListenter {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int ADDRESS_4_ELEMENT = 15;
     public static final String CHINA_REGION_CODE = "86";
     public static final int CUSTOM_TEXT_LENGTH = 5;
@@ -95,7 +89,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     public static final int REQUEST_CODE_OPEN_GPS = 10010;
     public static final int REQUEST_MAP_LOC_REGION = 10001;
     public static final String TAG = "AddressEditActivity";
-    public transient /* synthetic */ FieldHolder $fh;
+    public static String sFromType;
     public ImageView addTagBtn;
     public ScrollView addrContentSv;
     public View addrCopyLayout;
@@ -120,6 +114,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     public LengthLimitEditText editTagEt;
     public View editTagLayout;
     public CheckedRadioButton homeTagRb;
+    public String imageType = "";
     public View imgOcrBtn;
     public ImageView imgOcrIcon;
     public String inputDetailAddr;
@@ -141,6 +136,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     public boolean isShowRegionSelectDialog;
     public ImageView ivAddrCopyToggle;
     public SuggestAddrListAdapter listAdapter;
+    public TextFormView mOcrEditLayout;
     public TextView mapAddrCheckValidTv;
     public InputFormView mobileInput;
     public LengthLimitEditText mobileInputEt;
@@ -166,143 +162,206 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     public CommonDialog usePastedAddrDialog;
     public View voiceOcrBtn;
 
-    public AddressEditActivity() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    private boolean checkGpsSwitcherStatus() {
+        return ((LocationManager) getSystemService("location")).isProviderEnabled("gps");
     }
 
-    private boolean checkGpsSwitcherStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65599, this)) == null) {
-            return ((LocationManager) getSystemService("location")).isProviderEnabled("gps");
+    private void closeDefaultAddr() {
+        this.isSetDefaultAddr = false;
+        if (this.isDarkMode) {
+            this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810b2);
+        } else {
+            this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810b0);
         }
-        return invokeV.booleanValue;
+        this.defaultTagClose.setVisibility(0);
+        this.defaultTagOpen.setVisibility(8);
+        setTopRightBtnEnableStatus();
+        AddressStatUtil.statAddressOption(StatKey.EDITADDR_DEFAULT_OFF);
+    }
+
+    private void initNewAddrMapObj() {
+        MapObject mapObject = new MapObject();
+        this.newMapObject = mapObject;
+        mapObject.putValue(AddressField.KEY_IS_DEFAULT, 0);
+        this.newMapObject.putValue("tag", "");
+        this.newMapObject.putValue(AddressField.KEY_ZIP_CODE, "");
+        this.newMapObject.putValue(AddressField.KEY_MOBILE_COUNTRY_CODE, "0086");
+    }
+
+    private void openAddrMapLocationActivity() {
+        Intent intent = new Intent(this, MapLocationAddrActivity.class);
+        intent.putExtra("key_from_type", this.isCreateAddress);
+        intent.putExtra(MapLocationAddrActivity.KEY_BDSTOKEN_FROM_ADDR_EDIT, ((AddressEditPresenter) this.presenter).getBdSTokenFromAddrList());
+        startActivityForResult(intent, 10001);
+        overridePendingTransition(R.anim.obfuscated_res_0x7f010118, R.anim.obfuscated_res_0x7f01011a);
+    }
+
+    private void openDefaultAddr() {
+        this.isSetDefaultAddr = true;
+        if (this.isDarkMode) {
+            this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f08109a);
+        } else {
+            this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f081099);
+        }
+        this.defaultTagClose.setVisibility(8);
+        this.defaultTagOpen.setVisibility(0);
+        setTopRightBtnEnableStatus();
+        AddressStatUtil.statAddressOption(StatKey.EDITADDR_DEFAULT_ON);
     }
 
     private void processUpdateAddrResult() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65618, this) == null) {
-            AddressStatUtil.statAddressOption(StatKey.EDITADDR_EDIT_FINISH);
-            Intent intent = new Intent();
-            intent.putExtra(AddressListActivity.CREATE_ADDRESS_RESULT, this.newMapObject);
-            intent.putExtra(AddressListActivity.CREATE_REGION_RESULT, this.selectedRegion);
-            setResult(1002, intent);
-            finish();
+        AddressStatUtil.statAddressOption(StatKey.EDITADDR_EDIT_FINISH);
+        Intent intent = new Intent();
+        intent.putExtra(AddressListActivity.CREATE_ADDRESS_RESULT, this.newMapObject);
+        intent.putExtra(AddressListActivity.CREATE_REGION_RESULT, this.selectedRegion);
+        setResult(1002, intent);
+        finish();
+    }
+
+    private void readClipBoardAddrText() {
+        boolean z;
+        SapiOptions.Gray.GrayModule grayModuleByFunName;
+        SapiOptions.Gray gray = SapiContext.getInstance().getSapiOptions().gray;
+        if (gray != null && (grayModuleByFunName = gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_CLIPBOARD_ADDR)) != null) {
+            z = grayModuleByFunName.isMeetGray();
+        } else {
+            z = false;
         }
+        if (z) {
+            this.titleBarView.post(new Runnable() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    if (AddressEditActivity.this.isCreateAddress && !AddressEditActivity.this.isClipBoardAddrDialogShowed) {
+                        String readClipBoardAddrText = ((AddressEditPresenter) AddressEditActivity.this.presenter).readClipBoardAddrText(AddressEditActivity.this);
+                        if (!TextUtils.isEmpty(readClipBoardAddrText)) {
+                            ((AddressEditPresenter) AddressEditActivity.this.presenter).recogniseTextOcrAddressResult(readClipBoardAddrText, 3003);
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    private void setInputBeyondLengthLimitListener() {
+        this.nameInputEt.setOnTextBeyondLengthLimitListener(new LengthLimitEditText.OnTextBeyondLengthLimitListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.4
+            @Override // com.baidu.pass.ecommerce.view.LengthLimitEditText.OnTextBeyondLengthLimitListener
+            public void onBeyondLengthLimit() {
+                ToastUtil.show("姓名长度不超过25位");
+            }
+        });
+        this.mobileInputEt.setOnTextBeyondLengthLimitListener(new LengthLimitEditText.OnTextBeyondLengthLimitListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.5
+            @Override // com.baidu.pass.ecommerce.view.LengthLimitEditText.OnTextBeyondLengthLimitListener
+            public void onBeyondLengthLimit() {
+                ToastUtil.show("手机号不超过11位");
+            }
+        });
+        this.detailAddrEt.setOnTextBeyondLengthLimitListener(new LengthLimitEditText.OnTextBeyondLengthLimitListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.6
+            @Override // com.baidu.pass.ecommerce.view.LengthLimitEditText.OnTextBeyondLengthLimitListener
+            public void onBeyondLengthLimit() {
+                ToastUtil.show("地址长度不超过120位");
+            }
+        });
+        this.editTagEt.setOnTextBeyondLengthLimitListener(new LengthLimitEditText.OnTextBeyondLengthLimitListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.7
+            @Override // com.baidu.pass.ecommerce.view.LengthLimitEditText.OnTextBeyondLengthLimitListener
+            public void onBeyondLengthLimit() {
+                ToastUtil.show("标签长度不超过5位");
+            }
+        });
     }
 
     private void setTopRightBtnEnableStatus() {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65626, this) == null) {
-            TitleBarView titleBarView = this.titleBarView;
-            if (15 == this.addressElementStatus) {
-                z = true;
-            } else {
-                z = false;
-            }
-            titleBarView.setRightBtnEnable(z);
+        TitleBarView titleBarView = this.titleBarView;
+        if (15 == this.addressElementStatus) {
+            z = true;
+        } else {
+            z = false;
         }
+        titleBarView.setRightBtnEnable(z);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void showImgOcrOptionDialog() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65628, this) == null) {
-            if (this.ocrOptionDialog == null) {
-                ImgOcrOptionDialog imgOcrOptionDialog = new ImgOcrOptionDialog(this.isDarkMode);
-                this.ocrOptionDialog = imgOcrOptionDialog;
-                imgOcrOptionDialog.setCancelable(true);
-                this.ocrOptionDialog.setOptionOnClickListener(this);
-            }
-            this.ocrOptionDialog.show(getSupportFragmentManager(), OPTION_DIALOG_TAG);
+    @Override // android.app.Activity
+    public void finish() {
+        if (this.isCreateAddress) {
+            AddressStatUtil.statAddressOption(StatKey.EDITADDR_COSTTIME_ADD, gapTimeFromEnter());
+        } else {
+            AddressStatUtil.statAddressOption(StatKey.EDITADDR_COSTTIME_EDIT, gapTimeFromEnter());
+        }
+        super.finish();
+        if (!this.isOpenEdit) {
+            overridePendingTransition(0, R.anim.obfuscated_res_0x7f010119);
         }
     }
 
     @Override // androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.isOpenEdit) {
-                endProcess();
-            }
-            super.onBackPressed();
+        if (this.isOpenEdit) {
+            endProcess();
         }
+        super.onBackPressed();
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            AddressSelectorDialog addressSelectorDialog = this.regionSelectorDialog;
-            if (addressSelectorDialog != null) {
-                addressSelectorDialog.destory();
-            }
-            super.onDestroy();
+        AddressSelectorDialog addressSelectorDialog = this.regionSelectorDialog;
+        if (addressSelectorDialog != null) {
+            addressSelectorDialog.destory();
         }
+        sFromType = null;
+        super.onDestroy();
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            super.onResume();
-            this.isActivityStopped = false;
-            readClipBoardAddrText();
-        }
+        super.onResume();
+        this.isActivityStopped = false;
+        readClipBoardAddrText();
     }
 
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            super.onStop();
-            this.isActivityStopped = true;
-        }
+        super.onStop();
+        this.isActivityStopped = true;
     }
 
     private void processDelAddrResult(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65613, this, str) == null) {
-            Intent intent = new Intent();
-            intent.putExtra(AddressListActivity.DEL_ADDRESS_ID, str);
-            setResult(1002, intent);
-            finish();
-        }
+        Intent intent = new Intent();
+        intent.putExtra(AddressListActivity.DEL_ADDRESS_ID, str);
+        setResult(1002, intent);
+        finish();
     }
 
     private void processImgOcrResult(Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65614, this, obj) == null) && (obj instanceof String)) {
+        if (obj instanceof String) {
             this.textOcrEt.setText((String) obj);
             openAddrCopyLayout();
         }
     }
 
     private void processRecogniseTextOcrResult(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65616, this, obj) == null) {
-            if (obj == null) {
-                ToastUtil.show("当前地址信息不完整，建议手动填写");
-            }
-            selectSuggestAddrDetail(obj);
+        if (obj == null) {
+            ToastUtil.show("当前地址信息不完整，建议手动填写");
         }
+        selectSuggestAddrDetail(obj);
+    }
+
+    private void updateRegion(AddressSelectedBean addressSelectedBean) {
+        String regionDetailStr = getRegionDetailStr(this.selectedRegion);
+        if (!TextUtils.isEmpty(regionDetailStr) && !TextUtils.equals(regionDetailStr, getRegionDetailStr(addressSelectedBean))) {
+            ToastUtil.show(R.drawable.obfuscated_res_0x7f081120, "已切换所在地区");
+        }
+        this.selectedRegion = addressSelectedBean;
+        this.tvRegion.setText(getRegionDetailStr(addressSelectedBean));
+        updateTopRightBtnStatus(true, 4);
+    }
+
+    public int dip2px(float f) {
+        return (int) ((f * getResources().getDisplayMetrics().density) + 0.5f);
     }
 
     @Override // com.baidu.pass.ecommerce.view.addressdialog.OnDialogSelectedListenter
     public void onItemSelected(AddressSelectedBean addressSelectedBean) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, addressSelectedBean) != null) || addressSelectedBean == null) {
+        if (addressSelectedBean == null) {
             return;
         }
         if (TextUtils.isEmpty(addressSelectedBean.countryId)) {
@@ -310,401 +369,201 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             addressSelectedBean.countryName = "中国";
         }
         updateRegion(addressSelectedBean);
+        AddressStatUtil.statAddressOption(StatKey.EDITADDR_SELECTED_REGION);
     }
 
     @Override // com.baidu.pass.ecommerce.dialog.ImgOcrOptionDialog.OptionOnClickListener
     public void onOptionClick(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            if (i != 1001) {
-                if (i == 1002) {
-                    pickPhoto();
-                    return;
-                }
+        if (i != 1001) {
+            if (i == 1002) {
+                this.imageType = StatKey.EDITADDR_OCR_STAGE_ALBUM_IMG;
+                pickPhoto();
                 return;
             }
-            takePhoto();
+            return;
         }
+        this.imageType = StatKey.EDITADDR_OCR_STAGE_CAMERA_IMG;
+        takePhoto();
     }
 
-    @Override // com.baidu.sapi2.activity.BaseOptionActivity
-    public void processImgBase64Data(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048590, this, i, str, str2) == null) {
-            if (10000 == i && !TextUtils.isEmpty(str2)) {
-                ((AddressEditPresenter) this.presenter).getImgOcrAddressResult(str2);
-            } else if (!TextUtils.isEmpty(str)) {
-                ToastUtil.show(str);
-            }
-        }
-    }
-
-    private void addAddress4ElementUpdateListener() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65596, this) == null) {
-            this.nameInputEt.addTextChangedListener(new SimpleTextWatcher(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.pass.ecommerce.callback.SimpleTextWatcher, android.text.TextWatcher
-                public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, charSequence, i, i2, i3) == null) {
-                        if (!this.this$0.isAutoSetNameText) {
-                            this.this$0.nameInput.updateCleanBtnStatus();
-                        }
-                        this.this$0.isAutoSetNameText = false;
-                        String trim = charSequence.toString().trim();
-                        this.this$0.newMapObject.putValue("name", trim);
-                        this.this$0.updateTopRightBtnStatus(!TextUtils.isEmpty(trim), 1);
-                    }
-                }
-            });
-            this.nameInputEt.setOnFocusChangeListener(new View.OnFocusChangeListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.view.View.OnFocusChangeListener
-                public void onFocusChange(View view2, boolean z) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLZ(1048576, this, view2, z) == null) {
-                        this.this$0.nameInput.updateCleanBtnStatus(z);
-                    }
-                }
-            });
-            this.mobileInputEt.setOnFocusChangeListener(new View.OnFocusChangeListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.10
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.view.View.OnFocusChangeListener
-                public void onFocusChange(View view2, boolean z) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLZ(1048576, this, view2, z) == null) {
-                        this.this$0.mobileInput.updateCleanBtnStatus(z);
-                    }
-                }
-            });
-            this.detailAddrEt.setOnFocusChangeListener(new View.OnFocusChangeListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.11
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.view.View.OnFocusChangeListener
-                public void onFocusChange(View view2, boolean z) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLZ(1048576, this, view2, z) == null) {
-                        this.this$0.detailInput.updateCleanBtnStatus(z);
-                    }
-                }
-            });
-            this.mobileInputEt.setOnKeyListener(new View.OnKeyListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.12
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.view.View.OnKeyListener
-                public boolean onKey(View view2, int i, KeyEvent keyEvent) {
-                    InterceptResult invokeLIL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048576, this, view2, i, keyEvent)) == null) {
-                        if (i == 67 && this.this$0.autoCleanMobileStr) {
-                            this.this$0.autoCleanMobileStr = false;
-                            this.this$0.mobileInput.setText("");
-                        }
-                        return false;
-                    }
-                    return invokeLIL.booleanValue;
-                }
-            });
-            this.mobileInputEt.addTextChangedListener(new SimpleTextWatcher(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.13
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.pass.ecommerce.callback.SimpleTextWatcher, android.text.TextWatcher
-                public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, charSequence, i, i2, i3) == null) {
-                        String trim = charSequence.toString().trim();
-                        if (this.this$0.autoSetMobile) {
-                            this.this$0.autoSetMobile = false;
-                        } else {
-                            this.this$0.inputMobile = trim;
-                            this.this$0.mobileInput.updateCleanBtnStatus();
-                        }
-                        this.this$0.newMapObject.putValue("mobile", trim);
-                        this.this$0.updateTopRightBtnStatus(!TextUtils.isEmpty(trim), 2);
-                    }
-                }
-            });
-            this.detailAddrEt.addTextChangedListener(new SimpleTextWatcher(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.14
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.pass.ecommerce.callback.SimpleTextWatcher, android.text.TextWatcher
-                public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                    boolean z;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, charSequence, i, i2, i3) == null) {
-                        this.this$0.inputDetailAddr = charSequence.toString().trim();
-                        this.this$0.newMapObject.putValue(AddressField.KEY_DETAIL_ADDR, this.this$0.inputDetailAddr);
-                        if (!TextUtils.isEmpty(this.this$0.inputDetailAddr) && this.this$0.inputDetailAddr.length() >= 4) {
-                            z = true;
-                        } else {
-                            z = false;
-                        }
-                        this.this$0.updateTopRightBtnStatus(z, 8);
-                        if (!this.this$0.isAutoSetAddrDetailText) {
-                            this.this$0.detailInput.updateCleanBtnStatus();
-                            if (!TextUtils.isEmpty(this.this$0.inputDetailAddr)) {
-                                if (this.this$0.selectedRegion == null) {
-                                    return;
-                                }
-                                this.this$0.scrollToAddrDetail(true);
-                                return;
-                            }
-                            this.this$0.scrollToAddrDetail(false);
-                            return;
-                        }
-                        this.this$0.isAutoSetAddrDetailText = false;
-                    }
-                }
-            });
-            this.detailAddrEt.setOnTouchListener(new View.OnTouchListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.15
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.view.View.OnTouchListener
-                public boolean onTouch(View view2, MotionEvent motionEvent) {
-                    InterceptResult invokeLL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                        if (motionEvent.getAction() == 0) {
-                            this.this$0.isFocusAddrDetailEt = true;
-                        }
-                        ViewParent parent = view2.getParent();
-                        if (view2 == this.this$0.detailAddrEt && parent != null) {
-                            if (motionEvent.getAction() != 1) {
-                                parent.requestDisallowInterceptTouchEvent(true);
-                            } else {
-                                parent.requestDisallowInterceptTouchEvent(false);
-                            }
-                        }
-                        return false;
-                    }
-                    return invokeLL.booleanValue;
-                }
-            });
-            this.addrContentSv.setOnTouchListener(new View.OnTouchListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.16
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.view.View.OnTouchListener
-                public boolean onTouch(View view2, MotionEvent motionEvent) {
-                    InterceptResult invokeLL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                        if (this.this$0.suggestAddrLayout.getVisibility() == 0) {
-                            this.this$0.scrollToAddrDetail(false);
-                        }
-                        return false;
-                    }
-                    return invokeLL.booleanValue;
-                }
-            });
-        }
+    public int sp2px(float f) {
+        return (int) ((f * getResources().getDisplayMetrics().scaledDensity) + 0.5f);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void checkedCustomTag() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65601, this) == null) {
-            this.isCheckedCustomTag = true;
-            this.addrTagGroup.clearCheck();
-            this.checkedCustomTagTv.setText(this.editTagEt.getText().toString().trim());
-            if (this.isDarkMode) {
-                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060971));
-                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081096);
-            } else {
-                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060970));
-                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081095);
+    public void updateTopRightBtnStatus(boolean z, int i) {
+        if (z) {
+            this.addressElementStatus |= i;
+        } else {
+            this.addressElementStatus &= ~i;
+        }
+        setTopRightBtnEnableStatus();
+    }
+
+    private void addAddress4ElementUpdateListener() {
+        this.nameInputEt.addTextChangedListener(new SimpleTextWatcher() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.8
+            @Override // com.baidu.pass.ecommerce.callback.SimpleTextWatcher, android.text.TextWatcher
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+                if (!AddressEditActivity.this.isAutoSetNameText) {
+                    AddressEditActivity.this.nameInput.updateCleanBtnStatus();
+                }
+                AddressEditActivity.this.isAutoSetNameText = false;
+                String trim = charSequence.toString().trim();
+                AddressEditActivity.this.newMapObject.putValue("name", trim);
+                AddressEditActivity.this.updateTopRightBtnStatus(!TextUtils.isEmpty(trim), 1);
             }
-            this.customTagLine.setVisibility(0);
-            setTopRightBtnEnableStatus();
+        });
+        this.nameInputEt.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.9
+            @Override // android.view.View.OnFocusChangeListener
+            public void onFocusChange(View view2, boolean z) {
+                AddressEditActivity.this.nameInput.updateCleanBtnStatus(z);
+            }
+        });
+        this.mobileInputEt.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.10
+            @Override // android.view.View.OnFocusChangeListener
+            public void onFocusChange(View view2, boolean z) {
+                AddressEditActivity.this.mobileInput.updateCleanBtnStatus(z);
+            }
+        });
+        this.detailAddrEt.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.11
+            @Override // android.view.View.OnFocusChangeListener
+            public void onFocusChange(View view2, boolean z) {
+                AddressEditActivity.this.detailInput.updateCleanBtnStatus(z);
+            }
+        });
+        this.mobileInputEt.setOnKeyListener(new View.OnKeyListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.12
+            @Override // android.view.View.OnKeyListener
+            public boolean onKey(View view2, int i, KeyEvent keyEvent) {
+                if (i == 67 && AddressEditActivity.this.autoCleanMobileStr) {
+                    AddressEditActivity.this.autoCleanMobileStr = false;
+                    AddressEditActivity.this.mobileInput.setText("");
+                }
+                return false;
+            }
+        });
+        this.mobileInputEt.addTextChangedListener(new SimpleTextWatcher() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.13
+            @Override // com.baidu.pass.ecommerce.callback.SimpleTextWatcher, android.text.TextWatcher
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+                String trim = charSequence.toString().trim();
+                if (AddressEditActivity.this.autoSetMobile) {
+                    AddressEditActivity.this.autoSetMobile = false;
+                } else {
+                    AddressEditActivity.this.inputMobile = trim;
+                    AddressEditActivity.this.mobileInput.updateCleanBtnStatus();
+                }
+                AddressEditActivity.this.newMapObject.putValue("mobile", trim);
+                AddressEditActivity.this.updateTopRightBtnStatus(!TextUtils.isEmpty(trim), 2);
+            }
+        });
+        this.detailAddrEt.addTextChangedListener(new SimpleTextWatcher() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.14
+            @Override // com.baidu.pass.ecommerce.callback.SimpleTextWatcher, android.text.TextWatcher
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+                boolean z;
+                AddressEditActivity.this.inputDetailAddr = charSequence.toString().trim();
+                AddressEditActivity.this.newMapObject.putValue(AddressField.KEY_DETAIL_ADDR, AddressEditActivity.this.inputDetailAddr);
+                if (!TextUtils.isEmpty(AddressEditActivity.this.inputDetailAddr) && AddressEditActivity.this.inputDetailAddr.length() >= 4) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                AddressEditActivity.this.updateTopRightBtnStatus(z, 8);
+                if (!AddressEditActivity.this.isAutoSetAddrDetailText) {
+                    AddressEditActivity.this.detailInput.updateCleanBtnStatus();
+                    if (!TextUtils.isEmpty(AddressEditActivity.this.inputDetailAddr)) {
+                        if (AddressEditActivity.this.selectedRegion == null) {
+                            return;
+                        }
+                        AddressEditActivity.this.scrollToAddrDetail(true);
+                        return;
+                    }
+                    AddressEditActivity.this.scrollToAddrDetail(false);
+                    return;
+                }
+                AddressEditActivity.this.isAutoSetAddrDetailText = false;
+            }
+        });
+        this.detailAddrEt.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.15
+            @Override // android.view.View.OnTouchListener
+            public boolean onTouch(View view2, MotionEvent motionEvent) {
+                if (motionEvent.getAction() == 0) {
+                    AddressEditActivity.this.isFocusAddrDetailEt = true;
+                }
+                ViewParent parent = view2.getParent();
+                if (view2 == AddressEditActivity.this.detailAddrEt && parent != null) {
+                    if (motionEvent.getAction() != 1) {
+                        parent.requestDisallowInterceptTouchEvent(true);
+                    } else {
+                        parent.requestDisallowInterceptTouchEvent(false);
+                    }
+                }
+                return false;
+            }
+        });
+        this.addrContentSv.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.16
+            @Override // android.view.View.OnTouchListener
+            public boolean onTouch(View view2, MotionEvent motionEvent) {
+                if (AddressEditActivity.this.suggestAddrLayout.getVisibility() == 0) {
+                    AddressEditActivity.this.scrollToAddrDetail(false);
+                }
+                return false;
+            }
+        });
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void checkGpsSwitcherAndShowDialog() {
+        if (checkGpsSwitcherStatus()) {
+            openAddrMapLocationActivity();
+            return;
+        }
+        CommonDialog build = new CommonDialog.Builder(this).setDarkMode(this.isDarkMode).setTitle("开启定位服务").setMessage("为了正常使用定位功能，请开启定位服务").setNegativeButton(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new View.OnClickListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.28
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                AddressEditActivity.this.openGPSDialog.dismiss();
+            }
+        }).setPositiveBtn("去开启", new View.OnClickListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.27
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                AddressEditActivity.this.startActivityForResult(new Intent("android.settings.LOCATION_SOURCE_SETTINGS"), 10010);
+                AddressEditActivity.this.openGPSDialog.dismiss();
+            }
+        }).setCancelable(true).build();
+        this.openGPSDialog = build;
+        build.show();
+    }
+
+    private void requestLocPermission() {
+        PermissionsDTO permissionsDTO = new PermissionsDTO();
+        permissionsDTO.context = this;
+        permissionsDTO.isDarkMode = this.isDarkMode;
+        permissionsDTO.permissions = new String[]{h.h, h.g};
+        permissionsDTO.dialogTitle = "定位权限";
+        permissionsDTO.dialogMsg = "如你选择通过地图选择收货地址，则请允许" + SapiUtils.getAppName(this) + "使用定位权限。你可以通过系统\"设置\"进行权限的管理";
+        permissionsDTO.okBtnTxt = "去设置";
+        PassPermissions.getInstance().requestPermissions(permissionsDTO, new PermissionsCallback() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.26
+            @Override // com.baidu.pass.permissions.PermissionsCallback
+            public void onFailure(int i) {
+            }
+
+            @Override // com.baidu.pass.permissions.PermissionsCallback
+            public void onSuccess() {
+                AddressEditActivity.this.checkGpsSwitcherAndShowDialog();
+            }
+        });
+    }
+
+    private void setDarkModelIcon() {
+        if (this.isDarkMode) {
+            this.nameInput.getImg().setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f060828));
+            this.selectRegionIv.setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f060828));
+            this.imgOcrIcon.setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f060828));
+            this.ivAddrCopyToggle.setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f060828));
+            this.selectRegionIv.setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f060828));
         }
     }
 
     private void callbackAddressResult() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65597, this) != null) || this.addressManageCallback == null) {
+        if (this.addressManageCallback == null) {
             return;
         }
         AddressManageResult addressManageResult = new AddressManageResult();
@@ -721,962 +580,322 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         AddressManagerStat.upload();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void checkGpsSwitcherAndShowDialog() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65598, this) == null) {
-            if (checkGpsSwitcherStatus()) {
-                openAddrMapLocationActivity();
+    private void checkUserInputAndSubmit() {
+        String str;
+        if (TextUtils.isEmpty(this.nameInput.getContent())) {
+            ToastUtil.show("姓名长度需要在1-25个字符之间");
+            return;
+        }
+        if (this.isCreateAddress || !TextUtils.isEmpty(this.inputMobile)) {
+            String content = this.mobileInput.getContent();
+            if (!SapiUtils.validateMobile(content) || content.length() != 11) {
+                ToastUtil.show("输入的手机号格式有误，请重新输入");
                 return;
             }
-            CommonDialog build = new CommonDialog.Builder(this).setDarkMode(this.isDarkMode).setTitle("开启定位服务").setMessage("为了正常使用定位功能，请开启定位服务").setNegativeButton(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new View.OnClickListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.28
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
+        }
+        if (this.selectedRegion == null) {
+            ToastUtil.show("请选择地区");
+        } else if (this.isCreateAddress && (TextUtils.isEmpty(this.inputDetailAddr) || this.inputDetailAddr.length() < 4)) {
+            ToastUtil.show("详细地址长度需要在4-120个字符之间");
+        } else {
+            if (this.isCheckedCustomTag) {
+                str = this.editTagEt.getText().toString().trim();
+            } else {
+                int checkedRadioButtonId = this.addrTagGroup.getCheckedRadioButtonId();
+                if (checkedRadioButtonId == R.id.obfuscated_res_0x7f091e7e) {
+                    str = AddressField.VALUE_HOME_TAG;
+                } else if (checkedRadioButtonId == R.id.obfuscated_res_0x7f091e7c) {
+                    str = AddressField.VALUE_COMPANY_TAG;
+                } else if (checkedRadioButtonId == R.id.obfuscated_res_0x7f091e82) {
+                    str = AddressField.VALUE_SCHOOL_TAG;
+                } else {
+                    str = "";
                 }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        this.this$0.openGPSDialog.dismiss();
-                    }
-                }
-            }).setPositiveBtn("去开启", new View.OnClickListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.27
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        this.this$0.startActivityForResult(new Intent("android.settings.LOCATION_SOURCE_SETTINGS"), 10010);
-                        this.this$0.openGPSDialog.dismiss();
-                    }
-                }
-            }).setCancelable(true).build();
-            this.openGPSDialog = build;
-            build.show();
+            }
+            this.newMapObject.putValue("tag", str);
+            if (!TextUtils.isEmpty(str) && !TextUtils.equals(str, this.oldAddressTagValue)) {
+                AddressStatUtil.statAddressOption(StatKey.EDITADDR_CHOISE_TAG);
+            }
+            if (this.isSetDefaultAddr) {
+                this.newMapObject.putValue(AddressField.KEY_IS_DEFAULT, 1);
+            } else {
+                this.newMapObject.putValue(AddressField.KEY_IS_DEFAULT, 0);
+            }
+            if (this.isCreateAddress) {
+                ((AddressEditPresenter) this.presenter).createAddress(this.newMapObject, this.selectedRegion);
+            } else {
+                ((AddressEditPresenter) this.presenter).updateAddress(this.inputMobile, this.newMapObject, this.selectedRegion);
+            }
         }
     }
 
-    private void requestLocPermission() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65620, this) == null) {
-            PermissionsDTO permissionsDTO = new PermissionsDTO();
-            permissionsDTO.context = this;
-            permissionsDTO.isDarkMode = this.isDarkMode;
-            permissionsDTO.permissions = new String[]{h.h, h.g};
-            permissionsDTO.dialogTitle = "定位权限";
-            permissionsDTO.dialogMsg = "如你选择通过地图选择收货地址，则请允许" + SapiUtils.getAppName(this) + "使用定位权限。你可以通过系统\"设置\"进行权限的管理";
-            permissionsDTO.okBtnTxt = "去设置";
-            PassPermissions.getInstance().requestPermissions(permissionsDTO, new PermissionsCallback(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.26
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                @Override // com.baidu.pass.permissions.PermissionsCallback
-                public void onFailure(int i) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
-                    }
-                }
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.pass.permissions.PermissionsCallback
-                public void onSuccess() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.this$0.checkGpsSwitcherAndShowDialog();
-                    }
-                }
-            });
+    /* JADX INFO: Access modifiers changed from: private */
+    public void checkedCustomTag() {
+        this.isCheckedCustomTag = true;
+        this.addrTagGroup.clearCheck();
+        this.checkedCustomTagTv.setText(this.editTagEt.getText().toString().trim());
+        if (this.isDarkMode) {
+            this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060803));
+            this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f08109a);
+        } else {
+            this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060802));
+            this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081099);
         }
+        this.customTagLine.setVisibility(0);
+        setTopRightBtnEnableStatus();
+        HashMap hashMap = new HashMap();
+        hashMap.put("stage", StatKey.EDITADDR_TAG_STAGE_SELECT_NEW);
+        AddressStatUtil.statAddressOption(StatKey.EDITADDR_TAG_STAGE, hashMap);
     }
 
-    private void setDarkModelIcon() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65623, this) == null) && this.isDarkMode) {
-            this.nameInput.getImg().setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f060996));
-            this.selectRegionIv.setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f060996));
-            this.imgOcrIcon.setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f060996));
-            this.ivAddrCopyToggle.setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f060996));
-            this.selectRegionIv.setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f060996));
+    private void closeAddrCopyLayout() {
+        this.ivAddrCopyToggle.setImageResource(R.drawable.obfuscated_res_0x7f0810b6);
+        if (this.isDarkMode) {
+            this.copyFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08109d);
+        } else {
+            this.copyFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08109c);
         }
+        this.addrCopyLayout.setVisibility(8);
+        HashMap hashMap = new HashMap();
+        hashMap.put("stage", StatKey.EDITADDR_PASTE_ADDRESS_STAGE_FOLD);
+        AddressStatUtil.statAddressOption(StatKey.EDITADDR_PASTE_ADDRESS_STAGE, hashMap);
+    }
+
+    private void openAddrCopyLayout() {
+        this.ivAddrCopyToggle.setImageResource(R.drawable.obfuscated_res_0x7f0810b7);
+        if (this.isDarkMode) {
+            this.copyFormView.setBackgroundResource(R.color.obfuscated_res_0x7f060815);
+        } else {
+            this.copyFormView.setBackgroundResource(R.color.obfuscated_res_0x7f060814);
+        }
+        this.addrCopyLayout.setVisibility(0);
+        HashMap hashMap = new HashMap();
+        hashMap.put("stage", "show");
+        AddressStatUtil.statAddressOption(StatKey.EDITADDR_PASTE_ADDRESS_STAGE, hashMap);
     }
 
     private void setListener() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65625, this) == null) {
-            SoftKeyBoardListener.setListener(this, new SoftKeyBoardListener.OnSoftKeyBoardChangeListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.17
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
+        SoftKeyBoardListener.setListener(this, new SoftKeyBoardListener.OnSoftKeyBoardChangeListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.17
+            @Override // com.baidu.sapi2.utils.SoftKeyBoardListener.OnSoftKeyBoardChangeListener
+            public void keyBoardHide(int i) {
+                AddressEditActivity.this.isKeyBoardShowing = false;
+                AddressEditActivity.this.scrollToAddrDetail(false);
+                if (AddressEditActivity.this.isShowImgOcrDialog) {
+                    AddressEditActivity.this.isShowImgOcrDialog = false;
+                    AddressEditActivity.this.showImgOcrOptionDialog();
                 }
+                if (!AddressEditActivity.this.isShowRegionSelectDialog) {
+                    return;
+                }
+                AddressEditActivity.this.isShowRegionSelectDialog = false;
+                AddressEditActivity.this.showRegionSelectorDialog();
+            }
 
-                @Override // com.baidu.sapi2.utils.SoftKeyBoardListener.OnSoftKeyBoardChangeListener
-                public void keyBoardHide(int i) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null && interceptable2.invokeI(1048576, this, i) != null) {
+            @Override // com.baidu.sapi2.utils.SoftKeyBoardListener.OnSoftKeyBoardChangeListener
+            public void keyBoardShow(int i) {
+                AddressEditActivity.this.isKeyBoardShowing = true;
+                if (AddressEditActivity.this.isFocusAddrDetailEt && AddressEditActivity.this.selectedRegion != null) {
+                    AddressEditActivity.this.addrContentSv.smoothScrollTo(0, AddressEditActivity.this.regionLayout.getTop() + SapiUtils.dip2px(AddressEditActivity.this.getApplication(), 10.0f));
+                }
+                if (AddressEditActivity.this.isFocusCopyAddrEt) {
+                    AddressEditActivity.this.addrContentSv.smoothScrollBy(0, AddressEditActivity.this.textOcrEt.getHeight() / 2);
+                }
+                if (AddressEditActivity.this.isFocusCustomTagEt) {
+                    AddressEditActivity.this.addrContentSv.smoothScrollBy(0, AddressEditActivity.this.editTagEt.getHeight());
+                }
+                AddressEditActivity.this.isFocusCustomTagEt = false;
+                AddressEditActivity.this.isFocusCopyAddrEt = false;
+                AddressEditActivity.this.isFocusAddrDetailEt = false;
+            }
+        });
+        this.textOcrEt.addTextChangedListener(new SimpleTextWatcher() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.18
+            @Override // com.baidu.pass.ecommerce.callback.SimpleTextWatcher, android.text.TextWatcher
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+                if (TextUtils.isEmpty(charSequence.toString().trim())) {
+                    AddressEditActivity.this.cleanLongTextBtn.setVisibility(8);
+                    AddressEditActivity.this.useLongTextBtn.setVisibility(8);
+                    return;
+                }
+                AddressEditActivity.this.cleanLongTextBtn.setVisibility(0);
+                AddressEditActivity.this.useLongTextBtn.setVisibility(0);
+            }
+        });
+        this.textOcrEt.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.19
+            @Override // android.view.View.OnTouchListener
+            public boolean onTouch(View view2, MotionEvent motionEvent) {
+                if (motionEvent.getAction() == 0) {
+                    AddressEditActivity.this.isFocusCopyAddrEt = true;
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("stage", "input");
+                    AddressStatUtil.statAddressOption(StatKey.EDITADDR_PASTE_ADDRESS_STAGE, hashMap);
+                }
+                ViewParent parent = view2.getParent();
+                if (view2 == AddressEditActivity.this.textOcrEt && parent != null) {
+                    if (motionEvent.getAction() != 1) {
+                        parent.requestDisallowInterceptTouchEvent(true);
+                    } else {
+                        parent.requestDisallowInterceptTouchEvent(false);
+                    }
+                }
+                return false;
+            }
+        });
+        this.editTagEt.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.20
+            @Override // android.view.View.OnTouchListener
+            public boolean onTouch(View view2, MotionEvent motionEvent) {
+                if (motionEvent.getAction() != 0) {
+                    return false;
+                }
+                AddressEditActivity.this.isFocusCustomTagEt = true;
+                HashMap hashMap = new HashMap();
+                hashMap.put("stage", "input");
+                AddressStatUtil.statAddressOption(StatKey.EDITADDR_TAG_STAGE, hashMap);
+                return false;
+            }
+        });
+        this.suggestAddrListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.21
+            @Override // android.widget.AdapterView.OnItemClickListener
+            public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+                InputMethodManager inputMethodManager = (InputMethodManager) AddressEditActivity.this.getSystemService("input_method");
+                if (inputMethodManager != null) {
+                    inputMethodManager.hideSoftInputFromWindow(AddressEditActivity.this.detailAddrEt.getWindowToken(), 0);
+                }
+                AddressEditActivity.this.scrollToAddrDetail(false);
+                ((AddressEditPresenter) AddressEditActivity.this.presenter).getSuggestAddrDetail(AddressEditActivity.this.listAdapter.getItem(i), AddressEditActivity.this.selectedRegion);
+                AddressStatUtil.statAddressOption(StatKey.EDITADDR_SELECTED_PREDICTIVE);
+            }
+        });
+        this.addrTagGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.22
+            @Override // android.widget.RadioGroup.OnCheckedChangeListener
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (!AddressEditActivity.this.isClickConfirmCustomTag) {
+                    if (R.id.obfuscated_res_0x7f091e7e == i) {
+                        AddressEditActivity.this.unCheckedCustomTag();
+                        HashMap hashMap = new HashMap();
+                        hashMap.put("stage", StatKey.EDITADDR_TAG_STAGE_SELECT_EXISTED);
+                        AddressStatUtil.statAddressOption(StatKey.EDITADDR_TAG_STAGE, hashMap);
+                        return;
+                    } else if (R.id.obfuscated_res_0x7f091e7c == i) {
+                        AddressEditActivity.this.unCheckedCustomTag();
+                        HashMap hashMap2 = new HashMap();
+                        hashMap2.put("stage", StatKey.EDITADDR_TAG_STAGE_SELECT_EXISTED);
+                        AddressStatUtil.statAddressOption(StatKey.EDITADDR_TAG_STAGE, hashMap2);
+                        return;
+                    } else if (R.id.obfuscated_res_0x7f091e82 == i) {
+                        AddressEditActivity.this.unCheckedCustomTag();
+                        HashMap hashMap3 = new HashMap();
+                        hashMap3.put("stage", StatKey.EDITADDR_TAG_STAGE_SELECT_EXISTED);
+                        AddressStatUtil.statAddressOption(StatKey.EDITADDR_TAG_STAGE, hashMap3);
+                        return;
+                    } else {
                         return;
                     }
-                    this.this$0.isKeyBoardShowing = false;
-                    this.this$0.scrollToAddrDetail(false);
-                    if (this.this$0.isShowImgOcrDialog) {
-                        this.this$0.isShowImgOcrDialog = false;
-                        this.this$0.showImgOcrOptionDialog();
-                    }
-                    if (!this.this$0.isShowRegionSelectDialog) {
-                        return;
-                    }
-                    this.this$0.isShowRegionSelectDialog = false;
-                    this.this$0.showRegionSelectorDialog();
                 }
-
-                @Override // com.baidu.sapi2.utils.SoftKeyBoardListener.OnSoftKeyBoardChangeListener
-                public void keyBoardShow(int i) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                        this.this$0.isKeyBoardShowing = true;
-                        if (this.this$0.isFocusAddrDetailEt && this.this$0.selectedRegion != null) {
-                            this.this$0.addrContentSv.smoothScrollTo(0, this.this$0.regionLayout.getTop() + SapiUtils.dip2px(this.this$0.getApplication(), 10.0f));
-                        }
-                        if (this.this$0.isFocusCopyAddrEt) {
-                            this.this$0.addrContentSv.smoothScrollBy(0, this.this$0.textOcrEt.getHeight() / 2);
-                        }
-                        if (this.this$0.isFocusCustomTagEt) {
-                            this.this$0.addrContentSv.smoothScrollBy(0, this.this$0.editTagEt.getHeight());
-                        }
-                        this.this$0.isFocusCustomTagEt = false;
-                        this.this$0.isFocusCopyAddrEt = false;
-                        this.this$0.isFocusAddrDetailEt = false;
-                    }
-                }
-            });
-            this.textOcrEt.addTextChangedListener(new SimpleTextWatcher(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.18
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.pass.ecommerce.callback.SimpleTextWatcher, android.text.TextWatcher
-                public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, charSequence, i, i2, i3) == null) {
-                        if (TextUtils.isEmpty(charSequence.toString().trim())) {
-                            this.this$0.cleanLongTextBtn.setVisibility(8);
-                            this.this$0.useLongTextBtn.setVisibility(8);
-                            return;
-                        }
-                        this.this$0.cleanLongTextBtn.setVisibility(0);
-                        this.this$0.useLongTextBtn.setVisibility(0);
-                    }
-                }
-            });
-            this.textOcrEt.setOnTouchListener(new View.OnTouchListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.19
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.view.View.OnTouchListener
-                public boolean onTouch(View view2, MotionEvent motionEvent) {
-                    InterceptResult invokeLL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                        if (motionEvent.getAction() == 0) {
-                            this.this$0.isFocusCopyAddrEt = true;
-                        }
-                        ViewParent parent = view2.getParent();
-                        if (view2 == this.this$0.textOcrEt && parent != null) {
-                            if (motionEvent.getAction() != 1) {
-                                parent.requestDisallowInterceptTouchEvent(true);
-                            } else {
-                                parent.requestDisallowInterceptTouchEvent(false);
-                            }
-                        }
-                        return false;
-                    }
-                    return invokeLL.booleanValue;
-                }
-            });
-            this.editTagEt.setOnTouchListener(new View.OnTouchListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.20
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.view.View.OnTouchListener
-                public boolean onTouch(View view2, MotionEvent motionEvent) {
-                    InterceptResult invokeLL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                        if (motionEvent.getAction() != 0) {
-                            return false;
-                        }
-                        this.this$0.isFocusCustomTagEt = true;
-                        return false;
-                    }
-                    return invokeLL.booleanValue;
-                }
-            });
-            this.suggestAddrListView.setOnItemClickListener(new AdapterView.OnItemClickListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.21
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.widget.AdapterView.OnItemClickListener
-                public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                        InputMethodManager inputMethodManager = (InputMethodManager) this.this$0.getSystemService("input_method");
-                        if (inputMethodManager != null) {
-                            inputMethodManager.hideSoftInputFromWindow(this.this$0.detailAddrEt.getWindowToken(), 0);
-                        }
-                        this.this$0.scrollToAddrDetail(false);
-                        ((AddressEditPresenter) this.this$0.presenter).getSuggestAddrDetail(this.this$0.listAdapter.getItem(i), this.this$0.selectedRegion);
-                    }
-                }
-            });
-            this.addrTagGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.22
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.widget.RadioGroup.OnCheckedChangeListener
-                public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, radioGroup, i) == null) {
-                        if (!this.this$0.isClickConfirmCustomTag) {
-                            if (R.id.obfuscated_res_0x7f091e3a == i) {
-                                this.this$0.unCheckedCustomTag();
-                                return;
-                            } else if (R.id.obfuscated_res_0x7f091e38 == i) {
-                                this.this$0.unCheckedCustomTag();
-                                return;
-                            } else if (R.id.obfuscated_res_0x7f091e3e == i) {
-                                this.this$0.unCheckedCustomTag();
-                                return;
-                            } else {
-                                return;
-                            }
-                        }
-                        this.this$0.isClickConfirmCustomTag = false;
-                    }
-                }
-            });
-            this.editTagEt.addTextChangedListener(new SimpleTextWatcher(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.23
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.pass.ecommerce.callback.SimpleTextWatcher, android.text.TextWatcher
-                public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, charSequence, i, i2, i3) == null) {
-                        this.this$0.editTagConfirmBtn.setEnabled(!TextUtils.isEmpty(charSequence.toString().trim()));
-                    }
-                }
-            });
-        }
+                AddressEditActivity.this.isClickConfirmCustomTag = false;
+            }
+        });
+        this.editTagEt.addTextChangedListener(new SimpleTextWatcher() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.23
+            @Override // com.baidu.pass.ecommerce.callback.SimpleTextWatcher, android.text.TextWatcher
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+                AddressEditActivity.this.editTagConfirmBtn.setEnabled(!TextUtils.isEmpty(charSequence.toString().trim()));
+            }
+        });
     }
 
     private void showDelNoticeDialog() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65627, this) == null) {
-            CommonDialog build = new CommonDialog.Builder(this).setDarkMode(this.isDarkMode).setTitle("删除提示").setMessage("确定要删除该地址吗？").setNegativeButton(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new View.OnClickListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.30
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
+        CommonDialog build = new CommonDialog.Builder(this).setDarkMode(this.isDarkMode).setTitle("删除提示").setMessage("确定要删除该地址吗？").setNegativeButton(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new View.OnClickListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.30
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                AddressEditActivity.this.delAddrDialog.dismiss();
+                AddressStatUtil.statAddressOption(StatKey.EDITADDR_CANCEL_DELETE);
+            }
+        }).setPositiveBtn("删除", new View.OnClickListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.29
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                ((AddressEditPresenter) AddressEditActivity.this.presenter).delAddress(AddressEditActivity.this.addressId);
+                AddressEditActivity.this.delAddrDialog.dismiss();
+                AddressStatUtil.statAddressOption(StatKey.EDITADDR_CONFIRM_DELETE);
+            }
+        }).build();
+        this.delAddrDialog = build;
+        build.show();
+        AddressStatUtil.statAddressOption(StatKey.EDITADDR_DELETE_ADDRESS);
+    }
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        this.this$0.delAddrDialog.dismiss();
-                    }
-                }
-            }).setPositiveBtn("删除", new View.OnClickListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.29
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        ((AddressEditPresenter) this.this$0.presenter).delAddress(this.this$0.addressId);
-                        this.this$0.delAddrDialog.dismiss();
-                    }
-                }
-            }).build();
-            this.delAddrDialog = build;
-            build.show();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void showImgOcrOptionDialog() {
+        if (this.ocrOptionDialog == null) {
+            ImgOcrOptionDialog imgOcrOptionDialog = new ImgOcrOptionDialog(this.isDarkMode);
+            this.ocrOptionDialog = imgOcrOptionDialog;
+            imgOcrOptionDialog.setCancelable(true);
+            this.ocrOptionDialog.setOptionOnClickListener(this);
         }
+        this.ocrOptionDialog.show(getSupportFragmentManager(), OPTION_DIALOG_TAG);
+        HashMap hashMap = new HashMap();
+        hashMap.put("stage", "show");
+        AddressStatUtil.statAddressOption(StatKey.EDITADDR_OCR_STAGE, hashMap);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showRegionSelectorDialog() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65629, this) == null) {
-            this.nameInputEt.clearFocus();
-            this.mobileInputEt.clearFocus();
-            this.detailAddrEt.clearFocus();
-            AddressSelectorDialog addressSelectorDialog = this.regionSelectorDialog;
-            if (addressSelectorDialog == null) {
-                AddressSelectorDialog addressSelectorDialog2 = new AddressSelectorDialog(this, this.selectedRegion);
-                this.regionSelectorDialog = addressSelectorDialog2;
-                addressSelectorDialog2.setCanceledOnTouchOutside(true);
-                this.regionSelectorDialog.setOnDialogSelectedListenter(this);
-            } else {
-                addressSelectorDialog.setAddressSelectedBean(this.selectedRegion);
-            }
-            if (!this.regionSelectorDialog.isShowing()) {
-                this.regionSelectorDialog.show();
-            }
+        this.nameInputEt.clearFocus();
+        this.mobileInputEt.clearFocus();
+        this.detailAddrEt.clearFocus();
+        AddressSelectorDialog addressSelectorDialog = this.regionSelectorDialog;
+        if (addressSelectorDialog == null) {
+            AddressSelectorDialog addressSelectorDialog2 = new AddressSelectorDialog(this, this.selectedRegion);
+            this.regionSelectorDialog = addressSelectorDialog2;
+            addressSelectorDialog2.setCanceledOnTouchOutside(true);
+            this.regionSelectorDialog.setOnDialogSelectedListenter(this);
+            AddressStatUtil.statAddressOption(StatKey.EDITADDR_SELECTING_REGION);
+        } else {
+            addressSelectorDialog.setAddressSelectedBean(this.selectedRegion);
+        }
+        if (!this.regionSelectorDialog.isShowing()) {
+            this.regionSelectorDialog.show();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void unCheckedCustomTag() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65630, this) == null) {
-            this.isCheckedCustomTag = false;
-            if (this.isDarkMode) {
-                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060975));
-                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810c3);
-            } else {
-                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060974));
-                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810c2);
-            }
-            this.customTagLine.setVisibility(8);
-            setTopRightBtnEnableStatus();
+        this.isCheckedCustomTag = false;
+        if (this.isDarkMode) {
+            this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060807));
+            this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810c7);
+        } else {
+            this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060806));
+            this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810c6);
         }
-    }
-
-    private void checkUserInputAndSubmit() {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65600, this) == null) {
-            if (TextUtils.isEmpty(this.nameInput.getContent())) {
-                ToastUtil.show("姓名长度需要在1-25个字符之间");
-                return;
-            }
-            if (this.isCreateAddress || !TextUtils.isEmpty(this.inputMobile)) {
-                String content = this.mobileInput.getContent();
-                if (!SapiUtils.validateMobile(content) || content.length() != 11) {
-                    ToastUtil.show("输入的手机号格式有误，请重新输入");
-                    return;
-                }
-            }
-            if (this.selectedRegion == null) {
-                ToastUtil.show("请选择地区");
-            } else if (this.isCreateAddress && (TextUtils.isEmpty(this.inputDetailAddr) || this.inputDetailAddr.length() < 4)) {
-                ToastUtil.show("详细地址长度需要在4-120个字符之间");
-            } else {
-                if (this.isCheckedCustomTag) {
-                    str = this.editTagEt.getText().toString().trim();
-                } else {
-                    int checkedRadioButtonId = this.addrTagGroup.getCheckedRadioButtonId();
-                    if (checkedRadioButtonId == R.id.obfuscated_res_0x7f091e3a) {
-                        str = AddressField.VALUE_HOME_TAG;
-                    } else if (checkedRadioButtonId == R.id.obfuscated_res_0x7f091e38) {
-                        str = AddressField.VALUE_COMPANY_TAG;
-                    } else if (checkedRadioButtonId == R.id.obfuscated_res_0x7f091e3e) {
-                        str = AddressField.VALUE_SCHOOL_TAG;
-                    } else {
-                        str = "";
-                    }
-                }
-                this.newMapObject.putValue("tag", str);
-                if (!TextUtils.isEmpty(str) && !TextUtils.equals(str, this.oldAddressTagValue)) {
-                    AddressStatUtil.statAddressOption(StatKey.EDITADDR_CHOISE_TAG);
-                }
-                if (this.isSetDefaultAddr) {
-                    this.newMapObject.putValue(AddressField.KEY_IS_DEFAULT, 1);
-                } else {
-                    this.newMapObject.putValue(AddressField.KEY_IS_DEFAULT, 0);
-                }
-                if (this.isCreateAddress) {
-                    ((AddressEditPresenter) this.presenter).createAddress(this.newMapObject, this.selectedRegion);
-                } else {
-                    ((AddressEditPresenter) this.presenter).updateAddress(this.inputMobile, this.newMapObject, this.selectedRegion);
-                }
-            }
-        }
-    }
-
-    private void closeAddrCopyLayout() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65602, this) == null) {
-            this.ivAddrCopyToggle.setImageResource(R.drawable.obfuscated_res_0x7f0810b2);
-            if (this.isDarkMode) {
-                this.copyFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081099);
-            } else {
-                this.copyFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081098);
-            }
-            this.addrCopyLayout.setVisibility(8);
-        }
-    }
-
-    private void closeDefaultAddr() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65603, this) == null) {
-            this.isSetDefaultAddr = false;
-            if (this.isDarkMode) {
-                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810ae);
-            } else {
-                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810ac);
-            }
-            this.defaultTagClose.setVisibility(0);
-            this.defaultTagOpen.setVisibility(8);
-            setTopRightBtnEnableStatus();
-        }
-    }
-
-    private void initNewAddrMapObj() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65606, this) == null) {
-            MapObject mapObject = new MapObject();
-            this.newMapObject = mapObject;
-            mapObject.putValue(AddressField.KEY_IS_DEFAULT, 0);
-            this.newMapObject.putValue("tag", "");
-            this.newMapObject.putValue(AddressField.KEY_ZIP_CODE, "");
-            this.newMapObject.putValue(AddressField.KEY_MOBILE_COUNTRY_CODE, "0086");
-        }
-    }
-
-    private void openAddrCopyLayout() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65609, this) == null) {
-            this.ivAddrCopyToggle.setImageResource(R.drawable.obfuscated_res_0x7f0810b3);
-            if (this.isDarkMode) {
-                this.copyFormView.setBackgroundResource(R.color.obfuscated_res_0x7f060983);
-            } else {
-                this.copyFormView.setBackgroundResource(R.color.obfuscated_res_0x7f060982);
-            }
-            this.addrCopyLayout.setVisibility(0);
-        }
-    }
-
-    private void openAddrMapLocationActivity() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65610, this) == null) {
-            Intent intent = new Intent(this, MapLocationAddrActivity.class);
-            intent.putExtra("key_from_type", this.isCreateAddress);
-            intent.putExtra(MapLocationAddrActivity.KEY_BDSTOKEN_FROM_ADDR_EDIT, ((AddressEditPresenter) this.presenter).getBdSTokenFromAddrList());
-            startActivityForResult(intent, 10001);
-            overridePendingTransition(R.anim.obfuscated_res_0x7f010113, R.anim.obfuscated_res_0x7f010115);
-        }
-    }
-
-    private void openDefaultAddr() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65611, this) == null) {
-            this.isSetDefaultAddr = true;
-            if (this.isDarkMode) {
-                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f081096);
-            } else {
-                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f081095);
-            }
-            this.defaultTagClose.setVisibility(8);
-            this.defaultTagOpen.setVisibility(0);
-            setTopRightBtnEnableStatus();
-        }
-    }
-
-    private void readClipBoardAddrText() {
-        boolean z;
-        SapiOptions.Gray.GrayModule grayModuleByFunName;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65619, this) == null) {
-            SapiOptions.Gray gray = SapiContext.getInstance().getSapiOptions().gray;
-            if (gray != null && (grayModuleByFunName = gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_CLIPBOARD_ADDR)) != null) {
-                z = grayModuleByFunName.isMeetGray();
-            } else {
-                z = false;
-            }
-            if (z) {
-                this.titleBarView.post(new Runnable(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ AddressEditActivity this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.this$0.isCreateAddress && !this.this$0.isClipBoardAddrDialogShowed) {
-                            String readClipBoardAddrText = ((AddressEditPresenter) this.this$0.presenter).readClipBoardAddrText(this.this$0);
-                            if (!TextUtils.isEmpty(readClipBoardAddrText)) {
-                                ((AddressEditPresenter) this.this$0.presenter).recogniseTextOcrAddressResult(readClipBoardAddrText, 3003);
-                            }
-                        }
-                    }
-                });
-            }
-        }
-    }
-
-    private void setInputBeyondLengthLimitListener() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65624, this) == null) {
-            this.nameInputEt.setOnTextBeyondLengthLimitListener(new LengthLimitEditText.OnTextBeyondLengthLimitListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.pass.ecommerce.view.LengthLimitEditText.OnTextBeyondLengthLimitListener
-                public void onBeyondLengthLimit() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ToastUtil.show("姓名长度不超过25位");
-                    }
-                }
-            });
-            this.mobileInputEt.setOnTextBeyondLengthLimitListener(new LengthLimitEditText.OnTextBeyondLengthLimitListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.pass.ecommerce.view.LengthLimitEditText.OnTextBeyondLengthLimitListener
-                public void onBeyondLengthLimit() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ToastUtil.show("手机号不超过11位");
-                    }
-                }
-            });
-            this.detailAddrEt.setOnTextBeyondLengthLimitListener(new LengthLimitEditText.OnTextBeyondLengthLimitListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.pass.ecommerce.view.LengthLimitEditText.OnTextBeyondLengthLimitListener
-                public void onBeyondLengthLimit() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ToastUtil.show("地址长度不超过120位");
-                    }
-                }
-            });
-            this.editTagEt.setOnTextBeyondLengthLimitListener(new LengthLimitEditText.OnTextBeyondLengthLimitListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.7
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.pass.ecommerce.view.LengthLimitEditText.OnTextBeyondLengthLimitListener
-                public void onBeyondLengthLimit() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ToastUtil.show("标签长度不超过5位");
-                    }
-                }
-            });
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity
-    public AddressEditPresenter createPresenter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            AddressEditPresenter addressEditPresenter = new AddressEditPresenter();
-            String stringExtra = getIntent().getStringExtra(KEY_BDSTOKEN_FROM_ADDRLIST);
-            if (TextUtils.isEmpty(stringExtra)) {
-                addressEditPresenter.getBdStokenFromServer(Integer.MIN_VALUE, null);
-            } else {
-                addressEditPresenter.setBdSTokenFromAddrList(stringExtra);
-            }
-            return addressEditPresenter;
-        }
-        return (AddressEditPresenter) invokeV.objValue;
-    }
-
-    @Override // android.app.Activity
-    public void finish() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.isCreateAddress) {
-                AddressStatUtil.statAddressOption(StatKey.EDITADDR_COSTTIME_ADD, gapTimeFromEnter());
-            } else {
-                AddressStatUtil.statAddressOption(StatKey.EDITADDR_COSTTIME_EDIT, gapTimeFromEnter());
-            }
-            super.finish();
-            if (!this.isOpenEdit) {
-                overridePendingTransition(0, R.anim.obfuscated_res_0x7f010114);
-            }
-        }
+        this.customTagLine.setVisibility(8);
+        setTopRightBtnEnableStatus();
     }
 
     private String getRegionDetailStr(AddressSelectedBean addressSelectedBean) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65604, this, addressSelectedBean)) == null) {
-            if (addressSelectedBean == null) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            if (!TextUtils.isEmpty(addressSelectedBean.provinceName)) {
-                sb.append(addressSelectedBean.provinceName);
-                sb.append(GlideException.IndentedAppendable.INDENT);
-            }
-            if (!TextUtils.isEmpty(addressSelectedBean.cityName)) {
-                sb.append(addressSelectedBean.cityName);
-                sb.append(GlideException.IndentedAppendable.INDENT);
-            }
-            if (!TextUtils.isEmpty(addressSelectedBean.districtName)) {
-                sb.append(addressSelectedBean.districtName);
-                sb.append(GlideException.IndentedAppendable.INDENT);
-            }
-            if (!TextUtils.isEmpty(addressSelectedBean.townName)) {
-                sb.append(addressSelectedBean.townName);
-            }
-            return sb.toString();
+        if (addressSelectedBean == null) {
+            return "";
         }
-        return (String) invokeL.objValue;
-    }
-
-    private void initDefaultTagLayout(boolean z) {
-        ViewStub viewStub;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65605, this, z) == null) {
-            if (z) {
-                viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091e0f);
-            } else {
-                viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091e11);
-            }
-            View inflate = viewStub.inflate();
-            this.addrTagGroup = (RadioGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091e39);
-            this.homeTagRb = (CheckedRadioButton) inflate.findViewById(R.id.obfuscated_res_0x7f091e3a);
-            this.companyTagRb = (CheckedRadioButton) inflate.findViewById(R.id.obfuscated_res_0x7f091e38);
-            this.schoolTagRb = (CheckedRadioButton) inflate.findViewById(R.id.obfuscated_res_0x7f091e3e);
+        StringBuilder sb = new StringBuilder();
+        if (!TextUtils.isEmpty(addressSelectedBean.provinceName)) {
+            sb.append(addressSelectedBean.provinceName);
+            sb.append(GlideException.IndentedAppendable.INDENT);
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void scrollToAddrDetail(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65621, this, z) == null) {
-            if (z) {
-                this.addrContentSv.smoothScrollTo(0, this.regionLayout.getTop() + SapiUtils.dip2px(this, 10.0f));
-                if (!TextUtils.isEmpty(this.detailAddrEt.getText().toString().trim())) {
-                    ((AddressEditPresenter) this.presenter).getSuggestAddrList(this.inputDetailAddr, this.selectedRegion);
-                    this.suggestAddrLayout.setVisibility(0);
-                    return;
-                }
-                return;
-            }
-            this.addrContentSv.smoothScrollTo(0, 0);
-            this.suggestAddrLayout.setVisibility(8);
+        if (!TextUtils.isEmpty(addressSelectedBean.cityName)) {
+            sb.append(addressSelectedBean.cityName);
+            sb.append(GlideException.IndentedAppendable.INDENT);
         }
+        if (!TextUtils.isEmpty(addressSelectedBean.districtName)) {
+            sb.append(addressSelectedBean.districtName);
+            sb.append(GlideException.IndentedAppendable.INDENT);
+        }
+        if (!TextUtils.isEmpty(addressSelectedBean.townName)) {
+            sb.append(addressSelectedBean.townName);
+        }
+        return sb.toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void selectSuggestAddrDetail(Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65622, this, obj) == null) && (obj instanceof JSONObject)) {
+        if (obj instanceof JSONObject) {
             JSONObject jSONObject = (JSONObject) obj;
             updateRegion(AddressConverter.convertRegionJsonObj2Region(jSONObject));
             String optString = jSONObject.optString(AddressField.KEY_DETAIL_ADDR);
@@ -1696,248 +915,226 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         }
     }
 
-    private void initView() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65607, this) == null) {
-            this.rootView = findViewById(R.id.obfuscated_res_0x7f091e19);
-            this.titleBarView = (TitleBarView) findViewById(R.id.obfuscated_res_0x7f091e5e);
-            this.addrContentSv = (ScrollView) findViewById(R.id.obfuscated_res_0x7f091e07);
-            InputFormView inputFormView = (InputFormView) findViewById(R.id.obfuscated_res_0x7f091e29);
-            this.nameInput = inputFormView;
-            this.nameInputEt = inputFormView.getEditText();
-            this.nameInput.setDarkMode(this.isDarkMode);
-            InputFormView inputFormView2 = (InputFormView) findViewById(R.id.obfuscated_res_0x7f091e28);
-            this.mobileInput = inputFormView2;
-            this.mobileInputEt = inputFormView2.getEditText();
-            this.mobileInput.setDarkMode(this.isDarkMode);
-            this.regionLayout = findViewById(R.id.obfuscated_res_0x7f091e30);
-            this.selectRegionIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f091eaf);
-            this.tvRegion = (TextView) findViewById(R.id.obfuscated_res_0x7f091e04);
-            InputFormView inputFormView3 = (InputFormView) findViewById(R.id.obfuscated_res_0x7f091e17);
-            this.detailInput = inputFormView3;
-            this.detailAddrEt = inputFormView3.getEditText();
-            this.detailInput.setDarkMode(this.isDarkMode);
-            this.ivAddrCopyToggle = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e0c);
-            this.copyFormView = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091e0b);
-            this.addrCopyLayout = findViewById(R.id.obfuscated_res_0x7f091e58);
-            this.textOcrEt = (EditText) findViewById(R.id.obfuscated_res_0x7f091e2c);
-            this.cleanLongTextBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091e4f);
-            this.useLongTextBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091ed6);
-            this.voiceOcrBtn = findViewById(R.id.obfuscated_res_0x7f091ed9);
-            this.imgOcrBtn = findViewById(R.id.obfuscated_res_0x7f091e6f);
-            this.imgOcrIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e6d);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e05);
-            this.addTagBtn = imageView;
-            if (this.isDarkMode) {
-                i = R.drawable.obfuscated_res_0x7f08108d;
+    private void initDefaultTagLayout(boolean z) {
+        ViewStub viewStub;
+        if (z) {
+            viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091e53);
+        } else {
+            viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091e55);
+        }
+        View inflate = viewStub.inflate();
+        this.addrTagGroup = (RadioGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091e7d);
+        this.homeTagRb = (CheckedRadioButton) inflate.findViewById(R.id.obfuscated_res_0x7f091e7e);
+        this.companyTagRb = (CheckedRadioButton) inflate.findViewById(R.id.obfuscated_res_0x7f091e7c);
+        this.schoolTagRb = (CheckedRadioButton) inflate.findViewById(R.id.obfuscated_res_0x7f091e82);
+    }
+
+    private void processCreateAddrResult(Object obj) {
+        if (obj instanceof String) {
+            AddressStatUtil.statAddressOption(StatKey.EDITADDR_ADD_FINISH);
+            this.newMapObject.putValue(AddressField.KEY_ADDR_ID, (String) obj);
+            if (this.isOpenEdit) {
+                callbackAddressResult();
             } else {
-                i = R.drawable.obfuscated_res_0x7f08108c;
+                Intent intent = new Intent();
+                intent.putExtra(AddressListActivity.CREATE_ADDRESS_RESULT, this.newMapObject);
+                intent.putExtra(AddressListActivity.CREATE_REGION_RESULT, this.selectedRegion);
+                setResult(1001, intent);
             }
-            imageView.setImageResource(i);
-            this.editTagLayout = findViewById(R.id.obfuscated_res_0x7f091e5f);
-            LengthLimitEditText lengthLimitEditText = (LengthLimitEditText) findViewById(R.id.obfuscated_res_0x7f091eba);
-            this.editTagEt = lengthLimitEditText;
-            lengthLimitEditText.setLengthLimit(5);
-            this.editTagConfirmBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091eb9);
-            this.customTagLayout = findViewById(R.id.obfuscated_res_0x7f091e59);
-            this.checkedCustomTagTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091e5b);
-            this.customTagLine = findViewById(R.id.obfuscated_res_0x7f091e5a);
-            this.updateCustomTagBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e5c);
-            this.isDefaultToggle = findViewById(R.id.obfuscated_res_0x7f091e12);
-            this.defaultTagClose = findViewById(R.id.obfuscated_res_0x7f091e0e);
-            this.defaultTagOpen = findViewById(R.id.obfuscated_res_0x7f091e10);
-            this.suggestAddrLayout = findViewById(R.id.obfuscated_res_0x7f091eb2);
-            this.suggestAddrListView = (ListView) findViewById(R.id.obfuscated_res_0x7f091eb3);
-            this.delAddrBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091e14);
-            this.mapAddrCheckValidTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091e06);
-            initDefaultTagLayout(this.isDarkMode);
-            this.titleBarView.setLeft(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, this);
-            this.titleBarView.setRight("保存", this);
-            this.isDefaultToggle.setOnClickListener(this);
-            this.tvRegion.setOnClickListener(this);
-            this.cleanLongTextBtn.setOnClickListener(this);
-            this.useLongTextBtn.setOnClickListener(this);
-            this.selectRegionIv.setOnClickListener(this);
-            this.voiceOcrBtn.setOnClickListener(this);
-            this.imgOcrBtn.setOnClickListener(this);
-            this.copyFormView.setOnClickListener(this);
-            this.addTagBtn.setOnClickListener(this);
-            this.editTagConfirmBtn.setOnClickListener(this);
-            this.updateCustomTagBtn.setOnClickListener(this);
-            if (this.isDarkMode) {
-                this.mapAddrCheckValidTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f08107e);
-                this.mapAddrCheckValidTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609cc));
-                this.rootView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a52));
-                this.titleBarView.setDarkMode();
-                this.nameInput.setBackgroundResource(R.drawable.obfuscated_res_0x7f08109b);
-                this.mobileInput.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060983));
-                this.regionLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060983));
-                this.tvRegion.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060985));
-                this.tvRegion.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060981));
-                findViewById(R.id.obfuscated_res_0x7f091e52).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06097f));
-                this.detailInput.setBackgroundResource(R.drawable.obfuscated_res_0x7f081099);
-                TextFormView textFormView = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091e2b);
-                textFormView.setDarkMode();
-                textFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08109b);
-                this.imgOcrBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810c3);
-                ((TextView) findViewById(R.id.obfuscated_res_0x7f091e6e)).setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060987));
-                this.addrCopyLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081099);
-                findViewById(R.id.obfuscated_res_0x7f091e0a).setBackgroundResource(R.drawable.obfuscated_res_0x7f081091);
-                this.textOcrEt.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060981));
-                this.textOcrEt.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060985));
-                this.cleanLongTextBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810bc);
-                this.cleanLongTextBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06096f));
-                this.useLongTextBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f081085);
-                this.useLongTextBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060995));
-                TextFormView textFormView2 = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091e1a);
-                textFormView2.setBackgroundResource(R.drawable.obfuscated_res_0x7f08109b);
-                textFormView2.setDarkMode();
-                findViewById(R.id.obfuscated_res_0x7f091e5d).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060983));
-                this.addTagBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810ae);
-                this.editTagEt.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810c3);
-                this.editTagEt.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060985));
-                this.editTagEt.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060981));
-                this.editTagConfirmBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f08108f);
-                this.editTagConfirmBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06098d));
-                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060975));
-                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810c3);
-                this.customTagLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060993));
-                this.updateCustomTagBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810e2);
-                findViewById(R.id.obfuscated_res_0x7f091e18).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06097f));
-                TextFormView textFormView3 = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091eb0);
-                textFormView3.setBackgroundResource(R.drawable.obfuscated_res_0x7f081099);
-                textFormView3.setDarkMode();
-                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f081093);
-                this.defaultTagClose.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810cd);
-                this.defaultTagOpen.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810cd);
-                this.delAddrBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810ce);
-                this.delAddrBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06097d));
-                this.copyFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081099);
-                this.copyFormView.setDarkMode();
-                this.suggestAddrLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060989));
-            }
-            this.checkedCustomTagTv.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        if (this.this$0.isCheckedCustomTag) {
-                            this.this$0.unCheckedCustomTag();
-                            return;
-                        }
-                        this.this$0.isClickConfirmCustomTag = true;
-                        this.this$0.checkedCustomTag();
-                    }
-                }
-            });
-            this.nameInput.getImg().setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        AddressStatUtil.statAddressOption(StatKey.EDITADDR_CONTACT_CLICK);
-                        ContactUtil.getInstance().requestContact(this.this$0, new GetContactCallback(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.3.1
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ AnonymousClass3 this$1;
-
-                            {
-                                Interceptable interceptable3 = $ic;
-                                if (interceptable3 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this};
-                                    interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable3.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.this$1 = this;
-                            }
-
-                            @Override // com.baidu.pass.ecommerce.callback.GetContactCallback
-                            public void onCall(GetContactResult getContactResult) {
-                                String str;
-                                Interceptable interceptable3 = $ic;
-                                if ((interceptable3 == null || interceptable3.invokeL(1048576, this, getContactResult) == null) && getContactResult != null && !TextUtils.isEmpty(getContactResult.name) && !TextUtils.isEmpty(getContactResult.phone)) {
-                                    String str2 = "";
-                                    if (TextUtils.isEmpty(getContactResult.name)) {
-                                        str = "";
-                                    } else {
-                                        str = getContactResult.name;
-                                    }
-                                    this.this$1.this$0.nameInput.setText(str);
-                                    if (!TextUtils.isEmpty(getContactResult.phone)) {
-                                        String replaceAll = getContactResult.phone.replaceAll(" ", "").replaceAll("\\+", "").replaceAll("-", "");
-                                        if (replaceAll.startsWith(AddressEditActivity.CHINA_REGION_CODE)) {
-                                            str2 = replaceAll.replaceFirst(AddressEditActivity.CHINA_REGION_CODE, "");
-                                        } else {
-                                            str2 = replaceAll;
-                                        }
-                                    }
-                                    this.this$1.this$0.mobileInput.setText(str2);
-                                    AddressStatUtil.statAddressOption(StatKey.EDITADDR_CONTACT_FINISH);
-                                }
-                            }
-                        });
-                    }
-                }
-            });
+            finish();
         }
     }
 
+    @Override // com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.pass.ecommerce.common.mvp.IBaseView
+    public void showLoading(int i) {
+        if (Build.VERSION.SDK_INT >= 17 && (isFinishing() || isDestroyed())) {
+            return;
+        }
+        if (i != 1001 && i != 1004) {
+            if (i != 3001) {
+                if (i == 3002) {
+                    LoadingUtil.show("地址识别中");
+                    return;
+                }
+                return;
+            }
+            LoadingUtil.show("图片识别中");
+            return;
+        }
+        LoadingUtil.show("地址保存中");
+    }
+
+    private void initView() {
+        int i;
+        this.rootView = findViewById(R.id.obfuscated_res_0x7f091e5d);
+        this.titleBarView = (TitleBarView) findViewById(R.id.obfuscated_res_0x7f091ea2);
+        this.addrContentSv = (ScrollView) findViewById(R.id.obfuscated_res_0x7f091e4b);
+        InputFormView inputFormView = (InputFormView) findViewById(R.id.obfuscated_res_0x7f091e6d);
+        this.nameInput = inputFormView;
+        this.nameInputEt = inputFormView.getEditText();
+        this.nameInput.setDarkMode(this.isDarkMode);
+        this.nameInput.setInputType(InputFormView.InputType.NAME);
+        InputFormView inputFormView2 = (InputFormView) findViewById(R.id.obfuscated_res_0x7f091e6c);
+        this.mobileInput = inputFormView2;
+        this.mobileInputEt = inputFormView2.getEditText();
+        this.mobileInput.setDarkMode(this.isDarkMode);
+        this.mobileInput.setInputType(InputFormView.InputType.PHONE);
+        this.regionLayout = findViewById(R.id.obfuscated_res_0x7f091e74);
+        this.selectRegionIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ef3);
+        this.tvRegion = (TextView) findViewById(R.id.obfuscated_res_0x7f091e48);
+        InputFormView inputFormView3 = (InputFormView) findViewById(R.id.obfuscated_res_0x7f091e5b);
+        this.detailInput = inputFormView3;
+        this.detailAddrEt = inputFormView3.getEditText();
+        this.detailInput.setDarkMode(this.isDarkMode);
+        this.mobileInput.setInputType(InputFormView.InputType.DETAIL);
+        this.ivAddrCopyToggle = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e50);
+        this.copyFormView = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091e4f);
+        this.addrCopyLayout = findViewById(R.id.obfuscated_res_0x7f091e9c);
+        this.textOcrEt = (EditText) findViewById(R.id.obfuscated_res_0x7f091e70);
+        this.cleanLongTextBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091e93);
+        this.useLongTextBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091f1a);
+        this.voiceOcrBtn = findViewById(R.id.obfuscated_res_0x7f091f1d);
+        this.mOcrEditLayout = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091e6f);
+        this.imgOcrBtn = findViewById(R.id.obfuscated_res_0x7f091eb3);
+        this.imgOcrIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f091eb1);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e49);
+        this.addTagBtn = imageView;
+        if (this.isDarkMode) {
+            i = R.drawable.obfuscated_res_0x7f081091;
+        } else {
+            i = R.drawable.obfuscated_res_0x7f081090;
+        }
+        imageView.setImageResource(i);
+        this.editTagLayout = findViewById(R.id.obfuscated_res_0x7f091ea3);
+        LengthLimitEditText lengthLimitEditText = (LengthLimitEditText) findViewById(R.id.obfuscated_res_0x7f091efe);
+        this.editTagEt = lengthLimitEditText;
+        lengthLimitEditText.setLengthLimit(5);
+        this.editTagConfirmBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091efd);
+        this.customTagLayout = findViewById(R.id.obfuscated_res_0x7f091e9d);
+        this.checkedCustomTagTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091e9f);
+        this.customTagLine = findViewById(R.id.obfuscated_res_0x7f091e9e);
+        this.updateCustomTagBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ea0);
+        this.isDefaultToggle = findViewById(R.id.obfuscated_res_0x7f091e56);
+        this.defaultTagClose = findViewById(R.id.obfuscated_res_0x7f091e52);
+        this.defaultTagOpen = findViewById(R.id.obfuscated_res_0x7f091e54);
+        this.suggestAddrLayout = findViewById(R.id.obfuscated_res_0x7f091ef6);
+        this.suggestAddrListView = (ListView) findViewById(R.id.obfuscated_res_0x7f091ef7);
+        this.delAddrBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091e58);
+        this.mapAddrCheckValidTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091e4a);
+        initDefaultTagLayout(this.isDarkMode);
+        this.titleBarView.setLeft(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, this);
+        this.titleBarView.setRight("保存", this);
+        this.isDefaultToggle.setOnClickListener(this);
+        this.tvRegion.setOnClickListener(this);
+        this.cleanLongTextBtn.setOnClickListener(this);
+        this.useLongTextBtn.setOnClickListener(this);
+        this.selectRegionIv.setOnClickListener(this);
+        this.voiceOcrBtn.setOnClickListener(this);
+        this.imgOcrBtn.setOnClickListener(this);
+        this.copyFormView.setOnClickListener(this);
+        this.addTagBtn.setOnClickListener(this);
+        this.editTagConfirmBtn.setOnClickListener(this);
+        this.updateCustomTagBtn.setOnClickListener(this);
+        if (this.isDarkMode) {
+            this.mapAddrCheckValidTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081083);
+            this.mapAddrCheckValidTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06085e));
+            this.rootView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0608e5));
+            this.titleBarView.setDarkMode();
+            this.nameInput.setBackgroundResource(R.drawable.obfuscated_res_0x7f08109f);
+            this.mobileInput.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060815));
+            this.regionLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060815));
+            this.tvRegion.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060817));
+            this.tvRegion.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060813));
+            findViewById(R.id.obfuscated_res_0x7f091e96).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060811));
+            this.detailInput.setBackgroundResource(R.drawable.obfuscated_res_0x7f08109d);
+            this.mOcrEditLayout.setDarkMode();
+            this.mOcrEditLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f08109f);
+            this.imgOcrBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810c7);
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f091eb2)).setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060819));
+            this.addrCopyLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f08109d);
+            findViewById(R.id.obfuscated_res_0x7f091e4e).setBackgroundResource(R.drawable.obfuscated_res_0x7f081095);
+            this.textOcrEt.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060813));
+            this.textOcrEt.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060817));
+            this.cleanLongTextBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810c0);
+            this.cleanLongTextBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060801));
+            this.useLongTextBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f081089);
+            this.useLongTextBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060827));
+            TextFormView textFormView = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091e5e);
+            textFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08109f);
+            textFormView.setDarkMode();
+            findViewById(R.id.obfuscated_res_0x7f091ea1).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060815));
+            this.addTagBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810b2);
+            this.editTagEt.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810c7);
+            this.editTagEt.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060817));
+            this.editTagEt.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060813));
+            this.editTagConfirmBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f081093);
+            this.editTagConfirmBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06081f));
+            this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060807));
+            this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810c7);
+            this.customTagLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060825));
+            this.updateCustomTagBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810e6);
+            findViewById(R.id.obfuscated_res_0x7f091e5c).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060811));
+            TextFormView textFormView2 = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091ef4);
+            textFormView2.setBackgroundResource(R.drawable.obfuscated_res_0x7f08109d);
+            textFormView2.setDarkMode();
+            this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f081097);
+            this.defaultTagClose.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810d1);
+            this.defaultTagOpen.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810d1);
+            this.delAddrBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810d2);
+            this.delAddrBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06080f));
+            this.copyFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08109d);
+            this.copyFormView.setDarkMode();
+            this.suggestAddrLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06081b));
+        }
+        this.checkedCustomTagTv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.2
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                if (AddressEditActivity.this.isCheckedCustomTag) {
+                    AddressEditActivity.this.unCheckedCustomTag();
+                    return;
+                }
+                AddressEditActivity.this.isClickConfirmCustomTag = true;
+                AddressEditActivity.this.checkedCustomTag();
+                HashMap hashMap = new HashMap();
+                hashMap.put("stage", StatKey.EDITADDR_TAG_STAGE_SELECT_NEW);
+                AddressStatUtil.statAddressOption(StatKey.EDITADDR_TAG_STAGE, hashMap);
+            }
+        });
+        this.nameInput.getImg().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.3
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                AddressStatUtil.statAddressOption(StatKey.EDITADDR_CONTACT_CLICK);
+                ContactUtil.getInstance().requestContact(AddressEditActivity.this, new GetContactCallback() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.3.1
+                    @Override // com.baidu.pass.ecommerce.callback.GetContactCallback
+                    public void onCall(GetContactResult getContactResult) {
+                        String str;
+                        if (getContactResult != null && !TextUtils.isEmpty(getContactResult.name) && !TextUtils.isEmpty(getContactResult.phone)) {
+                            String str2 = "";
+                            if (TextUtils.isEmpty(getContactResult.name)) {
+                                str = "";
+                            } else {
+                                str = getContactResult.name;
+                            }
+                            AddressEditActivity.this.nameInput.setText(str);
+                            if (!TextUtils.isEmpty(getContactResult.phone)) {
+                                String replaceAll = getContactResult.phone.replaceAll(" ", "").replaceAll("\\+", "").replaceAll("-", "");
+                                if (replaceAll.startsWith(AddressEditActivity.CHINA_REGION_CODE)) {
+                                    str2 = replaceAll.replaceFirst(AddressEditActivity.CHINA_REGION_CODE, "");
+                                } else {
+                                    str2 = replaceAll;
+                                }
+                            }
+                            AddressEditActivity.this.mobileInput.setText(str2);
+                            AddressStatUtil.statAddressOption(StatKey.EDITADDR_CONTACT_FINISH);
+                        }
+                    }
+                });
+            }
+        });
+    }
+
     private void initViewByAddrMapObj(MapObject mapObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65608, this, mapObject) != null) || mapObject == null) {
+        if (mapObject == null) {
             return;
         }
         this.addressId = mapObject.getStrValue(AddressField.KEY_ADDR_ID);
@@ -2001,9 +1198,8 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         this.delAddrBtn.setOnClickListener(this);
     }
 
-    private void processPastedAddrOcrResult(Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65615, this, obj) != null) || this.isActivityStopped) {
+    private void processPastedAddrOcrResult(final Object obj) {
+        if (this.isActivityStopped) {
             return;
         }
         String str = null;
@@ -2037,71 +1233,19 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         }
         HashMap hashMap = new HashMap();
         if (!TextUtils.isEmpty(str)) {
-            CommonDialog build = new CommonDialog.Builder(this).setTitle("是否使用该地址").setMessage(str).setMessageGravity(3).setNegativeButton("暂不使用", new View.OnClickListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.25
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
+            CommonDialog build = new CommonDialog.Builder(this).setTitle("是否使用该地址").setMessage(str).setMessageGravity(3).setNegativeButton("暂不使用", new View.OnClickListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.25
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        AddressStatUtil.statAddressOption(StatKey.CLIPBOARD_ADDR_CANCEL_CLICK);
-                        this.this$0.usePastedAddrDialog.dismiss();
-                    }
+                    AddressStatUtil.statAddressOption(StatKey.CLIPBOARD_ADDR_CANCEL_CLICK);
+                    AddressEditActivity.this.usePastedAddrDialog.dismiss();
                 }
-            }).setPositiveBtn("使用", new View.OnClickListener(this, obj) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.24
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressEditActivity this$0;
-                public final /* synthetic */ Object val$object;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, obj};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$object = obj;
-                }
-
+            }).setPositiveBtn("使用", new View.OnClickListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.24
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        this.this$0.mapAddrCheckValidTv.setVisibility(0);
-                        AddressStatUtil.statAddressOption(StatKey.CLIPBOARD_ADDR_CONFIRM_CLICK);
-                        this.this$0.usePastedAddrDialog.dismiss();
-                        this.this$0.selectSuggestAddrDetail(this.val$object);
-                    }
+                    AddressEditActivity.this.mapAddrCheckValidTv.setVisibility(0);
+                    AddressStatUtil.statAddressOption(StatKey.CLIPBOARD_ADDR_CONFIRM_CLICK);
+                    AddressEditActivity.this.usePastedAddrDialog.dismiss();
+                    AddressEditActivity.this.selectSuggestAddrDetail(obj);
                 }
             }).setDarkMode(this.isDarkMode).build();
             this.usePastedAddrDialog = build;
@@ -2114,305 +1258,288 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         AddressStatUtil.statAddressOption(StatKey.CLIPBOARD_TXT_ANALYSE, hashMap);
     }
 
-    private void processCreateAddrResult(Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65612, this, obj) == null) && (obj instanceof String)) {
-            AddressStatUtil.statAddressOption(StatKey.EDITADDR_ADD_FINISH);
-            this.newMapObject.putValue(AddressField.KEY_ADDR_ID, (String) obj);
-            if (this.isOpenEdit) {
-                callbackAddressResult();
-            } else {
-                Intent intent = new Intent();
-                intent.putExtra(AddressListActivity.CREATE_ADDRESS_RESULT, this.newMapObject);
-                intent.putExtra(AddressListActivity.CREATE_REGION_RESULT, this.selectedRegion);
-                setResult(1001, intent);
-            }
-            finish();
-        }
-    }
-
-    private void updateRegion(AddressSelectedBean addressSelectedBean) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65631, this, addressSelectedBean) == null) {
-            String regionDetailStr = getRegionDetailStr(this.selectedRegion);
-            if (!TextUtils.isEmpty(regionDetailStr) && !TextUtils.equals(regionDetailStr, getRegionDetailStr(addressSelectedBean))) {
-                ToastUtil.show(R.drawable.obfuscated_res_0x7f08111a, "已切换所在地区");
-            }
-            this.selectedRegion = addressSelectedBean;
-            this.tvRegion.setText(getRegionDetailStr(addressSelectedBean));
-            updateTopRightBtnStatus(true, 4);
-        }
-    }
-
-    @Override // com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void showLoading(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048591, this, i) == null) && !isFinishing() && !isDestroyed()) {
-            if (i != 1001 && i != 1004) {
-                if (i != 3001) {
-                    if (i == 3002) {
-                        LoadingUtil.show("地址识别中");
-                        return;
-                    }
-                    return;
-                }
-                LoadingUtil.show("图片识别中");
-                return;
-            }
-            LoadingUtil.show("地址保存中");
-        }
-    }
-
     private void processSuggestAddrList(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65617, this, str, obj) == null) {
-            String trim = this.detailAddrEt.getText().toString().trim();
-            if (!TextUtils.isEmpty(trim) && TextUtils.equals(trim, str)) {
-                if (this.listAdapter == null) {
-                    SuggestAddrListAdapter suggestAddrListAdapter = new SuggestAddrListAdapter(this.isDarkMode);
-                    this.listAdapter = suggestAddrListAdapter;
-                    this.suggestAddrListView.setAdapter((ListAdapter) suggestAddrListAdapter);
-                }
-                this.listAdapter.setQueryContent(str);
-                this.listAdapter.setData((List) obj);
+        String trim = this.detailAddrEt.getText().toString().trim();
+        if (!TextUtils.isEmpty(trim) && TextUtils.equals(trim, str)) {
+            if (this.listAdapter == null) {
+                SuggestAddrListAdapter suggestAddrListAdapter = new SuggestAddrListAdapter(this.isDarkMode);
+                this.listAdapter = suggestAddrListAdapter;
+                this.suggestAddrListView.setAdapter((ListAdapter) suggestAddrListAdapter);
             }
+            this.listAdapter.setQueryContent(str);
+            this.listAdapter.setData((List) obj);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateTopRightBtnStatus(boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65632, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            if (z) {
-                this.addressElementStatus |= i;
-            } else {
-                this.addressElementStatus &= ~i;
+    public void scrollToAddrDetail(boolean z) {
+        if (z) {
+            this.addrContentSv.smoothScrollTo(0, this.regionLayout.getTop() + SapiUtils.dip2px(this, 10.0f));
+            if (!TextUtils.isEmpty(this.detailAddrEt.getText().toString().trim())) {
+                ((AddressEditPresenter) this.presenter).getSuggestAddrList(this.inputDetailAddr, this.selectedRegion);
+                InputFormView inputFormView = this.detailInput;
+                if (inputFormView != null) {
+                    int max = Math.max(Math.min(inputFormView.getLineCount(), 3), 2);
+                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.suggestAddrLayout.getLayoutParams();
+                    layoutParams.topMargin = dip2px(110.0f) + (max * sp2px(18.0f));
+                    this.suggestAddrLayout.setLayoutParams(layoutParams);
+                }
+                this.suggestAddrLayout.setVisibility(0);
+                AddressStatUtil.statAddressOption(StatKey.EDITADDR_PREDICTIVE);
+                return;
             }
-            setTopRightBtnEnableStatus();
+            return;
         }
+        this.addrContentSv.smoothScrollTo(0, 0);
+        this.suggestAddrLayout.setVisibility(8);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity
+    public AddressEditPresenter createPresenter() {
+        AddressEditPresenter addressEditPresenter = new AddressEditPresenter();
+        String stringExtra = getIntent().getStringExtra(KEY_BDSTOKEN_FROM_ADDRLIST);
+        if (TextUtils.isEmpty(stringExtra)) {
+            addressEditPresenter.getBdStokenFromServer(Integer.MIN_VALUE, null);
+        } else {
+            addressEditPresenter.setBdSTokenFromAddrList(stringExtra);
+        }
+        return addressEditPresenter;
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
     public void doFailure(int i, int i2, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
-            LoadingUtil.cancel();
-            if (i != 2001 && i != 2002) {
-                if (i != 3001) {
-                    if (i != 3003 && !TextUtils.isEmpty(str)) {
-                        ToastUtil.show(R.drawable.obfuscated_res_0x7f0810bf, str);
-                        return;
-                    }
+        LoadingUtil.cancel();
+        if (i != 2001 && i != 2002) {
+            if (i != 3001) {
+                if (i != 3003 && !TextUtils.isEmpty(str)) {
+                    ToastUtil.show(R.drawable.obfuscated_res_0x7f0810c3, str);
                     return;
                 }
-                ToastUtil.show(R.drawable.obfuscated_res_0x7f0810bf, "图片识别失败");
+                return;
             }
+            ToastUtil.show(R.drawable.obfuscated_res_0x7f0810c3, "图片识别失败");
         }
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
     public void doResult(int i, Object obj, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i, obj, str) == null) {
-            LoadingUtil.cancel();
-            if (i != 1001) {
-                if (i != 1002) {
-                    if (i != 1004) {
-                        if (i != 2001) {
-                            if (i != 2002) {
-                                switch (i) {
-                                    case 3001:
-                                        processImgOcrResult(obj);
-                                        return;
-                                    case 3002:
-                                        processRecogniseTextOcrResult(obj);
-                                        return;
-                                    case 3003:
-                                        processPastedAddrOcrResult(obj);
-                                        return;
-                                    default:
-                                        return;
-                                }
+        LoadingUtil.cancel();
+        if (i != 1001) {
+            if (i != 1002) {
+                if (i != 1004) {
+                    if (i != 2001) {
+                        if (i != 2002) {
+                            switch (i) {
+                                case 3001:
+                                    processImgOcrResult(obj);
+                                    return;
+                                case 3002:
+                                    processRecogniseTextOcrResult(obj);
+                                    return;
+                                case 3003:
+                                    processPastedAddrOcrResult(obj);
+                                    return;
+                                default:
+                                    return;
                             }
-                            selectSuggestAddrDetail(obj);
-                            return;
                         }
-                        processSuggestAddrList(str, obj);
+                        selectSuggestAddrDetail(obj);
                         return;
                     }
-                    processCreateAddrResult(obj);
+                    processSuggestAddrList(str, obj);
                     return;
                 }
-                processDelAddrResult(str);
+                processCreateAddrResult(obj);
                 return;
             }
-            processUpdateAddrResult();
+            processDelAddrResult(str);
+            return;
         }
+        processUpdateAddrResult();
     }
 
     @Override // com.baidu.sapi2.activity.BaseOptionActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, @Nullable Intent intent) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
-            if (i == 10001 && intent != null) {
-                Serializable serializableExtra = intent.getSerializableExtra(MAP_LOC_REGION_DETAIL);
-                if (serializableExtra == null) {
-                    return;
-                }
-                updateRegion((AddressSelectedBean) serializableExtra);
-                this.isAutoSetAddrDetailText = true;
-                this.detailAddrEt.setText(intent.getStringExtra(MAP_LOC_ADDR_DETAIL));
-                this.mapAddrCheckValidTv.setVisibility(0);
-                if (this.isCreateAddress) {
-                    str = "0";
-                } else {
-                    str = "1";
-                }
-                AddressStatUtil.onEventAutoStatistic(StatKey.ADDR_EDIT_INFO_FROM_MAP, str);
-            } else if (i == 10010 && checkGpsSwitcherStatus()) {
-                openAddrMapLocationActivity();
+        super.onActivityResult(i, i2, intent);
+        if (i == 10001 && intent != null) {
+            Serializable serializableExtra = intent.getSerializableExtra(MAP_LOC_REGION_DETAIL);
+            if (serializableExtra == null) {
+                return;
             }
+            updateRegion((AddressSelectedBean) serializableExtra);
+            this.isAutoSetAddrDetailText = true;
+            this.detailAddrEt.setText(intent.getStringExtra(MAP_LOC_ADDR_DETAIL));
+            this.mapAddrCheckValidTv.setVisibility(0);
+            AddressStatUtil.statAddressOption(StatKey.ADDR_EDIT_INFO_FROM_MAP);
+        } else if (i == 10010 && checkGpsSwitcherStatus()) {
+            openAddrMapLocationActivity();
         }
     }
 
     @Override // com.baidu.sapi2.activity.BaseOptionActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        String str;
         AddressManageDTO addressManageDTO;
         MapStatusAndLocateCallback mapStatusAndLocateCallback;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Log.d("ONCLICK", "currentTime=" + currentTimeMillis + " lastClickTime=" + BaseOptionActivity.lastClickTime);
-            if (currentTimeMillis - BaseOptionActivity.lastClickTime < 500) {
+        long currentTimeMillis = System.currentTimeMillis();
+        Log.d("ONCLICK", "currentTime=" + currentTimeMillis + " lastClickTime=" + BaseOptionActivity.lastClickTime);
+        if (currentTimeMillis - BaseOptionActivity.lastClickTime < 500) {
+            return;
+        }
+        BaseOptionActivity.lastClickTime = currentTimeMillis;
+        int id = view2.getId();
+        if (R.id.obfuscated_res_0x7f091e56 == id) {
+            if (this.isSetDefaultAddr) {
+                AddressStatUtil.statAddressOption(StatKey.EDITADDR_CANCEL_DEFAULT);
+                closeDefaultAddr();
                 return;
             }
-            BaseOptionActivity.lastClickTime = currentTimeMillis;
-            int id = view2.getId();
-            if (R.id.obfuscated_res_0x7f091e12 == id) {
-                if (this.isSetDefaultAddr) {
-                    AddressStatUtil.statAddressOption(StatKey.EDITADDR_CANCEL_DEFAULT);
-                    closeDefaultAddr();
+            AddressStatUtil.statAddressOption(StatKey.EDITADDR_SET_DEFAULT);
+            openDefaultAddr();
+        } else if (R.id.obfuscated_res_0x7f091e49 == id) {
+            this.addTagBtn.setVisibility(8);
+            this.customTagLayout.setVisibility(8);
+            this.editTagLayout.setVisibility(0);
+            HashMap hashMap = new HashMap();
+            hashMap.put("stage", "add");
+            AddressStatUtil.statAddressOption(StatKey.EDITADDR_TAG_STAGE, hashMap);
+        } else if (R.id.obfuscated_res_0x7f091efd == id) {
+            this.isClickConfirmCustomTag = true;
+            checkedCustomTag();
+            this.editTagLayout.setVisibility(8);
+            this.customTagLayout.setVisibility(0);
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("stage", StatKey.EDITADDR_TAG_STAGE_CONFIRM_INPUT);
+            AddressStatUtil.statAddressOption(StatKey.EDITADDR_TAG_STAGE, hashMap2);
+        } else if (R.id.obfuscated_res_0x7f091ea0 == id) {
+            this.customTagLayout.setVisibility(8);
+            this.editTagLayout.setVisibility(0);
+            HashMap hashMap3 = new HashMap();
+            hashMap3.put("stage", StatKey.EDITADDR_TAG_STAGE_EDIT);
+            AddressStatUtil.statAddressOption(StatKey.EDITADDR_TAG_STAGE, hashMap3);
+        } else if (R.id.obfuscated_res_0x7f091e93 == id) {
+            this.textOcrEt.setText("");
+            HashMap hashMap4 = new HashMap();
+            hashMap4.put("stage", "cancel");
+            AddressStatUtil.statAddressOption(StatKey.EDITADDR_PASTE_ADDRESS_STAGE, hashMap4);
+        } else if (R.id.obfuscated_res_0x7f091f1a == id) {
+            AddressStatUtil.statAddressOption(StatKey.EDITADDR_SPLIT_CLICK);
+            String trim = this.textOcrEt.getText().toString().trim();
+            HashMap hashMap5 = new HashMap();
+            hashMap5.put("stage", "use");
+            AddressStatUtil.statAddressOption(StatKey.EDITADDR_PASTE_ADDRESS_STAGE, hashMap5);
+            if (TextUtils.isEmpty(trim)) {
+                return;
+            }
+            ((AddressEditPresenter) this.presenter).recogniseTextOcrAddressResult(trim, 3002);
+        } else if (R.id.obfuscated_res_0x7f091e48 == id) {
+            if (this.isKeyBoardShowing) {
+                this.isShowRegionSelectDialog = true;
+                InputMethodManager inputMethodManager = (InputMethodManager) getSystemService("input_method");
+                if (inputMethodManager != null) {
+                    inputMethodManager.hideSoftInputFromWindow(this.imgOcrBtn.getWindowToken(), 0);
                     return;
                 }
-                AddressStatUtil.statAddressOption(StatKey.EDITADDR_SET_DEFAULT);
-                openDefaultAddr();
-            } else if (R.id.obfuscated_res_0x7f091e05 == id) {
-                this.addTagBtn.setVisibility(8);
-                this.customTagLayout.setVisibility(8);
-                this.editTagLayout.setVisibility(0);
-            } else if (R.id.obfuscated_res_0x7f091eb9 == id) {
-                this.isClickConfirmCustomTag = true;
-                checkedCustomTag();
-                this.editTagLayout.setVisibility(8);
-                this.customTagLayout.setVisibility(0);
-            } else if (R.id.obfuscated_res_0x7f091e5c == id) {
-                this.customTagLayout.setVisibility(8);
-                this.editTagLayout.setVisibility(0);
-            } else if (R.id.obfuscated_res_0x7f091e4f == id) {
-                this.textOcrEt.setText("");
-            } else if (R.id.obfuscated_res_0x7f091ed6 == id) {
-                AddressStatUtil.statAddressOption(StatKey.EDITADDR_SPLIT_CLICK);
-                String trim = this.textOcrEt.getText().toString().trim();
-                if (TextUtils.isEmpty(trim)) {
+                return;
+            }
+            showRegionSelectorDialog();
+        } else if (R.id.obfuscated_res_0x7f091eb3 == id) {
+            AddressStatUtil.statAddressOption(StatKey.EDITADDR_OCR_CLICK);
+            if (this.isKeyBoardShowing) {
+                this.isShowImgOcrDialog = true;
+                InputMethodManager inputMethodManager2 = (InputMethodManager) getSystemService("input_method");
+                if (inputMethodManager2 != null) {
+                    inputMethodManager2.hideSoftInputFromWindow(this.imgOcrBtn.getWindowToken(), 0);
                     return;
                 }
-                ((AddressEditPresenter) this.presenter).recogniseTextOcrAddressResult(trim, 3002);
-            } else if (R.id.obfuscated_res_0x7f091e04 == id) {
-                if (this.isKeyBoardShowing) {
-                    this.isShowRegionSelectDialog = true;
-                    InputMethodManager inputMethodManager = (InputMethodManager) getSystemService("input_method");
-                    if (inputMethodManager != null) {
-                        inputMethodManager.hideSoftInputFromWindow(this.imgOcrBtn.getWindowToken(), 0);
-                        return;
-                    }
+                return;
+            }
+            showImgOcrOptionDialog();
+        } else if (R.id.obfuscated_res_0x7f091f02 == id) {
+            if (this.isOpenEdit) {
+                AddressStatUtil.statAddressOption(StatKey.EDITADDR_CANCEL);
+                endProcess();
+            }
+            finish();
+        } else if (R.id.obfuscated_res_0x7f091f03 == id) {
+            AddressStatUtil.statAddressOption(StatKey.EDITADDR_SAVEBTN_CLICK);
+            checkUserInputAndSubmit();
+        } else if (R.id.obfuscated_res_0x7f091e4f == id) {
+            if (this.addrCopyLayout.getVisibility() == 0) {
+                closeAddrCopyLayout();
+            } else {
+                openAddrCopyLayout();
+            }
+        } else if (R.id.obfuscated_res_0x7f091e58 == id) {
+            showDelNoticeDialog();
+        } else if (R.id.obfuscated_res_0x7f091ef3 == id) {
+            AddressStatUtil.statAddressOption(StatKey.ADDR_LOCATE_BTN_CLICK);
+            boolean isMeetGray = SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_ADDRESS_NA_MAP).isMeetGray();
+            Log.d(TAG, "isMeetAddrMapGray is " + isMeetGray);
+            if (isMeetGray && (addressManageDTO = this.addressManageDTO) != null && (mapStatusAndLocateCallback = addressManageDTO.mapStatusAndLocateCallback) != null && addressManageDTO != null && mapStatusAndLocateCallback != null) {
+                if (mapStatusAndLocateCallback.isMapInitSuccess()) {
+                    Log.d(TAG, "mapStatusAndLocateCallback: map init is success");
+                    requestLocPermission();
                     return;
                 }
-                showRegionSelectorDialog();
-            } else if (R.id.obfuscated_res_0x7f091e6f == id) {
-                AddressStatUtil.statAddressOption(StatKey.EDITADDR_OCR_CLICK);
-                if (this.isKeyBoardShowing) {
-                    this.isShowImgOcrDialog = true;
-                    InputMethodManager inputMethodManager2 = (InputMethodManager) getSystemService("input_method");
-                    if (inputMethodManager2 != null) {
-                        inputMethodManager2.hideSoftInputFromWindow(this.imgOcrBtn.getWindowToken(), 0);
-                        return;
-                    }
-                    return;
-                }
-                showImgOcrOptionDialog();
-            } else if (R.id.obfuscated_res_0x7f091ebe == id) {
-                if (this.isOpenEdit) {
-                    endProcess();
-                }
-                finish();
-            } else if (R.id.obfuscated_res_0x7f091ebf == id) {
-                AddressStatUtil.statAddressOption(StatKey.EDITADDR_SAVEBTN_CLICK);
-                checkUserInputAndSubmit();
-            } else if (R.id.obfuscated_res_0x7f091e0b == id) {
-                if (this.addrCopyLayout.getVisibility() == 0) {
-                    closeAddrCopyLayout();
-                } else {
-                    openAddrCopyLayout();
-                }
-            } else if (R.id.obfuscated_res_0x7f091e14 == id) {
-                showDelNoticeDialog();
-            } else if (R.id.obfuscated_res_0x7f091eaf == id) {
-                if (this.isCreateAddress) {
-                    str = "0";
-                } else {
-                    str = "1";
-                }
-                AddressStatUtil.onEventAutoStatistic(StatKey.ADDR_LOCATE_BTN_CLICK, str);
-                boolean isMeetGray = SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_ADDRESS_NA_MAP).isMeetGray();
-                Log.d(TAG, "isMeetAddrMapGray is " + isMeetGray);
-                if (isMeetGray && (addressManageDTO = this.addressManageDTO) != null && (mapStatusAndLocateCallback = addressManageDTO.mapStatusAndLocateCallback) != null && addressManageDTO != null && mapStatusAndLocateCallback != null) {
-                    if (mapStatusAndLocateCallback.isMapInitSuccess()) {
-                        Log.d(TAG, "mapStatusAndLocateCallback: map init is success");
-                        requestLocPermission();
-                        return;
-                    }
-                    Log.d(TAG, "mapStatusAndLocateCallback: map init is failed");
-                }
+                Log.d(TAG, "mapStatusAndLocateCallback: map init is failed");
             }
         }
     }
 
     @Override // com.baidu.sapi2.ecommerce.activity.BaseAddressActivity, com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.sapi2.activity.BaseOptionActivity, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
-            super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0502);
-            ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f060a53));
-            initView();
-            addAddress4ElementUpdateListener();
-            setInputBeyondLengthLimitListener();
-            setDarkModelIcon();
-            this.newMapObject = (MapObject) getIntent().getParcelableExtra(KEY_ADDRESS_DETAIL_MAP_OBJ);
-            this.selectedRegion = (AddressSelectedBean) getIntent().getSerializableExtra(KEY_ADDRESS_ADDR_REGION_BEAN);
-            if (this.newMapObject != null) {
-                AddressStatUtil.statAddressOption(StatKey.EDITADDR_ENTER_EDIT);
-                this.titleBarView.setTitle("编辑地址");
-                this.isCreateAddress = false;
-                initViewByAddrMapObj(this.newMapObject);
-                this.titleBarView.setRightBtnEnable(true);
-            } else {
-                AddressStatUtil.statAddressOption(StatKey.EDITADDR_ENTER_ADD);
-                this.titleBarView.setTitle("添加地址");
-                this.isCreateAddress = true;
-                initNewAddrMapObj();
-                this.titleBarView.setRightBtnEnable(false);
-            }
-            AddressSelectedBean addressSelectedBean = this.selectedRegion;
-            if (addressSelectedBean != null) {
-                this.addressElementStatus |= 4;
-                this.tvRegion.setText(getRegionDetailStr(addressSelectedBean));
-            }
-            AddressStatUtil.statAddressOption(StatKey.EDITADDR_LOADTIME, gapTimeFromEnter());
-            setListener();
+        super.onCreate(bundle);
+        setContentView(R.layout.obfuscated_res_0x7f0d0514);
+        ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f0608e6));
+        initView();
+        addAddress4ElementUpdateListener();
+        setInputBeyondLengthLimitListener();
+        setDarkModelIcon();
+        this.newMapObject = (MapObject) getIntent().getParcelableExtra(KEY_ADDRESS_DETAIL_MAP_OBJ);
+        this.selectedRegion = (AddressSelectedBean) getIntent().getSerializableExtra(KEY_ADDRESS_ADDR_REGION_BEAN);
+        if (this.newMapObject != null) {
+            AddressStatUtil.statAddressOption(StatKey.EDITADDR_ENTER_EDIT);
+            this.titleBarView.setTitle("编辑地址");
+            sFromType = "1";
+            this.isCreateAddress = false;
+            initViewByAddrMapObj(this.newMapObject);
+            this.titleBarView.setRightBtnEnable(true);
+        } else {
+            AddressStatUtil.statAddressOption(StatKey.EDITADDR_ENTER_ADD);
+            this.titleBarView.setTitle("添加地址");
+            this.isCreateAddress = true;
+            sFromType = "0";
+            initNewAddrMapObj();
+            this.titleBarView.setRightBtnEnable(false);
+        }
+        AddressSelectedBean addressSelectedBean = this.selectedRegion;
+        if (addressSelectedBean != null) {
+            this.addressElementStatus |= 4;
+            this.tvRegion.setText(getRegionDetailStr(addressSelectedBean));
+        }
+        AddressStatUtil.statAddressOption(StatKey.EDITADDR_LOADTIME, gapTimeFromEnter());
+        setListener();
+    }
+
+    @Override // com.baidu.sapi2.activity.BaseOptionActivity
+    public void processImgBase64Data(int i, String str, String str2) {
+        if (!TextUtils.isEmpty(this.imageType)) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("stage", this.imageType);
+            AddressStatUtil.statAddressOption(StatKey.EDITADDR_OCR_STAGE, hashMap);
+            this.imageType = "";
+        }
+        if (10000 == i && !TextUtils.isEmpty(str2)) {
+            ((AddressEditPresenter) this.presenter).getImgOcrAddressResult(str2);
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("stage", "success");
+            AddressStatUtil.statAddressOption(StatKey.EDITADDR_OCR_STAGE, hashMap2);
+        } else if (!TextUtils.isEmpty(str)) {
+            HashMap hashMap3 = new HashMap();
+            hashMap3.put("stage", "failed");
+            AddressStatUtil.statAddressOption(StatKey.EDITADDR_OCR_STAGE, hashMap3);
+            ToastUtil.show(str);
         }
     }
 }

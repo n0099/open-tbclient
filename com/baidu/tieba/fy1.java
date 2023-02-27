@@ -1,80 +1,40 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.net.NetRequest;
-import com.baidu.searchbox.v8engine.net.NetRequestParam;
-import com.baidu.searchbox.v8engine.net.NetRequestResult;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fy1 implements NetRequest.RequestInterceptor {
+public abstract class fy1 extends px1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public fy1() {
+    @Override // com.baidu.tieba.px1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Interaction" : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fy1(@NonNull nx1 nx1Var) {
+        super(nx1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {nx1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((nx1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF, IF] complete} */
-    @Override // com.baidu.searchbox.v8engine.net.NetRequest.RequestInterceptor
-    public boolean shouldInterceptRequest(NetRequestResult netRequestResult, NetRequestParam netRequestParam) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, netRequestResult, netRequestParam)) == null) {
-            if (netRequestParam == null) {
-                return false;
-            }
-            String url = netRequestParam.getUrl();
-            if (TextUtils.isEmpty(url)) {
-                if (netRequestResult != null) {
-                    netRequestResult.setStatusCodeAndMsg(1001, "illegal url");
-                }
-                return true;
-            }
-            String str = null;
-            JsObject jsObject = netRequestParam.getJsObject();
-            if (jsObject != null) {
-                try {
-                    int propertyIndex = jsObject.getPropertyIndex("__plugin__");
-                    if (propertyIndex > 0) {
-                        str = jsObject.toString(propertyIndex);
-                    }
-                    int c = n93.c("request", url, str);
-                    if (c != 0) {
-                        w02 Y = ky1.Y(c);
-                        netRequestResult.setStatusCodeAndMsg(Y.b, Y.c);
-                        return true;
-                    }
-                } finally {
-                    if (gy1.e() && jsObject != null) {
-                        jsObject.release();
-                    }
-                }
-            }
-            if (gy1.e() && jsObject != null) {
-                jsObject.release();
-            }
-            if (!TextUtils.isEmpty(str)) {
-                netRequestParam.addHeader("X-SWAN-HOSTSIGN", t43.b(u43.h(str)));
-            }
-            netRequestParam.addHeader("Referer", ly1.d());
-            netRequestParam.addHeader("User-Agent", of4.b().getUserAgent());
-            return false;
-        }
-        return invokeLL.booleanValue;
     }
 }

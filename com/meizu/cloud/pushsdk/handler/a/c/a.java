@@ -1,41 +1,94 @@
 package com.meizu.cloud.pushsdk.handler.a.c;
 
-import android.content.Context;
-import android.content.Intent;
+import android.os.Parcel;
+import android.os.Parcelable;
+import com.baidu.tieba.setting.model.friendAndStrangerSwitch.FriendAndStrangerReqMsg;
 import com.meizu.cloud.pushinternal.DebugLogger;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.handler.MessageV3;
-import com.meizu.cloud.pushsdk.handler.MzPushMessage;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class a extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
-    public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
-        super(context, aVar);
-    }
-
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public int a() {
-        return 131072;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    public void a(MessageV3 messageV3, com.meizu.cloud.pushsdk.notification.c cVar) {
-        if (b() == null || messageV3 == null) {
-            return;
+public class a implements Parcelable {
+    public static final Parcelable.Creator<a> CREATOR = new Parcelable.Creator<a>() { // from class: com.meizu.cloud.pushsdk.handler.a.c.a.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public a createFromParcel(Parcel parcel) {
+            return new a(parcel);
         }
-        b().b(c(), MzPushMessage.fromMessageV3(messageV3));
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public a[] newArray(int i) {
+            return new a[i];
+        }
+    };
+    public int a;
+    public int b;
+    public int c;
+
+    public a() {
     }
 
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public boolean a(Intent intent) {
-        DebugLogger.i("AbstractMessageHandler", "start NotificationArrivedHandler match");
-        return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_NOTIFICATION_ARRIVED.equals(i(intent));
+    public a(Parcel parcel) {
+        this.a = parcel.readInt();
+        this.b = parcel.readInt();
+        this.c = parcel.readInt();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: j */
-    public MessageV3 c(Intent intent) {
-        return (MessageV3) intent.getParcelableExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE);
+    public static a a(JSONObject jSONObject) {
+        String str;
+        a aVar = new a();
+        if (jSONObject != null) {
+            try {
+                if (!jSONObject.isNull(FriendAndStrangerReqMsg.PUSH_TYPE)) {
+                    aVar.a(jSONObject.getInt(FriendAndStrangerReqMsg.PUSH_TYPE));
+                }
+                if (!jSONObject.isNull("cached")) {
+                    aVar.b(jSONObject.getInt("cached"));
+                }
+                if (!jSONObject.isNull("cacheNum")) {
+                    aVar.c(jSONObject.getInt("cacheNum"));
+                }
+            } catch (JSONException e) {
+                str = " parse control message error " + e.getMessage();
+            }
+            return aVar;
+        }
+        str = "no control message can parse ";
+        DebugLogger.e("ctl", str);
+        return aVar;
+    }
+
+    public int a() {
+        return this.a;
+    }
+
+    public void a(int i) {
+        this.a = i;
+    }
+
+    public void b(int i) {
+        this.b = i;
+    }
+
+    public void c(int i) {
+        this.c = i;
+    }
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
+    }
+
+    public String toString() {
+        return "Control{pushType=" + this.a + ", cached=" + this.b + ", cacheNum=" + this.c + '}';
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(this.a);
+        parcel.writeInt(this.b);
+        parcel.writeInt(this.c);
     }
 }

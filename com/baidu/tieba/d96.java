@@ -1,43 +1,37 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public interface d96 {
+public class d96 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        boolean a(float f);
+    public d96() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        float getSpeed();
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optString("name");
+        this.b = jSONObject.optString("url");
     }
-
-    /* loaded from: classes4.dex */
-    public interface c {
-        boolean a();
-    }
-
-    boolean a();
-
-    boolean b();
-
-    int getMaxDuration();
-
-    float getProgress();
-
-    int getSlideNum();
-
-    boolean pause();
-
-    boolean reset();
-
-    boolean setMaxDuration(int i);
-
-    boolean setMinDuration(int i);
-
-    boolean setProgress(long j);
-
-    boolean setShowDeleteLastTip(boolean z);
-
-    boolean start();
 }

@@ -3,8 +3,8 @@ package com.baidu.sofire.rp;
 import android.content.Context;
 import android.os.Message;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.k.a;
-import com.baidu.sofire.k.b;
+import com.baidu.sofire.a.b;
+import com.baidu.sofire.k.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,9 +55,9 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             try {
-                b.a(this.a).a(z);
+                c.a(this.a).a(z);
             } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
+                int i = b.a;
             }
         }
     }
@@ -65,7 +65,7 @@ public class Report {
     public void s(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            s(str, a.d());
+            s(str, com.baidu.sofire.k.b.d());
         }
     }
 
@@ -73,14 +73,14 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             try {
-                b a = b.a(this.a);
+                c a = c.a(this.a);
                 a.getClass();
                 Message message = new Message();
                 message.what = 11;
                 message.obj = str;
                 a.b.a.sendMessage(message);
             } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
+                int i = b.a;
             }
         }
     }
@@ -89,9 +89,9 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             try {
-                a.b(this.a, str);
+                com.baidu.sofire.k.b.b(this.a, str);
             } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
+                int i = b.a;
             }
         }
     }
@@ -100,13 +100,13 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                b a = b.a(this.a);
+                c a = c.a(this.a);
                 a.getClass();
                 Message message = new Message();
                 message.what = 9;
                 a.b.a.sendMessage(message);
             } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
+                int i = b.a;
             }
         }
     }
@@ -115,13 +115,13 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                b a = b.a(this.a);
+                c a = c.a(this.a);
                 a.getClass();
                 Message message = new Message();
                 message.what = 6;
                 a.b.a.sendMessage(message);
             } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
+                int i = b.a;
             }
         }
     }
@@ -130,9 +130,9 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4, str5) == null) {
             try {
-                a.a(this.a, str, str2, str3, str4, str5);
+                com.baidu.sofire.k.b.a(this.a, str, str2, str3, str4, str5);
             } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
+                int i = b.a;
             }
         }
     }
@@ -141,9 +141,9 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) {
             try {
-                a.a(this.a, str, z);
+                com.baidu.sofire.k.b.a(this.a, str, z);
             } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
+                int i = b.a;
             }
         }
     }

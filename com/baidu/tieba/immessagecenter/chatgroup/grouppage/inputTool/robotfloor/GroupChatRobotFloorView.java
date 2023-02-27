@@ -20,13 +20,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ar7;
-import com.baidu.tieba.br7;
+import com.baidu.tieba.au7;
+import com.baidu.tieba.b35;
+import com.baidu.tieba.bu7;
 import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.ChatRoomRecycleAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputTool.robotfloor.adapter.RobotItem;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
-import com.baidu.tieba.p15;
-import com.baidu.tieba.zq7;
+import com.baidu.tieba.zt7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GroupChatRobotFloorView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,17 +48,17 @@ public class GroupChatRobotFloorView extends RelativeLayout {
     public TextView h;
     public RecyclerView i;
     public ChatRoomRecycleAdapter j;
-    public ar7 k;
+    public au7 k;
     public d l;
     public LinearLayoutManager m;
     public int n;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         void a(String str, int i, int i2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends RecyclerView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +121,7 @@ public class GroupChatRobotFloorView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,8 +153,8 @@ public class GroupChatRobotFloorView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements zq7 {
+    /* loaded from: classes4.dex */
+    public class c implements zt7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GroupChatRobotFloorView a;
@@ -177,7 +177,7 @@ public class GroupChatRobotFloorView extends RelativeLayout {
             this.a = groupChatRobotFloorView;
         }
 
-        @Override // com.baidu.tieba.zq7
+        @Override // com.baidu.tieba.zt7
         public void a(String str, int i) {
             GroupChatRobotFloorView groupChatRobotFloorView;
             d dVar;
@@ -212,13 +212,13 @@ public class GroupChatRobotFloorView extends RelativeLayout {
     public void l(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            p15 d2 = p15.d(this.c);
+            b35 d2 = b35.d(this.c);
             d2.n(R.string.J_X18);
             d2.f(R.color.CAM_X0207);
-            p15 d3 = p15.d(this.e);
+            b35 d3 = b35.d(this.e);
             d3.n(R.string.J_X03);
             d3.f(R.color.CAM_X0212);
-            p15 d4 = p15.d(this.h);
+            b35 d4 = b35.d(this.h);
             d4.v(R.color.CAM_X0107);
             d4.z(R.dimen.T_X08);
         }
@@ -313,22 +313,22 @@ public class GroupChatRobotFloorView extends RelativeLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ar7 ar7Var = this.k;
-            if (ar7Var != null) {
-                return ar7Var.j();
+            au7 au7Var = this.k;
+            if (au7Var != null) {
+                return au7Var.j();
             }
             return 0;
         }
         return invokeV.intValue;
     }
 
-    public ar7 getRobotItemDataAdapter() {
+    public au7 getRobotItemDataAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.k;
         }
-        return (ar7) invokeV.objValue;
+        return (au7) invokeV.objValue;
     }
 
     public final void j() {
@@ -345,24 +345,24 @@ public class GroupChatRobotFloorView extends RelativeLayout {
         if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (tbPageContext = this.b) == null) {
             return;
         }
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0391, (ViewGroup) this, true);
-        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d98);
-        this.d = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d91);
-        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f0923d2);
-        this.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d9e);
-        HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091d90);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d039f, (ViewGroup) this, true);
+        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ddc);
+        this.d = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091dd5);
+        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f09241d);
+        this.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091de2);
+        HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091dd4);
         this.g = headImageView;
         headImageView.setIsRound(true);
         this.g.setIsBigV(false);
-        this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d97);
-        this.i = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f091d96);
+        this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ddb);
+        this.i = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f091dda);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.b.getPageActivity());
         this.m = linearLayoutManager;
         this.i.setLayoutManager(linearLayoutManager);
-        ar7 ar7Var = new ar7(this.b);
-        this.k = ar7Var;
-        ar7Var.p(new c(this));
-        ChatRoomRecycleAdapter chatRoomRecycleAdapter = new ChatRoomRecycleAdapter(new br7(null), this.k, this.b);
+        au7 au7Var = new au7(this.b);
+        this.k = au7Var;
+        au7Var.p(new c(this));
+        ChatRoomRecycleAdapter chatRoomRecycleAdapter = new ChatRoomRecycleAdapter(new bu7(null), this.k, this.b);
         this.j = chatRoomRecycleAdapter;
         this.i.setAdapter(chatRoomRecycleAdapter);
         l(TbadkCoreApplication.getInst().getSkinType());

@@ -1,24 +1,26 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.WebView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.ActionJsonData;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import tbclient.Search.DataRes;
 /* loaded from: classes4.dex */
 public class ea6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<z29> a;
+    public long a;
+    public long b;
+    public String c;
+    public String d;
+    public long e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public String j;
+    public boolean k;
+    public long l;
 
     public ea6() {
         Interceptable interceptable = $ic;
@@ -30,99 +32,76 @@ public class ea6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList<>();
     }
 
-    public void a(z29 z29Var) {
+    public void a(DataRes dataRes) {
+        long longValue;
+        long longValue2;
+        int intValue;
+        int intValue2;
+        int intValue3;
+        int intValue4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, z29Var) == null) {
-            this.a.add(z29Var);
-        }
-    }
-
-    public final void b(WebView webView, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2) == null) && webView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            ac6.b("lt-log", "call javascript:" + str + "&&" + str + "('" + str2 + "')");
-            webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + str2 + "')", null);
-        }
-    }
-
-    public b39 c(WebView webView, d39 d39Var, b39 b39Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, d39Var, b39Var)) == null) {
-            if (b39Var == null) {
-                b39Var = new b39();
-            }
-            if (ActionJsonData.TAG_NOTIFICATION.equals(d39Var.c()) && "addObserver".equals(d39Var.a())) {
-                Iterator<z29> it = this.a.iterator();
-                while (it.hasNext()) {
-                    b39Var = it.next().addObserver(d39Var.d(), b39Var, true);
-                    if (b39Var.j()) {
-                        return b39Var;
-                    }
-                }
-                if (!b39Var.j()) {
-                    b39Var.y(202);
-                    b39Var.u(pb6.getContext().getString(R.string.can_find_notification_name));
-                }
-            } else {
-                Iterator<z29> it2 = this.a.iterator();
-                while (it2.hasNext()) {
-                    b39Var = it2.next().dispatch(webView, d39Var, b39Var);
-                    if (b39Var.i()) {
-                        return b39Var;
-                    }
-                }
-                if (!b39Var.i()) {
-                    b39Var.y(202);
-                }
-            }
-            return b39Var;
-        }
-        return (b39) invokeLLL.objValue;
-    }
-
-    public void d(WebView webView, b39 b39Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, webView, b39Var) != null) || webView == null || b39Var == null || !b39Var.k()) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
             return;
         }
-        b(webView, b39Var.c(), b39Var.d());
-    }
-
-    public void e(WebView webView, List<b39> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, webView, list) == null) && webView != null && !ListUtils.isEmpty(list)) {
-            for (b39 b39Var : list) {
-                if (b39Var != null && b39Var.k()) {
-                    b(webView, b39Var.c(), b39Var.d());
-                }
-            }
+        Long l = dataRes.uid;
+        long j = 0;
+        if (l == null) {
+            longValue = 0;
+        } else {
+            longValue = l.longValue();
         }
-    }
-
-    public List<b39> f(WebView webView, String str, HashMap hashMap) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, str, hashMap)) == null) {
-            List<b39> list = null;
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            Iterator<z29> it = this.a.iterator();
-            while (it.hasNext()) {
-                list = it.next().processNotification(webView, str, hashMap);
-                if (!ListUtils.isEmpty(list)) {
-                    break;
-                }
-            }
-            return list;
+        this.b = longValue;
+        this.c = dataRes.portrait;
+        this.d = dataRes.name_show;
+        Long l2 = dataRes.apply_id;
+        if (l2 == null) {
+            longValue2 = 0;
+        } else {
+            longValue2 = l2.longValue();
         }
-        return (List) invokeLLL.objValue;
+        this.e = longValue2;
+        Integer num = dataRes.vote_num;
+        boolean z = false;
+        if (num == null) {
+            intValue = 0;
+        } else {
+            intValue = num.intValue();
+        }
+        this.f = intValue;
+        Integer num2 = dataRes.agree_num;
+        if (num2 == null) {
+            intValue2 = 0;
+        } else {
+            intValue2 = num2.intValue();
+        }
+        this.g = intValue2;
+        Integer num3 = dataRes.thread_num;
+        if (num3 == null) {
+            intValue3 = 0;
+        } else {
+            intValue3 = num3.intValue();
+        }
+        this.h = intValue3;
+        Integer num4 = dataRes.post_num;
+        if (num4 == null) {
+            intValue4 = 0;
+        } else {
+            intValue4 = num4.intValue();
+        }
+        this.i = intValue4;
+        Boolean bool = dataRes.is_vote;
+        if (bool != null) {
+            z = bool.booleanValue();
+        }
+        this.k = z;
+        Long l3 = dataRes.tid;
+        if (l3 != null) {
+            j = l3.longValue();
+        }
+        this.l = j;
     }
 }

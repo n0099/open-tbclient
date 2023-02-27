@@ -1,19 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class js4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ks4 a;
+    public long a;
+    public long b;
+    public ArrayList<ns4> c;
+    public String d;
 
     public js4() {
         Interceptable interceptable = $ic;
@@ -25,50 +29,68 @@ public class js4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ks4();
     }
 
-    public is4 a(String str) {
-        InterceptResult invokeL;
-        String str2;
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str3 = null;
-            if (dj.isEmpty(str)) {
-                return null;
-            }
-            Matcher matcher = Pattern.compile("\\$[0-9A-Za-z@_]{5,300}[#$]", 2).matcher(str);
-            if (!matcher.find()) {
-                return null;
-            }
-            String group = matcher.group();
-            Matcher matcher2 = Pattern.compile("\\$[0-9A-Za-z@_]{1,100}[!]", 2).matcher(str);
-            if (matcher2.find()) {
-                str2 = ms4.d(matcher2.group());
-            } else {
-                str2 = null;
-            }
-            if (str2 != null && str2.startsWith("Y")) {
-                ls4.a(str2);
-                str3 = b(group);
-            }
-            return new is4(group, str3, str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (is4) invokeL.objValue;
+        return invokeV.longValue;
     }
 
-    public final String b(String str) {
-        InterceptResult invokeL;
+    public long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            return this.a.a(ms4.f(str.replaceAll("\\$", "")));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (String) invokeL.objValue;
+        return invokeV.longValue;
+    }
+
+    public ArrayList<ns4> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || dj.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            this.a = jSONObject.optLong("start_date", 0L) * 1000;
+            this.b = jSONObject.optLong("end_date", 0L) * 1000;
+            this.d = jSONObject.optString("ahead_url", "");
+            this.c = new ArrayList<>();
+            JSONArray optJSONArray = jSONObject.optJSONArray("time");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONArray optJSONArray2 = optJSONArray.optJSONArray(i);
+                    ns4 ns4Var = new ns4();
+                    ns4Var.c(optJSONArray2);
+                    this.c.add(ns4Var);
+                }
+            }
+        } catch (Exception e) {
+            BdLog.e(e);
+        }
     }
 }

@@ -10,10 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class u22 extends c22 {
+public class u22 extends s22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RectF a;
+    public float b;
+    public float c;
+    public boolean d;
 
     public u22() {
         Interceptable interceptable = $ic;
@@ -29,29 +32,45 @@ public class u22 extends c22 {
         }
     }
 
-    @Override // com.baidu.tieba.c22
-    public void a(d22 d22Var, Canvas canvas) {
-        RectF rectF;
+    @Override // com.baidu.tieba.s22
+    public void a(t22 t22Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, d22Var, canvas) == null) && (rectF = this.a) != null) {
-            d22Var.f.addRect(rectF, Path.Direction.CW);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, t22Var, canvas) == null) && this.a != null) {
+            if (!this.d && Math.abs(this.c) >= 360.0f) {
+                Path path = t22Var.f;
+                RectF rectF = this.a;
+                float f = rectF.bottom;
+                float f2 = rectF.top;
+                path.addCircle((rectF.right + rectF.left) / 2.0f, (f + f2) / 2.0f, (f - f2) / 2.0f, Path.Direction.CW);
+                t22Var.f.arcTo(this.a, 0.0f, this.b);
+                return;
+            }
+            float f3 = this.c % 360.0f;
+            if (f3 < 0.0f && !this.d) {
+                f3 += 360.0f;
+            } else if (f3 > 0.0f && this.d) {
+                f3 -= 360.0f;
+            }
+            t22Var.f.arcTo(this.a, this.b, f3);
         }
     }
 
-    @Override // com.baidu.tieba.c22
+    @Override // com.baidu.tieba.s22
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() == 4) {
-                    int g = nm3.g((float) jSONArray.optDouble(0));
-                    int g2 = nm3.g((float) jSONArray.optDouble(1));
-                    this.a = new RectF(g, g2, g + nm3.g((float) jSONArray.optDouble(2)), g2 + nm3.g((float) jSONArray.optDouble(3)));
-                }
-            } catch (Exception e) {
-                if (gp1.a) {
-                    e.printStackTrace();
-                }
+            if (jSONArray.length() > 4) {
+                int g = dn3.g((float) jSONArray.optDouble(0));
+                int g2 = dn3.g((float) jSONArray.optDouble(1));
+                int g3 = dn3.g((float) jSONArray.optDouble(2));
+                float degrees = (float) Math.toDegrees((float) jSONArray.optDouble(3));
+                float degrees2 = (float) Math.toDegrees((float) jSONArray.optDouble(4));
+                this.a = new RectF(g - g3, g2 - g3, g + g3, g2 + g3);
+                this.b = degrees;
+                this.c = degrees2 - degrees;
+            }
+            if (jSONArray.length() > 5) {
+                this.d = jSONArray.optBoolean(5);
             }
         }
     }

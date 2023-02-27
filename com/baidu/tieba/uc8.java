@@ -1,89 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.editortools.pb.PbEditorData;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.chosen.PbChosenActivity;
+import com.baidu.tieba.pb.chosen.net.ChosenPbHttpResponse;
+import com.baidu.tieba.pb.chosen.net.ChosenPbNetMessage;
+import com.baidu.tieba.pb.chosen.net.ChosenPbSocketResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class uc8 extends nb5 {
+public class uc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PbEditorData.ThreadData a;
-    public mb5 b;
-    public boolean c;
-    public boolean d;
-
-    /* loaded from: classes6.dex */
-    public class a implements mb5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tc8 a;
-        public final /* synthetic */ uc8 b;
-
-        public a(uc8 uc8Var, tc8 tc8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uc8Var, tc8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = uc8Var;
-            this.a = tc8Var;
-        }
-
-        @Override // com.baidu.tieba.mb5
-        public void A(lb5 lb5Var) {
-            tc8 tc8Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, lb5Var) != null) || (tc8Var = this.a) == null || tc8Var.b() == null || lb5Var == null) {
-                return;
-            }
-            if (this.b.b != null) {
-                this.b.b.A(lb5Var);
-            }
-            int i = lb5Var.a;
-            if (i != 32) {
-                if (i != 36) {
-                    if (i == 43 && !no5.c(this.a.getContext().getPageContext(), true, false)) {
-                        HotSelectActivityConfig hotSelectActivityConfig = new HotSelectActivityConfig(this.a.getContext().getActivity(), 25004, HotSelectActivityConfig.FROM_PB);
-                        if (this.b.a != null) {
-                            hotSelectActivityConfig.setForumExtra(dh.g(this.b.a.getForumId(), 0L), this.b.a.getFirstDir(), this.b.a.getSecondDir());
-                        }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotSelectActivityConfig));
-                        return;
-                    }
-                    return;
-                } else if (!this.b.h(this.a.getContext().getPageContext(), 11040)) {
-                    return;
-                } else {
-                    this.a.f();
-                    return;
-                }
-            }
-            this.a.b().C(new lb5(1, 11, null));
-        }
-    }
 
     public uc8() {
         Interceptable interceptable = $ic;
@@ -98,159 +31,49 @@ public class uc8 extends nb5 {
                 return;
             }
         }
-        this.c = false;
-        this.d = false;
+        b();
+        a();
     }
 
-    public void i(boolean z) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.d = z;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            cn5 cn5Var = new cn5(309093);
+            cn5Var.setResponsedClass(ChosenPbSocketResponse.class);
+            cn5Var.g(true);
+            cn5Var.h(false);
+            MessageManager.getInstance().registerTask(cn5Var);
         }
     }
 
-    public void j(boolean z) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FINE_PB, e59.a(TbConfig.FINE_PB_PAGE, 309093));
+            tbHttpMessageTask.setIsNeedLogin(false);
+            tbHttpMessageTask.setIsNeedTbs(false);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setResponsedClass(ChosenPbHttpResponse.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 
-    public void k(mb5 mb5Var) {
+    public void c(PbChosenActivity pbChosenActivity, long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, mb5Var) == null) {
-            this.b = mb5Var;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pbChosenActivity, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            ChosenPbNetMessage chosenPbNetMessage = new ChosenPbNetMessage();
+            int l = ej.l(pbChosenActivity.getPageContext().getPageActivity());
+            int j4 = ej.j(pbChosenActivity.getPageContext().getPageActivity());
+            float i = ej.i(pbChosenActivity.getPageContext().getPageActivity());
+            chosenPbNetMessage.setQ_type(45L);
+            chosenPbNetMessage.setScrH(j4);
+            chosenPbNetMessage.setScrW(l);
+            chosenPbNetMessage.setScr_dip(i);
+            chosenPbNetMessage.setExcId(j);
+            chosenPbNetMessage.setTagCode(j2);
+            chosenPbNetMessage.setThreadId(j3);
+            pbChosenActivity.sendMessage(chosenPbNetMessage);
         }
-    }
-
-    public void l(PbEditorData.ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, threadData) == null) {
-            this.a = threadData;
-        }
-    }
-
-    @Override // com.baidu.tieba.nb5
-    public pb5 b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EditorTools editorTools = new EditorTools(context);
-            editorTools.setIsFromPb(true);
-            editorTools.setBarMaxLauCount(5);
-            if (this.c) {
-                editorTools.setBarLauncherType(2);
-            } else if (this.d) {
-                editorTools.setBarLauncherType(5);
-            } else {
-                editorTools.setBarLauncherType(3);
-            }
-            editorTools.setBackgroundColorId(0);
-            editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
-            editorTools.F(true);
-            editorTools.setMoreButtonAtEnd(true);
-            editorTools.E(true);
-            return new tc8(editorTools);
-        }
-        return (pb5) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.nb5
-    public void c(pb5 pb5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pb5Var) != null) || !(pb5Var instanceof tc8)) {
-            return;
-        }
-        EditorTools b = pb5Var.b();
-        a aVar = new a(this, (tc8) pb5Var);
-        b.setActionListener(16, aVar);
-        b.setActionListener(14, aVar);
-        b.setActionListener(15, aVar);
-        b.setActionListener(24, aVar);
-        b.setActionListener(3, aVar);
-        b.setActionListener(10, aVar);
-        b.setActionListener(11, aVar);
-        b.setActionListener(36, aVar);
-        b.setActionListener(32, aVar);
-        b.setActionListener(43, aVar);
-        b.setActionListener(45, aVar);
-    }
-
-    @Override // com.baidu.tieba.nb5
-    public void d(pb5 pb5Var) {
-        String str;
-        CustomResponsedMessage runTask;
-        wb5 wb5Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pb5Var) == null) {
-            EditorTools b = pb5Var.b();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(5);
-            if (!this.c) {
-                arrayList.add(10);
-                b.d(new hc5(b.getContext(), 1));
-            }
-            if (!this.d) {
-                arrayList.add(6);
-                arrayList.add(9);
-                PbEditorData.ThreadData threadData = this.a;
-                if (threadData != null) {
-                    str = threadData.getForumName();
-                } else {
-                    str = "";
-                }
-                if (d49.a() && i19.a(str, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), wb5.class)) != null && (wb5Var = (wb5) runTask.getData()) != null) {
-                    wb5Var.l = 2;
-                    b.d(wb5Var);
-                }
-                b.d(new yb5(b.getContext(), 4));
-                if (!this.c) {
-                    CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, b.getContext()), wb5.class);
-                    if (runTask2 != null && runTask2.getData() != null) {
-                        wb5 wb5Var2 = (wb5) runTask2.getData();
-                        wb5Var2.l = 6;
-                        b.d(wb5Var2);
-                    }
-                    CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, b.getContext()), wb5.class);
-                    if (runTask3 != null && runTask3.getData() != null) {
-                        wb5 wb5Var3 = (wb5) runTask3.getData();
-                        wb5Var3.l = 7;
-                        b.d(wb5Var3);
-                    }
-                }
-                if (!"PbChosenActivity".equals(b.getContext().getClass().getSimpleName()) && !this.c) {
-                    b.d(new fc5(b.getContext(), 5));
-                }
-            }
-            if (!this.c && !this.d) {
-                arrayList.add(8);
-            }
-            b.h(arrayList);
-            wb5 p = b.p(5);
-            if (p != null) {
-                p.l = 3;
-                if (this.c || this.d) {
-                    p.e(false);
-                }
-            }
-            b.f();
-            if (this.c || this.d) {
-                b.C(new lb5(35, 5, Boolean.FALSE));
-            }
-        }
-    }
-
-    public final boolean h(TbPageContext<?> tbPageContext, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, tbPageContext, i)) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount != null && currentAccount.length() > 0) {
-                return true;
-            }
-            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
-            return false;
-        }
-        return invokeLI.booleanValue;
     }
 }

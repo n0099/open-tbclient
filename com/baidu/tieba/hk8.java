@@ -1,93 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.CreationData;
+import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes4.dex */
-public class hk8 extends BaseCardInfo implements Cdo {
+public class hk8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public CreationData a;
-    public CreationData b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947826708, "Lcom/baidu/tieba/hk8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static final ek8 a(TbPageContext<?> tbPageContext, ExcContent excContent) {
+        InterceptResult invokeLL;
+        Long l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, excContent)) == null) {
+            if (excContent == null || (l = excContent.type) == null) {
+                return null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947826708, "Lcom/baidu/tieba/hk8;");
-                return;
+            if (l.longValue() == 2) {
+                return new ck8(excContent);
             }
-        }
-        c = BdUniqueId.gen();
-    }
-
-    public hk8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            if (excContent.type.longValue() == 0) {
+                return new ik8(tbPageContext.getPageActivity(), excContent);
             }
+            if (excContent.type.longValue() != 1) {
+                return null;
+            }
+            return new dk8(tbPageContext, excContent);
         }
+        return (ek8) invokeLL.objValue;
     }
 
-    public CreationData c() {
-        InterceptResult invokeV;
+    public static final fk8 b(ExcContent excContent) {
+        InterceptResult invokeL;
+        Long l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, excContent)) == null) {
+            if (excContent == null || (l = excContent.type) == null || !l.equals(3L)) {
+                return null;
+            }
+            return new gk8(excContent);
         }
-        return (CreationData) invokeV.objValue;
-    }
-
-    public CreationData f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (CreationData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void h(CreationData creationData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, creationData) == null) {
-            this.a = creationData;
-        }
-    }
-
-    public void i(CreationData creationData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, creationData) == null) {
-            this.b = creationData;
-        }
+        return (fk8) invokeL.objValue;
     }
 }

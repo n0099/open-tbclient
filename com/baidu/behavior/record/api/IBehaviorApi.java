@@ -3,7 +3,7 @@ package com.baidu.behavior.record.api;
 import androidx.annotation.NonNull;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface IBehaviorApi {
     public static final ServiceReference SERVICE_REFERENCE = new ServiceReference("behavior-api", "behavior-api");
 

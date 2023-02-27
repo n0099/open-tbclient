@@ -1,14 +1,5 @@
 package com.googlecode.mp4parser.boxes;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -23,7 +14,6 @@ import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
 /* loaded from: classes8.dex */
 public abstract class AbstractTrackEncryptionBox extends AbstractFullBox {
-    public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_2 = null;
@@ -32,75 +22,84 @@ public abstract class AbstractTrackEncryptionBox extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_5 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_6 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_7 = null;
-    public transient /* synthetic */ FieldHolder $fh;
     public int defaultAlgorithmId;
     public int defaultIvSize;
     public byte[] default_KID;
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 24L;
-        }
-        return invokeV.longValue;
+        return 24L;
     }
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1296909272, "Lcom/googlecode/mp4parser/boxes/AbstractTrackEncryptionBox;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1296909272, "Lcom/googlecode/mp4parser/boxes/AbstractTrackEncryptionBox;");
-                return;
-            }
-        }
         ajc$preClinit();
     }
 
     public int getDefaultAlgorithmId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.defaultAlgorithmId;
-        }
-        return invokeV.intValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+        return this.defaultAlgorithmId;
     }
 
     public int getDefaultIvSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return this.defaultIvSize;
-        }
-        return invokeV.intValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+        return this.defaultIvSize;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public String getDefault_KID() {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
+        ByteBuffer wrap = ByteBuffer.wrap(this.default_KID);
+        wrap.order(ByteOrder.BIG_ENDIAN);
+        return new UUID(wrap.getLong(), wrap.getLong()).toString();
+    }
+
+    public int hashCode() {
+        int i;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this));
+        int i2 = ((this.defaultAlgorithmId * 31) + this.defaultIvSize) * 31;
+        byte[] bArr = this.default_KID;
+        if (bArr != null) {
+            i = Arrays.hashCode(bArr);
+        } else {
+            i = 0;
+        }
+        return i2 + i;
+    }
+
     public AbstractTrackEncryptionBox(String str) {
         super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void _parseDetails(ByteBuffer byteBuffer) {
+        parseVersionAndFlags(byteBuffer);
+        this.defaultAlgorithmId = IsoTypeReader.readUInt24(byteBuffer);
+        this.defaultIvSize = IsoTypeReader.readUInt8(byteBuffer);
+        byte[] bArr = new byte[16];
+        this.default_KID = bArr;
+        byteBuffer.get(bArr);
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void getContent(ByteBuffer byteBuffer) {
+        writeVersionAndFlags(byteBuffer);
+        IsoTypeWriter.writeUInt24(byteBuffer, this.defaultAlgorithmId);
+        IsoTypeWriter.writeUInt8(byteBuffer, this.defaultIvSize);
+        byteBuffer.put(this.default_KID);
+    }
+
+    public void setDefaultAlgorithmId(int i) {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i)));
+        this.defaultAlgorithmId = i;
+    }
+
+    public void setDefaultIvSize(int i) {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i)));
+        this.defaultIvSize = i;
+    }
+
+    public void setDefault_KID(byte[] bArr) {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, bArr));
+        this.default_KID = bArr;
     }
 
     public static /* synthetic */ void ajc$preClinit() {
@@ -115,101 +114,18 @@ public abstract class AbstractTrackEncryptionBox extends AbstractFullBox {
         ajc$tjp_7 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", TTDownloadField.TT_HASHCODE, "com.googlecode.mp4parser.boxes.AbstractTrackEncryptionBox", "", "", "", "int"), 87);
     }
 
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public void _parseDetails(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
-            parseVersionAndFlags(byteBuffer);
-            this.defaultAlgorithmId = IsoTypeReader.readUInt24(byteBuffer);
-            this.defaultIvSize = IsoTypeReader.readUInt8(byteBuffer);
-            byte[] bArr = new byte[16];
-            this.default_KID = bArr;
-            byteBuffer.get(bArr);
-        }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public void getContent(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
-            writeVersionAndFlags(byteBuffer);
-            IsoTypeWriter.writeUInt24(byteBuffer, this.defaultAlgorithmId);
-            IsoTypeWriter.writeUInt8(byteBuffer, this.defaultIvSize);
-            byteBuffer.put(this.default_KID);
-        }
-    }
-
-    public void setDefaultAlgorithmId(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i)));
-            this.defaultAlgorithmId = i;
-        }
-    }
-
-    public void setDefaultIvSize(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i)));
-            this.defaultIvSize = i;
-        }
-    }
-
-    public void setDefault_KID(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bArr) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, bArr));
-            this.default_KID = bArr;
-        }
-    }
-
     public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this, obj));
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || getClass() != obj.getClass()) {
-                return false;
-            }
-            AbstractTrackEncryptionBox abstractTrackEncryptionBox = (AbstractTrackEncryptionBox) obj;
-            if (this.defaultAlgorithmId == abstractTrackEncryptionBox.defaultAlgorithmId && this.defaultIvSize == abstractTrackEncryptionBox.defaultIvSize && Arrays.equals(this.default_KID, abstractTrackEncryptionBox.default_KID)) {
-                return true;
-            }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this, obj));
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public String getDefault_KID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
-            ByteBuffer wrap = ByteBuffer.wrap(this.default_KID);
-            wrap.order(ByteOrder.BIG_ENDIAN);
-            return new UUID(wrap.getLong(), wrap.getLong()).toString();
+        AbstractTrackEncryptionBox abstractTrackEncryptionBox = (AbstractTrackEncryptionBox) obj;
+        if (this.defaultAlgorithmId == abstractTrackEncryptionBox.defaultAlgorithmId && this.defaultIvSize == abstractTrackEncryptionBox.defaultIvSize && Arrays.equals(this.default_KID, abstractTrackEncryptionBox.default_KID)) {
+            return true;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this));
-            int i2 = ((this.defaultAlgorithmId * 31) + this.defaultIvSize) * 31;
-            byte[] bArr = this.default_KID;
-            if (bArr != null) {
-                i = Arrays.hashCode(bArr);
-            } else {
-                i = 0;
-            }
-            return i2 + i;
-        }
-        return invokeV.intValue;
+        return false;
     }
 }

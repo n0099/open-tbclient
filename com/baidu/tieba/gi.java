@@ -216,7 +216,7 @@ public class gi {
             a(hashMap, "oaid", ohVar.t);
             a(hashMap, "utbrand", ohVar.w);
             a(hashMap, "baiduapppb_ut", ohVar.x);
-            a(hashMap, "user_agent", ohVar.y);
+            a(hashMap, HttpRequest.USER_AGENT, ohVar.y);
             a(hashMap, "active_timestamp", ohVar.A);
             a(hashMap, "first_install_time", ohVar.B);
             a(hashMap, TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, ohVar.C);

@@ -1,42 +1,85 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Intent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class qa7 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ActivityPage.ActivityPageReqIdl;
+import tbclient.ActivityPage.DataReq;
+/* loaded from: classes5.dex */
+public class qa7 implements fo5<ActivityPageReqIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public final zn5 b;
 
-    public static boolean a(long j, String str) {
-        InterceptResult invokeJL;
+    @Override // com.baidu.tieba.fo5
+    public void a(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65536, null, j, str)) == null) {
-            if (StringUtils.isNull(str) || j == p35.m().o(str, 0L)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeJL.booleanValue;
-    }
-
-    public static void c(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65538, null, str, j) == null) {
-            p35.m().A(p35.q(str), j);
+        if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
         }
     }
 
-    public static boolean b(long j) {
-        InterceptResult invokeJ;
+    public qa7(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
-            if (System.currentTimeMillis() - p35.m().o(p35.q("key_new_hot_tip_dismiss_time"), 0L) >= j) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeJ.booleanValue;
+        this.b = new zn5(false);
+        this.a = str2;
+    }
+
+    @Override // com.baidu.tieba.fo5
+    public zn5 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (zn5) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fo5
+    /* renamed from: d */
+    public ActivityPageReqIdl b(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            try {
+                DataReq.Builder builder = new DataReq.Builder();
+                builder.activity_name = this.a;
+                builder.pn = Integer.valueOf(this.b.c);
+                builder.rn = 20;
+                builder.scr_h = Integer.valueOf(ej.j(TbadkCoreApplication.getInst()));
+                builder.scr_w = Integer.valueOf(ej.l(TbadkCoreApplication.getInst()));
+                builder.scr_dip = Integer.valueOf((int) ej.i(TbadkCoreApplication.getInst()));
+                builder.q_type = Integer.valueOf(hx4.c().e());
+                if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                    mq5.a(builder, true);
+                }
+                ActivityPageReqIdl.Builder builder2 = new ActivityPageReqIdl.Builder();
+                builder2.data = builder.build(false);
+                return builder2.build(false);
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (ActivityPageReqIdl) invokeZ.objValue;
     }
 }

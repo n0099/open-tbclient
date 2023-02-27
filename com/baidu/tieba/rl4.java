@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.ETAG;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class rl4 extends fk4 {
+public class rl4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile rl4 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public int b;
 
     public rl4() {
         Interceptable interceptable = $ic;
@@ -26,75 +26,84 @@ public class rl4 extends fk4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = 0;
+        this.a = xg4.b().i().getInt("max_emit_app_close_num", 1);
     }
 
-    @Override // com.baidu.tieba.fk4
-    public JSONArray c() {
+    public static rl4 a() {
         InterceptResult invokeV;
-        List<xh4> w;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (rl4.class) {
+                    if (c == null) {
+                        c = new rl4();
+                    }
+                }
+            }
+            return c;
+        }
+        return (rl4) invokeV.objValue;
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || c == null) {
+            return;
+        }
+        c = null;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "bbasp_core");
-                jSONObject.put("version_name", hg4.b().J(0));
-                jSONObject.put("version_code", hg4.b().w(0));
-                jSONArray.put(jSONObject);
-            } catch (JSONException unused) {
-            }
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("type", "bbasp_game");
-                jSONObject2.put("version_name", hg4.b().J(1));
-                jSONObject2.put("version_code", hg4.b().w(1));
-                jSONArray.put(jSONObject2);
-            } catch (JSONException unused2) {
-            }
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                jSONObject3.put("type", ETAG.KEY_EXTENSION);
-                jSONObject3.put("version_name", hg4.b().v(0));
-                jSONObject3.put("version_code", hg4.b().j(0));
-                jSONArray.put(jSONObject3);
-            } catch (JSONException unused3) {
-            }
-            JSONObject jSONObject4 = new JSONObject();
-            try {
-                jSONObject4.put("type", "extension_game");
-                jSONObject4.put("version_name", hg4.b().v(1));
-                jSONObject4.put("version_code", hg4.b().j(1));
-                jSONArray.put(jSONObject4);
-            } catch (JSONException unused4) {
-            }
-            try {
-                w = tg4.i().w(f(10));
-            } catch (JSONException unused5) {
-            }
-            if (w == null) {
-                return jSONArray;
-            }
-            for (xh4 xh4Var : w) {
-                JSONObject jSONObject5 = new JSONObject();
-                jSONObject5.put("type", "ddl");
-                jSONObject5.put("bundle_id", xh4Var.g);
-                jSONObject5.put("version_code", xh4Var.i);
-                jSONObject5.put("version_name", xh4Var.j);
-                jSONArray.put(jSONObject5);
-            }
-            return jSONArray;
+            return xg4.b().i().getString("simple_control_item_version", "0");
         }
-        return (JSONArray) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final String f(int i) {
-        InterceptResult invokeI;
+    public synchronized void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return "SELECT * from (SELECT * from (SELECT * from swan_plugin ORDER BY update_time) group by bundle_id) order by update_time DESC limit 0," + i + ";";
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.b++;
+            }
         }
-        return (String) invokeI.objValue;
+    }
+
+    public synchronized boolean d() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                if (this.b < this.a) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("max_emit_app_close_num")) {
+            return;
+        }
+        int optInt = optJSONObject.optInt("max_emit_app_close_num", 1);
+        xg4.b().i().putString("simple_control_item_version", optString);
+        xg4.b().i().putInt("max_emit_app_close_num", optInt);
     }
 }

@@ -190,40 +190,41 @@ public final class a {
                 try {
                     try {
                         fileInputStream = new FileInputStream(file);
-                    } catch (Exception e) {
-                        e = e;
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        return;
                     }
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    properties.load(fileInputStream);
-                    if (properties.getProperty("server") != null) {
-                        this.u = String.valueOf(properties.getProperty("server"));
-                    }
-                    LogUtil.logD("BaiduParamManager", "设置server:" + this.u);
-                    fileInputStream.close();
                 } catch (Exception e2) {
                     e = e2;
-                    fileInputStream2 = fileInputStream;
-                    e.printStackTrace();
-                    if (fileInputStream2 != null) {
-                        fileInputStream2.close();
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileInputStream2 = fileInputStream;
-                    if (fileInputStream2 != null) {
-                        try {
-                            fileInputStream2.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                        }
-                    }
-                    throw th;
                 }
-            } catch (IOException e4) {
-                e4.printStackTrace();
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                properties.load(fileInputStream);
+                if (properties.getProperty("server") != null) {
+                    this.u = String.valueOf(properties.getProperty("server"));
+                }
+                LogUtil.logD("BaiduParamManager", "设置server:" + this.u);
+                fileInputStream.close();
+            } catch (Exception e3) {
+                e = e3;
+                fileInputStream2 = fileInputStream;
+                e.printStackTrace();
+                if (fileInputStream2 != null) {
+                    fileInputStream2.close();
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = fileInputStream;
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                throw th;
             }
         }
     }

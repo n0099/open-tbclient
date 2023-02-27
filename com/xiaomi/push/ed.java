@@ -1,178 +1,106 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.content.Intent;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class ed {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile ed a;
-    public transient /* synthetic */ FieldHolder $fh;
+public class ed implements Runnable {
+    public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f326a;
+    public final /* synthetic */ ec f310a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f327a;
+    public final /* synthetic */ String f311a;
+    public final /* synthetic */ String b;
+    public final /* synthetic */ String c;
 
-    /* renamed from: a  reason: collision with other field name */
-    public eh f328a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public String f329a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public HashMap<ef, eg> f330a;
-    public String b;
-
-    public ed(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        HashMap<ef, eg> hashMap = new HashMap<>();
-        this.f330a = hashMap;
-        this.f327a = context;
-        hashMap.put(ef.b, new ej());
-        this.f330a.put(ef.c, new ek());
-        this.f330a.put(ef.a, new eb());
-        this.f330a.put(ef.d, new ei());
+    public ed(ec ecVar, String str, Context context, String str2, String str3) {
+        this.f310a = ecVar;
+        this.f311a = str;
+        this.a = context;
+        this.b = str2;
+        this.c = str3;
     }
 
-    public static ed a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (a == null) {
-                synchronized (ed.class) {
-                    if (a == null) {
-                        a = new ed(context);
+    @Override // java.lang.Runnable
+    public void run() {
+        Context context;
+        String str;
+        String str2;
+        Context context2;
+        String str3;
+        String str4;
+        ec ecVar;
+        ee eeVar;
+        Context context3;
+        if (TextUtils.isEmpty(this.f311a)) {
+            context = this.a;
+            str = StringUtil.NULL_STRING;
+            str2 = "A receive a incorrect message with empty info";
+        } else {
+            try {
+                dy.a(this.a, this.f311a, 1001, "get message");
+                JSONObject jSONObject = new JSONObject(this.f311a);
+                String optString = jSONObject.optString("action");
+                String optString2 = jSONObject.optString("awakened_app_packagename");
+                String optString3 = jSONObject.optString("awake_app_packagename");
+                String optString4 = jSONObject.optString("awake_app");
+                String optString5 = jSONObject.optString("awake_type");
+                int optInt = jSONObject.optInt("awake_foreground", 0);
+                if (this.b.equals(optString3) && this.c.equals(optString4)) {
+                    if (!TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString2)) {
+                        this.f310a.b(optString3);
+                        this.f310a.a(optString4);
+                        eb ebVar = new eb();
+                        ebVar.b(optString);
+                        ebVar.a(optString2);
+                        ebVar.a(optInt);
+                        ebVar.d(this.f311a);
+                        if ("service".equals(optString5)) {
+                            if (TextUtils.isEmpty(optString)) {
+                                ebVar.c("com.xiaomi.mipush.sdk.PushMessageHandler");
+                                ecVar = this.f310a;
+                                eeVar = ee.SERVICE_COMPONENT;
+                                context3 = this.a;
+                            } else {
+                                ecVar = this.f310a;
+                                eeVar = ee.SERVICE_ACTION;
+                                context3 = this.a;
+                            }
+                        } else if (ee.ACTIVITY.f313a.equals(optString5)) {
+                            ecVar = this.f310a;
+                            eeVar = ee.ACTIVITY;
+                            context3 = this.a;
+                        } else if (ee.PROVIDER.f313a.equals(optString5)) {
+                            ecVar = this.f310a;
+                            eeVar = ee.PROVIDER;
+                            context3 = this.a;
+                        } else {
+                            context2 = this.a;
+                            str3 = this.f311a;
+                            str4 = "A receive a incorrect message with unknown type " + optString5;
+                        }
+                        ecVar.a(eeVar, context3, ebVar);
+                        return;
                     }
+                    context2 = this.a;
+                    str3 = this.f311a;
+                    str4 = "A receive a incorrect message with empty type";
+                    dy.a(context2, str3, 1008, str4);
+                    return;
                 }
-            }
-            return a;
-        }
-        return (ed) invokeL.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(ef efVar, Context context, ec ecVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, this, efVar, context, ecVar) == null) {
-            this.f330a.get(efVar).a(context, ecVar);
-        }
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public static boolean m372a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? com.xiaomi.push.service.al.m683a(context, context.getPackageName()) : invokeL.booleanValue;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f326a : invokeV.intValue;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public eh m373a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f328a : (eh) invokeV.objValue;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public String m374a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f329a : (String) invokeV.objValue;
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.f326a = i;
-        }
-    }
-
-    public void a(Context context, String str, int i, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, str, Integer.valueOf(i), str2, str3}) == null) {
-            if (context != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                a(i);
-                al.a(this.f327a).a(new ee(this, str, context, str2, str3));
+                dy.a(this.a, this.f311a, 1008, "A receive a incorrect message with incorrect package info" + optString3);
                 return;
-            }
-            dz.a(context, "" + str, 1008, "A receive a incorrect message");
-        }
-    }
-
-    public void a(ef efVar, Context context, Intent intent, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048581, this, efVar, context, intent, str) == null) {
-            if (efVar != null) {
-                this.f330a.get(efVar).a(context, intent, str);
-            } else {
-                dz.a(context, StringUtil.NULL_STRING, 1008, "A receive a incorrect message with empty type");
+            } catch (JSONException e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
+                context = this.a;
+                str = this.f311a;
+                str2 = "A meet a exception when receive the message";
             }
         }
-    }
-
-    public void a(eh ehVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ehVar) == null) {
-            this.f328a = ehVar;
-        }
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f329a = str;
-        }
-    }
-
-    public void a(String str, String str2, int i, eh ehVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, i, ehVar) == null) {
-            a(str);
-            b(str2);
-            a(i);
-            a(ehVar);
-        }
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.b = str;
-        }
+        dy.a(context, str, 1008, str2);
     }
 }

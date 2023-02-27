@@ -139,7 +139,7 @@ public class SaveDraftDialogView extends LinearLayout {
             textView4.setId(R.id.save_draft_dialog_cancle);
             this.d.setTextSize(0, f);
             this.d.setGravity(17);
-            this.d.setText(R.string.obfuscated_res_0x7f0f038c);
+            this.d.setText(R.string.obfuscated_res_0x7f0f038d);
             addView(this.d, -1, g2);
             addView(new TextView(context), -1, ej.g(context, R.dimen.tbds36));
             a();

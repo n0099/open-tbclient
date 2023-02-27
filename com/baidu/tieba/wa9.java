@@ -1,104 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.model.VideoHolyCardModel;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
 /* loaded from: classes6.dex */
 public class wa9 {
     public static /* synthetic */ Interceptable $ic;
-    public static wa9 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public VideoHolyCardModel a;
-    public boolean b;
-    public boolean c;
-    public VideoHolyCardModel.c d;
+    public db9 a;
+    public k25 b;
+    public cb9 c;
+    public bb9 d;
+    public za9 e;
+    public xa9 f;
+    public xa9 g;
+    public xa9 h;
+    public ab9 i;
+    public ya9 j;
+    public MainTabActivity k;
+    public m89 l;
+    public boolean m;
 
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wa9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(wa9 wa9Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wa9Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wa9Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !BdNetTypeUtil.isMobileNet()) {
-                return;
-            }
-            this.a.b();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements VideoHolyCardModel.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wa9 a;
-
-        public b(wa9 wa9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wa9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wa9Var;
-        }
-
-        @Override // com.baidu.tieba.model.VideoHolyCardModel.c
-        public void onResult(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeZ(1048576, this, z) != null) {
-                return;
-            }
-            this.a.b = z;
-        }
-    }
-
-    public wa9() {
+    public wa9(@NonNull MainTabActivity mainTabActivity, @NonNull m89 m89Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, m89Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -108,63 +41,64 @@ public class wa9 {
                 return;
             }
         }
-        this.d = new b(this);
-        e();
-        if (PermissionUtil.isAgreePrivacyPolicy()) {
-            b();
-        }
+        this.m = false;
+        this.k = mainTabActivity;
+        this.l = m89Var;
+        this.a = new db9(mainTabActivity.getPageContext(), m89Var, mainTabActivity, false);
+        this.b = new k25(mainTabActivity.getPageContext());
+        this.c = new cb9(mainTabActivity, m89Var);
+        this.d = new bb9(mainTabActivity, m89Var);
+        this.i = new ab9(mainTabActivity, m89Var);
+        this.j = new ya9(mainTabActivity, m89Var);
+        this.e = new za9(mainTabActivity, m89Var);
     }
 
-    public static wa9 c() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (wa9.class) {
-                    if (e == null) {
-                        e = new wa9();
-                    }
-                }
-            }
-            return e;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.m) {
+            return;
         }
-        return (wa9) invokeV.objValue;
+        LinkedList linkedList = new LinkedList();
+        linkedList.add(this.j);
+        linkedList.add(this.c);
+        linkedList.add(this.d);
+        linkedList.add(this.e);
+        h25.g(linkedList);
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a == null) {
-                VideoHolyCardModel videoHolyCardModel = new VideoHolyCardModel();
-                this.a = videoHolyCardModel;
-                videoHolyCardModel.L(this.d);
-            }
-            this.a.J();
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(new a(this, 2000994));
-        }
-    }
-
-    public void f(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, context) != null) || !this.b || this.c) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.m) {
             return;
         }
-        ej.P(context, R.string.free_data_tips);
-        this.c = true;
+        zw7.m = false;
+        LinkedList linkedList = new LinkedList();
+        linkedList.add(this.j);
+        linkedList.add(this.a);
+        h25.g(linkedList);
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LinkedList linkedList = new LinkedList();
+            linkedList.add(this.a);
+            linkedList.add(this.c);
+            linkedList.add(this.d);
+            linkedList.add(this.j);
+            linkedList.add(this.b);
+            linkedList.add(this.i);
+            xa9 xa9Var = new xa9(this.k, this.l, "source_from_help");
+            this.f = xa9Var;
+            linkedList.add(xa9Var);
+            xa9 xa9Var2 = new xa9(this.k, this.l, "source_from_virtual_image");
+            this.g = xa9Var2;
+            linkedList.add(xa9Var2);
+            xa9 xa9Var3 = new xa9(this.k, this.l, "source_from_theme");
+            this.h = xa9Var3;
+            linkedList.add(xa9Var3);
+            h25.g(linkedList);
+            this.m = true;
+        }
     }
 }

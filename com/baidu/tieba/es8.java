@@ -1,33 +1,102 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import java.util.Map;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface es8 {
+public class es8 extends ye6<br8> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext i;
+    public View j;
+    public TbImageView k;
+    public TextView l;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        int a(Context context, String[] strArr);
+    @Override // com.baidu.tieba.ye6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0416 : invokeV.intValue;
     }
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        int a(Context context, Map<String, String> map);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
     }
 
-    /* loaded from: classes4.dex */
-    public interface c {
-        int a(Context context, String str, String str2, boolean z, d dVar, boolean z2, Bundle bundle);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public es8(TbPageContext tbPageContext) {
+        super(tbPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        View h = h();
+        this.j = h;
+        this.i = tbPageContext;
+        h.setTag(this);
+        this.k = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090da3);
+        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090da1);
     }
 
-    /* loaded from: classes4.dex */
-    public interface d {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ye6
+    /* renamed from: r */
+    public void i(br8 br8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, br8Var) == null) {
+            if (br8Var == null) {
+                this.j.setVisibility(8);
+                return;
+            }
+            j(this.i, TbadkCoreApplication.getInst().getSkinType());
+            this.k.K(br8Var.a, 10, false);
+            this.j.setOnClickListener(this);
+            if (br8Var.b > 0) {
+                this.l.setVisibility(0);
+                long j = br8Var.b;
+                if (j > 99) {
+                    this.l.setText("99");
+                    return;
+                } else {
+                    this.l.setText(String.valueOf(j));
+                    return;
+                }
+            }
+            this.l.setVisibility(8);
+        }
     }
 
-    boolean a(String str);
-
-    void b(Context context, String[] strArr, boolean z, Bundle bundle);
-
-    boolean c(Context context, String[] strArr, Bundle bundle);
+    @Override // com.baidu.tieba.ye6
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
+            SkinManager.setBackgroundResource(this.k, R.drawable.item_gift_selector);
+            SkinManager.setBackgroundColor(this.l, R.color.common_color_10294);
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0302);
+        }
+    }
 }

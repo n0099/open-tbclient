@@ -1,44 +1,38 @@
 package rx.internal.operators;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dea;
-import com.baidu.tieba.eia;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.yma;
+import com.baidu.tieba.zqa;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes9.dex */
 public final class OnSubscribeFromEmitter$ErrorEmitter<T> extends OnSubscribeFromEmitter$NoOverflowBaseEmitter<T> {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 338953216916120960L;
-    public transient /* synthetic */ FieldHolder $fh;
     public boolean done;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OnSubscribeFromEmitter$ErrorEmitter(dea<? super T> deaVar) {
-        super(deaVar);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {deaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((dea) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    public OnSubscribeFromEmitter$ErrorEmitter(yma<? super T> ymaVar) {
+        super(ymaVar);
+    }
+
+    @Override // rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter
+    public void onError(Throwable th) {
+        if (this.done) {
+            zqa.j(th);
+            return;
         }
+        this.done = true;
+        super.onError(th);
+    }
+
+    @Override // rx.internal.operators.OnSubscribeFromEmitter$NoOverflowBaseEmitter, rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter
+    public void onNext(T t) {
+        if (this.done) {
+            return;
+        }
+        super.onNext(t);
     }
 
     @Override // rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter
     public void onCompleted() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.done) {
+        if (this.done) {
             return;
         }
         this.done = true;
@@ -47,31 +41,6 @@ public final class OnSubscribeFromEmitter$ErrorEmitter<T> extends OnSubscribeFro
 
     @Override // rx.internal.operators.OnSubscribeFromEmitter$NoOverflowBaseEmitter
     public void onOverflow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            onError(new MissingBackpressureException("fromEmitter: could not emit value due to lack of requests"));
-        }
-    }
-
-    @Override // rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            if (this.done) {
-                eia.j(th);
-                return;
-            }
-            this.done = true;
-            super.onError(th);
-        }
-    }
-
-    @Override // rx.internal.operators.OnSubscribeFromEmitter$NoOverflowBaseEmitter, rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.done) {
-            return;
-        }
-        super.onNext(t);
+        onError(new MissingBackpressureException("fromEmitter: could not emit value due to lack of requests"));
     }
 }

@@ -1,49 +1,87 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.content.Context;
+import android.view.ViewGroup;
+import com.baidu.nadcore.lp.reward.view.NadRewardFullTailView;
+import com.baidu.nadcore.lp.reward.view.NadRewardHalfTailHolder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public interface wo0 {
-    public static final ServiceReference a = new ServiceReference("nad.business", "rewardVideoLpTaskCenter");
-    public static final wo0 b = new a();
+    public static final a k0 = a.a;
+
+    ViewGroup getView();
+
+    void setData(br0 br0Var);
+
+    void setOnReplayClickListener(Function0<Unit> function0);
+
+    void setVisibility(boolean z);
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void a(po0 po0Var);
-
-        void onFail(Exception exc);
-    }
-
-    void a(@NonNull xq0 xq0Var, @NonNull mr0 mr0Var, @NonNull b bVar);
-
-    /* loaded from: classes6.dex */
-    public static class a implements wo0 {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ a a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.wo0
-        public void a(@NonNull xq0 xq0Var, @NonNull mr0 mr0Var, @NonNull b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, xq0Var, mr0Var, bVar) == null) {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-311400684, "Lcom/baidu/tieba/wo0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-311400684, "Lcom/baidu/tieba/wo0$a;");
+                    return;
+                }
             }
+            a = new a();
         }
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
+        }
+
+        public final wo0 a(br0 adModel, Context context) {
+            InterceptResult invokeLL;
+            String str;
+            gr0 gr0Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, adModel, context)) == null) {
+                Intrinsics.checkNotNullParameter(adModel, "adModel");
+                Intrinsics.checkNotNullParameter(context, "context");
+                er0 er0Var = adModel.j;
+                if (er0Var != null && (gr0Var = er0Var.i) != null) {
+                    str = gr0Var.a;
+                } else {
+                    str = null;
+                }
+                if (str != null && str.hashCode() == 49 && str.equals("1")) {
+                    return new NadRewardHalfTailHolder(context, null, 0, 6, null);
+                }
+                return new NadRewardFullTailView(context, null, 0, 6, null);
+            }
+            return (wo0) invokeLL.objValue;
         }
     }
 }

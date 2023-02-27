@@ -1,14 +1,10 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.livesdk.sdk.service.IMLikeRequest;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
-import com.baidu.tieba.tt2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,31 +12,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public class so3 {
+public class so3 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Long> a;
-    public final HashMap<String, String> b;
-    public boolean c;
+    public String a;
+    public String b;
+    public String c;
     public boolean d;
+    public int[] e;
+    public c f;
+    public long g;
+    public b h;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tt2.a a;
-        public final /* synthetic */ so3 b;
+    }
 
-        public a(so3 so3Var, tt2.a aVar) {
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public MotionEvent a;
+        public sj2 b;
+        public final /* synthetic */ so3 c;
+
+        public b(so3 so3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {so3Var, aVar};
+                Object[] objArr = {so3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,17 +55,71 @@ public class so3 {
                     return;
                 }
             }
-            this.b = so3Var;
-            this.a = aVar;
+            this.c = so3Var;
+        }
+
+        public final void b(MotionEvent motionEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) {
+                this.a = motionEvent;
+                this.b = this.c.d(motionEvent, "longtap");
+            }
+        }
+
+        public /* synthetic */ b(so3 so3Var, a aVar) {
+            this(so3Var);
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
                 return;
             }
-            this.b.j(this.a);
+            this.c.g(this.b);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public double a;
+        public double b;
+
+        public c(so3 so3Var, double d, double d2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {so3Var, Double.valueOf(d), Double.valueOf(d2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d;
+            this.b = d2;
+        }
+
+        public double a(c cVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
+                if (cVar == null) {
+                    return Double.MAX_VALUE;
+                }
+                double pow = Math.pow(cVar.a - this.a, 2.0d) + Math.pow(cVar.b - this.b, 2.0d);
+                if (pow <= 0.0d) {
+                    return 0.0d;
+                }
+                return Math.sqrt(pow);
+            }
+            return invokeL.doubleValue;
         }
     }
 
@@ -77,158 +136,144 @@ public class so3 {
                 return;
             }
         }
-        boolean z = gp1.a;
+        i = wp1.a;
     }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.clear();
-            this.b.clear();
-        }
-    }
-
-    public synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.d = true;
-            }
-        }
-    }
-
-    public synchronized boolean e() {
-        InterceptResult invokeV;
+    public final void h() {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                z = this.d;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (bn3.f("1.12.0") && TextUtils.equals("canvas", this.c)) {
+                z = true;
+            } else {
+                z = false;
             }
-            return z;
+            this.d = z;
         }
-        return invokeV.booleanValue;
     }
 
-    public void i() {
+    public final void i() {
+        View m;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.d = false;
-            this.c = false;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (m = gn3.m(this.a)) == null) {
+            return;
         }
+        m.getLocationOnScreen(this.e);
     }
 
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            ql3.d(new a(this, v83.K().q().W()), "WebStaticRecorder", IMLikeRequest.TIME_INTERVAL, TimeUnit.MILLISECONDS);
-        }
-    }
-
-    public so3() {
+    public so3(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = false;
         this.d = false;
+        this.e = new int[2];
+        this.h = new b(this, null);
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+        h();
+        i();
     }
 
-    public synchronized void f(String str, String str2) {
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            synchronized (this) {
-                if (!this.d) {
-                    this.b.put(str, str2);
-                }
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, view2, motionEvent)) == null) {
+            e(view2, motionEvent);
+            return true;
         }
+        return invokeLL.booleanValue;
     }
 
-    public synchronized void h(@NonNull String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048582, this, str, j) == null) {
-            synchronized (this) {
-                if (!this.a.containsKey(str)) {
-                    this.a.put(str, Long.valueOf(j));
-                }
-            }
-        }
-    }
-
-    public synchronized boolean d(@NonNull String str) {
+    /* JADX WARN: Type inference failed for: r0v4, types: [org.json.JSONObject, T] */
+    public final sj2 c(MotionEvent motionEvent) {
         InterceptResult invokeL;
-        boolean containsKey;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            synchronized (this) {
-                containsKey = this.a.containsKey(str);
-            }
-            return containsKey;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            ro3 ro3Var = new ro3(motionEvent);
+            ro3Var.i(this.e);
+            sj2 sj2Var = new sj2();
+            sj2Var.c = to3.b(this.a, this.b, this.c, ro3Var.e(), ro3Var.c());
+            return sj2Var;
         }
-        return invokeL.booleanValue;
+        return (sj2) invokeL.objValue;
     }
 
-    public synchronized void g(@NonNull String str) {
+    public final void g(sj2 sj2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            synchronized (this) {
-                if (!this.d && !this.a.containsKey(str)) {
-                    this.a.put(str, Long.valueOf(System.currentTimeMillis()));
+        if (interceptable == null || interceptable.invokeL(1048580, this, sj2Var) == null) {
+            if (i) {
+                Log.d("SwanAppTouchListener", "sendEventToWebView = " + sj2Var.c);
+            }
+            if (!this.d) {
+                zu2.U().m(this.a, sj2Var);
+            } else {
+                zu2.U().u(sj2Var);
+            }
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r6v2, types: [org.json.JSONObject, T] */
+    public final sj2 d(MotionEvent motionEvent, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent, str)) == null) {
+            ro3 ro3Var = new ro3(motionEvent, str);
+            ro3Var.i(this.e);
+            sj2 sj2Var = new sj2();
+            sj2Var.c = to3.b(this.a, this.b, this.c, ro3Var.e(), ro3Var.c());
+            return sj2Var;
+        }
+        return (sj2) invokeLL.objValue;
+    }
+
+    public final void e(View view2, MotionEvent motionEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, motionEvent) == null) {
+            if (view2 != null && motionEvent != null && !TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b)) {
+                int actionMasked = motionEvent.getActionMasked();
+                if (actionMasked == 0 && motionEvent.getPointerCount() == 1) {
+                    this.f = new c(this, motionEvent.getX(), motionEvent.getY());
+                    this.g = motionEvent.getEventTime();
+                    this.h.b(motionEvent);
+                    view2.postDelayed(this.h, 350L);
+                    i();
+                } else if (actionMasked == 1 || actionMasked == 3 || !f(new c(this, motionEvent.getX(), motionEvent.getY()))) {
+                    view2.removeCallbacks(this.h);
                 }
-            }
-        }
-    }
-
-    public final synchronized void j(tt2.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            synchronized (this) {
-                if (this.c) {
+                g(c(motionEvent));
+                if (actionMasked == 1 && f(new c(this, motionEvent.getX(), motionEvent.getY())) && motionEvent.getEventTime() - this.g < 350) {
+                    g(d(motionEvent, "tap"));
                     return;
                 }
-                this.c = true;
-                b23.r(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB);
-                HybridUbcFlow p = b23.p(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB);
-                p.E("type", "naWebdegrade");
-                for (Map.Entry<String, Long> entry : this.a.entrySet()) {
-                    w52.i("WebStaticRecorder", "submit: event key: " + entry.getKey() + " value " + entry.getValue());
-                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(entry.getKey());
-                    ubcFlowEvent.h(entry.getValue().longValue());
-                    p.F(ubcFlowEvent);
-                }
-                for (Map.Entry<String, String> entry2 : this.b.entrySet()) {
-                    w52.i("WebStaticRecorder", "submit: ext key: " + entry2.getKey() + " value " + entry2.getValue());
-                    p.D(entry2.getKey(), entry2.getValue());
-                }
-                String h = p.h("fmpArrived");
-                if (TextUtils.isEmpty(h)) {
-                    h = "0";
-                }
-                p.D("fmpArrived", h);
-                p.D("launchID", aVar.V());
-                p.D("scheme", aVar.W());
-                p.D("appid", aVar.H());
-                p.D("page", oo3.c().b());
-                long j = aVar.s0().getLong("click_time", 0L);
-                if (j > 0) {
-                    UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("user_action");
-                    ubcFlowEvent2.h(j);
-                    p.F(ubcFlowEvent2);
-                }
-                p.A();
-                b();
+                return;
             }
+            m62.c("SwanAppTouchListener", "params is null, slaveId = " + this.a + " ; viewId = " + this.b);
         }
+    }
+
+    public final boolean f(c cVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) {
+            c cVar2 = this.f;
+            if (cVar2 != null && cVar2.a(cVar) <= dn3.g(10.0f)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

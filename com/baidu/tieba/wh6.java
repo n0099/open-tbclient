@@ -1,24 +1,41 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.tbadk.data.QmFilterItem;
+import com.baidu.tieba.external.sticker.data.QmStickerItem;
 /* loaded from: classes6.dex */
-public final class wh6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface wh6 {
 
-    public static final <T extends Comparable<? super T>> uh6<T> a(T initial, Function1<? super T, Unit> change) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, initial, change)) == null) {
-            Intrinsics.checkNotNullParameter(initial, "initial");
-            Intrinsics.checkNotNullParameter(change, "change");
-            return new uh6<>(initial, change);
-        }
-        return (uh6) invokeLL.objValue;
+    /* loaded from: classes6.dex */
+    public interface a {
+        void onProgress(long j);
     }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        boolean a(String str);
+
+        boolean b();
+    }
+
+    boolean a(QmFilterItem qmFilterItem);
+
+    boolean b(QmStickerItem qmStickerItem);
+
+    boolean c();
+
+    boolean d();
+
+    za6 e();
+
+    wa6 f();
+
+    boolean onDestroy();
+
+    boolean onPause();
+
+    boolean onResume();
+
+    boolean startRecord();
+
+    boolean stopRecord();
 }

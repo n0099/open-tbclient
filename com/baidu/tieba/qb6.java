@@ -1,19 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class qb6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
+import java.util.concurrent.Callable;
+/* loaded from: classes5.dex */
+public interface qb6<R> extends Callable<R> {
+    @Override // java.util.concurrent.Callable
+    R call();
 }

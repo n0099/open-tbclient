@@ -7,7 +7,6 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.WindowManager;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
-import com.baidu.down.utils.Utils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +38,7 @@ public class CommonUtils {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
             } catch (PackageManager.NameNotFoundException e) {
-                Log.e(Utils.TAG, "getAppVersionName NameNotFoundException", e);
+                Log.e("Utils", "getAppVersionName NameNotFoundException", e);
                 return "";
             }
         }

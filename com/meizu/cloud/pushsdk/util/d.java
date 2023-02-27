@@ -4,15 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
+import android.os.Handler;
 import android.text.TextUtils;
+import androidx.appcompat.widget.SearchView;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.pms.init.ApsCloudControlProcessor;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.PushManager;
-import com.meizu.cloud.pushsdk.c.b.f;
-import com.meizu.cloud.pushsdk.c.c.b;
-import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.meizu.cloud.pushsdk.d.b.f;
+import com.meizu.cloud.pushsdk.d.c.b;
+import com.meizu.cloud.pushsdk.d.f.e;
 import com.meizu.cloud.pushsdk.notification.MPushMessage;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.util.HashMap;
@@ -32,15 +34,60 @@ public class d {
         return MzSystemUtils.isHuaWei() ? 3 : 0;
     }
 
-    public static com.meizu.cloud.pushsdk.handler.a.b.d a(String str) {
+    public static Intent a(Context context, Map<String, String> map) {
+        String str;
         String str2;
-        com.meizu.cloud.pushsdk.handler.a.b.d dVar = new com.meizu.cloud.pushsdk.handler.a.b.d();
+        List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(new Intent(PushConstants.MZ_PUSH_TRACKER_SERVICE_ACTION), 0);
+        if (queryIntentServices != null) {
+            Iterator<ResolveInfo> it = queryIntentServices.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    str = null;
+                    str2 = null;
+                    break;
+                }
+                ResolveInfo next = it.next();
+                if (PushConstants.PUSH_PACKAGE_NAME.equals(next.serviceInfo.packageName)) {
+                    ServiceInfo serviceInfo = next.serviceInfo;
+                    str2 = serviceInfo.packageName;
+                    str = serviceInfo.name;
+                    break;
+                }
+            }
+            if (TextUtils.isEmpty(str) && queryIntentServices.size() > 0) {
+                str2 = queryIntentServices.get(0).serviceInfo.packageName;
+                str = queryIntentServices.get(0).serviceInfo.name;
+            }
+        } else {
+            str = null;
+            str2 = null;
+        }
+        DebugLogger.i("UxIPUtils", "current process packageName " + str2);
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                String jSONObject = e.a((Map) map).toString();
+                Intent intent = new Intent();
+                intent.setPackage(str2);
+                intent.setAction(PushConstants.MZ_PUSH_TRACKER_SERVICE_ACTION);
+                intent.putExtra(PushConstants.EXTRA_PUSH_TRACKER_JSON_DATA, jSONObject);
+                return intent;
+            } catch (Exception e) {
+                e.printStackTrace();
+                DebugLogger.e("UxIPUtils", "getRemotePushTrackerIntent error " + e.getMessage());
+            }
+        }
+        return null;
+    }
+
+    public static com.meizu.cloud.pushsdk.handler.a.c.d a(String str) {
+        String str2;
+        com.meizu.cloud.pushsdk.handler.a.c.d dVar = new com.meizu.cloud.pushsdk.handler.a.c.d();
         if (TextUtils.isEmpty(str)) {
             str2 = "the platformExtra is empty";
         } else {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                return com.meizu.cloud.pushsdk.handler.a.b.d.a().a(jSONObject.has("task_id") ? jSONObject.getString("task_id") : null).d(jSONObject.has("device_id") ? jSONObject.getString("device_id") : null).c(jSONObject.has("push_timestamp") ? jSONObject.getString("push_timestamp") : null).b(jSONObject.has("seq_id") ? jSONObject.getString("seq_id") : null).a();
+                return com.meizu.cloud.pushsdk.handler.a.c.d.a().a(jSONObject.has("task_id") ? jSONObject.getString("task_id") : null).d(jSONObject.has("device_id") ? jSONObject.getString("device_id") : null).c(jSONObject.has(PushConstants.PUSH_TIMESTAMP) ? jSONObject.getString(PushConstants.PUSH_TIMESTAMP) : null).b(jSONObject.has(PushConstants.SEQ_ID) ? jSONObject.getString(PushConstants.SEQ_ID) : null).a();
             } catch (Exception unused) {
                 str2 = "the platformExtra parse error";
             }
@@ -56,7 +103,7 @@ public class d {
                 MPushMessage mPushMessage = (MPushMessage) intent.getSerializableExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE);
                 return mPushMessage != null ? mPushMessage.getTaskId() : stringExtra;
             } catch (Exception e) {
-                DebugLogger.e("UxIPUtils", "paese MessageV2 error " + e.getMessage());
+                DebugLogger.e("UxIPUtils", "parse MessageV2 error " + e.getMessage());
                 return "no push platform task";
             }
         }
@@ -82,11 +129,11 @@ public class d {
     }
 
     public static void a(Context context, String str, String str2, String str3, String str4, String str5) {
-        a(context, true, str, str2, str3, str4, "spm", str5);
+        a(context, true, str, str2, str3, str4, ApsCloudControlProcessor.SERVER_DPM, str5);
     }
 
     public static void a(Context context, String str, String str2, String str3, String str4, String str5, int i) {
-        HashMap hashMap = new HashMap();
+        HashMap hashMap = new HashMap(8);
         hashMap.put("taskId", str3);
         hashMap.put("deviceId", str2);
         hashMap.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
@@ -97,8 +144,16 @@ public class d {
         a(context, false, "notification_service_message", (Map<String, String>) hashMap);
     }
 
+    public static void a(Context context, String str, String str2, String str3, String str4, String str5, long j) {
+        a(context, true, str, str2, str3, str4, "spm", str5, j);
+    }
+
     public static void a(Context context, boolean z, String str, String str2, String str3, String str4, String str5, String str6) {
-        HashMap hashMap = new HashMap();
+        a(context, z, str, str2, str3, str4, str5, str6, 0L);
+    }
+
+    public static void a(Context context, boolean z, String str, String str2, String str3, String str4, String str5, String str6, long j) {
+        HashMap hashMap = new HashMap(8);
         hashMap.put("en", str5);
         hashMap.put(Config.FEED_LIST_PART, str3);
         hashMap.put(AppIconSetting.DEFAULT_LARGE_ICON, str2);
@@ -108,94 +163,99 @@ public class d {
         hashMap.put("ts", str6);
         hashMap.put("pn", str);
         hashMap.put("pv", PushManager.TAG);
+        hashMap.put(SearchView.IME_OPTION_NO_MICROPHONE, String.valueOf(System.currentTimeMillis() / 1000));
         if (!TextUtils.isEmpty(str4)) {
             hashMap.put("si", str4);
         }
-        if (a(context, hashMap)) {
+        if (a(context, hashMap, z, j)) {
             return;
         }
         a(context, z, str5, hashMap);
     }
 
-    /* JADX WARN: Type inference failed for: r7v1, types: [com.meizu.cloud.pushsdk.c.c.b$a] */
+    /* JADX WARN: Type inference failed for: r6v1, types: [com.meizu.cloud.pushsdk.d.c.b$a] */
     public static void a(Context context, boolean z, String str, Map<String, String> map) {
         DebugLogger.e("UxIPUtils", "onLogEvent eventName [" + str + "] properties = " + map);
         if ("notification_service_message".equals(str)) {
             return;
         }
-        com.meizu.cloud.pushsdk.c.a.a(context, (f) null).a(((b.a) com.meizu.cloud.pushsdk.c.c.b.d().a(str).a(a(context)).a(Long.valueOf(map.get("ts")).longValue())).h(String.valueOf(System.currentTimeMillis() / 1000)).c(map.get(AppIconSetting.DEFAULT_LARGE_ICON)).e(map.get("pn")).d(map.get("pv")).b(map.get(Config.FEED_LIST_PART)).f(TextUtils.isEmpty(map.get("si")) ? "" : map.get("si")).g(String.valueOf(b.j(context, map.get("pn")))).b(), z);
+        com.meizu.cloud.pushsdk.d.a.a(context, (com.meizu.cloud.pushsdk.c.c.a) null, (f) null).a(((b.a) com.meizu.cloud.pushsdk.d.c.b.d().a(str).a(a(context)).a(Long.valueOf(map.get("ts")).longValue())).h(map.get(SearchView.IME_OPTION_NO_MICROPHONE) != null ? map.get(SearchView.IME_OPTION_NO_MICROPHONE) : String.valueOf(System.currentTimeMillis() / 1000)).c(map.get(AppIconSetting.DEFAULT_LARGE_ICON)).e(map.get("pn")).d(map.get("pv")).b(map.get(Config.FEED_LIST_PART)).f(TextUtils.isEmpty(map.get("si")) ? "" : map.get("si")).g(String.valueOf(b.j(context, map.get("pn")))).b(), z);
     }
 
-    public static boolean a(Context context, Map<String, String> map) {
+    public static boolean a(final Context context, final Intent intent, final boolean z, final Map<String, String> map, final long j) {
         String str;
-        String str2;
-        List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(new Intent(PushConstants.MZ_PUSH_TRACKER_SERVICE_ACTION), 0);
-        String str3 = null;
-        if (queryIntentServices != null) {
-            Iterator<ResolveInfo> it = queryIntentServices.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    str2 = null;
-                    break;
+        if (intent == null) {
+            str = "startRemotePushTracker error intent is null";
+        } else if (j != 0) {
+            new Handler(context.getMainLooper()).postDelayed(new Runnable() { // from class: com.meizu.cloud.pushsdk.util.d.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    try {
+                        context.startService(intent);
+                        DebugLogger.i("UxIPUtils", "delayed " + j + " ms start tracker data in mz_tracker process " + intent.getStringExtra(PushConstants.EXTRA_PUSH_TRACKER_JSON_DATA));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        DebugLogger.e("UxIPUtils", "delayed startRemotePushTracker error " + e.getMessage());
+                        d.a(context, z, (String) map.get("en"), map);
+                    }
                 }
-                ResolveInfo next = it.next();
-                if ("com.meizu.cloud".equals(next.serviceInfo.packageName)) {
-                    ServiceInfo serviceInfo = next.serviceInfo;
-                    str2 = serviceInfo.packageName;
-                    str3 = serviceInfo.name;
-                    break;
-                }
-            }
-            if (!TextUtils.isEmpty(str3) || queryIntentServices.size() <= 0) {
-                str = str3;
-                str3 = str2;
-            } else {
-                str3 = queryIntentServices.get(0).serviceInfo.packageName;
-                str = queryIntentServices.get(0).serviceInfo.name;
-            }
-        } else {
-            str = null;
-        }
-        DebugLogger.i("UxIPUtils", "current process packageName " + str3);
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        try {
-            String jSONObject = e.a((Map) map).toString();
-            Intent intent = new Intent();
-            intent.setPackage(str3);
-            intent.setAction(PushConstants.MZ_PUSH_TRACKER_SERVICE_ACTION);
-            intent.putExtra(PushConstants.EXTRA_PUSH_TRACKER_JSON_DATA, jSONObject);
-            context.startService(intent);
-            DebugLogger.i("UxIPUtils", "Start tracker data in mz_tracker process " + jSONObject);
+            }, j);
             return true;
-        } catch (Exception e) {
-            DebugLogger.e("UxIPUtils", "start RemoteService error " + e.getMessage());
-            return false;
+        } else {
+            try {
+                context.startService(intent);
+                DebugLogger.i("UxIPUtils", "immediately start tracker data in mz_tracker process " + intent.getStringExtra(PushConstants.EXTRA_PUSH_TRACKER_JSON_DATA));
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                str = "startRemotePushTracker error " + e.getMessage();
+            }
         }
+        DebugLogger.e("UxIPUtils", str);
+        return false;
+    }
+
+    public static boolean a(Context context, Map<String, String> map, boolean z, long j) {
+        return a(context, a(context, map), z, map, j);
     }
 
     public static void b(Context context, String str, String str2, String str3, String str4, String str5) {
-        a(context, true, str, str2, str3, str4, ApsCloudControlProcessor.SERVER_DPM, str5);
-    }
-
-    public static void c(Context context, String str, String str2, String str3, String str4, String str5) {
         a(context, false, str, str2, str3, str4, "rpe", str5);
     }
 
-    public static void d(Context context, String str, String str2, String str3, String str4, String str5) {
+    public static void b(Context context, String str, String str2, String str3, String str4, String str5, long j) {
+        a(context, false, str, str2, str3, str4, "rpe", str5, j);
+    }
+
+    public static void c(Context context, String str, String str2, String str3, String str4, String str5) {
         a(context, true, str, str2, str3, str4, "rpe", str5);
     }
 
-    public static void e(Context context, String str, String str2, String str3, String str4, String str5) {
+    public static void c(Context context, String str, String str2, String str3, String str4, String str5, long j) {
+        a(context, false, str, str2, str3, str4, "sipm", str5, j);
+    }
+
+    public static void d(Context context, String str, String str2, String str3, String str4, String str5) {
         a(context, true, str, str2, str3, str4, "cpm", str5);
     }
 
-    public static void f(Context context, String str, String str2, String str3, String str4, String str5) {
-        a(context, false, str, str2, str3, str4, "sipm", str5);
+    public static void d(Context context, String str, String str2, String str3, String str4, String str5, long j) {
+        a(context, false, str, str2, str3, str4, "nspm", str5, j);
     }
 
-    public static void g(Context context, String str, String str2, String str3, String str4, String str5) {
-        a(context, false, str, str2, str3, str4, "npm", str5);
+    public static void e(Context context, String str, String str2, String str3, String str4, String str5) {
+        a(context, true, str, str2, str3, str4, "acce", str5);
+    }
+
+    public static void e(Context context, String str, String str2, String str3, String str4, String str5, long j) {
+        a(context, false, str, str2, str3, str4, "fspm", str5, j);
+    }
+
+    public static void f(Context context, String str, String str2, String str3, String str4, String str5) {
+        a(context, true, str, str2, str3, str4, "acsm", str5);
+    }
+
+    public static void f(Context context, String str, String str2, String str3, String str4, String str5, long j) {
+        a(context, false, str, str2, str3, str4, "npm", str5, j);
     }
 }

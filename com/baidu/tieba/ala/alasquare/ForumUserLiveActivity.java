@@ -20,15 +20,15 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabYYSubFragment;
-import com.baidu.tieba.o16;
-import com.baidu.tieba.p15;
+import com.baidu.tieba.b35;
+import com.baidu.tieba.f36;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ForumUserLiveActivity extends BaseFragmentActivity implements o16 {
+public class ForumUserLiveActivity extends BaseFragmentActivity implements f36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -41,7 +41,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements o16 {
     public PollingModel h;
     public CustomMessageListener i;
 
-    @Override // com.baidu.tieba.o16
+    @Override // com.baidu.tieba.f36
     public boolean U0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -142,7 +142,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements o16 {
         this.i = new a(this, 2921774);
     }
 
-    @Override // com.baidu.tieba.o16
+    @Override // com.baidu.tieba.f36
     public String getFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -175,7 +175,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements o16 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             this.a.onChangeSkinType(getPageContext(), i);
-            p15.d(this.b).f(R.color.CAM_X0202);
+            b35.d(this.b).f(R.color.CAM_X0202);
             LiveTabYYSubFragment liveTabYYSubFragment = this.c;
             if (liveTabYYSubFragment != null) {
                 liveTabYYSubFragment.changeSkinType(i);
@@ -192,15 +192,15 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements o16 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d02d3);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091732);
+            setContentView(R.layout.obfuscated_res_0x7f0d02e1);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091773);
             this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0728));
+            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f072c));
             int i = 2;
             this.c = LiveTabYYSubFragment.T1(false, 2, 4);
-            this.b = findViewById(R.id.obfuscated_res_0x7f090718);
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090718, this.c).commitAllowingStateLoss();
+            this.b = findViewById(R.id.obfuscated_res_0x7f090755);
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090755, this.c).commitAllowingStateLoss();
             this.e = getIntent().getStringExtra("KEY_FORUM_ID");
             String stringExtra = getIntent().getStringExtra(ForumUserLiveActiivtyConfig.KEY_FORUM_NAME);
             this.d = getIntent().getStringExtra("from");
@@ -214,7 +214,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements o16 {
             registerListener(this.i);
             PollingModel pollingModel = new PollingModel(getPageContext(), getUniqueId());
             this.h = pollingModel;
-            pollingModel.n0(PollingModel.MEMBER_BROADCAST);
+            pollingModel.u0(PollingModel.MEMBER_BROADCAST);
         }
     }
 

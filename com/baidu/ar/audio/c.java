@@ -1,107 +1,55 @@
 package com.baidu.ar.audio;
 
 import android.media.AudioRecord;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "c";
     public static volatile boolean iP;
-    public transient /* synthetic */ FieldHolder $fh;
     public AudioRecord iH;
     public AudioParams iI;
-    public byte[] iJ;
-    public ArrayList<ByteBuffer> iK;
-    public int iL;
     public a iM;
     public VolumeListener iN;
-    public boolean iO;
+    public byte[] iJ = null;
+    public ArrayList<ByteBuffer> iK = null;
+    public int iL = 0;
+    public boolean iO = false;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1725836641, "Lcom/baidu/ar/audio/c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1725836641, "Lcom/baidu/ar/audio/c;");
-        }
-    }
-
-    public c() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+    private void a(long j, int i) {
+        ByteBuffer byteBuffer = this.iK.get(this.iL);
+        if (i == -3) {
+            com.baidu.ar.h.b.b(TAG, "Audio read error");
+        } else if (this.iM != null && byteBuffer != null && byteBuffer.capacity() >= i) {
+            if (this.iI.getAmplifyVolume() != 1.0f) {
+                d.a(this.iJ, this.iI.getAmplifyVolume());
+            }
+            try {
+                byteBuffer.clear();
+                byteBuffer.position(0);
+                byteBuffer.put(this.iJ, 0, i);
+                byteBuffer.flip();
+                this.iM.onAudioFrameAvailable(byteBuffer, i, j);
+            } catch (Exception e) {
+                e.printStackTrace();
                 return;
             }
         }
-        this.iJ = null;
-        this.iK = null;
-        this.iL = 0;
-        this.iO = false;
-    }
-
-    private void a(long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            ByteBuffer byteBuffer = this.iK.get(this.iL);
-            if (i == -3) {
-                com.baidu.ar.h.b.b(TAG, "Audio read error");
-            } else if (this.iM != null && byteBuffer != null && byteBuffer.capacity() >= i) {
-                if (this.iI.getAmplifyVolume() != 1.0f) {
-                    d.a(this.iJ, this.iI.getAmplifyVolume());
-                }
-                try {
-                    byteBuffer.clear();
-                    byteBuffer.position(0);
-                    byteBuffer.put(this.iJ, 0, i);
-                    byteBuffer.flip();
-                    this.iM.onAudioFrameAvailable(byteBuffer, i, j);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return;
-                }
-            }
-            int i2 = this.iL + 1;
-            this.iL = i2;
-            this.iL = i2 % this.iI.getFrameBufferCount();
-            if (this.iN != null) {
-                this.iN.onRealtimeVolume((int) d.c(this.iJ));
-            }
+        int i2 = this.iL + 1;
+        this.iL = i2;
+        this.iL = i2 % this.iI.getFrameBufferCount();
+        if (this.iN != null) {
+            this.iN.onRealtimeVolume((int) d.c(this.iJ));
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0044  */
-    /* JADX WARN: Removed duplicated region for block: B:23:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0040  */
+    /* JADX WARN: Removed duplicated region for block: B:18:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void cr() {
         int recordingState;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(65539, this) != null) {
-            return;
-        }
         boolean z = true;
         if (this.iH.getState() == 1) {
             try {
@@ -131,8 +79,7 @@ public class c {
     }
 
     private void cs() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.iI.getFrameSize() <= 0) {
+        if (this.iI.getFrameSize() <= 0) {
             return;
         }
         if (this.iK == null) {
@@ -172,76 +119,56 @@ public class c {
     }
 
     private void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65541, this, j) == null) {
-            if (j >= 20) {
-                r(false);
-            } else if (d.b(this.iJ) == 0.0d) {
-                return;
-            } else {
-                r(true);
-            }
-            this.iO = true;
+        if (j >= 20) {
+            r(false);
+        } else if (d.b(this.iJ) == 0.0d) {
+            return;
+        } else {
+            r(true);
         }
+        this.iO = true;
     }
 
     private void r(boolean z) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65542, this, z) == null) || (aVar = this.iM) == null) {
-            return;
+        a aVar = this.iM;
+        if (aVar != null) {
+            aVar.onAudioStart(z);
         }
-        aVar.onAudioStart(z);
     }
 
     public void a(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.iM = aVar;
-        }
+        this.iM = aVar;
     }
 
     public void b(AudioParams audioParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, audioParams) == null) {
-            int minBufferSize = AudioRecord.getMinBufferSize(audioParams.getSampleRate(), audioParams.getChannelConfig(), audioParams.getAudioFormat());
-            if (audioParams.getFrameSize() < minBufferSize) {
-                audioParams.setAudioBufferSize(((minBufferSize / 1024) + 1) * 1024 * 2);
-            }
-            this.iH = new AudioRecord(audioParams.getAudioSource(), audioParams.getSampleRate(), audioParams.getChannelConfig(), audioParams.getAudioFormat(), audioParams.getAudioBufferSize());
-            this.iI = audioParams;
-            this.iO = false;
-            a aVar = this.iM;
-            if (aVar != null) {
-                aVar.onAudioSetup(true);
-            }
+        int minBufferSize = AudioRecord.getMinBufferSize(audioParams.getSampleRate(), audioParams.getChannelConfig(), audioParams.getAudioFormat());
+        if (audioParams.getFrameSize() < minBufferSize) {
+            audioParams.setAudioBufferSize(((minBufferSize / 1024) + 1) * 1024 * 2);
+        }
+        this.iH = new AudioRecord(audioParams.getAudioSource(), audioParams.getSampleRate(), audioParams.getChannelConfig(), audioParams.getAudioFormat(), audioParams.getAudioBufferSize());
+        this.iI = audioParams;
+        this.iO = false;
+        a aVar = this.iM;
+        if (aVar != null) {
+            aVar.onAudioSetup(true);
         }
     }
 
     public AudioParams cj() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.iI : (AudioParams) invokeV.objValue;
+        return this.iI;
     }
 
     public void co() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            cr();
-            cs();
-        }
+        cr();
+        cs();
     }
 
     public void cp() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            iP = false;
-        }
+        iP = false;
     }
 
     public void cq() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || iP) {
+        if (iP) {
             return;
         }
         this.iH.release();
@@ -255,9 +182,6 @@ public class c {
     }
 
     public void setVolumeListener(VolumeListener volumeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, volumeListener) == null) {
-            this.iN = volumeListener;
-        }
+        this.iN = volumeListener;
     }
 }

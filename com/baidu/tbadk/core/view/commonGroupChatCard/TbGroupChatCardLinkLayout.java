@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p15;
-import com.baidu.tieba.px4;
+import com.baidu.tieba.b35;
 import com.baidu.tieba.tbadkcore.databinding.TbGroupChatLinkCardLayoutBinding;
+import com.baidu.tieba.wy4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000D\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u0000 \u001c2\u00020\u00012\u00020\u0002:\u0003\u001b\u001c\u001dB'\b\u0007\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u000e\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u000fJ\u0010\u0010\u0013\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u000fH\u0002J\b\u0010\u0014\u001a\u00020\u0011H\u0002J\u0010\u0010\u0015\u001a\u00020\u00112\u0006\u0010\u0016\u001a\u00020\u0017H\u0016J\u0006\u0010\u0018\u001a\u00020\u0011J\u0010\u0010\u0019\u001a\u00020\u00112\b\u0010\u001a\u001a\u0004\u0018\u00010\rR\u000e\u0010\n\u001a\u00020\u000bX\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u001e"}, d2 = {"Lcom/baidu/tbadk/core/view/commonGroupChatCard/TbGroupChatCardLinkLayout;", "Landroid/widget/RelativeLayout;", "Landroid/view/View$OnClickListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "binding", "Lcom/baidu/tieba/tbadkcore/databinding/TbGroupChatLinkCardLayoutBinding;", "cardClickListener", "Lcom/baidu/tbadk/core/view/commonGroupChatCard/TbGroupChatCardLinkLayout$ITbCardClickListener;", "commodityData", "Lcom/baidu/tbadk/core/data/CommodityData;", "bindData", "", "data", "fillData", "initView", "onClick", "v", "Landroid/view/View;", "onSkinChanged", "setCardClickListener", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "ClickType", "Companion", "ITbCardClickListener", "tbadkcore_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+@Metadata(d1 = {"\u0000D\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u0000 \u001c2\u00020\u00012\u00020\u0002:\u0003\u001b\u001c\u001dB'\b\u0007\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u000e\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u000fJ\u0010\u0010\u0013\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u000fH\u0002J\b\u0010\u0014\u001a\u00020\u0011H\u0002J\u0010\u0010\u0015\u001a\u00020\u00112\u0006\u0010\u0016\u001a\u00020\u0017H\u0016J\u0006\u0010\u0018\u001a\u00020\u0011J\u0010\u0010\u0019\u001a\u00020\u00112\b\u0010\u001a\u001a\u0004\u0018\u00010\rR\u000e\u0010\n\u001a\u00020\u000bX\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u001e"}, d2 = {"Lcom/baidu/tbadk/core/view/commonGroupChatCard/TbGroupChatCardLinkLayout;", "Landroid/widget/RelativeLayout;", "Landroid/view/View$OnClickListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "binding", "Lcom/baidu/tieba/tbadkcore/databinding/TbGroupChatLinkCardLayoutBinding;", "cardClickListener", "Lcom/baidu/tbadk/core/view/commonGroupChatCard/TbGroupChatCardLinkLayout$ITbCardClickListener;", "commodityData", "Lcom/baidu/tbadk/core/data/CommodityData;", "bindData", "", "data", "fillData", "initView", "onClick", "v", "Landroid/view/View;", "onSkinChanged", "setCardClickListener", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "ClickType", "Companion", "ITbCardClickListener", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes3.dex */
 public final class TbGroupChatCardLinkLayout extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -102,7 +102,7 @@ public final class TbGroupChatCardLinkLayout extends RelativeLayout implements V
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    @Metadata(d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0002\b\u0004\b\u0086\u0001\u0018\u00002\b\u0012\u0004\u0012\u00020\u00000\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002j\u0002\b\u0003j\u0002\b\u0004¨\u0006\u0005"}, d2 = {"Lcom/baidu/tbadk/core/view/commonGroupChatCard/TbGroupChatCardLinkLayout$ClickType;", "", "(Ljava/lang/String;I)V", "CLICK_MAIN", "CLICK_CLOSE", "tbadkcore_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+    @Metadata(d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0002\b\u0004\b\u0086\u0001\u0018\u00002\b\u0012\u0004\u0012\u00020\u00000\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002j\u0002\b\u0003j\u0002\b\u0004¨\u0006\u0005"}, d2 = {"Lcom/baidu/tbadk/core/view/commonGroupChatCard/TbGroupChatCardLinkLayout$ClickType;", "", "(Ljava/lang/String;I)V", "CLICK_MAIN", "CLICK_CLOSE", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes3.dex */
     public static final class ClickType {
         public static final /* synthetic */ ClickType[] $VALUES;
@@ -228,17 +228,23 @@ public final class TbGroupChatCardLinkLayout extends RelativeLayout implements V
                         int length = str.length() - 1;
                         while (length > 0) {
                             TextPaint paint = content1.getPaint();
+                            StringBuilder sb = new StringBuilder();
                             String substring = str.substring(0, length);
                             Intrinsics.checkNotNullExpressionValue(substring, "this as java.lang.String…ing(startIndex, endIndex)");
-                            if (paint.measureText(Intrinsics.stringPlus(substring, string)) <= f) {
+                            sb.append(substring);
+                            sb.append(string);
+                            if (paint.measureText(sb.toString()) <= f) {
                                 break;
                             }
                             length--;
                         }
                         if (length > 0) {
+                            StringBuilder sb2 = new StringBuilder();
                             String substring2 = str.substring(0, length);
                             Intrinsics.checkNotNullExpressionValue(substring2, "this as java.lang.String…ing(startIndex, endIndex)");
-                            content1.setText(Intrinsics.stringPlus(substring2, string));
+                            sb2.append(substring2);
+                            sb2.append(string);
+                            content1.setText(sb2.toString());
                             return;
                         }
                         content1.setVisibility(8);
@@ -294,12 +300,32 @@ public final class TbGroupChatCardLinkLayout extends RelativeLayout implements V
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public final void c(px4 data) {
+    public final void c(wy4 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
             d(data);
             g();
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View v) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, v) == null) {
+            Intrinsics.checkNotNullParameter(v, "v");
+            if (v.getId() == R.id.close_button) {
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.a(ClickType.CLICK_CLOSE);
+                    return;
+                }
+                return;
+            }
+            b bVar2 = this.a;
+            if (bVar2 != null) {
+                bVar2.a(ClickType.CLICK_MAIN);
+            }
         }
     }
 
@@ -310,21 +336,22 @@ public final class TbGroupChatCardLinkLayout extends RelativeLayout implements V
         }
     }
 
-    public final void d(px4 px4Var) {
+    public final void d(wy4 wy4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, px4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wy4Var) == null) {
             TbGroupChatLinkCardLayoutBinding tbGroupChatLinkCardLayoutBinding = this.b;
             if (tbGroupChatLinkCardLayoutBinding == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 tbGroupChatLinkCardLayoutBinding = null;
             }
-            tbGroupChatLinkCardLayoutBinding.h.K(px4Var.e, 10, false);
-            tbGroupChatLinkCardLayoutBinding.i.setText(px4Var.c);
+            tbGroupChatLinkCardLayoutBinding.h.K(wy4Var.e, 10, false);
+            tbGroupChatLinkCardLayoutBinding.i.setText(wy4Var.c);
             tbGroupChatLinkCardLayoutBinding.g.setVisibility(8);
-            CardLinkInfoData cardLinkInfoData = px4Var.p;
-            if (cardLinkInfoData != null) {
-                String str = cardLinkInfoData.content1;
+            CardLinkInfoData mCardLinkInfoData = wy4Var.p;
+            if (mCardLinkInfoData != null) {
+                Intrinsics.checkNotNullExpressionValue(mCardLinkInfoData, "mCardLinkInfoData");
+                String str = mCardLinkInfoData.content1;
                 boolean z2 = true;
                 if (str != null && str.length() != 0) {
                     z = false;
@@ -338,9 +365,9 @@ public final class TbGroupChatCardLinkLayout extends RelativeLayout implements V
                     tbGroupChatLinkCardLayoutBinding.d.setVisibility(0);
                     tbGroupChatLinkCardLayoutBinding.c.setVisibility(0);
                     tbGroupChatLinkCardLayoutBinding.g.setVisibility(0);
-                    tbGroupChatLinkCardLayoutBinding.d.setText(cardLinkInfoData.content1);
+                    tbGroupChatLinkCardLayoutBinding.d.setText(mCardLinkInfoData.content1);
                 }
-                String str2 = cardLinkInfoData.content2;
+                String str2 = mCardLinkInfoData.content2;
                 if (str2 != null && str2.length() != 0) {
                     z2 = false;
                 }
@@ -351,7 +378,7 @@ public final class TbGroupChatCardLinkLayout extends RelativeLayout implements V
                     tbGroupChatLinkCardLayoutBinding.f.setVisibility(0);
                     tbGroupChatLinkCardLayoutBinding.e.setVisibility(0);
                     tbGroupChatLinkCardLayoutBinding.g.setVisibility(0);
-                    tbGroupChatLinkCardLayoutBinding.f.setText(cardLinkInfoData.content2);
+                    tbGroupChatLinkCardLayoutBinding.f.setText(mCardLinkInfoData.content2);
                 }
                 a aVar = c;
                 TextView content1Text = tbGroupChatLinkCardLayoutBinding.d;
@@ -360,7 +387,7 @@ public final class TbGroupChatCardLinkLayout extends RelativeLayout implements V
                 Intrinsics.checkNotNullExpressionValue(content1Icon, "content1Icon");
                 TextView content2Text = tbGroupChatLinkCardLayoutBinding.f;
                 Intrinsics.checkNotNullExpressionValue(content2Text, "content2Text");
-                aVar.a(content1Text, content1Icon, content2Text, cardLinkInfoData.content1, cardLinkInfoData.content2);
+                aVar.a(content1Text, content1Icon, content2Text, mCardLinkInfoData.content1, mCardLinkInfoData.content2);
             }
         }
     }
@@ -408,44 +435,24 @@ public final class TbGroupChatCardLinkLayout extends RelativeLayout implements V
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 tbGroupChatLinkCardLayoutBinding = null;
             }
-            p15 d2 = p15.d(tbGroupChatLinkCardLayoutBinding.j);
+            b35 d2 = b35.d(tbGroupChatLinkCardLayoutBinding.j);
             d2.n(R.string.J_X05);
             d2.f(R.color.CAM_X0206);
-            p15 d3 = p15.d(tbGroupChatLinkCardLayoutBinding.i);
+            b35 d3 = b35.d(tbGroupChatLinkCardLayoutBinding.i);
             d3.A(R.string.F_X01);
             d3.z(R.dimen.T_X07);
             d3.v(R.color.CAM_X0107);
-            p15 d4 = p15.d(tbGroupChatLinkCardLayoutBinding.d);
+            b35 d4 = b35.d(tbGroupChatLinkCardLayoutBinding.d);
             d4.A(R.string.F_X01);
             d4.z(R.dimen.T_X09);
             d4.v(R.color.CAM_X0109);
-            p15 d5 = p15.d(tbGroupChatLinkCardLayoutBinding.f);
+            b35 d5 = b35.d(tbGroupChatLinkCardLayoutBinding.f);
             d5.A(R.string.F_X01);
             d5.z(R.dimen.T_X09);
             d5.v(R.color.CAM_X0109);
             WebPManager.setPureDrawable(tbGroupChatLinkCardLayoutBinding.c, R.drawable.icon_group_chat_bar_icon, R.color.CAM_X0109, null);
             WebPManager.setPureDrawable(tbGroupChatLinkCardLayoutBinding.e, R.drawable.icon_group_chat_icon, R.color.CAM_X0109, null);
             WebPManager.setPureDrawable(tbGroupChatLinkCardLayoutBinding.b, R.drawable.icon_pure_mount_card_link_right_del, R.color.CAM_X0108, null);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View v) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, v) == null) {
-            Intrinsics.checkNotNullParameter(v, "v");
-            if (v.getId() == R.id.close_button) {
-                b bVar = this.a;
-                if (bVar != null) {
-                    bVar.a(ClickType.CLICK_CLOSE);
-                    return;
-                }
-                return;
-            }
-            b bVar2 = this.a;
-            if (bVar2 != null) {
-                bVar2.a(ClickType.CLICK_MAIN);
-            }
         }
     }
 }

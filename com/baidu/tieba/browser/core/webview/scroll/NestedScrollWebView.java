@@ -27,17 +27,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class NestedScrollWebView extends BaseWebView implements NestedScrollingChild2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int[] g;
-    public final int[] h;
-    public int i;
-    public VelocityTracker j;
+    public final int[] i;
+    public final int[] j;
     public int k;
-    public int l;
-    public OverScroller m;
+    public VelocityTracker l;
+    public int m;
     public int n;
-    public NestedScrollingChildHelper o;
-    public a p;
-    public boolean q;
+    public OverScroller o;
+    public int p;
+    public NestedScrollingChildHelper q;
+    public a r;
+    public boolean s;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -66,34 +66,34 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
                 return;
             }
         }
-        this.g = new int[2];
-        this.h = new int[2];
-        this.q = false;
-        c();
+        this.i = new int[2];
+        this.j = new int[2];
+        this.s = false;
+        b();
     }
 
-    public final ViewParent g(View view2) {
+    public final ViewParent i(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, view2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, view2)) == null) {
             ViewParent parent = view2.getParent();
             if (parent == null) {
                 return null;
             }
             if (!(parent instanceof ViewPager) && !(parent instanceof AbsListView) && !(parent instanceof ScrollView) && !(parent instanceof HorizontalScrollView) && (parent instanceof View)) {
-                g((View) parent);
+                i((View) parent);
             }
             return parent;
         }
         return (ViewParent) invokeL.objValue;
     }
 
-    public void h(int i) {
+    public void j(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             startNestedScroll(2, 1);
-            this.m.fling(getScrollX(), getScrollY(), 0, i, 0, 0, Integer.MIN_VALUE, Integer.MAX_VALUE, 0, 0);
-            this.n = getScrollY();
+            this.o.fling(getScrollX(), getScrollY(), 0, i, 0, 0, Integer.MIN_VALUE, Integer.MAX_VALUE, 0, 0);
+            this.p = getScrollY();
             ViewCompat.postInvalidateOnAnimation(this);
         }
     }
@@ -117,10 +117,10 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
                 return;
             }
         }
-        this.g = new int[2];
-        this.h = new int[2];
-        this.q = false;
-        c();
+        this.i = new int[2];
+        this.j = new int[2];
+        this.s = false;
+        b();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -142,21 +142,21 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
                 return;
             }
         }
-        this.g = new int[2];
-        this.h = new int[2];
-        this.q = false;
-        c();
+        this.i = new int[2];
+        this.j = new int[2];
+        this.s = false;
+        b();
     }
 
-    private void c() {
+    private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.o = new NestedScrollingChildHelper(this);
+            this.q = new NestedScrollingChildHelper(this);
             setNestedScrollingEnabled(true);
-            this.m = new OverScroller(getContext());
+            this.o = new OverScroller(getContext());
             ViewConfiguration viewConfiguration = ViewConfiguration.get(getContext());
-            this.k = viewConfiguration.getScaledMinimumFlingVelocity();
-            this.l = viewConfiguration.getScaledMaximumFlingVelocity();
+            this.m = viewConfiguration.getScaledMinimumFlingVelocity();
+            this.n = viewConfiguration.getScaledMaximumFlingVelocity();
         }
     }
 
@@ -167,10 +167,10 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.computeScroll();
-            if (this.m.computeScrollOffset()) {
-                this.m.getCurrX();
-                int currY = this.m.getCurrY();
-                int i3 = currY - this.n;
+            if (this.o.computeScrollOffset()) {
+                this.o.getCurrX();
+                int currY = this.o.getCurrY();
+                int i3 = currY - this.p;
                 if (i3 != 0) {
                     int scrollY = getScrollY();
                     if (scrollY == 0) {
@@ -188,14 +188,14 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
                     }
                     dispatchNestedScroll(0, i, 0, i2, null, 1);
                 }
-                this.n = currY;
+                this.p = currY;
                 ViewCompat.postInvalidateOnAnimation(this);
                 return;
             }
             if (hasNestedScrollingParent(1)) {
                 stopNestedScroll(1);
             }
-            this.n = 0;
+            this.p = 0;
         }
     }
 
@@ -204,7 +204,7 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
-            return this.o.dispatchNestedFling(f, f2, z);
+            return this.q.dispatchNestedFling(f, f2, z);
         }
         return invokeCommon.booleanValue;
     }
@@ -214,7 +214,7 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            return this.o.dispatchNestedPreFling(f, f2);
+            return this.q.dispatchNestedPreFling(f, f2);
         }
         return invokeCommon.booleanValue;
     }
@@ -224,7 +224,7 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048598, this, i, i2)) == null) {
-            return this.o.startNestedScroll(i, i2);
+            return this.q.startNestedScroll(i, i2);
         }
         return invokeII.booleanValue;
     }
@@ -234,7 +234,7 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), iArr, iArr2})) == null) {
-            return this.o.dispatchNestedPreScroll(i, i2, iArr, iArr2);
+            return this.q.dispatchNestedPreScroll(i, i2, iArr, iArr2);
         }
         return invokeCommon.booleanValue;
     }
@@ -243,9 +243,9 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
     public void onOverScrolled(int i, int i2, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            ViewParent g = g(this);
-            if (g != null) {
-                g.requestDisallowInterceptTouchEvent(false);
+            ViewParent i3 = i(this);
+            if (i3 != null) {
+                i3.requestDisallowInterceptTouchEvent(false);
             }
             super.onOverScrolled(i, i2, z, z2);
         }
@@ -256,7 +256,7 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), iArr, iArr2, Integer.valueOf(i3)})) == null) {
-            return this.o.dispatchNestedPreScroll(i, i2, iArr, iArr2, i3);
+            return this.q.dispatchNestedPreScroll(i, i2, iArr, iArr2, i3);
         }
         return invokeCommon.booleanValue;
     }
@@ -266,7 +266,7 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr})) == null) {
-            return this.o.dispatchNestedScroll(i, i2, i3, i4, iArr);
+            return this.q.dispatchNestedScroll(i, i2, i3, i4, iArr);
         }
         return invokeCommon.booleanValue;
     }
@@ -276,7 +276,7 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, Integer.valueOf(i5)})) == null) {
-            return this.o.dispatchNestedScroll(i, i2, i3, i4, iArr, i5);
+            return this.q.dispatchNestedScroll(i, i2, i3, i4, iArr, i5);
         }
         return invokeCommon.booleanValue;
     }
@@ -285,42 +285,42 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
     public boolean hasNestedScrollingParent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.o.hasNestedScrollingParent();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.q.hasNestedScrollingParent();
         }
         return invokeV.booleanValue;
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.j == null) {
-            this.j = VelocityTracker.obtain();
-        }
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean isNestedScrollingEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.o.isNestedScrollingEnabled();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.q.isNestedScrollingEnabled();
         }
         return invokeV.booleanValue;
     }
 
-    public final void j() {
-        VelocityTracker velocityTracker;
+    public final void k() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (velocityTracker = this.j) != null) {
-            velocityTracker.recycle();
-            this.j = null;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.l == null) {
+            this.l = VelocityTracker.obtain();
         }
     }
 
-    public void k() {
+    public final void l() {
+        VelocityTracker velocityTracker;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (velocityTracker = this.l) != null) {
+            velocityTracker.recycle();
+            this.l = null;
+        }
+    }
+
+    public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.p = null;
+            this.r = null;
         }
     }
 
@@ -328,7 +328,7 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
     public void stopNestedScroll() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.o.stopNestedScroll();
+            this.q.stopNestedScroll();
         }
     }
 
@@ -336,8 +336,8 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
     public boolean hasNestedScrollingParent(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            return this.o.hasNestedScrollingParent(i);
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            return this.q.hasNestedScrollingParent(i);
         }
         return invokeI.booleanValue;
     }
@@ -345,7 +345,7 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
     public void setNeedDisAllowParentInterceptTouchEvent(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.q = z;
+            this.s = z;
         }
     }
 
@@ -353,14 +353,14 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
     public void setNestedScrollingEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.o.setNestedScrollingEnabled(z);
+            this.q.setNestedScrollingEnabled(z);
         }
     }
 
     public void setOnScrollChangeListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) {
-            this.p = aVar;
+            this.r = aVar;
         }
     }
 
@@ -369,7 +369,7 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
-            return this.o.startNestedScroll(i);
+            return this.q.startNestedScroll(i);
         }
         return invokeI.booleanValue;
     }
@@ -378,7 +378,7 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
     public void stopNestedScroll(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-            this.o.stopNestedScroll(i);
+            this.q.stopNestedScroll(i);
         }
     }
 
@@ -387,13 +387,13 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048592, this, i, i2, i3, i4) == null) {
             super.onScrollChanged(i, i2, i3, i4);
-            if (this.p != null) {
+            if (this.r != null) {
                 if (Math.abs((getContentHeight() * getScale()) - (getHeight() + getScrollY())) < 1.0f) {
-                    this.p.b(i, i2, i3, i4);
+                    this.r.b(i, i2, i3, i4);
                 } else if (getScrollY() == 0) {
-                    this.p.a(i, i2, i3, i4);
+                    this.r.a(i, i2, i3, i4);
                 } else {
-                    this.p.onScrollChanged(i, i2, i3, i4);
+                    this.r.onScrollChanged(i, i2, i3, i4);
                 }
             }
         }
@@ -411,7 +411,7 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, motionEvent)) == null) {
-            i();
+            k();
             MotionEvent obtain = MotionEvent.obtain(motionEvent);
             int action = motionEvent.getAction();
             boolean z = false;
@@ -419,11 +419,11 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
                 if (action != 1) {
                     if (action == 2) {
                         int rawY = (int) motionEvent.getRawY();
-                        int i2 = this.i - rawY;
-                        if (dispatchNestedPreScroll(0, i2, this.g, this.h)) {
-                            obtain.offsetLocation(0.0f, this.g[1]);
+                        int i2 = this.k - rawY;
+                        if (dispatchNestedPreScroll(0, i2, this.i, this.j)) {
+                            obtain.offsetLocation(0.0f, this.i[1]);
                         }
-                        this.i = rawY;
+                        this.k = rawY;
                         int scrollY = getScrollY();
                         if (scrollY == 0) {
                             i = i2;
@@ -436,35 +436,35 @@ public class NestedScrollWebView extends BaseWebView implements NestedScrollingC
                                 i = 0;
                             }
                         }
-                        this.j.addMovement(obtain);
+                        this.l.addMovement(obtain);
                         boolean onTouchEvent = super.onTouchEvent(obtain);
-                        dispatchNestedScroll(0, i2 - i, 0, i, this.h);
+                        dispatchNestedScroll(0, i2 - i, 0, i, this.j);
                         return onTouchEvent;
                     }
                 }
-                VelocityTracker velocityTracker = this.j;
-                velocityTracker.computeCurrentVelocity(1000, this.l);
+                VelocityTracker velocityTracker = this.l;
+                velocityTracker.computeCurrentVelocity(1000, this.n);
                 int yVelocity = (int) velocityTracker.getYVelocity();
-                if (Math.abs(yVelocity) > this.k) {
-                    h(-yVelocity);
+                if (Math.abs(yVelocity) > this.m) {
+                    j(-yVelocity);
                 }
                 stopNestedScroll();
-                j();
+                l();
             } else {
-                ViewParent g = g(this);
-                if (g != null) {
-                    g.requestDisallowInterceptTouchEvent(true);
+                ViewParent i4 = i(this);
+                if (i4 != null) {
+                    i4.requestDisallowInterceptTouchEvent(true);
                 }
-                this.i = (int) motionEvent.getRawY();
+                this.k = (int) motionEvent.getRawY();
                 startNestedScroll(2);
-                this.j.addMovement(obtain);
-                this.m.computeScrollOffset();
-                if (!this.m.isFinished()) {
-                    this.m.abortAnimation();
+                this.l.addMovement(obtain);
+                this.o.computeScrollOffset();
+                if (!this.o.isFinished()) {
+                    this.o.abortAnimation();
                 }
             }
             boolean onTouchEvent2 = super.onTouchEvent(obtain);
-            if (this.q) {
+            if (this.s) {
                 if (obtain.getAction() != 0) {
                     z = true;
                 }

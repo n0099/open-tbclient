@@ -1,334 +1,370 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.os.Build;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.content.FileProvider;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.game.guide.install.InstallActivity;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.manage.Download;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class oz3 {
+public class oz3 implements v64 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948049505, "Lcom/baidu/tieba/oz3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public static final /* synthetic */ int[] b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-530185788, "Lcom/baidu/tieba/oz3$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-530185788, "Lcom/baidu/tieba/oz3$a;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948049505, "Lcom/baidu/tieba/oz3;");
+            int[] iArr = new int[Download.DownloadState.values().length];
+            b = iArr;
+            try {
+                iArr[Download.DownloadState.WAITING.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                b[Download.DownloadState.DOWNLOADING.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                b[Download.DownloadState.PAUSE.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                b[Download.DownloadState.FAILED.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                b[Download.DownloadState.CANCEL.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                b[Download.DownloadState.FINISH.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            int[] iArr2 = new int[SwanAppDownloadAction.SwanAppDownloadType.values().length];
+            a = iArr2;
+            try {
+                iArr2[SwanAppDownloadAction.SwanAppDownloadType.TYPE_QUERY_STATUS.ordinal()] = 1;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD.ordinal()] = 2;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD.ordinal()] = 3;
+            } catch (NoSuchFieldError unused9) {
+            }
+            try {
+                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD.ordinal()] = 4;
+            } catch (NoSuchFieldError unused10) {
+            }
+            try {
+                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_STOP_SERVICE.ordinal()] = 5;
+            } catch (NoSuchFieldError unused11) {
+            }
+            try {
+                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD.ordinal()] = 6;
+            } catch (NoSuchFieldError unused12) {
+            }
+            try {
+                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP.ordinal()] = 7;
+            } catch (NoSuchFieldError unused13) {
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b extends t53 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public nx3 c;
+
+        @Override // com.baidu.tieba.r53
+        public long a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0L;
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // com.baidu.tieba.r53
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public b(nx3 nx3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nx3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = nx3Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.t53, com.baidu.tieba.r53
+        public void onEvent(@NonNull p53 p53Var) {
+            Bundle a;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p53Var) != null) || (a = p53Var.a()) == null) {
                 return;
             }
+            oz3.g(a, this.c);
         }
-        a = gp1.a;
     }
 
-    public static long a() {
-        InterceptResult invokeV;
+    public oz3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return kh3.a().getLong("install_authorize_guide_time_key", 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    public static long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return kh3.a().getLong("install_continue_guide_time_key", 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 26 && !AppRuntime.getAppContext().getPackageManager().canRequestPackageInstalls()) {
-                return "authorize";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return "continue";
         }
-        return (String) invokeV.objValue;
     }
 
-    public static int d() {
+    @Override // com.baidu.tieba.v64
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return kh3.a().getInt("install_guide_count_key", 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public static int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return kh3.a().getInt("install_guide_max_count_key", 3);
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return kh3.a().getBoolean("install_guide_switch_key", false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String packageName = getPackageName();
+            if (!TextUtils.isEmpty(f()) && !TextUtils.isEmpty(packageName)) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public static void n() {
+    public final String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            kh3.a().edit().putLong("install_authorize_guide_time_key", System.currentTimeMillis()).apply();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return lz3.o.H();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.v64
+    public String getPackageName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return lz3.o.I();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.v64
+    public void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            lz3.o.w();
         }
     }
 
-    public static void o() {
+    public static void g(@NonNull Bundle bundle, nx3 nx3Var) {
+        String string;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65551, null) == null) {
-            kh3.a().edit().putLong("install_continue_guide_time_key", System.currentTimeMillis()).apply();
-        }
-    }
-
-    public static void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, null) == null) {
-            kh3.a().edit().putInt("install_guide_count_key", kh3.a().getInt("install_guide_count_key", 0) + 1).apply();
-        }
-    }
-
-    public static boolean g(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
-            if (context == null) {
-                return false;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, bundle, nx3Var) == null) && (string = bundle.getString("functionType")) != null && nx3Var != null) {
+            String string2 = bundle.getString("resultData", "");
+            int hashCode = string.hashCode();
+            if (hashCode != -1013362275) {
+                if (hashCode == -530890460 && string.equals("onSuccess")) {
+                    c = 0;
+                }
+                c = 65535;
+            } else {
+                if (string.equals("onFail")) {
+                    c = 1;
+                }
+                c = 65535;
             }
-            try {
-                if (context.getPackageManager() == null) {
-                    return false;
-                }
-                if (context.getPackageManager().getPackageInfo(str, 0) == null) {
-                    return false;
-                }
-                return true;
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean h(Context context, File file, boolean z) {
-        InterceptResult invokeLLZ;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65544, null, context, file, z)) == null) {
-            if (context != null && file != null && file.isFile() && file.exists()) {
-                Intent intent = new Intent("android.intent.action.VIEW");
-                if (a) {
-                    Log.e("GameCenterApkUtil", "install apk start");
-                }
+            if (c == 0) {
                 try {
-                    intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
-                    intent.setFlags(1342177280);
-                    intent.putExtra("android.intent.extra.INSTALLER_PACKAGE_NAME", context.getPackageName());
-                    if (z) {
-                        intent.putExtra("android.intent.extra.RETURN_RESULT", true);
+                    JSONObject jSONObject = new JSONObject(string2);
+                    int optInt = jSONObject.optInt("progress", -1);
+                    if (optInt > -1 && optInt <= 100) {
+                        nx3Var.a(optInt);
                     }
-                    if (Build.VERSION.SDK_INT < 24) {
-                        intent.setComponent(new ComponentName("com.android.packageinstaller", "com.android.packageinstaller.PackageInstallerActivity"));
+                    if (jSONObject.optBoolean("installed")) {
+                        nx3Var.c(DownloadState.INSTALLED, optInt);
+                        return;
                     }
-                    m(context, file, intent);
-                    if ((context instanceof Activity) && vy3.o.D()) {
-                        intent.setAction("android.intent.action.INSTALL_PACKAGE");
-                        intent.setFlags(0);
-                        intent.putExtra("android.intent.extra.RETURN_RESULT", true);
-                        if (Build.VERSION.SDK_INT >= 24) {
-                            intent.addFlags(1);
-                        }
-                        if (context instanceof InstallActivity) {
-                            i = 1345431;
-                        } else {
-                            i = 0;
-                        }
-                        ((Activity) context).startActivityForResult(intent, i);
-                    } else {
-                        context.startActivity(intent);
+                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                    if (optJSONObject == null) {
+                        return;
                     }
-                    if (a) {
-                        Log.e("GameCenterApkUtil", "install apk done");
+                    switch (a.b[Download.DownloadState.getState(optJSONObject.optInt("status", -1)).ordinal()]) {
+                        case 1:
+                            nx3Var.c(DownloadState.WAIT, optInt);
+                            return;
+                        case 2:
+                            nx3Var.c(DownloadState.DOWNLOADING, optInt);
+                            return;
+                        case 3:
+                            nx3Var.c(DownloadState.DOWNLOAD_PAUSED, optInt);
+                            return;
+                        case 4:
+                            nx3Var.c(DownloadState.DOWNLOAD_FAILED, optInt);
+                            return;
+                        case 5:
+                            nx3Var.c(DownloadState.DELETED, optInt);
+                            return;
+                        case 6:
+                            nx3Var.c(DownloadState.DOWNLOADED, optInt);
+                            return;
+                        default:
+                            nx3Var.c(DownloadState.NOT_START, optInt);
+                            return;
                     }
                 } catch (Exception e) {
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                    intent.setComponent(null);
-                    m(context, file, intent);
-                    try {
-                        context.startActivity(intent);
-                        if (a) {
-                            Log.e("GameCenterApkUtil", "retry install apk done");
-                        }
-                    } catch (Exception e2) {
-                        if (a) {
-                            e2.printStackTrace();
-                        }
-                    }
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static boolean i(Context context, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65545, null, context, str, z)) == null) {
-            if (a) {
-                Log.e("GameCenterApkUtil", "call installApk filePath = " + str);
-            }
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                return h(context, new File(str), z);
-            } catch (Exception e) {
-                if (!a) {
-                    return false;
-                }
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static boolean j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (f() && l(str) && d() < e()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65552, null, z) == null) {
-            kh3.a().edit().putBoolean("install_guide_switch_key", z).apply();
-        }
-    }
-
-    public static boolean k(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, str)) == null) {
-            if (context != null && !TextUtils.isEmpty(str)) {
-                Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
-                intent.addCategory("android.intent.category.LAUNCHER");
-                intent.setPackage(str);
-                List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-                if (queryIntentActivities != null && queryIntentActivities.size() > 0 && queryIntentActivities.iterator().next() != null) {
-                    String str2 = queryIntentActivities.iterator().next().activityInfo.name;
-                    Intent intent2 = new Intent("android.intent.action.MAIN");
-                    intent2.addCategory("android.intent.category.LAUNCHER");
-                    intent2.setComponent(new ComponentName(str, str2));
-                    intent2.setFlags(270532608);
-                    try {
-                        context.startActivity(intent2);
-                        if (a) {
-                            Log.d("GameCenterApkUtil", "openApp:packageName = " + str);
-                            return true;
-                        }
-                        return true;
-                    } catch (Exception unused) {
-                    }
+                    e.printStackTrace();
                 }
             }
-            return false;
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean l(String str) {
-        InterceptResult invokeL;
-        long b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            if (TextUtils.equals(str, "authorize")) {
-                b = a();
-            } else {
-                b = b();
-            }
-            if ((System.currentTimeMillis() / 86400000) - (b / 86400000) > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean m(Context context, File file, Intent intent) {
+    @Override // com.baidu.tieba.v64
+    public boolean a(@NonNull Context context, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull nx3 nx3Var) {
         InterceptResult invokeLLL;
-        ActivityInfo activityInfo;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65549, null, context, file, intent)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                try {
-                    Uri uriForFile = FileProvider.getUriForFile(context, context.getPackageName() + ".fileprovider", file);
-                    if (uriForFile == null) {
-                        return false;
-                    }
-                    intent.setDataAndType(uriForFile, intent.getType());
-                    List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-                    if (queryIntentActivities == null) {
-                        return true;
-                    }
-                    for (ResolveInfo resolveInfo : queryIntentActivities) {
-                        if (resolveInfo != null && (activityInfo = resolveInfo.activityInfo) != null && (str = activityInfo.packageName) != null) {
-                            context.grantUriPermission(str, uriForFile, 1);
-                        }
-                    }
-                } catch (IllegalArgumentException e) {
-                    if (!a) {
-                        return false;
-                    }
-                    throw e;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, swanAppDownloadType, nx3Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("key_download_package_name", getPackageName());
+                jSONObject.put("key_download_url", f());
+                JSONObject jSONObject2 = new JSONObject();
+                if (lz3.o.z() == null) {
+                    str = "";
+                } else {
+                    str = lz3.o.z().configName;
                 }
+                jSONObject2.put(GameGuideConfigInfo.KEY_CONFIG_NAME, str);
+                jSONObject.put("download_params", jSONObject2.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return true;
+            String e2 = e(swanAppDownloadType);
+            Bundle bundle = new Bundle();
+            bundle.putString(AppDownloadNetworkStateReceiver.KEY_OPERATION, e2);
+            bundle.putString("ubc_params", new h04().a());
+            bundle.putString("data", jSONObject.toString());
+            h63 y = l93.K().y();
+            if (y != null) {
+                y.X(bundle, zz3.class, new b(nx3Var));
+                return false;
+            }
+            return false;
         }
         return invokeLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.v64
+    public boolean b(Context context, String str, String str2, String str3) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(qz3.b, str2);
+                jSONObject.put("key_download_url", str);
+                jSONObject.put(qz3.c, str3);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Bundle bundle = new Bundle();
+            bundle.putString(AppDownloadNetworkStateReceiver.KEY_OPERATION, "startDownloadFile");
+            bundle.putString("ubc_params", new h04().a());
+            bundle.putString("data", jSONObject.toString());
+            h63 y = l93.K().y();
+            if (y != null) {
+                y.W(bundle, zz3.class);
+                return false;
+            }
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final String e(SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, swanAppDownloadType)) == null) {
+            switch (a.a[swanAppDownloadType.ordinal()]) {
+                case 1:
+                    return "queryStatus";
+                case 2:
+                    return "startDownload";
+                case 3:
+                    return "pauseDownload";
+                case 4:
+                case 5:
+                    return "deleteDownload";
+                case 6:
+                    return "resumeDownload";
+                case 7:
+                    return "installApp";
+                default:
+                    return "";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

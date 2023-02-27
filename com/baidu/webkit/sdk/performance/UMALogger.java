@@ -1,11 +1,5 @@
 package com.baidu.webkit.sdk.performance;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebViewFactory;
 import java.util.Iterator;
@@ -14,98 +8,42 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public abstract class UMALogger {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UMALogger";
     public static UMALogger sDummyUMALogger;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public UMALogger() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     public static UMALogger getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (!WebViewFactory.hasProvider() || WebViewFactory.getProvider().getUMALogger() == null) {
-                if (sDummyUMALogger == null) {
-                    sDummyUMALogger = new UMALogger() { // from class: com.baidu.webkit.sdk.performance.UMALogger.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
+        if (!WebViewFactory.hasProvider() || WebViewFactory.getProvider().getUMALogger() == null) {
+            if (sDummyUMALogger == null) {
+                sDummyUMALogger = new UMALogger() { // from class: com.baidu.webkit.sdk.performance.UMALogger.1
+                    @Override // com.baidu.webkit.sdk.performance.UMALogger
+                    public void addCount1000HistogramSample(String str, int i) {
+                    }
 
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                }
-                            }
-                        }
+                    @Override // com.baidu.webkit.sdk.performance.UMALogger
+                    public void addCount100HistogramSample(String str, int i) {
+                    }
 
-                        @Override // com.baidu.webkit.sdk.performance.UMALogger
-                        public void addCount1000HistogramSample(String str, int i) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLI(1048576, this, str, i) == null) {
-                            }
-                        }
+                    @Override // com.baidu.webkit.sdk.performance.UMALogger
+                    public void addCount1MHistogramSample(String str, int i) {
+                    }
 
-                        @Override // com.baidu.webkit.sdk.performance.UMALogger
-                        public void addCount100HistogramSample(String str, int i) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
-                            }
-                        }
+                    @Override // com.baidu.webkit.sdk.performance.UMALogger
+                    public void addCustomCountHistogramSample(String str, int i, int i2, int i3, int i4) {
+                    }
 
-                        @Override // com.baidu.webkit.sdk.performance.UMALogger
-                        public void addCount1MHistogramSample(String str, int i) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-                            }
-                        }
+                    @Override // com.baidu.webkit.sdk.performance.UMALogger
+                    public void addSpareHistogramSample(String str, int i) {
+                    }
 
-                        @Override // com.baidu.webkit.sdk.performance.UMALogger
-                        public void addCustomCountHistogramSample(String str, int i, int i2, int i3, int i4) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-                            }
-                        }
-
-                        @Override // com.baidu.webkit.sdk.performance.UMALogger
-                        public void addSpareHistogramSample(String str, int i) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLI(1048580, this, str, i) == null) {
-                            }
-                        }
-
-                        @Override // com.baidu.webkit.sdk.performance.UMALogger
-                        public void addTimesHistogramSample(String str, long j) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLJ(1048581, this, str, j) == null) {
-                            }
-                        }
-                    };
-                }
-                Log.i(TAG, "UMALogger.getInstance(), dummy UMALogger used");
-                return sDummyUMALogger;
+                    @Override // com.baidu.webkit.sdk.performance.UMALogger
+                    public void addTimesHistogramSample(String str, long j) {
+                    }
+                };
             }
-            return WebViewFactory.getProvider().getUMALogger();
+            Log.i(TAG, "UMALogger.getInstance(), dummy UMALogger used");
+            return sDummyUMALogger;
         }
-        return (UMALogger) invokeV.objValue;
+        return WebViewFactory.getProvider().getUMALogger();
     }
 
     public abstract void addCount1000HistogramSample(String str, int i);
@@ -121,8 +59,7 @@ public abstract class UMALogger {
     public abstract void addTimesHistogramSample(String str, long j);
 
     public void record(JSONObject jSONObject, List<String> list, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, jSONObject, list, str) == null) || jSONObject == null) {
+        if (jSONObject == null) {
             return;
         }
         Log.i(TAG, "record");

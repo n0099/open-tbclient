@@ -8,15 +8,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c56;
-import com.baidu.tieba.mc6;
+import com.baidu.tieba.t66;
+import com.baidu.tieba.ye6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AlaFrsLiveListGatherNoDataTitleView extends mc6<c56> {
+public class AlaFrsLiveListGatherNoDataTitleView extends ye6<t66> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView i;
@@ -24,11 +24,11 @@ public class AlaFrsLiveListGatherNoDataTitleView extends mc6<c56> {
     public TbPageContext k;
     public int l;
 
-    @Override // com.baidu.tieba.mc6
+    @Override // com.baidu.tieba.ye6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00f2 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00f3 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -85,22 +85,22 @@ public class AlaFrsLiveListGatherNoDataTitleView extends mc6<c56> {
         this.l = 3;
         this.k = tbPageContext;
         View h = h();
-        this.i = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090bc2);
-        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090bc3);
+        this.i = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090c03);
+        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090c04);
         j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mc6
+    @Override // com.baidu.tieba.ye6
     /* renamed from: r */
-    public void i(c56 c56Var) {
+    public void i(t66 t66Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, c56Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, t66Var) == null) {
             j(this.k, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.baidu.tieba.mc6
+    @Override // com.baidu.tieba.ye6
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && this.l != i) {

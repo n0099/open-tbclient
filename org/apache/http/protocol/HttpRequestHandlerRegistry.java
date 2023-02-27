@@ -1,72 +1,32 @@
 package org.apache.http.protocol;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 @Deprecated
 /* loaded from: classes9.dex */
 public class HttpRequestHandlerRegistry implements HttpRequestHandlerResolver {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     public HttpRequestHandlerRegistry() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.protocol.HttpRequestHandlerResolver
     public HttpRequestHandler lookup(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (HttpRequestHandler) invokeL.objValue;
+        throw new RuntimeException("Stub!");
     }
 
     public void setHandlers(Map map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
-            throw new RuntimeException("Stub!");
-        }
+        throw new RuntimeException("Stub!");
     }
 
     public void unregister(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            throw new RuntimeException("Stub!");
-        }
+        throw new RuntimeException("Stub!");
     }
 
     @Deprecated
     public boolean matchUriRequestPattern(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeLL.booleanValue;
+        throw new RuntimeException("Stub!");
     }
 
     public void register(String str, HttpRequestHandler httpRequestHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, httpRequestHandler) == null) {
-            throw new RuntimeException("Stub!");
-        }
+        throw new RuntimeException("Stub!");
     }
 }

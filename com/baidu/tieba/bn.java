@@ -3,15 +3,12 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.adp.titan.TitanDownloadService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +26,6 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class bn {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -72,64 +68,50 @@ public class bn {
                             byte[] bArr = new byte[1024];
                             while (true) {
                                 int read = inputStream.read(bArr);
-                                if (read == -1) {
-                                    break;
+                                if (read != -1) {
+                                    byteArrayOutputStream.write(bArr, 0, read);
+                                } else {
+                                    JSONObject jSONObject = new JSONObject(byteArrayOutputStream.toString("UTF-8"));
+                                    DefaultLog.getInstance().c(TitanDownloadService.TAG, jSONObject.toString());
+                                    return jSONObject;
                                 }
-                                byteArrayOutputStream.write(bArr, 0, read);
                             }
-                            JSONObject jSONObject = new JSONObject(byteArrayOutputStream.toString("UTF-8"));
-                            if (bn.a) {
-                                Log.d(TitanDownloadService.TAG, jSONObject.toString());
-                            }
-                            return jSONObject;
                         } catch (Exception e) {
                             throw new IOException(e);
                         }
+                    } else {
+                        throw new IOException("parse response error: input stream is null");
                     }
-                    throw new IOException("parse response error: input stream is null");
+                } else {
+                    throw new IOException("parse response error: statuscode is " + i);
                 }
-                throw new IOException("parse response error: statuscode is " + i);
+            } else {
+                return (JSONObject) invokeILL.objValue;
             }
-            return (JSONObject) invokeILL.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448300769, "Lcom/baidu/tieba/bn;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448300769, "Lcom/baidu/tieba/bn;");
-                return;
-            }
-        }
-        a = ym.a;
-    }
-
-    public static String b(Context context) {
+    public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
             } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
+                r08 defaultLog = DefaultLog.getInstance();
+                defaultLog.b(TitanDownloadService.TAG, "getVersionName Exception:" + e);
                 return "0.8";
             }
         }
         return (String) invokeL.objValue;
     }
 
-    public static String c(Context context) {
+    public static String b(Context context) {
         InterceptResult invokeL;
         String sb;
         String replace;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             String property = System.getProperty("http.agent");
             if (TextUtils.isEmpty(property)) {
                 sb = "";
@@ -152,36 +134,34 @@ public class bn {
             } else {
                 replace = k.replace("_", "-");
             }
-            return sb + " baiduboxapp/" + b(context) + " (Baidu; P1 " + replace + SmallTailInfo.EMOTION_SUFFIX;
+            return sb + " baiduboxapp/" + a(context) + " (Baidu; P1 " + replace + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:69:0x0112 A[Catch: all -> 0x0125, TRY_LEAVE, TryCatch #3 {all -> 0x0125, blocks: (B:67:0x010d, B:69:0x0112), top: B:83:0x010d }] */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x0121  */
-    /* JADX WARN: Removed duplicated region for block: B:78:0x0131  */
-    /* JADX WARN: Removed duplicated region for block: B:96:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x0123 A[Catch: all -> 0x0136, TRY_LEAVE, TryCatch #3 {all -> 0x0136, blocks: (B:64:0x0109, B:66:0x0123), top: B:80:0x0109 }] */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x0132  */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x0141  */
+    /* JADX WARN: Removed duplicated region for block: B:93:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static <T> void d(Context context, String str, String str2, byte[] bArr, Map<String, String> map, b<T> bVar) {
+    public static <T> void c(Context context, String str, String str2, byte[] bArr, Map<String, String> map, b<T> bVar) {
         HttpURLConnection httpURLConnection;
         InputStream inputStream;
         OutputStream outputStream;
         HttpURLConnection httpURLConnection2;
-        InputStream inputStream2;
         OutputStream outputStream2;
-        HttpURLConnection httpURLConnection3;
         T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, bArr, map, bVar}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, str, str2, bArr, map, bVar}) == null) {
             OutputStream outputStream3 = null;
             try {
                 httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
                 try {
                     httpURLConnection.setConnectTimeout(30000);
                     httpURLConnection.setReadTimeout(30000);
-                    httpURLConnection.setRequestProperty("User-Agent", c(context));
+                    httpURLConnection.setRequestProperty("User-Agent", b(context));
                     httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
                     httpURLConnection.setRequestMethod(str2);
                     if (map != null) {
@@ -191,9 +171,7 @@ public class bn {
                     }
                     if (TextUtils.equals(str2, "POST")) {
                         if (bArr == null) {
-                            if (a) {
-                                Log.d(TitanDownloadService.TAG, "post requestSync body is null");
-                            }
+                            DefaultLog.getInstance().b(TitanDownloadService.TAG, "post requestSync body is null");
                             if (bVar != null) {
                                 bVar.b(-1, "post requestSync body is null", null);
                             }
@@ -213,28 +191,23 @@ public class bn {
                         try {
                             outputStream2.write(bArr);
                         } catch (Exception e) {
-                            inputStream2 = null;
-                            httpURLConnection3 = httpURLConnection;
+                            e = e;
+                            inputStream = null;
                             outputStream = outputStream2;
                             e = e;
-                            httpURLConnection2 = httpURLConnection3;
+                            httpURLConnection2 = httpURLConnection;
                             try {
-                                e.printStackTrace();
+                                DefaultLog.getInstance().b(TitanDownloadService.TAG, "post requestSync Exception:" + e);
                                 if (bVar != null) {
-                                    bVar.b(-1, e.getMessage(), null);
                                 }
                                 Closeables.closeSafely(outputStream);
-                                Closeables.closeSafely(inputStream2);
+                                Closeables.closeSafely(inputStream);
                                 if (httpURLConnection2 == null) {
-                                    httpURLConnection2.disconnect();
-                                    return;
                                 }
-                                return;
                             } catch (Throwable th) {
                                 th = th;
                                 outputStream3 = outputStream;
                                 httpURLConnection = httpURLConnection2;
-                                inputStream = inputStream2;
                                 Closeables.closeSafely(outputStream3);
                                 Closeables.closeSafely(inputStream);
                                 if (httpURLConnection != null) {
@@ -243,9 +216,10 @@ public class bn {
                                 throw th;
                             }
                         } catch (Throwable th2) {
-                            outputStream3 = outputStream2;
                             th = th2;
                             inputStream = null;
+                            outputStream3 = outputStream2;
+                            th = th;
                             Closeables.closeSafely(outputStream3);
                             Closeables.closeSafely(inputStream);
                             if (httpURLConnection != null) {
@@ -256,28 +230,32 @@ public class bn {
                         outputStream2 = null;
                     }
                     int responseCode = httpURLConnection.getResponseCode();
-                    Log.d(TitanDownloadService.TAG, "request code = " + responseCode + " msg = " + httpURLConnection.getResponseMessage());
+                    DefaultLog.getInstance().c(TitanDownloadService.TAG, "request code = " + responseCode + " msg = " + httpURLConnection.getResponseMessage());
                     if (responseCode == 200) {
                         inputStream = httpURLConnection.getInputStream();
                         if (bVar != null) {
                             try {
                                 t = bVar.a(responseCode, httpURLConnection.getResponseMessage(), inputStream);
                             } catch (Exception e2) {
-                                httpURLConnection3 = httpURLConnection;
-                                outputStream = outputStream2;
                                 e = e2;
-                                inputStream2 = inputStream;
-                                httpURLConnection2 = httpURLConnection3;
-                                e.printStackTrace();
+                                outputStream = outputStream2;
+                                e = e;
+                                httpURLConnection2 = httpURLConnection;
+                                DefaultLog.getInstance().b(TitanDownloadService.TAG, "post requestSync Exception:" + e);
                                 if (bVar != null) {
+                                    bVar.b(-1, e.getMessage(), null);
                                 }
                                 Closeables.closeSafely(outputStream);
-                                Closeables.closeSafely(inputStream2);
+                                Closeables.closeSafely(inputStream);
                                 if (httpURLConnection2 == null) {
+                                    httpURLConnection2.disconnect();
+                                    return;
                                 }
+                                return;
                             } catch (Throwable th3) {
-                                outputStream3 = outputStream2;
                                 th = th3;
+                                outputStream3 = outputStream2;
+                                th = th;
                                 Closeables.closeSafely(outputStream3);
                                 Closeables.closeSafely(inputStream);
                                 if (httpURLConnection != null) {
@@ -303,7 +281,7 @@ public class bn {
                     e = e3;
                     httpURLConnection2 = httpURLConnection;
                     outputStream = null;
-                    inputStream2 = null;
+                    inputStream = null;
                 } catch (Throwable th4) {
                     th = th4;
                     inputStream = null;
@@ -312,7 +290,7 @@ public class bn {
                 e = e4;
                 outputStream = null;
                 httpURLConnection2 = null;
-                inputStream2 = null;
+                inputStream = null;
             } catch (Throwable th5) {
                 th = th5;
                 httpURLConnection = null;

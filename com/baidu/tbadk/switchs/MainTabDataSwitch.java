@@ -3,9 +3,9 @@ package com.baidu.tbadk.switchs;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tieba.b55;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
-import com.baidu.tieba.g25;
-import com.baidu.tieba.p35;
+import com.baidu.tieba.s35;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -68,7 +68,7 @@ public class MainTabDataSwitch extends BaseNormalSwitch {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (type == 2 && g25.a().b) {
+            if (type == 2 && s35.a().b) {
                 return true;
             }
             return false;
@@ -104,7 +104,7 @@ public class MainTabDataSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             if (type > 2) {
-                type = p35.m().n("key_launch_up_main_tab_data", 1);
+                type = b55.m().n("key_launch_up_main_tab_data", 1);
             }
             if (UbsABTestHelper.isMainTabDataCache()) {
                 type = 2;

@@ -1,44 +1,16 @@
 package com.googlecode.mp4parser.util;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public abstract class Logger {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     public abstract void logDebug(String str);
 
     public abstract void logError(String str);
 
     public abstract void logWarn(String str);
 
-    public Logger() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static Logger getLogger(Class cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
-            if (System.getProperty("java.vm.name").equalsIgnoreCase("Dalvik")) {
-                return new AndroidLogger(cls.getSimpleName());
-            }
-            return new JuliLogger(cls.getSimpleName());
+        if (System.getProperty("java.vm.name").equalsIgnoreCase("Dalvik")) {
+            return new AndroidLogger(cls.getSimpleName());
         }
-        return (Logger) invokeL.objValue;
+        return new JuliLogger(cls.getSimpleName());
     }
 }

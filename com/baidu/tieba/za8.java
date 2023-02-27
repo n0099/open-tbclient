@@ -1,58 +1,55 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ClassForumInfo;
+import tbclient.GetVerticalForumList.DataRes;
+import tbclient.Page;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes7.dex */
-public abstract class za8<D extends IBaseDialogData> implements eb8<D> {
+public class za8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public ViewGroup b;
+    public List<xa8> a;
 
-    public za8(TbPageContext<?> tbPageContext) {
+    public za8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
-        this.b = (ViewGroup) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(c(), (ViewGroup) null, false);
-        a();
     }
 
-    public TbPageContext<?> d() {
-        InterceptResult invokeV;
+    public void a(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-        return (TbPageContext) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.eb8
-    public ViewGroup getViewGroup() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (dataRes.class_foruminfo != null) {
+            this.a = new ArrayList();
+            for (ClassForumInfo classForumInfo : dataRes.class_foruminfo) {
+                xa8 xa8Var = new xa8();
+                xa8Var.b = classForumInfo.class_id;
+                xa8Var.c = classForumInfo.class_name;
+                xa8Var.d = classForumInfo.class_icon;
+                ArrayList arrayList = new ArrayList();
+                for (RecommendForumInfo recommendForumInfo : classForumInfo.forum_info) {
+                    arrayList.add(new db8(recommendForumInfo, false));
+                }
+                xa8Var.a = arrayList;
+                this.a.add(xa8Var);
+            }
         }
-        return (ViewGroup) invokeV.objValue;
+        Page page = dataRes.page;
     }
 }

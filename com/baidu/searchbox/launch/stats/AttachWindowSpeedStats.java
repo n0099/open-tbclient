@@ -1,14 +1,6 @@
 package com.baidu.searchbox.launch.stats;
-
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class AttachWindowSpeedStats extends AbstractSpeedStats {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String CONCERN_TAB_DURATION = "ConcernTabFragment";
     public static final String CUSTOM_VIEW_PAPER_INIT = "CustomViewPagerInit";
     public static final String FIRST_FRAGMENT_ATTACH_DURATION = "fFlutterFragmentAttach";
@@ -31,79 +23,66 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
     public static final String PERSONALIZE_TAB_DURATION = "PersonalizeTabFragment";
     public static final String SCROLL_FRAGMENT_TAB_HOST_INIT = "homeFragmentTabHostInit";
     public static final String SECOND_FRAGMENT_ATTACH_DURATION = "sFragmentFragmentAttach";
-    public transient /* synthetic */ FieldHolder $fh;
-    public long mConcernTabFragmentEndTimeStamp;
-    public long mConcernTabFragmentStartTimeStamp;
-    public long mCustomViewPagerEndStamp;
-    public long mCustomViewPagerStartStamp;
-    public long mFirstFlutterFragmentAttachEndTimeStamp;
-    public long mFirstFlutterFragmentAttachStartTimeStamp;
-    public long mHomeFragmentCheckConcernRedTipEndStamp;
-    public long mHomeFragmentCheckConcernRedTipStartStamp;
-    public long mHomeFragmentInitModelEndStamp;
-    public long mHomeFragmentInitModelStartStamp;
-    public long mHomeFragmentInitTableEndStamp;
-    public long mHomeFragmentInitTableStartStamp;
-    public long mHomeFragmentInitViewPaperEndStamp;
-    public long mHomeFragmentInitViewPaperStartStamp;
-    public long mHomeFragmentOnActivityCreatedEndStamp;
-    public long mHomeFragmentOnActivityCreatedStartStamp;
-    public long mHomeFragmentOnCreateViewEndStamp;
-    public long mHomeFragmentOnCreateViewStartStamp;
-    public long mHomeFragmentOnResumeEndStamp;
-    public long mHomeFragmentOnResumeStartStamp;
-    public long mHomeFragmentShowConcernTabTipsEndStamp;
-    public long mHomeFragmentShowConcernTabTipsStartStamp;
-    public long mHomeFragmentStartFirstLoadPaperEndStamp;
-    public long mHomeFragmentStartFirstLoadStartStamp;
-    public long mHomeTabAttachWindowEndStamp;
-    public long mHomeTabBarViewInitEndStamp;
-    public long mHomeTabBarViewInitStartStamp;
-    public long mHomeTabOnAttachEndStamp;
-    public long mHomeTabOnAttachStartStamp;
-    public long mHomeTabOnCreateEndStamp;
-    public long mHomeTabOnCreateStartStamp;
-    public long mHotTopicTabFragmentEndTimeStamp;
-    public long mHotTopicTabFragmentStartTimeStamp;
-    public long mNestedScrollHeaderEndStamp;
-    public long mNestedScrollHeaderStartStamp;
-    public long mPersonalizeTabFragmentEndTimeStamp;
-    public long mPersonalizeTabFragmentStartTimeStamp;
-    public long mScrollFragmentTabHostInitEndStamp;
-    public long mScrollFragmentTabHostInitStartStamp;
-    public long mSecondFlutterFragmentAttachEndTimeStamp;
-    public long mSecondFlutterFragmentAttachStartTimeStamp;
-    public int mTBFlutterAttachCount;
+    public long mHomeTabOnAttachStartStamp = -1;
+    public long mHomeTabOnAttachEndStamp = -1;
+    public long mHomeTabOnCreateStartStamp = -1;
+    public long mHomeTabOnCreateEndStamp = -1;
+    public long mHomeFragmentOnCreateViewStartStamp = -1;
+    public long mScrollFragmentTabHostInitStartStamp = -1;
+    public long mScrollFragmentTabHostInitEndStamp = -1;
+    public long mHomeTabBarViewInitStartStamp = -1;
+    public long mHomeTabBarViewInitEndStamp = -1;
+    public long mCustomViewPagerStartStamp = -1;
+    public long mCustomViewPagerEndStamp = -1;
+    public long mNestedScrollHeaderStartStamp = -1;
+    public long mNestedScrollHeaderEndStamp = -1;
+    public long mHomeFragmentOnCreateViewEndStamp = -1;
+    public long mHomeFragmentOnActivityCreatedStartStamp = -1;
+    public long mHomeFragmentOnActivityCreatedEndStamp = -1;
+    public long mHomeFragmentInitModelStartStamp = -1;
+    public long mHomeFragmentInitModelEndStamp = -1;
+    public long mHomeFragmentInitTableStartStamp = -1;
+    public long mHomeFragmentInitTableEndStamp = -1;
+    public long mHomeFragmentInitViewPaperStartStamp = -1;
+    public long mHomeFragmentInitViewPaperEndStamp = -1;
+    public long mHomeFragmentStartFirstLoadStartStamp = -1;
+    public long mHomeFragmentStartFirstLoadPaperEndStamp = -1;
+    public long mHomeFragmentCheckConcernRedTipStartStamp = -1;
+    public long mHomeFragmentCheckConcernRedTipEndStamp = -1;
+    public long mHomeFragmentShowConcernTabTipsStartStamp = -1;
+    public long mHomeFragmentShowConcernTabTipsEndStamp = -1;
+    public long mHomeFragmentOnResumeStartStamp = -1;
+    public long mHomeFragmentOnResumeEndStamp = -1;
+    public long mHomeTabAttachWindowEndStamp = -1;
+    public int mTBFlutterAttachCount = 0;
+    public long mFirstFlutterFragmentAttachStartTimeStamp = -1;
+    public long mFirstFlutterFragmentAttachEndTimeStamp = -1;
+    public long mSecondFlutterFragmentAttachStartTimeStamp = -1;
+    public long mSecondFlutterFragmentAttachEndTimeStamp = -1;
+    public long mConcernTabFragmentStartTimeStamp = -1;
+    public long mConcernTabFragmentEndTimeStamp = -1;
+    public long mHotTopicTabFragmentStartTimeStamp = -1;
+    public long mHotTopicTabFragmentEndTimeStamp = -1;
+    public long mPersonalizeTabFragmentStartTimeStamp = -1;
+    public long mPersonalizeTabFragmentEndTimeStamp = -1;
 
-    public AttachWindowSpeedStats() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
+    public void reset() {
         this.mHomeTabOnAttachStartStamp = -1L;
         this.mHomeTabOnAttachEndStamp = -1L;
         this.mHomeTabOnCreateStartStamp = -1L;
         this.mHomeTabOnCreateEndStamp = -1L;
         this.mHomeFragmentOnCreateViewStartStamp = -1L;
+        this.mHomeFragmentOnCreateViewEndStamp = -1L;
         this.mScrollFragmentTabHostInitStartStamp = -1L;
         this.mScrollFragmentTabHostInitEndStamp = -1L;
         this.mHomeTabBarViewInitStartStamp = -1L;
         this.mHomeTabBarViewInitEndStamp = -1L;
         this.mCustomViewPagerStartStamp = -1L;
         this.mCustomViewPagerEndStamp = -1L;
+        this.mHomeFragmentOnResumeEndStamp = -1L;
         this.mNestedScrollHeaderStartStamp = -1L;
         this.mNestedScrollHeaderEndStamp = -1L;
-        this.mHomeFragmentOnCreateViewEndStamp = -1L;
-        this.mHomeFragmentOnActivityCreatedStartStamp = -1L;
-        this.mHomeFragmentOnActivityCreatedEndStamp = -1L;
         this.mHomeFragmentInitModelStartStamp = -1L;
         this.mHomeFragmentInitModelEndStamp = -1L;
         this.mHomeFragmentInitTableStartStamp = -1L;
@@ -116,14 +95,10 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
         this.mHomeFragmentCheckConcernRedTipEndStamp = -1L;
         this.mHomeFragmentShowConcernTabTipsStartStamp = -1L;
         this.mHomeFragmentShowConcernTabTipsEndStamp = -1L;
+        this.mHomeFragmentOnActivityCreatedStartStamp = -1L;
+        this.mHomeFragmentOnActivityCreatedEndStamp = -1L;
         this.mHomeFragmentOnResumeStartStamp = -1L;
         this.mHomeFragmentOnResumeEndStamp = -1L;
-        this.mHomeTabAttachWindowEndStamp = -1L;
-        this.mTBFlutterAttachCount = 0;
-        this.mFirstFlutterFragmentAttachStartTimeStamp = -1L;
-        this.mFirstFlutterFragmentAttachEndTimeStamp = -1L;
-        this.mSecondFlutterFragmentAttachStartTimeStamp = -1L;
-        this.mSecondFlutterFragmentAttachEndTimeStamp = -1L;
         this.mConcernTabFragmentStartTimeStamp = -1L;
         this.mConcernTabFragmentEndTimeStamp = -1L;
         this.mHotTopicTabFragmentStartTimeStamp = -1L;
@@ -134,159 +109,143 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public void addStatsTimeStamp(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            addStatsTimeStamp(i, System.currentTimeMillis());
-        }
+        addStatsTimeStamp(i, System.currentTimeMillis());
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public void addStatsTimeStamp(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            super.addStatsTimeStamp(i, j);
-            if (i != 5020) {
-                if (i != 5021) {
-                    if (i != 5026) {
-                        if (i != 5027) {
-                            if (i != 5046) {
-                                if (i != 5047) {
-                                    switch (i) {
-                                        case 4000:
-                                            this.mHomeTabOnAttachStartStamp = j;
-                                            return;
-                                        case 4001:
-                                            this.mHomeTabOnAttachEndStamp = j;
-                                            return;
-                                        case 4002:
-                                            this.mHomeTabOnCreateStartStamp = j;
-                                            return;
-                                        case 4003:
-                                            this.mHomeTabOnCreateEndStamp = j;
-                                            return;
-                                        case 4004:
-                                            this.mHomeFragmentOnCreateViewStartStamp = j;
-                                            return;
-                                        case 4005:
-                                            this.mHomeFragmentOnCreateViewEndStamp = j;
-                                            return;
-                                        case 4006:
-                                            this.mScrollFragmentTabHostInitStartStamp = j;
-                                            return;
-                                        case 4007:
-                                            this.mScrollFragmentTabHostInitEndStamp = j;
-                                            return;
-                                        case 4008:
-                                            this.mHomeTabBarViewInitStartStamp = j;
-                                            return;
-                                        case 4009:
-                                            this.mHomeTabBarViewInitEndStamp = j;
-                                            return;
-                                        case 4010:
-                                            this.mCustomViewPagerStartStamp = j;
-                                            return;
-                                        case 4011:
-                                            this.mCustomViewPagerEndStamp = j;
-                                            return;
-                                        case 4012:
-                                            this.mNestedScrollHeaderStartStamp = j;
-                                            return;
-                                        case 4013:
-                                            this.mNestedScrollHeaderEndStamp = j;
-                                            return;
-                                        case 4014:
-                                            this.mHomeFragmentOnActivityCreatedStartStamp = j;
-                                            return;
-                                        case 4015:
-                                            this.mHomeFragmentInitModelStartStamp = j;
-                                            return;
-                                        case 4016:
-                                            this.mHomeFragmentInitModelEndStamp = j;
-                                            return;
-                                        case 4017:
-                                            this.mHomeFragmentInitTableStartStamp = j;
-                                            return;
-                                        case SpeedStatsStampTable.HOME_FRAGMENT_INIT_TABLE_END_STAMP_KEY /* 4018 */:
-                                            this.mHomeFragmentInitTableEndStamp = j;
-                                            return;
-                                        case 4019:
-                                            this.mHomeFragmentInitViewPaperStartStamp = j;
-                                            return;
-                                        case SpeedStatsStampTable.HOME_FRAGMENT_INIT_VIEW_PAPER_END_STAMP_KEY /* 4020 */:
-                                            this.mHomeFragmentInitViewPaperEndStamp = j;
-                                            return;
-                                        case SpeedStatsStampTable.HOME_FRAGMENT_FIRST_LOAD_START_STAMP_KEY /* 4021 */:
-                                            this.mHomeFragmentStartFirstLoadStartStamp = j;
-                                            return;
-                                        case SpeedStatsStampTable.HOME_FRAGMENT_FIRST_LOAD_END_STAMP_KEY /* 4022 */:
-                                            this.mHomeFragmentStartFirstLoadPaperEndStamp = j;
-                                            return;
-                                        case SpeedStatsStampTable.HOME_FRAGMENT_CHECK_CONCERN_RED_TIP_START_STAMP_KEY /* 4023 */:
-                                            this.mHomeFragmentCheckConcernRedTipStartStamp = j;
-                                            return;
-                                        case SpeedStatsStampTable.HOME_FRAGMENT_CHECK_CONCERN_RED_TIP_END_STAMP_KEY /* 4024 */:
-                                            this.mHomeFragmentCheckConcernRedTipEndStamp = j;
-                                            return;
-                                        case SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_START_STAMP_KEY /* 4025 */:
-                                            this.mHomeFragmentShowConcernTabTipsStartStamp = j;
-                                            return;
-                                        case SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_END_STAMP_KEY /* 4026 */:
-                                            this.mHomeFragmentShowConcernTabTipsEndStamp = j;
-                                            return;
-                                        case SpeedStatsStampTable.HOME_FRAGMENT_ON_ACTIVITY_CREATED_END_STAMP_KEY /* 4027 */:
-                                            this.mHomeFragmentOnActivityCreatedEndStamp = j;
-                                            return;
-                                        case SpeedStatsStampTable.HOME_FRAGMENT_ONRESUME_START_STAMP_KEY /* 4028 */:
-                                            this.mHomeFragmentOnResumeStartStamp = j;
-                                            return;
-                                        case SpeedStatsStampTable.HOME_FRAGMENT_ONRESUME_END_STAMP_KEY /* 4029 */:
-                                            this.mHomeFragmentOnResumeEndStamp = j;
-                                            return;
-                                        default:
-                                            return;
-                                    }
+        super.addStatsTimeStamp(i, j);
+        if (i != 5020) {
+            if (i != 5021) {
+                if (i != 5026) {
+                    if (i != 5027) {
+                        if (i != 5046) {
+                            if (i != 5047) {
+                                switch (i) {
+                                    case 4000:
+                                        this.mHomeTabOnAttachStartStamp = j;
+                                        return;
+                                    case 4001:
+                                        this.mHomeTabOnAttachEndStamp = j;
+                                        return;
+                                    case 4002:
+                                        this.mHomeTabOnCreateStartStamp = j;
+                                        return;
+                                    case 4003:
+                                        this.mHomeTabOnCreateEndStamp = j;
+                                        return;
+                                    case 4004:
+                                        this.mHomeFragmentOnCreateViewStartStamp = j;
+                                        return;
+                                    case 4005:
+                                        this.mHomeFragmentOnCreateViewEndStamp = j;
+                                        return;
+                                    case 4006:
+                                        this.mScrollFragmentTabHostInitStartStamp = j;
+                                        return;
+                                    case 4007:
+                                        this.mScrollFragmentTabHostInitEndStamp = j;
+                                        return;
+                                    case 4008:
+                                        this.mHomeTabBarViewInitStartStamp = j;
+                                        return;
+                                    case 4009:
+                                        this.mHomeTabBarViewInitEndStamp = j;
+                                        return;
+                                    case 4010:
+                                        this.mCustomViewPagerStartStamp = j;
+                                        return;
+                                    case 4011:
+                                        this.mCustomViewPagerEndStamp = j;
+                                        return;
+                                    case 4012:
+                                        this.mNestedScrollHeaderStartStamp = j;
+                                        return;
+                                    case 4013:
+                                        this.mNestedScrollHeaderEndStamp = j;
+                                        return;
+                                    case 4014:
+                                        this.mHomeFragmentOnActivityCreatedStartStamp = j;
+                                        return;
+                                    case 4015:
+                                        this.mHomeFragmentInitModelStartStamp = j;
+                                        return;
+                                    case 4016:
+                                        this.mHomeFragmentInitModelEndStamp = j;
+                                        return;
+                                    case 4017:
+                                        this.mHomeFragmentInitTableStartStamp = j;
+                                        return;
+                                    case SpeedStatsStampTable.HOME_FRAGMENT_INIT_TABLE_END_STAMP_KEY /* 4018 */:
+                                        this.mHomeFragmentInitTableEndStamp = j;
+                                        return;
+                                    case 4019:
+                                        this.mHomeFragmentInitViewPaperStartStamp = j;
+                                        return;
+                                    case SpeedStatsStampTable.HOME_FRAGMENT_INIT_VIEW_PAPER_END_STAMP_KEY /* 4020 */:
+                                        this.mHomeFragmentInitViewPaperEndStamp = j;
+                                        return;
+                                    case SpeedStatsStampTable.HOME_FRAGMENT_FIRST_LOAD_START_STAMP_KEY /* 4021 */:
+                                        this.mHomeFragmentStartFirstLoadStartStamp = j;
+                                        return;
+                                    case SpeedStatsStampTable.HOME_FRAGMENT_FIRST_LOAD_END_STAMP_KEY /* 4022 */:
+                                        this.mHomeFragmentStartFirstLoadPaperEndStamp = j;
+                                        return;
+                                    case SpeedStatsStampTable.HOME_FRAGMENT_CHECK_CONCERN_RED_TIP_START_STAMP_KEY /* 4023 */:
+                                        this.mHomeFragmentCheckConcernRedTipStartStamp = j;
+                                        return;
+                                    case SpeedStatsStampTable.HOME_FRAGMENT_CHECK_CONCERN_RED_TIP_END_STAMP_KEY /* 4024 */:
+                                        this.mHomeFragmentCheckConcernRedTipEndStamp = j;
+                                        return;
+                                    case SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_START_STAMP_KEY /* 4025 */:
+                                        this.mHomeFragmentShowConcernTabTipsStartStamp = j;
+                                        return;
+                                    case SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_END_STAMP_KEY /* 4026 */:
+                                        this.mHomeFragmentShowConcernTabTipsEndStamp = j;
+                                        return;
+                                    case SpeedStatsStampTable.HOME_FRAGMENT_ON_ACTIVITY_CREATED_END_STAMP_KEY /* 4027 */:
+                                        this.mHomeFragmentOnActivityCreatedEndStamp = j;
+                                        return;
+                                    case SpeedStatsStampTable.HOME_FRAGMENT_ONRESUME_START_STAMP_KEY /* 4028 */:
+                                        this.mHomeFragmentOnResumeStartStamp = j;
+                                        return;
+                                    case SpeedStatsStampTable.HOME_FRAGMENT_ONRESUME_END_STAMP_KEY /* 4029 */:
+                                        this.mHomeFragmentOnResumeEndStamp = j;
+                                        return;
+                                    default:
+                                        return;
                                 }
-                                this.mPersonalizeTabFragmentEndTimeStamp = j;
-                                return;
                             }
-                            this.mPersonalizeTabFragmentStartTimeStamp = j;
+                            this.mPersonalizeTabFragmentEndTimeStamp = j;
                             return;
                         }
-                        this.mHotTopicTabFragmentEndTimeStamp = j;
+                        this.mPersonalizeTabFragmentStartTimeStamp = j;
                         return;
                     }
-                    this.mHotTopicTabFragmentStartTimeStamp = j;
+                    this.mHotTopicTabFragmentEndTimeStamp = j;
                     return;
                 }
-                this.mConcernTabFragmentEndTimeStamp = j;
+                this.mHotTopicTabFragmentStartTimeStamp = j;
                 return;
             }
-            this.mConcernTabFragmentStartTimeStamp = j;
+            this.mConcernTabFragmentEndTimeStamp = j;
+            return;
         }
+        this.mConcernTabFragmentStartTimeStamp = j;
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public long getStatsEndTimeStamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return Math.max(this.mHomeFragmentOnResumeEndStamp, this.mHomeFragmentOnActivityCreatedStartStamp);
-        }
-        return invokeV.longValue;
+        return Math.max(this.mHomeFragmentOnResumeEndStamp, this.mHomeFragmentOnActivityCreatedStartStamp);
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public long getStatsStartTimeStamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mHomeTabOnAttachStartStamp;
-        }
-        return invokeV.longValue;
+        return this.mHomeTabOnAttachStartStamp;
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:100:0x023f
+        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:98:0x023b
         	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
@@ -295,16 +254,13 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
     public boolean packData(org.json.JSONObject r51) {
         /*
             r50 = this;
-            com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.searchbox.launch.stats.AttachWindowSpeedStats.$ic
-            if (r0 != 0) goto L268
-        L4:
             r1 = r50
             r2 = r51
             super.packData(r51)
             r3 = 1
-            if (r2 != 0) goto Lf
+            if (r2 != 0) goto Lb
             return r3
-        Lf:
+        Lb:
             long r4 = r1.mHomeFragmentOnResumeEndStamp
             long r6 = r1.mHomeTabOnAttachStartStamp
             long r8 = r4 - r6
@@ -384,16 +340,16 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
             long r14 = r1.mHomeFragmentOnResumeEndStamp
             r46 = 0
             int r0 = (r12 > r14 ? 1 : (r12 == r14 ? 0 : -1))
-            if (r0 <= 0) goto Lb0
+            if (r0 <= 0) goto Lac
             long r2 = r2 + r4
             com.baidu.searchbox.launch.stats.SpeedStatsManager r0 = com.baidu.searchbox.launch.stats.SpeedStatsManager.getInstance()
             long r12 = r1.mHomeFragmentOnResumeEndStamp
             long r14 = r1.mHomeFragmentOnActivityCreatedStartStamp
             long r12 = r0.getDurationWithoutAD(r12, r14)
-            goto Lb2
-        Lb0:
+            goto Lae
+        Lac:
             r12 = r46
-        Lb2:
+        Lae:
             com.baidu.searchbox.launch.stats.SpeedStatsManager r0 = com.baidu.searchbox.launch.stats.SpeedStatsManager.getInstance()
             com.baidu.searchbox.launch.stats.SpeedStatsManager r14 = com.baidu.searchbox.launch.stats.SpeedStatsManager.getInstance()
             long r14 = r14.getMainTabActivityEndDuration()
@@ -405,88 +361,88 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
             long r14 = r0.getExtraSecondCreateDuration()
             long r4 = r4 - r14
             int r0 = (r8 > r46 ? 1 : (r8 == r46 ? 0 : -1))
-            if (r0 < 0) goto L266
+            if (r0 < 0) goto L262
             r14 = 60000(0xea60, double:2.9644E-319)
             int r0 = (r8 > r14 ? 1 : (r8 == r14 ? 0 : -1))
-            if (r0 > 0) goto L266
+            if (r0 > 0) goto L262
             int r0 = (r2 > r46 ? 1 : (r2 == r46 ? 0 : -1))
-            if (r0 < 0) goto L266
+            if (r0 < 0) goto L262
             int r0 = (r2 > r14 ? 1 : (r2 == r14 ? 0 : -1))
-            if (r0 > 0) goto L266
+            if (r0 > 0) goto L262
             int r0 = (r10 > r46 ? 1 : (r10 == r46 ? 0 : -1))
-            if (r0 < 0) goto L266
+            if (r0 < 0) goto L262
             int r0 = (r10 > r14 ? 1 : (r10 == r14 ? 0 : -1))
-            if (r0 > 0) goto L266
+            if (r0 > 0) goto L262
             int r0 = (r6 > r46 ? 1 : (r6 == r46 ? 0 : -1))
-            if (r0 < 0) goto L266
+            if (r0 < 0) goto L262
             int r0 = (r6 > r14 ? 1 : (r6 == r14 ? 0 : -1))
-            if (r0 > 0) goto L266
+            if (r0 > 0) goto L262
             int r0 = (r44 > r46 ? 1 : (r44 == r46 ? 0 : -1))
-            if (r0 < 0) goto L266
+            if (r0 < 0) goto L262
             int r0 = (r44 > r14 ? 1 : (r44 == r14 ? 0 : -1))
-            if (r0 > 0) goto L266
+            if (r0 > 0) goto L262
             int r0 = (r40 > r46 ? 1 : (r40 == r46 ? 0 : -1))
-            if (r0 < 0) goto L266
+            if (r0 < 0) goto L262
             int r0 = (r40 > r14 ? 1 : (r40 == r14 ? 0 : -1))
-            if (r0 > 0) goto L266
+            if (r0 > 0) goto L262
             int r0 = (r42 > r46 ? 1 : (r42 == r46 ? 0 : -1))
-            if (r0 < 0) goto L266
+            if (r0 < 0) goto L262
             int r0 = (r42 > r14 ? 1 : (r42 == r14 ? 0 : -1))
-            if (r0 > 0) goto L266
+            if (r0 > 0) goto L262
             int r0 = (r38 > r46 ? 1 : (r38 == r46 ? 0 : -1))
-            if (r0 < 0) goto L266
+            if (r0 < 0) goto L262
             int r0 = (r38 > r14 ? 1 : (r38 == r14 ? 0 : -1))
-            if (r0 > 0) goto L266
+            if (r0 > 0) goto L262
             int r0 = (r18 > r46 ? 1 : (r18 == r46 ? 0 : -1))
-            if (r0 < 0) goto L266
+            if (r0 < 0) goto L262
             int r0 = (r18 > r14 ? 1 : (r18 == r14 ? 0 : -1))
-            if (r0 > 0) goto L266
+            if (r0 > 0) goto L262
             int r0 = (r20 > r46 ? 1 : (r20 == r46 ? 0 : -1))
-            if (r0 < 0) goto L266
+            if (r0 < 0) goto L262
             int r0 = (r20 > r14 ? 1 : (r20 == r14 ? 0 : -1))
-            if (r0 > 0) goto L266
+            if (r0 > 0) goto L262
             int r0 = (r36 > r46 ? 1 : (r36 == r46 ? 0 : -1))
-            if (r0 < 0) goto L266
+            if (r0 < 0) goto L262
             int r0 = (r36 > r14 ? 1 : (r36 == r14 ? 0 : -1))
-            if (r0 > 0) goto L266
+            if (r0 > 0) goto L262
             int r0 = (r22 > r46 ? 1 : (r22 == r46 ? 0 : -1))
-            if (r0 < 0) goto L266
+            if (r0 < 0) goto L262
             int r0 = (r22 > r14 ? 1 : (r22 == r14 ? 0 : -1))
-            if (r0 > 0) goto L266
+            if (r0 > 0) goto L262
             int r0 = (r24 > r46 ? 1 : (r24 == r46 ? 0 : -1))
-            if (r0 < 0) goto L266
+            if (r0 < 0) goto L262
             int r0 = (r24 > r14 ? 1 : (r24 == r14 ? 0 : -1))
-            if (r0 > 0) goto L266
+            if (r0 > 0) goto L262
             int r0 = (r26 > r46 ? 1 : (r26 == r46 ? 0 : -1))
-            if (r0 < 0) goto L266
+            if (r0 < 0) goto L262
             int r0 = (r26 > r14 ? 1 : (r26 == r14 ? 0 : -1))
-            if (r0 > 0) goto L266
+            if (r0 > 0) goto L262
             int r0 = (r28 > r46 ? 1 : (r28 == r46 ? 0 : -1))
-            if (r0 < 0) goto L266
+            if (r0 < 0) goto L262
             int r0 = (r28 > r14 ? 1 : (r28 == r14 ? 0 : -1))
-            if (r0 > 0) goto L266
+            if (r0 > 0) goto L262
             int r0 = (r30 > r46 ? 1 : (r30 == r46 ? 0 : -1))
-            if (r0 < 0) goto L266
+            if (r0 < 0) goto L262
             int r0 = (r30 > r14 ? 1 : (r30 == r14 ? 0 : -1))
-            if (r0 > 0) goto L266
+            if (r0 > 0) goto L262
             int r0 = (r32 > r46 ? 1 : (r32 == r46 ? 0 : -1))
-            if (r0 < 0) goto L266
+            if (r0 < 0) goto L262
             int r0 = (r32 > r14 ? 1 : (r32 == r14 ? 0 : -1))
-            if (r0 > 0) goto L266
+            if (r0 > 0) goto L262
             int r0 = (r34 > r46 ? 1 : (r34 == r46 ? 0 : -1))
-            if (r0 < 0) goto L266
+            if (r0 < 0) goto L262
             int r0 = (r34 > r14 ? 1 : (r34 == r14 ? 0 : -1))
-            if (r0 > 0) goto L266
+            if (r0 > 0) goto L262
             int r0 = (r48 > r46 ? 1 : (r48 == r46 ? 0 : -1))
-            if (r0 < 0) goto L266
+            if (r0 < 0) goto L262
             int r0 = (r48 > r14 ? 1 : (r48 == r14 ? 0 : -1))
-            if (r0 > 0) goto L266
+            if (r0 > 0) goto L262
             int r0 = (r16 > r46 ? 1 : (r16 == r46 ? 0 : -1))
-            if (r0 < 0) goto L266
+            if (r0 < 0) goto L262
             int r0 = (r16 > r14 ? 1 : (r16 == r14 ? 0 : -1))
-            if (r0 <= 0) goto L175
-            goto L266
-        L175:
+            if (r0 <= 0) goto L171
+            goto L262
+        L171:
             java.util.HashMap r14 = new java.util.HashMap
             r14.<init>()
             java.lang.String r0 = java.lang.String.valueOf(r8)
@@ -551,93 +507,42 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
             r14.put(r6, r0)
             r0 = 0
             org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r4, r0)
-            if (r0 == 0) goto L24c
+            if (r0 == 0) goto L248
             java.lang.String r4 = "activity2attach"
             r5 = r51
-            r5.put(r4, r0)     // Catch: org.json.JSONException -> L23d
-            goto L24e
-        L23d:
+            r5.put(r4, r0)     // Catch: org.json.JSONException -> L239
+            goto L24a
+        L239:
             r0 = move-exception
-            goto L242
-        L23f:
+            goto L23e
+        L23b:
             r0 = move-exception
             r5 = r51
-        L242:
+        L23e:
             boolean r4 = com.baidu.searchbox.config.AppConfig.isDebug()
-            if (r4 == 0) goto L24e
+            if (r4 == 0) goto L24a
             r0.printStackTrace()
-            goto L24e
-        L24c:
+            goto L24a
+        L248:
             r5 = r51
-        L24e:
+        L24a:
             org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r2, r14)
-            if (r0 == 0) goto L264
+            if (r0 == 0) goto L260
             java.lang.String r2 = "attachWindow"
-            r5.put(r2, r0)     // Catch: org.json.JSONException -> L25a
-            goto L264
-        L25a:
+            r5.put(r2, r0)     // Catch: org.json.JSONException -> L256
+            goto L260
+        L256:
             r0 = move-exception
             boolean r2 = com.baidu.searchbox.config.AppConfig.isDebug()
-            if (r2 == 0) goto L264
+            if (r2 == 0) goto L260
             r0.printStackTrace()
-        L264:
+        L260:
             r2 = 1
             return r2
-        L266:
+        L262:
             r0 = 0
             return r0
-        L268:
-            r48 = r0
-            r49 = 1048580(0x100004, float:1.469374E-39)
-            com.baidu.titan.sdk.runtime.InterceptResult r0 = r48.invokeL(r49, r50, r51)
-            if (r0 == 0) goto L4
-            boolean r1 = r0.booleanValue
-            return r1
         */
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.searchbox.launch.stats.AttachWindowSpeedStats.packData(org.json.JSONObject):boolean");
-    }
-
-    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.mHomeTabOnAttachStartStamp = -1L;
-            this.mHomeTabOnAttachEndStamp = -1L;
-            this.mHomeTabOnCreateStartStamp = -1L;
-            this.mHomeTabOnCreateEndStamp = -1L;
-            this.mHomeFragmentOnCreateViewStartStamp = -1L;
-            this.mHomeFragmentOnCreateViewEndStamp = -1L;
-            this.mScrollFragmentTabHostInitStartStamp = -1L;
-            this.mScrollFragmentTabHostInitEndStamp = -1L;
-            this.mHomeTabBarViewInitStartStamp = -1L;
-            this.mHomeTabBarViewInitEndStamp = -1L;
-            this.mCustomViewPagerStartStamp = -1L;
-            this.mCustomViewPagerEndStamp = -1L;
-            this.mHomeFragmentOnResumeEndStamp = -1L;
-            this.mNestedScrollHeaderStartStamp = -1L;
-            this.mNestedScrollHeaderEndStamp = -1L;
-            this.mHomeFragmentInitModelStartStamp = -1L;
-            this.mHomeFragmentInitModelEndStamp = -1L;
-            this.mHomeFragmentInitTableStartStamp = -1L;
-            this.mHomeFragmentInitTableEndStamp = -1L;
-            this.mHomeFragmentInitViewPaperStartStamp = -1L;
-            this.mHomeFragmentInitViewPaperEndStamp = -1L;
-            this.mHomeFragmentStartFirstLoadStartStamp = -1L;
-            this.mHomeFragmentStartFirstLoadPaperEndStamp = -1L;
-            this.mHomeFragmentCheckConcernRedTipStartStamp = -1L;
-            this.mHomeFragmentCheckConcernRedTipEndStamp = -1L;
-            this.mHomeFragmentShowConcernTabTipsStartStamp = -1L;
-            this.mHomeFragmentShowConcernTabTipsEndStamp = -1L;
-            this.mHomeFragmentOnActivityCreatedStartStamp = -1L;
-            this.mHomeFragmentOnActivityCreatedEndStamp = -1L;
-            this.mHomeFragmentOnResumeStartStamp = -1L;
-            this.mHomeFragmentOnResumeEndStamp = -1L;
-            this.mConcernTabFragmentStartTimeStamp = -1L;
-            this.mConcernTabFragmentEndTimeStamp = -1L;
-            this.mHotTopicTabFragmentStartTimeStamp = -1L;
-            this.mHotTopicTabFragmentEndTimeStamp = -1L;
-            this.mPersonalizeTabFragmentStartTimeStamp = -1L;
-            this.mPersonalizeTabFragmentEndTimeStamp = -1L;
-        }
     }
 }

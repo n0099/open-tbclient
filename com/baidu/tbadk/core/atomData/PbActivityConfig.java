@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.ez4;
-import com.baidu.tieba.uw8;
+import com.baidu.tieba.g09;
+import com.baidu.tieba.l05;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -183,7 +183,7 @@ public class PbActivityConfig extends IntentConfig {
         }
         this.key_video_source_value = "";
         this.mContext = context;
-        uw8.b("pb");
+        g09.b("pb");
     }
 
     private void addMoreIntentExtraParam() {
@@ -460,11 +460,11 @@ public class PbActivityConfig extends IntentConfig {
         }
     }
 
-    public void setRecomData(ez4 ez4Var) {
+    public void setRecomData(l05 l05Var) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048618, this, ez4Var) == null) && (intent = getIntent()) != null && ez4Var != null) {
-            ez4Var.c(intent);
+        if ((interceptable == null || interceptable.invokeL(1048618, this, l05Var) == null) && (intent = getIntent()) != null && l05Var != null) {
+            l05Var.c(intent);
         }
     }
 

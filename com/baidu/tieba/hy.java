@@ -1,34 +1,28 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.MutiImgSingleHorizontalLayout;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.view.ThreadLinkView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hy extends hx<sw4> {
+public class hy extends lx<zx4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MutiImgSingleHorizontalLayout f;
-    public int g;
-
-    @Override // com.baidu.tieba.hx
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-        }
-    }
+    public View f;
+    public ThreadLinkView g;
+    public TextView h;
+    public zx4 i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public hy(Context context) {
@@ -48,36 +42,16 @@ public class hy extends hx<sw4> {
                 return;
             }
         }
-        this.g = 3;
-        this.f = new MutiImgSingleHorizontalLayout(context);
-    }
-
-    @Override // com.baidu.tieba.hx
-    public void p(ld6<sw4> ld6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ld6Var) == null) {
-            this.f.setSubClickListener(ld6Var);
+        if (TbadkCoreApplication.getInst().getPersonalizeViewData().o != null && TbadkCoreApplication.getInst().getPersonalizeViewData().o.getParent() == null) {
+            this.f = TbadkCoreApplication.getInst().getPersonalizeViewData().o;
+        } else {
+            this.f = LayoutInflater.from(context).inflate(R.layout.card_link_layout, (ViewGroup) null, true);
         }
+        this.g = (ThreadLinkView) this.f.findViewById(R.id.link_thread_root);
+        this.h = (TextView) this.f.findViewById(R.id.link_seg_title);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zx
-    /* renamed from: s */
-    public void a(sw4 sw4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sw4Var) == null) {
-            this.f.a(sw4Var);
-        }
-    }
-
-    public void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f.setFromCDN(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.hx
+    @Override // com.baidu.tieba.lx
     public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,11 +61,32 @@ public class hy extends hx<sw4> {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ay
+    @Override // com.baidu.tieba.ey
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
-            this.g = i;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.g.b();
+            zx4 zx4Var = this.i;
+            if (zx4Var != null && zx4Var.getThreadData() != null) {
+                jf6.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.dy
+    /* renamed from: s */
+    public void a(zx4 zx4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, zx4Var) == null) {
+            if (zx4Var != null && zx4Var.getThreadData() != null) {
+                this.i = zx4Var;
+                ThreadData threadData = zx4Var.getThreadData();
+                jf6.j(threadData, this.h);
+                this.g.setData(threadData);
+                return;
+            }
+            k().setVisibility(8);
         }
     }
 }

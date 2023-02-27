@@ -4,29 +4,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
 /* loaded from: classes7.dex */
 public final class AudioCapabilitiesReceiver {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public AudioCapabilities audioCapabilities;
     public final Context context;
     public final Listener listener;
     public final BroadcastReceiver receiver;
-
-    /* renamed from: com.google.android.exoplayer2.audio.AudioCapabilitiesReceiver$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
 
     /* loaded from: classes7.dex */
     public interface Listener {
@@ -35,39 +20,15 @@ public final class AudioCapabilitiesReceiver {
 
     /* loaded from: classes7.dex */
     public final class HdmiAudioPlugBroadcastReceiver extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AudioCapabilitiesReceiver this$0;
-
-        public HdmiAudioPlugBroadcastReceiver(AudioCapabilitiesReceiver audioCapabilitiesReceiver) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {audioCapabilitiesReceiver};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = audioCapabilitiesReceiver;
-        }
-
-        public /* synthetic */ HdmiAudioPlugBroadcastReceiver(AudioCapabilitiesReceiver audioCapabilitiesReceiver, AnonymousClass1 anonymousClass1) {
-            this(audioCapabilitiesReceiver);
+        public HdmiAudioPlugBroadcastReceiver() {
         }
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && !isInitialStickyBroadcast()) {
+            if (!isInitialStickyBroadcast()) {
                 AudioCapabilities capabilities = AudioCapabilities.getCapabilities(intent);
-                if (!capabilities.equals(this.this$0.audioCapabilities)) {
-                    AudioCapabilitiesReceiver audioCapabilitiesReceiver = this.this$0;
+                if (!capabilities.equals(AudioCapabilitiesReceiver.this.audioCapabilities)) {
+                    AudioCapabilitiesReceiver audioCapabilitiesReceiver = AudioCapabilitiesReceiver.this;
                     audioCapabilitiesReceiver.audioCapabilities = capabilities;
                     audioCapabilitiesReceiver.listener.onAudioCapabilitiesChanged(capabilities);
                 }
@@ -76,47 +37,27 @@ public final class AudioCapabilitiesReceiver {
     }
 
     public AudioCapabilitiesReceiver(Context context, Listener listener) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, listener};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.context = (Context) Assertions.checkNotNull(context);
         this.listener = (Listener) Assertions.checkNotNull(listener);
-        this.receiver = Util.SDK_INT >= 21 ? new HdmiAudioPlugBroadcastReceiver(this, null) : null;
+        this.receiver = Util.SDK_INT >= 21 ? new HdmiAudioPlugBroadcastReceiver() : null;
     }
 
     public AudioCapabilities register() {
-        InterceptResult invokeV;
         Intent registerReceiver;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            BroadcastReceiver broadcastReceiver = this.receiver;
-            if (broadcastReceiver == null) {
-                registerReceiver = null;
-            } else {
-                registerReceiver = this.context.registerReceiver(broadcastReceiver, new IntentFilter("android.media.action.HDMI_AUDIO_PLUG"));
-            }
-            AudioCapabilities capabilities = AudioCapabilities.getCapabilities(registerReceiver);
-            this.audioCapabilities = capabilities;
-            return capabilities;
+        BroadcastReceiver broadcastReceiver = this.receiver;
+        if (broadcastReceiver == null) {
+            registerReceiver = null;
+        } else {
+            registerReceiver = this.context.registerReceiver(broadcastReceiver, new IntentFilter("android.media.action.HDMI_AUDIO_PLUG"));
         }
-        return (AudioCapabilities) invokeV.objValue;
+        AudioCapabilities capabilities = AudioCapabilities.getCapabilities(registerReceiver);
+        this.audioCapabilities = capabilities;
+        return capabilities;
     }
 
     public void unregister() {
-        BroadcastReceiver broadcastReceiver;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (broadcastReceiver = this.receiver) != null) {
+        BroadcastReceiver broadcastReceiver = this.receiver;
+        if (broadcastReceiver != null) {
             this.context.unregisterReceiver(broadcastReceiver);
         }
     }

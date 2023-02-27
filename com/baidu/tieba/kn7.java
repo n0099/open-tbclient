@@ -1,180 +1,153 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.CommonStatisticUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.fn7;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.model.AddMsgRecordModel;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
 import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class kn7 {
     public static /* synthetic */ Interceptable $ic;
-    public static kn7 c;
+    public static kn7 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashSet<String> a;
-    public StringBuilder b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947918933, "Lcom/baidu/tieba/kn7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes5.dex */
+    public static class a implements fn7.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.fn7.c
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return true;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947918933, "Lcom/baidu/tieba/kn7;");
-                return;
+            return invokeL.booleanValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        c = new kn7();
     }
 
     public kn7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new HashSet<>();
-        this.b = new StringBuilder();
     }
 
-    public static kn7 c() {
+    public static synchronized kn7 b() {
         InterceptResult invokeV;
+        kn7 kn7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (kn7.class) {
+                if (a == null) {
+                    a = new kn7();
+                }
+                kn7Var = a;
+            }
+            return kn7Var;
         }
         return (kn7) invokeV.objValue;
     }
 
-    public void b() {
+    public static void d(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, fn7.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            StringBuilder sb = this.b;
-            if (sb != null && sb.length() > 0) {
-                StringBuilder sb2 = this.b;
-                sb2.delete(0, sb2.length());
-            }
-            HashSet<String> hashSet = this.a;
-            if (hashSet != null) {
-                hashSet.clear();
-            }
+        if (interceptable == null || interceptable.invokeLLL(65538, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
+            fn7.d(groupMsgData, imMessageCenterPojo, bVar, new a(), false);
         }
     }
 
-    public void a(String str) {
+    public long[] a(GroupMsgData groupMsgData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null && str.length() > 0) {
-            StringBuilder sb = this.b;
-            sb.append(str);
-            sb.append(",");
-        }
-    }
-
-    public void d(ChatMessage chatMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessage) == null) && chatMessage.getUserInfo() != null && CommonStatisticKey.TbMemberOfficialStatic.TB_MEMBER_OFFICIAL_ID.equals(chatMessage.getUserInfo().getUserId()) && !StringUtils.isNull(chatMessage.getContent())) {
-            try {
-                JSONArray jSONArray = new JSONArray(chatMessage.getContent());
-                if (jSONArray.length() > 0) {
-                    JSONObject jSONObject = jSONArray.getJSONObject(0);
-                    String optString = jSONObject.optString("msg_src");
-                    String optString2 = jSONObject.optString("type");
-                    CommonStatisticUtils.staticTbMemberNotify(CommonStatisticKey.TbMemberOfficialStatic.MEMBER_OFFICIAL_NOTIFY_LIST_PAGE_MSG_SHOW, optString + "_" + optString2, jSONObject.optString("title"));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void e(ChatMessage chatMessage, Context context) {
-        UserData userInfo;
-        xk7 o;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, chatMessage, context) != null) || chatMessage == null || StringUtils.isNull(chatMessage.getContent()) || (userInfo = chatMessage.getUserInfo()) == null) {
-            return;
-        }
-        if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (o = eo7.o(chatMessage.getContent())) != null && !TextUtils.isEmpty(o.b) && this.a.add(o.b)) {
-            TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", o.a, "task_id", o.b);
-        }
-    }
-
-    public void f(ChatMessage chatMessage, Context context) {
-        UserData userInfo;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, chatMessage, context) == null) && chatMessage != null && !StringUtils.isNull(chatMessage.getContent()) && (userInfo = chatMessage.getUserInfo()) != null && userInfo.getUserType() == 4) {
-            StatisticItem statisticItem = new StatisticItem("c13989");
-            statisticItem.param("service_id", chatMessage.getStatisticsServiceId());
-            statisticItem.param("task_id", chatMessage.getStatTaskId());
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public void g() {
-        String str;
-        StringBuilder sb;
-        StringBuilder sb2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            String str2 = null;
-            if (this.a != null) {
-                StringBuilder sb3 = new StringBuilder();
-                Iterator<String> it = this.a.iterator();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, groupMsgData)) == null) {
+            if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
+                long j = 0;
+                long groupId = groupMsgData.getGroupInfo().getGroupId();
+                Iterator<ChatMessage> it = groupMsgData.getListMessage().iterator();
                 while (it.hasNext()) {
-                    String next = it.next();
-                    if (next != null && next.length() > 0) {
-                        sb3.append(next);
-                        sb3.append(",");
+                    ChatMessage next = it.next();
+                    if (next.getMsgId() > j) {
+                        j = next.getMsgId();
                     }
                 }
-                if (sb3.length() > 0) {
-                    sb3.deleteCharAt(sb3.length() - 1);
-                    if (sb3.length() > 0) {
-                        str = sb3.toString();
-                        sb = this.b;
-                        if (sb != null && sb.length() > 0) {
-                            this.b.deleteCharAt(sb2.length() - 1);
-                            str2 = this.b.toString();
-                        }
-                        new AddMsgRecordModel().reqViewAndClick(str, str2);
-                    }
+                return new long[]{groupId, j};
+            }
+            return null;
+        }
+        return (long[]) invokeL.objValue;
+    }
+
+    public long c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            TbadkSettings inst = TbadkSettings.getInst();
+            return inst.loadLong("tb_group_msg_" + j, -1L);
+        }
+        return invokeJ.longValue;
+    }
+
+    public void e(GroupMsgData groupMsgData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, groupMsgData) == null) && groupMsgData != null && groupMsgData.getGroupInfo() != null) {
+            Iterator<ChatMessage> it = groupMsgData.getListMessage().iterator();
+            while (it.hasNext()) {
+                ChatMessage next = it.next();
+                if (!TextUtils.isEmpty(next.getStat())) {
+                    TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "push_noti:" + next.getStat(), "taskId:" + next.getTaskId() + ";link:" + next.getLink() + ";uid:" + TbadkCoreApplication.getCurrentAccount());
                 }
+                if (!TextUtils.isEmpty(next.getLink()) && !TextUtils.isEmpty(next.getStat())) {
+                    TiebaStatic.pushMsg(next.getMsgId(), 1, next.getLink(), next.getStat());
+                }
+                CustomMessage customMessage = new CustomMessage(2012100);
+                customMessage.setData(new yz4(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat(), next.getServiceId()));
+                MessageManager.getInstance().sendMessage(customMessage);
             }
-            str = null;
-            sb = this.b;
-            if (sb != null) {
-                this.b.deleteCharAt(sb2.length() - 1);
-                str2 = this.b.toString();
+            if (groupMsgData.getListMessage().size() > 0) {
+                TiebaStatic.saveAndUploadMsg();
             }
-            new AddMsgRecordModel().reqViewAndClick(str, str2);
+        }
+    }
+
+    public void f(String str, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) && !TextUtils.isEmpty(str) && j > 0) {
+            TbadkSettings inst = TbadkSettings.getInst();
+            inst.saveLong("tb_group_msg_" + str, j);
         }
     }
 }

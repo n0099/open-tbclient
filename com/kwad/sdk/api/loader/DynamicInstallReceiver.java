@@ -7,7 +7,6 @@ import android.content.IntentFilter;
 import android.os.AsyncTask;
 import android.util.Log;
 import androidx.annotation.Keep;
-import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.File;
 import java.util.concurrent.atomic.AtomicBoolean;
 @Keep
@@ -34,7 +33,7 @@ public class DynamicInstallReceiver extends BroadcastReceiver {
             return;
         }
         String stringExtra = intent.getStringExtra("apkPath");
-        final String stringExtra2 = intent.getStringExtra(CommandMessage.SDK_VERSION);
+        final String stringExtra2 = intent.getStringExtra(com.heytap.mcssdk.constant.b.C);
         final File file = new File(stringExtra);
         if (file.exists()) {
             Log.i(TAG, "downloadFile is exists, apkPath :" + stringExtra + " sdkVersion:" + stringExtra2);

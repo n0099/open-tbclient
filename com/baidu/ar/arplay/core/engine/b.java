@@ -1,220 +1,138 @@
 package com.baidu.ar.arplay.core.engine;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.message.ARPMessage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class b {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public boolean fA;
-    public boolean fB;
-    public boolean fC;
-    public boolean fD;
-    public boolean fE;
     public ARPMessage.MessageHandler fv;
-    public boolean fw;
-    public boolean fx;
-    public boolean fy;
-    public boolean fz;
+    public boolean fw = false;
+    public boolean fx = false;
+    public boolean fy = false;
+    public boolean fz = false;
+    public boolean fA = false;
+    public boolean fB = false;
+    public boolean fC = false;
+    public boolean fD = false;
+    public boolean fE = false;
 
     public b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.fw = false;
-        this.fx = false;
-        this.fy = false;
-        this.fz = false;
-        this.fA = false;
-        this.fB = false;
-        this.fC = false;
-        this.fD = false;
-        this.fE = false;
         aV();
     }
 
     private void aV() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.fv = new ARPMessage.MessageHandler(this) { // from class: com.baidu.ar.arplay.core.engine.b.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ b fF;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.fF = this;
-                }
-
-                @Override // com.baidu.ar.arplay.core.message.ARPMessage.MessageHandler
-                public void handleMessage(int i, int i2, HashMap<String, Object> hashMap) {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIIL(1048576, this, i, i2, hashMap) == null) || hashMap == null) {
-                        return;
-                    }
+        this.fv = new ARPMessage.MessageHandler() { // from class: com.baidu.ar.arplay.core.engine.b.1
+            @Override // com.baidu.ar.arplay.core.message.ARPMessage.MessageHandler
+            public void handleMessage(int i, int i2, HashMap<String, Object> hashMap) {
+                if (hashMap != null) {
                     if (hashMap.get("disable_all") != null) {
                         if (1 == ((Integer) hashMap.get("disable_all")).intValue()) {
-                            this.fF.fw = true;
+                            b.this.fw = true;
                         } else {
-                            this.fF.fw = false;
+                            b.this.fw = false;
                         }
                     }
                     if (hashMap.get("disable_click") != null) {
                         if (1 == ((Integer) hashMap.get("disable_click")).intValue()) {
-                            this.fF.fx = true;
+                            b.this.fx = true;
                         } else {
-                            this.fF.fx = false;
+                            b.this.fx = false;
                         }
                     }
                     if (hashMap.get("disable_double_click") != null) {
                         if (1 == ((Integer) hashMap.get("disable_double_click")).intValue()) {
-                            this.fF.fy = true;
+                            b.this.fy = true;
                         } else {
-                            this.fF.fy = false;
+                            b.this.fy = false;
                         }
                     }
                     if (hashMap.get("disable_long_press") != null) {
                         if (1 == ((Integer) hashMap.get("disable_long_press")).intValue()) {
-                            this.fF.fz = true;
+                            b.this.fz = true;
                         } else {
-                            this.fF.fz = false;
+                            b.this.fz = false;
                         }
                     }
                     if (hashMap.get("disable_swipe") != null) {
                         if (1 == ((Integer) hashMap.get("disable_swipe")).intValue()) {
-                            this.fF.fA = true;
+                            b.this.fA = true;
                         } else {
-                            this.fF.fA = false;
+                            b.this.fA = false;
                         }
                     }
                     if (hashMap.get("disable_scroll") != null) {
                         if (1 == ((Integer) hashMap.get("disable_scroll")).intValue()) {
-                            this.fF.fB = true;
+                            b.this.fB = true;
                         } else {
-                            this.fF.fB = false;
+                            b.this.fB = false;
                         }
                     }
                     if (hashMap.get("disable_two_finger_scroll") != null) {
                         if (1 == ((Integer) hashMap.get("disable_two_finger_scroll")).intValue()) {
-                            this.fF.fC = true;
+                            b.this.fC = true;
                         } else {
-                            this.fF.fC = false;
+                            b.this.fC = false;
                         }
                     }
                     if (hashMap.get("disable_pinch") != null) {
                         if (1 == ((Integer) hashMap.get("disable_pinch")).intValue()) {
-                            this.fF.fD = true;
+                            b.this.fD = true;
                         } else {
-                            this.fF.fD = false;
+                            b.this.fD = false;
                         }
                     }
                     if (hashMap.get("disable_two_finger_rotate") != null) {
                         if (1 == ((Integer) hashMap.get("disable_two_finger_rotate")).intValue()) {
-                            this.fF.fE = true;
+                            b.this.fE = true;
                         } else {
-                            this.fF.fE = false;
+                            b.this.fE = false;
                         }
                     }
                 }
-            };
-        }
+            }
+        };
     }
 
     public boolean aW() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.fw || this.fx) ? false : true : invokeV.booleanValue;
+        return (this.fw || this.fx) ? false : true;
     }
 
     public boolean aX() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.fw || this.fy) ? false : true : invokeV.booleanValue;
+        return (this.fw || this.fy) ? false : true;
     }
 
     public boolean aY() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.fw || this.fz) ? false : true : invokeV.booleanValue;
+        return (this.fw || this.fz) ? false : true;
     }
 
     public boolean aZ() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.fw || this.fB) ? false : true : invokeV.booleanValue;
+        return (this.fw || this.fB) ? false : true;
     }
 
     public boolean ba() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (this.fw || this.fC) ? false : true : invokeV.booleanValue;
+        return (this.fw || this.fC) ? false : true;
     }
 
     public boolean bb() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (this.fw || this.fA) ? false : true : invokeV.booleanValue;
+        return (this.fw || this.fA) ? false : true;
     }
 
     public boolean bc() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (this.fw || this.fD) ? false : true : invokeV.booleanValue;
+        return (this.fw || this.fD) ? false : true;
     }
 
     public boolean bd() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (this.fw || this.fE) ? false : true : invokeV.booleanValue;
+        return (this.fw || this.fE) ? false : true;
     }
 
     public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            ARPMessage.getInstance().removeMessageHandeler(this.fv);
-        }
+        ARPMessage.getInstance().removeMessageHandeler(this.fv);
     }
 
     public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            ARPMessage.getInstance().registerMessageHandler(11, this.fv);
-        }
+        ARPMessage.getInstance().registerMessageHandler(11, this.fv);
     }
 
     public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.fv = null;
-        }
+        this.fv = null;
     }
 }

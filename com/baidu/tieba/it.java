@@ -1,12 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.framework.ui.dialog.TaskDialogData;
+import com.baidu.tieba.ht;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class it<T> extends ht<T> {
+/* loaded from: classes4.dex */
+public abstract class it<VM extends ht<? extends TaskDialogData>> implements jt<TaskDialogData, VM> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -21,22 +22,6 @@ public class it<T> extends ht<T> {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.ht
-    public void o(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-            super.o(t);
-        }
-    }
-
-    @Override // com.baidu.tieba.ht
-    public void p(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            super.p(t);
         }
     }
 }

@@ -1,8 +1,6 @@
 package com.baidu.searchbox.http.request;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.AbstractHttpManager;
 import com.baidu.searchbox.http.HttpRuntime;
 import com.baidu.searchbox.http.cookie.CookieManager;
@@ -10,11 +8,6 @@ import com.baidu.searchbox.http.interceptor.LogInterceptor;
 import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.Proxy;
 import java.util.List;
 import java.util.Map;
@@ -24,8 +17,6 @@ import okhttp3.HttpUrl;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public int connectionTimeout;
     public CookieManager cookieManager;
     public Dns dns;
@@ -53,20 +44,6 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public abstract HttpRequest build();
 
     public HttpRequestBuilder(AbstractHttpManager abstractHttpManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {abstractHttpManager};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.enableRetry = true;
         this.logTag = null;
         this.logLevel = null;
@@ -79,53 +56,149 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
         this.headersBuilder = new Headers.Builder();
     }
 
-    public T addUrlParams(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, map)) == null) {
-            if (map != null && map.size() > 0) {
-                HttpUrl.Builder newBuilder = this.httpUrl.newBuilder();
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    newBuilder.addQueryParameter(entry.getKey(), entry.getValue());
-                }
-                this.httpUrl = newBuilder.build();
+    public T addHeaders(Map<String, String> map) {
+        if (map != null && !map.isEmpty()) {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                this.headersBuilder.add(entry.getKey(), entry.getValue());
             }
-            return this;
         }
-        return (T) invokeL.objValue;
+        return this;
     }
 
-    public T setUrlParams(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, map)) == null) {
-            if (map != null && map.size() > 0) {
-                HttpUrl.Builder newBuilder = this.httpUrl.newBuilder();
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    newBuilder.setQueryParameter(entry.getKey(), entry.getValue());
-                }
-                this.httpUrl = newBuilder.build();
+    public T autoRetry(boolean z) {
+        this.enableRetry = z;
+        return this;
+    }
+
+    public T connectionTimeout(int i) {
+        this.connectionTimeout = i;
+        return this;
+    }
+
+    public T cookieManager(CookieManager cookieManager) {
+        this.cookieManager = cookieManager;
+        return this;
+    }
+
+    public T dns(Dns dns) {
+        this.dns = dns;
+        return this;
+    }
+
+    public T enableStat(boolean z) {
+        this.isReqNetStatEnable = z;
+        return this;
+    }
+
+    public T extraUserLog(JSONObject jSONObject) {
+        this.extraUserLog = jSONObject;
+        return this;
+    }
+
+    public T followRedirects(boolean z) {
+        this.followRedirects = z;
+        return this;
+    }
+
+    public T followSslRedirects(boolean z) {
+        this.followSslRedirects = z;
+        return this;
+    }
+
+    public T headers(Map<String, String> map) {
+        if (map != null && !map.isEmpty()) {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                this.headersBuilder.set(entry.getKey(), entry.getValue());
             }
-            return this;
         }
-        return (T) invokeL.objValue;
+        return this;
+    }
+
+    public T pingInterval(int i) {
+        this.pingInterval = i;
+        return this;
+    }
+
+    public T proxy(Proxy proxy) {
+        this.proxy = proxy;
+        return this;
+    }
+
+    public T readTimeout(int i) {
+        this.readTimeout = i;
+        return this;
+    }
+
+    public T removeHeader(String str) {
+        this.headersBuilder.removeAll(str);
+        return this;
+    }
+
+    public T removeHeaders(List<String> list) {
+        if (list != null && list.size() > 0) {
+            for (String str : list) {
+                this.headersBuilder.removeAll(str);
+            }
+        }
+        return this;
+    }
+
+    public T removeUrlParam(String str) {
+        HttpUrl.Builder newBuilder = this.httpUrl.newBuilder();
+        newBuilder.removeAllQueryParameters(str);
+        this.httpUrl = newBuilder.build();
+        return this;
+    }
+
+    public T removeUrlParams(List<String> list) {
+        if (list != null && list.size() > 0) {
+            HttpUrl.Builder newBuilder = this.httpUrl.newBuilder();
+            for (String str : list) {
+                newBuilder.removeAllQueryParameters(str);
+            }
+            this.httpUrl = newBuilder.build();
+        }
+        return this;
+    }
+
+    public T requestFrom(int i) {
+        this.requestFrom = i;
+        return this;
+    }
+
+    public T requestSubFrom(int i) {
+        this.requestSubFrom = i;
+        return this;
+    }
+
+    public T setRequestParamsHandler(IAsyncRequestParamsHandler iAsyncRequestParamsHandler) {
+        this.paramsHandler = iAsyncRequestParamsHandler;
+        return this;
+    }
+
+    public T tag(Object obj) {
+        this.tag = obj;
+        return this;
+    }
+
+    public T userAgent(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            this.headersBuilder.set("User-Agent", str);
+        }
+        return this;
+    }
+
+    public T wifiOnly(boolean z) {
+        this.isWifiOnly = z;
+        return this;
+    }
+
+    public T writeTimeout(int i) {
+        this.writeTimeout = i;
+        return this;
     }
 
     public HttpRequestBuilder(HttpRequest httpRequest, AbstractHttpManager abstractHttpManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {httpRequest, abstractHttpManager};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.enableRetry = true;
         this.logTag = null;
         this.logLevel = null;
@@ -168,364 +241,84 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     }
 
     public T addHeader(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            this.headersBuilder.add(str, str2);
-            return this;
-        }
-        return (T) invokeLL.objValue;
+        this.headersBuilder.add(str, str2);
+        return this;
     }
 
     public T addUrlParam(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            HttpUrl.Builder newBuilder = this.httpUrl.newBuilder();
-            newBuilder.addQueryParameter(str, str2);
-            this.httpUrl = newBuilder.build();
-            return this;
-        }
-        return (T) invokeLL.objValue;
+        HttpUrl.Builder newBuilder = this.httpUrl.newBuilder();
+        newBuilder.addQueryParameter(str, str2);
+        this.httpUrl = newBuilder.build();
+        return this;
     }
 
     public T log(String str, LogInterceptor.Level level) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, str, level)) == null) {
-            this.logTag = str;
-            this.logLevel = level;
-            return this;
-        }
-        return (T) invokeLL.objValue;
+        this.logTag = str;
+        this.logLevel = level;
+        return this;
     }
 
     public T setHeader(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048602, this, str, str2)) == null) {
-            this.headersBuilder.set(str, str2);
-            return this;
-        }
-        return (T) invokeLL.objValue;
+        this.headersBuilder.set(str, str2);
+        return this;
     }
 
     public T setUrlParam(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048604, this, str, str2)) == null) {
+        HttpUrl.Builder newBuilder = this.httpUrl.newBuilder();
+        newBuilder.setQueryParameter(str, str2);
+        this.httpUrl = newBuilder.build();
+        return this;
+    }
+
+    public T addUrlParams(Map<String, String> map) {
+        if (map != null && map.size() > 0) {
             HttpUrl.Builder newBuilder = this.httpUrl.newBuilder();
-            newBuilder.setQueryParameter(str, str2);
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                newBuilder.addQueryParameter(entry.getKey(), entry.getValue());
+            }
             this.httpUrl = newBuilder.build();
-            return this;
         }
-        return (T) invokeLL.objValue;
+        return this;
     }
 
-    public T addHeaders(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            if (map != null && !map.isEmpty()) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    this.headersBuilder.add(entry.getKey(), entry.getValue());
-                }
-            }
-            return this;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public T headers(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, map)) == null) {
-            if (map != null && !map.isEmpty()) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    this.headersBuilder.set(entry.getKey(), entry.getValue());
-                }
-            }
-            return this;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public T removeUrlParams(List<String> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, list)) == null) {
-            if (list != null && list.size() > 0) {
-                HttpUrl.Builder newBuilder = this.httpUrl.newBuilder();
-                for (String str : list) {
-                    newBuilder.removeAllQueryParameters(str);
-                }
-                this.httpUrl = newBuilder.build();
-            }
-            return this;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public T autoRetry(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            this.enableRetry = z;
-            return this;
-        }
-        return (T) invokeZ.objValue;
-    }
-
-    public T connectionTimeout(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            this.connectionTimeout = i;
-            return this;
-        }
-        return (T) invokeI.objValue;
-    }
-
-    public T cookieManager(CookieManager cookieManager) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cookieManager)) == null) {
-            this.cookieManager = cookieManager;
-            return this;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public T dns(Dns dns) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dns)) == null) {
-            this.dns = dns;
-            return this;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public T enableStat(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-            this.isReqNetStatEnable = z;
-            return this;
-        }
-        return (T) invokeZ.objValue;
-    }
-
-    public T extraUserLog(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, jSONObject)) == null) {
-            this.extraUserLog = jSONObject;
-            return this;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public T followRedirects(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
-            this.followRedirects = z;
-            return this;
-        }
-        return (T) invokeZ.objValue;
-    }
-
-    public T followSslRedirects(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048589, this, z)) == null) {
-            this.followSslRedirects = z;
-            return this;
-        }
-        return (T) invokeZ.objValue;
-    }
-
-    public T pingInterval(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
-            this.pingInterval = i;
-            return this;
-        }
-        return (T) invokeI.objValue;
-    }
-
-    public T proxy(Proxy proxy) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, proxy)) == null) {
-            this.proxy = proxy;
-            return this;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public T readTimeout(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
-            this.readTimeout = i;
-            return this;
-        }
-        return (T) invokeI.objValue;
-    }
-
-    public T removeHeader(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
-            this.headersBuilder.removeAll(str);
-            return this;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public T removeHeaders(List<String> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, list)) == null) {
-            if (list != null && list.size() > 0) {
-                for (String str : list) {
-                    this.headersBuilder.removeAll(str);
-                }
-            }
-            return this;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public T removeUrlParam(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
+    public T setUrlParams(Map<String, String> map) {
+        if (map != null && map.size() > 0) {
             HttpUrl.Builder newBuilder = this.httpUrl.newBuilder();
-            newBuilder.removeAllQueryParameters(str);
-            this.httpUrl = newBuilder.build();
-            return this;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public T requestFrom(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
-            this.requestFrom = i;
-            return this;
-        }
-        return (T) invokeI.objValue;
-    }
-
-    public T requestSubFrom(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) {
-            this.requestSubFrom = i;
-            return this;
-        }
-        return (T) invokeI.objValue;
-    }
-
-    public T setRequestParamsHandler(IAsyncRequestParamsHandler iAsyncRequestParamsHandler) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, iAsyncRequestParamsHandler)) == null) {
-            this.paramsHandler = iAsyncRequestParamsHandler;
-            return this;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public T tag(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, obj)) == null) {
-            this.tag = obj;
-            return this;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public T userAgent(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                this.headersBuilder.set("User-Agent", str);
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                newBuilder.setQueryParameter(entry.getKey(), entry.getValue());
             }
-            return this;
+            this.httpUrl = newBuilder.build();
         }
-        return (T) invokeL.objValue;
-    }
-
-    public T wifiOnly(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048609, this, z)) == null) {
-            this.isWifiOnly = z;
-            return this;
-        }
-        return (T) invokeZ.objValue;
-    }
-
-    public T writeTimeout(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048610, this, i)) == null) {
-            this.writeTimeout = i;
-            return this;
-        }
-        return (T) invokeI.objValue;
+        return this;
     }
 
     public T enableBrotli() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            this.enableBrotli = true;
-            return this;
-        }
-        return (T) invokeV.objValue;
+        this.enableBrotli = true;
+        return this;
     }
 
     public RequestCall makeRequestCall() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return build().makeRequestCall();
-        }
-        return (RequestCall) invokeV.objValue;
+        return build().makeRequestCall();
     }
 
     public T url(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, str)) == null) {
-            if (str != null) {
-                if (str.regionMatches(true, 0, "ws:", 0, 3)) {
-                    str = UrlSchemaHelper.SCHEMA_TYPE_HTTP + str.substring(3);
-                } else if (str.regionMatches(true, 0, "wss:", 0, 4)) {
-                    str = UrlSchemaHelper.SCHEMA_TYPE_HTTPS + str.substring(4);
-                }
-                HttpUrl parse = HttpUrl.parse(str);
-                if (parse != null) {
-                    this.httpUrl = parse;
-                    return this;
-                }
-                NetworkStatRecord networkStatRecord = new NetworkStatRecord();
-                IllegalArgumentException illegalArgumentException = new IllegalArgumentException("unexpected url: " + str);
-                networkStatRecord.exception = illegalArgumentException;
-                HttpRuntime.getHttpContext().uploadIllegalUrlBy850(networkStatRecord.toUBCJson());
-                throw illegalArgumentException;
+        if (str != null) {
+            if (str.regionMatches(true, 0, "ws:", 0, 3)) {
+                str = UrlSchemaHelper.SCHEMA_TYPE_HTTP + str.substring(3);
+            } else if (str.regionMatches(true, 0, "wss:", 0, 4)) {
+                str = UrlSchemaHelper.SCHEMA_TYPE_HTTPS + str.substring(4);
             }
-            throw new NullPointerException("url == null");
+            HttpUrl parse = HttpUrl.parse(str);
+            if (parse != null) {
+                this.httpUrl = parse;
+                return this;
+            }
+            NetworkStatRecord networkStatRecord = new NetworkStatRecord();
+            IllegalArgumentException illegalArgumentException = new IllegalArgumentException("unexpected url: " + str);
+            networkStatRecord.exception = illegalArgumentException;
+            HttpRuntime.getHttpContext().uploadIllegalUrlBy850(networkStatRecord.toUBCJson());
+            throw illegalArgumentException;
         }
-        return (T) invokeL.objValue;
+        throw new NullPointerException("url == null");
     }
 }

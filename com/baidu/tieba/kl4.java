@@ -1,100 +1,140 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.open.SocialOperation;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class kl4 {
     public static /* synthetic */ Interceptable $ic;
+    public static kl4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final int c;
-    public final String d;
-    public final String e;
-    public final String f;
-    public final String g;
-    public final Set<String> h;
-    public final String i;
-    public final Long j;
-    public int k;
+    public a a;
+    public String b;
+    public String c;
 
-    public kl4(String str, int i, int i2, String str2, String str3, String str4, String str5, Set<String> set, String str6, Long l) {
+    /* loaded from: classes5.dex */
+    public static class a extends wp4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("updatecore_node_tipmsgs");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    public kl4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2, str3, str4, str5, set, str6, l};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.c = i2;
-        this.b = i;
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
-        this.g = str5;
-        this.h = set;
-        this.i = str6;
-        this.j = l;
+        this.a = new a();
+        this.b = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1352);
+        this.c = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1353);
     }
 
-    public static kl4 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
-        HashSet hashSet;
+    public static kl4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            try {
-                String optString = jSONObject.optString("version");
-                if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
-                    return null;
-                }
-                String optString2 = optJSONObject.optString("content_type");
-                int optInt = optJSONObject.optInt("official_no");
-                int optInt2 = optJSONObject.optInt("container_no");
-                String optString3 = optJSONObject.optString("host_name");
-                String optString4 = optJSONObject.optString("share_callback_url");
-                JSONArray optJSONArray = optJSONObject.optJSONArray(SocialOperation.GAME_SIGNATURE);
-                String optString5 = optJSONObject.optString("scheme_head");
-                String optString6 = optJSONObject.optString("failure_url");
-                HashSet hashSet2 = new HashSet();
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        String optString7 = optJSONArray.optString(i);
-                        if (!TextUtils.isEmpty(optString7)) {
-                            hashSet2.add(optString7);
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (kl4.class) {
+                    if (d == null) {
+                        d = new kl4();
                     }
                 }
-                if (hashSet2.size() > 0) {
-                    hashSet = hashSet2;
-                } else {
-                    hashSet = null;
-                }
-                kl4 kl4Var = new kl4(optString2, optInt, optInt2, optString3, optString4, optString6, optString, hashSet, optString5, null);
-                kl4Var.k = optJSONObject.optInt("use_openbundleid", -1);
-                return kl4Var;
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-                return null;
             }
+            return d;
         }
-        return (kl4) invokeL.objValue;
+        return (kl4) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.getString("tips_config_version", "0");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String a(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return this.a.getString(String.format("%04d", Long.valueOf(j)), this.b);
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public String c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            return this.a.getString(String.format("%04d", Long.valueOf(j)), this.c);
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public void e(JSONObject jSONObject) {
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONArray = jSONObject.optJSONArray("data")) == null) {
+            return;
+        }
+        HashMap<String, String> hashMap = new HashMap<>(optJSONArray.length());
+        for (int i = 0; i < optJSONArray.length(); i++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            hashMap.put(optJSONObject.optString("tipno"), optJSONObject.optString("tipmsg"));
+        }
+        f(hashMap, optString);
+    }
+
+    public void f(HashMap<String, String> hashMap, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, hashMap, str) == null) && hashMap != null && !hashMap.isEmpty() && !TextUtils.isEmpty(str)) {
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.clear();
+            edit.putString("tips_config_version", str);
+            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                edit.putString(entry.getKey(), entry.getValue());
+            }
+            edit.apply();
+        }
     }
 }

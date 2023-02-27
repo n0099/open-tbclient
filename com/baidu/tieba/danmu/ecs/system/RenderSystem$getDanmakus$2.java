@@ -1,7 +1,7 @@
 package com.baidu.tieba.danmu.ecs.system;
 
-import com.baidu.tieba.ph6;
-import com.baidu.tieba.sf6;
+import com.baidu.tieba.bk6;
+import com.baidu.tieba.ei6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,9 +13,9 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
-@Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n"}, d2 = {"<anonymous>", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "r", "Lcom/baidu/tieba/danmu/render/RenderObject;"}, k = 3, mv = {1, 5, 1}, xi = 48)
+@Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n¢\u0006\u0002\b\u0004"}, d2 = {"<anonymous>", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "r", "Lcom/baidu/tieba/danmu/render/RenderObject;", "invoke"}, k = 3, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes4.dex */
-public final class RenderSystem$getDanmakus$2 extends Lambda implements Function1<ph6, sf6> {
+public final class RenderSystem$getDanmakus$2 extends Lambda implements Function1<bk6, ei6> {
     public static /* synthetic */ Interceptable $ic;
     public static final RenderSystem$getDanmakus$2 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,13 +56,13 @@ public final class RenderSystem$getDanmakus$2 extends Lambda implements Function
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function1
-    public final sf6 invoke(ph6 r) {
+    public final ei6 invoke(bk6 r) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, r)) == null) {
             Intrinsics.checkNotNullParameter(r, "r");
             return r.d();
         }
-        return (sf6) invokeL.objValue;
+        return (ei6) invokeL.objValue;
     }
 }

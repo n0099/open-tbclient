@@ -79,7 +79,7 @@ public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, 
                     openRawAudioOutputFile(rTCAudioSamples.getSampleRate(), rTCAudioSamples.getChannelCount());
                     this.fileSizeInBytes = 0L;
                 }
-                this.executor.execute(new Runnable() { // from class: com.baidu.tieba.tk1
+                this.executor.execute(new Runnable() { // from class: com.baidu.tieba.el1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -103,23 +103,6 @@ public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, 
                 return true;
             }
             return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean start() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Log.d(TAG, "remote audio dumper start");
-            if (!isExternalStorageWritable()) {
-                Log.e(TAG, "Writing to external media is not possible");
-                return false;
-            }
-            synchronized (this.lock) {
-                this.isRunning = true;
-            }
-            return true;
         }
         return invokeV.booleanValue;
     }
@@ -166,6 +149,23 @@ public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, 
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rTCAudioSamples) == null) {
             dumpAudioSamples(rTCAudioSamples);
         }
+    }
+
+    public boolean start() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Log.d(TAG, "remote audio dumper start");
+            if (!isExternalStorageWritable()) {
+                Log.e(TAG, "Writing to external media is not possible");
+                return false;
+            }
+            synchronized (this.lock) {
+                this.isRunning = true;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public void stop() {

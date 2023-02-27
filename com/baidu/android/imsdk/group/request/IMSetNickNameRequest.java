@@ -94,7 +94,7 @@ public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
             this.this$0 = iMSetNickNameRequest;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:23:0x00d5  */
+        /* JADX WARN: Removed duplicated region for block: B:23:0x00d7  */
         /* JADX WARN: Removed duplicated region for block: B:29:? A[RETURN, SYNTHETIC] */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         /*

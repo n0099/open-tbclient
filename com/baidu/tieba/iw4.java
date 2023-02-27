@@ -1,65 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.data.PersonPrivateData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class iw4 {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, Integer> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947867907, "Lcom/baidu/tieba/iw4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947867907, "Lcom/baidu/tieba/iw4;");
-                return;
-            }
-        }
-        a = new HashMap<>();
-    }
-
-    public static int a(int i) {
-        InterceptResult invokeI;
+    public static Bitmap a(Bitmap bitmap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            String str = TbadkCoreApplication.getCurrentAccount() + "@" + i;
-            if (a.containsKey(str)) {
-                return a.get(str).intValue();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bitmap)) == null) {
+            if (bitmap == null) {
+                return Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
             }
-            a.put(str, 1);
-            return 1;
+            return bitmap;
         }
-        return invokeI.intValue;
-    }
-
-    public static void b(PersonPrivateData personPrivateData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, personPrivateData) != null) || personPrivateData == null) {
-            return;
-        }
-        String str = TbadkCoreApplication.getCurrentAccount() + "@2";
-        int G = personPrivateData.G();
-        if (!a.containsKey(str)) {
-            a.put(str, Integer.valueOf(G));
-        }
-    }
-
-    public static void c(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65539, null, i, i2) == null) {
-            a.put(TbadkCoreApplication.getCurrentAccount() + "@" + i, Integer.valueOf(i2));
-        }
+        return (Bitmap) invokeL.objValue;
     }
 }

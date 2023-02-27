@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class BdNetABTest extends AbsGroupUbsABTest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId ABTEST_GROUP_KEY;
-    public static final String BD_NET_SID_A = "12_23_net_a";
+    public static final String BD_NET_SID_A = "12_37_net_a";
     public transient /* synthetic */ FieldHolder $fh;
     public final ArrayList<String> mABTestList;
     public UsbAbTestSwitch mCurrentUsbAbTest;

@@ -1,34 +1,47 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.DetailInfo;
 /* loaded from: classes4.dex */
 public class e29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public e29(DetailInfo detailInfo) {
+    public static boolean a(Intent intent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {detailInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, intent)) == null) {
+            if (intent == null) {
+                return false;
             }
+            return intent.getBooleanExtra(SpeedStatsUtils.UBC_VALUE_SPLASH, false);
         }
-        if (detailInfo == null) {
-            return;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
+            if (intent == null) {
+                return false;
+            }
+            boolean booleanExtra = intent.getBooleanExtra(FrsActivityConfig.FROM_SHORT_CUT, false);
+            if (booleanExtra) {
+                String stringExtra = intent.getStringExtra("fname");
+                if (!StringUtils.isNull(stringExtra)) {
+                    TiebaStatic.log(new StatisticItem("c11897").param("fname", stringExtra));
+                }
+            }
+            return booleanExtra;
         }
-        String str = detailInfo.text;
-        String str2 = detailInfo.url;
+        return invokeL.booleanValue;
     }
 }

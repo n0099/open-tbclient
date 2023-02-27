@@ -1,63 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tieba.qn0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes6.dex */
-public class tx0 extends bx0 {
+public class tx0 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile sx0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948196445, "Lcom/baidu/tieba/tx0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948196445, "Lcom/baidu/tieba/tx0;");
-                return;
-            }
-        }
-        at0.f();
-    }
-
-    public tx0() {
+    public static synchronized sx0 a() {
+        InterceptResult invokeV;
+        sx0 sx0Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (tx0.class) {
+                if (a == null) {
+                    a = new sx0();
+                }
+                sx0Var = a;
             }
+            return sx0Var;
         }
-        this.a = at0.b();
-    }
-
-    @Override // com.baidu.tieba.bx0
-    public void a(String str, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && new is0().a()) {
-            qn0.a.a().a();
-            CyberPlayerManager.prefetch(str, nj0.e(), "", 0, i, (CyberPlayerManager.HttpDNS) null);
-        }
+        return (sx0) invokeV.objValue;
     }
 }

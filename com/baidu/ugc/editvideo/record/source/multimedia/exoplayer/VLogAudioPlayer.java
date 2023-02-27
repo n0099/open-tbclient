@@ -4,15 +4,8 @@ import android.media.MediaMetadataRetriever;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gx9;
-import com.baidu.tieba.kx9;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.d1a;
+import com.baidu.tieba.h1a;
 import com.baidu.ugc.editvideo.player.AudioPlayData;
 import com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSourceTimerManager;
 import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
@@ -23,7 +16,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 /* loaded from: classes7.dex */
 public class VLogAudioPlayer {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_ERROR = -1;
     public static final int STATE_IDLE = 0;
     public static final int STATE_INITIALIZED = 1;
@@ -33,13 +25,8 @@ public class VLogAudioPlayer {
     public static final int STATE_PREPARED = 3;
     public static final int STATE_PREPARING = 2;
     public static final String TAG = "VLogAudioPlayerTag";
-    public transient /* synthetic */ FieldHolder $fh;
     public List<AudioPlayData> handledAudioList;
     public boolean isMute;
-    public IMediaPlayer.OnCompletionListener mCompletionListener;
-    public volatile int mCurrentState;
-    public IMediaPlayer.OnErrorListener mErrorListener;
-    public IMediaPlayer.OnInfoListener mInfoListener;
     public volatile QMExoWrapperMediaPlayer mMediaPlayer;
     public volatile IMediaPlayer.OnCompletionListener mOnCompletionListener;
     public volatile IMediaPlayer.OnErrorListener mOnErrorListener;
@@ -47,13 +34,58 @@ public class VLogAudioPlayer {
     public volatile IMediaPlayer.OnPreparedListener mOnPreparedListener;
     public volatile OnProgressListener mOnProgressListener;
     public volatile IMediaPlayer.OnSeekCompleteListener mOnSeekCompleteListener;
-    public Handler mPlayerHandler;
-    public IMediaPlayer.OnPreparedListener mPreparedListener;
     public ProgressTimerTask mProgressTimerTask;
-    public IMediaPlayer.OnSeekCompleteListener mSeekCompleteListener;
     public volatile long mSeekWhenPrepared;
-    public volatile int mTargetState;
     public Timer mUpdateProgressTimer;
+    public volatile int mCurrentState = 0;
+    public volatile int mTargetState = 0;
+    public IMediaPlayer.OnInfoListener mInfoListener = new IMediaPlayer.OnInfoListener() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.11
+        @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnInfoListener
+        public boolean onInfo(IMediaPlayer iMediaPlayer, int i, int i2) {
+            VLogAudioPlayer.this.notifyInfo(iMediaPlayer, i, i2);
+            return false;
+        }
+    };
+    public IMediaPlayer.OnCompletionListener mCompletionListener = new IMediaPlayer.OnCompletionListener() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.12
+        @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnCompletionListener
+        public void onCompletion(IMediaPlayer iMediaPlayer) {
+            if (VLogAudioPlayer.this.mTargetState != 5) {
+                VLogAudioPlayer.this.mCurrentState = 6;
+                VLogAudioPlayer.this.mTargetState = 6;
+            }
+            VLogAudioPlayer.this.notifyCompletion(iMediaPlayer);
+        }
+    };
+    public IMediaPlayer.OnErrorListener mErrorListener = new IMediaPlayer.OnErrorListener() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.13
+        @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnErrorListener
+        public boolean onError(IMediaPlayer iMediaPlayer, int i, int i2) {
+            VLogAudioPlayer.this.mCurrentState = -1;
+            VLogAudioPlayer.this.mTargetState = -1;
+            VLogAudioPlayer.this.notifyError(iMediaPlayer, i, i2);
+            return false;
+        }
+    };
+    public IMediaPlayer.OnSeekCompleteListener mSeekCompleteListener = new IMediaPlayer.OnSeekCompleteListener() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.14
+        @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnSeekCompleteListener
+        public void onSeekComplete(IMediaPlayer iMediaPlayer) {
+            VLogAudioPlayer.this.notifySeekComplete(iMediaPlayer);
+        }
+    };
+    public IMediaPlayer.OnPreparedListener mPreparedListener = new IMediaPlayer.OnPreparedListener() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.15
+        @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnPreparedListener
+        public void onPrepared(IMediaPlayer iMediaPlayer) {
+            VLogAudioPlayer.this.mCurrentState = 3;
+            long j = VLogAudioPlayer.this.mSeekWhenPrepared;
+            if (j != 0) {
+                VLogAudioPlayer.this.seekTo(j);
+            }
+            VLogAudioPlayer.this.notifyPrepared(iMediaPlayer);
+            if (VLogAudioPlayer.this.mTargetState == 4) {
+                VLogAudioPlayer.this.start();
+            }
+        }
+    };
+    public Handler mPlayerHandler = new Handler(MultiMediaDataSourceTimerManager.getInstance().getPlayerLooper());
 
     /* loaded from: classes7.dex */
     public interface OnProgressListener {
@@ -62,581 +94,294 @@ public class VLogAudioPlayer {
 
     /* loaded from: classes7.dex */
     public class ProgressTimerTask extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ VLogAudioPlayer this$0;
-
-        public ProgressTimerTask(VLogAudioPlayer vLogAudioPlayer) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vLogAudioPlayer};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = vLogAudioPlayer;
+        public ProgressTimerTask() {
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             OnProgressListener onProgressListener;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long j = 0;
-                if (this.this$0.mCurrentState == -1 || this.this$0.mCurrentState == 0 || this.this$0.mCurrentState == 1 || this.this$0.mCurrentState == 2 || this.this$0.mCurrentState == 3) {
-                    if (this.this$0.mOnProgressListener == null) {
-                        return;
-                    }
-                } else if (this.this$0.mMediaPlayer != null) {
-                    gx9.e(VLogAudioPlayer.TAG, "是否静音：" + this.this$0.isMute);
-                    if (!this.this$0.isMute) {
-                        try {
-                            this.this$0.updateVolume(this.this$0.mMediaPlayer.getCurrentPosition());
-                        } catch (Exception unused) {
-                        }
-                    } else if (this.this$0.mMediaPlayer.getVolume() != 0.0f) {
-                        this.this$0.mMediaPlayer.setVolume(0.0f);
-                    }
-                    if (this.this$0.mOnProgressListener != null) {
-                        onProgressListener = this.this$0.mOnProgressListener;
-                        j = this.this$0.mMediaPlayer.getCurrentPosition();
-                        onProgressListener.getCurrentDuration(j);
-                    }
-                    return;
-                } else if (this.this$0.mOnProgressListener == null) {
+            long j = 0;
+            if (VLogAudioPlayer.this.mCurrentState == -1 || VLogAudioPlayer.this.mCurrentState == 0 || VLogAudioPlayer.this.mCurrentState == 1 || VLogAudioPlayer.this.mCurrentState == 2 || VLogAudioPlayer.this.mCurrentState == 3) {
+                if (VLogAudioPlayer.this.mOnProgressListener == null) {
                     return;
                 }
-                onProgressListener = this.this$0.mOnProgressListener;
-                onProgressListener.getCurrentDuration(j);
+            } else if (VLogAudioPlayer.this.mMediaPlayer != null) {
+                d1a.e(VLogAudioPlayer.TAG, "是否静音：" + VLogAudioPlayer.this.isMute);
+                if (!VLogAudioPlayer.this.isMute) {
+                    try {
+                        VLogAudioPlayer.this.updateVolume(VLogAudioPlayer.this.mMediaPlayer.getCurrentPosition());
+                    } catch (Exception unused) {
+                    }
+                } else if (VLogAudioPlayer.this.mMediaPlayer.getVolume() != 0.0f) {
+                    VLogAudioPlayer.this.mMediaPlayer.setVolume(0.0f);
+                }
+                if (VLogAudioPlayer.this.mOnProgressListener != null) {
+                    onProgressListener = VLogAudioPlayer.this.mOnProgressListener;
+                    j = VLogAudioPlayer.this.mMediaPlayer.getCurrentPosition();
+                    onProgressListener.getCurrentDuration(j);
+                }
+                return;
+            } else if (VLogAudioPlayer.this.mOnProgressListener == null) {
+                return;
             }
+            onProgressListener = VLogAudioPlayer.this.mOnProgressListener;
+            onProgressListener.getCurrentDuration(j);
         }
     }
 
     public VLogAudioPlayer() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mCurrentState = 0;
-        this.mTargetState = 0;
-        this.mInfoListener = new IMediaPlayer.OnInfoListener(this) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.11
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ VLogAudioPlayer this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnInfoListener
-            public boolean onInfo(IMediaPlayer iMediaPlayer, int i3, int i4) {
-                InterceptResult invokeLII;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, iMediaPlayer, i3, i4)) == null) {
-                    this.this$0.notifyInfo(iMediaPlayer, i3, i4);
-                    return false;
-                }
-                return invokeLII.booleanValue;
-            }
-        };
-        this.mCompletionListener = new IMediaPlayer.OnCompletionListener(this) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.12
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ VLogAudioPlayer this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnCompletionListener
-            public void onCompletion(IMediaPlayer iMediaPlayer) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, iMediaPlayer) == null) {
-                    if (this.this$0.mTargetState != 5) {
-                        this.this$0.mCurrentState = 6;
-                        this.this$0.mTargetState = 6;
-                    }
-                    this.this$0.notifyCompletion(iMediaPlayer);
-                }
-            }
-        };
-        this.mErrorListener = new IMediaPlayer.OnErrorListener(this) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.13
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ VLogAudioPlayer this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnErrorListener
-            public boolean onError(IMediaPlayer iMediaPlayer, int i3, int i4) {
-                InterceptResult invokeLII;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, iMediaPlayer, i3, i4)) == null) {
-                    this.this$0.mCurrentState = -1;
-                    this.this$0.mTargetState = -1;
-                    this.this$0.notifyError(iMediaPlayer, i3, i4);
-                    return false;
-                }
-                return invokeLII.booleanValue;
-            }
-        };
-        this.mSeekCompleteListener = new IMediaPlayer.OnSeekCompleteListener(this) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.14
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ VLogAudioPlayer this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnSeekCompleteListener
-            public void onSeekComplete(IMediaPlayer iMediaPlayer) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, iMediaPlayer) == null) {
-                    this.this$0.notifySeekComplete(iMediaPlayer);
-                }
-            }
-        };
-        this.mPreparedListener = new IMediaPlayer.OnPreparedListener(this) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.15
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ VLogAudioPlayer this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnPreparedListener
-            public void onPrepared(IMediaPlayer iMediaPlayer) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, iMediaPlayer) == null) {
-                    this.this$0.mCurrentState = 3;
-                    long j = this.this$0.mSeekWhenPrepared;
-                    if (j != 0) {
-                        this.this$0.seekTo(j);
-                    }
-                    this.this$0.notifyPrepared(iMediaPlayer);
-                    if (this.this$0.mTargetState == 4) {
-                        this.this$0.start();
-                    }
-                }
-            }
-        };
-        this.mPlayerHandler = new Handler(MultiMediaDataSourceTimerManager.getInstance().getPlayerLooper());
-        schedule(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ VLogAudioPlayer this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
+        schedule(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.1
             @Override // java.lang.Runnable
             public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.this$0.createAudioPlayer();
-                }
+                VLogAudioPlayer.this.createAudioPlayer();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void createAudioPlayer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65564, this) == null) {
-            if (this.mMediaPlayer != null) {
-                this.mMediaPlayer.release();
-            }
-            this.mMediaPlayer = new QMExoWrapperMediaPlayer();
+        if (this.mMediaPlayer != null) {
+            this.mMediaPlayer.release();
         }
+        this.mMediaPlayer = new QMExoWrapperMediaPlayer();
     }
 
     private boolean isInPlaybackState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) ? (this.mMediaPlayer == null || this.mCurrentState == -1 || this.mCurrentState == 0 || this.mCurrentState == 1 || this.mCurrentState == 2) ? false : true : invokeV.booleanValue;
+        return (this.mMediaPlayer == null || this.mCurrentState == -1 || this.mCurrentState == 0 || this.mCurrentState == 1 || this.mCurrentState == 2) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyCompletion(IMediaPlayer iMediaPlayer) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65566, this, iMediaPlayer) == null) || this.mOnCompletionListener == null) {
-            return;
+        if (this.mOnCompletionListener != null) {
+            this.mOnCompletionListener.onCompletion(iMediaPlayer);
         }
-        this.mOnCompletionListener.onCompletion(iMediaPlayer);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyError(IMediaPlayer iMediaPlayer, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65567, this, iMediaPlayer, i, i2) == null) || this.mOnErrorListener == null) {
-            return;
+        if (this.mOnErrorListener != null) {
+            this.mOnErrorListener.onError(iMediaPlayer, i, i2);
         }
-        this.mOnErrorListener.onError(iMediaPlayer, i, i2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyInfo(IMediaPlayer iMediaPlayer, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65568, this, iMediaPlayer, i, i2) == null) || this.mOnInfoListener == null) {
-            return;
+        if (this.mOnInfoListener != null) {
+            this.mOnInfoListener.onInfo(iMediaPlayer, i, i2);
         }
-        this.mOnInfoListener.onInfo(iMediaPlayer, i, i2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyPrepared(IMediaPlayer iMediaPlayer) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65569, this, iMediaPlayer) == null) || this.mOnPreparedListener == null) {
-            return;
+        if (this.mOnPreparedListener != null) {
+            this.mOnPreparedListener.onPrepared(iMediaPlayer);
         }
-        this.mOnPreparedListener.onPrepared(iMediaPlayer);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifySeekComplete(IMediaPlayer iMediaPlayer) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65570, this, iMediaPlayer) == null) || this.mOnSeekCompleteListener == null) {
-            return;
+        if (this.mOnSeekCompleteListener != null) {
+            this.mOnSeekCompleteListener.onSeekComplete(iMediaPlayer);
         }
-        this.mOnSeekCompleteListener.onSeekComplete(iMediaPlayer);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void pauseInternal() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65571, this) == null) {
-            QMExoWrapperMediaPlayer qMExoWrapperMediaPlayer = this.mMediaPlayer;
-            if (isInPlaybackState() && qMExoWrapperMediaPlayer != null) {
-                try {
-                    qMExoWrapperMediaPlayer.pause();
-                    this.mCurrentState = 5;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        QMExoWrapperMediaPlayer qMExoWrapperMediaPlayer = this.mMediaPlayer;
+        if (isInPlaybackState() && qMExoWrapperMediaPlayer != null) {
+            try {
+                qMExoWrapperMediaPlayer.pause();
+                this.mCurrentState = 5;
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            this.mTargetState = 5;
         }
+        this.mTargetState = 5;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void prepareAsyncInternal() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65572, this) == null) {
-            this.mMediaPlayer.prepareAsync();
-            this.mCurrentState = 2;
-        }
+        this.mMediaPlayer.prepareAsync();
+        this.mCurrentState = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void releaseInternal() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65573, this) == null) {
-            if (this.mMediaPlayer != null) {
-                this.mMediaPlayer.release();
-            }
-            this.mOnInfoListener = null;
-            this.mOnCompletionListener = null;
-            this.mOnErrorListener = null;
-            this.mOnPreparedListener = null;
-            this.mOnSeekCompleteListener = null;
-            this.mOnProgressListener = null;
+        if (this.mMediaPlayer != null) {
+            this.mMediaPlayer.release();
         }
+        this.mOnInfoListener = null;
+        this.mOnCompletionListener = null;
+        this.mOnErrorListener = null;
+        this.mOnPreparedListener = null;
+        this.mOnSeekCompleteListener = null;
+        this.mOnProgressListener = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void resetInternal() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65574, this) == null) {
-            if (this.mMediaPlayer != null) {
-                this.mMediaPlayer.reset();
-            }
-            this.mCurrentState = 0;
-            this.mTargetState = 0;
-            this.mSeekWhenPrepared = 0L;
+        if (this.mMediaPlayer != null) {
+            this.mMediaPlayer.reset();
         }
+        this.mCurrentState = 0;
+        this.mTargetState = 0;
+        this.mSeekWhenPrepared = 0L;
     }
 
     private void schedule(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65575, this, runnable) == null) {
-            if (Looper.myLooper() != MultiMediaDataSourceTimerManager.getInstance().getPlayerLooper()) {
-                this.mPlayerHandler.post(runnable);
-            } else {
-                runnable.run();
-            }
+        if (Looper.myLooper() != MultiMediaDataSourceTimerManager.getInstance().getPlayerLooper()) {
+            this.mPlayerHandler.post(runnable);
+        } else {
+            runnable.run();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void seekToInternal(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65576, this, j) == null) {
-            this.mSeekWhenPrepared = j;
-            try {
-                QMExoWrapperMediaPlayer qMExoWrapperMediaPlayer = this.mMediaPlayer;
-                if (!isInPlaybackState() || qMExoWrapperMediaPlayer == null) {
-                    this.mSeekWhenPrepared = j;
-                } else {
-                    qMExoWrapperMediaPlayer.seekTo(j);
-                    this.mSeekWhenPrepared = 0L;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+        this.mSeekWhenPrepared = j;
+        try {
+            QMExoWrapperMediaPlayer qMExoWrapperMediaPlayer = this.mMediaPlayer;
+            if (!isInPlaybackState() || qMExoWrapperMediaPlayer == null) {
+                this.mSeekWhenPrepared = j;
+            } else {
+                qMExoWrapperMediaPlayer.seekTo(j);
+                this.mSeekWhenPrepared = 0L;
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setDataSourceInternal(String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65577, this, str) == null) {
-            resetInternal();
-            this.mMediaPlayer.setDataSource(str);
+        resetInternal();
+        this.mMediaPlayer.setDataSource(str);
+        this.mMediaPlayer.setOnSeekCompleteListener(this.mSeekCompleteListener);
+        this.mMediaPlayer.setOnPreparedListener(this.mPreparedListener);
+        this.mMediaPlayer.setOnErrorListener(this.mErrorListener);
+        this.mMediaPlayer.setOnCompletionListener(this.mCompletionListener);
+        this.mMediaPlayer.setOnInfoListener(this.mInfoListener);
+        this.mCurrentState = 1;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void setDataSourceInternal(List<AudioPlayData> list) {
+        resetInternal();
+        try {
+            if (!structureRealData(list)) {
+                IMediaPlayer.OnErrorListener onErrorListener = this.mErrorListener;
+                if (onErrorListener != null) {
+                    onErrorListener.onError(null, -1, -1);
+                    return;
+                }
+                return;
+            }
+            AudioPlayData audioPlayData = list.get(0);
+            if (audioPlayData != null) {
+                this.mMediaPlayer.setVolume(audioPlayData.volume);
+            }
+            this.mMediaPlayer.setAudioDataSource(list);
             this.mMediaPlayer.setOnSeekCompleteListener(this.mSeekCompleteListener);
             this.mMediaPlayer.setOnPreparedListener(this.mPreparedListener);
             this.mMediaPlayer.setOnErrorListener(this.mErrorListener);
             this.mMediaPlayer.setOnCompletionListener(this.mCompletionListener);
             this.mMediaPlayer.setOnInfoListener(this.mInfoListener);
             this.mCurrentState = 1;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setDataSourceInternal(List<AudioPlayData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65578, this, list) == null) {
-            resetInternal();
-            try {
-                if (!structureRealData(list)) {
-                    IMediaPlayer.OnErrorListener onErrorListener = this.mErrorListener;
-                    if (onErrorListener != null) {
-                        onErrorListener.onError(null, -1, -1);
-                        return;
-                    }
-                    return;
-                }
-                AudioPlayData audioPlayData = list.get(0);
-                if (audioPlayData != null) {
-                    this.mMediaPlayer.setVolume(audioPlayData.volume);
-                }
-                this.mMediaPlayer.setAudioDataSource(list);
-                this.mMediaPlayer.setOnSeekCompleteListener(this.mSeekCompleteListener);
-                this.mMediaPlayer.setOnPreparedListener(this.mPreparedListener);
-                this.mMediaPlayer.setOnErrorListener(this.mErrorListener);
-                this.mMediaPlayer.setOnCompletionListener(this.mCompletionListener);
-                this.mMediaPlayer.setOnInfoListener(this.mInfoListener);
-                this.mCurrentState = 1;
-            } catch (Exception unused) {
-                IMediaPlayer.OnErrorListener onErrorListener2 = this.mErrorListener;
-                if (onErrorListener2 != null) {
-                    onErrorListener2.onError(null, -1, -1);
-                }
+        } catch (Exception unused) {
+            IMediaPlayer.OnErrorListener onErrorListener2 = this.mErrorListener;
+            if (onErrorListener2 != null) {
+                onErrorListener2.onError(null, -1, -1);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setVolumeInternal(float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(65579, this, f) == null) || this.mMediaPlayer == null) {
-            return;
+        if (this.mMediaPlayer != null) {
+            this.mMediaPlayer.setVolume(f);
         }
-        this.mMediaPlayer.setVolume(f);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startInternal() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65580, this) == null) {
-            if (isInPlaybackState()) {
-                try {
-                    QMExoWrapperMediaPlayer qMExoWrapperMediaPlayer = this.mMediaPlayer;
-                    if (!qMExoWrapperMediaPlayer.isPlaying()) {
-                        qMExoWrapperMediaPlayer.start();
-                    }
-                    this.mCurrentState = 4;
-                } catch (Exception e) {
-                    e.printStackTrace();
+        if (isInPlaybackState()) {
+            try {
+                QMExoWrapperMediaPlayer qMExoWrapperMediaPlayer = this.mMediaPlayer;
+                if (!qMExoWrapperMediaPlayer.isPlaying()) {
+                    qMExoWrapperMediaPlayer.start();
                 }
+                this.mCurrentState = 4;
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            this.mTargetState = 4;
         }
+        this.mTargetState = 4;
     }
 
     private boolean structureRealData(List<AudioPlayData> list) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65581, this, list)) == null) {
-            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-            AudioPlayData audioPlayData = null;
-            for (int i = 0; i < list.size(); i++) {
-                AudioPlayData audioPlayData2 = list.get(i);
-                if (!TextUtils.isEmpty(audioPlayData2.audioPath)) {
-                    mediaMetadataRetriever.setDataSource(audioPlayData2.audioPath);
-                    int b = kx9.b(mediaMetadataRetriever.extractMetadata(9), 0);
-                    audioPlayData2.realDuration = b;
-                    if (audioPlayData == null) {
-                        if (b <= 0) {
-                        }
-                        audioPlayData = audioPlayData2;
-                    } else {
-                        if (b <= audioPlayData.realDuration) {
-                        }
-                        audioPlayData = audioPlayData2;
+        MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+        AudioPlayData audioPlayData = null;
+        for (int i = 0; i < list.size(); i++) {
+            AudioPlayData audioPlayData2 = list.get(i);
+            if (!TextUtils.isEmpty(audioPlayData2.audioPath)) {
+                mediaMetadataRetriever.setDataSource(audioPlayData2.audioPath);
+                int b = h1a.b(mediaMetadataRetriever.extractMetadata(9), 0);
+                audioPlayData2.realDuration = b;
+                if (audioPlayData == null) {
+                    if (b <= 0) {
                     }
+                    audioPlayData = audioPlayData2;
+                } else {
+                    if (b <= audioPlayData.realDuration) {
+                    }
+                    audioPlayData = audioPlayData2;
                 }
             }
-            mediaMetadataRetriever.release();
-            if (audioPlayData == null) {
+        }
+        mediaMetadataRetriever.release();
+        if (audioPlayData == null) {
+            return false;
+        }
+        ArrayList arrayList = new ArrayList();
+        int i2 = 0;
+        for (int i3 = 0; i3 < list.size(); i3++) {
+            AudioPlayData audioPlayData3 = list.get(i3);
+            int i4 = audioPlayData3.end - audioPlayData3.start;
+            if (i4 < 0) {
                 return false;
             }
-            ArrayList arrayList = new ArrayList();
-            int i2 = 0;
-            for (int i3 = 0; i3 < list.size(); i3++) {
-                AudioPlayData audioPlayData3 = list.get(i3);
-                int i4 = audioPlayData3.end - audioPlayData3.start;
-                if (i4 < 0) {
-                    return false;
-                }
-                if (i4 != 0) {
-                    if (TextUtils.isEmpty(audioPlayData3.audioPath)) {
-                        int i5 = audioPlayData.realDuration;
-                        int i6 = i4 / i5;
-                        int i7 = i4 % i5;
-                        for (int i8 = 0; i8 < i6; i8++) {
-                            AudioPlayData audioPlayData4 = new AudioPlayData(audioPlayData.audioPath, 0, audioPlayData.end, 0.0f);
-                            audioPlayData4.realDuration = audioPlayData.realDuration;
-                            i2 += audioPlayData.end;
-                            audioPlayData4.relativeMaxDuration = i2;
-                            arrayList.add(audioPlayData4);
-                        }
-                        if (i7 > 0) {
-                            audioPlayData3 = new AudioPlayData(audioPlayData.audioPath, 0, i7, 0.0f);
-                            audioPlayData3.realDuration = audioPlayData.realDuration;
-                            i2 += i7;
-                        }
-                    } else {
-                        i2 = (i2 + audioPlayData3.end) - audioPlayData3.start;
+            if (i4 != 0) {
+                if (TextUtils.isEmpty(audioPlayData3.audioPath)) {
+                    int i5 = audioPlayData.realDuration;
+                    int i6 = i4 / i5;
+                    int i7 = i4 % i5;
+                    for (int i8 = 0; i8 < i6; i8++) {
+                        AudioPlayData audioPlayData4 = new AudioPlayData(audioPlayData.audioPath, 0, audioPlayData.end, 0.0f);
+                        audioPlayData4.realDuration = audioPlayData.realDuration;
+                        i2 += audioPlayData.end;
+                        audioPlayData4.relativeMaxDuration = i2;
+                        arrayList.add(audioPlayData4);
                     }
-                    audioPlayData3.relativeMaxDuration = i2;
-                    arrayList.add(audioPlayData3);
+                    if (i7 > 0) {
+                        audioPlayData3 = new AudioPlayData(audioPlayData.audioPath, 0, i7, 0.0f);
+                        audioPlayData3.realDuration = audioPlayData.realDuration;
+                        i2 += i7;
+                    }
+                } else {
+                    i2 = (i2 + audioPlayData3.end) - audioPlayData3.start;
                 }
+                audioPlayData3.relativeMaxDuration = i2;
+                arrayList.add(audioPlayData3);
             }
-            list.clear();
-            list.addAll(arrayList);
-            return true;
         }
-        return invokeL.booleanValue;
+        list.clear();
+        list.addAll(arrayList);
+        return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateVolume(long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65582, this, j) == null) || j <= 0 || this.handledAudioList == null) {
+        if (j <= 0 || this.handledAudioList == null) {
             return;
         }
         for (int i = 0; i < this.handledAudioList.size(); i++) {
@@ -654,521 +399,211 @@ public class VLogAudioPlayer {
     }
 
     public void cancelProgressTimer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Timer timer = this.mUpdateProgressTimer;
-            if (timer != null) {
-                timer.cancel();
-            }
-            ProgressTimerTask progressTimerTask = this.mProgressTimerTask;
-            if (progressTimerTask != null) {
-                progressTimerTask.cancel();
-            }
+        Timer timer = this.mUpdateProgressTimer;
+        if (timer != null) {
+            timer.cancel();
+        }
+        ProgressTimerTask progressTimerTask = this.mProgressTimerTask;
+        if (progressTimerTask != null) {
+            progressTimerTask.cancel();
         }
     }
 
     public long getCurrentPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            QMExoWrapperMediaPlayer qMExoWrapperMediaPlayer = this.mMediaPlayer;
-            if (!isInPlaybackState() || qMExoWrapperMediaPlayer == null) {
-                return -1L;
-            }
-            return qMExoWrapperMediaPlayer.getCurrentPosition();
+        QMExoWrapperMediaPlayer qMExoWrapperMediaPlayer = this.mMediaPlayer;
+        if (!isInPlaybackState() || qMExoWrapperMediaPlayer == null) {
+            return -1L;
         }
-        return invokeV.longValue;
+        return qMExoWrapperMediaPlayer.getCurrentPosition();
     }
 
     public long getDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            QMExoWrapperMediaPlayer qMExoWrapperMediaPlayer = this.mMediaPlayer;
-            if (!isInPlaybackState() || qMExoWrapperMediaPlayer == null) {
-                return -1L;
-            }
-            return qMExoWrapperMediaPlayer.getDuration();
+        QMExoWrapperMediaPlayer qMExoWrapperMediaPlayer = this.mMediaPlayer;
+        if (!isInPlaybackState() || qMExoWrapperMediaPlayer == null) {
+            return -1L;
         }
-        return invokeV.longValue;
+        return qMExoWrapperMediaPlayer.getDuration();
     }
 
     public IMediaPlayer.OnSeekCompleteListener getOnSeekCompleteListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mOnSeekCompleteListener : (IMediaPlayer.OnSeekCompleteListener) invokeV.objValue;
+        return this.mOnSeekCompleteListener;
     }
 
     public float getVolume() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.mMediaPlayer != null) {
-                return this.mMediaPlayer.getVolume();
-            }
-            return -1.0f;
+        if (this.mMediaPlayer != null) {
+            return this.mMediaPlayer.getVolume();
         }
-        return invokeV.floatValue;
+        return -1.0f;
     }
 
     public boolean isMute() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.isMute : invokeV.booleanValue;
+        return this.isMute;
     }
 
     public boolean isPlaying() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            QMExoWrapperMediaPlayer qMExoWrapperMediaPlayer = this.mMediaPlayer;
-            return isInPlaybackState() && qMExoWrapperMediaPlayer != null && qMExoWrapperMediaPlayer.isPlaying();
-        }
-        return invokeV.booleanValue;
+        QMExoWrapperMediaPlayer qMExoWrapperMediaPlayer = this.mMediaPlayer;
+        return isInPlaybackState() && qMExoWrapperMediaPlayer != null && qMExoWrapperMediaPlayer.isPlaying();
     }
 
     public void pause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            schedule(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ VLogAudioPlayer this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.pauseInternal();
-                    }
-                }
-            });
-            cancelProgressTimer();
-        }
+        schedule(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.6
+            @Override // java.lang.Runnable
+            public void run() {
+                VLogAudioPlayer.this.pauseInternal();
+            }
+        });
+        cancelProgressTimer();
     }
 
     public void prepareAsync() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (this.mMediaPlayer == null) {
-                this.mErrorListener.onError(null, -1, -1);
-            } else {
-                schedule(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.4
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ VLogAudioPlayer this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.this$0.prepareAsyncInternal();
-                        }
-                    }
-                });
-            }
+        if (this.mMediaPlayer == null) {
+            this.mErrorListener.onError(null, -1, -1);
+        } else {
+            schedule(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.4
+                @Override // java.lang.Runnable
+                public void run() {
+                    VLogAudioPlayer.this.prepareAsyncInternal();
+                }
+            });
         }
     }
 
     public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            schedule(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ VLogAudioPlayer this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.releaseInternal();
-                    }
-                }
-            });
-            cancelProgressTimer();
-        }
+        schedule(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.9
+            @Override // java.lang.Runnable
+            public void run() {
+                VLogAudioPlayer.this.releaseInternal();
+            }
+        });
+        cancelProgressTimer();
     }
 
     public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            schedule(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ VLogAudioPlayer this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.resetInternal();
-                    }
-                }
-            });
-            cancelProgressTimer();
-        }
-    }
-
-    public void seekTo(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.mSeekWhenPrepared = j;
-            schedule(new Runnable(this, j) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.7
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ VLogAudioPlayer this$0;
-                public final /* synthetic */ long val$pos;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Long.valueOf(j)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$pos = j;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.seekToInternal(this.val$pos);
-                    }
-                }
-            });
-        }
-    }
-
-    public void setDataSource(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            schedule(new Runnable(this, str) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ VLogAudioPlayer this$0;
-                public final /* synthetic */ String val$path;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$path = str;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        try {
-                            this.this$0.setDataSourceInternal(this.val$path);
-                        } catch (IOException unused) {
-                            if (this.this$0.mErrorListener != null) {
-                                this.this$0.mErrorListener.onError(null, -1, -1);
-                            }
-                        }
-                    }
-                }
-            });
-        }
-    }
-
-    public void setDataSource(List<AudioPlayData> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, list) == null) || list == null || list.size() == 0) {
-            return;
-        }
-        schedule(new Runnable(this, list) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.3
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ VLogAudioPlayer this$0;
-            public final /* synthetic */ List val$playDataList;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, list};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.val$playDataList = list;
-            }
-
+        schedule(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.8
             @Override // java.lang.Runnable
             public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (this.this$0.handledAudioList == null) {
-                        this.this$0.handledAudioList = new ArrayList();
+                VLogAudioPlayer.this.resetInternal();
+            }
+        });
+        cancelProgressTimer();
+    }
+
+    public void seekTo(final long j) {
+        this.mSeekWhenPrepared = j;
+        schedule(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.7
+            @Override // java.lang.Runnable
+            public void run() {
+                VLogAudioPlayer.this.seekToInternal(j);
+            }
+        });
+    }
+
+    public void setDataSource(final String str) {
+        schedule(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.2
+            @Override // java.lang.Runnable
+            public void run() {
+                try {
+                    VLogAudioPlayer.this.setDataSourceInternal(str);
+                } catch (IOException unused) {
+                    if (VLogAudioPlayer.this.mErrorListener != null) {
+                        VLogAudioPlayer.this.mErrorListener.onError(null, -1, -1);
                     }
-                    this.this$0.handledAudioList.clear();
-                    for (int i = 0; i < this.val$playDataList.size(); i++) {
-                        AudioPlayData audioPlayData = (AudioPlayData) this.val$playDataList.get(i);
-                        if (audioPlayData != null) {
-                            this.this$0.handledAudioList.add(audioPlayData.m75clone());
-                        }
-                    }
-                    VLogAudioPlayer vLogAudioPlayer = this.this$0;
-                    vLogAudioPlayer.setDataSourceInternal(vLogAudioPlayer.handledAudioList);
                 }
             }
         });
     }
 
-    public void setMute(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            gx9.e(TAG, "设置静音");
-            this.isMute = z;
-            setVolume(0.0f);
+    public void setDataSource(final List<AudioPlayData> list) {
+        if (list == null || list.size() == 0) {
+            return;
         }
+        schedule(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.3
+            @Override // java.lang.Runnable
+            public void run() {
+                if (VLogAudioPlayer.this.handledAudioList == null) {
+                    VLogAudioPlayer.this.handledAudioList = new ArrayList();
+                }
+                VLogAudioPlayer.this.handledAudioList.clear();
+                for (int i = 0; i < list.size(); i++) {
+                    AudioPlayData audioPlayData = (AudioPlayData) list.get(i);
+                    if (audioPlayData != null) {
+                        VLogAudioPlayer.this.handledAudioList.add(audioPlayData.m75clone());
+                    }
+                }
+                VLogAudioPlayer vLogAudioPlayer = VLogAudioPlayer.this;
+                vLogAudioPlayer.setDataSourceInternal(vLogAudioPlayer.handledAudioList);
+            }
+        });
+    }
+
+    public void setMute(boolean z) {
+        d1a.e(TAG, "设置静音");
+        this.isMute = z;
+        setVolume(0.0f);
     }
 
     public void setOnCompletionListener(IMediaPlayer.OnCompletionListener onCompletionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, onCompletionListener) == null) {
-            this.mOnCompletionListener = onCompletionListener;
-        }
+        this.mOnCompletionListener = onCompletionListener;
     }
 
     public void setOnErrorListener(IMediaPlayer.OnErrorListener onErrorListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, onErrorListener) == null) {
-            this.mOnErrorListener = onErrorListener;
-        }
+        this.mOnErrorListener = onErrorListener;
     }
 
     public void setOnInfoListener(IMediaPlayer.OnInfoListener onInfoListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, onInfoListener) == null) {
-            this.mOnInfoListener = onInfoListener;
-        }
+        this.mOnInfoListener = onInfoListener;
     }
 
     public void setOnPreparedListener(IMediaPlayer.OnPreparedListener onPreparedListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, onPreparedListener) == null) {
-            this.mOnPreparedListener = onPreparedListener;
-        }
+        this.mOnPreparedListener = onPreparedListener;
     }
 
     public void setOnProgressListener(OnProgressListener onProgressListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, onProgressListener) == null) {
-            this.mOnProgressListener = onProgressListener;
-        }
+        this.mOnProgressListener = onProgressListener;
     }
 
     public void setOnSeekCompleteListener(IMediaPlayer.OnSeekCompleteListener onSeekCompleteListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, onSeekCompleteListener) == null) {
-            this.mOnSeekCompleteListener = onSeekCompleteListener;
-        }
+        this.mOnSeekCompleteListener = onSeekCompleteListener;
     }
 
-    public void setVolume(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048597, this, f) == null) {
-            schedule(new Runnable(this, f) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.10
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ VLogAudioPlayer this$0;
-                public final /* synthetic */ float val$volume;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Float.valueOf(f)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$volume = f;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        gx9.e(VLogAudioPlayer.TAG, "设置音量为 = " + this.val$volume);
-                        this.this$0.setVolumeInternal(this.val$volume);
-                    }
-                }
-            });
-        }
+    public void setVolume(final float f) {
+        schedule(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.10
+            @Override // java.lang.Runnable
+            public void run() {
+                d1a.e(VLogAudioPlayer.TAG, "设置音量为 = " + f);
+                VLogAudioPlayer.this.setVolumeInternal(f);
+            }
+        });
     }
 
     public void setVolume(int i, float f) {
-        List<AudioPlayData> list;
         AudioPlayData audioPlayData;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) || (list = this.handledAudioList) == null || i < 0 || f < 0.0f || list.size() <= i || (audioPlayData = this.handledAudioList.get(i)) == null) {
+        List<AudioPlayData> list = this.handledAudioList;
+        if (list == null || i < 0 || f < 0.0f || list.size() <= i || (audioPlayData = this.handledAudioList.get(i)) == null) {
             return;
         }
         audioPlayData.volume = f;
     }
 
     public void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            if (this.mMediaPlayer == null) {
-                this.mErrorListener.onError(null, -1, -1);
-                return;
-            }
-            schedule(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ VLogAudioPlayer this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.startInternal();
-                    }
-                }
-            });
-            startProgressTimer();
+        if (this.mMediaPlayer == null) {
+            this.mErrorListener.onError(null, -1, -1);
+            return;
         }
+        schedule(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.5
+            @Override // java.lang.Runnable
+            public void run() {
+                VLogAudioPlayer.this.startInternal();
+            }
+        });
+        startProgressTimer();
     }
 
     public void startProgressTimer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            cancelProgressTimer();
-            this.mUpdateProgressTimer = new Timer();
-            ProgressTimerTask progressTimerTask = new ProgressTimerTask(this);
-            this.mProgressTimerTask = progressTimerTask;
-            this.mUpdateProgressTimer.schedule(progressTimerTask, 0L, 50L);
-        }
+        cancelProgressTimer();
+        this.mUpdateProgressTimer = new Timer();
+        ProgressTimerTask progressTimerTask = new ProgressTimerTask();
+        this.mProgressTimerTask = progressTimerTask;
+        this.mUpdateProgressTimer.schedule(progressTimerTask, 0L, 50L);
     }
 }

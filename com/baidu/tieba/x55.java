@@ -1,6 +1,11 @@
 package com.baidu.tieba;
 
+import android.graphics.Rect;
+import android.view.View;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.breathetip.tipview.BreatheTipView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,10 +15,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class x55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public LinearLayout a;
+    public int b;
     public int c;
-    public String d;
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 32;
+        }
+        return invokeV.intValue;
+    }
 
     public x55() {
         Interceptable interceptable = $ic;
@@ -28,99 +50,111 @@ public class x55 {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
+        this.b = 0;
         this.c = 0;
-        this.d = null;
     }
 
-    public int b() {
+    public View e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.c;
         }
         return invokeV.intValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public final void a(int i, int i2, Rect rect, w55 w55Var) {
+        LinearLayout.LayoutParams layoutParams;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return wj.a(R.string.voice_cache_error_internal);
-                case 2:
-                    return wj.a(R.string.voice_cache_error_no_space);
-                case 3:
-                    return wj.a(R.string.obfuscated_res_0x7f0f0d08);
-                case 4:
-                    return wj.a(R.string.voice_cache_error_no_file);
-                case 5:
-                    return wj.a(R.string.voice_cache_error_md5);
-                case 6:
-                    return wj.a(R.string.voice_cache_error_no_input);
-                case 7:
-                    return wj.a(R.string.voice_cache_error_no_dir);
-                default:
-                    return "";
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), rect, w55Var}) == null) {
+            if (w55Var.getView().getLayoutParams() instanceof LinearLayout.LayoutParams) {
+                layoutParams = (LinearLayout.LayoutParams) w55Var.getView().getLayoutParams();
+            } else {
+                layoutParams = new LinearLayout.LayoutParams(-2, -2);
             }
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.a = str;
+            int g = (i / 2) - ej.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X017);
+            boolean z2 = false;
+            if (rect.centerX() >= g) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (ej.l(TbadkCoreApplication.getInst().getContext()) - rect.centerX() >= g) {
+                z2 = true;
+            }
+            if (z && z2) {
+                layoutParams.gravity = 1;
+            } else if (z) {
+                layoutParams.gravity = 5;
+                this.b = (-(i - i2)) / 2;
+            } else {
+                layoutParams.gravity = 3;
+                this.b = (i - i2) / 2;
+            }
+            this.a.addView(w55Var.getView(), layoutParams);
         }
     }
 
-    public void i(String str) {
+    public final void b(int i, int i2, Rect rect, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), rect, view2}) == null) {
+            if (i > rect.centerY() - (i2 / 2)) {
+                this.a.addView(view2);
+                this.c = ((rect.height() + i2) / 2) + i;
+                return;
+            }
+            this.a.addView(view2, 0);
+            this.c = (rect.height() + i2) / 2;
+        }
+    }
+
+    public void h(BreatheTipView breatheTipView, w55 w55Var, View view2) {
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, breatheTipView, w55Var, view2) == null) {
+            LinearLayout linearLayout = new LinearLayout(breatheTipView.getContext());
+            this.a = linearLayout;
+            linearLayout.setOrientation(1);
+            Rect rect = new Rect();
+            if (view2 != null) {
+                view2.getGlobalVisibleRect(rect);
+            }
+            int i3 = 0;
+            if (breatheTipView.getLayoutParams() != null) {
+                i = breatheTipView.getLayoutParams().height;
+            } else {
+                i = 0;
+            }
+            if (breatheTipView.getLayoutParams() != null) {
+                i2 = breatheTipView.getLayoutParams().width;
+            } else {
+                i2 = 0;
+            }
+            if (w55Var.getView().getLayoutParams() != null) {
+                i3 = w55Var.getView().getLayoutParams().width;
+            }
+            a(i2, i3, rect, w55Var);
+            b(i, i3, rect, breatheTipView);
         }
     }
 }

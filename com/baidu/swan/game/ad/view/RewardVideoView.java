@@ -11,21 +11,12 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.nw3;
-import com.baidu.tieba.ox3;
-import com.baidu.tieba.rx3;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.dx3;
+import com.baidu.tieba.ey3;
+import com.baidu.tieba.hy3;
 /* loaded from: classes3.dex */
 public class RewardVideoView extends RelativeLayout {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public rx3 a;
+    public hy3 a;
     public Context b;
     public boolean c;
     public VolumeBroadcastReceiver d;
@@ -38,215 +29,111 @@ public class RewardVideoView extends RelativeLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
+        return true;
     }
 
     /* loaded from: classes3.dex */
     public class VolumeBroadcastReceiver extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ RewardVideoView this$0;
-
-        public VolumeBroadcastReceiver(RewardVideoView rewardVideoView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rewardVideoView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = rewardVideoView;
+        public VolumeBroadcastReceiver() {
         }
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.media.VOLUME_CHANGED_ACTION".equals(intent.getAction()) && intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1) == 3) {
-                this.this$0.e.onVolumeChanged(((AudioManager) context.getSystemService("audio")).getStreamVolume(3));
+            if ("android.media.VOLUME_CHANGED_ACTION".equals(intent.getAction()) && intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1) == 3) {
+                RewardVideoView.this.e.onVolumeChanged(((AudioManager) context.getSystemService("audio")).getStreamVolume(3));
             }
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RewardVideoView(Context context) {
         this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RewardVideoView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RewardVideoView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.b = context;
-        c();
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("android.media.VOLUME_CHANGED_ACTION");
-        VolumeBroadcastReceiver volumeBroadcastReceiver = new VolumeBroadcastReceiver(this);
-        this.d = volumeBroadcastReceiver;
-        this.b.registerReceiver(volumeBroadcastReceiver, intentFilter);
     }
 
     public void e(boolean z) {
-        rx3 rx3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (rx3Var = this.a) != null) {
+        hy3 hy3Var = this.a;
+        if (hy3Var != null) {
             this.c = z;
-            rx3Var.mute(z);
+            hy3Var.mute(z);
         }
     }
 
     public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            nw3 b = b();
-            b.p = str;
-            this.a.h(b);
-            this.a.d(false);
-        }
+        dx3 b = b();
+        b.p = str;
+        this.a.h(b);
+        this.a.d(false);
     }
 
     public void setVolumeChangeListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.e = aVar;
-        }
+        this.e = aVar;
+    }
+
+    public RewardVideoView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+    }
+
+    public RewardVideoView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.b = context;
+        c();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.media.VOLUME_CHANGED_ACTION");
+        VolumeBroadcastReceiver volumeBroadcastReceiver = new VolumeBroadcastReceiver();
+        this.d = volumeBroadcastReceiver;
+        this.b.registerReceiver(volumeBroadcastReceiver, intentFilter);
     }
 
     @NonNull
-    public final nw3 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            nw3 nw3Var = new nw3();
-            nw3Var.f = true;
-            nw3Var.b = this.c;
-            nw3Var.o = false;
-            nw3Var.z = false;
-            nw3Var.v = false;
-            return nw3Var;
-        }
-        return (nw3) invokeV.objValue;
+    public final dx3 b() {
+        dx3 dx3Var = new dx3();
+        dx3Var.f = true;
+        dx3Var.b = this.c;
+        dx3Var.o = false;
+        dx3Var.z = false;
+        dx3Var.v = false;
+        return dx3Var;
     }
 
     public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
+        return this.c;
     }
 
-    public rx3 getPlayer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return (rx3) invokeV.objValue;
+    public hy3 getPlayer() {
+        return this.a;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Context context;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.onDetachedFromWindow();
-            VolumeBroadcastReceiver volumeBroadcastReceiver = this.d;
-            if (volumeBroadcastReceiver != null && (context = this.b) != null) {
-                context.unregisterReceiver(volumeBroadcastReceiver);
-            }
+        super.onDetachedFromWindow();
+        VolumeBroadcastReceiver volumeBroadcastReceiver = this.d;
+        if (volumeBroadcastReceiver != null && (context = this.b) != null) {
+            context.unregisterReceiver(volumeBroadcastReceiver);
         }
     }
 
     public final void c() {
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            rx3 c = ox3.c();
-            c.e(getContext(), b());
-            this.a = c;
-            AudioManager audioManager = (AudioManager) this.b.getSystemService("audio");
-            int streamVolume = audioManager.getStreamVolume(3);
-            boolean z = false;
-            if (Build.VERSION.SDK_INT >= 28) {
-                i = audioManager.getStreamMinVolume(3);
-            } else {
-                i = 0;
-            }
-            if (streamVolume <= i) {
-                z = true;
-            }
-            this.c = z;
-            FrameLayout frameLayout = new FrameLayout(this.b);
-            addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
-            rx3 rx3Var = this.a;
-            if (rx3Var != null) {
-                rx3Var.a(frameLayout);
-            }
+        hy3 c = ey3.c();
+        c.e(getContext(), b());
+        this.a = c;
+        AudioManager audioManager = (AudioManager) this.b.getSystemService("audio");
+        int streamVolume = audioManager.getStreamVolume(3);
+        boolean z = false;
+        if (Build.VERSION.SDK_INT >= 28) {
+            i = audioManager.getStreamMinVolume(3);
+        } else {
+            i = 0;
+        }
+        if (streamVolume <= i) {
+            z = true;
+        }
+        this.c = z;
+        FrameLayout frameLayout = new FrameLayout(this.b);
+        addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
+        hy3 hy3Var = this.a;
+        if (hy3Var != null) {
+            hy3Var.a(frameLayout);
         }
     }
 }

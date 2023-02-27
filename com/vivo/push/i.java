@@ -30,21 +30,19 @@ public final class i implements IPushActionListener {
 
     @Override // com.vivo.push.IPushActionListener
     public final void onStateChanged(int i) {
-        com.vivo.push.util.b bVar;
-        com.vivo.push.util.b bVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             if (i == 0) {
-                this.a.k = "";
-                bVar2 = this.a.j;
-                bVar2.a("APP_TOKEN", "");
+                this.a.j = "";
+                com.vivo.push.d.a.a().e().c("");
                 this.a.m();
-                this.a.j.b("APP_TAGS");
+                com.vivo.push.d.a.a().e().j();
+                com.vivo.push.d.a.a().e().d();
+                com.vivo.push.d.a.a().e().b();
                 return;
             }
-            this.a.k = null;
-            bVar = this.a.j;
-            bVar.b("APP_TOKEN");
+            this.a.j = null;
+            com.vivo.push.d.a.a().e().h();
         }
     }
 }

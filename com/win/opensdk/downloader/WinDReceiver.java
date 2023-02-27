@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,7 +48,7 @@ public class WinDReceiver extends BroadcastReceiver {
                 if (file.exists()) {
                     file.delete();
                     e1.a(context).a(new f1(info), info.getDl_pkg(), info.getDl_vsc(), 2).a();
-                    ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(232);
+                    ((NotificationManager) context.getSystemService("notification")).cancel(232);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

@@ -11,12 +11,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.w19;
+import com.baidu.tieba.i59;
+import com.baidu.tieba.zu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public w19 b;
+    public i59 b;
     public TbImageView c;
     public LinearLayout d;
     public ImageView e;
@@ -105,22 +105,22 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.h = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0767, (ViewGroup) this, true);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091ae2);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0903fe);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092375);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0907f0);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f092007);
+            this.h = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d077d, (ViewGroup) this, true);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091b23);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09043a);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0923bf);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09082b);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09204c);
         }
     }
 
-    public w19 getData() {
+    public i59 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return (w19) invokeV.objValue;
+        return (i59) invokeV.objValue;
     }
 
     public ImageView getIcon() {
@@ -141,10 +141,10 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        w19 w19Var;
+        i59 i59Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && (w19Var = this.b) != null) {
-            BrowserHelper.p(this.a, w19Var.e());
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && (i59Var = this.b) != null) {
+            zu4.s(this.a, i59Var.e());
         }
     }
 
@@ -155,34 +155,34 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
         }
     }
 
-    public void setData(w19 w19Var) {
+    public void setData(i59 i59Var) {
         float f;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, w19Var) == null) && w19Var != null && this.b != w19Var) {
-            this.b = w19Var;
-            if (!StringUtils.isNULL(w19Var.f())) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, i59Var) == null) && i59Var != null && this.b != i59Var) {
+            this.b = i59Var;
+            if (!StringUtils.isNULL(i59Var.f())) {
                 this.f.setVisibility(0);
-                this.f.setText(w19Var.f());
+                this.f.setText(i59Var.f());
             } else {
                 this.f.setVisibility(8);
             }
-            if (!StringUtils.isNULL(w19Var.a())) {
+            if (!StringUtils.isNULL(i59Var.a())) {
                 this.g.setVisibility(0);
-                this.g.setText(w19Var.a());
+                this.g.setText(i59Var.a());
             } else {
                 this.g.setVisibility(8);
             }
             if (this.i) {
                 this.c.setSupportNoImage(true);
             }
-            int d = w19Var.d();
-            int b = w19Var.b();
+            int d = i59Var.d();
+            int b = i59Var.b();
             if (d > 0 && b > 0) {
                 this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 this.c.setOnClickListener(this);
                 this.c.setInterceptOnClick(true);
                 this.c.setDefaultResource(R.drawable.icon_click);
-                this.c.K(w19Var.c(), 18, false);
+                this.c.K(i59Var.c(), 18, false);
                 int l = ej.l(this.a) - (ej.g(this.a, R.dimen.obfuscated_res_0x7f070201) * 2);
                 float f2 = b / d;
                 if (f2 > 1.7777778f) {

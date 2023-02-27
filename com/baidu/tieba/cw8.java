@@ -1,209 +1,184 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.resourceLoaderProc.EmotionShareLoaderProc;
-import com.baidu.tbadk.switchs.QqShareH5Switch;
-import com.baidu.tieba.bw8;
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.connect.share.QQShare;
-import com.tencent.tauth.IUiListener;
-import java.util.ArrayList;
-/* loaded from: classes4.dex */
-public class cw8 extends bw8 {
+import java.util.HashMap;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
+/* loaded from: classes3.dex */
+public class cw8 implements aw8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicReference<aw8> a;
+    public static final aw8 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public IUiListener p;
-    public final yg<EmotionShareLoaderProc.EmotionShare> q;
 
-    /* loaded from: classes4.dex */
-    public class a extends yg<EmotionShareLoaderProc.EmotionShare> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cw8 a;
-
-        public a(cw8 cw8Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947689285, "Lcom/baidu/tieba/cw8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cw8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = cw8Var;
-        }
-
-        @Override // com.baidu.tieba.yg
-        public void onCancelled(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                super.onCancelled(str);
-                this.a.u(3, 4);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947689285, "Lcom/baidu/tieba/cw8;");
+                return;
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yg
-        /* renamed from: a */
-        public void onLoaded(EmotionShareLoaderProc.EmotionShare emotionShare, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, emotionShare, str, i) == null) {
-                super.onLoaded(emotionShare, str, i);
-                if (emotionShare == null || emotionShare.image == null || TextUtils.isEmpty(emotionShare.path)) {
-                    this.a.u(2, 4);
-                }
-                if (emotionShare != null && !TextUtils.isEmpty(emotionShare.path)) {
-                    this.a.R(emotionShare.path);
-                }
-            }
-        }
+        a = new AtomicReference<>(null);
+        b = new cw8();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cw8(Context context) {
-        super(context);
+    public cw8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.q = new a(this);
-        this.l = 4;
-    }
-
-    public final void R(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("imageLocalUrl", str);
-            bundle.putInt("req_type", 5);
-            bundle.putInt("cflag", 1);
-            IUiListener iUiListener = this.p;
-            if (iUiListener != null) {
-                this.k.shareToQQ((Activity) this.b, bundle, iUiListener);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public final void P(ShareEntity shareEntity, IUiListener iUiListener) {
+    public static aw8 l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, shareEntity, iUiListener) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt("req_type", 7);
-            bundle.putString("title", jw8.a(this.b));
-            if (!StringUtils.isNull(shareEntity.getTitle())) {
-                bundle.putString("summary", shareEntity.getTitle());
-            } else if (!StringUtils.isNull(shareEntity.getContent())) {
-                bundle.putString("summary", shareEntity.getContent());
-            } else {
-                bundle.putString("summary", this.b.getString(R.string.obfuscated_res_0x7f0f1221));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            aw8 aw8Var = a.get();
+            if (aw8Var == null) {
+                return b;
             }
-            bundle.putString("targetUrl", shareEntity.getLinkUrl());
-            ArrayList<String> arrayList = new ArrayList<>();
-            if (!TextUtils.isEmpty(shareEntity.getImgUrl())) {
-                arrayList.add(shareEntity.getImgUrl());
-            } else {
-                arrayList.add("http://tb3.bdstatic.com/public/img/fcf10e29473417fa5e0d4a1e6.fcf10e29.png");
-            }
-            bundle.putStringArrayList("imageUrl", arrayList);
-            bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_APPID, "1111264064");
-            bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_TYPE, "3");
-            bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_PATH, "pages/pb/pb?tid=" + shareEntity.getTid());
-            if (iUiListener != null) {
-                this.k.shareToQzone((Activity) this.b, bundle, iUiListener);
-            }
+            return aw8Var;
+        }
+        return (aw8) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.aw8
+    public vv8 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            BdLog.e("recapp plugin install failed!");
+            return null;
+        }
+        return (vv8) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.aw8
+    public qv8 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            BdLog.e("recapp plugin install failed!");
+            return null;
+        }
+        return (qv8) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.aw8
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            BdLog.e("recapp plugin install failed!");
         }
     }
 
-    public final void Q(ShareEntity shareEntity) {
+    @Override // com.baidu.tieba.aw8
+    public List<AdvertAppInfo> f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareEntity) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt("req_type", 1);
-            bundle.putString("title", shareEntity.getTitle());
-            bundle.putString("summary", shareEntity.getContent());
-            bundle.putString("targetUrl", shareEntity.getLinkUrl());
-            ArrayList<String> arrayList = new ArrayList<>();
-            if (!TextUtils.isEmpty(shareEntity.getImgUrl())) {
-                arrayList.add(shareEntity.getImgUrl());
-            }
-            bundle.putStringArrayList("imageUrl", arrayList);
-            IUiListener iUiListener = this.p;
-            if (iUiListener != null) {
-                this.k.shareToQzone((Activity) this.b, bundle, iUiListener);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            BdLog.e("recapp plugin install failed!");
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.aw8
+    public xv8 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            BdLog.e("recapp plugin install failed!");
+            return null;
+        }
+        return (xv8) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.aw8
+    public qn<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
+            BdLog.e("recapp plugin install failed!");
+            return null;
+        }
+        return (qn) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.aw8
+    public qn<?, ?> d(zv8 zv8Var, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, zv8Var, bdUniqueId)) == null) {
+            BdLog.e("recapp plugin install failed!");
+            return null;
+        }
+        return (qn) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.aw8
+    public IAdBaseAsyncController h(IAdBaseAsyncController.Type type, IAdBaseAsyncController.a aVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, type, aVar)) == null) {
+            BdLog.e("recapp plugin install failed!");
+            return null;
+        }
+        return (IAdBaseAsyncController) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.aw8
+    public void k(HashMap<String, String> hashMap, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, hashMap, context) == null) {
+            BdLog.e("recapp plugin install failed!");
         }
     }
 
-    public final void S(ShareEntity shareEntity) {
+    @Override // com.baidu.tieba.aw8
+    public qn<?, ?> g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, shareEntity) == null) {
-            if (q(shareEntity.getLocalFile())) {
-                R(shareEntity.getLocalFile());
-            } else if (p(shareEntity.getImageUri())) {
-                R(shareEntity.getImageUri().getPath());
-            } else {
-                zg.h().k(shareEntity.getImgUrl(), 34, this.q, 0, 0, j(), new Object[0]);
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, tbPageContext, bdUniqueId, str)) == null) {
+            BdLog.e("recapp plugin install failed!");
+            return null;
         }
+        return (qn) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.bw8, com.baidu.tieba.gw8
-    public void a(ShareEntity shareEntity, hw8 hw8Var) {
+    @Override // com.baidu.tieba.aw8
+    public void j(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, shareEntity, hw8Var) == null) {
-            if (shareEntity != null && this.k != null) {
-                this.e = shareEntity;
-                Context context = this.b;
-                if (context != null && (context instanceof Activity)) {
-                    this.p = new bw8.c(this, hw8Var);
-                    if (!QqShareH5Switch.isOn() && !StringUtils.isNull(shareEntity.getTid()) && !"0".equals(shareEntity.getTid())) {
-                        P(shareEntity, this.p);
-                        return;
-                    } else if (shareEntity.getShareType() != 0) {
-                        S(shareEntity);
-                        return;
-                    } else {
-                        Q(shareEntity);
-                        return;
-                    }
-                }
-                u(2, 4);
-                if (hw8Var != null) {
-                    hw8Var.b1(0, 2);
-                    return;
-                }
-                return;
-            }
-            u(2, 4);
-            if (hw8Var != null) {
-                hw8Var.b1(0, 2);
-            }
+        if (interceptable == null || interceptable.invokeL(1048585, this, advertAppInfo) == null) {
+            BdLog.e("recapp plugin install failed!");
         }
     }
 }

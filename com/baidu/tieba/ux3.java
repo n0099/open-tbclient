@@ -1,353 +1,433 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.game.ad.entity.AdElementInfo;
-import com.baidu.swan.game.ad.entity.AdResponseInfo;
-import com.baidu.swan.game.ad.utils.NetworkUtils;
-import com.baidu.tieba.xx3;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.swan.game.ad.downloader.model.DownloadParams;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.swan.game.ad.downloader.view.SwanAdDownloadButtonView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Response;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ux3 {
+public class ux3 implements sx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public ix3 b;
-    public boolean c;
+    public SwanAdDownloadButtonView b;
+    public tx3 c;
+    public nx3 d;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zx3 a;
-        public final /* synthetic */ nx3 b;
-        public final /* synthetic */ ux3 c;
+        public final /* synthetic */ ux3 a;
 
-        /* renamed from: com.baidu.tieba.ux3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0451a extends ResponseCallback<AdResponseInfo> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public int a;
-            public final /* synthetic */ a b;
-
-            /* renamed from: com.baidu.tieba.ux3$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes6.dex */
-            public class RunnableC0452a implements Runnable {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AdElementInfo a;
-                public final /* synthetic */ C0451a b;
-
-                public RunnableC0452a(C0451a c0451a, AdElementInfo adElementInfo) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {c0451a, adElementInfo};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.b = c0451a;
-                    this.a = adElementInfo;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable = $ic;
-                    if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.b.c.b != null) {
-                        this.b.b.c.b.c(this.a);
-                    }
+        public a(ux3 ux3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ux3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = ux3Var;
+        }
 
-            public C0451a(a aVar) {
-                Interceptable interceptable = $ic;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || ey3.b() == null) {
+                return;
+            }
+            if (this.a.c.a == DownloadState.NOT_START || this.a.c.a == DownloadState.DELETED) {
+                ey3.b().d(this.a.a, ((DownloadParams) this.a.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.a.d);
+            }
+            if (this.a.c.a == DownloadState.DOWNLOADING) {
+                ey3.b().d(this.a.a, ((DownloadParams) this.a.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.a.d);
+            }
+            if (this.a.c.a == DownloadState.DOWNLOAD_PAUSED) {
+                ey3.b().d(this.a.a, ((DownloadParams) this.a.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.a.d);
+            }
+            if (this.a.c.a == DownloadState.DOWNLOAD_FAILED) {
+                ey3.b().d(this.a.a, ((DownloadParams) this.a.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.a.d);
+            }
+            if (this.a.c.a == DownloadState.DOWNLOADED) {
+                this.a.d.b();
+                ey3.b().d(this.a.a, ((DownloadParams) this.a.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_INSTALL_APP, this.a.d);
+            }
+            if (this.a.c.a == DownloadState.INSTALLED) {
+                String e = this.a.d.e();
+                if (TextUtils.isEmpty(this.a.c.b) && !TextUtils.isEmpty(e)) {
+                    this.a.a(e);
+                }
+                ux3 ux3Var = this.a;
+                ux3Var.r(ux3Var.c.b);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-360257893, "Lcom/baidu/tieba/ux3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
+                    $ic = interceptable;
                 }
-                this.b = aVar;
-                this.a = 0;
-            }
-
-            @Override // com.baidu.searchbox.http.callback.ResponseCallback
-            public void onFail(Exception exc) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) != null) {
-                    return;
-                }
-                this.b.c.g("3010002");
-                a aVar = this.b;
-                aVar.c.j(aVar.a, "requestFail", aVar.b);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.searchbox.http.callback.ResponseCallback
-            /* renamed from: a */
-            public void onSuccess(AdResponseInfo adResponseInfo, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(1048576, this, adResponseInfo, i) == null) {
-                    a aVar = this.b;
-                    aVar.c.j(aVar.a, "requestSuccess", aVar.b);
-                    if (adResponseInfo != null) {
-                        if (adResponseInfo.getAdInstanceList().size() > 0) {
-                            ly3.c(new RunnableC0452a(this, adResponseInfo.getPrimaryAdInstanceInfo()));
-                            return;
-                        }
-                        if (!this.b.c.c) {
-                            a aVar2 = this.b;
-                            aVar2.c.j(aVar2.a, "requestNoAd", aVar2.b);
-                        }
-                        if (this.a == 1 && this.b.a.i.c() == "video" && qy3.h()) {
-                            a aVar3 = this.b;
-                            aVar3.c.h(aVar3.b, aVar3.a, this);
-                            return;
-                        }
-                        this.a = 0;
-                        String errorCode = adResponseInfo.getErrorCode();
-                        if (errorCode.equals("0")) {
-                            errorCode = "201000";
-                        }
-                        this.b.c.g(errorCode);
-                        return;
-                    }
-                    this.b.c.g("200000");
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.searchbox.http.callback.ResponseCallback
-            /* renamed from: b */
-            public AdResponseInfo parseResponse(Response response, int i) {
-                InterceptResult invokeLI;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
-                    if (response != null && response.body() != null) {
-                        this.a++;
-                        if (!response.isSuccessful()) {
-                            return null;
-                        }
-                        try {
-                            String string = response.body().string();
-                            if (!TextUtils.isEmpty(string)) {
-                                if (this.b.c.c) {
-                                    return new AdResponseInfo(string, this.b.c.c);
-                                }
-                                return new AdResponseInfo(string);
-                            }
-                        } catch (Exception | OutOfMemoryError unused) {
-                        }
-                    }
-                    return null;
-                }
-                return (AdResponseInfo) invokeLI.objValue;
-            }
-        }
-
-        public a(ux3 ux3Var, zx3 zx3Var, nx3 nx3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ux3Var, zx3Var, nx3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-360257893, "Lcom/baidu/tieba/ux3$b;");
                     return;
                 }
             }
-            this.c = ux3Var;
-            this.a = zx3Var;
-            this.b = nx3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            zx3 zx3Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (zx3Var = this.a) != null && zx3Var.i != null) {
-                C0451a c0451a = new C0451a(this);
-                if (NetworkUtils.f(this.c.a)) {
-                    if (this.c.c) {
-                        zx3 zx3Var2 = this.a;
-                        if (zx3Var2 instanceof ay3) {
-                            ay3 ay3Var = (ay3) zx3Var2;
-                            if (this.b != null && ay3Var.i() != null) {
-                                this.b.a(ay3Var.g(), ay3Var.i(), c0451a);
-                                return;
-                            }
-                            return;
-                        }
-                    }
-                    this.c.c = false;
-                    String g = this.a.g();
-                    nx3 nx3Var = this.b;
-                    if (nx3Var != null) {
-                        nx3Var.f(g, c0451a);
-                    }
-                    this.c.j(this.a, "request", this.b);
-                    return;
-                }
-                this.c.g("3010003");
+            int[] iArr = new int[DownloadState.values().length];
+            a = iArr;
+            try {
+                iArr[DownloadState.NOT_START.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[DownloadState.DOWNLOADING.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[DownloadState.DOWNLOAD_PAUSED.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[DownloadState.DOWNLOADED.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[DownloadState.DOWNLOAD_FAILED.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[DownloadState.INSTALLED.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ux3 b;
-
-        public b(ux3 ux3Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ux3Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ux3Var;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.b != null) {
-                this.b.b.a(this.a);
-            }
-        }
-    }
-
-    public ux3(Context context) {
+    public ux3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = context;
     }
 
-    public final void g(String str) {
+    @Override // com.baidu.tieba.sx3
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            u(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.sx3
+    public View getRealView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public Object p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.b.getTag();
+        }
+        return invokeV.objValue;
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.b.setOnClickListener(new a(this));
+        }
+    }
+
+    public static float m(float f) {
+        InterceptResult invokeF;
+        float f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65541, null, f)) == null) {
+            DisplayMetrics displayMetrics = AppRuntime.getAppContext().getResources().getDisplayMetrics();
+            if (displayMetrics != null) {
+                f2 = displayMetrics.density;
+            } else {
+                f2 = 0.0f;
+            }
+            return f * f2;
+        }
+        return invokeF.floatValue;
+    }
+
+    @Override // com.baidu.tieba.sx3
+    public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            ly3.c(new b(this, str));
+            this.c.b = str;
         }
     }
 
-    public void k(ix3 ix3Var) {
+    @Override // com.baidu.tieba.sx3
+    public void b(DownloadState downloadState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ix3Var) == null) {
-            this.b = ix3Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadState) == null) {
+            v(downloadState);
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ux3(Context context, boolean z) {
-        this(context);
+    @Override // com.baidu.tieba.sx3
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            t(i);
+        }
+    }
+
+    @Override // com.baidu.tieba.sx3
+    public void e(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            this.b.setTag(obj);
+        }
+    }
+
+    public final void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            tx3 tx3Var = this.c;
+            if (i != tx3Var.c) {
+                tx3Var.c = i;
+                w();
             }
         }
-        this.c = z;
     }
 
-    public void i(zx3 zx3Var, nx3 nx3Var) {
+    public final void v(DownloadState downloadState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, zx3Var, nx3Var) == null) {
-            ky3.d(new a(this, zx3Var, nx3Var), "execAdRequest");
+        if (interceptable == null || interceptable.invokeL(1048593, this, downloadState) == null) {
+            tx3 tx3Var = this.c;
+            if (downloadState != tx3Var.a) {
+                tx3Var.a = downloadState;
+                w();
+            }
         }
     }
 
-    public void h(nx3 nx3Var, zx3 zx3Var, ResponseCallback<AdResponseInfo> responseCallback) {
+    public final float n(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nx3Var, zx3Var, responseCallback) == null) {
-            if (NetworkUtils.f(this.a)) {
-                this.c = true;
-                if (zx3Var instanceof ay3) {
-                    ay3 ay3Var = (ay3) zx3Var;
-                    if (nx3Var != null && ay3Var.i() != null) {
-                        nx3Var.a(ay3Var.g(), ay3Var.i(), responseCallback);
-                        return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, context, i)) == null) {
+            TypedValue typedValue = new TypedValue();
+            context.getResources().getValue(i, typedValue, true);
+            return typedValue.getFloat();
+        }
+        return invokeLI.floatValue;
+    }
+
+    @Override // com.baidu.tieba.sx3
+    public /* bridge */ /* synthetic */ sx3 c(Context context, DownloadParams downloadParams, nx3 nx3Var) {
+        l(context, downloadParams, nx3Var);
+        return this;
+    }
+
+    public ux3 l(Context context, DownloadParams downloadParams, nx3 nx3Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, downloadParams, nx3Var)) == null) {
+            this.a = context;
+            this.c = tx3.a(downloadParams.a, downloadParams.b);
+            this.d = nx3Var;
+            k();
+            q();
+            return this;
+        }
+        return (ux3) invokeLLL.objValue;
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.b = new SwanAdDownloadButtonView(this.a);
+            String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f135b);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 81;
+            layoutParams.bottomMargin = (int) (this.a.getResources().getDisplayMetrics().heightPixels * 0.14d);
+            this.b.setLayoutParams(layoutParams);
+            float n = n(this.a, R.dimen.obfuscated_res_0x7f070666);
+            int color = this.a.getResources().getColor(R.color.obfuscated_res_0x7f060939);
+            u(this.b);
+            SwanAdDownloadButtonView swanAdDownloadButtonView = this.b;
+            swanAdDownloadButtonView.j(m(n));
+            swanAdDownloadButtonView.f(true);
+            swanAdDownloadButtonView.i(-1);
+            swanAdDownloadButtonView.h(color);
+            swanAdDownloadButtonView.g(true);
+            this.b.setText(string);
+            this.b.setVisibility(0);
+            this.b.setProgress(this.c.c);
+        }
+    }
+
+    public final ResolveInfo o(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str)) {
+                return null;
+            }
+            Intent intent = new Intent("android.intent.action.MAIN");
+            intent.addCategory("android.intent.category.LAUNCHER");
+            intent.setPackage(str);
+            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+            if (queryIntentActivities.size() <= 0) {
+                return null;
+            }
+            return queryIntentActivities.iterator().next();
+        }
+        return (ResolveInfo) invokeLL.objValue;
+    }
+
+    public final void r(String str) {
+        ResolveInfo o;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048589, this, str) != null) || TextUtils.isEmpty(str) || (o = o(this.a, str)) == null) {
+            return;
+        }
+        Intent intent = new Intent("android.intent.action.MAIN");
+        intent.addCategory("android.intent.category.LAUNCHER");
+        ActivityInfo activityInfo = o.activityInfo;
+        intent.setComponent(new ComponentName(activityInfo.packageName, activityInfo.name));
+        intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+        try {
+            this.a.startActivity(intent);
+        } catch (Exception unused) {
+        }
+    }
+
+    public final int s(DownloadState downloadState) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, downloadState)) == null) {
+            switch (b.a[downloadState.ordinal()]) {
+                case 1:
+                default:
+                    return R.string.obfuscated_res_0x7f0f135b;
+                case 2:
+                    return R.string.obfuscated_res_0x7f0f1360;
+                case 3:
+                    return R.string.obfuscated_res_0x7f0f135c;
+                case 4:
+                    return R.string.obfuscated_res_0x7f0f135e;
+                case 5:
+                    return R.string.obfuscated_res_0x7f0f135d;
+                case 6:
+                    return R.string.obfuscated_res_0x7f0f135f;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public final void u(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048592, this, view2) == null) && view2 != null) {
+            float n = n(this.a, R.dimen.obfuscated_res_0x7f070668);
+            float n2 = n(this.a, R.dimen.obfuscated_res_0x7f070665);
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams == null) {
+                layoutParams = new ViewGroup.LayoutParams(-1, -2);
+                view2.setLayoutParams(layoutParams);
+            }
+            if (n >= 0.0f && n <= 1.0f) {
+                n *= this.a.getResources().getDisplayMetrics().widthPixels;
+            }
+            if (n2 > 0.0f && n2 <= 1.0f) {
+                n2 *= this.a.getResources().getDisplayMetrics().heightPixels;
+            }
+            layoutParams.width = (int) n;
+            layoutParams.height = (int) n2;
+        }
+    }
+
+    public final void w() {
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            tx3 tx3Var = this.c;
+            if (tx3Var.a == DownloadState.DOWNLOADING) {
+                SwanAdDownloadButtonView swanAdDownloadButtonView = this.b;
+                if (swanAdDownloadButtonView != null && swanAdDownloadButtonView.getVisibility() != 8) {
+                    if (this.c.c < this.b.getMax()) {
+                        String string2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f135a);
+                        string = String.format(string2, this.c.c + "%");
+                    } else {
+                        string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f135e);
                     }
-                    return;
+                    this.b.setText(string);
+                    this.b.setProgress(this.c.c);
                 }
-                xx3.b bVar = new xx3.b();
-                bVar.m(qy3.c());
-                bVar.j(qy3.d());
-                bVar.o(zx3Var.i.g());
-                bVar.l(py3.i(this.a));
-                bVar.i(py3.h(this.a));
-                ay3 ay3Var2 = new ay3(this.a, bVar.h(), 5, 5);
-                if (nx3Var != null && ay3Var2.i() != null) {
-                    nx3Var.a(ay3Var2.g(), ay3Var2.i(), responseCallback);
-                    return;
+            } else {
+                if (ez3.a(this.a, tx3Var.b)) {
+                    this.c.a = DownloadState.INSTALLED;
                 }
-                return;
+                String string3 = this.a.getResources().getString(s(this.c.a));
+                if (this.c.a == DownloadState.DOWNLOADED) {
+                    this.b.setProgress(100);
+                }
+                tx3 tx3Var2 = this.c;
+                if (tx3Var2.a == DownloadState.DOWNLOAD_PAUSED) {
+                    this.b.setProgress(tx3Var2.c);
+                }
+                this.b.setText(string3);
             }
-            g("3010003");
-        }
-    }
-
-    public final void j(zx3 zx3Var, String str, nx3 nx3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, zx3Var, str, nx3Var) == null) {
-            fy3.n(str, fy3.a(zx3Var.i.c(), zx3Var.i.f(), zx3Var.i.e(), zx3Var.i.b(), false), nx3Var);
+            SwanAdDownloadButtonView swanAdDownloadButtonView2 = this.b;
+            if (swanAdDownloadButtonView2 != null) {
+                swanAdDownloadButtonView2.postInvalidate();
+            }
         }
     }
 }

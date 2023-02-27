@@ -1,208 +1,104 @@
 package com.baidu.searchbox.network.outback;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.core.CallFactory;
 import com.baidu.searchbox.network.outback.core.CallFactoryParams;
 import com.baidu.searchbox.network.outback.statistics.IAdditionalRecord;
-import com.baidu.tieba.bk1;
-import com.baidu.tieba.yj1;
-import com.baidu.tieba.zj1;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.jk1;
+import com.baidu.tieba.kk1;
+import com.baidu.tieba.mk1;
+/* loaded from: classes2.dex */
 public class OutbackComponent {
-    public static /* synthetic */ Interceptable $ic;
     public static volatile OutbackComponent sInstance;
-    public transient /* synthetic */ FieldHolder $fh;
-    public OutbackComponentHolder componentHolder;
-
-    public OutbackComponent() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.componentHolder = new OutbackComponentHolder();
-    }
+    public OutbackComponentHolder componentHolder = new OutbackComponentHolder();
 
     public static OutbackComponent getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (sInstance == null) {
-                synchronized (OutbackComponent.class) {
-                    if (sInstance == null) {
-                        sInstance = new OutbackComponent();
-                    }
+        if (sInstance == null) {
+            synchronized (OutbackComponent.class) {
+                if (sInstance == null) {
+                    sInstance = new OutbackComponent();
                 }
             }
-            return sInstance;
         }
-        return (OutbackComponent) invokeV.objValue;
-    }
-
-    public boolean isCallFactoryProducerAvailable() {
-        InterceptResult invokeV;
-        IOutbackContext iOutbackContext;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            bk1<IOutbackContext> bk1Var = this.componentHolder.outbackContextHolder;
-            if (bk1Var == null || (iOutbackContext = bk1Var.get()) == null || iOutbackContext.getDefaultCallFactoryProducer() == null) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public CallFactory chooseCallFactory(String str, CallFactoryParams callFactoryParams) {
-        InterceptResult invokeLL;
-        CallFactory.CallFactoryProducer callFactoryProducer;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, callFactoryParams)) == null) {
-            if (!isRightEngine(str)) {
-                callFactoryProducer = this.componentHolder.outbackContextHolder.get().getDefaultCallFactoryProducer();
-            } else {
-                callFactoryProducer = this.componentHolder.outbackContextHolder.get().getOutbackEngines().get(str);
-            }
-            return callFactoryProducer.produceCallFactory(callFactoryParams);
-        }
-        return (CallFactory) invokeLL.objValue;
+        return sInstance;
     }
 
     public IAdditionalRecord getAdditionalRecord() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            bk1<IOutbackContext> bk1Var = this.componentHolder.outbackContextHolder;
-            if (bk1Var != null && bk1Var.get() != null) {
-                return this.componentHolder.outbackContextHolder.get().getIAdditionalRecord();
-            }
-            throw new IllegalStateException("No Context provided!");
+        mk1<IOutbackContext> mk1Var = this.componentHolder.outbackContextHolder;
+        if (mk1Var != null && mk1Var.get() != null) {
+            return this.componentHolder.outbackContextHolder.get().getIAdditionalRecord();
         }
-        return (IAdditionalRecord) invokeV.objValue;
+        throw new IllegalStateException("No Context provided!");
     }
 
     public IOutbackClientIPProvider getClientIPProvider() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            bk1<IOutbackContext> bk1Var = this.componentHolder.outbackContextHolder;
-            if (bk1Var != null && bk1Var.get() != null) {
-                return this.componentHolder.outbackContextHolder.get().getClientIPProvider();
-            }
-            throw new IllegalStateException("No Context provided!");
+        mk1<IOutbackContext> mk1Var = this.componentHolder.outbackContextHolder;
+        if (mk1Var != null && mk1Var.get() != null) {
+            return this.componentHolder.outbackContextHolder.get().getClientIPProvider();
         }
-        return (IOutbackClientIPProvider) invokeV.objValue;
+        throw new IllegalStateException("No Context provided!");
     }
 
     public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            bk1<IOutbackContext> bk1Var = this.componentHolder.outbackContextHolder;
-            if (bk1Var != null && bk1Var.get() != null) {
-                return this.componentHolder.outbackContextHolder.get().getContext();
-            }
-            throw new IllegalStateException("No Context provided!");
+        mk1<IOutbackContext> mk1Var = this.componentHolder.outbackContextHolder;
+        if (mk1Var != null && mk1Var.get() != null) {
+            return this.componentHolder.outbackContextHolder.get().getContext();
         }
-        return (Context) invokeV.objValue;
+        throw new IllegalStateException("No Context provided!");
+    }
+
+    public boolean isCallFactoryProducerAvailable() {
+        IOutbackContext iOutbackContext;
+        mk1<IOutbackContext> mk1Var = this.componentHolder.outbackContextHolder;
+        if (mk1Var == null || (iOutbackContext = mk1Var.get()) == null || iOutbackContext.getDefaultCallFactoryProducer() == null) {
+            return false;
+        }
+        return true;
+    }
+
+    public CallFactory chooseCallFactory(String str, CallFactoryParams callFactoryParams) {
+        CallFactory.CallFactoryProducer callFactoryProducer;
+        if (!isRightEngine(str)) {
+            callFactoryProducer = this.componentHolder.outbackContextHolder.get().getDefaultCallFactoryProducer();
+        } else {
+            callFactoryProducer = this.componentHolder.outbackContextHolder.get().getOutbackEngines().get(str);
+        }
+        return callFactoryProducer.produceCallFactory(callFactoryParams);
     }
 
     public CallFactory getBackupCallFactory(CallFactoryParams callFactoryParams) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callFactoryParams)) == null) {
-            return this.componentHolder.outbackContextHolder.get().getBackupCallFactoryProducer().produceCallFactory(callFactoryParams);
-        }
-        return (CallFactory) invokeL.objValue;
+        return this.componentHolder.outbackContextHolder.get().getBackupCallFactoryProducer().produceCallFactory(callFactoryParams);
     }
 
     public boolean isRightEngine(String str) {
-        InterceptResult invokeL;
         IOutbackContext iOutbackContext;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            bk1<IOutbackContext> bk1Var = this.componentHolder.outbackContextHolder;
-            if (bk1Var != null && (iOutbackContext = bk1Var.get()) != null) {
-                return iOutbackContext.getOutbackEngines().containsKey(str);
-            }
-            return false;
+        mk1<IOutbackContext> mk1Var = this.componentHolder.outbackContextHolder;
+        if (mk1Var != null && (iOutbackContext = mk1Var.get()) != null) {
+            return iOutbackContext.getOutbackEngines().containsKey(str);
         }
-        return invokeL.booleanValue;
-    }
-
-    public OutbackComponent setOutbackContext(IOutbackContext iOutbackContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iOutbackContext)) == null) {
-            OutbackComponentHolder outbackComponentHolder = this.componentHolder;
-            if (outbackComponentHolder.outbackContextHolder == null) {
-                outbackComponentHolder.outbackContextHolder = new zj1();
-            }
-            this.componentHolder.outbackContextHolder.a(new yj1<IOutbackContext>(this, iOutbackContext) { // from class: com.baidu.searchbox.network.outback.OutbackComponent.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ OutbackComponent this$0;
-                public final /* synthetic */ IOutbackContext val$outbackContext;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, iOutbackContext};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$outbackContext = iOutbackContext;
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tieba.yj1
-                public IOutbackContext get() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        return this.val$outbackContext;
-                    }
-                    return (IOutbackContext) invokeV.objValue;
-                }
-            });
-            return this;
-        }
-        return (OutbackComponent) invokeL.objValue;
+        return false;
     }
 
     public CallFactory newCallFactory(CallFactoryParams callFactoryParams) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, callFactoryParams)) == null) {
-            if (isCallFactoryProducerAvailable()) {
-                return this.componentHolder.outbackContextHolder.get().getDefaultCallFactoryProducer().produceCallFactory(callFactoryParams);
-            }
-            throw new IllegalStateException("No CallFactory producer available!");
+        if (isCallFactoryProducerAvailable()) {
+            return this.componentHolder.outbackContextHolder.get().getDefaultCallFactoryProducer().produceCallFactory(callFactoryParams);
         }
-        return (CallFactory) invokeL.objValue;
+        throw new IllegalStateException("No CallFactory producer available!");
+    }
+
+    public OutbackComponent setOutbackContext(final IOutbackContext iOutbackContext) {
+        OutbackComponentHolder outbackComponentHolder = this.componentHolder;
+        if (outbackComponentHolder.outbackContextHolder == null) {
+            outbackComponentHolder.outbackContextHolder = new kk1();
+        }
+        this.componentHolder.outbackContextHolder.a(new jk1<IOutbackContext>() { // from class: com.baidu.searchbox.network.outback.OutbackComponent.1
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // com.baidu.tieba.jk1
+            public IOutbackContext get() {
+                return iOutbackContext;
+            }
+        });
+        return this;
     }
 }

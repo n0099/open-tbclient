@@ -1,99 +1,139 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Build;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.a83;
+import android.graphics.drawable.GradientDrawable;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewParent;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class t52 {
+public final class t52 extends x42<TextView, u52> {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public SwanAppComponentContainerView i;
+    public TextView j;
 
-    /* loaded from: classes6.dex */
-    public static class a implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w83 a;
-
-        public a(w83 w83Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w83Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = w83Var;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                SwanAppActivity w = this.a.w();
-                if (w != null && Build.VERSION.SDK_INT >= 21) {
-                    w.finishAndRemoveTask();
-                }
-                System.exit(0);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t52(@NonNull Context context, @NonNull u52 u52Var) {
+        super(context, u52Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, u52Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (y42) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        g(4);
+        this.i = new SwanAppComponentContainerView(context);
+        this.j = new TextView(context);
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.x42, com.baidu.tieba.z42, com.baidu.tieba.b52
+    @NonNull
+    /* renamed from: Z */
+    public e62 k(@NonNull u52 u52Var, @NonNull u52 u52Var2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            a = z;
-        }
-    }
-
-    public static void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            c(context, !a());
-        }
-    }
-
-    public static void c(Context context, boolean z) {
-        w83 M;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) && (M = w83.M()) != null) {
-            u52.c(z);
-            if (z) {
-                i = R.string.obfuscated_res_0x7f0f01a5;
-            } else {
-                i = R.string.obfuscated_res_0x7f0f0119;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, u52Var, u52Var2)) == null) {
+            e62 k = super.k(u52Var, u52Var2);
+            if (!TextUtils.equals(u52Var.E, u52Var2.E) && (TextUtils.equals(u52Var.E, "scroll") || TextUtils.equals(u52Var2.E, "scroll"))) {
+                k.b(7);
             }
-            a83.a aVar = new a83.a(context);
-            aVar.V(context.getString(R.string.obfuscated_res_0x7f0f0155));
-            aVar.x(context.getString(i));
-            aVar.n(new eo3());
-            aVar.m(false);
-            aVar.O(R.string.obfuscated_res_0x7f0f011c, new a(M));
-            aVar.X();
+            if (!TextUtils.equals(u52Var.E, u52Var2.E) || (TextUtils.equals(u52Var2.E, "scroll") && u52Var.D != u52Var2.D)) {
+                k.b(8);
+            }
+            return k;
         }
+        return (e62) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.z42
+    /* renamed from: c0 */
+    public void Q(@NonNull TextView textView, @NonNull u52 u52Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, textView, u52Var) == null) {
+            if (b52.h) {
+                Log.d("Component-CoverView", "renderBackground");
+            }
+            if (u52Var.j == null) {
+                return;
+            }
+            SwanAppComponentContainerView m = m();
+            if (m != null) {
+                m.setModel(u52Var);
+            }
+            ViewParent parent = textView.getParent();
+            if (!(parent instanceof View)) {
+                return;
+            }
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setColor(u52Var.k);
+            gradientDrawable.setCornerRadius(u52Var.n);
+            gradientDrawable.setStroke(u52Var.l, u52Var.m);
+            ((View) parent).setBackground(gradientDrawable);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.z42
+    /* renamed from: b0 */
+    public void P(@NonNull View view2, @NonNull u52 u52Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, view2, u52Var) == null) {
+            if (b52.h) {
+                Log.d("Component-CoverView", "renderAlpha");
+            }
+            if (u52Var.j == null) {
+                return;
+            }
+            ViewParent parent = view2.getParent();
+            if (!(parent instanceof View)) {
+                return;
+            }
+            super.P((View) parent, u52Var);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.b52
+    @NonNull
+    /* renamed from: a0 */
+    public TextView v(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            return this.j;
+        }
+        return (TextView) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.b52
+    @NonNull
+    public SwanAppComponentContainerView u(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) {
+            return this.i;
+        }
+        return (SwanAppComponentContainerView) invokeL.objValue;
     }
 }

@@ -1,171 +1,236 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.ala.data.SdkLiveInfoData;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.data.YyExtData;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.sapi2.PassportSDK;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.callback.AccountRealNameCallback;
+import com.baidu.sapi2.callback.SapiCallback;
+import com.baidu.sapi2.dto.RealNameDTO;
+import com.baidu.sapi2.result.AccountRealNameResult;
+import com.baidu.sapi2.result.CheckUserFaceIdResult;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.tieba.w24;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class u16 {
+public class u16 extends ActivityDelegation implements t64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(SdkLiveInfoData.AlaLiveInfo alaLiveInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, alaLiveInfo)) == null) {
-            SdkLiveInfoData.YYExt yYExt = alaLiveInfo.yyExt;
-            int i = 1;
-            if (yYExt != null) {
-                if (yYExt.isYYGame == 1) {
-                    return 3;
+    /* loaded from: classes6.dex */
+    public class a implements SapiCallback<CheckUserFaceIdResult> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w24.d a;
+        public final /* synthetic */ u16 b;
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
+        public a(u16 u16Var, w24.d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u16Var, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return 2;
             }
-            if (alaLiveInfo.liveType != 1) {
-                i = 5;
+            this.b = u16Var;
+            this.a = dVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        /* renamed from: a */
+        public void onFailure(CheckUserFaceIdResult checkUserFaceIdResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, checkUserFaceIdResult) == null) {
+                this.a.onFail(checkUserFaceIdResult.getResultMsg());
             }
-            return i;
         }
-        return invokeL.intValue;
-    }
 
-    public static int[] b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            int dimensionPixelSize = ej.s(context)[0] - (context.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
-            return new int[]{dimensionPixelSize, (int) ((dimensionPixelSize * 9.0d) / 16.0d)};
-        }
-        return (int[]) invokeL.objValue;
-    }
-
-    public static boolean c(SdkLiveInfoData sdkLiveInfoData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, sdkLiveInfoData)) == null) {
-            if (sdkLiveInfoData == null || sdkLiveInfoData.liveInfo == null || dj.isEmpty(sdkLiveInfoData.liveId) || dj.isEmpty(sdkLiveInfoData.roomId) || !StringHelper.equals(sdkLiveInfoData.source, "jiaoyoufang") || sdkLiveInfoData.liveInfo.roomStatus != 2) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(SdkLiveInfoData sdkLiveInfoData) {
-        InterceptResult invokeL;
-        SdkLiveInfoData.AlaLiveInfo alaLiveInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, sdkLiveInfoData)) == null) {
-            if (sdkLiveInfoData == null || (alaLiveInfo = sdkLiveInfoData.liveInfo) == null || alaLiveInfo.yyExt == null || dj.isEmpty(sdkLiveInfoData.roomId) || dj.isEmpty(sdkLiveInfoData.liveInfo.yyExt.sid) || dj.isEmpty(sdkLiveInfoData.liveInfo.yyExt.ssid) || dj.isEmpty(sdkLiveInfoData.liveInfo.yyExt.templateId)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void e(TbPageContext tbPageContext, SdkLiveInfoData sdkLiveInfoData, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, sdkLiveInfoData, str) == null) && tbPageContext != null && sdkLiveInfoData != null) {
-            UrlManager urlManager = UrlManager.getInstance();
-            urlManager.dealOneLink(tbPageContext, new String[]{"bdtiebalive://video/live?room_id=" + sdkLiveInfoData.roomId + "&live_id=" + sdkLiveInfoData.liveId + "&enterroom_type=1&from=" + str});
-        }
-    }
-
-    public static void f(Context context, ThreadData threadData, String str) {
-        String str2;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, context, threadData, str) == null) {
-            if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                ej.N(context, context.getString(R.string.no_network_guide));
-            } else if (context != null && threadData != null && threadData.getAuthor() != null && threadData.getThreadAlaInfo() != null) {
-                if (TbadkCoreApplication.getCurrentAccount() != null) {
-                    String userId = threadData.getAuthor().getUserId();
-                    String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    z = TextUtils.equals(userId, currentAccount);
-                    str2 = currentAccount;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        /* renamed from: b */
+        public void onSuccess(CheckUserFaceIdResult checkUserFaceIdResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, checkUserFaceIdResult) == null) {
+                if (!"advanced_cert_face_match".equals(checkUserFaceIdResult.action) && !"cert_face_match".equals(checkUserFaceIdResult.action)) {
+                    this.b.f(null, null, this.a);
                 } else {
-                    str2 = "";
+                    this.a.onSuccess();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends AccountRealNameCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w24.d a;
+
+        public b(u16 u16Var, w24.d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u16Var, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dVar;
+        }
+
+        @Override // com.baidu.sapi2.callback.AccountRealNameCallback
+        public void onFinish(AccountRealNameResult accountRealNameResult) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, accountRealNameResult) == null) {
+                super.onFinish(accountRealNameResult);
+                if (accountRealNameResult.getResultCode() == 0) {
+                    z = true;
+                } else {
                     z = false;
                 }
-                AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-                alaLiveInfoCoreData.fillWithInfoData(threadData.getThreadAlaInfo());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(context, alaLiveInfoCoreData, null, str, str2, z, null, null)));
+                if (z) {
+                    this.a.onSuccess();
+                } else {
+                    this.a.onFail(accountRealNameResult.getResultMsg());
+                }
             }
         }
     }
 
-    public static void g(Context context, SdkLiveInfoData sdkLiveInfoData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65542, null, context, sdkLiveInfoData) != null) || sdkLiveInfoData == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class c implements w24.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u16 a;
+
+        public c(u16 u16Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u16Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u16Var;
         }
-        AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.liveID = dh.g(sdkLiveInfoData.liveId, 0L);
-        alaLiveInfoCoreData.threadId = dh.g(sdkLiveInfoData.tid, 0L);
-        SdkLiveInfoData.LiveAuthor liveAuthor = sdkLiveInfoData.liveAuthor;
-        if (liveAuthor != null) {
-            alaLiveInfoCoreData.userName = liveAuthor.name;
+
+        @Override // com.baidu.tieba.w24.d
+        public void onFail(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.a.mResult.putString("bundle_fail", "real_name_success");
+                this.a.finish();
+            }
         }
-        SdkLiveInfoData.AlaLiveInfo alaLiveInfo = sdkLiveInfoData.liveInfo;
-        if (alaLiveInfo != null) {
-            alaLiveInfoCoreData.sessionID = alaLiveInfo.sessionId;
-            alaLiveInfoCoreData.liveType = alaLiveInfo.liveType;
-            alaLiveInfoCoreData.screenDirection = alaLiveInfo.screenDirection;
-            alaLiveInfoCoreData.hslUrl = alaLiveInfo.hlsUrl;
-            alaLiveInfoCoreData.liveCover = alaLiveInfo.cover;
-            alaLiveInfoCoreData.rtmpUrl = alaLiveInfo.rtmpUrl;
-            alaLiveInfoCoreData.liveTitle = sdkLiveInfoData.title;
-            alaLiveInfoCoreData.audienceCount = alaLiveInfo.audienceCount;
+
+        @Override // com.baidu.tieba.w24.d
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.mResult.putString("bundle_success", "real_name_success");
+                this.a.finish();
+            }
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(context, alaLiveInfoCoreData, null, AlaLiveRoomActivityConfig.FROM_TYPE_HOME_LIVE_TAB_MAIN, TbadkCoreApplication.getCurrentAccount(), false, "", null)));
     }
 
-    public static void h(Context context, ThreadData threadData) {
+    public u16() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, context, threadData) == null) {
-            f(context, threadData, AlaLiveRoomActivityConfig.FROM_TYPE_HOME_LIVE_TAB_MY_CONCERN);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static YyExtData j(SdkLiveInfoData.YYExt yYExt, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, yYExt, str)) == null) {
-            YyExtData yyExtData = new YyExtData();
-            yyExtData.mSid = yYExt.sid;
-            yyExtData.mSsid = yYExt.ssid;
-            yyExtData.mYyUid = yYExt.yyUid;
-            yyExtData.mTemplateId = yYExt.templateId;
-            yyExtData.liveId = str;
-            return yyExtData;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            f(getAgent(), lm3.g(this.mParams, "swanAppId"), new c(this));
+            return false;
         }
-        return (YyExtData) invokeLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static void i(TbPageContext tbPageContext, SdkLiveInfoData sdkLiveInfoData, String str) {
-        SdkLiveInfoData.AlaLiveInfo alaLiveInfo;
-        SdkLiveInfoData.YYExt yYExt;
+    @Override // com.baidu.tieba.t64
+    public void b(w24.d dVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65544, null, tbPageContext, sdkLiveInfoData, str) == null) && sdkLiveInfoData != null && (alaLiveInfo = sdkLiveInfoData.liveInfo) != null && (yYExt = alaLiveInfo.yyExt) != null && !dj.isEmpty(yYExt.sid) && !dj.isEmpty(sdkLiveInfoData.liveInfo.yyExt.ssid)) {
-            SdkLiveInfoData.YYExt yYExt2 = sdkLiveInfoData.liveInfo.yyExt;
-            YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yYExt2.sid, yYExt2.ssid, yYExt2.templateId, sdkLiveInfoData.roomId, yYExt2.streamInfo, str);
+        if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
+            if (SapiAccountManager.getInstance().getSapiConfiguration() == null) {
+                dVar.onFail("pass没有初始化");
+                return;
+            }
+            SapiAccount session = SapiAccountManager.getInstance().getSession();
+            HashMap hashMap = new HashMap();
+            hashMap.put("scene", "baidugame");
+            SapiAccountManager.getInstance().getAccountService().checkUserFaceId(new a(this, dVar), session.bduss, hashMap);
+        }
+    }
+
+    public final void f(Context context, String str, w24.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, dVar) == null) {
+            if (SapiAccountManager.getInstance().getSapiConfiguration() == null) {
+                dVar.onFail("pass没有初始化");
+                return;
+            }
+            RealNameDTO realNameDTO = new RealNameDTO();
+            realNameDTO.bduss = SapiAccountManager.getInstance().getSession().bduss;
+            realNameDTO.scene = "baidugame";
+            realNameDTO.needCbKey = true;
+            PassportSDK.getInstance().loadAccountRealName(zu2.U().getActivity(), new b(this, dVar), realNameDTO);
         }
     }
 }

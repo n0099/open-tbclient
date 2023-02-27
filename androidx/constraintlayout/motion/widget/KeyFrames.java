@@ -5,14 +5,6 @@ import android.util.Log;
 import android.util.Xml;
 import androidx.constraintlayout.widget.ConstraintAttribute;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
@@ -23,26 +15,12 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 /* loaded from: classes.dex */
 public class KeyFrames {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "KeyFrames";
     public static final int UNSET = -1;
     public static HashMap<String, Constructor<? extends Key>> sKeyMakers;
-    public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<Integer, ArrayList<Key>> mFramesMap;
+    public HashMap<Integer, ArrayList<Key>> mFramesMap = new HashMap<>();
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-67713002, "Landroidx/constraintlayout/motion/widget/KeyFrames;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-67713002, "Landroidx/constraintlayout/motion/widget/KeyFrames;");
-                return;
-            }
-        }
         HashMap<String, Constructor<? extends Key>> hashMap = new HashMap<>();
         sKeyMakers = hashMap;
         try {
@@ -59,21 +37,6 @@ public class KeyFrames {
     public KeyFrames(Context context, XmlPullParser xmlPullParser) {
         Key key;
         Exception e;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, xmlPullParser};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mFramesMap = new HashMap<>();
         Key key2 = null;
         try {
             int eventType = xmlPullParser.getEventType();
@@ -118,59 +81,38 @@ public class KeyFrames {
     }
 
     private void addKey(Key key) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, key) == null) {
-            if (!this.mFramesMap.containsKey(Integer.valueOf(key.mTargetId))) {
-                this.mFramesMap.put(Integer.valueOf(key.mTargetId), new ArrayList<>());
-            }
-            this.mFramesMap.get(Integer.valueOf(key.mTargetId)).add(key);
+        if (!this.mFramesMap.containsKey(Integer.valueOf(key.mTargetId))) {
+            this.mFramesMap.put(Integer.valueOf(key.mTargetId), new ArrayList<>());
         }
+        this.mFramesMap.get(Integer.valueOf(key.mTargetId)).add(key);
+    }
+
+    public ArrayList<Key> getKeyFramesForView(int i) {
+        return this.mFramesMap.get(Integer.valueOf(i));
     }
 
     public static String name(int i, Context context) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, context)) == null) {
-            return context.getResources().getResourceEntryName(i);
-        }
-        return (String) invokeIL.objValue;
+        return context.getResources().getResourceEntryName(i);
     }
 
     public void addFrames(MotionController motionController) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, motionController) == null) {
-            ArrayList<Key> arrayList = this.mFramesMap.get(Integer.valueOf(motionController.mId));
-            if (arrayList != null) {
-                motionController.addKeys(arrayList);
-            }
-            ArrayList<Key> arrayList2 = this.mFramesMap.get(-1);
-            if (arrayList2 != null) {
-                Iterator<Key> it = arrayList2.iterator();
-                while (it.hasNext()) {
-                    Key next = it.next();
-                    if (next.matches(((ConstraintLayout.LayoutParams) motionController.mView.getLayoutParams()).constraintTag)) {
-                        motionController.addKey(next);
-                    }
+        ArrayList<Key> arrayList = this.mFramesMap.get(Integer.valueOf(motionController.mId));
+        if (arrayList != null) {
+            motionController.addKeys(arrayList);
+        }
+        ArrayList<Key> arrayList2 = this.mFramesMap.get(-1);
+        if (arrayList2 != null) {
+            Iterator<Key> it = arrayList2.iterator();
+            while (it.hasNext()) {
+                Key next = it.next();
+                if (next.matches(((ConstraintLayout.LayoutParams) motionController.mView.getLayoutParams()).constraintTag)) {
+                    motionController.addKey(next);
                 }
             }
         }
     }
 
-    public ArrayList<Key> getKeyFramesForView(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return this.mFramesMap.get(Integer.valueOf(i));
-        }
-        return (ArrayList) invokeI.objValue;
-    }
-
     public Set<Integer> getKeys() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mFramesMap.keySet();
-        }
-        return (Set) invokeV.objValue;
+        return this.mFramesMap.keySet();
     }
 }

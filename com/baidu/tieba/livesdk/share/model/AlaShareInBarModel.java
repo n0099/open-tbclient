@@ -13,7 +13,7 @@ import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ax7;
+import com.baidu.tieba.f08;
 import com.baidu.tieba.livesdk.share.message.AlaShareInBarResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,7 +29,7 @@ public class AlaShareInBarModel extends BdBaseModel {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(int i, String str, ax7 ax7Var);
+        void a(int i, String str, f08 f08Var);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -98,11 +98,11 @@ public class AlaShareInBarModel extends BdBaseModel {
             }
         }
         this.b = new a(this, AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
-        H();
+        O();
         MessageManager.getInstance().registerListener(this.b);
     }
 
-    public final void H() {
+    public final void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_LIVE_SHARE_IN_BAR);
@@ -112,14 +112,14 @@ public class AlaShareInBarModel extends BdBaseModel {
         }
     }
 
-    public void J(b bVar) {
+    public void Q(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.a = bVar;
         }
     }
 
-    public void I(String str, String str2, String str3, String str4) {
+    public void P(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4) == null) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);

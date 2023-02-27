@@ -1,35 +1,63 @@
 package com.baidu.tieba;
 
-import android.app.Application;
 import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
 public interface qn0 {
-    void a();
+    public static final ServiceReference a = new ServiceReference("nad.core", "exp");
+    public static final qn0 b = new a();
 
-    void b(@NonNull Application application);
+    @NonNull
+    pn0 a();
 
-    @Autowired
-    /* loaded from: classes6.dex */
-    public static class a {
+    @NonNull
+    rn0 request();
+
+    /* loaded from: classes5.dex */
+    public static class a implements qn0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.qn0
         @NonNull
-        @Singleton
-        @Inject(force = false)
-        public static qn0 a() {
+        public pn0 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                return nx0.a();
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return pn0.a;
             }
-            return (qn0) invokeV.objValue;
+            return (pn0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.qn0
+        @NonNull
+        public rn0 request() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return rn0.a;
+            }
+            return (rn0) invokeV.objValue;
         }
     }
 }

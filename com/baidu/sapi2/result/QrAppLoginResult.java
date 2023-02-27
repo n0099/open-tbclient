@@ -1,13 +1,8 @@
 package com.baidu.sapi2.result;
 
 import com.baidu.sapi2.NoProguard;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class QrAppLoginResult extends SapiResult implements NoProguard {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_MSG_UNKNOWN = "登录失败";
     public static final int RESULT_CODE_BDUSS_EMPTY = 160102;
     public static final int RESULT_CODE_BDUSS_EXPIRED = 2;
@@ -18,24 +13,11 @@ public class QrAppLoginResult extends SapiResult implements NoProguard {
     public static final String RESULT_MSG_INCOMPLETE_USER = "用户尚未正常化，无法使用此功能";
     public static final String RESULT_MSG_QRCODE_EXPIRED = "抱歉，您的登录二维码已过期失效，请刷新网页重新获取";
     public static final String RESULT_MSG_SUCCESS = "登录成功";
-    public transient /* synthetic */ FieldHolder $fh;
     public String city;
     public String country;
     public String province;
 
     public QrAppLoginResult() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.msgMap.put(0, RESULT_MSG_SUCCESS);
         this.msgMap.put(110000, RESULT_MSG_SUCCESS);
         this.msgMap.put(1, RESULT_MSG_QRCODE_EXPIRED);

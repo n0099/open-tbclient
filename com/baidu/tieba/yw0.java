@@ -1,11 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar;
+import android.app.Activity;
+import com.baidu.nadcore.player.helper.BdVideoGesture;
 /* loaded from: classes7.dex */
 public interface yw0 {
-    void a(BdThumbSeekBar bdThumbSeekBar, int i, boolean z);
+    void b();
 
-    void b(BdThumbSeekBar bdThumbSeekBar);
+    void c(int i, int i2);
 
-    void c(BdThumbSeekBar bdThumbSeekBar);
+    void f(float f);
+
+    int getCurrentPosition();
+
+    void i(float f);
+
+    void l(int i, float f);
+
+    void m(BdVideoGesture.VideoPluginGesture videoPluginGesture);
+
+    Activity o();
+
+    boolean p();
 }

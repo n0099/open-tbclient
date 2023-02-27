@@ -1,139 +1,73 @@
 package com.xiaomi.push;
-
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public final class a {
-    public static /* synthetic */ Interceptable $ic;
-    public static final a a;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final a a = new a(new byte[0]);
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile int f114a;
+    public volatile int f92a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    public final byte[] f115a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1664386731, "Lcom/xiaomi/push/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1664386731, "Lcom/xiaomi/push/a;");
-                return;
-            }
-        }
-        a = new a(new byte[0]);
-    }
+    public final byte[] f93a;
 
     public a(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f114a = 0;
-        this.f115a = bArr;
+        this.f93a = bArr;
     }
 
     public static a a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? a(bArr, 0, bArr.length) : (a) invokeL.objValue;
+        return a(bArr, 0, bArr.length);
     }
 
     public static a a(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bArr, i, i2)) == null) {
-            byte[] bArr2 = new byte[i2];
-            System.arraycopy(bArr, i, bArr2, 0, i2);
-            return new a(bArr2);
-        }
-        return (a) invokeLII.objValue;
+        byte[] bArr2 = new byte[i2];
+        System.arraycopy(bArr, i, bArr2, 0, i2);
+        return new a(bArr2);
     }
 
     public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f115a.length : invokeV.intValue;
+        return this.f93a.length;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m176a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            byte[] bArr = this.f115a;
-            int length = bArr.length;
-            byte[] bArr2 = new byte[length];
-            System.arraycopy(bArr, 0, bArr2, 0, length);
-            return bArr2;
-        }
-        return (byte[]) invokeV.objValue;
+    public byte[] m170a() {
+        byte[] bArr = this.f93a;
+        int length = bArr.length;
+        byte[] bArr2 = new byte[length];
+        System.arraycopy(bArr, 0, bArr2, 0, length);
+        return bArr2;
     }
 
     public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (obj == this) {
-                return true;
+        if (obj == this) {
+            return true;
+        }
+        if (obj instanceof a) {
+            byte[] bArr = this.f93a;
+            int length = bArr.length;
+            byte[] bArr2 = ((a) obj).f93a;
+            if (length != bArr2.length) {
+                return false;
             }
-            if (obj instanceof a) {
-                byte[] bArr = this.f115a;
-                int length = bArr.length;
-                byte[] bArr2 = ((a) obj).f115a;
-                if (length != bArr2.length) {
+            for (int i = 0; i < length; i++) {
+                if (bArr[i] != bArr2[i]) {
                     return false;
                 }
-                for (int i = 0; i < length; i++) {
-                    if (bArr[i] != bArr2[i]) {
-                        return false;
-                    }
-                }
-                return true;
             }
-            return false;
+            return true;
         }
-        return invokeL.booleanValue;
+        return false;
     }
 
     public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i = this.f114a;
-            if (i == 0) {
-                byte[] bArr = this.f115a;
-                int length = bArr.length;
-                for (byte b : bArr) {
-                    length = (length * 31) + b;
-                }
-                i = length == 0 ? 1 : length;
-                this.f114a = i;
+        int i = this.f92a;
+        if (i == 0) {
+            byte[] bArr = this.f93a;
+            int length = bArr.length;
+            for (byte b : bArr) {
+                length = (length * 31) + b;
             }
-            return i;
+            i = length == 0 ? 1 : length;
+            this.f92a = i;
         }
-        return invokeV.intValue;
+        return i;
     }
 }

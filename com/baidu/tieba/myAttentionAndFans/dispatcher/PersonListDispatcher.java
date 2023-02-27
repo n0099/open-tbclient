@@ -4,15 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.ay8;
 import com.baidu.tieba.myAttentionAndFans.PersonListActivity;
-import com.baidu.tieba.ou8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class PersonListDispatcher implements ou8 {
+public class PersonListDispatcher implements ay8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,7 +30,7 @@ public class PersonListDispatcher implements ou8 {
         }
     }
 
-    @Override // com.baidu.tieba.ou8
+    @Override // com.baidu.tieba.ay8
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {

@@ -1,62 +1,27 @@
 package com.baidu.sapi2;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class ServiceManager implements NoProguard {
-    public static /* synthetic */ Interceptable $ic;
     public static ServiceManager instance;
-    public transient /* synthetic */ FieldHolder $fh;
     public ISAccountManager isAccountManager;
 
-    public ServiceManager() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static synchronized ServiceManager getInstance() {
-        InterceptResult invokeV;
         ServiceManager serviceManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (ServiceManager.class) {
-                if (instance == null) {
-                    instance = new ServiceManager();
-                }
-                serviceManager = instance;
+        synchronized (ServiceManager.class) {
+            if (instance == null) {
+                instance = new ServiceManager();
             }
-            return serviceManager;
+            serviceManager = instance;
         }
-        return (ServiceManager) invokeV.objValue;
+        return serviceManager;
     }
 
     public ISAccountManager getIsAccountManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.isAccountManager;
-        }
-        return (ISAccountManager) invokeV.objValue;
+        return this.isAccountManager;
     }
 
     public void setIsAccountManager(ISAccountManager iSAccountManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iSAccountManager) == null) {
-            this.isAccountManager = iSAccountManager;
-        }
+        this.isAccountManager = iSAccountManager;
     }
 }

@@ -1,7 +1,9 @@
 package com.bytedance.sdk.openadsdk.api.plugin.a;
 
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.huawei.hms.common.internal.TransactionIdCreater;
 import javax.security.auth.x500.X500Principal;
+import org.apache.commons.codec.net.RFC1522Codec;
 /* loaded from: classes7.dex */
 public final class b {
     public final String a;
@@ -25,7 +27,7 @@ public final class b {
         if (i4 < this.b) {
             char c = this.g[i];
             if (c >= '0' && c <= '9') {
-                i2 = c - '0';
+                i2 = c - TransactionIdCreater.FILL_BYTE;
             } else if (c >= 'a' && c <= 'f') {
                 i2 = c - 'W';
             } else if (c >= 'A' && c <= 'F') {
@@ -35,7 +37,7 @@ public final class b {
             }
             char c2 = this.g[i4];
             if (c2 >= '0' && c2 <= '9') {
-                i3 = c2 - '0';
+                i3 = c2 - TransactionIdCreater.FILL_BYTE;
             } else if (c2 >= 'a' && c2 <= 'f') {
                 i3 = c2 - 'W';
             } else if (c2 >= 'A' && c2 <= 'F') {
@@ -317,7 +319,7 @@ public final class b {
             return (char) a;
         }
         if (a < 192 || a > 247) {
-            return '?';
+            return RFC1522Codec.SEP;
         }
         if (a <= 223) {
             i2 = a & 31;
@@ -333,14 +335,14 @@ public final class b {
             int i4 = this.c + 1;
             this.c = i4;
             if (i4 == this.b || this.g[i4] != '\\') {
-                return '?';
+                return RFC1522Codec.SEP;
             }
             int i5 = i4 + 1;
             this.c = i5;
             int a2 = a(i5);
             this.c++;
             if ((a2 & 192) != 128) {
-                return '?';
+                return RFC1522Codec.SEP;
             }
             i2 = (i2 << 6) + (a2 & 63);
         }

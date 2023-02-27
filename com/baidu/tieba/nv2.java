@@ -1,22 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nv2 implements vy2 {
+public class nv2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pv2 a;
-    public int b;
-    public int c;
-    public int d;
-    public float e;
+    @Inject(force = false)
+    public nk1<lv2> a;
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            lk1 b = lk1.b();
+            this.a = b;
+            b.a(new mv2());
+        }
+    }
 
     public nv2() {
         Interceptable interceptable = $ic;
@@ -31,50 +34,6 @@ public class nv2 implements vy2 {
                 return;
             }
         }
-        this.b = 0;
-        this.c = -16777216;
-        this.d = -1;
-        this.e = 0.0f;
-    }
-
-    @Override // com.baidu.tieba.vy2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            pv2 pv2Var = this.a;
-            if (pv2Var != null && pv2Var.isValid() && this.d != -1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.vy2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("radius")) {
-            return;
-        }
-        pv2 pv2Var = new pv2();
-        this.a = pv2Var;
-        pv2Var.a(jSONObject);
-        if (!this.a.isValid()) {
-            return;
-        }
-        this.b = jv2.a(jSONObject.optString("color"), 0);
-        this.c = jv2.a(jSONObject.optString("fillColor"), -16777216);
-        this.d = jSONObject.optInt("radius", -1);
-        this.e = Math.abs(jv2.b(jSONObject.optDouble("strokeWidth", 0.0d)));
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "coordinate ->" + this.a + "color ->" + this.b + "fillColor ->" + this.c + "radius ->" + this.d + "strokeWidth ->" + this.e;
-        }
-        return (String) invokeV.objValue;
+        a();
     }
 }

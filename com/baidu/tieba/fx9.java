@@ -1,33 +1,18 @@
 package com.baidu.tieba;
 
-import android.media.MediaMetadataRetriever;
+import android.util.Pair;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
+import java.util.LinkedList;
 /* loaded from: classes4.dex */
 public class fx9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(MediaMetadataRetriever mediaMetadataRetriever) {
+    public static void a(String str, String str2, LinkedList<Pair<String, Object>> linkedList) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, mediaMetadataRetriever) == null) && mediaMetadataRetriever != null) {
-            try {
-                mediaMetadataRetriever.release();
-            } catch (Exception e) {
-                gx9.g(e);
-            }
-        }
-    }
-
-    public static void b(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
-            try {
-                closeable.close();
-            } catch (Throwable th) {
-                gx9.d(th.getMessage());
-            }
+        if ((interceptable == null || interceptable.invokeLLL(65536, null, str, str2, linkedList) == null) && gx9.c().g() != null) {
+            gx9.c().g().b(54, null, null, null, null, null, str, null, str2, null, linkedList);
         }
     }
 }

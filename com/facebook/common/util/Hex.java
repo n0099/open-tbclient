@@ -1,38 +1,14 @@
 package com.facebook.common.util;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.common.internal.TransactionIdCreater;
 /* loaded from: classes7.dex */
 public class Hex {
-    public static /* synthetic */ Interceptable $ic;
     public static final byte[] DIGITS;
-    public static final char[] FIRST_CHAR;
-    public static final char[] HEX_DIGITS;
-    public static final char[] SECOND_CHAR;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final char[] HEX_DIGITS = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    public static final char[] FIRST_CHAR = new char[256];
+    public static final char[] SECOND_CHAR = new char[256];
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(806840, "Lcom/facebook/common/util/Hex;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(806840, "Lcom/facebook/common/util/Hex;");
-                return;
-            }
-        }
-        HEX_DIGITS = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-        FIRST_CHAR = new char[256];
-        SECOND_CHAR = new char[256];
         for (int i = 0; i < 256; i++) {
             char[] cArr = FIRST_CHAR;
             char[] cArr2 = HEX_DIGITS;
@@ -54,92 +30,58 @@ public class Hex {
         }
     }
 
-    public Hex() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
     public static String byte2Hex(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i <= 255 && i >= 0) {
-                return String.valueOf(FIRST_CHAR[i]) + String.valueOf(SECOND_CHAR[i]);
-            }
-            throw new IllegalArgumentException("The int converting to hex should be in range 0~255");
+        if (i <= 255 && i >= 0) {
+            return String.valueOf(FIRST_CHAR[i]) + String.valueOf(SECOND_CHAR[i]);
         }
-        return (String) invokeI.objValue;
-    }
-
-    public static byte[] decodeHex(String str) {
-        InterceptResult invokeL;
-        byte b;
-        byte b2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            int length = str.length();
-            if ((length & 1) == 0) {
-                byte[] bArr = new byte[length >> 1];
-                boolean z = false;
-                int i = 0;
-                int i2 = 0;
-                while (i < length) {
-                    int i3 = i + 1;
-                    char charAt = str.charAt(i);
-                    if (charAt <= 'f' && (b = DIGITS[charAt]) != -1) {
-                        int i4 = i3 + 1;
-                        char charAt2 = str.charAt(i3);
-                        if (charAt2 <= 'f' && (b2 = DIGITS[charAt2]) != -1) {
-                            bArr[i2] = (byte) ((b << 4) | b2);
-                            i2++;
-                            i = i4;
-                        }
-                    }
-                    z = true;
-                }
-                if (!z) {
-                    return bArr;
-                }
-                throw new IllegalArgumentException("Invalid hexadecimal digit: " + str);
-            }
-            throw new IllegalArgumentException("Odd number of characters.");
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static String encodeHex(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, z)) == null) {
-            char[] cArr = new char[bArr.length * 2];
-            int i2 = 0;
-            for (int i3 = 0; i3 < bArr.length && ((i = bArr[i3] & 255) != 0 || !z); i3++) {
-                int i4 = i2 + 1;
-                cArr[i2] = FIRST_CHAR[i];
-                i2 = i4 + 1;
-                cArr[i4] = SECOND_CHAR[i];
-            }
-            return new String(cArr, 0, i2);
-        }
-        return (String) invokeLZ.objValue;
+        throw new IllegalArgumentException("The int converting to hex should be in range 0~255");
     }
 
     public static byte[] hexStringToByteArray(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            return decodeHex(str.replaceAll(" ", ""));
+        return decodeHex(str.replaceAll(" ", ""));
+    }
+
+    public static byte[] decodeHex(String str) {
+        byte b;
+        byte b2;
+        int length = str.length();
+        if ((length & 1) == 0) {
+            byte[] bArr = new byte[length >> 1];
+            boolean z = false;
+            int i = 0;
+            int i2 = 0;
+            while (i < length) {
+                int i3 = i + 1;
+                char charAt = str.charAt(i);
+                if (charAt <= 'f' && (b = DIGITS[charAt]) != -1) {
+                    int i4 = i3 + 1;
+                    char charAt2 = str.charAt(i3);
+                    if (charAt2 <= 'f' && (b2 = DIGITS[charAt2]) != -1) {
+                        bArr[i2] = (byte) ((b << 4) | b2);
+                        i2++;
+                        i = i4;
+                    }
+                }
+                z = true;
+            }
+            if (!z) {
+                return bArr;
+            }
+            throw new IllegalArgumentException("Invalid hexadecimal digit: " + str);
         }
-        return (byte[]) invokeL.objValue;
+        throw new IllegalArgumentException("Odd number of characters.");
+    }
+
+    public static String encodeHex(byte[] bArr, boolean z) {
+        int i;
+        char[] cArr = new char[bArr.length * 2];
+        int i2 = 0;
+        for (int i3 = 0; i3 < bArr.length && ((i = bArr[i3] & 255) != 0 || !z); i3++) {
+            int i4 = i2 + 1;
+            cArr[i2] = FIRST_CHAR[i];
+            i2 = i4 + 1;
+            cArr[i4] = SECOND_CHAR[i];
+        }
+        return new String(cArr, 0, i2);
     }
 }

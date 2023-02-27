@@ -1,131 +1,176 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.lcp.sdk.pb.LcmPb$Common;
-import com.baidu.tieba.r80;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.websocket.WebSocketRequest;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.gslbsdk.db.ProbeTB;
+import java.util.Map;
+import org.apache.http.cookie.ClientCookie;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class u90 {
+public class u90 extends t90 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a b;
+    public int c;
 
-    public static void a(Context context, long j, String str, String str2) {
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(String str, int i);
+
+        void b(int i, String str, int i2);
+    }
+
+    @Override // com.baidu.tieba.v90.b
+    public Map<String, String> getHeaders() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, Long.valueOf(j), str, str2}) == null) {
-            try {
-                r80.c cVar = new r80.c(context);
-                cVar.e(str);
-                cVar.f("1");
-                cVar.c(j);
-                cVar.d(str2);
-                cVar.a(501112L);
-                cVar.b();
-            } catch (Exception e) {
-                w90.c("LCPCommon", "businessEvent exception ", e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.v90.b
+    public String getMediaType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "application/json" : (String) invokeV.objValue;
+    }
+
+    public u90(Context context, a aVar, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, aVar, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context;
+        this.b = aVar;
+        this.c = i;
     }
 
-    @SuppressLint({"DefaultLocale"})
-    public static String e(String str, String str2, String str3, long j) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.v90.b
+    public String getHost() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Long.valueOf(j)})) == null) {
-            return d(String.format("%s%s%s%d", str, str2, str3, Long.valueOf(j)));
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                w90.c("LCPCommon", "getAppVersionName NameNotFoundException", e);
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static Object c(Context context, boolean z) {
-        InterceptResult invokeLZ;
-        String b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, context, z)) == null) {
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            if (TextUtils.isEmpty(b(context))) {
-                b = "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int a2 = z90.a(this.a);
+            if (a2 == 1) {
+                return "http://rd-im-server.bcc-szth.baidu.com:8089/rest/5.0/generate_lcm_token";
+            } else if (a2 == 2) {
+                return "http://sz-shaheenv-al-b.bcc-szwg.baidu.com:8911/rest/5.0/generate_lcm_token";
+            } else if (z90.b(this.a)) {
+                return "http://rd-im-server.bcc-szth.baidu.com:8089/rest/5.0/generate_lcm_token";
             } else {
-                b = b(context);
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            String b2 = x90.b(context);
-            String e = x90.e(context);
-            try {
-                if (z) {
-                    if (!TextUtils.isEmpty(b2) && !TextUtils.isEmpty(e)) {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, valueOf);
-                        jSONObject.put("cuid", e);
-                        jSONObject.put(HttpConstants.DEVICE_TYPE, "android");
-                        jSONObject.put("app_id", b2);
-                        jSONObject.put("app_version", b);
-                        jSONObject.put("sdk_version", "2310016");
-                        jSONObject.put("ts", currentTimeMillis);
-                        jSONObject.put("sign", e(b2, e, "android", currentTimeMillis));
-                        return jSONObject;
-                    }
-                    w90.b("LCPCommon", "getData appId : " + b2 + ", cuid :" + e);
-                    return null;
-                }
-                LcmPb$Common.b newBuilder = LcmPb$Common.newBuilder();
-                newBuilder.w(e);
-                newBuilder.x("android");
-                newBuilder.u(b2);
-                newBuilder.v(b);
-                newBuilder.y("2310016");
-                return newBuilder.build();
-            } catch (Exception e2) {
-                w90.c("LCPCommon", "getData :", e2);
-                return null;
+                return "https://pim.baidu.com/rest/5.0/generate_lcm_token";
             }
         }
-        return invokeLZ.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static String d(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.v90.b
+    public byte[] getRequestParameter() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
-                StringBuilder sb = new StringBuilder();
-                for (byte b : digest) {
-                    int i = b & 255;
-                    if (i < 16) {
-                        sb.append(0);
-                    }
-                    sb.append(Integer.toHexString(i));
+                JSONObject jSONObject = (JSONObject) y90.c(this.a, true);
+                if (jSONObject != null) {
+                    return jSONObject.toString().getBytes();
                 }
-                return sb.toString();
-            } catch (NoSuchAlgorithmException unused) {
-                return "";
+                return new byte[0];
+            } catch (Exception unused) {
+                return new byte[0];
             }
         }
-        return (String) invokeL.objValue;
+        return (byte[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.v90.d
+    public void onFailure(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
+            this.b.b(i, str, this.c);
+        }
+    }
+
+    @Override // com.baidu.tieba.v90.d
+    public void onSuccess(byte[] bArr) {
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bArr) == null) {
+            try {
+                JSONObject jSONObject2 = new JSONObject(new String(bArr));
+                aa0.a("GetTokenRequest", "onSuccess :" + jSONObject2.toString());
+                int optInt = jSONObject2.optInt("error_code", -1);
+                String optString = jSONObject2.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
+                t80 g = s80.h(this.a).g(601110);
+                g.c("token_end", System.currentTimeMillis());
+                g.b("connect_state", 1);
+                g.d("P2", jSONObject2.toString());
+                g.d("con_err_code", "P2");
+                if (optInt == 0) {
+                    ba0.q(this.a, jSONObject2.optBoolean("bddns_enable", false));
+                    String optString2 = jSONObject2.optString("token");
+                    JSONArray jSONArray = jSONObject2.getJSONArray(WebSocketRequest.PARAM_KEY_PROTOCOLS);
+                    if (!TextUtils.isEmpty(optString2) && jSONArray != null && jSONArray.length() >= 1) {
+                        ba0.w(this.a, jSONArray.length());
+                        for (int i = 0; i < jSONArray.length(); i++) {
+                            JSONObject jSONObject3 = (JSONObject) jSONArray.get(i);
+                            ba0.v(this.a, jSONObject3.optString(ProbeTB.PROTOCOL) + ":" + jSONObject3.optString("domain") + ":" + jSONObject3.optString(ClientCookie.PORT_ATTR), i);
+                        }
+                        ba0.s(this.a, jSONObject2.optInt("ipv6_strategy", 3));
+                        ba0.x(this.a, optString2);
+                        this.b.a(optString2, this.c);
+                        try {
+                            String optString3 = jSONObject2.optString("client_log_config", "");
+                            if (!TextUtils.isEmpty(optString3)) {
+                                JSONObject jSONObject4 = new JSONObject(optString3);
+                                x80.j(this.a, jSONObject4.optInt("client_upload_log_switch", 0));
+                                JSONArray jSONArray2 = jSONObject4.getJSONArray("realtime_log_switch");
+                                if (jSONArray2 != null && jSONArray2.length() > 0) {
+                                    for (int i2 = 0; i2 < jSONArray2.length() && (jSONObject = jSONArray2.getJSONObject(i2)) != null; i2++) {
+                                        x80.i(this.a, jSONObject.optInt("id", 0), jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0));
+                                    }
+                                    return;
+                                }
+                                return;
+                            }
+                            return;
+                        } catch (Exception e) {
+                            a aVar = this.b;
+                            aVar.b(10001, "Json Exception" + e, this.c);
+                            aa0.b("GetTokenRequest", "Json Exception");
+                            return;
+                        }
+                    }
+                    this.b.b(10002, "token or protocol is empty", this.c);
+                    return;
+                }
+                this.b.b(optInt, optString, this.c);
+            } catch (JSONException e2) {
+                a aVar2 = this.b;
+                aVar2.b(10001, "parse response exception ：" + e2, this.c);
+            }
+        }
     }
 }

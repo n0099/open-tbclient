@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.mj7;
+import com.baidu.tieba.im7;
 import com.baidu.tieba.xf;
 import com.baidu.tieba.yf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class MsgActivityView extends mj7 {
+public class MsgActivityView extends im7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView G;
@@ -147,7 +147,7 @@ public class MsgActivityView extends mj7 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgActivityView(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d05bb);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d05cf);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -165,10 +165,10 @@ public class MsgActivityView extends mj7 {
             }
         }
         this.i = (TextView) k(R.id.tex_msgitem_time);
-        this.H = (TextView) k(R.id.obfuscated_res_0x7f091689);
-        this.I = (TextView) k(R.id.obfuscated_res_0x7f091688);
-        this.J = (TextView) k(R.id.obfuscated_res_0x7f091687);
-        HeadImageView headImageView = (HeadImageView) k(R.id.obfuscated_res_0x7f090fdf);
+        this.H = (TextView) k(R.id.obfuscated_res_0x7f0916ca);
+        this.I = (TextView) k(R.id.obfuscated_res_0x7f0916c9);
+        this.J = (TextView) k(R.id.obfuscated_res_0x7f0916c8);
+        HeadImageView headImageView = (HeadImageView) k(R.id.obfuscated_res_0x7f091020);
         this.G = headImageView;
         headImageView.setIsRound(false);
         this.G.setClickable(true);
@@ -176,7 +176,7 @@ public class MsgActivityView extends mj7 {
         l().setOnLongClickListener(new b(this));
     }
 
-    @Override // com.baidu.tieba.mj7
+    @Override // com.baidu.tieba.im7
     public void F(xf xfVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, xfVar) == null) {
@@ -184,7 +184,7 @@ public class MsgActivityView extends mj7 {
         }
     }
 
-    @Override // com.baidu.tieba.mj7
+    @Override // com.baidu.tieba.im7
     public void G(yf yfVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yfVar) == null) {
@@ -192,7 +192,7 @@ public class MsgActivityView extends mj7 {
         }
     }
 
-    @Override // com.baidu.tieba.mj7
+    @Override // com.baidu.tieba.im7
     public void H(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -228,29 +228,29 @@ public class MsgActivityView extends mj7 {
                 String str = "";
                 switch (i3) {
                     case 0:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f11fd);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f11ff);
                         break;
                     case 1:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0db0);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0db9);
                         break;
                     case 2:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f15bb);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f15be);
                         break;
                     case 3:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f14b9);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f14bc);
                         break;
                     case 4:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f072b);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f072f);
                         break;
                     case 5:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f068b);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f068f);
                         break;
                     case 6:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f127a);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f127c);
                         break;
                 }
                 if (i > 12) {
-                    string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0f98);
+                    string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0fa2);
                     i -= 12;
                 } else {
                     string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0288);

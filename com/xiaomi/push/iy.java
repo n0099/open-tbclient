@@ -1,66 +1,32 @@
 package com.xiaomi.push;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.jb;
+import com.xiaomi.push.iz;
+import java.io.ByteArrayOutputStream;
 /* loaded from: classes8.dex */
 public class iy {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final jf a;
+    public jd a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final jo f820a;
+    public final jk f803a;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    /* renamed from: a  reason: collision with other field name */
+    public final ByteArrayOutputStream f804a;
+
     public iy() {
-        this(new jb.a());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((jh) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+        this(new iz.a());
     }
 
-    public iy(jh jhVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jhVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        jo joVar = new jo();
-        this.f820a = joVar;
-        this.a = jhVar.a(joVar);
+    public iy(jf jfVar) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        this.f804a = byteArrayOutputStream;
+        jk jkVar = new jk(byteArrayOutputStream);
+        this.f803a = jkVar;
+        this.a = jfVar.a(jkVar);
     }
 
-    public void a(iu iuVar, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, iuVar, bArr) == null) {
-            try {
-                this.f820a.a(bArr);
-                iuVar.a(this.a);
-            } finally {
-                this.a.k();
-            }
-        }
+    public byte[] a(is isVar) {
+        this.f804a.reset();
+        isVar.b(this.a);
+        return this.f804a.toByteArray();
     }
 }

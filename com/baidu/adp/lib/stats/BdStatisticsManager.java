@@ -21,7 +21,6 @@ import com.baidu.adp.lib.stats.base.BdUploadStatMsgData;
 import com.baidu.adp.lib.stats.switchs.BdStatSwitchData;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.tieba.bi;
 import com.baidu.tieba.compatible.EditorHelper;
@@ -47,6 +46,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.framework.common.hianalytics.CrashHianalyticsData;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -767,7 +767,7 @@ public class BdStatisticsManager {
             lh lhVar = new lh("crash");
             lhVar.b("module", "crash");
             if (!TextUtils.isEmpty(str)) {
-                lhVar.b("crash_type", str);
+                lhVar.b(CrashHianalyticsData.CRASH_TYPE, str);
             }
             if (!TextUtils.isEmpty(str2)) {
                 lhVar.b("ci", str2);
@@ -849,7 +849,7 @@ public class BdStatisticsManager {
                 lhVar.b("op_key", str);
             }
             if (!TextUtils.isEmpty(str2)) {
-                lhVar.b(Config.PLATFORM_TYPE, str2);
+                lhVar.b("pt", str2);
             }
             lhVar.b("co", String.valueOf(i));
             long currentTimeMillis = System.currentTimeMillis();

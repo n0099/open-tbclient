@@ -1,38 +1,572 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.connect.NetWorkUtils;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
+import com.baidu.tieba.m3a;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTDrawFeedAd;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.model.csj.CSJDrawVideoNativeView;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class b3a extends u2a {
+public class b3a {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
+    public static volatile b3a g;
     public transient /* synthetic */ FieldHolder $fh;
+    public ScheduledExecutorService a;
+    public ExecutorService b;
+    public n3a c;
+    public Context d;
+    public k3a e;
 
     /* loaded from: classes3.dex */
-    public class a implements TTAdNative.DrawFeedAdListener {
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public m3a a;
+        public long b;
+        public boolean c;
+        public r3a d;
+        public final /* synthetic */ b3a e;
+
+        /* loaded from: classes3.dex */
+        public class a implements i3a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ d a;
+
+            public a(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = dVar;
+            }
+
+            @Override // com.baidu.tieba.i3a
+            public void a(String str, JSONObject jSONObject) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
+                    if (this.a.c) {
+                        this.a.e.c.m(false, this.a.a);
+                        d dVar = this.a;
+                        dVar.e.m(false, dVar.a.a(), "dir not found", this.a.a.b(), null);
+                    } else if (this.a.d != null) {
+                        d dVar2 = this.a;
+                        dVar2.e.j(false, "dir not found", dVar2.a.c(), this.a.d);
+                    }
+                }
+            }
+
+            @Override // com.baidu.tieba.i3a
+            public void b(String str, JSONObject jSONObject) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
+                    this.a.a.n(jSONObject);
+                    if (this.a.c) {
+                        this.a.e.c.u(false, this.a.a);
+                        d dVar = this.a;
+                        dVar.e.m(false, dVar.a.a(), "zip failed", this.a.a.b(), null);
+                    } else if (this.a.d != null) {
+                        d dVar2 = this.a;
+                        dVar2.e.j(false, "zip failed", dVar2.a.c(), this.a.d);
+                    }
+                }
+            }
+
+            @Override // com.baidu.tieba.i3a
+            public void c(String str, int i, String str2, JSONObject jSONObject) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2, jSONObject) == null) {
+                    if (this.a.c) {
+                        d dVar = this.a;
+                        dVar.e.k(false, false, dVar.a, this.a.b, str2, jSONObject);
+                    } else if (this.a.d != null) {
+                        d dVar2 = this.a;
+                        dVar2.e.j(false, str2, jSONObject, dVar2.d);
+                    }
+                }
+            }
+
+            @Override // com.baidu.tieba.i3a
+            public void d(String str, String str2, JSONObject jSONObject) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, jSONObject) == null) {
+                    if (this.a.c) {
+                        d dVar = this.a;
+                        dVar.e.k(true, false, dVar.a, this.a.b, str2, jSONObject);
+                    } else if (this.a.d != null) {
+                        d dVar2 = this.a;
+                        dVar2.e.j(true, str2, jSONObject, dVar2.d);
+                    }
+                }
+            }
+        }
+
+        public d(b3a b3aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b3aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = b3aVar;
+        }
+
+        public d(b3a b3aVar, String str, String str2, int i, int i2, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b3aVar, str, str2, Integer.valueOf(i), Integer.valueOf(i2), jSONObject};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.e = b3aVar;
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(str);
+            m3a.b bVar = new m3a.b(str2, arrayList);
+            bVar.p(false);
+            bVar.o(i);
+            bVar.n(i2);
+            bVar.l(jSONObject);
+            this.a = bVar.k();
+            this.c = true;
+        }
+
+        public d(b3a b3aVar, String str, String str2, r3a r3aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b3aVar, str, str2, r3aVar};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            this.e = b3aVar;
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(str);
+            m3a.b bVar = new m3a.b(str2, arrayList);
+            bVar.p(false);
+            this.a = bVar.k();
+            this.d = r3aVar;
+        }
+
+        public d(b3a b3aVar, ArrayList<String> arrayList, String str, long j, int i, int i2, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b3aVar, arrayList, str, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), jSONObject};
+                interceptable.invokeUnInit(65539, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65539, newInitContext);
+                    return;
+                }
+            }
+            this.e = b3aVar;
+            m3a.b bVar = new m3a.b(str, arrayList);
+            bVar.o(i);
+            bVar.l(jSONObject);
+            bVar.m(j);
+            bVar.p(true);
+            bVar.n(i2);
+            this.a = bVar.k();
+            this.c = true;
+        }
+
+        public d(b3a b3aVar, ArrayList<String> arrayList, String str, long j, int i, r3a r3aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b3aVar, arrayList, str, Long.valueOf(j), Integer.valueOf(i), r3aVar};
+                interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                    return;
+                }
+            }
+            this.e = b3aVar;
+            m3a.b bVar = new m3a.b(str, arrayList);
+            bVar.m(j);
+            bVar.n(i);
+            bVar.p(true);
+            this.a = bVar.k();
+            this.d = r3aVar;
+        }
+
+        public final boolean e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (!d3a.f().p()) {
+                    if (b3a.f) {
+                        Log.d("VoyagerFileProcessor", "Voyager component disable.");
+                    }
+                    if (d3a.f().o()) {
+                        this.e.c.c();
+                    }
+                    return false;
+                } else if (!d3a.f().a(this.a.a())) {
+                    if (b3a.f) {
+                        Log.d("VoyagerFileProcessor", "Voyager bizType " + this.a.a() + " disable.");
+                    }
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            return invokeV.booleanValue;
+        }
+
+        public final void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                f3a.g().d(this.a, new a(this));
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                if (!e()) {
+                    if (this.c) {
+                        this.e.m(false, this.a.a(), "component disabled", this.a.b(), null);
+                        return;
+                    } else if (this.d != null) {
+                        this.e.j(false, "component disabled", this.a.c(), this.d);
+                        return;
+                    } else {
+                        return;
+                    }
+                }
+                if (this.c) {
+                    this.e.c.k(this.a);
+                }
+                f();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class f implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public long b;
+        public final /* synthetic */ b3a c;
+
+        /* loaded from: classes3.dex */
+        public class a implements i3a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ m3a a;
+            public final /* synthetic */ f b;
+
+            public a(f fVar, m3a m3aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {fVar, m3aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = fVar;
+                this.a = m3aVar;
+            }
+
+            @Override // com.baidu.tieba.i3a
+            public void a(String str, JSONObject jSONObject) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
+                    this.b.c.c.m(true, this.a);
+                    this.b.c.m(false, this.a.a(), "dir not found", jSONObject, this.a.b());
+                }
+            }
+
+            @Override // com.baidu.tieba.i3a
+            public void b(String str, JSONObject jSONObject) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
+                    this.b.c.c.u(true, this.a);
+                    this.b.c.m(false, this.a.a(), "zip failed", jSONObject, this.a.b());
+                }
+            }
+
+            @Override // com.baidu.tieba.i3a
+            public void c(String str, int i, String str2, JSONObject jSONObject) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2, jSONObject) == null) {
+                    f fVar = this.b;
+                    fVar.c.k(false, true, this.a, fVar.b, str2, jSONObject);
+                }
+            }
+
+            @Override // com.baidu.tieba.i3a
+            public void d(String str, String str2, JSONObject jSONObject) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, jSONObject) == null) {
+                    f fVar = this.b;
+                    fVar.c.k(true, true, this.a, fVar.b, str2, jSONObject);
+                }
+            }
+        }
+
+        public f(b3a b3aVar, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b3aVar, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = b3aVar;
+            this.a = z;
+        }
+
+        public final boolean a(m3a m3aVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, m3aVar)) == null) {
+                if (!d3a.f().p()) {
+                    if (b3a.f) {
+                        Log.d("VoyagerFileProcessor", "Voyager component disable.");
+                    }
+                    return false;
+                } else if (!d3a.f().a(m3aVar.a())) {
+                    if (b3a.f) {
+                        Log.d("VoyagerFileProcessor", "Voyager bizType " + m3aVar.a() + " disable.");
+                    }
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                if (this.c.c == null) {
+                    if (b3a.f) {
+                        Log.d("VoyagerFileProcessor", "TaskModel not init");
+                    }
+                } else if (!NetWorkUtils.isConnected(this.c.d)) {
+                    if (b3a.f) {
+                        Log.d("VoyagerFileProcessor", "network error, won't retry ");
+                    }
+                } else {
+                    m3a i = this.c.c.i();
+                    if (i == null) {
+                        if (b3a.f) {
+                            Log.d("VoyagerFileProcessor", "don't have retry task ");
+                            return;
+                        }
+                        return;
+                    }
+                    if (!a(i)) {
+                        this.c.m(false, i.a(), "component disabled", i.b(), null);
+                    }
+                    if (!this.a && !this.c.c.b()) {
+                        this.c.a.schedule(this, d3a.f().l(), TimeUnit.MILLISECONDS);
+                        if (b3a.f) {
+                            Log.d("VoyagerFileProcessor", "time error, won't retry ");
+                            return;
+                        }
+                        return;
+                    }
+                    this.c.c.p();
+                    this.c.c.r();
+                    f3a.g().c(i, new a(this, i));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r3a a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ JSONObject d;
+        public final /* synthetic */ b3a e;
+
+        public a(b3a b3aVar, r3a r3aVar, boolean z, String str, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b3aVar, r3aVar, Boolean.valueOf(z), str, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = b3aVar;
+            this.a = r3aVar;
+            this.b = z;
+            this.c = str;
+            this.d = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            r3a r3aVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (r3aVar = this.a) == null) {
+                return;
+            }
+            if (this.b) {
+                r3aVar.onSuccess(this.c, this.d);
+                this.e.p(false);
+                return;
+            }
+            String str = this.c;
+            if (TextUtils.isEmpty(str)) {
+                str = IActiveUploadListener.UPLOAD_ERR_MSG;
+            }
+            this.a.onFailure(str, this.d);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ m3a c;
+        public final /* synthetic */ long d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ JSONObject f;
+        public final /* synthetic */ b3a g;
+
+        public b(b3a b3aVar, boolean z, boolean z2, m3a m3aVar, long j, String str, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b3aVar, Boolean.valueOf(z), Boolean.valueOf(z2), m3aVar, Long.valueOf(j), str, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.g = b3aVar;
+            this.a = z;
+            this.b = z2;
+            this.c = m3aVar;
+            this.d = j;
+            this.e = str;
+            this.f = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a) {
+                    this.g.c.t(this.b, this.c, this.d, this.e);
+                    this.g.p(!this.b);
+                } else {
+                    this.g.c.s(this.b, this.c, this.d);
+                }
+                this.g.m(this.a, this.c.a(), this.e, this.f, this.c.b());
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b3a a;
 
-        public a(b3a b3aVar) {
+        public c(b3a b3aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,82 +584,200 @@ public class b3a extends u2a {
             this.a = b3aVar;
         }
 
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.DrawFeedAdListener
-        public void onDrawFeedAdLoad(List<TTDrawFeedAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                LogPrinter.d();
-                if (list == null || list.isEmpty()) {
-                    LogPrinter.e("onFeedAdLoad error: adList is null or empty", new Object[0]);
-                    this.a.onError(0, "NoFill");
-                    return;
-                }
-                ArrayList arrayList = new ArrayList();
-                for (TTDrawFeedAd tTDrawFeedAd : list) {
-                    arrayList.add(new h3a(tTDrawFeedAd));
-                }
-                this.a.onAdLoaded((List) arrayList);
-            }
+        public /* synthetic */ c(b3a b3aVar, a aVar) {
+            this(b3aVar);
         }
 
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.DrawFeedAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        public void onError(int i, String str) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                LogPrinter.e("CSJDrawNative onError code: " + i + ", message: " + str, new Object[0]);
-                this.a.onError(i, str);
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !ok1.g()) {
+                return;
+            }
+            this.a.e = new k3a();
+            if (d3a.f().p()) {
+                this.a.c = new n3a(this.a.d, e3a.c);
+                this.a.o();
+            } else if (d3a.f().o()) {
+                this.a.c = new n3a(this.a.d, e3a.d);
+            } else {
+                this.a.c = new n3a(this.a.d, e3a.c);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b3a(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.DRAW), pid);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes3.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public String b;
+        public String c;
+        public JSONObject d;
+        public JSONObject e;
+        public final /* synthetic */ b3a f;
+
+        public e(b3a b3aVar, boolean z, String str, String str2, JSONObject jSONObject, JSONObject jSONObject2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b3aVar, Boolean.valueOf(z), str, str2, jSONObject, jSONObject2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = b3aVar;
+            this.a = z;
+            this.b = str;
+            this.c = str2;
+            this.d = jSONObject;
+            this.e = jSONObject2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            List<p3a> list;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f.e != null && !TextUtils.isEmpty(this.b) && (list = this.f.e.a.getList()) != null && list.size() > 0) {
+                for (p3a p3aVar : list) {
+                    if (TextUtils.equals(this.b, p3aVar.getBizType())) {
+                        p3aVar.onReceiveResult(this.a, this.b, this.c, this.d, this.e);
+                    }
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947595417, "Lcom/baidu/tieba/b3a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947595417, "Lcom/baidu/tieba/b3a;");
                 return;
             }
         }
+        f = AppConfig.isDebug();
     }
 
-    @Override // com.baidu.tieba.u2a
-    public void h(FunAdSlot funAdSlot) {
+    public static b3a n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, funAdSlot) == null) {
-            this.e.loadDrawFeedAd(new AdSlot.Builder().setCodeId(this.mPid.pid).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (g == null) {
+                synchronized (b3a.class) {
+                    if (g == null) {
+                        g = new b3a();
+                    }
+                }
+            }
+            return g;
+        }
+        return (b3a) invokeV.objValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.execute(new d(this));
         }
     }
 
-    @Override // com.baidu.tieba.u2a, com.fun.ad.sdk.internal.api.BasePidLoader
-    public /* bridge */ /* synthetic */ boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        l(activity, viewGroup, str, (h3a) obj);
-        return true;
+    public void o() {
+        h3a h3aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (h3aVar = (h3a) ServiceManager.getService(h3a.a)) != null) {
+            if (f) {
+                Log.e("VoyagerFileProcessor", "register retry listener");
+            }
+            h3aVar.b();
+            h3aVar.a();
+        }
     }
 
-    @Override // com.baidu.tieba.u2a
-    public boolean l(Activity activity, ViewGroup viewGroup, String str, h3a h3aVar) {
-        InterceptResult invokeLLLL;
+    public b3a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, viewGroup, str, h3aVar)) == null) {
-            onShowStart(h3aVar);
-            CSJDrawVideoNativeView cSJDrawVideoNativeView = (CSJDrawVideoNativeView) LayoutInflater.from(activity).inflate(R.layout.fun_csj_ad_draw_video_native, viewGroup, false);
-            viewGroup.removeAllViews();
-            viewGroup.addView(cSJDrawVideoNativeView);
-            cSJDrawVideoNativeView.a((TTNativeAd) h3aVar.a);
-            f(activity, h3aVar, viewGroup, cSJDrawVideoNativeView, new e3a(this, h3aVar));
-            return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return invokeLLLL.booleanValue;
+        this.d = AppRuntime.getAppContext();
+        ScheduledExecutorService newSingleThreadScheduledExecutor = Executors.newSingleThreadScheduledExecutor();
+        this.a = newSingleThreadScheduledExecutor;
+        newSingleThreadScheduledExecutor.execute(new c(this, null));
+        this.b = new ThreadPoolExecutor(1, 1, 600000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+    }
+
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.a.execute(new f(this, z));
+        }
+    }
+
+    public void j(boolean z, String str, JSONObject jSONObject, r3a r3aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, jSONObject, r3aVar}) == null) {
+            this.b.execute(new a(this, r3aVar, z, str, jSONObject));
+        }
+    }
+
+    public final void k(boolean z, boolean z2, m3a m3aVar, long j, String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), m3aVar, Long.valueOf(j), str, jSONObject}) == null) {
+            this.a.execute(new b(this, z, z2, m3aVar, j, str, jSONObject));
+        }
+    }
+
+    public void q(List<String> list, String str, long j, int i, int i2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), jSONObject}) == null) {
+            this.a.execute(new d(this, new ArrayList(list), str, j, i, i2, jSONObject));
+        }
+    }
+
+    public final void m(boolean z, String str, String str2, JSONObject jSONObject, JSONObject jSONObject2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), str, str2, jSONObject, jSONObject2}) == null) {
+            this.b.execute(new e(this, z, str, str2, jSONObject, jSONObject2));
+        }
+    }
+
+    public void r(List<String> list, String str, long j, int i, r3a r3aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), r3aVar}) == null) {
+            this.a.execute(new d(this, new ArrayList(list), str, j, i, r3aVar));
+        }
+    }
+
+    public void s(String str, String str2, int i, int i2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), jSONObject}) == null) {
+            this.a.execute(new d(this, str, str2, i, i2, jSONObject));
+        }
+    }
+
+    public void t(String str, String str2, r3a r3aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048585, this, str, str2, r3aVar) == null) {
+            this.a.execute(new d(this, str, str2, r3aVar));
+        }
     }
 }

@@ -1,20 +1,13 @@
 package com.google.android.exoplayer2.extractor.mp4;
 
 import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes7.dex */
 public final class Track {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int TRANSFORMATION_CEA608_CDAT = 1;
     public static final int TRANSFORMATION_NONE = 0;
-    public transient /* synthetic */ FieldHolder $fh;
     public final long durationUs;
     @Nullable
     public final long[] editListDurations;
@@ -36,20 +29,6 @@ public final class Track {
     }
 
     public Track(int i, int i2, long j, long j2, long j3, Format format, int i3, @Nullable TrackEncryptionBox[] trackEncryptionBoxArr, int i4, @Nullable long[] jArr, @Nullable long[] jArr2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), format, Integer.valueOf(i3), trackEncryptionBoxArr, Integer.valueOf(i4), jArr, jArr2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.id = i;
         this.type = i2;
         this.timescale = j;
@@ -64,15 +43,10 @@ public final class Track {
     }
 
     public TrackEncryptionBox getSampleDescriptionEncryptionBox(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            TrackEncryptionBox[] trackEncryptionBoxArr = this.sampleDescriptionEncryptionBoxes;
-            if (trackEncryptionBoxArr == null) {
-                return null;
-            }
-            return trackEncryptionBoxArr[i];
+        TrackEncryptionBox[] trackEncryptionBoxArr = this.sampleDescriptionEncryptionBoxes;
+        if (trackEncryptionBoxArr == null) {
+            return null;
         }
-        return (TrackEncryptionBox) invokeI.objValue;
+        return trackEncryptionBoxArr[i];
     }
 }

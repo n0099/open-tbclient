@@ -1,106 +1,153 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
+import org.json.JSONObject;
+import tbclient.FrsPage.TopCode;
 /* loaded from: classes4.dex */
 public class e15 {
     public static /* synthetic */ Interceptable $ic;
-    public static final e15 c;
-    public static final e15 d;
-    public static final e15 e;
-    public static final e15 f;
-    public static final e15 g;
-    public static final e15 h;
-    public static final e15 i;
-    public static final e15 j;
-    public static final e15 k;
-    public static final e15 l;
-    public static final e15 m;
-    public static final e15 n;
-    public static final e15 o;
-    public static final e15 p;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final boolean b;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
+    public long f;
+    public String g;
+    public String h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947681504, "Lcom/baidu/tieba/e15;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947681504, "Lcom/baidu/tieba/e15;");
-                return;
-            }
-        }
-        c = new e15("sync_finish", false);
-        d = new e15("main_page_load_finish", false);
-        e = new e15("pb_load_finish", false);
-        f = new e15("frs_load_finish", false);
-        g = new e15("main_page_recommend", true);
-        h = new e15("main_page_common_tab", true);
-        i = new e15("main_page_hot_topic", true);
-        j = new e15("main_page_concern", true);
-        k = new e15("main_page_enter_forum", true);
-        l = new e15("main_page_message", true);
-        m = new e15("main_page_person_info", true);
-        n = new e15("write_page", true);
-        o = new e15("pb_page", true);
-        p = new e15("frs_page", true);
-    }
-
-    public e15(String str, boolean z) {
+    public e15() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = str;
-        this.b = z;
     }
 
-    public static e15 a(String str) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return new e15("main_page_common_tab_" + str, true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
         }
-        return (e15) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return invokeV.longValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public boolean c() {
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.b;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void i(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.a = jSONObject.optString(BigdayActivityConfig.IMG_URL);
+            jSONObject.optString("game_link");
+            this.b = jSONObject.optString("summary");
+            this.c = jSONObject.optString("code_link");
+            this.d = jSONObject.optInt("get_type", 1);
+            this.e = jSONObject.optString("surplusgift");
+            this.f = jSONObject.optLong("giftworth", 0L);
+            this.g = jSONObject.optString("type_text");
+            this.h = jSONObject.optString(SubtitleLog.TAG);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public void j(TopCode topCode) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, topCode) != null) || topCode == null) {
+            return;
+        }
+        this.a = topCode.img_url;
+        String str = topCode.game_link;
+        this.b = topCode.summary;
+        this.c = topCode.code_link;
+        this.d = topCode.get_type.intValue();
+        this.e = topCode.surplusgift;
+        if (topCode.giftworth.longValue() < 0) {
+            this.f = 0L;
+        } else {
+            this.f = topCode.giftworth.longValue();
+        }
+        this.g = topCode.type_text;
+        this.h = topCode.subtitle;
     }
 }

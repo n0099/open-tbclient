@@ -1,92 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import tbclient.GetVipInfo.VipThemeItem;
 /* loaded from: classes7.dex */
-public class z48 implements Cdo {
+public class z48 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public List<qa5> b;
-    public boolean c;
+    public int a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948310091, "Lcom/baidu/tieba/z48;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948310091, "Lcom/baidu/tieba/z48;");
-                return;
-            }
-        }
-        d = BdUniqueId.gen();
-    }
-
-    public z48() {
+    public z48(VipThemeItem vipThemeItem) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipThemeItem};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        vipThemeItem.props_id.intValue();
+        String str = vipThemeItem.title;
+        String str2 = vipThemeItem.img_url;
+        String str3 = vipThemeItem.tag_img_url;
+        this.a = vipThemeItem.props_category.intValue();
+        String str4 = vipThemeItem.props_category_name;
+        String str5 = vipThemeItem.link;
+        String str6 = vipThemeItem.update_time;
+        vipThemeItem.id.intValue();
+        vipThemeItem.type.intValue();
     }
 
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
+    public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void a(JSONObject jSONObject) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        boolean z2 = false;
-        if (jSONObject.optInt("need_profile", 0) == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.a = z;
-        JSONArray optJSONArray = jSONObject.optJSONArray("nearby_person_list");
-        if (optJSONArray != null && optJSONArray.length() > 0) {
-            this.b = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                qa5 qa5Var = new qa5();
-                qa5Var.a(optJSONArray.optJSONObject(i));
-                this.b.add(qa5Var);
-            }
-        }
-        if (jSONObject.optInt("has_more", 0) == 1) {
-            z2 = true;
-        }
-        this.c = z2;
+        return invokeV.intValue;
     }
 }

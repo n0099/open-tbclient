@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.game.ad.entity.AdResponseInfo;
-import org.json.JSONObject;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 /* loaded from: classes5.dex */
 public interface nx3 {
-    void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback);
+    void a(int i);
 
-    void b(String str, JSONObject jSONObject, ResponseCallback<fx3> responseCallback);
+    void b();
 
-    void c(String str, ResponseCallback<ow3> responseCallback);
+    void c(DownloadState downloadState, int i);
 
     void d(String str);
 
-    void e(String str);
+    String e();
 
-    void f(String str, ResponseCallback<AdResponseInfo> responseCallback);
+    void f(boolean z);
 }

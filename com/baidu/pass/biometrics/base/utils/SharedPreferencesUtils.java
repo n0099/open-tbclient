@@ -2,59 +2,31 @@ package com.baidu.pass.biometrics.base.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class SharedPreferencesUtils {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public SharedPreferencesUtils() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static Object getParam(Context context, String str, String str2, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, context, str, str2, obj)) == null) {
-            String simpleName = obj.getClass().getSimpleName();
-            SharedPreferences sharedPreferences = context.getSharedPreferences(str, 0);
-            if ("String".equals(simpleName)) {
-                return sharedPreferences.getString(str2, (String) obj);
-            }
-            if ("Integer".equals(simpleName)) {
-                return Integer.valueOf(sharedPreferences.getInt(str2, ((Integer) obj).intValue()));
-            }
-            if ("Boolean".equals(simpleName)) {
-                return Boolean.valueOf(sharedPreferences.getBoolean(str2, ((Boolean) obj).booleanValue()));
-            }
-            if ("Float".equals(simpleName)) {
-                return Float.valueOf(sharedPreferences.getFloat(str2, ((Float) obj).floatValue()));
-            }
-            if ("Long".equals(simpleName)) {
-                return Long.valueOf(sharedPreferences.getLong(str2, ((Long) obj).longValue()));
-            }
-            return null;
+        String simpleName = obj.getClass().getSimpleName();
+        SharedPreferences sharedPreferences = context.getSharedPreferences(str, 0);
+        if ("String".equals(simpleName)) {
+            return sharedPreferences.getString(str2, (String) obj);
         }
-        return invokeLLLL.objValue;
+        if ("Integer".equals(simpleName)) {
+            return Integer.valueOf(sharedPreferences.getInt(str2, ((Integer) obj).intValue()));
+        }
+        if ("Boolean".equals(simpleName)) {
+            return Boolean.valueOf(sharedPreferences.getBoolean(str2, ((Boolean) obj).booleanValue()));
+        }
+        if ("Float".equals(simpleName)) {
+            return Float.valueOf(sharedPreferences.getFloat(str2, ((Float) obj).floatValue()));
+        }
+        if ("Long".equals(simpleName)) {
+            return Long.valueOf(sharedPreferences.getLong(str2, ((Long) obj).longValue()));
+        }
+        return null;
     }
 
     public static void setParam(Context context, String str, String str2, Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65538, null, context, str, str2, obj) != null) || obj == null) {
+        if (obj == null) {
             return;
         }
         String simpleName = obj.getClass().getSimpleName();

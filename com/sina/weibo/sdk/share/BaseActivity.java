@@ -85,7 +85,7 @@ public class BaseActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             if (Build.VERSION.SDK_INT == 26 && isTranslucentOrFloating()) {
                 boolean fixOrientation = fixOrientation();
-                LogUtil.i(TAG, "onCreate fixOrientation when Oreo, result = " + fixOrientation);
+                LogUtil.i("BaseActivity", "onCreate fixOrientation when Oreo, result = " + fixOrientation);
             }
             super.onCreate(bundle);
         }
@@ -96,7 +96,7 @@ public class BaseActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (Build.VERSION.SDK_INT == 26 && isTranslucentOrFloating()) {
-                LogUtil.i(TAG, "avoid calling setRequestedOrientation when Oreo.");
+                LogUtil.i("BaseActivity", "avoid calling setRequestedOrientation when Oreo.");
             } else {
                 super.setRequestedOrientation(i);
             }

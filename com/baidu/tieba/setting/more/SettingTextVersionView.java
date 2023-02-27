@@ -62,17 +62,14 @@ public final class SettingTextVersionView extends TbSettingTextTipView {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            boolean z2 = false;
-            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+            boolean z2 = true;
+            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
                 z = true;
             } else {
                 z = false;
             }
             VersionData versionData = TbadkCoreApplication.getInst().getVersionData();
-            if (versionData != null && versionData.hasNewVer()) {
-                z2 = true;
-            }
-            if (z2) {
+            if ((versionData == null || !versionData.hasNewVer()) ? false : false) {
                 SkinManager.setBackgroundResource(this.e, R.drawable.icon_news_head_new);
                 this.e.setText((CharSequence) null);
                 return;
@@ -82,9 +79,9 @@ public final class SettingTextVersionView extends TbSettingTextTipView {
             TextView textView = this.e;
             Context context = this.a;
             if (z) {
-                i = R.style.obfuscated_res_0x7f1003fc;
+                i = R.style.obfuscated_res_0x7f1003ff;
             } else {
-                i = R.style.obfuscated_res_0x7f1003fb;
+                i = R.style.obfuscated_res_0x7f1003fe;
             }
             textView.setTextAppearance(context, i);
         }

@@ -1,22 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.x72;
-import com.baidu.webkit.sdk.VideoPlayerFactory;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.tieba.pi4;
+import okhttp3.Callback;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface zs1 {
-    int a();
+    void d(byte[] bArr);
 
-    VideoPlayerFactory b();
+    <T> void e(String str, String str2, ResponseCallback<T> responseCallback);
 
-    int c();
+    void f(String str, String str2, pi4.c cVar);
 
-    void d(boolean z);
+    boolean g(String str);
 
-    boolean e();
+    boolean h();
 
-    boolean f();
-
-    void g(int i);
-
-    void h(x72.c cVar);
+    boolean i(@NonNull m93 m93Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, fo3<String> fo3Var);
 }

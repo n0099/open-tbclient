@@ -15,16 +15,16 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b35;
+import com.baidu.tieba.dy;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.p15;
-import com.baidu.tieba.sw4;
-import com.baidu.tieba.zx;
+import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class RichTextLayout extends LinearLayout implements zx<sw4>, View.OnClickListener {
+public class RichTextLayout extends LinearLayout implements dy<zx4>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -176,23 +176,23 @@ public class RichTextLayout extends LinearLayout implements zx<sw4>, View.OnClic
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zx
+    @Override // com.baidu.tieba.dy
     /* renamed from: d */
-    public void a(sw4 sw4Var) {
+    public void a(zx4 zx4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sw4Var) == null) && sw4Var != null && sw4Var.getThreadData() != null) {
-            ThreadData threadData = sw4Var.getThreadData();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zx4Var) == null) && zx4Var != null && zx4Var.getThreadData() != null) {
+            ThreadData threadData = zx4Var.getThreadData();
             OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
             if (originalThreadInfo != null && this.e) {
                 this.b.setVisibility(8);
-                p15 d = p15.d(this.c);
+                b35 d = b35.d(this.c);
                 d.A(R.string.F_X01);
                 d.z(R.dimen.T_X07);
-                if (!originalThreadInfo.m && !sw4Var.getThreadData().shouldShowBlockedState()) {
+                if (!originalThreadInfo.m && !zx4Var.getThreadData().shouldShowBlockedState()) {
                     SpannableString c = originalThreadInfo.c();
                     ThreadCardUtils.setAbstract(this.c, this.b, c, threadData, this.a, this.e, this.g);
                     if (c != null) {
-                        TiePlusEventController.i(originalThreadInfo.h());
+                        TiePlusEventController.j(originalThreadInfo.h());
                     }
                 } else {
                     ThreadCardUtils.setAbstract(this.c, this.b, new SpannableString(this.d.getString(R.string.origin_thread_deleted_title)), threadData, this.a, this.e, this.g);
@@ -203,7 +203,7 @@ public class RichTextLayout extends LinearLayout implements zx<sw4>, View.OnClic
                 SpannableString abstractText = threadData.getAbstractText();
                 ThreadCardUtils.setAbstract(this.c, this.b, abstractText, threadData, this.a, this.e, this.g);
                 if (abstractText != null) {
-                    TiePlusEventController.i(threadData.getTiePlusLinkOriginData());
+                    TiePlusEventController.j(threadData.getTiePlusLinkOriginData());
                 }
             }
             if (!this.e) {

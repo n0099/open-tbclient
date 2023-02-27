@@ -3,22 +3,16 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class il4 {
+public class il4 extends uk4 {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, jl4> a;
-    public static HashMap<String, jl4> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public il4() {
@@ -35,106 +29,69 @@ public class il4 {
         }
     }
 
-    public static String d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.uk4, com.baidu.tieba.xk4
+    public void b(JSONObject jSONObject, hh4 hh4Var, @Nullable hh4 hh4Var2, @Nullable hh4 hh4Var3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return hg4.c().a("SwanDownloadApiStrategy").getString("version", "0");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static jl4 a(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (a == null) {
-                synchronized (il4.class) {
-                    if (a == null) {
-                        HashMap<String, jl4> hashMap = new HashMap<>();
-                        a = hashMap;
-                        e(hashMap, "download_api_ctrl");
-                    }
-                }
-            }
-            return c(str, a);
-        }
-        return (jl4) invokeL.objValue;
-    }
-
-    @NonNull
-    public static jl4 b(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (b == null) {
-                synchronized (il4.class) {
-                    if (b == null) {
-                        HashMap<String, jl4> hashMap = new HashMap<>();
-                        b = hashMap;
-                        e(hashMap, "preload_api_ctrl");
-                    }
-                }
-            }
-            return c(str, b);
-        }
-        return (jl4) invokeL.objValue;
-    }
-
-    public static void f(@Nullable JSONObject jSONObject) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeLLLL(1048576, this, jSONObject, hh4Var, hh4Var2, hh4Var3) != null) || jSONObject == null) {
             return;
         }
-        String optString = jSONObject.optString("version");
-        JSONObject optJSONObject = jSONObject.optJSONObject("data");
-        yo4 a2 = hg4.c().a("SwanDownloadApiStrategy");
-        a2.putString("version", optString);
-        if (optJSONObject != null) {
-            str = optJSONObject.toString();
-        } else {
-            str = null;
+        kl4.b().e(jSONObject.optJSONObject("tipmsgs"));
+        ol4.f().k(jSONObject.optJSONObject("page_tips"));
+        gl4.b().d(jSONObject.optJSONObject("pkg_clean_strategy"));
+        ql4.a().d(jSONObject.optJSONObject("pkg_preload"));
+        yl4.f(jSONObject.optJSONObject("app_inner_preload"));
+        jl4.a().c(jSONObject.optJSONObject("getpkg_retry_switch"));
+        vl4.b().d(jSONObject.optJSONObject("tts"));
+        rl4.a().e(jSONObject.optJSONObject("simple_control_item"));
+        wl4.e(jSONObject.optJSONObject("update_expire_time"));
+        if (sl4.a) {
+            c(jSONObject);
         }
-        a2.putString("data", str);
+        ul4.b().f(jSONObject.optJSONObject("web_degrade_strategy"));
+        ll4.a().c(jSONObject.optJSONObject("local_debug"));
+        xg4.a().b(jSONObject.optJSONObject(xg4.a().c()));
+        if (tl4.b()) {
+            nl4.a().b(jSONObject.optJSONObject("api_description"));
+        }
+        ml4.a().e(jSONObject.optJSONObject("no_history_apps"));
     }
 
-    @NonNull
-    public static jl4 c(@Nullable String str, @NonNull HashMap<String, jl4> hashMap) {
-        InterceptResult invokeLL;
-        jl4 jl4Var;
+    public final void c(@NonNull JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, hashMap)) == null) {
-            if (!TextUtils.isEmpty(str) && (jl4Var = hashMap.get(str)) != null) {
-                return jl4Var;
-            }
-            jl4 jl4Var2 = hashMap.get("default");
-            if (jl4Var2 != null) {
-                return jl4Var2;
-            }
-            return jl4.a();
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || (optJSONObject = jSONObject.optJSONObject("heartbeat")) == null || optJSONObject.optLong("errno") != 0) {
+            return;
         }
-        return (jl4) invokeLL.objValue;
-    }
-
-    public static void e(@NonNull HashMap<String, jl4> hashMap, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, hashMap, str) == null) {
-            try {
-                JSONObject optJSONObject = new JSONObject(hg4.c().a("SwanDownloadApiStrategy").getString("data", StringUtil.EMPTY_ARRAY)).optJSONObject(str);
-                if (optJSONObject != null) {
-                    Iterator<String> keys = optJSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        if (!TextUtils.isEmpty(next)) {
-                            hashMap.put(next, jl4.b(optJSONObject.optJSONObject(next)));
-                        }
+        vg4 b = xg4.b();
+        op4 op4Var = null;
+        if (b != null) {
+            op4Var = b.i();
+        }
+        String optString = optJSONObject.optString("version");
+        if (!TextUtils.isEmpty(optString)) {
+            sl4.b = optString;
+            if (op4Var != null) {
+                op4Var.putString("key_h2_heart_beat_version", optString);
+            }
+        }
+        JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
+        if (optJSONObject2 != null) {
+            if (optJSONObject2.optInt(SetImageWatermarkTypeReqMsg.SWITCH) > 0) {
+                int optInt = optJSONObject2.optInt("timespan");
+                int optInt2 = optJSONObject2.optInt("timeout");
+                if (op4Var != null) {
+                    if (optInt > 0) {
+                        op4Var.putInt("key_h2_heart_beat_timespan", optInt);
                     }
+                    if (optInt2 > 0) {
+                        op4Var.putInt("key_h2_heart_beat_timeout", optInt2);
+                        return;
+                    }
+                    return;
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
+                return;
             }
+            sl4.a = false;
         }
     }
 }

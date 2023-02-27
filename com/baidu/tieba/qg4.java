@@ -1,7 +1,496 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.pms.model.PMSAppInfo;
-/* loaded from: classes6.dex */
-public interface qg4 {
-    void a(PMSAppInfo pMSAppInfo);
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.dns.transmit.transmitter.exception.ExceptionMessage;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.searchbox.http.HttpRuntime;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import com.baidu.tieba.pg4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import okhttp3.ConnectionPool;
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Response;
+import org.apache.http.client.methods.HttpPut;
+@SuppressLint({"StaticFieldLeak"})
+/* loaded from: classes5.dex */
+public class qg4 extends HttpManager {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static volatile qg4 c;
+    public static volatile qg4 d;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+
+    /* loaded from: classes5.dex */
+    public class a extends ResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public Object parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) ? response : invokeLI.objValue;
+        }
+
+        public a(qg4 qg4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qg4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948090859, "Lcom/baidu/tieba/qg4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948090859, "Lcom/baidu/tieba/qg4;");
+                return;
+            }
+        }
+        b = eg4.c();
+    }
+
+    public fg4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new fg4(this);
+        }
+        return (fg4) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.AbstractHttpManager
+    /* renamed from: b */
+    public gg4 deleteRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new gg4(this);
+        }
+        return (gg4) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public OkHttpClient.Builder i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return getOkHttpClient().newBuilder();
+        }
+        return (OkHttpClient.Builder) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.AbstractHttpManager
+    /* renamed from: j */
+    public hg4 getRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return new hg4(this);
+        }
+        return (hg4) invokeV.objValue;
+    }
+
+    public final ResponseCallback k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return new a(this);
+        }
+        return (ResponseCallback) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.AbstractHttpManager
+    /* renamed from: m */
+    public ig4 headerRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return new ig4(this);
+        }
+        return (ig4) invokeV.objValue;
+    }
+
+    public jg4 o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return new jg4(this);
+        }
+        return (jg4) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.AbstractHttpManager
+    /* renamed from: p */
+    public lg4 postFormRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return new lg4(this);
+        }
+        return (lg4) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.AbstractHttpManager
+    /* renamed from: q */
+    public kg4 postRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return new kg4(this);
+        }
+        return (kg4) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.AbstractHttpManager
+    /* renamed from: r */
+    public mg4 postStringRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return new mg4(this);
+        }
+        return (mg4) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.AbstractHttpManager
+    /* renamed from: s */
+    public ng4 putRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return new ng4(this);
+        }
+        return (ng4) invokeV.objValue;
+    }
+
+    public og4 y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return new og4(this);
+        }
+        return (og4) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qg4() {
+        super(eg4.b().getAppContext());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = true;
+        this.a = eg4.a();
+    }
+
+    public static qg4 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (qg4.class) {
+                    if (c == null) {
+                        c = new qg4();
+                        c.setNetworkStat(HttpRuntime.getHttpContext().getNewNetworkStat());
+                    }
+                }
+            }
+            return c;
+        }
+        return (qg4) invokeV.objValue;
+    }
+
+    public static qg4 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (d == null) {
+                synchronized (qg4.class) {
+                    if (d == null) {
+                        d = new qg4();
+                        d.setNetworkStat(HttpRuntime.getHttpContext().getNewNetworkStat());
+                    }
+                }
+            }
+            return d;
+        }
+        return (qg4) invokeV.objValue;
+    }
+
+    public static qg4 h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            return g();
+        }
+        return (qg4) invokeL.objValue;
+    }
+
+    public void d(pg4 pg4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, pg4Var) == null) {
+            pg4Var.b = "GET";
+            t(pg4Var);
+        }
+    }
+
+    public void e(pg4 pg4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, pg4Var) == null) {
+            pg4Var.b = "POST";
+            t(pg4Var);
+        }
+    }
+
+    public void f(pg4 pg4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, pg4Var) == null) {
+            pg4Var.b = HttpPut.METHOD_NAME;
+            t(pg4Var);
+        }
+    }
+
+    public final boolean n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (b) {
+                    Log.e("SwanHttpManager", ExceptionMessage.URL_EMPTY);
+                    return true;
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.AbstractHttpManager
+    public OkHttpClient initClient() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            OkHttpClient initClient = super.initClient();
+            List<Interceptor> l = eg4.b().l();
+            if (l != null && l.size() > 0) {
+                OkHttpClient.Builder newBuilder = initClient.newBuilder();
+                for (Interceptor interceptor : l) {
+                    newBuilder.addNetworkInterceptor(interceptor);
+                }
+                if (eg4.b().i()) {
+                    try {
+                        Iterator<Interceptor> it = newBuilder.interceptors().iterator();
+                        while (it.hasNext()) {
+                            String obj = it.next().toString();
+                            if (obj.contains("RequestFilter") || obj.contains("SimCardFreeHeader")) {
+                                it.remove();
+                            }
+                        }
+                    } catch (Throwable th) {
+                        if (b) {
+                            th.printStackTrace();
+                        }
+                    }
+                }
+                dg4 b2 = eg4.b();
+                if (b2 != null && b2.k() > 0) {
+                    newBuilder.connectionPool(new ConnectionPool(b2.k(), 5L, TimeUnit.MINUTES));
+                }
+                return newBuilder.build();
+            }
+            return initClient;
+        }
+        return (OkHttpClient) invokeV.objValue;
+    }
+
+    public void t(@NonNull pg4 pg4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, pg4Var) == null) {
+            if (pg4Var.e == null) {
+                pg4Var.e = k();
+            }
+            if (n(pg4Var.a)) {
+                pg4Var.e.onFail(new Exception("url is invalid"));
+                return;
+            }
+            HttpRequestBuilder a2 = rg4.a(pg4Var);
+            u(a2, pg4Var);
+            a2.build().executeAsync(pg4Var.e);
+        }
+    }
+
+    public void v(HttpRequestBuilder httpRequestBuilder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, httpRequestBuilder) == null) {
+            int m = eg4.b().m();
+            if (m > 0) {
+                httpRequestBuilder.connectionTimeout(m);
+            }
+            int readTimeout = eg4.b().getReadTimeout();
+            if (readTimeout > 0) {
+                httpRequestBuilder.readTimeout(readTimeout);
+            }
+            int g = eg4.b().g();
+            if (g > 0) {
+                httpRequestBuilder.writeTimeout(g);
+            }
+        }
+    }
+
+    public void w(OkHttpClient.Builder builder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, builder) == null) {
+            int m = eg4.b().m();
+            if (m > 0) {
+                builder.connectTimeout(m, TimeUnit.MILLISECONDS);
+            }
+            int readTimeout = eg4.b().getReadTimeout();
+            if (readTimeout > 0) {
+                builder.readTimeout(readTimeout, TimeUnit.MILLISECONDS);
+            }
+            int g = eg4.b().g();
+            if (g > 0) {
+                builder.writeTimeout(g, TimeUnit.MILLISECONDS);
+            }
+        }
+    }
+
+    public void u(HttpRequestBuilder httpRequestBuilder, pg4 pg4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048601, this, httpRequestBuilder, pg4Var) == null) {
+            if (httpRequestBuilder != null && pg4Var != null) {
+                httpRequestBuilder.url(pg4Var.a);
+                Map<String, String> map = pg4Var.c;
+                if (map != null && map.size() > 0) {
+                    httpRequestBuilder.headers(pg4Var.c);
+                }
+                if (pg4Var.f) {
+                    httpRequestBuilder.userAgent(eg4.b().getUserAgent());
+                }
+                if (pg4Var.g) {
+                    httpRequestBuilder.cookieManager(eg4.b().f());
+                }
+                if (pg4Var.h) {
+                    pg4.a b2 = pg4Var.b();
+                    if (b2 == null) {
+                        v(httpRequestBuilder);
+                    } else {
+                        x(httpRequestBuilder, b2);
+                    }
+                }
+                Object obj = pg4Var.i;
+                if (obj != null) {
+                    httpRequestBuilder.tag(obj);
+                }
+                if (pg4Var.k != 0) {
+                    httpRequestBuilder.enableStat(true);
+                    httpRequestBuilder.requestFrom(pg4Var.j);
+                    httpRequestBuilder.requestSubFrom(pg4Var.k);
+                }
+            } else if (b) {
+                Log.e("SwanHttpManager", "setNetworkConfig fail");
+            }
+        }
+    }
+
+    public final void x(HttpRequestBuilder httpRequestBuilder, @NonNull pg4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048604, this, httpRequestBuilder, aVar) == null) {
+            int i = aVar.a;
+            if (i <= 0) {
+                i = eg4.b().m();
+            }
+            if (i > 0) {
+                httpRequestBuilder.connectionTimeout(i);
+            }
+            int i2 = aVar.b;
+            if (i2 <= 0) {
+                i2 = eg4.b().getReadTimeout();
+            }
+            if (i2 > 0) {
+                httpRequestBuilder.readTimeout(i2);
+            }
+            int i3 = aVar.c;
+            if (i3 <= 0) {
+                i3 = eg4.b().g();
+            }
+            if (i3 > 0) {
+                httpRequestBuilder.writeTimeout(i3);
+            }
+        }
+    }
 }

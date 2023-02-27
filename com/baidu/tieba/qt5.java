@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import java.util.Date;
-/* loaded from: classes6.dex */
+import java.util.List;
+/* loaded from: classes5.dex */
 public interface qt5 {
-    void a(Date date, View view2);
+    void a();
+
+    void b(List<String> list);
 }

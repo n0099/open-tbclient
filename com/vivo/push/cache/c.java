@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.util.ContextDelegate;
-import com.vivo.push.util.g;
-import com.vivo.push.util.p;
-import com.vivo.push.util.w;
-import com.vivo.push.util.y;
+import com.vivo.push.util.ad;
+import com.vivo.push.util.af;
+import com.vivo.push.util.k;
+import com.vivo.push.util.u;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
@@ -53,7 +53,7 @@ public abstract class c<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            return y.b(this.c).a(a(), null);
+            return af.b(this.c).a(a(), null);
         }
         return (String) invokeV.objValue;
     }
@@ -62,7 +62,7 @@ public abstract class c<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (a) {
-                g.a(a());
+                k.a(a());
                 this.b.clear();
                 c(b());
             }
@@ -77,7 +77,7 @@ public abstract class c<T> {
             if (bArr != null && bArr.length > 0) {
                 return bArr;
             }
-            return w.b().c();
+            return ad.b().c();
         }
         return (byte[]) invokeV.objValue;
     }
@@ -90,7 +90,7 @@ public abstract class c<T> {
             if (bArr != null && bArr.length > 0) {
                 return bArr;
             }
-            return w.b().d();
+            return ad.b().d();
         }
         return (byte[]) invokeV.objValue;
     }
@@ -112,7 +112,7 @@ public abstract class c<T> {
         }
         this.b = new ArrayList();
         this.c = ContextDelegate.getContext(context);
-        w b = w.b();
+        ad b = ad.b();
         b.a(this.c);
         this.d = b.c();
         this.e = b.d();
@@ -123,20 +123,20 @@ public abstract class c<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                p.d("CacheSettings", "ClientManager init " + a() + " strApps empty.");
+                u.d("CacheSettings", "ClientManager init " + a() + " strApps empty.");
             } else if (str.length() > 10000) {
-                p.d("CacheSettings", "sync " + a() + " strApps lenght too large");
+                u.d("CacheSettings", "sync " + a() + " strApps lenght too large");
                 d();
             } else {
                 try {
-                    p.d("CacheSettings", "ClientManager init " + a() + " strApps : " + str);
+                    u.d("CacheSettings", "ClientManager init " + a() + " strApps : " + str);
                     List<T> a2 = a(b(str));
                     if (a2 != null) {
                         this.b.addAll(a2);
                     }
                 } catch (Exception e) {
                     d();
-                    p.d("CacheSettings", p.a(e));
+                    u.d("CacheSettings", u.a(e));
                 }
             }
         }
@@ -145,7 +145,7 @@ public abstract class c<T> {
     private void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
-            y.b(this.c).b(a(), str);
+            af.b(this.c).b(a(), str);
         }
     }
 
@@ -155,7 +155,7 @@ public abstract class c<T> {
             synchronized (a) {
                 this.b.clear();
                 d("");
-                p.d("CacheSettings", "clear " + a() + " strApps");
+                u.d("CacheSettings", "clear " + a() + " strApps");
             }
         }
     }

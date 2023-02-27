@@ -1,21 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: GroupChatService.java */
+import android.view.View;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class ug5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static vg5 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return (vg5) ServiceManager.getService(vg5.a);
-        }
-        return (vg5) invokeV.objValue;
-    }
+public interface ug5 {
+    void a(View view2, View view3, boolean z);
 }

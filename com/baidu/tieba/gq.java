@@ -1,95 +1,88 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.component.buoy.BuoyComponent;
-import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
-import com.baidu.bdtask.component.buoy.TaskBuoyViewModel;
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class gq extends BuoyComponent {
+public final class gq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final boolean b;
+    public final boolean c;
 
-    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
-    public float s(TaskInfo taskInfo, TaskStatus taskStatus) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, taskInfo, taskStatus)) == null) {
-            return 1.0f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i = this.a * 31;
+            boolean z = this.b;
+            int i2 = z;
+            if (z != 0) {
+                i2 = 1;
+            }
+            int i3 = (i + i2) * 31;
+            boolean z2 = this.c;
+            return i3 + (z2 ? 1 : z2 ? 1 : 0);
         }
-        return invokeLL.floatValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
-    public boolean t(TaskStatus taskStatus) {
-        InterceptResult invokeL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, taskStatus)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "TaskBuoyViewModelHolder(status=" + this.a + ", hasComplete=" + this.b + ", isRepeated=" + this.c + SmallTailInfo.EMOTION_SUFFIX;
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gq(zs<TaskBuoyViewData, TaskBuoyViewModel> zsVar, TaskBuoyViewModel taskBuoyViewModel, TaskInfo taskInfo) {
-        super(zsVar, taskBuoyViewModel, taskInfo);
+    public gq(int i, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zsVar, taskBuoyViewModel, taskInfo};
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((zs) objArr2[0], (TaskBuoyViewModel) objArr2[1], (TaskInfo) objArr2[2]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = i;
+        this.b = z;
+        this.c = z2;
     }
 
-    @Override // com.baidu.tieba.up
-    public void b(TaskInfo taskInfo, int i, String str) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(1048576, this, taskInfo, i, str) != null) || i == 304) {
-            return;
-        }
-        p();
-    }
-
-    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
-    public float q(TaskInfo taskInfo, TaskStatus taskStatus) {
-        InterceptResult invokeLL;
-        int repeat;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, taskStatus)) == null) {
-            if (!taskInfo.isClickAction() || (repeat = taskInfo.getTaskRule().getRepeat()) == 0) {
-                return 0.0f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof gq)) {
+                return false;
             }
-            return taskStatus.getProcess().getRepeatTimes() / repeat;
-        }
-        return invokeLL.floatValue;
-    }
-
-    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
-    public long r(TaskInfo taskInfo, TaskStatus taskStatus) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, taskInfo, taskStatus)) == null) {
-            if (!taskInfo.isClickAction()) {
-                return 0L;
+            int i = this.a;
+            gq gqVar = (gq) obj;
+            if (i != gqVar.a) {
+                return false;
             }
-            return taskInfo.getTaskRule().getRepeat();
+            if (i == 8) {
+                if (this.b != gqVar.b || this.c != gqVar.c) {
+                    return false;
+                }
+                return true;
+            }
+            return true;
         }
-        return invokeLL.longValue;
+        return invokeL.booleanValue;
     }
 }

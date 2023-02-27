@@ -1,18 +1,14 @@
 package org.apache.commons.codec.net;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.EncoderException;
-@Deprecated
+import org.apache.commons.codec.binary.StringUtils;
 /* loaded from: classes9.dex */
 public abstract class RFC1522Codec {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final String POSTFIX = "?=";
+    public static final String PREFIX = "=?";
+    public static final char SEP = '?';
 
     public abstract byte[] doDecoding(byte[] bArr) throws DecoderException;
 
@@ -20,37 +16,47 @@ public abstract class RFC1522Codec {
 
     public abstract String getEncoding();
 
-    public RFC1522Codec() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        throw new RuntimeException("Stub!");
-    }
-
     public String decodeText(String str) throws DecoderException, UnsupportedEncodingException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            throw new RuntimeException("Stub!");
+        if (str == null) {
+            return null;
         }
-        return (String) invokeL.objValue;
+        if (str.startsWith(PREFIX) && str.endsWith(POSTFIX)) {
+            int length = str.length() - 2;
+            int indexOf = str.indexOf(63, 2);
+            if (indexOf != length) {
+                String substring = str.substring(2, indexOf);
+                if (!substring.equals("")) {
+                    int i = indexOf + 1;
+                    int indexOf2 = str.indexOf(63, i);
+                    if (indexOf2 != length) {
+                        String substring2 = str.substring(i, indexOf2);
+                        if (getEncoding().equalsIgnoreCase(substring2)) {
+                            int i2 = indexOf2 + 1;
+                            return new String(doDecoding(StringUtils.getBytesUsAscii(str.substring(i2, str.indexOf(63, i2)))), substring);
+                        }
+                        throw new DecoderException("This codec cannot decode " + substring2 + " encoded content");
+                    }
+                    throw new DecoderException("RFC 1522 violation: encoding token not found");
+                }
+                throw new DecoderException("RFC 1522 violation: charset not specified");
+            }
+            throw new DecoderException("RFC 1522 violation: charset token not found");
+        }
+        throw new DecoderException("RFC 1522 violation: malformed encoded content");
     }
 
     public String encodeText(String str, String str2) throws EncoderException, UnsupportedEncodingException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            throw new RuntimeException("Stub!");
+        if (str == null) {
+            return null;
         }
-        return (String) invokeLL.objValue;
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(PREFIX);
+        stringBuffer.append(str2);
+        stringBuffer.append(SEP);
+        stringBuffer.append(getEncoding());
+        stringBuffer.append(SEP);
+        stringBuffer.append(StringUtils.newStringUsAscii(doEncoding(str.getBytes(str2))));
+        stringBuffer.append(POSTFIX);
+        return stringBuffer.toString();
     }
 }

@@ -1,44 +1,52 @@
 package com.baidu.tieba;
 
-import android.database.ContentObserver;
-import android.os.Handler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class xo1 extends ContentObserver {
+/* loaded from: classes6.dex */
+public class xo1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zo1 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xo1(zo1 zo1Var) {
-        super(null);
+    public static byte[] a(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zo1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Handler) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, bArr2)) == null) {
+            byte[] bArr3 = null;
+            if (bArr2 != null) {
+                try {
+                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = cp1.b(bArr, bArr2)) != null) {
+                        if (bArr3.length > 0) {
+                            return bArr3;
+                        }
+                    }
+                } catch (Throwable th) {
+                    vo1.d(th);
+                }
             }
+            return bArr3;
         }
-        this.a = zo1Var;
+        return (byte[]) invokeLL.objValue;
     }
 
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        zo1 zo1Var;
+    public static byte[] b(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (zo1Var = this.a) != null) {
-            zo1Var.b = zo1Var.a.a(0, null);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bArr2)) == null) {
+            byte[] bArr3 = null;
+            if (bArr2 != null) {
+                try {
+                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = cp1.c(bArr, bArr2)) != null) {
+                        if (bArr3.length > 0) {
+                            return bArr3;
+                        }
+                    }
+                } catch (Throwable th) {
+                    vo1.d(th);
+                }
+            }
+            return bArr3;
         }
+        return (byte[]) invokeLL.objValue;
     }
 }

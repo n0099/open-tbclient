@@ -1,6 +1,7 @@
 package com.vivo.push;
 
 import android.content.Context;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,6 +40,7 @@ public class PushClient {
                 return;
             }
         }
+        com.vivo.push.d.a.a().a(context);
         e.a().a(context);
     }
 
@@ -50,11 +52,35 @@ public class PushClient {
         throw new IllegalArgumentException("PushManager String param should not be ".concat(String.valueOf(str)));
     }
 
+    private String getAppId(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                return str;
+            }
+            return com.vivo.push.d.a.a().e().a();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    private String getAppKey(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                return str;
+            }
+            return com.vivo.push.d.a.a().e().c();
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static synchronized PushClient getInstance(Context context) {
         InterceptResult invokeL;
         PushClient pushClient;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             synchronized (PushClient.class) {
                 if (sPushClient == null) {
                     sPushClient = new PushClient(context.getApplicationContext());
@@ -68,22 +94,22 @@ public class PushClient {
 
     public void setSystemModel(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             e.a().a(z);
         }
     }
 
     public void turnOffPush(IPushActionListener iPushActionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, iPushActionListener) == null) {
-            e.a().b(iPushActionListener);
+        if (interceptable == null || interceptable.invokeL(1048588, this, iPushActionListener) == null) {
+            e.a().b(iPushActionListener, getAppId(""), getAppKey(""));
         }
     }
 
     public void turnOnPush(IPushActionListener iPushActionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, iPushActionListener) == null) {
-            e.a().a(iPushActionListener);
+        if (interceptable == null || interceptable.invokeL(1048589, this, iPushActionListener) == null) {
+            e.a().a(iPushActionListener, getAppId(""), getAppKey(""));
         }
     }
 
@@ -91,7 +117,7 @@ public class PushClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, iPushActionListener) == null) {
             checkParam(str);
-            e.a().a(str, iPushActionListener);
+            e.a().a(str, getAppId(""), getAppKey(""), iPushActionListener);
         }
     }
 
@@ -100,24 +126,24 @@ public class PushClient {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, iPushActionListener) == null) {
             ArrayList<String> arrayList = new ArrayList<>(1);
             arrayList.add(str);
-            e.a().b(arrayList, iPushActionListener);
+            e.a().b(arrayList, getAppId(""), getAppKey(""), iPushActionListener);
         }
     }
 
     public void setTopic(String str, IPushActionListener iPushActionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, iPushActionListener) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048587, this, str, iPushActionListener) == null) {
             ArrayList<String> arrayList = new ArrayList<>(1);
             arrayList.add(str);
-            e.a().a(arrayList, iPushActionListener);
+            e.a().a(arrayList, getAppId(""), getAppKey(""), iPushActionListener);
         }
     }
 
     public void unBindAlias(String str, IPushActionListener iPushActionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, str, iPushActionListener) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048590, this, str, iPushActionListener) == null) {
             checkParam(str);
-            e.a().b(str, iPushActionListener);
+            e.a().b(str, getAppId(""), getAppKey(""), iPushActionListener);
         }
     }
 
@@ -150,7 +176,8 @@ public class PushClient {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return e.a().c();
+            e.a();
+            return e.c();
         }
         return (List) invokeV.objValue;
     }
@@ -170,5 +197,14 @@ public class PushClient {
             return e.a().d();
         }
         return invokeV.booleanValue;
+    }
+
+    public int isSupportNewControlStrategies() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return com.vivo.push.d.a.a().g().a();
+        }
+        return invokeV.intValue;
     }
 }

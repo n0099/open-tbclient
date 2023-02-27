@@ -10,54 +10,29 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ViewModelStoreOwner;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class FragmentStateManager {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FragmentManager";
     public static final String TARGET_REQUEST_CODE_STATE_TAG = "android:target_req_state";
     public static final String TARGET_STATE_TAG = "android:target_state";
     public static final String USER_VISIBLE_HINT_TAG = "android:user_visible_hint";
     public static final String VIEW_STATE_TAG = "android:view_state";
-    public transient /* synthetic */ FieldHolder $fh;
     public final FragmentLifecycleCallbacksDispatcher mDispatcher;
     @NonNull
     public final Fragment mFragment;
-    public int mFragmentManagerState;
+    public int mFragmentManagerState = -1;
 
     /* renamed from: androidx.fragment.app.FragmentStateManager$1  reason: invalid class name */
     /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$androidx$lifecycle$Lifecycle$State;
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-99163697, "Landroidx/fragment/app/FragmentStateManager$1;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-99163697, "Landroidx/fragment/app/FragmentStateManager$1;");
-                    return;
-                }
-            }
             int[] iArr = new int[Lifecycle.State.values().length];
             $SwitchMap$androidx$lifecycle$Lifecycle$State = iArr;
             try {
@@ -76,42 +51,12 @@ public class FragmentStateManager {
     }
 
     public FragmentStateManager(@NonNull FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher, @NonNull Fragment fragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fragmentLifecycleCallbacksDispatcher, fragment};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mFragmentManagerState = -1;
         this.mDispatcher = fragmentLifecycleCallbacksDispatcher;
         this.mFragment = fragment;
     }
 
     public FragmentStateManager(@NonNull FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher, @NonNull Fragment fragment, @NonNull FragmentState fragmentState) {
         String str;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fragmentLifecycleCallbacksDispatcher, fragment, fragmentState};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mFragmentManagerState = -1;
         this.mDispatcher = fragmentLifecycleCallbacksDispatcher;
         this.mFragment = fragment;
         fragment.mSavedViewState = null;
@@ -135,22 +80,24 @@ public class FragmentStateManager {
         }
     }
 
-    public FragmentStateManager(@NonNull FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher, @NonNull ClassLoader classLoader, @NonNull FragmentFactory fragmentFactory, @NonNull FragmentState fragmentState) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fragmentLifecycleCallbacksDispatcher, classLoader, fragmentFactory, fragmentState};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+    public void attach(@NonNull FragmentHostCallback<?> fragmentHostCallback, @NonNull FragmentManager fragmentManager, @Nullable Fragment fragment) {
+        Fragment fragment2 = this.mFragment;
+        fragment2.mHost = fragmentHostCallback;
+        fragment2.mParentFragment = fragment;
+        fragment2.mFragmentManager = fragmentManager;
+        this.mDispatcher.dispatchOnFragmentPreAttached(fragment2, fragmentHostCallback.getContext(), false);
+        this.mFragment.performAttach();
+        Fragment fragment3 = this.mFragment;
+        Fragment fragment4 = fragment3.mParentFragment;
+        if (fragment4 == null) {
+            fragmentHostCallback.onAttachFragment(fragment3);
+        } else {
+            fragment4.onAttachFragment(fragment3);
         }
-        this.mFragmentManagerState = -1;
+        this.mDispatcher.dispatchOnFragmentAttached(this.mFragment, fragmentHostCallback.getContext(), false);
+    }
+
+    public FragmentStateManager(@NonNull FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher, @NonNull ClassLoader classLoader, @NonNull FragmentFactory fragmentFactory, @NonNull FragmentState fragmentState) {
         this.mDispatcher = fragmentLifecycleCallbacksDispatcher;
         this.mFragment = fragmentFactory.instantiate(classLoader, fragmentState.mClassName);
         Bundle bundle = fragmentState.mArguments;
@@ -182,256 +129,210 @@ public class FragmentStateManager {
     }
 
     private Bundle saveBasicState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            Bundle bundle = new Bundle();
-            this.mFragment.performSaveInstanceState(bundle);
-            this.mDispatcher.dispatchOnFragmentSaveInstanceState(this.mFragment, bundle, false);
-            if (bundle.isEmpty()) {
-                bundle = null;
-            }
-            if (this.mFragment.mView != null) {
-                saveViewState();
-            }
-            if (this.mFragment.mSavedViewState != null) {
-                if (bundle == null) {
-                    bundle = new Bundle();
-                }
-                bundle.putSparseParcelableArray(VIEW_STATE_TAG, this.mFragment.mSavedViewState);
-            }
-            if (!this.mFragment.mUserVisibleHint) {
-                if (bundle == null) {
-                    bundle = new Bundle();
-                }
-                bundle.putBoolean(USER_VISIBLE_HINT_TAG, this.mFragment.mUserVisibleHint);
-            }
-            return bundle;
+        Bundle bundle = new Bundle();
+        this.mFragment.performSaveInstanceState(bundle);
+        this.mDispatcher.dispatchOnFragmentSaveInstanceState(this.mFragment, bundle, false);
+        if (bundle.isEmpty()) {
+            bundle = null;
         }
-        return (Bundle) invokeV.objValue;
+        if (this.mFragment.mView != null) {
+            saveViewState();
+        }
+        if (this.mFragment.mSavedViewState != null) {
+            if (bundle == null) {
+                bundle = new Bundle();
+            }
+            bundle.putSparseParcelableArray(VIEW_STATE_TAG, this.mFragment.mSavedViewState);
+        }
+        if (!this.mFragment.mUserVisibleHint) {
+            if (bundle == null) {
+                bundle = new Bundle();
+            }
+            bundle.putBoolean(USER_VISIBLE_HINT_TAG, this.mFragment.mUserVisibleHint);
+        }
+        return bundle;
     }
 
     public void create() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (FragmentManager.isLoggingEnabled(3)) {
-                Log.d("FragmentManager", "moveto CREATED: " + this.mFragment);
-            }
-            Fragment fragment = this.mFragment;
-            if (!fragment.mIsCreated) {
-                this.mDispatcher.dispatchOnFragmentPreCreated(fragment, fragment.mSavedFragmentState, false);
-                Fragment fragment2 = this.mFragment;
-                fragment2.performCreate(fragment2.mSavedFragmentState);
-                FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher = this.mDispatcher;
-                Fragment fragment3 = this.mFragment;
-                fragmentLifecycleCallbacksDispatcher.dispatchOnFragmentCreated(fragment3, fragment3.mSavedFragmentState, false);
-                return;
-            }
-            fragment.restoreChildFragmentState(fragment.mSavedFragmentState);
-            this.mFragment.mState = 1;
+        if (FragmentManager.isLoggingEnabled(3)) {
+            Log.d("FragmentManager", "moveto CREATED: " + this.mFragment);
         }
+        Fragment fragment = this.mFragment;
+        if (!fragment.mIsCreated) {
+            this.mDispatcher.dispatchOnFragmentPreCreated(fragment, fragment.mSavedFragmentState, false);
+            Fragment fragment2 = this.mFragment;
+            fragment2.performCreate(fragment2.mSavedFragmentState);
+            FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher = this.mDispatcher;
+            Fragment fragment3 = this.mFragment;
+            fragmentLifecycleCallbacksDispatcher.dispatchOnFragmentCreated(fragment3, fragment3.mSavedFragmentState, false);
+            return;
+        }
+        fragment.restoreChildFragmentState(fragment.mSavedFragmentState);
+        this.mFragment.mState = 1;
     }
 
     @NonNull
     public FragmentState saveState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            FragmentState fragmentState = new FragmentState(this.mFragment);
-            if (this.mFragment.mState > -1 && fragmentState.mSavedFragmentState == null) {
-                Bundle saveBasicState = saveBasicState();
-                fragmentState.mSavedFragmentState = saveBasicState;
-                if (this.mFragment.mTargetWho != null) {
-                    if (saveBasicState == null) {
-                        fragmentState.mSavedFragmentState = new Bundle();
-                    }
-                    fragmentState.mSavedFragmentState.putString(TARGET_STATE_TAG, this.mFragment.mTargetWho);
-                    int i = this.mFragment.mTargetRequestCode;
-                    if (i != 0) {
-                        fragmentState.mSavedFragmentState.putInt(TARGET_REQUEST_CODE_STATE_TAG, i);
-                    }
+        FragmentState fragmentState = new FragmentState(this.mFragment);
+        if (this.mFragment.mState > -1 && fragmentState.mSavedFragmentState == null) {
+            Bundle saveBasicState = saveBasicState();
+            fragmentState.mSavedFragmentState = saveBasicState;
+            if (this.mFragment.mTargetWho != null) {
+                if (saveBasicState == null) {
+                    fragmentState.mSavedFragmentState = new Bundle();
                 }
-            } else {
-                fragmentState.mSavedFragmentState = this.mFragment.mSavedFragmentState;
+                fragmentState.mSavedFragmentState.putString(TARGET_STATE_TAG, this.mFragment.mTargetWho);
+                int i = this.mFragment.mTargetRequestCode;
+                if (i != 0) {
+                    fragmentState.mSavedFragmentState.putInt(TARGET_REQUEST_CODE_STATE_TAG, i);
+                }
             }
-            return fragmentState;
+        } else {
+            fragmentState.mSavedFragmentState = this.mFragment.mSavedFragmentState;
         }
-        return (FragmentState) invokeV.objValue;
+        return fragmentState;
     }
 
     public void activityCreated() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (FragmentManager.isLoggingEnabled(3)) {
-                Log.d("FragmentManager", "moveto ACTIVITY_CREATED: " + this.mFragment);
-            }
-            Fragment fragment = this.mFragment;
-            fragment.performActivityCreated(fragment.mSavedFragmentState);
-            FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher = this.mDispatcher;
-            Fragment fragment2 = this.mFragment;
-            fragmentLifecycleCallbacksDispatcher.dispatchOnFragmentActivityCreated(fragment2, fragment2.mSavedFragmentState, false);
+        if (FragmentManager.isLoggingEnabled(3)) {
+            Log.d("FragmentManager", "moveto ACTIVITY_CREATED: " + this.mFragment);
         }
+        Fragment fragment = this.mFragment;
+        fragment.performActivityCreated(fragment.mSavedFragmentState);
+        FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher = this.mDispatcher;
+        Fragment fragment2 = this.mFragment;
+        fragmentLifecycleCallbacksDispatcher.dispatchOnFragmentActivityCreated(fragment2, fragment2.mSavedFragmentState, false);
+    }
+
+    @NonNull
+    public Fragment getFragment() {
+        return this.mFragment;
     }
 
     public void pause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (FragmentManager.isLoggingEnabled(3)) {
-                Log.d("FragmentManager", "movefrom RESUMED: " + this.mFragment);
-            }
-            this.mFragment.performPause();
-            this.mDispatcher.dispatchOnFragmentPaused(this.mFragment, false);
+        if (FragmentManager.isLoggingEnabled(3)) {
+            Log.d("FragmentManager", "movefrom RESUMED: " + this.mFragment);
         }
+        this.mFragment.performPause();
+        this.mDispatcher.dispatchOnFragmentPaused(this.mFragment, false);
     }
 
     public void restoreViewState() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            if (FragmentManager.isLoggingEnabled(3)) {
-                Log.d("FragmentManager", "moveto RESTORE_VIEW_STATE: " + this.mFragment);
-            }
-            Fragment fragment = this.mFragment;
-            if (fragment.mView != null) {
-                fragment.restoreViewState(fragment.mSavedFragmentState);
-            }
-            this.mFragment.mSavedFragmentState = null;
+        if (FragmentManager.isLoggingEnabled(3)) {
+            Log.d("FragmentManager", "moveto RESTORE_VIEW_STATE: " + this.mFragment);
         }
+        Fragment fragment = this.mFragment;
+        if (fragment.mView != null) {
+            fragment.restoreViewState(fragment.mSavedFragmentState);
+        }
+        this.mFragment.mSavedFragmentState = null;
     }
 
-    public void resume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            if (FragmentManager.isLoggingEnabled(3)) {
-                Log.d("FragmentManager", "moveto RESUMED: " + this.mFragment);
-            }
-            this.mFragment.performResume();
-            this.mDispatcher.dispatchOnFragmentResumed(this.mFragment, false);
-            Fragment fragment = this.mFragment;
-            fragment.mSavedFragmentState = null;
-            fragment.mSavedViewState = null;
+    @Nullable
+    public Fragment.SavedState saveInstanceState() {
+        Bundle saveBasicState;
+        if (this.mFragment.mState <= -1 || (saveBasicState = saveBasicState()) == null) {
+            return null;
+        }
+        return new Fragment.SavedState(saveBasicState);
+    }
+
+    public void saveViewState() {
+        if (this.mFragment.mView == null) {
+            return;
+        }
+        SparseArray<Parcelable> sparseArray = new SparseArray<>();
+        this.mFragment.mView.saveHierarchyState(sparseArray);
+        if (sparseArray.size() > 0) {
+            this.mFragment.mSavedViewState = sparseArray;
         }
     }
 
     public void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            if (FragmentManager.isLoggingEnabled(3)) {
-                Log.d("FragmentManager", "moveto STARTED: " + this.mFragment);
-            }
-            this.mFragment.performStart();
-            this.mDispatcher.dispatchOnFragmentStarted(this.mFragment, false);
+        if (FragmentManager.isLoggingEnabled(3)) {
+            Log.d("FragmentManager", "moveto STARTED: " + this.mFragment);
         }
+        this.mFragment.performStart();
+        this.mDispatcher.dispatchOnFragmentStarted(this.mFragment, false);
     }
 
     public void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            if (FragmentManager.isLoggingEnabled(3)) {
-                Log.d("FragmentManager", "movefrom STARTED: " + this.mFragment);
-            }
-            this.mFragment.performStop();
-            this.mDispatcher.dispatchOnFragmentStopped(this.mFragment, false);
+        if (FragmentManager.isLoggingEnabled(3)) {
+            Log.d("FragmentManager", "movefrom STARTED: " + this.mFragment);
         }
-    }
-
-    public void attach(@NonNull FragmentHostCallback<?> fragmentHostCallback, @NonNull FragmentManager fragmentManager, @Nullable Fragment fragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragmentHostCallback, fragmentManager, fragment) == null) {
-            Fragment fragment2 = this.mFragment;
-            fragment2.mHost = fragmentHostCallback;
-            fragment2.mParentFragment = fragment;
-            fragment2.mFragmentManager = fragmentManager;
-            this.mDispatcher.dispatchOnFragmentPreAttached(fragment2, fragmentHostCallback.getContext(), false);
-            this.mFragment.performAttach();
-            Fragment fragment3 = this.mFragment;
-            Fragment fragment4 = fragment3.mParentFragment;
-            if (fragment4 == null) {
-                fragmentHostCallback.onAttachFragment(fragment3);
-            } else {
-                fragment4.onAttachFragment(fragment3);
-            }
-            this.mDispatcher.dispatchOnFragmentAttached(this.mFragment, fragmentHostCallback.getContext(), false);
-        }
+        this.mFragment.performStop();
+        this.mDispatcher.dispatchOnFragmentStopped(this.mFragment, false);
     }
 
     public int computeMaxState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = this.mFragmentManagerState;
-            Fragment fragment = this.mFragment;
-            if (fragment.mFromLayout) {
-                if (fragment.mInLayout) {
-                    i = Math.max(i, 1);
-                } else if (i < 2) {
-                    i = Math.min(i, fragment.mState);
-                } else {
-                    i = Math.min(i, 1);
-                }
-            }
-            if (!this.mFragment.mAdded) {
+        int i = this.mFragmentManagerState;
+        Fragment fragment = this.mFragment;
+        if (fragment.mFromLayout) {
+            if (fragment.mInLayout) {
+                i = Math.max(i, 1);
+            } else if (i < 2) {
+                i = Math.min(i, fragment.mState);
+            } else {
                 i = Math.min(i, 1);
             }
-            Fragment fragment2 = this.mFragment;
-            if (fragment2.mRemoving) {
-                if (fragment2.isInBackStack()) {
-                    i = Math.min(i, 1);
-                } else {
-                    i = Math.min(i, -1);
-                }
-            }
-            Fragment fragment3 = this.mFragment;
-            if (fragment3.mDeferStart && fragment3.mState < 3) {
-                i = Math.min(i, 2);
-            }
-            int i2 = AnonymousClass1.$SwitchMap$androidx$lifecycle$Lifecycle$State[this.mFragment.mMaxState.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        return Math.min(i, -1);
-                    }
-                    return Math.min(i, 1);
-                }
-                return Math.min(i, 3);
-            }
-            return i;
         }
-        return invokeV.intValue;
+        if (!this.mFragment.mAdded) {
+            i = Math.min(i, 1);
+        }
+        Fragment fragment2 = this.mFragment;
+        if (fragment2.mRemoving) {
+            if (fragment2.isInBackStack()) {
+                i = Math.min(i, 1);
+            } else {
+                i = Math.min(i, -1);
+            }
+        }
+        Fragment fragment3 = this.mFragment;
+        if (fragment3.mDeferStart && fragment3.mState < 3) {
+            i = Math.min(i, 2);
+        }
+        int i2 = AnonymousClass1.$SwitchMap$androidx$lifecycle$Lifecycle$State[this.mFragment.mMaxState.ordinal()];
+        if (i2 != 1) {
+            if (i2 != 2) {
+                if (i2 != 3) {
+                    return Math.min(i, -1);
+                }
+                return Math.min(i, 1);
+            }
+            return Math.min(i, 3);
+        }
+        return i;
     }
 
     public void ensureInflatedView() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            Fragment fragment = this.mFragment;
-            if (fragment.mFromLayout && fragment.mInLayout && !fragment.mPerformedCreateView) {
-                if (FragmentManager.isLoggingEnabled(3)) {
-                    Log.d("FragmentManager", "moveto CREATE_VIEW: " + this.mFragment);
+        Fragment fragment = this.mFragment;
+        if (fragment.mFromLayout && fragment.mInLayout && !fragment.mPerformedCreateView) {
+            if (FragmentManager.isLoggingEnabled(3)) {
+                Log.d("FragmentManager", "moveto CREATE_VIEW: " + this.mFragment);
+            }
+            Fragment fragment2 = this.mFragment;
+            fragment2.performCreateView(fragment2.performGetLayoutInflater(fragment2.mSavedFragmentState), null, this.mFragment.mSavedFragmentState);
+            View view2 = this.mFragment.mView;
+            if (view2 != null) {
+                view2.setSaveFromParentEnabled(false);
+                Fragment fragment3 = this.mFragment;
+                fragment3.mView.setTag(R.id.obfuscated_res_0x7f090ba2, fragment3);
+                Fragment fragment4 = this.mFragment;
+                if (fragment4.mHidden) {
+                    fragment4.mView.setVisibility(8);
                 }
-                Fragment fragment2 = this.mFragment;
-                fragment2.performCreateView(fragment2.performGetLayoutInflater(fragment2.mSavedFragmentState), null, this.mFragment.mSavedFragmentState);
-                View view2 = this.mFragment.mView;
-                if (view2 != null) {
-                    view2.setSaveFromParentEnabled(false);
-                    Fragment fragment3 = this.mFragment;
-                    fragment3.mView.setTag(R.id.obfuscated_res_0x7f090b61, fragment3);
-                    Fragment fragment4 = this.mFragment;
-                    if (fragment4.mHidden) {
-                        fragment4.mView.setVisibility(8);
-                    }
-                    Fragment fragment5 = this.mFragment;
-                    fragment5.onViewCreated(fragment5.mView, fragment5.mSavedFragmentState);
-                    FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher = this.mDispatcher;
-                    Fragment fragment6 = this.mFragment;
-                    fragmentLifecycleCallbacksDispatcher.dispatchOnFragmentViewCreated(fragment6, fragment6.mView, fragment6.mSavedFragmentState, false);
-                }
+                Fragment fragment5 = this.mFragment;
+                fragment5.onViewCreated(fragment5.mView, fragment5.mSavedFragmentState);
+                FragmentLifecycleCallbacksDispatcher fragmentLifecycleCallbacksDispatcher = this.mDispatcher;
+                Fragment fragment6 = this.mFragment;
+                fragmentLifecycleCallbacksDispatcher.dispatchOnFragmentViewCreated(fragment6, fragment6.mView, fragment6.mSavedFragmentState, false);
             }
         }
     }
 
     public void createView(@NonNull FragmentContainer fragmentContainer) {
         String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, fragmentContainer) != null) || this.mFragment.mFromLayout) {
+        if (this.mFragment.mFromLayout) {
             return;
         }
         if (FragmentManager.isLoggingEnabled(3)) {
@@ -471,7 +372,7 @@ public class FragmentStateManager {
             boolean z = false;
             view2.setSaveFromParentEnabled(false);
             Fragment fragment4 = this.mFragment;
-            fragment4.mView.setTag(R.id.obfuscated_res_0x7f090b61, fragment4);
+            fragment4.mView.setTag(R.id.obfuscated_res_0x7f090ba2, fragment4);
             if (viewGroup != null) {
                 viewGroup.addView(this.mFragment.mView);
             }
@@ -496,70 +397,63 @@ public class FragmentStateManager {
     public void destroy(@NonNull FragmentHostCallback<?> fragmentHostCallback, @NonNull FragmentManagerViewModel fragmentManagerViewModel) {
         boolean z;
         boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, fragmentHostCallback, fragmentManagerViewModel) == null) {
-            if (FragmentManager.isLoggingEnabled(3)) {
-                Log.d("FragmentManager", "movefrom CREATED: " + this.mFragment);
-            }
-            Fragment fragment = this.mFragment;
-            boolean z3 = true;
-            if (fragment.mRemoving && !fragment.isInBackStack()) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z && !fragmentManagerViewModel.shouldDestroy(this.mFragment)) {
-                z2 = false;
-            } else {
-                z2 = true;
-            }
-            if (z2) {
-                if (fragmentHostCallback instanceof ViewModelStoreOwner) {
-                    z3 = fragmentManagerViewModel.isCleared();
-                } else if (fragmentHostCallback.getContext() instanceof Activity) {
-                    z3 = true ^ ((Activity) fragmentHostCallback.getContext()).isChangingConfigurations();
-                }
-                if (z || z3) {
-                    fragmentManagerViewModel.clearNonConfigState(this.mFragment);
-                }
-                this.mFragment.performDestroy();
-                this.mDispatcher.dispatchOnFragmentDestroyed(this.mFragment, false);
-                return;
-            }
-            this.mFragment.mState = 0;
+        if (FragmentManager.isLoggingEnabled(3)) {
+            Log.d("FragmentManager", "movefrom CREATED: " + this.mFragment);
         }
+        Fragment fragment = this.mFragment;
+        boolean z3 = true;
+        if (fragment.mRemoving && !fragment.isInBackStack()) {
+            z = true;
+        } else {
+            z = false;
+        }
+        if (!z && !fragmentManagerViewModel.shouldDestroy(this.mFragment)) {
+            z2 = false;
+        } else {
+            z2 = true;
+        }
+        if (z2) {
+            if (fragmentHostCallback instanceof ViewModelStoreOwner) {
+                z3 = fragmentManagerViewModel.isCleared();
+            } else if (fragmentHostCallback.getContext() instanceof Activity) {
+                z3 = true ^ ((Activity) fragmentHostCallback.getContext()).isChangingConfigurations();
+            }
+            if (z || z3) {
+                fragmentManagerViewModel.clearNonConfigState(this.mFragment);
+            }
+            this.mFragment.performDestroy();
+            this.mDispatcher.dispatchOnFragmentDestroyed(this.mFragment, false);
+            return;
+        }
+        this.mFragment.mState = 0;
     }
 
     public void detach(@NonNull FragmentManagerViewModel fragmentManagerViewModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, fragmentManagerViewModel) == null) {
+        if (FragmentManager.isLoggingEnabled(3)) {
+            Log.d("FragmentManager", "movefrom ATTACHED: " + this.mFragment);
+        }
+        this.mFragment.performDetach();
+        boolean z = false;
+        this.mDispatcher.dispatchOnFragmentDetached(this.mFragment, false);
+        Fragment fragment = this.mFragment;
+        fragment.mState = -1;
+        fragment.mHost = null;
+        fragment.mParentFragment = null;
+        fragment.mFragmentManager = null;
+        if (fragment.mRemoving && !fragment.isInBackStack()) {
+            z = true;
+        }
+        if (z || fragmentManagerViewModel.shouldDestroy(this.mFragment)) {
             if (FragmentManager.isLoggingEnabled(3)) {
-                Log.d("FragmentManager", "movefrom ATTACHED: " + this.mFragment);
+                Log.d("FragmentManager", "initState called for fragment: " + this.mFragment);
             }
-            this.mFragment.performDetach();
-            boolean z = false;
-            this.mDispatcher.dispatchOnFragmentDetached(this.mFragment, false);
-            Fragment fragment = this.mFragment;
-            fragment.mState = -1;
-            fragment.mHost = null;
-            fragment.mParentFragment = null;
-            fragment.mFragmentManager = null;
-            if (fragment.mRemoving && !fragment.isInBackStack()) {
-                z = true;
-            }
-            if (z || fragmentManagerViewModel.shouldDestroy(this.mFragment)) {
-                if (FragmentManager.isLoggingEnabled(3)) {
-                    Log.d("FragmentManager", "initState called for fragment: " + this.mFragment);
-                }
-                this.mFragment.initState();
-            }
+            this.mFragment.initState();
         }
     }
 
     public void restoreState(@NonNull ClassLoader classLoader) {
-        Bundle bundle;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, classLoader) != null) || (bundle = this.mFragment.mSavedFragmentState) == null) {
+        Bundle bundle = this.mFragment.mSavedFragmentState;
+        if (bundle == null) {
             return;
         }
         bundle.setClassLoader(classLoader);
@@ -585,46 +479,18 @@ public class FragmentStateManager {
         }
     }
 
-    @NonNull
-    public Fragment getFragment() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.mFragment;
+    public void resume() {
+        if (FragmentManager.isLoggingEnabled(3)) {
+            Log.d("FragmentManager", "moveto RESUMED: " + this.mFragment);
         }
-        return (Fragment) invokeV.objValue;
-    }
-
-    @Nullable
-    public Fragment.SavedState saveInstanceState() {
-        InterceptResult invokeV;
-        Bundle saveBasicState;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.mFragment.mState <= -1 || (saveBasicState = saveBasicState()) == null) {
-                return null;
-            }
-            return new Fragment.SavedState(saveBasicState);
-        }
-        return (Fragment.SavedState) invokeV.objValue;
-    }
-
-    public void saveViewState() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048591, this) != null) || this.mFragment.mView == null) {
-            return;
-        }
-        SparseArray<Parcelable> sparseArray = new SparseArray<>();
-        this.mFragment.mView.saveHierarchyState(sparseArray);
-        if (sparseArray.size() > 0) {
-            this.mFragment.mSavedViewState = sparseArray;
-        }
+        this.mFragment.performResume();
+        this.mDispatcher.dispatchOnFragmentResumed(this.mFragment, false);
+        Fragment fragment = this.mFragment;
+        fragment.mSavedFragmentState = null;
+        fragment.mSavedViewState = null;
     }
 
     public void setFragmentManagerState(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.mFragmentManagerState = i;
-        }
+        this.mFragmentManagerState = i;
     }
 }

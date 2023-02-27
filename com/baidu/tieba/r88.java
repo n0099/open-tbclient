@@ -1,8 +1,14 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.newdetail.HotTopicDetailActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
@@ -10,18 +16,110 @@ public class r88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
-        int i;
+    public static void a(String str, Object obj, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            if (TbadkCoreApplication.getCurrentMemberType() > 0) {
-                i = 1;
+        if (interceptable == null || interceptable.invokeLLIL(65536, null, str, obj, i, str2) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            if (obj instanceof n05) {
+                statisticItem.param("fid", ((n05) obj).h());
+            } else if (obj instanceof i98) {
+                i98 i98Var = (i98) obj;
+                ThreadData threadData = i98Var.h;
+                if (threadData != null) {
+                    statisticItem.param("tid", threadData.getTid());
+                }
+                statisticItem.param("obj_locate", i98Var.a());
+            }
+            statisticItem.param("topic_id", str2);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.eventStat();
+        }
+    }
+
+    public static void b(u88 u88Var, zx4 zx4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, u88Var, zx4Var) == null) {
+            d(u88Var, zx4Var, true);
+        }
+    }
+
+    public static void c(u88 u88Var, zx4 zx4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, u88Var, zx4Var) == null) {
+            d(u88Var, zx4Var, false);
+        }
+    }
+
+    public static void d(u88 u88Var, zx4 zx4Var, boolean z) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(65539, null, u88Var, zx4Var, z) == null) && zx4Var != null && zx4Var.getThreadData() != null) {
+            ThreadData threadData = zx4Var.getThreadData();
+            boolean s = u88Var.s();
+            if (z) {
+                if (s) {
+                    str = "c13823";
+                } else {
+                    str = "c13822";
+                }
+            } else if (s) {
+                str = "c13824";
             } else {
-                i = 0;
+                str = "c13821";
             }
             StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_type", i);
-            TiebaStatic.log(statisticItem);
+            statisticItem.param("tid", threadData.getTid());
+            statisticItem.param("fid", threadData.getFid());
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            if (u88Var.t().getOrignalPage() instanceof HotTopicDetailActivity) {
+                statisticItem.param("topic_id", ((HotTopicDetailActivity) u88Var.t().getOrignalPage()).y1());
+            }
+            statisticItem.eventStat();
+        }
+    }
+
+    public static void e(ThreadData threadData) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData) != null) || threadData == null) {
+            return;
+        }
+        StatisticItem addParam = new StatisticItem("c13022").addParam("tid", threadData.getTid()).addParam("fid", threadData.getFid()).addParam("fname", threadData.getForum_name()).addParam("uid", TbadkCoreApplication.getCurrentAccount());
+        if (UbsABTestHelper.isImgClickToPb()) {
+            i = 1;
+        } else {
+            i = 2;
+        }
+        addParam.addParam(TiebaStatic.Params.OBJ_TO, i).eventStat();
+    }
+
+    public static void f(TbPageContext<HotTopicDetailActivity> tbPageContext, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65541, null, tbPageContext, str) == null) && tbPageContext != null && !StringUtils.isNull(str)) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("topic_id", tbPageContext.getOrignalPage().y1());
+            statisticItem.eventStat();
+        }
+    }
+
+    public static void g(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("topic_id", str2);
+            statisticItem.eventStat();
+        }
+    }
+
+    public static void h(TbPageContext<HotTopicDetailActivity> tbPageContext, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65543, null, tbPageContext, str) == null) && tbPageContext != null && !StringUtils.isNull(str)) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("topic_id", tbPageContext.getOrignalPage().y1());
+            statisticItem.eventStat();
         }
     }
 }

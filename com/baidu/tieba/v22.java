@@ -8,11 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class v22 extends c22 {
+public class v22 extends s22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.c22
+    @Override // com.baidu.tieba.s22
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
@@ -33,16 +33,11 @@ public class v22 extends c22 {
         }
     }
 
-    @Override // com.baidu.tieba.c22
-    public void a(d22 d22Var, Canvas canvas) {
+    @Override // com.baidu.tieba.s22
+    public void a(t22 t22Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, d22Var, canvas) == null) {
-            d22Var.e();
-            try {
-                canvas.restore();
-            } catch (IllegalStateException e) {
-                w52.d("Canvas", "Underflow in restore - more restores than saves, please check", e);
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, t22Var, canvas) == null) {
+            t22Var.f.reset();
         }
     }
 }

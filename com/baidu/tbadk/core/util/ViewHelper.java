@@ -23,9 +23,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.e35;
-import com.baidu.tieba.pm;
+import com.baidu.tieba.q45;
 import com.baidu.tieba.qm;
+import com.baidu.tieba.rm;
 import com.baidu.tieba.tg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -130,10 +130,12 @@ public class ViewHelper {
 
     public static int getCommonColor(int i) {
         InterceptResult invokeI;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
-            boolean z = true;
-            if (i != 1 && i != 4) {
+            if (i == 4) {
+                z = true;
+            } else {
                 z = false;
             }
             return getCommonColor(z);
@@ -175,7 +177,7 @@ public class ViewHelper {
     public static void skipToRegisterActivity(Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65562, null, context) == null) && context != null) {
-            e35.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
+            q45.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
             skipToLoginActivity(context);
         }
     }
@@ -301,10 +303,10 @@ public class ViewHelper {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65552, null, viewGroup, i) == null) {
-            if (i != 1 && i != 4) {
-                z = false;
-            } else {
+            if (i == 4) {
                 z = true;
+            } else {
+                z = false;
             }
             processAllViewsIn(viewGroup, true, new ViewCallback(i, z) { // from class: com.baidu.tbadk.core.util.ViewHelper.1
                 public static /* synthetic */ Interceptable $ic;
@@ -355,9 +357,9 @@ public class ViewHelper {
                                 TextView textView = (TextView) view2;
                                 Application app = TbadkCoreApplication.getInst().getApp();
                                 if (this.val$isNight) {
-                                    i2 = R.style.obfuscated_res_0x7f1003ff;
+                                    i2 = R.style.obfuscated_res_0x7f100402;
                                 } else {
-                                    i2 = R.style.obfuscated_res_0x7f1003fe;
+                                    i2 = R.style.obfuscated_res_0x7f100401;
                                 }
                                 textView.setTextAppearance(app, i2);
                                 return false;
@@ -406,10 +408,10 @@ public class ViewHelper {
     public static void setGroupTextColor(TextView textView, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(65554, null, textView, i) == null) && textView != null) {
-            if (i != 1 && i != 4) {
-                textView.setTextColor(-5065030);
-            } else {
+            if (i == 4) {
                 textView.setTextColor(-11446171);
+            } else {
+                textView.setTextColor(-5065030);
             }
         }
     }
@@ -419,10 +421,10 @@ public class ViewHelper {
         if ((interceptable != null && interceptable.invokeLI(65555, null, view2, i) != null) || view2 == null) {
             return;
         }
-        if (i != 1 && i != 4) {
-            view2.setBackgroundColor(-1183760);
-        } else {
+        if (i == 4) {
             view2.setBackgroundColor(-14078923);
+        } else {
+            view2.setBackgroundColor(-1183760);
         }
     }
 
@@ -456,7 +458,7 @@ public class ViewHelper {
     public static void skipToLoginActivity(Context context, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65560, null, context, str) == null) && context != null) {
-            e35.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+            q45.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
             checkDownloadSo("libmml_framework.so", "com.baidu.tieba.soloader.libmmlframework", "mml_framework");
             checkDownloadSo("libc++_shared.so", "com.baidu.tieba.soloader.libcshared", SwanKV.LIB_CPP_SHARED);
             checkDownloadSo("libopencv_java3.so", "com.baidu.tieba.soloader.libopencv_java3", "opencv_java3");
@@ -467,9 +469,9 @@ public class ViewHelper {
             }
             if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libmml_framework.so"))) {
                 RequestParams requestParams = new RequestParams();
-                requestParams.setRunType(qm.a);
+                requestParams.setRunType(rm.a);
                 requestParams.setRunNode("aps");
-                requestParams.addChannel(new pm("com.baidu.tieba.soloader.libmmlframework", (DefaultDownloadCallback) null));
+                requestParams.addChannel(new qm("com.baidu.tieba.soloader.libmmlframework", (DefaultDownloadCallback) null));
                 PmsManager.getInstance().execute(requestParams);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, loginActivityConfig));
@@ -479,7 +481,7 @@ public class ViewHelper {
     public static void skipToLoginActivityFromH5(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65561, null, context, str, str2) == null) && context != null) {
-            e35.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+            q45.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true, str, str2)));
         }
     }

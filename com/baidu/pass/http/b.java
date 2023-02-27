@@ -1,17 +1,8 @@
 package com.baidu.pass.http;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.http.MultipartHashMap;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -27,225 +18,157 @@ import java.util.Map;
 import java.util.Random;
 /* loaded from: classes2.dex */
 public class b {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "HttpStack";
     public static final String b = "Set-Cookie";
-    public static final char[] c;
+    public static final char[] c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     public static final String d = "User-Agent";
     public static final int e = 15000;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String f;
-    public boolean g;
+    public String f = "AgzTBLLDxWSdvY0AbyfzsK8KCwpuSV";
+    public boolean g = false;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-727620336, "Lcom/baidu/pass/http/b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-727620336, "Lcom/baidu/pass/http/b;");
-                return;
-            }
+    private void a() {
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+        for (int i = 0; i < 30; i++) {
+            char[] cArr = c;
+            sb.append(cArr[random.nextInt(cArr.length)]);
         }
-        c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-    }
-
-    public b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f = "AgzTBLLDxWSdvY0AbyfzsK8KCwpuSV";
-        this.g = false;
+        this.f = sb.toString();
     }
 
     private ByteArrayOutputStream a(ByteArrayOutputStream byteArrayOutputStream, String str, String str2, InputStream inputStream, String str3) throws IOException {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, this, byteArrayOutputStream, str, str2, inputStream, str3)) == null) {
+        try {
             try {
-                try {
-                    a(byteArrayOutputStream);
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("Content-Disposition: form-data; name=\"");
-                    sb.append(str);
-                    sb.append("\"; filename=\"");
-                    sb.append(str2);
-                    sb.append("\"\r\n");
-                    byteArrayOutputStream.write(sb.toString().getBytes());
-                    if (str3 != null) {
-                        StringBuilder sb2 = new StringBuilder();
-                        sb2.append(Part.CONTENT_TYPE);
-                        sb2.append(str3);
-                        sb2.append("\r\n\r\n");
-                        byteArrayOutputStream.write(sb2.toString().getBytes());
-                    } else {
-                        byteArrayOutputStream.write("Content-Type: application/octet-stream\r\n\r\n".getBytes());
-                    }
-                    byte[] bArr = new byte[4096];
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read == -1) {
-                            break;
-                        }
-                        byteArrayOutputStream.write(bArr, 0, read);
-                    }
-                    byteArrayOutputStream.flush();
-                    try {
-                        inputStream.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
-                    }
-                    return byteArrayOutputStream;
-                } catch (IOException e3) {
-                    throw e3;
+                a(byteArrayOutputStream);
+                StringBuilder sb = new StringBuilder();
+                sb.append("Content-Disposition: form-data; name=\"");
+                sb.append(str);
+                sb.append("\"; filename=\"");
+                sb.append(str2);
+                sb.append("\"\r\n");
+                byteArrayOutputStream.write(sb.toString().getBytes());
+                if (str3 != null) {
+                    StringBuilder sb2 = new StringBuilder();
+                    sb2.append(Part.CONTENT_TYPE);
+                    sb2.append(str3);
+                    sb2.append("\r\n\r\n");
+                    byteArrayOutputStream.write(sb2.toString().getBytes());
+                } else {
+                    byteArrayOutputStream.write("Content-Type: application/octet-stream\r\n\r\n".getBytes());
                 }
-            } catch (Throwable th) {
+                byte[] bArr = new byte[4096];
+                while (true) {
+                    int read = inputStream.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    byteArrayOutputStream.write(bArr, 0, read);
+                }
+                byteArrayOutputStream.flush();
                 try {
                     inputStream.close();
-                } catch (IOException e4) {
-                    e4.printStackTrace();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
                 }
-                throw th;
+                return byteArrayOutputStream;
+            } catch (IOException e3) {
+                throw e3;
             }
+        } catch (Throwable th) {
+            try {
+                inputStream.close();
+            } catch (IOException e4) {
+                e4.printStackTrace();
+            }
+            throw th;
         }
-        return (ByteArrayOutputStream) invokeLLLLL.objValue;
     }
 
     private String a(HttpHashMap httpHashMap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, httpHashMap)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (httpHashMap != null && httpHashMap.getMap() != null) {
-                for (Map.Entry entry : httpHashMap.getMap().entrySet()) {
-                    if (!TextUtils.isEmpty((CharSequence) entry.getKey()) && !TextUtils.isEmpty((CharSequence) entry.getValue())) {
-                        try {
-                            sb.append(URLEncoder.encode((String) entry.getKey(), "UTF-8"));
-                            sb.append("=");
-                            sb.append(URLEncoder.encode((String) entry.getValue(), "UTF-8"));
-                            sb.append("&");
-                        } catch (UnsupportedEncodingException e2) {
-                            e.a(e2.getMessage());
-                        }
+        StringBuilder sb = new StringBuilder();
+        if (httpHashMap != null && httpHashMap.getMap() != null) {
+            for (Map.Entry entry : httpHashMap.getMap().entrySet()) {
+                if (!TextUtils.isEmpty((CharSequence) entry.getKey()) && !TextUtils.isEmpty((CharSequence) entry.getValue())) {
+                    try {
+                        sb.append(URLEncoder.encode((String) entry.getKey(), "UTF-8"));
+                        sb.append("=");
+                        sb.append(URLEncoder.encode((String) entry.getValue(), "UTF-8"));
+                        sb.append("&");
+                    } catch (UnsupportedEncodingException e2) {
+                        e.a(e2.getMessage());
                     }
                 }
             }
-            if (!TextUtils.isEmpty(sb)) {
-                sb.deleteCharAt(sb.length() - 1);
-            }
-            return sb.toString();
         }
-        return (String) invokeL.objValue;
+        if (!TextUtils.isEmpty(sb)) {
+            sb.deleteCharAt(sb.length() - 1);
+        }
+        return sb.toString();
     }
 
     private HttpURLConnection a(PassHttpParamDTO passHttpParamDTO) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, passHttpParamDTO)) == null) {
-            String a2 = a(passHttpParamDTO.paramsMap);
-            if (!TextUtils.isEmpty(a2)) {
-                passHttpParamDTO.url += "?" + a2;
-            }
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(passHttpParamDTO.url).openConnection();
-            httpURLConnection.setRequestMethod("GET");
-            httpURLConnection.setUseCaches(false);
-            return httpURLConnection;
+        String a2 = a(passHttpParamDTO.paramsMap);
+        if (!TextUtils.isEmpty(a2)) {
+            passHttpParamDTO.url += "?" + a2;
         }
-        return (HttpURLConnection) invokeL.objValue;
+        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(passHttpParamDTO.url).openConnection();
+        httpURLConnection.setRequestMethod("GET");
+        httpURLConnection.setUseCaches(false);
+        return httpURLConnection;
     }
 
     private HashMap<String, String> a(HttpURLConnection httpURLConnection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, httpURLConnection)) == null) {
-            HashMap<String, String> hashMap = new HashMap<>();
-            int size = httpURLConnection.getHeaderFields().size();
-            for (int i = 0; i < size; i++) {
-                String headerFieldKey = httpURLConnection.getHeaderFieldKey(i);
-                String headerField = httpURLConnection.getHeaderField(i);
-                if ("Set-Cookie".equals(headerFieldKey) && !TextUtils.isEmpty(headerField) && headerField.contains("=")) {
-                    headerFieldKey = headerField.substring(0, headerField.indexOf("="));
-                }
-                hashMap.put(headerFieldKey, headerField);
+        HashMap<String, String> hashMap = new HashMap<>();
+        int size = httpURLConnection.getHeaderFields().size();
+        for (int i = 0; i < size; i++) {
+            String headerFieldKey = httpURLConnection.getHeaderFieldKey(i);
+            String headerField = httpURLConnection.getHeaderField(i);
+            if ("Set-Cookie".equals(headerFieldKey) && !TextUtils.isEmpty(headerField) && headerField.contains("=")) {
+                headerFieldKey = headerField.substring(0, headerField.indexOf("="));
             }
-            return hashMap;
+            hashMap.put(headerFieldKey, headerField);
         }
-        return (HashMap) invokeL.objValue;
-    }
-
-    private void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            StringBuilder sb = new StringBuilder();
-            Random random = new Random();
-            for (int i = 0; i < 30; i++) {
-                char[] cArr = c;
-                sb.append(cArr[random.nextInt(cArr.length)]);
-            }
-            this.f = sb.toString();
-        }
+        return hashMap;
     }
 
     private void a(ByteArrayOutputStream byteArrayOutputStream) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, this, byteArrayOutputStream) == null) {
-            StringBuilder sb = new StringBuilder();
-            Random random = new Random();
-            for (int i = 0; i < 30; i++) {
-                char[] cArr = c;
-                sb.append(cArr[random.nextInt(cArr.length)]);
-            }
-            byte[] bytes = ("\r\n--" + this.f + "\r\n").getBytes();
-            if (!this.g) {
-                this.g = true;
-                byteArrayOutputStream.write(("--" + this.f + "\r\n").getBytes());
-                return;
-            }
-            byteArrayOutputStream.write(bytes);
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+        for (int i = 0; i < 30; i++) {
+            char[] cArr = c;
+            sb.append(cArr[random.nextInt(cArr.length)]);
         }
+        byte[] bytes = ("\r\n--" + this.f + "\r\n").getBytes();
+        if (!this.g) {
+            this.g = true;
+            byteArrayOutputStream.write(("--" + this.f + "\r\n").getBytes());
+            return;
+        }
+        byteArrayOutputStream.write(bytes);
     }
 
     private void a(ByteArrayOutputStream byteArrayOutputStream, String str, String str2) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, this, byteArrayOutputStream, str, str2) == null) {
-            a(byteArrayOutputStream);
-            byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + str + "\"\r\n\r\n").getBytes());
-            byteArrayOutputStream.write(str2.getBytes());
-        }
+        a(byteArrayOutputStream);
+        byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + str + "\"\r\n\r\n").getBytes());
+        byteArrayOutputStream.write(str2.getBytes());
     }
 
     private void a(HttpURLConnection httpURLConnection, int i) {
         int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65545, this, httpURLConnection, i) == null) {
-            if (i == 0) {
-                i2 = 15000;
-            } else {
-                i2 = i;
-            }
-            httpURLConnection.setConnectTimeout(i2);
-            if (i == 0) {
-                i = 15000;
-            }
-            httpURLConnection.setReadTimeout(i);
+        if (i == 0) {
+            i2 = 15000;
+        } else {
+            i2 = i;
         }
+        httpURLConnection.setConnectTimeout(i2);
+        if (i == 0) {
+            i = 15000;
+        }
+        httpURLConnection.setReadTimeout(i);
     }
 
     private void a(HttpURLConnection httpURLConnection, HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, this, httpURLConnection, hashMap) == null) && hashMap != null) {
+        if (hashMap != null) {
             for (Map.Entry<String, String> entry : hashMap.entrySet()) {
                 httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
             }
@@ -253,130 +176,115 @@ public class b {
     }
 
     private byte[] a(InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, inputStream)) == null) {
-            BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(byteArrayOutputStream);
-            byte[] bArr = new byte[8192];
-            while (true) {
+        BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(byteArrayOutputStream);
+        byte[] bArr = new byte[8192];
+        while (true) {
+            try {
                 try {
-                    try {
-                        int read = bufferedInputStream.read(bArr);
-                        if (read <= 0) {
-                            break;
-                        }
-                        bufferedOutputStream.write(bArr, 0, read);
-                    } catch (Throwable th) {
-                        try {
-                            bufferedOutputStream.close();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
-                        }
-                        try {
-                            bufferedInputStream.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                        }
-                        try {
-                            byteArrayOutputStream.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
-                        }
-                        throw th;
+                    int read = bufferedInputStream.read(bArr);
+                    if (read <= 0) {
+                        break;
                     }
-                } catch (IOException e5) {
-                    e5.printStackTrace();
+                    bufferedOutputStream.write(bArr, 0, read);
+                } catch (IOException e2) {
+                    e2.printStackTrace();
                     try {
                         bufferedOutputStream.close();
-                    } catch (IOException e6) {
-                        e6.printStackTrace();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
                     }
                     try {
                         bufferedInputStream.close();
-                    } catch (IOException e7) {
-                        e7.printStackTrace();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
                     try {
                         byteArrayOutputStream.close();
-                    } catch (IOException e8) {
-                        e8.printStackTrace();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
                     }
                     return null;
                 }
-            }
-            bufferedOutputStream.flush();
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            try {
-                bufferedOutputStream.close();
-            } catch (IOException e9) {
-                e9.printStackTrace();
-            }
-            try {
-                bufferedInputStream.close();
-            } catch (IOException e10) {
-                e10.printStackTrace();
-            }
-            try {
-                byteArrayOutputStream.close();
-                return byteArray;
-            } catch (IOException e11) {
-                e11.printStackTrace();
-                return byteArray;
+            } catch (Throwable th) {
+                try {
+                    bufferedOutputStream.close();
+                } catch (IOException e6) {
+                    e6.printStackTrace();
+                }
+                try {
+                    bufferedInputStream.close();
+                } catch (IOException e7) {
+                    e7.printStackTrace();
+                }
+                try {
+                    byteArrayOutputStream.close();
+                } catch (IOException e8) {
+                    e8.printStackTrace();
+                }
+                throw th;
             }
         }
-        return (byte[]) invokeL.objValue;
+        bufferedOutputStream.flush();
+        byte[] byteArray = byteArrayOutputStream.toByteArray();
+        try {
+            bufferedOutputStream.close();
+        } catch (IOException e9) {
+            e9.printStackTrace();
+        }
+        try {
+            bufferedInputStream.close();
+        } catch (IOException e10) {
+            e10.printStackTrace();
+        }
+        try {
+            byteArrayOutputStream.close();
+            return byteArray;
+        } catch (IOException e11) {
+            e11.printStackTrace();
+            return byteArray;
+        }
     }
 
     private byte[] a(HttpURLConnection httpURLConnection, PassHttpParamDTO passHttpParamDTO) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, httpURLConnection, passHttpParamDTO)) == null) {
-            HttpHashMap httpHashMap = passHttpParamDTO.paramsMap;
-            if (httpHashMap instanceof MultipartHashMap) {
-                httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.f);
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                HttpHashMap httpHashMap2 = passHttpParamDTO.paramsMap;
-                if (httpHashMap2 != null) {
-                    for (Map.Entry entry : httpHashMap2.getMap().entrySet()) {
-                        if (!TextUtils.isEmpty((CharSequence) entry.getKey()) && !TextUtils.isEmpty((CharSequence) entry.getValue())) {
-                            a(byteArrayOutputStream, URLEncoder.encode((String) entry.getKey(), "UTF-8"), URLEncoder.encode((String) entry.getValue(), "UTF-8"));
-                        }
+        HttpHashMap httpHashMap = passHttpParamDTO.paramsMap;
+        if (httpHashMap instanceof MultipartHashMap) {
+            httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.f);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            HttpHashMap httpHashMap2 = passHttpParamDTO.paramsMap;
+            if (httpHashMap2 != null) {
+                for (Map.Entry entry : httpHashMap2.getMap().entrySet()) {
+                    if (!TextUtils.isEmpty((CharSequence) entry.getKey()) && !TextUtils.isEmpty((CharSequence) entry.getValue())) {
+                        a(byteArrayOutputStream, URLEncoder.encode((String) entry.getKey(), "UTF-8"), URLEncoder.encode((String) entry.getValue(), "UTF-8"));
                     }
                 }
-                MultipartHashMap.a aVar = ((MultipartHashMap) passHttpParamDTO.paramsMap).fileWrapper;
-                a(byteArrayOutputStream, aVar.a, aVar.b, aVar.d, aVar.c);
-                a(byteArrayOutputStream);
-                return byteArrayOutputStream.toByteArray();
-            } else if (httpHashMap instanceof HttpHashMap) {
-                return a(httpHashMap).getBytes("UTF-8");
-            } else {
-                return null;
             }
+            MultipartHashMap.a aVar = ((MultipartHashMap) passHttpParamDTO.paramsMap).fileWrapper;
+            a(byteArrayOutputStream, aVar.a, aVar.b, aVar.d, aVar.c);
+            a(byteArrayOutputStream);
+            return byteArrayOutputStream.toByteArray();
+        } else if (httpHashMap instanceof HttpHashMap) {
+            return a(httpHashMap).getBytes("UTF-8");
+        } else {
+            return null;
         }
-        return (byte[]) invokeLL.objValue;
     }
 
     private HttpURLConnection b(PassHttpParamDTO passHttpParamDTO) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, passHttpParamDTO)) == null) {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(passHttpParamDTO.url).openConnection();
-            httpURLConnection.setRequestMethod("POST");
-            httpURLConnection.setDoOutput(true);
-            return httpURLConnection;
-        }
-        return (HttpURLConnection) invokeL.objValue;
+        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(passHttpParamDTO.url).openConnection();
+        httpURLConnection.setRequestMethod("POST");
+        httpURLConnection.setDoOutput(true);
+        return httpURLConnection;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x007c, code lost:
-        if (r2 != null) goto L33;
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0078, code lost:
+        if (r2 != null) goto L31;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0085, code lost:
-        if (r2 == null) goto L13;
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0081, code lost:
+        if (r2 == null) goto L11;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0087, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x0083, code lost:
         r2.close();
      */
     /*
@@ -386,8 +294,7 @@ public class b {
         HttpURLConnection a2;
         byte[] bArr;
         HttpResponseHandler httpResponseHandler;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, passHttpClientRequest) == null) && passHttpClientRequest != null && !passHttpClientRequest.cancelRequest) {
+        if (passHttpClientRequest != null && !passHttpClientRequest.cancelRequest) {
             a();
             int i = a.a[passHttpClientRequest.method.ordinal()];
             OutputStream outputStream = null;
@@ -440,8 +347,7 @@ public class b {
     }
 
     public void a(HttpURLConnection httpURLConnection, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpURLConnection, str) == null) && !TextUtils.isEmpty(str)) {
+        if (!TextUtils.isEmpty(str)) {
             httpURLConnection.setRequestProperty("User-Agent", str);
         }
     }

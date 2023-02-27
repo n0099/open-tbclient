@@ -1,305 +1,278 @@
 package com.baidu.tieba;
 
+import android.animation.Animator;
 import android.app.Activity;
-import android.content.Context;
+import android.util.DisplayMetrics;
+import android.util.Pair;
+import android.view.View;
 import android.view.ViewGroup;
-import androidx.core.app.NotificationCompat;
-import androidx.core.view.InputDeviceCompat;
+import android.view.animation.OvershootInterpolator;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c7a.a;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunAdLoadListener;
-import com.fun.ad.sdk.FunAdLoader;
-import com.fun.ad.sdk.FunAdSlot;
+import com.bytedance.sdk.openadsdk.ISplashClickEyeListener;
+import com.bytedance.sdk.openadsdk.TTSplashAd;
+import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.FunSplashAd;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.SidSessionMeta;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
-/* loaded from: classes4.dex */
-public abstract class c7a<S extends a> implements FunAdLoader {
+import com.fun.ad.sdk.FunSplashAdInteractionListener;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.PxUtils;
+import com.fun.ad.sdk.internal.api.utils.ViewUtils;
+/* loaded from: classes3.dex */
+public class c7a implements FunSplashAd {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object a;
-    public S b;
+    public final TTSplashAd a;
+    public final View b;
+    public final Pair<Integer, Integer> c;
+    public final int d;
+    public final int e;
+    public boolean f;
+    public int g;
+    public int h;
+    public FrameLayout i;
+    public FunSplashAdInteractionListener j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947629052, "Lcom/baidu/tieba/c7a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947629052, "Lcom/baidu/tieba/c7a;");
-                return;
-            }
-        }
-        c = !c7a.class.desiredAssertionStatus();
-    }
-
-    public c7a() {
+    public c7a(TTSplashAd tTSplashAd) {
+        Integer valueOf;
+        int round;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tTSplashAd};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new Object();
-    }
-
-    public static /* synthetic */ int e(PidLoader pidLoader, PidLoader pidLoader2) {
-        return -Double.compare(pidLoader.getBiddingOrBasePrices(), pidLoader2.getBiddingOrBasePrices());
-    }
-
-    public final PidLoader a(PidLoader pidLoader, PidLoader pidLoader2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pidLoader, pidLoader2)) == null) {
-            if (pidLoader == null && pidLoader2 == null) {
-                return null;
-            }
-            return (pidLoader != null && (pidLoader2 == null || pidLoader.getBiddingOrBasePrices() >= pidLoader2.getBiddingOrBasePrices())) ? pidLoader : pidLoader2;
+        this.d = PxUtils.dp2px(16.0f);
+        this.e = PxUtils.dp2px(100.0f);
+        this.i = new FrameLayout(FunAdSdk.getAppContext());
+        tTSplashAd.setSplashClickEyeListener(new a(this));
+        this.a = tTSplashAd;
+        this.b = tTSplashAd.getSplashView();
+        int[] splashClickEyeSizeToDp = tTSplashAd.getSplashClickEyeSizeToDp();
+        if (splashClickEyeSizeToDp == null || splashClickEyeSizeToDp.length != 2) {
+            DisplayMetrics displayMetrics = FunAdSdk.getAppContext().getResources().getDisplayMetrics();
+            int round2 = Math.round(Math.min(displayMetrics.heightPixels, displayMetrics.widthPixels) * 0.3f);
+            valueOf = Integer.valueOf(round2);
+            round = Math.round((round2 * 16) / 9.0f);
+        } else {
+            valueOf = Integer.valueOf(PxUtils.dp2px(splashClickEyeSizeToDp[0]));
+            round = PxUtils.dp2px(splashClickEyeSizeToDp[1]);
         }
-        return (PidLoader) invokeLL.objValue;
+        this.c = Pair.create(valueOf, Integer.valueOf(round));
     }
 
-    public final S b() {
-        InterceptResult invokeV;
-        S s;
+    public final void a(ViewGroup viewGroup, float f, float f2, int[] iArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this.a) {
-                s = this.b;
-                if (s == null) {
-                    s = f();
-                    if (!c && s == null) {
-                        throw new AssertionError();
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            ViewUtils.removeFromParent(this.b);
+            this.b.setScaleX(1.0f);
+            this.b.setScaleY(1.0f);
+            this.b.setX(0.0f);
+            this.b.setY(0.0f);
+            int[] iArr2 = new int[2];
+            viewGroup.getLocationOnScreen(iArr2);
+            float f3 = (f2 - iArr2[1]) + iArr[1];
+            this.i.addView(this.b, -1, -1);
+            viewGroup.addView(this.i, new FrameLayout.LayoutParams(i, i2));
+            this.i.setTranslationX((f - iArr2[0]) + iArr[0]);
+            this.i.setTranslationY(f3);
+            this.a.splashClickEyeAnimationFinish();
+        }
+    }
+
+    @Override // com.fun.ad.sdk.FunSplashAd
+    public void removeMiniWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            FrameLayout frameLayout = this.i;
+            if (frameLayout != null) {
+                ViewUtils.removeFromParent(frameLayout);
+                this.i = null;
+            }
+            this.j = null;
+        }
+    }
+
+    @Override // com.fun.ad.sdk.FunSplashAd
+    public boolean showMiniWindow(Activity activity, boolean z, FunSplashAdInteractionListener funSplashAdInteractionListener) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, Boolean.valueOf(z), funSplashAdInteractionListener})) == null) {
+            if (activity != null) {
+                if (!this.f) {
+                    LogPrinter.d("showMiniWindow failed without support", new Object[0]);
+                    return false;
+                } else if (this.i == null) {
+                    LogPrinter.d("showMiniWindow failed:Can't showMiniWindow again", new Object[0]);
+                    return false;
+                } else {
+                    this.j = funSplashAdInteractionListener;
+                    ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
+                    ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(16908290);
+                    int[] iArr = new int[2];
+                    this.b.getLocationOnScreen(iArr);
+                    int width = this.b.getWidth();
+                    int height = this.b.getHeight();
+                    int i = this.g;
+                    int i2 = this.h;
+                    if (i == 0 || i2 == 0) {
+                        LogPrinter.d("showMiniWindow failed without invalid origin view width and height", new Object[0]);
+                        return false;
                     }
-                    this.b = s;
+                    int intValue = ((Integer) this.c.first).intValue();
+                    int intValue2 = ((Integer) this.c.second).intValue();
+                    float f = intValue / width;
+                    float f2 = intValue2 / height;
+                    float f3 = (i - this.d) - intValue;
+                    float f4 = (i2 - this.e) - intValue2;
+                    ViewUtils.removeFromParent(this.b);
+                    viewGroup.addView(this.b, new FrameLayout.LayoutParams(width, height));
+                    this.b.setPivotX(0.0f);
+                    this.b.setPivotY(0.0f);
+                    if (z) {
+                        this.b.animate().scaleX(f).scaleY(f2).x(f3).y(f4).setInterpolator(new OvershootInterpolator(0.0f)).setDuration(300L).setListener(new b(this, viewGroup2, f3, f4, iArr, intValue, intValue2));
+                        return true;
+                    }
+                    a(viewGroup2, f3, f4, iArr, intValue, intValue2);
+                    return true;
                 }
             }
-            return s;
+            throw new IllegalArgumentException();
         }
-        return (S) invokeV.objValue;
+        return invokeCommon.booleanValue;
     }
 
-    public final <N> N c(List<PidLoader> list, List<PidLoader> list2, o1a<N> o1aVar, String str) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, list, list2, o1aVar, str)) != null) {
-            return (N) invokeLLLL.objValue;
-        }
-        LinkedList<PidLoader> d = d(list);
-        Collections.sort(d, new Comparator() { // from class: com.baidu.tieba.v0a
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // java.util.Comparator
-            public final int compare(Object obj, Object obj2) {
-                InterceptResult invokeLL;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? c7a.e((PidLoader) obj, (PidLoader) obj2) : invokeLL.intValue;
-            }
-        });
-        LinkedList<PidLoader> d2 = d(list2);
-        PidLoader poll = d.poll();
-        PidLoader poll2 = d2.poll();
-        while (true) {
-            if (poll == null && poll2 == null) {
-                return null;
-            }
-            PidLoader a2 = a(poll, poll2);
-            double biddingOrBasePrices = a2.getBiddingOrBasePrices();
-            if (a2 == poll) {
-                poll = d.poll();
-            } else {
-                poll2 = d2.poll();
-            }
-            PidLoader pidLoader = poll;
-            PidLoader pidLoader2 = poll2;
-            PidLoader a3 = a(pidLoader, pidLoader2);
-            a2.setBiddingResult(a2.getBiddingOrBasePrices(), a3 != null ? a3.getBiddingOrBasePrices() : biddingOrBasePrices, 1);
-            N a4 = o1aVar.a(a2, str);
-            if (a4 != null) {
-                return a4;
-            }
-            poll = pidLoader;
-            poll2 = pidLoader2;
-        }
-    }
-
-    public final LinkedList<PidLoader> d(List<PidLoader> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
-            LinkedList<PidLoader> linkedList = new LinkedList<>();
-            for (PidLoader pidLoader : list) {
-                if (pidLoader.isLoaded()) {
-                    linkedList.add(pidLoader);
-                }
-            }
-            return linkedList;
-        }
-        return (LinkedList) invokeL.objValue;
-    }
-
-    public abstract S f();
-
-    /* loaded from: classes4.dex */
-    public static abstract class a {
+    /* loaded from: classes3.dex */
+    public class a implements ISplashClickEyeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SidSessionMeta a;
-        public final com.fun.h0 b;
-        public FunAdLoadListener c;
+        public final /* synthetic */ c7a a;
 
-        public a(String str, int i, String str2) {
+        public a(c7a c7aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i), str2};
+                Object[] objArr = {c7aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            SidSessionMeta sidSessionMeta = new SidSessionMeta(str, i);
-            this.a = sidSessionMeta;
-            this.b = new com.fun.h0(sidSessionMeta, str2);
+            this.a = c7aVar;
         }
 
-        public abstract void a(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener);
-
-        public boolean c() {
-            InterceptResult invokeV;
+        @Override // com.bytedance.sdk.openadsdk.ISplashClickEyeListener
+        public boolean isSupportSplashClickEye(boolean z) {
+            InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c == null : invokeV.booleanValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+                this.a.f = z;
+                LogPrinter.d("isSupportSplashClickEye:" + z, new Object[0]);
+                return false;
+            }
+            return invokeZ.booleanValue;
         }
 
-        public abstract boolean d(Activity activity, ViewGroup viewGroup, FunAdInteractionListener funAdInteractionListener);
-
-        public abstract FunSplashAd e(Activity activity, ViewGroup viewGroup, FunAdInteractionListener funAdInteractionListener);
-
-        public abstract void g();
-
-        public final void b(String str) {
+        @Override // com.bytedance.sdk.openadsdk.ISplashClickEyeListener
+        public void onSplashClickEyeAnimationStart() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                com.fun.h0 h0Var = this.b;
-                h0Var.getClass();
-                h0Var.b("ldr_ld_err", NotificationCompat.CATEGORY_ERROR, str);
-                this.c.onError(this.a.sid);
-                g();
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
             }
         }
 
-        public final void f() {
+        @Override // com.bytedance.sdk.openadsdk.ISplashClickEyeListener
+        public void onSplashClickEyeAnimationFinish() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.b.b("ldr_ld_succeed", new Object[0]);
-                this.c.onAdLoaded(this.a.sid);
-                g();
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.d();
+                ViewUtils.removeFromParent(this.a.i);
+                this.a.i = null;
             }
         }
     }
 
-    @Override // com.fun.ad.sdk.FunAdLoader
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this.a) {
-                S s = this.b;
-                if (s != null) {
-                    s.g();
-                }
-                this.b = null;
-            }
-        }
-    }
+    /* loaded from: classes3.dex */
+    public class b implements Animator.AnimatorListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ float b;
+        public final /* synthetic */ float c;
+        public final /* synthetic */ int[] d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ int f;
+        public final /* synthetic */ c7a g;
 
-    @Override // com.fun.ad.sdk.FunAdLoader
-    public void recycleListener() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this.a) {
-                S s = this.b;
-                if (s != null) {
-                    s.g();
+        public b(c7a c7aVar, ViewGroup viewGroup, float f, float f2, int[] iArr, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c7aVar, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.g = c7aVar;
+            this.a = viewGroup;
+            this.b = f;
+            this.c = f2;
+            this.d = iArr;
+            this.e = i;
+            this.f = i2;
         }
-    }
 
-    @Override // com.fun.ad.sdk.FunAdLoader
-    public final void load(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, context, funAdSlot, funAdLoadListener) == null) {
-            synchronized (this.a) {
-                S s = this.b;
-                if (s != null && !s.c()) {
-                    com.fun.h0 h0Var = s.b;
-                    h0Var.getClass();
-                    h0Var.b("ldr_ld_err", NotificationCompat.CATEGORY_ERROR, "irr");
-                    s.g();
-                }
-                this.b = null;
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
             }
-            S b = b();
-            b.getClass();
-            if (funAdLoadListener != null) {
-                b.b.b("ldr_ld_start", new Object[0]);
-                b.c = funAdLoadListener;
-                b.a(context, funAdSlot, funAdLoadListener);
-                return;
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
             }
-            throw new IllegalArgumentException();
         }
-    }
 
-    @Override // com.fun.ad.sdk.FunAdLoader
-    public final <T extends ViewGroup> boolean show(Activity activity, T t, String str, FunAdInteractionListener funAdInteractionListener) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, t, str, funAdInteractionListener)) == null) {
-            S b = b();
-            b.b.b("ldr_sh_start", new Object[0]);
-            return b.d(activity, t, funAdInteractionListener);
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            }
         }
-        return invokeLLLL.booleanValue;
-    }
 
-    @Override // com.fun.ad.sdk.FunAdLoader
-    public final <T extends ViewGroup> FunSplashAd showSplash(Activity activity, T t, String str, FunAdInteractionListener funAdInteractionListener) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, activity, t, str, funAdInteractionListener)) == null) {
-            S b = b();
-            b.b.b("ldr_sh_start", new Object[0]);
-            return b.e(activity, t, funAdInteractionListener);
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+                this.g.a(this.a, this.b, this.c, this.d, this.e, this.f);
+            }
         }
-        return (FunSplashAd) invokeLLLL.objValue;
     }
 }

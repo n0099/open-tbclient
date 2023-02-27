@@ -25,7 +25,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.MonitorType;
 import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import com.faceunity.gles.GeneratedTexture;
-import com.heytap.mcssdk.mode.CommandMessage;
+import com.heytap.mcssdk.constant.MessageConstant;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import java.io.Writer;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
@@ -478,14 +479,14 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
                     }
                     if ((hVar.l & 3) != 0) {
                         int i = 0;
-                        C0142h c0142h = null;
+                        C0127h c0127h = null;
                         if ((hVar.l & 1) != 0) {
                             i = 1;
                         }
                         if ((hVar.l & 2) != 0) {
-                            c0142h = new C0142h();
+                            c0127h = new C0127h();
                         }
-                        return GLDebugHelper.wrap(gl, i, c0142h);
+                        return GLDebugHelper.wrap(gl, i, c0127h);
                     }
                     return gl;
                 }
@@ -520,7 +521,7 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
                 if (!this.a.eglSwapBuffers(this.b, this.c)) {
                     return this.a.eglGetError();
                 }
-                return CommandMessage.COMMAND_BASE;
+                return MessageConstant.CommandId.COMMAND_BASE;
             }
             return invokeV.intValue;
         }
@@ -655,9 +656,9 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-        /* JADX WARN: Removed duplicated region for block: B:146:0x0377  */
-        /* JADX WARN: Removed duplicated region for block: B:162:0x03a8  */
-        /* JADX WARN: Removed duplicated region for block: B:191:0x0228 A[SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:146:0x037d  */
+        /* JADX WARN: Removed duplicated region for block: B:162:0x03ae  */
+        /* JADX WARN: Removed duplicated region for block: B:191:0x022c A[SYNTHETIC] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -1135,7 +1136,7 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
                 }
             }
             try {
-                Class<?> cls = Class.forName("android.os.SystemProperties");
+                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
                 b = cls;
                 Method declaredMethod = cls.getDeclaredMethod("getInt", String.class, Integer.TYPE);
                 c = declaredMethod;
@@ -1288,12 +1289,12 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
 
     /* renamed from: com.baidu.platform.comapi.map.h$h  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0142h extends Writer {
+    public static class C0127h extends Writer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public StringBuilder a;
 
-        public C0142h() {
+        public C0127h() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

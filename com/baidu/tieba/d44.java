@@ -1,22 +1,245 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.is2;
+import com.baidu.tieba.q83;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.util.UriUtil;
+import java.io.File;
+import java.util.Date;
 /* loaded from: classes4.dex */
 public class d44 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static long b;
-    public static String c;
+    public static final boolean b;
+    public static d44 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+
+    /* loaded from: classes4.dex */
+    public class d implements b44 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fo3 a;
+        public final /* synthetic */ d44 b;
+
+        /* loaded from: classes4.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ d a;
+
+            public a(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = dVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    d dVar = this.a;
+                    dVar.a.a(Boolean.valueOf(dVar.b.n()));
+                }
+            }
+        }
+
+        public d(d44 d44Var, fo3 fo3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d44Var, fo3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = d44Var;
+            this.a = fo3Var;
+        }
+
+        @Override // com.baidu.tieba.b44
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                this.b.r();
+                gn3.e0(new a(this));
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements is2.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ File a;
+        public final /* synthetic */ fo3 b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ d44 d;
+
+        @Override // com.baidu.tieba.is2.c
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
+
+        public a(d44 d44Var, File file, fo3 fo3Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d44Var, file, fo3Var, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = d44Var;
+            this.a = file;
+            this.b = fo3Var;
+            this.c = z;
+        }
+
+        @Override // com.baidu.tieba.is2.c
+        public void onFailed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.b.a(Boolean.FALSE);
+                this.d.a = this.c;
+            }
+        }
+
+        @Override // com.baidu.tieba.is2.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                File k = this.d.k();
+                if (k.exists()) {
+                    qp4.j(k);
+                }
+                boolean U = qp4.U(this.a.getAbsolutePath(), k.getAbsolutePath());
+                if (U) {
+                    this.d.r();
+                    Date date = new Date();
+                    this.d.q(am3.e(date, "'debug'-HH:mm:ss"), date.getTime());
+                }
+                qp4.j(this.a);
+                this.b.a(Boolean.valueOf(U));
+                this.d.a = this.c;
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fo3 a;
+        public final /* synthetic */ d44 b;
+
+        public b(d44 d44Var, fo3 fo3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d44Var, fo3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = d44Var;
+            this.a = fo3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a(Boolean.valueOf(this.b.n()));
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c extends k44 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(d44 d44Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d44Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.k44
+        @NonNull
+        public File a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return d44.m().k();
+            }
+            return (File) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.k44
+        public void b(@NonNull String str, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+                d44.m().q(str, j);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -31,94 +254,220 @@ public class d44 {
                 return;
             }
         }
-        a = gp1.a;
-        b = 86400000L;
-        c = "duration_permission_list";
+        b = wp1.a;
     }
 
-    public static void a(JsObject jsObject) {
-        e44 e44Var;
+    public d44() {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, jsObject) == null) {
-            w83 M = w83.M();
-            d12 d12Var = null;
-            if (jsObject != null && M != null && b(M)) {
-                if (a) {
-                    Log.e("SwanGameDurationApi", "params is " + jsObject.toString());
-                }
-                d12 F = d12.F(jsObject);
-                String B = F.B("swanGameId");
-                if (!TextUtils.isEmpty(B)) {
-                    eh3 a2 = kh3.a();
-                    if (!c(Long.valueOf(a2.getLong(B + "_LastPause", 0L)), Long.valueOf(System.currentTimeMillis()))) {
-                        a2.putLong(B + "_Duration", 0L);
-                    }
-                    e44Var = new e44();
-                    e44Var.duration = a2.getLong(B + "_Duration", 0L);
-                } else {
-                    e44Var = null;
-                }
-                d12Var = F;
-            } else {
-                e44Var = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            ib4.call(d12Var, true, e44Var);
         }
+        if (b && l53.v()) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.a = z;
     }
 
-    public static boolean b(w83 w83Var) {
-        InterceptResult invokeL;
+    public static d44 m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, w83Var)) == null) {
-            String string = kh3.a().getString(c, "");
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (c == null) {
+                synchronized (d44.class) {
+                    if (c == null) {
+                        c = new d44();
+                    }
+                }
+            }
+            return c;
+        }
+        return (d44) invokeV.objValue;
+    }
+
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ai3.a().getLong("swan-game-sconsole-version-code", -1L);
+        }
+        return invokeV.longValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String string = ai3.a().getString("swan-game-sconsole-version-name", "");
             if (!TextUtils.isEmpty(string)) {
-                try {
-                    JSONArray jSONArray = new JSONArray(string);
-                    for (int i = 0; i < jSONArray.length(); i++) {
-                        if (w83.g0().contains(jSONArray.optString(i))) {
-                            return true;
-                        }
-                    }
-                } catch (Exception e) {
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                }
+                return string;
             }
-            return false;
+            return qp4.E(l());
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static boolean c(Long l, Long l2) {
-        InterceptResult invokeLL;
+    public final File g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, l, l2)) == null) {
-            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new File(f(), "debugGameSconsole.zip");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public final File h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return new File(f(), "swan-game-sconsole.html");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public final File j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return new File(k(), "swan-game-sconsole.js");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public File k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return new File(f(), UriUtil.LOCAL_RESOURCE_SCHEME);
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public final File l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return new File(k(), "swan-game-sconsole.version");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (j().exists() && h().exists()) {
                 return true;
             }
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static void d(long j, long j2) {
+    public void q(String str, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && j2 > j && w83.M() != null && !TextUtils.isEmpty(w83.g0())) {
-            String g0 = w83.g0();
-            eh3 a2 = kh3.a();
-            long j3 = a2.getLong(g0 + "_LastPause", 0L);
-            long j4 = a2.getLong(g0 + "_Duration", 0L);
-            if (c(Long.valueOf(j), Long.valueOf(j2))) {
-                if (c(Long.valueOf(j3), Long.valueOf(j))) {
-                    a2.putLong(g0 + "_Duration", (j4 + j2) - j);
-                } else {
-                    a2.putLong(g0 + "_Duration", j2 - j);
-                }
-            } else {
-                a2.putLong(g0 + "_Duration", j2 % b);
+        if (interceptable == null || interceptable.invokeLJ(1048589, this, str, j) == null) {
+            File l = l();
+            if (l.exists()) {
+                qp4.j(l);
             }
-            a2.putLong(g0 + "_LastPause", System.currentTimeMillis());
+            ai3.a().putString("swan-game-sconsole-version-name", str);
+            ai3.a().putLong("swan-game-sconsole-version-code", j);
+        }
+    }
+
+    public void c(String str, fo3<Boolean> fo3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, fo3Var) != null) || !b) {
+            return;
+        }
+        boolean z = this.a;
+        this.a = true;
+        is2.d dVar = new is2.d();
+        dVar.a = str;
+        File g = g();
+        new tg2().e(dVar, g.getAbsolutePath(), new a(this, g, fo3Var, z));
+    }
+
+    public void p(@NonNull Activity activity, @Nullable DialogInterface.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, activity, onClickListener) == null) {
+            q83.a aVar = new q83.a(activity);
+            aVar.U(R.string.obfuscated_res_0x7f0f0155);
+            aVar.v(R.string.obfuscated_res_0x7f0f01c0);
+            aVar.n(new uo3());
+            aVar.m(false);
+            aVar.O(R.string.obfuscated_res_0x7f0f01a4, onClickListener);
+            aVar.X();
+        }
+    }
+
+    public final File f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            File file = new File(c64.d(), "game_core_console");
+            if (b && this.a) {
+                file = new File(file, "debug");
+            }
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            try {
+                return h().toURI().toURL().toString();
+            } catch (Exception e) {
+                if (b) {
+                    Log.e("ConsoleResourceManager", "getGameConsoleHtmlUrl:" + e);
+                    return "";
+                }
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void o(@NonNull fo3<Boolean> fo3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, fo3Var) == null) {
+            if (b && this.a) {
+                gn3.e0(new b(this, fo3Var));
+            } else {
+                wg4.g(new mk4(e(), d()), new j44(new c(this), new d(this, fo3Var)));
+            }
+        }
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            File j = j();
+            File h = h();
+            if (!h.exists() && j.exists()) {
+                String format = String.format("%s%s%s", UriUtil.LOCAL_RESOURCE_SCHEME, File.separator, "swan-game-sconsole.js");
+                String D = qp4.D(ts2.c(), "aigames/sConsole.html");
+                if (D != null) {
+                    qp4.N(String.format(D, format), h);
+                }
+            }
         }
     }
 }

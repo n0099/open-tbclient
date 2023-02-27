@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import androidx.annotation.NonNull;
-import androidx.core.net.MailTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.IMManager;
@@ -1546,7 +1545,7 @@ public final class IMBoxManager {
             }
             if (jSONObject.has("bd_transformer")) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("bd_transformer");
-                j = optJSONObject.optLong(MailTo.TO, -1L);
+                j = optJSONObject.optLong("to", -1L);
                 try {
                     j2 = optJSONObject.optLong("from", -1L);
                     try {

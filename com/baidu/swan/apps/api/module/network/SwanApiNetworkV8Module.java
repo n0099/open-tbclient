@@ -4,51 +4,25 @@ import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.tieba.ky1;
-import com.baidu.tieba.w02;
-import com.baidu.tieba.xw1;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.az1;
+import com.baidu.tieba.m12;
+import com.baidu.tieba.nx1;
 @Keep
 /* loaded from: classes3.dex */
 public class SwanApiNetworkV8Module {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String MODULE_NAME = "_naV8Network";
-    public transient /* synthetic */ FieldHolder $fh;
-    public ky1 requestApi;
+    public az1 requestApi;
 
-    public SwanApiNetworkV8Module(@NonNull xw1 xw1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xw1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.requestApi = new ky1(xw1Var);
+    public SwanApiNetworkV8Module(@NonNull nx1 nx1Var) {
+        this.requestApi = new az1(nx1Var);
     }
 
     @JavascriptInterface
     public String request(JsObject jsObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsObject)) == null) {
-            w02 T = this.requestApi.T(jsObject);
-            if (T == null) {
-                return "";
-            }
-            return T.a();
+        m12 T = this.requestApi.T(jsObject);
+        if (T == null) {
+            return "";
         }
-        return (String) invokeL.objValue;
+        return T.a();
     }
 }

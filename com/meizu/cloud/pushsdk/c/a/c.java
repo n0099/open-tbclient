@@ -1,52 +1,43 @@
 package com.meizu.cloud.pushsdk.c.a;
 
-import com.meizu.cloud.pushsdk.c.f.e;
-import java.util.HashMap;
-import java.util.Map;
+import com.meizu.cloud.pushsdk.c.c.k;
 /* loaded from: classes8.dex */
-public class c implements a {
-    public final String a = c.class.getSimpleName();
-    public final HashMap<String, Object> b = new HashMap<>();
+public class c<T> {
+    public final T a;
+    public final com.meizu.cloud.pushsdk.c.b.a b;
+    public k c;
 
-    @Override // com.meizu.cloud.pushsdk.c.a.a
-    public Map a() {
+    public c(com.meizu.cloud.pushsdk.c.b.a aVar) {
+        this.a = null;
+        this.b = aVar;
+    }
+
+    public c(T t) {
+        this.a = t;
+        this.b = null;
+    }
+
+    public static <T> c<T> a(com.meizu.cloud.pushsdk.c.b.a aVar) {
+        return new c<>(aVar);
+    }
+
+    public static <T> c<T> a(T t) {
+        return new c<>(t);
+    }
+
+    public T a() {
+        return this.a;
+    }
+
+    public void a(k kVar) {
+        this.c = kVar;
+    }
+
+    public boolean b() {
+        return this.b == null;
+    }
+
+    public com.meizu.cloud.pushsdk.c.b.a c() {
         return this.b;
-    }
-
-    public void a(String str, Object obj) {
-        if (obj != null) {
-            this.b.put(str, obj);
-            return;
-        }
-        String str2 = this.a;
-        com.meizu.cloud.pushsdk.c.f.c.c(str2, "The keys value is empty, returning without adding key: " + str, new Object[0]);
-    }
-
-    @Override // com.meizu.cloud.pushsdk.c.a.a
-    public void a(String str, String str2) {
-        if (str2 != null && !str2.isEmpty()) {
-            this.b.put(str, str2);
-            return;
-        }
-        String str3 = this.a;
-        com.meizu.cloud.pushsdk.c.f.c.c(str3, "The keys value is empty, returning without adding key: " + str, new Object[0]);
-    }
-
-    public void a(Map<String, Object> map) {
-        if (map == null) {
-            com.meizu.cloud.pushsdk.c.f.c.c(this.a, "Map passed in is null, returning without adding map.", new Object[0]);
-        } else {
-            this.b.putAll(map);
-        }
-    }
-
-    @Override // com.meizu.cloud.pushsdk.c.a.a
-    public long b() {
-        return e.a(toString());
-    }
-
-    @Override // com.meizu.cloud.pushsdk.c.a.a
-    public String toString() {
-        return e.a((Map) this.b).toString();
     }
 }

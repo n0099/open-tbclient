@@ -1,20 +1,11 @@
 package com.baidu.searchbox.account.params;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.searchbox.account.data.UserAccountActionItem;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class LoginParams {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIM_LOGIN_LEFT_RIGHT = 10;
     public static final int ANIM_LOGIN_TOP_BOTTOM = 11;
-    public transient /* synthetic */ FieldHolder $fh;
     public final String mCustomLoginCss;
     public final int mIntentFlags;
     public final String mLoginDialogTitle;
@@ -32,245 +23,114 @@ public final class LoginParams {
     public final boolean mThirdLogin;
     public final boolean mVoiceLogin;
 
-    /* renamed from: com.baidu.searchbox.account.params.LoginParams$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
     /* loaded from: classes2.dex */
     public static class Builder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String mCustomLoginCss;
-        public int mIntentFlags;
-        public String mLoginDialogTitle;
-        public int mLoginMode;
         public int mLoginPageAnim;
         public UserAccountActionItem mLoginSrc;
-        public String mLoginSrcToPass;
-        public boolean mNeedUserSettingForLogin;
-        public boolean mNoSupportGuestLogin;
-        public String mNormalAccountSubTitle;
-        public String mNormalAccountTitle;
         public String mOauth;
-        public String mShareLoginDialogBgUrl;
-        public String mShareLoginDialogTitle;
-        public boolean mThirdLogin;
-        public boolean mVoiceLogin;
+        public int mLoginMode = 0;
+        public int mIntentFlags = 0;
+        public boolean mNeedUserSettingForLogin = false;
+        public boolean mThirdLogin = true;
+        public boolean mVoiceLogin = false;
+        public boolean mNoSupportGuestLogin = false;
+        public String mLoginDialogTitle = "登录一下，畅所欲言";
+        public String mLoginSrcToPass = null;
+        public String mShareLoginDialogTitle = "点击帐号，一键登录";
+        public String mShareLoginDialogBgUrl = "";
+        public String mCustomLoginCss = "";
+        public String mNormalAccountTitle = "";
+        public String mNormalAccountSubTitle = "";
 
-        public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+        public LoginParams build() {
+            if (this.mLoginSrc == null) {
+                this.mLoginSrc = new UserAccountActionItem(UserAccountActionItem.UserAccountAction.LOGIN, UserAccountActionItem.UserAccountType.NATIVE, "unknown");
             }
-            this.mLoginMode = 0;
-            this.mIntentFlags = 0;
-            this.mNeedUserSettingForLogin = false;
-            this.mThirdLogin = true;
-            this.mVoiceLogin = false;
-            this.mNoSupportGuestLogin = false;
-            this.mLoginDialogTitle = "登录一下，畅所欲言";
-            this.mLoginSrcToPass = null;
-            this.mShareLoginDialogTitle = "点击帐号，一键登录";
-            this.mShareLoginDialogBgUrl = "";
-            this.mCustomLoginCss = "";
-            this.mNormalAccountTitle = "";
-            this.mNormalAccountSubTitle = "";
+            int i = this.mLoginPageAnim;
+            if (i != 10 && i != 11) {
+                this.mLoginPageAnim = 11;
+            }
+            return new LoginParams(this);
         }
 
         public Builder setCustomLoginCss(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.mCustomLoginCss = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mCustomLoginCss = str;
+            return this;
         }
 
         public Builder setIntentFlags(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                this.mIntentFlags = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
+            this.mIntentFlags = i;
+            return this;
         }
 
         public Builder setLoginAnim(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-                this.mLoginPageAnim = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
+            this.mLoginPageAnim = i;
+            return this;
         }
 
         public Builder setLoginDialogTitle(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.mLoginDialogTitle = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mLoginDialogTitle = str;
+            return this;
         }
 
         public Builder setLoginMode(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-                this.mLoginMode = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
+            this.mLoginMode = i;
+            return this;
         }
 
         public Builder setLoginSrc(UserAccountActionItem userAccountActionItem) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, userAccountActionItem)) == null) {
-                this.mLoginSrc = userAccountActionItem;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mLoginSrc = userAccountActionItem;
+            return this;
         }
 
         public Builder setLoginSrcToPass(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-                this.mLoginSrcToPass = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mLoginSrcToPass = str;
+            return this;
         }
 
         public Builder setNeedUserSettingForLogin(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-                this.mNeedUserSettingForLogin = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.mNeedUserSettingForLogin = z;
+            return this;
         }
 
         public Builder setNoSupportGuestLogin(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-                this.mNoSupportGuestLogin = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.mNoSupportGuestLogin = z;
+            return this;
         }
 
         public Builder setOauthParam(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-                this.mOauth = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mOauth = str;
+            return this;
         }
 
         public Builder setShareLoginDialogBgUrl(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-                this.mShareLoginDialogBgUrl = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mShareLoginDialogBgUrl = str;
+            return this;
         }
 
         public Builder setShareLoginDialogTitle(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-                this.mShareLoginDialogTitle = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mShareLoginDialogTitle = str;
+            return this;
         }
 
         public Builder setThirdLogin(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048590, this, z)) == null) {
-                this.mThirdLogin = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.mThirdLogin = z;
+            return this;
         }
 
         public Builder setVoiceLogin(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
-                this.mVoiceLogin = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public LoginParams build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.mLoginSrc == null) {
-                    this.mLoginSrc = new UserAccountActionItem(UserAccountActionItem.UserAccountAction.LOGIN, UserAccountActionItem.UserAccountType.NATIVE, "unknown");
-                }
-                int i = this.mLoginPageAnim;
-                if (i != 10 && i != 11) {
-                    this.mLoginPageAnim = 11;
-                }
-                return new LoginParams(this, null);
-            }
-            return (LoginParams) invokeV.objValue;
+            this.mVoiceLogin = z;
+            return this;
         }
 
         public Builder setNormalAccountTitle(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) {
-                this.mNormalAccountTitle = str;
-                this.mNormalAccountSubTitle = str2;
-                return this;
-            }
-            return (Builder) invokeLL.objValue;
+            this.mNormalAccountTitle = str;
+            this.mNormalAccountSubTitle = str2;
+            return this;
         }
     }
 
     public LoginParams(Builder builder) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mLoginMode = builder.mLoginMode;
         this.mLoginSrc = builder.mLoginSrc;
         this.mLoginPageAnim = builder.mLoginPageAnim;
@@ -289,16 +149,7 @@ public final class LoginParams {
         this.mNormalAccountSubTitle = builder.mNormalAccountSubTitle;
     }
 
-    public /* synthetic */ LoginParams(Builder builder, AnonymousClass1 anonymousClass1) {
-        this(builder);
-    }
-
     public static LoginParams getDefaultParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new Builder().setLoginSrc(new UserAccountActionItem(UserAccountActionItem.UserAccountAction.LOGIN, UserAccountActionItem.UserAccountType.NATIVE, AccountConstants.LOGOUT_TYPE_NATIVE_SRC_OTHERS)).build();
-        }
-        return (LoginParams) invokeV.objValue;
+        return new Builder().setLoginSrc(new UserAccountActionItem(UserAccountActionItem.UserAccountAction.LOGIN, UserAccountActionItem.UserAccountType.NATIVE, AccountConstants.LOGOUT_TYPE_NATIVE_SRC_OTHERS)).build();
     }
 }

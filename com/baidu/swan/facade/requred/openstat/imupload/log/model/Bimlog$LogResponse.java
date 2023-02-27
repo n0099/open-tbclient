@@ -1,15 +1,6 @@
 package com.baidu.swan.facade.requred.openstat.imupload.log.model;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pv3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.fw3;
 import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.AbstractParser;
 import com.google.protobuf.ByteString;
@@ -26,14 +17,12 @@ import java.io.InputStream;
 import java.io.ObjectStreamException;
 /* loaded from: classes3.dex */
 public final class Bimlog$LogResponse extends GeneratedMessageLite implements MessageLiteOrBuilder {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_CODE_FIELD_NUMBER = 1;
     public static final int ERROR_MSG_FIELD_NUMBER = 2;
-    public static Parser<Bimlog$LogResponse> PARSER = null;
+    public static Parser<Bimlog$LogResponse> PARSER = new a();
     public static final int PING_INTERVAL_MS_FIELD_NUMBER = 3;
     public static final Bimlog$LogResponse defaultInstance;
     public static final long serialVersionUID = 0;
-    public transient /* synthetic */ FieldHolder $fh;
     public int bitField0_;
     public int errorCode_;
     public Object errorMsg_;
@@ -42,515 +31,315 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
     public long pingIntervalMs_;
 
     /* loaded from: classes3.dex */
-    public static class a extends AbstractParser<Bimlog$LogResponse> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.Parser
-        /* renamed from: b */
-        public Bimlog$LogResponse parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, codedInputStream, extensionRegistryLite)) == null) {
-                return new Bimlog$LogResponse(codedInputStream, extensionRegistryLite, null);
-            }
-            return (Bimlog$LogResponse) invokeLL.objValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
     public static final class b extends GeneratedMessageLite.Builder<Bimlog$LogResponse, b> implements Object {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public int a;
         public int b;
-        public Object c;
+        public Object c = "";
         public long d;
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
+            return true;
         }
 
         public final void maybeForceBuilderInitialization() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            }
         }
 
         public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = "";
             maybeForceBuilderInitialization();
         }
 
-        public static /* synthetic */ b l() {
-            return q();
+        public static /* synthetic */ b k() {
+            return p();
         }
 
-        public static b q() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                return new b();
-            }
-            return (b) invokeV.objValue;
+        public static b p() {
+            return new b();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
         public /* bridge */ /* synthetic */ GeneratedMessageLite.Builder clear() {
-            o();
+            n();
             return this;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite.Builder
-        /* renamed from: m */
+        /* renamed from: l */
         public Bimlog$LogResponse build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                Bimlog$LogResponse buildPartial = buildPartial();
-                if (buildPartial.isInitialized()) {
-                    return buildPartial;
-                }
-                throw AbstractMessageLite.Builder.newUninitializedMessageException(buildPartial);
+            Bimlog$LogResponse buildPartial = buildPartial();
+            if (buildPartial.isInitialized()) {
+                return buildPartial;
             }
-            return (Bimlog$LogResponse) invokeV.objValue;
+            throw AbstractMessageLite.Builder.newUninitializedMessageException(buildPartial);
         }
 
-        public b o() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-                super.clear();
-                this.b = 0;
-                int i = this.a & (-2);
-                this.a = i;
-                this.c = "";
-                int i2 = i & (-3);
-                this.a = i2;
-                this.d = 0L;
-                this.a = i2 & (-5);
-                return this;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite.Builder
+        /* renamed from: m */
+        public Bimlog$LogResponse buildPartial() {
+            Bimlog$LogResponse bimlog$LogResponse = new Bimlog$LogResponse(this, (fw3) null);
+            int i = this.a;
+            int i2 = 1;
+            if ((i & 1) != 1) {
+                i2 = 0;
             }
-            return (b) invokeV.objValue;
+            bimlog$LogResponse.errorCode_ = this.b;
+            if ((i & 2) == 2) {
+                i2 |= 2;
+            }
+            bimlog$LogResponse.errorMsg_ = this.c;
+            if ((i & 4) == 4) {
+                i2 |= 4;
+            }
+            bimlog$LogResponse.pingIntervalMs_ = this.d;
+            bimlog$LogResponse.bitField0_ = i2;
+            return bimlog$LogResponse;
+        }
+
+        public b n() {
+            super.clear();
+            this.b = 0;
+            int i = this.a & (-2);
+            this.a = i;
+            this.c = "";
+            int i2 = i & (-3);
+            this.a = i2;
+            this.d = 0L;
+            this.a = i2 & (-5);
+            return this;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
-        /* renamed from: p */
+        /* renamed from: o */
         public b mo29clone() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-                b q = q();
-                q.s(buildPartial());
-                return q;
-            }
-            return (b) invokeV.objValue;
+            b p = p();
+            p.r(buildPartial());
+            return p;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-        /* renamed from: r */
+        /* renamed from: q */
         public Bimlog$LogResponse getDefaultInstanceForType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-                return Bimlog$LogResponse.getDefaultInstance();
-            }
-            return (Bimlog$LogResponse) invokeV.objValue;
+            return Bimlog$LogResponse.getDefaultInstance();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
         public /* bridge */ /* synthetic */ MessageLite.Builder clear() {
-            o();
+            n();
             return this;
         }
 
         @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
         public /* bridge */ /* synthetic */ AbstractMessageLite.Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-            t(codedInputStream, extensionRegistryLite);
+            s(codedInputStream, extensionRegistryLite);
             return this;
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:15:0x001d  */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public b s(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            Bimlog$LogResponse bimlog$LogResponse = null;
+            try {
+                try {
+                    Bimlog$LogResponse parsePartialFrom = Bimlog$LogResponse.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                    if (parsePartialFrom != null) {
+                        r(parsePartialFrom);
+                    }
+                    return this;
+                } catch (InvalidProtocolBufferException e) {
+                    Bimlog$LogResponse bimlog$LogResponse2 = (Bimlog$LogResponse) e.getUnfinishedMessage();
+                    try {
+                        throw e;
+                    } catch (Throwable th) {
+                        th = th;
+                        bimlog$LogResponse = bimlog$LogResponse2;
+                        if (bimlog$LogResponse != null) {
+                            r(bimlog$LogResponse);
+                        }
+                        throw th;
+                    }
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                if (bimlog$LogResponse != null) {
+                }
+                throw th;
+            }
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.google.protobuf.GeneratedMessageLite] */
         /* JADX DEBUG: Return type fixed from 'com.google.protobuf.GeneratedMessageLite$Builder' to match base method */
         @Override // com.google.protobuf.GeneratedMessageLite.Builder
         public /* bridge */ /* synthetic */ b mergeFrom(Bimlog$LogResponse bimlog$LogResponse) {
-            s(bimlog$LogResponse);
+            r(bimlog$LogResponse);
             return this;
         }
 
-        public b u(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
-                this.a |= 1;
-                this.b = i;
-                return this;
-            }
-            return (b) invokeI.objValue;
+        public b t(int i) {
+            this.a |= 1;
+            this.b = i;
+            return this;
         }
 
-        public b v(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048599, this, j)) == null) {
-                this.a |= 4;
-                this.d = j;
-                return this;
-            }
-            return (b) invokeJ.objValue;
+        public b u(long j) {
+            this.a |= 4;
+            this.d = j;
+            return this;
         }
 
         @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
         public /* bridge */ /* synthetic */ MessageLite.Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-            t(codedInputStream, extensionRegistryLite);
+            s(codedInputStream, extensionRegistryLite);
             return this;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite.Builder
-        /* renamed from: n */
-        public Bimlog$LogResponse buildPartial() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bimlog$LogResponse bimlog$LogResponse = new Bimlog$LogResponse(this, (pv3) null);
-                int i = this.a;
-                int i2 = 1;
-                if ((i & 1) != 1) {
-                    i2 = 0;
-                }
-                bimlog$LogResponse.errorCode_ = this.b;
-                if ((i & 2) == 2) {
-                    i2 |= 2;
-                }
-                bimlog$LogResponse.errorMsg_ = this.c;
-                if ((i & 4) == 4) {
-                    i2 |= 4;
-                }
-                bimlog$LogResponse.pingIntervalMs_ = this.d;
-                bimlog$LogResponse.bitField0_ = i2;
-                return bimlog$LogResponse;
-            }
-            return (Bimlog$LogResponse) invokeV.objValue;
-        }
-
-        public b s(Bimlog$LogResponse bimlog$LogResponse) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, bimlog$LogResponse)) == null) {
-                if (bimlog$LogResponse == Bimlog$LogResponse.getDefaultInstance()) {
-                    return this;
-                }
-                if (bimlog$LogResponse.hasErrorCode()) {
-                    u(bimlog$LogResponse.getErrorCode());
-                }
-                if (bimlog$LogResponse.hasErrorMsg()) {
-                    this.a |= 2;
-                    this.c = bimlog$LogResponse.errorMsg_;
-                }
-                if (bimlog$LogResponse.hasPingIntervalMs()) {
-                    v(bimlog$LogResponse.getPingIntervalMs());
-                }
+        public b r(Bimlog$LogResponse bimlog$LogResponse) {
+            if (bimlog$LogResponse == Bimlog$LogResponse.getDefaultInstance()) {
                 return this;
             }
-            return (b) invokeL.objValue;
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:17:0x0021  */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public b t(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, codedInputStream, extensionRegistryLite)) == null) {
-                Bimlog$LogResponse bimlog$LogResponse = null;
-                try {
-                    try {
-                        Bimlog$LogResponse parsePartialFrom = Bimlog$LogResponse.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                        if (parsePartialFrom != null) {
-                            s(parsePartialFrom);
-                        }
-                        return this;
-                    } catch (InvalidProtocolBufferException e) {
-                        Bimlog$LogResponse bimlog$LogResponse2 = (Bimlog$LogResponse) e.getUnfinishedMessage();
-                        try {
-                            throw e;
-                        } catch (Throwable th) {
-                            th = th;
-                            bimlog$LogResponse = bimlog$LogResponse2;
-                            if (bimlog$LogResponse != null) {
-                            }
-                            throw th;
-                        }
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (bimlog$LogResponse != null) {
-                        s(bimlog$LogResponse);
-                    }
-                    throw th;
-                }
+            if (bimlog$LogResponse.hasErrorCode()) {
+                t(bimlog$LogResponse.getErrorCode());
             }
-            return (b) invokeLL.objValue;
+            if (bimlog$LogResponse.hasErrorMsg()) {
+                this.a |= 2;
+                this.c = bimlog$LogResponse.errorMsg_;
+            }
+            if (bimlog$LogResponse.hasPingIntervalMs()) {
+                u(bimlog$LogResponse.getPingIntervalMs());
+            }
+            return this;
         }
     }
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-176816808, "Lcom/baidu/swan/facade/requred/openstat/imupload/log/model/Bimlog$LogResponse;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-176816808, "Lcom/baidu/swan/facade/requred/openstat/imupload/log/model/Bimlog$LogResponse;");
-                return;
-            }
-        }
-        PARSER = new a();
         Bimlog$LogResponse bimlog$LogResponse = new Bimlog$LogResponse(true);
         defaultInstance = bimlog$LogResponse;
         bimlog$LogResponse.initFields();
     }
 
     public static Bimlog$LogResponse getDefaultInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return defaultInstance;
-        }
-        return (Bimlog$LogResponse) invokeV.objValue;
+        return defaultInstance;
     }
 
     private void initFields() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            this.errorCode_ = 0;
-            this.errorMsg_ = "";
-            this.pingIntervalMs_ = 0L;
-        }
+        this.errorCode_ = 0;
+        this.errorMsg_ = "";
+        this.pingIntervalMs_ = 0L;
     }
 
     public static b newBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return b.l();
-        }
-        return (b) invokeV.objValue;
+        return b.k();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.protobuf.MessageLiteOrBuilder
     public Bimlog$LogResponse getDefaultInstanceForType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return defaultInstance;
-        }
-        return (Bimlog$LogResponse) invokeV.objValue;
+        return defaultInstance;
     }
 
     public int getErrorCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.errorCode_;
-        }
-        return invokeV.intValue;
+        return this.errorCode_;
     }
 
     public String getErrorMsg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Object obj = this.errorMsg_;
-            if (obj instanceof String) {
-                return (String) obj;
-            }
-            ByteString byteString = (ByteString) obj;
-            String stringUtf8 = byteString.toStringUtf8();
-            if (byteString.isValidUtf8()) {
-                this.errorMsg_ = stringUtf8;
-            }
-            return stringUtf8;
+        Object obj = this.errorMsg_;
+        if (obj instanceof String) {
+            return (String) obj;
         }
-        return (String) invokeV.objValue;
+        ByteString byteString = (ByteString) obj;
+        String stringUtf8 = byteString.toStringUtf8();
+        if (byteString.isValidUtf8()) {
+            this.errorMsg_ = stringUtf8;
+        }
+        return stringUtf8;
     }
 
     public ByteString getErrorMsgBytes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Object obj = this.errorMsg_;
-            if (obj instanceof String) {
-                ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.errorMsg_ = copyFromUtf8;
-                return copyFromUtf8;
-            }
-            return (ByteString) obj;
+        Object obj = this.errorMsg_;
+        if (obj instanceof String) {
+            ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+            this.errorMsg_ = copyFromUtf8;
+            return copyFromUtf8;
         }
-        return (ByteString) invokeV.objValue;
+        return (ByteString) obj;
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
     public Parser<Bimlog$LogResponse> getParserForType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return PARSER;
-        }
-        return (Parser) invokeV.objValue;
+        return PARSER;
     }
 
     public long getPingIntervalMs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.pingIntervalMs_;
-        }
-        return invokeV.longValue;
+        return this.pingIntervalMs_;
     }
 
     public boolean hasErrorCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if ((this.bitField0_ & 1) == 1) {
-                return true;
-            }
-            return false;
+        if ((this.bitField0_ & 1) == 1) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public boolean hasErrorMsg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if ((this.bitField0_ & 2) == 2) {
-                return true;
-            }
-            return false;
+        if ((this.bitField0_ & 2) == 2) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public boolean hasPingIntervalMs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if ((this.bitField0_ & 4) == 4) {
-                return true;
-            }
-            return false;
+        if ((this.bitField0_ & 4) == 4) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     @Override // com.google.protobuf.MessageLiteOrBuilder
     public final boolean isInitialized() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            byte b2 = this.memoizedIsInitialized;
-            if (b2 != -1) {
-                if (b2 == 1) {
-                    return true;
-                }
-                return false;
+        byte b2 = this.memoizedIsInitialized;
+        if (b2 != -1) {
+            if (b2 == 1) {
+                return true;
             }
-            this.memoizedIsInitialized = (byte) 1;
-            return true;
+            return false;
         }
-        return invokeV.booleanValue;
+        this.memoizedIsInitialized = (byte) 1;
+        return true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.protobuf.MessageLite
     public b newBuilderForType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return newBuilder();
-        }
-        return (b) invokeV.objValue;
+        return newBuilder();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.protobuf.MessageLite
     public b toBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return newBuilder(this);
-        }
-        return (b) invokeV.objValue;
+        return newBuilder(this);
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite
     public Object writeReplace() throws ObjectStreamException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return super.writeReplace();
+        return super.writeReplace();
+    }
+
+    /* loaded from: classes3.dex */
+    public static class a extends AbstractParser<Bimlog$LogResponse> {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.Parser
+        /* renamed from: b */
+        public Bimlog$LogResponse parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return new Bimlog$LogResponse(codedInputStream, extensionRegistryLite, null);
         }
-        return invokeV.objValue;
     }
 
     public Bimlog$LogResponse(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {codedInputStream, extensionRegistryLite};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.memoizedIsInitialized = (byte) -1;
         this.memoizedSerializedSize = -1;
         initFields();
@@ -558,29 +347,31 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         while (!z) {
             try {
                 try {
-                    int readTag = codedInputStream.readTag();
-                    if (readTag != 0) {
-                        if (readTag != 8) {
-                            if (readTag != 18) {
-                                if (readTag != 24) {
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                    try {
+                        int readTag = codedInputStream.readTag();
+                        if (readTag != 0) {
+                            if (readTag != 8) {
+                                if (readTag != 18) {
+                                    if (readTag != 24) {
+                                        if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                                        }
+                                    } else {
+                                        this.bitField0_ |= 4;
+                                        this.pingIntervalMs_ = codedInputStream.readInt64();
                                     }
                                 } else {
-                                    this.bitField0_ |= 4;
-                                    this.pingIntervalMs_ = codedInputStream.readInt64();
+                                    this.bitField0_ |= 2;
+                                    this.errorMsg_ = codedInputStream.readBytes();
                                 }
                             } else {
-                                this.bitField0_ |= 2;
-                                this.errorMsg_ = codedInputStream.readBytes();
+                                this.bitField0_ |= 1;
+                                this.errorCode_ = codedInputStream.readInt32();
                             }
-                        } else {
-                            this.bitField0_ |= 1;
-                            this.errorCode_ = codedInputStream.readInt32();
                         }
+                        z = true;
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
                     }
-                    z = true;
-                } catch (InvalidProtocolBufferException e) {
-                    throw e.setUnfinishedMessage(this);
                 } catch (IOException e2) {
                     throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                 }
@@ -590,195 +381,102 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         }
     }
 
-    public /* synthetic */ Bimlog$LogResponse(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, pv3 pv3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bimlog$LogResponse(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, fw3 fw3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public Bimlog$LogResponse(GeneratedMessageLite.Builder builder) {
         super(builder);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.memoizedIsInitialized = (byte) -1;
-        this.memoizedSerializedSize = -1;
-    }
-
-    @Override // com.google.protobuf.MessageLite
-    public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, codedOutputStream) == null) {
-            getSerializedSize();
-            if ((this.bitField0_ & 1) == 1) {
-                codedOutputStream.writeInt32(1, this.errorCode_);
-            }
-            if ((this.bitField0_ & 2) == 2) {
-                codedOutputStream.writeBytes(2, getErrorMsgBytes());
-            }
-            if ((this.bitField0_ & 4) == 4) {
-                codedOutputStream.writeInt64(3, this.pingIntervalMs_);
-            }
-        }
-    }
-
-    public /* synthetic */ Bimlog$LogResponse(GeneratedMessageLite.Builder builder, pv3 pv3Var) {
-        this(builder);
-    }
-
-    public static Bimlog$LogResponse parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, inputStream, extensionRegistryLite)) == null) {
-            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
-        }
-        return (Bimlog$LogResponse) invokeLL.objValue;
-    }
-
-    public static Bimlog$LogResponse parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, byteString, extensionRegistryLite)) == null) {
-            return PARSER.parseFrom(byteString, extensionRegistryLite);
-        }
-        return (Bimlog$LogResponse) invokeLL.objValue;
-    }
-
-    public Bimlog$LogResponse(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65541, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65541, newInitContext);
-                return;
-            }
-        }
         this.memoizedIsInitialized = (byte) -1;
         this.memoizedSerializedSize = -1;
     }
 
     public static b newBuilder(Bimlog$LogResponse bimlog$LogResponse) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, bimlog$LogResponse)) == null) {
-            b newBuilder = newBuilder();
-            newBuilder.s(bimlog$LogResponse);
-            return newBuilder;
-        }
-        return (b) invokeL.objValue;
+        b newBuilder = newBuilder();
+        newBuilder.r(bimlog$LogResponse);
+        return newBuilder;
     }
 
     public static Bimlog$LogResponse parseDelimitedFrom(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, inputStream)) == null) {
-            return PARSER.parseDelimitedFrom(inputStream);
-        }
-        return (Bimlog$LogResponse) invokeL.objValue;
+        return PARSER.parseDelimitedFrom(inputStream);
     }
 
     public static Bimlog$LogResponse parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, byteString)) == null) {
-            return PARSER.parseFrom(byteString);
+        return PARSER.parseFrom(byteString);
+    }
+
+    @Override // com.google.protobuf.MessageLite
+    public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
+        getSerializedSize();
+        if ((this.bitField0_ & 1) == 1) {
+            codedOutputStream.writeInt32(1, this.errorCode_);
         }
-        return (Bimlog$LogResponse) invokeL.objValue;
+        if ((this.bitField0_ & 2) == 2) {
+            codedOutputStream.writeBytes(2, getErrorMsgBytes());
+        }
+        if ((this.bitField0_ & 4) == 4) {
+            codedOutputStream.writeInt64(3, this.pingIntervalMs_);
+        }
+    }
+
+    public /* synthetic */ Bimlog$LogResponse(GeneratedMessageLite.Builder builder, fw3 fw3Var) {
+        this(builder);
+    }
+
+    public static Bimlog$LogResponse parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+        return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+    }
+
+    public static Bimlog$LogResponse parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+        return PARSER.parseFrom(byteString, extensionRegistryLite);
+    }
+
+    public Bimlog$LogResponse(boolean z) {
+        this.memoizedIsInitialized = (byte) -1;
+        this.memoizedSerializedSize = -1;
     }
 
     public static Bimlog$LogResponse parseFrom(CodedInputStream codedInputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, codedInputStream)) == null) {
-            return PARSER.parseFrom(codedInputStream);
-        }
-        return (Bimlog$LogResponse) invokeL.objValue;
+        return PARSER.parseFrom(codedInputStream);
     }
 
     public static Bimlog$LogResponse parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, codedInputStream, extensionRegistryLite)) == null) {
-            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
-        }
-        return (Bimlog$LogResponse) invokeLL.objValue;
+        return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
     }
 
     public static Bimlog$LogResponse parseFrom(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, inputStream)) == null) {
-            return PARSER.parseFrom(inputStream);
-        }
-        return (Bimlog$LogResponse) invokeL.objValue;
+        return PARSER.parseFrom(inputStream);
     }
 
     public static Bimlog$LogResponse parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, inputStream, extensionRegistryLite)) == null) {
-            return PARSER.parseFrom(inputStream, extensionRegistryLite);
-        }
-        return (Bimlog$LogResponse) invokeLL.objValue;
+        return PARSER.parseFrom(inputStream, extensionRegistryLite);
     }
 
     public static Bimlog$LogResponse parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, bArr)) == null) {
-            return PARSER.parseFrom(bArr);
-        }
-        return (Bimlog$LogResponse) invokeL.objValue;
+        return PARSER.parseFrom(bArr);
     }
 
     public static Bimlog$LogResponse parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, bArr, extensionRegistryLite)) == null) {
-            return PARSER.parseFrom(bArr, extensionRegistryLite);
-        }
-        return (Bimlog$LogResponse) invokeLL.objValue;
+        return PARSER.parseFrom(bArr, extensionRegistryLite);
     }
 
     @Override // com.google.protobuf.MessageLite
     public int getSerializedSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i = this.memoizedSerializedSize;
-            if (i != -1) {
-                return i;
-            }
-            int i2 = 0;
-            if ((this.bitField0_ & 1) == 1) {
-                i2 = 0 + CodedOutputStream.computeInt32Size(1, this.errorCode_);
-            }
-            if ((this.bitField0_ & 2) == 2) {
-                i2 += CodedOutputStream.computeBytesSize(2, getErrorMsgBytes());
-            }
-            if ((this.bitField0_ & 4) == 4) {
-                i2 += CodedOutputStream.computeInt64Size(3, this.pingIntervalMs_);
-            }
-            this.memoizedSerializedSize = i2;
-            return i2;
+        int i = this.memoizedSerializedSize;
+        if (i != -1) {
+            return i;
         }
-        return invokeV.intValue;
+        int i2 = 0;
+        if ((this.bitField0_ & 1) == 1) {
+            i2 = 0 + CodedOutputStream.computeInt32Size(1, this.errorCode_);
+        }
+        if ((this.bitField0_ & 2) == 2) {
+            i2 += CodedOutputStream.computeBytesSize(2, getErrorMsgBytes());
+        }
+        if ((this.bitField0_ & 4) == 4) {
+            i2 += CodedOutputStream.computeInt64Size(3, this.pingIntervalMs_);
+        }
+        this.memoizedSerializedSize = i2;
+        return i2;
     }
 }

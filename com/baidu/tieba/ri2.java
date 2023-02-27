@@ -1,73 +1,48 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.qi2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.StringReader;
 import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public final class ri2 implements qi2 {
+public class ri2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final qi2.b a;
+    public final Map<Integer, Integer> a;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final ri2 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ri2 a;
 
-        public a(ri2 ri2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ri2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-460027983, "Lcom/baidu/tieba/ri2$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-460027983, "Lcom/baidu/tieba/ri2$a;");
                     return;
                 }
             }
-            this.a = ri2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f();
-            }
+            a = new ri2();
         }
     }
 
-    public ri2(qi2.b bVar) {
+    public ri2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -77,247 +52,40 @@ public final class ri2 implements qi2 {
                 return;
             }
         }
-        this.a = bVar == null ? new qi2.b() : bVar;
+        this.a = new ConcurrentHashMap();
     }
 
-    public ri2 b(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (e() && !TextUtils.isEmpty(str) && !d(this.a.a.get(str))) {
-                pi2 query = pi2.query(str);
-                if (d(query)) {
-                    this.a.a.put(query.a(), query);
-                }
-            }
-            return this;
-        }
-        return (ri2) invokeL.objValue;
-    }
-
-    public static boolean d(qi2.a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, aVar)) == null) {
-            if (aVar != null && aVar.isValid()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static ri2 m(qi2.b bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bVar)) == null) {
-            return new ri2(bVar);
-        }
-        return (ri2) invokeL.objValue;
-    }
-
-    public ri2 i(int i) {
-        InterceptResult invokeI;
-        qi2.b bVar;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (e() && i != (i2 = (bVar = this.a).d) && (i2 == 0 || i2 == bVar.c)) {
-                this.a.d = i;
-            }
-            return this;
-        }
-        return (ri2) invokeI.objValue;
-    }
-
-    public ri2 n(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            if (e()) {
-                this.a.c = i;
-            }
-            return this;
-        }
-        return (ri2) invokeI.objValue;
-    }
-
-    public static ri2 l() {
+    public static ri2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return m(null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
         }
         return (ri2) invokeV.objValue;
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            qi2.b bVar = this.a;
-            int i = bVar.d;
-            if (i == 0) {
-                return bVar.c;
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this.a) {
-                z = this.a.b;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public qi2.b k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
-        }
-        return (qi2.b) invokeV.objValue;
-    }
-
-    public final void f() {
-        String str;
-        qi2.a value;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this.a) {
-                if (!e()) {
-                    return;
-                }
-                this.a.b = false;
-                yf3 yf3Var = new yf3();
-                yf3Var.a = "swan";
-                yf3Var.c = "NA";
-                int c = c();
-                yf3Var.b = String.valueOf(c);
-                JSONArray jSONArray = new JSONArray();
-                for (Map.Entry<String, qi2.a> entry : this.a.a.entrySet()) {
-                    if (!TextUtils.isEmpty(entry.getKey()) && (value = entry.getValue()) != null && value.isValid()) {
-                        jSONArray.put(value.b());
-                    }
-                }
-                yf3Var.a("purged_list", jSONArray);
-                if (7 == c) {
-                    yf3Var.a("history_list", h());
-                    yf3Var.a("disk_size", g());
-                }
-                if (qi2.n0) {
-                    JSONObject f = yf3Var.f();
-                    if (f == null) {
-                        str = StringUtil.NULL_STRING;
-                    } else {
-                        try {
-                            str = f.toString(4);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            str = "" + yf3Var;
-                        }
-                    }
-                    BufferedReader bufferedReader = new BufferedReader(new StringReader(str));
-                    while (true) {
-                        try {
-                            try {
-                                String readLine = bufferedReader.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                Log.i("PurgerStatistic", "report event => " + readLine);
-                            } catch (IOException e2) {
-                                e2.printStackTrace();
-                            }
-                        } finally {
-                            ap4.d(bufferedReader);
-                        }
-                    }
-                }
-                pf3.x("1377", yf3Var);
-            }
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a.put(Integer.valueOf(i), Integer.valueOf(c(i) + 1));
+            m62.k("SwanRecoveryCounter", "addRecoveryCount level=" + i);
         }
     }
 
-    @NonNull
-    public final JSONObject g() {
-        InterceptResult invokeV;
+    public int c(int i) {
+        InterceptResult invokeI;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            int a2 = km3.a();
-            int i = eg3.i();
-            int b = eg3.b();
-            int k = eg3.k();
-            try {
-                jSONObject.put("device", a2);
-                jSONObject.put("swan_pkg", i);
-                jSONObject.put("app_pkg", b);
-                jSONObject.put("app_third", k);
-            } catch (JSONException e) {
-                if (qi2.n0) {
-                    e.printStackTrace();
-                    Log.i("PurgerStatistic", "queryDiskSize: e=" + e);
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            Integer num = this.a.get(Integer.valueOf(i));
+            if (num != null) {
+                i2 = num.intValue();
+            } else {
+                i2 = 0;
             }
-            return jSONObject;
+            m62.k("SwanRecoveryCounter", "getRecoveryCount level=" + i + ";count=" + i2);
+            return i2;
         }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @NonNull
-    public final JSONArray h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            try {
-                Cursor m = zf2.m();
-                int count = m.getCount();
-                while (m.moveToNext()) {
-                    String string = m.getString(m.getColumnIndex("app_id"));
-                    long j = m.getLong(m.getColumnIndex("visit_time"));
-                    if (!TextUtils.isEmpty(string)) {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put(IntentConfig.PKG_ID, string);
-                        jSONObject.put("last_launch_time", j);
-                        jSONArray.put(jSONObject);
-                    }
-                }
-                if (qi2.n0) {
-                    Log.i("PurgerStatistic", "queryHisList: cursor=" + count + " items=" + jSONArray.length());
-                }
-                if (m != null) {
-                    m.close();
-                }
-            } catch (JSONException e) {
-                if (qi2.n0) {
-                    e.printStackTrace();
-                    Log.i("PurgerStatistic", "queryHisList: e=" + e);
-                }
-            }
-            return jSONArray;
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (qi2.n0) {
-                Log.i("PurgerStatistic", "performReport: " + this.a);
-            }
-            if (e()) {
-                ExecutorUtilsExt.postOnElastic(new a(this), "PurgerStatistic", 3);
-            }
-        }
+        return invokeI.intValue;
     }
 }

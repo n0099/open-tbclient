@@ -1,21 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.TimeUnit;
+import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Set;
+import java.util.TimeZone;
 /* loaded from: classes4.dex */
-public class i51 {
+public final class i51 {
     public static /* synthetic */ Interceptable $ic;
-    public static final long a;
-    public static final long b;
+    public static final Set<Integer> a;
+    public static final Set<Integer> b;
+    public static final Set<Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,90 +32,69 @@ public class i51 {
                 return;
             }
         }
-        a = TimeUnit.DAYS.toMillis(1L);
-        TimeUnit.HOURS.toMillis(1L);
-        b = TimeUnit.MINUTES.toMillis(1L);
-        TimeUnit.SECONDS.toMillis(1L);
+        a = new HashSet();
+        b = new HashSet();
+        c = new HashSet();
+        a.add(2);
+        a.add(3);
+        a.add(4);
+        a.add(5);
+        a.add(6);
+        b.add(7);
+        b.add(1);
+        c.addAll(a);
+        c.addAll(b);
     }
 
-    public static int a(@NonNull String str, @NonNull String str2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, str, str2, i)) == null) {
-            String b2 = b(str, str2);
-            if (TextUtils.isEmpty(b2)) {
-                return i;
-            }
-            try {
-                return Integer.parseInt(b2);
-            } catch (NumberFormatException unused) {
-                return i;
-            }
-        }
-        return invokeLLI.intValue;
-    }
-
-    public static void e(@NonNull String str, @NonNull String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65541, null, str, str2, i) == null) {
-            f(str, str2, String.valueOf(i));
-        }
-    }
-
-    @Nullable
-    public static String b(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        int indexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            String string = k21.a().b(str).getString(str2, null);
-            if (TextUtils.isEmpty(string) || (indexOf = string.indexOf("-")) == -1 || indexOf >= string.length() || !d(string.substring(0, indexOf), System.currentTimeMillis())) {
-                return null;
-            }
-            return string.substring(indexOf + 1);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean c(long j, long j2, int i) {
+    public static int a(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)})) == null) {
-            if (j - j2 > i * b) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return (int) ((j2 - (j - ((TimeZone.getDefault().getRawOffset() + j) % 86400000))) / 86400000);
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static String b(int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i < 0) {
+                return "";
+            }
+            int i2 = i / 3600;
+            int i3 = (i % 3600) / 60;
+            int i4 = i % 60;
+            if (i2 == 0 && !z) {
+                return String.format(Locale.US, "%02d:%02d", Integer.valueOf(i3), Integer.valueOf(i4));
+            }
+            return String.format(Locale.US, "%02d:%02d:%02d", Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4));
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static long c(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return Math.abs((j2 - j) / 86400000);
+        }
+        return invokeCommon.longValue;
+    }
+
+    public static boolean d(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(j);
+            Calendar calendar2 = Calendar.getInstance();
+            calendar2.setTimeInMillis(j2);
+            if (calendar.get(1) == calendar2.get(1) && calendar.get(6) == calendar2.get(6)) {
                 return true;
             }
             return false;
         }
         return invokeCommon.booleanValue;
-    }
-
-    public static void f(@NonNull String str, @NonNull String str2, @NonNull String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) {
-            SharedPreferences.Editor edit = k21.a().b(str).edit();
-            edit.putString(str2, System.currentTimeMillis() + "-" + str3);
-            edit.apply();
-        }
-    }
-
-    public static boolean d(@Nullable String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            long j2 = 0;
-            try {
-                j2 = Long.parseLong(str);
-            } catch (NumberFormatException unused) {
-            }
-            long j3 = a;
-            if (j2 / j3 != j / j3) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLJ.booleanValue;
     }
 }

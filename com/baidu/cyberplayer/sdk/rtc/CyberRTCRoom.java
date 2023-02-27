@@ -2,443 +2,305 @@ package com.baidu.cyberplayer.sdk.rtc;
 
 import android.content.Context;
 import android.view.Surface;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.d;
 import com.baidu.cyberplayer.sdk.rtc.CyberRTCAudioSamples;
 import com.baidu.cyberplayer.sdk.rtc.CyberRTCSetting;
 import com.baidu.cyberplayer.sdk.rtc.RTCRoomProvider;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
 /* loaded from: classes2.dex */
 public class CyberRTCRoom {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public RTCRoomProvider a;
 
     public CyberRTCRoom(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.a = a.a().a(z);
     }
 
     public static void setRTCVerbose(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            d.a(z);
-        }
+        d.a(z);
     }
 
     public void changeSurfaceSize(long j, int i, int i2) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)}) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.changeSurfaceSize(j, i, i2);
         }
-        rTCRoomProvider.changeSurfaceSize(j, i, i2);
     }
 
     public boolean configLiveServerWithUrl(String str, boolean z, boolean z2, String str2, RTCRoomProvider.CyberRtcLiveTransferMode cyberRtcLiveTransferMode) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), str2, cyberRtcLiveTransferMode})) == null) {
-            RTCRoomProvider rTCRoomProvider = this.a;
-            if (rTCRoomProvider != null) {
-                return rTCRoomProvider.configLiveServerWithUrl(str, z, z2, str2, cyberRtcLiveTransferMode);
-            }
-            return false;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            return rTCRoomProvider.configLiveServerWithUrl(str, z, z2, str2, cyberRtcLiveTransferMode);
         }
-        return invokeCommon.booleanValue;
+        return false;
     }
 
     public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            RTCRoomProvider rTCRoomProvider = this.a;
-            if (rTCRoomProvider != null) {
-                rTCRoomProvider.destroy();
-            }
-            this.a = null;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.destroy();
         }
+        this.a = null;
     }
 
     public void destroyExternalSurface(long j, Surface surface) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(1048579, this, j, surface) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.destroyExternalSurface(j, surface);
         }
-        rTCRoomProvider.destroyExternalSurface(j, surface);
     }
 
     public void disbandRoom() {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.disbandRoom();
         }
-        rTCRoomProvider.disbandRoom();
     }
 
     public void enableAgc(boolean z) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.enableAgc(z);
         }
-        rTCRoomProvider.enableAgc(z);
     }
 
     public void enableAns(boolean z) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.enableAns(z);
         }
-        rTCRoomProvider.enableAns(z);
     }
 
     public void enableExternalVideoCapturer(boolean z) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.enableExternalVideoCapturer(z);
         }
-        rTCRoomProvider.enableExternalVideoCapturer(z);
     }
 
     public void enableStatsToServer(boolean z, String str) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(InputDeviceCompat.SOURCE_TOUCHPAD, this, z, str) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.enableStatsToServer(z, str);
         }
-        rTCRoomProvider.enableStatsToServer(z, str);
     }
 
     public RTCRoomProvider getProvider() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a : (RTCRoomProvider) invokeV.objValue;
+        return this.a;
     }
 
     public RTCRoomProvider.CyberRtcRoomAudioLevel[] getRemoteAudioLevels() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            RTCRoomProvider rTCRoomProvider = this.a;
-            return rTCRoomProvider != null ? rTCRoomProvider.getRemoteAudioLevels() : new RTCRoomProvider.CyberRtcRoomAudioLevel[0];
-        }
-        return (RTCRoomProvider.CyberRtcRoomAudioLevel[]) invokeV.objValue;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        return rTCRoomProvider != null ? rTCRoomProvider.getRemoteAudioLevels() : new RTCRoomProvider.CyberRtcRoomAudioLevel[0];
     }
 
     public RTCRoomProvider.CyberRtcRoomVideoDimension getRemoteVideoDimension(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-            RTCRoomProvider rTCRoomProvider = this.a;
-            return rTCRoomProvider != null ? rTCRoomProvider.getRemoteVideoDimension(j) : new RTCRoomProvider.CyberRtcRoomVideoDimension();
-        }
-        return (RTCRoomProvider.CyberRtcRoomVideoDimension) invokeJ.objValue;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        return rTCRoomProvider != null ? rTCRoomProvider.getRemoteVideoDimension(j) : new RTCRoomProvider.CyberRtcRoomVideoDimension();
     }
 
     public void getUserAttribute(long j) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048588, this, j) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.getUserAttribute(j);
         }
-        rTCRoomProvider.getUserAttribute(j);
     }
 
     public RTCRoomProvider.CyberRtcRoomUserInfo[] getUserListOfRoom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            RTCRoomProvider rTCRoomProvider = this.a;
-            return rTCRoomProvider != null ? rTCRoomProvider.getUserListOfRoom() : new RTCRoomProvider.CyberRtcRoomUserInfo[0];
-        }
-        return (RTCRoomProvider.CyberRtcRoomUserInfo[]) invokeV.objValue;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        return rTCRoomProvider != null ? rTCRoomProvider.getUserListOfRoom() : new RTCRoomProvider.CyberRtcRoomUserInfo[0];
     }
 
     public synchronized boolean initWithAppID(Context context, String str, String str2, String str3, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{context, str, str2, str3, Boolean.valueOf(z)})) == null) {
-            synchronized (this) {
-                if (this.a != null) {
-                    return this.a.initWithAppID(context, str, str2, str3, z);
-                }
-                return false;
-            }
+        if (this.a != null) {
+            return this.a.initWithAppID(context, str, str2, str3, z);
         }
-        return invokeCommon.booleanValue;
+        return false;
     }
 
     public void kickOffUserWithID(long j) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048591, this, j) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.kickOffUserWithID(j);
         }
-        rTCRoomProvider.kickOffUserWithID(j);
     }
 
     public boolean loginRtcRoomWithRoomName(String str, long j, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{str, Long.valueOf(j), str2})) == null) {
-            RTCRoomProvider rTCRoomProvider = this.a;
-            if (rTCRoomProvider != null) {
-                return rTCRoomProvider.loginRtcRoomWithRoomName(str, j, str2);
-            }
-            return false;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            return rTCRoomProvider.loginRtcRoomWithRoomName(str, j, str2);
         }
-        return invokeCommon.booleanValue;
+        return false;
     }
 
     public boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{str, Long.valueOf(j), str2, Boolean.valueOf(z)})) == null) {
-            RTCRoomProvider rTCRoomProvider = this.a;
-            if (rTCRoomProvider != null) {
-                return rTCRoomProvider.loginRtcRoomWithRoomName(str, j, str2, z);
-            }
-            return false;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            return rTCRoomProvider.loginRtcRoomWithRoomName(str, j, str2, z);
         }
-        return invokeCommon.booleanValue;
+        return false;
     }
 
     public boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{str, Long.valueOf(j), str2, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            RTCRoomProvider rTCRoomProvider = this.a;
-            if (rTCRoomProvider != null) {
-                return rTCRoomProvider.loginRtcRoomWithRoomName(str, j, str2, z, z2);
-            }
-            return false;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            return rTCRoomProvider.loginRtcRoomWithRoomName(str, j, str2, z, z2);
         }
-        return invokeCommon.booleanValue;
+        return false;
     }
 
     public boolean logoutRtcRoom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            RTCRoomProvider rTCRoomProvider = this.a;
-            if (rTCRoomProvider != null) {
-                return rTCRoomProvider.logoutRtcRoom();
-            }
-            return false;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            return rTCRoomProvider.logoutRtcRoom();
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public void muteCamera(boolean z) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048596, this, z) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.muteCamera(z);
         }
-        rTCRoomProvider.muteCamera(z);
     }
 
     public void muteMicphone(boolean z) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048597, this, z) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.muteMicphone(z);
         }
-        rTCRoomProvider.muteMicphone(z);
     }
 
     public void presetLoudSpeaker(boolean z) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048598, this, z) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.presetLoudSpeaker(z);
         }
-        rTCRoomProvider.presetLoudSpeaker(z);
     }
 
     public void publishStreaming() {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048599, this) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.publishStreaming();
         }
-        rTCRoomProvider.publishStreaming();
     }
 
     public void sendMessageToUser(String str, long j) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048600, this, str, j) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.sendMessageToUser(str, j);
         }
-        rTCRoomProvider.sendMessageToUser(str, j);
     }
 
     public void setAudioRecordDelegate(CyberRTCAudioSamples.CyberRTCSamplesReadyCallback cyberRTCSamplesReadyCallback) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048601, this, cyberRTCSamplesReadyCallback) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.setAudioRecordDelegate(cyberRTCSamplesReadyCallback);
         }
-        rTCRoomProvider.setAudioRecordDelegate(cyberRTCSamplesReadyCallback);
     }
 
     public void setCyberRTCRoomDelegate(RTCRoomProvider.CyberRtcRoomDelegate cyberRtcRoomDelegate) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048602, this, cyberRtcRoomDelegate) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.setCyberRTCRoomDelegate(cyberRtcRoomDelegate);
         }
-        rTCRoomProvider.setCyberRTCRoomDelegate(cyberRtcRoomDelegate);
     }
 
     public void setExternalSurface(long j, Surface surface) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(1048603, this, j, surface) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.setExternalSurface(j, surface);
         }
-        rTCRoomProvider.setExternalSurface(j, surface);
     }
 
     public void setParamSettings(CyberRTCSetting cyberRTCSetting, CyberRTCSetting.CyberRTCSettingType cyberRTCSettingType) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048604, this, cyberRTCSetting, cyberRTCSettingType) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.setParamSettings(cyberRTCSetting, cyberRTCSettingType);
         }
-        rTCRoomProvider.setParamSettings(cyberRTCSetting, cyberRTCSettingType);
     }
 
     public void setRemoteAudioPlayState(boolean z, long j) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.setRemoteAudioPlayState(z, j);
         }
-        rTCRoomProvider.setRemoteAudioPlayState(z, j);
     }
 
     public void setRemoteDisplay(CyberRTCVideoView cyberRTCVideoView) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048606, this, cyberRTCVideoView) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.setRemoteDisplay(cyberRTCVideoView);
         }
-        rTCRoomProvider.setRemoteDisplay(cyberRTCVideoView);
     }
 
     public void setRemoteVideoPlayState(boolean z, long j) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.setRemoteVideoPlayState(z, j);
         }
-        rTCRoomProvider.setRemoteVideoPlayState(z, j);
     }
 
     public void setSoundMod(RTCRoomProvider.CyberRtcSoundMode cyberRtcSoundMode) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048608, this, cyberRtcSoundMode) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.setSoundMod(cyberRtcSoundMode);
         }
-        rTCRoomProvider.setSoundMod(cyberRtcSoundMode);
     }
 
     public void setUserAttribute(String str) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048609, this, str) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.setUserAttribute(str);
         }
-        rTCRoomProvider.setUserAttribute(str);
     }
 
     public void shutUpUserWithID(long j) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048610, this, j) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.shutUpUserWithID(j);
         }
-        rTCRoomProvider.shutUpUserWithID(j);
     }
 
     public void shutUpUserWithID(long j, boolean z) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.shutUpUserWithID(j, z);
         }
-        rTCRoomProvider.shutUpUserWithID(j, z);
     }
 
     public void startPublish() {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048612, this) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.startPublish();
         }
-        rTCRoomProvider.startPublish();
     }
 
     public void stopPublish() {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048613, this) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.stopPublish();
         }
-        rTCRoomProvider.stopPublish();
     }
 
     public void stopSubscribeStreaming(long j) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048614, this, j) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.stopSubscribeStreaming(j);
         }
-        rTCRoomProvider.stopSubscribeStreaming(j);
     }
 
     public void subscribeStreaming(int i, long j) {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.subscribeStreaming(i, j);
         }
-        rTCRoomProvider.subscribeStreaming(i, j);
     }
 
     public void switchCamera() {
-        RTCRoomProvider rTCRoomProvider;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048616, this) == null) || (rTCRoomProvider = this.a) == null) {
-            return;
+        RTCRoomProvider rTCRoomProvider = this.a;
+        if (rTCRoomProvider != null) {
+            rTCRoomProvider.switchCamera();
         }
-        rTCRoomProvider.switchCamera();
     }
 }

@@ -16,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 import java.util.ArrayList;
 import java.util.List;
@@ -134,7 +135,7 @@ public class c extends k {
                             if (optJSONObject != null) {
                                 DrivingRouteLine.DrivingStep drivingStep = new DrivingRouteLine.DrivingStep();
                                 drivingStep.setDistance(optJSONObject.optInt("distance"));
-                                drivingStep.setDirection(optJSONObject.optInt("direction") * 30);
+                                drivingStep.setDirection(optJSONObject.optInt(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION) * 30);
                                 String optString = optJSONObject.optString("instructions");
                                 if (optString != null && optString.length() >= 4) {
                                     optString = optString.replaceAll("/?[a-zA-Z]{1,10};", "").replaceAll("<[^>]*>", "").replaceAll("[(/>)<]", "");

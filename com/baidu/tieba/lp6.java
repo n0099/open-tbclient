@@ -1,54 +1,125 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class lp6 implements rp6 {
+public class lp6 implements sp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public np6 a;
+    public boolean b;
+    public boolean c;
+    public kp6 d;
+    public boolean e;
 
-    @Override // com.baidu.tieba.rp6
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public lp6() {
+    public lp6(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = false;
+        this.e = false;
+        this.a = new np6();
+        this.e = z;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.sp6
+    public void a(String str, tp6 tp6Var) {
+        kp6 kp6Var;
+        kp6 kp6Var2;
+        float f;
+        float f2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, tp6Var) != null) || tp6Var == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        if (this.b) {
+            File file = new File(tp6Var.a);
+            Bitmap decodeFile = BitmapFactory.decodeFile(tp6Var.a);
+            if (file.exists() && decodeFile != null) {
+                float height = decodeFile.getHeight();
+                float width = decodeFile.getWidth();
+                float f3 = height * 1.0f;
+                float f4 = f3 / width;
+                if (f4 > 1.0f) {
+                    f = 1.7777778f;
+                } else {
+                    f = 0.75f;
+                }
+                float f5 = 0.0f;
+                if (f4 > f) {
+                    float f6 = f * width;
+                    f2 = (height - f6) * 0.5f;
+                    height = f6;
+                } else {
+                    float f7 = f3 / f;
+                    f5 = (width - f7) * 0.5f;
+                    width = f7;
+                    f2 = 0.0f;
+                }
+                tp6Var.a = FileHelper.saveBitmapByAbsolutelyPath(file.getPath(), file.getName(), Bitmap.createBitmap(decodeFile, (int) f5, (int) f2, (int) width, (int) height), 95);
+            }
+        }
+        if ("default".equals(str)) {
+            if (!this.c && (kp6Var2 = this.d) != null) {
+                kp6Var2.b0(tp6Var.a);
+            }
+        } else if ("manual".equals(str) && (kp6Var = this.d) != null) {
+            kp6Var.b0(tp6Var.a);
+        }
     }
 
-    public void c(String str) {
+    public void b(up6 up6Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, up6Var, str) == null) {
+            this.a.a(str, this.e).a(up6Var, this);
+        }
+    }
+
+    @Override // com.baidu.tieba.sp6
+    public void onError(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
+            BdLog.e("get cover error ! type : " + str + ", err : " + str2);
+        }
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    public void e(kp6 kp6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, kp6Var) == null) {
+            this.d = kp6Var;
         }
     }
 }

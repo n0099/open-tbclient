@@ -1,13 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
-public interface cc1 {
-    @Nullable
-    Drawable a(Context context);
+import com.baidu.tieba.pt0;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes3.dex */
+public final class cc1 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final pt0.a a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    Drawable b(Context context);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947669848, "Lcom/baidu/tieba/cc1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947669848, "Lcom/baidu/tieba/cc1;");
+                return;
+            }
+        }
+        a = new kt0();
+    }
 }

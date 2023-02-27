@@ -2,7 +2,7 @@ package com.baidu.tieba.barselect.model;
 
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.n86;
+import com.baidu.tieba.ea6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.Search.SearchResIdl;
 public class CandidateSearchSocketResMsg extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n86 candidateData;
+    public ea6 candidateData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CandidateSearchSocketResMsg() {
@@ -49,9 +49,9 @@ public class CandidateSearchSocketResMsg extends TbSocketReponsedMessage {
                     setErrorString(searchResIdl.error.errmsg);
                 }
                 if (searchResIdl.data.uid.longValue() != 0) {
-                    n86 n86Var = new n86();
-                    this.candidateData = n86Var;
-                    n86Var.a(searchResIdl.data);
+                    ea6 ea6Var = new ea6();
+                    this.candidateData = ea6Var;
+                    ea6Var.a(searchResIdl.data);
                     if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof CandidateSearchReqMsg)) {
                         this.candidateData.a = ((CandidateSearchReqMsg) getOrginalMessage().getExtra()).fid;
                     }

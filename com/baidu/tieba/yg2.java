@@ -1,12 +1,17 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
+import android.webkit.JavascriptInterface;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.smallgame.sdk.permission.PermissionListener;
-import com.baidu.smallgame.sdk.permission.PermissionProxy;
-import com.baidu.tieba.be3;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,97 +19,170 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.PermissionRequest;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yg2 implements PermissionProxy {
+public class yg2 extends ug2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean o;
+    public static final Object p;
+    public static String q;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public class a implements pn3<zd3<be3.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ PermissionListener c;
-        public final /* synthetic */ yg2 d;
-
-        public a(yg2 yg2Var, String str, String str2, PermissionListener permissionListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yg2Var, str, str2, permissionListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = yg2Var;
-            this.a = str;
-            this.b = str2;
-            this.c = permissionListener;
+    @Override // com.baidu.tieba.wg2, com.baidu.searchbox.unitedscheme.TypedCallbackHandler
+    public int getInvokeSourceType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pn3
-        /* renamed from: b */
-        public void a(zd3<be3.e> zd3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zd3Var) == null) {
-                if (ud3.h(zd3Var)) {
-                    this.d.b(this.a, this.b, this.c);
-                } else {
-                    this.c.onPermissionResult(this.a, 2);
-                }
-            }
-        }
+        return invokeV.intValue;
     }
 
     /* loaded from: classes7.dex */
-    public class b implements z33 {
+    public static class a extends EventTargetImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PermissionListener a;
-        public final /* synthetic */ String b;
+        public wg2 a;
+        public nl2 b;
+        @V8JavascriptField
+        public vg2 env;
 
-        public b(yg2 yg2Var, PermissionListener permissionListener, String str) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(wg2 wg2Var, String str) {
+            super(wg2Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yg2Var, permissionListener, str};
+                Object[] objArr = {wg2Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((JSRuntime) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = permissionListener;
-            this.b = str;
+            this.a = wg2Var;
+            vg2 vg2Var = new vg2();
+            this.env = vg2Var;
+            vg2Var.basePath = str;
         }
 
-        @Override // com.baidu.tieba.z33
-        public void a(String str) {
+        @JavascriptInterface
+        @SuppressLint({"BDThrowableCheck"})
+        public String getAPIs(int i) {
+            InterceptResult invokeI;
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.onPermissionResult(this.b, 0);
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                if (yg2.o) {
+                    if (l53.p()) {
+                        str = zl3.d(i, SchemeCollecter.CLASSIFY_SWAN_V8);
+                    } else {
+                        str = "";
+                    }
+                    m62.b("SwanAppV8Engine", "getAPIs res:" + str);
+                    return str;
+                }
+                String d = zl3.d(i, SchemeCollecter.CLASSIFY_SWAN_V8);
+                m62.b("SwanAppV8Engine", "getAPIs description:" + d);
+                if (TextUtils.isEmpty(d)) {
+                    if (!yg2.o) {
+                        ql3.c(zl3.b(String.format("index: %d, desc: %s, isV8: %b", Integer.valueOf(i), d, Boolean.TRUE)));
+                    } else {
+                        zl3.i();
+                        throw new RuntimeException(String.format("getAPIs cannot find index: %d, desc: %s", Integer.valueOf(i), d));
+                    }
+                } else {
+                    ql3.d();
+                }
+                return d;
             }
+            return (String) invokeI.objValue;
         }
 
-        @Override // com.baidu.tieba.z33
-        public void b(int i, String str) {
+        @JavascriptInterface
+        public String getDevToolsResponse() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                this.a.onPermissionResult(this.b, 1);
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (yg2.o) {
+                    Log.d("SwanAppV8Engine", "getDevToolsResponse = " + yg2.q);
+                }
+                return yg2.q;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @JavascriptInterface
+        public String getEnvVariables() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return wt2.a(this.a);
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @JavascriptInterface
+        public nl2 getFileSystemManager() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.b == null) {
+                    this.b = new nl2((ug2) this.a);
+                }
+                return this.b;
+            }
+            return (nl2) invokeV.objValue;
+        }
+
+        @JavascriptInterface
+        public JSONObject getNACanIUseMap() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                JSONObject b = n03.b();
+                m62.k("SwanAppV8Engine", "getNACanIUseMap - " + b.toString());
+                return b;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        @JavascriptInterface
+        public boolean lockMaster() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                m62.k("SwanAppV8Engine", "lockMaster");
+                synchronized (yg2.p) {
+                    try {
+                        try {
+                            yg2.p.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                            return false;
+                        }
+                    } catch (Throwable th) {
+                        throw th;
+                    }
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @JavascriptInterface
+        public void setDevToolsResponse(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+                if (yg2.o) {
+                    Log.d("SwanAppV8Engine", "setDevToolsResponse = " + str);
+                }
+                yg2.q = str;
             }
         }
     }
@@ -122,78 +200,41 @@ public class yg2 implements PermissionProxy {
                 return;
             }
         }
-        a = gp1.a;
+        o = wp1.a;
+        p = new Object();
+        q = "";
     }
 
-    public yg2() {
+    @Override // com.baidu.tieba.ug2
+    @NonNull
+    public EventTarget A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            a aVar = new a(this, this.b.getInitBasePath());
+            aVar.env.config = si3.b();
+            return aVar;
+        }
+        return (EventTarget) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yg2(@NonNull String str, @NonNull rh2 rh2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        super(str, rh2Var, v8ThreadDelegatePolicy);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, rh2Var, v8ThreadDelegatePolicy};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (rh2) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final void b(@NonNull String str, @NonNull String str2, @NonNull PermissionListener permissionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, permissionListener) == null) {
-            b bVar = new b(this, permissionListener, str);
-            y33.e(str2, new String[]{str2}, 2, v83.K().w(), bVar);
-        }
-    }
-
-    public final String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != -1785599184) {
-                if (hashCode == -1352756132 && str.equals(PermissionProxy.SCOPE_ID_RECORD)) {
-                    c = 1;
-                }
-            } else if (str.equals(PermissionProxy.SCOPE_ID_CAMERA)) {
-                c = 0;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    return null;
-                }
-                return PermissionRequest.RESOURCE_AUDIO_CAPTURE;
-            }
-            return PermissionRequest.RESOURCE_VIDEO_CAPTURE;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.smallgame.sdk.permission.PermissionProxy
-    public void requestPermission(String str, PermissionListener permissionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, permissionListener) == null) {
-            if (a) {
-                Log.d("V8PermissionDelegate", "requestPermission : " + str);
-            }
-            if (permissionListener == null) {
-                if (a) {
-                    Log.e("V8PermissionDelegate", "PermissionListener can not be null.");
-                    return;
-                }
                 return;
-            }
-            String c = c(str);
-            w83 M = w83.M();
-            if (!TextUtils.isEmpty(c) && M != null && M.w() != null) {
-                M.e0().g(M.w(), str, new a(this, str, c, permissionListener));
-            } else {
-                permissionListener.onPermissionResult(str, 2);
             }
         }
     }

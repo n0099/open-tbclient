@@ -12,11 +12,11 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.emotiontool.RequestStaticEmotionMessage;
-import com.baidu.tieba.ac5;
-import com.baidu.tieba.ej6;
-import com.baidu.tieba.fj6;
-import com.baidu.tieba.ij6;
-import com.baidu.tieba.jj6;
+import com.baidu.tieba.dm6;
+import com.baidu.tieba.em6;
+import com.baidu.tieba.hm6;
+import com.baidu.tieba.im6;
+import com.baidu.tieba.nd5;
 import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -54,7 +54,7 @@ public class EmotionIntefaceStatic {
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                jj6.k().v();
+                im6.k().v();
             }
         }
     }
@@ -93,9 +93,9 @@ public class EmotionIntefaceStatic {
                 int indexOf = editorTools.getCollectTools().indexOf(5);
                 if (indexOf != -1) {
                     if (editorTools.u()) {
-                        editorTools.d(new fj6(editorTools.getContext(), indexOf + 1, false));
+                        editorTools.d(new em6(editorTools.getContext(), indexOf + 1, false));
                     } else {
-                        editorTools.d(new fj6(editorTools.getContext(), indexOf + 1));
+                        editorTools.d(new em6(editorTools.getContext(), indexOf + 1));
                     }
                 }
             }
@@ -133,13 +133,13 @@ public class EmotionIntefaceStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof List)) {
-                    List<ac5> list = (List) customResponsedMessage.getData();
-                    list.add(ij6.e());
-                    for (ac5 ac5Var : list) {
-                        jj6.k().u(ac5Var);
+                    List<nd5> list = (List) customResponsedMessage.getData();
+                    list.add(hm6.e());
+                    for (nd5 nd5Var : list) {
+                        im6.k().u(nd5Var);
                     }
                 }
-                jj6.k().v();
+                im6.k().v();
             }
         }
     }
@@ -168,7 +168,7 @@ public class EmotionIntefaceStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                jj6.k().v();
+                im6.k().v();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -201,7 +201,7 @@ public class EmotionIntefaceStatic {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && (customMessage instanceof RequestStaticEmotionMessage)) {
                     RequestStaticEmotionMessage requestStaticEmotionMessage = (RequestStaticEmotionMessage) customMessage;
-                    return new CustomResponsedMessage<>(customMessage.getCmd(), jj6.k().s(requestStaticEmotionMessage.getGroupID(), requestStaticEmotionMessage.getSharpText()));
+                    return new CustomResponsedMessage<>(customMessage.getCmd(), im6.k().s(requestStaticEmotionMessage.getGroupID(), requestStaticEmotionMessage.getSharpText()));
                 }
                 return null;
             }
@@ -236,7 +236,7 @@ public class EmotionIntefaceStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2004608, Boolean.valueOf(jj6.k().l(customMessage.getData())));
+                return new CustomResponsedMessage<>(2004608, Boolean.valueOf(im6.k().l(customMessage.getData())));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -269,7 +269,7 @@ public class EmotionIntefaceStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2004609, Boolean.valueOf(jj6.k().n(customMessage.getData())));
+                return new CustomResponsedMessage<>(2004609, Boolean.valueOf(im6.k().n(customMessage.getData())));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -288,7 +288,7 @@ public class EmotionIntefaceStatic {
                 return;
             }
         }
-        zg.h().o(20, new ej6());
+        zg.h().o(20, new dm6());
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");

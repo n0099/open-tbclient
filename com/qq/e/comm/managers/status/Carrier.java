@@ -1,6 +1,5 @@
 package com.qq.e.comm.managers.status;
 
-import com.baidu.android.util.devices.RomUtils;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -34,7 +33,7 @@ public final class Carrier {
                 return;
             }
         }
-        UNKNOWN = new Carrier(RomUtils.UNKNOWN, 0, 0);
+        UNKNOWN = new Carrier("UNKNOWN", 0, 0);
         CMCC = new Carrier(OneKeyLoginSdkCall.OPERATOR_CHINA_MOBILE, 1, 1);
         UNICOM = new Carrier("UNICOM", 2, 2);
         Carrier carrier = new Carrier("TELECOM", 3, 3);

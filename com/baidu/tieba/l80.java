@@ -1,92 +1,86 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.util.DisplayMetrics;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class l80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public JSONArray a;
+    public String b;
+    public boolean c;
+    public JSONObject d;
 
-    public static int a(Context context) {
-        InterceptResult invokeL;
+    public l80(boolean z, JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            DisplayMetrics c = c(context);
-            if (c != null) {
-                return c.densityDpi;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), jSONArray};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return 0;
         }
-        return invokeL.intValue;
+        this.c = z;
+        this.a = jSONArray;
+        this.b = String.valueOf(System.currentTimeMillis());
     }
 
-    public static int b(Context context) {
-        InterceptResult invokeL;
+    public JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            DisplayMetrics c = c(context);
-            if (c != null) {
-                return c.heightPixels;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static DisplayMetrics c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            return context.getResources().getDisplayMetrics();
-        }
-        return (DisplayMetrics) invokeL.objValue;
-    }
-
-    public static int d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            DisplayMetrics c = c(context);
-            if (c != null) {
-                return c.widthPixels;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static String f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
+                jSONObject.put("uploadtime", this.b);
+            } catch (JSONException e) {
                 e.printStackTrace();
-                return "unknown";
             }
+            this.d = jSONObject;
+            return jSONObject;
         }
-        return (String) invokeL.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    public static String e(Context context) {
-        InterceptResult invokeL;
+    public JSONObject b() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            int d = d(context);
-            int b = b(context);
-            int a = a(context);
-            String f = f(context);
-            return d + "_" + b + "_android_" + f + "_" + a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONArray jSONArray = this.a;
+            if (jSONArray != null && jSONArray.length() >= 0) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put(TtmlNode.TAG_METADATA, a());
+                    if (this.c) {
+                        str = "1";
+                    } else {
+                        str = "0";
+                    }
+                    jSONObject.put(Constant.IS_REAL, str);
+                    jSONObject.put("data", this.a);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                o80.a("UploadData", "uploadJson:" + jSONObject.toString());
+                return jSONObject;
+            }
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

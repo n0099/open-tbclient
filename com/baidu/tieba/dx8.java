@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.common.security.ioc.IHostStateAbiltiy;
-import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class dx8 implements IHostStateAbiltiy {
+public class dx8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public long d;
 
     public dx8() {
         Interceptable interceptable = $ic;
@@ -29,23 +29,20 @@ public class dx8 implements IHostStateAbiltiy {
         }
     }
 
-    @Override // com.baidu.searchbox.common.security.ioc.IHostStateAbiltiy
-    public boolean hasAgreedPrivacyPolicy() {
-        InterceptResult invokeV;
+    public static dx8 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return PermissionUtil.isAgreePrivacyPolicy();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            dx8 dx8Var = new dx8();
+            dx8Var.a = jSONObject.optInt("agree_num", -1);
+            dx8Var.b = jSONObject.optInt("share_num", -1);
+            dx8Var.c = jSONObject.optInt("reply_num", -1);
+            dx8Var.d = jSONObject.optLong("time", System.currentTimeMillis());
+            return dx8Var;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.common.security.ioc.IHostStateAbiltiy
-    public boolean isForeground() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return !lo5.g().k();
-        }
-        return invokeV.booleanValue;
+        return (dx8) invokeL.objValue;
     }
 }

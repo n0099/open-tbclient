@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.adp.titan.TitanDownloadService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.Closeables;
@@ -30,9 +30,23 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class hn {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile boolean b;
+    public static volatile boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448306535, "Lcom/baidu/tieba/hn;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448306535, "Lcom/baidu/tieba/hn;");
+        }
+    }
 
     /* loaded from: classes4.dex */
     public static class a extends bn.a {
@@ -73,45 +87,42 @@ public class hn {
                 try {
                     try {
                         if (jSONObject == null) {
-                            Log.d(TitanDownloadService.TAG, "response parse fail");
+                            r08 defaultLog = DefaultLog.getInstance();
+                            defaultLog.b(TitanDownloadService.TAG, "response parse fail:" + this.b);
                             this.a.onResult(this.b, -1, null);
                             synchronized (hn.class) {
-                                boolean unused = hn.b = false;
+                                boolean unused = hn.a = false;
                             }
                             return;
                         }
-                        if (hn.a) {
-                            Log.d(TitanDownloadService.TAG, "onResponse " + jSONObject);
-                        }
-                        PackageInfo k = hn.k(this.c, jSONObject);
-                        if (k.errNo != 0) {
-                            if (hn.a) {
-                                Log.d(TitanDownloadService.TAG, "return fail result");
-                            }
-                            if (k.errNo != -2) {
-                                Log.d(TitanDownloadService.TAG, "patch data errno = " + k.errNo);
-                            }
+                        r08 defaultLog2 = DefaultLog.getInstance();
+                        defaultLog2.c(TitanDownloadService.TAG, "onResponse " + jSONObject);
+                        PackageInfo j = hn.j(this.c, jSONObject);
+                        if (j.errNo != 0) {
+                            r08 defaultLog3 = DefaultLog.getInstance();
+                            defaultLog3.b(TitanDownloadService.TAG, "return fail, result errno = " + j.errNo);
                             this.a.onResult(this.b, -1, null);
                             synchronized (hn.class) {
-                                boolean unused2 = hn.b = false;
+                                boolean unused2 = hn.a = false;
                             }
                             return;
                         }
-                        Log.d(TitanDownloadService.TAG, "start install patch");
-                        in.b(this.c, this.a, k, true);
+                        DefaultLog.getInstance().c(TitanDownloadService.TAG, "start install patch");
+                        in.b(this.c, this.a, j, true);
                         synchronized (hn.class) {
-                            boolean unused3 = hn.b = false;
+                            boolean unused3 = hn.a = false;
                         }
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        r08 defaultLog4 = DefaultLog.getInstance();
+                        defaultLog4.b(TitanDownloadService.TAG, "TitanRequester onResponse Exception:" + e);
                         this.a.onResult(this.b, -1, null);
                         synchronized (hn.class) {
-                            boolean unused4 = hn.b = false;
+                            boolean unused4 = hn.a = false;
                         }
                     }
                 } catch (Throwable th) {
                     synchronized (hn.class) {
-                        boolean unused5 = hn.b = false;
+                        boolean unused5 = hn.a = false;
                         throw th;
                     }
                 }
@@ -167,10 +178,7 @@ public class hn {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, inputStream) == null) {
                 if (inputStream == null) {
-                    if (hn.a) {
-                        Log.d(TitanDownloadService.TAG, "download patch inputstream is null");
-                        return;
-                    }
+                    DefaultLog.getInstance().b(TitanDownloadService.TAG, "download patch inputstream is null");
                     return;
                 }
                 FileOutputStream fileOutputStream2 = null;
@@ -194,19 +202,18 @@ public class hn {
                         fileOutputStream.write(bArr, 0, read);
                         messageDigest.update(bArr, 0, read);
                     }
-                    String e2 = hn.e(messageDigest.digest());
-                    if (hn.a) {
-                        Log.d(TitanDownloadService.TAG, "download file md5 = " + e2);
-                    }
-                    if (!TextUtils.equals(this.b, e2)) {
-                        Log.d(TitanDownloadService.TAG, "patch md5 not match");
+                    String d = hn.d(messageDigest.digest());
+                    r08 defaultLog = DefaultLog.getInstance();
+                    defaultLog.c(TitanDownloadService.TAG, "download file md5 = " + d);
+                    if (!TextUtils.equals(this.b, d)) {
+                        DefaultLog.getInstance().b(TitanDownloadService.TAG, "patch md5 not match");
                         fileOutputStream.close();
                         this.a.delete();
                     }
                     Closeables.closeSafely(inputStream);
                     Closeables.closeSafely(fileOutputStream);
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     fileOutputStream2 = fileOutputStream;
                     this.a.delete();
                     e.printStackTrace();
@@ -223,23 +230,6 @@ public class hn {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448306535, "Lcom/baidu/tieba/hn;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448306535, "Lcom/baidu/tieba/hn;");
-                return;
-            }
-        }
-        a = ym.a;
-        b = false;
-    }
-
     public hn() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -254,19 +244,19 @@ public class hn {
         }
     }
 
-    public static String i() {
+    public static String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             return zm.a() + "?runtype=aps_132&appname=tieba";
         }
         return (String) invokeV.objValue;
     }
 
-    public static File j(Context context) {
+    public static File i(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             File file = new File(new File(context.getCacheDir(), "titan_sandbox_cache"), "patch_cache");
             file.mkdirs();
             return file;
@@ -274,10 +264,10 @@ public class hn {
         return (File) invokeL.objValue;
     }
 
-    public static String e(byte[] bArr) {
+    public static String d(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
             StringBuilder sb = new StringBuilder("");
             if (bArr != null && bArr.length > 0) {
                 for (byte b2 : bArr) {
@@ -294,43 +284,39 @@ public class hn {
         return (String) invokeL.objValue;
     }
 
-    public static void f(Context context, String str, en enVar) {
+    public static void e(Context context, String str, en enVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, context, str, enVar) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, null, context, str, enVar) == null) {
             synchronized (hn.class) {
-                if (b) {
-                    if (a) {
-                        Log.d(TitanDownloadService.TAG, "doInstall is installing");
-                    }
+                if (a) {
+                    DefaultLog.getInstance().b(TitanDownloadService.TAG, "doInstall is installing");
                     return;
                 }
-                b = true;
-                String z = cn.p().z(i());
-                if (a) {
-                    Log.d(TitanDownloadService.TAG, "url = " + z);
-                }
-                Log.d(TitanDownloadService.TAG, "start require patch data");
+                a = true;
+                String z = cn.p().z(h());
+                r08 defaultLog = DefaultLog.getInstance();
+                defaultLog.c(TitanDownloadService.TAG, "start require patch data, url = " + z);
                 HashMap hashMap = new HashMap();
                 hashMap.put("Content-Type", "application/json");
-                bn.d(context, z, "POST", h(), hashMap, new a(enVar, str, context));
+                bn.c(context, z, "POST", g(), hashMap, new a(enVar, str, context));
             }
         }
     }
 
-    public static String g(Context context, String str, String str2, String str3) {
+    public static String f(Context context, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65544, null, context, str, str2, str3)) == null) {
-            File j = j(context);
-            for (File file : j.listFiles()) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65543, null, context, str, str2, str3)) == null) {
+            File i = i(context);
+            for (File file : i.listFiles()) {
                 if (file.isFile()) {
                     file.delete();
                 }
             }
-            File file2 = new File(j, str3);
-            Log.d(TitanDownloadService.TAG, "start download patch");
-            bn.d(context, str, "GET", null, null, new b(file2, str2));
+            File file2 = new File(i, str3);
+            DefaultLog.getInstance().c(TitanDownloadService.TAG, "start download patch");
+            bn.c(context, str, "GET", null, null, new b(file2, str2));
             if (file2.exists()) {
                 return file2.getAbsolutePath();
             }
@@ -339,10 +325,10 @@ public class hn {
         return (String) invokeLLLL.objValue;
     }
 
-    public static byte[] h() {
+    public static byte[] g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
             JSONObject jSONObject3 = new JSONObject();
@@ -359,33 +345,33 @@ public class hn {
                 jSONObject5.put("device_ua", "android");
                 jSONObject.put("pubparam", jSONObject5);
             } catch (JSONException e) {
-                e.printStackTrace();
+                r08 defaultLog = DefaultLog.getInstance();
+                defaultLog.b(TitanDownloadService.TAG, "getCcsPostContent JSONException:" + e);
             }
             try {
                 String jSONObject6 = jSONObject.toString();
-                if (ym.a) {
-                    Log.d(TitanDownloadService.TAG, "getCcsContent = " + jSONObject6);
-                }
+                r08 defaultLog2 = DefaultLog.getInstance();
+                defaultLog2.c(TitanDownloadService.TAG, "getCcsContent = " + jSONObject6);
                 return jSONObject6.getBytes("UTF-8");
             } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
+                r08 defaultLog3 = DefaultLog.getInstance();
+                defaultLog3.b(TitanDownloadService.TAG, "getCcsPostContent UnsupportedEncodingException:" + e2);
                 return null;
             }
         }
         return (byte[]) invokeV.objValue;
     }
 
-    public static PackageInfo k(Context context, JSONObject jSONObject) throws JSONException {
+    public static PackageInfo j(Context context, JSONObject jSONObject) throws JSONException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, jSONObject)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, jSONObject)) == null) {
             PackageInfo packageInfo = new PackageInfo();
             int optInt = jSONObject.optInt("errno", -1);
             packageInfo.errNo = optInt;
             if (optInt != 0) {
-                if (a) {
-                    Log.d(TitanDownloadService.TAG, "response errno = " + optInt);
-                }
+                r08 defaultLog = DefaultLog.getInstance();
+                defaultLog.b(TitanDownloadService.TAG, "response errno = " + optInt);
                 return packageInfo;
             }
             JSONObject jSONObject2 = jSONObject.getJSONObject("data");
@@ -418,12 +404,12 @@ public class hn {
             String string6 = jSONObject7.getString("minv");
             String string7 = jSONObject7.getString("download_url");
             if (!TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string4) && !TextUtils.isEmpty(string) && !TextUtils.isEmpty(string7)) {
-                String g = g(context, string7, string4, "com.baidu.titan.patch_" + string4 + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-                if (g == null) {
+                String f = f(context, string7, string4, "com.baidu.titan.patch_" + string4 + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+                if (f == null) {
                     packageInfo.errNo = -4;
                     return packageInfo;
                 }
-                packageInfo.filePath = g;
+                packageInfo.filePath = f;
                 packageInfo.packageName = "com.baidu.titan.patch";
                 packageInfo.version = Long.valueOf(string2).longValue();
                 packageInfo.maxHostVersion = string5;

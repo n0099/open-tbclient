@@ -6,8 +6,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.PushManager;
-import com.heytap.mcssdk.mode.CommandMessage;
+import com.heytap.mcssdk.PushService;
+import com.heytap.mcssdk.constant.MessageConstant;
 /* loaded from: classes8.dex */
 public class DataMessageUtil {
     public static /* synthetic */ Interceptable $ic = null;
@@ -33,14 +33,14 @@ public class DataMessageUtil {
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
             try {
                 Intent intent = new Intent();
-                intent.setAction(PushManager.getReceiveSdkAction(context));
-                intent.setPackage(PushManager.getMcsPackageName(context));
+                intent.setAction(PushService.getInstance().getReceiveSdkAction(context));
+                intent.setPackage(PushService.getInstance().getMcsPackageName(context));
                 intent.putExtra("appPackage", context.getPackageName());
                 intent.putExtra("messageID", str);
-                intent.putExtra("type", CommandMessage.COMMAND_SEND_INSTANT_ACK);
+                intent.putExtra("type", MessageConstant.CommandId.COMMAND_SEND_INSTANT_ACK);
                 context.startService(intent);
             } catch (Exception e) {
-                LogUtil.e("statisticMessage--Exception" + e.getMessage());
+                d.e("statisticMessage--Exception" + e.getMessage());
             }
         }
     }

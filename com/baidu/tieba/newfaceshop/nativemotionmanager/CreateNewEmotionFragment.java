@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.m68;
-import com.baidu.tieba.x68;
+import com.baidu.tieba.ia8;
+import com.baidu.tieba.x98;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import java.util.HashMap;
 public class CreateNewEmotionFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public x68 a;
+    public ia8 a;
     public CustomMessageListener b;
 
     /* loaded from: classes5.dex */
@@ -71,7 +71,7 @@ public class CreateNewEmotionFragment extends BaseFragment {
                         }
                     } else if (hashMap.get("upload_result") != null && (hashMap.get("upload_result") instanceof Boolean)) {
                         if (((Boolean) hashMap.get("upload_result")).booleanValue()) {
-                            BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f064a)).k();
+                            BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f064e)).k();
                             if (this.a.a != null) {
                                 this.a.a.i();
                             }
@@ -81,7 +81,7 @@ public class CreateNewEmotionFragment extends BaseFragment {
                             if (!TextUtils.isEmpty(str)) {
                                 ej.N(this.a.getActivity(), str);
                             } else {
-                                ej.N(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f058e));
+                                ej.N(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0592));
                             }
                             this.a.a.l();
                         }
@@ -129,9 +129,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            x68 x68Var = this.a;
-            if (x68Var != null) {
-                x68Var.h();
+            ia8 ia8Var = this.a;
+            if (ia8Var != null) {
+                ia8Var.h();
             }
         }
     }
@@ -150,9 +150,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            x68 x68Var = this.a;
-            if (x68Var != null) {
-                x68Var.g(i);
+            ia8 ia8Var = this.a;
+            if (ia8Var != null) {
+                ia8Var.g(i);
             }
         }
     }
@@ -162,12 +162,12 @@ public class CreateNewEmotionFragment extends BaseFragment {
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a == null) {
             return;
         }
-        if (m68.l().r()) {
+        if (x98.l().r()) {
             this.a.j();
-        } else if (m68.l().k() == null) {
+        } else if (x98.l().k() == null) {
             this.a.i();
         } else {
-            this.a.m(getString(R.string.obfuscated_res_0x7f0f0587));
+            this.a.m(getString(R.string.obfuscated_res_0x7f0f058b));
         }
     }
 
@@ -177,9 +177,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             registerListener(this.b);
-            x68 x68Var = new x68(getPageContext(), E1());
-            this.a = x68Var;
-            return x68Var.f();
+            ia8 ia8Var = new ia8(getPageContext(), E1());
+            this.a = ia8Var;
+            return ia8Var.f();
         }
         return (View) invokeLLL.objValue;
     }

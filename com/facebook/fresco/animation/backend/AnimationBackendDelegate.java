@@ -6,22 +6,13 @@ import android.graphics.ColorFilter;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.IntRange;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.fresco.animation.backend.AnimationBackend;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class AnimationBackendDelegate<T extends AnimationBackend> implements AnimationBackend {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int ALPHA_UNSET = -1;
-    public transient /* synthetic */ FieldHolder $fh;
     @IntRange(from = -1, to = 255)
-    public int mAlpha;
+    public int mAlpha = -1;
     @Nullable
     public T mAnimationBackend;
     @Nullable
@@ -30,203 +21,132 @@ public class AnimationBackendDelegate<T extends AnimationBackend> implements Ani
     public ColorFilter mColorFilter;
 
     public AnimationBackendDelegate(@Nullable T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mAlpha = -1;
         this.mAnimationBackend = t;
     }
 
     @SuppressLint({"Range"})
     private void applyBackendProperties(AnimationBackend animationBackend) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, animationBackend) == null) {
-            Rect rect = this.mBounds;
-            if (rect != null) {
-                animationBackend.setBounds(rect);
-            }
-            int i = this.mAlpha;
-            if (i >= 0 && i <= 255) {
-                animationBackend.setAlpha(i);
-            }
-            ColorFilter colorFilter = this.mColorFilter;
-            if (colorFilter != null) {
-                animationBackend.setColorFilter(colorFilter);
-            }
+        Rect rect = this.mBounds;
+        if (rect != null) {
+            animationBackend.setBounds(rect);
+        }
+        int i = this.mAlpha;
+        if (i >= 0 && i <= 255) {
+            animationBackend.setAlpha(i);
+        }
+        ColorFilter colorFilter = this.mColorFilter;
+        if (colorFilter != null) {
+            animationBackend.setColorFilter(colorFilter);
         }
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationInformation
     public int getFrameDurationMs(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            T t = this.mAnimationBackend;
-            if (t == null) {
-                return 0;
-            }
-            return t.getFrameDurationMs(i);
+        T t = this.mAnimationBackend;
+        if (t == null) {
+            return 0;
         }
-        return invokeI.intValue;
+        return t.getFrameDurationMs(i);
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackend
     public void setAlpha(@IntRange(from = 0, to = 255) int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            T t = this.mAnimationBackend;
-            if (t != null) {
-                t.setAlpha(i);
-            }
-            this.mAlpha = i;
+        T t = this.mAnimationBackend;
+        if (t != null) {
+            t.setAlpha(i);
         }
+        this.mAlpha = i;
     }
 
     public void setAnimationBackend(@Nullable T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, t) == null) {
-            this.mAnimationBackend = t;
-            if (t != null) {
-                applyBackendProperties(t);
-            }
+        this.mAnimationBackend = t;
+        if (t != null) {
+            applyBackendProperties(t);
         }
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackend
     public void setBounds(@Nullable Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, rect) == null) {
-            T t = this.mAnimationBackend;
-            if (t != null) {
-                t.setBounds(rect);
-            }
-            this.mBounds = rect;
+        T t = this.mAnimationBackend;
+        if (t != null) {
+            t.setBounds(rect);
         }
+        this.mBounds = rect;
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackend
     public void setColorFilter(ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, colorFilter) == null) {
-            T t = this.mAnimationBackend;
-            if (t != null) {
-                t.setColorFilter(colorFilter);
-            }
-            this.mColorFilter = colorFilter;
+        T t = this.mAnimationBackend;
+        if (t != null) {
+            t.setColorFilter(colorFilter);
         }
+        this.mColorFilter = colorFilter;
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackend
     public void clear() {
-        T t;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (t = this.mAnimationBackend) != null) {
+        T t = this.mAnimationBackend;
+        if (t != null) {
             t.clear();
         }
     }
 
     @Nullable
     public T getAnimationBackend() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mAnimationBackend;
-        }
-        return (T) invokeV.objValue;
+        return this.mAnimationBackend;
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationInformation
     public int getFrameCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            T t = this.mAnimationBackend;
-            if (t == null) {
-                return 0;
-            }
-            return t.getFrameCount();
+        T t = this.mAnimationBackend;
+        if (t == null) {
+            return 0;
         }
-        return invokeV.intValue;
+        return t.getFrameCount();
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackend
     public int getIntrinsicHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            T t = this.mAnimationBackend;
-            if (t == null) {
-                return -1;
-            }
-            return t.getIntrinsicHeight();
+        T t = this.mAnimationBackend;
+        if (t == null) {
+            return -1;
         }
-        return invokeV.intValue;
+        return t.getIntrinsicHeight();
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackend
     public int getIntrinsicWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            T t = this.mAnimationBackend;
-            if (t == null) {
-                return -1;
-            }
-            return t.getIntrinsicWidth();
+        T t = this.mAnimationBackend;
+        if (t == null) {
+            return -1;
         }
-        return invokeV.intValue;
+        return t.getIntrinsicWidth();
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationInformation
     public int getLoopCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            T t = this.mAnimationBackend;
-            if (t == null) {
-                return 0;
-            }
-            return t.getLoopCount();
+        T t = this.mAnimationBackend;
+        if (t == null) {
+            return 0;
         }
-        return invokeV.intValue;
+        return t.getLoopCount();
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackend
     public int getSizeInBytes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            T t = this.mAnimationBackend;
-            if (t == null) {
-                return 0;
-            }
-            return t.getSizeInBytes();
+        T t = this.mAnimationBackend;
+        if (t == null) {
+            return 0;
         }
-        return invokeV.intValue;
+        return t.getSizeInBytes();
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackend
     public boolean drawFrame(Drawable drawable, Canvas canvas, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable, canvas, i)) == null) {
-            T t = this.mAnimationBackend;
-            if (t != null && t.drawFrame(drawable, canvas, i)) {
-                return true;
-            }
-            return false;
+        T t = this.mAnimationBackend;
+        if (t != null && t.drawFrame(drawable, canvas, i)) {
+            return true;
         }
-        return invokeLLI.booleanValue;
+        return false;
     }
 }

@@ -5,8 +5,6 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.view.MotionEvent;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.player.interfaces.IKernelGestureDetector;
 import com.baidu.searchbox.player.utils.BdGestureHelper;
@@ -14,21 +12,14 @@ import com.baidu.searchbox.player.utils.BdVideoLog;
 import com.baidu.searchbox.player.view.BdVideoMoveGestureDetector;
 import com.baidu.searchbox.player.view.BdVideoRotateGestureDetector;
 import com.baidu.searchbox.player.view.BdVideoScaleGestureDetector;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\\\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0013\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\b\b\u0016\u0018\u00002\u00020\u0001:\u0001HB\u000f\u0012\u0006\u0010B\u001a\u00020A¢\u0006\u0004\bF\u0010GJ\u0015\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\u000f\u0010\b\u001a\u00020\u0007H\u0016¢\u0006\u0004\b\b\u0010\tJ\u000f\u0010\u000b\u001a\u00020\nH\u0016¢\u0006\u0004\b\u000b\u0010\fJ\u000f\u0010\u000e\u001a\u00020\rH\u0016¢\u0006\u0004\b\u000e\u0010\u000fJ\u0017\u0010\u0013\u001a\u00020\u00122\u0006\u0010\u0011\u001a\u00020\u0010H\u0016¢\u0006\u0004\b\u0013\u0010\u0014J\u0017\u0010\u0015\u001a\u00020\u00042\u0006\u0010\u0011\u001a\u00020\u0010H\u0016¢\u0006\u0004\b\u0015\u0010\u0016J\u0017\u0010\u0017\u001a\u00020\u00122\u0006\u0010\u0011\u001a\u00020\u0010H\u0016¢\u0006\u0004\b\u0017\u0010\u0014J\u0015\u0010\u0018\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0018\u0010\u0006J\u000f\u0010\u0019\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0019\u0010\u001aJ\u000f\u0010\u001b\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u001b\u0010\u001aR\u0016\u0010\u001c\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001c\u0010\u001dR\u0016\u0010\u001e\u001a\u00020\u00128\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001e\u0010\u001fR\u0016\u0010 \u001a\u00020\u00128\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b \u0010\u001fR\u0016\u0010!\u001a\u00020\u00128\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b!\u0010\u001fR\u001d\u0010%\u001a\u00020\u00078B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\"\u0010#\u001a\u0004\b$\u0010\tR$\u0010'\u001a\u0004\u0018\u00010&8\u0016@\u0016X\u0096\u000e¢\u0006\u0012\n\u0004\b'\u0010(\u001a\u0004\b)\u0010*\"\u0004\b+\u0010,R\u001d\u0010/\u001a\u00020\n8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b-\u0010#\u001a\u0004\b.\u0010\fR$\u00101\u001a\u0004\u0018\u0001008\u0016@\u0016X\u0096\u000e¢\u0006\u0012\n\u0004\b1\u00102\u001a\u0004\b3\u00104\"\u0004\b5\u00106R\u001d\u00109\u001a\u00020\r8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b7\u0010#\u001a\u0004\b8\u0010\u000fR$\u0010;\u001a\u0004\u0018\u00010:8\u0016@\u0016X\u0096\u000e¢\u0006\u0012\n\u0004\b;\u0010<\u001a\u0004\b=\u0010>\"\u0004\b?\u0010@R\u0019\u0010B\u001a\u00020A8\u0006@\u0006¢\u0006\f\n\u0004\bB\u0010C\u001a\u0004\bD\u0010E¨\u0006I"}, d2 = {"Lcom/baidu/searchbox/player/view/BdVideoMultipleGesturesDetector;", "Lcom/baidu/searchbox/player/interfaces/IKernelGestureDetector;", "", "flags", "", "clearFlags", "(I)V", "Lcom/baidu/searchbox/player/view/BdVideoMoveGestureDetector;", "generateMoveGestureDetector", "()Lcom/baidu/searchbox/player/view/BdVideoMoveGestureDetector;", "Lcom/baidu/searchbox/player/view/BdVideoRotateGestureDetector;", "generateRotateGestureDetector", "()Lcom/baidu/searchbox/player/view/BdVideoRotateGestureDetector;", "Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector;", "generateScaleGestureDetector", "()Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector;", "Landroid/view/MotionEvent;", "event", "", "onAllowTouchEvent", "(Landroid/view/MotionEvent;)Z", "onGestureTouchEvent", "(Landroid/view/MotionEvent;)V", "onTouchEvent", "setFlags", "switchNormal", "()V", "switchNormalWithAnimation", "gestureFlags", "I", "isMoveDetected", "Z", "isRotateDetected", "isScaleDetected", "moveGestureDetector$delegate", "Lkotlin/Lazy;", "getMoveGestureDetector", "moveGestureDetector", "Lcom/baidu/searchbox/player/view/BdVideoMoveGestureDetector$SimpleOnMoveGestureListener;", "moveGestureListener", "Lcom/baidu/searchbox/player/view/BdVideoMoveGestureDetector$SimpleOnMoveGestureListener;", "getMoveGestureListener", "()Lcom/baidu/searchbox/player/view/BdVideoMoveGestureDetector$SimpleOnMoveGestureListener;", "setMoveGestureListener", "(Lcom/baidu/searchbox/player/view/BdVideoMoveGestureDetector$SimpleOnMoveGestureListener;)V", "rotateGestureDetector$delegate", "getRotateGestureDetector", "rotateGestureDetector", "Lcom/baidu/searchbox/player/view/BdVideoRotateGestureDetector$SimpleOnRotationGestureListener;", "rotateGestureListener", "Lcom/baidu/searchbox/player/view/BdVideoRotateGestureDetector$SimpleOnRotationGestureListener;", "getRotateGestureListener", "()Lcom/baidu/searchbox/player/view/BdVideoRotateGestureDetector$SimpleOnRotationGestureListener;", "setRotateGestureListener", "(Lcom/baidu/searchbox/player/view/BdVideoRotateGestureDetector$SimpleOnRotationGestureListener;)V", "scaleGestureDetector$delegate", "getScaleGestureDetector", "scaleGestureDetector", "Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector$OnScaleGestureListener;", "scaleGestureListener", "Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector$OnScaleGestureListener;", "getScaleGestureListener", "()Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector$OnScaleGestureListener;", "setScaleGestureListener", "(Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector$OnScaleGestureListener;)V", "Landroid/view/View;", NativeConstants.TYPE_VIEW, "Landroid/view/View;", "getView", "()Landroid/view/View;", "<init>", "(Landroid/view/View;)V", "RotateGestureDetectorListener", "framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BdVideoMultipleGesturesDetector implements IKernelGestureDetector {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public int gestureFlags;
     public boolean isMoveDetected;
     public boolean isRotateDetected;
@@ -41,415 +32,219 @@ public class BdVideoMultipleGesturesDetector implements IKernelGestureDetector {
     public BdVideoScaleGestureDetector.OnScaleGestureListener scaleGestureListener;
 
     /* renamed from: view  reason: collision with root package name */
-    public final View f1066view;
+    public final View f1040view;
 
     private final BdVideoMoveGestureDetector getMoveGestureDetector() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? (BdVideoMoveGestureDetector) this.moveGestureDetector$delegate.getValue() : (BdVideoMoveGestureDetector) invokeV.objValue;
+        return (BdVideoMoveGestureDetector) this.moveGestureDetector$delegate.getValue();
     }
 
     private final BdVideoRotateGestureDetector getRotateGestureDetector() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? (BdVideoRotateGestureDetector) this.rotateGestureDetector$delegate.getValue() : (BdVideoRotateGestureDetector) invokeV.objValue;
+        return (BdVideoRotateGestureDetector) this.rotateGestureDetector$delegate.getValue();
     }
 
     private final BdVideoScaleGestureDetector getScaleGestureDetector() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? (BdVideoScaleGestureDetector) this.scaleGestureDetector$delegate.getValue() : (BdVideoScaleGestureDetector) invokeV.objValue;
+        return (BdVideoScaleGestureDetector) this.scaleGestureDetector$delegate.getValue();
     }
 
     public boolean onAllowTouchEvent(MotionEvent event) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, event)) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            return true;
-        }
-        return invokeL.booleanValue;
+        Intrinsics.checkNotNullParameter(event, "event");
+        return true;
     }
 
     public void onGestureTouchEvent(MotionEvent event) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-        }
+        Intrinsics.checkNotNullParameter(event, "event");
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0096\u0004\u0018\u00002\u00020\u0001B\u000f\u0012\u0006\u0010\u000b\u001a\u00020\n¢\u0006\u0004\b\u000f\u0010\u0010J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J\u0017\u0010\b\u001a\u00020\u00072\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\b\u0010\tR\u0019\u0010\u000b\u001a\u00020\n8\u0006@\u0006¢\u0006\f\n\u0004\b\u000b\u0010\f\u001a\u0004\b\r\u0010\u000e¨\u0006\u0011"}, d2 = {"Lcom/baidu/searchbox/player/view/BdVideoMultipleGesturesDetector$RotateGestureDetectorListener;", "com/baidu/searchbox/player/view/BdVideoRotateGestureDetector$SimpleOnRotationGestureListener", "Lcom/baidu/searchbox/player/view/BdVideoRotateGestureDetector;", "detector", "", "onRotate", "(Lcom/baidu/searchbox/player/view/BdVideoRotateGestureDetector;)Z", "", "onRotationEnd", "(Lcom/baidu/searchbox/player/view/BdVideoRotateGestureDetector;)V", "Landroid/view/View;", NativeConstants.TYPE_VIEW, "Landroid/view/View;", "getView", "()Landroid/view/View;", "<init>", "(Lcom/baidu/searchbox/player/view/BdVideoMultipleGesturesDetector;Landroid/view/View;)V", "framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class RotateGestureDetectorListener extends BdVideoRotateGestureDetector.SimpleOnRotationGestureListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdVideoMultipleGesturesDetector this$0;
 
         /* renamed from: view  reason: collision with root package name */
-        public final View f1067view;
+        public final View f1041view;
 
         public RotateGestureDetectorListener(BdVideoMultipleGesturesDetector bdVideoMultipleGesturesDetector, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bdVideoMultipleGesturesDetector, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             Intrinsics.checkNotNullParameter(view2, "view");
             this.this$0 = bdVideoMultipleGesturesDetector;
-            this.f1067view = view2;
+            this.f1041view = view2;
         }
 
         public final View getView() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.f1067view;
-            }
-            return (View) invokeV.objValue;
+            return this.f1041view;
         }
 
         @Override // com.baidu.searchbox.player.view.BdVideoRotateGestureDetector.SimpleOnRotationGestureListener, com.baidu.searchbox.player.view.BdVideoRotateGestureDetector.OnRotationGestureListener
         public boolean onRotate(BdVideoRotateGestureDetector detector) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, detector)) == null) {
-                Intrinsics.checkNotNullParameter(detector, "detector");
-                float rotation = this.f1067view.getRotation() + detector.getRotationDelta();
-                if (rotation >= 360.0f) {
-                    rotation -= 360.0f;
-                } else if (rotation < 0) {
-                    rotation += 360.0f;
-                }
-                View view2 = this.f1067view;
-                view2.setPivotX(view2.getWidth() * 0.5f);
-                View view3 = this.f1067view;
-                view3.setPivotY(view3.getHeight() * 0.5f);
-                this.f1067view.setRotation(rotation);
-                return true;
+            Intrinsics.checkNotNullParameter(detector, "detector");
+            float rotation = this.f1041view.getRotation() + detector.getRotationDelta();
+            if (rotation >= 360.0f) {
+                rotation -= 360.0f;
+            } else if (rotation < 0) {
+                rotation += 360.0f;
             }
-            return invokeL.booleanValue;
+            View view2 = this.f1041view;
+            view2.setPivotX(view2.getWidth() * 0.5f);
+            View view3 = this.f1041view;
+            view3.setPivotY(view3.getHeight() * 0.5f);
+            this.f1041view.setRotation(rotation);
+            return true;
         }
 
         @Override // com.baidu.searchbox.player.view.BdVideoRotateGestureDetector.SimpleOnRotationGestureListener, com.baidu.searchbox.player.view.BdVideoRotateGestureDetector.OnRotationGestureListener
         public void onRotationEnd(BdVideoRotateGestureDetector detector) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, detector) == null) {
-                Intrinsics.checkNotNullParameter(detector, "detector");
-                int abs = (int) (Math.abs(this.f1067view.getRotation() + 45) / 90);
-                BdVideoLog.d(BdGestureHelper.GESTURE_TAG, "当前对应的旋转值: " + abs + ", 旋转的角度=" + this.f1067view.getRotation());
-                View view2 = this.f1067view;
-                ObjectAnimator.ofFloat(view2, View.ROTATION, view2.getRotation(), (float) (abs * 90)).setDuration(300L).start();
-            }
+            Intrinsics.checkNotNullParameter(detector, "detector");
+            int abs = (int) (Math.abs(this.f1041view.getRotation() + 45) / 90);
+            BdVideoLog.d(BdGestureHelper.GESTURE_TAG, "当前对应的旋转值: " + abs + ", 旋转的角度=" + this.f1041view.getRotation());
+            View view2 = this.f1041view;
+            ObjectAnimator.ofFloat(view2, View.ROTATION, view2.getRotation(), (float) (abs * 90)).setDuration(300L).start();
         }
     }
 
     public BdVideoMultipleGesturesDetector(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         Intrinsics.checkNotNullParameter(view2, "view");
-        this.f1066view = view2;
+        this.f1040view = view2;
         this.gestureFlags = 7;
-        this.scaleGestureDetector$delegate = LazyKt__LazyJVMKt.lazy(new Function0<BdVideoScaleGestureDetector>(this) { // from class: com.baidu.searchbox.player.view.BdVideoMultipleGesturesDetector$scaleGestureDetector$2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ BdVideoMultipleGesturesDetector this$0;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        this.scaleGestureDetector$delegate = LazyKt__LazyJVMKt.lazy(new Function0<BdVideoScaleGestureDetector>() { // from class: com.baidu.searchbox.player.view.BdVideoMultipleGesturesDetector$scaleGestureDetector$2
             {
                 super(0);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        super(((Integer) newInitContext2.callArgs[0]).intValue());
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
             public final BdVideoScaleGestureDetector invoke() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return this.this$0.generateScaleGestureDetector();
-                }
-                return (BdVideoScaleGestureDetector) invokeV.objValue;
+                return BdVideoMultipleGesturesDetector.this.generateScaleGestureDetector();
             }
         });
-        this.moveGestureDetector$delegate = LazyKt__LazyJVMKt.lazy(new Function0<BdVideoMoveGestureDetector>(this) { // from class: com.baidu.searchbox.player.view.BdVideoMultipleGesturesDetector$moveGestureDetector$2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ BdVideoMultipleGesturesDetector this$0;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        this.moveGestureDetector$delegate = LazyKt__LazyJVMKt.lazy(new Function0<BdVideoMoveGestureDetector>() { // from class: com.baidu.searchbox.player.view.BdVideoMultipleGesturesDetector$moveGestureDetector$2
             {
                 super(0);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        super(((Integer) newInitContext2.callArgs[0]).intValue());
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
             public final BdVideoMoveGestureDetector invoke() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return this.this$0.generateMoveGestureDetector();
-                }
-                return (BdVideoMoveGestureDetector) invokeV.objValue;
+                return BdVideoMultipleGesturesDetector.this.generateMoveGestureDetector();
             }
         });
-        this.rotateGestureDetector$delegate = LazyKt__LazyJVMKt.lazy(new Function0<BdVideoRotateGestureDetector>(this) { // from class: com.baidu.searchbox.player.view.BdVideoMultipleGesturesDetector$rotateGestureDetector$2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ BdVideoMultipleGesturesDetector this$0;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        this.rotateGestureDetector$delegate = LazyKt__LazyJVMKt.lazy(new Function0<BdVideoRotateGestureDetector>() { // from class: com.baidu.searchbox.player.view.BdVideoMultipleGesturesDetector$rotateGestureDetector$2
             {
                 super(0);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        super(((Integer) newInitContext2.callArgs[0]).intValue());
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
             public final BdVideoRotateGestureDetector invoke() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return this.this$0.generateRotateGestureDetector();
-                }
-                return (BdVideoRotateGestureDetector) invokeV.objValue;
+                return BdVideoMultipleGesturesDetector.this.generateRotateGestureDetector();
             }
         });
     }
 
     public final void clearFlags(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.gestureFlags = (~i) & this.gestureFlags;
-        }
+        this.gestureFlags = (~i) & this.gestureFlags;
     }
 
     public final void setFlags(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.gestureFlags = i;
-        }
+        this.gestureFlags = i;
     }
 
     public void setMoveGestureListener(BdVideoMoveGestureDetector.SimpleOnMoveGestureListener simpleOnMoveGestureListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, simpleOnMoveGestureListener) == null) {
-            this.moveGestureListener = simpleOnMoveGestureListener;
-        }
+        this.moveGestureListener = simpleOnMoveGestureListener;
     }
 
     public void setRotateGestureListener(BdVideoRotateGestureDetector.SimpleOnRotationGestureListener simpleOnRotationGestureListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, simpleOnRotationGestureListener) == null) {
-            this.rotateGestureListener = simpleOnRotationGestureListener;
-        }
+        this.rotateGestureListener = simpleOnRotationGestureListener;
     }
 
     public void setScaleGestureListener(BdVideoScaleGestureDetector.OnScaleGestureListener onScaleGestureListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, onScaleGestureListener) == null) {
-            this.scaleGestureListener = onScaleGestureListener;
-        }
+        this.scaleGestureListener = onScaleGestureListener;
     }
 
     public BdVideoMoveGestureDetector generateMoveGestureDetector() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new BdVideoMoveGestureDetector(this.f1066view, getMoveGestureListener());
-        }
-        return (BdVideoMoveGestureDetector) invokeV.objValue;
+        return new BdVideoMoveGestureDetector(this.f1040view, getMoveGestureListener());
     }
 
     public BdVideoRotateGestureDetector generateRotateGestureDetector() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (getRotateGestureListener() == null) {
-                setRotateGestureListener(new RotateGestureDetectorListener(this, this.f1066view));
-            }
-            BdVideoRotateGestureDetector.SimpleOnRotationGestureListener rotateGestureListener = getRotateGestureListener();
-            Intrinsics.checkNotNull(rotateGestureListener);
-            return new BdVideoRotateGestureDetector(rotateGestureListener);
+        if (getRotateGestureListener() == null) {
+            setRotateGestureListener(new RotateGestureDetectorListener(this, this.f1040view));
         }
-        return (BdVideoRotateGestureDetector) invokeV.objValue;
+        BdVideoRotateGestureDetector.SimpleOnRotationGestureListener rotateGestureListener = getRotateGestureListener();
+        Intrinsics.checkNotNull(rotateGestureListener);
+        return new BdVideoRotateGestureDetector(rotateGestureListener);
     }
 
     public BdVideoScaleGestureDetector generateScaleGestureDetector() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            BdVideoScaleGestureDetector bdVideoScaleGestureDetector = new BdVideoScaleGestureDetector(this.f1066view);
-            bdVideoScaleGestureDetector.setListener(getScaleGestureListener());
-            return bdVideoScaleGestureDetector;
-        }
-        return (BdVideoScaleGestureDetector) invokeV.objValue;
+        BdVideoScaleGestureDetector bdVideoScaleGestureDetector = new BdVideoScaleGestureDetector(this.f1040view);
+        bdVideoScaleGestureDetector.setListener(getScaleGestureListener());
+        return bdVideoScaleGestureDetector;
     }
 
     public BdVideoMoveGestureDetector.SimpleOnMoveGestureListener getMoveGestureListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.moveGestureListener;
-        }
-        return (BdVideoMoveGestureDetector.SimpleOnMoveGestureListener) invokeV.objValue;
+        return this.moveGestureListener;
     }
 
     public BdVideoRotateGestureDetector.SimpleOnRotationGestureListener getRotateGestureListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.rotateGestureListener;
-        }
-        return (BdVideoRotateGestureDetector.SimpleOnRotationGestureListener) invokeV.objValue;
+        return this.rotateGestureListener;
     }
 
     public BdVideoScaleGestureDetector.OnScaleGestureListener getScaleGestureListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.scaleGestureListener;
-        }
-        return (BdVideoScaleGestureDetector.OnScaleGestureListener) invokeV.objValue;
+        return this.scaleGestureListener;
     }
 
     public final View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.f1066view;
-        }
-        return (View) invokeV.objValue;
+        return this.f1040view;
     }
 
     public void switchNormal() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            View view2 = this.f1066view;
-            view2.setScaleX(1.0f);
-            view2.setScaleY(1.0f);
-            view2.setRotation(0.0f);
-            view2.setTranslationX(0.0f);
-            view2.setTranslationY(0.0f);
-        }
+        View view2 = this.f1040view;
+        view2.setScaleX(1.0f);
+        view2.setScaleY(1.0f);
+        view2.setRotation(0.0f);
+        view2.setTranslationX(0.0f);
+        view2.setTranslationY(0.0f);
     }
 
     @Override // com.baidu.searchbox.player.interfaces.IKernelGestureDetector
     public boolean onTouchEvent(MotionEvent event) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, event)) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            if (!onAllowTouchEvent(event) || event.getPointerCount() < 2) {
-                return false;
-            }
-            this.f1066view.getParent().requestDisallowInterceptTouchEvent(true);
-            if ((this.gestureFlags & 4) == 4) {
-                getRotateGestureDetector().onTouchEvent(event);
-                this.isRotateDetected = getRotateGestureDetector().isRotateDetected();
-            }
-            if ((this.gestureFlags & 1) == 1) {
-                getScaleGestureDetector().onTouchEvent(event);
-                this.isScaleDetected = getScaleGestureDetector().isScaleDetected();
-            }
-            if ((this.gestureFlags & 2) == 2) {
-                getMoveGestureDetector().onTouchEvent(event);
-                this.isMoveDetected = getMoveGestureDetector().isMoveDetected();
-            }
-            onGestureTouchEvent(event);
-            if (!this.isRotateDetected && !this.isScaleDetected && !this.isMoveDetected) {
-                return false;
-            }
-            return true;
+        Intrinsics.checkNotNullParameter(event, "event");
+        if (!onAllowTouchEvent(event) || event.getPointerCount() < 2) {
+            return false;
         }
-        return invokeL.booleanValue;
+        this.f1040view.getParent().requestDisallowInterceptTouchEvent(true);
+        if ((this.gestureFlags & 4) == 4) {
+            getRotateGestureDetector().onTouchEvent(event);
+            this.isRotateDetected = getRotateGestureDetector().isRotateDetected();
+        }
+        if ((this.gestureFlags & 1) == 1) {
+            getScaleGestureDetector().onTouchEvent(event);
+            this.isScaleDetected = getScaleGestureDetector().isScaleDetected();
+        }
+        if ((this.gestureFlags & 2) == 2) {
+            getMoveGestureDetector().onTouchEvent(event);
+            this.isMoveDetected = getMoveGestureDetector().isMoveDetected();
+        }
+        onGestureTouchEvent(event);
+        if (!this.isRotateDetected && !this.isScaleDetected && !this.isMoveDetected) {
+            return false;
+        }
+        return true;
     }
 
     public void switchNormalWithAnimation() {
         float f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            AnimatorSet animatorSet = new AnimatorSet();
-            PropertyValuesHolder ofFloat = PropertyValuesHolder.ofFloat(View.SCALE_X, this.f1066view.getScaleX(), 1.0f);
-            PropertyValuesHolder ofFloat2 = PropertyValuesHolder.ofFloat(View.SCALE_Y, this.f1066view.getScaleY(), 1.0f);
-            if (this.f1066view.getRotation() >= 180) {
-                f = 360.0f;
-            } else {
-                f = 0.0f;
-            }
-            ObjectAnimator duration = ObjectAnimator.ofPropertyValuesHolder(this.f1066view, ofFloat, ofFloat2, PropertyValuesHolder.ofFloat(View.ROTATION, this.f1066view.getRotation(), f), PropertyValuesHolder.ofFloat(View.TRANSLATION_X, this.f1066view.getTranslationX(), 0.0f), PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, this.f1066view.getTranslationY(), 0.0f)).setDuration(300L);
-            Intrinsics.checkNotNullExpressionValue(duration, "ObjectAnimator.ofPropert…ation(ANIMATION_DURATION)");
-            animatorSet.play(duration);
-            animatorSet.start();
+        AnimatorSet animatorSet = new AnimatorSet();
+        PropertyValuesHolder ofFloat = PropertyValuesHolder.ofFloat(View.SCALE_X, this.f1040view.getScaleX(), 1.0f);
+        PropertyValuesHolder ofFloat2 = PropertyValuesHolder.ofFloat(View.SCALE_Y, this.f1040view.getScaleY(), 1.0f);
+        if (this.f1040view.getRotation() >= 180) {
+            f = 360.0f;
+        } else {
+            f = 0.0f;
         }
+        ObjectAnimator duration = ObjectAnimator.ofPropertyValuesHolder(this.f1040view, ofFloat, ofFloat2, PropertyValuesHolder.ofFloat(View.ROTATION, this.f1040view.getRotation(), f), PropertyValuesHolder.ofFloat(View.TRANSLATION_X, this.f1040view.getTranslationX(), 0.0f), PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, this.f1040view.getTranslationY(), 0.0f)).setDuration(300L);
+        Intrinsics.checkNotNullExpressionValue(duration, "ObjectAnimator.ofPropert…ation(ANIMATION_DURATION)");
+        animatorSet.play(duration);
+        animatorSet.start();
     }
 }

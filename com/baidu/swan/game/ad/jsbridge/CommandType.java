@@ -1,123 +1,38 @@
 package com.baidu.swan.game.ad.jsbridge;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes3.dex */
-public final class CommandType {
-    public static final /* synthetic */ CommandType[] $VALUES;
-    public static /* synthetic */ Interceptable $ic;
-    public static final CommandType ACTION_URL;
-    public static final CommandType BANNER_VIEW;
-    public static final CommandType DOWNLOAD_PERMISSION_CLICK;
-    public static final CommandType DOWNLOAD_PRIVACY_CLICK;
-    public static final CommandType GET_APP_STATUS;
-    public static final CommandType GET_CONFS;
-    public static final CommandType GET_DOWNLOAD_STATUS;
-    public static final CommandType INSTALL_APP;
-    public static final CommandType OPEN_APP;
-    public static final CommandType PAUSE_DOWNLOAD;
-    public static final CommandType PRINT_LOG;
-    public static final CommandType UNSPECIFIED;
-    public transient /* synthetic */ FieldHolder $fh;
+public enum CommandType {
+    ACTION_URL("setActionUrl"),
+    GET_CONFS("getConfs"),
+    PRINT_LOG("printLog"),
+    PAUSE_DOWNLOAD("pauseDownload"),
+    GET_DOWNLOAD_STATUS("getDownloadStatus"),
+    INSTALL_APP("installApp"),
+    GET_APP_STATUS("getAppStatus"),
+    OPEN_APP("openApp"),
+    BANNER_VIEW(SpeedStatsUtils.UBC_VALUE_BANNER),
+    DOWNLOAD_PERMISSION_CLICK("setPermissionActionUrl"),
+    DOWNLOAD_PRIVACY_CLICK("setPrivacyActionUrl"),
+    UNSPECIFIED("");
+    
     public final String mJavascriptString;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(671681236, "Lcom/baidu/swan/game/ad/jsbridge/CommandType;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(671681236, "Lcom/baidu/swan/game/ad/jsbridge/CommandType;");
-                return;
-            }
-        }
-        ACTION_URL = new CommandType("ACTION_URL", 0, "setActionUrl");
-        GET_CONFS = new CommandType("GET_CONFS", 1, "getConfs");
-        PRINT_LOG = new CommandType("PRINT_LOG", 2, "printLog");
-        PAUSE_DOWNLOAD = new CommandType("PAUSE_DOWNLOAD", 3, "pauseDownload");
-        GET_DOWNLOAD_STATUS = new CommandType("GET_DOWNLOAD_STATUS", 4, "getDownloadStatus");
-        INSTALL_APP = new CommandType("INSTALL_APP", 5, "installApp");
-        GET_APP_STATUS = new CommandType("GET_APP_STATUS", 6, "getAppStatus");
-        OPEN_APP = new CommandType("OPEN_APP", 7, "openApp");
-        BANNER_VIEW = new CommandType("BANNER_VIEW", 8, SpeedStatsUtils.UBC_VALUE_BANNER);
-        DOWNLOAD_PERMISSION_CLICK = new CommandType("DOWNLOAD_PERMISSION_CLICK", 9, "setPermissionActionUrl");
-        DOWNLOAD_PRIVACY_CLICK = new CommandType("DOWNLOAD_PRIVACY_CLICK", 10, "setPrivacyActionUrl");
-        CommandType commandType = new CommandType("UNSPECIFIED", 11, "");
-        UNSPECIFIED = commandType;
-        $VALUES = new CommandType[]{ACTION_URL, GET_CONFS, PRINT_LOG, PAUSE_DOWNLOAD, GET_DOWNLOAD_STATUS, INSTALL_APP, GET_APP_STATUS, OPEN_APP, BANNER_VIEW, DOWNLOAD_PERMISSION_CLICK, DOWNLOAD_PRIVACY_CLICK, commandType};
-    }
-
-    public CommandType(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                String str3 = (String) objArr2[0];
-                ((Integer) objArr2[1]).intValue();
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mJavascriptString = str2;
+    CommandType(String str) {
+        this.mJavascriptString = str;
     }
 
     public static CommandType fromJavascriptString(String str) {
-        InterceptResult invokeL;
         CommandType[] values;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            for (CommandType commandType : values()) {
-                if (commandType.mJavascriptString.equals(str)) {
-                    return commandType;
-                }
+        for (CommandType commandType : values()) {
+            if (commandType.mJavascriptString.equals(str)) {
+                return commandType;
             }
-            return UNSPECIFIED;
         }
-        return (CommandType) invokeL.objValue;
-    }
-
-    public static CommandType valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return (CommandType) Enum.valueOf(CommandType.class, str);
-        }
-        return (CommandType) invokeL.objValue;
-    }
-
-    public static CommandType[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return (CommandType[]) $VALUES.clone();
-        }
-        return (CommandType[]) invokeV.objValue;
+        return UNSPECIFIED;
     }
 
     public String toJavascriptString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mJavascriptString;
-        }
-        return (String) invokeV.objValue;
+        return this.mJavascriptString;
     }
 }

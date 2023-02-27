@@ -4,64 +4,32 @@ import android.text.TextUtils;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
 /* loaded from: classes2.dex */
 public class QrLoginUtils implements NoProguard {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public QrLoginUtils() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static String getJoinQrLoginPromptInfo(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            if (SapiContext.getInstance().getCurrentAccount() == null) {
-                return "-1";
-            }
-            return String.format(SapiContext.getInstance().getJoinQrLoginPrompt(), URLDecoder.decode(SapiUtils.urlParamsToMap(str).get("appName")));
+        if (TextUtils.isEmpty(str)) {
+            return null;
         }
-        return (String) invokeL.objValue;
+        if (SapiContext.getInstance().getCurrentAccount() == null) {
+            return "-1";
+        }
+        return String.format(SapiContext.getInstance().getJoinQrLoginPrompt(), URLDecoder.decode(SapiUtils.urlParamsToMap(str).get("appName")));
     }
 
     public static boolean isJoinQrLoginSchema(String str) {
-        InterceptResult invokeL;
         URL url;
         String url2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                url = new URL(str);
-                url2 = ServiceManager.getInstance().getIsAccountManager().getConfignation().getEnvironment().getURL(true);
-            } catch (MalformedURLException unused) {
-            }
-            if (!url2.equals(url.getProtocol() + "://" + url.getHost()) || TextUtils.isEmpty(str) || !str.contains("sign") || !str.contains("/v2/api/qrcode") || !str.contains("appName")) {
-                return false;
-            }
-            return true;
+        try {
+            url = new URL(str);
+            url2 = ServiceManager.getInstance().getIsAccountManager().getConfignation().getEnvironment().getURL(true);
+        } catch (MalformedURLException unused) {
         }
-        return invokeL.booleanValue;
+        if (!url2.equals(url.getProtocol() + "://" + url.getHost()) || TextUtils.isEmpty(str) || !str.contains("sign") || !str.contains("/v2/api/qrcode") || !str.contains("appName")) {
+            return false;
+        }
+        return true;
     }
 }

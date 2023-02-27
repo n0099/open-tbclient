@@ -1,53 +1,71 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class h24 extends EventTargetImpl {
+public class h24 extends s14 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h24(gg2 gg2Var) {
-        super(gg2Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {gg2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947771807, "Lcom/baidu/tieba/h24;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947771807, "Lcom/baidu/tieba/h24;");
                 return;
             }
         }
-        j24.o().w(this);
+        c = wp1.a;
     }
 
-    public void x(int i, String str) throws JSONException {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h24() {
+        super("getSid");
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("state", i);
-            jSONObject.put("msg", str);
-            JSEvent jSEvent = new JSEvent("antiaddiction");
-            jSEvent.data = jSONObject;
-            if (gp1.a) {
-                Log.d("AntiAddictionApi", "result: " + jSONObject.toString());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            dispatchEvent(jSEvent);
         }
+    }
+
+    @Override // com.baidu.tieba.s14
+    public m12 a(JSONObject jSONObject, qm2 qm2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, qm2Var)) == null) {
+            String k = ts2.g0().k();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("sid", k);
+            } catch (JSONException e) {
+                if (c) {
+                    e.printStackTrace();
+                }
+            }
+            qm2Var.a(jSONObject2);
+            return null;
+        }
+        return (m12) invokeLL.objValue;
     }
 }

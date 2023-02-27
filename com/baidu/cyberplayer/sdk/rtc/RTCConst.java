@@ -1,14 +1,9 @@
 package com.baidu.cyberplayer.sdk.rtc;
 
 import com.baidu.cyberplayer.sdk.Keep;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
 /* loaded from: classes2.dex */
 public class RTCConst {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int RTC_ROOM_EVENTS_DISBAND_ROOM = 112;
     public static final int RTC_ROOM_EVENTS_LIVE_INTERRUPT = 118;
     public static final int RTC_ROOM_EVENTS_LIVE_PUBLISH_FAIL = 117;
@@ -49,19 +44,4 @@ public class RTCConst {
     public static final int RTC_STATE_STREAM_SLOW_LINK_LEVEL8 = 2108;
     public static final int RTC_STATE_STREAM_SLOW_LINK_LEVEL9 = 2109;
     public static final int RTC_STATE_STREAM_UP = 2000;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public RTCConst() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

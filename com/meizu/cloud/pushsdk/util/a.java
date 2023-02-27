@@ -6,7 +6,16 @@ import android.net.NetworkInfo;
 /* loaded from: classes8.dex */
 public class a {
     public static NetworkInfo a(Context context) {
-        return ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+        try {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+            if (connectivityManager == null) {
+                return null;
+            }
+            return connectivityManager.getActiveNetworkInfo();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public static boolean b(Context context) {

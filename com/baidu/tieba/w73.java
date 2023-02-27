@@ -1,313 +1,423 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.widget.FrameLayout;
+import android.annotation.SuppressLint;
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.Shader;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.TransitionDrawable;
+import android.util.Log;
+import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.auth.FeatureCodes;
-import com.baidu.swan.apps.res.ui.BdDatePicker;
-import com.baidu.tieba.b83;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.internal.bind.TypeAdapters;
-import java.util.Date;
 /* loaded from: classes6.dex */
-public class w73 extends b83 {
+public class w73 extends Drawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdDatePicker c;
-    public int d;
-    public int e;
-    public int f;
-    public String g;
-    public boolean h;
-    public Date i;
-    public Date j;
+    public final RectF a;
+    public final RectF b;
+    public final RectF c;
+    public final BitmapShader d;
+    public final Paint e;
+    public final int f;
+    public final int g;
+    public final RectF h;
+    public final Paint i;
+    public final Matrix j;
+    public float k;
+    public int l;
+    public int m;
+    public ImageView.ScaleType n;
+
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return -3;
+        }
+        return invokeV.intValue;
+    }
 
     /* loaded from: classes6.dex */
-    public static class a extends b83.a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public Date e;
-        public Date f;
-        public Date g;
-        public String h;
-        public boolean i;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Context context) {
-            super(context);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-363028487, "Lcom/baidu/tieba/w73$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-363028487, "Lcom/baidu/tieba/w73$a;");
                     return;
                 }
             }
-        }
-
-        @Override // com.baidu.tieba.b83.a
-        public b83 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                w73 w73Var = (w73) super.a();
-                w73Var.n(this.h);
-                w73Var.l(this.i);
-                Date date = this.g;
-                if (date != null) {
-                    w73Var.q(date.getYear() + FeatureCodes.SKY_SEG);
-                    w73Var.o(this.g.getMonth() + 1);
-                    w73Var.k(this.g.getDate());
-                }
-                Date date2 = this.e;
-                if (date2 != null) {
-                    w73Var.p(date2);
-                }
-                Date date3 = this.f;
-                if (date3 != null) {
-                    w73Var.m(date3);
-                }
-                return w73Var;
+            int[] iArr = new int[ImageView.ScaleType.values().length];
+            a = iArr;
+            try {
+                iArr[ImageView.ScaleType.CENTER.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
-            return (b83) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.b83.a
-        public b83 b(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                return new w73(context);
+            try {
+                a[ImageView.ScaleType.CENTER_CROP.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
-            return (b83) invokeL.objValue;
-        }
-
-        public a l(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.i = z;
-                return this;
+            try {
+                a[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
             }
-            return (a) invokeZ.objValue;
-        }
-
-        public a m(Date date) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, date)) == null) {
-                this.f = date;
-                return this;
+            try {
+                a[ImageView.ScaleType.FIT_CENTER.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
             }
-            return (a) invokeL.objValue;
-        }
-
-        public a n(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.h = str;
-                return this;
+            try {
+                a[ImageView.ScaleType.FIT_END.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
             }
-            return (a) invokeL.objValue;
-        }
-
-        public a o(Date date) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, date)) == null) {
-                this.g = date;
-                return this;
+            try {
+                a[ImageView.ScaleType.FIT_START.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
             }
-            return (a) invokeL.objValue;
-        }
-
-        public a p(Date date) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, date)) == null) {
-                this.e = date;
-                return this;
+            try {
+                a[ImageView.ScaleType.FIT_XY.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
             }
-            return (a) invokeL.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w73(Context context) {
-        super(context, R.style.obfuscated_res_0x7f1001a9);
+    public w73(Bitmap bitmap, float f, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {bitmap, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new RectF();
+        this.b = new RectF();
+        this.c = new RectF();
+        this.h = new RectF();
+        this.j = new Matrix();
+        this.n = ImageView.ScaleType.FIT_XY;
+        this.l = i;
+        this.m = i2;
+        this.f = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        this.g = height;
+        this.c.set(0.0f, 0.0f, this.f, height);
+        this.k = f;
+        Shader.TileMode tileMode = Shader.TileMode.CLAMP;
+        BitmapShader bitmapShader = new BitmapShader(bitmap, tileMode, tileMode);
+        this.d = bitmapShader;
+        bitmapShader.setLocalMatrix(this.j);
+        Paint paint = new Paint();
+        this.e = paint;
+        paint.setAntiAlias(true);
+        this.e.setShader(this.d);
+        Paint paint2 = new Paint();
+        this.i = paint2;
+        paint2.setAntiAlias(true);
+        this.i.setColor(this.m);
+        this.i.setStrokeWidth(i);
     }
 
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = new BdDatePicker(getContext());
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.gravity = 1;
-            this.c.setLayoutParams(layoutParams);
-            this.c.setScrollCycle(true);
-            this.c.setStartDate(this.i);
-            this.c.setEndDate(this.j);
-            this.c.setYear(this.d);
-            this.c.setMonth(this.e);
-            this.c.setDay(this.f);
-            this.c.n();
-            this.c.setFields(this.g);
-            this.c.setDisabled(this.h);
-        }
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c.getDay();
-        }
-        return invokeV.intValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c.getMonth();
-        }
-        return invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c.getYear();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.v73, android.app.Dialog
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            super.show();
-        }
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (j(TypeAdapters.AnonymousClass27.YEAR)) {
-                sb.append(String.format("%d-", Integer.valueOf(i())));
-            }
-            if (j(TypeAdapters.AnonymousClass27.MONTH)) {
-                sb.append(String.format("%02d-", Integer.valueOf(g())));
-            }
-            if (j("day")) {
-                sb.append(String.format("%02d", Integer.valueOf(f())));
-            }
-            String sb2 = sb.toString();
-            if (sb2.endsWith("-")) {
-                return sb2.substring(0, sb2.length() - 1);
-            }
-            return sb2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean j(String str) {
+    public static Bitmap a(Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            return this.c.l(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, drawable)) == null) {
+            if (drawable instanceof BitmapDrawable) {
+                return ((BitmapDrawable) drawable).getBitmap();
+            }
+            int intrinsicWidth = drawable.getIntrinsicWidth();
+            int intrinsicHeight = drawable.getIntrinsicHeight();
+            if (intrinsicWidth > 0 && intrinsicHeight > 0) {
+                Bitmap createBitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888);
+                Canvas canvas = new Canvas(createBitmap);
+                drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+                drawable.draw(canvas);
+                return createBitmap;
+            }
+            return null;
         }
-        return invokeL.booleanValue;
+        return (Bitmap) invokeL.objValue;
     }
 
-    public void k(int i) {
+    @SuppressLint({"SwanDebugLog"})
+    public static Drawable b(Drawable drawable, ImageView.ScaleType scaleType, float f, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.f = i;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{drawable, scaleType, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (drawable != null) {
+                if (drawable instanceof TransitionDrawable) {
+                    TransitionDrawable transitionDrawable = (TransitionDrawable) drawable;
+                    int numberOfLayers = transitionDrawable.getNumberOfLayers();
+                    Drawable[] drawableArr = new Drawable[numberOfLayers];
+                    for (int i3 = 0; i3 < numberOfLayers; i3++) {
+                        Drawable drawable2 = transitionDrawable.getDrawable(i3);
+                        if (drawable2 instanceof ColorDrawable) {
+                            drawableArr[i3] = drawable2;
+                        } else if (drawable2 instanceof w73) {
+                            drawableArr[i3] = drawable2;
+                        } else {
+                            drawableArr[i3] = new w73(a(drawable2), f, i, i2);
+                            if (scaleType != null) {
+                                ((w73) drawableArr[i3]).h(scaleType);
+                            }
+                        }
+                    }
+                    return new TransitionDrawable(drawableArr);
+                }
+                Bitmap a2 = a(drawable);
+                if (a2 != null) {
+                    w73 w73Var = new w73(a2, f, i, i2);
+                    if (scaleType != null) {
+                        w73Var.h(scaleType);
+                    }
+                    return w73Var;
+                }
+                Log.w("RoundedDrawable", "Failed to create bitmap from drawable!");
+            }
+            return drawable;
+        }
+        return (Drawable) invokeCommon.objValue;
+    }
+
+    public ImageView.ScaleType c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.n;
+        }
+        return (ImageView.ScaleType) invokeV.objValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.m = i;
+            this.i.setColor(i);
         }
     }
 
-    public void l(boolean z) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.h = z;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.l = i;
+            this.i.setStrokeWidth(i);
         }
     }
 
-    public void m(Date date) {
+    public void f(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, date) == null) {
-            this.j = date;
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            this.k = f;
         }
     }
 
-    public void n(String str) {
+    public void h(ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.g = str;
+        if (interceptable == null || interceptable.invokeL(1048585, this, scaleType) == null) {
+            if (scaleType == null) {
+                scaleType = ImageView.ScaleType.FIT_XY;
+            }
+            if (this.n != scaleType) {
+                this.n = scaleType;
+                g();
+            }
         }
     }
 
-    public void o(int i) {
+    @Override // android.graphics.drawable.Drawable
+    public void onBoundsChange(Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.e = i;
+        if (interceptable == null || interceptable.invokeL(1048586, this, rect) == null) {
+            super.onBoundsChange(rect);
+            this.a.set(rect);
+            g();
         }
     }
 
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
+    @Override // android.graphics.drawable.Drawable
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
-            e();
-            b().j(this.c);
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.e.setAlpha(i);
         }
     }
 
-    public void p(Date date) {
+    @Override // android.graphics.drawable.Drawable
+    public void setColorFilter(ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, date) == null) {
-            this.i = date;
+        if (interceptable == null || interceptable.invokeL(1048588, this, colorFilter) == null) {
+            this.e.setColorFilter(colorFilter);
         }
     }
 
-    public void q(int i) {
+    @Override // android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.d = i;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            if (this.l > 0) {
+                RectF rectF = this.h;
+                float f = this.k;
+                canvas.drawRoundRect(rectF, f, f, this.i);
+                canvas.drawRoundRect(this.b, Math.max(this.k - this.l, 0.0f), Math.max(this.k - this.l, 0.0f), this.e);
+                return;
+            }
+            RectF rectF2 = this.b;
+            float f2 = this.k;
+            canvas.drawRoundRect(rectF2, f2, f2, this.e);
+        }
+    }
+
+    public final void g() {
+        float width;
+        float height;
+        float min;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.h.set(this.a);
+            RectF rectF = this.b;
+            int i = this.l;
+            rectF.set(i + 0, i + 0, this.h.width() - this.l, this.h.height() - this.l);
+            switch (a.a[this.n.ordinal()]) {
+                case 1:
+                    this.h.set(this.a);
+                    RectF rectF2 = this.b;
+                    int i2 = this.l;
+                    rectF2.set(i2 + 0, i2 + 0, this.h.width() - this.l, this.h.height() - this.l);
+                    this.j.set(null);
+                    this.j.setTranslate((int) (((this.b.width() - this.f) * 0.5f) + 0.5f), (int) (((this.b.height() - this.g) * 0.5f) + 0.5f));
+                    break;
+                case 2:
+                    this.h.set(this.a);
+                    RectF rectF3 = this.b;
+                    int i3 = this.l;
+                    rectF3.set(i3 + 0, i3 + 0, this.h.width() - this.l, this.h.height() - this.l);
+                    this.j.set(null);
+                    float f = 0.0f;
+                    if (this.f * this.b.height() > this.b.width() * this.g) {
+                        width = this.b.height() / this.g;
+                        f = (this.b.width() - (this.f * width)) * 0.5f;
+                        height = 0.0f;
+                    } else {
+                        width = this.b.width() / this.f;
+                        height = (this.b.height() - (this.g * width)) * 0.5f;
+                    }
+                    this.j.setScale(width, width);
+                    Matrix matrix = this.j;
+                    int i4 = this.l;
+                    matrix.postTranslate(((int) (f + 0.5f)) + i4, ((int) (height + 0.5f)) + i4);
+                    break;
+                case 3:
+                    this.j.set(null);
+                    if (this.f <= this.a.width() && this.g <= this.a.height()) {
+                        min = 1.0f;
+                    } else {
+                        min = Math.min(this.a.width() / this.f, this.a.height() / this.g);
+                    }
+                    this.j.setScale(min, min);
+                    this.j.postTranslate((int) (((this.a.width() - (this.f * min)) * 0.5f) + 0.5f), (int) (((this.a.height() - (this.g * min)) * 0.5f) + 0.5f));
+                    this.h.set(this.c);
+                    this.j.mapRect(this.h);
+                    RectF rectF4 = this.b;
+                    RectF rectF5 = this.h;
+                    float f2 = rectF5.left;
+                    int i5 = this.l;
+                    rectF4.set(f2 + i5, rectF5.top + i5, rectF5.right - i5, rectF5.bottom - i5);
+                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
+                    break;
+                case 4:
+                    this.h.set(this.c);
+                    this.j.setRectToRect(this.c, this.a, Matrix.ScaleToFit.CENTER);
+                    this.j.mapRect(this.h);
+                    RectF rectF6 = this.b;
+                    RectF rectF7 = this.h;
+                    float f3 = rectF7.left;
+                    int i6 = this.l;
+                    rectF6.set(f3 + i6, rectF7.top + i6, rectF7.right - i6, rectF7.bottom - i6);
+                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
+                    break;
+                case 5:
+                    this.h.set(this.c);
+                    this.j.setRectToRect(this.c, this.a, Matrix.ScaleToFit.END);
+                    this.j.mapRect(this.h);
+                    RectF rectF8 = this.b;
+                    RectF rectF9 = this.h;
+                    float f4 = rectF9.left;
+                    int i7 = this.l;
+                    rectF8.set(f4 + i7, rectF9.top + i7, rectF9.right - i7, rectF9.bottom - i7);
+                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
+                    break;
+                case 6:
+                    this.h.set(this.c);
+                    this.j.setRectToRect(this.c, this.a, Matrix.ScaleToFit.START);
+                    this.j.mapRect(this.h);
+                    RectF rectF10 = this.b;
+                    RectF rectF11 = this.h;
+                    float f5 = rectF11.left;
+                    int i8 = this.l;
+                    rectF10.set(f5 + i8, rectF11.top + i8, rectF11.right - i8, rectF11.bottom - i8);
+                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
+                    break;
+                default:
+                    this.h.set(this.a);
+                    RectF rectF12 = this.b;
+                    int i9 = this.l;
+                    rectF12.set(i9 + 0, i9 + 0, this.h.width() - this.l, this.h.height() - this.l);
+                    this.j.set(null);
+                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
+                    break;
+            }
+            this.d.setLocalMatrix(this.j);
         }
     }
 }

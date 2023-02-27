@@ -1,67 +1,52 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.Intent;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.share.ShareStorage;
-import com.baidu.sapi2.shell.listener.WebAuthListener;
-import com.baidu.sapi2.shell.result.WebAuthResult;
-import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.util.DialogLoginHelper;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.passaccount.app.LoginDialogActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.nearby.viewholder.NearbyForumFriendItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class j88 implements h88, View.OnClickListener {
+public class j88 extends qn<dc5, NearbyForumFriendItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LoginDialogActivity a;
-    public View b;
-    public View c;
-    public View d;
-    public ImageView e;
-    public TextView f;
-    public TextView g;
-    public View h;
-    public TbImageView i;
-    public TextView j;
-    public TextView k;
-    public TextView l;
-    public View m;
-    public View n;
-    public View o;
-    public View p;
-    public View q;
-    public final ShareStorage.StorageModel r;
+    public Context a;
+    public int b;
+    public boolean c;
 
-    @Override // com.baidu.tieba.h88
-    public Intent getResultIntent() {
-        InterceptResult invokeV;
+    public final int w(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (i != 1) {
+                return i != 2 ? -1 : 1;
+            }
+            return 0;
         }
-        return (Intent) invokeV.objValue;
+        return invokeI.intValue;
     }
 
     /* loaded from: classes5.dex */
-    public class a extends WebAuthListener {
+    public class a implements no {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ j88 a;
@@ -84,278 +69,250 @@ public class j88 implements h88, View.OnClickListener {
             this.a = j88Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(WebAuthResult webAuthResult) {
+        @Override // com.baidu.tieba.no
+        public void b(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
-                this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f1214), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
-                this.a.a.M1();
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(cdo instanceof dc5)) {
+                return;
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) {
-                this.a.a.N1();
-                this.a.a.E1(DialogLoginHelper.DIALOG_TYPE_SHARE);
+            dc5 dc5Var = (dc5) cdo;
+            String str = dc5Var.a;
+            if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str)) {
+                z = true;
+            } else {
+                z = false;
             }
+            wh7.i(i + 1, this.a.b, 2, dc5Var.a);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.a).createNormalConfig(dh.g(str, 0L), z, false)));
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b extends WebAuthListener {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SocialType a;
-        public final /* synthetic */ j88 b;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ dc5 b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ j88 d;
 
-        public b(j88 j88Var, SocialType socialType) {
+        public b(j88 j88Var, ViewGroup viewGroup, dc5 dc5Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j88Var, socialType};
+                Object[] objArr = {j88Var, viewGroup, dc5Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = j88Var;
-            this.a = socialType;
+            this.d = j88Var;
+            this.a = viewGroup;
+            this.b = dc5Var;
+            this.c = i;
         }
 
-        @Override // com.baidu.sapi2.shell.listener.WebAuthListener
-        public void beforeSuccess(SapiAccount sapiAccount) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, sapiAccount) == null) {
-                this.b.a.P1();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
-                this.b.a.closeLoadingDialog();
-                this.b.a.showToast(String.format(this.b.a.getString(R.string.obfuscated_res_0x7f0f14a4), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
-                this.b.a.M1();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, webAuthResult) == null) {
-                this.b.a.N1();
-                this.b.a.E1(this.a.name().toLowerCase());
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.d.c) {
+                    PersonChangeActivityConfig personChangeActivityConfig = new PersonChangeActivityConfig(this.a.getContext());
+                    personChangeActivityConfig.setIsCompleteLocalInfo(true);
+                    personChangeActivityConfig.start();
+                } else {
+                    dc5 dc5Var = this.b;
+                    j88 j88Var = this.d;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921654, new de5(dc5Var, j88Var.w(j88Var.b))));
+                }
+                wh7.i(this.c + 1, this.d.b, 1, this.b.a);
             }
         }
     }
 
-    public j88(@NonNull String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j88(Context context, BdUniqueId bdUniqueId, int i) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {context, bdUniqueId, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.r = (ShareStorage.StorageModel) new Gson().fromJson(str, (Class<Object>) ShareStorage.StorageModel.class);
+        this.a = context;
+        this.b = i;
+        setOnAdapterItemClickListener(new a(this));
     }
 
-    public final void h(SocialType socialType) {
+    public void B(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, socialType) == null) {
-            PassportSDK.getInstance().loadThirdPartyLogin(new b(this, socialType), socialType);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.c = z;
         }
     }
 
-    @Override // com.baidu.tieba.h88
-    public void a(LoginDialogActivity loginDialogActivity, ViewGroup viewGroup) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: x */
+    public NearbyForumFriendItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, loginDialogActivity, viewGroup) == null) {
-            this.a = loginDialogActivity;
-            View inflate = LayoutInflater.from(loginDialogActivity).inflate(R.layout.obfuscated_res_0x7f0d07f7, viewGroup, true);
-            this.b = inflate.findViewById(R.id.obfuscated_res_0x7f090805);
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f09081f);
-            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f09069c);
-            this.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09069d);
-            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09082c);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09082a);
-            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f092601);
-            this.i = (TbImageView) inflate.findViewById(R.id.user_avatar);
-            this.j = (TextView) inflate.findViewById(R.id.user_name);
-            this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09262b);
-            this.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09153a);
-            this.m = inflate.findViewById(R.id.obfuscated_res_0x7f091c3c);
-            this.n = inflate.findViewById(R.id.obfuscated_res_0x7f0927c7);
-            this.o = inflate.findViewById(R.id.obfuscated_res_0x7f0927ca);
-            this.p = inflate.findViewById(R.id.obfuscated_res_0x7f09284a);
-            this.q = inflate.findViewById(R.id.obfuscated_res_0x7f091666);
-            this.b.setOnClickListener(this);
-            this.d.setOnClickListener(this);
-            this.e.setOnClickListener(this);
-            this.c.setOnClickListener(this);
-            this.i.setIsRound(true);
-            this.i.setDefaultBgResource(R.drawable.icon_default_avatar100_bg);
-            this.l.setOnClickListener(this);
-            this.m.setOnClickListener(this);
-            this.n.setOnClickListener(this);
-            this.o.setOnClickListener(this);
-            this.p.setOnClickListener(this);
-            this.q.setOnClickListener(this);
-            d();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
+            return new NearbyForumFriendItemViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0676, viewGroup, false), this.a);
         }
+        return (NearbyForumFriendItemViewHolder) invokeL.objValue;
     }
 
-    public final void c() {
+    public final void A(dc5 dc5Var, NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.L1();
-            this.a.finish();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.r != null) {
-            PassportSDK.getInstance().invokeV2ShareLogin(this.a, new a(this), this.r);
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            h(SocialType.QQ_SSO);
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            h(SocialType.WEIXIN);
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            h(SocialType.SINA_WEIBO_SSO);
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            h(SocialType.YY);
-        }
-    }
-
-    public final void d() {
-        ShareStorage.StorageModel storageModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (storageModel = this.r) == null) {
-            return;
-        }
-        this.i.K(storageModel.url, 10, false);
-        this.j.setText(this.r.displayname);
-        this.k.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1213, this.r.app));
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.finish();
-            LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) this.a, true);
-            loginActivityConfig.setLoginListener(this.a.I1());
-            loginActivityConfig.setFrom(this.a.getPreExtraPageKey());
-            loginActivityConfig.setFromDialog("share_more");
-            loginActivityConfig.start();
-        }
-    }
-
-    @Override // com.baidu.tieba.h88
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            p15 d = p15.d(this.c);
-            d.m(1);
-            d.n(R.string.J_X14);
-            d.f(R.color.CAM_X0207);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.icon_pure_close12_n_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            p15 d2 = p15.d(this.f);
-            d2.v(R.color.CAM_X0105);
-            d2.z(R.dimen.T_X05);
-            d2.A(R.string.F_X02);
-            p15 d3 = p15.d(this.g);
-            d3.v(R.color.CAM_X0108);
-            d3.z(R.dimen.T_X08);
-            d3.A(R.string.F_X01);
-            p15 d4 = p15.d(this.h);
-            d4.n(R.string.J_X05);
-            d4.f(R.color.CAM_X0204);
-            p15 d5 = p15.d(this.j);
-            d5.v(R.color.CAM_X0105);
-            d5.z(R.dimen.T_X05);
-            d5.A(R.string.F_X02);
-            p15 d6 = p15.d(this.k);
-            d6.v(R.color.CAM_X0108);
-            d6.z(R.dimen.T_X08);
-            d6.A(R.string.F_X01);
-            p15 d7 = p15.d(this.l);
-            d7.v(R.color.CAM_X0101);
-            d7.z(R.dimen.T_X05);
-            d7.A(R.string.F_X01);
-            d7.n(R.string.J_X01);
-            d7.f(R.color.CAM_X0302);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, view2) == null) {
-            int id = view2.getId();
-            if (id != R.id.obfuscated_res_0x7f090805 && id != R.id.obfuscated_res_0x7f09069c && id != R.id.obfuscated_res_0x7f09069d) {
-                if (id == R.id.obfuscated_res_0x7f09153a) {
-                    e();
-                    return;
-                } else if (id == R.id.obfuscated_res_0x7f091c3c) {
-                    g();
-                    return;
-                } else if (id == R.id.obfuscated_res_0x7f0927c7) {
-                    i();
-                    return;
-                } else if (id == R.id.obfuscated_res_0x7f0927ca) {
-                    j();
-                    return;
-                } else if (id == R.id.obfuscated_res_0x7f09284a) {
-                    k();
-                    return;
-                } else if (id == R.id.obfuscated_res_0x7f091666) {
-                    f();
-                    return;
-                } else {
-                    return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, dc5Var, nearbyForumFriendItemViewHolder) == null) {
+            nearbyForumFriendItemViewHolder.c.K(dc5Var.c, 25, false);
+            nearbyForumFriendItemViewHolder.d.setText(dc5Var.b);
+            int i = dc5Var.d;
+            boolean z2 = true;
+            if ((i != 1 && i != 2) || dc5Var.e <= 0) {
+                nearbyForumFriendItemViewHolder.e.setVisibility(8);
+                z = false;
+            } else {
+                nearbyForumFriendItemViewHolder.e.setVisibility(0);
+                nearbyForumFriendItemViewHolder.g.setText(String.valueOf(dc5Var.e));
+                z = true;
+            }
+            if (StringUtils.isNull(dc5Var.f)) {
+                nearbyForumFriendItemViewHolder.h.setVisibility(8);
+            } else {
+                nearbyForumFriendItemViewHolder.h.setVisibility(0);
+                nearbyForumFriendItemViewHolder.h.setText(dc5Var.f);
+                z = true;
+            }
+            if (StringUtils.isNull(dc5Var.g)) {
+                nearbyForumFriendItemViewHolder.i.setVisibility(8);
+                z2 = z;
+            } else {
+                nearbyForumFriendItemViewHolder.i.setVisibility(0);
+                nearbyForumFriendItemViewHolder.i.setText(dc5Var.g);
+            }
+            z(nearbyForumFriendItemViewHolder, dc5Var.k);
+            if (z2 && nearbyForumFriendItemViewHolder.p.getVisibility() == 0) {
+                nearbyForumFriendItemViewHolder.o.setVisibility(0);
+            } else {
+                nearbyForumFriendItemViewHolder.o.setVisibility(8);
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06da));
+            if (!ListUtils.isEmpty(dc5Var.h)) {
+                List<cc5> list = dc5Var.h;
+                for (int i2 = 0; i2 < list.size(); i2++) {
+                    if (i2 > 0) {
+                        sb.append("/");
+                    }
+                    sb.append(list.get(i2).a);
+                    sb.append(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06ba));
                 }
             }
-            c();
+            nearbyForumFriendItemViewHolder.j.setText(sb);
+            nearbyForumFriendItemViewHolder.n.setText(dc5Var.i);
+        }
+    }
+
+    public final void C(dc5 dc5Var, NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dc5Var, nearbyForumFriendItemViewHolder) == null) {
+            nearbyForumFriendItemViewHolder.c.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            b35.d(nearbyForumFriendItemViewHolder.d).v(R.color.CAM_X0105);
+            int i = dc5Var.d;
+            if (i == 1) {
+                WebPManager.setPureDrawable(nearbyForumFriendItemViewHolder.f, R.drawable.obfuscated_res_0x7f080816, R.color.CAM_X0330, null);
+                b35.d(nearbyForumFriendItemViewHolder.g).v(R.color.CAM_X0330);
+                b35 d = b35.d(nearbyForumFriendItemViewHolder.e);
+                d.e(R.string.A_X11);
+                d.n(R.string.J_X01);
+                d.f(R.color.CAM_X0330);
+            } else if (i == 2) {
+                WebPManager.setPureDrawable(nearbyForumFriendItemViewHolder.f, R.drawable.obfuscated_res_0x7f080834, R.color.CAM_X0308, null);
+                b35.d(nearbyForumFriendItemViewHolder.g).v(R.color.CAM_X0308);
+                b35 d2 = b35.d(nearbyForumFriendItemViewHolder.e);
+                d2.e(R.string.A_X11);
+                d2.n(R.string.J_X01);
+                d2.f(R.color.CAM_X0308);
+            }
+            b35 d3 = b35.d(nearbyForumFriendItemViewHolder.h);
+            d3.n(R.string.J_X01);
+            d3.v(R.color.CAM_X0107);
+            d3.f(R.color.CAM_X0202);
+            b35.d(nearbyForumFriendItemViewHolder.i).v(R.color.CAM_X0109);
+            b35.d(nearbyForumFriendItemViewHolder.o).v(R.color.CAM_X0109);
+            b35.d(nearbyForumFriendItemViewHolder.p).v(R.color.CAM_X0109);
+            WebPManager.setPureDrawable(nearbyForumFriendItemViewHolder.l, R.drawable.obfuscated_res_0x7f080a39, R.color.CAM_X0302, null);
+            b35.d(nearbyForumFriendItemViewHolder.m).v(R.color.CAM_X0302);
+            b35 d4 = b35.d(nearbyForumFriendItemViewHolder.k);
+            d4.n(R.string.J_X01);
+            d4.f(R.color.CAM_X0905);
+            b35.d(nearbyForumFriendItemViewHolder.j).v(R.color.CAM_X0109);
+            b35.d(nearbyForumFriendItemViewHolder.n).v(R.color.CAM_X0107);
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.qn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, dc5 dc5Var, NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder) {
+        y(i, view2, viewGroup, dc5Var, nearbyForumFriendItemViewHolder);
+        return view2;
+    }
+
+    public View y(int i, View view2, ViewGroup viewGroup, dc5 dc5Var, NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dc5Var, nearbyForumFriendItemViewHolder})) == null) {
+            if (dc5Var != null && nearbyForumFriendItemViewHolder != null) {
+                C(dc5Var, nearbyForumFriendItemViewHolder);
+                A(dc5Var, nearbyForumFriendItemViewHolder);
+                wh7.p(i + 1, this.b);
+                nearbyForumFriendItemViewHolder.k.setOnClickListener(new b(this, viewGroup, dc5Var, i));
+            }
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public final void z(NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, nearbyForumFriendItemViewHolder, i) == null) {
+            nearbyForumFriendItemViewHolder.p.setVisibility(0);
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        nearbyForumFriendItemViewHolder.p.setVisibility(8);
+                        nearbyForumFriendItemViewHolder.c.setShowActiveStatus(false);
+                        return;
+                    }
+                    nearbyForumFriendItemViewHolder.p.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0d05));
+                    nearbyForumFriendItemViewHolder.c.setShowActiveStatus(false);
+                    return;
+                }
+                nearbyForumFriendItemViewHolder.p.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0d04));
+                nearbyForumFriendItemViewHolder.c.setShowActiveStatus(true);
+                return;
+            }
+            nearbyForumFriendItemViewHolder.p.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0d06));
+            nearbyForumFriendItemViewHolder.c.setShowActiveStatus(true);
         }
     }
 }

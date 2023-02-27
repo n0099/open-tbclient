@@ -16,10 +16,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.gj;
-import com.baidu.tieba.kl;
-import com.baidu.tieba.nl;
+import com.baidu.tieba.ll;
+import com.baidu.tieba.ol;
 import com.baidu.tieba.on;
-import com.baidu.tieba.ql;
+import com.baidu.tieba.rl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,11 +27,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 /* loaded from: classes4.dex */
-public class ChatClipImageItemView extends GifView implements nl.a {
+public class ChatClipImageItemView extends GifView implements ol.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean i1;
-    public nl j1;
+    public ol j1;
     public final Path k1;
     public boolean l1;
     public a m1;
@@ -41,7 +41,7 @@ public class ChatClipImageItemView extends GifView implements nl.a {
         void a(Canvas canvas);
     }
 
-    @Override // com.baidu.tieba.nl.a
+    @Override // com.baidu.tieba.ol.a
     public void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
@@ -150,19 +150,19 @@ public class ChatClipImageItemView extends GifView implements nl.a {
                 }
             }
             if (!z) {
-                this.j1 = new ql();
+                this.j1 = new rl();
             } else {
-                this.j1 = new kl();
+                this.j1 = new ll();
             }
             this.d.n = true;
             this.j1.t(this);
-            nl nlVar = this.j1;
-            this.e = nlVar;
-            nlVar.r(this.d);
+            ol olVar = this.j1;
+            this.e = olVar;
+            olVar.r(this.d);
         }
     }
 
-    @Override // com.baidu.tieba.nl.a
+    @Override // com.baidu.tieba.ol.a
     public Path a(RectF rectF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -234,11 +234,11 @@ public class ChatClipImageItemView extends GifView implements nl.a {
             } else {
                 z2 = false;
             }
-            nl nlVar = this.j1;
+            ol olVar = this.j1;
             if (!z2 && !z) {
                 z3 = false;
             }
-            nlVar.u(z3);
+            olVar.u(z3);
             return bdImage;
         }
         return (on) invokeV.objValue;

@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.lcp.sdk.client.bean.BLCPRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class a90 extends BLCPRequest {
+public class a90 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
     public a90() {
         Interceptable interceptable = $ic;
@@ -23,7 +23,6 @@ public class a90 extends BLCPRequest {
                 return;
             }
         }
-        this.c = null;
-        this.e = BLCPRequest.SendTimeoutSecond.TIMEOUT_120s;
+        this.a = -1;
     }
 }

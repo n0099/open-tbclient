@@ -6,135 +6,82 @@ import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.view.KeyCharacterMap;
 import android.view.ViewConfiguration;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class VideoSystemHelper {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "VideoSystemHelper";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public VideoSystemHelper() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     public static float getDensity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            DisplayMetrics displayMetrics = getDisplayMetrics();
-            if (displayMetrics != null) {
-                return displayMetrics.density;
-            }
-            return 0.0f;
+        DisplayMetrics displayMetrics = getDisplayMetrics();
+        if (displayMetrics != null) {
+            return displayMetrics.density;
         }
-        return invokeV.floatValue;
+        return 0.0f;
     }
 
     public static int getDisplayHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            DisplayMetrics displayMetrics = getDisplayMetrics();
-            if (displayMetrics != null) {
-                return displayMetrics.heightPixels;
-            }
-            return 0;
+        DisplayMetrics displayMetrics = getDisplayMetrics();
+        if (displayMetrics != null) {
+            return displayMetrics.heightPixels;
         }
-        return invokeV.intValue;
+        return 0;
     }
 
     public static DisplayMetrics getDisplayMetrics() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            Context appContext = BDPlayerConfig.getAppContext();
-            if (appContext == null) {
-                return null;
-            }
-            return appContext.getResources().getDisplayMetrics();
+        Context appContext = BDPlayerConfig.getAppContext();
+        if (appContext == null) {
+            return null;
         }
-        return (DisplayMetrics) invokeV.objValue;
+        return appContext.getResources().getDisplayMetrics();
     }
 
     public static int getDisplayWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            DisplayMetrics displayMetrics = getDisplayMetrics();
-            if (displayMetrics != null) {
-                return displayMetrics.widthPixels;
-            }
-            return 0;
+        DisplayMetrics displayMetrics = getDisplayMetrics();
+        if (displayMetrics != null) {
+            return displayMetrics.widthPixels;
         }
-        return invokeV.intValue;
+        return 0;
     }
 
     public static int getNavigationBarHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            Context appContext = BDPlayerConfig.getAppContext();
-            if (appContext == null) {
-                return 0;
-            }
-            boolean hasPermanentMenuKey = ViewConfiguration.get(appContext).hasPermanentMenuKey();
-            boolean deviceHasKey = KeyCharacterMap.deviceHasKey(4);
-            if (hasPermanentMenuKey || deviceHasKey) {
-                return 0;
-            }
-            Resources resources = appContext.getResources();
-            return resources.getDimensionPixelSize(resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.h, EMABTest.TYPE_DIMEN, "android"));
+        Context appContext = BDPlayerConfig.getAppContext();
+        if (appContext == null) {
+            return 0;
         }
-        return invokeV.intValue;
+        boolean hasPermanentMenuKey = ViewConfiguration.get(appContext).hasPermanentMenuKey();
+        boolean deviceHasKey = KeyCharacterMap.deviceHasKey(4);
+        if (hasPermanentMenuKey || deviceHasKey) {
+            return 0;
+        }
+        Resources resources = appContext.getResources();
+        return resources.getDimensionPixelSize(resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.h, EMABTest.TYPE_DIMEN, "android"));
     }
 
     public static int getStatusBarHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            Context appContext = BDPlayerConfig.getAppContext();
-            int i = 0;
-            if (appContext == null) {
-                return 0;
-            }
-            int identifier = appContext.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
-            if (identifier > 0) {
-                try {
-                    i = appContext.getResources().getDimensionPixelSize(identifier);
-                } catch (Exception unused) {
-                }
-            }
-            if (i == 0) {
-                return (int) (getDensity() * 25.0f);
-            }
-            return i;
+        Context appContext = BDPlayerConfig.getAppContext();
+        int i = 0;
+        if (appContext == null) {
+            return 0;
         }
-        return invokeV.intValue;
+        int identifier = appContext.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+        if (identifier > 0) {
+            try {
+                i = appContext.getResources().getDimensionPixelSize(identifier);
+            } catch (Exception unused) {
+            }
+        }
+        if (i == 0) {
+            return (int) (getDensity() * 25.0f);
+        }
+        return i;
     }
 
     @PublicMethod
     public static void setKeepScreenOnOff(Activity activity, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65543, null, activity, z) == null) && activity != null) {
+        if (activity != null) {
             if (z) {
                 activity.getWindow().addFlags(128);
             } else {

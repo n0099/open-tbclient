@@ -1,177 +1,257 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class gd4 implements xs2 {
+public final class gd4 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    @Override // com.baidu.tieba.xs2
-    public boolean a(Context context, mv2 mv2Var, fv2 fv2Var, w83 w83Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, mv2Var, fv2Var, w83Var)) == null) {
-            return false;
-        }
-        return invokeLLLL.booleanValue;
+    /* loaded from: classes4.dex */
+    public interface a {
+        void a();
+
+        void b();
+
+        void c();
     }
 
-    public gd4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public static final class b implements View.OnTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-779506636, "Lcom/baidu/tieba/gd4$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-779506636, "Lcom/baidu/tieba/gd4$b;");
+                    return;
+                }
+            }
+            a = new b();
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.view.View.OnTouchListener
+        public final boolean onTouch(View v, MotionEvent event) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, v, event)) == null) {
+                Intrinsics.checkNotNullExpressionValue(event, "event");
+                int action = event.getAction();
+                if (action != 0) {
+                    if (action == 1 || action == 3) {
+                        Intrinsics.checkNotNullExpressionValue(v, "v");
+                        v.setAlpha(1.0f);
+                        return false;
+                    }
+                    return false;
+                }
+                Intrinsics.checkNotNullExpressionValue(v, "v");
+                v.setAlpha(0.2f);
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static final class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gd4 a;
+
+        public c(gd4 gd4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gd4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gd4Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            a aVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a.a) != null) {
+                aVar.c();
             }
         }
     }
 
-    @Override // com.baidu.tieba.xs2
-    public boolean b(Context context, hv2 hv2Var, fv2 fv2Var, w83 w83Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, hv2Var, fv2Var, w83Var)) == null) {
-            return pd4.e().c(context, hv2Var, fv2Var, w83Var);
-        }
-        return invokeLLLL.booleanValue;
-    }
+    /* loaded from: classes4.dex */
+    public static final class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gd4 a;
 
-    @Override // com.baidu.tieba.xs2
-    public boolean c(Context context, iv2 iv2Var, fv2 fv2Var, w83 w83Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, iv2Var, fv2Var, w83Var)) == null) {
-            return od4.d().c(context, iv2Var, fv2Var, w83Var);
+        public d(gd4 gd4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gd4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gd4Var;
         }
-        return invokeLLLL.booleanValue;
-    }
 
-    @Override // com.baidu.tieba.xs2
-    public boolean e(Context context, gv2 gv2Var, fv2 fv2Var, w83 w83Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, context, gv2Var, fv2Var, w83Var)) == null) {
-            return me4.h().c(context, gv2Var, fv2Var, w83Var);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.xs2
-    public boolean g(Context context, iv2 iv2Var, fv2 fv2Var, w83 w83Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, context, iv2Var, fv2Var, w83Var)) == null) {
-            return jd4.e().c(context, iv2Var, fv2Var, w83Var);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.xs2
-    public boolean h(Context context, kv2 kv2Var, fv2 fv2Var, w83 w83Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, context, kv2Var, fv2Var, w83Var)) == null) {
-            return rd4.e().c(context, kv2Var, fv2Var, w83Var);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.xs2
-    public boolean j(Context context, lv2 lv2Var, fv2 fv2Var, w83 w83Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, context, lv2Var, fv2Var, w83Var)) == null) {
-            return sd4.e().c(context, lv2Var, fv2Var, w83Var);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.xs2
-    public boolean k(Context context, iv2 iv2Var, fv2 fv2Var, w83 w83Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048586, this, context, iv2Var, fv2Var, w83Var)) == null) {
-            return md4.d().c(context, iv2Var, fv2Var, w83Var);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.xs2
-    public boolean l(Context context, iv2 iv2Var, fv2 fv2Var, w83 w83Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048587, this, context, iv2Var, fv2Var, w83Var)) == null) {
-            return kd4.d().c(context, iv2Var, fv2Var, w83Var);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.xs2
-    public boolean m(Context context, iv2 iv2Var, fv2 fv2Var, w83 w83Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048588, this, context, iv2Var, fv2Var, w83Var)) == null) {
-            return qd4.f().c(context, iv2Var, fv2Var, w83Var);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.xs2
-    public boolean n(Context context, iv2 iv2Var, fv2 fv2Var, w83 w83Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048589, this, context, iv2Var, fv2Var, w83Var)) == null) {
-            return nd4.d().c(context, iv2Var, fv2Var, w83Var);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.xs2
-    public boolean update(Context context, iv2 iv2Var, fv2 fv2Var, w83 w83Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048590, this, context, iv2Var, fv2Var, w83Var)) == null) {
-            return ld4.d().c(context, iv2Var, fv2Var, w83Var);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.xs2
-    public void d(cv1 cv1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cv1Var) == null) {
-            fd4.h(cv1Var);
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            a aVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a.a) != null) {
+                aVar.b();
+            }
         }
     }
 
-    @Override // com.baidu.tieba.xs2
-    public void f(cv1 cv1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cv1Var) == null) {
-            fd4.d(cv1Var);
+    /* loaded from: classes4.dex */
+    public static final class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gd4 a;
+
+        public e(gd4 gd4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gd4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gd4Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            a aVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a.a) != null) {
+                aVar.a();
+            }
         }
     }
 
-    @Override // com.baidu.tieba.xs2
-    public void i(cv1 cv1Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gd4(Context context) {
+        super(context, R.style.obfuscated_res_0x7f1001b1);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cv1Var) == null) {
-            fd4.e(cv1Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(context, "context");
+        c();
+    }
+
+    public final void e(a onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            Intrinsics.checkNotNullParameter(onClickListener, "onClickListener");
+            this.a = onClickListener;
+        }
+    }
+
+    @SuppressLint({"ClickableViewAccessibility"})
+    public final View.OnTouchListener b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b.a;
+        }
+        return (View.OnTouchListener) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setContentView(R.layout.obfuscated_res_0x7f0d00c2);
+            setCanceledOnTouchOutside(false);
+            d();
+        }
+    }
+
+    @SuppressLint({"ClickableViewAccessibility"})
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ((Button) findViewById(R.id.obfuscated_res_0x7f090a05)).setOnTouchListener(b());
+            ((Button) findViewById(R.id.obfuscated_res_0x7f090a05)).setOnClickListener(new c(this));
+            ((ImageView) findViewById(R.id.obfuscated_res_0x7f090fbc)).setOnTouchListener(b());
+            ((ImageView) findViewById(R.id.obfuscated_res_0x7f090fbc)).setOnClickListener(new d(this));
+            ((Button) findViewById(R.id.obfuscated_res_0x7f090782)).setOnTouchListener(b());
+            ((Button) findViewById(R.id.obfuscated_res_0x7f090782)).setOnClickListener(new e(this));
         }
     }
 }

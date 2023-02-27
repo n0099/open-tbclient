@@ -1,66 +1,75 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.ala.data.SdkLiveInfoData;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ForumUserLiveActiivtyConfig;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.ala.alasquare.live_tab.view.StageLiveViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class o36 {
+public class o36 extends qn<u36, StageLiveViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public w46 b;
 
-    public static void a(p16 p16Var, String str, String str2) {
-        SdkLiveInfoData sdkLiveInfoData;
-        String str3;
-        String str4;
-        String str5;
-        String str6;
-        int i;
-        SdkLiveInfoData.YYExt yYExt;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o36(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), u36.b);
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65536, null, p16Var, str, str2) == null) && p16Var != null && (sdkLiveInfoData = p16Var.a) != null) {
-            SdkLiveInfoData.AlaLiveInfo alaLiveInfo = sdkLiveInfoData.liveInfo;
-            String str7 = "";
-            if (alaLiveInfo == null || (yYExt = alaLiveInfo.yyExt) == null) {
-                str3 = "";
-                str4 = str3;
-                str5 = str4;
-                str6 = str5;
-            } else {
-                str4 = yYExt.sid;
-                str5 = yYExt.ssid;
-                str6 = yYExt.yyUid;
-                str3 = yYExt.templateId;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            StatisticItem param = new StatisticItem(str).param("fid", p16Var.c).param("liveid", p16Var.a.liveId).param("hdid", TbadkCoreApplication.getInst().getHdid()).param(TiebaStatic.YYParams.YYSID, str4).param(TiebaStatic.YYParams.YYSSID, str5).param(TiebaStatic.YYParams.YYUID, str6).param("template_id", str3);
-            if (!TextUtils.isEmpty(str4)) {
-                str7 = "1";
-            }
-            StatisticItem param2 = param.param(TiebaStatic.YYParams.YYLIVEID, str7).param(TiebaStatic.Params.VID, p16Var.a.nid);
-            if (TextUtils.equals(ForumUserLiveActiivtyConfig.KEY_FROM_FRS_CARD, str2)) {
-                i = 1;
-            } else {
-                i = 2;
-            }
-            TiebaStatic.log(param2.param("obj_source", i));
         }
+        this.a = tbPageContext;
     }
 
-    public static void b(p16 p16Var, String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: s */
+    public StageLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, p16Var, str) == null) {
-            a(p16Var, "c14705", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            this.b = new w46(this.a, viewGroup);
+            return new StageLiveViewHolder(this.b);
         }
+        return (StageLiveViewHolder) invokeL.objValue;
     }
 
-    public static void c(p16 p16Var, String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, u36 u36Var, StageLiveViewHolder stageLiveViewHolder) {
+        InterceptResult invokeCommon;
+        w46 w46Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, p16Var, str) == null) {
-            a(p16Var, "c14704", str);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, u36Var, stageLiveViewHolder})) == null) {
+            if (stageLiveViewHolder != null && (w46Var = stageLiveViewHolder.a) != null) {
+                w46Var.i(u36Var);
+                stageLiveViewHolder.a.j(this.a, TbadkCoreApplication.getInst().getSkinType());
+                return stageLiveViewHolder.getView();
+            }
+            return null;
         }
+        return (View) invokeCommon.objValue;
     }
 }

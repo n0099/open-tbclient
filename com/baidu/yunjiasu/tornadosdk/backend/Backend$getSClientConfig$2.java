@@ -2,13 +2,14 @@ package com.baidu.yunjiasu.tornadosdk.backend;
 
 import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
-import com.heytap.mcssdk.mode.CommandMessage;
+import com.heytap.mcssdk.constant.b;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -96,7 +97,7 @@ public final class Backend$getSClientConfig$2 extends SuspendLambda implements F
                     Request.Builder addHeader = url2.addHeader("X-Channel-Name", str);
                     str2 = Backend.device;
                     if (str2 == null) {
-                        Intrinsics.throwUninitializedPropertyAccessException("device");
+                        Intrinsics.throwUninitializedPropertyAccessException(Config.DEVICE_PART);
                         str2 = null;
                     }
                     Request.Builder addHeader2 = addHeader.addHeader("X-Device-Name", str2);
@@ -122,7 +123,7 @@ public final class Backend$getSClientConfig$2 extends SuspendLambda implements F
                     sb.append(',');
                     str6 = Backend.sdkVersion;
                     if (str6 == null) {
-                        Intrinsics.throwUninitializedPropertyAccessException(CommandMessage.SDK_VERSION);
+                        Intrinsics.throwUninitializedPropertyAccessException(b.C);
                         str6 = null;
                     }
                     sb.append(str6);

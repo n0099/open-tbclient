@@ -1,80 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IStatisticManager;
-import com.baidu.nps.interfa.IStatisticManager_StatisticManager_Provider;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.nps.pm.BundleInfo;
+import com.baidu.nps.pm.SubBundleInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Closeable;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class ee1 {
     public static /* synthetic */ Interceptable $ic;
-    public static ee1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public bk1<IStatisticManager> a;
 
-    public void c() {
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            zj1 b2 = zj1.b();
-            this.a = b2;
-            b2.a(new IStatisticManager_StatisticManager_Provider());
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947731352, "Lcom/baidu/tieba/ee1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947731352, "Lcom/baidu/tieba/ee1;");
-                return;
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-        b = new ee1();
     }
 
-    public ee1() {
+    public static boolean b(BundleInfo bundleInfo, BundleInfo bundleInfo2) {
+        InterceptResult invokeLL;
+        List<SubBundleInfo> subBundle;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bundleInfo, bundleInfo2)) == null) {
+            if (bundleInfo == null || bundleInfo2 == null || (subBundle = bundleInfo.getSubBundle()) == null) {
+                return false;
             }
+            for (SubBundleInfo subBundleInfo : subBundle) {
+                if (TextUtils.equals(subBundleInfo.getPackageName(), bundleInfo2.getPackageName())) {
+                    if (subBundleInfo.getMaxVersion() < bundleInfo2.getVersionCode() || subBundleInfo.getMinVersion() > bundleInfo2.getVersionCode()) {
+                        return false;
+                    }
+                    return true;
+                }
+            }
+            return false;
         }
-        c();
-    }
-
-    public static ee1 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (ee1) invokeV.objValue;
-    }
-
-    public IStatisticManager b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get();
-        }
-        return (IStatisticManager) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

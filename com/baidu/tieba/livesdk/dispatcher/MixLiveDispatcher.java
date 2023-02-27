@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.ou8;
+import com.baidu.tieba.ay8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,7 +15,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class MixLiveDispatcher implements ou8 {
+public class MixLiveDispatcher implements ay8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String URL_PREFIX = "com.baidu.tieba://unidispatch/mixlive";
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class MixLiveDispatcher implements ou8 {
         }
     }
 
-    @Override // com.baidu.tieba.ou8
+    @Override // com.baidu.tieba.ay8
     public void dispatch(JSONObject jSONObject, Context context) {
         TbPageContext<?> currentPageContext;
         Interceptable interceptable = $ic;

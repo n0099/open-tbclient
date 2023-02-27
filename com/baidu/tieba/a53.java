@@ -1,69 +1,48 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.bd2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import com.tencent.open.miniapp.MiniApp;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class a53 {
+public abstract class a53 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile a53 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, b53<z43>> a;
-    public ConcurrentHashMap<String, Runnable> b;
-    public a c;
+
+    public abstract m12 b(JSONObject jSONObject);
+
+    public abstract v43 f(w43 w43Var);
+
+    public abstract String g();
+
+    public abstract String h();
+
+    public abstract m12 j(String str, w43 w43Var);
+
+    public abstract boolean k();
+
+    public abstract m12 m(w43 w43Var, ya2<x43> ya2Var);
 
     /* loaded from: classes3.dex */
-    public static class a extends Handler {
+    public class a implements bd2.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w43 a;
+        public final /* synthetic */ ya2 b;
+        public final /* synthetic */ a53 c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Looper looper) {
-            super(looper);
+        public a(a53 a53Var, w43 w43Var, ya2 ya2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<a53> a;
-        public String b;
-
-        public b(a53 a53Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a53Var, str};
+                Object[] objArr = {a53Var, w43Var, ya2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -73,185 +52,190 @@ public class a53 {
                     return;
                 }
             }
-            this.a = new WeakReference<>(a53Var);
-            this.b = str;
+            this.c = a53Var;
+            this.a = w43Var;
+            this.b = ya2Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            a53 a53Var;
+        @Override // com.baidu.tieba.bd2.b
+        public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (a53Var = this.a.get()) == null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                e53.b("payment fun page, your pkg is latest");
             }
-            if (a53.d) {
-                Log.d("MDelegate-Observe", "run: observer timeout " + this.b);
+        }
+
+        @Override // com.baidu.tieba.bd2.b
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.c.d(this.a, true, this.b);
             }
-            z43 z43Var = new z43(this.b);
-            z43Var.setResult(null);
-            a53Var.c(z43Var);
+        }
+
+        @Override // com.baidu.tieba.bd2.b
+        public void b(fl3 fl3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fl3Var) == null) {
+                this.c.d(this.a, false, this.b);
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947566122, "Lcom/baidu/tieba/a53;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes3.dex */
+    public class b implements hc2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w43 a;
+        public final /* synthetic */ ya2 b;
+        public final /* synthetic */ a53 c;
+
+        public b(a53 a53Var, w43 w43Var, ya2 ya2Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947566122, "Lcom/baidu/tieba/a53;");
-                return;
-            }
-        }
-        d = gp1.a;
-    }
-
-    public static a53 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (e == null) {
-                synchronized (a53.class) {
-                    if (e == null) {
-                        e = new a53();
-                    }
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a53Var, w43Var, ya2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return e;
+            this.c = a53Var;
+            this.a = w43Var;
+            this.b = ya2Var;
         }
-        return (a53) invokeV.objValue;
+
+        @Override // com.baidu.tieba.hc2
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.d(this.a, true, this.b);
+            }
+        }
+
+        @Override // com.baidu.tieba.hc2
+        public void b(int i, fl3 fl3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, fl3Var) == null) {
+                this.c.d(this.a, false, this.b);
+            }
+        }
     }
 
     public a53() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ConcurrentHashMap<>();
-        this.b = new ConcurrentHashMap<>();
-        this.c = new a(Looper.getMainLooper());
-    }
-
-    public void c(@NonNull z43 z43Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, z43Var) == null) {
-            b53<z43> b53Var = this.a.get(z43Var.b());
-            if (b53Var == null) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "notify a null observer");
-                    return;
-                }
-                return;
-            }
-            String b2 = b53Var.b();
-            if (d) {
-                Log.d("MDelegate-Observe", "notify observer: " + b2);
-            }
-            b53Var.onEvent(z43Var);
-            if (this.b.containsKey(b2)) {
-                if (d) {
-                    Log.d("MDelegate-Observe", "remove observer: " + b2 + " timeout runnable");
-                }
-                this.c.removeCallbacks(this.b.get(b2));
-                this.b.remove(b2);
-            }
-            if (b53Var.c()) {
-                if (d) {
-                    Log.d("MDelegate-Observe", "auto unregister disposable observer: " + b2);
-                }
-                f(b53Var);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public void e(b53<z43> b53Var) {
+    public final void c(w43 w43Var, String str, ya2<x43> ya2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b53Var) == null) {
-            if (b53Var == null) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "register a null observer");
-                    return;
-                }
-                return;
-            }
-            String b2 = b53Var.b();
-            if (this.a.containsKey(b2)) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "multiple register observer：" + b2);
-                    return;
-                }
-                return;
-            }
-            if (d) {
-                Log.d("MDelegate-Observe", "register observer: " + b2);
-            }
-            this.a.put(b2, b53Var);
-            long a2 = b53Var.a();
-            if (a2 > 0 && b53Var.c()) {
-                if (d) {
-                    Log.d("MDelegate-Observe", "post observer: " + b2 + " " + a2 + "ms timeout runnable");
-                }
-                b bVar = new b(this, b2);
-                this.b.put(b2, bVar);
-                this.c.postDelayed(bVar, a2);
-            }
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w43Var, str, ya2Var) == null) {
+            e53.b("local has not main pkg, download fun page main pkg");
+            ok4 ok4Var = new ok4(str, l93.K().k());
+            ok4Var.q(0L);
+            ok4Var.t(w43Var.c);
+            ok4Var.d("3");
+            wg4.c(ok4Var, new bd2(str, new a(this, w43Var, ya2Var)));
         }
     }
 
-    public void d() {
+    public final void e(w43 w43Var, v43 v43Var, ya2<x43> ya2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (d) {
-                Log.d("MDelegate-Observe", "release observable");
-            }
-            if (e == null) {
-                return;
-            }
-            this.a.clear();
-            for (Map.Entry<String, Runnable> entry : this.b.entrySet()) {
-                if (d) {
-                    Log.d("MDelegate-Observe", "remove observer: " + entry.getKey() + " timeout runnable");
-                }
-                this.c.removeCallbacks(entry.getValue());
-            }
-            this.b.clear();
-            e = null;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, w43Var, v43Var, ya2Var) == null) {
+            e53.b("main pkg is exist, download fun page sub pkg");
+            String str = v43Var.a;
+            int i = v43Var.d;
+            wg4.h(new rk4(str, i, k53.e(v43Var.c, v43Var.b), 0), new dd2(str, String.valueOf(i), new b(this, w43Var, ya2Var)));
         }
     }
 
-    public void f(b53<z43> b53Var) {
+    public final void d(w43 w43Var, boolean z, ya2<x43> ya2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, b53Var) == null) {
-            if (b53Var == null) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "unregister a null observer");
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{w43Var, Boolean.valueOf(z), ya2Var}) == null) {
+            if (z) {
+                v43 f = f(w43Var);
+                if (f != null && f.f) {
+                    e53.b("payment fun page, download success, ready to jump");
+                    j(f.c, w43Var);
                     return;
                 }
+                e53.b("payment fun page, download success, but not exist");
+                x43 x43Var = new x43(w43Var.f);
+                x43Var.a = w43Var.e;
+                ya2Var.a(x43Var);
                 return;
             }
-            String b2 = b53Var.b();
-            if (!this.a.containsKey(b2)) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "unregister a nonexistent observer");
-                    return;
-                }
-                return;
-            }
-            if (d) {
-                Log.d("MDelegate-Observe", "unregister observer: " + b2);
-            }
-            this.a.remove(b2);
+            e53.b("payment fun page, download failed");
+            x43 x43Var2 = new x43(w43Var.f);
+            x43Var2.a = w43Var.e;
+            ya2Var.a(x43Var2);
         }
+    }
+
+    public final boolean i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            return TextUtils.equals(str, MiniApp.MINIAPP_VERSION_DEVELOP);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final m12 l(w43 w43Var, ya2<x43> ya2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, w43Var, ya2Var)) == null) {
+            e53.b("open fun page start");
+            if (w43Var != null && w43Var.a()) {
+                m12 b2 = b(w43Var.g);
+                if (b2 != null) {
+                    e53.b("fun page args params invalid");
+                    return b2;
+                } else if (k()) {
+                    e53.b("open payment fun page");
+                    v43 f = f(w43Var);
+                    if (f == null) {
+                        return new m12(1001, "fun page not exists");
+                    }
+                    if (!f.f) {
+                        e53.b("payment fun page, " + w43Var.d + " mode");
+                        if (i(w43Var.d)) {
+                            if (f.e) {
+                                e(w43Var, f, ya2Var);
+                            } else {
+                                return new m12(1001, "fun page not exists");
+                            }
+                        } else if (f.e) {
+                            e(w43Var, f, ya2Var);
+                        } else {
+                            c(w43Var, f.a, ya2Var);
+                        }
+                        e53.b("open fun page end");
+                        return new m12(0);
+                    }
+                    return j(f.c, w43Var);
+                } else {
+                    e53.b("open user info or choose address fun page");
+                    return m(w43Var, ya2Var);
+                }
+            }
+            e53.b("params parse fail");
+            return new m12(202, "params parse fail");
+        }
+        return (m12) invokeLL.objValue;
     }
 }

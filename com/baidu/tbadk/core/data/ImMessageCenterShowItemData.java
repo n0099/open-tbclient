@@ -4,8 +4,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
-import com.baidu.tieba.gy4;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
+import com.baidu.tieba.nz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public static final int recForumTitleType = 3;
     public static final long serialVersionUID = 3133087680118197014L;
     public transient /* synthetic */ FieldHolder $fh;
-    public gy4 atInfoData;
+    public nz4 atInfoData;
     public String avatar;
     public String cacheGroupMsgContent;
     public int dataType;
@@ -93,13 +93,13 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         return (ImMessageCenterShowItemData) invokeV.objValue;
     }
 
-    public gy4 getAtInfoData() {
+    public nz4 getAtInfoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.atInfoData;
         }
-        return (gy4) invokeV.objValue;
+        return (nz4) invokeV.objValue;
     }
 
     public String getAvatar() {
@@ -417,10 +417,10 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         return invokeL.booleanValue;
     }
 
-    public void setAtInfoData(gy4 gy4Var) {
+    public void setAtInfoData(nz4 nz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, gy4Var) == null) {
-            this.atInfoData = gy4Var;
+        if (interceptable == null || interceptable.invokeL(1048613, this, nz4Var) == null) {
+            this.atInfoData = nz4Var;
         }
     }
 

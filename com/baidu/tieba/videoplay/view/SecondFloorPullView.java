@@ -143,7 +143,7 @@ public class SecondFloorPullView extends FrameLayout {
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && (valueAnimator.getAnimatedValue() instanceof Integer)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && this.a.c != null && (valueAnimator.getAnimatedValue() instanceof Integer)) {
                 this.a.b = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                 this.a.c.setTranslationY(this.a.b);
             }
@@ -222,7 +222,7 @@ public class SecondFloorPullView extends FrameLayout {
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && (valueAnimator.getAnimatedValue() instanceof Integer)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && this.a.c != null && (valueAnimator.getAnimatedValue() instanceof Integer)) {
                 this.a.b = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                 this.a.c.setTranslationY(this.a.b);
             }

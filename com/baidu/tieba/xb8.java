@@ -1,122 +1,111 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import android.view.View;
+import android.app.ActivityManager;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.biometrics.face.liveness.activity.PassLivenessRecogActivity;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.yi6;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.relogin.ReloginManager;
+import com.baidu.tieba.f85;
+import com.baidu.tieba.passaccount.app.AuthActivity;
+import com.baidu.tieba.passaccount.app.RemindActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
 public class xb8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int g;
+    public static volatile xb8 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final vb8 c;
-    public final zi6 d;
-    public yi6.b e;
-    public View.OnTouchListener f;
+    public b a;
+    public AtomicBoolean b;
+    public AtomicBoolean c;
 
     /* loaded from: classes6.dex */
-    public class a implements yi6.b {
+    public interface b {
+        void a(f85.c cVar);
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a implements CustomMessageTask.CustomRunnable<f85> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xb8 a;
 
-        @Override // com.baidu.tieba.yi6.b
-        public void c(int i, int i2) {
+        public a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
 
-        @Override // com.baidu.tieba.yi6.b
-        public void d(int i, int i2) {
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage<f85> customMessage) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.xb8$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0488a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0488a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                if (customMessage != null && customMessage.getData() != null) {
+                    f85 data = customMessage.getData();
+                    String e = data.e();
+                    if (data.getType() == 0 && TextUtils.isEmpty(e)) {
+                        if (data.f() != null) {
+                            data.f().b(null);
+                        }
+                        return null;
+                    } else if (data.getType() == 4) {
+                        ej.Q(TbadkCoreApplication.getInst(), "验证失败，请您稍后再试");
+                        if (data.f() != null) {
+                            data.f().b(null);
+                        }
+                        return null;
+                    } else {
+                        MessageManager.getInstance().runTask(2921332, (Class) null);
+                        xb8.f().r(data, new c(data));
                     }
                 }
-                this.a = aVar;
+                return null;
             }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.g(false);
-                }
-            }
+            return (CustomResponsedMessage) invokeL.objValue;
         }
+    }
 
-        /* loaded from: classes6.dex */
-        public class b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
+    /* loaded from: classes6.dex */
+    public static class c implements b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final f85 a;
 
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.g(false);
-                }
-            }
-        }
-
-        public a(xb8 xb8Var) {
+        public c(f85 f85Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xb8Var};
+                Object[] objArr = {f85Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -126,144 +115,271 @@ public class xb8 {
                     return;
                 }
             }
-            this.a = xb8Var;
+            this.a = f85Var;
         }
 
-        @Override // com.baidu.tieba.yi6.b
-        public void a(int i, int i2) {
+        @Override // com.baidu.tieba.xb8.b
+        public void a(f85.c cVar) {
+            f85 f85Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && this.a.c.l() && !this.a.e() && !this.a.f()) {
-                this.a.g(true);
-                this.a.h(true);
-                this.a.c.k().t(new RunnableC0488a(this));
-            }
-        }
-
-        @Override // com.baidu.tieba.yi6.b
-        public void b(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) && this.a.c.l() && !this.a.e() && this.a.c.k().h() && Math.abs(i2) > xb8.g) {
-                this.a.c.i(new b(this));
-                this.a.g(true);
-                this.a.h(false);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) && (f85Var = this.a) != null && f85Var.f() != null) {
+                this.a.f().b(cVar);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements View.OnTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xb8 a;
-
-        public b(xb8 xb8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xb8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xb8Var;
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                this.a.d.c(motionEvent);
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948294715, "Lcom/baidu/tieba/xb8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948294715, "Lcom/baidu/tieba/xb8;");
-                return;
-            }
-        }
-        g = ej.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0701d5);
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            yb8 k = this.c.k();
-            if (k.m()) {
-                k.e().setOnTouchListener(this.f);
-            }
-        }
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public xb8(vb8 vb8Var) {
+    public xb8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vb8Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new a(this);
-        this.f = new b(this);
-        this.c = vb8Var;
-        zi6 zi6Var = new zi6(vb8Var.b.getPageContext().getPageActivity());
-        this.d = zi6Var;
-        zi6Var.d(this.e);
+        this.b = new AtomicBoolean(false);
+        this.c = new AtomicBoolean(false);
     }
 
-    public void g(boolean z) {
+    public static xb8 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (xb8.class) {
+                    if (d == null) {
+                        d = new xb8();
+                    }
+                }
+            }
+            return d;
+        }
+        return (xb8) invokeV.objValue;
+    }
+
+    public static void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            CustomMessageTask customMessageTask = new CustomMessageTask(2921372, new a());
+            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(customMessageTask);
         }
     }
 
-    public void h(boolean z) {
+    public static void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            n();
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
+            Intent intent = new Intent(context, RemindActivity.class);
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            context.startActivity(intent);
+        }
+    }
+
+    public void a(f85.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+            if (this.a != null) {
+                if (cVar == null) {
+                    cVar = new f85.c(false);
+                }
+                this.a.a(cVar);
+            }
+            this.a = null;
+            this.b.set(false);
+        }
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            a(new f85.c(z));
+        }
+    }
+
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.b = z;
+            a(new f85.c(false));
+            if (z) {
+                p();
+            }
+        }
+    }
+
+    public void q(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
+            this.a = bVar;
+        }
+    }
+
+    public void b(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
+            a(new f85.a(z, str));
+        }
+    }
+
+    public void d(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048579, this, z, str) == null) {
+            yb8.i().k(null);
+            a(new f85.b(z, str));
+        }
+    }
+
+    public final ComponentName g() {
+        ActivityManager activityManager;
+        List<ActivityManager.RunningTaskInfo> runningTasks;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            try {
+                if (BdBaseApplication.getInst() != null && (activityManager = (ActivityManager) BdBaseApplication.getInst().getSystemService("activity")) != null && (runningTasks = activityManager.getRunningTasks(1)) != null && runningTasks.size() > 0) {
+                    for (ActivityManager.RunningTaskInfo runningTaskInfo : runningTasks) {
+                        if (runningTaskInfo != null && runningTaskInfo.topActivity != null) {
+                            return runningTaskInfo.topActivity;
+                        }
+                    }
+                    return null;
+                }
+                return null;
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (ComponentName) invokeV.objValue;
+    }
+
+    public final boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ComponentName g = g();
+            if (g == null) {
+                return false;
+            }
+            if (!AuthActivity.class.getName().equals(g.getClassName()) && !PassLivenessRecogActivity.class.getName().equals(g.getClassName())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void i(f85 f85Var, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, f85Var, bVar) == null) {
+            q(bVar);
+            SapiAccount session = SapiAccountManager.getInstance().getSession();
+            if (f85Var != null && session != null) {
+                if (f85Var.getType() == 0) {
+                    j(f85Var.e());
+                    return;
+                } else if (f85Var.getType() == 1) {
+                    l(session.bduss);
+                    return;
+                } else if (f85Var.getType() == 2) {
+                    k(session.bduss);
+                    return;
+                } else if (f85Var.getType() == 3) {
+                    m();
+                    return;
+                } else {
+                    return;
+                }
+            }
+            a(null);
+        }
+    }
+
+    public void r(f85 f85Var, b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048590, this, f85Var, bVar) == null) && this.c.compareAndSet(false, true)) {
+            if (this.b.compareAndSet(false, true)) {
+                try {
+                    i(f85Var, bVar);
+                } catch (Exception e) {
+                    BdStatisticsManager.getInstance().error("passloaderror", 0L, (String) null, "Exception", e.toString());
+                    this.b.set(false);
+                }
+            } else if (!h()) {
+                try {
+                    i(f85Var, bVar);
+                } catch (Exception unused) {
+                    this.b.set(false);
+                }
+            }
+            this.c.set(false);
+        }
+    }
+
+    public final void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
+            Intent intent = new Intent(context, AuthActivity.class);
+            intent.putExtra("EXTRA_TYPE", 0);
+            intent.putExtra("EXTRA_AUTH_TOKEN", str);
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            context.startActivity(intent);
+        }
+    }
+
+    public final void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
+            Intent intent = new Intent(context, AuthActivity.class);
+            intent.putExtra("EXTRA_TYPE", 2);
+            intent.putExtra("EXTRA_BDUSS", str);
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            context.startActivity(intent);
+        }
+    }
+
+    public final void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
+            Intent intent = new Intent(context, AuthActivity.class);
+            intent.putExtra("EXTRA_TYPE", 1);
+            intent.putExtra("EXTRA_BDUSS", str);
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            context.startActivity(intent);
+        }
+    }
+
+    public final void p() {
+        s75 b2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            if (currentAccountObj == null) {
+                currentAccountObj = kx4.e();
+            }
+            if (currentAccountObj != null && (!TextUtils.isEmpty(currentAccountObj.getAccount()) || !TextUtils.isEmpty(currentAccountObj.getAccountNameShow()))) {
+                kx4.c(currentAccountObj.getID());
+                if (ReloginManager.g().i() && !TextUtils.isEmpty(currentAccountObj.getID()) && (b2 = r75.b()) != null) {
+                    b2.c(currentAccountObj);
+                }
+                ReloginManager.g().f(null);
+                return;
+            }
+            Handler handler = TbadkCoreApplication.getInst().handler;
+            handler.sendMessage(handler.obtainMessage(1));
         }
     }
 }

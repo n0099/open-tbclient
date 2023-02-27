@@ -1,30 +1,38 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.PbGoodsData;
-import com.baidu.tbadk.core.data.PbLinkData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class up5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public List<td6> b;
+    public Handler a;
+    public long b;
+    public long c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
+    public b h;
+    public Runnable i;
 
     /* loaded from: classes6.dex */
-    public class a implements Comparator<td6> {
+    public interface b {
+        void onCountDown(long j, long j2);
+
+        void onCountDownFinish(long j);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ up5 a;
 
         public a(up5 up5Var) {
             Interceptable interceptable = $ic;
@@ -38,27 +46,46 @@ public class up5 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = up5Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(td6 td6Var, td6 td6Var2) {
-            InterceptResult invokeLL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, td6Var, td6Var2)) == null) {
-                return td6Var.sort() - td6Var2.sort();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                if (this.a.g > this.a.f) {
+                    up5 up5Var = this.a;
+                    up5Var.f = currentTimeMillis - up5Var.d;
+                    up5 up5Var2 = this.a;
+                    up5Var2.g = up5Var2.f;
+                }
+                long j = currentTimeMillis - this.a.f;
+                this.a.c += this.a.d;
+                if (this.a.c >= this.a.b) {
+                    up5 up5Var3 = this.a;
+                    up5Var3.c = up5Var3.b;
+                    this.a.m();
+                } else {
+                    this.a.a.postDelayed(this.a.i, (this.a.d * 2) - j);
+                    if (this.a.h != null) {
+                        this.a.h.onCountDown(this.a.b, this.a.b - this.a.c);
+                    }
+                }
+                this.a.f = currentTimeMillis;
             }
-            return invokeLL.intValue;
         }
     }
 
-    public up5() {
+    public up5(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -68,55 +95,49 @@ public class up5 {
                 return;
             }
         }
-        this.b = new LinkedList();
+        this.a = new Handler(Looper.getMainLooper());
+        this.i = new a(this);
+        this.b = j;
+        this.d = j2;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public void n(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.h = bVar;
         }
-        return invokeV.booleanValue;
     }
 
-    public List<td6> a(List<PbLinkData> list, List<PbGoodsData> list2) {
-        InterceptResult invokeLL;
+    public final void m() {
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, list2)) == null) {
-            return b(list, list2, null);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.h) != null) {
+            bVar.onCountDownFinish(this.b);
         }
-        return (List) invokeLL.objValue;
     }
 
-    public List<td6> b(List<PbLinkData> list, List<PbGoodsData> list2, List<CardLinkInfoData> list3) {
-        InterceptResult invokeLLL;
+    public void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2, list3)) == null) {
-            if (!ListUtils.isEmpty(list)) {
-                for (int i = 0; i < list.size(); i++) {
-                    PbLinkData pbLinkData = list.get(i);
-                    if (pbLinkData.urlType == 2 && !this.a) {
-                        this.a = true;
-                    }
-                    this.b.add(pbLinkData);
-                }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.e = currentTimeMillis;
+            this.f = currentTimeMillis;
+            b bVar = this.h;
+            if (bVar != null) {
+                long j = this.b;
+                bVar.onCountDown(j, j - this.c);
             }
-            if (!ListUtils.isEmpty(list2)) {
-                this.a = true;
-                for (int i2 = 0; i2 < list2.size(); i2++) {
-                    this.b.add(list2.get(i2));
-                }
-            }
-            if (!ListUtils.isEmpty(list3)) {
-                this.a = false;
-                for (int i3 = 0; i3 < list3.size(); i3++) {
-                    this.b.add(list3.get(i3));
-                }
-            }
-            Collections.sort(this.b, new a(this));
-            return this.b;
+            this.a.postDelayed(this.i, this.d);
         }
-        return (List) invokeLLL.objValue;
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long j = this.e;
+            this.f = j;
+            this.g = j;
+            this.a.removeCallbacks(this.i);
+        }
     }
 }

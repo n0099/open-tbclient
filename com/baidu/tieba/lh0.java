@@ -1,101 +1,27 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.os.Handler;
-import android.text.TextUtils;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Map;
+@Service
 /* loaded from: classes5.dex */
-public final class lh0 extends ao0 {
+public class lh0 extends bj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static final class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ String d;
-
-        public a(long j, long j2, long j3, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j;
-            this.b = j2;
-            this.c = j3;
-            this.d = str;
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a < nh0.c()) {
-                    nh0.z();
-                } else if (nh0.f()) {
-                    return;
-                } else {
-                    nh0.h(this.b, this.c, this.d);
-                }
-                nh0.g(this.b, "boot_from_cold", this.c, this.d);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ String c;
-
-        public b(long j, long j2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j;
-            this.b = j2;
-            this.c = str;
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                nh0.g(this.a, "boot_from_background", this.b, this.c);
-            }
-        }
+    @Override // com.baidu.tieba.bj0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "pcharge" : (String) invokeV.objValue;
     }
 
     public lh0() {
@@ -112,59 +38,15 @@ public final class lh0 extends ao0 {
         }
     }
 
-    @Override // com.baidu.tieba.ao0, com.baidu.tieba.do0
-    public void onActivityCreated(Activity activity, Bundle bundle) {
-        long j;
+    @Override // com.baidu.tieba.bj0
+    public boolean b(@NonNull Context context, @NonNull fj0 fj0Var, @Nullable Map<String, Object> map, @Nullable jj0 jj0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            if (!TextUtils.equals(activity.getLocalClassName(), "MainActivity")) {
-                return;
-            }
-            if (!nh0.d()) {
-                nh0.l();
-                return;
-            }
-            String i = nh0.i();
-            long j2 = nh0.j();
-            a aVar = new a(System.currentTimeMillis() - j2, j2, System.currentTimeMillis(), i);
-            Handler handler = new Handler();
-            j = mh0.a;
-            handler.postDelayed(aVar, j);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, fj0Var, map, jj0Var)) == null) {
+            super.b(context, fj0Var, map, jj0Var);
+            aj0.e((String) g21.b(fj0Var.d(), "lp_cmd"), context, map, jj0Var);
+            return true;
         }
-    }
-
-    @Override // com.baidu.tieba.ao0, com.baidu.tieba.do0
-    public void onBackgroundToForeground(Activity activity) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            if (!nh0.d()) {
-                nh0.l();
-            } else if (!TextUtils.equals(activity.getLocalClassName(), nh0.k())) {
-            } else {
-                String i = nh0.i();
-                long j2 = nh0.j();
-                long currentTimeMillis = System.currentTimeMillis();
-                if (System.currentTimeMillis() - j2 < nh0.c()) {
-                    nh0.z();
-                    nh0.y();
-                }
-                b bVar = new b(j2, currentTimeMillis, i);
-                Handler handler = new Handler();
-                j = mh0.a;
-                handler.postDelayed(bVar, j);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ao0, com.baidu.tieba.do0
-    public void onForegroundToBackground(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            nh0.w(activity);
-        }
+        return invokeLLLL.booleanValue;
     }
 }

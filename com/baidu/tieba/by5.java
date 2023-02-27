@@ -1,29 +1,25 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.addresslist.relationship.ContactComparator;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
+import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class by5 {
     public static /* synthetic */ Interceptable $ic;
-    public static by5 c;
+    public static volatile by5 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
-    public List<x85> b;
-
-    /* loaded from: classes3.dex */
-    public interface a {
-        void q(List<x85> list);
-    }
+    public ArrayList<Integer> a;
+    public yx5 b;
+    public ay5 c;
+    public List<StatisticItem> d;
 
     public by5() {
         Interceptable interceptable = $ic;
@@ -38,134 +34,138 @@ public class by5 {
                 return;
             }
         }
-        this.a = new ArrayList();
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        this.a = arrayList;
+        arrayList.add(1);
+        this.a.add(2);
+        ay5 ay5Var = new ay5();
+        this.c = ay5Var;
+        this.b = new yx5(ay5Var, this.a);
+        g(b55.m().n("key_abtest_channel", 0));
     }
 
-    public static synchronized by5 d() {
+    public static by5 c() {
         InterceptResult invokeV;
-        by5 by5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (by5.class) {
-                if (c == null) {
-                    c = new by5();
+            if (e == null) {
+                synchronized (ay5.class) {
+                    if (e == null) {
+                        e = new by5();
+                    }
                 }
-                by5Var = c;
             }
-            return by5Var;
+            return e;
         }
         return (by5) invokeV.objValue;
     }
 
-    public List<x85> c() {
-        InterceptResult invokeV;
+    public void a(StatisticItem statisticItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (a aVar : this.a) {
-                aVar.q(this.b);
-            }
-        }
-    }
-
-    public void a(x85 x85Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, x85Var) == null) && this.b != null && x85Var != null) {
-            String a2 = x85Var.a();
-            if (TextUtils.isEmpty(a2)) {
-                a2 = "#";
-                x85Var.j("#");
-            }
-            String e = x85Var.e();
-            if (e == null) {
-                e = "";
-            }
-            boolean z = false;
-            boolean z2 = false;
-            for (x85 x85Var2 : this.b) {
-                if (e.equals(x85Var2.e())) {
-                    z = true;
-                }
-                if (a2.equals(x85Var2.a())) {
-                    z2 = true;
-                }
-            }
-            if (z) {
-                return;
-            }
-            if (!z2) {
-                x85 x85Var3 = new x85();
-                x85Var3.j(a2);
-                this.b.add(x85Var3);
-            }
-            this.b.add(x85Var);
-            Collections.sort(this.b, new ContactComparator());
-            e();
-        }
-    }
-
-    public void b(long j) {
-        List<x85> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) != null) || (list = this.b) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null) {
             return;
         }
-        String str = null;
-        Iterator<x85> it = list.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            }
-            x85 next = it.next();
-            if (next.d() == j) {
-                str = next.a();
-                this.b.remove(next);
-                break;
+        if (this.d == null) {
+            this.d = new ArrayList();
+        }
+        this.d.add(statisticItem);
+    }
+
+    public void d(String str) {
+        ay5 ay5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (dj.isEmpty(str) || (ay5Var = this.c) == null || !ay5Var.g()) {
+                sv9.d(str);
             }
         }
-        if (str != null) {
-            ArrayList arrayList = new ArrayList();
-            for (x85 x85Var : this.b) {
-                if (str.equals(x85Var.a())) {
-                    arrayList.add(x85Var);
+    }
+
+    public void e(String str) {
+        ay5 ay5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (dj.isEmpty(str) || (ay5Var = this.c) == null || !ay5Var.g()) {
+                sv9.e(str);
+            }
+        }
+    }
+
+    public void f(String str) {
+        yx5 yx5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (yx5Var = this.b) != null) {
+            yx5Var.b(str);
+        }
+    }
+
+    public void g(int i) {
+        ay5 ay5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (ay5Var = this.c) != null) {
+            ay5Var.k(i);
+        }
+    }
+
+    public int b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            yx5 yx5Var = this.b;
+            if (yx5Var == null) {
+                return 0;
+            }
+            return yx5Var.a(str, i);
+        }
+        return invokeLI.intValue;
+    }
+
+    public void h(String str, String str2) {
+        ay5 ay5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) && !ListUtils.isEmpty(this.d) && (ay5Var = this.c) != null && ay5Var.g()) {
+            int i = -1;
+            for (StatisticItem statisticItem : this.d) {
+                if (statisticItem != null) {
+                    if (statisticItem.getPosition() == 0) {
+                        i(str, str2, statisticItem);
+                    } else if (i != statisticItem.getPosition()) {
+                        i = statisticItem.getPosition();
+                        i(str, str2, statisticItem);
+                    }
                 }
             }
-            if (arrayList.size() <= 1) {
-                this.b.removeAll(arrayList);
+            this.d.clear();
+        }
+    }
+
+    public void i(String str, String str2, StatisticItem statisticItem) {
+        ay5 ay5Var;
+        String str3;
+        String str4;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, statisticItem) == null) && statisticItem != null && (ay5Var = this.c) != null && ay5Var.g()) {
+            HashMap hashMap = new HashMap();
+            List<Object> params = statisticItem.getParams();
+            if (params != null) {
+                int size = params.size();
+                for (int i = 0; i < size; i += 2) {
+                    Object obj = params.get(i);
+                    if (obj == null) {
+                        str3 = "";
+                    } else {
+                        str3 = obj.toString();
+                    }
+                    Object obj2 = params.get(i + 1);
+                    if (obj2 == null) {
+                        str4 = "";
+                    } else {
+                        str4 = obj2.toString();
+                    }
+                    hashMap.put(str3, str4);
+                }
             }
-        }
-        e();
-    }
-
-    public void f(a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && aVar != null && !this.a.contains(aVar)) {
-            this.a.add(aVar);
-        }
-    }
-
-    public void g(List<x85> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.b = list;
-            if (list != null) {
-                Collections.sort(list, new ContactComparator());
-            }
-            e();
-        }
-    }
-
-    public void h(a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) && aVar != null) {
-            this.a.remove(aVar);
+            sv9.c(str2 + statisticItem.getKey(), str, "", hashMap);
         }
     }
 }

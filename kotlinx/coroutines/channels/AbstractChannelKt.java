@@ -40,14 +40,14 @@ public final class AbstractChannelKt {
     public static final <E> Object toResult(Object obj) {
         if (obj instanceof Closed) {
             ValueOrClosed.Companion companion = ValueOrClosed.Companion;
-            return ValueOrClosed.m2202constructorimpl(new ValueOrClosed.Closed(((Closed) obj).closeCause));
+            return ValueOrClosed.m2195constructorimpl(new ValueOrClosed.Closed(((Closed) obj).closeCause));
         }
         ValueOrClosed.Companion companion2 = ValueOrClosed.Companion;
-        return ValueOrClosed.m2202constructorimpl(obj);
+        return ValueOrClosed.m2195constructorimpl(obj);
     }
 
     public static final <E> Object toResult(Closed<?> closed) {
         ValueOrClosed.Companion companion = ValueOrClosed.Companion;
-        return ValueOrClosed.m2202constructorimpl(new ValueOrClosed.Closed(closed.closeCause));
+        return ValueOrClosed.m2195constructorimpl(new ValueOrClosed.Closed(closed.closeCause));
     }
 }

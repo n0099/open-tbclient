@@ -1,40 +1,142 @@
 package com.xiaomi.push;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.dx;
-import com.xiaomi.push.service.bv;
+import android.os.SystemClock;
+import com.xiaomi.push.fe;
+import com.xiaomi.push.service.XMPushService;
+import com.xiaomi.push.service.bg;
+import java.util.Hashtable;
 /* loaded from: classes8.dex */
-public class fi extends bv.a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ fh a;
+public class fi {
+    public static final int a = ey.PING_RTT.a();
 
-    public fi(fh fhVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fhVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = fhVar;
+    /* renamed from: a  reason: collision with other field name */
+    public static long f371a = 0;
+
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static Hashtable<Integer, Long> a = new Hashtable<>();
     }
 
-    @Override // com.xiaomi.push.service.bv.a
-    public void a(dx.b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) && bVar.m317e()) {
-            fh.m399a().m403a(bVar.e());
+    public static void a() {
+        if (f371a == 0 || SystemClock.elapsedRealtime() - f371a > 7200000) {
+            f371a = SystemClock.elapsedRealtime();
+            a(0, a);
+        }
+    }
+
+    public static void a(int i) {
+        ez m394a = fg.m392a().m394a();
+        m394a.a(ey.CHANNEL_STATS_COUNTER.a());
+        m394a.c(i);
+        fg.m392a().a(m394a);
+    }
+
+    public static synchronized void a(int i, int i2) {
+        synchronized (fi.class) {
+            if (i2 < 16777215) {
+                a.a.put(Integer.valueOf((i << 24) | i2), Long.valueOf(System.currentTimeMillis()));
+            } else {
+                com.xiaomi.channel.commonutils.logger.b.d("stats key should less than 16777215");
+            }
+        }
+    }
+
+    public static void a(int i, int i2, int i3, String str, int i4) {
+        ez m394a = fg.m392a().m394a();
+        m394a.a((byte) i);
+        m394a.a(i2);
+        m394a.b(i3);
+        m394a.b(str);
+        m394a.c(i4);
+        fg.m392a().a(m394a);
+    }
+
+    public static synchronized void a(int i, int i2, String str, int i3) {
+        synchronized (fi.class) {
+            long currentTimeMillis = System.currentTimeMillis();
+            int i4 = (i << 24) | i2;
+            if (a.a.containsKey(Integer.valueOf(i4))) {
+                ez m394a = fg.m392a().m394a();
+                m394a.a(i2);
+                m394a.b((int) (currentTimeMillis - a.a.get(Integer.valueOf(i4)).longValue()));
+                m394a.b(str);
+                if (i3 > -1) {
+                    m394a.c(i3);
+                }
+                fg.m392a().a(m394a);
+                a.a.remove(Integer.valueOf(i2));
+            } else {
+                com.xiaomi.channel.commonutils.logger.b.d("stats key not found");
+            }
+        }
+    }
+
+    public static void a(XMPushService xMPushService, bg.b bVar) {
+        new fb(xMPushService, bVar).a();
+    }
+
+    public static void a(String str, int i, Exception exc) {
+        ez m394a = fg.m392a().m394a();
+        if (fg.a() != null && fg.a().f363a != null) {
+            m394a.c(bi.c(fg.a().f363a) ? 1 : 0);
+        }
+        if (i > 0) {
+            m394a.a(ey.GSLB_REQUEST_SUCCESS.a());
+            m394a.b(str);
+            m394a.b(i);
+            fg.m392a().a(m394a);
+            return;
+        }
+        try {
+            fe.a a2 = fe.a(exc);
+            m394a.a(a2.a.a());
+            m394a.c(a2.f360a);
+            m394a.b(str);
+            fg.m392a().a(m394a);
+        } catch (NullPointerException unused) {
+        }
+    }
+
+    public static void a(String str, Exception exc) {
+        try {
+            fe.a b = fe.b(exc);
+            ez m394a = fg.m392a().m394a();
+            m394a.a(b.a.a());
+            m394a.c(b.f360a);
+            m394a.b(str);
+            if (fg.a() != null && fg.a().f363a != null) {
+                m394a.c(bi.c(fg.a().f363a) ? 1 : 0);
+            }
+            fg.m392a().a(m394a);
+        } catch (NullPointerException unused) {
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static byte[] m398a() {
+        fa m395a = fg.m392a().m395a();
+        if (m395a != null) {
+            return ir.a(m395a);
+        }
+        return null;
+    }
+
+    public static void b() {
+        a(0, a, null, -1);
+    }
+
+    public static void b(String str, Exception exc) {
+        try {
+            fe.a d = fe.d(exc);
+            ez m394a = fg.m392a().m394a();
+            m394a.a(d.a.a());
+            m394a.c(d.f360a);
+            m394a.b(str);
+            if (fg.a() != null && fg.a().f363a != null) {
+                m394a.c(bi.c(fg.a().f363a) ? 1 : 0);
+            }
+            fg.m392a().a(m394a);
+        } catch (NullPointerException unused) {
         }
     }
 }

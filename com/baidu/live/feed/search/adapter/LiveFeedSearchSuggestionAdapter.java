@@ -10,10 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.business.model.data.LiveSearchResultInfo;
 import com.baidu.live.feed.search.adapter.LiveFeedSearchSuggestionAdapter;
@@ -22,15 +20,8 @@ import com.baidu.live.feed.search.model.data.LiveSearchSuggestion;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fd0;
-import com.baidu.tieba.oa0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.jd0;
+import com.baidu.tieba.sa0;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,18 +33,16 @@ import kotlin.text.StringsKt__StringsKt;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000j\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\b\u0018\u0000 E2\u00020\u0001:\u0003EFGB\u0017\u0012\u0006\u0010+\u001a\u00020*\u0012\u0006\u00105\u001a\u00020\u0017¢\u0006\u0004\bC\u0010DJ\u000f\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004J\u0017\u0010\u0006\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0006\u0010\u0007J\u001f\u0010\u000b\u001a\u00020\n2\u0006\u0010\t\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u000b\u0010\fJ\u001f\u0010\u0010\u001a\u00020\b2\u0006\u0010\u000e\u001a\u00020\r2\u0006\u0010\u000f\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0010\u0010\u0011J\u001d\u0010\u0013\u001a\u00020\n2\u0006\u0010\u0005\u001a\u00020\u00022\u0006\u0010\t\u001a\u00020\u0012¢\u0006\u0004\b\u0013\u0010\u0014J\u0015\u0010\u0015\u001a\u00020\n2\u0006\u0010\u0005\u001a\u00020\u0002¢\u0006\u0004\b\u0015\u0010\u0016J\u001f\u0010\u001b\u001a\u00020\u001a2\u0006\u0010\u0018\u001a\u00020\u00172\u0006\u0010\u0019\u001a\u00020\u0017H\u0002¢\u0006\u0004\b\u001b\u0010\u001cJ9\u0010#\u001a\u00020\n2\u000e\u0010\u001f\u001a\n\u0012\u0004\u0012\u00020\u001e\u0018\u00010\u001d2\u000e\u0010!\u001a\n\u0012\u0004\u0012\u00020 \u0018\u00010\u001d2\n\b\u0002\u0010\"\u001a\u0004\u0018\u00010\u0017¢\u0006\u0004\b#\u0010$J\u001d\u0010'\u001a\u00020\u00172\u0006\u0010%\u001a\u00020\u00172\u0006\u0010&\u001a\u00020\u0002¢\u0006\u0004\b'\u0010(R\u0018\u0010\"\u001a\u0004\u0018\u00010\u00178\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\"\u0010)R\u0019\u0010+\u001a\u00020*8\u0006@\u0006¢\u0006\f\n\u0004\b+\u0010,\u001a\u0004\b-\u0010.R*\u0010/\u001a\n\u0012\u0004\u0012\u00020\u001e\u0018\u00010\u001d8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b/\u00100\u001a\u0004\b1\u00102\"\u0004\b3\u00104R\u0019\u00105\u001a\u00020\u00178\u0006@\u0006¢\u0006\f\n\u0004\b5\u0010)\u001a\u0004\b6\u00107R\u001e\u0010!\u001a\n\u0012\u0004\u0012\u00020 \u0018\u00010\u001d8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b!\u00100R$\u00109\u001a\u0004\u0018\u0001088\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b9\u0010:\u001a\u0004\b;\u0010<\"\u0004\b=\u0010>R.\u0010A\u001a\u001a\u0012\u0006\u0012\u0004\u0018\u00010\u0002\u0018\u00010?j\f\u0012\u0006\u0012\u0004\u0018\u00010\u0002\u0018\u0001`@8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bA\u0010B¨\u0006H"}, d2 = {"Lcom/baidu/live/feed/search/adapter/LiveFeedSearchSuggestionAdapter;", "androidx/recyclerview/widget/RecyclerView$Adapter", "", "getItemCount", "()I", CriusAttrConstants.POSITION, "getItemViewType", "(I)I", "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;", "holder", "", "onBindViewHolder", "(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V", "Landroid/view/ViewGroup;", "parent", "viewType", "onCreateViewHolder", "(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;", "Lcom/baidu/live/feed/search/holder/LiveSearchResultViewHolder;", "resultDataProcess", "(ILcom/baidu/live/feed/search/holder/LiveSearchResultViewHolder;)V", "setFollowStatus", "(I)V", "", "context", "totalText", "Landroid/text/SpannableString;", "setResultColor", "(Ljava/lang/String;Ljava/lang/String;)Landroid/text/SpannableString;", "", "Lcom/baidu/live/business/model/data/LiveSearchResultInfo;", "searchList", "Lcom/baidu/live/feed/search/model/data/LiveSearchSuggestion;", "suggestionList", "contentText", "setSuggestions", "(Ljava/util/List;Ljava/util/List;Ljava/lang/String;)V", "content", "num", "wordNumCheck", "(Ljava/lang/String;I)Ljava/lang/String;", "Ljava/lang/String;", "Landroid/content/Context;", "mContext", "Landroid/content/Context;", "getMContext", "()Landroid/content/Context;", "resultList", "Ljava/util/List;", "getResultList", "()Ljava/util/List;", "setResultList", "(Ljava/util/List;)V", "scene", "getScene", "()Ljava/lang/String;", "Lcom/baidu/live/feed/search/adapter/LiveFeedSearchSuggestionAdapter$OnSuggestionListener;", "suggestionListener", "Lcom/baidu/live/feed/search/adapter/LiveFeedSearchSuggestionAdapter$OnSuggestionListener;", "getSuggestionListener", "()Lcom/baidu/live/feed/search/adapter/LiveFeedSearchSuggestionAdapter$OnSuggestionListener;", "setSuggestionListener", "(Lcom/baidu/live/feed/search/adapter/LiveFeedSearchSuggestionAdapter$OnSuggestionListener;)V", "Ljava/util/ArrayList;", "Lkotlin/collections/ArrayList;", "typeList", "Ljava/util/ArrayList;", "<init>", "(Landroid/content/Context;Ljava/lang/String;)V", "Companion", "OnSuggestionListener", "SearchSuggestionViewHolder", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final Companion Companion;
+    public static final Companion Companion = new Companion(null);
     public static final int ITEM_TYPE_SUG = 1;
     public static final int ITEM_TYPE_TEXT = 0;
-    public transient /* synthetic */ FieldHolder $fh;
     public String contentText;
     public final Context mContext;
     public List<? extends LiveSearchResultInfo> resultList;
     public final String scene;
     public List<? extends LiveSearchSuggestion> suggestionList;
     public OnSuggestionListener suggestionListener;
-    public ArrayList<Integer> typeList;
+    public ArrayList<Integer> typeList = new ArrayList<>();
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\t\n\u0002\u0010 \n\u0002\b\u0005\bf\u0018\u00002\u00020\u0001J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0005\u0010\u0006J\u001f\u0010\u000b\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\u00072\u0006\u0010\n\u001a\u00020\tH&¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\r\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\u0007H&¢\u0006\u0004\b\r\u0010\u000eJ\u001f\u0010\u0010\u001a\u00020\u00042\u0006\u0010\u000f\u001a\u00020\u00022\u0006\u0010\n\u001a\u00020\tH&¢\u0006\u0004\b\u0010\u0010\u0011J\u001f\u0010\u0012\u001a\u00020\u00042\u0006\u0010\u000f\u001a\u00020\u00022\u0006\u0010\n\u001a\u00020\tH&¢\u0006\u0004\b\u0012\u0010\u0011J/\u0010\u0016\u001a\u00020\u00042\u000e\u0010\u0014\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00070\u00132\u0006\u0010\n\u001a\u00020\t2\u0006\u0010\u0015\u001a\u00020\u0002H&¢\u0006\u0004\b\u0016\u0010\u0017¨\u0006\u0018"}, d2 = {"Lcom/baidu/live/feed/search/adapter/LiveFeedSearchSuggestionAdapter$OnSuggestionListener;", "Lkotlin/Any;", "", "jumpScheme", "", "jumpAuthorView", "(Ljava/lang/String;)V", "Lcom/baidu/live/business/model/data/LiveSearchResultInfo;", "itemInfo", "", CriusAttrConstants.POSITION, "onFollowClick", "(Lcom/baidu/live/business/model/data/LiveSearchResultInfo;I)V", "onResultClick", "(Lcom/baidu/live/business/model/data/LiveSearchResultInfo;)V", "content", "onSuggestionClick", "(Ljava/lang/String;I)V", "onSuggestionSelect", "", "resultList", "ubcType", "onUbcResult", "(Ljava/util/List;ILjava/lang/String;)V", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
@@ -71,40 +60,10 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter<
         void onUbcResult(List<? extends LiveSearchResultInfo> list, int i, String str);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(70805101, "Lcom/baidu/live/feed/search/adapter/LiveFeedSearchSuggestionAdapter;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(70805101, "Lcom/baidu/live/feed/search/adapter/LiveFeedSearchSuggestionAdapter;");
-                return;
-            }
-        }
-        Companion = new Companion(null);
-    }
-
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0006\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0005\u0010\u0006R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003¨\u0006\u0007"}, d2 = {"Lcom/baidu/live/feed/search/adapter/LiveFeedSearchSuggestionAdapter$Companion;", "", "ITEM_TYPE_SUG", "I", "ITEM_TYPE_TEXT", "<init>", "()V", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
     public static final class Companion {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
         public Companion() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
         }
 
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
@@ -115,269 +74,137 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter<
     @Metadata(bv = {1, 0, 3}, d1 = {"\u00006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\t\b\u0016\u0018\u00002\u00020\u0001B\u001f\u0012\u0006\u0010\u0006\u001a\u00020\u0005\u0012\u0006\u0010\t\u001a\u00020\b\u0012\u0006\u0010\u0010\u001a\u00020\u000f¢\u0006\u0004\b\"\u0010#J\r\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0003\u0010\u0004R\u0016\u0010\u0006\u001a\u00020\u00058\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0006\u0010\u0007R\"\u0010\t\u001a\u00020\b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\t\u0010\n\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000eR\u0019\u0010\u0010\u001a\u00020\u000f8\u0006@\u0006¢\u0006\f\n\u0004\b\u0010\u0010\u0011\u001a\u0004\b\u0012\u0010\u0013R\"\u0010\u0015\u001a\u00020\u00148\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0015\u0010\u0016\u001a\u0004\b\u0017\u0010\u0018\"\u0004\b\u0019\u0010\u001aR\"\u0010\u001c\u001a\u00020\u001b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001c\u0010\u001d\u001a\u0004\b\u001e\u0010\u001f\"\u0004\b \u0010!¨\u0006$"}, d2 = {"Lcom/baidu/live/feed/search/adapter/LiveFeedSearchSuggestionAdapter$SearchSuggestionViewHolder;", "androidx/recyclerview/widget/RecyclerView$ViewHolder", "", "bindView", "()V", "Landroid/content/Context;", "mContext", "Landroid/content/Context;", "Landroid/view/View;", "mView", "Landroid/view/View;", "getMView", "()Landroid/view/View;", "setMView", "(Landroid/view/View;)V", "", "scene", "Ljava/lang/String;", "getScene", "()Ljava/lang/String;", "Landroid/widget/ImageView;", "suggestionArrow", "Landroid/widget/ImageView;", "getSuggestionArrow", "()Landroid/widget/ImageView;", "setSuggestionArrow", "(Landroid/widget/ImageView;)V", "Landroid/widget/TextView;", "suggestionWordContent", "Landroid/widget/TextView;", "getSuggestionWordContent", "()Landroid/widget/TextView;", "setSuggestionWordContent", "(Landroid/widget/TextView;)V", "<init>", "(Landroid/content/Context;Landroid/view/View;Ljava/lang/String;)V", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
     public static class SearchSuggestionViewHolder extends RecyclerView.ViewHolder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final Context mContext;
         public View mView;
         public final String scene;
         public ImageView suggestionArrow;
         public TextView suggestionWordContent;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SearchSuggestionViewHolder(Context context, View view2, String str) {
             super(view2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, view2, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.mContext = context;
             this.mView = view2;
             this.scene = str;
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0914a4);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0914e5);
             Intrinsics.checkExpressionValueIsNotNull(findViewById, "mView.findViewById(R.id.…earch_suggestion_content)");
             this.suggestionWordContent = (TextView) findViewById;
-            View findViewById2 = this.mView.findViewById(R.id.obfuscated_res_0x7f0914a3);
+            View findViewById2 = this.mView.findViewById(R.id.obfuscated_res_0x7f0914e4);
             Intrinsics.checkExpressionValueIsNotNull(findViewById2, "mView.findViewById(R.id.…arch_suggestion_arrow_iv)");
             this.suggestionArrow = (ImageView) findViewById2;
         }
 
         public final void bindView() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (Intrinsics.areEqual(this.scene, "recommend")) {
-                    this.suggestionWordContent.setTypeface(Typeface.DEFAULT);
-                    this.suggestionWordContent.setTextSize(1, 14.0f);
-                } else {
-                    this.suggestionWordContent.setTypeface(Typeface.DEFAULT_BOLD);
-                    this.suggestionWordContent.setTextSize(1, 16.0f);
-                }
-                this.suggestionWordContent.setTextColor(fd0.f().a(this.mContext, this.scene, "color_1F1F1F"));
-                fd0 f = fd0.f();
-                Intrinsics.checkExpressionValueIsNotNull(f, "UIModeUtils.getInstance()");
-                String r = f.r();
-                if (Intrinsics.areEqual(r, "day")) {
-                    this.suggestionArrow.setImageResource(R.drawable.obfuscated_res_0x7f080da6);
-                } else if (Intrinsics.areEqual(r, "night")) {
-                    this.suggestionArrow.setImageResource(R.drawable.obfuscated_res_0x7f080da7);
-                }
+            if (Intrinsics.areEqual(this.scene, "recommend")) {
+                this.suggestionWordContent.setTypeface(Typeface.DEFAULT);
+                this.suggestionWordContent.setTextSize(1, 14.0f);
+            } else {
+                this.suggestionWordContent.setTypeface(Typeface.DEFAULT_BOLD);
+                this.suggestionWordContent.setTextSize(1, 16.0f);
+            }
+            this.suggestionWordContent.setTextColor(jd0.f().a(this.mContext, this.scene, "color_1F1F1F"));
+            jd0 f = jd0.f();
+            Intrinsics.checkExpressionValueIsNotNull(f, "UIModeUtils.getInstance()");
+            String r = f.r();
+            if (Intrinsics.areEqual(r, "day")) {
+                this.suggestionArrow.setImageResource(R.drawable.obfuscated_res_0x7f080da9);
+            } else if (Intrinsics.areEqual(r, LiveFeedPageSdk.UI_MODE_NIGHT)) {
+                this.suggestionArrow.setImageResource(R.drawable.obfuscated_res_0x7f080daa);
             }
         }
 
         public final View getMView() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.mView;
-            }
-            return (View) invokeV.objValue;
+            return this.mView;
         }
 
         public final String getScene() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.scene;
-            }
-            return (String) invokeV.objValue;
+            return this.scene;
         }
 
         public final ImageView getSuggestionArrow() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.suggestionArrow;
-            }
-            return (ImageView) invokeV.objValue;
+            return this.suggestionArrow;
         }
 
         public final TextView getSuggestionWordContent() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.suggestionWordContent;
-            }
-            return (TextView) invokeV.objValue;
+            return this.suggestionWordContent;
         }
 
         public final void setMView(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-                this.mView = view2;
-            }
+            this.mView = view2;
         }
 
         public final void setSuggestionArrow(ImageView imageView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, imageView) == null) {
-                this.suggestionArrow = imageView;
-            }
+            this.suggestionArrow = imageView;
         }
 
         public final void setSuggestionWordContent(TextView textView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, textView) == null) {
-                this.suggestionWordContent = textView;
-            }
+            this.suggestionWordContent = textView;
         }
     }
 
     public LiveFeedSearchSuggestionAdapter(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mContext = context;
         this.scene = str;
-        this.typeList = new ArrayList<>();
     }
 
     private final SpannableString setResultColor(String str, String str2) {
-        InterceptResult invokeLL;
         CharacterStyle characterStyle;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2)) == null) {
-            SpannableString spannableString = new SpannableString(str2);
-            if (Intrinsics.areEqual("recommend", this.scene)) {
-                characterStyle = new CharacterStyle(this) { // from class: com.baidu.live.feed.search.adapter.LiveFeedSearchSuggestionAdapter$setResultColor$replaySpan$1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ LiveFeedSearchSuggestionAdapter this$0;
-
-                    /* JADX DEBUG: Incorrect args count in method signature: ()V */
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // android.text.style.CharacterStyle
-                    public void updateDrawState(TextPaint textPaint) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, textPaint) == null) {
-                            textPaint.setColor(this.this$0.getMContext().getResources().getColor(R.color.obfuscated_res_0x7f0607a3));
-                            textPaint.bgColor = 0;
-                            textPaint.setTextSize(oa0.c(this.this$0.getMContext().getResources(), 14.0f));
-                            textPaint.setUnderlineText(false);
-                        }
-                    }
-                };
-            } else {
-                characterStyle = new CharacterStyle() { // from class: com.baidu.live.feed.search.adapter.LiveFeedSearchSuggestionAdapter$setResultColor$replaySpan$2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                            }
-                        }
-                    }
-
-                    @Override // android.text.style.CharacterStyle
-                    public void updateDrawState(TextPaint textPaint) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, textPaint) == null) {
-                            textPaint.bgColor = 0;
-                            textPaint.setTypeface(Typeface.DEFAULT);
-                            textPaint.setUnderlineText(false);
-                        }
-                    }
-                };
-            }
-            int indexOf$default = StringsKt__StringsKt.indexOf$default((CharSequence) str2, str, 0, false, 6, (Object) null);
-            int length = str.length();
-            if (indexOf$default >= 0) {
-                spannableString.setSpan(characterStyle, indexOf$default, length + indexOf$default, 33);
-            }
-            return spannableString;
+        SpannableString spannableString = new SpannableString(str2);
+        if (Intrinsics.areEqual("recommend", this.scene)) {
+            characterStyle = new CharacterStyle() { // from class: com.baidu.live.feed.search.adapter.LiveFeedSearchSuggestionAdapter$setResultColor$replaySpan$1
+                @Override // android.text.style.CharacterStyle
+                public void updateDrawState(TextPaint textPaint) {
+                    textPaint.setColor(LiveFeedSearchSuggestionAdapter.this.getMContext().getResources().getColor(R.color.obfuscated_res_0x7f060635));
+                    textPaint.bgColor = 0;
+                    textPaint.setTextSize(sa0.c(LiveFeedSearchSuggestionAdapter.this.getMContext().getResources(), 14.0f));
+                    textPaint.setUnderlineText(false);
+                }
+            };
+        } else {
+            characterStyle = new CharacterStyle() { // from class: com.baidu.live.feed.search.adapter.LiveFeedSearchSuggestionAdapter$setResultColor$replaySpan$2
+                @Override // android.text.style.CharacterStyle
+                public void updateDrawState(TextPaint textPaint) {
+                    textPaint.bgColor = 0;
+                    textPaint.setTypeface(Typeface.DEFAULT);
+                    textPaint.setUnderlineText(false);
+                }
+            };
         }
-        return (SpannableString) invokeLL.objValue;
+        int indexOf$default = StringsKt__StringsKt.indexOf$default((CharSequence) str2, str, 0, false, 6, (Object) null);
+        int length = str.length();
+        if (indexOf$default >= 0) {
+            spannableString.setSpan(characterStyle, indexOf$default, length + indexOf$default, 33);
+        }
+        return spannableString;
     }
 
     public final String wordNumCheck(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048589, this, str, i)) == null) {
-            if (str.length() > i) {
-                StringBuilder sb = new StringBuilder();
-                String substring = str.substring(0, i);
-                Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
-                sb.append(substring);
-                sb.append(StringHelper.STRING_MORE);
-                return sb.toString();
-            }
-            return str;
+        if (str.length() > i) {
+            StringBuilder sb = new StringBuilder();
+            String substring = str.substring(0, i);
+            Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
+            sb.append(substring);
+            sb.append(StringHelper.STRING_MORE);
+            return sb.toString();
         }
-        return (String) invokeLI.objValue;
+        return str;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        InterceptResult invokeI;
         Integer num;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            ArrayList<Integer> arrayList = this.typeList;
-            if (arrayList != null && (num = arrayList.get(i)) != null) {
-                return num.intValue();
-            }
-            return -1;
+        ArrayList<Integer> arrayList = this.typeList;
+        if (arrayList != null && (num = arrayList.get(i)) != null) {
+            return num.intValue();
         }
-        return invokeI.intValue;
+        return -1;
     }
 
     public final void setResultList(List<? extends LiveSearchResultInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
-            this.resultList = list;
-        }
+        this.resultList = list;
     }
 
     public final void setSuggestionListener(OnSuggestionListener onSuggestionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, onSuggestionListener) == null) {
-            this.suggestionListener = onSuggestionListener;
-        }
+        this.suggestionListener = onSuggestionListener;
     }
 
     public static /* synthetic */ void setSuggestions$default(LiveFeedSearchSuggestionAdapter liveFeedSearchSuggestionAdapter, List list, List list2, String str, int i, Object obj) {
@@ -389,61 +216,36 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter<
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        InterceptResult invokeV;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<? extends LiveSearchResultInfo> list = this.resultList;
-            int i2 = 0;
-            if (list != null) {
-                i = list.size();
-            } else {
-                i = 0;
-            }
-            List<? extends LiveSearchSuggestion> list2 = this.suggestionList;
-            if (list2 != null) {
-                i2 = list2.size();
-            }
-            return i + i2;
+        List<? extends LiveSearchResultInfo> list = this.resultList;
+        int i2 = 0;
+        if (list != null) {
+            i = list.size();
+        } else {
+            i = 0;
         }
-        return invokeV.intValue;
+        List<? extends LiveSearchSuggestion> list2 = this.suggestionList;
+        if (list2 != null) {
+            i2 = list2.size();
+        }
+        return i + i2;
     }
 
     public final Context getMContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mContext;
-        }
-        return (Context) invokeV.objValue;
+        return this.mContext;
     }
 
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.util.List<? extends com.baidu.live.business.model.data.LiveSearchResultInfo>, java.util.List<com.baidu.live.business.model.data.LiveSearchResultInfo> */
+    /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: java.util.List<? extends com.baidu.live.business.model.data.LiveSearchResultInfo>, java.util.List<com.baidu.live.business.model.data.LiveSearchResultInfo> */
     public final List<LiveSearchResultInfo> getResultList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.resultList;
-        }
-        return (List) invokeV.objValue;
+        return this.resultList;
     }
 
     public final String getScene() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.scene;
-        }
-        return (String) invokeV.objValue;
+        return this.scene;
     }
 
     public final OnSuggestionListener getSuggestionListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.suggestionListener;
-        }
-        return (OnSuggestionListener) invokeV.objValue;
+        return this.suggestionListener;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -456,166 +258,98 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter<
         OnSuggestionListener onSuggestionListener;
         String str4;
         LiveSearchResultInfo liveSearchResultInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, viewHolder, i) == null) {
-            int itemViewType = getItemViewType(i);
-            SpannableString spannableString = null;
-            if (itemViewType != 0) {
-                if (itemViewType == 1) {
-                    LiveSearchResultViewHolder liveSearchResultViewHolder = (LiveSearchResultViewHolder) viewHolder;
-                    resultDataProcess(i, liveSearchResultViewHolder);
-                    liveSearchResultViewHolder.a(i);
-                    List<? extends LiveSearchResultInfo> list = this.resultList;
-                    if (list != null && (liveSearchResultInfo = list.get(i)) != null) {
-                        str3 = liveSearchResultInfo.question;
-                    } else {
-                        str3 = null;
-                    }
-                    TextView g = liveSearchResultViewHolder.g();
-                    if (str3 != null && (str4 = this.contentText) != null) {
-                        spannableString = setResultColor(str4, str3);
-                    }
-                    g.setText(spannableString);
-                    List<? extends LiveSearchResultInfo> list2 = this.resultList;
-                    if (list2 != null && (onSuggestionListener = this.suggestionListener) != null) {
-                        onSuggestionListener.onUbcResult(list2, i, "show");
-                        return;
-                    }
+        int itemViewType = getItemViewType(i);
+        SpannableString spannableString = null;
+        if (itemViewType != 0) {
+            if (itemViewType == 1) {
+                LiveSearchResultViewHolder liveSearchResultViewHolder = (LiveSearchResultViewHolder) viewHolder;
+                resultDataProcess(i, liveSearchResultViewHolder);
+                liveSearchResultViewHolder.a(i);
+                List<? extends LiveSearchResultInfo> list = this.resultList;
+                if (list != null && (liveSearchResultInfo = list.get(i)) != null) {
+                    str3 = liveSearchResultInfo.question;
+                } else {
+                    str3 = null;
+                }
+                TextView g = liveSearchResultViewHolder.g();
+                if (str3 != null && (str4 = this.contentText) != null) {
+                    spannableString = setResultColor(str4, str3);
+                }
+                g.setText(spannableString);
+                List<? extends LiveSearchResultInfo> list2 = this.resultList;
+                if (list2 != null && (onSuggestionListener = this.suggestionListener) != null) {
+                    onSuggestionListener.onUbcResult(list2, i, "show");
                     return;
                 }
                 return;
             }
-            Ref.IntRef intRef = new Ref.IntRef();
-            List<? extends LiveSearchResultInfo> list3 = this.resultList;
-            if (list3 != null) {
-                i2 = list3.size();
-            } else {
-                i2 = 0;
-            }
-            int i3 = i - i2;
-            intRef.element = i3;
-            List<? extends LiveSearchSuggestion> list4 = this.suggestionList;
-            if (list4 != null && (liveSearchSuggestion = list4.get(i3)) != null) {
-                str = liveSearchSuggestion.question;
-            } else {
-                str = null;
-            }
-            SearchSuggestionViewHolder searchSuggestionViewHolder = (SearchSuggestionViewHolder) viewHolder;
-            searchSuggestionViewHolder.bindView();
-            TextView suggestionWordContent = searchSuggestionViewHolder.getSuggestionWordContent();
-            if (str != null && (str2 = this.contentText) != null) {
-                spannableString = setResultColor(str2, str);
-            }
-            suggestionWordContent.setText(spannableString);
-            searchSuggestionViewHolder.itemView.setOnClickListener(new View.OnClickListener(this, intRef) { // from class: com.baidu.live.feed.search.adapter.LiveFeedSearchSuggestionAdapter$onBindViewHolder$4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Ref.IntRef $textPos;
-                public final /* synthetic */ LiveFeedSearchSuggestionAdapter this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, intRef};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.$textPos = intRef;
-                }
-
-                /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
-                    r5 = r4.this$0.suggestionList;
-                 */
-                @Override // android.view.View.OnClickListener
-                /*
-                    Code decompiled incorrectly, please refer to instructions dump.
-                */
-                public final void onClick(View view2) {
-                    List list5;
-                    LiveSearchSuggestion liveSearchSuggestion2;
-                    String str5;
-                    LiveFeedSearchSuggestionAdapter.OnSuggestionListener suggestionListener;
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) && list5 != null && (liveSearchSuggestion2 = (LiveSearchSuggestion) list5.get(this.$textPos.element)) != null && (str5 = liveSearchSuggestion2.question) != null && (suggestionListener = this.this$0.getSuggestionListener()) != null) {
-                        suggestionListener.onSuggestionClick(str5, this.$textPos.element);
-                    }
-                }
-            });
-            searchSuggestionViewHolder.getSuggestionArrow().setOnClickListener(new View.OnClickListener(this, intRef) { // from class: com.baidu.live.feed.search.adapter.LiveFeedSearchSuggestionAdapter$onBindViewHolder$5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Ref.IntRef $textPos;
-                public final /* synthetic */ LiveFeedSearchSuggestionAdapter this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, intRef};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.$textPos = intRef;
-                }
-
-                /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
-                    r5 = r4.this$0.suggestionList;
-                 */
-                @Override // android.view.View.OnClickListener
-                /*
-                    Code decompiled incorrectly, please refer to instructions dump.
-                */
-                public final void onClick(View view2) {
-                    List list5;
-                    LiveSearchSuggestion liveSearchSuggestion2;
-                    String str5;
-                    LiveFeedSearchSuggestionAdapter.OnSuggestionListener suggestionListener;
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) && list5 != null && (liveSearchSuggestion2 = (LiveSearchSuggestion) list5.get(this.$textPos.element)) != null && (str5 = liveSearchSuggestion2.question) != null && (suggestionListener = this.this$0.getSuggestionListener()) != null) {
-                        suggestionListener.onSuggestionSelect(str5, this.$textPos.element);
-                    }
-                }
-            });
+            return;
         }
+        final Ref.IntRef intRef = new Ref.IntRef();
+        List<? extends LiveSearchResultInfo> list3 = this.resultList;
+        if (list3 != null) {
+            i2 = list3.size();
+        } else {
+            i2 = 0;
+        }
+        int i3 = i - i2;
+        intRef.element = i3;
+        List<? extends LiveSearchSuggestion> list4 = this.suggestionList;
+        if (list4 != null && (liveSearchSuggestion = list4.get(i3)) != null) {
+            str = liveSearchSuggestion.question;
+        } else {
+            str = null;
+        }
+        SearchSuggestionViewHolder searchSuggestionViewHolder = (SearchSuggestionViewHolder) viewHolder;
+        searchSuggestionViewHolder.bindView();
+        TextView suggestionWordContent = searchSuggestionViewHolder.getSuggestionWordContent();
+        if (str != null && (str2 = this.contentText) != null) {
+            spannableString = setResultColor(str2, str);
+        }
+        suggestionWordContent.setText(spannableString);
+        searchSuggestionViewHolder.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.feed.search.adapter.LiveFeedSearchSuggestionAdapter$onBindViewHolder$4
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view2) {
+                List list5;
+                LiveSearchSuggestion liveSearchSuggestion2;
+                String str5;
+                LiveFeedSearchSuggestionAdapter.OnSuggestionListener suggestionListener;
+                list5 = LiveFeedSearchSuggestionAdapter.this.suggestionList;
+                if (list5 != null && (liveSearchSuggestion2 = (LiveSearchSuggestion) list5.get(intRef.element)) != null && (str5 = liveSearchSuggestion2.question) != null && (suggestionListener = LiveFeedSearchSuggestionAdapter.this.getSuggestionListener()) != null) {
+                    suggestionListener.onSuggestionClick(str5, intRef.element);
+                }
+            }
+        });
+        searchSuggestionViewHolder.getSuggestionArrow().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.feed.search.adapter.LiveFeedSearchSuggestionAdapter$onBindViewHolder$5
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view2) {
+                List list5;
+                LiveSearchSuggestion liveSearchSuggestion2;
+                String str5;
+                LiveFeedSearchSuggestionAdapter.OnSuggestionListener suggestionListener;
+                list5 = LiveFeedSearchSuggestionAdapter.this.suggestionList;
+                if (list5 != null && (liveSearchSuggestion2 = (LiveSearchSuggestion) list5.get(intRef.element)) != null && (str5 = liveSearchSuggestion2.question) != null && (suggestionListener = LiveFeedSearchSuggestionAdapter.this.getSuggestionListener()) != null) {
+                    suggestionListener.onSuggestionSelect(str5, intRef.element);
+                }
+            }
+        });
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i)) == null) {
-            if (i == 1) {
-                View view2 = View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d057f, null);
-                Context context = this.mContext;
-                Intrinsics.checkExpressionValueIsNotNull(view2, "view");
-                return new LiveSearchResultViewHolder(context, view2, this.scene);
-            }
-            View view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d057a, viewGroup, false);
-            Context context2 = this.mContext;
-            Intrinsics.checkExpressionValueIsNotNull(view3, "view");
-            return new SearchSuggestionViewHolder(context2, view3, this.scene);
+        if (i == 1) {
+            View view2 = View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0594, null);
+            Context context = this.mContext;
+            Intrinsics.checkExpressionValueIsNotNull(view2, "view");
+            return new LiveSearchResultViewHolder(context, view2, this.scene);
         }
-        return (RecyclerView.ViewHolder) invokeLI.objValue;
+        View view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d058f, viewGroup, false);
+        Context context2 = this.mContext;
+        Intrinsics.checkExpressionValueIsNotNull(view3, "view");
+        return new SearchSuggestionViewHolder(context2, view3, this.scene);
     }
 
-    public final void resultDataProcess(int i, LiveSearchResultViewHolder liveSearchResultViewHolder) {
+    public final void resultDataProcess(final int i, LiveSearchResultViewHolder liveSearchResultViewHolder) {
         LiveSearchResultInfo liveSearchResultInfo;
         String str;
         String str2;
@@ -632,303 +366,243 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter<
         String str7;
         LiveSearchResultInfo liveSearchResultInfo7;
         String str8;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, liveSearchResultViewHolder) == null) {
-            List<? extends LiveSearchResultInfo> list = this.resultList;
-            Boolean bool = null;
-            if (list != null) {
-                liveSearchResultInfo = list.get(i);
+        List<? extends LiveSearchResultInfo> list = this.resultList;
+        Boolean bool = null;
+        if (list != null) {
+            liveSearchResultInfo = list.get(i);
+        } else {
+            liveSearchResultInfo = null;
+        }
+        if (liveSearchResultInfo != null) {
+            str = liveSearchResultInfo.description;
+        } else {
+            str = null;
+        }
+        if (str != null) {
+            liveSearchResultViewHolder.g().setVisibility(0);
+            liveSearchResultViewHolder.h().setVisibility(8);
+            TextView g = liveSearchResultViewHolder.g();
+            List<? extends LiveSearchResultInfo> list2 = this.resultList;
+            if (list2 != null && (liveSearchResultInfo7 = list2.get(i)) != null && (str8 = liveSearchResultInfo7.displayName) != null) {
+                str7 = wordNumCheck(str8, 8);
             } else {
-                liveSearchResultInfo = null;
+                str7 = null;
             }
-            if (liveSearchResultInfo != null) {
-                str = liveSearchResultInfo.description;
+            g.setText(str7);
+        } else {
+            liveSearchResultViewHolder.g().setVisibility(8);
+            liveSearchResultViewHolder.h().setVisibility(0);
+            TextView h = liveSearchResultViewHolder.h();
+            List<? extends LiveSearchResultInfo> list3 = this.resultList;
+            if (list3 != null && (liveSearchResultInfo2 = list3.get(i)) != null && (str3 = liveSearchResultInfo2.displayName) != null) {
+                str2 = wordNumCheck(str3, 8);
             } else {
-                str = null;
+                str2 = null;
             }
-            if (str != null) {
-                liveSearchResultViewHolder.g().setVisibility(0);
-                liveSearchResultViewHolder.h().setVisibility(8);
-                TextView g = liveSearchResultViewHolder.g();
-                List<? extends LiveSearchResultInfo> list2 = this.resultList;
-                if (list2 != null && (liveSearchResultInfo7 = list2.get(i)) != null && (str8 = liveSearchResultInfo7.displayName) != null) {
-                    str7 = wordNumCheck(str8, 8);
-                } else {
-                    str7 = null;
-                }
-                g.setText(str7);
-            } else {
-                liveSearchResultViewHolder.g().setVisibility(8);
-                liveSearchResultViewHolder.h().setVisibility(0);
-                TextView h = liveSearchResultViewHolder.h();
-                List<? extends LiveSearchResultInfo> list3 = this.resultList;
-                if (list3 != null && (liveSearchResultInfo2 = list3.get(i)) != null && (str3 = liveSearchResultInfo2.displayName) != null) {
-                    str2 = wordNumCheck(str3, 8);
-                } else {
-                    str2 = null;
-                }
-                h.setText(str2);
-            }
-            TextView c = liveSearchResultViewHolder.c();
-            List<? extends LiveSearchResultInfo> list4 = this.resultList;
-            if (list4 != null && (liveSearchResultInfo6 = list4.get(i)) != null && (str6 = liveSearchResultInfo6.description) != null) {
-                str4 = wordNumCheck(str6, 14);
-            } else {
-                str4 = null;
-            }
-            c.setText(str4);
-            CharSequence text = liveSearchResultViewHolder.c().getText();
-            if (text != null && text.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                liveSearchResultViewHolder.c().setVisibility(8);
-                liveSearchResultViewHolder.g().setGravity(16);
-            }
-            SimpleDraweeView b = liveSearchResultViewHolder.b();
-            List<? extends LiveSearchResultInfo> list5 = this.resultList;
-            if (list5 != null && (liveSearchResultInfo5 = list5.get(i)) != null) {
-                str5 = liveSearchResultInfo5.avatar;
-            } else {
-                str5 = null;
-            }
-            b.setImageURI(str5);
-            List<? extends LiveSearchResultInfo> list6 = this.resultList;
-            if (list6 != null && (liveSearchResultInfo4 = list6.get(i)) != null && liveSearchResultInfo4.hasFollowed) {
-                if (Intrinsics.areEqual(this.scene, "recommend")) {
-                    liveSearchResultViewHolder.d().setVisibility(8);
-                } else {
-                    liveSearchResultViewHolder.d().setVisibility(0);
-                    liveSearchResultViewHolder.d().setText("已关注");
-                    liveSearchResultViewHolder.d().setTypeface(Typeface.DEFAULT);
-                    liveSearchResultViewHolder.d().setTextColor(fd0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_8585852"));
-                    fd0 f = fd0.f();
-                    Intrinsics.checkExpressionValueIsNotNull(f, "UIModeUtils.getInstance()");
-                    String r = f.r();
-                    if (Intrinsics.areEqual(r, "day")) {
-                        liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d7e);
-                    } else if (Intrinsics.areEqual(r, "night")) {
-                        liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d7f);
-                    }
-                }
+            h.setText(str2);
+        }
+        TextView c = liveSearchResultViewHolder.c();
+        List<? extends LiveSearchResultInfo> list4 = this.resultList;
+        if (list4 != null && (liveSearchResultInfo6 = list4.get(i)) != null && (str6 = liveSearchResultInfo6.description) != null) {
+            str4 = wordNumCheck(str6, 14);
+        } else {
+            str4 = null;
+        }
+        c.setText(str4);
+        CharSequence text = liveSearchResultViewHolder.c().getText();
+        if (text != null && text.length() != 0) {
+            z = false;
+        } else {
+            z = true;
+        }
+        if (z) {
+            liveSearchResultViewHolder.c().setVisibility(8);
+            liveSearchResultViewHolder.g().setGravity(16);
+        }
+        SimpleDraweeView b = liveSearchResultViewHolder.b();
+        List<? extends LiveSearchResultInfo> list5 = this.resultList;
+        if (list5 != null && (liveSearchResultInfo5 = list5.get(i)) != null) {
+            str5 = liveSearchResultInfo5.avatar;
+        } else {
+            str5 = null;
+        }
+        b.setImageURI(str5);
+        List<? extends LiveSearchResultInfo> list6 = this.resultList;
+        if (list6 != null && (liveSearchResultInfo4 = list6.get(i)) != null && liveSearchResultInfo4.hasFollowed) {
+            if (Intrinsics.areEqual(this.scene, "recommend")) {
+                liveSearchResultViewHolder.d().setVisibility(8);
             } else {
                 liveSearchResultViewHolder.d().setVisibility(0);
-                liveSearchResultViewHolder.d().setText("关注");
-                liveSearchResultViewHolder.d().setTypeface(Typeface.DEFAULT_BOLD);
-                liveSearchResultViewHolder.d().setTextColor(fd0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_white3"));
-                fd0 f2 = fd0.f();
-                Intrinsics.checkExpressionValueIsNotNull(f2, "UIModeUtils.getInstance()");
-                String r2 = f2.r();
-                if (Intrinsics.areEqual(r2, "day")) {
-                    liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d7c);
-                } else if (Intrinsics.areEqual(r2, "night")) {
-                    liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d7d);
+                liveSearchResultViewHolder.d().setText("已关注");
+                liveSearchResultViewHolder.d().setTypeface(Typeface.DEFAULT);
+                liveSearchResultViewHolder.d().setTextColor(jd0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_8585852"));
+                jd0 f = jd0.f();
+                Intrinsics.checkExpressionValueIsNotNull(f, "UIModeUtils.getInstance()");
+                String r = f.r();
+                if (Intrinsics.areEqual(r, "day")) {
+                    liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d81);
+                } else if (Intrinsics.areEqual(r, LiveFeedPageSdk.UI_MODE_NIGHT)) {
+                    liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d82);
                 }
             }
+        } else {
+            liveSearchResultViewHolder.d().setVisibility(0);
+            liveSearchResultViewHolder.d().setText("关注");
+            liveSearchResultViewHolder.d().setTypeface(Typeface.DEFAULT_BOLD);
+            liveSearchResultViewHolder.d().setTextColor(jd0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_white3"));
+            jd0 f2 = jd0.f();
+            Intrinsics.checkExpressionValueIsNotNull(f2, "UIModeUtils.getInstance()");
+            String r2 = f2.r();
+            if (Intrinsics.areEqual(r2, "day")) {
+                liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d7f);
+            } else if (Intrinsics.areEqual(r2, LiveFeedPageSdk.UI_MODE_NIGHT)) {
+                liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d80);
+            }
+        }
+        liveSearchResultViewHolder.f().setVisibility(8);
+        liveSearchResultViewHolder.e().setVisibility(8);
+        List<? extends LiveSearchResultInfo> list7 = this.resultList;
+        if (list7 != null && (liveSearchResultInfo3 = list7.get(i)) != null) {
+            bool = Boolean.valueOf(liveSearchResultInfo3.hasLiving);
+        }
+        if (bool == null) {
+            Intrinsics.throwNpe();
+        }
+        if (bool.booleanValue()) {
+            liveSearchResultViewHolder.f().setVisibility(0);
+            liveSearchResultViewHolder.e().setVisibility(0);
+            jd0 f3 = jd0.f();
+            Intrinsics.checkExpressionValueIsNotNull(f3, "UIModeUtils.getInstance()");
+            String r3 = f3.r();
+            if (Intrinsics.areEqual(r3, "day")) {
+                liveSearchResultViewHolder.f().setAnimation("lottie/liveshow_rank_avatar_live_tag_day.json");
+            } else if (Intrinsics.areEqual(r3, LiveFeedPageSdk.UI_MODE_NIGHT)) {
+                liveSearchResultViewHolder.f().setAnimation("lottie/liveshow_rank_avatar_live_tag_night.json");
+            }
+            liveSearchResultViewHolder.f().playAnimation();
+        } else {
             liveSearchResultViewHolder.f().setVisibility(8);
             liveSearchResultViewHolder.e().setVisibility(8);
-            List<? extends LiveSearchResultInfo> list7 = this.resultList;
-            if (list7 != null && (liveSearchResultInfo3 = list7.get(i)) != null) {
-                bool = Boolean.valueOf(liveSearchResultInfo3.hasLiving);
-            }
-            if (bool == null) {
-                Intrinsics.throwNpe();
-            }
-            if (bool.booleanValue()) {
-                liveSearchResultViewHolder.f().setVisibility(0);
-                liveSearchResultViewHolder.e().setVisibility(0);
-                fd0 f3 = fd0.f();
-                Intrinsics.checkExpressionValueIsNotNull(f3, "UIModeUtils.getInstance()");
-                String r3 = f3.r();
-                if (Intrinsics.areEqual(r3, "day")) {
-                    liveSearchResultViewHolder.f().setAnimation("lottie/liveshow_rank_avatar_live_tag_day.json");
-                } else if (Intrinsics.areEqual(r3, "night")) {
-                    liveSearchResultViewHolder.f().setAnimation("lottie/liveshow_rank_avatar_live_tag_night.json");
-                }
-                liveSearchResultViewHolder.f().playAnimation();
-            } else {
-                liveSearchResultViewHolder.f().setVisibility(8);
-                liveSearchResultViewHolder.e().setVisibility(8);
-                liveSearchResultViewHolder.i().setVisibility(8);
-            }
-            liveSearchResultViewHolder.i().setOnClickListener(new View.OnClickListener(this, i) { // from class: com.baidu.live.feed.search.adapter.LiveFeedSearchSuggestionAdapter$resultDataProcess$4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ int $position;
-                public final /* synthetic */ LiveFeedSearchSuggestionAdapter this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.$position = i;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view2) {
-                    LiveSearchResultInfo liveSearchResultInfo8;
-                    LiveSearchResultInfo liveSearchResultInfo9;
-                    String str9;
-                    LiveFeedSearchSuggestionAdapter.OnSuggestionListener suggestionListener;
-                    LiveSearchResultInfo liveSearchResultInfo10;
-                    LiveFeedSearchSuggestionAdapter.OnSuggestionListener suggestionListener2;
-                    LiveSearchResultInfo liveSearchResultInfo11;
-                    String str10;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        List<LiveSearchResultInfo> resultList = this.this$0.getResultList();
-                        if (resultList != null) {
-                            liveSearchResultInfo8 = resultList.get(this.$position);
-                        } else {
-                            liveSearchResultInfo8 = null;
-                        }
-                        if (liveSearchResultInfo8 == null) {
-                            Intrinsics.throwNpe();
-                        }
-                        String str11 = "";
-                        if (liveSearchResultInfo8.hasLiving) {
-                            List<LiveSearchResultInfo> resultList2 = this.this$0.getResultList();
-                            if (resultList2 != null && (liveSearchResultInfo11 = resultList2.get(this.$position)) != null && (str10 = liveSearchResultInfo11.cmd) != null) {
-                                str11 = str10;
-                            }
-                            LiveFeedPageSdk.liveLog("FeedItemClick: position: " + this.$position + "  scheme: " + str11);
-                            List<LiveSearchResultInfo> resultList3 = this.this$0.getResultList();
-                            if (resultList3 != null && (liveSearchResultInfo10 = resultList3.get(this.$position)) != null && (suggestionListener2 = this.this$0.getSuggestionListener()) != null) {
-                                suggestionListener2.onResultClick(liveSearchResultInfo10);
-                            }
-                        } else {
-                            List<LiveSearchResultInfo> resultList4 = this.this$0.getResultList();
-                            if (resultList4 != null && (liveSearchResultInfo9 = resultList4.get(this.$position)) != null && (str9 = liveSearchResultInfo9.cmd) != null) {
-                                str11 = str9;
-                            }
-                            LiveFeedPageSdk.liveLog("FeedItemClick: position: " + this.$position + "  scheme: " + str11);
-                            LiveFeedSearchSuggestionAdapter.OnSuggestionListener suggestionListener3 = this.this$0.getSuggestionListener();
-                            if (suggestionListener3 != null) {
-                                suggestionListener3.jumpAuthorView(str11);
-                            }
-                        }
-                        List<LiveSearchResultInfo> resultList5 = this.this$0.getResultList();
-                        if (resultList5 != null && (suggestionListener = this.this$0.getSuggestionListener()) != null) {
-                            suggestionListener.onUbcResult(resultList5, this.$position, "clk");
-                        }
-                    }
-                }
-            });
-            liveSearchResultViewHolder.d().setOnClickListener(new View.OnClickListener(this, i) { // from class: com.baidu.live.feed.search.adapter.LiveFeedSearchSuggestionAdapter$resultDataProcess$5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ int $position;
-                public final /* synthetic */ LiveFeedSearchSuggestionAdapter this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.$position = i;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view2) {
-                    Boolean bool2;
-                    LiveFeedSearchSuggestionAdapter.OnSuggestionListener suggestionListener;
-                    LiveSearchResultInfo liveSearchResultInfo8;
-                    LiveFeedSearchSuggestionAdapter.OnSuggestionListener suggestionListener2;
-                    LiveFeedSearchSuggestionAdapter.OnSuggestionListener suggestionListener3;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        List<LiveSearchResultInfo> resultList = this.this$0.getResultList();
-                        if (resultList == null) {
-                            Intrinsics.throwNpe();
-                        }
-                        LiveSearchResultInfo liveSearchResultInfo9 = resultList.get(this.$position);
-                        if (liveSearchResultInfo9 != null) {
-                            bool2 = Boolean.valueOf(liveSearchResultInfo9.hasFollowed);
-                        } else {
-                            bool2 = null;
-                        }
-                        if (bool2 == null) {
-                            Intrinsics.throwNpe();
-                        }
-                        if (!bool2.booleanValue()) {
-                            List<LiveSearchResultInfo> resultList2 = this.this$0.getResultList();
-                            if (resultList2 == null) {
-                                Intrinsics.throwNpe();
-                            }
-                            LiveSearchResultInfo liveSearchResultInfo10 = resultList2.get(this.$position);
-                            if (liveSearchResultInfo10 != null && (suggestionListener3 = this.this$0.getSuggestionListener()) != null) {
-                                suggestionListener3.onFollowClick(liveSearchResultInfo10, this.$position);
-                                return;
-                            }
-                            return;
-                        }
-                        List<LiveSearchResultInfo> resultList3 = this.this$0.getResultList();
-                        if (resultList3 != null && (liveSearchResultInfo8 = resultList3.get(this.$position)) != null && (suggestionListener2 = this.this$0.getSuggestionListener()) != null) {
-                            suggestionListener2.onResultClick(liveSearchResultInfo8);
-                        }
-                        List<LiveSearchResultInfo> resultList4 = this.this$0.getResultList();
-                        if (resultList4 != null && (suggestionListener = this.this$0.getSuggestionListener()) != null) {
-                            suggestionListener.onUbcResult(resultList4, this.$position, "clk");
-                        }
-                    }
-                }
-            });
-            StaggeredGridLayoutManager.LayoutParams layoutParams = new StaggeredGridLayoutManager.LayoutParams(-1, -2);
-            layoutParams.setFullSpan(true);
-            View view2 = liveSearchResultViewHolder.itemView;
-            Intrinsics.checkExpressionValueIsNotNull(view2, "holder.itemView");
-            view2.setLayoutParams(layoutParams);
+            liveSearchResultViewHolder.i().setVisibility(8);
         }
+        liveSearchResultViewHolder.i().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.feed.search.adapter.LiveFeedSearchSuggestionAdapter$resultDataProcess$4
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view2) {
+                LiveSearchResultInfo liveSearchResultInfo8;
+                LiveSearchResultInfo liveSearchResultInfo9;
+                String str9;
+                LiveFeedSearchSuggestionAdapter.OnSuggestionListener suggestionListener;
+                LiveSearchResultInfo liveSearchResultInfo10;
+                LiveFeedSearchSuggestionAdapter.OnSuggestionListener suggestionListener2;
+                LiveSearchResultInfo liveSearchResultInfo11;
+                String str10;
+                List<LiveSearchResultInfo> resultList = LiveFeedSearchSuggestionAdapter.this.getResultList();
+                if (resultList != null) {
+                    liveSearchResultInfo8 = resultList.get(i);
+                } else {
+                    liveSearchResultInfo8 = null;
+                }
+                if (liveSearchResultInfo8 == null) {
+                    Intrinsics.throwNpe();
+                }
+                String str11 = "";
+                if (liveSearchResultInfo8.hasLiving) {
+                    List<LiveSearchResultInfo> resultList2 = LiveFeedSearchSuggestionAdapter.this.getResultList();
+                    if (resultList2 != null && (liveSearchResultInfo11 = resultList2.get(i)) != null && (str10 = liveSearchResultInfo11.cmd) != null) {
+                        str11 = str10;
+                    }
+                    LiveFeedPageSdk.liveLog("FeedItemClick: position: " + i + "  scheme: " + str11);
+                    List<LiveSearchResultInfo> resultList3 = LiveFeedSearchSuggestionAdapter.this.getResultList();
+                    if (resultList3 != null && (liveSearchResultInfo10 = resultList3.get(i)) != null && (suggestionListener2 = LiveFeedSearchSuggestionAdapter.this.getSuggestionListener()) != null) {
+                        suggestionListener2.onResultClick(liveSearchResultInfo10);
+                    }
+                } else {
+                    List<LiveSearchResultInfo> resultList4 = LiveFeedSearchSuggestionAdapter.this.getResultList();
+                    if (resultList4 != null && (liveSearchResultInfo9 = resultList4.get(i)) != null && (str9 = liveSearchResultInfo9.cmd) != null) {
+                        str11 = str9;
+                    }
+                    LiveFeedPageSdk.liveLog("FeedItemClick: position: " + i + "  scheme: " + str11);
+                    LiveFeedSearchSuggestionAdapter.OnSuggestionListener suggestionListener3 = LiveFeedSearchSuggestionAdapter.this.getSuggestionListener();
+                    if (suggestionListener3 != null) {
+                        suggestionListener3.jumpAuthorView(str11);
+                    }
+                }
+                List<LiveSearchResultInfo> resultList5 = LiveFeedSearchSuggestionAdapter.this.getResultList();
+                if (resultList5 != null && (suggestionListener = LiveFeedSearchSuggestionAdapter.this.getSuggestionListener()) != null) {
+                    suggestionListener.onUbcResult(resultList5, i, "clk");
+                }
+            }
+        });
+        liveSearchResultViewHolder.d().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.feed.search.adapter.LiveFeedSearchSuggestionAdapter$resultDataProcess$5
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view2) {
+                Boolean bool2;
+                LiveFeedSearchSuggestionAdapter.OnSuggestionListener suggestionListener;
+                LiveSearchResultInfo liveSearchResultInfo8;
+                LiveFeedSearchSuggestionAdapter.OnSuggestionListener suggestionListener2;
+                LiveFeedSearchSuggestionAdapter.OnSuggestionListener suggestionListener3;
+                List<LiveSearchResultInfo> resultList = LiveFeedSearchSuggestionAdapter.this.getResultList();
+                if (resultList == null) {
+                    Intrinsics.throwNpe();
+                }
+                LiveSearchResultInfo liveSearchResultInfo9 = resultList.get(i);
+                if (liveSearchResultInfo9 != null) {
+                    bool2 = Boolean.valueOf(liveSearchResultInfo9.hasFollowed);
+                } else {
+                    bool2 = null;
+                }
+                if (bool2 == null) {
+                    Intrinsics.throwNpe();
+                }
+                if (!bool2.booleanValue()) {
+                    List<LiveSearchResultInfo> resultList2 = LiveFeedSearchSuggestionAdapter.this.getResultList();
+                    if (resultList2 == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    LiveSearchResultInfo liveSearchResultInfo10 = resultList2.get(i);
+                    if (liveSearchResultInfo10 != null && (suggestionListener3 = LiveFeedSearchSuggestionAdapter.this.getSuggestionListener()) != null) {
+                        suggestionListener3.onFollowClick(liveSearchResultInfo10, i);
+                        return;
+                    }
+                    return;
+                }
+                List<LiveSearchResultInfo> resultList3 = LiveFeedSearchSuggestionAdapter.this.getResultList();
+                if (resultList3 != null && (liveSearchResultInfo8 = resultList3.get(i)) != null && (suggestionListener2 = LiveFeedSearchSuggestionAdapter.this.getSuggestionListener()) != null) {
+                    suggestionListener2.onResultClick(liveSearchResultInfo8);
+                }
+                List<LiveSearchResultInfo> resultList4 = LiveFeedSearchSuggestionAdapter.this.getResultList();
+                if (resultList4 != null && (suggestionListener = LiveFeedSearchSuggestionAdapter.this.getSuggestionListener()) != null) {
+                    suggestionListener.onUbcResult(resultList4, i, "clk");
+                }
+            }
+        });
+        StaggeredGridLayoutManager.LayoutParams layoutParams = new StaggeredGridLayoutManager.LayoutParams(-1, -2);
+        layoutParams.setFullSpan(true);
+        View view2 = liveSearchResultViewHolder.itemView;
+        Intrinsics.checkExpressionValueIsNotNull(view2, "holder.itemView");
+        view2.setLayoutParams(layoutParams);
     }
 
     public final void setFollowStatus(int i) {
         boolean z;
         LiveSearchResultInfo liveSearchResultInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            List<? extends LiveSearchResultInfo> list = this.resultList;
-            if (list != null && !list.isEmpty()) {
-                z = false;
-            } else {
-                z = true;
+        List<? extends LiveSearchResultInfo> list = this.resultList;
+        if (list != null && !list.isEmpty()) {
+            z = false;
+        } else {
+            z = true;
+        }
+        if (!z && i >= 0) {
+            List<? extends LiveSearchResultInfo> list2 = this.resultList;
+            if (list2 == null) {
+                Intrinsics.throwNpe();
             }
-            if (!z && i >= 0) {
-                List<? extends LiveSearchResultInfo> list2 = this.resultList;
-                if (list2 == null) {
-                    Intrinsics.throwNpe();
+            if (i < list2.size()) {
+                List<? extends LiveSearchResultInfo> list3 = this.resultList;
+                if (list3 != null && (liveSearchResultInfo = list3.get(i)) != null) {
+                    liveSearchResultInfo.hasFollowed = true;
                 }
-                if (i < list2.size()) {
-                    List<? extends LiveSearchResultInfo> list3 = this.resultList;
-                    if (list3 != null && (liveSearchResultInfo = list3.get(i)) != null) {
-                        liveSearchResultInfo.hasFollowed = true;
-                    }
-                    notifyItemChanged(i);
-                }
+                notifyItemChanged(i);
             }
         }
     }
@@ -938,78 +612,75 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter<
         boolean z2;
         Integer num;
         boolean z3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048588, this, list, list2, str) == null) {
-            this.resultList = list;
-            this.suggestionList = list2;
-            this.contentText = str;
-            ArrayList<Integer> arrayList = this.typeList;
-            if (arrayList != null) {
-                arrayList.clear();
-            }
-            boolean z4 = true;
-            if (list != null && !list.isEmpty()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                if (list2 != null && !list2.isEmpty()) {
-                    z3 = false;
-                } else {
-                    z3 = true;
-                }
-                if (!z3) {
-                    int size = list.size();
-                    for (int i = 0; i < size; i++) {
-                        ArrayList<Integer> arrayList2 = this.typeList;
-                        if (arrayList2 != null) {
-                            arrayList2.add(1);
-                        }
-                    }
-                    int size2 = list.size() + list2.size();
-                    for (int size3 = list.size(); size3 < size2; size3++) {
-                        ArrayList<Integer> arrayList3 = this.typeList;
-                        if (arrayList3 != null) {
-                            arrayList3.add(0);
-                        }
-                    }
-                    notifyDataSetChanged();
-                }
-            }
-            if (list != null && !list.isEmpty()) {
-                z2 = false;
-            } else {
-                z2 = true;
-            }
-            if (!z2) {
-                if (list != null) {
-                    num = Integer.valueOf(list.size());
-                } else {
-                    num = null;
-                }
-                int intValue = num.intValue();
-                for (int i2 = 0; i2 < intValue; i2++) {
-                    ArrayList<Integer> arrayList4 = this.typeList;
-                    if (arrayList4 != null) {
-                        arrayList4.add(1);
-                    }
-                }
-            } else {
-                if (list2 != null && !list2.isEmpty()) {
-                    z4 = false;
-                }
-                if (!z4) {
-                    int size4 = list2.size();
-                    for (int i3 = 0; i3 < size4; i3++) {
-                        ArrayList<Integer> arrayList5 = this.typeList;
-                        if (arrayList5 != null) {
-                            arrayList5.add(0);
-                        }
-                    }
-                }
-            }
-            notifyDataSetChanged();
+        this.resultList = list;
+        this.suggestionList = list2;
+        this.contentText = str;
+        ArrayList<Integer> arrayList = this.typeList;
+        if (arrayList != null) {
+            arrayList.clear();
         }
+        boolean z4 = true;
+        if (list != null && !list.isEmpty()) {
+            z = false;
+        } else {
+            z = true;
+        }
+        if (!z) {
+            if (list2 != null && !list2.isEmpty()) {
+                z3 = false;
+            } else {
+                z3 = true;
+            }
+            if (!z3) {
+                int size = list.size();
+                for (int i = 0; i < size; i++) {
+                    ArrayList<Integer> arrayList2 = this.typeList;
+                    if (arrayList2 != null) {
+                        arrayList2.add(1);
+                    }
+                }
+                int size2 = list.size() + list2.size();
+                for (int size3 = list.size(); size3 < size2; size3++) {
+                    ArrayList<Integer> arrayList3 = this.typeList;
+                    if (arrayList3 != null) {
+                        arrayList3.add(0);
+                    }
+                }
+                notifyDataSetChanged();
+            }
+        }
+        if (list != null && !list.isEmpty()) {
+            z2 = false;
+        } else {
+            z2 = true;
+        }
+        if (!z2) {
+            if (list != null) {
+                num = Integer.valueOf(list.size());
+            } else {
+                num = null;
+            }
+            int intValue = num.intValue();
+            for (int i2 = 0; i2 < intValue; i2++) {
+                ArrayList<Integer> arrayList4 = this.typeList;
+                if (arrayList4 != null) {
+                    arrayList4.add(1);
+                }
+            }
+        } else {
+            if (list2 != null && !list2.isEmpty()) {
+                z4 = false;
+            }
+            if (!z4) {
+                int size4 = list2.size();
+                for (int i3 = 0; i3 < size4; i3++) {
+                    ArrayList<Integer> arrayList5 = this.typeList;
+                    if (arrayList5 != null) {
+                        arrayList5.add(0);
+                    }
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
 }

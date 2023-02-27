@@ -1,12 +1,6 @@
 package com.baidu.searchbox.retrieve.inter.constants;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class StatConstants {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ERR_CODE_CLIENT_CHECK_EMPTY = "1";
     public static final String ERR_CODE_CLIENT_CHECK_EXPIRED = "3";
     public static final String ERR_CODE_CLIENT_CHECK_WRONG = "2";
@@ -51,19 +45,4 @@ public class StatConstants {
     public static final String VALUE_TYPE_START = "start";
     public static final String VALUE_TYPE_UPLOAD = "upload";
     public static final String VALUE_TYPE_ZIP = "zip";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public StatConstants() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

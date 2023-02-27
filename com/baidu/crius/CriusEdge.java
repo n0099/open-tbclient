@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.codec.language.bm.Rule;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 @DoNotStrip
 /* loaded from: classes2.dex */
@@ -44,7 +45,7 @@ public final class CriusEdge {
         BOTTOM = new CriusEdge("BOTTOM", 3, 3);
         HORIZONTAL = new CriusEdge("HORIZONTAL", 4, 4);
         VERTICAL = new CriusEdge("VERTICAL", 5, 5);
-        CriusEdge criusEdge = new CriusEdge("ALL", 6, 6);
+        CriusEdge criusEdge = new CriusEdge(Rule.ALL, 6, 6);
         ALL = criusEdge;
         $VALUES = new CriusEdge[]{LEFT, TOP, RIGHT, BOTTOM, HORIZONTAL, VERTICAL, criusEdge};
     }

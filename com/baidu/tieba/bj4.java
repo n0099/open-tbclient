@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,28 +12,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class bj4 implements ui4 {
+public class bj4<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ii4> a;
-    public og4 b;
-    public List<uh4> c;
-    public List<uh4> d;
-    public List<uh4> e;
+    public final List<T> a;
 
-    @Override // com.baidu.tieba.ui4
-    public <T> void a(yi4<T> yi4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, yi4Var) == null) {
-        }
-    }
-
-    public bj4(og4 og4Var) {
+    public bj4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {og4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,73 +30,81 @@ public class bj4 implements ui4 {
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        this.e = new ArrayList();
-        this.b = og4Var;
         this.a = new ArrayList();
-        wi4.b().e(this);
     }
 
-    @Override // com.baidu.tieba.ui4
-    public <T> void b(yi4<T> yi4Var) {
+    public synchronized T c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yi4Var) != null) || yi4Var.k()) {
-            return;
-        }
-        Iterator<ii4> it = this.a.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            }
-            ii4 next = it.next();
-            if (next.b(yi4Var)) {
-                int i = yi4Var.i();
-                this.a.remove(next);
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i == 10) {
-                            this.c.add(next.a().a.b);
-                        }
-                    } else {
-                        this.d.add(next.a().a.b);
-                    }
-                } else {
-                    this.e.add(next.a().a.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.a.isEmpty()) {
+                    return null;
                 }
+                T t = this.a.get(0);
+                this.a.remove(0);
+                return t;
             }
         }
-        d();
+        return (T) invokeV.objValue;
     }
 
-    public void c(ii4 ii4Var) {
+    public synchronized T d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ii4Var) == null) && ii4Var != null) {
-            this.a.add(ii4Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                if (this.a.isEmpty()) {
+                    return null;
+                }
+                return this.a.get(0);
+            }
         }
+        return (T) invokeV.objValue;
     }
 
-    public final boolean d() {
+    @NonNull
+    public Iterator<T> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a.isEmpty()) {
-                this.b.b();
-                wi4.b().g(this);
-                return true;
-            }
-            return false;
+            return this.a.iterator();
         }
-        return invokeV.booleanValue;
+        return (Iterator) invokeV.objValue;
     }
 
-    public void e() {
+    public T e(T t) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || d()) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            if (t != null) {
+                for (int size = this.a.size() - 1; size >= 0; size--) {
+                    if (t.equals(this.a.get(size))) {
+                        return this.a.get(size);
+                    }
+                }
+                return null;
+            }
+            return null;
         }
-        for (ii4 ii4Var : this.a) {
-            ii4Var.c(false);
+        return (T) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(",Queue Size:" + this.a.size());
+            synchronized (this) {
+                int i = 0;
+                for (T t : this.a) {
+                    sb.append(":[" + i + PreferencesUtil.RIGHT_MOUNT + t);
+                    i++;
+                }
+            }
+            return sb.toString();
         }
+        return (String) invokeV.objValue;
     }
 }

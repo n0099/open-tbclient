@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.retrieve.RetrieveReportRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
 import com.baidu.searchbox.logsystem.basic.upload.Constant;
-import com.baidu.tieba.a80;
+import com.baidu.tieba.e80;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,6 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -188,7 +189,7 @@ public class MessageUbc {
                     jSONObject.put("appid", String.valueOf(AccountManager.getAppid(this.mContext)));
                     jSONObject.put(LaunchedTaskSpeedStats.KEY_START_TIME, String.valueOf(this.mStartTime));
                     jSONObject.put("endtime", String.valueOf(this.mEndTime));
-                    jSONObject.put("cost_time", String.valueOf(this.mEndTime - this.mStartTime));
+                    jSONObject.put(HiAnalyticsConstant.BI_KEY_COST_TIME, String.valueOf(this.mEndTime - this.mStartTime));
                     jSONObject.put("error_code", str);
                     jSONObject.put(GameCodeGetResponseMsg.PARAM_ERROR_MSG, str2);
                     jSONObject.put("sdk_version", String.valueOf(IMConfigInternal.getInstance().getSDKVersionValue(this.mContext)));
@@ -219,7 +220,7 @@ public class MessageUbc {
         if (interceptable == null || interceptable.invokeLILL(65541, null, context, i, str, debugInfo) == null) {
             MessageUbc messageUbc = new MessageUbc(context, new TextMsg());
             messageUbc.setDebugInfo(debugInfo);
-            a80.d().f(messageUbc.generateUBCData(String.valueOf(i), str), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+            e80.d().f(messageUbc.generateUBCData(String.valueOf(i), str), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
         }
     }
 

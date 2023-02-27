@@ -1,6 +1,5 @@
 package com.baidu.searchbox.taskmanager;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.BaseTaskPool;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.task.async.appcreate.InitAbi64WebViewCompatTask;
@@ -67,162 +66,115 @@ import com.baidu.searchbox.task.sync.privacy.InitSDKWithPrivacyTask;
 import com.baidu.searchbox.task.view.appcreate.InitWebViewTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.DelayInitNightPluginSwitch;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class PBTaskPool extends BaseTaskPool {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public PBTaskPool() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
     public List<LaunchTask> viewOnActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new ArrayList();
-        }
-        return (List) invokeV.objValue;
+        return new ArrayList();
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
     public List<LaunchTask> viewOnAppCreateView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return new ArrayList();
-        }
-        return (List) invokeV.objValue;
+        return new ArrayList();
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
     public List<LaunchTask> onAppCreateFirst(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (i == 2) {
-                arrayList.add(new InitImgLoaderProcTask());
-                arrayList.add(new PreLoadTiebaClass());
-                arrayList.add(new WebViewDataDirectorySuffixTask());
-                arrayList.add(new InitSyncSwitchTask());
-                arrayList.add(new InitFHTask());
-                arrayList.add(new InitMutiProcessManagerTask());
-            } else if (i == 1) {
-                arrayList.add(new InitVersionTask());
-                arrayList.add(new InitGlobalDataTask());
-                arrayList.add(new InitLokiTask());
-                arrayList.add(new InitCmdRouterAndStaticTask());
-                arrayList.add(new InitMessageManagerTask());
-                arrayList.add(new InitAccountTask());
-                arrayList.add(new InitSDKTask());
-                arrayList.add(new InitStatisticTask());
-                arrayList.add(new InitUBCTask());
-            }
-            return arrayList;
+        ArrayList arrayList = new ArrayList();
+        if (i == 2) {
+            arrayList.add(new InitImgLoaderProcTask());
+            arrayList.add(new PreLoadTiebaClass());
+            arrayList.add(new WebViewDataDirectorySuffixTask());
+            arrayList.add(new InitSyncSwitchTask());
+            arrayList.add(new InitFHTask());
+            arrayList.add(new InitMutiProcessManagerTask());
+        } else if (i == 1) {
+            arrayList.add(new InitVersionTask());
+            arrayList.add(new InitGlobalDataTask());
+            arrayList.add(new InitLokiTask());
+            arrayList.add(new InitCmdRouterAndStaticTask());
+            arrayList.add(new InitMessageManagerTask());
+            arrayList.add(new InitAccountTask());
+            arrayList.add(new InitSDKTask());
+            arrayList.add(new InitStatisticTask());
+            arrayList.add(new InitUBCTask());
         }
-        return (List) invokeI.objValue;
+        return arrayList;
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
     public List<LaunchTask> onAppCreateSecond(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (i == 2) {
-                arrayList.add(new InitPbNetRequestTask());
-                arrayList.add(new InitPersonalizePageDataTask());
-                arrayList.add(new InitSapiTask());
-                arrayList.add(new InitSDKAsyncTask());
-                arrayList.add(new InitFaceTask());
-                arrayList.add(new PreInitSwanDataTask());
-                arrayList.add(new PreLoadBaiduClass());
-                arrayList.add(new InitLocationTask());
-                arrayList.add(new InitDiskTask());
-                arrayList.add(new InitLaunchAsyncTask());
-                arrayList.add(new PermissionUtilTask());
-                arrayList.add(new InitAccountChangeTask());
-                arrayList.add(new InitArTask());
-                arrayList.add(new InitAbi64WebViewCompatTask());
-                arrayList.add(new ApplicationAsyncTask());
-                arrayList.add(new InitWebViewTask());
-            } else if (i == 1) {
-                arrayList.add(new InitAppSettingTask());
-                arrayList.add(new InitViewConfigTask());
-                arrayList.add(new InitCertVerifyTask());
-                arrayList.add(new InitLaunchSyncTask());
-                arrayList.add(new InitWebsocketBaseTask());
-                arrayList.add(new InitIMTask());
-                arrayList.add(new InitBDPlayerTask());
-                arrayList.add(new InitSwanDataTask());
-                if (TbadkCoreApplication.getInst().isDebugMode()) {
-                    arrayList.add(new InitDebugTask());
-                }
-            } else if (i == 3) {
-                arrayList.add(new InitEmotionsTask());
-                arrayList.add(new InitDiskStatTask());
-                arrayList.add(new InitFlutterNpsPluginTask());
+        ArrayList arrayList = new ArrayList();
+        if (i == 2) {
+            arrayList.add(new InitPbNetRequestTask());
+            arrayList.add(new InitPersonalizePageDataTask());
+            arrayList.add(new InitSapiTask());
+            arrayList.add(new InitSDKAsyncTask());
+            arrayList.add(new InitFaceTask());
+            arrayList.add(new PreInitSwanDataTask());
+            arrayList.add(new PreLoadBaiduClass());
+            arrayList.add(new InitLocationTask());
+            arrayList.add(new InitDiskTask());
+            arrayList.add(new InitLaunchAsyncTask());
+            arrayList.add(new PermissionUtilTask());
+            arrayList.add(new InitAccountChangeTask());
+            arrayList.add(new InitArTask());
+            arrayList.add(new InitAbi64WebViewCompatTask());
+            arrayList.add(new ApplicationAsyncTask());
+            arrayList.add(new InitWebViewTask());
+        } else if (i == 1) {
+            arrayList.add(new InitAppSettingTask());
+            arrayList.add(new InitViewConfigTask());
+            arrayList.add(new InitCertVerifyTask());
+            arrayList.add(new InitLaunchSyncTask());
+            arrayList.add(new InitWebsocketBaseTask());
+            arrayList.add(new InitIMTask());
+            arrayList.add(new InitBDPlayerTask());
+            arrayList.add(new InitSwanDataTask());
+            if (TbadkCoreApplication.getInst().isDebugMode()) {
+                arrayList.add(new InitDebugTask());
             }
-            return arrayList;
+        } else if (i == 3) {
+            arrayList.add(new InitEmotionsTask());
+            arrayList.add(new InitDiskStatTask());
+            arrayList.add(new InitFlutterNpsPluginTask());
         }
-        return (List) invokeI.objValue;
+        return arrayList;
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
     public List<LaunchTask> onPrivacyPolicyGranted(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (i == 2) {
-                arrayList.add(new LaunchWithPrivacyTask());
-                arrayList.add(new DeleteApkTask());
-                if (!DelayInitNightPluginSwitch.isOn()) {
-                    arrayList.add(new NightPluginTask());
-                }
-                arrayList.add(new LogoTask());
-                arrayList.add(new InitAdvertDbTask());
-            } else if (i == 1) {
-                arrayList.add(new InitSDKWithPrivacyTask());
-            } else if (i == 3) {
-                arrayList.add(new MainTabLoadFinishTask());
-                arrayList.add(new GetYYCloudTask());
-                arrayList.add(new InitCookieTask());
-                arrayList.add(new InitMaintabFragmentTask());
-                arrayList.add(new InitIMSdkTask());
-                arrayList.add(new InitUnionIDTask());
-                arrayList.add(new MaintabAsyncInitTask());
-                arrayList.add(new LaunchStatTask());
-                arrayList.add(new InitSDKIdleTask());
-                if (DelayInitNightPluginSwitch.isOn()) {
-                    arrayList.add(new NightPluginTask());
-                }
-                arrayList.add(new InitCyberPlayerTask());
-                arrayList.add(new InitSwanAppTask());
-                arrayList.add(new InitPrologueAdTask());
-                arrayList.add(new InitBearTask());
+        ArrayList arrayList = new ArrayList();
+        if (i == 2) {
+            arrayList.add(new LaunchWithPrivacyTask());
+            arrayList.add(new DeleteApkTask());
+            if (!DelayInitNightPluginSwitch.isOn()) {
+                arrayList.add(new NightPluginTask());
             }
-            return arrayList;
+            arrayList.add(new LogoTask());
+            arrayList.add(new InitAdvertDbTask());
+        } else if (i == 1) {
+            arrayList.add(new InitSDKWithPrivacyTask());
+        } else if (i == 3) {
+            arrayList.add(new MainTabLoadFinishTask());
+            arrayList.add(new GetYYCloudTask());
+            arrayList.add(new InitCookieTask());
+            arrayList.add(new InitMaintabFragmentTask());
+            arrayList.add(new InitIMSdkTask());
+            arrayList.add(new InitUnionIDTask());
+            arrayList.add(new MaintabAsyncInitTask());
+            arrayList.add(new LaunchStatTask());
+            arrayList.add(new InitSDKIdleTask());
+            if (DelayInitNightPluginSwitch.isOn()) {
+                arrayList.add(new NightPluginTask());
+            }
+            arrayList.add(new InitCyberPlayerTask());
+            arrayList.add(new InitSwanAppTask());
+            arrayList.add(new InitPrologueAdTask());
+            arrayList.add(new InitBearTask());
         }
-        return (List) invokeI.objValue;
+        return arrayList;
     }
 }

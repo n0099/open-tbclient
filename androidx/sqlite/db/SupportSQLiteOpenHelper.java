@@ -9,12 +9,6 @@ import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -39,8 +33,6 @@ public interface SupportSQLiteOpenHelper {
 
     /* loaded from: classes.dex */
     public static class Configuration {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         @NonNull
         public final Callback callback;
         @NonNull
@@ -50,142 +42,69 @@ public interface SupportSQLiteOpenHelper {
 
         /* loaded from: classes.dex */
         public static class Builder {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
             public Callback mCallback;
             public Context mContext;
             public String mName;
 
             public Builder(@NonNull Context context) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {context};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
                 this.mContext = context;
             }
 
             public Builder callback(@NonNull Callback callback) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callback)) == null) {
-                    this.mCallback = callback;
-                    return this;
-                }
-                return (Builder) invokeL.objValue;
+                this.mCallback = callback;
+                return this;
             }
 
             public Builder name(@Nullable String str) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                    this.mName = str;
-                    return this;
-                }
-                return (Builder) invokeL.objValue;
+                this.mName = str;
+                return this;
             }
 
             public Configuration build() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    Callback callback = this.mCallback;
-                    if (callback != null) {
-                        Context context = this.mContext;
-                        if (context != null) {
-                            return new Configuration(context, this.mName, callback);
-                        }
-                        throw new IllegalArgumentException("Must set a non-null context to create the configuration.");
+                Callback callback = this.mCallback;
+                if (callback != null) {
+                    Context context = this.mContext;
+                    if (context != null) {
+                        return new Configuration(context, this.mName, callback);
                     }
-                    throw new IllegalArgumentException("Must set a callback to create the configuration.");
+                    throw new IllegalArgumentException("Must set a non-null context to create the configuration.");
                 }
-                return (Configuration) invokeV.objValue;
+                throw new IllegalArgumentException("Must set a callback to create the configuration.");
             }
         }
 
         public Configuration(@NonNull Context context, @Nullable String str, @NonNull Callback callback) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, str, callback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.context = context;
             this.name = str;
             this.callback = callback;
         }
 
         public static Builder builder(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-                return new Builder(context);
-            }
-            return (Builder) invokeL.objValue;
+            return new Builder(context);
         }
     }
 
     /* loaded from: classes.dex */
     public static abstract class Callback {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "SupportSQLite";
-        public transient /* synthetic */ FieldHolder $fh;
         public final int version;
 
         public void onConfigure(SupportSQLiteDatabase supportSQLiteDatabase) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, supportSQLiteDatabase) == null) {
-            }
         }
 
         public abstract void onCreate(SupportSQLiteDatabase supportSQLiteDatabase);
 
         public void onOpen(SupportSQLiteDatabase supportSQLiteDatabase) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, supportSQLiteDatabase) == null) {
-            }
         }
 
         public abstract void onUpgrade(SupportSQLiteDatabase supportSQLiteDatabase, int i, int i2);
 
         public Callback(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.version = i;
         }
 
         private void deleteDatabaseFile(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(65537, this, str) == null) && !str.equalsIgnoreCase(":memory:") && str.trim().length() != 0) {
+            if (!str.equalsIgnoreCase(":memory:") && str.trim().length() != 0) {
                 Log.w(TAG, "deleting the database file: " + str);
                 try {
                     if (Build.VERSION.SDK_INT >= 16) {
@@ -206,40 +125,34 @@ public interface SupportSQLiteOpenHelper {
         }
 
         public void onCorruption(SupportSQLiteDatabase supportSQLiteDatabase) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, supportSQLiteDatabase) == null) {
-                Log.e(TAG, "Corruption reported by sqlite on database: " + supportSQLiteDatabase.getPath());
-                if (!supportSQLiteDatabase.isOpen()) {
-                    deleteDatabaseFile(supportSQLiteDatabase.getPath());
-                    return;
-                }
-                List<Pair<String, String>> list = null;
+            Log.e(TAG, "Corruption reported by sqlite on database: " + supportSQLiteDatabase.getPath());
+            if (!supportSQLiteDatabase.isOpen()) {
+                deleteDatabaseFile(supportSQLiteDatabase.getPath());
+                return;
+            }
+            List<Pair<String, String>> list = null;
+            try {
                 try {
-                    try {
-                        list = supportSQLiteDatabase.getAttachedDbs();
-                    } finally {
-                        if (list != null) {
-                            for (Pair<String, String> next : list) {
-                                deleteDatabaseFile((String) next.second);
-                            }
-                        } else {
-                            deleteDatabaseFile(supportSQLiteDatabase.getPath());
-                        }
-                    }
+                    list = supportSQLiteDatabase.getAttachedDbs();
                 } catch (SQLiteException unused) {
                 }
                 try {
                     supportSQLiteDatabase.close();
                 } catch (IOException unused2) {
                 }
+            } finally {
+                if (list != null) {
+                    for (Pair<String, String> next : list) {
+                        deleteDatabaseFile((String) next.second);
+                    }
+                } else {
+                    deleteDatabaseFile(supportSQLiteDatabase.getPath());
+                }
             }
         }
 
         public void onDowngrade(SupportSQLiteDatabase supportSQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048579, this, supportSQLiteDatabase, i, i2) == null) {
-                throw new SQLiteException("Can't downgrade database from version " + i + " to " + i2);
-            }
+            throw new SQLiteException("Can't downgrade database from version " + i + " to " + i2);
         }
     }
 }

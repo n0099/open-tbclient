@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b75;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.p55;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class FollowUserSpinnerBtn extends LinearLayout implements p55 {
+public class FollowUserSpinnerBtn extends LinearLayout implements b75 {
     public static /* synthetic */ Interceptable $ic;
     public static final int p;
     public static final int q;
@@ -56,14 +56,14 @@ public class FollowUserSpinnerBtn extends LinearLayout implements p55 {
         void a(boolean z, boolean z2);
     }
 
-    @Override // com.baidu.tieba.p55
+    @Override // com.baidu.tieba.b75
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.p55
+    @Override // com.baidu.tieba.b75
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -201,7 +201,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements p55 {
         g(context);
     }
 
-    @Override // com.baidu.tieba.p55
+    @Override // com.baidu.tieba.b75
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
@@ -231,7 +231,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements p55 {
         }
     }
 
-    @Override // com.baidu.tieba.p55
+    @Override // com.baidu.tieba.b75
     public void b(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -239,7 +239,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements p55 {
         }
     }
 
-    @Override // com.baidu.tieba.p55
+    @Override // com.baidu.tieba.b75
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -270,9 +270,9 @@ public class FollowUserSpinnerBtn extends LinearLayout implements p55 {
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.follow_user_spinner_btn_layout, this);
             setOrientation(0);
-            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0913b6);
-            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d45);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09235a);
+            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0913f7);
+            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d89);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0923a4);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902be);
             Paint paint = new Paint(1);
             this.e = paint;
@@ -293,7 +293,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements p55 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             if (z) {
-                this.j = getResources().getString(R.string.obfuscated_res_0x7f0f06a1);
+                this.j = getResources().getString(R.string.obfuscated_res_0x7f0f06a5);
                 this.f = R.color.CAM_X0101;
                 this.g = R.color.CAM_X0904;
             } else {

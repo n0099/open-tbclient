@@ -1,26 +1,51 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.Matrix;
+import android.view.WindowManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tv.athena.revenue.api.pay.params.PayFlowType;
+import org.webrtc.TextureBufferImpl;
+import org.webrtc.VideoFrame;
+/* compiled from: CameraSession.java */
 /* loaded from: classes4.dex */
-public class ima {
+public final /* synthetic */ class ima {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static PayFlowType a(int i) {
-        InterceptResult invokeI;
+    public static VideoFrame.TextureBuffer a(TextureBufferImpl textureBufferImpl, boolean z, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i == PayFlowType.DIOALOG_PAY_FLOW.getTypeId()) {
-                return PayFlowType.DIOALOG_PAY_FLOW;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{textureBufferImpl, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            Matrix matrix = new Matrix();
+            matrix.preTranslate(0.5f, 0.5f);
+            if (z) {
+                matrix.preScale(-1.0f, 1.0f);
             }
-            if (i == PayFlowType.WALLET_PAY_FLOW.getTypeId()) {
-                return PayFlowType.WALLET_PAY_FLOW;
-            }
-            return null;
+            matrix.preRotate(i);
+            matrix.preTranslate(-0.5f, -0.5f);
+            return textureBufferImpl.applyTransformMatrix(matrix, textureBufferImpl.getWidth(), textureBufferImpl.getHeight());
         }
-        return (PayFlowType) invokeI.objValue;
+        return (VideoFrame.TextureBuffer) invokeCommon.objValue;
+    }
+
+    public static int b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            int rotation = ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getRotation();
+            if (rotation != 1) {
+                if (rotation != 2) {
+                    if (rotation != 3) {
+                        return 0;
+                    }
+                    return 270;
+                }
+                return 180;
+            }
+            return 90;
+        }
+        return invokeL.intValue;
     }
 }

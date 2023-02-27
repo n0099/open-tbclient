@@ -1,27 +1,26 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public abstract class ae8 {
+public class ae8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragmentActivity a;
-    public View b;
+    public final List<PostData> a;
+    public final List<Long> b;
+    public String c;
+    public int d;
 
-    public abstract void c(ec8 ec8Var);
-
-    public ae8(BaseFragmentActivity baseFragmentActivity, View view2) {
+    public ae8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,28 +30,17 @@ public abstract class ae8 {
                 return;
             }
         }
-        this.a = baseFragmentActivity;
-        this.b = view2;
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+        this.d = 0;
     }
 
-    public void a() {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b(null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-    }
-
-    public void b(ec8 ec8Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ec8Var) == null) && this.a != null && this.b != null) {
-            c(ec8Var);
-        }
-    }
-
-    public void d(View view2, View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, view2, onClickListener) == null) && view2 != null) {
-            view2.setOnClickListener(onClickListener);
-        }
+        return invokeV.intValue;
     }
 }

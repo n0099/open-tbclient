@@ -1,24 +1,16 @@
 package com.google.android.exoplayer2.text.webvtt;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.ColorParser;
 import com.google.android.exoplayer2.util.ParsableByteArray;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
 public final class CssParser {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String BLOCK_END = "}";
     public static final String BLOCK_START = "{";
     public static final String PROPERTY_BGCOLOR = "background-color";
@@ -29,47 +21,12 @@ public final class CssParser {
     public static final String VALUE_BOLD = "bold";
     public static final String VALUE_ITALIC = "italic";
     public static final String VALUE_UNDERLINE = "underline";
-    public static final Pattern VOICE_NAME_PATTERN;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final StringBuilder stringBuilder;
-    public final ParsableByteArray styleInput;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-325322910, "Lcom/google/android/exoplayer2/text/webvtt/CssParser;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-325322910, "Lcom/google/android/exoplayer2/text/webvtt/CssParser;");
-                return;
-            }
-        }
-        VOICE_NAME_PATTERN = Pattern.compile("\\[voice=\"([^\"]*)\"\\]");
-    }
-
-    public CssParser() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.styleInput = new ParsableByteArray();
-        this.stringBuilder = new StringBuilder();
-    }
+    public static final Pattern VOICE_NAME_PATTERN = Pattern.compile("\\[voice=\"([^\"]*)\"\\]");
+    public final ParsableByteArray styleInput = new ParsableByteArray();
+    public final StringBuilder stringBuilder = new StringBuilder();
 
     private void applySelectorToStyle(WebvttCssStyle webvttCssStyle, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65538, this, webvttCssStyle, str) != null) || "".equals(str)) {
+        if ("".equals(str)) {
             return;
         }
         int indexOf = str.indexOf(91);
@@ -95,283 +52,228 @@ public final class CssParser {
     }
 
     public static String parseIdentifier(ParsableByteArray parsableByteArray, StringBuilder sb) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, parsableByteArray, sb)) == null) {
-            boolean z = false;
-            sb.setLength(0);
-            int position = parsableByteArray.getPosition();
-            int limit = parsableByteArray.limit();
-            while (position < limit && !z) {
-                char c = (char) parsableByteArray.data[position];
-                if ((c < 'A' || c > 'Z') && ((c < 'a' || c > 'z') && ((c < '0' || c > '9') && c != '#' && c != '-' && c != '.' && c != '_'))) {
-                    z = true;
-                } else {
-                    position++;
-                    sb.append(c);
-                }
+        boolean z = false;
+        sb.setLength(0);
+        int position = parsableByteArray.getPosition();
+        int limit = parsableByteArray.limit();
+        while (position < limit && !z) {
+            char c = (char) parsableByteArray.data[position];
+            if ((c < 'A' || c > 'Z') && ((c < 'a' || c > 'z') && ((c < '0' || c > '9') && c != '#' && c != '-' && c != '.' && c != '_'))) {
+                z = true;
+            } else {
+                position++;
+                sb.append(c);
             }
-            parsableByteArray.skipBytes(position - parsableByteArray.getPosition());
-            return sb.toString();
         }
-        return (String) invokeLL.objValue;
+        parsableByteArray.skipBytes(position - parsableByteArray.getPosition());
+        return sb.toString();
     }
 
     public static String parseSelector(ParsableByteArray parsableByteArray, StringBuilder sb) {
-        InterceptResult invokeLL;
         String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, parsableByteArray, sb)) == null) {
-            skipWhitespaceAndComments(parsableByteArray);
-            if (parsableByteArray.bytesLeft() < 5 || !"::cue".equals(parsableByteArray.readString(5))) {
-                return null;
-            }
-            int position = parsableByteArray.getPosition();
-            String parseNextToken = parseNextToken(parsableByteArray, sb);
-            if (parseNextToken == null) {
-                return null;
-            }
-            if ("{".equals(parseNextToken)) {
-                parsableByteArray.setPosition(position);
-                return "";
-            }
-            if ("(".equals(parseNextToken)) {
-                str = readCueTarget(parsableByteArray);
-            } else {
-                str = null;
-            }
-            String parseNextToken2 = parseNextToken(parsableByteArray, sb);
-            if (!SmallTailInfo.EMOTION_SUFFIX.equals(parseNextToken2) || parseNextToken2 == null) {
-                return null;
-            }
-            return str;
+        skipWhitespaceAndComments(parsableByteArray);
+        if (parsableByteArray.bytesLeft() < 5 || !"::cue".equals(parsableByteArray.readString(5))) {
+            return null;
         }
-        return (String) invokeLL.objValue;
+        int position = parsableByteArray.getPosition();
+        String parseNextToken = parseNextToken(parsableByteArray, sb);
+        if (parseNextToken == null) {
+            return null;
+        }
+        if ("{".equals(parseNextToken)) {
+            parsableByteArray.setPosition(position);
+            return "";
+        }
+        if ("(".equals(parseNextToken)) {
+            str = readCueTarget(parsableByteArray);
+        } else {
+            str = null;
+        }
+        String parseNextToken2 = parseNextToken(parsableByteArray, sb);
+        if (!SmallTailInfo.EMOTION_SUFFIX.equals(parseNextToken2) || parseNextToken2 == null) {
+            return null;
+        }
+        return str;
     }
 
     public static boolean maybeSkipComment(ParsableByteArray parsableByteArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, parsableByteArray)) == null) {
-            int position = parsableByteArray.getPosition();
-            int limit = parsableByteArray.limit();
-            byte[] bArr = parsableByteArray.data;
-            if (position + 2 <= limit) {
-                int i = position + 1;
-                if (bArr[position] == 47) {
-                    int i2 = i + 1;
-                    if (bArr[i] != 42) {
-                        return false;
-                    }
-                    while (true) {
-                        int i3 = i2 + 1;
-                        if (i3 < limit) {
-                            if (((char) bArr[i2]) == '*' && ((char) bArr[i3]) == '/') {
-                                i2 = i3 + 1;
-                                limit = i2;
-                            } else {
-                                i2 = i3;
-                            }
-                        } else {
-                            parsableByteArray.skipBytes(limit - parsableByteArray.getPosition());
-                            return true;
-                        }
-                    }
-                } else {
+        int position = parsableByteArray.getPosition();
+        int limit = parsableByteArray.limit();
+        byte[] bArr = parsableByteArray.data;
+        if (position + 2 <= limit) {
+            int i = position + 1;
+            if (bArr[position] == 47) {
+                int i2 = i + 1;
+                if (bArr[i] != 42) {
                     return false;
+                }
+                while (true) {
+                    int i3 = i2 + 1;
+                    if (i3 < limit) {
+                        if (((char) bArr[i2]) == '*' && ((char) bArr[i3]) == '/') {
+                            i2 = i3 + 1;
+                            limit = i2;
+                        } else {
+                            i2 = i3;
+                        }
+                    } else {
+                        parsableByteArray.skipBytes(limit - parsableByteArray.getPosition());
+                        return true;
+                    }
                 }
             } else {
                 return false;
             }
         } else {
-            return invokeL.booleanValue;
+            return false;
         }
     }
 
     public static boolean maybeSkipWhitespace(ParsableByteArray parsableByteArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, parsableByteArray)) == null) {
-            char peekCharAtPosition = peekCharAtPosition(parsableByteArray, parsableByteArray.getPosition());
-            if (peekCharAtPosition != '\t' && peekCharAtPosition != '\n' && peekCharAtPosition != '\f' && peekCharAtPosition != '\r' && peekCharAtPosition != ' ') {
-                return false;
-            }
-            parsableByteArray.skipBytes(1);
-            return true;
+        char peekCharAtPosition = peekCharAtPosition(parsableByteArray, parsableByteArray.getPosition());
+        if (peekCharAtPosition != '\t' && peekCharAtPosition != '\n' && peekCharAtPosition != '\f' && peekCharAtPosition != '\r' && peekCharAtPosition != ' ') {
+            return false;
         }
-        return invokeL.booleanValue;
+        parsableByteArray.skipBytes(1);
+        return true;
     }
 
     public static String readCueTarget(ParsableByteArray parsableByteArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, parsableByteArray)) == null) {
-            int position = parsableByteArray.getPosition();
-            int limit = parsableByteArray.limit();
-            boolean z = false;
-            while (position < limit && !z) {
-                int i = position + 1;
-                if (((char) parsableByteArray.data[position]) == ')') {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                position = i;
+        int position = parsableByteArray.getPosition();
+        int limit = parsableByteArray.limit();
+        boolean z = false;
+        while (position < limit && !z) {
+            int i = position + 1;
+            if (((char) parsableByteArray.data[position]) == ')') {
+                z = true;
+            } else {
+                z = false;
             }
-            return parsableByteArray.readString((position - 1) - parsableByteArray.getPosition()).trim();
+            position = i;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String parseNextToken(ParsableByteArray parsableByteArray, StringBuilder sb) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, parsableByteArray, sb)) == null) {
-            skipWhitespaceAndComments(parsableByteArray);
-            if (parsableByteArray.bytesLeft() == 0) {
-                return null;
-            }
-            String parseIdentifier = parseIdentifier(parsableByteArray, sb);
-            if (!"".equals(parseIdentifier)) {
-                return parseIdentifier;
-            }
-            return "" + ((char) parsableByteArray.readUnsignedByte());
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String parsePropertyValue(ParsableByteArray parsableByteArray, StringBuilder sb) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, parsableByteArray, sb)) == null) {
-            StringBuilder sb2 = new StringBuilder();
-            boolean z = false;
-            while (!z) {
-                int position = parsableByteArray.getPosition();
-                String parseNextToken = parseNextToken(parsableByteArray, sb);
-                if (parseNextToken == null) {
-                    return null;
-                }
-                if (!"}".equals(parseNextToken) && !";".equals(parseNextToken)) {
-                    sb2.append(parseNextToken);
-                } else {
-                    parsableByteArray.setPosition(position);
-                    z = true;
-                }
-            }
-            return sb2.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void parseStyleDeclaration(ParsableByteArray parsableByteArray, WebvttCssStyle webvttCssStyle, StringBuilder sb) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, parsableByteArray, webvttCssStyle, sb) == null) {
-            skipWhitespaceAndComments(parsableByteArray);
-            String parseIdentifier = parseIdentifier(parsableByteArray, sb);
-            if ("".equals(parseIdentifier) || !":".equals(parseNextToken(parsableByteArray, sb))) {
-                return;
-            }
-            skipWhitespaceAndComments(parsableByteArray);
-            String parsePropertyValue = parsePropertyValue(parsableByteArray, sb);
-            if (parsePropertyValue != null && !"".equals(parsePropertyValue)) {
-                int position = parsableByteArray.getPosition();
-                String parseNextToken = parseNextToken(parsableByteArray, sb);
-                if (!";".equals(parseNextToken)) {
-                    if ("}".equals(parseNextToken)) {
-                        parsableByteArray.setPosition(position);
-                    } else {
-                        return;
-                    }
-                }
-                if ("color".equals(parseIdentifier)) {
-                    webvttCssStyle.setFontColor(ColorParser.parseCssColor(parsePropertyValue));
-                } else if ("background-color".equals(parseIdentifier)) {
-                    webvttCssStyle.setBackgroundColor(ColorParser.parseCssColor(parsePropertyValue));
-                } else if ("text-decoration".equals(parseIdentifier)) {
-                    if ("underline".equals(parsePropertyValue)) {
-                        webvttCssStyle.setUnderline(true);
-                    }
-                } else if (PROPERTY_FONT_FAMILY.equals(parseIdentifier)) {
-                    webvttCssStyle.setFontFamily(parsePropertyValue);
-                } else if ("font-weight".equals(parseIdentifier)) {
-                    if ("bold".equals(parsePropertyValue)) {
-                        webvttCssStyle.setBold(true);
-                    }
-                } else if ("font-style".equals(parseIdentifier) && "italic".equals(parsePropertyValue)) {
-                    webvttCssStyle.setItalic(true);
-                }
-            }
-        }
-    }
-
-    public static char peekCharAtPosition(ParsableByteArray parsableByteArray, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, parsableByteArray, i)) == null) {
-            return (char) parsableByteArray.data[i];
-        }
-        return invokeLI.charValue;
+        return parsableByteArray.readString((position - 1) - parsableByteArray.getPosition()).trim();
     }
 
     public static void skipStyleBlock(ParsableByteArray parsableByteArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, parsableByteArray) == null) {
-            do {
-            } while (!TextUtils.isEmpty(parsableByteArray.readLine()));
-        }
+        do {
+        } while (!TextUtils.isEmpty(parsableByteArray.readLine()));
     }
 
     public static void skipWhitespaceAndComments(ParsableByteArray parsableByteArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, parsableByteArray) == null) {
-            while (true) {
-                for (boolean z = true; parsableByteArray.bytesLeft() > 0 && z; z = false) {
-                    if (!maybeSkipWhitespace(parsableByteArray) && !maybeSkipComment(parsableByteArray)) {
-                    }
+        while (true) {
+            for (boolean z = true; parsableByteArray.bytesLeft() > 0 && z; z = false) {
+                if (!maybeSkipWhitespace(parsableByteArray) && !maybeSkipComment(parsableByteArray)) {
                 }
-                return;
+            }
+            return;
+        }
+    }
+
+    public static String parseNextToken(ParsableByteArray parsableByteArray, StringBuilder sb) {
+        skipWhitespaceAndComments(parsableByteArray);
+        if (parsableByteArray.bytesLeft() == 0) {
+            return null;
+        }
+        String parseIdentifier = parseIdentifier(parsableByteArray, sb);
+        if (!"".equals(parseIdentifier)) {
+            return parseIdentifier;
+        }
+        return "" + ((char) parsableByteArray.readUnsignedByte());
+    }
+
+    public static char peekCharAtPosition(ParsableByteArray parsableByteArray, int i) {
+        return (char) parsableByteArray.data[i];
+    }
+
+    public static String parsePropertyValue(ParsableByteArray parsableByteArray, StringBuilder sb) {
+        StringBuilder sb2 = new StringBuilder();
+        boolean z = false;
+        while (!z) {
+            int position = parsableByteArray.getPosition();
+            String parseNextToken = parseNextToken(parsableByteArray, sb);
+            if (parseNextToken == null) {
+                return null;
+            }
+            if (!"}".equals(parseNextToken) && !ParamableElem.DIVIDE_PARAM.equals(parseNextToken)) {
+                sb2.append(parseNextToken);
+            } else {
+                parsableByteArray.setPosition(position);
+                z = true;
+            }
+        }
+        return sb2.toString();
+    }
+
+    public static void parseStyleDeclaration(ParsableByteArray parsableByteArray, WebvttCssStyle webvttCssStyle, StringBuilder sb) {
+        skipWhitespaceAndComments(parsableByteArray);
+        String parseIdentifier = parseIdentifier(parsableByteArray, sb);
+        if ("".equals(parseIdentifier) || !":".equals(parseNextToken(parsableByteArray, sb))) {
+            return;
+        }
+        skipWhitespaceAndComments(parsableByteArray);
+        String parsePropertyValue = parsePropertyValue(parsableByteArray, sb);
+        if (parsePropertyValue != null && !"".equals(parsePropertyValue)) {
+            int position = parsableByteArray.getPosition();
+            String parseNextToken = parseNextToken(parsableByteArray, sb);
+            if (!ParamableElem.DIVIDE_PARAM.equals(parseNextToken)) {
+                if ("}".equals(parseNextToken)) {
+                    parsableByteArray.setPosition(position);
+                } else {
+                    return;
+                }
+            }
+            if ("color".equals(parseIdentifier)) {
+                webvttCssStyle.setFontColor(ColorParser.parseCssColor(parsePropertyValue));
+            } else if ("background-color".equals(parseIdentifier)) {
+                webvttCssStyle.setBackgroundColor(ColorParser.parseCssColor(parsePropertyValue));
+            } else if ("text-decoration".equals(parseIdentifier)) {
+                if ("underline".equals(parsePropertyValue)) {
+                    webvttCssStyle.setUnderline(true);
+                }
+            } else if (PROPERTY_FONT_FAMILY.equals(parseIdentifier)) {
+                webvttCssStyle.setFontFamily(parsePropertyValue);
+            } else if ("font-weight".equals(parseIdentifier)) {
+                if ("bold".equals(parsePropertyValue)) {
+                    webvttCssStyle.setBold(true);
+                }
+            } else if ("font-style".equals(parseIdentifier) && "italic".equals(parsePropertyValue)) {
+                webvttCssStyle.setItalic(true);
             }
         }
     }
 
     public WebvttCssStyle parseBlock(ParsableByteArray parsableByteArray) {
-        InterceptResult invokeL;
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parsableByteArray)) == null) {
-            this.stringBuilder.setLength(0);
-            int position = parsableByteArray.getPosition();
-            skipStyleBlock(parsableByteArray);
-            this.styleInput.reset(parsableByteArray.data, parsableByteArray.getPosition());
-            this.styleInput.setPosition(position);
-            String parseSelector = parseSelector(this.styleInput, this.stringBuilder);
-            if (parseSelector == null || !"{".equals(parseNextToken(this.styleInput, this.stringBuilder))) {
-                return null;
-            }
-            WebvttCssStyle webvttCssStyle = new WebvttCssStyle();
-            applySelectorToStyle(webvttCssStyle, parseSelector);
-            String str = null;
-            boolean z2 = false;
-            while (!z2) {
-                int position2 = this.styleInput.getPosition();
-                str = parseNextToken(this.styleInput, this.stringBuilder);
-                if (str != null && !"}".equals(str)) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (!z) {
-                    this.styleInput.setPosition(position2);
-                    parseStyleDeclaration(this.styleInput, webvttCssStyle, this.stringBuilder);
-                }
-                z2 = z;
-            }
-            if (!"}".equals(str)) {
-                return null;
-            }
-            return webvttCssStyle;
+        this.stringBuilder.setLength(0);
+        int position = parsableByteArray.getPosition();
+        skipStyleBlock(parsableByteArray);
+        this.styleInput.reset(parsableByteArray.data, parsableByteArray.getPosition());
+        this.styleInput.setPosition(position);
+        String parseSelector = parseSelector(this.styleInput, this.stringBuilder);
+        if (parseSelector == null || !"{".equals(parseNextToken(this.styleInput, this.stringBuilder))) {
+            return null;
         }
-        return (WebvttCssStyle) invokeL.objValue;
+        WebvttCssStyle webvttCssStyle = new WebvttCssStyle();
+        applySelectorToStyle(webvttCssStyle, parseSelector);
+        String str = null;
+        boolean z2 = false;
+        while (!z2) {
+            int position2 = this.styleInput.getPosition();
+            str = parseNextToken(this.styleInput, this.stringBuilder);
+            if (str != null && !"}".equals(str)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z) {
+                this.styleInput.setPosition(position2);
+                parseStyleDeclaration(this.styleInput, webvttCssStyle, this.stringBuilder);
+            }
+            z2 = z;
+        }
+        if (!"}".equals(str)) {
+            return null;
+        }
+        return webvttCssStyle;
     }
 }

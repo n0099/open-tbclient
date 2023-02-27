@@ -581,7 +581,7 @@ public class t7<V> implements Iterable<b<V>> {
                     if (i2 != 0) {
                         sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                         sb.append(i2);
-                        sb.append(com.alipay.sdk.encrypt.a.h);
+                        sb.append('=');
                         sb.append(vArr[i]);
                     }
                     length = i;
@@ -601,7 +601,7 @@ public class t7<V> implements Iterable<b<V>> {
                             length = i;
                         } else {
                             sb.append(i3);
-                            sb.append(com.alipay.sdk.encrypt.a.h);
+                            sb.append('=');
                             sb.append(vArr[i]);
                             break;
                         }

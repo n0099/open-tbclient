@@ -1,12 +1,5 @@
 package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.IsoTypeReader;
 import java.io.IOException;
 import java.lang.reflect.Modifier;
@@ -18,26 +11,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 /* loaded from: classes8.dex */
 public class ObjectDescriptorFactory {
-    public static /* synthetic */ Interceptable $ic;
-    public static Map<Integer, Map<Integer, Class<? extends BaseDescriptor>>> descriptorRegistry;
-    public static Logger log;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static Logger log = Logger.getLogger(ObjectDescriptorFactory.class.getName());
+    public static Map<Integer, Map<Integer, Class<? extends BaseDescriptor>>> descriptorRegistry = new HashMap();
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1589297077, "Lcom/googlecode/mp4parser/boxes/mp4/objectdescriptors/ObjectDescriptorFactory;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1589297077, "Lcom/googlecode/mp4parser/boxes/mp4/objectdescriptors/ObjectDescriptorFactory;");
-                return;
-            }
-        }
-        log = Logger.getLogger(ObjectDescriptorFactory.class.getName());
-        descriptorRegistry = new HashMap();
         HashSet<Class<? extends BaseDescriptor>> hashSet = new HashSet();
         hashSet.add(DecoderSpecificInfo.class);
         hashSet.add(SLConfigDescriptor.class);
@@ -64,48 +41,29 @@ public class ObjectDescriptorFactory {
         }
     }
 
-    public ObjectDescriptorFactory() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
     public static BaseDescriptor createFrom(int i, ByteBuffer byteBuffer) throws IOException {
-        InterceptResult invokeIL;
         BaseDescriptor unknownDescriptor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, byteBuffer)) == null) {
-            int readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
-            Map<Integer, Class<? extends BaseDescriptor>> map = descriptorRegistry.get(Integer.valueOf(i));
-            if (map == null) {
-                map = descriptorRegistry.get(-1);
-            }
-            Class<? extends BaseDescriptor> cls = map.get(Integer.valueOf(readUInt8));
-            if (cls != null && !cls.isInterface() && !Modifier.isAbstract(cls.getModifiers())) {
-                try {
-                    unknownDescriptor = cls.newInstance();
-                } catch (Exception e) {
-                    Logger logger = log;
-                    Level level = Level.SEVERE;
-                    logger.log(level, "Couldn't instantiate BaseDescriptor class " + cls + " for objectTypeIndication " + i + " and tag " + readUInt8, (Throwable) e);
-                    throw new RuntimeException(e);
-                }
-            } else {
-                Logger logger2 = log;
-                logger2.warning("No ObjectDescriptor found for objectTypeIndication " + Integer.toHexString(i) + " and tag " + Integer.toHexString(readUInt8) + " found: " + cls);
-                unknownDescriptor = new UnknownDescriptor();
-            }
-            unknownDescriptor.parse(readUInt8, byteBuffer);
-            return unknownDescriptor;
+        int readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
+        Map<Integer, Class<? extends BaseDescriptor>> map = descriptorRegistry.get(Integer.valueOf(i));
+        if (map == null) {
+            map = descriptorRegistry.get(-1);
         }
-        return (BaseDescriptor) invokeIL.objValue;
+        Class<? extends BaseDescriptor> cls = map.get(Integer.valueOf(readUInt8));
+        if (cls != null && !cls.isInterface() && !Modifier.isAbstract(cls.getModifiers())) {
+            try {
+                unknownDescriptor = cls.newInstance();
+            } catch (Exception e) {
+                Logger logger = log;
+                Level level = Level.SEVERE;
+                logger.log(level, "Couldn't instantiate BaseDescriptor class " + cls + " for objectTypeIndication " + i + " and tag " + readUInt8, (Throwable) e);
+                throw new RuntimeException(e);
+            }
+        } else {
+            Logger logger2 = log;
+            logger2.warning("No ObjectDescriptor found for objectTypeIndication " + Integer.toHexString(i) + " and tag " + Integer.toHexString(readUInt8) + " found: " + cls);
+            unknownDescriptor = new UnknownDescriptor();
+        }
+        unknownDescriptor.parse(readUInt8, byteBuffer);
+        return unknownDescriptor;
     }
 }

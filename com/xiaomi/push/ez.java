@@ -1,339 +1,543 @@
 package com.xiaomi.push;
 
-import androidx.core.view.InputDeviceCompat;
-import androidx.media2.session.SessionCommand;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.connect.common.Constants;
-/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import java.io.Serializable;
+import java.util.BitSet;
 /* loaded from: classes8.dex */
-public final class ez {
-    public static /* synthetic */ Interceptable $ic;
-    public static final ez A;
-    public static final ez B;
-    public static final ez C;
-    public static final ez D;
-    public static final ez E;
-    public static final ez F;
-    public static final ez G;
-    public static final ez H;
-    public static final ez I;
-    public static final ez J;
-    public static final ez K;
-    public static final ez L;
-    public static final ez M;
-    public static final ez N;
-    public static final ez O;
-    public static final ez P;
-    public static final ez Q;
-    public static final ez R;
-    public static final ez S;
-    public static final ez T;
-    public static final ez U;
-    public static final ez V;
-    public static final ez W;
-    public static final ez X;
-    public static final ez Y;
-    public static final ez Z;
-    public static final ez a;
+public class ez implements is<ez, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ ez[] f358a;
-    public static final ez aa;
-    public static final ez ab;
-    public static final ez ac;
-    public static final ez ad;
-    public static final ez ae;
-    public static final ez b;
-    public static final ez c;
-    public static final ez d;
-    public static final ez e;
-    public static final ez f;
-    public static final ez g;
-    public static final ez h;
-    public static final ez i;
-    public static final ez j;
-    public static final ez k;
-    public static final ez l;
-    public static final ez m;
-    public static final ez n;
-    public static final ez o;
-    public static final ez p;
-    public static final ez q;
-    public static final ez r;
-    public static final ez s;
-    public static final ez t;
-    public static final ez u;
-    public static final ez v;
-    public static final ez w;
-    public static final ez x;
-    public static final ez y;
-    public static final ez z;
-    public transient /* synthetic */ FieldHolder $fh;
+    public byte f340a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f359a;
+    public int f341a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56375253, "Lcom/xiaomi/push/ez;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-56375253, "Lcom/xiaomi/push/ez;");
-                return;
-            }
-        }
-        a = new ez("TCP_CONN_FAIL", 0, 1);
-        b = new ez("TCP_CONN_TIME", 1, 2);
-        c = new ez("PING_RTT", 2, 3);
-        d = new ez("CHANNEL_CON_FAIL", 3, 4);
-        e = new ez("CHANNEL_CON_OK", 4, 5);
-        f = new ez("ICMP_PING_FAIL", 5, 6);
-        g = new ez("ICMP_PING_OK", 6, 7);
-        h = new ez("CHANNEL_ONLINE_RATE", 7, 8);
-        i = new ez("BATCH_TCP_CONN_SUCCESS", 8, 1000);
-        j = new ez("BATCH_TCP_CONN_FAIL", 9, 1001);
-        k = new ez("CHANNEL_STATS_COUNTER", 10, 8000);
-        l = new ez("GSLB_REQUEST_SUCCESS", 11, 10000);
-        m = new ez("GSLB_TCP_NOACCESS", 12, 10101);
-        n = new ez("GSLB_TCP_NETUNREACH", 13, 10102);
-        o = new ez("GSLB_TCP_CONNREFUSED", 14, 10103);
-        p = new ez("GSLB_TCP_NOROUTETOHOST", 15, Constants.REQUEST_QZONE_SHARE);
-        q = new ez("GSLB_TCP_TIMEOUT", 16, Constants.REQUEST_QQ_FAVORITES);
-        r = new ez("GSLB_TCP_INVALARG", 17, Constants.REQUEST_SEND_TO_MY_COMPUTER);
-        s = new ez("GSLB_TCP_UKNOWNHOST", 18, Constants.REQUEST_SHARE_TO_TROOP_BAR);
-        t = new ez("GSLB_TCP_ERR_OTHER", 19, 10199);
-        u = new ez("GSLB_ERR", 20, 10999);
-        v = new ez("CONN_SUCCESS", 21, 20000);
-        w = new ez("CONN_TCP_NOACCESS", 22, 20101);
-        x = new ez("CONN_TCP_NETUNREACH", 23, 20102);
-        y = new ez("CONN_TCP_CONNREFUSED", 24, 20103);
-        z = new ez("CONN_TCP_NOROUTETOHOST", 25, 20104);
-        A = new ez("CONN_TCP_TIMEOUT", 26, 20105);
-        B = new ez("CONN_TCP_INVALARG", 27, 20106);
-        C = new ez("CONN_TCP_UKNOWNHOST", 28, 20107);
-        D = new ez("CONN_TCP_ERR_OTHER", 29, 20199);
-        E = new ez("CONN_XMPP_ERR", 30, 20399);
-        F = new ez("CONN_BOSH_UNKNOWNHOST", 31, 20407);
-        G = new ez("CONN_BOSH_ERR", 32, 20499);
-        H = new ez("BIND_SUCCESS", 33, 30000);
-        I = new ez("BIND_TCP_READ_TIMEOUT_DEPRECTED", 34, 30101);
-        J = new ez("BIND_TCP_CONNRESET_DEPRECTED", 35, 30102);
-        K = new ez("BIND_TCP_BROKEN_PIPE_DEPRECTED", 36, 30103);
-        L = new ez("BIND_TCP_READ_TIMEOUT", 37, 30108);
-        M = new ez("BIND_TCP_CONNRESET", 38, 30109);
-        N = new ez("BIND_TCP_BROKEN_PIPE", 39, 30110);
-        O = new ez("BIND_TCP_ERR", 40, 30199);
-        P = new ez("BIND_XMPP_ERR", 41, 30399);
-        Q = new ez("BIND_BOSH_ITEM_NOT_FOUND", 42, 30401);
-        R = new ez("BIND_BOSH_ERR", 43, 30499);
-        S = new ez("BIND_TIMEOUT", 44, 30501);
-        T = new ez("BIND_INVALID_SIG", 45, 30502);
-        U = new ez("CHANNEL_TCP_READTIMEOUT_DEPRECTED", 46, 40101);
-        V = new ez("CHANNEL_TCP_CONNRESET_DEPRECTED", 47, 40102);
-        W = new ez("CHANNEL_TCP_BROKEN_PIPE_DEPRECTED", 48, 40103);
-        X = new ez("CHANNEL_TCP_READTIMEOUT", 49, 40108);
-        Y = new ez("CHANNEL_TCP_CONNRESET", 50, 40109);
-        Z = new ez("CHANNEL_TCP_BROKEN_PIPE", 51, 40110);
-        aa = new ez("CHANNEL_TCP_ERR", 52, 40199);
-        ab = new ez("CHANNEL_XMPPEXCEPTION", 53, 40399);
-        ac = new ez("CHANNEL_BOSH_ITEMNOTFIND", 54, 40401);
-        ad = new ez("CHANNEL_BOSH_EXCEPTION", 55, 40499);
-        ez ezVar = new ez("CHANNEL_TIMER_DELAYED", 56, SessionCommand.COMMAND_CODE_LIBRARY_SUBSCRIBE);
-        ae = ezVar;
-        f358a = new ez[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ezVar};
-    }
+    /* renamed from: a  reason: collision with other field name */
+    public String f342a;
 
-    public ez(String str, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                String str2 = (String) objArr2[0];
-                ((Integer) objArr2[1]).intValue();
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f359a = i3;
-    }
+    /* renamed from: a  reason: collision with other field name */
+    public BitSet f343a = new BitSet(6);
 
-    public static ez a(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 != 30501) {
-                if (i2 != 30502) {
-                    switch (i2) {
-                        case 1:
-                            return a;
-                        case 2:
-                            return b;
-                        case 3:
-                            return c;
-                        case 4:
-                            return d;
-                        case 5:
-                            return e;
-                        case 6:
-                            return f;
-                        case 7:
-                            return g;
-                        case 8:
-                            return h;
-                        default:
-                            switch (i2) {
-                                case 8000:
-                                    return k;
-                                case 10000:
-                                    return l;
-                                case 10199:
-                                    return t;
-                                case 10999:
-                                    return u;
-                                case 20000:
-                                    return v;
-                                case 20199:
-                                    return D;
-                                case 20399:
-                                    return E;
-                                case 20407:
-                                    return F;
-                                case 20499:
-                                    return G;
-                                case 30000:
-                                    return H;
-                                case 30199:
-                                    return O;
-                                case 30399:
-                                    return P;
-                                case 30401:
-                                    return Q;
-                                case 30499:
-                                    return R;
-                                case 40199:
-                                    return aa;
-                                case 40399:
-                                    return ab;
-                                case 40401:
-                                    return ac;
-                                case 40499:
-                                    return ad;
-                                case SessionCommand.COMMAND_CODE_LIBRARY_SUBSCRIBE /* 50001 */:
-                                    return ae;
-                                default:
-                                    switch (i2) {
-                                        case 10101:
-                                            return m;
-                                        case 10102:
-                                            return n;
-                                        case 10103:
-                                            return o;
-                                        case Constants.REQUEST_QZONE_SHARE /* 10104 */:
-                                            return p;
-                                        case Constants.REQUEST_QQ_FAVORITES /* 10105 */:
-                                            return q;
-                                        case Constants.REQUEST_SEND_TO_MY_COMPUTER /* 10106 */:
-                                            return r;
-                                        case Constants.REQUEST_SHARE_TO_TROOP_BAR /* 10107 */:
-                                            return s;
-                                        default:
-                                            switch (i2) {
-                                                case 20101:
-                                                    return w;
-                                                case 20102:
-                                                    return x;
-                                                case 20103:
-                                                    return y;
-                                                case 20104:
-                                                    return z;
-                                                case 20105:
-                                                    return A;
-                                                case 20106:
-                                                    return B;
-                                                case 20107:
-                                                    return C;
-                                                default:
-                                                    switch (i2) {
-                                                        case 30101:
-                                                            return I;
-                                                        case 30102:
-                                                            return J;
-                                                        case 30103:
-                                                            return K;
-                                                        default:
-                                                            switch (i2) {
-                                                                case 30108:
-                                                                    return L;
-                                                                case 30109:
-                                                                    return M;
-                                                                case 30110:
-                                                                    return N;
-                                                                default:
-                                                                    switch (i2) {
-                                                                        case 40101:
-                                                                            return U;
-                                                                        case 40102:
-                                                                            return V;
-                                                                        case 40103:
-                                                                            return W;
-                                                                        default:
-                                                                            switch (i2) {
-                                                                                case 40108:
-                                                                                    return X;
-                                                                                case 40109:
-                                                                                    return Y;
-                                                                                case 40110:
-                                                                                    return Z;
-                                                                                default:
-                                                                                    return null;
-                                                                            }
-                                                                    }
-                                                            }
-                                                    }
-                                            }
-                                    }
-                            }
-                    }
+    /* renamed from: b  reason: collision with other field name */
+    public int f344b;
+
+    /* renamed from: b  reason: collision with other field name */
+    public String f345b;
+
+    /* renamed from: c  reason: collision with other field name */
+    public int f346c;
+
+    /* renamed from: c  reason: collision with other field name */
+    public String f347c;
+
+    /* renamed from: d  reason: collision with other field name */
+    public int f348d;
+
+    /* renamed from: d  reason: collision with other field name */
+    public String f349d;
+
+    /* renamed from: e  reason: collision with other field name */
+    public int f350e;
+
+    /* renamed from: a  reason: collision with other field name */
+    public static final ji f339a = new ji("StatsEvent");
+    public static final ja a = new ja("", (byte) 3, 1);
+    public static final ja b = new ja("", (byte) 8, 2);
+    public static final ja c = new ja("", (byte) 8, 3);
+    public static final ja d = new ja("", Constants.GZIP_CAST_TYPE, 4);
+    public static final ja e = new ja("", Constants.GZIP_CAST_TYPE, 5);
+    public static final ja f = new ja("", (byte) 8, 6);
+    public static final ja g = new ja("", Constants.GZIP_CAST_TYPE, 7);
+    public static final ja h = new ja("", Constants.GZIP_CAST_TYPE, 8);
+    public static final ja i = new ja("", (byte) 8, 9);
+    public static final ja j = new ja("", (byte) 8, 10);
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(ez ezVar) {
+        int a2;
+        int a3;
+        int a4;
+        int a5;
+        int a6;
+        int a7;
+        int a8;
+        int a9;
+        int a10;
+        int a11;
+        if (ez.class.equals(ezVar.getClass())) {
+            int compareTo = Boolean.valueOf(m385a()).compareTo(Boolean.valueOf(ezVar.m385a()));
+            if (compareTo != 0) {
+                return compareTo;
+            }
+            if (!m385a() || (a11 = it.a(this.f340a, ezVar.f340a)) == 0) {
+                int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(ezVar.b()));
+                if (compareTo2 != 0) {
+                    return compareTo2;
                 }
-                return T;
+                if (!b() || (a10 = it.a(this.f341a, ezVar.f341a)) == 0) {
+                    int compareTo3 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(ezVar.c()));
+                    if (compareTo3 != 0) {
+                        return compareTo3;
+                    }
+                    if (!c() || (a9 = it.a(this.f344b, ezVar.f344b)) == 0) {
+                        int compareTo4 = Boolean.valueOf(d()).compareTo(Boolean.valueOf(ezVar.d()));
+                        if (compareTo4 != 0) {
+                            return compareTo4;
+                        }
+                        if (!d() || (a8 = it.a(this.f342a, ezVar.f342a)) == 0) {
+                            int compareTo5 = Boolean.valueOf(e()).compareTo(Boolean.valueOf(ezVar.e()));
+                            if (compareTo5 != 0) {
+                                return compareTo5;
+                            }
+                            if (!e() || (a7 = it.a(this.f345b, ezVar.f345b)) == 0) {
+                                int compareTo6 = Boolean.valueOf(f()).compareTo(Boolean.valueOf(ezVar.f()));
+                                if (compareTo6 != 0) {
+                                    return compareTo6;
+                                }
+                                if (!f() || (a6 = it.a(this.f346c, ezVar.f346c)) == 0) {
+                                    int compareTo7 = Boolean.valueOf(g()).compareTo(Boolean.valueOf(ezVar.g()));
+                                    if (compareTo7 != 0) {
+                                        return compareTo7;
+                                    }
+                                    if (!g() || (a5 = it.a(this.f347c, ezVar.f347c)) == 0) {
+                                        int compareTo8 = Boolean.valueOf(h()).compareTo(Boolean.valueOf(ezVar.h()));
+                                        if (compareTo8 != 0) {
+                                            return compareTo8;
+                                        }
+                                        if (!h() || (a4 = it.a(this.f349d, ezVar.f349d)) == 0) {
+                                            int compareTo9 = Boolean.valueOf(i()).compareTo(Boolean.valueOf(ezVar.i()));
+                                            if (compareTo9 != 0) {
+                                                return compareTo9;
+                                            }
+                                            if (!i() || (a3 = it.a(this.f348d, ezVar.f348d)) == 0) {
+                                                int compareTo10 = Boolean.valueOf(j()).compareTo(Boolean.valueOf(ezVar.j()));
+                                                if (compareTo10 != 0) {
+                                                    return compareTo10;
+                                                }
+                                                if (!j() || (a2 = it.a(this.f350e, ezVar.f350e)) == 0) {
+                                                    return 0;
+                                                }
+                                                return a2;
+                                            }
+                                            return a3;
+                                        }
+                                        return a4;
+                                    }
+                                    return a5;
+                                }
+                                return a6;
+                            }
+                            return a7;
+                        }
+                        return a8;
+                    }
+                    return a9;
+                }
+                return a10;
             }
-            return S;
+            return a11;
         }
-        return (ez) invokeI.objValue;
+        return ez.class.getName().compareTo(ezVar.getClass().getName());
     }
 
-    public static ez valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (ez) Enum.valueOf(ez.class, str) : (ez) invokeL.objValue;
+    public ez a(byte b2) {
+        this.f340a = b2;
+        a(true);
+        return this;
     }
 
-    public static ez[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ez[]) f358a.clone() : (ez[]) invokeV.objValue;
+    public ez a(int i2) {
+        this.f341a = i2;
+        b(true);
+        return this;
     }
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f359a : invokeV.intValue;
+    public ez a(String str) {
+        this.f342a = str;
+        return this;
+    }
+
+    public void a() {
+        if (this.f342a != null) {
+            return;
+        }
+        throw new je("Required field 'connpt' was not present! Struct: " + toString());
+    }
+
+    @Override // com.xiaomi.push.is
+    public void a(jd jdVar) {
+        jdVar.mo617a();
+        while (true) {
+            ja mo613a = jdVar.mo613a();
+            byte b2 = mo613a.a;
+            if (b2 == 0) {
+                jdVar.f();
+                if (!m385a()) {
+                    throw new je("Required field 'chid' was not found in serialized data! Struct: " + toString());
+                } else if (!b()) {
+                    throw new je("Required field 'type' was not found in serialized data! Struct: " + toString());
+                } else if (c()) {
+                    a();
+                    return;
+                } else {
+                    throw new je("Required field 'value' was not found in serialized data! Struct: " + toString());
+                }
+            }
+            switch (mo613a.f813a) {
+                case 1:
+                    if (b2 == 3) {
+                        this.f340a = jdVar.a();
+                        a(true);
+                        continue;
+                        jdVar.g();
+                    }
+                    break;
+                case 2:
+                    if (b2 == 8) {
+                        this.f341a = jdVar.mo611a();
+                        b(true);
+                        continue;
+                        jdVar.g();
+                    }
+                    break;
+                case 3:
+                    if (b2 == 8) {
+                        this.f344b = jdVar.mo611a();
+                        c(true);
+                        continue;
+                        jdVar.g();
+                    }
+                    break;
+                case 4:
+                    if (b2 == 11) {
+                        this.f342a = jdVar.mo618a();
+                        continue;
+                        jdVar.g();
+                    }
+                    break;
+                case 5:
+                    if (b2 == 11) {
+                        this.f345b = jdVar.mo618a();
+                        continue;
+                        jdVar.g();
+                    }
+                    break;
+                case 6:
+                    if (b2 == 8) {
+                        this.f346c = jdVar.mo611a();
+                        d(true);
+                        continue;
+                        jdVar.g();
+                    }
+                    break;
+                case 7:
+                    if (b2 == 11) {
+                        this.f347c = jdVar.mo618a();
+                        continue;
+                        jdVar.g();
+                    }
+                    break;
+                case 8:
+                    if (b2 == 11) {
+                        this.f349d = jdVar.mo618a();
+                        continue;
+                        jdVar.g();
+                    }
+                    break;
+                case 9:
+                    if (b2 == 8) {
+                        this.f348d = jdVar.mo611a();
+                        e(true);
+                        continue;
+                        jdVar.g();
+                    }
+                    break;
+                case 10:
+                    if (b2 == 8) {
+                        this.f350e = jdVar.mo611a();
+                        f(true);
+                        continue;
+                        jdVar.g();
+                    }
+                    break;
+            }
+            jg.a(jdVar, b2);
+            jdVar.g();
+        }
+    }
+
+    public void a(boolean z) {
+        this.f343a.set(0, z);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m385a() {
+        return this.f343a.get(0);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m386a(ez ezVar) {
+        if (ezVar != null && this.f340a == ezVar.f340a && this.f341a == ezVar.f341a && this.f344b == ezVar.f344b) {
+            boolean d2 = d();
+            boolean d3 = ezVar.d();
+            if ((d2 || d3) && !(d2 && d3 && this.f342a.equals(ezVar.f342a))) {
+                return false;
+            }
+            boolean e2 = e();
+            boolean e3 = ezVar.e();
+            if ((e2 || e3) && !(e2 && e3 && this.f345b.equals(ezVar.f345b))) {
+                return false;
+            }
+            boolean f2 = f();
+            boolean f3 = ezVar.f();
+            if ((f2 || f3) && !(f2 && f3 && this.f346c == ezVar.f346c)) {
+                return false;
+            }
+            boolean g2 = g();
+            boolean g3 = ezVar.g();
+            if ((g2 || g3) && !(g2 && g3 && this.f347c.equals(ezVar.f347c))) {
+                return false;
+            }
+            boolean h2 = h();
+            boolean h3 = ezVar.h();
+            if ((h2 || h3) && !(h2 && h3 && this.f349d.equals(ezVar.f349d))) {
+                return false;
+            }
+            boolean i2 = i();
+            boolean i3 = ezVar.i();
+            if ((i2 || i3) && !(i2 && i3 && this.f348d == ezVar.f348d)) {
+                return false;
+            }
+            boolean j2 = j();
+            boolean j3 = ezVar.j();
+            if (j2 || j3) {
+                return j2 && j3 && this.f350e == ezVar.f350e;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public ez b(int i2) {
+        this.f344b = i2;
+        c(true);
+        return this;
+    }
+
+    public ez b(String str) {
+        this.f345b = str;
+        return this;
+    }
+
+    @Override // com.xiaomi.push.is
+    public void b(jd jdVar) {
+        a();
+        jdVar.a(f339a);
+        jdVar.a(a);
+        jdVar.a(this.f340a);
+        jdVar.b();
+        jdVar.a(b);
+        jdVar.mo622a(this.f341a);
+        jdVar.b();
+        jdVar.a(c);
+        jdVar.mo622a(this.f344b);
+        jdVar.b();
+        if (this.f342a != null) {
+            jdVar.a(d);
+            jdVar.a(this.f342a);
+            jdVar.b();
+        }
+        if (this.f345b != null && e()) {
+            jdVar.a(e);
+            jdVar.a(this.f345b);
+            jdVar.b();
+        }
+        if (f()) {
+            jdVar.a(f);
+            jdVar.mo622a(this.f346c);
+            jdVar.b();
+        }
+        if (this.f347c != null && g()) {
+            jdVar.a(g);
+            jdVar.a(this.f347c);
+            jdVar.b();
+        }
+        if (this.f349d != null && h()) {
+            jdVar.a(h);
+            jdVar.a(this.f349d);
+            jdVar.b();
+        }
+        if (i()) {
+            jdVar.a(i);
+            jdVar.mo622a(this.f348d);
+            jdVar.b();
+        }
+        if (j()) {
+            jdVar.a(j);
+            jdVar.mo622a(this.f350e);
+            jdVar.b();
+        }
+        jdVar.c();
+        jdVar.mo621a();
+    }
+
+    public void b(boolean z) {
+        this.f343a.set(1, z);
+    }
+
+    public boolean b() {
+        return this.f343a.get(1);
+    }
+
+    public ez c(int i2) {
+        this.f346c = i2;
+        d(true);
+        return this;
+    }
+
+    public ez c(String str) {
+        this.f347c = str;
+        return this;
+    }
+
+    public void c(boolean z) {
+        this.f343a.set(2, z);
+    }
+
+    public boolean c() {
+        return this.f343a.get(2);
+    }
+
+    public ez d(int i2) {
+        this.f348d = i2;
+        e(true);
+        return this;
+    }
+
+    public ez d(String str) {
+        this.f349d = str;
+        return this;
+    }
+
+    public void d(boolean z) {
+        this.f343a.set(3, z);
+    }
+
+    public boolean d() {
+        return this.f342a != null;
+    }
+
+    public void e(boolean z) {
+        this.f343a.set(4, z);
+    }
+
+    public boolean e() {
+        return this.f345b != null;
+    }
+
+    public boolean equals(Object obj) {
+        if (obj != null && (obj instanceof ez)) {
+            return m386a((ez) obj);
+        }
+        return false;
+    }
+
+    public void f(boolean z) {
+        this.f343a.set(5, z);
+    }
+
+    public boolean f() {
+        return this.f343a.get(3);
+    }
+
+    public boolean g() {
+        return this.f347c != null;
+    }
+
+    public boolean h() {
+        return this.f349d != null;
+    }
+
+    public int hashCode() {
+        return 0;
+    }
+
+    public boolean i() {
+        return this.f343a.get(4);
+    }
+
+    public boolean j() {
+        return this.f343a.get(5);
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder("StatsEvent(");
+        sb.append("chid:");
+        sb.append((int) this.f340a);
+        sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+        sb.append("type:");
+        sb.append(this.f341a);
+        sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+        sb.append("value:");
+        sb.append(this.f344b);
+        sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+        sb.append("connpt:");
+        String str = this.f342a;
+        if (str == null) {
+            sb.append(StringUtil.NULL_STRING);
+        } else {
+            sb.append(str);
+        }
+        if (e()) {
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append("host:");
+            String str2 = this.f345b;
+            if (str2 == null) {
+                sb.append(StringUtil.NULL_STRING);
+            } else {
+                sb.append(str2);
+            }
+        }
+        if (f()) {
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append("subvalue:");
+            sb.append(this.f346c);
+        }
+        if (g()) {
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append("annotation:");
+            String str3 = this.f347c;
+            if (str3 == null) {
+                sb.append(StringUtil.NULL_STRING);
+            } else {
+                sb.append(str3);
+            }
+        }
+        if (h()) {
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append("user:");
+            String str4 = this.f349d;
+            if (str4 == null) {
+                sb.append(StringUtil.NULL_STRING);
+            } else {
+                sb.append(str4);
+            }
+        }
+        if (i()) {
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append("time:");
+            sb.append(this.f348d);
+        }
+        if (j()) {
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append("clientIp:");
+            sb.append(this.f350e);
+        }
+        sb.append(SmallTailInfo.EMOTION_SUFFIX);
+        return sb.toString();
     }
 }

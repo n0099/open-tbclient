@@ -12,9 +12,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.xiuba.JSResultData;
-import com.baidu.tieba.b39;
+import com.baidu.tieba.j69;
 import com.baidu.tieba.lj;
-import com.baidu.tieba.x29;
+import com.baidu.tieba.n69;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class CommonTbJsBridge implements x29 {
+public class CommonTbJsBridge implements j69 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_SUPPLEMENT_INFO = "getSupplementInfo";
     public static final String INTERFACE_NAME = "CommonJSBridge";
@@ -63,7 +63,7 @@ public class CommonTbJsBridge implements x29 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x29
+    @Override // com.baidu.tieba.j69
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -90,11 +90,11 @@ public class CommonTbJsBridge implements x29 {
         return invokeLLLL.booleanValue;
     }
 
-    public b39 getSupplementInfo() {
+    public n69 getSupplementInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b39 b39Var = new b39();
+            n69 n69Var = new n69();
             StringBuilder sb = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb.append("imei=");
@@ -128,14 +128,14 @@ public class CommonTbJsBridge implements x29 {
                 jSONObject.put("client_version", version);
                 jSONObject.put("zid", zid);
                 jSONObject.put("sign", c);
-                b39Var.o(jSONObject.toString());
-                return b39Var;
+                n69Var.o(jSONObject.toString());
+                return n69Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                b39Var.o("");
-                return b39Var;
+                n69Var.o("");
+                return n69Var;
             }
         }
-        return (b39) invokeV.objValue;
+        return (n69) invokeV.objValue;
     }
 }

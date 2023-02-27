@@ -2,18 +2,9 @@ package com.baidu.swan.apps.publisher;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.tieba.tt2;
-import com.baidu.tieba.w83;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.ju2;
+import com.baidu.tieba.m93;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.List;
 import kotlin.Metadata;
@@ -22,9 +13,7 @@ import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0011\n\u0002\u0010\u0007\n\u0002\b\u0010\n\u0002\u0010 \n\u0002\b\r\u0018\u0000 @2\u00020\u0001:\u0001@B\u0011\b\u0016\u0012\u0006\u0010\f\u001a\u00020\u000b¢\u0006\u0004\b=\u0010>B¯\u0001\u0012\b\u0010\u001f\u001a\u0004\u0018\u00010\u0011\u0012\b\u0010;\u001a\u0004\u0018\u00010\u0011\u0012\b\u0010.\u001a\u0004\u0018\u00010\u0011\u0012\u0006\u0010,\u001a\u00020\u0002\u0012\u0006\u0010*\u001a\u00020\u0002\u0012\b\u00100\u001a\u0004\u0018\u00010\u0011\u0012\u0006\u00102\u001a\u00020\u0002\u0012\b\u0010\u001a\u001a\u0004\u0018\u00010\u0011\u0012\u0006\u0010\u001c\u001a\u00020\u0002\u0012\b\u00109\u001a\u0004\u0018\u00010\u0011\u0012\b\u0010!\u001a\u0004\u0018\u00010\u0011\u0012\b\u0010\u0018\u001a\u0004\u0018\u00010\u0011\u0012\u0006\u0010(\u001a\u00020\u0002\u0012\u0006\u0010$\u001a\u00020#\u0012\u000e\u00105\u001a\n\u0012\u0004\u0012\u00020\u0011\u0018\u000104\u0012\n\b\u0002\u0010\u0012\u001a\u0004\u0018\u00010\u0011\u0012\n\b\u0002\u0010\u0016\u001a\u0004\u0018\u00010\u0011¢\u0006\u0004\b=\u0010?J\u000f\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004J\u000f\u0010\u0006\u001a\u0004\u0018\u00010\u0005¢\u0006\u0004\b\u0006\u0010\u0007J\u000f\u0010\b\u001a\u0004\u0018\u00010\u0005¢\u0006\u0004\b\b\u0010\u0007J\u000f\u0010\t\u001a\u0004\u0018\u00010\u0005¢\u0006\u0004\b\t\u0010\u0007J\u000f\u0010\n\u001a\u0004\u0018\u00010\u0005¢\u0006\u0004\b\n\u0010\u0007J\u001f\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\f\u001a\u00020\u000b2\u0006\u0010\r\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u000f\u0010\u0010R\u001b\u0010\u0012\u001a\u0004\u0018\u00010\u00118\u0006@\u0006¢\u0006\f\n\u0004\b\u0012\u0010\u0013\u001a\u0004\b\u0014\u0010\u0015R\u001b\u0010\u0016\u001a\u0004\u0018\u00010\u00118\u0006@\u0006¢\u0006\f\n\u0004\b\u0016\u0010\u0013\u001a\u0004\b\u0017\u0010\u0015R\u001b\u0010\u0018\u001a\u0004\u0018\u00010\u00118\u0006@\u0006¢\u0006\f\n\u0004\b\u0018\u0010\u0013\u001a\u0004\b\u0019\u0010\u0015R\u001b\u0010\u001a\u001a\u0004\u0018\u00010\u00118\u0006@\u0006¢\u0006\f\n\u0004\b\u001a\u0010\u0013\u001a\u0004\b\u001b\u0010\u0015R\u0019\u0010\u001c\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\u001c\u0010\u001d\u001a\u0004\b\u001e\u0010\u0004R\u001b\u0010\u001f\u001a\u0004\u0018\u00010\u00118\u0006@\u0006¢\u0006\f\n\u0004\b\u001f\u0010\u0013\u001a\u0004\b \u0010\u0015R\u001b\u0010!\u001a\u0004\u0018\u00010\u00118\u0006@\u0006¢\u0006\f\n\u0004\b!\u0010\u0013\u001a\u0004\b\"\u0010\u0015R\u0019\u0010$\u001a\u00020#8\u0006@\u0006¢\u0006\f\n\u0004\b$\u0010%\u001a\u0004\b&\u0010'R\u0019\u0010(\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b(\u0010\u001d\u001a\u0004\b)\u0010\u0004R\u0019\u0010*\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b*\u0010\u001d\u001a\u0004\b+\u0010\u0004R\u0019\u0010,\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b,\u0010\u001d\u001a\u0004\b-\u0010\u0004R\u001b\u0010.\u001a\u0004\u0018\u00010\u00118\u0006@\u0006¢\u0006\f\n\u0004\b.\u0010\u0013\u001a\u0004\b/\u0010\u0015R\u001b\u00100\u001a\u0004\u0018\u00010\u00118\u0006@\u0006¢\u0006\f\n\u0004\b0\u0010\u0013\u001a\u0004\b1\u0010\u0015R\u0019\u00102\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b2\u0010\u001d\u001a\u0004\b3\u0010\u0004R!\u00105\u001a\n\u0012\u0004\u0012\u00020\u0011\u0018\u0001048\u0006@\u0006¢\u0006\f\n\u0004\b5\u00106\u001a\u0004\b7\u00108R\u001b\u00109\u001a\u0004\u0018\u00010\u00118\u0006@\u0006¢\u0006\f\n\u0004\b9\u0010\u0013\u001a\u0004\b:\u0010\u0015R\u001b\u0010;\u001a\u0004\u0018\u00010\u00118\u0006@\u0006¢\u0006\f\n\u0004\b;\u0010\u0013\u001a\u0004\b<\u0010\u0015¨\u0006A"}, d2 = {"Lcom/baidu/swan/apps/publisher/PublishParams;", "Landroid/os/Parcelable;", "", "describeContents", "()I", "", "supportEmoji", "()Ljava/lang/Boolean;", "supportImage", "supportTarget", "supportTitle", "Landroid/os/Parcel;", "parcel", "flags", "", "writeToParcel", "(Landroid/os/Parcel;I)V", "", BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, "Ljava/lang/String;", "getAppId", "()Ljava/lang/String;", "appVersion", "getAppVersion", WebChromeClient.KEY_ARG_CALLBACK, "getCallback", "cancelText", "getCancelText", "cancelTextColor", "I", "getCancelTextColor", "contentHint", "getContentHint", "emojiPath", "getEmojiPath", "", "imageRatio", "F", "getImageRatio", "()F", "maxImageNum", "getMaxImageNum", "navBarBgColor", "getNavBarBgColor", "navBarTextColor", "getNavBarTextColor", "navBarTitle", "getNavBarTitle", "publishText", "getPublishText", "publishTextColor", "getPublishTextColor", "", "showList", "Ljava/util/List;", "getShowList", "()Ljava/util/List;", "target", "getTarget", "titleHint", "getTitleHint", "<init>", "(Landroid/os/Parcel;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;ILjava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;IFLjava/util/List;Ljava/lang/String;Ljava/lang/String;)V", "CREATOR", "core_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
 public final class PublishParams implements Parcelable {
-    public static /* synthetic */ Interceptable $ic;
-    public static final a CREATOR;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final a CREATOR = new a(null);
     public final String appId;
     public final String appVersion;
     public final String callback;
@@ -43,49 +32,14 @@ public final class PublishParams implements Parcelable {
     public final String target;
     public final String titleHint;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(749520006, "Lcom/baidu/swan/apps/publisher/PublishParams;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(749520006, "Lcom/baidu/swan/apps/publisher/PublishParams;");
-                return;
-            }
-        }
-        CREATOR = new a(null);
-    }
-
     @Override // android.os.Parcelable
     public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
+        return 0;
     }
 
     /* loaded from: classes3.dex */
     public static final class a implements Parcelable.Creator<PublishParams> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
         public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
         }
 
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
@@ -96,65 +50,25 @@ public final class PublishParams implements Parcelable {
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
         public PublishParams createFromParcel(Parcel parcel) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
-                Intrinsics.checkNotNullParameter(parcel, "parcel");
-                return new PublishParams(parcel);
-            }
-            return (PublishParams) invokeL.objValue;
+            Intrinsics.checkNotNullParameter(parcel, "parcel");
+            return new PublishParams(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
         public PublishParams[] newArray(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-                return new PublishParams[i];
-            }
-            return (PublishParams[]) invokeI.objValue;
+            return new PublishParams[i];
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PublishParams(Parcel parcel) {
         this(parcel.readString(), parcel.readString(), parcel.readString(), parcel.readInt(), parcel.readInt(), parcel.readString(), parcel.readInt(), parcel.readString(), parcel.readInt(), parcel.readString(), parcel.readString(), parcel.readString(), parcel.readInt(), parcel.readFloat(), parcel.createStringArrayList(), parcel.readString(), parcel.readString());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), (String) objArr2[5], ((Integer) objArr2[6]).intValue(), (String) objArr2[7], ((Integer) objArr2[8]).intValue(), (String) objArr2[9], (String) objArr2[10], (String) objArr2[11], ((Integer) objArr2[12]).intValue(), ((Float) objArr2[13]).floatValue(), (List) objArr2[14], (String) objArr2[15], (String) objArr2[16]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         Intrinsics.checkNotNullParameter(parcel, "parcel");
     }
 
     public PublishParams(String str, String str2, String str3, int i, int i2, String str4, int i3, String str5, int i4, String str6, String str7, String str8, int i5, float f, List<String> list, String str9, String str10) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), str4, Integer.valueOf(i3), str5, Integer.valueOf(i4), str6, str7, str8, Integer.valueOf(i5), Float.valueOf(f), list, str9, str10};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.contentHint = str;
         this.titleHint = str2;
         this.navBarTitle = str3;
@@ -183,11 +97,11 @@ public final class PublishParams implements Parcelable {
         String str11;
         String str12;
         String str13;
-        tt2.a Y;
+        ju2.a Y;
         String str14;
-        tt2.a Y2;
+        ju2.a Y2;
         if ((i6 & 32768) != 0) {
-            w83 M = w83.M();
+            m93 M = m93.M();
             if (M != null && (Y2 = M.Y()) != null) {
                 str14 = Y2.H();
             } else {
@@ -198,7 +112,7 @@ public final class PublishParams implements Parcelable {
             str11 = str9;
         }
         if ((i6 & 65536) != 0) {
-            w83 M2 = w83.M();
+            m93 M2 = m93.M();
             if (M2 != null && (Y = M2.Y()) != null) {
                 str13 = Y.v1();
             } else {
@@ -211,232 +125,124 @@ public final class PublishParams implements Parcelable {
     }
 
     public final String getAppId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.appId;
-        }
-        return (String) invokeV.objValue;
+        return this.appId;
     }
 
     public final String getAppVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.appVersion;
-        }
-        return (String) invokeV.objValue;
+        return this.appVersion;
     }
 
     public final String getCallback() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.callback;
-        }
-        return (String) invokeV.objValue;
+        return this.callback;
     }
 
     public final String getCancelText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.cancelText;
-        }
-        return (String) invokeV.objValue;
+        return this.cancelText;
     }
 
     public final int getCancelTextColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.cancelTextColor;
-        }
-        return invokeV.intValue;
+        return this.cancelTextColor;
     }
 
     public final String getContentHint() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.contentHint;
-        }
-        return (String) invokeV.objValue;
+        return this.contentHint;
     }
 
     public final String getEmojiPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.emojiPath;
-        }
-        return (String) invokeV.objValue;
+        return this.emojiPath;
     }
 
     public final float getImageRatio() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.imageRatio;
-        }
-        return invokeV.floatValue;
+        return this.imageRatio;
     }
 
     public final int getMaxImageNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.maxImageNum;
-        }
-        return invokeV.intValue;
+        return this.maxImageNum;
     }
 
     public final int getNavBarBgColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.navBarBgColor;
-        }
-        return invokeV.intValue;
+        return this.navBarBgColor;
     }
 
     public final int getNavBarTextColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.navBarTextColor;
-        }
-        return invokeV.intValue;
+        return this.navBarTextColor;
     }
 
     public final String getNavBarTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.navBarTitle;
-        }
-        return (String) invokeV.objValue;
+        return this.navBarTitle;
     }
 
     public final String getPublishText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.publishText;
-        }
-        return (String) invokeV.objValue;
+        return this.publishText;
     }
 
     public final int getPublishTextColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.publishTextColor;
-        }
-        return invokeV.intValue;
+        return this.publishTextColor;
     }
 
     public final List<String> getShowList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.showList;
-        }
-        return (List) invokeV.objValue;
+        return this.showList;
     }
 
     public final String getTarget() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.target;
-        }
-        return (String) invokeV.objValue;
+        return this.target;
     }
 
     public final String getTitleHint() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.titleHint;
-        }
-        return (String) invokeV.objValue;
+        return this.titleHint;
     }
 
     public final Boolean supportEmoji() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            List<String> list = this.showList;
-            if (list != null) {
-                return Boolean.valueOf(list.contains("emoji"));
-            }
-            return null;
+        List<String> list = this.showList;
+        if (list != null) {
+            return Boolean.valueOf(list.contains("emoji"));
         }
-        return (Boolean) invokeV.objValue;
+        return null;
     }
 
     public final Boolean supportImage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            List<String> list = this.showList;
-            if (list != null) {
-                return Boolean.valueOf(list.contains("image"));
-            }
-            return null;
+        List<String> list = this.showList;
+        if (list != null) {
+            return Boolean.valueOf(list.contains("image"));
         }
-        return (Boolean) invokeV.objValue;
+        return null;
     }
 
     public final Boolean supportTarget() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            List<String> list = this.showList;
-            if (list != null) {
-                return Boolean.valueOf(list.contains("target"));
-            }
-            return null;
+        List<String> list = this.showList;
+        if (list != null) {
+            return Boolean.valueOf(list.contains("target"));
         }
-        return (Boolean) invokeV.objValue;
+        return null;
     }
 
     public final Boolean supportTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            List<String> list = this.showList;
-            if (list != null) {
-                return Boolean.valueOf(list.contains("title"));
-            }
-            return null;
+        List<String> list = this.showList;
+        if (list != null) {
+            return Boolean.valueOf(list.contains("title"));
         }
-        return (Boolean) invokeV.objValue;
+        return null;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048598, this, parcel, i) == null) {
-            Intrinsics.checkNotNullParameter(parcel, "parcel");
-            parcel.writeString(this.contentHint);
-            parcel.writeString(this.titleHint);
-            parcel.writeString(this.navBarTitle);
-            parcel.writeInt(this.navBarTextColor);
-            parcel.writeInt(this.navBarBgColor);
-            parcel.writeString(this.publishText);
-            parcel.writeInt(this.publishTextColor);
-            parcel.writeString(this.cancelText);
-            parcel.writeInt(this.cancelTextColor);
-            parcel.writeString(this.target);
-            parcel.writeString(this.emojiPath);
-            parcel.writeString(this.callback);
-            parcel.writeInt(this.maxImageNum);
-            parcel.writeFloat(this.imageRatio);
-            parcel.writeStringList(this.showList);
-            parcel.writeString(this.appId);
-            parcel.writeString(this.appVersion);
-        }
+        Intrinsics.checkNotNullParameter(parcel, "parcel");
+        parcel.writeString(this.contentHint);
+        parcel.writeString(this.titleHint);
+        parcel.writeString(this.navBarTitle);
+        parcel.writeInt(this.navBarTextColor);
+        parcel.writeInt(this.navBarBgColor);
+        parcel.writeString(this.publishText);
+        parcel.writeInt(this.publishTextColor);
+        parcel.writeString(this.cancelText);
+        parcel.writeInt(this.cancelTextColor);
+        parcel.writeString(this.target);
+        parcel.writeString(this.emojiPath);
+        parcel.writeString(this.callback);
+        parcel.writeInt(this.maxImageNum);
+        parcel.writeFloat(this.imageRatio);
+        parcel.writeStringList(this.showList);
+        parcel.writeString(this.appId);
+        parcel.writeString(this.appVersion);
     }
 }

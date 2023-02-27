@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.mu4;
-import com.baidu.tieba.qe5;
+import com.baidu.tieba.dg5;
+import com.baidu.tieba.dv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
     public interface b {
         void onFail(int i, String str);
 
-        void onSuccess(List<qe5> list);
+        void onSuccess(List<dg5> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -109,7 +109,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public void I(List<String> list, b bVar) {
+    public void P(List<String> list, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, list, bVar) == null) {
             this.a = bVar;
@@ -122,7 +122,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
                     }
                 }
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
-                httpMessage.addParam("pic_urls", mu4.t(jSONArray.toString()));
+                httpMessage.addParam("pic_urls", dv4.t(jSONArray.toString()));
                 sendMessage(httpMessage);
             } else if (bVar != null) {
                 bVar.onFail(0, "list is empty");

@@ -2,17 +2,11 @@ package com.kwad.components.core.m;
 
 import android.content.Intent;
 import android.os.Bundle;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.api.loader.Loader;
 /* loaded from: classes8.dex */
 public final class l {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     public static void e(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, intent) == null) || intent == null) {
+        if (intent == null) {
             return;
         }
         ClassLoader externalClassLoader = Loader.get().getExternalClassLoader();

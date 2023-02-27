@@ -6,14 +6,6 @@ import android.webkit.WebMessage;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.JsPromptResult;
 import com.baidu.webkit.sdk.JsResult;
 import com.baidu.webkit.sdk.Log;
@@ -22,9 +14,7 @@ import com.baidu.webkit.sdk.WebView;
 import java.lang.reflect.Field;
 /* loaded from: classes7.dex */
 public final class Glue {
-    public static /* synthetic */ Interceptable $ic;
     public static Field ImmutableField;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.webkit.sdk.system.Glue$1  reason: invalid class name */
     /* loaded from: classes7.dex */
@@ -36,22 +26,8 @@ public final class Glue {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$webkit$sdk$WebSettings$PluginState;
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$webkit$sdk$WebSettings$RenderPriority;
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$webkit$sdk$WebSettings$ZoomDensity;
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1168320077, "Lcom/baidu/webkit/sdk/system/Glue$1;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1168320077, "Lcom/baidu/webkit/sdk/system/Glue$1;");
-                    return;
-                }
-            }
             int[] iArr = new int[WebSettings.RenderPriority.values().length];
             $SwitchMap$com$baidu$webkit$sdk$WebSettings$RenderPriority = iArr;
             try {
@@ -163,25 +139,9 @@ public final class Glue {
 
     /* loaded from: classes7.dex */
     public static class ResultReceiverWrapper implements JsResult.ResultReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public android.webkit.JsResult mJsResult;
 
         public ResultReceiverWrapper(android.webkit.JsResult jsResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jsResult};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.mJsResult = jsResult;
         }
 
@@ -191,44 +151,29 @@ public final class Glue {
 
         @Override // com.baidu.webkit.sdk.JsResult.ResultReceiver
         public void onJsResultComplete(JsResult jsResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jsResult) == null) {
-                if (!(jsResult instanceof JsPromptResult)) {
-                    if (jsResult.getResult()) {
-                        this.mJsResult.confirm();
-                        return;
-                    } else {
-                        this.mJsResult.cancel();
-                        return;
-                    }
+            if (!(jsResult instanceof JsPromptResult)) {
+                if (jsResult.getResult()) {
+                    this.mJsResult.confirm();
+                    return;
+                } else {
+                    this.mJsResult.cancel();
+                    return;
                 }
-                JsPromptResult jsPromptResult = (JsPromptResult) jsResult;
-                android.webkit.JsResult jsResult2 = this.mJsResult;
-                if (jsResult2 instanceof android.webkit.JsPromptResult) {
-                    android.webkit.JsPromptResult jsPromptResult2 = (android.webkit.JsPromptResult) jsResult2;
-                    if (jsResult.getResult()) {
-                        jsPromptResult2.confirm(jsPromptResult.getStringResult());
-                    } else {
-                        jsPromptResult2.cancel();
-                    }
+            }
+            JsPromptResult jsPromptResult = (JsPromptResult) jsResult;
+            android.webkit.JsResult jsResult2 = this.mJsResult;
+            if (jsResult2 instanceof android.webkit.JsPromptResult) {
+                android.webkit.JsPromptResult jsPromptResult2 = (android.webkit.JsPromptResult) jsResult2;
+                if (jsResult.getResult()) {
+                    jsPromptResult2.confirm(jsPromptResult.getStringResult());
+                } else {
+                    jsPromptResult2.cancel();
                 }
             }
         }
     }
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2094871302, "Lcom/baidu/webkit/sdk/system/Glue;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-2094871302, "Lcom/baidu/webkit/sdk/system/Glue;");
-                return;
-            }
-        }
         try {
             Field declaredField = WebResourceResponse.class.getDeclaredField("mImmutable");
             ImmutableField = declaredField;
@@ -238,251 +183,167 @@ public final class Glue {
         }
     }
 
-    public Glue() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
     @TargetApi(23)
     public static WebMessage cast(com.baidu.webkit.sdk.WebMessage webMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, webMessage)) == null) {
-            if (webMessage == null) {
-                return null;
-            }
-            return new WebMessage(webMessage.getData(), WebMessagePortImpl.from(webMessage.getPorts()));
+        if (webMessage == null) {
+            return null;
         }
-        return (WebMessage) invokeL.objValue;
+        return new WebMessage(webMessage.getData(), WebMessagePortImpl.from(webMessage.getPorts()));
     }
 
     @TargetApi(21)
     public static WebResourceResponse cast(com.baidu.webkit.sdk.WebResourceResponse webResourceResponse) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, webResourceResponse)) == null) {
-            if (webResourceResponse == null) {
-                return null;
-            }
-            try {
-                return new WebResourceResponse(webResourceResponse.getMimeType(), webResourceResponse.getEncoding(), webResourceResponse.getStatusCode(), webResourceResponse.getReasonPhrase(), webResourceResponse.getResponseHeaders(), webResourceResponse.getData());
-            } catch (Throwable unused) {
-                return new WebResourceResponse(webResourceResponse.getMimeType(), webResourceResponse.getEncoding(), webResourceResponse.getData());
-            }
+        if (webResourceResponse == null) {
+            return null;
         }
-        return (WebResourceResponse) invokeL.objValue;
+        try {
+            return new WebResourceResponse(webResourceResponse.getMimeType(), webResourceResponse.getEncoding(), webResourceResponse.getStatusCode(), webResourceResponse.getReasonPhrase(), webResourceResponse.getResponseHeaders(), webResourceResponse.getData());
+        } catch (Throwable unused) {
+            return new WebResourceResponse(webResourceResponse.getMimeType(), webResourceResponse.getEncoding(), webResourceResponse.getData());
+        }
     }
 
     @SuppressLint({"NewApi"})
     public static WebSettings.LayoutAlgorithm cast(WebSettings.LayoutAlgorithm layoutAlgorithm) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, layoutAlgorithm)) == null) {
-            int i = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$LayoutAlgorithm[layoutAlgorithm.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return null;
-                        }
-                        return WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING;
+        int i = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$LayoutAlgorithm[layoutAlgorithm.ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 4) {
+                        return null;
                     }
-                    return WebSettings.LayoutAlgorithm.NARROW_COLUMNS;
+                    return WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING;
                 }
-                return WebSettings.LayoutAlgorithm.SINGLE_COLUMN;
+                return WebSettings.LayoutAlgorithm.NARROW_COLUMNS;
             }
-            return WebSettings.LayoutAlgorithm.NORMAL;
+            return WebSettings.LayoutAlgorithm.SINGLE_COLUMN;
         }
-        return (WebSettings.LayoutAlgorithm) invokeL.objValue;
+        return WebSettings.LayoutAlgorithm.NORMAL;
     }
 
     public static WebSettings.PluginState cast(WebSettings.PluginState pluginState) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, pluginState)) == null) {
-            int i = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$PluginState[pluginState.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        return null;
-                    }
-                    return WebSettings.PluginState.OFF;
+        int i = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$PluginState[pluginState.ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    return null;
                 }
-                return WebSettings.PluginState.ON_DEMAND;
+                return WebSettings.PluginState.OFF;
             }
-            return WebSettings.PluginState.ON;
+            return WebSettings.PluginState.ON_DEMAND;
         }
-        return (WebSettings.PluginState) invokeL.objValue;
+        return WebSettings.PluginState.ON;
     }
 
     public static WebSettings.RenderPriority cast(WebSettings.RenderPriority renderPriority) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, renderPriority)) == null) {
-            int i = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$RenderPriority[renderPriority.ordinal()];
-            if (i == 1 || i == 2 || i == 3) {
-                return WebSettings.RenderPriority.NORMAL;
-            }
-            return null;
+        int i = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$RenderPriority[renderPriority.ordinal()];
+        if (i == 1 || i == 2 || i == 3) {
+            return WebSettings.RenderPriority.NORMAL;
         }
-        return (WebSettings.RenderPriority) invokeL.objValue;
+        return null;
     }
 
     public static WebSettings.ZoomDensity cast(WebSettings.ZoomDensity zoomDensity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, zoomDensity)) == null) {
-            int i = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$ZoomDensity[zoomDensity.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        return null;
-                    }
-                    return WebSettings.ZoomDensity.CLOSE;
+        int i = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$ZoomDensity[zoomDensity.ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    return null;
                 }
-                return WebSettings.ZoomDensity.MEDIUM;
+                return WebSettings.ZoomDensity.CLOSE;
             }
-            return WebSettings.ZoomDensity.FAR;
+            return WebSettings.ZoomDensity.MEDIUM;
         }
-        return (WebSettings.ZoomDensity) invokeL.objValue;
+        return WebSettings.ZoomDensity.FAR;
     }
 
     public static JsPromptResult cast(android.webkit.JsPromptResult jsPromptResult) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, jsPromptResult)) == null) {
-            if (jsPromptResult == null) {
-                return null;
-            }
-            return new JsPromptResult(new ResultReceiverWrapper(jsPromptResult, null));
+        if (jsPromptResult == null) {
+            return null;
         }
-        return (JsPromptResult) invokeL.objValue;
+        return new JsPromptResult(new ResultReceiverWrapper(jsPromptResult, null));
     }
 
     public static JsResult cast(android.webkit.JsResult jsResult) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, jsResult)) == null) {
-            if (jsResult == null) {
-                return null;
-            }
-            return new JsResult(new ResultReceiverWrapper(jsResult, null));
+        if (jsResult == null) {
+            return null;
         }
-        return (JsResult) invokeL.objValue;
+        return new JsResult(new ResultReceiverWrapper(jsResult, null));
     }
 
     @TargetApi(23)
     public static com.baidu.webkit.sdk.WebMessage cast(WebMessage webMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, webMessage)) == null) {
-            if (webMessage == null) {
-                return null;
-            }
-            return new com.baidu.webkit.sdk.WebMessage(webMessage.getData(), WebMessagePortImpl.from(webMessage.getPorts()));
+        if (webMessage == null) {
+            return null;
         }
-        return (com.baidu.webkit.sdk.WebMessage) invokeL.objValue;
+        return new com.baidu.webkit.sdk.WebMessage(webMessage.getData(), WebMessagePortImpl.from(webMessage.getPorts()));
     }
 
     @TargetApi(21)
     public static com.baidu.webkit.sdk.WebResourceResponse cast(WebResourceResponse webResourceResponse) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, webResourceResponse)) == null) {
-            if (webResourceResponse == null) {
-                return null;
-            }
-            try {
-                return new com.baidu.webkit.sdk.WebResourceResponse(webResourceResponse.getMimeType(), webResourceResponse.getEncoding(), webResourceResponse.getStatusCode(), webResourceResponse.getReasonPhrase(), webResourceResponse.getResponseHeaders(), webResourceResponse.getData());
-            } catch (Throwable unused) {
-                return new com.baidu.webkit.sdk.WebResourceResponse(webResourceResponse.getMimeType(), webResourceResponse.getEncoding(), webResourceResponse.getData());
-            }
+        if (webResourceResponse == null) {
+            return null;
         }
-        return (com.baidu.webkit.sdk.WebResourceResponse) invokeL.objValue;
+        try {
+            return new com.baidu.webkit.sdk.WebResourceResponse(webResourceResponse.getMimeType(), webResourceResponse.getEncoding(), webResourceResponse.getStatusCode(), webResourceResponse.getReasonPhrase(), webResourceResponse.getResponseHeaders(), webResourceResponse.getData());
+        } catch (Throwable unused) {
+            return new com.baidu.webkit.sdk.WebResourceResponse(webResourceResponse.getMimeType(), webResourceResponse.getEncoding(), webResourceResponse.getData());
+        }
     }
 
     @SuppressLint({"NewApi"})
     public static WebSettings.LayoutAlgorithm cast(WebSettings.LayoutAlgorithm layoutAlgorithm) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, layoutAlgorithm)) == null) {
-            int i = AnonymousClass1.$SwitchMap$android$webkit$WebSettings$LayoutAlgorithm[layoutAlgorithm.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return null;
-                        }
-                        return WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING;
+        int i = AnonymousClass1.$SwitchMap$android$webkit$WebSettings$LayoutAlgorithm[layoutAlgorithm.ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 4) {
+                        return null;
                     }
-                    return WebSettings.LayoutAlgorithm.NARROW_COLUMNS;
+                    return WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING;
                 }
-                return WebSettings.LayoutAlgorithm.SINGLE_COLUMN;
+                return WebSettings.LayoutAlgorithm.NARROW_COLUMNS;
             }
-            return WebSettings.LayoutAlgorithm.NORMAL;
+            return WebSettings.LayoutAlgorithm.SINGLE_COLUMN;
         }
-        return (WebSettings.LayoutAlgorithm) invokeL.objValue;
+        return WebSettings.LayoutAlgorithm.NORMAL;
     }
 
     public static WebSettings.PluginState cast(WebSettings.PluginState pluginState) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, pluginState)) == null) {
-            int i = AnonymousClass1.$SwitchMap$android$webkit$WebSettings$PluginState[pluginState.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        return null;
-                    }
-                    return WebSettings.PluginState.OFF;
+        int i = AnonymousClass1.$SwitchMap$android$webkit$WebSettings$PluginState[pluginState.ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    return null;
                 }
-                return WebSettings.PluginState.ON_DEMAND;
+                return WebSettings.PluginState.OFF;
             }
-            return WebSettings.PluginState.ON;
+            return WebSettings.PluginState.ON_DEMAND;
         }
-        return (WebSettings.PluginState) invokeL.objValue;
+        return WebSettings.PluginState.ON;
     }
 
     public static WebSettings.ZoomDensity cast(WebSettings.ZoomDensity zoomDensity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, zoomDensity)) == null) {
-            int i = AnonymousClass1.$SwitchMap$android$webkit$WebSettings$ZoomDensity[zoomDensity.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        return null;
-                    }
-                    return WebSettings.ZoomDensity.CLOSE;
+        int i = AnonymousClass1.$SwitchMap$android$webkit$WebSettings$ZoomDensity[zoomDensity.ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    return null;
                 }
-                return WebSettings.ZoomDensity.MEDIUM;
+                return WebSettings.ZoomDensity.CLOSE;
             }
-            return WebSettings.ZoomDensity.FAR;
+            return WebSettings.ZoomDensity.MEDIUM;
         }
-        return (WebSettings.ZoomDensity) invokeL.objValue;
+        return WebSettings.ZoomDensity.FAR;
     }
 
     public static WebView.HitTestResult cast(WebView.HitTestResult hitTestResult) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, hitTestResult)) == null) {
-            if (hitTestResult == null) {
-                return null;
-            }
-            WebView.HitTestResult hitTestResult2 = new WebView.HitTestResult();
-            hitTestResult2.setType(hitTestResult.getType());
-            hitTestResult2.setExtra(hitTestResult.getExtra());
-            return hitTestResult2;
+        if (hitTestResult == null) {
+            return null;
         }
-        return (WebView.HitTestResult) invokeL.objValue;
+        WebView.HitTestResult hitTestResult2 = new WebView.HitTestResult();
+        hitTestResult2.setType(hitTestResult.getType());
+        hitTestResult2.setExtra(hitTestResult.getExtra());
+        return hitTestResult2;
     }
 }

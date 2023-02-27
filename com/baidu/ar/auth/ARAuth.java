@@ -2,185 +2,98 @@ package com.baidu.ar.auth;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.callback.ICallbackWith;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ARAuth {
-    public static /* synthetic */ Interceptable $ic;
-    public static com.baidu.ar.h.h<j> iW;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1692973877, "Lcom/baidu/ar/auth/ARAuth;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1692973877, "Lcom/baidu/ar/auth/ARAuth;");
-                return;
-            }
-        }
-        iW = new com.baidu.ar.h.h<>("com.baidu.ar.auth.ARAuthFacade");
-    }
-
-    public ARAuth() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    public static com.baidu.ar.h.h<j> iW = new com.baidu.ar.h.h<>("com.baidu.ar.auth.ARAuthFacade");
 
     public static List<Integer> checkAuth(Context context, byte[] bArr, IDuMixAuthCallback iDuMixAuthCallback) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, bArr, iDuMixAuthCallback)) == null) {
-            j gA = iW.gA();
-            return gA != null ? gA.checkAuth(context, bArr, iDuMixAuthCallback) : new ArrayList();
-        }
-        return (List) invokeLLL.objValue;
+        j gA = iW.gA();
+        return gA != null ? gA.checkAuth(context, bArr, iDuMixAuthCallback) : new ArrayList();
     }
 
     public static List<Integer> checkAuth(Context context, byte[] bArr, ICallbackWith<List<Integer>> iCallbackWith, ICallbackWith<Integer> iCallbackWith2) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, context, bArr, iCallbackWith, iCallbackWith2)) == null) {
-            j gA = iW.gA();
-            return gA != null ? gA.checkAuth(context, bArr, iCallbackWith, iCallbackWith2) : new ArrayList();
-        }
-        return (List) invokeLLLL.objValue;
+        j gA = iW.gA();
+        return gA != null ? gA.checkAuth(context, bArr, iCallbackWith, iCallbackWith2) : new ArrayList();
     }
 
     public static boolean checkFeatureAuth(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            j gA = iW.gA();
-            if (gA != null) {
-                return gA.checkFeatureAuth(i);
-            }
-            return true;
+        j gA = iW.gA();
+        if (gA != null) {
+            return gA.checkFeatureAuth(i);
         }
-        return invokeI.booleanValue;
+        return true;
     }
 
     public static boolean checkOfflineLicenseAuth(Context context, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, bArr)) == null) {
-            j gA = iW.gA();
-            if (gA != null) {
-                return gA.checkOfflineLicenseAuth(context, bArr);
-            }
-            return true;
+        j gA = iW.gA();
+        if (gA != null) {
+            return gA.checkOfflineLicenseAuth(context, bArr);
         }
-        return invokeLL.booleanValue;
+        return true;
     }
 
     public static Bitmap createTipBitmap(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            j gA = iW.gA();
-            if (gA != null) {
-                return gA.createTipBitmap(context);
-            }
-            return null;
+        j gA = iW.gA();
+        if (gA != null) {
+            return gA.createTipBitmap(context);
         }
-        return (Bitmap) invokeL.objValue;
+        return null;
     }
 
     public static void doAuth(Context context, IAuthCallback iAuthCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, context, iAuthCallback) == null) {
-            AuthJni.init();
-            j gA = iW.gA();
-            if (gA != null) {
-                gA.doAuth(context, iAuthCallback);
-            }
+        AuthJni.init();
+        j gA = iW.gA();
+        if (gA != null) {
+            gA.doAuth(context, iAuthCallback);
         }
     }
 
     public static boolean enableFeature(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
-            j gA = iW.gA();
-            if (gA != null) {
-                return gA.enableFeature(i);
-            }
-            return true;
+        j gA = iW.gA();
+        if (gA != null) {
+            return gA.enableFeature(i);
         }
-        return invokeI.booleanValue;
+        return true;
     }
 
     public static boolean isShowAuthTip() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            j gA = iW.gA();
-            if (gA != null) {
-                return gA.isShowAuthTip();
-            }
-            return true;
+        j gA = iW.gA();
+        if (gA != null) {
+            return gA.isShowAuthTip();
         }
-        return invokeV.booleanValue;
+        return true;
     }
 
     public static void loadAuthInfo(Context context) {
-        j gA;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, null, context) == null) || (gA = iW.gA()) == null) {
-            return;
+        j gA = iW.gA();
+        if (gA != null) {
+            gA.loadAuthInfo(context);
         }
-        gA.loadAuthInfo(context);
     }
 
     public static void receiveAuthFailMessage(int i) {
-        j gA;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65547, null, i) == null) || (gA = iW.gA()) == null) {
-            return;
+        j gA = iW.gA();
+        if (gA != null) {
+            gA.receiveAuthFailMessage(i);
         }
-        gA.receiveAuthFailMessage(i);
     }
 
     public static void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
-            j gB = iW.gB();
-            if (gB != null) {
-                gB.release();
-            }
-            iW.release();
-            AuthJni.release();
+        j gB = iW.gB();
+        if (gB != null) {
+            gB.release();
         }
+        iW.release();
+        AuthJni.release();
     }
 
     public static void setAuthLicense(byte[] bArr, String str, String str2, String str3) {
-        j gA;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65549, null, bArr, str, str2, str3) == null) || (gA = iW.gA()) == null) {
-            return;
+        j gA = iW.gA();
+        if (gA != null) {
+            gA.setAuthLicense(bArr, str, str2, str3);
         }
-        gA.setAuthLicense(bArr, str, str2, str3);
     }
 }

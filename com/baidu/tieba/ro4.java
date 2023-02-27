@@ -1,45 +1,36 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"SyntheticAccessor", "StaticFieldLeak"})
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ro4 extends gp4 {
+public class ro4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ro4 m;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public final HashSet<String> b;
+    public final HashSet<String> c;
+    public final HashSet<String> d;
+    public final HashSet<String> e;
+    public final HashMap<String, String> f;
+    public final HashMap<String, String> g;
+    public final HashMap<String, vo4> h;
+    public final HashSet<String> i;
+    public int j;
+    public int k;
+    public int l;
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ro4 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-454427275, "Lcom/baidu/tieba/ro4$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-454427275, "Lcom/baidu/tieba/ro4$a;");
-                    return;
-                }
-            }
-            a = new ro4();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ro4() {
-        super("com.baidu.searchbox_aiapp_openstat");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,20 +38,243 @@ public class ro4 extends gp4 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = new HashSet<>();
+        this.c = new HashSet<>();
+        this.d = new HashSet<>();
+        this.e = new HashSet<>();
+        this.f = new HashMap<>();
+        this.g = new HashMap<>();
+        this.h = new HashMap<>();
+        this.i = new HashSet<>();
     }
 
-    public static ro4 f() {
+    public static ro4 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
+            if (m == null) {
+                synchronized (ro4.class) {
+                    if (m == null) {
+                        m = new ro4();
+                    }
+                }
+            }
+            return m;
         }
         return (ro4) invokeV.objValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.k;
+        }
+        return invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.l;
+        }
+        return invokeV.intValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return this.d.contains(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (so4.g().r()) {
+                return true;
+            }
+            return this.c.contains(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (this.g.containsKey(str)) {
+                return this.g.get(str);
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (!TextUtils.isEmpty(str) && this.i.contains(str)) {
+                return "1";
+            }
+            return "0";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public boolean l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            vo4 vo4Var = this.h.get(str);
+            if (vo4Var != null && vo4Var.b()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            vo4 vo4Var = this.h.get(str);
+            if (vo4Var != null && vo4Var.c()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void n(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048588, this, i) != null) || i < this.k) {
+            return;
+        }
+        this.k = i;
+        hp4.f().putInt("ubc_data_expire_time", i);
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048589, this, i) != null) || i < this.l) {
+            return;
+        }
+        this.l = i;
+        hp4.f().putInt("ubc_database_limit", i);
+    }
+
+    public void p(int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048590, this, i) != null) || (i2 = i * 60000) < this.j) {
+            return;
+        }
+        this.j = i2;
+    }
+
+    public boolean c(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
+            if (this.b.contains(str)) {
+                return false;
+            }
+            if ((i & 16) == 0 && (i & 32) == 0) {
+                return true;
+            }
+            return this.e.contains(str);
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public int i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (so4.g().q() || TextUtils.isEmpty(str) || !this.f.containsKey(str)) {
+                return 0;
+            }
+            return Integer.parseInt(this.f.get(str));
+        }
+        return invokeL.intValue;
+    }
+
+    public void k(qo4 qo4Var, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, qo4Var, context) == null) {
+            this.a = context;
+            this.j = 360000;
+            hp4 f = hp4.f();
+            this.k = f.getInt("ubc_data_expire_time", 259200000);
+            this.l = f.getInt("ubc_database_limit", 4000);
+            qo4Var.e().w(this.b, this.e, this.c, this.d, this.f, this.g, this.h, this.i);
+        }
+    }
+
+    public void q(List<uo4> list) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
+            for (uo4 uo4Var : list) {
+                if ("0".equals(uo4Var.b)) {
+                    this.b.add(uo4Var.a);
+                } else {
+                    this.b.remove(uo4Var.a);
+                }
+                if ("1".equals(uo4Var.c)) {
+                    this.c.add(uo4Var.a);
+                } else {
+                    this.c.remove(uo4Var.a);
+                }
+                if ("1".equals(uo4Var.f)) {
+                    this.d.add(uo4Var.a);
+                } else {
+                    this.d.remove(uo4Var.a);
+                }
+                int i2 = uo4Var.g;
+                if (i2 >= 1 && i2 <= 100) {
+                    this.f.put(uo4Var.a, String.valueOf(i2));
+                } else {
+                    this.f.remove(uo4Var.a);
+                }
+                if (!TextUtils.isEmpty(uo4Var.h)) {
+                    this.g.put(uo4Var.a, uo4Var.h);
+                } else {
+                    this.g.remove(uo4Var.a);
+                }
+                int i3 = uo4Var.j;
+                if (i3 != 0 && (i = uo4Var.i) != 0) {
+                    vo4 vo4Var = new vo4(uo4Var.a, i3, i);
+                    this.h.put(vo4Var.a(), vo4Var);
+                }
+                if (TextUtils.equals(uo4Var.k, "1")) {
+                    this.i.add(uo4Var.a);
+                } else {
+                    this.i.remove(uo4Var.a);
+                }
+            }
+        }
     }
 }

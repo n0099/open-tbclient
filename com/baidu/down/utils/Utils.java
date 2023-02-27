@@ -483,7 +483,7 @@ public class Utils {
             try {
                 HttpUrlHelper parse = HttpUrlHelper.parse(str);
                 if (parse == null) {
-                    Log.i(TAG, "HttpUrlHelper parse error");
+                    Log.i("Utils", "HttpUrlHelper parse error");
                     return str;
                 }
                 return parse.toString();

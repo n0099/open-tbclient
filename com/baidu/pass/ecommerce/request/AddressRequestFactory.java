@@ -1,17 +1,10 @@
 package com.baidu.pass.ecommerce.request;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.ecommerce.common.MapObject;
 import com.baidu.pass.ecommerce.common.request.BaseMapObjectRequest;
 import com.baidu.pass.ecommerce.common.request.BaseRequest;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class AddressRequestFactory {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ADDRESS_GET_REGION = "/address/get/region";
     public static final String ADD_ADDRESS_URL = "/v3/ucenter/addr/additem";
     public static final String DEL_ADDRESS_URL = "/v3/ucenter/addr/deleteitem";
@@ -25,136 +18,56 @@ public class AddressRequestFactory {
     public static final String SUGGEST_DETAIL_URL = "/v3/ucenter/addr/suggestdetail";
     public static final String SUGGEST_LIST_URL = "/v3/ucenter/addr/suggestlist";
     public static final String UPDATE_ADDRESS_URL = "/v3/ucenter/addr/edititem";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public AddressRequestFactory() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     public static BaseRequest newGetAddressListRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return new BaseMapObjectRequest(GET_ADDRESS_LIST_URL, null);
-        }
-        return (BaseRequest) invokeV.objValue;
+        return new BaseMapObjectRequest(GET_ADDRESS_LIST_URL, null);
     }
 
     public static BaseRequest newIgnoreNuoMiAddress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return new BaseMapObjectRequest(IGNORE_NUOMI_ADDRESS_URL, null);
-        }
-        return (BaseRequest) invokeV.objValue;
+        return new BaseMapObjectRequest(IGNORE_NUOMI_ADDRESS_URL, null);
     }
 
     public static BaseRequest newImportNuoMiAddress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return new BaseMapObjectRequest(IMPORT_NUOMI_ADDRESS_URL, null);
-        }
-        return (BaseRequest) invokeV.objValue;
+        return new BaseMapObjectRequest(IMPORT_NUOMI_ADDRESS_URL, null);
     }
 
     public static BaseRequest newAddAddrRequest(MapObject mapObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, mapObject)) == null) {
-            return new BaseMapObjectRequest(ADD_ADDRESS_URL, mapObject);
-        }
-        return (BaseRequest) invokeL.objValue;
+        return new BaseMapObjectRequest(ADD_ADDRESS_URL, mapObject);
     }
 
     public static BaseRequest newAddressGetRegion(MapObject mapObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mapObject)) == null) {
-            return new BaseMapObjectRequest(ADDRESS_GET_REGION, mapObject);
-        }
-        return (BaseRequest) invokeL.objValue;
+        return new BaseMapObjectRequest(ADDRESS_GET_REGION, mapObject);
     }
 
     public static BaseRequest newDelAddressRequest(MapObject mapObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, mapObject)) == null) {
-            return new BaseMapObjectRequest(DEL_ADDRESS_URL, mapObject);
-        }
-        return (BaseRequest) invokeL.objValue;
+        return new BaseMapObjectRequest(DEL_ADDRESS_URL, mapObject);
     }
 
     public static BaseRequest newLocationQueryAddrList(MapObject mapObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, mapObject)) == null) {
-            return new BaseMapObjectRequest(LOC_BASE_QUERY_URL, mapObject);
-        }
-        return (BaseRequest) invokeL.objValue;
+        return new BaseMapObjectRequest(LOC_BASE_QUERY_URL, mapObject);
     }
 
     public static BaseRequest newMapLoc2Region(MapObject mapObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, mapObject)) == null) {
-            return new BaseMapObjectRequest(MAP_LOC_2_REGION_URL, mapObject);
-        }
-        return (BaseRequest) invokeL.objValue;
+        return new BaseMapObjectRequest(MAP_LOC_2_REGION_URL, mapObject);
     }
 
     public static BaseRequest newOCRImg2Address(MapObject mapObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, mapObject)) == null) {
-            return new BaseMapObjectRequest(IMG_OCR_URL, mapObject);
-        }
-        return (BaseRequest) invokeL.objValue;
+        return new BaseMapObjectRequest(IMG_OCR_URL, mapObject);
     }
 
     public static BaseRequest newRecogniseText2Address(MapObject mapObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, mapObject)) == null) {
-            return new BaseMapObjectRequest(LONG_TEXT_RECOGNISE_URL, mapObject);
-        }
-        return (BaseRequest) invokeL.objValue;
+        return new BaseMapObjectRequest(LONG_TEXT_RECOGNISE_URL, mapObject);
     }
 
     public static BaseRequest newSuggestDetailRequest(MapObject mapObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, mapObject)) == null) {
-            return new BaseMapObjectRequest(SUGGEST_DETAIL_URL, mapObject);
-        }
-        return (BaseRequest) invokeL.objValue;
+        return new BaseMapObjectRequest(SUGGEST_DETAIL_URL, mapObject);
     }
 
     public static BaseRequest newSuggestListRequest(MapObject mapObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, mapObject)) == null) {
-            return new BaseMapObjectRequest(SUGGEST_LIST_URL, mapObject);
-        }
-        return (BaseRequest) invokeL.objValue;
+        return new BaseMapObjectRequest(SUGGEST_LIST_URL, mapObject);
     }
 
     public static BaseRequest newUpdateAddressRequest(MapObject mapObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, mapObject)) == null) {
-            return new BaseMapObjectRequest(UPDATE_ADDRESS_URL, mapObject);
-        }
-        return (BaseRequest) invokeL.objValue;
+        return new BaseMapObjectRequest(UPDATE_ADDRESS_URL, mapObject);
     }
 }

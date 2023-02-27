@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j05;
+import com.baidu.tieba.q15;
 import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kuaishou.weapon.p0.h;
 /* loaded from: classes3.dex */
-public class PermissionRequestDialog extends j05 {
+public class PermissionRequestDialog extends q15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mCloseView;
@@ -84,7 +84,7 @@ public class PermissionRequestDialog extends j05 {
             this.mDetailView = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_detail);
             TextView textView = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_close);
             this.mCloseView = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f041d);
+            textView.setText(R.string.obfuscated_res_0x7f0f041e);
             TextView textView2 = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_continue);
             this.mContinueView = textView2;
             textView2.setText(R.string.alert_yes_button);
@@ -93,8 +93,8 @@ public class PermissionRequestDialog extends j05 {
         }
     }
 
-    @Override // com.baidu.tieba.j05
-    public j05 create(x9<?> x9Var) {
+    @Override // com.baidu.tieba.q15
+    public q15 create(x9<?> x9Var) {
         InterceptResult invokeL;
         char c;
         String string;
@@ -204,7 +204,7 @@ public class PermissionRequestDialog extends j05 {
             });
             return this;
         }
-        return (j05) invokeL.objValue;
+        return (q15) invokeL.objValue;
     }
 
     public void onChangeSkinType() {

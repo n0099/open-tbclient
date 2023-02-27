@@ -1,25 +1,29 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
 /* loaded from: classes5.dex */
-public class mt0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface mt0 {
+    void a(int i);
 
-    @NonNull
-    @Inject(force = false)
-    public static bx0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return ux0.a();
-        }
-        return (bx0) invokeV.objValue;
-    }
+    void onBufferEnd();
+
+    void onBufferStart();
+
+    void onEnd(int i);
+
+    void onError(int i, int i2, String str);
+
+    void onInfo(int i, int i2);
+
+    void onPause();
+
+    void onPrepared();
+
+    void onResume();
+
+    void onSeekEnd();
+
+    void onStart();
+
+    void onUpdateProgress(int i, int i2, int i3);
+
+    void onVideoSizeChanged(int i, int i2);
 }

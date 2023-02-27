@@ -8,15 +8,6 @@ import android.os.Looper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.collection.ArrayMap;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.internal.common.zzi;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -26,230 +17,149 @@ import java.util.Map;
 import java.util.WeakHashMap;
 /* loaded from: classes7.dex */
 public final class zzb extends Fragment implements LifecycleFragment {
-    public static /* synthetic */ Interceptable $ic;
-    public static final WeakHashMap<Activity, WeakReference<zzb>> zza;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, LifecycleCallback> zzb;
-    public int zzc;
+    public static final WeakHashMap<Activity, WeakReference<zzb>> zza = new WeakHashMap<>();
+    public final Map<String, LifecycleCallback> zzb = Collections.synchronizedMap(new ArrayMap());
+    public int zzc = 0;
     @Nullable
     public Bundle zzd;
 
     @Override // com.google.android.gms.common.api.internal.LifecycleFragment
     public final boolean isCreated() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.zzc > 0 : invokeV.booleanValue;
+        return this.zzc > 0;
     }
 
     @Override // com.google.android.gms.common.api.internal.LifecycleFragment
     public final boolean isStarted() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.zzc >= 2 : invokeV.booleanValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(340160752, "Lcom/google/android/gms/common/api/internal/zzb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(340160752, "Lcom/google/android/gms/common/api/internal/zzb;");
-                return;
-            }
-        }
-        zza = new WeakHashMap<>();
-    }
-
-    public zzb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.zzb = Collections.synchronizedMap(new ArrayMap());
-        this.zzc = 0;
+        return this.zzc >= 2;
     }
 
     @Override // com.google.android.gms.common.api.internal.LifecycleFragment
     @Nullable
     public final Activity getLifecycleActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return getActivity();
-        }
-        return (Activity) invokeV.objValue;
+        return getActivity();
     }
 
     @Override // android.app.Fragment
     public final void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.onDestroy();
-            this.zzc = 5;
-            for (LifecycleCallback lifecycleCallback : this.zzb.values()) {
-                lifecycleCallback.onDestroy();
-            }
+        super.onDestroy();
+        this.zzc = 5;
+        for (LifecycleCallback lifecycleCallback : this.zzb.values()) {
+            lifecycleCallback.onDestroy();
         }
     }
 
     @Override // android.app.Fragment
     public final void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.onResume();
-            this.zzc = 3;
-            for (LifecycleCallback lifecycleCallback : this.zzb.values()) {
-                lifecycleCallback.onResume();
-            }
+        super.onResume();
+        this.zzc = 3;
+        for (LifecycleCallback lifecycleCallback : this.zzb.values()) {
+            lifecycleCallback.onResume();
         }
     }
 
     @Override // android.app.Fragment
     public final void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            super.onStart();
-            this.zzc = 2;
-            for (LifecycleCallback lifecycleCallback : this.zzb.values()) {
-                lifecycleCallback.onStart();
-            }
+        super.onStart();
+        this.zzc = 2;
+        for (LifecycleCallback lifecycleCallback : this.zzb.values()) {
+            lifecycleCallback.onStart();
         }
     }
 
     @Override // android.app.Fragment
     public final void onStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            super.onStop();
-            this.zzc = 4;
-            for (LifecycleCallback lifecycleCallback : this.zzb.values()) {
-                lifecycleCallback.onStop();
-            }
+        super.onStop();
+        this.zzc = 4;
+        for (LifecycleCallback lifecycleCallback : this.zzb.values()) {
+            lifecycleCallback.onStop();
         }
     }
 
     public static zzb zzc(Activity activity) {
-        InterceptResult invokeL;
         zzb zzbVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
-            WeakReference<zzb> weakReference = zza.get(activity);
-            if (weakReference != null && (zzbVar = weakReference.get()) != null) {
-                return zzbVar;
-            }
-            try {
-                zzb zzbVar2 = (zzb) activity.getFragmentManager().findFragmentByTag("LifecycleFragmentImpl");
-                if (zzbVar2 == null || zzbVar2.isRemoving()) {
-                    zzbVar2 = new zzb();
-                    activity.getFragmentManager().beginTransaction().add(zzbVar2, "LifecycleFragmentImpl").commitAllowingStateLoss();
-                }
-                zza.put(activity, new WeakReference<>(zzbVar2));
-                return zzbVar2;
-            } catch (ClassCastException e) {
-                throw new IllegalStateException("Fragment with tag LifecycleFragmentImpl is not a LifecycleFragmentImpl", e);
-            }
+        WeakReference<zzb> weakReference = zza.get(activity);
+        if (weakReference != null && (zzbVar = weakReference.get()) != null) {
+            return zzbVar;
         }
-        return (zzb) invokeL.objValue;
+        try {
+            zzb zzbVar2 = (zzb) activity.getFragmentManager().findFragmentByTag("LifecycleFragmentImpl");
+            if (zzbVar2 == null || zzbVar2.isRemoving()) {
+                zzbVar2 = new zzb();
+                activity.getFragmentManager().beginTransaction().add(zzbVar2, "LifecycleFragmentImpl").commitAllowingStateLoss();
+            }
+            zza.put(activity, new WeakReference<>(zzbVar2));
+            return zzbVar2;
+        } catch (ClassCastException e) {
+            throw new IllegalStateException("Fragment with tag LifecycleFragmentImpl is not a LifecycleFragmentImpl", e);
+        }
     }
 
     @Override // com.google.android.gms.common.api.internal.LifecycleFragment
     public final void addCallback(String str, @NonNull LifecycleCallback lifecycleCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, lifecycleCallback) == null) {
-            if (!this.zzb.containsKey(str)) {
-                this.zzb.put(str, lifecycleCallback);
-                if (this.zzc > 0) {
-                    new zzi(Looper.getMainLooper()).post(new zza(this, lifecycleCallback, str));
-                    return;
-                }
+        if (!this.zzb.containsKey(str)) {
+            this.zzb.put(str, lifecycleCallback);
+            if (this.zzc > 0) {
+                new zzi(Looper.getMainLooper()).post(new zza(this, lifecycleCallback, str));
                 return;
             }
-            StringBuilder sb = new StringBuilder(String.valueOf(str).length() + 59);
-            sb.append("LifecycleCallback with tag ");
-            sb.append(str);
-            sb.append(" already added to this fragment.");
-            throw new IllegalArgumentException(sb.toString());
+            return;
         }
+        StringBuilder sb = new StringBuilder(String.valueOf(str).length() + 59);
+        sb.append("LifecycleCallback with tag ");
+        sb.append(str);
+        sb.append(" already added to this fragment.");
+        throw new IllegalArgumentException(sb.toString());
     }
 
     @Override // android.app.Fragment
     public final void dump(String str, @Nullable FileDescriptor fileDescriptor, PrintWriter printWriter, @Nullable String[] strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, fileDescriptor, printWriter, strArr) == null) {
-            super.dump(str, fileDescriptor, printWriter, strArr);
-            for (LifecycleCallback lifecycleCallback : this.zzb.values()) {
-                lifecycleCallback.dump(str, fileDescriptor, printWriter, strArr);
-            }
+        super.dump(str, fileDescriptor, printWriter, strArr);
+        for (LifecycleCallback lifecycleCallback : this.zzb.values()) {
+            lifecycleCallback.dump(str, fileDescriptor, printWriter, strArr);
         }
     }
 
     @Override // com.google.android.gms.common.api.internal.LifecycleFragment
     @Nullable
     public final <T extends LifecycleCallback> T getCallbackOrNull(String str, Class<T> cls) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cls)) == null) {
-            return cls.cast(this.zzb.get(str));
-        }
-        return (T) invokeLL.objValue;
+        return cls.cast(this.zzb.get(str));
     }
 
     @Override // android.app.Fragment
     public final void onActivityResult(int i, int i2, @Nullable Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
-            for (LifecycleCallback lifecycleCallback : this.zzb.values()) {
-                lifecycleCallback.onActivityResult(i, i2, intent);
-            }
+        super.onActivityResult(i, i2, intent);
+        for (LifecycleCallback lifecycleCallback : this.zzb.values()) {
+            lifecycleCallback.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // android.app.Fragment
     public final void onCreate(@Nullable Bundle bundle) {
         Bundle bundle2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            super.onCreate(bundle);
-            this.zzc = 1;
-            this.zzd = bundle;
-            for (Map.Entry<String, LifecycleCallback> entry : this.zzb.entrySet()) {
-                LifecycleCallback value = entry.getValue();
-                if (bundle != null) {
-                    bundle2 = bundle.getBundle(entry.getKey());
-                } else {
-                    bundle2 = null;
-                }
-                value.onCreate(bundle2);
+        super.onCreate(bundle);
+        this.zzc = 1;
+        this.zzd = bundle;
+        for (Map.Entry<String, LifecycleCallback> entry : this.zzb.entrySet()) {
+            LifecycleCallback value = entry.getValue();
+            if (bundle != null) {
+                bundle2 = bundle.getBundle(entry.getKey());
+            } else {
+                bundle2 = null;
             }
+            value.onCreate(bundle2);
         }
     }
 
     @Override // android.app.Fragment
     public final void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
-            super.onSaveInstanceState(bundle);
-            if (bundle == null) {
-                return;
-            }
-            for (Map.Entry<String, LifecycleCallback> entry : this.zzb.entrySet()) {
-                Bundle bundle2 = new Bundle();
-                entry.getValue().onSaveInstanceState(bundle2);
-                bundle.putBundle(entry.getKey(), bundle2);
-            }
+        super.onSaveInstanceState(bundle);
+        if (bundle == null) {
+            return;
+        }
+        for (Map.Entry<String, LifecycleCallback> entry : this.zzb.entrySet()) {
+            Bundle bundle2 = new Bundle();
+            entry.getValue().onSaveInstanceState(bundle2);
+            bundle.putBundle(entry.getKey(), bundle2);
         }
     }
 }

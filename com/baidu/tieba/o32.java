@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.Path;
-import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,10 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class o32 extends c22 {
+public class o32 extends s22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Path a;
+    public float a;
+    public float b;
 
     public o32() {
         Interceptable interceptable = $ic;
@@ -29,36 +28,23 @@ public class o32 extends c22 {
         }
     }
 
-    @Override // com.baidu.tieba.c22
-    public void a(d22 d22Var, Canvas canvas) {
+    @Override // com.baidu.tieba.s22
+    public void a(t22 t22Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, d22Var, canvas) == null) && this.a != null) {
-            int alpha = d22Var.c.getAlpha();
-            d22Var.c(d22Var.c);
-            canvas.drawPath(this.a, d22Var.c);
-            d22Var.c.setAlpha(alpha);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, t22Var, canvas) == null) {
+            if (t22Var.a() == 0) {
+                t22Var.b(canvas.save());
+            }
+            canvas.scale(this.a, this.b);
         }
     }
 
-    @Override // com.baidu.tieba.c22
+    @Override // com.baidu.tieba.s22
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() == 4) {
-                    int g = nm3.g((float) jSONArray.optDouble(0));
-                    int g2 = nm3.g((float) jSONArray.optDouble(1));
-                    int g3 = nm3.g((float) jSONArray.optDouble(2));
-                    int g4 = nm3.g((float) jSONArray.optDouble(3));
-                    Path path = new Path();
-                    this.a = path;
-                    path.addRect(new RectF(g, g2, g + g3, g2 + g4), Path.Direction.CW);
-                }
-            } catch (Exception e) {
-                if (gp1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 1) {
+            this.a = (float) jSONArray.optDouble(0);
+            this.b = (float) jSONArray.optDouble(1);
         }
     }
 }

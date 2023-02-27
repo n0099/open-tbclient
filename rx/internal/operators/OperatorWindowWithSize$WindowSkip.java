@@ -1,137 +1,99 @@
 package rx.internal.operators;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dea;
-import com.baidu.tieba.kea;
-import com.baidu.tieba.pia;
-import com.baidu.tieba.sea;
-import com.baidu.tieba.xda;
-import com.baidu.tieba.zda;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.fna;
+import com.baidu.tieba.kra;
+import com.baidu.tieba.nna;
+import com.baidu.tieba.sma;
+import com.baidu.tieba.uma;
+import com.baidu.tieba.yma;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import rx.subjects.UnicastSubject;
 /* loaded from: classes9.dex */
-public final class OperatorWindowWithSize$WindowSkip<T> extends dea<T> implements kea {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final dea<? super xda<T>> e;
+public final class OperatorWindowWithSize$WindowSkip<T> extends yma<T> implements fna {
+    public final yma<? super sma<T>> e;
     public final int f;
     public final int g;
     public final AtomicInteger h;
     public int i;
-    public pia<T, T> j;
+    public kra<T, T> j;
 
     /* loaded from: classes9.dex */
-    public final class WindowSkipProducer extends AtomicBoolean implements zda {
-        public static /* synthetic */ Interceptable $ic = null;
+    public final class WindowSkipProducer extends AtomicBoolean implements uma {
         public static final long serialVersionUID = 4625807964358024108L;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ OperatorWindowWithSize$WindowSkip this$0;
 
-        public WindowSkipProducer(OperatorWindowWithSize$WindowSkip operatorWindowWithSize$WindowSkip) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {operatorWindowWithSize$WindowSkip};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = operatorWindowWithSize$WindowSkip;
+        public WindowSkipProducer() {
         }
 
-        @Override // com.baidu.tieba.zda
+        @Override // com.baidu.tieba.uma
         public void request(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-                if (i >= 0) {
-                    if (i != 0) {
-                        OperatorWindowWithSize$WindowSkip operatorWindowWithSize$WindowSkip = this.this$0;
-                        if (get() || !compareAndSet(false, true)) {
-                            operatorWindowWithSize$WindowSkip.e(sea.c(j, operatorWindowWithSize$WindowSkip.g));
-                            return;
-                        } else {
-                            operatorWindowWithSize$WindowSkip.e(sea.a(sea.c(j, operatorWindowWithSize$WindowSkip.f), sea.c(operatorWindowWithSize$WindowSkip.g - operatorWindowWithSize$WindowSkip.f, j - 1)));
-                            return;
-                        }
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i >= 0) {
+                if (i != 0) {
+                    OperatorWindowWithSize$WindowSkip operatorWindowWithSize$WindowSkip = OperatorWindowWithSize$WindowSkip.this;
+                    if (get() || !compareAndSet(false, true)) {
+                        operatorWindowWithSize$WindowSkip.e(nna.c(j, operatorWindowWithSize$WindowSkip.g));
+                        return;
+                    } else {
+                        operatorWindowWithSize$WindowSkip.e(nna.a(nna.c(j, operatorWindowWithSize$WindowSkip.f), nna.c(operatorWindowWithSize$WindowSkip.g - operatorWindowWithSize$WindowSkip.f, j - 1)));
+                        return;
                     }
-                    return;
                 }
-                throw new IllegalArgumentException("n >= 0 required but it was " + j);
+                return;
             }
+            throw new IllegalArgumentException("n >= 0 required but it was " + j);
         }
     }
 
-    @Override // com.baidu.tieba.kea
+    @Override // com.baidu.tieba.fna
     public void call() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.h.decrementAndGet() == 0) {
+        if (this.h.decrementAndGet() == 0) {
             unsubscribe();
         }
     }
 
-    @Override // com.baidu.tieba.yda
+    @Override // com.baidu.tieba.tma
     public void onCompleted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            pia<T, T> piaVar = this.j;
-            if (piaVar != null) {
-                this.j = null;
-                piaVar.onCompleted();
-            }
-            this.e.onCompleted();
+        kra<T, T> kraVar = this.j;
+        if (kraVar != null) {
+            this.j = null;
+            kraVar.onCompleted();
         }
+        this.e.onCompleted();
     }
 
-    @Override // com.baidu.tieba.yda
+    @Override // com.baidu.tieba.tma
     public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            pia<T, T> piaVar = this.j;
-            if (piaVar != null) {
-                this.j = null;
-                piaVar.onError(th);
-            }
-            this.e.onError(th);
+        kra<T, T> kraVar = this.j;
+        if (kraVar != null) {
+            this.j = null;
+            kraVar.onError(th);
         }
+        this.e.onError(th);
     }
 
-    @Override // com.baidu.tieba.yda
+    @Override // com.baidu.tieba.tma
     public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-            int i = this.i;
-            UnicastSubject unicastSubject = this.j;
-            if (i == 0) {
-                this.h.getAndIncrement();
-                unicastSubject = UnicastSubject.D(this.f, this);
-                this.j = unicastSubject;
-                this.e.onNext(unicastSubject);
-            }
-            int i2 = i + 1;
-            if (unicastSubject != null) {
-                unicastSubject.onNext(t);
-            }
-            if (i2 == this.f) {
-                this.i = i2;
-                this.j = null;
-                unicastSubject.onCompleted();
-            } else if (i2 == this.g) {
-                this.i = 0;
-            } else {
-                this.i = i2;
-            }
+        int i = this.i;
+        UnicastSubject unicastSubject = this.j;
+        if (i == 0) {
+            this.h.getAndIncrement();
+            unicastSubject = UnicastSubject.D(this.f, this);
+            this.j = unicastSubject;
+            this.e.onNext(unicastSubject);
+        }
+        int i2 = i + 1;
+        if (unicastSubject != null) {
+            unicastSubject.onNext(t);
+        }
+        if (i2 == this.f) {
+            this.i = i2;
+            this.j = null;
+            unicastSubject.onCompleted();
+        } else if (i2 == this.g) {
+            this.i = 0;
+        } else {
+            this.i = i2;
         }
     }
 }

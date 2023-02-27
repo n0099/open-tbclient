@@ -2,8 +2,6 @@ package com.baidu.sapi2;
 
 import android.app.Activity;
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.sapi2.callback.AccountCenterCallback;
 import com.baidu.sapi2.callback.AccountRealNameCallback;
@@ -11,6 +9,8 @@ import com.baidu.sapi2.callback.AccountToolsCallback;
 import com.baidu.sapi2.callback.ActivityResultCallback;
 import com.baidu.sapi2.callback.AuthWidgetCallback;
 import com.baidu.sapi2.callback.CertGuardianCallback;
+import com.baidu.sapi2.callback.ChangeUsernameCallback;
+import com.baidu.sapi2.callback.DoubleListCallback;
 import com.baidu.sapi2.callback.ExtendSysWebViewMethodCallback;
 import com.baidu.sapi2.callback.ImageCropCallback;
 import com.baidu.sapi2.callback.NormalizeGuestAccountCallback;
@@ -23,6 +23,8 @@ import com.baidu.sapi2.callback.WebBindWidgetCallback;
 import com.baidu.sapi2.dto.AccountCenterDTO;
 import com.baidu.sapi2.dto.AccountToolsDTO;
 import com.baidu.sapi2.dto.CertGuardionDTO;
+import com.baidu.sapi2.dto.ChangeUserNameDTO;
+import com.baidu.sapi2.dto.DoubleListDTO;
 import com.baidu.sapi2.dto.FaceIDRegDTO;
 import com.baidu.sapi2.dto.FaceIDVerifyCertInfoDTO;
 import com.baidu.sapi2.dto.FaceIDVerifyDTO;
@@ -42,335 +44,200 @@ import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.utils.enums.BindInfoAction;
 import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class PassportSDK {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public PassportSDK() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static synchronized PassportSDK getInstance() {
-        InterceptResult invokeV;
         PassportSDK passportSDK;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (PassportSDK.class) {
-                passportSDK = new PassportSDK();
-            }
-            return passportSDK;
+        synchronized (PassportSDK.class) {
+            passportSDK = new PassportSDK();
         }
-        return (PassportSDK) invokeV.objValue;
+        return passportSDK;
     }
 
     public void extendSysWebViewMethod(Activity activity, String str, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, extendSysWebViewMethodCallback) == null) {
-            CoreViewRouter.getInstance().extendSysWebViewMethod(activity, str, extendSysWebViewMethodCallback);
-        }
+        CoreViewRouter.getInstance().extendSysWebViewMethod(activity, str, extendSysWebViewMethodCallback);
     }
 
     public void invokeV2ShareLogin(Activity activity, WebAuthListener webAuthListener, ShareStorage.StorageModel storageModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, webAuthListener, storageModel) == null) {
-            CoreViewRouter.getInstance().invokeV2ShareLogin(activity, storageModel, webAuthListener, "");
-        }
+        CoreViewRouter.getInstance().invokeV2ShareLogin(activity, storageModel, webAuthListener, "");
     }
 
     public void loadAccountRealName(Context context, AccountRealNameCallback accountRealNameCallback, RealNameDTO realNameDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, context, accountRealNameCallback, realNameDTO) == null) {
-            CoreViewRouter.getInstance().loadAccountRealName(context, accountRealNameCallback, realNameDTO);
-        }
+        CoreViewRouter.getInstance().loadAccountRealName(context, accountRealNameCallback, realNameDTO);
     }
 
     public void loadAddressManage(Context context, AddressManageDTO addressManageDTO, AddressManageCallback addressManageCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, context, addressManageDTO, addressManageCallback) == null) {
-            EcommerceRouter.getInstance().loadAddressManage(context, addressManageDTO, addressManageCallback);
-        }
+        EcommerceRouter.getInstance().loadAddressManage(context, addressManageDTO, addressManageCallback);
     }
 
     public void loadCertGuardian(Context context, CertGuardianCallback certGuardianCallback, CertGuardionDTO certGuardionDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, context, certGuardianCallback, certGuardionDTO) == null) {
-            CoreViewRouter.getInstance().loadCertGuardian(context, certGuardianCallback, certGuardionDTO);
-        }
+        CoreViewRouter.getInstance().loadCertGuardian(context, certGuardianCallback, certGuardionDTO);
+    }
+
+    public void loadChangeUsername(Context context, ChangeUserNameDTO changeUserNameDTO, ChangeUsernameCallback changeUsernameCallback) {
+        CoreViewRouter.getInstance().loadChangeUsername(context, changeUserNameDTO, changeUsernameCallback);
+    }
+
+    public void loadDoubleListActivity(Context context, DoubleListDTO doubleListDTO, DoubleListCallback doubleListCallback) {
+        CoreViewRouter.getInstance().loadDoubleListActivity(context, doubleListDTO, doubleListCallback);
     }
 
     public void loadInvoiceBuild(Context context, InvoiceBuildDTO invoiceBuildDTO, InvoiceBuildCallback invoiceBuildCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048588, this, context, invoiceBuildDTO, invoiceBuildCallback) == null) {
-            EcommerceRouter.getInstance().loadInvoiceBuild(context, invoiceBuildDTO, invoiceBuildCallback);
-        }
+        EcommerceRouter.getInstance().loadInvoiceBuild(context, invoiceBuildDTO, invoiceBuildCallback);
     }
 
     @Deprecated
     public void loadOneKeyLogin(Context context, String str, OneKeyLoginCallback oneKeyLoginCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048590, this, context, str, oneKeyLoginCallback) == null) {
-            CoreViewRouter.getInstance().loadOneKeyLogin(context, str, oneKeyLoginCallback);
-        }
+        CoreViewRouter.getInstance().loadOneKeyLogin(context, str, oneKeyLoginCallback);
     }
 
     public void loadQrLogin(QrLoginCallback qrLoginCallback, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048594, this, qrLoginCallback, str, str2) == null) {
-            CoreViewRouter.getInstance().loadQrLogin(qrLoginCallback, str, str2);
-        }
+        CoreViewRouter.getInstance().loadQrLogin(qrLoginCallback, str, str2);
     }
 
     public void loadYYSSOLogin(Context context, String str, WebAuthListener webAuthListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048600, this, context, str, webAuthListener) == null) {
-            CoreViewRouter.getInstance().loadYYSSOLogin(context, str, webAuthListener);
-        }
+        CoreViewRouter.getInstance().loadYYSSOLogin(context, str, webAuthListener);
     }
 
     public void registerUserFaceID(Activity activity, RegisterUserFaceIDCallback registerUserFaceIDCallback, FaceIDRegDTO faceIDRegDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048601, this, activity, registerUserFaceIDCallback, faceIDRegDTO) == null) {
-            CoreViewRouter.getInstance().registerUserFaceID(activity, registerUserFaceIDCallback, faceIDRegDTO);
-        }
+        CoreViewRouter.getInstance().registerUserFaceID(activity, registerUserFaceIDCallback, faceIDRegDTO);
     }
 
     public void startHorizontalScreenLogin(Context context, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048605, this, context, webAuthListener, webLoginDTO) == null) {
-            CoreViewRouter.getInstance().startHorizontalScreenLogin(context, webAuthListener, webLoginDTO);
-        }
+        CoreViewRouter.getInstance().startHorizontalScreenLogin(context, webAuthListener, webLoginDTO);
     }
 
     public void startLogin(Context context, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048606, this, context, webAuthListener, webLoginDTO) == null) {
-            CoreViewRouter.getInstance().startLogin(context, webAuthListener, webLoginDTO);
-        }
+        CoreViewRouter.getInstance().startLogin(context, webAuthListener, webLoginDTO);
     }
 
     public void startNormalizeGuestAccount(Context context, NormalizeGuestAccountCallback normalizeGuestAccountCallback, NormalizeGuestAccountDTO normalizeGuestAccountDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048609, this, context, normalizeGuestAccountCallback, normalizeGuestAccountDTO) == null) {
-            CoreViewRouter.getInstance().startNormalizeGuestAccount(context, normalizeGuestAccountCallback, normalizeGuestAccountDTO);
-        }
+        CoreViewRouter.getInstance().startNormalizeGuestAccount(context, normalizeGuestAccountCallback, normalizeGuestAccountDTO);
     }
 
     @Deprecated
     public void startOnlyPhoneAuth(AuthWidgetCallback authWidgetCallback, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048610, this, authWidgetCallback, str, str2) == null) {
-            CoreViewRouter.getInstance().startOnlyPhoneAuth(authWidgetCallback, str, str2);
-        }
+        CoreViewRouter.getInstance().startOnlyPhoneAuth(authWidgetCallback, str, str2);
     }
 
     public void startSchemeLoginForQA(Context context, String str, WebAuthListener webAuthListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048613, this, context, str, webAuthListener) == null) {
-            CoreViewRouter.getInstance().startSchemeLoginForQA(context, str, webAuthListener);
-        }
+        CoreViewRouter.getInstance().startSchemeLoginForQA(context, str, webAuthListener);
     }
 
     public void startSpeciallyAuthWidget(AuthWidgetCallback authWidgetCallback, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048615, this, authWidgetCallback, str, str2) == null) {
-            CoreViewRouter.getInstance().startSpeciallyAuthWidget(authWidgetCallback, str, str2);
-        }
+        CoreViewRouter.getInstance().startSpeciallyAuthWidget(authWidgetCallback, str, str2);
     }
 
     public void verifyUserFaceIDWithCertInfo(Activity activity, PassFaceRecogCallback passFaceRecogCallback, FaceIDVerifyCertInfoDTO faceIDVerifyCertInfoDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048616, this, activity, passFaceRecogCallback, faceIDVerifyCertInfoDTO) == null) {
-            CoreViewRouter.getInstance().verifyUserFaceIDWithCertInfo(activity, passFaceRecogCallback, faceIDVerifyCertInfoDTO);
-        }
+        CoreViewRouter.getInstance().verifyUserFaceIDWithCertInfo(activity, passFaceRecogCallback, faceIDVerifyCertInfoDTO);
     }
 
     public void verifyUserFaceId(Activity activity, VerifyUserFaceIDCallback verifyUserFaceIDCallback, FaceIDVerifyDTO faceIDVerifyDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048617, this, activity, verifyUserFaceIDCallback, faceIDVerifyDTO) == null) {
-            CoreViewRouter.getInstance().verifyUserFaceId(activity, verifyUserFaceIDCallback, faceIDVerifyDTO);
-        }
+        CoreViewRouter.getInstance().verifyUserFaceId(activity, verifyUserFaceIDCallback, faceIDVerifyDTO);
     }
 
     public void handleWXLoginResp(Activity activity, String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, str2, i) == null) {
-            CoreViewRouter.getInstance().handleWXLoginResp(activity, str, str2, i);
-        }
+        CoreViewRouter.getInstance().handleWXLoginResp(activity, str, str2, i);
     }
 
     public void invokeV2ShareLogin(Activity activity, WebAuthListener webAuthListener, ShareStorage.StorageModel storageModel, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, activity, webAuthListener, storageModel, str) == null) {
-            CoreViewRouter.getInstance().invokeV2ShareLogin(activity, storageModel, webAuthListener, str);
-        }
+        CoreViewRouter.getInstance().invokeV2ShareLogin(activity, storageModel, webAuthListener, str);
     }
 
     public void loadOneKeyLogin(Context context, String str, boolean z, OneKeyLoginCallback oneKeyLoginCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{context, str, Boolean.valueOf(z), oneKeyLoginCallback}) == null) {
-            CoreViewRouter.getInstance().loadOneKeyLogin(context, str, z, oneKeyLoginCallback);
-        }
+        CoreViewRouter.getInstance().loadOneKeyLogin(context, str, z, oneKeyLoginCallback);
     }
 
     public void loadOneKeyLoginWithToken(Context context, String str, String str2, OneKeyLoginCallback oneKeyLoginCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048592, this, context, str, str2, oneKeyLoginCallback) == null) {
-            CoreViewRouter.getInstance().loadOneKeyLoginWithToken(context, str, str2, oneKeyLoginCallback);
-        }
+        CoreViewRouter.getInstance().loadOneKeyLoginWithToken(context, str, str2, oneKeyLoginCallback);
+    }
+
+    public void loadOneKeyLoginWithoutYYNormalOneKey(Context context, String str, boolean z, OneKeyLoginCallback oneKeyLoginCallback) {
+        CoreViewRouter.getInstance().loadOneKeyLogin(context, str, z, false, oneKeyLoginCallback);
     }
 
     public void loadQrLogin(QrLoginCallback qrLoginCallback, String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{qrLoginCallback, str, str2, Boolean.valueOf(z)}) == null) {
-            CoreViewRouter.getInstance().loadQrLogin(qrLoginCallback, str, str2, z);
-        }
+        CoreViewRouter.getInstance().loadQrLogin(qrLoginCallback, str, str2, z);
     }
 
     public void loadAccountCenter(AccountCenterCallback accountCenterCallback, AccountCenterDTO accountCenterDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, accountCenterCallback, accountCenterDTO) == null) {
-            CoreViewRouter.getInstance().loadAccountCenter(accountCenterCallback, accountCenterDTO);
-        }
+        CoreViewRouter.getInstance().loadAccountCenter(accountCenterCallback, accountCenterDTO);
     }
 
     public void loadAccountTools(AccountToolsDTO accountToolsDTO, AccountToolsCallback accountToolsCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, accountToolsDTO, accountToolsCallback) == null) {
-            CoreViewRouter.getInstance().loadAccountTools(accountToolsDTO, accountToolsCallback);
-        }
+        CoreViewRouter.getInstance().loadAccountTools(accountToolsDTO, accountToolsCallback);
     }
 
     public void loadBindInfo(Context context, BindInfoAction bindInfoAction) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, bindInfoAction) == null) {
-            CoreViewRouter.getInstance().loadBindInfo(context, bindInfoAction);
-        }
+        CoreViewRouter.getInstance().loadBindInfo(context, bindInfoAction);
     }
 
     public void loadBindWidget(WebBindWidgetCallback webBindWidgetCallback, WebBindWidgetDTO webBindWidgetDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, webBindWidgetCallback, webBindWidgetDTO) == null) {
-            CoreViewRouter.getInstance().loadBindWidget(webBindWidgetCallback, webBindWidgetDTO);
-        }
+        CoreViewRouter.getInstance().loadBindWidget(webBindWidgetCallback, webBindWidgetDTO);
+    }
+
+    public void loadChangeUsername(Context context, ChangeUsernameCallback changeUsernameCallback) {
+        CoreViewRouter.getInstance().loadChangeUsername(context, changeUsernameCallback);
     }
 
     public void loadChildActivity(Context context, AccountRealNameCallback accountRealNameCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, context, accountRealNameCallback) == null) {
-            CoreViewRouter.getInstance().loadChildActivity(context, accountRealNameCallback);
-        }
+        CoreViewRouter.getInstance().loadChildActivity(context, accountRealNameCallback);
     }
 
     public void loadOneKeyLogin(Context context, OneKeyLoginCallback oneKeyLoginCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, context, oneKeyLoginCallback) == null) {
-            CoreViewRouter.getInstance().loadOneKeyLogin(context, oneKeyLoginCallback);
-        }
+        CoreViewRouter.getInstance().loadOneKeyLogin(context, oneKeyLoginCallback);
     }
 
     public void loadQrLogin(QrLoginCallback qrLoginCallback, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, qrLoginCallback, str) == null) {
-            CoreViewRouter.getInstance().loadQrLogin(qrLoginCallback, str);
-        }
+        CoreViewRouter.getInstance().loadQrLogin(qrLoginCallback, str);
     }
 
     public void loadQrLoginWithEncuid(QrLoginCallback qrLoginCallback, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048596, this, qrLoginCallback, str) == null) {
-            CoreViewRouter.getInstance().loadQrLoginWithEncuid(qrLoginCallback, str);
-        }
+        CoreViewRouter.getInstance().loadQrLoginWithEncuid(qrLoginCallback, str);
     }
 
     public void loadSwitchAccount(SwitchAccountDTO switchAccountDTO, WebAuthListener webAuthListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, switchAccountDTO, webAuthListener) == null) {
-            CoreViewRouter.getInstance().loadSwitchAccount(switchAccountDTO, webAuthListener);
-        }
+        CoreViewRouter.getInstance().loadSwitchAccount(switchAccountDTO, webAuthListener);
     }
 
     public void loadThirdPartyLogin(WebAuthListener webAuthListener, WebSocialLoginDTO webSocialLoginDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048598, this, webAuthListener, webSocialLoginDTO) == null) {
-            CoreViewRouter.getInstance().loadThirdPartyLogin(webAuthListener, webSocialLoginDTO);
-        }
+        CoreViewRouter.getInstance().loadThirdPartyLogin(webAuthListener, webSocialLoginDTO);
     }
 
     public void startAuth(AuthWidgetCallback authWidgetCallback, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048604, this, authWidgetCallback, str) == null) {
-            CoreViewRouter.getInstance().startAuth(authWidgetCallback, str);
-        }
+        CoreViewRouter.getInstance().startAuth(authWidgetCallback, str);
     }
 
     public void startLogin(WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048607, this, webAuthListener, webLoginDTO) == null) {
-            CoreViewRouter.getInstance().startLogin(webAuthListener, webLoginDTO);
-        }
+        CoreViewRouter.getInstance().startLogin(webAuthListener, webLoginDTO);
     }
 
     public void startRegister(WebAuthListener webAuthListener, WebRegDTO webRegDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048611, this, webAuthListener, webRegDTO) == null) {
-            CoreViewRouter.getInstance().startRegister(webAuthListener, webRegDTO);
-        }
+        CoreViewRouter.getInstance().startRegister(webAuthListener, webRegDTO);
     }
 
     public void startSchemeLoginForQA(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048612, this, context, str) == null) {
-            CoreViewRouter.getInstance().startSchemeLoginForQA(context, str);
-        }
+        CoreViewRouter.getInstance().startSchemeLoginForQA(context, str);
     }
 
     public void startSmsViewLogin(SmsViewLoginCallback smsViewLoginCallback, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048614, this, smsViewLoginCallback, str) == null) {
-            CoreViewRouter.getInstance().startSmsViewLogin(smsViewLoginCallback, str);
-        }
+        CoreViewRouter.getInstance().startSmsViewLogin(smsViewLoginCallback, str);
     }
 
     public void loadThirdPartyLogin(WebAuthListener webAuthListener, SocialType socialType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048599, this, webAuthListener, socialType) == null) {
-            CoreViewRouter.getInstance().loadThirdPartyLogin(webAuthListener, socialType);
-        }
+        CoreViewRouter.getInstance().loadThirdPartyLogin(webAuthListener, socialType);
     }
 
     public void setActivityResultCallback(ActivityResultCallback activityResultCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, activityResultCallback) == null) {
-            CoreViewRouter.getInstance().setActivityResultCallback(activityResultCallback);
-        }
+        CoreViewRouter.getInstance().setActivityResultCallback(activityResultCallback);
     }
 
     public void setImageCropCallback(ImageCropCallback imageCropCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, imageCropCallback) == null) {
-            CoreViewRouter.getInstance().setImageCropCallback(imageCropCallback);
-        }
+        CoreViewRouter.getInstance().setImageCropCallback(imageCropCallback);
     }
 
     public void startLoginDeviceManager(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048608, this, context) == null) && SapiAccountManager.getInstance().isLogin()) {
+        if (SapiAccountManager.getInstance().isLogin()) {
             CoreViewRouter.getInstance().startLoginDeviceManager(context);
         }
     }

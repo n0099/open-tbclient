@@ -1,90 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class p50 {
     public static /* synthetic */ Interceptable $ic;
+    public static final char[] a;
+    public static final char[] b;
+    public static final byte[] c;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public p50() {
-        this(0L);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this(((Long) newInitContext.callArgs[0]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948012894, "Lcom/baidu/tieba/p50;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948012894, "Lcom/baidu/tieba/p50;");
                 return;
             }
         }
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        a = "0123456789ABCDEF".toCharArray();
+        b = "0123456789abcdef".toCharArray();
+        c = new byte[128];
+        for (int i = 0; i < 10; i++) {
+            byte[] bArr = c;
+            bArr[i + 48] = (byte) i;
+            byte b2 = (byte) (i + 10);
+            bArr[i + 65] = b2;
+            bArr[i + 97] = b2;
         }
-        return invokeV.longValue;
     }
 
-    public p50(long j) {
+    public static char[] a(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        char[] cArr;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
+            if (z) {
+                cArr = a;
+            } else {
+                cArr = b;
             }
-        }
-        this.a = j;
-    }
-
-    public long a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            return j & this.a;
-        }
-        return invokeJ.longValue;
-    }
-
-    public void b(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.a = j;
-        }
-    }
-
-    public boolean c(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            long j3 = this.a;
-            long j4 = (j & j2) | ((~j2) & j3);
-            this.a = j4;
-            if ((j4 ^ j3) != 0) {
-                return true;
+            char[] cArr2 = new char[bArr.length * 2];
+            int i = 0;
+            for (byte b2 : bArr) {
+                int i2 = i + 1;
+                cArr2[i] = cArr[(b2 & 240) >>> 4];
+                i = i2 + 1;
+                cArr2[i2] = cArr[b2 & 15];
             }
-            return false;
+            return cArr2;
         }
-        return invokeCommon.booleanValue;
+        return (char[]) invokeLZ.objValue;
+    }
+
+    public static String b(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, bArr, z)) == null) {
+            return new String(a(bArr, z));
+        }
+        return (String) invokeLZ.objValue;
     }
 }

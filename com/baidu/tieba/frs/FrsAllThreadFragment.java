@@ -18,23 +18,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.it6;
-import com.baidu.tieba.ks6;
-import com.baidu.tieba.pj5;
+import com.baidu.tieba.cl5;
+import com.baidu.tieba.hw6;
+import com.baidu.tieba.jv6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FrsAllThreadFragment extends BaseFragment implements it6 {
+public class FrsAllThreadFragment extends BaseFragment implements hw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public RecyclerView b;
     public String c;
 
-    @Override // com.baidu.tieba.it6
+    @Override // com.baidu.tieba.hw6
     public void k0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
@@ -55,20 +55,20 @@ public class FrsAllThreadFragment extends BaseFragment implements it6 {
         }
     }
 
-    @Override // com.baidu.tieba.it6
+    @Override // com.baidu.tieba.hw6
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             y1();
-            ks6 ks6Var = new ks6();
-            ks6Var.a = 1;
-            ks6Var.b = true;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, ks6Var));
+            jv6 jv6Var = new jv6();
+            jv6Var.a = 1;
+            jv6Var.b = true;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, jv6Var));
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public pj5 getTbPageExtra() {
+    public cl5 getTbPageExtra() {
         InterceptResult invokeV;
         Intent intent;
         Interceptable interceptable = $ic;
@@ -79,9 +79,9 @@ public class FrsAllThreadFragment extends BaseFragment implements it6 {
             } else {
                 intent = baseFragmentActivity.getIntent();
             }
-            return new pj5(getUniqueId(), "a006", this.mTbPageExtraPageTabName, intent);
+            return new cl5(getUniqueId(), "a006", this.mTbPageExtraPageTabName, intent);
         }
-        return (pj5) invokeV.objValue;
+        return (cl5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -96,7 +96,7 @@ public class FrsAllThreadFragment extends BaseFragment implements it6 {
         }
     }
 
-    @Override // com.baidu.tieba.it6
+    @Override // com.baidu.tieba.hw6
     public void y1() {
         RecyclerView recyclerView;
         Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public class FrsAllThreadFragment extends BaseFragment implements it6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             this.a = view2;
-            this.b = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090c42);
+            this.b = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090c83);
             D1();
         }
     }

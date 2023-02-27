@@ -1,17 +1,10 @@
 package com.baidu.livesdk.sdk.http;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.livesdk.api.http.HttpRequest;
 import com.baidu.livesdk.api.http.HttpRequestEntity;
 import com.baidu.livesdk.api.http.HttpResponse;
 import com.baidu.livesdk.api.http.ResponseCallback;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
@@ -26,123 +19,113 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 /* loaded from: classes2.dex */
 public class OkHttpRequest implements HttpRequest {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public ResponseCallback mCallback;
     public OkHttpClient mClient;
     public HttpRequestEntity mEntity;
     public Call mRequestCall;
 
-    public OkHttpRequest() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // com.baidu.livesdk.api.http.HttpRequest
     public void cancel() {
-        Call call;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (call = this.mRequestCall) != null) {
+        Call call = this.mRequestCall;
+        if (call != null) {
             call.cancel();
         }
     }
 
     @Override // com.baidu.livesdk.api.http.HttpRequest
     public HttpRequestEntity getHttpRequestEntity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mEntity;
-        }
-        return (HttpRequestEntity) invokeV.objValue;
+        return this.mEntity;
     }
 
     @Override // com.baidu.livesdk.api.http.HttpRequest
     public HttpResponse requestSync() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Call requestBuild = requestBuild();
-            this.mRequestCall = requestBuild;
-            return getHttpResponse(requestBuild.execute());
-        }
-        return (HttpResponse) invokeV.objValue;
+        Call requestBuild = requestBuild();
+        this.mRequestCall = requestBuild;
+        return getHttpResponse(requestBuild.execute());
     }
 
     private Call requestBuild() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (this.mClient != null && this.mEntity != null) {
-                Request.Builder url = new Request.Builder().url(this.mEntity.getUrl());
-                if (this.mEntity.getHeader() != null) {
-                    for (Map.Entry<String, String> entry : this.mEntity.getHeader().entrySet()) {
-                        url.addHeader(entry.getKey(), entry.getValue());
-                    }
+        if (this.mClient != null && this.mEntity != null) {
+            Request.Builder url = new Request.Builder().url(this.mEntity.getUrl());
+            if (this.mEntity.getHeader() != null) {
+                for (Map.Entry<String, String> entry : this.mEntity.getHeader().entrySet()) {
+                    url.addHeader(entry.getKey(), entry.getValue());
                 }
-                int method = this.mEntity.getMethod();
-                if (method != 0) {
-                    if (method != 1) {
-                        url.get();
-                    } else {
-                        RequestBody requestBody = null;
-                        if (this.mEntity.getPostParams() != null) {
-                            if (TextUtils.isEmpty(this.mEntity.getMediaType())) {
-                                FormBody.Builder builder = new FormBody.Builder();
-                                for (Map.Entry<String, String> entry2 : this.mEntity.getPostParams().entrySet()) {
-                                    builder.add(entry2.getKey(), entry2.getValue());
-                                }
-                                requestBody = builder.build();
-                            } else {
-                                String str = "";
-                                for (Map.Entry<String, String> entry3 : this.mEntity.getPostParams().entrySet()) {
-                                    str = (str + entry3.getKey() + "=" + entry3.getValue()) + "&";
-                                }
-                                requestBody = RequestBody.create(MediaType.parse(this.mEntity.getMediaType()), str.substring(0, str.length() - 1));
-                            }
-                        }
-                        if (requestBody != null) {
-                            url.post(requestBody);
-                        }
-                    }
-                } else {
-                    url.get();
-                }
-                return this.mClient.newCall(url.build());
             }
-            throw new NullPointerException("params is null");
+            int method = this.mEntity.getMethod();
+            if (method != 0) {
+                if (method != 1) {
+                    url.get();
+                } else {
+                    RequestBody requestBody = null;
+                    if (this.mEntity.getPostParams() != null) {
+                        if (TextUtils.isEmpty(this.mEntity.getMediaType())) {
+                            FormBody.Builder builder = new FormBody.Builder();
+                            for (Map.Entry<String, String> entry2 : this.mEntity.getPostParams().entrySet()) {
+                                builder.add(entry2.getKey(), entry2.getValue());
+                            }
+                            requestBody = builder.build();
+                        } else {
+                            String str = "";
+                            for (Map.Entry<String, String> entry3 : this.mEntity.getPostParams().entrySet()) {
+                                str = (str + entry3.getKey() + "=" + entry3.getValue()) + "&";
+                            }
+                            requestBody = RequestBody.create(MediaType.parse(this.mEntity.getMediaType()), str.substring(0, str.length() - 1));
+                        }
+                    }
+                    if (requestBody != null) {
+                        url.post(requestBody);
+                    }
+                }
+            } else {
+                url.get();
+            }
+            return this.mClient.newCall(url.build());
         }
-        return (Call) invokeV.objValue;
+        throw new NullPointerException("params is null");
     }
 
     public HttpResponse getHttpResponse(Response response) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, response)) == null) {
-            HttpResponse httpResponse = new HttpResponse();
-            httpResponse.setResponseCode(response.code());
-            httpResponse.setHeaders(response.headers().toMultimap());
-            if (response.body() != null) {
-                httpResponse.setContent(response.body().string());
-            }
-            return httpResponse;
+        HttpResponse httpResponse = new HttpResponse();
+        httpResponse.setResponseCode(response.code());
+        httpResponse.setHeaders(response.headers().toMultimap());
+        if (response.body() != null) {
+            httpResponse.setContent(response.body().string());
         }
-        return (HttpResponse) invokeL.objValue;
+        return httpResponse;
+    }
+
+    @Override // com.baidu.livesdk.api.http.HttpRequest
+    public HttpRequest request(ResponseCallback responseCallback) {
+        this.mCallback = responseCallback;
+        Call requestBuild = requestBuild();
+        this.mRequestCall = requestBuild;
+        requestBuild.enqueue(new Callback() { // from class: com.baidu.livesdk.sdk.http.OkHttpRequest.1
+            @Override // okhttp3.Callback
+            public void onFailure(Call call, IOException iOException) {
+                OkHttpRequest.this.onFailureCallback(call, iOException);
+            }
+
+            @Override // okhttp3.Callback
+            public void onResponse(Call call, Response response) throws IOException {
+                OkHttpRequest.this.onResponseCallback(call, response);
+            }
+        });
+        return this;
+    }
+
+    @Override // com.baidu.livesdk.api.http.HttpRequest
+    public void setHttpRequestEntity(HttpRequestEntity httpRequestEntity) {
+        this.mEntity = httpRequestEntity;
+    }
+
+    public void setOkHttpClient(OkHttpClient okHttpClient) {
+        this.mClient = okHttpClient;
     }
 
     public void onFailureCallback(Call call, IOException iOException) {
         int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, call, iOException) == null) && this.mCallback != null) {
+        if (this.mCallback != null) {
             if (iOException instanceof SocketTimeoutException) {
                 i = 1;
             } else if (iOException instanceof ConnectException) {
@@ -155,85 +138,15 @@ public class OkHttpRequest implements HttpRequest {
     }
 
     public void onResponseCallback(Call call, Response response) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, call, response) == null) {
-            try {
-                if (this.mCallback != null) {
-                    this.mCallback.onSuccess(getHttpResponse(response));
-                }
-            } catch (Exception e) {
-                ResponseCallback responseCallback = this.mCallback;
-                if (responseCallback != null) {
-                    responseCallback.onFail(-1, e);
-                }
+        try {
+            if (this.mCallback != null) {
+                this.mCallback.onSuccess(getHttpResponse(response));
             }
-        }
-    }
-
-    @Override // com.baidu.livesdk.api.http.HttpRequest
-    public HttpRequest request(ResponseCallback responseCallback) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, responseCallback)) == null) {
-            this.mCallback = responseCallback;
-            Call requestBuild = requestBuild();
-            this.mRequestCall = requestBuild;
-            requestBuild.enqueue(new Callback(this) { // from class: com.baidu.livesdk.sdk.http.OkHttpRequest.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ OkHttpRequest this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // okhttp3.Callback
-                public void onFailure(Call call, IOException iOException) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, call, iOException) == null) {
-                        this.this$0.onFailureCallback(call, iOException);
-                    }
-                }
-
-                @Override // okhttp3.Callback
-                public void onResponse(Call call, Response response) throws IOException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                        this.this$0.onResponseCallback(call, response);
-                    }
-                }
-            });
-            return this;
-        }
-        return (HttpRequest) invokeL.objValue;
-    }
-
-    @Override // com.baidu.livesdk.api.http.HttpRequest
-    public void setHttpRequestEntity(HttpRequestEntity httpRequestEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, httpRequestEntity) == null) {
-            this.mEntity = httpRequestEntity;
-        }
-    }
-
-    public void setOkHttpClient(OkHttpClient okHttpClient) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, okHttpClient) == null) {
-            this.mClient = okHttpClient;
+        } catch (Exception e) {
+            ResponseCallback responseCallback = this.mCallback;
+            if (responseCallback != null) {
+                responseCallback.onFail(-1, e);
+            }
         }
     }
 }

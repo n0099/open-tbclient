@@ -1,56 +1,116 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.zt3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
-public final class bu3 extends zt3.a {
+public class bu3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final bu3 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public Method b;
+    public Object c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947657417, "Lcom/baidu/tieba/bu3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947657417, "Lcom/baidu/tieba/bu3;");
-                return;
-            }
-        }
-        b = new bu3();
-    }
-
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public bu3() {
-        super(r0);
+    public bu3(Class<?> cls) {
+        int intValue;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((zt3) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        zt3 a = au3.a();
-        Intrinsics.checkNotNullExpressionValue(a, "Ioc.impl()");
+        this.a = 4099;
+        if (cls == null) {
+            return;
+        }
+        try {
+            Object k = qd4.k(cls, "getInstance", new Object[0]);
+            this.c = k;
+            if (k != null) {
+                Object h = qd4.h(k, "UNIPERF_EVENT_APP_START");
+                if (h == null) {
+                    intValue = this.a;
+                } else {
+                    intValue = ((Integer) h).intValue();
+                }
+                this.a = intValue;
+            }
+            Method i3 = qd4.i(cls, "uniPerfEvent", Integer.TYPE, String.class, int[].class);
+            this.b = i3;
+            if (i3 != null) {
+                i3.setAccessible(true);
+            }
+        } catch (Throwable unused) {
+        }
+    }
+
+    public static bu3 b(@NonNull Context context) {
+        Class<?> cls;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                cls = qd4.b("android.iawareperf.UniPerf", true);
+            } catch (Throwable unused) {
+                cls = null;
+            }
+            return new bu3(cls);
+        }
+        return (bu3) invokeL.objValue;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.c != null && this.b != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int d(int i, String str, int... iArr) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, iArr)) == null) {
+            if (!c()) {
+                return -1;
+            }
+            try {
+                Object invoke = this.b.invoke(this.c, Integer.valueOf(i), str, iArr);
+                if (invoke == null) {
+                    return -1;
+                }
+                return ((Integer) invoke).intValue();
+            } catch (Throwable unused) {
+                return -1;
+            }
+        }
+        return invokeILL.intValue;
     }
 }

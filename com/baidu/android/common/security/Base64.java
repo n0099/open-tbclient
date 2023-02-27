@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
-import org.apache.commons.codec.binary4util.BaseNCodec;
 /* loaded from: classes.dex */
 public final class Base64 {
     public static /* synthetic */ Interceptable $ic;
@@ -171,7 +170,7 @@ public final class Base64 {
                     int i12 = i10 + 1;
                     bArr2[i10] = bArr4[(bArr[i11] & 15) << 2];
                     i = i12 + 1;
-                    bArr2[i12] = BaseNCodec.PAD_DEFAULT;
+                    bArr2[i12] = 61;
                 }
             } else {
                 int i13 = i + 1;
@@ -180,9 +179,9 @@ public final class Base64 {
                 int i14 = i13 + 1;
                 bArr2[i13] = bArr5[(bArr[length2] & 3) << 4];
                 int i15 = i14 + 1;
-                bArr2[i14] = BaseNCodec.PAD_DEFAULT;
+                bArr2[i14] = 61;
                 i = i15 + 1;
-                bArr2[i15] = BaseNCodec.PAD_DEFAULT;
+                bArr2[i15] = 61;
             }
             return new String(bArr2, 0, i, str);
         }

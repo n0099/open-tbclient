@@ -1,108 +1,30 @@
 package com.baidu.ar.arplay.representation;
-
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class Vector3f extends Renderable {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4565578579900616220L;
-    public transient /* synthetic */ FieldHolder $fh;
     public float[] points;
 
     public Vector3f() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.points = new float[3];
     }
 
     public Vector3f(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.points = r0;
         float[] fArr = {f, f, f};
     }
 
     public Vector3f(float f, float f2, float f3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.points = r0;
         float[] fArr = {f, f2, f3};
     }
 
     public Vector3f(Vector3f vector3f) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vector3f};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
         this.points = r0;
         float[] fArr = vector3f.points;
         float[] fArr2 = {fArr[0], fArr[1], fArr[2]};
     }
 
     public Vector3f(Vector4f vector4f) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vector4f};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
         this.points = new float[3];
         if (vector4f.w() != 0.0f) {
             this.points[0] = vector4f.x() / vector4f.w();
@@ -116,226 +38,147 @@ public class Vector3f extends Renderable {
     }
 
     public void add(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
-            float[] fArr = this.points;
-            fArr[0] = fArr[0] + f;
-            fArr[1] = fArr[1] + f;
-            fArr[2] = fArr[2] + f;
-        }
+        float[] fArr = this.points;
+        fArr[0] = fArr[0] + f;
+        fArr[1] = fArr[1] + f;
+        fArr[2] = fArr[2] + f;
     }
 
     public void add(Vector3f vector3f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vector3f) == null) {
-            float[] fArr = this.points;
-            float f = fArr[0];
-            float[] fArr2 = vector3f.points;
-            fArr[0] = f + fArr2[0];
-            fArr[1] = fArr[1] + fArr2[1];
-            fArr[2] = fArr[2] + fArr2[2];
-        }
+        float[] fArr = this.points;
+        float f = fArr[0];
+        float[] fArr2 = vector3f.points;
+        fArr[0] = f + fArr2[0];
+        fArr[1] = fArr[1] + fArr2[1];
+        fArr[2] = fArr[2] + fArr2[2];
     }
 
     public void clone(Vector3f vector3f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vector3f) == null) {
-            System.arraycopy(vector3f.points, 0, this.points, 0, 3);
-        }
+        System.arraycopy(vector3f.points, 0, this.points, 0, 3);
     }
 
     public void clone(float[] fArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, fArr) == null) {
-            System.arraycopy(fArr, 0, this.points, 0, 3);
-        }
+        System.arraycopy(fArr, 0, this.points, 0, 3);
     }
 
     public Vector3f crossProduct(Vector3f vector3f) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, vector3f)) == null) {
-            Vector3f vector3f2 = new Vector3f();
-            crossProduct(vector3f, vector3f2);
-            return vector3f2;
-        }
-        return (Vector3f) invokeL.objValue;
+        Vector3f vector3f2 = new Vector3f();
+        crossProduct(vector3f, vector3f2);
+        return vector3f2;
     }
 
     public void crossProduct(Vector3f vector3f, Vector3f vector3f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, vector3f, vector3f2) == null) {
-            float[] fArr = this.points;
-            float f = fArr[1];
-            float[] fArr2 = vector3f.points;
-            vector3f2.setX((f * fArr2[2]) - (fArr[2] * fArr2[1]));
-            float[] fArr3 = this.points;
-            float f2 = fArr3[2];
-            float[] fArr4 = vector3f.points;
-            vector3f2.setY((f2 * fArr4[0]) - (fArr3[0] * fArr4[2]));
-            float[] fArr5 = this.points;
-            float f3 = fArr5[0];
-            float[] fArr6 = vector3f.points;
-            vector3f2.setZ((f3 * fArr6[1]) - (fArr5[1] * fArr6[0]));
-        }
+        float[] fArr = this.points;
+        float f = fArr[1];
+        float[] fArr2 = vector3f.points;
+        vector3f2.setX((f * fArr2[2]) - (fArr[2] * fArr2[1]));
+        float[] fArr3 = this.points;
+        float f2 = fArr3[2];
+        float[] fArr4 = vector3f.points;
+        vector3f2.setY((f2 * fArr4[0]) - (fArr3[0] * fArr4[2]));
+        float[] fArr5 = this.points;
+        float f3 = fArr5[0];
+        float[] fArr6 = vector3f.points;
+        vector3f2.setZ((f3 * fArr6[1]) - (fArr5[1] * fArr6[0]));
     }
 
     public float dotProduct(Vector3f vector3f) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, vector3f)) == null) {
-            float[] fArr = this.points;
-            float f = fArr[0];
-            float[] fArr2 = vector3f.points;
-            return (f * fArr2[0]) + (fArr[1] * fArr2[1]) + (fArr[2] * fArr2[2]);
-        }
-        return invokeL.floatValue;
+        float[] fArr = this.points;
+        float f = fArr[0];
+        float[] fArr2 = vector3f.points;
+        return (f * fArr2[0]) + (fArr[1] * fArr2[1]) + (fArr[2] * fArr2[2]);
     }
 
     public float getLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            float[] fArr = this.points;
-            return (float) Math.sqrt((fArr[0] * fArr[0]) + (fArr[1] * fArr[1]) + (fArr[2] * fArr[2]));
-        }
-        return invokeV.floatValue;
+        float[] fArr = this.points;
+        return (float) Math.sqrt((fArr[0] * fArr[0]) + (fArr[1] * fArr[1]) + (fArr[2] * fArr[2]));
     }
 
     public float getX() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.points[0] : invokeV.floatValue;
+        return this.points[0];
     }
 
     public float getY() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.points[1] : invokeV.floatValue;
+        return this.points[1];
     }
 
     public float getZ() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.points[2] : invokeV.floatValue;
+        return this.points[2];
     }
 
     public void multiplyByScalar(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048587, this, f) == null) {
-            float[] fArr = this.points;
-            fArr[0] = fArr[0] * f;
-            fArr[1] = fArr[1] * f;
-            fArr[2] = fArr[2] * f;
-        }
+        float[] fArr = this.points;
+        fArr[0] = fArr[0] * f;
+        fArr[1] = fArr[1] * f;
+        fArr[2] = fArr[2] * f;
     }
 
     public void normalize() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            float[] fArr = this.points;
-            double sqrt = Math.sqrt((fArr[0] * fArr[0]) + (fArr[1] * fArr[1]) + (fArr[2] * fArr[2]));
-            float[] fArr2 = this.points;
-            fArr2[0] = (float) (fArr2[0] / sqrt);
-            fArr2[1] = (float) (fArr2[1] / sqrt);
-            fArr2[2] = (float) (fArr2[2] / sqrt);
-        }
+        float[] fArr = this.points;
+        double sqrt = Math.sqrt((fArr[0] * fArr[0]) + (fArr[1] * fArr[1]) + (fArr[2] * fArr[2]));
+        float[] fArr2 = this.points;
+        fArr2[0] = (float) (fArr2[0] / sqrt);
+        fArr2[1] = (float) (fArr2[1] / sqrt);
+        fArr2[2] = (float) (fArr2[2] / sqrt);
     }
 
     public void setX(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
-            this.points[0] = f;
-        }
+        this.points[0] = f;
     }
 
     public void setXYZ(float f, float f2, float f3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            float[] fArr = this.points;
-            fArr[0] = f;
-            fArr[1] = f2;
-            fArr[2] = f3;
-        }
+        float[] fArr = this.points;
+        fArr[0] = f;
+        fArr[1] = f2;
+        fArr[2] = f3;
     }
 
     public void setY(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048591, this, f) == null) {
-            this.points[1] = f;
-        }
+        this.points[1] = f;
     }
 
     public void setZ(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048592, this, f) == null) {
-            this.points[2] = f;
-        }
+        this.points[2] = f;
     }
 
     public void subtract(Vector3f vector3f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, vector3f) == null) {
-            float[] fArr = this.points;
-            float f = fArr[0];
-            float[] fArr2 = vector3f.points;
-            fArr[0] = f - fArr2[0];
-            fArr[1] = fArr[1] - fArr2[1];
-            fArr[2] = fArr[2] - fArr2[2];
-        }
+        float[] fArr = this.points;
+        float f = fArr[0];
+        float[] fArr2 = vector3f.points;
+        fArr[0] = f - fArr2[0];
+        fArr[1] = fArr[1] - fArr2[1];
+        fArr[2] = fArr[2] - fArr2[2];
     }
 
     public float[] toArray() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.points : (float[]) invokeV.objValue;
+        return this.points;
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return "X:" + this.points[0] + " Y:" + this.points[1] + " Z:" + this.points[2];
-        }
-        return (String) invokeV.objValue;
+        return "X:" + this.points[0] + " Y:" + this.points[1] + " Z:" + this.points[2];
     }
 
     public float x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.points[0] : invokeV.floatValue;
+        return this.points[0];
     }
 
     public void x(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048597, this, f) == null) {
-            this.points[0] = f;
-        }
+        this.points[0] = f;
     }
 
     public float y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.points[1] : invokeV.floatValue;
+        return this.points[1];
     }
 
     public void y(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048599, this, f) == null) {
-            this.points[1] = f;
-        }
+        this.points[1] = f;
     }
 
     public float z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.points[2] : invokeV.floatValue;
+        return this.points[2];
     }
 
     public void z(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048601, this, f) == null) {
-            this.points[2] = f;
-        }
+        this.points[2] = f;
     }
 }

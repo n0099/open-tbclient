@@ -14,14 +14,14 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.util.PriorityOrganizer;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d25;
-import com.baidu.tieba.e15;
-import com.baidu.tieba.g15;
-import com.baidu.tieba.g25;
+import com.baidu.tieba.b55;
 import com.baidu.tieba.go;
-import com.baidu.tieba.md8;
+import com.baidu.tieba.lh8;
+import com.baidu.tieba.m25;
+import com.baidu.tieba.n25;
 import com.baidu.tieba.p35;
-import com.baidu.tieba.zd8;
+import com.baidu.tieba.s35;
+import com.baidu.tieba.yg8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public class PbActivity extends AbsPbActivity {
     public int D1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0701 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0717 : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
@@ -152,7 +152,7 @@ public class PbActivity extends AbsPbActivity {
         }
         this.v = false;
         this.w = false;
-        this.x = PriorityOrganizer.g();
+        this.x = PriorityOrganizer.i();
     }
 
     public boolean W1() {
@@ -170,7 +170,7 @@ public class PbActivity extends AbsPbActivity {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onPause();
             this.w = false;
-            g15.p(e15.o);
+            n25.m(m25.o);
         }
     }
 
@@ -181,7 +181,7 @@ public class PbActivity extends AbsPbActivity {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONRESUME_STAMP_KEY);
             super.onResume();
             this.w = true;
-            g15.q(this, e15.o);
+            n25.n(this, m25.o);
         }
     }
 
@@ -208,7 +208,7 @@ public class PbActivity extends AbsPbActivity {
             } else {
                 z = false;
             }
-            String s = p35.m().s(p35.q("key_reaction_guide_show_pb_strategy"), "");
+            String s = b55.m().s(b55.q("key_reaction_guide_show_pb_strategy"), "");
             int i = 0;
             for (String str : s.split(",")) {
                 if ("1".equals(str)) {
@@ -226,32 +226,32 @@ public class PbActivity extends AbsPbActivity {
             }
             if (i == 0) {
                 if (z) {
-                    p35.m().z(p35.q("key_reaction_guide_show_number_pb"), 3);
-                    p35.m().B(p35.q("key_reaction_guide_show_pb_strategy"), s + "3,");
+                    b55.m().z(b55.q("key_reaction_guide_show_number_pb"), 3);
+                    b55.m().B(b55.q("key_reaction_guide_show_pb_strategy"), s + "3,");
                     return;
                 }
-                p35.m().z(p35.q("key_reaction_guide_show_number_pb"), 1);
-                p35.m().B(p35.q("key_reaction_guide_show_pb_strategy"), s + "1,");
+                b55.m().z(b55.q("key_reaction_guide_show_number_pb"), 1);
+                b55.m().B(b55.q("key_reaction_guide_show_pb_strategy"), s + "1,");
             } else if (i == 1) {
                 if (z) {
-                    p35.m().z(p35.q("key_reaction_guide_show_number_pb"), 3);
-                    p35.m().B(p35.q("key_reaction_guide_show_pb_strategy"), s + "3,");
+                    b55.m().z(b55.q("key_reaction_guide_show_number_pb"), 3);
+                    b55.m().B(b55.q("key_reaction_guide_show_pb_strategy"), s + "3,");
                     return;
                 }
-                p35.m().z(p35.q("key_reaction_guide_show_number_pb"), 2);
-                p35.m().B(p35.q("key_reaction_guide_show_pb_strategy"), s + "2,");
+                b55.m().z(b55.q("key_reaction_guide_show_number_pb"), 2);
+                b55.m().B(b55.q("key_reaction_guide_show_pb_strategy"), s + "2,");
             } else if (i == 4) {
-                p35.m().z(p35.q("key_reaction_guide_show_number_pb"), 1);
-                p35.m().B(p35.q("key_reaction_guide_show_pb_strategy"), s + "1,");
+                b55.m().z(b55.q("key_reaction_guide_show_number_pb"), 1);
+                b55.m().B(b55.q("key_reaction_guide_show_pb_strategy"), s + "1,");
             } else if (i == 5) {
-                p35.m().z(p35.q("key_reaction_guide_show_number_pb"), 2);
-                p35.m().B(p35.q("key_reaction_guide_show_pb_strategy"), s + "2,");
+                b55.m().z(b55.q("key_reaction_guide_show_number_pb"), 2);
+                b55.m().B(b55.q("key_reaction_guide_show_pb_strategy"), s + "2,");
             } else if (i == 3) {
-                p35.m().z(p35.q("key_reaction_guide_show_number_pb"), 3);
-                p35.m().B(p35.q("key_reaction_guide_show_pb_strategy"), s + "3,");
+                b55.m().z(b55.q("key_reaction_guide_show_number_pb"), 3);
+                b55.m().B(b55.q("key_reaction_guide_show_pb_strategy"), s + "3,");
             } else if (i == 7) {
-                p35.m().z(p35.q("key_reaction_guide_show_number_pb"), 4);
-                p35.m().B(p35.q("key_reaction_guide_show_pb_strategy"), s + "4");
+                b55.m().z(b55.q("key_reaction_guide_show_number_pb"), 4);
+                b55.m().B(b55.q("key_reaction_guide_show_pb_strategy"), s + "4");
             }
         }
     }
@@ -262,17 +262,17 @@ public class PbActivity extends AbsPbActivity {
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DRAW_DISPATCH_STAMP_KEY);
                 int i3 = -1;
-                if (g25.a().c == 1) {
+                if (s35.a().c == 1) {
                     i3 = 8;
                 }
-                if (g25.a().c == 2) {
+                if (s35.a().c == 2) {
                     i3 = 9;
                 }
-                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this, i3, g25.a().d);
+                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this, i3, s35.a().d);
             }
             long currentTimeMillis = System.currentTimeMillis() - E1();
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_OPTIMIZE_LOAD_DURATION);
-            statisticItem.addParam("obj_type", i2).addParam("obj_locate", i).addParam("obj_param1", currentTimeMillis).addParam(TiebaStatic.Params.OBJ_PARAM2, d25.e());
+            statisticItem.addParam("obj_type", i2).addParam("obj_locate", i).addParam("obj_param1", currentTimeMillis).addParam(TiebaStatic.Params.OBJ_PARAM2, p35.e());
             TiebaStatic.log(statisticItem);
         }
     }
@@ -282,9 +282,9 @@ public class PbActivity extends AbsPbActivity {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048582, this, i, bdTypeRecyclerView) == null) && !this.v && H1() != null) {
             this.v = true;
-            if (H1() != null && H1().k1() == 7) {
+            if (H1() != null && H1().r1() == 7) {
                 i2 = 2;
-            } else if (H1() != null && H1().V1()) {
+            } else if (H1() != null && H1().c2()) {
                 i2 = 1;
             } else {
                 i2 = 3;
@@ -297,20 +297,20 @@ public class PbActivity extends AbsPbActivity {
         }
     }
 
-    public void Z1(int i, zd8 zd8Var) {
+    public void Z1(int i, lh8 lh8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048583, this, i, zd8Var) == null) && !this.v && H1() != null) {
+        if ((interceptable == null || interceptable.invokeIL(1048583, this, i, lh8Var) == null) && !this.v && H1() != null) {
             int i2 = 1;
             this.v = true;
-            if (H1() != null && H1().k1() == 7) {
+            if (H1() != null && H1().r1() == 7) {
                 i2 = 2;
-            } else if (H1() == null || !H1().V1()) {
+            } else if (H1() == null || !H1().c2()) {
                 i2 = 3;
             }
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY);
             }
-            zd8Var.q2(new b(this, i, i2));
+            lh8Var.q2(new b(this, i, i2));
         }
     }
 
@@ -321,7 +321,7 @@ public class PbActivity extends AbsPbActivity {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_START_STAMP_KEY);
             super.onCreate(bundle);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_END_STAMP_KEY);
-            registerListener(new md8(this));
+            registerListener(new yg8(this));
             V1();
         }
     }

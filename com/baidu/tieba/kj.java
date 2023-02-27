@@ -68,7 +68,7 @@ public class kj {
         }
     }
 
-    /* JADX WARN: Type inference failed for: r3v11, types: [T, byte[]] */
+    /* JADX WARN: Type inference failed for: r3v11, types: [byte[], T] */
     @SuppressLint({"Range"})
     public static List<jf.b<byte[]>> a(jf<byte[]> jfVar) {
         InterceptResult invokeL;

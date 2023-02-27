@@ -1,36 +1,40 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.record.processor.adapter.MultiMediaDataSourceViewAdapter;
-import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
-import java.util.List;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface km6 {
-    void c();
+public class km6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void d(lm6 lm6Var);
+    public static int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (b55.m().i("like_forum_sort_level", false)) {
+                return 2;
+            }
+            return 1;
+        }
+        return invokeI.intValue;
+    }
 
-    void e(VlogEditManager vlogEditManager, MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter);
-
-    void f();
-
-    void i(float f);
-
-    @Nullable
-    List<MultiMediaData> j();
-
-    void l();
-
-    void m(String str);
-
-    boolean o();
-
-    void onDestroy();
-
-    float p();
-
-    void q(@Nullable List<MultiMediaData> list);
-
-    void reset();
+    public static void b(TbPageContext<?> tbPageContext, String str) {
+        ForumSquareActivityConfig forumSquareActivityConfig;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65537, null, tbPageContext, str) != null) || tbPageContext == null) {
+            return;
+        }
+        if (!StringUtils.isNull(str)) {
+            forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity(), str);
+        } else {
+            forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity());
+        }
+        tbPageContext.sendMessage(new CustomMessage(2002001, forumSquareActivityConfig));
+    }
 }

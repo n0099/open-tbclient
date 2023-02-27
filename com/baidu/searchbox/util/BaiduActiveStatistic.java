@@ -2,16 +2,11 @@ package com.baidu.searchbox.util;
 
 import android.text.TextUtils;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class BaiduActiveStatistic {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDU_ACTIVE_UBC_ID = "3822";
     public static final String UBC_EXT_KEY_ACTIVE_TIME_INFO = "active_time_info";
     public static final String UBC_EXT_KEY_DATA = "data";
@@ -22,41 +17,23 @@ public class BaiduActiveStatistic {
     public static final String UBC_VALUE_REQUEST_FAILED = "request_failed";
     public static final String UBC_VALUE_REQUEST_START = "request_start";
     public static final String UBC_VALUE_REQUEST_SUCCESS = "request_success";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public BaiduActiveStatistic() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     public static void onUBCEvent(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, str, str2, str3) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", "active");
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject.put("source", str2);
-                }
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put("value", str);
-                }
-                if (!TextUtils.isEmpty(str3)) {
-                    jSONObject.put("ext", str3);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("from", "active");
+            if (!TextUtils.isEmpty(str2)) {
+                jSONObject.put("source", str2);
             }
-            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(BAIDU_ACTIVE_UBC_ID, jSONObject);
+            if (!TextUtils.isEmpty(str)) {
+                jSONObject.put("value", str);
+            }
+            if (!TextUtils.isEmpty(str3)) {
+                jSONObject.put("ext", str3);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+        ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(BAIDU_ACTIVE_UBC_ID, jSONObject);
     }
 }

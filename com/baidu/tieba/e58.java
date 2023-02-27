@@ -1,18 +1,38 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import tbclient.RecomTopicList;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetVipInfo.VipSpecialItem;
 /* loaded from: classes4.dex */
-public interface e58 {
-    void M(@NonNull RecomTopicList recomTopicList);
+public class e58 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void U0(ii7 ii7Var);
-
-    void d1(int i);
-
-    void p(int i, hi7 hi7Var);
-
-    void p0(int i, ii7 ii7Var);
-
-    void p1(int i, long j, long j2, int i2);
+    public e58(VipSpecialItem vipSpecialItem) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipSpecialItem};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        String str = vipSpecialItem.title;
+        String str2 = vipSpecialItem.desc;
+        String str3 = vipSpecialItem.img_url;
+        String str4 = vipSpecialItem.link;
+        String str5 = vipSpecialItem.update_time;
+        vipSpecialItem.id.intValue();
+        vipSpecialItem.type.intValue();
+        vipSpecialItem.task_id.intValue();
+        vipSpecialItem.is_finish.intValue();
+    }
 }

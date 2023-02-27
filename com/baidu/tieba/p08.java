@@ -1,158 +1,312 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.tb.ShareChannelService;
-import com.baidu.searchbox.live.interfaces.sharechennel.IShareCallback;
-import com.baidu.searchbox.live.interfaces.sharechennel.IShareChannel;
-import com.baidu.searchbox.live.interfaces.sharechennel.ShareEntity;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.location.selectpoi.SelectLocationActivity;
+import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class p08 implements ShareChannelService {
+public class p08 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<Object> a;
+    public TbPageContext<SelectLocationActivity> b;
+    public boolean c;
 
     /* loaded from: classes5.dex */
-    public class a implements IShareChannel {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p08 a;
+    }
 
-        public a(p08 p08Var) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return 3;
+        }
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public TextView b;
+        public ImageView c;
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p08Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = p08Var;
         }
 
-        @Override // com.baidu.searchbox.live.interfaces.sharechennel.IShareChannel
-        public void shareToChannel(ShareEntity shareEntity, int i, IShareCallback iShareCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, shareEntity, i, iShareCallback) == null) {
-                if (i == 1) {
-                    this.a.c(6, shareEntity, iShareCallback);
-                } else if (i == 3) {
-                    this.a.c(2, shareEntity, iShareCallback);
-                } else if (i == 2) {
-                    this.a.c(3, shareEntity, iShareCallback);
-                } else if (i == 4) {
-                    this.a.c(8, shareEntity, iShareCallback);
-                }
-            }
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 
-    public p08() {
+    /* loaded from: classes5.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public ImageView b;
+        public View c;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+    }
+
+    public p08(TbPageContext<SelectLocationActivity> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.tb.ShareChannelService
-    public IShareChannel buildShareChannel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new a(this);
-        }
-        return (IShareChannel) invokeV.objValue;
-    }
-
-    public final boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i != 2 && i != 3) {
-                if (i != 6) {
-                    if (i != 8) {
-                        return false;
-                    }
-                    boolean b = o19.b(TbadkCoreApplication.getInst(), "com.tencent.mobileqq");
-                    if (!b) {
-                        ej.Q(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1224));
-                        return b;
-                    }
-                    return b;
-                }
-                boolean b2 = o19.b(TbadkCoreApplication.getInst(), "com.sina.weibo");
-                if (!b2) {
-                    ej.Q(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1243));
-                    return b2;
-                }
-                return b2;
-            }
-            boolean b3 = o19.b(TbadkCoreApplication.getInst(), "com.tencent.mm");
-            if (!b3) {
-                ej.Q(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f124a));
-                return b3;
-            }
-            return b3;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public final void c(int i, ShareEntity shareEntity, IShareCallback iShareCallback) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, shareEntity, iShareCallback) != null) || shareEntity == null) {
-            return;
-        }
-        if (!b(i)) {
-            if (iShareCallback != null) {
-                iShareCallback.onShare(0, 0, "");
                 return;
             }
+        }
+        this.b = tbPageContext;
+        LocationData b2 = t69.a().b();
+        this.c = !t69.a().c();
+        if (b2 == null) {
             return;
         }
-        ShareItem d = d(shareEntity);
-        if (d == null) {
-            return;
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaSDKShareEmptyActivityConfig(TbadkCoreApplication.getInst(), d, i, 2)));
+        this.a = c(b2.getPoi_info(), b2.getFormatted_address());
     }
 
-    public final ShareItem d(ShareEntity shareEntity) {
-        InterceptResult invokeL;
+    public final View a(View view2, int i, boolean z) {
+        InterceptResult invokeCommon;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, shareEntity)) == null) {
-            if (shareEntity != null) {
-                ShareItem shareItem = new ShareItem();
-                shareItem.v = shareEntity.title;
-                shareItem.w = shareEntity.content;
-                shareItem.A = shareEntity.imageUrl;
-                shareItem.x = shareEntity.linkUrl;
-                shareItem.u = String.valueOf(shareEntity.liveId);
-                shareItem.A0 = String.valueOf(shareEntity.userId);
-                return shareItem;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            Object item = getItem(i);
+            if (!(item instanceof LocationData.NearByAddressData)) {
+                return null;
+            }
+            LocationData.NearByAddressData nearByAddressData = (LocationData.NearByAddressData) item;
+            if (view2 != null && (view2.getTag() instanceof c)) {
+                bVar = (b) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0803, (ViewGroup) null);
+                bVar = new b(null);
+                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fc2);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fc0);
+                bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fc3);
+                view2.setTag(bVar);
+            }
+            bVar.b.setText(nearByAddressData.getAddr());
+            if (this.c && i == 1) {
+                bVar.c.setVisibility(0);
+                bVar.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_chx__site_ok24, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
+                if (TextUtils.isEmpty(nearByAddressData.getAddr())) {
+                    bVar.b.setText(R.string.obfuscated_res_0x7f0f11c7);
+                }
+            } else {
+                bVar.c.setVisibility(4);
+            }
+            bVar.a.setText(nearByAddressData.getName());
+            this.b.getLayoutMode().l(z);
+            this.b.getLayoutMode().k(view2);
+            SkinManager.setBackgroundResource(view2, R.drawable.home_recommend_item_bg);
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public final View b(View view2, int i, boolean z) {
+        InterceptResult invokeCommon;
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            Object item = getItem(i);
+            if (!(item instanceof String)) {
+                return null;
+            }
+            String str = (String) item;
+            if (view2 != null && (view2.getTag() instanceof c)) {
+                cVar = (c) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0804, (ViewGroup) null);
+                cVar = new c(null);
+                cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fc4);
+                cVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fc3);
+                cVar.c = view2.findViewById(R.id.obfuscated_res_0x7f091fc1);
+                view2.setTag(cVar);
+            }
+            if (i == 0 && !this.c) {
+                cVar.b.setVisibility(0);
+                cVar.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_chx__site_ok24, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
+            } else {
+                cVar.b.setVisibility(4);
+            }
+            cVar.a.setText(str);
+            SkinManager.setBackgroundColor(cVar.c, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(cVar.a, R.color.CAM_X0302, 1);
+            SkinManager.setBackgroundResource(view2, R.drawable.home_recommend_item_bg);
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public final ArrayList<Object> c(List<LocationData.NearByAddressData> list, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, str)) == null) {
+            LocationData.NearByAddressData nearByAddressData = null;
+            if (list == null || list.size() <= 0) {
+                return null;
+            }
+            ArrayList<Object> arrayList = new ArrayList<>();
+            for (LocationData.NearByAddressData nearByAddressData2 : list) {
+                if (nearByAddressData2 != null && !TextUtils.isEmpty(nearByAddressData2.getName())) {
+                    if (TextUtils.equals(nearByAddressData2.getName(), str)) {
+                        nearByAddressData = nearByAddressData2;
+                    } else {
+                        arrayList.add(nearByAddressData2);
+                    }
+                }
+            }
+            if (nearByAddressData != null) {
+                arrayList.add(0, nearByAddressData);
+            } else {
+                LocationData.NearByAddressData nearByAddressData3 = new LocationData.NearByAddressData();
+                nearByAddressData3.setName(str);
+                arrayList.add(0, nearByAddressData3);
+            }
+            TbPageContext<SelectLocationActivity> tbPageContext = this.b;
+            if (tbPageContext != null) {
+                arrayList.add(0, tbPageContext.getString(R.string.obfuscated_res_0x7f0f11c8));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeLL.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList<Object> arrayList = this.a;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            ArrayList<Object> arrayList = this.a;
+            if (arrayList != null && i >= 0 && i < arrayList.size()) {
+                return this.a.get(i);
             }
             return null;
         }
-        return (ShareItem) invokeL.objValue;
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            Object item = getItem(i);
+            if (item instanceof String) {
+                return 0;
+            }
+            if (item instanceof LocationData.NearByAddressData) {
+                return 1;
+            }
+            return 2;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            int itemViewType = getItemViewType(i);
+            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (itemViewType != 0) {
+                if (itemViewType != 1) {
+                    return null;
+                }
+                return a(view2, i, z);
+            }
+            return b(view2, i, z);
+        }
+        return (View) invokeILL.objValue;
     }
 }

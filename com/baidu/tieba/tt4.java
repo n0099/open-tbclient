@@ -1,7 +1,9 @@
 package com.baidu.tieba;
+
+import java.util.HashMap;
 /* loaded from: classes6.dex */
 public interface tt4 {
-    void a(vt4 vt4Var);
+    String a();
 
-    void onPreLoad();
+    void b(HashMap<String, String> hashMap, ut4 ut4Var);
 }

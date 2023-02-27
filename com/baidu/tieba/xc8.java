@@ -1,82 +1,152 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.view.ViewStub;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb.pb.main.PbImageAlaRecommendVH;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.yc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.PbContent;
+import tbclient.Post;
+import tbclient.User;
 /* loaded from: classes6.dex */
-public class xc8 extends mc8<yc8, PbImageAlaRecommendVH> {
+public class xc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId g;
-    public v98 h;
+    public HeadImageView a;
+    public TextView b;
+    public TbRichTextView c;
+    public ViewStub d;
+    public View e;
+    public ImageView f;
+    public View g;
+    public yc8.a h;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xc8(hh8 hh8Var, BdUniqueId bdUniqueId) {
-        super(hh8Var, yc8.q);
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Post a;
+        public final /* synthetic */ xc8 b;
+
+        public a(xc8 xc8Var, Post post) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xc8Var, post};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = xc8Var;
+            this.a = post;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Post post;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (post = this.a) != null && post.id != null && this.b.h != null) {
+                this.b.h.a(String.valueOf(this.a.id));
+            }
+        }
+    }
+
+    public xc8(ViewStub viewStub, yc8.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hh8Var, bdUniqueId};
+            Object[] objArr = {viewStub, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((hh8) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = bdUniqueId;
+        this.d = viewStub;
+        this.h = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: u */
-    public PbImageAlaRecommendVH onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void d(boolean z) {
+        View view2;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new PbImageAlaRecommendVH(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06fd, viewGroup, false), this.a.getPageContext(), this.g);
-        }
-        return (PbImageAlaRecommendVH) invokeL.objValue;
-    }
-
-    public void w(v98 v98Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, v98Var) == null) {
-            this.h = v98Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.mc8, com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        v(i, view2, viewGroup, (yc8) obj, (PbImageAlaRecommendVH) viewHolder);
-        return view2;
-    }
-
-    public View v(int i, View view2, ViewGroup viewGroup, yc8 yc8Var, PbImageAlaRecommendVH pbImageAlaRecommendVH) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, yc8Var, pbImageAlaRecommendVH})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) yc8Var, (yc8) pbImageAlaRecommendVH);
-            if (pbImageAlaRecommendVH != null) {
-                pbImageAlaRecommendVH.c(yc8Var);
-                pbImageAlaRecommendVH.h(this.h);
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (view2 = this.e) != null) {
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
             }
-            return view2;
+            view2.setVisibility(i);
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.e == null) {
+            View inflate = this.d.inflate();
+            this.e = inflate;
+            this.a = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0906a5);
+            this.b = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0906a7);
+            this.c = (TbRichTextView) this.e.findViewById(R.id.obfuscated_res_0x7f0906a4);
+            this.f = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f0906a8);
+            this.g = this.e.findViewById(R.id.obfuscated_res_0x7f0906a6);
+            this.c.setTextSize(TbConfig.getContentSize());
+            c();
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setViewTextColor(this.b, R.color.CAM_X0106, 1);
+            SkinManager.setImageResource(this.f, R.drawable.btn_comment_list);
+            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
+            TbRichTextView tbRichTextView = this.c;
+            if (tbRichTextView != null) {
+                tbRichTextView.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            }
+        }
+    }
+
+    public boolean update(Post post, User user) {
+        InterceptResult invokeLL;
+        List<PbContent> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, post, user)) == null) {
+            if (post != null && user != null && (list = post.content) != null && !list.isEmpty()) {
+                b();
+                d(true);
+                this.b.setText(user.name_show);
+                this.f.setOnClickListener(new a(this, post));
+                this.a.K(user.portrait, 12, false);
+                this.c.setVisibility(0);
+                this.c.setText(TbRichTextView.c0(post.content, false));
+                return true;
+            }
+            d(false);
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

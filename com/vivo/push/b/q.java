@@ -58,7 +58,7 @@ public final class q extends v {
                 if (insideNotificationItem == null) {
                     return null;
                 }
-                return com.vivo.push.util.q.b(insideNotificationItem);
+                return com.vivo.push.util.v.b(insideNotificationItem);
             }
             return this.b;
         }
@@ -70,7 +70,7 @@ public final class q extends v {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            String b = com.vivo.push.util.q.b(this.a);
+            String b = com.vivo.push.util.v.b(this.a);
             this.b = b;
             aVar.a("notification_v1", b);
         }
@@ -84,7 +84,7 @@ public final class q extends v {
             String a = aVar.a("notification_v1");
             this.b = a;
             if (!TextUtils.isEmpty(a)) {
-                InsideNotificationItem a2 = com.vivo.push.util.q.a(this.b);
+                InsideNotificationItem a2 = com.vivo.push.util.v.a(this.b);
                 this.a = a2;
                 if (a2 != null) {
                     a2.setMsgId(f());

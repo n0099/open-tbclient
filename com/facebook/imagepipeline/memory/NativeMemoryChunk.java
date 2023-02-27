@@ -1,15 +1,6 @@
 package com.facebook.imagepipeline.memory;
 
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
@@ -20,9 +11,7 @@ import javax.annotation.Nullable;
 @DoNotStrip
 /* loaded from: classes7.dex */
 public class NativeMemoryChunk implements MemoryChunk, Closeable {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NativeMemoryChunk";
-    public transient /* synthetic */ FieldHolder $fh;
     public boolean mIsClosed;
     public final long mNativePtr;
     public final int mSize;
@@ -48,44 +37,15 @@ public class NativeMemoryChunk implements MemoryChunk, Closeable {
     @Override // com.facebook.imagepipeline.memory.MemoryChunk
     @Nullable
     public ByteBuffer getByteBuffer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (ByteBuffer) invokeV.objValue;
+        return null;
     }
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-660984397, "Lcom/facebook/imagepipeline/memory/NativeMemoryChunk;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-660984397, "Lcom/facebook/imagepipeline/memory/NativeMemoryChunk;");
-                return;
-            }
-        }
         ImagePipelineNativeLoader.load();
     }
 
     @VisibleForTesting
     public NativeMemoryChunk() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mSize = 0;
         this.mNativePtr = 0L;
         this.mIsClosed = true;
@@ -93,77 +53,34 @@ public class NativeMemoryChunk implements MemoryChunk, Closeable {
 
     @Override // com.facebook.imagepipeline.memory.MemoryChunk, java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                if (!this.mIsClosed) {
-                    this.mIsClosed = true;
-                    nativeFree(this.mNativePtr);
-                }
-            }
+        if (!this.mIsClosed) {
+            this.mIsClosed = true;
+            nativeFree(this.mNativePtr);
         }
     }
 
     @Override // com.facebook.imagepipeline.memory.MemoryChunk
     public long getNativePtr() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mNativePtr;
-        }
-        return invokeV.longValue;
+        return this.mNativePtr;
     }
 
     @Override // com.facebook.imagepipeline.memory.MemoryChunk
     public int getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mSize;
-        }
-        return invokeV.intValue;
+        return this.mSize;
     }
 
     @Override // com.facebook.imagepipeline.memory.MemoryChunk
     public long getUniqueId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.mNativePtr;
-        }
-        return invokeV.longValue;
+        return this.mNativePtr;
     }
 
     @Override // com.facebook.imagepipeline.memory.MemoryChunk
     public synchronized boolean isClosed() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                z = this.mIsClosed;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
+        return this.mIsClosed;
     }
 
     public NativeMemoryChunk(int i) {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         if (i > 0) {
             z = true;
         } else {
@@ -177,127 +94,63 @@ public class NativeMemoryChunk implements MemoryChunk, Closeable {
 
     @Override // com.facebook.imagepipeline.memory.MemoryChunk
     public synchronized byte read(int i) {
-        InterceptResult invokeI;
         boolean z;
         boolean z2;
-        byte nativeReadByte;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            synchronized (this) {
-                boolean z3 = true;
-                if (!isClosed()) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                Preconditions.checkState(z);
-                if (i >= 0) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                Preconditions.checkArgument(z2);
-                if (i >= this.mSize) {
-                    z3 = false;
-                }
-                Preconditions.checkArgument(z3);
-                nativeReadByte = nativeReadByte(this.mNativePtr + i);
-            }
-            return nativeReadByte;
+        boolean z3 = true;
+        if (!isClosed()) {
+            z = true;
+        } else {
+            z = false;
         }
-        return invokeI.byteValue;
+        Preconditions.checkState(z);
+        if (i >= 0) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        Preconditions.checkArgument(z2);
+        if (i >= this.mSize) {
+            z3 = false;
+        }
+        Preconditions.checkArgument(z3);
+        return nativeReadByte(this.mNativePtr + i);
     }
 
     private void doCopy(int i, MemoryChunk memoryChunk, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i), memoryChunk, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            if (memoryChunk instanceof NativeMemoryChunk) {
-                Preconditions.checkState(!isClosed());
-                Preconditions.checkState(!memoryChunk.isClosed());
-                MemoryChunkUtil.checkBounds(i, memoryChunk.getSize(), i2, i3, this.mSize);
-                nativeMemcpy(memoryChunk.getNativePtr() + i2, this.mNativePtr + i, i3);
-                return;
-            }
-            throw new IllegalArgumentException("Cannot copy two incompatible MemoryChunks");
+        if (memoryChunk instanceof NativeMemoryChunk) {
+            Preconditions.checkState(!isClosed());
+            Preconditions.checkState(!memoryChunk.isClosed());
+            MemoryChunkUtil.checkBounds(i, memoryChunk.getSize(), i2, i3, this.mSize);
+            nativeMemcpy(memoryChunk.getNativePtr() + i2, this.mNativePtr + i, i3);
+            return;
         }
-    }
-
-    @Override // com.facebook.imagepipeline.memory.MemoryChunk
-    public synchronized int read(int i, byte[] bArr, int i2, int i3) {
-        InterceptResult invokeCommon;
-        boolean z;
-        int adjustByteCount;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            synchronized (this) {
-                Preconditions.checkNotNull(bArr);
-                if (!isClosed()) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                Preconditions.checkState(z);
-                adjustByteCount = MemoryChunkUtil.adjustByteCount(i, i3, this.mSize);
-                MemoryChunkUtil.checkBounds(i, bArr.length, i2, adjustByteCount, this.mSize);
-                nativeCopyToByteArray(this.mNativePtr + i, bArr, i2, adjustByteCount);
-            }
-            return adjustByteCount;
-        }
-        return invokeCommon.intValue;
-    }
-
-    @Override // com.facebook.imagepipeline.memory.MemoryChunk
-    public synchronized int write(int i, byte[] bArr, int i2, int i3) {
-        InterceptResult invokeCommon;
-        boolean z;
-        int adjustByteCount;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            synchronized (this) {
-                Preconditions.checkNotNull(bArr);
-                if (!isClosed()) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                Preconditions.checkState(z);
-                adjustByteCount = MemoryChunkUtil.adjustByteCount(i, i3, this.mSize);
-                MemoryChunkUtil.checkBounds(i, bArr.length, i2, adjustByteCount, this.mSize);
-                nativeCopyFromByteArray(this.mNativePtr + i, bArr, i2, adjustByteCount);
-            }
-            return adjustByteCount;
-        }
-        return invokeCommon.intValue;
+        throw new IllegalArgumentException("Cannot copy two incompatible MemoryChunks");
     }
 
     @Override // com.facebook.imagepipeline.memory.MemoryChunk
     public void copy(int i, MemoryChunk memoryChunk, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), memoryChunk, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            Preconditions.checkNotNull(memoryChunk);
-            if (memoryChunk.getUniqueId() == getUniqueId()) {
-                Log.w(TAG, "Copying from NativeMemoryChunk " + Integer.toHexString(System.identityHashCode(this)) + " to NativeMemoryChunk " + Integer.toHexString(System.identityHashCode(memoryChunk)) + " which share the same address " + Long.toHexString(this.mNativePtr));
-                Preconditions.checkArgument(false);
-            }
-            if (memoryChunk.getUniqueId() < getUniqueId()) {
-                synchronized (memoryChunk) {
-                    synchronized (this) {
-                        doCopy(i, memoryChunk, i2, i3);
-                    }
-                }
-                return;
-            }
-            synchronized (this) {
-                synchronized (memoryChunk) {
+        Preconditions.checkNotNull(memoryChunk);
+        if (memoryChunk.getUniqueId() == getUniqueId()) {
+            Log.w(TAG, "Copying from NativeMemoryChunk " + Integer.toHexString(System.identityHashCode(this)) + " to NativeMemoryChunk " + Integer.toHexString(System.identityHashCode(memoryChunk)) + " which share the same address " + Long.toHexString(this.mNativePtr));
+            Preconditions.checkArgument(false);
+        }
+        if (memoryChunk.getUniqueId() < getUniqueId()) {
+            synchronized (memoryChunk) {
+                synchronized (this) {
                     doCopy(i, memoryChunk, i2, i3);
                 }
+            }
+            return;
+        }
+        synchronized (this) {
+            synchronized (memoryChunk) {
+                doCopy(i, memoryChunk, i2, i3);
             }
         }
     }
 
     public void finalize() throws Throwable {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || isClosed()) {
+        if (isClosed()) {
             return;
         }
         Log.w(TAG, "finalize: Chunk " + Integer.toHexString(System.identityHashCode(this)) + " still active. ");
@@ -306,5 +159,39 @@ public class NativeMemoryChunk implements MemoryChunk, Closeable {
         } finally {
             super.finalize();
         }
+    }
+
+    @Override // com.facebook.imagepipeline.memory.MemoryChunk
+    public synchronized int read(int i, byte[] bArr, int i2, int i3) {
+        boolean z;
+        int adjustByteCount;
+        Preconditions.checkNotNull(bArr);
+        if (!isClosed()) {
+            z = true;
+        } else {
+            z = false;
+        }
+        Preconditions.checkState(z);
+        adjustByteCount = MemoryChunkUtil.adjustByteCount(i, i3, this.mSize);
+        MemoryChunkUtil.checkBounds(i, bArr.length, i2, adjustByteCount, this.mSize);
+        nativeCopyToByteArray(this.mNativePtr + i, bArr, i2, adjustByteCount);
+        return adjustByteCount;
+    }
+
+    @Override // com.facebook.imagepipeline.memory.MemoryChunk
+    public synchronized int write(int i, byte[] bArr, int i2, int i3) {
+        boolean z;
+        int adjustByteCount;
+        Preconditions.checkNotNull(bArr);
+        if (!isClosed()) {
+            z = true;
+        } else {
+            z = false;
+        }
+        Preconditions.checkState(z);
+        adjustByteCount = MemoryChunkUtil.adjustByteCount(i, i3, this.mSize);
+        MemoryChunkUtil.checkBounds(i, bArr.length, i2, adjustByteCount, this.mSize);
+        nativeCopyFromByteArray(this.mNativePtr + i, bArr, i2, adjustByteCount);
+        return adjustByteCount;
     }
 }

@@ -4,17 +4,11 @@ import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.ComponentInfo;
-import android.content.pm.ResolveInfo;
-import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import android.widget.Toast;
-import com.alipay.sdk.data.a;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
@@ -38,17 +32,8 @@ import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.FromType;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.p0.h;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -59,7 +44,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class ShareUtils {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_SHARE_ACTIVITY = "baidu.intent.action.account.SHARE_ACTIVITY";
     public static final String EXTRA_APP_PKG = "PKG";
     public static final String EXTRA_SDK_VERSION = "SDK_VERSION";
@@ -80,904 +64,491 @@ public final class ShareUtils {
     public static boolean mIsCheckShareOnlineTimeOut;
     public static List<ShareStorage.StorageModel> mShareModelsMemoryCache;
     public static String mShareModelsMemoryCacheFrom;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1587415175, "Lcom/baidu/sapi2/share/ShareUtils;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1587415175, "Lcom/baidu/sapi2/share/ShareUtils;");
-        }
-    }
-
-    public ShareUtils() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
 
     public static String[] getDeletedShareModels() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            String string = SapiContext.getInstance().getString(SapiContext.KEY_SHARE_DELETE_LIST);
-            if (!TextUtils.isEmpty(string)) {
-                return string.split(",");
-            }
-            return null;
+        String string = SapiContext.getInstance().getString(SapiContext.KEY_SHARE_DELETE_LIST);
+        if (!TextUtils.isEmpty(string)) {
+            return string.split(",");
         }
-        return (String[]) invokeV.objValue;
+        return null;
+    }
+
+    public static boolean isInV2ShareDisableWhiteList(SapiConfiguration sapiConfiguration) {
+        ArrayList<String> arrayList = new ArrayList();
+        arrayList.add("com.baidu.searchbox(.*)");
+        for (String str : arrayList) {
+            if (sapiConfiguration.context.getPackageName().matches(str)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void cacheShareModels(List<ShareStorage.StorageModel> list, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, list, str) == null) {
-            mShareModelsMemoryCache = list;
-            mShareModelsMemoryCacheFrom = str;
-        }
+        mShareModelsMemoryCache = list;
+        mShareModelsMemoryCacheFrom = str;
     }
 
     public static void callbackShareModels(ShareModelWithCheckCallback shareModelWithCheckCallback, List<ShareStorage.StorageModel> list, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65547, null, shareModelWithCheckCallback, list, str) != null) || shareModelWithCheckCallback == null) {
+        if (shareModelWithCheckCallback == null) {
             return;
         }
         shareModelWithCheckCallback.onSuccess(buildExpiredShareModels(list), str);
     }
 
     public static List<ShareStorage.StorageModel> buildExpiredShareModels(List<ShareStorage.StorageModel> list) {
-        InterceptResult invokeL;
         int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, list)) == null) {
-            if (list == null) {
-                return new ArrayList(0);
-            }
-            LinkedList<String> invalidBdussList = ShareLoginModel.getInstance().getInvalidBdussList();
-            if (invalidBdussList == null) {
-                size = 0;
-            } else {
-                size = invalidBdussList.size();
-            }
-            Iterator<ShareStorage.StorageModel> it = list.iterator();
-            while (it.hasNext()) {
-                ShareStorage.StorageModel next = it.next();
-                if (next != null && !TextUtils.isEmpty(next.bduss)) {
-                    int i = 0;
-                    while (true) {
-                        if (i >= size) {
-                            break;
-                        } else if (TextUtils.equals(invalidBdussList.get(i), next.bduss)) {
-                            it.remove();
-                            break;
-                        } else {
-                            i++;
-                        }
+        if (list == null) {
+            return new ArrayList(0);
+        }
+        LinkedList<String> invalidBdussList = ShareLoginModel.getInstance().getInvalidBdussList();
+        if (invalidBdussList == null) {
+            size = 0;
+        } else {
+            size = invalidBdussList.size();
+        }
+        Iterator<ShareStorage.StorageModel> it = list.iterator();
+        while (it.hasNext()) {
+            ShareStorage.StorageModel next = it.next();
+            if (next != null && !TextUtils.isEmpty(next.bduss)) {
+                int i = 0;
+                while (true) {
+                    if (i >= size) {
+                        break;
+                    } else if (TextUtils.equals(invalidBdussList.get(i), next.bduss)) {
+                        it.remove();
+                        break;
+                    } else {
+                        i++;
                     }
                 }
             }
-            return list;
         }
-        return (List) invokeL.objValue;
+        return list;
+    }
+
+    public static List<String> getInstalledApps(Context context) {
+        ArrayList arrayList = new ArrayList();
+        SapiAccountManager sapiAccountManager = SapiAccountManager.getInstance();
+        if (sapiAccountManager == null) {
+            return arrayList;
+        }
+        SapiConfiguration confignation = sapiAccountManager.getConfignation();
+        if (confignation == null) {
+            return arrayList;
+        }
+        if (!confignation.isAgreeDangerousProtocol()) {
+            return arrayList;
+        }
+        Map<String, String> authorizedPackages = SapiContext.getInstance().getAuthorizedPackages();
+        if (authorizedPackages != null && authorizedPackages.size() != 0) {
+            for (String str : authorizedPackages.keySet()) {
+                if (!TextUtils.isEmpty(str) && SapiUtils.checkAppInstalled(context, str) && !str.equals(context.getPackageName())) {
+                    arrayList.add(str);
+                }
+            }
+        }
+        return arrayList;
     }
 
     public static List<ShareStorage.StorageModel> getShareModelsFromQuickCache(List<String> list) {
-        InterceptResult invokeL;
         List<ShareStorage.StorageModel> checkShareAppInstalled;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, list)) == null) {
-            if (!SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_SHARE_CACHE_ABILITY).isMeetGray() || (checkShareAppInstalled = checkShareAppInstalled(mShareModelsMemoryCache, list)) == null || checkShareAppInstalled.size() <= 0) {
-                return null;
-            }
-            Log.d(TAG, "get share model from modelsFromMemoryCache, size=" + checkShareAppInstalled.size());
-            StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_MEMORY_CACHE);
-            return checkShareAppInstalled;
+        if (!SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_SHARE_CACHE_ABILITY).isMeetGray() || (checkShareAppInstalled = checkShareAppInstalled(mShareModelsMemoryCache, list)) == null || checkShareAppInstalled.size() <= 0) {
+            return null;
         }
-        return (List) invokeL.objValue;
+        Log.d(TAG, "get share model from modelsFromMemoryCache, size=" + checkShareAppInstalled.size());
+        StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_MEMORY_CACHE);
+        return checkShareAppInstalled;
+    }
+
+    public static List<ShareStorage.StorageModel> getShareModelsFromShareStorage(List<String> list) {
+        String string = SapiContext.getInstance().getString(SapiContext.KEY_SHARE_STORAGE);
+        if (!TextUtils.isEmpty(string)) {
+            String decryptAccountInfo = SapiDataEncryptor.decryptAccountInfo(string, SapiContext.getInstance().getAccountEncryptKey());
+            if (!TextUtils.isEmpty(decryptAccountInfo)) {
+                JSONArray jSONArray = null;
+                try {
+                    jSONArray = new JSONArray(decryptAccountInfo);
+                } catch (Exception e) {
+                    Log.e(TAG, e.getMessage());
+                }
+                return checkShareAppInstalled(ShareStorage.StorageModel.fromJSONArray(jSONArray), list);
+            }
+        }
+        Log.e(TAG, "getShareStorage result is null");
+        return new ArrayList(0);
+    }
+
+    public static boolean checkCalleeIdentity(Context context, String str) {
+        if (context != null && !TextUtils.isEmpty(str)) {
+            Map<String, String> authorizedPackages = SapiContext.getInstance().getAuthorizedPackages();
+            String packageSign = SapiUtils.getPackageSign(context, str);
+            if (TextUtils.isEmpty(packageSign)) {
+                return false;
+            }
+            for (String str2 : authorizedPackages.keySet()) {
+                if (str.matches(str2) && packageSign.equals(authorizedPackages.get(str2))) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static List<ShareStorage.StorageModel> getShareModelsFromSP(int i, List<String> list) {
+        ArrayList arrayList = new ArrayList();
+        ShareStorage shareStorage = new ShareStorage();
+        for (String str : list) {
+            ShareStorage.StorageModel modelFromSp = shareStorage.getModelFromSp(str);
+            if (modelFromSp != null && !TextUtils.isEmpty(modelFromSp.displayname) && !TextUtils.isEmpty(modelFromSp.url) && i == modelFromSp.env) {
+                arrayList.add(modelFromSp);
+            }
+        }
+        return arrayList;
+    }
+
+    public static List<ShareStorage.StorageModel> getShareModelsFromSdCard(int i, List<String> list) {
+        ArrayList arrayList = new ArrayList();
+        ShareStorage shareStorage = new ShareStorage();
+        for (String str : list) {
+            ShareStorage.StorageModel modelFromSd = shareStorage.getModelFromSd(str);
+            if (modelFromSd != null && !TextUtils.isEmpty(modelFromSd.displayname) && !TextUtils.isEmpty(modelFromSd.url) && i == modelFromSd.env) {
+                arrayList.add(modelFromSd);
+            }
+        }
+        return arrayList;
+    }
+
+    public static List<ShareStorage.StorageModel> checkShareAppInstalled(List<ShareStorage.StorageModel> list, List<String> list2) {
+        if (list == null || list.size() == 0 || list2 == null || list2.size() == 0) {
+            return null;
+        }
+        Iterator<ShareStorage.StorageModel> it = list.iterator();
+        while (it.hasNext()) {
+            ShareStorage.StorageModel next = it.next();
+            boolean z = false;
+            Iterator<String> it2 = list2.iterator();
+            while (true) {
+                if (!it2.hasNext()) {
+                    break;
+                } else if (TextUtils.equals(it2.next(), next.pkg)) {
+                    z = true;
+                    break;
+                }
+            }
+            if (!z) {
+                it.remove();
+            }
+        }
+        if (list.size() == 0) {
+            return null;
+        }
+        return list;
+    }
+
+    public static void getOnlineAppShareModel(final List<ShareStorage.StorageModel> list, final String str, final ShareModelCallback shareModelCallback) {
+        if (SapiContext.getInstance() == null) {
+            shareModelCallback.onReceiveShareModels(list);
+            ShareLoginStat.GetShareListStat.upload();
+            return;
+        }
+        String str2 = "1";
+        if (!SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.KEY_SHARE_CHECK_ONLINE_SWITCH).isMeetGray()) {
+            shareModelCallback.onReceiveShareModels(list);
+            ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_GRAY, "1");
+            ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_IS_CHECK_BDUSS, "0");
+            ShareLoginStat.GetShareListStat.upload();
+            return;
+        }
+        ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_GRAY, "0");
+        ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_IS_CHECK_BDUSS, "1");
+        if (!S_SHARE_MODEL_FROM_CLOUD.equals(str)) {
+            str2 = "0";
+        }
+        ArrayList arrayList = new ArrayList();
+        final ArrayList arrayList2 = new ArrayList();
+        if (S_SHARE_MODEL_FROM_CLOUD.equals(str)) {
+            for (ShareStorage.StorageModel storageModel : list) {
+                arrayList.add(new GetOnlineRequestShareModel(storageModel));
+            }
+        } else {
+            for (ShareStorage.StorageModel storageModel2 : list) {
+                if (TextUtils.isEmpty(storageModel2.bduss)) {
+                    arrayList2.add(storageModel2);
+                } else {
+                    arrayList.add(new GetOnlineRequestShareModel(storageModel2));
+                }
+            }
+        }
+        if (arrayList.isEmpty()) {
+            shareModelCallback.onReceiveShareModels(list);
+            ShareLoginStat.GetShareListStat.upload();
+            return;
+        }
+        int i = SapiContext.getInstance().getSapiOptions().shareCheckOnlineTimeOut;
+        final Handler handler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.share.ShareUtils.4
+            @Override // android.os.Handler
+            public void handleMessage(Message message) {
+                boolean unused = ShareUtils.mIsCheckShareOnlineTimeOut = true;
+                shareModelCallback.onReceiveShareModels(list);
+                ShareLoginStat.GetShareListStat.upload();
+            }
+        };
+        handler.removeCallbacksAndMessages(null);
+        handler.sendEmptyMessageDelayed(0, i);
+        SapiAccountManager.getInstance().getAccountService().getOnlineAppShareModel(arrayList, str2, new GetOnlineAppCallback() { // from class: com.baidu.sapi2.share.ShareUtils.5
+            @Override // com.baidu.sapi2.callback.inner.GetOnlineAppCallback
+            public void onFailure() {
+                if (ShareUtils.mIsCheckShareOnlineTimeOut) {
+                    boolean unused = ShareUtils.mIsCheckShareOnlineTimeOut = false;
+                } else {
+                    handler.post(new Runnable() { // from class: com.baidu.sapi2.share.ShareUtils.5.1
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            AnonymousClass5 anonymousClass5 = AnonymousClass5.this;
+                            ShareModelCallback.this.onReceiveShareModels(list);
+                            ShareLoginStat.GetShareListStat.upload();
+                        }
+                    });
+                }
+            }
+
+            @Override // com.baidu.sapi2.callback.inner.GetOnlineAppCallback
+            public void onSuccess(JSONArray jSONArray) {
+                String str3;
+                if (ShareUtils.mIsCheckShareOnlineTimeOut) {
+                    boolean unused = ShareUtils.mIsCheckShareOnlineTimeOut = false;
+                } else if (jSONArray != null && jSONArray.length() != 0 && jSONArray.length() >= 3) {
+                    try {
+                        ArrayList<ShareStorage.StorageModel> arrayList3 = new ArrayList();
+                        for (ShareStorage.StorageModel storageModel3 : list) {
+                            if (storageModel3 != null) {
+                                String str4 = storageModel3.app + storageModel3.pkg + storageModel3.bduss;
+                                for (int i2 = 0; i2 < jSONArray.length() && ((str3 = (String) jSONArray.get(i2)) == null || !str3.equals(str4)); i2++) {
+                                }
+                                arrayList3.add(storageModel3);
+                            }
+                        }
+                        if (!ShareUtils.S_SHARE_MODEL_FROM_CLOUD.equals(str) && !arrayList2.isEmpty()) {
+                            arrayList3.addAll(arrayList2);
+                        }
+                        JSONArray jSONArray2 = new JSONArray();
+                        for (ShareStorage.StorageModel storageModel4 : arrayList3) {
+                            if (storageModel4 != null) {
+                                jSONArray2.put(storageModel4.app);
+                            }
+                        }
+                        ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_CHECK_BDUSS_APP, jSONArray2);
+                        ShareModelCallback.this.onReceiveShareModels(arrayList3);
+                        ShareLoginStat.GetShareListStat.upload();
+                    } catch (Exception e) {
+                        ShareModelCallback.this.onReceiveShareModels(list);
+                        ShareLoginStat.GetShareListStat.upload();
+                        e.printStackTrace();
+                    }
+                } else {
+                    ShareModelCallback.this.onReceiveShareModels(list);
+                    ShareLoginStat.GetShareListStat.upload();
+                }
+            }
+        });
+    }
+
+    public static void getShareModels(long j, Context context, String str, final ShareModelWithCheckCallback shareModelWithCheckCallback) {
+        List<String> installedApps = getInstalledApps(context);
+        if (installedApps != null && installedApps.size() > 0) {
+            List<ShareStorage.StorageModel> shareModelsFromQuickCache = getShareModelsFromQuickCache(installedApps);
+            if (shareModelsFromQuickCache != null && shareModelsFromQuickCache.size() > 0) {
+                ShareLoginStat.GetShareListStat.statExtMap.put("from", "cache");
+                callbackShareModels(shareModelWithCheckCallback, shareModelsFromQuickCache, mShareModelsMemoryCacheFrom);
+                return;
+            }
+            List<ShareStorage.StorageModel> shareModelsFromShareStorage = getShareModelsFromShareStorage(installedApps);
+            if (shareModelsFromShareStorage != null && shareModelsFromShareStorage.size() > 0) {
+                ShareLoginStat.GetShareListStat.statExtMap.put("from", ShareLoginStat.GetShareListStat.VALUE_FROM_SP);
+                cacheShareModels(shareModelsFromShareStorage, S_SHARE_MODEL_FROM_APP_SP);
+                callbackShareModels(shareModelWithCheckCallback, shareModelsFromShareStorage, S_SHARE_MODEL_FROM_APP_SP);
+                StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_INIT_SP);
+                return;
+            }
+            int ordinal = SapiAccountManager.getInstance().getConfignation().environment.ordinal();
+            List<ShareStorage.StorageModel> shareModelsFromSP = getShareModelsFromSP(ordinal, installedApps);
+            if (shareModelsFromSP.size() > 0) {
+                ShareLoginStat.GetShareListStat.statExtMap.put("from", ShareLoginStat.GetShareListStat.VALUE_FROM_SP);
+                cacheShareModels(shareModelsFromSP, S_SHARE_MODEL_FROM_SP);
+                StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_DYNAMIC_SP);
+                callbackShareModels(shareModelWithCheckCallback, shareModelsFromSP, S_SHARE_MODEL_FROM_SP);
+                return;
+            }
+            if (SapiUtils.checkRequestPermission(h.i, context)) {
+                List<ShareStorage.StorageModel> shareModelsFromSdCard = getShareModelsFromSdCard(ordinal, installedApps);
+                if (shareModelsFromSdCard.size() > 0) {
+                    ShareLoginStat.GetShareListStat.statExtMap.put("from", "sd");
+                    cacheShareModels(shareModelsFromSdCard, S_SHARE_MODEL_FROM_SD);
+                    StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_DYNAMIC_SDCARD);
+                    callbackShareModels(shareModelWithCheckCallback, shareModelsFromSdCard, S_SHARE_MODEL_FROM_SD);
+                    return;
+                }
+            } else {
+                StatService.onEventAutoStat(ShareStatKey.GET_SHARE_NO_SDCARD_PERM);
+                ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_PERMISSION, "0");
+            }
+            ShareLoginStat.GetShareListStat.statExtMap.put("from", "net");
+            final Handler handler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.share.ShareUtils.1
+                @Override // android.os.Handler
+                public void handleMessage(Message message) {
+                    boolean unused = ShareUtils.isRequestShareFromCloudTimeOut = true;
+                    ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_IS_TIMEOUT_FROM_NET, "1");
+                    shareModelWithCheckCallback.onFailure(-106, ShareStorage.MSG_GET_DATA_FROM_CLOUD_TIMEOUT, ShareUtils.mShareModelsMemoryCacheFrom);
+                }
+            };
+            ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_IS_TIMEOUT_FROM_NET, "0");
+            handler.removeCallbacksAndMessages(null);
+            handler.sendEmptyMessageDelayed(0, j);
+            getShareV3App(context, str, installedApps, new GetShareV3AppCallback() { // from class: com.baidu.sapi2.share.ShareUtils.2
+                @Override // com.baidu.sapi2.callback.inner.GetShareV3AppCallback
+                public void onFailure() {
+                    String str2;
+                    handler.removeCallbacksAndMessages(null);
+                    HashMap hashMap = new HashMap();
+                    if (!ShareUtils.isRequestShareFromCloudTimeOut) {
+                        str2 = "0";
+                    } else {
+                        str2 = "1";
+                    }
+                    hashMap.put("timeout", str2);
+                    hashMap.put("status", "0");
+                    StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_CLOUD, hashMap);
+                    if (ShareUtils.isRequestShareFromCloudTimeOut) {
+                        boolean unused = ShareUtils.isRequestShareFromCloudTimeOut = false;
+                    } else {
+                        handler.post(new Runnable() { // from class: com.baidu.sapi2.share.ShareUtils.2.2
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                shareModelWithCheckCallback.onFailure(-105, ShareStorage.MSG_DEVICE_DO_NOT_FIND_SHARE_DATA, ShareUtils.mShareModelsMemoryCacheFrom);
+                            }
+                        });
+                    }
+                }
+
+                @Override // com.baidu.sapi2.callback.inner.GetShareV3AppCallback
+                public void onSuccess(final List<ShareStorage.StorageModel> list) {
+                    String str2;
+                    handler.removeCallbacksAndMessages(null);
+                    ShareUtils.cacheShareModels(list, ShareUtils.S_SHARE_MODEL_FROM_CLOUD);
+                    HashMap hashMap = new HashMap();
+                    if (ShareUtils.isRequestShareFromCloudTimeOut) {
+                        str2 = "1";
+                    } else {
+                        str2 = "0";
+                    }
+                    hashMap.put("timeout", str2);
+                    hashMap.put("status", "1");
+                    StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_CLOUD, hashMap);
+                    if (ShareUtils.isRequestShareFromCloudTimeOut) {
+                        boolean unused = ShareUtils.isRequestShareFromCloudTimeOut = false;
+                    } else {
+                        handler.post(new Runnable() { // from class: com.baidu.sapi2.share.ShareUtils.2.1
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                ShareUtils.callbackShareModels(shareModelWithCheckCallback, list, ShareUtils.S_SHARE_MODEL_FROM_CLOUD);
+                            }
+                        });
+                    }
+                }
+            });
+            return;
+        }
+        StatService.onEventAutoStat(ShareStatKey.GET_SHARE_BUT_NONE_APP);
+        shareModelWithCheckCallback.onFailure(-104, ShareStorage.MSG_DEVICE_DO_NOT_FIND_OTHER_BAIDU_APP, mShareModelsMemoryCacheFrom);
+    }
+
+    public static List<ShareStorage.StorageModel> getShareStorageModel() {
+        SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
+        if (sapiConfiguration != null && sapiConfiguration.loginShareStrategy() != LoginShareStrategy.DISABLED) {
+            ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_IS_ABLE, "1");
+            List<String> installedApps = getInstalledApps(sapiConfiguration.context);
+            if (installedApps != null && installedApps.size() != 0) {
+                List<ShareStorage.StorageModel> shareModelsFromShareStorage = getShareModelsFromShareStorage(installedApps);
+                ShareLoginStat.GetShareListStat.statExtMap.put("from", ShareLoginStat.GetShareListStat.VALUE_FROM_SP);
+                if (shareModelsFromShareStorage != null) {
+                    ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_V2_INITIAL_SIZE, String.valueOf(shareModelsFromShareStorage.size()));
+                }
+                List<ShareStorage.StorageModel> buildExpiredShareModels = buildExpiredShareModels(shareModelsFromShareStorage);
+                String[] deletedShareModels = getDeletedShareModels();
+                if (buildExpiredShareModels.size() > 0 && deletedShareModels != null && deletedShareModels.length > 0) {
+                    Log.d(TAG, "shareModels has value, deleteModels has value");
+                    Iterator<ShareStorage.StorageModel> it = buildExpiredShareModels.iterator();
+                    while (it.hasNext()) {
+                        ShareStorage.StorageModel next = it.next();
+                        for (String str : deletedShareModels) {
+                            if (!TextUtils.isEmpty(next.url) && next.url.contains(str)) {
+                                try {
+                                    it.remove();
+                                } catch (Exception unused) {
+                                }
+                            }
+                        }
+                    }
+                }
+                return buildExpiredShareModels;
+            }
+            return new ArrayList(0);
+        }
+        Log.d(TAG, "config initialShareStrategy is DISABLED");
+        ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_IS_ABLE, "0");
+        return new ArrayList(0);
+    }
+
+    public static void getShareV3App(Context context, String str, List<String> list, final GetShareV3AppCallback getShareV3AppCallback) {
+        if (!SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_SHARE_MODEL_FROM_SERVER).isMeetGray()) {
+            if (getShareV3AppCallback != null) {
+                getShareV3AppCallback.onFailure();
+            }
+            ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_FROM_NET_GRAY, "0");
+            return;
+        }
+        ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_FROM_NET_GRAY, "1");
+        SapiAccountManager.getInstance().getAccountService().getShareV3App(str, list, context.getPackageName(), new GetShareV3AppCallback() { // from class: com.baidu.sapi2.share.ShareUtils.3
+            @Override // com.baidu.sapi2.callback.inner.GetShareV3AppCallback
+            public void onSuccess(List<ShareStorage.StorageModel> list2) {
+                if (GetShareV3AppCallback.this != null) {
+                    if (list2 != null && list2.size() != 0) {
+                        GetShareV3AppCallback.this.onSuccess(list2);
+                    } else {
+                        GetShareV3AppCallback.this.onFailure();
+                    }
+                }
+            }
+
+            @Override // com.baidu.sapi2.callback.inner.GetShareV3AppCallback
+            public void onFailure() {
+                GetShareV3AppCallback getShareV3AppCallback2 = GetShareV3AppCallback.this;
+                if (getShareV3AppCallback2 != null) {
+                    getShareV3AppCallback2.onFailure();
+                }
+            }
+        });
     }
 
     public static void markAsDeleteShareLogin(String str) {
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65561, null, str) == null) {
-            String[] deletedShareModels = getDeletedShareModels();
-            StringBuilder sb = new StringBuilder();
-            if (deletedShareModels != null) {
-                if (deletedShareModels.length + 1 > 10) {
-                    i = (deletedShareModels.length + 1) - 10;
-                } else {
-                    i = 0;
-                }
-                while (i < deletedShareModels.length) {
-                    sb.append(deletedShareModels[i]);
-                    sb.append(",");
-                    i++;
-                }
-            }
-            sb.append(str);
-            SapiContext.getInstance().put(SapiContext.KEY_SHARE_DELETE_LIST, sb.toString());
-        }
-    }
-
-    public static List<Intent> queryShareActivitys(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) {
-            SapiAccountManager sapiAccountManager = SapiAccountManager.getInstance();
-            if (sapiAccountManager == null) {
-                return new ArrayList();
-            }
-            SapiConfiguration confignation = sapiAccountManager.getConfignation();
-            if (confignation == null) {
-                return new ArrayList();
-            }
-            if (!confignation.isAgreeDangerousProtocol()) {
-                return new ArrayList();
-            }
-            List<ResolveInfo> list = null;
-            try {
-                list = context.getPackageManager().queryIntentActivities(new Intent(ACTION_SHARE_ACTIVITY), 32);
-            } catch (Exception e) {
-                Log.e(e);
-            }
-            return queryShareIntent(context, list, ACTION_SHARE_ACTIVITY);
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static boolean checkCalleeIdentity(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, str)) == null) {
-            if (context != null && !TextUtils.isEmpty(str)) {
-                Map<String, String> authorizedPackages = SapiContext.getInstance().getAuthorizedPackages();
-                String packageSign = SapiUtils.getPackageSign(context, str);
-                if (!TextUtils.isEmpty(packageSign)) {
-                    for (String str2 : authorizedPackages.keySet()) {
-                        if (str.matches(str2) && packageSign.equals(authorizedPackages.get(str2))) {
-                            return true;
-                        }
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static List<ShareStorage.StorageModel> checkShareAppInstalled(List<ShareStorage.StorageModel> list, List<String> list2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, list, list2)) == null) {
-            if (list == null || list.size() == 0 || list2 == null || list2.size() == 0) {
-                return null;
-            }
-            Iterator<ShareStorage.StorageModel> it = list.iterator();
-            while (it.hasNext()) {
-                ShareStorage.StorageModel next = it.next();
-                boolean z = false;
-                Iterator<String> it2 = list2.iterator();
-                while (true) {
-                    if (!it2.hasNext()) {
-                        break;
-                    } else if (TextUtils.equals(it2.next(), next.pkg)) {
-                        z = true;
-                        break;
-                    }
-                }
-                if (!z) {
-                    it.remove();
-                }
-            }
-            if (list.size() == 0) {
-                return null;
-            }
-            return list;
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    public static List<ShareStorage.StorageModel> getShareModelsFromSP(int i, List<String> list) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65555, null, i, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            ShareStorage shareStorage = new ShareStorage();
-            for (String str : list) {
-                ShareStorage.StorageModel modelFromSp = shareStorage.getModelFromSp(str);
-                if (modelFromSp != null && !TextUtils.isEmpty(modelFromSp.displayname) && !TextUtils.isEmpty(modelFromSp.url) && i == modelFromSp.env) {
-                    arrayList.add(modelFromSp);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeIL.objValue;
-    }
-
-    public static List<ShareStorage.StorageModel> getShareModelsFromSdCard(int i, List<String> list) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65556, null, i, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            ShareStorage shareStorage = new ShareStorage();
-            for (String str : list) {
-                ShareStorage.StorageModel modelFromSd = shareStorage.getModelFromSd(str);
-                if (modelFromSd != null && !TextUtils.isEmpty(modelFromSd.displayname) && !TextUtils.isEmpty(modelFromSd.url) && i == modelFromSd.env) {
-                    arrayList.add(modelFromSd);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeIL.objValue;
-    }
-
-    public static List<String> getInstalledApps(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
-            List<Intent> queryShareActivitys = queryShareActivitys(context);
-            if (queryShareActivitys != null && queryShareActivitys.size() > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (Intent intent : queryShareActivitys) {
-                    arrayList.add(intent.getComponent().getPackageName());
-                }
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static boolean isInV2ShareDisableWhiteList(SapiConfiguration sapiConfiguration) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, sapiConfiguration)) == null) {
-            ArrayList<String> arrayList = new ArrayList();
-            arrayList.add("com.baidu.searchbox(.*)");
-            for (String str : arrayList) {
-                if (sapiConfiguration.context.getPackageName().matches(str)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void getOnlineAppShareModel(List<ShareStorage.StorageModel> list, String str, ShareModelCallback shareModelCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65552, null, list, str, shareModelCallback) == null) {
-            if (SapiContext.getInstance() == null) {
-                shareModelCallback.onReceiveShareModels(list);
-                ShareLoginStat.GetShareListStat.upload();
-                return;
-            }
-            String str2 = "1";
-            if (!SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.KEY_SHARE_CHECK_ONLINE_SWITCH).isMeetGray()) {
-                shareModelCallback.onReceiveShareModels(list);
-                ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_GRAY, "1");
-                ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_IS_CHECK_BDUSS, "0");
-                ShareLoginStat.GetShareListStat.upload();
-                return;
-            }
-            ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_GRAY, "0");
-            ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_IS_CHECK_BDUSS, "1");
-            if (!S_SHARE_MODEL_FROM_CLOUD.equals(str)) {
-                str2 = "0";
-            }
-            ArrayList arrayList = new ArrayList();
-            ArrayList arrayList2 = new ArrayList();
-            if (S_SHARE_MODEL_FROM_CLOUD.equals(str)) {
-                for (ShareStorage.StorageModel storageModel : list) {
-                    arrayList.add(new GetOnlineRequestShareModel(storageModel));
-                }
+        String[] deletedShareModels = getDeletedShareModels();
+        StringBuilder sb = new StringBuilder();
+        if (deletedShareModels != null) {
+            if (deletedShareModels.length + 1 > 10) {
+                i = (deletedShareModels.length + 1) - 10;
             } else {
-                for (ShareStorage.StorageModel storageModel2 : list) {
-                    if (TextUtils.isEmpty(storageModel2.bduss)) {
-                        arrayList2.add(storageModel2);
-                    } else {
-                        arrayList.add(new GetOnlineRequestShareModel(storageModel2));
-                    }
-                }
+                i = 0;
             }
-            if (arrayList.isEmpty()) {
-                shareModelCallback.onReceiveShareModels(list);
-                ShareLoginStat.GetShareListStat.upload();
-                return;
+            while (i < deletedShareModels.length) {
+                sb.append(deletedShareModels[i]);
+                sb.append(",");
+                i++;
             }
-            int i = SapiContext.getInstance().getSapiOptions().shareCheckOnlineTimeOut;
-            Handler handler = new Handler(Looper.getMainLooper(), shareModelCallback, list) { // from class: com.baidu.sapi2.share.ShareUtils.5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ShareModelCallback val$callback;
-                public final /* synthetic */ List val$shareModelList;
-
-                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                {
-                    super(r7);
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {r7, shareModelCallback, list};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            super((Looper) newInitContext.callArgs[0]);
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$callback = shareModelCallback;
-                    this.val$shareModelList = list;
-                }
-
-                @Override // android.os.Handler
-                public void handleMessage(Message message) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
-                        boolean unused = ShareUtils.mIsCheckShareOnlineTimeOut = true;
-                        this.val$callback.onReceiveShareModels(this.val$shareModelList);
-                        ShareLoginStat.GetShareListStat.upload();
-                    }
-                }
-            };
-            handler.removeCallbacksAndMessages(null);
-            handler.sendEmptyMessageDelayed(0, i);
-            SapiAccountManager.getInstance().getAccountService().getOnlineAppShareModel(arrayList, str2, new GetOnlineAppCallback(shareModelCallback, list, str, arrayList2, handler) { // from class: com.baidu.sapi2.share.ShareUtils.6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ShareModelCallback val$callback;
-                public final /* synthetic */ String val$from;
-                public final /* synthetic */ Handler val$handler;
-                public final /* synthetic */ List val$nilBdussShareModelList;
-                public final /* synthetic */ List val$shareModelList;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {shareModelCallback, list, str, arrayList2, handler};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$callback = shareModelCallback;
-                    this.val$shareModelList = list;
-                    this.val$from = str;
-                    this.val$nilBdussShareModelList = arrayList2;
-                    this.val$handler = handler;
-                }
-
-                @Override // com.baidu.sapi2.callback.inner.GetOnlineAppCallback
-                public void onFailure() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (ShareUtils.mIsCheckShareOnlineTimeOut) {
-                            boolean unused = ShareUtils.mIsCheckShareOnlineTimeOut = false;
-                        } else {
-                            this.val$handler.post(new Runnable(this) { // from class: com.baidu.sapi2.share.ShareUtils.6.1
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ AnonymousClass6 this$0;
-
-                                {
-                                    Interceptable interceptable3 = $ic;
-                                    if (interceptable3 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this};
-                                        interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable3.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.this$0 = this;
-                                }
-
-                                @Override // java.lang.Runnable
-                                public void run() {
-                                    Interceptable interceptable3 = $ic;
-                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        AnonymousClass6 anonymousClass6 = this.this$0;
-                                        anonymousClass6.val$callback.onReceiveShareModels(anonymousClass6.val$shareModelList);
-                                        ShareLoginStat.GetShareListStat.upload();
-                                    }
-                                }
-                            });
-                        }
-                    }
-                }
-
-                @Override // com.baidu.sapi2.callback.inner.GetOnlineAppCallback
-                public void onSuccess(JSONArray jSONArray) {
-                    String str3;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-                        if (ShareUtils.mIsCheckShareOnlineTimeOut) {
-                            boolean unused = ShareUtils.mIsCheckShareOnlineTimeOut = false;
-                        } else if (jSONArray != null && jSONArray.length() != 0 && jSONArray.length() >= 3) {
-                            try {
-                                ArrayList<ShareStorage.StorageModel> arrayList3 = new ArrayList();
-                                for (ShareStorage.StorageModel storageModel3 : this.val$shareModelList) {
-                                    if (storageModel3 != null) {
-                                        String str4 = storageModel3.app + storageModel3.pkg + storageModel3.bduss;
-                                        for (int i2 = 0; i2 < jSONArray.length() && ((str3 = (String) jSONArray.get(i2)) == null || !str3.equals(str4)); i2++) {
-                                        }
-                                        arrayList3.add(storageModel3);
-                                    }
-                                }
-                                if (!ShareUtils.S_SHARE_MODEL_FROM_CLOUD.equals(this.val$from) && !this.val$nilBdussShareModelList.isEmpty()) {
-                                    arrayList3.addAll(this.val$nilBdussShareModelList);
-                                }
-                                JSONArray jSONArray2 = new JSONArray();
-                                for (ShareStorage.StorageModel storageModel4 : arrayList3) {
-                                    if (storageModel4 != null) {
-                                        jSONArray2.put(storageModel4.app);
-                                    }
-                                }
-                                ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_CHECK_BDUSS_APP, jSONArray2);
-                                this.val$callback.onReceiveShareModels(arrayList3);
-                                ShareLoginStat.GetShareListStat.upload();
-                            } catch (Exception e) {
-                                this.val$callback.onReceiveShareModels(this.val$shareModelList);
-                                ShareLoginStat.GetShareListStat.upload();
-                                e.printStackTrace();
-                            }
-                        } else {
-                            this.val$callback.onReceiveShareModels(this.val$shareModelList);
-                            ShareLoginStat.GetShareListStat.upload();
-                        }
-                    }
-                }
-            });
         }
-    }
-
-    public static List<Intent> queryShareIntent(Context context, List<ResolveInfo> list, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65564, null, context, list, str)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (context != null && list != null && list.size() != 0) {
-                HashMap hashMap = new HashMap();
-                Map<String, Integer> orderAuthorizedPackages = SapiContext.getInstance().getOrderAuthorizedPackages();
-                try {
-                    for (ResolveInfo resolveInfo : list) {
-                        ActivityInfo activityInfo = resolveInfo.activityInfo;
-                        if (activityInfo != null) {
-                            Intent intent = new Intent(str);
-                            intent.setClassName(((ComponentInfo) activityInfo).packageName, ((ComponentInfo) activityInfo).name);
-                            if (Build.VERSION.SDK_INT > 11) {
-                                intent.addFlags(32);
-                            }
-                            String str2 = resolveInfo.activityInfo.permission;
-                            if (TextUtils.isEmpty(str2) || context.checkCallingOrSelfPermission(str2) == 0) {
-                                if (checkCalleeIdentity(context, intent.getComponent().getPackageName()) && !context.getPackageName().equals(intent.getComponent().getPackageName())) {
-                                    int i = Integer.MAX_VALUE;
-                                    for (String str3 : orderAuthorizedPackages.keySet()) {
-                                        if (intent.getComponent().getPackageName().matches(str3)) {
-                                            i = orderAuthorizedPackages.get(str3).intValue();
-                                        }
-                                    }
-                                    hashMap.put(intent, Integer.valueOf(i));
-                                }
-                            }
-                        }
-                    }
-                    ArrayList<Map.Entry> arrayList2 = new ArrayList(hashMap.entrySet());
-                    Collections.sort(arrayList2, new Comparator<Map.Entry<Intent, Integer>>() { // from class: com.baidu.sapi2.share.ShareUtils.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                }
-                            }
-                        }
-
-                        /* JADX DEBUG: Method merged with bridge method */
-                        @Override // java.util.Comparator
-                        public int compare(Map.Entry<Intent, Integer> entry, Map.Entry<Intent, Integer> entry2) {
-                            InterceptResult invokeLL;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry, entry2)) == null) {
-                                return entry.getValue().compareTo(entry2.getValue());
-                            }
-                            return invokeLL.intValue;
-                        }
-                    });
-                    for (Map.Entry entry : arrayList2) {
-                        arrayList.add(entry.getKey());
-                    }
-                } catch (Throwable th) {
-                    Log.e(th);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeLLL.objValue;
-    }
-
-    public static void getShareModels(long j, Context context, String str, ShareModelWithCheckCallback shareModelWithCheckCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{Long.valueOf(j), context, str, shareModelWithCheckCallback}) == null) {
-            List<String> installedApps = getInstalledApps(context);
-            if (installedApps != null && installedApps.size() > 0) {
-                List<ShareStorage.StorageModel> shareModelsFromQuickCache = getShareModelsFromQuickCache(installedApps);
-                if (shareModelsFromQuickCache != null && shareModelsFromQuickCache.size() > 0) {
-                    ShareLoginStat.GetShareListStat.statExtMap.put("from", "cache");
-                    callbackShareModels(shareModelWithCheckCallback, shareModelsFromQuickCache, mShareModelsMemoryCacheFrom);
-                    return;
-                }
-                List<ShareStorage.StorageModel> shareModelsFromShareStorage = getShareModelsFromShareStorage(installedApps);
-                if (shareModelsFromShareStorage != null && shareModelsFromShareStorage.size() > 0) {
-                    ShareLoginStat.GetShareListStat.statExtMap.put("from", ShareLoginStat.GetShareListStat.VALUE_FROM_SP);
-                    cacheShareModels(shareModelsFromShareStorage, S_SHARE_MODEL_FROM_APP_SP);
-                    callbackShareModels(shareModelWithCheckCallback, shareModelsFromShareStorage, S_SHARE_MODEL_FROM_APP_SP);
-                    StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_INIT_SP);
-                    return;
-                }
-                int ordinal = SapiAccountManager.getInstance().getConfignation().environment.ordinal();
-                List<ShareStorage.StorageModel> shareModelsFromSP = getShareModelsFromSP(ordinal, installedApps);
-                if (shareModelsFromSP.size() > 0) {
-                    ShareLoginStat.GetShareListStat.statExtMap.put("from", ShareLoginStat.GetShareListStat.VALUE_FROM_SP);
-                    cacheShareModels(shareModelsFromSP, S_SHARE_MODEL_FROM_SP);
-                    StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_DYNAMIC_SP);
-                    callbackShareModels(shareModelWithCheckCallback, shareModelsFromSP, S_SHARE_MODEL_FROM_SP);
-                    return;
-                }
-                if (SapiUtils.checkRequestPermission(h.i, context)) {
-                    List<ShareStorage.StorageModel> shareModelsFromSdCard = getShareModelsFromSdCard(ordinal, installedApps);
-                    if (shareModelsFromSdCard.size() > 0) {
-                        ShareLoginStat.GetShareListStat.statExtMap.put("from", "sd");
-                        cacheShareModels(shareModelsFromSdCard, S_SHARE_MODEL_FROM_SD);
-                        StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_DYNAMIC_SDCARD);
-                        callbackShareModels(shareModelWithCheckCallback, shareModelsFromSdCard, S_SHARE_MODEL_FROM_SD);
-                        return;
-                    }
-                } else {
-                    StatService.onEventAutoStat(ShareStatKey.GET_SHARE_NO_SDCARD_PERM);
-                    ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_PERMISSION, "0");
-                }
-                ShareLoginStat.GetShareListStat.statExtMap.put("from", "net");
-                Handler handler = new Handler(Looper.getMainLooper(), shareModelWithCheckCallback) { // from class: com.baidu.sapi2.share.ShareUtils.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ShareModelWithCheckCallback val$callback;
-
-                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                    {
-                        super(r7);
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {r7, shareModelWithCheckCallback};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                super((Looper) newInitContext.callArgs[0]);
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.val$callback = shareModelWithCheckCallback;
-                    }
-
-                    @Override // android.os.Handler
-                    public void handleMessage(Message message) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
-                            boolean unused = ShareUtils.isRequestShareFromCloudTimeOut = true;
-                            ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_IS_TIMEOUT_FROM_NET, "1");
-                            this.val$callback.onFailure(-106, ShareStorage.MSG_GET_DATA_FROM_CLOUD_TIMEOUT, ShareUtils.mShareModelsMemoryCacheFrom);
-                        }
-                    }
-                };
-                ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_IS_TIMEOUT_FROM_NET, "0");
-                handler.removeCallbacksAndMessages(null);
-                handler.sendEmptyMessageDelayed(0, j);
-                getShareV3App(context, str, installedApps, new GetShareV3AppCallback(handler, shareModelWithCheckCallback) { // from class: com.baidu.sapi2.share.ShareUtils.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ShareModelWithCheckCallback val$callback;
-                    public final /* synthetic */ Handler val$handler;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {handler, shareModelWithCheckCallback};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.val$handler = handler;
-                        this.val$callback = shareModelWithCheckCallback;
-                    }
-
-                    @Override // com.baidu.sapi2.callback.inner.GetShareV3AppCallback
-                    public void onFailure() {
-                        String str2;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.val$handler.removeCallbacksAndMessages(null);
-                            HashMap hashMap = new HashMap();
-                            if (!ShareUtils.isRequestShareFromCloudTimeOut) {
-                                str2 = "0";
-                            } else {
-                                str2 = "1";
-                            }
-                            hashMap.put(a.O, str2);
-                            hashMap.put("status", "0");
-                            StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_CLOUD, hashMap);
-                            if (ShareUtils.isRequestShareFromCloudTimeOut) {
-                                boolean unused = ShareUtils.isRequestShareFromCloudTimeOut = false;
-                            } else {
-                                this.val$handler.post(new Runnable(this) { // from class: com.baidu.sapi2.share.ShareUtils.3.2
-                                    public static /* synthetic */ Interceptable $ic;
-                                    public transient /* synthetic */ FieldHolder $fh;
-                                    public final /* synthetic */ AnonymousClass3 this$0;
-
-                                    {
-                                        Interceptable interceptable3 = $ic;
-                                        if (interceptable3 != null) {
-                                            InitContext newInitContext = TitanRuntime.newInitContext();
-                                            newInitContext.initArgs = r2;
-                                            Object[] objArr = {this};
-                                            interceptable3.invokeUnInit(65536, newInitContext);
-                                            int i = newInitContext.flag;
-                                            if ((i & 1) != 0) {
-                                                int i2 = i & 2;
-                                                newInitContext.thisArg = this;
-                                                interceptable3.invokeInitBody(65536, newInitContext);
-                                                return;
-                                            }
-                                        }
-                                        this.this$0 = this;
-                                    }
-
-                                    @Override // java.lang.Runnable
-                                    public void run() {
-                                        Interceptable interceptable3 = $ic;
-                                        if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                            this.this$0.val$callback.onFailure(-105, ShareStorage.MSG_DEVICE_DO_NOT_FIND_SHARE_DATA, ShareUtils.mShareModelsMemoryCacheFrom);
-                                        }
-                                    }
-                                });
-                            }
-                        }
-                    }
-
-                    @Override // com.baidu.sapi2.callback.inner.GetShareV3AppCallback
-                    public void onSuccess(List<ShareStorage.StorageModel> list) {
-                        String str2;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                            this.val$handler.removeCallbacksAndMessages(null);
-                            ShareUtils.cacheShareModels(list, ShareUtils.S_SHARE_MODEL_FROM_CLOUD);
-                            HashMap hashMap = new HashMap();
-                            if (ShareUtils.isRequestShareFromCloudTimeOut) {
-                                str2 = "1";
-                            } else {
-                                str2 = "0";
-                            }
-                            hashMap.put(a.O, str2);
-                            hashMap.put("status", "1");
-                            StatService.onEventAutoStat(ShareStatKey.GET_SHARE_FROM_CLOUD, hashMap);
-                            if (ShareUtils.isRequestShareFromCloudTimeOut) {
-                                boolean unused = ShareUtils.isRequestShareFromCloudTimeOut = false;
-                            } else {
-                                this.val$handler.post(new Runnable(this, list) { // from class: com.baidu.sapi2.share.ShareUtils.3.1
-                                    public static /* synthetic */ Interceptable $ic;
-                                    public transient /* synthetic */ FieldHolder $fh;
-                                    public final /* synthetic */ AnonymousClass3 this$0;
-                                    public final /* synthetic */ List val$shareModels;
-
-                                    {
-                                        Interceptable interceptable3 = $ic;
-                                        if (interceptable3 != null) {
-                                            InitContext newInitContext = TitanRuntime.newInitContext();
-                                            newInitContext.initArgs = r2;
-                                            Object[] objArr = {this, list};
-                                            interceptable3.invokeUnInit(65536, newInitContext);
-                                            int i = newInitContext.flag;
-                                            if ((i & 1) != 0) {
-                                                int i2 = i & 2;
-                                                newInitContext.thisArg = this;
-                                                interceptable3.invokeInitBody(65536, newInitContext);
-                                                return;
-                                            }
-                                        }
-                                        this.this$0 = this;
-                                        this.val$shareModels = list;
-                                    }
-
-                                    @Override // java.lang.Runnable
-                                    public void run() {
-                                        Interceptable interceptable3 = $ic;
-                                        if (interceptable3 != null && interceptable3.invokeV(1048576, this) != null) {
-                                            return;
-                                        }
-                                        ShareUtils.callbackShareModels(this.this$0.val$callback, this.val$shareModels, ShareUtils.S_SHARE_MODEL_FROM_CLOUD);
-                                    }
-                                });
-                            }
-                        }
-                    }
-                });
-                return;
-            }
-            StatService.onEventAutoStat(ShareStatKey.GET_SHARE_BUT_NONE_APP);
-            shareModelWithCheckCallback.onFailure(-104, ShareStorage.MSG_DEVICE_DO_NOT_FIND_OTHER_BAIDU_APP, mShareModelsMemoryCacheFrom);
-        }
-    }
-
-    public static List<ShareStorage.StorageModel> getShareModelsFromShareStorage(List<String> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, list)) == null) {
-            String string = SapiContext.getInstance().getString(SapiContext.KEY_SHARE_STORAGE);
-            if (!TextUtils.isEmpty(string)) {
-                String decryptAccountInfo = SapiDataEncryptor.decryptAccountInfo(string, SapiContext.getInstance().getAccountEncryptKey());
-                if (!TextUtils.isEmpty(decryptAccountInfo)) {
-                    JSONArray jSONArray = null;
-                    try {
-                        jSONArray = new JSONArray(decryptAccountInfo);
-                    } catch (Exception e) {
-                        Log.e(TAG, e.getMessage());
-                    }
-                    return checkShareAppInstalled(ShareStorage.StorageModel.fromJSONArray(jSONArray), list);
-                }
-            }
-            Log.e(TAG, "getShareStorage result is null");
-            return new ArrayList(0);
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static List<ShareStorage.StorageModel> getShareStorageModel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
-            SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
-            if (sapiConfiguration != null && sapiConfiguration.loginShareStrategy() != LoginShareStrategy.DISABLED) {
-                ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_IS_ABLE, "1");
-                List<String> installedApps = getInstalledApps(sapiConfiguration.context);
-                if (installedApps != null && installedApps.size() != 0) {
-                    List<ShareStorage.StorageModel> shareModelsFromShareStorage = getShareModelsFromShareStorage(installedApps);
-                    ShareLoginStat.GetShareListStat.statExtMap.put("from", ShareLoginStat.GetShareListStat.VALUE_FROM_SP);
-                    if (shareModelsFromShareStorage != null) {
-                        ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_V2_INITIAL_SIZE, String.valueOf(shareModelsFromShareStorage.size()));
-                    }
-                    List<ShareStorage.StorageModel> buildExpiredShareModels = buildExpiredShareModels(shareModelsFromShareStorage);
-                    String[] deletedShareModels = getDeletedShareModels();
-                    if (buildExpiredShareModels.size() > 0 && deletedShareModels != null && deletedShareModels.length > 0) {
-                        Log.d(TAG, "shareModels has value, deleteModels has value");
-                        Iterator<ShareStorage.StorageModel> it = buildExpiredShareModels.iterator();
-                        while (it.hasNext()) {
-                            ShareStorage.StorageModel next = it.next();
-                            for (String str : deletedShareModels) {
-                                if (!TextUtils.isEmpty(next.url) && next.url.contains(str)) {
-                                    try {
-                                        it.remove();
-                                    } catch (Exception unused) {
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    return buildExpiredShareModels;
-                }
-                return new ArrayList(0);
-            }
-            Log.d(TAG, "config initialShareStrategy is DISABLED");
-            ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_IS_ABLE, "0");
-            return new ArrayList(0);
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public static void getShareV3App(Context context, String str, List<String> list, GetShareV3AppCallback getShareV3AppCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65559, null, context, str, list, getShareV3AppCallback) == null) {
-            if (!SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_SHARE_MODEL_FROM_SERVER).isMeetGray()) {
-                if (getShareV3AppCallback != null) {
-                    getShareV3AppCallback.onFailure();
-                }
-                ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_FROM_NET_GRAY, "0");
-                return;
-            }
-            ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_FROM_NET_GRAY, "1");
-            SapiAccountManager.getInstance().getAccountService().getShareV3App(str, list, context.getPackageName(), new GetShareV3AppCallback(getShareV3AppCallback) { // from class: com.baidu.sapi2.share.ShareUtils.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ GetShareV3AppCallback val$callback;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {getShareV3AppCallback};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$callback = getShareV3AppCallback;
-                }
-
-                @Override // com.baidu.sapi2.callback.inner.GetShareV3AppCallback
-                public void onSuccess(List<ShareStorage.StorageModel> list2) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list2) == null) && this.val$callback != null) {
-                        if (list2 != null && list2.size() != 0) {
-                            this.val$callback.onSuccess(list2);
-                        } else {
-                            this.val$callback.onFailure();
-                        }
-                    }
-                }
-
-                @Override // com.baidu.sapi2.callback.inner.GetShareV3AppCallback
-                public void onFailure() {
-                    GetShareV3AppCallback getShareV3AppCallback2;
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (getShareV3AppCallback2 = this.val$callback) != null) {
-                        getShareV3AppCallback2.onFailure();
-                    }
-                }
-            });
-        }
+        sb.append(str);
+        SapiContext.getInstance().put(SapiContext.KEY_SHARE_DELETE_LIST, sb.toString());
     }
 
     public static void onLoginActivityActivityResult(ShareCallPacking.ShareLoginCallBack shareLoginCallBack, int i, int i2, Intent intent, ShareCallPacking shareCallPacking, List<PassNameValuePair> list, String str) {
@@ -989,222 +560,213 @@ public final class ShareUtils {
         String str7;
         String str8;
         String str9;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65562, null, new Object[]{shareLoginCallBack, Integer.valueOf(i), Integer.valueOf(i2), intent, shareCallPacking, list, str}) == null) {
-            if (i != 20001) {
-                ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_SUCCESS, "0");
-            } else if (shareLoginCallBack != null) {
-                Context context = SapiAccountManager.getInstance().getConfignation().context;
-                String str10 = "";
-                if (intent == null) {
-                    str2 = "";
-                } else {
-                    str2 = intent.getStringExtra(ShareCallPacking.EXTRA_LOGIN_TYPE_SHARE);
-                    ShareLoginModel.getInstance().updateInvalidBdussList(intent.getStringExtra(ShareLoginModel.INVALIDATE_BDUSS));
-                }
-                char c = 2;
-                if (i2 == -1 && intent != null) {
-                    SapiAccount sapiAccount = (SapiAccount) intent.getParcelableExtra("share_account");
-                    if (sapiAccount != null) {
-                        sapiAccount.fromType = FromType.LOGIN.getValue();
-                        int intExtra = intent.getIntExtra("SDK_VERSION", 0);
-                        JSONObject jSONObject = new JSONObject();
-                        try {
-                            if (intExtra >= 190) {
-                                String stringExtra = intent.getStringExtra("PKG");
-                                ShareAccountAccessor.getAccessor().setAccountPkg(sapiAccount, stringExtra);
-                                jSONObject.put(ShareLoginStat.MakeShareLoginStat.KEY_FROM_PKG, stringExtra);
-                                jSONObject.put(ShareLoginStat.MakeShareLoginStat.KEY_FROM_TPL, "");
-                            } else {
-                                sapiAccount.app = "";
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+        if (i != 20001) {
+            ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_SUCCESS, "0");
+        } else if (shareLoginCallBack != null) {
+            Context context = SapiAccountManager.getInstance().getConfignation().context;
+            String str10 = "";
+            if (intent == null) {
+                str2 = "";
+            } else {
+                str2 = intent.getStringExtra(ShareCallPacking.EXTRA_LOGIN_TYPE_SHARE);
+                ShareLoginModel.getInstance().updateInvalidBdussList(intent.getStringExtra(ShareLoginModel.INVALIDATE_BDUSS));
+            }
+            char c = 2;
+            if (i2 == -1 && intent != null) {
+                SapiAccount sapiAccount = (SapiAccount) intent.getParcelableExtra("share_account");
+                if (sapiAccount != null) {
+                    sapiAccount.fromType = FromType.LOGIN.getValue();
+                    int intExtra = intent.getIntExtra("SDK_VERSION", 0);
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        if (intExtra >= 190) {
+                            String stringExtra = intent.getStringExtra("PKG");
+                            ShareAccountAccessor.getAccessor().setAccountPkg(sapiAccount, stringExtra);
+                            jSONObject.put(ShareLoginStat.MakeShareLoginStat.KEY_FROM_PKG, stringExtra);
+                            jSONObject.put(ShareLoginStat.MakeShareLoginStat.KEY_FROM_TPL, "");
+                        } else {
+                            sapiAccount.app = "";
                         }
-                        str9 = sapiAccount.uid;
-                        SapiContext sapiContext = SapiContext.getInstance();
-                        sapiContext.setCurrentAccount(sapiAccount);
-                        sapiContext.addLoginAccount(sapiAccount);
-                        shareCallPacking.asyncMarkLoginState(2);
-                        sapiContext.setAccountActionType(ShareCallPacking.LOGIN_TYPE_SHARE_V2_CHOICE);
-                        SapiAccountManager.getInstance().getUserInfoAndRefershAccount(sapiAccount, Enums.LastLoginType.CHOICE_SHARE_V2.getValue(), jSONObject.toString());
-                        if (sapiContext.shareLivingunameEnable()) {
-                            ArrayList arrayList = new ArrayList();
-                            String stringExtra2 = intent.getStringExtra("V2_FACE_LOGIN_UIDS_TIMES");
-                            if (!TextUtils.isEmpty(stringExtra2)) {
-                                arrayList.addAll(new FaceLoginService().str2ShareModelV2List(stringExtra2));
-                            }
-                            if (!arrayList.isEmpty()) {
-                                new FaceLoginService().syncFaceLoginUidList(context, arrayList);
-                            }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    str9 = sapiAccount.uid;
+                    SapiContext sapiContext = SapiContext.getInstance();
+                    sapiContext.setCurrentAccount(sapiAccount);
+                    sapiContext.addLoginAccount(sapiAccount);
+                    shareCallPacking.asyncMarkLoginState(2);
+                    sapiContext.setAccountActionType(ShareCallPacking.LOGIN_TYPE_SHARE_V2_CHOICE);
+                    SapiAccountManager.getInstance().getUserInfoAndRefershAccount(sapiAccount, Enums.LastLoginType.CHOICE_SHARE_V2.getValue(), jSONObject.toString());
+                    if (sapiContext.shareLivingunameEnable()) {
+                        ArrayList arrayList = new ArrayList();
+                        String stringExtra2 = intent.getStringExtra("V2_FACE_LOGIN_UIDS_TIMES");
+                        if (!TextUtils.isEmpty(stringExtra2)) {
+                            arrayList.addAll(new FaceLoginService().str2ShareModelV2List(stringExtra2));
                         }
-                        SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.CHOICE_SHARE_V2.getName());
-                        shareLoginCallBack.onSuccess();
-                        ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_SUCCESS, "1");
-                        str8 = "";
-                        c = 0;
-                    } else {
-                        Toast.makeText(context, "互通登录失败,请稍后再试", 0).show();
-                        shareLoginCallBack.onFailed(-207, "互通登录失败,请稍后再试");
-                        ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_SUCCESS, "0");
-                        str8 = ShareResult.ERROR_MSG_ACCOUNT_NULL;
-                        c = 1;
-                        str10 = "-3007";
-                        str9 = "";
+                        if (!arrayList.isEmpty()) {
+                            new FaceLoginService().syncFaceLoginUidList(context, arrayList);
+                        }
                     }
-                    str6 = str9;
-                    str5 = str8;
-                    str7 = str10;
+                    SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.CHOICE_SHARE_V2.getName());
+                    shareLoginCallBack.onSuccess();
+                    ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_SUCCESS, "1");
+                    str8 = "";
+                    c = 0;
                 } else {
-                    if (intent != null) {
-                        str4 = intent.getStringExtra("share_fail_code");
-                        str3 = intent.getStringExtra("share_fail_reason");
-                        Toast.makeText(context, str3, 0).show();
-                    } else {
-                        str3 = "result data is null";
-                        str4 = "";
-                    }
+                    Toast.makeText(context, "互通登录失败,请稍后再试", 0).show();
                     shareLoginCallBack.onFailed(-207, "互通登录失败,请稍后再试");
                     ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_SUCCESS, "0");
-                    str5 = str3;
-                    str6 = "";
-                    str7 = str4;
+                    str8 = ShareResult.ERROR_MSG_ACCOUNT_NULL;
+                    c = 1;
+                    str10 = "-3007";
+                    str9 = "";
                 }
-                ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_ERRNO, str7);
-                ShareLoginStat.MakeShareLoginStat.statExtMap.put("errorMsg", str5);
-                ShareLoginStat.MakeShareLoginStat.upload();
-                if (SHARE_ACCOUNT_CLOUND_VERSION.equals(str2)) {
-                    if (c == 0) {
-                        SapiStatUtil.statInvokeCloudShareAccount(4);
-                    } else {
-                        SapiStatUtil.statInvokeCloudShareAccount(5);
-                    }
-                } else if (c == 0) {
-                    SapiStatUtil.statShareV2Success(ShareCallPacking.statModel, str6, list, str);
-                } else {
-                    SapiStatUtil.statShareV2Fail(ShareCallPacking.statModel, str7, str5, str6, list, str);
-                }
+                str6 = str9;
+                str5 = str8;
+                str7 = str10;
             } else {
-                throw new IllegalArgumentException("and shareLoginCallBack can't be null");
+                if (intent != null) {
+                    str4 = intent.getStringExtra("share_fail_code");
+                    str3 = intent.getStringExtra("share_fail_reason");
+                    Toast.makeText(context, str3, 0).show();
+                } else {
+                    str3 = "result data is null";
+                    str4 = "";
+                }
+                shareLoginCallBack.onFailed(-207, "互通登录失败,请稍后再试");
+                ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_SUCCESS, "0");
+                str5 = str3;
+                str6 = "";
+                str7 = str4;
             }
+            ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_ERRNO, str7);
+            ShareLoginStat.MakeShareLoginStat.statExtMap.put("errorMsg", str5);
+            ShareLoginStat.MakeShareLoginStat.upload();
+            if (SHARE_ACCOUNT_CLOUND_VERSION.equals(str2)) {
+                if (c == 0) {
+                    SapiStatUtil.statInvokeCloudShareAccount(4);
+                } else {
+                    SapiStatUtil.statInvokeCloudShareAccount(5);
+                }
+            } else if (c == 0) {
+                SapiStatUtil.statShareV2Success(ShareCallPacking.statModel, str6, list, str);
+            } else {
+                SapiStatUtil.statShareV2Fail(ShareCallPacking.statModel, str7, str5, str6, list, str);
+            }
+        } else {
+            throw new IllegalArgumentException("and shareLoginCallBack can't be null");
         }
     }
 
     public static void setShareStorageModel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65565, null) == null) {
-            SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
-            Context context = confignation.context;
-            if (!SapiUtils.isOnline(confignation) || confignation.loginShareStrategy() == LoginShareStrategy.DISABLED) {
-                return;
-            }
-            List<Intent> queryShareActivitys = queryShareActivitys(context);
-            if (queryShareActivitys.size() == 0) {
-                SapiContext.getInstance().setShareStorage(null);
-                return;
-            }
-            ShareStorage shareStorage = new ShareStorage();
-            int size = queryShareActivitys.size();
-            int ordinal = SapiAccountManager.getInstance().getConfignation().environment.ordinal();
-            int i = 1;
-            Log.d(TAG, "current login env is " + ordinal);
-            if (!SapiUtils.checkRequestPermission(h.i, context)) {
-                StatService.onEventAutoStat(ShareStatKey.SHARE_V2_LOGIN_NOT_STORAGE_PERM);
-            }
-            StringBuilder sb = new StringBuilder();
-            ArrayList arrayList = new ArrayList();
-            int i2 = size;
-            int i3 = 0;
-            int i4 = 0;
-            int i5 = 0;
-            for (Intent intent : queryShareActivitys) {
-                if (intent.getComponent() != null) {
-                    String packageName = intent.getComponent().getPackageName();
-                    sb.append(packageName);
-                    sb.append(",");
-                    ShareStorage.StorageModel storageModel = shareStorage.get(packageName);
-                    if (storageModel == null) {
-                        i3++;
-                    } else {
-                        Object[] objArr = new Object[i];
-                        objArr[0] = packageName + " env=" + storageModel.env + " flag=" + storageModel.flag + " displayName=" + storageModel.displayname;
-                        Log.d(TAG, objArr);
-                        if (storageModel.env != ordinal) {
-                            i2--;
-                        } else {
-                            int i6 = storageModel.where;
-                            if (i6 == 0) {
-                                i4++;
-                            } else if (i6 == 1) {
-                                i5++;
-                            }
-                            if (storageModel.flag == 0) {
-                                arrayList.add(storageModel);
-                            }
-                        }
+        SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
+        Context context = confignation.context;
+        if (!SapiUtils.isOnline(confignation) || confignation.loginShareStrategy() == LoginShareStrategy.DISABLED) {
+            return;
+        }
+        List<String> installedApps = getInstalledApps(context);
+        if (installedApps.size() == 0) {
+            SapiContext.getInstance().setShareStorage(null);
+            return;
+        }
+        ShareStorage shareStorage = new ShareStorage();
+        int size = installedApps.size();
+        int ordinal = SapiAccountManager.getInstance().getConfignation().environment.ordinal();
+        int i = 1;
+        Log.d(TAG, "current login env is " + ordinal);
+        if (!SapiUtils.checkRequestPermission(h.i, context)) {
+            StatService.onEventAutoStat(ShareStatKey.SHARE_V2_LOGIN_NOT_STORAGE_PERM);
+        }
+        StringBuilder sb = new StringBuilder();
+        ArrayList arrayList = new ArrayList();
+        int i2 = size;
+        int i3 = 0;
+        int i4 = 0;
+        int i5 = 0;
+        for (String str : installedApps) {
+            sb.append(str);
+            sb.append(",");
+            ShareStorage.StorageModel storageModel = shareStorage.get(str);
+            if (storageModel == null) {
+                i3++;
+            } else {
+                Object[] objArr = new Object[i];
+                objArr[0] = str + " env=" + storageModel.env + " flag=" + storageModel.flag + " displayName=" + storageModel.displayname;
+                Log.d(TAG, objArr);
+                if (storageModel.env != ordinal) {
+                    i2--;
+                } else {
+                    int i6 = storageModel.where;
+                    if (i6 == 0) {
+                        i4++;
+                    } else if (i6 == 1) {
+                        i5++;
                     }
-                    i = 1;
+                    if (storageModel.flag == 0) {
+                        arrayList.add(storageModel);
+                    }
                 }
             }
-            Object[] objArr2 = new Object[i];
-            objArr2[0] = "share storage model result size=" + arrayList.size();
-            Log.d(TAG, objArr2);
-            if (sb.length() > 0) {
-                sb.deleteCharAt(sb.length() - 1);
-            }
-            SapiContext.getInstance().setShareStorage(ShareStorage.StorageModel.toJSONArray(arrayList));
-            SapiStatUtil.statShareV2OpenMax(context, i3, i4, i5, i2, shareStorage, arrayList);
+            i = 1;
         }
+        Object[] objArr2 = new Object[i];
+        objArr2[0] = "share storage model result size=" + arrayList.size();
+        Log.d(TAG, objArr2);
+        if (sb.length() > 0) {
+            sb.deleteCharAt(sb.length() - 1);
+        }
+        SapiContext.getInstance().setShareStorage(ShareStorage.StorageModel.toJSONArray(arrayList));
+        SapiStatUtil.statShareV2OpenMax(context, i3, i4, i5, i2, shareStorage, arrayList);
     }
 
     public static void startLoginShareActivityForResult(Activity activity, String str, String str2, String str3, String str4, List<PassNameValuePair> list, String str5, String str6) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{activity, str, str2, str3, str4, list, str5, str6}) == null) {
-            if (activity != null) {
-                if (SHARE_ACCOUNT_NEW_VERSION.equals(str5)) {
-                    ShareCallPacking.statModel = new ShareCallPacking.StatModel();
-                    List<ShareStorage.StorageModel> shareStorageModel = getShareStorageModel();
-                    int i = 0;
-                    while (true) {
-                        if (i < shareStorageModel.size()) {
-                            if (shareStorageModel.get(i).pkg.equals(str) && shareStorageModel.get(i).url.equals(str2)) {
-                                ShareCallPacking.StatModel statModel = ShareCallPacking.statModel;
-                                statModel.index = i;
-                                statModel.accountTpl = shareStorageModel.get(i).tpl;
-                                ShareCallPacking.statModel.appName = shareStorageModel.get(i).app;
-                                break;
-                            }
-                            i++;
-                        } else {
+        if (activity != null) {
+            if (SHARE_ACCOUNT_NEW_VERSION.equals(str5)) {
+                ShareCallPacking.statModel = new ShareCallPacking.StatModel();
+                List<ShareStorage.StorageModel> shareStorageModel = getShareStorageModel();
+                int i = 0;
+                while (true) {
+                    if (i < shareStorageModel.size()) {
+                        if (shareStorageModel.get(i).pkg.equals(str) && shareStorageModel.get(i).url.equals(str2)) {
+                            ShareCallPacking.StatModel statModel = ShareCallPacking.statModel;
+                            statModel.index = i;
+                            statModel.accountTpl = shareStorageModel.get(i).tpl;
+                            ShareCallPacking.statModel.appName = shareStorageModel.get(i).app;
                             break;
                         }
-                    }
-                    SapiStatUtil.statShareV2Click(ShareCallPacking.statModel, list, str6);
-                } else {
-                    SapiStatUtil.statInvokeCloudShareAccount(3);
-                }
-                if (!TextUtils.isEmpty(str) && SapiUtils.isAppInstalled(activity, str)) {
-                    ComponentName componentName = new ComponentName(str, "com.baidu.sapi2.activity.ShareActivity");
-                    Intent intent = new Intent();
-                    intent.putExtra("android.intent.extra.TEXT", str2);
-                    intent.putExtra(ShareCallPacking.EXTRA_SESSION_ID, str4);
-                    intent.putExtra(ShareCallPacking.EXTRA_TRACE_ID, str3);
-                    intent.putExtra(ShareCallPacking.EXTRA_LOGIN_TYPE_SHARE, str5);
-                    intent.putExtra(ShareCallPacking.EXTRA_CALL_TYPE_SHARE, str6);
-                    SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
-                    if (sapiConfiguration != null) {
-                        intent.putExtra(ShareCallPacking.EXTRA_FROM_APP_TPL, sapiConfiguration.tpl);
+                        i++;
                     } else {
-                        intent.putExtra(ShareCallPacking.EXTRA_FROM_APP_TPL, "unknown");
+                        break;
                     }
-                    intent.setComponent(componentName);
+                }
+                SapiStatUtil.statShareV2Click(ShareCallPacking.statModel, list, str6);
+            } else {
+                SapiStatUtil.statInvokeCloudShareAccount(3);
+            }
+            if (!TextUtils.isEmpty(str) && SapiUtils.isAppInstalled(activity, str)) {
+                ComponentName componentName = new ComponentName(str, "com.baidu.sapi2.activity.ShareActivity");
+                Intent intent = new Intent();
+                intent.putExtra("android.intent.extra.TEXT", str2);
+                intent.putExtra(ShareCallPacking.EXTRA_SESSION_ID, str4);
+                intent.putExtra(ShareCallPacking.EXTRA_TRACE_ID, str3);
+                intent.putExtra(ShareCallPacking.EXTRA_LOGIN_TYPE_SHARE, str5);
+                intent.putExtra(ShareCallPacking.EXTRA_CALL_TYPE_SHARE, str6);
+                SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
+                if (sapiConfiguration != null) {
+                    intent.putExtra(ShareCallPacking.EXTRA_FROM_APP_TPL, sapiConfiguration.tpl);
+                } else {
+                    intent.putExtra(ShareCallPacking.EXTRA_FROM_APP_TPL, "unknown");
+                }
+                intent.setComponent(componentName);
+                if (activity.getPackageManager().resolveActivity(intent, 65536) != null) {
                     activity.startActivityForResult(intent, ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT);
                     return;
                 }
-                Toast.makeText(activity, "登录失败", 0).show();
                 return;
             }
-            throw new IllegalArgumentException("loginActivity can't be null");
+            Toast.makeText(activity, "登录失败", 0).show();
+            return;
         }
+        throw new IllegalArgumentException("loginActivity can't be null");
     }
 }

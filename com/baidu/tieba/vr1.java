@@ -1,22 +1,27 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.util.BaiduIdentityManager;
+import com.baidu.tieba.au1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class vr1 implements iu1 {
+public class vr1 implements au1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.iu1
-    public String getAppName() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.au1
+    public void b(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? BaiduIdentityManager.VALUE_OSNAME : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3) == null) {
+        }
     }
 
     public vr1() {
@@ -33,33 +38,40 @@ public class vr1 implements iu1 {
         }
     }
 
-    @Override // com.baidu.tieba.iu1
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.au1
+    public void a(HashMap<String, String> hashMap, File file, au1.a aVar, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ct3.e().d();
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, hashMap, file, aVar, str) == null) {
+            e(aVar);
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.iu1
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.au1
+    public void d(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, au1.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ct3.e().b();
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, bitmap, hashMap, fileArr, aVar) == null) {
+            e(aVar);
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.iu1
-    public String getSchemeHeader() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.au1
+    public void c(HashMap<String, String> hashMap, File file, au1.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return ct3.e().f();
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, hashMap, file, aVar) == null) {
+            e(aVar);
         }
-        return (String) invokeV.objValue;
+    }
+
+    public final void e(au1.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("result", "success");
+                aVar.onResult(jSONObject.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

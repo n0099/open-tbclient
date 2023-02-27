@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.sdk.base.framework.bean.AInfo;
 import com.sdk.base.framework.bean.PInfo;
 import com.sdk.base.framework.bean.SInfo;
-import com.sdk.base.framework.utils.app.AppUtils;
 import com.sdk.base.module.config.BaseConfig;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
@@ -20,21 +19,21 @@ public class a {
 
     public static AInfo a(Context context) {
         InterceptResult invokeL;
-        String appMd5;
+        String b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             AInfo aInfo = new AInfo();
-            aInfo.setN(AppUtils.getAppLable(context));
-            aInfo.setC(AppUtils.getVersionCode(context));
-            aInfo.setV(AppUtils.getVersionName(context));
+            aInfo.setN(com.sdk.j.a.a(context));
+            aInfo.setC(com.sdk.j.a.d(context));
+            aInfo.setV(com.sdk.j.a.e(context));
             if (a) {
                 aInfo.setPk(c);
-                appMd5 = b;
+                b2 = b;
             } else {
-                aInfo.setPk(AppUtils.getPackageName(context));
-                appMd5 = AppUtils.getAppMd5(context);
+                aInfo.setPk(com.sdk.j.a.c(context));
+                b2 = com.sdk.j.a.b(context);
             }
-            aInfo.setMd5(appMd5);
+            aInfo.setMd5(b2);
             return aInfo;
         }
         return (AInfo) invokeL.objValue;

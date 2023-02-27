@@ -13,7 +13,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.request.task.ProgressInfo;
-import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -389,7 +388,7 @@ public class LBSAuthManager {
         hashMap.put("url", "https://api.map.baidu.com/sdkcs/verify");
         a.a("url:https://api.map.baidu.com/sdkcs/verify");
         hashMap.put("output", "json");
-        hashMap.put(ContentUtil.RESULT_KEY_AK, a2);
+        hashMap.put("ak", a2);
         a.a("ak:" + a2);
         hashMap.put("mcode", b.a(a));
         hashMap.put("from", "lbs_yunsdk");
@@ -461,7 +460,7 @@ public class LBSAuthManager {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("url", "https://api.map.baidu.com/sdkcs/verify");
         hashMap.put("output", "json");
-        hashMap.put(ContentUtil.RESULT_KEY_AK, a2);
+        hashMap.put("ak", a2);
         hashMap.put("from", "lbs_yunsdk");
         if (hashtable != null && hashtable.size() > 0) {
             for (Map.Entry<String, String> entry : hashtable.entrySet()) {
@@ -532,8 +531,8 @@ public class LBSAuthManager {
                 e2.printStackTrace();
                 str2 = "";
             }
-            if (jSONObject.has(ContentUtil.RESULT_KEY_AK)) {
-                str2 = jSONObject.getString(ContentUtil.RESULT_KEY_AK);
+            if (jSONObject.has("ak")) {
+                str2 = jSONObject.getString("ak");
                 return (a2 == null || str2 == null || a2.equals(str2)) ? false : true;
             }
             return true;

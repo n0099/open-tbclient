@@ -7,16 +7,9 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.Iterator;
@@ -25,8 +18,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class k extends PlayerProvider implements MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnVideoSizeChangedListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public com.baidu.cyberplayer.sdk.statistics.h a;
     public MediaPlayer b;
     public CyberPlayerManager.OnPreparedListener c;
@@ -47,30 +38,13 @@ public class k extends PlayerProvider implements MediaPlayer.OnBufferingUpdateLi
     public long r;
     public int s;
     public boolean t;
-    public long u;
-    public long v;
-    public int w;
-    public int x;
-    public int y;
+    public long u = -1;
+    public long v = -1;
+    public int w = 3;
+    public int x = 0;
+    public int y = 0;
 
     public k() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.u = -1L;
-        this.v = -1L;
-        this.w = 3;
-        this.x = 0;
-        this.y = 0;
         MediaPlayer mediaPlayer = new MediaPlayer();
         this.b = mediaPlayer;
         mediaPlayer.setOnPreparedListener(this);
@@ -85,28 +59,22 @@ public class k extends PlayerProvider implements MediaPlayer.OnBufferingUpdateLi
     }
 
     private void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.l = -1L;
-            this.m = 0;
-            this.n = -1L;
-            this.p = 0L;
-            this.r = -1L;
-            this.t = false;
-        }
+        this.l = -1L;
+        this.m = 0;
+        this.n = -1L;
+        this.p = 0L;
+        this.r = -1L;
+        this.t = false;
     }
 
     private boolean e() {
-        InterceptResult invokeV;
         int i;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? (this.b == null || (i = this.x) == -1 || i == 0 || i == 1) ? false : true : invokeV.booleanValue;
+        return (this.b == null || (i = this.x) == -1 || i == 0 || i == 1) ? false : true;
     }
 
     private void f() {
-        com.baidu.cyberplayer.sdk.statistics.h hVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (hVar = this.a) == null || hVar.b()) {
+        com.baidu.cyberplayer.sdk.statistics.h hVar = this.a;
+        if (hVar == null || hVar.b()) {
             return;
         }
         if (this.l > 0 || this.t) {
@@ -118,346 +86,255 @@ public class k extends PlayerProvider implements MediaPlayer.OnBufferingUpdateLi
     }
 
     public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.o : (String) invokeV.objValue;
+        return this.o;
     }
 
     public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.n : invokeV.longValue;
+        return this.n;
     }
 
     public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.t : invokeV.booleanValue;
+        return this.t;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void changeProxyDynamic(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, str, z) == null) {
-        }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public int getCurrentPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            MediaPlayer mediaPlayer = this.b;
-            if (mediaPlayer != null) {
-                long j = this.u;
-                if (j > -1) {
-                    return (int) j;
-                }
-                int i = this.x;
-                if (i != 0 && i != 1 && i != 2) {
-                    try {
-                        return mediaPlayer.getCurrentPosition();
-                    } catch (IllegalStateException unused) {
-                        CyberLog.e("MediaPlayerImpl", "getCurrentPosition IllegalStateException error");
-                    }
+        MediaPlayer mediaPlayer = this.b;
+        if (mediaPlayer != null) {
+            long j = this.u;
+            if (j > -1) {
+                return (int) j;
+            }
+            int i = this.x;
+            if (i != 0 && i != 1 && i != 2) {
+                try {
+                    return mediaPlayer.getCurrentPosition();
+                } catch (IllegalStateException unused) {
+                    CyberLog.e("MediaPlayerImpl", "getCurrentPosition IllegalStateException error");
                 }
             }
-            return 0;
         }
-        return invokeV.intValue;
+        return 0;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public int getCurrentPositionSync() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getCurrentPosition() : invokeV.intValue;
+        return getCurrentPosition();
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public int getDecodeMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 4;
-        }
-        return invokeV.intValue;
+        return 4;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public long getDownloadSpeed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return 0L;
-        }
-        return invokeV.longValue;
+        return 0L;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public int getDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.b != null) {
-                return this.s;
-            }
-            return -1;
+        if (this.b != null) {
+            return this.s;
         }
-        return invokeV.intValue;
+        return -1;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public long getPlayedTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.n > 0) {
-                if (this.q > 0) {
-                    this.p += System.currentTimeMillis() - this.q;
-                }
-                this.r = (System.currentTimeMillis() - this.n) - this.p;
+        if (this.n > 0) {
+            if (this.q > 0) {
+                this.p += System.currentTimeMillis() - this.q;
             }
-            return this.r;
+            this.r = (System.currentTimeMillis() - this.n) - this.p;
         }
-        return invokeV.longValue;
+        return this.r;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public int getVideoHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            try {
-                if (this.b != null) {
-                    return this.b.getVideoHeight();
-                }
-                return 0;
-            } catch (Exception unused) {
-                return 0;
+        try {
+            if (this.b != null) {
+                return this.b.getVideoHeight();
             }
+            return 0;
+        } catch (Exception unused) {
+            return 0;
         }
-        return invokeV.intValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public int getVideoWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            try {
-                if (this.b != null) {
-                    return this.b.getVideoWidth();
-                }
-                return 0;
-            } catch (Exception unused) {
-                return 0;
+        try {
+            if (this.b != null) {
+                return this.b.getVideoWidth();
             }
+            return 0;
+        } catch (Exception unused) {
+            return 0;
         }
-        return invokeV.intValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public boolean isLooping() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            MediaPlayer mediaPlayer = this.b;
-            return mediaPlayer != null && mediaPlayer.isLooping();
-        }
-        return invokeV.booleanValue;
+        MediaPlayer mediaPlayer = this.b;
+        return mediaPlayer != null && mediaPlayer.isLooping();
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public boolean isPlaying() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? e() && this.x == 3 : invokeV.booleanValue;
+        return e() && this.x == 3;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public boolean isRemotePlayer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return false;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void muteOrUnmuteAudio(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.k = z;
-            CyberLog.i("MediaPlayerImpl", "muteOrUnmuteAudio flag:" + z);
-            if (this.b == null) {
-                return;
-            }
-            float f = this.k ? 0.0f : 1.0f;
-            this.b.setVolume(f, f);
+        this.k = z;
+        CyberLog.i("MediaPlayerImpl", "muteOrUnmuteAudio flag:" + z);
+        if (this.b == null) {
+            return;
         }
+        float f = this.k ? 0.0f : 1.0f;
+        this.b.setVolume(f, f);
     }
 
     @Override // android.media.MediaPlayer.OnBufferingUpdateListener
     public void onBufferingUpdate(MediaPlayer mediaPlayer, int i) {
-        CyberPlayerManager.OnBufferingUpdateListener onBufferingUpdateListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048592, this, mediaPlayer, i) == null) || (onBufferingUpdateListener = this.e) == null) {
-            return;
+        CyberPlayerManager.OnBufferingUpdateListener onBufferingUpdateListener = this.e;
+        if (onBufferingUpdateListener != null) {
+            onBufferingUpdateListener.onBufferingUpdate(i);
         }
-        onBufferingUpdateListener.onBufferingUpdate(i);
     }
 
     @Override // android.media.MediaPlayer.OnCompletionListener
     public void onCompletion(MediaPlayer mediaPlayer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, mediaPlayer) == null) {
-            CyberLog.i("MediaPlayerImpl", "onCompletion");
-            this.x = 5;
-            this.y = 5;
-            CyberPlayerManager.OnCompletionListener onCompletionListener = this.d;
-            if (onCompletionListener != null) {
-                onCompletionListener.onCompletion();
-            }
+        CyberLog.i("MediaPlayerImpl", "onCompletion");
+        this.x = 5;
+        this.y = 5;
+        CyberPlayerManager.OnCompletionListener onCompletionListener = this.d;
+        if (onCompletionListener != null) {
+            onCompletionListener.onCompletion();
         }
     }
 
     @Override // android.media.MediaPlayer.OnErrorListener
     public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048594, this, mediaPlayer, i, i2)) == null) {
-            CyberLog.i("MediaPlayerImpl", "onError");
-            boolean z = CyberCfgManager.getInstance().a("drop_mediaplay_stop_error", true) && this.x == 0 && this.y == 0;
-            this.x = -1;
-            this.y = -1;
-            if (z) {
-                return false;
-            }
-            this.a.a(DpStatConstants.SESSION_TYPE_ERROR, "error_code", i);
-            this.a.a(DpStatConstants.SESSION_TYPE_ERROR, DpStatConstants.KEY_SUB_CODE, i2);
-            this.a.a(DpStatConstants.SESSION_TYPE_ERROR, "time", System.currentTimeMillis());
-            com.baidu.cyberplayer.sdk.statistics.h hVar = this.a;
-            hVar.a(DpStatConstants.SESSION_TYPE_ERROR, "detail", "mediaplay error(" + i + "," + i2);
-            CyberPlayerManager.OnErrorListener onErrorListener = this.h;
-            return onErrorListener != null && onErrorListener.onError(i, i2, null);
+        CyberLog.i("MediaPlayerImpl", "onError");
+        boolean z = CyberCfgManager.getInstance().a("drop_mediaplay_stop_error", true) && this.x == 0 && this.y == 0;
+        this.x = -1;
+        this.y = -1;
+        if (z) {
+            return false;
         }
-        return invokeLII.booleanValue;
+        this.a.a(DpStatConstants.SESSION_TYPE_ERROR, "error_code", i);
+        this.a.a(DpStatConstants.SESSION_TYPE_ERROR, DpStatConstants.KEY_SUB_CODE, i2);
+        this.a.a(DpStatConstants.SESSION_TYPE_ERROR, "time", System.currentTimeMillis());
+        com.baidu.cyberplayer.sdk.statistics.h hVar = this.a;
+        hVar.a(DpStatConstants.SESSION_TYPE_ERROR, "detail", "mediaplay error(" + i + "," + i2);
+        CyberPlayerManager.OnErrorListener onErrorListener = this.h;
+        return onErrorListener != null && onErrorListener.onError(i, i2, null);
     }
 
     @Override // android.media.MediaPlayer.OnInfoListener
     public boolean onInfo(MediaPlayer mediaPlayer, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048595, this, mediaPlayer, i, i2)) == null) {
-            CyberLog.i("MediaPlayerImpl", "onInfo");
-            if (i == 3) {
-                i = 904;
-                this.a.a(DpStatConstants.SESSION_TYPE_FIRST_SCREEN, DpStatConstants.KEY_FIRST_DISPLAY, (System.currentTimeMillis() - this.n) + this.m);
-            }
-            CyberPlayerManager.OnInfoListener onInfoListener = this.i;
-            return onInfoListener != null && onInfoListener.onInfo(i, i2, null);
+        CyberLog.i("MediaPlayerImpl", "onInfo");
+        if (i == 3) {
+            i = 904;
+            this.a.a(DpStatConstants.SESSION_TYPE_FIRST_SCREEN, DpStatConstants.KEY_FIRST_DISPLAY, (System.currentTimeMillis() - this.n) + this.m);
         }
-        return invokeLII.booleanValue;
+        CyberPlayerManager.OnInfoListener onInfoListener = this.i;
+        return onInfoListener != null && onInfoListener.onInfo(i, i2, null);
     }
 
     @Override // android.media.MediaPlayer.OnPreparedListener
     public void onPrepared(MediaPlayer mediaPlayer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, mediaPlayer) == null) {
-            CyberLog.i("MediaPlayerImpl", "onPrepared");
-            this.x = 2;
-            MediaPlayer mediaPlayer2 = this.b;
-            if (mediaPlayer2 != null) {
-                this.s = mediaPlayer2.getDuration();
-            }
-            CyberPlayerManager.OnPreparedListener onPreparedListener = this.c;
-            if (onPreparedListener != null) {
-                onPreparedListener.onPrepared();
-            }
-            int round = Math.round((float) (System.currentTimeMillis() - this.l));
-            this.m = round;
-            this.a.a(DpStatConstants.SESSION_TYPE_FIRST_SCREEN, DpStatConstants.KEY_PREPARED, round);
-            long j = this.v;
-            if (j > 0) {
-                seekTo(j, this.w);
-            }
-            this.v = -1L;
-            if (this.y == 3) {
-                start();
-            }
+        CyberLog.i("MediaPlayerImpl", "onPrepared");
+        this.x = 2;
+        MediaPlayer mediaPlayer2 = this.b;
+        if (mediaPlayer2 != null) {
+            this.s = mediaPlayer2.getDuration();
+        }
+        CyberPlayerManager.OnPreparedListener onPreparedListener = this.c;
+        if (onPreparedListener != null) {
+            onPreparedListener.onPrepared();
+        }
+        int round = Math.round((float) (System.currentTimeMillis() - this.l));
+        this.m = round;
+        this.a.a(DpStatConstants.SESSION_TYPE_FIRST_SCREEN, DpStatConstants.KEY_PREPARED, round);
+        long j = this.v;
+        if (j > 0) {
+            seekTo(j, this.w);
+        }
+        this.v = -1L;
+        if (this.y == 3) {
+            start();
         }
     }
 
     @Override // android.media.MediaPlayer.OnSeekCompleteListener
     public void onSeekComplete(MediaPlayer mediaPlayer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, mediaPlayer) == null) {
-            this.u = -1L;
-            CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener = this.f;
-            if (onSeekCompleteListener != null) {
-                onSeekCompleteListener.onSeekComplete();
-            }
+        this.u = -1L;
+        CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener = this.f;
+        if (onSeekCompleteListener != null) {
+            onSeekCompleteListener.onSeekComplete();
         }
     }
 
     @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
     public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048598, this, mediaPlayer, i, i2) == null) {
-            CyberLog.i("MediaPlayerImpl", "onVideoSizeChanged");
-            CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener = this.g;
-            if (onVideoSizeChangedListener != null) {
-                onVideoSizeChangedListener.onVideoSizeChanged(i, i2, 1, 1);
-            }
+        CyberLog.i("MediaPlayerImpl", "onVideoSizeChanged");
+        CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener = this.g;
+        if (onVideoSizeChangedListener != null) {
+            onVideoSizeChangedListener.onVideoSizeChanged(i, i2, 1, 1);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void pause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            CyberLog.i("MediaPlayerImpl", "pause");
-            if (e()) {
-                this.x = 4;
-                try {
-                    this.b.pause();
-                } catch (Exception unused) {
-                    onError(this.b, -10002, -10002);
-                }
-                if (this.n > 0 && this.q == 0) {
-                    this.q = System.currentTimeMillis();
-                }
+        CyberLog.i("MediaPlayerImpl", "pause");
+        if (e()) {
+            this.x = 4;
+            try {
+                this.b.pause();
+            } catch (Exception unused) {
+                onError(this.b, -10002, -10002);
             }
-            this.y = 4;
+            if (this.n > 0 && this.q == 0) {
+                this.q = System.currentTimeMillis();
+            }
         }
+        this.y = 4;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void prepareAsync() {
         MediaPlayer mediaPlayer;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            CyberLog.i("MediaPlayerImpl", "prepareAsync");
-            if (this.b != null) {
-                this.x = 1;
-                if (this.l == -1) {
-                    this.l = System.currentTimeMillis();
-                }
-                try {
-                    this.b.prepareAsync();
-                } catch (IllegalStateException unused) {
+        CyberLog.i("MediaPlayerImpl", "prepareAsync");
+        if (this.b != null) {
+            this.x = 1;
+            if (this.l == -1) {
+                this.l = System.currentTimeMillis();
+            }
+            try {
+                this.b.prepareAsync();
+            } catch (IllegalStateException unused) {
+                mediaPlayer = this.b;
+                i = -10002;
+                onError(mediaPlayer, i, i);
+            } catch (Exception e) {
+                if (e instanceof IOException) {
                     mediaPlayer = this.b;
-                    i = -10002;
+                    i = -1004;
                     onError(mediaPlayer, i, i);
-                } catch (Exception e) {
-                    if (e instanceof IOException) {
-                        mediaPlayer = this.b;
-                        i = -1004;
-                        onError(mediaPlayer, i, i);
-                    }
                 }
             }
         }
@@ -465,330 +342,269 @@ public class k extends PlayerProvider implements MediaPlayer.OnBufferingUpdateLi
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            CyberLog.i("MediaPlayerImpl", "release");
-            f();
-            MediaPlayer mediaPlayer = this.b;
-            if (mediaPlayer != null) {
-                this.v = -1L;
-                this.t = false;
-                this.x = 0;
-                this.y = 0;
-                mediaPlayer.setOnPreparedListener(null);
-                this.b.setOnCompletionListener(null);
-                this.b.setOnBufferingUpdateListener(null);
-                this.b.setOnSeekCompleteListener(null);
-                this.b.setOnVideoSizeChangedListener(null);
-                this.b.setOnErrorListener(null);
-                this.b.setOnInfoListener(null);
-                this.c = null;
-                this.d = null;
-                this.e = null;
-                this.f = null;
-                this.g = null;
-                this.h = null;
-                this.i = null;
-                this.j = null;
-                this.b.release();
-                this.b = null;
-            }
+        CyberLog.i("MediaPlayerImpl", "release");
+        f();
+        MediaPlayer mediaPlayer = this.b;
+        if (mediaPlayer != null) {
+            this.v = -1L;
+            this.t = false;
+            this.x = 0;
+            this.y = 0;
+            mediaPlayer.setOnPreparedListener(null);
+            this.b.setOnCompletionListener(null);
+            this.b.setOnBufferingUpdateListener(null);
+            this.b.setOnSeekCompleteListener(null);
+            this.b.setOnVideoSizeChangedListener(null);
+            this.b.setOnErrorListener(null);
+            this.b.setOnInfoListener(null);
+            this.c = null;
+            this.d = null;
+            this.e = null;
+            this.f = null;
+            this.g = null;
+            this.h = null;
+            this.i = null;
+            this.j = null;
+            this.b.release();
+            this.b = null;
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            CyberLog.i("MediaPlayerImpl", "reset");
-            f();
-            this.v = -1L;
-            this.u = -1L;
-            this.x = 0;
-            this.y = 0;
-            d();
-            MediaPlayer mediaPlayer = this.b;
-            if (mediaPlayer != null) {
-                try {
-                    mediaPlayer.reset();
-                } catch (IllegalStateException unused) {
-                    CyberLog.e("MediaPlayerImpl", "reset IllegalStateException error");
-                }
+        CyberLog.i("MediaPlayerImpl", "reset");
+        f();
+        this.v = -1L;
+        this.u = -1L;
+        this.x = 0;
+        this.y = 0;
+        d();
+        MediaPlayer mediaPlayer = this.b;
+        if (mediaPlayer != null) {
+            try {
+                mediaPlayer.reset();
+            } catch (IllegalStateException unused) {
+                CyberLog.e("MediaPlayerImpl", "reset IllegalStateException error");
             }
-            com.baidu.cyberplayer.sdk.statistics.h hVar = this.a;
-            if (hVar != null) {
-                hVar.c();
-            }
+        }
+        com.baidu.cyberplayer.sdk.statistics.h hVar = this.a;
+        if (hVar != null) {
+            hVar.c();
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void seekTo(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048603, this, j) == null) {
-            seekTo(j, 3);
-        }
+        seekTo(j, 3);
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void seekTo(long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            CyberLog.i("MediaPlayerImpl", "seekTo");
-            if (this.b != null) {
-                if (e()) {
-                    try {
-                        if (Build.VERSION.SDK_INT >= 26) {
-                            this.b.seekTo((int) j, i);
-                        } else {
-                            this.b.seekTo((int) j);
-                        }
-                    } catch (Exception unused) {
-                        onError(this.b, -10002, -10002);
+        CyberLog.i("MediaPlayerImpl", "seekTo");
+        if (this.b != null) {
+            if (e()) {
+                try {
+                    if (Build.VERSION.SDK_INT >= 26) {
+                        this.b.seekTo((int) j, i);
+                    } else {
+                        this.b.seekTo((int) j);
                     }
-                } else {
-                    this.v = j;
-                    this.w = i;
+                } catch (Exception unused) {
+                    onError(this.b, -10002, -10002);
                 }
-                this.u = j;
+            } else {
+                this.v = j;
+                this.w = i;
             }
+            this.u = j;
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void sendCommand(int i, int i2, long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str}) == null) {
-            try {
-                switch (i) {
-                    case 1001:
-                        if (TextUtils.isEmpty(str)) {
-                            return;
-                        }
-                        JSONObject jSONObject = new JSONObject(str);
-                        Iterator<String> keys = jSONObject.keys();
-                        while (keys.hasNext()) {
-                            String next = keys.next();
-                            this.a.a(DpStatConstants.SESSION_TYPE_STAGE_INFO, next, jSONObject.getString(next));
-                        }
+        try {
+            switch (i) {
+                case 1001:
+                    if (TextUtils.isEmpty(str)) {
                         return;
-                    case 1002:
-                        int round = Math.round((float) (j - this.n)) + this.m;
-                        CyberLog.i("MediaPlayerImpl", "sendCommand COMMAND_ON_FIRST_FRAME_DRAWED firstFrameCostTime:" + round);
-                        this.a.a(DpStatConstants.SESSION_TYPE_FIRST_SCREEN, DpStatConstants.KEY_FIRST_DISPLAY, round);
-                        CyberPlayerManager.OnInfoListener onInfoListener = this.i;
-                        if (onInfoListener != null) {
-                            onInfoListener.onInfo(904, round, null);
-                            return;
-                        }
+                    }
+                    JSONObject jSONObject = new JSONObject(str);
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        this.a.a(DpStatConstants.SESSION_TYPE_STAGE_INFO, next, jSONObject.getString(next));
+                    }
+                    return;
+                case 1002:
+                    int round = Math.round((float) (j - this.n)) + this.m;
+                    CyberLog.i("MediaPlayerImpl", "sendCommand COMMAND_ON_FIRST_FRAME_DRAWED firstFrameCostTime:" + round);
+                    this.a.a(DpStatConstants.SESSION_TYPE_FIRST_SCREEN, DpStatConstants.KEY_FIRST_DISPLAY, round);
+                    CyberPlayerManager.OnInfoListener onInfoListener = this.i;
+                    if (onInfoListener != null) {
+                        onInfoListener.onInfo(904, round, null);
                         return;
-                    case 1003:
-                        if (TextUtils.isEmpty(str)) {
-                            return;
-                        }
-                        JSONObject jSONObject2 = new JSONObject(str);
-                        Iterator<String> keys2 = jSONObject2.keys();
-                        while (keys2.hasNext()) {
-                            String next2 = keys2.next();
-                            this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, next2, jSONObject2.getString(next2));
-                        }
+                    }
+                    return;
+                case 1003:
+                    if (TextUtils.isEmpty(str)) {
                         return;
-                    default:
-                        return;
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
+                    }
+                    JSONObject jSONObject2 = new JSONObject(str);
+                    Iterator<String> keys2 = jSONObject2.keys();
+                    while (keys2.hasNext()) {
+                        String next2 = keys2.next();
+                        this.a.a(DpStatConstants.SESSION_TYPE_PLAY_COMMON, next2, jSONObject2.getString(next2));
+                    }
+                    return;
+                default:
+                    return;
             }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setDataSource(Context context, Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048606, this, context, uri) == null) {
-            CyberLog.d("MediaPlayerImpl", "setDataSource uri:" + uri);
-            Uri defaultUrlFromMPD = MPDParser.getDefaultUrlFromMPD(uri);
-            if (this.b != null) {
-                this.o = defaultUrlFromMPD.toString();
-                try {
-                    this.b.setDataSource(context, defaultUrlFromMPD);
-                } catch (Exception unused) {
-                    onError(this.b, -10001, -10001);
-                }
+        CyberLog.d("MediaPlayerImpl", "setDataSource uri:" + uri);
+        Uri defaultUrlFromMPD = MPDParser.getDefaultUrlFromMPD(uri);
+        if (this.b != null) {
+            this.o = defaultUrlFromMPD.toString();
+            try {
+                this.b.setDataSource(context, defaultUrlFromMPD);
+            } catch (Exception unused) {
+                onError(this.b, -10001, -10001);
             }
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setDataSource(Context context, Uri uri, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048607, this, context, uri, map) == null) {
-            CyberLog.d("MediaPlayerImpl", "setDataSource uri:" + uri);
-            Uri defaultUrlFromMPD = MPDParser.getDefaultUrlFromMPD(uri);
-            if (this.b != null) {
-                this.o = defaultUrlFromMPD.toString();
-                try {
-                    this.b.setDataSource(context, defaultUrlFromMPD, map);
-                } catch (Exception unused) {
-                    onError(this.b, -10001, -10001);
-                }
+        CyberLog.d("MediaPlayerImpl", "setDataSource uri:" + uri);
+        Uri defaultUrlFromMPD = MPDParser.getDefaultUrlFromMPD(uri);
+        if (this.b != null) {
+            this.o = defaultUrlFromMPD.toString();
+            try {
+                this.b.setDataSource(context, defaultUrlFromMPD, map);
+            } catch (Exception unused) {
+                onError(this.b, -10001, -10001);
             }
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setDataSource(FileDescriptor fileDescriptor) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048608, this, fileDescriptor) == null) || this.b == null) {
-            return;
-        }
-        this.o = fileDescriptor.toString();
-        try {
-            this.b.setDataSource(fileDescriptor);
-        } catch (Exception unused) {
-            onError(this.b, -10001, -10001);
+        if (this.b != null) {
+            this.o = fileDescriptor.toString();
+            try {
+                this.b.setDataSource(fileDescriptor);
+            } catch (Exception unused) {
+                onError(this.b, -10001, -10001);
+            }
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setDataSource(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
-            CyberLog.d("MediaPlayerImpl", "setDataSource:" + str);
-            if (this.b != null) {
-                String defaultUrlStringFromMPD = MPDParser.getDefaultUrlStringFromMPD(str);
-                this.o = defaultUrlStringFromMPD;
-                try {
-                    this.b.setDataSource(defaultUrlStringFromMPD);
-                } catch (Exception unused) {
-                    onError(this.b, -10001, -10001);
-                }
+        CyberLog.d("MediaPlayerImpl", "setDataSource:" + str);
+        if (this.b != null) {
+            String defaultUrlStringFromMPD = MPDParser.getDefaultUrlStringFromMPD(str);
+            this.o = defaultUrlStringFromMPD;
+            try {
+                this.b.setDataSource(defaultUrlStringFromMPD);
+            } catch (Exception unused) {
+                onError(this.b, -10001, -10001);
             }
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setDataSource(String str, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048610, this, str, map) == null) {
-            CyberLog.d("MediaPlayerImpl", "setDataSource:" + str);
-            if (this.b != null) {
-                String defaultUrlStringFromMPD = MPDParser.getDefaultUrlStringFromMPD(str);
-                this.o = defaultUrlStringFromMPD;
-                try {
-                    this.b.setDataSource(defaultUrlStringFromMPD);
-                } catch (Exception unused) {
-                    onError(this.b, -10001, -10001);
-                }
+        CyberLog.d("MediaPlayerImpl", "setDataSource:" + str);
+        if (this.b != null) {
+            String defaultUrlStringFromMPD = MPDParser.getDefaultUrlStringFromMPD(str);
+            this.o = defaultUrlStringFromMPD;
+            try {
+                this.b.setDataSource(defaultUrlStringFromMPD);
+            } catch (Exception unused) {
+                onError(this.b, -10001, -10001);
             }
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setDisplay(SurfaceHolder surfaceHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, surfaceHolder) == null) {
-            CyberLog.i("MediaPlayerImpl", "setDisplay");
-            MediaPlayer mediaPlayer = this.b;
-            if (mediaPlayer != null) {
-                try {
-                    mediaPlayer.setDisplay(surfaceHolder);
-                } catch (Exception unused) {
-                    onError(this.b, -10000, -10000);
-                }
+        CyberLog.i("MediaPlayerImpl", "setDisplay");
+        MediaPlayer mediaPlayer = this.b;
+        if (mediaPlayer != null) {
+            try {
+                mediaPlayer.setDisplay(surfaceHolder);
+            } catch (Exception unused) {
+                onError(this.b, -10000, -10000);
             }
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setLooping(boolean z) {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048612, this, z) == null) || (mediaPlayer = this.b) == null) {
-            return;
+        MediaPlayer mediaPlayer = this.b;
+        if (mediaPlayer != null) {
+            mediaPlayer.setLooping(z);
         }
-        mediaPlayer.setLooping(z);
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setOnBufferingUpdateListener(CyberPlayerManager.OnBufferingUpdateListener onBufferingUpdateListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, onBufferingUpdateListener) == null) {
-            this.e = onBufferingUpdateListener;
-        }
+        this.e = onBufferingUpdateListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setOnCompletionListener(CyberPlayerManager.OnCompletionListener onCompletionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, onCompletionListener) == null) {
-            this.d = onCompletionListener;
-        }
+        this.d = onCompletionListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setOnErrorListener(CyberPlayerManager.OnErrorListener onErrorListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, onErrorListener) == null) {
-            this.h = onErrorListener;
-        }
+        this.h = onErrorListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setOnInfoListener(CyberPlayerManager.OnInfoListener onInfoListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, onInfoListener) == null) {
-            this.i = onInfoListener;
-        }
+        this.i = onInfoListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setOnMediaSourceChangedListener(CyberPlayerManager.OnMediaSourceChangedListener onMediaSourceChangedListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, onMediaSourceChangedListener) == null) {
-            this.j = onMediaSourceChangedListener;
-        }
+        this.j = onMediaSourceChangedListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, onPreparedListener) == null) {
-            this.c = onPreparedListener;
-        }
+        this.c = onPreparedListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setOnSeekCompleteListener(CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, onSeekCompleteListener) == null) {
-            this.f = onSeekCompleteListener;
-        }
+        this.f = onSeekCompleteListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setOnVideoSizeChangedListener(CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, onVideoSizeChangedListener) == null) {
-            this.g = onVideoSizeChangedListener;
-        }
+        this.g = onVideoSizeChangedListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setScreenOnWhilePlaying(boolean z) {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048621, this, z) == null) || (mediaPlayer = this.b) == null) {
-            return;
+        MediaPlayer mediaPlayer = this.b;
+        if (mediaPlayer != null) {
+            mediaPlayer.setScreenOnWhilePlaying(z);
         }
-        mediaPlayer.setScreenOnWhilePlaying(z);
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setSpeed(float f) {
         MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048622, this, f) == null) || f < 0.0f || f > 4.0f || (mediaPlayer = this.b) == null || Build.VERSION.SDK_INT < 23) {
+        if (f < 0.0f || f > 4.0f || (mediaPlayer = this.b) == null || Build.VERSION.SDK_INT < 23) {
             return;
         }
         try {
@@ -804,92 +620,77 @@ public class k extends PlayerProvider implements MediaPlayer.OnBufferingUpdateLi
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setSurface(Surface surface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, surface) == null) {
-            CyberLog.i("MediaPlayerImpl", "setSurface");
-            MediaPlayer mediaPlayer = this.b;
-            if (mediaPlayer != null) {
-                try {
-                    mediaPlayer.setSurface(surface);
-                } catch (Exception unused) {
-                    onError(this.b, -10000, -10000);
-                }
+        CyberLog.i("MediaPlayerImpl", "setSurface");
+        MediaPlayer mediaPlayer = this.b;
+        if (mediaPlayer != null) {
+            try {
+                mediaPlayer.setSurface(surface);
+            } catch (Exception unused) {
+                onError(this.b, -10000, -10000);
             }
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setVolume(float f, float f2) {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || (mediaPlayer = this.b) == null) {
-            return;
+        MediaPlayer mediaPlayer = this.b;
+        if (mediaPlayer != null) {
+            mediaPlayer.setVolume(f, f2);
         }
-        mediaPlayer.setVolume(f, f2);
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setWakeMode(Context context, int i) {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048625, this, context, i) == null) || (mediaPlayer = this.b) == null) {
-            return;
+        MediaPlayer mediaPlayer = this.b;
+        if (mediaPlayer != null) {
+            mediaPlayer.setWakeMode(context, i);
         }
-        mediaPlayer.setWakeMode(context, i);
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
-            CyberLog.i("MediaPlayerImpl", "start");
-            if (e()) {
-                this.x = 3;
-                try {
-                    this.b.start();
-                } catch (IllegalStateException unused) {
-                    onError(this.b, -10002, -10002);
-                }
-                if (this.n == -1) {
-                    this.n = System.currentTimeMillis();
-                    this.q = 0L;
-                }
-                if (this.q > 0) {
-                    this.p += System.currentTimeMillis() - this.q;
-                    this.q = 0L;
-                }
+        CyberLog.i("MediaPlayerImpl", "start");
+        if (e()) {
+            this.x = 3;
+            try {
+                this.b.start();
+            } catch (IllegalStateException unused) {
+                onError(this.b, -10002, -10002);
             }
-            this.t = true;
-            this.y = 3;
+            if (this.n == -1) {
+                this.n = System.currentTimeMillis();
+                this.q = 0L;
+            }
+            if (this.q > 0) {
+                this.p += System.currentTimeMillis() - this.q;
+                this.q = 0L;
+            }
         }
+        this.t = true;
+        this.y = 3;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
-            CyberLog.i("MediaPlayerImpl", "stop");
-            MediaPlayer mediaPlayer = this.b;
-            if (mediaPlayer != null) {
-                this.v = -1L;
-                this.x = 0;
-                this.y = 0;
-                try {
-                    mediaPlayer.stop();
-                } catch (Exception unused) {
-                    onError(this.b, -10002, -10002);
-                }
+        CyberLog.i("MediaPlayerImpl", "stop");
+        MediaPlayer mediaPlayer = this.b;
+        if (mediaPlayer != null) {
+            this.v = -1L;
+            this.x = 0;
+            this.y = 0;
+            try {
+                mediaPlayer.stop();
+            } catch (Exception unused) {
+                onError(this.b, -10002, -10002);
             }
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void switchMediaSource(int i) {
-        CyberPlayerManager.OnMediaSourceChangedListener onMediaSourceChangedListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048628, this, i) == null) || (onMediaSourceChangedListener = this.j) == null) {
-            return;
+        CyberPlayerManager.OnMediaSourceChangedListener onMediaSourceChangedListener = this.j;
+        if (onMediaSourceChangedListener != null) {
+            onMediaSourceChangedListener.onMediaSourceChanged(i == -1 ? 0 : -100, i, null);
         }
-        onMediaSourceChangedListener.onMediaSourceChanged(i == -1 ? 0 : -100, i, null);
     }
 }

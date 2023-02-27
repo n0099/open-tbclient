@@ -1,75 +1,108 @@
 package com.baidu.tieba;
 
-import com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class x46 {
+public class x46 extends ye6<t36> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public x9 a;
-    public final List<qn> b;
-    public BdTypeMultiColumnListView c;
-    public y46 d;
-    public b56 e;
+    public k36 i;
+    public k36 j;
+    public ViewGroup k;
 
-    public x46(x9 x9Var, BdTypeMultiColumnListView bdTypeMultiColumnListView) {
+    @Override // com.baidu.tieba.ye6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d08a2 : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x46(TbPageContext<?> tbPageContext, ViewGroup viewGroup, int i, boolean z) {
+        super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x9Var, bdTypeMultiColumnListView};
+            Object[] objArr = {tbPageContext, viewGroup, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.a = x9Var;
-        this.c = bdTypeMultiColumnListView;
-        a();
+        if (z) {
+            this.i = new z46(tbPageContext, i);
+            this.j = new z46(tbPageContext, i);
+            s();
+            return;
+        }
+        this.i = new y46(tbPageContext, i);
+        this.j = new y46(tbPageContext, i);
+        r();
     }
 
-    public final void a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ye6
+    /* renamed from: t */
+    public void i(t36 t36Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d = new y46((TbPageContext) this.a, e56.b);
-            this.e = new b56((TbPageContext) this.a, e56.c);
-            this.b.add(this.d);
-            this.b.add(this.e);
-            this.c.addAdapters(this.b);
+        if ((interceptable == null || interceptable.invokeL(1048582, this, t36Var) == null) && t36Var != null) {
+            this.i.a(t36Var.a);
+            this.j.a(t36Var.b);
         }
     }
 
-    public void b(n16 n16Var) {
+    @Override // com.baidu.tieba.ye6
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n16Var) == null) {
-            y46 y46Var = this.d;
-            if (y46Var != null) {
-                y46Var.u(n16Var);
-            }
-            b56 b56Var = this.e;
-            if (b56Var != null) {
-                b56Var.u(n16Var);
-            }
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.i.onChangeSkinType(tbPageContext, i);
+            this.j.onChangeSkinType(tbPageContext, i);
         }
     }
 
-    public void c(List<Cdo> list) {
-        BdTypeMultiColumnListView bdTypeMultiColumnListView;
+    public final void r() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (bdTypeMultiColumnListView = this.c) != null) {
-            bdTypeMultiColumnListView.setData(list);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.k = (ViewGroup) h();
+            View view2 = new View(getContext());
+            this.k.setPadding(g().getResources().getDimensionPixelSize(R.dimen.tbds44), g().getResources().getDimensionPixelSize(R.dimen.tbds12), g().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
+            this.k.addView(this.i.getView());
+            this.k.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
+            this.k.addView(this.j.getView());
+        }
+    }
+
+    public final void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.k = (ViewGroup) h();
+            View view2 = new View(getContext());
+            this.k.setPadding(g().getResources().getDimensionPixelSize(R.dimen.tbds34), g().getResources().getDimensionPixelSize(R.dimen.tbds21), g().getResources().getDimensionPixelSize(R.dimen.tbds34), 0);
+            this.k.addView(this.i.getView());
+            this.k.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.tbds20), -1));
+            this.k.addView(this.j.getView());
         }
     }
 }

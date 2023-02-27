@@ -1,6 +1,7 @@
 package com.sdk.mobile.manager.login.cucc;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,8 +16,9 @@ import com.sdk.base.api.OnCustomViewListener;
 import com.sdk.base.api.UiOauthListener;
 import com.sdk.base.framework.bean.OauthResultMode;
 import com.sdk.base.module.manager.SDKManager;
-import com.sdk.f.g;
-import com.sdk.w.d;
+import com.sdk.j.a;
+import com.sdk.p.f;
+import com.sdk.y.f;
 /* loaded from: classes8.dex */
 public class UiOauthManager extends SDKManager {
     public static /* synthetic */ Interceptable $ic;
@@ -26,6 +28,7 @@ public class UiOauthManager extends SDKManager {
     public String TAG;
     public boolean cancel;
     public Context mContext;
+    public f mHandler;
     public UiOauthListener oauthListener;
     public OnCustomViewListener otherLoginListener;
     public OauthResultMode resultMode;
@@ -43,7 +46,7 @@ public class UiOauthManager extends SDKManager {
                 return;
             }
         }
-        isDebug = Boolean.valueOf(g.b);
+        isDebug = Boolean.valueOf(com.sdk.f.f.a);
     }
 
     public UiOauthManager(Context context) {
@@ -69,7 +72,7 @@ public class UiOauthManager extends SDKManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65538, this, i, callBack) == null) {
             Log.e("ZJW_LOG", "dispatchHandler");
-            new d(this.mContext, i, new CallBack<T>(this, callBack) { // from class: com.sdk.mobile.manager.login.cucc.UiOauthManager.1
+            new f(this.mContext, i, new CallBack<T>(this, callBack) { // from class: com.sdk.mobile.manager.login.cucc.UiOauthManager.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ UiOauthManager this$0;
@@ -156,7 +159,15 @@ public class UiOauthManager extends SDKManager {
     public <T> void login(int i, CallBack<T> callBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, callBack) == null) {
-            dispatchHandler(i, callBack);
+            int a = a.a();
+            int a2 = com.sdk.p.f.a(this.mContext, null).a();
+            if (a < 23 && a2 != f.a.b.a()) {
+                callBack.onFailed(102001, 1, "选择流量通道失败", "qcandroidabc000");
+                return;
+            }
+            com.sdk.y.f fVar = new com.sdk.y.f(this.mContext, i, callBack);
+            this.mHandler = fVar;
+            fVar.a(0);
         }
     }
 
@@ -164,6 +175,17 @@ public class UiOauthManager extends SDKManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onCustomViewListener) == null) {
             this.otherLoginListener = onCustomViewListener;
+        }
+    }
+
+    public void unregisterNetworkCallback() {
+        com.sdk.y.f fVar;
+        ConnectivityManager connectivityManager;
+        ConnectivityManager.NetworkCallback networkCallback;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (fVar = this.mHandler) != null && (connectivityManager = fVar.j) != null && (networkCallback = com.sdk.y.f.c) != null) {
+            connectivityManager.unregisterNetworkCallback(networkCallback);
+            com.sdk.y.f.c = null;
         }
     }
 }

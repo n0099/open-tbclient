@@ -7,17 +7,8 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class PinnedHeaderListView extends ListView {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public View b;
     public boolean c;
@@ -34,155 +25,80 @@ public class PinnedHeaderListView extends ListView {
 
     /* loaded from: classes3.dex */
     public class a implements AbsListView.OnScrollListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PinnedHeaderListView a;
-
-        public a(PinnedHeaderListView pinnedHeaderListView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pinnedHeaderListView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pinnedHeaderListView;
+        public a() {
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i, i2, i3) == null) {
-                this.a.b(i);
-                if (this.a.f != null) {
-                    this.a.f.onScroll(absListView, i, i2, i3);
-                }
+            PinnedHeaderListView.this.b(i);
+            if (PinnedHeaderListView.this.f != null) {
+                PinnedHeaderListView.this.f.onScroll(absListView, i, i2, i3);
             }
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i) == null) && this.a.f != null) {
-                this.a.f.onScrollStateChanged(absListView, i);
+            if (PinnedHeaderListView.this.f != null) {
+                PinnedHeaderListView.this.f.onScrollStateChanged(absListView, i);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PinnedHeaderListView(Context context) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        c(context);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PinnedHeaderListView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        c(context);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PinnedHeaderListView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         c(context);
     }
 
     public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            super.setOnScrollListener(new a(this));
-        }
+        super.setOnScrollListener(new a());
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            super.dispatchDraw(canvas);
-            if (this.c) {
-                drawChild(canvas, this.b, getDrawingTime());
-            }
+        super.dispatchDraw(canvas);
+        if (this.c) {
+            drawChild(canvas, this.b, getDrawingTime());
         }
     }
 
     @Override // android.widget.AbsListView
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onScrollListener) == null) {
-            this.f = onScrollListener;
-        }
+        this.f = onScrollListener;
     }
 
     public void setPinnedHeaderView(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
-            this.b = view2;
-            if (view2 != null) {
-                setFadingEdgeLength(0);
-            }
-            requestLayout();
+        this.b = view2;
+        if (view2 != null) {
+            setFadingEdgeLength(0);
         }
+        requestLayout();
+    }
+
+    public PinnedHeaderListView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        c(context);
+    }
+
+    @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
+    public void onMeasure(int i, int i2) {
+        super.onMeasure(i, i2);
+        View view2 = this.b;
+        if (view2 != null) {
+            measureChild(view2, i, i2);
+            this.d = this.b.getMeasuredWidth();
+            this.e = this.b.getMeasuredHeight();
+        }
+    }
+
+    public PinnedHeaderListView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        c(context);
     }
 
     public void b(int i) {
         b bVar;
         int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && this.b != null && (bVar = this.a) != null) {
+        if (this.b != null && (bVar = this.a) != null) {
             int b2 = bVar.b(i);
             if (b2 != 0) {
                 int i3 = 255;
@@ -217,50 +133,25 @@ public class PinnedHeaderListView extends ListView {
     }
 
     public View getPinnedHeaderView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
+        return this.b;
     }
 
     @Override // android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            super.onLayout(z, i, i2, i3, i4);
-            View view2 = this.b;
-            if (view2 != null) {
-                view2.layout(0, 0, this.d, this.e);
-                b(getFirstVisiblePosition());
-            }
-        }
-    }
-
-    @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            View view2 = this.b;
-            if (view2 != null) {
-                measureChild(view2, i, i2);
-                this.d = this.b.getMeasuredWidth();
-                this.e = this.b.getMeasuredHeight();
-            }
+        super.onLayout(z, i, i2, i3, i4);
+        View view2 = this.b;
+        if (view2 != null) {
+            view2.layout(0, 0, this.d, this.e);
+            b(getFirstVisiblePosition());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.AdapterView
     public void setAdapter(ListAdapter listAdapter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, listAdapter) == null) {
-            super.setAdapter(listAdapter);
-            if (listAdapter instanceof b) {
-                this.a = (b) listAdapter;
-            }
+        super.setAdapter(listAdapter);
+        if (listAdapter instanceof b) {
+            this.a = (b) listAdapter;
         }
     }
 }

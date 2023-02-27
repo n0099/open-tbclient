@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c8<K> implements Iterable<b<K>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class c8<K> implements Iterable<b<K>> {
     public transient a h;
     public transient a i;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a<K> extends c<K> implements Iterable<b<K>>, Iterator<b<K>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +105,7 @@ public class c8<K> implements Iterable<b<K>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b<K> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +136,7 @@ public class c8<K> implements Iterable<b<K>> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class c<K> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -305,7 +305,7 @@ public class c8<K> implements Iterable<b<K>> {
                         length = i;
                     } else {
                         sb.append(k);
-                        sb.append(com.alipay.sdk.encrypt.a.h);
+                        sb.append('=');
                         sb.append(iArr[i]);
                         break;
                     }
@@ -322,7 +322,7 @@ public class c8<K> implements Iterable<b<K>> {
                 if (k2 != null) {
                     sb.append(str);
                     sb.append(k2);
-                    sb.append(com.alipay.sdk.encrypt.a.h);
+                    sb.append('=');
                     sb.append(iArr[i2]);
                 }
                 i = i2;

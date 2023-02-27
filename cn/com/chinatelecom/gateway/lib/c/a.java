@@ -79,9 +79,8 @@ public final class a {
                             jSONObject.put("data", c);
                         }
                         if (optInt == 30002) {
-                            JSONObject jSONObject2 = (JSONObject) jSONObject.opt("data");
                             ArrayList arrayList = new ArrayList();
-                            JSONArray optJSONArray = jSONObject2.optJSONArray("urls");
+                            JSONArray optJSONArray = ((JSONObject) jSONObject.opt("data")).optJSONArray("urls");
                             if (optJSONArray != null) {
                                 for (int i = 0; i < optJSONArray.length(); i++) {
                                     arrayList.add(optJSONArray.getString(i));

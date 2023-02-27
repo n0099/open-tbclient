@@ -1,216 +1,165 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.net.TrafficStats;
-import android.os.Process;
-import android.os.SystemClock;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
+import com.xiaomi.push.bk;
+import com.xiaomi.push.jj;
 import com.xiaomi.push.service.XMPushService;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.NoSuchElementException;
 /* loaded from: classes8.dex */
-public class fg implements fz {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public class fg {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f382a;
+    public long f366a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fw f383a;
+    public ff f368a;
 
     /* renamed from: a  reason: collision with other field name */
-    public XMPushService f384a;
+    public String f369a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Exception f385a;
+    public boolean f370a = false;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f386a;
-    public long b;
-    public long c;
-    public long d;
-    public long e;
-    public long f;
+    public bk f367a = bk.a();
 
-    public fg(XMPushService xMPushService) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xMPushService};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static final fg a = new fg();
+    }
+
+    private ez a(bk.a aVar) {
+        if (aVar.f145a == 0) {
+            Object obj = aVar.f146a;
+            if (obj instanceof ez) {
+                return (ez) obj;
             }
+            return null;
         }
-        this.f382a = 0L;
-        this.b = 0L;
-        this.c = 0L;
-        this.d = 0L;
-        this.e = 0L;
-        this.f = 0L;
-        this.f384a = xMPushService;
-        this.f386a = "";
-        b();
-        int myUid = Process.myUid();
+        ez m394a = m394a();
+        m394a.a(ey.CHANNEL_STATS_COUNTER.a());
+        m394a.c(aVar.f145a);
+        m394a.c(aVar.f147a);
+        return m394a;
+    }
+
+    private fa a(int i) {
+        ArrayList arrayList = new ArrayList();
+        fa faVar = new fa(this.f369a, arrayList);
+        if (!bi.e(this.f368a.f363a)) {
+            faVar.a(i.i(this.f368a.f363a));
+        }
+        jl jlVar = new jl(i);
+        jd a2 = new jj.a().a(jlVar);
         try {
-            this.f = TrafficStats.getUidRxBytes(myUid);
-            this.e = TrafficStats.getUidTxBytes(myUid);
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m105a("Failed to obtain traffic data during initialization: " + e);
-            this.f = -1L;
-            this.e = -1L;
+            faVar.b(a2);
+        } catch (ix unused) {
         }
-    }
-
-    private void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.b = 0L;
-            this.d = 0L;
-            this.f382a = 0L;
-            this.c = 0L;
-            long elapsedRealtime = SystemClock.elapsedRealtime();
-            if (bj.b(this.f384a)) {
-                this.f382a = elapsedRealtime;
-            }
-            if (this.f384a.m673c()) {
-                this.c = elapsedRealtime;
+        LinkedList<bk.a> m212a = this.f367a.m212a();
+        while (m212a.size() > 0) {
+            try {
+                ez a3 = a(m212a.getLast());
+                if (a3 != null) {
+                    a3.b(a2);
+                }
+                if (jlVar.a_() > i) {
+                    break;
+                }
+                if (a3 != null) {
+                    arrayList.add(a3);
+                }
+                m212a.removeLast();
+            } catch (ix | NoSuchElementException unused2) {
             }
         }
+        return faVar;
     }
 
-    private synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            synchronized (this) {
-                com.xiaomi.channel.commonutils.logger.b.c("stat connpt = " + this.f386a + " netDuration = " + this.b + " ChannelDuration = " + this.d + " channelConnectedTime = " + this.c);
-                fa faVar = new fa();
-                faVar.f361a = (byte) 0;
-                faVar.a(ez.h.a());
-                faVar.a(this.f386a);
-                faVar.d((int) (System.currentTimeMillis() / 1000));
-                faVar.b((int) (this.b / 1000));
-                faVar.c((int) (this.d / 1000));
-                fh.m399a().a(faVar);
-                b();
-            }
+    public static ff a() {
+        ff ffVar;
+        synchronized (a.a) {
+            ffVar = a.a.f368a;
         }
-    }
-
-    public Exception a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f385a : (Exception) invokeV.objValue;
+        return ffVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m398a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                if (this.f384a == null) {
-                    return;
-                }
-                String m211a = bj.m211a((Context) this.f384a);
-                boolean c = bj.c(this.f384a);
-                long elapsedRealtime = SystemClock.elapsedRealtime();
-                if (this.f382a > 0) {
-                    this.b += elapsedRealtime - this.f382a;
-                    this.f382a = 0L;
-                }
-                if (this.c != 0) {
-                    this.d += elapsedRealtime - this.c;
-                    this.c = 0L;
-                }
-                if (c) {
-                    if ((!TextUtils.equals(this.f386a, m211a) && this.b > 30000) || this.b > 5400000) {
-                        c();
-                    }
-                    this.f386a = m211a;
-                    if (this.f382a == 0) {
-                        this.f382a = elapsedRealtime;
-                    }
-                    if (this.f384a.m673c()) {
-                        this.c = elapsedRealtime;
-                    }
-                }
+    public static fg m392a() {
+        return a.a;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    private void m393a() {
+        if (!this.f370a || System.currentTimeMillis() - this.f366a <= this.a) {
+            return;
+        }
+        this.f370a = false;
+        this.f366a = 0L;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized ez m394a() {
+        ez ezVar;
+        ezVar = new ez();
+        ezVar.a(bi.m205a((Context) this.f368a.f363a));
+        ezVar.f340a = (byte) 0;
+        ezVar.f344b = 1;
+        ezVar.d((int) (System.currentTimeMillis() / 1000));
+        return ezVar;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized fa m395a() {
+        fa faVar;
+        faVar = null;
+        if (b()) {
+            int i = PassBiometricUtil.k;
+            if (!bi.e(this.f368a.f363a)) {
+                i = 375;
             }
+            faVar = a(i);
+        }
+        return faVar;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public void m396a(int i) {
+        if (i > 0) {
+            int i2 = i * 1000;
+            if (i2 > 604800000) {
+                i2 = 604800000;
+            }
+            if (this.a == i2 && this.f370a) {
+                return;
+            }
+            this.f370a = true;
+            this.f366a = System.currentTimeMillis();
+            this.a = i2;
+            com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i2 + " start = " + this.f366a);
         }
     }
 
-    @Override // com.xiaomi.push.fz
-    public void a(fw fwVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fwVar) == null) {
-            this.a = 0;
-            this.f385a = null;
-            this.f383a = fwVar;
-            this.f386a = bj.m211a((Context) this.f384a);
-            fj.a(0, ez.v.a());
-        }
+    public synchronized void a(ez ezVar) {
+        this.f367a.a(ezVar);
     }
 
-    @Override // com.xiaomi.push.fz
-    public void a(fw fwVar, int i, Exception exc) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, fwVar, i, exc) == null) {
-            if (this.a == 0 && this.f385a == null) {
-                this.a = i;
-                this.f385a = exc;
-                fj.b(fwVar.mo428a(), exc);
-            }
-            if (i == 22 && this.c != 0) {
-                long m426a = fwVar.m426a() - this.c;
-                if (m426a < 0) {
-                    m426a = 0;
-                }
-                this.d += m426a + (gc.b() / 2);
-                this.c = 0L;
-            }
-            m398a();
-            int myUid = Process.myUid();
-            long j2 = -1;
-            try {
-                j2 = TrafficStats.getUidRxBytes(myUid);
-                j = TrafficStats.getUidTxBytes(myUid);
-            } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m105a("Failed to obtain traffic data: " + e);
-                j = -1L;
-            }
-            com.xiaomi.channel.commonutils.logger.b.c("Stats rx=" + (j2 - this.f) + ", tx=" + (j - this.e));
-            this.f = j2;
-            this.e = j;
-        }
+    public synchronized void a(XMPushService xMPushService) {
+        this.f368a = new ff(xMPushService);
+        this.f369a = "";
+        com.xiaomi.push.service.bv.a().a(new fh(this));
     }
 
-    @Override // com.xiaomi.push.fz
-    public void a(fw fwVar, Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, fwVar, exc) == null) {
-            fj.a(0, ez.d.a(), 1, fwVar.mo428a(), bj.c(this.f384a) ? 1 : 0);
-            m398a();
-        }
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m397a() {
+        return this.f370a;
     }
 
-    @Override // com.xiaomi.push.fz
-    public void b(fw fwVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, fwVar) == null) {
-            m398a();
-            this.c = SystemClock.elapsedRealtime();
-            fj.a(0, ez.v.a(), fwVar.mo428a(), fwVar.a());
-        }
+    public boolean b() {
+        m393a();
+        return this.f370a && this.f367a.m211a() > 0;
     }
 }

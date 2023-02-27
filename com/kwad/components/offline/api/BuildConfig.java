@@ -1,12 +1,6 @@
 package com.kwad.components.offline.api;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public final class BuildConfig {
-    public static /* synthetic */ Interceptable $ic = null;
     @Deprecated
     public static final String APPLICATION_ID = "com.kwad.components.offline.api";
     public static final String BUILD_TYPE = "release";
@@ -15,19 +9,4 @@ public final class BuildConfig {
     public static final String LIBRARY_PACKAGE_NAME = "com.kwad.components.offline.api";
     public static final int VERSION_CODE = 3032600;
     public static final String VERSION_NAME = "3.3.26";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public BuildConfig() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

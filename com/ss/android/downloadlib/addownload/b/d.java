@@ -7,7 +7,6 @@ import android.util.Pair;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.downloadlib.g.l;
-import com.yy.hiidostatis.inner.FlushManager;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes8.dex */
@@ -55,7 +54,7 @@ public class d {
         long currentTimeMillis = System.currentTimeMillis();
         synchronized (this.b) {
             Iterator<a> it = this.b.iterator();
-            while (it.hasNext() && currentTimeMillis - it.next().e > FlushManager.ReportTimer.DEFAULT_INTERVAL) {
+            while (it.hasNext() && currentTimeMillis - it.next().e > 1800000) {
                 it.remove();
             }
         }

@@ -1,42 +1,80 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Random;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class sh7 {
+public class sh7 extends lx<zx4> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Random a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ak7 f;
+    public int g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948151495, "Lcom/baidu/tieba/sh7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948151495, "Lcom/baidu/tieba/sh7;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sh7(Context context, TbPageContext<?> tbPageContext) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new Random();
+        this.g = 3;
+        this.f = new ak7(tbPageContext);
     }
 
-    public static int a(int i, int i2) {
-        InterceptResult invokeII;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.dy
+    /* renamed from: s */
+    public void a(zx4 zx4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            if (i >= i2) {
-                return i;
-            }
-            return (int) ((a.nextFloat() * (i2 - i)) + i);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, zx4Var) == null) && (zx4Var instanceof xj7)) {
+            this.f.i((xj7) zx4Var);
         }
-        return invokeII.intValue;
+    }
+
+    public void t(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
+            this.f.o(bdUniqueId);
+        }
+    }
+
+    @Override // com.baidu.tieba.lx
+    public View k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f.r();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ey
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.g != i) {
+                this.f.j(tbPageContext, i);
+                q(k(), 3);
+            }
+            this.g = i;
+        }
     }
 }

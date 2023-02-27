@@ -3,44 +3,14 @@ package android.support.v4.media;
 import androidx.annotation.RestrictTo;
 import androidx.media.AudioAttributesImplApi21;
 import androidx.versionedparcelable.VersionedParcel;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public final class AudioAttributesImplApi21Parcelizer extends androidx.media.AudioAttributesImplApi21Parcelizer {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public AudioAttributesImplApi21Parcelizer() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static AudioAttributesImplApi21 read(VersionedParcel versionedParcel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, versionedParcel)) == null) {
-            return androidx.media.AudioAttributesImplApi21Parcelizer.read(versionedParcel);
-        }
-        return (AudioAttributesImplApi21) invokeL.objValue;
+        return androidx.media.AudioAttributesImplApi21Parcelizer.read(versionedParcel);
     }
 
     public static void write(AudioAttributesImplApi21 audioAttributesImplApi21, VersionedParcel versionedParcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, audioAttributesImplApi21, versionedParcel) == null) {
-            androidx.media.AudioAttributesImplApi21Parcelizer.write(audioAttributesImplApi21, versionedParcel);
-        }
+        androidx.media.AudioAttributesImplApi21Parcelizer.write(audioAttributesImplApi21, versionedParcel);
     }
 }

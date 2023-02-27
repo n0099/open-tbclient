@@ -1,143 +1,197 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.RC4;
+import com.yy.hiidostatis.inner.util.cipher.Coder;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocket;
+import org.apache.commons.codec.digest4util.MessageDigestAlgorithms;
 /* loaded from: classes7.dex */
-public final class yga<E> extends cha<E> {
+public abstract class yga {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] a;
+    public static final String[] b;
+    public static final String[] c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yga(int i) {
-        super(i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948330582, "Lcom/baidu/tieba/yga;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948330582, "Lcom/baidu/tieba/yga;");
                 return;
             }
         }
+        a = new String[]{"TLS_DHE_DSS_WITH_AES_128_CBC_SHA", "TLS_DHE_RSA_WITH_AES_128_CBC_SHA", "TLS_DHE_DSS_WITH_AES_256_CBC_SHA", "TLS_DHE_RSA_WITH_AES_256_CBC_SHA", "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA", "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA", "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"};
+        b = new String[]{"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384", "TLS_DHE_RSA_WITH_AES_128_GCM_SHA256", "TLS_DHE_RSA_WITH_AES_256_GCM_SHA384", "TLS_DHE_DSS_WITH_AES_128_GCM_SHA256", "TLS_DHE_DSS_WITH_AES_256_GCM_SHA384"};
+        c = new String[]{"TLS_RSA", "CBC", "TEA", "SHA0", MessageDigestAlgorithms.MD2, "MD4", "RIPEMD", "NULL", RC4.LOGTAG, Coder.KEY_DES, "DESX", "DES40", "RC2", "MD5", "ANON", "TLS_EMPTY_RENEGOTIATION_INFO_SCSV"};
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (k() == h()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            long k = k();
-            while (true) {
-                long h = h();
-                long k2 = k();
-                if (k == k2) {
-                    return (int) (h - k2);
-                }
-                k = k2;
-            }
-        } else {
-            return invokeV.intValue;
-        }
-    }
-
-    @Override // java.util.Queue
-    public boolean offer(E e) {
+    public static boolean a(SSLSocket sSLSocket) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e)) == null) {
-            if (e != null) {
-                E[] eArr = this.b;
-                long j = this.a;
-                long h = h();
-                long a = a(h);
-                if (e(eArr, a) != null) {
-                    if (h - k() > j) {
-                        return false;
-                    }
-                    do {
-                    } while (e(eArr, a) != null);
-                    g(eArr, a, e);
-                    i(h + 1);
-                    return true;
-                }
-                g(eArr, a, e);
-                i(h + 1);
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sSLSocket)) == null) {
+            if (sSLSocket == null) {
+                return false;
             }
-            throw new NullPointerException("Null is not a valid element");
+            return b(sSLSocket, c);
         }
         return invokeL.booleanValue;
     }
 
-    @Override // java.util.Queue
-    public E peek() {
-        InterceptResult invokeV;
-        E d;
+    public static void c(SSLSocket sSLSocket) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long l = l();
-            do {
-                long k = k();
-                if (k >= l) {
-                    long h = h();
-                    if (k >= h) {
-                        return null;
-                    }
-                    m(h);
-                }
-                d = d(a(k));
-            } while (d == null);
-            return d;
+        if ((interceptable == null || interceptable.invokeL(65539, null, sSLSocket) == null) && sSLSocket != null && !g(sSLSocket)) {
+            a(sSLSocket);
         }
-        return (E) invokeV.objValue;
     }
 
-    @Override // java.util.Queue, com.baidu.tieba.wga
-    public E poll() {
-        InterceptResult invokeV;
-        long k;
+    public static boolean g(SSLSocket sSLSocket) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long l = l();
-            do {
-                k = k();
-                if (k >= l) {
-                    long h = h();
-                    if (k >= h) {
-                        return null;
-                    }
-                    m(h);
-                }
-            } while (!j(k, 1 + k));
-            long a = a(k);
-            E[] eArr = this.b;
-            E c = c(eArr, a);
-            f(eArr, a, null);
-            return c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, sSLSocket)) == null) {
+            if (sSLSocket == null) {
+                return false;
+            }
+            if (Build.VERSION.SDK_INT > 19) {
+                return h(sSLSocket, b);
+            }
+            return h(sSLSocket, a);
         }
-        return (E) invokeV.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(SSLSocket sSLSocket, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, sSLSocket, strArr)) == null) {
+            if (sSLSocket == null) {
+                return false;
+            }
+            String[] enabledCipherSuites = sSLSocket.getEnabledCipherSuites();
+            ArrayList arrayList = new ArrayList();
+            int length = enabledCipherSuites.length;
+            int i = 0;
+            while (true) {
+                boolean z = true;
+                if (i >= length) {
+                    break;
+                }
+                String str = enabledCipherSuites[i];
+                String upperCase = str.toUpperCase(Locale.ENGLISH);
+                int length2 = strArr.length;
+                int i2 = 0;
+                while (true) {
+                    if (i2 < length2) {
+                        if (upperCase.contains(strArr[i2].toUpperCase(Locale.ENGLISH))) {
+                            break;
+                        }
+                        i2++;
+                    } else {
+                        z = false;
+                        break;
+                    }
+                }
+                if (!z) {
+                    arrayList.add(str);
+                }
+                i++;
+            }
+            if (arrayList.isEmpty()) {
+                return false;
+            }
+            sSLSocket.setEnabledCipherSuites((String[]) arrayList.toArray(new String[arrayList.size()]));
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean h(SSLSocket sSLSocket, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, sSLSocket, strArr)) == null) {
+            if (sSLSocket == null) {
+                return false;
+            }
+            String[] enabledCipherSuites = sSLSocket.getEnabledCipherSuites();
+            ArrayList arrayList = new ArrayList();
+            List asList = Arrays.asList(strArr);
+            for (String str : enabledCipherSuites) {
+                if (asList.contains(str.toUpperCase(Locale.ENGLISH))) {
+                    arrayList.add(str);
+                }
+            }
+            if (arrayList.isEmpty()) {
+                return false;
+            }
+            sSLSocket.setEnabledCipherSuites((String[]) arrayList.toArray(new String[arrayList.size()]));
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void d(SSLSocket sSLSocket) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, sSLSocket) != null) || sSLSocket == null) {
+            return;
+        }
+        if (Build.VERSION.SDK_INT >= 29) {
+            sSLSocket.setEnabledProtocols(new String[]{"TLSv1.3", "TLSv1.2"});
+        }
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 16 && i < 29) {
+            sSLSocket.setEnabledProtocols(new String[]{"TLSv1.2"});
+        } else if (Build.VERSION.SDK_INT < 16) {
+            sSLSocket.setEnabledProtocols(new String[]{"TLSv1"});
+        }
+    }
+
+    public static boolean e(SSLSocket sSLSocket, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, sSLSocket, strArr)) == null) {
+            if (sSLSocket != null && strArr != null) {
+                try {
+                    sSLSocket.setEnabledProtocols(strArr);
+                    return true;
+                } catch (Exception e) {
+                    lha.d("SSLUtil", "setEnabledProtocols: exception : " + e.getMessage());
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static SSLContext f() throws NoSuchAlgorithmException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 29) {
+                return SSLContext.getInstance("TLSv1.3");
+            }
+            if (i >= 16) {
+                return SSLContext.getInstance("TLSv1.2");
+            }
+            return SSLContext.getInstance("TLS");
+        }
+        return (SSLContext) invokeV.objValue;
     }
 }

@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -87,7 +88,7 @@ public class o1 {
                             if (readLine == null) {
                                 break;
                             }
-                            String[] split = a(readLine).split(";");
+                            String[] split = a(readLine).split(ParamableElem.DIVIDE_PARAM);
                             if (split != null && split.length != 0) {
                                 d = Double.valueOf(split[0]).doubleValue();
                             }
@@ -127,7 +128,7 @@ public class o1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             try {
-                return str.replace("      ", ";").replace("     ", ";").replace("    ", ";").replace("   ", ";").replace(GlideException.IndentedAppendable.INDENT, ";").replace(" ", ";");
+                return str.replace("      ", ParamableElem.DIVIDE_PARAM).replace("     ", ParamableElem.DIVIDE_PARAM).replace("    ", ParamableElem.DIVIDE_PARAM).replace("   ", ParamableElem.DIVIDE_PARAM).replace(GlideException.IndentedAppendable.INDENT, ParamableElem.DIVIDE_PARAM).replace(" ", ParamableElem.DIVIDE_PARAM);
             } catch (Throwable unused) {
                 return null;
             }
@@ -159,7 +160,7 @@ public class o1 {
                             if (readLine == null) {
                                 break;
                             }
-                            String[] split = a(readLine).split(";");
+                            String[] split = a(readLine).split(ParamableElem.DIVIDE_PARAM);
                             if (split != null && split.length != 0) {
                                 d = Double.valueOf(split[0]).doubleValue();
                             }

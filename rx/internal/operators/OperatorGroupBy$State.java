@@ -1,18 +1,11 @@
 package rx.internal.operators;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cfa;
-import com.baidu.tieba.dea;
-import com.baidu.tieba.eea;
-import com.baidu.tieba.sea;
-import com.baidu.tieba.xda;
-import com.baidu.tieba.zda;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.nna;
+import com.baidu.tieba.sma;
+import com.baidu.tieba.uma;
+import com.baidu.tieba.xna;
+import com.baidu.tieba.yma;
+import com.baidu.tieba.zma;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -20,139 +13,117 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements zda, eea, xda.a<T> {
-    public static /* synthetic */ Interceptable $ic = null;
+public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements uma, zma, sma.a<T> {
     public static final long serialVersionUID = -3852313036005250360L;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<dea<? super T>> actual;
-    public final AtomicBoolean cancelled;
     public final boolean delayError;
     public volatile boolean done;
     public Throwable error;
     public final K key;
-    public final AtomicBoolean once;
-    public final cfa<?, K, T> parent;
-    public final Queue<Object> queue;
-    public final AtomicLong requested;
+    public final xna<?, K, T> parent;
+    public final Queue<Object> queue = new ConcurrentLinkedQueue();
+    public final AtomicBoolean cancelled = new AtomicBoolean();
+    public final AtomicReference<yma<? super T>> actual = new AtomicReference<>();
+    public final AtomicBoolean once = new AtomicBoolean();
+    public final AtomicLong requested = new AtomicLong();
 
-    public OperatorGroupBy$State(int i, cfa<?, K, T> cfaVar, K k, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), cfaVar, k, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.queue = new ConcurrentLinkedQueue();
-        this.parent = cfaVar;
+    public OperatorGroupBy$State(int i, xna<?, K, T> xnaVar, K k, boolean z) {
+        this.parent = xnaVar;
         this.key = k;
         this.delayError = z;
-        this.cancelled = new AtomicBoolean();
-        this.actual = new AtomicReference<>();
-        this.once = new AtomicBoolean();
-        this.requested = new AtomicLong();
     }
 
-    public boolean checkTerminated(boolean z, boolean z2, dea<? super T> deaVar, boolean z3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), deaVar, Boolean.valueOf(z3)})) == null) {
-            if (this.cancelled.get()) {
-                this.queue.clear();
-                this.parent.g(this.key);
-                return true;
-            } else if (z) {
-                if (z3) {
-                    if (z2) {
-                        Throwable th = this.error;
-                        if (th != null) {
-                            deaVar.onError(th);
-                        } else {
-                            deaVar.onCompleted();
-                        }
-                        return true;
-                    }
-                    return false;
-                }
-                Throwable th2 = this.error;
-                if (th2 != null) {
-                    this.queue.clear();
-                    deaVar.onError(th2);
-                    return true;
-                } else if (z2) {
-                    deaVar.onCompleted();
-                    return true;
-                } else {
-                    return false;
-                }
-            } else {
-                return false;
-            }
+    public void call(yma<? super T> ymaVar) {
+        if (this.once.compareAndSet(false, true)) {
+            ymaVar.b(this);
+            ymaVar.f(this);
+            this.actual.lazySet(ymaVar);
+            drain();
+            return;
         }
-        return invokeCommon.booleanValue;
-    }
-
-    public void call(dea<? super T> deaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, deaVar) == null) {
-            if (this.once.compareAndSet(false, true)) {
-                deaVar.b(this);
-                deaVar.f(this);
-                this.actual.lazySet(deaVar);
-                drain();
-                return;
-            }
-            deaVar.onError(new IllegalStateException("Only one Subscriber allowed!"));
-        }
+        ymaVar.onError(new IllegalStateException("Only one Subscriber allowed!"));
     }
 
     public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, th) == null) {
-            this.error = th;
-            this.done = true;
-            drain();
-        }
+        this.error = th;
+        this.done = true;
+        drain();
     }
 
     public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
-            if (t == null) {
-                this.error = new NullPointerException();
-                this.done = true;
-            } else {
-                this.queue.offer(NotificationLite.h(t));
-            }
-            drain();
+        if (t == null) {
+            this.error = new NullPointerException();
+            this.done = true;
+        } else {
+            this.queue.offer(NotificationLite.h(t));
         }
+        drain();
     }
 
-    @Override // com.baidu.tieba.xda.a, com.baidu.tieba.lea
+    @Override // com.baidu.tieba.uma
+    public void request(long j) {
+        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i >= 0) {
+            if (i != 0) {
+                nna.b(this.requested, j);
+                drain();
+                return;
+            }
+            return;
+        }
+        throw new IllegalArgumentException("n >= required but it was " + j);
+    }
+
+    @Override // com.baidu.tieba.sma.a, com.baidu.tieba.gna
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((dea) ((dea) obj));
+        call((yma) ((yma) obj));
+    }
+
+    public boolean checkTerminated(boolean z, boolean z2, yma<? super T> ymaVar, boolean z3) {
+        if (this.cancelled.get()) {
+            this.queue.clear();
+            this.parent.g(this.key);
+            return true;
+        } else if (z) {
+            if (z3) {
+                if (z2) {
+                    Throwable th = this.error;
+                    if (th != null) {
+                        ymaVar.onError(th);
+                    } else {
+                        ymaVar.onCompleted();
+                    }
+                    return true;
+                }
+                return false;
+            }
+            Throwable th2 = this.error;
+            if (th2 != null) {
+                this.queue.clear();
+                ymaVar.onError(th2);
+                return true;
+            } else if (z2) {
+                ymaVar.onCompleted();
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 
     public void drain() {
         boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || getAndIncrement() != 0) {
+        if (getAndIncrement() != 0) {
             return;
         }
         Queue<Object> queue = this.queue;
         boolean z2 = this.delayError;
-        dea<? super T> deaVar = this.actual.get();
+        yma<? super T> ymaVar = this.actual.get();
         int i = 1;
         while (true) {
-            if (deaVar != null) {
-                if (checkTerminated(this.done, queue.isEmpty(), deaVar, z2)) {
+            if (ymaVar != null) {
+                if (checkTerminated(this.done, queue.isEmpty(), ymaVar, z2)) {
                     return;
                 }
                 long j = this.requested.get();
@@ -165,18 +136,18 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
                     } else {
                         z = false;
                     }
-                    if (checkTerminated(z3, z, deaVar, z2)) {
+                    if (checkTerminated(z3, z, ymaVar, z2)) {
                         return;
                     }
                     if (z) {
                         break;
                     }
-                    deaVar.onNext((Object) NotificationLite.e(poll));
+                    ymaVar.onNext((Object) NotificationLite.e(poll));
                     j2++;
                 }
                 if (j2 != 0) {
                     if (j != Long.MAX_VALUE) {
-                        sea.g(this.requested, j2);
+                        nna.g(this.requested, j2);
                     }
                     this.parent.e.request(j2);
                 }
@@ -185,52 +156,26 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
             if (i == 0) {
                 return;
             }
-            if (deaVar == null) {
-                deaVar = this.actual.get();
+            if (ymaVar == null) {
+                ymaVar = this.actual.get();
             }
         }
     }
 
-    @Override // com.baidu.tieba.eea
+    @Override // com.baidu.tieba.zma
     public boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.cancelled.get();
-        }
-        return invokeV.booleanValue;
+        return this.cancelled.get();
     }
 
     public void onComplete() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.done = true;
-            drain();
-        }
+        this.done = true;
+        drain();
     }
 
-    @Override // com.baidu.tieba.eea
+    @Override // com.baidu.tieba.zma
     public void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.cancelled.compareAndSet(false, true) && getAndIncrement() == 0) {
+        if (this.cancelled.compareAndSet(false, true) && getAndIncrement() == 0) {
             this.parent.g(this.key);
-        }
-    }
-
-    @Override // com.baidu.tieba.zda
-    public void request(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i >= 0) {
-                if (i != 0) {
-                    sea.b(this.requested, j);
-                    drain();
-                    return;
-                }
-                return;
-            }
-            throw new IllegalArgumentException("n >= required but it was " + j);
         }
     }
 }

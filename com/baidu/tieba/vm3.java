@@ -1,205 +1,42 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Rect;
+import android.os.Build;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.AnyThread;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.pms.model.PMSException;
+import android.view.DisplayCutout;
+import android.view.View;
+import android.view.WindowInsets;
+import android.view.WindowManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class vm3 implements pn3<Exception> {
+public class vm3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean a;
+    public static final String b;
+    public static final String c;
+    public static boolean d;
+    public static String e;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public final Handler b;
-    public Runnable c;
-    public volatile boolean d;
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vm3 a;
-
-        /* renamed from: com.baidu.tieba.vm3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0461a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0461a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (vm3.e) {
-                        Log.d("SwanH2HeartBeatManager", "do updateCore, isStop=" + this.a.a.d);
-                    }
-                    if (!this.a.a.d) {
-                        this.a.a.j();
-                    }
-                }
-            }
-        }
-
-        public a(vm3 vm3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vm3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vm3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!ProcessUtils.isMainProcess()) {
-                    j53.c(c.class, null);
-                    return;
-                }
-                this.a.d = false;
-                synchronized (vm3.class) {
-                    this.a.a = System.currentTimeMillis();
-                    if (this.a.c != null) {
-                        this.a.b.removeCallbacks(this.a.c);
-                    }
-                    this.a.c = new RunnableC0461a(this);
-                    long a = cl4.a(300) * 1000;
-                    this.a.b.postDelayed(this.a.c, a);
-                    if (vm3.e) {
-                        Log.d("SwanH2HeartBeatManager", "wait next heart beat: " + a);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vm3 a;
-
-        public b(vm3 vm3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vm3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vm3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                gg4.l(new dk4(0), new zb2(this.a, true));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c extends ProviderDelegation {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                vm3.k().m();
-                return null;
-            }
-            return (Bundle) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static final vm3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-341787411, "Lcom/baidu/tieba/vm3$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-341787411, "Lcom/baidu/tieba/vm3$d;");
-                    return;
-                }
-            }
-            a = new vm3(null);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -214,95 +51,406 @@ public class vm3 implements pn3<Exception> {
                 return;
             }
         }
-        e = gp1.a;
+        a = wp1.a;
+        b = un3.b;
+        c = un3.c;
+        d = false;
     }
 
-    public vm3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = false;
-        this.b = new Handler(Looper.getMainLooper());
-    }
-
-    public static vm3 k() {
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return d.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return d;
         }
-        return (vm3) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @AnyThread
-    public final void j() {
+    public static boolean m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ql3.l(new b(this), "SwanH2HeartBeatManager");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            return a("EMUI");
         }
+        return invokeV.booleanValue;
     }
 
-    public void m() {
+    public static boolean n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || !cl4.a) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            return a("MIUI");
         }
-        if (e) {
-            Log.d("SwanH2HeartBeatManager", "startHeartBeat");
-        }
-        ql3.l(new a(this), "SwanH2HeartBeatManager");
+        return invokeV.booleanValue;
     }
 
-    public void n() {
+    public static boolean o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !cl4.a) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            return a(b);
         }
-        if (e) {
-            Log.d("SwanH2HeartBeatManager", "stopHeartBeat");
-        }
-        this.d = true;
-        Runnable runnable = this.c;
-        if (runnable != null) {
-            this.b.removeCallbacks(runnable);
-        }
-        this.c = null;
+        return invokeV.booleanValue;
     }
 
-    public /* synthetic */ vm3(a aVar) {
-        this();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pn3
-    /* renamed from: l */
-    public void a(Exception exc) {
-        qh4 pmsError;
+    public static boolean r() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-            this.c = null;
-            if (e) {
-                Log.w("SwanH2HeartBeatManager", "onCallback", exc);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+            return a("VIVO");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            String str2 = e;
+            if (str2 != null) {
+                return str2.equals(str);
             }
-            if (exc != null) {
-                Throwable cause = exc.getCause();
-                if ((cause instanceof PMSException) && (pmsError = ((PMSException) cause).getPmsError()) != null && pmsError.f >= 500) {
-                    n();
-                    cl4.a = false;
-                    w52.k("SwanH2HeartBeatManager", "update core heartBeat exception: code=" + pmsError.f);
-                    return;
+            String g = g("ro.miui.ui.version.name");
+            f = g;
+            if (!TextUtils.isEmpty(g)) {
+                e = "MIUI";
+            } else {
+                String g2 = g("ro.build.version.emui");
+                f = g2;
+                if (!TextUtils.isEmpty(g2)) {
+                    e = "EMUI";
+                } else {
+                    String g3 = g(c);
+                    f = g3;
+                    if (!TextUtils.isEmpty(g3)) {
+                        e = b;
+                    } else {
+                        String g4 = g("ro.vivo.os.version");
+                        f = g4;
+                        if (!TextUtils.isEmpty(g4)) {
+                            e = "VIVO";
+                        } else {
+                            String g5 = g("ro.smartisan.version");
+                            f = g5;
+                            if (!TextUtils.isEmpty(g5)) {
+                                e = "SMARTISAN";
+                            } else {
+                                String g6 = g(RomUtils.KEY_VERSION_GIONEE);
+                                f = g6;
+                                if (!TextUtils.isEmpty(g6)) {
+                                    e = "SMARTISAN";
+                                } else {
+                                    String g7 = g(RomUtils.KEY_VERSION_NUBIA);
+                                    f = g7;
+                                    if (!TextUtils.isEmpty(g7)) {
+                                        e = RomUtils.ROM_NUBIA;
+                                    } else {
+                                        String str3 = Build.DISPLAY;
+                                        f = str3;
+                                        if (str3.toUpperCase().contains("FLYME")) {
+                                            e = "FLYME";
+                                        } else {
+                                            f = "unknown";
+                                            e = Build.MANUFACTURER.toUpperCase();
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
-                m();
+            }
+            return e.equals(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int b(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+            DisplayCutout c2 = c(activity);
+            if (c2 == null || Build.VERSION.SDK_INT < 28) {
+                return 0;
+            }
+            List<Rect> boundingRects = c2.getBoundingRects();
+            return boundingRects.get(0).right - boundingRects.get(0).left;
+        }
+        return invokeL.intValue;
+    }
+
+    public static DisplayCutout c(Activity activity) {
+        InterceptResult invokeL;
+        View decorView;
+        WindowInsets rootWindowInsets;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
+            if (activity == null || activity.getWindow() == null || Build.VERSION.SDK_INT < 28 || (decorView = activity.getWindow().getDecorView()) == null || (rootWindowInsets = decorView.getRootWindowInsets()) == null) {
+                return null;
+            }
+            return rootWindowInsets.getDisplayCutout();
+        }
+        return (DisplayCutout) invokeL.objValue;
+    }
+
+    public static boolean h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            if (context == null) {
+                return false;
+            }
+            if (m()) {
+                return i(context);
+            }
+            if (r()) {
+                return l(context);
+            }
+            if (o()) {
+                return k(context);
+            }
+            if (!n()) {
+                return false;
+            }
+            return j(context);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean i(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            try {
+                Class<?> loadClass = context.getClassLoader().loadClass("com.huawei.android.util.HwNotchSizeUtil");
+                return ((Boolean) loadClass.getMethod("hasNotchInScreen", new Class[0]).invoke(loadClass, new Object[0])).booleanValue();
+            } catch (Exception e2) {
+                if (!a) {
+                    return false;
+                }
+                e2.printStackTrace();
+                return false;
             }
         }
+        return invokeL.booleanValue;
+    }
+
+    public static int e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i < 26) {
+                return 0;
+            }
+            if (i >= 28) {
+                return f();
+            }
+            if (!h(context)) {
+                return 0;
+            }
+            if (n()) {
+                Resources resources = context.getResources();
+                try {
+                    int identifier = resources.getIdentifier("notch_height", EMABTest.TYPE_DIMEN, "android");
+                    if (identifier > 0) {
+                        return resources.getDimensionPixelSize(identifier);
+                    }
+                } catch (Exception unused) {
+                    return 0;
+                }
+            }
+            if (m()) {
+                try {
+                    Class<?> loadClass = context.getClassLoader().loadClass("com.huawei.android.util.HwNotchSizeUtil");
+                    return ((int[]) loadClass.getMethod("getNotchSize", new Class[0]).invoke(loadClass, new Object[0]))[1];
+                } catch (Exception unused2) {
+                    return 0;
+                }
+            } else if (o()) {
+                return 80;
+            } else {
+                if (!r()) {
+                    return 0;
+                }
+                return dn3.g(32.0f);
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public static String g(String str) {
+        InterceptResult invokeL;
+        BufferedReader bufferedReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            BufferedReader bufferedReader2 = null;
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()));
+                try {
+                    try {
+                        String readLine = bufferedReader.readLine();
+                        qp4.d(bufferedReader);
+                        return readLine;
+                    } catch (IOException e2) {
+                        e = e2;
+                        if (a) {
+                            Log.e("SwanAppRomUtils", "Unable to read prop " + str, e);
+                        }
+                        qp4.d(bufferedReader);
+                        qp4.d(bufferedReader);
+                        return null;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedReader2 = bufferedReader;
+                    qp4.d(bufferedReader2);
+                    throw th;
+                }
+            } catch (IOException e3) {
+                e = e3;
+                bufferedReader = null;
+            } catch (Throwable th2) {
+                th = th2;
+                qp4.d(bufferedReader2);
+                throw th;
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    @RequiresApi(28)
+    public static int f() {
+        InterceptResult invokeV;
+        DisplayCutout displayCutout;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            int i = 0;
+            if (m93.M() != null && m93.M().getActivity() != null) {
+                try {
+                    WindowInsets rootWindowInsets = m93.M().getActivity().getWindow().getDecorView().getRootWindowInsets();
+                    if (rootWindowInsets == null || (displayCutout = rootWindowInsets.getDisplayCutout()) == null) {
+                        return 0;
+                    }
+                    i = displayCutout.getSafeInsetTop();
+                    if (a) {
+                        Log.d("SwanAppRomUtils", "刘海屏高度:" + i);
+                    }
+                } catch (Exception e2) {
+                    if (a) {
+                        Log.w("SwanAppRomUtils", e2);
+                    }
+                }
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    @SuppressLint({"PrivateApi"})
+    public static boolean j(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            try {
+                Class<?> loadClass = context.getClassLoader().loadClass(CountryCodeBean.ANDRIOD_SYSTEMPROP);
+                if (((Integer) loadClass.getMethod("getInt", String.class, Integer.TYPE).invoke(loadClass, "ro.miui.notch", 0)).intValue() != 1) {
+                    return false;
+                }
+                return true;
+            } catch (Exception e2) {
+                if (!a) {
+                    return false;
+                }
+                e2.printStackTrace();
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    @SuppressLint({"PrivateApi"})
+    public static boolean l(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+            try {
+                Class<?> loadClass = context.getClassLoader().loadClass("android.util.FtFeature");
+                return ((Boolean) loadClass.getMethod("isFeatureSupport", Integer.TYPE).invoke(loadClass, 32)).booleanValue();
+            } catch (Exception e2) {
+                if (!a) {
+                    return false;
+                }
+                e2.printStackTrace();
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean k(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+            return context.getPackageManager().hasSystemFeature(un3.d);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean p(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, activity)) == null) {
+            if (c(activity) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void s(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65555, null, activity) == null) && Build.VERSION.SDK_INT >= 28) {
+            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
+            attributes.layoutInDisplayCutoutMode = 1;
+            activity.getWindow().setAttributes(attributes);
+        }
+    }
+
+    public static boolean q(Activity activity, View view2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, activity, view2)) == null) {
+            DisplayCutout c2 = c(activity);
+            if (c2 != null && Build.VERSION.SDK_INT >= 28) {
+                List<Rect> boundingRects = c2.getBoundingRects();
+                int i = boundingRects.get(0).left;
+                int i2 = boundingRects.get(0).right;
+                int i3 = boundingRects.get(0).top;
+                int i4 = boundingRects.get(0).bottom;
+                int[] iArr = new int[2];
+                view2.getLocationOnScreen(iArr);
+                int width = view2.getWidth();
+                int height = view2.getHeight();
+                int i5 = iArr[0];
+                int i6 = iArr[0] + width;
+                int i7 = iArr[1];
+                int i8 = iArr[1] + height;
+                if (((i8 <= i4 && i8 > i3) || (i7 < i4 && i7 >= i3)) && ((i6 > i && i6 <= i2) || ((i5 >= i && i6 <= i2) || ((i5 >= i && i5 < i2) || (i5 < i && i6 > i2))))) {
+                    d = true;
+                    return true;
+                } else if (((i5 >= i && i5 < i2) || (i6 > i && i6 <= i2)) && ((i8 > i3 && i8 <= i4) || ((i7 >= i3 && i8 <= i4) || ((i7 >= i3 && i7 < i4) || (i7 < i3 && i8 > i4))))) {
+                    d = true;
+                    return true;
+                } else if (i5 <= i && i6 >= i2 && i7 <= i3 && i8 >= i4) {
+                    d = true;
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

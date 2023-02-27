@@ -1,12 +1,5 @@
 package com.googlecode.mp4parser.authoring.tracks;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
 import com.coremedia.iso.boxes.NullMediaHeaderBox;
@@ -28,97 +21,37 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 /* loaded from: classes8.dex */
 public class Amf0Track extends AbstractTrack {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public SortedMap<Long, byte[]> rawSamples;
-    public TrackMetaData trackMetaData;
+    public TrackMetaData trackMetaData = new TrackMetaData();
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (List) invokeV.objValue;
+        return null;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public String getHandler() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "data" : (String) invokeV.objValue;
+        return "data";
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (List) invokeV.objValue;
+        return null;
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public SubSampleInformationBox getSubsampleInformationBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return null;
-        }
-        return (SubSampleInformationBox) invokeV.objValue;
+        return null;
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public long[] getSyncSamples() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return null;
-        }
-        return (long[]) invokeV.objValue;
+        return null;
     }
 
     public Amf0Track(Map<Long, byte[]> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {map};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.rawSamples = new TreeMap<Long, byte[]>(this) { // from class: com.googlecode.mp4parser.authoring.tracks.Amf0Track.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Amf0Track this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
+        this.rawSamples = new TreeMap<Long, byte[]>() { // from class: com.googlecode.mp4parser.authoring.tracks.Amf0Track.1
         };
-        this.trackMetaData = new TrackMetaData();
         this.rawSamples = new TreeMap(map);
         this.trackMetaData.setCreationTime(new Date());
         this.trackMetaData.setModificationTime(new Date());
@@ -128,65 +61,40 @@ public class Amf0Track extends AbstractTrack {
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public Box getMediaHeaderBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new NullMediaHeaderBox();
-        }
-        return (Box) invokeV.objValue;
+        return new NullMediaHeaderBox();
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public SampleDescriptionBox getSampleDescriptionBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            SampleDescriptionBox sampleDescriptionBox = new SampleDescriptionBox();
-            ActionMessageFormat0SampleEntryBox actionMessageFormat0SampleEntryBox = new ActionMessageFormat0SampleEntryBox();
-            actionMessageFormat0SampleEntryBox.setDataReferenceIndex(1);
-            sampleDescriptionBox.addBox(actionMessageFormat0SampleEntryBox);
-            return sampleDescriptionBox;
-        }
-        return (SampleDescriptionBox) invokeV.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public TrackMetaData getTrackMetaData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.trackMetaData;
-        }
-        return (TrackMetaData) invokeV.objValue;
+        SampleDescriptionBox sampleDescriptionBox = new SampleDescriptionBox();
+        ActionMessageFormat0SampleEntryBox actionMessageFormat0SampleEntryBox = new ActionMessageFormat0SampleEntryBox();
+        actionMessageFormat0SampleEntryBox.setDataReferenceIndex(1);
+        sampleDescriptionBox.addBox(actionMessageFormat0SampleEntryBox);
+        return sampleDescriptionBox;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public long[] getSampleDurations() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            LinkedList linkedList = new LinkedList(this.rawSamples.keySet());
-            Collections.sort(linkedList);
-            long[] jArr = new long[linkedList.size()];
-            for (int i = 0; i < linkedList.size(); i++) {
-                jArr[i] = ((Long) linkedList.get(i)).longValue() - 0;
-            }
-            return jArr;
+        LinkedList linkedList = new LinkedList(this.rawSamples.keySet());
+        Collections.sort(linkedList);
+        long[] jArr = new long[linkedList.size()];
+        for (int i = 0; i < linkedList.size(); i++) {
+            jArr[i] = ((Long) linkedList.get(i)).longValue() - 0;
         }
-        return (long[]) invokeV.objValue;
+        return jArr;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public List<Sample> getSamples() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            LinkedList linkedList = new LinkedList();
-            for (byte[] bArr : this.rawSamples.values()) {
-                linkedList.add(new SampleImpl(ByteBuffer.wrap(bArr)));
-            }
-            return linkedList;
+        LinkedList linkedList = new LinkedList();
+        for (byte[] bArr : this.rawSamples.values()) {
+            linkedList.add(new SampleImpl(ByteBuffer.wrap(bArr)));
         }
-        return (List) invokeV.objValue;
+        return linkedList;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public TrackMetaData getTrackMetaData() {
+        return this.trackMetaData;
     }
 }

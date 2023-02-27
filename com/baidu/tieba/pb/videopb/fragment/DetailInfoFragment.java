@@ -25,15 +25,15 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.gh8;
-import com.baidu.tieba.j29;
-import com.baidu.tieba.nh8;
+import com.baidu.tieba.hd8;
 import com.baidu.tieba.pb.pb.main.AbsPbActivity;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 import com.baidu.tieba.pb.videopb.VideoPbViewModel;
-import com.baidu.tieba.v98;
+import com.baidu.tieba.sk8;
+import com.baidu.tieba.v59;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class DetailInfoFragment extends BaseFragment implements gh8 {
+public class DetailInfoFragment extends BaseFragment implements sk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AbsPbActivity a;
@@ -49,7 +49,7 @@ public class DetailInfoFragment extends BaseFragment implements gh8 {
     public BdTypeRecyclerView c;
     public PbListView d;
     public VideoPbViewModel e;
-    public nh8 f;
+    public zk8 f;
     public int g;
     public String h;
     public String i;
@@ -151,10 +151,10 @@ public class DetailInfoFragment extends BaseFragment implements gh8 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && this.a.M() != null && this.a.M().l1() != null) {
-                this.a.M().l1().a();
-                this.a.M().Q1();
-                this.a.f.n(this.a.M().l1());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && this.a.M() != null && this.a.M().s1() != null) {
+                this.a.M().s1().a();
+                this.a.M().X1();
+                this.a.f.n(this.a.M().s1());
                 MessageManager.getInstance().abortResponsedMessage(customResponsedMessage);
             }
         }
@@ -191,10 +191,10 @@ public class DetailInfoFragment extends BaseFragment implements gh8 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && this.a.M() != null && this.a.M().l1() != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && this.a.M() != null && this.a.M().s1() != null) {
                 this.a.J1((String) customResponsedMessage.getData());
-                this.a.M().Q1();
-                this.a.f.n(this.a.M().l1());
+                this.a.M().X1();
+                this.a.f.n(this.a.M().s1());
             }
         }
     }
@@ -267,9 +267,9 @@ public class DetailInfoFragment extends BaseFragment implements gh8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             super.onChangeSkinType(i);
-            nh8 nh8Var = this.f;
-            if (nh8Var != null) {
-                nh8Var.l();
+            zk8 zk8Var = this.f;
+            if (zk8Var != null) {
+                zk8Var.l();
             }
             PbListView pbListView = this.d;
             if (pbListView != null) {
@@ -282,17 +282,17 @@ public class DetailInfoFragment extends BaseFragment implements gh8 {
         }
     }
 
-    public final void I1(v98 v98Var) {
+    public final void I1(hd8 hd8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, v98Var) != null) || this.e == null || v98Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, hd8Var) != null) || this.e == null || hd8Var == null) {
             return;
         }
-        R1(v98Var);
-        P1(v98Var);
-        this.f.n(v98Var);
+        R1(hd8Var);
+        P1(hd8Var);
+        this.f.n(hd8Var);
         if (this.a instanceof PbActivity) {
             this.e.v(false);
-            ((PbActivity) this.a).Y1(v98Var.g(), this.c);
+            ((PbActivity) this.a).Y1(hd8Var.g(), this.c);
         }
     }
 
@@ -301,23 +301,23 @@ public class DetailInfoFragment extends BaseFragment implements gh8 {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        List<j29> c0 = M().l1().c0();
-        for (j29 j29Var : c0) {
-            if (TextUtils.equals(str, j29Var.q1())) {
-                c0.remove(j29Var);
+        List<v59> c0 = M().s1().c0();
+        for (v59 v59Var : c0) {
+            if (TextUtils.equals(str, v59Var.q1())) {
+                c0.remove(v59Var);
                 return;
             }
         }
     }
 
-    public final void P1(v98 v98Var) {
+    public final void P1(hd8 hd8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, v98Var) != null) || v98Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048585, this, hd8Var) != null) || hd8Var == null) {
             return;
         }
         if (PermissionUtil.isBrowseMode()) {
             L1();
-        } else if (ListUtils.isEmpty(v98Var.f())) {
+        } else if (ListUtils.isEmpty(hd8Var.f())) {
             V1();
         } else {
             L1();
@@ -325,17 +325,17 @@ public class DetailInfoFragment extends BaseFragment implements gh8 {
         }
     }
 
-    public final void R1(v98 v98Var) {
+    public final void R1(hd8 hd8Var) {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, v98Var) != null) || v98Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048587, this, hd8Var) != null) || hd8Var == null) {
             return;
         }
         String str2 = null;
-        if (v98Var.Q() != null) {
-            String S = v98Var.S();
-            if (v98Var.Q().getBaijiahaoData() != null) {
-                str2 = v98Var.Q().getBaijiahaoData().oriUgcNid;
+        if (hd8Var.Q() != null) {
+            String S = hd8Var.S();
+            if (hd8Var.Q().getBaijiahaoData() != null) {
+                str2 = hd8Var.Q().getBaijiahaoData().oriUgcNid;
             }
             str = str2;
             str2 = S;
@@ -405,19 +405,19 @@ public class DetailInfoFragment extends BaseFragment implements gh8 {
     }
 
     public void N1() {
-        v98 l1;
+        hd8 s1;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (l1 = M().l1()) == null) {
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (s1 = M().s1()) == null) {
             return;
         }
-        this.f.n(l1);
+        this.f.n(s1);
         this.f.l();
     }
 
     public final void Q1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            v98 c2 = this.e.c();
+            hd8 c2 = this.e.c();
             if (c2 == null) {
                 c2 = this.e.d();
             }
@@ -426,10 +426,10 @@ public class DetailInfoFragment extends BaseFragment implements gh8 {
     }
 
     public void T1() {
-        nh8 nh8Var;
+        zk8 zk8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (nh8Var = this.f) != null) {
-            nh8Var.m();
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (zk8Var = this.f) != null) {
+            zk8Var.m();
         }
     }
 
@@ -465,7 +465,7 @@ public class DetailInfoFragment extends BaseFragment implements gh8 {
     public final void M1(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f0918f8);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091939);
             this.c = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             this.c.addOnScrollListener(this.j);
@@ -482,8 +482,8 @@ public class DetailInfoFragment extends BaseFragment implements gh8 {
             this.d.v(ej.g(getContext(), R.dimen.tbds182));
             this.d.u();
             this.c.setNextPage(this.d);
-            this.f = new nh8(this, this.c);
-            if (M() != null && !M().Z1()) {
+            this.f = new zk8(this, this.c);
+            if (M() != null && !M().g2()) {
                 this.b.n5(8);
             }
         }
@@ -511,7 +511,7 @@ public class DetailInfoFragment extends BaseFragment implements gh8 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048596, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d06f0, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0706, viewGroup, false);
             this.e = (VideoPbViewModel) ViewModelProviders.of(getFragmentActivity()).get(VideoPbViewModel.class);
             M1(inflate);
             return inflate;
@@ -519,11 +519,11 @@ public class DetailInfoFragment extends BaseFragment implements gh8 {
         return (View) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.gh8
-    public void r1(boolean z, int i, int i2, int i3, v98 v98Var, String str, int i4) {
+    @Override // com.baidu.tieba.sk8
+    public void r1(boolean z, int i, int i2, int i3, hd8 hd8Var, String str, int i4) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), v98Var, str, Integer.valueOf(i4)}) == null) && v98Var != null && getActivity() != null) {
-            I1(v98Var);
+        if ((interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), hd8Var, str, Integer.valueOf(i4)}) == null) && hd8Var != null && getActivity() != null) {
+            I1(hd8Var);
         }
     }
 }

@@ -6,8 +6,6 @@ import android.widget.EditText;
 import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import com.facebook.common.util.UriUtil;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import java.util.List;
@@ -65,9 +63,6 @@ public interface ILiveRecSearchPanel {
     @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
     public static final class DefaultImpls {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
         public static /* synthetic */ void setQueryHintList$default(ILiveRecSearchPanel iLiveRecSearchPanel, String str, List list, int i, Object obj) {
             if (obj == null) {
                 if ((i & 1) != 0) {

@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes4.dex */
 public interface dt4 {
-    String a();
+    String a(String[] strArr, Map<String, String> map);
 
-    void b(HashMap<String, String> hashMap, et4 et4Var);
+    String b();
 }

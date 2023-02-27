@@ -1,94 +1,121 @@
 package com.baidu.tieba;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.text.TextUtils;
-import androidx.core.app.NotificationCompat;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.myCollection.CollectUpdateReceiver;
-import com.baidu.tieba.myCollection.message.GetStoreRemindTimeHttpResponseMessage;
-import com.baidu.tieba.myCollection.message.GetStoreRemindTimeRequestMessage;
-import com.baidu.tieba.myCollection.message.GetStoreRemindTimeSocketResponseMessage;
+import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.lf5;
+import com.baidu.tieba.m48;
+import com.baidu.tieba.memberCenter.bubble.BubbleListData;
+import com.baidu.tieba.memberCenter.bubble.BubbleListModel;
+import com.baidu.tieba.memberCenter.bubble.BubbleView;
+import com.baidu.tieba.memberCenter.bubble.SetBubbleResultData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-import org.json.JSONArray;
-import org.json.JSONException;
 /* loaded from: classes5.dex */
-public class n48 {
+public class n48 extends lf5 {
     public static /* synthetic */ Interceptable $ic;
-    public static n48 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean a;
+    public BubbleListModel m;
+    public BubbleListData n;
+    public Context o;
+    public int p;
+    public String q;
+    public String r;
+    public BubbleListModel.c s;
+    public BubbleListModel.d t;
+    public CustomMessageListener u;
+    public View.OnClickListener v;
+    public m48.e w;
+    public m48.e x;
 
     /* loaded from: classes5.dex */
-    public class a extends wb {
+    public class a implements lf5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ n48 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(n48 n48Var, int i, int i2) {
-            super(i, i2);
+        public a(n48 n48Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {n48Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {n48Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.b = n48Var;
+            this.a = context;
         }
 
-        @Override // com.baidu.tieba.wb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.baidu.tieba.lf5.a
+        public View getView(int i, View view2, ViewGroup viewGroup) {
+            InterceptResult invokeILL;
+            BubbleView bubbleView;
+            BubbleView bubbleView2;
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                List<String> list = Collections.EMPTY_LIST;
-                if (responsedMessage instanceof GetStoreRemindTimeHttpResponseMessage) {
-                    list = ((GetStoreRemindTimeHttpResponseMessage) responsedMessage).getTimeList();
-                } else if (responsedMessage instanceof GetStoreRemindTimeSocketResponseMessage) {
-                    list = ((GetStoreRemindTimeSocketResponseMessage) responsedMessage).getTimeList();
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
+                if (view2 == null) {
+                    bubbleView2 = new BubbleView(this.a);
+                    bubbleView = bubbleView2;
+                } else {
+                    bubbleView = view2;
+                    bubbleView2 = (BubbleView) view2;
                 }
-                if (!list.isEmpty()) {
-                    p35.m().B("collect_update_time_key", new JSONArray((Collection) list).toString());
-                    n48.b().g();
+                BubbleListData.BubbleData Q = this.b.Q(i);
+                if (Q != null) {
+                    bubbleView2.setData(Q, BubbleListModel.P(this.b.n.getB_info()));
+                    bubbleView2.setGravity(17);
+                    bubbleView2.setTag(Integer.valueOf(i));
+                    bubbleView2.setOnClickListener(this.b.v);
                 }
+                int skinType = TbadkCoreApplication.getInst().getSkinType();
+                TbPageContext tbPageContext = (TbPageContext) da.a(this.b.o);
+                xw4 layoutMode = tbPageContext.getLayoutMode();
+                if (skinType == 4) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                layoutMode.l(z);
+                tbPageContext.getLayoutMode().k(bubbleView);
+                return bubbleView;
             }
+            return (View) invokeILL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements Comparator<Calendar> {
+    public class b implements BubbleListModel.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n48 a;
 
         public b(n48 n48Var) {
             Interceptable interceptable = $ic;
@@ -102,23 +129,357 @@ public class n48 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = n48Var;
+        }
+
+        @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.c
+        public void a(BubbleListData bubbleListData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, bubbleListData) != null) {
+                return;
+            }
+            this.a.n = null;
+            if (bubbleListData != null) {
+                if (!bubbleListData.getError_code().equals("0")) {
+                    if (!TextUtils.isEmpty(bubbleListData.getError_msg())) {
+                        UtilHelper.showToast(this.a.o, bubbleListData.getError_msg());
+                    } else {
+                        UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0d11);
+                    }
+                } else {
+                    UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0d11);
+                }
+            } else {
+                UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0d11);
+            }
+            if (this.a.h() != null) {
+                this.a.h().onLoadFail();
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(Calendar calendar, Calendar calendar2) {
-            InterceptResult invokeLL;
+        @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.c
+        public void b(BubbleListData bubbleListData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, calendar, calendar2)) == null) {
-                if (calendar.before(calendar2)) {
-                    return -1;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bubbleListData) == null) {
+                if (bubbleListData == null) {
+                    this.a.h().onLoadFail();
+                    return;
                 }
-                return 1;
+                this.a.n = bubbleListData.m56clone();
+                if (this.a.m.R() > 0) {
+                    List<BubbleListData.BubbleData> b_info = bubbleListData.getB_info();
+                    if (b_info != null && b_info.size() != 0) {
+                        for (BubbleListData.BubbleData bubbleData : b_info) {
+                            if (bubbleData != null && bubbleData.getBcode() == this.a.m.R()) {
+                                if (!bubbleData.canUse() && !bubbleData.isFree()) {
+                                    break;
+                                }
+                                this.a.m.X(this.a.m.R());
+                                this.a.m.W(this.a.m.R(), ej.l(this.a.o), ej.j(this.a.o));
+                            }
+                        }
+                        this.a.m.Y(-1);
+                    } else {
+                        return;
+                    }
+                }
+                this.a.R();
+                this.a.h().b(this.a);
             }
-            return invokeLL.intValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements BubbleListModel.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n48 a;
+
+        public c(n48 n48Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n48Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = n48Var;
+        }
+
+        @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.d
+        public void a(SetBubbleResultData setBubbleResultData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, setBubbleResultData) == null) {
+                if (setBubbleResultData != null && setBubbleResultData.getB_info() != null) {
+                    this.a.q = setBubbleResultData.getB_info().getB_url();
+                    TbadkCoreApplication.getInst().setDefaultBubble(this.a.q);
+                    this.a.r = setBubbleResultData.getB_info().getDynamicUrl();
+                    TbadkCoreApplication.getInst().setDefaultBubbleDynamicRes(this.a.r);
+                    int Q = this.a.m.Q();
+                    if (Q == 0) {
+                        TbadkCoreApplication.getInst().setDefaultBubble("");
+                        TbadkCoreApplication.getInst().setDefaultBubbleDynamicRes("");
+                        for (BubbleListData.BubbleData bubbleData : this.a.n.getB_info()) {
+                            if (bubbleData.getBcode() != 0) {
+                                if (bubbleData.isDef()) {
+                                    bubbleData.setIs_def(0);
+                                }
+                            } else {
+                                bubbleData.setIs_def(1);
+                            }
+                        }
+                    } else if (setBubbleResultData.getB_info().canUser()) {
+                        for (BubbleListData.BubbleData bubbleData2 : this.a.n.getB_info()) {
+                            if (bubbleData2.getBcode() == Q) {
+                                bubbleData2.setIs_def(1);
+                            } else if (bubbleData2.isDef()) {
+                                bubbleData2.setIs_def(0);
+                            }
+                            if (bubbleData2.getBcode() == Q) {
+                                bubbleData2.setCan_use(1);
+                            }
+                        }
+                    } else {
+                        UtilHelper.showToast(this.a.o, (int) R.string.setdefualt_error);
+                        if (this.a.n != null && this.a.n.getB_info() != null && this.a.n.getB_info().size() > 0) {
+                            if (this.a.n.getB_info().get(0).getBcode() != 0) {
+                                BubbleListData.BubbleData bubbleData3 = new BubbleListData.BubbleData();
+                                bubbleData3.setBcode(0);
+                                this.a.n.getB_info().add(0, bubbleData3);
+                            } else {
+                                this.a.p = 0;
+                                int i = 0;
+                                while (true) {
+                                    if (i < this.a.n.getB_info().size()) {
+                                        if (!this.a.n.getB_info().get(i).isDef()) {
+                                            i++;
+                                        } else {
+                                            this.a.p = i;
+                                            break;
+                                        }
+                                    } else {
+                                        break;
+                                    }
+                                }
+                                this.a.n.getB_info().get(this.a.p).setIs_def(0);
+                                this.a.n.getB_info().get(0).setIs_def(1);
+                            }
+                        }
+                    }
+                    this.a.R();
+                    this.a.h().b(this.a);
+                    return;
+                }
+                this.a.h().onLoadFail();
+            }
+        }
+
+        @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.d
+        public void b(SetBubbleResultData setBubbleResultData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, setBubbleResultData) == null) {
+                if (setBubbleResultData != null) {
+                    if (!setBubbleResultData.getError_code().equals("0")) {
+                        if (!TextUtils.isEmpty(setBubbleResultData.getError_msg())) {
+                            UtilHelper.showToast(this.a.o, setBubbleResultData.getError_msg());
+                        } else {
+                            UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0d11);
+                        }
+                    } else {
+                        UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0d11);
+                    }
+                } else {
+                    UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0d11);
+                }
+                if (this.a.h() != null) {
+                    this.a.h().onLoadFail();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n48 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(n48 n48Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n48Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = n48Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                this.a.m.V(0, 50, 0, 0);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n48 a;
+
+        public e(n48 n48Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n48Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = n48Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.n == null || !(view2 instanceof BubbleView)) {
+                return;
+            }
+            BubbleListData.BubbleData bubbleData = (BubbleListData.BubbleData) ListUtils.getItem(this.a.n.getB_info(), ((Integer) view2.getTag()).intValue());
+            TbadkSettings inst = TbadkSettings.getInst();
+            boolean loadBoolean = inst.loadBoolean(TbadkCoreApplication.isMem + TbadkCoreApplication.getCurrentAccount(), false);
+            if (bubbleData != null && !bubbleData.isDef()) {
+                if (bubbleData.getBcode() != 0 && !bubbleData.canUse() && !loadBoolean) {
+                    if (bubbleData.isFree()) {
+                        if (!(this.a.o instanceof TbPageContextSupport)) {
+                            return;
+                        }
+                        m48.a(((TbPageContextSupport) this.a.o).getPageContext(), bubbleData, this.a.w);
+                        return;
+                    } else if (!(this.a.o instanceof TbPageContextSupport)) {
+                        return;
+                    } else {
+                        m48.b(((TbPageContextSupport) this.a.o).getPageContext(), bubbleData, this.a.x);
+                        return;
+                    }
+                }
+                this.a.S(bubbleData.getBcode());
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class f implements m48.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n48 a;
+
+        @Override // com.baidu.tieba.m48.e
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        public f(n48 n48Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n48Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = n48Var;
+        }
+
+        @Override // com.baidu.tieba.m48.e
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
+                return;
+            }
+            this.a.S(i);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class g implements m48.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n48 a;
+
+        @Override // com.baidu.tieba.m48.e
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        public g(n48 n48Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n48Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = n48Var;
+        }
+
+        @Override // com.baidu.tieba.m48.e
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a.m.Y(i);
+                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.a.o, true, 23004, "pop_unable");
+                memberPayActivityConfig.setSceneId("4002001000");
+                memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_BUBBLE_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
+            }
         }
     }
 
@@ -135,148 +496,158 @@ public class n48 {
                 return;
             }
         }
-        this.a = false;
-        MessageManager.getInstance().registerListener(new a(this, CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, 309117));
-        s19.g(309117, GetStoreRemindTimeSocketResponseMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, s19.a("c/f/livegroup/getStoreRemindTime", 309117));
-        tbHttpMessageTask.setIsNeedLogin(true);
-        tbHttpMessageTask.setIsNeedAddCommenParam(true);
-        tbHttpMessageTask.setResponsedClass(GetStoreRemindTimeHttpResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        this.p = 0;
+        this.s = new b(this);
+        this.t = new c(this);
+        this.u = new d(this, 2010040);
+        this.v = new e(this);
+        this.w = new f(this);
+        this.x = new g(this);
     }
 
-    public void g() {
-        Calendar c;
-        Context context;
+    public final BubbleListData.BubbleData Q(int i) {
+        InterceptResult invokeI;
+        BubbleListData bubbleListData;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (c = c()) == null || (context = TbadkCoreApplication.getInst().getContext()) == null) {
-            return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i >= 0 && i < c() && (bubbleListData = this.n) != null) {
+                return bubbleListData.getB_info().get(i);
+            }
+            return null;
         }
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
-        Intent intent = new Intent(CollectUpdateReceiver.ACTION_NAME);
-        intent.setPackage(context.getPackageName());
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(14, 0);
-        if (c.before(calendar)) {
-            c.set(6, calendar.get(6) + 1);
-        }
-        alarmManager.set(1, c.getTimeInMillis(), PendingIntent.getBroadcast(context, 0, intent, 134217728));
+        return (BubbleListData.BubbleData) invokeI.objValue;
     }
 
-    public static n48 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.zc5
+    public void A(yc5 yc5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (n48.class) {
-                    if (b == null) {
-                        b = new n48();
+        if (interceptable == null || interceptable.invokeL(1048576, this, yc5Var) == null) {
+            if (this.m == null) {
+                Context context = this.o;
+                if (context instanceof TbPageContext) {
+                    this.m = new BubbleListModel((TbPageContext) context);
+                } else {
+                    this.m = new BubbleListModel(null);
+                }
+            }
+            if (h() != null) {
+                h().a();
+            }
+            this.m.V(0, 50, ej.l(this.o), ej.j(this.o));
+        }
+    }
+
+    public final void R() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            BubbleListData bubbleListData = this.n;
+            boolean z = false;
+            if (bubbleListData != null && bubbleListData.getB_info() != null && this.n.getB_info().size() > 0) {
+                BubbleListData.BubbleData bubbleData = new BubbleListData.BubbleData();
+                bubbleData.setBcode(0);
+                if (this.n.getB_info().get(0).getBcode() != 0) {
+                    this.n.getB_info().add(0, bubbleData);
+                }
+                this.p = 0;
+                int i = 0;
+                while (true) {
+                    if (i >= this.n.getB_info().size()) {
+                        break;
+                    } else if (this.n.getB_info().get(i).isDef()) {
+                        this.p = i;
+                        this.q = this.n.getB_info().get(i).getBg_url();
+                        TbadkCoreApplication.getInst().setDefaultBubble(this.q);
+                        this.r = this.n.getB_info().get(i).getDynamicUrl();
+                        TbadkCoreApplication.getInst().setDefaultBubbleDynamicRes(this.r);
+                        break;
+                    } else {
+                        i++;
                     }
                 }
             }
-            return b;
+            if (this.p != 0 && !TextUtils.isEmpty(this.q)) {
+                J(new yc5(2, 12, " "));
+                z = true;
+            } else {
+                J(new yc5(2, 12, null));
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001353, Boolean.valueOf(z)));
+            HashMap hashMap = new HashMap();
+            hashMap.put("b_url", this.q);
+            hashMap.put("dynamic_url", this.r);
+            J(new yc5(25, -1, hashMap));
         }
-        return (n48) invokeV.objValue;
     }
 
-    public void d() {
+    public final void S(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && a()) {
-            MessageManager.getInstance().sendMessage(new GetStoreRemindTimeRequestMessage());
-            h();
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.m.W(i, ej.l(this.o), ej.j(this.o));
+            this.m.X(i);
+            if (h() != null) {
+                h().a();
+            }
         }
     }
 
-    public void h() {
+    @Override // com.baidu.tieba.lf5
+    public void a() {
+        BubbleListModel bubbleListModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            p35.m().A("collect_request_time_key", System.currentTimeMillis());
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (bubbleListModel = this.m) != null) {
+            bubbleListModel.unRegisterListener();
+            this.m.b0(this.u);
+            this.m = null;
         }
     }
 
-    public boolean a() {
+    @Override // com.baidu.tieba.lf5
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long o = p35.m().o("collect_request_time_key", -1L);
-            if (o == -1) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            BubbleListData bubbleListData = this.n;
+            if (bubbleListData != null && bubbleListData.getB_info() != null) {
+                return this.n.getB_info().size();
             }
-            long currentTimeMillis = System.currentTimeMillis() - o;
-            if (currentTimeMillis > 0 && TimeUnit.MILLISECONDS.toDays(currentTimeMillis) >= 1) {
-                return true;
-            }
-            return false;
+            return 0;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public final Calendar c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.lf5
+    public void n(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String s = p35.m().s("collect_update_time_key", null);
-            if (TextUtils.isEmpty(s)) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            Calendar calendar = Calendar.getInstance();
-            try {
-                JSONArray jSONArray = new JSONArray(s);
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    String optString = jSONArray.optString(i);
-                    if (!TextUtils.isEmpty(optString)) {
-                        Calendar calendar2 = (Calendar) calendar.clone();
-                        calendar2.setTime(simpleDateFormat.parse(optString));
-                        calendar2.set(calendar.get(1), calendar.get(2), calendar.get(5));
-                        arrayList.add(calendar2);
-                    }
+        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
+            this.o = context;
+            lf5.b bVar = new lf5.b();
+            bVar.a = R.drawable.icon_bubble;
+            bVar.b = 0;
+            w(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f0));
+            q(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070201));
+            r(bVar);
+            o(2);
+            v(2);
+            x(new a(this, context));
+            this.q = TbadkCoreApplication.getInst().getDefaultBubble();
+            this.r = TbadkCoreApplication.getInst().getDefaultBubbleDynamicRes();
+            if (this.m == null) {
+                Context context2 = this.o;
+                if (context2 instanceof TbPageContext) {
+                    this.m = new BubbleListModel((TbPageContext) context2);
+                } else {
+                    this.m = new BubbleListModel(null);
                 }
-            } catch (ParseException e) {
-                BdLog.e(e.getMessage());
-                e.printStackTrace();
-                return null;
-            } catch (JSONException e2) {
-                BdLog.e(e2.getMessage());
-                return null;
-            } catch (Exception e3) {
-                BdLog.e(e3.getMessage());
             }
-            if (arrayList.isEmpty()) {
-                return null;
+            this.m.Z(this.s);
+            this.m.a0(this.t);
+            this.m.U(this.u);
+            this.m.S();
+            this.m.T();
+            if (h() != null) {
+                h().a();
             }
-            Collections.sort(arrayList, new b(this));
-            Calendar calendar3 = (Calendar) arrayList.get(0);
-            Calendar calendar4 = (Calendar) arrayList.get(arrayList.size() - 1);
-            if (arrayList.size() != 1 && !calendar3.after(calendar) && !calendar4.before(calendar)) {
-                for (int i2 = 1; i2 < arrayList.size(); i2++) {
-                    Calendar calendar5 = (Calendar) arrayList.get(i2);
-                    if (!calendar5.before(calendar)) {
-                        return calendar5;
-                    }
-                }
-                return null;
-            }
-            return calendar3;
-        }
-        return (Calendar) invokeV.objValue;
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            if (this.a) {
-                z = false;
-            }
-            p35.m().w("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), z);
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.a = z;
+            this.m.V(0, 50, ej.l(this.o), ej.j(this.o));
         }
     }
 }

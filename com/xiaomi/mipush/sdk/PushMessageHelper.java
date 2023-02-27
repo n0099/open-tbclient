@@ -4,20 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.hw;
-import com.xiaomi.push.im;
+import com.xiaomi.push.hu;
+import com.xiaomi.push.ik;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class PushMessageHelper {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_MESSAGE = "error_message";
     public static final String ERROR_TYPE = "error_type";
     public static final String ERROR_TYPE_NEED_PERMISSION = "error_lack_of_permission";
@@ -32,180 +23,111 @@ public class PushMessageHelper {
     public static final int PUSH_MODE_BROADCAST = 2;
     public static final int PUSH_MODE_CALLBACK = 1;
     public static int pushMode;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1738568876, "Lcom/xiaomi/mipush/sdk/PushMessageHelper;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1738568876, "Lcom/xiaomi/mipush/sdk/PushMessageHelper;");
-        }
-    }
-
-    public PushMessageHelper() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
 
     public static MiPushCommandMessage generateCommandMessage(String str, List<String> list, long j, String str2, String str3, List<String> list2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, list, Long.valueOf(j), str2, str3, list2})) == null) {
-            MiPushCommandMessage miPushCommandMessage = new MiPushCommandMessage();
-            miPushCommandMessage.setCommand(str);
-            miPushCommandMessage.setCommandArguments(list);
-            miPushCommandMessage.setResultCode(j);
-            miPushCommandMessage.setReason(str2);
-            miPushCommandMessage.setCategory(str3);
-            miPushCommandMessage.setAutoMarkPkgs(list2);
-            return miPushCommandMessage;
-        }
-        return (MiPushCommandMessage) invokeCommon.objValue;
+        MiPushCommandMessage miPushCommandMessage = new MiPushCommandMessage();
+        miPushCommandMessage.setCommand(str);
+        miPushCommandMessage.setCommandArguments(list);
+        miPushCommandMessage.setResultCode(j);
+        miPushCommandMessage.setReason(str2);
+        miPushCommandMessage.setCategory(str3);
+        miPushCommandMessage.setAutoMarkPkgs(list2);
+        return miPushCommandMessage;
     }
 
-    public static MiPushMessage generateMessage(im imVar, hw hwVar, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, imVar, hwVar, z)) == null) {
-            MiPushMessage miPushMessage = new MiPushMessage();
-            miPushMessage.setMessageId(imVar.m578a());
-            if (!TextUtils.isEmpty(imVar.d())) {
-                miPushMessage.setMessageType(1);
-                miPushMessage.setAlias(imVar.d());
-            } else if (!TextUtils.isEmpty(imVar.c())) {
-                miPushMessage.setMessageType(2);
-                miPushMessage.setTopic(imVar.c());
-            } else if (TextUtils.isEmpty(imVar.f())) {
-                miPushMessage.setMessageType(0);
-            } else {
-                miPushMessage.setMessageType(3);
-                miPushMessage.setUserAccount(imVar.f());
-            }
-            miPushMessage.setCategory(imVar.e());
-            if (imVar.a() != null) {
-                miPushMessage.setContent(imVar.a().c());
-            }
-            if (hwVar != null) {
-                if (TextUtils.isEmpty(miPushMessage.getMessageId())) {
-                    miPushMessage.setMessageId(hwVar.m506a());
-                }
-                if (TextUtils.isEmpty(miPushMessage.getTopic())) {
-                    miPushMessage.setTopic(hwVar.m511b());
-                }
-                miPushMessage.setDescription(hwVar.d());
-                miPushMessage.setTitle(hwVar.m514c());
-                miPushMessage.setNotifyType(hwVar.a());
-                miPushMessage.setNotifyId(hwVar.c());
-                miPushMessage.setPassThrough(hwVar.b());
-                miPushMessage.setExtra(hwVar.m507a());
-            }
-            miPushMessage.setNotified(z);
-            return miPushMessage;
+    public static MiPushMessage generateMessage(ik ikVar, hu huVar, boolean z) {
+        MiPushMessage miPushMessage = new MiPushMessage();
+        miPushMessage.setMessageId(ikVar.m579a());
+        if (!TextUtils.isEmpty(ikVar.d())) {
+            miPushMessage.setMessageType(1);
+            miPushMessage.setAlias(ikVar.d());
+        } else if (!TextUtils.isEmpty(ikVar.c())) {
+            miPushMessage.setMessageType(2);
+            miPushMessage.setTopic(ikVar.c());
+        } else if (TextUtils.isEmpty(ikVar.f())) {
+            miPushMessage.setMessageType(0);
+        } else {
+            miPushMessage.setMessageType(3);
+            miPushMessage.setUserAccount(ikVar.f());
         }
-        return (MiPushMessage) invokeLLZ.objValue;
+        miPushMessage.setCategory(ikVar.e());
+        if (ikVar.a() != null) {
+            miPushMessage.setContent(ikVar.a().c());
+        }
+        if (huVar != null) {
+            if (TextUtils.isEmpty(miPushMessage.getMessageId())) {
+                miPushMessage.setMessageId(huVar.m501a());
+            }
+            if (TextUtils.isEmpty(miPushMessage.getTopic())) {
+                miPushMessage.setTopic(huVar.m506b());
+            }
+            miPushMessage.setDescription(huVar.d());
+            miPushMessage.setTitle(huVar.m509c());
+            miPushMessage.setNotifyType(huVar.a());
+            miPushMessage.setNotifyId(huVar.c());
+            miPushMessage.setPassThrough(huVar.b());
+            miPushMessage.setExtra(huVar.m502a());
+        }
+        miPushMessage.setNotified(z);
+        return miPushMessage;
     }
 
-    public static hw generateMessage(MiPushMessage miPushMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, miPushMessage)) == null) {
-            hw hwVar = new hw();
-            hwVar.a(miPushMessage.getMessageId());
-            hwVar.b(miPushMessage.getTopic());
-            hwVar.d(miPushMessage.getDescription());
-            hwVar.c(miPushMessage.getTitle());
-            hwVar.c(miPushMessage.getNotifyId());
-            hwVar.a(miPushMessage.getNotifyType());
-            hwVar.b(miPushMessage.getPassThrough());
-            hwVar.a(miPushMessage.getExtra());
-            return hwVar;
-        }
-        return (hw) invokeL.objValue;
+    public static hu generateMessage(MiPushMessage miPushMessage) {
+        hu huVar = new hu();
+        huVar.a(miPushMessage.getMessageId());
+        huVar.b(miPushMessage.getTopic());
+        huVar.d(miPushMessage.getDescription());
+        huVar.c(miPushMessage.getTitle());
+        huVar.c(miPushMessage.getNotifyId());
+        huVar.a(miPushMessage.getNotifyType());
+        huVar.b(miPushMessage.getPassThrough());
+        huVar.a(miPushMessage.getExtra());
+        return huVar;
     }
 
     public static int getPushMode(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            if (pushMode == 0) {
-                setPushMode(isUseCallbackPushMode(context) ? 1 : 2);
-            }
-            return pushMode;
+        if (pushMode == 0) {
+            setPushMode(isUseCallbackPushMode(context) ? 1 : 2);
         }
-        return invokeL.intValue;
+        return pushMode;
     }
 
     public static boolean isIntentAvailable(Context context, Intent intent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, intent)) == null) {
-            try {
-                List<ResolveInfo> queryBroadcastReceivers = context.getPackageManager().queryBroadcastReceivers(intent, 32);
-                if (queryBroadcastReceivers != null) {
-                    if (!queryBroadcastReceivers.isEmpty()) {
-                        return true;
-                    }
+        try {
+            List<ResolveInfo> queryBroadcastReceivers = context.getPackageManager().queryBroadcastReceivers(intent, 32);
+            if (queryBroadcastReceivers != null) {
+                if (!queryBroadcastReceivers.isEmpty()) {
+                    return true;
                 }
-                return false;
-            } catch (Exception unused) {
-                return true;
             }
+            return false;
+        } catch (Exception unused) {
+            return true;
         }
-        return invokeLL.booleanValue;
     }
 
     public static boolean isUseCallbackPushMode(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            Intent intent = new Intent("com.xiaomi.mipush.RECEIVE_MESSAGE");
-            intent.setClassName(context.getPackageName(), "com.xiaomi.mipush.sdk.PushServiceReceiver");
-            return isIntentAvailable(context, intent);
-        }
-        return invokeL.booleanValue;
+        Intent intent = new Intent("com.xiaomi.mipush.RECEIVE_MESSAGE");
+        intent.setClassName(context.getPackageName(), "com.xiaomi.mipush.sdk.PushServiceReceiver");
+        return isIntentAvailable(context, intent);
     }
 
     public static void sendCommandMessageBroadcast(Context context, MiPushCommandMessage miPushCommandMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, context, miPushCommandMessage) == null) {
-            Intent intent = new Intent("com.xiaomi.mipush.RECEIVE_MESSAGE");
-            intent.setPackage(context.getPackageName());
-            intent.putExtra(MESSAGE_TYPE, 3);
-            intent.putExtra(KEY_COMMAND, miPushCommandMessage);
-            new PushServiceReceiver().onReceive(context, intent);
-        }
+        Intent intent = new Intent("com.xiaomi.mipush.RECEIVE_MESSAGE");
+        intent.setPackage(context.getPackageName());
+        intent.putExtra("message_type", 3);
+        intent.putExtra(KEY_COMMAND, miPushCommandMessage);
+        new PushServiceReceiver().onReceive(context, intent);
     }
 
     public static void sendQuitMessageBroadcast(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
-            Intent intent = new Intent("com.xiaomi.mipush.RECEIVE_MESSAGE");
-            intent.setPackage(context.getPackageName());
-            intent.putExtra(MESSAGE_TYPE, 4);
-            new PushServiceReceiver().onReceive(context, intent);
-        }
+        Intent intent = new Intent("com.xiaomi.mipush.RECEIVE_MESSAGE");
+        intent.setPackage(context.getPackageName());
+        intent.putExtra("message_type", 4);
+        new PushServiceReceiver().onReceive(context, intent);
     }
 
     public static void setPushMode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65546, null, i) == null) {
-            pushMode = i;
-        }
+        pushMode = i;
     }
 }

@@ -1,178 +1,139 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
+import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class rz2 extends qz2 {
+public class rz2 extends oz2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public rz2(double d) {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final rz2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-444328095, "Lcom/baidu/tieba/rz2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-444328095, "Lcom/baidu/tieba/rz2$b;");
+                    return;
+                }
+            }
+            a = new rz2(null);
+        }
+    }
+
+    public rz2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Double.valueOf(d)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = d;
     }
 
-    @Override // com.baidu.tieba.qz2
-    public boolean a(Bitmap bitmap, Rect rect) {
-        InterceptResult invokeLL;
-        Rect rect2;
-        int i;
-        int i2;
+    public static rz2 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
-            if (qz2.c) {
-                Log.d("ErrorPageParser", "GridErrorPageParser: start error page parse");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (rz2) invokeV.objValue;
+    }
+
+    public /* synthetic */ rz2(a aVar) {
+        this();
+    }
+
+    public boolean j(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pMSAppInfo)) == null) {
+            return TextUtils.equals(c(pMSAppInfo), "1");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public JSONObject k(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pMSAppInfo)) == null) {
+            JSONObject b2 = b(pMSAppInfo);
+            if (b2 != null && b2.length() > 0) {
+                return b2.optJSONObject("topPages");
             }
-            if (bitmap == null) {
-                return false;
-            }
-            if (!b(bitmap, rect)) {
-                rect2 = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            } else {
-                rect2 = rect;
-            }
-            int width = rect2.width() - 2;
-            int height = rect2.height() - 2;
-            int i3 = width / 3;
-            int i4 = height / i3;
-            int ceil = (int) Math.ceil(i4 * 3 * this.a);
-            int i5 = 0;
-            int i6 = 0;
-            while (i6 < 3) {
-                int i7 = rect2.left;
-                int i8 = (i6 * i3) + 1 + i7;
-                if (i6 == 2) {
-                    i = width + 1;
-                } else {
-                    i = ((i6 + 1) * i3) + i7;
+            return null;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public boolean h(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pMSAppInfo)) == null) {
+            JSONObject d = d(pMSAppInfo);
+            if (d != null && d.length() > 0) {
+                boolean optBoolean = d.optBoolean("is_opti");
+                if (oz2.c) {
+                    Log.d("SwanAppExtInfo", "is opt pkg  - " + optBoolean);
                 }
-                int i9 = i;
-                int i10 = i5;
-                int i11 = 0;
-                while (i11 < i4) {
-                    int i12 = rect2.top;
-                    int i13 = (i11 * i3) + 1 + i12;
-                    if (i11 == i4 - 1) {
-                        i2 = height + 1;
-                    } else {
-                        i2 = ((i11 + 1) * i3) + i12;
-                    }
-                    int i14 = i11;
-                    if (e(bitmap, i8, i13, i9, i2)) {
-                        int i15 = i10 + 1;
-                        if (i15 >= ceil) {
-                            return true;
-                        }
-                        i10 = i15;
-                    }
-                    i11 = i14 + 1;
-                }
-                i6++;
-                i5 = i10;
+                return optBoolean;
             }
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public double d(Bitmap bitmap, Rect rect) {
-        InterceptResult invokeLL;
-        Rect rect2;
-        int i;
-        int i2;
+    public boolean i(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, rect)) == null) {
-            if (qz2.c) {
-                Log.d("ErrorPageParser", "GridErrorPageParser: start error page parse");
-            }
-            if (bitmap == null) {
-                return 0.0d;
-            }
-            if (!b(bitmap, rect)) {
-                rect2 = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo)) == null) {
+            JSONObject b2 = b(pMSAppInfo);
+            if (b2 != null && b2.has(PrefetchEvent.MODULE)) {
+                z = b2.optBoolean(PrefetchEvent.MODULE);
             } else {
-                rect2 = rect;
-            }
-            int width = rect2.width() - 2;
-            int height = rect2.height() - 2;
-            int i3 = width / 3;
-            if (i3 == 0) {
-                return 0.0d;
-            }
-            int i4 = height / i3;
-            int i5 = 0;
-            int i6 = 0;
-            while (i5 < 3) {
-                int i7 = rect2.left;
-                int i8 = (i5 * i3) + 1 + i7;
-                if (i5 == 2) {
-                    i = width + 1;
+                JSONObject a2 = a(pMSAppInfo);
+                if (a2 != null && a2.optBoolean(PrefetchEvent.MODULE)) {
+                    z = true;
                 } else {
-                    i = ((i5 + 1) * i3) + i7;
+                    z = false;
                 }
-                int i9 = i;
-                int i10 = i6;
-                int i11 = 0;
-                while (i11 < i4) {
-                    int i12 = rect2.top;
-                    int i13 = (i11 * i3) + 1 + i12;
-                    if (i11 == i4 - 1) {
-                        i2 = height + 1;
-                    } else {
-                        i2 = ((i11 + 1) * i3) + i12;
-                    }
-                    int i14 = i11;
-                    if (e(bitmap, i8, i13, i9, i2)) {
-                        i10++;
-                    }
-                    i11 = i14 + 1;
-                }
-                i5++;
-                i6 = i10;
             }
-            return i6 / (i4 * 3);
+            if (oz2.c) {
+                Log.d("SwanAppExtInfo", "is prefetch on - " + z);
+            }
+            return z;
         }
-        return invokeLL.doubleValue;
-    }
-
-    public final boolean e(Bitmap bitmap, int i, int i2, int i3, int i4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            if (i < 0 || i3 < i || i2 < 0 || i4 < i2) {
-                return false;
-            }
-            int pixel = bitmap.getPixel(i, i2);
-            while (i <= i3) {
-                for (int i5 = i2; i5 <= i4; i5++) {
-                    if (pixel != bitmap.getPixel(i, i5)) {
-                        return false;
-                    }
-                }
-                i++;
-            }
-            return true;
-        }
-        return invokeCommon.booleanValue;
+        return invokeL.booleanValue;
     }
 }

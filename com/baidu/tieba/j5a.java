@@ -1,163 +1,136 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunNativeAd2;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.win.opensdk.PBDrawVideo;
-import com.win.opensdk.PBDrawVideoListener;
-import com.win.opensdk.PBError;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class j5a extends ReporterPidLoader<PBDrawVideo> {
+public class j5a extends eba {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FunNativeAdListenerHelper<PBDrawVideo, PBDrawVideoListener> e;
+    public final Set<Ssp> a;
+    public final Set<z5a> b;
+    public final Set<x5a> c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j5a(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.DRAW), pid);
+    public j5a(int i, ObjectInput objectInput) {
+        super(i);
+        HashSet hashSet;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {Integer.valueOf(i), objectInput};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new FunNativeAdListenerHelper<>(this);
+        int readInt = objectInput.readInt();
+        HashSet hashSet2 = new HashSet(readInt);
+        HashMap hashMap = new HashMap();
+        for (int i4 = 0; i4 < readInt; i4++) {
+            Ssp ssp = new Ssp(objectInput.readInt(), objectInput);
+            hashSet2.add(ssp);
+            for (Ssp.Pid pid : ssp.pids) {
+                hashMap.put(Long.valueOf(pid.id), pid);
+            }
+        }
+        int readInt2 = objectInput.readInt();
+        HashSet hashSet3 = new HashSet(readInt2);
+        for (int i5 = 0; i5 < readInt2; i5++) {
+            hashSet3.add(new z5a(objectInput.readInt(), objectInput, hashMap));
+        }
+        this.a = Collections.unmodifiableSet(hashSet2);
+        this.b = Collections.unmodifiableSet(hashSet3);
+        if (i == 1) {
+            int readInt3 = objectInput.readInt();
+            hashSet = new HashSet(readInt3);
+            for (int i6 = 0; i6 < readInt3; i6++) {
+                hashSet.add(new x5a(objectInput.readInt(), objectInput, hashMap));
+            }
+        } else {
+            hashSet = new HashSet();
+        }
+        this.c = Collections.unmodifiableSet(hashSet);
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j5a(Set<Ssp> set, Set<z5a> set2, Set<x5a> set3) {
+        super(1);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            onLoadStart(funAdSlot);
-            PBDrawVideo pBDrawVideo = new PBDrawVideo(context.getApplicationContext(), this.mPid.pid);
-            pBDrawVideo.setDrawVideoListener(new a(this, pBDrawVideo));
-            pBDrawVideo.load();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {set, set2, set3};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.a = set;
+        this.b = set2;
+        this.c = set3;
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements PBDrawVideoListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PBDrawVideo a;
-        public final /* synthetic */ j5a b;
-
-        public a(j5a j5aVar, PBDrawVideo pBDrawVideo) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j5aVar, pBDrawVideo};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = j5aVar;
-            this.a = pBDrawVideo;
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onFail(PBError pBError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) {
-                LogPrinter.e("onError code: " + pBError.getCode() + ", message: " + pBError.getMsg(), new Object[0]);
-                this.b.onError(pBError.getCode(), pBError.getMsg());
-            }
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onLoaded() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.d();
-                this.b.onAdLoaded((j5a) this.a);
-            }
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onClicked() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LogPrinter.d();
-                this.b.e.onAdClick(this.a);
-            }
-        }
-
-        @Override // com.win.opensdk.PBDrawVideoListener
-        public void onDisplayed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                LogPrinter.d();
-                this.b.e.onAdShow(this.a);
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        PBDrawVideo pBDrawVideo;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (pBDrawVideo = (PBDrawVideo) obj) != null) {
-            this.e.destroy(pBDrawVideo);
-            pBDrawVideo.destroy();
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, obj)) == null) {
-            return new BaseNativeAd2(FunNativeAd2.NativeType.EXPRESS, (PBDrawVideo) obj, new k5a(this, this));
-        }
-        return (FunNativeAd2) invokeLLL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            PBDrawVideo pBDrawVideo = (PBDrawVideo) obj;
-            this.e.startShow(pBDrawVideo, str, this.mPid, null, null);
-            View drawVideoView = pBDrawVideo.getDrawVideoView();
-            if (drawVideoView.getParent() != null) {
-                ((ViewGroup) drawVideoView.getParent()).removeView(drawVideoView);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            viewGroup.removeAllViews();
-            viewGroup.addView(drawVideoView);
-            return true;
+            if (obj == null || j5a.class != obj.getClass()) {
+                return false;
+            }
+            j5a j5aVar = (j5a) obj;
+            return Objects.equals(this.a, j5aVar.a) && Objects.equals(this.b, j5aVar.b);
         }
-        return invokeLLLL.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.a, this.b) : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.eba
+    public void srzableInternal(ObjectOutput objectOutput) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {
+            objectOutput.writeInt(this.a.size());
+            for (Ssp ssp : this.a) {
+                ssp.srzable(objectOutput);
+            }
+            objectOutput.writeInt(this.b.size());
+            for (z5a z5aVar : this.b) {
+                z5aVar.srzable(objectOutput);
+            }
+            objectOutput.writeInt(this.c.size());
+            for (x5a x5aVar : this.c) {
+                x5aVar.srzable(objectOutput);
+            }
+        }
     }
 }

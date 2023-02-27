@@ -80,18 +80,6 @@ public class HorizontalTranslateLayout extends FrameLayout {
         void b();
     }
 
-    public void setLeftTapBack(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-        }
-    }
-
-    public void setRightTapBack(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-        }
-    }
-
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
     public static final class TrackDirection {
@@ -663,37 +651,10 @@ public class HorizontalTranslateLayout extends FrameLayout {
         }
     }
 
-    public int getLeftOffset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (int) this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getLeftTranslate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getRightOffset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return (int) this.c;
-        }
-        return invokeV.intValue;
-    }
-
     public int getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.g;
         }
         return invokeV.intValue;
@@ -736,37 +697,16 @@ public class HorizontalTranslateLayout extends FrameLayout {
     @Override // android.view.View
     public void setBackgroundColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.j.setColor(i);
             invalidate();
-        }
-    }
-
-    public void setHorizontalTrackListener(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, dVar) == null) {
-            this.u = dVar;
-        }
-    }
-
-    public void setLeftAnimationListener(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, eVar) == null) {
-            this.r = eVar;
-        }
-    }
-
-    public void setRightAnimationListener(g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, gVar) == null) {
-            this.s = gVar;
         }
     }
 
     @Override // android.widget.FrameLayout, android.view.View
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
             super.onMeasure(i, i2);
             this.a = getMeasuredWidth();
         }
@@ -788,7 +728,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     public final void o(AttributeSet attributeSet) {
         String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, attributeSet) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, attributeSet) == null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.HorizontalTranslateLayout);
             this.b = obtainStyledAttributes.getDimension(0, -1.0f);
             this.c = obtainStyledAttributes.getDimension(2, -1.0f);
@@ -833,7 +773,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
             int x = (int) motionEvent.getX();
             int y = (int) motionEvent.getY();
             int action = motionEvent.getAction() & 255;
@@ -905,7 +845,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
             if (this.f == TrackDirection.none) {
                 return false;
             }
@@ -938,7 +878,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     public void setProportion(float f2) {
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048592, this, f2) == null) && f2 >= -1.0f && f2 <= 1.0f) {
+        if ((interceptable == null || interceptable.invokeF(1048586, this, f2) == null) && f2 >= -1.0f && f2 <= 1.0f) {
             if (f2 < 0.0f) {
                 this.d = (int) ((this.b - this.a) * (-f2));
             } else {
@@ -963,7 +903,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             super.onLayout(z, i, i2, i3, i4);
             if (z) {
                 float f2 = this.b;
@@ -983,7 +923,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
 
     public final void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             int i = this.g;
             if (i != 10000) {
                 if (i != 10001) {
@@ -1006,7 +946,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     public final boolean q(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048587, this, i, i2)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2)) == null) {
             int i3 = this.l;
             int i4 = this.e;
             if (i2 >= i3 - i4 && i2 <= i3 + i4) {

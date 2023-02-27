@@ -1,14 +1,7 @@
 package com.baidu.searchbox.dns.transmit.model;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.dns.transmit.DnsTransmitter;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -19,14 +12,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class DnsResponse {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String BACKUP_DATA = "backup";
     public static final String BACKUP_VERSION = "version";
     public static final String DATA = "data";
     public static final String EXT_INFO = "ext-info";
     public static final String IPV6_GROUP = "ipv6-group";
     public static final String IPV6_TEST_AREA = "ipv6-test-area";
-    public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, DnsModel> backupDnsMap;
     public String backupIpString;
     public String backupIpVersion;
@@ -65,20 +56,6 @@ public class DnsResponse {
         JSONObject jSONObject6;
         ArrayList arrayList3;
         ArrayList arrayList4;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {str, str2, Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.hasExtInfo = false;
         this.isIPv6TestArea = false;
         this.mIdcToBgp = false;
@@ -116,8 +93,8 @@ public class DnsResponse {
                                     jSONObject5 = optJSONObject4;
                                     ArrayList arrayList5 = new ArrayList(optJSONArray.length());
                                     jSONObject6 = optJSONObject3;
-                                    for (int i5 = 0; i5 < optJSONArray.length(); i5++) {
-                                        arrayList5.add(optJSONArray.getString(i5));
+                                    for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                                        arrayList5.add(optJSONArray.getString(i3));
                                     }
                                     arrayList3 = arrayList5;
                                 } else {
@@ -129,8 +106,8 @@ public class DnsResponse {
                                 JSONArray optJSONArray2 = optJSONObject5.optJSONArray(str14);
                                 if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                                     ArrayList arrayList6 = new ArrayList(optJSONArray2.length());
-                                    for (int i6 = 0; i6 < optJSONArray2.length(); i6++) {
-                                        arrayList6.add(optJSONArray2.getString(i6));
+                                    for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
+                                        arrayList6.add(optJSONArray2.getString(i4));
                                     }
                                     arrayList4 = arrayList6;
                                 } else {
@@ -197,7 +174,7 @@ public class DnsResponse {
                     String str17 = optString;
                     String str18 = str15;
                     JSONObject jSONObject8 = optJSONObject4;
-                    int i7 = optInt;
+                    int i5 = optInt;
                     String str19 = optString3;
                     JSONObject jSONObject9 = optJSONObject3;
                     if (jSONObject9 != null) {
@@ -211,8 +188,8 @@ public class DnsResponse {
                                 JSONArray optJSONArray3 = optJSONObject6.optJSONArray(str20);
                                 if (optJSONArray3 != null && optJSONArray3.length() > 0) {
                                     ArrayList arrayList8 = new ArrayList(optJSONArray3.length());
-                                    for (int i8 = 0; i8 < optJSONArray3.length(); i8++) {
-                                        arrayList8.add(optJSONArray3.getString(i8));
+                                    for (int i6 = 0; i6 < optJSONArray3.length(); i6++) {
+                                        arrayList8.add(optJSONArray3.getString(i6));
                                     }
                                     arrayList2 = arrayList8;
                                 } else {
@@ -221,7 +198,7 @@ public class DnsResponse {
                                 if (arrayList2 != null && !arrayList2.isEmpty()) {
                                     str7 = optString2;
                                     str8 = str20;
-                                    this.backupDnsMap.put(next2, new DnsModel(str17, i7, optString2, str19, str2, i, z, optLong, arrayList2, null));
+                                    this.backupDnsMap.put(next2, new DnsModel(str17, i5, optString2, str19, str2, i, z, optLong, arrayList2, null));
                                 }
                                 str18 = str20;
                             } else {
@@ -252,15 +229,15 @@ public class DnsResponse {
                                     JSONArray optJSONArray4 = optJSONObject7.optJSONArray(str21);
                                     if (optJSONArray4 != null && optJSONArray4.length() > 0) {
                                         ArrayList arrayList9 = new ArrayList(optJSONArray4.length());
-                                        for (int i9 = 0; i9 < optJSONArray4.length(); i9++) {
-                                            arrayList9.add(optJSONArray4.getString(i9));
+                                        for (int i7 = 0; i7 < optJSONArray4.length(); i7++) {
+                                            arrayList9.add(optJSONArray4.getString(i7));
                                         }
                                         String str22 = str4;
                                         JSONArray optJSONArray5 = optJSONObject7.optJSONArray(str22);
                                         if (optJSONArray5 != null && optJSONArray5.length() > 0) {
                                             arrayList = new ArrayList(optJSONArray5.length());
-                                            for (int i10 = 0; i10 < optJSONArray5.length(); i10++) {
-                                                arrayList.add(optJSONArray5.getString(i10));
+                                            for (int i8 = 0; i8 < optJSONArray5.length(); i8++) {
+                                                arrayList.add(optJSONArray5.getString(i8));
                                             }
                                         } else {
                                             arrayList = null;
@@ -276,7 +253,7 @@ public class DnsResponse {
                                         jSONObject = optJSONObject;
                                         str6 = str22;
                                         str5 = str21;
-                                        this.dnsMap.put(next3, new DnsModel(str17, i7, str3, str19, str2, i, z, optLong, ipList, arrayList9));
+                                        this.dnsMap.put(next3, new DnsModel(str17, i5, str3, str19, str2, i, z, optLong, ipList, arrayList9));
                                     } else {
                                         str16 = str21;
                                     }
@@ -301,109 +278,54 @@ public class DnsResponse {
     }
 
     public int getAddressType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mAddressType;
-        }
-        return invokeV.intValue;
+        return this.mAddressType;
     }
 
     public String getAreaInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mAreaInfo;
-        }
-        return (String) invokeV.objValue;
+        return this.mAreaInfo;
     }
 
     public Map<String, DnsModel> getBackUpDnsMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            HashMap<String, DnsModel> hashMap = this.backupDnsMap;
-            if (hashMap != null) {
-                return Collections.unmodifiableMap(hashMap);
-            }
-            return null;
+        HashMap<String, DnsModel> hashMap = this.backupDnsMap;
+        if (hashMap != null) {
+            return Collections.unmodifiableMap(hashMap);
         }
-        return (Map) invokeV.objValue;
+        return null;
     }
 
     public String getBackUpString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.backupIpString;
-        }
-        return (String) invokeV.objValue;
+        return this.backupIpString;
     }
 
     public String getBackUpVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.backupIpVersion;
-        }
-        return (String) invokeV.objValue;
+        return this.backupIpVersion;
     }
 
     public String getClientIp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mClientIp;
-        }
-        return (String) invokeV.objValue;
+        return this.mClientIp;
     }
 
     public Map<String, DnsModel> getDnsMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            HashMap<String, DnsModel> hashMap = this.dnsMap;
-            if (hashMap != null) {
-                return Collections.unmodifiableMap(hashMap);
-            }
-            return null;
+        HashMap<String, DnsModel> hashMap = this.dnsMap;
+        if (hashMap != null) {
+            return Collections.unmodifiableMap(hashMap);
         }
-        return (Map) invokeV.objValue;
+        return null;
     }
 
     public String getHttpdnsIp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.mHttpdnsIp;
-        }
-        return (String) invokeV.objValue;
+        return this.mHttpdnsIp;
     }
 
     public boolean getIdcToBgp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.mIdcToBgp;
-        }
-        return invokeV.booleanValue;
+        return this.mIdcToBgp;
     }
 
     public boolean hasExtInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.hasExtInfo;
-        }
-        return invokeV.booleanValue;
+        return this.hasExtInfo;
     }
 
     public boolean isIPv6TestArea() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.isIPv6TestArea;
-        }
-        return invokeV.booleanValue;
+        return this.isIPv6TestArea;
     }
 }

@@ -1,16 +1,8 @@
 package com.baidu.sapi2.utils;
 
 import android.util.Base64;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class SapiHost {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_INTERCEPT_URL = "aHR0cHM6Ly93YXAuYmFpZHUuY29tL2FjdGlvbl9pbnRlcmNlcHRfYW5kcm9pZA==";
     public static final String DOMAIN_BAIDU_HTTPS_URL = "aHR0cHM6Ly93d3cuYmFpZHUuY29t";
     public static final String DOMAIN_NSCLICK_URL = "aHR0cHM6Ly9uc2NsaWNrLmJhaWR1LmNvbS92LmdpZg==";
@@ -24,47 +16,12 @@ public class SapiHost {
     public static final String DOMAIN_QA_PASSPORT_URL = "aHR0cDovL3Bhc3Nwb3J0LnFhdGVzdC5iYWlkdS5jb20=";
     public static final String DOMAIN_QA_PORTRAIT_URL = "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==";
     public static String DOMAIN_QA_WAPPASS_URL = "aHR0cDovL3dhcHBhc3MucWF0ZXN0LmJhaWR1LmNvbQ==";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(977284860, "Lcom/baidu/sapi2/utils/SapiHost;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(977284860, "Lcom/baidu/sapi2/utils/SapiHost;");
-        }
-    }
-
-    public SapiHost() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
 
     public static String getHost(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                return new String(Base64.decode(str.getBytes(), 0));
-            } catch (Exception unused) {
-                return "";
-            }
+        try {
+            return new String(Base64.decode(str.getBytes(), 0));
+        } catch (Exception unused) {
+            return "";
         }
-        return (String) invokeL.objValue;
     }
 }

@@ -2,144 +2,63 @@ package com.baidu.swan.apps.extcore.cores;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.swan.apps.process.SwanAppIPCData;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class SwanAppCores extends SwanAppIPCData {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<SwanAppCores> CREATOR;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final Parcelable.Creator<SwanAppCores> CREATOR = new a();
     public ExtensionCore mExtensionCore;
     public SwanCoreVersion mSwanCoreVersion;
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
+        return 0;
+    }
+
+    public SwanAppCores() {
+    }
+
+    public ExtensionCore getExtensionCore() {
+        return this.mExtensionCore;
+    }
+
+    public SwanCoreVersion getSwanCoreVersion() {
+        return this.mSwanCoreVersion;
+    }
+
+    public String toString() {
+        return "SwanAppCores{mSwanCoreVersion=" + this.mSwanCoreVersion + ", mExtensionCore=" + this.mExtensionCore + '}';
     }
 
     /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<SwanAppCores> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
         public SwanAppCores createFromParcel(Parcel parcel) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
-                return new SwanAppCores(parcel, null);
-            }
-            return (SwanAppCores) invokeL.objValue;
+            return new SwanAppCores(parcel, null);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
         public SwanAppCores[] newArray(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-                return new SwanAppCores[i];
-            }
-            return (SwanAppCores[]) invokeI.objValue;
+            return new SwanAppCores[i];
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1842297920, "Lcom/baidu/swan/apps/extcore/cores/SwanAppCores;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1842297920, "Lcom/baidu/swan/apps/extcore/cores/SwanAppCores;");
-                return;
-            }
-        }
-        CREATOR = new a();
-    }
-
-    public SwanAppCores() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public ExtensionCore getExtensionCore() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mExtensionCore;
-        }
-        return (ExtensionCore) invokeV.objValue;
-    }
-
-    public SwanCoreVersion getSwanCoreVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mSwanCoreVersion;
-        }
-        return (SwanCoreVersion) invokeV.objValue;
     }
 
     public SwanAppCores(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.mSwanCoreVersion = (SwanCoreVersion) parcel.readParcelable(SwanCoreVersion.class.getClassLoader());
         this.mExtensionCore = (ExtensionCore) parcel.readParcelable(ExtensionCore.class.getClassLoader());
+    }
+
+    public void setExtensionCore(ExtensionCore extensionCore) {
+        this.mExtensionCore = extensionCore;
+    }
+
+    public void setSwanCoreVersion(SwanCoreVersion swanCoreVersion) {
+        this.mSwanCoreVersion = swanCoreVersion;
     }
 
     public /* synthetic */ SwanAppCores(Parcel parcel, a aVar) {
@@ -148,33 +67,7 @@ public class SwanAppCores extends SwanAppIPCData {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i) == null) {
-            parcel.writeParcelable(this.mSwanCoreVersion, i);
-            parcel.writeParcelable(this.mExtensionCore, i);
-        }
-    }
-
-    public void setExtensionCore(ExtensionCore extensionCore) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, extensionCore) == null) {
-            this.mExtensionCore = extensionCore;
-        }
-    }
-
-    public void setSwanCoreVersion(SwanCoreVersion swanCoreVersion) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, swanCoreVersion) == null) {
-            this.mSwanCoreVersion = swanCoreVersion;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "SwanAppCores{mSwanCoreVersion=" + this.mSwanCoreVersion + ", mExtensionCore=" + this.mExtensionCore + '}';
-        }
-        return (String) invokeV.objValue;
+        parcel.writeParcelable(this.mSwanCoreVersion, i);
+        parcel.writeParcelable(this.mExtensionCore, i);
     }
 }

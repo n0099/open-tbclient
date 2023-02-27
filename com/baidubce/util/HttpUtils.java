@@ -1,7 +1,6 @@
 package com.baidubce.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.encrypt.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -139,12 +138,12 @@ public class HttpUtils {
                     String value = entry.getValue();
                     if (value == null) {
                         if (z) {
-                            arrayList.add(normalize(key) + a.h);
+                            arrayList.add(normalize(key) + '=');
                         } else {
                             arrayList.add(normalize(key));
                         }
                     } else {
-                        arrayList.add(normalize(key) + a.h + normalize(value));
+                        arrayList.add(normalize(key) + '=' + normalize(value));
                     }
                 }
             }

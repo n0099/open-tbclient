@@ -1,5 +1,6 @@
 package com.baidu.ueg.encrypt.entity;
 
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +29,7 @@ public final class EncryptAlgorithm {
                 return;
             }
         }
-        EncryptAlgorithm encryptAlgorithm = new EncryptAlgorithm("RSA", 0);
+        EncryptAlgorithm encryptAlgorithm = new EncryptAlgorithm(RSAUtil.ALGORITHM_RSA, 0);
         RSA = encryptAlgorithm;
         $VALUES = new EncryptAlgorithm[]{encryptAlgorithm};
     }

@@ -1,99 +1,18 @@
 package com.baidu.pass.biometrics.face.liveness;
 
 import com.baidu.pass.biometrics.base.PassBiometricOperation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class PassFaceOperation implements PassBiometricOperation {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public OperationType operationType;
+    public OperationType operationType = OperationType.RECOGNIZE;
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class OperationType {
-        public static /* synthetic */ Interceptable $ic;
-        public static final OperationType RECOGNIZE;
-        public static final /* synthetic */ OperationType[] a;
-        public transient /* synthetic */ FieldHolder $fh;
+    public enum OperationType {
+        RECOGNIZE("RECOGNIZE");
+        
         public String operateName;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1360257437, "Lcom/baidu/pass/biometrics/face/liveness/PassFaceOperation$OperationType;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1360257437, "Lcom/baidu/pass/biometrics/face/liveness/PassFaceOperation$OperationType;");
-                    return;
-                }
-            }
-            OperationType operationType = new OperationType("RECOGNIZE", 0, "RECOGNIZE");
-            RECOGNIZE = operationType;
-            a = new OperationType[]{operationType};
+        OperationType(String str) {
+            this.operateName = str;
         }
-
-        public static OperationType[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return (OperationType[]) a.clone();
-            }
-            return (OperationType[]) invokeV.objValue;
-        }
-
-        public OperationType(String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i), str2};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str3 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.operateName = str2;
-        }
-
-        public static OperationType valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                return (OperationType) Enum.valueOf(OperationType.class, str);
-            }
-            return (OperationType) invokeL.objValue;
-        }
-    }
-
-    public PassFaceOperation() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.operationType = OperationType.RECOGNIZE;
     }
 }

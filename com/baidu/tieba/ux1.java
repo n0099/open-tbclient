@@ -1,564 +1,60 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
+import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Pair;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.messages.gfh.GfhKeyValue;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.request.task.ProgressInfo;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.player.widget.BdPlayerProgressView;
-import com.baidu.swan.apps.res.ui.BdMultiPicker;
-import com.baidu.tieba.c83;
-import com.baidu.tieba.w73;
-import com.baidu.tieba.x73;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.re3;
+import com.baidu.tieba.ve3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-import org.json.JSONArray;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import java.util.Arrays;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ux1 extends px1 {
+public class ux1 extends rx1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public b83 f;
 
-    @Override // com.baidu.tieba.zw1
+    @Override // com.baidu.tieba.px1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "PickerApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "LoginApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements fo3<pe3<re3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ Date b;
-        public final /* synthetic */ Date c;
-        public final /* synthetic */ Date d;
-        public final /* synthetic */ boolean e;
-        public final /* synthetic */ String f;
-        public final /* synthetic */ String g;
-        public final /* synthetic */ ux1 h;
-
-        /* renamed from: com.baidu.tieba.ux1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class DialogInterface$OnCancelListenerC0448a implements DialogInterface.OnCancelListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public DialogInterface$OnCancelListenerC0448a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // android.content.DialogInterface.OnCancelListener
-            public void onCancel(DialogInterface dialogInterface) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                    a aVar = this.a;
-                    aVar.h.d(aVar.g, new w02(0));
-                    dialogInterface.dismiss();
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class b implements DialogInterface.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                    a aVar = this.a;
-                    aVar.h.d(aVar.g, new w02(0));
-                    dialogInterface.dismiss();
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class c implements DialogInterface.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public c(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                    dialogInterface.dismiss();
-                    c83 c83Var = (c83) dialogInterface;
-                    String format = String.format("%02d:%02d", Integer.valueOf(c83Var.f()), Integer.valueOf(c83Var.g()));
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("value", format);
-                        this.a.h.d(this.a.g, new w02(0, jSONObject));
-                    } catch (JSONException unused) {
-                    }
-                }
-            }
-        }
-
-        public a(ux1 ux1Var, String str, Date date, Date date2, Date date3, boolean z, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ux1Var, str, date, date2, date3, Boolean.valueOf(z), str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = ux1Var;
-            this.a = str;
-            this.b = date;
-            this.c = date2;
-            this.d = date3;
-            this.e = z;
-            this.f = str2;
-            this.g = str3;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c83.a aVar = new c83.a(this.h.getContext());
-                if (!TextUtils.isEmpty(this.a)) {
-                    aVar.n(this.a);
-                }
-                aVar.p(this.b);
-                aVar.m(this.c);
-                aVar.o(this.d);
-                aVar.l(this.e);
-                aVar.c(true);
-                aVar.g(this.f);
-                aVar.h(R.string.obfuscated_res_0x7f0f011c, new c(this));
-                aVar.d(R.string.obfuscated_res_0x7f0f0114, new b(this));
-                aVar.f(new DialogInterface$OnCancelListenerC0448a(this));
-                aVar.k();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ Date b;
-        public final /* synthetic */ Date c;
-        public final /* synthetic */ Date d;
-        public final /* synthetic */ boolean e;
-        public final /* synthetic */ String f;
-        public final /* synthetic */ String g;
-        public final /* synthetic */ ux1 h;
-
-        /* loaded from: classes6.dex */
-        public class a implements DialogInterface.OnCancelListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // android.content.DialogInterface.OnCancelListener
-            public void onCancel(DialogInterface dialogInterface) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                    b bVar = this.a;
-                    bVar.h.d(bVar.g, new w02(0));
-                    dialogInterface.dismiss();
-                }
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.ux1$b$b  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class DialogInterface$OnClickListenerC0449b implements DialogInterface.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public DialogInterface$OnClickListenerC0449b(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                    b bVar = this.a;
-                    bVar.h.d(bVar.g, new w02(0));
-                    dialogInterface.dismiss();
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class c implements DialogInterface.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public c(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                    dialogInterface.dismiss();
-                    if (dialogInterface instanceof w73) {
-                        String h = ((w73) dialogInterface).h();
-                        JSONObject jSONObject = new JSONObject();
-                        try {
-                            jSONObject.put("value", h);
-                            this.a.h.d(this.a.g, new w02(0, jSONObject));
-                        } catch (JSONException unused) {
-                            b bVar = this.a;
-                            bVar.h.d(bVar.g, new w02(202));
-                        }
-                    }
-                }
-            }
-        }
-
-        public b(ux1 ux1Var, String str, Date date, Date date2, Date date3, boolean z, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ux1Var, str, date, date2, date3, Boolean.valueOf(z), str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = ux1Var;
-            this.a = str;
-            this.b = date;
-            this.c = date2;
-            this.d = date3;
-            this.e = z;
-            this.f = str2;
-            this.g = str3;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                w73.a aVar = new w73.a(this.h.getContext());
-                if (!TextUtils.isEmpty(this.a)) {
-                    aVar.n(this.a);
-                }
-                aVar.p(this.b);
-                aVar.m(this.c);
-                aVar.o(this.d);
-                aVar.l(this.e);
-                aVar.c(true);
-                aVar.g(this.f);
-                aVar.h(R.string.obfuscated_res_0x7f0f011c, new c(this));
-                aVar.d(R.string.obfuscated_res_0x7f0f0114, new DialogInterface$OnClickListenerC0449b(this));
-                aVar.f(new a(this));
-                aVar.k();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONArray a;
-        public final /* synthetic */ JSONArray b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ String d;
+        public final /* synthetic */ m93 a;
+        public final /* synthetic */ Activity b;
+        public final /* synthetic */ JSONObject c;
+        public final /* synthetic */ CallbackHandler d;
         public final /* synthetic */ String e;
-        public final /* synthetic */ ux1 f;
+        public final /* synthetic */ String f;
+        public final /* synthetic */ ux1 g;
 
-        /* loaded from: classes6.dex */
-        public class a implements DialogInterface.OnCancelListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public a(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            @Override // android.content.DialogInterface.OnCancelListener
-            public void onCancel(DialogInterface dialogInterface) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                    d dVar = this.a;
-                    dVar.f.K(dialogInterface, dVar.c, dVar.d);
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class b implements DialogInterface.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public b(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                    d dVar = this.a;
-                    dVar.f.K(dialogInterface, dVar.c, dVar.d);
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class c implements DialogInterface.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public c(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                    dialogInterface.dismiss();
-                    this.a.f.f = null;
-                    try {
-                        JSONArray f = ((x73) dialogInterface).f();
-                        JSONObject jSONObject = new JSONObject();
-                        if (f != null && f.length() > 0) {
-                            if (this.a.c) {
-                                jSONObject.put("value", f.optInt(0));
-                            } else {
-                                jSONObject.put("value", f);
-                                jSONObject.put("type", "confirm");
-                            }
-                        }
-                        this.a.f.d(this.a.d, new w02(0, jSONObject));
-                    } catch (JSONException unused) {
-                    }
-                }
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.ux1$d$d  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0450d implements BdMultiPicker.b {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public C0450d(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            @Override // com.baidu.swan.apps.res.ui.BdMultiPicker.b
-            public void a(BdMultiPicker bdMultiPicker, JSONObject jSONObject) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048576, this, bdMultiPicker, jSONObject) == null) {
-                    try {
-                        JSONObject jSONObject2 = new JSONObject(jSONObject.toString());
-                        jSONObject2.put("type", "columnChange");
-                        this.a.f.d(this.a.d, new w02(0, jSONObject2));
-                    } catch (JSONException unused) {
-                        d dVar = this.a;
-                        dVar.f.d(dVar.d, new w02(202));
-                    }
-                }
-            }
-        }
-
-        public d(ux1 ux1Var, JSONArray jSONArray, JSONArray jSONArray2, boolean z, JSONObject jSONObject, String str, String str2) {
+        public a(ux1 ux1Var, m93 m93Var, Activity activity, JSONObject jSONObject, CallbackHandler callbackHandler, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ux1Var, jSONArray, jSONArray2, Boolean.valueOf(z), jSONObject, str, str2};
+                Object[] objArr = {ux1Var, m93Var, activity, jSONObject, callbackHandler, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -568,402 +64,482 @@ public class ux1 extends px1 {
                     return;
                 }
             }
-            this.f = ux1Var;
-            this.a = jSONArray;
-            this.b = jSONArray2;
-            this.c = z;
-            this.d = str;
-            this.e = str2;
+            this.g = ux1Var;
+            this.a = m93Var;
+            this.b = activity;
+            this.c = jSONObject;
+            this.d = callbackHandler;
+            this.e = str;
+            this.f = str2;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fo3
+        /* renamed from: b */
+        public void a(pe3<re3.e> pe3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x73.a aVar = new x73.a(this.f.getContext());
-                ux1 ux1Var = this.f;
-                aVar.l(this.a);
-                aVar.m(this.b);
-                aVar.o(this.c);
-                aVar.n(new C0450d(this));
-                aVar.c(true);
-                aVar.g(this.e);
-                aVar.h(R.string.obfuscated_res_0x7f0f011c, new c(this));
-                aVar.d(R.string.obfuscated_res_0x7f0f0114, new b(this));
-                aVar.f(new a(this));
-                ux1Var.f = aVar.k();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pe3Var) == null) {
+                if (ke3.h(pe3Var)) {
+                    if (ux1.f) {
+                        Log.i("LoginApi", "onCallback: has permissionscope_login_api");
+                    }
+                    ux1.D(this.a, this.b, this.c, this.d, this.e, true, this.f);
+                    return;
+                }
+                if (!this.a.N().e(this.b)) {
+                    fg3.S("check_fail", 1, "api");
+                }
+                int b = pe3Var.b();
+                String f = ke3.f(b);
+                ux1 ux1Var = this.g;
+                ux1Var.p("#login errCode=" + b + " errMsg=" + f, null, false);
+                this.g.d(this.e, new m12(b, ke3.f(b)));
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements Runnable {
+    public static class b implements fo3<pe3<ve3.d>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ JSONArray b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ ux1 d;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ JSONObject c;
+        public final /* synthetic */ d d;
+        public final /* synthetic */ CallbackHandler e;
+        public final /* synthetic */ String f;
+        public final /* synthetic */ m93 g;
+        public final /* synthetic */ String h;
 
-        public c(ux1 ux1Var, int i, JSONArray jSONArray, int i2) {
+        public b(boolean z, boolean z2, JSONObject jSONObject, d dVar, CallbackHandler callbackHandler, String str, m93 m93Var, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ux1Var, Integer.valueOf(i), jSONArray, Integer.valueOf(i2)};
+                Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), jSONObject, dVar, callbackHandler, str, m93Var, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.d = ux1Var;
-            this.a = i;
-            this.b = jSONArray;
-            this.c = i2;
+            this.a = z;
+            this.b = z2;
+            this.c = jSONObject;
+            this.d = dVar;
+            this.e = callbackHandler;
+            this.f = str;
+            this.g = m93Var;
+            this.h = str2;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fo3
+        /* renamed from: b */
+        public void a(pe3<ve3.d> pe3Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.d.f != null) {
-                ((x73) this.d.f).k(this.a, this.b, this.c);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pe3Var) == null) {
+                m62.k("LoginApi", "#handleLogin errCode=" + pe3Var.b() + " error=" + pe3Var.a());
+                if (!pe3Var.c()) {
+                    if (!this.a && this.b) {
+                        fg3.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 1, this.c.optString("invokeFrom"));
+                        m62.k("LoginApi", "Error: login failed from api-invoking.");
+                    }
+                    int b = pe3Var.b();
+                    m62.o("LoginApi", b + " " + this.d.toString());
+                    String f = ke3.f(b);
+                    this.e.handleSchemeDispatchCallback(this.f, UnitedSchemeUtility.wrapCallbackParams(b, f).toString());
+                    us2.j().f(this.e, UnitedSchemeUtility.wrapCallbackParams(b, f).toString());
+                    ux1.J(this.g, 43, b, f);
+                    String str = "#handleLogin [login failed] errCode=" + b + " errMsg=" + f;
+                    m62.k("LoginApi", str);
+                    fg3.U(this.h, com.baidu.pass.biometrics.face.liveness.b.a.g0, str);
+                    return;
+                }
+                if (!this.a && this.b) {
+                    fg3.S("success", 1, this.c.optString("invokeFrom"));
+                    m62.k("LoginApi", "Success: login success from api-invoking.");
+                }
+                if (ux1.G(this.c)) {
+                    this.e.handleSchemeDispatchCallback(this.f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                    m62.k("LoginApi", "Success: login success from component-invoking.");
+                    fg3.U(this.h, "success", "Success: login success from component-invoking.");
+                    return;
+                }
+                fg3.T(this.h, "getLoginCodeStart");
+                if (TextUtils.isEmpty(pe3Var.a.a)) {
+                    this.e.handleSchemeDispatchCallback(this.f, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
+                    us2.j().f(this.e, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
+                    ux1.J(this.g, 43, 1001, "empty code");
+                    fg3.U(this.h, com.baidu.pass.biometrics.face.liveness.b.a.g0, "empty code");
+                    return;
+                }
+                String optString = this.c.optString("__plugin__");
+                if (!TextUtils.isEmpty(optString)) {
+                    ux1.E(optString, this.g, this.e, this.f, pe3Var, this.h);
+                } else {
+                    ux1.F(this.g, this.e, this.f, pe3Var, this.h);
+                }
             }
         }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c implements fo3<ye3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ m93 e;
+        public final /* synthetic */ pe3 f;
+
+        public c(CallbackHandler callbackHandler, String str, String str2, String str3, m93 m93Var, pe3 pe3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {callbackHandler, str, str2, str3, m93Var, pe3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = str2;
+            this.d = str3;
+            this.e = m93Var;
+            this.f = pe3Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fo3
+        /* renamed from: b */
+        public void a(ye3 ye3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ye3Var) == null) {
+                if (ye3Var == null || !ye3Var.D()) {
+                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(403, "permission denied").toString());
+                    String str = "Error: scope snsapi_userinfopermission denied plugin appkey : " + this.c + " from plugin-invoking.";
+                    m62.k("LoginApi", str);
+                    fg3.U(this.d, com.baidu.pass.biometrics.face.liveness.b.a.g0, str);
+                    return;
+                }
+                ux1.F(this.e, this.a, this.b, this.f, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final boolean a;
+        public final long b;
+
+        public d(@NonNull JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jSONObject.has("timeout");
+            long optLong = jSONObject.optLong("timeout", 0L);
+            this.b = optLong;
+            if (optLong < 0) {
+                m62.o("LoginApi", "timeout is a minus：" + toString());
+            }
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "LoginTimeoutConfig{enableTimeout=" + this.a + ", timeoutMills=" + this.b + '}';
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948226267, "Lcom/baidu/tieba/ux1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948226267, "Lcom/baidu/tieba/ux1;");
+                return;
+            }
+        }
+        f = wp1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ux1(@NonNull xw1 xw1Var) {
-        super(xw1Var);
+    public ux1(@NonNull nx1 nx1Var) {
+        super(nx1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xw1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {nx1Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((xw1) newInitContext.callArgs[0]);
+                super((nx1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    public w02 G(String str) {
-        InterceptResult invokeL;
+    public static void D(m93 m93Var, Activity activity, JSONObject jSONObject, CallbackHandler callbackHandler, String str, boolean z, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new w02(202);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{m93Var, activity, jSONObject, callbackHandler, str, Boolean.valueOf(z), str2}) == null) {
+            String optString = jSONObject.optString("invokeFrom");
+            boolean e = m93Var.N().e(activity);
+            if (!e) {
+                fg3.S("show", 1, optString);
             }
-            Pair<w02, JSONObject> s = s(str);
-            w02 w02Var = (w02) s.first;
-            if (!w02Var.isSuccess()) {
-                w52.c("PickerApi", "parse fail");
-                return w02Var;
-            }
-            return E((JSONObject) s.second, false);
+            d dVar = new d(jSONObject);
+            m93Var.e0().r(activity, dVar, null, new b(e, z, jSONObject, dVar, callbackHandler, str, m93Var, str2), str2);
         }
-        return (w02) invokeL.objValue;
     }
 
-    public final w02 D(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Date date;
+    public static void E(String str, m93 m93Var, CallbackHandler callbackHandler, String str2, pe3<ve3.d> pe3Var, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            boolean optBoolean = jSONObject.optBoolean("disabled", false);
-            String optString = jSONObject.optString("start");
-            String optString2 = jSONObject.optString("end");
-            String optString3 = jSONObject.optString("value");
-            String optString4 = jSONObject.optString("title");
-            String optString5 = jSONObject.optString("fields");
-            String[] strArr = {"yyyy-MM-dd", "yyyy-MM", "yyyy"};
-            Date I = I(optString, strArr, "1900-01-01");
-            Date I2 = I(optString2, strArr, "2099-12-31");
-            if (I != null && I2 != null && !I2.before(I)) {
-                String optString6 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString6)) {
-                    w52.c("PickerApi", "callback is null");
-                    return new w02(1001, "callback is null");
-                }
-                Date I3 = I(optString3, strArr, null);
-                if (I3 == null) {
-                    I3 = new Date();
-                }
-                if (I3.before(I)) {
-                    date = I;
-                } else if (I3.after(I2)) {
-                    date = I2;
-                } else {
-                    date = I3;
-                }
-                qm3.e0(new b(this, optString5, I, I2, date, optBoolean, optString4, optString6));
-                return new w02(0);
-            }
-            return new w02(202);
-        }
-        return (w02) invokeL.objValue;
-    }
-
-    public final w02 F(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            boolean optBoolean = jSONObject.optBoolean("disabled", false);
-            String optString = jSONObject.optString("start");
-            String optString2 = jSONObject.optString("end");
-            String optString3 = jSONObject.optString("value");
-            String optString4 = jSONObject.optString("title");
-            String optString5 = jSONObject.optString("fields");
-            if (TextUtils.isEmpty(optString)) {
-                optString = BdPlayerProgressView.DEFAULT_TIME_TEXT;
-            }
-            if (TextUtils.isEmpty(optString2)) {
-                optString2 = "23:59";
-            }
-            Date J = J(optString);
-            Date J2 = J(optString2);
-            Date J3 = J(optString3);
-            if (J3 == null) {
-                J3 = J(new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date()));
-            }
-            Date date = J3;
-            if (J != null && J2 != null && !J2.before(J) && date != null) {
-                String optString6 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString6)) {
-                    w52.c("PickerApi", "callback is null");
-                    return new w02(1001, "callback is null");
-                }
-                qm3.e0(new a(this, optString5, J, J2, date, optBoolean, optString4, optString6));
-                return new w02(0);
-            }
-            return new w02(202);
-        }
-        return (w02) invokeL.objValue;
-    }
-
-    public final w02 E(JSONObject jSONObject, boolean z) {
-        InterceptResult invokeLZ;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, z)) == null) {
-            if (this.f != null) {
-                return new w02(1001);
-            }
-            JSONArray jSONArray = new JSONArray();
-            JSONArray jSONArray2 = new JSONArray();
-            String str2 = null;
-            if (jSONObject != null) {
-                jSONArray = jSONObject.optJSONArray("array");
-                jSONArray2 = jSONObject.optJSONArray(ProgressInfo.JSON_KEY_CURRENT);
-                str2 = jSONObject.optString("cb");
-                str = jSONObject.optString("title");
-            } else {
-                str = "";
-            }
-            JSONArray jSONArray3 = jSONArray;
-            JSONArray jSONArray4 = jSONArray2;
-            String str3 = str2;
-            String str4 = str;
-            if (TextUtils.isEmpty(str3)) {
-                w52.c("PickerApi", "callback is null");
-                return new w02(1001, "callback is null");
-            }
-            qm3.e0(new d(this, jSONArray3, jSONArray4, z, jSONObject, str3, str4));
-            return new w02(0);
-        }
-        return (w02) invokeLZ.objValue;
-    }
-
-    public w02 H(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new w02(202);
-            }
-            Pair<w02, JSONObject> s = s(str);
-            w02 w02Var = (w02) s.first;
-            if (!w02Var.isSuccess()) {
-                w52.c("PickerApi", "parse fail");
-                return w02Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (jSONObject == null) {
-                return new w02(202);
-            }
-            JSONArray optJSONArray = jSONObject.optJSONArray("array");
-            int optInt = jSONObject.optInt(ProgressInfo.JSON_KEY_CURRENT);
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                JSONArray jSONArray = new JSONArray();
-                jSONArray.put(optJSONArray);
-                JSONArray jSONArray2 = new JSONArray();
-                jSONArray2.put(optInt);
-                try {
-                    jSONObject.put("array", jSONArray);
-                    jSONObject.put(ProgressInfo.JSON_KEY_CURRENT, jSONArray2);
-                    return E(jSONObject, true);
-                } catch (JSONException unused) {
-                    return new w02(1001);
-                }
-            }
-            return new w02(202);
-        }
-        return (w02) invokeL.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0053, code lost:
-        if (r0.equals("time") == false) goto L29;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public w02 L(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            char c2 = 0;
-            q("#showDatePickerView", false);
-            Pair<w02, JSONObject> s = s(str);
-            w02 w02Var = (w02) s.first;
-            if (!w02Var.isSuccess()) {
-                return w02Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (jSONObject == null) {
-                return new w02(1001);
-            }
-            String optString = jSONObject.optString("mode");
-            if (TextUtils.isEmpty(optString)) {
-                return new w02(202);
-            }
-            int hashCode = optString.hashCode();
-            if (hashCode != 3076014) {
-                if (hashCode == 3560141) {
-                }
-                c2 = 65535;
-            } else {
-                if (optString.equals(GfhKeyValue.TYPE_DATE)) {
-                    c2 = 1;
-                }
-                c2 = 65535;
-            }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    return new w02(202);
-                }
-                return D(jSONObject);
-            }
-            return F(jSONObject);
-        }
-        return (w02) invokeL.objValue;
-    }
-
-    public w02 M(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new w02(202);
-            }
-            if (this.f == null) {
-                return new w02(1001);
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int optInt = jSONObject.optInt(CriusAttrConstants.COLUMN);
-                JSONArray optJSONArray = jSONObject.optJSONArray("array");
-                int optInt2 = jSONObject.optInt(ProgressInfo.JSON_KEY_CURRENT);
-                String optString = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    w52.c("PickerApi", "callback is null");
-                    return new w02(1001, "callback is null");
-                }
-                if (optJSONArray != null) {
-                    qm3.e0(new c(this, optInt, optJSONArray, optInt2));
-                    d(optString, new w02(0, jSONObject));
-                }
-                return new w02(0);
-            } catch (JSONException unused) {
-                return new w02(202);
-            }
-        }
-        return (w02) invokeL.objValue;
-    }
-
-    public final Date I(String str, String[] strArr, String str2) {
-        InterceptResult invokeLLL;
-        Date date;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, str, strArr, str2)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                date = kl3.d(str, strArr);
-            } else {
-                date = null;
-            }
-            if (date == null && !TextUtils.isEmpty(str2)) {
-                return kl3.d(str2, strArr);
-            }
-            return date;
-        }
-        return (Date) invokeLLL.objValue;
-    }
-
-    public final Date J(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new Date();
-            }
-            if (!str.contains(":") || (split = str.split(":")) == null || split.length != 2) {
-                return null;
-            }
-            try {
-                Date date = new Date();
-                try {
-                    int parseInt = Integer.parseInt(split[0]);
-                    if (parseInt >= 0 && parseInt < 24) {
-                        date.setHours(parseInt);
-                    }
-                    int parseInt2 = Integer.parseInt(split[1]);
-                    if (parseInt2 >= 0 && parseInt2 < 60) {
-                        date.setMinutes(parseInt2);
-                    }
-                } catch (NumberFormatException unused) {
-                }
-                return date;
-            } catch (NumberFormatException unused2) {
-                return null;
-            }
-        }
-        return (Date) invokeL.objValue;
-    }
-
-    public final void K(DialogInterface dialogInterface, boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{dialogInterface, Boolean.valueOf(z), str}) == null) {
-            dialogInterface.dismiss();
-            this.f = null;
-            if (z) {
-                d(str, new w02(0));
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, m93Var, callbackHandler, str2, pe3Var, str3}) == null) {
+            SwanAppActivity w = m93Var.w();
+            if (w == null) {
+                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(1001, "swan activity is null").toString());
+                m62.k("LoginApi", "Error: activity is null from plugin-invoking.");
+                fg3.U(str3, com.baidu.pass.biometrics.face.liveness.b.a.g0, "swan activity is null");
                 return;
             }
+            String f2 = k53.f(str);
+            ye3.B(w, "snsapi_userinfo", f2, false, str3, new c(callbackHandler, str2, f2, str3, m93Var, pe3Var));
+        }
+    }
+
+    public static void F(m93 m93Var, CallbackHandler callbackHandler, String str, pe3<ve3.d> pe3Var, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65542, null, m93Var, callbackHandler, str, pe3Var, str2) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("type", "cancel");
-                d(str, new w02(0, jSONObject));
-            } catch (JSONException unused) {
-                d(str, new w02(202));
+                jSONObject.put("code", pe3Var.a.a);
+                m62.k("LoginApi", "Success: call back msg = " + jSONObject.toString());
+                s73.c.e();
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, pe3Var.b()).toString());
+                fg3.T(str2, "success");
+            } catch (JSONException e) {
+                if (f) {
+                    e.printStackTrace();
+                }
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, e.getMessage()).toString());
+                us2.j().f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, e.getMessage()).toString());
+                J(m93Var, 43, 1001, e.getMessage());
+                String str3 = "Error: exception = " + e.getMessage() + " stack trace = " + Arrays.toString(e.getStackTrace());
+                m62.k("LoginApi", str3);
+                fg3.U(str2, com.baidu.pass.biometrics.face.liveness.b.a.g0, str3);
             }
         }
+    }
+
+    public static boolean G(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, jSONObject)) == null) {
+            return NativeConstants.COMPONENT.equals(jSONObject.optString("invokeFrom"));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void J(m93 m93Var, int i, int i2, String str) {
+        int k;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65544, null, new Object[]{m93Var, Integer.valueOf(i), Integer.valueOf(i2), str}) != null) || m93Var == null || (k = m93Var.k()) != 0) {
+            return;
+        }
+        fl3 fl3Var = new fl3();
+        fl3Var.k(5L);
+        fl3Var.i(i);
+        ng3 ng3Var = new ng3();
+        ng3Var.p(fl3Var);
+        ng3Var.r(m93Var.Y());
+        ng3Var.q(fg3.n(k));
+        ng3Var.m(m93.g0());
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("errorCode", i2);
+            jSONObject.put("errorMessage", str);
+        } catch (JSONException e) {
+            if (f) {
+                e.printStackTrace();
+            }
+        }
+        ng3Var.e(jSONObject);
+        fg3.R(ng3Var);
+    }
+
+    public m12 C(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            q("#getLoginCode", false);
+            if (f) {
+                Log.d("LoginApi", "#getLoginCode params=" + str);
+            }
+            fg3.T("getLoginCode", "create");
+            CallbackHandler g = a().g();
+            m93 b0 = m93.b0();
+            if (b0 == null) {
+                us2.j().f(g, UnitedSchemeUtility.wrapCallbackParams(1001, "swan app is null").toString());
+                return new m12(1001, "swan app is null");
+            } else if (!b0.N().e(getContext())) {
+                fg3.T("getLoginCode", com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                return new m12(10004, "user not logged in");
+            } else {
+                JSONObject r = px1.r(str);
+                if (r == null) {
+                    us2.j().f(g, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
+                    J(b0, 1, 201, "empty joParams");
+                    fg3.T("getLoginCode", com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                    return new m12(201, "empty joParams");
+                }
+                String optString = r.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    us2.j().f(g, UnitedSchemeUtility.wrapCallbackParams(201, "cb is empty").toString());
+                    J(b0, 1, 201, "cb is empty");
+                    fg3.T("getLoginCode", com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                    return new m12(201, "cb is empty");
+                }
+                Context context = getContext();
+                if (!(context instanceof Activity) && (context = b0.w()) == null) {
+                    fg3.T("getLoginCode", com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                    return new m12(1001, "the context is not an activity");
+                }
+                Activity activity = (Activity) context;
+                if (!l93.K().q().N().e(context)) {
+                    fg3.T("getLoginCode", "passLogin");
+                }
+                D(b0, activity, r, g, optString, false, "getLoginCode");
+                return m12.f();
+            }
+        }
+        return (m12) invokeL.objValue;
+    }
+
+    public m12 H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#isLoginSync", false);
+            m93 b0 = m93.b0();
+            if (b0 == null) {
+                m62.c("LoginApi", "swan app is null");
+                return new m12(202, "swan app is null");
+            }
+            JSONObject d2 = a33.c().d("isLoginSync");
+            if (d2 == null) {
+                try {
+                    d2 = new JSONObject();
+                    d2.put("isLogin", b0.N().e(getContext()));
+                    a33.c().h("isLoginSync", d2);
+                } catch (JSONException unused) {
+                    m62.c("LoginApi", "json put data fail");
+                    return new m12(1001);
+                }
+            }
+            return new m12(0, d2);
+        }
+        return (m12) invokeV.objValue;
+    }
+
+    public m12 I(String str) {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#login params=" + str, false);
+            m93 b0 = m93.b0();
+            CallbackHandler g = a().g();
+            if (b0 == null) {
+                us2.j().f(g, UnitedSchemeUtility.wrapCallbackParams(1001, "swan app is null").toString());
+                m62.k("LoginApi", "Error: swan app is null");
+                return new m12(1001, "swan app is null");
+            }
+            JSONObject r = px1.r(str);
+            if (r == null) {
+                us2.j().f(g, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
+                J(b0, 1, 201, "empty joParams");
+                p("Error: empty joParams", null, true);
+                return new m12(201, "empty joParams");
+            }
+            if (r.optString("invokeFrom").equals(NativeConstants.COMPONENT)) {
+                str2 = "loginButton";
+            } else {
+                str2 = "loginApi";
+            }
+            String str3 = str2;
+            fg3.T(str3, "create");
+            String optString = r.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                us2.j().f(g, UnitedSchemeUtility.wrapCallbackParams(201, "cb is empty").toString());
+                J(b0, 1, 201, "cb is empty");
+                p("Error: cb is empty", null, true);
+                return new m12(201, "cb is empty");
+            } else if (!r.optBoolean(TTDownloadField.TT_FORCE, true) && !b0.N().e(getContext())) {
+                g.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
+                us2.j().f(g, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
+                J(b0, 43, 10004, "user not logged in");
+                q("Success: force login is false, will not force execute login.", false);
+                return new m12(0);
+            } else {
+                Context context = getContext();
+                if (!(context instanceof Activity) && (context = b0.w()) == null) {
+                    p("Error: context is not an activity", null, false);
+                    return new m12(1001, "the context is not an activity");
+                }
+                Activity activity = (Activity) context;
+                if (!l93.K().q().N().e(context)) {
+                    fg3.T(str3, "passLogin");
+                }
+                String optString2 = r.optString("__plugin__");
+                if (!TextUtils.isEmpty(optString2)) {
+                    p("handleLogin by plugin: " + optString2, null, false);
+                    D(b0, activity, r, g, optString, true, str3);
+                    return new m12(0);
+                }
+                if (!ke3.i(r)) {
+                    D(b0, activity, r, g, optString, true, str3);
+                } else {
+                    l93.K().q().e0().g(getContext(), "scope_login_api", new a(this, b0, activity, r, g, optString, str3));
+                }
+                return m12.f();
+            }
+        }
+        return (m12) invokeL.objValue;
     }
 }

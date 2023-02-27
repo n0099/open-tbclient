@@ -5,16 +5,10 @@ import androidx.media2.common.MediaItem;
 import androidx.media2.common.MediaMetadata;
 import androidx.media2.common.SessionPlayer;
 import androidx.media2.common.VideoSize;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.util.concurrent.ListenableFuture;
 import java.util.List;
 /* loaded from: classes.dex */
 public class MediaInterface {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public interface SessionPlaybackControl {
@@ -97,19 +91,5 @@ public class MediaInterface {
         ListenableFuture<SessionPlayer.PlayerResult> skipToPreviousItem();
 
         ListenableFuture<SessionPlayer.PlayerResult> updatePlaylistMetadata(MediaMetadata mediaMetadata);
-    }
-
-    public MediaInterface() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
     }
 }

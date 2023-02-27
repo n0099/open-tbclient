@@ -26,10 +26,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tbadk.util.ChatStatusManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ak7;
-import com.baidu.tieba.cl7;
-import com.baidu.tieba.fk7;
-import com.baidu.tieba.i95;
+import com.baidu.tieba.b25;
+import com.baidu.tieba.bn7;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.MemoryChangedMessage;
 import com.baidu.tieba.im.message.MemoryInitCompleteMessage;
@@ -39,13 +37,15 @@ import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
 import com.baidu.tieba.im.message.SettingChangeMessage;
 import com.baidu.tieba.im.model.AddMsgRecordModel;
 import com.baidu.tieba.im.model.OfficialBarTipModel;
-import com.baidu.tieba.j05;
-import com.baidu.tieba.m05;
-import com.baidu.tieba.s05;
-import com.baidu.tieba.u05;
-import com.baidu.tieba.xm7;
+import com.baidu.tieba.q15;
+import com.baidu.tieba.t15;
+import com.baidu.tieba.tp7;
+import com.baidu.tieba.ua5;
+import com.baidu.tieba.vm7;
+import com.baidu.tieba.wm7;
 import com.baidu.tieba.yb;
-import com.baidu.tieba.zj7;
+import com.baidu.tieba.yn7;
+import com.baidu.tieba.z15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,13 +57,13 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public OfficialBarTipModel a;
-    public fk7 b;
+    public bn7 b;
     public ImMessageCenterShowItemData c;
-    public m05 d;
+    public t15 d;
     public final CustomMessageListener e;
     public final yb f;
-    public zj7 g;
-    public final ak7 h;
+    public vm7 g;
+    public final wm7 h;
 
     /* loaded from: classes4.dex */
     public class b implements AdapterView.OnItemLongClickListener {
@@ -72,21 +72,21 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         public final /* synthetic */ OfficialBarTipActivity a;
 
         /* loaded from: classes4.dex */
-        public class a implements u05.f {
+        public class a implements b25.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ s05 a;
+            public final /* synthetic */ z15 a;
             public final /* synthetic */ ImMessageCenterShowItemData b;
             public final /* synthetic */ b c;
 
             /* renamed from: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
-            public class C0312a implements j05.e {
+            public class C0288a implements q15.e {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public C0312a(a aVar) {
+                public C0288a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,11 +104,11 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                     this.a = aVar;
                 }
 
-                @Override // com.baidu.tieba.j05.e
-                public void onClick(j05 j05Var) {
+                @Override // com.baidu.tieba.q15.e
+                public void onClick(q15 q15Var) {
                     Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeL(1048576, this, j05Var) == null) {
-                        j05Var.dismiss();
+                    if (interceptable == null || interceptable.invokeL(1048576, this, q15Var) == null) {
+                        q15Var.dismiss();
                         this.a.c.a.a.subscribeBar(false, this.a.b.getFriendId());
                         a aVar = this.a;
                         aVar.c.a.c = aVar.b;
@@ -118,11 +118,11 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
 
             /* renamed from: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity$b$a$b  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
-            public class C0313b implements j05.e {
+            public class C0289b implements q15.e {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                public C0313b(a aVar) {
+                public C0289b(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -138,21 +138,21 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                     }
                 }
 
-                @Override // com.baidu.tieba.j05.e
-                public void onClick(j05 j05Var) {
+                @Override // com.baidu.tieba.q15.e
+                public void onClick(q15 q15Var) {
                     Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeL(1048576, this, j05Var) == null) {
-                        j05Var.dismiss();
+                    if (interceptable == null || interceptable.invokeL(1048576, this, q15Var) == null) {
+                        q15Var.dismiss();
                     }
                 }
             }
 
-            public a(b bVar, s05 s05Var, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+            public a(b bVar, z15 z15Var, ImMessageCenterShowItemData imMessageCenterShowItemData) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, s05Var, imMessageCenterShowItemData};
+                    Object[] objArr = {bVar, z15Var, imMessageCenterShowItemData};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -163,23 +163,23 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                     }
                 }
                 this.c = bVar;
-                this.a = s05Var;
+                this.a = z15Var;
                 this.b = imMessageCenterShowItemData;
             }
 
-            @Override // com.baidu.tieba.u05.f
-            public void J0(u05 u05Var, int i, View view2) {
+            @Override // com.baidu.tieba.b25.f
+            public void J0(b25 b25Var, int i, View view2) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLIL(1048576, this, u05Var, i, view2) == null) {
-                    s05 s05Var = this.a;
-                    if (s05Var != null && s05Var.isShowing()) {
+                if (interceptable == null || interceptable.invokeLIL(1048576, this, b25Var, i, view2) == null) {
+                    z15 z15Var = this.a;
+                    if (z15Var != null && z15Var.isShowing()) {
                         this.a.dismiss();
                     }
                     if (i == 0) {
                         this.c.a.a.asyncDeleteItem(this.b, this.c.a.h);
                         return;
                     }
-                    j05 a = i95.a(this.c.a.getPageContext(), -1, R.string.make_sure_cancel_subscribe, R.string.obfuscated_res_0x7f0f045b, R.string.obfuscated_res_0x7f0f038c, new C0312a(this), new C0313b(this));
+                    q15 a = ua5.a(this.c.a.getPageContext(), -1, R.string.make_sure_cancel_subscribe, R.string.obfuscated_res_0x7f0f045b, R.string.obfuscated_res_0x7f0f038d, new C0288a(this), new C0289b(this));
                     a.setMessageShowCenter(true);
                     a.show();
                 }
@@ -229,9 +229,9 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                         return true;
                     }
                     String[] strArr = {TbadkCoreApplication.getInst().getString(R.string.delete_user_chat), TbadkCoreApplication.getInst().getString(R.string.cancel_subscribe)};
-                    s05 s05Var = new s05(this.a.getPageContext());
-                    s05Var.i(null, strArr, new a(this, s05Var, item));
-                    s05Var.k();
+                    z15 z15Var = new z15(this.a.getPageContext());
+                    z15Var.i(null, strArr, new a(this, z15Var, item));
+                    z15Var.k();
                 }
                 return true;
             }
@@ -403,7 +403,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
             }
             if (responseUpdateMaskInfoMessage.getError() != 0) {
                 if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                    errorString = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0d08);
+                    errorString = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0d11);
                 } else {
                     errorString = responseUpdateMaskInfoMessage.getErrorString();
                 }
@@ -415,7 +415,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     }
 
     /* loaded from: classes4.dex */
-    public class e implements zj7 {
+    public class e implements vm7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ OfficialBarTipActivity a;
@@ -438,7 +438,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
             this.a = officialBarTipActivity;
         }
 
-        @Override // com.baidu.tieba.zj7
+        @Override // com.baidu.tieba.vm7
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -482,7 +482,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                 if (TextUtils.isEmpty(this.a)) {
                     return null;
                 }
-                xm7.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), false);
+                tp7.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), false);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -490,7 +490,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     }
 
     /* loaded from: classes4.dex */
-    public class g implements ak7 {
+    public class g implements wm7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ OfficialBarTipActivity a;
@@ -513,7 +513,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
             this.a = officialBarTipActivity;
         }
 
-        @Override // com.baidu.tieba.ak7
+        @Override // com.baidu.tieba.wm7
         public void onCanceled() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -522,7 +522,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
             }
         }
 
-        @Override // com.baidu.tieba.ak7
+        @Override // com.baidu.tieba.wm7
         public void onPostExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -532,7 +532,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
             }
         }
 
-        @Override // com.baidu.tieba.ak7
+        @Override // com.baidu.tieba.wm7
         public void onPreExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -540,7 +540,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
             }
         }
 
-        @Override // com.baidu.tieba.ak7
+        @Override // com.baidu.tieba.wm7
         public void onProgressUpdate(int i, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
@@ -572,10 +572,10 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     }
 
     public final void S1() {
-        fk7 fk7Var;
+        bn7 bn7Var;
         OfficialBarTipModel officialBarTipModel;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (fk7Var = this.b) != null && fk7Var.p() != null && (officialBarTipModel = this.a) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (bn7Var = this.b) != null && bn7Var.p() != null && (officialBarTipModel = this.a) != null) {
             if (officialBarTipModel != null && officialBarTipModel.isEmpty()) {
                 finish();
             }
@@ -601,7 +601,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             N1();
             if (this.d == null) {
-                this.d = cl7.l().o(getPageContext().getPageActivity());
+                this.d = yn7.l().o(getPageContext().getPageActivity());
             }
             this.d.show();
             this.d.b(0);
@@ -674,8 +674,8 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     public final void N1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            m05 m05Var = this.d;
-            if (m05Var != null && m05Var.isShowing()) {
+            t15 t15Var = this.d;
+            if (t15Var != null && t15Var.isShowing()) {
                 this.d.dismiss();
                 this.d = null;
             }
@@ -717,17 +717,17 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     public final void Q1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            fk7 fk7Var = new fk7(this);
-            this.b = fk7Var;
-            fk7Var.q().setOnItemClickListener(new a(this));
+            bn7 bn7Var = new bn7(this);
+            this.b = bn7Var;
+            bn7Var.q().setOnItemClickListener(new a(this));
             this.b.q().setOnItemLongClickListener(new b(this));
         }
     }
 
     public final void R1() {
-        fk7 fk7Var;
+        bn7 bn7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (fk7Var = this.b) != null && fk7Var.p() != null) {
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (bn7Var = this.b) != null && bn7Var.p() != null) {
             this.b.p().notifyDataSetChanged();
         }
     }

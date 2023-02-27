@@ -1,38 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.data.SmallTailThemeData;
+import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import tbclient.ThreadInfo;
-import tbclient.VideoInfo;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetTails.ColorInfo;
+import tbclient.GetTails.ResData;
+import tbclient.GetTails.TailInfo;
 /* loaded from: classes6.dex */
-public class x58 implements Cdo {
+public class x58 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public String d;
-    public int e;
-    public int f;
-    public boolean g;
-    public ThreadData h;
+    public List<TailData> a;
+    public List<String> b;
+    public SmallTailThemeData c;
 
-    public x58(ThreadInfo threadInfo, boolean z) {
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        }
+    }
+
+    public x58() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadInfo, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,72 +40,79 @@ public class x58 implements Cdo {
                 return;
             }
         }
-        b(threadInfo);
-        this.g = z;
+        this.a = new ArrayList();
+        this.b = new ArrayList();
     }
 
-    public int a() {
+    public List<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+            return this.b;
         }
-        return invokeV.intValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
+    public SmallTailThemeData b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return w58.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (SmallTailThemeData) invokeV.objValue;
     }
 
-    public final void b(ThreadInfo threadInfo) {
+    public List<TailData> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo) != null) || threadInfo == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void d(ResData resData) {
+        List<TailInfo> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, resData) != null) || resData == null || (list = resData.tailList) == null) {
             return;
         }
-        ThreadData threadData = new ThreadData();
-        this.h = threadData;
-        threadData.parserProtobuf(threadInfo);
-        this.a = threadInfo.title;
-        this.b = threadInfo.reply_num.intValue();
-        this.c = threadInfo.agree_num.intValue();
-        if (!ListUtils.isEmpty(this.h.getMedias())) {
-            Iterator<MediaData> it = this.h.getMedias().iterator();
-            while (it.hasNext()) {
-                MediaData next = it.next();
-                if (next != null && next.getType() == 3) {
-                    String picUrl = next.getPicUrl();
-                    this.d = picUrl;
-                    if (StringUtils.isNull(picUrl)) {
-                        this.d = next.getSmallUrl();
-                    }
-                    if (StringUtils.isNull(this.d)) {
-                        this.d = next.getThumbnails_url();
-                    }
-                    if (StringUtils.isNull(this.d)) {
-                        this.d = next.getSrc_pic();
-                    }
-                    if (!StringUtils.isNull(this.d)) {
-                        break;
-                    }
+        for (TailInfo tailInfo : list) {
+            if (f(tailInfo)) {
+                TailData tailData = new TailData();
+                tailData.setContent(tailInfo.tailContent);
+                tailData.setFontColor(tailInfo.fontColor);
+                tailData.setFontType(tailInfo.fontKeyName);
+                tailData.setId(tailInfo.tailId.intValue());
+                boolean z = true;
+                if (tailInfo.is_selected.intValue() != 1) {
+                    z = false;
                 }
+                tailData.setSelected(z);
+                c().add(tailData);
             }
         }
-        VideoInfo videoInfo = threadInfo.video_info;
-        if (videoInfo != null) {
-            this.e = videoInfo.video_duration.intValue();
+        e(resData.default_color);
+        for (ColorInfo colorInfo : resData.colorList) {
+            a().add(colorInfo.fontColor);
+        }
+        if (resData.tail_style != null) {
+            this.c = new SmallTailThemeData(resData.tail_style);
+        } else {
+            this.c = SmallTailThemeData.DEFAULT;
         }
     }
 
-    public void c(int i) {
+    public final boolean f(TailInfo tailInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.f = i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tailInfo)) == null) {
+            Integer num = tailInfo.tailId;
+            if (num == null || num.intValue() == 0 || tailInfo.fontColor == null) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

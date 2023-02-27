@@ -1,25 +1,16 @@
 package org.webrtc;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class MediaStream {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MediaStream";
-    public transient /* synthetic */ FieldHolder $fh;
-    public final List<AudioTrack> audioTracks;
     public long nativeStream;
-    public final List<VideoTrack> preservedVideoTracks;
-    public final List<VideoTrack> videoTracks;
+    public final List<AudioTrack> audioTracks = new ArrayList();
+    public final List<VideoTrack> videoTracks = new ArrayList();
+    public final List<VideoTrack> preservedVideoTracks = new ArrayList();
 
     public static native boolean nativeAddAudioTrackToNativeStream(long j, long j2);
 
@@ -33,196 +24,120 @@ public class MediaStream {
 
     @CalledByNative
     public MediaStream(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.audioTracks = new ArrayList();
-        this.videoTracks = new ArrayList();
-        this.preservedVideoTracks = new ArrayList();
         this.nativeStream = j;
     }
 
+    @CalledByNative
+    public void addNativeAudioTrack(long j) {
+        this.audioTracks.add(new AudioTrack(j));
+    }
+
+    @CalledByNative
+    public void addNativeVideoTrack(long j) {
+        this.videoTracks.add(new VideoTrack(j));
+    }
+
+    public boolean addPreservedTrack(VideoTrack videoTrack) {
+        checkMediaStreamExists();
+        if (nativeAddVideoTrackToNativeStream(this.nativeStream, videoTrack.getNativeVideoTrack())) {
+            this.preservedVideoTracks.add(videoTrack);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean addTrack(AudioTrack audioTrack) {
+        checkMediaStreamExists();
+        if (nativeAddAudioTrackToNativeStream(this.nativeStream, audioTrack.getNativeAudioTrack())) {
+            this.audioTracks.add(audioTrack);
+            return true;
+        }
+        return false;
+    }
+
+    @CalledByNative
+    public void removeAudioTrack(long j) {
+        removeMediaStreamTrack(this.audioTracks, j);
+    }
+
+    public boolean removeTrack(AudioTrack audioTrack) {
+        checkMediaStreamExists();
+        this.audioTracks.remove(audioTrack);
+        return nativeRemoveAudioTrack(this.nativeStream, audioTrack.getNativeAudioTrack());
+    }
+
+    @CalledByNative
+    public void removeVideoTrack(long j) {
+        removeMediaStreamTrack(this.videoTracks, j);
+    }
+
     private void checkMediaStreamExists() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || this.nativeStream != 0) {
+        if (this.nativeStream != 0) {
             return;
         }
         throw new IllegalStateException("MediaStream has been disposed.");
     }
 
     public String getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            checkMediaStreamExists();
-            return nativeGetId(this.nativeStream);
-        }
-        return (String) invokeV.objValue;
+        checkMediaStreamExists();
+        return nativeGetId(this.nativeStream);
     }
 
     public long getNativeMediaStream() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            checkMediaStreamExists();
-            return this.nativeStream;
-        }
-        return invokeV.longValue;
+        checkMediaStreamExists();
+        return this.nativeStream;
     }
 
     public static void removeMediaStreamTrack(List<? extends MediaStreamTrack> list, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65543, null, list, j) == null) {
-            Iterator<? extends MediaStreamTrack> it = list.iterator();
-            while (it.hasNext()) {
-                MediaStreamTrack next = it.next();
-                if (next.getNativeMediaStreamTrack() == j) {
-                    next.dispose();
-                    it.remove();
-                    return;
-                }
+        Iterator<? extends MediaStreamTrack> it = list.iterator();
+        while (it.hasNext()) {
+            MediaStreamTrack next = it.next();
+            if (next.getNativeMediaStreamTrack() == j) {
+                next.dispose();
+                it.remove();
+                return;
             }
-            Logging.e(TAG, "Couldn't not find track");
         }
-    }
-
-    @CalledByNative
-    public void addNativeAudioTrack(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.audioTracks.add(new AudioTrack(j));
-        }
-    }
-
-    @CalledByNative
-    public void addNativeVideoTrack(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.videoTracks.add(new VideoTrack(j));
-        }
-    }
-
-    public boolean addPreservedTrack(VideoTrack videoTrack) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, videoTrack)) == null) {
-            checkMediaStreamExists();
-            if (nativeAddVideoTrackToNativeStream(this.nativeStream, videoTrack.getNativeVideoTrack())) {
-                this.preservedVideoTracks.add(videoTrack);
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean addTrack(AudioTrack audioTrack) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, audioTrack)) == null) {
-            checkMediaStreamExists();
-            if (nativeAddAudioTrackToNativeStream(this.nativeStream, audioTrack.getNativeAudioTrack())) {
-                this.audioTracks.add(audioTrack);
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @CalledByNative
-    public void removeAudioTrack(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            removeMediaStreamTrack(this.audioTracks, j);
-        }
-    }
-
-    public boolean removeTrack(AudioTrack audioTrack) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, audioTrack)) == null) {
-            checkMediaStreamExists();
-            this.audioTracks.remove(audioTrack);
-            return nativeRemoveAudioTrack(this.nativeStream, audioTrack.getNativeAudioTrack());
-        }
-        return invokeL.booleanValue;
-    }
-
-    @CalledByNative
-    public void removeVideoTrack(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            removeMediaStreamTrack(this.videoTracks, j);
-        }
+        Logging.e(TAG, "Couldn't not find track");
     }
 
     public boolean addTrack(VideoTrack videoTrack) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, videoTrack)) == null) {
-            checkMediaStreamExists();
-            if (nativeAddVideoTrackToNativeStream(this.nativeStream, videoTrack.getNativeVideoTrack())) {
-                this.videoTracks.add(videoTrack);
-                return true;
-            }
-            return false;
+        checkMediaStreamExists();
+        if (nativeAddVideoTrackToNativeStream(this.nativeStream, videoTrack.getNativeVideoTrack())) {
+            this.videoTracks.add(videoTrack);
+            return true;
         }
-        return invokeL.booleanValue;
+        return false;
     }
 
     public boolean removeTrack(VideoTrack videoTrack) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, videoTrack)) == null) {
-            checkMediaStreamExists();
-            this.videoTracks.remove(videoTrack);
-            this.preservedVideoTracks.remove(videoTrack);
-            return nativeRemoveVideoTrack(this.nativeStream, videoTrack.getNativeVideoTrack());
-        }
-        return invokeL.booleanValue;
+        checkMediaStreamExists();
+        this.videoTracks.remove(videoTrack);
+        this.preservedVideoTracks.remove(videoTrack);
+        return nativeRemoveVideoTrack(this.nativeStream, videoTrack.getNativeVideoTrack());
     }
 
     @CalledByNative
     public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            checkMediaStreamExists();
-            while (!this.audioTracks.isEmpty()) {
-                AudioTrack audioTrack = this.audioTracks.get(0);
-                removeTrack(audioTrack);
-                audioTrack.dispose();
-            }
-            while (!this.videoTracks.isEmpty()) {
-                VideoTrack videoTrack = this.videoTracks.get(0);
-                removeTrack(videoTrack);
-                videoTrack.dispose();
-            }
-            while (!this.preservedVideoTracks.isEmpty()) {
-                removeTrack(this.preservedVideoTracks.get(0));
-            }
-            JniCommon.nativeReleaseRef(this.nativeStream);
-            this.nativeStream = 0L;
+        checkMediaStreamExists();
+        while (!this.audioTracks.isEmpty()) {
+            AudioTrack audioTrack = this.audioTracks.get(0);
+            removeTrack(audioTrack);
+            audioTrack.dispose();
         }
+        while (!this.videoTracks.isEmpty()) {
+            VideoTrack videoTrack = this.videoTracks.get(0);
+            removeTrack(videoTrack);
+            videoTrack.dispose();
+        }
+        while (!this.preservedVideoTracks.isEmpty()) {
+            removeTrack(this.preservedVideoTracks.get(0));
+        }
+        JniCommon.nativeReleaseRef(this.nativeStream);
+        this.nativeStream = 0L;
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return PreferencesUtil.LEFT_MOUNT + getId() + ":A=" + this.audioTracks.size() + ":V=" + this.videoTracks.size() + PreferencesUtil.RIGHT_MOUNT;
-        }
-        return (String) invokeV.objValue;
+        return PreferencesUtil.LEFT_MOUNT + getId() + ":A=" + this.audioTracks.size() + ":V=" + this.videoTracks.size() + PreferencesUtil.RIGHT_MOUNT;
     }
 }

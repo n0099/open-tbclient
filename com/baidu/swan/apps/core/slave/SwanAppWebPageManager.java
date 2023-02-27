@@ -1,72 +1,40 @@
 package com.baidu.swan.apps.core.slave;
 
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.BdSailorWebView;
 import com.baidu.browser.sailor.BdSailorWebViewClientExt;
 import com.baidu.swan.apps.core.SwanAppWebViewManager;
 import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.b23;
-import com.baidu.tieba.cv1;
-import com.baidu.tieba.df2;
-import com.baidu.tieba.ds2;
-import com.baidu.tieba.ef2;
-import com.baidu.tieba.gp1;
-import com.baidu.tieba.i02;
-import com.baidu.tieba.j23;
-import com.baidu.tieba.nv1;
-import com.baidu.tieba.ql3;
-import com.baidu.tieba.w52;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.dw1;
+import com.baidu.tieba.gm3;
+import com.baidu.tieba.m62;
+import com.baidu.tieba.r23;
+import com.baidu.tieba.sv1;
+import com.baidu.tieba.tf2;
+import com.baidu.tieba.ts2;
+import com.baidu.tieba.uf2;
+import com.baidu.tieba.wp1;
+import com.baidu.tieba.y02;
+import com.baidu.tieba.z23;
 import com.baidu.webkit.sdk.WebViewClient;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
-public class SwanAppWebPageManager extends SwanAppWebViewManager implements cv1<NgWebView> {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean y;
-    public transient /* synthetic */ FieldHolder $fh;
-    public nv1 w;
-    public df2 x;
+public class SwanAppWebPageManager extends SwanAppWebViewManager implements sv1<NgWebView> {
+    public static final boolean y = wp1.a;
+    public dw1 w;
+    public tf2 x;
 
     /* loaded from: classes3.dex */
     public class SwanAppSlaveWebviewClientExt extends BdSailorWebViewClientExt {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppWebPageManager this$0;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
             public final /* synthetic */ HybridUbcFlow b;
-            public final /* synthetic */ SwanAppSlaveWebviewClientExt c;
 
-            public a(SwanAppSlaveWebviewClientExt swanAppSlaveWebviewClientExt, long j, HybridUbcFlow hybridUbcFlow) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {swanAppSlaveWebviewClientExt, Long.valueOf(j), hybridUbcFlow};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = swanAppSlaveWebviewClientExt;
+            public a(long j, HybridUbcFlow hybridUbcFlow) {
                 this.a = j;
                 this.b = hybridUbcFlow;
             }
@@ -74,300 +42,215 @@ public class SwanAppWebPageManager extends SwanAppWebViewManager implements cv1<
             @Override // java.lang.Runnable
             public void run() {
                 long j;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.c.this$0.w.c <= 0) {
-                        j = this.a;
-                    } else {
-                        j = this.c.this$0.w.c;
-                    }
-                    this.b.D("fmp_type", this.c.this$0.w.g);
-                    HybridUbcFlow hybridUbcFlow = this.b;
-                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_meaningful_paint");
-                    ubcFlowEvent.h(j);
-                    hybridUbcFlow.F(ubcFlowEvent);
-                    hybridUbcFlow.C(this.c.this$0);
-                    if (SwanAppWebPageManager.y) {
-                        Log.d("SwanAppSlaveManager", "onFirstScreenPaintFinishedExt: naPaintFlowDone with fmp=" + j + " , fmpType" + this.c.this$0.w.g + " , fmpTypeName=" + this.c.this$0.w.a());
-                    }
+                if (SwanAppWebPageManager.this.w.c <= 0) {
+                    j = this.a;
+                } else {
+                    j = SwanAppWebPageManager.this.w.c;
+                }
+                this.b.D("fmp_type", SwanAppWebPageManager.this.w.g);
+                HybridUbcFlow hybridUbcFlow = this.b;
+                UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_meaningful_paint");
+                ubcFlowEvent.h(j);
+                hybridUbcFlow.F(ubcFlowEvent);
+                hybridUbcFlow.C(SwanAppWebPageManager.this);
+                if (SwanAppWebPageManager.y) {
+                    Log.d("SwanAppSlaveManager", "onFirstScreenPaintFinishedExt: naPaintFlowDone with fmp=" + j + " , fmpType" + SwanAppWebPageManager.this.w.g + " , fmpTypeName=" + SwanAppWebPageManager.this.w.a());
                 }
             }
         }
 
-        public SwanAppSlaveWebviewClientExt(SwanAppWebPageManager swanAppWebPageManager) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppWebPageManager};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = swanAppWebPageManager;
+        public SwanAppSlaveWebviewClientExt() {
         }
 
-        public /* synthetic */ SwanAppSlaveWebviewClientExt(SwanAppWebPageManager swanAppWebPageManager, ef2 ef2Var) {
-            this(swanAppWebPageManager);
+        public /* synthetic */ SwanAppSlaveWebviewClientExt(SwanAppWebPageManager swanAppWebPageManager, uf2 uf2Var) {
+            this();
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstLayoutDidExt(BdSailorWebView bdSailorWebView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bdSailorWebView, str) == null) {
-                super.onFirstLayoutDidExt(bdSailorWebView, str);
-            }
+            super.onFirstLayoutDidExt(bdSailorWebView, str);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstPaintDidExt(BdSailorWebView bdSailorWebView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, bdSailorWebView, str) == null) {
-                if (SwanAppWebPageManager.y) {
-                    Log.d("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstPaintDidEx");
-                }
-                super.onFirstPaintDidExt(bdSailorWebView, str);
-                this.this$0.w.a = System.currentTimeMillis();
+            if (SwanAppWebPageManager.y) {
+                Log.d("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstPaintDidEx");
             }
+            super.onFirstPaintDidExt(bdSailorWebView, str);
+            SwanAppWebPageManager.this.w.a = System.currentTimeMillis();
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onPageBackOrForwardExt(BdSailorWebView bdSailorWebView, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048585, this, bdSailorWebView, i) == null) {
-                if (SwanAppWebPageManager.y) {
-                    Log.d("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onGoBackOrForwardEx");
-                }
-                super.onPageBackOrForwardExt(bdSailorWebView, i);
+            if (SwanAppWebPageManager.y) {
+                Log.d("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onGoBackOrForwardEx");
             }
+            super.onPageBackOrForwardExt(bdSailorWebView, i);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onPageCanBeScaledExt(BdSailorWebView bdSailorWebView, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048586, this, bdSailorWebView, z) == null) {
-                if (SwanAppWebPageManager.y) {
-                    Log.d("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onPageCanBeScaledEx");
-                }
-                super.onPageCanBeScaledExt(bdSailorWebView, z);
+            if (SwanAppWebPageManager.y) {
+                Log.d("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onPageCanBeScaledEx");
             }
+            super.onPageCanBeScaledExt(bdSailorWebView, z);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onPreloadUrlFoundExt(BdSailorWebView bdSailorWebView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048587, this, bdSailorWebView, str) == null) {
-                if (SwanAppWebPageManager.y) {
-                    Log.d("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onPreloadUrlFoundEx：" + str);
-                }
-                super.onPreloadUrlFoundExt(bdSailorWebView, str);
+            if (SwanAppWebPageManager.y) {
+                Log.d("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onPreloadUrlFoundEx：" + str);
             }
+            super.onPreloadUrlFoundExt(bdSailorWebView, str);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstContentfulPaintExt(BdSailorWebView bdSailorWebView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, bdSailorWebView, str) == null) {
-                w52.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstContentfulPaintExt");
-                super.onFirstContentfulPaintExt(bdSailorWebView, str);
-                long currentTimeMillis = System.currentTimeMillis();
-                if (SwanAppWebPageManager.y) {
-                    Log.d("SwanAppSlaveManager", "on fcp: real fcp = " + currentTimeMillis);
-                }
-                this.this$0.w.b = currentTimeMillis;
-                j23.h().l().a(this.this$0.w.b);
-                long b = this.this$0.w.b();
-                if (SwanAppWebPageManager.y) {
-                    Log.d("SwanAppSlaveManager", "onFirstContentfulPaintExt: fcp=" + currentTimeMillis + " , firstPaintTime=" + b + " , aligned search=false");
-                }
-                HybridUbcFlow p = b23.p("startup");
-                UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_paint");
-                ubcFlowEvent.h(b);
-                p.F(ubcFlowEvent);
-                i02.d().f();
-                this.this$0.x.a();
-                if (this.this$0.w.c == 0) {
-                    this.this$0.w.c = b;
-                    nv1 nv1Var = this.this$0.w;
-                    nv1Var.g = nv1Var.c(b);
-                    p.D("fmp_type", "1");
-                    UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_first_meaningful_paint");
-                    ubcFlowEvent2.h(this.this$0.w.b);
-                    p.F(ubcFlowEvent2);
-                }
-                long F = ds2.g0().F();
-                if (F < 0) {
-                    F = 3000;
-                }
-                ql3.c(new a(this, b, p), "fmp record", F, TimeUnit.MILLISECONDS);
+            m62.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstContentfulPaintExt");
+            super.onFirstContentfulPaintExt(bdSailorWebView, str);
+            long currentTimeMillis = System.currentTimeMillis();
+            if (SwanAppWebPageManager.y) {
+                Log.d("SwanAppSlaveManager", "on fcp: real fcp = " + currentTimeMillis);
             }
+            SwanAppWebPageManager.this.w.b = currentTimeMillis;
+            z23.h().l().a(SwanAppWebPageManager.this.w.b);
+            long b = SwanAppWebPageManager.this.w.b();
+            if (SwanAppWebPageManager.y) {
+                Log.d("SwanAppSlaveManager", "onFirstContentfulPaintExt: fcp=" + currentTimeMillis + " , firstPaintTime=" + b + " , aligned search=false");
+            }
+            HybridUbcFlow p = r23.p("startup");
+            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_paint");
+            ubcFlowEvent.h(b);
+            p.F(ubcFlowEvent);
+            y02.d().f();
+            SwanAppWebPageManager.this.x.a();
+            if (SwanAppWebPageManager.this.w.c == 0) {
+                SwanAppWebPageManager.this.w.c = b;
+                dw1 dw1Var = SwanAppWebPageManager.this.w;
+                dw1Var.g = dw1Var.c(b);
+                p.D("fmp_type", "1");
+                UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_first_meaningful_paint");
+                ubcFlowEvent2.h(SwanAppWebPageManager.this.w.b);
+                p.F(ubcFlowEvent2);
+            }
+            long F = ts2.g0().F();
+            if (F < 0) {
+                F = 3000;
+            }
+            gm3.c(new a(b, p), "fmp record", F, TimeUnit.MILLISECONDS);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstScreenPaintFinishedExt(BdSailorWebView bdSailorWebView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, bdSailorWebView, str) == null) {
-                w52.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstScreenPaintFinishedExt");
-                super.onFirstScreenPaintFinishedExt(bdSailorWebView, str);
-                this.this$0.w.c = System.currentTimeMillis();
-                this.this$0.w.g = "0";
-                j23.h().l().c(this.this$0.w.c);
-                if (SwanAppWebPageManager.y) {
-                    Log.d("SwanAppSlaveManager", "on fmp: real fmp = " + this.this$0.w.c);
-                }
-                HybridUbcFlow d = b23.d("startup");
-                if (d != null) {
-                    d.D("webviewComponent", "1");
-                    d.D("fmp_type", "0");
-                    d.E("value", "arrive_success");
-                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_meaningful_paint");
-                    ubcFlowEvent.h(this.this$0.w.c);
-                    ubcFlowEvent.d(UbcFlowEvent.RecordType.UPDATE);
-                    d.F(ubcFlowEvent);
-                    d.C(this.this$0);
-                    nv1 nv1Var = this.this$0.w;
-                    w52.b("SwanAppSlaveManager", "onFirstScreenPaintFinishedExt: naPaintFlowDone with fmp=", Long.valueOf(this.this$0.w.c), " , fmpType=", nv1Var.g, " , fmpTypeName=", nv1Var.a());
-                    b23.t();
-                }
-                i02.d().g();
-                this.this$0.x.c();
-                this.this$0.x.b();
+            m62.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstScreenPaintFinishedExt");
+            super.onFirstScreenPaintFinishedExt(bdSailorWebView, str);
+            SwanAppWebPageManager.this.w.c = System.currentTimeMillis();
+            SwanAppWebPageManager.this.w.g = "0";
+            z23.h().l().c(SwanAppWebPageManager.this.w.c);
+            if (SwanAppWebPageManager.y) {
+                Log.d("SwanAppSlaveManager", "on fmp: real fmp = " + SwanAppWebPageManager.this.w.c);
             }
+            HybridUbcFlow d = r23.d("startup");
+            if (d != null) {
+                d.D("webviewComponent", "1");
+                d.D("fmp_type", "0");
+                d.E("value", "arrive_success");
+                UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_meaningful_paint");
+                ubcFlowEvent.h(SwanAppWebPageManager.this.w.c);
+                ubcFlowEvent.d(UbcFlowEvent.RecordType.UPDATE);
+                d.F(ubcFlowEvent);
+                d.C(SwanAppWebPageManager.this);
+                dw1 dw1Var = SwanAppWebPageManager.this.w;
+                m62.b("SwanAppSlaveManager", "onFirstScreenPaintFinishedExt: naPaintFlowDone with fmp=", Long.valueOf(SwanAppWebPageManager.this.w.c), " , fmpType=", dw1Var.g, " , fmpTypeName=", dw1Var.a());
+                r23.t();
+            }
+            y02.d().g();
+            SwanAppWebPageManager.this.x.c();
+            SwanAppWebPageManager.this.x.b();
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstImagePaintExt(BdSailorWebView bdSailorWebView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdSailorWebView, str) == null) {
-                w52.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstImagePaintExt");
-                super.onFirstImagePaintExt(bdSailorWebView, str);
-                this.this$0.w.e = System.currentTimeMillis();
-                j23.h().l().e(this.this$0.w.e);
-                if (SwanAppWebPageManager.y) {
-                    Log.d("SwanAppSlaveManager", "on fip: real fip = " + this.this$0.w.e);
-                }
-                if (this.this$0.w.c == 0) {
-                    HybridUbcFlow p = b23.p("startup");
-                    p.D("fmp_type", "3");
-                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_meaningful_paint");
-                    ubcFlowEvent.h(this.this$0.w.e);
-                    p.F(ubcFlowEvent);
-                }
+            m62.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstImagePaintExt");
+            super.onFirstImagePaintExt(bdSailorWebView, str);
+            SwanAppWebPageManager.this.w.e = System.currentTimeMillis();
+            z23.h().l().e(SwanAppWebPageManager.this.w.e);
+            if (SwanAppWebPageManager.y) {
+                Log.d("SwanAppSlaveManager", "on fip: real fip = " + SwanAppWebPageManager.this.w.e);
+            }
+            if (SwanAppWebPageManager.this.w.c == 0) {
+                HybridUbcFlow p = r23.p("startup");
+                p.D("fmp_type", "3");
+                UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_meaningful_paint");
+                ubcFlowEvent.h(SwanAppWebPageManager.this.w.e);
+                p.F(ubcFlowEvent);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstTextPaintExt(BdSailorWebView bdSailorWebView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048581, this, bdSailorWebView, str) == null) {
-                w52.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstTextPaintExt");
-                super.onFirstTextPaintExt(bdSailorWebView, str);
-                this.this$0.w.d = System.currentTimeMillis();
-                j23.h().l().d(this.this$0.w.d);
-                if (SwanAppWebPageManager.y) {
-                    Log.d("SwanAppSlaveManager", "on ftp: real ftp = " + this.this$0.w.d);
-                }
-                if (this.this$0.w.c == 0) {
-                    HybridUbcFlow p = b23.p("startup");
-                    p.D("fmp_type", "2");
-                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_meaningful_paint");
-                    ubcFlowEvent.h(this.this$0.w.d);
-                    p.F(ubcFlowEvent);
-                }
+            m62.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstTextPaintExt");
+            super.onFirstTextPaintExt(bdSailorWebView, str);
+            SwanAppWebPageManager.this.w.d = System.currentTimeMillis();
+            z23.h().l().d(SwanAppWebPageManager.this.w.d);
+            if (SwanAppWebPageManager.y) {
+                Log.d("SwanAppSlaveManager", "on ftp: real ftp = " + SwanAppWebPageManager.this.w.d);
+            }
+            if (SwanAppWebPageManager.this.w.c == 0) {
+                HybridUbcFlow p = r23.p("startup");
+                p.D("fmp_type", "2");
+                UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_meaningful_paint");
+                ubcFlowEvent.h(SwanAppWebPageManager.this.w.d);
+                p.F(ubcFlowEvent);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFullScreenModeExt(BdSailorWebView bdSailorWebView, boolean z, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{bdSailorWebView, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-                if (SwanAppWebPageManager.y) {
-                    Log.d("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFullScreenModeEx");
-                }
-                super.onFullScreenModeExt(bdSailorWebView, z, i, i2);
+            if (SwanAppWebPageManager.y) {
+                Log.d("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFullScreenModeEx");
             }
+            super.onFullScreenModeExt(bdSailorWebView, z, i, i2);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public String onGetErrorHtmlExt(BdSailorWebView bdSailorWebView, int i, String str, String str2) {
-            InterceptResult invokeLILL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048583, this, bdSailorWebView, i, str, str2)) == null) {
-                if (SwanAppWebPageManager.y) {
-                    Log.d("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onGetErrorHtmlSailor");
-                }
-                return super.onGetErrorHtmlExt(bdSailorWebView, i, str, str2);
+            if (SwanAppWebPageManager.y) {
+                Log.d("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onGetErrorHtmlSailor");
             }
-            return (String) invokeLILL.objValue;
+            return super.onGetErrorHtmlExt(bdSailorWebView, i, str, str2);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public boolean onKeywordExtensionExt(BdSailorWebView bdSailorWebView, String str, String str2) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdSailorWebView, str, str2)) == null) {
-                if (SwanAppWebPageManager.y) {
-                    Log.d("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onKeywordExtensionEx");
-                }
-                return super.onKeywordExtensionExt(bdSailorWebView, str, str2);
+            if (SwanAppWebPageManager.y) {
+                Log.d("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onKeywordExtensionEx");
             }
-            return invokeLLL.booleanValue;
+            return super.onKeywordExtensionExt(bdSailorWebView, str, str2);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onSecurityCheckResultExt(BdSailorWebView bdSailorWebView, String str, WebViewClient.SecurityInfo securityInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048588, this, bdSailorWebView, str, securityInfo) == null) {
-                if (SwanAppWebPageManager.y) {
-                    Log.d("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onSecurityCheckResultEx");
-                }
-                super.onSecurityCheckResultExt(bdSailorWebView, str, securityInfo);
+            if (SwanAppWebPageManager.y) {
+                Log.d("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onSecurityCheckResultEx");
             }
+            super.onSecurityCheckResultExt(bdSailorWebView, str, securityInfo);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onUrlRedirectedExt(BdSailorWebView bdSailorWebView, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048589, this, bdSailorWebView, str, str2) == null) {
-                if (SwanAppWebPageManager.y) {
-                    Log.d("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onUrlRedirected");
-                }
-                super.onUrlRedirectedExt(bdSailorWebView, str, str2);
+            if (SwanAppWebPageManager.y) {
+                Log.d("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onUrlRedirected");
             }
+            super.onUrlRedirectedExt(bdSailorWebView, str, str2);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public boolean shouldHandleImageExt(BdSailorWebView bdSailorWebView, String str, String str2, String str3, boolean z) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{bdSailorWebView, str, str2, str3, Boolean.valueOf(z)})) == null) {
-                if (SwanAppWebPageManager.y) {
-                    Log.d("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::canHandleImageEx");
-                }
-                return super.shouldHandleImageExt(bdSailorWebView, str, str2, str3, z);
+            if (SwanAppWebPageManager.y) {
+                Log.d("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::canHandleImageEx");
             }
-            return invokeCommon.booleanValue;
+            return super.shouldHandleImageExt(bdSailorWebView, str, str2, str3, z);
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-23729092, "Lcom/baidu/swan/apps/core/slave/SwanAppWebPageManager;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-23729092, "Lcom/baidu/swan/apps/core/slave/SwanAppWebPageManager;");
-                return;
-            }
-        }
-        y = gp1.a;
     }
 }

@@ -3,71 +3,27 @@ package com.baidu.swan.apps.jsbridge;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
-import com.baidu.tieba.gp1;
-import com.baidu.tieba.u53;
-import com.baidu.tieba.u72;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.k63;
+import com.baidu.tieba.k82;
+import com.baidu.tieba.wp1;
 @Keep
 /* loaded from: classes3.dex */
 public class SwanAppPreloadJsBridge {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final boolean DEBUG;
+    public static final boolean DEBUG = wp1.a;
     public static final String JAVASCRIPT_INTERFACE_NAME = "swanPreload";
     public static final String TAG = "SwanAppPreloadJsBridge";
-    public transient /* synthetic */ FieldHolder $fh;
-    public u72 mJSContainer;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1549001120, "Lcom/baidu/swan/apps/jsbridge/SwanAppPreloadJsBridge;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1549001120, "Lcom/baidu/swan/apps/jsbridge/SwanAppPreloadJsBridge;");
-                return;
-            }
-        }
-        DEBUG = gp1.a;
-    }
+    public k82 mJSContainer;
 
     @JavascriptInterface
     public String onJSLoaded() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.mJSContainer.onJSLoaded();
-            if (DEBUG) {
-                Log.d(TAG, "onJsLoaded");
-            }
-            return u53.f();
+        this.mJSContainer.onJSLoaded();
+        if (DEBUG) {
+            Log.d(TAG, "onJsLoaded");
         }
-        return (String) invokeV.objValue;
+        return k63.f();
     }
 
-    public SwanAppPreloadJsBridge(u72 u72Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u72Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mJSContainer = u72Var;
+    public SwanAppPreloadJsBridge(k82 k82Var) {
+        this.mJSContainer = k82Var;
     }
 }

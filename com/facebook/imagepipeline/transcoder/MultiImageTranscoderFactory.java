@@ -1,19 +1,11 @@
 package com.facebook.imagepipeline.transcoder;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imageformat.ImageFormat;
 import com.facebook.imagepipeline.core.NativeCodeSetup;
 import com.facebook.imagepipeline.nativecode.NativeImageTranscoderFactory;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class MultiImageTranscoderFactory implements ImageTranscoderFactory {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final boolean mEnsureTranscoderLibraryLoaded;
     @Nullable
     public final Integer mImageTranscoderType;
@@ -23,20 +15,6 @@ public class MultiImageTranscoderFactory implements ImageTranscoderFactory {
     public final boolean mUseDownSamplingRatio;
 
     public MultiImageTranscoderFactory(int i, boolean z, @Nullable ImageTranscoderFactory imageTranscoderFactory, @Nullable Integer num, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), imageTranscoderFactory, num, Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mMaxBitmapSize = i;
         this.mUseDownSamplingRatio = z;
         this.mPrimaryImageTranscoderFactory = imageTranscoderFactory;
@@ -46,75 +24,50 @@ public class MultiImageTranscoderFactory implements ImageTranscoderFactory {
 
     @Nullable
     private ImageTranscoder getCustomImageTranscoder(ImageFormat imageFormat, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, this, imageFormat, z)) == null) {
-            ImageTranscoderFactory imageTranscoderFactory = this.mPrimaryImageTranscoderFactory;
-            if (imageTranscoderFactory == null) {
-                return null;
-            }
-            return imageTranscoderFactory.createImageTranscoder(imageFormat, z);
+        ImageTranscoderFactory imageTranscoderFactory = this.mPrimaryImageTranscoderFactory;
+        if (imageTranscoderFactory == null) {
+            return null;
         }
-        return (ImageTranscoder) invokeLZ.objValue;
-    }
-
-    @Nullable
-    private ImageTranscoder getNativeImageTranscoder(ImageFormat imageFormat, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, this, imageFormat, z)) == null) {
-            return NativeImageTranscoderFactory.getNativeImageTranscoderFactory(this.mMaxBitmapSize, this.mUseDownSamplingRatio, this.mEnsureTranscoderLibraryLoaded).createImageTranscoder(imageFormat, z);
-        }
-        return (ImageTranscoder) invokeLZ.objValue;
-    }
-
-    private ImageTranscoder getSimpleImageTranscoder(ImageFormat imageFormat, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, imageFormat, z)) == null) {
-            return new SimpleImageTranscoderFactory(this.mMaxBitmapSize).createImageTranscoder(imageFormat, z);
-        }
-        return (ImageTranscoder) invokeLZ.objValue;
-    }
-
-    @Override // com.facebook.imagepipeline.transcoder.ImageTranscoderFactory
-    public ImageTranscoder createImageTranscoder(ImageFormat imageFormat, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, imageFormat, z)) == null) {
-            ImageTranscoder customImageTranscoder = getCustomImageTranscoder(imageFormat, z);
-            if (customImageTranscoder == null) {
-                customImageTranscoder = getImageTranscoderWithType(imageFormat, z);
-            }
-            if (customImageTranscoder == null && NativeCodeSetup.getUseNativeCode()) {
-                customImageTranscoder = getNativeImageTranscoder(imageFormat, z);
-            }
-            if (customImageTranscoder == null) {
-                return getSimpleImageTranscoder(imageFormat, z);
-            }
-            return customImageTranscoder;
-        }
-        return (ImageTranscoder) invokeLZ.objValue;
+        return imageTranscoderFactory.createImageTranscoder(imageFormat, z);
     }
 
     @Nullable
     private ImageTranscoder getImageTranscoderWithType(ImageFormat imageFormat, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, this, imageFormat, z)) == null) {
-            Integer num = this.mImageTranscoderType;
-            if (num == null) {
-                return null;
-            }
-            int intValue = num.intValue();
-            if (intValue != 0) {
-                if (intValue == 1) {
-                    return getSimpleImageTranscoder(imageFormat, z);
-                }
-                throw new IllegalArgumentException("Invalid ImageTranscoderType");
-            }
-            return getNativeImageTranscoder(imageFormat, z);
+        Integer num = this.mImageTranscoderType;
+        if (num == null) {
+            return null;
         }
-        return (ImageTranscoder) invokeLZ.objValue;
+        int intValue = num.intValue();
+        if (intValue != 0) {
+            if (intValue == 1) {
+                return getSimpleImageTranscoder(imageFormat, z);
+            }
+            throw new IllegalArgumentException("Invalid ImageTranscoderType");
+        }
+        return getNativeImageTranscoder(imageFormat, z);
+    }
+
+    @Nullable
+    private ImageTranscoder getNativeImageTranscoder(ImageFormat imageFormat, boolean z) {
+        return NativeImageTranscoderFactory.getNativeImageTranscoderFactory(this.mMaxBitmapSize, this.mUseDownSamplingRatio, this.mEnsureTranscoderLibraryLoaded).createImageTranscoder(imageFormat, z);
+    }
+
+    private ImageTranscoder getSimpleImageTranscoder(ImageFormat imageFormat, boolean z) {
+        return new SimpleImageTranscoderFactory(this.mMaxBitmapSize).createImageTranscoder(imageFormat, z);
+    }
+
+    @Override // com.facebook.imagepipeline.transcoder.ImageTranscoderFactory
+    public ImageTranscoder createImageTranscoder(ImageFormat imageFormat, boolean z) {
+        ImageTranscoder customImageTranscoder = getCustomImageTranscoder(imageFormat, z);
+        if (customImageTranscoder == null) {
+            customImageTranscoder = getImageTranscoderWithType(imageFormat, z);
+        }
+        if (customImageTranscoder == null && NativeCodeSetup.getUseNativeCode()) {
+            customImageTranscoder = getNativeImageTranscoder(imageFormat, z);
+        }
+        if (customImageTranscoder == null) {
+            return getSimpleImageTranscoder(imageFormat, z);
+        }
+        return customImageTranscoder;
     }
 }

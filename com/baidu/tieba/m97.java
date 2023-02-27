@@ -1,430 +1,199 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.core.view.FollowUserButton;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
-import com.baidu.tieba.k97;
-import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.u19;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.funad.view.FunAdButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTAppDownloadListener;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.kwad.sdk.api.KsAppDownloadListener;
+import com.qq.e.ads.nativ.NativeUnifiedADData;
 /* loaded from: classes5.dex */
-public class m97 extends BdBaseViewPagerAdapter.a implements View.OnClickListener {
+public class m97 implements TTAppDownloadListener, ChannelNativeAds.GdtADStatusChangeListener, KsAppDownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k97 d;
-    public boolean e;
-    public LikeModel f;
-    public u19 g;
-    public b h;
-    public n45 i;
-    public n45 j;
-    public TbPageContext<?> k;
-    public byte l;
-    public TextView m;
-    public BarImageView[] n;
-    public TextView[] o;
-    public TextView[] p;
-    public TextView[] q;
-    public TextView[] r;
-    public TextView[] s;
-    public FollowUserButton[] t;
-    public final int[] u;
-    public final int[] v;
+    public final FunAdButton a;
+    public final u59 b;
+    public ChannelNativeAds c;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends w9 implements u19.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public k97.a a;
-        public FollowUserButton b;
-        public final /* synthetic */ m97 c;
-
-        public b(m97 m97Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m97Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = m97Var;
-        }
-
-        public /* synthetic */ b(m97 m97Var, a aVar) {
-            this(m97Var);
-        }
-
-        @Override // com.baidu.tieba.u19.a
-        public void a(String str, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
-                this.c.e = false;
-            }
-        }
-
-        @Override // com.baidu.tieba.u19.a
-        public void b(String str, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-                this.c.e = false;
-                this.c.o(this.b, false);
-                this.a.m(false);
-            }
-        }
-
-        public void d(FollowUserButton followUserButton, k97.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, followUserButton, aVar) == null) {
-                this.a = aVar;
-                this.b = followUserButton;
-            }
-        }
-
-        @Override // com.baidu.tieba.w9
-        public void c(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                this.c.e = false;
-                if (this.c.f.getErrorCode() == 22) {
-                    ej.Q(this.c.k.getPageActivity(), this.c.k.getString(R.string.had_liked_forum));
-                } else if (obj == null) {
-                } else {
-                    if (this.c.f.getErrorCode() != 0) {
-                        ej.Q(this.c.k.getPageActivity(), this.c.f.getErrorString());
-                        return;
-                    }
-                    this.c.o(this.b, true);
-                    this.a.m(true);
-                }
-            }
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onDownloadStarted() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m97(View view2, TbPageContext<?> tbPageContext, byte b2) {
-        super(view2);
+    public m97(FunAdButton funAdButton, u59 u59Var, ChannelNativeAds channelNativeAds) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, tbPageContext, Byte.valueOf(b2)};
+            Object[] objArr = {funAdButton, u59Var, channelNativeAds};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = false;
-        this.i = new n45();
-        this.j = new n45();
-        this.n = new BarImageView[3];
-        this.o = new TextView[3];
-        this.p = new TextView[3];
-        this.q = new TextView[3];
-        this.r = new TextView[3];
-        this.s = new TextView[3];
-        this.t = new FollowUserButton[3];
-        this.u = new int[]{R.id.obfuscated_res_0x7f091ca3, R.id.obfuscated_res_0x7f091ca4, R.id.obfuscated_res_0x7f091ca5};
-        this.v = new int[]{R.color.CAM_X0301, R.color.CAM_X0305, R.color.CAM_X0312};
-        this.k = tbPageContext;
-        this.l = b2;
-        k(view2);
+        this.a = funAdButton;
+        this.b = u59Var;
+        this.c = channelNativeAds;
     }
 
-    public void m(boolean z) {
-        int i;
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            TextView textView = this.m;
-            if (z) {
-                i = 0;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            FunAdButton funAdButton = this.a;
+            if (funAdButton != null && funAdButton.getTag() == this.b) {
+                this.a.setText(i);
+            }
+            u59 u59Var = this.b;
+            if (u59Var != null) {
+                u59Var.l(TbadkApplication.getInst().getString(i));
+            }
+        }
+    }
+
+    public void b(int i) {
+        FunAdButton funAdButton;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (funAdButton = this.a) != null && funAdButton.getTag() == this.b) {
+            this.a.setProgress(i);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onProgressUpdate(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            b(i);
+        }
+    }
+
+    @Override // com.fun.ad.sdk.ChannelNativeAds.GdtADStatusChangeListener
+    public void onADStatusChanged() {
+        NativeUnifiedADData nativeUnifiedADData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ChannelNativeAds channelNativeAds = this.c;
+            if (channelNativeAds != null) {
+                nativeUnifiedADData = (NativeUnifiedADData) channelNativeAds.gdtNative;
             } else {
-                i = 8;
+                nativeUnifiedADData = null;
             }
-            textView.setVisibility(i);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter.a
-    public void c(Cdo cdo) {
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, cdo) != null) || !(cdo instanceof k97)) {
-            return;
-        }
-        k97 k97Var = (k97) cdo;
-        this.d = k97Var;
-        this.m.setText(k97Var.a);
-        k97.a[] aVarArr = this.d.d;
-        if (aVarArr != null && aVarArr.length != 0) {
-            int min = Math.min(3, aVarArr.length);
-            for (int i3 = 0; i3 < min; i3++) {
-                k97.a[] aVarArr2 = this.d.d;
-                if (aVarArr2[i3] != null) {
-                    this.n[i3].K(aVarArr2[i3].b(), 10, false);
-                    this.p[i3].setText(this.d.d[i3].c());
-                    this.s[i3].setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f106a, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(this.d.d[i3].f())}));
-                    this.r[i3].setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1068, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(this.d.d[i3].a())}));
-                    this.t[i3].setTag(Integer.valueOf(i3));
-                    o(this.t[i3], this.d.d[i3].l());
-                    TextView textView = this.o[i3];
-                    if (this.d.b) {
-                        i = 0;
-                    } else {
-                        i = 8;
+            if (nativeUnifiedADData == null) {
+                return;
+            }
+            if (!nativeUnifiedADData.isAppAd()) {
+                a(R.string.obfuscated_res_0x7f0f00b6);
+                return;
+            }
+            int appStatus = nativeUnifiedADData.getAppStatus();
+            if (appStatus != 0) {
+                if (appStatus != 1) {
+                    if (appStatus != 2) {
+                        if (appStatus != 4) {
+                            if (appStatus != 8) {
+                                if (appStatus != 16) {
+                                    a(R.string.obfuscated_res_0x7f0f00b6);
+                                    return;
+                                } else {
+                                    a(R.string.obfuscated_res_0x7f0f00b3);
+                                    return;
+                                }
+                            }
+                            a(R.string.obfuscated_res_0x7f0f00b1);
+                            return;
+                        }
+                        b(nativeUnifiedADData.getProgress());
+                        return;
                     }
-                    textView.setVisibility(i);
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.p[i3].getLayoutParams();
-                    Activity pageActivity = this.k.getPageActivity();
-                    if (this.d.b) {
-                        i2 = R.dimen.tbds15;
-                    } else {
-                        i2 = R.dimen.tbds0;
-                    }
-                    layoutParams.leftMargin = ej.g(pageActivity, i2);
-                    if (!StringUtils.isNull(this.d.d[i3].k())) {
-                        this.q[i3].setText(this.d.d[i3].k());
-                    } else if (!StringUtils.isNull(this.d.d[i3].h()) && UbsABTestHelper.isRecommendBarHotText()) {
-                        this.q[i3].setText(this.d.d[i3].h());
-                    } else {
-                        this.q[i3].setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1069));
-                    }
-                }
-            }
-        }
-    }
-
-    public final void h(k97.a aVar, FollowUserButton followUserButton) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, followUserButton) != null) || this.e) {
-            return;
-        }
-        if (!ej.F()) {
-            UtilHelper.showToast(this.k.getPageActivity(), this.k.getString(R.string.obfuscated_res_0x7f0f0d08));
-        } else if (aVar == null || StringUtils.isNull(aVar.c()) || aVar.g() <= 0 || !ViewHelper.checkUpIsLogin(this.k.getPageActivity())) {
-        } else {
-            if (this.h == null) {
-                this.h = new b(this, null);
-            }
-            if (this.f == null) {
-                LikeModel likeModel = new LikeModel(this.k);
-                this.f = likeModel;
-                likeModel.setLoadDataCallBack(this.h);
-            }
-            this.h.d(followUserButton, aVar);
-            if (dj.isForumName(aVar.c())) {
-                this.e = true;
-                this.f.U();
-                this.f.Y(aVar.c(), String.valueOf(aVar.g()));
-            }
-        }
-    }
-
-    public final void i(k97.a aVar, FollowUserButton followUserButton) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, followUserButton) != null) || this.e) {
-            return;
-        }
-        if (!ej.F()) {
-            UtilHelper.showToast(this.k.getPageActivity(), this.k.getString(R.string.obfuscated_res_0x7f0f0d08));
-        } else if (aVar == null || StringUtils.isNull(aVar.c()) || aVar.g() <= 0 || !ViewHelper.checkUpIsLogin(this.k.getPageActivity())) {
-        } else {
-            if (this.h == null) {
-                this.h = new b(this, null);
-            }
-            if (this.g == null) {
-                u19 u19Var = new u19();
-                this.g = u19Var;
-                u19Var.b(this.h);
-            }
-            this.h.d(followUserButton, aVar);
-            this.e = true;
-            this.g.c(aVar.c(), aVar.g());
-        }
-    }
-
-    public k97 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (k97) invokeV.objValue;
-    }
-
-    public final void k(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ca6);
-            this.i.v(R.color.CAM_X0109);
-            this.i.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
-            this.j.t(R.color.CAM_X0304);
-            this.j.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
-            this.j.f(UtilHelper.getDimenPixelSize(R.dimen.tbds4));
-            int i = 0;
-            while (i < 3) {
-                View findViewById = view2.findViewById(this.u[i]);
-                findViewById.setTag(Integer.valueOf(i));
-                findViewById.setOnClickListener(this);
-                this.n[i] = (BarImageView) findViewById.findViewById(R.id.obfuscated_res_0x7f091ca2);
-                this.o[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091cac);
-                this.p[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091ca8);
-                this.q[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091ca1);
-                this.r[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091c9f);
-                this.s[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091caa);
-                this.t[i] = (FollowUserButton) findViewById.findViewById(R.id.obfuscated_res_0x7f091c9e);
-                this.t[i].setOnClickListener(this);
-                int i2 = i + 1;
-                this.o[i].setText(String.valueOf(i2));
-                this.n[i].setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.n[i].setShowInnerBorder(true);
-                this.n[i].setStrokeWith(ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-                this.n[i].setShowOval(true);
-                this.n[i].setPlaceHolder(2);
-                this.n[i].setShowOuterBorder(false);
-                this.n[i].setStrokeColorResId(R.color.CAM_X0401);
-                i = i2;
-            }
-            l(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, view2) == null) && this.d != null && view2 != null) {
-            int id = view2.getId();
-            int intValue = ((Integer) view2.getTag()).intValue();
-            k97.a aVar = this.d.d[intValue];
-            if (view2 instanceof TBSpecificationBtn) {
-                if (aVar.l()) {
-                    i(aVar, this.t[intValue]);
+                    a(R.string.obfuscated_res_0x7f0f00b5);
                     return;
                 }
-                h(aVar, this.t[intValue]);
-                StatisticItem param = new StatisticItem("c13644").param("fid", aVar.g()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.l);
-                if (!StringUtils.isNull(this.d.a)) {
-                    param = param.param("obj_name", this.d.a);
-                }
-                TiebaStatic.log(param);
-            } else if (id == R.id.obfuscated_res_0x7f091ca3 || id == R.id.obfuscated_res_0x7f091ca4 || id == R.id.obfuscated_res_0x7f091ca5) {
-                FrsActivityConfig callFrom = new FrsActivityConfig(this.k.getPageActivity()).createNormalCfg(aVar.c(), FrsActivityConfig.FRS_FROM_RECOMMEND_BAR_CAR).setCallFrom(3);
-                if (UbsABTestHelper.isRecommendBarHotText()) {
-                    Intent intent = callFrom.getIntent();
-                    if (aVar.i() != 0 && intent != null) {
-                        intent.putExtra("transition_type", 0);
-                        intent.putExtra(FrsActivityConfig.FRS_HOT_THREAD_ID, aVar.i());
-                    }
-                }
-                this.k.sendMessage(new CustomMessage(2003000, callFrom));
-                StatisticItem param2 = new StatisticItem("c13988").param("fid", aVar.g()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.l);
-                if (!StringUtils.isNull(this.d.a)) {
-                    param2 = param2.param("obj_name", this.d.a);
-                }
-                TiebaStatic.log(param2);
+                a(R.string.obfuscated_res_0x7f0f00b4);
+                return;
             }
+            a(R.string.obfuscated_res_0x7f0f00b0);
         }
     }
 
-    public void l(int i) {
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    public void onDownloadActive(long j, long j2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048581, this, i) != null) || this.a == i) {
-            return;
-        }
-        this.a = i;
-        SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0108);
-        for (int i2 = 0; i2 < 3; i2++) {
-            if (this.o[i2].getVisibility() == 0) {
-                SkinManager.setViewTextColor(this.o[i2], (int) R.color.CAM_X0101);
-                TBSelector.makeDrawableSelector().defaultColor(this.v[i2]).cornerRadius(ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds8)).into(this.o[i2]);
-            }
-            this.t[i2].onChangeSkinType(i);
-            SkinManager.setViewTextColor(this.p[i2], (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.q[i2], (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.r[i2], (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.s[i2], (int) R.color.CAM_X0109);
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) && j > 0) {
+            b((int) ((j2 * 100) / j));
         }
     }
 
-    public void n(int i, boolean z) {
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    public void onDownloadPaused(long j, long j2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) != null) || this.d == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) && j > 0) {
+            b((int) ((j2 * 100) / j));
         }
-        if (z) {
-            o(this.t[i], true);
-            this.d.d[i].m(true);
-            return;
-        }
-        o(this.t[i], false);
-        this.d.d[i].m(false);
     }
 
-    public final void o(FollowUserButton followUserButton, boolean z) {
-        n45 n45Var;
-        int i;
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onDownloadFailed() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, followUserButton, z) != null) || followUserButton == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            a(R.string.obfuscated_res_0x7f0f00b0);
         }
-        if (z) {
-            n45Var = this.i;
-        } else {
-            n45Var = this.j;
+    }
+
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onDownloadFinished() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            a(R.string.obfuscated_res_0x7f0f00b1);
         }
-        followUserButton.setConfig(n45Var);
-        TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-        if (z) {
-            i = R.string.obfuscated_res_0x7f0f06a1;
-        } else {
-            i = R.string.obfuscated_res_0x7f0f02ba;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener, com.kwad.sdk.api.KsAppDownloadListener
+    public void onIdle() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            a(R.string.obfuscated_res_0x7f0f00b0);
         }
-        followUserButton.setText(inst.getString(i));
-        followUserButton.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onInstalled() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            a(R.string.obfuscated_res_0x7f0f00b2);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    public void onDownloadFailed(long j, long j2, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
+            a(R.string.obfuscated_res_0x7f0f00b0);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    public void onDownloadFinished(long j, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
+            a(R.string.obfuscated_res_0x7f0f00b1);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    public void onInstalled(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
+            a(R.string.obfuscated_res_0x7f0f00b2);
+        }
     }
 }

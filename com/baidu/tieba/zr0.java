@@ -1,16 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class zr0 extends ur0 {
+public abstract class zr0 implements ks0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final es0 b;
+
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(Exception exc, int i);
+
+        void b(Headers headers, InputStream inputStream, int i) throws Exception;
+
+        void c(Headers headers, String str, int i) throws Exception;
+    }
 
     public zr0() {
         Interceptable interceptable = $ic;
@@ -22,29 +30,7 @@ public class zr0 extends ur0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = b("okhttp");
-    }
-
-    @Override // com.baidu.tieba.gs0
-    public es0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (es0) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ur0
-    public es0 b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return new rs0();
-        }
-        return (es0) invokeL.objValue;
     }
 }

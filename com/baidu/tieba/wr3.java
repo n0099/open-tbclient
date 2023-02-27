@@ -3,207 +3,208 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import androidx.transition.Transition;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.bdtls.AES;
-import com.baidu.swan.bdtls.impl.model.Bdtls$Alert;
+import com.baidu.payment.PaymentManager;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.ju2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class wr3 {
+public class wr3 implements wu1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile wr3 a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public PaymentManager a;
 
-    public static byte[] g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? new byte[]{(byte) ((i >> 24) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 8) & 255), (byte) (i & 255)} : (byte[]) invokeI.objValue;
+    /* loaded from: classes6.dex */
+    public class a extends ph1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+
+        public a(wr3 wr3Var, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wr3Var, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j;
+        }
+
+        @Override // com.baidu.tieba.ph1
+        public void a(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                if (wr3.b) {
+                    Log.d("RebateInfoManager", "requestBatchRebateInfo onResult: " + i + " " + str);
+                }
+                qp4.j(wr3.d());
+                qp4.N(String.valueOf(this.a), wr3.d());
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends ph1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(wr3 wr3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wr3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ph1
+        public void a(int i, String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && wr3.b) {
+                Log.d("RebateInfoManager", "requestSingleRebateInfo onResult: " + i + " " + str);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948280145, "Lcom/baidu/tieba/wr3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948280145, "Lcom/baidu/tieba/wr3;");
+                return;
+            }
+        }
+        b = wp1.a;
     }
 
     public wr3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new PaymentManager();
     }
 
-    public static wr3 f() {
+    public static /* synthetic */ File d() {
+        return e();
+    }
+
+    public static File e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                synchronized (wr3.class) {
-                    if (a == null) {
-                        a = new wr3();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new File(AppRuntime.getAppContext().getFilesDir().getPath(), "rebate_info_timestamp");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wu1
+    public boolean a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        m93 b0;
+        ju2.a W;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
+            if (!ud3.l() || (b0 = m93.b0()) == null || (W = b0.W()) == null) {
+                return false;
+            }
+            f(str, so4.g().u(AppRuntime.getAppContext()), ts2.h0().i(ts2.c()), np3.i(b0.getApplicationContext()), str2, str3, ts2.n().a(), W.T());
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.wu1
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            String E = qp4.E(e());
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            if (!TextUtils.isEmpty(E)) {
+                try {
+                    if (currentTimeMillis - Long.parseLong(E) < 86400) {
+                        if (b) {
+                            Log.d("RebateInfoManager", "requestBatchRebateInfo: 相邻请求时间需要大于一天");
+                            return;
+                        }
+                        return;
                     }
+                } catch (NumberFormatException e) {
+                    if (b) {
+                        e.printStackTrace();
+                        return;
+                    }
+                    return;
                 }
             }
-            return a;
+            this.a.p(new a(this, currentTimeMillis));
         }
-        return (wr3) invokeV.objValue;
     }
 
-    public static int a(byte[] bArr) {
-        InterceptResult invokeL;
+    public final void f(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr == null) {
-                return 0;
-            }
-            int i = 0;
-            for (byte b : bArr) {
-                i = (i << 8) | (b & 255);
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: char */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static String d(byte[] bArr) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < bArr.length; i2++) {
-                if (bArr[i2] > 0) {
-                    i = bArr[i2];
-                } else {
-                    i = bArr[i2] & 255;
-                }
-                sb.append(i);
-                sb.append(",");
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public byte[] b(hs3 hs3Var, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, hs3Var, str)) == null) {
-            if (hs3Var == null) {
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8}) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                fs3 a2 = fs3.j.a();
-                a2.r((byte) 23);
-                byte[] i = hs3Var.i();
-                if (i != null && i.length > 0 && i.length <= 32767) {
-                    a2.q((short) i.length);
-                    a2.o(i);
+                jSONObject.put("masterId", str);
+                if (!TextUtils.isEmpty(str2)) {
+                    jSONObject.put("userPassId", str2);
                 }
-                if (!TextUtils.isEmpty(str)) {
-                    byte[] aesEncrypt = AES.aesEncrypt(str, hs3Var.c());
-                    a2.k(aesEncrypt.length);
-                    a2.j(aesEncrypt);
-                }
-                a2.l(ll4.e().d().longValue());
-                return js3.b(a2);
-            } catch (Exception e) {
-                if (!sr3.a) {
-                    return null;
-                }
-                e.printStackTrace();
-                Log.d("BDTLS", "exception=" + e.getMessage());
-                return null;
-            }
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public gs3 c(hs3 hs3Var, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hs3Var, bArr)) == null) {
-            gs3 gs3Var = new gs3();
-            try {
-                fs3 a2 = js3.a(bArr);
-                byte i = a2.i();
-                if (i != 21) {
-                    if (i == 23) {
-                        gs3Var.c(new String(AES.aesDecrypt(a2.a(), hs3Var.c())));
-                        gs3Var.d(1);
-                    }
-                } else {
-                    Bdtls$Alert parseFrom = Bdtls$Alert.parseFrom(a2.f());
-                    if (parseFrom != null) {
-                        String str = new String(parseFrom.getDescription().toByteArray());
-                        if (sr3.a) {
-                            Log.d("BDTLS", "bdtls ubc application alert : " + str);
-                        }
-                        xr3.b(hs3Var, parseFrom);
-                        if (1 == parseFrom.getLevel()) {
-                            gs3Var.d(-2);
-                        } else if (TextUtils.equals(str, "down grade")) {
-                            gs3Var.d(2);
-                        } else {
-                            gs3Var.d(-1);
-                        }
-                        if (sr3.a) {
-                            if (parseFrom.getDescription() != null) {
-                                if (sr3.a) {
-                                    Log.d("BDTLS", "BdtlsPostRequest response alert message=" + str);
-                                }
-                            } else if (sr3.a) {
-                                Log.d("BDTLS", "BdtlsPostRequest response alert messag=null");
-                            }
-                        }
-                    } else {
-                        gs3Var.d(-1);
-                    }
-                }
-            } catch (Exception e) {
-                if (sr3.a) {
+                jSONObject.put("cuid", str3);
+                jSONObject.put("bduss", str4);
+                jSONObject.put(Transition.MATCH_ITEM_ID_STR, str5);
+                jSONObject.put("businessId", str6);
+                jSONObject.put("naid", str7);
+                jSONObject.put("scene", str8);
+                this.a.o(jSONObject, new b(this));
+            } catch (JSONException e) {
+                if (b) {
                     e.printStackTrace();
-                    Log.d("BDTLS", "exception=" + e.getMessage());
                 }
-                gs3Var.d(-1);
-            }
-            return gs3Var;
-        }
-        return (gs3) invokeLL.objValue;
-    }
-
-    public byte[] e(hs3 hs3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hs3Var)) == null) {
-            if (hs3Var == null) {
-                return null;
-            }
-            try {
-                byte[] b = is3.b(hs3Var, new es3());
-                if (b == null) {
-                    return null;
-                }
-                fs3 a2 = fs3.j.a();
-                a2.r((byte) 22);
-                a2.q((short) b.length);
-                a2.l(ll4.e().d().longValue());
-                a2.o(b);
-                return js3.b(a2);
-            } catch (Exception e) {
-                if (sr3.a) {
-                    e.printStackTrace();
-                    Log.d("BDTLS", "exception=" + e.getMessage());
-                }
-                return null;
             }
         }
-        return (byte[]) invokeL.objValue;
     }
 }

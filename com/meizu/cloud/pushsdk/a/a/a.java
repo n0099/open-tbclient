@@ -4,8 +4,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.meizu.cloud.pushinternal.DebugLogger;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,33 +32,30 @@ import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a {
-    public static a b;
-    public static final Object c = new Object();
+    public static a a;
+    public static final Object b = new Object();
+    public byte[] c;
     public byte[] d;
     public byte[] e;
     public byte[] f;
     public byte[] g;
-    public byte[] h;
-    public PublicKey i;
-    public SharedPreferences j;
-    public SharedPreferences k;
-    public Context m;
-    public long l = 0;
-    public String a = "88&*5a9*4&a122ek";
+    public PublicKey h;
+    public final SharedPreferences i;
+    public final SharedPreferences j;
+    public long k = 0;
 
     public a(Context context) {
-        this.m = context;
-        this.j = context.getSharedPreferences("com.x.y.1", 0);
-        this.k = context.getSharedPreferences("com.x.y.2", 0);
-        Integer.parseInt(this.j.getString("keyTimeout", "0"));
-        this.j.getLong("createDate", 0L);
+        this.i = context.getSharedPreferences("com.x.y.1", 0);
+        this.j = context.getSharedPreferences("com.x.y.2", 0);
+        Integer.parseInt(this.i.getString("keyTimeout", "0"));
+        this.i.getLong("createDate", 0L);
         e();
-        byte[] bArr = this.d;
-        if (bArr != null && (bArr == null || bArr.length != 0)) {
-            byte[] bArr2 = this.e;
-            if (bArr2 == null || (bArr2 != null && bArr2.length == 0)) {
-                PublicKey b2 = b(this.m);
-                this.i = b2;
+        byte[] bArr = this.c;
+        if (bArr != null && bArr.length != 0) {
+            byte[] bArr2 = this.d;
+            if (bArr2 == null || bArr2.length == 0) {
+                PublicKey b2 = b(context);
+                this.h = b2;
                 if (b2 != null) {
                     h();
                     return;
@@ -65,17 +64,17 @@ public class a {
             }
             return;
         }
-        PublicKey b3 = b(this.m);
-        this.i = b3;
+        PublicKey b3 = b(context);
+        this.h = b3;
         if (b3 != null) {
             f();
             return;
         }
-        this.j.edit().clear().apply();
+        this.i.edit().clear().apply();
         try {
             d();
-            PublicKey b4 = b(this.m);
-            this.i = b4;
+            PublicKey b4 = b(context);
+            this.h = b4;
             if (b4 != null) {
                 f();
             }
@@ -85,7 +84,7 @@ public class a {
     }
 
     public static a a() {
-        a aVar = b;
+        a aVar = a;
         if (aVar != null) {
             return aVar;
         }
@@ -125,10 +124,10 @@ public class a {
     }
 
     public static void a(Context context) {
-        if (b == null) {
-            synchronized (c) {
-                if (b == null) {
-                    b = new a(context);
+        if (a == null) {
+            synchronized (b) {
+                if (a == null) {
+                    a = new a(context);
                 }
             }
         }
@@ -136,12 +135,12 @@ public class a {
 
     private PublicKey b(Context context) {
         b("load publicKey from preference");
-        String string = this.k.getString("publicKey", "");
+        String string = this.j.getString("publicKey", "");
         if (TextUtils.isEmpty(string)) {
             return null;
         }
         try {
-            return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(string, 2)));
+            return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(string, 2)));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             return null;
@@ -159,10 +158,9 @@ public class a {
         DebugLogger.e("HttpKeyMgr", str);
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE, IF, INVOKE, IF, NOP, INVOKE, INVOKE, IF, NOP] complete} */
     private void d() throws IOException {
         try {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("http://norma-external-collect.meizu.com/android/exchange/getpublickey.do").openConnection();
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(PushConstants.URL_DOWNLOAD_PUBLIC_KEY).openConnection();
             httpURLConnection.setDoInput(true);
             httpURLConnection.setUseCaches(false);
             try {
@@ -177,14 +175,14 @@ public class a {
                 b("code = " + responseCode);
                 inputStream = httpURLConnection.getInputStream();
                 if (inputStream != null) {
-                    String a = a(inputStream);
-                    b("body = " + a);
-                    if (!TextUtils.isEmpty(a)) {
+                    String a2 = a(inputStream);
+                    b("body = " + a2);
+                    if (!TextUtils.isEmpty(a2)) {
                         try {
-                            JSONObject jSONObject = new JSONObject(a);
+                            JSONObject jSONObject = new JSONObject(a2);
                             if (jSONObject.getInt("code") == 200) {
                                 String string = jSONObject.getString("value");
-                                SharedPreferences.Editor edit = this.k.edit();
+                                SharedPreferences.Editor edit = this.j.edit();
                                 edit.putString("publicKey", string);
                                 edit.apply();
                             }
@@ -200,9 +198,7 @@ public class a {
                     } catch (IOException unused) {
                     }
                 }
-                if (httpURLConnection != null) {
-                    httpURLConnection.disconnect();
-                }
+                httpURLConnection.disconnect();
             }
         } catch (MalformedURLException unused2) {
         }
@@ -210,27 +206,27 @@ public class a {
 
     private void e() {
         b("loadKeys");
-        String string = this.j.getString("sKey64", "");
+        String string = this.i.getString("sKey64", "");
         b("saved sKey64: " + string);
         if (!TextUtils.isEmpty(string)) {
-            this.h = string.getBytes();
+            this.g = string.getBytes();
         }
-        String string2 = this.j.getString("aKey64", "");
+        String string2 = this.i.getString("aKey64", "");
         b("saved aKey64: " + string2);
         if (!TextUtils.isEmpty(string2)) {
             byte[] bytes = string2.getBytes();
-            this.g = bytes;
-            this.e = Base64.decode(bytes, 2);
+            this.f = bytes;
+            this.d = Base64.decode(bytes, 2);
         }
-        String string3 = this.j.getString("rKey64", "");
+        String string3 = this.i.getString("rKey64", "");
         b("saved rKey64: " + string3);
         if (TextUtils.isEmpty(string3)) {
             return;
         }
         byte[] bytes2 = string3.getBytes();
-        this.f = bytes2;
-        this.d = Base64.decode(bytes2, 2);
-        b("saved rKey: " + new String(this.d));
+        this.e = bytes2;
+        this.c = Base64.decode(bytes2, 2);
+        b("saved rKey: " + new String(this.c));
     }
 
     private void f() {
@@ -243,11 +239,11 @@ public class a {
             KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
             keyGenerator.init(128);
             byte[] encoded = keyGenerator.generateKey().getEncoded();
-            this.d = encoded;
-            this.f = Base64.encode(encoded, 2);
-            b("***** rKey64: " + new String(this.f));
-            SharedPreferences.Editor edit = this.j.edit();
-            edit.putString("rKey64", new String(this.f));
+            this.c = encoded;
+            this.e = Base64.encode(encoded, 2);
+            b("***** rKey64: " + new String(this.e));
+            SharedPreferences.Editor edit = this.i.edit();
+            edit.putString("rKey64", new String(this.e));
             edit.apply();
         } catch (Exception e) {
             e.printStackTrace();
@@ -257,13 +253,13 @@ public class a {
     private void h() {
         try {
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-            cipher.init(1, this.i);
-            byte[] doFinal = cipher.doFinal(this.d);
-            this.e = doFinal;
-            this.g = Base64.encode(doFinal, 2);
-            b("***** aKey64: " + new String(this.g));
-            SharedPreferences.Editor edit = this.j.edit();
-            edit.putString("aKey64", new String(this.g));
+            cipher.init(1, this.h);
+            byte[] doFinal = cipher.doFinal(this.c);
+            this.d = doFinal;
+            this.f = Base64.encode(doFinal, 2);
+            b("***** aKey64: " + new String(this.f));
+            SharedPreferences.Editor edit = this.i.edit();
+            edit.putString("aKey64", new String(this.f));
             edit.apply();
         } catch (InvalidKeyException e) {
             e.printStackTrace();
@@ -279,23 +275,23 @@ public class a {
     }
 
     public void a(String str) {
-        this.h = str.getBytes();
-        SharedPreferences.Editor edit = this.j.edit();
-        edit.putString("sKey64", new String(this.h));
+        this.g = str.getBytes();
+        SharedPreferences.Editor edit = this.i.edit();
+        edit.putString("sKey64", new String(this.g));
         edit.apply();
     }
 
     public byte[] a(byte[] bArr) {
         String str;
-        byte[] bArr2 = this.d;
-        if (bArr2 == null || (bArr2 != null && bArr2.length == 0)) {
+        byte[] bArr2 = this.c;
+        if (bArr2 == null || bArr2.length == 0) {
             str = "rKey null!";
-        } else if (bArr != null && (bArr == null || bArr.length != 0)) {
+        } else if (bArr != null && bArr.length != 0) {
             b(">>>>>>>>>> encrypt input >>>>>>>>>>\n" + new String(Base64.encode(bArr, 2)));
             b("<<<<<<<<<< encrypt input <<<<<<<<<<");
             try {
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                cipher.init(1, new SecretKeySpec(this.d, "AES"), new IvParameterSpec(this.d));
+                cipher.init(1, new SecretKeySpec(this.c, "AES"), new IvParameterSpec(this.c));
                 byte[] doFinal = cipher.doFinal(bArr);
                 b(">>>>>>>>>> encrypt output >>>>>>>>>>\n" + new String(Base64.encode(doFinal, 2)));
                 b("<<<<<<<<<< encrypt output <<<<<<<<<<");
@@ -327,10 +323,10 @@ public class a {
     }
 
     public byte[] b() {
-        return this.g;
+        return this.f;
     }
 
     public byte[] c() {
-        return this.h;
+        return this.g;
     }
 }

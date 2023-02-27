@@ -2,8 +2,6 @@ package com.baidu.sapi2;
 
 import android.content.Context;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.sapi2.callback.UbcUploadImplCallback;
 import com.baidu.sapi2.share.ShareUtils;
@@ -15,11 +13,6 @@ import com.baidu.sapi2.utils.enums.Language;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.sapi2.utils.enums.Switch;
 import com.baidu.sofire.ac.FH;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -27,7 +20,6 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public final class SapiConfiguration implements NoProguard {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int BROWSE_MODE_STATE_ONLY = 2;
     public static final int BROWSE_MODE_STATE_USER_AUTHORIZED = 1;
     public static final int BROWSE_MODE_STATE_USER_UNSELECTED = 0;
@@ -40,7 +32,6 @@ public final class SapiConfiguration implements NoProguard {
     public static final int QUICK_LOGIN_VIEW_BTN_ACTION_NAME_PHONE_EMAIL_LOGIN = 6;
     public static final int QUICK_LOGIN_VIEW_BTN_ACTION_PRE_NAME_PHONE_LOGIN = 7;
     public static final int QUICK_LOGIN_VIEW_BTN_ACTION_SMS_LOGIN = 1;
-    public transient /* synthetic */ FieldHolder $fh;
     public final boolean accountCenterRealAutnen;
     public int activityExitAnimId;
     public int activityOpenAnimId;
@@ -119,13 +110,6 @@ public final class SapiConfiguration implements NoProguard {
     public final String xiaomiRedirectUri;
     public String yyAppId;
 
-    /* renamed from: com.baidu.sapi2.SapiConfiguration$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
     /* loaded from: classes2.dex */
     public interface CallbackTextSizeListener extends NoProguard {
         int callbackTextSize();
@@ -133,41 +117,23 @@ public final class SapiConfiguration implements NoProguard {
 
     /* loaded from: classes2.dex */
     public static class Builder implements NoProguard {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean accountCenterRealNameAuthen;
-        public int activityExitAnimId;
-        public int activityOpenAnimId;
-        public boolean agreeDangerousProtocol;
         public String appId;
         public String appSignKey;
         public String bdOauthAppId;
-        public int browseModeState;
         public String cfoAppKey;
         public boolean cfoOpenDebugMode;
-        public Switch configurableViewLayout;
         public Context context;
-        public boolean customActionBarEnabled;
-        public boolean debug;
         public String deviceName;
-        public boolean disableVoiceVerify;
-        public boolean enableShare;
         public Domain environment;
         public String faceLincenseFile;
         public String faceLincenseID;
         public Map<String, String> faceResPaths;
         public List<FastLoginFeature> fastLoginFeatureList;
         public boolean forbidPresetPhoneNumber;
-        public boolean forbidSslErrorDialog;
         public String googleClientId;
         public String honorAppID;
         public String honorRedirectUri;
         public LoginShareStrategy initialShareStrategy;
-        public boolean isDarkMode;
-        public boolean isHideLoginHelpEntrance;
-        public boolean isNewLogin;
-        public boolean isNightMode;
-        public boolean isShowBottomBackText;
         public boolean isSupportDebugShareLogin;
         public Language language;
         public CallbackTextSizeListener mCallbackTextSizeListener;
@@ -180,889 +146,494 @@ public final class SapiConfiguration implements NoProguard {
         public String processName;
         public String qqAppID;
         public String realnameAuthenticateStoken;
-        public boolean showBottomBack;
-        public boolean showCloseBtn;
-        public boolean showRegLink;
         public String sinaAppID;
         public String sinaRedirectUri;
         public String skin;
         public SmsLoginConfig smsLoginConfig;
         public BindType socialBindType;
-        public String sofireAppKey;
-        public int sofireHostID;
-        public String sofireSecKey;
-        public boolean supNewVerSapiLogin;
         public boolean supportBrowseMode;
         public boolean supportCheckFloatfLayer;
-        public boolean supportFaceLogin;
-        public boolean supportGestureSlide;
-        public boolean supportMultipleAccounts;
-        public boolean supportPhoto;
-        public boolean supportTouchLogin;
-        public boolean syncOneKeyLoginInfo;
-        public int textZoom;
         public String tpl;
         public String twitterAppKey;
         public UbcUploadImplCallback ubcUploadImplCallback;
-        public boolean uniteVerify;
         public String userAgent;
         public String wxAppID;
         public Long xiaomiAppID;
         public String xiaomiRedirectUri;
         public String yyAppId;
+        public boolean agreeDangerousProtocol = true;
+        public String sofireAppKey = "740000";
+        public String sofireSecKey = "a7968de484f90a9036b5f2b40382ea43";
+        public int sofireHostID = 1;
+        public boolean customActionBarEnabled = false;
+        public boolean showBottomBack = false;
+        public boolean showCloseBtn = false;
+        public boolean showRegLink = true;
+        public Switch configurableViewLayout = Switch.OFF;
+        public boolean debug = false;
+        public boolean uniteVerify = false;
+        public boolean accountCenterRealNameAuthen = true;
+        public boolean forbidSslErrorDialog = false;
+        public boolean enableShare = true;
+        public boolean supportPhoto = true;
+        public boolean isNightMode = false;
+        public boolean isDarkMode = false;
+        public int activityOpenAnimId = 0;
+        public int activityExitAnimId = 0;
+        public boolean supNewVerSapiLogin = false;
+        public boolean disableVoiceVerify = true;
+        public boolean supportFaceLogin = true;
+        public boolean supportTouchLogin = true;
+        public boolean supportGestureSlide = true;
+        public boolean syncOneKeyLoginInfo = true;
+        public boolean supportMultipleAccounts = true;
+        public boolean isNewLogin = true;
+        public int textZoom = 100;
+        public boolean isShowBottomBackText = false;
+        public int browseModeState = 1;
+        public boolean isHideLoginHelpEntrance = false;
 
         public Builder setLowerUpdateFreq(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(1048606, this, z)) == null) ? this : (Builder) invokeZ.objValue;
+            return this;
         }
 
         public Builder(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.agreeDangerousProtocol = true;
-            this.sofireAppKey = "740000";
-            this.sofireSecKey = "a7968de484f90a9036b5f2b40382ea43";
-            this.sofireHostID = 1;
-            this.customActionBarEnabled = false;
-            this.showBottomBack = false;
-            this.showCloseBtn = false;
-            this.showRegLink = true;
-            this.configurableViewLayout = Switch.OFF;
-            this.debug = false;
-            this.uniteVerify = false;
-            this.accountCenterRealNameAuthen = true;
-            this.forbidSslErrorDialog = false;
-            this.enableShare = true;
-            this.supportPhoto = true;
-            this.isNightMode = false;
-            this.isDarkMode = false;
-            this.activityOpenAnimId = 0;
-            this.activityExitAnimId = 0;
-            this.supNewVerSapiLogin = false;
-            this.disableVoiceVerify = true;
-            this.supportFaceLogin = true;
-            this.supportTouchLogin = true;
-            this.supportGestureSlide = true;
-            this.syncOneKeyLoginInfo = true;
-            this.supportMultipleAccounts = true;
-            this.isNewLogin = true;
-            this.textZoom = 100;
-            this.isShowBottomBackText = false;
-            this.browseModeState = 1;
-            this.isHideLoginHelpEntrance = false;
             this.context = context.getApplicationContext();
         }
 
         public Builder bdOauthAppId(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                this.bdOauthAppId = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.bdOauthAppId = str;
+            return this;
         }
 
-        public Builder configurableViewLayout(Switch r5) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, r5)) == null) {
-                this.configurableViewLayout = r5;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+        public Builder configurableViewLayout(Switch r1) {
+            this.configurableViewLayout = r1;
+            return this;
         }
 
         public Builder customActionBar(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.customActionBarEnabled = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.customActionBarEnabled = z;
+            return this;
         }
 
         public Builder customWebviewUA(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.userAgent = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.userAgent = str;
+            return this;
         }
 
         public Builder debug(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-                this.debug = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.debug = z;
+            return this;
         }
 
         public Builder enableShare(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-                this.enableShare = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.enableShare = z;
+            return this;
         }
 
         public Builder fastLoginSupport(FastLoginFeature... fastLoginFeatureArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fastLoginFeatureArr)) == null) {
-                ArrayList arrayList = new ArrayList();
-                this.fastLoginFeatureList = arrayList;
-                if (fastLoginFeatureArr == null) {
-                    return this;
-                }
-                Collections.addAll(arrayList, fastLoginFeatureArr);
+            ArrayList arrayList = new ArrayList();
+            this.fastLoginFeatureList = arrayList;
+            if (fastLoginFeatureArr == null) {
                 return this;
             }
-            return (Builder) invokeL.objValue;
+            Collections.addAll(arrayList, fastLoginFeatureArr);
+            return this;
         }
 
         public Builder forbidPresetPhoneNumber(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-                this.forbidPresetPhoneNumber = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.forbidPresetPhoneNumber = z;
+            return this;
         }
 
         public Builder forbidSslErrorDalog(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-                this.forbidSslErrorDialog = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.forbidSslErrorDialog = z;
+            return this;
         }
 
         public Builder googleOauthConfig(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-                this.googleClientId = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.googleClientId = str;
+            return this;
         }
 
         public Builder initialShareStrategy(LoginShareStrategy loginShareStrategy) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, loginShareStrategy)) == null) {
-                this.initialShareStrategy = loginShareStrategy;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.initialShareStrategy = loginShareStrategy;
+            return this;
         }
 
         public Builder isHideLoginHelpEntrance(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048590, this, z)) == null) {
-                this.isHideLoginHelpEntrance = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.isHideLoginHelpEntrance = z;
+            return this;
         }
 
         public Builder isNewLogin(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
-                this.isNewLogin = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.isNewLogin = z;
+            return this;
         }
 
         public Builder presetPhoneNumber(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-                this.presetPhoneNumber = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.presetPhoneNumber = str;
+            return this;
         }
 
         public Builder qqAppID(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-                this.qqAppID = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.qqAppID = str;
+            return this;
         }
 
         public Builder realnameAuthenticateStoken(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
-                this.realnameAuthenticateStoken = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.realnameAuthenticateStoken = str;
+            return this;
         }
 
         public Builder setAgreeDangerousProtocol(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048597, this, z)) == null) {
-                this.agreeDangerousProtocol = z;
-                try {
-                    FH.setAgreePolicy(this.context, z);
-                } catch (Exception e) {
-                    Log.e(e);
-                }
-                return this;
+            this.agreeDangerousProtocol = z;
+            try {
+                FH.setAgreePolicy(this.context, z);
+            } catch (Exception e) {
+                Log.e(e);
             }
-            return (Builder) invokeZ.objValue;
+            return this;
         }
 
         public Builder setBrowseModeState(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
-                this.browseModeState = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
+            this.browseModeState = i;
+            return this;
         }
 
         public Builder setDarkMode(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048599, this, z)) == null) {
-                this.isDarkMode = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.isDarkMode = z;
+            return this;
         }
 
         public Builder setDebugSupportShareLogin(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048600, this, z)) == null) {
-                this.isSupportDebugShareLogin = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.isSupportDebugShareLogin = z;
+            return this;
         }
 
         public Builder setDeviceName(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
-                this.deviceName = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.deviceName = str;
+            return this;
         }
 
         public Builder setDisableVoiceVerify(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048602, this, z)) == null) {
-                this.disableVoiceVerify = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.disableVoiceVerify = z;
+            return this;
         }
 
         public Builder setFaceResPaths(Map<String, String> map) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, map)) == null) {
-                this.faceResPaths = map;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.faceResPaths = map;
+            return this;
         }
 
         public Builder setLanguage(Language language) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, language)) == null) {
-                this.language = language;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.language = language;
+            return this;
         }
 
         public Builder setNightMode(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048607, this, z)) == null) {
-                this.isNightMode = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder setRuntimeEnvironment(Domain domain) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, domain)) == null) {
-                this.environment = domain;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder setShowBottomBackText(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048613, this, z)) == null) {
-                this.isShowBottomBackText = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder setShowCloseBtn(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048614, this, z)) == null) {
-                this.showCloseBtn = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder setSocialBindType(BindType bindType) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, bindType)) == null) {
-                this.socialBindType = bindType;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder setSupNewVerSapiLogin(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048616, this, z)) == null) {
-                this.supNewVerSapiLogin = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder setSupportBrowseMode(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048617, this, z)) == null) {
-                this.supportBrowseMode = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder setSupportCheckFloatfLayer(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048618, this, z)) == null) {
-                this.supportCheckFloatfLayer = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder setSupportFaceLogin(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048619, this, z)) == null) {
-                this.supportFaceLogin = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder setSupportGestureSlide(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048620, this, z)) == null) {
-                this.supportGestureSlide = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder setSupportMultipleAccounts(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048621, this, z)) == null) {
-                this.supportMultipleAccounts = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder setSupportPhoto(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048622, this, z)) == null) {
-                this.supportPhoto = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder setSupportTouchLogin(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048623, this, z)) == null) {
-                this.supportTouchLogin = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder setTextSizeZoomListener(CallbackTextSizeListener callbackTextSizeListener) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, callbackTextSizeListener)) == null) {
-                this.mCallbackTextSizeListener = callbackTextSizeListener;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder setTextZoom(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048625, this, i)) == null) {
-                if (i > 0 && i < 200) {
-                    this.textZoom = i;
-                }
-                return this;
-            }
-            return (Builder) invokeI.objValue;
-        }
-
-        public Builder setUbcUploadImplCallback(UbcUploadImplCallback ubcUploadImplCallback) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, ubcUploadImplCallback)) == null) {
-                this.ubcUploadImplCallback = ubcUploadImplCallback;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder showBottomBack(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048627, this, z)) == null) {
-                this.showBottomBack = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder showRegLink(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048628, this, z)) == null) {
-                this.showRegLink = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder sinaAppID(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, str)) == null) {
-                return sinaAppID(str, Domain.DOMAIN_ONLINE.getURL(true));
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder skin(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, str)) == null) {
-                this.skin = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder smsLoginConfig(SmsLoginConfig smsLoginConfig) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048632, this, smsLoginConfig)) == null) {
-                this.smsLoginConfig = smsLoginConfig;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder supportRealNameAuthen(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048634, this, z)) == null) {
-                this.accountCenterRealNameAuthen = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder syncOneKeyLoginInfo(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048635, this, z)) == null) {
-                this.syncOneKeyLoginInfo = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder twitterOauthConfig(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048636, this, str)) == null) {
-                this.twitterAppKey = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder uniteVerify(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048637, this, z)) == null) {
-                this.uniteVerify = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder wxAppID(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, str)) == null) {
-                this.wxAppID = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder yyOauthConfig(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048640, this, str)) == null) {
-                this.yyAppId = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public SapiConfiguration build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (!TextUtils.isEmpty(this.tpl) && !TextUtils.isEmpty(this.appId) && !TextUtils.isEmpty(this.appSignKey)) {
-                    if (this.environment == null) {
-                        this.environment = Domain.DOMAIN_ONLINE;
-                    }
-                    if (this.language == null) {
-                        this.language = Language.CHINESE;
-                    }
-                    if (this.socialBindType == null) {
-                        this.socialBindType = BindType.BIND_MOBILE;
-                    }
-                    if (this.initialShareStrategy == null) {
-                        this.initialShareStrategy = LoginShareStrategy.getDefault();
-                    }
-                    if (this.fastLoginFeatureList == null) {
-                        this.fastLoginFeatureList = new ArrayList();
-                    }
-                    if (this.smsLoginConfig == null) {
-                        Switch r1 = Switch.OFF;
-                        this.smsLoginConfig = new SmsLoginConfig(r1, r1, r1);
-                    }
-                    if (this.configurableViewLayout == null) {
-                        this.configurableViewLayout = Switch.OFF;
-                    }
-                    if (this.showBottomBack) {
-                        this.customActionBarEnabled = true;
-                    }
-                    Log.enable(this.debug);
-                    return new SapiConfiguration(this, null);
-                }
-                throw new IllegalArgumentException("tpl, appId, appsignkey can not be null, please use setProductLineInfo(String tpl, String appId, String appSignKey)to initialize them.");
-            }
-            return (SapiConfiguration) invokeV.objValue;
-        }
-
-        public Builder cfoAppID(String str, boolean z) {
-            InterceptResult invokeLZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) {
-                this.cfoAppKey = str;
-                this.cfoOpenDebugMode = z;
-                return this;
-            }
-            return (Builder) invokeLZ.objValue;
-        }
-
-        public Builder honorAppID(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, str2)) == null) {
-                this.honorAppID = str;
-                if (TextUtils.isEmpty(str2)) {
-                    str2 = "honorid://redirect_url";
-                }
-                this.honorRedirectUri = str2;
-                return this;
-            }
-            return (Builder) invokeLL.objValue;
-        }
-
-        public Builder meizuLoginConfig(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, str, str2)) == null) {
-                this.mzAppID = str;
-                this.meizuRedirectUri = str2;
-                return this;
-            }
-            return (Builder) invokeLL.objValue;
-        }
-
-        public Builder setActivityAnim(int i, int i2) {
-            InterceptResult invokeII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(1048596, this, i, i2)) == null) {
-                this.activityOpenAnimId = i;
-                this.activityExitAnimId = i2;
-                return this;
-            }
-            return (Builder) invokeII.objValue;
-        }
-
-        public Builder setFaceLincense(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048603, this, str, str2)) == null) {
-                this.faceLincenseID = str;
-                this.faceLincenseFile = str2;
-                return this;
-            }
-            return (Builder) invokeLL.objValue;
-        }
-
-        public Builder setPrivacyParamesConfig(String str, boolean z) {
-            InterceptResult invokeLZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048609, this, str, z)) == null) {
-                if (z && TextUtils.isEmpty(str)) {
-                    throw new IllegalArgumentException("privacyParamesRegulation is true , so tAppname and tCuid can not be empty");
-                }
-                this.mTPLAppName = str;
-                this.mPrivacyParamesRegulation = z;
-                return this;
-            }
-            return (Builder) invokeLZ.objValue;
-        }
-
-        public Builder sinaAppID(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048630, this, str, str2)) == null) {
-                this.sinaAppID = str;
-                this.sinaRedirectUri = str2;
-                return this;
-            }
-            return (Builder) invokeLL.objValue;
-        }
-
-        public Builder xiaoAppID(Long l, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048639, this, l, str)) == null) {
-                this.xiaomiAppID = l;
-                this.xiaomiRedirectUri = str;
-                return this;
-            }
-            return (Builder) invokeLL.objValue;
-        }
-
-        public Builder setPrivacyParamesConfig(String str, String str2, boolean z) {
-            InterceptResult invokeLLZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048608, this, str, str2, z)) == null) {
-                if (z && TextUtils.isEmpty(str)) {
-                    throw new IllegalArgumentException("privacyParamesRegulation is true , so tAppname and tCuid can not be empty");
-                }
-                this.mTPLAppName = str;
-                this.mTPLCuid = str2;
-                this.mPrivacyParamesRegulation = z;
-                return this;
-            }
-            return (Builder) invokeLLZ.objValue;
-        }
-
-        public Builder setProductLineInfo(String str, String str2, String str3) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048611, this, str, str2, str3)) == null) {
-                this.tpl = str;
-                this.appId = str2;
-                this.appSignKey = str3;
-                return this;
-            }
-            return (Builder) invokeLLL.objValue;
-        }
-
-        public Builder sofireSdkConfig(String str, String str2, int i) {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048633, this, str, str2, i)) == null) {
-                this.sofireAppKey = str;
-                this.sofireSecKey = str2;
-                this.sofireHostID = i;
-                return this;
-            }
-            return (Builder) invokeLLI.objValue;
+            this.isNightMode = z;
+            return this;
         }
 
         public Builder setProcessName(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    return this;
-                }
-                boolean z = false;
-                Iterator<String> it = SapiOptions.getInitialProcessNameWhiteList().iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    } else if (str.matches(it.next())) {
-                        z = true;
-                        break;
-                    }
-                }
-                if (z) {
-                    this.processName = str;
-                }
+            if (TextUtils.isEmpty(str)) {
                 return this;
             }
-            return (Builder) invokeL.objValue;
+            boolean z = false;
+            Iterator<String> it = SapiOptions.getInitialProcessNameWhiteList().iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                } else if (str.matches(it.next())) {
+                    z = true;
+                    break;
+                }
+            }
+            if (z) {
+                this.processName = str;
+            }
+            return this;
+        }
+
+        public Builder setRuntimeEnvironment(Domain domain) {
+            this.environment = domain;
+            return this;
+        }
+
+        public Builder setShowBottomBackText(boolean z) {
+            this.isShowBottomBackText = z;
+            return this;
+        }
+
+        public Builder setShowCloseBtn(boolean z) {
+            this.showCloseBtn = z;
+            return this;
+        }
+
+        public Builder setSocialBindType(BindType bindType) {
+            this.socialBindType = bindType;
+            return this;
+        }
+
+        public Builder setSupNewVerSapiLogin(boolean z) {
+            this.supNewVerSapiLogin = z;
+            return this;
+        }
+
+        public Builder setSupportBrowseMode(boolean z) {
+            this.supportBrowseMode = z;
+            return this;
+        }
+
+        public Builder setSupportCheckFloatfLayer(boolean z) {
+            this.supportCheckFloatfLayer = z;
+            return this;
+        }
+
+        public Builder setSupportFaceLogin(boolean z) {
+            this.supportFaceLogin = z;
+            return this;
+        }
+
+        public Builder setSupportGestureSlide(boolean z) {
+            this.supportGestureSlide = z;
+            return this;
+        }
+
+        public Builder setSupportMultipleAccounts(boolean z) {
+            this.supportMultipleAccounts = z;
+            return this;
+        }
+
+        public Builder setSupportPhoto(boolean z) {
+            this.supportPhoto = z;
+            return this;
+        }
+
+        public Builder setSupportTouchLogin(boolean z) {
+            this.supportTouchLogin = z;
+            return this;
+        }
+
+        public Builder setTextSizeZoomListener(CallbackTextSizeListener callbackTextSizeListener) {
+            this.mCallbackTextSizeListener = callbackTextSizeListener;
+            return this;
+        }
+
+        public Builder setTextZoom(int i) {
+            if (i > 0 && i < 200) {
+                this.textZoom = i;
+            }
+            return this;
+        }
+
+        public Builder setUbcUploadImplCallback(UbcUploadImplCallback ubcUploadImplCallback) {
+            this.ubcUploadImplCallback = ubcUploadImplCallback;
+            return this;
+        }
+
+        public Builder showBottomBack(boolean z) {
+            this.showBottomBack = z;
+            return this;
+        }
+
+        public Builder showRegLink(boolean z) {
+            this.showRegLink = z;
+            return this;
+        }
+
+        public Builder sinaAppID(String str) {
+            return sinaAppID(str, Domain.DOMAIN_ONLINE.getURL(true));
+        }
+
+        public Builder skin(String str) {
+            this.skin = str;
+            return this;
+        }
+
+        public Builder smsLoginConfig(SmsLoginConfig smsLoginConfig) {
+            this.smsLoginConfig = smsLoginConfig;
+            return this;
+        }
+
+        public Builder supportRealNameAuthen(boolean z) {
+            this.accountCenterRealNameAuthen = z;
+            return this;
+        }
+
+        public Builder syncOneKeyLoginInfo(boolean z) {
+            this.syncOneKeyLoginInfo = z;
+            return this;
+        }
+
+        public Builder twitterOauthConfig(String str) {
+            this.twitterAppKey = str;
+            return this;
+        }
+
+        public Builder uniteVerify(boolean z) {
+            this.uniteVerify = z;
+            return this;
+        }
+
+        public Builder wxAppID(String str) {
+            this.wxAppID = str;
+            return this;
+        }
+
+        public Builder yyOauthConfig(String str) {
+            this.yyAppId = str;
+            return this;
+        }
+
+        public SapiConfiguration build() {
+            if (!TextUtils.isEmpty(this.tpl) && !TextUtils.isEmpty(this.appId) && !TextUtils.isEmpty(this.appSignKey)) {
+                if (this.environment == null) {
+                    this.environment = Domain.DOMAIN_ONLINE;
+                }
+                if (this.language == null) {
+                    this.language = Language.CHINESE;
+                }
+                if (this.socialBindType == null) {
+                    this.socialBindType = BindType.BIND_MOBILE;
+                }
+                if (this.initialShareStrategy == null) {
+                    this.initialShareStrategy = LoginShareStrategy.getDefault();
+                }
+                if (this.fastLoginFeatureList == null) {
+                    this.fastLoginFeatureList = new ArrayList();
+                }
+                if (this.smsLoginConfig == null) {
+                    Switch r1 = Switch.OFF;
+                    this.smsLoginConfig = new SmsLoginConfig(r1, r1, r1);
+                }
+                if (this.configurableViewLayout == null) {
+                    this.configurableViewLayout = Switch.OFF;
+                }
+                if (this.showBottomBack) {
+                    this.customActionBarEnabled = true;
+                }
+                Log.enable(this.debug);
+                return new SapiConfiguration(this);
+            }
+            throw new IllegalArgumentException("tpl, appId, appsignkey can not be null, please use setProductLineInfo(String tpl, String appId, String appSignKey)to initialize them.");
+        }
+
+        public Builder cfoAppID(String str, boolean z) {
+            this.cfoAppKey = str;
+            this.cfoOpenDebugMode = z;
+            return this;
+        }
+
+        public Builder honorAppID(String str, String str2) {
+            this.honorAppID = str;
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "honorid://redirect_url";
+            }
+            this.honorRedirectUri = str2;
+            return this;
+        }
+
+        public Builder meizuLoginConfig(String str, String str2) {
+            this.mzAppID = str;
+            this.meizuRedirectUri = str2;
+            return this;
+        }
+
+        public Builder setActivityAnim(int i, int i2) {
+            this.activityOpenAnimId = i;
+            this.activityExitAnimId = i2;
+            return this;
+        }
+
+        public Builder setFaceLincense(String str, String str2) {
+            this.faceLincenseID = str;
+            this.faceLincenseFile = str2;
+            return this;
+        }
+
+        public Builder setPrivacyParamesConfig(String str, boolean z) {
+            if (z && TextUtils.isEmpty(str)) {
+                throw new IllegalArgumentException("privacyParamesRegulation is true , so tAppname and tCuid can not be empty");
+            }
+            this.mTPLAppName = str;
+            this.mPrivacyParamesRegulation = z;
+            return this;
+        }
+
+        public Builder sinaAppID(String str, String str2) {
+            this.sinaAppID = str;
+            this.sinaRedirectUri = str2;
+            return this;
+        }
+
+        public Builder xiaoAppID(Long l, String str) {
+            this.xiaomiAppID = l;
+            this.xiaomiRedirectUri = str;
+            return this;
+        }
+
+        public Builder setPrivacyParamesConfig(String str, String str2, boolean z) {
+            if (z && TextUtils.isEmpty(str)) {
+                throw new IllegalArgumentException("privacyParamesRegulation is true , so tAppname and tCuid can not be empty");
+            }
+            this.mTPLAppName = str;
+            this.mTPLCuid = str2;
+            this.mPrivacyParamesRegulation = z;
+            return this;
+        }
+
+        public Builder setProductLineInfo(String str, String str2, String str3) {
+            this.tpl = str;
+            this.appId = str2;
+            this.appSignKey = str3;
+            return this;
+        }
+
+        public Builder sofireSdkConfig(String str, String str2, int i) {
+            this.sofireAppKey = str;
+            this.sofireSecKey = str2;
+            this.sofireHostID = i;
+            return this;
         }
     }
 
     /* loaded from: classes2.dex */
     public static class SmsLoginConfig implements NoProguard {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public Switch flagHideExtraEntry;
         public Switch flagLoginBtnType;
         public Switch flagShowFastRegLink;
         public Switch flagShowLoginLink;
         public Switch flagShowSmsLoginLink;
 
-        public SmsLoginConfig(Switch r6, Switch r7, @Deprecated Switch r8) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r6, r7, r8};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            r6 = r6 == null ? Switch.OFF : r6;
-            r7 = r7 == null ? Switch.OFF : r7;
-            r8 = r8 == null ? Switch.OFF : r8;
-            this.flagShowLoginLink = r6;
-            this.flagShowSmsLoginLink = r7;
-            this.flagLoginBtnType = r8;
-            Switch r62 = Switch.OFF;
-            this.flagShowFastRegLink = r62;
-            this.flagHideExtraEntry = r62;
+        public SmsLoginConfig(Switch r1, Switch r2, @Deprecated Switch r3) {
+            r1 = r1 == null ? Switch.OFF : r1;
+            r2 = r2 == null ? Switch.OFF : r2;
+            r3 = r3 == null ? Switch.OFF : r3;
+            this.flagShowLoginLink = r1;
+            this.flagShowSmsLoginLink = r2;
+            this.flagLoginBtnType = r3;
+            Switch r12 = Switch.OFF;
+            this.flagShowFastRegLink = r12;
+            this.flagHideExtraEntry = r12;
         }
 
-        public SmsLoginConfig(Switch r6, Switch r7, Switch r8, @Deprecated Switch r9, Switch r10) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r6, r7, r8, r9, r10};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            r6 = r6 == null ? Switch.OFF : r6;
-            r7 = r7 == null ? Switch.OFF : r7;
-            r8 = r8 == null ? Switch.OFF : r8;
-            r9 = r9 == null ? Switch.OFF : r9;
-            r10 = r10 == null ? Switch.OFF : r10;
-            this.flagHideExtraEntry = r6;
-            this.flagShowLoginLink = r7;
-            this.flagShowSmsLoginLink = r8;
-            this.flagLoginBtnType = r9;
-            this.flagShowFastRegLink = r10;
+        public SmsLoginConfig(Switch r1, Switch r2, Switch r3, @Deprecated Switch r4, Switch r5) {
+            r1 = r1 == null ? Switch.OFF : r1;
+            r2 = r2 == null ? Switch.OFF : r2;
+            r3 = r3 == null ? Switch.OFF : r3;
+            r4 = r4 == null ? Switch.OFF : r4;
+            r5 = r5 == null ? Switch.OFF : r5;
+            this.flagHideExtraEntry = r1;
+            this.flagShowLoginLink = r2;
+            this.flagShowSmsLoginLink = r3;
+            this.flagLoginBtnType = r4;
+            this.flagShowFastRegLink = r5;
         }
     }
 
     public SapiConfiguration(Builder builder) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.supportNetwork = true;
         this.context = builder.context;
         this.tpl = builder.tpl;
@@ -1139,310 +710,153 @@ public final class SapiConfiguration implements NoProguard {
         this.mCallbackTextSizeListener = builder.mCallbackTextSizeListener;
     }
 
-    public /* synthetic */ SapiConfiguration(Builder builder, AnonymousClass1 anonymousClass1) {
-        this(builder);
-    }
-
     public String getAppId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.appId;
-        }
-        return (String) invokeV.objValue;
+        return this.appId;
     }
 
     public String getAppSignKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.appSignKey;
-        }
-        return (String) invokeV.objValue;
+        return this.appSignKey;
     }
 
     public String getClientId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.clientId;
-        }
-        return (String) invokeV.objValue;
+        return this.clientId;
     }
 
     public String getClientIp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.clientIp;
-        }
-        return (String) invokeV.objValue;
+        return this.clientIp;
     }
 
     public Switch getConfigurableViewLayout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.configurableViewLayout;
-        }
-        return (Switch) invokeV.objValue;
+        return this.configurableViewLayout;
     }
 
     public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.context;
-        }
-        return (Context) invokeV.objValue;
+        return this.context;
     }
 
     public boolean getCustomActionBarEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.customActionBarEnabled;
-        }
-        return invokeV.booleanValue;
+        return this.customActionBarEnabled;
     }
 
     public boolean getDebug() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.debug;
-        }
-        return invokeV.booleanValue;
+        return this.debug;
     }
 
     public Domain getEnvironment() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.environment;
-        }
-        return (Domain) invokeV.objValue;
+        return this.environment;
     }
 
     public List<FastLoginFeature> getFastLoginFeatureList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.fastLoginFeatureList;
-        }
-        return (List) invokeV.objValue;
+        return this.fastLoginFeatureList;
     }
 
     public boolean getForbidSslErrorDialog() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.forbidSslErrorDialog;
-        }
-        return invokeV.booleanValue;
+        return this.forbidSslErrorDialog;
     }
 
     public String getHonorAppID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.honorAppID;
-        }
-        return (String) invokeV.objValue;
+        return this.honorAppID;
     }
 
     public Language getLanguage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.language;
-        }
-        return (Language) invokeV.objValue;
+        return this.language;
     }
 
     public String getMeizuRedirectUri() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.meizuRedirectUri;
-        }
-        return (String) invokeV.objValue;
+        return this.meizuRedirectUri;
     }
 
     public String getMzAppID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.mzAppID;
-        }
-        return (String) invokeV.objValue;
+        return this.mzAppID;
     }
 
     public String getPresetPhoneNumber() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.presetPhoneNumber;
-        }
-        return (String) invokeV.objValue;
+        return this.presetPhoneNumber;
     }
 
     public String getQqAppID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.qqAppID;
-        }
-        return (String) invokeV.objValue;
+        return this.qqAppID;
     }
 
     public String getRealnameAuthenticateStoken() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.realnameAuthenticateStoken;
-        }
-        return (String) invokeV.objValue;
+        return this.realnameAuthenticateStoken;
     }
 
     public String getSkin() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.skin;
-        }
-        return (String) invokeV.objValue;
+        return this.skin;
     }
 
     public BindType getSocialBindType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.socialBindType;
-        }
-        return (BindType) invokeV.objValue;
+        return this.socialBindType;
     }
 
     public int getTextZoom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            CallbackTextSizeListener callbackTextSizeListener = this.mCallbackTextSizeListener;
-            if (callbackTextSizeListener == null) {
-                return this.textZoom;
-            }
-            return callbackTextSizeListener.callbackTextSize();
+        CallbackTextSizeListener callbackTextSizeListener = this.mCallbackTextSizeListener;
+        if (callbackTextSizeListener == null) {
+            return this.textZoom;
         }
-        return invokeV.intValue;
+        return callbackTextSizeListener.callbackTextSize();
     }
 
     public String getTpl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.tpl;
-        }
-        return (String) invokeV.objValue;
+        return this.tpl;
     }
 
     public boolean getUniteVerify() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return this.uniteVerify;
-        }
-        return invokeV.booleanValue;
+        return this.uniteVerify;
     }
 
     public String getWxAppID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return this.wxAppID;
-        }
-        return (String) invokeV.objValue;
+        return this.wxAppID;
     }
 
     public boolean isAgreeDangerousProtocol() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.agreeDangerousProtocol;
-        }
-        return invokeV.booleanValue;
+        return this.agreeDangerousProtocol;
     }
 
     public boolean isShowBottomBackText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.isShowBottomBackText;
-        }
-        return invokeV.booleanValue;
+        return this.isShowBottomBackText;
     }
 
     public boolean isSupportBrowseMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            if (this.supportBrowseMode && this.browseModeState != 0) {
-                return true;
-            }
-            return false;
+        if (this.supportBrowseMode && this.browseModeState != 0) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public boolean isSupportTouchLogin() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            if (!this.supportTouchLogin || !SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_GINGER).meetGray) {
-                return false;
-            }
-            return true;
+        if (!this.supportTouchLogin || !SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_GINGER).meetGray) {
+            return false;
         }
-        return invokeV.booleanValue;
+        return true;
     }
 
     public boolean isValidateSpCommit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            return SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_VALIDATE_SP_COMMIT).meetGray;
-        }
-        return invokeV.booleanValue;
+        return SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_VALIDATE_SP_COMMIT).meetGray;
     }
 
     public LoginShareStrategy loginShareStrategy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            SapiOptions sapiOptions = SapiContext.getInstance().getSapiOptions();
-            LoginShareStrategy loginShareStrategy = sapiOptions.getSpecificShareStrategy().get(this.tpl);
-            if (loginShareStrategy != null) {
-                Log.d(ShareUtils.TAG, "loginShareStrategy shareStrategy is " + loginShareStrategy.getStrValue());
-                return loginShareStrategy;
-            }
-            LoginShareStrategy globalShareStrategy = sapiOptions.getGlobalShareStrategy();
-            if (globalShareStrategy != null) {
-                Log.d(ShareUtils.TAG, "loginShareStrategy getGlobalShareStrategy is " + globalShareStrategy.getStrValue());
-                return globalShareStrategy;
-            }
-            return this.initialShareStrategy;
+        SapiOptions sapiOptions = SapiContext.getInstance().getSapiOptions();
+        LoginShareStrategy loginShareStrategy = sapiOptions.getSpecificShareStrategy().get(this.tpl);
+        if (loginShareStrategy != null) {
+            Log.d(ShareUtils.TAG, "loginShareStrategy shareStrategy is " + loginShareStrategy.getStrValue());
+            return loginShareStrategy;
         }
-        return (LoginShareStrategy) invokeV.objValue;
+        LoginShareStrategy globalShareStrategy = sapiOptions.getGlobalShareStrategy();
+        if (globalShareStrategy != null) {
+            Log.d(ShareUtils.TAG, "loginShareStrategy getGlobalShareStrategy is " + globalShareStrategy.getStrValue());
+            return globalShareStrategy;
+        }
+        return this.initialShareStrategy;
     }
 
     public void setAgreeDangerousProtocol(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048606, this, z) == null) {
-            this.agreeDangerousProtocol = z;
-            try {
-                FH.setAgreePolicy(this.context, z);
-            } catch (Exception e) {
-                Log.e(e);
-            }
+        this.agreeDangerousProtocol = z;
+        try {
+            FH.setAgreePolicy(this.context, z);
+        } catch (Exception e) {
+            Log.e(e);
         }
     }
 }

@@ -1,164 +1,69 @@
 package com.yy.hiidostatis.defs.monitor;
 
 import android.view.MotionEvent;
-import androidx.core.view.InputDeviceCompat;
-import androidx.transition.Transition;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public final class ScreenMonitor {
-    public static final /* synthetic */ ScreenMonitor[] $VALUES;
-    public static /* synthetic */ Interceptable $ic;
-    public static final ScreenMonitor instance;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int click;
-    public long lastClickTime;
-    public int slide;
-    public float x1;
-    public float x2;
-    public float y1;
-    public float y2;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-750602192, "Lcom/yy/hiidostatis/defs/monitor/ScreenMonitor;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-750602192, "Lcom/yy/hiidostatis/defs/monitor/ScreenMonitor;");
-                return;
-            }
-        }
-        ScreenMonitor screenMonitor = new ScreenMonitor(Transition.MATCH_INSTANCE_STR, 0);
-        instance = screenMonitor;
-        $VALUES = new ScreenMonitor[]{screenMonitor};
-    }
+public enum ScreenMonitor {
+    instance;
+    
+    public float x1 = 0.0f;
+    public float x2 = 0.0f;
+    public float y1 = 0.0f;
+    public float y2 = 0.0f;
+    public int slide = 0;
+    public int click = 0;
+    public long lastClickTime = 0;
 
     private void clickCount() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            long j = this.lastClickTime;
-            if (j == 0 || currentTimeMillis - j > 200) {
-                this.click++;
-            }
-            this.lastClickTime = currentTimeMillis;
+        long currentTimeMillis = System.currentTimeMillis();
+        long j = this.lastClickTime;
+        if (j == 0 || currentTimeMillis - j > 200) {
+            this.click++;
         }
+        this.lastClickTime = currentTimeMillis;
     }
 
     private void slideCount() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.slide++;
-        }
-    }
-
-    public static ScreenMonitor[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return (ScreenMonitor[]) $VALUES.clone();
-        }
-        return (ScreenMonitor[]) invokeV.objValue;
+        this.slide++;
     }
 
     public int getClick() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.click;
-        }
-        return invokeV.intValue;
+        return this.click;
     }
 
     public int getSlide() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.slide;
-        }
-        return invokeV.intValue;
+        return this.slide;
     }
 
     public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.slide = 0;
-            this.click = 0;
-        }
-    }
-
-    public ScreenMonitor(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                String str2 = (String) objArr2[0];
-                ((Integer) objArr2[1]).intValue();
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.x1 = 0.0f;
-        this.x2 = 0.0f;
-        this.y1 = 0.0f;
-        this.y2 = 0.0f;
         this.slide = 0;
         this.click = 0;
-        this.lastClickTime = 0L;
     }
 
-    public static ScreenMonitor valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return (ScreenMonitor) Enum.valueOf(ScreenMonitor.class, str);
-        }
-        return (ScreenMonitor) invokeL.objValue;
+    ScreenMonitor() {
     }
 
     public void onTouchEvent(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent) == null) {
-            if (motionEvent.getAction() == 0) {
-                clickCount();
-                this.x1 = motionEvent.getX();
-                this.y1 = motionEvent.getY();
-            }
-            if (motionEvent.getAction() == 1) {
-                this.x2 = motionEvent.getX();
-                float y = motionEvent.getY();
-                this.y2 = y;
-                float f = this.y1;
-                if (f - y > 50.0f) {
+        if (motionEvent.getAction() == 0) {
+            clickCount();
+            this.x1 = motionEvent.getX();
+            this.y1 = motionEvent.getY();
+        }
+        if (motionEvent.getAction() == 1) {
+            this.x2 = motionEvent.getX();
+            float y = motionEvent.getY();
+            this.y2 = y;
+            float f = this.y1;
+            if (f - y > 50.0f) {
+                slideCount();
+            } else if (y - f > 50.0f) {
+                slideCount();
+            } else {
+                float f2 = this.x1;
+                float f3 = this.x2;
+                if (f2 - f3 > 50.0f) {
                     slideCount();
-                } else if (y - f > 50.0f) {
+                } else if (f3 - f2 > 50.0f) {
                     slideCount();
-                } else {
-                    float f2 = this.x1;
-                    float f3 = this.x2;
-                    if (f2 - f3 > 50.0f) {
-                        slideCount();
-                    } else if (f3 - f2 > 50.0f) {
-                        slideCount();
-                    }
                 }
             }
         }

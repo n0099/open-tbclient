@@ -1,21 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.dns.IHttpDnsConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class r09 {
+public class r09 implements IHttpDnsConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public int c;
-    public String d;
-    public long e;
+
+    @Override // com.baidu.searchbox.dns.IHttpDnsConfig
+    public String getAccountId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "119799" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.dns.IHttpDnsConfig
+    public String getLabel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "tbprefetch" : (String) invokeV.objValue;
+    }
 
     public r09() {
         Interceptable interceptable = $ic;
@@ -27,34 +40,7 @@ public class r09 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = false;
-        this.b = false;
-        this.c = 0;
-        this.d = "";
-        this.e = 0L;
-    }
-
-    public static r09 a(ResponsedMessage responsedMessage) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, responsedMessage)) == null) {
-            r09 r09Var = new r09();
-            if (BdNetTypeUtil.isNetWorkAvailable() && (responsedMessage.getError() < -13 || responsedMessage.getError() > -10)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            r09Var.a = z;
-            r09Var.b = !responsedMessage.hasError();
-            r09Var.c = responsedMessage.getError();
-            r09Var.d = responsedMessage.getErrorString();
-            r09Var.e = responsedMessage.getDownSize();
-            return r09Var;
-        }
-        return (r09) invokeL.objValue;
     }
 }

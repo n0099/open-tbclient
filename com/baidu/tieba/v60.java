@@ -1,128 +1,277 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.cookie.CookieManager;
-import com.baidu.searchbox.network.outback.core.internal.Util;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.ArrayList;
-import java.util.List;
-import okhttp3.Cookie;
-import okhttp3.CookieJar;
-import okhttp3.HttpUrl;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.regex.Pattern;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class v60 implements CookieJar {
+public class v60 {
     public static /* synthetic */ Interceptable $ic;
+    public static final byte[] g;
     public transient /* synthetic */ FieldHolder $fh;
-    public CookieManager a;
+    public long a;
+    public boolean b;
+    public Set<String> c;
+    public String d;
+    public Context e;
+    public int f;
 
-    public v60(CookieManager cookieManager) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948192601, "Lcom/baidu/tieba/v60;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948192601, "Lcom/baidu/tieba/v60;");
+                return;
+            }
+        }
+        g = new byte[]{77, 73, 78, 71};
+    }
+
+    public v60() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cookieManager};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = cookieManager;
     }
 
-    @Override // okhttp3.CookieJar
-    public List<Cookie> loadForRequest(HttpUrl httpUrl) {
-        InterceptResult invokeL;
+    public Set<String> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpUrl)) == null) {
-            ArrayList arrayList = new ArrayList();
-            CookieManager cookieManager = this.a;
-            if (cookieManager != null) {
-                String cookie = cookieManager.getCookie(httpUrl.toString());
-                if (!Util.isTextEmpty(cookie)) {
-                    arrayList.addAll(b(httpUrl, cookie));
-                }
-            }
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (List) invokeL.objValue;
+        return (Set) invokeV.objValue;
     }
 
-    public final String a(String str) {
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String[] b(Signature[] signatureArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str == null) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            int length = str.length();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, signatureArr)) == null) {
+            int length = signatureArr.length;
+            String[] strArr = new String[length];
             for (int i = 0; i < length; i++) {
-                char charAt = str.charAt(i);
-                if (charAt > 31 && charAt < 127) {
-                    sb.append(charAt);
-                } else {
-                    sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
-                }
+                strArr[i] = u50.c(signatureArr[i].toByteArray());
             }
-            return sb.toString();
+            return strArr;
         }
-        return (String) invokeL.objValue;
+        return (String[]) invokeL.objValue;
     }
 
-    public final List<Cookie> b(HttpUrl httpUrl, String str) {
+    public static boolean g(String[] strArr, String[] strArr2) {
         InterceptResult invokeLL;
-        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, str)) == null) {
-            ArrayList arrayList = new ArrayList();
-            int length = str.length();
-            int i = 0;
-            while (i < length) {
-                int delimiterOffset = Util.delimiterOffset(str, i, length, (char) WebvttCueParser.CHAR_SEMI_COLON);
-                int delimiterOffset2 = Util.delimiterOffset(str, i, delimiterOffset, (char) com.alipay.sdk.encrypt.a.h);
-                String trimSubstring = Util.trimSubstring(str, i, delimiterOffset2);
-                if (delimiterOffset2 < delimiterOffset) {
-                    str2 = Util.trimSubstring(str, delimiterOffset2 + 1, delimiterOffset);
-                } else {
-                    str2 = "";
-                }
-                if (str2.startsWith("\"") && str2.endsWith("\"")) {
-                    str2 = str2.substring(1, str2.length() - 1);
-                }
-                String a = a(trimSubstring);
-                String a2 = a(str2);
-                if (!Util.isTextEmpty(a) && this.a.shouldSendCookie(httpUrl.toString(), a)) {
-                    arrayList.add(new Cookie.Builder().name(a).value(a2).domain(httpUrl.host()).build());
-                }
-                i = delimiterOffset + 1;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, strArr, strArr2)) == null) {
+            if (strArr == null || strArr2 == null || strArr.length != strArr2.length) {
+                return false;
             }
-            return arrayList;
+            HashSet hashSet = new HashSet();
+            for (String str : strArr) {
+                hashSet.add(str);
+            }
+            HashSet hashSet2 = new HashSet();
+            for (String str2 : strArr2) {
+                hashSet2.add(str2);
+            }
+            return hashSet.equals(hashSet2);
         }
-        return (List) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    @Override // okhttp3.CookieJar
-    public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
+    public static boolean j(String str, Context context, JSONObject jSONObject, Set<String> set) throws JSONException, PackageManager.NameNotFoundException {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, httpUrl, list) == null) && this.a != null) {
-            ArrayList arrayList = new ArrayList();
-            String httpUrl2 = httpUrl.toString();
-            for (Cookie cookie : list) {
-                String cookie2 = cookie.toString();
-                if (!Util.isTextEmpty(cookie2) && this.a.shouldAcceptCookie(httpUrl2, cookie2)) {
-                    arrayList.add(cookie2);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, context, jSONObject, set)) == null) {
+            JSONArray jSONArray = jSONObject.getJSONArray("sigs");
+            int length = jSONArray.length();
+            String[] strArr = new String[length];
+            for (int i = 0; i < length; i++) {
+                strArr[i] = jSONArray.getString(i);
+            }
+            String[] b = b(context.getPackageManager().getPackageInfo(str, 64).signatures);
+            if (b != null && b.length > 0) {
+                Collections.addAll(set, b);
+            }
+            return g(strArr, b);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public void a(String str, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, context) == null) {
+            this.d = str;
+            this.e = context;
+        }
+    }
+
+    public final void e(Bundle bundle, g50 g50Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, bundle, g50Var) == null) {
+            try {
+                if (g50Var == null) {
+                    this.f |= 16;
+                    return;
+                }
+                String string = bundle.getString("helios_data");
+                if (TextUtils.isEmpty(string)) {
+                    this.f |= 1;
+                    return;
+                }
+                String string2 = bundle.getString("helios_sf");
+                if (TextUtils.isEmpty(string2)) {
+                    this.f |= 2;
+                    return;
+                }
+                byte[] decode = Base64.decode(string.getBytes(IMAudioTransRequest.CHARSET), 1);
+                for (int i = 0; i < decode.length; i++) {
+                    decode[i] = (byte) (decode[i] ^ g[i % g.length]);
+                }
+                JSONObject jSONObject = new JSONObject(new String(decode));
+                if (!i(jSONObject)) {
+                    return;
+                }
+                HashSet hashSet = new HashSet();
+                this.c = hashSet;
+                if (!j(this.d, this.e, jSONObject, hashSet)) {
+                    this.f |= 4;
+                } else if (Arrays.equals(v50.a(Base64.decode(string2, 0), g50Var), u50.b(decode))) {
+                    this.a = jSONObject.getLong("priority");
+                    this.b = true;
+                } else {
+                    this.f |= 8;
+                }
+            } catch (Exception e) {
+                this.f |= 256;
+                Log.getStackTraceString(e);
+            }
+        }
+    }
+
+    public void f(g50 g50Var, boolean z) {
+        PackageInfo packageInfo;
+        ActivityInfo[] activityInfoArr;
+        ActivityInfo activityInfo;
+        Bundle bundle;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, g50Var, z) == null) {
+            PackageManager packageManager = this.e.getPackageManager();
+            try {
+                packageInfo = packageManager.getPackageInfo(this.d, 2);
+            } catch (PackageManager.NameNotFoundException unused) {
+                packageInfo = null;
+            }
+            if (packageInfo != null && (activityInfoArr = packageInfo.receivers) != null && activityInfoArr.length > 0) {
+                for (ActivityInfo activityInfo2 : activityInfoArr) {
+                    if ("com.baidu.helios.DummyProvider".equals(activityInfo2.name)) {
+                        try {
+                            activityInfo = packageManager.getReceiverInfo(new ComponentName(activityInfo2.packageName, activityInfo2.name), 128);
+                        } catch (PackageManager.NameNotFoundException unused2) {
+                            activityInfo = null;
+                        }
+                        if (activityInfo != null && (bundle = activityInfo.metaData) != null && bundle.containsKey("helios") && z) {
+                            e(bundle, g50Var);
+                        }
+                    }
                 }
             }
-            this.a.storeCookie(httpUrl.toString(), arrayList);
         }
+    }
+
+    public final boolean i(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
+            t50 t50Var = new t50();
+            t50Var.b(jSONObject.optLong("flags"));
+            String optString = jSONObject.optString("package", "");
+            long a = t50Var.a(7L);
+            if (optString.equals("") && a != 4) {
+                this.f |= 64;
+                return false;
+            }
+            if (a == 0) {
+                if (!optString.equals(this.d)) {
+                    this.f |= 32;
+                    return false;
+                }
+            } else if (a == 1) {
+                String str = this.d;
+                if (str == null || !str.startsWith(optString)) {
+                    this.f |= 32;
+                    return false;
+                }
+            } else if (a == 2) {
+                try {
+                    if (!Pattern.compile(optString).matcher(this.d).matches()) {
+                        this.f |= 32;
+                        return false;
+                    }
+                } catch (Exception unused) {
+                    this.f |= 128;
+                    return false;
+                }
+            } else if (a == 4) {
+                return true;
+            } else {
+                this.f |= 64;
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

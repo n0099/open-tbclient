@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.util.p;
+import com.vivo.push.util.u;
 import java.lang.reflect.Method;
 /* loaded from: classes8.dex */
 public final class b {
@@ -55,13 +55,13 @@ public final class b {
             }
             try {
                 Method method = Class.forName("com.vivo.push.cache.ClientConfigManagerImpl").getMethod("getInstance", Context.class);
-                p.d("ConfigManagerFactory", "createConfig success is ".concat("com.vivo.push.cache.ClientConfigManagerImpl"));
+                u.d("ConfigManagerFactory", "createConfig success is ".concat("com.vivo.push.cache.ClientConfigManagerImpl"));
                 d dVar2 = (d) method.invoke(null, context);
                 this.b = dVar2;
                 return dVar2;
             } catch (Exception e) {
                 e.printStackTrace();
-                p.b("ConfigManagerFactory", "createConfig error", e);
+                u.b("ConfigManagerFactory", "createConfig error", e);
                 return null;
             }
         }

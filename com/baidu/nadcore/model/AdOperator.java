@@ -1,129 +1,19 @@
 package com.baidu.nadcore.model;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class AdOperator {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final TYPE a;
     public final a b;
     public final String c;
     public String d;
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
-    public static final class TYPE {
-        public static final /* synthetic */ TYPE[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final TYPE CHECK;
-        public static final TYPE DOWNLOAD;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String type;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-973655849, "Lcom/baidu/nadcore/model/AdOperator$TYPE;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-973655849, "Lcom/baidu/nadcore/model/AdOperator$TYPE;");
-                    return;
-                }
-            }
-            CHECK = new TYPE("CHECK", 0, "check");
-            TYPE type = new TYPE("DOWNLOAD", 1, "download");
-            DOWNLOAD = type;
-            $VALUES = new TYPE[]{CHECK, type};
-        }
-
-        public TYPE(String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i), str2};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str3 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.type = str2;
-        }
-
-        public static TYPE from(String str) {
-            InterceptResult invokeL;
-            TYPE[] values;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                for (TYPE type : values()) {
-                    if (type.type.equals(str)) {
-                        return type;
-                    }
-                }
-                throw new EnumConstantNotPresentException(TYPE.class, str);
-            }
-            return (TYPE) invokeL.objValue;
-        }
-
-        public static TYPE valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-                return (TYPE) Enum.valueOf(TYPE.class, str);
-            }
-            return (TYPE) invokeL.objValue;
-        }
-
-        public static TYPE[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-                return (TYPE[]) $VALUES.clone();
-            }
-            return (TYPE[]) invokeV.objValue;
-        }
-    }
-
     /* loaded from: classes2.dex */
     public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         public a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             if (jSONObject == null) {
                 return;
             }
@@ -131,31 +21,12 @@ public class AdOperator {
         }
 
         public static a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                return new a(jSONObject);
-            }
-            return (a) invokeL.objValue;
+            return new a(jSONObject);
         }
     }
 
     public AdOperator(JSONObject jSONObject) throws ParseError {
         TYPE type;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         try {
             type = TYPE.from(jSONObject.optString("type"));
         } catch (Throwable unused) {
@@ -173,12 +44,29 @@ public class AdOperator {
         throw ParseError.contentError(12, "operator type:" + jSONObject.optString("type"));
     }
 
-    public static AdOperator a(JSONObject jSONObject) throws ParseError {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            return new AdOperator(jSONObject);
+    /* loaded from: classes2.dex */
+    public enum TYPE {
+        CHECK("check"),
+        DOWNLOAD("download");
+        
+        public final String type;
+
+        TYPE(String str) {
+            this.type = str;
         }
-        return (AdOperator) invokeL.objValue;
+
+        public static TYPE from(String str) {
+            TYPE[] values;
+            for (TYPE type : values()) {
+                if (type.type.equals(str)) {
+                    return type;
+                }
+            }
+            throw new EnumConstantNotPresentException(TYPE.class, str);
+        }
+    }
+
+    public static AdOperator a(JSONObject jSONObject) throws ParseError {
+        return new AdOperator(jSONObject);
     }
 }

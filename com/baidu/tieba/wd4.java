@@ -1,92 +1,177 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.RectF;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.mapapi.map.BitmapDescriptor;
-import com.baidu.mapapi.map.BitmapDescriptorFactory;
-import com.baidu.mapapi.map.MarkerOptions;
-import com.baidu.mapapi.map.OverlayOptions;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.qv2;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class wd4 {
+public class wd4 implements nt2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static OverlayOptions a(ge4 ge4Var, fe4 fe4Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.nt2
+    public boolean a(Context context, cw2 cw2Var, vv2 vv2Var, m93 m93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, ge4Var, fe4Var)) == null) {
-            w52.i("map", "createLabel start");
-            if (fe4Var == null) {
-                return null;
-            }
-            qv2 qv2Var = fe4Var.a;
-            if (qv2Var != null && qv2Var.j != null && qv2Var.b != null) {
-                Paint paint = new Paint();
-                paint.setAntiAlias(true);
-                paint.setStyle(Paint.Style.FILL_AND_STROKE);
-                paint.setColor(qv2Var.j.b);
-                paint.setTextSize(qv2Var.j.c);
-                qv2.c cVar = qv2Var.j;
-                float f = cVar.e;
-                float f2 = cVar.j;
-                Paint paint2 = new Paint();
-                paint2.setAntiAlias(true);
-                paint2.setStyle(Paint.Style.FILL_AND_STROKE);
-                paint2.setColor(qv2Var.j.d);
-                String str = qv2Var.j.a;
-                float f3 = f * 2.0f;
-                float measureText = paint.measureText(str) + f3;
-                float f4 = (paint.getFontMetrics().bottom - paint.getFontMetrics().top) + f3;
-                if (f4 > 0.0f && measureText > 0.0f) {
-                    float f5 = qv2Var.j.h;
-                    Bitmap createBitmap = Bitmap.createBitmap((int) (measureText + f5 + 0.5d), (int) (f4 + f5 + 0.5d), Bitmap.Config.ARGB_8888);
-                    createBitmap.eraseColor(Color.argb(0, 0, 0, 0));
-                    Canvas canvas = new Canvas(createBitmap);
-                    canvas.drawColor(0, PorterDuff.Mode.CLEAR);
-                    RectF rectF = new RectF();
-                    float f6 = f5 / 2.0f;
-                    rectF.left = f6;
-                    rectF.top = f6;
-                    rectF.bottom = f4 + f6;
-                    rectF.right = measureText + f6;
-                    canvas.drawRoundRect(rectF, f2, f2, paint2);
-                    if (f5 > 0.0f) {
-                        paint2.setStyle(Paint.Style.STROKE);
-                        paint2.setColor(qv2Var.j.i);
-                        paint2.setStrokeWidth(f5);
-                        canvas.drawRoundRect(rectF, f2, f2, paint2);
-                    }
-                    canvas.drawText(str, f + f6, (-paint.getFontMetrics().top) + f + f6, paint);
-                    ImageView imageView = new ImageView(AppRuntime.getAppContext());
-                    imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
-                    qv2.c cVar2 = qv2Var.j;
-                    imageView.setPadding((int) cVar2.f, (int) cVar2.g, 0, 0);
-                    imageView.setImageBitmap(createBitmap);
-                    BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(imageView);
-                    MarkerOptions markerOptions = new MarkerOptions();
-                    pv2 pv2Var = qv2Var.b;
-                    MarkerOptions zIndex = markerOptions.position(new LatLng(pv2Var.a, pv2Var.b)).icon(fromView).anchor(0.0f, 0.0f).zIndex(66);
-                    w52.i("map", "createLabel end");
-                    return zIndex;
-                }
-                w52.c("map", "label heigth or width is 0");
-                return null;
-            }
-            w52.c("map", "marker data error");
-            return null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, cw2Var, vv2Var, m93Var)) == null) {
+            return false;
         }
-        return (OverlayOptions) invokeLL.objValue;
+        return invokeLLLL.booleanValue;
+    }
+
+    public wd4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.nt2
+    public boolean b(Context context, xv2 xv2Var, vv2 vv2Var, m93 m93Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, xv2Var, vv2Var, m93Var)) == null) {
+            return fe4.e().c(context, xv2Var, vv2Var, m93Var);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nt2
+    public boolean c(Context context, yv2 yv2Var, vv2 vv2Var, m93 m93Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, yv2Var, vv2Var, m93Var)) == null) {
+            return ee4.d().c(context, yv2Var, vv2Var, m93Var);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nt2
+    public boolean e(Context context, wv2 wv2Var, vv2 vv2Var, m93 m93Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, context, wv2Var, vv2Var, m93Var)) == null) {
+            return cf4.h().c(context, wv2Var, vv2Var, m93Var);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nt2
+    public boolean g(Context context, yv2 yv2Var, vv2 vv2Var, m93 m93Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, context, yv2Var, vv2Var, m93Var)) == null) {
+            return zd4.e().c(context, yv2Var, vv2Var, m93Var);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nt2
+    public boolean h(Context context, aw2 aw2Var, vv2 vv2Var, m93 m93Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, context, aw2Var, vv2Var, m93Var)) == null) {
+            return he4.e().c(context, aw2Var, vv2Var, m93Var);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nt2
+    public boolean j(Context context, bw2 bw2Var, vv2 vv2Var, m93 m93Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, context, bw2Var, vv2Var, m93Var)) == null) {
+            return ie4.e().c(context, bw2Var, vv2Var, m93Var);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nt2
+    public boolean k(Context context, yv2 yv2Var, vv2 vv2Var, m93 m93Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048586, this, context, yv2Var, vv2Var, m93Var)) == null) {
+            return ce4.d().c(context, yv2Var, vv2Var, m93Var);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nt2
+    public boolean l(Context context, yv2 yv2Var, vv2 vv2Var, m93 m93Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048587, this, context, yv2Var, vv2Var, m93Var)) == null) {
+            return ae4.d().c(context, yv2Var, vv2Var, m93Var);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nt2
+    public boolean m(Context context, yv2 yv2Var, vv2 vv2Var, m93 m93Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048588, this, context, yv2Var, vv2Var, m93Var)) == null) {
+            return ge4.f().c(context, yv2Var, vv2Var, m93Var);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nt2
+    public boolean n(Context context, yv2 yv2Var, vv2 vv2Var, m93 m93Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048589, this, context, yv2Var, vv2Var, m93Var)) == null) {
+            return de4.d().c(context, yv2Var, vv2Var, m93Var);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nt2
+    public boolean update(Context context, yv2 yv2Var, vv2 vv2Var, m93 m93Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048590, this, context, yv2Var, vv2Var, m93Var)) == null) {
+            return be4.d().c(context, yv2Var, vv2Var, m93Var);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nt2
+    public void d(sv1 sv1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, sv1Var) == null) {
+            vd4.h(sv1Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.nt2
+    public void f(sv1 sv1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, sv1Var) == null) {
+            vd4.d(sv1Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.nt2
+    public void i(sv1 sv1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sv1Var) == null) {
+            vd4.e(sv1Var);
+        }
     }
 }

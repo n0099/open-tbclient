@@ -1,109 +1,39 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class t33 implements pn3<HybridUbcFlow> {
+public class t33 implements fo3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<String> a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948130229, "Lcom/baidu/tieba/t33;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948130229, "Lcom/baidu/tieba/t33;");
-                return;
-            }
-        }
-        a = new ArrayList(5);
-    }
 
     public t33() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pn3
+    @Override // com.baidu.tieba.fo3
     /* renamed from: b */
-    public void a(@NonNull HybridUbcFlow hybridUbcFlow) {
+    public void a(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            q33.g().d(false);
-            String h = hybridUbcFlow.h("launchid");
-            if (!TextUtils.isEmpty(h)) {
-                synchronized (a) {
-                    if (!a.contains(h)) {
-                        a.add(h);
-                        d(h, hybridUbcFlow);
-                    }
-                }
-            }
-            String str = (String) hybridUbcFlow.k("routeId");
-            if (!TextUtils.isEmpty(str)) {
-                synchronized (a) {
-                    if (!a.contains(str)) {
-                        a.add(str);
-                        c(str, hybridUbcFlow);
-                    }
-                }
-            }
+            hybridUbcFlow.J("3864");
+            hybridUbcFlow.I(HybridUbcFlow.SubmitStrategy.SWAN_WEB);
+            hybridUbcFlow.E("from", "swan");
         }
-    }
-
-    public final void c(@NonNull String str, @NonNull HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, hybridUbcFlow) == null) {
-            e(hybridUbcFlow);
-            UbcFlowEvent g = hybridUbcFlow.g("na_first_meaningful_paint");
-            HybridUbcFlow e = b23.e("route", str);
-            if (e != null && g != null) {
-                e.F(g);
-                e.B();
-            }
-        }
-    }
-
-    public final void d(@NonNull String str, @NonNull HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, hybridUbcFlow) == null) {
-            e(hybridUbcFlow);
-        }
-    }
-
-    public final void e(@NonNull HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, hybridUbcFlow) != null) || hybridUbcFlow.g("na_first_meaningful_paint") == null) {
-            return;
-        }
-        qf2.U().U0(new dj2((String) hybridUbcFlow.k(PrefetchEvent.EVENT_DATA_WEBVIEW_ID), (String) hybridUbcFlow.k(PrefetchEvent.EVENT_KEY_PAGE_URL)));
     }
 }

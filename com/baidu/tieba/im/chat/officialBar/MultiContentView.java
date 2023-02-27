@@ -11,9 +11,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bm7;
-import com.baidu.tieba.ek7;
+import com.baidu.tieba.an7;
 import com.baidu.tieba.ug;
+import com.baidu.tieba.xo7;
 import com.baidu.tieba.yf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -313,18 +313,18 @@ public class MultiContentView extends LinearLayout {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d05c2, this);
+            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d05d6, this);
             this.b = inflate;
-            this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092708);
-            ek7 ek7Var = new ek7();
-            this.d = ek7Var.f(this.a);
-            this.e = ek7Var.d(this.a);
-            this.f = ek7Var.e(this.a);
+            this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092764);
+            an7 an7Var = new an7();
+            this.d = an7Var.f(this.a);
+            this.e = an7Var.d(this.a);
+            this.f = an7Var.e(this.a);
             this.c.setOnHierarchyChangeListener(new a(this));
         }
     }
 
-    public final void d(TbPageContext<?> tbPageContext, bm7.a aVar, MultiImageTextBottomView multiImageTextBottomView, View view2) {
+    public final void d(TbPageContext<?> tbPageContext, xo7.a aVar, MultiImageTextBottomView multiImageTextBottomView, View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, aVar, multiImageTextBottomView, view2) == null) && aVar != null && multiImageTextBottomView != null) {
             multiImageTextBottomView.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070244)));
@@ -333,7 +333,7 @@ public class MultiContentView extends LinearLayout {
         }
     }
 
-    public final void e(TbPageContext<?> tbPageContext, bm7.a aVar, SingleImageTextView singleImageTextView, View view2) {
+    public final void e(TbPageContext<?> tbPageContext, xo7.a aVar, SingleImageTextView singleImageTextView, View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, aVar, singleImageTextView, view2) == null) && aVar != null && singleImageTextView != null) {
             singleImageTextView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
@@ -343,7 +343,7 @@ public class MultiContentView extends LinearLayout {
         }
     }
 
-    public final void f(TbPageContext<?> tbPageContext, bm7.a aVar, MultiImageTextTopView multiImageTextTopView, View view2) {
+    public final void f(TbPageContext<?> tbPageContext, xo7.a aVar, MultiImageTextTopView multiImageTextTopView, View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLL(1048579, this, tbPageContext, aVar, multiImageTextTopView, view2) == null) && aVar != null && multiImageTextTopView != null) {
             multiImageTextTopView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
@@ -353,7 +353,7 @@ public class MultiContentView extends LinearLayout {
         }
     }
 
-    public void setData(TbPageContext<?> tbPageContext, List<bm7.a> list, View view2, int i) {
+    public void setData(TbPageContext<?> tbPageContext, List<xo7.a> list, View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048581, this, tbPageContext, list, view2, i) == null) {
             this.c.removeAllViews();
@@ -361,7 +361,7 @@ public class MultiContentView extends LinearLayout {
                 int size = list.size();
                 if (size == 1) {
                     SingleImageTextView singleView = getSingleView();
-                    bm7.a aVar = list.get(0);
+                    xo7.a aVar = list.get(0);
                     aVar.o = i;
                     e(tbPageContext, aVar, singleView, view2);
                     return;

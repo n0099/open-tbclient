@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.data.LightEmotionData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b35;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.p15;
-import com.baidu.tieba.t45;
+import com.baidu.tieba.f65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,9 +29,9 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
     public View b;
     public ArrayList<LightEmotionData> c;
 
-    public void i(t45 t45Var) {
+    public void i(f65 f65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, t45Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, f65Var) == null) {
         }
     }
 
@@ -71,7 +71,7 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
             EMTextView eMTextView;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (eMTextView = this.b) != null) {
-                p15 d = p15.d(eMTextView);
+                b35 d = b35.d(eMTextView);
                 d.v(R.color.CAM_X0101);
                 d.A(R.string.F_X01);
                 d.n(R.string.J_X07);

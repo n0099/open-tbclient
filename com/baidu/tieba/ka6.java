@@ -1,114 +1,143 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
+import android.text.TextUtils;
+import android.util.Base64;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes5.dex */
-public abstract class ka6 {
+public class ka6 extends BdAsyncTask<Void, String, String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WebView a;
+    public int a;
+    public ga6 b;
+    public String c;
 
-    public ka6(WebView webView) {
+    public ka6(String str, int i, ga6 ga6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {webView};
+            Object[] objArr = {str, Integer.valueOf(i), ga6Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = webView;
-        webView.setDrawingCacheEnabled(false);
-        webView.setLayerType(2, null);
-        webView.setScrollBarStyle(0);
-        webView.requestFocusFromTouch();
+        this.a = i;
+        this.b = ga6Var;
+        this.c = str;
     }
 
-    public void a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public String doInBackground(Void... voidArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            WebSettings c = c();
-            c.setJavaScriptEnabled(true);
-            c.setDisplayZoomControls(false);
-            if (pb6.c()) {
-                c.setCacheMode(-1);
-            } else {
-                c.setCacheMode(1);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+            String str = this.c;
+            if (str == null) {
+                return null;
             }
-            c.setGeolocationEnabled(true);
-            c.setLoadsImagesAutomatically(true);
-            c.setBlockNetworkImage(false);
-            c.setBlockNetworkLoads(false);
-            c.setLoadWithOverviewMode(true);
-            c.setAllowFileAccess(true);
-            c.setUseWideViewPort(true);
-            if (Build.VERSION.SDK_INT >= 21) {
-                c.setMixedContentMode(0);
-            }
-            c.setSupportZoom(true);
-            c.setBuiltInZoomControls(false);
-            c.setMediaPlaybackRequiresUserGesture(false);
-            c.setDomStorageEnabled(true);
-            c.setDatabaseEnabled(true);
+            return c(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:13:0x0028 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x0036 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x0009 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v10, types: [java.io.FileInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r0v11 */
+    /* JADX WARN: Type inference failed for: r0v12 */
+    /* JADX WARN: Type inference failed for: r0v2, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r0v4 */
+    /* JADX WARN: Type inference failed for: r0v6 */
+    /* JADX WARN: Type inference failed for: r0v7 */
+    /* JADX WARN: Type inference failed for: r0v8, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r0v9 */
+    public String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            ?? isEmpty = TextUtils.isEmpty(str);
+            String str2 = null;
+            str2 = null;
+            str2 = null;
+            InputStream inputStream = null;
             try {
-                c.setAppCacheMaxSize(16777216L);
-                c.setAppCacheEnabled(true);
-                c.setAppCachePath(b(getContext(), "tb_web_cache").getPath());
-            } catch (IOException unused) {
-                c.setAppCachePath(getContext().getCacheDir().getPath());
+                try {
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if (isEmpty != 0) {
+                    return null;
+                }
+                try {
+                    isEmpty = new FileInputStream(str);
+                    try {
+                        byte[] bArr = new byte[isEmpty.available()];
+                        isEmpty.read(bArr);
+                        str2 = Base64.encodeToString(bArr, 0);
+                        isEmpty.close();
+                        isEmpty = isEmpty;
+                    } catch (Exception e2) {
+                        e = e2;
+                        e.printStackTrace();
+                        if (isEmpty != 0) {
+                            isEmpty.close();
+                            isEmpty = isEmpty;
+                        }
+                        return str2;
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    isEmpty = 0;
+                } catch (Throwable th) {
+                    th = th;
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                    throw th;
+                }
+                return str2;
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream = isEmpty;
             }
-            String userAgentString = c().getUserAgentString();
-            String b = s96.b();
-            if (!userAgentString.endsWith(b)) {
-                c.setUserAgentString(userAgentString + " " + b);
-            }
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 
-    public final File b(Context context, String str) throws IOException {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            File file = new File(context.getCacheDir(), str);
-            if (!file.exists() && !file.mkdirs()) {
-                throw new IOException(file.getAbsolutePath() + "文件夹创建失败！");
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            super.onPostExecute((ka6) str);
+            ga6 ga6Var = this.b;
+            if (ga6Var != null && str != null) {
+                ga6Var.a("", this.a, str);
             }
-            return file;
         }
-        return (File) invokeLL.objValue;
-    }
-
-    public WebSettings c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.getSettings();
-        }
-        return (WebSettings) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.getContext();
-        }
-        return (Context) invokeV.objValue;
     }
 }

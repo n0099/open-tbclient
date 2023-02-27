@@ -8,178 +8,89 @@ import android.widget.RelativeLayout;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.circularreveal.CircularRevealWidget;
 /* loaded from: classes7.dex */
 public class CircularRevealRelativeLayout extends RelativeLayout implements CircularRevealWidget {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final CircularRevealHelper helper;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CircularRevealRelativeLayout(Context context) {
         this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CircularRevealRelativeLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.helper = new CircularRevealHelper(this);
     }
 
     @Override // com.google.android.material.circularreveal.CircularRevealHelper.Delegate
     public void actualDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            super.draw(canvas);
-        }
+        super.draw(canvas);
     }
 
     @Override // android.view.View, com.google.android.material.circularreveal.CircularRevealWidget
     public void draw(@NonNull Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            CircularRevealHelper circularRevealHelper = this.helper;
-            if (circularRevealHelper != null) {
-                circularRevealHelper.draw(canvas);
-            } else {
-                super.draw(canvas);
-            }
+        CircularRevealHelper circularRevealHelper = this.helper;
+        if (circularRevealHelper != null) {
+            circularRevealHelper.draw(canvas);
+        } else {
+            super.draw(canvas);
         }
     }
 
     @Override // com.google.android.material.circularreveal.CircularRevealWidget
     public void setCircularRevealOverlayDrawable(@Nullable Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
-            this.helper.setCircularRevealOverlayDrawable(drawable);
-        }
+        this.helper.setCircularRevealOverlayDrawable(drawable);
     }
 
     @Override // com.google.android.material.circularreveal.CircularRevealWidget
     public void setCircularRevealScrimColor(@ColorInt int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.helper.setCircularRevealScrimColor(i);
-        }
+        this.helper.setCircularRevealScrimColor(i);
     }
 
     @Override // com.google.android.material.circularreveal.CircularRevealWidget
     public void setRevealInfo(@Nullable CircularRevealWidget.RevealInfo revealInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, revealInfo) == null) {
-            this.helper.setRevealInfo(revealInfo);
-        }
+        this.helper.setRevealInfo(revealInfo);
+    }
+
+    public CircularRevealRelativeLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.helper = new CircularRevealHelper(this);
     }
 
     @Override // com.google.android.material.circularreveal.CircularRevealHelper.Delegate
     public boolean actualIsOpaque() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return super.isOpaque();
-        }
-        return invokeV.booleanValue;
+        return super.isOpaque();
     }
 
     @Override // com.google.android.material.circularreveal.CircularRevealWidget
     public void buildCircularRevealCache() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.helper.buildCircularRevealCache();
-        }
+        this.helper.buildCircularRevealCache();
     }
 
     @Override // com.google.android.material.circularreveal.CircularRevealWidget
     public void destroyCircularRevealCache() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.helper.destroyCircularRevealCache();
-        }
+        this.helper.destroyCircularRevealCache();
     }
 
     @Override // com.google.android.material.circularreveal.CircularRevealWidget
     @Nullable
     public Drawable getCircularRevealOverlayDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.helper.getCircularRevealOverlayDrawable();
-        }
-        return (Drawable) invokeV.objValue;
+        return this.helper.getCircularRevealOverlayDrawable();
     }
 
     @Override // com.google.android.material.circularreveal.CircularRevealWidget
     public int getCircularRevealScrimColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.helper.getCircularRevealScrimColor();
-        }
-        return invokeV.intValue;
+        return this.helper.getCircularRevealScrimColor();
     }
 
     @Override // com.google.android.material.circularreveal.CircularRevealWidget
     @Nullable
     public CircularRevealWidget.RevealInfo getRevealInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.helper.getRevealInfo();
-        }
-        return (CircularRevealWidget.RevealInfo) invokeV.objValue;
+        return this.helper.getRevealInfo();
     }
 
     @Override // android.view.View, com.google.android.material.circularreveal.CircularRevealWidget
     public boolean isOpaque() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            CircularRevealHelper circularRevealHelper = this.helper;
-            if (circularRevealHelper != null) {
-                return circularRevealHelper.isOpaque();
-            }
-            return super.isOpaque();
+        CircularRevealHelper circularRevealHelper = this.helper;
+        if (circularRevealHelper != null) {
+            return circularRevealHelper.isOpaque();
         }
-        return invokeV.booleanValue;
+        return super.isOpaque();
     }
 }

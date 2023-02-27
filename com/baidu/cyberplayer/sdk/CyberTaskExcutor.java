@@ -1,11 +1,5 @@
 package com.baidu.cyberplayer.sdk;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
@@ -14,39 +8,20 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes2.dex */
 public final class CyberTaskExcutor {
-    public static /* synthetic */ Interceptable $ic;
     public static CyberTaskExcutor a;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final int b;
-    public final int c;
-    public final int d;
-    public ExecutorService e;
-    public ExecutorService f;
+    public final int b = 2;
+    public final int c = 7;
+    public final int d = 120;
+    public ExecutorService e = new ThreadPoolExecutor(2, 7, 120, TimeUnit.SECONDS, new LinkedBlockingQueue(20), new a("cyber-thread", 5));
+    public ExecutorService f = new ThreadPoolExecutor(1, 1, 0, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread-Single", 5));
 
     /* loaded from: classes2.dex */
     public static class a implements ThreadFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicInteger a;
+        public final AtomicInteger a = new AtomicInteger(1);
         public final String b;
         public int c;
 
         public a(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new AtomicInteger(1);
             this.c = 5;
             this.b = str + "-";
             this.c = i;
@@ -54,38 +29,16 @@ public final class CyberTaskExcutor {
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, this.b + this.a.getAndIncrement());
-                if (thread.isDaemon()) {
-                    thread.setDaemon(true);
-                }
-                thread.setPriority(this.c);
-                return thread;
+            Thread thread = new Thread(runnable, this.b + this.a.getAndIncrement());
+            if (thread.isDaemon()) {
+                thread.setDaemon(true);
             }
-            return (Thread) invokeL.objValue;
+            thread.setPriority(this.c);
+            return thread;
         }
     }
 
     public CyberTaskExcutor() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = 2;
-        this.c = 7;
-        this.d = 120;
-        this.e = new ThreadPoolExecutor(2, 7, 120L, TimeUnit.SECONDS, new LinkedBlockingQueue(20), new a("cyber-thread", 5));
-        this.f = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread-Single", 5));
         ExecutorService executorService = this.e;
         if (executorService == null || !(executorService instanceof ThreadPoolExecutor)) {
             return;
@@ -95,34 +48,23 @@ public final class CyberTaskExcutor {
 
     @Keep
     public static synchronized CyberTaskExcutor getInstance() {
-        InterceptResult invokeV;
         CyberTaskExcutor cyberTaskExcutor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (CyberTaskExcutor.class) {
-                if (a == null) {
-                    a = new CyberTaskExcutor();
-                }
-                cyberTaskExcutor = a;
+        synchronized (CyberTaskExcutor.class) {
+            if (a == null) {
+                a = new CyberTaskExcutor();
             }
-            return cyberTaskExcutor;
+            cyberTaskExcutor = a;
         }
-        return (CyberTaskExcutor) invokeV.objValue;
+        return cyberTaskExcutor;
     }
 
     @Keep
     public void execute(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.e.execute(runnable);
-        }
+        this.e.execute(runnable);
     }
 
     @Keep
     public void executeSingleThread(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
-            this.f.execute(runnable);
-        }
+        this.f.execute(runnable);
     }
 }

@@ -1,126 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.Message;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.publisher.PublishParams;
-import com.baidu.tieba.a83;
-import com.baidu.tieba.f82;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class f63 extends ta3 {
+public class f63 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public static final class b implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-850647544, "Lcom/baidu/tieba/f63$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-850647544, "Lcom/baidu/tieba/f63$b;");
-                    return;
-                }
-            }
-            a = new b();
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public final void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class a implements y53 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ CallbackHandler c;
-        public final /* synthetic */ Context d;
-
-        public a(String str, f63 f63Var, w83 w83Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, f63Var, w83Var, unitedSchemeEntity, callbackHandler, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = unitedSchemeEntity;
-            this.c = callbackHandler;
-            this.d = context;
-        }
-
-        @Override // com.baidu.tieba.y53
-        public void a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                if (jSONObject != null) {
-                    UnitedSchemeUtility.safeCallback(this.c, this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.a);
-                } else {
-                    UnitedSchemeUtility.safeCallback(this.c, this.b, UnitedSchemeUtility.wrapCallbackParams(1, "empty post data").toString(), this.a);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.y53
-        public void onCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                UnitedSchemeUtility.safeCallback(this.c, this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "user cancel").toString(), this.a);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -135,112 +29,99 @@ public final class f63 extends ta3 {
                 return;
             }
         }
-        c = gp1.a;
+        a = wp1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f63(t93 dispatcher) {
-        super(dispatcher, "/swanAPI/community/openCommunityEditor");
+    public static void a(Message message) {
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dispatcher};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65537, null, message) == null) {
+            if (a) {
+                Log.e("ChannelMsgProcessor", "MSG_TYPE_CS_DELEGATION");
             }
-        }
-        Intrinsics.checkNotNullParameter(dispatcher, "dispatcher");
-    }
-
-    @Override // com.baidu.tieba.ta3
-    public boolean d(Context context, UnitedSchemeEntity entity, CallbackHandler callbackHandler, w83 w83Var) {
-        InterceptResult invokeLLLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, entity, callbackHandler, w83Var)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            if (w83Var != null) {
-                if (w83Var.n0()) {
-                    if (c) {
-                        Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
-                    }
-                    entity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                    return false;
-                }
-                ju2 U = ju2.U();
-                Intrinsics.checkNotNullExpressionValue(U, "SwanAppController.getInstance()");
-                f82 V = U.V();
-                if (V != null && (V.m() instanceof a63)) {
-                    entity.result = UnitedSchemeUtility.wrapCallbackParams(0);
-                    return true;
-                }
-                JSONObject d = wl3.d(entity.getParam("params"));
-                Intrinsics.checkNotNullExpressionValue(d, "SwanAppJSONUtils.parseString(params)");
-                String optString = d.optString("cb");
-                if (optString != null && optString.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    entity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                if (c) {
-                    Log.d("OpenPublisherAction", "调起参数:" + d);
-                }
-                a aVar = new a(optString, this, w83Var, entity, callbackHandler, context);
-                PublishParams a2 = z53.a(d);
-                if (a2 != null) {
-                    a63 a63Var = new a63();
-                    a63Var.D3(aVar);
-                    Bundle bundle = new Bundle();
-                    bundle.putParcelable("params", a2);
-                    a63Var.j1(bundle);
-                    ju2 controller = ju2.U();
-                    Intrinsics.checkNotNullExpressionValue(controller, "controller");
-                    f82 V2 = controller.V();
-                    if (V2 != null) {
-                        f82.b i = V2.i("navigateTo");
-                        i.n(f82.g, f82.i);
-                        i.j(a63Var);
-                        i.a();
-                        UnitedSchemeUtility.callCallback(callbackHandler, entity, UnitedSchemeUtility.wrapCallbackParams(0));
-                        return true;
-                    }
-                    UnitedSchemeUtility.safeCallback(callbackHandler, entity, UnitedSchemeUtility.wrapCallbackParams(1, "can get fragment manager").toString(), optString);
-                    return false;
-                }
-                if (c) {
-                    Log.d("OpenPublisherAction", "解析调起参数失败");
-                }
-                j(context);
-                return false;
+            int i = message.arg1;
+            Bundle bundle2 = (Bundle) message.obj;
+            String str = "";
+            String str2 = null;
+            if (bundle2 != null) {
+                str2 = bundle2.getString("ai_apps_delegation_name", null);
+                str = bundle2.getString("ai_apps_observer_id", "");
+                bundle = bundle2.getBundle("ai_apps_data");
+            } else {
+                bundle = null;
             }
-            entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal app info");
-            return false;
+            n53.a(i, str2, str, bundle);
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public final void j(Context context) {
+    public static void b(Message message) {
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            a83.a aVar = new a83.a(context);
-            aVar.m(false);
-            aVar.U(R.string.obfuscated_res_0x7f0f13c1);
-            aVar.v(R.string.obfuscated_res_0x7f0f13c5);
-            aVar.O(R.string.obfuscated_res_0x7f0f011c, b.a);
-            aVar.X();
+        if (interceptable == null || interceptable.invokeL(65538, null, message) == null) {
+            Bundle bundle2 = (Bundle) message.obj;
+            String str = "";
+            String str2 = null;
+            if (bundle2 != null) {
+                str2 = bundle2.getString("ai_apps_delegation_name", null);
+                str = bundle2.getString("ai_apps_observer_id", "");
+                bundle = bundle2.getBundle("ai_apps_data");
+            } else {
+                bundle = null;
+            }
+            n53.a(-1000, str2, str, bundle);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static void c(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, message) == null) {
+            Object obj = message.obj;
+            if (!(obj instanceof Bundle)) {
+                if (!a) {
+                    return;
+                }
+                throw new RuntimeException("delegation msg obj is not a bundle");
+            }
+            Bundle bundle = (Bundle) obj;
+            p53 p53Var = new p53(bundle.getString("key_observer_id", ""));
+            p53Var.setResult(bundle.getBundle("key_result_data"));
+            q53.b().c(p53Var);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static void d(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, message) == null) {
+            Object obj = message.obj;
+            if (!(obj instanceof Bundle)) {
+                if (!a) {
+                    return;
+                }
+                throw new RuntimeException("delegation msg obj is not a bundle");
+            }
+            Bundle bundle = (Bundle) obj;
+            p53 p53Var = new p53(bundle.getString("key_observer_id", ""));
+            p53Var.setResult(bundle.getBundle("key_result_data"));
+            q53.b().c(p53Var);
+        }
+    }
+
+    public static void e(int i, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65541, null, i, bundle) == null) {
+            c63 e = c63.e();
+            e63 e63Var = new e63(126, bundle);
+            e63Var.a(i);
+            e.h(e63Var);
+        }
+    }
+
+    public static void f(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, bundle) == null) {
+            c63.e().h(new e63(21, bundle));
         }
     }
 }

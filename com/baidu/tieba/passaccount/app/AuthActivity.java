@@ -12,7 +12,6 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.sapi2.dto.PassNameValuePair;
-import com.baidu.sapi2.openbduss.PASSMethodCallTransfer;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiHost;
@@ -21,8 +20,8 @@ import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l88;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
+import com.baidu.tieba.xb8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -256,13 +255,13 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
             int i = this.u;
             if (i == 0) {
-                l88.f().b(z, str);
+                xb8.f().b(z, str);
             } else if (i == 1) {
-                l88.f().e(z);
+                xb8.f().e(z);
             } else if (i == 2) {
-                l88.f().c(z);
+                xb8.f().c(z);
             } else {
-                l88.f().a(null);
+                xb8.f().a(null);
             }
             finish();
         }
@@ -280,19 +279,19 @@ public class AuthActivity extends BaseActivity {
                 this.x = SapiAccountManager.getInstance().getSapiConfiguration().getTpl();
                 if (TextUtils.isEmpty(this.v) || TextUtils.isEmpty(this.x)) {
                     this.t.setResultCode(-204);
-                    this.t.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+                    this.t.setResultMsg("参数错误");
                     i(false, null);
                 }
             } else if (intExtra != 1 && intExtra != 2) {
                 this.t.setResultCode(-204);
-                this.t.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+                this.t.setResultMsg("参数错误");
                 i(false, null);
             } else {
                 this.w = getIntent().getStringExtra("EXTRA_BDUSS");
                 this.x = SapiAccountManager.getInstance().getSapiConfiguration().getTpl();
                 if (TextUtils.isEmpty(this.w)) {
                     this.t.setResultCode(-204);
-                    this.t.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+                    this.t.setResultMsg("参数错误");
                     i(false, null);
                 }
             }

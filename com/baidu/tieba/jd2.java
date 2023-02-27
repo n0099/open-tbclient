@@ -1,13 +1,91 @@
 package com.baidu.tieba;
 
-import com.facebook.imagepipeline.request.ImageRequest;
+import android.os.Bundle;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface jd2 {
-    void a(ImageRequest imageRequest);
+public final class jd2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public transient /* synthetic */ FieldHolder $fh;
+    public kd2 a;
 
-    void b(ImageRequest imageRequest);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947879377, "Lcom/baidu/tieba/jd2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947879377, "Lcom/baidu/tieba/jd2;");
+                return;
+            }
+        }
+        b = wp1.a;
+    }
 
-    void c(ImageRequest imageRequest, Throwable th);
+    public jd2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = kd2.a;
+    }
 
-    void onCancel(String str);
+    public final void a(@NonNull l63 l63Var, @NonNull PrefetchEvent prefetchEvent, @Nullable PMSAppInfo pMSAppInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, l63Var, prefetchEvent, pMSAppInfo) == null) {
+            Bundle bundle = new Bundle();
+            bundle.setClassLoader(PrefetchEvent.class.getClassLoader());
+            bundle.putParcelable("swan_app_bundle_prefetch", prefetchEvent);
+            if (pMSAppInfo == null) {
+                pMSAppInfo = jh4.i().u(prefetchEvent.appId);
+            }
+            if (pMSAppInfo == null) {
+                return;
+            }
+            bundle.putParcelable("swan_app_prefetch_pms_info", pMSAppInfo);
+            if (!this.a.a(prefetchEvent, pMSAppInfo, bundle)) {
+                return;
+            }
+            c63 e = c63.e();
+            e63 e63Var = new e63(120, bundle);
+            e63Var.b(l63Var.b);
+            e63Var.p(false);
+            e.h(e63Var);
+        }
+    }
+
+    public void b(@NonNull PrefetchEvent prefetchEvent, @NonNull l63 l63Var, @Nullable PMSAppInfo pMSAppInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, prefetchEvent, l63Var, pMSAppInfo) == null) {
+            a(l63Var, prefetchEvent, pMSAppInfo);
+            l63Var.j0(prefetchEvent);
+            if (b) {
+                Log.d("PrefetchMessenger", "onPrefetchReady event: " + prefetchEvent);
+                Log.d("PrefetchMessenger", "onPrefetchReady client id: " + l63Var.b.index);
+            }
+        }
+    }
 }

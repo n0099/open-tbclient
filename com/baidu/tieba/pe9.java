@@ -1,33 +1,127 @@
 package com.baidu.tieba;
 
-import android.text.Layout;
-import android.text.Selection;
-import android.text.Spannable;
-import android.text.method.LinkMovementMethod;
-import android.view.MotionEvent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.video.editvideo.data.PendantData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class pe9 extends LinkMovementMethod {
+public class pe9 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static pe9 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public ys5 a;
-    public int b;
-    public int c;
-    public long d;
-    public int e;
+    public List<PendantData> a;
+    public x9 b;
+    public b c;
 
-    public pe9() {
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(View view2, int i, PendantData pendantData);
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pe9 a;
+
+        public a(pe9 pe9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pe9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pe9Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.c != null) {
+                c cVar = (c) view2.getTag();
+                if (!(cVar.b.getTag() instanceof Integer)) {
+                    return;
+                }
+                Integer num = (Integer) cVar.b.getTag();
+                if (this.a.a.size() <= num.intValue()) {
+                    return;
+                }
+                this.a.c.a(view2, num.intValue(), (PendantData) this.a.a.get(num.intValue()));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public TbImageView b;
+        public ProgressBar c;
+
+        public c(pe9 pe9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pe9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public pe9(x9 x9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {x9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,125 +131,106 @@ public class pe9 extends LinkMovementMethod {
                 return;
             }
         }
-        this.e = -1;
+        this.b = x9Var;
     }
 
-    public static pe9 a() {
+    public void c(List<PendantData> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || list == null) {
+            return;
+        }
+        this.a = list;
+        notifyDataSetChanged();
+    }
+
+    public void d(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.c = bVar;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f == null) {
-                f = new pe9();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<PendantData> list = this.a;
+            if (list == null) {
+                return 0;
             }
-            return f;
+            return list.size();
         }
-        return (pe9) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static boolean c(float f2, float f3, float f4, float f5, long j, long j2, long j3) {
-        InterceptResult invokeCommon;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            float abs = Math.abs(f4 - f2);
-            float abs2 = Math.abs(f5 - f3);
-            long j4 = j2 - j;
-            if (abs <= 100.0f && abs2 <= 100.0f && j4 >= j3) {
-                return true;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04ef, (ViewGroup) null);
+                cVar = new c(this);
+                cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0907ad);
+                cVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a0f);
+                cVar.c = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091a12);
+                cVar.b.setDefaultBgResource(R.color.transparent);
+                cVar.b.setDefaultResource(R.color.CAM_X0101);
+                view2.setOnClickListener(new a(this));
+                view2.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
+                view2.setTag(cVar);
+            } else {
+                cVar = (c) view2.getTag();
             }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final ys5 b(TextView textView, Spannable spannable, MotionEvent motionEvent) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, textView, spannable, motionEvent)) == null) {
-            if (motionEvent != null && motionEvent.getAction() != 3) {
-                int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
-                int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
-                int scrollX = x + textView.getScrollX();
-                int scrollY = y + textView.getScrollY();
-                try {
-                    Layout layout = textView.getLayout();
-                    int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
-                    ys5[] ys5VarArr = (ys5[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, ys5.class);
-                    if (ys5VarArr == null || ys5VarArr.length <= 0 || ys5VarArr[0] == null) {
-                        return null;
+            PendantData pendantData = this.a.get(i);
+            if (pendantData != null) {
+                cVar.b.setTag(Integer.valueOf(i));
+                int i2 = pendantData.pendantType;
+                if (i2 != 0) {
+                    if (i2 != 1) {
+                        if (i2 != 2) {
+                            if (i2 != 3) {
+                                cVar.a.setVisibility(8);
+                                cVar.b.setVisibility(0);
+                                cVar.c.setVisibility(8);
+                                cVar.b.K(pendantData.img, 10, false);
+                            } else {
+                                cVar.a.setVisibility(0);
+                                cVar.b.setVisibility(8);
+                                cVar.c.setVisibility(8);
+                                cVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
+                                cVar.a.setText(ExifInterface.GPS_DIRECTION_TRUE);
+                                cVar.a.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.bg_cover_text_border));
+                            }
+                        } else {
+                            cVar.a.setVisibility(0);
+                            cVar.b.setVisibility(8);
+                            cVar.c.setVisibility(8);
+                            cVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0111));
+                            cVar.a.setText(ExifInterface.GPS_DIRECTION_TRUE);
+                            cVar.a.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0109));
+                        }
+                    } else {
+                        cVar.a.setVisibility(0);
+                        cVar.b.setVisibility(8);
+                        cVar.c.setVisibility(8);
+                        cVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0111));
+                        cVar.a.setText(ExifInterface.GPS_DIRECTION_TRUE);
+                        cVar.a.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0302));
                     }
-                    return ys5VarArr[0];
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return this.a;
+                } else {
+                    cVar.a.setVisibility(0);
+                    cVar.b.setVisibility(8);
+                    cVar.c.setVisibility(8);
+                    cVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
+                    cVar.a.setText("No");
+                    cVar.a.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.bg_cover_text_border));
                 }
             }
-            return this.a;
+            return view2;
         }
-        return (ys5) invokeLLL.objValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
-    public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, textView, spannable, motionEvent)) == null) {
-            ys5 b = b(textView, spannable, motionEvent);
-            if (b == null && motionEvent.getAction() == 0) {
-                try {
-                    return super.onTouchEvent(textView, spannable, motionEvent);
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return true;
-                }
-            }
-            if (b != null) {
-                this.a = b;
-            }
-            int i = this.e;
-            if (i > -1) {
-                this.a.g(i);
-            }
-            if (motionEvent.getAction() == 0) {
-                this.b = (int) motionEvent.getX();
-                this.c = (int) motionEvent.getY();
-                this.d = System.currentTimeMillis();
-                ys5 ys5Var = this.a;
-                if (ys5Var != null) {
-                    ys5Var.h(1);
-                    Selection.setSelection(spannable, spannable.getSpanStart(this.a), spannable.getSpanEnd(this.a));
-                }
-                textView.invalidate();
-            } else if (motionEvent.getAction() == 2) {
-                if (this.a != null && (Math.abs(this.b - motionEvent.getX()) > 20.0f || Math.abs(this.c - motionEvent.getY()) > 20.0f)) {
-                    this.a.h(2);
-                    textView.invalidate();
-                    Selection.removeSelection(spannable);
-                }
-            } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-                ys5 ys5Var2 = this.a;
-                if (ys5Var2 != null) {
-                    ys5Var2.h(2);
-                    textView.invalidate();
-                    Selection.removeSelection(spannable);
-                }
-                if (c(this.b, this.c, motionEvent.getX(), motionEvent.getY(), this.d, System.currentTimeMillis(), 500L)) {
-                    return true;
-                }
-            }
-            try {
-                return super.onTouchEvent(textView, spannable, motionEvent);
-            } catch (Exception e2) {
-                BdLog.e(e2);
-                return true;
-            }
-        }
-        return invokeLLL.booleanValue;
+        return (View) invokeILL.objValue;
     }
 }

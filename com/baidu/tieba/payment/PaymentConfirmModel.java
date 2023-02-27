@@ -64,7 +64,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         this.a = x9Var;
     }
 
-    public void G(PayRequestData payRequestData) {
+    public void N(PayRequestData payRequestData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, payRequestData) != null) || payRequestData == null) {
             return;
@@ -82,7 +82,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         this.a.sendMessage(httpMessage);
     }
 
-    public void H() {
+    public void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
@@ -92,7 +92,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         }
     }
 
-    public void I() {
+    public void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
@@ -102,7 +102,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         }
     }
 
-    public void J(PaymentConfirmRequestData paymentConfirmRequestData) {
+    public void Q(PaymentConfirmRequestData paymentConfirmRequestData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048579, this, paymentConfirmRequestData) != null) || paymentConfirmRequestData == null) {
             return;

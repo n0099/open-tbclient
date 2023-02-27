@@ -8,22 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ho2 extends qm2<hp2> {
+public class ho2 extends gn2<wp2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.qm2
+    @Override // com.baidu.tieba.gn2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getRemoteAudioLevels" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onItemRelease" : (String) invokeV.objValue;
     }
 
     public ho2() {
@@ -40,45 +35,14 @@ public class ho2 extends qm2<hp2> {
         }
     }
 
-    @Override // com.baidu.tieba.qm2
-    public void c(@NonNull ZeusPlugin.Command command) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
-            command.obj = new JSONObject();
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qm2
+    @Override // com.baidu.tieba.gn2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull hp2 hp2Var) {
-        JSONObject a;
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull wp2 wp2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, command, hp2Var) == null) {
-            ArrayList<jp2> v = hp2Var.v();
-            JSONObject jSONObject = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            if (v != null) {
-                Iterator<jp2> it = v.iterator();
-                while (it.hasNext()) {
-                    jp2 next = it.next();
-                    if (next == null) {
-                        a = null;
-                    } else {
-                        a = next.a();
-                    }
-                    if (a != null) {
-                        jSONArray.put(a);
-                    }
-                }
-            }
-            try {
-                jSONObject.put("audioLevels", jSONArray);
-            } catch (JSONException unused) {
-            }
-            command.obj = jSONObject;
-            String str = command.what;
-            d(hp2Var, str, "" + command.obj, true);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, wp2Var) == null) {
+            d(wp2Var, command.what, null, true);
+            wp2Var.onRelease();
         }
     }
 }

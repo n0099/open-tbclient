@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.m45;
-import com.baidu.tieba.qv4;
 import com.baidu.tieba.x9;
+import com.baidu.tieba.xw4;
+import com.baidu.tieba.y55;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -263,9 +263,9 @@ public class NoDataView extends LinearLayout {
             this.f = (TextView) this.b.findViewById(R.id.tv_subtitle);
             this.g = (TextView) this.b.findViewById(R.id.tv_title);
             this.h = (TBSpecificationBtn) this.b.findViewById(R.id.btn_func);
-            m45 m45Var = new m45();
+            y55 y55Var = new y55();
             this.h.setTextSize(R.dimen.T_X05);
-            this.h.setConfig(m45Var);
+            this.h.setConfig(y55Var);
             this.l = (LinearLayout) this.b.findViewById(R.id.two_button_layout);
             this.o = R.color.CAM_X0107;
             this.p = R.color.CAM_X0109;
@@ -274,13 +274,15 @@ public class NoDataView extends LinearLayout {
     }
 
     public void f(x9<?> x9Var, int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, x9Var, i) == null) {
             if (x9Var instanceof TbPageContext) {
                 TbPageContext tbPageContext = (TbPageContext) x9Var;
-                qv4 layoutMode = tbPageContext.getLayoutMode();
-                boolean z = true;
-                if (i != 1) {
+                xw4 layoutMode = tbPageContext.getLayoutMode();
+                if (i == 4) {
+                    z = true;
+                } else {
                     z = false;
                 }
                 layoutMode.l(z);
@@ -425,11 +427,11 @@ public class NoDataView extends LinearLayout {
             if (bVar2 != null && bVar != null) {
                 this.i = (TBSpecificationBtn) this.l.findViewById(R.id.btn_left);
                 this.j = (TBSpecificationBtn) this.l.findViewById(R.id.btn_right);
-                m45 m45Var = new m45();
+                y55 y55Var = new y55();
                 this.i.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.i.setConfig(m45Var);
+                this.i.setConfig(y55Var);
                 this.j.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.j.setConfig(m45Var);
+                this.j.setConfig(y55Var);
                 this.i.setOnClickListener(bVar.a);
                 this.i.setText(bVar.b);
                 this.j.setOnClickListener(bVar2.a);

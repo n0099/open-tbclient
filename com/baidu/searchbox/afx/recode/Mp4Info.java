@@ -1,16 +1,8 @@
 package com.baidu.searchbox.afx.recode;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class Mp4Info {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final int mBitrate;
     public final long mDurationUs;
     public final int mHeight;
@@ -18,20 +10,6 @@ public final class Mp4Info {
     public final int mWidth;
 
     public Mp4Info(int i, int i2, int i3, int i4, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mWidth = i;
         this.mHeight = i2;
         this.mRotation = i3;
@@ -40,56 +18,26 @@ public final class Mp4Info {
     }
 
     public int getBitrate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mBitrate;
-        }
-        return invokeV.intValue;
+        return this.mBitrate;
     }
 
     public long getDurationUs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mDurationUs;
-        }
-        return invokeV.longValue;
+        return this.mDurationUs;
     }
 
     public int getHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mHeight;
-        }
-        return invokeV.intValue;
+        return this.mHeight;
     }
 
     public int getRotation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mRotation;
-        }
-        return invokeV.intValue;
+        return this.mRotation;
     }
 
     public int getWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mWidth;
-        }
-        return invokeV.intValue;
+        return this.mWidth;
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return PreferencesUtil.LEFT_MOUNT + this.mWidth + "x" + this.mHeight + "], rotation: " + this.mRotation + ", bitrate: " + this.mBitrate + ", duration(us): " + this.mDurationUs;
-        }
-        return (String) invokeV.objValue;
+        return PreferencesUtil.LEFT_MOUNT + this.mWidth + "x" + this.mHeight + "], rotation: " + this.mRotation + ", bitrate: " + this.mBitrate + ", duration(us): " + this.mDurationUs;
     }
 }

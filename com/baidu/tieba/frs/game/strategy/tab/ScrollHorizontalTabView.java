@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.horizonalScrollListView.MyHorizontalScrollView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.iy6;
+import com.baidu.tieba.h17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ import java.util.List;
 public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<iy6> a;
+    public final List<h17> a;
     public final List<TextView> b;
     public final int c;
     public final int d;
@@ -50,9 +50,9 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
 
     /* loaded from: classes4.dex */
     public interface f {
-        boolean a(int i, iy6 iy6Var);
+        boolean a(int i, h17 h17Var);
 
-        void b(int i, iy6 iy6Var);
+        void b(int i, h17 h17Var);
     }
 
     /* loaded from: classes4.dex */
@@ -268,12 +268,12 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         public void onPageSelected(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                iy6 iy6Var = (iy6) ListUtils.getItem(this.a.a, i);
-                if (this.a.o != null && !this.a.o.a(i, iy6Var)) {
+                h17 h17Var = (h17) ListUtils.getItem(this.a.a, i);
+                if (this.a.o != null && !this.a.o.a(i, h17Var)) {
                     return;
                 }
                 if (this.a.o != null) {
-                    this.a.o.b(i, iy6Var);
+                    this.a.o.b(i, h17Var);
                 }
                 if (this.a.e) {
                     if (this.a.f != i) {
@@ -519,10 +519,10 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             int size = this.a.size();
             int size2 = this.b.size();
             for (int i = 0; i < size && i < size2; i++) {
-                iy6 iy6Var = this.a.get(i);
+                h17 h17Var = this.a.get(i);
                 TextView textView = this.b.get(i);
-                if (iy6Var != null && textView != null) {
-                    textView.setText(iy6Var.b);
+                if (h17Var != null && textView != null) {
+                    textView.setText(h17Var.b);
                 }
             }
         }
@@ -591,7 +591,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
     }
 
-    public void setData(List<iy6> list) {
+    public void setData(List<h17> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
             this.a.clear();

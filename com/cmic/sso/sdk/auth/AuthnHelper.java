@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.cmic.sso.sdk.e.e;
-import com.cmic.sso.sdk.e.g;
+import com.cmic.sso.sdk.e.h;
 import com.cmic.sso.sdk.e.j;
 import com.cmic.sso.sdk.e.k;
 import com.cmic.sso.sdk.e.m;
@@ -24,13 +24,12 @@ import com.cmic.sso.sdk.e.n;
 import com.cmic.sso.sdk.e.o;
 import com.cmic.sso.sdk.e.q;
 import com.cmic.sso.sdk.e.r;
-import com.kuaishou.weapon.p0.h;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class AuthnHelper {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String SDK_VERSION = "quick_login_android_9.5.2";
+    public static final String SDK_VERSION = "quick_login_android_9.5.5";
     @SuppressLint({"StaticFieldLeak"})
     public static AuthnHelper c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,15 +83,10 @@ public class AuthnHelper {
 
         @Override // java.lang.Runnable
         public void run() {
-            JSONObject a;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!r.a(this.a.b).a() && this.b.b("doNetworkSwitch", false)) {
-                    a = c.a("102508", "数据网络切换失败");
-                } else {
-                    a = c.a("200023", "登录超时");
-                }
-                this.a.callBackResult(a.optString("resultCode", "200023"), a.optString("resultString", "登录超时"), this.b, a);
+                JSONObject a = c.a("200023", "登录超时");
+                this.a.callBackResult(a.optString("resultCode", "200023"), a.optString("desc", "登录超时"), this.b, a);
             }
         }
     }
@@ -168,30 +162,22 @@ public class AuthnHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                boolean a2 = m.a(this.b);
-                com.cmic.sso.sdk.b.a.a().a(context, g.a(context, h.c), a2);
-                String a3 = j.a().a((String) null);
-                int a4 = m.a(context, a2);
-                jSONObject.put("operatortype", a3);
-                StringBuilder sb = new StringBuilder();
-                sb.append(a4);
-                sb.append("");
-                jSONObject.put("networktype", sb.toString());
-                StringBuilder sb2 = new StringBuilder();
-                sb2.append("网络类型: ");
-                sb2.append(a4);
-                com.cmic.sso.sdk.e.c.b("AuthnHelper", sb2.toString());
-                StringBuilder sb3 = new StringBuilder();
-                sb3.append("运营商类型: ");
-                sb3.append(a3);
-                com.cmic.sso.sdk.e.c.b("AuthnHelper", sb3.toString());
-                return jSONObject;
-            } catch (Exception unused) {
                 try {
-                    jSONObject.put("errorDes", "发生未知错误");
+                    boolean a2 = m.a(this.b);
+                    com.cmic.sso.sdk.b.a.a().a(context, a2);
+                    String a3 = j.a().a((String) null);
+                    int a4 = m.a(context, a2, new com.cmic.sso.sdk.a(1));
+                    jSONObject.put("operatortype", a3);
+                    jSONObject.put("networktype", a4 + "");
+                    com.cmic.sso.sdk.e.c.b("AuthnHelper", "网络类型: " + a4);
+                    com.cmic.sso.sdk.e.c.b("AuthnHelper", "运营商类型: " + a3);
+                    return jSONObject;
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    return jSONObject;
                 }
+            } catch (Exception unused) {
+                jSONObject.put("errorDes", "发生未知错误");
                 return jSONObject;
             }
         }
@@ -552,17 +538,13 @@ public class AuthnHelper {
             aVar.a("appkey", str2);
             aVar.a("appid", str);
             aVar.a("timeOut", String.valueOf(this.d));
-            boolean a4 = g.a(this.b, h.c);
-            com.cmic.sso.sdk.e.c.a("AuthnHelper", "有READ_PHONE_STATE权限？" + a4);
-            aVar.a("hsaReadPhoneStatePermission", a4);
-            boolean a5 = m.a(this.b);
-            com.cmic.sso.sdk.b.a.a().a(this.b, a4, a5);
-            aVar.a("networkClass", com.cmic.sso.sdk.b.a.a().a(this.b));
+            boolean a4 = m.a(this.b);
+            com.cmic.sso.sdk.b.a.a().a(this.b, a4);
             String b = j.a().b();
             String c2 = j.a().c();
-            String a6 = j.a().a(c2);
+            String a5 = j.a().a(c2);
             aVar.a("operator", c2);
-            aVar.a("operatortype", a6);
+            aVar.a("operatortype", a5);
             aVar.a("logintype", i);
             com.cmic.sso.sdk.e.c.b("AuthnHelper", "subId = " + b);
             if (!TextUtils.isEmpty(b)) {
@@ -574,9 +556,9 @@ public class AuthnHelper {
                 aVar.a("scripType", "operator");
                 aVar.a("scripKey", c2);
             }
-            int a7 = m.a(this.b, a5);
-            aVar.a("networktype", a7);
-            if (!a5) {
+            int a6 = m.a(this.b, a4, aVar);
+            aVar.a("networktype", a6);
+            if (!a4) {
                 aVar.a("authType", String.valueOf(0));
                 callBackResult("200010", "无法识别sim卡或没有sim卡", aVar, null);
                 return false;
@@ -604,41 +586,38 @@ public class AuthnHelper {
                 if (TextUtils.isEmpty(trim2)) {
                     callBackResult("102203", "appkey不能为空", aVar, null);
                     return false;
-                } else if (a7 == 0) {
+                } else if (a6 == 0) {
                     callBackResult("102101", "未检测到网络", aVar, null);
                     return false;
-                } else if ("2".equals(a6) && a3.f()) {
+                } else if ("2".equals(a5) && a3.f()) {
                     callBackResult("200082", "服务器繁忙，请稍后重试", aVar, null);
                     return false;
-                } else if ("3".equals(a6) && a3.e()) {
+                } else if ("3".equals(a5) && a3.e()) {
                     callBackResult("200082", "服务器繁忙，请稍后重试", aVar, null);
                     return false;
                 } else {
                     synchronized (this.g) {
-                        a2 = com.cmic.sso.sdk.e.h.a(aVar);
+                        a2 = h.a(aVar);
                         if (a2) {
                             aVar.a("securityphone", k.b("securityphone", ""));
                             if (3 != i) {
-                                String a8 = com.cmic.sso.sdk.e.h.a(this.b);
+                                String a7 = h.a(this.b);
                                 StringBuilder sb = new StringBuilder();
                                 sb.append("解密phoneScript ");
-                                sb.append(!TextUtils.isEmpty(a8));
+                                sb.append(!TextUtils.isEmpty(a7));
                                 com.cmic.sso.sdk.e.c.b("AuthnHelper", sb.toString());
-                                if (!TextUtils.isEmpty(a8)) {
-                                    aVar.a("phonescrip", a8);
+                                if (!TextUtils.isEmpty(a7)) {
+                                    aVar.a("phonescrip", a7);
                                 } else {
                                     a2 = false;
                                 }
-                                com.cmic.sso.sdk.e.h.a(true, false);
+                                h.a(true, false);
                             }
                         }
                         aVar.a("isCacheScrip", a2);
-                        StringBuilder sb2 = new StringBuilder();
-                        sb2.append("isCachePhoneScrip = ");
-                        sb2.append(a2);
-                        com.cmic.sso.sdk.e.c.b("AuthnHelper", sb2.toString());
+                        com.cmic.sso.sdk.e.c.b("AuthnHelper", "isCachePhoneScrip = " + a2);
                     }
-                    if (a7 != 2 || a2) {
+                    if (a6 != 2 || a2) {
                         return true;
                     }
                     callBackResult("102103", "无数据网络", aVar, null);
@@ -673,7 +652,7 @@ public class AuthnHelper {
                         } else {
                             a2 = c.a(str, str2, aVar, jSONObject);
                         }
-                        a2.put("scripExpiresIn", String.valueOf(com.cmic.sso.sdk.e.h.a()));
+                        a2.put("scripExpiresIn", String.valueOf(h.a()));
                         this.e.post(new Runnable(this, c2, a2) { // from class: com.cmic.sso.sdk.auth.AuthnHelper.6
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -713,9 +692,6 @@ public class AuthnHelper {
                         if (!aVar.b().j() && !q.a(aVar.b())) {
                             a(this.b, str, aVar);
                         }
-                        if (e.a()) {
-                            r.a(this.b).b();
-                        }
                     }
                 }
             } catch (Exception e) {
@@ -728,7 +704,7 @@ public class AuthnHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                com.cmic.sso.sdk.e.h.a(true, true);
+                h.a(true, true);
                 com.cmic.sso.sdk.e.c.b("AuthnHelper", "删除scrip");
             } catch (Exception e) {
                 e.printStackTrace();

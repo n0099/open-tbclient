@@ -1,14 +1,6 @@
 package com.facebook.drawee.backends.pipeline;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Supplier;
 import com.facebook.common.logging.FLog;
 import com.facebook.drawee.controller.AbstractDraweeControllerBuilder;
@@ -20,36 +12,17 @@ import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class Fresco {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Class<?> TAG;
+    public static final Class<?> TAG = Fresco.class;
     public static DraweeControllerBuilderSupplierFactory mFactory;
     public static volatile boolean sIsInitialized;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
     public static class DraweeControllerBuilderSupplierFactory implements Supplier<Supplier<? extends AbstractDraweeControllerBuilder>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public Context mContext;
         public DraweeConfig mImagePipelineConfig;
-        public volatile PipelineDraweeControllerBuilderSupplier mInstance;
+        public volatile PipelineDraweeControllerBuilderSupplier mInstance = null;
 
         public DraweeControllerBuilderSupplierFactory(Context context, DraweeConfig draweeConfig) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, draweeConfig};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.mInstance = null;
             this.mContext = context;
             this.mImagePipelineConfig = draweeConfig;
         }
@@ -59,163 +32,85 @@ public class Fresco {
         @Override // com.facebook.common.internal.Supplier
         /* renamed from: get */
         public Supplier<? extends AbstractDraweeControllerBuilder> get2() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.mInstance == null) {
-                    synchronized (this) {
-                        if (this.mInstance == null) {
-                            this.mInstance = new PipelineDraweeControllerBuilderSupplier(this.mContext, this.mImagePipelineConfig);
-                        }
+            if (this.mInstance == null) {
+                synchronized (this) {
+                    if (this.mInstance == null) {
+                        this.mInstance = new PipelineDraweeControllerBuilderSupplier(this.mContext, this.mImagePipelineConfig);
                     }
                 }
-                return this.mInstance;
             }
-            return (Supplier) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(577772188, "Lcom/facebook/drawee/backends/pipeline/Fresco;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(577772188, "Lcom/facebook/drawee/backends/pipeline/Fresco;");
-                return;
-            }
-        }
-        TAG = Fresco.class;
-    }
-
-    public Fresco() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+            return this.mInstance;
         }
     }
 
     public static PipelineDraweeControllerBuilderSupplier getDraweeControllerBuilderSupplier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return (PipelineDraweeControllerBuilderSupplier) mFactory.get2();
-        }
-        return (PipelineDraweeControllerBuilderSupplier) invokeV.objValue;
+        return (PipelineDraweeControllerBuilderSupplier) mFactory.get2();
     }
 
     public static ImagePipeline getImagePipeline() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return getImagePipelineFactory().getImagePipeline();
-        }
-        return (ImagePipeline) invokeV.objValue;
+        return getImagePipelineFactory().getImagePipeline();
     }
 
     public static ImagePipelineFactory getImagePipelineFactory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return ImagePipelineFactory.getInstance();
-        }
-        return (ImagePipelineFactory) invokeV.objValue;
+        return ImagePipelineFactory.getInstance();
     }
 
     public static boolean hasBeenInitialized() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return sIsInitialized;
-        }
-        return invokeV.booleanValue;
+        return sIsInitialized;
     }
 
     public static PipelineDraweeControllerBuilder newDraweeControllerBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return (PipelineDraweeControllerBuilder) mFactory.get2().get();
-        }
-        return (PipelineDraweeControllerBuilder) invokeV.objValue;
+        return (PipelineDraweeControllerBuilder) mFactory.get2().get();
     }
 
     public static void shutDown() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
-            mFactory = null;
-            SimpleDraweeView.shutDown();
-            ImagePipelineFactory.shutDown();
-        }
+        mFactory = null;
+        SimpleDraweeView.shutDown();
+        ImagePipelineFactory.shutDown();
     }
 
     public static void initialize(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
-            initialize(context, null, null);
-        }
+        initialize(context, null, null);
     }
 
     public static void initialize(Context context, @Nullable ImagePipelineConfig imagePipelineConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, context, imagePipelineConfig) == null) {
-            initialize(context, imagePipelineConfig, null);
-        }
+        initialize(context, imagePipelineConfig, null);
     }
 
     public static void initializeDrawee(Context context, @Nullable DraweeConfig draweeConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, context, draweeConfig) == null) {
-            if (FrescoSystrace.isTracing()) {
-                FrescoSystrace.beginSection("Fresco.initializeDrawee");
-            }
-            DraweeControllerBuilderSupplierFactory draweeControllerBuilderSupplierFactory = new DraweeControllerBuilderSupplierFactory(context, draweeConfig);
-            mFactory = draweeControllerBuilderSupplierFactory;
-            SimpleDraweeView.initialize(draweeControllerBuilderSupplierFactory);
-            if (FrescoSystrace.isTracing()) {
-                FrescoSystrace.endSection();
-            }
+        if (FrescoSystrace.isTracing()) {
+            FrescoSystrace.beginSection("Fresco.initializeDrawee");
+        }
+        DraweeControllerBuilderSupplierFactory draweeControllerBuilderSupplierFactory = new DraweeControllerBuilderSupplierFactory(context, draweeConfig);
+        mFactory = draweeControllerBuilderSupplierFactory;
+        SimpleDraweeView.initialize(draweeControllerBuilderSupplierFactory);
+        if (FrescoSystrace.isTracing()) {
+            FrescoSystrace.endSection();
         }
     }
 
     public static void initialize(Context context, @Nullable ImagePipelineConfig imagePipelineConfig, @Nullable DraweeConfig draweeConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, context, imagePipelineConfig, draweeConfig) == null) {
-            initialize(context, imagePipelineConfig, draweeConfig, true);
-        }
+        initialize(context, imagePipelineConfig, draweeConfig, true);
     }
 
     public static void initialize(Context context, @Nullable ImagePipelineConfig imagePipelineConfig, @Nullable DraweeConfig draweeConfig, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, imagePipelineConfig, draweeConfig, Boolean.valueOf(z)}) == null) {
-            if (FrescoSystrace.isTracing()) {
-                FrescoSystrace.beginSection("Fresco#initialize");
-            }
-            if (sIsInitialized) {
-                FLog.w(TAG, "Fresco has already been initialized! `Fresco.initialize(...)` should only be called 1 single time to avoid memory leaks!");
-            } else {
-                sIsInitialized = true;
-            }
-            Context applicationContext = context.getApplicationContext();
-            if (imagePipelineConfig == null) {
-                ImagePipelineFactory.initialize(applicationContext);
-            } else {
-                ImagePipelineFactory.initialize(imagePipelineConfig);
-            }
-            initializeDrawee(applicationContext, draweeConfig);
-            if (FrescoSystrace.isTracing()) {
-                FrescoSystrace.endSection();
-            }
+        if (FrescoSystrace.isTracing()) {
+            FrescoSystrace.beginSection("Fresco#initialize");
+        }
+        if (sIsInitialized) {
+            FLog.w(TAG, "Fresco has already been initialized! `Fresco.initialize(...)` should only be called 1 single time to avoid memory leaks!");
+        } else {
+            sIsInitialized = true;
+        }
+        Context applicationContext = context.getApplicationContext();
+        if (imagePipelineConfig == null) {
+            ImagePipelineFactory.initialize(applicationContext);
+        } else {
+            ImagePipelineFactory.initialize(imagePipelineConfig);
+        }
+        initializeDrawee(applicationContext, draweeConfig);
+        if (FrescoSystrace.isTracing()) {
+            FrescoSystrace.endSection();
         }
     }
 }

@@ -14,6 +14,7 @@ import com.baidu.ufosdk.o;
 import com.baidu.ufosdk.p;
 import com.baidu.ufosdk.q1;
 import com.baidu.ufosdk.ui.BdShimmerView;
+import com.huawei.hms.push.constant.RemoteMessageConst;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
@@ -51,7 +52,7 @@ public class PageOperationApi implements IBridgeApi {
             a.putExtra("third_url", str);
             if (jSONObject.has("titlebar")) {
                 JSONObject jSONObject2 = jSONObject.getJSONObject("titlebar");
-                int optInt = jSONObject2.optInt("visibility", 1);
+                int optInt = jSONObject2.optInt(RemoteMessageConst.Notification.VISIBILITY, 1);
                 String optString = jSONObject2.optString("title", "");
                 a.putExtra("titlebar_visbility", optInt);
                 a.putExtra("titlebar_title", optString);

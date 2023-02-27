@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gh;
-import com.baidu.tieba.m45;
+import com.baidu.tieba.y55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -295,7 +295,7 @@ public class ScreenTopToast extends LinearLayout {
             this.b = (TextView) findViewById(R.id.screen_top_toast_title);
             this.c = (TextView) findViewById(R.id.screen_top_toast_content);
             this.d = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
-            this.d.setConfig(new m45());
+            this.d.setConfig(new y55());
             f();
             h();
         }
@@ -305,7 +305,7 @@ public class ScreenTopToast extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.e = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
-            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100c2);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100c7);
             this.f = loadAnimation;
             loadAnimation.setAnimationListener(new a(this));
             this.g = new b(this);

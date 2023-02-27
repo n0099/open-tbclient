@@ -14,7 +14,6 @@ import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -109,7 +108,7 @@ public class WDownLoadService extends Service {
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.d = (NotificationManager) getSystemService(ActionJsonData.TAG_NOTIFICATION);
+            this.d = (NotificationManager) getSystemService("notification");
         }
     }
 
@@ -132,7 +131,7 @@ public class WDownLoadService extends Service {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                a(info, info != null ? info.getDl_name() : getString(R.string.obfuscated_res_0x7f0f16dc), getString(R.string.obfuscated_res_0x7f0f16dc), 0);
+                a(info, info != null ? info.getDl_name() : getString(R.string.obfuscated_res_0x7f0f16e1), getString(R.string.obfuscated_res_0x7f0f16e1), 0);
                 c(info);
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -151,11 +150,11 @@ public class WDownLoadService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, info, str, str2, i) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
-                NotificationManager notificationManager = (NotificationManager) getSystemService(ActionJsonData.TAG_NOTIFICATION);
+                NotificationManager notificationManager = (NotificationManager) getSystemService("notification");
                 if (Build.VERSION.SDK_INT >= 26) {
                     notificationManager.createNotificationChannel(new NotificationChannel("win_download_id", "win_download", 2));
                     NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "win_download_id");
-                    builder.setChannelId("win_download_id").setContentTitle(str).setSmallIcon(R.drawable.obfuscated_res_0x7f081339).setTicker(str).setContentText(str2).build();
+                    builder.setChannelId("win_download_id").setContentTitle(str).setSmallIcon(R.drawable.obfuscated_res_0x7f08133f).setTicker(str).setContentText(str2).build();
                     if (i > 0 && i <= 100) {
                         builder.setProgress(100, i, false);
                     } else {
@@ -174,8 +173,8 @@ public class WDownLoadService extends Service {
                 return;
             }
             NotificationCompat.Builder builder2 = new NotificationCompat.Builder(this);
-            builder2.setSmallIcon(R.drawable.obfuscated_res_0x7f081339);
-            builder2.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f081339));
+            builder2.setSmallIcon(R.drawable.obfuscated_res_0x7f08133f);
+            builder2.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f08133f));
             builder2.setContentTitle(str);
             if (i > 0 && i < 100) {
                 builder2.setProgress(100, i, false);

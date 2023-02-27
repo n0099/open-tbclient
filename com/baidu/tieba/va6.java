@@ -1,44 +1,98 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
-import androidx.annotation.NonNull;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ua6;
+import com.baidu.tieba.vj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.Priority;
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.data.DataFetcher;
-import java.io.InputStream;
-import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
-public class va6 implements DataFetcher<InputStream> {
+public class va6 implements ua6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+    public vj9 a;
+    public TextView b;
+    public ua6.c c;
+    public ua6.b d;
+    public ua6.a e;
 
-    @Override // com.bumptech.glide.load.data.DataFetcher
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+    /* loaded from: classes6.dex */
+    public class a implements vj9.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ va6 a;
+
+        public a(va6 va6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {va6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = va6Var;
+        }
+
+        @Override // com.baidu.tieba.vj9.a
+        public void onProgress(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
+                this.a.b.setText(this.a.h(f));
+            }
+        }
+
+        @Override // com.baidu.tieba.vj9.a
+        public void a(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
+                if (this.a.e != null) {
+                    this.a.e.a(f);
+                }
+                TextView textView = this.a.b;
+                va6 va6Var = this.a;
+                textView.setText(va6Var.h(va6Var.getProgress()));
+            }
+        }
+
+        @Override // com.baidu.tieba.vj9.a
+        public float getSpeed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.a.d != null) {
+                    return this.a.d.getSpeed();
+                }
+                return 1.0f;
+            }
+            return invokeV.floatValue;
+        }
+
+        @Override // com.baidu.tieba.vj9.a
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.c != null) {
+                this.a.c.a();
+            }
         }
     }
 
-    @Override // com.bumptech.glide.load.data.DataFetcher
-    public void cleanup() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public va6(String str) {
+    public va6(vj9 vj9Var, TextView textView, ua6.c cVar, ua6.b bVar, ua6.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {vj9Var, textView, cVar, bVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,45 +102,218 @@ public class va6 implements DataFetcher<InputStream> {
                 return;
             }
         }
-        this.a = str;
+        this.a = vj9Var;
+        this.b = textView;
+        this.c = cVar;
+        this.d = bVar;
+        this.e = aVar;
+        i();
     }
 
-    public final String a() {
+    @Override // com.baidu.tieba.ua6
+    public boolean setMaxDuration(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            vj9 vj9Var = this.a;
+            if (vj9Var != null) {
+                vj9Var.setMaxDuration(i);
+                this.a.invalidate();
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ua6
+    public boolean setMinDuration(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            vj9 vj9Var = this.a;
+            if (vj9Var != null) {
+                vj9Var.setMinDuration(i);
+                this.a.invalidate();
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ua6
+    public boolean setProgress(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
+            vj9 vj9Var = this.a;
+            if (vj9Var != null) {
+                vj9Var.setProgress(j);
+                return true;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ua6
+    public boolean setShowDeleteLastTip(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
+            vj9 vj9Var = this.a;
+            if (vj9Var != null) {
+                vj9Var.setShowDeleteLastTip(z);
+                return true;
+            }
+            return false;
+        }
+        return invokeZ.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ua6
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.substring(this.a.indexOf(44) + 1);
+            vj9 vj9Var = this.a;
+            if (vj9Var != null) {
+                vj9Var.a();
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.bumptech.glide.load.data.DataFetcher
-    @NonNull
-    public Class<InputStream> getDataClass() {
+    @Override // com.baidu.tieba.ua6
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            vj9 vj9Var = this.a;
+            if (vj9Var != null) {
+                return vj9Var.b();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ua6
+    public int getMaxDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            vj9 vj9Var = this.a;
+            if (vj9Var != null) {
+                return vj9Var.getMaxDuration();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ua6
+    public float getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return InputStream.class;
+            vj9 vj9Var = this.a;
+            if (vj9Var != null) {
+                return vj9Var.getProgress();
+            }
+            return 0.0f;
         }
-        return (Class) invokeV.objValue;
+        return invokeV.floatValue;
     }
 
-    @Override // com.bumptech.glide.load.data.DataFetcher
-    @NonNull
-    public DataSource getDataSource() {
+    @Override // com.baidu.tieba.ua6
+    public int getSlideNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return DataSource.REMOTE;
+            vj9 vj9Var = this.a;
+            if (vj9Var != null) {
+                return vj9Var.getSlideNum();
+            }
+            return 0;
         }
-        return (DataSource) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.bumptech.glide.load.data.DataFetcher
-    public void loadData(@NonNull Priority priority, DataFetcher.DataCallback<? super InputStream> dataCallback) {
+    public boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, priority, dataCallback) == null) {
-            ByteBuffer.wrap(Base64.decode(a(), 0));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            vj9 vj9Var = this.a;
+            if (vj9Var == null) {
+                return false;
+            }
+            vj9Var.setOnProgressListener(new a(this));
+            return true;
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ua6
+    public boolean pause() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            vj9 vj9Var = this.a;
+            if (vj9Var != null) {
+                vj9Var.stop();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ua6
+    public boolean reset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            vj9 vj9Var = this.a;
+            if (vj9Var != null) {
+                vj9Var.reset();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ua6
+    public boolean start() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            vj9 vj9Var = this.a;
+            if (vj9Var != null) {
+                vj9Var.start();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final String h(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
+            if (f >= getMaxDuration()) {
+                f = getMaxDuration();
+            }
+            if (f > 60.0f) {
+                return ((int) (f / 60.0f)) + "'" + String.format("%.1f", Float.valueOf(f % 60.0f));
+            }
+            return String.format("%.1f", Float.valueOf(f));
+        }
+        return (String) invokeF.objValue;
     }
 }

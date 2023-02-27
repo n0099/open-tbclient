@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.charset.Charset;
-import org.apache.commons.codec.binary4util.BaseNCodec;
 /* loaded from: classes8.dex */
 public final class Stringer {
     public static /* synthetic */ Interceptable $ic;
@@ -337,8 +336,8 @@ public final class Stringer {
                             bArr3[i5] = bArr2[(i13 >> 6) & 63];
                             int i15 = i14 + 1;
                             bArr3[i14] = bArr2[i13 & 63];
-                            bArr3[i15] = BaseNCodec.PAD_DEFAULT;
-                            bArr3[i15 + 1] = BaseNCodec.PAD_DEFAULT;
+                            bArr3[i15] = 61;
+                            bArr3[i15 + 1] = 61;
                             return;
                         } else if (i3 - i12 == i7 - 2) {
                             if (i12 > 1) {
@@ -363,7 +362,7 @@ public final class Stringer {
                             int i19 = i18 + 1;
                             bArr3[i18] = bArr2[(i17 >> 6) & 63];
                             bArr3[i19] = bArr2[i17 & 63];
-                            bArr3[i19 + 1] = BaseNCodec.PAD_DEFAULT;
+                            bArr3[i19 + 1] = 61;
                             return;
                         } else {
                             return;

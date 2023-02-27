@@ -8,12 +8,11 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jv7;
-import com.baidu.tieba.uu7;
+import com.baidu.tieba.oy7;
+import com.baidu.tieba.zx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -95,58 +94,48 @@ public class CommonImageButton extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d053a, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d054f, (ViewGroup) this, true);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090f84);
-            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090f8a);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090fc5);
+            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090fcb);
         }
     }
 
-    public void b(jv7 jv7Var) {
+    public void b(oy7 oy7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jv7Var) != null) || jv7Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oy7Var) != null) || oy7Var == null) {
             return;
         }
-        if (!jv7Var.j()) {
-            uu7.a().d(jv7Var, jv7Var.h());
+        if (!oy7Var.i()) {
+            zx7.a().d(oy7Var, oy7Var.g());
         }
-        if (jv7Var.a()) {
-            c(jv7Var);
+        if (oy7Var.a()) {
+            c(oy7Var);
         } else {
-            d(jv7Var);
+            d(oy7Var);
         }
     }
 
-    public final void c(jv7 jv7Var) {
+    public final void c(oy7 oy7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jv7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oy7Var) == null) {
             this.d.setVisibility(8);
-            int f = jv7Var.f();
-            if (f != 0) {
+            int e = oy7Var.e();
+            if (e != 0) {
                 this.c.setVisibility(0);
-                SkinManager.setBackgroundResource(this.c, f);
+                SkinManager.setBackgroundResource(this.c, e);
                 return;
             }
             this.c.setVisibility(8);
         }
     }
 
-    public final void d(jv7 jv7Var) {
-        String d;
+    public final void d(oy7 oy7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jv7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, oy7Var) == null) {
             this.c.setVisibility(8);
             this.d.setVisibility(0);
-            boolean z = true;
-            if (1 != TbadkCoreApplication.getInst().getSkinType()) {
-                z = false;
-            }
-            if (z) {
-                d = jv7Var.e();
-            } else {
-                d = jv7Var.d();
-            }
-            this.d.K(d, 10, false);
+            this.d.K(oy7Var.d(), 10, false);
         }
     }
 }

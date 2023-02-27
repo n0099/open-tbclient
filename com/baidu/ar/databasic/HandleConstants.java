@@ -1,12 +1,6 @@
 package com.baidu.ar.databasic;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class HandleConstants {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int FORMAT_BGR = 2;
     public static final int FORMAT_NV12 = 1;
     public static final int FORMAT_NV21 = 0;
@@ -33,19 +27,4 @@ public class HandleConstants {
     public static final int TYPE_SKY_SEG = 12;
     public static final int TYPE_SLAM = 5;
     public static final int TYPE_STRETCH = 17;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public HandleConstants() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

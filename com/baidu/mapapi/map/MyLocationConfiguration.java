@@ -1,106 +1,22 @@
 package com.baidu.mapapi.map;
 
 import android.graphics.Color;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class MyLocationConfiguration {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public int accuracyCircleFillColor;
     public int accuracyCircleStrokeColor;
     public final BitmapDescriptor customMarker;
     public final boolean enableDirection;
     public final LocationMode locationMode;
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class LocationMode {
-        public static /* synthetic */ Interceptable $ic;
-        public static final LocationMode COMPASS;
-        public static final LocationMode FOLLOWING;
-        public static final LocationMode NORMAL;
-        public static final /* synthetic */ LocationMode[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-328089186, "Lcom/baidu/mapapi/map/MyLocationConfiguration$LocationMode;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-328089186, "Lcom/baidu/mapapi/map/MyLocationConfiguration$LocationMode;");
-                    return;
-                }
-            }
-            NORMAL = new LocationMode("NORMAL", 0);
-            FOLLOWING = new LocationMode("FOLLOWING", 1);
-            LocationMode locationMode = new LocationMode("COMPASS", 2);
-            COMPASS = locationMode;
-            a = new LocationMode[]{NORMAL, FOLLOWING, locationMode};
-        }
-
-        public LocationMode(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public static LocationMode valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                return (LocationMode) Enum.valueOf(LocationMode.class, str);
-            }
-            return (LocationMode) invokeL.objValue;
-        }
-
-        public static LocationMode[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return (LocationMode[]) a.clone();
-            }
-            return (LocationMode[]) invokeV.objValue;
-        }
+    public enum LocationMode {
+        NORMAL,
+        FOLLOWING,
+        COMPASS
     }
 
     public MyLocationConfiguration(LocationMode locationMode, boolean z, BitmapDescriptor bitmapDescriptor) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {locationMode, Boolean.valueOf(z), bitmapDescriptor};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.accuracyCircleFillColor = 4521984;
         this.accuracyCircleStrokeColor = 4653056;
         this.locationMode = locationMode == null ? LocationMode.NORMAL : locationMode;
@@ -111,20 +27,6 @@ public class MyLocationConfiguration {
     }
 
     public MyLocationConfiguration(LocationMode locationMode, boolean z, BitmapDescriptor bitmapDescriptor, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {locationMode, Boolean.valueOf(z), bitmapDescriptor, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.accuracyCircleFillColor = 4521984;
         this.accuracyCircleStrokeColor = 4653056;
         this.locationMode = locationMode == null ? LocationMode.NORMAL : locationMode;
@@ -135,11 +37,7 @@ public class MyLocationConfiguration {
     }
 
     private int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
-            return Color.argb(((-16777216) & i) >> 24, i & 255, (65280 & i) >> 8, (16711680 & i) >> 16);
-        }
-        return invokeI.intValue;
+        int i2 = (65280 & i) >> 8;
+        return Color.argb(((-16777216) & i) >> 24, i & 255, i2, (16711680 & i) >> 16);
     }
 }

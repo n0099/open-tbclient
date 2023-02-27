@@ -10,13 +10,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.novel.ReadRecordsData;
-import com.baidu.tieba.b39;
-import com.baidu.tieba.h99;
-import com.baidu.tieba.lj5;
-import com.baidu.tieba.t65;
+import com.baidu.tieba.cp;
+import com.baidu.tieba.f85;
+import com.baidu.tieba.j69;
+import com.baidu.tieba.n69;
+import com.baidu.tieba.uc9;
 import com.baidu.tieba.ui;
-import com.baidu.tieba.x29;
-import com.baidu.tieba.yo;
+import com.baidu.tieba.yk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
-@yo
+@cp
 /* loaded from: classes3.dex */
-public class UegTbJsBridge implements x29 {
+public class UegTbJsBridge implements j69 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "CommonJSBridge";
     public static final String METHOD_BIND_MOBILE_NUMBER = "bindMobileNumber";
@@ -70,17 +70,17 @@ public class UegTbJsBridge implements x29 {
         }
     }
 
-    public b39 novelPayResultToClient(boolean z) {
+    public n69 novelPayResultToClient(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            b39 b39Var = new b39();
+            n69 n69Var = new n69();
             if (z) {
-                lj5.d();
+                yk5.d();
             }
-            return b39Var;
+            return n69Var;
         }
-        return (b39) invokeZ.objValue;
+        return (n69) invokeZ.objValue;
     }
 
     public UegTbJsBridge(TbPageContext<?> tbPageContext) {
@@ -101,37 +101,37 @@ public class UegTbJsBridge implements x29 {
         this.mTbPageContext = tbPageContext;
     }
 
-    public b39 bindingMobileNumber() {
+    public n69 bindingMobileNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b39 b39Var = new b39();
+            n69 n69Var = new n69();
             try {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, t65.b()));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, f85.b()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return b39Var;
+            return n69Var;
         }
-        return (b39) invokeV.objValue;
+        return (n69) invokeV.objValue;
     }
 
-    public b39 callNativeSMS(String str, String str2) {
+    public n69 callNativeSMS(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            b39 b39Var = new b39();
+            n69 n69Var = new n69();
             Context pageActivity = this.mTbPageContext.getPageActivity();
             if (pageActivity == null) {
                 pageActivity = this.mContext;
             }
             UtilHelper.smsTo(pageActivity, str, str2);
-            return b39Var;
+            return n69Var;
         }
-        return (b39) invokeLL.objValue;
+        return (n69) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.x29
+    @Override // com.baidu.tieba.j69
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -188,24 +188,24 @@ public class UegTbJsBridge implements x29 {
         return invokeLLLL.booleanValue;
     }
 
-    public b39 recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
+    public n69 recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, str, str2, str3, str4, str5)) == null) {
-            b39 b39Var = new b39();
+            n69 n69Var = new n69();
             ReadRecordsData readRecordsData = new ReadRecordsData(str, str2, str3, str4, str5);
-            readRecordsData.I(true);
-            lj5.e(str2, readRecordsData);
-            return b39Var;
+            readRecordsData.P(true);
+            yk5.e(str2, readRecordsData);
+            return n69Var;
         }
-        return (b39) invokeLLLLL.objValue;
+        return (n69) invokeLLLLL.objValue;
     }
 
-    public b39 setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
+    public n69 setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
-            b39 b39Var = new b39();
+            n69 n69Var = new n69();
             try {
                 BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
                 builder.can_post = Integer.valueOf(i);
@@ -215,13 +215,13 @@ public class UegTbJsBridge implements x29 {
                 builder.ok_info = str4;
                 builder.ahead_type = Integer.valueOf(i2);
                 BlockPopInfo build = builder.build(false);
-                h99.h(build);
-                h99.g(build);
+                uc9.h(build);
+                uc9.g(build);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return b39Var;
+            return n69Var;
         }
-        return (b39) invokeCommon.objValue;
+        return (n69) invokeCommon.objValue;
     }
 }

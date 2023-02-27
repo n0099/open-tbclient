@@ -17,7 +17,7 @@ import java.util.zip.ZipFile;
 public class e {
     public final File a;
     public final File b;
-    public String c;
+    public final String c;
 
     public e(String str, String str2) {
         this.a = new File(str);
@@ -121,7 +121,7 @@ public class e {
         r7 = r13.split("/")[0];
         com.meizu.cloud.pushinternal.DebugLogger.i("ZipExtractTask", "Extract temp directory=" + r18.b + "/" + r7);
      */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x01e8  */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x01e6  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -168,19 +168,21 @@ public class e {
                 if (!nextElement.isDirectory()) {
                     String name = nextElement.getName();
                     if (name != null && name.contains("../")) {
-                        throw new Exception("unsecurity zip file");
+                        throw new Exception("Unsafe zip file");
                     }
-                    File file = new File(this.b, name);
-                    if (!file.getParentFile().exists()) {
-                        if (file.getParentFile().mkdirs()) {
-                            str2 = "Make Destination directory=" + file.getParentFile().getAbsolutePath();
-                        } else {
-                            str2 = "Can't make destination directory=" + file.getParentFile().getAbsolutePath();
+                    if (name != null) {
+                        File file = new File(this.b, name);
+                        if (!file.getParentFile().exists()) {
+                            if (file.getParentFile().mkdirs()) {
+                                str2 = "Make Destination directory=" + file.getParentFile().getAbsolutePath();
+                            } else {
+                                str2 = "Can't make destination directory=" + file.getParentFile().getAbsolutePath();
+                            }
+                            DebugLogger.i("ZipExtractTask", str2);
                         }
-                        DebugLogger.i("ZipExtractTask", str2);
+                        j2 += a(zipFile.getInputStream(nextElement), fileOutputStream);
+                        new FileOutputStream(file).close();
                     }
-                    j2 += a(zipFile.getInputStream(nextElement), fileOutputStream);
-                    new FileOutputStream(file).close();
                 }
             }
             String str4 = this.b + "/" + str3;
@@ -211,7 +213,7 @@ public class e {
                     str3 = str;
                     j2 = j;
                     long currentThreadTimeMillis2 = SystemClock.currentThreadTimeMillis();
-                    DebugLogger.i("ZipExtractTask", "Extract file " + this.a + ", UseTime =" + String.valueOf(currentThreadTimeMillis2 - currentThreadTimeMillis));
+                    DebugLogger.i("ZipExtractTask", "Extract file " + this.a + ", UseTime =" + (currentThreadTimeMillis2 - currentThreadTimeMillis));
                     if (z) {
                     }
                     b();
@@ -221,7 +223,7 @@ public class e {
             str3 = str;
             j2 = j;
             long currentThreadTimeMillis22 = SystemClock.currentThreadTimeMillis();
-            DebugLogger.i("ZipExtractTask", "Extract file " + this.a + ", UseTime =" + String.valueOf(currentThreadTimeMillis22 - currentThreadTimeMillis));
+            DebugLogger.i("ZipExtractTask", "Extract file " + this.a + ", UseTime =" + (currentThreadTimeMillis22 - currentThreadTimeMillis));
             if (z) {
             }
             b();
@@ -244,7 +246,7 @@ public class e {
                     str3 = str;
                     j2 = j;
                     long currentThreadTimeMillis222 = SystemClock.currentThreadTimeMillis();
-                    DebugLogger.i("ZipExtractTask", "Extract file " + this.a + ", UseTime =" + String.valueOf(currentThreadTimeMillis222 - currentThreadTimeMillis));
+                    DebugLogger.i("ZipExtractTask", "Extract file " + this.a + ", UseTime =" + (currentThreadTimeMillis222 - currentThreadTimeMillis));
                     if (z) {
                     }
                     b();
@@ -254,7 +256,7 @@ public class e {
             str3 = str;
             j2 = j;
             long currentThreadTimeMillis2222 = SystemClock.currentThreadTimeMillis();
-            DebugLogger.i("ZipExtractTask", "Extract file " + this.a + ", UseTime =" + String.valueOf(currentThreadTimeMillis2222 - currentThreadTimeMillis));
+            DebugLogger.i("ZipExtractTask", "Extract file " + this.a + ", UseTime =" + (currentThreadTimeMillis2222 - currentThreadTimeMillis));
             if (z) {
             }
             b();
@@ -277,7 +279,7 @@ public class e {
                     str3 = str;
                     j2 = j;
                     long currentThreadTimeMillis22222 = SystemClock.currentThreadTimeMillis();
-                    DebugLogger.i("ZipExtractTask", "Extract file " + this.a + ", UseTime =" + String.valueOf(currentThreadTimeMillis22222 - currentThreadTimeMillis));
+                    DebugLogger.i("ZipExtractTask", "Extract file " + this.a + ", UseTime =" + (currentThreadTimeMillis22222 - currentThreadTimeMillis));
                     if (z) {
                     }
                     b();
@@ -287,7 +289,7 @@ public class e {
             str3 = str;
             j2 = j;
             long currentThreadTimeMillis222222 = SystemClock.currentThreadTimeMillis();
-            DebugLogger.i("ZipExtractTask", "Extract file " + this.a + ", UseTime =" + String.valueOf(currentThreadTimeMillis222222 - currentThreadTimeMillis));
+            DebugLogger.i("ZipExtractTask", "Extract file " + this.a + ", UseTime =" + (currentThreadTimeMillis222222 - currentThreadTimeMillis));
             if (z) {
             }
             b();
@@ -305,7 +307,7 @@ public class e {
             throw th;
         }
         long currentThreadTimeMillis2222222 = SystemClock.currentThreadTimeMillis();
-        DebugLogger.i("ZipExtractTask", "Extract file " + this.a + ", UseTime =" + String.valueOf(currentThreadTimeMillis2222222 - currentThreadTimeMillis));
+        DebugLogger.i("ZipExtractTask", "Extract file " + this.a + ", UseTime =" + (currentThreadTimeMillis2222222 - currentThreadTimeMillis));
         if (z) {
             a.b(this.b + "/" + str3);
         }

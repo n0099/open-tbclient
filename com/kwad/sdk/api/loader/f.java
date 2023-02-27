@@ -7,7 +7,6 @@ import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.pms.db.PackageTable;
-import com.heytap.mcssdk.mode.CommandMessage;
 import com.kwad.components.offline.api.BuildConfig;
 import com.kwad.sdk.api.core.IKsAdSDK;
 import com.kwad.sdk.api.core.RequestParamsUtils;
@@ -66,7 +65,7 @@ public final class f {
         try {
             jSONObject.put("sdkApiVersion", BuildConfig.VERSION_NAME);
             jSONObject.put("sdkApiVersionCode", BuildConfig.VERSION_CODE);
-            jSONObject.put(CommandMessage.SDK_VERSION, a2);
+            jSONObject.put(com.heytap.mcssdk.constant.b.C, a2);
             jSONObject.put("SDKVersionCode", i);
             jSONObject.put("sdkType", 1);
             jSONObject.put(DI.APP_INFO_NAME, appInfo);
@@ -202,15 +201,15 @@ public final class f {
                         }
                         bVar.a = jSONObject.optLong("result");
                         bVar.b = jSONObject.optString("errorMsg");
-                        a.C0625a c0625a = new a.C0625a();
-                        bVar.Sg = c0625a;
+                        a.C0615a c0615a = new a.C0615a();
+                        bVar.Sg = c0615a;
                         JSONObject optJSONObject = jSONObject.optJSONObject("data");
                         if (optJSONObject != null) {
-                            c0625a.a = optJSONObject.optInt("dynamicType");
-                            c0625a.b = optJSONObject.optString("dynamicUrl");
-                            c0625a.c = optJSONObject.optString(PackageTable.MD5);
-                            c0625a.Se = optJSONObject.optLong("interval");
-                            c0625a.e = optJSONObject.optString(CommandMessage.SDK_VERSION);
+                            c0615a.a = optJSONObject.optInt("dynamicType");
+                            c0615a.b = optJSONObject.optString("dynamicUrl");
+                            c0615a.c = optJSONObject.optString(PackageTable.MD5);
+                            c0615a.Se = optJSONObject.optLong("interval");
+                            c0615a.e = optJSONObject.optString(com.heytap.mcssdk.constant.b.C);
                         }
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {

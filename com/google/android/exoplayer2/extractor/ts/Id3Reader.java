@@ -1,11 +1,6 @@
 package com.google.android.exoplayer2.extractor.ts;
 
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.extractor.ExtractorOutput;
 import com.google.android.exoplayer2.extractor.TrackOutput;
@@ -14,38 +9,19 @@ import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 /* loaded from: classes7.dex */
 public final class Id3Reader implements ElementaryStreamReader {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int ID3_HEADER_SIZE = 10;
     public static final String TAG = "Id3Reader";
-    public transient /* synthetic */ FieldHolder $fh;
-    public final ParsableByteArray id3Header;
+    public final ParsableByteArray id3Header = new ParsableByteArray(10);
     public TrackOutput output;
     public int sampleBytesRead;
     public int sampleSize;
     public long sampleTimeUs;
     public boolean writingSample;
 
-    public Id3Reader() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.id3Header = new ParsableByteArray(10);
-    }
-
     @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
     public void packetFinished() {
         int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.writingSample && (i = this.sampleSize) != 0 && this.sampleBytesRead == i) {
+        if (this.writingSample && (i = this.sampleSize) != 0 && this.sampleBytesRead == i) {
             this.output.sampleMetadata(this.sampleTimeUs, 1, i, 0, null);
             this.writingSample = false;
         }
@@ -53,16 +29,12 @@ public final class Id3Reader implements ElementaryStreamReader {
 
     @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
     public void seek() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.writingSample = false;
-        }
+        this.writingSample = false;
     }
 
     @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
     public void consume(ParsableByteArray parsableByteArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, parsableByteArray) != null) || !this.writingSample) {
+        if (!this.writingSample) {
             return;
         }
         int bytesLeft = parsableByteArray.bytesLeft();
@@ -89,19 +61,15 @@ public final class Id3Reader implements ElementaryStreamReader {
 
     @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
     public void createTracks(ExtractorOutput extractorOutput, TsPayloadReader.TrackIdGenerator trackIdGenerator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, extractorOutput, trackIdGenerator) == null) {
-            trackIdGenerator.generateNewId();
-            TrackOutput track = extractorOutput.track(trackIdGenerator.getTrackId(), 4);
-            this.output = track;
-            track.format(Format.createSampleFormat(trackIdGenerator.getFormatId(), MimeTypes.APPLICATION_ID3, null, -1, null));
-        }
+        trackIdGenerator.generateNewId();
+        TrackOutput track = extractorOutput.track(trackIdGenerator.getTrackId(), 4);
+        this.output = track;
+        track.format(Format.createSampleFormat(trackIdGenerator.getFormatId(), MimeTypes.APPLICATION_ID3, null, -1, null));
     }
 
     @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
     public void packetStarted(long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) != null) || !z) {
+        if (!z) {
             return;
         }
         this.writingSample = true;

@@ -1,11 +1,10 @@
 package com.baidu.sofire.core;
 
 import android.content.Context;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.b.l;
+import com.baidu.sofire.b.j;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +15,6 @@ import java.util.List;
 public class ApkInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ActivityInfo[] activities;
     public String apkMD5;
     public int apkParseSuc;
     public int applicationTheme;
@@ -27,11 +25,11 @@ public class ApkInfo {
     public String dexPath;
     public String downloadURL;
     public int duration;
+    public String es;
     public Context hostContext;
     public int initStatus;
-    public List<l> intentFilters;
+    public List<j> intentFilters;
     public boolean isMem;
-    public boolean isNextLoad;
     public int isOnce;
     public int key;
     public String libPath;
@@ -58,7 +56,6 @@ public class ApkInfo {
         }
         this.priority = -1;
         this.isMem = false;
-        this.isNextLoad = false;
     }
 
     public int hashCode() {
@@ -94,7 +91,6 @@ public class ApkInfo {
         }
         this.priority = -1;
         this.isMem = false;
-        this.isNextLoad = false;
         this.key = i;
         this.versionName = str;
         this.pkgPath = str2;
@@ -117,7 +113,6 @@ public class ApkInfo {
         }
         this.priority = -1;
         this.isMem = false;
-        this.isNextLoad = false;
         this.key = i;
         this.packageName = str;
         this.versionName = str2;
@@ -142,7 +137,6 @@ public class ApkInfo {
         }
         this.priority = -1;
         this.isMem = false;
-        this.isNextLoad = false;
         this.key = apkInfo.key;
         this.initStatus = apkInfo.initStatus;
         this.packageName = apkInfo.packageName;
@@ -153,7 +147,6 @@ public class ApkInfo {
         this.downloadURL = apkInfo.downloadURL;
         this.apkMD5 = apkInfo.apkMD5;
         this.signMD5 = apkInfo.signMD5;
-        this.activities = apkInfo.activities;
         this.dataDir = apkInfo.dataDir;
         this.dexPath = apkInfo.dexPath;
         this.className = apkInfo.className;
@@ -167,7 +160,7 @@ public class ApkInfo {
         this.isOnce = apkInfo.isOnce;
         this.priority = apkInfo.priority;
         this.isMem = apkInfo.isMem;
-        this.isNextLoad = apkInfo.isNextLoad;
+        this.es = apkInfo.es;
     }
 
     public ApkInfo(String str, String str2) {
@@ -187,7 +180,6 @@ public class ApkInfo {
         }
         this.priority = -1;
         this.isMem = false;
-        this.isNextLoad = false;
         this.versionName = str;
         this.pkgPath = str2;
     }

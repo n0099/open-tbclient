@@ -11,31 +11,21 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobstat.BaiduStatJSInterface;
 import com.baidu.mobstat.MtjConfig;
 import com.baidu.mobstat.ad;
 import com.baidu.mobstat.au;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class StatService {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int EXCEPTION_LOG = 1;
     public static final int JAVA_EXCEPTION_LOG = 16;
     public static boolean a;
     public static boolean b;
     public static boolean c;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
     public interface OnZidReceiveListener {
@@ -47,58 +37,20 @@ public class StatService {
         boolean onSendLogData(String str);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(402028451, "Lcom/baidu/mobstat/StatService;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(402028451, "Lcom/baidu/mobstat/StatService;");
-        }
-    }
-
-    public StatService() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
     public static void closeTrace() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65554, null) == null) {
-            CooperService.instance().closeTrace();
-        }
+        CooperService.instance().closeTrace();
     }
 
     public static String getSdkVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
-            if (CooperService.instance().isCloseTrace()) {
-                return "";
-            }
-            return CooperService.instance().getMTJSDKVersion();
+        if (CooperService.instance().isCloseTrace()) {
+            return "";
         }
-        return (String) invokeV.objValue;
+        return CooperService.instance().getMTJSDKVersion();
     }
 
     @SuppressLint({"NewApi", "SetJavaScriptEnabled"})
     public static void a(Context context, WebView webView, WebViewClient webViewClient, WebChromeClient webChromeClient, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{context, webView, webViewClient, webChromeClient, Boolean.valueOf(z)}) != null) || CooperService.instance().isCloseTrace()) {
+        if (CooperService.instance().isCloseTrace()) {
             return;
         }
         if (context == null) {
@@ -125,7 +77,7 @@ public class StatService {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(new ad.b());
                 arrayList.add(new au.b());
-                BaiduStatJSInterface.CustomWebChromeViewClient customWebChromeViewClient = new BaiduStatJSInterface.CustomWebChromeViewClient(context, webChromeClient, arrayList, bkVar);
+                WebChromeClient customWebChromeViewClient = new BaiduStatJSInterface.CustomWebChromeViewClient(context, webChromeClient, arrayList, bkVar);
                 webView.setWebChromeClient(customWebChromeViewClient);
                 webView.setTag(-96001, customWebChromeViewClient);
             }
@@ -134,57 +86,25 @@ public class StatService {
     }
 
     public static synchronized void a(Context context, String str, ExtraInfo extraInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, context, str, extraInfo) == null) {
-            synchronized (StatService.class) {
-                if (context != null) {
-                    if (!TextUtils.isEmpty(str)) {
-                        if (CooperService.instance().isCloseTrace()) {
-                            return;
-                        }
-                        if (a(context)) {
-                            return;
-                        }
-                        BDStatCore.instance().onPageEnd(context, str, extraInfo);
+        synchronized (StatService.class) {
+            if (context != null) {
+                if (!TextUtils.isEmpty(str)) {
+                    if (CooperService.instance().isCloseTrace()) {
                         return;
                     }
+                    if (a(context)) {
+                        return;
+                    }
+                    BDStatCore.instance().onPageEnd(context, str, extraInfo);
+                    return;
                 }
-                bb.c().c("[WARNING] onPageEnd parameter invalid");
             }
-        }
-    }
-
-    public static synchronized void setPushId(Context context, MtjConfig.PushPlatform pushPlatform, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65601, null, context, pushPlatform, str) == null) {
-            synchronized (StatService.class) {
-                if (context == null) {
-                    return;
-                }
-                if (CooperService.instance().isCloseTrace()) {
-                    return;
-                }
-                if (pushPlatform == null) {
-                    return;
-                }
-                if (a(context)) {
-                    return;
-                }
-                if (TextUtils.isEmpty(str)) {
-                    str = "";
-                }
-                if (str.length() > 1024) {
-                    str = str.substring(0, 1024);
-                }
-                CooperService.instance().setPushId(context, pushPlatform.value(), pushPlatform.showName(), str);
-                BDStatCore.instance().init(context);
-            }
+            bb.c().c("[WARNING] onPageEnd parameter invalid");
         }
     }
 
     public static void a(Context context, String str, String str2, int i, ExtraInfo extraInfo, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, Integer.valueOf(i), extraInfo, map}) != null) || !a(context, "onEvent(...)") || TextUtils.isEmpty(str) || CooperService.instance().isCloseTrace()) {
+        if (!a(context, "onEvent(...)") || TextUtils.isEmpty(str) || CooperService.instance().isCloseTrace()) {
             return;
         }
         boolean a2 = bx.a(Application.class, "onCreate");
@@ -198,8 +118,7 @@ public class StatService {
     }
 
     public static void a(Context context, String str, String str2, long j, ExtraInfo extraInfo, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{context, str, str2, Long.valueOf(j), extraInfo, map}) != null) || !a(context, "onEventDuration(...)") || CooperService.instance().isCloseTrace() || TextUtils.isEmpty(str)) {
+        if (!a(context, "onEventDuration(...)") || CooperService.instance().isCloseTrace() || TextUtils.isEmpty(str)) {
             return;
         }
         if (j <= 0) {
@@ -217,76 +136,87 @@ public class StatService {
     }
 
     public static void a(Context context, String str, String str2, ExtraInfo extraInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65542, null, context, str, str2, extraInfo) == null) {
-            a(context, str, str2, 1, extraInfo, (Map<String, String>) null);
+        a(context, str, str2, 1, extraInfo, (Map<String, String>) null);
+    }
+
+    public static void onErised(Context context, String str, String str2, String str3) {
+        if (CooperService.instance().isCloseTrace() || !a(context, "onErised(...)")) {
+            return;
+        }
+        if (str != null && !"".equals(str)) {
+            BDStatCore.instance().onErised(context, str, str2, str3);
+        } else {
+            bb.c().c("[WARNING] AppKey is invalid");
         }
     }
 
     public static void onEvent(Context context, String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65565, null, context, str, str2, i) == null) {
-            a(context, str, str2, i, (ExtraInfo) null, (Map<String, String>) null);
-        }
+        a(context, str, str2, i, (ExtraInfo) null, (Map<String, String>) null);
     }
 
     public static void onEventDuration(Context context, String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65567, null, new Object[]{context, str, str2, Long.valueOf(j)}) == null) {
-            a(context, str, str2, j, (ExtraInfo) null, (Map<String, String>) null);
-        }
+        a(context, str, str2, j, (ExtraInfo) null, (Map<String, String>) null);
     }
 
     public static void onEventEnd(Context context, String str, String str2, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65570, null, context, str, str2, map) == null) {
-            a(context.getApplicationContext(), str, str2, (ExtraInfo) null, map);
-        }
+        a(context.getApplicationContext(), str, str2, (ExtraInfo) null, map);
     }
 
     public static void a(Context context, String str, String str2, ExtraInfo extraInfo, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLLL(65543, null, context, str, str2, extraInfo, map) != null) || !a(context, "onEventEnd(...)") || CooperService.instance().isCloseTrace() || TextUtils.isEmpty(str) || a(context)) {
+        if (!a(context, "onEventEnd(...)") || CooperService.instance().isCloseTrace() || TextUtils.isEmpty(str) || a(context)) {
             return;
         }
         BDStatCore.instance().onEventEnd(context.getApplicationContext(), str, str2, extraInfo, bx.a(map));
     }
 
-    public static void onEvent(Context context, String str, String str2, int i, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{context, str, str2, Integer.valueOf(i), map}) == null) {
-            a(context, str, str2, i, (ExtraInfo) null, map);
-        }
-    }
-
-    public static void onEventDuration(Context context, String str, String str2, long j, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65568, null, new Object[]{context, str, str2, Long.valueOf(j), map}) == null) {
-            a(context, str, str2, j, (ExtraInfo) null, map);
-        }
-    }
-
     public static void a(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(65544, null, context, z) != null) || !a(context, "onError(...)") || CooperService.instance().isCloseTrace() || a(context)) {
+        if (!a(context, "onError(...)") || CooperService.instance().isCloseTrace() || a(context)) {
             return;
         }
         BDStatCore.instance().init(context);
         ExceptionAnalysis.getInstance().openExceptionAnalysis(context.getApplicationContext(), z);
     }
 
+    public static void bindJSInterface(Context context, WebView webView) {
+        if (CooperService.instance().isCloseTrace()) {
+            return;
+        }
+        bindJSInterface(context, webView, null);
+    }
+
+    public static void enableAppList(Context context, boolean z) {
+        CooperService.instance().setEnableBplus(context, z);
+    }
+
     public static void enableDeviceMac(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(65557, null, context, z) != null) || context == null || CooperService.instance().isCloseTrace() || a(context)) {
+        if (context == null || CooperService.instance().isCloseTrace() || a(context)) {
             return;
         }
         CooperService.instance().enableDeviceMac(context, z);
         BDStatCore.instance().init(context);
     }
 
+    public static synchronized void onPageEnd(Context context, String str) {
+        synchronized (StatService.class) {
+            a(context, str, null);
+        }
+    }
+
+    public static void recordException(Context context, Throwable th) {
+        if (context == null || CooperService.instance().isCloseTrace() || th == null) {
+            return;
+        }
+        ExceptionAnalysis.getInstance().saveCrashInfo(context, th, false);
+    }
+
+    public static void sendLogData(Context context, String str) {
+        if (!CooperService.instance().isCloseTrace() && context != null && !TextUtils.isEmpty(str)) {
+            LogSender.instance().sendLogData(context.getApplicationContext(), str, false);
+        }
+    }
+
     public static void setAppVersionName(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65583, null, context, str) != null) || CooperService.instance().isCloseTrace() || TextUtils.isEmpty(str)) {
+        if (CooperService.instance().isCloseTrace() || TextUtils.isEmpty(str)) {
             return;
         }
         if (str.length() > 256) {
@@ -295,9 +225,22 @@ public class StatService {
         CooperService.instance().setAppVersionName(context, str);
     }
 
+    public static void setAttributes(View view2, Map<String, String> map) {
+        if (CooperService.instance().isCloseTrace() || view2 == null) {
+            return;
+        }
+        view2.setTag(-96000, map);
+    }
+
+    public static void setAuthorizedState(Context context, boolean z) {
+        if (CooperService.instance().isCloseTrace()) {
+            return;
+        }
+        bu.a().b(z);
+    }
+
     public static void setAutoEventProperty(Context context, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65586, null, context, map) != null) || context == null || CooperService.instance().isCloseTrace() || a(context)) {
+        if (context == null || CooperService.instance().isCloseTrace() || a(context)) {
             return;
         }
         DataCore.instance().setPydProperty(context, bx.a(map), "3", "3");
@@ -305,8 +248,7 @@ public class StatService {
     }
 
     public static void setContentId(View view2, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65587, null, view2, str) != null) || view2 == null || CooperService.instance().isCloseTrace()) {
+        if (view2 == null || CooperService.instance().isCloseTrace()) {
             return;
         }
         if (TextUtils.isEmpty(str)) {
@@ -319,8 +261,7 @@ public class StatService {
     }
 
     public static void setContentTitle(View view2, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65588, null, view2, str) != null) || view2 == null || CooperService.instance().isCloseTrace()) {
+        if (view2 == null || CooperService.instance().isCloseTrace()) {
             return;
         }
         if (TextUtils.isEmpty(str)) {
@@ -332,9 +273,15 @@ public class StatService {
         view2.setTag(-97003, str);
     }
 
+    public static void setEnableBackgroundSendLog(Context context, boolean z) {
+        if (CooperService.instance().isCloseTrace()) {
+            return;
+        }
+        BDStatCore.instance().setAutoSendLog(context, z);
+    }
+
     public static void setForTv(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(65593, null, context, z) != null) || context == null || CooperService.instance().isCloseTrace() || a(context)) {
+        if (context == null || CooperService.instance().isCloseTrace() || a(context)) {
             return;
         }
         bp.a().c(context, z);
@@ -342,27 +289,23 @@ public class StatService {
     }
 
     public static synchronized void setGlobalExtraInfo(Context context, ExtraInfo extraInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65594, null, context, extraInfo) == null) {
-            synchronized (StatService.class) {
-                if (context == null) {
-                    return;
-                }
-                if (CooperService.instance().isCloseTrace()) {
-                    return;
-                }
-                if (a(context)) {
-                    return;
-                }
-                CooperService.instance().setHeaderExt(context, extraInfo);
-                BDStatCore.instance().init(context);
+        synchronized (StatService.class) {
+            if (context == null) {
+                return;
             }
+            if (CooperService.instance().isCloseTrace()) {
+                return;
+            }
+            if (a(context)) {
+                return;
+            }
+            CooperService.instance().setHeaderExt(context, extraInfo);
+            BDStatCore.instance().init(context);
         }
     }
 
     public static void setListName(View view2, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65595, null, view2, str) != null) || view2 == null || CooperService.instance().isCloseTrace()) {
+        if (view2 == null || CooperService.instance().isCloseTrace()) {
             return;
         }
         if (TextUtils.isEmpty(str)) {
@@ -375,8 +318,7 @@ public class StatService {
     }
 
     public static void setOaid(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65597, null, context, str) != null) || CooperService.instance().isCloseTrace()) {
+        if (CooperService.instance().isCloseTrace()) {
             return;
         }
         if (TextUtils.isEmpty(str)) {
@@ -389,8 +331,7 @@ public class StatService {
     }
 
     public static void setPageProperty(Context context, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65600, null, context, map) != null) || context == null || CooperService.instance().isCloseTrace() || a(context)) {
+        if (context == null || CooperService.instance().isCloseTrace() || a(context)) {
             return;
         }
         DataCore.instance().setPydProperty(context, bx.a(map), "3", "4");
@@ -398,127 +339,77 @@ public class StatService {
     }
 
     public static void setSessionProperty(Context context, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65604, null, context, map) != null) || context == null || CooperService.instance().isCloseTrace() || a(context)) {
+        if (context == null || CooperService.instance().isCloseTrace() || a(context)) {
             return;
         }
         DataCore.instance().setPydProperty(context, bx.a(map), "2", "2");
         BDStatCore.instance().init(context);
     }
 
-    public static void setUserProperty(Context context, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65608, null, context, map) != null) || context == null || CooperService.instance().isCloseTrace() || a(context)) {
-            return;
-        }
-        CooperService.instance().setUserProperty(context, bx.a(map));
-        DataCore.instance().setPydProperty(context, bx.a(map), "1", "1");
-        BDStatCore.instance().init(context);
-    }
-
     @SuppressLint({"NewApi"})
     public static void a(WebView webView) {
         int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, webView) == null) && !CooperService.instance().isCloseTrace() && (i = Build.VERSION.SDK_INT) >= 11 && i <= 18) {
+        if (!CooperService.instance().isCloseTrace() && (i = Build.VERSION.SDK_INT) >= 11 && i <= 18) {
             webView.removeJavascriptInterface("searchBoxJavaBridge_");
             webView.removeJavascriptInterface("accessibility");
             webView.removeJavascriptInterface("accessibilityTraversal");
         }
     }
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            String s = bw.s(context);
-            if (!TextUtils.isEmpty(s) && s.contains("helios")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
     public static void autoTrace(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, context) == null) {
-            autoTrace(context, true, false);
-        }
+        autoTrace(context, true, false);
     }
 
     public static void browseMode(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(65553, null, z) != null) || CooperService.instance().isCloseTrace()) {
+        if (CooperService.instance().isCloseTrace()) {
             return;
         }
         bu.a().c(!z);
     }
 
     public static void crashEnableSendLog(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(65555, null, z) != null) || CooperService.instance().isCloseTrace()) {
+        if (CooperService.instance().isCloseTrace()) {
             return;
         }
         ExceptionAnalysis.getInstance().setEnableSend(z);
     }
 
     public static void enableListTrack(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65558, null, view2) != null) || CooperService.instance().isCloseTrace() || view2 == null) {
+        if (CooperService.instance().isCloseTrace() || view2 == null) {
             return;
         }
         view2.setTag(-97002, Boolean.TRUE);
     }
 
     public static String getAppKey(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
-            if (CooperService.instance().isCloseTrace()) {
-                return "";
-            }
-            return PrefOperate.getAppKey(context);
+        if (CooperService.instance().isCloseTrace()) {
+            return "";
         }
-        return (String) invokeL.objValue;
+        return PrefOperate.getAppKey(context);
     }
 
     public static String getCuid(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, context)) == null) {
-            if (CooperService.instance().isCloseTrace()) {
-                return "";
-            }
-            return CooperService.instance().getCUID(context, false);
+        if (CooperService.instance().isCloseTrace()) {
+            return "";
         }
-        return (String) invokeL.objValue;
+        return CooperService.instance().getCUID(context, false);
     }
 
     public static String getTestDeviceId(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) {
-            if (CooperService.instance().isCloseTrace()) {
-                return "";
-            }
-            return bw.b(context);
+        if (CooperService.instance().isCloseTrace()) {
+            return "";
         }
-        return (String) invokeL.objValue;
+        return bw.b(context);
     }
 
     public static synchronized void onPause(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65574, null, activity) == null) {
-            synchronized (StatService.class) {
-                onPause(activity, null);
-            }
+        synchronized (StatService.class) {
+            onPause(activity, null);
         }
     }
 
     public static void platformType(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(65577, null, i) != null) || CooperService.instance().isCloseTrace()) {
+        if (CooperService.instance().isCloseTrace()) {
             return;
         }
         CooperService.instance().setPlatformType(i);
@@ -526,40 +417,35 @@ public class StatService {
 
     @Deprecated
     public static void setAppChannel(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65581, null, str) != null) || CooperService.instance().isCloseTrace()) {
+        if (CooperService.instance().isCloseTrace()) {
             return;
         }
         PrefOperate.setAppChannel(str);
     }
 
     public static void setAppKey(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65582, null, str) != null) || CooperService.instance().isCloseTrace()) {
+        if (CooperService.instance().isCloseTrace()) {
             return;
         }
         PrefOperate.setAppKey(str);
     }
 
     public static void setCrashExtraInfo(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65589, null, str) != null) || CooperService.instance().isCloseTrace()) {
+        if (CooperService.instance().isCloseTrace()) {
             return;
         }
         ExceptionAnalysis.getInstance().setCrashExtraInfo(str);
     }
 
     public static void setDebugOn(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(65590, null, z) != null) || CooperService.instance().isCloseTrace()) {
+        if (CooperService.instance().isCloseTrace()) {
             return;
         }
         bb.c().a(z);
     }
 
     public static void setFeedTrack(MtjConfig.FeedTrackStrategy feedTrackStrategy) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65592, null, feedTrackStrategy) != null) || CooperService.instance().isCloseTrace()) {
+        if (CooperService.instance().isCloseTrace()) {
             return;
         }
         au.a(feedTrackStrategy);
@@ -567,136 +453,117 @@ public class StatService {
     }
 
     public static void setLogSenderDelayed(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(65596, null, i) != null) || CooperService.instance().isCloseTrace()) {
+        if (CooperService.instance().isCloseTrace()) {
             return;
         }
         LogSender.instance().setLogSenderDelayed(i);
     }
 
     public static void setOnAppBackgroundListener(OnAppBackgroundListener onAppBackgroundListener) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65599, null, onAppBackgroundListener) != null) || CooperService.instance().isCloseTrace() || onAppBackgroundListener == null) {
+        if (CooperService.instance().isCloseTrace() || onAppBackgroundListener == null) {
             return;
         }
         bu.a().a(onAppBackgroundListener);
     }
 
     public static void setSessionTimeOut(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(65605, null, i) != null) || CooperService.instance().isCloseTrace()) {
+        if (CooperService.instance().isCloseTrace()) {
             return;
         }
         BDStatCore.instance().setSessionTimeOut(i);
     }
 
     public static synchronized void setStartType(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65606, null, z) == null) {
-            synchronized (StatService.class) {
-                if (CooperService.instance().isCloseTrace()) {
-                    return;
-                }
-                CooperService.instance().setStartType(z);
+        synchronized (StatService.class) {
+            if (CooperService.instance().isCloseTrace()) {
+                return;
             }
+            CooperService.instance().setStartType(z);
         }
     }
 
     public static void setWearListener(WearListener wearListener) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65609, null, wearListener) != null) || CooperService.instance().isCloseTrace()) {
+        if (CooperService.instance().isCloseTrace()) {
             return;
         }
         DataCore.instance().a(wearListener);
     }
 
     public static void setWebViewDisableFileUrls(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65610, null, z) == null) {
-            b = z;
+        b = z;
+    }
+
+    public static boolean a(Context context) {
+        String s = bw.s(context);
+        if (!TextUtils.isEmpty(s) && s.contains("helios")) {
+            return true;
         }
+        return false;
     }
 
     public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, str)) == null) {
-            if (context == null) {
-                bb c2 = bb.c();
-                c2.b("[WARNING] " + str + ", context is null, invalid");
-                return false;
-            }
-            return true;
+        if (context == null) {
+            bb c2 = bb.c();
+            c2.b("[WARNING] " + str + ", context is null, invalid");
+            return false;
         }
-        return invokeLL.booleanValue;
+        return true;
     }
 
     public static boolean a(Class<?> cls, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, cls, str)) == null) {
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            boolean z = false;
-            for (int i = 2; i < stackTrace.length; i++) {
-                StackTraceElement stackTraceElement = stackTrace[i];
-                if (stackTraceElement.getMethodName().equals(str)) {
-                    try {
-                        for (Class<?> cls2 = Class.forName(stackTraceElement.getClassName()); cls2.getSuperclass() != null && cls2.getSuperclass() != cls; cls2 = cls2.getSuperclass()) {
-                        }
-                        z = true;
-                    } catch (Exception unused) {
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        boolean z = false;
+        for (int i = 2; i < stackTrace.length; i++) {
+            StackTraceElement stackTraceElement = stackTrace[i];
+            if (stackTraceElement.getMethodName().equals(str)) {
+                try {
+                    for (Class<?> cls2 = Class.forName(stackTraceElement.getClassName()); cls2.getSuperclass() != null && cls2.getSuperclass() != cls; cls2 = cls2.getSuperclass()) {
                     }
+                    z = true;
+                } catch (Exception unused) {
                 }
             }
-            return z;
         }
-        return invokeLL.booleanValue;
+        return z;
     }
 
     public static synchronized void onPageStart(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65573, null, context, str) == null) {
-            synchronized (StatService.class) {
-                if (context != null) {
-                    if (!TextUtils.isEmpty(str)) {
-                        if (CooperService.instance().isCloseTrace()) {
-                            return;
-                        }
-                        if (a(context)) {
-                            return;
-                        }
-                        BDStatCore.instance().onPageStart(context, str);
+        synchronized (StatService.class) {
+            if (context != null) {
+                if (!TextUtils.isEmpty(str)) {
+                    if (CooperService.instance().isCloseTrace()) {
                         return;
                     }
+                    if (a(context)) {
+                        return;
+                    }
+                    BDStatCore.instance().onPageStart(context, str);
+                    return;
                 }
-                bb.c().c("[WARNING] onPageStart parameter invalid");
             }
+            bb.c().c("[WARNING] onPageStart parameter invalid");
         }
     }
 
     public static synchronized void onPause(Activity activity, ExtraInfo extraInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65575, null, activity, extraInfo) == null) {
-            synchronized (StatService.class) {
-                if (!a(activity, "onPause(...)")) {
-                    return;
-                }
-                if (CooperService.instance().isCloseTrace()) {
-                    return;
-                }
-                if (!a(Activity.class, MissionEvent.MESSAGE_PAUSE)) {
-                    bb.c().c("[WARNING] onPause must be called in Activity.onPause");
-                } else if (a(activity)) {
-                } else {
-                    BDStatCore.instance().onPause(activity, false, extraInfo);
-                }
+        synchronized (StatService.class) {
+            if (!a(activity, "onPause(...)")) {
+                return;
+            }
+            if (CooperService.instance().isCloseTrace()) {
+                return;
+            }
+            if (!a(Activity.class, MissionEvent.MESSAGE_PAUSE)) {
+                bb.c().c("[WARNING] onPause must be called in Activity.onPause");
+            } else if (a(activity)) {
+            } else {
+                BDStatCore.instance().onPause(activity, false, extraInfo);
             }
         }
     }
 
     public static void setOn(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65598, null, context, i) != null) || !a(context, "setOn(...)") || CooperService.instance().isCloseTrace() || a || a(context)) {
+        if (!a(context, "setOn(...)") || CooperService.instance().isCloseTrace() || a || a(context)) {
             return;
         }
         a = true;
@@ -709,8 +576,7 @@ public class StatService {
     }
 
     public static void setUserId(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65607, null, context, str) != null) || CooperService.instance().isCloseTrace() || context == null || a(context)) {
+        if (CooperService.instance().isCloseTrace() || context == null || a(context)) {
             return;
         }
         CooperService.instance().setUserId(context, str);
@@ -723,9 +589,17 @@ public class StatService {
         BDStatCore.instance().init(context);
     }
 
+    public static void setUserProperty(Context context, Map<String, String> map) {
+        if (context == null || CooperService.instance().isCloseTrace() || a(context)) {
+            return;
+        }
+        CooperService.instance().setUserProperty(context, bx.a(map));
+        DataCore.instance().setPydProperty(context, bx.a(map), "1", "1");
+        BDStatCore.instance().init(context);
+    }
+
     public static void autoTrace(Context context, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65550, null, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || !z || CooperService.instance().isCloseTrace() || !a(context, "autoTrace(...)") || a(context)) {
+        if (!z || CooperService.instance().isCloseTrace() || !a(context, "autoTrace(...)") || a(context)) {
             return;
         }
         String appKey = CooperService.instance().getAppKey(context);
@@ -741,94 +615,53 @@ public class StatService {
         BDStatCore.instance().init(context);
     }
 
-    public static void bindJSInterface(Context context, WebView webView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65551, null, context, webView) != null) || CooperService.instance().isCloseTrace()) {
-            return;
-        }
-        bindJSInterface(context, webView, null);
-    }
-
-    public static void enableAppList(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65556, null, context, z) == null) {
-            CooperService.instance().setEnableBplus(context, z);
-        }
-    }
-
-    public static synchronized void onPageEnd(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65572, null, context, str) == null) {
-            synchronized (StatService.class) {
-                a(context, str, null);
+    public static synchronized void setPushId(Context context, MtjConfig.PushPlatform pushPlatform, String str) {
+        synchronized (StatService.class) {
+            if (context == null) {
+                return;
             }
+            if (CooperService.instance().isCloseTrace()) {
+                return;
+            }
+            if (pushPlatform == null) {
+                return;
+            }
+            if (a(context)) {
+                return;
+            }
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            if (str.length() > 1024) {
+                str = str.substring(0, 1024);
+            }
+            CooperService.instance().setPushId(context, pushPlatform.value(), pushPlatform.showName(), str);
+            BDStatCore.instance().init(context);
         }
-    }
-
-    public static void recordException(Context context, Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65578, null, context, th) != null) || context == null || CooperService.instance().isCloseTrace() || th == null) {
-            return;
-        }
-        ExceptionAnalysis.getInstance().saveCrashInfo(context, th, false);
-    }
-
-    public static void sendLogData(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65579, null, context, str) == null) && !CooperService.instance().isCloseTrace() && context != null && !TextUtils.isEmpty(str)) {
-            LogSender.instance().sendLogData(context.getApplicationContext(), str, false);
-        }
-    }
-
-    public static void setAttributes(View view2, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65584, null, view2, map) != null) || CooperService.instance().isCloseTrace() || view2 == null) {
-            return;
-        }
-        view2.setTag(-96000, map);
-    }
-
-    public static void setAuthorizedState(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(65585, null, context, z) != null) || CooperService.instance().isCloseTrace()) {
-            return;
-        }
-        bu.a().b(z);
-    }
-
-    public static void setEnableBackgroundSendLog(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(65591, null, context, z) != null) || CooperService.instance().isCloseTrace()) {
-            return;
-        }
-        BDStatCore.instance().setAutoSendLog(context, z);
     }
 
     @SuppressLint({"NewApi", "SetJavaScriptEnabled"})
     public static void bindJSInterface(Context context, WebView webView, WebViewClient webViewClient) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65552, null, context, webView, webViewClient) == null) {
-            a(context, webView, webViewClient, (WebChromeClient) null, false);
-        }
+        a(context, webView, webViewClient, (WebChromeClient) null, false);
     }
 
     public static void onEvent(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65564, null, context, str, str2) == null) {
-            a(context, str, str2, null);
-        }
+        a(context, str, str2, null);
     }
 
     public static void onEventEnd(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65569, null, context, str, str2) == null) {
-            a(context, str, str2, (ExtraInfo) null, (Map<String, String>) null);
+        a(context, str, str2, (ExtraInfo) null, (Map<String, String>) null);
+    }
+
+    public static void onEventStart(Context context, String str, String str2) {
+        if (!a(context, "onEventStart(...)") || CooperService.instance().isCloseTrace() || TextUtils.isEmpty(str) || a(context)) {
+            return;
         }
+        BDStatCore.instance().onEventStart(context.getApplicationContext(), str, str2, false);
     }
 
     public static void setAppChannel(Context context, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(65580, null, context, str, z) != null) || context == null || CooperService.instance().isCloseTrace() || a(context)) {
+        if (context == null || CooperService.instance().isCloseTrace() || a(context)) {
             return;
         }
         PrefOperate.setAppChannel(context, str, z);
@@ -837,63 +670,43 @@ public class StatService {
 
     @Deprecated
     public static void setSendLogStrategy(Context context, SendStrategyEnum sendStrategyEnum, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65602, null, context, sendStrategyEnum, i) == null) {
-            setSendLogStrategy(context, sendStrategyEnum, i, false);
-        }
+        setSendLogStrategy(context, sendStrategyEnum, i, false);
     }
 
     public static void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65612, null, context, webView, webChromeClient) != null) || CooperService.instance().isCloseTrace()) {
+        if (CooperService.instance().isCloseTrace()) {
             return;
         }
         a(context, webView, (WebViewClient) null, webChromeClient, true);
     }
 
-    public static void onErised(Context context, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65563, null, context, str, str2, str3) != null) || CooperService.instance().isCloseTrace() || !a(context, "onErised(...)")) {
-            return;
-        }
-        if (str != null && !"".equals(str)) {
-            BDStatCore.instance().onErised(context, str, str2, str3);
-        } else {
-            bb.c().c("[WARNING] AppKey is invalid");
-        }
+    public static void onEvent(Context context, String str, String str2, int i, Map<String, String> map) {
+        a(context, str, str2, i, (ExtraInfo) null, map);
     }
 
-    public static void onEventStart(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65571, null, context, str, str2) != null) || !a(context, "onEventStart(...)") || CooperService.instance().isCloseTrace() || TextUtils.isEmpty(str) || a(context)) {
-            return;
-        }
-        BDStatCore.instance().onEventStart(context.getApplicationContext(), str, str2, false);
+    public static void onEventDuration(Context context, String str, String str2, long j, Map<String, String> map) {
+        a(context, str, str2, j, (ExtraInfo) null, map);
     }
 
     public static synchronized void onResume(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65576, null, activity) == null) {
-            synchronized (StatService.class) {
-                if (!a(activity, "onResume(...)")) {
-                    return;
-                }
-                if (CooperService.instance().isCloseTrace()) {
-                    return;
-                }
-                if (!a(Activity.class, "onResume")) {
-                    bb.c().c("[WARNING] onResume must be called in Activity.onResume()");
-                } else if (a(activity)) {
-                } else {
-                    BDStatCore.instance().onResume(activity, false);
-                }
+        synchronized (StatService.class) {
+            if (!a(activity, "onResume(...)")) {
+                return;
+            }
+            if (CooperService.instance().isCloseTrace()) {
+                return;
+            }
+            if (!a(Activity.class, "onResume")) {
+                bb.c().c("[WARNING] onResume must be called in Activity.onResume()");
+            } else if (a(activity)) {
+            } else {
+                BDStatCore.instance().onResume(activity, false);
             }
         }
     }
 
     public static void start(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65611, null, context) != null) || !a(context, "start(...)") || CooperService.instance().isCloseTrace()) {
+        if (!a(context, "start(...)") || CooperService.instance().isCloseTrace()) {
             return;
         }
         boolean a2 = bx.a(Application.class, "onCreate");
@@ -908,8 +721,7 @@ public class StatService {
 
     @Deprecated
     public static void setSendLogStrategy(Context context, SendStrategyEnum sendStrategyEnum, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65603, null, new Object[]{context, sendStrategyEnum, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || !a(context, "setSendLogStrategy(...)") || CooperService.instance().isCloseTrace()) {
+        if (!a(context, "setSendLogStrategy(...)") || CooperService.instance().isCloseTrace()) {
             return;
         }
         boolean a2 = bx.a(Application.class, "onCreate");

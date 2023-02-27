@@ -1,14 +1,5 @@
 package com.googlecode.mp4parser.boxes.apple;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.googlecode.mp4parser.AbstractBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
@@ -17,7 +8,6 @@ import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
 /* loaded from: classes8.dex */
 public class TrackLoadSettingsAtom extends AbstractBox {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "load";
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
@@ -27,7 +17,6 @@ public class TrackLoadSettingsAtom extends AbstractBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_5 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_6 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_7 = null;
-    public transient /* synthetic */ FieldHolder $fh;
     public int defaultHints;
     public int preloadDuration;
     public int preloadFlags;
@@ -35,86 +24,35 @@ public class TrackLoadSettingsAtom extends AbstractBox {
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 16L;
-        }
-        return invokeV.longValue;
+        return 16L;
     }
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2140269551, "Lcom/googlecode/mp4parser/boxes/apple/TrackLoadSettingsAtom;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(2140269551, "Lcom/googlecode/mp4parser/boxes/apple/TrackLoadSettingsAtom;");
-                return;
-            }
-        }
         ajc$preClinit();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TrackLoadSettingsAtom() {
         super("load");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
     }
 
     public int getDefaultHints() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this));
-            return this.defaultHints;
-        }
-        return invokeV.intValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this));
+        return this.defaultHints;
     }
 
     public int getPreloadDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return this.preloadDuration;
-        }
-        return invokeV.intValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+        return this.preloadDuration;
     }
 
     public int getPreloadFlags() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
-            return this.preloadFlags;
-        }
-        return invokeV.intValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
+        return this.preloadFlags;
     }
 
     public int getPreloadStartTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.preloadStartTime;
-        }
-        return invokeV.intValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+        return this.preloadStartTime;
     }
 
     public static /* synthetic */ void ajc$preClinit() {
@@ -131,55 +69,37 @@ public class TrackLoadSettingsAtom extends AbstractBox {
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void _parseDetails(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
-            this.preloadStartTime = byteBuffer.getInt();
-            this.preloadDuration = byteBuffer.getInt();
-            this.preloadFlags = byteBuffer.getInt();
-            this.defaultHints = byteBuffer.getInt();
-        }
+        this.preloadStartTime = byteBuffer.getInt();
+        this.preloadDuration = byteBuffer.getInt();
+        this.preloadFlags = byteBuffer.getInt();
+        this.defaultHints = byteBuffer.getInt();
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void getContent(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
-            byteBuffer.putInt(this.preloadStartTime);
-            byteBuffer.putInt(this.preloadDuration);
-            byteBuffer.putInt(this.preloadFlags);
-            byteBuffer.putInt(this.defaultHints);
-        }
+        byteBuffer.putInt(this.preloadStartTime);
+        byteBuffer.putInt(this.preloadDuration);
+        byteBuffer.putInt(this.preloadFlags);
+        byteBuffer.putInt(this.defaultHints);
     }
 
     public void setDefaultHints(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.intObject(i)));
-            this.defaultHints = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.intObject(i)));
+        this.defaultHints = i;
     }
 
     public void setPreloadDuration(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i)));
-            this.preloadDuration = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i)));
+        this.preloadDuration = i;
     }
 
     public void setPreloadFlags(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.intObject(i)));
-            this.preloadFlags = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.intObject(i)));
+        this.preloadFlags = i;
     }
 
     public void setPreloadStartTime(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i)));
-            this.preloadStartTime = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i)));
+        this.preloadStartTime = i;
     }
 }

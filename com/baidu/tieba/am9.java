@@ -1,105 +1,121 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.data.SelectForumData;
+import com.baidu.tieba.write.editor.EditorInfoContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class am9 {
+public class am9 extends jd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public b a;
-    public final CustomMessageListener b;
+    public Context t;
 
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a(@NonNull SelectForumData selectForumData);
-    }
-
-    /* loaded from: classes3.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ am9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(am9 am9Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {am9Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = am9Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            SelectForumData selectForumData;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof SelectForumData) && (selectForumData = (SelectForumData) customResponsedMessage.getData()) != null && !StringUtils.isNull(selectForumData.forumId) && !StringUtils.isNull(selectForumData.forumName) && this.a.a != null) {
-                this.a.a.a(selectForumData);
-            }
-        }
-    }
-
-    public am9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public am9(Context context, String str) {
+        super(context, (String) null, 15);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new a(this, 2921505);
+        this.o = false;
+        this.t = context;
+        this.n = 3;
+        this.m = new EditorInfoContainer(context, str);
+        this.p = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57, 65};
     }
 
-    public void d() {
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            kd5 kd5Var = this.m;
+            if (kd5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) kd5Var).l();
+            }
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            kd5 kd5Var = this.m;
+            if (kd5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) kd5Var).m();
+            }
+        }
+    }
+
+    public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.b);
+            kd5 kd5Var = this.m;
+            if (kd5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) kd5Var).n();
+            }
         }
     }
 
-    public void b(@NonNull BdUniqueId bdUniqueId) {
+    public void j(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
-            d();
-            this.b.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.b);
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
+            kd5 kd5Var = this.m;
+            if (kd5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) kd5Var).s(str, i);
+            }
         }
     }
 
-    public void c(b bVar) {
+    public void k(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.a = bVar;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            kd5 kd5Var = this.m;
+            if (kd5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) kd5Var).t(i);
+            }
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            kd5 kd5Var = this.m;
+            if (kd5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) kd5Var).v(z);
+            }
+        }
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            kd5 kd5Var = this.m;
+            if (kd5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) kd5Var).setFrom(str);
+            }
+        }
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            kd5 kd5Var = this.m;
+            if (kd5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) kd5Var).z(z);
+            }
         }
     }
 }

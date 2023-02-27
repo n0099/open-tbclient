@@ -1,73 +1,44 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.view.View;
-import com.baidu.swan.apps.SwanAppActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class v14 {
+public class v14 implements hv1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(View view2, cz2 cz2Var) {
-        InterceptResult invokeLL;
+    public v14() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, cz2Var)) == null) {
-            nq1 W = ju2.U().W();
-            if (W != null && W.c(view2, cz2Var)) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return false;
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.hv1
+    @Nullable
+    public m12 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull qm2 qm2Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            nq1 W = ju2.U().W();
-            if (W == null || !W.b() || W.h()) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, qm2Var)) == null) {
+            return u14.b().a(str, jSONObject, qm2Var);
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            nq1 W = ju2.U().W();
-            if (W != null && W.d(view2)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public static boolean d(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            nq1 W = ju2.U().W();
-            if (W == null) {
-                return false;
-            }
-            if (W.h()) {
-                SwanAppActivity activity = ju2.U().getActivity();
-                if (activity != null) {
-                    activity.setRequestedOrientation(0);
-                }
-                W.g(false);
-            }
-            return W.removeView(view2);
-        }
-        return invokeL.booleanValue;
+        return (m12) invokeLLL.objValue;
     }
 }

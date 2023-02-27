@@ -34,7 +34,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.mode.CommandMessage;
+import com.baidu.webkit.internal.Statistics;
+import com.heytap.mcssdk.constant.MessageConstant;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -107,7 +108,7 @@ public class MapSurfaceView extends aj implements View.OnKeyListener, MapRenderM
     }
 
     /* loaded from: classes2.dex */
-    public class a implements f.InterfaceC0141f {
+    public class a implements f.InterfaceC0126f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MapSurfaceView a;
@@ -157,35 +158,35 @@ public class MapSurfaceView extends aj implements View.OnKeyListener, MapRenderM
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
                 switch (i) {
-                    case CommandMessage.COMMAND_BASE /* 12288 */:
+                    case MessageConstant.CommandId.COMMAND_BASE /* 12288 */:
                         return "EGL_SUCCESS";
                     case 12289:
                         return "EGL_NOT_INITIALIZED";
-                    case CommandMessage.COMMAND_UNREGISTER /* 12290 */:
+                    case MessageConstant.CommandId.COMMAND_UNREGISTER /* 12290 */:
                         return "EGL_BAD_ACCESS";
-                    case CommandMessage.COMMAND_STATISTIC /* 12291 */:
+                    case MessageConstant.CommandId.COMMAND_STATISTIC /* 12291 */:
                         return OOMDeviceEventSceneSceneHandler.EGL_BAD_ALLOC;
-                    case CommandMessage.COMMAND_SET_ALIAS /* 12292 */:
+                    case MessageConstant.CommandId.COMMAND_SET_ALIAS /* 12292 */:
                         return "EGL_BAD_ATTRIBUTE";
-                    case CommandMessage.COMMAND_GET_ALIAS /* 12293 */:
+                    case 12293:
                         return "EGL_BAD_CONFIG";
-                    case CommandMessage.COMMAND_UNSET_ALIAS /* 12294 */:
+                    case 12294:
                         return "EGL_BAD_CONTEXT";
-                    case CommandMessage.COMMAND_SET_TAGS /* 12295 */:
+                    case 12295:
                         return "EGL_BAD_CURRENT_SURFACE";
-                    case CommandMessage.COMMAND_GET_TAGS /* 12296 */:
+                    case 12296:
                         return "EGL_BAD_DISPLAY";
-                    case CommandMessage.COMMAND_UNSET_TAGS /* 12297 */:
+                    case 12297:
                         return "EGL_BAD_MATCH";
-                    case CommandMessage.COMMAND_SET_PUSH_TIME /* 12298 */:
+                    case MessageConstant.CommandId.COMMAND_SET_PUSH_TIME /* 12298 */:
                         return "EGL_BAD_NATIVE_PIXMAP";
-                    case CommandMessage.COMMAND_PAUSE_PUSH /* 12299 */:
+                    case MessageConstant.CommandId.COMMAND_PAUSE_PUSH /* 12299 */:
                         return "EGL_BAD_NATIVE_WINDOW";
                     case 12300:
                         return "EGL_BAD_PARAMETER";
-                    case CommandMessage.COMMAND_SET_ACCOUNTS /* 12301 */:
+                    case 12301:
                         return "EGL_BAD_SURFACE";
-                    case 12302:
+                    case Statistics.kTypeWhiteScreen /* 12302 */:
                         return "EGL_CONTEXT_LOST";
                     default:
                         return b(i);
@@ -203,7 +204,7 @@ public class MapSurfaceView extends aj implements View.OnKeyListener, MapRenderM
             return (String) invokeI.objValue;
         }
 
-        @Override // com.baidu.platform.comapi.map.f.InterfaceC0141f
+        @Override // com.baidu.platform.comapi.map.f.InterfaceC0126f
         public EGLContext a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
@@ -213,7 +214,7 @@ public class MapSurfaceView extends aj implements View.OnKeyListener, MapRenderM
             return (EGLContext) invokeLLL.objValue;
         }
 
-        @Override // com.baidu.platform.comapi.map.f.InterfaceC0141f
+        @Override // com.baidu.platform.comapi.map.f.InterfaceC0126f
         public void a(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, egl10, eGLDisplay, eGLContext) == null) {

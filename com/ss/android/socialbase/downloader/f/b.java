@@ -1,6 +1,7 @@
 package com.ss.android.socialbase.downloader.f;
 
 import androidx.annotation.NonNull;
+import com.huawei.hms.framework.common.ExceptionCode;
 /* loaded from: classes8.dex */
 public class b implements c, d, e {
     public final int a;
@@ -39,7 +40,7 @@ public class b implements c, d, e {
                     this.d.wait();
                     aVar = this.g;
                 } else {
-                    throw new p("read");
+                    throw new p(ExceptionCode.READ);
                 }
             }
             this.i = aVar.d;

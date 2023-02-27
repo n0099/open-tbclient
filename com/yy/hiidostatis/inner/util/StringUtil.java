@@ -1,37 +1,11 @@
 package com.yy.hiidostatis.inner.util;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.UUID;
 /* loaded from: classes8.dex */
 public class StringUtil {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int GUID_LEN = 20;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public StringUtil() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     public static String geneGuid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return UUID.randomUUID().toString().substring(0, 20);
-        }
-        return (String) invokeV.objValue;
+        return UUID.randomUUID().toString().substring(0, 20);
     }
 }

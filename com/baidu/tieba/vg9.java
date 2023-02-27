@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface vg9 {
-    void g(String str);
+    void b();
 
-    void k(String str);
+    void e();
 
-    void n();
+    void f();
 }

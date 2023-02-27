@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public class a {
@@ -50,7 +51,7 @@ public class a {
         this.f = Integer.MAX_VALUE;
         this.g = 0L;
         this.h = -1;
-        this.i = '0';
+        this.i = TransactionIdCreater.FILL_BYTE;
         this.j = Integer.MAX_VALUE;
         this.k = 0;
         this.l = 0;
@@ -84,7 +85,7 @@ public class a {
         this.f = Integer.MAX_VALUE;
         this.g = 0L;
         this.h = -1;
-        this.i = '0';
+        this.i = TransactionIdCreater.FILL_BYTE;
         this.j = Integer.MAX_VALUE;
         this.k = 0;
         this.l = 0;

@@ -1,171 +1,59 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Base64;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Handler;
+import android.os.HandlerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.KeyFactory;
-import java.security.interfaces.RSAPublicKey;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
-/* loaded from: classes5.dex */
-public class io1 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
+public class io1 extends HandlerThread {
     public static /* synthetic */ Interceptable $ic;
+    public static io1 a;
+    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context, String str) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public io1() {
+        super("BackgroundThread", 10);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            if (context != null && str != null) {
-                try {
-                    return new String(eo1.b(go1.h(context).getBytes(), Base64.decode(str, 0), true));
-                } catch (Throwable th) {
-                    go1.d(th);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], ((Integer) objArr[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static String b(Context context, byte[] bArr) {
-        InterceptResult invokeLL;
-        byte[] a;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, bArr)) == null) {
-            if (bArr != null) {
-                try {
-                    if (bArr.length != 0 && (a = eo1.a(go1.h(context).getBytes(), bArr)) != null && a.length > 0) {
-                        return Base64.encodeToString(a, 0);
-                    }
-                    return null;
-                } catch (Throwable th) {
-                    go1.d(th);
-                }
-            }
-            return null;
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && a == null) {
+            io1 io1Var = new io1();
+            a = io1Var;
+            io1Var.start();
+            b = new Handler(a.getLooper());
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static String c(byte[] bArr, String str) {
-        InterceptResult invokeLL;
+    public static Handler b() {
+        InterceptResult invokeV;
+        Handler handler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
-            try {
-                RSAPublicKey d = d(str);
-                if (d == null) {
-                    return "";
-                }
-                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(1, d);
-                return Base64.encodeToString(cipher.doFinal(bArr), 0);
-            } catch (Throwable th) {
-                go1.d(th);
-                return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (io1.class) {
+                a();
+                handler = b;
             }
+            return handler;
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public static RSAPublicKey d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                return (RSAPublicKey) KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str, 0)));
-            } catch (Throwable th) {
-                go1.d(th);
-                return null;
-            }
-        }
-        return (RSAPublicKey) invokeL.objValue;
-    }
-
-    public static byte[] e(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = null;
-            if (bArr2 != null) {
-                try {
-                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = eo1.b(bArr2, bArr, true)) != null) {
-                        if (bArr3.length > 0) {
-                            return bArr3;
-                        }
-                    }
-                } catch (Throwable th) {
-                    go1.d(th);
-                }
-            }
-            return bArr3;
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] f(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = null;
-            if (bArr2 != null) {
-                try {
-                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = eo1.a(bArr2, bArr)) != null) {
-                        if (bArr3.length > 0) {
-                            return bArr3;
-                        }
-                    }
-                } catch (Throwable th) {
-                    go1.d(th);
-                }
-            }
-            return bArr3;
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] g(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = null;
-            if (bArr2 != null) {
-                try {
-                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = mo1.b(bArr, bArr2)) != null) {
-                        if (bArr3.length > 0) {
-                            return bArr3;
-                        }
-                    }
-                } catch (Throwable th) {
-                    go1.d(th);
-                }
-            }
-            return bArr3;
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] h(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = null;
-            if (bArr2 != null) {
-                try {
-                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = mo1.c(bArr, bArr2)) != null) {
-                        if (bArr3.length > 0) {
-                            return bArr3;
-                        }
-                    }
-                } catch (Throwable th) {
-                    go1.d(th);
-                }
-            }
-            return bArr3;
-        }
-        return (byte[]) invokeLL.objValue;
+        return (Handler) invokeV.objValue;
     }
 }

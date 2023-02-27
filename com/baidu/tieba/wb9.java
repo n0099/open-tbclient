@@ -1,330 +1,189 @@
 package com.baidu.tieba;
 
-import android.content.ContentResolver;
-import android.content.Context;
-import android.database.Cursor;
-import android.media.MediaMetadataRetriever;
-import android.provider.MediaStore;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.down.statistic.ConfigSpeedStat;
+import com.baidu.adp.widget.ListView.BdExpandImageView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.themeCenter.background.BackgroundPreviewActivity;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import com.google.android.exoplayer2.util.MimeTypes;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class wb9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BackgroundPreviewActivity a;
+    public View b;
+    public BdExpandImageView c;
+    public TbImageView d;
+    public TbImageView e;
+    public TextView f;
+    public ImageView g;
+    public TextView h;
+    public final yg<on> i;
 
     /* loaded from: classes6.dex */
-    public static final class a implements Comparator<vb9> {
+    public class a extends yg<on> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wb9 a;
 
-        public a() {
+        public a(wb9 wb9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wb9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = wb9Var;
+        }
+
+        @Override // com.baidu.tieba.yg
+        public void onCancelled(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                super.onCancelled(str);
+            }
+        }
+
+        @Override // com.baidu.tieba.yg
+        public void onProgressUpdate(Object... objArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
+                super.onProgressUpdate(objArr);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(vb9 vb9Var, vb9 vb9Var2) {
-            InterceptResult invokeLL;
-            int i;
+        @Override // com.baidu.tieba.yg
+        public void onLoaded(on onVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, vb9Var, vb9Var2)) == null) {
-                if (vb9Var.b() < vb9Var2.b()) {
-                    i = 1;
-                } else {
-                    i = 0;
-                }
-                if (vb9Var.b() > vb9Var2.b()) {
-                    return -1;
-                }
-                return i;
+            if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onVar, str, i) == null) && onVar != null) {
+                onVar.h(this.a.c);
             }
-            return invokeLL.intValue;
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x00d3, code lost:
-        if (r2 != null) goto L21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00d5, code lost:
-        r2.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x00ec, code lost:
-        if (r2 != null) goto L21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x00ef, code lost:
-        r15.moveToNext();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x00f6, code lost:
-        if (r8.d() == null) goto L47;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x0100, code lost:
-        if (r8.a() == 0) goto L46;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x010a, code lost:
-        if (c(r8.c()) == false) goto L45;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:45:0x0114, code lost:
-        if (r8.a() < 1000) goto L44;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x0116, code lost:
-        r0 = r8.d();
-        r2 = r0.substring(r9, r0.lastIndexOf("/"));
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x012a, code lost:
-        if (r0.contains("/DCIM/") != false) goto L43;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x012c, code lost:
-        if (r2 == null) goto L38;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x0132, code lost:
-        if (r2.equals("/sdcard") == false) goto L38;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x013e, code lost:
-        if (new java.io.File(r0).exists() == false) goto L42;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:54:0x0140, code lost:
-        r1.add(r8);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x0143, code lost:
-        r5 = r21 + 1;
-        r7 = r17;
-        r9 = r18;
-        r8 = r22;
-        r6 = 0;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x0173  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static List<vb9> a(Context context) {
-        InterceptResult invokeL;
-        Cursor cursor;
-        Cursor cursor2;
-        int i;
-        ContentResolver contentResolver;
-        String str;
-        int i2;
-        vb9 vb9Var;
-        Cursor cursor3;
-        ContentResolver contentResolver2;
-        String string;
+    public wb9(BackgroundPreviewActivity backgroundPreviewActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            ArrayList arrayList = new ArrayList();
-            ContentResolver contentResolver3 = context.getContentResolver();
-            String str2 = "_id";
-            try {
-                Cursor query = contentResolver3.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, new String[]{"_id", "_data", "duration", "mime_type", "date_modified"}, null, null, "title");
-                try {
-                    String[] strArr = {"video_id", "_data"};
-                    query.moveToFirst();
-                    int count = query.getCount();
-                    int i3 = 0;
-                    int i4 = 0;
-                    while (i4 < count) {
-                        vb9 vb9Var2 = new vb9();
-                        String string2 = query.getString(query.getColumnIndex(str2));
-                        vb9Var2.i(string2);
-                        String string3 = query.getString(query.getColumnIndex("_data"));
-                        if (string3 != null) {
-                            vb9Var2.j(string3.replace("/storage/emulated/0", "/sdcard"));
-                        }
-                        int i5 = count;
-                        vb9Var2.e(dh.e(query.getString(query.getColumnIndex("duration")), i3));
-                        vb9Var2.g(query.getString(query.getColumnIndex("mime_type")));
-                        vb9Var2.f(Long.parseLong(query.getString(query.getColumnIndex("date_modified"))));
-                        try {
-                            try {
-                                contentResolver2 = contentResolver3;
-                                i = i4;
-                                contentResolver = contentResolver3;
-                                str = str2;
-                                i2 = 0;
-                                vb9Var = vb9Var2;
-                            } catch (Exception e) {
-                                e = e;
-                                i = i4;
-                                contentResolver = contentResolver3;
-                                str = str2;
-                                i2 = 0;
-                                vb9Var = vb9Var2;
-                            }
-                            try {
-                                cursor3 = contentResolver2.query(MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI, strArr, "video_id=" + string2, null, null);
-                                if (cursor3 != null) {
-                                    try {
-                                        try {
-                                            if (cursor3.moveToFirst() && (string = cursor3.getString(cursor3.getColumnIndex("_data"))) != null) {
-                                                vb9Var.h(string.replace("/storage/emulated/0", "/sdcard"));
-                                            }
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            cursor2 = cursor3;
-                                            if (cursor2 != null) {
-                                                cursor2.close();
-                                            }
-                                            throw th;
-                                        }
-                                    } catch (Exception e2) {
-                                        e = e2;
-                                        e.printStackTrace();
-                                    }
-                                }
-                            } catch (Exception e3) {
-                                e = e3;
-                                cursor3 = null;
-                                e.printStackTrace();
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            cursor2 = null;
-                        }
-                    }
-                    if (query != null) {
-                        query.close();
-                    }
-                } catch (Exception e4) {
-                    e = e4;
-                    cursor = query;
-                    try {
-                        e.printStackTrace();
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        return arrayList;
-                    } catch (Throwable th3) {
-                        th = th3;
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        throw th;
-                    }
-                } catch (Throwable th4) {
-                    th = th4;
-                    cursor = query;
-                    if (cursor != null) {
-                    }
-                    throw th;
-                }
-            } catch (Exception e5) {
-                e = e5;
-                cursor = null;
-            } catch (Throwable th5) {
-                th = th5;
-                cursor = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {backgroundPreviewActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return arrayList;
         }
-        return (List) invokeL.objValue;
+        this.i = new a(this);
+        this.a = backgroundPreviewActivity;
+        View inflate = LayoutInflater.from(backgroundPreviewActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0134, (ViewGroup) null);
+        this.b = inflate;
+        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702c7)));
+        c();
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    public static vb9 b(String str) {
-        InterceptResult invokeL;
+    public View b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists() && file.isFile()) {
-                vb9 vb9Var = new vb9();
-                vb9Var.j(str);
-                vb9Var.f(file.lastModified());
-                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                try {
-                    try {
-                        try {
-                            mediaMetadataRetriever.setDataSource(str);
-                            String extractMetadata = mediaMetadataRetriever.extractMetadata(9);
-                            if (extractMetadata != null) {
-                                vb9Var.e(Integer.parseInt(extractMetadata));
-                            }
-                            vb9Var.g(mediaMetadataRetriever.extractMetadata(12));
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            mediaMetadataRetriever.release();
-                        }
-                    } catch (Throwable th) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                        }
-                        throw th;
-                    }
-                } catch (Exception e3) {
-                    e3.printStackTrace();
-                }
-                return vb9Var;
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (vb9) invokeL.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (!MimeTypes.VIDEO_MP4.equals(str) && !"video/ext-mp4".equals(str)) {
-                return false;
-            }
-            return true;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a.getPageContext() == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        wm5.a(this.a.getPageContext(), this.b);
     }
 
-    public static void e(List<vb9> list) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) == null) {
-            Collections.sort(list, new a());
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = (BdExpandImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090a1c);
+            this.d = (TbImageView) this.b.findViewById(R.id.user_head);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0927a2);
+            this.e = tbImageView;
+            tbImageView.setAutoChangeStyle(false);
+            this.f = (TextView) this.b.findViewById(R.id.user_name);
+            this.g = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092677);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09262f);
+            this.d.setDefaultResource(R.drawable.icon_default_avatar100);
         }
     }
 
-    public static void d(String str, List<vb9> list, boolean z) {
-        File[] listFiles;
-        vb9 b;
+    public void e(DressItemData dressItemData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(65539, null, str, list, z) == null) && list != null && !StringUtils.isNull(str) && (listFiles = new File(str).listFiles()) != null && listFiles.length != 0) {
-            for (File file : listFiles) {
-                if (file != null && !StringUtils.isNull(file.getPath())) {
-                    String path = file.getPath();
-                    if (file.isFile()) {
-                        if (path.contains("_tiebaconverting.mp4")) {
-                            if (file.exists()) {
-                                file.delete();
-                            }
-                        } else if (path.contains(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION) && DefaultHlsExtractorFactory.MP4_FILE_EXTENSION.equals(path.substring(path.lastIndexOf(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION))) && (b = b(file.getPath())) != null && file.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT && b.a() >= 1000 && c(b.c())) {
-                            list.add(b);
-                        }
-                    } else if (file.isDirectory() && !path.contains(com.kuaishou.weapon.p0.i1.j) && z) {
-                        d(path, list, z);
-                    }
-                }
-            }
+        if ((interceptable != null && interceptable.invokeL(1048579, this, dressItemData) != null) || dressItemData == null) {
+            return;
+        }
+        zg.h().k(dressItemData.getExampleImgUrl(), 10, this.i, 0, 0, null, new Object[0]);
+        if (StringUtils.isNull(dressItemData.getPropsStateImg())) {
+            this.h.setText("0");
+        } else {
+            this.h.setText(dressItemData.getPropsStateImg());
+        }
+        AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+        if (currentAccountInfo == null) {
+            SkinManager.setViewTextColor(this.h, R.color.CAM_X0331, 1);
+            this.f.setText(R.string.obfuscated_res_0x7f0f04ca);
+            this.g.setImageResource(R.drawable.icon_pop_boy);
+            this.e.setVisibility(8);
+            return;
+        }
+        String avatar = currentAccountInfo.getAvatar();
+        int memberType = currentAccountInfo.getMemberType();
+        if (!TextUtils.isEmpty(avatar)) {
+            this.d.K(avatar, 25, false);
+        }
+        String memberIconUrl = currentAccountInfo.getMemberIconUrl();
+        if (StringUtils.isNull(memberIconUrl)) {
+            this.e.setVisibility(8);
+        } else {
+            this.e.K(memberIconUrl, 10, false);
+            this.e.setVisibility(0);
+        }
+        if (memberType > 0) {
+            this.f.setTextColor(this.a.getResources().getColor(R.color.CAM_X0331));
+        } else {
+            this.f.setTextColor(this.a.getResources().getColor(R.color.CAM_X0622));
+        }
+        this.f.setText(currentAccountInfo.getAccountNameShow());
+        int sex = currentAccountInfo.getSex();
+        if (sex == 1) {
+            this.g.setImageResource(R.drawable.icon_pop_boy);
+        } else if (sex == 2) {
+            this.g.setImageResource(R.drawable.icon_pop_girl);
+        } else {
+            this.g.setVisibility(8);
         }
     }
 }

@@ -8,17 +8,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class lo2 extends qm2<hp2> {
+public class lo2 extends gn2<wp2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.qm2
+    @Override // com.baidu.tieba.gn2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "goBackground" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onSurfaceChanged" : (String) invokeV.objValue;
     }
 
     public lo2() {
@@ -36,13 +37,18 @@ public class lo2 extends qm2<hp2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qm2
+    @Override // com.baidu.tieba.gn2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull hp2 hp2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull wp2 wp2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, hp2Var) == null) {
-            d(hp2Var, command.what, null, true);
-            hp2Var.n();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, wp2Var) == null) {
+            String str = command.what;
+            d(wp2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof JSONObject) {
+                JSONObject jSONObject = (JSONObject) obj;
+                wp2Var.onSurfaceChanged(jSONObject.optInt("width"), jSONObject.optInt("height"));
+            }
         }
     }
 }

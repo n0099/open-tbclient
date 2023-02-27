@@ -1,161 +1,140 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.player.helper.NetUtils;
-import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
-import com.baidu.tieba.pt0;
-import com.baidu.tieba.sn0;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.Pair;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
-@JvmName(name = "VideoClarity")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public final class l11 {
     public static /* synthetic */ Interceptable $ic;
+    public static u11 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final Pair<Integer, Integer> a(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65536, null, i, i2, i3)) == null) {
-            if (i <= 0) {
-                return new Pair<>(0, Integer.valueOf(i2));
-            }
-            if (i >= i3) {
-                return new Pair<>(Integer.valueOf(i3 - 1), Integer.valueOf(i2));
-            }
-            return new Pair<>(Integer.valueOf(i), Integer.valueOf(i2));
-        }
-        return (Pair) invokeIII.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public static class a extends u11 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static final Pair<Integer, Integer> b(int i, Pair<Integer, Integer> pair, int i2, int i3, double d, ClarityUrlList clarityUrlList, int i4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), pair, Integer.valueOf(i2), Integer.valueOf(i3), Double.valueOf(d), clarityUrlList, Integer.valueOf(i4)})) == null) {
-            if (i < 0) {
-                return c(pair, i2, i3, d);
-            }
-            return e(clarityUrlList.size(), i, i4, i2);
-        }
-        return (Pair) invokeCommon.objValue;
-    }
-
-    public static final Pair<Integer, Integer> c(Pair<Integer, Integer> defaultClarity, int i, int i2, double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{defaultClarity, Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d)})) == null) {
-            Intrinsics.checkNotNullParameter(defaultClarity, "defaultClarity");
-            if (!NetUtils.c()) {
-                return a(defaultClarity.getFirst().intValue(), 2, i);
-            }
-            return d(i2, i, d, defaultClarity.getSecond().intValue());
-        }
-        return (Pair) invokeCommon.objValue;
-    }
-
-    public static final Pair<Integer, Integer> d(int i, int i2, double d, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d), Integer.valueOf(i3)})) == null) {
-            if (!qt0.g()) {
-                return a(i3, 4, i2);
-            }
-            sn0 a = sn0.a.a();
-            Intrinsics.checkNotNullExpressionValue(a, "IPlayerSpeedScoreManager.Impl.getInstance()");
-            float staticDeviceScore = a.getStaticDeviceScore();
-            boolean z = false;
-            if (staticDeviceScore > 0 && staticDeviceScore < 0.3d) {
-                z = true;
-            }
-            if (z) {
-                return a(i, 3, i2);
-            }
-            if (d > 5.6f) {
-                return a(i, 6, i2);
-            }
-            return a(i3, 4, i2);
-        }
-        return (Pair) invokeCommon.objValue;
-    }
-
-    public static final lz0 g(ClarityUrlList list, int i, double d, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{list, Integer.valueOf(i), Double.valueOf(d), Boolean.valueOf(z)})) == null) {
-            Intrinsics.checkNotNullParameter(list, "list");
-            Pair<Integer, Integer> a = qt0.a(list);
-            int size = list.size();
-            Pair<Integer, Integer> h = h(z, list, b(i, a, size, size - 1, d, list, 0));
-            lz0 lz0Var = new lz0();
-            lz0Var.a = h.getFirst().intValue();
-            lz0Var.b = h.getSecond().intValue();
-            return lz0Var;
-        }
-        return (lz0) invokeCommon.objValue;
-    }
-
-    public static final Pair<Integer, Integer> e(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2, i3, i4)) == null) {
-            if (i <= i2) {
-                return a(i3, 4, i4);
-            }
-            return a((i4 - i2) - 1, 1, i4);
-        }
-        return (Pair) invokeIIII.objValue;
-    }
-
-    public static final int f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            if (i != -2) {
-                return i;
-            }
-            if (Intrinsics.areEqual(qt0.c(), pt0.a.a)) {
-                return m11.f();
-            }
-            return i;
-        }
-        return invokeI.intValue;
-    }
-
-    public static final Pair<Integer, Integer> h(boolean z, ClarityUrlList list, Pair<Integer, Integer> selectedClarity) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Boolean.valueOf(z), list, selectedClarity})) == null) {
-            Intrinsics.checkNotNullParameter(list, "list");
-            Intrinsics.checkNotNullParameter(selectedClarity, "selectedClarity");
-            if (!z) {
-                ClarityUrlList.c cVar = list.get(selectedClarity.getFirst().intValue());
-                Intrinsics.checkNotNullExpressionValue(cVar, "list[result.first]");
-                String selectKey = cVar.c();
-                String d = qt0.d();
-                Intrinsics.checkNotNullExpressionValue(selectKey, "selectKey");
-                if (StringsKt__StringsKt.contains$default((CharSequence) d, (CharSequence) selectKey, false, 2, (Object) null)) {
-                    int i = 0;
-                    for (ClarityUrlList.c entity : list) {
-                        String d2 = qt0.d();
-                        Intrinsics.checkNotNullExpressionValue(entity, "entity");
-                        String c = entity.c();
-                        Intrinsics.checkNotNullExpressionValue(c, "entity.key");
-                        if (!StringsKt__StringsKt.contains$default((CharSequence) d2, (CharSequence) c, false, 2, (Object) null)) {
-                            return new Pair<>(Integer.valueOf(i), 0);
-                        }
-                        i++;
-                    }
-                    return selectedClarity;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                return selectedClarity;
             }
-            return selectedClarity;
         }
-        return (Pair) invokeCommon.objValue;
+
+        @Override // com.baidu.tieba.u11
+        public boolean c(int i, @Nullable String str) {
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
+                return gt0.f();
+            }
+            return invokeIL.booleanValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947889917, "Lcom/baidu/tieba/l11;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947889917, "Lcom/baidu/tieba/l11;");
+                return;
+            }
+        }
+        a = new a();
+    }
+
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            c(3, null, str, null);
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            c(6, null, str, null);
+        }
+    }
+
+    public static void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+            c(4, null, str, null);
+        }
+    }
+
+    public static void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+            c(2, null, str, null);
+        }
+    }
+
+    public static void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
+            c(5, null, str, null);
+        }
+    }
+
+    public static void b(@Nullable String str, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            c(3, str, str2, null);
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            c(6, str, str2, null);
+        }
+    }
+
+    public static void f(String str, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, th) == null) {
+            c(6, null, str, th);
+        }
+    }
+
+    public static void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
+            c(2, str, str2, null);
+        }
+    }
+
+    public static void k(String str, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, str, th) == null) {
+            c(5, null, str, th);
+        }
+    }
+
+    public static void c(int i, @Nullable String str, @Nullable String str2, @Nullable Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
+            a.a(i, str, str2, th);
+        }
     }
 }

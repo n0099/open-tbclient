@@ -1,18 +1,38 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class vk4 {
+public abstract class vk4 implements yk4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile vk4 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Nullable
+    public JSONArray c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    @Nullable
+    public JSONObject d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
 
     public vk4() {
         Interceptable interceptable = $ic;
@@ -28,46 +48,41 @@ public class vk4 {
         }
     }
 
-    public static vk4 a() {
-        InterceptResult invokeV;
+    public static <T> T e(@Nullable T t, @Nullable wk4<T> wk4Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (vk4.class) {
-                    if (a == null) {
-                        a = new vk4();
-                    }
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, t, wk4Var)) == null) {
+            if (t != null && wk4Var != null) {
+                wk4Var.a(t);
             }
-            return a;
+            return t;
         }
-        return (vk4) invokeV.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.yk4
+    @Nullable
+    public JSONObject a(@Nullable wk4<JSONObject> wk4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (hg4.b() == null) {
-                return "0";
-            }
-            return hg4.b().i().getString("local_debug_version", "0");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wk4Var)) == null) {
+            JSONObject d = d();
+            e(d, wk4Var);
+            return d;
         }
-        return (String) invokeV.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    public void c(JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    @Override // com.baidu.tieba.yk4
+    @Nullable
+    public JSONArray b(@Nullable wk4<JSONArray> wk4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wk4Var)) == null) {
+            JSONArray c = c();
+            e(c, wk4Var);
+            return c;
         }
-        String optString = jSONObject.optString("version");
-        if (!TextUtils.isEmpty(optString) && (optJSONObject = jSONObject.optJSONObject("data")) != null && hg4.b() != null) {
-            hg4.b().i().putString("local_debug_version", optString);
-            hg4.b().i().putString("enable_local_debug_switch", optJSONObject.optString("enable_local_debug_switch"));
-            hg4.b().i().putString("error_url", optJSONObject.optString("error_url"));
-            hg4.b().i().putString("auth_white_list", optJSONObject.optString("auth_white_list"));
-        }
+        return (JSONArray) invokeL.objValue;
     }
 }

@@ -7,7 +7,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.i.m;
+import com.baidu.android.pushservice.util.Utility;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -101,16 +101,18 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
     public Notification construct(Context context) {
         InterceptResult invokeL;
         int i;
+        String str;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             Notification.Builder builder = new Notification.Builder(context);
-            int i2 = this.mNotificationDefaults;
-            if (i2 != 0) {
-                builder.setDefaults(i2);
+            int i3 = this.mNotificationDefaults;
+            if (i3 != 0) {
+                builder.setDefaults(i3);
             }
-            String str = this.mNotificationsound;
-            if (str != null) {
-                builder.setSound(Uri.parse(str));
+            String str2 = this.mNotificationsound;
+            if (str2 != null) {
+                builder.setSound(Uri.parse(str2));
             }
             Bitmap bitmap = this.mLargeIcon;
             if (bitmap != null) {
@@ -120,42 +122,59 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
             if (jArr != null) {
                 builder.setVibrate(jArr);
             }
-            int i3 = this.mStatusbarIcon;
-            if (i3 == 0) {
-                i3 = 0;
+            int i4 = this.mStatusbarIcon;
+            if (i4 == 0) {
+                i4 = 0;
                 if (context.getPackageName().equals("com.baidu.searchbox") || context.getPackageName().equals(BdSailorPlatform.LITE_PACKAGE_NAME) || context.getPackageName().equals("com.baidu.push.qa")) {
                     try {
-                        i3 = context.getResources().getIdentifier(Build.VERSION.SDK_INT >= 21 ? "notification_icon_m" : "icon_statusbar", ResourceManager.DRAWABLE, context.getPackageName());
+                        i4 = context.getResources().getIdentifier(Build.VERSION.SDK_INT >= 21 ? "notification_icon_m" : "icon_statusbar", ResourceManager.DRAWABLE, context.getPackageName());
                     } catch (Throwable unused) {
                     }
                 }
-                if (i3 == 0) {
-                    i3 = context.getApplicationInfo().icon;
+                if (i4 == 0) {
+                    i4 = context.getApplicationInfo().icon;
                 }
             }
-            builder.setSmallIcon(i3);
+            builder.setSmallIcon(i4);
+            if (!TextUtils.isEmpty(this.mGroup) && Build.VERSION.SDK_INT >= 24) {
+                builder.setGroup(this.mGroup);
+            }
             builder.setContentTitle(this.mNotificationTitle);
             builder.setContentText(this.mNotificationText);
-            if (Build.VERSION.SDK_INT >= 21 && (i = this.mColor) != 0) {
-                builder.setColor(i);
+            if (Build.VERSION.SDK_INT >= 21 && (i2 = this.mColor) != 0) {
+                builder.setColor(i2);
             }
-            if (m.B(context)) {
+            if (Utility.E(context)) {
                 if (TextUtils.isEmpty(this.mChannelId)) {
                     this.mChannelId = "com.baidu.android.pushservice.push";
                 }
                 if (TextUtils.isEmpty(this.mChannelName)) {
                     this.mChannelName = "云推送";
                 }
-                com.baidu.android.pushservice.i.h.a(context, this.mChannelId, this.mChannelName);
+                String str3 = "com.baidu.android.pushservice.push.importance_low";
+                if (this.mChannelId.equals("com.baidu.android.pushservice.push.importance_low")) {
+                    i = 1;
+                    str = "云推送静默";
+                } else {
+                    str3 = "com.baidu.android.pushservice.push.importance_HIGH";
+                    if (this.mChannelId.equals("com.baidu.android.pushservice.push.importance_HIGH")) {
+                        i = 4;
+                        str = "云通知";
+                    } else {
+                        com.baidu.android.pushservice.a0.h.a(context, this.mChannelId, this.mChannelName);
+                        builder.setChannelId(this.mChannelId);
+                    }
+                }
+                com.baidu.android.pushservice.a0.h.a(context, str3, str, i);
                 builder.setChannelId(this.mChannelId);
             }
             Notification build = Build.VERSION.SDK_INT >= 16 ? builder.build() : builder.getNotification();
             if (build != null) {
-                int i4 = this.mNotificationFlags;
-                if (i4 == 0) {
-                    i4 = build.flags | 16;
+                int i5 = this.mNotificationFlags;
+                if (i5 == 0) {
+                    i5 = build.flags | 16;
                 }
-                build.flags = i4;
+                build.flags = i5;
             }
             return build;
         }

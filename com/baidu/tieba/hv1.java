@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface hv1 {
-    void onActivityResult(Activity activity, int i, int i2, Intent intent);
+    @Nullable
+    m12 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull qm2 qm2Var);
 }

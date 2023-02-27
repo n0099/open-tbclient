@@ -1,12 +1,6 @@
 package com.baidu.webkit.internal;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class ETAG implements INoProGuard {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String EQUAL = "=";
     public static final String ITEM_SEPARATOR = "&";
     public static final String KEY_APP_ID = "appid";
@@ -90,19 +84,4 @@ public class ETAG implements INoProGuard {
     public static final String KEY_WORMHOLE_ENABLE = "wormhole_enable";
     public static final String KEY_ZEUS_STATE = "zeus_state";
     public static final String KEY_ZEUS_VER = "zeus_ver";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public ETAG() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

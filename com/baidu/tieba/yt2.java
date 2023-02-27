@@ -1,25 +1,33 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.response.TaskProcessData;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.util.Arrays;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class yt2<ValueT> {
+public class yt2 extends xt2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ValueT a;
 
-    public abstract ValueT c(Bundle bundle, String str, ValueT valuet);
+    @Override // com.baidu.tieba.bu2
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "RequestDescInterceptor" : (String) invokeV.objValue;
+    }
 
-    public abstract void e(Bundle bundle, String str, ValueT valuet);
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public yt2() {
-        this(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -27,54 +35,62 @@ public abstract class yt2<ValueT> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public yt2(ValueT valuet) {
+    @Override // com.baidu.tieba.bu2
+    public boolean enable() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {valuet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return wy1.h();
         }
-        this.a = valuet;
+        return invokeV.booleanValue;
     }
 
-    public ValueT a(zt2 zt2Var, String str) {
+    @Override // com.baidu.tieba.bu2
+    public boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, zt2Var, str)) == null) {
-            return b(zt2Var, str, this.a);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (SchemeCollecter.CLASSIFY_SWAN_V8.equals(str) && "request".equals(str2)) {
+                return true;
+            }
+            return false;
         }
-        return (ValueT) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public ValueT b(zt2 zt2Var, String str, ValueT valuet) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.bu2
+    @NonNull
+    public JSONObject c(@NonNull String str, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zt2Var, str, valuet)) == null) {
-            return c(zt2Var.C(), str, valuet);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject)) == null) {
+            try {
+                jSONObject.put("invoke", "swan.method.v8BindingObject");
+                jSONObject.put("method", "_naSwan.naRequest");
+                JSONArray optJSONArray = jSONObject.optJSONArray(WebChromeClient.KEY_ARG_ARRAY);
+                if (optJSONArray != null) {
+                    List asList = Arrays.asList("cb", "ping", "__requestDataType__");
+                    for (int length = optJSONArray.length() - 1; length >= 0; length--) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(length);
+                        if (optJSONObject != null && asList.contains(optJSONObject.optString("name"))) {
+                            optJSONArray.remove(length);
+                        }
+                    }
+                    optJSONArray.put(d("success", "function="));
+                    optJSONArray.put(d(com.baidu.pass.biometrics.face.liveness.b.a.g0, "function="));
+                    optJSONArray.put(d(TaskProcessData.keyComplete, "function="));
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
         }
-        return (ValueT) invokeLLL.objValue;
-    }
-
-    public void d(zt2 zt2Var, String str, ValueT valuet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, zt2Var, str, valuet) == null) {
-            e(zt2Var.C(), str, valuet);
-        }
+        return (JSONObject) invokeLL.objValue;
     }
 }

@@ -3,27 +3,30 @@ package com.baidu.live.business.model.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LiveRoomEntity implements Parcelable {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<LiveRoomEntity> CREATOR;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final Parcelable.Creator<LiveRoomEntity> CREATOR = new Parcelable.Creator<LiveRoomEntity>() { // from class: com.baidu.live.business.model.data.LiveRoomEntity.1
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // android.os.Parcelable.Creator
+        public LiveRoomEntity createFromParcel(Parcel parcel) {
+            return new LiveRoomEntity(parcel);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // android.os.Parcelable.Creator
+        public LiveRoomEntity[] newArray(int i) {
+            return new LiveRoomEntity[i];
+        }
+    };
     public int audienceCount;
     public int autoPlay;
     public List<LiveBannerEntity> bannerList;
@@ -62,84 +65,10 @@ public class LiveRoomEntity implements Parcelable {
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-405535092, "Lcom/baidu/live/business/model/data/LiveRoomEntity;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-405535092, "Lcom/baidu/live/business/model/data/LiveRoomEntity;");
-                return;
-            }
-        }
-        CREATOR = new Parcelable.Creator<LiveRoomEntity>() { // from class: com.baidu.live.business.model.data.LiveRoomEntity.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.Creator
-            public LiveRoomEntity createFromParcel(Parcel parcel) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
-                    return new LiveRoomEntity(parcel);
-                }
-                return (LiveRoomEntity) invokeL.objValue;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.Creator
-            public LiveRoomEntity[] newArray(int i) {
-                InterceptResult invokeI;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                    return new LiveRoomEntity[i];
-                }
-                return (LiveRoomEntity[]) invokeI.objValue;
-            }
-        };
+        return 0;
     }
 
     public LiveRoomEntity() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.needLogShow = true;
         this.fromReserve = false;
         this.hasInterest = false;
@@ -147,100 +76,51 @@ public class LiveRoomEntity implements Parcelable {
     }
 
     public boolean canAutoPlay() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.autoPlay == 1 && !TextUtils.isEmpty(this.playUrl)) {
-                return true;
-            }
-            return false;
+        if (this.autoPlay == 1 && !TextUtils.isEmpty(this.playUrl)) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public String getTopicId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.topicId)) {
-                return "0";
-            }
-            return this.topicId;
+        if (TextUtils.isEmpty(this.topicId)) {
+            return "0";
         }
-        return (String) invokeV.objValue;
+        return this.topicId;
     }
 
     public int getTopicItemShowTpl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!isTopicRoom()) {
-                return 0;
-            }
-            return this.topicRoomList.get(0).showTpl;
+        if (!isTopicRoom()) {
+            return 0;
         }
-        return invokeV.intValue;
+        return this.topicRoomList.get(0).showTpl;
     }
 
     public boolean isHorizontalScreen() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "1".equals(this.videoScreen);
-        }
-        return invokeV.booleanValue;
+        return "1".equals(this.videoScreen);
     }
 
     public boolean isStatusLiving() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.liveStatus == 1) {
-                return true;
-            }
-            return false;
+        if (this.liveStatus == 1) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public boolean isTopicRoom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            List<LiveRoomEntity> list = this.topicRoomList;
-            if (list != null && !list.isEmpty()) {
-                return true;
-            }
-            return false;
+        List<LiveRoomEntity> list = this.topicRoomList;
+        if (list != null && !list.isEmpty()) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public boolean isYYShow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "6".equals(String.valueOf(this.templateId));
-        }
-        return invokeV.booleanValue;
+        return "6".equals(String.valueOf(this.templateId));
     }
 
     public LiveRoomEntity(Parcel parcel) {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.needLogShow = true;
         this.fromReserve = false;
         this.hasInterest = false;
@@ -276,9 +156,33 @@ public class LiveRoomEntity implements Parcelable {
         this.topicRoomList = parcel.createTypedArrayList(CREATOR);
     }
 
+    public String formatReserveStartTime() {
+        long currentTimeMillis = this.reserveStartTime - (System.currentTimeMillis() / 1000);
+        if (currentTimeMillis <= 0) {
+            return "";
+        }
+        StringBuilder sb = new StringBuilder();
+        int ceil = (int) Math.ceil((currentTimeMillis * 1.0d) / 60.0d);
+        int i = ceil / 60;
+        int i2 = ceil - (i * 60);
+        if (i >= 1) {
+            sb.append(i);
+            sb.append("小时");
+            if (i2 > 0) {
+                sb.append(i2);
+                sb.append("分钟后");
+            } else {
+                sb.append("后开播");
+            }
+        } else {
+            sb.append(i2);
+            sb.append("分钟后开播");
+        }
+        return sb.toString();
+    }
+
     public void parseSearchJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, jSONObject) != null) || jSONObject == null) {
+        if (jSONObject == null) {
             return;
         }
         this.rank = jSONObject.optInt(MultiRatePlayUrlHelper.RANK);
@@ -329,39 +233,8 @@ public class LiveRoomEntity implements Parcelable {
         }
     }
 
-    public String formatReserveStartTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long currentTimeMillis = this.reserveStartTime - (System.currentTimeMillis() / 1000);
-            if (currentTimeMillis <= 0) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            int ceil = (int) Math.ceil((currentTimeMillis * 1.0d) / 60.0d);
-            int i = ceil / 60;
-            int i2 = ceil - (i * 60);
-            if (i >= 1) {
-                sb.append(i);
-                sb.append("小时");
-                if (i2 > 0) {
-                    sb.append(i2);
-                    sb.append("分钟后");
-                } else {
-                    sb.append("后开播");
-                }
-            } else {
-                sb.append(i2);
-                sb.append("分钟后开播");
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
     public void parserJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, jSONObject) != null) || jSONObject == null) {
+        if (jSONObject == null) {
             return;
         }
         this.rank = jSONObject.optInt(MultiRatePlayUrlHelper.RANK);
@@ -455,32 +328,29 @@ public class LiveRoomEntity implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i) == null) {
-            parcel.writeInt(this.rank);
-            parcel.writeString(this.nid);
-            parcel.writeString(this.feedId);
-            parcel.writeString(this.roomId);
-            parcel.writeString(this.title);
-            parcel.writeString(this.cover);
-            parcel.writeInt(this.liveStatus);
-            parcel.writeInt(this.audienceCount);
-            parcel.writeString(this.cmd);
-            parcel.writeInt(this.showTpl);
-            parcel.writeInt(this.templateId);
-            parcel.writeString(this.playUrl);
-            parcel.writeInt(this.autoPlay);
-            parcel.writeString(this.videoScreen);
-            parcel.writeParcelable(this.hostInfo, i);
-            parcel.writeParcelable(this.leftLabel, i);
-            parcel.writeParcelable(this.rightLabel, i);
-            parcel.writeParcelable(this.statInfo, i);
-            parcel.writeByte(this.needLogShow ? (byte) 1 : (byte) 0);
-            parcel.writeString(this.grExt);
-            parcel.writeParcelable(this.thirdLabel, i);
-            parcel.writeLong(this.reserveStartTime);
-            parcel.writeByte(this.fromReserve ? (byte) 1 : (byte) 0);
-            parcel.writeTypedList(this.topicRoomList);
-        }
+        parcel.writeInt(this.rank);
+        parcel.writeString(this.nid);
+        parcel.writeString(this.feedId);
+        parcel.writeString(this.roomId);
+        parcel.writeString(this.title);
+        parcel.writeString(this.cover);
+        parcel.writeInt(this.liveStatus);
+        parcel.writeInt(this.audienceCount);
+        parcel.writeString(this.cmd);
+        parcel.writeInt(this.showTpl);
+        parcel.writeInt(this.templateId);
+        parcel.writeString(this.playUrl);
+        parcel.writeInt(this.autoPlay);
+        parcel.writeString(this.videoScreen);
+        parcel.writeParcelable(this.hostInfo, i);
+        parcel.writeParcelable(this.leftLabel, i);
+        parcel.writeParcelable(this.rightLabel, i);
+        parcel.writeParcelable(this.statInfo, i);
+        parcel.writeByte(this.needLogShow ? (byte) 1 : (byte) 0);
+        parcel.writeString(this.grExt);
+        parcel.writeParcelable(this.thirdLabel, i);
+        parcel.writeLong(this.reserveStartTime);
+        parcel.writeByte(this.fromReserve ? (byte) 1 : (byte) 0);
+        parcel.writeTypedList(this.topicRoomList);
     }
 }

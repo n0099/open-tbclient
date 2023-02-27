@@ -47,7 +47,7 @@ public class VideoPbFragment extends AbsVideoPbFragment {
     public int Y3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d0917 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d0938 : invokeV.intValue;
     }
 
     public VideoPbFragment() {

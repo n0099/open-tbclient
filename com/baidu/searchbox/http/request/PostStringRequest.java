@@ -1,185 +1,66 @@
 package com.baidu.searchbox.http.request;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.AbstractHttpManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 /* loaded from: classes2.dex */
 public class PostStringRequest extends HttpRequest<PostStringRequestBuilder> {
-    public static /* synthetic */ Interceptable $ic;
-    public static final MediaType MEDIA_TYPE_PLAIN;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final MediaType MEDIA_TYPE_PLAIN = MediaType.parse("text/plain");
     public String content;
     public MediaType mediaType;
 
     /* loaded from: classes2.dex */
     public static class PostStringRequestBuilder extends HttpRequestBuilder<PostStringRequestBuilder> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public String content;
         public MediaType mediaType;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public PostStringRequestBuilder(AbstractHttpManager abstractHttpManager) {
             super(abstractHttpManager);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {abstractHttpManager};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((AbstractHttpManager) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
         }
 
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public PostStringRequestBuilder content(String str) {
+            this.content = str;
+            return this;
+        }
+
+        public PostStringRequestBuilder mediaType(String str) {
+            this.mediaType = MediaType.parse(str);
+            return this;
+        }
+
         public PostStringRequestBuilder(PostStringRequest postStringRequest) {
             this(postStringRequest, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {postStringRequest};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this((PostStringRequest) objArr2[0], (AbstractHttpManager) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public PostStringRequestBuilder mediaType(MediaType mediaType) {
+            this.mediaType = mediaType;
+            return this;
+        }
+
         public PostStringRequestBuilder(PostStringRequest postStringRequest, AbstractHttpManager abstractHttpManager) {
             super(postStringRequest, abstractHttpManager);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {postStringRequest, abstractHttpManager};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((HttpRequest) objArr2[0], (AbstractHttpManager) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
             this.content = postStringRequest.content;
             this.mediaType = postStringRequest.mediaType;
         }
 
-        public PostStringRequestBuilder content(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.content = str;
-                return this;
-            }
-            return (PostStringRequestBuilder) invokeL.objValue;
-        }
-
-        public PostStringRequestBuilder mediaType(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.mediaType = MediaType.parse(str);
-                return this;
-            }
-            return (PostStringRequestBuilder) invokeL.objValue;
-        }
-
         @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
         public HttpRequest build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new PostStringRequest(this);
-            }
-            return (HttpRequest) invokeV.objValue;
+            return new PostStringRequest(this);
         }
-
-        public PostStringRequestBuilder mediaType(MediaType mediaType) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, mediaType)) == null) {
-                this.mediaType = mediaType;
-                return this;
-            }
-            return (PostStringRequestBuilder) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1610910410, "Lcom/baidu/searchbox/http/request/PostStringRequest;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1610910410, "Lcom/baidu/searchbox/http/request/PostStringRequest;");
-                return;
-            }
-        }
-        MEDIA_TYPE_PLAIN = MediaType.parse("text/plain");
     }
 
     @Override // com.baidu.searchbox.http.request.HttpRequest
     public RequestBody buildOkRequestBody() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.content)) {
-                return RequestBody.create(this.mediaType, this.content);
-            }
-            return RequestBody.create((MediaType) null, new byte[0]);
+        if (!TextUtils.isEmpty(this.content)) {
+            return RequestBody.create(this.mediaType, this.content);
         }
-        return (RequestBody) invokeV.objValue;
+        return RequestBody.create((MediaType) null, new byte[0]);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PostStringRequest(PostStringRequestBuilder postStringRequestBuilder) {
         super(postStringRequestBuilder);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {postStringRequestBuilder};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((HttpRequestBuilder) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.content = postStringRequestBuilder.content;
         MediaType mediaType = postStringRequestBuilder.mediaType;
         this.mediaType = mediaType;
@@ -190,47 +71,29 @@ public class PostStringRequest extends HttpRequest<PostStringRequestBuilder> {
 
     @Override // com.baidu.searchbox.http.request.HttpRequest
     public Request buildOkRequest(RequestBody requestBody) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) {
-            return this.okRequestBuilder.post(requestBody).build();
-        }
-        return (Request) invokeL.objValue;
+        return this.okRequestBuilder.post(requestBody).build();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.request.HttpRequest
     public void initExtraHttpRequest(PostStringRequestBuilder postStringRequestBuilder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, postStringRequestBuilder) == null) {
-            this.content = postStringRequestBuilder.content;
-            MediaType mediaType = postStringRequestBuilder.mediaType;
-            this.mediaType = mediaType;
-            if (mediaType == null) {
-                this.mediaType = MEDIA_TYPE_PLAIN;
-            }
+        this.content = postStringRequestBuilder.content;
+        MediaType mediaType = postStringRequestBuilder.mediaType;
+        this.mediaType = mediaType;
+        if (mediaType == null) {
+            this.mediaType = MEDIA_TYPE_PLAIN;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.request.HttpRequest
     public PostStringRequestBuilder newBuilder(AbstractHttpManager abstractHttpManager) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, abstractHttpManager)) == null) {
-            return new PostStringRequestBuilder(this, abstractHttpManager);
-        }
-        return (PostStringRequestBuilder) invokeL.objValue;
+        return new PostStringRequestBuilder(this, abstractHttpManager);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.request.HttpRequest
     public PostStringRequestBuilder newBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return new PostStringRequestBuilder(this);
-        }
-        return (PostStringRequestBuilder) invokeV.objValue;
+        return new PostStringRequestBuilder(this);
     }
 }

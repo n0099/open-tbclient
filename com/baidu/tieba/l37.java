@@ -1,134 +1,112 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.frs.TabMenuPopView;
-import com.baidu.tieba.j37;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
+import tbclient.GameCodeList;
+import tbclient.ItemGameCode;
 /* loaded from: classes5.dex */
-public class l37 implements f37 {
+public class l37 extends zx4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public j37.e b;
-    public List<yt6> c;
-    public View d;
-    public View e;
-    public TabMenuPopView f;
-    public j37 g;
-    public TabMenuPopView.c h;
+    public int a;
+    public List<GameCodeList> b;
 
-    /* loaded from: classes5.dex */
-    public class a implements TabMenuPopView.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l37 a;
+    @Override // com.baidu.tieba.zx4
+    public wz4 getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (wz4) invokeV.objValue;
+    }
 
-        public a(l37 l37Var) {
-            Interceptable interceptable = $ic;
+    @Override // com.baidu.tieba.zx4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947892025, "Lcom/baidu/tieba/l37;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l37Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = l37Var;
-        }
-
-        @Override // com.baidu.tieba.frs.TabMenuPopView.c
-        public void a(View view2, yt6 yt6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, yt6Var) == null) {
-                if (this.a.g != null) {
-                    this.a.g.c();
-                }
-                this.a.b.a(yt6Var.b);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947892025, "Lcom/baidu/tieba/l37;");
+                return;
             }
         }
+        c = BdUniqueId.gen();
     }
 
     public l37() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.h = new a(this);
+        this.b = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.f37
-    public int b() {
+    public List<GameCodeList> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.d.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-            return this.d.getMeasuredHeight();
+            return this.a;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.f37
-    public View getView() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return c;
         }
-        return (View) invokeV.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.f37
-    public void a(Context context, j37 j37Var) {
+    public void g(ItemGameCode itemGameCode) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, j37Var) == null) && context != null && j37Var != null) {
-            this.a = context;
-            this.g = j37Var;
-            this.b = j37Var.d();
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0880, (ViewGroup) null);
-            this.d = inflate;
-            this.e = inflate.findViewById(R.id.top_line);
-            TabMenuPopView tabMenuPopView = (TabMenuPopView) this.d.findViewById(R.id.obfuscated_res_0x7f0905c9);
-            this.f = tabMenuPopView;
-            tabMenuPopView.setOnItemClickCallBack(this.h);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, itemGameCode) == null) {
+            this.a = itemGameCode.unclaimed_num.intValue();
+            this.b = new ArrayList(itemGameCode.game_code_list);
         }
-    }
-
-    @Override // com.baidu.tieba.f37
-    public void setData(List<yt6> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, list) != null) || list == null) {
-            return;
-        }
-        this.c = list;
-        yt6 yt6Var = new yt6();
-        yt6Var.b = 0;
-        yt6Var.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0272);
-        yt6Var.c = false;
-        SkinManager.setBackgroundColor(this.d, R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
-        this.f.setData(this.c, yt6Var);
     }
 }

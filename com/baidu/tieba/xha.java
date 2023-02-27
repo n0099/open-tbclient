@@ -1,28 +1,36 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.text.StaticLayout;
+import android.text.TextPaint;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.CompositeException;
-import rx.exceptions.OnCompletedFailedException;
-import rx.exceptions.OnErrorFailedException;
+import java.util.HashMap;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Function4;
 /* loaded from: classes6.dex */
-public final class xha implements wda, eea {
+public final class xha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final wda a;
-    public eea b;
-    public boolean c;
+    public HashMap<String, Boolean> a;
+    public HashMap<String, Bitmap> b;
+    public HashMap<String, String> c;
+    public HashMap<String, TextPaint> d;
+    public HashMap<String, StaticLayout> e;
+    public HashMap<String, Function2<Canvas, Integer, Boolean>> f;
+    public HashMap<String, Function4<Canvas, Integer, Integer, Integer, Boolean>> g;
+    public boolean h;
 
-    public xha(wda wdaVar) {
+    public xha() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wdaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,75 +40,91 @@ public final class xha implements wda, eea {
                 return;
             }
         }
-        this.a = wdaVar;
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = new HashMap<>();
+        this.d = new HashMap<>();
+        this.e = new HashMap<>();
+        this.f = new HashMap<>();
+        this.g = new HashMap<>();
     }
 
-    @Override // com.baidu.tieba.wda
-    public void onSubscribe(eea eeaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, eeaVar) == null) {
-            this.b = eeaVar;
-            try {
-                this.a.onSubscribe(this);
-            } catch (Throwable th) {
-                jea.e(th);
-                eeaVar.unsubscribe();
-                onError(th);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.eea
-    public boolean isUnsubscribed() {
+    public final HashMap<String, Function2<Canvas, Integer, Boolean>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.c && !this.b.isUnsubscribed()) {
-                return false;
-            }
-            return true;
+            return this.f;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public final HashMap<String, Function4<Canvas, Integer, Integer, Integer, Boolean>> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public final HashMap<String, Boolean> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public final HashMap<String, Bitmap> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public final HashMap<String, StaticLayout> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public final HashMap<String, String> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public final HashMap<String, TextPaint> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public final boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.wda
-    public void onCompleted() {
+    public final void i(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c) {
-            return;
-        }
-        this.c = true;
-        try {
-            this.a.onCompleted();
-        } catch (Throwable th) {
-            jea.e(th);
-            throw new OnCompletedFailedException(th);
-        }
-    }
-
-    @Override // com.baidu.tieba.eea
-    public void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.unsubscribe();
-        }
-    }
-
-    @Override // com.baidu.tieba.wda
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            eia.j(th);
-            if (this.c) {
-                return;
-            }
-            this.c = true;
-            try {
-                this.a.onError(th);
-            } catch (Throwable th2) {
-                jea.e(th2);
-                throw new OnErrorFailedException(new CompositeException(th, th2));
-            }
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.h = z;
         }
     }
 }

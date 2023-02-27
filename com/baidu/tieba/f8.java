@@ -518,7 +518,7 @@ public class f8<K, V> extends d8<K, V> {
                     k = k2;
                 }
                 sb.append(k);
-                sb.append(com.alipay.sdk.encrypt.a.h);
+                sb.append('=');
                 V c2 = c(k2);
                 if (c2 != this) {
                     obj = c2;

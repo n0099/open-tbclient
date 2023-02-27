@@ -10,16 +10,8 @@ import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class c extends ImageView {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final String a;
     public boolean b;
     public Matrix c;
@@ -38,29 +30,10 @@ public class c extends ImageView {
     public Rect p;
 
     private void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(Context context) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.c = new Matrix();
         this.d = new Matrix();
         this.e = 0;
@@ -79,9 +52,26 @@ public class c extends ImageView {
         a();
     }
 
+    private float a(MotionEvent motionEvent) {
+        if (motionEvent.getPointerCount() < 2) {
+            return 0.0f;
+        }
+        float x = motionEvent.getX(0) - motionEvent.getX(1);
+        float y = motionEvent.getY(0) - motionEvent.getY(1);
+        return (float) Math.sqrt((x * x) + (y * y));
+    }
+
+    @Override // android.widget.ImageView
+    public void setImageBitmap(Bitmap bitmap) {
+        super.setImageBitmap(bitmap);
+        this.h = bitmap;
+        if (bitmap != null) {
+            this.h = bitmap;
+        }
+    }
+
     private void a(PointF pointF) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, this, pointF) != null) || this.h == null) {
+        if (this.h == null) {
             return;
         }
         float[] fArr = new float[9];
@@ -114,38 +104,11 @@ public class c extends ImageView {
         pointF.set(f7, ((this.p.height() * f8) / (f5 + f8)) + this.p.top);
     }
 
-    private float a(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, motionEvent)) == null) {
-            if (motionEvent.getPointerCount() < 2) {
-                return 0.0f;
-            }
-            float x = motionEvent.getX(0) - motionEvent.getX(1);
-            float y = motionEvent.getY(0) - motionEvent.getY(1);
-            return (float) Math.sqrt((x * x) + (y * y));
-        }
-        return invokeL.floatValue;
-    }
-
-    @Override // android.widget.ImageView
-    public void setImageBitmap(Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
-            super.setImageBitmap(bitmap);
-            this.h = bitmap;
-            if (bitmap != null) {
-                this.h = bitmap;
-            }
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Rect rect;
         boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65542, this) != null) || this.h == null) {
+        if (this.h == null) {
             return;
         }
         float width = this.p.width();
@@ -220,80 +183,29 @@ public class c extends ImageView {
             this.i = true;
             animation.setDuration(300L);
             startAnimation(animation);
-            new Thread(new Runnable(this) { // from class: com.tencent.connect.avatar.c.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ c a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
-                }
-
+            new Thread(new Runnable() { // from class: com.tencent.connect.avatar.c.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        try {
-                            Thread.sleep(300L);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        this.a.post(new Runnable(this) { // from class: com.tencent.connect.avatar.c.1.1
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ AnonymousClass1 a;
-
-                            {
-                                Interceptable interceptable3 = $ic;
-                                if (interceptable3 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this};
-                                    interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable3.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.a = this;
-                            }
-
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    this.a.a.clearAnimation();
-                                    this.a.a.b();
-                                }
-                            }
-                        });
-                        this.a.i = false;
+                    try {
+                        Thread.sleep(300L);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
+                    c.this.post(new Runnable() { // from class: com.tencent.connect.avatar.c.1.1
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            c.this.clearAnimation();
+                            c.this.b();
+                        }
+                    });
+                    c.this.i = false;
                 }
             }).start();
         }
     }
 
     private void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65543, this) != null) || this.h == null) {
+        if (this.h == null) {
             return;
         }
         this.c.getValues(r0);
@@ -313,74 +225,66 @@ public class c extends ImageView {
     }
 
     public void a(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, rect) == null) {
-            this.p = rect;
-            if (this.h != null) {
-                c();
-            }
+        this.p = rect;
+        if (this.h != null) {
+            c();
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x001d, code lost:
-        if (r0 != 6) goto L16;
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0019, code lost:
+        if (r0 != 6) goto L14;
      */
     @Override // android.view.View
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            if (this.i) {
-                return true;
-            }
-            int action = motionEvent.getAction() & 255;
-            if (action != 0) {
-                if (action != 1) {
-                    if (action != 2) {
-                        if (action == 5) {
-                            float a = a(motionEvent);
-                            this.n = a;
-                            if (a > 10.0f) {
-                                this.d.set(this.c);
-                                a(this.m);
-                                this.e = 2;
-                            }
-                        }
-                    } else {
-                        int i = this.e;
-                        if (i == 1) {
-                            this.c.set(this.d);
-                            this.c.postTranslate(motionEvent.getX() - this.l.x, motionEvent.getY() - this.l.y);
-                            setImageMatrix(this.c);
-                        } else if (i == 2) {
-                            Matrix matrix = this.c;
-                            matrix.set(matrix);
-                            float a2 = a(motionEvent);
-                            if (a2 > 10.0f) {
-                                this.c.set(this.d);
-                                float f = a2 / this.n;
-                                Matrix matrix2 = this.c;
-                                PointF pointF = this.m;
-                                matrix2.postScale(f, f, pointF.x, pointF.y);
-                            }
-                            setImageMatrix(this.c);
-                        }
-                    }
-                }
-                b();
-                this.e = 0;
-            } else {
-                this.c.set(getImageMatrix());
-                this.d.set(this.c);
-                this.l.set(motionEvent.getX(), motionEvent.getY());
-                this.e = 1;
-            }
-            this.b = true;
+        if (this.i) {
             return true;
         }
-        return invokeL.booleanValue;
+        int action = motionEvent.getAction() & 255;
+        if (action != 0) {
+            if (action != 1) {
+                if (action != 2) {
+                    if (action == 5) {
+                        float a = a(motionEvent);
+                        this.n = a;
+                        if (a > 10.0f) {
+                            this.d.set(this.c);
+                            a(this.m);
+                            this.e = 2;
+                        }
+                    }
+                } else {
+                    int i = this.e;
+                    if (i == 1) {
+                        this.c.set(this.d);
+                        this.c.postTranslate(motionEvent.getX() - this.l.x, motionEvent.getY() - this.l.y);
+                        setImageMatrix(this.c);
+                    } else if (i == 2) {
+                        Matrix matrix = this.c;
+                        matrix.set(matrix);
+                        float a2 = a(motionEvent);
+                        if (a2 > 10.0f) {
+                            this.c.set(this.d);
+                            float f = a2 / this.n;
+                            Matrix matrix2 = this.c;
+                            PointF pointF = this.m;
+                            matrix2.postScale(f, f, pointF.x, pointF.y);
+                        }
+                        setImageMatrix(this.c);
+                    }
+                }
+            }
+            b();
+            this.e = 0;
+        } else {
+            this.c.set(getImageMatrix());
+            this.d.set(this.c);
+            this.l.set(motionEvent.getX(), motionEvent.getY());
+            this.e = 1;
+        }
+        this.b = true;
+        return true;
     }
 }

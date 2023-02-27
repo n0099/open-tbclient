@@ -7,164 +7,73 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k61;
-import com.baidu.tieba.x01;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.d11;
+import com.baidu.tieba.t61;
 /* loaded from: classes2.dex */
 public class BdVideoBattery extends View {
-    public static /* synthetic */ Interceptable $ic;
-    public static final int d;
-    public static final int e;
-    public static final int f;
-    public static final int g;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final int d = t61.d(2.0f);
+    public static final int e = t61.d(2.0f);
+    public static final int f = t61.d(2.0f);
+    public static final int g = t61.d(4.0f);
     public final Context a;
     public Bitmap b;
     public Paint c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(827521870, "Lcom/baidu/nadcore/video/videoplayer/ui/full/BdVideoBattery;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(827521870, "Lcom/baidu/nadcore/video/videoplayer/ui/full/BdVideoBattery;");
-                return;
-            }
-        }
-        d = k61.d(2.0f);
-        e = k61.d(2.0f);
-        f = k61.d(2.0f);
-        g = k61.d(4.0f);
+    public final void a() {
+        Paint paint = new Paint();
+        this.c = paint;
+        paint.setColor(-1);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdVideoBattery(Context context) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.a = context;
         a();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public void setImage(int i) {
+        this.b = BitmapFactory.decodeResource(this.a.getResources(), i);
+    }
+
     public BdVideoBattery(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.a = context;
         a();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdVideoBattery(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.a = context;
-        a();
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Paint paint = new Paint();
-            this.c = paint;
-            paint.setColor(-1);
-        }
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            super.onDraw(canvas);
-            int measuredWidth = getMeasuredWidth();
-            int measuredHeight = getMeasuredHeight();
-            Bitmap bitmap = this.b;
-            float f2 = 0.0f;
-            if (bitmap != null) {
-                canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-            }
-            float f3 = (float) (x01.a / 100.0d);
-            if (f3 >= 0.0f) {
-                if (f3 > 100.0f) {
-                    f2 = 100.0f;
-                } else {
-                    f2 = f3;
-                }
-            }
-            int i = measuredWidth - g;
-            int i2 = f;
-            canvas.drawRect(i2, d, i2 + ((i - i2) * f2), measuredHeight - e, this.c);
-        }
     }
 
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            View.MeasureSpec.getSize(i);
-            View.MeasureSpec.getSize(i2);
-            setMeasuredDimension(this.b.getWidth(), this.b.getHeight());
-        }
+        View.MeasureSpec.getSize(i);
+        View.MeasureSpec.getSize(i2);
+        setMeasuredDimension(this.b.getWidth(), this.b.getHeight());
     }
 
-    public void setImage(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = BitmapFactory.decodeResource(this.a.getResources(), i);
+    public BdVideoBattery(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.a = context;
+        a();
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        int measuredWidth = getMeasuredWidth();
+        int measuredHeight = getMeasuredHeight();
+        Bitmap bitmap = this.b;
+        float f2 = 0.0f;
+        if (bitmap != null) {
+            canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
         }
+        float f3 = (float) (d11.a / 100.0d);
+        if (f3 >= 0.0f) {
+            if (f3 > 100.0f) {
+                f2 = 100.0f;
+            } else {
+                f2 = f3;
+            }
+        }
+        int i = measuredWidth - g;
+        int i2 = f;
+        canvas.drawRect(i2, d, i2 + ((i - i2) * f2), measuredHeight - e, this.c);
     }
 }

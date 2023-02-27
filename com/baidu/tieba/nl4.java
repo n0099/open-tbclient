@@ -1,14 +1,18 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nl4 extends ek4 {
+public class nl4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile nl4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public nl4() {
@@ -25,14 +29,45 @@ public class nl4 extends ek4 {
         }
     }
 
-    @Override // com.baidu.tieba.ek4, com.baidu.tieba.hk4
-    public void b(JSONObject jSONObject, rg4 rg4Var, @Nullable rg4 rg4Var2, @Nullable rg4 rg4Var3) {
-        JSONObject optJSONObject;
-        kl4 a;
+    public static nl4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, jSONObject, rg4Var, rg4Var2, rg4Var3) == null) && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("base_info")) != null && (a = kl4.a(optJSONObject)) != null) {
-            ll4.e().i(a);
-            ll4.e().j(a.k);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (nl4.class) {
+                    if (a == null) {
+                        a = new nl4();
+                    }
+                }
+            }
+            return a;
+        }
+        return (nl4) invokeV.objValue;
+    }
+
+    public void b(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        if (!TextUtils.isEmpty(optString) && (optJSONObject = jSONObject.optJSONObject("data")) != null && xg4.b() != null && xg4.b().i() != null) {
+            JSONArray optJSONArray = optJSONObject.optJSONArray(AlbumActivityConfig.FROM_WEB_VIEW);
+            JSONArray optJSONArray2 = optJSONObject.optJSONArray("js");
+            boolean z2 = true;
+            if (optJSONArray != null) {
+                z = xg4.b().o(false, optJSONArray);
+            } else {
+                z = true;
+            }
+            if (optJSONArray2 != null) {
+                z2 = xg4.b().o(true, optJSONArray2);
+            }
+            if (z && z2) {
+                xg4.b().i().putString("key_online_description_fix_version", optString);
+            }
         }
     }
 }

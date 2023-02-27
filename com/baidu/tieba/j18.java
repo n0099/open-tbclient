@@ -1,105 +1,187 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestForumViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.SevenZipUtils;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipSpecialItem;
-import tbclient.GetVipInfo.VipSpecialList;
-/* loaded from: classes5.dex */
-public class j18 implements Cdo {
+/* loaded from: classes4.dex */
+public class j18 extends qn<o18, SearchSuggestForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
-    public static int d;
-    public static boolean e;
-    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public i18 a;
-    public List<k18> b;
+    public final Context a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947830552, "Lcom/baidu/tieba/j18;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public class a implements no {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ j18 b;
+
+        public a(j18 j18Var, Context context) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j18Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947830552, "Lcom/baidu/tieba/j18;");
+            this.b = j18Var;
+            this.a = context;
+        }
+
+        @Override // com.baidu.tieba.no
+        public void b(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(cdo instanceof o18)) {
                 return;
             }
+            o18 o18Var = (o18) cdo;
+            FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.a).createNormalCfg(o18Var.c(), FrsActivityConfig.FRS_FROM_SEARCH_SUG);
+            createNormalCfg.setCallFrom(16);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
+            this.b.u(o18Var);
         }
-        c = BdUniqueId.gen();
-        d = 3;
-        e = false;
     }
 
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public j18(VipSpecialList vipSpecialList) {
-        List<VipSpecialItem> list;
-        String str;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j18(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipSpecialList};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (vipSpecialList != null && (list = vipSpecialList.item) != null && list.size() > 0) {
-            String str2 = vipSpecialList.card_id;
-            i18 i18Var = new i18();
-            this.a = i18Var;
-            i18Var.e(4);
-            this.a.d(vipSpecialList.class_name);
-            this.a.f(vipSpecialList.class_url_name);
-            this.a.g(vipSpecialList.class_url);
-            if (TbadkCoreApplication.isLogin()) {
-                str = TbadkCoreApplication.getCurrentAccount();
+        this.a = context;
+        this.mType = bdUniqueId;
+        setOnAdapterItemClickListener(new a(this, context));
+    }
+
+    public final void t(StatisticItem statisticItem, o18 o18Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, statisticItem, o18Var) == null) {
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("fid", o18Var.b().longValue());
+            statisticItem.param("fname", o18Var.c());
+        }
+    }
+
+    public final void u(o18 o18Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, o18Var) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_FORUM_CLICK);
+            t(statisticItem, o18Var);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: v */
+    public SearchSuggestForumViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
+            return new SearchSuggestForumViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07f4, viewGroup, false));
+        }
+        return (SearchSuggestForumViewHolder) invokeL.objValue;
+    }
+
+    public final void y(o18 o18Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, o18Var) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_FORUM_SHOW);
+            t(statisticItem, o18Var);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.qn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, o18 o18Var, SearchSuggestForumViewHolder searchSuggestForumViewHolder) {
+        w(i, view2, viewGroup, o18Var, searchSuggestForumViewHolder);
+        return view2;
+    }
+
+    public View w(int i, View view2, ViewGroup viewGroup, o18 o18Var, SearchSuggestForumViewHolder searchSuggestForumViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, o18Var, searchSuggestForumViewHolder})) == null) {
+            if (o18Var == null) {
+                return view2;
+            }
+            x(searchSuggestForumViewHolder);
+            searchSuggestForumViewHolder.b.setConrers(15);
+            searchSuggestForumViewHolder.b.setRadiusById(R.string.J_X06);
+            searchSuggestForumViewHolder.b.K(o18Var.a(), 10, false);
+            searchSuggestForumViewHolder.c.setText(o18Var.c() + this.a.getString(R.string.obfuscated_res_0x7f0f06ba));
+            if (!StringUtils.isNull(o18Var.g())) {
+                searchSuggestForumViewHolder.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1190, o18Var.g()));
             } else {
-                str = SevenZipUtils.FILE_NAME_TEMP;
+                Context context = this.a;
+                searchSuggestForumViewHolder.d.setText(context.getString(R.string.obfuscated_res_0x7f0f1190, context.getString(R.string.obfuscated_res_0x7f0f1191)));
             }
-            if (StringUtils.isNull(f) || !f.equals(str)) {
-                e = false;
-                f = str;
-            }
-            this.b = new ArrayList();
-            for (int i3 = 0; i3 < vipSpecialList.item.size(); i3++) {
-                this.b.add(new k18(vipSpecialList.item.get(i3)));
-                if (e) {
-                    if (i3 == vipSpecialList.item.size() - 1 && vipSpecialList.item.size() > d) {
-                        this.b.add(new k18(true, true));
-                    }
-                } else if (i3 == d - 1 && vipSpecialList.item.size() > d) {
-                    this.b.add(new k18(true, false));
-                    return;
-                }
-            }
+            searchSuggestForumViewHolder.e.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f044e), StringHelper.numberUniformFormatExtraWithRoundInt(o18Var.f().intValue())));
+            searchSuggestForumViewHolder.f.setText(String.format(this.a.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtraWithRoundInt(o18Var.h().intValue())));
+            y(o18Var);
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public final void x(SearchSuggestForumViewHolder searchSuggestForumViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, searchSuggestForumViewHolder) == null) {
+            b35 d = b35.d(searchSuggestForumViewHolder.c);
+            d.A(R.string.F_X02);
+            d.z(R.dimen.T_X06);
+            d.v(R.color.CAM_X0105);
+            b35 d2 = b35.d(searchSuggestForumViewHolder.d);
+            d2.z(R.dimen.T_X09);
+            d2.v(R.color.CAM_X0108);
+            b35 d3 = b35.d(searchSuggestForumViewHolder.e);
+            d3.z(R.dimen.T_X09);
+            d3.v(R.color.CAM_X0108);
+            b35 d4 = b35.d(searchSuggestForumViewHolder.f);
+            d4.z(R.dimen.T_X09);
+            d4.v(R.color.CAM_X0108);
+            SkinManager.setBackgroundResource(searchSuggestForumViewHolder.a, R.drawable.addresslist_item_bg);
+            b35.d(searchSuggestForumViewHolder.g).f(R.color.CAM_X0203);
         }
     }
 }

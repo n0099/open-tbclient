@@ -104,10 +104,10 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                     if (StringUtils.isNull(str2)) {
                         return alaPushAlertResIdl;
                     }
-                    TbImageMemoryCache n = TbImageMemoryCache.n();
-                    on t = n.t(optString4 + 10);
-                    if (t != null && t.p() != null) {
-                        NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), str, str2, str2, service, t.p(), false);
+                    TbImageMemoryCache p = TbImageMemoryCache.p();
+                    on w = p.w(optString4 + 10);
+                    if (w != null && w.p() != null) {
+                        NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), str, str2, str2, service, w.p(), false);
                     } else if (!StringUtils.isNull(optString4)) {
                         this.mHandler.post(new Runnable(this, optString4, optLong, str, str2, service) { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1
                             public static /* synthetic */ Interceptable $ic;
@@ -174,7 +174,7 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                                         public void onLoaded(on onVar, String str3, int i2) {
                                             Interceptable interceptable3 = $ic;
                                             if (interceptable3 == null || interceptable3.invokeLLI(1048576, this, onVar, str3, i2) == null) {
-                                                super.onLoaded((C00191) onVar, str3, i2);
+                                                super.onLoaded((C00061) onVar, str3, i2);
                                                 if (onVar != null && onVar.p() != null) {
                                                     Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
                                                     int hashCode = Long.valueOf(this.this$1.val$uid).hashCode();

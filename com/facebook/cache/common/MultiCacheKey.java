@@ -1,115 +1,58 @@
 package com.facebook.cache.common;
 
 import android.net.Uri;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class MultiCacheKey implements CacheKey {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final List<CacheKey> mCacheKeys;
 
     @Override // com.facebook.cache.common.CacheKey
     public boolean isResourceIdForDebugging() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public MultiCacheKey(List<CacheKey> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mCacheKeys = (List) Preconditions.checkNotNull(list);
     }
 
     @Override // com.facebook.cache.common.CacheKey
     public boolean containsUri(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
-            for (int i = 0; i < this.mCacheKeys.size(); i++) {
-                if (this.mCacheKeys.get(i).containsUri(uri)) {
-                    return true;
-                }
+        for (int i = 0; i < this.mCacheKeys.size(); i++) {
+            if (this.mCacheKeys.get(i).containsUri(uri)) {
+                return true;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        return false;
     }
 
     @Override // com.facebook.cache.common.CacheKey
     public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (obj == this) {
-                return true;
-            }
-            if (obj instanceof MultiCacheKey) {
-                return this.mCacheKeys.equals(((MultiCacheKey) obj).mCacheKeys);
-            }
-            return false;
+        if (obj == this) {
+            return true;
         }
-        return invokeL.booleanValue;
+        if (obj instanceof MultiCacheKey) {
+            return this.mCacheKeys.equals(((MultiCacheKey) obj).mCacheKeys);
+        }
+        return false;
     }
 
     public List<CacheKey> getCacheKeys() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mCacheKeys;
-        }
-        return (List) invokeV.objValue;
+        return this.mCacheKeys;
     }
 
     @Override // com.facebook.cache.common.CacheKey
     public String getUriString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mCacheKeys.get(0).getUriString();
-        }
-        return (String) invokeV.objValue;
+        return this.mCacheKeys.get(0).getUriString();
     }
 
     @Override // com.facebook.cache.common.CacheKey
     public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mCacheKeys.hashCode();
-        }
-        return invokeV.intValue;
+        return this.mCacheKeys.hashCode();
     }
 
     @Override // com.facebook.cache.common.CacheKey
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "MultiCacheKey:" + this.mCacheKeys.toString();
-        }
-        return (String) invokeV.objValue;
+        return "MultiCacheKey:" + this.mCacheKeys.toString();
     }
 }

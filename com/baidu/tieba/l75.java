@@ -1,18 +1,73 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.httpNet.WebClient;
+import com.baidu.tbadk.core.util.resourceLoaderProc.DiskCancelWorker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class l75 {
+public class l75 implements ah<j75> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ah
+    /* renamed from: b */
+    public j75 getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
+            return null;
+        }
+        return (j75) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.ah
+    public BdAsyncTaskParallel getAsyncTaskParallel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (BdAsyncTaskParallel) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ah
+    public int getAsyncTaskPriority() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ah
+    public boolean isNeedLoad() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ah
+    public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) {
+        }
+    }
 
     public l75() {
         Interceptable interceptable = $ic;
@@ -24,23 +79,117 @@ public class l75 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.c = 0;
-        this.d = 0;
     }
 
-    public void a(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ah
+    /* renamed from: a */
+    public j75 getFromLocal(String str, String str2, int i, int i2, xg xgVar, Object... objArr) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), xgVar, objArr})) == null) {
+            if (str.contains("https://")) {
+                str = Uri.parse(str).getLastPathSegment();
+            }
+            DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.INFO);
+            diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            diskFileOperate.setSubFolder(false);
+            diskFileOperate.setIsFormatData(false);
+            if (xgVar != null) {
+                DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
+                diskCancelWorker.setOperate(diskFileOperate);
+                xgVar.a = diskCancelWorker;
+            }
+            diskFileOperate.call();
+            if (!diskFileOperate.isSuccess()) {
+                return null;
+            }
+            String desPath = diskFileOperate.getDesPath();
+            j75 j75Var = new j75();
+            j75Var.h(str);
+            j75Var.i(desPath);
+            return j75Var;
         }
-        this.a = jSONObject.optInt("days_new_user", 0);
-        this.b = jSONObject.optInt("days_low_active", 0);
-        this.c = jSONObject.optInt("limit_day", 0);
-        this.d = jSONObject.optInt("limit_count", 0);
+        return (j75) invokeCommon.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ah
+    /* renamed from: c */
+    public j75 getFromRemote(String str, String str2, int i, int i2, xg xgVar, Object... objArr) {
+        InterceptResult invokeCommon;
+        String str3;
+        String str4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), xgVar, objArr})) == null) {
+            int i3 = 1;
+            String str5 = null;
+            if (objArr.length == 1) {
+                str3 = String.valueOf(objArr[0]);
+            } else {
+                str3 = null;
+            }
+            j75 j75Var = new j75();
+            WebClient webClient = new WebClient();
+            if (xgVar != null) {
+                xgVar.a = webClient;
+            }
+            if (str.contains("https://")) {
+                str4 = Uri.parse(str).getLastPathSegment();
+            } else {
+                String str6 = TbConfig.SERVER_ADDRESS + TbConfig.VOICE_DATA + "?voice_md5=" + str;
+                if (!TextUtils.isEmpty(str3)) {
+                    str4 = str;
+                    str = str6 + "&play_from=" + str3;
+                } else {
+                    str4 = str;
+                    str = str6;
+                }
+            }
+            byte[] downloadCommonBytes = webClient.downloadCommonBytes(str);
+            if (!webClient.IsRequestSuccess()) {
+                j75Var.f(3);
+                j75Var.g(wj.a(R.string.obfuscated_res_0x7f0f0d11));
+                return j75Var;
+            } else if (downloadCommonBytes != null && downloadCommonBytes.length != 0) {
+                if (str4 == null) {
+                    i3 = 5;
+                } else if (downloadCommonBytes != null && downloadCommonBytes.length != 0) {
+                    DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str4, DiskFileOperate.Action.WRITE);
+                    diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+                    diskFileOperate.setSubFolder(false);
+                    diskFileOperate.setData(downloadCommonBytes);
+                    if (xgVar != null) {
+                        DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
+                        diskCancelWorker.setOperate(diskFileOperate);
+                        xgVar.a = diskCancelWorker;
+                    }
+                    diskFileOperate.call();
+                    if (diskFileOperate.isSuccess() && diskFileOperate.getFileInfo() != null) {
+                        str5 = diskFileOperate.getFileInfo().getAbsolutePath();
+                        i3 = 0;
+                    } else if (FileHelper.getAvailableSize() < downloadCommonBytes.length) {
+                        i3 = 2;
+                    }
+                } else {
+                    i3 = 6;
+                }
+                if (i3 == 0) {
+                    j75Var.i(str5);
+                    j75Var.h(str4);
+                } else {
+                    j75Var.f(i3);
+                    j75Var.g(j75.a(i3));
+                }
+                return j75Var;
+            } else {
+                j75Var.f(4);
+                j75Var.g(wj.a(R.string.voice_cache_error_no_file));
+                return j75Var;
+            }
+        }
+        return (j75) invokeCommon.objValue;
     }
 }

@@ -1,66 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.webkit.WebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class cc6 {
+/* loaded from: classes3.dex */
+public class cc6 extends bc6 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile cc6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile int a;
 
-    public cc6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cc6(WebView webView) {
+        super(webView);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((WebView) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.a = 0;
     }
 
-    public static cc6 a() {
-        InterceptResult invokeV;
+    public static void d(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (cc6.class) {
-                    if (b == null) {
-                        b = new cc6();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || interceptable.invokeL(65537, null, webView) == null) {
+            webView.setHorizontalScrollBarEnabled(false);
+            webView.setHorizontalScrollbarOverlay(false);
+            new cc6(webView).a();
         }
-        return (cc6) invokeV.objValue;
     }
 
-    public synchronized void b() {
+    @Override // com.baidu.tieba.bc6
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                this.a++;
-            }
-        }
-    }
-
-    public synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.a--;
-            }
+            super.a();
         }
     }
 }

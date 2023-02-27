@@ -1,65 +1,103 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-import java.io.File;
-import java.io.IOException;
-import java.nio.charset.Charset;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class yg1 {
+public class yg1 implements ah1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Charset a;
+    public static yg1 b;
+    public static ch1 c;
+    public static gh1 d;
+    public static fh1 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948329094, "Lcom/baidu/tieba/yg1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948329094, "Lcom/baidu/tieba/yg1;");
+    public yg1(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Charset.forName("US-ASCII");
-        Charset.forName("UTF-8");
+        this.a = context.getApplicationContext();
+        d = new gh1();
+        e = new fh1(context);
+        c = new ch1();
     }
 
-    public static void a(Closeable closeable) {
+    public static fh1 b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
-            try {
-                closeable.close();
-            } catch (RuntimeException e) {
-                throw e;
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (e == null) {
+                e = new fh1(context);
             }
+            return e;
         }
+        return (fh1) invokeL.objValue;
     }
 
-    public static void b(File file) {
+    public static yg1 d(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, file) == null) {
-            File[] listFiles = file.listFiles();
-            if (listFiles != null) {
-                for (File file2 : listFiles) {
-                    if (file2.isDirectory()) {
-                        b(file2);
-                    }
-                    if (!file2.delete()) {
-                        throw new IOException("failed to delete file: " + file2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (b == null) {
+                synchronized (yg1.class) {
+                    if (b == null) {
+                        b = new yg1(context);
                     }
                 }
-                return;
             }
-            throw new IOException("not a readable directory: " + file);
+            return b;
+        }
+        return (yg1) invokeL.objValue;
+    }
+
+    public static gh1 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                d = new gh1();
+            }
+            return d;
+        }
+        return (gh1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ah1
+    public void a(ImageView imageView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, imageView, str) == null) {
+            e(imageView, str, 0, 0);
+        }
+    }
+
+    public void e(ImageView imageView, String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageView, str, i, i2) == null) {
+            imageView.setTag(str);
+            Bitmap c2 = d.c(str);
+            if (c2 != null) {
+                imageView.setImageBitmap(c2);
+            } else {
+                wh1.a(new eh1(this.a, c, str, imageView, i, i2));
+            }
         }
     }
 }

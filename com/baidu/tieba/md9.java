@@ -1,96 +1,70 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.videoplay.VideoPlayView;
+import android.app.Activity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
+@JvmName(name = "TopicListUtil")
 /* loaded from: classes5.dex */
-public class md9 {
+public final class md9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public gd9 c;
-    public VideoPlayView.i d;
-    public int e;
-    public Set<String> f;
 
-    public md9() {
+    @JvmOverloads
+    public static final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
-        this.b = 0;
-        this.f = new HashSet();
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = Math.min(7, TbConfig.PREFETCH_NEXT_VIDEO_NUM);
-            this.b = this.a + 1;
-            b();
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            e(null, null, 3, null);
         }
     }
 
-    public void b() {
+    @JvmOverloads
+    public static final void c(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.c != null && this.e > 0) {
-            while (this.b < this.c.k()) {
-                VideoItemData s = this.c.s(this.b);
-                this.b++;
-                if (s != null && !TextUtils.isEmpty(s.video_url)) {
-                    this.e--;
-                    if (!this.f.contains(s.video_url)) {
-                        CyberPlayerManager.prefetch(s.video_url, null, null, TbConfig.PREFETCH_NEXT_VIDEO_SIZE, null);
-                        this.f.add(s.video_url);
-                    }
-                    if (this.e <= 0) {
-                        break;
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(65538, null, tbPageContext) == null) {
+            e(tbPageContext, null, 2, null);
+        }
+    }
+
+    public static final void a(int i, String fid, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), fid, Integer.valueOf(i2)}) == null) {
+            Intrinsics.checkNotNullParameter(fid, "fid");
+            TiebaStatic.log(new StatisticItem("c15112").param("obj_type", i).param("fid", fid).param("obj_locate", i2));
+        }
+    }
+
+    @JvmOverloads
+    public static final void d(TbPageContext<?> tbPageContext, String listType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, tbPageContext, listType) == null) {
+            Intrinsics.checkNotNullParameter(listType, "listType");
+            String str = "https://tieba.baidu.com/mo/q/hybrid/hotTopicRank?customfullscreen=1&nonavigationbar=1&list_type=" + listType;
+            if (Intrinsics.areEqual("all", listType)) {
+                str = str + "&page_key=a078";
             }
-            if (this.e > 0 && this.d != null && this.c.k() - this.a < 10) {
-                this.d.a();
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity != null) {
+                zu4.v(currentActivity, null, str, true);
+            } else if (tbPageContext != null) {
+                zu4.v(tbPageContext.getPageActivity(), null, str, true);
             }
         }
     }
 
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.a = i;
+    public static /* synthetic */ void e(TbPageContext tbPageContext, String str, int i, Object obj) {
+        if ((i & 1) != 0) {
+            tbPageContext = null;
         }
-    }
-
-    public void d(gd9 gd9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, gd9Var) == null) {
-            this.c = gd9Var;
+        if ((i & 2) != 0) {
+            str = "all";
         }
-    }
-
-    public void e(VideoPlayView.i iVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iVar) == null) {
-            this.d = iVar;
-        }
+        d(tbPageContext, str);
     }
 }

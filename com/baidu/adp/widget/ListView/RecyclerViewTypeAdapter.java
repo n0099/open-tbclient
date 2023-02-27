@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.Cdo;
 import com.baidu.tieba.io;
 import com.baidu.tieba.qn;
-import com.baidu.tieba.sv4;
+import com.baidu.tieba.zw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -97,7 +97,7 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
                     qnVar.onFillViewHolder(i, this.d, viewHolder, item);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    if (sv4.e()) {
+                    if (zw4.e()) {
                         throw e;
                     }
                 }
@@ -126,7 +126,7 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
                 viewHolder = qnVar.onCreateViewHolder(viewGroup, item);
             } catch (Exception e) {
                 e.printStackTrace();
-                if (sv4.e()) {
+                if (zw4.e()) {
                     throw e;
                 }
             }
@@ -228,7 +228,7 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
                         qnVar.onFillViewHolder(i, (ViewGroup) this.d, (RecyclerView) viewHolder, (TypeAdapter.ViewHolder) item, list);
                     } catch (Exception e) {
                         e.printStackTrace();
-                        if (sv4.e()) {
+                        if (zw4.e()) {
                             throw e;
                         }
                     }

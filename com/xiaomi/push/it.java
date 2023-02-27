@@ -1,55 +1,194 @@
 package com.xiaomi.push;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.xiaomi.push.jb;
-import com.xiaomi.push.jl;
+import com.baidu.tbadk.core.util.StringHelper;
+import java.nio.ByteBuffer;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 /* loaded from: classes8.dex */
-public class it {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public final class it {
+    public static final Comparator a = new a();
 
-    public static short a(Context context, Cif cif) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, cif)) == null) ? a(context, cif.f656b) : invokeLL.shortValue;
-    }
-
-    public static short a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            return (short) (h.a(context, str, false).a() + 0 + (ak.b(context) ? 4 : 0) + (ak.a(context) ? 8 : 0) + (com.xiaomi.push.service.ax.m699a(context) ? 16 : 0));
+    /* loaded from: classes8.dex */
+    public static class a implements Comparator {
+        public a() {
         }
-        return invokeLL.shortValue;
-    }
 
-    public static <T extends iu<T, ?>> void a(T t, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, t, bArr) == null) {
-            if (bArr == null) {
-                throw new iz("the message byte is empty.");
+        @Override // java.util.Comparator
+        public int compare(Object obj, Object obj2) {
+            if (obj == null && obj2 == null) {
+                return 0;
             }
-            new iy(new jl.a(true, true, bArr.length)).a(t, bArr);
+            if (obj == null) {
+                return -1;
+            }
+            if (obj2 == null) {
+                return 1;
+            }
+            return obj instanceof List ? it.a((List) obj, (List) obj2) : obj instanceof Set ? it.a((Set) obj, (Set) obj2) : obj instanceof Map ? it.a((Map) obj, (Map) obj2) : obj instanceof byte[] ? it.a((byte[]) obj, (byte[]) obj2) : it.a((Comparable) obj, (Comparable) obj2);
         }
     }
 
-    public static <T extends iu<T, ?>> byte[] a(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, t)) == null) {
-            if (t == null) {
-                return null;
-            }
-            try {
-                return new ja(new jb.a()).a(t);
-            } catch (iz e) {
-                com.xiaomi.channel.commonutils.logger.b.a("convertThriftObjectToBytes catch TException.", e);
-                return null;
+    public static int a(byte b, byte b2) {
+        if (b < b2) {
+            return -1;
+        }
+        return b2 < b ? 1 : 0;
+    }
+
+    public static int a(int i, int i2) {
+        if (i < i2) {
+            return -1;
+        }
+        return i2 < i ? 1 : 0;
+    }
+
+    public static int a(long j, long j2) {
+        if (j < j2) {
+            return -1;
+        }
+        return j2 < j ? 1 : 0;
+    }
+
+    public static int a(Comparable comparable, Comparable comparable2) {
+        return comparable.compareTo(comparable2);
+    }
+
+    public static int a(String str, String str2) {
+        return str.compareTo(str2);
+    }
+
+    public static int a(ByteBuffer byteBuffer, byte[] bArr, int i) {
+        int remaining = byteBuffer.remaining();
+        System.arraycopy(byteBuffer.array(), byteBuffer.arrayOffset() + byteBuffer.position(), bArr, i, remaining);
+        return remaining;
+    }
+
+    public static int a(List list, List list2) {
+        int a2 = a(list.size(), list2.size());
+        if (a2 != 0) {
+            return a2;
+        }
+        for (int i = 0; i < list.size(); i++) {
+            int compare = a.compare(list.get(i), list2.get(i));
+            if (compare != 0) {
+                return compare;
             }
         }
-        return (byte[]) invokeL.objValue;
+        return 0;
+    }
+
+    public static int a(Map map, Map map2) {
+        int a2 = a(map.size(), map2.size());
+        if (a2 != 0) {
+            return a2;
+        }
+        TreeMap treeMap = new TreeMap(a);
+        treeMap.putAll(map);
+        Iterator it = treeMap.entrySet().iterator();
+        TreeMap treeMap2 = new TreeMap(a);
+        treeMap2.putAll(map2);
+        Iterator it2 = treeMap2.entrySet().iterator();
+        while (it.hasNext() && it2.hasNext()) {
+            Map.Entry entry = (Map.Entry) it.next();
+            Map.Entry entry2 = (Map.Entry) it2.next();
+            int compare = a.compare(entry.getKey(), entry2.getKey());
+            if (compare != 0) {
+                return compare;
+            }
+            int compare2 = a.compare(entry.getValue(), entry2.getValue());
+            if (compare2 != 0) {
+                return compare2;
+            }
+        }
+        return 0;
+    }
+
+    public static int a(Set set, Set set2) {
+        int a2 = a(set.size(), set2.size());
+        if (a2 != 0) {
+            return a2;
+        }
+        TreeSet treeSet = new TreeSet(a);
+        treeSet.addAll(set);
+        TreeSet treeSet2 = new TreeSet(a);
+        treeSet2.addAll(set2);
+        Iterator it = treeSet.iterator();
+        Iterator it2 = treeSet2.iterator();
+        while (it.hasNext() && it2.hasNext()) {
+            int compare = a.compare(it.next(), it2.next());
+            if (compare != 0) {
+                return compare;
+            }
+        }
+        return 0;
+    }
+
+    public static int a(short s, short s2) {
+        if (s < s2) {
+            return -1;
+        }
+        return s2 < s ? 1 : 0;
+    }
+
+    public static int a(boolean z, boolean z2) {
+        return Boolean.valueOf(z).compareTo(Boolean.valueOf(z2));
+    }
+
+    public static int a(byte[] bArr, byte[] bArr2) {
+        int a2 = a(bArr.length, bArr2.length);
+        if (a2 != 0) {
+            return a2;
+        }
+        for (int i = 0; i < bArr.length; i++) {
+            int a3 = a(bArr[i], bArr2[i]);
+            if (a3 != 0) {
+                return a3;
+            }
+        }
+        return 0;
+    }
+
+    public static String a(byte b) {
+        return Integer.toHexString((b | 256) & 511).toUpperCase().substring(1);
+    }
+
+    public static ByteBuffer a(ByteBuffer byteBuffer) {
+        return m607a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m608a(byteBuffer));
+    }
+
+    public static void a(ByteBuffer byteBuffer, StringBuilder sb) {
+        byte[] array = byteBuffer.array();
+        int arrayOffset = byteBuffer.arrayOffset();
+        int limit = byteBuffer.limit();
+        int i = limit - arrayOffset > 128 ? arrayOffset + 128 : limit;
+        for (int i2 = arrayOffset; i2 < i; i2++) {
+            if (i2 > arrayOffset) {
+                sb.append(" ");
+            }
+            sb.append(a(array[i2]));
+        }
+        if (limit != i) {
+            sb.append(StringHelper.STRING_MORE);
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static boolean m607a(ByteBuffer byteBuffer) {
+        return byteBuffer.hasArray() && byteBuffer.position() == 0 && byteBuffer.arrayOffset() == 0 && byteBuffer.remaining() == byteBuffer.capacity();
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static byte[] m608a(ByteBuffer byteBuffer) {
+        if (m607a(byteBuffer)) {
+            return byteBuffer.array();
+        }
+        byte[] bArr = new byte[byteBuffer.remaining()];
+        a(byteBuffer, bArr, 0);
+        return bArr;
     }
 }

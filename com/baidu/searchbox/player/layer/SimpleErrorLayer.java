@@ -4,8 +4,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.UniversalPlayer;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.element.AbsElement;
@@ -17,153 +15,100 @@ import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.helper.NetUtils;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SimpleErrorLayer extends ElementLayer<FrameLayout, AbsElement> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public KernelErrorElement mKernelErrorElement;
     public NetErrorElement mNetErrorElement;
-
-    public SimpleErrorLayer() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     @Override // com.baidu.searchbox.player.layer.ElementLayer, com.baidu.searchbox.player.interfaces.INeuron
     @Nullable
     public int[] getSubscribeEvent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new int[]{4, 5, 2, 3};
-        }
-        return (int[]) invokeV.objValue;
+        return new int[]{4, 5, 2, 3};
     }
 
     @Override // com.baidu.searchbox.player.layer.ElementLayer
     public void initContainer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            FrameLayout frameLayout = new FrameLayout(this.mContext);
-            this.mContainer = frameLayout;
-            frameLayout.setLayoutParams(layoutParams);
-        }
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+        FrameLayout frameLayout = new FrameLayout(this.mContext);
+        this.mContainer = frameLayout;
+        frameLayout.setLayoutParams(layoutParams);
     }
 
     public void onRetryClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            toggleVisible(false);
-            getBindPlayer().resumeFromError();
-            sendEvent(LayerEvent.obtainEvent(LayerEvent.ACTION_CLICK_RETRY));
-        }
+        toggleVisible(false);
+        getBindPlayer().resumeFromError();
+        sendEvent(LayerEvent.obtainEvent(LayerEvent.ACTION_CLICK_RETRY));
     }
 
     @Override // com.baidu.searchbox.player.layer.ElementLayer
     public void setupElement() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            NetErrorElement netErrorElement = new NetErrorElement();
-            this.mNetErrorElement = netErrorElement;
-            addElement(netErrorElement);
-            KernelErrorElement kernelErrorElement = new KernelErrorElement();
-            this.mKernelErrorElement = kernelErrorElement;
-            addElement(kernelErrorElement);
-        }
+        NetErrorElement netErrorElement = new NetErrorElement();
+        this.mNetErrorElement = netErrorElement;
+        addElement(netErrorElement);
+        KernelErrorElement kernelErrorElement = new KernelErrorElement();
+        this.mKernelErrorElement = kernelErrorElement;
+        addElement(kernelErrorElement);
     }
 
     private void toggleVisible(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, this, z) == null) {
-            if (z) {
-                ((FrameLayout) this.mContainer).setVisibility(0);
-                getBindPlayer().getPlayerCallbackManager().onLayerShow(this);
-                return;
-            }
-            ((FrameLayout) this.mContainer).setVisibility(8);
-            getBindPlayer().getPlayerCallbackManager().onLayerDismiss(this);
+        if (z) {
+            ((FrameLayout) this.mContainer).setVisibility(0);
+            getBindPlayer().getPlayerCallbackManager().onLayerShow(this);
+            return;
+        }
+        ((FrameLayout) this.mContainer).setVisibility(8);
+        getBindPlayer().getPlayerCallbackManager().onLayerDismiss(this);
+    }
+
+    @Override // com.baidu.searchbox.player.layer.ElementLayer, android.view.View.OnClickListener
+    public void onClick(View view2) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f090464 || view2.getId() == R.id.obfuscated_res_0x7f091b4b) {
+            onRetryClick();
         }
     }
 
     @Override // com.baidu.searchbox.player.layer.ElementLayer, com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.interfaces.INeuron
     public void onControlEventNotify(@NonNull VideoEvent videoEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, videoEvent) == null) {
-            super.onControlEventNotify(videoEvent);
-            if (ControlEvent.ACTION_RESUME.equals(videoEvent.getAction()) || ControlEvent.ACTION_SHOW_TIP.equals(videoEvent.getAction()) || ControlEvent.ACTION_START.equals(videoEvent.getAction())) {
-                toggleVisible(false);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.layer.ElementLayer, android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f090427 || view2.getId() == R.id.obfuscated_res_0x7f091b0a) {
-                onRetryClick();
-            }
+        super.onControlEventNotify(videoEvent);
+        if (ControlEvent.ACTION_RESUME.equals(videoEvent.getAction()) || ControlEvent.ACTION_SHOW_TIP.equals(videoEvent.getAction()) || ControlEvent.ACTION_START.equals(videoEvent.getAction())) {
+            toggleVisible(false);
         }
     }
 
     @Override // com.baidu.searchbox.player.layer.ElementLayer, com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.interfaces.INeuron
     public void onLayerEventNotify(@NonNull VideoEvent videoEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, videoEvent) == null) {
-            super.onLayerEventNotify(videoEvent);
-            if (LayerEvent.ACTION_SWITCH_FLOATING.equals(videoEvent.getAction())) {
-                toggleVisible(false);
-            }
+        super.onLayerEventNotify(videoEvent);
+        if (LayerEvent.ACTION_SWITCH_FLOATING.equals(videoEvent.getAction())) {
+            toggleVisible(false);
         }
     }
 
     @Override // com.baidu.searchbox.player.layer.ElementLayer, com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.interfaces.INeuron
     public void onPlayerEventNotify(@NonNull VideoEvent videoEvent) {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, videoEvent) == null) {
-            super.onPlayerEventNotify(videoEvent);
-            if (getBindPlayer() instanceof UniversalPlayer) {
-                z = ((UniversalPlayer) getBindPlayer()).isFloatingMode();
+        super.onPlayerEventNotify(videoEvent);
+        if (getBindPlayer() instanceof UniversalPlayer) {
+            z = ((UniversalPlayer) getBindPlayer()).isFloatingMode();
+        } else {
+            z = false;
+        }
+        if (PlayerEvent.ACTION_ON_ERROR.equals(videoEvent.getAction()) && !z) {
+            if (NetUtils.isNetDown()) {
+                detachElementView(this.mKernelErrorElement);
+                attachElementView(this.mNetErrorElement);
             } else {
-                z = false;
+                detachElementView(this.mNetErrorElement);
+                attachElementView(this.mKernelErrorElement);
             }
-            if (PlayerEvent.ACTION_ON_ERROR.equals(videoEvent.getAction()) && !z) {
-                if (NetUtils.isNetDown()) {
-                    detachElementView(this.mKernelErrorElement);
-                    attachElementView(this.mNetErrorElement);
-                } else {
-                    detachElementView(this.mNetErrorElement);
-                    attachElementView(this.mKernelErrorElement);
-                }
-                toggleVisible(true);
-            }
+            toggleVisible(true);
         }
     }
 
     @Override // com.baidu.searchbox.player.layer.ElementLayer, com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.interfaces.INeuron
     public void onPlayerStatusChanged(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, playerStatus, playerStatus2) == null) {
-            super.onPlayerStatusChanged(playerStatus, playerStatus2);
-            if (playerStatus == PlayerStatus.PLAYING || playerStatus == PlayerStatus.PREPARING) {
-                toggleVisible(false);
-            }
+        super.onPlayerStatusChanged(playerStatus, playerStatus2);
+        if (playerStatus == PlayerStatus.PLAYING || playerStatus == PlayerStatus.PREPARING) {
+            toggleVisible(false);
         }
     }
 }

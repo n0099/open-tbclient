@@ -3,13 +3,6 @@ package com.kwad.components.core.response.model;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.KsScene;
 import com.kwad.sdk.core.a.d;
 import com.kwad.sdk.core.b;
@@ -29,10 +22,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class AdResultData extends BaseResultData implements b {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AdResultData";
     public static final long serialVersionUID = -818939163644825380L;
-    public transient /* synthetic */ FieldHolder $fh;
     public List<AdTemplate> mAdTemplateList;
     @Nullable
     public String mOriginalJson;
@@ -41,37 +32,11 @@ public class AdResultData extends BaseResultData implements b {
     public String pcursor;
 
     public AdResultData() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.pageInfo = new PageInfo();
         this.mAdTemplateList = new ArrayList();
     }
 
     public AdResultData(KsScene ksScene) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ksScene};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.pageInfo = new PageInfo();
         this.mAdTemplateList = new ArrayList();
         if (ksScene != null) {
@@ -81,24 +46,8 @@ public class AdResultData extends BaseResultData implements b {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AdResultData(BaseResultData baseResultData, KsScene ksScene, List<AdTemplate> list) {
         this(ksScene);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseResultData, ksScene, list};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((KsScene) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         super.parseJson(baseResultData.baseToJson());
         if (list != null) {
             getAdTemplateList().addAll(list);
@@ -106,282 +55,201 @@ public class AdResultData extends BaseResultData implements b {
     }
 
     public AdResultData(List<KsScene> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
         this.pageInfo = new PageInfo();
         this.mAdTemplateList = new ArrayList();
         setRequestAdSceneList(list);
     }
 
     public static AdResultData createFromResponseJson(String str, SceneImpl sceneImpl) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, sceneImpl)) == null) {
-            JSONObject jSONObject = new JSONObject(str);
-            AdResultData adResultData = new AdResultData(sceneImpl);
-            adResultData.parseJson(jSONObject);
-            adResultData.mOriginalJson = str;
-            return adResultData;
-        }
-        return (AdResultData) invokeLL.objValue;
+        JSONObject jSONObject = new JSONObject(str);
+        AdResultData adResultData = new AdResultData(sceneImpl);
+        adResultData.parseJson(jSONObject);
+        adResultData.mOriginalJson = str;
+        return adResultData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @NonNull
     /* renamed from: clone */
-    public AdResultData m90clone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            AdResultData adResultData = new AdResultData();
-            try {
-                adResultData.parseJson(new JSONObject(toJson().toString()));
-                return adResultData;
-            } catch (JSONException e) {
-                com.kwad.sdk.core.e.b.printStackTraceOnly(e);
-                return adResultData;
-            }
+    public AdResultData m91clone() {
+        AdResultData adResultData = new AdResultData();
+        try {
+            adResultData.parseJson(new JSONObject(toJson().toString()));
+            return adResultData;
+        } catch (JSONException e) {
+            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
+            return adResultData;
         }
-        return (AdResultData) invokeV.objValue;
     }
 
     public SceneImpl getAdScene(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            Map<Long, SceneImpl> map = this.mRequestAdSceneMap;
-            SceneImpl sceneImpl = map != null ? map.get(Long.valueOf(j)) : null;
-            return sceneImpl == null ? new SceneImpl(j) : sceneImpl;
-        }
-        return (SceneImpl) invokeJ.objValue;
+        Map<Long, SceneImpl> map = this.mRequestAdSceneMap;
+        SceneImpl sceneImpl = map != null ? map.get(Long.valueOf(j)) : null;
+        return sceneImpl == null ? new SceneImpl(j) : sceneImpl;
     }
 
     public List<AdTemplate> getAdTemplateList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAdTemplateList : (List) invokeV.objValue;
+        return this.mAdTemplateList;
     }
 
     public SceneImpl getDefaultAdScene() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getAdScene(getPosId()) : (SceneImpl) invokeV.objValue;
+        return getAdScene(getPosId());
     }
 
     public AdTemplate getFirstAdTemplate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<AdTemplate> adTemplateList = getAdTemplateList();
-            if (adTemplateList == null || adTemplateList.size() == 0) {
-                return null;
-            }
-            return adTemplateList.get(0);
+        List<AdTemplate> adTemplateList = getAdTemplateList();
+        if (adTemplateList == null || adTemplateList.size() == 0) {
+            return null;
         }
-        return (AdTemplate) invokeV.objValue;
+        return adTemplateList.get(0);
     }
 
     public long getPosId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<AdTemplate> proceedTemplateList = getProceedTemplateList();
-            if (proceedTemplateList.size() == 0) {
-                return 0L;
-            }
-            return proceedTemplateList.get(0).posId;
+        List<AdTemplate> proceedTemplateList = getProceedTemplateList();
+        if (proceedTemplateList.size() == 0) {
+            return 0L;
         }
-        return invokeV.longValue;
+        return proceedTemplateList.get(0).posId;
     }
 
     @NonNull
     public List<AdTemplate> getProceedTemplateList() {
-        InterceptResult invokeV;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            List<AdTemplate> adTemplateList = getAdTemplateList();
-            if (adTemplateList == null) {
-                return arrayList;
-            }
-            int size = adTemplateList.size();
-            int i2 = 0;
-            while (i2 < size) {
-                AdTemplate adTemplate = adTemplateList.get(i2);
-                if (com.kwad.sdk.core.response.a.b.bx(adTemplate) && (i = i2 + 1) < size) {
-                    AdTemplate adTemplate2 = adTemplateList.get(i);
-                    adTemplate.mPlayAgain = adTemplate2;
-                    adTemplate2.isPlayAgainData = true;
-                    i2 = i;
-                }
-                arrayList.add(adTemplate);
-                i2++;
-            }
+        ArrayList arrayList = new ArrayList();
+        List<AdTemplate> adTemplateList = getAdTemplateList();
+        if (adTemplateList == null) {
             return arrayList;
         }
-        return (List) invokeV.objValue;
+        int size = adTemplateList.size();
+        int i2 = 0;
+        while (i2 < size) {
+            AdTemplate adTemplate = adTemplateList.get(i2);
+            if (com.kwad.sdk.core.response.a.b.bx(adTemplate) && (i = i2 + 1) < size) {
+                AdTemplate adTemplate2 = adTemplateList.get(i);
+                adTemplate.mPlayAgain = adTemplate2;
+                adTemplate2.isPlayAgainData = true;
+                i2 = i;
+            }
+            arrayList.add(adTemplate);
+            i2++;
+        }
+        return arrayList;
     }
 
     public String getResponseJson() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            String str = this.mOriginalJson;
-            if (str != null) {
-                return str;
-            }
-            JSONObject json = super.toJson();
-            r.putValue(json, "pcursor", this.pcursor);
-            r.a(json, "pageInfo", this.pageInfo);
-            r.putValue(json, "impAdInfo", d.bM(r.B(getAdTemplateList()).toString()));
-            return json.toString();
+        String str = this.mOriginalJson;
+        if (str != null) {
+            return str;
         }
-        return (String) invokeV.objValue;
+        JSONObject json = super.toJson();
+        r.putValue(json, "pcursor", this.pcursor);
+        r.a(json, "pageInfo", this.pageInfo);
+        r.putValue(json, "impAdInfo", d.bM(r.B(getAdTemplateList()).toString()));
+        return json.toString();
     }
 
     public boolean isAdResultDataEmpty() {
-        InterceptResult invokeV;
         String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            List<AdTemplate> adTemplateList = getAdTemplateList();
-            if (adTemplateList.isEmpty()) {
-                str = "adTemplateList is empty";
+        List<AdTemplate> adTemplateList = getAdTemplateList();
+        if (adTemplateList.isEmpty()) {
+            str = "adTemplateList is empty";
+        } else {
+            com.kwad.sdk.core.e.b.d(TAG, "adTemplateList size = " + adTemplateList.size());
+            List<AdInfo> list = adTemplateList.get(0).adInfoList;
+            if (list.isEmpty()) {
+                str = "adInfoList is empty";
+            } else if (list.get(0) != null) {
+                return false;
             } else {
-                com.kwad.sdk.core.e.b.d(TAG, "adTemplateList size = " + adTemplateList.size());
-                List<AdInfo> list = adTemplateList.get(0).adInfoList;
-                if (list.isEmpty()) {
-                    str = "adInfoList is empty";
-                } else if (list.get(0) != null) {
-                    return false;
-                } else {
-                    str = "adInfo is null";
-                }
+                str = "adInfo is null";
             }
-            com.kwad.sdk.core.e.b.e(TAG, str);
-            return true;
         }
-        return invokeV.booleanValue;
+        com.kwad.sdk.core.e.b.e(TAG, str);
+        return true;
     }
 
     public boolean isBidding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            List<AdTemplate> proceedTemplateList = getProceedTemplateList();
-            return proceedTemplateList.size() != 0 && com.kwad.sdk.core.response.a.d.cf(proceedTemplateList.get(0)) > 0;
-        }
-        return invokeV.booleanValue;
+        List<AdTemplate> proceedTemplateList = getProceedTemplateList();
+        return proceedTemplateList.size() != 0 && com.kwad.sdk.core.response.a.d.cf(proceedTemplateList.get(0)) > 0;
     }
 
     @Override // com.kwad.sdk.core.network.BaseResultData
     public boolean isDataEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return false;
     }
 
     @Override // com.kwad.sdk.core.network.BaseResultData, com.kwad.sdk.core.b
     public void parseJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
-            super.parseJson(jSONObject);
-            if (jSONObject == null) {
-                return;
-            }
+        super.parseJson(jSONObject);
+        if (jSONObject == null) {
+            return;
+        }
+        try {
+            this.pcursor = jSONObject.optString("pcursor");
             try {
-                this.pcursor = jSONObject.optString("pcursor");
-                try {
-                    String optString = jSONObject.optString("pageInfo");
-                    if (!ax.dT(optString)) {
-                        this.pageInfo.parseJson(new JSONObject(d.getResponseData(optString)));
-                    }
-                } catch (Exception e) {
-                    com.kwad.sdk.core.e.b.d("json bug", e.toString());
-                    com.kwad.sdk.core.e.b.printStackTrace(e);
+                String optString = jSONObject.optString("pageInfo");
+                if (!ax.dT(optString)) {
+                    this.pageInfo.parseJson(new JSONObject(d.getResponseData(optString)));
                 }
-                String optString2 = jSONObject.optString("impAdInfo");
-                if (!TextUtils.isEmpty(optString2)) {
-                    String responseData = d.getResponseData(optString2);
-                    if (!ax.dT(responseData)) {
-                        try {
-                            JSONArray jSONArray = new JSONArray(responseData);
-                            if (jSONArray.length() > 0) {
-                                for (int i = 0; i < jSONArray.length(); i++) {
-                                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                                    if (optJSONObject != null) {
-                                        AdTemplate adTemplate = new AdTemplate();
-                                        adTemplate.parseJson(optJSONObject);
-                                        adTemplate.llsid = this.llsid;
-                                        adTemplate.extra = this.extra;
-                                        adTemplate.mAdScene = getAdScene(adTemplate.posId);
-                                        adTemplate.mPageInfo = this.pageInfo;
-                                        this.mAdTemplateList.add(adTemplate);
-                                    }
+            } catch (Exception e) {
+                com.kwad.sdk.core.e.b.d("json bug", e.toString());
+                com.kwad.sdk.core.e.b.printStackTrace(e);
+            }
+            String optString2 = jSONObject.optString("impAdInfo");
+            if (!TextUtils.isEmpty(optString2)) {
+                String responseData = d.getResponseData(optString2);
+                if (!ax.dT(responseData)) {
+                    try {
+                        JSONArray jSONArray = new JSONArray(responseData);
+                        if (jSONArray.length() > 0) {
+                            for (int i = 0; i < jSONArray.length(); i++) {
+                                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                                if (optJSONObject != null) {
+                                    AdTemplate adTemplate = new AdTemplate();
+                                    adTemplate.parseJson(optJSONObject);
+                                    adTemplate.llsid = this.llsid;
+                                    adTemplate.extra = this.extra;
+                                    adTemplate.mAdScene = getAdScene(adTemplate.posId);
+                                    adTemplate.mPageInfo = this.pageInfo;
+                                    this.mAdTemplateList.add(adTemplate);
                                 }
                             }
-                        } catch (JSONException e2) {
-                            com.kwad.sdk.core.e.b.printStackTraceOnly(e2);
                         }
+                    } catch (JSONException e2) {
+                        com.kwad.sdk.core.e.b.printStackTraceOnly(e2);
                     }
                 }
-                if (com.kwad.sdk.core.e.b.XL) {
-                    com.kwad.sdk.core.e.b.d(TAG, toJson().toString());
-                }
-            } catch (Exception e3) {
-                com.kwad.sdk.core.e.b.printStackTrace(e3);
-                com.kwad.sdk.core.e.b.d("json bug", e3.toString());
             }
+            if (com.kwad.sdk.core.e.b.XL) {
+                com.kwad.sdk.core.e.b.d(TAG, toJson().toString());
+            }
+        } catch (Exception e3) {
+            com.kwad.sdk.core.e.b.printStackTrace(e3);
+            com.kwad.sdk.core.e.b.d("json bug", e3.toString());
         }
     }
 
     public void setAdTemplateList(List<AdTemplate> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
-            this.mAdTemplateList = list;
-        }
+        this.mAdTemplateList = list;
     }
 
     public void setRequestAdSceneList(List<KsScene> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, list) == null) || list == null) {
-            return;
-        }
-        this.mRequestAdSceneMap = new HashMap(list.size());
-        for (KsScene ksScene : list) {
-            if (ksScene != null) {
-                this.mRequestAdSceneMap.put(Long.valueOf(ksScene.getPosId()), (SceneImpl) ksScene);
+        if (list != null) {
+            this.mRequestAdSceneMap = new HashMap(list.size());
+            for (KsScene ksScene : list) {
+                if (ksScene != null) {
+                    this.mRequestAdSceneMap.put(Long.valueOf(ksScene.getPosId()), (SceneImpl) ksScene);
+                }
             }
         }
     }
 
     @Override // com.kwad.sdk.core.network.BaseResultData, com.kwad.sdk.core.b
     public JSONObject toJson() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            JSONObject json = super.toJson();
-            r.putValue(json, "pcursor", this.pcursor);
-            r.a(json, "pageInfo", this.pageInfo);
-            r.putValue(json, "impAdInfo", getAdTemplateList());
-            return json;
-        }
-        return (JSONObject) invokeV.objValue;
+        JSONObject json = super.toJson();
+        r.putValue(json, "pcursor", this.pcursor);
+        r.a(json, "pageInfo", this.pageInfo);
+        r.putValue(json, "impAdInfo", getAdTemplateList());
+        return json;
     }
 }

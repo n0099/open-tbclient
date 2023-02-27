@@ -1,11 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IBaseJsonResponse;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.BannerConfigItem;
@@ -15,122 +9,86 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GetBannerConfigResponse implements IBaseJsonResponse {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public List<BannerConfigItem> bannerConfigItemList;
-    public int cmd;
     public String expand;
     public String message;
     public int result;
     public String seq;
     public long uid;
+    public int cmd = RevenueServerConst.GetBannerConfigResponse;
+    public List<BannerConfigItem> bannerConfigItemList = new ArrayList();
 
     public GetBannerConfigResponse(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.cmd = RevenueServerConst.GetBannerConfigResponse;
-        this.bannerConfigItemList = new ArrayList();
         parserResponse(str);
     }
 
     public BannerConfigResult getResponse() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new BannerConfigResult(this.bannerConfigItemList);
-        }
-        return (BannerConfigResult) invokeV.objValue;
+        return new BannerConfigResult(this.bannerConfigItemList);
     }
 
     public List<BannerConfigItem> optBannerConfigItemList(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (jSONArray == null) {
-                return arrayList;
-            }
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    BannerConfigItem bannerConfigItem = new BannerConfigItem();
-                    bannerConfigItem.type = optJSONObject.optInt("type");
-                    bannerConfigItem.autoPlayTime = optJSONObject.optInt("autoPlayTime");
-                    ArrayList arrayList2 = new ArrayList();
-                    bannerConfigItem.bannerInfoList = arrayList2;
-                    arrayList2.addAll(optBannerInfoList(optJSONObject.optJSONArray("bannerInfoList")));
-                    arrayList.add(bannerConfigItem);
-                }
-            }
+        ArrayList arrayList = new ArrayList();
+        if (jSONArray == null) {
             return arrayList;
         }
-        return (List) invokeL.objValue;
+        int length = jSONArray.length();
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(i);
+            if (optJSONObject != null) {
+                BannerConfigItem bannerConfigItem = new BannerConfigItem();
+                bannerConfigItem.type = optJSONObject.optInt("type");
+                bannerConfigItem.autoPlayTime = optJSONObject.optInt("autoPlayTime");
+                ArrayList arrayList2 = new ArrayList();
+                bannerConfigItem.bannerInfoList = arrayList2;
+                arrayList2.addAll(optBannerInfoList(optJSONObject.optJSONArray("bannerInfoList")));
+                arrayList.add(bannerConfigItem);
+            }
+        }
+        return arrayList;
     }
 
     public List<BannerConfigItem.BannerInfo> optBannerInfoList(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (jSONArray == null) {
-                return arrayList;
-            }
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    BannerConfigItem.BannerInfo bannerInfo = new BannerConfigItem.BannerInfo();
-                    bannerInfo.id = optJSONObject.optString("id");
-                    bannerInfo.imageUrl = optJSONObject.optString("imageUrl");
-                    bannerInfo.jumpData = optJSONObject.optString("jumpData");
-                    bannerInfo.jumpType = optJSONObject.optInt("jumpType");
-                    arrayList.add(bannerInfo);
-                }
-            }
+        ArrayList arrayList = new ArrayList();
+        if (jSONArray == null) {
             return arrayList;
         }
-        return (List) invokeL.objValue;
+        int length = jSONArray.length();
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(i);
+            if (optJSONObject != null) {
+                BannerConfigItem.BannerInfo bannerInfo = new BannerConfigItem.BannerInfo();
+                bannerInfo.id = optJSONObject.optString("id");
+                bannerInfo.imageUrl = optJSONObject.optString("imageUrl");
+                bannerInfo.jumpData = optJSONObject.optString("jumpData");
+                bannerInfo.jumpType = optJSONObject.optInt("jumpType");
+                arrayList.add(bannerInfo);
+            }
+        }
+        return arrayList;
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IBaseJsonResponse
     public void parserResponse(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (str != null && !"".equals(str.trim())) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    int optInt = jSONObject.optInt("cmd");
-                    if (this.cmd == optInt) {
-                        this.result = jSONObject.optInt("result");
-                        this.uid = jSONObject.optLong("uid");
-                        this.seq = jSONObject.optString("seq");
-                        this.expand = jSONObject.optString("expand");
-                        this.message = jSONObject.optString("message");
-                        this.bannerConfigItemList.addAll(optBannerConfigItemList(jSONObject.optJSONArray("confList")));
-                        return;
-                    }
-                    throw new Exception(this.cmd + " != " + optInt);
-                } catch (Exception e) {
-                    RLog.error("GetBannerConfigResponse", "parserResponse error.", e);
+        if (str != null && !"".equals(str.trim())) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                int optInt = jSONObject.optInt("cmd");
+                if (this.cmd == optInt) {
+                    this.result = jSONObject.optInt("result");
+                    this.uid = jSONObject.optLong("uid");
+                    this.seq = jSONObject.optString("seq");
+                    this.expand = jSONObject.optString("expand");
+                    this.message = jSONObject.optString("message");
+                    this.bannerConfigItemList.addAll(optBannerConfigItemList(jSONObject.optJSONArray("confList")));
                     return;
                 }
+                throw new Exception(this.cmd + " != " + optInt);
+            } catch (Exception e) {
+                RLog.error("GetBannerConfigResponse", "parserResponse error.", e);
+                return;
             }
-            RLog.error("ChargeCurrencyResponse", "parserResponse error, jsonMsg is empty.", new Object[0]);
         }
+        RLog.error("ChargeCurrencyResponse", "parserResponse error, jsonMsg is empty.", new Object[0]);
     }
 }

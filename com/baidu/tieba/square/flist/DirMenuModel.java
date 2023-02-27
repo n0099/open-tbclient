@@ -9,10 +9,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.i05;
+import com.baidu.tieba.c39;
+import com.baidu.tieba.d39;
 import com.baidu.tieba.jf;
-import com.baidu.tieba.qz8;
-import com.baidu.tieba.rz8;
+import com.baidu.tieba.p15;
 import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -39,15 +39,15 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
 
     /* loaded from: classes6.dex */
     public interface c {
-        void a(boolean z, int i, rz8 rz8Var, String str, boolean z2);
+        void a(boolean z, int i, d39 d39Var, String str, boolean z2);
     }
 
     /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<Object, Integer, qz8> {
+    public class b extends BdAsyncTask<Object, Integer, c39> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
-        public qz8 b;
+        public c39 b;
         public final /* synthetic */ DirMenuModel c;
 
         public b(DirMenuModel dirMenuModel) {
@@ -67,7 +67,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             }
             this.c = dirMenuModel;
             this.a = null;
-            this.b = new qz8();
+            this.b = new c39();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,14 +90,14 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public qz8 doInBackground(Object... objArr) {
+        public c39 doInBackground(Object... objArr) {
             InterceptResult invokeL;
             String str;
             String postNetData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                i05.d();
-                jf<String> e = i05.e("tb.my_posts");
+                p15.d();
+                jf<String> e = p15.e("tb.my_posts");
                 if (e != null) {
                     str = e.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.c.c + "_dir");
                 } else {
@@ -134,19 +134,19 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
                 }
                 return this.b;
             }
-            return (qz8) invokeL.objValue;
+            return (c39) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(qz8 qz8Var) {
+        public void onPostExecute(c39 c39Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qz8Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c39Var) == null) {
                 if (!this.c.f) {
-                    this.c.b.a(false, -1, null, qz8Var.b(), this.c.g);
-                } else if (qz8Var.h() != null) {
-                    this.c.b.a(true, qz8Var.a(), qz8Var.h(), qz8Var.b(), this.c.g);
+                    this.c.b.a(false, -1, null, c39Var.b(), this.c.g);
+                } else if (c39Var.h() != null) {
+                    this.c.b.a(true, c39Var.a(), c39Var.h(), c39Var.b(), this.c.g);
                 }
             }
         }
@@ -190,7 +190,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         this.e = str3;
     }
 
-    public void O(c cVar) {
+    public void V(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
             this.b = cVar;

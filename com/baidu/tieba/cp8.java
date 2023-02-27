@@ -1,87 +1,125 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.widget.MediaController;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class cp8 {
     public static /* synthetic */ Interceptable $ic;
+    public static cp8 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public MediaController.MediaPlayerControl c;
-    public b d;
-    public d e;
-    public c f;
-    public Handler g;
+    public long a;
+    public long b;
+    public long c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a();
-    }
-
-    /* loaded from: classes4.dex */
-    public interface c {
-        void a(int i, int i2);
-    }
-
-    /* loaded from: classes4.dex */
-    public interface d {
-        void a();
-    }
-
-    /* loaded from: classes4.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cp8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(cp8 cp8Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947682558, "Lcom/baidu/tieba/cp8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cp8Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = cp8Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947682558, "Lcom/baidu/tieba/cp8;");
+                return;
+            }
         }
+        h = new cp8();
+    }
 
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message != null && message.what == 1 && this.a.c != null && this.a.c.isPlaying()) {
-                int currentPosition = this.a.c.getCurrentPosition();
-                int duration = this.a.c.getDuration();
-                if (currentPosition < this.a.b) {
-                    if (this.a.d != null) {
-                        this.a.d.a();
-                    }
-                } else if (currentPosition == this.a.b && this.a.e != null) {
-                    this.a.e.a();
-                }
-                if (this.a.f != null) {
-                    this.a.f.a(duration, currentPosition);
-                }
-                this.a.b = currentPosition;
-                this.a.h();
-            }
+    public static cp8 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return h;
+        }
+        return (cp8) invokeV.objValue;
+    }
+
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
+        }
+        return invokeV.longValue;
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    public long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    public long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
+        }
+        return invokeV.longValue;
+    }
+
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return invokeV.longValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.a = 0L;
+            this.b = 0L;
+            this.c = 0L;
+            this.d = 0L;
+            this.e = 0L;
+            this.f = 0L;
+            this.g = 0L;
         }
     }
 
@@ -89,69 +127,92 @@ public class cp8 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 1000;
-        this.b = 0;
-        this.g = new a(this, Looper.getMainLooper());
+        this.a = 0L;
+        this.b = 0L;
+        this.c = 0L;
+        this.d = 0L;
+        this.e = 0L;
+        this.f = 0L;
+        this.g = 0L;
     }
 
-    public void i(b bVar) {
+    public void j(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.e = j;
         }
     }
 
-    public void j(c cVar) {
+    public void k(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f = cVar;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.a = j;
         }
     }
 
-    public void k(d dVar) {
+    public void l(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
-            this.e = dVar;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.d = j;
         }
     }
 
-    public void l(MediaController.MediaPlayerControl mediaPlayerControl) {
+    public void m(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mediaPlayerControl) == null) {
-            this.c = mediaPlayerControl;
+        if ((interceptable == null || interceptable.invokeJ(1048587, this, j) == null) && this.b == 0) {
+            this.b = j;
         }
     }
 
-    public final void h() {
+    public void n(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g.removeMessages(1);
-            Handler handler = this.g;
-            handler.sendMessageDelayed(handler.obtainMessage(1), this.a);
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            this.c = j;
         }
     }
 
-    public void m() {
+    public void o(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = 0;
-            h();
+        if ((interceptable == null || interceptable.invokeJ(1048589, this, j) == null) && this.g == 0) {
+            this.g = j;
         }
     }
 
-    public void n() {
+    public void p(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.g.removeMessages(1);
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            this.f = j;
         }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(" beginTime:");
+            stringBuffer.append(this.e);
+            stringBuffer.append(" creatTime:");
+            stringBuffer.append(this.a);
+            stringBuffer.append(" refreshStartTime:");
+            stringBuffer.append(this.g);
+            stringBuffer.append(" refrehTime:");
+            stringBuffer.append(this.f);
+            stringBuffer.append(" drawTime:");
+            stringBuffer.append(this.d);
+            stringBuffer.append(" profileTime:");
+            stringBuffer.append(this.c);
+            return stringBuffer.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -6,23 +6,13 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase;
-import com.baidu.tieba.gp1;
-import com.baidu.tieba.i73;
-import com.baidu.tieba.pn4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.fo4;
+import com.baidu.tieba.wp1;
+import com.baidu.tieba.y73;
 /* loaded from: classes3.dex */
 public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<T> {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean y;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final boolean y = wp1.a;
     public a w;
     public boolean x;
 
@@ -33,172 +23,71 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-699554851, "Lcom/baidu/swan/apps/core/container/PullToRefreshBaseWebView;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-699554851, "Lcom/baidu/swan/apps/core/container/PullToRefreshBaseWebView;");
-                return;
-            }
-        }
-        y = gp1.a;
+        return false;
     }
 
     public boolean N() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.x;
-        }
-        return invokeV.booleanValue;
+        return this.x;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PullToRefreshBaseWebView(Context context) {
         this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PullToRefreshBaseWebView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.x = false;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PullToRefreshBaseWebView(Context context, i73<T> i73Var, PullToRefreshBase.HEADERTYPE headertype) {
-        super(context, i73Var, headertype);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, i73Var, headertype};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (i73) objArr2[1], (PullToRefreshBase.HEADERTYPE) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.x = false;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action == 1 || action == 3) {
-                this.x = false;
-            }
-            return super.dispatchTouchEvent(motionEvent);
+        int action = motionEvent.getAction();
+        if (action == 1 || action == 3) {
+            this.x = false;
         }
-        return invokeL.booleanValue;
+        return super.dispatchTouchEvent(motionEvent);
     }
 
     @SuppressLint({"KotlinPropertyAccess"})
     public void setIsPreventPullToRefresh(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.x = z;
-        }
+        this.x = z;
     }
 
     public void setOnPullToRefreshScrollChangeListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.w = aVar;
-        }
+        this.w = aVar;
+    }
+
+    public PullToRefreshBaseWebView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.x = false;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     public T j(Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet)) == null) {
-            return getRefreshableFactory().S(context);
-        }
-        return (T) invokeLL.objValue;
+        return getRefreshableFactory().S(context);
+    }
+
+    public PullToRefreshBaseWebView(Context context, y73<T> y73Var, PullToRefreshBase.HEADERTYPE headertype) {
+        super(context, y73Var, headertype);
+        this.x = false;
     }
 
     @Override // android.view.View
     public void onScrollChanged(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) {
-            super.onScrollChanged(i, i2, i3, i4);
-            a aVar = this.w;
-            if (aVar != null) {
-                aVar.b(i, i2, i3, i4);
-            }
+        super.onScrollChanged(i, i2, i3, i4);
+        a aVar = this.w;
+        if (aVar != null) {
+            aVar.b(i, i2, i3, i4);
         }
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.p == null) {
-                return false;
-            }
-            if (getScrollYValue() == 0 && this.x) {
-                return false;
-            }
-            boolean a2 = pn4.a(this.p, -1);
-            if (y) {
-                Log.d("PullToRefreshWebView", "isReadyForPullDown result: " + a2);
-            }
-            return !a2;
+        if (this.p == null) {
+            return false;
         }
-        return invokeV.booleanValue;
+        if (getScrollYValue() == 0 && this.x) {
+            return false;
+        }
+        boolean a2 = fo4.a(this.p, -1);
+        if (y) {
+            Log.d("PullToRefreshWebView", "isReadyForPullDown result: " + a2);
+        }
+        return !a2;
     }
 }

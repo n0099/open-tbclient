@@ -6,29 +6,20 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
 public final class j {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     public static void a(com.kwad.components.core.widget.f fVar, Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, fVar, drawable) == null) {
-            if (drawable instanceof ShapeDrawable) {
-                ((ShapeDrawable) drawable).getPaint().setColor(fVar.qh());
-            } else if (drawable instanceof ColorDrawable) {
-                ((ColorDrawable) drawable).setColor(fVar.qh());
-            } else if (drawable instanceof GradientDrawable) {
-                ((GradientDrawable) drawable).setColor(fVar.qh());
-            }
+        if (drawable instanceof ShapeDrawable) {
+            ((ShapeDrawable) drawable).getPaint().setColor(fVar.qh());
+        } else if (drawable instanceof ColorDrawable) {
+            ((ColorDrawable) drawable).setColor(fVar.qh());
+        } else if (drawable instanceof GradientDrawable) {
+            ((GradientDrawable) drawable).setColor(fVar.qh());
         }
     }
 
     public static void a(com.kwad.components.core.widget.f fVar, ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, fVar, viewGroup) == null) || fVar == null || viewGroup == null) {
+        if (fVar == null || viewGroup == null) {
             return;
         }
         int childCount = viewGroup.getChildCount();

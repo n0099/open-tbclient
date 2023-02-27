@@ -12,53 +12,42 @@ import android.view.View;
 import android.view.ViewParent;
 import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.widget.SlideHelper;
 import com.baidu.nadcore.widget.SlideInterceptor;
 import com.baidu.nadcore.widget.SlidingPaneLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ah0;
-import com.baidu.tieba.b51;
-import com.baidu.tieba.ck0;
-import com.baidu.tieba.g41;
-import com.baidu.tieba.q51;
-import com.baidu.tieba.xb1;
-import com.baidu.tieba.yg0;
-import com.baidu.tieba.zb1;
-import com.baidu.tieba.zn0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.ch0;
+import com.baidu.tieba.do0;
+import com.baidu.tieba.eh0;
+import com.baidu.tieba.gk0;
+import com.baidu.tieba.hc1;
+import com.baidu.tieba.j51;
+import com.baidu.tieba.jc1;
+import com.baidu.tieba.n41;
+import com.baidu.tieba.y51;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class BaseActivity extends FragmentActivity {
-    public static /* synthetic */ Interceptable $ic;
     public static int o;
     public static int p;
     public static int q;
     public static int r;
     public static boolean s;
-    public static ArrayList<d> t;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
+    public static ArrayList<d> t = new ArrayList<>();
+    public int a = 0;
+    public int b = 0;
+    public int c = 0;
+    public int d = 0;
+    public boolean e = true;
+    public boolean f = false;
+    public boolean g = true;
+    public boolean h = false;
+    public boolean i = false;
     public SlideInterceptor j;
     public SlideHelper k;
     public SlidingPaneLayout.e l;
@@ -72,583 +61,347 @@ public class BaseActivity extends FragmentActivity {
 
     @CallSuper
     public void A1(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
-        }
     }
 
     @CallSuper
     public void C1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
     }
 
     @CallSuper
     public void D1(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-        }
     }
 
     @CallSuper
     public void E1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
     }
 
     @CallSuper
     public void F1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
     }
 
     @CallSuper
     public void G1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
     }
 
     @CallSuper
     public void H1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
     }
 
     @CallSuper
     public boolean I1(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bundle)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
+        return true;
     }
 
     @CallSuper
     public void y1(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, bundle) == null) {
-        }
     }
 
     @CallSuper
     public void z1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
-        }
     }
 
     /* loaded from: classes2.dex */
-    public class a implements xb1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BaseActivity a;
-
-        @Override // com.baidu.tieba.xb1
+    public class a implements hc1 {
+        @Override // com.baidu.tieba.hc1
         public void onTranslucent(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            }
         }
 
-        public a(BaseActivity baseActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {baseActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = baseActivity;
+        public a() {
         }
     }
 
     /* loaded from: classes2.dex */
     public class b implements SlidingPaneLayout.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
+        public boolean a = true;
         public final /* synthetic */ int b;
-        public final /* synthetic */ BaseActivity c;
 
-        public b(BaseActivity baseActivity, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {baseActivity, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = baseActivity;
+        public b(int i) {
             this.b = i;
-            this.a = true;
         }
 
         @Override // com.baidu.nadcore.widget.SlidingPaneLayout.e
         public void onPanelClosed(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.c.n != null) {
-                    this.c.n.onPanelClosed(view2);
-                }
-                if (this.c.l != null) {
-                    this.c.l.onPanelClosed(view2);
-                }
-                if (!this.c.g && !this.c.i && this.a) {
-                    this.a = false;
-                    zb1.c(this.c, null);
-                }
-                this.c.Q1(0.0f);
+            if (BaseActivity.this.n != null) {
+                BaseActivity.this.n.onPanelClosed(view2);
             }
+            if (BaseActivity.this.l != null) {
+                BaseActivity.this.l.onPanelClosed(view2);
+            }
+            if (!BaseActivity.this.g && !BaseActivity.this.i && this.a) {
+                this.a = false;
+                jc1.c(BaseActivity.this, null);
+            }
+            BaseActivity.this.Q1(0.0f);
         }
 
         @Override // com.baidu.nadcore.widget.SlidingPaneLayout.e
         public void onPanelOpened(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-                if (this.c.n != null) {
-                    this.c.n.onPanelOpened(view2);
-                }
-                if (this.c.l != null) {
-                    this.c.l.onPanelOpened(view2);
-                }
-                this.c.Q1(0.0f);
-                this.c.k.setShadowDrawable(null);
-                this.c.finish();
-                this.c.overridePendingTransition(0, 0);
+            if (BaseActivity.this.n != null) {
+                BaseActivity.this.n.onPanelOpened(view2);
             }
+            if (BaseActivity.this.l != null) {
+                BaseActivity.this.l.onPanelOpened(view2);
+            }
+            BaseActivity.this.Q1(0.0f);
+            BaseActivity.this.k.setShadowDrawable(null);
+            BaseActivity.this.finish();
+            BaseActivity.this.overridePendingTransition(0, 0);
         }
 
         @Override // com.baidu.nadcore.widget.SlidingPaneLayout.e
         public void onPanelSlide(View view2, float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view2, f) == null) {
-                View maskView = this.c.k.getMaskView();
-                if (maskView != null) {
-                    float f2 = 1.0f - f;
-                    if (f2 < 0.0f) {
-                        f2 = 0.0f;
-                    }
-                    maskView.setAlpha(f2);
+            View maskView = BaseActivity.this.k.getMaskView();
+            if (maskView != null) {
+                float f2 = 1.0f - f;
+                if (f2 < 0.0f) {
+                    f2 = 0.0f;
                 }
-                if (this.c.n != null) {
-                    this.c.n.onPanelSlide(view2, f);
-                }
-                if (this.c.l != null) {
-                    this.c.l.onPanelSlide(view2, f);
-                }
-                if (!this.c.g && !this.c.i && !this.a) {
-                    this.a = true;
-                    zb1.d(this.c, null);
-                }
-                float f3 = this.b >> 2;
-                this.c.Q1((f * f3) - f3);
+                maskView.setAlpha(f2);
             }
+            if (BaseActivity.this.n != null) {
+                BaseActivity.this.n.onPanelSlide(view2, f);
+            }
+            if (BaseActivity.this.l != null) {
+                BaseActivity.this.l.onPanelSlide(view2, f);
+            }
+            if (!BaseActivity.this.g && !BaseActivity.this.i && !this.a) {
+                this.a = true;
+                jc1.d(BaseActivity.this, null);
+            }
+            float f3 = this.b >> 2;
+            BaseActivity.this.Q1((f * f3) - f3);
         }
     }
 
     /* loaded from: classes2.dex */
     public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BaseActivity a;
-
-        public c(BaseActivity baseActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {baseActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = baseActivity;
+        public c() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BaseActivity baseActivity = this.a;
-                baseActivity.K1(baseActivity.getWindow().getDecorView());
-            }
+            BaseActivity baseActivity = BaseActivity.this;
+            baseActivity.K1(baseActivity.getWindow().getDecorView());
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(115536470, "Lcom/baidu/nadcore/appframework/BaseActivity;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(115536470, "Lcom/baidu/nadcore/appframework/BaseActivity;");
-                return;
-            }
+    public void J1() {
+        if (o != 0 || p != 0) {
+            this.a = o;
+            this.b = p;
         }
-        t = new ArrayList<>();
+        if (q != 0 || r != 0) {
+            this.c = q;
+            this.d = r;
+        }
+        N1(0, 0, 0, 0);
     }
 
     public final void S1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            if (this.a != 0 || this.b != 0) {
-                overridePendingTransition(this.a, this.b);
-                this.a = 0;
-                this.b = 0;
-            }
+        if (this.a != 0 || this.b != 0) {
+            overridePendingTransition(this.a, this.b);
+            this.a = 0;
+            this.b = 0;
         }
     }
 
     public final void T1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            if (this.c != 0 || this.d != 0) {
-                overridePendingTransition(this.c, this.d);
-                this.c = 0;
-                this.d = 0;
-            }
+        if (this.c != 0 || this.d != 0) {
+            overridePendingTransition(this.c, this.d);
+            this.c = 0;
+            this.d = 0;
         }
     }
 
     @Override // android.app.Activity
     public void finish() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            super.finish();
-            T1();
-        }
+        super.finish();
+        T1();
     }
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return super.getResources();
-        }
-        return (Resources) invokeV.objValue;
+        return super.getResources();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            super.onAttachedToWindow();
-            S1();
-            x1();
-        }
+        super.onAttachedToWindow();
+        S1();
+        x1();
     }
 
     @Override // androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            super.onBackPressed();
-        }
+        super.onBackPressed();
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public final void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            super.onDestroy();
-            z1();
-        }
+        super.onDestroy();
+        z1();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            super.onDetachedFromWindow();
-        }
+        super.onDetachedFromWindow();
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public final void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            super.onPause();
-            C1();
-        }
+        super.onPause();
+        C1();
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public final void onPostResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            super.onPostResume();
-            E1();
-        }
+        super.onPostResume();
+        E1();
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public final void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
-            super.onResume();
-            F1();
-        }
+        super.onResume();
+        F1();
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public final void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            super.onStart();
-            G1();
-        }
+        super.onStart();
+        G1();
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public final void onStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-            super.onStop();
-            H1();
-        }
+        super.onStop();
+        H1();
     }
 
     public void setCurrentActivityNoTransparent() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
-            zb1.c(this, new a(this));
-        }
-    }
-
-    public BaseActivity() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
-        this.b = 0;
-        this.c = 0;
-        this.d = 0;
-        this.e = true;
-        this.f = false;
-        this.g = true;
-        this.h = false;
-        this.i = false;
-    }
-
-    public void J1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (o != 0 || p != 0) {
-                this.a = o;
-                this.b = p;
-            }
-            if (q != 0 || r != 0) {
-                this.c = q;
-                this.d = r;
-            }
-            N1(0, 0, 0, 0);
-        }
+        jc1.c(this, new a());
     }
 
     public static void M1(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
-            s = z;
-        }
+        s = z;
     }
 
     public void R1(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.g = z;
-        }
+        this.g = z;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public int checkSelfPermission(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-            if (b51.b.d()) {
-                return super.checkSelfPermission(str);
-            }
-            return 0;
+        if (j51.b.d()) {
+            return super.checkSelfPermission(str);
         }
-        return invokeL.intValue;
+        return 0;
     }
 
     public void forceActivityTransparent(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.i = z;
-        }
+        this.i = z;
     }
 
     @Override // androidx.fragment.app.FragmentActivity
     public void onAttachFragment(Fragment fragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, fragment) == null) {
-            super.onAttachFragment(fragment);
-        }
+        super.onAttachFragment(fragment);
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, configuration) == null) {
-            super.onConfigurationChanged(configuration);
-            SlideHelper slideHelper = this.k;
-            if (slideHelper != null) {
-                if (configuration.orientation != 2) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                slideHelper.setCanSlide(z);
+        super.onConfigurationChanged(configuration);
+        SlideHelper slideHelper = this.k;
+        if (slideHelper != null) {
+            if (configuration.orientation != 2) {
+                z = true;
+            } else {
+                z = false;
             }
+            slideHelper.setCanSlide(z);
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onMultiWindowModeChanged(boolean z) {
+        super.onMultiWindowModeChanged(z);
+        if (z && !s) {
+            n41.a().b(getApplicationContext(), R.string.nad_androidn_multiwindow_user_toast, 1);
+            M1(true);
+        } else if (!z && !j51.c()) {
+            M1(false);
         }
     }
 
     @Override // android.app.Activity
     public final void onPostCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, bundle) == null) {
-            super.onPostCreate(bundle);
-            w1();
-            D1(bundle);
-        }
+        super.onPostCreate(bundle);
+        w1();
+        D1(bundle);
     }
 
     @Override // android.app.Activity
     public void onRestoreInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, bundle) == null) {
-            super.onRestoreInstanceState(bundle);
-        }
+        super.onRestoreInstanceState(bundle);
     }
 
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, bundle) == null) {
-            super.onSaveInstanceState(bundle);
-        }
+        super.onSaveInstanceState(bundle);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
-            super.onWindowFocusChanged(z);
-        }
+        super.onWindowFocusChanged(z);
     }
 
     public void setEnableSliding(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048618, this, z) == null) {
-            this.f = z;
-        }
+        this.f = z;
     }
 
     @Override // android.app.Activity
     public boolean shouldShowRequestPermissionRationale(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, str)) == null) {
-            if (b51.b.d() && super.shouldShowRequestPermissionRationale(str)) {
-                return true;
-            }
-            return false;
+        if (j51.b.d() && super.shouldShowRequestPermissionRationale(str)) {
+            return true;
         }
-        return invokeL.booleanValue;
+        return false;
     }
 
     public static void N1(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(65539, null, i, i2, i3, i4) == null) {
-            o = i;
-            p = i2;
-            q = i3;
-            r = i4;
-        }
+        o = i;
+        p = i2;
+        q = i3;
+        r = i4;
     }
 
     public void O1(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048587, this, i, i2, i3, i4) == null) {
-            this.a = i;
-            this.b = i2;
-            this.c = i3;
-            this.d = i4;
-        }
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = i4;
     }
 
     public void L1(boolean z, SlideInterceptor slideInterceptor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048586, this, z, slideInterceptor) == null) {
-            this.f = z;
-            this.j = slideInterceptor;
-        }
+        this.f = z;
+        this.j = slideInterceptor;
     }
 
     public final void P1(Activity activity, float f) {
         View decorView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLF(1048588, this, activity, f) == null) && activity != null && activity.getWindow() != null && (decorView = activity.getWindow().getDecorView()) != null) {
+        if (activity != null && activity.getWindow() != null && (decorView = activity.getWindow().getDecorView()) != null) {
             decorView.setX(f);
         }
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048605, this, i, keyEvent)) == null) {
-            if (i == 82 && keyEvent.isLongPress()) {
-                return true;
-            }
-            return super.onKeyDown(i, keyEvent);
+        if (i == 82 && keyEvent.isLongPress()) {
+            return true;
         }
-        return invokeIL.booleanValue;
+        return super.onKeyDown(i, keyEvent);
     }
 
     public final void K1(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, view2) != null) || Build.VERSION.SDK_INT > 23) {
+        if (Build.VERSION.SDK_INT > 23) {
             return;
         }
         try {
@@ -662,108 +415,84 @@ public class BaseActivity extends FragmentActivity {
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onMultiWindowModeChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048606, this, z) == null) {
-            super.onMultiWindowModeChanged(z);
-            if (z && !s) {
-                g41.a().b(getApplicationContext(), R.string.nad_androidn_multiwindow_user_toast, 1);
-                M1(true);
-            } else if (!z && !b51.a()) {
-                M1(false);
+    public final void onNewIntent(Intent intent) {
+        ArrayList arrayList;
+        super.onNewIntent(intent);
+        J1();
+        S1();
+        ArrayList<d> arrayList2 = t;
+        if (arrayList2 != null) {
+            synchronized (arrayList2) {
+                arrayList = new ArrayList(t);
             }
+            Iterator it = arrayList.iterator();
+            while (it.hasNext()) {
+                ((d) it.next()).a(intent);
+            }
+        }
+        try {
+            A1(intent);
+        } catch (Throwable th) {
+            if (!ch0.a) {
+                finish();
+                return;
+            }
+            throw new RuntimeException(th);
         }
     }
 
     public final void Q1(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
-            try {
-                if (this.m == null || this.m.get() == null) {
-                    this.m = new WeakReference<>(zn0.d());
-                }
-                if (this.m.get() != null) {
-                    Activity e = zn0.e();
-                    Activity activity = this.m.get();
-                    if (e != null && activity != null && e.getLocalClassName().equals(activity.getLocalClassName())) {
-                        P1(activity, 0.0f);
-                    } else {
-                        P1(activity, f);
-                    }
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
+        try {
+            if (this.m == null || this.m.get() == null) {
+                this.m = new WeakReference<>(do0.d());
             }
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public final void onNewIntent(Intent intent) {
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, intent) == null) {
-            super.onNewIntent(intent);
-            J1();
-            S1();
-            ArrayList<d> arrayList2 = t;
-            if (arrayList2 != null) {
-                synchronized (arrayList2) {
-                    arrayList = new ArrayList(t);
-                }
-                Iterator it = arrayList.iterator();
-                while (it.hasNext()) {
-                    ((d) it.next()).a(intent);
+            if (this.m.get() != null) {
+                Activity e = do0.e();
+                Activity activity = this.m.get();
+                if (e != null && activity != null && e.getLocalClassName().equals(activity.getLocalClassName())) {
+                    P1(activity, 0.0f);
+                } else {
+                    P1(activity, f);
                 }
             }
-            try {
-                A1(intent);
-            } catch (Throwable th) {
-                if (!yg0.a) {
-                    finish();
-                    return;
-                }
-                throw new RuntimeException(th);
-            }
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048597, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
-        }
+        super.onActivityResult(i, i2, intent);
     }
 
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public final void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048602, this, bundle) != null) || ah0.a(this)) {
+        if (eh0.a(this)) {
             return;
         }
         try {
             if (!I1(bundle)) {
-                if (!yg0.a) {
+                if (!ch0.a) {
                     finish();
                     return;
                 }
                 throw new RuntimeException("Class " + getClass() + " failed at preCreate");
             }
-            int d2 = q51.d(this);
+            int d2 = y51.d(this);
             super.onCreate(bundle);
-            q51.a(this, d2);
+            y51.a(this, d2);
             J1();
             try {
                 y1(bundle);
             } catch (Throwable th) {
-                if (!yg0.a) {
+                if (!ch0.a) {
                     finish();
                     return;
                 }
                 throw new RuntimeException(th);
             }
         } catch (Throwable unused) {
-            if (!yg0.a) {
+            if (!ch0.a) {
                 finish();
                 return;
             }
@@ -772,8 +501,7 @@ public class BaseActivity extends FragmentActivity {
     }
 
     public final void w1() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048620, this) == null) && this.f) {
+        if (this.f) {
             boolean z = true;
             boolean z2 = false;
             if (getResources().getConfiguration().orientation == 2) {
@@ -782,7 +510,7 @@ public class BaseActivity extends FragmentActivity {
             if (this.h || !isTaskRoot()) {
                 z2 = z;
             }
-            int e = b51.c.e(this);
+            int e = j51.c.e(this);
             SlideHelper slideHelper = new SlideHelper();
             this.k = slideHelper;
             slideHelper.attachSlideView(this, findViewById(16908290));
@@ -790,22 +518,19 @@ public class BaseActivity extends FragmentActivity {
             this.k.forceActivityTransparent(this.i);
             this.k.attachActivity(this);
             this.k.setSlideInterceptor(this.j);
-            this.k.setSlideListener(new b(this, e));
+            this.k.setSlideListener(new b(e));
         }
     }
 
     public final void x1() {
         String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
-            if (getIntent() != null && getIntent().hasExtra("winAccelerate")) {
-                str = getIntent().getStringExtra("winAccelerate");
-            } else {
-                str = "0";
-            }
-            if ((this.e || TextUtils.equals("1", str)) && findViewById(16908290) != null) {
-                ck0.b(new c(this));
-            }
+        if (getIntent() != null && getIntent().hasExtra("winAccelerate")) {
+            str = getIntent().getStringExtra("winAccelerate");
+        } else {
+            str = "0";
+        }
+        if ((this.e || TextUtils.equals("1", str)) && findViewById(16908290) != null) {
+            gk0.b(new c());
         }
     }
 }

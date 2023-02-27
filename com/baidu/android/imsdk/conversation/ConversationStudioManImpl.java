@@ -35,8 +35,8 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.m80;
-import com.baidu.tieba.v80;
+import com.baidu.tieba.q80;
+import com.baidu.tieba.z80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -160,12 +160,12 @@ public class ConversationStudioManImpl {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    m80.c.removeCallbacks(ConversationStudioManImpl.mPingRunnable);
+                    q80.c.removeCallbacks(ConversationStudioManImpl.mPingRunnable);
                     LogUtils.d(ConversationStudioManImpl.TAG, "pingRequest customPingIntervalMs :" + ConversationStudioManImpl.mCastHeartBeatTime);
                     if (RequsetNetworkUtils.isNetworkAvailable(ConversationStudioManImpl.mContext)) {
                         BIMManager.pingRequest();
                     }
-                    m80.c.postDelayed(ConversationStudioManImpl.mPingRunnable, ConversationStudioManImpl.mCastHeartBeatTime);
+                    q80.c.postDelayed(ConversationStudioManImpl.mPingRunnable, ConversationStudioManImpl.mCastHeartBeatTime);
                 }
             }
         };
@@ -232,15 +232,15 @@ public class ConversationStudioManImpl {
                             LogUtils.d(ConversationStudioManImpl.TAG, "mAckRunnable ~~~");
                             LogUtils.e(ConversationStudioManImpl.TAG, "ack mAckChatMsgList.size :" + this.this$0.mAckChatMsgList.size());
                             ArrayList arrayList = new ArrayList(this.this$0.mAckChatMsgList);
-                            m80.c.removeCallbacks(this.this$0.mAckRunnable);
+                            q80.c.removeCallbacks(this.this$0.mAckRunnable);
                             MessageParser.handleAck(ConversationStudioManImpl.mContext, arrayList, true);
                             this.this$0.mAckChatMsgList.clear();
-                            m80.c.postDelayed(this.this$0.mAckRunnable, 3000L);
+                            q80.c.postDelayed(this.this$0.mAckRunnable, 3000L);
                         } catch (Exception e) {
                             LogUtils.e(ConversationStudioManImpl.TAG, "ackRunnable Exception :", e);
-                            m80.c.removeCallbacks(this.this$0.mAckRunnable);
+                            q80.c.removeCallbacks(this.this$0.mAckRunnable);
                             this.this$0.mAckChatMsgList.clear();
-                            m80.c.postDelayed(this.this$0.mAckRunnable, 3000L);
+                            q80.c.postDelayed(this.this$0.mAckRunnable, 3000L);
                         }
                     }
                 }
@@ -274,14 +274,14 @@ public class ConversationStudioManImpl {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     if (this.this$0.mAckChatMsgList.size() <= 0 || this.this$0.getConnectState() || !RequsetNetworkUtils.isNetworkAvailable(ConversationStudioManImpl.mContext)) {
-                        m80.c.removeCallbacks(this.this$0.mHttpAckRunnable);
-                        m80.c.postDelayed(this.this$0.mHttpAckRunnable, 10000L);
+                        q80.c.removeCallbacks(this.this$0.mHttpAckRunnable);
+                        q80.c.postDelayed(this.this$0.mHttpAckRunnable, 10000L);
                         return;
                     }
                     synchronized (this.this$0.mAckChatMsgList) {
                         LogUtils.d(ConversationStudioManImpl.TAG, "mHttpAckRunnable");
                         LogUtils.e(ConversationStudioManImpl.TAG, "ack mAckChatMsgList.size :" + this.this$0.mAckChatMsgList.size());
-                        m80.c.removeCallbacks(this.this$0.mHttpAckRunnable);
+                        q80.c.removeCallbacks(this.this$0.mHttpAckRunnable);
                         for (List list : Utils.splitList(new ArrayList(this.this$0.mAckChatMsgList), 15)) {
                             ArrayList arrayList = (ArrayList) list;
                             long contacter = ((ChatMsg) arrayList.get(0)).getContacter();
@@ -331,14 +331,14 @@ public class ConversationStudioManImpl {
                             });
                         }
                         this.this$0.mAckChatMsgList.clear();
-                        m80.c.postDelayed(this.this$0.mHttpAckRunnable, 10000L);
+                        q80.c.postDelayed(this.this$0.mHttpAckRunnable, 10000L);
                     }
                 }
             }
         };
         initStudio();
-        m80.c.removeCallbacks(this.mHttpAckRunnable);
-        m80.c.postDelayed(this.mHttpAckRunnable, 10000L);
+        q80.c.removeCallbacks(this.mHttpAckRunnable);
+        q80.c.postDelayed(this.mHttpAckRunnable, 10000L);
     }
 
     public void addAckCastId(long j) {
@@ -442,7 +442,7 @@ public class ConversationStudioManImpl {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             clearReliableCastList();
             clearFetchRunnable();
-            Handler handler = m80.c;
+            Handler handler = q80.c;
             if (handler != null) {
                 handler.removeCallbacks(mPingRunnable);
             }
@@ -479,7 +479,7 @@ public class ConversationStudioManImpl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (v80.b() == 0) {
+            if (z80.b() == 0) {
                 return true;
             }
             return false;
@@ -563,8 +563,8 @@ public class ConversationStudioManImpl {
             if (!this.mAcking.get()) {
                 LogUtils.d(TAG, "begin ack");
                 this.mAcking.set(true);
-                m80.c.removeCallbacks(this.mAckRunnable);
-                m80.c.postDelayed(this.mAckRunnable, 3000L);
+                q80.c.removeCallbacks(this.mAckRunnable);
+                q80.c.postDelayed(this.mAckRunnable, 3000L);
             }
         }
     }
@@ -591,7 +591,7 @@ public class ConversationStudioManImpl {
                 createMcastMethodIntent.putExtra("mcast_id", j);
                 createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, z);
                 try {
-                    m80.e(mContext).d(mContext, createMcastMethodIntent);
+                    q80.e(mContext).d(mContext, createMcastMethodIntent);
                     return;
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
@@ -655,7 +655,7 @@ public class ConversationStudioManImpl {
                 createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 createMcastMethodIntent.putExtra("mcast_id", j);
                 try {
-                    m80.e(mContext).d(mContext, createMcastMethodIntent);
+                    q80.e(mContext).d(mContext, createMcastMethodIntent);
                     return;
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
@@ -878,10 +878,10 @@ public class ConversationStudioManImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
             if (z) {
-                m80.c.removeCallbacks(mPingRunnable);
-                m80.c.postDelayed(mPingRunnable, j);
+                q80.c.removeCallbacks(mPingRunnable);
+                q80.c.postDelayed(mPingRunnable, j);
             } else {
-                m80.c.removeCallbacks(mPingRunnable);
+                q80.c.removeCallbacks(mPingRunnable);
             }
             LogUtils.d(TAG, "pingRequest show :" + z + ", customPingIntervalMs :" + j);
         }
@@ -899,7 +899,7 @@ public class ConversationStudioManImpl {
                 createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_CODE, i);
                 createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, str);
                 try {
-                    m80.e(mContext).d(mContext, createMcastMethodIntent);
+                    q80.e(mContext).d(mContext, createMcastMethodIntent);
                     return;
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);

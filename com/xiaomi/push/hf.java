@@ -2,83 +2,93 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class hf {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static volatile hf a;
 
-    public static HashMap<String, ArrayList<hn>> a(Context context, List<hn> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, list)) == null) {
-            if (list == null || list.size() == 0) {
-                return null;
-            }
-            HashMap<String, ArrayList<hn>> hashMap = new HashMap<>();
-            for (hn hnVar : list) {
-                a(context, hnVar);
-                ArrayList<hn> arrayList = hashMap.get(hnVar.c());
-                if (arrayList == null) {
-                    arrayList = new ArrayList<>();
-                    hashMap.put(hnVar.c(), arrayList);
-                }
-                arrayList.add(hnVar);
-            }
-            return hashMap;
-        }
-        return (HashMap) invokeLL.objValue;
+    /* renamed from: a  reason: collision with other field name */
+    public final Context f468a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public Map<String, hg> f469a = new HashMap();
+
+    public hf(Context context) {
+        this.f468a = context;
     }
 
-    public static void a(Context context, hh hhVar, HashMap<String, ArrayList<hn>> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, context, hhVar, hashMap) == null) {
-            for (Map.Entry<String, ArrayList<hn>> entry : hashMap.entrySet()) {
-                try {
-                    ArrayList<hn> value = entry.getValue();
-                    if (value != null && value.size() != 0) {
-                        hhVar.a(value, value.get(0).e(), entry.getKey());
-                    }
-                } catch (Exception unused) {
+    public static hf a(Context context) {
+        if (context == null) {
+            com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]:mContext is null, TinyDataManager.getInstance(Context) failed.");
+            return null;
+        }
+        if (a == null) {
+            synchronized (hf.class) {
+                if (a == null) {
+                    a = new hf(context);
                 }
             }
         }
+        return a;
     }
 
-    public static void a(Context context, hh hhVar, List<hn> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, context, hhVar, list) == null) {
-            HashMap<String, ArrayList<hn>> a = a(context, list);
-            if (a != null && a.size() != 0) {
-                a(context, hhVar, a);
-                return;
-            }
-            com.xiaomi.channel.commonutils.logger.b.m105a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
+    private boolean a(String str, String str2, String str3, String str4, long j, String str5) {
+        hl hlVar = new hl();
+        hlVar.d(str3);
+        hlVar.c(str4);
+        hlVar.a(j);
+        hlVar.b(str5);
+        hlVar.a(true);
+        hlVar.a("push_sdk_channel");
+        hlVar.e(str2);
+        return a(hlVar, str);
+    }
+
+    public hg a() {
+        hg hgVar = this.f469a.get("UPLOADER_PUSH_CHANNEL");
+        if (hgVar != null) {
+            return hgVar;
+        }
+        hg hgVar2 = this.f469a.get("UPLOADER_HTTP");
+        if (hgVar2 != null) {
+            return hgVar2;
+        }
+        return null;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public Map<String, hg> m465a() {
+        return this.f469a;
+    }
+
+    public void a(hg hgVar, String str) {
+        if (hgVar == null) {
+            com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: please do not add null mUploader to TinyDataManager.");
+        } else if (TextUtils.isEmpty(str)) {
+            com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: can not add a provider from unkown resource.");
+        } else {
+            m465a().put(str, hgVar);
         }
     }
 
-    public static void a(Context context, hn hnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, hnVar) == null) {
-            if (hnVar.f504a) {
-                hnVar.a("push_sdk_channel");
+    public boolean a(hl hlVar, String str) {
+        if (TextUtils.isEmpty(str)) {
+            com.xiaomi.channel.commonutils.logger.b.m97a("pkgName is null or empty, upload ClientUploadDataItem failed.");
+            return false;
+        } else if (com.xiaomi.push.service.bz.a(hlVar, false)) {
+            return false;
+        } else {
+            if (TextUtils.isEmpty(hlVar.d())) {
+                hlVar.f(com.xiaomi.push.service.bz.a());
             }
-            if (TextUtils.isEmpty(hnVar.d())) {
-                hnVar.f(com.xiaomi.push.service.bz.a());
-            }
-            hnVar.b(System.currentTimeMillis());
-            if (TextUtils.isEmpty(hnVar.e())) {
-                hnVar.e(context.getPackageName());
-            }
-            if (TextUtils.isEmpty(hnVar.c())) {
-                hnVar.e(hnVar.e());
-            }
+            hlVar.g(str);
+            com.xiaomi.push.service.ca.a(this.f468a, hlVar);
+            return true;
         }
+    }
+
+    public boolean a(String str, String str2, long j, String str3) {
+        return a(this.f468a.getPackageName(), this.f468a.getPackageName(), str, str2, j, str3);
     }
 }

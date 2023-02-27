@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.yo5;
+import com.baidu.tieba.mq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,7 +45,7 @@ public class ClientConfigNetMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.type = this.mType;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                yo5.a(builder, true);
+                mq5.a(builder, true);
             }
             GetClientConfigReqIdl.Builder builder2 = new GetClientConfigReqIdl.Builder();
             builder2.data = builder.build(false);

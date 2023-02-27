@@ -1,57 +1,43 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import java.util.concurrent.ExecutorService;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface jo4 {
-    String a();
+public class jo4 implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    String b();
+    public jo4(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = i;
+    }
 
-    boolean c(String str);
-
-    ExecutorService d();
-
-    void e(String str, int i, JSONArray jSONArray);
-
-    void f(String str, int i);
-
-    void g(String str, String str2, int i, String str3, int i2);
-
-    String getAppId();
-
-    String getAppVersion();
-
-    String getDeviceId(Context context);
-
-    String getScene();
-
-    String h();
-
-    void i(String str, int i, String str2);
-
-    boolean j();
-
-    int k();
-
-    ko4 l();
-
-    String m();
-
-    void n(String str, String str2, int i, String str3, long j, int i2);
-
-    String o(Context context);
-
-    boolean p();
-
-    boolean q();
-
-    boolean r();
-
-    String s();
-
-    String t();
-
-    String u(Context context);
+    @Override // java.lang.Runnable
+    public void run() {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (i = this.a) < 0) {
+            return;
+        }
+        try {
+            Thread.sleep(i);
+        } catch (Throwable unused) {
+        }
+    }
 }

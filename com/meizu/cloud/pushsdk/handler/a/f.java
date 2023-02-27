@@ -19,27 +19,27 @@ public class f extends a<Boolean> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     public void a(Boolean bool, com.meizu.cloud.pushsdk.notification.c cVar) {
-        if (b() != null) {
-            b().a(c(), bool.booleanValue());
+        if (c() != null) {
+            c().a(d(), bool.booleanValue());
         }
     }
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
         DebugLogger.i("AbstractMessageHandler", "start UnRegisterMessageHandler match");
-        return PushConstants.MZ_PUSH_ON_UNREGISTER_ACTION.equals(intent.getAction()) || (PushConstants.REQUEST_UNREGISTRATION_INTENT.equals(intent.getAction()) && TextUtils.isEmpty(intent.getStringExtra(PushConstants.EXTRA_UNREGISTERED)));
+        return PushConstants.MZ_PUSH_ON_UNREGISTER_ACTION.equals(intent.getAction()) || (PushConstants.REQUEST_UNREGISTER_INTENT.equals(intent.getAction()) && TextUtils.isEmpty(intent.getStringExtra(PushConstants.EXTRA_UNREGISTERED)));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: j */
+    /* renamed from: l */
     public Boolean c(Intent intent) {
         boolean booleanExtra = intent.getBooleanExtra(PushConstants.EXTRA_APP_IS_UNREGISTER_SUCCESS, false);
         String stringExtra = intent.getStringExtra(PushConstants.EXTRA_REGISTRATION_ERROR);
         String stringExtra2 = intent.getStringExtra(PushConstants.EXTRA_UNREGISTERED);
         DebugLogger.i("AbstractMessageHandler", "processUnRegisterCallback 5.0:" + booleanExtra + " 4.0:" + stringExtra + " 3.0:" + stringExtra2);
         if (TextUtils.isEmpty(stringExtra) || booleanExtra || !TextUtils.isEmpty(stringExtra2)) {
-            com.meizu.cloud.pushsdk.util.b.g(c(), "", c().getPackageName());
+            com.meizu.cloud.pushsdk.util.b.g(d(), "", d().getPackageName());
             return Boolean.TRUE;
         }
         return Boolean.FALSE;

@@ -1,132 +1,218 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.gc7;
+import com.baidu.tieba.my8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.DiscoverHotForum;
+import tbclient.DiscoverTabCard;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes4.dex */
-public class ec7 {
+public class ec7 extends zx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public List<Cdo> b;
 
-    public static Drawable[] a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.zx4
+    public wz4 getNegFeedBackData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            Drawable[] drawableArr = new Drawable[2];
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1581702362:
-                    if (str.equals("share_num")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -6986408:
-                    if (str.equals("care_num")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 975378291:
-                    if (str.equals("agree_num")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 2103869862:
-                    if (str.equals("comment_num")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f97, WebPManager.ResourceStateType.NORMAL);
-                            drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080fca, WebPManager.ResourceStateType.NORMAL);
-                        } else {
-                            drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f96, WebPManager.ResourceStateType.NORMAL);
-                            drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080fc9, WebPManager.ResourceStateType.NORMAL);
-                        }
-                    } else {
-                        drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f98, WebPManager.ResourceStateType.NORMAL);
-                        drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080fcb, WebPManager.ResourceStateType.NORMAL);
-                    }
-                } else {
-                    drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f9a, WebPManager.ResourceStateType.NORMAL);
-                    drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080fcd, WebPManager.ResourceStateType.NORMAL);
-                }
-            } else {
-                drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f99, WebPManager.ResourceStateType.NORMAL);
-                drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080fcc, WebPManager.ResourceStateType.NORMAL);
-            }
-            return drawableArr;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
         }
-        return (Drawable[]) invokeL.objValue;
+        return (wz4) invokeV.objValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static String b(String str) {
-        InterceptResult invokeL;
-        char c;
+    @Override // com.baidu.tieba.zx4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            switch (str.hashCode()) {
-                case -1581702362:
-                    if (str.equals("share_num")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -6986408:
-                    if (str.equals("care_num")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 975378291:
-                    if (str.equals("agree_num")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 2103869862:
-                    if (str.equals("comment_num")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a8b);
-                        }
-                        return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a8a);
-                    }
-                    return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a8c);
-                }
-                return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a8e);
-            }
-            return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a8d);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (ThreadData) invokeV.objValue;
+    }
+
+    public ec7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+    }
+
+    public List<Cdo> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return mg6.y0;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public static ec7 c(my8 my8Var) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, my8Var)) == null) {
+            if (my8Var != null && !ListUtils.isEmpty(my8Var.b)) {
+                ec7 ec7Var = new ec7();
+                ArrayList arrayList = new ArrayList();
+                ec7Var.j(arrayList);
+                for (my8.b bVar : my8Var.b) {
+                    if (!ListUtils.isEmpty(bVar.b)) {
+                        gc7 gc7Var = new gc7();
+                        if (!StringUtils.isNull(bVar.a) && !ec7Var.a) {
+                            z = false;
+                        } else {
+                            z = true;
+                        }
+                        ec7Var.a = z;
+                        gc7Var.a = bVar.a;
+                        for (int i = 0; i < bVar.b.size() && i < 3; i++) {
+                            gc7Var.d[i] = new gc7.a();
+                            gc7.a aVar = gc7Var.d[i];
+                            aVar.q(bVar.b.get(i).b);
+                            aVar.o(bVar.b.get(i).e);
+                            aVar.v(bVar.b.get(i).f);
+                            aVar.n(bVar.b.get(i).c);
+                            aVar.r(bVar.b.get(i).d);
+                            aVar.s(Long.valueOf(bVar.b.get(i).a));
+                        }
+                        arrayList.add(gc7Var);
+                        if (arrayList.size() >= 6) {
+                            break;
+                        }
+                    }
+                }
+                return ec7Var;
+            }
+            return null;
+        }
+        return (ec7) invokeL.objValue;
+    }
+
+    public boolean h(List<DiscoverTabCard> list) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean booleanValue;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return false;
+            }
+            List<Cdo> arrayList = new ArrayList<>();
+            j(arrayList);
+            for (int i = 0; i < list.size(); i++) {
+                DiscoverTabCard discoverTabCard = list.get(i);
+                List<RecommendForumInfo> list2 = discoverTabCard.forum_list;
+                if (list2 != null && list2.size() >= 3) {
+                    gc7 gc7Var = new gc7();
+                    if (!StringUtils.isNull(discoverTabCard.name) && !this.a) {
+                        z = false;
+                    } else {
+                        z = true;
+                    }
+                    this.a = z;
+                    gc7Var.a = discoverTabCard.name;
+                    Boolean bool = discoverTabCard.is_show_order_number;
+                    if (bool == null) {
+                        booleanValue = false;
+                    } else {
+                        booleanValue = bool.booleanValue();
+                    }
+                    gc7Var.b = booleanValue;
+                    gc7Var.c = discoverTabCard.jump_name;
+                    for (int i2 = 0; i2 < discoverTabCard.forum_list.size() && i2 < 3; i2++) {
+                        gc7Var.d[i2] = new gc7.a();
+                        gc7.a aVar = gc7Var.d[i2];
+                        aVar.q(discoverTabCard.forum_list.get(i2).forum_name);
+                        aVar.o(discoverTabCard.forum_list.get(i2).avatar);
+                        aVar.t(discoverTabCard.forum_list.get(i2).hot_text);
+                        aVar.v(discoverTabCard.forum_list.get(i2).slogan);
+                        aVar.n(discoverTabCard.forum_list.get(i2).member_count.intValue());
+                        aVar.r(discoverTabCard.forum_list.get(i2).thread_count.intValue());
+                        if (discoverTabCard.forum_list.get(i2).is_like.intValue() == 1) {
+                            z2 = true;
+                        } else {
+                            z2 = false;
+                        }
+                        aVar.m(z2);
+                        aVar.s(discoverTabCard.forum_list.get(i2).forum_id);
+                        aVar.u(discoverTabCard.forum_list.get(i2).hot_thread_id.longValue());
+                    }
+                    arrayList.add(gc7Var);
+                    if (arrayList.size() >= 6) {
+                        break;
+                    }
+                }
+            }
+            if (arrayList.size() <= 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean l(DiscoverHotForum discoverHotForum, int i) {
+        InterceptResult invokeLI;
+        Integer num;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, discoverHotForum, i)) == null) {
+            if (TbadkCoreApplication.isLogin() && UbsABTestHelper.needShowRecommendBarCard() && discoverHotForum != null && (num = discoverHotForum.floor) != null && ((i < 0 || i == num.intValue() - 1) && !ListUtils.isEmpty(discoverHotForum.tab_list))) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public void j(List<Cdo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            this.b = list;
+        }
     }
 }

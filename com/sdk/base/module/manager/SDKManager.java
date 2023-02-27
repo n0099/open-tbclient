@@ -1,6 +1,7 @@
 package com.sdk.base.module.manager;
 
 import android.content.Context;
+import android.content.Intent;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.api.CallBack;
-import com.sdk.f.g;
-import com.sdk.u.a;
+import com.sdk.f.f;
+import com.sdk.v.a;
 /* loaded from: classes8.dex */
 public abstract class SDKManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -93,14 +94,6 @@ public abstract class SDKManager {
         }
     }
 
-    public static void init(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, context, str, str2) == null) {
-            mContext = context;
-            a.a(context).a(str, str2);
-        }
-    }
-
     public static boolean isClosePermission() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -122,21 +115,21 @@ public abstract class SDKManager {
     public static void releaseConnect(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
-            com.sdk.t.a.a(context);
+            com.sdk.u.a.a(context);
         }
     }
 
     public static void setDebug(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65550, null, z) == null) {
-            g.b = z;
+            f.a = z;
         }
     }
 
     public static void setDebugHead(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65551, null, z) == null) {
-            g.d = z;
+            f.c = z;
         }
     }
 
@@ -196,6 +189,18 @@ public abstract class SDKManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) ? useCache : invokeV.booleanValue;
     }
 
+    public static void init(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65544, null, context, str, str2) == null) {
+            mContext = context;
+            a.a(context).a(str, str2);
+            Intent intent = new Intent();
+            intent.setAction("com.wosdk.mybroad");
+            intent.setPackage(mContext.getPackageName());
+            mContext.sendBroadcast(intent);
+        }
+    }
+
     public static void securityType(int i) {
         String str;
         Interceptable interceptable = $ic;
@@ -203,8 +208,10 @@ public abstract class SDKManager {
             a.d = i;
             if (i == 0) {
                 str = "B";
-            } else {
+            } else if (i == 2) {
                 str = "C";
+            } else {
+                return;
             }
             a.e = str;
         }

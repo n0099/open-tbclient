@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qv4;
+import com.baidu.tieba.xw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -86,6 +86,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
@@ -98,26 +99,14 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
             if (noDataView != null) {
                 noDataView.f(getPageContext(), i);
             }
-            qv4 layoutMode = getLayoutMode();
-            boolean z = true;
-            if (i != 1) {
+            xw4 layoutMode = getLayoutMode();
+            if (i == 4) {
+                z = true;
+            } else {
                 z = false;
             }
             layoutMode.l(z);
             getLayoutMode().k(this.d);
-        }
-    }
-
-    @Override // android.app.Activity
-    public void setContentView(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-            w1();
-            RelativeLayout relativeLayout = new RelativeLayout(getPageContext().getContext());
-            this.e = relativeLayout;
-            relativeLayout.addView(view2, new ViewGroup.LayoutParams(-1, -1));
-            this.d.addView(this.e, 0, layoutParams);
         }
     }
 
@@ -150,6 +139,19 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
             this.e = relativeLayout;
             relativeLayout.addView(LayoutInflater.from(getPageContext().getContext()).inflate(i, (ViewGroup) null), new ViewGroup.LayoutParams(-1, -1));
             this.d.addView(this.e, layoutParams);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void setContentView(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
+            w1();
+            RelativeLayout relativeLayout = new RelativeLayout(getPageContext().getContext());
+            this.e = relativeLayout;
+            relativeLayout.addView(view2, new ViewGroup.LayoutParams(-1, -1));
+            this.d.addView(this.e, 0, layoutParams);
         }
     }
 }

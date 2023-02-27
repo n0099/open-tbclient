@@ -19,8 +19,8 @@ import com.vivo.push.cache.ClientConfigManagerImpl;
 import com.vivo.push.e;
 import com.vivo.push.util.ContextDelegate;
 import com.vivo.push.util.VivoPushException;
-import com.vivo.push.util.p;
-import com.vivo.push.util.r;
+import com.vivo.push.util.u;
+import com.vivo.push.util.x;
 /* loaded from: classes8.dex */
 public class PushServiceReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
@@ -60,21 +60,21 @@ public class PushServiceReceiver extends BroadcastReceiver {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                NetworkInfo a = r.a(this.a);
+                NetworkInfo a = x.a(this.a);
                 if (a != null) {
                     z = a.isConnectedOrConnecting();
                 } else {
                     z = false;
                 }
                 if (!z) {
-                    p.d("PushServiceReceiver", this.a.getPackageName() + ": 无网络  by " + this.b);
+                    u.d("PushServiceReceiver", this.a.getPackageName() + ": 无网络  by " + this.b);
                     Context context = this.a;
-                    p.a(context, "触发静态广播:无网络(" + this.b + "," + this.a.getPackageName() + SmallTailInfo.EMOTION_SUFFIX);
+                    u.a(context, "触发静态广播:无网络(" + this.b + "," + this.a.getPackageName() + SmallTailInfo.EMOTION_SUFFIX);
                     return;
                 }
-                p.d("PushServiceReceiver", this.a.getPackageName() + ": 执行开始出发动作: " + this.b);
+                u.d("PushServiceReceiver", this.a.getPackageName() + ": 执行开始出发动作: " + this.b);
                 Context context2 = this.a;
-                p.a(context2, "触发静态广播(" + this.b + "," + this.a.getPackageName() + SmallTailInfo.EMOTION_SUFFIX);
+                u.a(context2, "触发静态广播(" + this.b + "," + this.a.getPackageName() + SmallTailInfo.EMOTION_SUFFIX);
                 e.a().a(this.a);
                 if (!ClientConfigManagerImpl.getInstance(this.a).isCancleBroadcastReceiver()) {
                     try {
@@ -82,7 +82,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
                     } catch (VivoPushException e) {
                         e.printStackTrace();
                         Context context3 = this.a;
-                        p.a(context3, " 初始化异常 error= " + e.getMessage());
+                        u.a(context3, " 初始化异常 error= " + e.getMessage());
                     }
                 }
             }
@@ -132,7 +132,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
                     handlerThread.start();
                     b = new Handler(a.getLooper());
                 }
-                p.d("PushServiceReceiver", context2.getPackageName() + ": start PushSerevice for by " + action + "  ; handler : " + b);
+                u.d("PushServiceReceiver", context2.getPackageName() + ": start PushSerevice for by " + action + "  ; handler : " + b);
                 a.a(c, context2, action);
                 b.removeCallbacks(c);
                 b.postDelayed(c, 2000L);

@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class QuestionTagListData {
@@ -20,7 +21,7 @@ public class QuestionTagListData {
     public transient /* synthetic */ FieldHolder $fh;
     @SerializedName("has_more")
     public int a;
-    @SerializedName("tag_list")
+    @SerializedName(PushConstants.SUB_TAGS_STATUS_LIST)
     public List<QuestionTag> b;
 
     /* loaded from: classes6.dex */

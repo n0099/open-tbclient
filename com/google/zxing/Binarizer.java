@@ -1,16 +1,9 @@
 package com.google.zxing;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.common.BitArray;
 import com.google.zxing.common.BitMatrix;
 /* loaded from: classes8.dex */
 public abstract class Binarizer {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final LuminanceSource source;
 
     public abstract Binarizer createBinarizer(LuminanceSource luminanceSource);
@@ -20,47 +13,18 @@ public abstract class Binarizer {
     public abstract BitArray getBlackRow(int i, BitArray bitArray) throws NotFoundException;
 
     public Binarizer(LuminanceSource luminanceSource) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {luminanceSource};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.source = luminanceSource;
     }
 
     public final int getHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.source.getHeight();
-        }
-        return invokeV.intValue;
+        return this.source.getHeight();
     }
 
     public final LuminanceSource getLuminanceSource() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.source;
-        }
-        return (LuminanceSource) invokeV.objValue;
+        return this.source;
     }
 
     public final int getWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.source.getWidth();
-        }
-        return invokeV.intValue;
+        return this.source.getWidth();
     }
 }

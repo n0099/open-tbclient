@@ -169,7 +169,7 @@ public class PersonHeaderBackgroundController {
         this.a = tbPageContext;
         this.b = tbImageView;
         this.e = z;
-        tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0802d3);
+        tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0802dd);
         this.c = view2;
         view2.setOnClickListener(this.f);
     }

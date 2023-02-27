@@ -1,217 +1,83 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.view.View;
-import android.widget.ImageView;
-import androidx.annotation.IdRes;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
+import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
 /* loaded from: classes5.dex */
 public class kd9 {
-    public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: e */
-    public static final int obfuscated = 2131232902;
-
-    /* renamed from: f */
-    public static final int obfuscated = 2131232901;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ImageView b;
-    public b c;
-    public CustomMessageListener d;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(boolean z);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947909385, "Lcom/baidu/tieba/kd9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947909385, "Lcom/baidu/tieba/kd9;");
-        }
-    }
-
-    public static String c(int i) {
-        InterceptResult invokeI;
+    public static String a(x9 x9Var, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? (i == 4 || i == 3) ? "2" : "1" : (String) invokeI.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kd9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(kd9 kd9Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kd9Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, x9Var, str)) == null) {
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    sb.append(jSONArray.optJSONObject(i).optString("src"));
                 }
-            }
-            this.a = kd9Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Boolean)) {
-                return;
-            }
-            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            if (this.a.c != null) {
-                this.a.c.a(booleanValue);
+                return sb.toString();
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return x9Var.getString(R.string.pic_str);
             }
         }
+        return (String) invokeLL.objValue;
     }
 
-    public kd9(View view2, @IdRes int i) {
+    public static String b(x9 x9Var, ChatMessage chatMessage) {
+        InterceptResult invokeLL;
+        String content;
+        String string;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, x9Var, chatMessage)) == null) {
+            int msgType = chatMessage.getMsgType();
+            if (msgType != 1) {
+                if (msgType != 2) {
+                    if (msgType != 3) {
+                        if (msgType != 30) {
+                            if (msgType != 37) {
+                                if (msgType != 32) {
+                                    if (msgType != 33) {
+                                        content = "";
+                                    } else {
+                                        content = x9Var.getString(R.string.last_msg_forum_share);
+                                    }
+                                } else {
+                                    content = x9Var.getString(R.string.last_msg_thread_share);
+                                }
+                            } else {
+                                content = x9Var.getString(R.string.last_msg_chatroom_share);
+                            }
+                        }
+                    } else {
+                        content = x9Var.getString(R.string.voice_str);
+                    }
+                } else {
+                    content = a(x9Var, chatMessage.getContent());
+                }
+                if (chatMessage == null && chatMessage.getToUserInfo() != null) {
+                    if (TextUtils.equals(chatMessage.getToUserInfo().getUserId(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
+                        string = x9Var.getString(R.string.private_message_report_person);
+                    } else {
+                        string = x9Var.getString(R.string.private_message_is_report_name);
+                    }
+                    return string + chatMessage.getToUserInfo().getUserName() + x9Var.getString(R.string.private_message_report_content) + content;
+                }
+                return x9Var.getString(R.string.private_message_is_report_name);
             }
-        }
-        this.d = new a(this, 2921647);
-        MessageManager.getInstance().registerListener(this.d);
-        this.a = view2;
-        if (view2 != null) {
-            ImageView imageView = (ImageView) view2.findViewById(i);
-            this.b = imageView;
-            if (imageView != null) {
-                imageView.setVisibility(0);
+            content = chatMessage.getContent();
+            if (chatMessage == null) {
             }
+            return x9Var.getString(R.string.private_message_is_report_name);
         }
-        j(d());
-    }
-
-    public void g(View.OnClickListener onClickListener) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) && (imageView = this.b) != null) {
-            imageView.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void h(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.c = bVar;
-        }
-    }
-
-    public void j(boolean z) {
-        ImageView imageView;
-        View view2;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (imageView = this.b) != null && (view2 = this.a) != null) {
-            Resources resources = view2.getResources();
-            if (z) {
-                i = obfuscated;
-            } else {
-                i = obfuscated;
-            }
-            imageView.setImageDrawable(resources.getDrawable(i));
-        }
-    }
-
-    public static StatisticItem b(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, str, str2, i)) == null) {
-            return new StatisticItem(str).param("obj_locate", c(i)).param("tid", str2).param("uid", TbadkCoreApplication.getCurrentAccountId());
-        }
-        return (StatisticItem) invokeLLI.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return TbSingleton.getInstance().isDanmuSwitchOpen();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.d);
-            ImageView imageView = this.b;
-            if (imageView != null) {
-                imageView.setOnClickListener(null);
-            }
-            this.c = null;
-        }
-    }
-
-    public void e(String str, int i) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
-            StatisticItem b2 = b("c14474", str, i);
-            if (d()) {
-                str2 = "1";
-            } else {
-                str2 = "0";
-            }
-            TiebaStatic.log(b2.param("obj_type", str2));
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            boolean z = !d();
-            TbSingleton.getInstance().setDanmuSwitchOpen(z);
-            j(z);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921647, Boolean.valueOf(z)));
-        }
+        return (String) invokeLL.objValue;
     }
 }

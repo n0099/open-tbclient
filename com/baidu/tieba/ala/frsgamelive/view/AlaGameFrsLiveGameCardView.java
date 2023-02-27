@@ -7,27 +7,27 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e56;
-import com.baidu.tieba.j56;
-import com.baidu.tieba.mc6;
-import com.baidu.tieba.n16;
+import com.baidu.tieba.a76;
+import com.baidu.tieba.e36;
+import com.baidu.tieba.v66;
+import com.baidu.tieba.ye6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AlaGameFrsLiveGameCardView extends mc6<e56> {
+public class AlaGameFrsLiveGameCardView extends ye6<v66> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
-    public j56 j;
+    public a76 j;
 
-    @Override // com.baidu.tieba.mc6
+    @Override // com.baidu.tieba.ye6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d010f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0110 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -88,38 +88,38 @@ public class AlaGameFrsLiveGameCardView extends mc6<e56> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mc6
+    @Override // com.baidu.tieba.ye6
     /* renamed from: s */
-    public void i(e56 e56Var) {
+    public void i(v66 v66Var) {
         ThreadData threadData;
-        j56 j56Var;
+        a76 a76Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, e56Var) == null) && e56Var != null && (threadData = e56Var.a) != null && (j56Var = this.j) != null) {
-            j56Var.d(threadData);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, v66Var) == null) && v66Var != null && (threadData = v66Var.a) != null && (a76Var = this.j) != null) {
+            a76Var.d(threadData);
         }
     }
 
-    public void t(n16 n16Var) {
-        j56 j56Var;
+    public void t(e36 e36Var) {
+        a76 a76Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, n16Var) == null) && (j56Var = this.j) != null) {
-            j56Var.g(n16Var);
+        if ((interceptable == null || interceptable.invokeL(1048582, this, e36Var) == null) && (a76Var = this.j) != null) {
+            a76Var.g(e36Var);
         }
     }
 
-    @Override // com.baidu.tieba.mc6
+    @Override // com.baidu.tieba.ye6
     public void j(TbPageContext<?> tbPageContext, int i) {
-        j56 j56Var;
+        a76 a76Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && (j56Var = this.j) != null) {
-            j56Var.e(tbPageContext, i);
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && (a76Var = this.j) != null) {
+            a76Var.e(tbPageContext, i);
         }
     }
 
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.j = new j56(this.i);
+            this.j = new a76(this.i);
             ((ViewGroup) h()).addView(this.j.c());
         }
     }

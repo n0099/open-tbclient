@@ -1,14 +1,6 @@
 package com.googlecode.mp4parser.boxes;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -29,120 +21,119 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
 /* loaded from: classes8.dex */
 public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
-    public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_2 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_3 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_4 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_5 = null;
-    public transient /* synthetic */ FieldHolder $fh;
     public int algorithmId;
     public List<CencSampleAuxiliaryDataFormat> entries;
     public int ivSize;
     public byte[] kid;
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1227386307, "Lcom/googlecode/mp4parser/boxes/AbstractSampleEncryptionBox;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1227386307, "Lcom/googlecode/mp4parser/boxes/AbstractSampleEncryptionBox;");
-                return;
-            }
-        }
         ajc$preClinit();
     }
 
-    public List<CencSampleAuxiliaryDataFormat> getEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this));
-            return this.entries;
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        long j;
+        Iterator<CencSampleAuxiliaryDataFormat> it;
+        if (isOverrideTrackEncryptionBoxParameters()) {
+            j = 8 + this.kid.length;
+        } else {
+            j = 4;
         }
-        return (List) invokeV.objValue;
+        long j2 = j + 4;
+        while (this.entries.iterator().hasNext()) {
+            j2 += it.next().getSize();
+        }
+        return j2;
+    }
+
+    public List<CencSampleAuxiliaryDataFormat> getEntries() {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this));
+        return this.entries;
+    }
+
+    public int getOffsetToFirstIV() {
+        int i;
+        int i2;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+        if (getSize() > 4294967296L) {
+            i = 16;
+        } else {
+            i = 8;
+        }
+        if (isOverrideTrackEncryptionBoxParameters()) {
+            i2 = this.kid.length + 4;
+        } else {
+            i2 = 0;
+        }
+        return i + i2 + 4;
+    }
+
+    public int hashCode() {
+        int i;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
+        int i2 = ((this.algorithmId * 31) + this.ivSize) * 31;
+        byte[] bArr = this.kid;
+        int i3 = 0;
+        if (bArr != null) {
+            i = Arrays.hashCode(bArr);
+        } else {
+            i = 0;
+        }
+        int i4 = (i2 + i) * 31;
+        List<CencSampleAuxiliaryDataFormat> list = this.entries;
+        if (list != null) {
+            i3 = list.hashCode();
+        }
+        return i4 + i3;
     }
 
     @DoNotParseDetail
     public boolean isOverrideTrackEncryptionBoxParameters() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if ((getFlags() & 1) > 0) {
-                return true;
-            }
-            return false;
+        if ((getFlags() & 1) > 0) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     @DoNotParseDetail
     public boolean isSubSampleEncryption() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if ((getFlags() & 2) > 0) {
-                return true;
-            }
-            return false;
+        if ((getFlags() & 2) > 0) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AbstractSampleEncryptionBox(String str) {
         super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.algorithmId = -1;
         this.ivSize = -1;
         this.kid = new byte[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
         this.entries = new LinkedList();
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, obj));
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || getClass() != obj.getClass()) {
-                return false;
-            }
-            AbstractSampleEncryptionBox abstractSampleEncryptionBox = (AbstractSampleEncryptionBox) obj;
-            if (this.algorithmId != abstractSampleEncryptionBox.algorithmId || this.ivSize != abstractSampleEncryptionBox.ivSize) {
-                return false;
-            }
-            List<CencSampleAuxiliaryDataFormat> list = this.entries;
-            if (list == null ? abstractSampleEncryptionBox.entries != null : !list.equals(abstractSampleEncryptionBox.entries)) {
-                return false;
-            }
-            if (Arrays.equals(this.kid, abstractSampleEncryptionBox.kid)) {
-                return true;
-            }
-            return false;
+    @Override // com.googlecode.mp4parser.AbstractBox, com.coremedia.iso.boxes.Box
+    public void getBox(WritableByteChannel writableByteChannel) throws IOException {
+        super.getBox(writableByteChannel);
+    }
+
+    public void setEntries(List<CencSampleAuxiliaryDataFormat> list) {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this, list));
+        this.entries = list;
+    }
+
+    @DoNotParseDetail
+    public void setSubSampleEncryption(boolean z) {
+        if (z) {
+            setFlags(getFlags() | 2);
+        } else {
+            setFlags(getFlags() & 16777213);
         }
-        return invokeL.booleanValue;
     }
 
     public static /* synthetic */ void ajc$preClinit() {
@@ -156,211 +147,121 @@ public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
     }
 
     private List<CencSampleAuxiliaryDataFormat> parseEntries(ByteBuffer byteBuffer, long j, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{byteBuffer, Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            LinkedList linkedList = new LinkedList();
-            while (true) {
-                long j2 = j - 1;
-                if (j <= 0) {
-                    return linkedList;
-                }
-                try {
-                    CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat = new CencSampleAuxiliaryDataFormat();
-                    byte[] bArr = new byte[i];
-                    cencSampleAuxiliaryDataFormat.iv = bArr;
-                    byteBuffer.get(bArr);
-                    if ((getFlags() & 2) > 0) {
-                        int readUInt16 = IsoTypeReader.readUInt16(byteBuffer);
-                        cencSampleAuxiliaryDataFormat.pairs = new LinkedList();
-                        while (true) {
-                            int i2 = readUInt16 - 1;
-                            if (readUInt16 <= 0) {
-                                break;
-                            }
-                            cencSampleAuxiliaryDataFormat.pairs.add(cencSampleAuxiliaryDataFormat.createPair(IsoTypeReader.readUInt16(byteBuffer), IsoTypeReader.readUInt32(byteBuffer)));
-                            readUInt16 = i2;
-                        }
-                    }
-                    linkedList.add(cencSampleAuxiliaryDataFormat);
-                    j = j2;
-                } catch (BufferUnderflowException unused) {
-                    return null;
-                }
+        LinkedList linkedList = new LinkedList();
+        while (true) {
+            long j2 = j - 1;
+            if (j <= 0) {
+                return linkedList;
             }
-        } else {
-            return (List) invokeCommon.objValue;
+            try {
+                CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat = new CencSampleAuxiliaryDataFormat();
+                byte[] bArr = new byte[i];
+                cencSampleAuxiliaryDataFormat.iv = bArr;
+                byteBuffer.get(bArr);
+                if ((getFlags() & 2) > 0) {
+                    int readUInt16 = IsoTypeReader.readUInt16(byteBuffer);
+                    cencSampleAuxiliaryDataFormat.pairs = new LinkedList();
+                    while (true) {
+                        int i2 = readUInt16 - 1;
+                        if (readUInt16 <= 0) {
+                            break;
+                        }
+                        cencSampleAuxiliaryDataFormat.pairs.add(cencSampleAuxiliaryDataFormat.createPair(IsoTypeReader.readUInt16(byteBuffer), IsoTypeReader.readUInt32(byteBuffer)));
+                        readUInt16 = i2;
+                    }
+                }
+                linkedList.add(cencSampleAuxiliaryDataFormat);
+                j = j2;
+            } catch (BufferUnderflowException unused) {
+                return null;
+            }
         }
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void _parseDetails(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
-            parseVersionAndFlags(byteBuffer);
-            if ((getFlags() & 1) > 0) {
-                this.algorithmId = IsoTypeReader.readUInt24(byteBuffer);
-                this.ivSize = IsoTypeReader.readUInt8(byteBuffer);
-                byte[] bArr = new byte[16];
-                this.kid = bArr;
-                byteBuffer.get(bArr);
-            }
-            long readUInt32 = IsoTypeReader.readUInt32(byteBuffer);
-            ByteBuffer duplicate = byteBuffer.duplicate();
-            ByteBuffer duplicate2 = byteBuffer.duplicate();
-            List<CencSampleAuxiliaryDataFormat> parseEntries = parseEntries(duplicate, readUInt32, 8);
-            this.entries = parseEntries;
-            if (parseEntries == null) {
-                this.entries = parseEntries(duplicate2, readUInt32, 16);
-                byteBuffer.position((byteBuffer.position() + byteBuffer.remaining()) - duplicate2.remaining());
-            } else {
-                byteBuffer.position((byteBuffer.position() + byteBuffer.remaining()) - duplicate.remaining());
-            }
-            if (this.entries != null) {
-                return;
-            }
-            throw new RuntimeException("Cannot parse SampleEncryptionBox");
+        parseVersionAndFlags(byteBuffer);
+        if ((getFlags() & 1) > 0) {
+            this.algorithmId = IsoTypeReader.readUInt24(byteBuffer);
+            this.ivSize = IsoTypeReader.readUInt8(byteBuffer);
+            byte[] bArr = new byte[16];
+            this.kid = bArr;
+            byteBuffer.get(bArr);
         }
+        long readUInt32 = IsoTypeReader.readUInt32(byteBuffer);
+        ByteBuffer duplicate = byteBuffer.duplicate();
+        ByteBuffer duplicate2 = byteBuffer.duplicate();
+        List<CencSampleAuxiliaryDataFormat> parseEntries = parseEntries(duplicate, readUInt32, 8);
+        this.entries = parseEntries;
+        if (parseEntries == null) {
+            this.entries = parseEntries(duplicate2, readUInt32, 16);
+            byteBuffer.position((byteBuffer.position() + byteBuffer.remaining()) - duplicate2.remaining());
+        } else {
+            byteBuffer.position((byteBuffer.position() + byteBuffer.remaining()) - duplicate.remaining());
+        }
+        if (this.entries != null) {
+            return;
+        }
+        throw new RuntimeException("Cannot parse SampleEncryptionBox");
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void getContent(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) {
-            writeVersionAndFlags(byteBuffer);
-            if (isOverrideTrackEncryptionBoxParameters()) {
-                IsoTypeWriter.writeUInt24(byteBuffer, this.algorithmId);
-                IsoTypeWriter.writeUInt8(byteBuffer, this.ivSize);
-                byteBuffer.put(this.kid);
+        writeVersionAndFlags(byteBuffer);
+        if (isOverrideTrackEncryptionBoxParameters()) {
+            IsoTypeWriter.writeUInt24(byteBuffer, this.algorithmId);
+            IsoTypeWriter.writeUInt8(byteBuffer, this.ivSize);
+            byteBuffer.put(this.kid);
+        }
+        IsoTypeWriter.writeUInt32(byteBuffer, this.entries.size());
+        for (CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat : this.entries) {
+            byte[] bArr = cencSampleAuxiliaryDataFormat.iv;
+            if (bArr.length != 8 && bArr.length != 16) {
+                throw new RuntimeException("IV must be either 8 or 16 bytes");
             }
-            IsoTypeWriter.writeUInt32(byteBuffer, this.entries.size());
-            for (CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat : this.entries) {
-                byte[] bArr = cencSampleAuxiliaryDataFormat.iv;
-                if (bArr.length != 8 && bArr.length != 16) {
-                    throw new RuntimeException("IV must be either 8 or 16 bytes");
-                }
-                byteBuffer.put(cencSampleAuxiliaryDataFormat.iv);
-                if (isSubSampleEncryption()) {
-                    IsoTypeWriter.writeUInt16(byteBuffer, cencSampleAuxiliaryDataFormat.pairs.size());
-                    for (CencSampleAuxiliaryDataFormat.Pair pair : cencSampleAuxiliaryDataFormat.pairs) {
-                        IsoTypeWriter.writeUInt16(byteBuffer, pair.clear);
-                        IsoTypeWriter.writeUInt32(byteBuffer, pair.encrypted);
-                    }
+            byteBuffer.put(cencSampleAuxiliaryDataFormat.iv);
+            if (isSubSampleEncryption()) {
+                IsoTypeWriter.writeUInt16(byteBuffer, cencSampleAuxiliaryDataFormat.pairs.size());
+                for (CencSampleAuxiliaryDataFormat.Pair pair : cencSampleAuxiliaryDataFormat.pairs) {
+                    IsoTypeWriter.writeUInt16(byteBuffer, pair.clear);
+                    IsoTypeWriter.writeUInt32(byteBuffer, pair.encrypted);
                 }
             }
         }
     }
 
-    @Override // com.googlecode.mp4parser.AbstractBox, com.coremedia.iso.boxes.Box
-    public void getBox(WritableByteChannel writableByteChannel) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writableByteChannel) == null) {
-            super.getBox(writableByteChannel);
+    public boolean equals(Object obj) {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, obj));
+        if (this == obj) {
+            return true;
         }
-    }
-
-    public void setEntries(List<CencSampleAuxiliaryDataFormat> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this, list));
-            this.entries = list;
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
         }
-    }
-
-    @DoNotParseDetail
-    public void setSubSampleEncryption(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            if (z) {
-                setFlags(getFlags() | 2);
-            } else {
-                setFlags(getFlags() & 16777213);
-            }
+        AbstractSampleEncryptionBox abstractSampleEncryptionBox = (AbstractSampleEncryptionBox) obj;
+        if (this.algorithmId != abstractSampleEncryptionBox.algorithmId || this.ivSize != abstractSampleEncryptionBox.ivSize) {
+            return false;
         }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        long j;
-        Iterator<CencSampleAuxiliaryDataFormat> it;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (isOverrideTrackEncryptionBoxParameters()) {
-                j = 8 + this.kid.length;
-            } else {
-                j = 4;
-            }
-            long j2 = j + 4;
-            while (this.entries.iterator().hasNext()) {
-                j2 += it.next().getSize();
-            }
-            return j2;
+        List<CencSampleAuxiliaryDataFormat> list = this.entries;
+        if (list == null ? abstractSampleEncryptionBox.entries != null : !list.equals(abstractSampleEncryptionBox.entries)) {
+            return false;
         }
-        return invokeV.longValue;
-    }
-
-    public int getOffsetToFirstIV() {
-        InterceptResult invokeV;
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            if (getSize() > 4294967296L) {
-                i = 16;
-            } else {
-                i = 8;
-            }
-            if (isOverrideTrackEncryptionBoxParameters()) {
-                i2 = this.kid.length + 4;
-            } else {
-                i2 = 0;
-            }
-            return i + i2 + 4;
+        if (Arrays.equals(this.kid, abstractSampleEncryptionBox.kid)) {
+            return true;
         }
-        return invokeV.intValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
-            int i2 = ((this.algorithmId * 31) + this.ivSize) * 31;
-            byte[] bArr = this.kid;
-            int i3 = 0;
-            if (bArr != null) {
-                i = Arrays.hashCode(bArr);
-            } else {
-                i = 0;
-            }
-            int i4 = (i2 + i) * 31;
-            List<CencSampleAuxiliaryDataFormat> list = this.entries;
-            if (list != null) {
-                i3 = list.hashCode();
-            }
-            return i4 + i3;
-        }
-        return invokeV.intValue;
+        return false;
     }
 
     public List<Short> getEntrySizes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this));
-            ArrayList arrayList = new ArrayList(this.entries.size());
-            for (CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat : this.entries) {
-                short length = (short) cencSampleAuxiliaryDataFormat.iv.length;
-                if (isSubSampleEncryption()) {
-                    length = (short) (((short) (length + 2)) + (cencSampleAuxiliaryDataFormat.pairs.size() * 6));
-                }
-                arrayList.add(Short.valueOf(length));
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this));
+        ArrayList arrayList = new ArrayList(this.entries.size());
+        for (CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat : this.entries) {
+            short length = (short) cencSampleAuxiliaryDataFormat.iv.length;
+            if (isSubSampleEncryption()) {
+                length = (short) (((short) (length + 2)) + (cencSampleAuxiliaryDataFormat.pairs.size() * 6));
             }
-            return arrayList;
+            arrayList.add(Short.valueOf(length));
         }
-        return (List) invokeV.objValue;
+        return arrayList;
     }
 }

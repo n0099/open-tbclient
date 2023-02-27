@@ -1,673 +1,319 @@
 package com.xiaomi.push;
 
-import android.annotation.TargetApi;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
-import android.os.PowerManager;
-import android.os.StatFs;
-import android.telephony.TelephonyManager;
+import android.os.Parcelable;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 /* loaded from: classes8.dex */
 public class j {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = null;
+    public static volatile int a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Set<String> f821a;
+    public static Map<String, n> f811a = null;
+    public static int b = -1;
 
-    /* renamed from: a  reason: collision with other field name */
-    public static boolean f822a = false;
-
-    /* renamed from: a  reason: collision with other field name */
-    public static final String[] f823a;
-    public static String b = null;
-    public static String c = "";
-    public static String d;
-    public static String e;
-    public static final String f;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1664386452, "Lcom/xiaomi/push/j;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1664386452, "Lcom/xiaomi/push/j;");
-                return;
-            }
-        }
-        f = String.valueOf((char) 2);
-        f823a = new String[]{"--", "a-", "u-", "v-", "o-", "g-"};
-        HashSet hashSet = new HashSet();
-        f821a = hashSet;
-        hashSet.add("com.xiaomi.xmsf");
-        f821a.add("com.xiaomi.finddevice");
-        f821a.add("com.miui.securitycenter");
-        f822a = true;
-    }
-
-    public static double a(double d2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d2)})) != null) {
-            return invokeCommon.doubleValue;
-        }
-        int i = 1;
-        while (true) {
-            double d3 = i;
-            if (d3 >= d2) {
-                return d3;
-            }
-            i <<= 1;
-        }
-    }
-
-    public static float a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            float f2 = ((((((i + 102400) / 524288) + 1) * 512) * 1024) / 1024.0f) / 1024.0f;
-            double d2 = f2;
-            return d2 > 0.5d ? (float) Math.ceil(d2) : f2;
-        }
-        return invokeI.floatValue;
-    }
-
-    @TargetApi(17)
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0024  */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0025  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            Object a2 = bk.a("android.os.UserHandle", "myUserId", new Object[0]);
-            if (a2 == null) {
-                return -1;
-            }
-            return ((Integer) Integer.class.cast(a2)).intValue();
-        }
-        return invokeV.intValue;
-    }
-
-    public static long a(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
-            StatFs statFs = new StatFs(file.getPath());
-            return statFs.getBlockSizeLong() * statFs.getBlockCountLong();
-        }
-        return invokeL.longValue;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public static String m609a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return a(b()) + "GB";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public static String m610a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
-            if (i > 0) {
-                String[] strArr = f823a;
-                if (i < strArr.length) {
-                    return strArr[i];
-                }
-            }
-            return f823a[0];
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+        int i;
+        boolean z;
+        if (a == 0) {
             try {
-                return k.a(context).a();
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m105a("failure to get gaid:" + e2.getMessage());
-                return null;
+                i = 1;
+            } catch (Throwable th) {
+                com.xiaomi.channel.commonutils.logger.b.a("get isMIUI failed", th);
+                a = 0;
             }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String a(Context context, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65544, null, context, z)) == null) {
-            if (d == null) {
-                String c2 = c(context);
-                String d2 = !m.m642d() ? z ? d(context) : l(context) : "";
-                String b2 = b(context);
-                int i = 1;
-                if (!(Build.VERSION.SDK_INT < 26) && b(d2) && b(b2)) {
-                    String b3 = ba.a(context).b();
-                    if (TextUtils.isEmpty(b3)) {
-                        String mo188a = ba.a(context).mo188a();
-                        if (TextUtils.isEmpty(mo188a) || mo188a.startsWith("00000000-0000-0000-0000-000000000000")) {
-                            i = 5;
-                        } else {
-                            i = 4;
-                            c2 = mo188a;
-                        }
-                    } else {
-                        c2 = b3 + c2;
-                        i = 2;
-                    }
-                } else {
-                    c2 = d2 + c2 + b2;
+            if (TextUtils.isEmpty(m625a("ro.miui.ui.version.code")) && TextUtils.isEmpty(m625a("ro.miui.ui.version.name"))) {
+                z = false;
+                if (z) {
+                    i = 2;
                 }
-                com.xiaomi.channel.commonutils.logger.b.b("devid rule select:" + i);
-                if (i == 3) {
-                    d = c2;
-                } else {
-                    d = m610a(i) + bp.b(c2);
-                }
+                a = i;
+                com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + a);
             }
-            return d;
+            z = true;
+            if (z) {
+            }
+            a = i;
+            com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + a);
         }
-        return (String) invokeLZ.objValue;
+        return a;
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public static boolean m611a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            Intent registerReceiver = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-            if (registerReceiver != null) {
-                int intExtra = registerReceiver.getIntExtra("status", -1);
-                return intExtra == 2 || intExtra == 5;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        ApplicationInfo applicationInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, str)) == null) {
-            PackageInfo packageInfo = (PackageInfo) bk.a((Object) context.getPackageManager(), "getPackageInfoAsUser", str, 0, 999);
-            if (packageInfo != null && (applicationInfo = packageInfo.applicationInfo) != null) {
-                int i = applicationInfo.flags;
-                if ((i & 2097152) != 2097152 || (i & 8388608) == 8388608) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65547, null, str)) != null) {
-            return invokeL.booleanValue;
-        }
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        int i = 0;
-        while (true) {
-            String[] strArr = f823a;
-            if (i >= strArr.length) {
-                return false;
-            }
-            if (str.startsWith(strArr[i])) {
-                return true;
-            }
-            i++;
-        }
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        BufferedReader bufferedReader;
-        Throwable th;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (new File(HardwareInfoUtils.MEM_INFO_FILE).exists()) {
-                BufferedReader bufferedReader2 = null;
-                try {
-                    try {
-                        bufferedReader = new BufferedReader(new FileReader(HardwareInfoUtils.MEM_INFO_FILE), 8192);
-                    } catch (IOException unused) {
-                    }
-                    try {
-                        String readLine = bufferedReader.readLine();
-                        if (!TextUtils.isEmpty(readLine) && (split = readLine.split("\\s+")) != null && split.length >= 2 && TextUtils.isDigitsOnly(split[1])) {
-                            Integer.parseInt(split[1]);
-                        }
-                        bufferedReader.close();
-                    } catch (Exception unused2) {
-                        bufferedReader2 = bufferedReader;
-                        if (bufferedReader2 != null) {
-                            bufferedReader2.close();
-                        }
-                        return 0;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (IOException unused3) {
-                            }
-                        }
-                        throw th;
-                    }
-                } catch (Exception unused4) {
-                } catch (Throwable th3) {
-                    bufferedReader = null;
-                    th = th3;
-                }
-            }
+    public static int a(Context context) {
+        String m625a = m625a("ro.miui.ui.version.code");
+        if (TextUtils.isEmpty(m625a) || !TextUtils.isDigitsOnly(m625a)) {
             return 0;
         }
-        return invokeV.intValue;
+        return Integer.parseInt(m625a);
     }
 
-    /* renamed from: b  reason: collision with other method in class */
-    public static String m612b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            double a2 = a(((a(Environment.getDataDirectory()) / 1024.0d) / 1024.0d) / 1024.0d);
-            return a2 + "GB";
-        }
-        return (String) invokeV.objValue;
+    public static n a(String str) {
+        n b2 = b(str);
+        return b2 == null ? n.Global : b2;
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
+    /* renamed from: a  reason: collision with other method in class */
+    public static String m624a() {
+        int a2 = s.a();
+        return (!m627a() || a2 <= 0) ? "" : a2 < 2 ? Key.ALPHA : a2 < 3 ? "development" : "stable";
+    }
+
+    public static String a(Intent intent) {
+        if (intent == null) {
             return null;
         }
-        return (String) invokeL.objValue;
+        return intent.toString() + " " + a(intent.getExtras());
+    }
+
+    public static String a(Bundle bundle) {
+        String a2;
+        StringBuilder sb = new StringBuilder("Bundle[");
+        if (bundle == null) {
+            sb.append(StringUtil.NULL_STRING);
+        } else {
+            boolean z = true;
+            for (String str : bundle.keySet()) {
+                if (!z) {
+                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                }
+                sb.append(str);
+                sb.append('=');
+                Object obj = bundle.get(str);
+                if (obj instanceof int[]) {
+                    a2 = Arrays.toString((int[]) obj);
+                } else if (obj instanceof byte[]) {
+                    a2 = Arrays.toString((byte[]) obj);
+                } else if (obj instanceof boolean[]) {
+                    a2 = Arrays.toString((boolean[]) obj);
+                } else if (obj instanceof short[]) {
+                    a2 = Arrays.toString((short[]) obj);
+                } else if (obj instanceof long[]) {
+                    a2 = Arrays.toString((long[]) obj);
+                } else if (obj instanceof float[]) {
+                    a2 = Arrays.toString((float[]) obj);
+                } else if (obj instanceof double[]) {
+                    a2 = Arrays.toString((double[]) obj);
+                } else if (obj instanceof String[]) {
+                    a2 = Arrays.toString((String[]) obj);
+                } else if (obj instanceof CharSequence[]) {
+                    a2 = Arrays.toString((CharSequence[]) obj);
+                } else if (obj instanceof Parcelable[]) {
+                    a2 = Arrays.toString((Parcelable[]) obj);
+                } else if (obj instanceof Bundle) {
+                    a2 = a((Bundle) obj);
+                } else {
+                    sb.append(obj);
+                    z = false;
+                }
+                sb.append(a2);
+                z = false;
+            }
+        }
+        sb.append(PreferencesUtil.RIGHT_MOUNT);
+        return sb.toString();
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static String m625a(String str) {
+        try {
+            try {
+                return (String) bj.a(CountryCodeBean.ANDRIOD_SYSTEMPROP, "get", str, "");
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.d("fail to get property. " + e);
+                return null;
+            }
+        } catch (Throwable unused) {
+            return null;
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static void m626a() {
+        if (f811a != null) {
+            return;
+        }
+        HashMap hashMap = new HashMap();
+        f811a = hashMap;
+        hashMap.put("CN", n.China);
+        f811a.put("FI", n.Europe);
+        f811a.put("SE", n.Europe);
+        f811a.put(HlsPlaylistParser.BOOLEAN_FALSE, n.Europe);
+        f811a.put("FO", n.Europe);
+        f811a.put("EE", n.Europe);
+        f811a.put("LV", n.Europe);
+        f811a.put("LT", n.Europe);
+        f811a.put("BY", n.Europe);
+        f811a.put("MD", n.Europe);
+        f811a.put("UA", n.Europe);
+        f811a.put("PL", n.Europe);
+        f811a.put("CZ", n.Europe);
+        f811a.put("SK", n.Europe);
+        f811a.put("HU", n.Europe);
+        f811a.put("DE", n.Europe);
+        f811a.put("AT", n.Europe);
+        f811a.put("CH", n.Europe);
+        f811a.put("LI", n.Europe);
+        f811a.put("GB", n.Europe);
+        f811a.put("IE", n.Europe);
+        f811a.put("NL", n.Europe);
+        f811a.put("BE", n.Europe);
+        f811a.put("LU", n.Europe);
+        f811a.put("FR", n.Europe);
+        f811a.put("RO", n.Europe);
+        f811a.put("BG", n.Europe);
+        f811a.put("RS", n.Europe);
+        f811a.put("MK", n.Europe);
+        f811a.put("AL", n.Europe);
+        f811a.put("GR", n.Europe);
+        f811a.put("SI", n.Europe);
+        f811a.put("HR", n.Europe);
+        f811a.put("IT", n.Europe);
+        f811a.put("SM", n.Europe);
+        f811a.put("MT", n.Europe);
+        f811a.put("ES", n.Europe);
+        f811a.put("PT", n.Europe);
+        f811a.put("AD", n.Europe);
+        f811a.put("CY", n.Europe);
+        f811a.put("DK", n.Europe);
+        f811a.put("IS", n.Europe);
+        f811a.put("UK", n.Europe);
+        f811a.put("EL", n.Europe);
+        f811a.put("RU", n.Russia);
+        f811a.put("IN", n.India);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static boolean m627a() {
+        return a() == 1;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static boolean m628a(Context context) {
+        return context != null && m629a(context.getPackageName());
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static boolean m629a(String str) {
+        return "com.xiaomi.xmsf".equals(str);
+    }
+
+    public static int b(Context context) {
+        try {
+            return context.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 0).versionCode;
+        } catch (Exception unused) {
+            return 0;
+        }
+    }
+
+    public static n b(String str) {
+        m626a();
+        return f811a.get(str.toUpperCase());
+    }
+
+    public static String b() {
+        String a2 = r.a("ro.miui.region", "");
+        if (TextUtils.isEmpty(a2)) {
+            a2 = r.a("persist.sys.oppo.region", "");
+        }
+        if (TextUtils.isEmpty(a2)) {
+            a2 = r.a("ro.oppo.regionmark", "");
+        }
+        if (TextUtils.isEmpty(a2)) {
+            a2 = r.a("ro.vendor.oplus.regionmark", "");
+        }
+        if (TextUtils.isEmpty(a2)) {
+            a2 = r.a(CountryCodeBean.VENDORCOUNTRY_SYSTEMPROP, "");
+        }
+        if (TextUtils.isEmpty(a2)) {
+            a2 = r.a("ro.csc.countryiso_code", "");
+        }
+        if (TextUtils.isEmpty(a2)) {
+            a2 = m630b(r.a("ro.product.country.region", ""));
+        }
+        if (TextUtils.isEmpty(a2)) {
+            a2 = r.a("gsm.vivo.countrycode", "");
+        }
+        if (TextUtils.isEmpty(a2)) {
+            a2 = r.a("persist.sys.oem.region", "");
+        }
+        if (TextUtils.isEmpty(a2)) {
+            a2 = r.a(CountryCodeBean.LOCALE_REGION_COUNTRYSYSTEMPROP, "");
+        }
+        if (TextUtils.isEmpty(a2)) {
+            a2 = r.a("persist.sys.country", "");
+        }
+        if (!TextUtils.isEmpty(a2)) {
+            com.xiaomi.channel.commonutils.logger.b.m97a("get region from system, region = " + a2);
+        }
+        if (TextUtils.isEmpty(a2)) {
+            String country = Locale.getDefault().getCountry();
+            com.xiaomi.channel.commonutils.logger.b.m97a("locale.default.country = " + country);
+            return country;
+        }
+        return a2;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m613b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
-            PowerManager powerManager = (PowerManager) context.getSystemService("power");
-            return powerManager == null || powerManager.isScreenOn();
+    public static String m630b(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return str;
         }
-        return invokeL.booleanValue;
+        String[] split = str.split("-");
+        return split.length > 0 ? split[0] : str;
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
-            if (str == null) {
-                return true;
-            }
-            String trim = str.trim();
-            return trim.length() == 0 || trim.equalsIgnoreCase(StringUtil.NULL_STRING) || trim.equalsIgnoreCase("unknown");
-        }
-        return invokeL.booleanValue;
+    /* renamed from: b  reason: collision with other method in class */
+    public static boolean m631b() {
+        return a() == 2;
     }
 
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? Build.VERSION.SDK_INT < 29 ? 10 : 0 : invokeV.intValue;
+    public static String c() {
+        return m625a("ro.miui.ui.version.name");
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public static String m614c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
-            return b() + "KB";
+    public static boolean m632c() {
+        if (b < 0) {
+            b = !m634e() ? 1 : 0;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) {
-            if (b == null && f822a) {
-                boolean m616d = m616d(context);
-                f822a = m616d;
-                if (m616d) {
-                    try {
-                        b = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
-                    } catch (Throwable th) {
-                        com.xiaomi.channel.commonutils.logger.b.m105a("failure to get androidId: " + th);
-                    }
-                    return b;
-                }
-                return null;
-            }
-            return b;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* renamed from: c  reason: collision with other method in class */
-    public static boolean m615c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) {
-            String packageName = context.getPackageName();
-            if (m.m636a() && f821a.contains(packageName)) {
-                return context.getPackageManager().checkPermission(com.kuaishou.weapon.p0.h.c, packageName) == 0 || context.getPackageManager().checkPermission("android.permission.READ_PRIVILEGED_PHONE_STATE", packageName) == 0;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) ? !TextUtils.isEmpty(str) && str.length() <= 15 && str.length() >= 14 && bp.m223b(str) && !bp.c(str) : invokeL.booleanValue;
+        return b > 0;
     }
 
     public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
-            long a2 = a(Environment.getDataDirectory());
-            return (a2 / 1024) + "KB";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
-            int c2 = c();
-            String e2 = e(context);
-            while (e2 == null) {
-                int i = c2 - 1;
-                if (c2 <= 0) {
-                    break;
-                }
-                try {
-                    Thread.sleep(500L);
-                } catch (InterruptedException unused) {
-                }
-                e2 = e(context);
-                c2 = i;
-            }
-            return e2;
-        }
-        return (String) invokeL.objValue;
+        return m625a("ro.build.characteristics");
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public static boolean m616d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, context)) == null) {
-            if ("com.xiaomi.xmsf".equals(context.getPackageName())) {
-                return true;
-            }
-            Intent intent = new Intent();
-            ComponentName componentName = new ComponentName(context.getPackageName(), "com.xiaomi.push.service.XMPushService");
-            intent.setComponent(componentName);
-            try {
-                Bundle bundle = context.getPackageManager().getServiceInfo(componentName, 128).metaData;
-                if (bundle != null) {
-                    String string = bundle.getString("supportGetAndroidID");
-                    if (TextUtils.isEmpty(string)) {
-                        return true;
-                    }
-                    return Boolean.parseBoolean(string);
-                }
-            } catch (Exception unused) {
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+    public static boolean m633d() {
+        return !n.China.name().equalsIgnoreCase(a(b()).name());
     }
 
-    public static String e(Context context) {
-        InterceptResult invokeL;
-        String str;
-        Object obj;
-        Object a2;
-        Object a3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) {
-            if (m.m642d()) {
-                return "";
-            }
-            String str2 = a;
-            if (str2 != null) {
-                return str2;
-            }
-            try {
-                if (m615c(context)) {
-                    str = (!m.m636a() || (a2 = bk.a("miui.telephony.TelephonyManager", "getDefault", new Object[0])) == null || (a3 = bk.a(a2, "getMiuiDeviceId", new Object[0])) == null || !(a3 instanceof String)) ? null : (String) String.class.cast(a3);
-                    if (str == null) {
-                        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                        if (Build.VERSION.SDK_INT < 26) {
-                            str = ApiReplaceUtil.getDeviceId(telephonyManager);
-                        } else {
-                            if (1 == telephonyManager.getPhoneType()) {
-                                obj = bk.a((Object) telephonyManager, "getImei", (Object[]) null);
-                            } else if (2 == telephonyManager.getPhoneType()) {
-                                obj = bk.a((Object) telephonyManager, "getMeid", (Object[]) null);
-                            }
-                            str = (String) obj;
-                        }
-                    }
-                } else {
-                    str = null;
-                }
-                if (c(str)) {
-                    a = str;
-                    return str;
-                }
-                return "";
-            } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.m105a("failure to get id:" + th);
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
+    public static String e() {
+        return m625a("ro.product.manufacturer");
     }
 
-    public static String f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) {
-            int c2 = c();
-            String h = h(context);
-            while (h == null) {
-                int i = c2 - 1;
-                if (c2 <= 0) {
-                    break;
-                }
-                try {
-                    Thread.sleep(500L);
-                } catch (InterruptedException unused) {
-                }
-                h = h(context);
-                c2 = i;
-            }
-            return h;
+    /* renamed from: e  reason: collision with other method in class */
+    public static boolean m634e() {
+        String str = "";
+        try {
+            str = r.a("ro.miui.ui.version.code", "");
+        } catch (Exception unused) {
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String g(Context context) {
-        InterceptResult invokeL;
-        Object a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) {
-            if (!m.m642d() && Build.VERSION.SDK_INT >= 22) {
-                if (TextUtils.isEmpty(c)) {
-                    e(context);
-                    if (TextUtils.isEmpty(a)) {
-                        return "";
-                    }
-                    try {
-                        if (m615c(context)) {
-                            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                            Integer num = (Integer) bk.a((Object) telephonyManager, "getPhoneCount", new Object[0]);
-                            if (num != null && num.intValue() > 1) {
-                                String str = null;
-                                for (int i = 0; i < num.intValue(); i++) {
-                                    if (Build.VERSION.SDK_INT < 26) {
-                                        a2 = bk.a((Object) telephonyManager, "getDeviceId", Integer.valueOf(i));
-                                    } else if (1 == telephonyManager.getPhoneType()) {
-                                        a2 = bk.a((Object) telephonyManager, "getImei", Integer.valueOf(i));
-                                    } else {
-                                        if (2 == telephonyManager.getPhoneType()) {
-                                            a2 = bk.a((Object) telephonyManager, "getMeid", Integer.valueOf(i));
-                                        }
-                                        if (!TextUtils.isEmpty(str) && !TextUtils.equals(a, str) && c(str)) {
-                                            c += str + ",";
-                                        }
-                                    }
-                                    str = (String) a2;
-                                    if (!TextUtils.isEmpty(str)) {
-                                        c += str + ",";
-                                    }
-                                }
-                                int length = c.length();
-                                if (length > 0) {
-                                    c = c.substring(0, length - 1);
-                                }
-                                return c;
-                            }
-                        }
-                        return "";
-                    } catch (Exception e2) {
-                        com.xiaomi.channel.commonutils.logger.b.m105a("failure to get ids: " + e2);
-                        return "";
-                    }
-                }
-                return c;
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) {
-            g(context);
-            String str = "";
-            if (TextUtils.isEmpty(c)) {
-                return "";
-            }
-            for (String str2 : c.split(",")) {
-                if (c(str2)) {
-                    str = str + bp.a(str2) + ",";
-                }
-            }
-            int length = str.length();
-            return length > 0 ? str.substring(0, length - 1) : str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static synchronized String i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, context)) == null) {
-            synchronized (j.class) {
-                if (e != null) {
-                    return e;
-                }
-                String c2 = c(context);
-                String b2 = b(context);
-                String b3 = bp.b(c2 + b2);
-                e = b3;
-                return b3;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static synchronized String j(Context context) {
-        InterceptResult invokeL;
-        String b2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) {
-            synchronized (j.class) {
-                String c2 = c(context);
-                b2 = bp.b(c2 + ((String) null));
-            }
-            return b2;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65567, null, context)) == null) ? ((TelephonyManager) context.getSystemService("phone")).getSimOperatorName() : (String) invokeL.objValue;
-    }
-
-    public static String l(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, context)) == null) {
-            int c2 = c();
-            String e2 = e(context);
-            while (TextUtils.isEmpty(e2)) {
-                int i = c2 - 1;
-                if (c2 <= 0) {
-                    break;
-                }
-                try {
-                    Thread.sleep(500L);
-                } catch (InterruptedException unused) {
-                }
-                e2 = e(context);
-                c2 = i;
-            }
-            return e2;
-        }
-        return (String) invokeL.objValue;
+        return !TextUtils.isEmpty(str);
     }
 }

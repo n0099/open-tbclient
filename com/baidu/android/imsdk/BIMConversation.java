@@ -36,6 +36,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.codec.language.bm.Rule;
 /* loaded from: classes.dex */
 public class BIMConversation implements NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
@@ -252,7 +253,7 @@ public class BIMConversation implements NoProGuard {
                     return;
                 }
             }
-            ALL = new MSGTYPE("ALL", 0);
+            ALL = new MSGTYPE(Rule.ALL, 0);
             MSG = new MSGTYPE("MSG", 1);
             MSGTYPE msgtype = new MSGTYPE("SYSTEMMSG", 2);
             SYSTEMMSG = msgtype;

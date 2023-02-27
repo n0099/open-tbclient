@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.baidu.sapi2.result.GetUserAttrInfoResult;
 import com.kwad.components.splash.SplashPreloadManager;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -9,7 +10,7 @@ public final class ek implements com.kwad.sdk.core.d<SplashPreloadManager.PreLoa
         if (jSONObject == null) {
             return;
         }
-        preLoadItem.cacheTime = jSONObject.optLong("cacheTime");
+        preLoadItem.cacheTime = jSONObject.optLong(GetUserAttrInfoResult.KEY_DATA_CACHE_TIME);
         preLoadItem.expiredTime = jSONObject.optLong("expiredTime");
         preLoadItem.preloadId = jSONObject.optString("preloadId");
         if (jSONObject.opt("preloadId") == JSONObject.NULL) {
@@ -24,7 +25,7 @@ public final class ek implements com.kwad.sdk.core.d<SplashPreloadManager.PreLoa
         }
         long j = preLoadItem.cacheTime;
         if (j != 0) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "cacheTime", j);
+            com.kwad.sdk.utils.r.putValue(jSONObject, GetUserAttrInfoResult.KEY_DATA_CACHE_TIME, j);
         }
         long j2 = preLoadItem.expiredTime;
         if (j2 != 0) {

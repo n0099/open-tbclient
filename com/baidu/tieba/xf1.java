@@ -1,57 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.android.util.soloader.SoLoader;
-import com.baidu.perf.signal.register.NativeSignalCapture;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import com.baidu.payment.PaymentManager;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 /* loaded from: classes6.dex */
 public class xf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948298342, "Lcom/baidu/tieba/xf1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948298342, "Lcom/baidu/tieba/xf1;");
+    public static void a(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, bundle) == null) {
+            if (bundle == null) {
+                PaymentManager.i(3, "闪付返回信息为空");
                 return;
             }
+            String string = bundle.getString(HiAnalyticsConstant.HaKey.BI_KEY_RESULT);
+            try {
+                PaymentManager.i(Integer.parseInt(string), bundle.getString("payInfo"));
+            } catch (NumberFormatException e) {
+                PaymentManager.i(3, e.getMessage());
+            }
         }
-        SoLoader.load(AppRuntime.getAppContext(), "signal-register");
+    }
+
+    public static void b(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, bundle) == null) {
+            vf1.a().g(bundle);
+        }
     }
 
     public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            NativeSignalCapture.clearANRListener();
-            synchronized (NativeSignalCapture.sANRMutex) {
-                NativeSignalCapture.unRegisterANR();
-            }
-        }
-    }
-
-    public static void a(vf1 vf1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, vf1Var) == null) {
-            NativeSignalCapture.addANRListener(vf1Var);
-        }
-    }
-
-    public static void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            synchronized (NativeSignalCapture.sANRMutex) {
-                NativeSignalCapture.registerANR(i);
-            }
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && ProcessUtils.isMainProcess()) {
+            vf1.a().h("");
         }
     }
 }

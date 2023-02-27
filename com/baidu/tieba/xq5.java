@@ -1,116 +1,101 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+import java.util.Date;
+import java.util.regex.Pattern;
+/* loaded from: classes6.dex */
 public class xq5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern a;
+    public static final Pattern b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView a;
-    public ImageView b;
-    public br5 c;
-    public b d;
-    public final yg<on> e;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a();
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends yg<on> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xq5 a;
-
-        public a(xq5 xq5Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948309037, "Lcom/baidu/tieba/xq5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xq5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = xq5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yg
-        public void onLoaded(on onVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, onVar, str, i) == null) {
-                super.onLoaded((a) onVar, str, i);
-                if (!StringUtils.isNull(str) && this.a.c != null && this.a.c.isValid()) {
-                    if (str.equals(this.a.c.a())) {
-                        this.a.b.setImageDrawable(onVar.j());
-                    }
-                    if (str.equals(this.a.c.d())) {
-                        this.a.a.setImageDrawable(onVar.j());
-                    }
-                    this.a.c.b(str);
-                    if (this.a.c.e() && this.a.d != null) {
-                        this.a.d.a();
-                    }
-                }
-            }
-        }
-    }
-
-    public xq5(ImageView imageView, ImageView imageView2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {imageView, imageView2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948309037, "Lcom/baidu/tieba/xq5;");
                 return;
             }
         }
-        this.e = new a(this);
-        this.a = imageView;
-        this.b = imageView2;
+        a = Pattern.compile("http[s]?://tieba\\.baidu\\.com/f(.*)&jump_tieba_native=1(.*)");
+        b = Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1");
     }
 
-    public void f(b bVar) {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (!UbsABTestHelper.isSearchLoginTestA()) {
+                return false;
+            }
+            Date date = new Date(b55.m().o("show_login_dialog_strategy_key", 0L));
+            long currentTimeMillis = System.currentTimeMillis();
+            Date date2 = new Date(currentTimeMillis);
+            b55.m().A("show_login_dialog_strategy_key", currentTimeMillis);
+            return !TimeHelper.isSameDay(date, date2);
         }
+        return invokeV.booleanValue;
     }
 
-    public void e() {
-        br5 br5Var;
-        b bVar;
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (br5Var = this.c) == null || !br5Var.isValid() || !this.c.e() || (bVar = this.d) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (dj.isEmpty(str)) {
+                return false;
+            }
+            return a.matcher(str.toLowerCase()).find();
         }
-        bVar.a();
+        return invokeL.booleanValue;
     }
 
-    public void g(br5 br5Var) {
+    public static boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, br5Var) == null) && br5Var != null && br5Var.isValid()) {
-            this.c = br5Var;
-            zg.h().m(this.c.a(), 10, this.e, null);
-            zg.h().m(this.c.d(), 10, this.e, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (dj.isEmpty(str)) {
+                return false;
+            }
+            return b.matcher(str.toLowerCase()).find();
         }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (dj.isEmpty(str)) {
+                return false;
+            }
+            return "person".equalsIgnoreCase(Uri.parse(str).getAuthority());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (!b(str) && !c(str) && !d(str)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

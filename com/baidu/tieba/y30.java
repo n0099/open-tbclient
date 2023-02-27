@@ -1,136 +1,60 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import kotlin.jvm.internal.ByteCompanionObject;
 /* loaded from: classes7.dex */
-public class y30<T> implements c30<T> {
+public final class y30 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean a;
-    public final CountDownLatch b;
-    public b<T> c;
-    public a d;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Bundle a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public T a;
-        public Bundle b;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public y30() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = false;
-        this.b = new CountDownLatch(1);
-        this.c = null;
-        this.d = null;
-    }
-
-    public b<T> a() {
+    public static byte[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (b) invokeV.objValue;
-    }
-
-    public boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            try {
-                this.b.await(i, TimeUnit.MILLISECONDS);
-                if (this.d == null) {
-                    this.d = new a();
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 69, 32, ByteCompanionObject.MAX_VALUE, -32, -73, -44, 32, 20, ExifInterface.MARKER_APP1, -20, -28, 118, -89, ByteCompanionObject.MAX_VALUE, -6, 83, 34, -42};
         }
-        return invokeI.booleanValue;
+        return (byte[]) invokeV.objValue;
     }
 
-    public a c() {
+    public static byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (a) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 65, 58, 123, -19, -88, -44, 32, 20, ExifInterface.MARKER_APP1, -20, -28, 118, -89, ByteCompanionObject.MAX_VALUE, -6, 83, 34, -42};
+        }
+        return (byte[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.c30
-    public void onError(int i, Throwable th, Bundle bundle) {
+    public static byte[] d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i, th, bundle) == null) {
-            a aVar = new a();
-            this.d = aVar;
-            aVar.a = bundle;
-            this.a = false;
-            this.b.countDown();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 84, 45, 108, -20, -73, -28, 7, 15, ExifInterface.MARKER_SOI, ExifInterface.MARKER_EOI, -13, 105, -93, Constants.SHORT_PING_CMD_TYPE, -6, 73, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -41, 23};
         }
+        return (byte[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.c30
-    public void onResult(T t, Bundle bundle) {
+    public static byte[] c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, t, bundle) == null) {
-            b<T> bVar = new b<>();
-            this.c = bVar;
-            bVar.a = t;
-            bVar.b = bundle;
-            this.a = true;
-            this.b.countDown();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 84, 45, 118, -26, -67, -14, 55, 45, -44, -5, -27, 114, -67, 120, -24, 88, 33, -35, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, -37, Constants.GZIP_CAST_TYPE, 17, -24, 67, -119, 93, 51, 122, 111, 9, 58};
         }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public static byte[] e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 82, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 113, -26, -116, -28, 32, 14, ExifInterface.MARKER_SOI, -6, -30, 122, -84, 96, -20, 111, 63, -47, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, -52, 16, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, -28, 66, -105, 93, 47, 103};
+        }
+        return (byte[]) invokeV.objValue;
     }
 }

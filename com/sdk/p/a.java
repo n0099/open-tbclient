@@ -1,19 +1,19 @@
 package com.sdk.p;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.sdk.f.g;
-import java.security.KeyFactory;
-import java.security.PublicKey;
-import java.security.spec.X509EncodedKeySpec;
+import com.sdk.p.f;
 /* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "a";
-    public static Boolean b;
+    public static final String a = "com.sdk.p.a";
+    public static final Boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,20 +29,38 @@ public class a {
                 return;
             }
         }
-        b = Boolean.valueOf(g.b);
+        b = Boolean.valueOf(com.sdk.f.f.a);
     }
 
-    public static PublicKey a(String str) {
+    /* JADX DEBUG: Incorrect args count in method signature: (Landroid/content/Context;Ljava/util/ArrayList<Ljava/lang/String;>;Z)Lcom/sdk/p/f$a; */
+    public static f.a a(Context context) {
         InterceptResult invokeL;
+        f.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            f.a aVar2 = f.a.c;
+            if (context == null) {
+                return aVar2;
+            }
             try {
-                return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(new com.sdk.h.a().a(str)));
-            } catch (Exception e) {
-                com.sdk.n.a.a(a, e.toString(), b);
-                return null;
+                NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
+                if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
+                    return aVar2;
+                }
+                String typeName = activeNetworkInfo.getTypeName();
+                if ("MOBILE".equalsIgnoreCase(typeName)) {
+                    aVar = f.a.b;
+                } else if (!"WIFI".equalsIgnoreCase(typeName)) {
+                    return aVar2;
+                } else {
+                    aVar = f.a.a;
+                }
+                return aVar;
+            } catch (Throwable th) {
+                com.sdk.o.a.a(a, th.getMessage(), b);
+                return aVar2;
             }
         }
-        return (PublicKey) invokeL.objValue;
+        return (f.a) invokeL.objValue;
     }
 }

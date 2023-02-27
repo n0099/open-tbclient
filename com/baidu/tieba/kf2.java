@@ -1,123 +1,138 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import android.os.Environment;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.TreeMap;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.nio.channels.Channels;
 /* loaded from: classes5.dex */
-public class kf2 {
+public class kf2 extends hf2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public boolean h;
-    public String i;
-    public boolean j;
-    public String k;
-    public boolean l;
-    public String m;
+    public File b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947911090, "Lcom/baidu/tieba/kf2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947911090, "Lcom/baidu/tieba/kf2;");
+                return;
+            }
+        }
+        c = wp1.a;
+    }
 
     public kf2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = o();
     }
 
-    public static Map<String, String> a(kf2 kf2Var) {
+    @Override // com.baidu.tieba.hf2
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!this.b.exists()) {
+                return null;
+            }
+            File file = new File(this.b, "preset_list.json");
+            if (!file.exists()) {
+                return null;
+            }
+            return qp4.E(file);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final File o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new File(Environment.getExternalStorageDirectory().getPath(), "baidu/swan_preset/");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hf2
+    public boolean e(if2 if2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, kf2Var)) == null) {
-            TreeMap treeMap = new TreeMap();
-            if (kf2Var == null) {
-                return treeMap;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, if2Var)) == null) {
+            if (if2Var == null || !this.b.exists()) {
+                return false;
             }
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_CONFIG, kf2Var.a);
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, kf2Var.b);
-            treeMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, kf2Var.c);
-            treeMap.put(PrefetchEvent.EVENT_KEY_PAGE_URL, kf2Var.d);
-            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, kf2Var.f);
-            treeMap.put("root", kf2Var.g);
-            if (!TextUtils.isEmpty(kf2Var.e)) {
-                treeMap.put(PrefetchEvent.EVENT_DATA_EXTRA_DATA, kf2Var.e);
+            File file = this.b;
+            File file2 = new File(file, if2Var.g + File.separator + if2Var.q);
+            if (!file2.exists()) {
+                return false;
             }
-            treeMap.put(PrefetchEvent.EVENT_DATA_SHOW_PERFORMANCE_PANEL, String.valueOf(kf2Var.h));
-            treeMap.put("pageType", kf2Var.i);
-            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(kf2Var.j));
-            if (!TextUtils.isEmpty(kf2Var.k)) {
-                treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, kf2Var.k);
+            try {
+                if (!d(Channels.newChannel(new FileInputStream(file2)), if2Var.m)) {
+                    if (c) {
+                        Log.e("SdCardPresetController", "校验签名失败");
+                    }
+                    return false;
+                }
+                File j = j(if2Var.h, if2Var.g, if2Var.i);
+                if (j == null) {
+                    if (c) {
+                        Log.e("SdCardPresetController", "获取解压路径失败");
+                    }
+                    return false;
+                }
+                return n(new BufferedInputStream(new FileInputStream(file2)), j);
+            } catch (IOException e) {
+                if (c) {
+                    e.printStackTrace();
+                }
+                return false;
             }
-            u43.a(treeMap, "app ready event");
-            oc3.a(kf2Var.d, treeMap);
-            if (a82.c()) {
-                treeMap.put("offlinePerfTool", String.valueOf(1));
-            }
-            if (ue3.d()) {
-                treeMap.put("performanceType", CloudStabilityUBCUtils.VALUE_TYPE);
-            }
-            if (ue3.f()) {
-                treeMap.put("performanceType", "stabilityProfile");
-            }
-            treeMap.put("slaveReady", String.valueOf(kf2Var.l));
-            if (!TextUtils.isEmpty(kf2Var.m)) {
-                treeMap.put(PrefetchEvent.EVENT_USER_ACTION_APIS, kf2Var.m);
-            }
-            return treeMap;
         }
-        return (Map) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static xi2 b(kf2 kf2Var) {
+    @Override // com.baidu.tieba.hf2
+    public String f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, kf2Var)) == null) {
-            Map<String, String> a = a(kf2Var);
-            xi2 xi2Var = new xi2("AppReady", a);
-            PrefetchEvent.c createFromAppReadyEvent = PrefetchEvent.createFromAppReadyEvent(a);
-            if (createFromAppReadyEvent == null) {
-                return xi2Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (!this.b.exists()) {
+                return null;
             }
-            mf2 mf2Var = new mf2();
-            mf2Var.t(createFromAppReadyEvent);
-            mf2Var.t(xi2Var);
-            return mf2Var;
+            File file = this.b;
+            File file2 = new File(file, str + File.separator + "app_info.json");
+            if (!file2.exists()) {
+                return null;
+            }
+            return qp4.E(file2);
         }
-        return (xi2) invokeL.objValue;
-    }
-
-    public static String c(w83 w83Var, String str) {
-        InterceptResult invokeLL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, w83Var, str)) == null) {
-            if (w83Var != null) {
-                str2 = w83Var.c0(om3.f(str));
-            } else {
-                str2 = null;
-            }
-            if (str2 == null) {
-                return "";
-            }
-            return str2;
-        }
-        return (String) invokeLL.objValue;
+        return (String) invokeL.objValue;
     }
 }

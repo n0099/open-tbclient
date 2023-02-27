@@ -16,33 +16,22 @@ import android.os.PowerManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 @Deprecated
 /* loaded from: classes.dex */
 public abstract class JobIntentService extends Service {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final String TAG = "JobIntentService";
-    public static final HashMap<ComponentName, WorkEnqueuer> sClassWorkEnqueuer;
-    public static final Object sLock;
-    public transient /* synthetic */ FieldHolder $fh;
     public final ArrayList<CompatWorkItem> mCompatQueue;
     public WorkEnqueuer mCompatWorkEnqueuer;
     public CommandProcessor mCurProcessor;
-    public boolean mDestroyed;
-    public boolean mInterruptIfStopped;
     public CompatJobEngine mJobImpl;
-    public boolean mStopped;
+    public static final Object sLock = new Object();
+    public static final HashMap<ComponentName, WorkEnqueuer> sClassWorkEnqueuer = new HashMap<>();
+    public boolean mInterruptIfStopped = false;
+    public boolean mStopped = false;
+    public boolean mDestroyed = false;
 
     /* loaded from: classes.dex */
     public interface CompatJobEngine {
@@ -61,189 +50,96 @@ public abstract class JobIntentService extends Service {
     public abstract void onHandleWork(@NonNull Intent intent);
 
     public boolean onStopCurrentWork() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+        return true;
     }
 
     @RequiresApi(26)
     /* loaded from: classes.dex */
     public static final class JobServiceEngineImpl extends JobServiceEngine implements CompatJobEngine {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final boolean DEBUG = false;
         public static final String TAG = "JobServiceEngineImpl";
-        public transient /* synthetic */ FieldHolder $fh;
         public final Object mLock;
         public JobParameters mParams;
         public final JobIntentService mService;
 
         /* loaded from: classes.dex */
         public final class WrapperWorkItem implements GenericWorkItem {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
             public final JobWorkItem mJobWork;
-            public final /* synthetic */ JobServiceEngineImpl this$0;
 
-            public WrapperWorkItem(JobServiceEngineImpl jobServiceEngineImpl, JobWorkItem jobWorkItem) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {jobServiceEngineImpl, jobWorkItem};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = jobServiceEngineImpl;
+            public WrapperWorkItem(JobWorkItem jobWorkItem) {
                 this.mJobWork = jobWorkItem;
             }
 
             @Override // androidx.core.app.JobIntentService.GenericWorkItem
             public void complete() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    synchronized (this.this$0.mLock) {
-                        if (this.this$0.mParams != null) {
-                            this.this$0.mParams.completeWork(this.mJobWork);
-                        }
+                synchronized (JobServiceEngineImpl.this.mLock) {
+                    if (JobServiceEngineImpl.this.mParams != null) {
+                        JobServiceEngineImpl.this.mParams.completeWork(this.mJobWork);
                     }
                 }
             }
 
             @Override // androidx.core.app.JobIntentService.GenericWorkItem
             public Intent getIntent() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    return this.mJobWork.getIntent();
-                }
-                return (Intent) invokeV.objValue;
+                return this.mJobWork.getIntent();
             }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public JobServiceEngineImpl(JobIntentService jobIntentService) {
             super(jobIntentService);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jobIntentService};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Service) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.mLock = new Object();
             this.mService = jobIntentService;
         }
 
-        @Override // androidx.core.app.JobIntentService.CompatJobEngine
-        public IBinder compatGetBinder() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return getBinder();
-            }
-            return (IBinder) invokeV.objValue;
-        }
-
-        @Override // androidx.core.app.JobIntentService.CompatJobEngine
-        public GenericWorkItem dequeueWork() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                synchronized (this.mLock) {
-                    if (this.mParams == null) {
-                        return null;
-                    }
-                    JobWorkItem dequeueWork = this.mParams.dequeueWork();
-                    if (dequeueWork == null) {
-                        return null;
-                    }
-                    dequeueWork.getIntent().setExtrasClassLoader(this.mService.getClassLoader());
-                    return new WrapperWorkItem(this, dequeueWork);
-                }
-            }
-            return (GenericWorkItem) invokeV.objValue;
-        }
-
         @Override // android.app.job.JobServiceEngine
         public boolean onStartJob(JobParameters jobParameters) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jobParameters)) == null) {
-                this.mParams = jobParameters;
-                this.mService.ensureProcessorRunningLocked(false);
-                return true;
-            }
-            return invokeL.booleanValue;
+            this.mParams = jobParameters;
+            this.mService.ensureProcessorRunningLocked(false);
+            return true;
         }
 
         @Override // android.app.job.JobServiceEngine
         public boolean onStopJob(JobParameters jobParameters) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jobParameters)) == null) {
-                boolean doStopCurrentWork = this.mService.doStopCurrentWork();
-                synchronized (this.mLock) {
-                    this.mParams = null;
-                }
-                return doStopCurrentWork;
+            boolean doStopCurrentWork = this.mService.doStopCurrentWork();
+            synchronized (this.mLock) {
+                this.mParams = null;
             }
-            return invokeL.booleanValue;
+            return doStopCurrentWork;
+        }
+
+        @Override // androidx.core.app.JobIntentService.CompatJobEngine
+        public IBinder compatGetBinder() {
+            return getBinder();
+        }
+
+        @Override // androidx.core.app.JobIntentService.CompatJobEngine
+        public GenericWorkItem dequeueWork() {
+            synchronized (this.mLock) {
+                if (this.mParams == null) {
+                    return null;
+                }
+                JobWorkItem dequeueWork = this.mParams.dequeueWork();
+                if (dequeueWork == null) {
+                    return null;
+                }
+                dequeueWork.getIntent().setExtrasClassLoader(this.mService.getClassLoader());
+                return new WrapperWorkItem(dequeueWork);
+            }
         }
     }
 
     /* loaded from: classes.dex */
     public final class CommandProcessor extends AsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JobIntentService this$0;
-
-        public CommandProcessor(JobIntentService jobIntentService) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jobIntentService};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = jobIntentService;
+        public CommandProcessor() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.AsyncTask
         public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) != null) {
-                return (Void) invokeL.objValue;
-            }
             while (true) {
-                GenericWorkItem dequeueWork = this.this$0.dequeueWork();
+                GenericWorkItem dequeueWork = JobIntentService.this.dequeueWork();
                 if (dequeueWork != null) {
-                    this.this$0.onHandleWork(dequeueWork.getIntent());
+                    JobIntentService.this.onHandleWork(dequeueWork.getIntent());
                     dequeueWork.complete();
                 } else {
                     return null;
@@ -253,51 +149,27 @@ public abstract class JobIntentService extends Service {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.AsyncTask
-        public void onCancelled(Void r5) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, r5) == null) {
-                this.this$0.processorFinished();
-            }
+        public void onCancelled(Void r1) {
+            JobIntentService.this.processorFinished();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.AsyncTask
-        public void onPostExecute(Void r5) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, r5) == null) {
-                this.this$0.processorFinished();
-            }
+        public void onPostExecute(Void r1) {
+            JobIntentService.this.processorFinished();
         }
     }
 
     /* loaded from: classes.dex */
     public static final class CompatWorkEnqueuer extends WorkEnqueuer {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final Context mContext;
         public final PowerManager.WakeLock mLaunchWakeLock;
         public boolean mLaunchingService;
         public final PowerManager.WakeLock mRunWakeLock;
         public boolean mServiceProcessing;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public CompatWorkEnqueuer(Context context, ComponentName componentName) {
             super(componentName);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, componentName};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((ComponentName) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.mContext = context.getApplicationContext();
             PowerManager powerManager = (PowerManager) context.getSystemService("power");
             PowerManager.WakeLock newWakeLock = powerManager.newWakeLock(1, componentName.getClassName() + ":launch");
@@ -310,17 +182,14 @@ public abstract class JobIntentService extends Service {
 
         @Override // androidx.core.app.JobIntentService.WorkEnqueuer
         public void enqueueWork(Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
-                Intent intent2 = new Intent(intent);
-                intent2.setComponent(this.mComponentName);
-                if (this.mContext.startService(intent2) != null) {
-                    synchronized (this) {
-                        if (!this.mLaunchingService) {
-                            this.mLaunchingService = true;
-                            if (!this.mServiceProcessing) {
-                                this.mLaunchWakeLock.acquire(60000L);
-                            }
+            Intent intent2 = new Intent(intent);
+            intent2.setComponent(this.mComponentName);
+            if (this.mContext.startService(intent2) != null) {
+                synchronized (this) {
+                    if (!this.mLaunchingService) {
+                        this.mLaunchingService = true;
+                        if (!this.mServiceProcessing) {
+                            this.mLaunchWakeLock.acquire(60000L);
                         }
                     }
                 }
@@ -329,118 +198,65 @@ public abstract class JobIntentService extends Service {
 
         @Override // androidx.core.app.JobIntentService.WorkEnqueuer
         public void serviceProcessingFinished() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                synchronized (this) {
-                    if (this.mServiceProcessing) {
-                        if (this.mLaunchingService) {
-                            this.mLaunchWakeLock.acquire(60000L);
-                        }
-                        this.mServiceProcessing = false;
-                        this.mRunWakeLock.release();
+            synchronized (this) {
+                if (this.mServiceProcessing) {
+                    if (this.mLaunchingService) {
+                        this.mLaunchWakeLock.acquire(60000L);
                     }
+                    this.mServiceProcessing = false;
+                    this.mRunWakeLock.release();
                 }
             }
         }
 
         @Override // androidx.core.app.JobIntentService.WorkEnqueuer
         public void serviceProcessingStarted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                synchronized (this) {
-                    if (!this.mServiceProcessing) {
-                        this.mServiceProcessing = true;
-                        this.mRunWakeLock.acquire(600000L);
-                        this.mLaunchWakeLock.release();
-                    }
+            synchronized (this) {
+                if (!this.mServiceProcessing) {
+                    this.mServiceProcessing = true;
+                    this.mRunWakeLock.acquire(600000L);
+                    this.mLaunchWakeLock.release();
                 }
             }
         }
 
         @Override // androidx.core.app.JobIntentService.WorkEnqueuer
         public void serviceStartReceived() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                synchronized (this) {
-                    this.mLaunchingService = false;
-                }
+            synchronized (this) {
+                this.mLaunchingService = false;
             }
         }
     }
 
     /* loaded from: classes.dex */
     public final class CompatWorkItem implements GenericWorkItem {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final Intent mIntent;
         public final int mStartId;
-        public final /* synthetic */ JobIntentService this$0;
 
-        public CompatWorkItem(JobIntentService jobIntentService, Intent intent, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jobIntentService, intent, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = jobIntentService;
+        public CompatWorkItem(Intent intent, int i) {
             this.mIntent = intent;
             this.mStartId = i;
         }
 
         @Override // androidx.core.app.JobIntentService.GenericWorkItem
         public void complete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.this$0.stopSelf(this.mStartId);
-            }
+            JobIntentService.this.stopSelf(this.mStartId);
         }
 
         @Override // androidx.core.app.JobIntentService.GenericWorkItem
         public Intent getIntent() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.mIntent;
-            }
-            return (Intent) invokeV.objValue;
+            return this.mIntent;
         }
     }
 
     @RequiresApi(26)
     /* loaded from: classes.dex */
     public static final class JobWorkEnqueuer extends WorkEnqueuer {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final JobInfo mJobInfo;
         public final JobScheduler mJobScheduler;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public JobWorkEnqueuer(Context context, ComponentName componentName, int i) {
             super(componentName);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, componentName, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super((ComponentName) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             ensureJobId(i);
             this.mJobInfo = new JobInfo.Builder(i, this.mComponentName).setOverrideDeadline(0L).build();
             this.mJobScheduler = (JobScheduler) context.getApplicationContext().getSystemService("jobscheduler");
@@ -448,17 +264,12 @@ public abstract class JobIntentService extends Service {
 
         @Override // androidx.core.app.JobIntentService.WorkEnqueuer
         public void enqueueWork(Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
-                this.mJobScheduler.enqueue(this.mJobInfo, new JobWorkItem(intent));
-            }
+            this.mJobScheduler.enqueue(this.mJobInfo, new JobWorkItem(intent));
         }
     }
 
     /* loaded from: classes.dex */
     public static abstract class WorkEnqueuer {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final ComponentName mComponentName;
         public boolean mHasJobId;
         public int mJobId;
@@ -466,126 +277,30 @@ public abstract class JobIntentService extends Service {
         public abstract void enqueueWork(Intent intent);
 
         public void serviceProcessingFinished() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
         }
 
         public void serviceProcessingStarted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
         }
 
         public void serviceStartReceived() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
         }
 
         public WorkEnqueuer(ComponentName componentName) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {componentName};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.mComponentName = componentName;
         }
 
         public void ensureJobId(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                if (!this.mHasJobId) {
-                    this.mHasJobId = true;
-                    this.mJobId = i;
-                } else if (this.mJobId == i) {
-                } else {
-                    throw new IllegalArgumentException("Given job ID " + i + " is different than previous " + this.mJobId);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-146690277, "Landroidx/core/app/JobIntentService;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-146690277, "Landroidx/core/app/JobIntentService;");
-                return;
-            }
-        }
-        sLock = new Object();
-        sClassWorkEnqueuer = new HashMap<>();
-    }
-
-    public boolean doStopCurrentWork() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            CommandProcessor commandProcessor = this.mCurProcessor;
-            if (commandProcessor != null) {
-                commandProcessor.cancel(this.mInterruptIfStopped);
-            }
-            this.mStopped = true;
-            return onStopCurrentWork();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isStopped() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mStopped;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.app.Service
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.onDestroy();
-            ArrayList<CompatWorkItem> arrayList = this.mCompatQueue;
-            if (arrayList != null) {
-                synchronized (arrayList) {
-                    this.mDestroyed = true;
-                    this.mCompatWorkEnqueuer.serviceProcessingFinished();
-                }
+            if (!this.mHasJobId) {
+                this.mHasJobId = true;
+                this.mJobId = i;
+            } else if (this.mJobId == i) {
+            } else {
+                throw new IllegalArgumentException("Given job ID " + i + " is different than previous " + this.mJobId);
             }
         }
     }
 
     public JobIntentService() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mInterruptIfStopped = false;
-        this.mStopped = false;
-        this.mDestroyed = false;
         if (Build.VERSION.SDK_INT >= 26) {
             this.mCompatQueue = null;
         } else {
@@ -594,42 +309,58 @@ public abstract class JobIntentService extends Service {
     }
 
     public GenericWorkItem dequeueWork() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            CompatJobEngine compatJobEngine = this.mJobImpl;
-            if (compatJobEngine != null) {
-                return compatJobEngine.dequeueWork();
-            }
-            synchronized (this.mCompatQueue) {
-                if (this.mCompatQueue.size() > 0) {
-                    return this.mCompatQueue.remove(0);
-                }
-                return null;
-            }
+        CompatJobEngine compatJobEngine = this.mJobImpl;
+        if (compatJobEngine != null) {
+            return compatJobEngine.dequeueWork();
         }
-        return (GenericWorkItem) invokeV.objValue;
+        synchronized (this.mCompatQueue) {
+            if (this.mCompatQueue.size() > 0) {
+                return this.mCompatQueue.remove(0);
+            }
+            return null;
+        }
+    }
+
+    public boolean doStopCurrentWork() {
+        CommandProcessor commandProcessor = this.mCurProcessor;
+        if (commandProcessor != null) {
+            commandProcessor.cancel(this.mInterruptIfStopped);
+        }
+        this.mStopped = true;
+        return onStopCurrentWork();
+    }
+
+    public boolean isStopped() {
+        return this.mStopped;
     }
 
     @Override // android.app.Service
     public void onCreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onCreate();
-            if (Build.VERSION.SDK_INT >= 26) {
-                this.mJobImpl = new JobServiceEngineImpl(this);
-                this.mCompatWorkEnqueuer = null;
-                return;
+        super.onCreate();
+        if (Build.VERSION.SDK_INT >= 26) {
+            this.mJobImpl = new JobServiceEngineImpl(this);
+            this.mCompatWorkEnqueuer = null;
+            return;
+        }
+        this.mJobImpl = null;
+        this.mCompatWorkEnqueuer = getWorkEnqueuer(this, new ComponentName(this, JobIntentService.class), false, 0);
+    }
+
+    @Override // android.app.Service
+    public void onDestroy() {
+        super.onDestroy();
+        ArrayList<CompatWorkItem> arrayList = this.mCompatQueue;
+        if (arrayList != null) {
+            synchronized (arrayList) {
+                this.mDestroyed = true;
+                this.mCompatWorkEnqueuer.serviceProcessingFinished();
             }
-            this.mJobImpl = null;
-            this.mCompatWorkEnqueuer = getWorkEnqueuer(this, new ComponentName(this, JobIntentService.class), false, 0);
         }
     }
 
     public void processorFinished() {
-        ArrayList<CompatWorkItem> arrayList;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (arrayList = this.mCompatQueue) != null) {
+        ArrayList<CompatWorkItem> arrayList = this.mCompatQueue;
+        if (arrayList != null) {
             synchronized (arrayList) {
                 this.mCurProcessor = null;
                 if (this.mCompatQueue != null && this.mCompatQueue.size() > 0) {
@@ -642,56 +373,44 @@ public abstract class JobIntentService extends Service {
     }
 
     public static void enqueueWork(@NonNull Context context, @NonNull ComponentName componentName, int i, @NonNull Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65538, null, context, componentName, i, intent) == null) {
-            if (intent != null) {
-                synchronized (sLock) {
-                    WorkEnqueuer workEnqueuer = getWorkEnqueuer(context, componentName, true, i);
-                    workEnqueuer.ensureJobId(i);
-                    workEnqueuer.enqueueWork(intent);
-                }
-                return;
+        if (intent != null) {
+            synchronized (sLock) {
+                WorkEnqueuer workEnqueuer = getWorkEnqueuer(context, componentName, true, i);
+                workEnqueuer.ensureJobId(i);
+                workEnqueuer.enqueueWork(intent);
             }
-            throw new IllegalArgumentException("work must not be null");
+            return;
         }
-    }
-
-    public static void enqueueWork(@NonNull Context context, @NonNull Class<?> cls, int i, @NonNull Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65539, null, context, cls, i, intent) == null) {
-            enqueueWork(context, new ComponentName(context, cls), i, intent);
-        }
+        throw new IllegalArgumentException("work must not be null");
     }
 
     public static WorkEnqueuer getWorkEnqueuer(Context context, ComponentName componentName, boolean z, int i) {
-        InterceptResult invokeCommon;
         WorkEnqueuer compatWorkEnqueuer;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, componentName, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            WorkEnqueuer workEnqueuer = sClassWorkEnqueuer.get(componentName);
-            if (workEnqueuer == null) {
-                if (Build.VERSION.SDK_INT >= 26) {
-                    if (z) {
-                        compatWorkEnqueuer = new JobWorkEnqueuer(context, componentName, i);
-                    } else {
-                        throw new IllegalArgumentException("Can't be here without a job id");
-                    }
+        WorkEnqueuer workEnqueuer = sClassWorkEnqueuer.get(componentName);
+        if (workEnqueuer == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                if (z) {
+                    compatWorkEnqueuer = new JobWorkEnqueuer(context, componentName, i);
                 } else {
-                    compatWorkEnqueuer = new CompatWorkEnqueuer(context, componentName);
+                    throw new IllegalArgumentException("Can't be here without a job id");
                 }
-                WorkEnqueuer workEnqueuer2 = compatWorkEnqueuer;
-                sClassWorkEnqueuer.put(componentName, workEnqueuer2);
-                return workEnqueuer2;
+            } else {
+                compatWorkEnqueuer = new CompatWorkEnqueuer(context, componentName);
             }
-            return workEnqueuer;
+            WorkEnqueuer workEnqueuer2 = compatWorkEnqueuer;
+            sClassWorkEnqueuer.put(componentName, workEnqueuer2);
+            return workEnqueuer2;
         }
-        return (WorkEnqueuer) invokeCommon.objValue;
+        return workEnqueuer;
+    }
+
+    public static void enqueueWork(@NonNull Context context, @NonNull Class<?> cls, int i, @NonNull Intent intent) {
+        enqueueWork(context, new ComponentName(context, cls), i, intent);
     }
 
     public void ensureProcessorRunningLocked(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && this.mCurProcessor == null) {
-            this.mCurProcessor = new CommandProcessor(this);
+        if (this.mCurProcessor == null) {
+            this.mCurProcessor = new CommandProcessor();
             WorkEnqueuer workEnqueuer = this.mCompatWorkEnqueuer;
             if (workEnqueuer != null && z) {
                 workEnqueuer.serviceProcessingStarted();
@@ -702,44 +421,31 @@ public abstract class JobIntentService extends Service {
 
     @Override // android.app.Service
     public IBinder onBind(@NonNull Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, intent)) == null) {
-            CompatJobEngine compatJobEngine = this.mJobImpl;
-            if (compatJobEngine != null) {
-                return compatJobEngine.compatGetBinder();
-            }
-            return null;
+        CompatJobEngine compatJobEngine = this.mJobImpl;
+        if (compatJobEngine != null) {
+            return compatJobEngine.compatGetBinder();
         }
-        return (IBinder) invokeL.objValue;
+        return null;
     }
 
     public void setInterruptIfStopped(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.mInterruptIfStopped = z;
-        }
+        this.mInterruptIfStopped = z;
     }
 
     @Override // android.app.Service
     public int onStartCommand(@Nullable Intent intent, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent, i, i2)) == null) {
-            if (this.mCompatQueue != null) {
-                this.mCompatWorkEnqueuer.serviceStartReceived();
-                synchronized (this.mCompatQueue) {
-                    ArrayList<CompatWorkItem> arrayList = this.mCompatQueue;
-                    if (intent == null) {
-                        intent = new Intent();
-                    }
-                    arrayList.add(new CompatWorkItem(this, intent, i2));
-                    ensureProcessorRunningLocked(true);
+        if (this.mCompatQueue != null) {
+            this.mCompatWorkEnqueuer.serviceStartReceived();
+            synchronized (this.mCompatQueue) {
+                ArrayList<CompatWorkItem> arrayList = this.mCompatQueue;
+                if (intent == null) {
+                    intent = new Intent();
                 }
-                return 3;
+                arrayList.add(new CompatWorkItem(intent, i2));
+                ensureProcessorRunningLocked(true);
             }
-            return 2;
+            return 3;
         }
-        return invokeLII.intValue;
+        return 2;
     }
 }

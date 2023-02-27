@@ -3,22 +3,13 @@ package com.baidu.ar;
 import android.graphics.SurfaceTexture;
 import android.view.Surface;
 import android.view.SurfaceHolder;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arrender.Texture;
 import com.baidu.ar.bean.MirriorType;
 import com.baidu.ar.bean.RotationType;
 import com.baidu.ar.bean.ScaleType;
 import com.baidu.ar.bean.Watermark;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class DuMixOutput {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public MirriorType bl;
     public Object bo;
     public boolean bp;
@@ -32,18 +23,6 @@ public class DuMixOutput {
     public RotationType mRotationType;
 
     public DuMixOutput() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.bo = null;
         this.bp = false;
         this.bq = ScaleType.CENTER_CROP;
@@ -55,20 +34,6 @@ public class DuMixOutput {
     }
 
     public DuMixOutput(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.bo = null;
         this.bp = false;
         this.bq = ScaleType.CENTER_CROP;
@@ -82,20 +47,6 @@ public class DuMixOutput {
     }
 
     public DuMixOutput(SurfaceTexture surfaceTexture, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {surfaceTexture, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.bo = null;
         this.bp = false;
         this.bq = ScaleType.CENTER_CROP;
@@ -110,20 +61,6 @@ public class DuMixOutput {
     }
 
     public DuMixOutput(Surface surface, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {surface, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
         this.bo = null;
         this.bp = false;
         this.bq = ScaleType.CENTER_CROP;
@@ -138,20 +75,6 @@ public class DuMixOutput {
     }
 
     public DuMixOutput(SurfaceHolder surfaceHolder, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {surfaceHolder, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
         this.bo = null;
         this.bp = false;
         this.bq = ScaleType.CENTER_CROP;
@@ -166,20 +89,6 @@ public class DuMixOutput {
     }
 
     public DuMixOutput(Texture texture, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {texture, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65541, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65541, newInitContext);
-                return;
-            }
-        }
         this.bo = null;
         this.bp = false;
         this.bq = ScaleType.CENTER_CROP;
@@ -194,179 +103,110 @@ public class DuMixOutput {
     }
 
     public MirriorType getMirriorType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bl : (MirriorType) invokeV.objValue;
+        return this.bl;
     }
 
     public int getOutputFPS() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bt : invokeV.intValue;
+        return this.bt;
     }
 
     public int getOutputHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mOutputHeight : invokeV.intValue;
+        return this.mOutputHeight;
     }
 
     public Object getOutputSurface() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.bo : invokeV.objValue;
+        return this.bo;
     }
 
     public Texture getOutputTexture() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Object obj = this.bo;
-            if (obj == null || !(obj instanceof Texture)) {
-                return null;
-            }
-            return (Texture) obj;
+        Object obj = this.bo;
+        if (obj == null || !(obj instanceof Texture)) {
+            return null;
         }
-        return (Texture) invokeV.objValue;
+        return (Texture) obj;
     }
 
     public int getOutputWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mOutputWidth : invokeV.intValue;
+        return this.mOutputWidth;
     }
 
     public RotationType getRotationType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mRotationType : (RotationType) invokeV.objValue;
+        return this.mRotationType;
     }
 
     public ScaleType getScaleType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.bq : (ScaleType) invokeV.objValue;
+        return this.bq;
     }
 
     public int getScreenOrientation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.bs : invokeV.intValue;
+        return this.bs;
     }
 
     public Watermark getWatermark() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.bu : (Watermark) invokeV.objValue;
+        return this.bu;
     }
 
     public boolean isFitScreenAuto() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.br : invokeV.booleanValue;
+        return this.br;
     }
 
     public boolean isNeedDetach() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.bp : invokeV.booleanValue;
+        return this.bp;
     }
 
     public void setFitScreenAuto(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.br = z;
-        }
+        this.br = z;
     }
 
     public void setMirriorType(MirriorType mirriorType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, mirriorType) == null) {
-            this.bl = mirriorType;
-        }
+        this.bl = mirriorType;
     }
 
     public void setNeedDetach(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.bp = z;
-        }
+        this.bp = z;
     }
 
     public void setOutputFPS(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.bt = i;
-        }
+        this.bt = i;
     }
 
     public void setOutputHeight(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.mOutputHeight = i;
-        }
+        this.mOutputHeight = i;
     }
 
     public void setOutputSurface(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, surfaceTexture) == null) {
-            this.bo = surfaceTexture;
-        }
+        this.bo = surfaceTexture;
     }
 
     public void setOutputSurface(Surface surface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, surface) == null) {
-            this.bo = surface;
-        }
+        this.bo = surface;
     }
 
     public void setOutputSurface(SurfaceHolder surfaceHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, surfaceHolder) == null) {
-            this.bo = surfaceHolder;
-        }
+        this.bo = surfaceHolder;
     }
 
     public void setOutputTexture(Texture texture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, texture) == null) {
-            this.bo = texture;
-        }
+        this.bo = texture;
     }
 
     public void setOutputWidth(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            this.mOutputWidth = i;
-        }
+        this.mOutputWidth = i;
     }
 
     public void setRotationType(RotationType rotationType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, rotationType) == null) {
-            this.mRotationType = rotationType;
-        }
+        this.mRotationType = rotationType;
     }
 
     public void setScaleType(ScaleType scaleType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, scaleType) == null) {
-            this.bq = scaleType;
-        }
+        this.bq = scaleType;
     }
 
     public void setScreenOrientation(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-            this.bs = i;
-        }
+        this.bs = i;
     }
 
     public void setWatermark(Watermark watermark) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, watermark) == null) {
-            this.bu = watermark;
-        }
+        this.bu = watermark;
     }
 }

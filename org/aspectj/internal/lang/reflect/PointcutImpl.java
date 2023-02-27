@@ -1,11 +1,5 @@
 package org.aspectj.internal.lang.reflect;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 import java.util.StringTokenizer;
 import org.aspectj.lang.reflect.AjType;
@@ -14,8 +8,6 @@ import org.aspectj.lang.reflect.Pointcut;
 import org.aspectj.lang.reflect.PointcutExpression;
 /* loaded from: classes9.dex */
 public class PointcutImpl implements Pointcut {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final Method baseMethod;
     public final AjType declaringType;
     public final String name;
@@ -23,20 +15,6 @@ public class PointcutImpl implements Pointcut {
     public final PointcutExpression pc;
 
     public PointcutImpl(String str, String str2, Method method, AjType ajType, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, method, ajType, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.parameterNames = new String[0];
         this.name = str;
         this.pc = new PointcutExpressionImpl(str2);
@@ -46,111 +24,71 @@ public class PointcutImpl implements Pointcut {
     }
 
     private String[] splitOnComma(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
-            StringTokenizer stringTokenizer = new StringTokenizer(str, ",");
-            int countTokens = stringTokenizer.countTokens();
-            String[] strArr = new String[countTokens];
-            for (int i = 0; i < countTokens; i++) {
-                strArr[i] = stringTokenizer.nextToken().trim();
-            }
-            return strArr;
+        StringTokenizer stringTokenizer = new StringTokenizer(str, ",");
+        int countTokens = stringTokenizer.countTokens();
+        String[] strArr = new String[countTokens];
+        for (int i = 0; i < countTokens; i++) {
+            strArr[i] = stringTokenizer.nextToken().trim();
         }
-        return (String[]) invokeL.objValue;
+        return strArr;
     }
 
     @Override // org.aspectj.lang.reflect.Pointcut
     public AjType getDeclaringType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.declaringType;
-        }
-        return (AjType) invokeV.objValue;
+        return this.declaringType;
     }
 
     @Override // org.aspectj.lang.reflect.Pointcut
     public int getModifiers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.baseMethod.getModifiers();
-        }
-        return invokeV.intValue;
+        return this.baseMethod.getModifiers();
     }
 
     @Override // org.aspectj.lang.reflect.Pointcut
     public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.name;
-        }
-        return (String) invokeV.objValue;
+        return this.name;
     }
 
     @Override // org.aspectj.lang.reflect.Pointcut
     public String[] getParameterNames() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.parameterNames;
-        }
-        return (String[]) invokeV.objValue;
+        return this.parameterNames;
     }
 
     @Override // org.aspectj.lang.reflect.Pointcut
     public AjType<?>[] getParameterTypes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Class<?>[] parameterTypes = this.baseMethod.getParameterTypes();
-            int length = parameterTypes.length;
-            AjType<?>[] ajTypeArr = new AjType[length];
-            for (int i = 0; i < length; i++) {
-                ajTypeArr[i] = AjTypeSystem.getAjType(parameterTypes[i]);
-            }
-            return ajTypeArr;
+        Class<?>[] parameterTypes = this.baseMethod.getParameterTypes();
+        int length = parameterTypes.length;
+        AjType<?>[] ajTypeArr = new AjType[length];
+        for (int i = 0; i < length; i++) {
+            ajTypeArr[i] = AjTypeSystem.getAjType(parameterTypes[i]);
         }
-        return (AjType[]) invokeV.objValue;
+        return ajTypeArr;
     }
 
     @Override // org.aspectj.lang.reflect.Pointcut
     public PointcutExpression getPointcutExpression() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.pc;
-        }
-        return (PointcutExpression) invokeV.objValue;
+        return this.pc;
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(getName());
-            stringBuffer.append("(");
-            AjType<?>[] parameterTypes = getParameterTypes();
-            int i = 0;
-            while (i < parameterTypes.length) {
-                stringBuffer.append(parameterTypes[i].getName());
-                String[] strArr = this.parameterNames;
-                if (strArr != null && strArr[i] != null) {
-                    stringBuffer.append(" ");
-                    stringBuffer.append(this.parameterNames[i]);
-                }
-                i++;
-                if (i < parameterTypes.length) {
-                    stringBuffer.append(",");
-                }
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(getName());
+        stringBuffer.append("(");
+        AjType<?>[] parameterTypes = getParameterTypes();
+        int i = 0;
+        while (i < parameterTypes.length) {
+            stringBuffer.append(parameterTypes[i].getName());
+            String[] strArr = this.parameterNames;
+            if (strArr != null && strArr[i] != null) {
+                stringBuffer.append(" ");
+                stringBuffer.append(this.parameterNames[i]);
             }
-            stringBuffer.append(") : ");
-            stringBuffer.append(getPointcutExpression().asString());
-            return stringBuffer.toString();
+            i++;
+            if (i < parameterTypes.length) {
+                stringBuffer.append(",");
+            }
         }
-        return (String) invokeV.objValue;
+        stringBuffer.append(") : ");
+        stringBuffer.append(getPointcutExpression().asString());
+        return stringBuffer.toString();
     }
 }

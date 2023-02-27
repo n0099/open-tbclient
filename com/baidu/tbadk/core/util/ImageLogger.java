@@ -17,11 +17,11 @@ import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
 import com.baidu.tieba.bi;
 import com.baidu.tieba.ch;
 import com.baidu.tieba.dj;
+import com.baidu.tieba.dq5;
 import com.baidu.tieba.eg;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.gg;
 import com.baidu.tieba.lh;
-import com.baidu.tieba.po5;
 import com.baidu.tieba.we;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -108,7 +108,7 @@ public class ImageLogger {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return TbImageMemoryCache.n().E();
+            return TbImageMemoryCache.p().L();
         }
         return (String) invokeV.objValue;
     }
@@ -221,7 +221,7 @@ public class ImageLogger {
         if ((interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, Boolean.valueOf(z), str2, bool, ggVar, str3, Long.valueOf(j), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) && ej.F() && ggVar != null) {
             String str9 = "";
             String str10 = "";
-            boolean a = po5.a(str2);
+            boolean a = dq5.a(str2);
             if (ICDNIPDirectConnect.getInstance() != null) {
                 if (!ICDNIPDirectConnect.getInstance().isAlreadyInit) {
                     ICDNIPDirectConnect.getInstance().init();
@@ -291,7 +291,7 @@ public class ImageLogger {
                 str5 = "HttpManager";
             }
             logItem.b("netlib", str5);
-            logItem.b(TiebaStatic.LogFields.COST_TIME, String.valueOf(j));
+            logItem.b("costTime", String.valueOf(j));
             logItem.b("connTime", String.valueOf(ggVar.c));
             logItem.b("rspTime", String.valueOf(ggVar.d));
             logItem.b(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, String.valueOf(ggVar.e));

@@ -9,256 +9,134 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuBuilder;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class SubMenuBuilder extends MenuBuilder implements SubMenu {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public MenuItemImpl mItem;
     public MenuBuilder mParentMenu;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SubMenuBuilder(Context context, MenuBuilder menuBuilder, MenuItemImpl menuItemImpl) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, menuBuilder, menuItemImpl};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mParentMenu = menuBuilder;
         this.mItem = menuItemImpl;
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder
     public boolean collapseItemActionView(MenuItemImpl menuItemImpl) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, menuItemImpl)) == null) {
-            return this.mParentMenu.collapseItemActionView(menuItemImpl);
-        }
-        return invokeL.booleanValue;
+        return this.mParentMenu.collapseItemActionView(menuItemImpl);
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder
     public boolean expandItemActionView(MenuItemImpl menuItemImpl) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, menuItemImpl)) == null) {
-            return this.mParentMenu.expandItemActionView(menuItemImpl);
-        }
-        return invokeL.booleanValue;
+        return this.mParentMenu.expandItemActionView(menuItemImpl);
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder
     public void setCallback(MenuBuilder.Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, callback) == null) {
-            this.mParentMenu.setCallback(callback);
-        }
+        this.mParentMenu.setCallback(callback);
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder, androidx.core.internal.view.SupportMenu, android.view.Menu
     public void setGroupDividerEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.mParentMenu.setGroupDividerEnabled(z);
-        }
+        this.mParentMenu.setGroupDividerEnabled(z);
     }
 
     @Override // android.view.SubMenu
     public SubMenu setHeaderIcon(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            return (SubMenu) super.setHeaderIconInt(i);
-        }
-        return (SubMenu) invokeI.objValue;
+        return (SubMenu) super.setHeaderIconInt(i);
     }
 
     @Override // android.view.SubMenu
     public SubMenu setHeaderTitle(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
-            return (SubMenu) super.setHeaderTitleInt(i);
-        }
-        return (SubMenu) invokeI.objValue;
+        return (SubMenu) super.setHeaderTitleInt(i);
     }
 
     @Override // android.view.SubMenu
     public SubMenu setHeaderView(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, view2)) == null) {
-            return (SubMenu) super.setHeaderViewInt(view2);
-        }
-        return (SubMenu) invokeL.objValue;
+        return (SubMenu) super.setHeaderViewInt(view2);
     }
 
     @Override // android.view.SubMenu
     public SubMenu setIcon(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
-            this.mItem.setIcon(i);
-            return this;
-        }
-        return (SubMenu) invokeI.objValue;
+        this.mItem.setIcon(i);
+        return this;
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder, android.view.Menu
     public void setQwertyMode(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.mParentMenu.setQwertyMode(z);
-        }
+        this.mParentMenu.setQwertyMode(z);
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder
     public void setShortcutsVisible(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.mParentMenu.setShortcutsVisible(z);
-        }
+        this.mParentMenu.setShortcutsVisible(z);
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder
     public boolean dispatchMenuItemSelected(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder, menuItem)) == null) {
-            if (!super.dispatchMenuItemSelected(menuBuilder, menuItem) && !this.mParentMenu.dispatchMenuItemSelected(menuBuilder, menuItem)) {
-                return false;
-            }
-            return true;
+        if (!super.dispatchMenuItemSelected(menuBuilder, menuItem) && !this.mParentMenu.dispatchMenuItemSelected(menuBuilder, menuItem)) {
+            return false;
         }
-        return invokeLL.booleanValue;
+        return true;
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder
     public String getActionViewStatesKey() {
-        InterceptResult invokeV;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            MenuItemImpl menuItemImpl = this.mItem;
-            if (menuItemImpl != null) {
-                i = menuItemImpl.getItemId();
-            } else {
-                i = 0;
-            }
-            if (i == 0) {
-                return null;
-            }
-            return super.getActionViewStatesKey() + ":" + i;
+        MenuItemImpl menuItemImpl = this.mItem;
+        if (menuItemImpl != null) {
+            i = menuItemImpl.getItemId();
+        } else {
+            i = 0;
         }
-        return (String) invokeV.objValue;
+        if (i == 0) {
+            return null;
+        }
+        return super.getActionViewStatesKey() + ":" + i;
     }
 
     @Override // android.view.SubMenu
     public MenuItem getItem() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mItem;
-        }
-        return (MenuItem) invokeV.objValue;
+        return this.mItem;
     }
 
     public Menu getParentMenu() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mParentMenu;
-        }
-        return (Menu) invokeV.objValue;
+        return this.mParentMenu;
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder
     public MenuBuilder getRootMenu() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.mParentMenu.getRootMenu();
-        }
-        return (MenuBuilder) invokeV.objValue;
+        return this.mParentMenu.getRootMenu();
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder
     public boolean isGroupDividerEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.mParentMenu.isGroupDividerEnabled();
-        }
-        return invokeV.booleanValue;
+        return this.mParentMenu.isGroupDividerEnabled();
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder
     public boolean isQwertyMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.mParentMenu.isQwertyMode();
-        }
-        return invokeV.booleanValue;
+        return this.mParentMenu.isQwertyMode();
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder
     public boolean isShortcutsVisible() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.mParentMenu.isShortcutsVisible();
-        }
-        return invokeV.booleanValue;
+        return this.mParentMenu.isShortcutsVisible();
     }
 
     @Override // android.view.SubMenu
     public SubMenu setHeaderIcon(Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, drawable)) == null) {
-            return (SubMenu) super.setHeaderIconInt(drawable);
-        }
-        return (SubMenu) invokeL.objValue;
+        return (SubMenu) super.setHeaderIconInt(drawable);
     }
 
     @Override // android.view.SubMenu
     public SubMenu setHeaderTitle(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, charSequence)) == null) {
-            return (SubMenu) super.setHeaderTitleInt(charSequence);
-        }
-        return (SubMenu) invokeL.objValue;
+        return (SubMenu) super.setHeaderTitleInt(charSequence);
     }
 
     @Override // android.view.SubMenu
     public SubMenu setIcon(Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, drawable)) == null) {
-            this.mItem.setIcon(drawable);
-            return this;
-        }
-        return (SubMenu) invokeL.objValue;
+        this.mItem.setIcon(drawable);
+        return this;
     }
 }

@@ -1,56 +1,70 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class k80 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "liteUBC";
-    public static final boolean b;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947866822, "Lcom/baidu/tieba/k80;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static byte[] a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947866822, "Lcom/baidu/tieba/k80;");
+            byte[] a = n80.a(str.getBytes());
+            if (a != null && a.length > 2) {
+                a[0] = 117;
+                a[1] = 123;
+            }
+            return a;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static boolean b(Context context, JSONArray jSONArray, boolean z, boolean z2, boolean z3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, jSONArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            if (jSONArray != null && jSONArray.length() != 0) {
+                o80.a("UBCUploader", "uploadjson:" + jSONArray.toString() + ", isReal:" + z + ", isSave:" + z2);
+                if (z2) {
+                    o80.a("UBCUploader", "save ubcdata");
+                    return true;
+                }
+                c(context, jSONArray, z, z2, z3);
+                return true;
+            }
+            o80.a("UBCUploader", "upload json is null");
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static void c(Context context, JSONArray jSONArray, boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, jSONArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            JSONObject b = new l80(z, jSONArray).b();
+            if (b == null) {
+                o80.a("UBCUploader", "uploadJsonData is null");
                 return;
             }
-        }
-        b = a80.d().b();
-    }
-
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && b) {
-            String str3 = a;
-            Log.d(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
-        }
-    }
-
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && b) {
-            String str3 = a;
-            Log.i(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
-        }
-    }
-
-    public static void b(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) && b) {
-            String str3 = a;
-            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2, th);
+            byte[] a = a(b.toString());
+            if (a != null && a.length >= 3) {
+                o80.a("UBCUploader", "gzip success, length:" + a.length);
+                o80.a("UBCUploader", "start execute http upload data");
+                i80 i80Var = new i80(context);
+                f80.e(context).b(context, i80Var, i80Var, a, z3);
+                return;
+            }
+            o80.a("UBCUploader", "uploadGzip is null or uploadGzip length<3");
         }
     }
 }

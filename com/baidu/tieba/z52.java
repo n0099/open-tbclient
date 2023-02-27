@@ -1,23 +1,17 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class z52 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static String b;
-    public static String c;
-    public static y52 d;
-    public static int e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,120 +27,108 @@ public class z52 {
                 return;
             }
         }
-        a = gp1.a;
-        b = "";
-        c = "";
-        e = 0;
+        boolean z = wp1.a;
     }
 
-    public static String a() {
-        InterceptResult invokeV;
+    @Nullable
+    public static <C extends b52> C a(c52 c52Var) {
+        InterceptResult invokeL;
+        C c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, c52Var)) == null) {
+            if (c52Var == null) {
+                f62.a("Component-Finder", "find a null component: null model");
+                return null;
+            }
+            String d = c52Var.d();
+            String str = c52Var.c;
+            if (TextUtils.isEmpty(str)) {
+                m62.c("Component-Finder", "find a null " + d + " : slaveId is empty");
+                return null;
+            }
+            c62 d2 = d(str);
+            if (d2 == null) {
+                m62.c("Component-Finder", "find a null " + d + " : null component context");
+                return null;
+            }
+            String str2 = c52Var.b;
+            if (TextUtils.isEmpty(str2)) {
+                m62.o("Component-Finder", "find " + d + " with a empty componentId");
+                List<b52> list = d2.a().c.get(c52Var.a);
+                if (list == null) {
+                    m62.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are null ");
+                    return null;
+                } else if (list.size() <= 0) {
+                    m62.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are empty ");
+                    return null;
+                } else {
+                    m62.o("Component-Finder", "find " + d + " with a empty componentId: fina a fallback component");
+                    c = (C) list.get(0);
+                }
+            } else {
+                c = (C) d2.a().b.get(str2);
+            }
+            if (c == null) {
+                m62.c("Component-Finder", "find a null " + d + " : not exist");
+                return null;
+            }
             return c;
         }
-        return (String) invokeV.objValue;
+        return (C) invokeL.objValue;
     }
 
-    public static boolean e() {
-        InterceptResult invokeV;
+    @Nullable
+    public static <C extends b52> C b(@Nullable String str, @Nullable String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (e == 2) {
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (e == 1) {
-                return true;
+            c62 d = d(str);
+            if (d == null) {
+                m62.c("Component-Finder", "find a null " + str2 + " : null component context");
+                return null;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d != null) {
-                return d.c() + File.separator + b;
+            C c = (C) d.a().b.get(str2);
+            if (c == null) {
+                m62.c("Component-Finder", "find a null " + str2 + " : not exist");
+                return null;
             }
-            return "";
+            return c;
         }
-        return (String) invokeV.objValue;
+        return (C) invokeLL.objValue;
     }
 
-    public static String d() {
-        InterceptResult invokeV;
+    @Nullable
+    public static c62 c(c52 c52Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (d != null) {
-                return d.c() + File.separator + c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, c52Var)) == null) {
+            if (c52Var == null) {
+                f62.a("Component-Finder", "find component context with a null model");
+                return null;
             }
-            return "";
+            return d(c52Var.c);
         }
-        return (String) invokeV.objValue;
+        return (c62) invokeL.objValue;
     }
 
-    public static void g(Bundle bundle) {
-        y52 y52Var;
+    @Nullable
+    public static c62 d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, bundle) == null) && (y52Var = d) != null) {
-            y52Var.b(bundle);
-        }
-    }
-
-    public static void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            b = str;
-        }
-    }
-
-    public static void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            c = str;
-        }
-    }
-
-    public static void h(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, bundle) == null) {
-            String i = vl3.i(bundle, "extraWSUrl");
-            String i2 = vl3.i(bundle, "adb_debug_path");
-            if (!TextUtils.isEmpty(i)) {
-                d = new r62();
-                e = 1;
-            } else if (!TextUtils.isEmpty(i2)) {
-                d = new b62();
-                e = 2;
-            } else {
-                if (a) {
-                    Log.d("UserDebugParams", "not debug mode");
-                }
-                e = 0;
-                d = null;
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                m62.c("Component-Finder", "find component context with a null slave id");
+                return null;
             }
-            d.a(bundle);
+            uv1 A = zu2.U().A(str);
+            if (!(A instanceof sv1)) {
+                return null;
+            }
+            return ((sv1) A).c0();
         }
+        return (c62) invokeL.objValue;
     }
 }

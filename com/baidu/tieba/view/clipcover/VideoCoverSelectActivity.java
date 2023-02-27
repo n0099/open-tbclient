@@ -43,10 +43,33 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
         }
     }
 
+    public void initView() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = (CoverSelectLayout) findViewById(R.id.obfuscated_res_0x7f0907aa);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092765);
+            this.b = navigationBar;
+            TextView centerTextTitle = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0f55));
+            this.d = centerTextTitle;
+            centerTextTitle.setTextColor(getResources().getColor(R.color.CAM_X0101));
+            View addSystemImageButton = this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.c = addSystemImageButton;
+            ((ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a7f));
+            TextView addTextButton = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.next_step));
+            this.e = addTextButton;
+            addTextButton.setTextColor(getResources().getColor(R.color.CAM_X0101));
+            this.c.setOnClickListener(this);
+            this.e.setOnClickListener(this);
+            this.a.setVisibility(0);
+            this.a.setClipType(this.f);
+            this.a.setImagSrc(this.g);
+        }
+    }
+
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             if (view2 == this.c) {
                 finish();
             } else if (view2 == this.e) {
@@ -58,7 +81,7 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setContentView(R.layout.obfuscated_res_0x7f0d0030);
@@ -66,7 +89,7 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
                 this.f = getIntent().getIntExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_TYPE, 1);
                 this.g = getIntent().getStringExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_IMAGE_PATH);
             }
-            x1();
+            initView();
             this.a.setClipType(this.f);
         }
     }
@@ -75,7 +98,7 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
         Bitmap c;
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (c = this.a.c()) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (c = this.a.c()) == null) {
             return;
         }
         if (getIntent().getBooleanExtra(AlbumActivityConfig.KEY_DIRECT_TO_WORK_PUBLISH_PAGE, false)) {
@@ -88,28 +111,5 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
         intent.putExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_IMAGE_PATH, saveBitmapByRelativelyPath);
         setResult(-1, intent);
         finish();
-    }
-
-    public void x1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a = (CoverSelectLayout) findViewById(R.id.obfuscated_res_0x7f09076d);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092709);
-            this.b = navigationBar;
-            TextView centerTextTitle = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0f4b));
-            this.d = centerTextTitle;
-            centerTextTitle.setTextColor(getResources().getColor(R.color.CAM_X0101));
-            View addSystemImageButton = this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c = addSystemImageButton;
-            ((ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a7b));
-            TextView addTextButton = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.next_step));
-            this.e = addTextButton;
-            addTextButton.setTextColor(getResources().getColor(R.color.CAM_X0101));
-            this.c.setOnClickListener(this);
-            this.e.setOnClickListener(this);
-            this.a.setVisibility(0);
-            this.a.setClipType(this.f);
-            this.a.setImagSrc(this.g);
-        }
     }
 }

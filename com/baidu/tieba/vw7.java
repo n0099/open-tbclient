@@ -1,40 +1,82 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.KeyEvent;
+import androidx.annotation.CallSuper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class vw7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vw7 {
 
-    public static String a(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, jSONObject)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(str + "?");
-            Iterator<String> keys = jSONObject.keys();
-            boolean z = true;
-            while (keys.hasNext()) {
-                if (z) {
-                    String next = keys.next();
-                    if (next != null) {
-                        sb.append(next + "=" + jSONObject.optString(next));
-                        z = false;
-                    }
-                } else {
-                    String next2 = keys.next();
-                    if (next2 != null) {
-                        sb.append("&");
-                        sb.append(next2 + "=" + jSONObject.optString(next2));
-                    }
-                }
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @CallSuper
+        public static void a(vw7 vw7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65536, null, vw7Var) == null) {
             }
-            return sb.toString();
         }
-        return (String) invokeLL.objValue;
+
+        @CallSuper
+        public static void b(vw7 vw7Var, int i, int i2, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{vw7Var, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) {
+            }
+        }
+
+        @CallSuper
+        public static void c(vw7 vw7Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(65538, null, vw7Var, z) == null) {
+            }
+        }
+
+        @CallSuper
+        public static void d(vw7 vw7Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(65539, null, vw7Var, i) == null) {
+            }
+        }
+
+        @CallSuper
+        public static boolean e(vw7 vw7Var, int i, KeyEvent event) {
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, vw7Var, i, event)) == null) {
+                Intrinsics.checkNotNullParameter(event, "event");
+                return false;
+            }
+            return invokeLIL.booleanValue;
+        }
+
+        @CallSuper
+        public static void f(vw7 vw7Var, int i, String[] permissions, int[] grantResults) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLILL(65541, null, vw7Var, i, permissions, grantResults) == null) {
+                Intrinsics.checkNotNullParameter(permissions, "permissions");
+                Intrinsics.checkNotNullParameter(grantResults, "grantResults");
+            }
+        }
+
+        public static void g(vw7 vw7Var, Bundle outState) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65542, null, vw7Var, outState) == null) {
+                Intrinsics.checkNotNullParameter(outState, "outState");
+            }
+        }
+
+        @CallSuper
+        public static void h(vw7 vw7Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(65543, null, vw7Var, z) == null) {
+            }
+        }
     }
 }

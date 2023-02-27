@@ -60,7 +60,7 @@ public class s extends com.vivo.push.o {
         }
     }
 
-    public final String g() {
+    public final String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -69,7 +69,7 @@ public class s extends com.vivo.push.o {
         return (String) invokeV.objValue;
     }
 
-    public final int h() {
+    public final int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

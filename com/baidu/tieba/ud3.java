@@ -1,28 +1,32 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.Signature;
+import android.content.pm.ProviderInfo;
+import android.content.res.Resources;
+import android.database.ContentObserver;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Point;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Window;
-import android.widget.Toast;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mapapi.SDKInitializer;
+import android.view.KeyCharacterMap;
+import android.view.ViewConfiguration;
+import android.view.WindowManager;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.ar.statistic.StatisticConstants;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.a83;
-import com.baidu.tieba.be3;
-import com.baidu.tieba.ef3;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,33 +34,118 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Closeable;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import okhttp3.FormBody;
-import okhttp3.RequestBody;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class ud3 {
+public class ud3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final Map<String, d> b;
+    public static long b;
+    public static ContentObserver c;
+    public static ContentResolver d;
+    public static PackageManager e;
+    public static boolean f;
+    public static long g;
+    public static List<sd3> h;
+    public static Runnable i;
+    public static int j;
+    public static Uri k;
+    public static String l;
+    public static String m;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    public static class a extends ContentObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
+        public final /* synthetic */ Handler a;
 
-        public a(String str) {
+        /* renamed from: com.baidu.tieba.ud3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class RunnableC0435a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ Uri a;
+            public final /* synthetic */ a b;
+
+            public RunnableC0435a(a aVar, Uri uri) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, uri};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = uri;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    ud3.q(this.b.a, this.a);
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Handler handler, Handler handler2) {
+            super(handler);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str};
+                Object[] objArr = {handler, handler2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Handler) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = handler2;
+        }
+
+        @Override // android.database.ContentObserver
+        public void onChange(boolean z, Uri uri) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZL(1048576, this, z, uri) == null) {
+                super.onChange(z, uri);
+                if (ud3.a) {
+                    Log.d("SYSTEM_SCREENSHOT", "onChange(), uri: " + uri);
+                }
+                ExecutorUtilsExt.postOnElastic(new RunnableC0435a(this, uri), "systemScreenShot", 1);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Handler b;
+        public final /* synthetic */ d c;
+
+        public b(String str, Handler handler, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, handler, dVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -67,94 +156,83 @@ public final class ud3 {
                 }
             }
             this.a = str;
+            this.b = handler;
+            this.c = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
+            long j;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Context e = ud3.e();
-                Toast.makeText(e, "aiapps-oauth :: " + this.a, 0).show();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wd3 a;
-
-        public b(wd3 wd3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wd3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                ud3.e();
+                if (ud3.a) {
+                    Log.d("SYSTEM_SCREENSHOT", "mCount: " + ud3.j);
                 }
-            }
-            this.a = wd3Var;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                if (i != -2) {
-                    if (i == -1) {
-                        ud3.k("onPosBtn", Boolean.FALSE);
-                        pf3.q("click", this.a.b, true);
-                        ud3.d(this.a.b, true);
-                    }
+                if (tl3.a()) {
+                    j = 500;
                 } else {
-                    ud3.k("onNegBtn", Boolean.FALSE);
-                    pf3.q("click", this.a.b, false);
-                    ud3.d(this.a.b, false);
+                    j = 100;
                 }
-                es2.n().a("na_authorize_end");
+                if (!ud3.m(this.a, ud3.k) && ud3.j <= 10) {
+                    this.b.postDelayed(ud3.i, j);
+                } else if (ud3.m(this.a, ud3.k) && ud3.l() && !ud3.o(this.a, ud3.k)) {
+                    for (sd3 sd3Var : ud3.h) {
+                        if (sd3Var != null) {
+                            sd3Var.a(this.c);
+                        }
+                    }
+                }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class c implements DialogInterface.OnCancelListener {
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
+        public static String a;
+        public static String[] b;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wd3 a;
 
-        public c(wd3 wd3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wd3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-378728282, "Lcom/baidu/tieba/ud3$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-378728282, "Lcom/baidu/tieba/ud3$c;");
                     return;
                 }
             }
-            this.a = wd3Var;
+            a = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
+            b = new String[]{"_display_name", "_data", "date_added", "_id"};
         }
 
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
+        public static boolean e(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                ud3.k("onCancel", Boolean.FALSE);
-                pf3.q("click", this.a.b, false);
-                ud3.d(this.a.b, false);
+            if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+                if (str != null && (str.toLowerCase().contains(StatisticConstants.SCREENSHOT) || str.contains("截屏") || str.contains("截图"))) {
+                    return true;
+                }
+                return false;
             }
+            return invokeL.booleanValue;
+        }
+
+        public static boolean f(long j, long j2) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+                if (Math.abs(j - j2) <= 10) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeCommon.booleanValue;
         }
     }
 
@@ -162,14 +240,15 @@ public final class ud3 {
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Set<rd3> a;
+        public String a;
+        public Uri b;
 
-        public d(String str) {
+        public d(String str, Long l, Uri uri) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str};
+                Object[] objArr = {str, l, uri};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -179,7 +258,13 @@ public final class ud3 {
                     return;
                 }
             }
-            this.a = new HashSet();
+            this.a = str;
+            l.longValue();
+            this.b = uri;
+        }
+
+        public /* synthetic */ d(String str, Long l, Uri uri, a aVar) {
+            this(str, l, uri);
         }
     }
 
@@ -196,87 +281,122 @@ public final class ud3 {
                 return;
             }
         }
-        a = gp1.a;
-        b = new HashMap();
+        a = wp1.a;
+        g = System.currentTimeMillis() - 10000;
+        h = new ArrayList();
+        j = 0;
+        l = null;
+        m = null;
     }
 
-    public static Context e() {
+    public static int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return AppRuntime.getAppContext();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public static void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65554, null) == null) {
-            b.clear();
-        }
-    }
-
-    public static void k(String str, Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, str, bool) == null) {
-            w52.k("aiapps-oauth", str);
-            if (a && bool.booleanValue()) {
-                qm3.a0(new a(str));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            boolean hasPermanentMenuKey = ViewConfiguration.get(AppRuntime.getAppContext()).hasPermanentMenuKey();
+            boolean deviceHasKey = KeyCharacterMap.deviceHasKey(4);
+            if (!hasPermanentMenuKey && !deviceHasKey) {
+                Resources resources = AppRuntime.getAppContext().getResources();
+                return resources.getDimensionPixelSize(resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.h, EMABTest.TYPE_DIMEN, "android"));
             }
+            return 0;
         }
+        return invokeV.intValue;
     }
 
-    public static synchronized void t(@NonNull String str, @NonNull String str2) {
+    public static boolean m(String str, Uri uri) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65556, null, str, str2) == null) {
-            synchronized (ud3.class) {
-                s(10004, str, str2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, str, uri)) == null) {
+            if (tl3.a()) {
+                return n(uri);
             }
+            new BitmapFactory.Options().inJustDecodeBounds = true;
+            if (BitmapFactory.decodeFile(str) != null) {
+                return true;
+            }
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    public static RequestBody b(Map<String, String> map) {
+    public static /* synthetic */ int e() {
+        int i2 = j;
+        j = i2 + 1;
+        return i2;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - b;
+            if (av2.a().b() && currentTimeMillis > 2000) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+            if (System.currentTimeMillis() - g <= 1000) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static double i(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
-            FormBody.Builder builder = new FormBody.Builder();
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                String key = entry.getKey();
-                String value = entry.getValue();
-                if (TextUtils.isEmpty(key)) {
-                    key = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, uri)) == null) {
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(d, uri);
+                if (bitmap == null) {
+                    return 0.0d;
                 }
-                if (TextUtils.isEmpty(value)) {
-                    value = "";
+                int height = bitmap.getHeight();
+                int width = bitmap.getWidth();
+                if (width == 0) {
+                    return 0.0d;
                 }
-                if (a) {
-                    k("query :: " + key + " = " + value, Boolean.FALSE);
-                }
-                builder.add(key, value);
+                return height / (width * 1.0d);
+            } catch (Exception unused) {
+                return 0.0d;
             }
-            return builder.build();
         }
-        return (RequestBody) invokeL.objValue;
+        return invokeL.doubleValue;
     }
 
-    public static JSONObject c(JSONObject jSONObject) {
+    public static boolean n(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            String C = ds2.o().C();
-            if (jSONObject != null && !TextUtils.isEmpty(C)) {
-                return jSONObject.optJSONObject(C);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, uri)) == null) {
+            if (uri == null) {
+                return false;
             }
-            return jSONObject;
+            try {
+                if (MediaStore.Images.Media.getBitmap(d, uri) == null) {
+                    return false;
+                }
+                return true;
+            } catch (Exception unused) {
+                return false;
+            }
         }
-        return (JSONObject) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static boolean h(zd3<be3.e> zd3Var) {
+    public static boolean p(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, zd3Var)) == null) {
-            if (zd3Var != null && zd3Var.c() && zd3Var.a.b) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
+            if (Build.VERSION.SDK_INT < 23 || pn4.a(context, com.kuaishou.weapon.p0.h.i) == 0) {
                 return true;
             }
             return false;
@@ -284,266 +404,167 @@ public final class ud3 {
         return invokeL.booleanValue;
     }
 
-    public static boolean i(JSONObject jSONObject) {
+    public static void r(sd3 sd3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65554, null, sd3Var) == null) && sd3Var != null) {
+            h.add(sd3Var);
+        }
+    }
+
+    public static void u(sd3 sd3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65557, null, sd3Var) == null) && sd3Var != null) {
+            h.remove(sd3Var);
+        }
+    }
+
+    public static boolean k(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return false;
-            }
-            return TextUtils.equals(jSONObject.optString("invokeFrom"), "api");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean j(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return false;
-            }
-            return TextUtils.equals(jSONObject.optString("invokeFrom"), NativeConstants.COMPONENT);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static void l(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, runnable) == null) {
-            qm3.a0(runnable);
-        }
-    }
-
-    public static void d(String str, boolean z) {
-        d remove;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, z) == null) {
-            synchronized (b) {
-                remove = b.remove(str);
-            }
-            if (remove != null && !remove.a.isEmpty()) {
-                for (rd3 rd3Var : remove.a) {
-                    if (rd3Var != null) {
-                        rd3Var.onResult(z);
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            if (tl3.a()) {
+                Uri uri = k;
+                if (uri != null && !TextUtils.equals(l, uri.toString())) {
+                    return false;
                 }
+                return true;
+            } else if (!TextUtils.isEmpty(str) && !TextUtils.equals(m, str)) {
+                return false;
+            } else {
+                return true;
             }
         }
+        return invokeL.booleanValue;
     }
 
-    public static String f(int i) {
-        InterceptResult invokeI;
-        String str;
+    public static boolean o(String str, Uri uri) {
+        InterceptResult invokeLL;
+        double d2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
-            switch (i) {
-                case 10001:
-                    str = "internal error";
-                    break;
-                case 10002:
-                    str = SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR;
-                    break;
-                case 10003:
-                    str = "user deny";
-                    break;
-                case 10004:
-                    str = "user not logged in";
-                    break;
-                case 10005:
-                    str = "system deny";
-                    break;
-                case 10006:
-                    str = "no data";
-                    break;
-                default:
-                    str = "Permission denied";
-                    break;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, str, uri)) == null) {
+            Point point = new Point();
+            WindowManager windowManager = (WindowManager) AppRuntime.getAppContext().getSystemService("window");
+            if (windowManager.getDefaultDisplay() != null) {
+                windowManager.getDefaultDisplay().getSize(point);
             }
-            if (a) {
-                Log.w("OAuthUtils", i + " " + str);
+            int j2 = point.y + j();
+            int i2 = point.x;
+            double d3 = 0.0d;
+            if (i2 != 0) {
+                d2 = j2 / (i2 * 1.0d);
+            } else {
+                d2 = 0.0d;
             }
-            return str;
+            double d4 = d2 * 1.2d;
+            if (tl3.a()) {
+                d3 = i(uri);
+            }
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(str, options);
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            if (i4 != 0) {
+                d3 = i3 / (i4 * 1.0d);
+            }
+            if (d3 > d4) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeI.objValue;
+        return invokeLL.booleanValue;
     }
 
-    @SuppressLint({"PackageManagerGetSignatures"})
-    public static String g() {
-        InterceptResult invokeV;
-        Signature[] signatureArr;
+    /* JADX WARN: Not initialized variable reg: 4, insn: 0x0157: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r4 I:??[OBJECT, ARRAY]), block:B:44:0x0157 */
+    public static void q(Handler handler, Uri uri) {
+        Cursor cursor;
+        Closeable closeable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+        if (interceptable == null || interceptable.invokeLL(65553, null, handler, uri) == null) {
+            if (!uri.toString().matches(c.a + ".*")) {
+                return;
+            }
+            if (t() && f) {
+                g = System.currentTimeMillis();
+                return;
+            }
+            j = 0;
+            g = System.currentTimeMillis();
+            Closeable closeable2 = null;
             try {
-                PackageInfo packageInfo = e().getPackageManager().getPackageInfo(e().getPackageName(), 64);
-                if (packageInfo == null || (signatureArr = packageInfo.signatures) == null || signatureArr.length <= 0) {
-                    return "";
-                }
-                return cp4.d(signatureArr[0].toByteArray(), false);
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static synchronized void m(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, jSONObject) == null) {
-            synchronized (ud3.class) {
-                JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                if (optJSONObject != null && optJSONObject.has("code")) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    try {
-                        jSONObject2.put("code", 1);
-                        jSONObject.put("data", jSONObject2);
-                    } catch (JSONException e) {
-                        if (a) {
-                            e.printStackTrace();
+                try {
+                    cursor = d.query(uri, c.b, null, null, "date_added DESC");
+                    if (cursor != null) {
+                        try {
+                            if (cursor.moveToFirst()) {
+                                String string = cursor.getString(cursor.getColumnIndex("_data"));
+                                long j2 = cursor.getLong(cursor.getColumnIndex("date_added"));
+                                long currentTimeMillis = System.currentTimeMillis() / 1000;
+                                k = uri;
+                                if (tl3.a()) {
+                                    k = ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, cursor.getInt(cursor.getColumnIndex("_id")));
+                                }
+                                if (a) {
+                                    Log.d("SYSTEM_SCREENSHOT", "imagepath: " + string);
+                                    Log.d("SYSTEM_SCREENSHOT", "dateAdded: " + j2);
+                                    Log.d("SYSTEM_SCREENSHOT", "nowSecs: " + currentTimeMillis);
+                                    Log.d("SYSTEM_SCREENSHOT", "imageUri: " + k.toString());
+                                }
+                                if (k(string)) {
+                                    qp4.d(cursor);
+                                    return;
+                                }
+                                l = k.toString();
+                                m = string;
+                                if (c.e(string) && c.f(currentTimeMillis, j2)) {
+                                    f = true;
+                                    b bVar = new b(string, handler, new d(string, Long.valueOf(j2), k, null));
+                                    i = bVar;
+                                    handler.post(bVar);
+                                } else {
+                                    f = false;
+                                }
+                            }
+                        } catch (RuntimeException unused) {
+                            if (e != null) {
+                                List<ProviderInfo> queryContentProviders = e.queryContentProviders(null, 0, 131072);
+                                HashMap hashMap = new HashMap();
+                                hashMap.put("from", "SystemScreenshot");
+                                hashMap.put("page", "SystemScreenshot");
+                                hashMap.put("ext", queryContentProviders.toString());
+                                tf3.j(BdNetTypeUtil.NATION_CODE, hashMap);
+                            }
+                            qp4.d(cursor);
                         }
                     }
+                } catch (Throwable th) {
+                    th = th;
+                    closeable2 = closeable;
+                    qp4.d(closeable2);
+                    throw th;
                 }
+            } catch (RuntimeException unused2) {
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                qp4.d(closeable2);
+                throw th;
             }
+            qp4.d(cursor);
         }
     }
 
-    public static void n(ie3 ie3Var, CallbackHandler callbackHandler, String str) {
-        pk3 pk3Var;
+    public static void s(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65550, null, ie3Var, callbackHandler, str) == null) && ie3Var != null && (pk3Var = ie3Var.j) != null) {
-            int i = -1;
-            try {
-                i = (int) pk3Var.a();
-            } catch (ClassCastException e) {
-                if (a) {
-                    Log.e("OAuthUtils", e.toString());
-                }
-            }
-            if (i < 0) {
-                return;
-            }
-            o(i, callbackHandler, str);
-        }
-    }
-
-    public static void o(int i, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeILL(65551, null, i, callbackHandler, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        String f = f(i);
-        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(i, f).toString());
-        w52.o("OAuthUtils", "authorize failed : " + f);
-    }
-
-    public static void p(zd3<be3.e> zd3Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65552, null, zd3Var, callbackHandler, unitedSchemeEntity) == null) {
-            if (zd3Var != null && zd3Var.a() != null) {
-                int b2 = zd3Var.b();
-                String f = f(b2);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(b2, f));
-                w52.o("OAuthUtils", "authorize failed : " + f);
-                return;
-            }
-            w52.c("OAuthUtils", "authorize failed : result is invalid");
-        }
-    }
-
-    public static void q(zd3<be3.e> zd3Var, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65553, null, zd3Var, callbackHandler, str) == null) {
-            if (zd3Var != null && zd3Var.a() != null) {
-                o(zd3Var.b(), callbackHandler, str);
-            } else {
-                w52.c("OAuthUtils", "authorize failed : result is invalid");
-            }
-        }
-    }
-
-    public static void s(int i, @NonNull String str, @NonNull String str2) {
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65555, null, i, str, str2) == null) {
-            try {
-                String g0 = w83.g0();
-                if (TextUtils.isEmpty(g0)) {
-                    g0 = "NotSwanAppProcess";
-                }
-                String str4 = str + "===";
-                if (str2.length() > 1024) {
-                    str3 = (str4 + str2.substring(0, 1024)) + StringHelper.STRING_MORE;
-                } else {
-                    str3 = str4 + str2;
-                }
-                ef3.b bVar = new ef3.b(i);
-                bVar.h(g0);
-                bVar.i(str3);
-                bVar.m();
-                w52.k("OAuthUtils", "error reported: " + i + " ,content: " + str3);
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public static void u(Context context, w83 w83Var, wd3 wd3Var, JSONObject jSONObject, rd3 rd3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65557, null, context, w83Var, wd3Var, jSONObject, rd3Var) == null) {
-            if (wd3Var != null && !TextUtils.isEmpty(wd3Var.b)) {
-                synchronized (b) {
-                    d dVar = b.get(wd3Var.b);
-                    if (dVar != null) {
-                        dVar.a.add(rd3Var);
-                        return;
-                    }
-                    d dVar2 = new d(wd3Var.b);
-                    dVar2.a.add(rd3Var);
-                    b.put(wd3Var.b, dVar2);
-                    b bVar = new b(wd3Var);
-                    c cVar = new c(wd3Var);
-                    pf3.q("show", wd3Var.b, false);
-                    es2.n().a("na_authorize_start");
-                    v(context, w83Var, wd3Var, jSONObject, bVar, cVar);
-                    return;
-                }
-            }
-            rd3Var.onResult(false);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static void v(Context context, w83 w83Var, wd3 wd3Var, JSONObject jSONObject, DialogInterface.OnClickListener onClickListener, DialogInterface.OnCancelListener onCancelListener) {
-        SwanAppActivity w;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{context, w83Var, wd3Var, jSONObject, onClickListener, onCancelListener}) == null) {
-            a83.a a2 = ds2.i0().a(context, w83Var, wd3Var, jSONObject, onClickListener);
-            if (a2 == null) {
-                if (!a) {
-                    return;
-                }
-                throw new RuntimeException("auth dialog builder is null");
-            }
-            a83 c2 = a2.c();
-            c2.a(false);
-            c2.setOnCancelListener(onCancelListener);
-            Window window = c2.getWindow();
-            if (window != null) {
-                window.setGravity(80);
-                window.setLayout(-1, -2);
-                window.setWindowAnimations(R.style.obfuscated_res_0x7f10039d);
-            }
-            if (w83Var == null) {
-                w = null;
-            } else {
-                w = w83Var.w();
-            }
-            if (w != null && !w.isFinishing()) {
-                c2.show();
+        if (interceptable == null || interceptable.invokeL(65555, null, context) == null) {
+            e = context.getPackageManager();
+            Handler handler = new Handler(Looper.getMainLooper());
+            d = context.getContentResolver();
+            c = new a(handler, handler);
+            if (p(context)) {
+                d.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, c);
+            } else if (a && gn3.G()) {
+                m62.i("SYSTEM_SCREENSHOT", "WRITE_EXTERNAL_STORAGE permission denied");
             }
         }
     }

@@ -1,100 +1,92 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.Fans;
-import tbclient.FrsPage.Size;
-import tbclient.FrsPage.StarInfo;
 /* loaded from: classes3.dex */
 public class a19 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1500;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public boolean c;
-    public String d;
 
-    public a19() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947562464, "Lcom/baidu/tieba/a19;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947562464, "Lcom/baidu/tieba/a19;");
+        }
+    }
+
+    public static int a(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return i;
+            }
+            try {
+                return BdBaseApplication.getInst().getApp().getSharedPreferences("network_config_prefs", 0).getInt(str, i);
+            } catch (Exception unused) {
+                return i;
             }
         }
-        this.a = 0;
-        this.b = 0L;
-        this.c = false;
-        this.d = null;
+        return invokeLI.intValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static String b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str2;
+            }
+            try {
+                return BdBaseApplication.getInst().getApp().getSharedPreferences("network_config_prefs", 0).getString(str, str2);
+            } catch (Exception unused) {
+                return str2;
+            }
         }
-        return (String) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public int b() {
+    public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a;
         }
         return invokeV.intValue;
     }
 
-    public void c(StarInfo starInfo) {
+    public static void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, starInfo) != null) || starInfo == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            a = a("threshold_to_store_log", 1500);
         }
-        int intValue = starInfo.has_frs_star.intValue();
-        this.a = intValue;
-        boolean z = true;
-        if (intValue == 1) {
-            String str = starInfo.top;
-            String str2 = starInfo.head;
-            Fans fans = starInfo.fans;
-            if (fans != null) {
-                fans.is_get.intValue();
-                fans.num.intValue();
-                fans.open.intValue();
-                this.b = fans.left_time.intValue();
-            }
-            Size size = starInfo.top_size;
-            if (size != null) {
-                size.width.intValue();
-                size.height.intValue();
-            }
-            Size size2 = starInfo.head_size;
-            if (size2 != null) {
-                size2.width.intValue();
-                size2.height.intValue();
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            try {
+                SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("network_config_prefs", 0).edit();
+                edit.putString(str, str2);
+                edit.apply();
+            } catch (Exception unused) {
             }
         }
-        if (starInfo.trade == null) {
-            z = false;
-        }
-        this.c = z;
-        if (z) {
-            Integer num = starInfo.trade.time;
-            if (num != null) {
-                num.intValue();
-            }
-            String str3 = starInfo.trade.url;
-        }
-        this.d = starInfo.star_forum_headimg;
     }
 }

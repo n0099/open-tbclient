@@ -1,80 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.mapapi.search.core.PoiInfo;
+import android.animation.TypeEvaluator;
+import com.baidu.mapapi.model.LatLng;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class je4 {
+public class je4 implements TypeEvaluator<LatLng> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PoiInfo a;
-    public boolean b;
-    public boolean c;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public je4(PoiInfo poiInfo) {
-        this(poiInfo, false, false);
+    public je4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {poiInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((PoiInfo) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public static List<je4> a(List<PoiInfo> list) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.animation.TypeEvaluator
+    /* renamed from: a */
+    public LatLng evaluate(float f, LatLng latLng, LatLng latLng2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            if (list != null && list.size() > 0) {
-                ArrayList arrayList = new ArrayList(list.size());
-                for (PoiInfo poiInfo : list) {
-                    if (poiInfo.location != null) {
-                        arrayList.add(new je4(poiInfo));
-                    }
-                }
-                return arrayList;
-            }
-            return new ArrayList();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), latLng, latLng2})) == null) {
+            double d = latLng.latitude;
+            double d2 = f;
+            double d3 = latLng.longitude;
+            return new LatLng(d + ((latLng2.latitude - d) * d2), d3 + (d2 * (latLng2.longitude - d3)));
         }
-        return (List) invokeL.objValue;
-    }
-
-    public je4(PoiInfo poiInfo, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {poiInfo, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        if (poiInfo == null) {
-            this.a = new PoiInfo();
-        }
-        this.a = poiInfo;
-        this.b = z;
-        this.c = z2;
+        return (LatLng) invokeCommon.objValue;
     }
 }

@@ -6,33 +6,12 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class bu implements ServiceConnection {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ ServiceClient a;
 
     public bu(ServiceClient serviceClient) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {serviceClient};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.a = serviceClient;
     }
 
@@ -41,32 +20,26 @@ public class bu implements ServiceConnection {
         List<Message> list;
         List list2;
         Messenger messenger;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            synchronized (this.a) {
-                this.a.f860b = new Messenger(iBinder);
-                this.a.f861b = false;
-                list = this.a.f858a;
-                for (Message message : list) {
-                    try {
-                        messenger = this.a.f860b;
-                        messenger.send(message);
-                    } catch (RemoteException e) {
-                        com.xiaomi.channel.commonutils.logger.b.a(e);
-                    }
+        synchronized (this.a) {
+            this.a.f838b = new Messenger(iBinder);
+            this.a.f839b = false;
+            list = this.a.f836a;
+            for (Message message : list) {
+                try {
+                    messenger = this.a.f838b;
+                    messenger.send(message);
+                } catch (RemoteException e) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
                 }
-                list2 = this.a.f858a;
-                list2.clear();
             }
+            list2 = this.a.f836a;
+            list2.clear();
         }
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.a.f860b = null;
-            this.a.f861b = false;
-        }
+        this.a.f838b = null;
+        this.a.f839b = false;
     }
 }

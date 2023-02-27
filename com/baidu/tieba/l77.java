@@ -1,56 +1,183 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class l77 extends ub {
+public class l77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l77() {
-        super(0);
+    public static int d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 5) {
+                        if (i != 6) {
+                            if (i != 7) {
+                                return i != 8 ? -1 : 4;
+                            }
+                            return 3;
+                        }
+                        return 2;
+                    }
+                    return 0;
+                }
+                return 1;
+            }
+            return 0;
+        }
+        return invokeI.intValue;
+    }
+
+    public static int f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            return i != 4 ? -1 : 8;
+                        }
+                        return 7;
+                    }
+                    return 6;
+                }
+                return 3;
+            }
+            return 2;
+        }
+        return invokeI.intValue;
+    }
+
+    public static int g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            return 1;
+                        }
+                        if (i != 4) {
+                            return -1;
+                        }
+                    }
+                    return 4;
+                }
+                return 3;
+            }
+            return 2;
+        }
+        return invokeI.intValue;
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            try {
+                SharedPreferences.Editor edit = c().edit();
+                edit.clear();
+                edit.commit();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
-    @Override // com.baidu.tieba.rb
-    public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        c(socketResponsedMessage2);
-        return socketResponsedMessage2;
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return "pref_name_frs_sortType_" + TbadkCoreApplication.getCurrentAccount();
+        }
+        return (String) invokeV.objValue;
     }
 
-    public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
+    public static SharedPreferences c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return TbadkCoreApplication.getInst().getSharedPreferences(b(), 0);
+        }
+        return (SharedPreferences) invokeV.objValue;
+    }
+
+    public static int e(int i, FrsRequestData frsRequestData) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, frsRequestData)) == null) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 5) {
+                        if (i != 6) {
+                            if (i != 7) {
+                                if (i == 8 && frsRequestData != null) {
+                                    frsRequestData.setSortType(4);
+                                    frsRequestData.c0(0);
+                                }
+                            } else if (frsRequestData != null) {
+                                frsRequestData.setSortType(3);
+                                frsRequestData.c0(0);
+                            }
+                        } else if (frsRequestData != null) {
+                            frsRequestData.setSortType(2);
+                            frsRequestData.c0(0);
+                        }
+                    } else if (frsRequestData != null) {
+                        frsRequestData.setSortType(0);
+                        frsRequestData.c0(1);
+                    }
+                } else if (frsRequestData != null) {
+                    frsRequestData.setSortType(1);
+                    frsRequestData.c0(0);
+                }
+            } else if (frsRequestData != null) {
+                frsRequestData.setSortType(0);
+                frsRequestData.c0(0);
+            }
+            return 1;
+        }
+        return invokeIL.intValue;
+    }
+
+    public static int h(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-            if (socketResponsedMessage == null) {
-                return socketResponsedMessage;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return -1;
             }
-            if (socketResponsedMessage.getError() == 1990055 && !j77.c(socketResponsedMessage.getCmd())) {
-                j77.d();
+            try {
+                return c().getInt(str, -1);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return -1;
             }
-            return socketResponsedMessage;
         }
-        return (SocketResponsedMessage) invokeL.objValue;
+        return invokeL.intValue;
+    }
+
+    public static void i(String str, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(65544, null, str, i) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            SharedPreferences.Editor edit = c().edit();
+            edit.putInt(str, i);
+            edit.apply();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

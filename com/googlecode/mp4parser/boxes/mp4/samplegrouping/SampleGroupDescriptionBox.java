@@ -1,14 +1,5 @@
 package com.googlecode.mp4parser.boxes.mp4.samplegrouping;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -25,7 +16,6 @@ import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
 /* loaded from: classes8.dex */
 public class SampleGroupDescriptionBox extends AbstractFullBox {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "sgpd";
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
@@ -36,121 +26,51 @@ public class SampleGroupDescriptionBox extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_6 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_7 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_8 = null;
-    public transient /* synthetic */ FieldHolder $fh;
     public int defaultLength;
     public int descriptionLength;
     public List<GroupEntry> groupEntries;
     public String groupingType;
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(916336567, "Lcom/googlecode/mp4parser/boxes/mp4/samplegrouping/SampleGroupDescriptionBox;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(916336567, "Lcom/googlecode/mp4parser/boxes/mp4/samplegrouping/SampleGroupDescriptionBox;");
-                return;
-            }
-        }
         ajc$preClinit();
     }
 
-    public int getDefaultLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return this.defaultLength;
-        }
-        return invokeV.intValue;
-    }
-
-    public List<GroupEntry> getGroupEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
-            return this.groupEntries;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String getGroupingType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.groupingType;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SampleGroupDescriptionBox() {
         super(TYPE);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.groupEntries = new LinkedList();
     }
 
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (getVersion() == 1) {
-                j = 12;
-            } else {
-                j = 8;
-            }
-            long j2 = j + 4;
-            for (GroupEntry groupEntry : this.groupEntries) {
-                if (getVersion() == 1 && this.defaultLength == 0) {
-                    j2 += 4;
-                }
-                j2 += groupEntry.size();
-            }
-            return j2;
-        }
-        return invokeV.longValue;
+    public int getDefaultLength() {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+        return this.defaultLength;
+    }
+
+    public List<GroupEntry> getGroupEntries() {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
+        return this.groupEntries;
+    }
+
+    public String getGroupingType() {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+        return this.groupingType;
     }
 
     public int hashCode() {
-        InterceptResult invokeV;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this));
-            String str = this.groupingType;
-            int i2 = 0;
-            if (str != null) {
-                i = str.hashCode();
-            } else {
-                i = 0;
-            }
-            int i3 = ((i * 31) + this.defaultLength) * 31;
-            List<GroupEntry> list = this.groupEntries;
-            if (list != null) {
-                i2 = list.hashCode();
-            }
-            return i3 + i2;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this));
+        String str = this.groupingType;
+        int i2 = 0;
+        if (str != null) {
+            i = str.hashCode();
+        } else {
+            i = 0;
         }
-        return invokeV.intValue;
+        int i3 = ((i * 31) + this.defaultLength) * 31;
+        List<GroupEntry> list = this.groupEntries;
+        if (list != null) {
+            i2 = list.hashCode();
+        }
+        return i3 + i2;
     }
 
     public static /* synthetic */ void ajc$preClinit() {
@@ -167,146 +87,134 @@ public class SampleGroupDescriptionBox extends AbstractFullBox {
     }
 
     private GroupEntry parseGroupEntry(ByteBuffer byteBuffer, String str) {
-        InterceptResult invokeLL;
         GroupEntry unknownEntry;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, byteBuffer, str)) == null) {
-            if ("roll".equals(str)) {
-                unknownEntry = new RollRecoveryEntry();
-            } else if (RateShareEntry.TYPE.equals(str)) {
-                unknownEntry = new RateShareEntry();
-            } else if (CencSampleEncryptionInformationGroupEntry.TYPE.equals(str)) {
-                unknownEntry = new CencSampleEncryptionInformationGroupEntry();
-            } else if (VisualRandomAccessEntry.TYPE.equals(str)) {
-                unknownEntry = new VisualRandomAccessEntry();
-            } else if (TemporalLevelEntry.TYPE.equals(str)) {
-                unknownEntry = new TemporalLevelEntry();
-            } else {
-                unknownEntry = new UnknownEntry();
-            }
-            unknownEntry.parse(byteBuffer);
-            return unknownEntry;
+        if ("roll".equals(str)) {
+            unknownEntry = new RollRecoveryEntry();
+        } else if (RateShareEntry.TYPE.equals(str)) {
+            unknownEntry = new RateShareEntry();
+        } else if (CencSampleEncryptionInformationGroupEntry.TYPE.equals(str)) {
+            unknownEntry = new CencSampleEncryptionInformationGroupEntry();
+        } else if (VisualRandomAccessEntry.TYPE.equals(str)) {
+            unknownEntry = new VisualRandomAccessEntry();
+        } else if (TemporalLevelEntry.TYPE.equals(str)) {
+            unknownEntry = new TemporalLevelEntry();
+        } else {
+            unknownEntry = new UnknownEntry();
         }
-        return (GroupEntry) invokeLL.objValue;
+        unknownEntry.parse(byteBuffer);
+        return unknownEntry;
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void _parseDetails(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
-            parseVersionAndFlags(byteBuffer);
+        parseVersionAndFlags(byteBuffer);
+        if (getVersion() == 1) {
+            this.groupingType = IsoTypeReader.read4cc(byteBuffer);
             if (getVersion() == 1) {
-                this.groupingType = IsoTypeReader.read4cc(byteBuffer);
-                if (getVersion() == 1) {
-                    this.defaultLength = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
-                }
-                long readUInt32 = IsoTypeReader.readUInt32(byteBuffer);
-                while (true) {
-                    long j = readUInt32 - 1;
-                    if (readUInt32 <= 0) {
-                        return;
-                    }
-                    int i = this.defaultLength;
-                    if (getVersion() == 1) {
-                        if (this.defaultLength == 0) {
-                            i = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
-                            this.descriptionLength = i;
-                        }
-                        int position = byteBuffer.position() + i;
-                        ByteBuffer slice = byteBuffer.slice();
-                        slice.limit(i);
-                        this.groupEntries.add(parseGroupEntry(slice, this.groupingType));
-                        byteBuffer.position(position);
-                        readUInt32 = j;
-                    } else {
-                        throw new RuntimeException("This should be implemented");
-                    }
-                }
-            } else {
-                throw new RuntimeException("SampleGroupDescriptionBox are only supported in version 1");
+                this.defaultLength = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
             }
+            long readUInt32 = IsoTypeReader.readUInt32(byteBuffer);
+            while (true) {
+                long j = readUInt32 - 1;
+                if (readUInt32 <= 0) {
+                    return;
+                }
+                int i = this.defaultLength;
+                if (getVersion() == 1) {
+                    if (this.defaultLength == 0) {
+                        i = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
+                        this.descriptionLength = i;
+                    }
+                    int position = byteBuffer.position() + i;
+                    ByteBuffer slice = byteBuffer.slice();
+                    slice.limit(i);
+                    this.groupEntries.add(parseGroupEntry(slice, this.groupingType));
+                    byteBuffer.position(position);
+                    readUInt32 = j;
+                } else {
+                    throw new RuntimeException("This should be implemented");
+                }
+            }
+        } else {
+            throw new RuntimeException("SampleGroupDescriptionBox are only supported in version 1");
         }
     }
 
     public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this, obj));
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || SampleGroupDescriptionBox.class != obj.getClass()) {
-                return false;
-            }
-            SampleGroupDescriptionBox sampleGroupDescriptionBox = (SampleGroupDescriptionBox) obj;
-            if (this.defaultLength != sampleGroupDescriptionBox.defaultLength) {
-                return false;
-            }
-            List<GroupEntry> list = this.groupEntries;
-            if (list == null ? sampleGroupDescriptionBox.groupEntries != null : !list.equals(sampleGroupDescriptionBox.groupEntries)) {
-                return false;
-            }
-            String str = this.groupingType;
-            String str2 = sampleGroupDescriptionBox.groupingType;
-            if (str == null ? str2 == null : str.equals(str2)) {
-                return true;
-            }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this, obj));
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || SampleGroupDescriptionBox.class != obj.getClass()) {
             return false;
         }
-        return invokeL.booleanValue;
+        SampleGroupDescriptionBox sampleGroupDescriptionBox = (SampleGroupDescriptionBox) obj;
+        if (this.defaultLength != sampleGroupDescriptionBox.defaultLength) {
+            return false;
+        }
+        List<GroupEntry> list = this.groupEntries;
+        if (list == null ? sampleGroupDescriptionBox.groupEntries != null : !list.equals(sampleGroupDescriptionBox.groupEntries)) {
+            return false;
+        }
+        String str = this.groupingType;
+        String str2 = sampleGroupDescriptionBox.groupingType;
+        if (str == null ? str2 == null : str.equals(str2)) {
+            return true;
+        }
+        return false;
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void getContent(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
-            writeVersionAndFlags(byteBuffer);
-            byteBuffer.put(this.groupingType.getBytes());
-            if (getVersion() == 1) {
-                IsoTypeWriter.writeUInt32(byteBuffer, this.defaultLength);
+        writeVersionAndFlags(byteBuffer);
+        byteBuffer.put(this.groupingType.getBytes());
+        if (getVersion() == 1) {
+            IsoTypeWriter.writeUInt32(byteBuffer, this.defaultLength);
+        }
+        IsoTypeWriter.writeUInt32(byteBuffer, this.groupEntries.size());
+        for (GroupEntry groupEntry : this.groupEntries) {
+            if (getVersion() == 1 && this.defaultLength == 0) {
+                IsoTypeWriter.writeUInt32(byteBuffer, groupEntry.get().limit());
             }
-            IsoTypeWriter.writeUInt32(byteBuffer, this.groupEntries.size());
-            for (GroupEntry groupEntry : this.groupEntries) {
-                if (getVersion() == 1 && this.defaultLength == 0) {
-                    IsoTypeWriter.writeUInt32(byteBuffer, groupEntry.get().limit());
-                }
-                byteBuffer.put(groupEntry.get());
+            byteBuffer.put(groupEntry.get());
+        }
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        long j;
+        if (getVersion() == 1) {
+            j = 12;
+        } else {
+            j = 8;
+        }
+        long j2 = j + 4;
+        for (GroupEntry groupEntry : this.groupEntries) {
+            if (getVersion() == 1 && this.defaultLength == 0) {
+                j2 += 4;
             }
+            j2 += groupEntry.size();
         }
-    }
-
-    public void setDefaultLength(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i)));
-            this.defaultLength = i;
-        }
-    }
-
-    public void setGroupEntries(List<GroupEntry> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, list));
-            this.groupEntries = list;
-        }
-    }
-
-    public void setGroupingType(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, str));
-            this.groupingType = str;
-        }
+        return j2;
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this));
-            return "SampleGroupDescriptionBox{groupingType='" + this.groupingType + "', defaultLength=" + this.defaultLength + ", groupEntries=" + this.groupEntries + '}';
-        }
-        return (String) invokeV.objValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this));
+        return "SampleGroupDescriptionBox{groupingType='" + this.groupingType + "', defaultLength=" + this.defaultLength + ", groupEntries=" + this.groupEntries + '}';
+    }
+
+    public void setDefaultLength(int i) {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i)));
+        this.defaultLength = i;
+    }
+
+    public void setGroupEntries(List<GroupEntry> list) {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, list));
+        this.groupEntries = list;
+    }
+
+    public void setGroupingType(String str) {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, str));
+        this.groupingType = str;
     }
 }

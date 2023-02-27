@@ -1,49 +1,77 @@
 package com.xiaomi.push;
 
+import android.app.Activity;
 import android.content.Context;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Intent;
+import android.text.TextUtils;
 /* loaded from: classes8.dex */
-public final class ea implements Runnable {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ int a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Context f323a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f324a;
-    public final /* synthetic */ String b;
-
-    public ea(Context context, String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Integer.valueOf(i), str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+public class ea implements ef {
+    private void a(Activity activity, Intent intent) {
+        String stringExtra = intent.getStringExtra("awake_info");
+        if (!TextUtils.isEmpty(stringExtra)) {
+            String b = dx.b(stringExtra);
+            if (!TextUtils.isEmpty(b)) {
+                dy.a(activity.getApplicationContext(), b, 1007, "play with activity successfully");
                 return;
             }
         }
-        this.f323a = context;
-        this.f324a = str;
-        this.a = i;
-        this.b = str2;
+        dy.a(activity.getApplicationContext(), "activity", 1008, "B get incorrect message");
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            dz.c(this.f323a, this.f324a, this.a, this.b);
+    private void b(Context context, eb ebVar) {
+        String m364a = ebVar.m364a();
+        String b = ebVar.b();
+        String d = ebVar.d();
+        int a = ebVar.a();
+        if (context == null || TextUtils.isEmpty(m364a) || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
+            if (TextUtils.isEmpty(d)) {
+                dy.a(context, "activity", 1008, "argument error");
+            } else {
+                dy.a(context, d, 1008, "argument error");
+            }
+        } else if (!com.xiaomi.push.service.l.b(context, m364a, b)) {
+            dy.a(context, d, 1003, "B is not ready");
+        } else {
+            dy.a(context, d, 1002, "B is ready");
+            dy.a(context, d, 1004, "A is ready");
+            Intent intent = new Intent(b);
+            intent.setPackage(m364a);
+            intent.putExtra("awake_info", dx.a(d));
+            intent.addFlags(276824064);
+            intent.setAction(b);
+            if (a == 1) {
+                try {
+                    if (!ec.m365a(context)) {
+                        dy.a(context, d, 1008, "A not in foreground");
+                        return;
+                    }
+                } catch (Exception e) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
+                    dy.a(context, d, 1008, "A meet a exception when help B's activity");
+                    return;
+                }
+            }
+            context.startActivity(intent);
+            dy.a(context, d, 1005, "A is successful");
+            dy.a(context, d, 1006, "The job is finished");
+        }
+    }
+
+    @Override // com.xiaomi.push.ef
+    public void a(Context context, Intent intent, String str) {
+        if (context == null || !(context instanceof Activity) || intent == null) {
+            dy.a(context, "activity", 1008, "B receive incorrect message");
+        } else {
+            a((Activity) context, intent);
+        }
+    }
+
+    @Override // com.xiaomi.push.ef
+    public void a(Context context, eb ebVar) {
+        if (ebVar != null) {
+            b(context, ebVar);
+        } else {
+            dy.a(context, "activity", 1008, "A receive incorrect message");
         }
     }
 }

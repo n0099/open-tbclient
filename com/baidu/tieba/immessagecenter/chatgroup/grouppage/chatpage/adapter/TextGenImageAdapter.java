@@ -23,15 +23,15 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.StatisticInfoField;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.gr7;
+import com.baidu.tieba.gu7;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.TaskInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextGenImageMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.view.TextGenImageView;
 import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.MaxHeightRecycleView;
-import com.baidu.tieba.nq7;
-import com.baidu.tieba.sr7;
+import com.baidu.tieba.mt7;
+import com.baidu.tieba.tu7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TextGenImageAdapter extends BaseChatAdapter<TextGenImageMsg, Holder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +57,7 @@ public class TextGenImageAdapter extends BaseChatAdapter<TextGenImageMsg, Holder
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Holder extends BaseViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +117,7 @@ public class TextGenImageAdapter extends BaseChatAdapter<TextGenImageMsg, Holder
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -146,7 +146,7 @@ public class TextGenImageAdapter extends BaseChatAdapter<TextGenImageMsg, Holder
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090dad) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090dee) {
                 TaskInfo taskInfo = this.a.getTaskInfo();
                 if (taskInfo != null && taskInfo.isComplete()) {
                     String bigSrc = this.a.getBigSrc();
@@ -197,10 +197,10 @@ public class TextGenImageAdapter extends BaseChatAdapter<TextGenImageMsg, Holder
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, frameLayout) == null) {
             super.A(frameLayout);
-            MaxHeightRecycleView e = nq7.e(this.mContext);
+            MaxHeightRecycleView e = mt7.e(this.mContext);
             frameLayout.addView(e);
             Context context = this.mContext;
-            frameLayout.setTag(R.id.obfuscated_res_0x7f0921d0, gr7.c(context, e, ej.g(context, R.dimen.M_W_X004)));
+            frameLayout.setTag(R.id.obfuscated_res_0x7f092217, gu7.c(context, e, ej.g(context, R.dimen.M_W_X004)));
         }
     }
 
@@ -260,7 +260,7 @@ public class TextGenImageAdapter extends BaseChatAdapter<TextGenImageMsg, Holder
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
             TextGenImageView textGenImageView = new TextGenImageView(context);
-            textGenImageView.setId(R.id.obfuscated_res_0x7f090dcd);
+            textGenImageView.setId(R.id.obfuscated_res_0x7f090e0e);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
             layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
@@ -279,12 +279,12 @@ public class TextGenImageAdapter extends BaseChatAdapter<TextGenImageMsg, Holder
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), textGenImageMsg, frameLayout, list, Integer.valueOf(i2)}) == null) {
             super.H(i, textGenImageMsg, frameLayout, list, i2);
-            sr7 sr7Var = (sr7) frameLayout.getTag(R.id.obfuscated_res_0x7f0921d0);
-            if (sr7Var != null && textGenImageMsg.getSubSkillConfig() != null && !textGenImageMsg.getSubSkillConfig().a.isEmpty()) {
+            tu7 tu7Var = (tu7) frameLayout.getTag(R.id.obfuscated_res_0x7f092217);
+            if (tu7Var != null && textGenImageMsg.getSubSkillConfig() != null && !textGenImageMsg.getSubSkillConfig().a.isEmpty()) {
                 frameLayout.setVisibility(0);
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(textGenImageMsg);
-                sr7Var.d(arrayList);
+                tu7Var.d(arrayList);
                 return;
             }
             frameLayout.setVisibility(8);
@@ -297,7 +297,7 @@ public class TextGenImageAdapter extends BaseChatAdapter<TextGenImageMsg, Holder
     public void J(int i, @NonNull ViewGroup viewGroup, @NonNull TextGenImageMsg textGenImageMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), viewGroup, textGenImageMsg, holder, list, Integer.valueOf(i2)}) == null) {
-            SkinManager.setBackgroundResource(viewGroup, R.drawable.icon_pic_im_bubble_share_left);
+            SkinManager.setBackgroundResource(viewGroup, R.drawable.icon_pic_im_bubble_left);
             holder.b.b(holder, textGenImageMsg);
             TiebaStatic.log(new StatisticItem("c15135").param("obj_type", 1).param("fid", this.g).param("room_id", this.h).param("fname", this.i).param("uid", TbadkCoreApplication.getCurrentAccount()));
             holder.a(new a(this, textGenImageMsg));

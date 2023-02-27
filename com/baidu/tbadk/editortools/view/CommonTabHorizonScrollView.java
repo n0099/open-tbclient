@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.view.CommonTabWidgetView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yd5;
+import com.baidu.tieba.lf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
     public transient /* synthetic */ FieldHolder $fh;
     public DeskLinearLayout a;
     public int b;
-    public List<yd5> c;
+    public List<lf5> c;
     public CommonTabWidgetView.b d;
     public LinearLayout.LayoutParams e;
     public int f;
@@ -147,7 +147,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
         d();
     }
 
-    public void b(yd5.b bVar) {
+    public void b(lf5.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             c(bVar);
@@ -155,7 +155,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
         }
     }
 
-    public void setDatas(List<yd5> list) {
+    public void setDatas(List<lf5> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.c = list;
@@ -169,7 +169,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
         }
     }
 
-    public final TbImageView c(yd5.b bVar) {
+    public final TbImageView c(lf5.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
@@ -194,32 +194,32 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
     }
 
     public void e(int i) {
-        int parseColor;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             TextView textView = this.h;
             if (textView != null) {
                 SkinManager.setBackgroundResource(textView, R.drawable.icon_news_head_prompt_one, i);
                 TextView textView2 = this.h;
-                if (i != 1 && i != 4) {
-                    parseColor = -1;
+                if (i == 4) {
+                    i2 = Color.parseColor("#ffd2d2d2");
                 } else {
-                    parseColor = Color.parseColor("#ffd2d2d2");
+                    i2 = -1;
                 }
-                textView2.setTextColor(parseColor);
+                textView2.setTextColor(i2);
             }
             int childCount = this.a.getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = this.a.getChildAt(i2);
+            for (int i3 = 0; i3 < childCount; i3++) {
+                View childAt = this.a.getChildAt(i3);
                 if (childAt != null) {
                     SkinManager.setBackgroundResource(childAt, R.drawable.bg_expression_bar, i);
-                    if (i2 != childCount - 1) {
+                    if (i3 != childCount - 1) {
                         TbImageView tbImageView = (TbImageView) ((LinearLayout) childAt).getChildAt(0);
                         if (tbImageView != null) {
-                            if (i2 == this.b) {
-                                SkinManager.setImageResource(tbImageView, this.c.get(i2).f().a, i);
+                            if (i3 == this.b) {
+                                SkinManager.setImageResource(tbImageView, this.c.get(i3).f().a, i);
                             } else {
-                                SkinManager.setImageResource(tbImageView, this.c.get(i2).f().b, i);
+                                SkinManager.setImageResource(tbImageView, this.c.get(i3).f().b, i);
                             }
                         }
                     } else {

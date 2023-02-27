@@ -1,135 +1,72 @@
 package com.baidu.tieba;
 
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.Process;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public abstract class kk1 {
+public class kk1<T> implements mk1<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, kk1> a;
-    public static final ConcurrentHashMap<String, b> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public T a;
+    public jk1<T> b;
+    public jk1<T> c;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    public abstract IBinder c();
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public IBinder a;
-        public boolean b;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = false;
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947915864, "Lcom/baidu/tieba/kk1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947915864, "Lcom/baidu/tieba/kk1;");
-                return;
-            }
-        }
-        a = new HashMap<>();
-        b = new ConcurrentHashMap<>();
-    }
-
-    public void b() {
+    public kk1() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || Binder.getCallingUid() == Process.myUid()) {
-            return;
-        }
-        throw new SecurityException();
-    }
-
-    public static void a(String str, IBinder iBinder, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65537, null, str, iBinder, z) == null) {
-            if (Binder.getCallingUid() == Process.myUid()) {
-                if (a.get(str) == null) {
-                    b bVar = new b(null);
-                    bVar.a = iBinder;
-                    bVar.b = z;
-                    b.put(str, bVar);
-                    return;
-                }
-                throw new IllegalArgumentException();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            throw new SecurityException();
         }
     }
 
-    public static IBinder d(String str) {
-        InterceptResult invokeL;
+    public static kk1 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            kk1 kk1Var = a.get(str);
-            if (kk1Var != null) {
-                kk1Var.b();
-                return kk1Var.c();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new kk1();
+        }
+        return (kk1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.mk1
+    public T get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            T t = this.a;
+            if (t != null) {
+                return t;
             }
-            b bVar = b.get(str);
-            if (bVar != null) {
-                if (!bVar.b && Binder.getCallingUid() != Process.myUid()) {
-                    throw new SecurityException();
-                }
-                return bVar.a;
+            jk1<T> jk1Var = this.b;
+            if (jk1Var != null) {
+                T t2 = jk1Var.get();
+                this.a = t2;
+                return t2;
+            }
+            jk1<T> jk1Var2 = this.c;
+            if (jk1Var2 != null) {
+                return jk1Var2.get();
             }
             return null;
         }
-        return (IBinder) invokeL.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public static boolean e(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.mk1
+    public void a(jk1<T> jk1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (Binder.getCallingUid() == Process.myUid()) {
-                if (b.remove(str) != null) {
-                    return true;
-                }
-                return false;
-            }
-            throw new SecurityException();
+        if (interceptable == null || interceptable.invokeL(1048576, this, jk1Var) == null) {
+            this.b = jk1Var;
+            this.a = null;
         }
-        return invokeL.booleanValue;
     }
 }

@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.vivo.push.util.u;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
 public final class c implements Handler.Callback {
@@ -41,13 +42,13 @@ public final class c implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
             if (message == null) {
-                com.vivo.push.util.p.a("AidlManager", "handleMessage error : msg is null");
+                u.a("AidlManager", "handleMessage error : msg is null");
                 return false;
             }
             int i = message.what;
             if (i != 1) {
                 if (i != 2) {
-                    com.vivo.push.util.p.b("AidlManager", "unknow msg what [" + message.what + PreferencesUtil.RIGHT_MOUNT);
+                    u.b("AidlManager", "unknow msg what [" + message.what + PreferencesUtil.RIGHT_MOUNT);
                 } else {
                     atomicInteger2 = this.a.f;
                     if (atomicInteger2.get() == 4) {
@@ -56,7 +57,7 @@ public final class c implements Handler.Callback {
                     this.a.a(1);
                 }
             } else {
-                com.vivo.push.util.p.a("AidlManager", "In connect, bind core service time out");
+                u.a("AidlManager", "In connect, bind core service time out");
                 atomicInteger = this.a.f;
                 if (atomicInteger.get() == 2) {
                     this.a.a(1);

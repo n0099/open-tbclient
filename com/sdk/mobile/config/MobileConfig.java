@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.module.config.BaseConfig;
 import com.sdk.f.c;
-import com.sdk.k.a;
+import com.sdk.l.a;
 /* loaded from: classes8.dex */
 public class MobileConfig implements c {
     public static /* synthetic */ Interceptable $ic;

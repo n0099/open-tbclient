@@ -2,28 +2,17 @@ package com.baidu.swan.map.location.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class SelectedLocationInfo implements Parcelable {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ADDRESS = "address";
-    public static final Parcelable.Creator<SelectedLocationInfo> CREATOR;
+    public static final Parcelable.Creator<SelectedLocationInfo> CREATOR = new a();
     public static final String LATITUDE = "latitude";
     public static final String LOCATION_KEY = "SelectedLocationInfo";
     public static final String LONGITUDE = "longitude";
     public static final String NAME = "name";
-    public transient /* synthetic */ FieldHolder $fh;
     public String mAddress;
     public double mLatitude;
     public double mLongitude;
@@ -31,89 +20,40 @@ public class SelectedLocationInfo implements Parcelable {
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
+        return 0;
+    }
+
+    public JSONObject toJson() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("name", this.mName);
+            jSONObject.put("address", this.mAddress);
+            jSONObject.put("latitude", this.mLatitude);
+            jSONObject.put("longitude", this.mLongitude);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        return invokeV.intValue;
+        return jSONObject;
     }
 
     /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<SelectedLocationInfo> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
         public SelectedLocationInfo createFromParcel(Parcel parcel) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
-                return new SelectedLocationInfo(parcel, null);
-            }
-            return (SelectedLocationInfo) invokeL.objValue;
+            return new SelectedLocationInfo(parcel, null);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
         public SelectedLocationInfo[] newArray(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-                return new SelectedLocationInfo[i];
-            }
-            return (SelectedLocationInfo[]) invokeI.objValue;
+            return new SelectedLocationInfo[i];
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1985290976, "Lcom/baidu/swan/map/location/model/SelectedLocationInfo;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1985290976, "Lcom/baidu/swan/map/location/model/SelectedLocationInfo;");
-                return;
-            }
-        }
-        CREATOR = new a();
     }
 
     public SelectedLocationInfo(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mName = parcel.readString();
         this.mAddress = parcel.readString();
         this.mLatitude = parcel.readDouble();
@@ -126,30 +66,13 @@ public class SelectedLocationInfo implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
-            parcel.writeString(this.mName);
-            parcel.writeString(this.mAddress);
-            parcel.writeDouble(this.mLatitude);
-            parcel.writeDouble(this.mLongitude);
-        }
+        parcel.writeString(this.mName);
+        parcel.writeString(this.mAddress);
+        parcel.writeDouble(this.mLatitude);
+        parcel.writeDouble(this.mLongitude);
     }
 
     public SelectedLocationInfo(String str, String str2, double d, double d2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Double.valueOf(d), Double.valueOf(d2)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
         this.mName = str;
         this.mAddress = str2;
         this.mLatitude = d;
@@ -157,20 +80,6 @@ public class SelectedLocationInfo implements Parcelable {
     }
 
     public SelectedLocationInfo(String str, String str2, LatLng latLng) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, latLng};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
         this.mName = str;
         this.mAddress = str2;
         if (latLng == null) {
@@ -178,23 +87,5 @@ public class SelectedLocationInfo implements Parcelable {
         }
         this.mLatitude = latLng.latitude;
         this.mLongitude = latLng.longitude;
-    }
-
-    public JSONObject toJson() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("name", this.mName);
-                jSONObject.put("address", this.mAddress);
-                jSONObject.put("latitude", this.mLatitude);
-                jSONObject.put("longitude", this.mLongitude);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
     }
 }

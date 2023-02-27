@@ -3,21 +3,12 @@ package com.google.android.exoplayer2;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.media.AudioManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.Util;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.UUID;
 /* loaded from: classes7.dex */
 public final class C {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ASCII_NAME = "US-ASCII";
     public static final int AUDIO_SESSION_ID_UNSET = 0;
     public static final int BUFFER_FLAG_DECODE_ONLY = Integer.MIN_VALUE;
@@ -148,7 +139,6 @@ public final class C {
     public static final int VIDEO_SCALING_MODE_SCALE_TO_FIT = 1;
     public static final int VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING = 2;
     public static final UUID WIDEVINE_UUID;
-    public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes7.dex */
@@ -226,25 +216,11 @@ public final class C {
     }
 
     public static long msToUs(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) ? (j == TIME_UNSET || j == Long.MIN_VALUE) ? j : j * 1000 : invokeJ.longValue;
+        return (j == TIME_UNSET || j == Long.MIN_VALUE) ? j : j * 1000;
     }
 
     static {
-        InterceptResult invokeClinit;
         int i;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-127027210, "Lcom/google/android/exoplayer2/C;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-127027210, "Lcom/google/android/exoplayer2/C;");
-                return;
-            }
-        }
         if (Util.SDK_INT < 23) {
             i = 1020;
         } else {
@@ -258,39 +234,15 @@ public final class C {
         PLAYREADY_UUID = new UUID(-7348484286925749626L, -6083546864340672619L);
     }
 
-    public C() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
     @TargetApi(21)
     public static int generateAudioSessionIdV21(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            return ((AudioManager) context.getSystemService("audio")).generateAudioSessionId();
-        }
-        return invokeL.intValue;
+        return ((AudioManager) context.getSystemService("audio")).generateAudioSessionId();
     }
 
     public static long usToMs(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) {
-            if (j != TIME_UNSET && j != Long.MIN_VALUE) {
-                return j / 1000;
-            }
-            return j;
+        if (j != TIME_UNSET && j != Long.MIN_VALUE) {
+            return j / 1000;
         }
-        return invokeJ.longValue;
+        return j;
     }
 }

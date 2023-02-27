@@ -1,20 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes6.dex */
-public class uf6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface uf6 {
+    String from();
 
-    /* loaded from: classes6.dex */
-    public interface a {
-    }
+    void m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
 
-    public final void a(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            throw null;
-        }
-    }
+    void setFrom(String str);
 }

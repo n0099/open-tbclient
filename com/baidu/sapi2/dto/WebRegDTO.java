@@ -1,37 +1,13 @@
 package com.baidu.sapi2.dto;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class WebRegDTO extends SapiWebDTO {
-    public static /* synthetic */ Interceptable $ic = null;
     @Deprecated
     public static final String EXTRA_REGISTER_FAST = "extra_fast_reg";
     public static final String EXTRA_REGISTER_MOBILE = "extra_mobile_reg";
-    public transient /* synthetic */ FieldHolder $fh;
-    public List<PassNameValuePair> extraParams;
-    public boolean finishActivityAfterSuc;
-    public String regType;
-
-    public WebRegDTO() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.regType = EXTRA_REGISTER_MOBILE;
-        this.finishActivityAfterSuc = true;
-        this.extraParams = new ArrayList();
-    }
+    public String regType = EXTRA_REGISTER_MOBILE;
+    public boolean finishActivityAfterSuc = true;
+    public List<PassNameValuePair> extraParams = new ArrayList();
 }

@@ -1,39 +1,87 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.text.TextUtils;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class az {
-    public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public transient /* synthetic */ FieldHolder $fh;
+public class az implements at {
+    public static volatile az a;
 
-    public static au a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (m.m636a()) {
-                a = 1;
-                return new ay(context);
-            } else if (as.a(context)) {
-                a = 2;
-                return new as(context);
-            } else if (bb.a(context)) {
-                a = 4;
-                return new bb(context);
-            } else if (bf.a(context)) {
-                a = 5;
-                return new bf(context);
-            } else if (ax.a(context)) {
-                a = 3;
-                return new av(context);
-            } else {
-                a = 0;
-                return new be();
+    /* renamed from: a  reason: collision with other field name */
+    public int f129a = ay.a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public at f130a;
+
+    public az(Context context) {
+        this.f130a = ay.a(context);
+        com.xiaomi.channel.commonutils.logger.b.m97a("create id manager is: " + this.f129a);
+    }
+
+    public static az a(Context context) {
+        if (a == null) {
+            synchronized (az.class) {
+                if (a == null) {
+                    a = new az(context.getApplicationContext());
+                }
             }
         }
-        return (au) invokeL.objValue;
+        return a;
+    }
+
+    private String a(String str) {
+        return str == null ? "" : str;
+    }
+
+    @Override // com.xiaomi.push.at
+    /* renamed from: a */
+    public String mo182a() {
+        return a(this.f130a.mo182a());
+    }
+
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.at.a()Ljava/lang/String; */
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.at.a()Z */
+    public void a() {
+    }
+
+    public void a(Map<String, String> map) {
+        if (map == null) {
+            return;
+        }
+        String b = b();
+        if (!TextUtils.isEmpty(b)) {
+            map.put("udid", b);
+        }
+        String mo182a = mo182a();
+        if (!TextUtils.isEmpty(mo182a)) {
+            map.put("oaid", mo182a);
+        }
+        String c = c();
+        if (!TextUtils.isEmpty(c)) {
+            map.put("vaid", c);
+        }
+        String d = d();
+        if (!TextUtils.isEmpty(d)) {
+            map.put("aaid", d);
+        }
+        map.put("oaid_type", String.valueOf(this.f129a));
+    }
+
+    @Override // com.xiaomi.push.at
+    /* renamed from: a */
+    public boolean mo183a() {
+        return this.f130a.mo183a();
+    }
+
+    public String b() {
+        return null;
+    }
+
+    public String c() {
+        return null;
+    }
+
+    public String d() {
+        return null;
     }
 }

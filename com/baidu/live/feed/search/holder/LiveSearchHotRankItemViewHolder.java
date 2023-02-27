@@ -5,23 +5,16 @@ import android.view.View;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.business.model.data.LiveHostInfo;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.feed.search.view.LiveBaseLottieView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fd0;
-import com.baidu.tieba.oa0;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.jd0;
+import com.baidu.tieba.sa0;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes2.dex */
 public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public final TextView b;
     public final LiveBaseLottieView c;
@@ -29,33 +22,17 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
     public final TextView e;
     public final TextView f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LiveSearchHotRankItemViewHolder(@NonNull View view2) {
         super(view2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092549);
-        this.c = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f091553);
-        this.d = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0910ea);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092525);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924f9);
-        this.e.setTextColor(fd0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
-        this.f.setTextColor(fd0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
-        if (!"night".equals(fd0.f().r()) && !"dark".equals(fd0.f().r())) {
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092596);
+        this.c = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f091594);
+        this.d = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09112b);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092572);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092546);
+        this.e.setTextColor(jd0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
+        this.f.setTextColor(jd0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
+        if (!LiveFeedPageSdk.UI_MODE_NIGHT.equals(jd0.f().r()) && !"dark".equals(jd0.f().r())) {
             this.c.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/common/live_feed_page_shinning.json");
         } else {
             this.c.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/common/live_feed_page_shinning_night.json");
@@ -67,8 +44,7 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
         int i;
         int i2;
         int i3;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, liveRoomEntity) != null) || liveRoomEntity == null) {
+        if (liveRoomEntity == null) {
             return;
         }
         TextView textView = this.b;
@@ -78,10 +54,10 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
             if (i4 != 1) {
                 if (i4 != 2) {
                     if (i4 != 3) {
-                        this.b.setTextColor(fd0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
+                        this.b.setTextColor(jd0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
                     } else {
                         TextView textView2 = this.b;
-                        if ("night".equals(fd0.f().r())) {
+                        if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(jd0.f().r())) {
                             i3 = -8760559;
                         } else {
                             i3 = -349938;
@@ -90,7 +66,7 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
                     }
                 } else {
                     TextView textView3 = this.b;
-                    if ("night".equals(fd0.f().r())) {
+                    if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(jd0.f().r())) {
                         i2 = -8375552;
                     } else {
                         i2 = -39424;
@@ -99,7 +75,7 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
                 }
             } else {
                 TextView textView4 = this.b;
-                if ("night".equals(fd0.f().r())) {
+                if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(jd0.f().r())) {
                     i = -8447719;
                 } else {
                     i = -52429;
@@ -139,30 +115,25 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
         }
         TextView textView6 = this.f;
         if (textView6 != null) {
-            textView6.setText(oa0.a(textView6.getContext(), liveRoomEntity.audienceCount));
+            textView6.setText(sa0.a(textView6.getContext(), liveRoomEntity.audienceCount));
         }
     }
 
     public final void b() {
-        LiveBaseLottieView liveBaseLottieView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (liveBaseLottieView = this.c) != null) {
+        LiveBaseLottieView liveBaseLottieView = this.c;
+        if (liveBaseLottieView != null) {
             liveBaseLottieView.cancelAnimation();
         }
     }
 
     public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b();
-            d();
-        }
+        b();
+        d();
     }
 
     public final void d() {
-        SimpleDraweeView simpleDraweeView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (simpleDraweeView = this.d) != null) {
+        SimpleDraweeView simpleDraweeView = this.d;
+        if (simpleDraweeView != null) {
             simpleDraweeView.setImageDrawable(null);
         }
     }

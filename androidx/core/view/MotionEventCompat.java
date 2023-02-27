@@ -1,14 +1,8 @@
 package androidx.core.view;
 
 import android.view.MotionEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class MotionEventCompat {
-    public static /* synthetic */ Interceptable $ic = null;
     @Deprecated
     public static final int ACTION_HOVER_ENTER = 9;
     @Deprecated
@@ -116,141 +110,66 @@ public final class MotionEventCompat {
     public static final int AXIS_Z = 11;
     @Deprecated
     public static final int BUTTON_PRIMARY = 1;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public MotionEventCompat() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     @Deprecated
     public static int findPointerIndex(MotionEvent motionEvent, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, motionEvent, i)) == null) {
-            return motionEvent.findPointerIndex(i);
-        }
-        return invokeLI.intValue;
+        return motionEvent.findPointerIndex(i);
     }
 
     @Deprecated
     public static float getAxisValue(MotionEvent motionEvent, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, motionEvent, i)) == null) {
-            return motionEvent.getAxisValue(i);
-        }
-        return invokeLI.floatValue;
+        return motionEvent.getAxisValue(i);
     }
 
     @Deprecated
     public static int getPointerId(MotionEvent motionEvent, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, motionEvent, i)) == null) {
-            return motionEvent.getPointerId(i);
-        }
-        return invokeLI.intValue;
+        return motionEvent.getPointerId(i);
     }
 
     @Deprecated
     public static float getX(MotionEvent motionEvent, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, motionEvent, i)) == null) {
-            return motionEvent.getX(i);
-        }
-        return invokeLI.floatValue;
+        return motionEvent.getX(i);
     }
 
     @Deprecated
     public static float getY(MotionEvent motionEvent, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, motionEvent, i)) == null) {
-            return motionEvent.getY(i);
-        }
-        return invokeLI.floatValue;
+        return motionEvent.getY(i);
     }
 
     public static boolean isFromSource(MotionEvent motionEvent, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, motionEvent, i)) == null) {
-            if ((motionEvent.getSource() & i) == i) {
-                return true;
-            }
-            return false;
+        if ((motionEvent.getSource() & i) == i) {
+            return true;
         }
-        return invokeLI.booleanValue;
+        return false;
     }
 
     @Deprecated
     public static int getActionIndex(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, motionEvent)) == null) {
-            return motionEvent.getActionIndex();
-        }
-        return invokeL.intValue;
+        return motionEvent.getActionIndex();
     }
 
     @Deprecated
     public static int getActionMasked(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, motionEvent)) == null) {
-            return motionEvent.getActionMasked();
-        }
-        return invokeL.intValue;
+        return motionEvent.getActionMasked();
     }
 
     @Deprecated
     public static int getButtonState(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, motionEvent)) == null) {
-            return motionEvent.getButtonState();
-        }
-        return invokeL.intValue;
+        return motionEvent.getButtonState();
     }
 
     @Deprecated
     public static int getPointerCount(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, motionEvent)) == null) {
-            return motionEvent.getPointerCount();
-        }
-        return invokeL.intValue;
+        return motionEvent.getPointerCount();
     }
 
     @Deprecated
     public static int getSource(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, motionEvent)) == null) {
-            return motionEvent.getSource();
-        }
-        return invokeL.intValue;
+        return motionEvent.getSource();
     }
 
     @Deprecated
     public static float getAxisValue(MotionEvent motionEvent, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, motionEvent, i, i2)) == null) {
-            return motionEvent.getAxisValue(i, i2);
-        }
-        return invokeLII.floatValue;
+        return motionEvent.getAxisValue(i, i2);
     }
 }

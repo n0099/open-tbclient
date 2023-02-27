@@ -1,12 +1,16 @@
 package com.baidu.tieba;
 
-import android.graphics.Point;
-import android.view.MotionEvent;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ListView;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.dragsort.SimpleDragSortListView;
-import com.baidu.tieba.oq5;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,149 +20,100 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class s68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SimpleDragSortListView a;
-    public final a b;
-    public final oq5 c;
+    public View a;
+    public Context b;
+    public TextView c;
+    public ImageView d;
+    public TailData e;
+    public View f;
 
-    /* loaded from: classes6.dex */
-    public static class a extends pq5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int F;
-        public int G;
-        public ListView H;
-
-        @Override // com.baidu.tieba.sq5, com.baidu.tieba.oq5.j
-        public void a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(oq5 oq5Var, ListView listView) {
-            super(oq5Var, listView, 0, 2, 0);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oq5Var, listView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((oq5) objArr2[0], (ListView) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.F = 0;
-            this.G = Integer.MAX_VALUE;
-            s(false);
-            this.H = listView;
-        }
-
-        @Override // com.baidu.tieba.pq5, com.baidu.tieba.oq5.j
-        public void c(View view2, Point point, Point point2) {
-            View view3;
-            int top;
-            int top2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, point, point2) == null) {
-                int firstVisiblePosition = this.H.getFirstVisiblePosition();
-                int dividerHeight = this.H.getDividerHeight();
-                int headerViewsCount = (this.F - firstVisiblePosition) + this.H.getHeaderViewsCount();
-                int headerViewsCount2 = (this.G - firstVisiblePosition) + this.H.getHeaderViewsCount();
-                int childCount = this.H.getChildCount();
-                View view4 = null;
-                if (headerViewsCount >= 0 && headerViewsCount < childCount) {
-                    view3 = this.H.getChildAt(headerViewsCount);
-                } else {
-                    view3 = null;
-                }
-                if (headerViewsCount2 >= 0 && headerViewsCount2 < childCount) {
-                    view4 = this.H.getChildAt(headerViewsCount2);
-                }
-                if (view3 != null && point.y < (top2 = view3.getTop())) {
-                    point.y = top2;
-                }
-                if (view4 != null && point.y > (top = (view4.getTop() - dividerHeight) - view2.getHeight())) {
-                    point.y = top;
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.pq5
-        public int w(MotionEvent motionEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-                int n = super.n(motionEvent);
-                int headerViewsCount = n - this.H.getHeaderViewsCount();
-                if (headerViewsCount >= this.F && headerViewsCount < this.G) {
-                    return n;
-                }
-                return -1;
-            }
-            return invokeL.intValue;
-        }
-
-        public void z(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-                this.F = i;
-                this.G = i2;
-            }
-        }
-    }
-
-    public s68(SimpleDragSortListView simpleDragSortListView) {
+    public s68() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {simpleDragSortListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = simpleDragSortListView;
-        oq5 oq5Var = new oq5(simpleDragSortListView, simpleDragSortListView.getViewSuperMethods());
-        this.c = oq5Var;
-        simpleDragSortListView.setDragSortViewEventDelegate(oq5Var);
-        a aVar = new a(this.c, simpleDragSortListView);
-        this.b = aVar;
-        aVar.d(-1);
-        this.c.s0(this.b);
-        this.c.u0(this.b);
-        simpleDragSortListView.setOnTouchListener(this.b);
     }
 
-    public void a(boolean z) {
+    public TailData b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.c.o0(z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (TailData) invokeV.objValue;
+    }
+
+    @SuppressLint({"ResourceAsColor"})
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setBackgroundResource(this.f, R.drawable.tail_item_bg);
+            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
+            SkinManager.setBackgroundResource(this.d, R.drawable.tail_tool_list_item_checkbox_bg);
+            SkinManager.setImageResource(this.d, R.drawable.tail_tool_list_item_checkbox_selector);
         }
     }
 
-    public void c(oq5.i iVar) {
+    public View a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar) == null) {
-            this.c.t0(iVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08ba, (ViewGroup) null);
+            this.a = inflate;
+            this.b = context;
+            inflate.setTag(this);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092263);
+            this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092262);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f092261);
+            this.f = findViewById;
+            findViewById.setTag(this);
+            return this.a;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.c.setTextColor(y68.a(str));
         }
     }
 
-    public void b(int i, int i2) {
+    public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            this.b.z(i, i2);
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.f.setOnClickListener(onClickListener);
         }
+    }
+
+    public void f(TailData tailData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, tailData) == null) {
+            this.e = tailData;
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.c.setText(TbFaceManager.i().t(this.b, z68.a(str), null));
+        }
+    }
+
+    public void h(TailData tailData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, tailData) != null) || tailData == null) {
+            return;
+        }
+        g(tailData.getContent());
+        d(tailData.getFontColor());
+        this.d.setSelected(tailData.isSelected());
     }
 }

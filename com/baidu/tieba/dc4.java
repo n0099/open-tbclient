@@ -1,271 +1,144 @@
 package com.baidu.tieba;
 
-import android.animation.Keyframe;
-import android.animation.ObjectAnimator;
-import android.animation.PropertyValuesHolder;
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.UiThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@UiThread
+import com.baidu.webkit.sdk.CookieManager;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 /* loaded from: classes4.dex */
-public class dc4 implements ec4 {
+public class dc4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public lc4 b;
-    public b c;
-    public Handler d;
-    public ViewGroup e;
-    public int f;
-    public boolean g;
-    public ObjectAnimator h;
-    public gc4 i;
 
     /* loaded from: classes4.dex */
-    public interface b {
-        void b();
-
-        void o();
-
-        void u(int i);
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 5000;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public class a extends Handler {
+    public static class a implements fo3<me3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dc4 a;
+        public final /* synthetic */ t12 a;
+        public final /* synthetic */ String b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(dc4 dc4Var, Looper looper) {
-            super(looper);
+        public a(t12 t12Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dc4Var, looper};
+                Object[] objArr = {t12Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = dc4Var;
+            this.a = t12Var;
+            this.b = str;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fo3
+        /* renamed from: b */
+        public void a(me3 me3Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-                int f = this.a.f();
-                if (f > 0 && this.a.g) {
-                    this.a.d.sendEmptyMessageDelayed(1, f);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, me3Var) == null) {
+                if (me3Var == null || me3Var.d || me3Var.j != 1) {
+                    dc4.c(this.a, "system deny");
+                } else {
+                    dc4.e(this.a, this.b);
                 }
-                this.a.k();
             }
         }
     }
 
-    public dc4(@NonNull Context context, @NonNull gc4 gc4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, gc4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947699732, "Lcom/baidu/tieba/dc4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947699732, "Lcom/baidu/tieba/dc4;");
                 return;
             }
         }
-        this.a = context;
-        this.i = gc4Var;
-        j(i());
-        h();
-        b();
+        a = wp1.a;
     }
 
-    @Override // com.baidu.tieba.ec4
-    public void d(lc4 lc4Var) {
+    public static void c(t12 t12Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lc4Var) == null) {
-            this.b = lc4Var;
+        if (interceptable == null || interceptable.invokeLL(65539, null, t12Var, str) == null) {
+            v34 v34Var = new v34();
+            v34Var.errMsg = str;
+            yb4.call(t12Var, false, v34Var);
         }
     }
 
-    @Override // com.baidu.tieba.ec4
-    public void m(boolean z) {
+    public static void d(JsObject jsObject) {
+        t12 F;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048587, this, z) == null) && this.g) {
-            this.d.removeMessages(1);
-            if (z) {
-                this.d.sendEmptyMessage(1);
-            }
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jsObject) != null) || (F = t12.F(jsObject)) == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.ec4
-    public void t(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
-            this.c = bVar;
+        m93 b0 = m93.b0();
+        if (b0 == null) {
+            c(F, "internal error");
+            return;
         }
+        String C = F.C("domain", PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE);
+        if (a) {
+            Log.i("SwanGameUuapApi", "getUUAPInfo-domain: " + C);
+        }
+        b0.e0().e("mapp_uuap_info", new a(F, C));
     }
 
     @NonNull
-    public static dc4 c(int i, @NonNull Context context, @NonNull gc4 gc4Var) {
-        InterceptResult invokeILL;
+    public static Map<String, String> f(@NonNull String str) {
+        InterceptResult invokeL;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65538, null, i, context, gc4Var)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    return new ic4(context, gc4Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            HashMap hashMap = new HashMap();
+            for (String str2 : str.split(ParamableElem.DIVIDE_PARAM)) {
+                if (str2 != null && str2.contains("=")) {
+                    int indexOf = str2.indexOf("=");
+                    hashMap.put(str2.substring(0, indexOf).trim().toUpperCase(Locale.US), str2.substring(indexOf + 1));
                 }
-                return new kc4(context, gc4Var);
             }
-            return new ic4(context, gc4Var);
+            return hashMap;
         }
-        return (dc4) invokeILL.objValue;
+        return (Map) invokeL.objValue;
     }
 
-    public final void b() {
+    public static void e(t12 t12Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.setVisibility(8);
-            qb4.a(this.e, g());
-        }
-    }
-
-    @Override // com.baidu.tieba.cc4
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.g = false;
-            this.d.removeCallbacksAndMessages(null);
-            qb4.d(this.e);
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.h = e();
-            this.d = new a(this, Looper.getMainLooper());
-        }
-    }
-
-    @Override // com.baidu.tieba.cc4
-    public void hide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.g = false;
-            this.d.removeMessages(1);
-            this.e.setVisibility(8);
-        }
-    }
-
-    @SuppressLint({"InflateParams"})
-    public View i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0875, (ViewGroup) null);
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.h.start();
-        }
-    }
-
-    @Override // com.baidu.tieba.cc4
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.g = true;
-            this.e.setVisibility(0);
-            this.d.removeMessages(1);
-            this.d.sendEmptyMessage(1);
-        }
-    }
-
-    @Override // com.baidu.tieba.ec4
-    public void update() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            qb4.f(this.e, g());
-        }
-    }
-
-    public final ObjectAnimator e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.e, PropertyValuesHolder.ofKeyframe(View.ROTATION, Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(0.2f, 6.0f), Keyframe.ofFloat(0.4f, -6.0f), Keyframe.ofFloat(0.6f, 6.0f), Keyframe.ofFloat(0.8f, -6.0f), Keyframe.ofFloat(1.0f, 0.0f)));
-            ofPropertyValuesHolder.setDuration(600L);
-            return ofPropertyValuesHolder;
-        }
-        return (ObjectAnimator) invokeV.objValue;
-    }
-
-    public final cz2 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            cz2 cz2Var = new cz2();
-            cz2Var.l(mb4.a(this.i.left) - this.f);
-            cz2Var.m(mb4.a(this.i.top) - this.f);
-            cz2Var.n(-2);
-            cz2Var.j(-2);
-            return cz2Var;
-        }
-        return (cz2) invokeV.objValue;
-    }
-
-    public final void j(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
-            this.f = (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070722);
-            this.e = new FrameLayout(this.a);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(mb4.a(this.i.width), mb4.a(this.i.height));
-            int i = this.f;
-            layoutParams.setMargins(i, i, i, i);
-            this.e.setBackgroundColor(0);
-            this.e.addView(view2, layoutParams);
+        if (interceptable == null || interceptable.invokeLL(65541, null, t12Var, str) == null) {
+            ec4 ec4Var = new ec4();
+            String cookie = CookieManager.getInstance().getCookie(str);
+            if (!TextUtils.isEmpty(cookie)) {
+                Map<String, String> f = f(cookie);
+                ec4Var.uuap_p_token = f.get("UUAP_P_TOKEN");
+                ec4Var.uuap_p_token_offline = f.get("UUAP_P_TOKEN_OFFLINE");
+                ec4Var.uuap_s_token = f.get("UUAP_S_TOKEN");
+            }
+            yb4.call(t12Var, true, ec4Var);
         }
     }
 }

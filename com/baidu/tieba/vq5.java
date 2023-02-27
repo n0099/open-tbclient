@@ -1,95 +1,243 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import android.view.View;
+import android.os.Handler;
+import android.os.Looper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
 public class vq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<WeakReference<View>> a;
-    public View b;
+    @NonNull
+    public final Handler a;
+    public final int b;
+    public final long c;
+    public int d;
+    @Nullable
+    public Runnable e;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public vq5(View view2) {
-        this(view2, -1);
+    /* loaded from: classes6.dex */
+    public interface c<T> {
+        void call(boolean z, T t);
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements c<Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+        public final /* synthetic */ vq5 b;
+
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    b bVar = this.a;
+                    bVar.b.k(bVar.a);
+                }
+            }
+        }
+
+        public b(vq5 vq5Var, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vq5Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = vq5Var;
+            this.a = cVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.vq5.c
+        public void call(boolean z, Void r6) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, r6) == null) && !z) {
+                this.b.e = new a(this);
+                this.b.a.postDelayed(this.b.e, this.b.c);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Callable a;
+        public final /* synthetic */ vq5 b;
+
+        public a(vq5 vq5Var, Callable callable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vq5Var, callable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = vq5Var;
+            this.a = callable;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.l(this.a);
+            }
+        }
+    }
+
+    public vq5(int i, int i2, @NonNull TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), timeUnit};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((View) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new Handler(Looper.getMainLooper());
+        this.b = i;
+        this.c = timeUnit.toMillis(i2);
     }
 
-    public <T extends View> T b(int i) {
-        InterceptResult invokeI;
+    public void i(@NonNull c<c<Void>> cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            WeakReference<View> weakReference = this.a.get(i);
-            if (weakReference == null) {
-                T t = (T) this.b.findViewById(i);
-                if (t != null) {
-                    this.a.put(i, new WeakReference<>(t));
-                    return t;
-                }
-                return t;
-            }
-            return (T) weakReference.get();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+            h();
+            k(cVar);
         }
-        return (T) invokeI.objValue;
     }
 
-    public vq5(View view2, int i) {
+    public void j(@NonNull Callable<Boolean> callable) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callable) == null) {
+            h();
+            l(callable);
         }
-        this.b = view2;
-        this.a = new SparseArray<>();
     }
 
-    public View a() {
+    @NonNull
+    public static vq5 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return new vq5(10, 1000, TimeUnit.MILLISECONDS);
         }
-        return (View) invokeV.objValue;
+        return (vq5) invokeV.objValue;
     }
 
-    public vq5 c(View.OnClickListener onClickListener) {
-        InterceptResult invokeL;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener)) == null) {
-            this.b.setOnClickListener(onClickListener);
-            return this;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Runnable runnable = this.e;
+            if (runnable != null) {
+                this.a.removeCallbacks(runnable);
+                this.e = null;
+            }
+            this.d = 0;
         }
-        return (vq5) invokeL.objValue;
+    }
+
+    public final void k(@NonNull c<c<Void>> cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
+            try {
+                if (this.d < this.b) {
+                    boolean z = true;
+                    int i = this.d + 1;
+                    this.d = i;
+                    if (i < this.b) {
+                        z = false;
+                    }
+                    cVar.call(z, new b(this, cVar));
+                }
+            } catch (Exception e) {
+                BdLog.e(e);
+                Runnable runnable = this.e;
+                if (runnable != null) {
+                    this.a.removeCallbacks(runnable);
+                    this.e = null;
+                }
+            }
+        }
+    }
+
+    public final void l(@NonNull Callable<Boolean> callable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, callable) == null) {
+            try {
+                if (this.d < this.b) {
+                    this.d++;
+                    if (!callable.call().booleanValue()) {
+                        a aVar = new a(this, callable);
+                        this.e = aVar;
+                        this.a.postDelayed(aVar, this.c);
+                    }
+                }
+            } catch (Exception e) {
+                BdLog.e(e);
+                Runnable runnable = this.e;
+                if (runnable != null) {
+                    this.a.removeCallbacks(runnable);
+                    this.e = null;
+                }
+            }
+        }
     }
 }

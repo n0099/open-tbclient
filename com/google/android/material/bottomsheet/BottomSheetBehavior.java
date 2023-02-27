@@ -23,22 +23,13 @@ import androidx.annotation.RestrictTo;
 import androidx.annotation.VisibleForTesting;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.math.MathUtils;
-import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityViewCommand;
 import androidx.customview.view.AbsSavedState;
 import androidx.customview.widget.ViewDragHelper;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.shape.MaterialShapeDrawable;
@@ -51,9 +42,8 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int CORNER_ANIMATION_DURATION = 500;
-    public static final int DEF_STYLE_RES = 2131755827;
+    public static final int DEF_STYLE_RES = 2131755829;
     public static final float HIDE_FRICTION = 0.1f;
     public static final float HIDE_THRESHOLD = 0.5f;
     public static final int PEEK_HEIGHT_AUTO = -1;
@@ -71,7 +61,6 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     public static final int STATE_HIDDEN = 5;
     public static final int STATE_SETTLING = 2;
     public static final String TAG = "BottomSheetBehavior";
-    public transient /* synthetic */ FieldHolder $fh;
     public int activePointerId;
     @NonNull
     public final ArrayList<BottomSheetCallback> callbacks;
@@ -122,6 +111,13 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     @Nullable
     public WeakReference<V> viewRef;
 
+    /* loaded from: classes7.dex */
+    public static abstract class BottomSheetCallback {
+        public abstract void onSlide(@NonNull View view2, float f);
+
+        public abstract void onStateChanged(@NonNull View view2, int i);
+    }
+
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes7.dex */
@@ -134,175 +130,362 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     public @interface State {
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-2039048484, "Lcom/google/android/material/bottomsheet/BottomSheetBehavior;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-2039048484, "Lcom/google/android/material/bottomsheet/BottomSheetBehavior;");
-        }
-    }
-
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public void onNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view2, int i, int i2, int i3, int i4, int i5, @NonNull int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{coordinatorLayout, v, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr}) == null) {
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static abstract class BottomSheetCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public class SettleRunnable implements Runnable {
+        public boolean isPosted;
+        public int targetState;
 
-        public abstract void onSlide(@NonNull View view2, float f);
+        /* renamed from: view  reason: collision with root package name */
+        public final View f1071view;
 
-        public abstract void onStateChanged(@NonNull View view2, int i);
+        public SettleRunnable(View view2, int i) {
+            this.f1071view = view2;
+            this.targetState = i;
+        }
 
-        public BottomSheetCallback() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        @Override // java.lang.Runnable
+        public void run() {
+            ViewDragHelper viewDragHelper = BottomSheetBehavior.this.viewDragHelper;
+            if (viewDragHelper != null && viewDragHelper.continueSettling(true)) {
+                ViewCompat.postOnAnimation(this.f1071view, this);
+            } else {
+                BottomSheetBehavior.this.setStateInternal(this.targetState);
+            }
+            this.isPosted = false;
+        }
+    }
+
+    public BottomSheetBehavior() {
+        this.saveFlags = 0;
+        this.fitToContents = true;
+        this.updateImportantForAccessibilityOnSiblings = false;
+        this.settleRunnable = null;
+        this.halfExpandedRatio = 0.5f;
+        this.elevation = -1.0f;
+        this.draggable = true;
+        this.state = 4;
+        this.callbacks = new ArrayList<>();
+        this.dragCallback = new ViewDragHelper.Callback() { // from class: com.google.android.material.bottomsheet.BottomSheetBehavior.4
+            private boolean releasedLow(@NonNull View view2) {
+                int top = view2.getTop();
+                BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.this;
+                if (top > (bottomSheetBehavior.parentHeight + bottomSheetBehavior.getExpandedOffset()) / 2) {
+                    return true;
+                }
+                return false;
+            }
+
+            @Override // androidx.customview.widget.ViewDragHelper.Callback
+            public int getViewVerticalDragRange(@NonNull View view2) {
+                BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.this;
+                if (bottomSheetBehavior.hideable) {
+                    return bottomSheetBehavior.parentHeight;
+                }
+                return bottomSheetBehavior.collapsedOffset;
+            }
+
+            @Override // androidx.customview.widget.ViewDragHelper.Callback
+            public void onViewDragStateChanged(int i) {
+                if (i == 1 && BottomSheetBehavior.this.draggable) {
+                    BottomSheetBehavior.this.setStateInternal(1);
                 }
             }
+
+            @Override // androidx.customview.widget.ViewDragHelper.Callback
+            public int clampViewPositionHorizontal(@NonNull View view2, int i, int i2) {
+                return view2.getLeft();
+            }
+
+            @Override // androidx.customview.widget.ViewDragHelper.Callback
+            public int clampViewPositionVertical(@NonNull View view2, int i, int i2) {
+                int i3;
+                int expandedOffset = BottomSheetBehavior.this.getExpandedOffset();
+                BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.this;
+                if (bottomSheetBehavior.hideable) {
+                    i3 = bottomSheetBehavior.parentHeight;
+                } else {
+                    i3 = bottomSheetBehavior.collapsedOffset;
+                }
+                return MathUtils.clamp(i, expandedOffset, i3);
+            }
+
+            @Override // androidx.customview.widget.ViewDragHelper.Callback
+            public void onViewPositionChanged(@NonNull View view2, int i, int i2, int i3, int i4) {
+                BottomSheetBehavior.this.dispatchOnSlide(i2);
+            }
+
+            @Override // androidx.customview.widget.ViewDragHelper.Callback
+            public void onViewReleased(@NonNull View view2, float f, float f2) {
+                int i;
+                int i2 = 4;
+                if (f2 < 0.0f) {
+                    if (BottomSheetBehavior.this.fitToContents) {
+                        i = BottomSheetBehavior.this.fitToContentsOffset;
+                    } else {
+                        int top = view2.getTop();
+                        BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.this;
+                        int i3 = bottomSheetBehavior.halfExpandedOffset;
+                        if (top > i3) {
+                            i = i3;
+                            i2 = 6;
+                        } else {
+                            i = bottomSheetBehavior.expandedOffset;
+                        }
+                    }
+                    i2 = 3;
+                } else {
+                    BottomSheetBehavior bottomSheetBehavior2 = BottomSheetBehavior.this;
+                    if (bottomSheetBehavior2.hideable && bottomSheetBehavior2.shouldHide(view2, f2)) {
+                        if ((Math.abs(f) < Math.abs(f2) && f2 > 500.0f) || releasedLow(view2)) {
+                            i = BottomSheetBehavior.this.parentHeight;
+                            i2 = 5;
+                        } else {
+                            if (BottomSheetBehavior.this.fitToContents) {
+                                i = BottomSheetBehavior.this.fitToContentsOffset;
+                            } else if (Math.abs(view2.getTop() - BottomSheetBehavior.this.expandedOffset) < Math.abs(view2.getTop() - BottomSheetBehavior.this.halfExpandedOffset)) {
+                                i = BottomSheetBehavior.this.expandedOffset;
+                            } else {
+                                i = BottomSheetBehavior.this.halfExpandedOffset;
+                                i2 = 6;
+                            }
+                            i2 = 3;
+                        }
+                    } else if (f2 != 0.0f && Math.abs(f) <= Math.abs(f2)) {
+                        if (BottomSheetBehavior.this.fitToContents) {
+                            i = BottomSheetBehavior.this.collapsedOffset;
+                        } else {
+                            int top2 = view2.getTop();
+                            if (Math.abs(top2 - BottomSheetBehavior.this.halfExpandedOffset) < Math.abs(top2 - BottomSheetBehavior.this.collapsedOffset)) {
+                                i = BottomSheetBehavior.this.halfExpandedOffset;
+                                i2 = 6;
+                            } else {
+                                i = BottomSheetBehavior.this.collapsedOffset;
+                            }
+                        }
+                    } else {
+                        int top3 = view2.getTop();
+                        if (BottomSheetBehavior.this.fitToContents) {
+                            if (Math.abs(top3 - BottomSheetBehavior.this.fitToContentsOffset) < Math.abs(top3 - BottomSheetBehavior.this.collapsedOffset)) {
+                                i = BottomSheetBehavior.this.fitToContentsOffset;
+                                i2 = 3;
+                            } else {
+                                i = BottomSheetBehavior.this.collapsedOffset;
+                            }
+                        } else {
+                            BottomSheetBehavior bottomSheetBehavior3 = BottomSheetBehavior.this;
+                            int i4 = bottomSheetBehavior3.halfExpandedOffset;
+                            if (top3 < i4) {
+                                if (top3 < Math.abs(top3 - bottomSheetBehavior3.collapsedOffset)) {
+                                    i = BottomSheetBehavior.this.expandedOffset;
+                                    i2 = 3;
+                                } else {
+                                    i = BottomSheetBehavior.this.halfExpandedOffset;
+                                }
+                            } else if (Math.abs(top3 - i4) < Math.abs(top3 - BottomSheetBehavior.this.collapsedOffset)) {
+                                i = BottomSheetBehavior.this.halfExpandedOffset;
+                            } else {
+                                i = BottomSheetBehavior.this.collapsedOffset;
+                            }
+                            i2 = 6;
+                        }
+                    }
+                }
+                BottomSheetBehavior.this.startSettlingAnimation(view2, i2, i, true);
+            }
+
+            @Override // androidx.customview.widget.ViewDragHelper.Callback
+            public boolean tryCaptureView(@NonNull View view2, int i) {
+                View view3;
+                BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.this;
+                int i2 = bottomSheetBehavior.state;
+                if (i2 == 1 || bottomSheetBehavior.touchingScrollingChild) {
+                    return false;
+                }
+                if (i2 == 3 && bottomSheetBehavior.activePointerId == i) {
+                    WeakReference<View> weakReference = bottomSheetBehavior.nestedScrollingChildRef;
+                    if (weakReference != null) {
+                        view3 = weakReference.get();
+                    } else {
+                        view3 = null;
+                    }
+                    if (view3 != null && view3.canScrollVertically(-1)) {
+                        return false;
+                    }
+                }
+                WeakReference<V> weakReference2 = BottomSheetBehavior.this.viewRef;
+                if (weakReference2 != null && weakReference2.get() == view2) {
+                    return true;
+                }
+                return false;
+            }
+        };
+    }
+
+    private void calculateCollapsedOffset() {
+        int calculatePeekHeight = calculatePeekHeight();
+        if (this.fitToContents) {
+            this.collapsedOffset = Math.max(this.parentHeight - calculatePeekHeight, this.fitToContentsOffset);
+        } else {
+            this.collapsedOffset = this.parentHeight - calculatePeekHeight;
         }
+    }
+
+    private void calculateHalfExpandedOffset() {
+        this.halfExpandedOffset = (int) (this.parentHeight * (1.0f - this.halfExpandedRatio));
+    }
+
+    private int calculatePeekHeight() {
+        int i;
+        if (this.peekHeightAuto) {
+            return Math.min(Math.max(this.peekHeightMin, this.parentHeight - ((this.parentWidth * 9) / 16)), this.childHeight);
+        }
+        if (!this.gestureInsetBottomIgnored && (i = this.gestureInsetBottom) > 0) {
+            return Math.max(this.peekHeight, i + this.peekHeightGestureInsetBuffer);
+        }
+        return this.peekHeight;
+    }
+
+    private void createShapeValueAnimator() {
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.interpolatorAnimator = ofFloat;
+        ofFloat.setDuration(500L);
+        this.interpolatorAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.google.android.material.bottomsheet.BottomSheetBehavior.2
+            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+            public void onAnimationUpdate(@NonNull ValueAnimator valueAnimator) {
+                float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                if (BottomSheetBehavior.this.materialShapeDrawable != null) {
+                    BottomSheetBehavior.this.materialShapeDrawable.setInterpolation(floatValue);
+                }
+            }
+        });
+    }
+
+    private float getYVelocity() {
+        VelocityTracker velocityTracker = this.velocityTracker;
+        if (velocityTracker == null) {
+            return 0.0f;
+        }
+        velocityTracker.computeCurrentVelocity(1000, this.maximumVelocity);
+        return this.velocityTracker.getYVelocity(this.activePointerId);
+    }
+
+    private void reset() {
+        this.activePointerId = -1;
+        VelocityTracker velocityTracker = this.velocityTracker;
+        if (velocityTracker != null) {
+            velocityTracker.recycle();
+            this.velocityTracker = null;
+        }
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @VisibleForTesting
+    public void disableShapeAnimations() {
+        this.interpolatorAnimator = null;
+    }
+
+    public int getExpandedOffset() {
+        if (this.fitToContents) {
+            return this.fitToContentsOffset;
+        }
+        return this.expandedOffset;
+    }
+
+    @FloatRange(from = 0.0d, to = 1.0d)
+    public float getHalfExpandedRatio() {
+        return this.halfExpandedRatio;
+    }
+
+    public int getPeekHeight() {
+        if (this.peekHeightAuto) {
+            return -1;
+        }
+        return this.peekHeight;
+    }
+
+    @VisibleForTesting
+    public int getPeekHeightMin() {
+        return this.peekHeightMin;
+    }
+
+    public int getSaveFlags() {
+        return this.saveFlags;
+    }
+
+    public boolean getSkipCollapsed() {
+        return this.skipCollapsed;
+    }
+
+    public int getState() {
+        return this.state;
+    }
+
+    public boolean isDraggable() {
+        return this.draggable;
+    }
+
+    public boolean isFitToContents() {
+        return this.fitToContents;
+    }
+
+    public boolean isGestureInsetBottomIgnored() {
+        return this.gestureInsetBottomIgnored;
+    }
+
+    public boolean isHideable() {
+        return this.hideable;
+    }
+
+    @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
+    public void onDetachedFromLayoutParams() {
+        super.onDetachedFromLayoutParams();
+        this.viewRef = null;
+        this.viewDragHelper = null;
     }
 
     /* loaded from: classes7.dex */
     public static class SavedState extends AbsSavedState {
-        public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<SavedState> CREATOR;
-        public transient /* synthetic */ FieldHolder $fh;
+        public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.bottomsheet.BottomSheetBehavior.SavedState.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.os.Parcelable.Creator
+            @Nullable
+            public SavedState createFromParcel(@NonNull Parcel parcel) {
+                return new SavedState(parcel, (ClassLoader) null);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.os.Parcelable.Creator
+            @NonNull
+            public SavedState[] newArray(int i) {
+                return new SavedState[i];
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // android.os.Parcelable.ClassLoaderCreator
+            @NonNull
+            public SavedState createFromParcel(@NonNull Parcel parcel, ClassLoader classLoader) {
+                return new SavedState(parcel, classLoader);
+            }
+        };
         public boolean fitToContents;
         public boolean hideable;
         public int peekHeight;
         public boolean skipCollapsed;
         public final int state;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1575058220, "Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SavedState;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1575058220, "Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SavedState;");
-                    return;
-                }
-            }
-            CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.bottomsheet.BottomSheetBehavior.SavedState.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                        }
-                    }
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // android.os.Parcelable.Creator
-                @Nullable
-                public SavedState createFromParcel(@NonNull Parcel parcel) {
-                    InterceptResult invokeL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
-                        return new SavedState(parcel, (ClassLoader) null);
-                    }
-                    return (SavedState) invokeL.objValue;
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // android.os.Parcelable.Creator
-                @NonNull
-                public SavedState[] newArray(int i) {
-                    InterceptResult invokeI;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i)) == null) {
-                        return new SavedState[i];
-                    }
-                    return (SavedState[]) invokeI.objValue;
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
-                @Override // android.os.Parcelable.ClassLoaderCreator
-                @NonNull
-                public SavedState createFromParcel(@NonNull Parcel parcel, ClassLoader classLoader) {
-                    InterceptResult invokeLL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, classLoader)) == null) {
-                        return new SavedState(parcel, classLoader);
-                    }
-                    return (SavedState) invokeLL.objValue;
-                }
-            };
-        }
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public SavedState(@NonNull Parcel parcel) {
             this(parcel, (ClassLoader) null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {parcel};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this((Parcel) objArr2[0], (ClassLoader) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SavedState(@NonNull Parcel parcel, ClassLoader classLoader) {
             super(parcel, classLoader);
             boolean z;
             boolean z2;
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {parcel, classLoader};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Parcel) objArr2[0], (ClassLoader) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
             this.state = parcel.readInt();
             this.peekHeight = parcel.readInt();
             if (parcel.readInt() == 1) {
@@ -320,365 +503,35 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
             this.skipCollapsed = parcel.readInt() == 1;
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        @Override // androidx.customview.view.AbsSavedState, android.os.Parcelable
+        public void writeToParcel(@NonNull Parcel parcel, int i) {
+            super.writeToParcel(parcel, i);
+            parcel.writeInt(this.state);
+            parcel.writeInt(this.peekHeight);
+            parcel.writeInt(this.fitToContents ? 1 : 0);
+            parcel.writeInt(this.hideable ? 1 : 0);
+            parcel.writeInt(this.skipCollapsed ? 1 : 0);
+        }
+
         @Deprecated
         public SavedState(Parcelable parcelable, int i) {
             super(parcelable);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {parcelable, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super((Parcelable) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65539, newInitContext);
-                    return;
-                }
-            }
             this.state = i;
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SavedState(Parcelable parcelable, @NonNull BottomSheetBehavior<?> bottomSheetBehavior) {
             super(parcelable);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {parcelable, bottomSheetBehavior};
-                interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Parcelable) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                    return;
-                }
-            }
             this.state = bottomSheetBehavior.state;
             this.peekHeight = bottomSheetBehavior.peekHeight;
             this.fitToContents = bottomSheetBehavior.fitToContents;
             this.hideable = bottomSheetBehavior.hideable;
             this.skipCollapsed = bottomSheetBehavior.skipCollapsed;
         }
-
-        @Override // androidx.customview.view.AbsSavedState, android.os.Parcelable
-        public void writeToParcel(@NonNull Parcel parcel, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
-                super.writeToParcel(parcel, i);
-                parcel.writeInt(this.state);
-                parcel.writeInt(this.peekHeight);
-                parcel.writeInt(this.fitToContents ? 1 : 0);
-                parcel.writeInt(this.hideable ? 1 : 0);
-                parcel.writeInt(this.skipCollapsed ? 1 : 0);
-            }
-        }
     }
 
-    /* loaded from: classes7.dex */
-    public class SettleRunnable implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean isPosted;
-        public int targetState;
-        public final /* synthetic */ BottomSheetBehavior this$0;
-
-        /* renamed from: view  reason: collision with root package name */
-        public final View f1097view;
-
-        public SettleRunnable(BottomSheetBehavior bottomSheetBehavior, View view2, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bottomSheetBehavior, view2, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = bottomSheetBehavior;
-            this.f1097view = view2;
-            this.targetState = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ViewDragHelper viewDragHelper = this.this$0.viewDragHelper;
-                if (viewDragHelper != null && viewDragHelper.continueSettling(true)) {
-                    ViewCompat.postOnAnimation(this.f1097view, this);
-                } else {
-                    this.this$0.setStateInternal(this.targetState);
-                }
-                this.isPosted = false;
-            }
-        }
-    }
-
-    public BottomSheetBehavior() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.saveFlags = 0;
-        this.fitToContents = true;
-        this.updateImportantForAccessibilityOnSiblings = false;
-        this.settleRunnable = null;
-        this.halfExpandedRatio = 0.5f;
-        this.elevation = -1.0f;
-        this.draggable = true;
-        this.state = 4;
-        this.callbacks = new ArrayList<>();
-        this.dragCallback = new ViewDragHelper.Callback(this) { // from class: com.google.android.material.bottomsheet.BottomSheetBehavior.4
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ BottomSheetBehavior this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            private boolean releasedLow(@NonNull View view2) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(65537, this, view2)) == null) {
-                    int top = view2.getTop();
-                    BottomSheetBehavior bottomSheetBehavior = this.this$0;
-                    if (top > (bottomSheetBehavior.parentHeight + bottomSheetBehavior.getExpandedOffset()) / 2) {
-                        return true;
-                    }
-                    return false;
-                }
-                return invokeL.booleanValue;
-            }
-
-            @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public int getViewVerticalDragRange(@NonNull View view2) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
-                    BottomSheetBehavior bottomSheetBehavior = this.this$0;
-                    if (bottomSheetBehavior.hideable) {
-                        return bottomSheetBehavior.parentHeight;
-                    }
-                    return bottomSheetBehavior.collapsedOffset;
-                }
-                return invokeL.intValue;
-            }
-
-            @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public void onViewDragStateChanged(int i3) {
-                Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeI(1048579, this, i3) == null) && i3 == 1 && this.this$0.draggable) {
-                    this.this$0.setStateInternal(1);
-                }
-            }
-
-            @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public int clampViewPositionHorizontal(@NonNull View view2, int i3, int i4) {
-                InterceptResult invokeLII;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, view2, i3, i4)) == null) {
-                    return view2.getLeft();
-                }
-                return invokeLII.intValue;
-            }
-
-            @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public int clampViewPositionVertical(@NonNull View view2, int i3, int i4) {
-                InterceptResult invokeLII;
-                int i5;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i3, i4)) == null) {
-                    int expandedOffset = this.this$0.getExpandedOffset();
-                    BottomSheetBehavior bottomSheetBehavior = this.this$0;
-                    if (bottomSheetBehavior.hideable) {
-                        i5 = bottomSheetBehavior.parentHeight;
-                    } else {
-                        i5 = bottomSheetBehavior.collapsedOffset;
-                    }
-                    return MathUtils.clamp(i3, expandedOffset, i5);
-                }
-                return invokeLII.intValue;
-            }
-
-            @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public void onViewPositionChanged(@NonNull View view2, int i3, int i4, int i5, int i6) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048580, this, new Object[]{view2, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-                    this.this$0.dispatchOnSlide(i4);
-                }
-            }
-
-            @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public void onViewReleased(@NonNull View view2, float f, float f2) {
-                int i3;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048581, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                    int i4 = 4;
-                    if (f2 < 0.0f) {
-                        if (this.this$0.fitToContents) {
-                            i3 = this.this$0.fitToContentsOffset;
-                        } else {
-                            int top = view2.getTop();
-                            BottomSheetBehavior bottomSheetBehavior = this.this$0;
-                            int i5 = bottomSheetBehavior.halfExpandedOffset;
-                            if (top > i5) {
-                                i3 = i5;
-                                i4 = 6;
-                            } else {
-                                i3 = bottomSheetBehavior.expandedOffset;
-                            }
-                        }
-                        i4 = 3;
-                    } else {
-                        BottomSheetBehavior bottomSheetBehavior2 = this.this$0;
-                        if (bottomSheetBehavior2.hideable && bottomSheetBehavior2.shouldHide(view2, f2)) {
-                            if ((Math.abs(f) < Math.abs(f2) && f2 > 500.0f) || releasedLow(view2)) {
-                                i3 = this.this$0.parentHeight;
-                                i4 = 5;
-                            } else {
-                                if (this.this$0.fitToContents) {
-                                    i3 = this.this$0.fitToContentsOffset;
-                                } else if (Math.abs(view2.getTop() - this.this$0.expandedOffset) < Math.abs(view2.getTop() - this.this$0.halfExpandedOffset)) {
-                                    i3 = this.this$0.expandedOffset;
-                                } else {
-                                    i3 = this.this$0.halfExpandedOffset;
-                                    i4 = 6;
-                                }
-                                i4 = 3;
-                            }
-                        } else if (f2 != 0.0f && Math.abs(f) <= Math.abs(f2)) {
-                            if (this.this$0.fitToContents) {
-                                i3 = this.this$0.collapsedOffset;
-                            } else {
-                                int top2 = view2.getTop();
-                                if (Math.abs(top2 - this.this$0.halfExpandedOffset) < Math.abs(top2 - this.this$0.collapsedOffset)) {
-                                    i3 = this.this$0.halfExpandedOffset;
-                                    i4 = 6;
-                                } else {
-                                    i3 = this.this$0.collapsedOffset;
-                                }
-                            }
-                        } else {
-                            int top3 = view2.getTop();
-                            if (this.this$0.fitToContents) {
-                                if (Math.abs(top3 - this.this$0.fitToContentsOffset) < Math.abs(top3 - this.this$0.collapsedOffset)) {
-                                    i3 = this.this$0.fitToContentsOffset;
-                                    i4 = 3;
-                                } else {
-                                    i3 = this.this$0.collapsedOffset;
-                                }
-                            } else {
-                                BottomSheetBehavior bottomSheetBehavior3 = this.this$0;
-                                int i6 = bottomSheetBehavior3.halfExpandedOffset;
-                                if (top3 < i6) {
-                                    if (top3 < Math.abs(top3 - bottomSheetBehavior3.collapsedOffset)) {
-                                        i3 = this.this$0.expandedOffset;
-                                        i4 = 3;
-                                    } else {
-                                        i3 = this.this$0.halfExpandedOffset;
-                                    }
-                                } else if (Math.abs(top3 - i6) < Math.abs(top3 - this.this$0.collapsedOffset)) {
-                                    i3 = this.this$0.halfExpandedOffset;
-                                } else {
-                                    i3 = this.this$0.collapsedOffset;
-                                }
-                                i4 = 6;
-                            }
-                        }
-                    }
-                    this.this$0.startSettlingAnimation(view2, i4, i3, true);
-                }
-            }
-
-            @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public boolean tryCaptureView(@NonNull View view2, int i3) {
-                InterceptResult invokeLI;
-                View view3;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLI = interceptable2.invokeLI(1048582, this, view2, i3)) == null) {
-                    BottomSheetBehavior bottomSheetBehavior = this.this$0;
-                    int i4 = bottomSheetBehavior.state;
-                    if (i4 == 1 || bottomSheetBehavior.touchingScrollingChild) {
-                        return false;
-                    }
-                    if (i4 == 3 && bottomSheetBehavior.activePointerId == i3) {
-                        WeakReference<View> weakReference = bottomSheetBehavior.nestedScrollingChildRef;
-                        if (weakReference != null) {
-                            view3 = weakReference.get();
-                        } else {
-                            view3 = null;
-                        }
-                        if (view3 != null && view3.canScrollVertically(-1)) {
-                            return false;
-                        }
-                    }
-                    WeakReference<V> weakReference2 = this.this$0.viewRef;
-                    if (weakReference2 != null && weakReference2.get() == view2) {
-                        return true;
-                    }
-                    return false;
-                }
-                return invokeLI.booleanValue;
-            }
-        };
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BottomSheetBehavior(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.saveFlags = 0;
         this.fitToContents = true;
         this.updateImportantForAccessibilityOnSiblings = false;
@@ -688,212 +541,158 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         this.draggable = true;
         this.state = 4;
         this.callbacks = new ArrayList<>();
-        this.dragCallback = new ViewDragHelper.Callback(this) { // from class: com.google.android.material.bottomsheet.BottomSheetBehavior.4
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ BottomSheetBehavior this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = objArr;
-                    Object[] objArr3 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i32 = newInitContext2.flag;
-                    if ((i32 & 1) != 0) {
-                        int i4 = i32 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
+        this.dragCallback = new ViewDragHelper.Callback() { // from class: com.google.android.material.bottomsheet.BottomSheetBehavior.4
             private boolean releasedLow(@NonNull View view2) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(65537, this, view2)) == null) {
-                    int top = view2.getTop();
-                    BottomSheetBehavior bottomSheetBehavior = this.this$0;
-                    if (top > (bottomSheetBehavior.parentHeight + bottomSheetBehavior.getExpandedOffset()) / 2) {
-                        return true;
-                    }
-                    return false;
+                int top = view2.getTop();
+                BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.this;
+                if (top > (bottomSheetBehavior.parentHeight + bottomSheetBehavior.getExpandedOffset()) / 2) {
+                    return true;
                 }
-                return invokeL.booleanValue;
+                return false;
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
             public int getViewVerticalDragRange(@NonNull View view2) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
-                    BottomSheetBehavior bottomSheetBehavior = this.this$0;
-                    if (bottomSheetBehavior.hideable) {
-                        return bottomSheetBehavior.parentHeight;
-                    }
-                    return bottomSheetBehavior.collapsedOffset;
+                BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.this;
+                if (bottomSheetBehavior.hideable) {
+                    return bottomSheetBehavior.parentHeight;
                 }
-                return invokeL.intValue;
+                return bottomSheetBehavior.collapsedOffset;
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public void onViewDragStateChanged(int i32) {
-                Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeI(1048579, this, i32) == null) && i32 == 1 && this.this$0.draggable) {
-                    this.this$0.setStateInternal(1);
+            public void onViewDragStateChanged(int i2) {
+                if (i2 == 1 && BottomSheetBehavior.this.draggable) {
+                    BottomSheetBehavior.this.setStateInternal(1);
                 }
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public int clampViewPositionHorizontal(@NonNull View view2, int i32, int i4) {
-                InterceptResult invokeLII;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, view2, i32, i4)) == null) {
-                    return view2.getLeft();
-                }
-                return invokeLII.intValue;
+            public int clampViewPositionHorizontal(@NonNull View view2, int i2, int i22) {
+                return view2.getLeft();
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public int clampViewPositionVertical(@NonNull View view2, int i32, int i4) {
-                InterceptResult invokeLII;
-                int i5;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i32, i4)) == null) {
-                    int expandedOffset = this.this$0.getExpandedOffset();
-                    BottomSheetBehavior bottomSheetBehavior = this.this$0;
-                    if (bottomSheetBehavior.hideable) {
-                        i5 = bottomSheetBehavior.parentHeight;
-                    } else {
-                        i5 = bottomSheetBehavior.collapsedOffset;
-                    }
-                    return MathUtils.clamp(i32, expandedOffset, i5);
+            public int clampViewPositionVertical(@NonNull View view2, int i2, int i22) {
+                int i3;
+                int expandedOffset = BottomSheetBehavior.this.getExpandedOffset();
+                BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.this;
+                if (bottomSheetBehavior.hideable) {
+                    i3 = bottomSheetBehavior.parentHeight;
+                } else {
+                    i3 = bottomSheetBehavior.collapsedOffset;
                 }
-                return invokeLII.intValue;
+                return MathUtils.clamp(i2, expandedOffset, i3);
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public void onViewPositionChanged(@NonNull View view2, int i32, int i4, int i5, int i6) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048580, this, new Object[]{view2, Integer.valueOf(i32), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-                    this.this$0.dispatchOnSlide(i4);
-                }
+            public void onViewPositionChanged(@NonNull View view2, int i2, int i22, int i3, int i4) {
+                BottomSheetBehavior.this.dispatchOnSlide(i22);
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
             public void onViewReleased(@NonNull View view2, float f, float f2) {
-                int i32;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048581, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                    int i4 = 4;
-                    if (f2 < 0.0f) {
-                        if (this.this$0.fitToContents) {
-                            i32 = this.this$0.fitToContentsOffset;
-                        } else {
-                            int top = view2.getTop();
-                            BottomSheetBehavior bottomSheetBehavior = this.this$0;
-                            int i5 = bottomSheetBehavior.halfExpandedOffset;
-                            if (top > i5) {
-                                i32 = i5;
-                                i4 = 6;
-                            } else {
-                                i32 = bottomSheetBehavior.expandedOffset;
-                            }
-                        }
-                        i4 = 3;
+                int i2;
+                int i22 = 4;
+                if (f2 < 0.0f) {
+                    if (BottomSheetBehavior.this.fitToContents) {
+                        i2 = BottomSheetBehavior.this.fitToContentsOffset;
                     } else {
-                        BottomSheetBehavior bottomSheetBehavior2 = this.this$0;
-                        if (bottomSheetBehavior2.hideable && bottomSheetBehavior2.shouldHide(view2, f2)) {
-                            if ((Math.abs(f) < Math.abs(f2) && f2 > 500.0f) || releasedLow(view2)) {
-                                i32 = this.this$0.parentHeight;
-                                i4 = 5;
-                            } else {
-                                if (this.this$0.fitToContents) {
-                                    i32 = this.this$0.fitToContentsOffset;
-                                } else if (Math.abs(view2.getTop() - this.this$0.expandedOffset) < Math.abs(view2.getTop() - this.this$0.halfExpandedOffset)) {
-                                    i32 = this.this$0.expandedOffset;
-                                } else {
-                                    i32 = this.this$0.halfExpandedOffset;
-                                    i4 = 6;
-                                }
-                                i4 = 3;
-                            }
-                        } else if (f2 != 0.0f && Math.abs(f) <= Math.abs(f2)) {
-                            if (this.this$0.fitToContents) {
-                                i32 = this.this$0.collapsedOffset;
-                            } else {
-                                int top2 = view2.getTop();
-                                if (Math.abs(top2 - this.this$0.halfExpandedOffset) < Math.abs(top2 - this.this$0.collapsedOffset)) {
-                                    i32 = this.this$0.halfExpandedOffset;
-                                    i4 = 6;
-                                } else {
-                                    i32 = this.this$0.collapsedOffset;
-                                }
-                            }
+                        int top = view2.getTop();
+                        BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.this;
+                        int i3 = bottomSheetBehavior.halfExpandedOffset;
+                        if (top > i3) {
+                            i2 = i3;
+                            i22 = 6;
                         } else {
-                            int top3 = view2.getTop();
-                            if (this.this$0.fitToContents) {
-                                if (Math.abs(top3 - this.this$0.fitToContentsOffset) < Math.abs(top3 - this.this$0.collapsedOffset)) {
-                                    i32 = this.this$0.fitToContentsOffset;
-                                    i4 = 3;
-                                } else {
-                                    i32 = this.this$0.collapsedOffset;
-                                }
-                            } else {
-                                BottomSheetBehavior bottomSheetBehavior3 = this.this$0;
-                                int i6 = bottomSheetBehavior3.halfExpandedOffset;
-                                if (top3 < i6) {
-                                    if (top3 < Math.abs(top3 - bottomSheetBehavior3.collapsedOffset)) {
-                                        i32 = this.this$0.expandedOffset;
-                                        i4 = 3;
-                                    } else {
-                                        i32 = this.this$0.halfExpandedOffset;
-                                    }
-                                } else if (Math.abs(top3 - i6) < Math.abs(top3 - this.this$0.collapsedOffset)) {
-                                    i32 = this.this$0.halfExpandedOffset;
-                                } else {
-                                    i32 = this.this$0.collapsedOffset;
-                                }
-                                i4 = 6;
-                            }
+                            i2 = bottomSheetBehavior.expandedOffset;
                         }
                     }
-                    this.this$0.startSettlingAnimation(view2, i4, i32, true);
+                    i22 = 3;
+                } else {
+                    BottomSheetBehavior bottomSheetBehavior2 = BottomSheetBehavior.this;
+                    if (bottomSheetBehavior2.hideable && bottomSheetBehavior2.shouldHide(view2, f2)) {
+                        if ((Math.abs(f) < Math.abs(f2) && f2 > 500.0f) || releasedLow(view2)) {
+                            i2 = BottomSheetBehavior.this.parentHeight;
+                            i22 = 5;
+                        } else {
+                            if (BottomSheetBehavior.this.fitToContents) {
+                                i2 = BottomSheetBehavior.this.fitToContentsOffset;
+                            } else if (Math.abs(view2.getTop() - BottomSheetBehavior.this.expandedOffset) < Math.abs(view2.getTop() - BottomSheetBehavior.this.halfExpandedOffset)) {
+                                i2 = BottomSheetBehavior.this.expandedOffset;
+                            } else {
+                                i2 = BottomSheetBehavior.this.halfExpandedOffset;
+                                i22 = 6;
+                            }
+                            i22 = 3;
+                        }
+                    } else if (f2 != 0.0f && Math.abs(f) <= Math.abs(f2)) {
+                        if (BottomSheetBehavior.this.fitToContents) {
+                            i2 = BottomSheetBehavior.this.collapsedOffset;
+                        } else {
+                            int top2 = view2.getTop();
+                            if (Math.abs(top2 - BottomSheetBehavior.this.halfExpandedOffset) < Math.abs(top2 - BottomSheetBehavior.this.collapsedOffset)) {
+                                i2 = BottomSheetBehavior.this.halfExpandedOffset;
+                                i22 = 6;
+                            } else {
+                                i2 = BottomSheetBehavior.this.collapsedOffset;
+                            }
+                        }
+                    } else {
+                        int top3 = view2.getTop();
+                        if (BottomSheetBehavior.this.fitToContents) {
+                            if (Math.abs(top3 - BottomSheetBehavior.this.fitToContentsOffset) < Math.abs(top3 - BottomSheetBehavior.this.collapsedOffset)) {
+                                i2 = BottomSheetBehavior.this.fitToContentsOffset;
+                                i22 = 3;
+                            } else {
+                                i2 = BottomSheetBehavior.this.collapsedOffset;
+                            }
+                        } else {
+                            BottomSheetBehavior bottomSheetBehavior3 = BottomSheetBehavior.this;
+                            int i4 = bottomSheetBehavior3.halfExpandedOffset;
+                            if (top3 < i4) {
+                                if (top3 < Math.abs(top3 - bottomSheetBehavior3.collapsedOffset)) {
+                                    i2 = BottomSheetBehavior.this.expandedOffset;
+                                    i22 = 3;
+                                } else {
+                                    i2 = BottomSheetBehavior.this.halfExpandedOffset;
+                                }
+                            } else if (Math.abs(top3 - i4) < Math.abs(top3 - BottomSheetBehavior.this.collapsedOffset)) {
+                                i2 = BottomSheetBehavior.this.halfExpandedOffset;
+                            } else {
+                                i2 = BottomSheetBehavior.this.collapsedOffset;
+                            }
+                            i22 = 6;
+                        }
+                    }
                 }
+                BottomSheetBehavior.this.startSettlingAnimation(view2, i22, i2, true);
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public boolean tryCaptureView(@NonNull View view2, int i32) {
-                InterceptResult invokeLI;
+            public boolean tryCaptureView(@NonNull View view2, int i2) {
                 View view3;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLI = interceptable2.invokeLI(1048582, this, view2, i32)) == null) {
-                    BottomSheetBehavior bottomSheetBehavior = this.this$0;
-                    int i4 = bottomSheetBehavior.state;
-                    if (i4 == 1 || bottomSheetBehavior.touchingScrollingChild) {
-                        return false;
-                    }
-                    if (i4 == 3 && bottomSheetBehavior.activePointerId == i32) {
-                        WeakReference<View> weakReference = bottomSheetBehavior.nestedScrollingChildRef;
-                        if (weakReference != null) {
-                            view3 = weakReference.get();
-                        } else {
-                            view3 = null;
-                        }
-                        if (view3 != null && view3.canScrollVertically(-1)) {
-                            return false;
-                        }
-                    }
-                    WeakReference<V> weakReference2 = this.this$0.viewRef;
-                    if (weakReference2 != null && weakReference2.get() == view2) {
-                        return true;
-                    }
+                BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.this;
+                int i22 = bottomSheetBehavior.state;
+                if (i22 == 1 || bottomSheetBehavior.touchingScrollingChild) {
                     return false;
                 }
-                return invokeLI.booleanValue;
+                if (i22 == 3 && bottomSheetBehavior.activePointerId == i2) {
+                    WeakReference<View> weakReference = bottomSheetBehavior.nestedScrollingChildRef;
+                    if (weakReference != null) {
+                        view3 = weakReference.get();
+                    } else {
+                        view3 = null;
+                    }
+                    if (view3 != null && view3.canScrollVertically(-1)) {
+                        return false;
+                    }
+                }
+                WeakReference<V> weakReference2 = BottomSheetBehavior.this.viewRef;
+                if (weakReference2 != null && weakReference2.get() == view2) {
+                    return true;
+                }
+                return false;
             }
         };
         this.peekHeightGestureInsetBuffer = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704be);
@@ -932,52 +731,54 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         this.maximumVelocity = ViewConfiguration.get(context).getScaledMaximumFlingVelocity();
     }
 
+    @NonNull
+    public static <V extends View> BottomSheetBehavior<V> from(@NonNull V v) {
+        ViewGroup.LayoutParams layoutParams = v.getLayoutParams();
+        if (layoutParams instanceof CoordinatorLayout.LayoutParams) {
+            CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) layoutParams).getBehavior();
+            if (behavior instanceof BottomSheetBehavior) {
+                return (BottomSheetBehavior) behavior;
+            }
+            throw new IllegalArgumentException("The view is not associated with BottomSheetBehavior");
+        }
+        throw new IllegalArgumentException("The view is not a child of CoordinatorLayout");
+    }
+
     private void setSystemGestureInsets(@NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65557, this, view2) == null) && Build.VERSION.SDK_INT >= 29 && !isGestureInsetBottomIgnored() && !this.peekHeightAuto) {
-            ViewUtils.doOnApplyWindowInsets(view2, new ViewUtils.OnApplyWindowInsetsListener(this) { // from class: com.google.android.material.bottomsheet.BottomSheetBehavior.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ BottomSheetBehavior this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
+        if (Build.VERSION.SDK_INT >= 29 && !isGestureInsetBottomIgnored() && !this.peekHeightAuto) {
+            ViewUtils.doOnApplyWindowInsets(view2, new ViewUtils.OnApplyWindowInsetsListener() { // from class: com.google.android.material.bottomsheet.BottomSheetBehavior.3
                 @Override // com.google.android.material.internal.ViewUtils.OnApplyWindowInsetsListener
                 public WindowInsetsCompat onApplyWindowInsets(View view3, WindowInsetsCompat windowInsetsCompat, ViewUtils.RelativePadding relativePadding) {
-                    InterceptResult invokeLLL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null && (invokeLLL = interceptable2.invokeLLL(1048576, this, view3, windowInsetsCompat, relativePadding)) != null) {
-                        return (WindowInsetsCompat) invokeLLL.objValue;
-                    }
-                    this.this$0.gestureInsetBottom = windowInsetsCompat.getMandatorySystemGestureInsets().bottom;
-                    this.this$0.updatePeekHeight(false);
+                    BottomSheetBehavior.this.gestureInsetBottom = windowInsetsCompat.getMandatorySystemGestureInsets().bottom;
+                    BottomSheetBehavior.this.updatePeekHeight(false);
                     return windowInsetsCompat;
                 }
             });
         }
     }
 
+    private void settleToStatePendingLayout(final int i) {
+        final V v = this.viewRef.get();
+        if (v == null) {
+            return;
+        }
+        ViewParent parent = v.getParent();
+        if (parent != null && parent.isLayoutRequested() && ViewCompat.isAttachedToWindow(v)) {
+            v.post(new Runnable() { // from class: com.google.android.material.bottomsheet.BottomSheetBehavior.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    BottomSheetBehavior.this.settleToState(v, i);
+                }
+            });
+        } else {
+            settleToState(v, i);
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void updatePeekHeight(boolean z) {
         V v;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65562, this, z) == null) && this.viewRef != null) {
+        if (this.viewRef != null) {
             calculateCollapsedOffset();
             if (this.state == 4 && (v = this.viewRef.get()) != null) {
                 if (z) {
@@ -990,63 +791,66 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     }
 
     public void addBottomSheetCallback(@NonNull BottomSheetCallback bottomSheetCallback) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bottomSheetCallback) == null) && !this.callbacks.contains(bottomSheetCallback)) {
+        if (!this.callbacks.contains(bottomSheetCallback)) {
             this.callbacks.add(bottomSheetCallback);
         }
     }
 
+    @Nullable
+    @VisibleForTesting
+    public View findScrollingChild(View view2) {
+        if (ViewCompat.isNestedScrollingEnabled(view2)) {
+            return view2;
+        }
+        if (view2 instanceof ViewGroup) {
+            ViewGroup viewGroup = (ViewGroup) view2;
+            int childCount = viewGroup.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View findScrollingChild = findScrollingChild(viewGroup.getChildAt(i));
+                if (findScrollingChild != null) {
+                    return findScrollingChild;
+                }
+            }
+            return null;
+        }
+        return null;
+    }
+
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public void onAttachedToLayoutParams(@NonNull CoordinatorLayout.LayoutParams layoutParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, layoutParams) == null) {
-            super.onAttachedToLayoutParams(layoutParams);
-            this.viewRef = null;
-            this.viewDragHelper = null;
-        }
+        super.onAttachedToLayoutParams(layoutParams);
+        this.viewRef = null;
+        this.viewDragHelper = null;
     }
 
     public void removeBottomSheetCallback(@NonNull BottomSheetCallback bottomSheetCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, bottomSheetCallback) == null) {
-            this.callbacks.remove(bottomSheetCallback);
-        }
+        this.callbacks.remove(bottomSheetCallback);
     }
 
     @Deprecated
     public void setBottomSheetCallback(BottomSheetCallback bottomSheetCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, bottomSheetCallback) == null) {
-            Log.w(TAG, "BottomSheetBehavior now supports multiple callbacks. `setBottomSheetCallback()` removes all existing callbacks, including ones set internally by library authors, which may result in unintended behavior. This may change in the future. Please use `addBottomSheetCallback()` and `removeBottomSheetCallback()` instead to set your own callbacks.");
-            this.callbacks.clear();
-            if (bottomSheetCallback != null) {
-                this.callbacks.add(bottomSheetCallback);
-            }
+        Log.w(TAG, "BottomSheetBehavior now supports multiple callbacks. `setBottomSheetCallback()` removes all existing callbacks, including ones set internally by library authors, which may result in unintended behavior. This may change in the future. Please use `addBottomSheetCallback()` and `removeBottomSheetCallback()` instead to set your own callbacks.");
+        this.callbacks.clear();
+        if (bottomSheetCallback != null) {
+            this.callbacks.add(bottomSheetCallback);
         }
     }
 
     public void setDraggable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
-            this.draggable = z;
-        }
+        this.draggable = z;
     }
 
     public void setExpandedOffset(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
-            if (i >= 0) {
-                this.expandedOffset = i;
-                return;
-            }
-            throw new IllegalArgumentException("offset must be greater than or equal to 0");
+        if (i >= 0) {
+            this.expandedOffset = i;
+            return;
         }
+        throw new IllegalArgumentException("offset must be greater than or equal to 0");
     }
 
     public void setFitToContents(boolean z) {
         int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048607, this, z) != null) || this.fitToContents == z) {
+        if (this.fitToContents == z) {
             return;
         }
         this.fitToContents = z;
@@ -1063,30 +867,23 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     }
 
     public void setGestureInsetBottomIgnored(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
-            this.gestureInsetBottomIgnored = z;
-        }
+        this.gestureInsetBottomIgnored = z;
     }
 
     public void setHalfExpandedRatio(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048609, this, f) == null) {
-            if (f > 0.0f && f < 1.0f) {
-                this.halfExpandedRatio = f;
-                if (this.viewRef != null) {
-                    calculateHalfExpandedOffset();
-                    return;
-                }
+        if (f > 0.0f && f < 1.0f) {
+            this.halfExpandedRatio = f;
+            if (this.viewRef != null) {
+                calculateHalfExpandedOffset();
                 return;
             }
-            throw new IllegalArgumentException("ratio must be a float value between 0 and 1");
+            return;
         }
+        throw new IllegalArgumentException("ratio must be a float value between 0 and 1");
     }
 
     public void setHideable(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048610, this, z) == null) && this.hideable != z) {
+        if (this.hideable != z) {
             this.hideable = z;
             if (!z && this.state == 5) {
                 setState(4);
@@ -1096,29 +893,19 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     }
 
     public void setPeekHeight(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
-            setPeekHeight(i, false);
-        }
+        setPeekHeight(i, false);
     }
 
     public void setSaveFlags(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
-            this.saveFlags = i;
-        }
+        this.saveFlags = i;
     }
 
     public void setSkipCollapsed(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048614, this, z) == null) {
-            this.skipCollapsed = z;
-        }
+        this.skipCollapsed = z;
     }
 
     public void setState(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048615, this, i) != null) || i == this.state) {
+        if (i == this.state) {
             return;
         }
         if (this.viewRef == null) {
@@ -1132,321 +919,76 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     }
 
     public void setUpdateImportantForAccessibilityOnSiblings(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048617, this, z) == null) {
-            this.updateImportantForAccessibilityOnSiblings = z;
-        }
+        this.updateImportantForAccessibilityOnSiblings = z;
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     @NonNull
     public Parcelable onSaveInstanceState(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, coordinatorLayout, v)) == null) {
-            return new SavedState(super.onSaveInstanceState(coordinatorLayout, v), (BottomSheetBehavior<?>) this);
-        }
-        return (Parcelable) invokeLL.objValue;
+        return new SavedState(super.onSaveInstanceState(coordinatorLayout, v), (BottomSheetBehavior<?>) this);
     }
 
-    private void addAccessibilityActionForState(V v, AccessibilityNodeInfoCompat.AccessibilityActionCompat accessibilityActionCompat, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65546, this, v, accessibilityActionCompat, i) == null) {
-            ViewCompat.replaceAccessibilityAction(v, accessibilityActionCompat, null, new AccessibilityViewCommand(this, i) { // from class: com.google.android.material.bottomsheet.BottomSheetBehavior.5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ BottomSheetBehavior this$0;
-                public final /* synthetic */ int val$state;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$state = i;
-                }
-
-                @Override // androidx.core.view.accessibility.AccessibilityViewCommand
-                public boolean perform(@NonNull View view2, @Nullable AccessibilityViewCommand.CommandArguments commandArguments) {
-                    InterceptResult invokeLL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, commandArguments)) == null) {
-                        this.this$0.setState(this.val$state);
-                        return true;
-                    }
-                    return invokeLL.booleanValue;
-                }
-            });
+    public final void setPeekHeight(int i, boolean z) {
+        boolean z2 = true;
+        if (i == -1) {
+            if (!this.peekHeightAuto) {
+                this.peekHeightAuto = true;
+            }
+            z2 = false;
+        } else {
+            if (this.peekHeightAuto || this.peekHeight != i) {
+                this.peekHeightAuto = false;
+                this.peekHeight = Math.max(0, i);
+            }
+            z2 = false;
         }
+        if (z2) {
+            updatePeekHeight(z);
+        }
+    }
+
+    public boolean shouldHide(@NonNull View view2, float f) {
+        if (this.skipCollapsed) {
+            return true;
+        }
+        if (view2.getTop() < this.collapsedOffset) {
+            return false;
+        }
+        if (Math.abs((view2.getTop() + (f * 0.1f)) - this.collapsedOffset) / calculatePeekHeight() > 0.5f) {
+            return true;
+        }
+        return false;
+    }
+
+    private void addAccessibilityActionForState(V v, AccessibilityNodeInfoCompat.AccessibilityActionCompat accessibilityActionCompat, final int i) {
+        ViewCompat.replaceAccessibilityAction(v, accessibilityActionCompat, null, new AccessibilityViewCommand() { // from class: com.google.android.material.bottomsheet.BottomSheetBehavior.5
+            @Override // androidx.core.view.accessibility.AccessibilityViewCommand
+            public boolean perform(@NonNull View view2, @Nullable AccessibilityViewCommand.CommandArguments commandArguments) {
+                BottomSheetBehavior.this.setState(i);
+                return true;
+            }
+        });
     }
 
     private void createMaterialShapeDrawable(@NonNull Context context, AttributeSet attributeSet, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65550, this, context, attributeSet, z) == null) {
-            createMaterialShapeDrawable(context, attributeSet, z, null);
-        }
+        createMaterialShapeDrawable(context, attributeSet, z, null);
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public void onRestoreInstanceState(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull Parcelable parcelable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048598, this, coordinatorLayout, v, parcelable) == null) {
-            SavedState savedState = (SavedState) parcelable;
-            super.onRestoreInstanceState(coordinatorLayout, v, savedState.getSuperState());
-            restoreOptionalState(savedState);
-            int i = savedState.state;
-            if (i != 1 && i != 2) {
-                this.state = i;
-            } else {
-                this.state = 4;
-            }
-        }
-    }
-
-    private void calculateCollapsedOffset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            int calculatePeekHeight = calculatePeekHeight();
-            if (this.fitToContents) {
-                this.collapsedOffset = Math.max(this.parentHeight - calculatePeekHeight, this.fitToContentsOffset);
-            } else {
-                this.collapsedOffset = this.parentHeight - calculatePeekHeight;
-            }
-        }
-    }
-
-    private void calculateHalfExpandedOffset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            this.halfExpandedOffset = (int) (this.parentHeight * (1.0f - this.halfExpandedRatio));
-        }
-    }
-
-    private float getYVelocity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
-            VelocityTracker velocityTracker = this.velocityTracker;
-            if (velocityTracker == null) {
-                return 0.0f;
-            }
-            velocityTracker.computeCurrentVelocity(1000, this.maximumVelocity);
-            return this.velocityTracker.getYVelocity(this.activePointerId);
-        }
-        return invokeV.floatValue;
-    }
-
-    private void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            this.activePointerId = -1;
-            VelocityTracker velocityTracker = this.velocityTracker;
-            if (velocityTracker != null) {
-                velocityTracker.recycle();
-                this.velocityTracker = null;
-            }
-        }
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    @VisibleForTesting
-    public void disableShapeAnimations() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.interpolatorAnimator = null;
-        }
-    }
-
-    public int getExpandedOffset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.fitToContents) {
-                return this.fitToContentsOffset;
-            }
-            return this.expandedOffset;
-        }
-        return invokeV.intValue;
-    }
-
-    @FloatRange(from = 0.0d, to = 1.0d)
-    public float getHalfExpandedRatio() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.halfExpandedRatio;
-        }
-        return invokeV.floatValue;
-    }
-
-    public int getPeekHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.peekHeightAuto) {
-                return -1;
-            }
-            return this.peekHeight;
-        }
-        return invokeV.intValue;
-    }
-
-    @VisibleForTesting
-    public int getPeekHeightMin() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.peekHeightMin;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getSaveFlags() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.saveFlags;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean getSkipCollapsed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.skipCollapsed;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int getState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.state;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean isDraggable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.draggable;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isFitToContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.fitToContents;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isGestureInsetBottomIgnored() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.gestureInsetBottomIgnored;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isHideable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.hideable;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public void onDetachedFromLayoutParams() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            super.onDetachedFromLayoutParams();
-            this.viewRef = null;
-            this.viewDragHelper = null;
-        }
-    }
-
-    private int calculatePeekHeight() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
-            if (this.peekHeightAuto) {
-                return Math.min(Math.max(this.peekHeightMin, this.parentHeight - ((this.parentWidth * 9) / 16)), this.childHeight);
-            }
-            if (!this.gestureInsetBottomIgnored && (i = this.gestureInsetBottom) > 0) {
-                return Math.max(this.peekHeight, i + this.peekHeightGestureInsetBuffer);
-            }
-            return this.peekHeight;
-        }
-        return invokeV.intValue;
-    }
-
-    private void createShapeValueAnimator() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.interpolatorAnimator = ofFloat;
-            ofFloat.setDuration(500L);
-            this.interpolatorAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.google.android.material.bottomsheet.BottomSheetBehavior.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ BottomSheetBehavior this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public void onAnimationUpdate(@NonNull ValueAnimator valueAnimator) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
-                        float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                        if (this.this$0.materialShapeDrawable != null) {
-                            this.this$0.materialShapeDrawable.setInterpolation(floatValue);
-                        }
-                    }
-                }
-            });
+        SavedState savedState = (SavedState) parcelable;
+        super.onRestoreInstanceState(coordinatorLayout, v, savedState.getSuperState());
+        restoreOptionalState(savedState);
+        int i = savedState.state;
+        if (i != 1 && i != 2) {
+            this.state = i;
+        } else {
+            this.state = 4;
         }
     }
 
     private void createMaterialShapeDrawable(@NonNull Context context, AttributeSet attributeSet, boolean z, @Nullable ColorStateList colorStateList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{context, attributeSet, Boolean.valueOf(z), colorStateList}) == null) && this.shapeThemingEnabled) {
+        if (this.shapeThemingEnabled) {
             this.shapeAppearanceModelDefault = ShapeAppearanceModel.builder(context, attributeSet, (int) R.attr.obfuscated_res_0x7f0400f6, DEF_STYLE_RES).build();
             MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(this.shapeAppearanceModelDefault);
             this.materialShapeDrawable = materialShapeDrawable;
@@ -1461,58 +1003,9 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         }
     }
 
-    public void startSettlingAnimation(View view2, int i, int i2, boolean z) {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            ViewDragHelper viewDragHelper = this.viewDragHelper;
-            if (viewDragHelper != null && (!z ? viewDragHelper.smoothSlideViewTo(view2, view2.getLeft(), i2) : viewDragHelper.settleCapturedViewAt(view2.getLeft(), i2))) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            if (z2) {
-                setStateInternal(2);
-                updateDrawableForTargetState(i);
-                if (this.settleRunnable == null) {
-                    this.settleRunnable = new SettleRunnable(this, view2, i);
-                }
-                if (!this.settleRunnable.isPosted) {
-                    BottomSheetBehavior<V>.SettleRunnable settleRunnable = this.settleRunnable;
-                    settleRunnable.targetState = i;
-                    ViewCompat.postOnAnimation(view2, settleRunnable);
-                    this.settleRunnable.isPosted = true;
-                    return;
-                }
-                this.settleRunnable.targetState = i;
-                return;
-            }
-            setStateInternal(i);
-        }
-    }
-
-    @NonNull
-    public static <V extends View> BottomSheetBehavior<V> from(@NonNull V v) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, v)) == null) {
-            ViewGroup.LayoutParams layoutParams = v.getLayoutParams();
-            if (layoutParams instanceof CoordinatorLayout.LayoutParams) {
-                CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) layoutParams).getBehavior();
-                if (behavior instanceof BottomSheetBehavior) {
-                    return (BottomSheetBehavior) behavior;
-                }
-                throw new IllegalArgumentException("The view is not associated with BottomSheetBehavior");
-            }
-            throw new IllegalArgumentException("The view is not a child of CoordinatorLayout");
-        }
-        return (BottomSheetBehavior) invokeL.objValue;
-    }
-
     private void restoreOptionalState(@NonNull SavedState savedState) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65556, this, savedState) != null) || (i = this.saveFlags) == 0) {
+        int i = this.saveFlags;
+        if (i == 0) {
             return;
         }
         if (i == -1 || (i & 1) == 1) {
@@ -1532,84 +1025,40 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         }
     }
 
-    private void settleToStatePendingLayout(int i) {
-        V v;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(65558, this, i) != null) || (v = this.viewRef.get()) == null) {
+    private void updateDrawableForTargetState(int i) {
+        boolean z;
+        ValueAnimator valueAnimator;
+        float f;
+        if (i == 2) {
             return;
         }
-        ViewParent parent = v.getParent();
-        if (parent != null && parent.isLayoutRequested() && ViewCompat.isAttachedToWindow(v)) {
-            v.post(new Runnable(this, v, i) { // from class: com.google.android.material.bottomsheet.BottomSheetBehavior.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ BottomSheetBehavior this$0;
-                public final /* synthetic */ View val$child;
-                public final /* synthetic */ int val$finalState;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, v, Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$child = v;
-                    this.val$finalState = i;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.settleToState(this.val$child, this.val$finalState);
-                    }
-                }
-            });
+        if (i == 3) {
+            z = true;
         } else {
-            settleToState(v, i);
+            z = false;
         }
-    }
-
-    @Nullable
-    @VisibleForTesting
-    public View findScrollingChild(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
-            if (ViewCompat.isNestedScrollingEnabled(view2)) {
-                return view2;
-            }
-            if (view2 instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view2;
-                int childCount = viewGroup.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    View findScrollingChild = findScrollingChild(viewGroup.getChildAt(i));
-                    if (findScrollingChild != null) {
-                        return findScrollingChild;
-                    }
+        if (this.isShapeExpanded != z) {
+            this.isShapeExpanded = z;
+            if (this.materialShapeDrawable != null && (valueAnimator = this.interpolatorAnimator) != null) {
+                if (valueAnimator.isRunning()) {
+                    this.interpolatorAnimator.reverse();
+                    return;
                 }
-                return null;
+                if (z) {
+                    f = 0.0f;
+                } else {
+                    f = 1.0f;
+                }
+                this.interpolatorAnimator.setFloatValues(1.0f - f, f);
+                this.interpolatorAnimator.start();
             }
-            return null;
         }
-        return (View) invokeL.objValue;
     }
 
     private void updateAccessibilityActions() {
-        WeakReference<V> weakReference;
         V v;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65559, this) != null) || (weakReference = this.viewRef) == null || (v = weakReference.get()) == null) {
+        WeakReference<V> weakReference = this.viewRef;
+        if (weakReference == null || (v = weakReference.get()) == null) {
             return;
         }
         ViewCompat.removeAccessibilityAction(v, 524288);
@@ -1641,88 +1090,10 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         addAccessibilityActionForState(v, AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_COLLAPSE, i2);
     }
 
-    private void updateDrawableForTargetState(int i) {
-        boolean z;
-        ValueAnimator valueAnimator;
-        float f;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(65560, this, i) != null) || i == 2) {
-            return;
-        }
-        if (i == 3) {
-            z = true;
-        } else {
-            z = false;
-        }
-        if (this.isShapeExpanded != z) {
-            this.isShapeExpanded = z;
-            if (this.materialShapeDrawable != null && (valueAnimator = this.interpolatorAnimator) != null) {
-                if (valueAnimator.isRunning()) {
-                    this.interpolatorAnimator.reverse();
-                    return;
-                }
-                if (z) {
-                    f = 0.0f;
-                } else {
-                    f = 1.0f;
-                }
-                this.interpolatorAnimator.setFloatValues(1.0f - f, f);
-                this.interpolatorAnimator.start();
-            }
-        }
-    }
-
-    public void dispatchOnSlide(int i) {
-        V v;
-        float f;
-        float f2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (v = this.viewRef.get()) != null && !this.callbacks.isEmpty()) {
-            int i2 = this.collapsedOffset;
-            if (i <= i2 && i2 != getExpandedOffset()) {
-                int i3 = this.collapsedOffset;
-                f = i3 - i;
-                f2 = i3 - getExpandedOffset();
-            } else {
-                int i4 = this.collapsedOffset;
-                f = i4 - i;
-                f2 = this.parentHeight - i4;
-            }
-            float f3 = f / f2;
-            for (int i5 = 0; i5 < this.callbacks.size(); i5++) {
-                this.callbacks.get(i5).onSlide(v, f3);
-            }
-        }
-    }
-
-    public void setStateInternal(int i) {
-        V v;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048616, this, i) != null) || this.state == i) {
-            return;
-        }
-        this.state = i;
-        WeakReference<V> weakReference = this.viewRef;
-        if (weakReference == null || (v = weakReference.get()) == null) {
-            return;
-        }
-        if (i == 3) {
-            updateImportantForAccessibility(true);
-        } else if (i == 6 || i == 5 || i == 4) {
-            updateImportantForAccessibility(false);
-        }
-        updateDrawableForTargetState(i);
-        for (int i2 = 0; i2 < this.callbacks.size(); i2++) {
-            this.callbacks.get(i2).onStateChanged(v, i);
-        }
-        updateAccessibilityActions();
-    }
-
     private void updateImportantForAccessibility(boolean z) {
-        WeakReference<V> weakReference;
         Map<View, Integer> map;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(65561, this, z) != null) || (weakReference = this.viewRef) == null) {
+        WeakReference<V> weakReference = this.viewRef;
+        if (weakReference == null) {
             return;
         }
         ViewParent parent = weakReference.get().getParent();
@@ -1758,172 +1129,200 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         }
     }
 
+    public void dispatchOnSlide(int i) {
+        float f;
+        float f2;
+        V v = this.viewRef.get();
+        if (v != null && !this.callbacks.isEmpty()) {
+            int i2 = this.collapsedOffset;
+            if (i <= i2 && i2 != getExpandedOffset()) {
+                int i3 = this.collapsedOffset;
+                f = i3 - i;
+                f2 = i3 - getExpandedOffset();
+            } else {
+                int i4 = this.collapsedOffset;
+                f = i4 - i;
+                f2 = this.parentHeight - i4;
+            }
+            float f3 = f / f2;
+            for (int i5 = 0; i5 < this.callbacks.size(); i5++) {
+                this.callbacks.get(i5).onSlide(v, f3);
+            }
+        }
+    }
+
+    public void setStateInternal(int i) {
+        V v;
+        if (this.state == i) {
+            return;
+        }
+        this.state = i;
+        WeakReference<V> weakReference = this.viewRef;
+        if (weakReference == null || (v = weakReference.get()) == null) {
+            return;
+        }
+        if (i == 3) {
+            updateImportantForAccessibility(true);
+        } else if (i == 6 || i == 5 || i == 4) {
+            updateImportantForAccessibility(false);
+        }
+        updateDrawableForTargetState(i);
+        for (int i2 = 0; i2 < this.callbacks.size(); i2++) {
+            this.callbacks.get(i2).onStateChanged(v, i);
+        }
+        updateAccessibilityActions();
+    }
+
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public boolean onInterceptTouchEvent(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull MotionEvent motionEvent) {
-        InterceptResult invokeLLL;
         boolean z;
         View view2;
         ViewDragHelper viewDragHelper;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048593, this, coordinatorLayout, v, motionEvent)) == null) {
-            if (v.isShown() && this.draggable) {
-                int actionMasked = motionEvent.getActionMasked();
-                if (actionMasked == 0) {
-                    reset();
-                }
-                if (this.velocityTracker == null) {
-                    this.velocityTracker = VelocityTracker.obtain();
-                }
-                this.velocityTracker.addMovement(motionEvent);
-                View view3 = null;
-                if (actionMasked != 0) {
-                    if (actionMasked == 1 || actionMasked == 3) {
-                        this.touchingScrollingChild = false;
-                        this.activePointerId = -1;
-                        if (this.ignoreEvents) {
-                            this.ignoreEvents = false;
-                            return false;
-                        }
+        if (v.isShown() && this.draggable) {
+            int actionMasked = motionEvent.getActionMasked();
+            if (actionMasked == 0) {
+                reset();
+            }
+            if (this.velocityTracker == null) {
+                this.velocityTracker = VelocityTracker.obtain();
+            }
+            this.velocityTracker.addMovement(motionEvent);
+            View view3 = null;
+            if (actionMasked != 0) {
+                if (actionMasked == 1 || actionMasked == 3) {
+                    this.touchingScrollingChild = false;
+                    this.activePointerId = -1;
+                    if (this.ignoreEvents) {
+                        this.ignoreEvents = false;
+                        return false;
                     }
-                } else {
-                    int x = (int) motionEvent.getX();
-                    this.initialY = (int) motionEvent.getY();
-                    if (this.state != 2) {
-                        WeakReference<View> weakReference = this.nestedScrollingChildRef;
-                        if (weakReference != null) {
-                            view2 = weakReference.get();
-                        } else {
-                            view2 = null;
-                        }
-                        if (view2 != null && coordinatorLayout.isPointInChildBounds(view2, x, this.initialY)) {
-                            this.activePointerId = motionEvent.getPointerId(motionEvent.getActionIndex());
-                            this.touchingScrollingChild = true;
-                        }
-                    }
-                    if (this.activePointerId == -1 && !coordinatorLayout.isPointInChildBounds(v, x, this.initialY)) {
-                        z = true;
+                }
+            } else {
+                int x = (int) motionEvent.getX();
+                this.initialY = (int) motionEvent.getY();
+                if (this.state != 2) {
+                    WeakReference<View> weakReference = this.nestedScrollingChildRef;
+                    if (weakReference != null) {
+                        view2 = weakReference.get();
                     } else {
-                        z = false;
+                        view2 = null;
                     }
-                    this.ignoreEvents = z;
+                    if (view2 != null && coordinatorLayout.isPointInChildBounds(view2, x, this.initialY)) {
+                        this.activePointerId = motionEvent.getPointerId(motionEvent.getActionIndex());
+                        this.touchingScrollingChild = true;
+                    }
                 }
-                if (!this.ignoreEvents && (viewDragHelper = this.viewDragHelper) != null && viewDragHelper.shouldInterceptTouchEvent(motionEvent)) {
-                    return true;
+                if (this.activePointerId == -1 && !coordinatorLayout.isPointInChildBounds(v, x, this.initialY)) {
+                    z = true;
+                } else {
+                    z = false;
                 }
-                WeakReference<View> weakReference2 = this.nestedScrollingChildRef;
-                if (weakReference2 != null) {
-                    view3 = weakReference2.get();
-                }
-                if (actionMasked != 2 || view3 == null || this.ignoreEvents || this.state == 1 || coordinatorLayout.isPointInChildBounds(view3, (int) motionEvent.getX(), (int) motionEvent.getY()) || this.viewDragHelper == null || Math.abs(this.initialY - motionEvent.getY()) <= this.viewDragHelper.getTouchSlop()) {
-                    return false;
-                }
+                this.ignoreEvents = z;
+            }
+            if (!this.ignoreEvents && (viewDragHelper = this.viewDragHelper) != null && viewDragHelper.shouldInterceptTouchEvent(motionEvent)) {
                 return true;
             }
-            this.ignoreEvents = true;
-            return false;
+            WeakReference<View> weakReference2 = this.nestedScrollingChildRef;
+            if (weakReference2 != null) {
+                view3 = weakReference2.get();
+            }
+            if (actionMasked != 2 || view3 == null || this.ignoreEvents || this.state == 1 || coordinatorLayout.isPointInChildBounds(view3, (int) motionEvent.getX(), (int) motionEvent.getY()) || this.viewDragHelper == null || Math.abs(this.initialY - motionEvent.getY()) <= this.viewDragHelper.getTouchSlop()) {
+                return false;
+            }
+            return true;
         }
-        return invokeLLL.booleanValue;
+        this.ignoreEvents = true;
+        return false;
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, int i) {
-        InterceptResult invokeLLI;
         boolean z;
         float f;
         MaterialShapeDrawable materialShapeDrawable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048594, this, coordinatorLayout, v, i)) == null) {
-            if (ViewCompat.getFitsSystemWindows(coordinatorLayout) && !ViewCompat.getFitsSystemWindows(v)) {
-                v.setFitsSystemWindows(true);
-            }
-            if (this.viewRef == null) {
-                this.peekHeightMin = coordinatorLayout.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070200);
-                setSystemGestureInsets(v);
-                this.viewRef = new WeakReference<>(v);
-                if (this.shapeThemingEnabled && (materialShapeDrawable = this.materialShapeDrawable) != null) {
-                    ViewCompat.setBackground(v, materialShapeDrawable);
-                }
-                MaterialShapeDrawable materialShapeDrawable2 = this.materialShapeDrawable;
-                if (materialShapeDrawable2 != null) {
-                    float f2 = this.elevation;
-                    if (f2 == -1.0f) {
-                        f2 = ViewCompat.getElevation(v);
-                    }
-                    materialShapeDrawable2.setElevation(f2);
-                    if (this.state == 3) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    this.isShapeExpanded = z;
-                    MaterialShapeDrawable materialShapeDrawable3 = this.materialShapeDrawable;
-                    if (z) {
-                        f = 0.0f;
-                    } else {
-                        f = 1.0f;
-                    }
-                    materialShapeDrawable3.setInterpolation(f);
-                }
-                updateAccessibilityActions();
-                if (ViewCompat.getImportantForAccessibility(v) == 0) {
-                    ViewCompat.setImportantForAccessibility(v, 1);
-                }
-            }
-            if (this.viewDragHelper == null) {
-                this.viewDragHelper = ViewDragHelper.create(coordinatorLayout, this.dragCallback);
-            }
-            int top = v.getTop();
-            coordinatorLayout.onLayoutChild(v, i);
-            this.parentWidth = coordinatorLayout.getWidth();
-            this.parentHeight = coordinatorLayout.getHeight();
-            int height = v.getHeight();
-            this.childHeight = height;
-            this.fitToContentsOffset = Math.max(0, this.parentHeight - height);
-            calculateHalfExpandedOffset();
-            calculateCollapsedOffset();
-            int i2 = this.state;
-            if (i2 == 3) {
-                ViewCompat.offsetTopAndBottom(v, getExpandedOffset());
-            } else if (i2 == 6) {
-                ViewCompat.offsetTopAndBottom(v, this.halfExpandedOffset);
-            } else if (this.hideable && i2 == 5) {
-                ViewCompat.offsetTopAndBottom(v, this.parentHeight);
-            } else {
-                int i3 = this.state;
-                if (i3 == 4) {
-                    ViewCompat.offsetTopAndBottom(v, this.collapsedOffset);
-                } else if (i3 == 1 || i3 == 2) {
-                    ViewCompat.offsetTopAndBottom(v, top - v.getTop());
-                }
-            }
-            this.nestedScrollingChildRef = new WeakReference<>(findScrollingChild(v));
-            return true;
+        if (ViewCompat.getFitsSystemWindows(coordinatorLayout) && !ViewCompat.getFitsSystemWindows(v)) {
+            v.setFitsSystemWindows(true);
         }
-        return invokeLLI.booleanValue;
+        if (this.viewRef == null) {
+            this.peekHeightMin = coordinatorLayout.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070200);
+            setSystemGestureInsets(v);
+            this.viewRef = new WeakReference<>(v);
+            if (this.shapeThemingEnabled && (materialShapeDrawable = this.materialShapeDrawable) != null) {
+                ViewCompat.setBackground(v, materialShapeDrawable);
+            }
+            MaterialShapeDrawable materialShapeDrawable2 = this.materialShapeDrawable;
+            if (materialShapeDrawable2 != null) {
+                float f2 = this.elevation;
+                if (f2 == -1.0f) {
+                    f2 = ViewCompat.getElevation(v);
+                }
+                materialShapeDrawable2.setElevation(f2);
+                if (this.state == 3) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.isShapeExpanded = z;
+                MaterialShapeDrawable materialShapeDrawable3 = this.materialShapeDrawable;
+                if (z) {
+                    f = 0.0f;
+                } else {
+                    f = 1.0f;
+                }
+                materialShapeDrawable3.setInterpolation(f);
+            }
+            updateAccessibilityActions();
+            if (ViewCompat.getImportantForAccessibility(v) == 0) {
+                ViewCompat.setImportantForAccessibility(v, 1);
+            }
+        }
+        if (this.viewDragHelper == null) {
+            this.viewDragHelper = ViewDragHelper.create(coordinatorLayout, this.dragCallback);
+        }
+        int top = v.getTop();
+        coordinatorLayout.onLayoutChild(v, i);
+        this.parentWidth = coordinatorLayout.getWidth();
+        this.parentHeight = coordinatorLayout.getHeight();
+        int height = v.getHeight();
+        this.childHeight = height;
+        this.fitToContentsOffset = Math.max(0, this.parentHeight - height);
+        calculateHalfExpandedOffset();
+        calculateCollapsedOffset();
+        int i2 = this.state;
+        if (i2 == 3) {
+            ViewCompat.offsetTopAndBottom(v, getExpandedOffset());
+        } else if (i2 == 6) {
+            ViewCompat.offsetTopAndBottom(v, this.halfExpandedOffset);
+        } else if (this.hideable && i2 == 5) {
+            ViewCompat.offsetTopAndBottom(v, this.parentHeight);
+        } else {
+            int i3 = this.state;
+            if (i3 == 4) {
+                ViewCompat.offsetTopAndBottom(v, this.collapsedOffset);
+            } else if (i3 == 1 || i3 == 2) {
+                ViewCompat.offsetTopAndBottom(v, top - v.getTop());
+            }
+        }
+        this.nestedScrollingChildRef = new WeakReference<>(findScrollingChild(v));
+        return true;
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public boolean onNestedPreFling(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view2, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{coordinatorLayout, v, view2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            WeakReference<View> weakReference = this.nestedScrollingChildRef;
-            if (weakReference == null || view2 != weakReference.get()) {
-                return false;
-            }
-            if (this.state == 3 && !super.onNestedPreFling(coordinatorLayout, v, view2, f, f2)) {
-                return false;
-            }
-            return true;
+        WeakReference<View> weakReference = this.nestedScrollingChildRef;
+        if (weakReference == null || view2 != weakReference.get()) {
+            return false;
         }
-        return invokeCommon.booleanValue;
+        if (this.state == 3 && !super.onNestedPreFling(coordinatorLayout, v, view2, f, f2)) {
+            return false;
+        }
+        return true;
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public void onNestedPreScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view2, int i, int i2, @NonNull int[] iArr, int i3) {
         View view3;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048596, this, new Object[]{coordinatorLayout, v, view2, Integer.valueOf(i), Integer.valueOf(i2), iArr, Integer.valueOf(i3)}) != null) || i3 == 1) {
+        if (i3 == 1) {
             return;
         }
         WeakReference<View> weakReference = this.nestedScrollingChildRef;
@@ -1970,186 +1369,157 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view2, @NonNull View view3, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{coordinatorLayout, v, view2, view3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            this.lastNestedScrollDy = 0;
-            this.nestedScrolled = false;
-            if ((i & 2) == 0) {
-                return false;
-            }
-            return true;
+        this.lastNestedScrollDy = 0;
+        this.nestedScrolled = false;
+        if ((i & 2) == 0) {
+            return false;
         }
-        return invokeCommon.booleanValue;
+        return true;
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public void onStopNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view2, int i) {
         int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048601, this, coordinatorLayout, v, view2, i) == null) {
-            int i3 = 3;
-            if (v.getTop() == getExpandedOffset()) {
-                setStateInternal(3);
-                return;
-            }
-            WeakReference<View> weakReference = this.nestedScrollingChildRef;
-            if (weakReference != null && view2 == weakReference.get() && this.nestedScrolled) {
-                if (this.lastNestedScrollDy > 0) {
-                    if (this.fitToContents) {
+        int i3 = 3;
+        if (v.getTop() == getExpandedOffset()) {
+            setStateInternal(3);
+            return;
+        }
+        WeakReference<View> weakReference = this.nestedScrollingChildRef;
+        if (weakReference != null && view2 == weakReference.get() && this.nestedScrolled) {
+            if (this.lastNestedScrollDy > 0) {
+                if (this.fitToContents) {
+                    i2 = this.fitToContentsOffset;
+                } else {
+                    int top = v.getTop();
+                    int i4 = this.halfExpandedOffset;
+                    if (top > i4) {
+                        i2 = i4;
+                        i3 = 6;
+                    } else {
+                        i2 = this.expandedOffset;
+                    }
+                }
+            } else if (this.hideable && shouldHide(v, getYVelocity())) {
+                i2 = this.parentHeight;
+                i3 = 5;
+            } else if (this.lastNestedScrollDy == 0) {
+                int top2 = v.getTop();
+                if (this.fitToContents) {
+                    if (Math.abs(top2 - this.fitToContentsOffset) < Math.abs(top2 - this.collapsedOffset)) {
                         i2 = this.fitToContentsOffset;
                     } else {
-                        int top = v.getTop();
-                        int i4 = this.halfExpandedOffset;
-                        if (top > i4) {
-                            i2 = i4;
-                            i3 = 6;
-                        } else {
-                            i2 = this.expandedOffset;
-                        }
-                    }
-                } else if (this.hideable && shouldHide(v, getYVelocity())) {
-                    i2 = this.parentHeight;
-                    i3 = 5;
-                } else if (this.lastNestedScrollDy == 0) {
-                    int top2 = v.getTop();
-                    if (this.fitToContents) {
-                        if (Math.abs(top2 - this.fitToContentsOffset) < Math.abs(top2 - this.collapsedOffset)) {
-                            i2 = this.fitToContentsOffset;
-                        } else {
-                            i2 = this.collapsedOffset;
-                            i3 = 4;
-                        }
-                    } else {
-                        int i5 = this.halfExpandedOffset;
-                        if (top2 < i5) {
-                            if (top2 < Math.abs(top2 - this.collapsedOffset)) {
-                                i2 = this.expandedOffset;
-                            } else {
-                                i2 = this.halfExpandedOffset;
-                            }
-                        } else if (Math.abs(top2 - i5) < Math.abs(top2 - this.collapsedOffset)) {
-                            i2 = this.halfExpandedOffset;
-                        } else {
-                            i2 = this.collapsedOffset;
-                            i3 = 4;
-                        }
-                        i3 = 6;
+                        i2 = this.collapsedOffset;
+                        i3 = 4;
                     }
                 } else {
-                    if (this.fitToContents) {
-                        i2 = this.collapsedOffset;
-                    } else {
-                        int top3 = v.getTop();
-                        if (Math.abs(top3 - this.halfExpandedOffset) < Math.abs(top3 - this.collapsedOffset)) {
-                            i2 = this.halfExpandedOffset;
-                            i3 = 6;
+                    int i5 = this.halfExpandedOffset;
+                    if (top2 < i5) {
+                        if (top2 < Math.abs(top2 - this.collapsedOffset)) {
+                            i2 = this.expandedOffset;
                         } else {
-                            i2 = this.collapsedOffset;
+                            i2 = this.halfExpandedOffset;
                         }
+                    } else if (Math.abs(top2 - i5) < Math.abs(top2 - this.collapsedOffset)) {
+                        i2 = this.halfExpandedOffset;
+                    } else {
+                        i2 = this.collapsedOffset;
+                        i3 = 4;
                     }
-                    i3 = 4;
+                    i3 = 6;
                 }
-                startSettlingAnimation(v, i3, i2, false);
-                this.nestedScrolled = false;
+            } else {
+                if (this.fitToContents) {
+                    i2 = this.collapsedOffset;
+                } else {
+                    int top3 = v.getTop();
+                    if (Math.abs(top3 - this.halfExpandedOffset) < Math.abs(top3 - this.collapsedOffset)) {
+                        i2 = this.halfExpandedOffset;
+                        i3 = 6;
+                    } else {
+                        i2 = this.collapsedOffset;
+                    }
+                }
+                i3 = 4;
             }
+            startSettlingAnimation(v, i3, i2, false);
+            this.nestedScrolled = false;
         }
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public boolean onTouchEvent(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull MotionEvent motionEvent) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048602, this, coordinatorLayout, v, motionEvent)) == null) {
-            if (!v.isShown()) {
-                return false;
-            }
-            int actionMasked = motionEvent.getActionMasked();
-            if (this.state == 1 && actionMasked == 0) {
-                return true;
-            }
-            ViewDragHelper viewDragHelper = this.viewDragHelper;
-            if (viewDragHelper != null) {
-                viewDragHelper.processTouchEvent(motionEvent);
-            }
-            if (actionMasked == 0) {
-                reset();
-            }
-            if (this.velocityTracker == null) {
-                this.velocityTracker = VelocityTracker.obtain();
-            }
-            this.velocityTracker.addMovement(motionEvent);
-            if (this.viewDragHelper != null && actionMasked == 2 && !this.ignoreEvents && Math.abs(this.initialY - motionEvent.getY()) > this.viewDragHelper.getTouchSlop()) {
-                this.viewDragHelper.captureChildView(v, motionEvent.getPointerId(motionEvent.getActionIndex()));
-            }
-            return !this.ignoreEvents;
+        if (!v.isShown()) {
+            return false;
         }
-        return invokeLLL.booleanValue;
-    }
-
-    public final void setPeekHeight(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            boolean z2 = true;
-            if (i == -1) {
-                if (!this.peekHeightAuto) {
-                    this.peekHeightAuto = true;
-                }
-                z2 = false;
-            } else {
-                if (this.peekHeightAuto || this.peekHeight != i) {
-                    this.peekHeightAuto = false;
-                    this.peekHeight = Math.max(0, i);
-                }
-                z2 = false;
-            }
-            if (z2) {
-                updatePeekHeight(z);
-            }
+        int actionMasked = motionEvent.getActionMasked();
+        if (this.state == 1 && actionMasked == 0) {
+            return true;
         }
+        ViewDragHelper viewDragHelper = this.viewDragHelper;
+        if (viewDragHelper != null) {
+            viewDragHelper.processTouchEvent(motionEvent);
+        }
+        if (actionMasked == 0) {
+            reset();
+        }
+        if (this.velocityTracker == null) {
+            this.velocityTracker = VelocityTracker.obtain();
+        }
+        this.velocityTracker.addMovement(motionEvent);
+        if (this.viewDragHelper != null && actionMasked == 2 && !this.ignoreEvents && Math.abs(this.initialY - motionEvent.getY()) > this.viewDragHelper.getTouchSlop()) {
+            this.viewDragHelper.captureChildView(v, motionEvent.getPointerId(motionEvent.getActionIndex()));
+        }
+        return !this.ignoreEvents;
     }
 
     public void settleToState(@NonNull View view2, int i) {
         int i2;
         int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048618, this, view2, i) == null) {
-            if (i == 4) {
-                i2 = this.collapsedOffset;
-            } else if (i == 6) {
-                int i4 = this.halfExpandedOffset;
-                if (this.fitToContents && i4 <= (i3 = this.fitToContentsOffset)) {
-                    i2 = i3;
-                    i = 3;
-                } else {
-                    i2 = i4;
-                }
-            } else if (i == 3) {
-                i2 = getExpandedOffset();
-            } else if (this.hideable && i == 5) {
-                i2 = this.parentHeight;
+        if (i == 4) {
+            i2 = this.collapsedOffset;
+        } else if (i == 6) {
+            int i4 = this.halfExpandedOffset;
+            if (this.fitToContents && i4 <= (i3 = this.fitToContentsOffset)) {
+                i2 = i3;
+                i = 3;
             } else {
-                throw new IllegalArgumentException("Illegal state argument: " + i);
+                i2 = i4;
             }
-            startSettlingAnimation(view2, i, i2, false);
+        } else if (i == 3) {
+            i2 = getExpandedOffset();
+        } else if (this.hideable && i == 5) {
+            i2 = this.parentHeight;
+        } else {
+            throw new IllegalArgumentException("Illegal state argument: " + i);
         }
+        startSettlingAnimation(view2, i, i2, false);
     }
 
-    public boolean shouldHide(@NonNull View view2, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048619, this, view2, f)) == null) {
-            if (this.skipCollapsed) {
-                return true;
-            }
-            if (view2.getTop() < this.collapsedOffset) {
-                return false;
-            }
-            if (Math.abs((view2.getTop() + (f * 0.1f)) - this.collapsedOffset) / calculatePeekHeight() > 0.5f) {
-                return true;
-            }
-            return false;
+    public void startSettlingAnimation(View view2, int i, int i2, boolean z) {
+        boolean z2;
+        ViewDragHelper viewDragHelper = this.viewDragHelper;
+        if (viewDragHelper != null && (!z ? viewDragHelper.smoothSlideViewTo(view2, view2.getLeft(), i2) : viewDragHelper.settleCapturedViewAt(view2.getLeft(), i2))) {
+            z2 = true;
+        } else {
+            z2 = false;
         }
-        return invokeLF.booleanValue;
+        if (z2) {
+            setStateInternal(2);
+            updateDrawableForTargetState(i);
+            if (this.settleRunnable == null) {
+                this.settleRunnable = new SettleRunnable(view2, i);
+            }
+            if (!this.settleRunnable.isPosted) {
+                BottomSheetBehavior<V>.SettleRunnable settleRunnable = this.settleRunnable;
+                settleRunnable.targetState = i;
+                ViewCompat.postOnAnimation(view2, settleRunnable);
+                this.settleRunnable.isPosted = true;
+                return;
+            }
+            this.settleRunnable.targetState = i;
+            return;
+        }
+        setStateInternal(i);
     }
 }

@@ -1,6 +1,7 @@
 package com.kwad.sdk.utils;
 
 import android.annotation.SuppressLint;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import java.io.IOException;
 /* loaded from: classes8.dex */
 public final class ay {
@@ -20,7 +21,7 @@ public final class ay {
     public static Object f(String str, Object... objArr) {
         try {
             if (aou == null) {
-                aou = Class.forName("android.os.SystemProperties");
+                aou = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
             }
             return q.c(aou, str, objArr);
         } catch (Throwable th) {

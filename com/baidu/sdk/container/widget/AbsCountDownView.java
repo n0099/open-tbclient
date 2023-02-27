@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gm1;
-import com.baidu.tieba.hm1;
+import com.baidu.tieba.rm1;
+import com.baidu.tieba.sm1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ public abstract class AbsCountDownView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public b b;
-    public gm1 c;
+    public rm1 c;
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -35,7 +35,7 @@ public abstract class AbsCountDownView extends TextView {
     public abstract void setTimeMillis(long j);
 
     /* loaded from: classes2.dex */
-    public class a extends gm1 {
+    public class a extends rm1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsCountDownView c;
@@ -58,7 +58,7 @@ public abstract class AbsCountDownView extends TextView {
             this.c = absCountDownView;
         }
 
-        @Override // com.baidu.tieba.gm1
+        @Override // com.baidu.tieba.rm1
         public Object b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -137,7 +137,7 @@ public abstract class AbsCountDownView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c = new a(this);
-            hm1.a().d(this.c, 0L, getTaskPeriod(), TimeUnit.MILLISECONDS);
+            sm1.a().d(this.c, 0L, getTaskPeriod(), TimeUnit.MILLISECONDS);
         }
     }
 
@@ -150,10 +150,10 @@ public abstract class AbsCountDownView extends TextView {
     }
 
     public void c() {
-        gm1 gm1Var;
+        rm1 rm1Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (gm1Var = this.c) != null) {
-            gm1Var.cancel();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (rm1Var = this.c) != null) {
+            rm1Var.cancel();
             this.c = null;
         }
     }

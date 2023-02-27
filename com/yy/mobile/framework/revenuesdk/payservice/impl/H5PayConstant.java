@@ -1,12 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.payservice.impl;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class H5PayConstant {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int DxmH5LocalPageType = 5;
     public static final int DxmKjLocalPageType = 2;
     public static final String EXTRA_APP_ID = "EXTRA_APP_ID";
@@ -25,19 +19,4 @@ public class H5PayConstant {
     public static final int MockTestPageType = 3;
     public static final int UnionPayPageType = 4;
     public static final int WalletLocalPageType = 1;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public H5PayConstant() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

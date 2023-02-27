@@ -1,37 +1,50 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ka4 {
+public class ka4 extends na4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String b;
+    public int c;
+    public int d;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(int i, long j, long j2);
-
-        void b(int i);
-
-        void success();
+    public ka4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    public static void a(String str, a aVar) {
-        w83 M;
+    @Override // com.baidu.tieba.na4
+    public JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, str, aVar) != null) || aVar == null || TextUtils.isEmpty(str) || (M = w83.M()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("url", this.b);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, this.c);
+                jSONObject.put("net", this.d);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, this.a);
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
         }
-        if (ja4.b().d(str)) {
-            aVar.success();
-            return;
-        }
-        String a2 = ja4.b().a(str);
-        if (TextUtils.isEmpty(a2)) {
-            aVar.b(2112);
-        } else {
-            gg4.h(new bk4(M.b, M.k0(), a2, 1), new na4(M.b, M.k0(), ja4.b().c(str, 2), aVar));
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

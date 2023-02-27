@@ -31,14 +31,14 @@ import java.util.WeakHashMap;
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLAZZ_NAME = "com.kwai.sodler.lib.kwai.b.a";
-    public static final ThreadLocal<C0665a> sAutoUnWrapModelTL;
+    public static final ThreadLocal<C0655a> sAutoUnWrapModelTL;
     public static final List<String> sAutoUnWrapStackList;
     public static Map<Context, Context> sResContextCache;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwai.sodler.lib.kwai.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0665a {
+    public static class C0655a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public WeakReference<Context> axK;
@@ -47,7 +47,7 @@ public class a {
         public int axN;
         public long axO;
 
-        public C0665a() {
+        public C0655a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,13 +66,13 @@ public class a {
             this.axN = 0;
         }
 
-        public /* synthetic */ C0665a(byte b) {
+        public /* synthetic */ C0655a(byte b) {
             this();
         }
 
-        public static /* synthetic */ int c(C0665a c0665a) {
-            int i = c0665a.axL;
-            c0665a.axL = i + 1;
+        public static /* synthetic */ int c(C0655a c0655a) {
+            int i = c0655a.axL;
+            c0655a.axL = i + 1;
             return i;
         }
 
@@ -88,9 +88,9 @@ public class a {
             }
         }
 
-        public static /* synthetic */ int g(C0665a c0665a) {
-            int i = c0665a.axN;
-            c0665a.axN = i + 1;
+        public static /* synthetic */ int g(C0655a c0655a) {
+            int i = c0655a.axN;
+            c0655a.axN = i + 1;
             return i;
         }
     }
@@ -232,20 +232,20 @@ public class a {
         }
     }
 
-    public static boolean a(Context context, C0665a c0665a) {
+    public static boolean a(Context context, C0655a c0655a) {
         InterceptResult invokeLL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, c0665a)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, c0655a)) == null) {
             Context context2 = sResContextCache.get(context);
             String name = context2 != null ? context2.getClass().getName() : "";
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            if (!Arrays.equals(stackTrace, c0665a.axM)) {
-                if (c0665a.axM != null) {
-                    c0665a.clear();
+            if (!Arrays.equals(stackTrace, c0655a.axM)) {
+                if (c0655a.axM != null) {
+                    c0655a.clear();
                     return false;
                 }
-                c0665a.axM = stackTrace;
+                c0655a.axM = stackTrace;
                 int i = 0;
                 int i2 = 0;
                 while (i < stackTrace.length) {
@@ -265,9 +265,9 @@ public class a {
                 }
                 return false;
             }
-            C0665a.g(c0665a);
-            c0665a.axM = stackTrace;
-            if (c0665a.axN < 5) {
+            C0655a.g(c0655a);
+            c0655a.axM = stackTrace;
+            if (c0655a.axN < 5) {
                 return false;
             }
             str = "needAutoUnWrap true 连续相同堆栈";
@@ -388,17 +388,17 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
-            C0665a c0665a = sAutoUnWrapModelTL.get();
-            if (c0665a == null) {
-                sAutoUnWrapModelTL.set(new C0665a((byte) 0));
-            } else if (c0665a.axK.get() != context || Math.abs(System.currentTimeMillis() - c0665a.axO) >= 150) {
-                c0665a.clear();
-                c0665a.axK = new WeakReference(context);
-                c0665a.axO = System.currentTimeMillis();
+            C0655a c0655a = sAutoUnWrapModelTL.get();
+            if (c0655a == null) {
+                sAutoUnWrapModelTL.set(new C0655a((byte) 0));
+            } else if (c0655a.axK.get() != context || Math.abs(System.currentTimeMillis() - c0655a.axO) >= 150) {
+                c0655a.clear();
+                c0655a.axK = new WeakReference(context);
+                c0655a.axO = System.currentTimeMillis();
             } else {
-                C0665a.c(c0665a);
-                if (c0665a.axL >= (context instanceof Application ? 15 : 5) && a(context, c0665a)) {
-                    c0665a.clear();
+                C0655a.c(c0655a);
+                if (c0655a.axL >= (context instanceof Application ? 15 : 5) && a(context, c0655a)) {
+                    c0655a.clear();
                     return true;
                 }
             }

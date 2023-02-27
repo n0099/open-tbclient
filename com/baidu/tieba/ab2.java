@@ -1,19 +1,15 @@
 package com.baidu.tieba;
-
-import com.baidu.swan.pms.model.PMSAppInfo;
 /* loaded from: classes3.dex */
-public interface ab2<T> {
-    T a();
+public interface ab2 {
+    boolean a(String str);
 
-    void c(bb2<T> bb2Var);
+    void b(int i);
 
-    T e(PMSAppInfo pMSAppInfo);
+    void c(int i, String str, String str2);
 
-    boolean f();
+    void d(String str);
 
-    boolean g();
+    void e(String str);
 
-    boolean h();
-
-    void reset();
+    void goBack();
 }

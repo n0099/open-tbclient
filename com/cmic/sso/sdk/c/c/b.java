@@ -39,19 +39,28 @@ public class b extends c {
 
     public void a(com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && !this.c) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             com.cmic.sso.sdk.c.b.a c = this.b.c();
-            if (!aVar.b("isCloseIpv4", false)) {
-                c.q(p.a(true));
+            c.u(aVar.b("socketip"));
+            com.cmic.sso.sdk.e.c.b("GetPrePhonescripParam", "socket socketip = " + aVar.b("socketip"));
+            if (!this.c) {
+                String[] strArr = null;
+                if (!aVar.b("isCloseIpv4", false)) {
+                    strArr = p.a(true);
+                    c.q(strArr[0]);
+                }
+                if (!aVar.b("isCloseIpv6", false)) {
+                    if (strArr == null) {
+                        strArr = p.a(true);
+                    }
+                    c.r(strArr[1]);
+                }
+                this.c = true;
             }
-            if (!aVar.b("isCloseIpv6", false)) {
-                c.r(p.b(true));
-            }
-            c.n(c.u(aVar.b("appkey")));
+            c.n(c.v(aVar.b("appkey")));
             this.b.a(c);
             this.b.a(true);
             this.a = this.b.b().toString();
-            this.c = true;
         }
     }
 }

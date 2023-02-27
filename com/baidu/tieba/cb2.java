@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class cb2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
@@ -27,7 +27,7 @@ public class cb2 {
                 return;
             }
         }
-        a = gp1.a;
+        a = wp1.a;
         b = new AtomicInteger(0);
     }
 
@@ -35,7 +35,7 @@ public class cb2 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && str.startsWith("master")) {
+            if (str != null && str.startsWith("localDebug")) {
                 return true;
             }
             return false;
@@ -47,32 +47,16 @@ public class cb2 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String str = "master";
-            if (!wc2.h()) {
-                return "master";
-            }
             int andIncrement = b.getAndIncrement();
+            String str = "localDebug";
             if (andIncrement >= 1) {
-                str = "master" + andIncrement;
+                str = "localDebug" + andIncrement;
             }
             if (a) {
-                Log.i("MasterIdGenerator", "next master id - " + str);
+                Log.i("DaemonIdGenerator", "next daemon id - " + str);
             }
             return str;
         }
         return (String) invokeV.objValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            int andSet = b.getAndSet(0);
-            if (a) {
-                Log.i("MasterIdGenerator", "last master id - " + andSet);
-            }
-            return andSet;
-        }
-        return invokeV.intValue;
     }
 }

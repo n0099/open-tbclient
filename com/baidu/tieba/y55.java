@@ -1,73 +1,114 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.FileHelper;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
+import androidx.annotation.ColorRes;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class y55 {
+public class y55 extends TBSpecificationButtonConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int[] u;
+    public boolean v;
 
-    public static synchronized void a() {
+    public y55() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            synchronized (y55.class) {
-                File file = new File(FileHelper.getCacheDir() + "voice");
-                if (file.exists() && file.isDirectory()) {
-                    File[] listFiles = file.listFiles();
-                    if (listFiles == null) {
-                        return;
-                    }
-                    for (File file2 : listFiles) {
-                        file2.delete();
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.v = false;
+        this.b = R.color.CAM_X0101;
+        this.d = R.color.CAM_X0302;
+    }
+
+    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
+    public Drawable a(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            return s(f);
+        }
+        return (Drawable) invokeF.objValue;
+    }
+
+    public void q(@ColorRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.d = i;
+            this.b = R.color.CAM_X0101;
+            this.q = true;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
             }
         }
     }
 
-    public static boolean b(String str, String str2) {
-        InterceptResult invokeLL;
+    public void r(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return FileHelper.renameTo(str, FileHelper.getFilePath(str2, 1, true));
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
+            this.q = true;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
+            }
         }
-        return invokeLL.booleanValue;
     }
 
-    public static x55 c(String str) {
-        InterceptResult invokeL;
+    public void t(int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            x55 x55Var = new x55();
-            if (str == null) {
-                x55Var.f(6);
-                x55Var.g(x55.a(x55Var.b()));
-                return x55Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) {
+            this.u = iArr;
+            this.v = true;
+        }
+    }
+
+    public final Drawable s(float f) {
+        InterceptResult invokeF;
+        int i;
+        GradientDrawable gradientDrawable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
+            if (!this.q) {
+                this.b = SkinManager.getColor(this.r, (int) R.color.CAM_X0101);
             }
-            if (!FileHelper.CheckTempDir(FileHelper.getCacheDir() + "voice")) {
-                x55Var.f(7);
-                x55Var.g(x55.a(x55Var.b()));
-                return x55Var;
-            }
-            String b = lj.b(FileHelper.GetStreamFromTmpFile(str));
-            if (b == null) {
-                x55Var.f(5);
-                x55Var.g(x55.a(x55Var.b()));
+            if (this.q) {
+                i = SkinManager.getColor(this.r, this.d);
             } else {
-                String filePath = FileHelper.getFilePath(b, 1, true);
-                if (FileHelper.renameTo(str, filePath)) {
-                    x55Var.i(filePath);
-                    x55Var.h(b);
-                } else {
-                    x55Var.f(1);
-                    x55Var.g(x55.a(x55Var.b()));
-                }
+                i = this.d;
             }
-            return x55Var;
+            if (!this.v) {
+                this.u = new int[]{i, i};
+            }
+            if (Build.VERSION.SDK_INT >= 16) {
+                gradientDrawable = new GradientDrawable();
+                gradientDrawable.setOrientation(this.s);
+                gradientDrawable.setColors(this.u);
+            } else {
+                gradientDrawable = new GradientDrawable(this.s, this.u);
+            }
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setShape(0);
+            gradientDrawable.setCornerRadius(f);
+            return gradientDrawable;
         }
-        return (x55) invokeL.objValue;
+        return (Drawable) invokeF.objValue;
     }
 }

@@ -4,25 +4,16 @@ import android.annotation.SuppressLint;
 import android.net.http.Headers;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.dns.transmit.DnsTransmitter;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.net.BdNet;
 import com.baidu.webkit.sdk.Log;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -48,9 +39,9 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.security.auth.x500.X500Principal;
 import okhttp3.CertificatePinner;
+import org.apache.commons.codec.net.RFC1522Codec;
 /* loaded from: classes7.dex */
 public class BdNetEngine extends HandlerThread implements INoProGuard {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int ALT_DNS_NAME = 2;
     public static final int ALT_IPA_NAME = 7;
     public static final String CER_FILE_NAME = "server_test.crt";
@@ -64,13 +55,9 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
     public static final String LOG_TAG = "BdNetEngine";
     public static final int MESSAGE_EXCUTE_TASK = 1;
     public static final int MESSAGE_STOP_ENGINE = 2;
-    public static final Pattern VERIFY_AS_IP_ADDRESS;
     public static boolean mFirstWait;
-    public static Object mSelfLock;
-    public static long mWaitTime;
     public static int sNid;
     public static boolean sUsingChromiumNet;
-    public transient /* synthetic */ FieldHolder $fh;
     public HttpURLConnection mConnection;
     public boolean mIsCmwap;
     public volatile boolean mIsRecycle;
@@ -82,11 +69,12 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
     public Handler mPrivateHandler;
     public int mProxyPort;
     public String mProxyUrl;
+    public static final Pattern VERIFY_AS_IP_ADDRESS = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+    public static Object mSelfLock = new Object();
+    public static long mWaitTime = 10000;
 
     /* loaded from: classes7.dex */
     public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final String a;
         public final int b;
         public int c;
@@ -96,346 +84,302 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         public char[] g;
 
         public a(X500Principal x500Principal) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x500Principal};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             String name = x500Principal.getName("RFC2253");
             this.a = name;
             this.b = name.length();
         }
 
         private int a(int i) throws Exception {
-            InterceptResult invokeI;
             int i2;
             int i3;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
-                int i4 = i + 1;
-                if (i4 >= this.b) {
-                    throw new IllegalStateException("Malformed DN: " + this.a);
-                }
-                char c = this.g[i];
-                if (c >= '0' && c <= '9') {
-                    i2 = c - '0';
-                } else if (c >= 'a' && c <= 'f') {
-                    i2 = c - 'W';
-                } else if (c < 'A' || c > 'F') {
-                    throw new IllegalStateException("Malformed DN: " + this.a);
-                } else {
-                    i2 = c - '7';
-                }
-                char c2 = this.g[i4];
-                if (c2 >= '0' && c2 <= '9') {
-                    i3 = c2 - '0';
-                } else if (c2 >= 'a' && c2 <= 'f') {
-                    i3 = c2 - 'W';
-                } else if (c2 < 'A' || c2 > 'F') {
-                    throw new IllegalStateException("Malformed DN: " + this.a);
-                } else {
-                    i3 = c2 - '7';
-                }
-                return (i2 << 4) + i3;
+            int i4 = i + 1;
+            if (i4 >= this.b) {
+                throw new IllegalStateException("Malformed DN: " + this.a);
             }
-            return invokeI.intValue;
+            char c = this.g[i];
+            if (c >= '0' && c <= '9') {
+                i2 = c - TransactionIdCreater.FILL_BYTE;
+            } else if (c >= 'a' && c <= 'f') {
+                i2 = c - 'W';
+            } else if (c < 'A' || c > 'F') {
+                throw new IllegalStateException("Malformed DN: " + this.a);
+            } else {
+                i2 = c - '7';
+            }
+            char c2 = this.g[i4];
+            if (c2 >= '0' && c2 <= '9') {
+                i3 = c2 - TransactionIdCreater.FILL_BYTE;
+            } else if (c2 >= 'a' && c2 <= 'f') {
+                i3 = c2 - 'W';
+            } else if (c2 < 'A' || c2 > 'F') {
+                throw new IllegalStateException("Malformed DN: " + this.a);
+            } else {
+                i3 = c2 - '7';
+            }
+            return (i2 << 4) + i3;
         }
 
         private char e() throws Exception {
-            InterceptResult invokeV;
             int i;
             int i2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-                int a = a(this.c);
-                this.c++;
-                if (a < 128) {
-                    return (char) a;
-                }
-                if (a < 192 || a > 247) {
-                    return '?';
-                }
-                if (a <= 223) {
-                    i2 = a & 31;
-                    i = 1;
-                } else if (a <= 239) {
-                    i = 2;
-                    i2 = a & 15;
-                } else {
-                    i = 3;
-                    i2 = a & 7;
-                }
-                for (int i3 = 0; i3 < i; i3++) {
-                    int i4 = this.c + 1;
-                    this.c = i4;
-                    if (i4 == this.b || this.g[i4] != '\\') {
-                        return '?';
-                    }
-                    int i5 = i4 + 1;
-                    this.c = i5;
-                    int a2 = a(i5);
-                    this.c++;
-                    if ((a2 & 192) != 128) {
-                        return '?';
-                    }
-                    i2 = (i2 << 6) + (a2 & 63);
-                }
-                return (char) i2;
+            int a = a(this.c);
+            this.c++;
+            if (a < 128) {
+                return (char) a;
             }
-            return invokeV.charValue;
+            if (a < 192 || a > 247) {
+                return RFC1522Codec.SEP;
+            }
+            if (a <= 223) {
+                i2 = a & 31;
+                i = 1;
+            } else if (a <= 239) {
+                i = 2;
+                i2 = a & 15;
+            } else {
+                i = 3;
+                i2 = a & 7;
+            }
+            for (int i3 = 0; i3 < i; i3++) {
+                int i4 = this.c + 1;
+                this.c = i4;
+                if (i4 == this.b || this.g[i4] != '\\') {
+                    return RFC1522Codec.SEP;
+                }
+                int i5 = i4 + 1;
+                this.c = i5;
+                int a2 = a(i5);
+                this.c++;
+                if ((a2 & 192) != 128) {
+                    return RFC1522Codec.SEP;
+                }
+                i2 = (i2 << 6) + (a2 & 63);
+            }
+            return (char) i2;
         }
 
         public final String a() throws Exception {
             int i;
             char[] cArr;
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            while (true) {
+                int i2 = this.c;
+                if (i2 >= this.b || this.g[i2] != ' ') {
+                    break;
+                }
+                this.c = i2 + 1;
+            }
+            int i3 = this.c;
+            if (i3 == this.b) {
+                return null;
+            }
+            this.d = i3;
+            do {
+                this.c = i3 + 1;
+                i3 = this.c;
+                if (i3 >= this.b) {
+                    break;
+                }
+                cArr = this.g;
+                if (cArr[i3] == '=') {
+                    break;
+                }
+            } while (cArr[i3] != ' ');
+            int i4 = this.c;
+            if (i4 >= this.b) {
+                throw new IllegalStateException("Unexpected end of DN: " + this.a);
+            }
+            this.e = i4;
+            if (this.g[i4] == ' ') {
                 while (true) {
-                    int i2 = this.c;
-                    if (i2 >= this.b || this.g[i2] != ' ') {
+                    int i5 = this.c;
+                    if (i5 >= this.b) {
                         break;
                     }
-                    this.c = i2 + 1;
+                    char[] cArr2 = this.g;
+                    if (cArr2[i5] == '=' || cArr2[i5] != ' ') {
+                        break;
+                    }
+                    this.c = i5 + 1;
                 }
-                int i3 = this.c;
-                if (i3 == this.b) {
-                    return null;
-                }
-                this.d = i3;
-                do {
-                    this.c = i3 + 1;
-                    i3 = this.c;
-                    if (i3 >= this.b) {
-                        break;
-                    }
-                    cArr = this.g;
-                    if (cArr[i3] == '=') {
-                        break;
-                    }
-                } while (cArr[i3] != ' ');
-                int i4 = this.c;
-                if (i4 >= this.b) {
+                char[] cArr3 = this.g;
+                int i6 = this.c;
+                if (cArr3[i6] != '=' || i6 == this.b) {
                     throw new IllegalStateException("Unexpected end of DN: " + this.a);
                 }
-                this.e = i4;
-                if (this.g[i4] == ' ') {
-                    while (true) {
-                        int i5 = this.c;
-                        if (i5 >= this.b) {
-                            break;
-                        }
-                        char[] cArr2 = this.g;
-                        if (cArr2[i5] == '=' || cArr2[i5] != ' ') {
-                            break;
-                        }
-                        this.c = i5 + 1;
-                    }
-                    char[] cArr3 = this.g;
-                    int i6 = this.c;
-                    if (cArr3[i6] != '=' || i6 == this.b) {
-                        throw new IllegalStateException("Unexpected end of DN: " + this.a);
-                    }
-                }
-                do {
-                    i = this.c + 1;
-                    this.c = i;
-                    if (i >= this.b) {
-                        break;
-                    }
-                } while (this.g[i] == ' ');
-                int i7 = this.e;
-                int i8 = this.d;
-                if (i7 - i8 > 4) {
-                    char[] cArr4 = this.g;
-                    if (cArr4[i8 + 3] == '.' && (cArr4[i8] == 'O' || cArr4[i8] == 'o')) {
-                        char[] cArr5 = this.g;
-                        int i9 = this.d;
-                        if (cArr5[i9 + 1] == 'I' || cArr5[i9 + 1] == 'i') {
-                            char[] cArr6 = this.g;
-                            int i10 = this.d;
-                            if (cArr6[i10 + 2] == 'D' || cArr6[i10 + 2] == 'd') {
-                                this.d += 4;
-                            }
-                        }
-                    }
-                }
-                char[] cArr7 = this.g;
-                int i11 = this.d;
-                return new String(cArr7, i11, this.e - i11);
             }
-            return (String) invokeV.objValue;
+            do {
+                i = this.c + 1;
+                this.c = i;
+                if (i >= this.b) {
+                    break;
+                }
+            } while (this.g[i] == ' ');
+            int i7 = this.e;
+            int i8 = this.d;
+            if (i7 - i8 > 4) {
+                char[] cArr4 = this.g;
+                if (cArr4[i8 + 3] == '.' && (cArr4[i8] == 'O' || cArr4[i8] == 'o')) {
+                    char[] cArr5 = this.g;
+                    int i9 = this.d;
+                    if (cArr5[i9 + 1] == 'I' || cArr5[i9 + 1] == 'i') {
+                        char[] cArr6 = this.g;
+                        int i10 = this.d;
+                        if (cArr6[i10 + 2] == 'D' || cArr6[i10 + 2] == 'd') {
+                            this.d += 4;
+                        }
+                    }
+                }
+            }
+            char[] cArr7 = this.g;
+            int i11 = this.d;
+            return new String(cArr7, i11, this.e - i11);
         }
 
         public final String b() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i = this.c;
-                if (i + 4 >= this.b) {
-                    throw new IllegalStateException("Unexpected end of DN: " + this.a);
-                }
-                this.d = i;
-                while (true) {
-                    this.c = i + 1;
-                    int i2 = this.c;
-                    if (i2 == this.b) {
-                        break;
-                    }
-                    char[] cArr = this.g;
-                    if (cArr[i2] == '+' || cArr[i2] == ',' || cArr[i2] == ';') {
-                        break;
-                    } else if (cArr[i2] == ' ') {
-                        this.e = i2;
-                        do {
-                            this.c = i2 + 1;
-                            i2 = this.c;
-                            if (i2 >= this.b) {
-                                break;
-                            }
-                        } while (this.g[i2] == ' ');
-                    } else {
-                        if (cArr[i2] >= 'A' && cArr[i2] <= 'F') {
-                            cArr[i2] = (char) (cArr[i2] + WebvttCueParser.CHAR_SPACE);
-                        }
-                        i = this.c;
-                    }
-                }
-                this.e = this.c;
-                int i3 = this.e;
-                int i4 = this.d;
-                int i5 = i3 - i4;
-                if (i5 < 5 || (i5 & 1) == 0) {
-                    throw new IllegalStateException("Unexpected end of DN: " + this.a);
-                }
-                int i6 = i5 / 2;
-                byte[] bArr = new byte[i6];
-                int i7 = i4 + 1;
-                for (int i8 = 0; i8 < i6; i8++) {
-                    bArr[i8] = (byte) a(i7);
-                    i7 += 2;
-                }
-                return new String(this.g, this.d, i5);
+            int i = this.c;
+            if (i + 4 >= this.b) {
+                throw new IllegalStateException("Unexpected end of DN: " + this.a);
             }
-            return (String) invokeV.objValue;
+            this.d = i;
+            while (true) {
+                this.c = i + 1;
+                int i2 = this.c;
+                if (i2 == this.b) {
+                    break;
+                }
+                char[] cArr = this.g;
+                if (cArr[i2] == '+' || cArr[i2] == ',' || cArr[i2] == ';') {
+                    break;
+                } else if (cArr[i2] == ' ') {
+                    this.e = i2;
+                    do {
+                        this.c = i2 + 1;
+                        i2 = this.c;
+                        if (i2 >= this.b) {
+                            break;
+                        }
+                    } while (this.g[i2] == ' ');
+                } else {
+                    if (cArr[i2] >= 'A' && cArr[i2] <= 'F') {
+                        cArr[i2] = (char) (cArr[i2] + WebvttCueParser.CHAR_SPACE);
+                    }
+                    i = this.c;
+                }
+            }
+            this.e = this.c;
+            int i3 = this.e;
+            int i4 = this.d;
+            int i5 = i3 - i4;
+            if (i5 < 5 || (i5 & 1) == 0) {
+                throw new IllegalStateException("Unexpected end of DN: " + this.a);
+            }
+            int i6 = i5 / 2;
+            byte[] bArr = new byte[i6];
+            int i7 = i4 + 1;
+            for (int i8 = 0; i8 < i6; i8++) {
+                bArr[i8] = (byte) a(i7);
+                i7 += 2;
+            }
+            return new String(this.g, this.d, i5);
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:36:0x00a7, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:34:0x00a3, code lost:
             return new java.lang.String(r1, r2, r8.f - r2);
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public final String c() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int i = this.c;
-                this.d = i;
-                this.e = i;
-                while (true) {
-                    int i2 = this.c;
-                    if (i2 < this.b) {
-                        char[] cArr = this.g;
-                        char c = cArr[i2];
-                        if (c == ' ') {
-                            int i3 = this.e;
-                            this.f = i3;
-                            this.c = i2 + 1;
-                            this.e = i3 + 1;
-                            cArr[i3] = WebvttCueParser.CHAR_SPACE;
-                            while (true) {
-                                int i4 = this.c;
-                                if (i4 >= this.b) {
-                                    break;
-                                }
-                                char[] cArr2 = this.g;
-                                if (cArr2[i4] != ' ') {
-                                    break;
-                                }
-                                int i5 = this.e;
-                                this.e = i5 + 1;
-                                cArr2[i5] = WebvttCueParser.CHAR_SPACE;
-                                this.c = i4 + 1;
-                            }
-                            int i6 = this.c;
-                            if (i6 == this.b) {
+            int i = this.c;
+            this.d = i;
+            this.e = i;
+            while (true) {
+                int i2 = this.c;
+                if (i2 < this.b) {
+                    char[] cArr = this.g;
+                    char c = cArr[i2];
+                    if (c == ' ') {
+                        int i3 = this.e;
+                        this.f = i3;
+                        this.c = i2 + 1;
+                        this.e = i3 + 1;
+                        cArr[i3] = WebvttCueParser.CHAR_SPACE;
+                        while (true) {
+                            int i4 = this.c;
+                            if (i4 >= this.b) {
                                 break;
                             }
-                            char[] cArr3 = this.g;
-                            if (cArr3[i6] == ',' || cArr3[i6] == '+' || cArr3[i6] == ';') {
+                            char[] cArr2 = this.g;
+                            if (cArr2[i4] != ' ') {
                                 break;
                             }
-                        } else if (c == ';') {
+                            int i5 = this.e;
+                            this.e = i5 + 1;
+                            cArr2[i5] = WebvttCueParser.CHAR_SPACE;
+                            this.c = i4 + 1;
+                        }
+                        int i6 = this.c;
+                        if (i6 == this.b) {
+                            break;
+                        }
+                        char[] cArr3 = this.g;
+                        if (cArr3[i6] == ',' || cArr3[i6] == '+' || cArr3[i6] == ';') {
+                            break;
+                        }
+                    } else if (c == ';') {
+                        break;
+                    } else {
+                        if (c == '\\') {
+                            int i7 = this.e;
+                            this.e = i7 + 1;
+                            cArr[i7] = d();
+                            i2 = this.c;
+                        } else if (c == '+' || c == ',') {
                             break;
                         } else {
-                            if (c == '\\') {
-                                int i7 = this.e;
-                                this.e = i7 + 1;
-                                cArr[i7] = d();
-                                i2 = this.c;
-                            } else if (c == '+' || c == ',') {
-                                break;
-                            } else {
-                                int i8 = this.e;
-                                this.e = i8 + 1;
-                                cArr[i8] = cArr[i2];
-                            }
-                            this.c = i2 + 1;
+                            int i8 = this.e;
+                            this.e = i8 + 1;
+                            cArr[i8] = cArr[i2];
                         }
-                    } else {
-                        char[] cArr4 = this.g;
-                        int i9 = this.d;
-                        return new String(cArr4, i9, this.e - i9);
+                        this.c = i2 + 1;
                     }
+                } else {
+                    char[] cArr4 = this.g;
+                    int i9 = this.d;
+                    return new String(cArr4, i9, this.e - i9);
                 }
-                char[] cArr5 = this.g;
-                int i10 = this.d;
-                return new String(cArr5, i10, this.e - i10);
             }
-            return (String) invokeV.objValue;
+            char[] cArr5 = this.g;
+            int i10 = this.d;
+            return new String(cArr5, i10, this.e - i10);
         }
 
         public final char d() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                int i = this.c + 1;
-                this.c = i;
-                if (i == this.b) {
-                    throw new IllegalStateException("Unexpected end of DN: " + this.a);
-                }
-                char c = this.g[i];
-                if (c != ' ' && c != '%' && c != '\\' && c != '_' && c != '\"' && c != '#') {
-                    switch (c) {
-                        case '*':
-                        case '+':
-                        case ',':
-                            break;
-                        default:
-                            switch (c) {
-                                case ';':
-                                case '<':
-                                case '=':
-                                case '>':
-                                    break;
-                                default:
-                                    return e();
-                            }
-                    }
-                }
-                return this.g[this.c];
+            int i = this.c + 1;
+            this.c = i;
+            if (i == this.b) {
+                throw new IllegalStateException("Unexpected end of DN: " + this.a);
             }
-            return invokeV.charValue;
+            char c = this.g[i];
+            if (c != ' ' && c != '%' && c != '\\' && c != '_' && c != '\"' && c != '#') {
+                switch (c) {
+                    case '*':
+                    case '+':
+                    case ',':
+                        break;
+                    default:
+                        switch (c) {
+                            case ';':
+                            case '<':
+                            case '=':
+                            case '>':
+                                break;
+                            default:
+                                return e();
+                        }
+                }
+            }
+            return this.g[this.c];
         }
     }
 
@@ -462,133 +406,66 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         void onNetUploadData(BdNetEngine bdNetEngine, BdNetTask bdNetTask, int i, int i2);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-150408273, "Lcom/baidu/webkit/net/BdNetEngine;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-150408273, "Lcom/baidu/webkit/net/BdNetEngine;");
-                return;
-            }
-        }
-        VERIFY_AS_IP_ADDRESS = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
-        mSelfLock = new Object();
-        mWaitTime = 10000L;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdNetEngine() {
         super(LOG_TAG + nidPP());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mLock = new Object();
     }
 
     private void addHeaders(BdNetTask bdNetTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, this, bdNetTask) == null) {
-            for (Map.Entry<String, String> entry : bdNetTask.getHeaders().entrySet()) {
-                this.mConnection.setRequestProperty(entry.getKey(), entry.getValue());
-            }
-            StringBuffer stringBuffer = new StringBuffer();
-            for (Map.Entry<String, String> entry2 : bdNetTask.getCookies().entrySet()) {
-                stringBuffer.append(entry2.getKey().trim());
-                stringBuffer.append("=");
-                stringBuffer.append(entry2.getValue().trim());
-                stringBuffer.append(";");
-            }
-            if (stringBuffer.length() > 0) {
-                stringBuffer.setLength(stringBuffer.length() - 1);
-                this.mConnection.addRequestProperty("Cookie", stringBuffer.toString());
-            }
-            String refer = bdNetTask.getRefer();
-            if (refer != null) {
-                this.mConnection.addRequestProperty("Referer", refer);
-            }
+        for (Map.Entry<String, String> entry : bdNetTask.getHeaders().entrySet()) {
+            this.mConnection.setRequestProperty(entry.getKey(), entry.getValue());
+        }
+        StringBuffer stringBuffer = new StringBuffer();
+        for (Map.Entry<String, String> entry2 : bdNetTask.getCookies().entrySet()) {
+            stringBuffer.append(entry2.getKey().trim());
+            stringBuffer.append("=");
+            stringBuffer.append(entry2.getValue().trim());
+            stringBuffer.append(ParamableElem.DIVIDE_PARAM);
+        }
+        if (stringBuffer.length() > 0) {
+            stringBuffer.setLength(stringBuffer.length() - 1);
+            this.mConnection.addRequestProperty("Cookie", stringBuffer.toString());
+        }
+        String refer = bdNetTask.getRefer();
+        if (refer != null) {
+            this.mConnection.addRequestProperty("Referer", refer);
         }
     }
 
     public static HttpURLConnection defaultOpenConnection(URL url, SSLContext sSLContext, BdNetTask bdNetTask) throws IOException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, url, sSLContext, bdNetTask)) == null) {
-            bdNetTask.setIsUseCorenet(false);
-            boolean equals = url.getProtocol().equals("https");
-            URLConnection openConnection = url.openConnection();
-            if (equals) {
-                HttpsURLConnection httpsURLConnection = (HttpsURLConnection) openConnection;
-                httpsURLConnection.setHostnameVerifier(new HostnameVerifier() { // from class: com.baidu.webkit.net.BdNetEngine.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                            }
+        bdNetTask.setIsUseCorenet(false);
+        boolean equals = url.getProtocol().equals("https");
+        URLConnection openConnection = url.openConnection();
+        if (equals) {
+            HttpsURLConnection httpsURLConnection = (HttpsURLConnection) openConnection;
+            httpsURLConnection.setHostnameVerifier(new HostnameVerifier() { // from class: com.baidu.webkit.net.BdNetEngine.1
+                @Override // javax.net.ssl.HostnameVerifier
+                public final boolean verify(String str, SSLSession sSLSession) {
+                    try {
+                        if (!TextUtils.isEmpty(str) && (str.equals(DnsTransmitter.BGP_IP) || str.equals("240c:4006::6666"))) {
+                            str = DnsTransmitter.IDC_HOST;
                         }
+                        X509Certificate x509Certificate = (X509Certificate) sSLSession.getPeerCertificates()[0];
+                        return BdNetEngine.verifyAsIpAddress(str) ? BdNetEngine.verifyIpAddress(str, x509Certificate) : BdNetEngine.verifyHostName(str, x509Certificate);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        return HttpsURLConnection.getDefaultHostnameVerifier().verify(str, sSLSession);
                     }
-
-                    @Override // javax.net.ssl.HostnameVerifier
-                    public final boolean verify(String str, SSLSession sSLSession) {
-                        InterceptResult invokeLL;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, sSLSession)) == null) {
-                            try {
-                                if (!TextUtils.isEmpty(str) && (str.equals(DnsTransmitter.BGP_IP) || str.equals("240c:4006::6666"))) {
-                                    str = DnsTransmitter.IDC_HOST;
-                                }
-                                X509Certificate x509Certificate = (X509Certificate) sSLSession.getPeerCertificates()[0];
-                                return BdNetEngine.verifyAsIpAddress(str) ? BdNetEngine.verifyIpAddress(str, x509Certificate) : BdNetEngine.verifyHostName(str, x509Certificate);
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                                return HttpsURLConnection.getDefaultHostnameVerifier().verify(str, sSLSession);
-                            }
-                        }
-                        return invokeLL.booleanValue;
-                    }
-                });
-                return httpsURLConnection;
-            }
-            return (HttpURLConnection) openConnection;
+                }
+            });
+            return httpsURLConnection;
         }
-        return (HttpURLConnection) invokeLLL.objValue;
+        return (HttpURLConnection) openConnection;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:91:0x00b3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:99:0x00ac A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x00af A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:93:0x00a8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private boolean download(BdNetTask bdNetTask) {
-        InterceptResult invokeL;
         InputStream inputStream;
         GZIPInputStream gZIPInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65548, this, bdNetTask)) != null) {
-            return invokeL.booleanValue;
-        }
         GZIPInputStream gZIPInputStream2 = null;
         try {
             inputStream = this.mConnection.getInputStream();
@@ -702,9 +579,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, SGET, INVOKE, IF, IGET, INVOKE, SGET, INVOKE, IF, IGET, IF] complete} */
     private int excuteTask(BdNetTask bdNetTask) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, bdNetTask)) == null) {
+        try {
             try {
                 try {
                     try {
@@ -847,9 +722,9 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                                 }
                                 return 3;
                             }
-                        } catch (AssertionError unused2) {
+                        } catch (IOException unused2) {
                             if (this.mListener != null) {
-                                this.mListener.onNetDownloadError(this, bdNetTask, BdNet.NetError.ERROR_UNKNOWN, 0);
+                                this.mListener.onNetDownloadError(this, bdNetTask, BdNet.NetError.ERROR_IO, 0);
                             }
                             HttpURLConnection httpURLConnection7 = this.mConnection;
                             if (httpURLConnection7 != null) {
@@ -860,262 +735,205 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                                 bVar7.onNetStateChanged(this, bdNetTask, BdNet.NetState.STATE_DISCONNECT, 0);
                             }
                             return 3;
-                        } catch (Exception unused3) {
-                            if (this.mListener != null) {
-                                this.mListener.onNetDownloadError(this, bdNetTask, BdNet.NetError.ERROR_UNKNOWN, 0);
-                            }
-                            HttpURLConnection httpURLConnection8 = this.mConnection;
-                            if (httpURLConnection8 != null) {
-                                httpURLConnection8.disconnect();
-                            }
-                            b bVar8 = this.mListener;
-                            if (bVar8 != null) {
-                                bVar8.onNetStateChanged(this, bdNetTask, BdNet.NetState.STATE_DISCONNECT, 0);
-                            }
-                            return 3;
                         }
-                    } catch (SocketTimeoutException unused4) {
-                        if (this.mListener != null) {
-                            this.mListener.onNetDownloadError(this, bdNetTask, BdNet.NetError.ERROR_CONNECT_TIMEOUT, 0);
-                        }
-                        HttpURLConnection httpURLConnection9 = this.mConnection;
-                        if (httpURLConnection9 != null) {
-                            httpURLConnection9.disconnect();
-                        }
-                        b bVar9 = this.mListener;
-                        if (bVar9 != null) {
-                            bVar9.onNetStateChanged(this, bdNetTask, BdNet.NetState.STATE_DISCONNECT, 0);
-                        }
-                        return 3;
-                    } catch (Throwable unused5) {
+                    } catch (AssertionError unused3) {
                         if (this.mListener != null) {
                             this.mListener.onNetDownloadError(this, bdNetTask, BdNet.NetError.ERROR_UNKNOWN, 0);
                         }
-                        HttpURLConnection httpURLConnection10 = this.mConnection;
-                        if (httpURLConnection10 != null) {
-                            httpURLConnection10.disconnect();
+                        HttpURLConnection httpURLConnection8 = this.mConnection;
+                        if (httpURLConnection8 != null) {
+                            httpURLConnection8.disconnect();
                         }
-                        b bVar10 = this.mListener;
-                        if (bVar10 != null) {
-                            bVar10.onNetStateChanged(this, bdNetTask, BdNet.NetState.STATE_DISCONNECT, 0);
+                        b bVar8 = this.mListener;
+                        if (bVar8 != null) {
+                            bVar8.onNetStateChanged(this, bdNetTask, BdNet.NetState.STATE_DISCONNECT, 0);
                         }
                         return 3;
                     }
-                } catch (MalformedURLException unused6) {
+                } catch (MalformedURLException unused4) {
                     if (this.mListener != null) {
                         this.mListener.onNetDownloadError(this, bdNetTask, BdNet.NetError.ERROR_MALFORMEDURL, 0);
                     }
-                    HttpURLConnection httpURLConnection11 = this.mConnection;
-                    if (httpURLConnection11 != null) {
-                        httpURLConnection11.disconnect();
+                    HttpURLConnection httpURLConnection9 = this.mConnection;
+                    if (httpURLConnection9 != null) {
+                        httpURLConnection9.disconnect();
                     }
-                    b bVar11 = this.mListener;
-                    if (bVar11 != null) {
-                        bVar11.onNetStateChanged(this, bdNetTask, BdNet.NetState.STATE_DISCONNECT, 0);
+                    b bVar9 = this.mListener;
+                    if (bVar9 != null) {
+                        bVar9.onNetStateChanged(this, bdNetTask, BdNet.NetState.STATE_DISCONNECT, 0);
                     }
                     return 3;
-                } catch (IOException unused7) {
+                } catch (Throwable unused5) {
                     if (this.mListener != null) {
-                        this.mListener.onNetDownloadError(this, bdNetTask, BdNet.NetError.ERROR_IO, 0);
+                        this.mListener.onNetDownloadError(this, bdNetTask, BdNet.NetError.ERROR_UNKNOWN, 0);
                     }
-                    HttpURLConnection httpURLConnection12 = this.mConnection;
-                    if (httpURLConnection12 != null) {
-                        httpURLConnection12.disconnect();
+                    HttpURLConnection httpURLConnection10 = this.mConnection;
+                    if (httpURLConnection10 != null) {
+                        httpURLConnection10.disconnect();
                     }
-                    b bVar12 = this.mListener;
-                    if (bVar12 != null) {
-                        bVar12.onNetStateChanged(this, bdNetTask, BdNet.NetState.STATE_DISCONNECT, 0);
+                    b bVar10 = this.mListener;
+                    if (bVar10 != null) {
+                        bVar10.onNetStateChanged(this, bdNetTask, BdNet.NetState.STATE_DISCONNECT, 0);
                     }
                     return 3;
                 }
-            } catch (Throwable th) {
-                HttpURLConnection httpURLConnection13 = this.mConnection;
-                if (httpURLConnection13 != null) {
-                    httpURLConnection13.disconnect();
+            } catch (SocketTimeoutException unused6) {
+                if (this.mListener != null) {
+                    this.mListener.onNetDownloadError(this, bdNetTask, BdNet.NetError.ERROR_CONNECT_TIMEOUT, 0);
                 }
-                b bVar13 = this.mListener;
-                if (bVar13 != null) {
-                    bVar13.onNetStateChanged(this, bdNetTask, BdNet.NetState.STATE_DISCONNECT, 0);
+                HttpURLConnection httpURLConnection11 = this.mConnection;
+                if (httpURLConnection11 != null) {
+                    httpURLConnection11.disconnect();
                 }
-                throw th;
+                b bVar11 = this.mListener;
+                if (bVar11 != null) {
+                    bVar11.onNetStateChanged(this, bdNetTask, BdNet.NetState.STATE_DISCONNECT, 0);
+                }
+                return 3;
+            } catch (Exception unused7) {
+                if (this.mListener != null) {
+                    this.mListener.onNetDownloadError(this, bdNetTask, BdNet.NetError.ERROR_UNKNOWN, 0);
+                }
+                HttpURLConnection httpURLConnection12 = this.mConnection;
+                if (httpURLConnection12 != null) {
+                    httpURLConnection12.disconnect();
+                }
+                b bVar12 = this.mListener;
+                if (bVar12 != null) {
+                    bVar12.onNetStateChanged(this, bdNetTask, BdNet.NetState.STATE_DISCONNECT, 0);
+                }
+                return 3;
             }
+        } catch (Throwable th) {
+            HttpURLConnection httpURLConnection13 = this.mConnection;
+            if (httpURLConnection13 != null) {
+                httpURLConnection13.disconnect();
+            }
+            b bVar13 = this.mListener;
+            if (bVar13 != null) {
+                bVar13.onNetStateChanged(this, bdNetTask, BdNet.NetState.STATE_DISCONNECT, 0);
+            }
+            throw th;
         }
-        return invokeL.intValue;
     }
 
     public static List<String> getSubjectAltNames(X509Certificate x509Certificate, int i) {
-        InterceptResult invokeLI;
         Integer num;
         String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, x509Certificate, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            try {
-                Collection<List<?>> subjectAlternativeNames = x509Certificate.getSubjectAlternativeNames();
-                if (subjectAlternativeNames == null) {
-                    return Collections.emptyList();
-                }
-                for (List<?> list : subjectAlternativeNames) {
-                    if (list != null && list.size() >= 2 && (num = (Integer) list.get(0)) != null && num.intValue() == i && (str = (String) list.get(1)) != null) {
-                        arrayList.add(str);
-                    }
-                }
-                return arrayList;
-            } catch (CertificateParsingException unused) {
+        ArrayList arrayList = new ArrayList();
+        try {
+            Collection<List<?>> subjectAlternativeNames = x509Certificate.getSubjectAlternativeNames();
+            if (subjectAlternativeNames == null) {
                 return Collections.emptyList();
             }
+            for (List<?> list : subjectAlternativeNames) {
+                if (list != null && list.size() >= 2 && (num = (Integer) list.get(0)) != null && num.intValue() == i && (str = (String) list.get(1)) != null) {
+                    arrayList.add(str);
+                }
+            }
+            return arrayList;
+        } catch (CertificateParsingException unused) {
+            return Collections.emptyList();
         }
-        return (List) invokeLI.objValue;
     }
 
     public static int nidPP() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            int i = sNid;
-            sNid = i + 1;
-            return i;
-        }
-        return invokeV.intValue;
+        int i = sNid;
+        sNid = i + 1;
+        return i;
     }
 
     public static HttpURLConnection openConnection(URL url, SSLContext sSLContext, BdNetTask bdNetTask) throws IOException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65552, null, url, sSLContext, bdNetTask)) == null) {
-            if (!WebSettingsGlobalBlink.getCronetEnable()) {
-                Log.w(LOG_TAG, "openConnection use system ".concat(String.valueOf(url)));
-                return defaultOpenConnection(url, sSLContext, bdNetTask);
-            }
-            Log.w(LOG_TAG, "openConnection1 ".concat(String.valueOf(url)));
-            HttpURLConnection openCornetConnection = openCornetConnection(url);
-            return openCornetConnection != null ? openCornetConnection : defaultOpenConnection(url, sSLContext, bdNetTask);
+        if (!WebSettingsGlobalBlink.getCronetEnable()) {
+            Log.w(LOG_TAG, "openConnection use system ".concat(String.valueOf(url)));
+            return defaultOpenConnection(url, sSLContext, bdNetTask);
         }
-        return (HttpURLConnection) invokeLLL.objValue;
+        Log.w(LOG_TAG, "openConnection1 ".concat(String.valueOf(url)));
+        HttpURLConnection openCornetConnection = openCornetConnection(url);
+        return openCornetConnection != null ? openCornetConnection : defaultOpenConnection(url, sSLContext, bdNetTask);
     }
 
     public static HttpURLConnection openConnection(URL url, SSLContext sSLContext, Proxy proxy) throws IOException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65553, null, url, sSLContext, proxy)) == null) {
-            if (!url.getProtocol().equals("https") || sSLContext == null) {
-                return (HttpURLConnection) url.openConnection(proxy);
-            }
-            HttpsURLConnection httpsURLConnection = (HttpsURLConnection) url.openConnection(proxy);
-            httpsURLConnection.setSSLSocketFactory(sSLContext.getSocketFactory());
-            httpsURLConnection.setHostnameVerifier(new HostnameVerifier() { // from class: com.baidu.webkit.net.BdNetEngine.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                        }
-                    }
-                }
-
-                @Override // javax.net.ssl.HostnameVerifier
-                public final boolean verify(String str, SSLSession sSLSession) {
-                    InterceptResult invokeLL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, sSLSession)) == null) {
-                        try {
-                            X509Certificate x509Certificate = (X509Certificate) sSLSession.getPeerCertificates()[0];
-                            return BdNetEngine.verifyAsIpAddress(str) ? BdNetEngine.verifyIpAddress(str, x509Certificate) : BdNetEngine.verifyHostName(str, x509Certificate);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            return HttpsURLConnection.getDefaultHostnameVerifier().verify(str, sSLSession);
-                        }
-                    }
-                    return invokeLL.booleanValue;
-                }
-            });
-            return httpsURLConnection;
+        if (!url.getProtocol().equals("https") || sSLContext == null) {
+            return (HttpURLConnection) url.openConnection(proxy);
         }
-        return (HttpURLConnection) invokeLLL.objValue;
+        HttpsURLConnection httpsURLConnection = (HttpsURLConnection) url.openConnection(proxy);
+        httpsURLConnection.setSSLSocketFactory(sSLContext.getSocketFactory());
+        httpsURLConnection.setHostnameVerifier(new HostnameVerifier() { // from class: com.baidu.webkit.net.BdNetEngine.2
+            @Override // javax.net.ssl.HostnameVerifier
+            public final boolean verify(String str, SSLSession sSLSession) {
+                try {
+                    X509Certificate x509Certificate = (X509Certificate) sSLSession.getPeerCertificates()[0];
+                    return BdNetEngine.verifyAsIpAddress(str) ? BdNetEngine.verifyIpAddress(str, x509Certificate) : BdNetEngine.verifyHostName(str, x509Certificate);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return HttpsURLConnection.getDefaultHostnameVerifier().verify(str, sSLSession);
+                }
+            }
+        });
+        return httpsURLConnection;
     }
 
     public static HttpURLConnection openCornetConnection(URL url) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, url)) == null) {
-            if (url == null) {
-                return null;
-            }
-            synchronized (mSelfLock) {
-                Log.w(LOG_TAG, "openConnection2 ".concat(String.valueOf(url)));
-                try {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    while (true) {
-                        if (WebSettingsGlobalBlink.getChromiunNetInit() || mFirstWait) {
-                            break;
-                        }
-                        mSelfLock.wait(mWaitTime);
-                        if (System.currentTimeMillis() - currentTimeMillis > mWaitTime - 1000) {
-                            Log.w(LOG_TAG, "chromium timeout ");
-                            break;
-                        }
-                        Log.w(LOG_TAG, "chromium init ok " + (System.currentTimeMillis() - currentTimeMillis));
-                    }
-                    mFirstWait = true;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            if (WebSettingsGlobalBlink.getChromiunNetInit()) {
-                try {
-                    WebSettingsGlobalBlink.initCronet(WebSettingsGlobalBlink.getKernelContext());
-                    boolean useCronet = WebSettingsGlobalBlink.useCronet();
-                    Log.w(LOG_TAG, "[cronet] http_utils openConnection useChromiumNet ".concat(String.valueOf(useCronet)));
-                    Log.w(LOG_TAG, "[cronet] http_utils openConnection url ".concat(String.valueOf(url)));
-                    if (useCronet) {
-                        HttpURLConnection httpUrlConnection = WebSettingsGlobalBlink.getHttpUrlConnection(url.toString());
-                        if (httpUrlConnection != null) {
-                            return httpUrlConnection;
-                        }
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            } else {
-                Log.w(LOG_TAG, "[cronet] openConnection not init ".concat(String.valueOf(url)));
-            }
+        if (url == null) {
             return null;
         }
-        return (HttpURLConnection) invokeL.objValue;
+        synchronized (mSelfLock) {
+            Log.w(LOG_TAG, "openConnection2 ".concat(String.valueOf(url)));
+            try {
+                long currentTimeMillis = System.currentTimeMillis();
+                while (true) {
+                    if (WebSettingsGlobalBlink.getChromiunNetInit() || mFirstWait) {
+                        break;
+                    }
+                    mSelfLock.wait(mWaitTime);
+                    if (System.currentTimeMillis() - currentTimeMillis > mWaitTime - 1000) {
+                        Log.w(LOG_TAG, "chromium timeout ");
+                        break;
+                    }
+                    Log.w(LOG_TAG, "chromium init ok " + (System.currentTimeMillis() - currentTimeMillis));
+                }
+                mFirstWait = true;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if (WebSettingsGlobalBlink.getChromiunNetInit()) {
+            try {
+                WebSettingsGlobalBlink.initCronet(WebSettingsGlobalBlink.getKernelContext());
+                boolean useCronet = WebSettingsGlobalBlink.useCronet();
+                Log.w(LOG_TAG, "[cronet] http_utils openConnection useChromiumNet ".concat(String.valueOf(useCronet)));
+                Log.w(LOG_TAG, "[cronet] http_utils openConnection url ".concat(String.valueOf(url)));
+                if (useCronet) {
+                    HttpURLConnection httpUrlConnection = WebSettingsGlobalBlink.getHttpUrlConnection(url.toString());
+                    if (httpUrlConnection != null) {
+                        return httpUrlConnection;
+                    }
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        } else {
+            Log.w(LOG_TAG, "[cronet] openConnection not init ".concat(String.valueOf(url)));
+        }
+        return null;
     }
 
     private boolean redirect(BdNetTask bdNetTask) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, this, bdNetTask)) == null) {
-            String headerField = this.mConnection.getHeaderField("location");
-            if (headerField != null) {
-                String headerField2 = this.mConnection.getHeaderField(Headers.SET_COOKIE);
-                if (headerField2 != null) {
-                    bdNetTask.addCookies(headerField2);
-                }
-                bdNetTask.setRedirect(true);
-                bdNetTask.setRedirectUrl(headerField);
-                return true;
+        String headerField = this.mConnection.getHeaderField("location");
+        if (headerField != null) {
+            String headerField2 = this.mConnection.getHeaderField(Headers.SET_COOKIE);
+            if (headerField2 != null) {
+                bdNetTask.addCookies(headerField2);
             }
-            return false;
+            bdNetTask.setRedirect(true);
+            bdNetTask.setRedirectUrl(headerField);
+            return true;
         }
-        return invokeL.booleanValue;
+        return false;
     }
 
     private void setHttpResponseHeader(HttpURLConnection httpURLConnection, BdNetTask bdNetTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(65556, this, httpURLConnection, bdNetTask) != null) {
-            return;
-        }
         int i = 0;
         while (true) {
             String headerField = httpURLConnection.getHeaderField(i);
@@ -1129,446 +947,352 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void stopDownloadInner() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65557, this) == null) {
-            synchronized (this.mLock) {
-                this.mIsRunning = false;
-                if (this.mPrivateHandler != null) {
-                    this.mPrivateHandler.removeMessages(1);
-                    this.mPrivateHandler = null;
-                }
-                if (this.mNetTask != null) {
-                    this.mNetTask.stop();
-                }
-                if (this.mConnection != null) {
-                    this.mConnection.disconnect();
-                }
-                quit();
-                this.mListener = null;
-                com.baidu.webkit.net.a a2 = com.baidu.webkit.net.a.a();
-                if (a2.b != null && !a2.b.isEmpty()) {
-                    a2.b.remove(this);
-                }
+        synchronized (this.mLock) {
+            this.mIsRunning = false;
+            if (this.mPrivateHandler != null) {
+                this.mPrivateHandler.removeMessages(1);
+                this.mPrivateHandler = null;
+            }
+            if (this.mNetTask != null) {
+                this.mNetTask.stop();
+            }
+            if (this.mConnection != null) {
+                this.mConnection.disconnect();
+            }
+            quit();
+            this.mListener = null;
+            com.baidu.webkit.net.a a2 = com.baidu.webkit.net.a.a();
+            if (a2.b != null && !a2.b.isEmpty()) {
+                a2.b.remove(this);
             }
         }
     }
 
     private boolean upload(BdNetTask bdNetTask) {
-        InterceptResult invokeL;
         byte[] content;
         DataOutputStream dataOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, this, bdNetTask)) == null) {
-            boolean z = false;
-            DataOutputStream dataOutputStream2 = null;
+        boolean z = false;
+        DataOutputStream dataOutputStream2 = null;
+        try {
             try {
                 try {
-                    try {
-                        content = bdNetTask.getContent();
-                        dataOutputStream = new DataOutputStream(this.mConnection.getOutputStream());
-                    } catch (Throwable th) {
-                        th = th;
-                    }
+                    content = bdNetTask.getContent();
+                    dataOutputStream = new DataOutputStream(this.mConnection.getOutputStream());
                 } catch (IOException unused) {
                 }
             } catch (IOException unused2) {
             }
-            try {
-                dataOutputStream.write(content);
-                dataOutputStream.flush();
-                dataOutputStream.close();
-                if (this.mIsRunning && !bdNetTask.isStop() && this.mListener != null) {
-                    this.mListener.onNetUploadData(this, bdNetTask, content.length, content.length);
-                    this.mListener.onNetUploadComplete(this, bdNetTask);
-                }
-                z = true;
-                dataOutputStream.close();
-            } catch (IOException unused3) {
-                dataOutputStream2 = dataOutputStream;
-                if (this.mListener != null) {
-                    this.mListener.onNetDownloadError(this, bdNetTask, BdNet.NetError.ERROR_IO, 0);
-                }
-                if (dataOutputStream2 != null) {
-                    dataOutputStream2.close();
-                }
-                return z;
-            } catch (Throwable th2) {
-                th = th2;
-                dataOutputStream2 = dataOutputStream;
-                if (dataOutputStream2 != null) {
-                    try {
-                        dataOutputStream2.close();
-                    } catch (IOException unused4) {
-                    }
-                }
-                throw th;
+        } catch (Throwable th) {
+            th = th;
+        }
+        try {
+            dataOutputStream.write(content);
+            dataOutputStream.flush();
+            dataOutputStream.close();
+            if (this.mIsRunning && !bdNetTask.isStop() && this.mListener != null) {
+                this.mListener.onNetUploadData(this, bdNetTask, content.length, content.length);
+                this.mListener.onNetUploadComplete(this, bdNetTask);
+            }
+            z = true;
+            dataOutputStream.close();
+        } catch (IOException unused3) {
+            dataOutputStream2 = dataOutputStream;
+            if (this.mListener != null) {
+                this.mListener.onNetDownloadError(this, bdNetTask, BdNet.NetError.ERROR_IO, 0);
+            }
+            if (dataOutputStream2 != null) {
+                dataOutputStream2.close();
             }
             return z;
+        } catch (Throwable th2) {
+            th = th2;
+            dataOutputStream2 = dataOutputStream;
+            if (dataOutputStream2 != null) {
+                try {
+                    dataOutputStream2.close();
+                } catch (IOException unused4) {
+                }
+            }
+            throw th;
         }
-        return invokeL.booleanValue;
+        return z;
     }
 
     public static boolean verifyAsIpAddress(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65559, null, str)) == null) ? VERIFY_AS_IP_ADDRESS.matcher(str).matches() : invokeL.booleanValue;
+        return VERIFY_AS_IP_ADDRESS.matcher(str).matches();
     }
 
     public static boolean verifyHostName(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return false;
-            }
-            String lowerCase = str2.toLowerCase(Locale.US);
-            if (lowerCase.endsWith("shahe.baidu.com")) {
-                lowerCase = lowerCase.replace("shahe.baidu.com", "cbs.baidu.com");
-            }
-            if (lowerCase.contains("*")) {
-                if (lowerCase.startsWith(CertificatePinner.Pin.WILDCARD) && str.equals(lowerCase.substring(2))) {
-                    return true;
-                }
-                if (lowerCase.startsWith("*.*.") && str.endsWith(lowerCase.substring(4))) {
-                    return true;
-                }
-                int indexOf = lowerCase.indexOf(42);
-                if (indexOf <= lowerCase.indexOf(46) && str.regionMatches(0, lowerCase, 0, indexOf)) {
-                    int i = indexOf + 1;
-                    int length = lowerCase.length() - i;
-                    int length2 = str.length() - length;
-                    return (str.indexOf(46, indexOf) >= length2 || str.endsWith(".clients.google.com")) && str.regionMatches(length2, lowerCase, i, length);
-                }
-                return false;
-            }
-            return str.equals(lowerCase);
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return false;
         }
-        return invokeLL.booleanValue;
+        String lowerCase = str2.toLowerCase(Locale.US);
+        if (lowerCase.endsWith("shahe.baidu.com")) {
+            lowerCase = lowerCase.replace("shahe.baidu.com", "cbs.baidu.com");
+        }
+        if (lowerCase.contains("*")) {
+            if (lowerCase.startsWith(CertificatePinner.Pin.WILDCARD) && str.equals(lowerCase.substring(2))) {
+                return true;
+            }
+            if (lowerCase.startsWith("*.*.") && str.endsWith(lowerCase.substring(4))) {
+                return true;
+            }
+            int indexOf = lowerCase.indexOf(42);
+            if (indexOf <= lowerCase.indexOf(46) && str.regionMatches(0, lowerCase, 0, indexOf)) {
+                int i = indexOf + 1;
+                int length = lowerCase.length() - i;
+                int length2 = str.length() - length;
+                return (str.indexOf(46, indexOf) >= length2 || str.endsWith(".clients.google.com")) && str.regionMatches(length2, lowerCase, i, length);
+            }
+            return false;
+        }
+        return str.equals(lowerCase);
     }
 
     public static boolean verifyHostName(String str, X509Certificate x509Certificate) throws Exception {
-        InterceptResult invokeLL;
         String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, str, x509Certificate)) == null) {
-            String lowerCase = str.toLowerCase(Locale.US);
-            boolean z = false;
-            for (String str3 : getSubjectAltNames(x509Certificate, 2)) {
-                if (verifyHostName(lowerCase, str3)) {
-                    return true;
-                }
-                z = true;
+        String lowerCase = str.toLowerCase(Locale.US);
+        boolean z = false;
+        for (String str3 : getSubjectAltNames(x509Certificate, 2)) {
+            if (verifyHostName(lowerCase, str3)) {
+                return true;
             }
-            if (!z) {
-                a aVar = new a(x509Certificate.getSubjectX500Principal());
-                aVar.c = 0;
-                aVar.d = 0;
-                aVar.e = 0;
-                aVar.f = 0;
-                aVar.g = aVar.a.toCharArray();
-                String a2 = aVar.a();
-                String str4 = null;
-                if (a2 != null) {
-                    do {
-                        int i = aVar.c;
-                        if (i != aVar.b) {
-                            char c = aVar.g[i];
-                            if (c != '\"') {
-                                str2 = c != '#' ? (c == '+' || c == ',' || c == ';') ? "" : aVar.c() : aVar.b();
-                            } else {
-                                int i2 = i + 1;
-                                aVar.c = i2;
-                                aVar.d = i2;
-                                while (true) {
-                                    aVar.e = i2;
-                                    int i3 = aVar.c;
-                                    if (i3 == aVar.b) {
-                                        throw new IllegalStateException("Unexpected end of DN: " + aVar.a);
-                                    }
-                                    char[] cArr = aVar.g;
-                                    if (cArr[i3] == '\"') {
-                                        do {
-                                            aVar.c = i3 + 1;
-                                            i3 = aVar.c;
-                                            if (i3 >= aVar.b) {
-                                                break;
-                                            }
-                                        } while (aVar.g[i3] == ' ');
-                                        char[] cArr2 = aVar.g;
-                                        int i4 = aVar.d;
-                                        str2 = new String(cArr2, i4, aVar.e - i4);
-                                    } else {
-                                        if (cArr[i3] == '\\') {
-                                            cArr[aVar.e] = aVar.d();
-                                        } else {
-                                            cArr[aVar.e] = cArr[i3];
-                                        }
-                                        aVar.c++;
-                                        i2 = aVar.e + 1;
-                                    }
+            z = true;
+        }
+        if (!z) {
+            a aVar = new a(x509Certificate.getSubjectX500Principal());
+            aVar.c = 0;
+            aVar.d = 0;
+            aVar.e = 0;
+            aVar.f = 0;
+            aVar.g = aVar.a.toCharArray();
+            String a2 = aVar.a();
+            String str4 = null;
+            if (a2 != null) {
+                do {
+                    int i = aVar.c;
+                    if (i != aVar.b) {
+                        char c = aVar.g[i];
+                        if (c != '\"') {
+                            str2 = c != '#' ? (c == '+' || c == ',' || c == ';') ? "" : aVar.c() : aVar.b();
+                        } else {
+                            int i2 = i + 1;
+                            aVar.c = i2;
+                            aVar.d = i2;
+                            while (true) {
+                                aVar.e = i2;
+                                int i3 = aVar.c;
+                                if (i3 == aVar.b) {
+                                    throw new IllegalStateException("Unexpected end of DN: " + aVar.a);
                                 }
-                            }
-                            if (AdvanceSetting.CLEAR_NOTIFICATION.equalsIgnoreCase(a2)) {
-                                str4 = str2;
-                            } else {
-                                int i5 = aVar.c;
-                                if (i5 < aVar.b) {
-                                    if (aVar.g[i5] != '+') {
-                                        throw new IllegalStateException("Malformed DN: " + aVar.a);
+                                char[] cArr = aVar.g;
+                                if (cArr[i3] == '\"') {
+                                    do {
+                                        aVar.c = i3 + 1;
+                                        i3 = aVar.c;
+                                        if (i3 >= aVar.b) {
+                                            break;
+                                        }
+                                    } while (aVar.g[i3] == ' ');
+                                    char[] cArr2 = aVar.g;
+                                    int i4 = aVar.d;
+                                    str2 = new String(cArr2, i4, aVar.e - i4);
+                                } else {
+                                    if (cArr[i3] == '\\') {
+                                        cArr[aVar.e] = aVar.d();
+                                    } else {
+                                        cArr[aVar.e] = cArr[i3];
                                     }
-                                    aVar.c = i5 + 1;
-                                    a2 = aVar.a();
+                                    aVar.c++;
+                                    i2 = aVar.e + 1;
                                 }
                             }
                         }
-                    } while (a2 != null);
-                    throw new IllegalStateException("Malformed DN: " + aVar.a);
-                }
-                if (str4 != null) {
-                    return verifyHostName(lowerCase, str4);
-                }
+                        if ("cn".equalsIgnoreCase(a2)) {
+                            str4 = str2;
+                        } else {
+                            int i5 = aVar.c;
+                            if (i5 < aVar.b) {
+                                if (aVar.g[i5] != '+') {
+                                    throw new IllegalStateException("Malformed DN: " + aVar.a);
+                                }
+                                aVar.c = i5 + 1;
+                                a2 = aVar.a();
+                            }
+                        }
+                    }
+                } while (a2 != null);
+                throw new IllegalStateException("Malformed DN: " + aVar.a);
             }
-            return false;
+            if (str4 != null) {
+                return verifyHostName(lowerCase, str4);
+            }
         }
-        return invokeLL.booleanValue;
+        return false;
     }
 
     public static boolean verifyIpAddress(String str, X509Certificate x509Certificate) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, str, x509Certificate)) == null) {
-            for (String str2 : getSubjectAltNames(x509Certificate, 7)) {
-                if (str.equalsIgnoreCase(str2)) {
-                    return true;
-                }
+        for (String str2 : getSubjectAltNames(x509Certificate, 7)) {
+            if (str.equalsIgnoreCase(str2)) {
+                return true;
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+        return false;
     }
 
     public void allocate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mIsRecycle = false;
-        }
+        this.mIsRecycle = false;
     }
 
     public BdNetTask getNetTask() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mNetTask : (BdNetTask) invokeV.objValue;
+        return this.mNetTask;
     }
 
     public boolean isRecycle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mIsRecycle : invokeV.booleanValue;
+        return this.mIsRecycle;
     }
 
     public boolean isWorking() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsWorking : invokeV.booleanValue;
+        return this.mIsWorking;
     }
 
     @Override // android.os.HandlerThread
     @SuppressLint({"HandlerLeak"})
     public void onLooperPrepared() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this.mLock) {
-                if (this.mPrivateHandler == null) {
-                    this.mPrivateHandler = new Handler(this, getLooper()) { // from class: com.baidu.webkit.net.BdNetEngine.3
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ BdNetEngine a;
-
-                        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                        {
-                            super(r8);
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, r8};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    super((Looper) newInitContext.callArgs[0]);
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
+        synchronized (this.mLock) {
+            if (this.mPrivateHandler == null) {
+                this.mPrivateHandler = new Handler(getLooper()) { // from class: com.baidu.webkit.net.BdNetEngine.3
+                    @Override // android.os.Handler
+                    public final void handleMessage(Message message) {
+                        int i = message.what;
+                        if (i != 1) {
+                            if (i != 2) {
+                                return;
                             }
-                            this.a = this;
+                            BdNetEngine.this.stopDownloadInner();
+                            return;
                         }
-
-                        @Override // android.os.Handler
-                        public final void handleMessage(Message message) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
-                                int i = message.what;
-                                if (i != 1) {
-                                    if (i != 2) {
-                                        return;
-                                    }
-                                    this.a.stopDownloadInner();
-                                    return;
-                                }
-                                this.a.mIsWorking = true;
-                                BdNetEngine bdNetEngine = this.a;
-                                bdNetEngine.mNetTask = bdNetEngine.performTask((BdNetTask) message.obj);
-                                if (this.a.mNetTask == null) {
-                                    this.a.recycle();
-                                } else {
-                                    this.a.mPrivateHandler.obtainMessage(1, this.a.mNetTask).sendToTarget();
-                                }
-                                this.a.mIsWorking = false;
-                            }
+                        BdNetEngine.this.mIsWorking = true;
+                        BdNetEngine bdNetEngine = BdNetEngine.this;
+                        bdNetEngine.mNetTask = bdNetEngine.performTask((BdNetTask) message.obj);
+                        if (BdNetEngine.this.mNetTask == null) {
+                            BdNetEngine.this.recycle();
+                        } else {
+                            BdNetEngine.this.mPrivateHandler.obtainMessage(1, BdNetEngine.this.mNetTask).sendToTarget();
                         }
-                    };
-                }
-                if (this.mIsWorking) {
-                    this.mPrivateHandler.obtainMessage(1, this.mNetTask).sendToTarget();
-                }
+                        BdNetEngine.this.mIsWorking = false;
+                    }
+                };
+            }
+            if (this.mIsWorking) {
+                this.mPrivateHandler.obtainMessage(1, this.mNetTask).sendToTarget();
             }
         }
     }
 
     public BdNetTask performTask(BdNetTask bdNetTask) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bdNetTask)) == null) {
+        try {
             try {
-                try {
-                    int excuteTask = excuteTask(bdNetTask);
-                    if (!this.mIsRunning) {
-                        if (this.mListener != null && excuteTask != 3) {
-                            this.mListener.onNetDownloadError(this, bdNetTask, BdNet.NetError.ERROR_RUN_STOP, 0);
-                        }
-                        return null;
-                    } else if (excuteTask != 1 || this.mListener == null) {
-                        if (excuteTask == 2) {
-                            return bdNetTask;
-                        }
-                        if (excuteTask != 3 || this.mListener == null) {
-                            return null;
-                        }
-                        return this.mListener.onNetDownloadComplete(this, bdNetTask, false);
-                    } else {
-                        return this.mListener.onNetDownloadComplete(this, bdNetTask, true);
-                    }
-                } catch (Exception unused) {
-                    if (this.mListener != null) {
-                        this.mListener.onNetDownloadError(this, bdNetTask, BdNet.NetError.ERROR_RUN_EXCEPTION, 0);
+                int excuteTask = excuteTask(bdNetTask);
+                if (!this.mIsRunning) {
+                    if (this.mListener != null && excuteTask != 3) {
+                        this.mListener.onNetDownloadError(this, bdNetTask, BdNet.NetError.ERROR_RUN_STOP, 0);
                     }
                     return null;
+                } else if (excuteTask != 1 || this.mListener == null) {
+                    if (excuteTask == 2) {
+                        return bdNetTask;
+                    }
+                    if (excuteTask != 3 || this.mListener == null) {
+                        return null;
+                    }
+                    return this.mListener.onNetDownloadComplete(this, bdNetTask, false);
+                } else {
+                    return this.mListener.onNetDownloadComplete(this, bdNetTask, true);
                 }
-            } catch (Exception unused2) {
+            } catch (Exception unused) {
+                if (this.mListener != null) {
+                    this.mListener.onNetDownloadError(this, bdNetTask, BdNet.NetError.ERROR_RUN_EXCEPTION, 0);
+                }
                 return null;
             }
+        } catch (Exception unused2) {
+            return null;
         }
-        return (BdNetTask) invokeL.objValue;
     }
 
     public void recycle() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.mIsRecycle = true;
-            this.mListener = null;
-        }
+        this.mIsRecycle = true;
+        this.mListener = null;
     }
 
     @Override // android.os.HandlerThread, java.lang.Thread, java.lang.Runnable
     public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            try {
-                super.run();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        try {
+            super.run();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     public void setCmwap(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.mIsCmwap = z;
-        }
+        this.mIsCmwap = z;
     }
 
     public void setEventListener(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
-            this.mListener = bVar;
-        }
+        this.mListener = bVar;
     }
 
     public void setProxyPort(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.mProxyPort = i;
-        }
+        this.mProxyPort = i;
     }
 
     public void setProxyUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.mProxyUrl = str;
-        }
+        this.mProxyUrl = str;
     }
 
     public void startDownload(BdNetTask bdNetTask) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bdNetTask) == null) {
-            synchronized (this.mLock) {
-                try {
-                    if (bdNetTask == null) {
-                        throw new NullPointerException();
-                    }
-                    if (!isAlive()) {
-                        this.mIsRunning = true;
-                        this.mIsWorking = true;
-                        this.mNetTask = bdNetTask;
-                        try {
-                            if (getLooper() != null) {
-                                onLooperPrepared();
-                            } else {
-                                start();
-                            }
-                        } catch (IllegalThreadStateException e) {
-                            this.mIsRunning = false;
-                            this.mIsWorking = false;
-                            this.mNetTask = null;
-                            throw e;
-                        }
-                    } else if (!this.mIsRunning) {
-                        throw new IllegalThreadStateException("NetEngine is stopped!");
-                    } else {
-                        if (this.mIsWorking) {
-                            throw new IllegalThreadStateException("NetEngine is working!");
-                        }
-                        this.mIsWorking = true;
-                        this.mNetTask = bdNetTask;
-                        this.mPrivateHandler.obtainMessage(1, bdNetTask).sendToTarget();
-                    }
-                } catch (Throwable th) {
-                    throw th;
+        synchronized (this.mLock) {
+            try {
+                if (bdNetTask == null) {
+                    throw new NullPointerException();
                 }
+                if (!isAlive()) {
+                    this.mIsRunning = true;
+                    this.mIsWorking = true;
+                    this.mNetTask = bdNetTask;
+                    try {
+                        if (getLooper() != null) {
+                            onLooperPrepared();
+                        } else {
+                            start();
+                        }
+                    } catch (IllegalThreadStateException e) {
+                        this.mIsRunning = false;
+                        this.mIsWorking = false;
+                        this.mNetTask = null;
+                        throw e;
+                    }
+                } else if (!this.mIsRunning) {
+                    throw new IllegalThreadStateException("NetEngine is stopped!");
+                } else {
+                    if (this.mIsWorking) {
+                        throw new IllegalThreadStateException("NetEngine is working!");
+                    }
+                    this.mIsWorking = true;
+                    this.mNetTask = bdNetTask;
+                    this.mPrivateHandler.obtainMessage(1, bdNetTask).sendToTarget();
+                }
+            } catch (Throwable th) {
+                throw th;
             }
         }
     }
 
     public void stopDownload() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            synchronized (this.mLock) {
-                if (this.mPrivateHandler != null) {
-                    this.mPrivateHandler.obtainMessage(2).sendToTarget();
-                }
+        synchronized (this.mLock) {
+            if (this.mPrivateHandler != null) {
+                this.mPrivateHandler.obtainMessage(2).sendToTarget();
             }
         }
     }

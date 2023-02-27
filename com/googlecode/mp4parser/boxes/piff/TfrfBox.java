@@ -1,14 +1,6 @@
 package com.googlecode.mp4parser.boxes.piff;
 
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
@@ -21,157 +13,71 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
 /* loaded from: classes8.dex */
 public class TfrfBox extends AbstractFullBox {
-    public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_2 = null;
-    public transient /* synthetic */ FieldHolder $fh;
     public List<Entry> entries;
 
     /* loaded from: classes8.dex */
     public class Entry {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public long fragmentAbsoluteDuration;
         public long fragmentAbsoluteTime;
-        public final /* synthetic */ TfrfBox this$0;
 
-        public Entry(TfrfBox tfrfBox) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tfrfBox};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = tfrfBox;
+        public Entry() {
         }
 
         public long getFragmentAbsoluteDuration() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.fragmentAbsoluteDuration;
-            }
-            return invokeV.longValue;
+            return this.fragmentAbsoluteDuration;
         }
 
         public long getFragmentAbsoluteTime() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.fragmentAbsoluteTime;
-            }
-            return invokeV.longValue;
+            return this.fragmentAbsoluteTime;
         }
 
         public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return "Entry{fragmentAbsoluteTime=" + this.fragmentAbsoluteTime + ", fragmentAbsoluteDuration=" + this.fragmentAbsoluteDuration + '}';
-            }
-            return (String) invokeV.objValue;
+            return "Entry{fragmentAbsoluteTime=" + this.fragmentAbsoluteTime + ", fragmentAbsoluteDuration=" + this.fragmentAbsoluteDuration + '}';
         }
     }
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1995396504, "Lcom/googlecode/mp4parser/boxes/piff/TfrfBox;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1995396504, "Lcom/googlecode/mp4parser/boxes/piff/TfrfBox;");
-                return;
-            }
-        }
         ajc$preClinit();
+    }
+
+    public TfrfBox() {
+        super("uuid");
+        this.entries = new ArrayList();
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public long getContentSize() {
-        InterceptResult invokeV;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int size = this.entries.size();
-            if (getVersion() == 1) {
-                i = 16;
-            } else {
-                i = 8;
-            }
-            return (size * i) + 5;
+        int size = this.entries.size();
+        if (getVersion() == 1) {
+            i = 16;
+        } else {
+            i = 8;
         }
-        return invokeV.longValue;
+        return (size * i) + 5;
     }
 
     public List<Entry> getEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this));
-            return this.entries;
-        }
-        return (List) invokeV.objValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this));
+        return this.entries;
     }
 
     public long getFragmentCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.entries.size();
-        }
-        return invokeV.longValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+        return this.entries.size();
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public byte[] getUserType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return new byte[]{-44, Byte.MIN_VALUE, 126, -14, ExifInterface.MARKER_SOF10, 57, 70, -107, -114, 84, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, ExifInterface.MARKER_SOF11, -98, 70, -89, -97};
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TfrfBox() {
-        super("uuid");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.entries = new ArrayList();
+        return new byte[]{-44, Byte.MIN_VALUE, 126, -14, ExifInterface.MARKER_SOF10, 57, 70, -107, -114, 84, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, ExifInterface.MARKER_SOF11, -98, 70, -89, -97};
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return "TfrfBox{entries=" + this.entries + '}';
-        }
-        return (String) invokeV.objValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+        return "TfrfBox{entries=" + this.entries + '}';
     }
 
     public static /* synthetic */ void ajc$preClinit() {
@@ -183,38 +89,32 @@ public class TfrfBox extends AbstractFullBox {
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void _parseDetails(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
-            parseVersionAndFlags(byteBuffer);
-            int readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
-            for (int i = 0; i < readUInt8; i++) {
-                Entry entry = new Entry(this);
-                if (getVersion() == 1) {
-                    entry.fragmentAbsoluteTime = IsoTypeReader.readUInt64(byteBuffer);
-                    entry.fragmentAbsoluteDuration = IsoTypeReader.readUInt64(byteBuffer);
-                } else {
-                    entry.fragmentAbsoluteTime = IsoTypeReader.readUInt32(byteBuffer);
-                    entry.fragmentAbsoluteDuration = IsoTypeReader.readUInt32(byteBuffer);
-                }
-                this.entries.add(entry);
+        parseVersionAndFlags(byteBuffer);
+        int readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
+        for (int i = 0; i < readUInt8; i++) {
+            Entry entry = new Entry();
+            if (getVersion() == 1) {
+                entry.fragmentAbsoluteTime = IsoTypeReader.readUInt64(byteBuffer);
+                entry.fragmentAbsoluteDuration = IsoTypeReader.readUInt64(byteBuffer);
+            } else {
+                entry.fragmentAbsoluteTime = IsoTypeReader.readUInt32(byteBuffer);
+                entry.fragmentAbsoluteDuration = IsoTypeReader.readUInt32(byteBuffer);
             }
+            this.entries.add(entry);
         }
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void getContent(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
-            writeVersionAndFlags(byteBuffer);
-            IsoTypeWriter.writeUInt8(byteBuffer, this.entries.size());
-            for (Entry entry : this.entries) {
-                if (getVersion() == 1) {
-                    IsoTypeWriter.writeUInt64(byteBuffer, entry.fragmentAbsoluteTime);
-                    IsoTypeWriter.writeUInt64(byteBuffer, entry.fragmentAbsoluteDuration);
-                } else {
-                    IsoTypeWriter.writeUInt32(byteBuffer, entry.fragmentAbsoluteTime);
-                    IsoTypeWriter.writeUInt32(byteBuffer, entry.fragmentAbsoluteDuration);
-                }
+        writeVersionAndFlags(byteBuffer);
+        IsoTypeWriter.writeUInt8(byteBuffer, this.entries.size());
+        for (Entry entry : this.entries) {
+            if (getVersion() == 1) {
+                IsoTypeWriter.writeUInt64(byteBuffer, entry.fragmentAbsoluteTime);
+                IsoTypeWriter.writeUInt64(byteBuffer, entry.fragmentAbsoluteDuration);
+            } else {
+                IsoTypeWriter.writeUInt32(byteBuffer, entry.fragmentAbsoluteTime);
+                IsoTypeWriter.writeUInt32(byteBuffer, entry.fragmentAbsoluteDuration);
             }
         }
     }

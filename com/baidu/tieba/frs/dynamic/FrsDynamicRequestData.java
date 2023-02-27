@@ -2,9 +2,9 @@ package com.baidu.tieba.frs.dynamic;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qi5;
-import com.baidu.tieba.ti5;
-import com.baidu.tieba.yo5;
+import com.baidu.tieba.dk5;
+import com.baidu.tieba.gk5;
+import com.baidu.tieba.mq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,12 +15,12 @@ import tbclient.CommonReq;
 import tbclient.StarTrends.DataReq;
 import tbclient.StarTrends.StarTrendsReqIdl;
 /* loaded from: classes4.dex */
-public class FrsDynamicRequestData extends OrmObject implements ti5, qi5 {
+public class FrsDynamicRequestData extends OrmObject implements gk5, dk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1071common;
+    public CommonReq f1045common;
     public long forumId;
     public long lastThreadId;
     public int qType;
@@ -28,8 +28,8 @@ public class FrsDynamicRequestData extends OrmObject implements ti5, qi5 {
     public int scrH;
     public int scrW;
 
-    @Override // com.baidu.tieba.si5
-    public HashMap<String, Object> B() {
+    @Override // com.baidu.tieba.fk5
+    public HashMap<String, Object> G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -38,8 +38,8 @@ public class FrsDynamicRequestData extends OrmObject implements ti5, qi5 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.si5
-    public HashMap<String, String> E() {
+    @Override // com.baidu.tieba.fk5
+    public HashMap<String, String> L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -48,8 +48,8 @@ public class FrsDynamicRequestData extends OrmObject implements ti5, qi5 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qi5
-    public String F() {
+    @Override // com.baidu.tieba.dk5
+    public String M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -58,17 +58,17 @@ public class FrsDynamicRequestData extends OrmObject implements ti5, qi5 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pi5
+    @Override // com.baidu.tieba.ck5
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return null;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qi5
+    @Override // com.baidu.tieba.dk5
     public boolean isNeedUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -78,8 +78,8 @@ public class FrsDynamicRequestData extends OrmObject implements ti5, qi5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.qi5
-    public boolean t() {
+    @Override // com.baidu.tieba.dk5
+    public boolean w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -102,11 +102,11 @@ public class FrsDynamicRequestData extends OrmObject implements ti5, qi5 {
         }
     }
 
-    @Override // com.baidu.tieba.vi5
-    public Object g(boolean z) {
+    @Override // com.baidu.tieba.ik5
+    public Object i(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             builder.forum_id = Long.valueOf(this.forumId);
             builder.scr_w = Integer.valueOf(this.scrW);
@@ -115,7 +115,7 @@ public class FrsDynamicRequestData extends OrmObject implements ti5, qi5 {
             builder.q_type = Integer.valueOf(this.qType);
             builder.last_thread_id = Long.valueOf(this.lastThreadId);
             builder.rn = 30;
-            yo5.c(builder, true, false, true);
+            mq5.c(builder, true, false, true);
             StarTrendsReqIdl.Builder builder2 = new StarTrendsReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

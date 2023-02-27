@@ -2,6 +2,7 @@ package com.sdk.d;
 
 import android.os.Process;
 import android.os.SystemClock;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,16 +40,31 @@ public class c<Params, Result> extends e.c<Params, Result> {
         this.b = eVar;
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0054 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v6, types: [java.lang.Object[]] */
+    /* JADX WARN: Type inference failed for: r2v0 */
+    /* JADX WARN: Type inference failed for: r2v1 */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    /* JADX WARN: Type inference failed for: r2v4 */
+    /* JADX WARN: Type inference failed for: r2v5 */
+    /* JADX WARN: Type inference failed for: r2v6 */
+    /* JADX WARN: Type inference failed for: r2v7 */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:31:0x00d6 -> B:38:0x010f). Please submit an issue!!! */
     @Override // java.util.concurrent.Callable
     public Result call() {
         InterceptResult invokeV;
         AtomicBoolean atomicBoolean;
-        Object[] objArr;
         boolean z;
         Object a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = "PriorityAsyncTask";
             atomicBoolean = this.b.f;
+            ?? r2 = 1;
+            r2 = 1;
+            r2 = 1;
+            r2 = 1;
             atomicBoolean.set(true);
             Process.setThreadPriority(10);
             e eVar = this.b;
@@ -73,25 +89,37 @@ public class c<Params, Result> extends e.c<Params, Result> {
                 try {
                     eVar2.s = SystemClock.uptimeMillis();
                     eVar2.a(1);
-                    com.sdk.a.g gVar = (com.sdk.a.g) paramsArr[0];
-                    String a2 = gVar.a();
+                    com.sdk.a.f fVar = (com.sdk.a.f) paramsArr[0];
+                    String a2 = fVar.a();
                     eVar2.o = a2;
-                    HttpURLConnection a3 = gVar.a(a2, false);
+                    HttpURLConnection a3 = fVar.a(a2, false);
                     if (a3 == null) {
-                        objArr = new Object[]{4, new com.sdk.a.i(0, eVar2.b(), false)};
+                        eVar2.a(4, new com.sdk.a.h(0, eVar2.b(), false));
+                        str = "PriorityAsyncTask";
                     } else {
-                        com.sdk.a.i b = eVar2.b(gVar, a3);
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("client: ");
+                        sb.append(a3);
+                        Log.e("PriorityAsyncTask", sb.toString());
+                        com.sdk.a.h b = eVar2.b(fVar, a3);
                         if (b.a() == 0) {
-                            objArr = new Object[]{4, b};
+                            eVar2.a(4, b);
+                            str = "PriorityAsyncTask";
                         } else {
                             eVar2.a(3, Integer.valueOf(b.a()), b.b());
+                            str = "PriorityAsyncTask";
                         }
                     }
-                    eVar2.a(objArr);
                 } catch (Exception e) {
-                    com.sdk.n.b.c(e.toString());
-                    com.sdk.n.a.a("PriorityAsyncTask", "网络访问异常：\n" + e.toString(), eVar2.h);
-                    eVar2.a(3, 302002, "网络访问异常");
+                    com.sdk.o.b.c(e.toString());
+                    com.sdk.o.a.a(str, "HttpHandler：doInBackground\n" + e.toString(), eVar2.h);
+                    ?? r0 = new Object[3];
+                    r0[0] = 3;
+                    r0[r2] = 302002;
+                    r0[2] = "网络访问异常";
+                    eVar2.a((Object[]) r0);
+                    str = r0;
+                    r2 = "网络访问异常";
                 }
             }
             a = eVar.a((e) null);

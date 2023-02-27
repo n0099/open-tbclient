@@ -1,13 +1,7 @@
 package com.baidu.ar.http;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.ihttp.HttpException;
 import com.baidu.ar.ihttp.IProgressCallback;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -15,8 +9,6 @@ import java.net.HttpURLConnection;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c implements l {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public Object mLock;
     public com.baidu.ar.ihttp.a qF;
     public volatile boolean qH;
@@ -25,42 +17,11 @@ public class c implements l {
     public i qM;
     public IProgressCallback qN;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public c(g gVar) {
         this(gVar, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {gVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((g) objArr2[0], (com.baidu.ar.ihttp.a) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
     }
 
     public c(g gVar, com.baidu.ar.ihttp.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {gVar, aVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mLock = new Object();
         this.qH = false;
         this.qK = gVar;
@@ -71,8 +32,7 @@ public class c implements l {
 
     @Override // com.baidu.ar.http.l
     public void cancel() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.qH) {
+        if (this.qH) {
             return;
         }
         this.qF = null;
@@ -84,14 +44,12 @@ public class c implements l {
 
     @Override // com.baidu.ar.http.l
     public i eH() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.qM : (i) invokeV.objValue;
+        return this.qM;
     }
 
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x0108  */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x010d  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x0104  */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x0109  */
     /* JADX WARN: Type inference failed for: r2v0 */
     /* JADX WARN: Type inference failed for: r2v2, types: [java.io.Closeable] */
     /* JADX WARN: Type inference failed for: r2v5 */
@@ -102,12 +60,7 @@ public class c implements l {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public i eJ() {
-        InterceptResult invokeV;
         InputStream[] inputStreamArr;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) != null) {
-            return (i) invokeV.objValue;
-        }
         synchronized (this.mLock) {
             ?? r2 = 0;
             r2 = 0;
@@ -206,7 +159,8 @@ public class c implements l {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, INVOKE, IF] complete} */
-    /* JADX WARN: Removed duplicated region for block: B:58:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Not initialized variable reg: 3, insn: 0x002a: MOVE  (r0 I:??[int, float, boolean, short, byte, char, OBJECT, ARRAY]) = (r3 I:??[int, float, boolean, short, byte, char, OBJECT, ARRAY]), block:B:25:0x0029 */
+    /* JADX WARN: Removed duplicated region for block: B:53:? A[RETURN, SYNTHETIC] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -216,67 +170,62 @@ public class c implements l {
         HttpURLConnection httpURLConnection;
         boolean z;
         i eJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            boolean z2 = false;
+        boolean z2;
+        boolean z3 = false;
+        try {
             try {
+                eJ = eJ();
                 try {
-                    eJ = eJ();
-                } finally {
-                    httpURLConnection = this.qL;
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
+                    try {
+                    } catch (HttpException e) {
+                        httpException = e;
+                        z3 = z2;
+                        z = false;
+                        if (!z3) {
+                            this.qF.a(httpException);
+                        }
                     }
-                }
-            } catch (HttpException e) {
-                httpException = e;
-            }
-            try {
-                try {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (HttpException e2) {
-                httpException = e2;
-                z2 = true;
-                z = false;
-                if (!z2) {
-                    this.qF.a(httpException);
+            } finally {
+                httpURLConnection = this.qL;
+                if (httpURLConnection != null) {
+                    httpURLConnection.disconnect();
                 }
             }
-            synchronized (this.mLock) {
-                try {
-                    boolean z3 = this.qH;
-                    if (!z3 && this.qF != null) {
-                        try {
-                            this.qF.a(eJ);
-                        } catch (HttpException e3) {
-                            httpException = e3;
-                            z2 = z3;
-                            z = true;
-                            if (!z2 && !z && this.qF != null) {
-                                this.qF.a(httpException);
-                            }
-                            if (httpURLConnection == null) {
-                                return;
-                            }
+        } catch (HttpException e2) {
+            httpException = e2;
+        }
+        synchronized (this.mLock) {
+            try {
+                boolean z4 = this.qH;
+                if (!z4 && this.qF != null) {
+                    try {
+                        this.qF.a(eJ);
+                    } catch (HttpException e3) {
+                        httpException = e3;
+                        z3 = z4;
+                        z = true;
+                        if (!z3 && !z && this.qF != null) {
+                            this.qF.a(httpException);
+                        }
+                        if (httpURLConnection == null) {
+                            return;
                         }
                     }
-                    HttpURLConnection httpURLConnection2 = this.qL;
-                    if (httpURLConnection2 == null) {
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    throw th;
                 }
+                HttpURLConnection httpURLConnection2 = this.qL;
+                if (httpURLConnection2 == null) {
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                throw th;
             }
         }
     }
 
     public void setProgressCallback(IProgressCallback iProgressCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iProgressCallback) == null) {
-            this.qN = iProgressCallback;
-        }
+        this.qN = iProgressCallback;
     }
 }

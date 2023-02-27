@@ -1,41 +1,18 @@
 package com.baidu.pass.http;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.common.Log;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Comparable<PassHttpClientRequest> {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "PassHttpClientRequest";
-    public transient /* synthetic */ FieldHolder $fh;
     public int b;
-    public volatile boolean cancelRequest;
+    public volatile boolean cancelRequest = false;
     public Context context;
     public Method method;
     public PassHttpParamDTO paramDTO;
     public HttpResponseHandler responseHandler;
 
     public PassHttpClientRequest(Method method, Context context, PassHttpParamDTO passHttpParamDTO, int i, HttpResponseHandler httpResponseHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {method, context, passHttpParamDTO, Integer.valueOf(i), httpResponseHandler};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.cancelRequest = false;
         this.b = i;
         this.method = method;
         this.context = context;
@@ -44,51 +21,40 @@ public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Compar
     }
 
     public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.cancelRequest = true;
-            this.responseHandler = null;
-        }
+        this.cancelRequest = true;
+        this.responseHandler = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     public int compareTo(PassHttpClientRequest passHttpClientRequest) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passHttpClientRequest)) == null) {
-            ReqPriority reqPriority = this.paramDTO.priority;
-            ReqPriority reqPriority2 = passHttpClientRequest.paramDTO.priority;
-            if (reqPriority == reqPriority2) {
-                return this.b - passHttpClientRequest.b;
-            }
-            return reqPriority2.ordinal() - reqPriority.ordinal();
+        ReqPriority reqPriority = this.paramDTO.priority;
+        ReqPriority reqPriority2 = passHttpClientRequest.paramDTO.priority;
+        if (reqPriority == reqPriority2) {
+            return this.b - passHttpClientRequest.b;
         }
-        return invokeL.intValue;
+        return reqPriority2.ordinal() - reqPriority.ordinal();
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            HttpResponseHandler httpResponseHandler = this.responseHandler;
-            if (httpResponseHandler != null) {
-                httpResponseHandler.b();
+        HttpResponseHandler httpResponseHandler = this.responseHandler;
+        if (httpResponseHandler != null) {
+            httpResponseHandler.b();
+        }
+        Log.e(a, "network request already run");
+        try {
+            new b().a(this);
+        } catch (Exception e) {
+            Log.e(a, "PassHttpClientRequestrun " + e.getMessage());
+            HttpResponseHandler httpResponseHandler2 = this.responseHandler;
+            if (httpResponseHandler2 != null) {
+                httpResponseHandler2.b(e, e.getMessage());
             }
-            Log.e(a, "network request already run");
-            try {
-                new b().a(this);
-            } catch (Exception e) {
-                Log.e(a, "PassHttpClientRequestrun " + e.getMessage());
-                HttpResponseHandler httpResponseHandler2 = this.responseHandler;
-                if (httpResponseHandler2 != null) {
-                    httpResponseHandler2.b(e, e.getMessage());
-                }
-            }
-            HttpResponseHandler httpResponseHandler3 = this.responseHandler;
-            if (httpResponseHandler3 != null) {
-                httpResponseHandler3.a();
-            }
+        }
+        HttpResponseHandler httpResponseHandler3 = this.responseHandler;
+        if (httpResponseHandler3 != null) {
+            httpResponseHandler3.a();
         }
     }
 }

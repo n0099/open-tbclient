@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import com.kwad.sdk.commercial.model.WebViewLoadMsg;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -22,8 +23,8 @@ public final class gf implements com.kwad.sdk.core.d<WebViewLoadMsg> {
         if (jSONObject.opt("fail_reason") == JSONObject.NULL) {
             webViewLoadMsg.failReason = "";
         }
-        webViewLoadMsg.costTime = jSONObject.optString("cost_time");
-        if (jSONObject.opt("cost_time") == JSONObject.NULL) {
+        webViewLoadMsg.costTime = jSONObject.optString(HiAnalyticsConstant.BI_KEY_COST_TIME);
+        if (jSONObject.opt(HiAnalyticsConstant.BI_KEY_COST_TIME) == JSONObject.NULL) {
             webViewLoadMsg.costTime = "";
         }
         webViewLoadMsg.ratioCount = jSONObject.optDouble("ratio_count");
@@ -52,7 +53,7 @@ public final class gf implements com.kwad.sdk.core.d<WebViewLoadMsg> {
         }
         String str4 = webViewLoadMsg.costTime;
         if (str4 != null && !str4.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "cost_time", webViewLoadMsg.costTime);
+            com.kwad.sdk.utils.r.putValue(jSONObject, HiAnalyticsConstant.BI_KEY_COST_TIME, webViewLoadMsg.costTime);
         }
         double d = webViewLoadMsg.ratioCount;
         if (d != 0.0d) {

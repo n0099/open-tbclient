@@ -1,13 +1,42 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import tbclient.FrsPage.LiveFuseForumData;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface qz6 {
-    void a();
+    void a(String str);
 
-    void b(List<LiveFuseForumData> list, pz6 pz6Var);
+    void b();
 
-    View getView();
+    int c();
+
+    void d(no noVar);
+
+    void e();
+
+    List<Cdo> f();
+
+    void g(ArrayList<Cdo> arrayList, FrsViewData frsViewData);
+
+    HashMap<Integer, ThreadData> h();
+
+    int i();
+
+    int j();
+
+    boolean k(BdUniqueId bdUniqueId);
+
+    void l(uu6 uu6Var);
+
+    void m(boolean z);
+
+    void notifyDataSetChanged();
+
+    void onDestory();
+
+    void setFromCDN(boolean z);
 }

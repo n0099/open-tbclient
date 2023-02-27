@@ -1,14 +1,7 @@
 package org.apache.http.protocol;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
 /* loaded from: classes9.dex */
 public final class HTTP {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ASCII = "ASCII";
     public static final String CHARSET_PARAM = "; charset=";
     public static final String CHUNK_CODING = "chunked";
@@ -39,30 +32,12 @@ public final class HTTP {
     public static final String US_ASCII = "US-ASCII";
     public static final String UTF_16 = "UTF-16";
     public static final String UTF_8 = "UTF-8";
-    public transient /* synthetic */ FieldHolder $fh;
 
     public HTTP() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         throw new RuntimeException("Stub!");
     }
 
     public static boolean isWhitespace(char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Character.valueOf(c)})) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeCommon.booleanValue;
+        throw new RuntimeException("Stub!");
     }
 }

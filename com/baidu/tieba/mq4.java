@@ -1,27 +1,29 @@
 package com.baidu.tieba;
 
-import android.view.Window;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.swan.videoplayer.SwanVideoView;
 /* loaded from: classes5.dex */
-public class mq4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface mq4 {
+    void a();
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        SwanAppActivity w;
-        Window window;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            w83 b0 = w83.b0();
-            if (b0 == null || (w = b0.w()) == null || w.isFinishing() || (window = w.getWindow()) == null || (window.getAttributes().flags & 1024) != 1024) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
+    void b(boolean z);
+
+    void c(SwanVideoView swanVideoView);
+
+    void d(boolean z);
+
+    void onBufferingUpdate(int i);
+
+    void onError(int i, int i2, String str);
+
+    void onPause();
+
+    void onPrepared();
+
+    void onResume();
+
+    void onSeekEnd();
+
+    void onStart();
+
+    void onVideoSizeChanged(int i, int i2);
 }

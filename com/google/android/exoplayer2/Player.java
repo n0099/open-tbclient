@@ -1,12 +1,6 @@
 package com.google.android.exoplayer2;
 
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import java.lang.annotation.Retention;
@@ -24,6 +18,49 @@ public interface Player {
     public static final int STATE_ENDED = 4;
     public static final int STATE_IDLE = 1;
     public static final int STATE_READY = 3;
+
+    /* loaded from: classes7.dex */
+    public static abstract class DefaultEventListener implements EventListener {
+        @Override // com.google.android.exoplayer2.Player.EventListener
+        public void onLoadingChanged(boolean z) {
+        }
+
+        @Override // com.google.android.exoplayer2.Player.EventListener
+        public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
+        }
+
+        @Override // com.google.android.exoplayer2.Player.EventListener
+        public void onPlayerError(ExoPlaybackException exoPlaybackException) {
+        }
+
+        @Override // com.google.android.exoplayer2.Player.EventListener
+        public void onPlayerStateChanged(boolean z, int i) {
+        }
+
+        @Override // com.google.android.exoplayer2.Player.EventListener
+        public void onPositionDiscontinuity(int i) {
+        }
+
+        @Override // com.google.android.exoplayer2.Player.EventListener
+        public void onRepeatModeChanged(int i) {
+        }
+
+        @Override // com.google.android.exoplayer2.Player.EventListener
+        public void onSeekProcessed() {
+        }
+
+        @Override // com.google.android.exoplayer2.Player.EventListener
+        public void onShuffleModeEnabledChanged(boolean z) {
+        }
+
+        @Override // com.google.android.exoplayer2.Player.EventListener
+        public void onTimelineChanged(Timeline timeline, Object obj) {
+        }
+
+        @Override // com.google.android.exoplayer2.Player.EventListener
+        public void onTracksChanged(TrackGroupArray trackGroupArray, TrackSelectionArray trackSelectionArray) {
+        }
+    }
 
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes7.dex */
@@ -134,94 +171,4 @@ public interface Player {
     void setShuffleModeEnabled(boolean z);
 
     void stop();
-
-    /* loaded from: classes7.dex */
-    public static abstract class DefaultEventListener implements EventListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.google.android.exoplayer2.Player.EventListener
-        public void onLoadingChanged(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            }
-        }
-
-        @Override // com.google.android.exoplayer2.Player.EventListener
-        public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, playbackParameters) == null) {
-            }
-        }
-
-        @Override // com.google.android.exoplayer2.Player.EventListener
-        public void onPlayerError(ExoPlaybackException exoPlaybackException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exoPlaybackException) == null) {
-            }
-        }
-
-        @Override // com.google.android.exoplayer2.Player.EventListener
-        public void onPlayerStateChanged(boolean z, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            }
-        }
-
-        @Override // com.google.android.exoplayer2.Player.EventListener
-        public void onPositionDiscontinuity(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            }
-        }
-
-        @Override // com.google.android.exoplayer2.Player.EventListener
-        public void onRepeatModeChanged(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            }
-        }
-
-        @Override // com.google.android.exoplayer2.Player.EventListener
-        public void onSeekProcessed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            }
-        }
-
-        @Override // com.google.android.exoplayer2.Player.EventListener
-        public void onShuffleModeEnabledChanged(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            }
-        }
-
-        @Override // com.google.android.exoplayer2.Player.EventListener
-        public void onTimelineChanged(Timeline timeline, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, timeline, obj) == null) {
-            }
-        }
-
-        @Override // com.google.android.exoplayer2.Player.EventListener
-        public void onTracksChanged(TrackGroupArray trackGroupArray, TrackSelectionArray trackSelectionArray) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048585, this, trackGroupArray, trackSelectionArray) == null) {
-            }
-        }
-
-        public DefaultEventListener() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
 }

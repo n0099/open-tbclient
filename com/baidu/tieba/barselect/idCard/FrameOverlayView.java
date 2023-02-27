@@ -14,7 +14,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a96;
+import com.baidu.tieba.ra6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -267,8 +267,8 @@ public class FrameOverlayView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.i = new GestureDetector(getContext(), this.a);
-            this.d = a96.a(18);
-            this.e = a96.a(3);
+            this.d = ra6.a(18);
+            this.e = ra6.a(3);
         }
     }
 
@@ -428,7 +428,7 @@ public class FrameOverlayView extends View {
         if (interceptable == null || interceptable.invokeL(1048585, this, canvas) == null) {
             super.onDraw(canvas);
             canvas.drawColor(this.f);
-            this.g.setStrokeWidth(a96.a(1));
+            this.g.setStrokeWidth(ra6.a(1));
             canvas.drawRect(this.k, this.g);
             canvas.drawRect(this.k, this.h);
             b(canvas);

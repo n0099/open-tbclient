@@ -25,6 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class k {
@@ -483,10 +484,10 @@ public class k {
                 if (replace != null && rssi < 100 && !replace.equals("020000000000")) {
                     stringBuffer.append("&wf=");
                     stringBuffer.append(replace);
-                    stringBuffer.append(";");
-                    stringBuffer.append("" + rssi + ";");
+                    stringBuffer.append(ParamableElem.DIVIDE_PARAM);
+                    stringBuffer.append("" + rssi + ParamableElem.DIVIDE_PARAM);
                     String ssid = k.getSSID();
-                    if (ssid != null && (ssid.contains("&") || ssid.contains(";"))) {
+                    if (ssid != null && (ssid.contains("&") || ssid.contains(ParamableElem.DIVIDE_PARAM))) {
                         ssid = ssid.replace("&", "_");
                     }
                     stringBuffer.append(ssid);

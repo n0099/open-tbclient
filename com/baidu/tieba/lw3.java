@@ -1,15 +1,27 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface lw3 {
-    void b(boolean z, String str);
+public class lw3 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile kw3 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void c(boolean z);
-
-    void d(int i, int i2);
-
-    void onClick();
-
-    void onClose();
-
-    void onError(String str);
+    public static synchronized kw3 a() {
+        InterceptResult invokeV;
+        kw3 kw3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (lw3.class) {
+                if (a == null) {
+                    a = new kw3();
+                }
+                kw3Var = a;
+            }
+            return kw3Var;
+        }
+        return (kw3) invokeV.objValue;
+    }
 }

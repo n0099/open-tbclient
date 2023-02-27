@@ -4,80 +4,48 @@ import android.app.Activity;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.UniversalPlayer;
 import com.baidu.searchbox.player.utils.BdActivityUtils;
 import com.baidu.searchbox.player.utils.BdViewOpUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SimpleStyleSwitchHelper implements IPlayerStyleSwitchHelper {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup mOriginPlayerContainer;
     public final UniversalPlayer mPlayer;
 
     public SimpleStyleSwitchHelper(@NonNull UniversalPlayer universalPlayer) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {universalPlayer};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mPlayer = universalPlayer;
     }
 
     private void setKeepScreenOn(@Nullable Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, this, activity) == null) && activity != null) {
+        if (activity != null) {
             activity.getWindow().addFlags(128);
         }
     }
 
     public boolean adjustRequestLandscape() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int videoWidth = this.mPlayer.getVideoWidth();
-            int videoHeight = this.mPlayer.getVideoHeight();
-            if (videoWidth <= 0 || videoHeight <= 0 || videoWidth > videoHeight) {
-                return true;
-            }
-            return false;
+        int videoWidth = this.mPlayer.getVideoWidth();
+        int videoHeight = this.mPlayer.getVideoHeight();
+        if (videoWidth <= 0 || videoHeight <= 0 || videoWidth > videoHeight) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     @Override // com.baidu.searchbox.player.helper.IPlayerStyleSwitchHelper
     public void switchToFullStyle() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mOriginPlayerContainer = this.mPlayer.getAttachedContainer();
-            this.mPlayer.setIsFullMode(true);
-            Activity activity = this.mPlayer.getActivity();
-            if (adjustRequestLandscape()) {
-                BdActivityUtils.requestLandscape(activity, this.mPlayer.isReverseLandscape());
-            }
-            setKeepScreenOn(activity);
-            BdViewOpUtils.attachDecor(activity, this.mPlayer.getLayerContainer());
+        this.mOriginPlayerContainer = this.mPlayer.getAttachedContainer();
+        this.mPlayer.setIsFullMode(true);
+        Activity activity = this.mPlayer.getActivity();
+        if (adjustRequestLandscape()) {
+            BdActivityUtils.requestLandscape(activity, this.mPlayer.isReverseLandscape());
         }
+        setKeepScreenOn(activity);
+        BdViewOpUtils.attachDecor(activity, this.mPlayer.getLayerContainer());
     }
 
     @Override // com.baidu.searchbox.player.helper.IPlayerStyleSwitchHelper
     public void switchToNormalStyle() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.mOriginPlayerContainer == null) {
+        if (this.mOriginPlayerContainer == null) {
             return;
         }
         this.mOriginPlayerContainer = this.mPlayer.getAttachedContainer();

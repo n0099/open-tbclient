@@ -1,45 +1,22 @@
 package com.xiaomi.mipush.sdk;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.MiTinyDataClient;
-import com.xiaomi.push.hn;
+import com.xiaomi.push.hl;
 /* loaded from: classes8.dex */
 public class aa implements Runnable {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ MiTinyDataClient.a.C0739a a;
+    public final /* synthetic */ MiTinyDataClient.a.C0730a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ hn f71a;
+    public final /* synthetic */ hl f48a;
 
-    public aa(MiTinyDataClient.a.C0739a c0739a, hn hnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {c0739a, hnVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = c0739a;
-        this.f71a = hnVar;
+    public aa(MiTinyDataClient.a.C0730a c0730a, hl hlVar) {
+        this.a = c0730a;
+        this.f48a = hlVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.f66a.add(this.f71a);
-            this.a.a();
-        }
+        this.a.f43a.add(this.f48a);
+        this.a.a();
     }
 }

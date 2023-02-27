@@ -35,8 +35,8 @@ public class a {
                 return;
             }
         }
-        w.b().a(ContextDelegate.getContext(context));
-        w b = w.b();
+        ad.b().a(ContextDelegate.getContext(context));
+        ad b = ad.b();
         this.a = b.c();
         this.b = b.d();
     }
@@ -45,8 +45,8 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String a = f.a(a());
-            String a2 = f.a(b());
+            String a = j.a(a());
+            String a2 = j.a(b());
             byte[] bytes = str.getBytes(IMAudioTransRequest.CHARSET);
             SecretKeySpec secretKeySpec = new SecretKeySpec(a2.getBytes(IMAudioTransRequest.CHARSET), "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
@@ -76,7 +76,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return new String(f.a(f.a(a()), f.a(b()), Base64.decode(str, 2)), IMAudioTransRequest.CHARSET);
+            return new String(j.a(j.a(a()), j.a(b()), Base64.decode(str, 2)), IMAudioTransRequest.CHARSET);
         }
         return (String) invokeL.objValue;
     }
@@ -89,7 +89,7 @@ public class a {
             if (bArr != null && bArr.length > 0) {
                 return bArr;
             }
-            return w.b().c();
+            return ad.b().c();
         }
         return (byte[]) invokeV.objValue;
     }
@@ -102,7 +102,7 @@ public class a {
             if (bArr != null && bArr.length > 0) {
                 return bArr;
             }
-            return w.b().d();
+            return ad.b().d();
         }
         return (byte[]) invokeV.objValue;
     }

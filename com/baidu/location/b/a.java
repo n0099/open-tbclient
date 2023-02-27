@@ -49,7 +49,7 @@ public class a {
     public SharedPreferences r;
     public long s;
     public String t;
-    public C0113a u;
+    public C0098a u;
     public boolean v;
     public String w;
     public String x;
@@ -64,14 +64,14 @@ public class a {
 
     /* renamed from: com.baidu.location.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0113a extends com.baidu.location.e.f {
+    public class C0098a extends com.baidu.location.e.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public boolean b;
         public final /* synthetic */ a c;
 
-        public C0113a(a aVar) {
+        public C0098a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -251,7 +251,7 @@ public class a {
                 }
             }
             if (this.u == null) {
-                this.u = new C0113a(this);
+                this.u = new C0098a(this);
             }
             this.u.a(str3);
         }

@@ -40,8 +40,8 @@ import com.baidu.tbadk.core.view.BaseViewPager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b55;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.p35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -108,7 +108,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                 if (!this.a.a.equals(GuildActivityConfig.FROM_ABOUT_PAGE)) {
                     this.a.R1();
                 }
-                CompatibleUtile.setAnim(this.a.getPageContext().getPageActivity(), 0, R.anim.obfuscated_res_0x7f010094);
+                CompatibleUtile.setAnim(this.a.getPageContext().getPageActivity(), 0, R.anim.obfuscated_res_0x7f010099);
                 this.a.closeActivity();
             }
         }
@@ -248,7 +248,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                             return;
                         }
                         this.a.i = false;
-                        p35.m().w("jump_to_new_user_guide", false);
+                        b55.m().w("jump_to_new_user_guide", false);
                         return;
                     }
                     this.a.i = false;
@@ -407,10 +407,10 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
             this.b = new ArrayList<>();
             this.c = new ArrayList<>();
             for (int i = 0; i < this.k; i++) {
-                RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0399, (ViewGroup) null, false);
-                ImageView imageView = (ImageView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090de6);
+                RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03a8, (ViewGroup) null, false);
+                ImageView imageView = (ImageView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090e27);
                 imageView.setVisibility(0);
-                ((GifView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f092715)).setVisibility(8);
+                ((GifView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f092771)).setVisibility(8);
                 imageView.setBackgroundResource(this.j[i]);
                 Bitmap O1 = O1(imageView, this.j[i]);
                 if (O1 == null) {
@@ -607,9 +607,9 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
             }
             this.k = this.j.length;
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d0398);
+                setContentView(R.layout.obfuscated_res_0x7f0d03a7);
                 M1();
-                boolean i = p35.m().i("jump_to_new_user_guide", true);
+                boolean i = b55.m().i("jump_to_new_user_guide", true);
                 this.i = i;
                 if (i) {
                     K1();
@@ -617,16 +617,16 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                 try {
                     L1();
                     this.d = new f(this, null);
-                    BaseViewPager baseViewPager = (BaseViewPager) findViewById(R.id.obfuscated_res_0x7f090de9);
+                    BaseViewPager baseViewPager = (BaseViewPager) findViewById(R.id.obfuscated_res_0x7f090e2a);
                     this.e = baseViewPager;
                     baseViewPager.setAdapter(this.d);
-                    IndicatorView indicatorView = (IndicatorView) findViewById(R.id.obfuscated_res_0x7f090de8);
+                    IndicatorView indicatorView = (IndicatorView) findViewById(R.id.obfuscated_res_0x7f090e29);
                     this.f = indicatorView;
                     indicatorView.setCount(this.k);
                     Q1(this.f, R.dimen.tbds46);
                     this.f.setSpacing(getResources().getDimensionPixelSize(R.dimen.tbds35));
-                    this.f.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fee));
-                    this.f.setDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ff0));
+                    this.f.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ff3));
+                    this.f.setDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ff5));
                     this.f.setPosition(0.0f);
                     if (this.k <= 1) {
                         this.f.setVisibility(4);
@@ -636,13 +636,13 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                     this.e.setOnScrollOutListener(this.p);
                     this.e.setOnFlipOutListener(this.p);
                     this.e.setOnPageChangeListener(this.r);
-                    this.g = findViewById(R.id.obfuscated_res_0x7f0920c0);
-                    TBSelector.makeDrawableSelector().setType(2).defaultDrawable(R.drawable.obfuscated_res_0x7f0803c2).pressedDrawable(R.drawable.obfuscated_res_0x7f0803ac).into(this.g);
-                    this.m = findViewById(R.id.obfuscated_res_0x7f091854);
-                    View findViewById = findViewById(R.id.obfuscated_res_0x7f090ff9);
+                    this.g = findViewById(R.id.obfuscated_res_0x7f092105);
+                    TBSelector.makeDrawableSelector().setType(2).defaultDrawable(R.drawable.obfuscated_res_0x7f0803c8).pressedDrawable(R.drawable.obfuscated_res_0x7f0803b2).into(this.g);
+                    this.m = findViewById(R.id.obfuscated_res_0x7f091895);
+                    View findViewById = findViewById(R.id.obfuscated_res_0x7f09103a);
                     this.n = findViewById;
                     findViewById.setOnClickListener(this.t);
-                    View findViewById2 = findViewById(R.id.obfuscated_res_0x7f09228e);
+                    View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0922d8);
                     this.o = findViewById2;
                     findViewById2.setOnClickListener(this.q);
                     this.m.setVisibility(8);

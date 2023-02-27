@@ -9,6 +9,7 @@ import java.io.IOException;
 import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
+import org.apache.commons.codec.language.bm.ResourceConstants;
 import org.apache.http.message.BasicHeaderValueFormatter;
 /* loaded from: classes.dex */
 public final class JsonUtf8Reader extends JsonReader {
@@ -51,7 +52,7 @@ public final class JsonUtf8Reader extends JsonReader {
     public static final ByteString DOUBLE_QUOTE_OR_SLASH = ByteString.encodeUtf8(BasicHeaderValueFormatter.UNSAFE_CHARS);
     public static final ByteString UNQUOTED_STRING_TERMINALS = ByteString.encodeUtf8("{}[]:, \n\t\r\f/\\;#=");
     public static final ByteString LINEFEED_OR_CARRIAGE_RETURN = ByteString.encodeUtf8("\n\r");
-    public static final ByteString CLOSING_BLOCK_COMMENT = ByteString.encodeUtf8("*/");
+    public static final ByteString CLOSING_BLOCK_COMMENT = ByteString.encodeUtf8(ResourceConstants.EXT_CMT_END);
 
     private void checkLenient() throws IOException {
         if (this.lenient) {

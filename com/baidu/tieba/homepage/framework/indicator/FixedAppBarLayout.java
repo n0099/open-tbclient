@@ -39,13 +39,13 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.coreExtra.floatCardView.AlaLiveTipView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b55;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.f85;
 import com.baidu.tieba.gh;
 import com.baidu.tieba.homepage.personalize.view.HomeTabBarView;
-import com.baidu.tieba.p35;
-import com.baidu.tieba.sv4;
+import com.baidu.tieba.r95;
+import com.baidu.tieba.zw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -356,14 +356,14 @@ public class FixedAppBarLayout extends AppBarLayout {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 e eVar = new e();
                 eVar.a = view2;
-                eVar.b = (AlaLiveTipView) view2.findViewById(R.id.obfuscated_res_0x7f0914a6);
-                eVar.c = (HomeTabBarView) view2.findViewById(R.id.obfuscated_res_0x7f090e8b);
-                eVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0907c3);
-                eVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f2d);
-                eVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f41);
-                eVar.g = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091f48);
-                eVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f0e);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fb4);
+                eVar.b = (AlaLiveTipView) view2.findViewById(R.id.obfuscated_res_0x7f0914e7);
+                eVar.c = (HomeTabBarView) view2.findViewById(R.id.obfuscated_res_0x7f090ecc);
+                eVar.d = view2.findViewById(R.id.obfuscated_res_0x7f090800);
+                eVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f71);
+                eVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f85);
+                eVar.g = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091f8c);
+                eVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f52);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ff5);
                 eVar.i = tbImageView;
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 eVar.i.setUseNightOrDarkMask(false);
@@ -488,7 +488,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.b = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d028f, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d029c, (ViewGroup) this, true);
             this.a = e.a(this);
             n();
             o();
@@ -505,7 +505,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View view2 = this.a.d;
-            if (sv4.h()) {
+            if (zw4.h()) {
                 i = 0;
             } else {
                 i = 8;
@@ -587,7 +587,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         alaLiveTipView.setViewLocate(1);
         this.a.b.setHasBubble(false);
         if (this.a.b.getVisibility() != 0) {
-            f85.f();
+            r95.f();
         }
         this.a.b.setVisibility(0);
     }
@@ -595,7 +595,7 @@ public class FixedAppBarLayout extends AppBarLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.g.setText(this.b.getString(R.string.obfuscated_res_0x7f0f1187));
+            this.a.g.setText(this.b.getString(R.string.obfuscated_res_0x7f0f1189));
             if (k()) {
                 this.d = true;
                 this.a.h.setVisibility(0);
@@ -615,10 +615,10 @@ public class FixedAppBarLayout extends AppBarLayout {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String[] split = p35.m().s("key_home_page_seacher_anim_show_number", "").split(",");
+            String[] split = b55.m().s("key_home_page_seacher_anim_show_number", "").split(",");
             long currentTimeMillis = System.currentTimeMillis();
             if (split.length < 7 && !TimeHelper.isSameDay(dh.g(split[split.length - 1], 0L), currentTimeMillis)) {
-                p35 m = p35.m();
+                b55 m = b55.m();
                 if (split.length == 6) {
                     str = String.valueOf(currentTimeMillis);
                 } else {

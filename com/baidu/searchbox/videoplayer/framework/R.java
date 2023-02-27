@@ -1,70 +1,27 @@
 package com.baidu.searchbox.videoplayer.framework;
-
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public final class R {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
     public static final class attr {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final int bdvideoplayer_progressGravity = 0x7f0400cd;
         public static final int bdvideoplayer_progressTextColor = 0x7f0400ce;
         public static final int bdvideoplayer_progressTextMode = 0x7f0400cf;
         public static final int bdvideoplayer_progressTextSize = 0x7f0400d0;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public attr() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes3.dex */
     public static final class color {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int bdvideoplayer_quick_share_item_text = 0x7f06041b;
-        public static final int bdvideoplayer_quick_share_item_text_enable = 0x7f06041c;
-        public static final int bdvideoplayer_seek_bar_bg_color = 0x7f06041d;
-        public static final int bdvideoplayer_seek_bar_buffered_color = 0x7f06041e;
-        public static final int bdvideoplayer_seek_bar_played_color = 0x7f06041f;
-        public static final int bdvideoplayer_text_color_white = 0x7f060420;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public color() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        public static final int bdvideoplayer_quick_share_item_text = 0x7f06036f;
+        public static final int bdvideoplayer_quick_share_item_text_enable = 0x7f060370;
+        public static final int bdvideoplayer_seek_bar_bg_color = 0x7f060371;
+        public static final int bdvideoplayer_seek_bar_buffered_color = 0x7f060372;
+        public static final int bdvideoplayer_seek_bar_played_color = 0x7f060373;
+        public static final int bdvideoplayer_text_color_white = 0x7f060374;
     }
 
     /* loaded from: classes3.dex */
     public static final class dimen {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final int bdvideoplayer_dimens_0dp = 0x7f07018c;
         public static final int bdvideoplayer_dimens_102dp = 0x7f07018d;
         public static final int bdvideoplayer_dimens_103dp = 0x7f07018e;
@@ -89,187 +46,62 @@ public final class R {
         public static final int bdvideoplayer_dimens_66dp = 0x7f0701a4;
         public static final int bdvideoplayer_dimens_78dp = 0x7f0701a5;
         public static final int bdvideoplayer_dimens_7dp = 0x7f0701a6;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public dimen() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes3.dex */
     public static final class drawable {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int bdvideoplayer_back = 0x7f08020e;
-        public static final int bdvideoplayer_btn_net_error_retry_selector = 0x7f08020f;
-        public static final int bdvideoplayer_mute_off = 0x7f080210;
-        public static final int bdvideoplayer_mute_on = 0x7f080211;
-        public static final int bdvideoplayer_net_error_retry_bg = 0x7f080212;
-        public static final int bdvideoplayer_net_error_retry_bg_pressed = 0x7f080213;
-        public static final int bdvideoplayer_pause = 0x7f080214;
-        public static final int bdvideoplayer_play = 0x7f080215;
-        public static final int bdvideoplayer_quick_share_item = 0x7f080216;
-        public static final int bdvideoplayer_seekbar_thumb = 0x7f080217;
-        public static final int bdvideoplayer_switch_land = 0x7f080218;
-        public static final int bdvideoplayer_zeus_full_refresh_enable = 0x7f080219;
-        public static final int bdvideoplayer_zeus_full_refresh_normal = 0x7f08021a;
-        public static final int bdvideoplayer_zeus_full_refresh_selector = 0x7f08021b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public drawable() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        public static final int bdvideoplayer_back = 0x7f080218;
+        public static final int bdvideoplayer_btn_net_error_retry_selector = 0x7f080219;
+        public static final int bdvideoplayer_mute_off = 0x7f08021a;
+        public static final int bdvideoplayer_mute_on = 0x7f08021b;
+        public static final int bdvideoplayer_net_error_retry_bg = 0x7f08021c;
+        public static final int bdvideoplayer_net_error_retry_bg_pressed = 0x7f08021d;
+        public static final int bdvideoplayer_pause = 0x7f08021e;
+        public static final int bdvideoplayer_play = 0x7f08021f;
+        public static final int bdvideoplayer_quick_share_item = 0x7f080220;
+        public static final int bdvideoplayer_seekbar_thumb = 0x7f080221;
+        public static final int bdvideoplayer_switch_land = 0x7f080222;
+        public static final int bdvideoplayer_zeus_full_refresh_enable = 0x7f080223;
+        public static final int bdvideoplayer_zeus_full_refresh_normal = 0x7f080224;
+        public static final int bdvideoplayer_zeus_full_refresh_selector = 0x7f080225;
     }
 
     /* loaded from: classes3.dex */
     public static final class id {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int bdvideoplayer_seekbar = 0x7f090373;
-        public static final int bt_retry = 0x7f090427;
-        public static final int center = 0x7f0905fa;
-        public static final int left = 0x7f0913b2;
-        public static final int main_duration_text = 0x7f09157d;
-        public static final int main_progress_text = 0x7f091582;
-        public static final int main_view_seekbar = 0x7f09158e;
-        public static final int play_error_layout_retry = 0x7f091b0a;
-        public static final int progress = 0x7f091bd5;
-        public static final int right = 0x7f091d42;
-        public static final int time = 0x7f092325;
-        public static final int tv_error = 0x7f0924e1;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public id() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        public static final int bdvideoplayer_seekbar = 0x7f0903af;
+        public static final int bt_retry = 0x7f090464;
+        public static final int center = 0x7f090638;
+        public static final int left = 0x7f0913f3;
+        public static final int main_duration_text = 0x7f0915be;
+        public static final int main_progress_text = 0x7f0915c3;
+        public static final int main_view_seekbar = 0x7f0915cf;
+        public static final int play_error_layout_retry = 0x7f091b4b;
+        public static final int progress = 0x7f091c06;
+        public static final int right = 0x7f091d86;
+        public static final int time = 0x7f09236f;
+        public static final int tv_error = 0x7f09252e;
     }
 
     /* loaded from: classes3.dex */
     public static final class layout {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int bdvideoplayer_layout_kernel_error = 0x7f0d0154;
-        public static final int bdvideoplayer_layout_net_error = 0x7f0d0155;
-        public static final int bdvideoplayer_seek_bar_view = 0x7f0d0156;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public layout() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        public static final int bdvideoplayer_layout_kernel_error = 0x7f0d0161;
+        public static final int bdvideoplayer_layout_net_error = 0x7f0d0162;
+        public static final int bdvideoplayer_seek_bar_view = 0x7f0d0163;
     }
 
     /* loaded from: classes3.dex */
     public static final class string {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int bdvideoplayer_btn_net_error_retry = 0x7f0f030e;
-        public static final int bdvideoplayer_tip_kernel_error = 0x7f0f030f;
-        public static final int bdvideoplayer_tip_net_error = 0x7f0f0310;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public string() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        public static final int bdvideoplayer_btn_net_error_retry = 0x7f0f030f;
+        public static final int bdvideoplayer_tip_kernel_error = 0x7f0f0310;
+        public static final int bdvideoplayer_tip_net_error = 0x7f0f0311;
     }
 
     /* loaded from: classes3.dex */
     public static final class styleable {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int[] bdvideoplayer_bdPlayerProgressView;
+        public static final int[] bdvideoplayer_bdPlayerProgressView = {com.baidu.tieba.R.attr.obfuscated_res_0x7f0400cd, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400ce, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400cf, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400d0};
         public static final int bdvideoplayer_bdPlayerProgressView_bdvideoplayer_progressGravity = 0x00000000;
         public static final int bdvideoplayer_bdPlayerProgressView_bdvideoplayer_progressTextColor = 0x00000001;
         public static final int bdvideoplayer_bdPlayerProgressView_bdvideoplayer_progressTextMode = 0x00000002;
         public static final int bdvideoplayer_bdPlayerProgressView_bdvideoplayer_progressTextSize = 0x00000003;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1585839072, "Lcom/baidu/searchbox/videoplayer/framework/R$styleable;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1585839072, "Lcom/baidu/searchbox/videoplayer/framework/R$styleable;");
-                    return;
-                }
-            }
-            bdvideoplayer_bdPlayerProgressView = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f0400cd, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400ce, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400cf, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400d0};
-        }
-
-        public styleable() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    public R() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
     }
 }

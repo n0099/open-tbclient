@@ -7,19 +7,10 @@ import android.view.ViewGroup;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.appcompat.view.menu.MenuView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public abstract class BaseMenuPresenter implements MenuPresenter {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public MenuPresenter.Callback mCallback;
     public Context mContext;
     public int mId;
@@ -35,205 +26,122 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public boolean collapseItemActionView(MenuBuilder menuBuilder, MenuItemImpl menuItemImpl) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, menuBuilder, menuItemImpl)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
+        return false;
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public boolean expandItemActionView(MenuBuilder menuBuilder, MenuItemImpl menuItemImpl) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, menuBuilder, menuItemImpl)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
+        return false;
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public boolean flagActionItems() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public boolean shouldIncludeItem(int i, MenuItemImpl menuItemImpl) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048592, this, i, menuItemImpl)) == null) {
-            return true;
-        }
-        return invokeIL.booleanValue;
+        return true;
     }
 
     public BaseMenuPresenter(Context context, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mSystemContext = context;
         this.mSystemInflater = LayoutInflater.from(context);
         this.mMenuLayoutRes = i;
         this.mItemLayoutRes = i2;
     }
 
-    public void addItemView(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
-            ViewGroup viewGroup = (ViewGroup) view2.getParent();
-            if (viewGroup != null) {
-                viewGroup.removeView(view2);
-            }
-            ((ViewGroup) this.mMenuView).addView(view2, i);
+    public View getItemView(MenuItemImpl menuItemImpl, View view2, ViewGroup viewGroup) {
+        MenuView.ItemView createItemView;
+        if (view2 instanceof MenuView.ItemView) {
+            createItemView = (MenuView.ItemView) view2;
+        } else {
+            createItemView = createItemView(viewGroup);
         }
+        bindItemView(menuItemImpl, createItemView);
+        return (View) createItemView;
+    }
+
+    public void addItemView(View view2, int i) {
+        ViewGroup viewGroup = (ViewGroup) view2.getParent();
+        if (viewGroup != null) {
+            viewGroup.removeView(view2);
+        }
+        ((ViewGroup) this.mMenuView).addView(view2, i);
     }
 
     public boolean filterLeftoverView(ViewGroup viewGroup, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
-            viewGroup.removeViewAt(i);
-            return true;
-        }
-        return invokeLI.booleanValue;
+        viewGroup.removeViewAt(i);
+        return true;
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public void initForMenu(Context context, MenuBuilder menuBuilder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, context, menuBuilder) == null) {
-            this.mContext = context;
-            this.mInflater = LayoutInflater.from(context);
-            this.mMenu = menuBuilder;
-        }
+        this.mContext = context;
+        this.mInflater = LayoutInflater.from(context);
+        this.mMenu = menuBuilder;
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
-        MenuPresenter.Callback callback;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048588, this, menuBuilder, z) == null) && (callback = this.mCallback) != null) {
+        MenuPresenter.Callback callback = this.mCallback;
+        if (callback != null) {
             callback.onCloseMenu(menuBuilder, z);
         }
     }
 
     public MenuView.ItemView createItemView(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            return (MenuView.ItemView) this.mSystemInflater.inflate(this.mItemLayoutRes, viewGroup, false);
-        }
-        return (MenuView.ItemView) invokeL.objValue;
+        return (MenuView.ItemView) this.mSystemInflater.inflate(this.mItemLayoutRes, viewGroup, false);
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public MenuView getMenuView(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, viewGroup)) == null) {
-            if (this.mMenuView == null) {
-                MenuView menuView = (MenuView) this.mSystemInflater.inflate(this.mMenuLayoutRes, viewGroup, false);
-                this.mMenuView = menuView;
-                menuView.initialize(this.mMenu);
-                updateMenuView(true);
-            }
-            return this.mMenuView;
+        if (this.mMenuView == null) {
+            MenuView menuView = (MenuView) this.mSystemInflater.inflate(this.mMenuLayoutRes, viewGroup, false);
+            this.mMenuView = menuView;
+            menuView.initialize(this.mMenu);
+            updateMenuView(true);
         }
-        return (MenuView) invokeL.objValue;
+        return this.mMenuView;
     }
 
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r5v4, types: [androidx.appcompat.view.menu.MenuBuilder] */
+    /* JADX WARN: Type inference failed for: r2v4, types: [androidx.appcompat.view.menu.MenuBuilder] */
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public boolean onSubMenuSelected(SubMenuBuilder subMenuBuilder) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, subMenuBuilder)) == null) {
-            MenuPresenter.Callback callback = this.mCallback;
-            SubMenuBuilder subMenuBuilder2 = subMenuBuilder;
-            if (callback != null) {
-                if (subMenuBuilder == null) {
-                    subMenuBuilder2 = this.mMenu;
-                }
-                return callback.onOpenSubMenu(subMenuBuilder2);
+        MenuPresenter.Callback callback = this.mCallback;
+        SubMenuBuilder subMenuBuilder2 = subMenuBuilder;
+        if (callback != null) {
+            if (subMenuBuilder == null) {
+                subMenuBuilder2 = this.mMenu;
             }
-            return false;
+            return callback.onOpenSubMenu(subMenuBuilder2);
         }
-        return invokeL.booleanValue;
+        return false;
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public void setCallback(MenuPresenter.Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, callback) == null) {
-            this.mCallback = callback;
-        }
+        this.mCallback = callback;
     }
 
     public void setId(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.mId = i;
-        }
+        this.mId = i;
     }
 
     public MenuPresenter.Callback getCallback() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.mCallback;
-        }
-        return (MenuPresenter.Callback) invokeV.objValue;
+        return this.mCallback;
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public int getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.mId;
-        }
-        return invokeV.intValue;
-    }
-
-    public View getItemView(MenuItemImpl menuItemImpl, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeLLL;
-        MenuView.ItemView createItemView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, menuItemImpl, view2, viewGroup)) == null) {
-            if (view2 instanceof MenuView.ItemView) {
-                createItemView = (MenuView.ItemView) view2;
-            } else {
-                createItemView = createItemView(viewGroup);
-            }
-            bindItemView(menuItemImpl, createItemView);
-            return (View) createItemView;
-        }
-        return (View) invokeLLL.objValue;
+        return this.mId;
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public void updateMenuView(boolean z) {
-        ViewGroup viewGroup;
         MenuItemImpl menuItemImpl;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048593, this, z) != null) || (viewGroup = (ViewGroup) this.mMenuView) == null) {
+        ViewGroup viewGroup = (ViewGroup) this.mMenuView;
+        if (viewGroup == null) {
             return;
         }
         MenuBuilder menuBuilder = this.mMenu;

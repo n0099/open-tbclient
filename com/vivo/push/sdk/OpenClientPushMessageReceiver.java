@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.vivo.push.model.NotifyArriveCallbackByUser;
 import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.model.UnvarnishedMessage;
 import java.util.List;
@@ -28,16 +29,6 @@ public abstract class OpenClientPushMessageReceiver extends BasePushMessageRecei
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
         }
-    }
-
-    @Override // com.vivo.push.sdk.PushMessageCallback
-    public final boolean onNotificationMessageArrived(Context context, UPSNotificationMessage uPSNotificationMessage) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, context, uPSNotificationMessage)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
     }
 
     public void onNotificationMessageClicked(Context context, UPSNotificationMessage uPSNotificationMessage) {
@@ -135,5 +126,15 @@ public abstract class OpenClientPushMessageReceiver extends BasePushMessageRecei
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             super.onLog(context, str, i, z);
         }
+    }
+
+    @Override // com.vivo.push.sdk.PushMessageCallback
+    public final NotifyArriveCallbackByUser onNotificationMessageArrived(Context context, UPSNotificationMessage uPSNotificationMessage) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, context, uPSNotificationMessage)) == null) {
+            return new NotifyArriveCallbackByUser(null, false);
+        }
+        return (NotifyArriveCallbackByUser) invokeLL.objValue;
     }
 }

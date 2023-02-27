@@ -21,128 +21,95 @@ import androidx.annotation.RestrictTo;
 import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class AnimationUtilsCompat {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public AnimationUtilsCompat() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x00ce, code lost:
-        return r6;
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x00ca, code lost:
+        return r4;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static Interpolator createInterpolatorFromXml(Context context, Resources resources, Resources.Theme theme, XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
-        InterceptResult invokeLLLL;
         Interpolator accelerateInterpolator;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, context, resources, theme, xmlPullParser)) == null) {
-            int depth = xmlPullParser.getDepth();
-            Interpolator interpolator = null;
-            while (true) {
-                int next = xmlPullParser.next();
-                if ((next != 3 || xmlPullParser.getDepth() > depth) && next != 1) {
-                    if (next == 2) {
-                        AttributeSet asAttributeSet = Xml.asAttributeSet(xmlPullParser);
-                        String name = xmlPullParser.getName();
-                        if (name.equals("linearInterpolator")) {
-                            interpolator = new LinearInterpolator();
+        int depth = xmlPullParser.getDepth();
+        Interpolator interpolator = null;
+        while (true) {
+            int next = xmlPullParser.next();
+            if ((next != 3 || xmlPullParser.getDepth() > depth) && next != 1) {
+                if (next == 2) {
+                    AttributeSet asAttributeSet = Xml.asAttributeSet(xmlPullParser);
+                    String name = xmlPullParser.getName();
+                    if (name.equals("linearInterpolator")) {
+                        interpolator = new LinearInterpolator();
+                    } else {
+                        if (name.equals("accelerateInterpolator")) {
+                            accelerateInterpolator = new AccelerateInterpolator(context, asAttributeSet);
+                        } else if (name.equals("decelerateInterpolator")) {
+                            accelerateInterpolator = new DecelerateInterpolator(context, asAttributeSet);
+                        } else if (name.equals("accelerateDecelerateInterpolator")) {
+                            interpolator = new AccelerateDecelerateInterpolator();
+                        } else if (name.equals("cycleInterpolator")) {
+                            accelerateInterpolator = new CycleInterpolator(context, asAttributeSet);
+                        } else if (name.equals("anticipateInterpolator")) {
+                            accelerateInterpolator = new AnticipateInterpolator(context, asAttributeSet);
+                        } else if (name.equals("overshootInterpolator")) {
+                            accelerateInterpolator = new OvershootInterpolator(context, asAttributeSet);
+                        } else if (name.equals("anticipateOvershootInterpolator")) {
+                            accelerateInterpolator = new AnticipateOvershootInterpolator(context, asAttributeSet);
+                        } else if (name.equals("bounceInterpolator")) {
+                            interpolator = new BounceInterpolator();
+                        } else if (name.equals("pathInterpolator")) {
+                            accelerateInterpolator = new PathInterpolatorCompat(context, asAttributeSet, xmlPullParser);
                         } else {
-                            if (name.equals("accelerateInterpolator")) {
-                                accelerateInterpolator = new AccelerateInterpolator(context, asAttributeSet);
-                            } else if (name.equals("decelerateInterpolator")) {
-                                accelerateInterpolator = new DecelerateInterpolator(context, asAttributeSet);
-                            } else if (name.equals("accelerateDecelerateInterpolator")) {
-                                interpolator = new AccelerateDecelerateInterpolator();
-                            } else if (name.equals("cycleInterpolator")) {
-                                accelerateInterpolator = new CycleInterpolator(context, asAttributeSet);
-                            } else if (name.equals("anticipateInterpolator")) {
-                                accelerateInterpolator = new AnticipateInterpolator(context, asAttributeSet);
-                            } else if (name.equals("overshootInterpolator")) {
-                                accelerateInterpolator = new OvershootInterpolator(context, asAttributeSet);
-                            } else if (name.equals("anticipateOvershootInterpolator")) {
-                                accelerateInterpolator = new AnticipateOvershootInterpolator(context, asAttributeSet);
-                            } else if (name.equals("bounceInterpolator")) {
-                                interpolator = new BounceInterpolator();
-                            } else if (name.equals("pathInterpolator")) {
-                                accelerateInterpolator = new PathInterpolatorCompat(context, asAttributeSet, xmlPullParser);
-                            } else {
-                                throw new RuntimeException("Unknown interpolator name: " + xmlPullParser.getName());
-                            }
-                            interpolator = accelerateInterpolator;
+                            throw new RuntimeException("Unknown interpolator name: " + xmlPullParser.getName());
                         }
+                        interpolator = accelerateInterpolator;
                     }
                 }
             }
-        } else {
-            return (Interpolator) invokeLLLL.objValue;
         }
     }
 
     public static Interpolator loadInterpolator(Context context, int i) throws Resources.NotFoundException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                return AnimationUtils.loadInterpolator(context, i);
-            }
-            XmlResourceParser xmlResourceParser = null;
-            try {
-                try {
-                    if (i == 17563663) {
-                        return new FastOutLinearInInterpolator();
-                    }
-                    if (i == 17563661) {
-                        return new FastOutSlowInInterpolator();
-                    }
-                    if (i == 17563662) {
-                        return new LinearOutSlowInInterpolator();
-                    }
-                    XmlResourceParser animation = context.getResources().getAnimation(i);
-                    Interpolator createInterpolatorFromXml = createInterpolatorFromXml(context, context.getResources(), context.getTheme(), animation);
-                    if (animation != null) {
-                        animation.close();
-                    }
-                    return createInterpolatorFromXml;
-                } catch (IOException e) {
-                    Resources.NotFoundException notFoundException = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(i));
-                    notFoundException.initCause(e);
-                    throw notFoundException;
-                } catch (XmlPullParserException e2) {
-                    Resources.NotFoundException notFoundException2 = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(i));
-                    notFoundException2.initCause(e2);
-                    throw notFoundException2;
-                }
-            } catch (Throwable th) {
-                if (0 != 0) {
-                    xmlResourceParser.close();
-                }
-                throw th;
-            }
+        if (Build.VERSION.SDK_INT >= 21) {
+            return AnimationUtils.loadInterpolator(context, i);
         }
-        return (Interpolator) invokeLI.objValue;
+        XmlResourceParser xmlResourceParser = null;
+        try {
+            try {
+                if (i == 17563663) {
+                    return new FastOutLinearInInterpolator();
+                }
+                if (i == 17563661) {
+                    return new FastOutSlowInInterpolator();
+                }
+                if (i == 17563662) {
+                    return new LinearOutSlowInInterpolator();
+                }
+                XmlResourceParser animation = context.getResources().getAnimation(i);
+                Interpolator createInterpolatorFromXml = createInterpolatorFromXml(context, context.getResources(), context.getTheme(), animation);
+                if (animation != null) {
+                    animation.close();
+                }
+                return createInterpolatorFromXml;
+            } catch (IOException e) {
+                Resources.NotFoundException notFoundException = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(i));
+                notFoundException.initCause(e);
+                throw notFoundException;
+            } catch (XmlPullParserException e2) {
+                Resources.NotFoundException notFoundException2 = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(i));
+                notFoundException2.initCause(e2);
+                throw notFoundException2;
+            }
+        } catch (Throwable th) {
+            if (0 != 0) {
+                xmlResourceParser.close();
+            }
+            throw th;
+        }
     }
 }

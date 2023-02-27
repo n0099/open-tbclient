@@ -21,6 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -93,7 +94,7 @@ public class o {
                         jSONObject.put("speed", bDLocation.getSpeed() / 3.6f);
                     }
                     if (bDLocation.getLocType() == 61) {
-                        jSONObject.put("direction", bDLocation.getDirection());
+                        jSONObject.put(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, bDLocation.getDirection());
                     }
                     if (bDLocation.getBuildingName() != null) {
                         jSONObject.put("buildingname", bDLocation.getBuildingName());
@@ -275,8 +276,8 @@ public class o {
                 if (jSONObject.has(WebChromeClient.KEY_ARG_CALLBACK)) {
                     this.c = jSONObject.getString(WebChromeClient.KEY_ARG_CALLBACK);
                 }
-                if (jSONObject.has(com.alipay.sdk.data.a.O)) {
-                    long j = jSONObject.getLong(com.alipay.sdk.data.a.O);
+                if (jSONObject.has("timeout")) {
+                    long j = jSONObject.getLong("timeout");
                     if (j >= 1000) {
                         long unused = o.j = j;
                     }

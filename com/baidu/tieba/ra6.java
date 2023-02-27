@@ -1,21 +1,20 @@
 package com.baidu.tieba;
 
-import android.webkit.CookieManager;
-import android.webkit.WebView;
-import com.baidu.tieba.compatible.CompatibleUtile;
+import android.content.res.Resources;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public final class ra6 {
+public class ra6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(WebView webView) {
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, webView) == null) {
-            CookieManager.getInstance().setAcceptThirdPartyCookies(webView, true);
-            webView.getSettings().setMixedContentMode(0);
-            CompatibleUtile.getInstance().WebViewNoDataBase(webView.getSettings());
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            return (int) (i * Resources.getSystem().getDisplayMetrics().density);
         }
+        return invokeI.intValue;
     }
 }

@@ -24,8 +24,8 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da9;
-import com.baidu.tieba.rr6;
+import com.baidu.tieba.qu6;
+import com.baidu.tieba.td9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
 import tbclient.ThemeColorInfo;
-@Metadata(d1 = {"\u0000R\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u000b\u0018\u0000 $2\u00020\u00012\u00020\u0002:\u0001$B%\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\b\u0010\u0019\u001a\u00020\u001aH\u0002J\b\u0010\u001b\u001a\u00020\u001aH\u0002J\u0010\u0010\u001c\u001a\u00020\u001a2\u0006\u0010\u001d\u001a\u00020\u0014H\u0016J\u0006\u0010\u001e\u001a\u00020\u001aJ\u000e\u0010\u001f\u001a\u00020\u001a2\u0006\u0010 \u001a\u00020\u000eJ\u0016\u0010!\u001a\u00020\u001a2\u0006\u0010\"\u001a\u00020\u000b2\u0006\u0010#\u001a\u00020\u000bR\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\n\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\r\u001a\u0004\u0018\u00010\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000f\u001a\u0004\u0018\u00010\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0011\u001a\u0004\u0018\u00010\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0013\u001a\u0004\u0018\u00010\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0015\u001a\u0004\u0018\u00010\u0016X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0017\u001a\u0004\u0018\u00010\u0016X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0018\u001a\u0004\u0018\u00010\u0016X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006%"}, d2 = {"Lcom/baidu/tieba/frs/entelechy/view/FrsBannerHeaderView;", "Landroid/widget/RelativeLayout;", "Landroid/view/View$OnClickListener;", "mContext", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "mForumId", "", "mForumName", "mFrsBannerHeaderData", "Lcom/baidu/tbadk/core/data/FrsBannerHeaderData;", "mLeftIcon", "Lcom/baidu/tbadk/widget/TbImageView;", "mRightIcon", "Landroid/widget/ImageView;", "mRootView", "Landroid/view/View;", "mTvContent1", "Landroid/widget/TextView;", "mTvContent2", "mTvJumpTipsView", "fillDataOnWidget", "", "initView", "onClick", "v", "onSkinChanged", "setData", "data", "setForumInfo", "fId", "fName", "Companion", "frs_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+@Metadata(d1 = {"\u0000R\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u000b\u0018\u0000 $2\u00020\u00012\u00020\u0002:\u0001$B%\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\b\u0010\u0019\u001a\u00020\u001aH\u0002J\b\u0010\u001b\u001a\u00020\u001aH\u0002J\u0010\u0010\u001c\u001a\u00020\u001a2\u0006\u0010\u001d\u001a\u00020\u0014H\u0016J\u0006\u0010\u001e\u001a\u00020\u001aJ\u000e\u0010\u001f\u001a\u00020\u001a2\u0006\u0010 \u001a\u00020\u000eJ\u0016\u0010!\u001a\u00020\u001a2\u0006\u0010\"\u001a\u00020\u000b2\u0006\u0010#\u001a\u00020\u000bR\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\n\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\r\u001a\u0004\u0018\u00010\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000f\u001a\u0004\u0018\u00010\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0011\u001a\u0004\u0018\u00010\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0013\u001a\u0004\u0018\u00010\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0015\u001a\u0004\u0018\u00010\u0016X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0017\u001a\u0004\u0018\u00010\u0016X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0018\u001a\u0004\u0018\u00010\u0016X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006%"}, d2 = {"Lcom/baidu/tieba/frs/entelechy/view/FrsBannerHeaderView;", "Landroid/widget/RelativeLayout;", "Landroid/view/View$OnClickListener;", "mContext", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "mForumId", "", "mForumName", "mFrsBannerHeaderData", "Lcom/baidu/tbadk/core/data/FrsBannerHeaderData;", "mLeftIcon", "Lcom/baidu/tbadk/widget/TbImageView;", "mRightIcon", "Landroid/widget/ImageView;", "mRootView", "Landroid/view/View;", "mTvContent1", "Landroid/widget/TextView;", "mTvContent2", "mTvJumpTipsView", "fillDataOnWidget", "", "initView", "onClick", "v", "onSkinChanged", "setData", "data", "setForumInfo", "fId", "fName", "Companion", "frs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes4.dex */
 public final class FrsBannerHeaderView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -149,13 +149,13 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
     }
 
     public final void a() {
-        String content1;
+        String str;
         boolean z;
-        String content12;
-        String content2;
+        String str2;
+        String str3;
         boolean z2;
-        String content22;
-        String jumpTips;
+        String str4;
+        String str5;
         String iconUrl;
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
@@ -165,14 +165,14 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
                 tbImageView.K(iconUrl, 10, false);
             }
             FrsBannerHeaderData frsBannerHeaderData2 = this.h;
-            String str = null;
-            if (frsBannerHeaderData2 == null) {
-                content1 = null;
+            String str6 = null;
+            if (frsBannerHeaderData2 != null) {
+                str = frsBannerHeaderData2.getContent1();
             } else {
-                content1 = frsBannerHeaderData2.getContent1();
+                str = null;
             }
             boolean z3 = true;
-            if (content1 != null && !StringsKt__StringsJVMKt.isBlank(content1)) {
+            if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
                 z = false;
             } else {
                 z = true;
@@ -190,21 +190,21 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
                 TextView textView3 = this.d;
                 if (textView3 != null) {
                     FrsBannerHeaderData frsBannerHeaderData3 = this.h;
-                    if (frsBannerHeaderData3 == null) {
-                        content12 = null;
+                    if (frsBannerHeaderData3 != null) {
+                        str2 = frsBannerHeaderData3.getContent1();
                     } else {
-                        content12 = frsBannerHeaderData3.getContent1();
+                        str2 = null;
                     }
-                    textView3.setText(content12);
+                    textView3.setText(str2);
                 }
             }
             FrsBannerHeaderData frsBannerHeaderData4 = this.h;
-            if (frsBannerHeaderData4 == null) {
-                content2 = null;
+            if (frsBannerHeaderData4 != null) {
+                str3 = frsBannerHeaderData4.getContent2();
             } else {
-                content2 = frsBannerHeaderData4.getContent2();
+                str3 = null;
             }
-            if (content2 != null && !StringsKt__StringsJVMKt.isBlank(content2)) {
+            if (str3 != null && !StringsKt__StringsJVMKt.isBlank(str3)) {
                 z2 = false;
             } else {
                 z2 = true;
@@ -222,21 +222,21 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
                 TextView textView6 = this.e;
                 if (textView6 != null) {
                     FrsBannerHeaderData frsBannerHeaderData5 = this.h;
-                    if (frsBannerHeaderData5 == null) {
-                        content22 = null;
+                    if (frsBannerHeaderData5 != null) {
+                        str4 = frsBannerHeaderData5.getContent2();
                     } else {
-                        content22 = frsBannerHeaderData5.getContent2();
+                        str4 = null;
                     }
-                    textView6.setText(content22);
+                    textView6.setText(str4);
                 }
             }
             FrsBannerHeaderData frsBannerHeaderData6 = this.h;
-            if (frsBannerHeaderData6 == null) {
-                jumpTips = null;
+            if (frsBannerHeaderData6 != null) {
+                str5 = frsBannerHeaderData6.getJumpTips();
             } else {
-                jumpTips = frsBannerHeaderData6.getJumpTips();
+                str5 = null;
             }
-            if (jumpTips != null && !StringsKt__StringsJVMKt.isBlank(jumpTips)) {
+            if (str5 != null && !StringsKt__StringsJVMKt.isBlank(str5)) {
                 z3 = false;
             }
             if (z3) {
@@ -255,34 +255,34 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
             if (textView9 != null) {
                 FrsBannerHeaderData frsBannerHeaderData7 = this.h;
                 if (frsBannerHeaderData7 != null) {
-                    str = frsBannerHeaderData7.getJumpTips();
+                    str6 = frsBannerHeaderData7.getJumpTips();
                 }
-                textView9.setText(StringHelper.subString(str, 20));
+                textView9.setText(StringHelper.subString(str6, 20));
             }
         }
     }
 
     /* JADX WARN: Removed duplicated region for block: B:30:0x007c  */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x007e  */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x0098  */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x009a  */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x00b4  */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x00b6  */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x0081  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0096  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x009b  */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00b0  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x00b5  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final void c() {
-        ThemeColorInfo backgroundColor;
-        String b;
-        String c;
+        ThemeColorInfo themeColorInfo;
+        String str;
+        String str2;
         boolean z;
         String[] strArr;
         FrsBannerHeaderData frsBannerHeaderData;
-        ThemeColorInfo content1Color;
+        ThemeColorInfo themeColorInfo2;
         FrsBannerHeaderData frsBannerHeaderData2;
-        ThemeColorInfo content2Color;
+        ThemeColorInfo themeColorInfo3;
         FrsBannerHeaderData frsBannerHeaderData3;
-        ThemeColorInfo jumpTipsColor;
+        ThemeColorInfo themeColorInfo4;
         TextView textView;
         TextView textView2;
         TextView textView3;
@@ -290,60 +290,60 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             FrsBannerHeaderData frsBannerHeaderData4 = this.h;
-            if (frsBannerHeaderData4 == null) {
-                backgroundColor = null;
+            if (frsBannerHeaderData4 != null) {
+                themeColorInfo = frsBannerHeaderData4.getBackgroundColor();
             } else {
-                backgroundColor = frsBannerHeaderData4.getBackgroundColor();
+                themeColorInfo = null;
             }
-            if (backgroundColor == null) {
-                c = null;
-                b = null;
+            if (themeColorInfo != null) {
+                str2 = td9.b(themeColorInfo);
+                str = td9.c(themeColorInfo);
             } else {
-                b = da9.b(backgroundColor);
-                c = da9.c(backgroundColor);
+                str = null;
+                str2 = null;
             }
-            if (b != null && !StringsKt__StringsJVMKt.isBlank(b)) {
+            if (str2 != null && !StringsKt__StringsJVMKt.isBlank(str2)) {
                 z = false;
             } else {
                 z = true;
             }
             if (!z) {
-                if (c != null && !StringsKt__StringsJVMKt.isBlank(c)) {
+                if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
                     z2 = false;
                 } else {
                     z2 = true;
                 }
                 if (!z2) {
-                    Intrinsics.checkNotNull(b);
-                    Intrinsics.checkNotNull(c);
-                    strArr = new String[]{b, c};
+                    Intrinsics.checkNotNull(str2);
+                    Intrinsics.checkNotNull(str);
+                    strArr = new String[]{str2, str};
                     TBSelector.makeDrawableSelector().setShape(0).gradientLinear((String[]) Arrays.copyOf(strArr, strArr.length)).setGradientOrientation(DrawableSelector.LEFT_RIGHT).tlRadius(k).trRadius(k).into(this);
                     frsBannerHeaderData = this.h;
-                    if (frsBannerHeaderData != null) {
-                        content1Color = null;
+                    if (frsBannerHeaderData == null) {
+                        themeColorInfo2 = frsBannerHeaderData.getContent1Color();
                     } else {
-                        content1Color = frsBannerHeaderData.getContent1Color();
+                        themeColorInfo2 = null;
                     }
-                    if (content1Color != null && (textView3 = this.d) != null) {
-                        textView3.setTextColor(SkinManager.getColorFromServerColor(content1Color, R.color.CAM_X0622));
+                    if (themeColorInfo2 != null && (textView3 = this.d) != null) {
+                        textView3.setTextColor(SkinManager.getColorFromServerColor(themeColorInfo2, R.color.CAM_X0622));
                     }
                     frsBannerHeaderData2 = this.h;
-                    if (frsBannerHeaderData2 != null) {
-                        content2Color = null;
+                    if (frsBannerHeaderData2 == null) {
+                        themeColorInfo3 = frsBannerHeaderData2.getContent2Color();
                     } else {
-                        content2Color = frsBannerHeaderData2.getContent2Color();
+                        themeColorInfo3 = null;
                     }
-                    if (content2Color != null && (textView2 = this.e) != null) {
-                        textView2.setTextColor(SkinManager.getColorFromServerColor(content2Color, R.color.CAM_X0618));
+                    if (themeColorInfo3 != null && (textView2 = this.e) != null) {
+                        textView2.setTextColor(SkinManager.getColorFromServerColor(themeColorInfo3, R.color.CAM_X0618));
                     }
                     frsBannerHeaderData3 = this.h;
-                    if (frsBannerHeaderData3 != null) {
-                        jumpTipsColor = null;
+                    if (frsBannerHeaderData3 == null) {
+                        themeColorInfo4 = frsBannerHeaderData3.getJumpTipsColor();
                     } else {
-                        jumpTipsColor = frsBannerHeaderData3.getJumpTipsColor();
+                        themeColorInfo4 = null;
                     }
-                    if (jumpTipsColor != null && (textView = this.f) != null) {
-                        textView.setTextColor(SkinManager.getColorFromServerColor(jumpTipsColor, R.color.CAM_X0622));
+                    if (themeColorInfo4 != null && (textView = this.f) != null) {
+                        textView.setTextColor(SkinManager.getColorFromServerColor(themeColorInfo4, R.color.CAM_X0622));
                     }
                     WebPManager.setPureDrawable(this.g, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0618, null);
                 }
@@ -351,22 +351,22 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
             strArr = new String[]{"#66000000", "#66000000"};
             TBSelector.makeDrawableSelector().setShape(0).gradientLinear((String[]) Arrays.copyOf(strArr, strArr.length)).setGradientOrientation(DrawableSelector.LEFT_RIGHT).tlRadius(k).trRadius(k).into(this);
             frsBannerHeaderData = this.h;
-            if (frsBannerHeaderData != null) {
+            if (frsBannerHeaderData == null) {
             }
-            if (content1Color != null) {
-                textView3.setTextColor(SkinManager.getColorFromServerColor(content1Color, R.color.CAM_X0622));
+            if (themeColorInfo2 != null) {
+                textView3.setTextColor(SkinManager.getColorFromServerColor(themeColorInfo2, R.color.CAM_X0622));
             }
             frsBannerHeaderData2 = this.h;
-            if (frsBannerHeaderData2 != null) {
+            if (frsBannerHeaderData2 == null) {
             }
-            if (content2Color != null) {
-                textView2.setTextColor(SkinManager.getColorFromServerColor(content2Color, R.color.CAM_X0618));
+            if (themeColorInfo3 != null) {
+                textView2.setTextColor(SkinManager.getColorFromServerColor(themeColorInfo3, R.color.CAM_X0618));
             }
             frsBannerHeaderData3 = this.h;
-            if (frsBannerHeaderData3 != null) {
+            if (frsBannerHeaderData3 == null) {
             }
-            if (jumpTipsColor != null) {
-                textView.setTextColor(SkinManager.getColorFromServerColor(jumpTipsColor, R.color.CAM_X0622));
+            if (themeColorInfo4 != null) {
+                textView.setTextColor(SkinManager.getColorFromServerColor(themeColorInfo4, R.color.CAM_X0622));
             }
             WebPManager.setPureDrawable(this.g, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0618, null);
         }
@@ -379,39 +379,39 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
         TextView textView3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0301, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d030f, (ViewGroup) this, true);
             this.b = inflate;
             ImageView imageView = null;
-            if (inflate == null) {
-                tbImageView = null;
+            if (inflate != null) {
+                tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090bce);
             } else {
-                tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090b8d);
+                tbImageView = null;
             }
             this.c = tbImageView;
             View view2 = this.b;
-            if (view2 == null) {
-                textView = null;
+            if (view2 != null) {
+                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bcb);
             } else {
-                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b8a);
+                textView = null;
             }
             this.d = textView;
             View view3 = this.b;
-            if (view3 == null) {
-                textView2 = null;
+            if (view3 != null) {
+                textView2 = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f090bcc);
             } else {
-                textView2 = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f090b8b);
+                textView2 = null;
             }
             this.e = textView2;
             View view4 = this.b;
-            if (view4 == null) {
-                textView3 = null;
+            if (view4 != null) {
+                textView3 = (TextView) view4.findViewById(R.id.obfuscated_res_0x7f090bcd);
             } else {
-                textView3 = (TextView) view4.findViewById(R.id.obfuscated_res_0x7f090b8c);
+                textView3 = null;
             }
             this.f = textView3;
             View view5 = this.b;
             if (view5 != null) {
-                imageView = (ImageView) view5.findViewById(R.id.obfuscated_res_0x7f090b8e);
+                imageView = (ImageView) view5.findViewById(R.id.obfuscated_res_0x7f090bcf);
             }
             this.g = imageView;
             TbImageView tbImageView2 = this.c;
@@ -432,7 +432,7 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
 
     @Override // android.view.View.OnClickListener
     public void onClick(View v) {
-        String jumpLink;
+        String str;
         boolean z;
         String type;
         Interceptable interceptable = $ic;
@@ -440,13 +440,13 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
             Intrinsics.checkNotNullParameter(v, "v");
             if (Intrinsics.areEqual(v, this.b) && (getContext() instanceof TbPageContextSupport)) {
                 FrsBannerHeaderData frsBannerHeaderData = this.h;
-                String str = null;
-                if (frsBannerHeaderData == null) {
-                    jumpLink = null;
+                String str2 = null;
+                if (frsBannerHeaderData != null) {
+                    str = frsBannerHeaderData.getJumpLink();
                 } else {
-                    jumpLink = frsBannerHeaderData.getJumpLink();
+                    str = null;
                 }
-                if (jumpLink != null && !StringsKt__StringsJVMKt.isBlank(jumpLink)) {
+                if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
                     z = false;
                 } else {
                     z = true;
@@ -455,28 +455,29 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
                     Context context = getContext();
                     if (context != null) {
                         TbPageContext<?> pageContext = ((TbPageContextSupport) context).getPageContext();
-                        if (pageContext == null || rr6.f().i()) {
+                        if (pageContext == null || qu6.f().i()) {
                             return;
                         }
                         UrlManager urlManager = UrlManager.getInstance();
                         String[] strArr = new String[1];
                         FrsBannerHeaderData frsBannerHeaderData2 = this.h;
                         if (frsBannerHeaderData2 != null) {
-                            str = frsBannerHeaderData2.getJumpLink();
+                            str2 = frsBannerHeaderData2.getJumpLink();
                         }
-                        strArr[0] = str;
+                        strArr[0] = str2;
                         urlManager.dealOneLink(pageContext, strArr);
                         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FRS_BANNER_HEADER_CLICK);
-                        String str2 = this.i;
-                        if (str2 != null) {
-                            statisticItem.param("fid", str2);
-                        }
-                        String str3 = this.j;
+                        String str3 = this.i;
                         if (str3 != null) {
-                            statisticItem.param("fname", str3);
+                            statisticItem.param("fid", str3);
+                        }
+                        String str4 = this.j;
+                        if (str4 != null) {
+                            statisticItem.param("fname", str4);
                         }
                         FrsBannerHeaderData frsBannerHeaderData3 = this.h;
                         if (frsBannerHeaderData3 != null && (type = frsBannerHeaderData3.getType()) != null) {
+                            Intrinsics.checkNotNullExpressionValue(type, "type");
                             statisticItem.param("obj_type", type);
                         }
                         TiebaStatic.log(statisticItem);

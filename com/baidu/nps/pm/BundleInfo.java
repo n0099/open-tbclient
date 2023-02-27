@@ -9,13 +9,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.tieba.ie1;
+import com.baidu.tieba.se1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.SocialOperation;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -171,7 +172,7 @@ public class BundleInfo implements IBundleInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return ie1.b().f(this.packageName);
+            return se1.b().f(this.packageName);
         }
         return (String) invokeV.objValue;
     }
@@ -547,7 +548,7 @@ public class BundleInfo implements IBundleInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
             if (list != null) {
-                return TextUtils.join(";", list);
+                return TextUtils.join(ParamableElem.DIVIDE_PARAM, list);
             }
             return "";
         }
@@ -559,7 +560,7 @@ public class BundleInfo implements IBundleInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                return Arrays.asList(TextUtils.split(str, ";"));
+                return Arrays.asList(TextUtils.split(str, ParamableElem.DIVIDE_PARAM));
             }
             return null;
         }

@@ -1,14 +1,9 @@
 package com.baidu.searchbox.player.constants;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PlayerConstant {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int AUTO_END = 307;
     public static final int CLICK_BACK_ICON = 2;
     public static final int CLICK_KEY_BACK = 3;
@@ -60,59 +55,44 @@ public class PlayerConstant {
     public static final int VIDEO_SCALING_MODE_SCALE_TO_FIT = 1;
     public static final int VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING = 2;
     public static final int VIDEO_SCALING_MODE_SCALE_TO_TO_FILL_WITH_CROP_BOTTOM = 10;
-    public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public @interface MediaInfo {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public @interface PauseType {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public @interface PlayMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public @interface PlayStyleSwitchReason {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public @interface PlayerCompleteType {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public @interface ScaleMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public @interface SeekMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public @interface StartType {
-    }
-
-    public PlayerConstant() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
     }
 }

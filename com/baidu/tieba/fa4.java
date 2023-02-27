@@ -1,32 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fa4 extends f34 {
+public class fa4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ea4 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public long currentSize;
-    @V8JavascriptField
-    public String[] keys;
-    @V8JavascriptField
-    public long limitSize;
 
-    public fa4() {
+    public static synchronized ea4 a() {
+        InterceptResult invokeV;
+        ea4 ea4Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (fa4.class) {
+                if (a == null) {
+                    a = new ea4();
+                }
+                ea4Var = a;
             }
+            return ea4Var;
         }
+        return (ea4) invokeV.objValue;
     }
 }

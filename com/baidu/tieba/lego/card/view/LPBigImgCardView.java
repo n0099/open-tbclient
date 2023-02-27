@@ -223,11 +223,11 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d017b, (ViewGroup) null);
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0188, (ViewGroup) null);
             this.m = relativeLayout;
-            this.n = (TbImageView) l(relativeLayout, R.id.obfuscated_res_0x7f092233);
-            this.o = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f092234);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f0924bc);
+            this.n = (TbImageView) l(relativeLayout, R.id.obfuscated_res_0x7f09227d);
+            this.o = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f09227e);
+            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f092509);
             return this.m;
         }
         return (View) invokeV.objValue;

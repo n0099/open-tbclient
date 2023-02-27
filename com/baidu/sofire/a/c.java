@@ -35,9 +35,9 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(65537, null, context, i, file, file2) == null) {
             try {
-                if (com.baidu.sofire.k.a.a(file)) {
-                    if (!com.baidu.sofire.k.a.a(file2)) {
-                        com.baidu.sofire.k.a.a(file, file2);
+                if (com.baidu.sofire.k.b.a(file)) {
+                    if (!com.baidu.sofire.k.b.a(file2)) {
+                        a.a(file, file2);
                     }
                     if (a.containsKey(file.getAbsolutePath())) {
                         return;

@@ -1,201 +1,89 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.IBinder;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class nq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Matrix a;
+    public Bitmap b;
 
-    public static void a() {
-        cr9 c;
+    public nq9(Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (c = ir9.c()) != null) {
-            c.b();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bitmap};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.b = bitmap;
+        this.a = new Matrix();
     }
 
-    public static Context b() {
-        InterceptResult invokeV;
+    public void a(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ar9 a = ir9.a();
-            if (a != null) {
-                return a.getAppContext();
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, canvas) != null) || canvas == null) {
+            return;
         }
-        return (Context) invokeV.objValue;
+        canvas.drawBitmap(this.b, this.a, null);
     }
 
-    public static int d() {
+    public Matrix b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            ar9 a = ir9.a();
-            if (a != null) {
-                return a.d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (Matrix) invokeV.objValue;
+    }
+
+    public Bitmap c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Bitmap bitmap = this.b;
+            if (bitmap == null) {
+                return 0;
             }
-            return 0;
+            return bitmap.getHeight();
         }
         return invokeV.intValue;
     }
 
-    public static cq9 i() {
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return ir9.e();
-        }
-        return (cq9) invokeV.objValue;
-    }
-
-    public static gq9 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return ir9.f();
-        }
-        return (gq9) invokeV.objValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            br9 b = ir9.b();
-            if (b != null) {
-                return b.isAgreePrivacy();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Bitmap bitmap = this.b;
+            if (bitmap == null) {
+                return 0;
             }
-            return false;
+            return bitmap.getWidth();
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            ar9 a = ir9.a();
-            if (a != null) {
-                return a.isDebug();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            ar9 a = ir9.a();
-            if (a != null) {
-                return a.c(str);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static IBinder e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            cr9 c = ir9.c();
-            if (c != null) {
-                return c.a(str);
-            }
-            return null;
-        }
-        return (IBinder) invokeL.objValue;
-    }
-
-    public static String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            ar9 a = ir9.a();
-            if (a != null) {
-                return a.e(str);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String k(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, null, z)) == null) {
-            ar9 a = ir9.a();
-            if (a != null) {
-                return a.b(z);
-            }
-            return "";
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public static void q(int i) {
-        ar9 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(65552, null, i) == null) && (a = ir9.a()) != null) {
-            a.a(i);
-        }
-    }
-
-    public static int f(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
-            ar9 a = ir9.a();
-            if (a != null) {
-                return a.getInt(str, i);
-            }
-            return i;
-        }
-        return invokeLI.intValue;
-    }
-
-    public static long g(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
-            ar9 a = ir9.a();
-            if (a != null) {
-                return a.getLong(str, j);
-            }
-            return j;
-        }
-        return invokeLJ.longValue;
-    }
-
-    public static void n(String str, int i) {
-        ar9 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) && (a = ir9.a()) != null) {
-            a.putInt(str, i);
-        }
-    }
-
-    public static void o(String str, long j) {
-        ar9 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) && (a = ir9.a()) != null) {
-            a.putLong(str, j);
-        }
-    }
-
-    public static void p(String str, String str2) {
-        ar9 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) && (a = ir9.a()) != null) {
-            a.putString(str, str2);
-        }
+        return invokeV.intValue;
     }
 }

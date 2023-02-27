@@ -11,8 +11,8 @@ import com.baidu.tbadk.data.LevePopData;
 import com.baidu.tbadk.data.LiveRemindData;
 import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tbadk.data.SubscribeGroupUnreadMsgData;
-import com.baidu.tieba.a35;
-import com.baidu.tieba.ka5;
+import com.baidu.tieba.m45;
+import com.baidu.tieba.xb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ import tbclient.Loop.LevelRes;
 import tbclient.Loop.LiveRes;
 import tbclient.Loop.LoopResIdl;
 /* loaded from: classes3.dex */
-public class PollingHttpResMessage extends HttpResponsedMessage implements a35 {
+public class PollingHttpResMessage extends HttpResponsedMessage implements m45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ChatRoomEntranceData chatEntranceData;
@@ -38,7 +38,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements a35 {
     public List<AlaLiveInfo> liveFollowSecondFloor;
     public List<AlaLiveInfo> liveIndexSecondFloor;
     public final List<AlaLiveInfo> livePicSecondFloor;
-    public ka5 mFestivalConfigData;
+    public xb5 mFestivalConfigData;
     public IconPopData mIconPopData;
     public LevePopData mLevePopData;
     public LiveRemindData mLiveRemindData;
@@ -65,7 +65,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements a35 {
         }
         this.mLevePopData = new LevePopData();
         this.mIconPopData = new IconPopData();
-        this.mFestivalConfigData = new ka5();
+        this.mFestivalConfigData = new xb5();
         this.mLiveRemindData = new LiveRemindData();
         this.liveFollowSecondFloor = new ArrayList();
         this.liveIndexSecondFloor = new ArrayList();
@@ -138,7 +138,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements a35 {
         }
     }
 
-    @Override // com.baidu.tieba.a35
+    @Override // com.baidu.tieba.m45
     public ChatRoomEntranceData getChatRoomEntranceData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -148,17 +148,17 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements a35 {
         return (ChatRoomEntranceData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.a35
-    public ka5 getFestivalConfigData() {
+    @Override // com.baidu.tieba.m45
+    public xb5 getFestivalConfigData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mFestivalConfigData;
         }
-        return (ka5) invokeV.objValue;
+        return (xb5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.a35
+    @Override // com.baidu.tieba.m45
     public IconPopData getIconPopData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -168,7 +168,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements a35 {
         return (IconPopData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.a35
+    @Override // com.baidu.tieba.m45
     public LevePopData getLevePopData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -178,7 +178,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements a35 {
         return (LevePopData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.a35
+    @Override // com.baidu.tieba.m45
     public List<AlaLiveInfo> getLiveFollowSecondFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -188,7 +188,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements a35 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.a35
+    @Override // com.baidu.tieba.m45
     public List<AlaLiveInfo> getLiveIndexSecondFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -198,7 +198,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements a35 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.a35
+    @Override // com.baidu.tieba.m45
     public List<AlaLiveInfo> getLivePicSecondFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -208,7 +208,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements a35 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.a35
+    @Override // com.baidu.tieba.m45
     public LiveRemindData getLiveRemindData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -218,7 +218,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements a35 {
         return (LiveRemindData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.a35
+    @Override // com.baidu.tieba.m45
     public MemberBroadcastData getMemberBroadcastData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -228,7 +228,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements a35 {
         return (MemberBroadcastData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.a35
+    @Override // com.baidu.tieba.m45
     public SubscribeGroupUnreadMsgData getSubscribeChatHaveUnReadMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -238,7 +238,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements a35 {
         return (SubscribeGroupUnreadMsgData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.a35
+    @Override // com.baidu.tieba.m45
     public String getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,101 +1,45 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class u13 implements pn3<HybridUbcFlow> {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface u13 {
+    public static final u13 a = new a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948158098, "Lcom/baidu/tieba/u13;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    <T extends pu2<T>> void a(T t);
+
+    /* loaded from: classes6.dex */
+    public static class a implements u13 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948158098, "Lcom/baidu/tieba/u13;");
-                return;
-            }
-        }
-        a = gp1.a;
-    }
-
-    public u13() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final JSONObject b(HybridUbcFlow hybridUbcFlow) throws JSONException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (hybridUbcFlow != null && !hybridUbcFlow.f.isEmpty()) {
-                jSONObject.put("flowId", hybridUbcFlow.l());
-                JSONArray jSONArray = new JSONArray();
-                for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.f) {
-                    if (!ubcFlowEvent.b() && !TextUtils.isEmpty(ubcFlowEvent.a)) {
-                        if (a) {
-                            Log.i("FlowJarToH5Reporter", "buildJoMsg: event=" + ubcFlowEvent);
-                        }
-                        jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.a).put("timestamp", ubcFlowEvent.g()));
-                    }
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                jSONObject.put("data", jSONArray);
             }
-            if (a) {
-                Log.i("FlowJarToH5Reporter", "buildJoMsg: joMsg=" + jSONObject);
-            }
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
-    }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pn3
-    /* renamed from: c */
-    public void a(HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
-            if (a) {
-                Log.i("FlowJarToH5Reporter", "report: flow=" + hybridUbcFlow);
-            }
-            if (ju2.U().Y()) {
-                if (a || ju2.U().N()) {
-                    try {
-                        d23.e().c(b(hybridUbcFlow));
-                    } catch (JSONException e) {
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
+        @Override // com.baidu.tieba.u13
+        public <T extends pu2<T>> void a(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+                t.x("rescue_refractory_period", 0L);
+                t.x("suspend_delay_time", -1L);
+                t.t("should_suspend_master_timer", false);
+                t.t("should_suspend_all", false);
+                t.t("should_suspend_slave_timer", false);
+                t.t("should_suspend_web_view_timer", false);
+                t.t("should_suspend_v8_timer", false);
             }
         }
     }

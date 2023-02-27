@@ -7,259 +7,120 @@ import android.view.accessibility.AccessibilityNodeProvider;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class AccessibilityNodeProviderCompat {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int HOST_VIEW_ID = -1;
-    public transient /* synthetic */ FieldHolder $fh;
     public final Object mProvider;
 
     public void addExtraDataToAccessibilityNodeInfo(int i, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat, @NonNull String str, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), accessibilityNodeInfoCompat, str, bundle}) == null) {
-        }
     }
 
     @Nullable
     public AccessibilityNodeInfoCompat createAccessibilityNodeInfo(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return null;
-        }
-        return (AccessibilityNodeInfoCompat) invokeI.objValue;
+        return null;
     }
 
     @Nullable
     public List<AccessibilityNodeInfoCompat> findAccessibilityNodeInfosByText(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
-            return null;
-        }
-        return (List) invokeLI.objValue;
+        return null;
     }
 
     @Nullable
     public AccessibilityNodeInfoCompat findFocus(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return null;
-        }
-        return (AccessibilityNodeInfoCompat) invokeI.objValue;
+        return null;
     }
 
     public boolean performAction(int i, int i2, Bundle bundle) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048581, this, i, i2, bundle)) == null) {
-            return false;
-        }
-        return invokeIIL.booleanValue;
+        return false;
     }
 
     @RequiresApi(16)
     /* loaded from: classes.dex */
     public static class AccessibilityNodeProviderApi16 extends AccessibilityNodeProvider {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final AccessibilityNodeProviderCompat mCompat;
 
         public AccessibilityNodeProviderApi16(AccessibilityNodeProviderCompat accessibilityNodeProviderCompat) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {accessibilityNodeProviderCompat};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.mCompat = accessibilityNodeProviderCompat;
         }
 
         @Override // android.view.accessibility.AccessibilityNodeProvider
         public AccessibilityNodeInfo createAccessibilityNodeInfo(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                AccessibilityNodeInfoCompat createAccessibilityNodeInfo = this.mCompat.createAccessibilityNodeInfo(i);
-                if (createAccessibilityNodeInfo == null) {
-                    return null;
-                }
-                return createAccessibilityNodeInfo.unwrap();
+            AccessibilityNodeInfoCompat createAccessibilityNodeInfo = this.mCompat.createAccessibilityNodeInfo(i);
+            if (createAccessibilityNodeInfo == null) {
+                return null;
             }
-            return (AccessibilityNodeInfo) invokeI.objValue;
+            return createAccessibilityNodeInfo.unwrap();
         }
 
         @Override // android.view.accessibility.AccessibilityNodeProvider
         public List<AccessibilityNodeInfo> findAccessibilityNodeInfosByText(String str, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-                List<AccessibilityNodeInfoCompat> findAccessibilityNodeInfosByText = this.mCompat.findAccessibilityNodeInfosByText(str, i);
-                if (findAccessibilityNodeInfosByText == null) {
-                    return null;
-                }
-                ArrayList arrayList = new ArrayList();
-                int size = findAccessibilityNodeInfosByText.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    arrayList.add(findAccessibilityNodeInfosByText.get(i2).unwrap());
-                }
-                return arrayList;
+            List<AccessibilityNodeInfoCompat> findAccessibilityNodeInfosByText = this.mCompat.findAccessibilityNodeInfosByText(str, i);
+            if (findAccessibilityNodeInfosByText == null) {
+                return null;
             }
-            return (List) invokeLI.objValue;
+            ArrayList arrayList = new ArrayList();
+            int size = findAccessibilityNodeInfosByText.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                arrayList.add(findAccessibilityNodeInfosByText.get(i2).unwrap());
+            }
+            return arrayList;
         }
 
         @Override // android.view.accessibility.AccessibilityNodeProvider
         public boolean performAction(int i, int i2, Bundle bundle) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, bundle)) == null) {
-                return this.mCompat.performAction(i, i2, bundle);
-            }
-            return invokeIIL.booleanValue;
+            return this.mCompat.performAction(i, i2, bundle);
         }
     }
 
     @RequiresApi(19)
     /* loaded from: classes.dex */
     public static class AccessibilityNodeProviderApi19 extends AccessibilityNodeProviderApi16 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public AccessibilityNodeProviderApi19(AccessibilityNodeProviderCompat accessibilityNodeProviderCompat) {
             super(accessibilityNodeProviderCompat);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {accessibilityNodeProviderCompat};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((AccessibilityNodeProviderCompat) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
         }
 
         @Override // android.view.accessibility.AccessibilityNodeProvider
         public AccessibilityNodeInfo findFocus(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                AccessibilityNodeInfoCompat findFocus = this.mCompat.findFocus(i);
-                if (findFocus == null) {
-                    return null;
-                }
-                return findFocus.unwrap();
+            AccessibilityNodeInfoCompat findFocus = this.mCompat.findFocus(i);
+            if (findFocus == null) {
+                return null;
             }
-            return (AccessibilityNodeInfo) invokeI.objValue;
+            return findFocus.unwrap();
         }
     }
 
     @RequiresApi(26)
     /* loaded from: classes.dex */
     public static class AccessibilityNodeProviderApi26 extends AccessibilityNodeProviderApi19 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public AccessibilityNodeProviderApi26(AccessibilityNodeProviderCompat accessibilityNodeProviderCompat) {
             super(accessibilityNodeProviderCompat);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {accessibilityNodeProviderCompat};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((AccessibilityNodeProviderCompat) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
         }
 
         public void addExtraDataToAccessibilityNodeInfo(int i, AccessibilityNodeInfo accessibilityNodeInfo, String str, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), accessibilityNodeInfo, str, bundle}) == null) {
-                this.mCompat.addExtraDataToAccessibilityNodeInfo(i, AccessibilityNodeInfoCompat.wrap(accessibilityNodeInfo), str, bundle);
-            }
+            this.mCompat.addExtraDataToAccessibilityNodeInfo(i, AccessibilityNodeInfoCompat.wrap(accessibilityNodeInfo), str, bundle);
         }
     }
 
     public AccessibilityNodeProviderCompat() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        int i3 = Build.VERSION.SDK_INT;
-        if (i3 >= 26) {
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 26) {
             this.mProvider = new AccessibilityNodeProviderApi26(this);
-        } else if (i3 >= 19) {
+        } else if (i >= 19) {
             this.mProvider = new AccessibilityNodeProviderApi19(this);
-        } else if (i3 >= 16) {
+        } else if (i >= 16) {
             this.mProvider = new AccessibilityNodeProviderApi16(this);
         } else {
             this.mProvider = null;
         }
     }
 
-    public AccessibilityNodeProviderCompat(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {obj};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mProvider = obj;
+    public Object getProvider() {
+        return this.mProvider;
     }
 
-    public Object getProvider() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mProvider;
-        }
-        return invokeV.objValue;
+    public AccessibilityNodeProviderCompat(Object obj) {
+        this.mProvider = obj;
     }
 }

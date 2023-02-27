@@ -1,206 +1,170 @@
 package com.baidu.tieba;
 
-import android.media.CamcorderProfile;
-import androidx.annotation.NonNull;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.HorizontalListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Objects;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class if9 implements Comparable<if9> {
+public class if9 extends v9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public int c;
+    public View a;
+    public HorizontalListView b;
+    public ff9 c;
+    public qe9 d;
+    public se9 e;
 
-    public if9(int i, int i2) {
+    public void p(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    public void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements AdapterView.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ if9 a;
+
+        public a(if9 if9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {if9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = if9Var;
+        }
+
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                af9 af9Var = (af9) this.a.d.getItem(i);
+                if (this.a.e != null) {
+                    this.a.e.h(af9Var);
+                }
+                if (this.a.c != null && this.a.c.D() != null) {
+                    this.a.c.D().setFilter(af9Var);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public if9(x9 x9Var, ff9 ff9Var) {
+        super(x9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {x9Var, ff9Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((x9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = 30;
-        this.a = i;
-        this.b = i2;
+        this.c = ff9Var;
+        View inflate = LayoutInflater.from(x9Var.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0254, (ViewGroup) null);
+        this.a = inflate;
+        inflate.getResources();
+        q();
     }
 
-    public if9(int i, int i2, int i3) {
+    public void u(af9 af9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(1048583, this, af9Var) == null) {
+            this.d.b(af9Var);
         }
-        this.c = 30;
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(@NonNull if9 if9Var) {
+    public void v(se9 se9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, se9Var) == null) {
+            this.e = se9Var;
+        }
+    }
+
+    public void w(List<af9> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
+            this.d.c(list);
+            this.b.setAdapter((ListAdapter) this.d);
+        }
+    }
+
+    public af9 n(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, if9Var)) == null) {
-            int i = this.a;
-            int i2 = this.b;
-            int i3 = i * i2;
-            int i4 = if9Var.a;
-            int i5 = if9Var.b;
-            if (i3 == i4 * i5) {
-                return this.c - if9Var.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            for (af9 af9Var : this.d.a()) {
+                if (af9Var != null && StringHelper.equals(af9Var.c, str)) {
+                    return af9Var;
+                }
             }
-            return (i * i2) - (i4 * i5);
+            return null;
         }
-        return invokeL.intValue;
+        return (af9) invokeL.objValue;
     }
 
-    public boolean f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            return g(this, i);
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public CamcorderProfile b() {
+    public View o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a == 720 && this.b == 480) {
-                return CamcorderProfile.get(4);
-            }
-            if (this.a == 1280 && this.b == 720) {
-                return CamcorderProfile.get(5);
-            }
-            if (this.a == 1920 && this.b == 1080) {
-                return CamcorderProfile.get(6);
-            }
-            if (this.a == 3840 && this.b == 2160) {
-                return CamcorderProfile.get(8);
-            }
-            return CamcorderProfile.get(5);
-        }
-        return (CamcorderProfile) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.a;
         }
-        return invokeV.intValue;
+        return (View) invokeV.objValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public final void q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
-            if (obj == null) {
-                return false;
-            }
-            if (this == obj) {
-                return true;
-            }
-            if (!(obj instanceof if9)) {
-                return false;
-            }
-            if9 if9Var = (if9) obj;
-            if (this.a != if9Var.a || this.b != if9Var.b || this.c != if9Var.c) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = (HorizontalListView) this.a.findViewById(R.id.obfuscated_res_0x7f090905);
+            this.d = new qe9();
+            w(se9.c(this.a.getContext()));
+            this.b.setOnItemClickListener(new a(this));
         }
-        return invokeL.booleanValue;
-    }
-
-    public boolean g(if9 if9Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, if9Var, i)) == null) {
-            if (if9Var.e() == 720 && if9Var.d() == 480) {
-                return CamcorderProfile.hasProfile(i, 2002);
-            }
-            if (if9Var.e() == 1280 && if9Var.d() == 720) {
-                return CamcorderProfile.hasProfile(i, 2003);
-            }
-            if (if9Var.e() == 1920 && if9Var.d() == 1080) {
-                return CamcorderProfile.hasProfile(i, 2004);
-            }
-            if (if9Var.e() == 3840 && if9Var.d() == 2160) {
-                return CamcorderProfile.hasProfile(i, 2005);
-            }
-            return false;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return Objects.hash(Integer.valueOf(e()), Integer.valueOf(d()), Integer.valueOf(c()));
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.a + "x" + this.b + " " + this.c + "p";
-        }
-        return (String) invokeV.objValue;
     }
 }

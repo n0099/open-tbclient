@@ -10,68 +10,22 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int[] ATTRS;
+    public static final int[] ATTRS = {16843284};
     public static final int HORIZONTAL = 0;
     public static final String TAG = "DividerItem";
     public static final int VERTICAL = 1;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final Rect mBounds;
+    public final Rect mBounds = new Rect();
     public Drawable mDivider;
     public int mOrientation;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-310476519, "Landroidx/recyclerview/widget/DividerItemDecoration;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-310476519, "Landroidx/recyclerview/widget/DividerItemDecoration;");
-                return;
-            }
-        }
-        ATTRS = new int[]{16843284};
-    }
-
     @Nullable
     public Drawable getDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mDivider;
-        }
-        return (Drawable) invokeV.objValue;
+        return this.mDivider;
     }
 
     public DividerItemDecoration(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mBounds = new Rect();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(ATTRS);
         Drawable drawable = obtainStyledAttributes.getDrawable(0);
         this.mDivider = drawable;
@@ -85,74 +39,64 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     private void drawHorizontal(Canvas canvas, RecyclerView recyclerView) {
         int height;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, this, canvas, recyclerView) == null) {
-            canvas.save();
-            if (recyclerView.getClipToPadding()) {
-                i = recyclerView.getPaddingTop();
-                height = recyclerView.getHeight() - recyclerView.getPaddingBottom();
-                canvas.clipRect(recyclerView.getPaddingLeft(), i, recyclerView.getWidth() - recyclerView.getPaddingRight(), height);
-            } else {
-                height = recyclerView.getHeight();
-                i = 0;
-            }
-            int childCount = recyclerView.getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = recyclerView.getChildAt(i2);
-                recyclerView.getLayoutManager().getDecoratedBoundsWithMargins(childAt, this.mBounds);
-                int round = this.mBounds.right + Math.round(childAt.getTranslationX());
-                this.mDivider.setBounds(round - this.mDivider.getIntrinsicWidth(), i, round, height);
-                this.mDivider.draw(canvas);
-            }
-            canvas.restore();
+        canvas.save();
+        if (recyclerView.getClipToPadding()) {
+            i = recyclerView.getPaddingTop();
+            height = recyclerView.getHeight() - recyclerView.getPaddingBottom();
+            canvas.clipRect(recyclerView.getPaddingLeft(), i, recyclerView.getWidth() - recyclerView.getPaddingRight(), height);
+        } else {
+            height = recyclerView.getHeight();
+            i = 0;
         }
+        int childCount = recyclerView.getChildCount();
+        for (int i2 = 0; i2 < childCount; i2++) {
+            View childAt = recyclerView.getChildAt(i2);
+            recyclerView.getLayoutManager().getDecoratedBoundsWithMargins(childAt, this.mBounds);
+            int round = this.mBounds.right + Math.round(childAt.getTranslationX());
+            this.mDivider.setBounds(round - this.mDivider.getIntrinsicWidth(), i, round, height);
+            this.mDivider.draw(canvas);
+        }
+        canvas.restore();
     }
 
     private void drawVertical(Canvas canvas, RecyclerView recyclerView) {
         int width;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, this, canvas, recyclerView) == null) {
-            canvas.save();
-            if (recyclerView.getClipToPadding()) {
-                i = recyclerView.getPaddingLeft();
-                width = recyclerView.getWidth() - recyclerView.getPaddingRight();
-                canvas.clipRect(i, recyclerView.getPaddingTop(), width, recyclerView.getHeight() - recyclerView.getPaddingBottom());
-            } else {
-                width = recyclerView.getWidth();
-                i = 0;
-            }
-            int childCount = recyclerView.getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = recyclerView.getChildAt(i2);
-                recyclerView.getDecoratedBoundsWithMargins(childAt, this.mBounds);
-                int round = this.mBounds.bottom + Math.round(childAt.getTranslationY());
-                this.mDivider.setBounds(i, round - this.mDivider.getIntrinsicHeight(), width, round);
-                this.mDivider.draw(canvas);
-            }
-            canvas.restore();
+        canvas.save();
+        if (recyclerView.getClipToPadding()) {
+            i = recyclerView.getPaddingLeft();
+            width = recyclerView.getWidth() - recyclerView.getPaddingRight();
+            canvas.clipRect(i, recyclerView.getPaddingTop(), width, recyclerView.getHeight() - recyclerView.getPaddingBottom());
+        } else {
+            width = recyclerView.getWidth();
+            i = 0;
         }
+        int childCount = recyclerView.getChildCount();
+        for (int i2 = 0; i2 < childCount; i2++) {
+            View childAt = recyclerView.getChildAt(i2);
+            recyclerView.getDecoratedBoundsWithMargins(childAt, this.mBounds);
+            int round = this.mBounds.bottom + Math.round(childAt.getTranslationY());
+            this.mDivider.setBounds(i, round - this.mDivider.getIntrinsicHeight(), width, round);
+            this.mDivider.draw(canvas);
+        }
+        canvas.restore();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
     public void getItemOffsets(Rect rect, View view2, RecyclerView recyclerView, RecyclerView.State state) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect, view2, recyclerView, state) == null) {
-            Drawable drawable = this.mDivider;
-            if (drawable == null) {
-                rect.set(0, 0, 0, 0);
-            } else if (this.mOrientation == 1) {
-                rect.set(0, 0, 0, drawable.getIntrinsicHeight());
-            } else {
-                rect.set(0, 0, drawable.getIntrinsicWidth(), 0);
-            }
+        Drawable drawable = this.mDivider;
+        if (drawable == null) {
+            rect.set(0, 0, 0, 0);
+        } else if (this.mOrientation == 1) {
+            rect.set(0, 0, 0, drawable.getIntrinsicHeight());
+        } else {
+            rect.set(0, 0, drawable.getIntrinsicWidth(), 0);
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
     public void onDraw(Canvas canvas, RecyclerView recyclerView, RecyclerView.State state) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, canvas, recyclerView, state) == null) && recyclerView.getLayoutManager() != null && this.mDivider != null) {
+        if (recyclerView.getLayoutManager() != null && this.mDivider != null) {
             if (this.mOrientation == 1) {
                 drawVertical(canvas, recyclerView);
             } else {
@@ -162,23 +106,17 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     public void setDrawable(@NonNull Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, drawable) == null) {
-            if (drawable != null) {
-                this.mDivider = drawable;
-                return;
-            }
-            throw new IllegalArgumentException("Drawable cannot be null.");
+        if (drawable != null) {
+            this.mDivider = drawable;
+            return;
         }
+        throw new IllegalArgumentException("Drawable cannot be null.");
     }
 
     public void setOrientation(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            if (i != 0 && i != 1) {
-                throw new IllegalArgumentException("Invalid orientation. It should be either HORIZONTAL or VERTICAL");
-            }
-            this.mOrientation = i;
+        if (i != 0 && i != 1) {
+            throw new IllegalArgumentException("Invalid orientation. It should be either HORIZONTAL or VERTICAL");
         }
+        this.mOrientation = i;
     }
 }

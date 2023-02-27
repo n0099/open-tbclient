@@ -1,361 +1,319 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.AbsoluteSizeSpan;
+import android.text.style.ForegroundColorSpan;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.if6;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.utils.FileUtils;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class jf6 implements if6 {
+public class jf6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
-    public b b;
-    public if6.a c;
-    public TbPageContext d;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? "frs_page" : (String) invokeV.objValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? "personalize_page" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask<List<String>, Void, String> {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<String> a;
-        public fw9 b;
-        public final /* synthetic */ jf6 c;
+        public int a;
+        public String b;
+        public int c;
+        public int d;
+        public int e;
 
-        /* loaded from: classes5.dex */
-        public class a implements fw9 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.baidu.tieba.fw9
-            public void a() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                }
-            }
-
-            @Override // com.baidu.tieba.fw9
-            public void b(long j) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                }
-            }
-
-            @Override // com.baidu.tieba.fw9
-            public void c(int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                }
-            }
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-        }
-
-        public b(jf6 jf6Var) {
+        public a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jf6Var};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = jf6Var;
-            this.b = new a(this);
+            this.a = -1;
+            this.b = "";
+            this.c = R.color.CAM_X0304;
+            this.d = R.drawable.pic_dot_title;
+            this.e = 0;
+            this.a = i;
         }
 
-        public /* synthetic */ b(jf6 jf6Var, a aVar) {
-            this(jf6Var);
-        }
-
-        /* JADX WARN: Code restructure failed: missing block: B:48:0x010d, code lost:
-            if (com.baidu.tieba.by9.h(r6, r7[0], r1, r5.b) != false) goto L18;
-         */
-        /* JADX WARN: Removed duplicated region for block: B:40:0x00bf  */
-        /* JADX WARN: Removed duplicated region for block: B:54:0x011d A[LOOP:0: B:52:0x0117->B:54:0x011d, LOOP_END] */
-        /* JADX WARN: Removed duplicated region for block: B:56:0x012f A[RETURN] */
-        /* JADX WARN: Removed duplicated region for block: B:57:0x0130 A[RETURN] */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final String b(StringBuilder sb, List<String>[] listArr) {
-            InterceptResult invokeLL;
-            List<String> list;
-            boolean z;
+        public a(int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sb, listArr)) == null) {
-                if (listArr[0] != null && listArr[0].size() != 0) {
-                    String str = ra9.f + "rec_tmp_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION;
-                    if (!StringUtils.isNull(str)) {
-                        File file = new File(str);
-                        if (!file.getParentFile().exists()) {
-                            file.getParentFile().mkdirs();
-                        }
-                    }
-                    boolean z2 = true;
-                    try {
-                        if (listArr[0].size() == 1) {
-                            try {
-                                z = ba9.b(listArr[0].get(0), str, this.b);
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                                if (sb != null) {
-                                    sb.append(e.toString());
-                                }
-                                if (FileHelper.CheckFile(listArr[0].get(0))) {
-                                    list = listArr[0];
-                                }
-                                z = false;
-                                if (!z) {
-                                }
-                                while (r6.hasNext()) {
-                                }
-                                if (z2) {
-                                }
-                            } catch (Exception e2) {
-                                if (sb != null) {
-                                    sb.append(e2.toString());
-                                }
-                                if (FileHelper.CheckFile(listArr[0].get(0))) {
-                                    list = listArr[0];
-                                }
-                                z = false;
-                                if (!z) {
-                                }
-                                while (r6.hasNext()) {
-                                }
-                                if (z2) {
-                                }
-                            }
-                            if (!z && FileHelper.CheckFile(listArr[0].get(0))) {
-                                list = listArr[0];
-                                str = list.get(0);
-                                z = true;
-                            }
-                            if (!z) {
-                                boolean isExists = FileUtils.isExists(listArr[0].get(0));
-                                if (sb != null) {
-                                    sb.append(" 源文件存在 ： ");
-                                    sb.append(isExists);
-                                    sb.append(" , 拍摄视频页不需要拼接时复制失败 from ");
-                                    sb.append(listArr[0].get(0));
-                                    sb.append("to ");
-                                    sb.append(str);
-                                }
-                                z2 = false;
-                            }
-                            for (String str2 : listArr[0]) {
-                                this.c.a.add(str2);
-                            }
-                            if (z2) {
-                                return str;
-                            }
-                            return "";
-                        }
-                    } catch (Throwable th) {
-                        if (FileHelper.CheckFile(listArr[0].get(0))) {
-                            listArr[0].get(0);
-                        }
-                        throw th;
-                    }
-                } else if (sb != null) {
-                    sb.append("拍摄视频页需要拼接文件列表为空");
-                    return null;
-                } else {
-                    return null;
-                }
-            } else {
-                return (String) invokeLL.objValue;
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                cancel(true);
-                if (this.c.c != null) {
-                    this.c.c.a();
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
                 }
             }
+            this.a = -1;
+            this.b = "";
+            this.c = R.color.CAM_X0304;
+            this.d = R.drawable.pic_dot_title;
+            this.e = 0;
+            this.a = i;
+            this.c = i2;
+            this.d = i3;
         }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onCancelled() {
+        public a(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                super.onCancelled();
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
             }
+            this.a = -1;
+            this.b = "";
+            this.c = R.color.CAM_X0304;
+            this.d = R.drawable.pic_dot_title;
+            this.e = 0;
+            this.b = str;
         }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreExecute() {
+        public a(String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                if (this.c.c != null) {
-                    this.c.c.b();
-                }
-                super.onPreExecute();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(List<String>... listArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, listArr)) == null) {
-                if (ListUtils.isEmpty(listArr[0])) {
-                    return "";
-                }
-                if (this.a == null) {
-                    this.a = new ArrayList();
-                }
-                this.a.clear();
-                this.a.addAll(listArr[0]);
-                Iterator<String> it = this.a.iterator();
-                while (it.hasNext()) {
-                    if (ew9.a(it.next()) <= 0) {
-                        return "";
-                    }
-                }
-                return b(new StringBuilder(), listArr);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-                super.onPostExecute((b) str);
-                fw9 fw9Var = this.b;
-                if (fw9Var != null) {
-                    fw9Var.a();
-                }
-                if (this.c.c != null) {
-                    this.c.c.c(str);
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65539, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65539, newInitContext);
+                    return;
                 }
             }
+            this.a = -1;
+            this.b = "";
+            this.c = R.color.CAM_X0304;
+            this.d = R.drawable.pic_dot_title;
+            this.e = 0;
+            this.b = str;
+            this.d = i;
         }
     }
 
-    public jf6(TbPageContext tbPageContext, if6.a aVar) {
+    public static void a(String str) {
+        x69 readThreadHistory;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList();
-        this.d = tbPageContext;
-        this.c = aVar;
-    }
-
-    @Override // com.baidu.tieba.if6
-    public void a() {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.b) != null) {
-            bVar.cancel();
+        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && !StringUtils.isNull(str) && !"0".equalsIgnoreCase(str) && (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) != null && !readThreadHistory.b(str)) {
+            readThreadHistory.a(str);
         }
     }
 
-    @Override // com.baidu.tieba.if6
-    public boolean b(List<String> list) {
+    public static boolean k(String str) {
         InterceptResult invokeL;
+        x69 readThreadHistory;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return false;
-            }
-            if (FileHelper.getAvailableSize() < 52428800) {
-                BdToast.b(this.d.getPageActivity(), this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0b2f)).k();
-                return false;
-            }
-            b bVar = this.b;
-            if (bVar != null) {
-                bVar.cancel();
-            }
-            if (e(list)) {
-                b bVar2 = new b(this, null);
-                this.b = bVar2;
-                bVar2.execute(list);
-            } else {
-                BdToast.b(this.d.getPageActivity(), this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0b30)).k();
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean e(List<String> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-            float f = 0.0f;
-            for (int i = 0; i < list.size(); i++) {
-                String str = list.get(i);
-                if (!TextUtils.isEmpty(str)) {
-                    f += rx9.f(str);
-                }
-            }
-            if (f < 3000.0f) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (StringUtils.isNull(str) || "0".equalsIgnoreCase(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.d(str)) {
                 return false;
             }
             return true;
         }
         return invokeL.booleanValue;
+    }
+
+    public static void b(ThreadData threadData, SpannableStringBuilder spannableStringBuilder, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLZ(65537, null, threadData, spannableStringBuilder, z) != null) || spannableStringBuilder == null || dj.isEmptyStringAfterTrim(spannableStringBuilder.toString()) || threadData == null || threadData.getIs_top() != 0) {
+            return;
+        }
+        if (!z && threadData.getIsNoTitle() != 1 && !StringUtils.isNull(threadData.getTitle())) {
+            return;
+        }
+        ArrayList<lu5> prefixIcons = threadData.getPrefixIcons();
+        if (ListUtils.isEmpty(prefixIcons)) {
+            return;
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < prefixIcons.size(); i++) {
+            if (prefixIcons.get(i) != null && !StringUtils.isNull(prefixIcons.get(i).a())) {
+                sb.append(prefixIcons.get(i).a());
+            }
+        }
+        SpannableString spannableString = new SpannableString(sb.toString());
+        int i2 = 0;
+        for (int i3 = 0; i3 < prefixIcons.size(); i3++) {
+            if (prefixIcons.get(i3) != null && !StringUtils.isNull(prefixIcons.get(i3).a())) {
+                int length = prefixIcons.get(i3).a().length();
+                c(spannableString, prefixIcons.get(i3), i2, length);
+                i2 += length;
+            }
+        }
+        spannableStringBuilder.insert(0, (CharSequence) spannableString);
+    }
+
+    public static void c(SpannableString spannableString, lu5 lu5Var, int i, int i2) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLII(65538, null, spannableString, lu5Var, i, i2) == null) && spannableString != null && lu5Var != null && (i3 = i2 + i) <= spannableString.length()) {
+            spannableString.setSpan(new mu5(lu5Var), i, i3, 33);
+            spannableString.setSpan(new AbsoluteSizeSpan(lu5Var.i), i, i3, 33);
+        }
+    }
+
+    public static SpannableStringBuilder h(Context context, String str, ArrayList<a> arrayList, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, str, arrayList, Boolean.valueOf(z)})) == null) {
+            return i(context, str, arrayList, z, true);
+        }
+        return (SpannableStringBuilder) invokeCommon.objValue;
+    }
+
+    public static void l(TextView textView, String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLII(65547, null, textView, str, i, i2) != null) || !(textView instanceof TextView)) {
+            return;
+        }
+        if (k(str) && TbSingleton.getInstance().isInFrs) {
+            SkinManager.setViewTextColor(textView, i2);
+        } else {
+            SkinManager.setViewTextColor(textView, i);
+        }
+    }
+
+    public static SpannableStringBuilder d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str + " " + str2);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), 0, str.length(), 17);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0106)), str.length(), str.length() + 1, 33);
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeLL.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return String.valueOf(System.currentTimeMillis() / 1000);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static SpannableStringBuilder i(Context context, String str, ArrayList<a> arrayList, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{context, str, arrayList, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (str != null && context != null && arrayList != null) {
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+                for (int i = 0; i != arrayList.size(); i++) {
+                    a aVar = arrayList.get(i);
+                    if (aVar != null) {
+                        int i2 = aVar.a;
+                        if (i2 > 0) {
+                            aVar.b = context.getString(i2);
+                        }
+                        if (!dj.isEmpty(aVar.b)) {
+                            int length = spannableStringBuilder.length();
+                            spannableStringBuilder.append((CharSequence) aVar.b);
+                            spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(aVar.c)), length, spannableStringBuilder.length(), 17);
+                            if (i == arrayList.size() - 1 && !z2) {
+                                break;
+                            }
+                            Bitmap bitmap = SkinManager.getBitmap(aVar.d);
+                            BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
+                            if (bitmap != null) {
+                                bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
+                            }
+                            o55 o55Var = new o55(bitmapDrawable);
+                            int i3 = aVar.e;
+                            if (i3 != 0) {
+                                o55Var.b(i3);
+                            }
+                            int length2 = spannableStringBuilder.length();
+                            spannableStringBuilder.append((CharSequence) " ");
+                            spannableStringBuilder.setSpan(o55Var, length2, spannableStringBuilder.length(), 17);
+                        } else {
+                            continue;
+                        }
+                    }
+                }
+                if (z) {
+                    spannableStringBuilder.append((CharSequence) str);
+                }
+                return spannableStringBuilder;
+            }
+            return null;
+        }
+        return (SpannableStringBuilder) invokeCommon.objValue;
+    }
+
+    public static void j(ThreadData threadData, TextView textView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, threadData, textView) == null) {
+            if ((StringUtils.isNull(threadData.getTitle()) && (threadData.getRichTitle() == null || threadData.getRichTitle().size() == 0)) || threadData.getIsNoTitle() == 1) {
+                threadData.parserSpecTitleForFrsAndPb(false, true);
+                if (threadData.getSpan_str() != null && !StringUtils.isNull(threadData.getSpan_str().toString())) {
+                    textView.setVisibility(0);
+                    textView.setText(threadData.getSpan_str());
+                    return;
+                }
+                textView.setVisibility(8);
+                return;
+            }
+            textView.setVisibility(0);
+            threadData.threadTitleSpanOffset = 0;
+            threadData.parserSpecTitleForFrsAndPb(false, true);
+            SpannableStringBuilder span_str = threadData.getSpan_str();
+            textView.setOnTouchListener(new ki9(span_str));
+            textView.setText(span_str);
+            l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+        }
     }
 }

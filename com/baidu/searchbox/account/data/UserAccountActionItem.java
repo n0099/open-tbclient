@@ -3,29 +3,31 @@ package com.baidu.searchbox.account.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.NoProGuard;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class UserAccountActionItem implements Parcelable, NoProGuard {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<UserAccountActionItem> CREATOR;
+    public static final Parcelable.Creator<UserAccountActionItem> CREATOR = new Parcelable.Creator<UserAccountActionItem>() { // from class: com.baidu.searchbox.account.data.UserAccountActionItem.1
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // android.os.Parcelable.Creator
+        public UserAccountActionItem createFromParcel(Parcel parcel) {
+            return new UserAccountActionItem(parcel);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // android.os.Parcelable.Creator
+        public UserAccountActionItem[] newArray(int i) {
+            return new UserAccountActionItem[i];
+        }
+    };
     public static final String KEY_ACTION = "action";
     public static final String KEY_SRC = "src";
     public static final String KEY_SUB_SRC = "subSrc";
     public static final String KEY_TYPE = "type";
-    public transient /* synthetic */ FieldHolder $fh;
     public String mAction;
     public String mSrc;
     public String mSubSrc;
@@ -33,409 +35,105 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
-    public static final class UserAccountAction {
-        public static final /* synthetic */ UserAccountAction[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final UserAccountAction BIND;
-        public static final UserAccountAction LOGIN;
-        public static final UserAccountAction LOGOUT;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String mName;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1975612869, "Lcom/baidu/searchbox/account/data/UserAccountActionItem$UserAccountAction;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1975612869, "Lcom/baidu/searchbox/account/data/UserAccountActionItem$UserAccountAction;");
-                    return;
-                }
-            }
-            LOGIN = new UserAccountAction("LOGIN", 0, "login");
-            LOGOUT = new UserAccountAction("LOGOUT", 1, "logout");
-            UserAccountAction userAccountAction = new UserAccountAction("BIND", 2, "bind");
-            BIND = userAccountAction;
-            $VALUES = new UserAccountAction[]{LOGIN, LOGOUT, userAccountAction};
-        }
-
-        public UserAccountAction(String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i), str2};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str3 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.mName = str2;
-        }
-
-        public static UserAccountAction valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                return (UserAccountAction) Enum.valueOf(UserAccountAction.class, str);
-            }
-            return (UserAccountAction) invokeL.objValue;
-        }
-
-        public static UserAccountAction[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return (UserAccountAction[]) $VALUES.clone();
-            }
-            return (UserAccountAction[]) invokeV.objValue;
-        }
-
-        public String getName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.mName;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
-    public static final class UserAccountType {
-        public static final /* synthetic */ UserAccountType[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final UserAccountType GUEST;
-        public static final UserAccountType NATIVE;
-        public static final UserAccountType PLUGIN;
-        public static final UserAccountType SHARE;
-        public static final UserAccountType WEBVIEW;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String mType;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-100416191, "Lcom/baidu/searchbox/account/data/UserAccountActionItem$UserAccountType;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-100416191, "Lcom/baidu/searchbox/account/data/UserAccountActionItem$UserAccountType;");
-                    return;
-                }
-            }
-            NATIVE = new UserAccountType(Constant.TYPE_NATIVE, 0, "native");
-            PLUGIN = new UserAccountType("PLUGIN", 1, "plugin");
-            SHARE = new UserAccountType("SHARE", 2, "share");
-            GUEST = new UserAccountType("GUEST", 3, "guest");
-            UserAccountType userAccountType = new UserAccountType("WEBVIEW", 4, AlbumActivityConfig.FROM_WEB_VIEW);
-            WEBVIEW = userAccountType;
-            $VALUES = new UserAccountType[]{NATIVE, PLUGIN, SHARE, GUEST, userAccountType};
-        }
-
-        public UserAccountType(String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i), str2};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str3 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.mType = str2;
-        }
-
-        public static UserAccountType valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                return (UserAccountType) Enum.valueOf(UserAccountType.class, str);
-            }
-            return (UserAccountType) invokeL.objValue;
-        }
-
-        public static UserAccountType[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return (UserAccountType[]) $VALUES.clone();
-            }
-            return (UserAccountType[]) invokeV.objValue;
-        }
-
-        public String getType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.mType;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2120094791, "Lcom/baidu/searchbox/account/data/UserAccountActionItem;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-2120094791, "Lcom/baidu/searchbox/account/data/UserAccountActionItem;");
-                return;
-            }
-        }
-        CREATOR = new Parcelable.Creator<UserAccountActionItem>() { // from class: com.baidu.searchbox.account.data.UserAccountActionItem.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.Creator
-            public UserAccountActionItem createFromParcel(Parcel parcel) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
-                    return new UserAccountActionItem(parcel);
-                }
-                return (UserAccountActionItem) invokeL.objValue;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.Creator
-            public UserAccountActionItem[] newArray(int i) {
-                InterceptResult invokeI;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                    return new UserAccountActionItem[i];
-                }
-                return (UserAccountActionItem[]) invokeI.objValue;
-            }
-        };
+        return 0;
     }
 
     public String getAction() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mAction;
-        }
-        return (String) invokeV.objValue;
+        return this.mAction;
     }
 
     public String getSrc() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mSrc;
-        }
-        return (String) invokeV.objValue;
+        return this.mSrc;
     }
 
     public String getSubSrc() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mSubSrc;
-        }
-        return (String) invokeV.objValue;
+        return this.mSubSrc;
     }
 
     public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mType;
-        }
-        return (String) invokeV.objValue;
+        return this.mType;
     }
 
     public String toString() {
         JSONObject jSONObject;
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            try {
-                jSONObject = buildUserStatInfo();
-            } catch (JSONException e) {
-                e.printStackTrace();
-                jSONObject = null;
-            }
-            if (jSONObject != null) {
-                return jSONObject.toString();
-            }
-            return "";
+        try {
+            jSONObject = buildUserStatInfo();
+        } catch (JSONException e) {
+            e.printStackTrace();
+            jSONObject = null;
         }
-        return (String) invokeV.objValue;
+        if (jSONObject != null) {
+            return jSONObject.toString();
+        }
+        return "";
+    }
+
+    /* loaded from: classes2.dex */
+    public enum UserAccountAction {
+        LOGIN("login"),
+        LOGOUT("logout"),
+        BIND("bind");
+        
+        public String mName;
+
+        UserAccountAction(String str) {
+            this.mName = str;
+        }
+
+        public String getName() {
+            return this.mName;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public enum UserAccountType {
+        NATIVE("native"),
+        PLUGIN("plugin"),
+        SHARE("share"),
+        GUEST("guest"),
+        WEBVIEW(AlbumActivityConfig.FROM_WEB_VIEW);
+        
+        public String mType;
+
+        UserAccountType(String str) {
+            this.mType = str;
+        }
+
+        public String getType() {
+            return this.mType;
+        }
     }
 
     public UserAccountActionItem(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mAction = parcel.readString();
         this.mType = parcel.readString();
         this.mSrc = parcel.readString();
         this.mSubSrc = parcel.readString();
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public void setAction(String str) {
+        this.mAction = str;
+    }
+
     public UserAccountActionItem(UserAccountAction userAccountAction, UserAccountType userAccountType, String str) {
         this(userAccountAction.getName(), userAccountType.getType(), str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {userAccountAction, userAccountType, str};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public UserAccountActionItem(UserAccountAction userAccountAction, UserAccountType userAccountType, String str, String str2) {
         this(userAccountAction.getName(), userAccountType.getType(), str, str2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {userAccountAction, userAccountType, str, str2};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2], (String) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public UserAccountActionItem(UserAccountAction userAccountAction, String str, String str2) {
         this(userAccountAction.getName(), str, str2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {userAccountAction, str, str2};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
     }
 
     public UserAccountActionItem(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(65541, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65541, newInitContext);
-                return;
-            }
-        }
         this.mAction = str;
         this.mType = str2;
         this.mSrc = str3;
     }
 
     public UserAccountActionItem(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4};
-            interceptable.invokeUnInit(65542, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65542, newInitContext);
-                return;
-            }
-        }
         this.mAction = str;
         this.mType = str2;
         this.mSrc = str3;
@@ -443,20 +141,6 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
     }
 
     public UserAccountActionItem(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65543, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65543, newInitContext);
-                return;
-            }
-        }
         if (jSONObject != null) {
             if (jSONObject.has("action")) {
                 this.mAction = jSONObject.getString("action");
@@ -477,45 +161,30 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
     }
 
     public JSONObject buildUserStatInfo() throws JSONException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            String str = this.mAction;
-            if (str != null) {
-                jSONObject.put("action", str);
-                if (!TextUtils.isEmpty(this.mType)) {
-                    jSONObject.put("type", this.mType);
-                }
-                if (!TextUtils.isEmpty(this.mSrc)) {
-                    if (!TextUtils.isEmpty(this.mSubSrc)) {
-                        jSONObject.put("src", this.mSrc + "_" + this.mSubSrc);
-                    } else {
-                        jSONObject.put("src", this.mSrc);
-                    }
-                }
-                return jSONObject;
+        JSONObject jSONObject = new JSONObject();
+        String str = this.mAction;
+        if (str != null) {
+            jSONObject.put("action", str);
+            if (!TextUtils.isEmpty(this.mType)) {
+                jSONObject.put("type", this.mType);
             }
-            return null;
+            if (!TextUtils.isEmpty(this.mSrc)) {
+                if (!TextUtils.isEmpty(this.mSubSrc)) {
+                    jSONObject.put("src", this.mSrc + "_" + this.mSubSrc);
+                } else {
+                    jSONObject.put("src", this.mSrc);
+                }
+            }
+            return jSONObject;
         }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public void setAction(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.mAction = str;
-        }
+        return null;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcel, i) == null) {
-            parcel.writeString(this.mAction);
-            parcel.writeString(this.mType);
-            parcel.writeString(this.mSrc);
-            parcel.writeString(this.mSubSrc);
-        }
+        parcel.writeString(this.mAction);
+        parcel.writeString(this.mType);
+        parcel.writeString(this.mSrc);
+        parcel.writeString(this.mSubSrc);
     }
 }

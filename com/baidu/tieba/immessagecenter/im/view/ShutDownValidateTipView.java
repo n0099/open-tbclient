@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ShutDownValidateTipView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,12 +29,12 @@ public class ShutDownValidateTipView extends FrameLayout {
     public boolean e;
     public ArrayList<c> f;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void h(boolean z);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public class ShutDownValidateTipView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -198,11 +198,11 @@ public class ShutDownValidateTipView extends FrameLayout {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            addView(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07fb, (ViewGroup) null));
+            addView(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d081a, (ViewGroup) null));
             this.b = (ImageView) findViewById(R.id.no_network_icon);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0917e1);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0917e2);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0917e5);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091822);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091823);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091826);
         }
     }
 
@@ -211,15 +211,15 @@ public class ShutDownValidateTipView extends FrameLayout {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             SkinManager.setImageResource(this.b, R.drawable.icon_error);
             SkinManager.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
-            if (i != 1 && i != 4) {
-                this.c.setTextColor(-14277082);
-                this.d.setTextColor(-5065030);
-                this.a.setTextColor(-14277082);
+            if (i == 4) {
+                this.c.setTextColor(-10523526);
+                this.d.setTextColor(-8682095);
+                this.a.setTextColor(-10523526);
                 return;
             }
-            this.c.setTextColor(-10523526);
-            this.d.setTextColor(-8682095);
-            this.a.setTextColor(-10523526);
+            this.c.setTextColor(-14277082);
+            this.d.setTextColor(-5065030);
+            this.a.setTextColor(-14277082);
         }
     }
 

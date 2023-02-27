@@ -1,33 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
-import java.util.List;
-import okhttp3.Interceptor;
+import com.baidu.swan.menu.BaseMenuView;
 /* loaded from: classes5.dex */
 public interface nf4 {
-    CookieManager f();
-
-    int g();
-
-    Context getAppContext();
-
-    int getReadTimeout();
-
-    String getUserAgent();
-
-    boolean h();
-
-    boolean i();
-
-    boolean isDebug();
-
-    void j(String str, HttpRequestBuilder httpRequestBuilder);
-
-    int k();
-
-    List<Interceptor> l();
-
-    int m();
+    void a(BaseMenuView baseMenuView);
 }

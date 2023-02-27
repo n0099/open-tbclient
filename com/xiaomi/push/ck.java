@@ -1,75 +1,75 @@
 package com.xiaomi.push;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.al;
-import com.xiaomi.push.cj;
-import java.util.ArrayList;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import com.xiaomi.push.ci;
 /* loaded from: classes8.dex */
-public class ck extends al.a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ cj a;
+public class ck implements Runnable {
+    public final /* synthetic */ Context a;
 
-    public ck(cj cjVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cjVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = cjVar;
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ ci.a f179a;
+
+    public ck(ci.a aVar, Context context) {
+        this.f179a = aVar;
+        this.a = context;
     }
 
-    @Override // com.xiaomi.push.al.a
-    /* renamed from: a */
-    public String mo224a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "100957" : (String) invokeV.objValue;
-    }
-
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, IGET, INVOKE] complete} */
     @Override // java.lang.Runnable
     public void run() {
-        ArrayList arrayList;
-        ArrayList arrayList2;
-        ArrayList arrayList3;
-        ArrayList arrayList4;
-        ArrayList arrayList5;
-        ArrayList<cj.a> arrayList6;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            arrayList = this.a.f188a;
-            synchronized (arrayList) {
-                arrayList2 = this.a.f188a;
-                if (arrayList2.size() > 0) {
-                    arrayList3 = this.a.f188a;
-                    if (arrayList3.size() > 1) {
-                        cj cjVar = this.a;
-                        arrayList6 = this.a.f188a;
-                        cjVar.a(arrayList6);
-                    } else {
-                        cj cjVar2 = this.a;
-                        arrayList4 = this.a.f188a;
-                        cjVar2.b((cj.a) arrayList4.get(0));
+        SQLiteDatabase sQLiteDatabase = null;
+        try {
+            try {
+                sQLiteDatabase = this.f179a.a();
+                if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
+                    sQLiteDatabase.beginTransaction();
+                    this.f179a.a(this.a, sQLiteDatabase);
+                    sQLiteDatabase.setTransactionSuccessful();
+                }
+                if (sQLiteDatabase != null) {
+                    try {
+                        sQLiteDatabase.endTransaction();
+                    } catch (Exception e) {
+                        e = e;
+                        com.xiaomi.channel.commonutils.logger.b.a(e);
+                        this.f179a.a(this.a);
                     }
-                    arrayList5 = this.a.f188a;
-                    arrayList5.clear();
-                    System.gc();
+                }
+                if (this.f179a.f170a != null) {
+                    this.f179a.f170a.close();
+                }
+            } catch (Throwable th) {
+                if (sQLiteDatabase != null) {
+                    try {
+                        sQLiteDatabase.endTransaction();
+                    } catch (Exception e2) {
+                        com.xiaomi.channel.commonutils.logger.b.a(e2);
+                        this.f179a.a(this.a);
+                        throw th;
+                    }
+                }
+                if (this.f179a.f170a != null) {
+                    this.f179a.f170a.close();
+                }
+                this.f179a.a(this.a);
+                throw th;
+            }
+        } catch (Exception e3) {
+            com.xiaomi.channel.commonutils.logger.b.a(e3);
+            if (sQLiteDatabase != null) {
+                try {
+                    sQLiteDatabase.endTransaction();
+                } catch (Exception e4) {
+                    e = e4;
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
+                    this.f179a.a(this.a);
                 }
             }
+            if (this.f179a.f170a != null) {
+                this.f179a.f170a.close();
+            }
         }
+        this.f179a.a(this.a);
     }
 }

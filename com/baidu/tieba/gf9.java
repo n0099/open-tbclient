@@ -1,454 +1,185 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.gw9;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.tieba.te9;
+import com.baidu.tieba.video.editvideo.data.MusicData;
+import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class gf9 implements gw9.b {
+public class gf9 implements oe9, te9.c, hh6 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile gf9 k;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public gw9.b b;
-    public gw9.b c;
-    public gw9.b d;
-    public boolean e;
-    public gw9.f f;
-    public SurfaceTexture g;
-    public int h;
-    public boolean i;
-    public gw9.a j;
+    public BaseActivity a;
+    public ge9 b;
+    public se9 c;
+    public SelectMusicModel d;
+    public String e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947792143, "Lcom/baidu/tieba/gf9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947792143, "Lcom/baidu/tieba/gf9;");
+    @Override // com.baidu.tieba.oe9
+    public void setMusicData(List<MusicData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class a implements gw9.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gf9 a;
-
-        public a(gf9 gf9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gf9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gf9Var;
-        }
-
-        @Override // com.baidu.tieba.gw9.a
-        public void a(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (obj instanceof String) {
-                    String str = (String) obj;
-                }
-                this.a.C();
-                this.a.d.k(this.a.g, this.a.f);
-                if (!this.a.i) {
-                    return;
-                }
-                this.a.i = false;
-                this.a.d.n();
-            }
-        }
-    }
-
-    public gf9(TbPageContext tbPageContext) {
+    public gf9(ge9 ge9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {ge9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = false;
-        this.i = false;
-        this.j = new a(this);
-        if (Build.VERSION.SDK_INT >= 21) {
-            if (System.currentTimeMillis() - ef9.b.c() >= ef9.a) {
-                ef9.b.k(0);
-            }
-            if (1 != ef9.b.d().intValue()) {
-                this.c = df9.U(tbPageContext);
-            }
-        }
-        ff9 B = ff9.B(tbPageContext);
-        this.b = B;
-        this.d = B;
+        this.b = ge9Var;
+        this.a = ge9Var.a;
     }
 
-    @Override // com.baidu.tieba.gw9.b
-    public void d(byte[] bArr) {
-        gw9.b bVar;
+    public final void a(String str) {
+        ge9 ge9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) && (bVar = this.d) == this.b && bVar != null) {
-            bVar.d(bArr);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || (ge9Var = this.b) == null) {
+            return;
+        }
+        if (ge9Var.b()) {
+            this.b.c();
+            this.b = null;
+            return;
+        }
+        this.e = str;
+        VideoInfo videoInfo = new VideoInfo();
+        videoInfo.setVideoPath(this.e);
+        videoInfo.setThumbPath(this.b.c);
+        ge9 ge9Var2 = this.b;
+        if (ge9Var2 != null) {
+            ge9Var2.f(videoInfo);
         }
     }
 
-    @Override // com.baidu.tieba.gw9.b
-    public void h(boolean z) {
-        gw9.b bVar;
+    public void b() {
+        ge9 ge9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.e = z;
-            if (z && (bVar = this.c) != null) {
-                bVar.s(this.j);
-                this.d = this.c;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (ge9Var = this.b) == null) {
+            return;
+        }
+        if (ge9Var.b()) {
+            this.b.c();
+            this.b = null;
+            return;
+        }
+        if (StringUtils.isNull(this.b.d)) {
+            ge9 ge9Var2 = this.b;
+            if (!ge9Var2.e) {
+                o1(ge9Var2.b, -4399, "");
                 return;
             }
-            gw9.b bVar2 = this.c;
-            if (bVar2 != null) {
-                bVar2.release();
+        }
+        if (this.d == null) {
+            this.d = new SelectMusicModel(this.a.getPageContext(), this);
+        }
+        SelectMusicModel selectMusicModel = this.d;
+        ge9 ge9Var3 = this.b;
+        selectMusicModel.Q(ge9Var3.b, ge9Var3.d, he9.f + "video_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION, !ge9Var3.e);
+    }
+
+    @Override // com.baidu.tieba.hh6
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ge9 ge9Var = this.b;
+            if (ge9Var != null) {
+                ge9Var.i(true);
             }
-            this.d = this.b;
-        }
-    }
-
-    @Override // com.baidu.tieba.gw9.b
-    public void i(boolean z) {
-        gw9.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && (bVar = this.d) != null) {
-            bVar.i(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.gw9.b
-    public void j(boolean z) {
-        gw9.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && (bVar = this.d) != null) {
-            bVar.j(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.gw9.b
-    public void l(int i) {
-        gw9.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (bVar = this.d) != null) {
-            bVar.l(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.gw9.b
-    public void m(boolean z) {
-        gw9.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048589, this, z) == null) && (bVar = this.d) != null) {
-            bVar.m(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.gw9.b
-    public void s(gw9.a aVar) {
-        gw9.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) && (bVar = this.c) != null) {
-            bVar.s(aVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.gw9.b
-    public void u(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            this.h = i;
-            gw9.b bVar = this.d;
-            if (bVar != null) {
-                bVar.u(i);
+            se9 se9Var = this.c;
+            if (se9Var != null && se9Var.f()) {
+                this.c.e();
             }
         }
     }
 
-    public static gf9 D(TbPageContext tbPageContext) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.oe9
+    public void o1(String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext)) == null) {
-            if (k == null) {
-                synchronized (gf9.class) {
-                    if (k == null) {
-                        k = new gf9(tbPageContext);
-                    } else if (tbPageContext != null) {
-                        k.a = tbPageContext;
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i, str2) == null) {
+            ge9 ge9Var = this.b;
+            if (ge9Var != null && ge9Var.b()) {
+                this.b.c();
+                this.b = null;
+            } else if (TextUtils.isEmpty(str)) {
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0b9f);
+                ge9 ge9Var2 = this.b;
+                if (ge9Var2 != null) {
+                    ge9Var2.g(i, str2);
+                }
+            } else {
+                ge9 ge9Var3 = this.b;
+                if (ge9Var3 != null) {
+                    ge9Var3.h();
+                }
+                if (!StringUtils.isNull(this.b.f)) {
+                    if (!StringHelper.equals(str, this.b.b)) {
+                        this.b.g = str;
                     }
+                    if (this.c == null) {
+                        se9 se9Var = new se9(this.a.getActivity());
+                        this.c = se9Var;
+                        se9Var.i(this);
+                    }
+                    this.c.g(str, this.b.f);
+                    return;
                 }
-            }
-            return k;
-        }
-        return (gf9) invokeL.objValue;
-    }
-
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c != null) {
-            this.b.u(this.h);
-            this.b.i(this.c.o());
-            this.b.m(this.c.a());
-            this.b.j(this.c.p());
-            this.c.q();
-            this.c.release();
-            this.d = this.b;
-            this.e = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.gw9.b
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            gw9.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.a();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.gw9.b
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            gw9.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.b();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.gw9.b
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            gw9.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.e();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gw9.b
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            gw9.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.f();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.gw9.b
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.i = true;
-            gw9.b bVar = this.d;
-            if (bVar != null) {
-                bVar.n();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.gw9.b
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            gw9.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.o();
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.gw9.b
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            gw9.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.p();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.gw9.b
-    public void q() {
-        gw9.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (bVar = this.d) != null) {
-            bVar.q();
-        }
-    }
-
-    @Override // com.baidu.tieba.gw9.b
-    public int r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            gw9.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.r();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.gw9.b
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            q();
-            this.d = null;
-            gw9.b bVar = this.b;
-            if (bVar != null) {
-                bVar.release();
-            }
-            gw9.b bVar2 = this.c;
-            if (bVar2 != null) {
-                bVar2.release();
-            }
-            k = null;
-            this.f = null;
-            this.g = null;
-            this.j = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.gw9.b
-    public int v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            gw9.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.v();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.gw9.b
-    public void c(int i, int i2, int i3, int i4) {
-        gw9.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) && (bVar = this.d) != null) {
-            bVar.c(i, i2, i3, i4);
-        }
-    }
-
-    @Override // com.baidu.tieba.gw9.b
-    public void t(int i, int i2, int i3, int i4) {
-        gw9.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(1048597, this, i, i2, i3, i4) == null) && (bVar = this.d) != null) {
-            bVar.t(i, i2, i3, i4);
-        }
-    }
-
-    @Override // com.baidu.tieba.gw9.b
-    public void g(int i, int i2, int i3, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-            this.b.g(i, i2, i3, z);
-            gw9.b bVar = this.c;
-            if (bVar != null) {
-                bVar.g(i, i2, i3, z);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.gw9.b
-    public boolean k(SurfaceTexture surfaceTexture, gw9.f fVar) {
-        InterceptResult invokeLL;
-        gw9.b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, surfaceTexture, fVar)) == null) {
-            this.g = surfaceTexture;
-            this.f = fVar;
-            if (this.e && (bVar = this.c) != null) {
-                if (bVar.k(surfaceTexture, fVar)) {
-                    return true;
+                ge9 ge9Var4 = this.b;
+                if (ge9Var4 != null) {
+                    ge9Var4.e();
                 }
-                C();
-                gw9.b bVar2 = this.d;
-                if (bVar2 == null) {
-                    return false;
-                }
-                boolean k2 = bVar2.k(surfaceTexture, fVar);
-                if (this.i) {
-                    this.i = false;
-                    this.d.n();
-                }
-                return k2;
+                a(str);
             }
-            gw9.b bVar3 = this.b;
-            this.d = bVar3;
-            if (bVar3 == null) {
-                return false;
-            }
-            return bVar3.k(surfaceTexture, fVar);
         }
-        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.te9.c
+    public void onGenFilterVideoFail(int i, String str) {
+        ge9 ge9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) && (ge9Var = this.b) != null) {
+            ge9Var.d(i, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.te9.c
+    public void onGenFilterVideoRecordError(int i, String str) {
+        ge9 ge9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) && (ge9Var = this.b) != null) {
+            ge9Var.d(i, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.te9.c
+    public void onGenFilterVideoSuccess(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            ge9 ge9Var = this.b;
+            if (ge9Var != null) {
+                ge9Var.e();
+            }
+            a(str);
+        }
     }
 }

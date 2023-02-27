@@ -1,7 +1,13 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
-public interface yt5<T> {
-    int a();
+public interface yt5 {
+    boolean a(String str);
 
-    T getItem(int i);
+    void b(int i);
+
+    boolean c(ut5 ut5Var);
+
+    void dismiss();
+
+    void show();
 }

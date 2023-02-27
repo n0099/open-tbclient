@@ -21,7 +21,7 @@ import com.baidu.tieba.ba;
 import com.baidu.tieba.ca;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.ho;
-import com.baidu.tieba.ll;
+import com.baidu.tieba.ml;
 import com.baidu.tieba.s9;
 import com.baidu.tieba.t9;
 import com.baidu.tieba.wb;
@@ -184,8 +184,8 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         if ((interceptable != null && interceptable.invokeL(65537, this, view2) != null) || view2 == null) {
             return;
         }
-        if (view2 instanceof ll) {
-            ((ll) view2).refresh();
+        if (view2 instanceof ml) {
+            ((ml) view2).refresh();
         }
         if (view2 instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view2;

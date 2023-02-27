@@ -73,7 +73,7 @@ public final class af implements com.baidu.platform.comjni.map.basemap.a {
                     bundle.putString("jsondata", data);
                     Bundle param = innerOverlay.getParam();
                     if (param != null) {
-                        bundle.putBundle(Constants.EXTRA_PARAM, param);
+                        bundle.putBundle("param", param);
                     }
                 } else {
                     bundle.putString("jsondata", null);

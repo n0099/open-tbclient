@@ -1,8 +1,8 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface cf {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a extends cf {
         void b();
 
@@ -11,7 +11,7 @@ public interface cf {
         String h(ef<?> efVar);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface b extends cf {
         String d(ef<?> efVar);
 

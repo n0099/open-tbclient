@@ -1,176 +1,127 @@
 package com.xiaomi.push;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.content.Context;
+import android.text.TextUtils;
 /* loaded from: classes8.dex */
-public class da implements Comparable<da> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public long f222a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public String f223a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public final LinkedList<cq> f224a;
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public da() {
-        this(null, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((String) objArr[0], ((Integer) objArr[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+public class da {
+    public static int a(Context context, int i) {
+        int a = ha.a(context);
+        if (-1 == a) {
+            return -1;
         }
+        return (i * (a == 0 ? 13 : 11)) / 10;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public da(String str) {
-        this(str, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
+    public static int a(hh hhVar) {
+        return em.a(hhVar.a());
     }
 
-    public da(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.f224a = new LinkedList<>();
-        this.f222a = 0L;
-        this.f223a = str;
-        this.a = i;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(da daVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, daVar)) == null) {
-            if (daVar == null) {
-                return 1;
-            }
-            return daVar.a - this.a;
-        }
-        return invokeL.intValue;
-    }
-
-    public synchronized da a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            synchronized (this) {
-                this.f222a = jSONObject.getLong("tt");
-                this.a = jSONObject.getInt("wt");
-                this.f223a = jSONObject.getString("host");
-                JSONArray jSONArray = jSONObject.getJSONArray("ah");
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    this.f224a.add(new cq().a(jSONArray.getJSONObject(i)));
-                }
-            }
-            return this;
-        }
-        return (da) invokeL.objValue;
-    }
-
-    public synchronized JSONObject a() {
-        InterceptResult invokeV;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                jSONObject = new JSONObject();
-                jSONObject.put("tt", this.f222a);
-                jSONObject.put("wt", this.a);
-                jSONObject.put("host", this.f223a);
-                JSONArray jSONArray = new JSONArray();
-                Iterator<cq> it = this.f224a.iterator();
-                while (it.hasNext()) {
-                    jSONArray.put(it.next().m258a());
-                }
-                jSONObject.put("ah", jSONArray);
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public synchronized void a(cq cqVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cqVar) == null) {
-            synchronized (this) {
-                if (cqVar != null) {
-                    this.f224a.add(cqVar);
-                    int a = cqVar.a();
-                    if (a > 0) {
-                        this.a += cqVar.a();
-                    } else {
-                        int i = 0;
-                        for (int size = this.f224a.size() - 1; size >= 0 && this.f224a.get(size).a() < 0; size--) {
-                            i++;
+    public static int a(is isVar, hh hhVar) {
+        int a;
+        switch (db.a[hhVar.ordinal()]) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+                return em.a(hhVar.a());
+            case 11:
+                a = em.a(hhVar.a());
+                if (isVar != null) {
+                    try {
+                        if (isVar instanceof hy) {
+                            String str = ((hy) isVar).f593d;
+                            if (!TextUtils.isEmpty(str) && em.a(em.m368a(str)) != -1) {
+                                a = em.a(em.m368a(str));
+                                break;
+                            }
+                        } else if (isVar instanceof ig) {
+                            String str2 = ((ig) isVar).f655d;
+                            if (!TextUtils.isEmpty(str2)) {
+                                if (em.a(em.m368a(str2)) != -1) {
+                                    a = em.a(em.m368a(str2));
+                                }
+                                if (hr.UploadTinyData.equals(em.m368a(str2))) {
+                                    return -1;
+                                }
+                            }
                         }
-                        this.a += a * i;
-                    }
-                    if (this.f224a.size() > 30) {
-                        this.a -= this.f224a.remove().a();
+                    } catch (Exception unused) {
+                        com.xiaomi.channel.commonutils.logger.b.d("PERF_ERROR : parse Notification type error");
+                        return a;
                     }
                 }
-            }
+                break;
+            case 12:
+                a = em.a(hhVar.a());
+                if (isVar != null) {
+                    try {
+                        if (isVar instanceof ic) {
+                            String b = ((ic) isVar).b();
+                            if (!TextUtils.isEmpty(b) && ex.a(b) != -1) {
+                                a = ex.a(b);
+                                break;
+                            }
+                        } else if (isVar instanceof ib) {
+                            String a2 = ((ib) isVar).a();
+                            if (!TextUtils.isEmpty(a2) && ex.a(a2) != -1) {
+                                return ex.a(a2);
+                            }
+                        }
+                    } catch (Exception unused2) {
+                        com.xiaomi.channel.commonutils.logger.b.d("PERF_ERROR : parse Command type error");
+                        break;
+                    }
+                }
+                break;
+            default:
+                return -1;
+        }
+        return a;
+    }
+
+    public static void a(String str, Context context, int i, int i2) {
+        if (i <= 0 || i2 <= 0) {
+            return;
+        }
+        int a = a(context, i2);
+        if (i != em.a(hr.UploadTinyData)) {
+            en.a(context.getApplicationContext()).a(str, i, 1L, a);
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f223a + ":" + this.a;
+    public static void a(String str, Context context, id idVar, int i) {
+        hh a;
+        if (context == null || idVar == null || (a = idVar.a()) == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        int a2 = a(a);
+        if (i <= 0) {
+            byte[] a3 = ir.a(idVar);
+            i = a3 != null ? a3.length : 0;
+        }
+        a(str, context, a2, i);
+    }
+
+    public static void a(String str, Context context, is isVar, hh hhVar, int i) {
+        a(str, context, a(isVar, hhVar), i);
+    }
+
+    public static void a(String str, Context context, byte[] bArr) {
+        if (context == null || bArr == null || bArr.length <= 0) {
+            return;
+        }
+        id idVar = new id();
+        try {
+            ir.a(idVar, bArr);
+            a(str, context, idVar, bArr.length);
+        } catch (ix unused) {
+            com.xiaomi.channel.commonutils.logger.b.m97a("fail to convert bytes to container");
+        }
     }
 }

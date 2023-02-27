@@ -1,232 +1,120 @@
 package okio;
 
-import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.data.a;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes9.dex */
 public class Timeout {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Timeout NONE;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final Timeout NONE = new Timeout() { // from class: okio.Timeout.1
+        @Override // okio.Timeout
+        public Timeout deadlineNanoTime(long j) {
+            return this;
+        }
+
+        @Override // okio.Timeout
+        public void throwIfReached() throws IOException {
+        }
+
+        @Override // okio.Timeout
+        public Timeout timeout(long j, TimeUnit timeUnit) {
+            return this;
+        }
+    };
     public long deadlineNanoTime;
     public boolean hasDeadline;
     public long timeoutNanos;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1848790459, "Lokio/Timeout;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1848790459, "Lokio/Timeout;");
-                return;
-            }
-        }
-        NONE = new Timeout() { // from class: okio.Timeout.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // okio.Timeout
-            public Timeout deadlineNanoTime(long j) {
-                InterceptResult invokeJ;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeJ = interceptable2.invokeJ(1048576, this, j)) == null) ? this : (Timeout) invokeJ.objValue;
-            }
-
-            @Override // okio.Timeout
-            public void throwIfReached() throws IOException {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                }
-            }
-
-            @Override // okio.Timeout
-            public Timeout timeout(long j, TimeUnit timeUnit) {
-                InterceptResult invokeJL;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeJL = interceptable2.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, timeUnit)) == null) ? this : (Timeout) invokeJL.objValue;
-            }
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-        };
-    }
-
-    public Timeout() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
     public Timeout clearDeadline() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.hasDeadline = false;
-            return this;
-        }
-        return (Timeout) invokeV.objValue;
+        this.hasDeadline = false;
+        return this;
     }
 
     public Timeout clearTimeout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.timeoutNanos = 0L;
-            return this;
-        }
-        return (Timeout) invokeV.objValue;
+        this.timeoutNanos = 0L;
+        return this;
     }
 
     public long deadlineNanoTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.hasDeadline) {
-                return this.deadlineNanoTime;
-            }
-            throw new IllegalStateException("No deadline");
+        if (this.hasDeadline) {
+            return this.deadlineNanoTime;
         }
-        return invokeV.longValue;
+        throw new IllegalStateException("No deadline");
     }
 
     public boolean hasDeadline() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.hasDeadline;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public long timeoutNanos() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.timeoutNanos;
-        }
-        return invokeV.longValue;
-    }
-
-    public final Timeout deadline(long j, TimeUnit timeUnit) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, timeUnit)) == null) {
-            if (j > 0) {
-                if (timeUnit != null) {
-                    return deadlineNanoTime(System.nanoTime() + timeUnit.toNanos(j));
-                }
-                throw new IllegalArgumentException("unit == null");
-            }
-            throw new IllegalArgumentException("duration <= 0: " + j);
-        }
-        return (Timeout) invokeJL.objValue;
-    }
-
-    public Timeout deadlineNanoTime(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
-            this.hasDeadline = true;
-            this.deadlineNanoTime = j;
-            return this;
-        }
-        return (Timeout) invokeJ.objValue;
+        return this.hasDeadline;
     }
 
     public void throwIfReached() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (!Thread.interrupted()) {
-                if (this.hasDeadline && this.deadlineNanoTime - System.nanoTime() <= 0) {
-                    throw new InterruptedIOException("deadline reached");
-                }
-                return;
+        if (!Thread.interrupted()) {
+            if (this.hasDeadline && this.deadlineNanoTime - System.nanoTime() <= 0) {
+                throw new InterruptedIOException("deadline reached");
             }
-            Thread.currentThread().interrupt();
-            throw new InterruptedIOException("interrupted");
+            return;
         }
+        Thread.currentThread().interrupt();
+        throw new InterruptedIOException("interrupted");
+    }
+
+    public long timeoutNanos() {
+        return this.timeoutNanos;
+    }
+
+    public final Timeout deadline(long j, TimeUnit timeUnit) {
+        if (j > 0) {
+            if (timeUnit != null) {
+                return deadlineNanoTime(System.nanoTime() + timeUnit.toNanos(j));
+            }
+            throw new IllegalArgumentException("unit == null");
+        }
+        throw new IllegalArgumentException("duration <= 0: " + j);
+    }
+
+    public Timeout deadlineNanoTime(long j) {
+        this.hasDeadline = true;
+        this.deadlineNanoTime = j;
+        return this;
     }
 
     public Timeout timeout(long j, TimeUnit timeUnit) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048583, this, j, timeUnit)) == null) {
-            if (j >= 0) {
-                if (timeUnit != null) {
-                    this.timeoutNanos = timeUnit.toNanos(j);
-                    return this;
-                }
-                throw new IllegalArgumentException("unit == null");
+        if (j >= 0) {
+            if (timeUnit != null) {
+                this.timeoutNanos = timeUnit.toNanos(j);
+                return this;
             }
-            throw new IllegalArgumentException("timeout < 0: " + j);
+            throw new IllegalArgumentException("unit == null");
         }
-        return (Timeout) invokeJL.objValue;
+        throw new IllegalArgumentException("timeout < 0: " + j);
     }
 
     public final void waitUntilNotified(Object obj) throws InterruptedIOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, obj) == null) {
-            try {
-                boolean hasDeadline = hasDeadline();
-                long timeoutNanos = timeoutNanos();
-                long j = 0;
-                if (!hasDeadline && timeoutNanos == 0) {
-                    obj.wait();
-                    return;
-                }
-                long nanoTime = System.nanoTime();
-                if (hasDeadline && timeoutNanos != 0) {
-                    timeoutNanos = Math.min(timeoutNanos, deadlineNanoTime() - nanoTime);
-                } else if (hasDeadline) {
-                    timeoutNanos = deadlineNanoTime() - nanoTime;
-                }
-                if (timeoutNanos > 0) {
-                    long j2 = timeoutNanos / 1000000;
-                    Long.signum(j2);
-                    obj.wait(j2, (int) (timeoutNanos - (1000000 * j2)));
-                    j = System.nanoTime() - nanoTime;
-                }
-                if (j < timeoutNanos) {
-                    return;
-                }
-                throw new InterruptedIOException(a.O);
-            } catch (InterruptedException unused) {
-                Thread.currentThread().interrupt();
-                throw new InterruptedIOException("interrupted");
+        try {
+            boolean hasDeadline = hasDeadline();
+            long timeoutNanos = timeoutNanos();
+            long j = 0;
+            if (!hasDeadline && timeoutNanos == 0) {
+                obj.wait();
+                return;
             }
+            long nanoTime = System.nanoTime();
+            if (hasDeadline && timeoutNanos != 0) {
+                timeoutNanos = Math.min(timeoutNanos, deadlineNanoTime() - nanoTime);
+            } else if (hasDeadline) {
+                timeoutNanos = deadlineNanoTime() - nanoTime;
+            }
+            if (timeoutNanos > 0) {
+                long j2 = timeoutNanos / 1000000;
+                Long.signum(j2);
+                obj.wait(j2, (int) (timeoutNanos - (1000000 * j2)));
+                j = System.nanoTime() - nanoTime;
+            }
+            if (j < timeoutNanos) {
+                return;
+            }
+            throw new InterruptedIOException("timeout");
+        } catch (InterruptedException unused) {
+            Thread.currentThread().interrupt();
+            throw new InterruptedIOException("interrupted");
         }
     }
 }

@@ -6,7 +6,7 @@ public enum InnerStyleLayout {
     EXPANDABLE_PIC(2),
     EXPANDABLE_VIDEO(3);
     
-    public int code;
+    public final int code;
 
     InnerStyleLayout(int i) {
         this.code = i;

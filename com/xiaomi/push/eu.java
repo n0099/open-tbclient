@@ -1,181 +1,99 @@
 package com.xiaomi.push;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.ServiceInfo;
+import android.content.Intent;
 import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.xiaomi.push.service.XMJobService;
+import android.os.SystemClock;
+import androidx.core.app.NotificationCompat;
+import com.xiaomi.push.et;
 /* loaded from: classes8.dex */
-public final class eu {
-    public static /* synthetic */ Interceptable $ic;
-    public static int a;
+public class eu implements et.a {
 
     /* renamed from: a  reason: collision with other field name */
-    public static a f350a;
+    public Context f332a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String f351a;
-    public transient /* synthetic */ FieldHolder $fh;
+    public PendingIntent f331a = null;
+    public volatile long a = 0;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a();
-
-        void a(boolean z);
-
-        /* renamed from: a  reason: collision with other method in class */
-        boolean mo391a();
+    public eu(Context context) {
+        this.f332a = null;
+        this.f332a = context;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56375408, "Lcom/xiaomi/push/eu;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-56375408, "Lcom/xiaomi/push/eu;");
-                return;
-            }
-        }
-        f351a = XMJobService.class.getCanonicalName();
-        a = 0;
-    }
-
-    public static synchronized void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            synchronized (eu.class) {
-                if (f350a == null) {
-                    return;
-                }
-                com.xiaomi.channel.commonutils.logger.b.m105a("[Alarm] stop alarm.");
-                f350a.a();
-            }
+    private void a(AlarmManager alarmManager, long j, PendingIntent pendingIntent) {
+        try {
+            AlarmManager.class.getMethod("setExact", Integer.TYPE, Long.TYPE, PendingIntent.class).invoke(alarmManager, 2, Long.valueOf(j), pendingIntent);
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.d("[Alarm] invoke setExact method meet error. " + e);
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0062, code lost:
-        if (com.xiaomi.push.eu.f351a.equals(com.xiaomi.push.v.a(r9, r6.name).getSuperclass().getCanonicalName()) != false) goto L21;
+    @Override // com.xiaomi.push.et.a
+    public void a() {
+        if (this.f331a != null) {
+            try {
+                ((AlarmManager) this.f332a.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(this.f331a);
+            } catch (Exception unused) {
+            } catch (Throwable th) {
+                this.f331a = null;
+                com.xiaomi.channel.commonutils.logger.b.c("[Alarm] unregister timer");
+                this.a = 0L;
+                throw th;
+            }
+            this.f331a = null;
+            com.xiaomi.channel.commonutils.logger.b.c("[Alarm] unregister timer");
+            this.a = 0L;
+        }
+        this.a = 0L;
+    }
+
+    public void a(Intent intent, long j) {
+        AlarmManager alarmManager = (AlarmManager) this.f332a.getSystemService(NotificationCompat.CATEGORY_ALARM);
+        this.f331a = Build.VERSION.SDK_INT >= 31 ? PendingIntent.getBroadcast(this.f332a, 0, intent, 33554432) : PendingIntent.getBroadcast(this.f332a, 0, intent, 0);
+        if (Build.VERSION.SDK_INT >= 23) {
+            bj.a((Object) alarmManager, "setExactAndAllowWhileIdle", 2, Long.valueOf(j), this.f331a);
+        } else {
+            a(alarmManager, j, this.f331a);
+        }
+        com.xiaomi.channel.commonutils.logger.b.c("[Alarm] register timer " + j);
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0036, code lost:
+        if (r8.a < r4) goto L17;
      */
+    @Override // com.xiaomi.push.et.a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void a(Context context) {
-        ev evVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            Context applicationContext = context.getApplicationContext();
-            if ("com.xiaomi.xmsf".equals(applicationContext.getPackageName())) {
-                evVar = new ev(applicationContext);
-            } else {
-                int i = 0;
-                try {
-                    PackageInfo packageInfo = applicationContext.getPackageManager().getPackageInfo(applicationContext.getPackageName(), 4);
-                    if (packageInfo.services != null) {
-                        ServiceInfo[] serviceInfoArr = packageInfo.services;
-                        int length = serviceInfoArr.length;
-                        int i2 = 0;
-                        while (i < length) {
-                            try {
-                                ServiceInfo serviceInfo = serviceInfoArr[i];
-                                if ("android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
-                                    if (!f351a.equals(serviceInfo.name)) {
-                                        try {
-                                        } catch (Exception unused) {
-                                        }
-                                    }
-                                    i2 = 1;
-                                    if (i2 == 1) {
-                                        break;
-                                    }
-                                }
-                                if (f351a.equals(serviceInfo.name) && "android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
-                                    i = 1;
-                                    break;
-                                }
-                                i++;
-                            } catch (Exception e) {
-                                e = e;
-                                i = i2;
-                                com.xiaomi.channel.commonutils.logger.b.m105a("check service err : " + e.getMessage());
-                                if (i != 0) {
-                                }
-                                int i3 = Build.VERSION.SDK_INT;
-                                evVar = new ev(applicationContext);
-                                f350a = evVar;
-                            }
-                        }
-                        i = i2;
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                }
-                if (i != 0 && v.m766a(applicationContext)) {
-                    throw new RuntimeException("Should export service: " + f351a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
-                }
-                int i32 = Build.VERSION.SDK_INT;
-                evVar = new ev(applicationContext);
+    public void a(boolean z) {
+        long m736a = com.xiaomi.push.service.o.a(this.f332a).m736a();
+        if (z || this.a != 0) {
+            if (z) {
+                a();
             }
-            f350a = evVar;
+            long elapsedRealtime = SystemClock.elapsedRealtime();
+            if (!z && this.a != 0) {
+                if (this.a <= elapsedRealtime) {
+                    this.a += m736a;
+                }
+                Intent intent = new Intent(com.xiaomi.push.service.bk.p);
+                intent.setPackage(this.f332a.getPackageName());
+                a(intent, this.a);
+            }
+            m736a -= elapsedRealtime % m736a;
+            this.a = elapsedRealtime + m736a;
+            Intent intent2 = new Intent(com.xiaomi.push.service.bk.p);
+            intent2.setPackage(this.f332a.getPackageName());
+            a(intent2, this.a);
         }
     }
 
-    public static synchronized void a(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, context, i) == null) {
-            synchronized (eu.class) {
-                int i2 = a;
-                if (!"com.xiaomi.xmsf".equals(context.getPackageName())) {
-                    if (i == 2) {
-                        a = 2;
-                    } else {
-                        a = 0;
-                    }
-                }
-                if (i2 != a && a == 2) {
-                    a();
-                    f350a = new ex(context);
-                }
-            }
-        }
-    }
-
-    public static synchronized void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
-            synchronized (eu.class) {
-                if (f350a == null) {
-                    com.xiaomi.channel.commonutils.logger.b.m105a("timer is not initialized");
-                    return;
-                }
-                com.xiaomi.channel.commonutils.logger.b.m105a("[Alarm] register alarm. (" + z + SmallTailInfo.EMOTION_SUFFIX);
-                f350a.a(z);
-            }
-        }
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public static synchronized boolean m390a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            synchronized (eu.class) {
-                if (f350a == null) {
-                    return false;
-                }
-                return f350a.mo391a();
-            }
-        }
-        return invokeV.booleanValue;
+    @Override // com.xiaomi.push.et.a
+    /* renamed from: a */
+    public boolean mo384a() {
+        return this.a != 0;
     }
 }

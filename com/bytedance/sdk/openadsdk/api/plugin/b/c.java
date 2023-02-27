@@ -1,7 +1,9 @@
 package com.bytedance.sdk.openadsdk.api.plugin.b;
+
+import com.huawei.hms.common.internal.TransactionIdCreater;
 /* loaded from: classes7.dex */
 public class c {
-    public static final char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] a = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String a(byte[] bArr) {
         if (bArr != null) {

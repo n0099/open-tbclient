@@ -2,73 +2,22 @@ package com.baidu.pass.main.facesdk;
 
 import android.content.Context;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.callback.Callback;
 import com.baidu.pass.main.facesdk.model.BDFaceImageInstance;
 import com.baidu.pass.main.facesdk.model.BDFaceInstance;
 import com.baidu.pass.main.facesdk.utils.FileUitls;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class FaceMouthMask {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceMouthMask";
-    public transient /* synthetic */ FieldHolder $fh;
     public BDFaceInstance bdFaceInstance;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1077816483, "Lcom/baidu/pass/main/facesdk/FaceMouthMask;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1077816483, "Lcom/baidu/pass/main/facesdk/FaceMouthMask;");
-        }
-    }
-
     public FaceMouthMask() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         BDFaceInstance bDFaceInstance = new BDFaceInstance();
         this.bdFaceInstance = bDFaceInstance;
         bDFaceInstance.getDefautlInstance();
     }
 
     public FaceMouthMask(BDFaceInstance bDFaceInstance) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bDFaceInstance};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         if (bDFaceInstance == null) {
             return;
         }
@@ -83,93 +32,49 @@ public class FaceMouthMask {
     private native int nativeUninitModel(long j);
 
     public float[] checkMask(BDFaceImageInstance bDFaceImageInstance, FaceInfo[] faceInfoArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bDFaceImageInstance, faceInfoArr)) == null) {
-            if (bDFaceImageInstance == null || faceInfoArr == null) {
-                Log.v(TAG, "Parameter is null");
-                return null;
-            }
-            long index = this.bdFaceInstance.getIndex();
-            if (index == 0) {
-                return null;
-            }
-            return nativeCheckMask(index, bDFaceImageInstance, faceInfoArr);
+        if (bDFaceImageInstance == null || faceInfoArr == null) {
+            Log.v(TAG, "Parameter is null");
+            return null;
         }
-        return (float[]) invokeLL.objValue;
+        long index = this.bdFaceInstance.getIndex();
+        if (index == 0) {
+            return null;
+        }
+        return nativeCheckMask(index, bDFaceImageInstance, faceInfoArr);
     }
 
-    public void initModel(Context context, String str, Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, callback) == null) {
-            FaceQueue.getInstance().execute(new Runnable(this, context, callback, str) { // from class: com.baidu.pass.main.facesdk.FaceMouthMask.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ FaceMouthMask this$0;
-                public final /* synthetic */ Callback val$callback;
-                public final /* synthetic */ Context val$context;
-                public final /* synthetic */ String val$mouthMaskModel;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, context, callback, str};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$context = context;
-                    this.val$callback = callback;
-                    this.val$mouthMaskModel = str;
+    public void initModel(final Context context, final String str, final Callback callback) {
+        FaceQueue.getInstance().execute(new Runnable() { // from class: com.baidu.pass.main.facesdk.FaceMouthMask.1
+            @Override // java.lang.Runnable
+            public void run() {
+                if (context == null) {
+                    callback.onResponse(1, "没有初始化上下文");
+                    return;
                 }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.val$context == null) {
-                            this.val$callback.onResponse(1, "没有初始化上下文");
-                            return;
-                        }
-                        long index = this.this$0.bdFaceInstance.getIndex();
-                        if (index == 0) {
-                            return;
-                        }
-                        int i = -1;
-                        byte[] modelContent = FileUitls.getModelContent(this.val$context, this.val$mouthMaskModel);
-                        if (modelContent.length != 0 && (i = this.this$0.nativeInitModel(index, modelContent)) != 0) {
-                            this.val$callback.onResponse(i, "口罩检测模型加载失败");
-                            return;
-                        }
-                        if (i == 0) {
-                            this.val$callback.onResponse(0, "口罩检测模型加载成功");
-                        } else {
-                            this.val$callback.onResponse(1, "口罩检测模型加载失败");
-                        }
-                        Log.e("bdface", "FaceMouthMask initModel");
-                    }
+                long index = FaceMouthMask.this.bdFaceInstance.getIndex();
+                if (index == 0) {
+                    return;
                 }
-            });
-        }
+                int i = -1;
+                byte[] modelContent = FileUitls.getModelContent(context, str);
+                if (modelContent.length != 0 && (i = FaceMouthMask.this.nativeInitModel(index, modelContent)) != 0) {
+                    callback.onResponse(i, "口罩检测模型加载失败");
+                    return;
+                }
+                if (i == 0) {
+                    callback.onResponse(0, "口罩检测模型加载成功");
+                } else {
+                    callback.onResponse(1, "口罩检测模型加载失败");
+                }
+                Log.e("bdface", "FaceMouthMask initModel");
+            }
+        });
     }
 
     public int uninitModel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.bdFaceInstance.getIndex() == 0) {
-                return -1;
-            }
-            return nativeUninitModel(this.bdFaceInstance.getIndex());
+        if (this.bdFaceInstance.getIndex() == 0) {
+            return -1;
         }
-        return invokeV.intValue;
+        return nativeUninitModel(this.bdFaceInstance.getIndex());
     }
 }

@@ -1,73 +1,24 @@
 package com.baidu.cyberplayer.sdk.extractor;
-
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class a {
-    public static /* synthetic */ Interceptable $ic;
     public static a a;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1083895421, "Lcom/baidu/cyberplayer/sdk/extractor/a;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1083895421, "Lcom/baidu/cyberplayer/sdk/extractor/a;");
-        }
-    }
-
-    public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
 
     public static synchronized a a() {
-        InterceptResult invokeV;
         a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (a.class) {
-                if (a == null) {
-                    a = new a();
-                }
-                aVar = a;
+        synchronized (a.class) {
+            if (a == null) {
+                a = new a();
             }
-            return aVar;
+            aVar = a;
         }
-        return (a) invokeV.objValue;
+        return aVar;
     }
 
     public ExtractorProvider a(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            ExtractorProvider a2 = z ? d.a() : null;
-            if (a2 == null) {
-                a2 = com.baidu.cyberplayer.sdk.d.b();
-            }
-            return a2 == null ? new b() : a2;
+        ExtractorProvider a2 = z ? d.a() : null;
+        if (a2 == null) {
+            a2 = com.baidu.cyberplayer.sdk.d.b();
         }
-        return (ExtractorProvider) invokeZ.objValue;
+        return a2 == null ? new b() : a2;
     }
 }

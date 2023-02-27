@@ -13,23 +13,12 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dl3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.tl3;
 /* loaded from: classes3.dex */
 public class RotateLoadingLayout extends LoadingLayout {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Interpolator k;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final Interpolator k = new LinearInterpolator();
     public RelativeLayout e;
     public ImageView f;
     public TextView g;
@@ -37,147 +26,59 @@ public class RotateLoadingLayout extends LoadingLayout {
     public TextView i;
     public Animation j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1112341176, "Lcom/baidu/swan/apps/res/ui/pullrefresh/RotateLoadingLayout;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1112341176, "Lcom/baidu/swan/apps/res/ui/pullrefresh/RotateLoadingLayout;");
-                return;
-            }
-        }
-        k = new LinearInterpolator();
-    }
-
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.g.setText(R.string.obfuscated_res_0x7f0f01b4);
-        }
+        this.g.setText(R.string.obfuscated_res_0x7f0f01b4);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public int getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RelativeLayout relativeLayout = this.e;
-            if (relativeLayout != null) {
-                return relativeLayout.getHeight();
-            }
-            return (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07015f);
+        RelativeLayout relativeLayout = this.e;
+        if (relativeLayout != null) {
+            return relativeLayout.getHeight();
         }
-        return invokeV.intValue;
+        return (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07015f);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            o();
-            this.f.startAnimation(this.j);
-            this.g.setText(R.string.obfuscated_res_0x7f0f01b3);
-        }
+        o();
+        this.f.startAnimation(this.j);
+        this.g.setText(R.string.obfuscated_res_0x7f0f01b3);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.i();
-            this.g.setText(R.string.obfuscated_res_0x7f0f01b2);
-        }
+        super.i();
+        this.g.setText(R.string.obfuscated_res_0x7f0f01b2);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.g.setText(R.string.obfuscated_res_0x7f0f01b5);
-        }
+        this.g.setText(R.string.obfuscated_res_0x7f0f01b5);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            o();
-            this.g.setText(R.string.obfuscated_res_0x7f0f01b4);
-        }
+        o();
+        this.g.setText(R.string.obfuscated_res_0x7f0f01b4);
     }
 
     public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f.clearAnimation();
-            if (dl3.c()) {
-                this.f.setRotation(0.0f);
-            }
+        this.f.clearAnimation();
+        if (tl3.c()) {
+            this.f.setRotation(0.0f);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RotateLoadingLayout(Context context) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         n(context);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RotateLoadingLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        n(context);
-    }
-
-    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) {
-            return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c6, viewGroup, false);
-        }
-        return (View) invokeLLL.objValue;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void d(float f) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) && dl3.c()) {
+        if (tl3.c()) {
             this.f.setRotation(f * 180.0f);
         }
     }
@@ -185,44 +86,45 @@ public class RotateLoadingLayout extends LoadingLayout {
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void setLastUpdatedLabel(CharSequence charSequence) {
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, charSequence) == null) {
-            TextView textView = this.i;
-            if (TextUtils.isEmpty(charSequence)) {
-                i = 4;
-            } else {
-                i = 0;
-            }
-            textView.setVisibility(i);
-            this.h.setText(charSequence);
+        TextView textView = this.i;
+        if (TextUtils.isEmpty(charSequence)) {
+            i = 4;
+        } else {
+            i = 0;
         }
+        textView.setVisibility(i);
+        this.h.setText(charSequence);
+    }
+
+    public RotateLoadingLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        n(context);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void l(ILoadingLayout$State iLoadingLayout$State, ILoadingLayout$State iLoadingLayout$State2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iLoadingLayout$State, iLoadingLayout$State2) == null) {
-            super.l(iLoadingLayout$State, iLoadingLayout$State2);
-        }
+        super.l(iLoadingLayout$State, iLoadingLayout$State2);
+    }
+
+    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
+    public View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
+        return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c7, viewGroup, false);
     }
 
     public final void n(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
-            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c18);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c16);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091c19);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091c1c);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091c1e);
-            this.f.setScaleType(ImageView.ScaleType.CENTER);
-            this.f.setImageResource(R.drawable.obfuscated_res_0x7f080142);
-            RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
-            this.j = rotateAnimation;
-            rotateAnimation.setFillAfter(true);
-            this.j.setInterpolator(k);
-            this.j.setDuration(IMLikeRequest.TIME_INTERVAL);
-            this.j.setRepeatCount(-1);
-            this.j.setRepeatMode(1);
-        }
+        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c4d);
+        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c4b);
+        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091c4e);
+        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091c51);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091c53);
+        this.f.setScaleType(ImageView.ScaleType.CENTER);
+        this.f.setImageResource(R.drawable.obfuscated_res_0x7f080142);
+        RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
+        this.j = rotateAnimation;
+        rotateAnimation.setFillAfter(true);
+        this.j.setInterpolator(k);
+        this.j.setDuration(IMLikeRequest.TIME_INTERVAL);
+        this.j.setRepeatCount(-1);
+        this.j.setRepeatMode(1);
     }
 }

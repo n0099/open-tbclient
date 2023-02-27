@@ -1,129 +1,94 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Modifier;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class x43 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public Object c;
+    public boolean d;
+    public String e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948250354, "Lcom/baidu/tieba/x43;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948250354, "Lcom/baidu/tieba/x43;");
+    public x43(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = gp1.a;
+        this.d = false;
+        this.b = str;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static void a(int i, String str, String str2, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, bundle}) == null) {
-            w43 b = b(str);
-            if (b == null) {
-                if (!a) {
-                    c(i, str2, null);
-                    return;
-                }
-                throw new RuntimeException("Messenger创建代理类失败");
-            }
-            if (a) {
-                Log.d("MDelegate-Delegation", "exec call messenger delegation: " + str);
-            }
-            if (bundle == null) {
-                bundle = new Bundle();
-            }
-            b.a = bundle;
-            b.b = i;
-            b.c = str2;
-            b.b(bundle);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static w43 b(@Nullable String str) {
+    public static String a(w43 w43Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                if (a) {
-                    Log.e("MDelegate-Delegation", "create delegation with null delegate name");
-                }
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, w43Var)) == null) {
+            if (w43Var == null) {
+                return "";
             }
+            JSONObject jSONObject = new JSONObject();
             try {
-                Class<?> cls = Class.forName(str);
-                if (cls == null) {
-                    if (!a) {
-                        return null;
-                    }
-                    throw new RuntimeException("Messenger代理类不存在：" + str);
-                }
-                int modifiers = cls.getModifiers();
-                if (w43.class.isAssignableFrom(cls) && !cls.isInterface() && !Modifier.isAbstract(modifiers)) {
-                    Constructor<?> declaredConstructor = cls.getDeclaredConstructor(new Class[0]);
-                    declaredConstructor.setAccessible(true);
-                    Object newInstance = declaredConstructor.newInstance(new Object[0]);
-                    if (!(newInstance instanceof w43)) {
-                        if (!a) {
-                            return null;
-                        }
-                        throw new RuntimeException("Messenger代理类不是:" + w43.class.getName());
-                    }
-                    return (w43) newInstance;
-                }
-                if (!a) {
-                    return null;
-                }
-                throw new RuntimeException("Messenger代理类不合法：" + str);
-            } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
-                if (!a) {
-                    return null;
-                }
-                e.printStackTrace();
-                throw new RuntimeException(e);
+                jSONObject.put("componentId", w43Var.f);
+                jSONObject.put("pluginProvider", w43Var.b);
+                jSONObject.put(WebChromeClient.KEY_ARG_ARRAY, w43Var.g);
+                jSONObject.put("slaveId", w43Var.e);
+            } catch (JSONException e) {
+                e53.b(Log.getStackTraceString(e));
             }
+            return jSONObject.toString();
         }
-        return (w43) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static void c(int i, String str, @Nullable Bundle bundle) {
+    /* JADX WARN: Type inference failed for: r1v0, types: [org.json.JSONObject, T] */
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeILL(65539, null, i, str, bundle) != null) || e53.a(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            sj2 sj2Var = new sj2();
+            ?? jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "functionPageFinished");
+                jSONObject.put("componentId", this.b);
+                jSONObject.put("isSuccess", this.d);
+                jSONObject.put("data", this.e);
+                if (this.c != null) {
+                    jSONObject.put("error", this.c.toString());
+                }
+            } catch (JSONException e) {
+                e53.b(Log.getStackTraceString(e));
+            }
+            sj2Var.c = jSONObject;
+            zu2.U().m(this.a, sj2Var);
+            e53.b("finish event, isSuccess = " + this.d);
         }
-        if (a) {
-            Log.d("MDelegate-Delegation", "send result to client: " + i + " observer: " + str);
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "SwanPluginFunPageFinishEvent{eventType='functionPageFinished', componentId='" + this.b + "', error=" + this.c + ", isSuccess=" + this.d + ", resultData='" + this.e + "'}";
         }
-        Bundle bundle2 = new Bundle();
-        bundle2.putString("key_observer_id", str);
-        if (bundle != null) {
-            bundle2.putBundle("key_result_data", bundle);
-        }
-        if (i == -1000) {
-            p53.f(bundle2);
-        } else {
-            p53.e(i, bundle2);
-        }
+        return (String) invokeV.objValue;
     }
 }

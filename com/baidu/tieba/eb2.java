@@ -1,9 +1,12 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import com.baidu.swan.apps.jsbridge.SwanAppJsBridge;
+import com.baidu.tieba.bh2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,18 +14,95 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes4.dex */
 public class eb2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ib2> a;
-    public final Object b;
-    public final int c;
+    public ug2 a;
+    public eh2 b;
+
+    /* loaded from: classes4.dex */
+    public class a extends qh2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public final /* synthetic */ eb2 c;
+
+        public a(@NonNull eb2 eb2Var, @NonNull String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eb2Var, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = eb2Var;
+            this.a = str;
+            this.b = str2;
+            if (eb2.c) {
+                Log.d("SwanAppV8Daemon", "basePath: " + str + ", jsFile: " + str2);
+            }
+        }
+
+        @Override // com.baidu.tieba.rh2
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.qh2, com.baidu.tieba.rh2
+        @Nullable
+        public V8EngineConfiguration.CodeCacheSetting b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return super.b();
+            }
+            return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.rh2
+        public String getInitBasePath() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.a;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.qh2, com.baidu.tieba.rh2
+        public void c(ug2 ug2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ug2Var) == null) {
+                if (this.c.b != null) {
+                    this.c.b.a(ug2Var);
+                }
+                ug2Var.y0();
+            }
+        }
+
+        @Override // com.baidu.tieba.qh2, com.baidu.tieba.rh2
+        public void d(ug2 ug2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, ug2Var) == null) {
+                super.d(ug2Var);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -37,255 +117,65 @@ public class eb2 {
                 return;
             }
         }
-        d = gp1.a;
+        c = wp1.a;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public eb2(int i) {
+    public final bh2 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            bh2.b bVar = new bh2.b();
+            bVar.c(3);
+            bVar.b(cb2.b());
+            return bVar.a();
+        }
+        return (bh2) invokeV.objValue;
+    }
+
+    public ug2 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (ug2) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ug2 ug2Var = this.a;
+            if (ug2Var != null) {
+                ug2Var.k0();
+                this.a = null;
+            }
+            this.b = null;
+        }
+    }
+
+    public eb2(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (i < 1) {
-            if (!d) {
-                i = 1;
-            } else {
-                throw new RuntimeException("MasterPool size can not less than 1");
-            }
-        }
-        this.c = i;
-        this.b = new Object();
-        this.a = new LinkedList();
+        this.a = ah2.b(c(), new a(this, str, str2), null);
+        this.a.addJavascriptInterface(new db2(this.a), SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
     }
 
-    public void c(String str) {
+    public void f(eh2 eh2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str) || TextUtils.equals(str, "_default_id_")) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048579, this, eh2Var) == null) {
+            this.b = eh2Var;
         }
-        synchronized (this.b) {
-            ArrayList arrayList = new ArrayList();
-            for (ib2 ib2Var : this.a) {
-                if (TextUtils.equals(ib2Var.h(), str)) {
-                    arrayList.add(ib2Var);
-                }
-            }
-            b(arrayList);
-        }
-    }
-
-    public void a(Collection<ib2> collection) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, collection) == null) {
-            int i = 0;
-            if (collection != null && collection.size() > 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (d) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("master pool clear, excludes size - ");
-                if (collection != null) {
-                    i = collection.size();
-                }
-                sb.append(i);
-                Log.i("MasterPool", sb.toString());
-                if (collection != null) {
-                    for (ib2 ib2Var : collection) {
-                        if (ib2Var.i() != null) {
-                            Log.i("MasterPool", "excludes  - " + ib2Var.i().a());
-                        }
-                    }
-                }
-            }
-            synchronized (this.b) {
-                ArrayList arrayList = new ArrayList();
-                for (ib2 ib2Var2 : this.a) {
-                    if (z || (collection != null && !collection.contains(ib2Var2))) {
-                        arrayList.add(ib2Var2);
-                    }
-                }
-                b(arrayList);
-            }
-        }
-    }
-
-    public void g(Collection<ib2> collection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, collection) == null) {
-            if (this.c >= 3) {
-                boolean z = true;
-                if (this.a.size() > 1) {
-                    if (collection != null && collection.size() > 0) {
-                        z = false;
-                    }
-                    synchronized (this.b) {
-                        ArrayList arrayList = new ArrayList();
-                        for (ib2 ib2Var : this.a) {
-                            if (!ib2Var.l() && ib2Var.j() && (z || !collection.contains(ib2Var))) {
-                                arrayList.add(ib2Var);
-                            }
-                        }
-                        if (d) {
-                            Log.d("MasterPool", "remove all prefetch event master, size - " + arrayList.size());
-                        }
-                        b(arrayList);
-                    }
-                    return;
-                }
-            }
-            if (d) {
-                Log.d("MasterPool", "no need to remove prefetch master");
-                Log.d("MasterPool", "max size - " + this.c);
-                Log.d("MasterPool", "current cache size - " + this.a.size());
-            }
-        }
-    }
-
-    public final void b(Collection<ib2> collection) {
-        long j;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection) == null) && collection.size() > 0) {
-            if (d) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
-            }
-            this.a.removeAll(collection);
-            if (d) {
-                Log.i("MasterPool", "remove no use master in pool, size - " + collection.size());
-            }
-            for (ib2 ib2Var : collection) {
-                if (ib2Var.i() != null) {
-                    ib2Var.i().destroy();
-                    if (d) {
-                        Log.i("MasterPool", "master destroy, id - " + ib2Var.i().a() + ", isReady - " + ib2Var.n() + ", is Default - " + ib2Var.l() + ", is Prefetch - " + ib2Var.j());
-                    }
-                }
-            }
-            if (d) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.i("MasterPool", "destroy masters cost - " + (currentTimeMillis - j) + "ms");
-            }
-        }
-    }
-
-    public ib2 d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            ib2 ib2Var = null;
-            if (TextUtils.isEmpty(str)) {
-                if (d) {
-                    Log.w("MasterPool", "appId can not be empty");
-                }
-                return null;
-            }
-            synchronized (this.b) {
-                if (TextUtils.equals(str, "_default_id_")) {
-                    if (d) {
-                        Log.i("MasterPool", "get default master manger for id - " + str);
-                    }
-                    return e();
-                }
-                int size = this.a.size() - 1;
-                int i = size;
-                while (true) {
-                    if (i < 0) {
-                        break;
-                    }
-                    ib2 ib2Var2 = this.a.get(i);
-                    if (TextUtils.equals(ib2Var2.h(), str)) {
-                        if (d) {
-                            Log.i("MasterPool", "get master in pool for id - " + str);
-                        }
-                        ib2Var = ib2Var2;
-                    } else {
-                        i--;
-                    }
-                }
-                if (ib2Var != null && i != size) {
-                    this.a.remove(i);
-                    this.a.add(ib2Var);
-                }
-                if (d) {
-                    if (ib2Var == null) {
-                        Log.i("MasterPool", "find no master for id - " + str);
-                    } else {
-                        Log.i("MasterPool", "hit a master cache for id - " + str);
-                    }
-                }
-                return ib2Var;
-            }
-        }
-        return (ib2) invokeL.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public final ib2 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            for (ib2 ib2Var : this.a) {
-                if (ib2Var.l()) {
-                    return ib2Var;
-                }
-            }
-            if (!d) {
-                return null;
-            }
-            throw new RuntimeException("there must be one default master in pool, you should add default one first");
-        }
-        return (ib2) invokeV.objValue;
-    }
-
-    public void f(ib2 ib2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, ib2Var) != null) || ib2Var == null) {
-            return;
-        }
-        synchronized (this.b) {
-            if (!this.a.contains(ib2Var)) {
-                this.a.add(ib2Var);
-            }
-            h();
-        }
-    }
-
-    public final void h() {
-        int size;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (size = this.a.size()) <= this.c) {
-            return;
-        }
-        if (d) {
-            Log.i("MasterPool", "resize, current - " + size + ", target - " + this.c);
-        }
-        ArrayList arrayList = new ArrayList();
-        boolean z = false;
-        for (int i = 0; i < size; i++) {
-            ib2 ib2Var = this.a.get(i);
-            if (ib2Var.l() && !z) {
-                z = true;
-            } else {
-                arrayList.add(ib2Var);
-                if (arrayList.size() >= size - this.c) {
-                    break;
-                }
-            }
-        }
-        b(arrayList);
     }
 }

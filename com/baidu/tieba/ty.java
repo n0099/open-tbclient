@@ -4,51 +4,20 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.ThreadSmartAppLayout;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.widget.TbLabelWidget;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ty extends ox {
+public class ty extends sx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadSmartAppLayout h;
-    public sw4 i;
-
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ty a;
-
-        public a(ty tyVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tyVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tyVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h() != null) {
-                this.a.h().a(view2, this.a.i);
-            }
-        }
-    }
+    public TbLabelWidget h;
+    public ThreadData i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ty(Context context) {
@@ -68,38 +37,80 @@ public class ty extends ox {
                 return;
             }
         }
-        v(ej.g(context, R.dimen.M_H_X003));
-        this.h = new ThreadSmartAppLayout(context);
-        this.h.setAfterClickListener(new a(this));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zx
-    /* renamed from: x */
-    public void a(sw4 sw4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, sw4Var) == null) {
-            this.i = sw4Var;
-            this.h.a(sw4Var);
+        int g = ej.g(context, R.dimen.M_H_X003);
+        int g2 = ej.g(context, R.dimen.tbds0);
+        v(g);
+        u(g2);
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().s instanceof TbLabelWidget) && TbadkCoreApplication.getInst().getPersonalizeViewData().s.getParent() == null) {
+            this.h = (TbLabelWidget) TbadkCoreApplication.getInst().getPersonalizeViewData().s;
+        } else {
+            this.h = new TbLabelWidget(context);
         }
     }
 
-    @Override // com.baidu.tieba.hx
+    public void A(TbPageContext tbPageContext) {
+        TbLabelWidget tbLabelWidget;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) && (tbLabelWidget = this.h) != null) {
+            tbLabelWidget.setPageContext(tbPageContext);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.dy
+    /* renamed from: y */
+    public void a(zx4 zx4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, zx4Var) == null) {
+            if (zx4Var != null) {
+                this.i = zx4Var.getThreadData();
+            }
+            this.h.setData(zx4Var);
+        }
+    }
+
+    public void z(TbLabelWidget.b bVar) {
+        TbLabelWidget tbLabelWidget;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) && (tbLabelWidget = this.h) != null) {
+            tbLabelWidget.setEventCallback(bVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.lx
     public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.h;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ay
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        ThreadSmartAppLayout threadSmartAppLayout;
+    public void w() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && (threadSmartAppLayout = this.h) != null) {
-            threadSmartAppLayout.d();
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            int g = ej.g(this.b, R.dimen.M_H_X003);
+            int g2 = ej.g(this.b, R.dimen.tbds0);
+            v(g);
+            u(g2);
+        }
+    }
+
+    public ThreadData x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.i;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ey
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            this.h.k();
         }
     }
 }

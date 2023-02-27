@@ -9,10 +9,10 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sofire.a.b;
 import com.baidu.sofire.ac.Callback;
-import com.baidu.sofire.b.e;
-import com.baidu.sofire.b.k;
+import com.baidu.sofire.b.c;
+import com.baidu.sofire.b.i;
 import com.baidu.sofire.core.ApkInfo;
-import com.baidu.sofire.k.p;
+import com.baidu.sofire.k.u;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -82,15 +82,15 @@ public class MyService extends Service {
                             this.c.a();
                             return;
                         }
-                        e.a(intExtra, stringExtra, (Callback) null, new Class[]{Intent.class}, this.b);
+                        c.a(intExtra, stringExtra, (Callback) null, new Class[]{Intent.class}, this.b);
                         this.c.a();
                     } else {
-                        k kVar = k.f;
-                        if (kVar == null) {
+                        i iVar = i.g;
+                        if (iVar == null) {
                             this.c.a();
                             return;
                         }
-                        ApkInfo b = kVar.b(this.a);
+                        ApkInfo b = iVar.b(this.a);
                         if (b == null) {
                             this.c.a();
                             return;
@@ -166,7 +166,7 @@ public class MyService extends Service {
                     int i3 = bundleExtra.getInt("key");
                     int i4 = bundleExtra.getInt(DelayTB.DELAY);
                     if (stringArray != null && stringArray.length == 2 && !TextUtils.isEmpty(stringArray[0]) && !TextUtils.isEmpty(stringArray[1])) {
-                        e.a(getApplicationContext(), i4, stringArray[0], stringArray[1], i3);
+                        c.a(getApplicationContext(), i4, stringArray[0], stringArray[1], i3);
                         return 2;
                     }
                 }
@@ -181,7 +181,7 @@ public class MyService extends Service {
                             return 2;
                         }
                     }
-                    p.a(getApplicationContext()).a(new a(this, stringExtra, intent));
+                    u.a(getApplicationContext()).a(new a(this, stringExtra, intent));
                 }
             } catch (Throwable unused) {
                 int i5 = b.a;

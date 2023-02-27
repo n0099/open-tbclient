@@ -282,7 +282,7 @@ public class FeedbackBrowserActivity extends BaseActivity implements h {
                     return;
                 }
             }
-            setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f060469));
+            setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0603be));
         }
     }
 

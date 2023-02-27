@@ -1,31 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
-@Service
 /* loaded from: classes4.dex */
-public class fi0 extends xi0 {
+public class fi0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject(force = false)
+    public nk1<eo0> a;
 
-    @Override // com.baidu.tieba.xi0
-    public String a() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "loadCache" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            lk1 b = lk1.b();
+            this.a = b;
+            b.a(new fo0());
+        }
     }
 
     public fi0() {
@@ -38,32 +31,9 @@ public class fi0 extends xi0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.xi0
-    public boolean b(@NonNull Context context, @NonNull bj0 bj0Var, @Nullable Map<String, Object> map, @Nullable fj0 fj0Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bj0Var, map, fj0Var)) == null) {
-            super.b(context, bj0Var, map, fj0Var);
-            HashMap<String, String> d = bj0Var.d();
-            String str = d.get("key");
-            String str2 = d.get(WebChromeClient.KEY_ARG_CALLBACK);
-            String str3 = d.get("ext");
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                String b = gi0.a().b(str);
-                JSONObject jSONObject = new JSONObject();
-                y11.f(jSONObject, "key", str);
-                y11.f(jSONObject, "message", b);
-                y11.f(jSONObject, "ext", str3);
-                d(fj0Var, bj0Var, jSONObject.toString(), 0, true);
-                return true;
-            }
-            c(fj0Var, bj0Var, 202, false);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
+        a();
     }
 }

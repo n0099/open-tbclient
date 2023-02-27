@@ -1,83 +1,36 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.MonitorType;
-import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-import com.baidu.webkit.sdk.Log;
-import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class bx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cx a;
-    public JSONObject b;
-    public JSONObject c;
-    public boolean d;
 
-    public bx() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448301079, "Lcom/baidu/tieba/bx;")) == null) {
             return;
         }
-        SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.c.toString());
-        this.c = null;
-    }
-
-    public final void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            try {
-                if (this.b == null) {
-                    JSONObject jSONObject = new JSONObject();
-                    this.b = jSONObject;
-                    jSONObject.put("type", MonitorType.MONITOR_TYPE_INIT_WEBKIT);
-                }
-                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                    return;
-                }
-                this.b.put(str, str2);
-            } catch (Exception unused) {
-                Log.e("staticWebkitInit JSON error");
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448301079, "Lcom/baidu/tieba/bx;");
         }
     }
 
-    public final void c(String str, String str2) {
+    public static int a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            try {
-                if (this.c == null) {
-                    JSONObject jSONObject = new JSONObject();
-                    this.c = jSONObject;
-                    jSONObject.put("type", MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT);
-                }
-                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                    return;
-                }
-                this.c.put(str, str2);
-            } catch (Exception unused) {
-                Log.e("mWebkitDownloadStatics JSON error");
-            }
+        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
+            return Math.round(f * kw.a().getResources().getDisplayMetrics().density);
         }
+        return invokeF.intValue;
     }
 }

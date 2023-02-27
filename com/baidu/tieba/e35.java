@@ -1,35 +1,15 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.Context;
+import android.view.View;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes4.dex */
-public class e35 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface e35 {
+    h35 a();
 
-    public static void a(String str, long j, int i, String str2, int i2, String str3, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i), str2, Integer.valueOf(i2), str3, objArr}) == null) {
-            lh lhVar = new lh();
-            lhVar.c("cmd", Integer.valueOf(i));
-            if (!TextUtils.isEmpty(str2)) {
-                lhVar.b("action", str2);
-            }
-            lhVar.b("errNo", String.valueOf(i2));
-            if (!TextUtils.isEmpty(str3) && i2 != 0) {
-                lhVar.b(StatConstants.KEY_EXT_ERR_MSG, str3);
-            }
-            if (objArr != null && objArr.length > 0) {
-                lhVar.c(objArr);
-            }
-            if (i2 == 0) {
-                BdStatisticsManager.getInstance().debug(str, j, null, lhVar);
-            } else {
-                BdStatisticsManager.getInstance().error(str, j, (String) null, lhVar);
-            }
-        }
-    }
+    View b();
+
+    k35 c();
+
+    TbImageView d(Context context);
 }

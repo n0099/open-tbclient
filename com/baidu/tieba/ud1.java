@@ -1,47 +1,32 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.pm.SubBundleInfo;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class ud1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
-            try {
-                closeable.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
+    public abstract void a(boolean z, long j);
 
-    public static boolean b(BundleInfo bundleInfo, BundleInfo bundleInfo2) {
-        InterceptResult invokeLL;
-        List<SubBundleInfo> subBundle;
+    public abstract void b(@NonNull dr0 dr0Var);
+
+    public abstract void c();
+
+    public ud1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bundleInfo, bundleInfo2)) == null) {
-            if (bundleInfo == null || bundleInfo2 == null || (subBundle = bundleInfo.getSubBundle()) == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            for (SubBundleInfo subBundleInfo : subBundle) {
-                if (TextUtils.equals(subBundleInfo.getPackageName(), bundleInfo2.getPackageName())) {
-                    if (subBundleInfo.getMaxVersion() < bundleInfo2.getVersionCode() || subBundleInfo.getMinVersion() > bundleInfo2.getVersionCode()) {
-                        return false;
-                    }
-                    return true;
-                }
-            }
-            return false;
         }
-        return invokeLL.booleanValue;
     }
 }

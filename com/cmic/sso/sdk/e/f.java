@@ -49,11 +49,7 @@ public class f {
             try {
                 PackageInfo c = c(context);
                 if (c != null) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(d(context));
-                    sb.append("&");
-                    sb.append(c.versionName);
-                    return sb.toString();
+                    return d(context) + "&" + c.versionName;
                 }
                 return "";
             } catch (Exception e) {

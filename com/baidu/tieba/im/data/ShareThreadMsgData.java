@@ -21,8 +21,8 @@ import com.baidu.tieba.im.db.pojo.PbContentPojo;
 import com.baidu.tieba.im.db.pojo.PluginUserPojo;
 import com.baidu.tieba.im.db.pojo.TiebaPlusInfoPojo;
 import com.baidu.tieba.im.db.pojo.TogetherHiPojo;
-import com.baidu.tieba.ml7;
-import com.baidu.tieba.sz4;
+import com.baidu.tieba.io7;
+import com.baidu.tieba.z05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -378,7 +378,7 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
                 shareThreadMsgData.author_name_show = threadData.getAuthor().getName_show();
             }
             if (threadData.getForumData() != null) {
-                sz4 forumData = threadData.getForumData();
+                z05 forumData = threadData.getForumData();
                 shareThreadMsgData.forum_id = dh.g(forumData.a, 0L);
                 shareThreadMsgData.forum_avatar = forumData.c;
                 shareThreadMsgData.forum_name = forumData.b;
@@ -401,11 +401,11 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
                 parseMediaDataList(shareThreadMsgData, threadData.getMedias());
             } else if (threadData.isImShareFromPb() && threadData.getPbFirstShareData() != null && threadData.getPbFirstShareData().Z() != null) {
                 shareThreadMsgData.media_list = new ArrayList();
-                Iterator<TbRichTextImageInfo> it = threadData.getPbFirstShareData().Z().K().iterator();
+                Iterator<TbRichTextImageInfo> it = threadData.getPbFirstShareData().Z().R().iterator();
                 while (it.hasNext()) {
                     TbRichTextImageInfo next = it.next();
                     MediaPojo mediaPojo = new MediaPojo();
-                    mediaPojo.srcPic = next.J();
+                    mediaPojo.srcPic = next.Q();
                     mediaPojo.width = next.getWidth();
                     mediaPojo.height = next.getHeight();
                     shareThreadMsgData.media_list.add(mediaPojo);
@@ -541,25 +541,25 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
                     }
                     if (pbContentPojo.item != null) {
                         Item.Builder builder8 = new Item.Builder();
-                        ml7 ml7Var = pbContentPojo.item;
-                        builder8.item_id = ml7Var.a;
-                        builder8.item_name = ml7Var.b;
-                        builder8.icon_size = ml7Var.c;
-                        builder8.icon_url = ml7Var.d;
-                        if (ml7Var.e != null) {
+                        io7 io7Var = pbContentPojo.item;
+                        builder8.item_id = io7Var.a;
+                        builder8.item_name = io7Var.b;
+                        builder8.icon_size = io7Var.c;
+                        builder8.icon_url = io7Var.d;
+                        if (io7Var.e != null) {
                             builder8.tags = new ArrayList(pbContentPojo.item.e);
                         }
-                        ml7 ml7Var2 = pbContentPojo.item;
-                        builder8.score = ml7Var2.f;
-                        builder8.star = ml7Var2.g;
-                        builder8.button_name = ml7Var2.h;
-                        builder8.button_link = ml7Var2.i;
-                        builder8.item_appid = ml7Var2.j;
-                        builder8.category_id = ml7Var2.k;
-                        builder8.button_link_type = ml7Var2.l;
-                        builder8.apk_name = ml7Var2.m;
-                        builder8.forum_name = ml7Var2.n;
-                        if (ml7Var2.o != null) {
+                        io7 io7Var2 = pbContentPojo.item;
+                        builder8.score = io7Var2.f;
+                        builder8.star = io7Var2.g;
+                        builder8.button_name = io7Var2.h;
+                        builder8.button_link = io7Var2.i;
+                        builder8.item_appid = io7Var2.j;
+                        builder8.category_id = io7Var2.k;
+                        builder8.button_link_type = io7Var2.l;
+                        builder8.apk_name = io7Var2.m;
+                        builder8.forum_name = io7Var2.n;
+                        if (io7Var2.o != null) {
                             ApkDetail.Builder builder9 = new ApkDetail.Builder();
                             ApkDetailPojo apkDetailPojo = pbContentPojo.item.o;
                             builder9.developer = apkDetailPojo.developer;
@@ -594,7 +594,7 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
                 ArrayList arrayList = new ArrayList();
                 for (protobuf.PbContent pbContent : list) {
                     PbContentPojo pbContentPojo = new PbContentPojo();
-                    pbContentPojo.G(pbContent);
+                    pbContentPojo.N(pbContent);
                     arrayList.add(pbContentPojo);
                 }
                 return arrayList;
@@ -612,7 +612,7 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
                 ArrayList arrayList = new ArrayList();
                 for (PbContent pbContent : list) {
                     PbContentPojo pbContentPojo = new PbContentPojo();
-                    pbContentPojo.H(pbContent);
+                    pbContentPojo.O(pbContent);
                     arrayList.add(pbContentPojo);
                 }
                 return arrayList;
@@ -676,7 +676,7 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
             shareThreadMsgData.media_list = new ArrayList();
             for (Media media : list) {
                 MediaPojo mediaPojo = new MediaPojo();
-                mediaPojo.H(media);
+                mediaPojo.O(media);
                 if (StringUtils.isNull(mediaPojo.srcPic)) {
                     if (!StringUtils.isNull(mediaPojo.originPic)) {
                         mediaPojo.srcPic = mediaPojo.originPic;

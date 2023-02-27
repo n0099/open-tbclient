@@ -12,85 +12,166 @@ import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Slider extends BaseSlider<Slider, OnChangeListener, OnSliderTouchListener> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface OnChangeListener extends BaseOnChangeListener<Slider> {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface OnSliderTouchListener extends BaseOnSliderTouchListener<Slider> {
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Slider(@NonNull Context context) {
         this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @Override // com.google.android.material.slider.BaseSlider, android.view.View
+    public /* bridge */ /* synthetic */ boolean dispatchHoverEvent(@NonNull MotionEvent motionEvent) {
+        return super.dispatchHoverEvent(motionEvent);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider, android.view.View
+    public /* bridge */ /* synthetic */ boolean dispatchKeyEvent(@NonNull KeyEvent keyEvent) {
+        return super.dispatchKeyEvent(keyEvent);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider, android.view.View
+    public /* bridge */ /* synthetic */ boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
+        return super.onTouchEvent(motionEvent);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider, android.view.View
+    public /* bridge */ /* synthetic */ void setEnabled(boolean z) {
+        super.setEnabled(z);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider
+    public /* bridge */ /* synthetic */ void setFocusedThumbIndex(int i) {
+        super.setFocusedThumbIndex(i);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider
+    public /* bridge */ /* synthetic */ void setHaloRadius(@IntRange(from = 0) @Dimension int i) {
+        super.setHaloRadius(i);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider
+    public /* bridge */ /* synthetic */ void setHaloRadiusResource(@DimenRes int i) {
+        super.setHaloRadiusResource(i);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider
+    public /* bridge */ /* synthetic */ void setHaloTintList(@NonNull ColorStateList colorStateList) {
+        super.setHaloTintList(colorStateList);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider
+    public /* bridge */ /* synthetic */ void setLabelBehavior(int i) {
+        super.setLabelBehavior(i);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider
+    public /* bridge */ /* synthetic */ void setLabelFormatter(@Nullable LabelFormatter labelFormatter) {
+        super.setLabelFormatter(labelFormatter);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider
+    public /* bridge */ /* synthetic */ void setStepSize(float f) {
+        super.setStepSize(f);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider
+    public /* bridge */ /* synthetic */ void setThumbElevation(float f) {
+        super.setThumbElevation(f);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider
+    public /* bridge */ /* synthetic */ void setThumbElevationResource(@DimenRes int i) {
+        super.setThumbElevationResource(i);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider
+    public /* bridge */ /* synthetic */ void setThumbRadius(@IntRange(from = 0) @Dimension int i) {
+        super.setThumbRadius(i);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider
+    public /* bridge */ /* synthetic */ void setThumbRadiusResource(@DimenRes int i) {
+        super.setThumbRadiusResource(i);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider
+    public /* bridge */ /* synthetic */ void setThumbTintList(@NonNull ColorStateList colorStateList) {
+        super.setThumbTintList(colorStateList);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider
+    public /* bridge */ /* synthetic */ void setTickActiveTintList(@NonNull ColorStateList colorStateList) {
+        super.setTickActiveTintList(colorStateList);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider
+    public /* bridge */ /* synthetic */ void setTickInactiveTintList(@NonNull ColorStateList colorStateList) {
+        super.setTickInactiveTintList(colorStateList);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider
+    public /* bridge */ /* synthetic */ void setTickTintList(@NonNull ColorStateList colorStateList) {
+        super.setTickTintList(colorStateList);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider
+    public /* bridge */ /* synthetic */ void setTrackActiveTintList(@NonNull ColorStateList colorStateList) {
+        super.setTrackActiveTintList(colorStateList);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider
+    public /* bridge */ /* synthetic */ void setTrackHeight(@IntRange(from = 0) @Dimension int i) {
+        super.setTrackHeight(i);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider
+    public /* bridge */ /* synthetic */ void setTrackInactiveTintList(@NonNull ColorStateList colorStateList) {
+        super.setTrackInactiveTintList(colorStateList);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider
+    public /* bridge */ /* synthetic */ void setTrackTintList(@NonNull ColorStateList colorStateList) {
+        super.setTrackTintList(colorStateList);
+    }
+
+    public void setValue(float f) {
+        setValues(Float.valueOf(f));
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider
+    public /* bridge */ /* synthetic */ void setValueFrom(float f) {
+        super.setValueFrom(f);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider
+    public /* bridge */ /* synthetic */ void setValueTo(float f) {
+        super.setValueTo(f);
+    }
+
     public Slider(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040637);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04063a);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @Override // com.google.android.material.slider.BaseSlider, android.view.View, android.view.KeyEvent.Callback
+    public /* bridge */ /* synthetic */ boolean onKeyDown(int i, @NonNull KeyEvent keyEvent) {
+        return super.onKeyDown(i, keyEvent);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider, android.view.View, android.view.KeyEvent.Callback
+    public /* bridge */ /* synthetic */ boolean onKeyUp(int i, @NonNull KeyEvent keyEvent) {
+        return super.onKeyUp(i, keyEvent);
+    }
+
     public Slider(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842788});
         if (obtainStyledAttributes.hasValue(0)) {
             setValue(obtainStyledAttributes.getFloat(0, 0.0f));
@@ -218,12 +299,7 @@ public class Slider extends BaseSlider<Slider, OnChangeListener, OnSliderTouchLi
     }
 
     public float getValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return getValues().get(0).floatValue();
-        }
-        return invokeV.floatValue;
+        return getValues().get(0).floatValue();
     }
 
     @Override // com.google.android.material.slider.BaseSlider
@@ -243,157 +319,10 @@ public class Slider extends BaseSlider<Slider, OnChangeListener, OnSliderTouchLi
 
     @Override // com.google.android.material.slider.BaseSlider
     public boolean pickActiveThumb() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            if (getActiveThumbIndex() != -1) {
-                return true;
-            }
-            setActiveThumbIndex(0);
+        if (getActiveThumbIndex() != -1) {
             return true;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider, android.view.View
-    public /* bridge */ /* synthetic */ boolean dispatchHoverEvent(@NonNull MotionEvent motionEvent) {
-        return super.dispatchHoverEvent(motionEvent);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider, android.view.View
-    public /* bridge */ /* synthetic */ boolean dispatchKeyEvent(@NonNull KeyEvent keyEvent) {
-        return super.dispatchKeyEvent(keyEvent);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider, android.view.View
-    public /* bridge */ /* synthetic */ boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
-        return super.onTouchEvent(motionEvent);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider, android.view.View
-    public /* bridge */ /* synthetic */ void setEnabled(boolean z) {
-        super.setEnabled(z);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setFocusedThumbIndex(int i) {
-        super.setFocusedThumbIndex(i);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setHaloRadius(@IntRange(from = 0) @Dimension int i) {
-        super.setHaloRadius(i);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setHaloRadiusResource(@DimenRes int i) {
-        super.setHaloRadiusResource(i);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setHaloTintList(@NonNull ColorStateList colorStateList) {
-        super.setHaloTintList(colorStateList);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setLabelBehavior(int i) {
-        super.setLabelBehavior(i);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setLabelFormatter(@Nullable LabelFormatter labelFormatter) {
-        super.setLabelFormatter(labelFormatter);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setStepSize(float f) {
-        super.setStepSize(f);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setThumbElevation(float f) {
-        super.setThumbElevation(f);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setThumbElevationResource(@DimenRes int i) {
-        super.setThumbElevationResource(i);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setThumbRadius(@IntRange(from = 0) @Dimension int i) {
-        super.setThumbRadius(i);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setThumbRadiusResource(@DimenRes int i) {
-        super.setThumbRadiusResource(i);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setThumbTintList(@NonNull ColorStateList colorStateList) {
-        super.setThumbTintList(colorStateList);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setTickActiveTintList(@NonNull ColorStateList colorStateList) {
-        super.setTickActiveTintList(colorStateList);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setTickInactiveTintList(@NonNull ColorStateList colorStateList) {
-        super.setTickInactiveTintList(colorStateList);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setTickTintList(@NonNull ColorStateList colorStateList) {
-        super.setTickTintList(colorStateList);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setTrackActiveTintList(@NonNull ColorStateList colorStateList) {
-        super.setTrackActiveTintList(colorStateList);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setTrackHeight(@IntRange(from = 0) @Dimension int i) {
-        super.setTrackHeight(i);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setTrackInactiveTintList(@NonNull ColorStateList colorStateList) {
-        super.setTrackInactiveTintList(colorStateList);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setTrackTintList(@NonNull ColorStateList colorStateList) {
-        super.setTrackTintList(colorStateList);
-    }
-
-    public void setValue(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048627, this, f) == null) {
-            setValues(Float.valueOf(f));
-        }
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setValueFrom(float f) {
-        super.setValueFrom(f);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setValueTo(float f) {
-        super.setValueTo(f);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider, android.view.View, android.view.KeyEvent.Callback
-    public /* bridge */ /* synthetic */ boolean onKeyDown(int i, @NonNull KeyEvent keyEvent) {
-        return super.onKeyDown(i, keyEvent);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider, android.view.View, android.view.KeyEvent.Callback
-    public /* bridge */ /* synthetic */ boolean onKeyUp(int i, @NonNull KeyEvent keyEvent) {
-        return super.onKeyUp(i, keyEvent);
+        setActiveThumbIndex(0);
+        return true;
     }
 }

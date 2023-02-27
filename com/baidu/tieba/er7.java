@@ -1,127 +1,247 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextGenImageMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.tieba.im.util.MessageUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class er7 extends wr7 {
+public class er7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean e;
 
-    public er7() {
+    /* loaded from: classes4.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ThreadData a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ boolean f;
+
+        public a(ThreadData threadData, long j, String str, String str2, String str3, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {threadData, Long.valueOf(j), str, str2, str3, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = threadData;
+            this.b = j;
+            this.c = str;
+            this.d = str2;
+            this.e = str3;
+            this.f = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageUtils.createAndSendPersonalThreadChatMessage(this.a, this.b, this.c, this.d, this.e, this.f);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ForumData a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ boolean f;
+
+        public b(ForumData forumData, long j, String str, String str2, String str3, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {forumData, Long.valueOf(j), str, str2, str3, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = forumData;
+            this.b = j;
+            this.c = str;
+            this.d = str2;
+            this.e = str3;
+            this.f = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageUtils.createAndSendPersonalForumChatMessage(this.a, this.b, this.c, this.d, this.e, this.f);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GroupInfoData a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ boolean f;
+
+        public c(GroupInfoData groupInfoData, long j, String str, String str2, String str3, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {groupInfoData, Long.valueOf(j), str, str2, str3, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = groupInfoData;
+            this.b = j;
+            this.c = str;
+            this.d = str2;
+            this.e = str3;
+            this.f = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageUtils.createAndSendPersonalGroupChatMessage(this.a, this.b, this.c, this.d, this.e, this.f);
+            }
+        }
+    }
+
+    public static void a(@Nullable ForumData forumData, @Nullable String str, long j, String str2, String str3, String str4, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{forumData, str, Long.valueOf(j), str2, str3, str4, Boolean.valueOf(z)}) == null) {
+            if (TextUtils.isEmpty(str)) {
+                MessageUtils.createAndSendPersonalForumChatMessage(forumData, j, str2, str3, str4, z);
                 return;
             }
+            MessageUtils.createAndSendPersonalTextChatMessage(str, j, str2, str3, str4, z);
+            gh.a().postDelayed(new b(forumData, j, str2, str3, str4, z), 500L);
         }
-        this.e = true;
     }
 
-    @Override // com.baidu.tieba.vr7
-    public boolean a(int i, boolean z, Object obj) {
-        InterceptResult invokeCommon;
-        boolean z2;
-        boolean z3;
+    public static void b(@Nullable GroupInfoData groupInfoData, @Nullable String str, long j, String str2, String str3, String str4, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
-            vr7 vr7Var = this.c;
-            if (vr7Var != null) {
-                z2 = vr7Var.a(i, z, obj);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{groupInfoData, str, Long.valueOf(j), str2, str3, str4, Boolean.valueOf(z)}) == null) {
+            if (TextUtils.isEmpty(str)) {
+                MessageUtils.createAndSendPersonalGroupChatMessage(groupInfoData, j, str2, str3, str4, z);
+                return;
+            }
+            MessageUtils.createAndSendPersonalTextChatMessage(str, j, str2, str3, str4, z);
+            gh.a().postDelayed(new c(groupInfoData, j, str2, str3, str4, z), 500L);
+        }
+    }
+
+    public static void c(@Nullable ThreadData threadData, @Nullable String str, long j, String str2, String str3, String str4, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{threadData, str, Long.valueOf(j), str2, str3, str4, Boolean.valueOf(z)}) == null) {
+            if (TextUtils.isEmpty(str)) {
+                MessageUtils.createAndSendPersonalThreadChatMessage(threadData, j, str2, str3, str4, z);
+                return;
+            }
+            MessageUtils.createAndSendPersonalTextChatMessage(str, j, str2, str3, str4, z);
+            gh.a().postDelayed(new a(threadData, j, str2, str3, str4, z), 500L);
+        }
+    }
+
+    public static void d(String str, int i, ThreadData threadData, ForumData forumData, GroupInfoData groupInfoData, GroupInfoData groupInfoData2) {
+        String str2;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), threadData, forumData, groupInfoData, groupInfoData2}) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_SHARE_CONTENT_TO_CHAT_GROUP);
+            String str3 = "";
+            if (threadData == null) {
+                str2 = "";
             } else {
-                z2 = true;
+                str2 = threadData.getId();
             }
-            for (int i2 = 0; i2 < this.a.size(); i2++) {
-                ur7 ur7Var = this.a.get(i2);
-                if (ur7Var instanceof kr7) {
-                    kr7 kr7Var = (kr7) ur7Var;
-                    if (kr7Var.d() && i != i2) {
-                        kr7Var.e(false);
-                        i(i2);
-                    } else {
-                        if (i == i2) {
-                            z3 = true;
-                        } else {
-                            z3 = false;
-                        }
-                        kr7Var.e(z3);
-                    }
-                }
+            httpMessage.addParam("thread_id", str2);
+            if (forumData != null) {
+                str3 = forumData.getId();
             }
-            return z2;
+            httpMessage.addParam("fid", str3);
+            httpMessage.addParam(GroupInfoData.SHARE_KEY_TYPE, i);
+            if (groupInfoData2 != null) {
+                j = groupInfoData2.getGroupId();
+            } else {
+                j = 0;
+            }
+            httpMessage.addParam("chatroom_id", j);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
-        return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.wr7
-    public List<ur7> j(List list) {
-        InterceptResult invokeL;
-        List<BotsDTO.BotListDTO.SkillDTO> list2;
+    public static void e(String str, @Nullable GroupInfoData groupInfoData, @NonNull ForumData forumData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            int i = 0;
-            while (true) {
-                boolean z = true;
-                if (i < list.size()) {
-                    Object obj = list.get(i);
-                    if (obj instanceof BotsDTO.BotListDTO.SkillDTO.ItemsDTO) {
-                        jr7 jr7Var = new jr7((BotsDTO.BotListDTO.SkillDTO.ItemsDTO) obj);
-                        int i2 = this.d;
-                        if (i2 > -1) {
-                            if (i != i2) {
-                                z = false;
-                            }
-                            jr7Var.k(z);
-                        }
-                        arrayList.add(jr7Var);
-                    } else if (obj instanceof BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) {
-                        kr7 kr7Var = new kr7((BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) obj);
-                        int i3 = this.d;
-                        if (i3 > -1) {
-                            if (i != i3) {
-                                z = false;
-                            }
-                            kr7Var.e(z);
-                        }
-                        arrayList.add(kr7Var);
-                    } else if (obj instanceof BaseMsg) {
-                        TextGenImageMsg textGenImageMsg = (TextGenImageMsg) obj;
-                        if (textGenImageMsg.getSubSkillConfig() != null && (list2 = textGenImageMsg.getSubSkillConfig().a) != null && !list2.isEmpty()) {
-                            if (this.e) {
-                                arrayList.add(new hr7());
-                                this.e = false;
-                            }
-                            for (BotsDTO.BotListDTO.SkillDTO skillDTO : list2) {
-                                ir7 ir7Var = new ir7(skillDTO);
-                                ir7Var.e(textGenImageMsg);
-                                arrayList.add(ir7Var);
-                            }
-                        }
-                    }
-                    i++;
-                } else {
-                    this.e = true;
-                    return arrayList;
-                }
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, groupInfoData, forumData) == null) {
+            d(str, 2, null, forumData, null, groupInfoData);
+        }
+    }
+
+    public static void f(String str, GroupInfoData groupInfoData, @NonNull GroupInfoData groupInfoData2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, str, groupInfoData, groupInfoData2) == null) {
+            d(str, 3, null, null, groupInfoData2, groupInfoData);
+        }
+    }
+
+    public static void g(String str, GroupInfoData groupInfoData, @NonNull ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65542, null, str, groupInfoData, threadData) == null) {
+            ForumData forumData = new ForumData();
+            if (threadData.getForumData() != null) {
+                forumData.setId(threadData.getForumData().a);
+                forumData.setName(threadData.getForumData().b);
             }
-        } else {
-            return (List) invokeL.objValue;
+            if (TextUtils.isEmpty(forumData.getId())) {
+                forumData.setId(threadData.getFid() + "");
+            }
+            if (TextUtils.isEmpty(forumData.getName())) {
+                forumData.setName(threadData.getForum_name());
+            }
+            d(str, 1, threadData, forumData, null, groupInfoData);
         }
     }
 }

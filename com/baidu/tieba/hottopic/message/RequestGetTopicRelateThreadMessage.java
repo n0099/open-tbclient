@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.yo5;
+import com.baidu.tieba.mq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1075common;
+    public CommonReq f1049common;
     public Long last_id;
     public Integer page_no;
     public Integer pmy_source;
@@ -60,7 +60,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.f1286common = getCommon();
+                builder.f1259common = getCommon();
                 builder.topic_id = getTopicId();
                 builder.topic_name = getTopicName();
                 builder.rn = getRn();
@@ -74,7 +74,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
                 builder.pmy_source = getPmy_source();
                 builder.sort_type = getSort_type();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    yo5.a(builder, true);
+                    mq5.a(builder, true);
                 }
                 GetTopicRelateThreadReqIdl.Builder builder2 = new GetTopicRelateThreadReqIdl.Builder();
                 builder2.data = builder.build(false);
@@ -90,7 +90,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f1075common;
+            return this.f1049common;
         }
         return (CommonReq) invokeV.objValue;
     }
@@ -206,7 +206,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, commonReq) == null) {
-            this.f1075common = commonReq;
+            this.f1049common = commonReq;
         }
     }
 

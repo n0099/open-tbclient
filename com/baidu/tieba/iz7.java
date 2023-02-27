@@ -1,16 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.searchbox.live.interfaces.service.FollowStatusService;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class iz7 implements FollowStatusService {
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
+public class iz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
+    public String f;
+    public String g;
 
     public iz7() {
         Interceptable interceptable = $ic;
@@ -26,16 +34,42 @@ public class iz7 implements FollowStatusService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.FollowStatusService
-    public void saveFollowStatus(boolean z, String str, String str2) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
-            UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-            aVar.a = true;
-            aVar.c = str;
-            aVar.d = z;
-            aVar.e = true;
-            MessageManager.getInstance().dispatchResponsedMessage(new UpdateAttentionMessage(aVar));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.c)) {
+                return false;
+            }
+            if (this.d == 2) {
+                if (TextUtils.isEmpty(this.e) || TextUtils.isEmpty(this.f) || TextUtils.isEmpty(this.g)) {
+                    return false;
+                }
+                return true;
+            } else if (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b)) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optString("pic");
+        this.b = jSONObject.optString("picNight");
+        this.c = jSONObject.optString("scheme");
+        int optInt = jSONObject.optInt("type", 1);
+        this.d = optInt;
+        if (optInt == 2 && (optJSONObject = jSONObject.optJSONObject("extra")) != null) {
+            this.e = optJSONObject.optString("title");
+            this.f = optJSONObject.optString("content");
+            this.g = optJSONObject.optString("imageUrl");
         }
     }
 }

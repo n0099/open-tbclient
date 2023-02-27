@@ -1,67 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Item;
-import tbclient.RecommendForumInfo;
-import tbclient.SearchSug.DataRes;
-import tbclient.SugLiveInfo;
-import tbclient.SugRankingInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class jy7 {
+public abstract class jy7<T extends TypeAdapter.ViewHolder> extends qn<ICardInfo, T> implements rx7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    public static List<Cdo> a(DataRes dataRes, String str) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jy7(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dataRes, str)) == null) {
-            if (dataRes == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            ArrayList arrayList = new ArrayList();
-            RecommendForumInfo recommendForumInfo = dataRes.forum_card;
-            if (recommendForumInfo != null) {
-                fy7 fy7Var = new fy7();
-                fy7Var.i(recommendForumInfo);
-                arrayList.add(fy7Var);
-            }
-            Item item = dataRes.item_card;
-            if (item != null) {
-                gy7 gy7Var = new gy7();
-                gy7Var.i(item);
-                arrayList.add(gy7Var);
-            }
-            for (SugLiveInfo sugLiveInfo : dataRes.live_card) {
-                hy7 hy7Var = new hy7();
-                hy7Var.o(str);
-                hy7Var.m(sugLiveInfo);
-                arrayList.add(hy7Var);
-            }
-            SugRankingInfo sugRankingInfo = dataRes.ranking_card;
-            if (sugRankingInfo != null) {
-                iy7 iy7Var = new iy7();
-                iy7Var.h(str);
-                iy7Var.g(sugRankingInfo);
-                arrayList.add(iy7Var);
-            }
-            int size = arrayList.size();
-            for (String str2 : dataRes.list) {
-                ey7 ey7Var = new ey7();
-                ey7Var.c(str);
-                ey7Var.f(str2);
-                if (!StringUtils.isNull(str2) && !StringUtils.isNull(str) && str2.trim().equals(str.trim())) {
-                    arrayList.add(size, ey7Var);
-                } else {
-                    arrayList.add(ey7Var);
-                }
-            }
-            return arrayList;
         }
-        return (List) invokeLL.objValue;
+    }
+
+    public void s(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a = i;
+        }
     }
 }

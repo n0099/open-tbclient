@@ -1,185 +1,128 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import android.widget.CompoundButton;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.ThirdStatisticHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NEGFeedBackView a;
-    public TbPageContext b;
-    public ViewGroup c;
-    public BdUniqueId d;
-    public NEGFeedBackView.b e;
 
-    /* loaded from: classes4.dex */
-    public class a implements NEGFeedBackView.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void b(py4 py4Var, CompoundButton compoundButton, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, py4Var, compoundButton, z) == null) {
-            }
-        }
-
-        public a(c57 c57Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c57Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void a(ArrayList<Integer> arrayList, String str, py4 py4Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(1048576, this, arrayList, str, py4Var) == null) && arrayList != null && py4Var != null) {
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < arrayList.size(); i++) {
-                    sb.append(arrayList.get(i) + ",");
-                }
-                if (sb.length() > 0) {
-                    sb.deleteCharAt(sb.length() - 1);
-                }
-                TiebaStatic.log(new StatisticItem("c11974").param("obj_locate", sb.toString()).param("fid", py4Var.c()).param("tid", py4Var.f()).param("nid", py4Var.e()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("source", py4Var.l).param("weight", py4Var.k).param("ab_tag", py4Var.p).param("extra", py4Var.m).param("card_type", py4Var.o).param(TiebaStatic.Params.OBJ_FLOOR, py4Var.q));
-            }
-        }
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void c(py4 py4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, py4Var) == null) {
-                TiebaStatic.log(new StatisticItem("c11973").param("fid", py4Var.c()).param("tid", py4Var.f()).param("uid", TbadkCoreApplication.getCurrentAccount()));
-            }
+    public static void a(StatisticItem statisticItem, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, statisticItem, str) == null) && YYLiveUtil.isYYLiveLink(str)) {
+            YYLiveUtil.addYyExtData(statisticItem, str);
         }
     }
 
-    public c57(TbPageContext tbPageContext, ViewGroup viewGroup) {
+    public static void b(Context context, c59 c59Var) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeLL(65537, null, context, c59Var) != null) || c59Var == null) {
+            return;
         }
-        this.e = new a(this);
-        this.b = tbPageContext;
-        this.c = viewGroup;
-    }
-
-    public void a(ThreadData threadData) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) && threadData != null && this.b != null && this.c != null) {
-            int i = 0;
-            if (threadData.getAuthor() != null && threadData.getAuthor().getUserId() != null && threadData.getAuthor().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-                z = true;
+        TbPageContext<BaseFragmentActivity> tbPageContext = null;
+        if (context instanceof BaseActivity) {
+            tbPageContext = ((BaseActivity) context).getPageContext();
+        } else if (context instanceof BaseFragmentActivity) {
+            tbPageContext = ((BaseFragmentActivity) context).getPageContext();
+        }
+        if (tbPageContext == null) {
+            return;
+        }
+        d59 d59Var = c59Var.f;
+        if (d59Var != null) {
+            h16.b(d59Var.b, d59Var.c, "1191003700000000", d59Var.d);
+        } else {
+            if (YYLiveUtil.isYYLiveLink(c59Var.d)) {
+                str = c59Var.d + "&source=" + YYLiveUtil.SOURCE_FRS_SERVICE_AREA;
             } else {
-                z = false;
+                str = c59Var.d;
             }
-            if (threadData.isSmartFrsThread() && threadData.getFeedBackReasonMap() != null && !z) {
-                if (this.a == null) {
-                    NEGFeedBackView nEGFeedBackView = new NEGFeedBackView(this.b);
-                    this.a = nEGFeedBackView;
-                    nEGFeedBackView.setUniqueId(this.d);
-                    this.a.setId(R.id.negative_feedback_view);
-                    this.a.setDefaultReasonArray(new String[]{this.b.getString(R.string.bad_quality), "", ""});
-                    this.a.setEventCallback(this.e);
-                    this.a.m(this.c, ej.g(this.b.getPageActivity(), R.dimen.tbds120), 0);
-                    this.a.q();
-                }
-                if (this.a.getVisibility() != 0) {
-                    this.a.setVisibility(0);
-                }
-                py4 py4Var = new py4();
-                py4Var.o(threadData.getTid());
-                py4Var.k(threadData.getFid());
-                py4Var.n(threadData.getNid());
-                py4Var.j(threadData.getFeedBackReasonMap());
-                py4Var.g = threadData.feedBackExtraMap;
-                this.a.setData(py4Var);
-            } else {
-                NEGFeedBackView nEGFeedBackView2 = this.a;
-                if (nEGFeedBackView2 != null && nEGFeedBackView2.getVisibility() != 8) {
-                    this.a.setVisibility(8);
-                }
-                i = ej.g(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070207);
-            }
-            if (this.c.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
-                layoutParams.rightMargin = i;
-                this.c.setLayoutParams(layoutParams);
-            }
-            if (this.c.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
-                layoutParams2.rightMargin = i;
-                this.c.setLayoutParams(layoutParams2);
-            }
-            NEGFeedBackView nEGFeedBackView3 = this.a;
-            if (nEGFeedBackView3 != null) {
-                nEGFeedBackView3.o();
-            }
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
         }
+        e77.a(tbPageContext, c59Var.e);
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public static void c(c59 c59Var) {
+        int i;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            NEGFeedBackView nEGFeedBackView = this.a;
-            if (nEGFeedBackView != null && nEGFeedBackView.getVisibility() == 0) {
-                return true;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeL(65538, null, c59Var) != null) || c59Var == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        StatisticItem statisticItem = new StatisticItem("c13626");
+        statisticItem.param("fid", c59Var.g);
+        if (c59Var.f == null) {
+            i = 1;
+        } else {
+            i = 2;
+        }
+        statisticItem.param("obj_type", i);
+        statisticItem.param("obj_locate", c59Var.h);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        d59 d59Var = c59Var.f;
+        if (d59Var != null) {
+            str = d59Var.c;
+        } else {
+            str = c59Var.d;
+        }
+        d59 d59Var2 = c59Var.f;
+        if (d59Var2 != null) {
+            String str2 = d59Var2.a;
+        } else {
+            String str3 = c59Var.c;
+        }
+        statisticItem.param("obj_name", c59Var.c);
+        statisticItem.param("obj_param1", c59Var.d);
+        a(statisticItem, str);
+        TiebaStatic.log(statisticItem);
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(c59Var.i, 1));
     }
 
-    public void c() {
-        NEGFeedBackView nEGFeedBackView;
+    public static void d(c59 c59Var) {
+        int i;
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (nEGFeedBackView = this.a) != null) {
-            nEGFeedBackView.q();
+        if ((interceptable != null && interceptable.invokeL(65539, null, c59Var) != null) || c59Var == null) {
+            return;
         }
-    }
-
-    public void d(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
-            this.d = bdUniqueId;
+        StatisticItem statisticItem = new StatisticItem("c13627");
+        statisticItem.param("fid", c59Var.g);
+        if (c59Var.f == null) {
+            i = 1;
+        } else {
+            i = 2;
         }
+        statisticItem.param("obj_type", i);
+        statisticItem.param("obj_locate", c59Var.h);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        d59 d59Var = c59Var.f;
+        if (d59Var != null) {
+            str = d59Var.c;
+        } else {
+            str = c59Var.d;
+        }
+        d59 d59Var2 = c59Var.f;
+        if (d59Var2 != null) {
+            String str2 = d59Var2.a;
+        } else {
+            String str3 = c59Var.c;
+        }
+        statisticItem.param("obj_name", c59Var.c);
+        statisticItem.param("obj_param1", c59Var.d);
+        a(statisticItem, str);
+        TiebaStatic.log(statisticItem);
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(c59Var.i, 0));
     }
 }

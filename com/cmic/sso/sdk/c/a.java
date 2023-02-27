@@ -1,7 +1,6 @@
 package com.cmic.sso.sdk.c;
 
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +9,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.cmic.sso.sdk.c.b.d;
 import com.cmic.sso.sdk.c.b.g;
-import com.cmic.sso.sdk.c.c.c;
 import com.cmic.sso.sdk.e.q;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import java.util.List;
@@ -45,20 +43,20 @@ public class a {
         return (String) invokeV.objValue;
     }
 
-    private c a(String str, String str2, String str3, g gVar) {
+    private com.cmic.sso.sdk.c.c.c a(String str, String str2, String str3, g gVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, this, str, str2, str3, gVar)) == null) {
-            c cVar = new c(str, gVar, str3, str2);
+            com.cmic.sso.sdk.c.c.c cVar = new com.cmic.sso.sdk.c.c.c(str, gVar, str3, str2);
             if (str3.equals("GET")) {
                 cVar.a("Content-Type", "application/x-www-form-urlencoded");
             }
             return cVar;
         }
-        return (c) invokeLLLL.objValue;
+        return (com.cmic.sso.sdk.c.c.c) invokeLLLL.objValue;
     }
 
-    public c a(c cVar, com.cmic.sso.sdk.c.d.b bVar, com.cmic.sso.sdk.a aVar) {
+    public com.cmic.sso.sdk.c.c.c a(com.cmic.sso.sdk.c.c.c cVar, com.cmic.sso.sdk.c.d.b bVar, com.cmic.sso.sdk.a aVar) {
         InterceptResult invokeLLL;
         List<String> list;
         Interceptable interceptable = $ic;
@@ -86,15 +84,15 @@ public class a {
                     }
                 }
             }
-            Log.d("Location", this.b);
-            c a = a(this.b, cVar.f(), "GET", new com.cmic.sso.sdk.c.b.c(cVar.k().a()));
+            com.cmic.sso.sdk.e.c.b("Location", this.b);
+            com.cmic.sso.sdk.c.c.c a = a(this.b, cVar.f(), "GET", new com.cmic.sso.sdk.c.b.c(cVar.k().a()));
             a.a(cVar.h());
             return a;
         }
-        return (c) invokeLLL.objValue;
+        return (com.cmic.sso.sdk.c.c.c) invokeLLL.objValue;
     }
 
-    public c b(c cVar, com.cmic.sso.sdk.c.d.b bVar, com.cmic.sso.sdk.a aVar) {
+    public com.cmic.sso.sdk.c.c.c b(com.cmic.sso.sdk.c.c.c cVar, com.cmic.sso.sdk.c.d.b bVar, com.cmic.sso.sdk.a aVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cVar, bVar, aVar)) == null) {
@@ -110,15 +108,19 @@ public class a {
             d dVar = new d(cVar.k().a(), "1.0", bVar.c());
             dVar.c(aVar.b("userCapaid"));
             if (aVar.c("logintype") != 3) {
-                dVar.b("authz");
+                if (aVar.b("isRisk", false)) {
+                    dVar.b("pre");
+                } else {
+                    dVar.b("authz");
+                }
             } else {
                 dVar.b("pre");
             }
-            c a = a(this.a, cVar.f(), "POST", dVar);
+            com.cmic.sso.sdk.c.c.c a = a(this.a, cVar.f(), "POST", dVar);
             a.a(cVar.h());
             this.a = null;
             return a;
         }
-        return (c) invokeLLL.objValue;
+        return (com.cmic.sso.sdk.c.c.c) invokeLLL.objValue;
     }
 }

@@ -1,48 +1,54 @@
 package com.xiaomi.push;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes8.dex */
-public final class jk {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+public class jk extends jn {
+    public InputStream a;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    /* renamed from: a  reason: collision with other field name */
+    public OutputStream f817a;
+
     public jk() {
-        this("");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+        this.a = null;
+        this.f817a = null;
     }
 
-    public jk(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+    public jk(OutputStream outputStream) {
+        this.a = null;
+        this.f817a = null;
+        this.f817a = outputStream;
+    }
+
+    @Override // com.xiaomi.push.jn
+    public int a(byte[] bArr, int i, int i2) {
+        InputStream inputStream = this.a;
+        if (inputStream != null) {
+            try {
+                int read = inputStream.read(bArr, i, i2);
+                if (read >= 0) {
+                    return read;
+                }
+                throw new jo(4);
+            } catch (IOException e) {
+                throw new jo(0, e);
             }
         }
-        this.a = str;
+        throw new jo(1, "Cannot read from null inputStream");
+    }
+
+    @Override // com.xiaomi.push.jn
+    /* renamed from: a  reason: collision with other method in class */
+    public void mo635a(byte[] bArr, int i, int i2) {
+        OutputStream outputStream = this.f817a;
+        if (outputStream == null) {
+            throw new jo(1, "Cannot write to null outputStream");
+        }
+        try {
+            outputStream.write(bArr, i, i2);
+        } catch (IOException e) {
+            throw new jo(0, e);
+        }
     }
 }

@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.net.request.Headers;
-import java.io.InputStream;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 /* loaded from: classes5.dex */
 public interface ks0 {
-    void a(Exception exc, int i);
+    <T> void a(@NonNull zs0 zs0Var, @Nullable rs0<T> rs0Var);
 
-    void c(Headers headers, InputStream inputStream, int i) throws Exception;
+    void b(@NonNull zs0 zs0Var, @Nullable qs0 qs0Var);
 }

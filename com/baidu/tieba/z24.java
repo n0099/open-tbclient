@@ -1,39 +1,142 @@
 package com.baidu.tieba;
 
-import android.media.MediaMetadataRetriever;
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.v8engine.JsArrayBuffer;
-import com.baidu.swan.nalib.audio.SwanAudioPlayer;
-import com.baidu.tieba.y24;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.tieba.a34;
+import com.baidu.tieba.w24;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.MalformedURLException;
-import java.util.HashMap;
+import org.json.JSONException;
 /* loaded from: classes7.dex */
 public class z24 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
-    public static volatile z24 h;
+    public static volatile z24 i;
     public transient /* synthetic */ FieldHolder $fh;
-    public w24 a;
-    public HashMap<String, Long> b;
-    public String c;
-    public HandlerThread d;
-    public Handler e;
-    public SwanAudioPlayer f;
+    public HandlerThread a;
+    public e b;
+    public x24 c;
+    public long d;
+    public int e;
+    public long f;
+    public y24 g;
+    public a34.d h;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class b implements w24.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ w24.d b;
+        public final /* synthetic */ z24 c;
+
+        /* loaded from: classes7.dex */
+        public class a implements a34.d {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // com.baidu.tieba.a34.d
+            public void onFail(String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                    this.a.b.onFail(str);
+                }
+            }
+
+            @Override // com.baidu.tieba.a34.d
+            public void onSuccess(Object obj) {
+                Activity activity;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+                    b34 b34Var = (b34) obj;
+                    if (wp1.a) {
+                        Log.d("AntiAddictionManager", b34Var.toString());
+                    }
+                    int i = b34Var.a;
+                    if (i == 0) {
+                        this.a.b.onSuccess();
+                    } else if (1 == i) {
+                        this.a.b.onFail(b34Var.b);
+                    } else {
+                        this.a.b.onFail(b34Var.b);
+                        if (TextUtils.isEmpty(b34Var.b) || (activity = this.a.c.getActivity()) == null) {
+                            return;
+                        }
+                        this.a.c.g.f(activity, b34Var.b, activity.getString(R.string.obfuscated_res_0x7f0f010b), true, null);
+                    }
+                }
+            }
+        }
+
+        public b(z24 z24Var, String str, w24.d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z24Var, str, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = z24Var;
+            this.a = str;
+            this.b = dVar;
+        }
+
+        @Override // com.baidu.tieba.w24.d
+        public void onFail(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.b.onFail(str);
+            }
+        }
+
+        @Override // com.baidu.tieba.w24.d
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                a34.h(this.a, new a(this));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements w24.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ z24 a;
@@ -56,51 +159,27 @@ public class z24 {
             this.a = z24Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.w24.d
+        public void onFail(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f = SwanAudioPlayer.getInstance();
-                SwanAudioPlayer.settingNativeAudioParameters(AppRuntime.getApplication());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && wp1.a) {
+                Log.e("AntiAddictionManager", "handleLoginAndRealName: " + str);
             }
+        }
+
+        @Override // com.baidu.tieba.w24.d
+        public void onSuccess() {
+            Activity activity;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (activity = this.a.getActivity()) == null) {
+                return;
+            }
+            e93.f(activity, R.string.obfuscated_res_0x7f0f010c).G();
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z24 a;
-
-        public b(z24 z24Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z24Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z24Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f.pauseAll();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
+    public class c implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ z24 a;
@@ -123,92 +202,123 @@ public class z24 {
             this.a = z24Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f.resume();
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                this.a.q();
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948308045, "Lcom/baidu/tieba/z24;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class d implements a34.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z24 a;
+
+        public d(z24 z24Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948308045, "Lcom/baidu/tieba/z24;");
-                return;
-            }
-        }
-        g = gp1.a;
-        pe3.b();
-    }
-
-    public static z24 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (h == null) {
-                synchronized (z24.class) {
-                    if (h == null) {
-                        h = new z24();
-                    }
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z24Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return h;
+            this.a = z24Var;
         }
-        return (z24) invokeV.objValue;
-    }
 
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.d == null) {
-            HandlerThread handlerThread = new HandlerThread("audio_thread");
-            this.d = handlerThread;
-            handlerThread.start();
-            this.e = new Handler(this.d.getLooper());
-        }
-    }
-
-    public Handler e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (Handler) invokeV.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            SwanAudioPlayer swanAudioPlayer = this.f;
-            if (swanAudioPlayer != null) {
-                swanAudioPlayer.isAudioPlayer();
-                return false;
+        @Override // com.baidu.tieba.a34.d
+        public void onFail(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && wp1.a) {
+                Log.e("AntiAddictionManager", str);
             }
-            return false;
         }
-        return invokeV.booleanValue;
+
+        @Override // com.baidu.tieba.a34.d
+        public void onSuccess(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+                c34 c34Var = (c34) obj;
+                if (wp1.a) {
+                    Log.d("AntiAddictionManager", c34Var.toString());
+                }
+                this.a.d = System.currentTimeMillis();
+                if (!this.a.s(c34Var.c)) {
+                    return;
+                }
+                this.a.r(c34Var.d * 1000);
+                this.a.p(c34Var.a, c34Var.b);
+            }
+        }
     }
 
-    public void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f != null) {
-            e().post(new c(this));
-        }
-    }
+    /* loaded from: classes7.dex */
+    public class e extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z24 a;
 
-    public void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.f != null) {
-            e().postDelayed(new b(this), 50L);
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(z24 z24Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z24Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z24Var;
+        }
+
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                removeCallbacksAndMessages(null);
+            }
+        }
+
+        public boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return hasMessages(1);
+            }
+            return invokeV.booleanValue;
+        }
+
+        public void c() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || 1 == this.a.e) {
+                return;
+            }
+            sendEmptyMessageDelayed(1, this.a.f);
+        }
+
+        @Override // android.os.Handler
+        public void dispatchMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, message) == null) && message.what == 1) {
+                this.a.y(false);
+                c();
+            }
         }
     }
 
@@ -216,87 +326,239 @@ public class z24 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new HashMap<>();
-        this.c = s24.g();
-        this.a = new w24(this.c);
-        c();
-        e().post(new a(this));
+        this.e = 0;
+        this.f = 300000L;
+        this.h = new d(this);
+        k();
     }
 
-    public String g(String str) throws MalformedURLException {
-        InterceptResult invokeL;
+    public final void r(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return this.c + s24.d(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void j(String str, v24 v24Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, v24Var) == null) {
-            this.a.e(str, v24Var);
-        }
-    }
-
-    public void m(JsArrayBuffer jsArrayBuffer, y24.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, jsArrayBuffer, bVar) == null) {
-            y24.f().h(jsArrayBuffer, bVar);
-        }
-    }
-
-    public synchronized a34 d(String str, boolean z) {
-        InterceptResult invokeLZ;
-        b34 b34Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
-            synchronized (this) {
-                if (g) {
-                    Log.e("AudioPlayerManager", "create media player src = " + str);
-                }
-                b34Var = new b34();
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            if (300000 < j) {
+                this.f = j;
+            } else {
+                this.f = 300000L;
             }
-            return b34Var;
         }
-        return (a34) invokeLZ.objValue;
     }
 
-    public long f(String str) {
-        InterceptResult invokeL;
+    public final boolean s(int i2) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (this.b.containsKey(str)) {
-                return this.b.get(str).longValue();
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
+            this.e = i2;
+            if (1 != i2) {
+                return true;
             }
-            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+            n();
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void w(x24 x24Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, x24Var) == null) {
+            this.c = x24Var;
+        }
+    }
+
+    public void j(String str, w24.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, dVar) == null) {
+            if (TextUtils.isEmpty(str)) {
+                dVar.onFail("orderInfo is null");
+            } else if (!t()) {
+                dVar.onSuccess();
+            } else {
+                w24.b(new b(this, str, dVar));
+            }
+        }
+    }
+
+    public final void u(int i2, String str) {
+        x24 x24Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048586, this, i2, str) == null) && (x24Var = this.c) != null) {
             try {
-                try {
-                    mediaMetadataRetriever.setDataSource(str);
-                    long parseLong = Long.parseLong(mediaMetadataRetriever.extractMetadata(9));
-                    mediaMetadataRetriever.release();
-                    this.b.put(str, Long.valueOf(parseLong));
-                    return parseLong;
-                } catch (Exception e) {
-                    if (g) {
-                        e.printStackTrace();
-                    }
-                    mediaMetadataRetriever.release();
-                    return 0L;
+                x24Var.x(i2, str);
+            } catch (JSONException e2) {
+                if (wp1.a) {
+                    e2.printStackTrace();
                 }
-            } finally {
-                mediaMetadataRetriever.release();
             }
         }
-        return invokeL.longValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public Activity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            m93 b0 = m93.b0();
+            if (b0 != null && b0.w() != null) {
+                return b0.w();
+            }
+            return null;
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public static z24 o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (i == null) {
+                synchronized (z24.class) {
+                    if (i == null) {
+                        i = new z24();
+                    }
+                }
+            }
+            return i;
+        }
+        return (z24) invokeV.objValue;
+    }
+
+    public static synchronized void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
+            synchronized (z24.class) {
+                if (i != null) {
+                    i.m();
+                    i = null;
+                }
+            }
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            l();
+            y(true);
+            x();
+            this.g = new y24();
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a == null) {
+            HandlerThread handlerThread = new HandlerThread("anti_addiction_monitor");
+            this.a = handlerThread;
+            handlerThread.start();
+            this.b = new e(this, this.a.getLooper());
+        }
+    }
+
+    public final synchronized void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                this.b.a();
+                if (this.a != null) {
+                    this.a.quitSafely();
+                    this.a = null;
+                }
+                if (this.g != null) {
+                    this.g.e();
+                    this.g = null;
+                }
+            }
+        }
+    }
+
+    public synchronized void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (t()) {
+                    y(false);
+                }
+                this.b.a();
+            }
+        }
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            w24.c(new a(this));
+        }
+    }
+
+    public final boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.e == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            synchronized (this) {
+                if (t() && !this.b.b()) {
+                    this.d = System.currentTimeMillis();
+                    this.b.c();
+                }
+            }
+        }
+    }
+
+    public final void p(int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, str) == null) {
+            if (i2 < 0) {
+                if (wp1.a) {
+                    Log.e("AntiAddictionManager", "server AntiAddiction state error = " + i2 + " msg = " + str);
+                }
+            } else if (i2 != 0) {
+                if (i2 != 1) {
+                    u(i2, str);
+                    return;
+                }
+                Activity activity = getActivity();
+                if (activity == null) {
+                    return;
+                }
+                this.g.f(activity, activity.getString(R.string.obfuscated_res_0x7f0f010a), activity.getString(R.string.obfuscated_res_0x7f0f0109), true, new c(this));
+            }
+        }
+    }
+
+    public final void y(boolean z) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            if (!z) {
+                j = System.currentTimeMillis() - this.d;
+                if (LiveFeedPageSdk.REFRESH_TIME > j) {
+                    return;
+                }
+            } else {
+                j = 0;
+            }
+            if (wp1.a) {
+                Log.d("AntiAddictionManager", "Request upUseTime");
+            }
+            a34.i(j, this.h);
+        }
     }
 }

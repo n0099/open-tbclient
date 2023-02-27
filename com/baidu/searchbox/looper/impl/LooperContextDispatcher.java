@@ -2,63 +2,26 @@ package com.baidu.searchbox.looper.impl;
 
 import android.content.Context;
 import android.util.Printer;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.q7a;
-import com.baidu.tieba.y7a;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class LooperContextDispatcher extends q7a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public LooperContextDispatcher() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.q7a
+import com.baidu.tieba.bca;
+import com.baidu.tieba.tba;
+/* loaded from: classes2.dex */
+public class LooperContextDispatcher extends tba {
+    @Override // com.baidu.tieba.tba
     public boolean displayNotification() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return LooperRuntime.getInstance().getLooperUIContext().displayNotification();
-        }
-        return invokeV.booleanValue;
+        return LooperRuntime.getInstance().getLooperUIContext().displayNotification();
     }
 
     public void addLooperPrinter(Printer printer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, printer) == null) {
-            LooperRuntime.getInstance().getLooperNeedContext().addLooperPrinter(printer);
-        }
+        LooperRuntime.getInstance().getLooperNeedContext().addLooperPrinter(printer);
     }
 
     public void removeLooperPrinter(Printer printer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, printer) == null) {
-            LooperRuntime.getInstance().getLooperNeedContext().removeLooperPrinter(printer);
-        }
+        LooperRuntime.getInstance().getLooperNeedContext().removeLooperPrinter(printer);
     }
 
-    @Override // com.baidu.tieba.q7a, com.baidu.tieba.s7a
-    public void onBlock(Context context, y7a y7aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, y7aVar) == null) {
-            super.onBlock(context, y7aVar);
-            LooperRuntime.getInstance().dispatchBlock(context, y7aVar);
-        }
+    @Override // com.baidu.tieba.tba, com.baidu.tieba.vba
+    public void onBlock(Context context, bca bcaVar) {
+        super.onBlock(context, bcaVar);
+        LooperRuntime.getInstance().dispatchBlock(context, bcaVar);
     }
 }

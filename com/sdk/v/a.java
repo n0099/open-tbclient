@@ -1,47 +1,77 @@
 package com.sdk.v;
 
 import android.content.Context;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sdk.base.module.manager.SDKManager;
-import com.sdk.f.c;
-import com.sdk.f.g;
-import com.sdk.g.b;
+import com.sdk.f.f;
 /* loaded from: classes8.dex */
-public class a<T> extends b<T> {
+public class a {
     public static /* synthetic */ Interceptable $ic;
+    public static a a;
+    public static String b;
+    public static String c;
+    public static int d;
+    public static String e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(Context context, com.sdk.e.a<T> aVar, c cVar) {
-        super(context, aVar, cVar);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1592690686, "Lcom/sdk/v/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1592690686, "Lcom/sdk/v/a;");
+                return;
+            }
+        }
+        boolean z = f.a;
+    }
+
+    public a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, aVar, cVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (com.sdk.e.a) objArr2[1], (c) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        if (g.d) {
-            String str = SDKManager.testHost;
-            if (!com.sdk.n.a.b(SDKManager.statisticalTestHost).booleanValue()) {
-                g.a.a.a();
+    }
+
+    public static a a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (a == null) {
+                synchronized (a.class) {
+                    a = new a(context);
+                }
             }
-            this.i = com.sdk.n.a.b(str).booleanValue() ? str : g.a.b.a();
-            return;
+            return a;
         }
-        this.i = g.a.b.a();
-        g.a.a.a();
+        return (a) invokeL.objValue;
+    }
+
+    public void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            b = str2;
+            c = str;
+            d = 0;
+            e = "B";
+        }
     }
 }

@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -58,7 +59,7 @@ public class Base64 {
             if (c >= 'a' && c <= 'z') {
                 i = c - 'a';
             } else if (c >= '0' && c <= '9') {
-                i = (c - '0') + 26;
+                i = (c - TransactionIdCreater.FILL_BYTE) + 26;
             } else if (c != '+') {
                 if (c != '/') {
                     if (c == '=') {

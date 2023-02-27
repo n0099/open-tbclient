@@ -1,152 +1,145 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import androidx.annotation.NonNull;
+import android.graphics.Color;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.SwanAppBaseActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 /* loaded from: classes7.dex */
 public class y33 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948279184, "Lcom/baidu/tieba/y33;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948279184, "Lcom/baidu/tieba/y33;");
-                return;
+    public y33() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = gp1.a;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static boolean a(Context context, @NonNull z33 z33Var) {
-        InterceptResult invokeLL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, z33Var)) == null) {
-            if (context instanceof SwanAppBaseActivity) {
-                return true;
-            }
-            z33Var.b(2, "method should be called after setActivityRef");
-            if (!a) {
-                return false;
-            }
-            throw new IllegalStateException("this method should be called after setActivityRef");
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = true;
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean c(ArrayList<String> arrayList, @NonNull z33 z33Var) {
-        InterceptResult invokeLL;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, arrayList, z33Var)) == null) {
-            if (arrayList != null && !arrayList.isEmpty()) {
-                return false;
-            }
-            z33Var.a("permission has already granted");
-            return true;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b) {
+            d();
         }
-        return invokeLL.booleanValue;
     }
 
-    @NonNull
-    public static ArrayList<String> d(@NonNull Context context, @NonNull String[] strArr) {
-        InterceptResult invokeLL;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, strArr)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            for (String str : strArr) {
-                if (!sp4.a(context, str)) {
-                    arrayList.add(str);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a = false;
+            c();
+            k();
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && !this.b) {
+            b();
+        }
+    }
+
+    public final ViewGroup b() {
+        InterceptResult invokeV;
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (m93.b0() != null && m93.b0().w() != null && (viewGroup = (ViewGroup) m93.b0().w().findViewById(16908290)) != null) {
+                ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f09210a);
+                if (viewGroup2 != null) {
+                    return viewGroup2;
                 }
+                ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(m93.b0().w()).inflate(R.layout.obfuscated_res_0x7f0d0875, viewGroup);
+                this.b = true;
+                return viewGroup3;
             }
-            return arrayList;
+            return null;
         }
-        return (ArrayList) invokeLL.objValue;
+        return (ViewGroup) invokeV.objValue;
     }
 
-    public static boolean b(@NonNull Context context, @NonNull String str, @NonNull z33 z33Var) {
-        InterceptResult invokeLLL;
+    public final void d() {
+        m93 b0;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, str, z33Var)) == null) {
-            if (sp4.a(context, str)) {
-                z33Var.a("permission has already granted");
-                return true;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (b0 = m93.b0()) != null && b0.w() != null) {
+            ViewGroup viewGroup = (ViewGroup) b0.w().findViewById(R.id.obfuscated_res_0x7f09210a);
+            if (viewGroup != null && (viewGroup.getParent() instanceof ViewGroup)) {
+                ((ViewGroup) viewGroup.getParent()).removeView(viewGroup);
             }
-            return false;
+            this.b = false;
         }
-        return invokeLLL.booleanValue;
     }
 
-    public static void e(@NonNull String str, @NonNull String[] strArr, int i, @NonNull Context context, @NonNull z33 z33Var) {
+    public void f(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{str, strArr, Integer.valueOf(i), context, z33Var}) != null) || !a(context, z33Var) || b(context, str, z33Var)) {
-            return;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            j(R.id.obfuscated_res_0x7f090a6b, j, "#80ff0000", "FCP");
         }
-        g(context, strArr, i, z33Var);
     }
 
-    @Deprecated
-    public static void f(@NonNull Context context, @NonNull String[] strArr, int i, @NonNull z33 z33Var) {
+    public void g(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLIL(65542, null, context, strArr, i, z33Var) != null) || !a(context, z33Var)) {
-            return;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            j(R.id.obfuscated_res_0x7f090a8b, j, "#80ff0000", "FIP");
         }
-        ArrayList<String> d = d(context, strArr);
-        if (c(d, z33Var)) {
-            return;
-        }
-        ((SwanAppBaseActivity) context).y(i, (String[]) d.toArray(new String[0]), new u33(i, z33Var));
     }
 
-    public static void g(@NonNull Context context, @NonNull String[] strArr, int i, @NonNull z33 z33Var) {
+    public void h(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLIL(65543, null, context, strArr, i, z33Var) != null) || !a(context, z33Var)) {
-            return;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            j(R.id.obfuscated_res_0x7f090ae4, j, "#8000ff00", "FMP");
         }
-        ArrayList<String> d = d(context, strArr);
-        if (c(d, z33Var)) {
-            return;
-        }
-        ((SwanAppBaseActivity) context).y(i, (String[]) d.toArray(new String[0]), new v33(context, i, z33Var));
     }
 
-    public static void h(@NonNull String[] strArr, int i, @NonNull Context context, @NonNull z33 z33Var) {
+    public void i(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLILL(65544, null, strArr, i, context, z33Var) != null) || !a(context, z33Var)) {
-            return;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            j(R.id.obfuscated_res_0x7f090cfd, j, "#80ff0000", "FTP");
         }
-        ArrayList<String> d = d(context, strArr);
-        if (c(d, z33Var)) {
-            return;
-        }
-        g(context, (String[]) d.toArray(new String[0]), i, z33Var);
     }
 
-    @Deprecated
-    public static void requestPermissions(@NonNull String[] strArr, int i, @NonNull Context context, @NonNull z33 z33Var) {
+    public final void j(int i, long j, String str, String str2) {
+        ViewGroup b;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLILL(65545, null, strArr, i, context, z33Var) != null) || !a(context, z33Var)) {
+        if ((interceptable != null && interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, str2}) != null) || this.a || (b = b()) == null) {
             return;
         }
-        ArrayList<String> d = d(context, strArr);
-        if (c(d, z33Var)) {
+        TextView textView = (TextView) b.findViewById(i);
+        textView.setText(String.format(str2 + ":[%s]ms", Long.valueOf(j)));
+        textView.setBackgroundColor(Color.parseColor(str));
+    }
+
+    public void l(long j, long j2) {
+        ViewGroup b;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) != null) || this.a || (b = b()) == null) {
             return;
         }
-        f(context, (String[]) d.toArray(new String[0]), i, z33Var);
+        ((TextView) b.findViewById(R.id.obfuscated_res_0x7f092142)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));
     }
 }

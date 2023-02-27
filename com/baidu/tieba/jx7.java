@@ -1,52 +1,111 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.appsearchlib.Info;
+import com.baidu.clientupdate.ClientUpdater;
+import com.baidu.clientupdate.IClientUpdaterCallback;
+import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
+import com.baidu.clientupdate.appinfo.RuleInfo;
+import com.baidu.nps.utils.Constant;
+import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tieba.location.selectpoi.SearchLocationActivity;
+import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import java.io.IOException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class jx7 extends BaseAdapter {
+public class jx7 extends BdAsyncTask<String, Integer, ClientUpdateInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gx7 a;
-    public SearchLocationActivity b;
-    public boolean c;
-    public NoDataView d;
+    public ClientUpdater a;
+    public IClientUpdaterCallback b;
+    public volatile ClientUpdateInfo c;
+    public String d;
+    public boolean e;
+    public Handler f;
+    public Runnable g;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ jx7 a;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return 0L;
+        public a(jx7 jx7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jx7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jx7Var;
         }
-        return invokeI.longValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.c != null && "1".equals(this.a.c.mStatus) && TbConfig.COULD_UPDATE) {
+                VersionData versionData = new VersionData();
+                versionData.setForceUpdate(Integer.parseInt(this.a.c.mIsForceUpdate));
+                versionData.setStrategy(0);
+                versionData.setNewVersion(this.a.c.mVername);
+                versionData.setNewVersionCode(Integer.parseInt(this.a.c.mVercode));
+                versionData.setNewFile(this.a.c.mPackageName + this.a.c.mVername + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+                versionData.setHasNewVer(Integer.parseInt(this.a.c.mStatus));
+                versionData.setNewVersionDesc(this.a.c.mChangelog);
+                versionData.setUrl(this.a.c.mDownurl);
+                versionData.setSize(this.a.c.mSize);
+                versionData.setPatch(this.a.c.mPatchDownUrl);
+                versionData.setPatchSize(this.a.c.mPatchSize);
+                versionData.setTiebaIconUrl(this.a.c.mIconUrl);
+                versionData.setApkMD5RSA(this.a.c.mSignMd5);
+                if (TbSingleton.getInstance().isSplashShowing()) {
+                    wc9.c().d(new yc9(versionData, this.a.c, this.a.d, this.a.e));
+                    return;
+                }
+                xc9.b(versionData, this.a.c, this.a.d, this.a.e);
+            }
+        }
     }
 
     /* loaded from: classes5.dex */
-    public class b {
+    public class b implements IClientUpdaterCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public View b;
+        public final /* synthetic */ jx7 a;
+
+        @Override // com.baidu.clientupdate.IClientUpdaterCallback
+        public void onError(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            }
+        }
+
+        @Override // com.baidu.clientupdate.IClientUpdaterCallback
+        public void onException(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            }
+        }
 
         public b(jx7 jx7Var) {
             Interceptable interceptable = $ic;
@@ -60,21 +119,40 @@ public class jx7 extends BaseAdapter {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = jx7Var;
         }
 
-        public /* synthetic */ b(jx7 jx7Var, a aVar) {
-            this(jx7Var);
+        @Override // com.baidu.clientupdate.IClientUpdaterCallback
+        public void onFetched(JSONObject jSONObject) {
+            JSONObject optJSONObject;
+            JSONObject optJSONObject2;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("rule")) == null || (optJSONObject2 = optJSONObject.optJSONObject(ExceptionHandlerImpl.KEY_CUSTOM)) == null) {
+                return;
+            }
+            this.a.d = optJSONObject2.optString("apk_MD5_RSA");
+        }
+
+        @Override // com.baidu.clientupdate.IClientUpdaterCallback
+        public void onCompleted(ClientUpdateInfo clientUpdateInfo, RuleInfo ruleInfo) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, clientUpdateInfo, ruleInfo) != null) || clientUpdateInfo == null || TextUtils.isEmpty(this.a.d)) {
+                return;
+            }
+            this.a.c = clientUpdateInfo;
+            this.a.f.post(this.a.g);
         }
     }
 
-    public jx7(SearchLocationActivity searchLocationActivity) {
+    public jx7(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {searchLocationActivity};
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -84,105 +162,64 @@ public class jx7 extends BaseAdapter {
                 return;
             }
         }
-        this.c = false;
-        this.b = searchLocationActivity;
+        this.g = new a(this);
+        this.e = z;
+        ClientUpdater clientUpdater = ClientUpdater.getInstance(TbadkCoreApplication.getInst());
+        this.a = clientUpdater;
+        clientUpdater.setUseCFG(false);
+        this.a.setUseRSA(false);
+        this.a.setFileProvider("com.baidu.tieba.fileprovider");
+        this.b = new b(this);
+        this.f = new Handler(Looper.getMainLooper());
     }
 
-    public b b(View view2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: i */
+    public ClientUpdateInfo doInBackground(String... strArr) throws IOException {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            b bVar = new b(this, null);
-            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091530);
-            bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f091531);
-            return bVar;
-        }
-        return (b) invokeL.objValue;
-    }
-
-    public void d(gx7 gx7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, gx7Var) == null) {
-            this.a = gx7Var;
-        }
-    }
-
-    public View a(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            NoDataView a2 = NoDataViewFactory.a(this.b.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f149a), null);
-            this.d = a2;
-            a2.f(this.b.getPageContext(), skinType);
-            this.d.setVisibility(0);
-            return this.d;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            gx7 gx7Var = this.a;
-            if (gx7Var != null && gx7Var.a() != null && !this.a.a().isEmpty()) {
-                this.c = true;
-                return this.a.a().size();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
+            this.a.setOsName(Info.PASSWORD);
+            this.a.setTypeId("0");
+            this.a.setFrom("tieba");
+            this.a.addParamValue("versionType", String.valueOf(TbConfig.getVersionType()));
+            this.a.addParamValue("tieba_versionname", TbConfig.getVersion());
+            ClientUpdater clientUpdater = this.a;
+            String str2 = "64";
+            if (ti.a()) {
+                str = "64";
+            } else {
+                str = PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK;
             }
-            this.c = false;
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            gx7 gx7Var = this.a;
-            if (gx7Var != null && gx7Var.a() != null && !this.a.a().isEmpty()) {
-                return this.a.a().get(i);
+            clientUpdater.addParamValue("running_abi", str);
+            ClientUpdater clientUpdater2 = this.a;
+            if (!ti.b()) {
+                str2 = PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK;
             }
+            clientUpdater2.addParamValue("support_abi", str2);
+            this.a.checkUpdate(this.b);
             return null;
         }
-        return invokeI.objValue;
+        return (ClientUpdateInfo) invokeL.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (!this.c) {
-                return a(viewGroup);
-            }
-            b bVar = null;
-            if (view2 != null && (view2.getTag() instanceof b)) {
-                bVar = (b) view2.getTag();
-            }
-            if (bVar == null) {
-                view2 = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0587, viewGroup, false);
-                bVar = b(view2);
-                view2.setTag(bVar);
-            }
-            bVar.a.setText(this.a.a().get(i).a());
-            SkinManager.setBackgroundColor(bVar.b, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(bVar.a, R.color.CAM_X0105, 1);
-            SkinManager.setBackgroundResource(view2, R.drawable.home_recommend_item_bg);
-            return view2;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.cancel();
+            this.f.removeCallbacks(this.g);
         }
-        return (View) invokeILL.objValue;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onPreExecute();
+            this.f.removeCallbacks(this.g);
+        }
     }
 }

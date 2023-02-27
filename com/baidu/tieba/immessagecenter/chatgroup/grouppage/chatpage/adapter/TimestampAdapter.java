@@ -9,22 +9,22 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b35;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TimestampSysMsg;
-import com.baidu.tieba.p15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TimestampAdapter extends BaseSysAdapter<TimestampSysMsg, Holder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Holder extends BaseViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class TimestampAdapter extends BaseSysAdapter<TimestampSysMsg, Holder> {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09232e);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092378);
         }
     }
 
@@ -81,7 +81,7 @@ public class TimestampAdapter extends BaseSysAdapter<TimestampSysMsg, Holder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08c8, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08e9, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
@@ -96,7 +96,7 @@ public class TimestampAdapter extends BaseSysAdapter<TimestampSysMsg, Holder> {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), viewGroup, timestampSysMsg, holder, list, Integer.valueOf(i2)})) == null) {
             if (timestampSysMsg != null && timestampSysMsg.getTimeShow() != null) {
                 holder.a.setText(timestampSysMsg.getTimeShow());
-                p15 d = p15.d(holder.a);
+                b35 d = b35.d(holder.a);
                 d.v(R.color.CAM_X0108);
                 d.z(R.dimen.T_X09);
             }

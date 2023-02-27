@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.switchs.FaceFeedbackEnableSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l88;
-import com.baidu.tieba.m88;
+import com.baidu.tieba.xb8;
+import com.baidu.tieba.yb8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,12 +31,12 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
 
         /* renamed from: com.baidu.tieba.passaccount.app.RemindActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0373a implements m88.e {
+        public class C0375a implements yb8.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0373a(a aVar) {
+            public C0375a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,37 +54,37 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
                 this.a = aVar;
             }
 
-            @Override // com.baidu.tieba.m88.e
+            @Override // com.baidu.tieba.yb8.e
             public void a(boolean z, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
-                    l88.f().d(z, str);
+                    xb8.f().d(z, str);
                     this.a.a.w1(true);
                 }
             }
 
-            @Override // com.baidu.tieba.m88.e
+            @Override // com.baidu.tieba.yb8.e
             public void b(boolean z, boolean z2, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
-                    l88.f().d(z2, str);
+                    xb8.f().d(z2, str);
                     this.a.a.w1(true);
                 }
             }
 
-            @Override // com.baidu.tieba.m88.e
+            @Override // com.baidu.tieba.yb8.e
             public void c() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    l88.f().d(false, null);
+                    xb8.f().d(false, null);
                 }
             }
 
-            @Override // com.baidu.tieba.m88.e
+            @Override // com.baidu.tieba.yb8.e
             public void onFail() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                    l88.f().d(false, null);
+                    xb8.f().d(false, null);
                 }
             }
         }
@@ -111,7 +111,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                m88.i().g(this.a, new C0373a(this));
+                yb8.i().g(this.a, new C0375a(this));
             }
         }
     }
@@ -177,17 +177,17 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d07b7);
+            setContentView(R.layout.obfuscated_res_0x7f0d07d6);
             ((NavigationBar) findViewById(R.id.view_navigation_bar)).addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            ((Button) findViewById(R.id.obfuscated_res_0x7f091ced)).setOnClickListener(new a(this));
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090a35);
+            ((Button) findViewById(R.id.obfuscated_res_0x7f091d31)).setOnClickListener(new a(this));
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090a72);
             if (FaceFeedbackEnableSwitch.isOn()) {
                 i = 0;
             } else {
                 i = 8;
             }
             findViewById.setVisibility(i);
-            ((TextView) findViewById(R.id.obfuscated_res_0x7f090a36)).setOnClickListener(new b(this));
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f090a73)).setOnClickListener(new b(this));
         }
     }
 
@@ -196,7 +196,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             super.finish();
             if (!z) {
-                l88.f().a(null);
+                xb8.f().a(null);
             }
         }
     }

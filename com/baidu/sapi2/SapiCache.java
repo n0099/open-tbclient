@@ -6,9 +6,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.pass.http.ReqPriority;
@@ -24,13 +22,6 @@ import com.baidu.sapi2.utils.SapiDeviceInfo;
 import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.http.Headers;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.io.File;
@@ -47,12 +38,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class SapiCache {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, SoftReference<String>> cache;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final Map<String, SoftReference<String>> cache = new ConcurrentHashMap();
     public Context context;
-    public final List<String> newModuleIds;
-    public final List<String> oldModuleIds;
+    public final List<String> oldModuleIds = new ArrayList();
+    public final List<String> newModuleIds = new ArrayList();
 
     /* loaded from: classes2.dex */
     public interface LoadModuleEventListener {
@@ -61,248 +50,179 @@ public final class SapiCache {
         void onSuccess(SapiOptions.Cache.Module module, String str);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(359459858, "Lcom/baidu/sapi2/SapiCache;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(359459858, "Lcom/baidu/sapi2/SapiCache;");
-                return;
-            }
-        }
-        cache = new ConcurrentHashMap();
-    }
-
-    public SapiCache() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.oldModuleIds = new ArrayList();
-        this.newModuleIds = new ArrayList();
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void reportDi() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.SAPI_CONFIG_URI);
-            if (!TextUtils.isEmpty(deviceInfo)) {
-                StatService.onEvent("dvif_interface", Collections.singletonMap(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo));
-            }
-        }
-    }
-
-    public void init(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            this.context = context.getApplicationContext();
-            SapiOptions sapiOptions = SapiContext.getInstance().getSapiOptions();
-            loadCache(sapiOptions);
-            syncCache(sapiOptions);
-        }
-    }
-
-    public String loadDataFromExternal(File file) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, file)) == null) {
-            return FileUtil.read(file.getAbsolutePath());
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void remove(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            cache.remove(str);
-        }
-    }
-
-    public String getCacheData(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            return get(context, getCacheModuleId(str));
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public boolean needUpdate(SapiOptions.Cache.Module module, SapiOptions.Cache.Module module2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, module, module2)) == null) {
-            if (!TextUtils.isEmpty(module.hash) && (module2 == null || !module.hash.equals(module2.hash))) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void put(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, str, str2) == null) {
-            cache.put(str, new SoftReference<>(str2));
+        String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.SAPI_CONFIG_URI);
+        if (!TextUtils.isEmpty(deviceInfo)) {
+            StatService.onEvent("dvif_interface", Collections.singletonMap(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void initSomeSwitch(SapiOptions sapiOptions) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, sapiOptions) == null) {
-            SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
-            new FaceLoginService().syncFaceLoginUID(this.context, null);
-            resetFileExecPer(sapiOptions.resetFileExecPer);
-            if (sapiConfiguration.syncOneKeyLoginInfo) {
-                new OneKeyLoginSdkCall().preGetPhoneInfo(sapiConfiguration, "init");
-            }
+        SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
+        new FaceLoginService().syncFaceLoginUID(this.context, null);
+        resetFileExecPer(sapiOptions.resetFileExecPer);
+        if (sapiConfiguration.syncOneKeyLoginInfo) {
+            new OneKeyLoginSdkCall().preGetPhoneInfo(sapiConfiguration, "init");
         }
     }
 
     public SapiOptions.Cache.Module getModuleById(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            for (SapiOptions.Cache.Module module : SapiContext.getInstance().getSapiOptions().getCache().getModules()) {
-                if (module.id.equals(str)) {
-                    return module;
-                }
+        for (SapiOptions.Cache.Module module : SapiContext.getInstance().getSapiOptions().getCache().getModules()) {
+            if (module.id.equals(str)) {
+                return module;
             }
-            return null;
         }
-        return (SapiOptions.Cache.Module) invokeL.objValue;
+        return null;
+    }
+
+    public void init(Context context) {
+        this.context = context.getApplicationContext();
+        SapiOptions sapiOptions = SapiContext.getInstance().getSapiOptions();
+        loadCache(sapiOptions);
+        syncCache(sapiOptions);
+    }
+
+    public String loadDataFromExternal(File file) throws IOException {
+        return FileUtil.read(file.getAbsolutePath());
     }
 
     public String loadModuleFromMemory(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if (cache.containsKey(str) && cache.get(str) != null) {
-                String str2 = cache.get(str).get();
-                if (!TextUtils.isEmpty(str2)) {
-                    return str2;
-                }
-                return null;
+        if (cache.containsKey(str) && cache.get(str) != null) {
+            String str2 = cache.get(str).get();
+            if (!TextUtils.isEmpty(str2)) {
+                return str2;
             }
             return null;
         }
-        return (String) invokeL.objValue;
+        return null;
     }
 
-    public String get(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
-            invalidate();
-            if (SapiContext.getInstance().getSapiOptions().getCache().isEnabled()) {
-                String loadModuleFromMemory = loadModuleFromMemory(str);
-                if (!TextUtils.isEmpty(loadModuleFromMemory)) {
-                    return loadModuleFromMemory;
-                }
-                SapiOptions.Cache.Module moduleById = getModuleById(str);
-                if (moduleById != null) {
-                    loadModuleFromExternal(moduleById, new LoadModuleEventListener(this, context) { // from class: com.baidu.sapi2.SapiCache.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ SapiCache this$0;
-                        public final /* synthetic */ Context val$context;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, context};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$context = context;
-                        }
-
-                        @Override // com.baidu.sapi2.SapiCache.LoadModuleEventListener
-                        public void onFailure(SapiOptions.Cache.Module module) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, module) == null) {
-                                this.this$0.loadModuleFromInternal(this.val$context, module);
-                            }
-                        }
-
-                        @Override // com.baidu.sapi2.SapiCache.LoadModuleEventListener
-                        public void onSuccess(SapiOptions.Cache.Module module, String str2) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, module, str2) == null) {
-                                this.this$0.put(module.id, str2);
-                            }
-                        }
-                    });
-                }
-                return loadModuleFromMemory(str);
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
+    public void remove(String str) {
+        cache.remove(str);
     }
 
-    public void handleCachePage(String str, SapiOptions.Cache.Module module) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, module) == null) && !TextUtils.isEmpty(module.id) && !TextUtils.isEmpty(str) && module.hash.equals(SecurityUtil.md5(str.getBytes(), false))) {
-            put(module.id, str);
-            writeInternal(this.context, SapiOptions.Cache.Module.getInternalFile(module.id), str.getBytes());
-            if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.context)) {
-                writeExternal(SapiOptions.Cache.Module.getExternalFile(module.id), str.getBytes());
+    public String getCacheData(Context context, String str) {
+        return get(context, getCacheModuleId(str));
+    }
+
+    @TargetApi(4)
+    public String loadDataFromInternal(Context context, String str) throws IOException {
+        return FileUtil.read(context.getApplicationInfo().dataDir + File.separator + NetDiskFileMsg.JSON_KEY_FILES + File.separator + str);
+    }
+
+    public void loadModuleFromInternal(Context context, SapiOptions.Cache.Module module) {
+        String internalFile = SapiOptions.Cache.Module.getInternalFile(module.id);
+        if (new File(context.getFilesDir(), internalFile).exists()) {
+            try {
+                put(module.id, loadDataFromInternal(context, internalFile));
+            } catch (Throwable th) {
+                Log.e(th);
             }
         }
+    }
+
+    public boolean needUpdate(SapiOptions.Cache.Module module, SapiOptions.Cache.Module module2) {
+        if (!TextUtils.isEmpty(module.hash) && (module2 == null || !module.hash.equals(module2.hash))) {
+            return true;
+        }
+        return false;
+    }
+
+    public void put(String str, String str2) {
+        cache.put(str, new SoftReference<>(str2));
+    }
+
+    public void writeExternal(String str, byte[] bArr) {
+        File file;
+        try {
+            if ("mounted".equals(Environment.getExternalStorageState())) {
+                if (Build.VERSION.SDK_INT >= 30) {
+                    file = new File(this.context.getExternalCacheDir(), str);
+                } else {
+                    file = new File(Environment.getExternalStorageDirectory(), str);
+                }
+                FileUtil.write(file, bArr, false);
+            }
+        } catch (Throwable th) {
+            Log.e(th);
+        }
+    }
+
+    public String get(final Context context, String str) {
+        invalidate();
+        if (SapiContext.getInstance().getSapiOptions().getCache().isEnabled()) {
+            String loadModuleFromMemory = loadModuleFromMemory(str);
+            if (!TextUtils.isEmpty(loadModuleFromMemory)) {
+                return loadModuleFromMemory;
+            }
+            SapiOptions.Cache.Module moduleById = getModuleById(str);
+            if (moduleById != null) {
+                loadModuleFromExternal(moduleById, new LoadModuleEventListener() { // from class: com.baidu.sapi2.SapiCache.1
+                    @Override // com.baidu.sapi2.SapiCache.LoadModuleEventListener
+                    public void onSuccess(SapiOptions.Cache.Module module, String str2) {
+                        SapiCache.this.put(module.id, str2);
+                    }
+
+                    @Override // com.baidu.sapi2.SapiCache.LoadModuleEventListener
+                    public void onFailure(SapiOptions.Cache.Module module) {
+                        SapiCache.this.loadModuleFromInternal(context, module);
+                    }
+                });
+            }
+            return loadModuleFromMemory(str);
+        }
+        return null;
     }
 
     public String getCacheModuleId(String str) {
-        InterceptResult invokeL;
         String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Uri parse = Uri.parse(str);
-            StringBuilder sb = new StringBuilder();
-            sb.append(parse.getHost());
-            if (parse.getPort() == -1) {
-                str2 = "";
-            } else {
-                str2 = ":" + parse.getPort();
-            }
-            sb.append(str2);
-            sb.append(parse.getPath());
-            String sb2 = sb.toString();
-            if (!sb2.endsWith(DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION)) {
-                return sb2 + DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION;
-            }
-            return sb2;
+        Uri parse = Uri.parse(str);
+        StringBuilder sb = new StringBuilder();
+        sb.append(parse.getHost());
+        if (parse.getPort() == -1) {
+            str2 = "";
+        } else {
+            str2 = ":" + parse.getPort();
         }
-        return (String) invokeL.objValue;
+        sb.append(str2);
+        sb.append(parse.getPath());
+        String sb2 = sb.toString();
+        if (!sb2.endsWith(DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION)) {
+            return sb2 + DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION;
+        }
+        return sb2;
+    }
+
+    public void loadCache(SapiOptions sapiOptions) {
+        SapiOptions.Cache cache2 = sapiOptions.getCache();
+        if (cache2.isEnabled()) {
+            for (SapiOptions.Cache.Module module : cache2.getModules()) {
+                this.oldModuleIds.add(module.id);
+            }
+            this.newModuleIds.addAll(this.oldModuleIds);
+            for (SapiOptions.Cache.Module module2 : cache2.getModules()) {
+                loadModuleFromExternal(module2, new LoadModuleEventListener() { // from class: com.baidu.sapi2.SapiCache.2
+                    @Override // com.baidu.sapi2.SapiCache.LoadModuleEventListener
+                    public void onFailure(SapiOptions.Cache.Module module3) {
+                        SapiCache sapiCache = SapiCache.this;
+                        sapiCache.loadModuleFromInternal(sapiCache.context, module3);
+                    }
+
+                    @Override // com.baidu.sapi2.SapiCache.LoadModuleEventListener
+                    public void onSuccess(SapiOptions.Cache.Module module3, String str) {
+                        SapiCache.this.put(module3.id, str);
+                    }
+                });
+            }
+        }
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     @TargetApi(4)
     public void resetFileExecPer(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048593, this, z) != null) || !z) {
+        if (!z) {
             return;
         }
         String packageDirExecutePer = SapiContext.getInstance().getPackageDirExecutePer();
@@ -335,430 +255,204 @@ public final class SapiCache {
         }
     }
 
-    public void handleOptions(String str, SapiOptions sapiOptions) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, sapiOptions) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                SapiOptions fromJSON = SapiOptions.fromJSON(jSONObject);
-                SapiContext.getInstance().setSapiOptions(fromJSON);
-                SapiContext.getInstance().setPkgSigns(SapiOptions.PkgSigns.fromJSON(jSONObject));
-                SapiOptions.Cache cache2 = fromJSON.getCache();
-                SapiOptions.Cache cache3 = sapiOptions.getCache();
-                initSomeSwitch(fromJSON);
-                this.newModuleIds.clear();
-                if (cache2.isEnabled()) {
-                    for (SapiOptions.Cache.Module module : cache2.getModules()) {
-                        this.newModuleIds.add(module.id);
+    public void syncCache(final SapiOptions sapiOptions) {
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("If-None-Match", SapiContext.getInstance().getString(SapiContext.KEY_CONFIG_FILE_ETAG));
+        HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
+        try {
+            new HttpClientWrap().post(SapiAccountManager.getInstance().getSapiConfiguration().environment.getWap() + SapiEnv.SAPI_CONFIG_HTTPS_URI, ReqPriority.IMMEDIATE, httpHashMapWrap, hashMap, null, null, new HttpHandlerWrap(true) { // from class: com.baidu.sapi2.SapiCache.3
+                @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+                public void onFailure(Throwable th, int i, String str) {
+                    SapiCache.this.initSomeSwitch(sapiOptions);
+                    SapiCache.this.reportDi();
+                }
+
+                @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+                public void onSuccess(int i, String str, HashMap<String, String> hashMap2) {
+                    if (str == null) {
+                        return;
                     }
-                    for (SapiOptions.Cache.Module module2 : cache2.getModules()) {
-                        SapiOptions.Cache.Module module3 = null;
-                        for (SapiOptions.Cache.Module module4 : cache3.getModules()) {
-                            if (module4.id.equals(module2.id)) {
-                                module3 = module4;
-                            }
+                    int i2 = -1;
+                    String str2 = null;
+                    try {
+                        JSONObject jSONObject = new JSONObject(str);
+                        i2 = jSONObject.optInt("errno");
+                        str2 = jSONObject.optString("data");
+                    } catch (JSONException e) {
+                        Log.e(e);
+                    }
+                    if (i2 == 0 && !TextUtils.isEmpty(str2)) {
+                        SapiCache.this.handleOptions(str2, sapiOptions);
+                        if (hashMap2 != null) {
+                            SapiContext.getInstance().put(SapiContext.KEY_CONFIG_FILE_ETAG, hashMap2.get(Headers.ETAG));
                         }
-                        if (needUpdate(module2, module3)) {
-                            loadModuleFromExternal(module2, new LoadModuleEventListener(this, module2, fromJSON, cache3) { // from class: com.baidu.sapi2.SapiCache.4
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ SapiCache this$0;
-                                public final /* synthetic */ SapiOptions.Cache.Module val$newModule;
-                                public final /* synthetic */ SapiOptions val$newOptions;
-                                public final /* synthetic */ SapiOptions.Cache val$oldCache;
-
-                                {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this, module2, fromJSON, cache3};
-                                        interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i = newInitContext.flag;
-                                        if ((i & 1) != 0) {
-                                            int i2 = i & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable2.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.this$0 = this;
-                                    this.val$newModule = module2;
-                                    this.val$newOptions = fromJSON;
-                                    this.val$oldCache = cache3;
-                                }
-
-                                @Override // com.baidu.sapi2.SapiCache.LoadModuleEventListener
-                                public void onFailure(SapiOptions.Cache.Module module5) {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, module5) == null) {
-                                        new HttpClientWrap().get(this.val$newModule.downloadUrl, ReqPriority.IMMEDIATE, new HttpHashMapWrap(), null, null, new HttpHandlerWrap(this, true) { // from class: com.baidu.sapi2.SapiCache.4.1
-                                            public static /* synthetic */ Interceptable $ic;
-                                            public transient /* synthetic */ FieldHolder $fh;
-                                            public final /* synthetic */ AnonymousClass4 this$1;
-
-                                            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                                            {
-                                                super(r8);
-                                                Interceptable interceptable3 = $ic;
-                                                if (interceptable3 != null) {
-                                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                                    newInitContext.initArgs = r2;
-                                                    Object[] objArr = {this, Boolean.valueOf(r8)};
-                                                    interceptable3.invokeUnInit(65536, newInitContext);
-                                                    int i = newInitContext.flag;
-                                                    if ((i & 1) != 0) {
-                                                        int i2 = i & 2;
-                                                        super(((Boolean) newInitContext.callArgs[0]).booleanValue());
-                                                        newInitContext.thisArg = this;
-                                                        interceptable3.invokeInitBody(65536, newInitContext);
-                                                        return;
-                                                    }
-                                                }
-                                                this.this$1 = this;
-                                            }
-
-                                            @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                                            public void onFailure(Throwable th, int i, String str2) {
-                                                Interceptable interceptable3 = $ic;
-                                                if (interceptable3 == null || interceptable3.invokeLIL(1048576, this, th, i, str2) == null) {
-                                                    AnonymousClass4 anonymousClass4 = this.this$1;
-                                                    anonymousClass4.val$newOptions.setCache(anonymousClass4.val$oldCache);
-                                                    SapiContext.getInstance().setSapiOptions(this.this$1.val$newOptions);
-                                                }
-                                            }
-
-                                            @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                                            public void onSuccess(int i, String str2) {
-                                                Interceptable interceptable3 = $ic;
-                                                if (interceptable3 == null || interceptable3.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2) == null) {
-                                                    AnonymousClass4 anonymousClass4 = this.this$1;
-                                                    anonymousClass4.this$0.handleCachePage(str2, anonymousClass4.val$newModule);
-                                                }
-                                            }
-                                        });
-                                    }
-                                }
-
-                                @Override // com.baidu.sapi2.SapiCache.LoadModuleEventListener
-                                public void onSuccess(SapiOptions.Cache.Module module5, String str2) {
-                                    Interceptable interceptable2 = $ic;
-                                    if ((interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, module5, str2) == null) && !TextUtils.isEmpty(this.val$newModule.id) && !TextUtils.isEmpty(str2)) {
-                                        this.this$0.put(this.val$newModule.id, str2);
-                                        SapiCache sapiCache = this.this$0;
-                                        sapiCache.writeInternal(sapiCache.context, SapiOptions.Cache.Module.getInternalFile(this.val$newModule.id), str2.getBytes());
-                                    }
-                                }
-                            });
-                        } else {
-                            loadModuleFromExternal(module2, new LoadModuleEventListener(this) { // from class: com.baidu.sapi2.SapiCache.5
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ SapiCache this$0;
-
-                                @Override // com.baidu.sapi2.SapiCache.LoadModuleEventListener
-                                public void onSuccess(SapiOptions.Cache.Module module5, String str2) {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, module5, str2) == null) {
-                                    }
-                                }
-
-                                {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this};
-                                        interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i = newInitContext.flag;
-                                        if ((i & 1) != 0) {
-                                            int i2 = i & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable2.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.this$0 = this;
-                                }
-
-                                @Override // com.baidu.sapi2.SapiCache.LoadModuleEventListener
-                                public void onFailure(SapiOptions.Cache.Module module5) {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, module5) == null) {
-                                        String internalFile = SapiOptions.Cache.Module.getInternalFile(module5.id);
-                                        String externalFile = SapiOptions.Cache.Module.getExternalFile(module5.id);
-                                        if (new File(this.this$0.context.getFilesDir(), internalFile).exists()) {
-                                            try {
-                                                String loadDataFromInternal = this.this$0.loadDataFromInternal(this.this$0.context, internalFile);
-                                                if (Build.VERSION.SDK_INT >= 30 || SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.this$0.context)) {
-                                                    this.this$0.writeExternal(externalFile, loadDataFromInternal.getBytes());
-                                                }
-                                            } catch (Throwable th) {
-                                                Log.e(th);
-                                            }
-                                        }
-                                    }
-                                }
-                            });
-                        }
+                        SapiCache.this.reportDi();
                     }
                 }
-            } catch (JSONException unused) {
+            });
+        } catch (Throwable th) {
+            Log.e(th);
+        }
+    }
+
+    public void handleCachePage(String str, SapiOptions.Cache.Module module) {
+        if (!TextUtils.isEmpty(module.id) && !TextUtils.isEmpty(str) && module.hash.equals(SecurityUtil.md5(str.getBytes(), false))) {
+            put(module.id, str);
+            writeInternal(this.context, SapiOptions.Cache.Module.getInternalFile(module.id), str.getBytes());
+            if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.context)) {
+                writeExternal(SapiOptions.Cache.Module.getExternalFile(module.id), str.getBytes());
             }
+        }
+    }
+
+    public void handleOptions(String str, SapiOptions sapiOptions) {
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            final SapiOptions fromJSON = SapiOptions.fromJSON(jSONObject);
+            SapiContext.getInstance().setSapiOptions(fromJSON);
+            SapiContext.getInstance().setPkgSigns(SapiOptions.PkgSigns.fromJSON(jSONObject));
+            SapiOptions.Cache cache2 = fromJSON.getCache();
+            final SapiOptions.Cache cache3 = sapiOptions.getCache();
+            initSomeSwitch(fromJSON);
+            this.newModuleIds.clear();
+            if (cache2.isEnabled()) {
+                for (SapiOptions.Cache.Module module : cache2.getModules()) {
+                    this.newModuleIds.add(module.id);
+                }
+                for (final SapiOptions.Cache.Module module2 : cache2.getModules()) {
+                    SapiOptions.Cache.Module module3 = null;
+                    for (SapiOptions.Cache.Module module4 : cache3.getModules()) {
+                        if (module4.id.equals(module2.id)) {
+                            module3 = module4;
+                        }
+                    }
+                    if (needUpdate(module2, module3)) {
+                        loadModuleFromExternal(module2, new LoadModuleEventListener() { // from class: com.baidu.sapi2.SapiCache.4
+                            @Override // com.baidu.sapi2.SapiCache.LoadModuleEventListener
+                            public void onFailure(SapiOptions.Cache.Module module5) {
+                                new HttpClientWrap().get(module2.downloadUrl, ReqPriority.IMMEDIATE, new HttpHashMapWrap(), null, null, new HttpHandlerWrap(true) { // from class: com.baidu.sapi2.SapiCache.4.1
+                                    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+                                    public void onSuccess(int i, String str2) {
+                                        AnonymousClass4 anonymousClass4 = AnonymousClass4.this;
+                                        SapiCache.this.handleCachePage(str2, module2);
+                                    }
+
+                                    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+                                    public void onFailure(Throwable th, int i, String str2) {
+                                        AnonymousClass4 anonymousClass4 = AnonymousClass4.this;
+                                        fromJSON.setCache(cache3);
+                                        SapiContext.getInstance().setSapiOptions(fromJSON);
+                                    }
+                                });
+                            }
+
+                            @Override // com.baidu.sapi2.SapiCache.LoadModuleEventListener
+                            public void onSuccess(SapiOptions.Cache.Module module5, String str2) {
+                                if (!TextUtils.isEmpty(module2.id) && !TextUtils.isEmpty(str2)) {
+                                    SapiCache.this.put(module2.id, str2);
+                                    SapiCache sapiCache = SapiCache.this;
+                                    sapiCache.writeInternal(sapiCache.context, SapiOptions.Cache.Module.getInternalFile(module2.id), str2.getBytes());
+                                }
+                            }
+                        });
+                    } else {
+                        loadModuleFromExternal(module2, new LoadModuleEventListener() { // from class: com.baidu.sapi2.SapiCache.5
+                            @Override // com.baidu.sapi2.SapiCache.LoadModuleEventListener
+                            public void onSuccess(SapiOptions.Cache.Module module5, String str2) {
+                            }
+
+                            @Override // com.baidu.sapi2.SapiCache.LoadModuleEventListener
+                            public void onFailure(SapiOptions.Cache.Module module5) {
+                                String internalFile = SapiOptions.Cache.Module.getInternalFile(module5.id);
+                                String externalFile = SapiOptions.Cache.Module.getExternalFile(module5.id);
+                                if (new File(SapiCache.this.context.getFilesDir(), internalFile).exists()) {
+                                    try {
+                                        String loadDataFromInternal = SapiCache.this.loadDataFromInternal(SapiCache.this.context, internalFile);
+                                        if (Build.VERSION.SDK_INT >= 30 || SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", SapiCache.this.context)) {
+                                            SapiCache.this.writeExternal(externalFile, loadDataFromInternal.getBytes());
+                                        }
+                                    } catch (Throwable th) {
+                                        Log.e(th);
+                                    }
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+        } catch (JSONException unused) {
         }
     }
 
     public void invalidate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            ArrayList<String> arrayList = new ArrayList();
-            for (String str : this.oldModuleIds) {
-                if (!this.newModuleIds.contains(str)) {
-                    arrayList.add(str);
-                    remove(str);
-                }
-            }
-            for (String str2 : arrayList) {
-                if (this.oldModuleIds.contains(str2)) {
-                    this.oldModuleIds.remove(str2);
-                }
+        ArrayList<String> arrayList = new ArrayList();
+        for (String str : this.oldModuleIds) {
+            if (!this.newModuleIds.contains(str)) {
+                arrayList.add(str);
+                remove(str);
             }
         }
-    }
-
-    public void loadCache(SapiOptions sapiOptions) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sapiOptions) == null) {
-            SapiOptions.Cache cache2 = sapiOptions.getCache();
-            if (cache2.isEnabled()) {
-                for (SapiOptions.Cache.Module module : cache2.getModules()) {
-                    this.oldModuleIds.add(module.id);
-                }
-                this.newModuleIds.addAll(this.oldModuleIds);
-                for (SapiOptions.Cache.Module module2 : cache2.getModules()) {
-                    loadModuleFromExternal(module2, new LoadModuleEventListener(this) { // from class: com.baidu.sapi2.SapiCache.2
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ SapiCache this$0;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                        }
-
-                        @Override // com.baidu.sapi2.SapiCache.LoadModuleEventListener
-                        public void onFailure(SapiOptions.Cache.Module module3) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, module3) == null) {
-                                SapiCache sapiCache = this.this$0;
-                                sapiCache.loadModuleFromInternal(sapiCache.context, module3);
-                            }
-                        }
-
-                        @Override // com.baidu.sapi2.SapiCache.LoadModuleEventListener
-                        public void onSuccess(SapiOptions.Cache.Module module3, String str) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, module3, str) == null) {
-                                this.this$0.put(module3.id, str);
-                            }
-                        }
-                    });
-                }
-            }
-        }
-    }
-
-    public void syncCache(SapiOptions sapiOptions) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, sapiOptions) == null) {
-            HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.put("If-None-Match", SapiContext.getInstance().getString(SapiContext.KEY_CONFIG_FILE_ETAG));
-            HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-            try {
-                new HttpClientWrap().post(SapiAccountManager.getInstance().getSapiConfiguration().environment.getWap() + SapiEnv.SAPI_CONFIG_HTTPS_URI, ReqPriority.IMMEDIATE, httpHashMapWrap, hashMap, null, null, new HttpHandlerWrap(this, true, sapiOptions) { // from class: com.baidu.sapi2.SapiCache.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ SapiCache this$0;
-                    public final /* synthetic */ SapiOptions val$oldSapiOptions;
-
-                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                    {
-                        super(r8);
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Boolean.valueOf(r8), sapiOptions};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                super(((Boolean) newInitContext.callArgs[0]).booleanValue());
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$oldSapiOptions = sapiOptions;
-                    }
-
-                    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                    public void onSuccess(int i, String str, HashMap<String, String> hashMap2) {
-                        Interceptable interceptable2 = $ic;
-                        if ((interceptable2 != null && interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, hashMap2) != null) || str == null) {
-                            return;
-                        }
-                        int i2 = -1;
-                        String str2 = null;
-                        try {
-                            JSONObject jSONObject = new JSONObject(str);
-                            i2 = jSONObject.optInt("errno");
-                            str2 = jSONObject.optString("data");
-                        } catch (JSONException e) {
-                            Log.e(e);
-                        }
-                        if (i2 == 0 && !TextUtils.isEmpty(str2)) {
-                            this.this$0.handleOptions(str2, this.val$oldSapiOptions);
-                            if (hashMap2 != null) {
-                                SapiContext.getInstance().put(SapiContext.KEY_CONFIG_FILE_ETAG, hashMap2.get(Headers.ETAG));
-                            }
-                            this.this$0.reportDi();
-                        }
-                    }
-
-                    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                    public void onFailure(Throwable th, int i, String str) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null && interceptable2.invokeLIL(1048576, this, th, i, str) != null) {
-                            return;
-                        }
-                        this.this$0.initSomeSwitch(this.val$oldSapiOptions);
-                        this.this$0.reportDi();
-                    }
-                });
-            } catch (Throwable th) {
-                Log.e(th);
-            }
-        }
-    }
-
-    @TargetApi(4)
-    public String loadDataFromInternal(Context context, String str) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, context, str)) == null) {
-            return FileUtil.read(context.getApplicationInfo().dataDir + File.separator + NetDiskFileMsg.JSON_KEY_FILES + File.separator + str);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public void loadModuleFromInternal(Context context, SapiOptions.Cache.Module module) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, context, module) == null) {
-            String internalFile = SapiOptions.Cache.Module.getInternalFile(module.id);
-            if (new File(context.getFilesDir(), internalFile).exists()) {
-                try {
-                    put(module.id, loadDataFromInternal(context, internalFile));
-                } catch (Throwable th) {
-                    Log.e(th);
-                }
-            }
-        }
-    }
-
-    public void writeExternal(String str, byte[] bArr) {
-        File file;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048595, this, str, bArr) == null) {
-            try {
-                if ("mounted".equals(Environment.getExternalStorageState())) {
-                    if (Build.VERSION.SDK_INT >= 30) {
-                        file = new File(this.context.getExternalCacheDir(), str);
-                    } else {
-                        file = new File(Environment.getExternalStorageDirectory(), str);
-                    }
-                    FileUtil.write(file, bArr, false);
-                }
-            } catch (Throwable th) {
-                Log.e(th);
+        for (String str2 : arrayList) {
+            if (this.oldModuleIds.contains(str2)) {
+                this.oldModuleIds.remove(str2);
             }
         }
     }
 
     public void loadModuleFromExternal(SapiOptions.Cache.Module module, LoadModuleEventListener loadModuleEventListener) {
         File file;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, module, loadModuleEventListener) == null) {
-            if (loadModuleEventListener != null) {
-                String externalFile = SapiOptions.Cache.Module.getExternalFile(module.id);
-                try {
-                    if ("mounted".equals(Environment.getExternalStorageState())) {
-                        if (Build.VERSION.SDK_INT >= 30) {
-                            file = new File(this.context.getExternalCacheDir(), externalFile);
-                        } else {
-                            file = new File(Environment.getExternalStorageDirectory(), externalFile);
-                        }
-                        if (file.exists()) {
-                            String loadDataFromExternal = loadDataFromExternal(file);
-                            if (SecurityUtil.md5(loadDataFromExternal.getBytes(), false).equals(module.hash)) {
-                                loadModuleEventListener.onSuccess(module, loadDataFromExternal);
-                                return;
-                            } else {
-                                loadModuleEventListener.onFailure(module);
-                                return;
-                            }
-                        }
-                        loadModuleEventListener.onFailure(module);
-                        return;
+        if (loadModuleEventListener != null) {
+            String externalFile = SapiOptions.Cache.Module.getExternalFile(module.id);
+            try {
+                if ("mounted".equals(Environment.getExternalStorageState())) {
+                    if (Build.VERSION.SDK_INT >= 30) {
+                        file = new File(this.context.getExternalCacheDir(), externalFile);
+                    } else {
+                        file = new File(Environment.getExternalStorageDirectory(), externalFile);
                     }
-                    return;
-                } catch (Throwable unused) {
+                    if (file.exists()) {
+                        String loadDataFromExternal = loadDataFromExternal(file);
+                        if (SecurityUtil.md5(loadDataFromExternal.getBytes(), false).equals(module.hash)) {
+                            loadModuleEventListener.onSuccess(module, loadDataFromExternal);
+                            return;
+                        } else {
+                            loadModuleEventListener.onFailure(module);
+                            return;
+                        }
+                    }
                     loadModuleEventListener.onFailure(module);
                     return;
                 }
+                return;
+            } catch (Throwable unused) {
+                loadModuleEventListener.onFailure(module);
+                return;
             }
-            throw new IllegalArgumentException(LoadModuleEventListener.class.getName() + "can't be null");
         }
+        throw new IllegalArgumentException(LoadModuleEventListener.class.getName() + "can't be null");
     }
 
     public void writeInternal(Context context, String str, byte[] bArr) {
         FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048596, this, context, str, bArr) == null) {
+        try {
+            fileOutputStream = context.openFileOutput(str, 0);
+        } catch (Throwable unused) {
+            fileOutputStream = null;
+        }
+        try {
             try {
-                fileOutputStream = context.openFileOutput(str, 0);
-                try {
-                    fileOutputStream.write(bArr);
-                    if (fileOutputStream == null) {
-                        return;
-                    }
-                } catch (Throwable unused) {
-                    if (fileOutputStream == null) {
-                        return;
-                    }
-                    fileOutputStream.close();
+                fileOutputStream.write(bArr);
+                if (fileOutputStream == null) {
+                    return;
                 }
             } catch (Throwable unused2) {
-                fileOutputStream = null;
-            }
-            try {
+                if (fileOutputStream == null) {
+                    return;
+                }
                 fileOutputStream.close();
-            } catch (Throwable unused3) {
             }
+            fileOutputStream.close();
+        } catch (Throwable unused3) {
         }
     }
 }

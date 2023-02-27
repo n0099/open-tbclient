@@ -1,19 +1,14 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntimeInit;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
 @Service
 /* loaded from: classes5.dex */
-public class mx0 implements qn0 {
+public class mx0 implements sn0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,21 +26,13 @@ public class mx0 implements qn0 {
         }
     }
 
-    @Override // com.baidu.tieba.qn0
-    public void a() {
+    @Override // com.baidu.tieba.sn0
+    public i01 create() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || dk0.a().a()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new px0();
         }
-        z01.a();
-    }
-
-    @Override // com.baidu.tieba.qn0
-    public void b(@NonNull Application application) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, application) == null) {
-            AppRuntimeInit.onApplicationattachBaseContext(application);
-            hk1.b(application);
-        }
+        return (i01) invokeV.objValue;
     }
 }

@@ -1,61 +1,85 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.graphics.Bitmap;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cs5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gs5 {
+public class gs5 implements cs5.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
-    public List<String> b;
+    public Bitmap a;
+    public ImageView b;
     public int c;
-    public String d;
+    public ListView d;
 
-    public gs5() {
+    public gs5(ListView listView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {listView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.c = -16777216;
+        this.d = listView;
+    }
+
+    @Override // com.baidu.tieba.cs5.j
+    public void a(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            ((ImageView) view2).setImageDrawable(null);
+            this.a.recycle();
+            this.a = null;
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.c = i;
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray("del_success");
-        if (optJSONArray != null) {
-            this.a = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                if (!TextUtils.isEmpty(optJSONArray.optString(i))) {
-                    this.a.add(optJSONArray.optString(i));
-                }
+    }
+
+    @Override // com.baidu.tieba.cs5.j
+    public View b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            ListView listView = this.d;
+            View childAt = listView.getChildAt((i + listView.getHeaderViewsCount()) - this.d.getFirstVisiblePosition());
+            if (childAt == null) {
+                return null;
             }
-        }
-        JSONArray optJSONArray2 = jSONObject.optJSONArray("del_fail");
-        if (optJSONArray2 != null) {
-            this.b = new ArrayList();
-            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                if (!TextUtils.isEmpty(optJSONArray2.optString(i2))) {
-                    this.b.add(optJSONArray2.optString(i2));
-                }
+            childAt.setPressed(false);
+            childAt.setDrawingCacheEnabled(true);
+            this.a = Bitmap.createBitmap(childAt.getDrawingCache());
+            childAt.setDrawingCacheEnabled(false);
+            if (this.b == null) {
+                this.b = new ImageView(this.d.getContext());
             }
+            this.b.setBackgroundColor(this.c);
+            this.b.setPadding(0, 0, 0, 0);
+            this.b.setImageBitmap(this.a);
+            this.b.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
+            return this.b;
         }
-        this.c = jSONObject.optInt("ret_type");
-        this.d = jSONObject.optString("text");
+        return (View) invokeI.objValue;
     }
 }

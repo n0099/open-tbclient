@@ -1,46 +1,34 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
-import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDialog;
-import com.baidu.tieba.aq3;
-import com.baidu.tieba.eq3;
-import com.baidu.tieba.ip3;
-import com.baidu.tieba.pr3;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface zp3 {
-    String a(Context context);
+public class zp3 implements ys1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String b(Context context);
+    public zp3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(Context context, Bundle bundle, ip1 ip1Var);
-
-    xp3 d(Context context);
-
-    void e(Activity activity, String str, String str2, yp3 yp3Var);
-
-    void f(Context context, pr3.d dVar);
-
-    boolean g(Context context);
-
-    String getBduss(Context context);
-
-    void h(kp1 kp1Var);
-
-    void i(Context context, aq3.d dVar);
-
-    void j(Context context, SwanAppPhoneLoginDialog.g gVar, String str);
-
-    String k(Context context);
-
-    void l(Activity activity, String str, String str2, yp3 yp3Var);
-
-    void m(Activity activity, String str, er3 er3Var);
-
-    void n(String str, ArrayList<String> arrayList, eq3.c cVar);
-
-    void o(ip3.a aVar, String str, List<String> list);
+    @Override // com.baidu.tieba.ys1
+    public void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            lq3.i(context);
+        }
+    }
 }

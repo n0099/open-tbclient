@@ -2,16 +2,12 @@ package com.baidu.sapi2.utils;
 
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class PtokenStat {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String FILLNAME_WIDGE = "fillname_widge";
     public static final String LOGIN = "login_";
     public static final String LOGIN_POP = "login_pop";
@@ -21,30 +17,14 @@ public class PtokenStat {
     public static final String NORMAL_INCOMPLETE = "normal_incomplete";
     public static final String SAPI_ACTION_BDUSS_CHANGED = "sapi_action_bduss_changed";
     public static final String WEB_2_NATIVE = "web2native";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public PtokenStat() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     public void onEvent(String str) {
         String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || !TextUtils.isEmpty(SapiUtils.getCookiePtoken())) {
+        if (!TextUtils.isEmpty(SapiUtils.getCookiePtoken())) {
             return;
         }
         HashMap hashMap = new HashMap();
-        hashMap.put("device", "android");
+        hashMap.put(Config.DEVICE_PART, "android");
         hashMap.put("sys_version", Build.VERSION.RELEASE);
         SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
         if (currentAccount == null) {

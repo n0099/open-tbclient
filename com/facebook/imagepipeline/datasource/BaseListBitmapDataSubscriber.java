@@ -1,10 +1,6 @@
 package com.facebook.imagepipeline.datasource;
 
 import android.graphics.Bitmap;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.BaseDataSubscriber;
 import com.facebook.datasource.DataSource;
@@ -14,29 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public abstract class BaseListBitmapDataSubscriber extends BaseDataSubscriber<List<CloseableReference<CloseableImage>>> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     public abstract void onNewResultListImpl(List<Bitmap> list);
-
-    public BaseListBitmapDataSubscriber() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     @Override // com.facebook.datasource.BaseDataSubscriber
     public void onNewResultImpl(DataSource<List<CloseableReference<CloseableImage>>> dataSource) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, dataSource) != null) || !dataSource.isFinished()) {
+        if (!dataSource.isFinished()) {
             return;
         }
         List<CloseableReference<CloseableImage>> result = dataSource.getResult();

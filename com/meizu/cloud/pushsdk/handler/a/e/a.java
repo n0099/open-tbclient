@@ -2,63 +2,49 @@ package com.meizu.cloud.pushsdk.handler.a.e;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.TextUtils;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.handler.MessageV3;
-import com.meizu.cloud.pushsdk.handler.a.c;
-import com.meizu.cloud.pushsdk.util.d;
+import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
+import com.meizu.cloud.pushsdk.platform.message.PushSwitchStatus;
 /* loaded from: classes8.dex */
-public class a extends c {
+public class a extends com.meizu.cloud.pushsdk.handler.a.a<PushSwitchStatus> {
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
     }
 
-    @Override // com.meizu.cloud.pushsdk.handler.a.c, com.meizu.cloud.pushsdk.handler.c
+    @Override // com.meizu.cloud.pushsdk.handler.c
     public int a() {
-        return 8192;
+        return 256;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.meizu.cloud.pushsdk.handler.a.c, com.meizu.cloud.pushsdk.handler.a.a
-    public void a(MessageV3 messageV3, com.meizu.cloud.pushsdk.notification.c cVar) {
-        if (cVar != null) {
-            cVar.e(messageV3);
-            c(messageV3);
+    @Override // com.meizu.cloud.pushsdk.handler.a.a
+    public void a(PushSwitchStatus pushSwitchStatus, com.meizu.cloud.pushsdk.notification.c cVar) {
+        if (c() == null || pushSwitchStatus == null) {
+            return;
         }
+        c().a(d(), pushSwitchStatus);
     }
 
-    @Override // com.meizu.cloud.pushsdk.handler.a.c, com.meizu.cloud.pushsdk.handler.c
+    @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        DebugLogger.i("AbstractMessageHandler", "start ScheduleNotificationHandler match");
-        return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_SCHEDULE_NOTIFICATION.equals(i(intent));
+        DebugLogger.i("AbstractMessageHandler", "start PushSwitchStatusHandler match");
+        return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PUSH_STATUS.equals(k(intent));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.meizu.cloud.pushsdk.handler.a.c, com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: d  reason: avoid collision after fix types in other method */
-    public void b(MessageV3 messageV3) {
-        DebugLogger.e("AbstractMessageHandler", "ScheduleNotificationHandler dont repeat upload receiver push event");
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.meizu.cloud.pushsdk.handler.a.c, com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: e */
-    public void c(MessageV3 messageV3) {
-        d.a(c(), messageV3.getUploadDataPackageName(), messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.meizu.cloud.pushsdk.handler.a.c, com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: i */
-    public int d(MessageV3 messageV3) {
-        return 0;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.meizu.cloud.pushsdk.handler.a.c, com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: j */
-    public MessageV3 c(Intent intent) {
-        return (MessageV3) intent.getParcelableExtra(PushConstants.EXTRA_APP_PUSH_SCHEDULE_NOTIFICATION_MESSAGE);
+    @Override // com.meizu.cloud.pushsdk.handler.a.a
+    /* renamed from: l */
+    public PushSwitchStatus c(Intent intent) {
+        String stringExtra = intent.getStringExtra(PushConstants.MZ_MESSAGE_VALUE);
+        PushSwitchStatus c = !TextUtils.isEmpty(stringExtra) ? com.meizu.cloud.pushsdk.platform.message.a.c(stringExtra) : (PushSwitchStatus) intent.getSerializableExtra(PushConstants.EXTRA_APP_PUSH_SWITCH_STATUS);
+        if (BasicPushStatus.SUCCESS_CODE.equals(c.getCode())) {
+            String g = g(intent);
+            DebugLogger.e("AbstractMessageHandler", "PushSwitchStatusHandler update local " + g + " switch status " + c);
+            com.meizu.cloud.pushsdk.util.b.a(d(), g, c.isSwitchNotificationMessage());
+            com.meizu.cloud.pushsdk.util.b.b(d(), g, c.isSwitchThroughMessage());
+        }
+        return c;
     }
 }

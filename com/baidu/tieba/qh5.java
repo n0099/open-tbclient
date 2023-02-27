@@ -1,43 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.mutiprocess.backbaidubox.BackBaiduBoxViewEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class qh5 implements fh5<BackBaiduBoxViewEvent> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public qh5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fh5
-    /* renamed from: a */
-    public boolean onEvent(BackBaiduBoxViewEvent backBaiduBoxViewEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, backBaiduBoxViewEvent)) == null) {
-            if (backBaiduBoxViewEvent == null) {
-                return false;
-            }
-            ao5.m().u(backBaiduBoxViewEvent.isShow);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
+/* loaded from: classes5.dex */
+public interface qh5 {
+    @WorkerThread
+    void a(long j, int i, @NonNull String str, @Nullable IChatRoomEnterListener.ChatRoomInfo chatRoomInfo);
 }

@@ -1,8 +1,23 @@
 package com.baidu.tieba;
 
-import java.util.Map;
+import android.content.Context;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface h40 {
-    String a(String str, String str2, Map<String, String> map, JSONObject jSONObject);
+    String a();
+
+    String a(Context context);
+
+    JSONArray b(Context context);
+
+    String c(Context context);
+
+    String d(Context context);
+
+    String e(Context context);
+
+    JSONArray f(Context context);
+
+    JSONObject g(Context context);
 }

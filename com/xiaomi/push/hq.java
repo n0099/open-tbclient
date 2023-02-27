@@ -1,101 +1,226 @@
 package com.xiaomi.push;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.BitSet;
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class hq {
-    public static /* synthetic */ Interceptable $ic;
-    public static final hq a;
+public class hq implements is<hq, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ hq[] f516a;
-    public static final hq b;
-    public static final hq c;
-    public static final hq d;
-    public transient /* synthetic */ FieldHolder $fh;
+    public int f503a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f517a;
+    public hn f504a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56372649, "Lcom/xiaomi/push/hq;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-56372649, "Lcom/xiaomi/push/hq;");
-                return;
-            }
-        }
-        a = new hq("INT", 0, 1);
-        b = new hq("LONG", 1, 2);
-        c = new hq("STRING", 2, 3);
-        hq hqVar = new hq("BOOLEAN", 3, 4);
-        d = hqVar;
-        f516a = new hq[]{a, b, c, hqVar};
+    /* renamed from: a  reason: collision with other field name */
+    public BitSet f505a = new BitSet(1);
+
+    /* renamed from: a  reason: collision with other field name */
+    public List<hs> f506a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public static final ji f502a = new ji("NormalConfig");
+    public static final ja a = new ja("", (byte) 8, 1);
+    public static final ja b = new ja("", (byte) 15, 2);
+    public static final ja c = new ja("", (byte) 8, 3);
+
+    public int a() {
+        return this.f503a;
     }
 
-    public hq(String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                String str2 = (String) objArr2[0];
-                ((Integer) objArr2[1]).intValue();
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(hq hqVar) {
+        int a2;
+        int a3;
+        int a4;
+        if (hq.class.equals(hqVar.getClass())) {
+            int compareTo = Boolean.valueOf(m484a()).compareTo(Boolean.valueOf(hqVar.m484a()));
+            if (compareTo != 0) {
+                return compareTo;
             }
-        }
-        this.f517a = i2;
-    }
-
-    public static hq a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return null;
-                        }
-                        return d;
-                    }
-                    return c;
+            if (!m484a() || (a4 = it.a(this.f503a, hqVar.f503a)) == 0) {
+                int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(hqVar.b()));
+                if (compareTo2 != 0) {
+                    return compareTo2;
                 }
-                return b;
+                if (!b() || (a3 = it.a(this.f506a, hqVar.f506a)) == 0) {
+                    int compareTo3 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(hqVar.c()));
+                    if (compareTo3 != 0) {
+                        return compareTo3;
+                    }
+                    if (!c() || (a2 = it.a(this.f504a, hqVar.f504a)) == 0) {
+                        return 0;
+                    }
+                    return a2;
+                }
+                return a3;
             }
-            return a;
+            return a4;
         }
-        return (hq) invokeI.objValue;
+        return hq.class.getName().compareTo(hqVar.getClass().getName());
     }
 
-    public static hq valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (hq) Enum.valueOf(hq.class, str) : (hq) invokeL.objValue;
+    /* renamed from: a  reason: collision with other method in class */
+    public hn m482a() {
+        return this.f504a;
     }
 
-    public static hq[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hq[]) f516a.clone() : (hq[]) invokeV.objValue;
+    /* renamed from: a  reason: collision with other method in class */
+    public void m483a() {
+        if (this.f506a != null) {
+            return;
+        }
+        throw new je("Required field 'configItems' was not present! Struct: " + toString());
+    }
+
+    @Override // com.xiaomi.push.is
+    public void a(jd jdVar) {
+        jdVar.mo617a();
+        while (true) {
+            ja mo613a = jdVar.mo613a();
+            byte b2 = mo613a.a;
+            if (b2 == 0) {
+                break;
+            }
+            short s = mo613a.f813a;
+            if (s == 1) {
+                if (b2 == 8) {
+                    this.f503a = jdVar.mo611a();
+                    a(true);
+                    jdVar.g();
+                }
+                jg.a(jdVar, b2);
+                jdVar.g();
+            } else if (s != 2) {
+                if (s == 3 && b2 == 8) {
+                    this.f504a = hn.a(jdVar.mo611a());
+                    jdVar.g();
+                }
+                jg.a(jdVar, b2);
+                jdVar.g();
+            } else {
+                if (b2 == 15) {
+                    jb mo614a = jdVar.mo614a();
+                    this.f506a = new ArrayList(mo614a.f814a);
+                    for (int i = 0; i < mo614a.f814a; i++) {
+                        hs hsVar = new hs();
+                        hsVar.a(jdVar);
+                        this.f506a.add(hsVar);
+                    }
+                    jdVar.i();
+                    jdVar.g();
+                }
+                jg.a(jdVar, b2);
+                jdVar.g();
+            }
+        }
+        jdVar.f();
+        if (m484a()) {
+            m483a();
+            return;
+        }
+        throw new je("Required field 'version' was not found in serialized data! Struct: " + toString());
+    }
+
+    public void a(boolean z) {
+        this.f505a.set(0, z);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m484a() {
+        return this.f505a.get(0);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m485a(hq hqVar) {
+        if (hqVar != null && this.f503a == hqVar.f503a) {
+            boolean b2 = b();
+            boolean b3 = hqVar.b();
+            if ((b2 || b3) && !(b2 && b3 && this.f506a.equals(hqVar.f506a))) {
+                return false;
+            }
+            boolean c2 = c();
+            boolean c3 = hqVar.c();
+            if (c2 || c3) {
+                return c2 && c3 && this.f504a.equals(hqVar.f504a);
+            }
+            return true;
+        }
+        return false;
+    }
+
+    @Override // com.xiaomi.push.is
+    public void b(jd jdVar) {
+        m483a();
+        jdVar.a(f502a);
+        jdVar.a(a);
+        jdVar.mo622a(this.f503a);
+        jdVar.b();
+        if (this.f506a != null) {
+            jdVar.a(b);
+            jdVar.a(new jb((byte) 12, this.f506a.size()));
+            for (hs hsVar : this.f506a) {
+                hsVar.b(jdVar);
+            }
+            jdVar.e();
+            jdVar.b();
+        }
+        if (this.f504a != null && c()) {
+            jdVar.a(c);
+            jdVar.mo622a(this.f504a.a());
+            jdVar.b();
+        }
+        jdVar.c();
+        jdVar.mo621a();
+    }
+
+    public boolean b() {
+        return this.f506a != null;
+    }
+
+    public boolean c() {
+        return this.f504a != null;
+    }
+
+    public boolean equals(Object obj) {
+        if (obj != null && (obj instanceof hq)) {
+            return m485a((hq) obj);
+        }
+        return false;
+    }
+
+    public int hashCode() {
+        return 0;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder("NormalConfig(");
+        sb.append("version:");
+        sb.append(this.f503a);
+        sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+        sb.append("configItems:");
+        List<hs> list = this.f506a;
+        if (list == null) {
+            sb.append(StringUtil.NULL_STRING);
+        } else {
+            sb.append(list);
+        }
+        if (c()) {
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append("type:");
+            hn hnVar = this.f504a;
+            if (hnVar == null) {
+                sb.append(StringUtil.NULL_STRING);
+            } else {
+                sb.append(hnVar);
+            }
+        }
+        sb.append(SmallTailInfo.EMOTION_SUFFIX);
+        return sb.toString();
     }
 }

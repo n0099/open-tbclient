@@ -2,32 +2,19 @@ package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.mipush.sdk.l;
-import com.xiaomi.push.bk;
+import com.xiaomi.push.bj;
 /* loaded from: classes8.dex */
 public class ak {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     public static AbstractPushManager a(Context context, e eVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, eVar)) == null) ? b(context, eVar) : (AbstractPushManager) invokeLL.objValue;
+        return b(context, eVar);
     }
 
     public static AbstractPushManager b(Context context, e eVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, eVar)) == null) {
-            l.a m173a = l.m173a(eVar);
-            if (m173a == null || TextUtils.isEmpty(m173a.a) || TextUtils.isEmpty(m173a.b)) {
-                return null;
-            }
-            return (AbstractPushManager) bk.a(m173a.a, m173a.b, context);
+        l.a m167a = l.m167a(eVar);
+        if (m167a == null || TextUtils.isEmpty(m167a.a) || TextUtils.isEmpty(m167a.b)) {
+            return null;
         }
-        return (AbstractPushManager) invokeLL.objValue;
+        return (AbstractPushManager) bj.a(m167a.a, m167a.b, context);
     }
 }

@@ -1,12 +1,6 @@
 package com.tencent.open;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class SocialConstants {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_ASK = "action_ask";
     public static final String ACTION_BRAG = "action_brag";
     public static final String ACTION_CHALLENGE = "action_challenge";
@@ -64,19 +58,4 @@ public class SocialConstants {
     public static final String TYPE_FREEGIFT = "freegift";
     public static final String TYPE_REACTIVE = "reactive";
     public static final String TYPE_REQUEST = "request";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public SocialConstants() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

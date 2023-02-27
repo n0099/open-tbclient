@@ -17,11 +17,10 @@ import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.v8engine.FontParser;
 import com.baidu.spswitch.utils.BDEmotionPanelManager;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.n0a;
-import com.baidu.tieba.o0a;
+import com.baidu.tieba.q4a;
+import com.baidu.tieba.r4a;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -36,6 +35,8 @@ import com.caverock.androidsvg.SVG;
 import com.coremedia.iso.boxes.TrackReferenceBox;
 import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.huawei.hms.push.constant.RemoteMessageConst;
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -175,7 +176,7 @@ public class SVGParser {
         public static final SVGAttr requiredFormats;
 
         /* renamed from: rx  reason: collision with root package name */
-        public static final SVGAttr f1092rx;
+        public static final SVGAttr f1066rx;
         public static final SVGAttr ry;
         public static final SVGAttr solid_color;
         public static final SVGAttr solid_opacity;
@@ -234,7 +235,7 @@ public class SVGParser {
             color = new SVGAttr("color", 5);
             cx = new SVGAttr("cx", 6);
             cy = new SVGAttr("cy", 7);
-            direction = new SVGAttr("direction", 8);
+            direction = new SVGAttr(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, 8);
             dx = new SVGAttr("dx", 9);
             dy = new SVGAttr("dy", 10);
             fx = new SVGAttr("fx", 11);
@@ -282,7 +283,7 @@ public class SVGParser {
             requiredExtensions = new SVGAttr("requiredExtensions", 53);
             requiredFormats = new SVGAttr("requiredFormats", 54);
             requiredFonts = new SVGAttr("requiredFonts", 55);
-            f1092rx = new SVGAttr("rx", 56);
+            f1066rx = new SVGAttr("rx", 56);
             ry = new SVGAttr("ry", 57);
             solid_color = new SVGAttr("solid_color", 58);
             solid_opacity = new SVGAttr("solid_opacity", 59);
@@ -316,10 +317,10 @@ public class SVGParser {
             y2 = new SVGAttr(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y2, 87);
             viewport_fill = new SVGAttr("viewport_fill", 88);
             viewport_fill_opacity = new SVGAttr("viewport_fill_opacity", 89);
-            visibility = new SVGAttr("visibility", 90);
+            visibility = new SVGAttr(RemoteMessageConst.Notification.VISIBILITY, 90);
             SVGAttr sVGAttr = new SVGAttr("UNSUPPORTED", 91);
             UNSUPPORTED = sVGAttr;
-            $VALUES = new SVGAttr[]{CLASS, clip, clip_path, clipPathUnits, clip_rule, color, cx, cy, direction, dx, dy, fx, fy, d, display, fill, fill_rule, fill_opacity, font, font_family, font_size, font_weight, font_style, gradientTransform, gradientUnits, height, href, image_rendering, marker, marker_start, marker_mid, marker_end, markerHeight, markerUnits, markerWidth, mask, maskContentUnits, maskUnits, media, offset, opacity, orient, overflow, pathLength, patternContentUnits, patternTransform, patternUnits, points, preserveAspectRatio, r, refX, refY, requiredFeatures, requiredExtensions, requiredFormats, requiredFonts, f1092rx, ry, solid_color, solid_opacity, spreadMethod, startOffset, stop_color, stop_opacity, stroke, stroke_dasharray, stroke_dashoffset, stroke_linecap, stroke_linejoin, stroke_miterlimit, stroke_opacity, stroke_width, style, systemLanguage, text_anchor, text_decoration, transform, type, vector_effect, version, viewBox, width, x, y, x1, y1, x2, y2, viewport_fill, viewport_fill_opacity, visibility, sVGAttr};
+            $VALUES = new SVGAttr[]{CLASS, clip, clip_path, clipPathUnits, clip_rule, color, cx, cy, direction, dx, dy, fx, fy, d, display, fill, fill_rule, fill_opacity, font, font_family, font_size, font_weight, font_style, gradientTransform, gradientUnits, height, href, image_rendering, marker, marker_start, marker_mid, marker_end, markerHeight, markerUnits, markerWidth, mask, maskContentUnits, maskUnits, media, offset, opacity, orient, overflow, pathLength, patternContentUnits, patternTransform, patternUnits, points, preserveAspectRatio, r, refX, refY, requiredFeatures, requiredExtensions, requiredFormats, requiredFonts, f1066rx, ry, solid_color, solid_opacity, spreadMethod, startOffset, stop_color, stop_opacity, stroke, stroke_dasharray, stroke_dashoffset, stroke_linecap, stroke_linejoin, stroke_miterlimit, stroke_opacity, stroke_width, style, systemLanguage, text_anchor, text_decoration, transform, type, vector_effect, version, viewBox, width, x, y, x1, y1, x2, y2, viewport_fill, viewport_fill_opacity, visibility, sVGAttr};
             cache = new HashMap();
             for (SVGAttr sVGAttr2 : values()) {
                 if (sVGAttr2 == CLASS) {
@@ -420,7 +421,7 @@ public class SVGParser {
         public static final SVGElem use;
 
         /* renamed from: view  reason: collision with root package name */
-        public static final SVGElem f1093view;
+        public static final SVGElem f1067view;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -466,11 +467,11 @@ public class SVGParser {
             title = new SVGElem("title", 26);
             tref = new SVGElem(TrackReferenceBox.TYPE, 27);
             tspan = new SVGElem("tspan", 28);
-            use = new SVGElem(TbConfig.ST_TYPE_USE, 29);
-            f1093view = new SVGElem(NativeConstants.TYPE_VIEW, 30);
+            use = new SVGElem("use", 29);
+            f1067view = new SVGElem(NativeConstants.TYPE_VIEW, 30);
             SVGElem sVGElem = new SVGElem("UNSUPPORTED", 31);
             UNSUPPORTED = sVGElem;
-            $VALUES = new SVGElem[]{svg, a, circle, clipPath, defs, desc, ellipse, g, image, line, linearGradient, marker, mask, path, pattern, polygon, polyline, radialGradient, rect, solidColor, stop, style, SWITCH, symbol, text, textPath, title, tref, tspan, use, f1093view, sVGElem};
+            $VALUES = new SVGElem[]{svg, a, circle, clipPath, defs, desc, ellipse, g, image, line, linearGradient, marker, mask, path, pattern, polygon, polyline, radialGradient, rect, solidColor, stop, style, SWITCH, symbol, text, textPath, title, tref, tspan, use, f1067view, sVGElem};
             cache = new HashMap();
             for (SVGElem sVGElem2 : values()) {
                 if (sVGElem2 == SWITCH) {
@@ -591,7 +592,7 @@ public class SVGParser {
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                b[SVGAttr.f1092rx.ordinal()] = 10;
+                b[SVGAttr.f1066rx.ordinal()] = 10;
             } catch (NoSuchFieldError unused10) {
             }
             try {
@@ -1021,7 +1022,7 @@ public class SVGParser {
             } catch (NoSuchFieldError unused116) {
             }
             try {
-                a[SVGElem.f1093view.ordinal()] = 28;
+                a[SVGElem.f1067view.ordinal()] = 28;
             } catch (NoSuchFieldError unused117) {
             }
             try {
@@ -1439,7 +1440,7 @@ public class SVGParser {
         public String a;
         public int b;
         public int c;
-        public o0a d;
+        public r4a d;
 
         public boolean j(int i) {
             InterceptResult invokeI;
@@ -1470,7 +1471,7 @@ public class SVGParser {
             }
             this.b = 0;
             this.c = 0;
-            this.d = new o0a();
+            this.d = new r4a();
             String trim = str.trim();
             this.a = trim;
             this.c = trim.length();
@@ -2987,12 +2988,12 @@ public class SVGParser {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, gVar)) == null) {
             HashMap hashMap = new HashMap();
             gVar.A();
-            String s = gVar.s(com.alipay.sdk.encrypt.a.h);
+            String s = gVar.s('=');
             while (s != null) {
-                gVar.f(com.alipay.sdk.encrypt.a.h);
+                gVar.f('=');
                 hashMap.put(s, gVar.q());
                 gVar.A();
-                s = gVar.s(com.alipay.sdk.encrypt.a.h);
+                s = gVar.s('=');
             }
             return hashMap;
         }
@@ -4060,7 +4061,7 @@ public class SVGParser {
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
             int i = 5;
             if (str.charAt(0) == '#') {
-                n0a b2 = n0a.b(str, 1, str.length());
+                q4a b2 = q4a.b(str, 1, str.length());
                 if (b2 != null) {
                     int a2 = b2.a();
                     if (a2 != 4) {
@@ -4583,7 +4584,7 @@ public class SVGParser {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65562, null, str, i, i2)) == null) {
-            float b2 = new o0a().b(str, i, i2);
+            float b2 = new r4a().b(str, i, i2);
             if (!Float.isNaN(b2)) {
                 return b2;
             }

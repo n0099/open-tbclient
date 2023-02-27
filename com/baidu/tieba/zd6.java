@@ -1,9 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.annotation.SuppressLint;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.MessageQueue;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tieba.zd6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,100 +14,167 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Field;
 /* loaded from: classes7.dex */
-public class zd6 extends ae6 {
+public class zd6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId P0;
-    public static final BdUniqueId Q0;
+    public static volatile a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948356157, "Lcom/baidu/tieba/zd6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948356157, "Lcom/baidu/tieba/zd6;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948356157, "Lcom/baidu/tieba/zd6;");
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Handler a;
+        public final Looper b;
+        public MessageQueue c;
+
+        public a(Looper looper) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948356157, "Lcom/baidu/tieba/zd6;");
+            this.b = looper;
+            this.a = new Handler(looper);
+        }
+
+        public static /* synthetic */ boolean b(Runnable runnable) {
+            runnable.run();
+            return false;
+        }
+
+        public boolean c(Runnable runnable) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable)) == null) {
+                if (a() == null) {
+                    return false;
+                }
+                return this.a.post(runnable);
+            }
+            return invokeL.booleanValue;
+        }
+
+        public void e(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, runnable) == null) && a() != null) {
+                this.a.removeCallbacks(runnable);
+            }
+        }
+
+        public void f(final Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048580, this, runnable) != null) || a() == null) {
                 return;
             }
-        }
-        P0 = BdUniqueId.gen();
-        Q0 = BdUniqueId.gen();
-    }
+            this.c.addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.tieba.vd6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ae6, com.baidu.tieba.sd6, com.baidu.tieba.sw4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+                @Override // android.os.MessageQueue.IdleHandler
+                public final boolean queueIdle() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? zd6.a.b(runnable) : invokeV.booleanValue;
+                }
+            });
         }
-        return (ThreadData) invokeV.objValue;
-    }
 
-    @Override // com.baidu.tieba.ae6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ThreadData threadData = this.a;
-            if (threadData != null && threadData.getThreadType() == 67) {
-                return Q0;
+        @SuppressLint({"DiscouragedPrivateApi"})
+        public final synchronized MessageQueue a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                synchronized (this) {
+                    if (this.c != null) {
+                        return this.c;
+                    }
+                    if (Build.VERSION.SDK_INT >= 23) {
+                        MessageQueue queue = this.b.getQueue();
+                        this.c = queue;
+                        return queue;
+                    }
+                    try {
+                        Field declaredField = Looper.class.getDeclaredField("mQueue");
+                        declaredField.setAccessible(true);
+                        Object obj = declaredField.get(this.b);
+                        if (obj instanceof MessageQueue) {
+                            this.c = (MessageQueue) obj;
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return this.c;
+                }
             }
-            return P0;
+            return (MessageQueue) invokeV.objValue;
         }
-        return (BdUniqueId) invokeV.objValue;
+
+        public boolean d(Runnable runnable, long j) {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, runnable, j)) == null) {
+                if (a() == null) {
+                    return false;
+                }
+                return this.a.postDelayed(runnable, j);
+            }
+            return invokeLJ.booleanValue;
+        }
     }
 
-    public zd6(ThreadData threadData) {
+    public zd6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadData};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = threadData;
     }
 
-    public StatisticItem Z(String str) {
-        InterceptResult invokeL;
+    public static a a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            StatisticItem f = f(str);
-            f.delete("obj_type");
-            f.delete("obj_type");
-            f.param("obj_type", 3);
-            return f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (zd6.class) {
+                    if (a == null) {
+                        a = new a(Looper.getMainLooper());
+                    }
+                }
+            }
+            return a;
         }
-        return (StatisticItem) invokeL.objValue;
-    }
-
-    public static boolean W(ThreadData threadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
-            if (threadData == null) {
-                return false;
-            }
-            if (threadData.getThreadType() == 49 || threadData.getThreadType() == 69) {
-                return true;
-            }
-            if (threadData.getThreadType() != 67 || threadData.getThreadAlaInfo() == null || threadData.getThreadAlaInfo().friendRoomStatus != 2) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (a) invokeV.objValue;
     }
 }

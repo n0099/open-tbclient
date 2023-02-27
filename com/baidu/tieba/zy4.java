@@ -1,22 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import tbclient.FrsPage.ForumBookInfo;
 /* loaded from: classes7.dex */
 public class zy4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<UserData> a;
-    public ArrayList<UserData> b;
-    public ty4 c;
+    public String a;
+    public int b;
 
     public zy4() {
         Interceptable interceptable = $ic;
@@ -28,54 +24,47 @@ public class zy4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
-        this.c = new ty4();
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                b(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.detailException(e);
             }
         }
     }
 
-    public void b(JSONObject jSONObject) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c(ForumBookInfo forumBookInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumBookInfo) != null) || forumBookInfo == null) {
             return;
         }
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    UserData userData = new UserData();
-                    userData.parserJson(optJSONArray.getJSONObject(i));
-                    userData.mAttentionType = 2;
-                    this.a.add(userData);
-                }
-            }
-            if (optJSONArray2 != null) {
-                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    UserData userData2 = new UserData();
-                    userData2.parserJson(optJSONArray2.getJSONObject(i2));
-                    userData2.mAttentionType = 1;
-                    this.b.add(userData2);
-                }
-            }
-            this.c.i(jSONObject.optJSONObject("page"));
-            jSONObject.optInt("tafriendnum", 0);
-            jSONObject.optInt("commonfriendnum", 0);
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
+        this.a = forumBookInfo.book_id;
+        this.b = forumBookInfo.book_type.intValue();
+        String str = forumBookInfo.book_title;
+        String str2 = forumBookInfo.book_cover;
+        String str3 = forumBookInfo.author;
+        String str4 = forumBookInfo.forum_pic;
+        String str5 = forumBookInfo.show_chapter_id;
+        String str6 = forumBookInfo.show_chapter_no;
+        String str7 = forumBookInfo.show_chapter_title;
+        forumBookInfo.history_page_id.longValue();
+        forumBookInfo.history_paragraph_id.longValue();
+        forumBookInfo.history_word_id.longValue();
+        forumBookInfo.history_percent.longValue();
+        forumBookInfo.show_page_id.longValue();
+        forumBookInfo.show_paragraph_id.longValue();
     }
 }

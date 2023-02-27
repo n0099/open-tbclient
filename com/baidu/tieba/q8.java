@@ -11,10 +11,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.slider.BasicLabelFormatter;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import com.huawei.hms.framework.common.ExceptionCode;
 import java.io.IOException;
 import java.util.Arrays;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class q8 implements Appendable, CharSequence {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] c;
@@ -35,7 +37,7 @@ public class q8 implements Appendable, CharSequence {
                 return;
             }
         }
-        c = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+        c = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9'};
     }
 
     public final void v() {
@@ -252,7 +254,7 @@ public class q8 implements Appendable, CharSequence {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048593, this, i, i2)) == null) {
-            f(i, i2, '0');
+            f(i, i2, TransactionIdCreater.FILL_BYTE);
             return this;
         }
         return (q8) invokeII.objValue;
@@ -262,7 +264,7 @@ public class q8 implements Appendable, CharSequence {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            i(j, i, '0');
+            i(j, i, TransactionIdCreater.FILL_BYTE);
             return this;
         }
         return (q8) invokeCommon.objValue;
@@ -768,10 +770,10 @@ public class q8 implements Appendable, CharSequence {
                     q(c[(i % 1000000000) / 100000000]);
                 }
                 if (i >= 10000000) {
-                    q(c[(i % 100000000) / 10000000]);
+                    q(c[(i % 100000000) / ExceptionCode.CRASH_EXCEPTION]);
                 }
                 if (i >= 1000000) {
-                    q(c[(i % 10000000) / 1000000]);
+                    q(c[(i % ExceptionCode.CRASH_EXCEPTION) / 1000000]);
                 }
                 if (i >= 100000) {
                     q(c[(i % 1000000) / 100000]);

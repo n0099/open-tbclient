@@ -2,17 +2,10 @@ package com.baidu.ar.statistic;
 
 import android.content.Context;
 import android.os.Process;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h implements Runnable {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public Object mLock;
     public int wC;
     public volatile boolean wD;
@@ -20,20 +13,6 @@ public class h implements Runnable {
     public WeakReference<Context> wn;
 
     public h(Context context, Object obj, i[] iVarArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, obj, iVarArr};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         if (iVarArr == null) {
             throw null;
         }
@@ -44,9 +23,9 @@ public class h implements Runnable {
         this.wE = iVarArr;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:101:0x000f A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x0083  */
-    /* JADX WARN: Removed duplicated region for block: B:89:0x008a A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x007f  */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x0086 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:96:0x000b A[SYNTHETIC] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -54,8 +33,7 @@ public class h implements Runnable {
     public void run() {
         int i;
         int i2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.wE.length == 0) {
+        if (this.wE.length == 0) {
             return;
         }
         Process.setThreadPriority(19);
@@ -154,9 +132,6 @@ public class h implements Runnable {
     }
 
     public void shutdown() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.wD = true;
-        }
+        this.wD = true;
     }
 }

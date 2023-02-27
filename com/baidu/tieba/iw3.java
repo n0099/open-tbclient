@@ -1,38 +1,100 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class iw3 {
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+@Service
+/* loaded from: classes4.dex */
+public class iw3 implements kv1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
 
-    public iw3(int i, int i2, int i3, int i4) {
+    public iw3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.kv1
+    public lm4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return hw3.b().a();
+        }
+        return (lm4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.kv1
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return !hw3.b().c();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.kv1
+    public void b(qf2 qf2Var, of2 of2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qf2Var, of2Var) != null) || of2Var == null) {
+            return;
+        }
+        if (qf2Var != null && !TextUtils.isEmpty(qf2Var.a)) {
+            String str = qf2Var.a;
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 1195918653) {
+                if (hashCode == 1825003424 && str.equals("by_click")) {
+                    c = 0;
+                }
+            } else if (str.equals("by_silent")) {
+                c = 1;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    of2Var.onFail();
+                    return;
+                } else {
+                    hw3.b().b(true, of2Var);
+                    return;
+                }
+            } else if (qf2Var.b) {
+                hw3.b().b(false, of2Var);
+                return;
+            } else {
+                hw3.b().b(true, of2Var);
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-        this.d = i4;
+        of2Var.onFail();
+    }
+
+    @Override // com.baidu.tieba.kv1
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!d() && !bj2.d.w() && (!bj2.d.k(ZeusWebViewPreloadClass.ZEUS_FILE_DIR) || !gg2.U().s0())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

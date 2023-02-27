@@ -20,14 +20,7 @@ import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
-import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentActivity;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.GlideBuilder;
 import com.bumptech.glide.gifdecoder.GifDecoder;
 import com.bumptech.glide.load.DecodeFormat;
@@ -113,13 +106,11 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes7.dex */
 public class Glide implements ComponentCallbacks2 {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_DISK_CACHE_DIR = "image_manager_disk_cache";
     public static final String TAG = "Glide";
     @GuardedBy("Glide.class")
     public static volatile Glide glide;
     public static volatile boolean isInitializing;
-    public transient /* synthetic */ FieldHolder $fh;
     public final ArrayPool arrayPool;
     public final BitmapPool bitmapPool;
     @Nullable
@@ -129,12 +120,12 @@ public class Glide implements ComponentCallbacks2 {
     public final RequestOptionsFactory defaultRequestOptionsFactory;
     public final Engine engine;
     public final GlideContext glideContext;
-    @GuardedBy("managers")
-    public final List<RequestManager> managers;
     public final MemoryCache memoryCache;
-    public MemoryCategory memoryCategory;
     public final Registry registry;
     public final RequestManagerRetriever requestManagerRetriever;
+    @GuardedBy("managers")
+    public final List<RequestManager> managers = new ArrayList();
+    public MemoryCategory memoryCategory = MemoryCategory.NORMAL;
 
     /* loaded from: classes7.dex */
     public interface RequestOptionsFactory {
@@ -144,31 +135,12 @@ public class Glide implements ComponentCallbacks2 {
 
     @Override // android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, configuration) == null) {
-        }
     }
 
     public Glide(@NonNull Context context, @NonNull Engine engine, @NonNull MemoryCache memoryCache, @NonNull BitmapPool bitmapPool, @NonNull ArrayPool arrayPool, @NonNull RequestManagerRetriever requestManagerRetriever, @NonNull ConnectivityMonitorFactory connectivityMonitorFactory, int i, @NonNull RequestOptionsFactory requestOptionsFactory, @NonNull Map<Class<?>, TransitionOptions<?, ?>> map, @NonNull List<RequestListener<Object>> list, GlideExperiments glideExperiments) {
         ResourceDecoder byteBufferBitmapDecoder;
         ResourceDecoder streamBitmapDecoder;
         Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {context, engine, memoryCache, bitmapPool, arrayPool, requestManagerRetriever, connectivityMonitorFactory, Integer.valueOf(i), requestOptionsFactory, map, list, glideExperiments};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.managers = new ArrayList();
-        this.memoryCategory = MemoryCategory.NORMAL;
         this.engine = engine;
         this.bitmapPool = bitmapPool;
         this.arrayPool = arrayPool;
@@ -231,474 +203,324 @@ public class Glide implements ComponentCallbacks2 {
 
     @GuardedBy("Glide.class")
     public static void checkAndInitializeGlide(@NonNull Context context, @Nullable GeneratedAppGlideModule generatedAppGlideModule) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, generatedAppGlideModule) == null) {
-            if (!isInitializing) {
-                isInitializing = true;
-                initializeGlide(context, generatedAppGlideModule);
-                isInitializing = false;
-                return;
-            }
-            throw new IllegalStateException("You cannot call Glide.get() in registerComponents(), use the provided Glide instance instead");
+        if (!isInitializing) {
+            isInitializing = true;
+            initializeGlide(context, generatedAppGlideModule);
+            isInitializing = false;
+            return;
         }
+        throw new IllegalStateException("You cannot call Glide.get() in registerComponents(), use the provided Glide instance instead");
+    }
+
+    @Nullable
+    public static File getPhotoCacheDir(@NonNull Context context, @NonNull String str) {
+        File cacheDir = context.getCacheDir();
+        if (cacheDir != null) {
+            File file = new File(cacheDir, str);
+            if (!file.isDirectory() && !file.mkdirs()) {
+                return null;
+            }
+            return file;
+        }
+        if (Log.isLoggable("Glide", 6)) {
+            Log.e("Glide", "default disk cache dir is null");
+        }
+        return null;
     }
 
     @VisibleForTesting
     public static void init(@NonNull Context context, @NonNull GlideBuilder glideBuilder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, context, glideBuilder) == null) {
-            GeneratedAppGlideModule annotationGeneratedGlideModules = getAnnotationGeneratedGlideModules(context);
-            synchronized (Glide.class) {
-                if (glide != null) {
-                    tearDown();
-                }
-                initializeGlide(context, glideBuilder, annotationGeneratedGlideModules);
+        GeneratedAppGlideModule annotationGeneratedGlideModules = getAnnotationGeneratedGlideModules(context);
+        synchronized (Glide.class) {
+            if (glide != null) {
+                tearDown();
             }
+            initializeGlide(context, glideBuilder, annotationGeneratedGlideModules);
         }
     }
 
     @GuardedBy("Glide.class")
     public static void initializeGlide(@NonNull Context context, @Nullable GeneratedAppGlideModule generatedAppGlideModule) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, context, generatedAppGlideModule) == null) {
-            initializeGlide(context, new GlideBuilder(), generatedAppGlideModule);
-        }
+        initializeGlide(context, new GlideBuilder(), generatedAppGlideModule);
     }
 
     @VisibleForTesting
     public static void enableHardwareBitmaps() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            HardwareConfigState.getInstance().unblockHardwareBitmaps();
+        HardwareConfigState.getInstance().unblockHardwareBitmaps();
+    }
+
+    @VisibleForTesting
+    public static void tearDown() {
+        synchronized (Glide.class) {
+            if (glide != null) {
+                glide.getContext().getApplicationContext().unregisterComponentCallbacks(glide);
+                glide.engine.shutdown();
+            }
+            glide = null;
         }
     }
 
     public void clearDiskCache() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Util.assertBackgroundThread();
-            this.engine.clearDiskCache();
-        }
+        Util.assertBackgroundThread();
+        this.engine.clearDiskCache();
     }
 
     public void clearMemory() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Util.assertMainThread();
-            this.memoryCache.clearMemory();
-            this.bitmapPool.clearMemory();
-            this.arrayPool.clearMemory();
-        }
+        Util.assertMainThread();
+        this.memoryCache.clearMemory();
+        this.bitmapPool.clearMemory();
+        this.arrayPool.clearMemory();
     }
 
     @NonNull
     public ArrayPool getArrayPool() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.arrayPool;
-        }
-        return (ArrayPool) invokeV.objValue;
+        return this.arrayPool;
     }
 
     @NonNull
     public BitmapPool getBitmapPool() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.bitmapPool;
-        }
-        return (BitmapPool) invokeV.objValue;
+        return this.bitmapPool;
     }
 
     public ConnectivityMonitorFactory getConnectivityMonitorFactory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.connectivityMonitorFactory;
-        }
-        return (ConnectivityMonitorFactory) invokeV.objValue;
+        return this.connectivityMonitorFactory;
     }
 
     @NonNull
     public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.glideContext.getBaseContext();
-        }
-        return (Context) invokeV.objValue;
+        return this.glideContext.getBaseContext();
     }
 
     @NonNull
     public GlideContext getGlideContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.glideContext;
-        }
-        return (GlideContext) invokeV.objValue;
+        return this.glideContext;
     }
 
     @NonNull
     public Registry getRegistry() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.registry;
-        }
-        return (Registry) invokeV.objValue;
+        return this.registry;
     }
 
     @NonNull
     public RequestManagerRetriever getRequestManagerRetriever() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.requestManagerRetriever;
-        }
-        return (RequestManagerRetriever) invokeV.objValue;
+        return this.requestManagerRetriever;
     }
 
     @Override // android.content.ComponentCallbacks
     public void onLowMemory() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            clearMemory();
-        }
+        clearMemory();
     }
 
     @NonNull
     public static Glide get(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (glide == null) {
-                GeneratedAppGlideModule annotationGeneratedGlideModules = getAnnotationGeneratedGlideModules(context.getApplicationContext());
-                synchronized (Glide.class) {
-                    if (glide == null) {
-                        checkAndInitializeGlide(context, annotationGeneratedGlideModules);
-                    }
+        if (glide == null) {
+            GeneratedAppGlideModule annotationGeneratedGlideModules = getAnnotationGeneratedGlideModules(context.getApplicationContext());
+            synchronized (Glide.class) {
+                if (glide == null) {
+                    checkAndInitializeGlide(context, annotationGeneratedGlideModules);
                 }
             }
-            return glide;
         }
-        return (Glide) invokeL.objValue;
-    }
-
-    public synchronized void preFillBitmapPool(@NonNull PreFillType.Builder... builderArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, builderArr) == null) {
-            synchronized (this) {
-                if (this.bitmapPreFiller == null) {
-                    this.bitmapPreFiller = new BitmapPreFiller(this.memoryCache, this.bitmapPool, (DecodeFormat) this.defaultRequestOptionsFactory.build().getOptions().get(Downsampler.DECODE_FORMAT));
-                }
-                this.bitmapPreFiller.preFill(builderArr);
-            }
-        }
-    }
-
-    public boolean removeFromManagers(@NonNull Target<?> target) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, target)) == null) {
-            synchronized (this.managers) {
-                for (RequestManager requestManager : this.managers) {
-                    if (requestManager.untrack(target)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void trimMemory(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            Util.assertMainThread();
-            synchronized (this.managers) {
-                for (RequestManager requestManager : this.managers) {
-                    requestManager.onTrimMemory(i);
-                }
-            }
-            this.memoryCache.trimMemory(i);
-            this.bitmapPool.trimMemory(i);
-            this.arrayPool.trimMemory(i);
-        }
-    }
-
-    @Nullable
-    public static GeneratedAppGlideModule getAnnotationGeneratedGlideModules(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            try {
-                return (GeneratedAppGlideModule) Class.forName("com.bumptech.glide.GeneratedAppGlideModuleImpl").getDeclaredConstructor(Context.class).newInstance(context.getApplicationContext());
-            } catch (ClassNotFoundException unused) {
-                if (Log.isLoggable("Glide", 5)) {
-                    Log.w("Glide", "Failed to find GeneratedAppGlideModule. You should include an annotationProcessor compile dependency on com.github.bumptech.glide:compiler in your application and a @GlideModule annotated AppGlideModule implementation or LibraryGlideModules will be silently ignored");
-                }
-                return null;
-            } catch (IllegalAccessException e) {
-                throwIncorrectGlideModule(e);
-                return null;
-            } catch (InstantiationException e2) {
-                throwIncorrectGlideModule(e2);
-                return null;
-            } catch (NoSuchMethodException e3) {
-                throwIncorrectGlideModule(e3);
-                return null;
-            } catch (InvocationTargetException e4) {
-                throwIncorrectGlideModule(e4);
-                return null;
-            }
-        }
-        return (GeneratedAppGlideModule) invokeL.objValue;
+        return glide;
     }
 
     @Nullable
     public static File getPhotoCacheDir(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            return getPhotoCacheDir(context, "image_manager_disk_cache");
-        }
-        return (File) invokeL.objValue;
+        return getPhotoCacheDir(context, "image_manager_disk_cache");
     }
 
     @NonNull
     public static RequestManagerRetriever getRetriever(@Nullable Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            Preconditions.checkNotNull(context, "You cannot start a load on a not yet attached View or a Fragment where getActivity() returns null (which usually occurs when getActivity() is called before the Fragment is attached or after the Fragment is destroyed).");
-            return get(context).getRequestManagerRetriever();
-        }
-        return (RequestManagerRetriever) invokeL.objValue;
+        Preconditions.checkNotNull(context, "You cannot start a load on a not yet attached View or a Fragment where getActivity() returns null (which usually occurs when getActivity() is called before the Fragment is attached or after the Fragment is destroyed).");
+        return get(context).getRequestManagerRetriever();
     }
 
     @VisibleForTesting
     @Deprecated
     public static synchronized void init(Glide glide2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, glide2) == null) {
-            synchronized (Glide.class) {
-                if (glide != null) {
-                    tearDown();
-                }
-                glide = glide2;
+        synchronized (Glide.class) {
+            if (glide != null) {
+                tearDown();
             }
+            glide = glide2;
         }
     }
 
     public static void throwIncorrectGlideModule(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, exc) == null) {
-            throw new IllegalStateException("GeneratedAppGlideModuleImpl is implemented incorrectly. If you've manually implemented this class, remove your implementation. The Annotation processor will generate a correct implementation.", exc);
-        }
+        throw new IllegalStateException("GeneratedAppGlideModuleImpl is implemented incorrectly. If you've manually implemented this class, remove your implementation. The Annotation processor will generate a correct implementation.", exc);
     }
 
     @NonNull
     public static RequestManager with(@NonNull Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, activity)) == null) {
-            return getRetriever(activity).get(activity);
-        }
-        return (RequestManager) invokeL.objValue;
+        return getRetriever(activity).get(activity);
     }
 
     @Override // android.content.ComponentCallbacks2
     public void onTrimMemory(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            trimMemory(i);
+        trimMemory(i);
+    }
+
+    public synchronized void preFillBitmapPool(@NonNull PreFillType.Builder... builderArr) {
+        if (this.bitmapPreFiller == null) {
+            this.bitmapPreFiller = new BitmapPreFiller(this.memoryCache, this.bitmapPool, (DecodeFormat) this.defaultRequestOptionsFactory.build().getOptions().get(Downsampler.DECODE_FORMAT));
         }
+        this.bitmapPreFiller.preFill(builderArr);
     }
 
     public void registerRequestManager(RequestManager requestManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, requestManager) == null) {
-            synchronized (this.managers) {
-                if (!this.managers.contains(requestManager)) {
-                    this.managers.add(requestManager);
-                } else {
-                    throw new IllegalStateException("Cannot register already registered manager");
+        synchronized (this.managers) {
+            if (!this.managers.contains(requestManager)) {
+                this.managers.add(requestManager);
+            } else {
+                throw new IllegalStateException("Cannot register already registered manager");
+            }
+        }
+    }
+
+    public boolean removeFromManagers(@NonNull Target<?> target) {
+        synchronized (this.managers) {
+            for (RequestManager requestManager : this.managers) {
+                if (requestManager.untrack(target)) {
+                    return true;
                 }
             }
+            return false;
         }
     }
 
     @NonNull
     public MemoryCategory setMemoryCategory(@NonNull MemoryCategory memoryCategory) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, memoryCategory)) == null) {
-            Util.assertMainThread();
-            this.memoryCache.setSizeMultiplier(memoryCategory.getMultiplier());
-            this.bitmapPool.setSizeMultiplier(memoryCategory.getMultiplier());
-            MemoryCategory memoryCategory2 = this.memoryCategory;
-            this.memoryCategory = memoryCategory;
-            return memoryCategory2;
+        Util.assertMainThread();
+        this.memoryCache.setSizeMultiplier(memoryCategory.getMultiplier());
+        this.bitmapPool.setSizeMultiplier(memoryCategory.getMultiplier());
+        MemoryCategory memoryCategory2 = this.memoryCategory;
+        this.memoryCategory = memoryCategory;
+        return memoryCategory2;
+    }
+
+    public void trimMemory(int i) {
+        Util.assertMainThread();
+        synchronized (this.managers) {
+            for (RequestManager requestManager : this.managers) {
+                requestManager.onTrimMemory(i);
+            }
         }
-        return (MemoryCategory) invokeL.objValue;
+        this.memoryCache.trimMemory(i);
+        this.bitmapPool.trimMemory(i);
+        this.arrayPool.trimMemory(i);
     }
 
     public void unregisterRequestManager(RequestManager requestManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, requestManager) == null) {
-            synchronized (this.managers) {
-                if (this.managers.contains(requestManager)) {
-                    this.managers.remove(requestManager);
-                } else {
-                    throw new IllegalStateException("Cannot unregister not yet registered manager");
-                }
+        synchronized (this.managers) {
+            if (this.managers.contains(requestManager)) {
+                this.managers.remove(requestManager);
+            } else {
+                throw new IllegalStateException("Cannot unregister not yet registered manager");
             }
         }
     }
 
     @Nullable
-    public static File getPhotoCacheDir(@NonNull Context context, @NonNull String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
-            File cacheDir = context.getCacheDir();
-            if (cacheDir != null) {
-                File file = new File(cacheDir, str);
-                if (!file.isDirectory() && !file.mkdirs()) {
-                    return null;
-                }
-                return file;
-            }
-            if (Log.isLoggable("Glide", 6)) {
-                Log.e("Glide", "default disk cache dir is null");
+    public static GeneratedAppGlideModule getAnnotationGeneratedGlideModules(Context context) {
+        try {
+            return (GeneratedAppGlideModule) Class.forName("com.bumptech.glide.GeneratedAppGlideModuleImpl").getDeclaredConstructor(Context.class).newInstance(context.getApplicationContext());
+        } catch (ClassNotFoundException unused) {
+            if (Log.isLoggable("Glide", 5)) {
+                Log.w("Glide", "Failed to find GeneratedAppGlideModule. You should include an annotationProcessor compile dependency on com.github.bumptech.glide:compiler in your application and a @GlideModule annotated AppGlideModule implementation or LibraryGlideModules will be silently ignored");
             }
             return null;
+        } catch (IllegalAccessException e) {
+            throwIncorrectGlideModule(e);
+            return null;
+        } catch (InstantiationException e2) {
+            throwIncorrectGlideModule(e2);
+            return null;
+        } catch (NoSuchMethodException e3) {
+            throwIncorrectGlideModule(e3);
+            return null;
+        } catch (InvocationTargetException e4) {
+            throwIncorrectGlideModule(e4);
+            return null;
         }
-        return (File) invokeLL.objValue;
     }
 
     @GuardedBy("Glide.class")
     public static void initializeGlide(@NonNull Context context, @NonNull GlideBuilder glideBuilder, @Nullable GeneratedAppGlideModule generatedAppGlideModule) {
         RequestManagerRetriever.RequestManagerFactory requestManagerFactory;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, null, context, glideBuilder, generatedAppGlideModule) == null) {
-            Context applicationContext = context.getApplicationContext();
-            List<GlideModule> emptyList = Collections.emptyList();
-            if (generatedAppGlideModule == null || generatedAppGlideModule.isManifestParsingEnabled()) {
-                emptyList = new ManifestParser(applicationContext).parse();
-            }
-            if (generatedAppGlideModule != null && !generatedAppGlideModule.getExcludedModuleClasses().isEmpty()) {
-                Set<Class<?>> excludedModuleClasses = generatedAppGlideModule.getExcludedModuleClasses();
-                Iterator<GlideModule> it = emptyList.iterator();
-                while (it.hasNext()) {
-                    GlideModule next = it.next();
-                    if (excludedModuleClasses.contains(next.getClass())) {
-                        if (Log.isLoggable("Glide", 3)) {
-                            Log.d("Glide", "AppGlideModule excludes manifest GlideModule: " + next);
-                        }
-                        it.remove();
+        Context applicationContext = context.getApplicationContext();
+        List<GlideModule> emptyList = Collections.emptyList();
+        if (generatedAppGlideModule == null || generatedAppGlideModule.isManifestParsingEnabled()) {
+            emptyList = new ManifestParser(applicationContext).parse();
+        }
+        if (generatedAppGlideModule != null && !generatedAppGlideModule.getExcludedModuleClasses().isEmpty()) {
+            Set<Class<?>> excludedModuleClasses = generatedAppGlideModule.getExcludedModuleClasses();
+            Iterator<GlideModule> it = emptyList.iterator();
+            while (it.hasNext()) {
+                GlideModule next = it.next();
+                if (excludedModuleClasses.contains(next.getClass())) {
+                    if (Log.isLoggable("Glide", 3)) {
+                        Log.d("Glide", "AppGlideModule excludes manifest GlideModule: " + next);
                     }
+                    it.remove();
                 }
-            }
-            if (Log.isLoggable("Glide", 3)) {
-                Iterator<GlideModule> it2 = emptyList.iterator();
-                while (it2.hasNext()) {
-                    Log.d("Glide", "Discovered GlideModule from manifest: " + it2.next().getClass());
-                }
-            }
-            if (generatedAppGlideModule != null) {
-                requestManagerFactory = generatedAppGlideModule.getRequestManagerFactory();
-            } else {
-                requestManagerFactory = null;
-            }
-            glideBuilder.setRequestManagerFactory(requestManagerFactory);
-            for (GlideModule glideModule : emptyList) {
-                glideModule.applyOptions(applicationContext, glideBuilder);
-            }
-            if (generatedAppGlideModule != null) {
-                generatedAppGlideModule.applyOptions(applicationContext, glideBuilder);
-            }
-            Glide build = glideBuilder.build(applicationContext);
-            for (GlideModule glideModule2 : emptyList) {
-                try {
-                    glideModule2.registerComponents(applicationContext, build, build.registry);
-                } catch (AbstractMethodError e) {
-                    throw new IllegalStateException("Attempting to register a Glide v3 module. If you see this, you or one of your dependencies may be including Glide v3 even though you're using Glide v4. You'll need to find and remove (or update) the offending dependency. The v3 module name is: " + glideModule2.getClass().getName(), e);
-                }
-            }
-            if (generatedAppGlideModule != null) {
-                generatedAppGlideModule.registerComponents(applicationContext, build, build.registry);
-            }
-            applicationContext.registerComponentCallbacks(build);
-            glide = build;
-        }
-    }
-
-    @VisibleForTesting
-    public static void tearDown() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
-            synchronized (Glide.class) {
-                if (glide != null) {
-                    glide.getContext().getApplicationContext().unregisterComponentCallbacks(glide);
-                    glide.engine.shutdown();
-                }
-                glide = null;
             }
         }
+        if (Log.isLoggable("Glide", 3)) {
+            Iterator<GlideModule> it2 = emptyList.iterator();
+            while (it2.hasNext()) {
+                Log.d("Glide", "Discovered GlideModule from manifest: " + it2.next().getClass());
+            }
+        }
+        if (generatedAppGlideModule != null) {
+            requestManagerFactory = generatedAppGlideModule.getRequestManagerFactory();
+        } else {
+            requestManagerFactory = null;
+        }
+        glideBuilder.setRequestManagerFactory(requestManagerFactory);
+        for (GlideModule glideModule : emptyList) {
+            glideModule.applyOptions(applicationContext, glideBuilder);
+        }
+        if (generatedAppGlideModule != null) {
+            generatedAppGlideModule.applyOptions(applicationContext, glideBuilder);
+        }
+        Glide build = glideBuilder.build(applicationContext);
+        for (GlideModule glideModule2 : emptyList) {
+            try {
+                glideModule2.registerComponents(applicationContext, build, build.registry);
+            } catch (AbstractMethodError e) {
+                throw new IllegalStateException("Attempting to register a Glide v3 module. If you see this, you or one of your dependencies may be including Glide v3 even though you're using Glide v4. You'll need to find and remove (or update) the offending dependency. The v3 module name is: " + glideModule2.getClass().getName(), e);
+            }
+        }
+        if (generatedAppGlideModule != null) {
+            generatedAppGlideModule.registerComponents(applicationContext, build, build.registry);
+        }
+        applicationContext.registerComponentCallbacks(build);
+        glide = build;
     }
 
     @NonNull
     @Deprecated
     public static RequestManager with(@NonNull Fragment fragment) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, fragment)) == null) {
-            return getRetriever(fragment.getActivity()).get(fragment);
-        }
-        return (RequestManager) invokeL.objValue;
+        return getRetriever(fragment.getActivity()).get(fragment);
     }
 
     @NonNull
     public static RequestManager with(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
-            return getRetriever(context).get(context);
-        }
-        return (RequestManager) invokeL.objValue;
+        return getRetriever(context).get(context);
     }
 
     @NonNull
     public static RequestManager with(@NonNull View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, view2)) == null) {
-            return getRetriever(view2.getContext()).get(view2);
-        }
-        return (RequestManager) invokeL.objValue;
+        return getRetriever(view2.getContext()).get(view2);
     }
 
     @NonNull
     public static RequestManager with(@NonNull androidx.fragment.app.Fragment fragment) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, fragment)) == null) {
-            return getRetriever(fragment.getContext()).get(fragment);
-        }
-        return (RequestManager) invokeL.objValue;
+        return getRetriever(fragment.getContext()).get(fragment);
     }
 
     @NonNull
     public static RequestManager with(@NonNull FragmentActivity fragmentActivity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, fragmentActivity)) == null) {
-            return getRetriever(fragmentActivity).get(fragmentActivity);
-        }
-        return (RequestManager) invokeL.objValue;
+        return getRetriever(fragmentActivity).get(fragmentActivity);
     }
 }

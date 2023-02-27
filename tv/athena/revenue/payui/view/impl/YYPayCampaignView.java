@@ -11,15 +11,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rma;
-import com.baidu.tieba.vma;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.mva;
+import com.baidu.tieba.qva;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
@@ -30,9 +24,7 @@ import tv.athena.revenue.payui.view.WindowParams;
 import tv.athena.revenue.payui.view.adapter.PayAmountCampaignListAdapter;
 import tv.athena.revenue.payui.view.adapter.PayCampaignListItemDecoration;
 /* loaded from: classes9.dex */
-public class YYPayCampaignView extends LinearLayout implements vma {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public class YYPayCampaignView extends LinearLayout implements qva {
     public Activity a;
     public RecyclerView b;
     public RelativeLayout c;
@@ -42,45 +34,21 @@ public class YYPayCampaignView extends LinearLayout implements vma {
     public PayAmountCampaignListAdapter g;
     public LinearLayoutManager h;
 
-    @Override // com.baidu.tieba.uma
+    @Override // com.baidu.tieba.pva
     public void attachWindow(Window window) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, window) == null) {
-        }
     }
 
-    @Override // com.baidu.tieba.uma
+    @Override // com.baidu.tieba.pva
     public View getContentView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (View) invokeV.objValue;
+        return this;
     }
 
-    @Override // com.baidu.tieba.uma
+    @Override // com.baidu.tieba.pva
     public void refreshWindow(WindowParams windowParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, windowParams) == null) {
-        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public YYPayCampaignView(Activity activity, int i, int i2, PayUIKitConfig payUIKitConfig) {
         super(activity);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.f = new ArrayList();
         this.a = activity;
         this.e = payUIKitConfig;
@@ -88,45 +56,36 @@ public class YYPayCampaignView extends LinearLayout implements vma {
     }
 
     public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(context, rma.a.a(this.e))).inflate(R.layout.pay_ui_layout_pay_amount_campaign_view, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.rv_campaign);
-            this.c = (RelativeLayout) findViewById(R.id.rl_content);
-            this.h = new LinearLayoutManager(context, 0, false);
-            this.g = new PayAmountCampaignListAdapter(this.a, this.f, this.e);
-            this.b.setLayoutManager(this.h);
-            this.b.addItemDecoration(new PayCampaignListItemDecoration());
-            this.b.setAdapter(this.g);
-        }
+        LayoutInflater.from(new ContextThemeWrapper(context, mva.a.a(this.e))).inflate(R.layout.pay_ui_layout_pay_amount_campaign_view, (ViewGroup) this, true);
+        this.b = (RecyclerView) findViewById(R.id.rv_campaign);
+        this.c = (RelativeLayout) findViewById(R.id.rl_content);
+        this.h = new LinearLayoutManager(context, 0, false);
+        this.g = new PayAmountCampaignListAdapter(this.a, this.f, this.e);
+        this.b.setLayoutManager(this.h);
+        this.b.addItemDecoration(new PayCampaignListItemDecoration());
+        this.b.setAdapter(this.g);
     }
 
-    @Override // com.baidu.tieba.uma
+    @Override // com.baidu.tieba.pva
     public void refreshView() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            GiftBagsInfo giftBagsInfo = this.d;
-            if (giftBagsInfo == null) {
-                RLog.error("YYPayCampaignView", "refreshView error mGiftBagsInfo null", new Object[0]);
-                return;
-            }
-            List<GiftBagItemInfo> list = giftBagsInfo.giftbag;
-            if (list != null && !list.isEmpty()) {
-                this.f.clear();
-                this.f.addAll(this.d.giftbag);
-                this.g.notifyDataSetChanged();
-                return;
-            }
-            RLog.error("YYPayCampaignView", "refreshView error giftbag null", new Object[0]);
+        GiftBagsInfo giftBagsInfo = this.d;
+        if (giftBagsInfo == null) {
+            RLog.error("YYPayCampaignView", "refreshView error mGiftBagsInfo null", new Object[0]);
+            return;
         }
+        List<GiftBagItemInfo> list = giftBagsInfo.giftbag;
+        if (list != null && !list.isEmpty()) {
+            this.f.clear();
+            this.f.addAll(this.d.giftbag);
+            this.g.notifyDataSetChanged();
+            return;
+        }
+        RLog.error("YYPayCampaignView", "refreshView error giftbag null", new Object[0]);
     }
 
-    @Override // com.baidu.tieba.vma
+    @Override // com.baidu.tieba.qva
     public void setGiftBagsInfo(GiftBagsInfo giftBagsInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, giftBagsInfo) == null) {
-            RLog.info("YYPayCampaignView", "setGiftBagsInfo giftBagsInfo:" + giftBagsInfo);
-            this.d = giftBagsInfo;
-        }
+        RLog.info("YYPayCampaignView", "setGiftBagsInfo giftBagsInfo:" + giftBagsInfo);
+        this.d = giftBagsInfo;
     }
 }

@@ -53,7 +53,7 @@ public abstract class BaseActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.finish();
             if (this.a) {
-                overridePendingTransition(R.anim.obfuscated_res_0x7f010149, R.anim.obfuscated_res_0x7f01014d);
+                overridePendingTransition(R.anim.obfuscated_res_0x7f01014e, R.anim.obfuscated_res_0x7f010152);
             }
         }
     }
@@ -115,8 +115,8 @@ public abstract class BaseActivity extends Activity {
                     } else {
                         i = 0;
                     }
-                    Log.d(com.sina.weibo.sdk.share.BaseActivity.TAG, "onSetDefaultStatusBarColor: " + i);
-                    ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0927b1);
+                    Log.d("BaseActivity", "onSetDefaultStatusBarColor: " + i);
+                    ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09280d);
                     if (viewGroup != null && i > 0) {
                         if (!getSharedPreferences("feedback_switch_prefs", 0).getBoolean("f_stu_b", false)) {
                             ((ViewGroup) viewGroup.getParent()).setPadding(0, i, 0, 0);
@@ -135,9 +135,9 @@ public abstract class BaseActivity extends Activity {
                                 window.getDecorView().setSystemUiVisibility(9216);
                             }
                         }
-                        window.setStatusBarColor(getResources().getColor(R.color.obfuscated_res_0x7f060635));
+                        window.setStatusBarColor(getResources().getColor(R.color.obfuscated_res_0x7f060503));
                     } else {
-                        int color = getResources().getColor(R.color.obfuscated_res_0x7f060635);
+                        int color = getResources().getColor(R.color.obfuscated_res_0x7f060503);
                         if (Build.VERSION.SDK_INT >= 21) {
                             Window window2 = getWindow();
                             window2.addFlags(Integer.MIN_VALUE);

@@ -1,26 +1,58 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.open.SocialOperation;
+import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class st3 implements ht3 {
+public class st3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile st3 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] a;
-    public tt3 b;
-    public boolean c;
+    public a a;
+    public volatile boolean b;
 
-    public st3(@NonNull Context context) {
+    /* loaded from: classes6.dex */
+    public static class a extends wp4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("swan_host_info_config_sp_name");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    public st3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,49 +62,192 @@ public class st3 implements ht3 {
                 return;
             }
         }
-        c(context);
+        this.b = false;
+        this.a = new a();
     }
 
-    @Override // com.baidu.tieba.ht3
-    public void b(int i) {
-        tt3 tt3Var;
+    public static st3 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.c && (tt3Var = this.b) != null && tt3Var.c()) {
-            this.c = true;
-            this.b.e(i, this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (st3.class) {
+                    if (c == null) {
+                        c = new st3();
+                    }
+                }
+            }
+            return c;
         }
+        return (st3) invokeV.objValue;
     }
 
-    public final void c(Context context) {
+    public Set<String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.b == null) {
-            this.b = tt3.b(context);
-            d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Set<String> stringSet = this.a.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+            if (stringSet != null) {
+                return stringSet;
+            }
+            if (!h()) {
+                return null;
+            }
+            return this.a.getStringSet(SocialOperation.GAME_SIGNATURE, null);
         }
+        return (Set) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ht3
-    public void a() {
-        tt3 tt3Var;
+    @SuppressLint({"BDThrowableCheck"})
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && (tt3Var = this.b) != null && tt3Var.c()) {
-            this.c = false;
-            this.b.f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String c2 = c("appKey");
+            if (!TextUtils.isEmpty(c2)) {
+                return c2;
+            }
+            if (!ht3.a) {
+                return "";
+            }
+            throw new IllegalStateException("获取 host app key 失败");
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void d() {
+    @SuppressLint({"BDThrowableCheck"})
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.a != null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String c2 = c("hostName");
+            if (!TextUtils.isEmpty(c2)) {
+                return c2;
+            }
+            if (!ht3.a) {
+                return "";
+            }
+            throw new IllegalStateException("获取 HostName-宿主名称 失败");
         }
-        nt3 f = ut3.f();
-        if (f.a <= 4) {
-            this.a = new int[]{1082130432, 4095, 1082146816, 4095, 1098907648, 4095, 1098956800, 0, 1077936128, 1};
-        } else if (f.h && f.d()) {
-            this.a = new int[]{1082130688, 4095, 1082147072, 4095, 1082130432, 4095, 1082146816, 4095, 1082130944, 4095, 1082147328, 4095, 1098907648, 4095, 1115734016, 4095, 1115750400, 4095, 1115766784, 4095, 1098956800, 0, 1077936128, 1};
-        } else {
-            this.a = new int[]{1082130688, 4095, 1082147072, 4095, 1082130432, 4095, 1082146816, 4095, 1098907648, 4095, 1098956800, 0, 1077936128, 1};
+        return (String) invokeV.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String c2 = c("schemeHead");
+            if (!TextUtils.isEmpty(c2)) {
+                return c2;
+            }
+            if (!ht3.a) {
+                return "";
+            }
+            throw new IllegalStateException("获取 SchemeHead-协议头 失败");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String string = this.a.getString(str, "");
+            if (!TextUtils.isEmpty(string)) {
+                return string;
+            }
+            if (h()) {
+                String string2 = this.a.getString(str, "");
+                if (!TextUtils.isEmpty(string2)) {
+                    return string2;
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String g(String str, int i, String str2) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, str, i, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String c2 = c("shareCallBackUrl");
+            if (!TextUtils.isEmpty(c2)) {
+                String a2 = vp4.a(vp4.a(c2, "type", String.valueOf(i)), "appKey", str);
+                if (!TextUtils.isEmpty(str2)) {
+                    return vp4.a(a2, "path", up4.b(str2));
+                }
+                return a2;
+            }
+            return "";
+        }
+        return (String) invokeLIL.objValue;
+    }
+
+    public final synchronized boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                if (this.b) {
+                    return true;
+                }
+                String D = qp4.D(AppRuntime.getAppContext(), "config/union-cfg.json");
+                HashSet hashSet = null;
+                if (TextUtils.isEmpty(D)) {
+                    File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_config/union-cfg.json");
+                    if (file.exists()) {
+                        D = qp4.E(file);
+                    } else {
+                        D = null;
+                    }
+                }
+                if (TextUtils.isEmpty(D)) {
+                    return false;
+                }
+                try {
+                    JSONObject jSONObject = new JSONObject(D);
+                    String optString = jSONObject.optString("hostName");
+                    String optString2 = jSONObject.optString("schemeHead");
+                    String optString3 = jSONObject.optString("appKey");
+                    String optString4 = jSONObject.optString("shareCallBackUrl");
+                    int optInt = jSONObject.optInt("version");
+                    JSONArray optJSONArray = jSONObject.optJSONArray(SocialOperation.GAME_SIGNATURE);
+                    if (optJSONArray != null && optJSONArray.length() > 0) {
+                        hashSet = new HashSet();
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            hashSet.add(optJSONArray.optString(i));
+                        }
+                    }
+                    i(optString, optString2, optString3, optString4, optInt, hashSet);
+                    this.b = true;
+                    return true;
+                } catch (JSONException e) {
+                    if (ht3.a) {
+                        e.printStackTrace();
+                    }
+                    return false;
+                }
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void i(String str, String str2, String str3, String str4, int i, Set<String> set) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, str3, str4, Integer.valueOf(i), set}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && i >= 0) {
+            SharedPreferences.Editor putInt = this.a.edit().putString("hostName", str).putString("schemeHead", str2).putString("appKey", str3).putString("shareCallBackUrl", str4).putInt("version", i);
+            if (set != null && !set.isEmpty()) {
+                putInt.putStringSet(SocialOperation.GAME_SIGNATURE, set);
+            }
+            putInt.apply();
         }
     }
 }

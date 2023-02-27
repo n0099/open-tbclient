@@ -2,826 +2,377 @@ package com.baidu.nadcore.stats.request;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.encrypt.a;
 import com.baidu.adp.ApsConstants;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
 import com.baidu.platform.comapi.map.MapController;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.h41;
-import com.baidu.tieba.i41;
-import com.baidu.tieba.k41;
-import com.baidu.tieba.m41;
+import com.baidu.tieba.a31;
+import com.baidu.tieba.f21;
 import com.baidu.tieba.o41;
-import com.baidu.tieba.s21;
-import com.baidu.tieba.t21;
-import com.baidu.tieba.tj0;
-import com.baidu.tieba.y11;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.p41;
+import com.baidu.tieba.r41;
+import com.baidu.tieba.t41;
+import com.baidu.tieba.v41;
+import com.baidu.tieba.xj0;
+import com.baidu.tieba.z21;
+import com.huawei.hms.framework.network.grs.GrsBaseInfo;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.net.URLEncoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class ClogBuilder extends s21 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final JSONObject c;
-
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
-    public static final class Area {
-        public static final /* synthetic */ Area[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final Area AD_BLANK;
-        public static final Area AD_BTN_DETAIL;
-        public static final Area AD_CALL;
-        public static final Area AD_DIALOG_SHOW;
-        public static final Area AD_LEAVE;
-        public static final Area AD_NOTIFICATION_BTN_CLICK;
-        public static final Area AD_NOTIFICATION_ITEM_CLICK;
-        public static final Area AD_NOTIFICATION_NOTIFY;
-        public static final Area AD_NOTIFICATION_REMOVE;
-        public static final Area AD_NOTIFICATION_SHOW;
-        public static final Area APP;
-        public static final Area APP_NOTIFICATION;
-        public static final Area APP_PERMISSION;
-        public static final Area APP_PRIVACY;
-        public static final Area ARROW;
-        public static final Area AUTO_HIDE;
-        public static final Area AVATAR;
-        public static final Area BTN_NAGITIVE;
-        public static final Area BTN_POSITIVE;
-        public static final Area BUTTON;
-        public static final Area CLOSE_BTN;
-        public static final Area DIALOG;
-        public static final Area DIALOG_KEYBACK;
-        public static final Area DIALOG_NEGATIVE;
-        public static final Area DIALOG_POSITIVE;
-        public static final Area DOWNLOAD_BUTTON;
-        public static final Area FLOATING;
-        public static final Area HOTAREA;
-        public static final Area ICON;
-        public static final Area IMAGE;
-        public static final Area INSTALL_LATER_BUTTON;
-        public static final Area INSTALL_NOW_BUTTON;
-        public static final Area INVALID;
-        public static final Area NAME;
-        public static final Area OPEN_BUTTON;
-        public static final Area REWARD_LANDING_PAGE;
-        public static final Area REWARD_SLIDING_TAG;
-        public static final Area SLIDING_TAG;
-        public static final Area SWIPE_UP;
-        public static final Area TITTLE;
-        public static final Area URL;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String type;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1658808665, "Lcom/baidu/nadcore/stats/request/ClogBuilder$Area;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1658808665, "Lcom/baidu/nadcore/stats/request/ClogBuilder$Area;");
-                    return;
-                }
-            }
-            ICON = new Area("ICON", 0, "icon");
-            NAME = new Area("NAME", 1, "name");
-            BUTTON = new Area("BUTTON", 2, NativeConstants.ID_BUTTON);
-            OPEN_BUTTON = new Area("OPEN_BUTTON", 3, "openbtn");
-            DOWNLOAD_BUTTON = new Area("DOWNLOAD_BUTTON", 4, "downloadbtn");
-            INSTALL_NOW_BUTTON = new Area("INSTALL_NOW_BUTTON", 5, "install_now_button");
-            INSTALL_LATER_BUTTON = new Area("INSTALL_LATER_BUTTON", 6, "install_later_button");
-            HOTAREA = new Area("HOTAREA", 7, "hotarea");
-            AD_NOTIFICATION_ITEM_CLICK = new Area("AD_NOTIFICATION_ITEM_CLICK", 8, "ad_notification_item_click");
-            AD_NOTIFICATION_BTN_CLICK = new Area("AD_NOTIFICATION_BTN_CLICK", 9, "ad_notification_btn_click");
-            AD_NOTIFICATION_SHOW = new Area("AD_NOTIFICATION_SHOW", 10, "ad_notification_show");
-            AD_NOTIFICATION_NOTIFY = new Area("AD_NOTIFICATION_NOTIFY", 11, "ad_notification_notify");
-            AD_NOTIFICATION_REMOVE = new Area("AD_NOTIFICATION_REMOVE", 12, "ad_notification_remove");
-            DIALOG = new Area("DIALOG", 13, MapController.POPUP_LAYER_TAG);
-            DIALOG_POSITIVE = new Area("DIALOG_POSITIVE", 14, "popup_select");
-            DIALOG_NEGATIVE = new Area("DIALOG_NEGATIVE", 15, "popup_cancel");
-            DIALOG_KEYBACK = new Area("DIALOG_KEYBACK", 16, "popup_back");
-            AD_CALL = new Area("AD_CALL", 17, "CALL");
-            APP_PRIVACY = new Area("APP_PRIVACY", 18, "app_privacy");
-            APP_PERMISSION = new Area("APP_PERMISSION", 19, "app_permission");
-            FLOATING = new Area("FLOATING", 20, "floating_btn");
-            IMAGE = new Area("IMAGE", 21, "image");
-            CLOSE_BTN = new Area("CLOSE_BTN", 22, "close_btn");
-            AUTO_HIDE = new Area("AUTO_HIDE", 23, "auto_hide");
-            AD_DIALOG_SHOW = new Area("AD_DIALOG_SHOW", 24, "ad_dialog_show");
-            BTN_POSITIVE = new Area("BTN_POSITIVE", 25, "btn_positive");
-            BTN_NAGITIVE = new Area("BTN_NAGITIVE", 26, "btn_nagitive");
-            APP_NOTIFICATION = new Area("APP_NOTIFICATION", 27, "APP_NOTIFICATION");
-            SLIDING_TAG = new Area("SLIDING_TAG", 28, "sliding_tag");
-            REWARD_SLIDING_TAG = new Area("REWARD_SLIDING_TAG", 29, "tag");
-            SWIPE_UP = new Area("SWIPE_UP", 30, "swipeup");
-            AD_BLANK = new Area("AD_BLANK", 31, "blank");
-            REWARD_LANDING_PAGE = new Area("REWARD_LANDING_PAGE", 32, "landingpage");
-            ARROW = new Area("ARROW", 33, "arrow");
-            APP = new Area("APP", 34, "APP");
-            URL = new Area("URL", 35, "URL");
-            AD_BTN_DETAIL = new Area("AD_BTN_DETAIL", 36, "detailbtn");
-            AD_LEAVE = new Area("AD_LEAVE", 37, "leave");
-            AVATAR = new Area("AVATAR", 38, "avatar");
-            TITTLE = new Area("TITTLE", 39, "title");
-            Area area = new Area("INVALID", 40, "INVALID");
-            INVALID = area;
-            $VALUES = new Area[]{ICON, NAME, BUTTON, OPEN_BUTTON, DOWNLOAD_BUTTON, INSTALL_NOW_BUTTON, INSTALL_LATER_BUTTON, HOTAREA, AD_NOTIFICATION_ITEM_CLICK, AD_NOTIFICATION_BTN_CLICK, AD_NOTIFICATION_SHOW, AD_NOTIFICATION_NOTIFY, AD_NOTIFICATION_REMOVE, DIALOG, DIALOG_POSITIVE, DIALOG_NEGATIVE, DIALOG_KEYBACK, AD_CALL, APP_PRIVACY, APP_PERMISSION, FLOATING, IMAGE, CLOSE_BTN, AUTO_HIDE, AD_DIALOG_SHOW, BTN_POSITIVE, BTN_NAGITIVE, APP_NOTIFICATION, SLIDING_TAG, REWARD_SLIDING_TAG, SWIPE_UP, AD_BLANK, REWARD_LANDING_PAGE, ARROW, APP, URL, AD_BTN_DETAIL, AD_LEAVE, AVATAR, TITTLE, area};
-        }
-
-        public Area(String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i), str2};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str3 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.type = str2;
-        }
-
-        public static Area valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                return (Area) Enum.valueOf(Area.class, str);
-            }
-            return (Area) invokeL.objValue;
-        }
-
-        public static Area[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return (Area[]) $VALUES.clone();
-            }
-            return (Area[]) invokeV.objValue;
-        }
-    }
-
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
-    public static final class LogType {
-        public static final /* synthetic */ LogType[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final LogType AD_CALL;
-        public static final LogType AD_NOTIFICATION_NOTIFY_FAILED;
-        public static final LogType CHAN_MORE;
-        public static final LogType CHECK;
-        public static final LogType CLICK;
-        public static final LogType CLOSE;
-        public static final LogType DAZZLE_CARD_SHOW;
-        public static final LogType DAZZLE_CLICK;
-        public static final LogType DAZZLE_IN;
-        public static final LogType DAZZLE_OUT;
-        public static final LogType DAZZLE_TRANS_SLIDING_COUNT;
-        public static final LogType DEEPLINK_STAY_TIME;
-        public static final LogType DEEPLINK_STAY_TRANS;
-        public static final LogType DEEP_LINK;
-        public static final LogType DISCARD;
-        public static final LogType DOWNLOAD_COMPLETE;
-        public static final LogType DOWNLOAD_CONTINUE;
-        public static final LogType DOWNLOAD_FAILED;
-        public static final LogType DOWNLOAD_INSTALL;
-        public static final LogType DOWNLOAD_KEEP;
-        public static final LogType DOWNLOAD_PAUSE;
-        public static final LogType DOWNLOAD_RETRY;
-        public static final LogType DOWNLOAD_START;
-        public static final LogType DURATION;
-        public static final LogType EXCEPTION;
-        public static final LogType FAIL;
-        public static final LogType FREE_CLICK;
-        public static final LogType FREE_SHOW;
-        public static final LogType GESTURE_MATCH_FAILURE;
-        public static final LogType GESTURE_MATCH_SUCCESS;
-        public static final LogType HOME_PAGE_FIRST_SCREEN_AD_SHOW;
-        public static final LogType HW_API_REQUEST;
-        public static final LogType INSTALL_COMPLETE;
-        public static final LogType INTERACTION_COLLECT;
-        public static final LogType INTERACTION_COMMENT;
-        public static final LogType INTERACTION_FOLLOW;
-        public static final LogType INTERACTION_PRAISE;
-        public static final LogType INTERACTION_SHARE;
-        public static final LogType LOTTIE_CLICK;
-        public static final LogType LOTTIE_DISMISS;
-        public static final LogType LOTTIE_LOAD_FAIL;
-        public static final LogType LOTTIE_LONG_PRESS;
-        public static final LogType LOTTIE_RES_PREFETCH_FAIL;
-        public static final LogType LOTTIE_SHOW;
-        public static final LogType MINI_PROGRAM;
-        public static final LogType NAVIDEO_POP_CLOSE;
-        public static final LogType NON_AD_CLICK;
-        public static final LogType OPEN_APP;
-        public static final LogType PHONE_STATE_LISTEN;
-        public static final LogType PLACEHOLDER;
-        public static final LogType PLAY_ZERO_SEC;
-        public static final LogType REWARD_ACTIVATE_TASK;
-        public static final LogType REWARD_COIN_FAIL;
-        public static final LogType REWARD_COMPLETE_TASK;
-        public static final LogType REWARD_HALF_TAIL_SLIDE;
-        public static final LogType REWARD_SHOW_TASK;
-        public static final LogType REWARD_TOKEN_FAIL;
-        public static final LogType SHOW;
-        public static final LogType SKIP;
-        public static final LogType STOCK;
-        public static final LogType TAIL_FRAME_SHOW_TIME;
-        public static final LogType TOP_VIEW_SPEED_STATE;
-        public static final LogType TRUE_VIEW;
-        public static final LogType VIDEO_COMPLETED;
-        public static final LogType VIDEO_LP_BT;
-        public static final LogType VIDEO_LP_PV;
-        public static final LogType VIDEO_LP_TAIL_CLICK;
-        public static final LogType VIDEO_LP_VIDEO_HIDE;
-        public static final LogType VIDEO_PAUSE;
-        public static final LogType VIDEO_RESUME;
-        public static final LogType VIDEO_START;
-        public static final LogType VISIBLE_SHOW;
-        public static final LogType VISIBLE_TWO_SEC;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String type;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-299487388, "Lcom/baidu/nadcore/stats/request/ClogBuilder$LogType;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-299487388, "Lcom/baidu/nadcore/stats/request/ClogBuilder$LogType;");
-                    return;
-                }
-            }
-            CLICK = new LogType("CLICK", 0, "2");
-            SHOW = new LogType("SHOW", 1, "3");
-            DISCARD = new LogType("DISCARD", 2, "5");
-            FAIL = new LogType("FAIL", 3, "6");
-            CLOSE = new LogType("CLOSE", 4, "7");
-            FREE_SHOW = new LogType("FREE_SHOW", 5, "103");
-            FREE_CLICK = new LogType("FREE_CLICK", 6, WorkPostNotifyFlutterData.FAIL_POST);
-            VIDEO_LP_BT = new LogType("VIDEO_LP_BT", 7, "12");
-            VIDEO_LP_PV = new LogType("VIDEO_LP_PV", 8, "103");
-            VIDEO_LP_VIDEO_HIDE = new LogType("VIDEO_LP_VIDEO_HIDE", 9, "131");
-            CHAN_MORE = new LogType("CHAN_MORE", 10, "22");
-            DEEP_LINK = new LogType("DEEP_LINK", 11, "706");
-            VISIBLE_SHOW = new LogType("VISIBLE_SHOW", 12, "203");
-            VIDEO_LP_TAIL_CLICK = new LogType("VIDEO_LP_TAIL_CLICK", 13, WorkPostNotifyFlutterData.FAIL_POST);
-            DOWNLOAD_START = new LogType("DOWNLOAD_START", 14, "701");
-            DOWNLOAD_PAUSE = new LogType("DOWNLOAD_PAUSE", 15, "702");
-            DOWNLOAD_CONTINUE = new LogType("DOWNLOAD_CONTINUE", 16, "703");
-            DOWNLOAD_COMPLETE = new LogType("DOWNLOAD_COMPLETE", 17, "704");
-            DOWNLOAD_INSTALL = new LogType("DOWNLOAD_INSTALL", 18, "705");
-            DOWNLOAD_KEEP = new LogType("DOWNLOAD_KEEP", 19, "707");
-            DOWNLOAD_RETRY = new LogType("DOWNLOAD_RETRY", 20, "708");
-            DOWNLOAD_FAILED = new LogType("DOWNLOAD_FAILED", 21, "709");
-            INSTALL_COMPLETE = new LogType("INSTALL_COMPLETE", 22, "710");
-            MINI_PROGRAM = new LogType("MINI_PROGRAM", 23, "717");
-            OPEN_APP = new LogType("OPEN_APP", 24, "713");
-            AD_CALL = new LogType("AD_CALL", 25, "777");
-            VISIBLE_TWO_SEC = new LogType("VISIBLE_TWO_SEC", 26, "213");
-            TAIL_FRAME_SHOW_TIME = new LogType("TAIL_FRAME_SHOW_TIME", 27, PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK);
-            DURATION = new LogType("DURATION", 28, "331");
-            TRUE_VIEW = new LogType("TRUE_VIEW", 29, "332");
-            DAZZLE_IN = new LogType("DAZZLE_IN", 30, PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_LINK_ITEM_CLICK);
-            DAZZLE_OUT = new LogType("DAZZLE_OUT", 31, PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK);
-            DAZZLE_TRANS_SLIDING_COUNT = new LogType("DAZZLE_TRANS_SLIDING_COUNT", 32, PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_CLOSE_BTN_CLICK);
-            DAZZLE_CLICK = new LogType("DAZZLE_CLICK", 33, WorkPostNotifyFlutterData.FAIL_POST);
-            DAZZLE_CARD_SHOW = new LogType("DAZZLE_CARD_SHOW", 34, "103");
-            PLAY_ZERO_SEC = new LogType("PLAY_ZERO_SEC", 35, PayUVEventType.THIRD_PAY_WAY_DIALOG_CHANNEL_CLICK);
-            VIDEO_START = new LogType("VIDEO_START", 36, PayUVEventType.PAY_SPLIT_ORDER_PAGE_SHOW);
-            VIDEO_PAUSE = new LogType("VIDEO_PAUSE", 37, PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK);
-            VIDEO_RESUME = new LogType("VIDEO_RESUME", 38, PayUVEventType.PAY_SPLIT_ORDER_BACK_BTN_CLICK);
-            VIDEO_COMPLETED = new LogType("VIDEO_COMPLETED", 39, PayUVEventType.PAY_SPLIT_ORDER_MOTIFY_BTN_CLICK);
-            EXCEPTION = new LogType("EXCEPTION", 40, TbEnum.SystemMessage.EVENT_ID_UPLOAD_STAT);
-            CHECK = new LogType("CHECK", 41, TbEnum.SystemMessage.EVENT_ID_PLUGIN_CONFIG_SYNC);
-            TOP_VIEW_SPEED_STATE = new LogType("TOP_VIEW_SPEED_STATE", 42, "801");
-            NAVIDEO_POP_CLOSE = new LogType("NAVIDEO_POP_CLOSE", 43, "8");
-            INTERACTION_PRAISE = new LogType("INTERACTION_PRAISE", 44, "107");
-            INTERACTION_SHARE = new LogType("INTERACTION_SHARE", 45, "108");
-            INTERACTION_COMMENT = new LogType("INTERACTION_COMMENT", 46, "109");
-            SKIP = new LogType("SKIP", 47, "11");
-            STOCK = new LogType("STOCK", 48, "13");
-            GESTURE_MATCH_SUCCESS = new LogType("GESTURE_MATCH_SUCCESS", 49, "9");
-            GESTURE_MATCH_FAILURE = new LogType("GESTURE_MATCH_FAILURE", 50, "104");
-            INTERACTION_FOLLOW = new LogType("INTERACTION_FOLLOW", 51, TbEnum.SystemMessage.EVENT_ID_COMMON);
-            AD_NOTIFICATION_NOTIFY_FAILED = new LogType("AD_NOTIFICATION_NOTIFY_FAILED", 52, "111");
-            LOTTIE_LONG_PRESS = new LogType("LOTTIE_LONG_PRESS", 53, "112");
-            LOTTIE_SHOW = new LogType("LOTTIE_SHOW", 54, "113");
-            LOTTIE_DISMISS = new LogType("LOTTIE_DISMISS", 55, "114");
-            LOTTIE_CLICK = new LogType("LOTTIE_CLICK", 56, "115");
-            LOTTIE_RES_PREFETCH_FAIL = new LogType("LOTTIE_RES_PREFETCH_FAIL", 57, ApsConstants.TYPE_ANDROID_PLUGIN);
-            LOTTIE_LOAD_FAIL = new LogType("LOTTIE_LOAD_FAIL", 58, "117");
-            HOME_PAGE_FIRST_SCREEN_AD_SHOW = new LogType("HOME_PAGE_FIRST_SCREEN_AD_SHOW", 59, "118");
-            HW_API_REQUEST = new LogType("HW_API_REQUEST", 60, "119");
-            DEEPLINK_STAY_TRANS = new LogType("DEEPLINK_STAY_TRANS", 61, "751");
-            DEEPLINK_STAY_TIME = new LogType("DEEPLINK_STAY_TIME", 62, "752");
-            INTERACTION_COLLECT = new LogType("INTERACTION_COLLECT", 63, "805");
-            PHONE_STATE_LISTEN = new LogType("PHONE_STATE_LISTEN", 64, "807");
-            REWARD_TOKEN_FAIL = new LogType("REWARD_TOKEN_FAIL", 65, "781");
-            REWARD_COIN_FAIL = new LogType("REWARD_COIN_FAIL", 66, "782");
-            REWARD_HALF_TAIL_SLIDE = new LogType("REWARD_HALF_TAIL_SLIDE", 67, "783");
-            REWARD_ACTIVATE_TASK = new LogType("REWARD_ACTIVATE_TASK", 68, "784");
-            REWARD_COMPLETE_TASK = new LogType("REWARD_COMPLETE_TASK", 69, "785");
-            REWARD_SHOW_TASK = new LogType("REWARD_SHOW_TASK", 70, "786");
-            NON_AD_CLICK = new LogType("NON_AD_CLICK", 71, "8");
-            LogType logType = new LogType("PLACEHOLDER", 72, "-1");
-            PLACEHOLDER = logType;
-            $VALUES = new LogType[]{CLICK, SHOW, DISCARD, FAIL, CLOSE, FREE_SHOW, FREE_CLICK, VIDEO_LP_BT, VIDEO_LP_PV, VIDEO_LP_VIDEO_HIDE, CHAN_MORE, DEEP_LINK, VISIBLE_SHOW, VIDEO_LP_TAIL_CLICK, DOWNLOAD_START, DOWNLOAD_PAUSE, DOWNLOAD_CONTINUE, DOWNLOAD_COMPLETE, DOWNLOAD_INSTALL, DOWNLOAD_KEEP, DOWNLOAD_RETRY, DOWNLOAD_FAILED, INSTALL_COMPLETE, MINI_PROGRAM, OPEN_APP, AD_CALL, VISIBLE_TWO_SEC, TAIL_FRAME_SHOW_TIME, DURATION, TRUE_VIEW, DAZZLE_IN, DAZZLE_OUT, DAZZLE_TRANS_SLIDING_COUNT, DAZZLE_CLICK, DAZZLE_CARD_SHOW, PLAY_ZERO_SEC, VIDEO_START, VIDEO_PAUSE, VIDEO_RESUME, VIDEO_COMPLETED, EXCEPTION, CHECK, TOP_VIEW_SPEED_STATE, NAVIDEO_POP_CLOSE, INTERACTION_PRAISE, INTERACTION_SHARE, INTERACTION_COMMENT, SKIP, STOCK, GESTURE_MATCH_SUCCESS, GESTURE_MATCH_FAILURE, INTERACTION_FOLLOW, AD_NOTIFICATION_NOTIFY_FAILED, LOTTIE_LONG_PRESS, LOTTIE_SHOW, LOTTIE_DISMISS, LOTTIE_CLICK, LOTTIE_RES_PREFETCH_FAIL, LOTTIE_LOAD_FAIL, HOME_PAGE_FIRST_SCREEN_AD_SHOW, HW_API_REQUEST, DEEPLINK_STAY_TRANS, DEEPLINK_STAY_TIME, INTERACTION_COLLECT, PHONE_STATE_LISTEN, REWARD_TOKEN_FAIL, REWARD_COIN_FAIL, REWARD_HALF_TAIL_SLIDE, REWARD_ACTIVATE_TASK, REWARD_COMPLETE_TASK, REWARD_SHOW_TASK, NON_AD_CLICK, logType};
-        }
-
-        public LogType(String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i), str2};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str3 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.type = str2;
-        }
-
-        public static LogType valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                return (LogType) Enum.valueOf(LogType.class, str);
-            }
-            return (LogType) invokeL.objValue;
-        }
-
-        public static LogType[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return (LogType[]) $VALUES.clone();
-            }
-            return (LogType[]) invokeV.objValue;
-        }
-    }
-
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
-    public static final class Page {
-        public static final /* synthetic */ Page[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final Page AD_CALL;
-        public static final Page AD_DIALOG;
-        public static final Page AD_INSTALL_TIPS;
-        public static final Page AD_NOTIFICATION;
-        public static final Page AD_START_INSTALL_TIPS;
-        public static final Page AD_TAIL;
-        public static final Page DOWNLOAD_RECTIFY;
-        public static final Page INVALID;
-        public static final Page MINI_PROGRAM;
-        public static final Page NAVIDEO_POP;
-        public static final Page NAVIDEO_POP_WEB_PANEL;
-        public static final Page NA_SPLASH;
-        public static final Page PAGE_NA;
-        public static final Page PAGE_SEARCHBOX;
-        public static final Page PAGE_VIDEO_IMMERSIVE_LP;
-        public static final Page PAGE_VIDEO_LANDING;
-        public static final Page PAGE_VIDEO_TAIL;
-        public static final Page POPUP;
-        public static final Page RETARGET;
-        public static final Page REWARD_VIDEO;
-        public static final Page VIDEO_LIST;
-        public static final Page WELFAREMAXLP;
-        public static final Page WELFAREPANEL;
-        public static final Page WELFARETAIL;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String type;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1645460251, "Lcom/baidu/nadcore/stats/request/ClogBuilder$Page;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1645460251, "Lcom/baidu/nadcore/stats/request/ClogBuilder$Page;");
-                    return;
-                }
-            }
-            AD_CALL = new Page("AD_CALL", 0, "AD_CALL");
-            AD_NOTIFICATION = new Page("AD_NOTIFICATION", 1, "AD_NOTIFICATION");
-            RETARGET = new Page("RETARGET", 2, "RETARGET");
-            AD_START_INSTALL_TIPS = new Page("AD_START_INSTALL_TIPS", 3, "AD_START_INSTALL_TIPS");
-            AD_INSTALL_TIPS = new Page("AD_INSTALL_TIPS", 4, "AD_INSTALL_TIPS");
-            POPUP = new Page("POPUP", 5, MapController.POPUP_LAYER_TAG);
-            PAGE_NA = new Page("PAGE_NA", 6, "page_na");
-            PAGE_SEARCHBOX = new Page("PAGE_SEARCHBOX", 7, "HOMEPAGE");
-            AD_TAIL = new Page("AD_TAIL", 8, "TAIL");
-            PAGE_VIDEO_LANDING = new Page("PAGE_VIDEO_LANDING", 9, "NAVIDEO");
-            PAGE_VIDEO_TAIL = new Page("PAGE_VIDEO_TAIL", 10, "NAVIDEO_TAIL");
-            REWARD_VIDEO = new Page("REWARD_VIDEO", 11, "REWARD_VIDEO");
-            NA_SPLASH = new Page("NA_SPLASH", 12, "NA_SPLASH");
-            DOWNLOAD_RECTIFY = new Page("DOWNLOAD_RECTIFY", 13, "DOWNLOAD_RECTIFY");
-            VIDEO_LIST = new Page("VIDEO_LIST", 14, "VIDEOLIST");
-            WELFAREPANEL = new Page("WELFAREPANEL", 15, "WELFAREPANEL");
-            WELFAREMAXLP = new Page("WELFAREMAXLP", 16, "WELFAREMAXLP");
-            WELFARETAIL = new Page("WELFARETAIL", 17, "WELFARETAIL");
-            PAGE_VIDEO_IMMERSIVE_LP = new Page("PAGE_VIDEO_IMMERSIVE_LP", 18, "IMMERSIVE_VIDEOADDETAIL");
-            NAVIDEO_POP = new Page("NAVIDEO_POP", 19, "NAVIDEO_POP");
-            AD_DIALOG = new Page("AD_DIALOG", 20, "AD_DIALOG");
-            MINI_PROGRAM = new Page("MINI_PROGRAM", 21, "WXMnProgram");
-            NAVIDEO_POP_WEB_PANEL = new Page("NAVIDEO_POP_WEB_PANEL", 22, "NAVIDEO_POP_WEB_PANEL");
-            Page page = new Page("INVALID", 23, "INVALID");
-            INVALID = page;
-            $VALUES = new Page[]{AD_CALL, AD_NOTIFICATION, RETARGET, AD_START_INSTALL_TIPS, AD_INSTALL_TIPS, POPUP, PAGE_NA, PAGE_SEARCHBOX, AD_TAIL, PAGE_VIDEO_LANDING, PAGE_VIDEO_TAIL, REWARD_VIDEO, NA_SPLASH, DOWNLOAD_RECTIFY, VIDEO_LIST, WELFAREPANEL, WELFAREMAXLP, WELFARETAIL, PAGE_VIDEO_IMMERSIVE_LP, NAVIDEO_POP, AD_DIALOG, MINI_PROGRAM, NAVIDEO_POP_WEB_PANEL, page};
-        }
-
-        public Page(String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i), str2};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str3 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.type = str2;
-        }
-
-        public static Page valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                return (Page) Enum.valueOf(Page.class, str);
-            }
-            return (Page) invokeL.objValue;
-        }
-
-        public static Page[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return (Page[]) $VALUES.clone();
-            }
-            return (Page[]) invokeV.objValue;
-        }
-    }
+public class ClogBuilder extends z21 {
+    public final JSONObject c = f21.c(null);
 
     public ClogBuilder() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = y11.c(null);
         d("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
-    public ClogBuilder A(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            d("video_pos", str);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    public ClogBuilder i(Area area) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, area)) == null) {
-            d("da_area", area.type);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    public ClogBuilder j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            d("da_area", str);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    public ClogBuilder k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            d("da_ext1", str);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    public ClogBuilder l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            d("da_ext2", str);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    public ClogBuilder m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            d("da_ext3", str);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    public ClogBuilder n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            d("da_ext4", str);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    public ClogBuilder o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            d("da_ext5", str);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    public ClogBuilder p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            d("extra_param", str);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    public ClogBuilder q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            d("da_locate", str);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    public ClogBuilder r(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            d("da_menu1", str);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    public ClogBuilder s(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-            d("da_menu2", str);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    public ClogBuilder t(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            d("da_menu3", str);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    public ClogBuilder u(Page page) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, page)) == null) {
-            d(BdVideoAd.AD_VIDEO_DAPAGE, page.type);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    public ClogBuilder v(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
-            d(BdVideoAd.AD_VIDEO_DAPAGE, str);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    public ClogBuilder w(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
-            d("da_page_num", str);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    public ClogBuilder x(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
-            d("place_id", str);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    public ClogBuilder y(LogType logType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, logType)) == null) {
-            d("da_type", logType.type);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    public ClogBuilder z(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
-            d("da_type", str);
-            return this;
-        }
-        return (ClogBuilder) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.q21, com.baidu.tieba.t21
+    @Override // com.baidu.tieba.x21, com.baidu.tieba.a31
     public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            g();
-            tj0 tj0Var = (tj0) ServiceManager.getService(tj0.a);
-            if (tj0Var != null) {
-                A(tj0Var.a(this.c.optString("extra_param")));
-            }
+        xj0 xj0Var = (xj0) ServiceManager.getService(xj0.a);
+        if (xj0Var != null) {
+            A(xj0Var.a(this.c.optString("extra_param")));
         }
+        g();
     }
 
     @NonNull
     public JSONObject h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (JSONObject) invokeV.objValue;
+        return this.c;
     }
 
-    @Override // com.baidu.tieba.s21, com.baidu.tieba.t21
+    @Override // com.baidu.tieba.z21, com.baidu.tieba.a31
     public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (!TextUtils.isEmpty(this.c.optString("da_type"))) {
-                return super.isValid();
-            }
-            return false;
+        if (!TextUtils.isEmpty(this.c.optString("da_type"))) {
+            return super.isValid();
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
-    @Override // com.baidu.tieba.q21, com.baidu.tieba.t21
-    public <T extends t21> T b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            d(str, str2);
-            return this;
+    /* loaded from: classes2.dex */
+    public enum Area {
+        ICON("icon"),
+        NAME("name"),
+        BUTTON(NativeConstants.ID_BUTTON),
+        OPEN_BUTTON("openbtn"),
+        DOWNLOAD_BUTTON("downloadbtn"),
+        INSTALL_NOW_BUTTON("install_now_button"),
+        INSTALL_LATER_BUTTON("install_later_button"),
+        HOTAREA("hotarea"),
+        AD_NOTIFICATION_ITEM_CLICK("ad_notification_item_click"),
+        AD_NOTIFICATION_BTN_CLICK("ad_notification_btn_click"),
+        AD_NOTIFICATION_SHOW("ad_notification_show"),
+        AD_NOTIFICATION_NOTIFY("ad_notification_notify"),
+        AD_NOTIFICATION_REMOVE("ad_notification_remove"),
+        DIALOG(MapController.POPUP_LAYER_TAG),
+        DIALOG_POSITIVE("popup_select"),
+        DIALOG_NEGATIVE("popup_cancel"),
+        DIALOG_KEYBACK("popup_back"),
+        AD_CALL("CALL"),
+        APP_PRIVACY("app_privacy"),
+        APP_PERMISSION("app_permission"),
+        FLOATING("floating_btn"),
+        IMAGE("image"),
+        CLOSE_BTN("close_btn"),
+        AUTO_HIDE("auto_hide"),
+        AD_DIALOG_SHOW("ad_dialog_show"),
+        BTN_POSITIVE("btn_positive"),
+        BTN_NAGITIVE("btn_nagitive"),
+        APP_NOTIFICATION("APP_NOTIFICATION"),
+        SLIDING_TAG("sliding_tag"),
+        REWARD_SLIDING_TAG("tag"),
+        SWIPE_UP("swipeup"),
+        AD_BLANK("blank"),
+        DOWN_ARROW("down_arrow"),
+        REWARD_LANDING_PAGE("landingpage"),
+        ARROW("arrow"),
+        APP(GrsBaseInfo.CountryCodeSource.APP),
+        URL("URL"),
+        AD_BTN_DETAIL("detailbtn"),
+        AD_LEAVE("leave"),
+        AVATAR("avatar"),
+        TITTLE("title"),
+        INVALID("INVALID");
+        
+        public final String type;
+
+        Area(String str) {
+            this.type = str;
         }
-        return (T) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.q21
-    public <T extends t21> T d(String str, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this;
-            }
-            y11.f(this.c, str, obj);
+    /* loaded from: classes2.dex */
+    public enum LogType {
+        CLICK("2"),
+        SHOW("3"),
+        DISCARD("5"),
+        FAIL("6"),
+        CLOSE("7"),
+        FREE_SHOW("103"),
+        FREE_CLICK(WorkPostNotifyFlutterData.FAIL_POST),
+        VIDEO_LP_BT("12"),
+        VIDEO_LP_PV("103"),
+        VIDEO_LP_VIDEO_HIDE("131"),
+        CHAN_MORE("22"),
+        DEEP_LINK("706"),
+        VISIBLE_SHOW("203"),
+        VIDEO_LP_TAIL_CLICK(WorkPostNotifyFlutterData.FAIL_POST),
+        DOWNLOAD_START("701"),
+        DOWNLOAD_PAUSE("702"),
+        DOWNLOAD_CONTINUE("703"),
+        DOWNLOAD_COMPLETE("704"),
+        DOWNLOAD_INSTALL("705"),
+        DOWNLOAD_KEEP("707"),
+        DOWNLOAD_RETRY("708"),
+        DOWNLOAD_FAILED("709"),
+        INSTALL_COMPLETE("710"),
+        MINI_PROGRAM("717"),
+        OPEN_APP("713"),
+        AD_CALL("777"),
+        VISIBLE_TWO_SEC("213"),
+        TAIL_FRAME_SHOW_TIME(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK),
+        DURATION("331"),
+        TRUE_VIEW("332"),
+        DAZZLE_IN(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_LINK_ITEM_CLICK),
+        DAZZLE_OUT(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK),
+        DAZZLE_TRANS_SLIDING_COUNT(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_CLOSE_BTN_CLICK),
+        DAZZLE_CLICK(WorkPostNotifyFlutterData.FAIL_POST),
+        DAZZLE_CARD_SHOW("103"),
+        PLAY_ZERO_SEC(PayUVEventType.THIRD_PAY_WAY_DIALOG_CHANNEL_CLICK),
+        VIDEO_START(PayUVEventType.PAY_SPLIT_ORDER_PAGE_SHOW),
+        VIDEO_PAUSE(PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK),
+        VIDEO_RESUME(PayUVEventType.PAY_SPLIT_ORDER_BACK_BTN_CLICK),
+        VIDEO_COMPLETED(PayUVEventType.PAY_SPLIT_ORDER_MOTIFY_BTN_CLICK),
+        EXCEPTION(TbEnum.SystemMessage.EVENT_ID_UPLOAD_STAT),
+        CHECK(TbEnum.SystemMessage.EVENT_ID_PLUGIN_CONFIG_SYNC),
+        TOP_VIEW_SPEED_STATE("801"),
+        NAVIDEO_POP_CLOSE("8"),
+        INTERACTION_PRAISE("107"),
+        INTERACTION_SHARE("108"),
+        INTERACTION_COMMENT("109"),
+        SKIP("11"),
+        STOCK("13"),
+        GESTURE_MATCH_SUCCESS("9"),
+        GESTURE_MATCH_FAILURE("104"),
+        INTERACTION_FOLLOW(TbEnum.SystemMessage.EVENT_ID_COMMON),
+        AD_NOTIFICATION_NOTIFY_FAILED("111"),
+        LOTTIE_LONG_PRESS("112"),
+        LOTTIE_SHOW("113"),
+        LOTTIE_DISMISS("114"),
+        LOTTIE_CLICK("115"),
+        LOTTIE_RES_PREFETCH_FAIL(ApsConstants.TYPE_ANDROID_PLUGIN),
+        LOTTIE_LOAD_FAIL("117"),
+        HOME_PAGE_FIRST_SCREEN_AD_SHOW("118"),
+        HW_API_REQUEST("119"),
+        DEEPLINK_STAY_TRANS("751"),
+        DEEPLINK_STAY_TIME("752"),
+        INTERACTION_COLLECT("805"),
+        PHONE_STATE_LISTEN("807"),
+        REWARD_TOKEN_FAIL("781"),
+        REWARD_COIN_FAIL("782"),
+        REWARD_HALF_TAIL_SLIDE("783"),
+        REWARD_ACTIVATE_TASK("784"),
+        REWARD_COMPLETE_TASK("785"),
+        REWARD_SHOW_TASK("786"),
+        NON_AD_CLICK("8"),
+        PLACEHOLDER("-1");
+        
+        public final String type;
+
+        LogType(String str) {
+            this.type = str;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public enum Page {
+        AD_CALL("AD_CALL"),
+        AD_NOTIFICATION("AD_NOTIFICATION"),
+        RETARGET("RETARGET"),
+        AD_START_INSTALL_TIPS("AD_START_INSTALL_TIPS"),
+        AD_INSTALL_TIPS("AD_INSTALL_TIPS"),
+        POPUP(MapController.POPUP_LAYER_TAG),
+        PAGE_NA("page_na"),
+        PAGE_SEARCHBOX("HOMEPAGE"),
+        AD_TAIL("TAIL"),
+        PAGE_VIDEO_LANDING("NAVIDEO"),
+        PAGE_VIDEO_TAIL("NAVIDEO_TAIL"),
+        REWARD_VIDEO("REWARD_VIDEO"),
+        NA_SPLASH("NA_SPLASH"),
+        DOWNLOAD_RECTIFY("DOWNLOAD_RECTIFY"),
+        VIDEO_LIST("VIDEOLIST"),
+        WELFAREPANEL("WELFAREPANEL"),
+        WELFAREMAXLP("WELFAREMAXLP"),
+        WELFARETAIL("WELFARETAIL"),
+        WELFAREBIGCARD("WELFAREBIGCARD"),
+        PAGE_VIDEO_IMMERSIVE_LP("IMMERSIVE_VIDEOADDETAIL"),
+        NAVIDEO_POP("NAVIDEO_POP"),
+        AD_DIALOG("AD_DIALOG"),
+        MINI_PROGRAM("WXMnProgram"),
+        NAVIDEO_POP_WEB_PANEL("NAVIDEO_POP_WEB_PANEL"),
+        INVALID("INVALID");
+        
+        public final String type;
+
+        Page(String str) {
+            this.type = str;
+        }
+    }
+
+    public ClogBuilder A(String str) {
+        d("video_pos", str);
+        return this;
+    }
+
+    public ClogBuilder i(Area area) {
+        d("da_area", area.type);
+        return this;
+    }
+
+    public ClogBuilder j(String str) {
+        d("da_area", str);
+        return this;
+    }
+
+    public ClogBuilder k(String str) {
+        d("da_ext1", str);
+        return this;
+    }
+
+    public ClogBuilder l(String str) {
+        d("da_ext2", str);
+        return this;
+    }
+
+    public ClogBuilder m(String str) {
+        d("da_ext3", str);
+        return this;
+    }
+
+    public ClogBuilder n(String str) {
+        d("da_ext4", str);
+        return this;
+    }
+
+    public ClogBuilder o(String str) {
+        d("da_ext5", str);
+        return this;
+    }
+
+    public ClogBuilder p(String str) {
+        d("extra_param", str);
+        return this;
+    }
+
+    public ClogBuilder q(String str) {
+        d("da_locate", str);
+        return this;
+    }
+
+    public ClogBuilder r(String str) {
+        d("da_menu1", str);
+        return this;
+    }
+
+    public ClogBuilder s(@NonNull String str) {
+        d("da_menu2", str);
+        return this;
+    }
+
+    public ClogBuilder t(@NonNull String str) {
+        d("da_menu3", str);
+        return this;
+    }
+
+    public ClogBuilder u(Page page) {
+        d(BdVideoAd.AD_VIDEO_DAPAGE, page.type);
+        return this;
+    }
+
+    public ClogBuilder v(String str) {
+        d(BdVideoAd.AD_VIDEO_DAPAGE, str);
+        return this;
+    }
+
+    public ClogBuilder w(String str) {
+        d("da_page_num", str);
+        return this;
+    }
+
+    public ClogBuilder x(String str) {
+        d("place_id", str);
+        return this;
+    }
+
+    public ClogBuilder y(LogType logType) {
+        d("da_type", logType.type);
+        return this;
+    }
+
+    public ClogBuilder z(String str) {
+        d("da_type", str);
+        return this;
+    }
+
+    @Override // com.baidu.tieba.x21, com.baidu.tieba.a31
+    public <T extends a31> T b(String str, String str2) {
+        d(str, str2);
+        return this;
+    }
+
+    @Override // com.baidu.tieba.x21
+    public <T extends a31> T d(String str, Object obj) {
+        if (TextUtils.isEmpty(str)) {
             return this;
         }
-        return (T) invokeLL.objValue;
+        f21.f(this.c, str, obj);
+        return this;
     }
 
     public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !i41.a) {
+        if (!p41.a) {
             return;
         }
-        o41 o41Var = (o41) h41.a().a(o41.class);
-        if (o41Var != null) {
-            o41Var.a(h());
+        v41 v41Var = (v41) o41.a().a(v41.class);
+        if (v41Var != null) {
+            v41Var.a(h());
         }
-        k41 k41Var = (k41) h41.a().a(k41.class);
-        if (k41Var != null) {
-            k41Var.a(h());
+        r41 r41Var = (r41) o41.a().a(r41.class);
+        if (r41Var != null) {
+            r41Var.a(h());
         }
-        m41 m41Var = (m41) h41.a().a(m41.class);
-        if (m41Var != null) {
-            m41Var.a(h());
+        t41 t41Var = (t41) o41.a().a(t41.class);
+        if (t41Var != null) {
+            t41Var.a(h());
         }
     }
 
-    @Override // com.baidu.tieba.s21, com.baidu.tieba.q21, com.baidu.tieba.t21
+    @Override // com.baidu.tieba.z21, com.baidu.tieba.x21, com.baidu.tieba.a31
     @NonNull
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            super.toString();
-            if (this.a.toString().contains("ad")) {
-                return this.a.toString();
-            }
-            try {
-                JSONArray jSONArray = new JSONArray();
-                jSONArray.put(this.c);
-                String encode = URLEncoder.encode(jSONArray.toString(), IMAudioTransRequest.CHARSET);
-                if (this.a.length() > 0) {
-                    this.a.append('&');
-                }
-                StringBuilder sb = this.a;
-                sb.append("ad");
-                sb.append(a.h);
-                sb.append(encode);
-                return sb.toString();
-            } catch (Exception unused) {
-                return this.a.toString();
-            }
+        super.toString();
+        if (this.a.toString().contains("ad")) {
+            return this.a.toString();
         }
-        return (String) invokeV.objValue;
+        try {
+            JSONArray jSONArray = new JSONArray();
+            jSONArray.put(this.c);
+            String encode = URLEncoder.encode(jSONArray.toString(), IMAudioTransRequest.CHARSET);
+            if (this.a.length() > 0) {
+                this.a.append('&');
+            }
+            StringBuilder sb = this.a;
+            sb.append("ad");
+            sb.append('=');
+            sb.append(encode);
+            return sb.toString();
+        } catch (Exception unused) {
+            return this.a.toString();
+        }
     }
 }

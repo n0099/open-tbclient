@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ev4;
-import com.baidu.tieba.i95;
-import com.baidu.tieba.m85;
-import com.baidu.tieba.n95;
-import com.baidu.tieba.p35;
+import com.baidu.tieba.b55;
+import com.baidu.tieba.lw4;
 import com.baidu.tieba.setting.model.MsgRemindModel;
+import com.baidu.tieba.ua5;
+import com.baidu.tieba.y95;
+import com.baidu.tieba.za5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -76,14 +76,14 @@ public class PushPermissionController {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements ev4 {
+    public class b implements lw4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
         public final /* synthetic */ boolean b;
         public final /* synthetic */ PushPermissionController c;
 
-        @Override // com.baidu.tieba.ev4
+        @Override // com.baidu.tieba.lw4
         public void onCancelClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -110,17 +110,17 @@ public class PushPermissionController {
             this.b = z2;
         }
 
-        @Override // com.baidu.tieba.ev4
+        @Override // com.baidu.tieba.lw4
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (!this.a) {
-                    new MsgRemindModel(this.c.mContext).L(34, true, null);
+                    new MsgRemindModel(this.c.mContext).S(34, true, null);
                 }
                 if (this.b) {
-                    n95.o(this.c.mActivity);
+                    za5.o(this.c.mActivity);
                 } else {
-                    i95.e(this.c.mContext);
+                    ua5.e(this.c.mContext);
                 }
             }
         }
@@ -158,8 +158,8 @@ public class PushPermissionController {
 
     private void onSubscribeFriendSuccess(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) && !p35.m().i("subcribe_friend_msg_update_flag", false)) {
-            p35.m().w("subcribe_friend_msg_update_flag", true);
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) && !b55.m().i("subcribe_friend_msg_update_flag", false)) {
+            b55.m().w("subcribe_friend_msg_update_flag", true);
             BdToastData bdToastData = new BdToastData();
             ArrayList arrayList = new ArrayList(1);
             BdToastData.ContentBean contentBean = new BdToastData.ContentBean();
@@ -178,14 +178,14 @@ public class PushPermissionController {
         if ((interceptable == null || interceptable.invokeI(65541, this, i) == null) && (activity = this.mActivity) != null && this.mContext != null) {
             boolean areNotificationsEnabled = NotificationManagerCompat.from(activity).areNotificationsEnabled();
             if (i == 10) {
-                boolean m = m85.d().m();
+                boolean m = y95.d().m();
                 if (areNotificationsEnabled && m) {
                     onSubscribeFriendSuccess(this.mActivity);
                     return;
                 }
                 b bVar = new b(this, m, areNotificationsEnabled);
-                if (i95.i(TbadkCoreApplication.getInst(), 7)) {
-                    n95.n(this.mContext, this.mActivity, 10, bVar);
+                if (ua5.i(TbadkCoreApplication.getInst(), 7)) {
+                    za5.n(this.mContext, this.mActivity, 10, bVar);
                 }
             }
         }

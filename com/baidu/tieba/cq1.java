@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.l13;
-/* loaded from: classes4.dex */
+import org.json.JSONObject;
+/* loaded from: classes3.dex */
 public interface cq1 {
-    void a(String str, l13.k kVar);
+    void a(int i);
+
+    void b(JSONObject jSONObject);
 }

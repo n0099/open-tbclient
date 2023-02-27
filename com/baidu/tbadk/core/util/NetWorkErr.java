@@ -53,7 +53,6 @@ public class NetWorkErr {
     public static final int NETWORK_OUTOFMEMORY = -15;
     public static final int NETWORK_SOCKET_EXCEPTION = -12;
     public static final int NETWORK_SOCKET_TIMEOUT = -13;
-    public static final int NETWORK_SSL_EXCEPTION = -20;
     public static final int NETWORK_UNKNOWN = -10;
     public static final int NO_MORE_IMAGE = 40;
     public static final int THREAD_NOT_EXIST = 4;

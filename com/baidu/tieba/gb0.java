@@ -1,25 +1,27 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.widget.EditText;
-import android.widget.TextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
 /* loaded from: classes4.dex */
 public class gb0 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile fb0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(EditText editText, int i) {
+    public static synchronized fb0 a() {
+        InterceptResult invokeV;
+        fb0 fb0Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65536, null, editText, i) == null) && Build.VERSION.SDK_INT < 29) {
-            try {
-                Field declaredField = TextView.class.getDeclaredField("mCursorDrawableRes");
-                declaredField.setAccessible(true);
-                declaredField.set(editText, Integer.valueOf(i));
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (gb0.class) {
+                if (a == null) {
+                    a = new fb0();
+                }
+                fb0Var = a;
             }
+            return fb0Var;
         }
+        return (fb0) invokeV.objValue;
     }
 }

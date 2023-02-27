@@ -7,130 +7,100 @@ import android.os.Build;
 import android.os.Bundle;
 import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.xiaomi.push.al;
-import com.xiaomi.push.eq;
+import com.xiaomi.push.aj;
+import com.xiaomi.push.ep;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class cc {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     public static int a(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, map)) == null) ? Math.max(0, com.xiaomi.push.w.a(map.get("notification_top_period"), 0)) : invokeL.intValue;
+        return Math.max(0, com.xiaomi.push.t.a(map.get("notification_top_period"), 0));
     }
 
     @TargetApi(19)
     public static Notification a(Notification notification, int i, String str, ax axVar) {
-        InterceptResult invokeLILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65537, null, notification, i, str, axVar)) == null) {
-            if (notification != null) {
-                if (!str.equals(notification.extras.getString("message_id"))) {
-                    notification = null;
-                }
-                return notification;
+        if (notification != null) {
+            if (!str.equals(notification.extras.getString("message_id"))) {
+                notification = null;
             }
-            List<StatusBarNotification> m707b = axVar.m707b();
-            if (m707b != null) {
-                for (StatusBarNotification statusBarNotification : m707b) {
-                    Notification notification2 = statusBarNotification.getNotification();
-                    String string = notification2.extras.getString("message_id");
-                    if (i == statusBarNotification.getId() && str.equals(string)) {
-                        return notification2;
-                    }
+            return notification;
+        }
+        List<StatusBarNotification> m704b = axVar.m704b();
+        if (m704b != null) {
+            for (StatusBarNotification statusBarNotification : m704b) {
+                Notification notification2 = statusBarNotification.getNotification();
+                String string = notification2.extras.getString("message_id");
+                if (i == statusBarNotification.getId() && str.equals(string)) {
+                    return notification2;
                 }
-                return null;
             }
             return null;
         }
-        return (Notification) invokeLILL.objValue;
+        return null;
     }
 
-    public static al.a a(Context context, String str, int i, String str2, Notification notification) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, Integer.valueOf(i), str2, notification})) == null) ? new cd(i, str2, context, str, notification) : (al.a) invokeCommon.objValue;
+    public static aj.a a(Context context, String str, int i, String str2, Notification notification) {
+        return new cd(i, str2, context, str, notification);
     }
 
     @TargetApi(19)
     /* renamed from: a  reason: collision with other method in class */
-    public static void m732a(Context context, String str, int i, String str2, Notification notification) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Integer.valueOf(i), str2, notification}) == null) && com.xiaomi.push.m.m637a(context) && notification != null && notification.extras.getBoolean("mipush_n_top_flag", false)) {
+    public static void m729a(Context context, String str, int i, String str2, Notification notification) {
+        if (com.xiaomi.push.j.m628a(context) && notification != null && notification.extras.getBoolean("mipush_n_top_flag", false)) {
             c(context, str, i, str2, notification);
         }
     }
 
-    public static void a(Context context, Map<String, String> map, eq eqVar, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, map, eqVar, Long.valueOf(j)}) == null) && map != null && eqVar != null && com.xiaomi.push.m.m637a(context) && m733a(map)) {
-            int a = a(map);
-            int b = b(map);
-            if (a <= 0 || b > a) {
-                com.xiaomi.channel.commonutils.logger.b.d("set top notification failed - period:" + a + " frequency:" + b);
-                return;
-            }
-            eqVar.setPriority(2);
-            Bundle bundle = new Bundle();
-            bundle.putLong("mipush_org_when", j);
-            bundle.putBoolean("mipush_n_top_flag", true);
-            if (b > 0) {
-                bundle.putInt("mipush_n_top_fre", b);
-            }
-            bundle.putInt("mipush_n_top_prd", a);
-            eqVar.addExtras(bundle);
+    public static void a(Context context, Map<String, String> map, ep epVar, long j) {
+        if (map == null || epVar == null || !com.xiaomi.push.j.m628a(context) || !m730a(map)) {
+            return;
         }
+        int a = a(map);
+        int b = b(map);
+        if (a <= 0 || b > a) {
+            com.xiaomi.channel.commonutils.logger.b.d("set top notification failed - period:" + a + " frequency:" + b);
+            return;
+        }
+        epVar.setPriority(2);
+        Bundle bundle = new Bundle();
+        bundle.putLong("mipush_org_when", j);
+        bundle.putBoolean("mipush_n_top_flag", true);
+        if (b > 0) {
+            bundle.putInt("mipush_n_top_fre", b);
+        }
+        bundle.putInt("mipush_n_top_prd", a);
+        epVar.addExtras(bundle);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m733a(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, map)) == null) {
-            String str = map.get("notification_top_repeat");
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            boolean parseBoolean = Boolean.parseBoolean(str);
-            com.xiaomi.channel.commonutils.logger.b.c("top notification' repeat is " + parseBoolean);
-            return parseBoolean;
+    public static boolean m730a(Map<String, String> map) {
+        String str = map.get("notification_top_repeat");
+        if (TextUtils.isEmpty(str)) {
+            return false;
         }
-        return invokeL.booleanValue;
+        boolean parseBoolean = Boolean.parseBoolean(str);
+        com.xiaomi.channel.commonutils.logger.b.c("top notification' repeat is " + parseBoolean);
+        return parseBoolean;
     }
 
     public static int b(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, map)) == null) ? Math.max(0, com.xiaomi.push.w.a(map.get("notification_top_frequency"), 0)) : invokeL.intValue;
+        return Math.max(0, com.xiaomi.push.t.a(map.get("notification_top_frequency"), 0));
     }
 
     public static String b(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i, str)) == null) {
-            return "n_top_update_" + i + "_" + str;
-        }
-        return (String) invokeIL.objValue;
+        return "n_top_update_" + i + "_" + str;
     }
 
     @TargetApi(19)
     public static void c(Context context, String str, int i, String str2, Notification notification) {
         ax a;
         Notification a2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, str, Integer.valueOf(i), str2, notification}) == null) || context == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || Build.VERSION.SDK_INT < 26 || (a2 = a(notification, i, str2, (a = ax.a(context, str)))) == null) {
+        if (context == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || Build.VERSION.SDK_INT < 26 || (a2 = a(notification, i, str2, (a = ax.a(context, str)))) == null) {
             return;
         }
         boolean z = notification != null;
         if (a2.getGroupAlertBehavior() != 1) {
-            com.xiaomi.push.bk.a((Object) a2, "mGroupAlertBehavior", (Object) 1);
+            com.xiaomi.push.bj.a((Object) a2, "mGroupAlertBehavior", (Object) 1);
         }
         long currentTimeMillis = System.currentTimeMillis();
         long j = a2.extras.getLong("mipush_org_when", 0L);
@@ -144,7 +114,7 @@ public class cc {
         if (!z) {
             if (min > 0) {
                 a2.when = currentTimeMillis;
-                com.xiaomi.channel.commonutils.logger.b.m105a("update top notification: " + str2);
+                com.xiaomi.channel.commonutils.logger.b.m97a("update top notification: " + str2);
                 a.a(i, a2);
             } else {
                 Notification.Builder recoverBuilder = Notification.Builder.recoverBuilder(context, a2);
@@ -158,14 +128,14 @@ public class cc {
                     extras.remove("mipush_n_top_prd");
                     recoverBuilder.setExtras(extras);
                 }
-                com.xiaomi.channel.commonutils.logger.b.m105a("update top notification to common: " + str2);
+                com.xiaomi.channel.commonutils.logger.b.m97a("update top notification to common: " + str2);
                 a.a(i, recoverBuilder.build());
             }
         }
         if (min > 0) {
-            com.xiaomi.channel.commonutils.logger.b.m105a("schedule top notification next update delay: " + min);
-            com.xiaomi.push.al.a(context).m183a(b(i, str2));
-            com.xiaomi.push.al.a(context).b(a(context, str, i, str2, (Notification) null), min);
+            com.xiaomi.channel.commonutils.logger.b.m97a("schedule top notification next update delay: " + min);
+            com.xiaomi.push.aj.a(context).m177a(b(i, str2));
+            com.xiaomi.push.aj.a(context).b(a(context, str, i, str2, (Notification) null), min);
         }
     }
 }

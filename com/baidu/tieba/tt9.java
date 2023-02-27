@@ -1,19 +1,29 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface tt9 {
-    int availableBytes();
+public class tt9 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void close();
-
-    void flush();
-
-    byte[] getOutPutBytes();
-
-    void init(int i, int i2);
-
-    boolean putBytes(byte[] bArr, int i);
-
-    int receiveBytes(byte[] bArr, int i);
-
-    void setSpeed(float f);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948192880, "Lcom/baidu/tieba/tt9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948192880, "Lcom/baidu/tieba/tt9;");
+                return;
+            }
+        }
+        a = ku9.m();
+    }
 }

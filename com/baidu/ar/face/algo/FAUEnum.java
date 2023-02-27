@@ -1,12 +1,6 @@
 package com.baidu.ar.face.algo;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class FAUEnum {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int IMG_FMT_BGR888 = 2;
     public static final int IMG_FMT_BGRX8888 = 0;
     public static final int IMG_FMT_FormatCount = 17;
@@ -47,19 +41,4 @@ public class FAUEnum {
     public static final int PR_TRACK_FAILED = 205;
     public static final int PR_TRACK_NO_RESULT = 207;
     public static final int PR_UNKNOWN_ERROR = 210;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public FAUEnum() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

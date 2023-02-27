@@ -1,18 +1,10 @@
 package com.facebook.imagepipeline.instrumentation;
 
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public final class FrescoInstrumenter {
-    public static /* synthetic */ Interceptable $ic;
     @Nullable
     public static volatile Instrumenter sInstance;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
     public interface Instrumenter {
@@ -33,95 +25,56 @@ public final class FrescoInstrumenter {
         void onEndWork(Object obj);
     }
 
-    public FrescoInstrumenter() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static boolean isTracing() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Instrumenter instrumenter = sInstance;
-            if (instrumenter == null) {
-                return false;
-            }
-            return instrumenter.isTracing();
+        Instrumenter instrumenter = sInstance;
+        if (instrumenter == null) {
+            return false;
         }
-        return invokeV.booleanValue;
+        return instrumenter.isTracing();
     }
 
     @Nullable
     public static Runnable decorateRunnable(@Nullable Runnable runnable, @Nullable String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, runnable, str)) == null) {
-            Instrumenter instrumenter = sInstance;
-            if (instrumenter != null && runnable != null && str != null) {
-                return instrumenter.decorateRunnable(runnable, str);
-            }
-            return runnable;
+        Instrumenter instrumenter = sInstance;
+        if (instrumenter != null && runnable != null && str != null) {
+            return instrumenter.decorateRunnable(runnable, str);
         }
-        return (Runnable) invokeLL.objValue;
+        return runnable;
     }
 
     public static void markFailure(@Nullable Object obj, Throwable th) {
-        Instrumenter instrumenter;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, obj, th) == null) && (instrumenter = sInstance) != null && obj != null) {
+        Instrumenter instrumenter = sInstance;
+        if (instrumenter != null && obj != null) {
             instrumenter.markFailure(obj, th);
         }
     }
 
     @Nullable
     public static Object onBeginWork(@Nullable Object obj, @Nullable String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, str)) == null) {
-            Instrumenter instrumenter = sInstance;
-            if (instrumenter != null && obj != null) {
-                return instrumenter.onBeginWork(obj, str);
-            }
-            return null;
+        Instrumenter instrumenter = sInstance;
+        if (instrumenter != null && obj != null) {
+            return instrumenter.onBeginWork(obj, str);
         }
-        return invokeLL.objValue;
+        return null;
     }
 
     @Nullable
     public static Object onBeforeSubmitWork(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            Instrumenter instrumenter = sInstance;
-            if (instrumenter != null && str != null) {
-                return instrumenter.onBeforeSubmitWork(str);
-            }
-            return null;
+        Instrumenter instrumenter = sInstance;
+        if (instrumenter != null && str != null) {
+            return instrumenter.onBeforeSubmitWork(str);
         }
-        return invokeL.objValue;
+        return null;
     }
 
     public static void onEndWork(@Nullable Object obj) {
-        Instrumenter instrumenter;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, obj) == null) && (instrumenter = sInstance) != null && obj != null) {
+        Instrumenter instrumenter = sInstance;
+        if (instrumenter != null && obj != null) {
             instrumenter.onEndWork(obj);
         }
     }
 
     public static void provide(@Nullable Instrumenter instrumenter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, instrumenter) == null) {
-            sInstance = instrumenter;
-        }
+        sInstance = instrumenter;
     }
 }

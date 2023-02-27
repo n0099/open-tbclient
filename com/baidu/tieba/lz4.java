@@ -2,8 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,26 +12,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.User;
+import tbclient.BannerImage;
 /* loaded from: classes5.dex */
-public class lz4 extends sw4 {
+public class lz4 extends BaseCardInfo implements Cdo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public List<MetaData> c;
-    public boolean d;
-
-    @Override // com.baidu.tieba.sw4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
+    public List<my4> a;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +33,7 @@ public class lz4 extends sw4 {
                 return;
             }
         }
-        e = BdUniqueId.gen();
+        b = BdUniqueId.gen();
     }
 
     public lz4() {
@@ -63,55 +49,30 @@ public class lz4 extends sw4 {
                 return;
             }
         }
-        this.d = true;
-        this.c = new ArrayList();
-    }
-
-    public List<MetaData> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sw4
-    public py4 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new py4();
-        }
-        return (py4) invokeV.objValue;
+        this.a = new ArrayList();
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void f(List<User> list) {
-        int size;
+    public void parserProtobuf(List<BannerImage> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null) {
-            int size2 = list.size();
-            if (this.d) {
-                size = 10;
-            } else {
-                size = list.size();
-            }
-            int min = Math.min(size2, size);
-            for (int i = 0; i < min; i++) {
-                MetaData metaData = new MetaData();
-                metaData.parserProtobuf(list.get(i));
-                this.c.add(metaData);
-            }
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || list == null) {
+            return;
+        }
+        this.a.clear();
+        int min = Math.min(list.size(), 10);
+        for (int i = 0; i < min; i++) {
+            my4 my4Var = new my4();
+            my4Var.d(list.get(i));
+            this.a.add(my4Var);
         }
     }
 }

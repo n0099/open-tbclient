@@ -1,12 +1,6 @@
 package com.baidu.webkit.internal;
 
 import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.utils.b;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebViewFactory;
@@ -17,7 +11,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 /* loaded from: classes7.dex */
 public class CfgFileUtils implements INoProGuard {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ALT_SERVICE = "alt_service";
     public static final String KEY_BACK_DNS_TIME = "back_dns_time";
     public static final String KEY_CLOUDSETTINGS_LASTMODIFY = "cloudsettings_lastmodify";
@@ -53,66 +46,34 @@ public class CfgFileUtils implements INoProGuard {
     public static final String KEY_VIDEO_PROXY_LASTMODIFY = "videoproxy_lastmodify";
     public static final String TAG = "CfgFileUtils";
     public static SharedPreferences mPref;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public CfgFileUtils() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     public static SharedPreferences gerPrefs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (CfgFileUtils.class) {
-                if (mPref == null) {
-                    b.b();
-                    mPref = WebViewFactory.getContext().getSharedPreferences(GlobalConstants.SDK_CFG_RELATIVE_PATH_V2, 0);
-                }
+        synchronized (CfgFileUtils.class) {
+            if (mPref == null) {
+                b.b();
+                mPref = WebViewFactory.getContext().getSharedPreferences(GlobalConstants.SDK_CFG_RELATIVE_PATH_V2, 0);
             }
-            return mPref;
         }
-        return (SharedPreferences) invokeV.objValue;
+        return mPref;
     }
 
     public static String get(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? gerPrefs().getString(str, str2) : (String) invokeLL.objValue;
+        return gerPrefs().getString(str, str2);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0055 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r6v1 */
-    /* JADX WARN: Type inference failed for: r6v3, types: [java.io.FileInputStream] */
-    /* JADX WARN: Type inference failed for: r6v6 */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0051 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String get(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
-        ?? r6;
         FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLZ = interceptable.invokeLLZ(65539, null, str, str2, z)) != null) {
-            return (String) invokeLLZ.objValue;
-        }
         if (!z) {
             return get(str, str2);
         }
         b.b();
         try {
+            fileInputStream = new FileInputStream(getFilePath(str));
             try {
-                fileInputStream = new FileInputStream(getFilePath(str));
                 try {
                     byte[] bArr = new byte[10240];
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -144,10 +105,9 @@ public class CfgFileUtils implements INoProGuard {
                     return null;
                 }
             } catch (Throwable unused) {
-                r6 = z;
-                if (r6 != 0) {
+                if (fileInputStream != null) {
                     try {
-                        r6.close();
+                        fileInputStream.close();
                     } catch (IOException e4) {
                         e4.printStackTrace();
                     }
@@ -158,106 +118,85 @@ public class CfgFileUtils implements INoProGuard {
             e = e5;
             fileInputStream = null;
         } catch (Throwable unused2) {
-            r6 = 0;
-            if (r6 != 0) {
+            fileInputStream = null;
+            if (fileInputStream != null) {
             }
             return null;
         }
     }
 
     public static boolean get(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, z)) == null) ? gerPrefs().getBoolean(str, z) : invokeLZ.booleanValue;
+        return gerPrefs().getBoolean(str, z);
     }
 
     public static String getFilePath(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            return WebViewFactory.getContext().getFilesDir().getAbsolutePath() + File.separator + str + ".cfg";
-        }
-        return (String) invokeL.objValue;
+        return WebViewFactory.getContext().getFilesDir().getAbsolutePath() + File.separator + str + ".cfg";
     }
 
     public static boolean isExist(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            b.b();
-            File file = new File(getFilePath(str));
-            if (file.isFile() && file.exists()) {
-                Log.d(TAG, getFilePath(str) + " is Exist");
-                return true;
-            }
-            Log.d(TAG, getFilePath(str) + " is not Exist");
-            return false;
+        b.b();
+        File file = new File(getFilePath(str));
+        if (file.isFile() && file.exists()) {
+            Log.d(TAG, getFilePath(str) + " is Exist");
+            return true;
         }
-        return invokeL.booleanValue;
+        Log.d(TAG, getFilePath(str) + " is not Exist");
+        return false;
     }
 
     public static void save(String str, byte[] bArr) {
         FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, str, bArr) == null) {
-            FileOutputStream fileOutputStream2 = null;
+        FileOutputStream fileOutputStream2 = null;
+        try {
             try {
-                try {
-                    fileOutputStream = new FileOutputStream(getFilePath(str), false);
-                } catch (Throwable th) {
-                    th = th;
-                }
+                fileOutputStream = new FileOutputStream(getFilePath(str), false);
             } catch (Exception e) {
                 e = e;
             }
+        } catch (Throwable th) {
+            th = th;
+        }
+        try {
+            fileOutputStream.write(bArr);
             try {
-                fileOutputStream.write(bArr);
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                }
-            } catch (Exception e3) {
-                e = e3;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
-                    }
-                }
-                throw th;
+                fileOutputStream.close();
+            } catch (IOException e2) {
+                e2.printStackTrace();
             }
+        } catch (Exception e3) {
+            e = e3;
+            fileOutputStream2 = fileOutputStream;
+            e.printStackTrace();
+            if (fileOutputStream2 != null) {
+                try {
+                    fileOutputStream2.close();
+                } catch (IOException e4) {
+                    e4.printStackTrace();
+                }
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            fileOutputStream2 = fileOutputStream;
+            if (fileOutputStream2 != null) {
+                try {
+                    fileOutputStream2.close();
+                } catch (IOException e5) {
+                    e5.printStackTrace();
+                }
+            }
+            throw th;
         }
     }
 
     public static void set(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
-            SharedPreferences.Editor edit = gerPrefs().edit();
-            edit.putString(str, str2);
-            edit.apply();
-        }
+        SharedPreferences.Editor edit = gerPrefs().edit();
+        edit.putString(str, str2);
+        edit.apply();
     }
 
     public static void set(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65545, null, str, z) == null) {
-            SharedPreferences.Editor edit = gerPrefs().edit();
-            edit.putBoolean(str, z);
-            edit.apply();
-        }
+        SharedPreferences.Editor edit = gerPrefs().edit();
+        edit.putBoolean(str, z);
+        edit.apply();
     }
 }

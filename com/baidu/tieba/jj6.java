@@ -1,488 +1,113 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.EmotionUtil;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.ac5;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class jj6 {
+public final class jj6 {
     public static /* synthetic */ Interceptable $ic;
-    public static jj6 c;
-    public static BdAsyncTaskParallel d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<dc5> a;
-    public final List<ac5> b;
+    public final List<ei6> a;
+    public int b;
+    public int c;
+    public boolean d;
 
-    /* loaded from: classes5.dex */
-    public class a extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final ArrayList<dc5> a;
-        public final ac5.a b;
-        public final /* synthetic */ jj6 c;
-
-        /* renamed from: com.baidu.tieba.jj6$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0326a implements ac5.a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public C0326a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // com.baidu.tieba.ac5.a
-            public void a(dc5 dc5Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, dc5Var) == null) {
-                    this.a.a.add(dc5Var);
-                }
-            }
-        }
-
-        public a(jj6 jj6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jj6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = jj6Var;
-            this.a = new ArrayList<>();
-            this.b = new C0326a(this);
-            setPriority(4);
-            setParallel(jj6.d);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public void onPostExecute(Void r5) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, r5) == null) {
-                super.onPostExecute(r5);
-                this.c.a = this.a;
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001117));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr)) == null) {
-                for (int i = 0; i < this.c.b.size(); i++) {
-                    ((ac5) this.c.b.get(i)).b(this.b);
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947885267, "Lcom/baidu/tieba/jj6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947885267, "Lcom/baidu/tieba/jj6;");
-                return;
-            }
-        }
-        c = new jj6();
-        d = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b.isEmpty()) {
-            try {
-                Class.forName("com.baidu.tieba.faceshop.FaceshopStatic");
-            } catch (Throwable th) {
-                BdLog.e(th);
-            }
-            try {
-                Class.forName("com.baidu.tieba.emotion.editortool.EmotionIntefaceStatic");
-            } catch (Throwable th2) {
-                BdLog.e(th2);
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004602, new ArrayList()));
-        }
-    }
-
-    public jj6() {
+    public jj6(List<ei6> data, long j, long j2, int i, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {data, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList();
+        Intrinsics.checkNotNullParameter(data, "data");
+        this.a = data;
+        this.b = i;
+        this.c = i2;
+        this.d = z;
     }
 
-    public static jj6 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return c;
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ jj6(List list, long j, long j2, int i, int i2, boolean z, int i3, DefaultConstructorMarker defaultConstructorMarker) {
+        this(list, j, j2, i, i2, r9);
+        boolean z2;
+        if ((i3 & 32) != 0) {
+            z2 = false;
+        } else {
+            z2 = z;
         }
-        return (jj6) invokeV.objValue;
     }
 
-    public ArrayList<dc5> i() {
+    public final List<ei6> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            e();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (ArrayList) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public void v() {
+    public final int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            new a(this).execute(new Void[0]);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
+        return invokeV.intValue;
     }
 
-    public boolean l(String str) {
-        InterceptResult invokeL;
+    public final boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            e();
-            Iterator<dc5> it = this.a.iterator();
-            while (it.hasNext()) {
-                if (it.next().m(str)) {
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public boolean m(@NonNull String str) {
-        InterceptResult invokeL;
+    public final int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (p(str)) {
-                return false;
-            }
-            return str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
         }
-        return invokeL.booleanValue;
+        return invokeV.intValue;
     }
 
-    public boolean p(@NonNull String str) {
-        InterceptResult invokeL;
+    public final void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            if (!ne5.f.equals(str) && !"#(meme,diysetting)".equals(str)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            if (ne5.f.equals(str) || str.startsWith(ne5.g)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean r(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if ("#(meme,diysetting)".equals(str) || str.startsWith("#(meme,diy_")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void u(ac5 ac5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, ac5Var) == null) {
-            synchronized (this.b) {
-                if (!this.b.contains(ac5Var)) {
-                    this.b.add(ac5Var);
-                    Collections.sort(this.b);
-                }
-            }
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.c = i;
         }
     }
 
-    public Bitmap t(String str, String str2) {
-        InterceptResult invokeLL;
+    public final void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, str, str2)) == null) {
-            return FileHelper.getImage(".emotions/" + str, str2);
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.d = z;
         }
-        return (Bitmap) invokeLL.objValue;
     }
 
-    public void d(String str, on onVar, boolean z) {
+    public final void g(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(1048576, this, str, onVar, z) != null) || onVar == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.b = i;
         }
-        if (z) {
-            TbImageMemoryCache.n().f(f(str, z), onVar);
-            return;
-        }
-        TbImageMemoryCache.n().f(str, onVar);
-    }
-
-    public String f(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) {
-            if (ij6.e().g()) {
-                return str;
-            }
-            e();
-            if (!z) {
-                return str;
-            }
-            if (ij6.e().f(str)) {
-                return str;
-            }
-            return "#@" + str;
-        }
-        return (String) invokeLZ.objValue;
-    }
-
-    public String g(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
-            if (str == null) {
-                return null;
-            }
-            String str2 = "d_";
-            if (str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
-                if (p(str)) {
-                    return null;
-                }
-                String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
-                String substring = replace.substring(0, replace.indexOf(","));
-                if (substring.contains("collect_")) {
-                    if (substring.contains("_")) {
-                        substring = substring.substring(substring.lastIndexOf("_") + 1);
-                    }
-                    String str3 = mg5.b.c() + "/" + ne5.d() + "/" + substring;
-                    if (z) {
-                        return str3 + "_b.gif";
-                    }
-                    return str3 + "_s.jpg";
-                } else if (substring.contains("diy_")) {
-                    if (substring.contains("_")) {
-                        substring = substring.substring(substring.lastIndexOf("_") + 1);
-                    }
-                    String str4 = mg5.b.c() + "/" + ne5.c() + "/" + substring;
-                    if (z) {
-                        return str4 + "_b.gif";
-                    }
-                    return str4 + "_s.jpg";
-                } else {
-                    long hashCode = str.hashCode();
-                    if (hashCode < 0) {
-                        hashCode *= -1;
-                    }
-                    StringBuilder sb = new StringBuilder();
-                    if (!z) {
-                        str2 = "s_";
-                    }
-                    sb.append(str2);
-                    sb.append(hashCode);
-                    String sb2 = sb.toString();
-                    if (z) {
-                        return sb2 + ".gif";
-                    }
-                    return sb2 + ".jpg";
-                }
-            }
-            long hashCode2 = str.hashCode();
-            if (hashCode2 < 0) {
-                hashCode2 *= -1;
-            }
-            StringBuilder sb3 = new StringBuilder();
-            if (!z) {
-                str2 = "s_";
-            }
-            sb3.append(str2);
-            sb3.append(hashCode2);
-            return sb3.toString();
-        }
-        return (String) invokeLZ.objValue;
-    }
-
-    public String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
-                String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
-                String substring = replace.substring(0, replace.indexOf(","));
-                if (substring.contains("_")) {
-                    return substring.substring(0, substring.indexOf("_"));
-                }
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @NonNull
-    public String j(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
-                String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
-                String substring = replace.substring(0, replace.indexOf(","));
-                if (substring.contains("_")) {
-                    return substring.substring(substring.lastIndexOf("_") + 1);
-                }
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public boolean n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (str == null || !l(str)) {
-                return false;
-            }
-            e();
-            Iterator<dc5> it = this.a.iterator();
-            while (it.hasNext()) {
-                dc5 next = it.next();
-                if (next.m(str)) {
-                    if (next.h() != EmotionGroupType.LOCAL) {
-                        return false;
-                    }
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (!p(str) && str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
-                String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
-                String substring = replace.substring(0, replace.indexOf(","));
-                if (substring.contains("_") && !substring.contains("collect_") && !substring.contains("diy_")) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public on s(String str, String str2) {
-        InterceptResult invokeLL;
-        Bitmap t;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, str2)) == null) {
-            on t2 = TbImageMemoryCache.n().t(str2);
-            if (t2 != null) {
-                return t2;
-            }
-            e();
-            Iterator<dc5> it = this.a.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                dc5 next = it.next();
-                if (next.m(str2)) {
-                    t2 = next.o(str2);
-                    break;
-                }
-            }
-            if (t2 == null && str != null && (t = t(str, g(str2, false))) != null) {
-                t2 = new on(t, false, str2);
-            }
-            d(str2, t2, false);
-            return t2;
-        }
-        return (on) invokeLL.objValue;
     }
 }

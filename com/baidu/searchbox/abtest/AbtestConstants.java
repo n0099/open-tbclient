@@ -1,12 +1,6 @@
 package com.baidu.searchbox.abtest;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class AbtestConstants {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String AGGREGATION_PAGE_RN_AB_SWITCH = "box.rnplugin.aggregationpage";
     public static final String AI_FRAMEWORK_SWITCH = "comment_AI_antispam";
     public static final boolean AI_FRAMEWORK_SWITCH_DEFAULT = false;
@@ -101,19 +95,4 @@ public class AbtestConstants {
     public static final int WEBVIEW_FIRST_SCREEN_OPT_NONE = 0;
     public static final String WEBVIEW_FIRST_SCREEN_OPT_SWITCH = "kopt";
     public static final String WEBVIEW_ON_JS_PROMPT_SWITCH = "on_js_prompt";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public AbtestConstants() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

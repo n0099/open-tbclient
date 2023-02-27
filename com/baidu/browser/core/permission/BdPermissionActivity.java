@@ -5,13 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.permissionhelper.app.ActivityCompat;
-import com.baidu.tieba.sw;
-import com.baidu.tieba.tw;
+import com.baidu.tieba.ww;
+import com.baidu.tieba.xw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BdPermissionActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class BdPermissionActivity extends Activity {
             }
             if (z) {
                 ActivityCompat.requestPermissions(this, this.b, this.a);
-            } else if (tw.c(this, this.a)) {
+            } else if (xw.c(this, this.a)) {
                 ActivityCompat.requestPermissions(this, this.b, this.a);
             } else {
                 onRequestPermissionsResult(this.a, this.b, new int[0]);
@@ -85,7 +85,7 @@ public class BdPermissionActivity extends Activity {
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, strArr, iArr) == null) {
-            ActivityCompat.OnRequestPermissionsResultCallback c = sw.b().c(this.a);
+            ActivityCompat.OnRequestPermissionsResultCallback c = ww.b().c(this.a);
             if (c != null) {
                 c.onRequestPermissionsResult(i, strArr, iArr);
             }

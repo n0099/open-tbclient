@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -11,19 +14,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class jj3 extends ta3 {
+public class jj3 extends jb3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jj3(t93 t93Var) {
-        super(t93Var, "/swanAPI/vibrateLong");
+    public jj3(ja3 ja3Var) {
+        super(ja3Var, "/swanAPI/brightness");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t93Var};
+            Object[] objArr = {ja3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,25 +42,122 @@ public class jj3 extends ta3 {
         }
     }
 
-    @Override // com.baidu.tieba.ta3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
+    @Override // com.baidu.tieba.jb3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m93 m93Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
-            if (ta3.b) {
-                Log.d("LongVibrateAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            if (w83Var != null && w83Var.n0()) {
-                if (ta3.b) {
-                    Log.d("LongVibrateAction", "LongVibrateAction does not supported when app is invisible.");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m93Var)) == null) {
+            if (jb3.b) {
+                Log.d("Brightness", "handle entity: " + unitedSchemeEntity.toString());
                 return false;
             }
-            lj3.d().f();
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
+            return false;
         }
         return invokeLLLL.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:65:0x010d  */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x011b  */
+    @Override // com.baidu.tieba.jb3
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, m93 m93Var) {
+        InterceptResult invokeLLLLL;
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, m93Var)) == null) {
+            if (jb3.b) {
+                Log.d("Brightness", "handleSubAction: " + unitedSchemeEntity.toString());
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (jb3.b) {
+                Log.i("Brightness", "handleSubAction params: " + unitedSchemeEntity.getParam("params"));
+            }
+            JSONObject jSONObject = null;
+            if (context instanceof Activity) {
+                activity = (Activity) context;
+            } else {
+                activity = null;
+            }
+            if (activity == null) {
+                m62.c("brightness", "activity is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            }
+            int i = 1001;
+            char c = 65535;
+            int hashCode = str.hashCode();
+            boolean z = true;
+            if (hashCode != -1634890823) {
+                if (hashCode != 1913219981) {
+                    if (hashCode == 1913231513 && str.equals("/swanAPI/brightness/set")) {
+                        c = 0;
+                    }
+                } else if (str.equals("/swanAPI/brightness/get")) {
+                    c = 1;
+                }
+            } else if (str.equals("/swanAPI/brightness/keepScreenOn")) {
+                c = 2;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        if (optParamsAsJo == null) {
+                            m62.c("brightness", "paramsJson is null");
+                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                            return false;
+                        }
+                        try {
+                            kj3.c().f(activity, optParamsAsJo.getBoolean("keepScreenOn"));
+                        } catch (JSONException unused) {
+                        }
+                    }
+                    z = false;
+                } else {
+                    jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("value", kj3.c().a(activity));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (z) {
+                    if (jSONObject != null) {
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                    } else {
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                    }
+                } else {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(i);
+                }
+                return z;
+            } else if (optParamsAsJo == null) {
+                m62.c("brightness", "paramsJson is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            } else {
+                String optString = optParamsAsJo.optString("value");
+                float f = -1.0f;
+                if (!TextUtils.isEmpty(optString)) {
+                    try {
+                        f = Float.parseFloat(optString);
+                    } catch (Exception unused2) {
+                    }
+                }
+                if (f >= 0.0f && f <= 1.0f) {
+                    kj3.c().e(activity, f);
+                    if (z) {
+                    }
+                    return z;
+                }
+                i = 202;
+                z = false;
+                if (z) {
+                }
+                return z;
+            }
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

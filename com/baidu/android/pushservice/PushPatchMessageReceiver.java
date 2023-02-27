@@ -2,11 +2,9 @@ package com.baidu.android.pushservice;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.pushservice.h.a.b;
-import com.baidu.android.pushservice.i.m;
-import com.baidu.android.pushservice.message.a.k;
+import com.baidu.android.pushservice.util.Utility;
+import com.baidu.android.pushservice.w.m.l;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,9 +49,8 @@ public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageR
                 Intent intent = new Intent("com.xiaomi.mipush.PUSH_MSG");
                 intent.putExtra(PUSH_MSG, miPushMessage);
                 intent.putExtra(PUSH_MSG_TYPE, i);
-                m.a(intent, context.getApplicationContext());
-            } catch (Exception e) {
-                new b.c(context).a(Log.getStackTraceString(e)).a();
+                Utility.a(intent, context.getApplicationContext());
+            } catch (Exception unused) {
             }
         }
     }
@@ -65,8 +62,7 @@ public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageR
             try {
                 new JSONObject(str);
                 return false;
-            } catch (Exception e) {
-                new b.c(context).a(Log.getStackTraceString(e)).a();
+            } catch (Exception unused) {
                 return true;
             }
         }
@@ -89,13 +85,13 @@ public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageR
             super.onNotificationMessageClicked(context, miPushMessage);
             handleXiaomiMsg(context, miPushMessage, 3);
             String content = miPushMessage.getContent();
-            com.baidu.android.pushservice.message.i iVar = new com.baidu.android.pushservice.message.i();
+            com.baidu.android.pushservice.w.i iVar = new com.baidu.android.pushservice.w.i();
             if (msgFromXMConsole(context, content)) {
-                iVar.k = k.b.b();
+                iVar.k = l.c.a();
             } else {
-                content = iVar.b(context, content);
+                content = iVar.c(context, content);
             }
-            com.baidu.android.pushservice.frequency.b.a().a(context, false, 1, content);
+            com.baidu.android.pushservice.n.c.a().a(context, false, 1, content);
         }
     }
 
@@ -122,10 +118,9 @@ public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageR
                         Intent intent = new Intent("com.xiaomi.mipush.REGISTER");
                         intent.putExtra(REGID, str);
                         intent.putExtra(REGISTER_ERRORCODE, miPushCommandMessage.getResultCode());
-                        m.a(intent, context.getApplicationContext());
+                        Utility.a(intent, context.getApplicationContext());
                     }
-                } catch (Exception e) {
-                    new b.c(context).a(Log.getStackTraceString(e)).a();
+                } catch (Exception unused) {
                 }
             }
         }

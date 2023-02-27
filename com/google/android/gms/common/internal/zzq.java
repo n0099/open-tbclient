@@ -4,14 +4,9 @@ import android.content.ComponentName;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
 /* loaded from: classes7.dex */
 public final class zzq implements Handler.Callback {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ zzr zza;
 
     /* JADX DEBUG: Marked for inline */
@@ -22,59 +17,54 @@ public final class zzq implements Handler.Callback {
 
     @Override // android.os.Handler.Callback
     public final boolean handleMessage(Message message) {
-        InterceptResult invokeL;
         HashMap hashMap;
         HashMap hashMap2;
         HashMap hashMap3;
         HashMap hashMap4;
         HashMap hashMap5;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            int i = message.what;
-            if (i != 0) {
-                if (i != 1) {
-                    return false;
-                }
-                hashMap4 = this.zza.zzb;
-                synchronized (hashMap4) {
-                    zzn zznVar = (zzn) message.obj;
-                    hashMap5 = this.zza.zzb;
-                    zzo zzoVar = (zzo) hashMap5.get(zznVar);
-                    if (zzoVar != null && zzoVar.zza() == 3) {
-                        String valueOf = String.valueOf(zznVar);
-                        StringBuilder sb = new StringBuilder(String.valueOf(valueOf).length() + 47);
-                        sb.append("Timeout waiting for ServiceConnection callback ");
-                        sb.append(valueOf);
-                        Log.e("GmsClientSupervisor", sb.toString(), new Exception());
-                        ComponentName zzb = zzoVar.zzb();
-                        if (zzb == null) {
-                            zzb = zznVar.zzb();
-                        }
-                        if (zzb == null) {
-                            String zzd = zznVar.zzd();
-                            Preconditions.checkNotNull(zzd);
-                            zzb = new ComponentName(zzd, "unknown");
-                        }
-                        zzoVar.onServiceDisconnected(zzb);
-                    }
-                }
-                return true;
+        int i = message.what;
+        if (i != 0) {
+            if (i != 1) {
+                return false;
             }
-            hashMap = this.zza.zzb;
-            synchronized (hashMap) {
-                zzn zznVar2 = (zzn) message.obj;
-                hashMap2 = this.zza.zzb;
-                zzo zzoVar2 = (zzo) hashMap2.get(zznVar2);
-                if (zzoVar2 != null && zzoVar2.zzi()) {
-                    if (zzoVar2.zzj()) {
-                        zzoVar2.zzg("GmsClientSupervisor");
+            hashMap4 = this.zza.zzb;
+            synchronized (hashMap4) {
+                zzn zznVar = (zzn) message.obj;
+                hashMap5 = this.zza.zzb;
+                zzo zzoVar = (zzo) hashMap5.get(zznVar);
+                if (zzoVar != null && zzoVar.zza() == 3) {
+                    String valueOf = String.valueOf(zznVar);
+                    StringBuilder sb = new StringBuilder(String.valueOf(valueOf).length() + 47);
+                    sb.append("Timeout waiting for ServiceConnection callback ");
+                    sb.append(valueOf);
+                    Log.e("GmsClientSupervisor", sb.toString(), new Exception());
+                    ComponentName zzb = zzoVar.zzb();
+                    if (zzb == null) {
+                        zzb = zznVar.zzb();
                     }
-                    hashMap3 = this.zza.zzb;
-                    hashMap3.remove(zznVar2);
+                    if (zzb == null) {
+                        String zzd = zznVar.zzd();
+                        Preconditions.checkNotNull(zzd);
+                        zzb = new ComponentName(zzd, "unknown");
+                    }
+                    zzoVar.onServiceDisconnected(zzb);
                 }
             }
             return true;
         }
-        return invokeL.booleanValue;
+        hashMap = this.zza.zzb;
+        synchronized (hashMap) {
+            zzn zznVar2 = (zzn) message.obj;
+            hashMap2 = this.zza.zzb;
+            zzo zzoVar2 = (zzo) hashMap2.get(zznVar2);
+            if (zzoVar2 != null && zzoVar2.zzi()) {
+                if (zzoVar2.zzj()) {
+                    zzoVar2.zzg("GmsClientSupervisor");
+                }
+                hashMap3 = this.zza.zzb;
+                hashMap3.remove(zznVar2);
+            }
+        }
+        return true;
     }
 }

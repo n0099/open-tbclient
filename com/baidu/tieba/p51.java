@@ -2,110 +2,134 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.provider.Settings;
-import android.view.Window;
-import android.view.WindowManager;
+import android.text.TextUtils;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class p51 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948012925, "Lcom/baidu/tieba/p51;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948012925, "Lcom/baidu/tieba/p51;");
-        }
-    }
-
-    public static int c(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i, i2, i3)) == null) {
-            if (i < i2) {
-                i = i2;
-            }
-            return i > i3 ? i3 : i;
-        }
-        return invokeIII.intValue;
-    }
-
-    public static int a(Activity activity) {
+    public static int a(@NonNull Activity activity) {
         InterceptResult invokeL;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            if (activity != null) {
-                float f = activity.getWindow().getAttributes().screenBrightness;
-                if (f < 0.0f) {
-                    i = b(activity);
-                } else {
-                    i = (int) (f * 255.0f);
-                }
-                int i2 = a;
-                if (i2 >= 0 && i <= 50) {
-                    return i2;
-                }
-                return i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            if (g(activity)) {
+                return c(activity);
             }
-            return -1;
+            return 0;
         }
         return invokeL.intValue;
     }
 
-    public static int b(Context context) {
+    public static int c(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                return Settings.System.getInt(context.getContentResolver(), "screen_brightness");
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0;
+            int identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.h, EMABTest.TYPE_DIMEN, "android");
+            if (identifier > 0) {
+                return context.getResources().getDimensionPixelSize(identifier);
             }
+            return 0;
         }
         return invokeL.intValue;
     }
 
-    public static void f(Activity activity) {
+    @RequiresApi(api = 17)
+    public static int d(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, activity) == null) {
-            e(activity, -1);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (h(context)) {
+                return 0;
+            }
+            return a((Activity) context);
         }
+        return invokeL.intValue;
     }
 
-    public static void d(Activity activity, int i) {
+    public static boolean g(@NonNull Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, i) == null) && activity != null) {
-            a = c(i, 0, 255);
-            int c = c(i, 50, 255);
-            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
-            attributes.screenBrightness = Float.valueOf(c).floatValue() * 0.003921569f;
-            activity.getWindow().setAttributes(attributes);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, activity)) == null) {
+            View findViewById = activity.findViewById(16908336);
+            if (findViewById == null || findViewById.getVisibility() != 0) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public static void e(Activity activity, int i) {
+    @RequiresApi(api = 17)
+    public static boolean h(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65541, null, activity, i) == null) && activity != null) {
-            Window window = activity.getWindow();
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.screenBrightness = i;
-            window.setAttributes(attributes);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            if (Settings.Global.getInt(context.getContentResolver(), b(), 0) == 0) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
+    }
+
+    @NonNull
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            String str = Build.BRAND;
+            if (TextUtils.isEmpty(str) || str.equalsIgnoreCase("HUAWEI")) {
+                return "navigationbar_is_min";
+            }
+            if (str.equalsIgnoreCase(RomUtils.ROM_XIAOMI)) {
+                return "force_fsg_nav_bar";
+            }
+            if (!str.equalsIgnoreCase("VIVO") && !str.equalsIgnoreCase("OPPO")) {
+                return "navigationbar_is_min";
+            }
+            return "navigation_gesture_on";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i != 29 && i != 30) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String d = rj0.c().a().d();
+            if (TextUtils.isEmpty(d)) {
+                return false;
+            }
+            if (!d.contains("MI 8") && !d.contains("MI 9")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

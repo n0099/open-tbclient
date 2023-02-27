@@ -2,161 +2,139 @@ package com.baidu.ar.statistic;
 
 import android.content.Context;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Closeable;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Scanner;
 /* loaded from: classes.dex */
 public class d extends ArrayList<a> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public boolean sM;
+    public boolean sM = false;
     public int wA;
     public int wB;
     public WeakReference<Context> wn;
     public String wz;
 
     public d(Context context, String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.wn = new WeakReference<>(context);
-        this.sM = false;
         this.wA = i;
         this.wz = str;
         this.wB = i2;
     }
 
     private void a(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (Throwable unused) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (Throwable unused) {
+            }
         }
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0048 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x0067 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:46:0x0060 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v10, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r0v11, types: [java.io.FileInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r0v3, types: [android.content.Context] */
+    /* JADX WARN: Type inference failed for: r0v5 */
+    /* JADX WARN: Type inference failed for: r0v7 */
+    /* JADX WARN: Type inference failed for: r0v8, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r0v9 */
+    /* JADX WARN: Type inference failed for: r5v0, types: [com.baidu.ar.statistic.d, java.util.ArrayList] */
     private void gm() {
         Context context;
         Closeable closeable;
         Throwable th;
-        FileInputStream fileInputStream;
+        Scanner scanner;
         Exception e;
         a aG;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.wB <= 0 || (context = this.wn.get()) == null || !context.getFileStreamPath(this.wz).exists()) {
-            return;
-        }
-        try {
-            fileInputStream = context.openFileInput(this.wz);
-        } catch (Exception e2) {
-            closeable = null;
-            e = e2;
-            fileInputStream = null;
-        } catch (Throwable th2) {
-            closeable = null;
-            th = th2;
-            fileInputStream = null;
-        }
-        try {
-            closeable = new Scanner(fileInputStream, IMAudioTransRequest.CHARSET);
-            while (closeable.hasNextLine()) {
+        if (this.wB > 0 && (context = this.wn.get()) != 0 && context.getFileStreamPath(this.wz).exists()) {
+            try {
                 try {
-                    try {
-                        String nextLine = closeable.nextLine();
-                        if (nextLine != null && !nextLine.isEmpty() && (aG = a.aG(nextLine)) != null) {
-                            add(aG);
+                    context = context.openFileInput(this.wz);
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+                try {
+                    scanner = new Scanner((InputStream) context, IMAudioTransRequest.CHARSET);
+                    while (scanner.hasNextLine()) {
+                        try {
+                            String nextLine = scanner.nextLine();
+                            if (nextLine != null && !nextLine.isEmpty() && (aG = a.aG(nextLine)) != null) {
+                                add(aG);
+                            }
+                        } catch (Exception e2) {
+                            e = e2;
+                            e.printStackTrace();
+                            a(context);
+                            a(scanner);
                         }
-                    } catch (Exception e3) {
-                        e = e3;
-                        e.printStackTrace();
-                        a(fileInputStream);
-                        a(closeable);
                     }
+                } catch (Exception e3) {
+                    scanner = null;
+                    e = e3;
                 } catch (Throwable th3) {
+                    closeable = null;
                     th = th3;
-                    a(fileInputStream);
+                    a(context);
                     a(closeable);
                     throw th;
                 }
+            } catch (Exception e4) {
+                scanner = null;
+                e = e4;
+                context = 0;
+            } catch (Throwable th4) {
+                closeable = null;
+                th = th4;
+                context = 0;
             }
-        } catch (Exception e4) {
-            closeable = null;
-            e = e4;
-        } catch (Throwable th4) {
-            closeable = null;
-            th = th4;
-            a(fileInputStream);
-            a(closeable);
-            throw th;
+            a(context);
+            a(scanner);
         }
-        a(fileInputStream);
-        a(closeable);
     }
 
     public void S(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || i <= 0) {
-            return;
+        if (i > 0) {
+            a[] aVarArr = new a[i];
+            for (int i2 = 0; i2 < i; i2++) {
+                aVarArr[i2] = get(i2);
+            }
+            removeRange(0, i);
+            a.a(aVarArr);
         }
-        a[] aVarArr = new a[i];
-        for (int i2 = 0; i2 < i; i2++) {
-            aVarArr[i2] = get(i2);
-        }
-        removeRange(0, i);
-        a.a(aVarArr);
     }
 
     public void flush() {
         Context context;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.wB <= 0 || (context = this.wn.get()) == null) {
-            return;
-        }
-        int size = size();
-        FileOutputStream fileOutputStream = null;
-        try {
+        if (this.wB > 0 && (context = this.wn.get()) != null) {
+            int size = size();
+            FileOutputStream fileOutputStream = null;
             try {
-                fileOutputStream = context.openFileOutput(this.wz, 0);
-                if (size > 0) {
-                    if (size > this.wB) {
-                        size = this.wB;
+                try {
+                    fileOutputStream = context.openFileOutput(this.wz, 0);
+                    if (size > 0) {
+                        if (size > this.wB) {
+                            size = this.wB;
+                        }
+                        for (int i = 0; i < size; i++) {
+                            fileOutputStream.write((a.b((a) get(i)) + "\n").getBytes(IMAudioTransRequest.CHARSET));
+                        }
                     }
-                    for (int i = 0; i < size; i++) {
-                        fileOutputStream.write((a.b((a) get(i)) + "\n").getBytes(IMAudioTransRequest.CHARSET));
-                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+            } finally {
+                a(fileOutputStream);
             }
-        } finally {
-            a(fileOutputStream);
         }
     }
 
     public void gl() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.sM) {
+        if (this.sM) {
             return;
         }
         gm();
@@ -164,10 +142,8 @@ public class d extends ArrayList<a> {
     }
 
     public void k(a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || size() >= this.wA) {
-            return;
+        if (size() < this.wA) {
+            add(aVar);
         }
-        add(aVar);
     }
 }

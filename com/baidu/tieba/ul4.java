@@ -1,162 +1,129 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.pms.utils.AbiType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ul4 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, ul4> d;
-    public static Map<String, Map<String, ul4>> e;
+    public static volatile ul4 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final AbiType c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948214828, "Lcom/baidu/tieba/ul4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948214828, "Lcom/baidu/tieba/ul4;");
-                return;
-            }
-        }
-        d = new HashMap();
-        e = new HashMap();
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public ul4(@NonNull String str, @NonNull AbiType abiType) {
-        String str2;
+    public ul4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, abiType};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        if (TextUtils.isEmpty(str)) {
-            str2 = "";
-        } else {
-            str2 = str;
-        }
-        this.a = str2;
-        this.c = abiType;
-        this.b = a(str, abiType);
     }
 
-    @Nullable
-    public static synchronized ul4 e(String str, String str2) {
-        InterceptResult invokeLL;
+    public static ul4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
-            synchronized (ul4.class) {
-                ul4 ul4Var = null;
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                    c(str);
-                    ul4 ul4Var2 = d.get(str2);
-                    if (ul4Var2 != null) {
-                        if (TextUtils.equals(str, ul4Var2.a)) {
-                            ul4Var = ul4Var2;
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (ul4.class) {
+                    if (a == null) {
+                        a = new ul4();
                     }
-                    return ul4Var;
                 }
+            }
+            return a;
+        }
+        return (ul4) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return xg4.b().i().getString("web_mode_version", "0");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (xg4.b().i().getInt("web_mode_switch", 1) == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ArrayList<String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String string = xg4.b().i().getString("web_mode_degrade_list", "");
+            JSONArray jSONArray = null;
+            if (TextUtils.isEmpty(string)) {
                 return null;
             }
-        }
-        return (ul4) invokeLL.objValue;
-    }
-
-    public static String a(String str, AbiType abiType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, abiType)) == null) {
-            return "so_" + str + "_" + abiType.id;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Nullable
-    public static synchronized ul4 d(String str, AbiType abiType) {
-        InterceptResult invokeLL;
-        ul4 e2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, abiType)) == null) {
-            synchronized (ul4.class) {
-                e2 = e(str, a(str, abiType));
+            try {
+                jSONArray = new JSONArray(string);
+            } catch (JSONException unused) {
             }
-            return e2;
-        }
-        return (ul4) invokeLL.objValue;
-    }
-
-    public static synchronized Map<String, ul4> b(@NonNull String str) {
-        InterceptResult invokeL;
-        HashMap hashMap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            synchronized (ul4.class) {
-                hashMap = new HashMap(c(str));
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public static synchronized Map<String, ul4> c(@NonNull String str) {
-        InterceptResult invokeL;
-        Map<String, ul4> map;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            synchronized (ul4.class) {
-                map = e.get(str);
-                if (map == null) {
-                    map = new HashMap<>();
-                    if (!TextUtils.isEmpty(str)) {
-                        for (AbiType abiType : AbiType.values()) {
-                            ul4 ul4Var = new ul4(str, abiType);
-                            map.put(ul4Var.b, ul4Var);
-                        }
-                        d.putAll(map);
-                        e.put(str, map);
-                    }
+            ArrayList<String> arrayList = new ArrayList<>();
+            if (jSONArray != null && jSONArray.length() > 0) {
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    arrayList.add(jSONArray.optString(i));
                 }
             }
-            return map;
+            return arrayList;
         }
-        return (Map) invokeL.objValue;
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public final String e(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            JSONArray optJSONArray = jSONObject.optJSONArray("errno_list");
+            if (optJSONArray != null) {
+                return optJSONArray.toString();
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void f(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("host_use_weburl_degrade")) {
+            return;
+        }
+        int optInt = optJSONObject.optInt("host_use_weburl_degrade", 0);
+        String e = e(optJSONObject);
+        vg4 b = xg4.b();
+        if (b == null) {
+            return;
+        }
+        op4 i = b.i();
+        i.putInt("web_mode_switch", optInt);
+        i.putString("web_mode_degrade_list", e);
+        i.putString("web_mode_version", optString);
     }
 }

@@ -4,48 +4,24 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.developer.DebugException;
 import com.baidu.searchbox.net.update.CommandPostData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class CommandListenerRegistry {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CommandListenerRegistry";
-    public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Pair<String, String>, AbstractCommandListener> mListenerMap;
+    public final Map<Pair<String, String>, AbstractCommandListener> mListenerMap = new HashMap();
 
     private void registerListeners() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-        }
     }
 
     public CommandListenerRegistry() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mListenerMap = new HashMap();
         try {
             registerListeners();
         } catch (Error unused) {
@@ -53,8 +29,7 @@ public final class CommandListenerRegistry {
     }
 
     private void collectPostData(Context context, AbstractCommandListener abstractCommandListener, CommandPostData commandPostData, String str, String str2) throws JSONException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLLL(65537, this, context, abstractCommandListener, commandPostData, str, str2) == null) && context != null && abstractCommandListener != null && commandPostData != null) {
+        if (context != null && abstractCommandListener != null && commandPostData != null) {
             JSONObject version = commandPostData.getVersion();
             JSONObject data = commandPostData.getData();
             JSONObject optJSONObject = version.optJSONObject(str);
@@ -72,45 +47,31 @@ public final class CommandListenerRegistry {
     }
 
     private Pair<String, String> pair(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, str, str2)) == null) {
-            return new Pair<>(str, str2);
-        }
-        return (Pair) invokeLL.objValue;
+        return new Pair<>(str, str2);
     }
 
     public AbstractCommandListener getCommandListener(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            return this.mListenerMap.get(pair(str, str2));
-        }
-        return (AbstractCommandListener) invokeLL.objValue;
+        return this.mListenerMap.get(pair(str, str2));
     }
 
     public void collectPostData(Context context, CommandPostData commandPostData, IUpdatePostDataFilter iUpdatePostDataFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, commandPostData, iUpdatePostDataFilter) == null) {
-            for (Pair<String, String> pair : this.mListenerMap.keySet()) {
-                if (iUpdatePostDataFilter == null || !iUpdatePostDataFilter.isNeedFilter((String) pair.first, (String) pair.second)) {
-                    try {
-                        collectPostData(context, getCommandListener((String) pair.first, (String) pair.second), commandPostData, (String) pair.first, (String) pair.second);
-                    } catch (Exception e) {
-                        if (AppConfig.isDebug()) {
-                            e.printStackTrace();
-                            Log.e(TAG, "addPostData error " + e.getMessage());
-                        }
+        for (Pair<String, String> pair : this.mListenerMap.keySet()) {
+            if (iUpdatePostDataFilter == null || !iUpdatePostDataFilter.isNeedFilter((String) pair.first, (String) pair.second)) {
+                try {
+                    collectPostData(context, getCommandListener((String) pair.first, (String) pair.second), commandPostData, (String) pair.first, (String) pair.second);
+                } catch (Exception e) {
+                    if (AppConfig.isDebug()) {
+                        e.printStackTrace();
+                        Log.e(TAG, "addPostData error " + e.getMessage());
                     }
                 }
             }
-            commandPostData.cleanEmptyData();
         }
+        commandPostData.cleanEmptyData();
     }
 
     public void collectPostData(Context context, CommandPostData commandPostData, ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, commandPostData, arrayList) != null) || arrayList == null) {
+        if (arrayList == null) {
             return;
         }
         Iterator<String> it = arrayList.iterator();
@@ -141,9 +102,6 @@ public final class CommandListenerRegistry {
     }
 
     public void registerCommandListener(String str, String str2, AbstractCommandListener abstractCommandListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, abstractCommandListener) == null) {
-            this.mListenerMap.put(pair(str, str2), abstractCommandListener);
-        }
+        this.mListenerMap.put(pair(str, str2), abstractCommandListener);
     }
 }

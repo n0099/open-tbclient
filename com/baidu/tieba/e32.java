@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.text.TextUtils;
+import android.graphics.Rect;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,10 +9,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes4.dex */
-public class e32 extends c22 {
+public class e32 extends s22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Paint.Join a;
+    public Rect a;
 
     public e32() {
         Interceptable interceptable = $ic;
@@ -29,26 +28,31 @@ public class e32 extends c22 {
         }
     }
 
-    @Override // com.baidu.tieba.c22
-    public void a(d22 d22Var, Canvas canvas) {
-        Paint.Join join;
+    @Override // com.baidu.tieba.s22
+    public void a(t22 t22Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, d22Var, canvas) == null) && (join = this.a) != null) {
-            d22Var.c.setStrokeJoin(join);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, t22Var, canvas) == null) && this.a != null) {
+            int alpha = t22Var.b.getAlpha();
+            t22Var.c(t22Var.b);
+            canvas.drawRect(this.a, t22Var.b);
+            t22Var.b.setAlpha(alpha);
         }
     }
 
-    @Override // com.baidu.tieba.c22
+    @Override // com.baidu.tieba.s22
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            String optString = jSONArray.optString(0);
-            if (TextUtils.equals(optString, "bevel")) {
-                this.a = Paint.Join.BEVEL;
-            } else if (TextUtils.equals(optString, "round")) {
-                this.a = Paint.Join.ROUND;
-            } else if (TextUtils.equals(optString, "miter")) {
-                this.a = Paint.Join.MITER;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 4) {
+                    int g = dn3.g((float) jSONArray.optDouble(0));
+                    int g2 = dn3.g((float) jSONArray.optDouble(1));
+                    this.a = new Rect(g, g2, dn3.g((float) jSONArray.optDouble(2)) + g, dn3.g((float) jSONArray.optDouble(3)) + g2);
+                }
+            } catch (Exception e) {
+                if (wp1.a) {
+                    e.printStackTrace();
+                }
             }
         }
     }

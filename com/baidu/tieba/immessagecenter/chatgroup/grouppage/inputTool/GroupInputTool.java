@@ -31,10 +31,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bc5;
+import com.baidu.tieba.b35;
+import com.baidu.tieba.b49;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.gd5;
-import com.baidu.tieba.ic5;
+import com.baidu.tieba.if5;
 import com.baidu.tieba.im.chat.ISendVoiceView;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputTool.GroupInputViewController;
@@ -43,23 +43,23 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputTool.robotfloor.
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputTool.robotfloor.GroupChatUserReplyView;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
 import com.baidu.tieba.immessagecenter.chatgroup.utility.NoSlidingLinearLayout;
-import com.baidu.tieba.lb5;
-import com.baidu.tieba.p09;
-import com.baidu.tieba.p15;
-import com.baidu.tieba.ph9;
+import com.baidu.tieba.jd5;
+import com.baidu.tieba.kd5;
+import com.baidu.tieba.ll9;
+import com.baidu.tieba.od5;
 import com.baidu.tieba.sj;
+import com.baidu.tieba.te5;
 import com.baidu.tieba.uj;
 import com.baidu.tieba.vd5;
-import com.baidu.tieba.wb5;
-import com.baidu.tieba.xb5;
-import com.baidu.tieba.xq7;
+import com.baidu.tieba.xt7;
+import com.baidu.tieba.yc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GroupInputTool implements LifecycleObserver, uj {
     public static /* synthetic */ Interceptable $ic;
     public static GroupChatFragment i;
@@ -73,43 +73,43 @@ public class GroupInputTool implements LifecycleObserver, uj {
     public final CustomMessageListener g;
     public final Handler h;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface f {
         void a(boolean z, boolean z2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface h {
         void a();
 
         void b(VoiceData.VoiceModel voiceModel);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ic5 a;
+        public vd5 a;
         public EditorTools b;
         public RelativeLayout c;
         public RelativeLayout d;
         public NoSlidingLinearLayout e;
         public RelativeLayout f;
         public LinearLayout.LayoutParams g;
-        public bc5 h;
-        public vd5 i;
-        public wb5 j;
+        public od5 h;
+        public if5 i;
+        public jd5 j;
         public NoSlidingLinearLayout k;
         public ISendVoiceView l;
         public GroupInputViewController m;
         public GroupChatRobotTopHeadView n;
         public GroupChatRobotFloorView o;
-        public xq7 p;
+        public xt7 p;
         public GroupChatUserReplyView q;
         public int r;
         public int s;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class a implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -183,14 +183,14 @@ public class GroupInputTool implements LifecycleObserver, uj {
         public final void C() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.n = (GroupChatRobotTopHeadView) this.f.findViewById(R.id.obfuscated_res_0x7f09102a);
+                this.n = (GroupChatRobotTopHeadView) this.f.findViewById(R.id.obfuscated_res_0x7f09106b);
             }
         }
 
         public final void D() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.q = (GroupChatUserReplyView) this.f.findViewById(R.id.obfuscated_res_0x7f090dd0);
+                this.q = (GroupChatUserReplyView) this.f.findViewById(R.id.obfuscated_res_0x7f090e11);
             }
         }
 
@@ -225,10 +225,10 @@ public class GroupInputTool implements LifecycleObserver, uj {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, view2)) == null) {
                 g gVar = new g();
-                gVar.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090db5);
-                gVar.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ce6);
-                gVar.f = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090db0);
-                gVar.e = (NoSlidingLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09062e);
+                gVar.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090df6);
+                gVar.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d2a);
+                gVar.f = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090df1);
+                gVar.e = (NoSlidingLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09066c);
                 gVar.k = (NoSlidingLinearLayout) view2.findViewById(R.id.mask_view);
                 return gVar;
             }
@@ -254,7 +254,7 @@ public class GroupInputTool implements LifecycleObserver, uj {
                 }
                 RelativeLayout relativeLayout = this.d;
                 if (relativeLayout != null) {
-                    p15.d(relativeLayout).f(R.color.CAM_X0207);
+                    b35.d(relativeLayout).f(R.color.CAM_X0207);
                 }
                 GroupChatUserReplyView groupChatUserReplyView = this.q;
                 if (groupChatUserReplyView != null) {
@@ -269,7 +269,7 @@ public class GroupInputTool implements LifecycleObserver, uj {
                 return;
             }
             SpanGroupEditText g = this.a.g();
-            g.setId(R.id.obfuscated_res_0x7f090dae);
+            g.setId(R.id.obfuscated_res_0x7f090def);
             g.setType(SpanGroupEditText.EDIT_TEXT_TYPE.TYPE_DEFAULT);
             g.setMinHeight(context.getResources().getDimensionPixelSize(R.dimen.M_H_X003));
             g.setMaxLines(5);
@@ -279,7 +279,7 @@ public class GroupInputTool implements LifecycleObserver, uj {
             g.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.T_X06));
             g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             g.setHintTextColor(context.getResources().getColor(R.color.CAM_X0109));
-            ph9.l(g, R.drawable.edittext_cursor);
+            ll9.l(g, R.drawable.edittext_cursor);
             g.setLineSpacing(ej.g(context, R.dimen.M_T_X002), 1.0f);
             g.setPadding(ej.g(context, R.dimen.M_W_X006), ej.g(context, R.dimen.M_H_X004), ej.g(context, R.dimen.M_W_X006), ej.g(context, R.dimen.M_H_X004));
             g.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
@@ -288,31 +288,31 @@ public class GroupInputTool implements LifecycleObserver, uj {
         public final void B(GroupChatFragment groupChatFragment, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, groupChatFragment, context) == null) {
-                GroupChatRobotFloorView groupChatRobotFloorView = (GroupChatRobotFloorView) this.f.findViewById(R.id.obfuscated_res_0x7f090dc6);
+                GroupChatRobotFloorView groupChatRobotFloorView = (GroupChatRobotFloorView) this.f.findViewById(R.id.obfuscated_res_0x7f090e07);
                 this.o = groupChatRobotFloorView;
                 groupChatRobotFloorView.setPageContext(groupChatFragment.getPageContext());
                 this.o.l(TbadkCoreApplication.getInst().getSkinType());
-                xq7 xq7Var = new xq7(groupChatFragment);
-                this.p = xq7Var;
-                xq7Var.o(this.o);
+                xt7 xt7Var = new xt7(groupChatFragment);
+                this.p = xt7Var;
+                xt7Var.o(this.o);
             }
         }
 
         public void G() {
-            xb5 xb5Var;
+            kd5 kd5Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 int i = this.s;
                 if (i == 0) {
                     this.r = SkinManager.getColor(R.color.CAM_X0212);
                 } else if (i == 1) {
-                    this.r = p09.a(SkinManager.getColor(R.color.CAM_X0302), 0.06f);
+                    this.r = b49.a(SkinManager.getColor(R.color.CAM_X0302), 0.06f);
                 } else {
                     this.r = SkinManager.getColor(R.color.CAM_X0212);
                 }
-                ic5 ic5Var = this.a;
-                if (ic5Var != null && (xb5Var = ic5Var.m) != null && (xb5Var instanceof EditText)) {
-                    p15 d = p15.d((EditText) xb5Var);
+                vd5 vd5Var = this.a;
+                if (vd5Var != null && (kd5Var = vd5Var.m) != null && (kd5Var instanceof EditText)) {
+                    b35 d = b35.d((EditText) kd5Var);
                     d.z(R.dimen.T_X06);
                     d.n(R.string.J_X07);
                     d.l(R.dimen.L_X01);
@@ -343,9 +343,9 @@ public class GroupInputTool implements LifecycleObserver, uj {
         public final void z(GroupChatFragment groupChatFragment, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048586, this, groupChatFragment, context) == null) {
-                ic5 ic5Var = new ic5(context, true, false);
-                this.a = ic5Var;
-                ic5Var.j(true);
+                vd5 vd5Var = new vd5(context, true, false);
+                this.a = vd5Var;
+                vd5Var.j(true);
                 EditorTools editorTools = new EditorTools(context);
                 this.b = editorTools;
                 editorTools.setId(R.id.group_chat_input_tool_view);
@@ -356,40 +356,40 @@ public class GroupInputTool implements LifecycleObserver, uj {
                 this.b.setBarBackgroundColorId(R.color.CAM_X0207);
                 this.b.setDeskBackgroundColorId(R.color.CAM_X0206);
                 this.b.setMoreDeskBgColorId(R.color.CAM_X0206);
-                this.b.setViewDisplayTime(10L);
-                CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001301, wb5.class, context);
+                this.b.setViewDisplayTime(15L, 20L);
+                CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001301, jd5.class, context);
                 if (runTask != null && runTask.getData() != null) {
-                    wb5 wb5Var = (wb5) runTask.getData();
-                    this.j = wb5Var;
-                    xb5 xb5Var = wb5Var.m;
-                    if (xb5Var != null && (xb5Var instanceof ISendVoiceView)) {
-                        this.l = (ISendVoiceView) xb5Var;
+                    jd5 jd5Var = (jd5) runTask.getData();
+                    this.j = jd5Var;
+                    kd5 kd5Var = jd5Var.m;
+                    if (kd5Var != null && (kd5Var instanceof ISendVoiceView)) {
+                        this.l = (ISendVoiceView) kd5Var;
                     }
-                    wb5 wb5Var2 = this.j;
-                    wb5Var2.l = 1;
-                    this.b.d(wb5Var2);
+                    jd5 jd5Var2 = this.j;
+                    jd5Var2.l = 1;
+                    this.b.d(jd5Var2);
                 }
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(5);
                 this.b.h(arrayList);
-                wb5 p = this.b.p(5);
+                jd5 p = this.b.p(5);
                 if (p != null) {
                     p.f(true);
                     p.e(true);
                     p.d = 0;
                 }
                 this.b.d(this.a);
-                bc5 bc5Var = new bc5(context);
-                this.h = bc5Var;
-                this.b.d(bc5Var);
-                vd5 vd5Var = new vd5(context, true);
-                this.i = vd5Var;
-                this.b.d(vd5Var);
+                od5 od5Var = new od5(context);
+                this.h = od5Var;
+                this.b.d(od5Var);
+                if5 if5Var = new if5(context, true);
+                this.i = if5Var;
+                this.b.d(if5Var);
                 this.b.f();
                 this.c.addView(this.b, new ViewGroup.LayoutParams(-1, -2));
-                xb5 xb5Var2 = this.a.m;
-                if (xb5Var2 instanceof EditText) {
-                    p15 d = p15.d((EditText) xb5Var2);
+                kd5 kd5Var2 = this.a.m;
+                if (kd5Var2 instanceof EditText) {
+                    b35 d = b35.d((EditText) kd5Var2);
                     d.z(R.dimen.T_X06);
                     d.n(R.string.J_X07);
                     d.l(R.dimen.L_X01);
@@ -401,7 +401,7 @@ public class GroupInputTool implements LifecycleObserver, uj {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -441,7 +441,7 @@ public class GroupInputTool implements LifecycleObserver, uj {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -477,8 +477,8 @@ public class GroupInputTool implements LifecycleObserver, uj {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements gd5.b {
+    /* loaded from: classes4.dex */
+    public class c implements te5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GroupInputTool a;
@@ -501,7 +501,7 @@ public class GroupInputTool implements LifecycleObserver, uj {
             this.a = groupInputTool;
         }
 
-        @Override // com.baidu.tieba.gd5.b
+        @Override // com.baidu.tieba.te5.b
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -509,14 +509,14 @@ public class GroupInputTool implements LifecycleObserver, uj {
                     this.a.c.a(z, this.a.f);
                 }
                 this.a.e = z;
-                this.a.B().j(z);
-                this.a.V(!z);
+                this.a.G().j(z);
+                this.a.c0(!z);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921785, Boolean.valueOf(z)));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -543,18 +543,18 @@ public class GroupInputTool implements LifecycleObserver, uj {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.B() != null && this.a.B().h()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.G() != null && this.a.G().h()) {
                 if (this.a.e) {
                     this.a.a.y().r();
                 } else {
-                    this.a.B().n(null);
+                    this.a.G().n(null);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class e implements xq7.e {
+    /* loaded from: classes4.dex */
+    public class e implements xt7.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GroupInputTool a;
@@ -577,28 +577,28 @@ public class GroupInputTool implements LifecycleObserver, uj {
             this.a = groupInputTool;
         }
 
-        @Override // com.baidu.tieba.xq7.e
+        @Override // com.baidu.tieba.xt7.e
         public void a(int i, int i2, long j, AnimatorListenerAdapter animatorListenerAdapter, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), animatorListenerAdapter, Boolean.valueOf(z)}) == null) {
                 if (GroupInputTool.i != null) {
-                    GroupInputTool.i.c2();
+                    GroupInputTool.i.h2();
                 }
-                this.a.U(false);
-                this.a.L();
-                this.a.n(i, i2, j, animatorListenerAdapter, z);
+                this.a.b0(false);
+                this.a.S();
+                this.a.p(i, i2, j, animatorListenerAdapter, z);
             }
         }
 
-        @Override // com.baidu.tieba.xq7.e
+        @Override // com.baidu.tieba.xt7.e
         public void b(int i, int i2, long j, AnimatorListenerAdapter animatorListenerAdapter, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), animatorListenerAdapter, Boolean.valueOf(z)}) == null) {
                 if (GroupInputTool.i != null) {
-                    GroupInputTool.i.i2();
+                    GroupInputTool.i.n2();
                 }
-                this.a.U(true);
-                this.a.m(i, i2, j, animatorListenerAdapter, z);
+                this.a.b0(true);
+                this.a.n(i, i2, j, animatorListenerAdapter, z);
             }
         }
     }
@@ -623,63 +623,63 @@ public class GroupInputTool implements LifecycleObserver, uj {
         i = groupChatFragment;
     }
 
-    public void O(int i2) {
+    public void V(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeI(1048589, this, i2) != null) {
+        if (interceptable != null && interceptable.invokeI(1048593, this, i2) != null) {
             return;
         }
         this.a.E(i2);
     }
 
-    public void P(@NonNull Bundle bundle) {
+    public void W(@NonNull Bundle bundle) {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, bundle) == null) && (gVar = this.a) != null && gVar.m != null) {
-            this.a.m.A0(bundle);
+        if ((interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) && (gVar = this.a) != null && gVar.m != null) {
+            this.a.m.H0(bundle);
         }
     }
 
-    public void Q(BotsDTO botsDTO) {
+    public void X(BotsDTO botsDTO) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048591, this, botsDTO) != null) || this.a.p == null) {
+        if ((interceptable != null && interceptable.invokeL(1048595, this, botsDTO) != null) || this.a.p == null) {
             return;
         }
         this.a.p.l(botsDTO);
     }
 
-    public void R(boolean z) {
+    public void Y(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
             this.f = z;
         }
     }
 
-    public void S(int i2) {
+    public void Z(int i2) {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048593, this, i2) == null) && (gVar = this.a) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048597, this, i2) == null) && (gVar = this.a) != null) {
             gVar.F(i2);
         }
     }
 
-    public void T(int i2) {
+    public void a0(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            S(i2);
+        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
+            Z(i2);
         }
     }
 
-    public void U(boolean z) {
+    public void b0(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048595, this, z) == null) && this.a.b != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048599, this, z) == null) && this.a.b != null) {
             this.a.b.setTopShadowDividerVisible(z);
         }
     }
 
-    public final void V(boolean z) {
+    public final void c0(boolean z) {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048596, this, z) != null) || (gVar = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeZ(1048600, this, z) != null) || (gVar = this.a) == null) {
             return;
         }
         if (z) {
@@ -689,18 +689,18 @@ public class GroupInputTool implements LifecycleObserver, uj {
         }
     }
 
-    public void W(View.OnClickListener onClickListener) {
+    public void d0(View.OnClickListener onClickListener) {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048597, this, onClickListener) == null) && onClickListener != null && (gVar = this.a) != null && gVar.k != null) {
+        if ((interceptable == null || interceptable.invokeL(1048601, this, onClickListener) == null) && onClickListener != null && (gVar = this.a) != null && gVar.k != null) {
             this.a.k.setOnClickListener(onClickListener);
         }
     }
 
-    public void X(boolean z) {
+    public void e0(boolean z) {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048598, this, z) == null) && (gVar = this.a) != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048602, this, z) == null) && (gVar = this.a) != null) {
             if (!z) {
                 gVar.k.setVisibility(8);
             } else {
@@ -709,16 +709,16 @@ public class GroupInputTool implements LifecycleObserver, uj {
         }
     }
 
-    public void Y(f fVar) {
+    public void f0(f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, fVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048603, this, fVar) == null) {
             this.c = fVar;
         }
     }
 
-    public void Z(h hVar) {
+    public void g0(h hVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, hVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048604, this, hVar) == null) {
             this.b = hVar;
         }
     }
@@ -727,7 +727,7 @@ public class GroupInputTool implements LifecycleObserver, uj {
     public void onDeletedVoice(String str) {
         h hVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048604, this, str) == null) && (hVar = this.b) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048607, this, str) == null) && (hVar = this.b) != null) {
             hVar.a();
         }
     }
@@ -736,7 +736,7 @@ public class GroupInputTool implements LifecycleObserver, uj {
     public void onShowRecordTime(int i2) {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048607, this, i2) == null) && (gVar = this.a) != null && gVar.l != null) {
+        if ((interceptable == null || interceptable.invokeI(1048610, this, i2) == null) && (gVar = this.a) != null && gVar.l != null) {
             this.a.l.onShowRecordTime(i2);
         }
     }
@@ -745,23 +745,23 @@ public class GroupInputTool implements LifecycleObserver, uj {
     public void onShowRecording(int i2) {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048608, this, i2) == null) && (gVar = this.a) != null && gVar.l != null) {
+        if ((interceptable == null || interceptable.invokeI(1048611, this, i2) == null) && (gVar = this.a) != null && gVar.l != null) {
             this.a.l.onShowRecording(i2);
         }
     }
 
-    public void t(boolean z) {
+    public void w(boolean z) {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048612, this, z) == null) && (gVar = this.a) != null && gVar.e != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048616, this, z) == null) && (gVar = this.a) != null && gVar.e != null) {
             this.a.e.setDisallowInterceptTouchEvent(z);
         }
     }
 
-    public void v(boolean z) {
+    public void z(boolean z) {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048613, this, z) == null) && (gVar = this.a) != null && gVar.k != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048617, this, z) == null) && (gVar = this.a) != null && gVar.k != null) {
             this.a.k.setDisallowInterceptTouchEvent(z);
         }
     }
@@ -769,7 +769,7 @@ public class GroupInputTool implements LifecycleObserver, uj {
     @Override // com.baidu.tieba.uj
     public void onSendVoice(String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048605, this, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048608, this, str, i2) == null) {
             VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
             voiceModel.setDuration(i2);
             voiceModel.setVoiceId(str);
@@ -791,16 +791,72 @@ public class GroupInputTool implements LifecycleObserver, uj {
             }
             GroupChatFragment groupChatFragment = i;
             if (groupChatFragment != null && this.d != null) {
-                gd5.c(groupChatFragment.requireActivity(), this.d);
+                te5.c(groupChatFragment.requireActivity(), this.d);
             }
             i = null;
         }
     }
 
-    public boolean A() {
+    @Nullable
+    public od5 A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            g gVar = this.a;
+            if (gVar != null) {
+                return gVar.h;
+            }
+            return null;
+        }
+        return (od5) invokeV.objValue;
+    }
+
+    @Nullable
+    public RelativeLayout B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            g gVar = this.a;
+            if (gVar != null) {
+                return gVar.c;
+            }
+            return null;
+        }
+        return (RelativeLayout) invokeV.objValue;
+    }
+
+    @Nullable
+    public vd5 C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            g gVar = this.a;
+            if (gVar != null) {
+                return gVar.a;
+            }
+            return null;
+        }
+        return (vd5) invokeV.objValue;
+    }
+
+    @Nullable
+    public RelativeLayout D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            g gVar = this.a;
+            if (gVar != null) {
+                return gVar.f;
+            }
+            return null;
+        }
+        return (RelativeLayout) invokeV.objValue;
+    }
+
+    public boolean E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             g gVar = this.a;
             if (gVar == null || gVar.k.getVisibility() != 0) {
                 return false;
@@ -810,21 +866,21 @@ public class GroupInputTool implements LifecycleObserver, uj {
         return invokeV.booleanValue;
     }
 
-    public xq7 B() {
+    public xt7 G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.a.p;
         }
-        return (xq7) invokeV.objValue;
+        return (xt7) invokeV.objValue;
     }
 
-    public boolean D() {
+    public boolean K() {
         InterceptResult invokeV;
         View findViewById;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (z() == null || (findViewById = z().findViewById(R.id.obfuscated_res_0x7f090daf)) == null || findViewById.getVisibility() != 0) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (D() == null || (findViewById = D().findViewById(R.id.obfuscated_res_0x7f090df0)) == null || findViewById.getVisibility() != 0) {
                 return false;
             }
             return true;
@@ -833,24 +889,24 @@ public class GroupInputTool implements LifecycleObserver, uj {
     }
 
     @Nullable
-    public vd5 E() {
+    public if5 L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             g gVar = this.a;
             if (gVar != null) {
                 return gVar.i;
             }
             return null;
         }
-        return (vd5) invokeV.objValue;
+        return (if5) invokeV.objValue;
     }
 
     @Nullable
-    public ISendVoiceView F() {
+    public ISendVoiceView M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             g gVar = this.a;
             if (gVar != null) {
                 return gVar.x();
@@ -860,20 +916,20 @@ public class GroupInputTool implements LifecycleObserver, uj {
         return (ISendVoiceView) invokeV.objValue;
     }
 
-    public GroupChatRobotTopHeadView G() {
+    public GroupChatRobotTopHeadView N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.a.n;
         }
         return (GroupChatRobotTopHeadView) invokeV.objValue;
     }
 
     @Nullable
-    public EditorTools H() {
+    public EditorTools O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             g gVar = this.a;
             if (gVar != null) {
                 return gVar.b;
@@ -883,10 +939,10 @@ public class GroupInputTool implements LifecycleObserver, uj {
         return (EditorTools) invokeV.objValue;
     }
 
-    public GroupChatUserReplyView I() {
+    public GroupChatUserReplyView P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             g gVar = this.a;
             if (gVar != null) {
                 return gVar.q;
@@ -896,35 +952,35 @@ public class GroupInputTool implements LifecycleObserver, uj {
         return (GroupChatUserReplyView) invokeV.objValue;
     }
 
-    public final void K() {
+    public final void R() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || B() == null) {
+        if ((interceptable != null && interceptable.invokeV(1048589, this) != null) || G() == null) {
             return;
         }
-        B().k(new e(this));
+        G().k(new e(this));
     }
 
-    public final void L() {
+    public final void S() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || this.a.k == null) {
+        if ((interceptable != null && interceptable.invokeV(1048590, this) != null) || this.a.k == null) {
             return;
         }
         this.a.k.setOnClickListener(new d(this));
     }
 
-    public boolean M() {
+    public boolean T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.f;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean N() {
+    public boolean U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return this.e;
         }
         return invokeV.booleanValue;
@@ -934,7 +990,7 @@ public class GroupInputTool implements LifecycleObserver, uj {
     public boolean isOnCancle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             g gVar = this.a;
             if (gVar != null && gVar.l != null) {
                 return this.a.l.isOnCancle();
@@ -948,65 +1004,9 @@ public class GroupInputTool implements LifecycleObserver, uj {
     public void onStopingRecorder() {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048610, this) == null) && (gVar = this.a) != null && gVar.l != null) {
+        if ((interceptable == null || interceptable.invokeV(1048613, this) == null) && (gVar = this.a) != null && gVar.l != null) {
             this.a.l.onStopingRecorder();
         }
-    }
-
-    @Nullable
-    public bc5 w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
-            g gVar = this.a;
-            if (gVar != null) {
-                return gVar.h;
-            }
-            return null;
-        }
-        return (bc5) invokeV.objValue;
-    }
-
-    @Nullable
-    public RelativeLayout x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
-            g gVar = this.a;
-            if (gVar != null) {
-                return gVar.c;
-            }
-            return null;
-        }
-        return (RelativeLayout) invokeV.objValue;
-    }
-
-    @Nullable
-    public ic5 y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
-            g gVar = this.a;
-            if (gVar != null) {
-                return gVar.a;
-            }
-            return null;
-        }
-        return (ic5) invokeV.objValue;
-    }
-
-    @Nullable
-    public RelativeLayout z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            g gVar = this.a;
-            if (gVar != null) {
-                return gVar.f;
-            }
-            return null;
-        }
-        return (RelativeLayout) invokeV.objValue;
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
@@ -1025,21 +1025,21 @@ public class GroupInputTool implements LifecycleObserver, uj {
             this.a.A(i.getContext());
             FragmentActivity requireActivity = i.requireActivity();
             i.registerListener(this.g);
-            K();
+            R();
             if (this.a.y() != null && this.a.y().b != null) {
-                this.d = gd5.b(requireActivity, this.a.y().b, new c(this));
+                this.d = te5.b(requireActivity, this.a.y().b, new c(this));
             }
         }
     }
 
-    public void J() {
+    public void Q() {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (gVar = this.a) != null && gVar.y() != null) {
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (gVar = this.a) != null && gVar.y() != null) {
             this.f = false;
             this.a.y().r();
             this.a.y().s();
-            this.a.y().C(new lb5(5, -1, null));
+            this.a.y().C(new yc5(5, -1, null));
             f fVar = this.c;
             if (fVar != null) {
                 fVar.a(this.e, this.f);
@@ -1047,14 +1047,14 @@ public class GroupInputTool implements LifecycleObserver, uj {
         }
     }
 
-    public boolean q() {
+    public boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            if (B() != null && B().h()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            if (G() != null && G().h()) {
                 return false;
             }
-            if (i != null && D() && i.b2() != null && i.b2().l0() == GroupInputViewController.SourceType.TWO) {
+            if (i != null && K() && i.f2() != null && i.f2().s0() == GroupInputViewController.SourceType.TWO) {
                 return false;
             }
             if (!this.e && !this.f) {
@@ -1065,23 +1065,23 @@ public class GroupInputTool implements LifecycleObserver, uj {
         return invokeV.booleanValue;
     }
 
-    public void m(int i2, int i3, long j, AnimatorListenerAdapter animatorListenerAdapter, boolean z) {
+    public void n(int i2, int i3, long j, AnimatorListenerAdapter animatorListenerAdapter, boolean z) {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), animatorListenerAdapter, Boolean.valueOf(z)}) == null) && (gVar = this.a) != null && gVar.f != null) {
-            if (!z && A()) {
-                X(false);
+        if ((interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), animatorListenerAdapter, Boolean.valueOf(z)}) == null) && (gVar = this.a) != null && gVar.f != null) {
+            if (!z && E()) {
+                e0(false);
             }
             this.a.v(i2, i3, j, animatorListenerAdapter);
         }
     }
 
-    public void n(int i2, int i3, long j, AnimatorListenerAdapter animatorListenerAdapter, boolean z) {
+    public void p(int i2, int i3, long j, AnimatorListenerAdapter animatorListenerAdapter, boolean z) {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), animatorListenerAdapter, Boolean.valueOf(z)}) == null) && (gVar = this.a) != null && gVar.f != null) {
-            if (z && !A()) {
-                X(true);
+        if ((interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), animatorListenerAdapter, Boolean.valueOf(z)}) == null) && (gVar = this.a) != null && gVar.f != null) {
+            if (z && !E()) {
+                e0(true);
             }
             this.a.v(i2, i3, j, animatorListenerAdapter);
         }
@@ -1092,7 +1092,7 @@ public class GroupInputTool implements LifecycleObserver, uj {
         g gVar;
         GroupChatFragment groupChatFragment;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048606, this, i2, str) == null) && (gVar = this.a) != null && gVar.l != null) {
+        if ((interceptable == null || interceptable.invokeIL(1048609, this, i2, str) == null) && (gVar = this.a) != null && gVar.l != null) {
             this.a.l.onShowErr(i2, str);
             if (!StringUtils.isNull(str) && (groupChatFragment = i) != null) {
                 if (i2 == 3) {
@@ -1112,7 +1112,7 @@ public class GroupInputTool implements LifecycleObserver, uj {
     public void onStartedRecorder(boolean z, int i2) {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) && (gVar = this.a) != null && gVar.l != null) {
+        if ((interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) && (gVar = this.a) != null && gVar.l != null) {
             this.a.l.onStartedRecorder(z, sj.c);
         }
     }

@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class p32 extends c22 {
+public class p32 extends s22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k22 a;
+    public a32 a;
 
     public p32() {
         Interceptable interceptable = $ic;
@@ -27,26 +27,26 @@ public class p32 extends c22 {
         }
     }
 
-    @Override // com.baidu.tieba.c22
-    public void a(d22 d22Var, Canvas canvas) {
-        k22 k22Var;
+    @Override // com.baidu.tieba.s22
+    public void a(t22 t22Var, Canvas canvas) {
+        a32 a32Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, d22Var, canvas) == null) && (k22Var = this.a) != null && k22Var.d()) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, t22Var, canvas) == null) && (a32Var = this.a) != null && a32Var.d()) {
             if (this.a.c()) {
-                d22Var.c.setShader(this.a.b());
+                t22Var.b.setShader(this.a.b());
                 return;
             }
-            d22Var.m = this.a.a();
-            d22Var.c.setColor(this.a.a());
-            d22Var.b.setShader(null);
+            t22Var.e.setColor(this.a.a());
+            t22Var.b.setColor(this.a.a());
+            t22Var.b.setShader(null);
         }
     }
 
-    @Override // com.baidu.tieba.c22
+    @Override // com.baidu.tieba.s22
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            this.a = new k22(jSONArray);
+            this.a = new a32(jSONArray);
         }
     }
 }

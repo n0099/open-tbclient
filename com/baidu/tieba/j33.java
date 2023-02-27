@@ -1,64 +1,32 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.lifecycle.SavedStateHandle;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.searchbox.live.ubc.FlowInfoHelper;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class j33 implements h33 {
+public class j33 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean a;
+    public static final File b;
     public transient /* synthetic */ FieldHolder $fh;
-    public i33 a;
-    public long b;
-    public long c;
-
-    /* loaded from: classes5.dex */
-    public class a implements View.OnLongClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j33 a;
-
-        public a(j33 j33Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j33Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j33Var;
-        }
-
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                if (this.a.j()) {
-                    this.a.k();
-                    return true;
-                }
-                this.a.l();
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -73,123 +41,110 @@ public class j33 implements h33 {
                 return;
             }
         }
-        d = gp1.a;
+        a = wp1.a;
+        b = AppRuntime.getAppContext().getExternalCacheDir();
     }
 
-    public j33() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        if (j()) {
-            this.a = new i33();
-        }
-    }
-
-    public final boolean j() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!d) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b + File.separator + "swan_perf";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static JSONObject a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject C = ts2.g0().C();
+            String k = ts2.g0().k();
+            try {
+                jSONObject.put(SetImageWatermarkTypeReqMsg.SWITCH, C);
+                JSONArray jSONArray = null;
+                if (!TextUtils.isEmpty(k)) {
+                    jSONArray = new JSONArray();
+                    for (String str : k.split("-")) {
+                        jSONArray.put(str);
+                    }
+                }
+                jSONObject.put("sid", jSONArray);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).getBoolean("light_info_switch", false);
+            return jSONObject;
         }
-        return invokeV.booleanValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    public final void k() {
+    public static JSONObject c(List<UbcFlowEvent> list, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", false).apply();
-            i33 i33Var = this.a;
-            if (i33Var != null) {
-                i33Var.c();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, list, jSONObject)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            for (UbcFlowEvent ubcFlowEvent : list) {
+                if (!ubcFlowEvent.b()) {
+                    try {
+                        JSONObject jSONObject3 = new JSONObject();
+                        jSONObject3.put("id", ubcFlowEvent.a);
+                        jSONObject3.put("time", ubcFlowEvent.g());
+                        jSONObject3.put("value", ubcFlowEvent.j());
+                        jSONArray.put(jSONObject3);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.h33
-    public void a(long j) {
-        i33 i33Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && j() && (i33Var = this.a) != null) {
-            i33Var.f(j - this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.h33
-    public void c(long j) {
-        i33 i33Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && j() && (i33Var = this.a) != null) {
-            i33Var.h(j - this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.h33
-    public void d(long j) {
-        i33 i33Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && j() && (i33Var = this.a) != null) {
-            i33Var.i(j - this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.h33
-    public void e(long j) {
-        i33 i33Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048579, this, j) == null) && j() && (i33Var = this.a) != null) {
-            i33Var.g(j - this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.i23
-    public void end(long j) {
-        i33 i33Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && j() && (i33Var = this.a) != null) {
-            this.c = j;
-            i33Var.l(this.b, j);
-            this.a.a();
-        }
-    }
-
-    @Override // com.baidu.tieba.h33
-    public void f(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && d && view2 != null) {
-            view2.setOnLongClickListener(new a(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.i23
-    public void start(long j) {
-        i33 i33Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048585, this, j) == null) && j() && (i33Var = this.a) != null) {
-            this.b = j;
-            i33Var.e();
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", true).apply();
-            if (this.a == null) {
-                this.a = new i33();
+            try {
+                jSONObject2.put(FlowInfoHelper.KEY_EVENTLIST, jSONArray);
+                jSONObject2.put(SavedStateHandle.VALUES, jSONObject);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
-            this.a.k();
+            return jSONObject2;
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public static void d(List<UbcFlowEvent> list, JSONObject jSONObject) {
+        m93 b0;
+        Map<String, String> t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, jSONObject) == null) {
+            if (a) {
+                lo4.b().f();
+            }
+            if (!l53.E() || (b0 = m93.b0()) == null || (t = en3.t(en3.o(b0.W().W()))) == null || !TextUtils.equals(t.get("_SwanStartupPerf_"), "1")) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList(list);
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("670", c(arrayList, jSONObject));
+                jSONObject2.put(DI.AB_NAME, a());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            File file = new File(b, "swan_perf");
+            if (!file.exists() && !file.mkdirs()) {
+                return;
+            }
+            qp4.N(jSONObject2.toString(), new File(file, String.format(Locale.getDefault(), "perf_%s.json", Long.valueOf(System.currentTimeMillis() / 1000))));
+        }
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            File file = new File(b, "swan_stability");
+            if (!qp4.m(file)) {
+                m62.k("StartupPerf", "创建目录失败 path" + file);
+                return;
+            }
+            qp4.N(str, new File(file, String.format(Locale.getDefault(), "stability_%s.json", Long.valueOf(System.currentTimeMillis() / 1000))));
         }
     }
 }

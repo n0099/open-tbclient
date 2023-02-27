@@ -2,8 +2,6 @@ package com.baidu.swan.apps.process;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.SwanAppActivity1;
@@ -17,33 +15,23 @@ import com.baidu.swan.apps.process.messaging.client.SwanAppLocalService2;
 import com.baidu.swan.apps.process.messaging.client.SwanAppLocalService3;
 import com.baidu.swan.apps.process.messaging.client.SwanAppLocalService4;
 import com.baidu.swan.apps.process.messaging.client.SwanAppLocalService5;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes3.dex */
-public final class SwanAppProcessInfo {
-    public static final /* synthetic */ SwanAppProcessInfo[] $VALUES;
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final SwanAppProcessInfo P0;
-    public static final SwanAppProcessInfo P1;
-    public static final SwanAppProcessInfo P2;
-    public static final SwanAppProcessInfo P3;
-    public static final SwanAppProcessInfo P4;
-    public static final SwanAppProcessInfo P5;
+public enum SwanAppProcessInfo {
+    UNKNOWN(-2, false, false, null, null),
+    SERVICE(-1, true, false, null, null),
+    P0(0, false, true, SwanAppActivity.class, SwanAppLocalService.class),
+    P1(1, false, true, SwanAppActivity1.class, SwanAppLocalService1.class),
+    P2(2, false, true, SwanAppActivity2.class, SwanAppLocalService2.class),
+    P3(3, false, true, SwanAppActivity3.class, SwanAppLocalService3.class),
+    P4(4, false, true, SwanAppActivity4.class, SwanAppLocalService4.class),
+    P5(5, false, true, SwanAppActivity5.class, SwanAppLocalService5.class);
+    
     public static final int PROCESS_ID_END = 5;
     public static final int PROCESS_ID_START = 0;
-    public static final SwanAppProcessInfo SERVICE;
     public static final String SWAN_APP_PROCESS_SUFFIX = ":swan";
-    public static final SwanAppProcessInfo UNKNOWN;
     @NonNull
-    public static SwanAppProcessInfo sCurrent;
+    public static SwanAppProcessInfo sCurrent = UNKNOWN;
     public static SwanAppProcessInfo[] sIndices;
-    public transient /* synthetic */ FieldHolder $fh;
     public final Class<? extends SwanAppActivity> activity;
     public final int index;
     public final boolean isSwanClient;
@@ -51,57 +39,11 @@ public final class SwanAppProcessInfo {
     public final Class<? extends SwanAppLocalService> service;
 
     public static boolean checkProcessId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >= 0 && i <= 5 : invokeI.booleanValue;
+        return i >= 0 && i <= 5;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1006262177, "Lcom/baidu/swan/apps/process/SwanAppProcessInfo;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1006262177, "Lcom/baidu/swan/apps/process/SwanAppProcessInfo;");
-                return;
-            }
-        }
-        UNKNOWN = new SwanAppProcessInfo(RomUtils.UNKNOWN, 0, -2, false, false, null, null);
-        SERVICE = new SwanAppProcessInfo("SERVICE", 1, -1, true, false, null, null);
-        P0 = new SwanAppProcessInfo("P0", 2, 0, false, true, SwanAppActivity.class, SwanAppLocalService.class);
-        P1 = new SwanAppProcessInfo("P1", 3, 1, false, true, SwanAppActivity1.class, SwanAppLocalService1.class);
-        P2 = new SwanAppProcessInfo("P2", 4, 2, false, true, SwanAppActivity2.class, SwanAppLocalService2.class);
-        P3 = new SwanAppProcessInfo("P3", 5, 3, false, true, SwanAppActivity3.class, SwanAppLocalService3.class);
-        P4 = new SwanAppProcessInfo("P4", 6, 4, false, true, SwanAppActivity4.class, SwanAppLocalService4.class);
-        SwanAppProcessInfo swanAppProcessInfo = new SwanAppProcessInfo("P5", 7, 5, false, true, SwanAppActivity5.class, SwanAppLocalService5.class);
-        P5 = swanAppProcessInfo;
-        SwanAppProcessInfo swanAppProcessInfo2 = UNKNOWN;
-        $VALUES = new SwanAppProcessInfo[]{swanAppProcessInfo2, SERVICE, P0, P1, P2, P3, P4, swanAppProcessInfo};
-        sCurrent = swanAppProcessInfo2;
-    }
-
-    public SwanAppProcessInfo(String str, int i, int i2, boolean z, boolean z2, Class cls, Class cls2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), cls, cls2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                String str2 = (String) objArr2[0];
-                ((Integer) objArr2[1]).intValue();
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.index = i2;
+    SwanAppProcessInfo(int i, boolean z, boolean z2, Class cls, Class cls2) {
+        this.index = i;
         this.activity = cls;
         this.service = cls2;
         this.isSwanService = z;
@@ -110,117 +52,64 @@ public final class SwanAppProcessInfo {
 
     @NonNull
     public static SwanAppProcessInfo current() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!isInited() && ProcessUtils.isMainProcess()) {
-                return init(SERVICE);
-            }
-            return sCurrent;
+        if (!isInited() && ProcessUtils.isMainProcess()) {
+            return init(SERVICE);
         }
-        return (SwanAppProcessInfo) invokeV.objValue;
+        return sCurrent;
     }
 
     public static boolean isInited() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return sCurrent.isSwanClient;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static SwanAppProcessInfo[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return (SwanAppProcessInfo[]) $VALUES.clone();
-        }
-        return (SwanAppProcessInfo[]) invokeV.objValue;
+        return sCurrent.isSwanClient;
     }
 
     public boolean isSwanAppProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return checkProcessId(this.index);
-        }
-        return invokeV.booleanValue;
+        return checkProcessId(this.index);
     }
 
     public static SwanAppProcessInfo indexOf(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            return indices()[i];
-        }
-        return (SwanAppProcessInfo) invokeI.objValue;
+        return indices()[i];
     }
 
     @NonNull
     public static SwanAppProcessInfo init(SwanAppProcessInfo swanAppProcessInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, swanAppProcessInfo)) == null) {
-            if (!isInited() && swanAppProcessInfo != null && !sCurrent.equals(swanAppProcessInfo) && !UNKNOWN.equals(swanAppProcessInfo)) {
-                sCurrent = swanAppProcessInfo;
-            }
-            return sCurrent;
+        if (!isInited() && swanAppProcessInfo != null && !sCurrent.equals(swanAppProcessInfo) && !UNKNOWN.equals(swanAppProcessInfo)) {
+            sCurrent = swanAppProcessInfo;
         }
-        return (SwanAppProcessInfo) invokeL.objValue;
+        return sCurrent;
     }
 
     public static boolean isSwanAppProcess(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.contains(":swan")) {
-                return true;
-            }
-            return false;
+        if (!TextUtils.isEmpty(str) && str.contains(":swan")) {
+            return true;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static SwanAppProcessInfo valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            return (SwanAppProcessInfo) Enum.valueOf(SwanAppProcessInfo.class, str);
-        }
-        return (SwanAppProcessInfo) invokeL.objValue;
+        return false;
     }
 
     public static SwanAppProcessInfo[] indices() {
-        InterceptResult invokeV;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (sIndices == null) {
-                SwanAppProcessInfo[] values = values();
-                sIndices = new SwanAppProcessInfo[values.length];
-                int i2 = 0;
-                for (SwanAppProcessInfo swanAppProcessInfo : values) {
-                    if (swanAppProcessInfo != null && (i = swanAppProcessInfo.index) >= 0) {
-                        SwanAppProcessInfo[] swanAppProcessInfoArr = sIndices;
-                        if (i < swanAppProcessInfoArr.length && swanAppProcessInfoArr[i] == null) {
-                            swanAppProcessInfoArr[i] = swanAppProcessInfo;
-                        }
+        if (sIndices == null) {
+            SwanAppProcessInfo[] values = values();
+            sIndices = new SwanAppProcessInfo[values.length];
+            int i2 = 0;
+            for (SwanAppProcessInfo swanAppProcessInfo : values) {
+                if (swanAppProcessInfo != null && (i = swanAppProcessInfo.index) >= 0) {
+                    SwanAppProcessInfo[] swanAppProcessInfoArr = sIndices;
+                    if (i < swanAppProcessInfoArr.length && swanAppProcessInfoArr[i] == null) {
+                        swanAppProcessInfoArr[i] = swanAppProcessInfo;
                     }
-                }
-                while (true) {
-                    SwanAppProcessInfo[] swanAppProcessInfoArr2 = sIndices;
-                    if (i2 >= swanAppProcessInfoArr2.length) {
-                        break;
-                    }
-                    if (swanAppProcessInfoArr2[i2] == null) {
-                        swanAppProcessInfoArr2[i2] = UNKNOWN;
-                    }
-                    i2++;
                 }
             }
-            return sIndices;
+            while (true) {
+                SwanAppProcessInfo[] swanAppProcessInfoArr2 = sIndices;
+                if (i2 >= swanAppProcessInfoArr2.length) {
+                    break;
+                }
+                if (swanAppProcessInfoArr2[i2] == null) {
+                    swanAppProcessInfoArr2[i2] = UNKNOWN;
+                }
+                i2++;
+            }
         }
-        return (SwanAppProcessInfo[]) invokeV.objValue;
+        return sIndices;
     }
 }

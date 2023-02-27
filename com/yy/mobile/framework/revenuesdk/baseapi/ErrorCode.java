@@ -1,12 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.baseapi;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class ErrorCode {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int ARGS_ERROR = -400;
     public static final int AUTH_FAIL = -401;
     public static final int CAN_NOT_USE = -5;
@@ -35,19 +29,4 @@ public class ErrorCode {
     public static final int USE_Concurrent = -505;
     public static final int USE_FORBID = -12;
     public static final int YB_FROZEN = -9;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public ErrorCode() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

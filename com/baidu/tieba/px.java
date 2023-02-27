@@ -1,311 +1,72 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
+import android.content.res.Resources;
+import android.graphics.Rect;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.RoundCornerFrameLayout;
-import com.baidu.tbadk.TbPageContext;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.card.AutoVideoCardViewHolder;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.gz;
-import com.baidu.tieba.play.operableVideoView.FakeVideoContainer;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class px extends hx<sw4> {
+public class px {
     public static /* synthetic */ Interceptable $ic;
-    public static final int n;
-    public static int o;
-    public static int p;
-    public static int q;
-    public static int r;
     public transient /* synthetic */ FieldHolder $fh;
-    public View f;
-    public TextView g;
-    public sw4 h;
-    public RoundCornerFrameLayout i;
-    public FakeVideoContainer j;
-    public int k;
-    public boolean l;
-    public gz.b m;
 
-    public void u(BdUniqueId bdUniqueId) {
+    public static Rect a(jo joVar, View view2, int i) {
+        InterceptResult invokeLLI;
+        BdTypeRecyclerView bdTypeRecyclerView;
+        RecyclerView.LayoutManager layoutManager;
+        int i2;
+        View findViewByPosition;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup.LayoutParams a;
-        public final /* synthetic */ px b;
-
-        public a(px pxVar, ViewGroup.LayoutParams layoutParams) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pxVar, layoutParams};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, joVar, view2, i)) == null) {
+            if (view2.getTag() instanceof AutoVideoCardViewHolder) {
+                return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) view2.getTag()).t().getVideoContainer());
+            }
+            if (!(joVar instanceof BdTypeRecyclerView) || (layoutManager = (bdTypeRecyclerView = (BdTypeRecyclerView) joVar).getLayoutManager()) == null) {
+                return null;
+            }
+            int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
+            int lastVisiblePosition = bdTypeRecyclerView.getLastVisiblePosition();
+            List<Cdo> data = joVar.getData();
+            Object item = ListUtils.getItem(data, i);
+            if (!(item instanceof BaseCardInfo)) {
+                return null;
+            }
+            BaseCardInfo baseCardInfo = (BaseCardInfo) item;
+            int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
+            if (firstVisiblePosition > headerViewsCount) {
+                i2 = firstVisiblePosition - headerViewsCount;
+            } else {
+                i2 = headerViewsCount;
+            }
+            while (i2 <= lastVisiblePosition) {
+                Object item2 = ListUtils.getItem(data, i2 - headerViewsCount);
+                if ((item2 instanceof BaseCardInfo) && baseCardInfo.position == ((BaseCardInfo) item2).position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null && (findViewByPosition.getTag() instanceof AutoVideoCardViewHolder)) {
+                    return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) findViewByPosition.getTag()).t().getVideoContainer());
                 }
+                i2++;
             }
-            this.b = pxVar;
-            this.a = layoutParams;
+            return null;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.width = this.b.f.getWidth();
-                this.a.height = (this.b.f.getWidth() / 16) * 9;
-                this.b.i.setLayoutParams(this.a);
-            }
-        }
+        return (Rect) invokeLLI.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements gz.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ px a;
-
-        public b(px pxVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pxVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pxVar;
-        }
-
-        @Override // com.baidu.tieba.gz.b
-        public boolean a(gz.a aVar) {
-            InterceptResult invokeL;
-            RoundCornerFrameLayout roundCornerFrameLayout;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                if (aVar.b() == 7 && (roundCornerFrameLayout = this.a.i) != null) {
-                    roundCornerFrameLayout.d(((Boolean) aVar.c()).booleanValue());
-                    return false;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448314533, "Lcom/baidu/tieba/px;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448314533, "Lcom/baidu/tieba/px;");
-                return;
-            }
-        }
-        n = (ej.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + ej.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2;
-        int l = ej.l(TbadkCoreApplication.getInst());
-        o = l;
-        int i = l - n;
-        p = i;
-        q = i / 2;
-        r = i / 3;
-    }
-
-    @Override // com.baidu.tieba.hx
-    public View k() {
-        InterceptResult invokeV;
+    public static int b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f == null) {
-                View inflate = LayoutInflater.from(this.b).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
-                this.f = inflate;
-                this.g = (TextView) inflate.findViewById(R.id.video_seg_title);
-                this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.frame_video);
-                FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.b);
-                this.j = fakeVideoContainer;
-                fakeVideoContainer.setBackgroundResource(R.color.transparent);
-                this.i.addView(this.j);
-            }
-            return this.f;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            Resources resources = TbadkCoreApplication.getInst().getResources();
+            return resources.getIdentifier("icon_mask_level_usergrouth_" + i, ResourceManager.DRAWABLE, TbadkCoreApplication.getInst().getPackageName());
         }
-        return (View) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public px(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.k = 0;
-        this.l = false;
-        this.m = new b(this);
-    }
-
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.l = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.hx
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            m(7, this.m);
-        }
-    }
-
-    @Override // com.baidu.tieba.ay
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        sw4 sw4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) && (sw4Var = this.h) != null && sw4Var.getThreadData() != null) {
-            xc6.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-            this.i.c(i);
-            this.i.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x00b5, code lost:
-        if (r1 != r2) goto L44;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00ba, code lost:
-        if (r1 != r2) goto L44;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x00bc, code lost:
-        r8 = true;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x00bd, code lost:
-        r0 = com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper.handleVerticalVideoSize(r11, r8, null, r0, r1);
-     */
-    @Override // com.baidu.tieba.zx
-    /* renamed from: s */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(sw4 sw4Var) {
-        boolean z;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sw4Var) == null) {
-            int l = ej.l(TbadkCoreApplication.getInst());
-            if (l != this.k) {
-                int l2 = ej.l(TbadkCoreApplication.getInst());
-                o = l2;
-                int i = l2 - n;
-                p = i;
-                q = i / 2;
-                r = i / 3;
-                this.k = l;
-            }
-            this.h = sw4Var;
-            if (sw4Var != null && sw4Var.getThreadData() != null && this.h.getThreadData().getThreadVideoInfo() != null) {
-                this.j.setData(sw4Var.getThreadData());
-                ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
-                int i2 = layoutParams.width;
-                int i3 = layoutParams.height;
-                boolean z3 = false;
-                if (this.h.getThreadData().getThreadVideoInfo().is_vertical.intValue() == 1) {
-                    int i4 = (q / 9) * 16;
-                    int i5 = r;
-                    int intValue = this.h.getThreadData().getThreadVideoInfo().video_width.intValue();
-                    int intValue2 = this.h.getThreadData().getThreadVideoInfo().video_height.intValue();
-                    int i6 = q;
-                    layoutParams.width = i6;
-                    if (i2 != i6) {
-                        z2 = true;
-                    } else {
-                        z2 = false;
-                    }
-                    if (intValue != 0 && intValue2 != 0) {
-                        int i7 = (int) (((intValue2 * 1.0f) / intValue) * q);
-                        if (i7 < i5) {
-                            i4 = i5;
-                        } else if (i7 <= i4) {
-                            i4 = i7;
-                        }
-                        layoutParams.height = i4;
-                    } else {
-                        layoutParams.height = i4;
-                    }
-                } else {
-                    int i8 = p;
-                    layoutParams.width = i8;
-                    int i9 = (i8 / 16) * 9;
-                    layoutParams.height = i9;
-                    if (i3 == i9 && i2 == i8) {
-                        z = false;
-                    } else {
-                        z = true;
-                    }
-                }
-                if (z) {
-                    if (this.h.getThreadData().getThreadVideoInfo().is_vertical.intValue() == 1) {
-                        this.i.setLayoutParams(layoutParams);
-                    } else {
-                        this.i.post(new a(this, layoutParams));
-                    }
-                }
-                if (!this.h.getThreadData().isBJHVideoDynamicThreadType() && this.h.getThreadData().getType() != ThreadData.TYPE_FAKE_VIDEO) {
-                    this.g.setMaxLines(2);
-                    ThreadCardUtils.setTitle(this.g, this.h.getThreadData(), 0, this.l);
-                } else {
-                    this.g.setMaxLines(5);
-                    ThreadCardUtils.setTitle(this.g, this.h.getThreadData(), p, this.l);
-                }
-                TextView textView = this.g;
-                ThreadCardUtils.dealMainViewTopMargin(this.i, (textView == null || textView.getVisibility() != 0) ? true : true, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-            }
-        }
+        return invokeI.intValue;
     }
 }

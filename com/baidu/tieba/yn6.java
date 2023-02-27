@@ -1,92 +1,42 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.ac5;
-import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
-import com.baidu.tieba.xn6;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.g59;
+import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class yn6 extends ac5 {
+public class yn6 {
     public static /* synthetic */ Interceptable $ic;
-    public static yn6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<dc5> a;
+    public LikeModel a;
+    public g59 b;
+    public boolean c;
+    public b d;
+    public a e;
+    public TbPageContext f;
 
-    @Override // com.baidu.tieba.ac5
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(String str, long j);
+
+        void b(String str, long j);
+
+        void c(Object obj);
     }
 
     /* loaded from: classes7.dex */
-    public class a extends CustomMessageListener {
+    public class b extends w9 implements g59.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yn6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(yn6 yn6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yn6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yn6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001444) {
-                Object data = customResponsedMessage.getData();
-                if (data == null || !(data instanceof SingleBarEmotionRecommendData)) {
-                    this.a.g(null);
-                    return;
-                }
-                SingleBarEmotionRecommendData singleBarEmotionRecommendData = (SingleBarEmotionRecommendData) data;
-                LinkedList linkedList = new LinkedList();
-                if (singleBarEmotionRecommendData == null || TextUtils.isEmpty(singleBarEmotionRecommendData.pkg_id) || TextUtils.isEmpty(singleBarEmotionRecommendData.cover)) {
-                    this.a.g(null);
-                    return;
-                }
-                linkedList.add(singleBarEmotionRecommendData);
-                this.a.g(linkedList);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements xn6.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+        public a a;
+        public final /* synthetic */ yn6 b;
 
         public b(yn6 yn6Var) {
             Interceptable interceptable = $ic;
@@ -100,15 +50,62 @@ public class yn6 extends ac5 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = yn6Var;
+        }
+
+        public void d(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+                this.a = aVar;
+            }
+        }
+
+        @Override // com.baidu.tieba.g59.a
+        public void a(String str, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
+                this.b.c = false;
+                ej.Q(this.b.f.getPageActivity(), this.b.a.getErrorString());
+                a aVar = this.a;
+                if (aVar != null) {
+                    aVar.b(str, j);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.xn6.b
-        public void a(xn6 xn6Var) {
+        @Override // com.baidu.tieba.g59.a
+        public void b(String str, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, xn6Var) == null) {
-                MessageManager.getInstance().runTask(2004603, (Class) null);
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+                this.b.c = false;
+                a aVar = this.a;
+                if (aVar != null) {
+                    aVar.a(str, j);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.w9
+        public void c(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+                this.b.c = false;
+                if (this.b.a.getErrorCode() == 22) {
+                    ej.Q(this.b.f.getPageActivity(), this.b.f.getString(R.string.had_liked_forum));
+                } else if (obj == null) {
+                } else {
+                    if (this.b.a.getErrorCode() != 0) {
+                        ej.Q(this.b.f.getPageActivity(), this.b.a.getErrorString());
+                        return;
+                    }
+                    a aVar = this.a;
+                    if (aVar != null) {
+                        aVar.c(obj);
+                    }
+                }
             }
         }
     }
@@ -127,72 +124,75 @@ public class yn6 extends ac5 {
         }
     }
 
-    public static yn6 f() {
-        InterceptResult invokeV;
+    public void g(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (yn6.class) {
-                    if (b == null) {
-                        b = new yn6();
-                    }
-                }
-            }
-            return b;
-        }
-        return (yn6) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ac5
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(new a(this, 2001444));
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.e = aVar;
         }
     }
 
-    @Override // com.baidu.tieba.ac5
-    public void b(ac5.a aVar) {
+    public void h(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD() && this.a != null) {
-            for (int i = 0; i < this.a.size(); i++) {
-                xn6 xn6Var = (xn6) this.a.get(i);
-                if (xn6Var.u() && c68.i().g(xn6Var.f()) == null && aVar != null) {
-                    aVar.a(xn6Var);
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) {
+            this.f = tbPageContext;
         }
     }
 
-    public final synchronized void g(List<hn6> list) {
+    public final boolean d(TbPageContext tbPageContext) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            synchronized (this) {
-                if (list != null) {
-                    if (!list.isEmpty()) {
-                        if (this.a != null) {
-                            this.a = null;
-                        }
-                        LinkedList<dc5> linkedList = new LinkedList<>();
-                        boolean z = false;
-                        for (hn6 hn6Var : list) {
-                            if (hn6Var != null && !StringUtils.isNull(hn6Var.getGroupId()) && hn6Var.IsValid()) {
-                                xn6 xn6Var = new xn6(hn6Var);
-                                linkedList.add(xn6Var);
-                                z = xn6Var.v(hn6Var, new b(this));
-                            }
-                        }
-                        this.a = linkedList;
-                        if (z) {
-                            MessageManager.getInstance().runTask(2004603, (Class) null);
-                        }
-                    }
-                }
-                if (this.a != null) {
-                    this.a = null;
-                    MessageManager.getInstance().runTask(2004603, (Class) null);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbPageContext)) == null) {
+            if (!ej.F()) {
+                UtilHelper.showToast(tbPageContext.getPageActivity(), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0d11));
+                return false;
+            } else if (!ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
+                return false;
+            } else {
+                return true;
             }
         }
+        return invokeL.booleanValue;
+    }
+
+    public void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) != null) || this.c || !d(this.f)) {
+            return;
+        }
+        if (this.d == null) {
+            b bVar = new b(this);
+            this.d = bVar;
+            bVar.d(this.e);
+        }
+        if (this.a == null) {
+            LikeModel likeModel = new LikeModel(this.f);
+            this.a = likeModel;
+            likeModel.setLoadDataCallBack(this.d);
+        }
+        this.c = true;
+        this.a.f0(str, str2);
+    }
+
+    public void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) != null) || this.c || !d(this.f)) {
+            return;
+        }
+        if (this.d == null) {
+            b bVar = new b(this);
+            this.d = bVar;
+            bVar.d(this.e);
+        }
+        if (this.b == null) {
+            g59 g59Var = new g59();
+            this.b = g59Var;
+            g59Var.b(this.d);
+        }
+        long g = dh.g(str2, -1L);
+        if (g == -1) {
+            return;
+        }
+        this.c = true;
+        this.b.c(str, g);
     }
 }

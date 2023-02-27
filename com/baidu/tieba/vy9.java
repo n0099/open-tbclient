@@ -1,20 +1,25 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes6.dex */
-public class vy9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vy9 {
+    void a(DownloadException downloadException);
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return Build.MANUFACTURER;
-        }
-        return (String) invokeV.objValue;
-    }
+    void b(DownloadException downloadException);
+
+    void onConnectCanceled();
+
+    void onConnected(long j, long j2, boolean z);
+
+    void onConnecting();
+
+    void onDownloadCanceled();
+
+    void onDownloadCompleted(String str);
+
+    void onDownloadPaused();
+
+    void onDownloadProgress(long j, long j2, int i);
+
+    void onStarted();
 }

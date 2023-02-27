@@ -20,6 +20,7 @@ import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.util.DateHelper;
 import com.googlecode.mp4parser.util.Matrix;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.nio.ByteBuffer;
 import java.util.Date;
 import org.aspectj.lang.JoinPoint;
@@ -490,7 +491,7 @@ public class MovieHeaderBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this));
-            return "MovieHeaderBox[creationTime=" + getCreationTime() + ";modificationTime=" + getModificationTime() + ";timescale=" + getTimescale() + ";duration=" + getDuration() + ";rate=" + getRate() + ";volume=" + getVolume() + ";matrix=" + this.matrix + ";nextTrackId=" + getNextTrackId() + PreferencesUtil.RIGHT_MOUNT;
+            return "MovieHeaderBox[creationTime=" + getCreationTime() + ParamableElem.DIVIDE_PARAM + "modificationTime=" + getModificationTime() + ParamableElem.DIVIDE_PARAM + "timescale=" + getTimescale() + ParamableElem.DIVIDE_PARAM + "duration=" + getDuration() + ParamableElem.DIVIDE_PARAM + "rate=" + getRate() + ParamableElem.DIVIDE_PARAM + "volume=" + getVolume() + ParamableElem.DIVIDE_PARAM + "matrix=" + this.matrix + ParamableElem.DIVIDE_PARAM + "nextTrackId=" + getNextTrackId() + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

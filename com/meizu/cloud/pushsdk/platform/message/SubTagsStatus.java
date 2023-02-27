@@ -1,5 +1,6 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
+import com.baidu.bdtask.ctrl.model.TaskProcess;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -61,10 +62,10 @@ public class SubTagsStatus extends BasicPushStatus {
         if (!jSONObject.isNull("pushId")) {
             setPushId(jSONObject.getString("pushId"));
         }
-        if (jSONObject.isNull("tags")) {
+        if (jSONObject.isNull(TaskProcess.keyTags)) {
             return;
         }
-        JSONArray jSONArray = jSONObject.getJSONArray("tags");
+        JSONArray jSONArray = jSONObject.getJSONArray(TaskProcess.keyTags);
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < jSONArray.length(); i++) {
             JSONObject jSONObject2 = jSONArray.getJSONObject(i);

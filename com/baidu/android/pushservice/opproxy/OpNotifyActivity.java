@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.frequency.b;
-import com.baidu.android.pushservice.i.m;
+import com.baidu.android.pushservice.n.c;
+import com.baidu.android.pushservice.util.Utility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -47,8 +47,8 @@ public class OpNotifyActivity extends Activity {
                         intent2.putExtra("op_notification_msg_id", stringExtra);
                         intent2.putExtra("op_notification_pkg_content", stringExtra4);
                         intent2.putExtra("extra_extra_custom_content", stringExtra3);
-                        m.a(intent2, getApplicationContext());
-                        b.a().a(this, false, 1, stringExtra3);
+                        Utility.a(intent2, getApplicationContext());
+                        c.a().a(this, false, 1, stringExtra3);
                     }
                 }
             } catch (Exception unused) {

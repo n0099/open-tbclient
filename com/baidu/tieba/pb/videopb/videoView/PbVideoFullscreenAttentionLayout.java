@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.m45;
+import com.baidu.tieba.ih8;
 import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.tieba.wd8;
+import com.baidu.tieba.y55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
     public PbVideoFullscreenLikeBtn b;
-    public wd8 c;
+    public ih8 c;
     public BdUniqueId d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -130,8 +130,8 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            wd8 wd8Var = this.c;
-            if (wd8Var != null && wd8Var.j() != null && this.c.j().getIsLike()) {
+            ih8 ih8Var = this.c;
+            if (ih8Var != null && ih8Var.j() != null && this.c.j().getIsLike()) {
                 return true;
             }
             return false;
@@ -142,14 +142,14 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d071d, this);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0733, this);
             this.a = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0902e2);
-            this.b = (PbVideoFullscreenLikeBtn) findViewById(R.id.obfuscated_res_0x7f090709);
+            this.b = (PbVideoFullscreenLikeBtn) findViewById(R.id.obfuscated_res_0x7f090746);
             this.a.setIsRound(true);
             this.a.setBorderWidth(ej.g(context, R.dimen.tbds3));
             this.a.setBorderColor(context.getResources().getColor(R.color.CAM_X0402));
             this.a.setAutoChangeStyle(false);
-            this.b.setConfig(new m45());
+            this.b.setConfig(new y55());
         }
     }
 
@@ -176,9 +176,9 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
             int a = a(threadData);
             if (this.c == null) {
                 if (getContext() instanceof AbsPbActivity) {
-                    wd8 wd8Var = new wd8(((AbsPbActivity) getContext()).getPageContext(), this.b, -1);
-                    this.c = wd8Var;
-                    wd8Var.m("11");
+                    ih8 ih8Var = new ih8(((AbsPbActivity) getContext()).getPageContext(), this.b, -1);
+                    this.c = ih8Var;
+                    ih8Var.m("11");
                     this.c.l(this.d);
                 } else {
                     return;
@@ -187,9 +187,9 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
             this.c.n(threadData.getAuthor());
             this.c.x(str);
             this.c.v(threadData);
-            wd8 wd8Var2 = this.c;
-            wd8Var2.p = true;
-            wd8Var2.w(a);
+            ih8 ih8Var2 = this.c;
+            ih8Var2.p = true;
+            ih8Var2.w(a);
         }
     }
 }

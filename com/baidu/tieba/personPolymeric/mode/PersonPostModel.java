@@ -30,11 +30,11 @@ import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.jn8;
-import com.baidu.tieba.kn8;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageRequestMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
+import com.baidu.tieba.vq8;
+import com.baidu.tieba.wq8;
 import com.baidu.tieba.x9;
 import com.baidu.tieba.yb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -71,7 +71,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public Map<String, Object> dataResMap;
     public int hide_post;
     public boolean isShowRecycleBinRedTip;
-    public jn8 mCardNullPolymericData;
+    public vq8 mCardNullPolymericData;
     public int mFrom;
     public boolean mIsHost;
     public boolean mIsReset;
@@ -1110,15 +1110,15 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.dataResMap = DataExt.toMap(dataRes);
         this.hide_post = dataRes.hide_post.intValue();
         if (this.mIsHost && ((2 == dataRes.mask_type.intValue() || 3 == dataRes.mask_type.intValue() || 4 == dataRes.mask_type.intValue()) && i == 1)) {
-            this.postList.add(new kn8());
+            this.postList.add(new wq8());
             z = false;
         } else {
             z = true;
         }
         if (ListUtils.isEmpty(dataRes.post_list) && z) {
-            jn8 jn8Var = new jn8();
-            this.mCardNullPolymericData = jn8Var;
-            this.postList.add(jn8Var);
+            vq8 vq8Var = new vq8();
+            this.mCardNullPolymericData = vq8Var;
+            this.postList.add(vq8Var);
             return;
         }
         for (tbclient.PostInfoList postInfoList : dataRes.post_list) {
@@ -1126,7 +1126,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             PostInfoList postInfoList2 = new PostInfoList();
             int random = getRandom(3, this.mLastChooseStyle);
             this.mLastChooseStyle = random;
-            cardPersonDynamicThreadData.h(user, metaData, postInfoList, random);
+            cardPersonDynamicThreadData.g(user, metaData, postInfoList, random);
             cardPersonDynamicThreadData.F = this.mIsHost;
             postInfoList2.parseProtobuf(postInfoList, random);
             int i2 = this.mFrom;

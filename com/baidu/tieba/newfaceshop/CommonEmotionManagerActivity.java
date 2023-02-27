@@ -80,8 +80,8 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d01e8);
-            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090718);
+            setContentView(R.layout.obfuscated_res_0x7f0d01f5);
+            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090755);
             if (isUseStyleImmersiveSticky()) {
                 ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = ej.u(getPageContext().getPageActivity());
             }
@@ -94,7 +94,7 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
             Bundle bundle2 = new Bundle();
             bundle2.putString("key_load_url", this.c);
             this.b.setArguments(bundle2);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f090718, this.b).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f090755, this.b).commit();
         }
     }
 }

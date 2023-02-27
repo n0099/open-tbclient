@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class y {
@@ -59,7 +60,7 @@ public class y {
             String b = b(str);
             ArrayList<LatLng> arrayList = new ArrayList<>();
             if (!TextUtils.isEmpty(b)) {
-                for (String str2 : b.split(";")) {
+                for (String str2 : b.split(ParamableElem.DIVIDE_PARAM)) {
                     String[] split = str2.split(",");
                     if (split.length == 2) {
                         try {

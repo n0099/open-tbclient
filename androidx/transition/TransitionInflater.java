@@ -13,277 +13,211 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import androidx.collection.ArrayMap;
 import androidx.core.content.res.TypedArrayUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.ubc.MediaLivePluginLogger;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 /* loaded from: classes.dex */
 public class TransitionInflater {
-    public static /* synthetic */ Interceptable $ic;
-    public static final ArrayMap<String, Constructor<?>> CONSTRUCTORS;
-    public static final Class<?>[] CONSTRUCTOR_SIGNATURE;
-    public transient /* synthetic */ FieldHolder $fh;
     public final Context mContext;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1310351803, "Landroidx/transition/TransitionInflater;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1310351803, "Landroidx/transition/TransitionInflater;");
-                return;
-            }
-        }
-        CONSTRUCTOR_SIGNATURE = new Class[]{Context.class, AttributeSet.class};
-        CONSTRUCTORS = new ArrayMap<>();
-    }
+    public static final Class<?>[] CONSTRUCTOR_SIGNATURE = {Context.class, AttributeSet.class};
+    public static final ArrayMap<String, Constructor<?>> CONSTRUCTORS = new ArrayMap<>();
 
     public TransitionInflater(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mContext = context;
     }
 
     public static TransitionInflater from(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            return new TransitionInflater(context);
-        }
-        return (TransitionInflater) invokeL.objValue;
+        return new TransitionInflater(context);
     }
 
     private Object createCustom(AttributeSet attributeSet, Class<?> cls, String str) {
-        InterceptResult invokeLLL;
         Object newInstance;
         Class<? extends U> asSubclass;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, attributeSet, cls, str)) == null) {
-            String attributeValue = attributeSet.getAttributeValue(null, DealIntentService.KEY_CLASS);
-            if (attributeValue != null) {
-                try {
-                    synchronized (CONSTRUCTORS) {
-                        Constructor<?> constructor = CONSTRUCTORS.get(attributeValue);
-                        if (constructor == null && (asSubclass = Class.forName(attributeValue, false, this.mContext.getClassLoader()).asSubclass(cls)) != 0) {
-                            constructor = asSubclass.getConstructor(CONSTRUCTOR_SIGNATURE);
-                            constructor.setAccessible(true);
-                            CONSTRUCTORS.put(attributeValue, constructor);
-                        }
-                        newInstance = constructor.newInstance(this.mContext, attributeSet);
+        String attributeValue = attributeSet.getAttributeValue(null, DealIntentService.KEY_CLASS);
+        if (attributeValue != null) {
+            try {
+                synchronized (CONSTRUCTORS) {
+                    Constructor<?> constructor = CONSTRUCTORS.get(attributeValue);
+                    if (constructor == null && (asSubclass = Class.forName(attributeValue, false, this.mContext.getClassLoader()).asSubclass(cls)) != 0) {
+                        constructor = asSubclass.getConstructor(CONSTRUCTOR_SIGNATURE);
+                        constructor.setAccessible(true);
+                        CONSTRUCTORS.put(attributeValue, constructor);
                     }
-                    return newInstance;
-                } catch (Exception e) {
-                    throw new InflateException("Could not instantiate " + cls + " class " + attributeValue, e);
+                    newInstance = constructor.newInstance(this.mContext, attributeSet);
                 }
+                return newInstance;
+            } catch (Exception e) {
+                throw new InflateException("Could not instantiate " + cls + " class " + attributeValue, e);
             }
-            throw new InflateException(str + " tag must have a 'class' attribute");
         }
-        return invokeLLL.objValue;
+        throw new InflateException(str + " tag must have a 'class' attribute");
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0058, code lost:
-        return r1;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private TransitionManager createTransitionManagerFromXml(XmlPullParser xmlPullParser, AttributeSet attributeSet, ViewGroup viewGroup) throws XmlPullParserException, IOException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, xmlPullParser, attributeSet, viewGroup)) == null) {
-            int depth = xmlPullParser.getDepth();
-            TransitionManager transitionManager = null;
-            while (true) {
-                int next = xmlPullParser.next();
-                if ((next != 3 || xmlPullParser.getDepth() > depth) && next != 1) {
-                    if (next == 2) {
-                        String name = xmlPullParser.getName();
-                        if (name.equals("transitionManager")) {
-                            transitionManager = new TransitionManager();
-                        } else if (!name.equals(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION) || transitionManager == null) {
-                            break;
-                        } else {
-                            loadTransition(attributeSet, xmlPullParser, viewGroup, transitionManager);
-                        }
-                    }
-                }
-            }
-            throw new RuntimeException("Unknown scene name: " + xmlPullParser.getName());
-        }
-        return (TransitionManager) invokeLLL.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:84:0x0181, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:82:0x017d, code lost:
         return r3;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private Transition createTransitionFromXml(XmlPullParser xmlPullParser, AttributeSet attributeSet, Transition transition) throws XmlPullParserException, IOException {
-        InterceptResult invokeLLL;
         TransitionSet transitionSet;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, this, xmlPullParser, attributeSet, transition)) == null) {
-            int depth = xmlPullParser.getDepth();
-            if (transition instanceof TransitionSet) {
-                transitionSet = (TransitionSet) transition;
-            } else {
-                transitionSet = null;
-            }
-            loop0: while (true) {
-                Transition transition2 = null;
-                while (true) {
-                    int next = xmlPullParser.next();
-                    if ((next != 3 || xmlPullParser.getDepth() > depth) && next != 1) {
-                        if (next == 2) {
-                            String name = xmlPullParser.getName();
-                            if ("fade".equals(name)) {
-                                transition2 = new Fade(this.mContext, attributeSet);
-                            } else if ("changeBounds".equals(name)) {
-                                transition2 = new ChangeBounds(this.mContext, attributeSet);
-                            } else if (MediaLivePluginLogger.PAGE_SELECT_SOURCE.equals(name)) {
-                                transition2 = new Slide(this.mContext, attributeSet);
-                            } else if ("explode".equals(name)) {
-                                transition2 = new Explode(this.mContext, attributeSet);
-                            } else if ("changeImageTransform".equals(name)) {
-                                transition2 = new ChangeImageTransform(this.mContext, attributeSet);
-                            } else if ("changeTransform".equals(name)) {
-                                transition2 = new ChangeTransform(this.mContext, attributeSet);
-                            } else if ("changeClipBounds".equals(name)) {
-                                transition2 = new ChangeClipBounds(this.mContext, attributeSet);
-                            } else if ("autoTransition".equals(name)) {
-                                transition2 = new AutoTransition(this.mContext, attributeSet);
-                            } else if ("changeScroll".equals(name)) {
-                                transition2 = new ChangeScroll(this.mContext, attributeSet);
-                            } else if ("transitionSet".equals(name)) {
-                                transition2 = new TransitionSet(this.mContext, attributeSet);
-                            } else if (AnimatedStateListDrawableCompat.ELEMENT_TRANSITION.equals(name)) {
-                                transition2 = (Transition) createCustom(attributeSet, Transition.class, AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
-                            } else if ("targets".equals(name)) {
-                                getTargetIds(xmlPullParser, attributeSet, transition);
-                            } else if ("arcMotion".equals(name)) {
-                                if (transition != null) {
-                                    transition.setPathMotion(new ArcMotion(this.mContext, attributeSet));
-                                } else {
-                                    throw new RuntimeException("Invalid use of arcMotion element");
-                                }
-                            } else if ("pathMotion".equals(name)) {
-                                if (transition != null) {
-                                    transition.setPathMotion((PathMotion) createCustom(attributeSet, PathMotion.class, "pathMotion"));
-                                } else {
-                                    throw new RuntimeException("Invalid use of pathMotion element");
-                                }
-                            } else if ("patternPathMotion".equals(name)) {
-                                if (transition != null) {
-                                    transition.setPathMotion(new PatternPathMotion(this.mContext, attributeSet));
-                                } else {
-                                    throw new RuntimeException("Invalid use of patternPathMotion element");
-                                }
-                            } else {
-                                throw new RuntimeException("Unknown scene name: " + xmlPullParser.getName());
-                            }
-                            if (transition2 == null) {
-                                continue;
-                            } else {
-                                if (!xmlPullParser.isEmptyElementTag()) {
-                                    createTransitionFromXml(xmlPullParser, attributeSet, transition2);
-                                }
-                                if (transitionSet != null) {
-                                    break;
-                                } else if (transition != null) {
-                                    throw new InflateException("Could not add transition to another transition.");
-                                }
-                            }
-                        }
-                    }
-                }
-                transitionSet.addTransition(transition2);
-            }
+        int depth = xmlPullParser.getDepth();
+        if (transition instanceof TransitionSet) {
+            transitionSet = (TransitionSet) transition;
         } else {
-            return (Transition) invokeLLL.objValue;
+            transitionSet = null;
         }
-    }
-
-    @SuppressLint({"RestrictedApi"})
-    private void getTargetIds(XmlPullParser xmlPullParser, AttributeSet attributeSet, Transition transition) throws XmlPullParserException, IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, this, xmlPullParser, attributeSet, transition) == null) {
-            int depth = xmlPullParser.getDepth();
+        loop0: while (true) {
+            Transition transition2 = null;
             while (true) {
                 int next = xmlPullParser.next();
                 if ((next != 3 || xmlPullParser.getDepth() > depth) && next != 1) {
                     if (next == 2) {
-                        if (xmlPullParser.getName().equals("target")) {
-                            TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, Styleable.TRANSITION_TARGET);
-                            int namedResourceId = TypedArrayUtils.getNamedResourceId(obtainStyledAttributes, xmlPullParser, "targetId", 1, 0);
-                            if (namedResourceId != 0) {
-                                transition.addTarget(namedResourceId);
+                        String name = xmlPullParser.getName();
+                        if ("fade".equals(name)) {
+                            transition2 = new Fade(this.mContext, attributeSet);
+                        } else if ("changeBounds".equals(name)) {
+                            transition2 = new ChangeBounds(this.mContext, attributeSet);
+                        } else if (MediaLivePluginLogger.PAGE_SELECT_SOURCE.equals(name)) {
+                            transition2 = new Slide(this.mContext, attributeSet);
+                        } else if ("explode".equals(name)) {
+                            transition2 = new Explode(this.mContext, attributeSet);
+                        } else if ("changeImageTransform".equals(name)) {
+                            transition2 = new ChangeImageTransform(this.mContext, attributeSet);
+                        } else if ("changeTransform".equals(name)) {
+                            transition2 = new ChangeTransform(this.mContext, attributeSet);
+                        } else if ("changeClipBounds".equals(name)) {
+                            transition2 = new ChangeClipBounds(this.mContext, attributeSet);
+                        } else if ("autoTransition".equals(name)) {
+                            transition2 = new AutoTransition(this.mContext, attributeSet);
+                        } else if ("changeScroll".equals(name)) {
+                            transition2 = new ChangeScroll(this.mContext, attributeSet);
+                        } else if ("transitionSet".equals(name)) {
+                            transition2 = new TransitionSet(this.mContext, attributeSet);
+                        } else if (AnimatedStateListDrawableCompat.ELEMENT_TRANSITION.equals(name)) {
+                            transition2 = (Transition) createCustom(attributeSet, Transition.class, AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
+                        } else if ("targets".equals(name)) {
+                            getTargetIds(xmlPullParser, attributeSet, transition);
+                        } else if ("arcMotion".equals(name)) {
+                            if (transition != null) {
+                                transition.setPathMotion(new ArcMotion(this.mContext, attributeSet));
                             } else {
-                                int namedResourceId2 = TypedArrayUtils.getNamedResourceId(obtainStyledAttributes, xmlPullParser, "excludeId", 2, 0);
-                                if (namedResourceId2 != 0) {
-                                    transition.excludeTarget(namedResourceId2, true);
+                                throw new RuntimeException("Invalid use of arcMotion element");
+                            }
+                        } else if ("pathMotion".equals(name)) {
+                            if (transition != null) {
+                                transition.setPathMotion((PathMotion) createCustom(attributeSet, PathMotion.class, "pathMotion"));
+                            } else {
+                                throw new RuntimeException("Invalid use of pathMotion element");
+                            }
+                        } else if ("patternPathMotion".equals(name)) {
+                            if (transition != null) {
+                                transition.setPathMotion(new PatternPathMotion(this.mContext, attributeSet));
+                            } else {
+                                throw new RuntimeException("Invalid use of patternPathMotion element");
+                            }
+                        } else {
+                            throw new RuntimeException("Unknown scene name: " + xmlPullParser.getName());
+                        }
+                        if (transition2 == null) {
+                            continue;
+                        } else {
+                            if (!xmlPullParser.isEmptyElementTag()) {
+                                createTransitionFromXml(xmlPullParser, attributeSet, transition2);
+                            }
+                            if (transitionSet != null) {
+                                break;
+                            } else if (transition != null) {
+                                throw new InflateException("Could not add transition to another transition.");
+                            }
+                        }
+                    }
+                }
+            }
+            transitionSet.addTransition(transition2);
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0054, code lost:
+        return r1;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private TransitionManager createTransitionManagerFromXml(XmlPullParser xmlPullParser, AttributeSet attributeSet, ViewGroup viewGroup) throws XmlPullParserException, IOException {
+        int depth = xmlPullParser.getDepth();
+        TransitionManager transitionManager = null;
+        while (true) {
+            int next = xmlPullParser.next();
+            if ((next != 3 || xmlPullParser.getDepth() > depth) && next != 1) {
+                if (next == 2) {
+                    String name = xmlPullParser.getName();
+                    if (name.equals("transitionManager")) {
+                        transitionManager = new TransitionManager();
+                    } else if (!name.equals(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION) || transitionManager == null) {
+                        break;
+                    } else {
+                        loadTransition(attributeSet, xmlPullParser, viewGroup, transitionManager);
+                    }
+                }
+            }
+        }
+        throw new RuntimeException("Unknown scene name: " + xmlPullParser.getName());
+    }
+
+    @SuppressLint({"RestrictedApi"})
+    private void getTargetIds(XmlPullParser xmlPullParser, AttributeSet attributeSet, Transition transition) throws XmlPullParserException, IOException {
+        int depth = xmlPullParser.getDepth();
+        while (true) {
+            int next = xmlPullParser.next();
+            if ((next != 3 || xmlPullParser.getDepth() > depth) && next != 1) {
+                if (next == 2) {
+                    if (xmlPullParser.getName().equals("target")) {
+                        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, Styleable.TRANSITION_TARGET);
+                        int namedResourceId = TypedArrayUtils.getNamedResourceId(obtainStyledAttributes, xmlPullParser, "targetId", 1, 0);
+                        if (namedResourceId != 0) {
+                            transition.addTarget(namedResourceId);
+                        } else {
+                            int namedResourceId2 = TypedArrayUtils.getNamedResourceId(obtainStyledAttributes, xmlPullParser, "excludeId", 2, 0);
+                            if (namedResourceId2 != 0) {
+                                transition.excludeTarget(namedResourceId2, true);
+                            } else {
+                                String namedString = TypedArrayUtils.getNamedString(obtainStyledAttributes, xmlPullParser, "targetName", 4);
+                                if (namedString != null) {
+                                    transition.addTarget(namedString);
                                 } else {
-                                    String namedString = TypedArrayUtils.getNamedString(obtainStyledAttributes, xmlPullParser, "targetName", 4);
-                                    if (namedString != null) {
-                                        transition.addTarget(namedString);
+                                    String namedString2 = TypedArrayUtils.getNamedString(obtainStyledAttributes, xmlPullParser, "excludeName", 5);
+                                    if (namedString2 != null) {
+                                        transition.excludeTarget(namedString2, true);
                                     } else {
-                                        String namedString2 = TypedArrayUtils.getNamedString(obtainStyledAttributes, xmlPullParser, "excludeName", 5);
-                                        if (namedString2 != null) {
-                                            transition.excludeTarget(namedString2, true);
+                                        String namedString3 = TypedArrayUtils.getNamedString(obtainStyledAttributes, xmlPullParser, "excludeClass", 3);
+                                        if (namedString3 != null) {
+                                            try {
+                                                transition.excludeTarget(Class.forName(namedString3), true);
+                                            } catch (ClassNotFoundException e) {
+                                                obtainStyledAttributes.recycle();
+                                                throw new RuntimeException("Could not create " + namedString3, e);
+                                            }
                                         } else {
-                                            String namedString3 = TypedArrayUtils.getNamedString(obtainStyledAttributes, xmlPullParser, "excludeClass", 3);
-                                            if (namedString3 != null) {
-                                                try {
-                                                    transition.excludeTarget(Class.forName(namedString3), true);
-                                                } catch (ClassNotFoundException e) {
-                                                    obtainStyledAttributes.recycle();
-                                                    throw new RuntimeException("Could not create " + namedString3, e);
-                                                }
-                                            } else {
-                                                String namedString4 = TypedArrayUtils.getNamedString(obtainStyledAttributes, xmlPullParser, "targetClass", 0);
-                                                if (namedString4 != null) {
-                                                    transition.addTarget(Class.forName(namedString4));
-                                                }
+                                            String namedString4 = TypedArrayUtils.getNamedString(obtainStyledAttributes, xmlPullParser, "targetClass", 0);
+                                            if (namedString4 != null) {
+                                                transition.addTarget(Class.forName(namedString4));
                                             }
                                         }
                                     }
                                 }
                             }
-                            obtainStyledAttributes.recycle();
-                        } else {
-                            throw new RuntimeException("Unknown scene name: " + xmlPullParser.getName());
                         }
+                        obtainStyledAttributes.recycle();
+                    } else {
+                        throw new RuntimeException("Unknown scene name: " + xmlPullParser.getName());
                     }
-                } else {
-                    return;
                 }
+            } else {
+                return;
             }
         }
     }
@@ -292,77 +226,64 @@ public class TransitionInflater {
     private void loadTransition(AttributeSet attributeSet, XmlPullParser xmlPullParser, ViewGroup viewGroup, TransitionManager transitionManager) throws Resources.NotFoundException {
         Scene sceneForLayout;
         Transition inflateTransition;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65543, this, attributeSet, xmlPullParser, viewGroup, transitionManager) == null) {
-            TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, Styleable.TRANSITION_MANAGER);
-            int namedResourceId = TypedArrayUtils.getNamedResourceId(obtainStyledAttributes, xmlPullParser, AnimatedStateListDrawableCompat.ELEMENT_TRANSITION, 2, -1);
-            int namedResourceId2 = TypedArrayUtils.getNamedResourceId(obtainStyledAttributes, xmlPullParser, "fromScene", 0, -1);
-            Scene scene = null;
-            if (namedResourceId2 < 0) {
-                sceneForLayout = null;
-            } else {
-                sceneForLayout = Scene.getSceneForLayout(viewGroup, namedResourceId2, this.mContext);
-            }
-            int namedResourceId3 = TypedArrayUtils.getNamedResourceId(obtainStyledAttributes, xmlPullParser, "toScene", 1, -1);
-            if (namedResourceId3 >= 0) {
-                scene = Scene.getSceneForLayout(viewGroup, namedResourceId3, this.mContext);
-            }
-            if (namedResourceId >= 0 && (inflateTransition = inflateTransition(namedResourceId)) != null) {
-                if (scene != null) {
-                    if (sceneForLayout == null) {
-                        transitionManager.setTransition(scene, inflateTransition);
-                    } else {
-                        transitionManager.setTransition(sceneForLayout, scene, inflateTransition);
-                    }
-                } else {
-                    throw new RuntimeException("No toScene for transition ID " + namedResourceId);
-                }
-            }
-            obtainStyledAttributes.recycle();
+        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, Styleable.TRANSITION_MANAGER);
+        int namedResourceId = TypedArrayUtils.getNamedResourceId(obtainStyledAttributes, xmlPullParser, AnimatedStateListDrawableCompat.ELEMENT_TRANSITION, 2, -1);
+        int namedResourceId2 = TypedArrayUtils.getNamedResourceId(obtainStyledAttributes, xmlPullParser, "fromScene", 0, -1);
+        Scene scene = null;
+        if (namedResourceId2 < 0) {
+            sceneForLayout = null;
+        } else {
+            sceneForLayout = Scene.getSceneForLayout(viewGroup, namedResourceId2, this.mContext);
         }
+        int namedResourceId3 = TypedArrayUtils.getNamedResourceId(obtainStyledAttributes, xmlPullParser, "toScene", 1, -1);
+        if (namedResourceId3 >= 0) {
+            scene = Scene.getSceneForLayout(viewGroup, namedResourceId3, this.mContext);
+        }
+        if (namedResourceId >= 0 && (inflateTransition = inflateTransition(namedResourceId)) != null) {
+            if (scene != null) {
+                if (sceneForLayout == null) {
+                    transitionManager.setTransition(scene, inflateTransition);
+                } else {
+                    transitionManager.setTransition(sceneForLayout, scene, inflateTransition);
+                }
+            } else {
+                throw new RuntimeException("No toScene for transition ID " + namedResourceId);
+            }
+        }
+        obtainStyledAttributes.recycle();
     }
 
     public Transition inflateTransition(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            XmlResourceParser xml = this.mContext.getResources().getXml(i);
+        XmlResourceParser xml = this.mContext.getResources().getXml(i);
+        try {
             try {
-                try {
-                    return createTransitionFromXml(xml, Xml.asAttributeSet(xml), null);
-                } catch (IOException e) {
-                    throw new InflateException(xml.getPositionDescription() + ": " + e.getMessage(), e);
-                } catch (XmlPullParserException e2) {
-                    throw new InflateException(e2.getMessage(), e2);
-                }
-            } finally {
-                xml.close();
+                return createTransitionFromXml(xml, Xml.asAttributeSet(xml), null);
+            } catch (IOException e) {
+                throw new InflateException(xml.getPositionDescription() + ": " + e.getMessage(), e);
+            } catch (XmlPullParserException e2) {
+                throw new InflateException(e2.getMessage(), e2);
             }
+        } finally {
+            xml.close();
         }
-        return (Transition) invokeI.objValue;
     }
 
     public TransitionManager inflateTransitionManager(int i, ViewGroup viewGroup) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, viewGroup)) == null) {
-            XmlResourceParser xml = this.mContext.getResources().getXml(i);
+        XmlResourceParser xml = this.mContext.getResources().getXml(i);
+        try {
             try {
-                try {
-                    return createTransitionManagerFromXml(xml, Xml.asAttributeSet(xml), viewGroup);
-                } catch (IOException e) {
-                    InflateException inflateException = new InflateException(xml.getPositionDescription() + ": " + e.getMessage());
-                    inflateException.initCause(e);
-                    throw inflateException;
-                } catch (XmlPullParserException e2) {
-                    InflateException inflateException2 = new InflateException(e2.getMessage());
-                    inflateException2.initCause(e2);
-                    throw inflateException2;
-                }
-            } finally {
-                xml.close();
+                return createTransitionManagerFromXml(xml, Xml.asAttributeSet(xml), viewGroup);
+            } catch (IOException e) {
+                InflateException inflateException = new InflateException(xml.getPositionDescription() + ": " + e.getMessage());
+                inflateException.initCause(e);
+                throw inflateException;
+            } catch (XmlPullParserException e2) {
+                InflateException inflateException2 = new InflateException(e2.getMessage());
+                inflateException2.initCause(e2);
+                throw inflateException2;
             }
+        } finally {
+            xml.close();
         }
-        return (TransitionManager) invokeIL.objValue;
     }
 }

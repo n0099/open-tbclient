@@ -2,241 +2,141 @@ package com.baidu.searchbox.bddownload.core.listener;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.DownloadTask;
 import com.baidu.searchbox.bddownload.core.breakpoint.BreakpointInfo;
 import com.baidu.searchbox.bddownload.core.cause.EndCause;
 import com.baidu.searchbox.bddownload.core.cause.ResumeFailedCause;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class DownloadListenerBunch implements DownloadListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final DownloadListener[] listenerList;
 
     /* loaded from: classes2.dex */
     public static class Builder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public List<DownloadListener> listenerList;
-
-        public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.listenerList = new ArrayList();
-        }
+        public List<DownloadListener> listenerList = new ArrayList();
 
         public DownloadListenerBunch build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                List<DownloadListener> list = this.listenerList;
-                return new DownloadListenerBunch((DownloadListener[]) list.toArray(new DownloadListener[list.size()]));
-            }
-            return (DownloadListenerBunch) invokeV.objValue;
+            List<DownloadListener> list = this.listenerList;
+            return new DownloadListenerBunch((DownloadListener[]) list.toArray(new DownloadListener[list.size()]));
         }
 
         public Builder append(@Nullable DownloadListener downloadListener) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, downloadListener)) == null) {
-                if (downloadListener != null && !this.listenerList.contains(downloadListener)) {
-                    this.listenerList.add(downloadListener);
-                }
-                return this;
+            if (downloadListener != null && !this.listenerList.contains(downloadListener)) {
+                this.listenerList.add(downloadListener);
             }
-            return (Builder) invokeL.objValue;
+            return this;
         }
 
         public boolean remove(DownloadListener downloadListener) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadListener)) == null) {
-                return this.listenerList.remove(downloadListener);
-            }
-            return invokeL.booleanValue;
+            return this.listenerList.remove(downloadListener);
         }
     }
 
     public DownloadListenerBunch(@NonNull DownloadListener[] downloadListenerArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {downloadListenerArr};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.listenerList = downloadListenerArr;
     }
 
     public boolean contain(DownloadListener downloadListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadListener)) == null) {
-            for (DownloadListener downloadListener2 : this.listenerList) {
-                if (downloadListener2 == downloadListener) {
-                    return true;
-                }
+        for (DownloadListener downloadListener2 : this.listenerList) {
+            if (downloadListener2 == downloadListener) {
+                return true;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        return false;
     }
 
     public int indexOf(DownloadListener downloadListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, downloadListener)) == null) {
-            int i = 0;
-            while (true) {
-                DownloadListener[] downloadListenerArr = this.listenerList;
-                if (i < downloadListenerArr.length) {
-                    if (downloadListenerArr[i] == downloadListener) {
-                        return i;
-                    }
-                    i++;
-                } else {
-                    return -1;
+        int i = 0;
+        while (true) {
+            DownloadListener[] downloadListenerArr = this.listenerList;
+            if (i < downloadListenerArr.length) {
+                if (downloadListenerArr[i] == downloadListener) {
+                    return i;
                 }
+                i++;
+            } else {
+                return -1;
             }
-        } else {
-            return invokeL.intValue;
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
     public void taskStart(@NonNull DownloadTask downloadTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, downloadTask) == null) {
-            for (DownloadListener downloadListener : this.listenerList) {
-                downloadListener.taskStart(downloadTask);
-            }
+        for (DownloadListener downloadListener : this.listenerList) {
+            downloadListener.taskStart(downloadTask);
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
     public void connectEnd(@NonNull DownloadTask downloadTask, int i, int i2, @NonNull Map<String, List<String>> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{downloadTask, Integer.valueOf(i), Integer.valueOf(i2), map}) == null) {
-            for (DownloadListener downloadListener : this.listenerList) {
-                downloadListener.connectEnd(downloadTask, i, i2, map);
-            }
+        for (DownloadListener downloadListener : this.listenerList) {
+            downloadListener.connectEnd(downloadTask, i, i2, map);
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
     public void connectStart(@NonNull DownloadTask downloadTask, int i, @NonNull Map<String, List<String>> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadTask, i, map) == null) {
-            for (DownloadListener downloadListener : this.listenerList) {
-                downloadListener.connectStart(downloadTask, i, map);
-            }
+        for (DownloadListener downloadListener : this.listenerList) {
+            downloadListener.connectStart(downloadTask, i, map);
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
     public void connectTrialEnd(@NonNull DownloadTask downloadTask, int i, @NonNull Map<String, List<String>> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, downloadTask, i, map) == null) {
-            for (DownloadListener downloadListener : this.listenerList) {
-                downloadListener.connectTrialEnd(downloadTask, i, map);
-            }
+        for (DownloadListener downloadListener : this.listenerList) {
+            downloadListener.connectTrialEnd(downloadTask, i, map);
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
     public void downloadFromBeginning(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull ResumeFailedCause resumeFailedCause) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, downloadTask, breakpointInfo, resumeFailedCause) == null) {
-            for (DownloadListener downloadListener : this.listenerList) {
-                downloadListener.downloadFromBeginning(downloadTask, breakpointInfo, resumeFailedCause);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void taskEnd(@NonNull DownloadTask downloadTask, @NonNull EndCause endCause, @Nullable Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048587, this, downloadTask, endCause, exc) == null) {
-            for (DownloadListener downloadListener : this.listenerList) {
-                downloadListener.taskEnd(downloadTask, endCause, exc);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void connectTrialStart(@NonNull DownloadTask downloadTask, @NonNull Map<String, List<String>> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, downloadTask, map) == null) {
-            for (DownloadListener downloadListener : this.listenerList) {
-                downloadListener.connectTrialStart(downloadTask, map);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void downloadFromBreakpoint(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, downloadTask, breakpointInfo) == null) {
-            for (DownloadListener downloadListener : this.listenerList) {
-                downloadListener.downloadFromBreakpoint(downloadTask, breakpointInfo);
-            }
+        for (DownloadListener downloadListener : this.listenerList) {
+            downloadListener.downloadFromBeginning(downloadTask, breakpointInfo, resumeFailedCause);
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
     public void fetchEnd(@NonNull DownloadTask downloadTask, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            for (DownloadListener downloadListener : this.listenerList) {
-                downloadListener.fetchEnd(downloadTask, i, j);
-            }
+        for (DownloadListener downloadListener : this.listenerList) {
+            downloadListener.fetchEnd(downloadTask, i, j);
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
     public void fetchProgress(@NonNull DownloadTask downloadTask, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            for (DownloadListener downloadListener : this.listenerList) {
-                downloadListener.fetchProgress(downloadTask, i, j);
-            }
+        for (DownloadListener downloadListener : this.listenerList) {
+            downloadListener.fetchProgress(downloadTask, i, j);
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
     public void fetchStart(@NonNull DownloadTask downloadTask, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            for (DownloadListener downloadListener : this.listenerList) {
-                downloadListener.fetchStart(downloadTask, i, j);
-            }
+        for (DownloadListener downloadListener : this.listenerList) {
+            downloadListener.fetchStart(downloadTask, i, j);
+        }
+    }
+
+    @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
+    public void taskEnd(@NonNull DownloadTask downloadTask, @NonNull EndCause endCause, @Nullable Exception exc) {
+        for (DownloadListener downloadListener : this.listenerList) {
+            downloadListener.taskEnd(downloadTask, endCause, exc);
+        }
+    }
+
+    @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
+    public void connectTrialStart(@NonNull DownloadTask downloadTask, @NonNull Map<String, List<String>> map) {
+        for (DownloadListener downloadListener : this.listenerList) {
+            downloadListener.connectTrialStart(downloadTask, map);
+        }
+    }
+
+    @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
+    public void downloadFromBreakpoint(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo) {
+        for (DownloadListener downloadListener : this.listenerList) {
+            downloadListener.downloadFromBreakpoint(downloadTask, breakpointInfo);
         }
     }
 }

@@ -1,96 +1,48 @@
 package com.facebook.imagepipeline.memory;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.VisibleForTesting;
 import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public abstract class LruBucketsPoolBackend<T> implements PoolBackend<T> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final Set<T> mCurrentItems;
-    public final BucketMap<T> mMap;
-
-    public LruBucketsPoolBackend() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mCurrentItems = new HashSet();
-        this.mMap = new BucketMap<>();
-    }
+    public final Set<T> mCurrentItems = new HashSet();
+    public final BucketMap<T> mMap = new BucketMap<>();
 
     @Override // com.facebook.imagepipeline.memory.PoolBackend
     @Nullable
     public T pop() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return maybeRemoveFromCurrentItems(this.mMap.removeFromEnd());
-        }
-        return (T) invokeV.objValue;
+        return maybeRemoveFromCurrentItems(this.mMap.removeFromEnd());
     }
 
     @VisibleForTesting
     public int valueCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mMap.valueCount();
-        }
-        return invokeV.intValue;
+        return this.mMap.valueCount();
     }
 
     private T maybeRemoveFromCurrentItems(@Nullable T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, t)) == null) {
-            if (t != null) {
-                synchronized (this) {
-                    this.mCurrentItems.remove(t);
-                }
+        if (t != null) {
+            synchronized (this) {
+                this.mCurrentItems.remove(t);
             }
-            return t;
         }
-        return (T) invokeL.objValue;
+        return t;
     }
 
     @Override // com.facebook.imagepipeline.memory.PoolBackend
     @Nullable
     public T get(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return maybeRemoveFromCurrentItems(this.mMap.acquire(i));
-        }
-        return (T) invokeI.objValue;
+        return maybeRemoveFromCurrentItems(this.mMap.acquire(i));
     }
 
     @Override // com.facebook.imagepipeline.memory.PoolBackend
     public void put(T t) {
         boolean add;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            synchronized (this) {
-                add = this.mCurrentItems.add(t);
-            }
-            if (add) {
-                this.mMap.release(getSize(t), t);
-            }
+        synchronized (this) {
+            add = this.mCurrentItems.add(t);
+        }
+        if (add) {
+            this.mMap.release(getSize(t), t);
         }
     }
 }

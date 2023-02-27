@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AgreeView.h t0;
+    public AgreeView.h u0;
 
     /* loaded from: classes3.dex */
     public class a implements AgreeView.h {
@@ -53,7 +53,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
             if (interceptable != null && interceptable.invokeLZ(1048576, this, view2, z) != null) {
                 return;
             }
-            this.a.Q(this.a.V(), z);
+            this.a.S(this.a.X(), z);
         }
     }
 
@@ -75,21 +75,21 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 return;
             }
         }
-        this.t0 = new a(this);
+        this.u0 = new a(this);
     }
 
-    public final void R(boolean z) {
+    public final void T(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                S(0, -1, 0, 1.0f, true, this.e.I());
+                U(0, -1, 0, 1.0f, true, this.e.I());
                 return;
             }
-            S(-2, -1, ej.g(getContext(), R.dimen.tbds78), 0.0f, false, this.e.I());
+            U(-2, -1, ej.g(getContext(), R.dimen.tbds78), 0.0f, false, this.e.I());
         }
     }
 
-    public final boolean T(boolean z) {
+    public final boolean V(boolean z) {
         InterceptResult invokeZ;
         float f;
         Interceptable interceptable = $ic;
@@ -117,7 +117,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         return invokeZ.booleanValue;
     }
 
-    public final boolean U(boolean z) {
+    public final boolean W(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
@@ -157,7 +157,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 return;
             }
         }
-        this.t0 = new a(this);
+        this.u0 = new a(this);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -179,11 +179,11 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 return;
             }
         }
-        this.t0 = new a(this);
+        this.u0 = new a(this);
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public View j(Context context) {
+    public View l(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
@@ -193,30 +193,30 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void r(View view2) {
+    public void t(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
-            super.r(view2);
+            super.t(view2);
             this.e.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
             this.e.M(true);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void G() {
+    public void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.G();
-            this.e.setVisibilityListener(this.t0);
-            boolean V = V();
-            if (U(V) || T(V)) {
-                this.e.A(V);
-                R(V());
+            super.J();
+            this.e.setVisibilityListener(this.u0);
+            boolean X = X();
+            if (W(X) || V(X)) {
+                this.e.A(X);
+                T(X());
             }
         }
     }
 
-    public final void Q(boolean z, boolean z2) {
+    public final void S(boolean z, boolean z2) {
         float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
@@ -246,7 +246,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         }
     }
 
-    public final void S(int i, int i2, int i3, float f, boolean z, boolean z2) {
+    public final void U(int i, int i2, int i3, float f, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             this.l.setLayoutParams(new LinearLayout.LayoutParams(i, i2, f));
@@ -265,11 +265,11 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
             LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.y.getLayoutParams();
             layoutParams4.leftMargin = i3;
             this.y.setLayoutParams(layoutParams4);
-            Q(z, z2);
+            S(z, z2);
         }
     }
 
-    public final boolean V() {
+    public final boolean X() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -282,10 +282,10 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void x() {
+    public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            Q(V(), this.e.I());
+            S(X(), this.e.I());
         }
     }
 }

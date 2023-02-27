@@ -31,14 +31,14 @@ import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.eq8;
-import com.baidu.tieba.fq8;
-import com.baidu.tieba.hq8;
-import com.baidu.tieba.iq8;
-import com.baidu.tieba.lf5;
+import com.baidu.tieba.k55;
+import com.baidu.tieba.l55;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import com.baidu.tieba.y35;
-import com.baidu.tieba.z35;
+import com.baidu.tieba.qt8;
+import com.baidu.tieba.rt8;
+import com.baidu.tieba.tt8;
+import com.baidu.tieba.ut8;
+import com.baidu.tieba.yg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,24 +47,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes5.dex */
-public class PersonReplyFragment extends BaseFragment implements AbsListView.OnScrollListener, eq8 {
+public class PersonReplyFragment extends BaseFragment implements AbsListView.OnScrollListener, qt8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public BdListView b;
     public NavigationBarShadowView c;
-    public iq8 d;
+    public ut8 d;
     public boolean e;
     public NoDataView f;
-    public lf5 g;
-    public z35 h;
+    public yg5 g;
+    public l55 h;
     public PbListView i;
     public View j;
     public boolean k;
     public int l;
     public int m;
     public boolean n;
-    public fq8 o;
+    public rt8 o;
     public View.OnClickListener p;
     public PersonPostModel.c q;
 
@@ -97,9 +97,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && BdNetTypeUtil.isNetworkAvailableForImmediately()) {
                 PersonReplyFragment personReplyFragment = this.a;
-                lf5 lf5Var = personReplyFragment.g;
-                if (lf5Var != null) {
-                    lf5Var.dettachView(personReplyFragment.a);
+                yg5 yg5Var = personReplyFragment.g;
+                if (yg5Var != null) {
+                    yg5Var.dettachView(personReplyFragment.a);
                     this.a.g = null;
                 }
                 if (this.a.o != null) {
@@ -110,7 +110,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     }
 
     /* loaded from: classes5.dex */
-    public class b implements y35.g {
+    public class b implements k55.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonReplyFragment a;
@@ -133,7 +133,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
             this.a = personReplyFragment;
         }
 
-        @Override // com.baidu.tieba.y35.g
+        @Override // com.baidu.tieba.k55.g
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -287,15 +287,15 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
             }
             hideLoadingView(this.a);
             O1(false);
-            hq8.b(this.g, this.p, getActivity(), this.a, getString(R.string.obfuscated_res_0x7f0f0d08), true);
+            tt8.b(this.g, this.p, getActivity(), this.a, getString(R.string.obfuscated_res_0x7f0f0d11), true);
             this.b.setVisibility(8);
         }
     }
 
-    public void T1(fq8 fq8Var) {
+    public void T1(rt8 rt8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, fq8Var) == null) {
-            this.o = fq8Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, rt8Var) == null) {
+            this.o = rt8Var;
         }
     }
 
@@ -356,12 +356,12 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         }
     }
 
-    @Override // com.baidu.tieba.eq8
+    @Override // com.baidu.tieba.qt8
     public void K0() {
-        iq8 iq8Var;
+        ut8 ut8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (iq8Var = this.d) != null) {
-            iq8Var.f(true);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ut8Var = this.d) != null) {
+            ut8Var.f(true);
         }
     }
 
@@ -380,9 +380,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            iq8 iq8Var = this.d;
-            if (iq8Var != null) {
-                iq8Var.e();
+            ut8 ut8Var = this.d;
+            if (ut8Var != null) {
+                ut8Var.e();
                 this.d.i(null);
             }
         }
@@ -426,9 +426,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     public final void R1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            iq8 iq8Var = new iq8(getPageContext(), getArguments().getString("key_uid"), getArguments().getString(PersonPostActivityConfig.KEY_PORTRAIT_URL), getUniqueId());
-            this.d = iq8Var;
-            iq8Var.i(this.q);
+            ut8 ut8Var = new ut8(getPageContext(), getArguments().getString("key_uid"), getArguments().getString(PersonPostActivityConfig.KEY_PORTRAIT_URL), getUniqueId());
+            this.d = ut8Var;
+            ut8Var.i(this.q);
             this.b.setAdapter((ListAdapter) this.d);
             this.b.setOnItemClickListener(new d(this));
         }
@@ -456,9 +456,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
             }
             this.h.H(i);
             SkinManager.setBackgroundColor(this.a, this.m, i);
-            iq8 iq8Var = this.d;
-            if (iq8Var != null) {
-                iq8Var.notifyDataSetChanged();
+            ut8 ut8Var = this.d;
+            if (ut8Var != null) {
+                ut8Var.notifyDataSetChanged();
             }
         }
     }
@@ -468,10 +468,10 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d075f, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0775, viewGroup, false);
             this.a = inflate;
-            this.b = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f091437);
-            this.c = (NavigationBarShadowView) this.a.findViewById(R.id.obfuscated_res_0x7f09174e);
+            this.b = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f091478);
+            this.c = (NavigationBarShadowView) this.a.findViewById(R.id.obfuscated_res_0x7f09178f);
             this.f = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070232)), NoDataViewFactory.e.d(null, getArguments().getString("key_empty_view_text")), null);
             return this.a;
         }
@@ -499,9 +499,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     public void onViewCreated(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048591, this, view2, bundle) == null) {
-            z35 z35Var = new z35(getPageContext());
-            this.h = z35Var;
-            this.b.setPullRefresh(z35Var);
+            l55 l55Var = new l55(getPageContext());
+            this.h = l55Var;
+            this.b.setPullRefresh(l55Var);
             TextView textView = new TextView(getActivity());
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + ej.g(getActivity(), R.dimen.obfuscated_res_0x7f07025e)));
             this.b.x(textView, 0);

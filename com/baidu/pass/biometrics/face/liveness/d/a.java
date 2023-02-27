@@ -6,18 +6,10 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.utils.CommonViewUtility;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class a extends Dialog {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public ViewSwitcher b;
     public LinearLayout c;
@@ -32,173 +24,120 @@ public class a extends Dialog {
     public TextView l;
     public LinearLayout m;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
-        super(context, R.style.obfuscated_res_0x7f100149);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+        super(context, R.style.obfuscated_res_0x7f10014b);
         this.a = context;
         a();
     }
 
-    private void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d04d5);
-            setCanceledOnTouchOutside(false);
-            this.b = (ViewSwitcher) findViewById(R.id.obfuscated_res_0x7f09272a);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09082c);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090823);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09168f);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0918b1);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0918b0);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0918b2);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091b50);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09177a);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09178a);
-            this.m = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092326);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0918af);
-            CommonViewUtility.setViewClickAlpha(this.j, 0.2f);
-            CommonViewUtility.setViewClickAlpha(this.k, 0.2f);
-            CommonViewUtility.setViewClickAlpha(this.l, 0.2f);
-        }
-    }
-
     public void a(int i) {
         int min;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (i < 1) {
-                min = 1;
-            } else {
-                min = Math.min(i, 2);
-            }
-            if (min == 2) {
-                this.b.setDisplayedChild(0);
-            } else {
-                this.b.setDisplayedChild(1);
-            }
+        if (i < 1) {
+            min = 1;
+        } else {
+            min = Math.min(i, 2);
+        }
+        if (min == 2) {
+            this.b.setDisplayedChild(0);
+        } else {
+            this.b.setDisplayedChild(1);
         }
     }
 
     public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.f.setText(i);
-        }
+        this.f.setText(i);
     }
 
     public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.m.setVisibility(0);
-        }
+        this.m.setVisibility(0);
+    }
+
+    private void a() {
+        setContentView(R.layout.obfuscated_res_0x7f0d04e6);
+        setCanceledOnTouchOutside(false);
+        this.b = (ViewSwitcher) findViewById(R.id.obfuscated_res_0x7f092786);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090867);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09085e);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0916d0);
+        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0918f2);
+        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0918f1);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0918f3);
+        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091b91);
+        this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0917bb);
+        this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0917cb);
+        this.m = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092370);
+        this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0918f0);
+        CommonViewUtility.setViewClickAlpha(this.j, 0.2f);
+        CommonViewUtility.setViewClickAlpha(this.k, 0.2f);
+        CommonViewUtility.setViewClickAlpha(this.l, 0.2f);
     }
 
     public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f.setVisibility(0);
-            this.f.setText(str);
-        }
+        this.f.setVisibility(0);
+        this.f.setText(str);
     }
 
     public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.d.setText(str);
-        }
+        this.d.setText(str);
     }
 
     public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.e.setVisibility(0);
-            this.e.setText(str);
-        }
+        this.e.setVisibility(0);
+        this.e.setText(str);
     }
 
     public void a(String str, View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, onClickListener) == null) {
-            this.k.setText(str);
-            this.k.setOnClickListener(onClickListener);
-        }
+        this.k.setText(str);
+        this.k.setOnClickListener(onClickListener);
     }
 
     public void b(String str, View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, onClickListener) == null) {
-            this.l.setText(str);
-            this.l.setOnClickListener(onClickListener);
-        }
+        this.l.setText(str);
+        this.l.setOnClickListener(onClickListener);
     }
 
     public void c(String str, View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, onClickListener) == null) {
-            this.j.setText(str);
-            this.j.setOnClickListener(onClickListener);
-        }
+        this.j.setText(str);
+        this.j.setOnClickListener(onClickListener);
     }
 
     public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            if (z) {
-                this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f0b));
-                this.d.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608f4));
-                this.e.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608e9));
-                this.f.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608f3));
-                this.g.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608f3));
-                this.h.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608f3));
-                this.i.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608f3));
-                this.k.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608ed));
-                this.j.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608f1));
-                this.l.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608f1));
-                this.k.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f05));
-                this.j.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f07));
-                this.l.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f07));
-                return;
-            }
-            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f0a));
-            this.d.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608f4));
-            this.e.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608e8));
-            this.f.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608f2));
-            this.g.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608f2));
-            this.h.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608f2));
-            this.i.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608f2));
-            this.k.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608ec));
-            this.j.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608f0));
-            this.l.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608f0));
-            this.k.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f04));
-            this.j.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f06));
-            this.l.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f06));
+        if (z) {
+            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f12));
+            this.d.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060787));
+            this.e.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f06077c));
+            this.f.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060786));
+            this.g.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060786));
+            this.h.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060786));
+            this.i.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060786));
+            this.k.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060780));
+            this.j.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060784));
+            this.l.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060784));
+            this.k.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f0c));
+            this.j.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f0e));
+            this.l.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f0e));
+            return;
         }
+        this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f11));
+        this.d.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060787));
+        this.e.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f06077b));
+        this.f.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060785));
+        this.g.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060785));
+        this.h.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060785));
+        this.i.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060785));
+        this.k.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f06077f));
+        this.j.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060783));
+        this.l.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060783));
+        this.k.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f0b));
+        this.j.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f0d));
+        this.l.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f0d));
     }
 
     public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            if (z) {
-                this.d.setVisibility(0);
-            } else {
-                this.d.setVisibility(8);
-            }
+        if (z) {
+            this.d.setVisibility(0);
+        } else {
+            this.d.setVisibility(8);
         }
     }
 }

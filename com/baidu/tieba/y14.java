@@ -1,43 +1,180 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import android.webkit.JavascriptInterface;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.callback.StringResponseCallback;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.gamecenter.network.models.ReservationGameInfo;
+import com.baidu.swan.gamecenter.network.models.ReservationGameResultData;
+import com.baidu.swan.gamecenter.network.models.ResultData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class y14 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    @V8JavascriptField
-    public int height;
-    @V8JavascriptField
-    public int left;
-    @V8JavascriptField
-    public int realHeight;
-    @V8JavascriptField
-    public int realWidth;
-    @V8JavascriptField
-    public int top;
-    @V8JavascriptField
-    public int width;
+    public Gson a;
 
     /* loaded from: classes7.dex */
-    public interface a {
-        void i(String str);
+    public class a extends StringResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z14 a;
+        public final /* synthetic */ y14 b;
+
+        /* renamed from: com.baidu.tieba.y14$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0485a extends TypeToken<ResultData<ReservationGameResultData>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public C0485a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+        }
+
+        public a(y14 y14Var, z14 z14Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y14Var, z14Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = y14Var;
+            this.a = z14Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && !TextUtils.isEmpty(str) && this.a != null) {
+                ResultData resultData = (ResultData) this.b.a.fromJson(str, new C0485a(this).getType());
+                if (resultData == null) {
+                    this.a.onFail("result is null");
+                } else if (resultData.errno == 0) {
+                    T t = resultData.data;
+                    if (t != 0 && ((ReservationGameResultData) t).apps != null) {
+                        this.a.onSuccess(((ReservationGameResultData) t).apps);
+                        return;
+                    }
+                    this.a.onFail("result data is null");
+                } else {
+                    z14 z14Var = this.a;
+                    if (z14Var != null) {
+                        z14Var.onFail(resultData.errmsg);
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            z14 z14Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && (z14Var = this.a) != null) {
+                z14Var.onFail(exc.toString());
+            }
+        }
     }
 
-    public y14(@NonNull d12 d12Var) {
+    /* loaded from: classes7.dex */
+    public class b extends StringResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+            }
+        }
+
+        public b(y14 y14Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y14Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final y14 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-311281458, "Lcom/baidu/tieba/y14$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-311281458, "Lcom/baidu/tieba/y14$c;");
+                    return;
+                }
+            }
+            a = new y14(null);
+        }
+    }
+
+    public y14() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {d12Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,37 +184,55 @@ public class y14 {
                 return;
             }
         }
-        a(d12Var);
+        this.a = new Gson();
     }
 
-    public void b(a aVar) {
+    public static final y14 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.a = aVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return c.a;
+        }
+        return (y14) invokeV.objValue;
+    }
+
+    public /* synthetic */ y14(a aVar) {
+        this();
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (!SwanAppNetworkUtils.i(AppRuntime.getAppContext())) {
+                e93.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f01a2).G();
+            } else if (TextUtils.isEmpty(str)) {
+            } else {
+                String n = d64.b().n();
+                oe3 a2 = ts2.q().a();
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("app_id", Long.valueOf(str));
+                    qg4.g().getRequest().cookieManager(a2).url(n).addUrlParam("data", jSONObject.toString()).build().executeAsync(new b(this));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
-    @JavascriptInterface
-    public void onFieldChangedCallback(String str) {
+    public void d(z14<List<ReservationGameInfo>> z14Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (gp1.a) {
-                Log.d("BannerAdStyle", "onFieldChangedCallback fieldName=" + str);
-            }
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.i(str);
-            }
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z14Var) != null) || !SwanAppNetworkUtils.i(AppRuntime.getAppContext())) {
+            return;
         }
-    }
-
-    public final void a(@NonNull d12 d12Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, d12Var) == null) {
-            this.left = d12Var.r("left", this.left);
-            this.top = d12Var.r("top", this.top);
-            this.width = d12Var.r("width", this.width);
-            this.height = d12Var.r("height", this.height);
+        String c2 = d64.b().c();
+        oe3 a2 = ts2.q().a();
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("status", 2);
+            qg4.g().getRequest().cookieManager(a2).url(c2).addUrlParam("data", jSONObject.toString()).build().executeAsync(new a(this, z14Var));
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

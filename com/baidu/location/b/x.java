@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -203,7 +204,7 @@ public class x {
             stringBuffer.append(it.next());
             i++;
             if (i != b2.size()) {
-                stringBuffer.append(";");
+                stringBuffer.append(ParamableElem.DIVIDE_PARAM);
             }
         }
         this.a.a(stringBuffer.toString(), this.c);

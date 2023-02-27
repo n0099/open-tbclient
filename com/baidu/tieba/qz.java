@@ -1,79 +1,58 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
+import android.view.ViewPropertyAnimator;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class qz {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int b = 5;
-    public static int c = 40;
+    public static /* synthetic */ Interceptable $ic;
+    public static final int a;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.baidu.cesium.a.b a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448315556, "Lcom/baidu/tieba/qz;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448315556, "Lcom/baidu/tieba/qz;");
-        }
-    }
-
-    public qz() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448315556, "Lcom/baidu/tieba/qz;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448315556, "Lcom/baidu/tieba/qz;");
                 return;
             }
         }
-        com.baidu.cesium.a.b bVar = new com.baidu.cesium.a.b(c);
-        this.a = bVar;
-        bVar.a(0, c, true);
+        a = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
     }
 
-    public void a(com.baidu.cesium.a.b bVar, int i, int i2, int i3) {
+    public static void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048576, this, bVar, i, i2, i3) == null) {
-            com.baidu.cesium.a.b d = this.a.d(i, i + i2);
-            if (i3 != 0) {
-                if (i3 != 1) {
-                    if (i3 == 2) {
-                        d.e(bVar);
-                    } else if (i3 == 3) {
-                        d.c(bVar);
-                    }
-                }
-                d.d(bVar);
-            } else {
-                d.b(bVar);
-            }
-            for (int i4 = 0; i4 < i2; i4++) {
-                this.a.a(i + i4, d.d(i4));
-            }
+        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
+            view2.setPivotX(0.0f);
+            ViewPropertyAnimator animate = view2.animate();
+            animate.scaleY(1.0f);
+            animate.scaleX(1.0f);
+            animate.translationY(0.0f);
+            animate.setDuration(0L);
+            animate.start();
         }
     }
 
-    public byte[] b() {
-        InterceptResult invokeV;
+    public static void b(View view2, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.a() : (byte[]) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLI(65538, null, view2, i) == null) {
+            view2.setPivotX(0.0f);
+            ViewPropertyAnimator animate = view2.animate();
+            animate.scaleY(0.75f);
+            animate.scaleX(0.75f);
+            animate.translationY(-a);
+            animate.setDuration(i);
+            animate.start();
+        }
     }
 }

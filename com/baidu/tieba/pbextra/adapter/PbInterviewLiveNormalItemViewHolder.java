@@ -51,18 +51,18 @@ public class PbInterviewLiveNormalItemViewHolder extends TypeAdapter.ViewHolder 
                 return;
             }
         }
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091061);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910a2);
         this.a = tbImageView;
         tbImageView.setSupportNoImage(true);
         this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.a.setOnClickListener(this);
         this.a.setInterceptOnClick(true);
         this.a.setDefaultResource(R.drawable.icon_click);
-        this.b = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091d3c);
-        this.c = view2.findViewById(R.id.obfuscated_res_0x7f091942);
-        this.e = (FrsPraiseView) view2.findViewById(R.id.obfuscated_res_0x7f091943);
-        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091941);
-        this.d = (PbGiftListView) view2.findViewById(R.id.obfuscated_res_0x7f090d59);
+        this.b = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091d80);
+        this.c = view2.findViewById(R.id.obfuscated_res_0x7f091983);
+        this.e = (FrsPraiseView) view2.findViewById(R.id.obfuscated_res_0x7f091984);
+        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091982);
+        this.d = (PbGiftListView) view2.findViewById(R.id.obfuscated_res_0x7f090d9a);
         this.b.getLayoutStrategy().v();
         this.b.getLayoutStrategy().l(true);
         int min = Math.min(((((ej.l(TbadkCoreApplication.getInst()) - view2.getPaddingLeft()) - view2.getPaddingRight()) - this.b.getPaddingLeft()) - this.b.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f070253)), i);

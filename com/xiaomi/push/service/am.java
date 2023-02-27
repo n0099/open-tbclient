@@ -1,57 +1,42 @@
 package com.xiaomi.push.service;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.al;
+import android.content.SharedPreferences;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
 /* loaded from: classes8.dex */
-public final class am extends al.a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ int a;
+public class am {
+    public static Object a = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ ax f921a;
+    public static Map<String, Queue<String>> f899a = new HashMap();
 
-    /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f922a;
-
-    public am(String str, ax axVar, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, axVar, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    public static boolean a(XMPushService xMPushService, String str, String str2) {
+        synchronized (a) {
+            SharedPreferences sharedPreferences = xMPushService.getSharedPreferences("push_message_ids", 0);
+            Queue<String> queue = f899a.get(str);
+            if (queue == null) {
+                String[] split = sharedPreferences.getString(str, "").split(",");
+                LinkedList linkedList = new LinkedList();
+                for (String str3 : split) {
+                    linkedList.add(str3);
+                }
+                f899a.put(str, linkedList);
+                queue = linkedList;
             }
-        }
-        this.f922a = str;
-        this.f921a = axVar;
-        this.a = i;
-    }
-
-    @Override // com.xiaomi.push.al.a
-    /* renamed from: a */
-    public String mo224a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f922a : (String) invokeV.objValue;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f921a.a(this.a);
+            if (queue.contains(str2)) {
+                return true;
+            }
+            queue.add(str2);
+            if (queue.size() > 25) {
+                queue.poll();
+            }
+            String a2 = com.xiaomi.push.bo.a(queue, ",");
+            SharedPreferences.Editor edit = sharedPreferences.edit();
+            edit.putString(str, a2);
+            edit.commit();
+            return false;
         }
     }
 }

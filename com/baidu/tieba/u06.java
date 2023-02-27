@@ -1,21 +1,135 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class u06 extends ShareItem {
+public class u06 extends zk1<f71> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public class a implements f71 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.f71
+        public int[] b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new int[]{R.drawable.nad_web_back} : (int[]) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.f71
+        public int[] c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new int[]{R.drawable.nad_web_close} : (int[]) invokeV.objValue;
+        }
+
+        /* renamed from: com.baidu.tieba.u06$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class View$OnClickListenerC0431a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ g71 a;
+
+            public View$OnClickListenerC0431a(a aVar, g71 g71Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, g71Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = g71Var;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                g71 g71Var;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (g71Var = this.a) != null) {
+                    g71Var.g();
+                }
+            }
+        }
+
+        /* loaded from: classes6.dex */
+        public class b implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ g71 a;
+
+            public b(a aVar, g71 g71Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, g71Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = g71Var;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                g71 g71Var;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (g71Var = this.a) != null) {
+                    g71Var.k();
+                }
+            }
+        }
+
+        public a(u06 u06Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u06Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.f71
+        public void a(View view2, g71 g71Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, g71Var) == null) {
+                int intValue = ((Integer) view2.getTag()).intValue();
+                if (intValue == R.drawable.nad_web_back) {
+                    view2.setOnClickListener(new View$OnClickListenerC0431a(this, g71Var));
+                } else if (intValue == R.drawable.nad_web_close) {
+                    view2.setOnClickListener(new b(this, g71Var));
+                }
+            }
+        }
+    }
 
     public u06() {
         Interceptable interceptable = $ic;
@@ -31,82 +145,15 @@ public class u06 extends ShareItem {
         }
     }
 
-    public String m() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zk1
+    /* renamed from: a */
+    public f71 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.F0;
+            return new a(this);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.E0;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.D0;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public JSONArray p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.G0;
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    public void q(JSONObject jSONObject) throws JSONException {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            int i = 1;
-            this.w0 = true;
-            this.v = jSONObject.getString("title");
-            this.x = jSONObject.getString("linkUrl");
-            this.w = jSONObject.optString("content");
-            this.A = jSONObject.optString("imageUrl");
-            this.D0 = jSONObject.optString("mediaType");
-            if (StringUtils.isNull(this.A)) {
-                str = jSONObject.optString("iconUrl");
-            } else {
-                str = this.A;
-            }
-            this.A = str;
-            this.z = Uri.parse(str);
-            JSONObject optJSONObject = jSONObject.optJSONObject("categoryInfo");
-            if (optJSONObject != null) {
-                this.x0 = optJSONObject.optString("source2");
-                this.z0 = optJSONObject.optString("source3");
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("command");
-            if (optJSONObject2 != null) {
-                this.y0 = 2;
-                this.G0 = optJSONObject2.optJSONArray("cmd_pannel");
-                JSONObject optJSONObject3 = optJSONObject2.optJSONObject("info");
-                this.H0 = optJSONObject3;
-                if (optJSONObject3 != null) {
-                    this.E0 = optJSONObject3.optString("key");
-                    this.F0 = this.H0.optString("content");
-                    return;
-                }
-                return;
-            }
-            if (!"url".equals(jSONObject.optString("type"))) {
-                i = 3;
-            }
-            this.y0 = i;
-        }
+        return (f71) invokeV.objValue;
     }
 }

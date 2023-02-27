@@ -9,190 +9,93 @@ import android.os.Binder;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
-import android.os.Looper;
 import android.os.Message;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.eu;
+import com.xiaomi.push.et;
 /* loaded from: classes8.dex */
 public class XMJobService extends Service {
-    public static /* synthetic */ Interceptable $ic;
     public static Service a;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public IBinder f862a;
+    public IBinder f840a = null;
 
     @TargetApi(21)
     /* loaded from: classes8.dex */
     public static class a extends JobService {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public Binder a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Handler f863a;
+        public Handler f841a;
 
         /* renamed from: com.xiaomi.push.service.XMJobService$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class HandlerC0740a extends Handler {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        public static class HandlerC0731a extends Handler {
             public JobService a;
 
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public HandlerC0740a(JobService jobService) {
+            public HandlerC0731a(JobService jobService) {
                 super(jobService.getMainLooper());
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {jobService};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        super((Looper) newInitContext.callArgs[0]);
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
                 this.a = jobService;
             }
 
             @Override // android.os.Handler
             public void handleMessage(Message message) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-                    JobParameters jobParameters = (JobParameters) message.obj;
-                    com.xiaomi.channel.commonutils.logger.b.m105a("Job finished " + jobParameters.getJobId());
-                    this.a.jobFinished(jobParameters, false);
-                    if (jobParameters.getJobId() == 1) {
-                        eu.a(false);
-                    }
+                if (message.what != 1) {
+                    return;
+                }
+                JobParameters jobParameters = (JobParameters) message.obj;
+                com.xiaomi.channel.commonutils.logger.b.m97a("Job finished " + jobParameters.getJobId());
+                this.a.jobFinished(jobParameters, false);
+                if (jobParameters.getJobId() == 1) {
+                    et.a(false);
                 }
             }
         }
 
         public a(Service service) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {service};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.a = null;
-            this.a = (Binder) com.xiaomi.push.bk.a((Object) this, "onBind", new Intent());
-            com.xiaomi.push.bk.a((Object) this, "attachBaseContext", service);
+            this.a = (Binder) com.xiaomi.push.bj.a((Object) this, "onBind", new Intent());
+            com.xiaomi.push.bj.a((Object) this, "attachBaseContext", service);
         }
 
         @Override // android.app.job.JobService
         public boolean onStartJob(JobParameters jobParameters) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jobParameters)) == null) {
-                com.xiaomi.channel.commonutils.logger.b.m105a("Job started " + jobParameters.getJobId());
-                Intent intent = new Intent(this, XMPushService.class);
-                intent.setAction("com.xiaomi.push.timer");
-                intent.setPackage(getPackageName());
-                startService(intent);
-                if (this.f863a == null) {
-                    this.f863a = new HandlerC0740a(this);
-                }
-                Handler handler = this.f863a;
-                handler.sendMessage(Message.obtain(handler, 1, jobParameters));
-                return true;
+            com.xiaomi.channel.commonutils.logger.b.m97a("Job started " + jobParameters.getJobId());
+            Intent intent = new Intent(this, XMPushService.class);
+            intent.setAction("com.xiaomi.push.timer");
+            intent.setPackage(getPackageName());
+            startService(intent);
+            if (this.f841a == null) {
+                this.f841a = new HandlerC0731a(this);
             }
-            return invokeL.booleanValue;
+            Handler handler = this.f841a;
+            handler.sendMessage(Message.obtain(handler, 1, jobParameters));
+            return true;
         }
 
         @Override // android.app.job.JobService
         public boolean onStopJob(JobParameters jobParameters) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jobParameters)) == null) {
-                com.xiaomi.channel.commonutils.logger.b.m105a("Job stop " + jobParameters.getJobId());
-                return false;
-            }
-            return invokeL.booleanValue;
+            com.xiaomi.channel.commonutils.logger.b.m97a("Job stop " + jobParameters.getJobId());
+            return false;
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-186862151, "Lcom/xiaomi/push/service/XMJobService;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-186862151, "Lcom/xiaomi/push/service/XMJobService;");
-        }
-    }
-
-    public XMJobService() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f862a = null;
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            IBinder iBinder = this.f862a;
-            return iBinder != null ? iBinder : new Binder();
-        }
-        return (IBinder) invokeL.objValue;
+        IBinder iBinder = this.f840a;
+        return iBinder != null ? iBinder : new Binder();
     }
 
     @Override // android.app.Service
     public void onCreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onCreate();
-            if (Build.VERSION.SDK_INT >= 21) {
-                this.f862a = new a(this).a;
-            }
-            a = this;
+        super.onCreate();
+        if (Build.VERSION.SDK_INT >= 21) {
+            this.f840a = new a(this).a;
         }
+        a = this;
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onDestroy();
-            a = null;
-        }
+        super.onDestroy();
+        a = null;
     }
 }

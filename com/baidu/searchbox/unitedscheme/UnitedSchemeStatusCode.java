@@ -1,12 +1,6 @@
 package com.baidu.searchbox.unitedscheme;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class UnitedSchemeStatusCode {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int ERR_ACL_CHECK_FAIL = 402;
     public static final int ERR_ACTION_NOT_FOUND = 302;
     public static final int ERR_EXECUTE_FAIL = 1001;
@@ -21,19 +15,4 @@ public class UnitedSchemeStatusCode {
     public static final String KEY_DATA = "data";
     public static final String KEY_MESSAGE = "message";
     public static final String KEY_STATUS = "status";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public UnitedSchemeStatusCode() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

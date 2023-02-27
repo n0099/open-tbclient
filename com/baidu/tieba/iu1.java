@@ -1,11 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface iu1 {
-    String a();
+    void a();
 
-    String b();
+    void b();
 
-    String getAppName();
-
-    String getSchemeHeader();
+    void c();
 }

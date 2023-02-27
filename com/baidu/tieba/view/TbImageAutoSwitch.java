@@ -173,24 +173,24 @@ public class TbImageAutoSwitch extends FrameLayout {
             }
             this.n = new a(this);
             this.c = new ArrayList();
-            e(i, i2, f, f2);
+            f(i, i2, f, f2);
         }
 
-        public void f(c cVar) {
+        public void g(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
                 this.d = cVar;
             }
         }
 
-        public void g(View[] viewArr) {
+        public void h(View[] viewArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, viewArr) == null) {
                 this.a = viewArr;
             }
         }
 
-        public void d(int i) {
+        public void e(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.a == null) {
                 return;
@@ -208,7 +208,7 @@ public class TbImageAutoSwitch extends FrameLayout {
             this.c.add(ObjectAnimator.ofPropertyValuesHolder(this.a[0], this.j, this.k, this.l, this.m));
         }
 
-        public final void e(int i, int i2, float f, float f2) {
+        public final void f(int i, int i2, float f, float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2)}) == null) {
                 this.e = PropertyValuesHolder.ofFloat(Key.TRANSLATION_X, -i);
@@ -224,7 +224,7 @@ public class TbImageAutoSwitch extends FrameLayout {
             }
         }
 
-        public void h() {
+        public void i() {
             AnimatorSet animatorSet;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (animatorSet = this.b) != null) {
@@ -556,6 +556,10 @@ public class TbImageAutoSwitch extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onAttachedToWindow();
             q();
+            d dVar = this.x;
+            if (dVar != null) {
+                dVar.d = this.z;
+            }
         }
     }
 
@@ -566,6 +570,10 @@ public class TbImageAutoSwitch extends FrameLayout {
             super.onDetachedFromWindow();
             j();
             this.y = false;
+            d dVar = this.x;
+            if (dVar != null) {
+                dVar.d = null;
+            }
         }
     }
 
@@ -583,10 +591,10 @@ public class TbImageAutoSwitch extends FrameLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.c && (dVar = this.x) != null) {
             this.c = true;
-            dVar.g(this.w);
-            this.x.f(this.z);
-            this.x.d(this.b);
-            this.x.h();
+            dVar.h(this.w);
+            this.x.g(this.z);
+            this.x.e(this.b);
+            this.x.i();
         }
     }
 

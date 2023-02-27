@@ -1,171 +1,344 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.widget.AbsListView;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.iy7;
-import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestRankingViewHolder;
-import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tieba.lego.card.view.BaseLegoCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class dy7 extends qn<iy7, SearchSuggestRankingViewHolder> {
+public class dy7 extends un {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
+    public TbPageContext i;
+    public List<ICardInfo> j;
+    public int k;
+    public boolean l;
+    public NoDataView m;
+    public FrameLayout n;
+    public NoDataViewFactory.e o;
+    public NoDataViewFactory.d p;
+    public NoDataViewFactory.c q;
+    public FrameLayout.LayoutParams r;
+    public String s;
+    public boolean t;
 
-    /* loaded from: classes4.dex */
-    public class a implements no {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ dy7 b;
-
-        public a(dy7 dy7Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dy7Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = dy7Var;
-            this.a = context;
-        }
-
-        @Override // com.baidu.tieba.no
-        public void b(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            iy7 iy7Var;
-            iy7.a b;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(cdo instanceof iy7) || (b = (iy7Var = (iy7) cdo).b()) == null) {
-                return;
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put(TiebaStatic.Params.TAB_ID, b.d() + "");
-            hashMap.put("sort_type", b.c() + "");
-            hashMap.put("rank_type", b.b() + "");
-            hashMap.put("rank_code", b.a() + "");
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a, "ItemRecommendList", hashMap)));
-            this.b.u(iy7Var);
-        }
+    @Override // com.baidu.tieba.un, android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? i : invokeI.longValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dy7(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public dy7(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.mType = bdUniqueId;
-        setOnAdapterItemClickListener(new a(this, context));
+        this.k = 0;
+        this.l = true;
+        this.i = tbPageContext;
     }
 
-    public final void t(StatisticItem statisticItem, iy7 iy7Var) {
+    public final void D(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, statisticItem, iy7Var) == null) {
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_name", iy7Var.c());
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (this.t) {
+                int u = u(i - 1);
+                int u2 = u(i - 2);
+                B(u);
+                B(u2);
+                return;
+            }
+            int u3 = u(i + 1);
+            int u4 = u(i + 2);
+            B(u3);
+            B(u4);
         }
     }
 
-    public final void u(iy7 iy7Var) {
+    public final ICardInfo x(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, iy7Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_RANKING_CLICK);
-            t(statisticItem, iy7Var);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+            for (ICardInfo iCardInfo : this.j) {
+                int adapterCount = iCardInfo.getAdapterCount();
+                if (i < adapterCount) {
+                    return iCardInfo.getAdapterItem(i);
+                }
+                i -= adapterCount;
+            }
+            return null;
         }
+        return (ICardInfo) invokeI.objValue;
+    }
+
+    public boolean A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            List<ICardInfo> list = this.j;
+            if (list != null && list.size() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.un, android.widget.Adapter, com.baidu.tieba.eo
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.k == 0 && this.l) {
+                return 1;
+            }
+            return this.k;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.un, android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return hy7.a.size() + 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.un, android.widget.BaseAdapter, android.widget.Adapter
+    public boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (this.k == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void v() {
+        FrameLayout frameLayout;
+        NoDataView noDataView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (frameLayout = this.n) != null && (noDataView = this.m) != null) {
+            frameLayout.removeView(noDataView);
+            this.m = null;
+        }
+    }
+
+    public final int w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            List<ICardInfo> list = this.j;
+            int i = 0;
+            if (list == null) {
+                return 0;
+            }
+            for (ICardInfo iCardInfo : list) {
+                i += iCardInfo.getAdapterCount();
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void B(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            ICardInfo iCardInfo = this.j.get(i);
+            if (iCardInfo instanceof ny7) {
+                ((ny7) iCardInfo).doLoad(iCardInfo, this.i);
+            }
+        }
+    }
+
+    public void C(List<ICardInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            List<ICardInfo> list2 = this.j;
+            if (list2 == null) {
+                this.j = new ArrayList();
+            } else {
+                list2.clear();
+            }
+            if (list != null) {
+                this.j.addAll(list);
+            }
+            this.k = w();
+            notifyDataSetChanged();
+        }
+    }
+
+    public void E(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.s = str;
+        }
+    }
+
+    public void G(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.l = z;
+        }
+    }
+
+    public void H(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.t = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.un, android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+            ICardInfo x = x(i);
+            if (x != null) {
+                return hy7.a.get(x.getAdapterType());
+            }
+            return 0;
+        }
+        return invokeI.intValue;
+    }
+
+    public final int u(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+            if (i < 0) {
+                i = 0;
+            }
+            if (i >= this.j.size()) {
+                return this.j.size() - 1;
+            }
+            return i;
+        }
+        return invokeI.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: v */
-    public SearchSuggestRankingViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.un, android.widget.Adapter, com.baidu.tieba.eo
+    /* renamed from: z */
+    public ICardInfo getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            return new SearchSuggestRankingViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07d9, viewGroup, false));
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+            return x(i);
         }
-        return (SearchSuggestRankingViewHolder) invokeL.objValue;
+        return (ICardInfo) invokeI.objValue;
     }
 
-    public final void y(iy7 iy7Var) {
+    public void F(NoDataViewFactory.d dVar, NoDataViewFactory.e eVar, NoDataViewFactory.c cVar, FrameLayout.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, iy7Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_RANKING_SHOW);
-            t(statisticItem, iy7Var);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, iy7 iy7Var, SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
-        w(i, view2, viewGroup, iy7Var, searchSuggestRankingViewHolder);
-        return view2;
-    }
-
-    public View w(int i, View view2, ViewGroup viewGroup, iy7 iy7Var, SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iy7Var, searchSuggestRankingViewHolder})) == null) {
-            if (iy7Var == null) {
-                return view2;
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, dVar, eVar, cVar, layoutParams) == null) {
+            this.p = dVar;
+            this.o = eVar;
+            this.q = cVar;
+            this.r = layoutParams;
+            NoDataView noDataView = this.m;
+            if (noDataView != null) {
+                noDataView.setTextOption(eVar);
+                this.m.setImgOption(dVar);
+                this.m.setButtonOption(cVar);
+                if (layoutParams != null) {
+                    this.m.setLayoutParams(layoutParams);
+                }
             }
-            x(searchSuggestRankingViewHolder);
-            WebPManager.setMaskDrawable(searchSuggestRankingViewHolder.c, R.drawable.obfuscated_res_0x7f080ad0, null);
-            yx7.a(searchSuggestRankingViewHolder.b, iy7Var.f(), iy7Var.a());
-            y(iy7Var);
-            return view2;
         }
-        return (View) invokeCommon.objValue;
     }
 
-    public final void x(SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
+    @Override // com.baidu.tieba.un, android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, searchSuggestRankingViewHolder) == null) {
-            p15 d = p15.d(searchSuggestRankingViewHolder.b);
-            d.v(R.color.CAM_X0105);
-            d.z(R.dimen.T_X06);
-            SkinManager.setBackgroundResource(searchSuggestRankingViewHolder.a, R.drawable.addresslist_item_bg);
-            p15.d(searchSuggestRankingViewHolder.d).f(R.color.CAM_X0203);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048588, this, i, view2, viewGroup)) == null) {
+            if (this.l && A()) {
+                return t();
+            }
+            v();
+            D(i);
+            ICardInfo x = x(i);
+            BaseLegoCardView y = y(view2, x);
+            if (y != null) {
+                y.a = this.s;
+                y.update(x);
+            }
+            return y;
         }
+        return (View) invokeILL.objValue;
+    }
+
+    public View t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (this.n == null) {
+                this.n = new FrameLayout(this.i.getPageActivity());
+            }
+            if (this.m == null) {
+                this.m = NoDataViewFactory.a(this.i.getPageActivity(), this.n, this.p, this.o, this.q);
+            }
+            this.m.setVisibility(0);
+            FrameLayout.LayoutParams layoutParams = this.r;
+            if (layoutParams != null) {
+                this.m.setLayoutParams(layoutParams);
+            }
+            this.n.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+            this.m.f(this.i, TbadkCoreApplication.getInst().getSkinType());
+            return this.n;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public BaseLegoCardView y(View view2, ICardInfo iCardInfo) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, view2, iCardInfo)) == null) {
+            if (iCardInfo == null) {
+                return null;
+            }
+            if (view2 instanceof BaseLegoCardView) {
+                return (BaseLegoCardView) view2;
+            }
+            return (BaseLegoCardView) fy7.h().a(this.i, iCardInfo, 0);
+        }
+        return (BaseLegoCardView) invokeLL.objValue;
     }
 }

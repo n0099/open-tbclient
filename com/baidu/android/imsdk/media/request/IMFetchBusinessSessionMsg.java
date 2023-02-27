@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.media.request;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import androidx.core.net.MailTo;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.IMConstants;
@@ -537,7 +536,7 @@ public class IMFetchBusinessSessionMsg extends Message {
                 jSONObject.put("uk", this.mUk);
                 jSONObject.put("user_type", getUserType(this.mBusinessType));
                 if (this.mContacterUk > 0) {
-                    jSONObject.put(MailTo.TO, this.mContacterUk);
+                    jSONObject.put("to", this.mContacterUk);
                 }
                 jSONObject.put("sort_update_time_us_begin", this.mBeginTime);
                 jSONObject.put("sort_update_time_us_end", this.mEndTime);

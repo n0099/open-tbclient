@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p09;
+import com.baidu.tieba.b49;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -127,7 +127,7 @@ public class WebPManager {
             int[] iArr = new int[resourceStateType.stateCount];
             int[][] iArr2 = new int[resourceStateType.stateCount];
             if (resourceStateType.canPress) {
-                iArr[0] = p09.a(i, SkinManager.RESOURCE_ALPHA_PRESS);
+                iArr[0] = b49.a(i, SkinManager.RESOURCE_ALPHA_PRESS);
                 iArr2[0] = new int[]{16842919, 16842910};
                 i2 = 1;
             } else {
@@ -139,7 +139,7 @@ public class WebPManager {
                 iArr3[0] = 16842910;
                 iArr2[i2] = iArr3;
                 int i3 = i2 + 1;
-                iArr[i3] = p09.a(i, SkinManager.RESOURCE_ALPHA_DISABLE);
+                iArr[i3] = b49.a(i, SkinManager.RESOURCE_ALPHA_DISABLE);
                 iArr2[i3] = new int[0];
             } else {
                 iArr[i2] = i;
@@ -266,7 +266,7 @@ public class WebPManager {
                 return null;
             }
             Drawable mutate = SkinManager.getDrawable(i).mutate();
-            mutate.setTint(p09.a(SkinManager.getColor(i3, (int) R.color.CAM_X0105), SkinManager.RESOURCE_ALPHA_DISABLE));
+            mutate.setTint(b49.a(SkinManager.getColor(i3, (int) R.color.CAM_X0105), SkinManager.RESOURCE_ALPHA_DISABLE));
             stateListDrawable.addState(new int[]{-16842910}, mutate);
             if (i2 > 0 && (drawable = SkinManager.getDrawable(i2)) != null) {
                 Drawable mutate2 = SkinManager.getDrawable(i2).mutate();
@@ -275,7 +275,7 @@ public class WebPManager {
                 stateListDrawable.addState(new int[]{16842913}, drawable);
             }
             Drawable mutate3 = SkinManager.getDrawable(i).mutate();
-            mutate3.setTint(p09.a(SkinManager.getColor(i3, (int) R.color.CAM_X0105), SkinManager.RESOURCE_ALPHA_PRESS));
+            mutate3.setTint(b49.a(SkinManager.getColor(i3, (int) R.color.CAM_X0105), SkinManager.RESOURCE_ALPHA_PRESS));
             stateListDrawable.addState(new int[]{16842919}, mutate3);
             drawable2.mutate().setTint(SkinManager.getColor(i3, (int) R.color.CAM_X0105));
             stateListDrawable.addState(new int[0], drawable2);
@@ -304,7 +304,7 @@ public class WebPManager {
                 return null;
             }
             Drawable mutate = SkinManager.getDrawable(i).mutate();
-            mutate.setTint(p09.a(SkinManager.getColor(i5, i3), SkinManager.RESOURCE_ALPHA_DISABLE));
+            mutate.setTint(b49.a(SkinManager.getColor(i5, i3), SkinManager.RESOURCE_ALPHA_DISABLE));
             stateListDrawable.addState(new int[]{-16842910}, mutate);
             if (i2 > 0 && (drawable = SkinManager.getDrawable(i2)) != null) {
                 Drawable mutate2 = SkinManager.getDrawable(i2).mutate();
@@ -315,7 +315,7 @@ public class WebPManager {
                 stateListDrawable.addState(new int[]{16842913}, drawable);
             }
             Drawable mutate3 = SkinManager.getDrawable(i).mutate();
-            mutate3.setTint(p09.a(SkinManager.getColor(i5, i3), SkinManager.RESOURCE_ALPHA_PRESS));
+            mutate3.setTint(b49.a(SkinManager.getColor(i5, i3), SkinManager.RESOURCE_ALPHA_PRESS));
             stateListDrawable.addState(new int[]{16842919}, mutate3);
             drawable2.mutate().setTint(SkinManager.getColor(i5, i3));
             stateListDrawable.addState(new int[0], drawable2);

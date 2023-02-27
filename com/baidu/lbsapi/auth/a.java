@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 /* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
@@ -44,7 +45,7 @@ public class a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && a && Thread.currentThread().getStackTrace().length != 0) {
             String str2 = b;
-            Log.d(str2, a() + ";" + str);
+            Log.d(str2, a() + ParamableElem.DIVIDE_PARAM + str);
         }
     }
 
@@ -60,7 +61,7 @@ public class a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a && Thread.currentThread().getStackTrace().length != 0) {
             String str2 = b;
-            Log.e(str2, a() + ";" + str);
+            Log.e(str2, a() + ParamableElem.DIVIDE_PARAM + str);
         }
     }
 }

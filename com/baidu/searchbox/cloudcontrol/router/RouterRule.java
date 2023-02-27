@@ -4,48 +4,16 @@ import android.text.TextUtils;
 import com.baidu.searchbox.cloudcontrol.CloudControlManager;
 import com.baidu.searchbox.cloudcontrol.data.RuleResult;
 import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class RouterRule {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public RouterRule() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     private ICloudControlProcessor getProcessor(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
-            return CloudControlManager.getInstance().getProcessor(str);
-        }
-        return (ICloudControlProcessor) invokeL.objValue;
+        return CloudControlManager.getInstance().getProcessor(str);
     }
 
     public RuleResult apply(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            return RuleResult.make(str, getProcessor(str));
+        if (TextUtils.isEmpty(str)) {
+            return null;
         }
-        return (RuleResult) invokeL.objValue;
+        return RuleResult.make(str, getProcessor(str));
     }
 }

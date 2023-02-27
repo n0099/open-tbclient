@@ -1,15 +1,6 @@
 package com.baidu.sapi2.ecommerce.result;
-
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class AddrSelectorResponseParam {
-    public static /* synthetic */ Interceptable $ic = null;
     public static int ERROR_CODE_PARSE_JSON = -101;
     public static String KEY_HAS_LEAF = "has_leaf";
     public static String KEY_HOTLIST = "hotlist";
@@ -23,34 +14,4 @@ public class AddrSelectorResponseParam {
     public static String KEY_PNAME = "pname";
     public static String KEY_PTYPE = "ptype";
     public static String KEY_TYPE = "type";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(402220080, "Lcom/baidu/sapi2/ecommerce/result/AddrSelectorResponseParam;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(402220080, "Lcom/baidu/sapi2/ecommerce/result/AddrSelectorResponseParam;");
-        }
-    }
-
-    public AddrSelectorResponseParam() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
 }

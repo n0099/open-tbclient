@@ -4,12 +4,13 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
-import android.util.Log;
 import androidx.annotation.Nullable;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.en;
 import com.baidu.tieba.gn;
 import com.baidu.tieba.hn;
+import com.baidu.tieba.r08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +19,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class TitanDownloadService extends Service {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final boolean DEBUG = true;
     public static final String TAG = "Titan";
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
@@ -65,7 +65,7 @@ public class TitanDownloadService extends Service {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                hn.f(this.b.mContext, "com.baidu.titan.patch", this.a);
+                hn.e(this.b.mContext, "com.baidu.titan.patch", this.a);
             }
         }
     }
@@ -102,10 +102,10 @@ public class TitanDownloadService extends Service {
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
                 if (i != -1) {
                     if (i == 0) {
-                        Log.d(TitanDownloadService.TAG, "onResult: 0");
+                        DefaultLog.getInstance().c(TitanDownloadService.TAG, "onResult: 0");
                     }
                 } else {
-                    Log.d(TitanDownloadService.TAG, "onResult: -1");
+                    DefaultLog.getInstance().c(TitanDownloadService.TAG, "onResult: -1");
                 }
                 this.b.stopSelf(this.a);
             }
@@ -131,19 +131,20 @@ public class TitanDownloadService extends Service {
     public static void startServiceIfNeeded(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            Log.d(TAG, "start service");
+            DefaultLog.getInstance().c(TAG, "start service");
             gn d = gn.d();
             d.g();
             if (d.e() == 0) {
-                Log.d(TAG, "startServiceIfNeeded last update time = 0");
+                DefaultLog.getInstance().c(TAG, "startServiceIfNeeded last update time = 0");
                 d.i(System.currentTimeMillis());
                 d.l();
                 return;
             }
             long abs = Math.abs(System.currentTimeMillis() - d.e());
-            Log.d(TAG, "startServiceIfNeeded interval = " + abs);
+            r08 defaultLog = DefaultLog.getInstance();
+            defaultLog.c(TAG, "startServiceIfNeeded interval = " + abs);
             try {
-                Log.d(TAG, "start service");
+                DefaultLog.getInstance().c(TAG, "start service");
                 context.startService(new Intent(context, TitanDownloadService.class));
             } catch (Exception e) {
                 e.printStackTrace();

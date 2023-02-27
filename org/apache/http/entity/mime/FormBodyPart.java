@@ -1,35 +1,13 @@
 package org.apache.http.entity.mime;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.entity.mime.content.ContentBody;
 /* loaded from: classes9.dex */
 public class FormBodyPart {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final ContentBody body;
     public final Header header;
     public final String name;
 
     public FormBodyPart(String str, ContentBody contentBody) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, contentBody};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         if (str != null) {
             if (contentBody != null) {
                 this.name = str;
@@ -46,76 +24,49 @@ public class FormBodyPart {
     }
 
     public void addField(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            if (str != null) {
-                this.header.addField(new MinimalField(str, str2));
-                return;
-            }
-            throw new IllegalArgumentException("Field name may not be null");
+        if (str != null) {
+            this.header.addField(new MinimalField(str, str2));
+            return;
         }
+        throw new IllegalArgumentException("Field name may not be null");
     }
 
     public void generateContentDisp(ContentBody contentBody) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, contentBody) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("form-data; name=\"");
-            sb.append(getName());
+        StringBuilder sb = new StringBuilder();
+        sb.append("form-data; name=\"");
+        sb.append(getName());
+        sb.append("\"");
+        if (contentBody.getFilename() != null) {
+            sb.append("; filename=\"");
+            sb.append(contentBody.getFilename());
             sb.append("\"");
-            if (contentBody.getFilename() != null) {
-                sb.append("; filename=\"");
-                sb.append(contentBody.getFilename());
-                sb.append("\"");
-            }
-            addField("Content-Disposition", sb.toString());
         }
+        addField("Content-Disposition", sb.toString());
     }
 
     public void generateContentType(ContentBody contentBody) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, contentBody) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(contentBody.getMimeType());
-            if (contentBody.getCharset() != null) {
-                sb.append("; charset=");
-                sb.append(contentBody.getCharset());
-            }
-            addField("Content-Type", sb.toString());
+        StringBuilder sb = new StringBuilder();
+        sb.append(contentBody.getMimeType());
+        if (contentBody.getCharset() != null) {
+            sb.append("; charset=");
+            sb.append(contentBody.getCharset());
         }
+        addField("Content-Type", sb.toString());
     }
 
     public void generateTransferEncoding(ContentBody contentBody) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, contentBody) == null) {
-            addField(MIME.CONTENT_TRANSFER_ENC, contentBody.getTransferEncoding());
-        }
+        addField(MIME.CONTENT_TRANSFER_ENC, contentBody.getTransferEncoding());
     }
 
     public ContentBody getBody() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.body;
-        }
-        return (ContentBody) invokeV.objValue;
+        return this.body;
     }
 
     public Header getHeader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.header;
-        }
-        return (Header) invokeV.objValue;
+        return this.header;
     }
 
     public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.name;
-        }
-        return (String) invokeV.objValue;
+        return this.name;
     }
 }

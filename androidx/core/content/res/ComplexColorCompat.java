@@ -12,204 +12,123 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParserException;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public final class ComplexColorCompat {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "ComplexColorCompat";
-    public transient /* synthetic */ FieldHolder $fh;
     public int mColor;
     public final ColorStateList mColorStateList;
     public final Shader mShader;
 
     public ComplexColorCompat(Shader shader, ColorStateList colorStateList, @ColorInt int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {shader, colorStateList, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mShader = shader;
         this.mColorStateList = colorStateList;
         this.mColor = i;
     }
 
+    @Nullable
+    public static ComplexColorCompat inflate(@NonNull Resources resources, @ColorRes int i, @Nullable Resources.Theme theme) {
+        try {
+            return createFromXml(resources, i, theme);
+        } catch (Exception e) {
+            Log.e(LOG_TAG, "Failed to inflate ComplexColor.", e);
+            return null;
+        }
+    }
+
     @NonNull
     public static ComplexColorCompat createFromXml(@NonNull Resources resources, @ColorRes int i, @Nullable Resources.Theme theme) throws IOException, XmlPullParserException {
-        InterceptResult invokeLIL;
         int next;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, resources, i, theme)) == null) {
-            XmlResourceParser xml = resources.getXml(i);
-            AttributeSet asAttributeSet = Xml.asAttributeSet(xml);
-            do {
-                next = xml.next();
-                if (next == 2) {
-                    break;
-                }
-            } while (next != 1);
+        XmlResourceParser xml = resources.getXml(i);
+        AttributeSet asAttributeSet = Xml.asAttributeSet(xml);
+        do {
+            next = xml.next();
             if (next == 2) {
-                String name = xml.getName();
-                char c = 65535;
-                int hashCode = name.hashCode();
-                if (hashCode != 89650992) {
-                    if (hashCode == 1191572447 && name.equals("selector")) {
-                        c = 0;
-                    }
-                } else if (name.equals(NativeConstants.GRADIENT)) {
-                    c = 1;
-                }
-                if (c != 0) {
-                    if (c == 1) {
-                        return from(GradientColorInflaterCompat.createFromXmlInner(resources, xml, asAttributeSet, theme));
-                    }
-                    throw new XmlPullParserException(xml.getPositionDescription() + ": unsupported complex color tag " + name);
-                }
-                return from(ColorStateListInflaterCompat.createFromXmlInner(resources, xml, asAttributeSet, theme));
+                break;
             }
-            throw new XmlPullParserException("No start tag found");
+        } while (next != 1);
+        if (next == 2) {
+            String name = xml.getName();
+            char c = 65535;
+            int hashCode = name.hashCode();
+            if (hashCode != 89650992) {
+                if (hashCode == 1191572447 && name.equals("selector")) {
+                    c = 0;
+                }
+            } else if (name.equals(NativeConstants.GRADIENT)) {
+                c = 1;
+            }
+            if (c != 0) {
+                if (c == 1) {
+                    return from(GradientColorInflaterCompat.createFromXmlInner(resources, xml, asAttributeSet, theme));
+                }
+                throw new XmlPullParserException(xml.getPositionDescription() + ": unsupported complex color tag " + name);
+            }
+            return from(ColorStateListInflaterCompat.createFromXmlInner(resources, xml, asAttributeSet, theme));
         }
-        return (ComplexColorCompat) invokeLIL.objValue;
+        throw new XmlPullParserException("No start tag found");
     }
 
     public static ComplexColorCompat from(@ColorInt int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            return new ComplexColorCompat(null, null, i);
-        }
-        return (ComplexColorCompat) invokeI.objValue;
+        return new ComplexColorCompat(null, null, i);
     }
 
     public boolean onStateChanged(int[] iArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, iArr)) == null) {
-            if (isStateful()) {
-                ColorStateList colorStateList = this.mColorStateList;
-                int colorForState = colorStateList.getColorForState(iArr, colorStateList.getDefaultColor());
-                if (colorForState != this.mColor) {
-                    this.mColor = colorForState;
-                    return true;
-                }
+        if (isStateful()) {
+            ColorStateList colorStateList = this.mColorStateList;
+            int colorForState = colorStateList.getColorForState(iArr, colorStateList.getDefaultColor());
+            if (colorForState != this.mColor) {
+                this.mColor = colorForState;
+                return true;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        return false;
     }
 
     public void setColor(@ColorInt int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.mColor = i;
-        }
+        this.mColor = i;
     }
 
     public static ComplexColorCompat from(@NonNull ColorStateList colorStateList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, colorStateList)) == null) {
-            return new ComplexColorCompat(null, colorStateList, colorStateList.getDefaultColor());
-        }
-        return (ComplexColorCompat) invokeL.objValue;
+        return new ComplexColorCompat(null, colorStateList, colorStateList.getDefaultColor());
     }
 
     public static ComplexColorCompat from(@NonNull Shader shader) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, shader)) == null) {
-            return new ComplexColorCompat(shader, null, 0);
-        }
-        return (ComplexColorCompat) invokeL.objValue;
-    }
-
-    @Nullable
-    public static ComplexColorCompat inflate(@NonNull Resources resources, @ColorRes int i, @Nullable Resources.Theme theme) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, resources, i, theme)) == null) {
-            try {
-                return createFromXml(resources, i, theme);
-            } catch (Exception e) {
-                Log.e(LOG_TAG, "Failed to inflate ComplexColor.", e);
-                return null;
-            }
-        }
-        return (ComplexColorCompat) invokeLIL.objValue;
+        return new ComplexColorCompat(shader, null, 0);
     }
 
     @ColorInt
     public int getColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mColor;
-        }
-        return invokeV.intValue;
+        return this.mColor;
     }
 
     @Nullable
     public Shader getShader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mShader;
-        }
-        return (Shader) invokeV.objValue;
+        return this.mShader;
     }
 
     public boolean isGradient() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.mShader != null) {
-                return true;
-            }
-            return false;
+        if (this.mShader != null) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public boolean isStateful() {
-        InterceptResult invokeV;
         ColorStateList colorStateList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.mShader == null && (colorStateList = this.mColorStateList) != null && colorStateList.isStateful()) {
-                return true;
-            }
-            return false;
+        if (this.mShader == null && (colorStateList = this.mColorStateList) != null && colorStateList.isStateful()) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public boolean willDraw() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!isGradient() && this.mColor == 0) {
-                return false;
-            }
-            return true;
+        if (!isGradient() && this.mColor == 0) {
+            return false;
         }
-        return invokeV.booleanValue;
+        return true;
     }
 }

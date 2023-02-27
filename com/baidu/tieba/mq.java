@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.framework.ui.toast.ToastViewData;
-import com.baidu.tieba.lt;
-import com.baidu.tieba.mt;
+import com.baidu.bdtask.framework.ui.dialog.TaskDialogData;
+import com.baidu.tieba.ht;
+import com.baidu.tieba.it;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class mq<VD extends ToastViewData, VM extends lt<VD>, View extends mt<VM>> {
+public final class mq<VD extends TaskDialogData, VM extends ht<VD>, View extends it<VM>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final View a;

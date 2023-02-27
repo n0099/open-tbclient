@@ -4,13 +4,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.Keep;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.GlobalParam;
 import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.ZeusPluginStateListener;
@@ -27,232 +20,155 @@ import org.json.JSONObject;
 @Keep
 /* loaded from: classes7.dex */
 public class PluginManager {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PluginManager";
     public static volatile PluginManager sInstance;
-    public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean hasInstallFromDownloadDir;
     public ExecutorService mInstallThreadPool;
     public volatile boolean mIsParsePluginConfig;
-    public volatile Map<String, Plugin> mPlugins;
-    public final c pluginLoader;
-
-    public PluginManager() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mPlugins = new ConcurrentHashMap();
-        this.pluginLoader = new c();
-    }
+    public volatile Map<String, Plugin> mPlugins = new ConcurrentHashMap();
+    public final c pluginLoader = new c();
 
     public static PluginManager getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (sInstance == null) {
-                synchronized (PluginManager.class) {
-                    if (sInstance == null) {
-                        sInstance = new PluginManager();
-                    }
+        if (sInstance == null) {
+            synchronized (PluginManager.class) {
+                if (sInstance == null) {
+                    sInstance = new PluginManager();
                 }
             }
-            return sInstance;
         }
-        return (PluginManager) invokeV.objValue;
+        return sInstance;
     }
 
     public ExecutorService getInstallThreadPool() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.mInstallThreadPool == null) {
-                this.mInstallThreadPool = e.a(GlobalParam.getInstance().getInstallThreads());
-            }
-            return this.mInstallThreadPool;
+        if (this.mInstallThreadPool == null) {
+            this.mInstallThreadPool = e.a(GlobalParam.getInstance().getInstallThreads());
         }
-        return (ExecutorService) invokeV.objValue;
+        return this.mInstallThreadPool;
+    }
+
+    public synchronized void installFromDownloadDir() {
+        if (this.hasInstallFromDownloadDir) {
+            ZeusLogger.w(ZeusLogger.TAG_INIT, "PluginManager zeus has been installFromDownloadDir!");
+            return;
+        }
+        if (com.bytedance.pangle.c.d.a(Zeus.getAppApplication())) {
+            e.a.execute(new d());
+        }
+        this.hasInstallFromDownloadDir = true;
     }
 
     private void ensurePluginFileExist(Plugin plugin) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, this, plugin) == null) && plugin != null && plugin.isInstalled() && !new File(com.bytedance.pangle.c.c.b(plugin.mPkgName, plugin.getVersion())).exists()) {
+        if (plugin != null && plugin.isInstalled() && !new File(com.bytedance.pangle.c.c.b(plugin.mPkgName, plugin.getVersion())).exists()) {
             unInstallPackage(plugin.mPkgName);
         }
     }
 
-    public Plugin getPlugin(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return getPlugin(str, true);
+    public boolean checkPluginInstalled(String str) {
+        boolean z;
+        Plugin plugin = getPlugin(str);
+        ensurePluginFileExist(plugin);
+        if (plugin != null && plugin.isInstalled()) {
+            z = true;
+        } else {
+            z = false;
         }
-        return (Plugin) invokeL.objValue;
+        ZeusLogger.d(ZeusLogger.TAG_PPM, "PluginManager checkPluginInstalled, " + str + " = " + z);
+        return z;
+    }
+
+    public Plugin getPlugin(String str) {
+        return getPlugin(str, true);
     }
 
     public boolean isLoaded(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            Plugin plugin = getPlugin(str);
-            if (plugin != null && plugin.isLoaded()) {
-                return true;
-            }
-            return false;
+        Plugin plugin = getPlugin(str);
+        if (plugin != null && plugin.isLoaded()) {
+            return true;
         }
-        return invokeL.booleanValue;
+        return false;
     }
 
     public boolean loadPlugin(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            return this.pluginLoader.a(str);
-        }
-        return invokeL.booleanValue;
+        return this.pluginLoader.a(str);
     }
 
     private synchronized void parsePluginConfig() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            synchronized (this) {
-                if (this.mIsParsePluginConfig) {
-                    return;
-                }
-                ZeusLogger.v(ZeusLogger.TAG_INIT, "PluginManager parsePluginsJson");
-                ArrayList<String> arrayList = new ArrayList();
-                try {
-                    Bundle bundle = Zeus.getAppApplication().getPackageManager().getPackageInfo(Zeus.getAppApplication().getPackageName(), 128).applicationInfo.metaData;
-                    for (String str : bundle.keySet()) {
-                        if (str.startsWith("ZEUS_PLUGIN_")) {
-                            arrayList.add(bundle.getString(str));
-                        }
-                    }
-                    try {
-                        ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
-                        for (String str2 : arrayList) {
-                            try {
-                                Plugin plugin = new Plugin(new JSONObject(str2));
-                                concurrentHashMap.put(plugin.mPkgName, plugin);
-                                ZeusLogger.i(ZeusLogger.TAG_INIT, "PluginManagerparsePluginsJson. find " + plugin.mPkgName);
-                            } catch (JSONException e) {
-                                ZeusLogger.e(ZeusLogger.TAG_INIT, "PluginManager parsePluginsJson failed. " + str2.trim(), e);
-                            }
-                        }
-                        this.mPlugins = concurrentHashMap;
-                        ZeusLogger.i(ZeusLogger.TAG_INIT, "PluginManager parsePluginsJson success");
-                    } catch (Exception e2) {
-                        ZeusLogger.e(ZeusLogger.TAG_INIT, "PluginManager parsePluginsJson failed.", e2);
-                    }
-                    this.mIsParsePluginConfig = true;
-                } catch (Exception e3) {
-                    ZeusLogger.e(ZeusLogger.TAG_INIT, "PluginManager parsePluginsJson failed.", e3);
+        if (this.mIsParsePluginConfig) {
+            return;
+        }
+        ZeusLogger.v(ZeusLogger.TAG_INIT, "PluginManager parsePluginsJson");
+        ArrayList<String> arrayList = new ArrayList();
+        try {
+            Bundle bundle = Zeus.getAppApplication().getPackageManager().getPackageInfo(Zeus.getAppApplication().getPackageName(), 128).applicationInfo.metaData;
+            for (String str : bundle.keySet()) {
+                if (str.startsWith("ZEUS_PLUGIN_")) {
+                    arrayList.add(bundle.getString(str));
                 }
             }
+            try {
+                ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
+                for (String str2 : arrayList) {
+                    try {
+                        Plugin plugin = new Plugin(new JSONObject(str2));
+                        concurrentHashMap.put(plugin.mPkgName, plugin);
+                        ZeusLogger.i(ZeusLogger.TAG_INIT, "PluginManagerparsePluginsJson. find " + plugin.mPkgName);
+                    } catch (JSONException e) {
+                        ZeusLogger.e(ZeusLogger.TAG_INIT, "PluginManager parsePluginsJson failed. " + str2.trim(), e);
+                    }
+                }
+                this.mPlugins = concurrentHashMap;
+                ZeusLogger.i(ZeusLogger.TAG_INIT, "PluginManager parsePluginsJson success");
+            } catch (Exception e2) {
+                ZeusLogger.e(ZeusLogger.TAG_INIT, "PluginManager parsePluginsJson failed.", e2);
+            }
+            this.mIsParsePluginConfig = true;
+        } catch (Exception e3) {
+            ZeusLogger.e(ZeusLogger.TAG_INIT, "PluginManager parsePluginsJson failed.", e3);
         }
     }
 
     public void asyncInstall(String str, File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, file) == null) {
-            if (file != null) {
-                getInstallThreadPool().execute(new a(str, file));
-                ZeusLogger.i(ZeusLogger.TAG_INSTALL, "PluginManager asyncInstall, file=".concat(String.valueOf(file)));
-                return;
-            }
-            ZeusPluginStateListener.postStateChange(str, 7, "asyncInstall apk is null !");
-            ZeusLogger.w(ZeusLogger.TAG_INSTALL, "PluginManager asyncInstall apk is null !");
+        if (file != null) {
+            getInstallThreadPool().execute(new a(str, file));
+            ZeusLogger.i(ZeusLogger.TAG_INSTALL, "PluginManager asyncInstall, file=".concat(String.valueOf(file)));
+            return;
         }
-    }
-
-    public boolean checkPluginInstalled(String str) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Plugin plugin = getPlugin(str);
-            ensurePluginFileExist(plugin);
-            if (plugin != null && plugin.isInstalled()) {
-                z = true;
-            } else {
-                z = false;
-            }
-            ZeusLogger.d(ZeusLogger.TAG_PPM, "PluginManager checkPluginInstalled, " + str + " = " + z);
-            return z;
-        }
-        return invokeL.booleanValue;
+        ZeusPluginStateListener.postStateChange(str, 7, "asyncInstall apk is null !");
+        ZeusLogger.w(ZeusLogger.TAG_INSTALL, "PluginManager asyncInstall apk is null !");
     }
 
     public Plugin getPlugin(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, str, z)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            if (!this.mIsParsePluginConfig) {
-                parsePluginConfig();
-            }
-            Plugin plugin = this.mPlugins.get(str);
-            if (z && plugin != null) {
-                plugin.init();
-            }
-            return plugin;
+        if (TextUtils.isEmpty(str)) {
+            return null;
         }
-        return (Plugin) invokeLZ.objValue;
+        if (!this.mIsParsePluginConfig) {
+            parsePluginConfig();
+        }
+        Plugin plugin = this.mPlugins.get(str);
+        if (z && plugin != null) {
+            plugin.init();
+        }
+        return plugin;
     }
 
     public boolean syncInstall(String str, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, file)) == null) {
-            ZeusLogger.i(ZeusLogger.TAG_INSTALL, "PluginManager syncInstall, file=".concat(String.valueOf(file)));
-            return new a(str, file).a();
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public synchronized void installFromDownloadDir() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                if (this.hasInstallFromDownloadDir) {
-                    ZeusLogger.w(ZeusLogger.TAG_INIT, "PluginManager zeus has been installFromDownloadDir!");
-                    return;
-                }
-                if (com.bytedance.pangle.c.d.a(Zeus.getAppApplication())) {
-                    e.a.execute(new d());
-                }
-                this.hasInstallFromDownloadDir = true;
-            }
-        }
+        ZeusLogger.i(ZeusLogger.TAG_INSTALL, "PluginManager syncInstall, file=".concat(String.valueOf(file)));
+        return new a(str, file).a();
     }
 
     public void setAllowDownloadPlugin(String str, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            ZeusLogger.d(ZeusLogger.TAG_PPM, "PluginManager setAllowDownloadPlugin, " + str + " " + i + " " + z);
-            if (getPlugin(str) != null) {
-                SharedPreferences.Editor edit = l.a().a.edit();
-                edit.putBoolean("ALLOW_DOWNLOAD__" + str + "_" + i, z);
-                edit.apply();
-                ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils markAllowDownloadFlag packageName=" + str + " version=" + i + " allow=" + z);
-            }
+        ZeusLogger.d(ZeusLogger.TAG_PPM, "PluginManager setAllowDownloadPlugin, " + str + " " + i + " " + z);
+        if (getPlugin(str) != null) {
+            SharedPreferences.Editor edit = l.a().a.edit();
+            edit.putBoolean("ALLOW_DOWNLOAD__" + str + "_" + i, z);
+            edit.apply();
+            ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils markAllowDownloadFlag packageName=" + str + " version=" + i + " allow=" + z);
         }
     }
 
     public void tryOfflineInternalPlugin(String str, int i) {
-        Plugin plugin;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048586, this, str, i) == null) && (plugin = getPlugin(str)) != null && plugin.getInternalVersionCode() == i) {
+        Plugin plugin = getPlugin(str);
+        if (plugin != null && plugin.getInternalVersionCode() == i) {
             ZeusLogger.d(ZeusLogger.TAG_PPM, "PluginManager offlineInternalPlugin, pkgName:" + str + " pluginVer:" + i + " apiVer:" + plugin.getApiVersionCode());
             l a = l.a();
             int apiVersionCode = plugin.getApiVersionCode();
@@ -263,15 +179,12 @@ public class PluginManager {
     }
 
     public void unInstallPackage(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            ZeusLogger.d(ZeusLogger.TAG_PPM, "PluginManager unInstallPackage, ".concat(String.valueOf(str)));
-            if (getPlugin(str) != null) {
-                SharedPreferences.Editor edit = l.a().a.edit();
-                edit.putBoolean("UNINSTALL__".concat(String.valueOf(str)), true);
-                edit.apply();
-                ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils markUnInstallFlag packageName=".concat(String.valueOf(str)));
-            }
+        ZeusLogger.d(ZeusLogger.TAG_PPM, "PluginManager unInstallPackage, ".concat(String.valueOf(str)));
+        if (getPlugin(str) != null) {
+            SharedPreferences.Editor edit = l.a().a.edit();
+            edit.putBoolean("UNINSTALL__".concat(String.valueOf(str)), true);
+            edit.apply();
+            ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils markUnInstallFlag packageName=".concat(String.valueOf(str)));
         }
     }
 }

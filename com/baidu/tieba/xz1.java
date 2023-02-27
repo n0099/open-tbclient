@@ -1,46 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.re3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.PushManager;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class xz1 extends vz1 {
+/* loaded from: classes6.dex */
+public class xz1 extends sz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.zw1
+    @Override // com.baidu.tieba.px1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "CheckAppInstallApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "DeviceInfoApi" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    /* loaded from: classes6.dex */
+    public class a implements fo3<pe3<re3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONArray a;
+        public final /* synthetic */ Context a;
         public final /* synthetic */ String b;
         public final /* synthetic */ xz1 c;
 
-        public a(xz1 xz1Var, JSONArray jSONArray, String str) {
+        public a(xz1 xz1Var, Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xz1Var, jSONArray, str};
+                Object[] objArr = {xz1Var, context, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,69 +49,40 @@ public class xz1 extends vz1 {
                 }
             }
             this.c = xz1Var;
-            this.a = jSONArray;
+            this.a = context;
             this.b = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fo3
+        /* renamed from: b */
+        public void a(pe3<re3.e> pe3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.d(this.b, this.c.D(this.a));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ xz1 c;
-
-        public b(xz1 xz1Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xz1Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pe3Var) == null) {
+                if (ke3.h(pe3Var)) {
+                    this.c.d(this.b, new m12(0, this.c.z(this.a)));
                     return;
                 }
-            }
-            this.c = xz1Var;
-            this.a = str;
-            this.b = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.d(this.b, this.c.B(this.a));
+                int b = pe3Var.b();
+                ke3.f(b);
+                this.c.d(this.b, new m12(b, ke3.f(b)));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xz1(@NonNull xw1 xw1Var) {
-        super(xw1Var);
+    public xz1(@NonNull nx1 nx1Var) {
+        super(nx1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xw1Var};
+            Object[] objArr = {nx1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((xw1) newInitContext.callArgs[0]);
+                super((nx1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -121,124 +90,44 @@ public class xz1 extends vz1 {
         }
     }
 
-    public final boolean E(String str) {
+    public final JSONObject z(Context context) {
         InterceptResult invokeL;
-        PackageInfo packageInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                packageInfo = getContext().getPackageManager().getPackageInfo(str, 0);
-            } catch (PackageManager.NameNotFoundException unused) {
-                w52.o("CheckAppInstallApi", str + " cannot be found");
-                packageInfo = null;
+                jSONObject.put("oaid", ru3.b.b(context));
+                jSONObject.put("androidId", ru3.b.a(context));
+            } catch (JSONException e) {
+                p("#getDeviceInfo json put data fail", e, false);
             }
-            if (packageInfo == null) {
-                return false;
-            }
-            return true;
+            return jSONObject;
         }
-        return invokeL.booleanValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    public final void C(JSONArray jSONArray, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONArray, str) == null) {
-            ql3.f().execute(new a(this, jSONArray, str));
-        }
-    }
-
-    public final void z(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
-            ql3.f().execute(new b(this, str, str2));
-        }
-    }
-
-    public w02 A(String str) {
+    public m12 y(String str) {
         InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            boolean z = false;
-            q("#checkAppInstalled", false);
-            Pair<w02, JSONObject> s = s(str);
-            w02 w02Var = (w02) s.first;
-            if (!w02Var.isSuccess()) {
-                return w02Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("name");
-            JSONArray optJSONArray = jSONObject.optJSONArray("name");
-            String optString2 = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString) && optJSONArray == null) {
-                w52.c("CheckAppInstallApi", "parameter error");
-                return new w02(201, "parameter error");
-            }
-            if (optJSONArray == null) {
-                z = true;
-            }
-            if (TextUtils.isEmpty(optString2)) {
-                if (z) {
-                    return B(optString);
-                }
-                return D(optJSONArray);
-            }
-            if (z) {
-                z(optString, optString2);
-            } else {
-                C(optJSONArray, optString2);
-            }
-            return w02.f();
-        }
-        return (w02) invokeL.objValue;
-    }
-
-    public final w02 B(String str) {
-        InterceptResult invokeL;
-        PackageInfo packageInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            try {
-                packageInfo = getContext().getPackageManager().getPackageInfo(str, 0);
-            } catch (PackageManager.NameNotFoundException unused) {
-                w52.o("CheckAppInstallApi", str + " cannot be found");
-                packageInfo = null;
+            q("#getDeviceInfo", false);
+            m93 b0 = m93.b0();
+            if (b0 == null) {
+                return new m12(1001, "swan app is null");
             }
-            try {
-                JSONObject jSONObject = new JSONObject();
-                if (packageInfo != null) {
-                    jSONObject.put("hasApp", true);
-                    jSONObject.put(PushManager.APP_VERSION_NAME, packageInfo.versionName);
-                    jSONObject.put(PushManager.APP_VERSION_CODE, packageInfo.versionCode);
-                } else {
-                    jSONObject.put("hasApp", false);
-                }
-                return new w02(0, "success", jSONObject);
-            } catch (JSONException e) {
-                w52.d("CheckAppInstallApi", "internal error: " + e.getMessage(), e);
-                return new w02(1001, "internal error: " + e.getMessage());
+            Pair<m12, JSONObject> s = s(str);
+            m12 m12Var = (m12) s.first;
+            if (!m12Var.isSuccess()) {
+                return m12Var;
             }
+            String optString = ((JSONObject) s.second).optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return new m12(202, "cb is empty");
+            }
+            Context context = getContext();
+            b0.e0().g(context, "scope_get_device_info", new a(this, context, optString));
+            return m12.f();
         }
-        return (w02) invokeL.objValue;
-    }
-
-    public final w02 D(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                try {
-                    String string = jSONArray.getString(i);
-                    if (!TextUtils.isEmpty(string)) {
-                        jSONObject.put(string, E(string));
-                    }
-                } catch (JSONException e) {
-                    w52.d("CheckAppInstallApi", "internal error: " + e.getMessage(), e);
-                }
-            }
-            return new w02(0, "success", jSONObject);
-        }
-        return (w02) invokeL.objValue;
+        return (m12) invokeL.objValue;
     }
 }

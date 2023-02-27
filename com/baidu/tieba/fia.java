@@ -1,63 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.opensource.svgaplayer.proto.ShapeEntity;
 /* loaded from: classes4.dex */
-public abstract class fia {
+public final /* synthetic */ class fia {
+    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+    public static final /* synthetic */ int[] $EnumSwitchMapping$1;
+    public static final /* synthetic */ int[] $EnumSwitchMapping$2;
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Deprecated
-    public <T> xda.a<T> a(xda.a<T> aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? aVar : (xda.a) invokeL.objValue;
-    }
-
-    @Deprecated
-    public <T, R> xda.b<? extends R, ? super T> b(xda.b<? extends R, ? super T> bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) ? bVar : (xda.b) invokeL.objValue;
-    }
-
-    @Deprecated
-    public <T> Throwable c(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th)) == null) ? th : (Throwable) invokeL.objValue;
-    }
-
-    @Deprecated
-    public <T> eea d(eea eeaVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, eeaVar)) == null) ? eeaVar : (eea) invokeL.objValue;
-    }
-
-    @Deprecated
-    public <T> xda.a<T> e(xda<? extends T> xdaVar, xda.a<T> aVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, xdaVar, aVar)) == null) ? aVar : (xda.a) invokeLL.objValue;
-    }
-
-    public fia() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    static {
+        int[] iArr = new int[ShapeEntity.ShapeType.values().length];
+        $EnumSwitchMapping$0 = iArr;
+        iArr[ShapeEntity.ShapeType.SHAPE.ordinal()] = 1;
+        $EnumSwitchMapping$0[ShapeEntity.ShapeType.RECT.ordinal()] = 2;
+        $EnumSwitchMapping$0[ShapeEntity.ShapeType.ELLIPSE.ordinal()] = 3;
+        $EnumSwitchMapping$0[ShapeEntity.ShapeType.KEEP.ordinal()] = 4;
+        int[] iArr2 = new int[ShapeEntity.ShapeStyle.LineCap.values().length];
+        $EnumSwitchMapping$1 = iArr2;
+        iArr2[ShapeEntity.ShapeStyle.LineCap.LineCap_BUTT.ordinal()] = 1;
+        $EnumSwitchMapping$1[ShapeEntity.ShapeStyle.LineCap.LineCap_ROUND.ordinal()] = 2;
+        $EnumSwitchMapping$1[ShapeEntity.ShapeStyle.LineCap.LineCap_SQUARE.ordinal()] = 3;
+        int[] iArr3 = new int[ShapeEntity.ShapeStyle.LineJoin.values().length];
+        $EnumSwitchMapping$2 = iArr3;
+        iArr3[ShapeEntity.ShapeStyle.LineJoin.LineJoin_BEVEL.ordinal()] = 1;
+        $EnumSwitchMapping$2[ShapeEntity.ShapeStyle.LineJoin.LineJoin_MITER.ordinal()] = 2;
+        $EnumSwitchMapping$2[ShapeEntity.ShapeStyle.LineJoin.LineJoin_ROUND.ordinal()] = 3;
     }
 }

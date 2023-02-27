@@ -10,7 +10,6 @@ import android.os.Process;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -154,7 +153,7 @@ public class f extends Service {
                 try {
                     int intExtra = intent.getIntExtra("command", 0);
                     if (intExtra == 1) {
-                        startForeground(intent.getIntExtra("id", 0), (Notification) intent.getParcelableExtra(ActionJsonData.TAG_NOTIFICATION));
+                        startForeground(intent.getIntExtra("id", 0), (Notification) intent.getParcelableExtra("notification"));
                         isStartedServing = true;
                     } else if (intExtra == 2) {
                         stopForeground(intent.getBooleanExtra("removenotify", true));

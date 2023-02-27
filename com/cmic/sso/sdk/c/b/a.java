@@ -35,6 +35,7 @@ public abstract class a extends g {
     public String u;
     public String v;
     public String w;
+    public String x;
 
     public final String t(String str) {
         InterceptResult invokeL;
@@ -78,6 +79,7 @@ public abstract class a extends g {
         this.u = "002";
         this.v = "";
         this.w = "";
+        this.x = "";
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
@@ -220,6 +222,13 @@ public abstract class a extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
             this.w = str;
+        }
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            this.x = str;
         }
     }
 }

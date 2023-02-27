@@ -18,12 +18,12 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.Cdo;
 import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage;
-import com.baidu.tieba.d36;
+import com.baidu.tieba.bg6;
+import com.baidu.tieba.e56;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.g26;
-import com.baidu.tieba.n36;
-import com.baidu.tieba.pd6;
-import com.baidu.tieba.s16;
+import com.baidu.tieba.j36;
+import com.baidu.tieba.u46;
+import com.baidu.tieba.x36;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
     public boolean c;
     public boolean d;
     public BdUniqueId e;
-    public d36 f;
+    public u46 f;
     public long g;
     public int h;
     public int i;
@@ -111,19 +111,19 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021141 && (httpResponsedMessage instanceof AlaTabLiveResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.e) {
                 AlaTabLiveResponsedMessage alaTabLiveResponsedMessage = (AlaTabLiveResponsedMessage) httpResponsedMessage;
                 if (alaTabLiveResponsedMessage.getError() == 0 && alaTabLiveResponsedMessage.isSuccess()) {
-                    g26 g26Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
+                    x36 x36Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
                     if (this.a.d) {
                         if (this.a.f != null) {
-                            this.a.f.a(g26Var);
+                            this.a.f.a(x36Var);
                         }
                     } else {
-                        s16.a(this.a.h);
+                        j36.a(this.a.h);
                         if (this.a.f != null) {
                             this.a.f.b();
                         }
                         AlaLiveYYSubTabModel alaLiveYYSubTabModel = this.a;
-                        alaLiveYYSubTabModel.f = new d36(g26Var, alaLiveYYSubTabModel.j, this.a.k);
-                        this.a.S();
+                        alaLiveYYSubTabModel.f = new u46(x36Var, alaLiveYYSubTabModel.j, this.a.k);
+                        this.a.Z();
                     }
                     if (this.a.f != null) {
                         AlaLiveYYSubTabModel alaLiveYYSubTabModel2 = this.a;
@@ -168,7 +168,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         public void onSuccess(List<AlaLiveInfo> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.a.S();
+                this.a.Z();
                 if (this.a.m != null && this.a.f != null) {
                     this.a.m.a(this.a.c, this.a.f.d());
                 }
@@ -201,7 +201,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         if (this.b == null) {
             PollingModel pollingModel = new PollingModel(tbPageContext, tbPageContext.getUniqueId());
             this.b = pollingModel;
-            pollingModel.A0(new b(this));
+            pollingModel.H0(new b(this));
         }
     }
 
@@ -213,7 +213,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         }
     }
 
-    public final void S() {
+    public final void Z() {
         String str;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.f == null) {
@@ -227,9 +227,9 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         } else {
             str = "";
         }
-        n36 n36Var = new n36();
-        n36Var.a = new pd6(this.a.getUniqueId(), TbSingleton.getInstance().getLiveFollowSecondFloor(), str);
-        this.f.g(n36Var);
+        e56 e56Var = new e56();
+        e56Var.a = new bg6(this.a.getUniqueId(), TbSingleton.getInstance().getLiveFollowSecondFloor(), str);
+        this.f.g(e56Var);
     }
 
     public void b() {
@@ -240,45 +240,16 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
                 this.g = currentTimeMillis;
             }
             this.d = true;
-            T(1, s16.b(this.h) - 1);
-        }
-    }
-
-    public final void T(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);
-            httpMessage.addParam(TiebaStatic.Params.TAB_ID, this.h);
-            String str = "N";
-            if (BdNetTypeUtil.isNetWorkAvailable()) {
-                if (BdNetTypeUtil.isWifiNet()) {
-                    str = "1_0";
-                } else if (BdNetTypeUtil.is4GNet()) {
-                    str = "0_13";
-                } else if (BdNetTypeUtil.is3GNet()) {
-                    str = "0_3";
-                } else if (BdNetTypeUtil.is2GNet()) {
-                    str = "0_2";
-                }
-            }
-            httpMessage.addParam("network", str);
-            httpMessage.addParam("ua_str", ej.l(this.a.getPageActivity()) + "_" + ej.j(this.a.getPageActivity()) + "_android_" + TbConfig.getVersion());
-            httpMessage.addParam("session_id", this.g);
-            httpMessage.addParam("refresh_type", i);
-            httpMessage.addParam("big_refresh_count", i2);
-            httpMessage.addParam("fid", this.j);
-            httpMessage.addParam("fname", this.k);
-            httpMessage.setTag(this.e);
-            MessageManager.getInstance().sendMessage(httpMessage);
+            a0(1, j36.b(this.h) - 1);
         }
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            d36 d36Var = this.f;
-            if (d36Var != null && !ListUtils.isEmpty(d36Var.d())) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            u46 u46Var = this.f;
+            if (u46Var != null && !ListUtils.isEmpty(u46Var.d())) {
                 return true;
             }
             return false;
@@ -311,9 +282,38 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
             this.d = false;
             PollingModel pollingModel = this.b;
             if (pollingModel != null) {
-                pollingModel.n0(PollingModel.LIVE_FOLLOW_SECOND_FLOOR);
+                pollingModel.u0(PollingModel.LIVE_FOLLOW_SECOND_FLOOR);
             }
-            T(0, s16.b(this.h));
+            a0(0, j36.b(this.h));
+        }
+    }
+
+    public final void a0(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);
+            httpMessage.addParam(TiebaStatic.Params.TAB_ID, this.h);
+            String str = "N";
+            if (BdNetTypeUtil.isNetWorkAvailable()) {
+                if (BdNetTypeUtil.isWifiNet()) {
+                    str = "1_0";
+                } else if (BdNetTypeUtil.is4GNet()) {
+                    str = "0_13";
+                } else if (BdNetTypeUtil.is3GNet()) {
+                    str = "0_3";
+                } else if (BdNetTypeUtil.is2GNet()) {
+                    str = "0_2";
+                }
+            }
+            httpMessage.addParam("network", str);
+            httpMessage.addParam("ua_str", ej.l(this.a.getPageActivity()) + "_" + ej.j(this.a.getPageActivity()) + "_android_" + TbConfig.getVersion());
+            httpMessage.addParam("session_id", this.g);
+            httpMessage.addParam("refresh_type", i);
+            httpMessage.addParam("big_refresh_count", i2);
+            httpMessage.addParam("fid", this.j);
+            httpMessage.addParam("fname", this.k);
+            httpMessage.setTag(this.e);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 }

@@ -1,283 +1,80 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import androidx.constraintlayout.motion.widget.Key;
+import android.app.Activity;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import com.opensource.svgaplayer.entities.SVGAVideoShapeEntity;
-import com.opensource.svgaplayer.proto.FrameEntity;
-import com.opensource.svgaplayer.proto.Layout;
-import com.opensource.svgaplayer.proto.ShapeEntity;
-import com.opensource.svgaplayer.proto.Transform;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.collections.CollectionsKt__IterablesKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.win.opensdk.PBDrawVideo;
+import com.win.opensdk.PBDrawVideoListener;
 /* loaded from: classes5.dex */
-public final class n9a {
+public class n9a extends FunNativeAd2Bridger<PBDrawVideo, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public double a;
-    public q9a b;
-    public Matrix c;
-    public i9a d;
-    public List<SVGAVideoShapeEntity> e;
+    public final /* synthetic */ m9a b;
 
-    public n9a(FrameEntity frameEntity) {
-        float f;
-        float f2;
-        float f3;
-        float f4;
-        float f5;
-        float f6;
-        float f7;
-        float f8;
-        float f9;
-        float f10;
-        float f11;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n9a(m9a m9aVar, ReporterPidLoader reporterPidLoader) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frameEntity};
+            Object[] objArr = {m9aVar, reporterPidLoader};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new q9a(0.0d, 0.0d, 0.0d, 0.0d);
-        this.c = new Matrix();
-        this.e = CollectionsKt__CollectionsKt.emptyList();
-        Float f12 = frameEntity.alpha;
-        if (f12 != null) {
-            f = f12.floatValue();
-        } else {
-            f = 0.0f;
-        }
-        this.a = f;
-        Layout layout = frameEntity.layout;
-        if (layout != null) {
-            Float f13 = layout.x;
-            if (f13 != null) {
-                f8 = f13.floatValue();
-            } else {
-                f8 = 0.0f;
-            }
-            double d = f8;
-            Float f14 = layout.y;
-            if (f14 != null) {
-                f9 = f14.floatValue();
-            } else {
-                f9 = 0.0f;
-            }
-            double d2 = f9;
-            Float f15 = layout.width;
-            if (f15 != null) {
-                f10 = f15.floatValue();
-            } else {
-                f10 = 0.0f;
-            }
-            double d3 = f10;
-            Float f16 = layout.height;
-            if (f16 != null) {
-                f11 = f16.floatValue();
-            } else {
-                f11 = 0.0f;
-            }
-            this.b = new q9a(d, d2, d3, f11);
-        }
-        Transform transform = frameEntity.transform;
-        if (transform != null) {
-            float[] fArr = new float[9];
-            Float f17 = transform.a;
-            if (f17 != null) {
-                f2 = f17.floatValue();
-            } else {
-                f2 = 1.0f;
-            }
-            Float f18 = transform.b;
-            if (f18 != null) {
-                f3 = f18.floatValue();
-            } else {
-                f3 = 0.0f;
-            }
-            Float f19 = transform.c;
-            if (f19 != null) {
-                f4 = f19.floatValue();
-            } else {
-                f4 = 0.0f;
-            }
-            Float f20 = transform.d;
-            if (f20 != null) {
-                f5 = f20.floatValue();
-            } else {
-                f5 = 1.0f;
-            }
-            Float f21 = transform.tx;
-            if (f21 != null) {
-                f6 = f21.floatValue();
-            } else {
-                f6 = 0.0f;
-            }
-            Float f22 = transform.ty;
-            if (f22 != null) {
-                f7 = f22.floatValue();
-            } else {
-                f7 = 0.0f;
-            }
-            fArr[0] = f2;
-            fArr[1] = f4;
-            fArr[2] = f6;
-            fArr[3] = f3;
-            fArr[4] = f5;
-            fArr[5] = f7;
-            fArr[6] = 0.0f;
-            fArr[7] = 0.0f;
-            fArr[8] = 1.0f;
-            this.c.setValues(fArr);
-        }
-        String str = frameEntity.clipPath;
-        if (str != null) {
-            str = str.length() > 0 ? str : null;
-            if (str != null) {
-                this.d = new i9a(str);
-            }
-        }
-        List<ShapeEntity> list = frameEntity.shapes;
-        Intrinsics.checkExpressionValueIsNotNull(list, "obj.shapes");
-        ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
-        for (ShapeEntity it : list) {
-            Intrinsics.checkExpressionValueIsNotNull(it, "it");
-            arrayList.add(new SVGAVideoShapeEntity(it));
-        }
-        this.e = arrayList;
+        this.b = m9aVar;
     }
 
-    public n9a(JSONObject jSONObject) {
-        boolean z;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, PBDrawVideo pBDrawVideo, BaseNativeAd2<PBDrawVideo, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        n9a n9aVar = this;
-        n9aVar.b = new q9a(0.0d, 0.0d, 0.0d, 0.0d);
-        n9aVar.c = new Matrix();
-        n9aVar.e = CollectionsKt__CollectionsKt.emptyList();
-        n9aVar.a = jSONObject.optDouble(Key.ALPHA, 0.0d);
-        JSONObject optJSONObject = jSONObject.optJSONObject(TtmlNode.TAG_LAYOUT);
-        if (optJSONObject != null) {
-            n9aVar.b = new q9a(optJSONObject.optDouble("x", 0.0d), optJSONObject.optDouble("y", 0.0d), optJSONObject.optDouble("width", 0.0d), optJSONObject.optDouble("height", 0.0d));
-        }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("transform");
-        if (optJSONObject2 != null) {
-            double optDouble = optJSONObject2.optDouble("a", 1.0d);
-            double optDouble2 = optJSONObject2.optDouble("b", 0.0d);
-            double optDouble3 = optJSONObject2.optDouble("c", 0.0d);
-            double optDouble4 = optJSONObject2.optDouble("d", 1.0d);
-            double optDouble5 = optJSONObject2.optDouble(MapBundleKey.MapObjKey.OBJ_TEXT, 0.0d);
-            double optDouble6 = optJSONObject2.optDouble("ty", 0.0d);
-            float f = (float) optDouble3;
-            z = true;
-            float f2 = (float) 0.0d;
-            float[] fArr = {(float) optDouble, f, (float) optDouble5, (float) optDouble2, (float) optDouble4, (float) optDouble6, f2, f2, (float) 1.0d};
-            n9aVar = this;
-            n9aVar.c.setValues(fArr);
-        } else {
-            z = true;
-        }
-        String optString = jSONObject.optString("clipPath");
-        if (optString != null) {
-            if (optString.length() <= 0 ? false : z) {
-                n9aVar.d = new i9a(optString);
-            }
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray("shapes");
-        if (optJSONArray != null) {
-            ArrayList arrayList = new ArrayList();
-            int length = optJSONArray.length();
-            for (int i3 = 0; i3 < length; i3++) {
-                JSONObject optJSONObject3 = optJSONArray.optJSONObject(i3);
-                if (optJSONObject3 != null) {
-                    arrayList.add(new SVGAVideoShapeEntity(optJSONObject3));
-                }
-            }
-            n9aVar.e = CollectionsKt___CollectionsKt.toList(arrayList);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, pBDrawVideo, baseNativeAd2, funAdInteractionListener}) == null) {
         }
     }
 
-    public final double a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(PBDrawVideo pBDrawVideo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pBDrawVideo)) == null) {
+            return pBDrawVideo.getDrawVideoView();
         }
-        return invokeV.doubleValue;
+        return (View) invokeL.objValue;
     }
 
-    public final q9a b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, PBDrawVideo pBDrawVideo, BaseNativeAd2<PBDrawVideo, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Ssp.Pid pid;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (q9a) invokeV.objValue;
-    }
-
-    public final i9a c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (i9a) invokeV.objValue;
-    }
-
-    public final List<SVGAVideoShapeEntity> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final Matrix e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (Matrix) invokeV.objValue;
-    }
-
-    public final void f(List<SVGAVideoShapeEntity> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.e = list;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, pBDrawVideo, baseNativeAd2, funAdInteractionListener}) == null) {
+            m9a m9aVar = this.b;
+            FunNativeAdListenerHelper<PBDrawVideo, PBDrawVideoListener> funNativeAdListenerHelper = m9aVar.e;
+            pid = m9aVar.mPid;
+            funNativeAdListenerHelper.startShow(pBDrawVideo, str, pid, null, funAdInteractionListener);
+            expressInflater.inflate();
         }
     }
 }

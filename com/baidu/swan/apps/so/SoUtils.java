@@ -5,17 +5,9 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Keep;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.tieba.gp1;
-import com.baidu.tieba.oe3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.ef3;
+import com.baidu.tieba.wp1;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,10 +16,8 @@ import java.util.HashMap;
 @Keep
 /* loaded from: classes3.dex */
 public final class SoUtils {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ARM64_V8A = "arm64-v8a";
     public static final String ARMEABI = "armeabi";
-    public static final boolean DEBUG;
     public static final String EXT = ".so";
     public static final boolean LOGFLAG = true;
     public static final String PRE = "lib";
@@ -35,173 +25,103 @@ public final class SoUtils {
     public static final String SO_EVENT_ID_NEW_SO = "25";
     public static final String SO_EVENT_ID_V8_SO = "26";
     public static final String TAG = "SoUtils";
-    public static a sUbcImpl;
-    public static String[] uris;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final boolean DEBUG = wp1.a;
+    public static a sUbcImpl = new ef3();
+    public static String[] uris = {"lib/armeabi", "lib/arm64-v8a"};
 
     /* loaded from: classes3.dex */
     public interface a {
         void onEvent(String str, String str2);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1901980652, "Lcom/baidu/swan/apps/so/SoUtils;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1901980652, "Lcom/baidu/swan/apps/so/SoUtils;");
-                return;
-            }
-        }
-        DEBUG = gp1.a;
-        sUbcImpl = new oe3();
-        uris = new String[]{"lib/armeabi", "lib/arm64-v8a"};
-    }
-
-    public SoUtils() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
     public static String getCurrentCpuAbi() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if ("arm64-v8a".equals(Build.CPU_ABI) || "arm64-v8a".equals(Build.CPU_ABI2)) {
-                return "arm64-v8a";
-            }
-            return "armeabi";
+        if ("arm64-v8a".equals(Build.CPU_ABI) || "arm64-v8a".equals(Build.CPU_ABI2)) {
+            return "arm64-v8a";
         }
-        return (String) invokeV.objValue;
+        return "armeabi";
     }
 
     @SuppressLint({"ObsoleteSdkInt"})
     public static boolean hasGingerbread() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 9) {
-                return true;
-            }
-            return false;
+        if (Build.VERSION.SDK_INT >= 9) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public static long copyStream(InputStream inputStream, OutputStream outputStream, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, inputStream, outputStream, i)) == null) {
-            if (inputStream != null && outputStream != null) {
-                try {
-                    byte[] bArr = new byte[i * 1024];
-                    long j = 0;
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read > 0) {
-                            outputStream.write(bArr, 0, read);
-                            j += read;
-                        } else {
-                            outputStream.flush();
-                            return j;
-                        }
+        if (inputStream != null && outputStream != null) {
+            try {
+                byte[] bArr = new byte[i * 1024];
+                long j = 0;
+                while (true) {
+                    int read = inputStream.read(bArr);
+                    if (read > 0) {
+                        outputStream.write(bArr, 0, read);
+                        j += read;
+                    } else {
+                        outputStream.flush();
+                        return j;
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            return 0L;
         }
-        return invokeLLI.longValue;
+        return 0L;
+    }
+
+    public static void saveLog(HashMap<String, String> hashMap, String str, String str2) {
+        if (!TextUtils.isEmpty(str2)) {
+            hashMap.put(str, str2);
+        }
     }
 
     public static String getFullName(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (!str.startsWith("lib") || !str.endsWith(".so")) {
-                return "lib" + str + ".so";
-            }
-            return str;
+        if (!str.startsWith("lib") || !str.endsWith(".so")) {
+            return "lib" + str + ".so";
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String getSimpleName(String str) {
-        InterceptResult invokeL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.startsWith("lib") && str.endsWith(".so")) {
-                String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                if (split != null && split.length == 2) {
-                    str2 = split[0].substring(3);
-                } else {
-                    str2 = str;
-                }
-                if (DEBUG) {
-                    Log.e("SoUtils", "SoUtils load but the param soName:" + str + ", name:" + str2);
-                }
-                return str2;
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String getUriName(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
-            return uris[i] + File.separator + str;
-        }
-        return (String) invokeLI.objValue;
+        return str;
     }
 
     public static void init(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, aVar) == null) {
-            sUbcImpl = aVar;
-        }
+        sUbcImpl = aVar;
     }
 
     public static void sendLog(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65547, null, str) == null) && !TextUtils.isEmpty(str)) {
+        if (!TextUtils.isEmpty(str)) {
             onEvent("24", str);
         }
     }
 
-    public static void onEvent(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
-            a aVar = sUbcImpl;
-            if (aVar != null) {
-                aVar.onEvent(str, str2);
+    public static String getSimpleName(String str) {
+        String str2;
+        if (!TextUtils.isEmpty(str) && str.startsWith("lib") && str.endsWith(".so")) {
+            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            if (split != null && split.length == 2) {
+                str2 = split[0].substring(3);
+            } else {
+                str2 = str;
             }
             if (DEBUG) {
-                Log.d("SoUtils", "onEvent:UbcImpl=" + aVar + ";eventId=" + str + ";content=" + str2);
+                Log.e("SoUtils", "SoUtils load but the param soName:" + str + ", name:" + str2);
             }
+            return str2;
         }
+        return str;
     }
 
-    public static void saveLog(HashMap<String, String> hashMap, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65546, null, hashMap, str, str2) == null) && !TextUtils.isEmpty(str2)) {
-            hashMap.put(str, str2);
+    public static String getUriName(String str, int i) {
+        return uris[i] + File.separator + str;
+    }
+
+    public static void onEvent(String str, String str2) {
+        a aVar = sUbcImpl;
+        if (aVar != null) {
+            aVar.onEvent(str, str2);
+        }
+        if (DEBUG) {
+            Log.d("SoUtils", "onEvent:UbcImpl=" + aVar + ";eventId=" + str + ";content=" + str2);
         }
     }
 }

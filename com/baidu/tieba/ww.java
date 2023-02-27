@@ -1,79 +1,98 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.os.Process;
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.permissionhelper.app.ActivityCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebViewFactory;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final class ww {
+public class ww {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
+    public static ww b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448321229, "Lcom/baidu/tieba/ww;")) == null) {
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448321229, "Lcom/baidu/tieba/ww;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448321229, "Lcom/baidu/tieba/ww;");
+                return;
+            }
+        }
+        b = new ww();
+    }
+
+    public ww() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap();
+    }
+
+    public static ww b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return (ww) invokeV.objValue;
+    }
+
+    public void a(int i, ActivityCompat.OnRequestPermissionsResultCallback onRequestPermissionsResultCallback) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, onRequestPermissionsResultCallback) != null) || this.a == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448321229, "Lcom/baidu/tieba/ww;");
+        synchronized (ww.class) {
+            if (this.a.containsKey(Integer.valueOf(i))) {
+                this.a.remove(Integer.valueOf(i));
+            }
+            this.a.put(Integer.valueOf(i), onRequestPermissionsResultCallback);
         }
     }
 
-    public static ActivityManager.RunningAppProcessInfo a(Context context) {
-        InterceptResult invokeL;
+    public ActivityCompat.OnRequestPermissionsResultCallback c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            int myPid = Process.myPid();
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
-            if (runningAppProcesses != null && !runningAppProcesses.isEmpty()) {
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                    if (runningAppProcessInfo != null && runningAppProcessInfo.pid == myPid) {
-                        return runningAppProcessInfo;
-                    }
-                }
-                return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> map = this.a;
+            if (map != null && map.containsKey(Integer.valueOf(i))) {
+                return this.a.get(Integer.valueOf(i));
             }
             return null;
         }
-        return (ActivityManager.RunningAppProcessInfo) invokeL.objValue;
+        return (ActivityCompat.OnRequestPermissionsResultCallback) invokeI.objValue;
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        ActivityManager.RunningAppProcessInfo a2;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(a) && (a2 = a(context)) != null) {
-                a = a2.processName;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            synchronized (ww.class) {
+                if (this.a != null && this.a.containsKey(Integer.valueOf(i))) {
+                    this.a.remove(Integer.valueOf(i));
+                }
             }
-            return a;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            String b = b(context);
-            if (b != null && b.equals(WebViewFactory.CHROMIUM_HOST_APP)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

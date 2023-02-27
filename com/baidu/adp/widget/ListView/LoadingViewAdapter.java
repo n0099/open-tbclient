@@ -12,9 +12,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.kf5;
 import com.baidu.tieba.ko;
 import com.baidu.tieba.qn;
+import com.baidu.tieba.xg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import java.util.LinkedList;
 public class LoadingViewAdapter extends qn<ko, TabLoadingViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedList<Pair<RelativeLayout, kf5>> a;
+    public final LinkedList<Pair<RelativeLayout, xg5>> a;
     public int b;
     public int c;
 
@@ -33,7 +33,7 @@ public class LoadingViewAdapter extends qn<ko, TabLoadingViewHolder> {
     public static class TabLoadingViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public kf5 a;
+        public xg5 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public TabLoadingViewHolder(View view2) {
@@ -109,19 +109,19 @@ public class LoadingViewAdapter extends qn<ko, TabLoadingViewHolder> {
             generateLayoutParamsByParent.height = -1;
             relativeLayout.setLayoutParams(generateLayoutParamsByParent);
             relativeLayout.setGravity(1);
-            kf5 kf5Var = new kf5(this.mContext, 0);
-            kf5Var.attachView(relativeLayout);
-            kf5Var.t(this.b);
-            kf5Var.p(this.c);
-            View view2 = kf5Var.getView();
+            xg5 xg5Var = new xg5(this.mContext, 0);
+            xg5Var.attachView(relativeLayout);
+            xg5Var.t(this.b);
+            xg5Var.p(this.c);
+            View view2 = xg5Var.getView();
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view2.getLayoutParams();
             layoutParams.width = -1;
             layoutParams.height = -2;
             layoutParams.addRule(14);
             view2.setLayoutParams(layoutParams);
-            this.a.add(new Pair<>(relativeLayout, kf5Var));
+            this.a.add(new Pair<>(relativeLayout, xg5Var));
             TabLoadingViewHolder tabLoadingViewHolder = new TabLoadingViewHolder(relativeLayout);
-            tabLoadingViewHolder.a = kf5Var;
+            tabLoadingViewHolder.a = xg5Var;
             return tabLoadingViewHolder;
         }
         return (TabLoadingViewHolder) invokeL.objValue;
@@ -129,11 +129,11 @@ public class LoadingViewAdapter extends qn<ko, TabLoadingViewHolder> {
 
     public View u(int i, View view2, ViewGroup viewGroup, ko koVar, TabLoadingViewHolder tabLoadingViewHolder) {
         InterceptResult invokeCommon;
-        kf5 kf5Var;
+        xg5 xg5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, koVar, tabLoadingViewHolder})) == null) {
-            if (tabLoadingViewHolder != null && (kf5Var = tabLoadingViewHolder.a) != null) {
-                kf5Var.m(TbadkCoreApplication.getInst().getSkinType());
+            if (tabLoadingViewHolder != null && (xg5Var = tabLoadingViewHolder.a) != null) {
+                xg5Var.m(TbadkCoreApplication.getInst().getSkinType());
             }
             return view2;
         }

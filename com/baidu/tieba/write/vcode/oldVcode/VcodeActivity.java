@@ -28,8 +28,6 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.BitmapHelper;
@@ -43,23 +41,23 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a85;
-import com.baidu.tieba.ab8;
-import com.baidu.tieba.bw4;
+import com.baidu.tieba.a69;
+import com.baidu.tieba.a89;
+import com.baidu.tieba.b89;
 import com.baidu.tieba.dj;
+import com.baidu.tieba.dq6;
+import com.baidu.tieba.e55;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.en6;
+import com.baidu.tieba.gc8;
 import com.baidu.tieba.gh;
-import com.baidu.tieba.jd5;
-import com.baidu.tieba.m49;
-import com.baidu.tieba.n49;
-import com.baidu.tieba.o29;
-import com.baidu.tieba.o49;
-import com.baidu.tieba.p49;
+import com.baidu.tieba.ix4;
+import com.baidu.tieba.m95;
+import com.baidu.tieba.me8;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.baidu.tieba.s35;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.u88;
+import com.baidu.tieba.we5;
+import com.baidu.tieba.y79;
+import com.baidu.tieba.z79;
 import com.baidu.tieba.zf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -86,12 +84,12 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
     public RelativeLayout j;
     public TextView k;
     public NavigationBar l;
-    public o29 m;
+    public a69 m;
     public final View.OnClickListener n;
     public final View.OnClickListener o;
 
     /* loaded from: classes6.dex */
-    public class f extends BdAsyncTask<Integer, Integer, n49> {
+    public class f extends BdAsyncTask<Integer, Integer, z79> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public WriteData a;
@@ -101,7 +99,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         public final /* synthetic */ VcodeActivity e;
 
         /* loaded from: classes6.dex */
-        public class a implements o29.e {
+        public class a implements a69.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ f a;
@@ -124,17 +122,17 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                 this.a = fVar;
             }
 
-            @Override // com.baidu.tieba.o29.e
-            public void a(n49 n49Var) {
+            @Override // com.baidu.tieba.a69.e
+            public void a(z79 z79Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, n49Var) == null) {
-                    this.a.onPostExecute(n49Var);
+                if (interceptable == null || interceptable.invokeL(1048576, this, z79Var) == null) {
+                    this.a.onPostExecute(z79Var);
                 }
             }
         }
 
         /* loaded from: classes6.dex */
-        public class b implements o29.e {
+        public class b implements a69.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ f a;
@@ -157,11 +155,11 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                 this.a = fVar;
             }
 
-            @Override // com.baidu.tieba.o29.e
-            public void a(n49 n49Var) {
+            @Override // com.baidu.tieba.a69.e
+            public void a(z79 z79Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, n49Var) == null) {
-                    this.a.onPostExecute(n49Var);
+                if (interceptable == null || interceptable.invokeL(1048576, this, z79Var) == null) {
+                    this.a.onPostExecute(z79Var);
                 }
             }
         }
@@ -196,7 +194,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ab8.a(this.b.e.getPageContext(), this.a).show();
+                    me8.a(this.b.e.getPageContext(), this.a).show();
                 }
             }
         }
@@ -224,28 +222,28 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
             this.a = writeData;
         }
 
-        public final void b(o29.e eVar) {
+        public final void b(a69.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-                bw4.b(AlbumActivityConfig.FROM_WRITE, "postP");
+                ix4.b("write", "postP");
                 if (this.e.m != null && this.b != null) {
-                    bw4.b(AlbumActivityConfig.FROM_WRITE, "postR");
-                    o29 o29Var = this.e.m;
-                    o29Var.e(eVar);
-                    o29Var.b(this.b);
+                    ix4.b("write", "postR");
+                    a69 a69Var = this.e.m;
+                    a69Var.e(eVar);
+                    a69Var.b(this.b);
                 }
             }
         }
 
-        public final void c(o29.e eVar) {
+        public final void c(a69.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-                bw4.b(AlbumActivityConfig.FROM_WRITE, "threadP");
+                ix4.b("write", "threadP");
                 if (this.e.m != null && this.b != null) {
-                    bw4.b(AlbumActivityConfig.FROM_WRITE, "threadR");
-                    o29 o29Var = this.e.m;
-                    o29Var.e(eVar);
-                    o29Var.c(this.b);
+                    ix4.b("write", "threadR");
+                    a69 a69Var = this.e.m;
+                    a69Var.e(eVar);
+                    a69Var.c(this.b);
                 }
             }
         }
@@ -267,7 +265,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
-        public n49 doInBackground(Integer... numArr) {
+        public z79 doInBackground(Integer... numArr) {
             InterceptResult invokeL;
             String str;
             String toServerContent;
@@ -277,7 +275,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
             Address j;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, numArr)) == null) {
-                bw4.b(AlbumActivityConfig.FROM_WRITE, "task");
+                ix4.b("write", "task");
                 if (this.a == null) {
                     return null;
                 }
@@ -291,9 +289,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                 this.b.addPostData("anonymous", "0");
                 this.b.addPostData("fid", this.a.getForumId());
                 this.b.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.a.getForumName());
-                if (this.a.getProZone() >= 0) {
-                    this.b.addPostData(EditVideoActivityConfig.KEY_PRO_ZONE, String.valueOf(this.a.getProZone()));
-                }
+                this.b.addPostData("pro_zone", "0");
                 NetWork netWork = this.b;
                 if (!this.a.isCanNoForum()) {
                     str = "0";
@@ -328,8 +324,8 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                 } else {
                     str2 = toServerContent + imagesCodeForPost;
                 }
-                this.b.addPostData("content", en6.c(str2));
-                o49.a(this.b, this.a);
+                this.b.addPostData("content", dq6.c(str2));
+                a89.a(this.b, this.a);
                 this.b.addPostData("vcode_md5", this.a.getVcodeMD5());
                 if (obj.length() > 0) {
                     this.b.addPostData("vcode", obj);
@@ -419,7 +415,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     } else if (this.a.getType() == 1) {
                         this.b.addPostData("is_barrage", "0");
                         this.b.addPostData("barrage_time", "0");
-                        if (jd5.a().b() == 1) {
+                        if (we5.a().b() == 1) {
                             this.b.addPostData("ptype", "4");
                         }
                         this.b.addPostData("v_fid", this.a.getVForumId());
@@ -436,9 +432,9 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     b(new b(this));
                     return null;
                 } else {
-                    bw4.b(AlbumActivityConfig.FROM_WRITE, "json");
+                    ix4.b("write", "json");
                     this.c = this.b.postNetData();
-                    bw4.b(AlbumActivityConfig.FROM_WRITE, "jsonRES");
+                    ix4.b("write", "jsonRES");
                     try {
                         if (this.c != null) {
                             this.d = new JSONObject(this.c);
@@ -446,27 +442,27 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     } catch (JSONException e) {
                         BdLog.e(e);
                     }
-                    n49 n49Var = new n49();
+                    z79 z79Var = new z79();
                     NetWork netWork6 = this.b;
                     if (netWork6 != null) {
                         if (netWork6.getNetContext().getResponse().isRequestSuccess()) {
-                            n49Var.i(false);
+                            z79Var.i(false);
                             ErrorData errorData = new ErrorData();
                             errorData.parserJson(this.d);
-                            n49Var.f(errorData.getError_code());
-                            n49Var.h(errorData.getError_msg());
-                            n49Var.g(errorData.getError_data());
+                            z79Var.f(errorData.getError_code());
+                            z79Var.h(errorData.getError_msg());
+                            z79Var.g(errorData.getError_data());
                         } else {
-                            n49Var.i(true);
-                            n49Var.f(this.b.getServerErrorCode());
-                            n49Var.h(this.b.getErrorString());
+                            z79Var.i(true);
+                            z79Var.f(this.b.getServerErrorCode());
+                            z79Var.h(this.b.getErrorString());
                         }
                     }
-                    n49Var.j(this.d);
-                    return n49Var;
+                    z79Var.j(this.d);
+                    return z79Var;
                 }
             }
-            return (n49) invokeL.objValue;
+            return (z79) invokeL.objValue;
         }
 
         public final boolean f(WriteData writeData) {
@@ -499,20 +495,19 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Code restructure failed: missing block: B:19:0x007a, code lost:
-            if (com.baidu.adp.lib.util.StringUtils.isNull(r1) == false) goto L88;
+            if (com.baidu.adp.lib.util.StringUtils.isNull(r1) == false) goto L85;
          */
         /* JADX WARN: Removed duplicated region for block: B:32:0x0092  */
         /* JADX WARN: Removed duplicated region for block: B:35:0x00b4  */
-        /* JADX WARN: Removed duplicated region for block: B:50:0x012e A[Catch: Exception -> 0x0136, TRY_LEAVE, TryCatch #5 {Exception -> 0x0136, blocks: (B:48:0x011c, B:50:0x012e), top: B:151:0x011c }] */
-        /* JADX WARN: Removed duplicated region for block: B:68:0x016b  */
-        /* JADX WARN: Removed duplicated region for block: B:71:0x0177  */
-        /* JADX WARN: Removed duplicated region for block: B:80:0x01b0  */
+        /* JADX WARN: Removed duplicated region for block: B:50:0x012e A[Catch: Exception -> 0x0136, TRY_LEAVE, TryCatch #5 {Exception -> 0x0136, blocks: (B:48:0x011c, B:50:0x012e), top: B:148:0x011c }] */
+        /* JADX WARN: Removed duplicated region for block: B:68:0x016c  */
+        /* JADX WARN: Removed duplicated region for block: B:77:0x01a5  */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: e */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void onPostExecute(n49 n49Var) {
+        public void onPostExecute(z79 z79Var) {
             JSONArray jSONArray;
             String str;
             String str2;
@@ -523,22 +518,21 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
             String str6;
             CustomDialogData customDialogData;
             String str7;
-            WriteData writeData;
             JSONObject jSONObject;
             JSONObject optJSONObject;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, n49Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, z79Var) == null) {
                 String str8 = "";
-                if (n49Var == null) {
+                if (z79Var == null) {
                     return;
                 }
-                bw4.b(AlbumActivityConfig.FROM_WRITE, "result*" + n49Var.e());
+                ix4.b("write", "result*" + z79Var.e());
                 this.e.closeLoadingDialog();
                 CustomDialogData customDialogData2 = null;
                 this.e.f = null;
-                this.d = n49Var.d();
+                this.d = z79Var.d();
                 int i = 0;
-                if (!n49Var.e()) {
+                if (!z79Var.e()) {
                     ErrorData errorData = new ErrorData();
                     errorData.parserJson(this.d);
                     if (errorData.error_code == 0) {
@@ -587,9 +581,6 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                                             postWriteCallBackData.setErrorString(str5);
                                             postWriteCallBackData.setVideoid(str6);
                                             postWriteCallBackData.setInviteesNumber(str8);
-                                            writeData = this.a;
-                                            if (writeData != null) {
-                                            }
                                             postWriteCallBackData.setActivityDialog(customDialogData2);
                                             if (customDialogData2 != null) {
                                             }
@@ -599,19 +590,19 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                                             intent.putExtras(bundle);
                                             this.e.setResult(-1, intent);
                                             if (this.a != null) {
-                                                m49.l(this.a.getForumId());
-                                                m49.m(this.a.getForumName());
+                                                y79.l(this.a.getForumId());
+                                                y79.m(this.a.getForumName());
                                                 if (!dj.isEmpty(postWriteCallBackData.getVideoid())) {
                                                     postWriteCallBackData.writeDataForVideo = this.a;
                                                 }
                                                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001383, postWriteCallBackData);
-                                                customResponsedMessage.setOrginalMessage(new CustomMessage(2001383, m49.a()));
+                                                customResponsedMessage.setOrginalMessage(new CustomMessage(2001383, y79.a()));
                                                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                                             }
                                             this.e.finish();
-                                            bw4.b(AlbumActivityConfig.FROM_WRITE, "code*" + n49Var.a() + " " + n49Var.c());
-                                            bw4.e(AlbumActivityConfig.FROM_WRITE);
-                                            super.onPostExecute(n49Var);
+                                            ix4.b("write", "code*" + z79Var.a() + " " + z79Var.c());
+                                            ix4.e("write");
+                                            super.onPostExecute(z79Var);
                                         }
                                         try {
                                             str6 = jSONObject.optString("video_id");
@@ -632,9 +623,6 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                                             postWriteCallBackData.setErrorString(str5);
                                             postWriteCallBackData.setVideoid(str6);
                                             postWriteCallBackData.setInviteesNumber(str8);
-                                            writeData = this.a;
-                                            if (writeData != null) {
-                                            }
                                             postWriteCallBackData.setActivityDialog(customDialogData2);
                                             if (customDialogData2 != null) {
                                             }
@@ -646,13 +634,13 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                                             if (this.a != null) {
                                             }
                                             this.e.finish();
-                                            bw4.b(AlbumActivityConfig.FROM_WRITE, "code*" + n49Var.a() + " " + n49Var.c());
-                                            bw4.e(AlbumActivityConfig.FROM_WRITE);
-                                            super.onPostExecute(n49Var);
+                                            ix4.b("write", "code*" + z79Var.a() + " " + z79Var.c());
+                                            ix4.e("write");
+                                            super.onPostExecute(z79Var);
                                         }
                                         try {
                                             str8 = jSONObject.optString("invitees_number");
-                                            customDialogData2 = u88.a(jSONObject);
+                                            customDialogData2 = gc8.a(jSONObject);
                                             optJSONObject = jSONObject.optJSONObject("twzhibo_info");
                                             if (optJSONObject != null) {
                                             }
@@ -673,9 +661,6 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                                             postWriteCallBackData.setErrorString(str5);
                                             postWriteCallBackData.setVideoid(str6);
                                             postWriteCallBackData.setInviteesNumber(str8);
-                                            writeData = this.a;
-                                            if (writeData != null) {
-                                            }
                                             postWriteCallBackData.setActivityDialog(customDialogData2);
                                             if (customDialogData2 != null) {
                                             }
@@ -687,9 +672,9 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                                             if (this.a != null) {
                                             }
                                             this.e.finish();
-                                            bw4.b(AlbumActivityConfig.FROM_WRITE, "code*" + n49Var.a() + " " + n49Var.c());
-                                            bw4.e(AlbumActivityConfig.FROM_WRITE);
-                                            super.onPostExecute(n49Var);
+                                            ix4.b("write", "code*" + z79Var.a() + " " + z79Var.c());
+                                            ix4.e("write");
+                                            super.onPostExecute(z79Var);
                                         }
                                         postWriteCallBackData.setThreadId(str9);
                                         postWriteCallBackData.setPostId(str4);
@@ -697,9 +682,6 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                                         postWriteCallBackData.setErrorString(str5);
                                         postWriteCallBackData.setVideoid(str6);
                                         postWriteCallBackData.setInviteesNumber(str8);
-                                        writeData = this.a;
-                                        if (writeData != null) {
-                                        }
                                         postWriteCallBackData.setActivityDialog(customDialogData2);
                                         if (customDialogData2 != null) {
                                         }
@@ -711,9 +693,9 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                                         if (this.a != null) {
                                         }
                                         this.e.finish();
-                                        bw4.b(AlbumActivityConfig.FROM_WRITE, "code*" + n49Var.a() + " " + n49Var.c());
-                                        bw4.e(AlbumActivityConfig.FROM_WRITE);
-                                        super.onPostExecute(n49Var);
+                                        ix4.b("write", "code*" + z79Var.a() + " " + z79Var.c());
+                                        ix4.e("write");
+                                        super.onPostExecute(z79Var);
                                     }
                                 } else {
                                     str3 = null;
@@ -730,10 +712,10 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                         }
                         if (StringUtils.isNull(str)) {
                             str = TbadkCoreApplication.getInst().getString(R.string.send_success);
-                            p49.a(this.e.a, this.a.getThreadId());
+                            b89.a(this.e.a, this.a.getThreadId());
                         }
                         if (this.a.isAddThread()) {
-                            o49.b(this.e.getActivity(), str, str2, str3);
+                            a89.b(this.e.getActivity(), str, str2, str3);
                         }
                         this.a.deleteUploadedTempImages();
                     } else {
@@ -753,7 +735,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                             str5 = jSONObject.optString("msg");
                             str6 = jSONObject.optString("video_id");
                             str8 = jSONObject.optString("invitees_number");
-                            customDialogData2 = u88.a(jSONObject);
+                            customDialogData2 = gc8.a(jSONObject);
                             optJSONObject = jSONObject.optJSONObject("twzhibo_info");
                             if (optJSONObject != null) {
                                 i = optJSONObject.optInt("is_copytwzhibo", 0);
@@ -775,15 +757,11 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     postWriteCallBackData.setErrorString(str5);
                     postWriteCallBackData.setVideoid(str6);
                     postWriteCallBackData.setInviteesNumber(str8);
-                    writeData = this.a;
-                    if (writeData != null) {
-                        postWriteCallBackData.setProZone(writeData.getProZone());
-                    }
                     postWriteCallBackData.setActivityDialog(customDialogData2);
                     if (customDialogData2 != null) {
-                        WriteData writeData2 = this.a;
-                        if (writeData2 != null) {
-                            if (writeData2.isAddThread()) {
+                        WriteData writeData = this.a;
+                        if (writeData != null) {
+                            if (writeData.isAddThread()) {
                                 customDialogData2.type = 2;
                             } else {
                                 customDialogData2.type = 1;
@@ -796,14 +774,14 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     bundle2222.putSerializable("post_write_callback_data", postWriteCallBackData);
                     intent2222.putExtras(bundle2222);
                     this.e.setResult(-1, intent2222);
-                    if (this.a != null && m49.a() != null) {
-                        m49.l(this.a.getForumId());
-                        m49.m(this.a.getForumName());
+                    if (this.a != null && y79.a() != null) {
+                        y79.l(this.a.getForumId());
+                        y79.m(this.a.getForumName());
                         if (!dj.isEmpty(postWriteCallBackData.getVideoid()) && this.a.getVideoInfo() != null) {
                             postWriteCallBackData.writeDataForVideo = this.a;
                         }
                         CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2001383, postWriteCallBackData);
-                        customResponsedMessage2.setOrginalMessage(new CustomMessage(2001383, m49.a()));
+                        customResponsedMessage2.setOrginalMessage(new CustomMessage(2001383, y79.a()));
                         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
                     }
                     this.e.finish();
@@ -813,18 +791,18 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                             this.e.showToast(TbadkCoreApplication.getInst().getString(R.string.img_upload_error));
                         }
                     }
-                    if (n49Var.a() != 5 && n49Var.a() != 6) {
-                        if (this.a != null && n49Var.a() == 227001) {
+                    if (z79Var.a() != 5 && z79Var.a() != 6) {
+                        if (this.a != null && z79Var.a() == 227001) {
                             AccessState accessState = new AccessState();
                             accessState.parserJson(this.d);
-                            PostWriteCallBackData postWriteCallBackData2 = new PostWriteCallBackData(n49Var.a(), n49Var.c(), null, null);
+                            PostWriteCallBackData postWriteCallBackData2 = new PostWriteCallBackData(z79Var.a(), z79Var.c(), null, null);
                             postWriteCallBackData2.setAccessState(accessState);
                             this.e.getActivity().setVisible(false);
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.e.getActivity(), 12006, this.a, postWriteCallBackData2.getAccessState())));
-                        } else if (n49Var.a() == 220009) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2016554, n49Var.c()));
+                        } else if (z79Var.a() == 220009) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2016554, z79Var.c()));
                             this.e.finish();
-                        } else if (n49Var.a() == 220015) {
+                        } else if (z79Var.a() == 220015) {
                             PostWriteCallBackData postWriteCallBackData3 = new PostWriteCallBackData(NetWorkErr.ERROR_CONTENT_WITH_SENSITIVE_WORD, null, null, null);
                             JSONObject jSONObject3 = this.d;
                             if (jSONObject3 != null) {
@@ -853,23 +831,23 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                             this.e.finish();
                         }
                     } else {
-                        a85 a85Var = new a85();
-                        a85Var.f(this.d);
-                        if (a85Var.c() != null && this.e.a != null) {
-                            this.e.a.setVcodeMD5(a85Var.b());
-                            this.e.a.setVcodeUrl(a85Var.c());
+                        m95 m95Var = new m95();
+                        m95Var.f(this.d);
+                        if (m95Var.c() != null && this.e.a != null) {
+                            this.e.a.setVcodeMD5(m95Var.b());
+                            this.e.a.setVcodeUrl(m95Var.c());
                             VcodeActivity vcodeActivity = this.e;
                             vcodeActivity.L1(vcodeActivity.a.getVcodeUrl());
                         }
                         this.e.d.setText((CharSequence) null);
                     }
-                    if (n49Var.a() != 227001 && n49Var.a() == 220015) {
-                        this.e.showToast(n49Var.c());
+                    if (z79Var.a() != 227001 && z79Var.a() == 220015) {
+                        this.e.showToast(z79Var.c());
                     }
                 }
-                bw4.b(AlbumActivityConfig.FROM_WRITE, "code*" + n49Var.a() + " " + n49Var.c());
-                bw4.e(AlbumActivityConfig.FROM_WRITE);
-                super.onPostExecute(n49Var);
+                ix4.b("write", "code*" + z79Var.a() + " " + z79Var.c());
+                ix4.e("write");
+                super.onPostExecute(z79Var);
             }
         }
     }
@@ -978,15 +956,15 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     this.a.f.cancel();
                 }
                 if (this.a.m == null) {
-                    this.a.m = new o29(this.a.getPageContext());
+                    this.a.m = new a69(this.a.getPageContext());
                 }
                 VcodeActivity vcodeActivity2 = this.a;
                 VcodeActivity vcodeActivity3 = this.a;
                 vcodeActivity2.f = new f(vcodeActivity3, vcodeActivity3.a);
                 this.a.f.setPriority(3);
                 this.a.f.execute(0);
-                bw4.d(AlbumActivityConfig.FROM_WRITE);
-                bw4.b(AlbumActivityConfig.FROM_WRITE, "startvcode");
+                ix4.d("write");
+                ix4.b("write", "startvcode");
             }
         }
     }
@@ -1030,7 +1008,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile NetWork a;
-        public a85 b;
+        public m95 b;
         public volatile boolean c;
         public final /* synthetic */ VcodeActivity d;
 
@@ -1083,9 +1061,9 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     if (!this.a.getNetContext().getResponse().isRequestSuccess()) {
                         return null;
                     }
-                    a85 a85Var = new a85();
-                    this.b = a85Var;
-                    a85Var.e(postNetData);
+                    m95 m95Var = new m95();
+                    this.b = m95Var;
+                    m95Var.e(postNetData);
                     str = this.b.c();
                 }
                 if (this.c) {
@@ -1164,7 +1142,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d08fc);
+            setContentView(R.layout.obfuscated_res_0x7f0d091d);
             K1();
             J1(bundle);
             WriteData writeData = this.a;
@@ -1217,7 +1195,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        int commentTextColor;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
@@ -1225,42 +1203,42 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
             this.l.onChangeSkinType(getPageContext(), i);
             SkinManager.setBackgroundResource(this.b, R.drawable.s_navbar_button_bg);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0111);
-            if (i != 1 && i != 4) {
-                commentTextColor = -12895429;
+            if (i == 4) {
+                i2 = SkinManager.getCommentTextColor(i);
             } else {
-                commentTextColor = SkinManager.getCommentTextColor(i);
+                i2 = -12895429;
             }
-            this.k.setTextColor(commentTextColor);
+            this.k.setTextColor(i2);
         }
     }
 
     public final void K1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09189e);
+            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0918df);
             this.l = (NavigationBar) findViewById(R.id.view_navigation_bar);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091015);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091056);
             this.l.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.n);
-            TextView addTextButton = this.l.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f11d5), this.o);
+            TextView addTextButton = this.l.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f11d7), this.o);
             this.b = addTextButton;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) addTextButton.getLayoutParams();
             layoutParams.rightMargin = ej.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
             this.b.setLayoutParams(layoutParams);
-            this.d = (EditText) findViewById(R.id.obfuscated_res_0x7f09101f);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f092644);
+            this.d = (EditText) findViewById(R.id.obfuscated_res_0x7f091060);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0926a0);
             this.c = imageView;
             imageView.setImageDrawable(null);
             this.c.setOnClickListener(new d(this));
-            this.e = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091bd5);
+            this.e = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091c06);
         }
     }
 
     public final void M1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            s35 s35Var = new s35(getPageContext());
-            this.mWaitingDialog = s35Var;
-            s35Var.i(R.string.obfuscated_res_0x7f0f11e8);
+            e55 e55Var = new e55(getPageContext());
+            this.mWaitingDialog = e55Var;
+            e55Var.i(R.string.obfuscated_res_0x7f0f11ea);
             this.mWaitingDialog.e(this.i);
             this.mWaitingDialog.d(false);
             this.mWaitingDialog.g(false);

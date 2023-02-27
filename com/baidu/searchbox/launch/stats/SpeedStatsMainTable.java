@@ -1,12 +1,6 @@
 package com.baidu.searchbox.launch.stats;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class SpeedStatsMainTable {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVITY_END_2_ATTACH_GAP = "activity2attach";
     public static final String ACTIVITY_STAGE = "activity";
     public static final String AD_FLAG = "Ad_";
@@ -29,19 +23,4 @@ public class SpeedStatsMainTable {
     public static final String PUSH_SCHEME_MIDDLE_PAGE = "pushSchemeMiddle";
     public static final long UBC_LAUNCH_DURATION_MAX = 60000;
     public static final long UBC_LAUNCH_DURATION_MIN = 50;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public SpeedStatsMainTable() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

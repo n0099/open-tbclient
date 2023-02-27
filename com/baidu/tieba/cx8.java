@@ -1,27 +1,70 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes3.dex */
 public class cx8 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile bx8 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public double b;
+    public List<String> c;
+    public int d;
+    public int e;
 
-    public static synchronized bx8 a() {
-        InterceptResult invokeV;
-        bx8 bx8Var;
+    public cx8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (cx8.class) {
-                if (a == null) {
-                    a = new bx8();
-                }
-                bx8Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return bx8Var;
         }
-        return (bx8) invokeV.objValue;
+    }
+
+    public static cx8 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            cx8 cx8Var = new cx8();
+            if (jSONObject.optInt("label_measure") == 2) {
+                z = true;
+            } else {
+                z = false;
+            }
+            cx8Var.a = z;
+            cx8Var.b = jSONObject.optDouble("show_width_scale", 1.0d);
+            ArrayList arrayList = new ArrayList();
+            JSONArray optJSONArray = jSONObject.optJSONArray("thread_pic_list");
+            if (optJSONArray != null) {
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        ry7.a(arrayList, optJSONObject.optString("pic"));
+                    }
+                }
+            }
+            cx8Var.c = arrayList;
+            cx8Var.d = jSONObject.optInt("width");
+            cx8Var.e = jSONObject.optInt("height");
+            return cx8Var;
+        }
+        return (cx8) invokeL.objValue;
     }
 }

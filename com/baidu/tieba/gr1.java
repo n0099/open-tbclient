@@ -1,58 +1,16 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.tieba.em2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gr1 implements lt1 {
+public class gr1 implements bt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.lt1
-    public boolean a(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.lt1
-    public void b(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.lt1
-    public void c(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.lt1
-    public void e(w83 w83Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, w83Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.lt1
-    public void g(w83 w83Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, w83Var) == null) {
-        }
-    }
 
     public gr1() {
         Interceptable interceptable = $ic;
@@ -68,29 +26,21 @@ public class gr1 implements lt1 {
         }
     }
 
-    @Override // com.baidu.tieba.lt1
-    public void d(@NonNull CallbackHandler callbackHandler) {
+    @Override // com.baidu.tieba.bt1
+    public void a(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, callbackHandler) == null) {
-            callbackHandler.handleSchemeDispatchCallback("", "");
+        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
+            ai3.a().putInt("fontSizeLevel", i);
         }
     }
 
-    @Override // com.baidu.tieba.lt1
-    public String f(@NonNull Context context) {
+    @Override // com.baidu.tieba.bt1
+    public int b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            return context.getString(R.string.obfuscated_res_0x7f0f015f);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return ai3.a().getInt("fontSizeLevel", 1);
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.lt1
-    public void h(@NonNull Activity activity, String str, String str2, dm2 dm2Var, em2.b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLLL(1048583, this, activity, str, str2, dm2Var, bVar) == null) && bVar != null) {
-            bVar.a();
-        }
+        return invokeL.intValue;
     }
 }

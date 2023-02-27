@@ -1,76 +1,47 @@
 package com.baidu.searchbox.v8engine;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.smallgame.sdk.Log;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
 @NotProguard
 /* loaded from: classes3.dex */
 public abstract class JsReleaser {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final String TAG = "JsReleaser";
-    public transient /* synthetic */ FieldHolder $fh;
     public AtomicLong mNativeObject;
     public final long mOwnedNativeEngine;
     public final long mOwnedThreadId;
 
     public JsReleaser() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mNativeObject = new AtomicLong(0L);
         this.mOwnedThreadId = 0L;
         this.mOwnedNativeEngine = 0L;
     }
 
-    public long nativePtr() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mNativeObject.get();
+    public void finalize() {
+        try {
+            long andSet = this.mNativeObject.getAndSet(0L);
+            if (andSet != 0) {
+                safeRelease(this.mOwnedNativeEngine, this.mOwnedThreadId, andSet, true, getClass().getName());
+            }
+        } finally {
+            try {
+            } finally {
+            }
         }
-        return invokeV.longValue;
+    }
+
+    public long nativePtr() {
+        return this.mNativeObject.get();
     }
 
     public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long andSet = this.mNativeObject.getAndSet(0L);
-            if (andSet != 0) {
-                safeRelease(this.mOwnedNativeEngine, this.mOwnedThreadId, andSet, false, getClass().getName());
-            }
+        long andSet = this.mNativeObject.getAndSet(0L);
+        if (andSet != 0) {
+            safeRelease(this.mOwnedNativeEngine, this.mOwnedThreadId, andSet, false, getClass().getName());
         }
     }
 
     public JsReleaser(long j, long j2, long j3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         AtomicLong atomicLong = new AtomicLong(0L);
         this.mNativeObject = atomicLong;
         atomicLong.set(j);
@@ -78,78 +49,29 @@ public abstract class JsReleaser {
         this.mOwnedNativeEngine = j2;
     }
 
-    public static void safeRelease(long j, long j2, long j3, boolean z, String str) {
-        V8Engine v8Engine;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), str}) == null) && (v8Engine = V8Engine.getInstance(j)) != null) {
-            v8Engine.runOnJSThread(new Runnable(j3, j2, z, str, j) { // from class: com.baidu.searchbox.v8engine.JsReleaser.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ String val$className;
-                public final /* synthetic */ boolean val$finalized;
-                public final /* synthetic */ long val$nativeObject;
-                public final /* synthetic */ long val$ownedNativeEngine;
-                public final /* synthetic */ long val$ownedThreadId;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {Long.valueOf(j3), Long.valueOf(j2), Boolean.valueOf(z), str, Long.valueOf(j)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$nativeObject = j3;
-                    this.val$ownedThreadId = j2;
-                    this.val$finalized = z;
-                    this.val$className = str;
-                    this.val$ownedNativeEngine = j;
-                }
-
+    public static void safeRelease(final long j, final long j2, final long j3, final boolean z, final String str) {
+        V8Engine v8Engine = V8Engine.getInstance(j);
+        if (v8Engine != null) {
+            v8Engine.runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.JsReleaser.1
                 @Override // java.lang.Runnable
                 public void run() {
                     boolean z2;
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeV(1048576, this) != null) || this.val$nativeObject == 0) {
+                    if (j3 == 0) {
                         return;
                     }
                     long id = Thread.currentThread().getId();
-                    if (this.val$ownedThreadId == id) {
+                    if (j2 == id) {
                         z2 = true;
                     } else {
                         z2 = false;
                     }
                     if (!z2) {
-                        Log.w(JsReleaser.TAG, "[JsReleaser][ERROR] Incorrect thread ID, current ID = " + id + ", expect ID = " + this.val$ownedThreadId + ", finalize=" + this.val$finalized);
+                        Log.w(JsReleaser.TAG, "[JsReleaser][ERROR] Incorrect thread ID, current ID = " + id + ", expect ID = " + j2 + ", finalize=" + z);
                         return;
                     }
-                    V8Engine.nativeDeleteJsReleaser(this.val$ownedNativeEngine, this.val$nativeObject, z2);
+                    V8Engine.nativeDeleteJsReleaser(j, j3, z2);
                 }
             });
-        }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public void finalize() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                long andSet = this.mNativeObject.getAndSet(0L);
-                if (andSet != 0) {
-                    safeRelease(this.mOwnedNativeEngine, this.mOwnedThreadId, andSet, true, getClass().getName());
-                }
-            } finally {
-                try {
-                } finally {
-                }
-            }
         }
     }
 }

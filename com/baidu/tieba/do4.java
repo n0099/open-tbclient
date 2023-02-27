@@ -1,32 +1,24 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
+import com.baidu.tieba.co4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class do4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
 
-    public do4(String str, String str2) {
+    public static void a(LayoutInflater layoutInflater, eo4 eo4Var) {
+        co4.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65536, null, layoutInflater, eo4Var) == null) {
+            if (eo4Var != null) {
+                aVar = new co4.a(eo4Var);
+            } else {
+                aVar = null;
             }
+            layoutInflater.setFactory2(aVar);
         }
-        this.a = str;
-        this.b = str2;
     }
 }

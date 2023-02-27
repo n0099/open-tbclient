@@ -2,7 +2,6 @@ package com.baidu.searchbox.block.ubc;
 
 import android.content.Context;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.aperf.param.CommonUtils;
@@ -16,13 +15,6 @@ import com.baidu.searchbox.ruka.Ruka;
 import com.baidu.searchbox.ruka.basic.RukaTrackUIUtil;
 import com.baidu.searchbox.ruka.ioc.Constant;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -31,62 +23,22 @@ import org.json.JSONObject;
 @Service
 /* loaded from: classes2.dex */
 public class UbcBlockRegister implements IBlockRegister {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String KEY_BLOCK_CATCH_ACTIVE_UPLOAD = "key_block_catch_active_upload";
     public static final String KEY_EXT = "ext";
     public static final String TAG = "UbcBlockRegister";
     public static final String UBC_BLOCK = "3256";
     public static final int UI_TRACE_MAX_SIZE = 20;
-    public static boolean sEnable;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String separator;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-523093172, "Lcom/baidu/searchbox/block/ubc/UbcBlockRegister;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-523093172, "Lcom/baidu/searchbox/block/ubc/UbcBlockRegister;");
-                return;
-            }
-        }
-        sEnable = QuickPersistConfig.getInstance().getBoolean(KEY_BLOCK_CATCH_ACTIVE_UPLOAD, false);
-    }
-
-    public UbcBlockRegister() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.separator = "\r\n";
-    }
+    public String separator = "\r\n";
+    public static final String KEY_BLOCK_CATCH_ACTIVE_UPLOAD = "key_block_catch_active_upload";
+    public static boolean sEnable = QuickPersistConfig.getInstance().getBoolean(KEY_BLOCK_CATCH_ACTIVE_UPLOAD, false);
 
     @Override // com.baidu.searchbox.block.ioc.IBlockRegister
     public boolean checkEnable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return sEnable;
-        }
-        return invokeV.booleanValue;
+        return sEnable;
     }
 
     @Override // com.baidu.searchbox.block.ioc.IBlockRegister
     public void onBlockCatch(Context context, BlockInfo blockInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, blockInfo) != null) || !checkEnable()) {
+        if (!checkEnable()) {
             return;
         }
         if (AppConfig.isDebug()) {

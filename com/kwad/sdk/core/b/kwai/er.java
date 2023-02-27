@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -10,7 +11,7 @@ public final class er implements com.kwad.sdk.core.d<AdMatrixInfo.RotateDegreeIn
             return;
         }
         rotateDegreeInfo.rotateDegree = jSONObject.optInt("rotateDegree");
-        rotateDegreeInfo.direction = jSONObject.optInt("direction");
+        rotateDegreeInfo.direction = jSONObject.optInt(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION);
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
@@ -24,7 +25,7 @@ public final class er implements com.kwad.sdk.core.d<AdMatrixInfo.RotateDegreeIn
         }
         int i2 = rotateDegreeInfo.direction;
         if (i2 != 0) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "direction", i2);
+            com.kwad.sdk.utils.r.putValue(jSONObject, HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, i2);
         }
         return jSONObject;
     }

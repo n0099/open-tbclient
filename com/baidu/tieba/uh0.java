@@ -1,158 +1,436 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.text.TextUtils;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.business.inserting.NadImageInsertingView;
-import com.baidu.nadcore.business.inserting.NadInsertingBaseView;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.requester.NadRequester;
-import com.baidu.nadcore.requester.RequestParameters;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.util.AdExtParam;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+import kotlin.Unit;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class uh0 {
+public final class uh0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicInteger a;
+    public static String b;
+    public static JSONObject c;
+    public static ArrayList<Long> d;
+    public static final Hashtable<String, ArrayList<vh0<Integer, Integer>>> e;
+    public static boolean f;
+    public static final o21 g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public interface c {
-        void onFail();
-
-        void onSuccess();
-    }
-
-    /* loaded from: classes6.dex */
-    public interface d {
-        void a(@NonNull NadInsertingBaseView nadInsertingBaseView);
-
-        void onFail();
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a implements NadRequester.b {
+    public static final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
+        public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NadRequester.b a;
 
-        public a(NadRequester.b bVar) {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-375123633, "Lcom/baidu/tieba/uh0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-375123633, "Lcom/baidu/tieba/uh0$a;");
+                    return;
+                }
+            }
+            a = new a();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
-            this.a = bVar;
         }
 
-        @Override // com.baidu.nadcore.requester.NadRequester.b
-        public void a(@NonNull NadRequester.Error error) {
+        @Override // java.lang.Runnable
+        public final void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, error) == null) {
-                this.a.a(error);
-            }
-        }
-
-        @Override // com.baidu.nadcore.requester.NadRequester.b
-        public void b(@NonNull List<AdBaseModel> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                if (list.size() > 0 && list.get(0) != null) {
-                    AdBaseModel adBaseModel = (AdBaseModel) x11.d(list, 0);
-                    if (TextUtils.equals(adBaseModel.f.a.value, AdBaseModel.STYLE.BIG_IMAGE.value)) {
-                        mq0 mq0Var = (mq0) x11.d(adBaseModel.f.k, 0);
-                        if (mq0Var != null && !TextUtils.isEmpty(mq0Var.a)) {
-                            ob1.a().d(mq0Var.a);
-                        } else {
-                            this.a.a(new NadRequester.Error("大图模版数据校验失败，未下发图片"));
-                            return;
-                        }
-                    }
-                    this.a.b(list);
-                    return;
-                }
-                this.a.a(new NadRequester.Error("返回数据为空"));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-        public final /* synthetic */ NadInsertingBaseView b;
-
-        public b(d dVar, NadInsertingBaseView nadInsertingBaseView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar, nadInsertingBaseView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-            this.b = nadInsertingBaseView;
-        }
-
-        @Override // com.baidu.tieba.uh0.c
-        public void onFail() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.onFail();
-            }
-        }
-
-        @Override // com.baidu.tieba.uh0.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.a(this.b);
-            }
-        }
-    }
-
-    public static void a(String str, NadRequester.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, bVar) == null) {
-            RequestParameters.b bVar2 = new RequestParameters.b();
-            bVar2.q(str);
-            bVar2.p(1);
-            NadRequester.a(bVar2.o(), new a(bVar));
-        }
-    }
-
-    public static void b(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull List<AdBaseModel> list, @NonNull th0 th0Var, @NonNull d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65537, null, context, viewGroup, list, th0Var, dVar) == null) {
-            if (x11.l(list) < 1) {
-                dVar.onFail();
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            AdBaseModel adBaseModel = (AdBaseModel) x11.d(list, 0);
-            if (TextUtils.equals(adBaseModel.f.a.value, AdBaseModel.STYLE.BIG_IMAGE.value)) {
-                NadImageInsertingView nadImageInsertingView = new NadImageInsertingView(context, viewGroup, th0Var);
-                nadImageInsertingView.setData(adBaseModel, new b(dVar, nadImageInsertingView));
+            uh0.g();
+            uh0.n();
+            uh0.i(false);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b<T> implements xn0<js0> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ File b;
+        public final /* synthetic */ File c;
+
+        public b(long j, File file, File file2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), file, file2, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j;
+            this.b = file;
+            this.c = file2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xn0
+        /* renamed from: a */
+        public final void accept(js0 res) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, res) == null) {
+                Intrinsics.checkNotNullParameter(res, "res");
+                boolean z = false;
+                if (res.isSuccess()) {
+                    uh0.d().i("iadex_sp_key_etag", res.a());
+                    uh0.d().i("iadex_sp_key_modified_time", res.b());
+                    uh0.d().h("iadex_last_update_time", this.a);
+                    if (res.c() > 0 && m51.a(this.b, new File(this.c, "iadex.json")) > 0) {
+                        z = true;
+                    }
+                } else {
+                    this.b.deleteOnExit();
+                }
+                if (!z) {
+                    return;
+                }
+                uh0.g();
+                uh0.n();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948210860, "Lcom/baidu/tieba/uh0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948210860, "Lcom/baidu/tieba/uh0;");
+                return;
+            }
+        }
+        a = new AtomicInteger(0);
+        b = "";
+        d = new ArrayList<>();
+        e = new Hashtable<>();
+        f = true;
+        o21 b2 = r21.a().b("iad_sp_file");
+        Intrinsics.checkNotNullExpressionValue(b2, "SpUtils.getInstance().getSp(SP_FILE_NAME)");
+        g = b2;
+    }
+
+    public static final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            Context context = rj0.b();
+            Intrinsics.checkNotNullExpressionValue(context, "context");
+            File file = new File(context.getFilesDir(), AdExtParam.KEY_IADEX);
+            if (!file.exists()) {
+                return;
+            }
+            File file2 = new File(file, "iadex.json");
+            if (file2.exists()) {
+                String e2 = m51.e(file2);
+                if (!TextUtils.isEmpty(e2)) {
+                    synchronized (vh0.class) {
+                        try {
+                            c = new JSONObject(e2);
+                        } catch (JSONException e3) {
+                            e3.printStackTrace();
+                        }
+                        Unit unit = Unit.INSTANCE;
+                    }
+                }
+            }
+        }
+    }
+
+    public static final String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            ArrayList<Long> arrayList = d;
+            if (e21.g(arrayList)) {
+                return "";
+            }
+            ArrayList arrayList2 = new ArrayList();
+            Iterator<Long> it = arrayList.iterator();
+            while (it.hasNext()) {
+                e21.b(arrayList2, String.valueOf(it.next().longValue()));
+            }
+            String join = TextUtils.join(",", arrayList2);
+            Intrinsics.checkNotNullExpressionValue(join, "TextUtils.join(IADEX_DELIMITER, tmpFlag)");
+            return join;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final o21 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return g;
+        }
+        return (o21) invokeV.objValue;
+    }
+
+    public static final void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65548, null, i) == null) {
+            k(i, 0);
+        }
+    }
+
+    public static final void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65549, null, i) == null) {
+            j(i, 0);
+        }
+    }
+
+    public static final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                b = h();
+                if (a.compareAndSet(0, 1)) {
+                    v31.c(a.a, "update_iad_ex", 3);
+                }
+            }
+            return b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final void f(PackageManager packageManager, String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(65542, null, packageManager, str, i, i2) == null) {
+            try {
+                packageManager.getApplicationInfo(str, 0);
+                j(i, i2);
+            } catch (PackageManager.NameNotFoundException unused) {
+                k(i, i2);
+            }
+        }
+    }
+
+    public static final String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            String str = "";
+            String string = g.getString("AD_IADEX", "");
+            if (string != null) {
+                str = string;
+            }
+            Intrinsics.checkNotNullExpressionValue(str, "sp.getString(IADEX_KEY, \"\") ?: \"\"");
+            if (!TextUtils.isEmpty(str)) {
+                ArrayList<Long> arrayList = new ArrayList<>();
+                Object[] array = StringsKt__StringsKt.split$default((CharSequence) str, new String[]{","}, false, 0, 6, (Object) null).toArray(new String[0]);
+                if (array != null) {
+                    for (String str2 : (String[]) array) {
+                        e21.b(arrayList, Long.valueOf(str2));
+                    }
+                    d = arrayList;
+                } else {
+                    throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
+                }
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final void n() {
+        JSONObject jSONObject;
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65550, null) == null) && (jSONObject = c) != null && (optJSONArray = jSONObject.optJSONArray("data")) != null) {
+            ArrayList<Long> arrayList = new ArrayList<>(d);
+            int length = optJSONArray.length();
+            int l = e21.l(arrayList);
+            if (length != l) {
+                if (length > l) {
+                    while (l < length) {
+                        e21.b(arrayList, 0L);
+                        l++;
+                    }
+                } else {
+                    for (int i = length; i < l; i++) {
+                        e21.i(arrayList, i);
+                    }
+                }
+            }
+            d = arrayList;
+            for (int i2 = 0; i2 < length; i2++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+                if (optJSONObject != null) {
+                    String groupName = optJSONObject.optString("name");
+                    int optInt = optJSONObject.optInt("interval");
+                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("list");
+                    Intrinsics.checkNotNullExpressionValue(groupName, "groupName");
+                    q(i2, groupName, optInt, optJSONArray2, f);
+                } else {
+                    return;
+                }
+            }
+            if (f) {
+                f = false;
+            }
+        }
+    }
+
+    public static final boolean i(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65545, null, z)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - g.getLong("iadex_last_update_time", 0L) < TimeUnit.HOURS.toMillis(g.getInt("cdn_expire", 12))) {
+                return false;
+            }
+            String string = g.getString("iadex_sp_key_etag", "");
+            String string2 = g.getString("iadex_sp_key_modified_time", "");
+            Context context = rj0.b();
+            Intrinsics.checkNotNullExpressionValue(context, "context");
+            File file = new File(context.getFilesDir(), AdExtParam.KEY_IADEX);
+            if (!file.exists() && !file.mkdir()) {
+                return false;
+            }
+            File file2 = new File(file, "iadex.json.temp");
+            cs0 cs0Var = new cs0();
+            is0 is0Var = new is0();
+            is0Var.a = string;
+            is0Var.b = string2;
+            is0Var.c = z;
+            cs0Var.a("https://pn.baidu.com/iad/os_type2_all.json", is0Var, file2, new b(currentTimeMillis, file2, file, string));
+            return true;
+        }
+        return invokeZ.booleanValue;
+    }
+
+    public static final void j(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65546, null, i, i2) == null) {
+            ArrayList<Long> arrayList = d;
+            if (i < arrayList.size()) {
+                Long l = arrayList.get(i);
+                Intrinsics.checkNotNullExpressionValue(l, "tCpArray[groupIndex]");
+                arrayList.set(i, Long.valueOf(l.longValue() | (1 << i2)));
+            }
+        }
+    }
+
+    public static final void k(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65547, null, i, i2) == null) {
+            ArrayList<Long> arrayList = d;
+            if (i < arrayList.size()) {
+                Long l = arrayList.get(i);
+                Intrinsics.checkNotNullExpressionValue(l, "tCpArray[groupIndex]");
+                arrayList.set(i, Long.valueOf(l.longValue() & (~(1 << i2))));
+            }
+        }
+    }
+
+    public static final void p(int i, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65552, null, i, jSONArray) == null) {
+            if (i >= d.size()) {
+                Log.e("AD_IADEX", "group index should NOT greater or equal group size!!!");
+                return;
+            }
+            Context context = rj0.b();
+            Intrinsics.checkNotNullExpressionValue(context, "context");
+            PackageManager packageManager = context.getPackageManager();
+            l(i);
+            int i2 = 0;
+            int length = jSONArray.length();
+            while (i2 < length) {
+                String packageName = jSONArray.optString(i2);
+                i2++;
+                vh0 vh0Var = new vh0(Integer.valueOf(i), Integer.valueOf(i2));
+                ArrayList<vh0<Integer, Integer>> arrayList = e.get(packageName);
+                if (arrayList == null) {
+                    arrayList = new ArrayList<>();
+                }
+                e21.b(arrayList, vh0Var);
+                e.put(packageName, arrayList);
+                Intrinsics.checkNotNullExpressionValue(packageManager, "packageManager");
+                Intrinsics.checkNotNullExpressionValue(packageName, "packageName");
+                f(packageManager, packageName, i, i2);
+            }
+            m(i);
+            String o = o();
+            b = o;
+            g.i("AD_IADEX", o);
+        }
+    }
+
+    public static final void q(int i, String str, int i2, JSONArray jSONArray, boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), jSONArray, Boolean.valueOf(z)}) == null) && i >= 0 && !TextUtils.isEmpty(str) && i2 >= 0 && jSONArray != null && jSONArray.length() != 0) {
+            long time = new Date().getTime();
+            String str2 = "AD_IADEX_" + str + "_TS";
+            long j = g.getLong(str2, 0L);
+            long millis = TimeUnit.MINUTES.toMillis(i2);
+            boolean z3 = true;
+            int i3 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i3 == 0) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            z3 = (i3 <= 0 || time - j <= millis) ? false : false;
+            if (z || z2 || z3) {
+                g.h(str2, time);
+                p(i, jSONArray);
             }
         }
     }

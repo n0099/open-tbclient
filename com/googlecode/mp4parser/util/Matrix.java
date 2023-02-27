@@ -1,24 +1,10 @@
 package com.googlecode.mp4parser.util;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import java.nio.ByteBuffer;
 /* loaded from: classes8.dex */
 public class Matrix {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Matrix ROTATE_0;
-    public static final Matrix ROTATE_180;
-    public static final Matrix ROTATE_270;
-    public static final Matrix ROTATE_90;
-    public transient /* synthetic */ FieldHolder $fh;
     public double a;
     public double b;
     public double c;
@@ -28,59 +14,12 @@ public class Matrix {
     public double u;
     public double v;
     public double w;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-972206213, "Lcom/googlecode/mp4parser/util/Matrix;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-972206213, "Lcom/googlecode/mp4parser/util/Matrix;");
-                return;
-            }
-        }
-        ROTATE_0 = new Matrix(1.0d, 0.0d, 0.0d, 1.0d, 0.0d, 0.0d, 1.0d, 0.0d, 0.0d);
-        ROTATE_90 = new Matrix(0.0d, 1.0d, -1.0d, 0.0d, 0.0d, 0.0d, 1.0d, 0.0d, 0.0d);
-        ROTATE_180 = new Matrix(-1.0d, 0.0d, 0.0d, -1.0d, 0.0d, 0.0d, 1.0d, 0.0d, 0.0d);
-        ROTATE_270 = new Matrix(0.0d, -1.0d, 1.0d, 0.0d, 0.0d, 0.0d, 1.0d, 0.0d, 0.0d);
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long doubleToLongBits = Double.doubleToLongBits(this.u);
-            long doubleToLongBits2 = Double.doubleToLongBits(this.v);
-            long doubleToLongBits3 = Double.doubleToLongBits(this.w);
-            long doubleToLongBits4 = Double.doubleToLongBits(this.a);
-            long doubleToLongBits5 = Double.doubleToLongBits(this.b);
-            long doubleToLongBits6 = Double.doubleToLongBits(this.c);
-            long doubleToLongBits7 = Double.doubleToLongBits(this.d);
-            long doubleToLongBits8 = Double.doubleToLongBits(this.tx);
-            long doubleToLongBits9 = Double.doubleToLongBits(this.ty);
-            return (((((((((((((((((int) (doubleToLongBits ^ (doubleToLongBits >>> 32))) * 31) + ((int) (doubleToLongBits2 ^ (doubleToLongBits2 >>> 32)))) * 31) + ((int) (doubleToLongBits3 ^ (doubleToLongBits3 >>> 32)))) * 31) + ((int) (doubleToLongBits4 ^ (doubleToLongBits4 >>> 32)))) * 31) + ((int) (doubleToLongBits5 ^ (doubleToLongBits5 >>> 32)))) * 31) + ((int) (doubleToLongBits6 ^ (doubleToLongBits6 >>> 32)))) * 31) + ((int) (doubleToLongBits7 ^ (doubleToLongBits7 >>> 32)))) * 31) + ((int) (doubleToLongBits8 ^ (doubleToLongBits8 >>> 32)))) * 31) + ((int) (doubleToLongBits9 ^ (doubleToLongBits9 >>> 32)));
-        }
-        return invokeV.intValue;
-    }
+    public static final Matrix ROTATE_0 = new Matrix(1.0d, 0.0d, 0.0d, 1.0d, 0.0d, 0.0d, 1.0d, 0.0d, 0.0d);
+    public static final Matrix ROTATE_90 = new Matrix(0.0d, 1.0d, -1.0d, 0.0d, 0.0d, 0.0d, 1.0d, 0.0d, 0.0d);
+    public static final Matrix ROTATE_180 = new Matrix(-1.0d, 0.0d, 0.0d, -1.0d, 0.0d, 0.0d, 1.0d, 0.0d, 0.0d);
+    public static final Matrix ROTATE_270 = new Matrix(0.0d, -1.0d, 1.0d, 0.0d, 0.0d, 0.0d, 1.0d, 0.0d, 0.0d);
 
     public Matrix(double d, double d2, double d3, double d4, double d5, double d6, double d7, double d8, double d9) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5), Double.valueOf(d6), Double.valueOf(d7), Double.valueOf(d8), Double.valueOf(d9)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.u = d5;
         this.v = d6;
         this.w = d7;
@@ -93,75 +32,65 @@ public class Matrix {
     }
 
     public static Matrix fromFileOrder(double d, double d2, double d3, double d4, double d5, double d6, double d7, double d8, double d9) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5), Double.valueOf(d6), Double.valueOf(d7), Double.valueOf(d8), Double.valueOf(d9)})) == null) {
-            return new Matrix(d, d2, d4, d5, d3, d6, d9, d7, d8);
-        }
-        return (Matrix) invokeCommon.objValue;
+        return new Matrix(d, d2, d4, d5, d3, d6, d9, d7, d8);
     }
 
     public static Matrix fromByteBuffer(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, byteBuffer)) == null) {
-            return fromFileOrder(IsoTypeReader.readFixedPoint1616(byteBuffer), IsoTypeReader.readFixedPoint1616(byteBuffer), IsoTypeReader.readFixedPoint0230(byteBuffer), IsoTypeReader.readFixedPoint1616(byteBuffer), IsoTypeReader.readFixedPoint1616(byteBuffer), IsoTypeReader.readFixedPoint0230(byteBuffer), IsoTypeReader.readFixedPoint1616(byteBuffer), IsoTypeReader.readFixedPoint1616(byteBuffer), IsoTypeReader.readFixedPoint0230(byteBuffer));
-        }
-        return (Matrix) invokeL.objValue;
+        return fromFileOrder(IsoTypeReader.readFixedPoint1616(byteBuffer), IsoTypeReader.readFixedPoint1616(byteBuffer), IsoTypeReader.readFixedPoint0230(byteBuffer), IsoTypeReader.readFixedPoint1616(byteBuffer), IsoTypeReader.readFixedPoint1616(byteBuffer), IsoTypeReader.readFixedPoint0230(byteBuffer), IsoTypeReader.readFixedPoint1616(byteBuffer), IsoTypeReader.readFixedPoint1616(byteBuffer), IsoTypeReader.readFixedPoint0230(byteBuffer));
     }
 
     public void getContent(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
-            IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.a);
-            IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.b);
-            IsoTypeWriter.writeFixedPoint0230(byteBuffer, this.u);
-            IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.c);
-            IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.d);
-            IsoTypeWriter.writeFixedPoint0230(byteBuffer, this.v);
-            IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.tx);
-            IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.ty);
-            IsoTypeWriter.writeFixedPoint0230(byteBuffer, this.w);
-        }
+        IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.a);
+        IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.b);
+        IsoTypeWriter.writeFixedPoint0230(byteBuffer, this.u);
+        IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.c);
+        IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.d);
+        IsoTypeWriter.writeFixedPoint0230(byteBuffer, this.v);
+        IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.tx);
+        IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.ty);
+        IsoTypeWriter.writeFixedPoint0230(byteBuffer, this.w);
     }
 
     public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || Matrix.class != obj.getClass()) {
-                return false;
-            }
-            Matrix matrix = (Matrix) obj;
-            if (Double.compare(matrix.a, this.a) == 0 && Double.compare(matrix.b, this.b) == 0 && Double.compare(matrix.c, this.c) == 0 && Double.compare(matrix.d, this.d) == 0 && Double.compare(matrix.tx, this.tx) == 0 && Double.compare(matrix.ty, this.ty) == 0 && Double.compare(matrix.u, this.u) == 0 && Double.compare(matrix.v, this.v) == 0 && Double.compare(matrix.w, this.w) == 0) {
-                return true;
-            }
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || Matrix.class != obj.getClass()) {
             return false;
         }
-        return invokeL.booleanValue;
+        Matrix matrix = (Matrix) obj;
+        if (Double.compare(matrix.a, this.a) == 0 && Double.compare(matrix.b, this.b) == 0 && Double.compare(matrix.c, this.c) == 0 && Double.compare(matrix.d, this.d) == 0 && Double.compare(matrix.tx, this.tx) == 0 && Double.compare(matrix.ty, this.ty) == 0 && Double.compare(matrix.u, this.u) == 0 && Double.compare(matrix.v, this.v) == 0 && Double.compare(matrix.w, this.w) == 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public int hashCode() {
+        long doubleToLongBits = Double.doubleToLongBits(this.u);
+        long doubleToLongBits2 = Double.doubleToLongBits(this.v);
+        long doubleToLongBits3 = Double.doubleToLongBits(this.w);
+        long doubleToLongBits4 = Double.doubleToLongBits(this.a);
+        long doubleToLongBits5 = Double.doubleToLongBits(this.b);
+        long doubleToLongBits6 = Double.doubleToLongBits(this.c);
+        long doubleToLongBits7 = Double.doubleToLongBits(this.d);
+        long doubleToLongBits8 = Double.doubleToLongBits(this.tx);
+        long doubleToLongBits9 = Double.doubleToLongBits(this.ty);
+        return (((((((((((((((((int) (doubleToLongBits ^ (doubleToLongBits >>> 32))) * 31) + ((int) (doubleToLongBits2 ^ (doubleToLongBits2 >>> 32)))) * 31) + ((int) (doubleToLongBits3 ^ (doubleToLongBits3 >>> 32)))) * 31) + ((int) (doubleToLongBits4 ^ (doubleToLongBits4 >>> 32)))) * 31) + ((int) (doubleToLongBits5 ^ (doubleToLongBits5 >>> 32)))) * 31) + ((int) (doubleToLongBits6 ^ (doubleToLongBits6 >>> 32)))) * 31) + ((int) (doubleToLongBits7 ^ (doubleToLongBits7 >>> 32)))) * 31) + ((int) (doubleToLongBits8 ^ (doubleToLongBits8 >>> 32)))) * 31) + ((int) (doubleToLongBits9 ^ (doubleToLongBits9 >>> 32)));
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (equals(ROTATE_0)) {
-                return "Rotate 0°";
-            }
-            if (equals(ROTATE_90)) {
-                return "Rotate 90°";
-            }
-            if (equals(ROTATE_180)) {
-                return "Rotate 180°";
-            }
-            if (equals(ROTATE_270)) {
-                return "Rotate 270°";
-            }
-            return "Matrix{u=" + this.u + ", v=" + this.v + ", w=" + this.w + ", a=" + this.a + ", b=" + this.b + ", c=" + this.c + ", d=" + this.d + ", tx=" + this.tx + ", ty=" + this.ty + '}';
+        if (equals(ROTATE_0)) {
+            return "Rotate 0°";
         }
-        return (String) invokeV.objValue;
+        if (equals(ROTATE_90)) {
+            return "Rotate 90°";
+        }
+        if (equals(ROTATE_180)) {
+            return "Rotate 180°";
+        }
+        if (equals(ROTATE_270)) {
+            return "Rotate 270°";
+        }
+        return "Matrix{u=" + this.u + ", v=" + this.v + ", w=" + this.w + ", a=" + this.a + ", b=" + this.b + ", c=" + this.c + ", d=" + this.d + ", tx=" + this.tx + ", ty=" + this.ty + '}';
     }
 }

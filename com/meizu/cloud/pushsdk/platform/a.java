@@ -21,7 +21,7 @@ public class a {
                 String substring = str.substring(0, 3);
                 if (a.containsKey(substring)) {
                     String str3 = a.get(substring);
-                    str2 = str.substring(3, str.length());
+                    str2 = str.substring(3);
                     try {
                         char[] cArr = new char[str2.length() / 2];
                         int i = 0;

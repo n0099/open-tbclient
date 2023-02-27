@@ -2,7 +2,6 @@ package com.baidu.mapsdkplatform.comapi.util;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.datacollector.growth.utils.UBCEncryptor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,7 +78,7 @@ public final class AlgorithmUtil {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, bArr)) == null) {
             if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
-                Cipher cipher = Cipher.getInstance(UBCEncryptor.TRANSFORMATION);
+                Cipher cipher = Cipher.getInstance("AES/CTR/NoPadding");
                 cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
                 return cipher.doFinal(bArr);
             }

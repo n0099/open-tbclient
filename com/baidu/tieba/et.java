@@ -1,15 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.framework.ui.dialog.TaskDialogData;
-import com.baidu.tieba.dt;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.framework.ui.buoy.BuoyViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class et<VM extends dt<? extends TaskDialogData>> implements ft<TaskDialogData, VM> {
+public class et<D extends BuoyViewData> implements kt<D> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final mt<D> a;
 
     public et() {
         Interceptable interceptable = $ic;
@@ -21,7 +23,25 @@ public abstract class et<VM extends dt<? extends TaskDialogData>> implements ft<
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new mt<>();
+    }
+
+    public lt<D> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (lt) invokeV.objValue;
+    }
+
+    public void b(D d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d) == null) {
+            this.a.o(d);
         }
     }
 }

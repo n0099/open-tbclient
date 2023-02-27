@@ -1,47 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActBtn;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes3.dex */
-public class c29 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+public interface c29 {
+    void a(boolean z);
 
-    public c29(ActBtn actBtn) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {actBtn};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
-        if (actBtn == null) {
-            return;
-        }
-        this.a = actBtn.type.intValue();
-        String str = actBtn.url;
-        String str2 = actBtn.text;
-    }
+    void b(int i);
 
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
+    void c();
+
+    boolean d();
+
+    void e();
+
+    boolean f();
+
+    int g();
+
+    @NonNull
+    BaseFragmentActivity getActivity();
+
+    int getAdSource();
+
+    @NonNull
+    ViewGroup getRootView();
+
+    BdUniqueId getUniqueId();
+
+    boolean h();
+
+    long i();
 }

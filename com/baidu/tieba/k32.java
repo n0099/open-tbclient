@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.text.TextUtils;
+import android.graphics.Path;
+import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class k32 extends c22 {
+public class k32 extends s22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public RectF a;
 
     public k32() {
         Interceptable interceptable = $ic;
@@ -25,39 +25,31 @@ public class k32 extends c22 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
     }
 
-    @Override // com.baidu.tieba.c22
-    public void a(d22 d22Var, Canvas canvas) {
+    @Override // com.baidu.tieba.s22
+    public void a(t22 t22Var, Canvas canvas) {
+        RectF rectF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, d22Var, canvas) == null) {
-            d22Var.k = this.a;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, t22Var, canvas) == null) && (rectF = this.a) != null) {
+            t22Var.f.addRect(rectF, Path.Direction.CW);
         }
     }
 
-    @Override // com.baidu.tieba.c22
+    @Override // com.baidu.tieba.s22
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
             try {
-                if (jSONArray.length() > 0) {
-                    String optString = jSONArray.optString(0);
-                    if (TextUtils.equals(optString, "top")) {
-                        this.a = 1;
-                    } else if (TextUtils.equals(optString, NativeConstants.MIDDLE)) {
-                        this.a = 2;
-                    } else if (TextUtils.equals(optString, "bottom")) {
-                        this.a = 3;
-                    } else {
-                        this.a = 0;
-                    }
+                if (jSONArray.length() == 4) {
+                    int g = dn3.g((float) jSONArray.optDouble(0));
+                    int g2 = dn3.g((float) jSONArray.optDouble(1));
+                    this.a = new RectF(g, g2, g + dn3.g((float) jSONArray.optDouble(2)), g2 + dn3.g((float) jSONArray.optDouble(3)));
                 }
             } catch (Exception e) {
-                if (gp1.a) {
+                if (wp1.a) {
                     e.printStackTrace();
                 }
             }

@@ -1,233 +1,182 @@
 package com.baidu.tieba;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public final class qfa implements zda {
+import java.io.IOException;
+import java.io.InputStream;
+import java.math.BigDecimal;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class qfa implements mfa {
     public static /* synthetic */ Interceptable $ic;
-    public static final zda g;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public zda b;
-    public boolean c;
-    public long d;
-    public long e;
-    public zda f;
+    public final JSONObject a;
 
-    /* loaded from: classes6.dex */
-    public static class a implements zda {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.zda
-        public void request(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948091293, "Lcom/baidu/tieba/qfa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948091293, "Lcom/baidu/tieba/qfa;");
-                return;
-            }
-        }
-        g = new a();
-    }
-
-    public qfa() {
+    public qfa(InputStream inputStream) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = b(inputStream);
+    }
+
+    public qfa(InputStream inputStream, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = b(inputStream);
+        c(str);
+    }
+
+    @Override // com.baidu.tieba.mfa
+    public String a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (str.endsWith("/")) {
+                return str2;
+            }
+            String[] split = str.split("/");
+            try {
+                JSONObject jSONObject = this.a;
+                for (int i = 1; i < split.length; i++) {
+                    if (i == split.length - 1) {
+                        str = jSONObject.get(split[i]).toString();
+                        return str;
+                    }
+                    jSONObject = jSONObject.getJSONObject(split[i]);
+                }
+            } catch (JSONException unused) {
+                Log.w("InputStreamReader", "JSONException when reading 'path': " + str);
+            }
+            return str2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final JSONObject b(InputStream inputStream) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream)) == null) {
+            if (inputStream != null) {
+                try {
+                    return new JSONObject(ifa.g(inputStream, "UTF-8"));
+                } catch (IOException unused) {
+                    str = "IOException when reading the 'Config' from InputStream.";
+                    Log.e("InputStreamReader", str);
+                    return new JSONObject();
+                } catch (JSONException unused2) {
+                    str = "JSONException when reading the 'Config' from InputStream.";
+                    Log.e("InputStreamReader", str);
+                    return new JSONObject();
+                }
+            }
+            return new JSONObject();
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            try {
+                JSONObject e = e(str);
+                if (e == null) {
+                    return;
+                }
+                String a = a("/configuration_version", "");
+                BigDecimal bigDecimal = new BigDecimal("0.0");
+                try {
+                    bigDecimal = BigDecimal.valueOf(Double.parseDouble(a));
+                } catch (NumberFormatException unused) {
+                    Log.d("InputStreamReader", "configuration_version to double error");
+                }
+                if (bigDecimal.compareTo(new BigDecimal("2.0")) == 0) {
+                    this.a.getJSONObject("client").put("app_id", e.getString("app_id"));
+                } else if (bigDecimal.compareTo(new BigDecimal("3.0")) >= 0) {
+                    Iterator<String> keys = e.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        if (!"package_name".equals(next)) {
+                            d(next, e.get(next), this.a);
+                        }
+                    }
+                }
+            } catch (JSONException unused2) {
+                Log.d("InputStreamReader", "JSONException when reading the 'appInfos' from InputStream.");
             }
         }
     }
 
-    public void a() {
+    public final void d(String str, Object obj, JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, str, obj, jSONObject) == null) || str == null || obj == null || jSONObject == null) {
             return;
         }
-        while (true) {
-            synchronized (this) {
-                long j = this.d;
-                long j2 = this.e;
-                zda zdaVar = this.f;
-                int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-                if (i == 0 && j2 == 0 && zdaVar == null) {
-                    this.c = false;
-                    return;
-                }
-                this.d = 0L;
-                this.e = 0L;
-                this.f = null;
-                long j3 = this.a;
-                if (j3 != Long.MAX_VALUE) {
-                    long j4 = j3 + j;
-                    if (j4 >= 0 && j4 != Long.MAX_VALUE) {
-                        j3 = j4 - j2;
-                        if (j3 >= 0) {
-                            this.a = j3;
-                        } else {
-                            throw new IllegalStateException("more produced than requested");
-                        }
-                    } else {
-                        this.a = Long.MAX_VALUE;
-                        j3 = Long.MAX_VALUE;
-                    }
-                }
-                if (zdaVar != null) {
-                    if (zdaVar == g) {
-                        this.b = null;
-                    } else {
-                        this.b = zdaVar;
-                        zdaVar.request(j3);
-                    }
-                } else {
-                    zda zdaVar2 = this.b;
-                    if (zdaVar2 != null && i != 0) {
-                        zdaVar2.request(j);
-                    }
-                }
-            }
+        if (!(obj instanceof JSONObject)) {
+            jSONObject.put(str, obj);
+            return;
+        }
+        JSONObject jSONObject2 = (JSONObject) obj;
+        Iterator<String> keys = jSONObject2.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
+            d(next, jSONObject2.get(next), jSONObject.getJSONObject(str));
         }
     }
 
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public void b(long j) {
+    public final JSONObject e(String str) throws JSONException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            if (j > 0) {
-                synchronized (this) {
-                    if (this.c) {
-                        this.e += j;
-                        return;
-                    }
-                    this.c = true;
-                    try {
-                        long j2 = this.a;
-                        if (j2 != Long.MAX_VALUE) {
-                            long j3 = j2 - j;
-                            if (j3 >= 0) {
-                                this.a = j3;
-                            } else {
-                                throw new IllegalStateException("more items arrived than were requested");
-                            }
-                        }
-                        a();
-                        return;
-                    } catch (Throwable th) {
-                        synchronized (this) {
-                            this.c = false;
-                            throw th;
-                        }
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            JSONArray jSONArray = this.a.getJSONArray("appInfos");
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject jSONObject = jSONArray.getJSONObject(i);
+                if (jSONObject.getString("package_name").equals(str)) {
+                    return jSONObject;
                 }
             }
-            throw new IllegalArgumentException("n > 0 required");
+            return null;
         }
+        return (JSONObject) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    @Override // com.baidu.tieba.zda
-    public void request(long j) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i >= 0) {
-                if (i == 0) {
-                    return;
-                }
-                synchronized (this) {
-                    if (this.c) {
-                        this.d += j;
-                        return;
-                    }
-                    this.c = true;
-                    try {
-                        long j2 = this.a + j;
-                        if (j2 < 0) {
-                            j2 = Long.MAX_VALUE;
-                        }
-                        this.a = j2;
-                        zda zdaVar = this.b;
-                        if (zdaVar != null) {
-                            zdaVar.request(j);
-                        }
-                        a();
-                        return;
-                    } catch (Throwable th) {
-                        synchronized (this) {
-                            this.c = false;
-                            throw th;
-                        }
-                    }
-                }
-            }
-            throw new IllegalArgumentException("n >= 0 required");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "InputStreamReader{config=" + this.a.toString().hashCode() + '}';
         }
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public void c(zda zdaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zdaVar) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    if (zdaVar == null) {
-                        zdaVar = g;
-                    }
-                    this.f = zdaVar;
-                    return;
-                }
-                this.c = true;
-                try {
-                    this.b = zdaVar;
-                    if (zdaVar != null) {
-                        zdaVar.request(this.a);
-                    }
-                    a();
-                } catch (Throwable th) {
-                    synchronized (this) {
-                        this.c = false;
-                        throw th;
-                    }
-                }
-            }
-        }
+        return (String) invokeV.objValue;
     }
 }

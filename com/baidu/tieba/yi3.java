@@ -1,223 +1,189 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import androidx.media2.session.SessionCommand;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tieba.ef3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Date;
-import java.util.Stack;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yi3 {
+public class yi3 implements SensorEventListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static int b;
+    @SuppressLint({"StaticFieldLeak"})
+    public static volatile yi3 i;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public SensorManager b;
+    public Sensor c;
+    public a d;
+    public double[] e;
+    public boolean f;
+    public long g;
+    public int h;
 
     /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
+    public interface a {
+        void a(double[] dArr);
+    }
 
-        public a(String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONObject jSONObject = new JSONObject();
-                File file = new File(this.a);
-                try {
-                    jSONObject.put("file_name", this.b);
-                    jSONObject.put("file_tree", yi3.d(file));
-                    jSONObject.put("file_stack_info", this.c);
-                    jSONObject.put("file_free_space", file.getFreeSpace());
-                    jSONObject.put("file_total_space", file.getTotalSpace());
-                } catch (JSONException e) {
-                    if (yi3.a) {
-                        e.printStackTrace();
-                    }
-                }
-                ef3.b bVar = new ef3.b(SessionCommand.COMMAND_CODE_PLAYER_SET_MEDIA_ITEM);
-                bVar.j(this.b);
-                bVar.h(v83.K().getAppId());
-                bVar.i(jSONObject.toString());
-                bVar.m();
-            }
+    @Override // android.hardware.SensorEventListener
+    public void onAccuracyChanged(Sensor sensor, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, sensor, i2) == null) {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-
-        public b(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put(PrefetchEvent.EVENT_KEY_APP_PATH, this.a);
-                    jSONObject.put("pagePath", this.b);
-                } catch (JSONException e) {
-                    if (yi3.a) {
-                        e.printStackTrace();
-                    }
-                }
-                ef3.b bVar = new ef3.b(SessionCommand.COMMAND_CODE_PLAYER_SET_MEDIA_ITEM);
-                bVar.i(jSONObject.toString());
-                bVar.h(v83.K().getAppId());
-                bVar.m();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948331078, "Lcom/baidu/tieba/yi3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948331078, "Lcom/baidu/tieba/yi3;");
+    public yi3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = gp1.a;
-        b = -1;
+        this.e = new double[3];
+        this.f = false;
+        this.g = 0L;
     }
 
-    public static int c() {
+    public static yi3 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b < 0) {
-                ds2.g0().getSwitch("swan_app_file_analysis_switch", 0);
-                b = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (i == null) {
+                synchronized (yi3.class) {
+                    if (i == null) {
+                        i = new yi3();
+                    }
+                }
             }
-            return b;
+            return i;
         }
-        return invokeV.intValue;
+        return (yi3) invokeV.objValue;
     }
 
-    public static void b(String str, String str2) {
+    public static synchronized void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65538, null, str, str2) != null) || c() <= 0) {
-            return;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            synchronized (yi3.class) {
+                if (i == null) {
+                    return;
+                }
+                i.c();
+            }
         }
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            String f = om3.f(str2);
-            if (!new File(str, f + ".swan.js").exists()) {
-                f(str, f);
+    }
+
+    public final synchronized void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                m62.i("accelerometer", "release");
+                if (this.f) {
+                    g();
+                }
+                this.a = null;
+                i = null;
+            }
+        }
+    }
+
+    public synchronized void b(Context context, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i2) == null) {
+            synchronized (this) {
+                this.a = context;
+                this.h = i2;
+            }
+        }
+    }
+
+    public synchronized void e(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            synchronized (this) {
+                this.d = aVar;
+            }
+        }
+    }
+
+    public synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    m62.c("accelerometer", "start error, none context");
+                } else if (this.f) {
+                    m62.o("accelerometer", "has already start");
+                } else {
+                    SensorManager sensorManager = (SensorManager) this.a.getSystemService("sensor");
+                    this.b = sensorManager;
+                    if (sensorManager != null) {
+                        Sensor defaultSensor = sensorManager.getDefaultSensor(1);
+                        this.c = defaultSensor;
+                        this.b.registerListener(this, defaultSensor, 1);
+                        this.f = true;
+                        m62.i("accelerometer", "start listen");
+                    } else {
+                        m62.c("accelerometer", "none sensorManager");
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (!this.f) {
+                    m62.o("accelerometer", "has already stop");
+                    return;
+                }
+                if (this.b != null) {
+                    this.b.unregisterListener(this);
+                }
+                this.b = null;
+                this.c = null;
+                this.f = false;
+            }
+        }
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        Sensor sensor;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, sensorEvent) == null) && sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 1) {
+            float[] fArr = sensorEvent.values;
+            if (fArr != null && fArr.length == 3) {
+                synchronized (this) {
+                    if (this.f && this.d != null && System.currentTimeMillis() - this.g > this.h) {
+                        this.e[0] = (-sensorEvent.values[0]) / 9.8d;
+                        this.e[1] = (-sensorEvent.values[1]) / 9.8d;
+                        this.e[2] = (-sensorEvent.values[2]) / 9.8d;
+                        this.d.a(this.e);
+                        this.g = System.currentTimeMillis();
+                    }
+                    if (m93.v) {
+                        Log.d("AccelerometerManager", "current Time : " + this.g + "current Acc x : " + this.e[0] + "current Acc y : " + this.e[1] + "current Acc z : " + this.e[2]);
+                    }
+                }
                 return;
             }
-            return;
-        }
-        e(str, str2);
-    }
-
-    public static String d(File file) {
-        InterceptResult invokeL;
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
-            if (file != null && file.exists() && file.isDirectory()) {
-                ArrayList arrayList = new ArrayList();
-                ArrayList arrayList2 = new ArrayList();
-                Stack stack = new Stack();
-                stack.push(file);
-                while (!stack.isEmpty()) {
-                    File file2 = (File) stack.pop();
-                    if (file2 != null) {
-                        if (file2.isFile()) {
-                            arrayList.add(file2);
-                        } else if (file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length > 0) {
-                            Collections.addAll(stack, listFiles);
-                        }
-                    }
-                }
-                if (arrayList.size() > 0) {
-                    for (int i = 0; i < arrayList.size(); i++) {
-                        File file3 = (File) arrayList.get(i);
-                        arrayList2.add(file3.getAbsolutePath() + "|" + new Date(file3.lastModified()));
-                    }
-                }
-                return Arrays.toString(arrayList2.toArray());
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            ql3.f().execute(new b(str, str2));
-        }
-    }
-
-    public static void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
-            ql3.f().execute(new a(str, str2, Arrays.toString(new Exception().getStackTrace())));
+            m62.o("accelerometer", "illegal accelerometer event");
         }
     }
 }

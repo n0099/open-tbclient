@@ -1,91 +1,62 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.FrsPage.DataRes;
-/* loaded from: classes4.dex */
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+/* loaded from: classes3.dex */
 public class c85 {
     public static /* synthetic */ Interceptable $ic;
-    public static final c85 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947628649, "Lcom/baidu/tieba/c85;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947628649, "Lcom/baidu/tieba/c85;");
-                return;
-            }
-        }
-        a = new c85(false);
-    }
-
-    public c85(boolean z) {
+    public static List<String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String s = b55.m().s("scheme_white_list", null);
+            if (StringUtils.isNull(s)) {
+                return null;
+            }
+            try {
+                return b(new JSONArray(s));
+            } catch (Exception unused) {
+                return null;
             }
         }
+        return (List) invokeV.objValue;
     }
 
-    @NonNull
-    public static c85 a(@Nullable JSONObject jSONObject) {
+    public static List<String> b(JSONArray jSONArray) {
         InterceptResult invokeL;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            boolean z = false;
-            if (jSONObject != null) {
-                i = jSONObject.optInt("voice_room_config");
-            } else {
-                i = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONArray)) == null) {
+            if (jSONArray == null) {
+                return null;
             }
-            if (i == 1) {
-                z = true;
+            ArrayList arrayList = new ArrayList();
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                String optString = jSONArray.optString(i);
+                if (!StringUtils.isNull(optString)) {
+                    arrayList.add(optString);
+                }
             }
-            return new c85(z);
+            return arrayList;
         }
-        return (c85) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 
-    @NonNull
-    public static c85 b(@Nullable DataRes dataRes) {
-        InterceptResult invokeL;
-        int i;
+    public static void c(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, dataRes)) == null) {
-            boolean z = false;
-            if (dataRes != null) {
-                i = dataRes.voice_room_config.intValue();
+        if (interceptable == null || interceptable.invokeL(65538, null, jSONArray) == null) {
+            if (jSONArray == null) {
+                b55.m().B("scheme_white_list", "");
             } else {
-                i = 0;
+                b55.m().B("scheme_white_list", jSONArray.toString());
             }
-            if (i == 1) {
-                z = true;
-            }
-            return new c85(z);
         }
-        return (c85) invokeL.objValue;
     }
 }

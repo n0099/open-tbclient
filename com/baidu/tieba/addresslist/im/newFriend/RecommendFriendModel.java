@@ -9,11 +9,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.dy5;
-import com.baidu.tieba.kp5;
-import com.baidu.tieba.oo5;
-import com.baidu.tieba.op5;
+import com.baidu.tieba.cq5;
+import com.baidu.tieba.cr5;
+import com.baidu.tieba.uz5;
 import com.baidu.tieba.x9;
+import com.baidu.tieba.yq5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,12 +66,12 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
 
         /* renamed from: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0222a extends kp5<Void> {
+        public class C0209a extends yq5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ List a;
 
-            public C0222a(a aVar, List list) {
+            public C0209a(a aVar, List list) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,7 +90,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.kp5
+            @Override // com.baidu.tieba.yq5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
@@ -98,7 +98,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     List list = this.a;
                     if (list != null && list.size() > 0) {
-                        dy5.f().m(this.a);
+                        uz5.f().m(this.a);
                         return null;
                     }
                     return null;
@@ -108,7 +108,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
         }
 
         /* loaded from: classes3.dex */
-        public class b implements oo5<Void> {
+        public class b implements cq5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
@@ -134,7 +134,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.oo5
+            @Override // com.baidu.tieba.cq5
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
@@ -174,7 +174,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                     RecommendFriendResponseMessage recommendFriendResponseMessage = (RecommendFriendResponseMessage) httpResponsedMessage;
                     String errMsg = recommendFriendResponseMessage.getErrMsg();
                     if (recommendFriendResponseMessage.getError() == 0) {
-                        op5.c(new C0222a(this, recommendFriendResponseMessage.getDatas()), new b(this, errMsg));
+                        cr5.c(new C0209a(this, recommendFriendResponseMessage.getDatas()), new b(this, errMsg));
                     } else if (this.a.a != null) {
                         this.a.a.i(errMsg);
                     }
@@ -229,7 +229,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
         this.a = bVar;
     }
 
-    public void H() {
+    public void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             sendMessage(new HttpMessage(CmdConfigHttp.RECOMMOEND_FRIEND_CMD));

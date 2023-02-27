@@ -1,6 +1,7 @@
 package com.vivo.push.sdk;
 
 import android.content.Context;
+import com.vivo.push.model.NotifyArriveCallbackByUser;
 import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.model.UnvarnishedMessage;
 import java.util.List;
@@ -18,7 +19,7 @@ public interface PushMessageCallback {
 
     void onLog(Context context, String str, int i, boolean z);
 
-    boolean onNotificationMessageArrived(Context context, UPSNotificationMessage uPSNotificationMessage);
+    NotifyArriveCallbackByUser onNotificationMessageArrived(Context context, UPSNotificationMessage uPSNotificationMessage);
 
     void onNotificationMessageClicked(Context context, UPSNotificationMessage uPSNotificationMessage);
 

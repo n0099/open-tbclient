@@ -1,139 +1,73 @@
 package com.google.android.exoplayer2.extractor.mkv;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.extractor.ExtractorInput;
 import java.io.IOException;
 /* loaded from: classes7.dex */
 public final class VarintReader {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_BEGIN_READING = 0;
     public static final int STATE_READ_CONTENTS = 1;
-    public static final long[] VARINT_LENGTH_MASKS;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final long[] VARINT_LENGTH_MASKS = {128, 64, 32, 16, 8, 4, 2, 1};
     public int length;
-    public final byte[] scratch;
+    public final byte[] scratch = new byte[8];
     public int state;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(632981232, "Lcom/google/android/exoplayer2/extractor/mkv/VarintReader;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(632981232, "Lcom/google/android/exoplayer2/extractor/mkv/VarintReader;");
-                return;
-            }
-        }
-        VARINT_LENGTH_MASKS = new long[]{128, 64, 32, 16, 8, 4, 2, 1};
-    }
-
-    public VarintReader() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.scratch = new byte[8];
-    }
-
     public int getLastLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.length;
-        }
-        return invokeV.intValue;
+        return this.length;
     }
 
     public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.state = 0;
-            this.length = 0;
-        }
+        this.state = 0;
+        this.length = 0;
     }
 
     public static long assembleVarint(byte[] bArr, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{bArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            long j = bArr[0] & 255;
-            if (z) {
-                j &= ~VARINT_LENGTH_MASKS[i - 1];
-            }
-            for (int i2 = 1; i2 < i; i2++) {
-                j = (j << 8) | (bArr[i2] & 255);
-            }
-            return j;
+        long j = bArr[0] & 255;
+        if (z) {
+            j &= ~VARINT_LENGTH_MASKS[i - 1];
         }
-        return invokeCommon.longValue;
+        for (int i2 = 1; i2 < i; i2++) {
+            j = (j << 8) | (bArr[i2] & 255);
+        }
+        return j;
     }
 
     public static int parseUnsignedVarintLength(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            int i2 = 0;
-            while (true) {
-                long[] jArr = VARINT_LENGTH_MASKS;
-                if (i2 < jArr.length) {
-                    if ((jArr[i2] & i) != 0) {
-                        return i2 + 1;
-                    }
-                    i2++;
-                } else {
-                    return -1;
+        int i2 = 0;
+        while (true) {
+            long[] jArr = VARINT_LENGTH_MASKS;
+            if (i2 < jArr.length) {
+                if ((jArr[i2] & i) != 0) {
+                    return i2 + 1;
                 }
+                i2++;
+            } else {
+                return -1;
             }
-        } else {
-            return invokeI.intValue;
         }
     }
 
     public long readUnsignedVarint(ExtractorInput extractorInput, boolean z, boolean z2, int i) throws IOException, InterruptedException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{extractorInput, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)})) == null) {
-            if (this.state == 0) {
-                if (!extractorInput.readFully(this.scratch, 0, 1, z)) {
-                    return -1L;
-                }
-                int parseUnsignedVarintLength = parseUnsignedVarintLength(this.scratch[0] & 255);
-                this.length = parseUnsignedVarintLength;
-                if (parseUnsignedVarintLength != -1) {
-                    this.state = 1;
-                } else {
-                    throw new IllegalStateException("No valid varint length mask found");
-                }
+        if (this.state == 0) {
+            if (!extractorInput.readFully(this.scratch, 0, 1, z)) {
+                return -1L;
             }
-            int i2 = this.length;
-            if (i2 > i) {
-                this.state = 0;
-                return -2L;
+            int parseUnsignedVarintLength = parseUnsignedVarintLength(this.scratch[0] & 255);
+            this.length = parseUnsignedVarintLength;
+            if (parseUnsignedVarintLength != -1) {
+                this.state = 1;
+            } else {
+                throw new IllegalStateException("No valid varint length mask found");
             }
-            if (i2 != 1) {
-                extractorInput.readFully(this.scratch, 1, i2 - 1);
-            }
-            this.state = 0;
-            return assembleVarint(this.scratch, this.length, z2);
         }
-        return invokeCommon.longValue;
+        int i2 = this.length;
+        if (i2 > i) {
+            this.state = 0;
+            return -2L;
+        }
+        if (i2 != 1) {
+            extractorInput.readFully(this.scratch, 1, i2 - 1);
+        }
+        this.state = 0;
+        return assembleVarint(this.scratch, this.length, z2);
     }
 }

@@ -7,16 +7,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.b.r;
 import com.vivo.push.b.t;
 import com.vivo.push.b.u;
-import com.vivo.push.d.ag;
-import com.vivo.push.d.z;
+import com.vivo.push.f.aa;
+import com.vivo.push.f.ah;
 /* loaded from: classes8.dex */
 public final class d implements IPushClientFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ag a;
+    public ah a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -31,17 +30,17 @@ public final class d implements IPushClientFactory {
                 return;
             }
         }
-        this.a = new ag();
+        this.a = new ah();
     }
 
     @Override // com.vivo.push.IPushClientFactory
-    public final z createReceiveTask(o oVar) {
+    public final aa createReceiveTask(o oVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, oVar)) == null) {
-            return ag.b(oVar);
+            return ah.b(oVar);
         }
-        return (z) invokeL.objValue;
+        return (aa) invokeL.objValue;
     }
 
     @Override // com.vivo.push.IPushClientFactory
@@ -49,7 +48,7 @@ public final class d implements IPushClientFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oVar)) == null) {
-            return ag.a(oVar);
+            return ah.a(oVar);
         }
         return (l) invokeL.objValue;
     }
@@ -83,7 +82,7 @@ public final class d implements IPushClientFactory {
                             uVar = new com.vivo.push.b.p();
                             break;
                         case 6:
-                            uVar = new r();
+                            uVar = new com.vivo.push.b.r();
                             break;
                         case 7:
                             uVar = new com.vivo.push.b.n();
@@ -115,7 +114,7 @@ public final class d implements IPushClientFactory {
             if (uVar != null) {
                 a a = a.a(intent);
                 if (a == null) {
-                    com.vivo.push.util.p.b("PushCommand", "bundleWapper is null");
+                    com.vivo.push.util.u.b("PushCommand", "bundleWapper is null");
                 } else {
                     uVar.b(a);
                 }

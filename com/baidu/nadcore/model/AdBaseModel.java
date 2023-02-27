@@ -3,39 +3,29 @@ package com.baidu.nadcore.model;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
-import com.baidu.tieba.ar0;
-import com.baidu.tieba.dr0;
+import com.baidu.tieba.e21;
 import com.baidu.tieba.er0;
-import com.baidu.tieba.kq0;
-import com.baidu.tieba.lq0;
-import com.baidu.tieba.nq0;
+import com.baidu.tieba.hr0;
+import com.baidu.tieba.ir0;
+import com.baidu.tieba.oq0;
 import com.baidu.tieba.pq0;
-import com.baidu.tieba.qi0;
+import com.baidu.tieba.rq0;
 import com.baidu.tieba.tq0;
-import com.baidu.tieba.vq0;
-import com.baidu.tieba.x11;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.ui0;
+import com.baidu.tieba.xq0;
+import com.baidu.tieba.zq0;
 import com.fun.ad.sdk.FunAdSdk;
-import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class AdBaseModel {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public boolean b;
     @Nullable
@@ -44,194 +34,88 @@ public class AdBaseModel {
     @NonNull
     public final List<MonitorUrl> e;
     @NonNull
-    public final tq0 f;
+    public final xq0 f;
     @Nullable
-    public final kq0 g;
+    public final oq0 g;
     @Nullable
     public final AdOperator h;
     @Nullable
-    public final er0 i;
+    public final ir0 i;
     @Nullable
-    public final ar0 j;
+    public final er0 j;
     @Nullable
-    public final List<vq0> k;
+    public final List<zq0> k;
     @Nullable
-    public final lq0 l;
+    public final pq0 l;
     @Nullable
-    public pq0 m;
+    public tq0 m;
     public int n;
     @NonNull
     public List<String> o;
-    public dr0 p;
-    public qi0 q;
+    public hr0 p;
+    public ui0 q;
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    public AdBaseModel(@NonNull xq0 xq0Var, @NonNull JSONObject jSONObject) throws ParseError {
+        this(xq0Var, jSONObject, false);
+    }
+
     /* loaded from: classes2.dex */
-    public static final class STYLE {
-        public static final /* synthetic */ STYLE[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final STYLE BIG_IMAGE;
-        public static final STYLE FLOAT;
-        public static final STYLE HIDDEN;
-        public static final STYLE MAX;
-        public static final STYLE PORTRAIT_VIDEO;
-        public static final STYLE REWARD_VIDEO_LP;
-        public static final STYLE REWARD_VIDEO_LP_IMPL;
-        public static final STYLE SMALL_IMAGE;
-        public static final STYLE THREE_IMAGE;
-        public static final STYLE VIDEO;
-        public transient /* synthetic */ FieldHolder $fh;
+    public enum STYLE {
+        BIG_IMAGE("big_image"),
+        SMALL_IMAGE("small_image"),
+        THREE_IMAGE("three_image"),
+        VIDEO("video"),
+        PORTRAIT_VIDEO("portrait_video"),
+        FLOAT(ShaderParams.VALUE_TYPE_FLOAT),
+        REWARD_VIDEO_LP("reward_video_lp"),
+        REWARD_VIDEO_LP_IMPL("reward_video_lp_impl"),
+        MAX(FunAdSdk.PLATFORM_MAX),
+        HIDDEN("hidden");
+        
         public final String value;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1666764588, "Lcom/baidu/nadcore/model/AdBaseModel$STYLE;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1666764588, "Lcom/baidu/nadcore/model/AdBaseModel$STYLE;");
-                    return;
-                }
-            }
-            BIG_IMAGE = new STYLE("BIG_IMAGE", 0, "big_image");
-            SMALL_IMAGE = new STYLE("SMALL_IMAGE", 1, "small_image");
-            THREE_IMAGE = new STYLE("THREE_IMAGE", 2, "three_image");
-            VIDEO = new STYLE(HlsPlaylistParser.TYPE_VIDEO, 3, "video");
-            PORTRAIT_VIDEO = new STYLE("PORTRAIT_VIDEO", 4, "portrait_video");
-            FLOAT = new STYLE("FLOAT", 5, ShaderParams.VALUE_TYPE_FLOAT);
-            REWARD_VIDEO_LP = new STYLE("REWARD_VIDEO_LP", 6, "reward_video_lp");
-            REWARD_VIDEO_LP_IMPL = new STYLE("REWARD_VIDEO_LP_IMPL", 7, "reward_video_lp_impl");
-            MAX = new STYLE("MAX", 8, FunAdSdk.PLATFORM_MAX);
-            STYLE style = new STYLE("HIDDEN", 9, "hidden");
-            HIDDEN = style;
-            $VALUES = new STYLE[]{BIG_IMAGE, SMALL_IMAGE, THREE_IMAGE, VIDEO, PORTRAIT_VIDEO, FLOAT, REWARD_VIDEO_LP, REWARD_VIDEO_LP_IMPL, MAX, style};
-        }
-
-        public STYLE(String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i), str2};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str3 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.value = str2;
+        STYLE(String str) {
+            this.value = str;
         }
 
         public static STYLE from(String str) {
-            InterceptResult invokeL;
             STYLE[] values;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                for (STYLE style : values()) {
-                    if (style.value.equals(str)) {
-                        return style;
-                    }
+            for (STYLE style : values()) {
+                if (style.value.equals(str)) {
+                    return style;
                 }
-                throw new EnumConstantNotPresentException(STYLE.class, str);
             }
-            return (STYLE) invokeL.objValue;
+            throw new EnumConstantNotPresentException(STYLE.class, str);
         }
 
         public static int getStyleCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return values().length;
-            }
-            return invokeV.intValue;
-        }
-
-        public static STYLE[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-                return (STYLE[]) $VALUES.clone();
-            }
-            return (STYLE[]) invokeV.objValue;
-        }
-
-        public static STYLE valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-                return (STYLE) Enum.valueOf(STYLE.class, str);
-            }
-            return (STYLE) invokeL.objValue;
+            return values().length;
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AdBaseModel(@NonNull tq0 tq0Var, @NonNull JSONObject jSONObject) throws ParseError {
-        this(tq0Var, jSONObject, false);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tq0Var, jSONObject};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((tq0) objArr2[0], (JSONObject) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public AdBaseModel(@NonNull tq0 tq0Var, @NonNull JSONObject jSONObject, boolean z) throws ParseError {
-        kq0 a;
+    public AdBaseModel(@NonNull xq0 xq0Var, @NonNull JSONObject jSONObject, boolean z) throws ParseError {
+        oq0 a;
         AdOperator a2;
         boolean z2;
-        er0 c;
+        ir0 c;
         int length;
         int length2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tq0Var, jSONObject, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.e = new ArrayList();
         this.o = new ArrayList();
-        String str = tq0Var.b;
+        String str = xq0Var.b;
         JSONObject optJSONObject = jSONObject.optJSONObject(GameGuideConfigInfo.KEY_CLOSE_INFO);
         if (optJSONObject == null) {
             a = null;
         } else {
-            a = kq0.a(optJSONObject);
+            a = oq0.a(optJSONObject);
         }
         this.g = a;
-        this.f = tq0Var;
-        this.j = ar0.b(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO), z);
-        this.k = vq0.a(jSONObject.optJSONArray("prefetch_video"));
-        this.l = lq0.b(jSONObject.optJSONObject(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO));
-        this.m = pq0.a(jSONObject.optJSONObject("enhance"));
-        nq0.a(jSONObject.optJSONObject("interaction"));
+        this.f = xq0Var;
+        this.j = er0.b(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO), z);
+        this.k = zq0.a(jSONObject.optJSONArray("prefetch_video"));
+        this.l = pq0.b(jSONObject.optJSONObject(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO));
+        this.m = tq0.a(jSONObject.optJSONObject("enhance"));
+        rq0.a(jSONObject.optJSONObject("interaction"));
         JSONObject optJSONObject2 = jSONObject.optJSONObject("operate");
         if (optJSONObject2 == null) {
             a2 = null;
@@ -249,7 +133,7 @@ public class AdBaseModel {
         if (optJSONObject3 == null) {
             c = null;
         } else {
-            c = er0.c(optJSONObject3);
+            c = ir0.c(optJSONObject3);
         }
         this.i = (c == null || !c.k) ? null : c;
         JSONArray optJSONArray = jSONObject.optJSONArray("ad_monitor_url");
@@ -258,50 +142,47 @@ public class AdBaseModel {
         } else {
             length = optJSONArray.length();
         }
-        for (int i3 = 0; i3 < length; i3++) {
-            JSONObject optJSONObject4 = optJSONArray.optJSONObject(i3);
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject4 = optJSONArray.optJSONObject(i);
             if (optJSONObject4 != null) {
                 String optString = optJSONObject4.optString("show_url");
                 String optString2 = optJSONObject4.optString("click_url");
                 if (!TextUtils.isEmpty(optString) || !TextUtils.isEmpty(optString2)) {
-                    x11.b(this.e, new MonitorUrl(optString, optString2));
+                    e21.b(this.e, new MonitorUrl(optString, optString2));
                 }
             }
         }
-        JSONArray optJSONArray2 = jSONObject.optJSONArray("tag_list");
+        JSONArray optJSONArray2 = jSONObject.optJSONArray(PushConstants.SUB_TAGS_STATUS_LIST);
         if (optJSONArray2 == null) {
             length2 = 0;
         } else {
             length2 = optJSONArray2.length();
         }
-        for (int i4 = 0; i4 < length2; i4++) {
-            JSONObject optJSONObject5 = optJSONArray2.optJSONObject(i4);
+        for (int i2 = 0; i2 < length2; i2++) {
+            JSONObject optJSONObject5 = optJSONArray2.optJSONObject(i2);
             if (optJSONObject5 != null) {
                 String optString3 = optJSONObject5.optString("word");
                 if (!TextUtils.isEmpty(optString3)) {
-                    x11.b(this.o, optString3);
+                    e21.b(this.o, optString3);
                 }
             }
         }
-        ar0 ar0Var = this.j;
-        if (ar0Var != null) {
-            ar0Var.d(this);
+        er0 er0Var = this.j;
+        if (er0Var != null) {
+            er0Var.d(this);
         }
         this.c = null;
     }
 
-    public void a(@Nullable dr0 dr0Var) {
-        List<vq0> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dr0Var) == null) {
-            this.p = dr0Var;
-            if (dr0Var == null || dr0Var.c) {
-                this.f.b();
-            }
-            if ((dr0Var == null || dr0Var.d) && (list = this.k) != null && list.size() > 0) {
-                for (vq0 vq0Var : this.k) {
-                    vq0Var.b();
-                }
+    public void a(@Nullable hr0 hr0Var) {
+        List<zq0> list;
+        this.p = hr0Var;
+        if (hr0Var == null || hr0Var.c) {
+            this.f.b();
+        }
+        if ((hr0Var == null || hr0Var.d) && (list = this.k) != null && list.size() > 0) {
+            for (zq0 zq0Var : this.k) {
+                zq0Var.b();
             }
         }
     }

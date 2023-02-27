@@ -1,77 +1,166 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.app.Activity;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.tieba.i91;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.d91;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public final class b81 {
+public abstract class b81 implements u81 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
-    public static final int b = 0;
-    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract boolean c(@NonNull d81 d81Var, @NonNull String str);
+
+    public abstract void d(@NonNull d81 d81Var, @NonNull String str);
+
     /* loaded from: classes3.dex */
-    public interface a {
-        boolean a(HashMap<String, String> hashMap, int i);
+    public static class a implements d81 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final t81 a;
 
-        void b(Context context, int i);
-
-        AbsNadBrowserView c(Context context, k91 k91Var, int i);
-
-        void d(Context context, boolean z, int i, i91.b bVar);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947598734, "Lcom/baidu/tieba/b81;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(t81 t81Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t81Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947598734, "Lcom/baidu/tieba/b81;");
-                return;
+            this.a = t81Var;
+        }
+
+        @Override // com.baidu.tieba.t81
+        public boolean a(@NonNull String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return this.a.a(str);
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.t81
+        @Nullable
+        public Activity c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a.c();
+            }
+            return (Activity) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.t81
+        public boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.a.d();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.t81
+        @Nullable
+        public LinearLayout e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.a.e();
+            }
+            return (LinearLayout) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.t81
+        public boolean f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.a.f();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.t81
+        @Nullable
+        public FrameLayout h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.a.h();
+            }
+            return (FrameLayout) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.t81
+        @Nullable
+        public d91.d l() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.a.l();
+            }
+            return (d91.d) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.t81
+        @Nullable
+        public AbsNadBrowserView m() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.a.m();
+            }
+            return (AbsNadBrowserView) invokeV.objValue;
+        }
+    }
+
+    public b81() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a aVar = a81.b;
-        Intrinsics.checkNotNullExpressionValue(aVar, "BuildConfig.BROWSER_FACTORY");
-        a = aVar;
-        c = 1;
     }
 
-    public static final a a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.u81
+    public final boolean a(@NonNull t81 t81Var, @NonNull String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, t81Var, str)) == null) {
+            return c(new a(t81Var), str);
         }
-        return (a) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static final int b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.u81
+    public final void b(@NonNull t81 t81Var, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t81Var, str) == null) {
+            d(new a(t81Var), str);
         }
-        return invokeV.intValue;
-    }
-
-    public static final int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return c;
-        }
-        return invokeV.intValue;
     }
 }

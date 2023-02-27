@@ -1,238 +1,133 @@
 package com.baidu.ar;
 
 import android.opengl.EGLContext;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class DefaultParams {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public boolean aA;
-    public boolean aB;
-    public boolean aC;
-    public boolean aD;
-    public boolean aE;
-    public EGLContext aF;
-    public String aG;
-    public JSONObject aH;
-    public boolean aI;
-    public boolean aJ;
-    public boolean aK;
+    public boolean aA = true;
+    public boolean aB = true;
+    public boolean aC = true;
+    public boolean aD = true;
+    public boolean aE = false;
+    public EGLContext aF = null;
+    public String aG = null;
+    public JSONObject aH = null;
+    public boolean aI = true;
+    public boolean aJ = false;
+    public boolean aK = true;
     public String aL;
     public String ay;
     public String az;
 
-    public DefaultParams() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.aA = true;
-        this.aB = true;
-        this.aC = true;
-        this.aD = true;
-        this.aE = false;
-        this.aF = null;
-        this.aG = null;
-        this.aH = null;
-        this.aI = true;
-        this.aJ = false;
-        this.aK = true;
-    }
-
     public void enableLog(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.aI = z;
-        }
+        this.aI = z;
     }
 
     public String get3dShaderDBPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.aL : (String) invokeV.objValue;
+        return this.aL;
     }
 
     public String getFaceAlgoModelPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.ay : (String) invokeV.objValue;
+        return this.ay;
     }
 
     public JSONObject getGradingConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.aH : (JSONObject) invokeV.objValue;
+        return this.aH;
     }
 
     public String getMdlAlgoModelPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.az : (String) invokeV.objValue;
+        return this.az;
     }
 
     public String getRenderPipeline() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.aG : (String) invokeV.objValue;
+        return this.aG;
     }
 
     public EGLContext getShareContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.aF : (EGLContext) invokeV.objValue;
+        return this.aF;
     }
 
     public boolean isLogEnable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.aI : invokeV.booleanValue;
+        return this.aI;
     }
 
     public boolean isRecordAutoCrop() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.aK : invokeV.booleanValue;
+        return this.aK;
     }
 
     public boolean isUseBeautyFilter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.aB : invokeV.booleanValue;
+        return this.aB;
     }
 
     public boolean isUseFaceFilter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.aC : invokeV.booleanValue;
+        return this.aC;
     }
 
     public boolean isUseInputSizeInEngine() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.aA : invokeV.booleanValue;
+        return this.aA;
     }
 
     public boolean isUseMakeupFilter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.aD : invokeV.booleanValue;
+        return this.aD;
     }
 
     public boolean isUseTextureIO() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.aE : invokeV.booleanValue;
+        return this.aE;
     }
 
     public boolean isUserPlayAudio() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.aJ : invokeV.booleanValue;
+        return this.aJ;
     }
 
     public void set3dShaderPath(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.aL = str;
-        }
+        this.aL = str;
     }
 
     public void setFaceAlgoModelPath(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.ay = str;
-        }
+        this.ay = str;
     }
 
     public void setGradingConfig(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, jSONObject) == null) {
-            this.aH = jSONObject;
-        }
+        this.aH = jSONObject;
     }
 
     public void setMdlAlgoModelPath(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.az = str;
-        }
+        this.az = str;
     }
 
     public void setRecordAutoCrop(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.aK = z;
-        }
+        this.aK = z;
     }
 
     public void setRenderPipeline(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.aG = str;
-        }
+        this.aG = str;
     }
 
     public void setShareContext(EGLContext eGLContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, eGLContext) == null) {
-            this.aF = eGLContext;
-        }
+        this.aF = eGLContext;
     }
 
     public void setUseBeautyFilter(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            this.aB = z;
-        }
+        this.aB = z;
     }
 
     public void setUseFaceFilter(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
-            this.aC = z;
-        }
+        this.aC = z;
     }
 
     public void setUseInputSizeInEngine(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-            this.aA = z;
-        }
+        this.aA = z;
     }
 
     public void setUseMakeupFilter(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            this.aD = z;
-        }
+        this.aD = z;
     }
 
     public void setUseTextureIO(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
-            this.aE = z;
-        }
+        this.aE = z;
     }
 
     public void setUserPlayAudio(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
-            this.aJ = z;
-        }
+        this.aJ = z;
     }
 }

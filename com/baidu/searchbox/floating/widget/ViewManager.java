@@ -9,8 +9,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.floating.IFloating;
 import com.baidu.searchbox.floating.animator.FloatViewAnimator;
@@ -24,11 +22,6 @@ import com.baidu.searchbox.floating.utils.TouchHelper;
 import com.baidu.searchbox.floating.utils.UtilsKt;
 import com.baidu.searchbox.floating.widget.FloatContainer;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
 import java.lang.ref.WeakReference;
 import kotlin.Lazy;
@@ -41,8 +34,6 @@ import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000X\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u0000B\u0017\u0012\u0006\u0010\"\u001a\u00020!\u0012\u0006\u0010\u001b\u001a\u00020\u001a¢\u0006\u0004\b7\u00108J\u000f\u0010\u0002\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0002\u0010\u0003J\r\u0010\u0004\u001a\u00020\u0001¢\u0006\u0004\b\u0004\u0010\u0003J\r\u0010\u0005\u001a\u00020\u0001¢\u0006\u0004\b\u0005\u0010\u0003J\u000f\u0010\u0006\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0006\u0010\u0003J\r\u0010\u0007\u001a\u00020\u0001¢\u0006\u0004\b\u0007\u0010\u0003J\u000f\u0010\t\u001a\u00020\bH\u0002¢\u0006\u0004\b\t\u0010\nJ\u001b\u0010\r\u001a\u000e\u0012\u0004\u0012\u00020\f\u0012\u0004\u0012\u00020\f0\u000bH\u0002¢\u0006\u0004\b\r\u0010\u000eJ\u000f\u0010\u0010\u001a\u00020\u000fH\u0002¢\u0006\u0004\b\u0010\u0010\u0011J\u001b\u0010\u0012\u001a\u000e\u0012\u0004\u0012\u00020\f\u0012\u0004\u0012\u00020\f0\u000bH\u0002¢\u0006\u0004\b\u0012\u0010\u000eJ\u000f\u0010\u0013\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0013\u0010\u0003J\r\u0010\u0014\u001a\u00020\u0001¢\u0006\u0004\b\u0014\u0010\u0003J\u000f\u0010\u0015\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0015\u0010\u0003J\u0015\u0010\u0017\u001a\u00020\u00012\u0006\u0010\u0016\u001a\u00020\f¢\u0006\u0004\b\u0017\u0010\u0018J\r\u0010\u0019\u001a\u00020\u0001¢\u0006\u0004\b\u0019\u0010\u0003R\"\u0010\u001b\u001a\u00020\u001a8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001b\u0010\u001c\u001a\u0004\b\u001d\u0010\u001e\"\u0004\b\u001f\u0010 R\u0019\u0010\"\u001a\u00020!8\u0006@\u0006¢\u0006\f\n\u0004\b\"\u0010#\u001a\u0004\b$\u0010%R\u001d\u0010+\u001a\u00020&8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b'\u0010(\u001a\u0004\b)\u0010*R\u0016\u0010-\u001a\u00020,8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b-\u0010.R\u001d\u00103\u001a\u00020/8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b0\u0010(\u001a\u0004\b1\u00102R\u0016\u00105\u001a\u0002048\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b5\u00106¨\u00069"}, d2 = {"Lcom/baidu/searchbox/floating/widget/ViewManager;", "", "bindContentView", "()V", "createView", "destroy", "enterAnim", "exitAnim", "Landroid/view/View;", "getContentView", "()Landroid/view/View;", "Lkotlin/Pair;", "", "getLocation", "()Lkotlin/Pair;", "Landroid/graphics/Point;", "getPosition", "()Landroid/graphics/Point;", "getSize", "init", "release", "restoreScaleMode", MapBundleKey.MapObjKey.OBJ_SL_VISI, "setVisible", "(I)V", "updateLayoutParams", "Lcom/baidu/searchbox/floating/config/Config;", "config", "Lcom/baidu/searchbox/floating/config/Config;", "getConfig", "()Lcom/baidu/searchbox/floating/config/Config;", "setConfig", "(Lcom/baidu/searchbox/floating/config/Config;)V", "Landroid/content/Context;", "context", "Landroid/content/Context;", "getContext", "()Landroid/content/Context;", "Lcom/baidu/searchbox/floating/widget/FloatContainer;", "mContainer$delegate", "Lkotlin/Lazy;", "getMContainer", "()Lcom/baidu/searchbox/floating/widget/FloatContainer;", "mContainer", "Landroid/view/WindowManager$LayoutParams;", "mParam", "Landroid/view/WindowManager$LayoutParams;", "Lcom/baidu/searchbox/floating/utils/TouchHelper;", "mTouchHelper$delegate", "getMTouchHelper", "()Lcom/baidu/searchbox/floating/utils/TouchHelper;", "mTouchHelper", "Landroid/view/WindowManager;", "mWindowManager", "Landroid/view/WindowManager;", "<init>", "(Landroid/content/Context;Lcom/baidu/searchbox/floating/config/Config;)V", "floating-view_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public final class ViewManager {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public Config config;
     public final Context context;
     public final Lazy mContainer$delegate;
@@ -52,111 +43,41 @@ public final class ViewManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public final FloatContainer getMContainer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) ? (FloatContainer) this.mContainer$delegate.getValue() : (FloatContainer) invokeV.objValue;
+        return (FloatContainer) this.mContainer$delegate.getValue();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final TouchHelper getMTouchHelper() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? (TouchHelper) this.mTouchHelper$delegate.getValue() : (TouchHelper) invokeV.objValue;
+        return (TouchHelper) this.mTouchHelper$delegate.getValue();
     }
 
     public ViewManager(Context context, Config config) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, config};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(config, "config");
         this.context = context;
         this.config = config;
-        this.mContainer$delegate = LazyKt__LazyJVMKt.lazy(new Function0<FloatContainer>(this) { // from class: com.baidu.searchbox.floating.widget.ViewManager$mContainer$2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ViewManager this$0;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        this.mContainer$delegate = LazyKt__LazyJVMKt.lazy(new Function0<FloatContainer>() { // from class: com.baidu.searchbox.floating.widget.ViewManager$mContainer$2
             {
                 super(0);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        super(((Integer) newInitContext2.callArgs[0]).intValue());
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
             public final FloatContainer invoke() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return new FloatContainer(this.this$0.getConfig(), this.this$0.getContext(), null, 0, 12, null);
-                }
-                return (FloatContainer) invokeV.objValue;
+                return new FloatContainer(ViewManager.this.getConfig(), ViewManager.this.getContext(), null, 0, 12, null);
             }
         });
-        this.mTouchHelper$delegate = LazyKt__LazyJVMKt.lazy(new Function0<TouchHelper>(this) { // from class: com.baidu.searchbox.floating.widget.ViewManager$mTouchHelper$2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ViewManager this$0;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        this.mTouchHelper$delegate = LazyKt__LazyJVMKt.lazy(new Function0<TouchHelper>() { // from class: com.baidu.searchbox.floating.widget.ViewManager$mTouchHelper$2
             {
                 super(0);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        super(((Integer) newInitContext2.callArgs[0]).intValue());
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
             public final TouchHelper invoke() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return new TouchHelper(this.this$0.getContext(), this.this$0.getConfig());
-                }
-                return (TouchHelper) invokeV.objValue;
+                return new TouchHelper(ViewManager.this.getContext(), ViewManager.this.getConfig());
             }
         });
     }
@@ -178,201 +99,140 @@ public final class ViewManager {
     }
 
     public final void setConfig(Config config) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, config) == null) {
-            Intrinsics.checkNotNullParameter(config, "<set-?>");
-            this.config = config;
-        }
+        Intrinsics.checkNotNullParameter(config, "<set-?>");
+        this.config = config;
     }
 
     private final void bindContentView() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            View floatingView = this.config.getFloatingView();
-            if (floatingView != null) {
-                floatingView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        View floatingView = this.config.getFloatingView();
+        if (floatingView != null) {
+            floatingView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        }
+        FloatContainer mContainer = getMContainer();
+        View floatingView2 = this.config.getFloatingView();
+        Intrinsics.checkNotNull(floatingView2);
+        mContainer.addView(floatingView2);
+        getMContainer().setTouchListener(new FloatContainer.TouchListener() { // from class: com.baidu.searchbox.floating.widget.ViewManager$bindContentView$1
+            @Override // com.baidu.searchbox.floating.widget.FloatContainer.TouchListener
+            public void onTouch(MotionEvent event) {
+                TouchHelper mTouchHelper;
+                FloatContainer mContainer2;
+                Intrinsics.checkNotNullParameter(event, "event");
+                mTouchHelper = ViewManager.this.getMTouchHelper();
+                mContainer2 = ViewManager.this.getMContainer();
+                mTouchHelper.onTouch(mContainer2, event, ViewManager.access$getMWindowManager$p(ViewManager.this), ViewManager.access$getMParam$p(ViewManager.this));
             }
-            FloatContainer mContainer = getMContainer();
-            View floatingView2 = this.config.getFloatingView();
-            Intrinsics.checkNotNull(floatingView2);
-            mContainer.addView(floatingView2);
-            getMContainer().setTouchListener(new FloatContainer.TouchListener(this) { // from class: com.baidu.searchbox.floating.widget.ViewManager$bindContentView$1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ViewManager this$0;
-
-                /* JADX DEBUG: Incorrect args count in method signature: ()V */
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
+        });
+        getMContainer().setLayoutListener(new FloatContainer.LayoutListener() { // from class: com.baidu.searchbox.floating.widget.ViewManager$bindContentView$2
+            @Override // com.baidu.searchbox.floating.widget.FloatContainer.LayoutListener
+            public void onLayout() {
+                ViewManager.this.enterAnim();
+            }
+        });
+        WindowManager windowManager = this.mWindowManager;
+        if (windowManager == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("mWindowManager");
+        }
+        FloatContainer mContainer2 = getMContainer();
+        WindowManager.LayoutParams layoutParams = this.mParam;
+        if (layoutParams == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("mParam");
+        }
+        windowManager.addView(mContainer2, layoutParams);
+        Point position = getPosition();
+        for (FloatViewListener floatViewListener : this.config.getFloatViewListeners()) {
+            floatViewListener.onViewCreate(true, this.config.getFloatingView(), this.config.getScaleMode().getSecond(), position);
+        }
+        final View findViewById = getMContainer().findViewById(R.id.obfuscated_res_0x7f090ad5);
+        if (findViewById != null) {
+            findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.searchbox.floating.widget.ViewManager$bindContentView$$inlined$click$1
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view2) {
+                    Point position2;
+                    long currentTimeMillis = System.currentTimeMillis();
+                    if (currentTimeMillis - FloatingViewClickUtilKt.getLastClickTime(findViewById) > r2) {
+                        FloatingViewClickUtilKt.setLastClickTime(findViewById, currentTimeMillis);
+                        View view3 = findViewById;
+                        position2 = this.getPosition();
+                        for (FloatViewListener floatViewListener2 : this.getConfig().getFloatViewListeners()) {
+                            floatViewListener2.onClick(view3, this.getConfig().getScaleMode().getSecond(), position2);
                         }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.searchbox.floating.widget.FloatContainer.TouchListener
-                public void onTouch(MotionEvent event) {
-                    TouchHelper mTouchHelper;
-                    FloatContainer mContainer2;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, event) == null) {
-                        Intrinsics.checkNotNullParameter(event, "event");
-                        mTouchHelper = this.this$0.getMTouchHelper();
-                        mContainer2 = this.this$0.getMContainer();
-                        mTouchHelper.onTouch(mContainer2, event, ViewManager.access$getMWindowManager$p(this.this$0), ViewManager.access$getMParam$p(this.this$0));
                     }
                 }
             });
-            getMContainer().setLayoutListener(new FloatContainer.LayoutListener(this) { // from class: com.baidu.searchbox.floating.widget.ViewManager$bindContentView$2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ViewManager this$0;
+        }
+    }
 
-                /* JADX DEBUG: Incorrect args count in method signature: ()V */
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.searchbox.floating.widget.FloatContainer.LayoutListener
-                public void onLayout() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.enterAnim();
-                    }
-                }
-            });
-            WindowManager windowManager = this.mWindowManager;
-            if (windowManager == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mWindowManager");
-            }
-            FloatContainer mContainer2 = getMContainer();
+    private final Pair<Integer, Integer> getLocation() {
+        int dpToPxByScale;
+        int i;
+        int dpToPxByScale2;
+        Pair<Integer, Integer> location = FloatPrefs.Companion.getLocation();
+        if (location.getFirst().intValue() > 0 && location.getSecond().intValue() > 0) {
+            return location;
+        }
+        if (this.config.getLocation().getFirst().intValue() != -1 && this.config.getLocation().getSecond().intValue() != -1) {
+            dpToPxByScale = UtilsKt.dpToPxByScale(this.context, this.config.getLocation().getFirst().intValue());
+            int screenHeight = UtilsKt.getScreenHeight(this.context) - UtilsKt.getStatusBarHeight(this.context);
             WindowManager.LayoutParams layoutParams = this.mParam;
             if (layoutParams == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mParam");
             }
-            windowManager.addView(mContainer2, layoutParams);
-            Point position = getPosition();
-            for (FloatViewListener floatViewListener : this.config.getFloatViewListeners()) {
-                floatViewListener.onViewCreate(true, this.config.getFloatingView(), this.config.getScaleMode().getSecond(), position);
-            }
-            final View findViewById = getMContainer().findViewById(R.id.obfuscated_res_0x7f090a98);
-            if (findViewById != null) {
-                findViewById.setOnClickListener(new View.OnClickListener(findViewById, 800L, this) { // from class: com.baidu.searchbox.floating.widget.ViewManager$bindContentView$$inlined$click$1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ View $this_click;
-                    public final /* synthetic */ long $time;
-                    public final /* synthetic */ ViewManager this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {findViewById, Long.valueOf(r7), this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.$this_click = findViewById;
-                        this.$time = r7;
-                        this.this$0 = this;
-                    }
-
-                    @Override // android.view.View.OnClickListener
-                    public final void onClick(View view2) {
-                        Point position2;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            long currentTimeMillis = System.currentTimeMillis();
-                            if (currentTimeMillis - FloatingViewClickUtilKt.getLastClickTime(this.$this_click) > this.$time) {
-                                FloatingViewClickUtilKt.setLastClickTime(this.$this_click, currentTimeMillis);
-                                View view3 = this.$this_click;
-                                position2 = this.this$0.getPosition();
-                                for (FloatViewListener floatViewListener2 : this.this$0.getConfig().getFloatViewListeners()) {
-                                    floatViewListener2.onClick(view3, this.this$0.getConfig().getScaleMode().getSecond(), position2);
-                                }
-                            }
-                        }
-                    }
-                });
-            }
-        }
-    }
-
-    private final void init() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            this.mWindowManager = UtilsKt.getWindowManager(this.context);
-            WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            if (Build.VERSION.SDK_INT >= 26) {
-                i = 2038;
-            } else {
-                i = 2002;
-            }
-            layoutParams.type = i;
-            layoutParams.format = 1;
-            layoutParams.gravity = BadgeDrawable.TOP_START;
-            layoutParams.flags = 40;
-            layoutParams.width = -2;
-            layoutParams.height = -2;
-            Pair<Integer, Integer> size = getSize();
-            if (this.config.getReverse()) {
-                layoutParams.width = size.getSecond().intValue();
-                layoutParams.height = size.getFirst().intValue();
-            } else {
-                layoutParams.width = size.getFirst().intValue();
-                layoutParams.height = size.getSecond().intValue();
-            }
-            Unit unit = Unit.INSTANCE;
-            this.mParam = layoutParams;
-            Pair<Integer, Integer> location = getLocation();
+            i = screenHeight - layoutParams.height;
+            dpToPxByScale2 = UtilsKt.dpToPxByScale(this.context, this.config.getLocation().getSecond().intValue());
+        } else {
+            dpToPxByScale = UtilsKt.dpToPxByScale(this.context, this.config.getBlockOffset().left);
+            int screenHeight2 = UtilsKt.getScreenHeight(this.context);
             WindowManager.LayoutParams layoutParams2 = this.mParam;
             if (layoutParams2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mParam");
             }
-            layoutParams2.x = location.getFirst().intValue();
-            WindowManager.LayoutParams layoutParams3 = this.mParam;
-            if (layoutParams3 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mParam");
-            }
-            layoutParams3.y = location.getSecond().intValue();
+            i = screenHeight2 - layoutParams2.height;
+            dpToPxByScale2 = UtilsKt.dpToPxByScale(this.context, this.config.getBlockOffset().bottom);
         }
+        return new Pair<>(Integer.valueOf(dpToPxByScale), Integer.valueOf(i - dpToPxByScale2));
+    }
+
+    private final void init() {
+        int i;
+        this.mWindowManager = UtilsKt.getWindowManager(this.context);
+        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+        if (Build.VERSION.SDK_INT >= 26) {
+            i = 2038;
+        } else {
+            i = 2002;
+        }
+        layoutParams.type = i;
+        layoutParams.format = 1;
+        layoutParams.gravity = BadgeDrawable.TOP_START;
+        layoutParams.flags = 40;
+        layoutParams.width = -2;
+        layoutParams.height = -2;
+        Pair<Integer, Integer> size = getSize();
+        if (this.config.getReverse()) {
+            layoutParams.width = size.getSecond().intValue();
+            layoutParams.height = size.getFirst().intValue();
+        } else {
+            layoutParams.width = size.getFirst().intValue();
+            layoutParams.height = size.getSecond().intValue();
+        }
+        Unit unit = Unit.INSTANCE;
+        this.mParam = layoutParams;
+        Pair<Integer, Integer> location = getLocation();
+        WindowManager.LayoutParams layoutParams2 = this.mParam;
+        if (layoutParams2 == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("mParam");
+        }
+        layoutParams2.x = location.getFirst().intValue();
+        WindowManager.LayoutParams layoutParams3 = this.mParam;
+        if (layoutParams3 == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("mParam");
+        }
+        layoutParams3.y = location.getSecond().intValue();
     }
 
     public final void release() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || getMContainer().getParent() == null) {
+        if (getMContainer().getParent() == null) {
             return;
         }
         Point position = getPosition();
@@ -410,8 +270,7 @@ public final class ViewManager {
     /* JADX INFO: Access modifiers changed from: private */
     public final void enterAnim() {
         FloatViewAnimator animator;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65546, this) == null) && !this.config.isAnimating() && (animator = this.config.getAnimator()) != null) {
+        if (!this.config.isAnimating() && (animator = this.config.getAnimator()) != null) {
             WeakReference<View> weakReference = new WeakReference<>(getMContainer());
             WindowManager.LayoutParams layoutParams = this.mParam;
             if (layoutParams == null) {
@@ -428,52 +287,21 @@ public final class ViewManager {
                     Intrinsics.throwUninitializedPropertyAccessException("mParam");
                 }
                 layoutParams2.flags = 552;
-                enterAnim.addListener(new AnimatorListenerAdapter(this) { // from class: com.baidu.searchbox.floating.widget.ViewManager$enterAnim$$inlined$apply$lambda$1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ViewManager this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
+                enterAnim.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.searchbox.floating.widget.ViewManager$enterAnim$$inlined$apply$lambda$1
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                     public void onAnimationCancel(Animator animator2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator2) == null) {
-                            this.this$0.getConfig().setAnimating(false);
-                        }
+                        ViewManager.this.getConfig().setAnimating(false);
                     }
 
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                     public void onAnimationStart(Animator animator2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator2) == null) {
-                            this.this$0.getConfig().setAnimating(true);
-                        }
+                        ViewManager.this.getConfig().setAnimating(true);
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator2, boolean z) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator2, z) == null) {
-                            ViewManager.access$getMParam$p(this.this$0).flags = 40;
-                            this.this$0.getConfig().setAnimating(false);
-                        }
+                        ViewManager.access$getMParam$p(ViewManager.this).flags = 40;
+                        ViewManager.this.getConfig().setAnimating(false);
                     }
                 });
                 enterAnim.start();
@@ -482,8 +310,7 @@ public final class ViewManager {
     }
 
     public final void exitAnim() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.config.isAnimating()) {
+        if (this.config.isAnimating()) {
             return;
         }
         if (this.config.getAnimator() != null) {
@@ -505,51 +332,20 @@ public final class ViewManager {
                         Intrinsics.throwUninitializedPropertyAccessException("mParam");
                     }
                     layoutParams2.flags = 552;
-                    exitAnim.addListener(new AnimatorListenerAdapter(this) { // from class: com.baidu.searchbox.floating.widget.ViewManager$exitAnim$$inlined$apply$lambda$1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ ViewManager this$0;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                        }
-
+                    exitAnim.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.searchbox.floating.widget.ViewManager$exitAnim$$inlined$apply$lambda$1
                         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                         public void onAnimationCancel(Animator animator2) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator2) == null) {
-                                this.this$0.getConfig().setAnimating(false);
-                            }
+                            ViewManager.this.getConfig().setAnimating(false);
                         }
 
                         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                         public void onAnimationStart(Animator animator2) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator2) == null) {
-                                this.this$0.getConfig().setAnimating(true);
-                            }
+                            ViewManager.this.getConfig().setAnimating(true);
                         }
 
                         @Override // android.animation.Animator.AnimatorListener
                         public void onAnimationEnd(Animator animator2, boolean z) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator2, z) == null) {
-                                this.this$0.destroy();
-                            }
+                            ViewManager.this.destroy();
                         }
                     });
                     exitAnim.start();
@@ -563,176 +359,58 @@ public final class ViewManager {
     }
 
     private final View getContentView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            View floatingView = this.config.getFloatingView();
-            Intrinsics.checkNotNull(floatingView);
-            return floatingView;
-        }
-        return (View) invokeV.objValue;
+        View floatingView = this.config.getFloatingView();
+        Intrinsics.checkNotNull(floatingView);
+        return floatingView;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final Point getPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
-            WindowManager.LayoutParams layoutParams = this.mParam;
-            if (layoutParams == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mParam");
-            }
-            int i = layoutParams.x;
-            WindowManager.LayoutParams layoutParams2 = this.mParam;
-            if (layoutParams2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mParam");
-            }
-            return new Point(i, layoutParams2.y);
+        WindowManager.LayoutParams layoutParams = this.mParam;
+        if (layoutParams == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("mParam");
         }
-        return (Point) invokeV.objValue;
+        int i = layoutParams.x;
+        WindowManager.LayoutParams layoutParams2 = this.mParam;
+        if (layoutParams2 == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("mParam");
+        }
+        return new Point(i, layoutParams2.y);
     }
 
     private final void restoreScaleMode() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65554, this) == null) && FloatPrefs.Companion.getScaleMode().getSecond() != ScaleMode.S) {
+        if (FloatPrefs.Companion.getScaleMode().getSecond() != ScaleMode.S) {
             this.config.setScaleMode(FloatPrefs.Companion.getScaleMode());
         }
     }
 
     public final void createView() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            restoreScaleMode();
-            init();
-            bindContentView();
-        }
+        restoreScaleMode();
+        init();
+        bindContentView();
     }
 
     public final void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            release();
-            FloatViewService.Companion.stopService$floating_view_release(this.context);
-        }
+        release();
+        FloatViewService.Companion.stopService$floating_view_release(this.context);
     }
 
     public final Config getConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.config;
-        }
-        return (Config) invokeV.objValue;
+        return this.config;
     }
 
     public final Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.context;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    private final Pair<Integer, Integer> getLocation() {
-        InterceptResult invokeV;
-        int dpToPxByScale;
-        int i;
-        int dpToPxByScale2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            Pair<Integer, Integer> location = FloatPrefs.Companion.getLocation();
-            if (location.getFirst().intValue() > 0 && location.getSecond().intValue() > 0) {
-                return location;
-            }
-            if (this.config.getLocation().getFirst().intValue() != -1 && this.config.getLocation().getSecond().intValue() != -1) {
-                dpToPxByScale = UtilsKt.dpToPxByScale(this.context, this.config.getLocation().getFirst().intValue());
-                int screenHeight = UtilsKt.getScreenHeight(this.context) - UtilsKt.getStatusBarHeight(this.context);
-                WindowManager.LayoutParams layoutParams = this.mParam;
-                if (layoutParams == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mParam");
-                }
-                i = screenHeight - layoutParams.height;
-                dpToPxByScale2 = UtilsKt.dpToPxByScale(this.context, this.config.getLocation().getSecond().intValue());
-            } else {
-                dpToPxByScale = UtilsKt.dpToPxByScale(this.context, this.config.getBlockOffset().left);
-                int screenHeight2 = UtilsKt.getScreenHeight(this.context);
-                WindowManager.LayoutParams layoutParams2 = this.mParam;
-                if (layoutParams2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mParam");
-                }
-                i = screenHeight2 - layoutParams2.height;
-                dpToPxByScale2 = UtilsKt.dpToPxByScale(this.context, this.config.getBlockOffset().bottom);
-            }
-            return new Pair<>(Integer.valueOf(dpToPxByScale), Integer.valueOf(i - dpToPxByScale2));
-        }
-        return (Pair) invokeV.objValue;
-    }
-
-    public final void updateLayoutParams() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            Pair<Integer, Integer> size = getSize();
-            WindowManager.LayoutParams layoutParams = this.mParam;
-            if (layoutParams == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mParam");
-            }
-            int i = layoutParams.width;
-            WindowManager.LayoutParams layoutParams2 = this.mParam;
-            if (layoutParams2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mParam");
-            }
-            if (this.config.getReverse()) {
-                layoutParams2.width = size.getSecond().intValue();
-                layoutParams2.height = size.getFirst().intValue();
-            } else {
-                layoutParams2.width = size.getFirst().intValue();
-                layoutParams2.height = size.getSecond().intValue();
-            }
-            if (getMContainer().getParent() != null) {
-                WindowManager windowManager = this.mWindowManager;
-                if (windowManager == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mWindowManager");
-                }
-                FloatContainer mContainer = getMContainer();
-                WindowManager.LayoutParams layoutParams3 = this.mParam;
-                if (layoutParams3 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mParam");
-                }
-                windowManager.updateViewLayout(mContainer, layoutParams3);
-            }
-            WindowManager.LayoutParams layoutParams4 = this.mParam;
-            if (layoutParams4 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mParam");
-            }
-            int i2 = layoutParams4.width;
-            Point position = getPosition();
-            if (i < i2) {
-                for (FloatViewListener floatViewListener : this.config.getFloatViewListeners()) {
-                    floatViewListener.onScale(true, this.config.getScaleMode().getSecond(), position);
-                }
-            } else if (i > i2) {
-                for (FloatViewListener floatViewListener2 : this.config.getFloatViewListeners()) {
-                    floatViewListener2.onScale(false, this.config.getScaleMode().getSecond(), position);
-                }
-            }
-        }
+        return this.context;
     }
 
     private final Pair<Integer, Integer> getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
-            Pair<Integer, Integer> scale = this.config.getScaleMode().getSecond().scale(UtilsKt.dpToPxByScale(this.context, this.config.getSize().getFirst().intValue()), UtilsKt.dpToPxByScale(this.context, this.config.getSize().getSecond().intValue()));
-            int dpToPxByScale = UtilsKt.dpToPxByScale(this.context, this.config.getShadow()) * 2;
-            return new Pair<>(Integer.valueOf(scale.getFirst().intValue() + dpToPxByScale), Integer.valueOf(scale.getSecond().intValue() + dpToPxByScale));
-        }
-        return (Pair) invokeV.objValue;
+        Pair<Integer, Integer> scale = this.config.getScaleMode().getSecond().scale(UtilsKt.dpToPxByScale(this.context, this.config.getSize().getFirst().intValue()), UtilsKt.dpToPxByScale(this.context, this.config.getSize().getSecond().intValue()));
+        int dpToPxByScale = UtilsKt.dpToPxByScale(this.context, this.config.getShadow()) * 2;
+        return new Pair<>(Integer.valueOf(scale.getFirst().intValue() + dpToPxByScale), Integer.valueOf(scale.getSecond().intValue() + dpToPxByScale));
     }
 
     public final void setVisible(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && this.config.getFloatingView() != null && getMContainer().getVisibility() != i) {
+        if (this.config.getFloatingView() != null && getMContainer().getVisibility() != i) {
             getMContainer().setVisibility(i);
             Point position = getPosition();
             if (i == 0) {
@@ -743,6 +421,53 @@ public final class ViewManager {
             }
             for (FloatViewListener floatViewListener2 : this.config.getFloatViewListeners()) {
                 floatViewListener2.onViewHide(getContentView(), this.config.getScaleMode().getSecond(), position);
+            }
+        }
+    }
+
+    public final void updateLayoutParams() {
+        Pair<Integer, Integer> size = getSize();
+        WindowManager.LayoutParams layoutParams = this.mParam;
+        if (layoutParams == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("mParam");
+        }
+        int i = layoutParams.width;
+        WindowManager.LayoutParams layoutParams2 = this.mParam;
+        if (layoutParams2 == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("mParam");
+        }
+        if (this.config.getReverse()) {
+            layoutParams2.width = size.getSecond().intValue();
+            layoutParams2.height = size.getFirst().intValue();
+        } else {
+            layoutParams2.width = size.getFirst().intValue();
+            layoutParams2.height = size.getSecond().intValue();
+        }
+        if (getMContainer().getParent() != null) {
+            WindowManager windowManager = this.mWindowManager;
+            if (windowManager == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mWindowManager");
+            }
+            FloatContainer mContainer = getMContainer();
+            WindowManager.LayoutParams layoutParams3 = this.mParam;
+            if (layoutParams3 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mParam");
+            }
+            windowManager.updateViewLayout(mContainer, layoutParams3);
+        }
+        WindowManager.LayoutParams layoutParams4 = this.mParam;
+        if (layoutParams4 == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("mParam");
+        }
+        int i2 = layoutParams4.width;
+        Point position = getPosition();
+        if (i < i2) {
+            for (FloatViewListener floatViewListener : this.config.getFloatViewListeners()) {
+                floatViewListener.onScale(true, this.config.getScaleMode().getSecond(), position);
+            }
+        } else if (i > i2) {
+            for (FloatViewListener floatViewListener2 : this.config.getFloatViewListeners()) {
+                floatViewListener2.onScale(false, this.config.getScaleMode().getSecond(), position);
             }
         }
     }

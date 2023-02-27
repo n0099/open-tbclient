@@ -3,22 +3,12 @@ package com.facebook.drawee.drawable;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import java.util.Arrays;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class FadeDrawable extends ArrayDrawable {
-    public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
     public static final int TRANSITION_NONE = 2;
     @VisibleForTesting
@@ -26,7 +16,6 @@ public class FadeDrawable extends ArrayDrawable {
     @VisibleForTesting
     public static final int TRANSITION_STARTING = 0;
     public static boolean sGlobalFadingEnable = true;
-    public transient /* synthetic */ FieldHolder $fh;
     public final int ACTUAL_IMAGE_INDEX;
     @VisibleForTesting
     public int mAlpha;
@@ -56,60 +45,85 @@ public class FadeDrawable extends ArrayDrawable {
         void onFadeFinished();
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-779248116, "Lcom/facebook/drawee/drawable/FadeDrawable;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-779248116, "Lcom/facebook/drawee/drawable/FadeDrawable;");
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FadeDrawable(Drawable[] drawableArr) {
         this(drawableArr, false);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawableArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Drawable[]) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+    }
+
+    public static void setGlobalFadingEnable(boolean z) {
+        sGlobalFadingEnable = z;
+    }
+
+    public void fadeInLayer(int i) {
+        boolean z;
+        if (i == 2) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.mCallOnFadeFinishedListener = z;
+        this.mTransitionState = 0;
+        this.mIsLayerOn[i] = true;
+        invalidateSelf();
+    }
+
+    public void fadeOutLayer(int i) {
+        this.mTransitionState = 0;
+        this.mIsLayerOn[i] = false;
+        invalidateSelf();
+    }
+
+    public void fadeToLayer(int i) {
+        this.mTransitionState = 0;
+        Arrays.fill(this.mIsLayerOn, false);
+        this.mIsLayerOn[i] = true;
+        invalidateSelf();
+    }
+
+    public void fadeUpToLayer(int i) {
+        this.mTransitionState = 0;
+        int i2 = i + 1;
+        Arrays.fill(this.mIsLayerOn, 0, i2, true);
+        Arrays.fill(this.mIsLayerOn, i2, this.mLayers.length, false);
+        invalidateSelf();
+    }
+
+    public void hideLayerImmediately(int i) {
+        this.mIsLayerOn[i] = false;
+        this.mAlphas[i] = 0;
+        invalidateSelf();
+    }
+
+    public boolean isLayerOn(int i) {
+        return this.mIsLayerOn[i];
+    }
+
+    @Override // com.facebook.drawee.drawable.ArrayDrawable, android.graphics.drawable.Drawable
+    public void setAlpha(int i) {
+        if (this.mAlpha != i) {
+            this.mAlpha = i;
+            invalidateSelf();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public void setOnFadeFinishedListener(OnFadeFinishedListener onFadeFinishedListener) {
+        this.mOnFadeFinishedListener = onFadeFinishedListener;
+    }
+
+    public void setTransitionDuration(int i) {
+        this.mDurationMs = i;
+        if (this.mTransitionState == 1) {
+            this.mTransitionState = 0;
+        }
+    }
+
+    public void showLayerImmediately(int i) {
+        this.mIsLayerOn[i] = true;
+        this.mAlphas[i] = 255;
+        invalidateSelf();
+    }
+
     public FadeDrawable(Drawable[] drawableArr, boolean z) {
         super(drawableArr);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawableArr, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Drawable[]) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.ACTUAL_IMAGE_INDEX = 2;
         Preconditions.checkState(drawableArr.length >= 1, "At least one layer required!");
         this.mLayers = drawableArr;
@@ -124,8 +138,7 @@ public class FadeDrawable extends ArrayDrawable {
     }
 
     private void drawDrawableWithAlpha(Canvas canvas, Drawable drawable, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65539, this, canvas, drawable, i) == null) && drawable != null && i > 0) {
+        if (drawable != null && i > 0) {
             this.mPreventInvalidateCount++;
             drawable.mutate().setAlpha(i);
             this.mPreventInvalidateCount--;
@@ -134,293 +147,129 @@ public class FadeDrawable extends ArrayDrawable {
     }
 
     public static boolean getGlobalFadingEnable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return sGlobalFadingEnable;
-        }
-        return invokeV.booleanValue;
+        return sGlobalFadingEnable;
     }
 
     private void maybeNotifyOnFadeFinished() {
-        OnFadeFinishedListener onFadeFinishedListener;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && (onFadeFinishedListener = this.mOnFadeFinishedListener) != null && this.mCallOnFadeFinishedListener) {
+        OnFadeFinishedListener onFadeFinishedListener = this.mOnFadeFinishedListener;
+        if (onFadeFinishedListener != null && this.mCallOnFadeFinishedListener) {
             onFadeFinishedListener.onFadeFinished();
             this.mCallOnFadeFinishedListener = false;
         }
     }
 
+    private void resetInternal() {
+        this.mTransitionState = 2;
+        Arrays.fill(this.mStartAlphas, this.mDefaultLayerAlpha);
+        this.mStartAlphas[0] = 255;
+        Arrays.fill(this.mAlphas, this.mDefaultLayerAlpha);
+        this.mAlphas[0] = 255;
+        Arrays.fill(this.mIsLayerOn, this.mDefaultLayerIsOn);
+        this.mIsLayerOn[0] = true;
+    }
+
     public void beginBatchMode() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mPreventInvalidateCount++;
-        }
+        this.mPreventInvalidateCount++;
     }
 
     public void endBatchMode() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.mPreventInvalidateCount--;
-            invalidateSelf();
-        }
+        this.mPreventInvalidateCount--;
+        invalidateSelf();
     }
 
     public void fadeInAllLayers() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.mTransitionState = 0;
-            Arrays.fill(this.mIsLayerOn, true);
-            invalidateSelf();
-        }
+        this.mTransitionState = 0;
+        Arrays.fill(this.mIsLayerOn, true);
+        invalidateSelf();
     }
 
     public void fadeOutAllLayers() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.mTransitionState = 0;
-            Arrays.fill(this.mIsLayerOn, false);
-            invalidateSelf();
-        }
+        this.mTransitionState = 0;
+        Arrays.fill(this.mIsLayerOn, false);
+        invalidateSelf();
     }
 
     public void finishTransitionImmediately() {
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.mTransitionState = 2;
-            for (int i2 = 0; i2 < this.mLayers.length; i2++) {
-                int[] iArr = this.mAlphas;
-                if (this.mIsLayerOn[i2]) {
-                    i = 255;
-                } else {
-                    i = 0;
-                }
-                iArr[i2] = i;
+        this.mTransitionState = 2;
+        for (int i2 = 0; i2 < this.mLayers.length; i2++) {
+            int[] iArr = this.mAlphas;
+            if (this.mIsLayerOn[i2]) {
+                i = 255;
+            } else {
+                i = 0;
             }
-            invalidateSelf();
+            iArr[i2] = i;
         }
+        invalidateSelf();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getAlpha() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.mAlpha;
-        }
-        return invokeV.intValue;
+        return this.mAlpha;
     }
 
     public long getCurrentTimeMs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return SystemClock.uptimeMillis();
-        }
-        return invokeV.longValue;
+        return SystemClock.uptimeMillis();
     }
 
     public int getTransitionDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.mDurationMs;
-        }
-        return invokeV.intValue;
+        return this.mDurationMs;
     }
 
     @VisibleForTesting
     public int getTransitionState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.mTransitionState;
-        }
-        return invokeV.intValue;
+        return this.mTransitionState;
     }
 
     @Override // android.graphics.drawable.Drawable
     public void invalidateSelf() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && this.mPreventInvalidateCount == 0) {
+        if (this.mPreventInvalidateCount == 0) {
             super.invalidateSelf();
         }
     }
 
     public boolean isDefaultLayerIsOn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.mDefaultLayerIsOn;
-        }
-        return invokeV.booleanValue;
+        return this.mDefaultLayerIsOn;
     }
 
     public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            resetInternal();
-            invalidateSelf();
-        }
-    }
-
-    private void resetInternal() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            this.mTransitionState = 2;
-            Arrays.fill(this.mStartAlphas, this.mDefaultLayerAlpha);
-            this.mStartAlphas[0] = 255;
-            Arrays.fill(this.mAlphas, this.mDefaultLayerAlpha);
-            this.mAlphas[0] = 255;
-            Arrays.fill(this.mIsLayerOn, this.mDefaultLayerIsOn);
-            this.mIsLayerOn[0] = true;
-        }
-    }
-
-    public static void setGlobalFadingEnable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            sGlobalFadingEnable = z;
-        }
-    }
-
-    public void fadeInLayer(int i) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            if (i == 2) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.mCallOnFadeFinishedListener = z;
-            this.mTransitionState = 0;
-            this.mIsLayerOn[i] = true;
-            invalidateSelf();
-        }
-    }
-
-    public void fadeOutLayer(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.mTransitionState = 0;
-            this.mIsLayerOn[i] = false;
-            invalidateSelf();
-        }
-    }
-
-    public void fadeToLayer(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.mTransitionState = 0;
-            Arrays.fill(this.mIsLayerOn, false);
-            this.mIsLayerOn[i] = true;
-            invalidateSelf();
-        }
-    }
-
-    public void fadeUpToLayer(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.mTransitionState = 0;
-            int i2 = i + 1;
-            Arrays.fill(this.mIsLayerOn, 0, i2, true);
-            Arrays.fill(this.mIsLayerOn, i2, this.mLayers.length, false);
-            invalidateSelf();
-        }
-    }
-
-    public void hideLayerImmediately(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.mIsLayerOn[i] = false;
-            this.mAlphas[i] = 0;
-            invalidateSelf();
-        }
-    }
-
-    public boolean isLayerOn(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
-            return this.mIsLayerOn[i];
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // com.facebook.drawee.drawable.ArrayDrawable, android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048595, this, i) == null) && this.mAlpha != i) {
-            this.mAlpha = i;
-            invalidateSelf();
-        }
-    }
-
-    public void setOnFadeFinishedListener(OnFadeFinishedListener onFadeFinishedListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, onFadeFinishedListener) == null) {
-            this.mOnFadeFinishedListener = onFadeFinishedListener;
-        }
-    }
-
-    public void setTransitionDuration(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            this.mDurationMs = i;
-            if (this.mTransitionState == 1) {
-                this.mTransitionState = 0;
-            }
-        }
-    }
-
-    public void showLayerImmediately(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            this.mIsLayerOn[i] = true;
-            this.mAlphas[i] = 255;
-            invalidateSelf();
-        }
+        resetInternal();
+        invalidateSelf();
     }
 
     private boolean updateAlphas(float f) {
-        InterceptResult invokeF;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65544, this, f)) == null) {
-            boolean z = true;
-            for (int i2 = 0; i2 < this.mLayers.length; i2++) {
-                if (this.mIsLayerOn[i2]) {
-                    i = 1;
-                } else {
-                    i = -1;
-                }
-                int[] iArr = this.mAlphas;
-                iArr[i2] = (int) (this.mStartAlphas[i2] + (i * 255 * f));
-                if (iArr[i2] < 0) {
-                    iArr[i2] = 0;
-                }
-                int[] iArr2 = this.mAlphas;
-                if (iArr2[i2] > 255) {
-                    iArr2[i2] = 255;
-                }
-                if (this.mIsLayerOn[i2] && this.mAlphas[i2] < 255) {
-                    z = false;
-                }
-                if (!this.mIsLayerOn[i2] && this.mAlphas[i2] > 0) {
-                    z = false;
-                }
+        boolean z = true;
+        for (int i2 = 0; i2 < this.mLayers.length; i2++) {
+            if (this.mIsLayerOn[i2]) {
+                i = 1;
+            } else {
+                i = -1;
             }
-            return z;
+            int[] iArr = this.mAlphas;
+            iArr[i2] = (int) (this.mStartAlphas[i2] + (i * 255 * f));
+            if (iArr[i2] < 0) {
+                iArr[i2] = 0;
+            }
+            int[] iArr2 = this.mAlphas;
+            if (iArr2[i2] > 255) {
+                iArr2[i2] = 255;
+            }
+            if (this.mIsLayerOn[i2] && this.mAlphas[i2] < 255) {
+                z = false;
+            }
+            if (!this.mIsLayerOn[i2] && this.mAlphas[i2] > 0) {
+                z = false;
+            }
         }
-        return invokeF.booleanValue;
+        return z;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0071 A[LOOP:0: B:38:0x006c->B:40:0x0071, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0085  */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x0083 A[EDGE_INSN: B:47:0x0083->B:41:0x0083 ?: BREAK  , SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:49:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x006d A[LOOP:0: B:36:0x0068->B:38:0x006d, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x0081  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x007f A[EDGE_INSN: B:42:0x007f->B:39:0x007f ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:44:? A[RETURN, SYNTHETIC] */
     @Override // com.facebook.drawee.drawable.ArrayDrawable, android.graphics.drawable.Drawable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -429,74 +278,71 @@ public class FadeDrawable extends ArrayDrawable {
         boolean updateAlphas;
         Drawable[] drawableArr;
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            int i = this.mTransitionState;
-            float f = 1.0f;
-            int i2 = 2;
-            int i3 = 0;
-            boolean z2 = true;
-            if (i != 0) {
-                if (i != 1) {
-                    if (i == 2) {
-                        maybeNotifyOnFadeFinished();
+        int i = this.mTransitionState;
+        float f = 1.0f;
+        int i2 = 2;
+        int i3 = 0;
+        boolean z2 = true;
+        if (i != 0) {
+            if (i != 1) {
+                if (i == 2) {
+                    maybeNotifyOnFadeFinished();
+                }
+                while (true) {
+                    drawableArr = this.mLayers;
+                    if (i3 < drawableArr.length) {
+                        break;
                     }
-                    while (true) {
-                        drawableArr = this.mLayers;
-                        if (i3 < drawableArr.length) {
-                            break;
-                        }
-                        drawDrawableWithAlpha(canvas, drawableArr[i3], (this.mAlphas[i3] * this.mAlpha) / 255);
-                        i3++;
-                    }
-                    if (z2) {
-                        invalidateSelf();
-                        return;
-                    }
+                    drawDrawableWithAlpha(canvas, drawableArr[i3], (this.mAlphas[i3] * this.mAlpha) / 255);
+                    i3++;
+                }
+                if (z2) {
+                    invalidateSelf();
                     return;
                 }
-                if (this.mDurationMs > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                Preconditions.checkState(z);
-                if (sGlobalFadingEnable) {
-                    f = ((float) (getCurrentTimeMs() - this.mStartTimeMs)) / this.mDurationMs;
-                }
-                updateAlphas = updateAlphas(f);
-                if (!updateAlphas) {
-                    i2 = 1;
-                }
-                this.mTransitionState = i2;
-                if (updateAlphas) {
-                    maybeNotifyOnFadeFinished();
-                }
+                return;
+            }
+            if (this.mDurationMs > 0) {
+                z = true;
             } else {
-                System.arraycopy(this.mAlphas, 0, this.mStartAlphas, 0, this.mLayers.length);
-                this.mStartTimeMs = getCurrentTimeMs();
-                if (sGlobalFadingEnable && this.mDurationMs != 0) {
-                    f = 0.0f;
-                }
-                updateAlphas = updateAlphas(f);
-                if (!updateAlphas) {
-                    i2 = 1;
-                }
-                this.mTransitionState = i2;
-                if (updateAlphas) {
-                    maybeNotifyOnFadeFinished();
-                }
+                z = false;
             }
-            z2 = updateAlphas;
-            while (true) {
-                drawableArr = this.mLayers;
-                if (i3 < drawableArr.length) {
-                }
-                drawDrawableWithAlpha(canvas, drawableArr[i3], (this.mAlphas[i3] * this.mAlpha) / 255);
-                i3++;
+            Preconditions.checkState(z);
+            if (sGlobalFadingEnable) {
+                f = ((float) (getCurrentTimeMs() - this.mStartTimeMs)) / this.mDurationMs;
             }
-            if (z2) {
+            updateAlphas = updateAlphas(f);
+            if (!updateAlphas) {
+                i2 = 1;
             }
+            this.mTransitionState = i2;
+            if (updateAlphas) {
+                maybeNotifyOnFadeFinished();
+            }
+        } else {
+            System.arraycopy(this.mAlphas, 0, this.mStartAlphas, 0, this.mLayers.length);
+            this.mStartTimeMs = getCurrentTimeMs();
+            if (sGlobalFadingEnable && this.mDurationMs != 0) {
+                f = 0.0f;
+            }
+            updateAlphas = updateAlphas(f);
+            if (!updateAlphas) {
+                i2 = 1;
+            }
+            this.mTransitionState = i2;
+            if (updateAlphas) {
+                maybeNotifyOnFadeFinished();
+            }
+        }
+        z2 = updateAlphas;
+        while (true) {
+            drawableArr = this.mLayers;
+            if (i3 < drawableArr.length) {
+            }
+            drawDrawableWithAlpha(canvas, drawableArr[i3], (this.mAlphas[i3] * this.mAlpha) / 255);
+            i3++;
+        }
+        if (z2) {
         }
     }
 }

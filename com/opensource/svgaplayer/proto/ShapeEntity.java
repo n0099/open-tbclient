@@ -2,10 +2,10 @@ package com.opensource.svgaplayer.proto;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.aaa;
-import com.baidu.tieba.v9a;
-import com.baidu.tieba.w9a;
-import com.baidu.tieba.z9a;
+import com.baidu.tieba.qia;
+import com.baidu.tieba.ria;
+import com.baidu.tieba.uia;
+import com.baidu.tieba.via;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -193,35 +193,35 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.squareup.wire2.ProtoAdapter
-                public RGBAColor decode(v9a v9aVar) throws IOException {
+                public RGBAColor decode(qia qiaVar) throws IOException {
                     InterceptResult invokeL;
                     Interceptable interceptable = $ic;
-                    if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v9aVar)) == null) {
+                    if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qiaVar)) == null) {
                         Builder builder = new Builder();
-                        long c = v9aVar.c();
+                        long c = qiaVar.c();
                         while (true) {
-                            int f = v9aVar.f();
+                            int f = qiaVar.f();
                             if (f != -1) {
                                 if (f != 1) {
                                     if (f != 2) {
                                         if (f != 3) {
                                             if (f != 4) {
-                                                FieldEncoding g = v9aVar.g();
-                                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(v9aVar));
+                                                FieldEncoding g = qiaVar.g();
+                                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(qiaVar));
                                             } else {
-                                                builder.a(ProtoAdapter.FLOAT.decode(v9aVar));
+                                                builder.a(ProtoAdapter.FLOAT.decode(qiaVar));
                                             }
                                         } else {
-                                            builder.b(ProtoAdapter.FLOAT.decode(v9aVar));
+                                            builder.b(ProtoAdapter.FLOAT.decode(qiaVar));
                                         }
                                     } else {
-                                        builder.g(ProtoAdapter.FLOAT.decode(v9aVar));
+                                        builder.g(ProtoAdapter.FLOAT.decode(qiaVar));
                                     }
                                 } else {
-                                    builder.r(ProtoAdapter.FLOAT.decode(v9aVar));
+                                    builder.r(ProtoAdapter.FLOAT.decode(qiaVar));
                                 }
                             } else {
-                                v9aVar.d(c);
+                                qiaVar.d(c);
                                 return builder.build();
                             }
                         }
@@ -245,26 +245,26 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.squareup.wire2.ProtoAdapter
-                public void encode(w9a w9aVar, RGBAColor rGBAColor) throws IOException {
+                public void encode(ria riaVar, RGBAColor rGBAColor) throws IOException {
                     Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, w9aVar, rGBAColor) == null) {
+                    if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, riaVar, rGBAColor) == null) {
                         Float f = rGBAColor.r;
                         if (f != null) {
-                            ProtoAdapter.FLOAT.encodeWithTag(w9aVar, 1, f);
+                            ProtoAdapter.FLOAT.encodeWithTag(riaVar, 1, f);
                         }
                         Float f2 = rGBAColor.g;
                         if (f2 != null) {
-                            ProtoAdapter.FLOAT.encodeWithTag(w9aVar, 2, f2);
+                            ProtoAdapter.FLOAT.encodeWithTag(riaVar, 2, f2);
                         }
                         Float f3 = rGBAColor.b;
                         if (f3 != null) {
-                            ProtoAdapter.FLOAT.encodeWithTag(w9aVar, 3, f3);
+                            ProtoAdapter.FLOAT.encodeWithTag(riaVar, 3, f3);
                         }
                         Float f4 = rGBAColor.a;
                         if (f4 != null) {
-                            ProtoAdapter.FLOAT.encodeWithTag(w9aVar, 4, f4);
+                            ProtoAdapter.FLOAT.encodeWithTag(riaVar, 4, f4);
                         }
-                        w9aVar.k(rGBAColor.unknownFields());
+                        riaVar.k(rGBAColor.unknownFields());
                     }
                 }
 
@@ -386,7 +386,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                         return false;
                     }
                     RGBAColor rGBAColor = (RGBAColor) obj;
-                    if (unknownFields().equals(rGBAColor.unknownFields()) && aaa.f(this.r, rGBAColor.r) && aaa.f(this.g, rGBAColor.g) && aaa.f(this.b, rGBAColor.b) && aaa.f(this.a, rGBAColor.a)) {
+                    if (unknownFields().equals(rGBAColor.unknownFields()) && via.f(this.r, rGBAColor.r) && via.f(this.g, rGBAColor.g) && via.f(this.b, rGBAColor.b) && via.f(this.a, rGBAColor.a)) {
                         return true;
                     }
                     return false;
@@ -621,7 +621,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes8.dex */
-        public static final class LineCap implements z9a {
+        public static final class LineCap implements uia {
             public static final /* synthetic */ LineCap[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final ProtoAdapter<LineCap> ADAPTER;
@@ -709,7 +709,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 return (LineCap[]) invokeV.objValue;
             }
 
-            @Override // com.baidu.tieba.z9a
+            @Override // com.baidu.tieba.uia
             public int getValue() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -722,7 +722,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes8.dex */
-        public static final class LineJoin implements z9a {
+        public static final class LineJoin implements uia {
             public static final /* synthetic */ LineJoin[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final ProtoAdapter<LineJoin> ADAPTER;
@@ -810,7 +810,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 return (LineJoin[]) invokeV.objValue;
             }
 
-            @Override // com.baidu.tieba.z9a
+            @Override // com.baidu.tieba.uia
             public int getValue() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -848,28 +848,28 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.squareup.wire2.ProtoAdapter
-            public ShapeStyle decode(v9a v9aVar) throws IOException {
+            public ShapeStyle decode(qia qiaVar) throws IOException {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v9aVar)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qiaVar)) == null) {
                     Builder builder = new Builder();
-                    long c = v9aVar.c();
+                    long c = qiaVar.c();
                     while (true) {
-                        int f = v9aVar.f();
+                        int f = qiaVar.f();
                         if (f != -1) {
                             switch (f) {
                                 case 1:
-                                    builder.fill(RGBAColor.ADAPTER.decode(v9aVar));
+                                    builder.fill(RGBAColor.ADAPTER.decode(qiaVar));
                                     break;
                                 case 2:
-                                    builder.stroke(RGBAColor.ADAPTER.decode(v9aVar));
+                                    builder.stroke(RGBAColor.ADAPTER.decode(qiaVar));
                                     break;
                                 case 3:
-                                    builder.strokeWidth(ProtoAdapter.FLOAT.decode(v9aVar));
+                                    builder.strokeWidth(ProtoAdapter.FLOAT.decode(qiaVar));
                                     break;
                                 case 4:
                                     try {
-                                        builder.lineCap(LineCap.ADAPTER.decode(v9aVar));
+                                        builder.lineCap(LineCap.ADAPTER.decode(qiaVar));
                                         break;
                                     } catch (ProtoAdapter.EnumConstantNotFoundException e) {
                                         builder.addUnknownField(f, FieldEncoding.VARINT, Long.valueOf(e.value));
@@ -877,31 +877,31 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                                     }
                                 case 5:
                                     try {
-                                        builder.lineJoin(LineJoin.ADAPTER.decode(v9aVar));
+                                        builder.lineJoin(LineJoin.ADAPTER.decode(qiaVar));
                                         break;
                                     } catch (ProtoAdapter.EnumConstantNotFoundException e2) {
                                         builder.addUnknownField(f, FieldEncoding.VARINT, Long.valueOf(e2.value));
                                         break;
                                     }
                                 case 6:
-                                    builder.miterLimit(ProtoAdapter.FLOAT.decode(v9aVar));
+                                    builder.miterLimit(ProtoAdapter.FLOAT.decode(qiaVar));
                                     break;
                                 case 7:
-                                    builder.lineDashI(ProtoAdapter.FLOAT.decode(v9aVar));
+                                    builder.lineDashI(ProtoAdapter.FLOAT.decode(qiaVar));
                                     break;
                                 case 8:
-                                    builder.lineDashII(ProtoAdapter.FLOAT.decode(v9aVar));
+                                    builder.lineDashII(ProtoAdapter.FLOAT.decode(qiaVar));
                                     break;
                                 case 9:
-                                    builder.lineDashIII(ProtoAdapter.FLOAT.decode(v9aVar));
+                                    builder.lineDashIII(ProtoAdapter.FLOAT.decode(qiaVar));
                                     break;
                                 default:
-                                    FieldEncoding g = v9aVar.g();
-                                    builder.addUnknownField(f, g, g.rawProtoAdapter().decode(v9aVar));
+                                    FieldEncoding g = qiaVar.g();
+                                    builder.addUnknownField(f, g, g.rawProtoAdapter().decode(qiaVar));
                                     break;
                             }
                         } else {
-                            v9aVar.d(c);
+                            qiaVar.d(c);
                             return builder.build();
                         }
                     }
@@ -912,46 +912,46 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.squareup.wire2.ProtoAdapter
-            public void encode(w9a w9aVar, ShapeStyle shapeStyle) throws IOException {
+            public void encode(ria riaVar, ShapeStyle shapeStyle) throws IOException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, w9aVar, shapeStyle) == null) {
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, riaVar, shapeStyle) == null) {
                     RGBAColor rGBAColor = shapeStyle.fill;
                     if (rGBAColor != null) {
-                        RGBAColor.ADAPTER.encodeWithTag(w9aVar, 1, rGBAColor);
+                        RGBAColor.ADAPTER.encodeWithTag(riaVar, 1, rGBAColor);
                     }
                     RGBAColor rGBAColor2 = shapeStyle.stroke;
                     if (rGBAColor2 != null) {
-                        RGBAColor.ADAPTER.encodeWithTag(w9aVar, 2, rGBAColor2);
+                        RGBAColor.ADAPTER.encodeWithTag(riaVar, 2, rGBAColor2);
                     }
                     Float f = shapeStyle.strokeWidth;
                     if (f != null) {
-                        ProtoAdapter.FLOAT.encodeWithTag(w9aVar, 3, f);
+                        ProtoAdapter.FLOAT.encodeWithTag(riaVar, 3, f);
                     }
                     LineCap lineCap = shapeStyle.lineCap;
                     if (lineCap != null) {
-                        LineCap.ADAPTER.encodeWithTag(w9aVar, 4, lineCap);
+                        LineCap.ADAPTER.encodeWithTag(riaVar, 4, lineCap);
                     }
                     LineJoin lineJoin = shapeStyle.lineJoin;
                     if (lineJoin != null) {
-                        LineJoin.ADAPTER.encodeWithTag(w9aVar, 5, lineJoin);
+                        LineJoin.ADAPTER.encodeWithTag(riaVar, 5, lineJoin);
                     }
                     Float f2 = shapeStyle.miterLimit;
                     if (f2 != null) {
-                        ProtoAdapter.FLOAT.encodeWithTag(w9aVar, 6, f2);
+                        ProtoAdapter.FLOAT.encodeWithTag(riaVar, 6, f2);
                     }
                     Float f3 = shapeStyle.lineDashI;
                     if (f3 != null) {
-                        ProtoAdapter.FLOAT.encodeWithTag(w9aVar, 7, f3);
+                        ProtoAdapter.FLOAT.encodeWithTag(riaVar, 7, f3);
                     }
                     Float f4 = shapeStyle.lineDashII;
                     if (f4 != null) {
-                        ProtoAdapter.FLOAT.encodeWithTag(w9aVar, 8, f4);
+                        ProtoAdapter.FLOAT.encodeWithTag(riaVar, 8, f4);
                     }
                     Float f5 = shapeStyle.lineDashIII;
                     if (f5 != null) {
-                        ProtoAdapter.FLOAT.encodeWithTag(w9aVar, 9, f5);
+                        ProtoAdapter.FLOAT.encodeWithTag(riaVar, 9, f5);
                     }
-                    w9aVar.k(shapeStyle.unknownFields());
+                    riaVar.k(shapeStyle.unknownFields());
                 }
             }
 
@@ -1167,7 +1167,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     return false;
                 }
                 ShapeStyle shapeStyle = (ShapeStyle) obj;
-                if (unknownFields().equals(shapeStyle.unknownFields()) && aaa.f(this.fill, shapeStyle.fill) && aaa.f(this.stroke, shapeStyle.stroke) && aaa.f(this.strokeWidth, shapeStyle.strokeWidth) && aaa.f(this.lineCap, shapeStyle.lineCap) && aaa.f(this.lineJoin, shapeStyle.lineJoin) && aaa.f(this.miterLimit, shapeStyle.miterLimit) && aaa.f(this.lineDashI, shapeStyle.lineDashI) && aaa.f(this.lineDashII, shapeStyle.lineDashII) && aaa.f(this.lineDashIII, shapeStyle.lineDashIII)) {
+                if (unknownFields().equals(shapeStyle.unknownFields()) && via.f(this.fill, shapeStyle.fill) && via.f(this.stroke, shapeStyle.stroke) && via.f(this.strokeWidth, shapeStyle.strokeWidth) && via.f(this.lineCap, shapeStyle.lineCap) && via.f(this.lineJoin, shapeStyle.lineJoin) && via.f(this.miterLimit, shapeStyle.miterLimit) && via.f(this.lineDashI, shapeStyle.lineDashI) && via.f(this.lineDashII, shapeStyle.lineDashII) && via.f(this.lineDashIII, shapeStyle.lineDashIII)) {
                     return true;
                 }
                 return false;
@@ -1432,35 +1432,35 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.squareup.wire2.ProtoAdapter
-            public EllipseArgs decode(v9a v9aVar) throws IOException {
+            public EllipseArgs decode(qia qiaVar) throws IOException {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v9aVar)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qiaVar)) == null) {
                     Builder builder = new Builder();
-                    long c = v9aVar.c();
+                    long c = qiaVar.c();
                     while (true) {
-                        int f = v9aVar.f();
+                        int f = qiaVar.f();
                         if (f != -1) {
                             if (f != 1) {
                                 if (f != 2) {
                                     if (f != 3) {
                                         if (f != 4) {
-                                            FieldEncoding g = v9aVar.g();
-                                            builder.addUnknownField(f, g, g.rawProtoAdapter().decode(v9aVar));
+                                            FieldEncoding g = qiaVar.g();
+                                            builder.addUnknownField(f, g, g.rawProtoAdapter().decode(qiaVar));
                                         } else {
-                                            builder.radiusY(ProtoAdapter.FLOAT.decode(v9aVar));
+                                            builder.radiusY(ProtoAdapter.FLOAT.decode(qiaVar));
                                         }
                                     } else {
-                                        builder.radiusX(ProtoAdapter.FLOAT.decode(v9aVar));
+                                        builder.radiusX(ProtoAdapter.FLOAT.decode(qiaVar));
                                     }
                                 } else {
-                                    builder.y(ProtoAdapter.FLOAT.decode(v9aVar));
+                                    builder.y(ProtoAdapter.FLOAT.decode(qiaVar));
                                 }
                             } else {
-                                builder.x(ProtoAdapter.FLOAT.decode(v9aVar));
+                                builder.x(ProtoAdapter.FLOAT.decode(qiaVar));
                             }
                         } else {
-                            v9aVar.d(c);
+                            qiaVar.d(c);
                             return builder.build();
                         }
                     }
@@ -1484,26 +1484,26 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.squareup.wire2.ProtoAdapter
-            public void encode(w9a w9aVar, EllipseArgs ellipseArgs) throws IOException {
+            public void encode(ria riaVar, EllipseArgs ellipseArgs) throws IOException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, w9aVar, ellipseArgs) == null) {
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, riaVar, ellipseArgs) == null) {
                     Float f = ellipseArgs.x;
                     if (f != null) {
-                        ProtoAdapter.FLOAT.encodeWithTag(w9aVar, 1, f);
+                        ProtoAdapter.FLOAT.encodeWithTag(riaVar, 1, f);
                     }
                     Float f2 = ellipseArgs.y;
                     if (f2 != null) {
-                        ProtoAdapter.FLOAT.encodeWithTag(w9aVar, 2, f2);
+                        ProtoAdapter.FLOAT.encodeWithTag(riaVar, 2, f2);
                     }
                     Float f3 = ellipseArgs.radiusX;
                     if (f3 != null) {
-                        ProtoAdapter.FLOAT.encodeWithTag(w9aVar, 3, f3);
+                        ProtoAdapter.FLOAT.encodeWithTag(riaVar, 3, f3);
                     }
                     Float f4 = ellipseArgs.radiusY;
                     if (f4 != null) {
-                        ProtoAdapter.FLOAT.encodeWithTag(w9aVar, 4, f4);
+                        ProtoAdapter.FLOAT.encodeWithTag(riaVar, 4, f4);
                     }
-                    w9aVar.k(ellipseArgs.unknownFields());
+                    riaVar.k(ellipseArgs.unknownFields());
                 }
             }
 
@@ -1625,7 +1625,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     return false;
                 }
                 EllipseArgs ellipseArgs = (EllipseArgs) obj;
-                if (unknownFields().equals(ellipseArgs.unknownFields()) && aaa.f(this.x, ellipseArgs.x) && aaa.f(this.y, ellipseArgs.y) && aaa.f(this.radiusX, ellipseArgs.radiusX) && aaa.f(this.radiusY, ellipseArgs.radiusY)) {
+                if (unknownFields().equals(ellipseArgs.unknownFields()) && via.f(this.x, ellipseArgs.x) && via.f(this.y, ellipseArgs.y) && via.f(this.radiusX, ellipseArgs.radiusX) && via.f(this.radiusY, ellipseArgs.radiusY)) {
                     return true;
                 }
                 return false;
@@ -1863,39 +1863,39 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.squareup.wire2.ProtoAdapter
-            public RectArgs decode(v9a v9aVar) throws IOException {
+            public RectArgs decode(qia qiaVar) throws IOException {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v9aVar)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qiaVar)) == null) {
                     Builder builder = new Builder();
-                    long c = v9aVar.c();
+                    long c = qiaVar.c();
                     while (true) {
-                        int f = v9aVar.f();
+                        int f = qiaVar.f();
                         if (f != -1) {
                             if (f != 1) {
                                 if (f != 2) {
                                     if (f != 3) {
                                         if (f != 4) {
                                             if (f != 5) {
-                                                FieldEncoding g = v9aVar.g();
-                                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(v9aVar));
+                                                FieldEncoding g = qiaVar.g();
+                                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(qiaVar));
                                             } else {
-                                                builder.cornerRadius(ProtoAdapter.FLOAT.decode(v9aVar));
+                                                builder.cornerRadius(ProtoAdapter.FLOAT.decode(qiaVar));
                                             }
                                         } else {
-                                            builder.height(ProtoAdapter.FLOAT.decode(v9aVar));
+                                            builder.height(ProtoAdapter.FLOAT.decode(qiaVar));
                                         }
                                     } else {
-                                        builder.width(ProtoAdapter.FLOAT.decode(v9aVar));
+                                        builder.width(ProtoAdapter.FLOAT.decode(qiaVar));
                                     }
                                 } else {
-                                    builder.y(ProtoAdapter.FLOAT.decode(v9aVar));
+                                    builder.y(ProtoAdapter.FLOAT.decode(qiaVar));
                                 }
                             } else {
-                                builder.x(ProtoAdapter.FLOAT.decode(v9aVar));
+                                builder.x(ProtoAdapter.FLOAT.decode(qiaVar));
                             }
                         } else {
-                            v9aVar.d(c);
+                            qiaVar.d(c);
                             return builder.build();
                         }
                     }
@@ -1919,30 +1919,30 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.squareup.wire2.ProtoAdapter
-            public void encode(w9a w9aVar, RectArgs rectArgs) throws IOException {
+            public void encode(ria riaVar, RectArgs rectArgs) throws IOException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, w9aVar, rectArgs) == null) {
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, riaVar, rectArgs) == null) {
                     Float f = rectArgs.x;
                     if (f != null) {
-                        ProtoAdapter.FLOAT.encodeWithTag(w9aVar, 1, f);
+                        ProtoAdapter.FLOAT.encodeWithTag(riaVar, 1, f);
                     }
                     Float f2 = rectArgs.y;
                     if (f2 != null) {
-                        ProtoAdapter.FLOAT.encodeWithTag(w9aVar, 2, f2);
+                        ProtoAdapter.FLOAT.encodeWithTag(riaVar, 2, f2);
                     }
                     Float f3 = rectArgs.width;
                     if (f3 != null) {
-                        ProtoAdapter.FLOAT.encodeWithTag(w9aVar, 3, f3);
+                        ProtoAdapter.FLOAT.encodeWithTag(riaVar, 3, f3);
                     }
                     Float f4 = rectArgs.height;
                     if (f4 != null) {
-                        ProtoAdapter.FLOAT.encodeWithTag(w9aVar, 4, f4);
+                        ProtoAdapter.FLOAT.encodeWithTag(riaVar, 4, f4);
                     }
                     Float f5 = rectArgs.cornerRadius;
                     if (f5 != null) {
-                        ProtoAdapter.FLOAT.encodeWithTag(w9aVar, 5, f5);
+                        ProtoAdapter.FLOAT.encodeWithTag(riaVar, 5, f5);
                     }
-                    w9aVar.k(rectArgs.unknownFields());
+                    riaVar.k(rectArgs.unknownFields());
                 }
             }
 
@@ -2094,7 +2094,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     return false;
                 }
                 RectArgs rectArgs = (RectArgs) obj;
-                if (unknownFields().equals(rectArgs.unknownFields()) && aaa.f(this.x, rectArgs.x) && aaa.f(this.y, rectArgs.y) && aaa.f(this.width, rectArgs.width) && aaa.f(this.height, rectArgs.height) && aaa.f(this.cornerRadius, rectArgs.cornerRadius)) {
+                if (unknownFields().equals(rectArgs.unknownFields()) && via.f(this.x, rectArgs.x) && via.f(this.y, rectArgs.y) && via.f(this.width, rectArgs.width) && via.f(this.height, rectArgs.height) && via.f(this.cornerRadius, rectArgs.cornerRadius)) {
                     return true;
                 }
                 return false;
@@ -2269,23 +2269,23 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.squareup.wire2.ProtoAdapter
-            public ShapeArgs decode(v9a v9aVar) throws IOException {
+            public ShapeArgs decode(qia qiaVar) throws IOException {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v9aVar)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qiaVar)) == null) {
                     Builder builder = new Builder();
-                    long c = v9aVar.c();
+                    long c = qiaVar.c();
                     while (true) {
-                        int f = v9aVar.f();
+                        int f = qiaVar.f();
                         if (f != -1) {
                             if (f != 1) {
-                                FieldEncoding g = v9aVar.g();
-                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(v9aVar));
+                                FieldEncoding g = qiaVar.g();
+                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(qiaVar));
                             } else {
-                                builder.d(ProtoAdapter.STRING.decode(v9aVar));
+                                builder.d(ProtoAdapter.STRING.decode(qiaVar));
                             }
                         } else {
-                            v9aVar.d(c);
+                            qiaVar.d(c);
                             return builder.build();
                         }
                     }
@@ -2327,14 +2327,14 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.squareup.wire2.ProtoAdapter
-            public void encode(w9a w9aVar, ShapeArgs shapeArgs) throws IOException {
+            public void encode(ria riaVar, ShapeArgs shapeArgs) throws IOException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, w9aVar, shapeArgs) == null) {
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, riaVar, shapeArgs) == null) {
                     String str = shapeArgs.d;
                     if (str != null) {
-                        ProtoAdapter.STRING.encodeWithTag(w9aVar, 1, str);
+                        ProtoAdapter.STRING.encodeWithTag(riaVar, 1, str);
                     }
-                    w9aVar.k(shapeArgs.unknownFields());
+                    riaVar.k(shapeArgs.unknownFields());
                 }
             }
         }
@@ -2426,7 +2426,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     return false;
                 }
                 ShapeArgs shapeArgs = (ShapeArgs) obj;
-                if (unknownFields().equals(shapeArgs.unknownFields()) && aaa.f(this.d, shapeArgs.d)) {
+                if (unknownFields().equals(shapeArgs.unknownFields()) && via.f(this.d, shapeArgs.d)) {
                     return true;
                 }
                 return false;
@@ -2605,14 +2605,14 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public ShapeEntity decode(v9a v9aVar) throws IOException {
+        public ShapeEntity decode(qia qiaVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v9aVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qiaVar)) == null) {
                 Builder builder = new Builder();
-                long c = v9aVar.c();
+                long c = qiaVar.c();
                 while (true) {
-                    int f = v9aVar.f();
+                    int f = qiaVar.f();
                     if (f != -1) {
                         if (f != 1) {
                             if (f != 2) {
@@ -2620,32 +2620,32 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                                     if (f != 4) {
                                         if (f != 10) {
                                             if (f != 11) {
-                                                FieldEncoding g = v9aVar.g();
-                                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(v9aVar));
+                                                FieldEncoding g = qiaVar.g();
+                                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(qiaVar));
                                             } else {
-                                                builder.transform(Transform.ADAPTER.decode(v9aVar));
+                                                builder.transform(Transform.ADAPTER.decode(qiaVar));
                                             }
                                         } else {
-                                            builder.styles(ShapeStyle.ADAPTER.decode(v9aVar));
+                                            builder.styles(ShapeStyle.ADAPTER.decode(qiaVar));
                                         }
                                     } else {
-                                        builder.ellipse(EllipseArgs.ADAPTER.decode(v9aVar));
+                                        builder.ellipse(EllipseArgs.ADAPTER.decode(qiaVar));
                                     }
                                 } else {
-                                    builder.rect(RectArgs.ADAPTER.decode(v9aVar));
+                                    builder.rect(RectArgs.ADAPTER.decode(qiaVar));
                                 }
                             } else {
-                                builder.shape(ShapeArgs.ADAPTER.decode(v9aVar));
+                                builder.shape(ShapeArgs.ADAPTER.decode(qiaVar));
                             }
                         } else {
                             try {
-                                builder.type(ShapeType.ADAPTER.decode(v9aVar));
+                                builder.type(ShapeType.ADAPTER.decode(qiaVar));
                             } catch (ProtoAdapter.EnumConstantNotFoundException e) {
                                 builder.addUnknownField(f, FieldEncoding.VARINT, Long.valueOf(e.value));
                             }
                         }
                     } else {
-                        v9aVar.d(c);
+                        qiaVar.d(c);
                         return builder.build();
                     }
                 }
@@ -2656,34 +2656,34 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(w9a w9aVar, ShapeEntity shapeEntity) throws IOException {
+        public void encode(ria riaVar, ShapeEntity shapeEntity) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, w9aVar, shapeEntity) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, riaVar, shapeEntity) == null) {
                 ShapeType shapeType = shapeEntity.type;
                 if (shapeType != null) {
-                    ShapeType.ADAPTER.encodeWithTag(w9aVar, 1, shapeType);
+                    ShapeType.ADAPTER.encodeWithTag(riaVar, 1, shapeType);
                 }
                 ShapeStyle shapeStyle = shapeEntity.styles;
                 if (shapeStyle != null) {
-                    ShapeStyle.ADAPTER.encodeWithTag(w9aVar, 10, shapeStyle);
+                    ShapeStyle.ADAPTER.encodeWithTag(riaVar, 10, shapeStyle);
                 }
                 Transform transform = shapeEntity.transform;
                 if (transform != null) {
-                    Transform.ADAPTER.encodeWithTag(w9aVar, 11, transform);
+                    Transform.ADAPTER.encodeWithTag(riaVar, 11, transform);
                 }
                 ShapeArgs shapeArgs = shapeEntity.shape;
                 if (shapeArgs != null) {
-                    ShapeArgs.ADAPTER.encodeWithTag(w9aVar, 2, shapeArgs);
+                    ShapeArgs.ADAPTER.encodeWithTag(riaVar, 2, shapeArgs);
                 }
                 RectArgs rectArgs = shapeEntity.rect;
                 if (rectArgs != null) {
-                    RectArgs.ADAPTER.encodeWithTag(w9aVar, 3, rectArgs);
+                    RectArgs.ADAPTER.encodeWithTag(riaVar, 3, rectArgs);
                 }
                 EllipseArgs ellipseArgs = shapeEntity.ellipse;
                 if (ellipseArgs != null) {
-                    EllipseArgs.ADAPTER.encodeWithTag(w9aVar, 4, ellipseArgs);
+                    EllipseArgs.ADAPTER.encodeWithTag(riaVar, 4, ellipseArgs);
                 }
-                w9aVar.k(shapeEntity.unknownFields());
+                riaVar.k(shapeEntity.unknownFields());
             }
         }
 
@@ -2779,7 +2779,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class ShapeType implements z9a {
+    public static final class ShapeType implements uia {
         public static final /* synthetic */ ShapeType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ProtoAdapter<ShapeType> ADAPTER;
@@ -2872,7 +2872,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             return (ShapeType[]) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.z9a
+        @Override // com.baidu.tieba.uia
         public int getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -2940,7 +2940,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 return;
             }
         }
-        if (aaa.e(shapeArgs, rectArgs, ellipseArgs) <= 1) {
+        if (via.e(shapeArgs, rectArgs, ellipseArgs) <= 1) {
             this.type = shapeType;
             this.styles = shapeStyle;
             this.transform = transform;
@@ -2963,7 +2963,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 return false;
             }
             ShapeEntity shapeEntity = (ShapeEntity) obj;
-            if (unknownFields().equals(shapeEntity.unknownFields()) && aaa.f(this.type, shapeEntity.type) && aaa.f(this.styles, shapeEntity.styles) && aaa.f(this.transform, shapeEntity.transform) && aaa.f(this.shape, shapeEntity.shape) && aaa.f(this.rect, shapeEntity.rect) && aaa.f(this.ellipse, shapeEntity.ellipse)) {
+            if (unknownFields().equals(shapeEntity.unknownFields()) && via.f(this.type, shapeEntity.type) && via.f(this.styles, shapeEntity.styles) && via.f(this.transform, shapeEntity.transform) && via.f(this.shape, shapeEntity.shape) && via.f(this.rect, shapeEntity.rect) && via.f(this.ellipse, shapeEntity.ellipse)) {
                 return true;
             }
             return false;

@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.heytap.mcssdk.PushService;
 /* loaded from: classes8.dex */
 public class Utils {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int SDK_INT_26 = 26;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     public Utils() {
@@ -30,38 +30,10 @@ public class Utils {
         }
     }
 
-    public static String getAppName(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                return context.getResources().getString(context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.labelRes);
-            } catch (Exception e) {
-                LogUtil.e(e);
-                return "app";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String getPackageName(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).packageName;
-            } catch (Exception e) {
-                LogUtil.e(e);
-                return "0";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static String getString(int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iArr)) == null) {
             StringBuilder sb = new StringBuilder();
             for (int i : iArr) {
                 sb.append((char) i);
@@ -71,29 +43,14 @@ public class Utils {
         return (String) invokeL.objValue;
     }
 
-    public static String getSystemProperties(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            try {
-                Class<?> cls = Class.forName("android.os.SystemProperties");
-                return (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, str2);
-            } catch (IllegalArgumentException e) {
-                throw e;
-            } catch (Exception unused) {
-                return str2;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
     public static int getVersionCode(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-            } catch (Exception unused) {
+            } catch (Exception e) {
+                d.b("getVersionCode--Exception:" + e.getMessage());
                 return 0;
             }
         }
@@ -103,11 +60,11 @@ public class Utils {
     public static int getVersionCode(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(str, 0).versionCode;
             } catch (Exception e) {
-                LogUtil.d("getVersionCode--Exception:" + e.getMessage());
+                d.b("getVersionCode--Exception:" + e.getMessage());
                 return 0;
             }
         }
@@ -117,10 +74,11 @@ public class Utils {
     public static String getVersionName(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (Exception unused) {
+            } catch (Exception e) {
+                d.b("getVersionName--Exception:" + e.getMessage());
                 return "0";
             }
         }
@@ -130,11 +88,11 @@ public class Utils {
     public static String getVersionName(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(str, 0).versionName;
             } catch (Exception e) {
-                LogUtil.d("getVersionName--Exception:" + e.getMessage());
+                d.b("getVersionName--Exception:" + e.getMessage());
                 return null;
             }
         }
@@ -144,12 +102,12 @@ public class Utils {
     public static boolean isExistPackage(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
             try {
                 context.getPackageManager().getPackageInfo(str, 1);
                 return true;
             } catch (PackageManager.NameNotFoundException e) {
-                LogUtil.e("isExistPackage NameNotFoundException:" + e.getMessage());
+                d.e("isExistPackage NameNotFoundException:" + e.getMessage());
                 return false;
             }
         }
@@ -160,11 +118,11 @@ public class Utils {
         ApplicationInfo applicationInfo;
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, context, str, str2)) == null) {
             try {
                 applicationInfo = context.getPackageManager().getApplicationInfo(str, 128);
             } catch (PackageManager.NameNotFoundException e) {
-                LogUtil.e("isSupportPush NameNotFoundException:" + e.getMessage());
+                d.e("isSupportPush NameNotFoundException:" + e.getMessage());
                 applicationInfo = null;
             }
             return applicationInfo != null && applicationInfo.metaData.getBoolean(str2, false);
@@ -172,15 +130,21 @@ public class Utils {
         return invokeLLL.booleanValue;
     }
 
+    public static boolean isSupportPushByClient(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? PushService.getInstance().isSupportPushByClient(context) : invokeL.booleanValue;
+    }
+
     public static int parseInt(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     return Integer.parseInt(str);
                 } catch (NumberFormatException e) {
-                    LogUtil.e("parseInt--NumberFormatException" + e.getMessage());
+                    d.e("parseInt--NumberFormatException" + e.getMessage());
                 }
             }
             return -1;

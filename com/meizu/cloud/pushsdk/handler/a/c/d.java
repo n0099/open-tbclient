@@ -1,76 +1,82 @@
 package com.meizu.cloud.pushsdk.handler.a.c;
 
-import android.content.Context;
-import android.content.Intent;
-import com.meizu.cloud.pushinternal.DebugLogger;
+import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.handler.MessageV3;
 /* loaded from: classes8.dex */
-public class d extends com.meizu.cloud.pushsdk.handler.a.a<com.meizu.cloud.pushsdk.handler.a.b.c> {
-    public d(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
-        super(context, aVar);
-    }
+public class d {
+    public String a;
+    public String b;
+    public String c;
+    public String d;
 
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public int a() {
-        return 32768;
-    }
+    /* loaded from: classes8.dex */
+    public static class a {
+        public String a;
+        public String b;
+        public String c;
+        public String d;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: a */
-    public void b(com.meizu.cloud.pushsdk.handler.a.b.c cVar) {
-        String str;
-        int c = cVar.c();
-        if (c == -2) {
-            DebugLogger.e("AbstractMessageHandler", "notification STATE_NOTIFICATION_SHOW_ACCESS_DENY");
-            com.meizu.cloud.pushsdk.util.d.g(c(), cVar.a().getUploadDataPackageName(), cVar.a().getDeviceId(), cVar.a().getTaskId(), cVar.a().getSeqId(), cVar.a().getPushTimestamp());
-        } else if (c == -1) {
-            DebugLogger.e("AbstractMessageHandler", "notification STATE_NOTIFICATION_SHOW_INBOX");
-            com.meizu.cloud.pushsdk.util.d.f(c(), cVar.a().getUploadDataPackageName(), cVar.a().getDeviceId(), cVar.a().getTaskId(), cVar.a().getSeqId(), cVar.a().getPushTimestamp());
-        } else {
-            if (c == 0) {
-                str = "notification STATE_NOTIFICATION_SHOW_NORMAL";
-            } else if (c != 1) {
-                return;
-            } else {
-                str = "notification STATE_NOTIFICATION_SHOW_FLOAT";
-            }
-            DebugLogger.e("AbstractMessageHandler", str);
+        public a a(String str) {
+            this.a = str;
+            return this;
+        }
+
+        public d a() {
+            return new d(this);
+        }
+
+        public a b(String str) {
+            this.b = str;
+            return this;
+        }
+
+        public a c(String str) {
+            this.c = str;
+            return this;
+        }
+
+        public a d(String str) {
+            this.d = str;
+            return this;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    public void a(com.meizu.cloud.pushsdk.handler.a.b.c cVar, com.meizu.cloud.pushsdk.notification.c cVar2) {
-        DebugLogger.e("AbstractMessageHandler", "store notification id " + cVar.b());
-        com.meizu.cloud.pushsdk.notification.c.b.b(c(), cVar.a().getUploadDataPackageName(), cVar.b());
+    public d() {
     }
 
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public boolean a(Intent intent) {
-        DebugLogger.i("AbstractMessageHandler", "start NotificationStateMessageHandler match");
-        return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_NOTIFICATION_STATE.equals(i(intent));
+    public d(a aVar) {
+        this.a = !TextUtils.isEmpty(aVar.a) ? aVar.a : "";
+        this.b = !TextUtils.isEmpty(aVar.b) ? aVar.b : "";
+        this.c = !TextUtils.isEmpty(aVar.c) ? aVar.c : "";
+        this.d = TextUtils.isEmpty(aVar.d) ? "" : aVar.d;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: j */
-    public com.meizu.cloud.pushsdk.handler.a.b.c c(Intent intent) {
-        String stringExtra = intent.getStringExtra(PushConstants.NOTIFICATION_EXTRA_SHOW_PACKAGE_NAME);
-        String stringExtra2 = intent.getStringExtra(PushConstants.NOTIFICATION_EXTRA_TASK_ID);
-        String stringExtra3 = intent.getStringExtra(PushConstants.NOTIFICATION_EXTRA_SEQ_ID);
-        String stringExtra4 = intent.getStringExtra(PushConstants.NOTIFICATION_EXTRA_DEVICE_ID);
-        String stringExtra5 = intent.getStringExtra(PushConstants.NOTIFICATION_EXTRA_PUSH_TIMESTAMP);
-        String stringExtra6 = intent.getStringExtra(PushConstants.MZ_PUSH_NOTIFICATION_STATE_MESSAGE);
-        DebugLogger.i("AbstractMessageHandler", "current taskId " + stringExtra2 + " seqId " + stringExtra3 + " deviceId " + stringExtra4 + " packageName " + stringExtra);
-        com.meizu.cloud.pushsdk.handler.a.b.c cVar = new com.meizu.cloud.pushsdk.handler.a.b.c(MessageV3.parse(c().getPackageName(), stringExtra, stringExtra5, stringExtra4, stringExtra2, stringExtra3, stringExtra6));
-        String stringExtra7 = intent.getStringExtra("flyme:notification_pkg");
-        int intExtra = intent.getIntExtra("flyme:notification_id", 0);
-        int intExtra2 = intent.getIntExtra("flyme:notification_state", 0);
-        cVar.a(intExtra);
-        cVar.a(stringExtra7);
-        cVar.b(intExtra2);
-        return cVar;
+    public static a a() {
+        return new a();
+    }
+
+    public String b() {
+        com.meizu.cloud.pushsdk.d.a.c cVar = new com.meizu.cloud.pushsdk.d.a.c();
+        cVar.a("task_id", this.a);
+        cVar.a(PushConstants.SEQ_ID, this.b);
+        cVar.a(PushConstants.PUSH_TIMESTAMP, this.c);
+        cVar.a("device_id", this.d);
+        return cVar.toString();
+    }
+
+    public String c() {
+        return this.a;
+    }
+
+    public String d() {
+        return this.b;
+    }
+
+    public String e() {
+        return this.c;
+    }
+
+    public String f() {
+        return this.d;
     }
 }

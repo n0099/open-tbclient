@@ -7,45 +7,21 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.common.others.url.UrlUtil;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.connect.ConnectManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NetworkParam {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean DEBUG = false;
     public static final String LAST_NETWORK_TYPE = "last network type";
     public static final String NET_TYPE_ID_DISCONNECT = "5_0";
-    public static String TAG = null;
     public static final int UNKOWN_NET_TYPE = 5;
     public static HashMap<String, Integer> netType2Id;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Context mContext;
+    public Context mContext = AppRuntime.getAppContext();
+    public static boolean DEBUG = AppConfig.isDebug();
+    public static String TAG = "networkparam";
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(253984962, "Lcom/baidu/searchbox/logsystem/basic/upload/identity/NetworkParam;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(253984962, "Lcom/baidu/searchbox/logsystem/basic/upload/identity/NetworkParam;");
-                return;
-            }
-        }
-        DEBUG = AppConfig.isDebug();
-        TAG = "networkparam";
         HashMap<String, Integer> hashMap = new HashMap<>();
         netType2Id = hashMap;
         hashMap.put("WIFI", 1);
@@ -59,76 +35,50 @@ public class NetworkParam {
         netType2Id.put("CTWAP", 43);
     }
 
-    public String getCurrentNetTypeId() {
-        InterceptResult invokeV;
-        long j;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (DEBUG) {
-                j = SystemClock.uptimeMillis();
-            } else {
-                j = 0;
+    public String addNetWorkParam(String str, boolean z) {
+        if (z) {
+            String currentNetTypeId = getCurrentNetTypeId();
+            if (TextUtils.equals(currentNetTypeId, NET_TYPE_ID_DISCONNECT)) {
+                return UrlUtil.addParam(str, "network", PreferenceManager.getDefaultSharedPreferences(this.mContext.getApplicationContext()).getString(LAST_NETWORK_TYPE, NET_TYPE_ID_DISCONNECT));
             }
-            ConnectManager connectManager = new ConnectManager(this.mContext);
-            String netType = connectManager.getNetType();
-            int subType = connectManager.getSubType();
-            if (!TextUtils.isEmpty(netType)) {
-                netType = netType.toUpperCase();
-                Integer num = netType2Id.get(netType);
-                if (num == null) {
-                    num = 5;
+            if (!TextUtils.isEmpty(currentNetTypeId)) {
+                if (!TextUtils.equals(currentNetTypeId, NET_TYPE_ID_DISCONNECT)) {
+                    SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.mContext.getApplicationContext()).edit();
+                    edit.putString(LAST_NETWORK_TYPE, currentNetTypeId);
+                    edit.apply();
                 }
-                str = num + "_" + subType;
-            } else {
-                str = ((Object) 5) + "_" + subType;
-            }
-            if (DEBUG) {
-                long uptimeMillis = SystemClock.uptimeMillis();
-                Log.i(TAG, "getCurrentNetTypeId cost " + (uptimeMillis - j) + "ms, current net type: " + netType + ", type id: " + str + ", subtype id: " + subType + ", subtype name: " + connectManager.getSubTypeName());
+                return UrlUtil.addParam(str, "network", currentNetTypeId);
             }
             return str;
         }
-        return (String) invokeV.objValue;
+        return UrlUtil.addParam(str, "network", getCurrentNetTypeId());
     }
 
-    public NetworkParam() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+    public String getCurrentNetTypeId() {
+        long j;
+        String str;
+        if (DEBUG) {
+            j = SystemClock.uptimeMillis();
+        } else {
+            j = 0;
         }
-        this.mContext = AppRuntime.getAppContext();
-    }
-
-    public String addNetWorkParam(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            if (z) {
-                String currentNetTypeId = getCurrentNetTypeId();
-                if (TextUtils.equals(currentNetTypeId, NET_TYPE_ID_DISCONNECT)) {
-                    return UrlUtil.addParam(str, "network", PreferenceManager.getDefaultSharedPreferences(this.mContext.getApplicationContext()).getString(LAST_NETWORK_TYPE, NET_TYPE_ID_DISCONNECT));
-                }
-                if (!TextUtils.isEmpty(currentNetTypeId)) {
-                    if (!TextUtils.equals(currentNetTypeId, NET_TYPE_ID_DISCONNECT)) {
-                        SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.mContext.getApplicationContext()).edit();
-                        edit.putString(LAST_NETWORK_TYPE, currentNetTypeId);
-                        edit.apply();
-                    }
-                    return UrlUtil.addParam(str, "network", currentNetTypeId);
-                }
-                return str;
+        ConnectManager connectManager = new ConnectManager(this.mContext);
+        String netType = connectManager.getNetType();
+        int subType = connectManager.getSubType();
+        if (!TextUtils.isEmpty(netType)) {
+            netType = netType.toUpperCase();
+            Integer num = netType2Id.get(netType);
+            if (num == null) {
+                num = 5;
             }
-            return UrlUtil.addParam(str, "network", getCurrentNetTypeId());
+            str = num + "_" + subType;
+        } else {
+            str = ((Object) 5) + "_" + subType;
         }
-        return (String) invokeLZ.objValue;
+        if (DEBUG) {
+            long uptimeMillis = SystemClock.uptimeMillis();
+            Log.i(TAG, "getCurrentNetTypeId cost " + (uptimeMillis - j) + "ms, current net type: " + netType + ", type id: " + str + ", subtype id: " + subType + ", subtype name: " + connectManager.getSubTypeName());
+        }
+        return str;
     }
 }

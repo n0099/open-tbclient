@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.b.kwai;
 
 import com.baidu.searchbox.pms.db.PackageTable;
-import com.heytap.mcssdk.PushManager;
+import com.heytap.mcssdk.PushService;
 import com.kwad.components.core.webview.jshandler.y;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -23,7 +23,7 @@ public final class ah implements com.kwad.sdk.core.d<y.b> {
         if (jSONObject.opt("version") == JSONObject.NULL) {
             bVar.version = "";
         }
-        bVar.versionCode = jSONObject.optInt(PushManager.APP_VERSION_CODE);
+        bVar.versionCode = jSONObject.optInt(PushService.APP_VERSION_CODE);
         bVar.MI = jSONObject.optLong("appSize");
         bVar.Ma = jSONObject.optString(PackageTable.MD5);
         if (jSONObject.opt(PackageTable.MD5) == JSONObject.NULL) {
@@ -62,7 +62,7 @@ public final class ah implements com.kwad.sdk.core.d<y.b> {
         }
         int i = bVar.versionCode;
         if (i != 0) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, PushManager.APP_VERSION_CODE, i);
+            com.kwad.sdk.utils.r.putValue(jSONObject, PushService.APP_VERSION_CODE, i);
         }
         long j = bVar.MI;
         if (j != 0) {

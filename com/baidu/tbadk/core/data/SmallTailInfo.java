@@ -117,9 +117,6 @@ public class SmallTailInfo extends OrmObject implements Serializable {
             if (str == null) {
                 return null;
             }
-            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                return TbadkCoreApplication.getInst().getString(R.string.color_prefix) + TbadkCoreApplication.getInst().getString(R.string.tail_color_night) + str;
-            }
             return TbadkCoreApplication.getInst().getString(R.string.color_prefix) + str;
         }
         return (String) invokeL.objValue;

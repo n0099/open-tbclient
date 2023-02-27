@@ -1,91 +1,64 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.math.BigInteger;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.InvalidKeyException;
 import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 /* loaded from: classes4.dex */
-public final class d50 {
+public class d50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public i50 a;
 
-    public static byte[] a(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
+    public d50() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, bArr, i, i2)) == null) {
-            if (i == 0 && i2 == bArr.length) {
-                return bArr;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            byte[] bArr2 = new byte[i2];
-            System.arraycopy(bArr, i, bArr2, 0, i2);
-            return bArr2;
         }
-        return (byte[]) invokeLII.objValue;
     }
 
-    public static byte[] b(byte[] bArr, BigInteger bigInteger, BigInteger bigInteger2) throws BadPaddingException {
-        InterceptResult invokeLLL;
+    public static d50 b() throws NoSuchPaddingException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, bArr, bigInteger, bigInteger2)) == null) {
-            return f(d(bArr, bigInteger).modPow(bigInteger2, bigInteger), c(bigInteger));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            d50 d50Var = new d50();
+            i50 i50Var = new i50();
+            d50Var.a = i50Var;
+            i50Var.d(2);
+            return d50Var;
         }
-        return (byte[]) invokeLLL.objValue;
+        return (d50) invokeV.objValue;
     }
 
-    public static int c(BigInteger bigInteger) {
+    public final byte[] a(byte[] bArr) throws IllegalBlockSizeException, BadPaddingException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bigInteger)) == null) {
-            return (bigInteger.bitLength() + 7) >> 3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+            if (bArr != null) {
+                return this.a.b(bArr, 0, bArr.length);
+            }
+            throw new IllegalArgumentException("Null input buffer");
         }
-        return invokeL.intValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public static BigInteger d(byte[] bArr, BigInteger bigInteger) throws BadPaddingException {
-        InterceptResult invokeLL;
+    public void c(int i, g50 g50Var) throws InvalidKeyException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bigInteger)) == null) {
-            BigInteger bigInteger2 = new BigInteger(1, bArr);
-            if (bigInteger2.compareTo(bigInteger) < 0) {
-                return bigInteger2;
-            }
-            throw new BadPaddingException("Message is larger than modulus");
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, g50Var) == null) {
+            this.a.c(i, g50Var);
         }
-        return (BigInteger) invokeLL.objValue;
-    }
-
-    public static byte[] e(byte[] bArr, c50 c50Var) throws BadPaddingException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, c50Var)) == null) {
-            return b(bArr, c50Var.b(), c50Var.a());
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] f(BigInteger bigInteger, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, bigInteger, i)) == null) {
-            byte[] byteArray = bigInteger.toByteArray();
-            int length = byteArray.length;
-            if (length == i) {
-                return byteArray;
-            }
-            if (length == i + 1 && byteArray[0] == 0) {
-                byte[] bArr = new byte[i];
-                System.arraycopy(byteArray, 1, bArr, 0, i);
-                return bArr;
-            } else if (length >= i) {
-                return null;
-            } else {
-                byte[] bArr2 = new byte[i];
-                System.arraycopy(byteArray, 0, bArr2, i - length, length);
-                return bArr2;
-            }
-        }
-        return (byte[]) invokeLI.objValue;
     }
 }

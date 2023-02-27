@@ -1,16 +1,8 @@
 package com.google.android.exoplayer2.util;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.spswitch.utils.BDEmotionPanelManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,31 +10,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
 public final class ColorParser {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final Map<String, Integer> COLOR_MAP;
     public static final String RGB = "rgb";
     public static final String RGBA = "rgba";
-    public static final Pattern RGBA_PATTERN_FLOAT_ALPHA;
-    public static final Pattern RGBA_PATTERN_INT_ALPHA;
-    public static final Pattern RGB_PATTERN;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final Pattern RGB_PATTERN = Pattern.compile("^rgb\\((\\d{1,3}),(\\d{1,3}),(\\d{1,3})\\)$");
+    public static final Pattern RGBA_PATTERN_INT_ALPHA = Pattern.compile("^rgba\\((\\d{1,3}),(\\d{1,3}),(\\d{1,3}),(\\d{1,3})\\)$");
+    public static final Pattern RGBA_PATTERN_FLOAT_ALPHA = Pattern.compile("^rgba\\((\\d{1,3}),(\\d{1,3}),(\\d{1,3}),(\\d*\\.?\\d*?)\\)$");
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-762792760, "Lcom/google/android/exoplayer2/util/ColorParser;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-762792760, "Lcom/google/android/exoplayer2/util/ColorParser;");
-                return;
-            }
-        }
-        RGB_PATTERN = Pattern.compile("^rgb\\((\\d{1,3}),(\\d{1,3}),(\\d{1,3})\\)$");
-        RGBA_PATTERN_INT_ALPHA = Pattern.compile("^rgba\\((\\d{1,3}),(\\d{1,3}),(\\d{1,3}),(\\d{1,3})\\)$");
-        RGBA_PATTERN_FLOAT_ALPHA = Pattern.compile("^rgba\\((\\d{1,3}),(\\d{1,3}),(\\d{1,3}),(\\d*\\.?\\d*?)\\)$");
         HashMap hashMap = new HashMap();
         COLOR_MAP = hashMap;
         hashMap.put("aliceblue", -984833);
@@ -197,98 +172,62 @@ public final class ColorParser {
     }
 
     public static int argb(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, null, i, i2, i3, i4)) == null) ? (i << 24) | (i2 << 16) | (i3 << 8) | i4 : invokeIIII.intValue;
-    }
-
-    public ColorParser() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
+        return (i << 24) | (i2 << 16) | (i3 << 8) | i4;
     }
 
     public static int parseColorInternal(String str, boolean z) {
-        InterceptResult invokeLZ;
         Pattern pattern;
         int parseInt;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, str, z)) == null) {
-            Assertions.checkArgument(!TextUtils.isEmpty(str));
-            String replace = str.replace(" ", "");
-            if (replace.charAt(0) == '#') {
-                int parseLong = (int) Long.parseLong(replace.substring(1), 16);
-                if (replace.length() == 7) {
-                    return (-16777216) | parseLong;
-                }
-                if (replace.length() == 9) {
-                    return ((parseLong & 255) << 24) | (parseLong >>> 8);
-                }
-                throw new IllegalArgumentException();
+        Assertions.checkArgument(!TextUtils.isEmpty(str));
+        String replace = str.replace(" ", "");
+        if (replace.charAt(0) == '#') {
+            int parseLong = (int) Long.parseLong(replace.substring(1), 16);
+            if (replace.length() == 7) {
+                return (-16777216) | parseLong;
             }
-            if (replace.startsWith(RGBA)) {
-                if (z) {
-                    pattern = RGBA_PATTERN_FLOAT_ALPHA;
-                } else {
-                    pattern = RGBA_PATTERN_INT_ALPHA;
-                }
-                Matcher matcher = pattern.matcher(replace);
-                if (matcher.matches()) {
-                    if (z) {
-                        parseInt = (int) (Float.parseFloat(matcher.group(4)) * 255.0f);
-                    } else {
-                        parseInt = Integer.parseInt(matcher.group(4), 10);
-                    }
-                    return argb(parseInt, Integer.parseInt(matcher.group(1), 10), Integer.parseInt(matcher.group(2), 10), Integer.parseInt(matcher.group(3), 10));
-                }
-            } else if (replace.startsWith(RGB)) {
-                Matcher matcher2 = RGB_PATTERN.matcher(replace);
-                if (matcher2.matches()) {
-                    return rgb(Integer.parseInt(matcher2.group(1), 10), Integer.parseInt(matcher2.group(2), 10), Integer.parseInt(matcher2.group(3), 10));
-                }
-            } else {
-                Integer num = COLOR_MAP.get(Util.toLowerInvariant(replace));
-                if (num != null) {
-                    return num.intValue();
-                }
+            if (replace.length() == 9) {
+                return ((parseLong & 255) << 24) | (parseLong >>> 8);
             }
             throw new IllegalArgumentException();
         }
-        return invokeLZ.intValue;
+        if (replace.startsWith(RGBA)) {
+            if (z) {
+                pattern = RGBA_PATTERN_FLOAT_ALPHA;
+            } else {
+                pattern = RGBA_PATTERN_INT_ALPHA;
+            }
+            Matcher matcher = pattern.matcher(replace);
+            if (matcher.matches()) {
+                if (z) {
+                    parseInt = (int) (Float.parseFloat(matcher.group(4)) * 255.0f);
+                } else {
+                    parseInt = Integer.parseInt(matcher.group(4), 10);
+                }
+                return argb(parseInt, Integer.parseInt(matcher.group(1), 10), Integer.parseInt(matcher.group(2), 10), Integer.parseInt(matcher.group(3), 10));
+            }
+        } else if (replace.startsWith(RGB)) {
+            Matcher matcher2 = RGB_PATTERN.matcher(replace);
+            if (matcher2.matches()) {
+                return rgb(Integer.parseInt(matcher2.group(1), 10), Integer.parseInt(matcher2.group(2), 10), Integer.parseInt(matcher2.group(3), 10));
+            }
+        } else {
+            Integer num = COLOR_MAP.get(Util.toLowerInvariant(replace));
+            if (num != null) {
+                return num.intValue();
+            }
+        }
+        throw new IllegalArgumentException();
     }
 
     public static int parseCssColor(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return parseColorInternal(str, true);
-        }
-        return invokeL.intValue;
+        return parseColorInternal(str, true);
     }
 
     public static int parseTtmlColor(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            return parseColorInternal(str, false);
-        }
-        return invokeL.intValue;
+        return parseColorInternal(str, false);
     }
 
     public static int rgb(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65542, null, i, i2, i3)) == null) {
-            return argb(255, i, i2, i3);
-        }
-        return invokeIII.intValue;
+        return argb(255, i, i2, i3);
     }
 }

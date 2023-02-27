@@ -1,13 +1,6 @@
 package com.kwad.components.core.offline.init.kwai;
 
 import androidx.annotation.WorkerThread;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.offline.api.core.IOfflineHostApi;
 import com.kwad.components.offline.api.core.api.IAsync;
 import com.kwad.components.offline.api.core.api.ICache;
@@ -29,8 +22,6 @@ import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class g implements IOfflineHostApi {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public IAsync EP;
     public IEnvironment EQ;
     public IZipper ER;
@@ -44,270 +35,120 @@ public final class g implements IOfflineHostApi {
     public IVideo EZ;
     public ICache Fa;
 
-    public g() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // com.kwad.components.offline.api.core.IOfflineHostApi
     public final IAsync async() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.EP == null) {
-                this.EP = new a();
-            }
-            return this.EP;
+        if (this.EP == null) {
+            this.EP = new a();
         }
-        return (IAsync) invokeV.objValue;
+        return this.EP;
     }
 
     @Override // com.kwad.components.offline.api.core.IOfflineHostApi
     public final ICache cache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.Fa == null) {
-                this.Fa = new b();
-            }
-            return this.Fa;
+        if (this.Fa == null) {
+            this.Fa = new b();
         }
-        return (ICache) invokeV.objValue;
+        return this.Fa;
     }
 
     @Override // com.kwad.components.offline.api.core.IOfflineHostApi
     public final ICrash crash() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.EV == null) {
-                this.EV = new ICrash(this) { // from class: com.kwad.components.core.offline.init.kwai.g.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ g Fb;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.Fb = this;
-                    }
-
-                    @Override // com.kwad.components.offline.api.core.api.ICrash
-                    public final void gatherException(Throwable th) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, th) == null) {
-                            com.kwad.sdk.service.a.gatherException(th);
-                        }
-                    }
-                };
-            }
-            return this.EV;
+        if (this.EV == null) {
+            this.EV = new ICrash() { // from class: com.kwad.components.core.offline.init.kwai.g.1
+                @Override // com.kwad.components.offline.api.core.api.ICrash
+                public final void gatherException(Throwable th) {
+                    com.kwad.sdk.service.a.gatherException(th);
+                }
+            };
         }
-        return (ICrash) invokeV.objValue;
+        return this.EV;
     }
 
     @Override // com.kwad.components.offline.api.core.IOfflineHostApi
     public final IDownloader downloader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.EX == null) {
-                this.EX = new IDownloader(this) { // from class: com.kwad.components.core.offline.init.kwai.g.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ g Fb;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.Fb = this;
-                    }
-
-                    @Override // com.kwad.components.offline.api.core.api.IDownloader
-                    @WorkerThread
-                    public final boolean downloadSync(File file, String str) {
-                        InterceptResult invokeLL;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file, str)) == null) ? com.kwad.sdk.core.download.a.c(str, file) : invokeLL.booleanValue;
-                    }
-                };
-            }
-            return this.EX;
+        if (this.EX == null) {
+            this.EX = new IDownloader() { // from class: com.kwad.components.core.offline.init.kwai.g.3
+                @Override // com.kwad.components.offline.api.core.api.IDownloader
+                @WorkerThread
+                public final boolean downloadSync(File file, String str) {
+                    return com.kwad.sdk.core.download.a.c(str, file);
+                }
+            };
         }
-        return (IDownloader) invokeV.objValue;
+        return this.EX;
     }
 
     @Override // com.kwad.components.offline.api.core.IOfflineHostApi
     public final IEncrypt encrypt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.ET == null) {
-                this.ET = new c();
-            }
-            return this.ET;
+        if (this.ET == null) {
+            this.ET = new c();
         }
-        return (IEncrypt) invokeV.objValue;
+        return this.ET;
     }
 
     @Override // com.kwad.components.offline.api.core.IOfflineHostApi
     public final IEnvironment env() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.EQ == null) {
-                this.EQ = new d();
-            }
-            return this.EQ;
+        if (this.EQ == null) {
+            this.EQ = new d();
         }
-        return (IEnvironment) invokeV.objValue;
+        return this.EQ;
     }
 
     @Override // com.kwad.components.offline.api.core.IOfflineHostApi
     public final IImageLoader imageLoader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.EY == null) {
-                this.EY = new e();
-            }
-            return this.EY;
+        if (this.EY == null) {
+            this.EY = new e();
         }
-        return (IImageLoader) invokeV.objValue;
+        return this.EY;
     }
 
     @Override // com.kwad.components.offline.api.core.IOfflineHostApi
     public final IOfflineCompoLogcat log() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.EU == null) {
-                this.EU = new h();
-            }
-            return this.EU;
+        if (this.EU == null) {
+            this.EU = new h();
         }
-        return (IOfflineCompoLogcat) invokeV.objValue;
+        return this.EU;
     }
 
     @Override // com.kwad.components.offline.api.core.IOfflineHostApi
     public final ILoggerReporter loggerReporter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.EW == null) {
-                this.EW = new ILoggerReporter(this) { // from class: com.kwad.components.core.offline.init.kwai.g.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ g Fb;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.Fb = this;
-                    }
-
-                    @Override // com.kwad.components.offline.api.core.api.ILoggerReporter
-                    public final void reportEvent(double d, String str, BusinessType businessType, String str2, JSONObject jSONObject) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Double.valueOf(d), str, businessType, str2, jSONObject}) == null) {
-                            k.a(d, str, businessType, SubBusinessType.OTHER, com.kwai.adclient.kscommerciallogger.model.d.asl, str2, jSONObject);
-                        }
-                    }
-                };
-            }
-            return this.EW;
+        if (this.EW == null) {
+            this.EW = new ILoggerReporter() { // from class: com.kwad.components.core.offline.init.kwai.g.2
+                @Override // com.kwad.components.offline.api.core.api.ILoggerReporter
+                public final void reportEvent(double d, String str, BusinessType businessType, String str2, JSONObject jSONObject) {
+                    k.a(d, str, businessType, SubBusinessType.OTHER, com.kwai.adclient.kscommerciallogger.model.d.asl, str2, jSONObject);
+                }
+            };
         }
-        return (ILoggerReporter) invokeV.objValue;
+        return this.EW;
     }
 
     @Override // com.kwad.components.offline.api.core.IOfflineHostApi
     public final INet net() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.ES == null) {
-                this.ES = new f();
-            }
-            return this.ES;
+        if (this.ES == null) {
+            this.ES = new f();
         }
-        return (INet) invokeV.objValue;
+        return this.ES;
     }
 
     @Override // com.kwad.components.offline.api.core.IOfflineHostApi
     public final float tkLoggerSamplingRate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? com.kwad.sdk.core.config.d.aX(KsAdSDKImpl.get().getContext()) : invokeV.floatValue;
+        return com.kwad.sdk.core.config.d.aX(KsAdSDKImpl.get().getContext());
     }
 
     @Override // com.kwad.components.offline.api.core.IOfflineHostApi
     public final IVideo video() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.EZ == null) {
-                this.EZ = new com.kwad.components.core.offline.init.a.e();
-            }
-            return this.EZ;
+        if (this.EZ == null) {
+            this.EZ = new com.kwad.components.core.offline.init.a.e();
         }
-        return (IVideo) invokeV.objValue;
+        return this.EZ;
     }
 
     @Override // com.kwad.components.offline.api.core.IOfflineHostApi
     public final IZipper zipper() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.ER == null) {
-                this.ER = new j();
-            }
-            return this.ER;
+        if (this.ER == null) {
+            this.ER = new j();
         }
-        return (IZipper) invokeV.objValue;
+        return this.ER;
     }
 }

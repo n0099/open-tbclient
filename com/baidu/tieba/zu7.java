@@ -1,7 +1,9 @@
 package com.baidu.tieba;
-
-import java.util.HashMap;
 /* loaded from: classes7.dex */
 public interface zu7 {
-    void a(int i, HashMap<String, Object> hashMap);
+    void a(int i, int i2);
+
+    void b(int i, int i2);
+
+    void c(int i, int i2);
 }

@@ -1,16 +1,6 @@
 package com.google.android.exoplayer2.extractor.wav;
-
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public final class WavHeader {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final int averageBytesPerSecond;
     public final int bitsPerSample;
     public final int blockAlignment;
@@ -21,20 +11,6 @@ public final class WavHeader {
     public final int sampleRateHz;
 
     public WavHeader(int i, int i2, int i3, int i4, int i5, int i6) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i7 = newInitContext.flag;
-            if ((i7 & 1) != 0) {
-                int i8 = i7 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.numChannels = i;
         this.sampleRateHz = i2;
         this.averageBytesPerSecond = i3;
@@ -44,95 +20,47 @@ public final class WavHeader {
     }
 
     public int getBitrate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.sampleRateHz * this.bitsPerSample * this.numChannels;
-        }
-        return invokeV.intValue;
+        return this.sampleRateHz * this.bitsPerSample * this.numChannels;
     }
 
     public int getBytesPerFrame() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.blockAlignment;
-        }
-        return invokeV.intValue;
+        return this.blockAlignment;
     }
 
     public long getDurationUs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ((this.dataSize / this.blockAlignment) * 1000000) / this.sampleRateHz;
-        }
-        return invokeV.longValue;
+        return ((this.dataSize / this.blockAlignment) * 1000000) / this.sampleRateHz;
     }
 
     public int getEncoding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.encoding;
-        }
-        return invokeV.intValue;
+        return this.encoding;
     }
 
     public int getNumChannels() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.numChannels;
-        }
-        return invokeV.intValue;
+        return this.numChannels;
     }
 
     public int getSampleRateHz() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.sampleRateHz;
-        }
-        return invokeV.intValue;
+        return this.sampleRateHz;
     }
 
     public boolean hasDataBounds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.dataStartPosition != 0 && this.dataSize != 0) {
-                return true;
-            }
-            return false;
+        if (this.dataStartPosition != 0 && this.dataSize != 0) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public long getPosition(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-            int i = this.blockAlignment;
-            return Math.min((((j * this.averageBytesPerSecond) / 1000000) / i) * i, this.dataSize - i) + this.dataStartPosition;
-        }
-        return invokeJ.longValue;
+        int i = this.blockAlignment;
+        return Math.min((((j * this.averageBytesPerSecond) / 1000000) / i) * i, this.dataSize - i) + this.dataStartPosition;
     }
 
     public long getTimeUs(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
-            return (j * 1000000) / this.averageBytesPerSecond;
-        }
-        return invokeJ.longValue;
+        return (j * 1000000) / this.averageBytesPerSecond;
     }
 
     public void setDataBounds(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.dataStartPosition = j;
-            this.dataSize = j2;
-        }
+        this.dataStartPosition = j;
+        this.dataSize = j2;
     }
 }

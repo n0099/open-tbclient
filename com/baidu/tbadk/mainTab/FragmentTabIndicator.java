@@ -20,10 +20,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b49;
 import com.baidu.tieba.da;
 import com.baidu.tieba.fh;
 import com.baidu.tieba.on;
-import com.baidu.tieba.p09;
 import com.baidu.tieba.x9;
 import com.baidu.tieba.yg;
 import com.baidu.tieba.zg;
@@ -48,15 +48,14 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public boolean l;
     public int m;
     public String n;
-    public String o;
-    public BdUniqueId p;
-    public ImageView q;
-    public TextView r;
+    public BdUniqueId o;
+    public ImageView p;
+    public TextView q;
+    public int r;
     public int s;
-    public int t;
-    public boolean u;
-    public HashMap<String, TbFragmentTabIndicator.a> v;
-    public final yg<on> w;
+    public boolean t;
+    public HashMap<String, TbFragmentTabIndicator.a> u;
+    public final yg<on> v;
 
     /* loaded from: classes3.dex */
     public class a extends fh {
@@ -122,10 +121,10 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, onVar, str, i) == null) {
                 super.onLoaded((b) onVar, str, i);
-                if (this.a.q != null && onVar != null && onVar.w()) {
-                    this.a.q.setBackgroundResource(0);
-                    this.a.q.setImageDrawable(null);
-                    onVar.h(this.a.q);
+                if (this.a.p != null && onVar != null && onVar.w()) {
+                    this.a.p.setBackgroundResource(0);
+                    this.a.p.setImageDrawable(null);
+                    onVar.h(this.a.p);
                     return;
                 }
                 this.a.l();
@@ -154,9 +153,9 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         this.g = 0;
         this.k = 0;
         this.l = true;
-        this.u = true;
-        this.v = new HashMap<>();
-        this.w = new b(this);
+        this.t = true;
+        this.u = new HashMap<>();
+        this.v = new b(this);
         j();
     }
 
@@ -164,16 +163,16 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void e(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (this.u) {
-                SkinManager.setViewTextColor(this.r, this.h, 1);
+            if (this.t) {
+                SkinManager.setViewTextColor(this.q, this.h, 1);
             } else {
-                SkinManager.setViewTextColor(this.r, this.h, 1, 0);
+                SkinManager.setViewTextColor(this.q, this.h, 1, 0);
             }
-            if (this.r != null) {
-                this.r.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getSkinDrawable(null, this.i), SkinManager.getSkinDrawable(null, this.j), (Drawable) null);
+            if (this.q != null) {
+                this.q.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getSkinDrawable(null, this.i), SkinManager.getSkinDrawable(null, this.j), (Drawable) null);
             }
             k();
-            for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.v.entrySet()) {
+            for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.u.entrySet()) {
                 entry.getValue().b(i);
             }
         }
@@ -201,9 +200,9 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         this.g = 0;
         this.k = 0;
         this.l = true;
-        this.u = true;
-        this.v = new HashMap<>();
-        this.w = new b(this);
+        this.t = true;
+        this.u = new HashMap<>();
+        this.v = new b(this);
         j();
     }
 
@@ -211,20 +210,20 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void setIconViewWithText(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048597, this, i, i2) == null) {
-            this.r.setVisibility(0);
             this.q.setVisibility(0);
+            this.p.setVisibility(0);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(12, -1);
             layoutParams.addRule(14, -1);
-            this.r.setLayoutParams(layoutParams);
+            this.q.setLayoutParams(layoutParams);
             if (i > 0) {
                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
                 layoutParams2.width = i;
                 layoutParams2.height = i;
                 layoutParams2.bottomMargin = i2;
-                layoutParams2.addRule(2, this.q.getId());
+                layoutParams2.addRule(2, this.p.getId());
                 layoutParams2.addRule(14, -1);
-                this.q.setLayoutParams(layoutParams2);
+                this.p.setLayoutParams(layoutParams2);
             }
             k();
         }
@@ -236,7 +235,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) && (view2 = aVar.a) != null) {
             addView(view2);
-            this.v.put(str, aVar);
+            this.u.put(str, aVar);
         }
     }
 
@@ -244,7 +243,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void setTextSize(int i, float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            this.r.setTextSize(i, f);
+            this.q.setTextSize(i, f);
         }
     }
 
@@ -252,15 +251,15 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            BdUniqueId bdUniqueId = this.p;
+            BdUniqueId bdUniqueId = this.o;
             if (bdUniqueId != null) {
                 return bdUniqueId;
             }
             x9<?> a2 = da.a(getContext());
             if (a2 != null) {
-                this.p = a2.getUniqueId();
+                this.o = a2.getUniqueId();
             }
-            return this.p;
+            return this.o;
         }
         return (BdUniqueId) invokeV.objValue;
     }
@@ -270,7 +269,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.r;
+            return this.q;
         }
         return (View) invokeV.objValue;
     }
@@ -279,7 +278,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (i = this.m) > 0) {
-            SkinManager.setImageResource(this.q, i);
+            SkinManager.setImageResource(this.p, i);
         }
     }
 
@@ -295,9 +294,9 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void setContentWidthWrapContent() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            ViewGroup.LayoutParams layoutParams = this.r.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.q.getLayoutParams();
             layoutParams.width = -2;
-            this.r.setLayoutParams(layoutParams);
+            this.q.setLayoutParams(layoutParams);
         }
     }
 
@@ -306,7 +305,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return this.v.get(str);
+            return this.u.get(str);
         }
         return (TbFragmentTabIndicator.a) invokeL.objValue;
     }
@@ -331,7 +330,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void setCompoundDrawablePadding(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.r.setCompoundDrawablePadding(i);
+            this.q.setCompoundDrawablePadding(i);
         }
     }
 
@@ -355,17 +354,17 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             super.setContentDefaultTextColor(i);
-            this.r.setTextColor(i);
+            this.q.setTextColor(i);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setContentTvTopMargin(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048594, this, i) == null) && (this.r.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.r.getLayoutParams();
+        if ((interceptable == null || interceptable.invokeI(1048594, this, i) == null) && (this.q.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.q.getLayoutParams();
             layoutParams.topMargin = i;
-            this.r.setLayoutParams(layoutParams);
+            this.q.setLayoutParams(layoutParams);
         }
     }
 
@@ -390,9 +389,9 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
             if (!z) {
-                SkinManager.setViewTextColor(this.r, this.h, 1, 0);
+                SkinManager.setViewTextColor(this.q, this.h, 1, 0);
             }
-            this.u = z;
+            this.t = z;
         }
     }
 
@@ -400,7 +399,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void setText(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
-            this.r.setText(i);
+            this.q.setText(i);
         }
     }
 
@@ -416,14 +415,14 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void setTextSize(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048605, this, f) == null) {
-            this.r.setTextSize(f);
+            this.q.setTextSize(f);
         }
     }
 
     public void setTextSpan(SpannableString spannableString) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, spannableString) == null) {
-            this.r.setText(spannableString);
+            this.q.setText(spannableString);
         }
     }
 
@@ -438,7 +437,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void setTipTopMargin(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
-            this.s = i;
+            this.r = i;
         }
     }
 
@@ -447,7 +446,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i, -2);
             layoutParams.addRule(13, -1);
-            this.r.setLayoutParams(layoutParams);
+            this.q.setLayoutParams(layoutParams);
         }
     }
 
@@ -457,11 +456,22 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.k > 0 && this.l) {
             try {
                 this.l = false;
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.q.getContext(), this.k);
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.p.getContext(), this.k);
                 loadAnimation.setAnimationListener(new a(this));
-                this.q.startAnimation(loadAnimation);
+                this.p.startAnimation(loadAnimation);
             } catch (Exception unused) {
                 this.l = true;
+            }
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.i <= 0 && this.j <= 0) {
+            if (!TextUtils.isEmpty(this.n)) {
+                zg.h().m(this.n, 10, this.v, getBdUniqueId());
+            } else {
+                l();
             }
         }
     }
@@ -469,31 +479,14 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.s = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4);
-            this.t = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023c);
+            this.r = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4);
+            this.s = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023c);
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.fragment_bottom_indicator_item, this);
-            this.q = (ImageView) inflate.findViewById(R.id.view_bottom_icon);
+            this.p = (ImageView) inflate.findViewById(R.id.view_bottom_icon);
             TextView textView = (TextView) inflate.findViewById(R.id.view_bottom_text);
-            this.r = textView;
+            this.q = textView;
             textView.setDuplicateParentStateEnabled(true);
             l();
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.i <= 0 && this.j <= 0) {
-            boolean z = true;
-            if (TbadkCoreApplication.getInst().getSkinType() != 1) {
-                z = false;
-            }
-            if (z && !TextUtils.isEmpty(this.o)) {
-                zg.h().m(this.o, 10, this.w, getBdUniqueId());
-            } else if (!TextUtils.isEmpty(this.n)) {
-                zg.h().m(this.n, 10, this.w, getBdUniqueId());
-            } else {
-                l();
-            }
         }
     }
 
@@ -504,20 +497,20 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             super.onLayout(z, i, i2, i3, i4);
-            Iterator<Map.Entry<String, TbFragmentTabIndicator.a>> it = this.v.entrySet().iterator();
-            while (it.hasNext() && this.r.getText() != null) {
+            Iterator<Map.Entry<String, TbFragmentTabIndicator.a>> it = this.u.entrySet().iterator();
+            while (it.hasNext() && this.q.getText() != null) {
                 TbFragmentTabIndicator.a value = it.next().getValue();
                 int measuredWidth2 = value.a.getMeasuredWidth();
                 int measuredHeight2 = value.a.getMeasuredHeight();
-                int measureText = (int) this.r.getPaint().measureText(this.r.getText().toString());
+                int measureText = (int) this.q.getPaint().measureText(this.q.getText().toString());
                 if (value.b) {
                     measuredWidth = (getMeasuredWidth() / 2) + value.c + (measureText / 2);
                 } else {
                     measuredWidth = ((getMeasuredWidth() / 2) - value.c) - (measureText / 2);
                 }
                 if (this.g == 1) {
-                    measuredWidth -= this.t;
-                    measuredHeight = this.s;
+                    measuredWidth -= this.s;
+                    measuredHeight = this.r;
                 } else {
                     measuredHeight = (getMeasuredHeight() / 2) - (value.a.getMeasuredHeight() / 2);
                 }
@@ -533,7 +526,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             super.onMeasure(i, i2);
             int size = View.MeasureSpec.getSize(i);
             int size2 = View.MeasureSpec.getSize(i2);
-            for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.v.entrySet()) {
+            for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.u.entrySet()) {
                 TbFragmentTabIndicator.a value = entry.getValue();
                 ViewGroup.LayoutParams layoutParams = value.a.getLayoutParams();
                 int i3 = layoutParams.width;
@@ -557,11 +550,11 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void setCheckDescriptionText(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            String charSequence = this.r.getText().toString();
+            String charSequence = this.q.getText().toString();
             if (z) {
                 charSequence = getContext().getString(R.string.talk_checked_tip) + charSequence;
             }
-            this.r.setContentDescription(charSequence);
+            this.q.setContentDescription(charSequence);
         }
     }
 
@@ -571,8 +564,8 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         if (interceptable == null || interceptable.invokeII(1048598, this, i, i2) == null) {
             setClipToPadding(false);
             setClipChildren(false);
-            this.r.setVisibility(8);
-            this.q.setVisibility(0);
+            this.q.setVisibility(8);
+            this.p.setVisibility(0);
             if (i > 0) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                 layoutParams.width = i;
@@ -580,7 +573,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 layoutParams.bottomMargin = i2;
                 layoutParams.addRule(12, -1);
                 layoutParams.addRule(14, -1);
-                this.q.setLayoutParams(layoutParams);
+                this.p.setLayoutParams(layoutParams);
             }
             k();
         }
@@ -592,41 +585,37 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
             super.setSelected(z);
             if (this.a) {
-                this.r.getPaint().setFakeBoldText(z);
+                this.q.getPaint().setFakeBoldText(z);
             }
             if (z) {
                 float f = this.b;
                 if (f != 0.0f) {
-                    this.r.setTextSize(0, f);
+                    this.q.setTextSize(0, f);
                 }
                 ThemeColorInfo themeColorInfo = this.f;
                 if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
-                    int skinType = TbadkCoreApplication.getInst().getSkinType();
-                    if (skinType == 4) {
-                        this.r.setTextColor(p09.f(this.f.dark.font_color));
-                        return;
-                    } else if (skinType == 1) {
-                        this.r.setTextColor(p09.f(this.f.night.font_color));
+                    if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                        this.q.setTextColor(b49.f(this.f.dark.font_color));
                         return;
                     } else {
-                        this.r.setTextColor(p09.f(this.f.day.font_color));
+                        this.q.setTextColor(b49.f(this.f.day.font_color));
                         return;
                     }
                 }
                 int i = this.d;
                 if (i != 0) {
-                    SkinManager.setViewTextColor(this.r, i);
+                    SkinManager.setViewTextColor(this.q, i);
                     return;
                 }
                 return;
             }
             float f2 = this.c;
             if (f2 != 0.0f) {
-                this.r.setTextSize(0, f2);
+                this.q.setTextSize(0, f2);
             }
             int i2 = this.e;
             if (i2 != 0) {
-                SkinManager.setViewTextColor(this.r, i2);
+                SkinManager.setViewTextColor(this.q, i2);
             }
         }
     }
@@ -635,8 +624,8 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void setText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
-            this.r.setText(str);
-            this.r.setContentDescription(str);
+            this.q.setText(str);
+            this.q.setContentDescription(str);
         }
     }
 }

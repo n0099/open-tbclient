@@ -1,34 +1,11 @@
 package org.apache.http.entity.mime.content;
-
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
 public abstract class AbstractContentBody implements ContentBody {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final String mediaType;
     public final String mimeType;
     public final String subType;
 
     public AbstractContentBody(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         if (str != null) {
             this.mimeType = str;
             int indexOf = str.indexOf(47);
@@ -46,31 +23,16 @@ public abstract class AbstractContentBody implements ContentBody {
 
     @Override // org.apache.http.entity.mime.content.ContentDescriptor
     public String getMediaType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mediaType;
-        }
-        return (String) invokeV.objValue;
+        return this.mediaType;
     }
 
     @Override // org.apache.http.entity.mime.content.ContentDescriptor
     public String getMimeType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mimeType;
-        }
-        return (String) invokeV.objValue;
+        return this.mimeType;
     }
 
     @Override // org.apache.http.entity.mime.content.ContentDescriptor
     public String getSubType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.subType;
-        }
-        return (String) invokeV.objValue;
+        return this.subType;
     }
 }

@@ -1,87 +1,162 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.SpannableStringBuilder;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.BdToastData;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.message.UserGrowthTaskRequestMessage;
-import com.baidu.tbadk.core.util.BdToastHelper;
+import android.database.Cursor;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.StrangeCleanSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.material.badge.BadgeDrawable;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class ho7 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1500;
+    public static int b = 500;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(final String str, final boolean z, int i, int i2, final boolean z2) {
-        final boolean z3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
-            final Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (i == 3) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            gh.a().post(new Runnable() { // from class: com.baidu.tieba.vn7
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ho7.b(currentActivity, z, z2, z3, str);
-                    }
-                }
-            });
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947830521, "Lcom/baidu/tieba/ho7;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947830521, "Lcom/baidu/tieba/ho7;");
         }
     }
 
-    public static /* synthetic */ void b(Activity activity, boolean z, boolean z2, boolean z3, String str) {
-        int b;
-        if (activity != null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            if (z) {
-                boolean i = p35.m().i("key_person_growth_share_switch", false);
-                if (z2 && !TbSingleton.getInstance().isUserGrowthTaskCompleted(UserGrowthTaskRequestMessage.SHARE_THREAD) && !i && !z3) {
-                    p35.m().w("key_person_growth_share_switch", true);
-                    BdToastData bdToastData = new BdToastData();
-                    if (TbadkCoreApplication.getCurrentMemberType() > 0) {
-                        bdToastData.setIconType(5);
-                    } else {
-                        bdToastData.setIconType(4);
-                    }
-                    ArrayList arrayList = new ArrayList(1);
-                    BdToastData.ContentBean contentBean = new BdToastData.ContentBean();
-                    contentBean.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.im_share_success_info_ug));
-                    arrayList.add(contentBean);
-                    String userGrowthWeight = TbSingleton.getInstance().getUserGrowthWeight(UserGrowthTaskRequestMessage.SHARE_THREAD);
-                    if (userGrowthWeight != null) {
-                        if (TbadkCoreApplication.getCurrentMemberType() > 0 && (b = kx9.b(userGrowthWeight, -1)) >= 0) {
-                            userGrowthWeight = (b * 2) + "";
-                        }
-                        spannableStringBuilder.append((CharSequence) BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX).append((CharSequence) userGrowthWeight);
-                        BdToastData.ContentBean contentBean2 = new BdToastData.ContentBean();
-                        contentBean2.setHasColor(1);
-                        contentBean2.setText(spannableStringBuilder.toString());
-                        arrayList.add(contentBean2);
-                    }
-                    bdToastData.setContent(arrayList);
-                    BdToastHelper.toast(bdToastData);
-                    MessageManager.getInstance().sendMessage(new UserGrowthTaskRequestMessage(UserGrowthTaskRequestMessage.SHARE_THREAD));
+    public static void a() {
+        String d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            if (!StrangeCleanSwitch.isOn()) {
+                q45.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "witch is close", new Object[0]);
+                return;
+            }
+            try {
+                try {
+                    bo7.d().f();
+                    d = d();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                if (TextUtils.isEmpty(d)) {
                     return;
                 }
-                spannableStringBuilder.append((CharSequence) str);
-            } else {
-                spannableStringBuilder.append((CharSequence) str);
+                boolean b2 = b(d);
+                q45.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "clean suc " + b2, new Object[0]);
+            } finally {
+                bo7.d().b();
             }
-            BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).k();
+        }
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                bo7 d = bo7.d();
+                return d.c("DELETE FROM tb_message_center WHERE gid IN(" + str + ") AND custom_group_type= " + String.valueOf(2) + " AND is_friend!=" + String.valueOf(1));
+            } catch (Exception e) {
+                e.printStackTrace();
+                TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.deleteStrange", new Object[0]);
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b55.m().n("key_max_stranger", a);
+        }
+        return invokeV.intValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        List<String> e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            try {
+                e = e();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                TiebaStatic.printDBExceptionLog(e2, "ImMessageCenterDao.getStrangeData", new Object[0]);
+            }
+            if (e != null && e.size() != 0) {
+                int c = c();
+                q45.a("StrangeClean", -1L, -1, "getStrangeData", -1, "strange size is " + e.size() + " max is " + c, new Object[0]);
+                if (e.size() > c) {
+                    int i = 2000;
+                    if (2000 >= e.size() - c) {
+                        i = e.size() - c;
+                    }
+                    boolean z = true;
+                    for (String str : e.subList(0, i)) {
+                        if (!z) {
+                            sb.append(",");
+                        } else {
+                            z = false;
+                        }
+                        sb.append(str);
+                    }
+                }
+                return sb.toString();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static List<String> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = bo7.d().e("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND is_friend!=?  ORDER BY last_content_time ASC", new String[]{String.valueOf(2), String.valueOf(1)});
+                    if (cursor != null) {
+                        while (cursor.moveToNext()) {
+                            arrayList.add(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getStrangeDataFromDb", new Object[0]);
+                }
+                return arrayList;
+            } finally {
+                fj.a(cursor);
+            }
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
+            int i2 = b;
+            if (i < i2) {
+                i = i2;
+            }
+            b55.m().z("key_max_stranger", i);
         }
     }
 }

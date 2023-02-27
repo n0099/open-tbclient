@@ -1,12 +1,15 @@
 package com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.dh;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatEggRainData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,10 +17,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseSysMsg extends BaseMsg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @SerializedName("ext")
+    public Ext ext;
     @SerializedName("msg_conf")
     public MsgConf msgConf;
     @SerializedName("chatroom_id")
@@ -32,7 +37,7 @@ public abstract class BaseSysMsg extends BaseMsg {
     public CharSequence getThumbnailText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (CharSequence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (CharSequence) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.Cdo
@@ -41,7 +46,16 @@ public abstract class BaseSysMsg extends BaseMsg {
     public boolean isConvertToNormalMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isIgnore() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -50,13 +64,13 @@ public abstract class BaseSysMsg extends BaseMsg {
     public boolean isNoUISysMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ChatRoomInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +134,38 @@ public abstract class BaseSysMsg extends BaseMsg {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
+    public static class Ext extends OrmObject implements Serializable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @SerializedName("egg_rain")
+        public ChatEggRainData.EggRain eggRain;
+
+        public Ext() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public ChatEggRainData.EggRain getEggRain() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.eggRain;
+            }
+            return (ChatEggRainData.EggRain) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
     public static class MsgConf extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,6 +173,10 @@ public abstract class BaseSysMsg extends BaseMsg {
         public int isCountable;
         @SerializedName("is_visible")
         public int isVisible;
+        @SerializedName("low_version_content")
+        public String lowVersionContent;
+        @SerializedName("low_version_type")
+        public int lowVersionType;
         @SerializedName("show_content")
         public String showContent;
 
@@ -145,11 +194,38 @@ public abstract class BaseSysMsg extends BaseMsg {
             }
         }
 
-        public String getShowContent() {
+        @NonNull
+        public String getLowVersionContent() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.showContent;
+                if (TextUtils.isEmpty(this.lowVersionContent)) {
+                    return "";
+                }
+                return this.lowVersionContent;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public int getLowVersionType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.lowVersionType;
+            }
+            return invokeV.intValue;
+        }
+
+        @NonNull
+        public String getShowContent() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                String str = this.showContent;
+                if (str == null) {
+                    return "";
+                }
+                return str;
             }
             return (String) invokeV.objValue;
         }
@@ -157,7 +233,7 @@ public abstract class BaseSysMsg extends BaseMsg {
         public boolean isCountable() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 if (this.isCountable == 1) {
                     return true;
                 }
@@ -169,7 +245,7 @@ public abstract class BaseSysMsg extends BaseMsg {
         public boolean isVisible() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 if (this.isVisible == 1) {
                     return true;
                 }
@@ -180,13 +256,13 @@ public abstract class BaseSysMsg extends BaseMsg {
 
         public void setShowContent(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
                 this.showContent = str;
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class User extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -277,10 +353,20 @@ public abstract class BaseSysMsg extends BaseMsg {
     }
 
     @Nullable
-    public MsgConf getMsgConf() {
+    public Ext getExt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.ext;
+        }
+        return (Ext) invokeV.objValue;
+    }
+
+    @Nullable
+    public MsgConf getMsgConf() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.msgConf;
         }
         return (MsgConf) invokeV.objValue;
@@ -289,7 +375,7 @@ public abstract class BaseSysMsg extends BaseMsg {
     public long getRoomId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.roomId;
         }
         return invokeV.longValue;
@@ -298,7 +384,7 @@ public abstract class BaseSysMsg extends BaseMsg {
     public int getSysMsgType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.sysMsgType;
         }
         return invokeV.intValue;
@@ -307,9 +393,16 @@ public abstract class BaseSysMsg extends BaseMsg {
     public User getUserFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.userFrom;
         }
         return (User) invokeV.objValue;
+    }
+
+    public void setSysMsgType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.sysMsgType = i;
+        }
     }
 }

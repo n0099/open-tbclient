@@ -1,15 +1,6 @@
 package com.facebook.common.references;
 
 import android.graphics.Bitmap;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Objects;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
@@ -20,124 +11,63 @@ import javax.annotation.concurrent.GuardedBy;
 @VisibleForTesting
 /* loaded from: classes7.dex */
 public class SharedReference<T> {
-    public static /* synthetic */ Interceptable $ic;
     @GuardedBy("itself")
-    public static final Map<Object, Integer> sLiveObjects;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final Map<Object, Integer> sLiveObjects = new IdentityHashMap();
     @GuardedBy("this")
-    public int mRefCount;
+    public int mRefCount = 1;
     public final ResourceReleaser<T> mResourceReleaser;
     @GuardedBy("this")
     public T mValue;
 
     /* loaded from: classes7.dex */
     public static class NullReferenceException extends RuntimeException {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public NullReferenceException() {
             super("Null shared reference");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(568629703, "Lcom/facebook/common/references/SharedReference;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(568629703, "Lcom/facebook/common/references/SharedReference;");
-                return;
-            }
-        }
-        sLiveObjects = new IdentityHashMap();
     }
 
     private synchronized int decreaseRefCount() {
-        InterceptResult invokeV;
         boolean z;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            synchronized (this) {
-                ensureValid();
-                if (this.mRefCount > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                Preconditions.checkArgument(z);
-                i = this.mRefCount - 1;
-                this.mRefCount = i;
-            }
-            return i;
+        ensureValid();
+        if (this.mRefCount > 0) {
+            z = true;
+        } else {
+            z = false;
         }
-        return invokeV.intValue;
+        Preconditions.checkArgument(z);
+        i = this.mRefCount - 1;
+        this.mRefCount = i;
+        return i;
     }
 
     private void ensureValid() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) != null) || isValid(this)) {
+        if (isValid(this)) {
             return;
         }
         throw new NullReferenceException();
     }
 
     public static String reportData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return Objects.toStringHelper("SharedReference").add("live_objects_count", sLiveObjects.size()).toString();
-        }
-        return (String) invokeV.objValue;
+        return Objects.toStringHelper("SharedReference").add("live_objects_count", sLiveObjects.size()).toString();
     }
 
     public synchronized void addReference() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                ensureValid();
-                this.mRefCount++;
-            }
-        }
+        ensureValid();
+        this.mRefCount++;
     }
 
     public synchronized boolean addReferenceIfValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                if (isValid()) {
-                    addReference();
-                    return true;
-                }
-                return false;
-            }
+        if (isValid()) {
+            addReference();
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public void deleteReference() {
         T t;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && decreaseRefCount() == 0) {
+        if (decreaseRefCount() == 0) {
             synchronized (this) {
                 t = this.mValue;
                 this.mValue = null;
@@ -148,126 +78,68 @@ public class SharedReference<T> {
     }
 
     public synchronized boolean deleteReferenceIfValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                if (isValid()) {
-                    deleteReference();
-                    return true;
-                }
-                return false;
-            }
+        if (isValid()) {
+            deleteReference();
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public synchronized T get() {
-        InterceptResult invokeV;
-        T t;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                t = this.mValue;
-            }
-            return t;
-        }
-        return (T) invokeV.objValue;
+        return this.mValue;
     }
 
     public synchronized int getRefCountTestOnly() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                i = this.mRefCount;
-            }
-            return i;
-        }
-        return invokeV.intValue;
+        return this.mRefCount;
     }
 
     public synchronized boolean isValid() {
-        InterceptResult invokeV;
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                if (this.mRefCount > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-            }
-            return z;
+        if (this.mRefCount > 0) {
+            z = true;
+        } else {
+            z = false;
         }
-        return invokeV.booleanValue;
+        return z;
     }
 
     public SharedReference(T t, ResourceReleaser<T> resourceReleaser) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t, resourceReleaser};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mValue = (T) Preconditions.checkNotNull(t);
         this.mResourceReleaser = (ResourceReleaser) Preconditions.checkNotNull(resourceReleaser);
-        this.mRefCount = 1;
         addLiveReference(t);
     }
 
     public static void addLiveReference(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, obj) == null) {
-            if (CloseableReference.useGc() && ((obj instanceof Bitmap) || (obj instanceof HasBitmap))) {
-                return;
-            }
-            synchronized (sLiveObjects) {
-                Integer num = sLiveObjects.get(obj);
-                if (num == null) {
-                    sLiveObjects.put(obj, 1);
-                } else {
-                    sLiveObjects.put(obj, Integer.valueOf(num.intValue() + 1));
-                }
+        if (CloseableReference.useGc() && ((obj instanceof Bitmap) || (obj instanceof HasBitmap))) {
+            return;
+        }
+        synchronized (sLiveObjects) {
+            Integer num = sLiveObjects.get(obj);
+            if (num == null) {
+                sLiveObjects.put(obj, 1);
+            } else {
+                sLiveObjects.put(obj, Integer.valueOf(num.intValue() + 1));
             }
         }
     }
 
     public static void removeLiveReference(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, obj) == null) {
-            synchronized (sLiveObjects) {
-                Integer num = sLiveObjects.get(obj);
-                if (num == null) {
-                    FLog.wtf("SharedReference", "No entry in sLiveObjects for value of type %s", obj.getClass());
-                } else if (num.intValue() == 1) {
-                    sLiveObjects.remove(obj);
-                } else {
-                    sLiveObjects.put(obj, Integer.valueOf(num.intValue() - 1));
-                }
+        synchronized (sLiveObjects) {
+            Integer num = sLiveObjects.get(obj);
+            if (num == null) {
+                FLog.wtf("SharedReference", "No entry in sLiveObjects for value of type %s", obj.getClass());
+            } else if (num.intValue() == 1) {
+                sLiveObjects.remove(obj);
+            } else {
+                sLiveObjects.put(obj, Integer.valueOf(num.intValue() - 1));
             }
         }
     }
 
     public static boolean isValid(SharedReference<?> sharedReference) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, sharedReference)) == null) {
-            if (sharedReference != null && sharedReference.isValid()) {
-                return true;
-            }
-            return false;
+        if (sharedReference != null && sharedReference.isValid()) {
+            return true;
         }
-        return invokeL.booleanValue;
+        return false;
     }
 }

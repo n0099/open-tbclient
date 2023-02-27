@@ -1,168 +1,129 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.switchs.RepostToDynamicDefaultSwitch;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class zl9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull mb5 mb5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, tbPageContext, editorTools, mb5Var) == null) {
-            editorTools.d(new yb5(tbPageContext.getPageActivity(), 7));
-            editorTools.setActionListener(16, mb5Var);
-        }
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(int i);
     }
 
-    public static void c(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull mb5 mb5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, tbPageContext, editorTools, mb5Var) == null) {
-            editorTools.d(new ob5(tbPageContext.getPageActivity(), 10));
-            editorTools.setActionListener(59, mb5Var);
-        }
-    }
+    /* loaded from: classes7.dex */
+    public static class a extends yq5<Integer> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
 
-    public static void e(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull mb5 mb5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, editorTools, mb5Var) == null) {
-            editorTools.d(new ec5(tbPageContext.getPageActivity(), 12));
-            editorTools.setActionListener(69, mb5Var);
-        }
-    }
-
-    public static void f(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull mb5 mb5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, tbPageContext, editorTools, mb5Var) == null) {
-            editorTools.d(new jc5(tbPageContext.getPageActivity(), 11));
-            editorTools.setActionListener(61, mb5Var);
-        }
-    }
-
-    public static kc5 g(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull mb5 mb5Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, tbPageContext, editorTools, mb5Var)) == null) {
-            kc5 kc5Var = new kc5(tbPageContext.getPageActivity(), 4);
-            editorTools.d(kc5Var);
-            editorTools.setActionListener(21, mb5Var);
-            return kc5Var;
-        }
-        return (kc5) invokeLLL.objValue;
-    }
-
-    public static void j(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull mb5 mb5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, tbPageContext, editorTools, mb5Var) == null) {
-            editorTools.d(new xd5(tbPageContext.getPageActivity(), 2));
-            editorTools.setActionListener(60, mb5Var);
-        }
-    }
-
-    public static void l(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull mb5 mb5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, null, tbPageContext, editorTools, mb5Var) == null) {
-            editorTools.d(new zd5(tbPageContext.getPageActivity(), 8));
-            editorTools.setActionListener(22, mb5Var);
-        }
-    }
-
-    public static void b(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull mb5 mb5Var) {
-        CustomResponsedMessage runTask;
-        wb5 wb5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65537, null, tbPageContext, editorTools, mb5Var) == null) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, tbPageContext.getPageActivity()), wb5.class)) != null && (wb5Var = (wb5) runTask.getData()) != null) {
-            wb5Var.o = true;
-            wb5Var.l = 9;
-            editorTools.d(wb5Var);
-            editorTools.setActionListener(25, mb5Var);
-        }
-    }
-
-    public static void d(@NonNull EditorTools editorTools, @NonNull mb5 mb5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, editorTools, mb5Var) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(5);
-            editorTools.h(arrayList);
-            wb5 p = editorTools.p(5);
-            if (p != null) {
-                p.l = 5;
-                p.d(true);
+        public a(int i, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            editorTools.setActionListener(24, mb5Var);
-            editorTools.setActionListener(3, mb5Var);
+            this.a = i;
+            this.b = str;
+            this.c = str2;
         }
-    }
 
-    public static void i(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools) {
-        CustomResponsedMessage runTask;
-        wb5 wb5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65544, null, tbPageContext, editorTools) == null) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, tbPageContext.getPageActivity()), wb5.class)) != null && (wb5Var = (wb5) runTask.getData()) != null) {
-            wb5Var.o = true;
-            wb5Var.l = 10;
-            editorTools.d(wb5Var);
-        }
-    }
-
-    public static void h(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull mb5 mb5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, tbPageContext, editorTools, mb5Var) == null) {
-            editorTools.d(new hc5(tbPageContext.getPageActivity(), 1));
-            editorTools.setActionListener(14, mb5Var);
-            editorTools.setActionListener(12, mb5Var);
-            editorTools.setActionListener(13, mb5Var);
-            editorTools.setActionListener(15, mb5Var);
-            editorTools.setActionListener(48, mb5Var);
-            editorTools.setActionListener(46, mb5Var);
-            editorTools.setActionListener(49, mb5Var);
-            editorTools.setActionListener(47, mb5Var);
-        }
-    }
-
-    public static void k(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull mb5 mb5Var) {
-        wb5 wb5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65546, null, tbPageContext, editorTools, mb5Var) == null) && d49.a()) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, tbPageContext.getPageActivity()), wb5.class);
-            if (runTask != null && (wb5Var = (wb5) runTask.getData()) != null) {
-                wb5Var.l = 3;
-                editorTools.d(wb5Var);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.yq5
+        /* renamed from: a */
+        public Integer doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                int i = this.a;
+                p15.d();
+                jf<String> e = p15.e("tb.write_privacy_state_space" + this.b);
+                if (e != null) {
+                    i = dh.e(e.get(this.c), this.a);
+                }
+                return Integer.valueOf(i);
             }
-            editorTools.setActionListener(10, mb5Var);
-            editorTools.setActionListener(11, mb5Var);
+            return (Integer) invokeV.objValue;
         }
     }
 
-    public static ei9 m(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, String str, @NonNull mb5 mb5Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65548, null, tbPageContext, editorTools, str, mb5Var)) == null) {
-            ei9 ei9Var = new ei9(tbPageContext.getPageActivity(), str);
-            boolean z = false;
-            ei9Var.k(0);
-            if (SwitchManager.getInstance().findType(RepostToDynamicDefaultSwitch.KEY) == 1) {
-                z = true;
+    /* loaded from: classes7.dex */
+    public static class b implements cq5<Integer> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+
+        public b(c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            ei9Var.l(z);
-            editorTools.d(ei9Var);
-            editorTools.setActionListener(43, mb5Var);
-            editorTools.setActionListener(55, mb5Var);
-            editorTools.setActionListener(66, mb5Var);
-            return ei9Var;
+            this.a = cVar;
         }
-        return (ei9) invokeLLLL.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cq5
+        /* renamed from: a */
+        public void onReturnDataInUI(Integer num) {
+            c cVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, num) == null) && (cVar = this.a) != null) {
+                cVar.a(num.intValue());
+            }
+        }
+    }
+
+    public static void a(String str, int i, c cVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLIL(65536, null, str, i, cVar) == null) && !StringUtils.isNull(str) && cVar != null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (StringUtils.isNull(currentAccount)) {
+                return;
+            }
+            cr5.b(new a(i, currentAccount, str), new b(cVar));
+        }
+    }
+
+    public static void b(String str, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(65537, null, str, i) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (StringUtils.isNull(currentAccount)) {
+            return;
+        }
+        p15.d();
+        jf<String> e = p15.e("tb.write_privacy_state_space" + currentAccount);
+        if (e != null) {
+            e.a(str, String.valueOf(i));
+        }
     }
 }

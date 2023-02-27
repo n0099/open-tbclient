@@ -1,115 +1,116 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.util.io.DocumentOpenUtil;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.gf3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class nl3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ int b;
+
+        public a(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (!TextUtils.equals(DocumentOpenUtil.PDF_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.DOCUMENT_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.SHEET_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.PRESENT_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.WORD_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.EXCEL_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.PPT_TYPE, str)) {
-                return false;
-            }
-            return true;
+            this.a = i;
+            this.b = i2;
         }
-        return invokeL.booleanValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                nl3.b(this.a, this.b);
+            }
+        }
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948006260, "Lcom/baidu/tieba/nl3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            String lowerCase = str.toLowerCase();
-            char c = 65535;
-            switch (lowerCase.hashCode()) {
-                case 99640:
-                    if (lowerCase.equals(DocumentOpenUtil.DOC)) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 110834:
-                    if (lowerCase.equals(DocumentOpenUtil.PDF)) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 111220:
-                    if (lowerCase.equals(DocumentOpenUtil.PPT)) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 118783:
-                    if (lowerCase.equals(DocumentOpenUtil.XLS)) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 3088960:
-                    if (lowerCase.equals(DocumentOpenUtil.DOCX)) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 3447940:
-                    if (lowerCase.equals(DocumentOpenUtil.PPTX)) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 3682393:
-                    if (lowerCase.equals(DocumentOpenUtil.XLSX)) {
-                        c = 4;
-                        break;
-                    }
-                    break;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948006260, "Lcom/baidu/tieba/nl3;");
+                return;
             }
-            switch (c) {
-                case 0:
-                    str2 = DocumentOpenUtil.PDF_TYPE;
-                    break;
-                case 1:
-                    str2 = DocumentOpenUtil.WORD_TYPE;
-                    break;
-                case 2:
-                    str2 = DocumentOpenUtil.DOCUMENT_TYPE;
-                    break;
-                case 3:
-                    str2 = DocumentOpenUtil.EXCEL_TYPE;
-                    break;
-                case 4:
-                    str2 = DocumentOpenUtil.SHEET_TYPE;
-                    break;
-                case 5:
-                    str2 = DocumentOpenUtil.PPT_TYPE;
-                    break;
-                case 6:
-                    str2 = DocumentOpenUtil.PRESENT_TYPE;
-                    break;
-                default:
-                    str2 = "";
-                    break;
-            }
-            if (!a(str2)) {
-                return "";
-            }
-            return str2;
         }
-        return (String) invokeL.objValue;
+        a = wp1.a;
+        b = 0;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b;
+        }
+        return invokeV.intValue;
+    }
+
+    public static void d(int i, int i2) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2) == null) {
+            if (i != 0 && ts2.g0().l()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                gm3.k(new a(i, i2), "onUpgradeOperation");
+            } else {
+                b(i, i2);
+            }
+        }
+    }
+
+    public static void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
+            if (i == 0) {
+                b = 2;
+            } else if (i2 > i) {
+                b = 1;
+                zj2.d().e(i, i2);
+                zl3.h();
+                us2.m().i();
+                gf3.a.a();
+                mf2.d();
+            }
+            if (a) {
+                Log.d("SwanAppUpgradeManager", "App onUpgrade on thread: " + Thread.currentThread());
+            }
+        }
     }
 }

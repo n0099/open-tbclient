@@ -1,386 +1,82 @@
 package com.google.zxing.qrcode.decoder;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.common.BitMatrix;
-/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public abstract class DataMask {
-    public static final /* synthetic */ DataMask[] $VALUES;
-    public static /* synthetic */ Interceptable $ic;
-    public static final DataMask DATA_MASK_000;
-    public static final DataMask DATA_MASK_001;
-    public static final DataMask DATA_MASK_010;
-    public static final DataMask DATA_MASK_011;
-    public static final DataMask DATA_MASK_100;
-    public static final DataMask DATA_MASK_101;
-    public static final DataMask DATA_MASK_110;
-    public static final DataMask DATA_MASK_111;
-    public transient /* synthetic */ FieldHolder $fh;
+public enum DataMask {
+    DATA_MASK_000 { // from class: com.google.zxing.qrcode.decoder.DataMask.1
+        @Override // com.google.zxing.qrcode.decoder.DataMask
+        public boolean isMasked(int i, int i2) {
+            return ((i + i2) & 1) == 0;
+        }
+    },
+    DATA_MASK_001 { // from class: com.google.zxing.qrcode.decoder.DataMask.2
+        @Override // com.google.zxing.qrcode.decoder.DataMask
+        public boolean isMasked(int i, int i2) {
+            return (i & 1) == 0;
+        }
+    },
+    DATA_MASK_010 { // from class: com.google.zxing.qrcode.decoder.DataMask.3
+        @Override // com.google.zxing.qrcode.decoder.DataMask
+        public boolean isMasked(int i, int i2) {
+            if (i2 % 3 == 0) {
+                return true;
+            }
+            return false;
+        }
+    },
+    DATA_MASK_011 { // from class: com.google.zxing.qrcode.decoder.DataMask.4
+        @Override // com.google.zxing.qrcode.decoder.DataMask
+        public boolean isMasked(int i, int i2) {
+            if ((i + i2) % 3 == 0) {
+                return true;
+            }
+            return false;
+        }
+    },
+    DATA_MASK_100 { // from class: com.google.zxing.qrcode.decoder.DataMask.5
+        @Override // com.google.zxing.qrcode.decoder.DataMask
+        public boolean isMasked(int i, int i2) {
+            if ((((i / 2) + (i2 / 3)) & 1) == 0) {
+                return true;
+            }
+            return false;
+        }
+    },
+    DATA_MASK_101 { // from class: com.google.zxing.qrcode.decoder.DataMask.6
+        @Override // com.google.zxing.qrcode.decoder.DataMask
+        public boolean isMasked(int i, int i2) {
+            if ((i * i2) % 6 == 0) {
+                return true;
+            }
+            return false;
+        }
+    },
+    DATA_MASK_110 { // from class: com.google.zxing.qrcode.decoder.DataMask.7
+        @Override // com.google.zxing.qrcode.decoder.DataMask
+        public boolean isMasked(int i, int i2) {
+            if ((i * i2) % 6 < 3) {
+                return true;
+            }
+            return false;
+        }
+    },
+    DATA_MASK_111 { // from class: com.google.zxing.qrcode.decoder.DataMask.8
+        @Override // com.google.zxing.qrcode.decoder.DataMask
+        public boolean isMasked(int i, int i2) {
+            if (((i + i2 + ((i * i2) % 3)) & 1) == 0) {
+                return true;
+            }
+            return false;
+        }
+    };
 
     public abstract boolean isMasked(int i, int i2);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1962176096, "Lcom/google/zxing/qrcode/decoder/DataMask;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1962176096, "Lcom/google/zxing/qrcode/decoder/DataMask;");
-                return;
-            }
-        }
-        DATA_MASK_000 = new DataMask("DATA_MASK_000", 0) { // from class: com.google.zxing.qrcode.decoder.DataMask.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.google.zxing.qrcode.decoder.DataMask
-            public boolean isMasked(int i, int i2) {
-                InterceptResult invokeII;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) ? ((i + i2) & 1) == 0 : invokeII.booleanValue;
-            }
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(r9, r10);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {r9, Integer.valueOf(r10)};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        Object[] objArr2 = newInitContext.callArgs;
-                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-            }
-        };
-        DATA_MASK_001 = new DataMask("DATA_MASK_001", 1) { // from class: com.google.zxing.qrcode.decoder.DataMask.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.google.zxing.qrcode.decoder.DataMask
-            public boolean isMasked(int i, int i2) {
-                InterceptResult invokeII;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) ? (i & 1) == 0 : invokeII.booleanValue;
-            }
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(r9, r10);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {r9, Integer.valueOf(r10)};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        Object[] objArr2 = newInitContext.callArgs;
-                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-            }
-        };
-        DATA_MASK_010 = new DataMask("DATA_MASK_010", 2) { // from class: com.google.zxing.qrcode.decoder.DataMask.3
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(r9, r10);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {r9, Integer.valueOf(r10)};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        Object[] objArr2 = newInitContext.callArgs;
-                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-            }
-
-            @Override // com.google.zxing.qrcode.decoder.DataMask
-            public boolean isMasked(int i, int i2) {
-                InterceptResult invokeII;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) {
-                    if (i2 % 3 == 0) {
-                        return true;
-                    }
-                    return false;
-                }
-                return invokeII.booleanValue;
-            }
-        };
-        DATA_MASK_011 = new DataMask("DATA_MASK_011", 3) { // from class: com.google.zxing.qrcode.decoder.DataMask.4
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(r9, r10);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {r9, Integer.valueOf(r10)};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        Object[] objArr2 = newInitContext.callArgs;
-                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-            }
-
-            @Override // com.google.zxing.qrcode.decoder.DataMask
-            public boolean isMasked(int i, int i2) {
-                InterceptResult invokeII;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) {
-                    if ((i + i2) % 3 == 0) {
-                        return true;
-                    }
-                    return false;
-                }
-                return invokeII.booleanValue;
-            }
-        };
-        DATA_MASK_100 = new DataMask("DATA_MASK_100", 4) { // from class: com.google.zxing.qrcode.decoder.DataMask.5
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(r9, r10);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {r9, Integer.valueOf(r10)};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        Object[] objArr2 = newInitContext.callArgs;
-                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-            }
-
-            @Override // com.google.zxing.qrcode.decoder.DataMask
-            public boolean isMasked(int i, int i2) {
-                InterceptResult invokeII;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) {
-                    if ((((i / 2) + (i2 / 3)) & 1) == 0) {
-                        return true;
-                    }
-                    return false;
-                }
-                return invokeII.booleanValue;
-            }
-        };
-        DATA_MASK_101 = new DataMask("DATA_MASK_101", 5) { // from class: com.google.zxing.qrcode.decoder.DataMask.6
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(r9, r10);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {r9, Integer.valueOf(r10)};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        Object[] objArr2 = newInitContext.callArgs;
-                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-            }
-
-            @Override // com.google.zxing.qrcode.decoder.DataMask
-            public boolean isMasked(int i, int i2) {
-                InterceptResult invokeII;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) {
-                    if ((i * i2) % 6 == 0) {
-                        return true;
-                    }
-                    return false;
-                }
-                return invokeII.booleanValue;
-            }
-        };
-        DATA_MASK_110 = new DataMask("DATA_MASK_110", 6) { // from class: com.google.zxing.qrcode.decoder.DataMask.7
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(r9, r10);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {r9, Integer.valueOf(r10)};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        Object[] objArr2 = newInitContext.callArgs;
-                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-            }
-
-            @Override // com.google.zxing.qrcode.decoder.DataMask
-            public boolean isMasked(int i, int i2) {
-                InterceptResult invokeII;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) {
-                    if ((i * i2) % 6 < 3) {
-                        return true;
-                    }
-                    return false;
-                }
-                return invokeII.booleanValue;
-            }
-        };
-        DataMask dataMask = new DataMask("DATA_MASK_111", 7) { // from class: com.google.zxing.qrcode.decoder.DataMask.8
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(r9, r10);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {r9, Integer.valueOf(r10)};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        Object[] objArr2 = newInitContext.callArgs;
-                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-            }
-
-            @Override // com.google.zxing.qrcode.decoder.DataMask
-            public boolean isMasked(int i, int i2) {
-                InterceptResult invokeII;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) {
-                    if (((i + i2 + ((i * i2) % 3)) & 1) == 0) {
-                        return true;
-                    }
-                    return false;
-                }
-                return invokeII.booleanValue;
-            }
-        };
-        DATA_MASK_111 = dataMask;
-        $VALUES = new DataMask[]{DATA_MASK_000, DATA_MASK_001, DATA_MASK_010, DATA_MASK_011, DATA_MASK_100, DATA_MASK_101, DATA_MASK_110, dataMask};
-    }
-
-    public DataMask(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                String str2 = (String) objArr2[0];
-                ((Integer) objArr2[1]).intValue();
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static DataMask valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return (DataMask) Enum.valueOf(DataMask.class, str);
-        }
-        return (DataMask) invokeL.objValue;
-    }
-
-    public static DataMask[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return (DataMask[]) $VALUES.clone();
-        }
-        return (DataMask[]) invokeV.objValue;
-    }
-
     public final void unmaskBitMatrix(BitMatrix bitMatrix, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitMatrix, i) == null) {
-            for (int i2 = 0; i2 < i; i2++) {
-                for (int i3 = 0; i3 < i; i3++) {
-                    if (isMasked(i2, i3)) {
-                        bitMatrix.flip(i3, i2);
-                    }
+        for (int i2 = 0; i2 < i; i2++) {
+            for (int i3 = 0; i3 < i; i3++) {
+                if (isMasked(i2, i3)) {
+                    bitMatrix.flip(i3, i2);
                 }
             }
         }

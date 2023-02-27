@@ -1,86 +1,99 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.pm.PackageManager;
+import com.baidu.tieba.j51;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class g61 {
+public class g61 extends i61 {
     public static /* synthetic */ Interceptable $ic;
-    public static final g61 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract String a(String str);
-
-    public abstract void b(boolean z);
+    /* loaded from: classes4.dex */
+    public interface b {
+        void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
+    }
 
     /* loaded from: classes4.dex */
-    public static class a extends g61 {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String[] a;
+        public final /* synthetic */ Activity b;
+        public final /* synthetic */ b c;
+        public final /* synthetic */ int d;
 
-        @Override // com.baidu.tieba.g61
-        public String a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return null;
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.g61
-        public void b(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            }
-        }
-
-        public a() {
+        public a(String[] strArr, Activity activity, b bVar, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {strArr, activity, bVar, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = strArr;
+            this.b = activity;
+            this.c = bVar;
+            this.d = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int[] iArr = new int[this.a.length];
+                PackageManager packageManager = this.b.getPackageManager();
+                String packageName = this.b.getPackageName();
+                int length = this.a.length;
+                for (int i = 0; i < length; i++) {
+                    iArr[i] = packageManager.checkPermission(this.a[i], packageName);
+                }
+                this.c.onRequestPermissionsResult(this.d, this.a, iArr);
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947745767, "Lcom/baidu/tieba/g61;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947745767, "Lcom/baidu/tieba/g61;");
-                return;
-            }
-        }
-        a = new a();
-    }
-
-    public g61() {
+    public static boolean b(Activity activity, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, str)) == null) {
+            if (j51.b.d() && h61.a(activity, str)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void requestPermissions(Activity activity, String[] strArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65537, null, activity, strArr, i) == null) {
+            if (j51.b.d()) {
+                h61.requestPermissions(activity, strArr, i);
+            } else if (activity instanceof b) {
+                requestPermissions(activity, strArr, i, (b) activity);
+            }
+        }
+    }
+
+    public static void requestPermissions(Activity activity, String[] strArr, int i, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(65538, null, activity, strArr, i, bVar) == null) {
+            if (j51.b.d()) {
+                h61.requestPermissions(activity, strArr, i);
+            } else if (!activity.isFinishing() && bVar != null) {
+                gk0.b(new a(strArr, activity, bVar, i));
             }
         }
     }

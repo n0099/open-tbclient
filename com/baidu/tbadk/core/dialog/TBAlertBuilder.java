@@ -29,9 +29,9 @@ import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b35;
+import com.baidu.tieba.e25;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.p15;
-import com.baidu.tieba.x05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -404,7 +404,7 @@ public class TBAlertBuilder {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) == null) {
-            p15 d = p15.d(view2);
+            b35 d = b35.d(view2);
             if (this.e == null) {
                 i = 0;
             } else {
@@ -448,7 +448,7 @@ public class TBAlertBuilder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             c(this.s, this.r);
-            x05.g();
+            e25.g();
         }
     }
 
@@ -495,14 +495,14 @@ public class TBAlertBuilder {
             this.s.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             c(this.s, this.r);
             if (!TextUtils.isEmpty(this.f)) {
-                TextView l = x05.l(this.b);
+                TextView l = e25.l(this.b);
                 l.setText(this.f);
                 l.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X009), UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
                 this.s.addView(l);
                 CharSequence charSequence = this.g;
                 if (charSequence != null && !StringUtils.isNull(charSequence.toString())) {
                     l.setPadding(l.getPaddingLeft(), l.getPaddingTop(), l.getPaddingRight(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-                    TextView l2 = x05.l(this.b);
+                    TextView l2 = e25.l(this.b);
                     l2.setText(this.g);
                     l2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
                     this.s.addView(l2);
@@ -511,10 +511,10 @@ public class TBAlertBuilder {
             if (!TextUtils.isEmpty(this.h)) {
                 RelativeLayout relativeLayout = new RelativeLayout(this.b);
                 relativeLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-                TextView b2 = x05.b(this.b, this.j);
+                TextView b2 = e25.b(this.b, this.j);
                 b2.setText(this.h);
                 b2.setGravity(this.i);
-                b2.setId(R.id.obfuscated_res_0x7f0907e8);
+                b2.setId(R.id.obfuscated_res_0x7f090825);
                 b2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0);
                 b2.setMaxHeight(UtilHelper.getDimenPixelSize(R.dimen.tbds868));
                 b2.setMovementMethod(this.k);
@@ -522,7 +522,7 @@ public class TBAlertBuilder {
                 View view3 = new View(this.b);
                 view3.setVisibility(4);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds104));
-                layoutParams.addRule(8, R.id.obfuscated_res_0x7f0907e8);
+                layoutParams.addRule(8, R.id.obfuscated_res_0x7f090825);
                 SkinManager.setBackgroundColorToTransparent(view3, R.color.CAM_X0205, GradientDrawable.Orientation.BOTTOM_TOP);
                 relativeLayout.addView(view3, layoutParams);
                 this.s.addView(relativeLayout);
@@ -540,7 +540,7 @@ public class TBAlertBuilder {
                 if (this.o) {
                     this.p = new b(this);
                 }
-                this.s.addView(x05.j(this.b, this.m, this.p));
+                this.s.addView(e25.j(this.b, this.m, this.p));
             }
             linearLayout.addView(this.s, new ViewGroup.LayoutParams(-1, -2));
             if (this.n) {

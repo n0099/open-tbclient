@@ -1,54 +1,34 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class ah2 implements bh2 {
+public final class ah2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.bh2
-    @Nullable
-    public V8EngineConfiguration.CodeCacheSetting b() {
-        InterceptResult invokeV;
+    public static ug2 a(bh2 bh2Var, rh2 rh2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, bh2Var, rh2Var, v8ThreadDelegatePolicy)) == null) {
+            ch2 a = ts2.B0().a(bh2Var);
+            ug2 a2 = a.a(bh2Var.a(), rh2Var, v8ThreadDelegatePolicy);
+            a2.I0(a.getUserAgent());
+            return a2;
         }
-        return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
+        return (ug2) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.bh2
-    public void c(eg2 eg2Var) {
+    public static ug2 b(bh2 bh2Var, rh2 rh2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eg2Var) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, bh2Var, rh2Var, v8ThreadDelegatePolicy)) == null) {
+            ug2 a = a(bh2Var, rh2Var, v8ThreadDelegatePolicy);
+            a.q0();
+            return a;
         }
-    }
-
-    @Override // com.baidu.tieba.bh2
-    public void d(eg2 eg2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eg2Var) == null) {
-        }
-    }
-
-    public ah2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+        return (ug2) invokeLLL.objValue;
     }
 }

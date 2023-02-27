@@ -1,478 +1,360 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Queue;
-import java.util.concurrent.atomic.AtomicLong;
-import java.util.concurrent.atomic.AtomicReferenceArray;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes5.dex */
-public final class oga<T> implements Queue<T> {
+public final class oga {
     public static /* synthetic */ Interceptable $ic;
-    public static final int i;
-    public static final Object j;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicLong a;
-    public int b;
-    public long c;
-    public int d;
-    public AtomicReferenceArray<Object> e;
-    public int f;
-    public AtomicReferenceArray<Object> g;
-    public final AtomicLong h;
 
-    public static int b(int i2) {
-        InterceptResult invokeI;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 : invokeI.intValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948032672, "Lcom/baidu/tieba/oga;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948032672, "Lcom/baidu/tieba/oga;");
-                return;
+            try {
+                return str.substring(0, 6) + str.substring(12, 16) + str.substring(26, 32) + str.substring(48);
+            } catch (Exception e) {
+                xga.c("CBC", "get encryptword exception : " + e.getMessage());
+                return "";
             }
         }
-        i = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
-        j = new Object();
+        return (String) invokeL.objValue;
     }
 
-    @Override // java.util.Queue
-    public T poll() {
-        InterceptResult invokeV;
-        boolean z;
+    public static String b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            AtomicReferenceArray<Object> atomicReferenceArray = this.g;
-            long d = d();
-            int i2 = this.f;
-            int c = c(d, i2);
-            T t = (T) g(atomicReferenceArray, c);
-            if (t == j) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (t != null && !z) {
-                m(d + 1);
-                n(atomicReferenceArray, c, null);
-                return t;
-            } else if (!z) {
-                return null;
-            } else {
-                return k(h(atomicReferenceArray), d, i2);
-            }
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public oga(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        int b = xga.b(Math.max(8, i2));
-        int i5 = b - 1;
-        this.a = new AtomicLong();
-        this.h = new AtomicLong();
-        AtomicReferenceArray<Object> atomicReferenceArray = new AtomicReferenceArray<>(b + 1);
-        this.e = atomicReferenceArray;
-        this.d = i5;
-        a(b);
-        this.g = atomicReferenceArray;
-        this.f = i5;
-        this.c = i5 - 1;
-        p(0L);
-    }
-
-    public static int c(long j2, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
-            int i3 = ((int) j2) & i2;
-            b(i3);
-            return i3;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static <E> Object g(AtomicReferenceArray<Object> atomicReferenceArray, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, atomicReferenceArray, i2)) == null) {
-            return atomicReferenceArray.get(i2);
-        }
-        return invokeLI.objValue;
-    }
-
-    public final void o(AtomicReferenceArray<Object> atomicReferenceArray, AtomicReferenceArray<Object> atomicReferenceArray2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, atomicReferenceArray, atomicReferenceArray2) == null) {
-            int length = atomicReferenceArray.length() - 1;
-            b(length);
-            n(atomicReferenceArray, length, atomicReferenceArray2);
-        }
-    }
-
-    public static void n(AtomicReferenceArray<Object> atomicReferenceArray, int i2, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65541, null, atomicReferenceArray, i2, obj) == null) {
-            atomicReferenceArray.lazySet(i2, obj);
-        }
-    }
-
-    public final void a(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.b = Math.min(i2 / 4, i);
-        }
-    }
-
-    @Override // java.util.Queue, java.util.Collection
-    public boolean add(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Collection
-    public boolean addAll(Collection<? extends T> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Collection
-    public boolean contains(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Collection
-    public boolean containsAll(Collection<?> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, collection)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final AtomicReferenceArray<Object> h(AtomicReferenceArray<Object> atomicReferenceArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, atomicReferenceArray)) == null) {
-            int length = atomicReferenceArray.length() - 1;
-            b(length);
-            return (AtomicReferenceArray) g(atomicReferenceArray, length);
-        }
-        return (AtomicReferenceArray) invokeL.objValue;
-    }
-
-    public final void m(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
-            this.h.lazySet(j2);
-        }
-    }
-
-    public final void p(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
-            this.a.lazySet(j2);
-        }
-    }
-
-    @Override // java.util.Collection
-    public boolean remove(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, obj)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Collection
-    public boolean removeAll(Collection<?> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, collection)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Collection
-    public boolean retainAll(Collection<?> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, collection)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Collection
-    public <E> E[] toArray(E[] eArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, eArr)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return (E[]) ((Object[]) invokeL.objValue);
-    }
-
-    @Override // java.util.Collection
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
-            return;
-        }
-        while (true) {
-            if (poll() == null && isEmpty()) {
-                return;
-            }
-        }
-    }
-
-    public final long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.h.get();
-        }
-        return invokeV.longValue;
-    }
-
-    public final long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a.get();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // java.util.Queue
-    public T element() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public final long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.h.get();
-        }
-        return invokeV.longValue;
-    }
-
-    public final long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.a.get();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // java.util.Collection
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (i() == f()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.util.Collection, java.lang.Iterable
-    public Iterator<T> iterator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return (Iterator) invokeV.objValue;
-    }
-
-    @Override // java.util.Queue
-    public T peek() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            AtomicReferenceArray<Object> atomicReferenceArray = this.g;
-            long d = d();
-            int i2 = this.f;
-            T t = (T) g(atomicReferenceArray, c(d, i2));
-            if (t == j) {
-                return j(h(atomicReferenceArray), d, i2);
-            }
-            return t;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    @Override // java.util.Queue
-    public T remove() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return (T) invokeV.objValue;
-    }
-
-    @Override // java.util.Collection
-    public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            long f = f();
-            while (true) {
-                long i2 = i();
-                long f2 = f();
-                if (f == f2) {
-                    return (int) (i2 - f2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                try {
+                    return str2.substring(0, 6) + str.substring(0, 6) + str2.substring(6, 10) + str.substring(6, 16) + str2.substring(10, 16) + str.substring(16) + str2.substring(16);
+                } catch (Exception e) {
+                    xga.c("CBC", "mix exception: " + e.getMessage());
                 }
-                f = f2;
             }
-        } else {
-            return invokeV.intValue;
+            return "";
         }
+        return (String) invokeLL.objValue;
     }
 
-    @Override // java.util.Collection
-    public Object[] toArray() {
-        InterceptResult invokeV;
+    public static byte[] c(String str, byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return (Object[]) invokeV.objValue;
-    }
-
-    public final T j(AtomicReferenceArray<Object> atomicReferenceArray, long j2, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{atomicReferenceArray, Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
-            this.g = atomicReferenceArray;
-            return (T) g(atomicReferenceArray, c(j2, i2));
-        }
-        return (T) invokeCommon.objValue;
-    }
-
-    public final T k(AtomicReferenceArray<Object> atomicReferenceArray, long j2, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{atomicReferenceArray, Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
-            this.g = atomicReferenceArray;
-            int c = c(j2, i2);
-            T t = (T) g(atomicReferenceArray, c);
-            if (t == null) {
-                return null;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, bArr, bArr2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                xga.c("CBC", "encrypt 5 content is null");
+                return new byte[0];
+            } else if (bArr == null) {
+                xga.c("CBC", "encrypt 5 key is null");
+                return new byte[0];
+            } else if (bArr.length < 16) {
+                xga.c("CBC", "encrypt 5 key lengh is not right");
+                return new byte[0];
+            } else if (bArr2 == null) {
+                xga.c("CBC", "encrypt 5 iv is null");
+                return new byte[0];
+            } else if (bArr2.length < 16) {
+                xga.c("CBC", "encrypt 5 iv lengh is not right");
+                return new byte[0];
+            } else {
+                try {
+                    return m(str.getBytes("UTF-8"), bArr, bArr2);
+                } catch (UnsupportedEncodingException e) {
+                    xga.c("CBC", " cbc encrypt data error" + e.getMessage());
+                    return new byte[0];
+                }
             }
-            m(j2 + 1);
-            n(atomicReferenceArray, c, null);
-            return t;
         }
-        return (T) invokeCommon.objValue;
+        return (byte[]) invokeLLL.objValue;
     }
 
-    public final void l(AtomicReferenceArray<Object> atomicReferenceArray, long j2, int i2, T t, long j3) {
+    public static String h(String str, byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{atomicReferenceArray, Long.valueOf(j2), Integer.valueOf(i2), t, Long.valueOf(j3)}) == null) {
-            AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
-            this.e = atomicReferenceArray2;
-            this.c = (j3 + j2) - 1;
-            p(j2 + 1);
-            n(atomicReferenceArray2, i2, t);
-            o(atomicReferenceArray, atomicReferenceArray2);
-            n(atomicReferenceArray, i2, j);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, str, bArr, bArr2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                xga.c("CBC", "decrypt 4 content is null");
+                return "";
+            } else if (bArr == null) {
+                xga.c("CBC", "decrypt 4 key is null");
+                return "";
+            } else if (bArr.length < 16) {
+                xga.c("CBC", "decrypt 4 key lengh is not right");
+                return "";
+            } else if (bArr2 == null) {
+                xga.c("CBC", "decrypt 4 iv is null");
+                return "";
+            } else if (bArr2.length < 16) {
+                xga.c("CBC", "decrypt 4 iv lengh is not right");
+                return "";
+            } else {
+                try {
+                    return new String(i(uga.b(str), bArr, bArr2), "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    xga.c("CBC", " cbc decrypt data error" + e.getMessage());
+                    return "";
+                }
+            }
         }
+        return (String) invokeLLL.objValue;
     }
 
-    @Override // java.util.Queue
-    public boolean offer(T t) {
+    public static byte[] d(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bArr2)) == null) {
+            byte[] bArr3 = new byte[bArr.length + bArr2.length];
+            System.arraycopy(bArr, 0, bArr3, 0, bArr.length);
+            System.arraycopy(bArr2, 0, bArr3, bArr.length, bArr2.length);
+            return bArr3;
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] l(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, bArr, bArr2)) == null) {
+            byte[] c = tga.c(16);
+            return d(c, m(bArr, bArr2, c));
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static String e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, t)) == null) {
-            if (t != null) {
-                AtomicReferenceArray<Object> atomicReferenceArray = this.e;
-                long e = e();
-                int i2 = this.d;
-                int c = c(e, i2);
-                if (e < this.c) {
-                    return q(atomicReferenceArray, t, e, c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            try {
+                return str.substring(6, 12) + str.substring(16, 26) + str.substring(32, 48);
+            } catch (Exception e) {
+                xga.c("CBC", "getIv exception : " + e.getMessage());
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                xga.c("CBC", "decrypt 1 content is null");
+                return "";
+            } else if (TextUtils.isEmpty(str2)) {
+                xga.c("CBC", "decrypt 1 key is null");
+                return "";
+            } else {
+                byte[] b = uga.b(str2);
+                if (b.length < 16) {
+                    xga.c("CBC", "decrypt 1 key length is not right");
+                    return "";
                 }
-                long j2 = this.b + e;
-                if (g(atomicReferenceArray, c(j2, i2)) == null) {
-                    this.c = j2 - 1;
-                    return q(atomicReferenceArray, t, e, c);
-                } else if (g(atomicReferenceArray, c(1 + e, i2)) != null) {
-                    return q(atomicReferenceArray, t, e, c);
+                return g(str, b);
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String j(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                xga.c("CBC", "encrypt 1 content is null");
+                return "";
+            } else if (TextUtils.isEmpty(str2)) {
+                xga.c("CBC", "encrypt 1 key is null");
+                return "";
+            } else {
+                byte[] b = uga.b(str2);
+                if (b.length < 16) {
+                    xga.c("CBC", "encrypt 1 key length is not right");
+                    return "";
+                }
+                return k(str, b);
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String g(String str, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, bArr)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                xga.c("CBC", "decrypt 2 content is null");
+                return "";
+            } else if (bArr == null) {
+                xga.c("CBC", "decrypt 2 key is null");
+                return "";
+            } else if (bArr.length < 16) {
+                xga.c("CBC", "decrypt 2 key lengh is not right");
+                return "";
+            } else {
+                String e = e(str);
+                String a = a(str);
+                if (TextUtils.isEmpty(e)) {
+                    xga.c("CBC", "decrypt 2 iv is null");
+                    return "";
+                } else if (TextUtils.isEmpty(a)) {
+                    xga.c("CBC", "decrypt 2 encrypt content is null");
+                    return "";
                 } else {
-                    l(atomicReferenceArray, e, c, t, i2);
-                    return true;
+                    return h(a, bArr, uga.b(e));
                 }
             }
-            throw null;
         }
-        return invokeL.booleanValue;
+        return (String) invokeLL.objValue;
     }
 
-    public final boolean q(AtomicReferenceArray<Object> atomicReferenceArray, T t, long j2, int i2) {
-        InterceptResult invokeCommon;
+    public static String k(String str, byte[] bArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{atomicReferenceArray, t, Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
-            p(j2 + 1);
-            n(atomicReferenceArray, i2, t);
-            return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, bArr)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                xga.c("CBC", "encrypt 2 content is null");
+                return "";
+            } else if (bArr == null) {
+                xga.c("CBC", "encrypt 2 key is null");
+                return "";
+            } else if (bArr.length < 16) {
+                xga.c("CBC", "encrypt 2 key lengh is not right");
+                return "";
+            } else {
+                byte[] c = tga.c(16);
+                byte[] c2 = c(str, bArr, c);
+                if (c2 == null || c2.length == 0) {
+                    return "";
+                }
+                return b(uga.a(c), uga.a(c2));
+            }
         }
-        return invokeCommon.booleanValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public static byte[] i(byte[] bArr, byte[] bArr2, byte[] bArr3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, bArr, bArr2, bArr3)) == null) {
+            if (bArr == null) {
+                xga.c("CBC", "decrypt 6 content is null");
+                return new byte[0];
+            } else if (bArr.length == 0) {
+                xga.c("CBC", "decrypt 6 content length is 0");
+                return new byte[0];
+            } else if (bArr2 == null) {
+                xga.c("CBC", "decrypt 6 key is null");
+                return new byte[0];
+            } else if (bArr2.length < 16) {
+                xga.c("CBC", "decrypt 6 key length is error");
+                return new byte[0];
+            } else if (bArr3 == null) {
+                xga.c("CBC", "decrypt 6 iv is null");
+                return new byte[0];
+            } else if (bArr3.length < 16) {
+                xga.c("CBC", "decrypt 6 iv length is error");
+                return new byte[0];
+            } else {
+                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
+                try {
+                    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                    cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
+                    return cipher.doFinal(bArr);
+                } catch (InvalidAlgorithmParameterException e) {
+                    xga.c("CBC", "InvalidAlgorithmParameterException: " + e.getMessage());
+                    return new byte[0];
+                } catch (InvalidKeyException e2) {
+                    xga.c("CBC", "InvalidKeyException: " + e2.getMessage());
+                    return new byte[0];
+                } catch (NoSuchAlgorithmException e3) {
+                    xga.c("CBC", "NoSuchAlgorithmException: " + e3.getMessage());
+                    return new byte[0];
+                } catch (BadPaddingException e4) {
+                    xga.c("CBC", "BadPaddingException: " + e4.getMessage());
+                    xga.c("CBC", "key is not right");
+                    return new byte[0];
+                } catch (IllegalBlockSizeException e5) {
+                    xga.c("CBC", "IllegalBlockSizeException: " + e5.getMessage());
+                    return new byte[0];
+                } catch (NoSuchPaddingException e6) {
+                    xga.c("CBC", "NoSuchPaddingException: " + e6.getMessage());
+                    return new byte[0];
+                }
+            }
+        }
+        return (byte[]) invokeLLL.objValue;
+    }
+
+    public static byte[] m(byte[] bArr, byte[] bArr2, byte[] bArr3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65548, null, bArr, bArr2, bArr3)) == null) {
+            if (bArr == null) {
+                xga.c("CBC", "encrypt 6 content is null");
+                return new byte[0];
+            } else if (bArr.length == 0) {
+                xga.c("CBC", "encrypt 6 content length is 0");
+                return new byte[0];
+            } else if (bArr2 == null) {
+                xga.c("CBC", "encrypt 6 key is null");
+                return new byte[0];
+            } else if (bArr2.length < 16) {
+                xga.c("CBC", "encrypt 6 key length is error");
+                return new byte[0];
+            } else if (bArr3 == null) {
+                xga.c("CBC", "encrypt 6 iv is null");
+                return new byte[0];
+            } else if (bArr3.length < 16) {
+                xga.c("CBC", "encrypt 6 iv length is error");
+                return new byte[0];
+            } else {
+                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
+                try {
+                    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                    cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
+                    return cipher.doFinal(bArr);
+                } catch (InvalidAlgorithmParameterException e) {
+                    xga.c("CBC", "InvalidAlgorithmParameterException: " + e.getMessage());
+                    return new byte[0];
+                } catch (InvalidKeyException e2) {
+                    xga.c("CBC", "InvalidKeyException: " + e2.getMessage());
+                    return new byte[0];
+                } catch (NoSuchAlgorithmException e3) {
+                    xga.c("CBC", "NoSuchAlgorithmException: " + e3.getMessage());
+                    return new byte[0];
+                } catch (BadPaddingException e4) {
+                    xga.c("CBC", "BadPaddingException: " + e4.getMessage());
+                    return new byte[0];
+                } catch (IllegalBlockSizeException e5) {
+                    xga.c("CBC", "IllegalBlockSizeException: " + e5.getMessage());
+                    return new byte[0];
+                } catch (NoSuchPaddingException e6) {
+                    xga.c("CBC", "NoSuchPaddingException: " + e6.getMessage());
+                    return new byte[0];
+                }
+            }
+        }
+        return (byte[]) invokeLLL.objValue;
     }
 }

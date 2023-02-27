@@ -1,45 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.searchbox.http.request.PostBodyRequest;
-import com.baidu.searchbox.http.request.PostByteRequest;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tieba.h59;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Map;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import okio.BufferedSink;
-import okio.Okio;
-import okio.Source;
-@Singleton
-@Service
 /* loaded from: classes6.dex */
-public class tp9 extends mp9 {
+public class tp9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a extends qq9 {
+    public static class a implements h59.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Response a;
+        public final /* synthetic */ EditorTools a;
 
-        public a(tp9 tp9Var, Response response) {
+        public a(EditorTools editorTools) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tp9Var, response};
+                Object[] objArr = {editorTools};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,139 +36,30 @@ public class tp9 extends mp9 {
                     return;
                 }
             }
-            this.a = response;
+            this.a = editorTools;
         }
 
-        @Override // com.baidu.tieba.qq9
-        public void a() {
+        @Override // com.baidu.tieba.h59.f
+        public void onRefresh() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.body().close();
-            }
-        }
-
-        @Override // com.baidu.tieba.qq9
-        public String b() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a.body().string();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.qq9
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.a.code();
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.qq9
-        public String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.a.message();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.qq9
-        public boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.a.isSuccessful();
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends RequestBody {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Map a;
-        public final /* synthetic */ InputStream b;
-
-        public b(tp9 tp9Var, Map map, InputStream inputStream) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tp9Var, map, inputStream};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = map;
-            this.b = inputStream;
-        }
-
-        @Override // okhttp3.RequestBody
-        public long contentLength() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.containsKey("Content-Length")) {
-                    try {
-                        return Long.valueOf((String) this.a.get("Content-Length")).longValue();
-                    } catch (Exception unused) {
-                    }
-                }
-                return super.contentLength();
-            }
-            return invokeV.longValue;
-        }
-
-        @Override // okhttp3.RequestBody
-        public MediaType contentType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return MediaType.parse("application/octet-stream");
-            }
-            return (MediaType) invokeV.objValue;
-        }
-
-        @Override // okhttp3.RequestBody
-        public void writeTo(BufferedSink bufferedSink) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-                Source source = null;
-                try {
-                    source = Okio.source(this.b);
-                    bufferedSink.writeAll(source);
-                } finally {
-                    if (source != null) {
-                        source.close();
-                    }
-                }
+                this.a.C(new yc5(2, 12, null));
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c extends qq9 {
+    public static class b implements h59.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Response a;
+        public final /* synthetic */ EditorTools a;
 
-        public c(tp9 tp9Var, Response response) {
+        public b(EditorTools editorTools) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tp9Var, response};
+                Object[] objArr = {editorTools};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -191,104 +69,185 @@ public class tp9 extends mp9 {
                     return;
                 }
             }
-            this.a = response;
+            this.a = editorTools;
         }
 
-        @Override // com.baidu.tieba.qq9
-        public void a() {
+        @Override // com.baidu.tieba.h59.f
+        public void onRefresh() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.body().close();
-            }
-        }
-
-        @Override // com.baidu.tieba.qq9
-        public String b() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a.body().string();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.qq9
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.a.code();
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.qq9
-        public String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.a.message();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.qq9
-        public boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.a.isSuccessful();
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    public tp9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                this.a.C(new yc5(2, 12, null));
             }
         }
     }
 
-    @Override // com.baidu.tieba.mp9
-    public qq9 j(String str, InputStream inputStream, Map<String, String> map) throws IOException {
-        InterceptResult invokeLLL;
+    public static sn9 a(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, inputStream, map)) == null) {
-            PostBodyRequest.PostBodyRequestBuilder postRequest = HttpManager.getDefault(AppRuntime.getAppContext()).postRequest();
-            postRequest.requestFrom(3);
-            postRequest.url(str);
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                postRequest.addHeader(entry.getKey(), entry.getValue());
-            }
-            postRequest.cookieManager(HttpManager.getDefault(AppRuntime.getAppContext()).getCookieManager(true, true));
-            postRequest.requestBody(new b(this, map, inputStream));
-            return new c(this, postRequest.build().executeSync());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbPageContext)) == null) {
+            return new sn9(tbPageContext);
         }
-        return (qq9) invokeLLL.objValue;
+        return (sn9) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.mp9
-    public qq9 k(String str, byte[] bArr, Map<String, String> map) throws IOException {
-        InterceptResult invokeLLL;
+    public static un9 b(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, map)) == null) {
-            PostByteRequest.PostByteRequestBuilder postByteRequest = HttpManager.getDefault(AppRuntime.getAppContext()).postByteRequest();
-            postByteRequest.requestFrom(3);
-            postByteRequest.url(str);
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                postByteRequest.addHeader(entry.getKey(), entry.getValue());
-            }
-            postByteRequest.cookieManager(HttpManager.getDefault(AppRuntime.getAppContext()).getCookieManager(true, true));
-            return new a(this, postByteRequest.content(bArr).build().executeSync());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tbPageContext)) == null) {
+            return new un9(tbPageContext);
         }
-        return (qq9) invokeLLL.objValue;
+        return (un9) invokeL.objValue;
+    }
+
+    public static wn9 d(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, tbPageContext)) == null) {
+            return new wn9(tbPageContext);
+        }
+        return (wn9) invokeL.objValue;
+    }
+
+    public static xn9 e(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext)) == null) {
+            return new xn9(tbPageContext);
+        }
+        return (xn9) invokeL.objValue;
+    }
+
+    public static yn9 f(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, tbPageContext)) == null) {
+            return new yn9(tbPageContext);
+        }
+        return (yn9) invokeL.objValue;
+    }
+
+    public static zn9 g(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, tbPageContext)) == null) {
+            return new zn9(tbPageContext);
+        }
+        return (zn9) invokeL.objValue;
+    }
+
+    public static bo9 i(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, tbPageContext)) == null) {
+            return new bo9(tbPageContext);
+        }
+        return (bo9) invokeL.objValue;
+    }
+
+    public static co9 j(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, tbPageContext)) == null) {
+            return new co9(tbPageContext);
+        }
+        return (co9) invokeL.objValue;
+    }
+
+    public static do9 k(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, tbPageContext)) == null) {
+            return new do9(tbPageContext);
+        }
+        return (do9) invokeL.objValue;
+    }
+
+    public static eo9 l(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, tbPageContext)) == null) {
+            return new eo9(tbPageContext);
+        }
+        return (eo9) invokeL.objValue;
+    }
+
+    public static ho9 o(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, tbPageContext)) == null) {
+            return new ho9(tbPageContext);
+        }
+        return (ho9) invokeL.objValue;
+    }
+
+    public static io9 p(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, tbPageContext)) == null) {
+            return new io9(tbPageContext);
+        }
+        return (io9) invokeL.objValue;
+    }
+
+    public static jo9 q(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, tbPageContext)) == null) {
+            return new jo9(tbPageContext);
+        }
+        return (jo9) invokeL.objValue;
+    }
+
+    public static ko9 r(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, tbPageContext)) == null) {
+            return new ko9(tbPageContext);
+        }
+        return (ko9) invokeL.objValue;
+    }
+
+    public static vn9 c(@NonNull TbPageContext<?> tbPageContext, @NonNull mo9 mo9Var, @NonNull EditorTools editorTools, @NonNull fn9 fn9Var, @NonNull xp9 xp9Var) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, tbPageContext, mo9Var, editorTools, fn9Var, xp9Var)) == null) {
+            vn9 vn9Var = new vn9(tbPageContext, fn9Var, xp9Var);
+            vn9Var.X(mo9Var);
+            vn9Var.e0(new a(editorTools));
+            return vn9Var;
+        }
+        return (vn9) invokeLLLLL.objValue;
+    }
+
+    public static ao9 h(@NonNull TbPageContext<?> tbPageContext, @NonNull bq9 bq9Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, tbPageContext, bq9Var)) == null) {
+            return new ao9(tbPageContext, bq9Var);
+        }
+        return (ao9) invokeLL.objValue;
+    }
+
+    public static fo9 m(@NonNull TbPageContext<?> tbPageContext, @NonNull mo9 mo9Var, @NonNull EditorTools editorTools, @NonNull bq9 bq9Var, @NonNull fn9 fn9Var, @NonNull xp9 xp9Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{tbPageContext, mo9Var, editorTools, bq9Var, fn9Var, xp9Var})) == null) {
+            fo9 fo9Var = new fo9(tbPageContext, bq9Var, fn9Var, xp9Var);
+            fo9Var.a0(mo9Var);
+            fo9Var.c0(new b(editorTools));
+            return fo9Var;
+        }
+        return (fo9) invokeCommon.objValue;
+    }
+
+    public static go9 n(@NonNull TbPageContext<?> tbPageContext, @NonNull mo9 mo9Var, @NonNull fn9 fn9Var, @NonNull xp9 xp9Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65549, null, tbPageContext, mo9Var, fn9Var, xp9Var)) == null) {
+            go9 go9Var = new go9(tbPageContext, fn9Var, xp9Var);
+            go9Var.M(mo9Var);
+            return go9Var;
+        }
+        return (go9) invokeLLLL.objValue;
     }
 }

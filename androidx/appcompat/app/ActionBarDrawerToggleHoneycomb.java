@@ -8,45 +8,19 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class ActionBarDrawerToggleHoneycomb {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ActionBarDrawerToggleHC";
-    public static final int[] THEME_ATTRS;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final int[] THEME_ATTRS = {16843531};
 
     /* loaded from: classes.dex */
     public static class SetIndicatorInfo {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public Method setHomeActionContentDescription;
         public Method setHomeAsUpIndicator;
         public ImageView upIndicatorView;
 
         public SetIndicatorInfo(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             try {
                 this.setHomeAsUpIndicator = android.app.ActionBar.class.getDeclaredMethod("setHomeAsUpIndicator", Drawable.class);
                 this.setHomeActionContentDescription = android.app.ActionBar.class.getDeclaredMethod("setHomeActionContentDescription", Integer.TYPE);
@@ -68,94 +42,49 @@ public class ActionBarDrawerToggleHoneycomb {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1366535347, "Landroidx/appcompat/app/ActionBarDrawerToggleHoneycomb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1366535347, "Landroidx/appcompat/app/ActionBarDrawerToggleHoneycomb;");
-                return;
-            }
-        }
-        THEME_ATTRS = new int[]{16843531};
-    }
-
-    public ActionBarDrawerToggleHoneycomb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
     public static Drawable getThemeUpIndicator(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            TypedArray obtainStyledAttributes = activity.obtainStyledAttributes(THEME_ATTRS);
-            Drawable drawable = obtainStyledAttributes.getDrawable(0);
-            obtainStyledAttributes.recycle();
-            return drawable;
-        }
-        return (Drawable) invokeL.objValue;
+        TypedArray obtainStyledAttributes = activity.obtainStyledAttributes(THEME_ATTRS);
+        Drawable drawable = obtainStyledAttributes.getDrawable(0);
+        obtainStyledAttributes.recycle();
+        return drawable;
     }
 
     public static SetIndicatorInfo setActionBarDescription(SetIndicatorInfo setIndicatorInfo, Activity activity, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, setIndicatorInfo, activity, i)) == null) {
-            if (setIndicatorInfo == null) {
-                setIndicatorInfo = new SetIndicatorInfo(activity);
-            }
-            if (setIndicatorInfo.setHomeAsUpIndicator != null) {
-                try {
-                    android.app.ActionBar actionBar = activity.getActionBar();
-                    setIndicatorInfo.setHomeActionContentDescription.invoke(actionBar, Integer.valueOf(i));
-                    if (Build.VERSION.SDK_INT <= 19) {
-                        actionBar.setSubtitle(actionBar.getSubtitle());
-                    }
-                } catch (Exception e) {
-                    Log.w(TAG, "Couldn't set content description via JB-MR2 API", e);
-                }
-            }
-            return setIndicatorInfo;
+        if (setIndicatorInfo == null) {
+            setIndicatorInfo = new SetIndicatorInfo(activity);
         }
-        return (SetIndicatorInfo) invokeLLI.objValue;
+        if (setIndicatorInfo.setHomeAsUpIndicator != null) {
+            try {
+                android.app.ActionBar actionBar = activity.getActionBar();
+                setIndicatorInfo.setHomeActionContentDescription.invoke(actionBar, Integer.valueOf(i));
+                if (Build.VERSION.SDK_INT <= 19) {
+                    actionBar.setSubtitle(actionBar.getSubtitle());
+                }
+            } catch (Exception e) {
+                Log.w(TAG, "Couldn't set content description via JB-MR2 API", e);
+            }
+        }
+        return setIndicatorInfo;
     }
 
     public static SetIndicatorInfo setActionBarUpIndicator(Activity activity, Drawable drawable, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, drawable, i)) == null) {
-            SetIndicatorInfo setIndicatorInfo = new SetIndicatorInfo(activity);
-            if (setIndicatorInfo.setHomeAsUpIndicator != null) {
-                try {
-                    android.app.ActionBar actionBar = activity.getActionBar();
-                    setIndicatorInfo.setHomeAsUpIndicator.invoke(actionBar, drawable);
-                    setIndicatorInfo.setHomeActionContentDescription.invoke(actionBar, Integer.valueOf(i));
-                } catch (Exception e) {
-                    Log.w(TAG, "Couldn't set home-as-up indicator via JB-MR2 API", e);
-                }
-            } else {
-                ImageView imageView = setIndicatorInfo.upIndicatorView;
-                if (imageView != null) {
-                    imageView.setImageDrawable(drawable);
-                } else {
-                    Log.w(TAG, "Couldn't set home-as-up indicator");
-                }
+        SetIndicatorInfo setIndicatorInfo = new SetIndicatorInfo(activity);
+        if (setIndicatorInfo.setHomeAsUpIndicator != null) {
+            try {
+                android.app.ActionBar actionBar = activity.getActionBar();
+                setIndicatorInfo.setHomeAsUpIndicator.invoke(actionBar, drawable);
+                setIndicatorInfo.setHomeActionContentDescription.invoke(actionBar, Integer.valueOf(i));
+            } catch (Exception e) {
+                Log.w(TAG, "Couldn't set home-as-up indicator via JB-MR2 API", e);
             }
-            return setIndicatorInfo;
+        } else {
+            ImageView imageView = setIndicatorInfo.upIndicatorView;
+            if (imageView != null) {
+                imageView.setImageDrawable(drawable);
+            } else {
+                Log.w(TAG, "Couldn't set home-as-up indicator");
+            }
         }
-        return (SetIndicatorInfo) invokeLLI.objValue;
+        return setIndicatorInfo;
     }
 }

@@ -3,75 +3,31 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import org.webrtc.CalledByNative;
+import org.webrtc.VideoEncoder;
+/* compiled from: VideoEncoder.java */
 /* loaded from: classes5.dex */
-public class oma {
+public final /* synthetic */ class oma {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static PayType a(String str, String str2) {
-        InterceptResult invokeLL;
+    @CalledByNative
+    public static long $default$createNativeVideoEncoder(VideoEncoder videoEncoder) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            if (PayType.ALI_PAY.getChannel().equals(str) && PayType.ALI_PAY.getMethod().equals(str2)) {
-                return PayType.ALI_PAY;
-            }
-            if (PayType.WECHAT_PAY.getChannel().equals(str) && PayType.WECHAT_PAY.getMethod().equals(str2)) {
-                return PayType.WECHAT_PAY;
-            }
-            if (PayType.DXM_PAY.getChannel().equals(str) && PayType.DXM_PAY.getMethod().equals(str2)) {
-                return PayType.DXM_PAY;
-            }
-            if (PayType.DXM_PAY_KJ.getChannel().equals(str) && PayType.DXM_PAY_KJ.getMethod().equals(str2)) {
-                return PayType.DXM_PAY_KJ;
-            }
-            if (PayType.QQ_PAY.getChannel().equals(str) && PayType.QQ_PAY.getMethod().equals(str2)) {
-                return PayType.QQ_PAY;
-            }
-            if (PayType.UNION_PAY.getChannel().equals(str) && PayType.UNION_PAY.getMethod().equals(str2)) {
-                return PayType.UNION_PAY;
-            }
-            if (PayType.DXM_PAY_H5.getChannel().equals(str) && PayType.DXM_PAY_H5.getMethod().equals(str2)) {
-                return PayType.DXM_PAY_H5;
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, videoEncoder)) == null) {
+            return 0L;
         }
-        return (PayType) invokeLL.objValue;
+        return invokeL.longValue;
     }
 
-    public static boolean b(String str, String str2) {
-        InterceptResult invokeLL;
+    @CalledByNative
+    public static boolean $default$isHardwareEncoder(VideoEncoder videoEncoder) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            if (PayType.DXM_PAY_H5.getChannel().equals(str) && PayType.DXM_PAY_H5.getMethod().equals(str2)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (PayType.DXM_PAY_KJ.getChannel().equals(str) && PayType.DXM_PAY_KJ.getMethod().equals(str2)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (!c(str, str2) && !b(str, str2) && !PayType.MOCK_TEST_PAY.getChannel().equals(str) && !PayType.UNION_PAY.getChannel().equals(str)) {
-                return false;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, videoEncoder)) == null) {
             return true;
         }
-        return invokeLL.booleanValue;
+        return invokeL.booleanValue;
     }
 }

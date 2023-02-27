@@ -1,120 +1,48 @@
 package com.facebook.imagepipeline.animated.base;
-
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class AnimatedDrawableOptionsBuilder {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public boolean mAllowPrefetching;
     public boolean mEnableDebugging;
     public boolean mForceKeepAllFramesInMemory;
-    public int mMaximumBytes;
-
-    public AnimatedDrawableOptionsBuilder() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mAllowPrefetching = true;
-        this.mMaximumBytes = -1;
-    }
+    public boolean mAllowPrefetching = true;
+    public int mMaximumBytes = -1;
 
     public AnimatedDrawableOptions build() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new AnimatedDrawableOptions(this);
-        }
-        return (AnimatedDrawableOptions) invokeV.objValue;
+        return new AnimatedDrawableOptions(this);
     }
 
     public boolean getAllowPrefetching() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mAllowPrefetching;
-        }
-        return invokeV.booleanValue;
+        return this.mAllowPrefetching;
     }
 
     public boolean getEnableDebugging() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mEnableDebugging;
-        }
-        return invokeV.booleanValue;
+        return this.mEnableDebugging;
     }
 
     public boolean getForceKeepAllFramesInMemory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mForceKeepAllFramesInMemory;
-        }
-        return invokeV.booleanValue;
+        return this.mForceKeepAllFramesInMemory;
     }
 
     public int getMaximumBytes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mMaximumBytes;
-        }
-        return invokeV.intValue;
+        return this.mMaximumBytes;
     }
 
     public AnimatedDrawableOptionsBuilder setAllowPrefetching(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            this.mAllowPrefetching = z;
-            return this;
-        }
-        return (AnimatedDrawableOptionsBuilder) invokeZ.objValue;
+        this.mAllowPrefetching = z;
+        return this;
     }
 
     public AnimatedDrawableOptionsBuilder setEnableDebugging(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            this.mEnableDebugging = z;
-            return this;
-        }
-        return (AnimatedDrawableOptionsBuilder) invokeZ.objValue;
+        this.mEnableDebugging = z;
+        return this;
     }
 
     public AnimatedDrawableOptionsBuilder setForceKeepAllFramesInMemory(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-            this.mForceKeepAllFramesInMemory = z;
-            return this;
-        }
-        return (AnimatedDrawableOptionsBuilder) invokeZ.objValue;
+        this.mForceKeepAllFramesInMemory = z;
+        return this;
     }
 
     public AnimatedDrawableOptionsBuilder setMaximumBytes(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            this.mMaximumBytes = i;
-            return this;
-        }
-        return (AnimatedDrawableOptionsBuilder) invokeI.objValue;
+        this.mMaximumBytes = i;
+        return this;
     }
 }

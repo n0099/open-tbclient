@@ -3,7 +3,7 @@ package com.baidu.android.pushservice;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.android.pushservice.i.l;
+import com.baidu.android.pushservice.a0.m;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,10 +31,11 @@ public class RegistrationReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+            com.baidu.android.pushservice.t.a.a(context.getApplicationContext()).a(0);
             intent.getAction();
             try {
                 intent.getByteArrayExtra("baidu_message_secur_info");
-                l.a(context, intent, context.getPackageName());
+                m.a(context, intent, context.getPackageName());
             } catch (Exception unused) {
             }
         }

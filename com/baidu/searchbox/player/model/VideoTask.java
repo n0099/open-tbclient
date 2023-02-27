@@ -1,42 +1,12 @@
 package com.baidu.searchbox.player.model;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class VideoTask {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int duration;
-    public int position;
-    public int positionMs;
-    public String sessionId;
-    public String title;
-    public String traceId;
-    public String videoUrl;
-    public String webUrl;
-
-    public VideoTask() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.webUrl = "";
-        this.videoUrl = "";
-        this.title = "";
-        this.position = 0;
-        this.duration = 0;
-        this.positionMs = 0;
-        this.sessionId = "";
-        this.traceId = "";
-    }
+    public String webUrl = "";
+    public String videoUrl = "";
+    public String title = "";
+    public int position = 0;
+    public int duration = 0;
+    public int positionMs = 0;
+    public String sessionId = "";
+    public String traceId = "";
 }

@@ -75,13 +75,13 @@ public class HistoryItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06b9, (ViewGroup) this, true);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06cf, (ViewGroup) this, true);
             setClickable(false);
             setFocusable(false);
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090e5e);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090e64);
-            this.b = (TbRichTextView) findViewById(R.id.obfuscated_res_0x7f090e66);
-            this.d = (ChatImageWithTailView) findViewById(R.id.obfuscated_res_0x7f090e62);
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090e9f);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090ea5);
+            this.b = (TbRichTextView) findViewById(R.id.obfuscated_res_0x7f090ea7);
+            this.d = (ChatImageWithTailView) findViewById(R.id.obfuscated_res_0x7f090ea3);
             SkinManager.setBackgroundResource(this.e, R.drawable.selector_history_multi_single_bg);
             SkinManager.setViewTextColor(this.c, R.color.common_color_10067, 1);
             this.b.setTextColor(SkinManager.getColor(R.color.CAM_X0108));

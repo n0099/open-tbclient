@@ -8,38 +8,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.view.AdProgressButton;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.styles.Font;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.nadcore.widget.txt.UnifyTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cl0;
-import com.baidu.tieba.cr0;
-import com.baidu.tieba.lq0;
-import com.baidu.tieba.n21;
-import com.baidu.tieba.o21;
-import com.baidu.tieba.pl0;
+import com.baidu.tieba.aj0;
+import com.baidu.tieba.c31;
+import com.baidu.tieba.gl0;
+import com.baidu.tieba.gr0;
+import com.baidu.tieba.pq0;
+import com.baidu.tieba.tl0;
+import com.baidu.tieba.u21;
 import com.baidu.tieba.v21;
-import com.baidu.tieba.wi0;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public abstract class AdBaseTailFrameView extends FrameLayout {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public AdImageView a;
     public AdImageView b;
     public TextView c;
     public TextView d;
     public AdProgressButton e;
     public FrameLayout f;
-    public pl0 g;
+    public tl0 g;
     public d h;
     public e i;
     public View.OnClickListener j;
@@ -64,234 +55,135 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
     public abstract int f();
 
     public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
     }
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AdBaseTailFrameView a;
-
-        public a(AdBaseTailFrameView adBaseTailFrameView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {adBaseTailFrameView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = adBaseTailFrameView;
+        public a() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.g.m();
-            }
+            AdBaseTailFrameView.this.g.m();
         }
     }
 
     /* loaded from: classes2.dex */
     public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
-        public final /* synthetic */ cr0 b;
-        public final /* synthetic */ AdBaseTailFrameView c;
+        public final /* synthetic */ gr0 b;
 
-        public b(AdBaseTailFrameView adBaseTailFrameView, boolean z, cr0 cr0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {adBaseTailFrameView, Boolean.valueOf(z), cr0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = adBaseTailFrameView;
+        public b(boolean z, gr0 gr0Var) {
             this.a = z;
-            this.b = cr0Var;
+            this.b = gr0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Object tag = this.c.getTag();
-                if (!(tag instanceof cr0)) {
+            Object tag = AdBaseTailFrameView.this.getTag();
+            if (!(tag instanceof gr0)) {
+                return;
+            }
+            gr0 gr0Var = (gr0) tag;
+            if (this.a) {
+                if (gr0Var.u) {
+                    AdBaseTailFrameView.this.e.performClick();
+                    return;
+                } else {
+                    AdBaseTailFrameView.this.c(this.b, view2);
                     return;
                 }
-                cr0 cr0Var = (cr0) tag;
-                if (this.a) {
-                    if (cr0Var.u) {
-                        this.c.e.performClick();
-                        return;
-                    } else {
-                        this.c.c(this.b, view2);
-                        return;
-                    }
-                }
-                this.c.c(this.b, view2);
             }
+            AdBaseTailFrameView.this.c(this.b, view2);
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AdBaseTailFrameView(Context context) {
         this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
     }
 
-    public final void h(cr0 cr0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, cr0Var) != null) || cr0Var == null) {
-            return;
-        }
-        d dVar = this.h;
-        if (dVar == null) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.FREE_SHOW).u(ClogBuilder.Page.AD_TAIL).p(cr0Var.q);
-            n21.b(clogBuilder);
-            return;
-        }
-        dVar.a(ClogBuilder.LogType.FREE_SHOW.type, "");
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AdBaseTailFrameView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdBaseTailFrameView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        e(context);
-    }
-
-    public final void b(cr0 cr0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, cr0Var) != null) || cr0Var == null) {
+    public final void b(gr0 gr0Var) {
+        if (gr0Var == null) {
             return;
         }
         e eVar = this.i;
         if (eVar == null) {
-            o21.b(cr0Var.p);
+            v21.b(gr0Var.p);
         } else {
             eVar.a();
         }
     }
 
+    public final void h(gr0 gr0Var) {
+        if (gr0Var == null) {
+            return;
+        }
+        d dVar = this.h;
+        if (dVar == null) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.FREE_SHOW).u(ClogBuilder.Page.AD_TAIL).p(gr0Var.q);
+            u21.b(clogBuilder);
+            return;
+        }
+        dVar.a(ClogBuilder.LogType.FREE_SHOW.type, "");
+    }
+
     public final void j(View view2) {
-        View.OnClickListener onClickListener;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) && (onClickListener = this.j) != null) {
+        View.OnClickListener onClickListener = this.j;
+        if (onClickListener != null) {
             onClickListener.onClick(view2);
         }
     }
 
     public void setAdTailCloseListener(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
-            this.l = cVar;
-        }
+        this.l = cVar;
     }
 
     public void setAlsHandler(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, dVar) == null) {
-            this.h = dVar;
-        }
+        this.h = dVar;
     }
 
     public void setOnChargeHandler(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, eVar) == null) {
-            this.i = eVar;
-        }
+        this.i = eVar;
     }
 
     public void setOnJumpHandler(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, onClickListener) == null) {
-            this.j = onClickListener;
-        }
+        this.j = onClickListener;
     }
 
-    public final void c(cr0 cr0Var, View view2) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cr0Var, view2) != null) || TextUtils.isEmpty(cr0Var.e)) {
+    public AdBaseTailFrameView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+    }
+
+    public AdBaseTailFrameView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        e(context);
+    }
+
+    public final void i(String str, String str2, gr0 gr0Var) {
+        if (gr0Var == null) {
             return;
         }
-        String str2 = cr0Var.e;
-        if (R.id.ad_video_tail_frame_check_btn_txt == view2.getId() && !TextUtils.isEmpty(cr0Var.f) && !"__BTN_SCHEME__".equals(cr0Var.f)) {
-            str2 = cr0Var.f;
+        d dVar = this.h;
+        if (dVar == null) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.z(str).u(ClogBuilder.Page.AD_TAIL).j(str2).p(gr0Var.q);
+            u21.b(clogBuilder);
+            return;
         }
-        wi0.c(str2, getContext());
+        dVar.a(str, str2);
+    }
+
+    public final void c(gr0 gr0Var, View view2) {
+        String str;
+        if (TextUtils.isEmpty(gr0Var.e)) {
+            return;
+        }
+        String str2 = gr0Var.e;
+        if (R.id.ad_video_tail_frame_check_btn_txt == view2.getId() && !TextUtils.isEmpty(gr0Var.f) && !"__BTN_SCHEME__".equals(gr0Var.f)) {
+            str2 = gr0Var.f;
+        }
+        aj0.c(str2, getContext());
         int id = view2.getId();
         if (id == R.id.ad_video_tail_frame_avatar) {
             str = ClogBuilder.Area.ICON.type;
@@ -302,8 +194,8 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
         } else {
             str = ClogBuilder.Area.HOTAREA.type;
         }
-        i(ClogBuilder.LogType.CLICK.type, str, cr0Var);
-        b(cr0Var);
+        i(ClogBuilder.LogType.CLICK.type, str, gr0Var);
+        b(gr0Var);
         j(view2);
         c cVar = this.l;
         if (cVar != null) {
@@ -312,112 +204,86 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
     }
 
     public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setVisibility(8);
-        }
+        setVisibility(8);
     }
 
     public void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(f(), this);
-            this.a = (AdImageView) findViewById(R.id.ad_video_tail_frame_video_cover);
-            this.b = (AdImageView) findViewById(R.id.ad_video_tail_frame_avatar);
-            this.c = (TextView) findViewById(R.id.ad_video_tail_frame_name);
-            TextView textView = (TextView) findViewById(R.id.ad_video_tail_frame_check_btn_txt);
-            this.d = textView;
-            v21.b(textView, Font.F_F_X02);
-            this.e = (AdProgressButton) findViewById(R.id.ad_video_tail_frame_download_btn_txt);
-            this.f = (FrameLayout) findViewById(R.id.ad_video_tail_frame_btn_container);
-            this.k = (TextView) findViewById(R.id.video_ad_suffix_close_divider);
-            g();
-        }
+        LayoutInflater.from(context).inflate(f(), this);
+        this.a = (AdImageView) findViewById(R.id.ad_video_tail_frame_video_cover);
+        this.b = (AdImageView) findViewById(R.id.ad_video_tail_frame_avatar);
+        this.c = (TextView) findViewById(R.id.ad_video_tail_frame_name);
+        TextView textView = (TextView) findViewById(R.id.ad_video_tail_frame_check_btn_txt);
+        this.d = textView;
+        c31.b(textView, Font.F_F_X02);
+        this.e = (AdProgressButton) findViewById(R.id.ad_video_tail_frame_download_btn_txt);
+        this.f = (FrameLayout) findViewById(R.id.ad_video_tail_frame_btn_container);
+        this.k = (TextView) findViewById(R.id.video_ad_suffix_close_divider);
+        g();
     }
 
-    public final void i(String str, String str2, cr0 cr0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048583, this, str, str2, cr0Var) != null) || cr0Var == null) {
-            return;
-        }
-        d dVar = this.h;
-        if (dVar == null) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.z(str).u(ClogBuilder.Page.AD_TAIL).j(str2).p(cr0Var.q);
-            n21.b(clogBuilder);
-            return;
-        }
-        dVar.a(str, str2);
-    }
-
-    public boolean k(cr0 cr0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, cr0Var)) == null) {
-            if (cr0Var != null && cr0Var.i()) {
-                setVisibility(0);
-                if (!TextUtils.isEmpty(cr0Var.o)) {
-                    this.a.setImageURI(Uri.parse(cr0Var.o));
-                }
-                if (!TextUtils.isEmpty(cr0Var.d)) {
-                    this.b.setVisibility(0);
-                    this.b.g(cr0Var.d);
-                } else {
-                    this.b.setVisibility(8);
-                }
-                if (!TextUtils.isEmpty(cr0Var.c)) {
-                    this.c.setVisibility(0);
-                    ((UnifyTextView) this.c).setTextWithUnifiedPadding(cr0Var.c, TextView.BufferType.NORMAL);
-                } else {
-                    this.c.setVisibility(8);
-                }
-                boolean h = cr0Var.h();
-                if (h) {
-                    this.d.setVisibility(8);
-                    lq0 lq0Var = cr0Var.r;
-                    if (lq0Var != null && lq0Var.e) {
-                        this.e.setVisibility(0);
-                        if (!TextUtils.isEmpty(cr0Var.g)) {
-                            this.e.setText(cr0Var.g);
-                        } else {
-                            this.e.setText(getResources().getString(R.string.nad_button_download));
-                        }
-                        cl0 d2 = cl0.d(cr0Var.r, cr0Var.q, cr0Var.f);
-                        d2.e = TextUtils.isEmpty(d2.d);
-                        this.g = new pl0(d2, this.e);
-                        this.e.setOnClickListener(new a(this));
-                    } else {
-                        this.e.setVisibility(8);
-                        this.g = null;
-                    }
-                } else {
-                    if (this.g != null) {
-                        this.g = null;
-                    }
-                    this.e.setVisibility(8);
-                    this.d.setVisibility(0);
-                    if (!TextUtils.isEmpty(cr0Var.g)) {
-                        this.d.setText(cr0Var.g);
-                    } else {
-                        this.d.setText(getResources().getText(R.string.nad_ad_video_check_btn_txt));
-                    }
-                }
-                b bVar = new b(this, h, cr0Var);
-                this.b.setOnClickListener(bVar);
-                this.c.setOnClickListener(bVar);
-                this.d.setOnClickListener(bVar);
-                if (cr0Var.t) {
-                    setOnClickListener(bVar);
-                } else {
-                    setOnClickListener(null);
-                }
-                h(cr0Var);
-                setTag(cr0Var);
-                return true;
+    public boolean k(gr0 gr0Var) {
+        if (gr0Var != null && gr0Var.i()) {
+            setVisibility(0);
+            if (!TextUtils.isEmpty(gr0Var.o)) {
+                this.a.setImageURI(Uri.parse(gr0Var.o));
             }
-            setVisibility(8);
-            return false;
+            if (!TextUtils.isEmpty(gr0Var.d)) {
+                this.b.setVisibility(0);
+                this.b.g(gr0Var.d);
+            } else {
+                this.b.setVisibility(8);
+            }
+            if (!TextUtils.isEmpty(gr0Var.c)) {
+                this.c.setVisibility(0);
+                ((UnifyTextView) this.c).setTextWithUnifiedPadding(gr0Var.c, TextView.BufferType.NORMAL);
+            } else {
+                this.c.setVisibility(8);
+            }
+            boolean h = gr0Var.h();
+            if (h) {
+                this.d.setVisibility(8);
+                pq0 pq0Var = gr0Var.r;
+                if (pq0Var != null && pq0Var.e) {
+                    this.e.setVisibility(0);
+                    if (!TextUtils.isEmpty(gr0Var.g)) {
+                        this.e.setText(gr0Var.g);
+                    } else {
+                        this.e.setText(getResources().getString(R.string.nad_button_download));
+                    }
+                    gl0 d2 = gl0.d(gr0Var.r, gr0Var.q, gr0Var.f);
+                    d2.e = TextUtils.isEmpty(d2.d);
+                    this.g = new tl0(d2, this.e);
+                    this.e.setOnClickListener(new a());
+                } else {
+                    this.e.setVisibility(8);
+                    this.g = null;
+                }
+            } else {
+                if (this.g != null) {
+                    this.g = null;
+                }
+                this.e.setVisibility(8);
+                this.d.setVisibility(0);
+                if (!TextUtils.isEmpty(gr0Var.g)) {
+                    this.d.setText(gr0Var.g);
+                } else {
+                    this.d.setText(getResources().getText(R.string.nad_ad_video_check_btn_txt));
+                }
+            }
+            b bVar = new b(h, gr0Var);
+            this.b.setOnClickListener(bVar);
+            this.c.setOnClickListener(bVar);
+            this.d.setOnClickListener(bVar);
+            if (gr0Var.t) {
+                setOnClickListener(bVar);
+            } else {
+                setOnClickListener(null);
+            }
+            h(gr0Var);
+            setTag(gr0Var);
+            return true;
         }
-        return invokeL.booleanValue;
+        setVisibility(8);
+        return false;
     }
 }

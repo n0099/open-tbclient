@@ -304,7 +304,7 @@ public class b8<K> implements Iterable<b<K>> {
                         length = i;
                     } else {
                         sb.append(k);
-                        sb.append(com.alipay.sdk.encrypt.a.h);
+                        sb.append('=');
                         sb.append(fArr[i]);
                         break;
                     }
@@ -321,7 +321,7 @@ public class b8<K> implements Iterable<b<K>> {
                 if (k2 != null) {
                     sb.append(str);
                     sb.append(k2);
-                    sb.append(com.alipay.sdk.encrypt.a.h);
+                    sb.append('=');
                     sb.append(fArr[i2]);
                 }
                 i = i2;

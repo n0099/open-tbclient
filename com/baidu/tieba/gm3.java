@@ -1,29 +1,375 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.res.Resources;
-import android.os.Build;
-import android.provider.Settings;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.Pair;
-import android.view.Display;
-import android.view.WindowManager;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
+import java.util.concurrent.TimeUnit;
+import rx.schedulers.Schedulers;
+import rx.subjects.PublishSubject;
 /* loaded from: classes4.dex */
-public class gm3 {
+public final class gm3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
+    public static final boolean a;
+    public static volatile k b;
+    public static volatile k c;
+    public static volatile k d;
+    public static final gna e;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes4.dex */
+    public interface j extends Executor {
+        void execute(@NonNull Runnable runnable, @NonNull String str);
+    }
+
+    /* loaded from: classes4.dex */
+    public static class a implements gna<Pair<Runnable, String>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.gna
+        public void call(Pair<Runnable, String> pair) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
+                String name = Thread.currentThread().getName();
+                Thread currentThread = Thread.currentThread();
+                currentThread.setName(name + "-" + ((String) pair.second));
+                long j = 0;
+                try {
+                    if (gm3.a) {
+                        j = System.currentTimeMillis();
+                    }
+                    ((Runnable) pair.first).run();
+                    if (gm3.a) {
+                        Log.d("SwanAppExecutorUtils", "Task [" + ((String) pair.second) + "] caused " + (System.currentTimeMillis() - j) + "ms");
+                    }
+                } finally {
+                    if (z) {
+                    }
+                    Thread.currentThread().setName(name);
+                }
+                Thread.currentThread().setName(name);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b implements kna<Pair<Runnable, String>, sma<?>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.kna
+        public sma<?> call(Pair<Runnable, String> pair) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
+                return wma.g(pair).h(Schedulers.io()).f(gm3.e).l();
+            }
+            return (sma) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c implements kna<Pair<Runnable, String>, sma<?>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.kna
+        public sma<?> call(Pair<Runnable, String> pair) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
+                return wma.g(pair).h(Schedulers.computation()).f(gm3.e).l();
+            }
+            return (sma) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class d implements gna<Throwable> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public d(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.gna
+        public void call(Throwable th) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) && gm3.a) {
+                Log.wtf("SwanAppExecutorUtils", "delay task [" + this.a + "] fail!", th);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class e implements gna<Pair<Runnable, String>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.gna
+        public void call(Pair<Runnable, String> pair) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
+                gm3.g().execute((Runnable) pair.first, (String) pair.second);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class f implements gna<Throwable> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public f(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.gna
+        public void call(Throwable th) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) && gm3.a) {
+                Log.wtf("SwanAppExecutorUtils", "delay task [" + this.a + "] fail!", th);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class g implements gna<Pair<Runnable, String>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public g() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.gna
+        public void call(Pair<Runnable, String> pair) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
+                gm3.f().execute((Runnable) pair.first, (String) pair.second);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class h implements gna<Throwable> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public h(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.gna
+        public void call(Throwable th) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) && gm3.a) {
+                Log.wtf("SwanAppExecutorUtils", "delay task [" + this.a + "] fail!", th);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class i implements gna<Pair<Runnable, String>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public i() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.gna
+        public void call(Pair<Runnable, String> pair) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
+                gm3.h().execute((Runnable) pair.first, (String) pair.second);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class k extends jra<Pair<Runnable, String>, Pair<Runnable, String>> implements j {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public k(kra kraVar) {
+            super(kraVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kraVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((kra) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // java.util.concurrent.Executor
+        public void execute(@NonNull Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+                execute(runnable, "");
+            }
+        }
+
+        @Override // com.baidu.tieba.gm3.j
+        public void execute(@NonNull Runnable runnable, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str) == null) {
+                onNext(Pair.create(runnable, gm3.i(str)));
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,159 +384,142 @@ public class gm3 {
                 return;
             }
         }
-        a = en3.b;
+        a = wp1.a;
+        e = new a();
     }
 
-    public static boolean e() {
+    public gm3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static zma c(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{runnable, str, Long.valueOf(j2), timeUnit})) == null) {
+            return wma.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new g()).e(new f(str)).i();
+        }
+        return (zma) invokeCommon.objValue;
+    }
+
+    public static zma d(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{runnable, str, Long.valueOf(j2), timeUnit})) == null) {
+            return wma.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new e()).e(new d(str)).i();
+        }
+        return (zma) invokeCommon.objValue;
+    }
+
+    public static zma e(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{runnable, str, Long.valueOf(j2), timeUnit})) == null) {
+            return wma.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new i()).e(new h(str)).i();
+        }
+        return (zma) invokeCommon.objValue;
+    }
+
+    public static j f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            if (f(appContext)) {
-                return false;
-            }
-            return a(appContext);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @SuppressLint({"PrivateApi", "ObsoleteSdkInt"})
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
-        boolean z;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            Resources resources = context.getResources();
-            int identifier = resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.k, "bool", "android");
-            boolean z2 = false;
-            if (identifier > 0) {
-                z = resources.getBoolean(identifier);
-            } else {
-                z = false;
-            }
-            try {
-                if (Build.VERSION.SDK_INT < 21) {
-                    i = Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
-                } else {
-                    i = Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
-                }
-                if (i != 0) {
-                    return false;
-                }
-                Class<?> cls = Class.forName("android.os.SystemProperties");
-                String str = (String) cls.getMethod("get", String.class).invoke(cls, "qemu.hw.mainkeys");
-                if (!"1".equals(str)) {
-                    if ("0".equals(str)) {
-                        z2 = true;
-                    } else {
-                        z2 = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (c == null) {
+                synchronized (gm3.class) {
+                    if (c == null) {
+                        c = new k(PublishSubject.D());
+                        c.n().d(new c()).s().t();
                     }
                 }
-                return z2;
-            } catch (Exception unused) {
-                return z;
             }
+            return c;
         }
-        return invokeL.booleanValue;
+        return (j) invokeV.objValue;
     }
 
-    public static Pair<Integer, Integer> b() {
+    public static j g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Pair<Integer, Integer> d = d();
-            return new Pair<>(Integer.valueOf(((Integer) d.first).intValue()), Integer.valueOf(((Integer) d.second).intValue() - c()));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (b == null) {
+                synchronized (gm3.class) {
+                    if (b == null) {
+                        b = new k(PublishSubject.D());
+                        b.n().d(new b()).s().t();
+                    }
+                }
+            }
+            return b;
         }
-        return (Pair) invokeV.objValue;
+        return (j) invokeV.objValue;
     }
 
-    public static int c() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!e()) {
-                return 0;
-            }
-            Resources resources = AppRuntime.getAppContext().getResources();
-            if (nm3.L()) {
-                str = SapiSystemBarTintManager.SystemBarConfig.h;
-            } else {
-                str = SapiSystemBarTintManager.SystemBarConfig.i;
-            }
-            return nm3.r(resources, str);
-        }
-        return invokeV.intValue;
-    }
-
-    public static Pair<Integer, Integer> d() {
+    public static j h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
-            if (windowManager == null) {
-                return new Pair<>(Integer.valueOf(nm3.o(appContext)), Integer.valueOf(nm3.n(appContext)));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (d == null) {
+                synchronized (gm3.class) {
+                    if (d == null) {
+                        d = new k(PublishSubject.D());
+                        d.n().k(Schedulers.io()).b(e).s().t();
+                    }
+                }
             }
-            Display defaultDisplay = windowManager.getDefaultDisplay();
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            defaultDisplay.getRealMetrics(displayMetrics);
-            return new Pair<>(Integer.valueOf(displayMetrics.widthPixels), Integer.valueOf(displayMetrics.heightPixels));
+            return d;
         }
-        return (Pair) invokeV.objValue;
+        return (j) invokeV.objValue;
     }
 
-    public static boolean f(Context context) {
+    public static String i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            String str = Build.BRAND;
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    if (Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0) == 0) {
-                        return false;
-                    }
-                    return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (str != null) {
+                if (!str.startsWith("SwanAppExecutorUtils_")) {
+                    str = "SwanAppExecutorUtils_" + str;
                 }
-                if (!str.equalsIgnoreCase("HUAWEI") && !str.equalsIgnoreCase("HONOR")) {
-                    if (str.equalsIgnoreCase(RomUtils.ROM_XIAOMI)) {
-                        if (Settings.Global.getInt(context.getContentResolver(), "force_fsg_nav_bar", 0) == 0) {
-                            return false;
-                        }
-                        return true;
-                    } else if (str.equalsIgnoreCase("VIVO")) {
-                        if (Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
-                            return false;
-                        }
-                        return true;
-                    } else if (str.equalsIgnoreCase(a)) {
-                        if (Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
-                            return false;
-                        }
-                        return true;
-                    } else if (str.equalsIgnoreCase("SAMSUNG")) {
-                        if (Settings.Global.getInt(context.getContentResolver(), "navigationbar_hide_bar_enabled", 0) == 0) {
-                            return false;
-                        }
-                        return true;
-                    } else if (Settings.Global.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
-                        return false;
-                    } else {
-                        return true;
-                    }
-                }
-                if (Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0) == 0) {
-                    return false;
-                }
-                return true;
-            } catch (Exception e) {
-                if (gp1.a) {
-                    e.printStackTrace();
-                }
-                return false;
+            } else {
+                str = null;
             }
+            if (str == null) {
+                str = "SwanAppExecutorUtils";
+            }
+            if (str.length() > 256) {
+                return str.substring(0, 255);
+            }
+            return str;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static void j(@NonNull Runnable runnable, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, runnable, str) == null) {
+            f().execute(runnable, str);
+        }
+    }
+
+    public static void k(@NonNull Runnable runnable, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, null, runnable, str) == null) {
+            g().execute(runnable, str);
+        }
+    }
+
+    public static void l(@NonNull Runnable runnable, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65549, null, runnable, str) == null) {
+            h().execute(runnable, str);
+        }
     }
 }

@@ -1,173 +1,253 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.SharedPreferences;
+import android.os.SystemClock;
+import android.preference.PreferenceManager;
+import android.text.TextUtils;
+import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.pba;
+import com.baidu.tieba.v5a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.FunAdConfig;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.internal.api.Module;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.win.opensdk.PBError;
-import com.win.opensdk.PBSplash;
-import com.win.opensdk.PBSplashListener;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.nio.charset.Charset;
+import java.security.MessageDigest;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.Set;
+import java.util.UUID;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class p5a extends ReporterPidLoader<PBSplash> {
+public final class p5a {
     public static /* synthetic */ Interceptable $ic;
+    public static v5a a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements PBSplashListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public final /* synthetic */ PBSplash c;
-        public final /* synthetic */ p5a d;
+    public interface a {
+        void a(n5a n5aVar);
+    }
 
-        public a(p5a p5aVar, PBSplash pBSplash) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p5aVar, pBSplash};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static <T extends u5a> T a(Random random, List<T> list, w5a<T> w5aVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, random, list, w5aVar)) == null) {
+            if (random == null || list == null || list.isEmpty()) {
+                return null;
+            }
+            LogPrinter.v("Start select for class:%s with size:%d", list.iterator().next().getClass().getSimpleName(), Integer.valueOf(list.size()));
+            ArrayList arrayList = new ArrayList();
+            int size = list.size();
+            T t = null;
+            for (int i = 0; i < size; i++) {
+                T t2 = list.get(i);
+                if (w5aVar != null) {
+                    if (!w5aVar.a(t2)) {
+                        continue;
+                    }
+                    if (t == null && t2.b() != t.b()) {
+                        break;
+                    }
+                    arrayList.add(t2);
+                    t = t2;
+                } else {
+                    if (!t2.a()) {
+                        continue;
+                    }
+                    if (t == null) {
+                    }
+                    arrayList.add(t2);
+                    t = t2;
                 }
             }
-            this.d = p5aVar;
-            this.c = pBSplash;
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onClicked() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LogPrinter.d();
-                this.d.onAdClicked(this.c, this.b, new String[0]);
-                this.b = true;
+            if (arrayList.isEmpty()) {
+                LogPrinter.v("No one is selected", new Object[0]);
+                return null;
             }
+            return (T) arrayList.get(random.nextInt(arrayList.size()));
         }
+        return (T) invokeLLL.objValue;
+    }
 
-        @Override // com.win.opensdk.PBSplashListener
-        public void onDisplayError(PBError pBError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) {
-                LogPrinter.d();
-                this.d.onAdError(this.c, pBError.getCode(), pBError.getMsg());
+    public static boolean g(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        v5a v5aVar;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, jSONObject)) == null) {
+            if (str == null || jSONObject == null || (v5aVar = a) == null) {
+                return false;
             }
+            for (v5a.a aVar : v5aVar.a) {
+                if (str.equals(aVar.a)) {
+                    for (Map.Entry<String, Set<Object>> entry : aVar.b.entrySet()) {
+                        Object opt = jSONObject.opt(entry.getKey());
+                        if (opt != null) {
+                            Iterator<Object> it = entry.getValue().iterator();
+                            while (true) {
+                                if (it.hasNext()) {
+                                    if (opt.equals(it.next())) {
+                                        z2 = true;
+                                        continue;
+                                        break;
+                                    }
+                                } else {
+                                    z2 = false;
+                                    continue;
+                                    break;
+                                }
+                            }
+                            if (!z2) {
+                            }
+                        }
+                        z = false;
+                    }
+                    z = true;
+                    if (z) {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
+        return invokeLL.booleanValue;
+    }
 
-        @Override // com.win.opensdk.PBSplashListener
-        public void onDisplayed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-                this.d.onAdShow(this.c, this.a, new String[0]);
-                this.a = true;
+    public static <T> T b(String str, cba<T> cbaVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, cbaVar)) == null) {
+            if (str != null && cbaVar != null) {
+                try {
+                    byte[] decode = Base64.decode(str, 0);
+                    if (decode == null) {
+                        return null;
+                    }
+                    try {
+                        return cbaVar.a(new ObjectInputStream(new ByteArrayInputStream(decode)));
+                    } catch (IOException e) {
+                        LogPrinter.e(e);
+                        return null;
+                    }
+                } catch (Exception e2) {
+                    LogPrinter.e(e2);
+                }
             }
+            return null;
         }
+        return (T) invokeLL.objValue;
+    }
 
-        @Override // com.win.opensdk.PBListener
-        public void onFail(PBError pBError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) {
-                LogPrinter.e("JySplashAd onError code: " + pBError.getCode() + ", message: " + pBError.getMsg(), new Object[0]);
-                this.d.onError(pBError.getCode(), pBError.getMsg());
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(FunAdSdk.getAppContext());
+                String string = defaultSharedPreferences.getString("u_tok", "");
+                if (TextUtils.isEmpty(string)) {
+                    string = UUID.randomUUID().toString();
+                    try {
+                        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                        messageDigest.update(string.getBytes(Charset.forName("UTF-8")));
+                        string = Base64.encodeToString(messageDigest.digest(), 2);
+                    } catch (Throwable unused) {
+                        if (string.length() >= 24) {
+                            string = string.substring(0, 24);
+                        }
+                    }
+                    defaultSharedPreferences.edit().putString("u_tok", string).apply();
+                }
+                b = string;
             }
+            return b;
         }
+        return (String) invokeV.objValue;
+    }
 
-        @Override // com.win.opensdk.PBListener
-        public void onLoaded() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                LogPrinter.d();
-                this.d.onAdLoaded((p5a) this.c);
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0020 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0021  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String d(eba ebaVar) {
+        InterceptResult invokeL;
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, ebaVar)) == null) {
+            if (ebaVar != null) {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                try {
+                    ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+                    ebaVar.srzable(objectOutputStream);
+                    objectOutputStream.flush();
+                    bArr = byteArrayOutputStream.toByteArray();
+                } catch (IOException unused) {
+                }
+                if (bArr != null) {
+                    return null;
+                }
+                return Base64.encodeToString(bArr, 0);
             }
-        }
-
-        @Override // com.win.opensdk.PBSplashListener
-        public void onSkip() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                LogPrinter.d();
-                this.d.onAdClose(this.c);
+            bArr = null;
+            if (bArr != null) {
             }
-        }
-
-        @Override // com.win.opensdk.PBSplashListener
-        public void onTimeOver() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                LogPrinter.d();
-                this.d.onAdClose(this.c);
-            }
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p5a(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.SPLASH), pid, true, false, true);
+    public static void e(long j, a aVar, FunAdConfig funAdConfig, Map<String, PidLoaderCreator> map) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), aVar, funAdConfig, map}) == null) {
+            pba.a aVar2 = pba.a;
+            aVar2.a = System.currentTimeMillis() - 0;
+            aVar2.b = SystemClock.currentThreadTimeMillis() - 0;
+            LogPrinter.d("All ssp initialized with %dms consumed.", Long.valueOf(System.currentTimeMillis() - j));
+            funAdConfig.moduleInitManager.tryCallbackComplete();
+            aVar.a(new n5a(map));
+        }
+    }
+
+    public static void f(String str, String str2, FunAdConfig funAdConfig, Map<String, PidLoaderCreator> map, String str3) {
+        Module module;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65541, null, str, str2, funAdConfig, map, str3) == null) {
+            try {
+                module = (Module) Class.forName(str2).getConstructor(new Class[0]).newInstance(new Object[0]);
+                LogPrinter.d("Module for %s created", str2);
+            } catch (Exception e) {
+                LogPrinter.e(e, "Module for %s not found", str2);
+                module = null;
+            }
+            if (module == null) {
                 return;
             }
+            try {
+                PidLoaderCreator init = module.init(funAdConfig, str3);
+                if (init == null) {
+                    LogPrinter.e("Module for %s init failed", str);
+                } else {
+                    map.put(str, init);
+                }
+            } catch (Exception unused) {
+            }
         }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
-            onLoadStart(funAdSlot);
-            PBSplash pBSplash = new PBSplash(context.getApplicationContext(), this.mPid.pid);
-            pBSplash.setLoadTimeOut(5000L);
-            pBSplash.setSplashListener(new a(this, pBSplash));
-            pBSplash.load();
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        PBSplash pBSplash;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (pBSplash = (PBSplash) obj) != null) {
-            pBSplash.destroy();
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, activity, viewGroup, str, obj)) == null) {
-            PBSplash pBSplash = (PBSplash) obj;
-            onShowStart(pBSplash);
-            pBSplash.show(viewGroup);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
     }
 }

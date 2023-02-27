@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b35;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.p15;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -73,43 +73,24 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
     public final void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b39);
+            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b7a);
             this.b = headImageView;
             headImageView.setRadius(R.dimen.tbds47);
             this.b.setConrers(15);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b46);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b44);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b43);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b34);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b40);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f090b38);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b87);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b85);
+            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b84);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b75);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b81);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f090b79);
             this.h = tBSpecificationBtn;
-            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f070d));
-            EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b37);
+            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0711));
+            EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b78);
             this.l = eMTextView;
-            eMTextView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0712));
-            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b3e);
-            this.j = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b3f);
-            this.k = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b3d);
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            if (!"manager".equals(str) && !PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(str)) {
-                return;
-            }
-            LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{DrawableSelector.make().setShape(0).radius(this.m).gradientLinear(DrawableSelector.TL_BR, R.color.CAM_X0303, R.color.CAM_X0303).build(), DrawableSelector.make().setShape(0).radius(this.m).defaultColor("#4D000000").build()});
-            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                if (layerDrawable.getDrawable(1) != null) {
-                    layerDrawable.getDrawable(1).setAlpha(255);
-                }
-            } else if (layerDrawable.getDrawable(1) != null) {
-                layerDrawable.getDrawable(1).setAlpha(0);
-            }
-            this.d.setBackgroundDrawable(layerDrawable);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+            eMTextView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0716));
+            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b7f);
+            this.j = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b80);
+            this.k = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b7e);
         }
     }
 
@@ -159,22 +140,37 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            p15 d = p15.d(this.c);
+            b35 d = b35.d(this.c);
             d.A(R.string.F_X01);
             d.v(R.color.CAM_X0105);
-            p15 d2 = p15.d(this.g);
+            b35 d2 = b35.d(this.g);
             d2.A(R.string.F_X01);
             d2.v(R.color.CAM_X0109);
-            p15 d3 = p15.d(this.l);
+            b35 d3 = b35.d(this.l);
             d3.A(R.string.F_X01);
             d3.v(R.color.CAM_X0107);
-            p15.d(this.k).v(R.color.CAM_X0105);
-            p15 d4 = p15.d(this.j);
+            b35.d(this.k).v(R.color.CAM_X0105);
+            b35 d4 = b35.d(this.j);
             d4.A(R.string.F_X02);
             d4.v(R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);
             this.b.setSkinType(i);
             this.h.setTextSize(R.dimen.T_X08);
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            if (!"manager".equals(str) && !PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(str)) {
+                return;
+            }
+            LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{DrawableSelector.make().setShape(0).radius(this.m).gradientLinear(DrawableSelector.TL_BR, R.color.CAM_X0303, R.color.CAM_X0303).build(), DrawableSelector.make().setShape(0).radius(this.m).defaultColor("#4D000000").build()});
+            if (layerDrawable.getDrawable(1) != null) {
+                layerDrawable.getDrawable(1).setAlpha(0);
+            }
+            this.d.setBackgroundDrawable(layerDrawable);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
         }
     }
 

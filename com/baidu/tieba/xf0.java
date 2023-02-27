@@ -1,44 +1,173 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.os.Build;
-import android.os.Process;
+import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.jf0;
+import com.baidu.tieba.jg0;
+import com.baidu.tieba.zf0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.RandomAccessFile;
+import java.io.File;
 /* loaded from: classes6.dex */
 public class xf0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile xf0 f;
+    public static xf0 b;
+    public static fg0 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Long a;
-    public Long b;
-    public RandomAccessFile c;
-    public RandomAccessFile d;
-    public String e;
+    public Boolean a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948298311, "Lcom/baidu/tieba/xf0;")) == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class a extends zf0.c<rf0> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jf0.a a;
+
+        public a(xf0 xf0Var, jf0.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xf0Var, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zf0.c
+        /* renamed from: e */
+        public void a(rf0 rf0Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, rf0Var, str) == null) {
+                if (jf0.m()) {
+                    xf0.c("loadSDK onCompleted filePath: " + str);
+                }
+                super.a(rf0Var, str);
+                jf0.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onResult(true, str);
+                }
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948298311, "Lcom/baidu/tieba/xf0;");
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zf0.c
+        /* renamed from: f */
+        public void b(rf0 rf0Var, Exception exc) {
+            String message;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048580, this, rf0Var, exc) == null) {
+                if (jf0.m()) {
+                    xf0.c("loadSDK onFailed failed: " + exc);
+                }
+                super.b(rf0Var, exc);
+                jf0.a aVar = this.a;
+                if (aVar != null) {
+                    if (exc == null) {
+                        message = "unkown";
+                    } else {
+                        message = exc.getMessage();
+                    }
+                    aVar.onResult(false, message);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zf0.c
+        /* renamed from: g */
+        public void c(rf0 rf0Var, long j, long j2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{rf0Var, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
+                super.c(rf0Var, j, j2, i);
+                jf0.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onProgress((int) j2, i);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements jg0.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jf0.a a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ File c;
+
+        public b(xf0 xf0Var, jf0.a aVar, String str, File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xf0Var, aVar, str, file};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+            this.b = str;
+            this.c = file;
+        }
+
+        /* JADX WARN: Code restructure failed: missing block: B:23:0x0068, code lost:
+            if (r1 == false) goto L22;
+         */
+        @Override // com.baidu.tieba.jg0.a
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void a(int i, jg0 jg0Var) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, jg0Var) == null) {
+                boolean z2 = false;
+                if (i == 2) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (jf0.m()) {
+                    xf0.c("onLoadAssets " + z + ", state " + i);
+                }
+                if (this.a != null) {
+                    String str = null;
+                    if (!z) {
+                        str = this.b;
+                    }
+                    if (this.c != null) {
+                        jf0.s(new kf0(this.c.getAbsolutePath()));
+                    }
+                    if (z) {
+                        boolean k0 = if0.k0();
+                        if (jf0.m()) {
+                            xf0.c("loadAssets ARControllerProxy.loadSoFile " + k0);
+                        }
+                    }
+                    z2 = z;
+                    this.a.onResult(z2, str);
+                }
+            }
         }
     }
 
@@ -46,12 +175,23 @@ public class xf0 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            synchronized (xf0.class) {
+                if (b == null) {
+                    b = new xf0();
+                }
             }
         }
     }
@@ -59,306 +199,158 @@ public class xf0 {
     public static xf0 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f == null) {
-                synchronized (xf0.class) {
-                    if (f == null) {
-                        f = new xf0();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (b == null) {
+                b();
             }
-            return f;
+            return b;
         }
         return (xf0) invokeV.objValue;
     }
 
-    public double a() {
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            Log.e("DuAr_SDKLoader", "ar->" + str);
+        }
+    }
+
+    public final fg0 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            double g = g();
-            if (g <= 0.0d) {
-                g = b();
+            if (c == null) {
+                fg0 k = fg0.k();
+                jf0.g();
+                k.m(jf0.getContext(), "arsource", new File(kf0.a()));
+                c = k;
             }
-            if (g <= 0.0d) {
-                return d();
-            }
-            return g;
+            return c;
         }
-        return invokeV.doubleValue;
+        return (fg0) invokeV.objValue;
     }
 
-    public ActivityManager.MemoryInfo f() {
+    public File f() {
         InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            ((ActivityManager) ff0.getContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
-            return memoryInfo;
-        }
-        return (ActivityManager.MemoryInfo) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:15:0x002a A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:24:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public double b() {
-        InterceptResult invokeV;
-        double doubleValue;
+        boolean z;
+        File l;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                String c = c(this.e);
-                if (!TextUtils.isEmpty(c)) {
-                    try {
-                        doubleValue = Double.valueOf(c).doubleValue();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    if (doubleValue > 0.0d) {
-                        return 0.0d;
-                    }
-                    return doubleValue;
-                }
-                doubleValue = 0.0d;
-                if (doubleValue > 0.0d) {
-                }
+            if (jf0.o() && g()) {
+                z = true;
             } else {
-                return g();
+                z = false;
             }
-        } else {
-            return invokeV.doubleValue;
+            if (z) {
+                l = uf0.d().h();
+            } else {
+                l = rf0.j(jf0.e()).l();
+            }
+            if (jf0.m()) {
+                c("sdkPath useLocal " + z + ", SDKPath " + l);
+            }
+            return l;
         }
+        return (File) invokeV.objValue;
     }
 
-    public final String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            try {
-                Process exec = Runtime.getRuntime().exec(new String[]{"sh", "-c", "top -n 1"});
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(exec.getInputStream()));
-                while (true) {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine != null) {
-                        String[] split = readLine.trim().split(" ");
-                        if (str != null && str.startsWith(split[split.length - 1].substring(0, split[split.length - 1].length() - 1))) {
-                            return split[16];
-                        }
-                    } else {
-                        try {
-                            exec.waitFor();
-                            return "";
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                            return "";
-                        }
-                    }
-                }
-            } catch (IOException e2) {
-                e2.printStackTrace();
-                return "";
-            }
-        } else {
-            return (String) invokeL.objValue;
-        }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x00a1 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:86:0x0024 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:91:0x0071 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:95:0x0024 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:96:0x0024 */
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x0050, code lost:
-        r3 = r6[2].trim();
-     */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x00a3  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x00ba A[Catch: Exception -> 0x00bd, TRY_LEAVE, TryCatch #4 {Exception -> 0x00bd, blocks: (B:63:0x00b5, B:65:0x00ba), top: B:78:0x00b5 }] */
-    /* JADX WARN: Removed duplicated region for block: B:78:0x00b5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r3v10 */
-    /* JADX WARN: Type inference failed for: r3v12 */
-    /* JADX WARN: Type inference failed for: r3v13 */
-    /* JADX WARN: Type inference failed for: r3v14, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r3v9 */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public int d() {
+    public boolean h() {
         InterceptResult invokeV;
-        BufferedReader bufferedReader;
-        String str;
-        String str2;
-        String[] split;
+        boolean z;
+        boolean q;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int myPid = Process.myPid();
-            Process process = 0;
-            try {
-                Process exec = Runtime.getRuntime().exec("top -n 1");
-                try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(exec.getInputStream()));
-                    while (true) {
-                        try {
-                            String readLine = bufferedReader.readLine();
-                            if (readLine == null) {
-                                break;
-                            } else if (readLine.trim().startsWith(String.valueOf(myPid)) && (split = readLine.split("\\s+")) != null) {
-                                if (split.length > 2 && split[2] != null && split[2].contains("%")) {
-                                    break;
-                                }
-                                int i = 0;
-                                while (true) {
-                                    if (i < split.length) {
-                                        if (split[i] != null && split[i].contains("%")) {
-                                            process = split[i].trim();
-                                            break;
-                                        }
-                                        i++;
-                                    } else {
-                                        break;
-                                    }
-                                }
-                            }
-                        } catch (Exception e) {
-                            e = e;
-                            str = process;
-                            process = exec;
-                            try {
-                                e.printStackTrace();
-                                if (process != null) {
-                                    try {
-                                        process.destroy();
-                                    } catch (Exception unused) {
-                                        str2 = str;
-                                        if (str2 != null) {
-                                        }
-                                        return Integer.parseInt(str2);
-                                    }
-                                }
-                                if (bufferedReader != null) {
-                                    bufferedReader.close();
-                                }
-                                str2 = str;
-                                if (str2 != null) {
-                                }
-                                return Integer.parseInt(str2);
-                            } catch (Throwable th) {
-                                th = th;
-                                if (process != null) {
-                                    try {
-                                        process.destroy();
-                                    } catch (Exception unused2) {
-                                        throw th;
-                                    }
-                                }
-                                if (bufferedReader != null) {
-                                    bufferedReader.close();
-                                }
-                                throw th;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            process = exec;
-                            if (process != null) {
-                            }
-                            if (bufferedReader != null) {
-                            }
-                            throw th;
-                        }
-                    }
-                    if (exec != null) {
-                        try {
-                            exec.destroy();
-                        } catch (Exception unused3) {
-                            str2 = process;
-                        }
-                    }
-                    bufferedReader.close();
-                    str2 = process;
-                } catch (Exception e2) {
-                    e = e2;
-                    bufferedReader = null;
-                    process = exec;
-                    str = null;
-                } catch (Throwable th3) {
-                    th = th3;
-                    bufferedReader = null;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                str = null;
-                bufferedReader = null;
-            } catch (Throwable th4) {
-                th = th4;
-                bufferedReader = null;
+            if (jf0.o() && g()) {
+                z = true;
+            } else {
+                z = false;
             }
-            if (str2 != null) {
-                String[] split2 = str2.split("%");
-                if (split2.length > 0) {
-                    str2 = split2[0];
-                }
+            if (z) {
+                q = d().o();
+            } else {
+                q = rf0.j("live").q();
             }
-            try {
-                return Integer.parseInt(str2);
-            } catch (Exception unused4) {
-                return -1;
+            if (jf0.m()) {
+                c("isLocal " + z + ", isSDKLoaded " + q);
             }
+            return q;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public double g() {
+    public final boolean g() {
         InterceptResult invokeV;
-        long parseLong;
-        long parseLong2;
+        boolean z;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            double d = 0.0d;
-            try {
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (this.c != null && this.d != null) {
-                this.c.seek(0L);
-                this.d.seek(0L);
-                String readLine = this.c.readLine();
-                String readLine2 = this.d.readLine();
-                String[] split = readLine.split(" ");
-                String[] split2 = readLine2.split(" ");
-                parseLong = Long.parseLong(split[2]) + Long.parseLong(split[3]) + Long.parseLong(split[4]) + Long.parseLong(split[5]) + Long.parseLong(split[6]) + Long.parseLong(split[7]) + Long.parseLong(split[8]);
-                parseLong2 = Long.parseLong(split2[13]) + Long.parseLong(split2[14]);
-                if (this.a != null && this.b == null) {
-                    this.a = Long.valueOf(parseLong);
-                    this.b = Long.valueOf(parseLong2);
-                    return 0.0d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a == null) {
+                this.a = Boolean.FALSE;
+                try {
+                    String[] list = jf0.getContext().getAssets().list("arsource");
+                    if (list != null && list.length > 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    this.a = Boolean.valueOf(z);
+                    if (jf0.m()) {
+                        if (list == null) {
+                            str = StringUtil.NULL_STRING;
+                        } else {
+                            str = "" + list.length;
+                        }
+                        c("hasAssetsResource: " + str);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                if (this.a != null && this.b != null) {
-                    d = ((parseLong2 - this.b.longValue()) / (parseLong - this.a.longValue())) * 100.0d;
-                }
-                this.a = Long.valueOf(parseLong);
-                this.b = Long.valueOf(parseLong2);
-                return d;
             }
-            this.c = new RandomAccessFile("/proc/stat", "r");
-            this.d = new RandomAccessFile("/proc/" + Process.myPid() + "/stat", "r");
-            String readLine3 = this.c.readLine();
-            String readLine22 = this.d.readLine();
-            String[] split3 = readLine3.split(" ");
-            String[] split22 = readLine22.split(" ");
-            parseLong = Long.parseLong(split3[2]) + Long.parseLong(split3[3]) + Long.parseLong(split3[4]) + Long.parseLong(split3[5]) + Long.parseLong(split3[6]) + Long.parseLong(split3[7]) + Long.parseLong(split3[8]);
-            parseLong2 = Long.parseLong(split22[13]) + Long.parseLong(split22[14]);
-            if (this.a != null) {
-            }
-            if (this.a != null) {
-                d = ((parseLong2 - this.b.longValue()) / (parseLong - this.a.longValue())) * 100.0d;
-            }
-            this.a = Long.valueOf(parseLong);
-            this.b = Long.valueOf(parseLong2);
-            return d;
+            return this.a.booleanValue();
         }
-        return invokeV.doubleValue;
+        return invokeV.booleanValue;
+    }
+
+    public void i(Context context, String str, File file, jf0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, context, str, file, aVar) == null) {
+            String str2 = "loadAssets context=" + context + ", assetPath=" + str + ", SDcardFile=" + file;
+            if (jf0.m()) {
+                c(str2);
+            }
+            if ((context == null || TextUtils.isEmpty(str) || file == null || TextUtils.isEmpty(file.getAbsolutePath())) && aVar != null) {
+                aVar.onResult(false, str2);
+            }
+            d().r(context, str, file, new b(this, aVar, str2, file));
+        }
+    }
+
+    public void j(jf0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            if (jf0.m()) {
+                c("loadAssets hasAssetsResource=" + g());
+            }
+            if (jf0.g() == null) {
+                c("DuArResConfig null when loadAssets");
+            } else if (TextUtils.isEmpty(kf0.a())) {
+                c("DuArResConfig data empty when loadAssets");
+            } else {
+                i(jf0.getContext(), "arsource", new File(kf0.a()), aVar);
+            }
+        }
+    }
+
+    public void k(jf0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            if (jf0.o() && g()) {
+                j(aVar);
+            } else if (jf0.c() == null) {
+                c("loadSDK with Downlader==null");
+            } else {
+                rf0.j(jf0.e()).u(jf0.getContext(), new a(this, aVar));
+            }
+        }
     }
 }

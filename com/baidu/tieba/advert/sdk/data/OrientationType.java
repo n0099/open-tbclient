@@ -1,6 +1,5 @@
 package com.baidu.tieba.advert.sdk.data;
 
-import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +31,7 @@ public final class OrientationType {
                 return;
             }
         }
-        UNKNOWN = new OrientationType(RomUtils.UNKNOWN, 0, 0);
+        UNKNOWN = new OrientationType("UNKNOWN", 0, 0);
         PORTRAIT = new OrientationType("PORTRAIT", 1, 1);
         OrientationType orientationType = new OrientationType("LANDSCAPE", 2, 2);
         LANDSCAPE = orientationType;

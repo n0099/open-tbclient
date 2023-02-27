@@ -581,7 +581,7 @@ public class z7<V> implements Iterable<b<V>> {
                     if (j != 0) {
                         sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                         sb.append(j);
-                        sb.append(com.alipay.sdk.encrypt.a.h);
+                        sb.append('=');
                         sb.append(vArr[i]);
                     }
                     length = i;
@@ -602,7 +602,7 @@ public class z7<V> implements Iterable<b<V>> {
                         length = i;
                     } else {
                         sb.append(j2);
-                        sb.append(com.alipay.sdk.encrypt.a.h);
+                        sb.append('=');
                         sb.append(vArr[i]);
                         break;
                     }

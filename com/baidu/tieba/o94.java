@@ -1,21 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Singleton
-@Service
+import java.util.Comparator;
 /* loaded from: classes5.dex */
-public class o94 implements hq1 {
+public class o94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
+
+    /* loaded from: classes5.dex */
+    public static class a implements Comparator<o94> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(o94 o94Var, o94 o94Var2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, o94Var, o94Var2)) == null) {
+                return (int) (o94Var.a - o94Var2.a);
+            }
+            return invokeLL.intValue;
+        }
+    }
 
     public o94() {
         Interceptable interceptable = $ic;
@@ -31,61 +59,35 @@ public class o94 implements hq1 {
         }
     }
 
-    @Override // com.baidu.tieba.hq1
-    public JSONObject a() {
-        InterceptResult invokeV;
+    public static long[] a(o94 o94Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return n94.c().d();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, o94Var)) == null) {
+            if (o94Var == null) {
+                return null;
+            }
+            return new long[]{o94Var.a, o94Var.b};
         }
-        return (JSONObject) invokeV.objValue;
+        return (long[]) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.hq1
-    public void b(String str) {
+    public boolean b(o94 o94Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            q94.d(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, o94Var)) == null) {
+            long j = this.a;
+            if (j <= o94Var.b) {
+                long j2 = this.b;
+                long j3 = o94Var.a;
+                if (j2 >= j3) {
+                    this.a = Math.min(j, j3);
+                    this.b = Math.max(this.b, o94Var.b);
+                    return true;
+                }
+                return false;
+            }
+            return false;
         }
-    }
-
-    @Override // com.baidu.tieba.hq1
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            q94.f(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.hq1
-    public void c(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler, str) == null) {
-            q94.e(callbackHandler, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.hq1
-    public void d(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, callbackHandler, str) == null) {
-            q94.a(callbackHandler, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.hq1
-    public void f(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, callbackHandler, str) == null) {
-            q94.g(callbackHandler, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.hq1
-    public void g(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, callbackHandler, str) == null) {
-            q94.b(callbackHandler, str);
-        }
+        return invokeL.booleanValue;
     }
 }

@@ -2,14 +2,8 @@ package com.baidu.pass.main.facesdk;
 
 import com.baidu.pass.main.facesdk.model.BDFaceOcclusion;
 import com.baidu.pass.main.facesdk.model.BDFaceSDKCommon;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class FaceInfo {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public int age;
     public float angle;
     public float bluriness;
@@ -35,20 +29,6 @@ public class FaceInfo {
     public float yaw;
 
     public FaceInfo(int i, float[] fArr, float[] fArr2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), fArr, fArr2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.faceID = i;
         if (fArr != null && fArr.length == 6) {
             this.centerX = fArr[0];
@@ -62,20 +42,6 @@ public class FaceInfo {
     }
 
     public FaceInfo(int i, float[] fArr, float[] fArr2, float[] fArr3, float[] fArr4, float[] fArr5) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {Integer.valueOf(i), fArr, fArr2, fArr3, fArr4, fArr5};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.faceID = i;
         if (fArr != null && fArr.length == 6) {
             this.centerX = fArr[0];
@@ -105,20 +71,6 @@ public class FaceInfo {
     }
 
     public FaceInfo(int i, float[] fArr, float[] fArr2, float[] fArr3, float[] fArr4, int[] iArr, float[] fArr5) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {Integer.valueOf(i), fArr, fArr2, fArr3, fArr4, iArr, fArr5};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.faceID = i;
         if (fArr != null && fArr.length == 6) {
             this.centerX = fArr[0];

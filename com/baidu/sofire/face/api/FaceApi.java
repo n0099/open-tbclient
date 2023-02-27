@@ -27,7 +27,7 @@ public class FaceApi {
     public static String getVersion(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? "3.5.9.6" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? "3.6.0.4" : (String) invokeL.objValue;
     }
 
     public FaceApi() {
@@ -68,7 +68,7 @@ public class FaceApi {
                 return null;
             }
             synchronized (a) {
-                if (!"3.5.9.6".equals(FH.getVersion(activity.getApplicationContext()))) {
+                if (!"3.6.0.4".equals(FH.getVersion(activity.getApplicationContext()))) {
                     a.a(activity, recordCallback, -21);
                 } else if (F.getInstance().gct() == null) {
                     a.a(activity, recordCallback, -13);
@@ -96,7 +96,7 @@ public class FaceApi {
                 return null;
             }
             synchronized (a) {
-                if (!"3.5.9.6".equals(FH.getVersion(activity.getApplicationContext()))) {
+                if (!"3.6.0.4".equals(FH.getVersion(activity.getApplicationContext()))) {
                     a.a(activity, recordCallback, -21);
                 } else if (F.getInstance().gct() == null) {
                     a.a(activity, recordCallback, -13);
@@ -143,7 +143,7 @@ public class FaceApi {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{activity, surfaceHolder, faceProcessCallback, Integer.valueOf(i), iFaceProcessInfo, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
             e a = e.a(activity.getApplicationContext());
             synchronized (a) {
-                if (!"3.5.9.6".equals(FH.getVersion(activity.getApplicationContext()))) {
+                if (!"3.6.0.4".equals(FH.getVersion(activity.getApplicationContext()))) {
                     a.a(activity, faceProcessCallback, -21);
                 } else if (!a.a(activity.getApplicationContext())) {
                     a.a(activity, faceProcessCallback, -19);
@@ -175,7 +175,7 @@ public class FaceApi {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{activity, textureView, faceProcessCallback, Integer.valueOf(i), iFaceProcessInfo, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
             e a = e.a(activity.getApplicationContext());
             synchronized (a) {
-                if (!"3.5.9.6".equals(FH.getVersion(activity.getApplicationContext()))) {
+                if (!"3.6.0.4".equals(FH.getVersion(activity.getApplicationContext()))) {
                     a.a(activity, faceProcessCallback, -21);
                 } else if (!a.a(activity.getApplicationContext())) {
                     a.a(activity, faceProcessCallback, -19);

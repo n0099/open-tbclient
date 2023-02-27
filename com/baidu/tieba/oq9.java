@@ -1,16 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tieba.write.write.sticker.view.StickerView;
 /* loaded from: classes5.dex */
-public class oq9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface oq9 {
+    void a(StickerView stickerView);
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            nq9.a();
-        }
-    }
+    void b(StickerView stickerView, boolean z);
+
+    void c(StickerView stickerView);
+
+    void onDelete();
 }

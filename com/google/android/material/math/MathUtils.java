@@ -1,91 +1,42 @@
 package com.google.android.material.math;
-
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class MathUtils {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_EPSILON = 1.0E-4f;
-    public transient /* synthetic */ FieldHolder $fh;
 
     public static boolean geq(float f, float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? f + f3 >= f2 : invokeCommon.booleanValue;
+        return f + f3 >= f2;
     }
 
     public static float lerp(float f, float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? ((1.0f - f3) * f) + (f3 * f2) : invokeCommon.floatValue;
+        return ((1.0f - f3) * f) + (f3 * f2);
     }
 
     public static float max(float f, float f2, float f3, float f4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? (f <= f2 || f <= f3 || f <= f4) ? (f2 <= f3 || f2 <= f4) ? f3 > f4 ? f3 : f4 : f2 : f : invokeCommon.floatValue;
-    }
-
-    public MathUtils() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+        return (f <= f2 || f <= f3 || f <= f4) ? (f2 <= f3 || f2 <= f4) ? f3 > f4 ? f3 : f4 : f2 : f;
     }
 
     public static float dist(float f, float f2, float f3, float f4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            return (float) Math.hypot(f3 - f, f4 - f2);
-        }
-        return invokeCommon.floatValue;
+        return (float) Math.hypot(f3 - f, f4 - f2);
     }
 
     public static float distanceToFurthestCorner(float f, float f2, float f3, float f4, float f5, float f6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) {
-            return max(dist(f, f2, f3, f4), dist(f, f2, f5, f4), dist(f, f2, f5, f6), dist(f, f2, f3, f6));
-        }
-        return invokeCommon.floatValue;
+        return max(dist(f, f2, f3, f4), dist(f, f2, f5, f4), dist(f, f2, f5, f6), dist(f, f2, f3, f6));
     }
 
     public static float floorMod(float f, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
-            float f2 = i;
-            int i2 = (int) (f / f2);
-            if (Math.signum(f) * f2 < 0.0f && i2 * i != f) {
-                i2--;
-            }
-            return f - (i2 * i);
+        float f2 = i;
+        int i2 = (int) (f / f2);
+        if (Math.signum(f) * f2 < 0.0f && i2 * i != f) {
+            i2--;
         }
-        return invokeCommon.floatValue;
+        return f - (i2 * i);
     }
 
     public static int floorMod(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) {
-            int i3 = i / i2;
-            if ((i ^ i2) < 0 && i3 * i2 != i) {
-                i3--;
-            }
-            return i - (i3 * i2);
+        int i3 = i / i2;
+        if ((i ^ i2) < 0 && i3 * i2 != i) {
+            i3--;
         }
-        return invokeII.intValue;
+        return i - (i3 * i2);
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.helios.channels.csc;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.a50;
+import com.baidu.tieba.e50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -123,7 +123,7 @@ public class d {
     public static String c(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? new String(new a50().a(bArr), "UTF-8") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? new String(new e50().a(bArr), "UTF-8") : (String) invokeL.objValue;
     }
 
     public static Method d(Class<?> cls, String str, Class<?>[] clsArr) {

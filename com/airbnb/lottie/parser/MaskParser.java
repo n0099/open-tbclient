@@ -6,7 +6,6 @@ import com.airbnb.lottie.model.animatable.AnimatableShapeValue;
 import com.airbnb.lottie.model.content.Mask;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Logger;
-import com.baidu.mobstat.Config;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class MaskParser {
@@ -35,7 +34,7 @@ public class MaskParser {
                         c = 65535;
                     }
                 } else {
-                    if (nextName.equals(Config.PLATFORM_TYPE)) {
+                    if (nextName.equals("pt")) {
                         c = 1;
                     }
                     c = 65535;

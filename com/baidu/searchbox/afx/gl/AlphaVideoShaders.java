@@ -1,27 +1,6 @@
 package com.baidu.searchbox.afx.gl;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class AlphaVideoShaders {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String SHADER_FRAGMENT = "#extension GL_OES_EGL_image_external : require \n precision highp float; \n varying vec2 vTextureAlphaCoord; \n varying vec2 vTextureColorCoord; \n uniform samplerExternalOES sTexture; \n varying float vFilterFactor; \n varying float vDismissFlag; \n void main() { \n vec4 alphaColor = texture2D(sTexture, vTextureAlphaCoord); \n vec4 color = texture2D(sTexture, vTextureColorCoord); \n float alpha = alphaColor.r; \n if (vDismissFlag < 0.0) { \n alpha = 0.0; \n } \n gl_FragColor = vec4(color.r*vFilterFactor,color.g*vFilterFactor,color.b*vFilterFactor,alpha); \n } \n ";
     public static final String SHADER_VERTEX = "uniform mat4 uMVPMatrix; \n uniform mat4 uSTMatrix; \n uniform float uFilterFactor; \n uniform float uDismissFlag; \n attribute vec4 aPosition; \n attribute vec4 aTextureAlphaCoord; \n attribute vec4 aTextureColorCoord; \n varying vec2 vTextureAlphaCoord; \n varying vec2 vTextureColorCoord; \n varying float vFilterFactor; \n varying float vDismissFlag; \n void main() { \n gl_Position = uMVPMatrix * aPosition; \n vTextureAlphaCoord = (uSTMatrix * aTextureAlphaCoord).xy; \n vTextureColorCoord = (uSTMatrix * aTextureColorCoord).xy; \n vFilterFactor = (1.0 - uFilterFactor); \n vDismissFlag = uDismissFlag; \n } \n ";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public AlphaVideoShaders() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

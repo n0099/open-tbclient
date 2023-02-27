@@ -28,13 +28,13 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.co8;
+import com.baidu.tieba.cp8;
+import com.baidu.tieba.cs8;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.ir8;
+import com.baidu.tieba.or8;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import com.baidu.tieba.ql8;
-import com.baidu.tieba.qo8;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.wn8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,13 +49,13 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     public static boolean x = true;
     public static CustomMessageListener y;
     public transient /* synthetic */ FieldHolder $fh;
-    public qo8 a;
+    public cs8 a;
     public TextView b;
     public NavigationBar c;
     public View d;
     public TextView e;
     public BdListView f;
-    public wn8 g;
+    public ir8 g;
     public PersonPostModel h;
     public View i;
     public View j;
@@ -452,7 +452,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d07ba);
+            setContentView(R.layout.obfuscated_res_0x7f0d07d9);
             G1(bundle);
             initView();
             C1(true);
@@ -493,7 +493,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                 if (z) {
                     personPostModel2.threadList.clear();
                 }
-                this.h.threadList.addAll(co8.c(personPostModel.threadList));
+                this.h.threadList.addAll(or8.c(personPostModel.threadList));
             }
             this.p = z1(personPostModel, z);
             PersonPostModel personPostModel3 = this.h;
@@ -510,8 +510,8 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                     L1(this.h.threadList);
                 }
             }
-            ql8.d().l(System.currentTimeMillis() - currentTimeMillis);
-            ql8.d().p(System.currentTimeMillis() - ql8.d().g());
+            cp8.d().l(System.currentTimeMillis() - currentTimeMillis);
+            cp8.d().p(System.currentTimeMillis() - cp8.d().g());
         }
     }
 
@@ -613,15 +613,15 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             H1();
-            this.i = findViewById(R.id.obfuscated_res_0x7f091da0);
-            this.j = findViewById(R.id.obfuscated_res_0x7f091422);
-            this.k = findViewById(R.id.obfuscated_res_0x7f091428);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09065e);
-            this.f = (BdListView) findViewById(R.id.obfuscated_res_0x7f091d21);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09070e);
-            wn8 wn8Var = new wn8(this, this.t);
-            this.g = wn8Var;
-            this.f.setAdapter((ListAdapter) wn8Var);
+            this.i = findViewById(R.id.obfuscated_res_0x7f091de4);
+            this.j = findViewById(R.id.obfuscated_res_0x7f091463);
+            this.k = findViewById(R.id.obfuscated_res_0x7f091469);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09069c);
+            this.f = (BdListView) findViewById(R.id.obfuscated_res_0x7f091d65);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09074b);
+            ir8 ir8Var = new ir8(this, this.t);
+            this.g = ir8Var;
+            this.f.setAdapter((ListAdapter) ir8Var);
             this.f.setOnSrollToBottomListener(new c(this));
             MessageManager.getInstance().registerListener(y);
             PbListView pbListView = new PbListView(this);
@@ -641,9 +641,9 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048596, this, view2, str, z) == null) {
             if (this.a == null) {
-                qo8 qo8Var = new qo8(getPageContext().getPageActivity(), getNetRefreshListener());
-                this.a = qo8Var;
-                qo8Var.e(getPageContext().getResources().getString(R.string.refresh_view_title_text));
+                cs8 cs8Var = new cs8(getPageContext().getPageActivity(), getNetRefreshListener());
+                this.a = cs8Var;
+                cs8Var.e(getPageContext().getResources().getString(R.string.refresh_view_title_text));
                 this.a.d(null);
                 this.a.c(getPageContext().getResources().getString(R.string.refresh_view_button_text));
                 this.a.f();

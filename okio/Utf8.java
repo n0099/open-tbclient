@@ -1,87 +1,54 @@
 package okio;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
 public final class Utf8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public Utf8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static long size(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return size(str, 0, str.length());
-        }
-        return invokeL.longValue;
+        return size(str, 0, str.length());
     }
 
     public static long size(String str, int i, int i2) {
-        InterceptResult invokeLII;
         long j;
         char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, str, i, i2)) == null) {
-            if (str != null) {
-                if (i >= 0) {
-                    if (i2 >= i) {
-                        if (i2 <= str.length()) {
-                            long j2 = 0;
-                            while (i < i2) {
-                                char charAt = str.charAt(i);
-                                if (charAt < 128) {
-                                    j2++;
-                                } else {
-                                    if (charAt < 2048) {
-                                        j = 2;
-                                    } else if (charAt >= 55296 && charAt <= 57343) {
-                                        int i3 = i + 1;
-                                        if (i3 < i2) {
-                                            c = str.charAt(i3);
-                                        } else {
-                                            c = 0;
-                                        }
-                                        if (charAt <= 56319 && c >= 56320 && c <= 57343) {
-                                            j2 += 4;
-                                            i += 2;
-                                        } else {
-                                            j2++;
-                                            i = i3;
-                                        }
+        if (str != null) {
+            if (i >= 0) {
+                if (i2 >= i) {
+                    if (i2 <= str.length()) {
+                        long j2 = 0;
+                        while (i < i2) {
+                            char charAt = str.charAt(i);
+                            if (charAt < 128) {
+                                j2++;
+                            } else {
+                                if (charAt < 2048) {
+                                    j = 2;
+                                } else if (charAt >= 55296 && charAt <= 57343) {
+                                    int i3 = i + 1;
+                                    if (i3 < i2) {
+                                        c = str.charAt(i3);
                                     } else {
-                                        j = 3;
+                                        c = 0;
                                     }
-                                    j2 += j;
+                                    if (charAt <= 56319 && c >= 56320 && c <= 57343) {
+                                        j2 += 4;
+                                        i += 2;
+                                    } else {
+                                        j2++;
+                                        i = i3;
+                                    }
+                                } else {
+                                    j = 3;
                                 }
-                                i++;
+                                j2 += j;
                             }
-                            return j2;
+                            i++;
                         }
-                        throw new IllegalArgumentException("endIndex > string.length: " + i2 + " > " + str.length());
+                        return j2;
                     }
-                    throw new IllegalArgumentException("endIndex < beginIndex: " + i2 + " < " + i);
+                    throw new IllegalArgumentException("endIndex > string.length: " + i2 + " > " + str.length());
                 }
-                throw new IllegalArgumentException("beginIndex < 0: " + i);
+                throw new IllegalArgumentException("endIndex < beginIndex: " + i2 + " < " + i);
             }
-            throw new IllegalArgumentException("string == null");
+            throw new IllegalArgumentException("beginIndex < 0: " + i);
         }
-        return invokeLII.longValue;
+        throw new IllegalArgumentException("string == null");
     }
 }

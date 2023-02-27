@@ -1,30 +1,131 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListView;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.hottopicselect.HotTopicSelectActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class wl7 {
+public class wl7 extends BaseExpandableListAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, ImMessageCenterPojo> a;
+    public TbPageContext<HotTopicSelectActivity> a;
+    public LayoutInflater b;
+    public ExpandableListView c;
+    public final List<ul7> d;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(Iterator<ImMessageCenterPojo> it);
+    @Override // android.widget.ExpandableListAdapter
+    public long getChildId(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2)) == null) ? i2 : invokeII.longValue;
     }
 
-    public wl7() {
+    @Override // android.widget.ExpandableListAdapter
+    public long getGroupId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.ExpandableListAdapter
+    public boolean hasStableIds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.widget.ExpandableListAdapter
+    public boolean isChildSelectable(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048595, this, i, i2)) == null) {
+            return true;
+        }
+        return invokeII.booleanValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public TextView b;
+        public TextView c;
+        public View d;
+        public View e;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 3;
+            this.b = null;
+            this.c = null;
+            this.d = null;
+            this.e = null;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public TextView b;
+        public View c;
+        public View d;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 3;
+        }
+    }
+
+    public wl7(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,52 +135,227 @@ public class wl7 {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap<>();
+        this.d = new ArrayList();
+        this.a = tbPageContext;
+        this.b = LayoutInflater.from(tbPageContext.getPageActivity());
     }
 
-    public void b() {
+    public final void a(a aVar, View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.clear();
+        if ((interceptable == null || interceptable.invokeLLI(1048576, this, aVar, view2, i) == null) && aVar != null && aVar.a != i) {
+            SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
+            SkinManager.setBackgroundResource(aVar.c, R.drawable.hot_select_tag_bg);
+            SkinManager.setBackgroundColor(aVar.d, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(aVar.e, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(aVar.c, R.color.CAM_X0302, 1);
+            SkinManager.setViewTextColor(aVar.b, R.color.CAM_X0105, 1);
+            aVar.a = i;
         }
     }
 
-    public void a(ImMessageCenterPojo imMessageCenterPojo) {
+    public final void b(b bVar, View view2, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, imMessageCenterPojo) != null) || imMessageCenterPojo == null) {
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, view2, i) == null) && bVar != null && bVar.a != i) {
+            SkinManager.setBackgroundColor(view2, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(bVar.c, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(bVar.d, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(bVar.b, R.color.CAM_X0109, 1);
+            bVar.a = i;
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.d.clear();
+            notifyDataSetChanged();
+        }
+    }
+
+    public List<ul7> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // android.widget.BaseExpandableListAdapter, android.widget.HeterogeneousExpandableList
+    public int getChildTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.d.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.ExpandableListAdapter
+    public int getGroupCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.d.size();
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.ExpandableListAdapter
+    /* renamed from: d */
+    public vl7 getChild(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
+            if (getGroup(i) != null && getGroup(i).b() != null) {
+                return getGroup(i).b().get(i2);
+            }
+            return null;
+        }
+        return (vl7) invokeII.objValue;
+    }
+
+    @Override // android.widget.BaseExpandableListAdapter, android.widget.HeterogeneousExpandableList
+    public int getChildType(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i, i2)) == null) {
+            if (getChildTypeCount() == 2) {
+                if (i != 0 && i == 1) {
+                    return 2;
+                }
+            } else if (getChildTypeCount() == 1 && getGroup(i).getType() != 0 && getGroup(i).getType() == 1) {
+                return 2;
+            }
+            return 1;
+        }
+        return invokeII.intValue;
+    }
+
+    public final void h(TextView textView, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(1048593, this, textView, i) != null) || textView == null) {
             return;
         }
-        this.a.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
+        if (i == 10) {
+            textView.setVisibility(0);
+            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1534));
+        } else if (i == 11) {
+            textView.setVisibility(0);
+            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1533));
+        } else {
+            textView.setVisibility(8);
+        }
     }
 
-    public ImMessageCenterPojo c(String str) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.ExpandableListAdapter
+    /* renamed from: e */
+    public ul7 getGroup(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return this.d.get(i);
+        }
+        return (ul7) invokeI.objValue;
+    }
+
+    public void g(ul7 ul7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, ul7Var) == null) {
+            this.d.add(ul7Var);
+        }
+    }
+
+    @Override // android.widget.ExpandableListAdapter
+    public int getChildrenCount(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            if (getGroup(i) != null && getGroup(i).b() != null) {
+                return getGroup(i).b().size();
             }
-            return this.a.get(str);
+            return 0;
         }
-        return (ImMessageCenterPojo) invokeL.objValue;
+        return invokeI.intValue;
     }
 
-    public void d(a aVar) {
+    @Override // android.widget.BaseExpandableListAdapter, android.widget.ExpandableListAdapter
+    public void onGroupCollapsed(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            aVar.a(this.a.values().iterator());
+        if ((interceptable != null && interceptable.invokeI(1048596, this, i) != null) || this.c == null) {
+            return;
         }
-    }
-
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || this.a.remove(str) == null) {
-                return false;
+        int groupCount = getGroupCount();
+        for (int i2 = 0; i2 < groupCount; i2++) {
+            if (i2 != i) {
+                this.c.collapseGroup(i);
             }
-            return true;
         }
-        return invokeL.booleanValue;
+    }
+
+    @Override // android.widget.ExpandableListAdapter
+    public View getChildView(int i, int i2, boolean z, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeCommon;
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), view2, viewGroup})) == null) {
+            vl7 child = getChild(i, i2);
+            if (view2 != null && (view2.getTag() instanceof a)) {
+                aVar = (a) view2.getTag();
+            } else {
+                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d03be, (ViewGroup) null);
+                aVar = new a();
+                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f1d);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f1c);
+                aVar.d = view2.findViewById(R.id.divider_line_top);
+                aVar.e = view2.findViewById(R.id.divider_line_bottom);
+                view2.setTag(aVar);
+            }
+            if (child == null) {
+                return view2;
+            }
+            aVar.b.setText(bq5.a(StringHelper.cutStringWithEllipsisNew(child.b(), 15)));
+            h(aVar.c, child.a().intValue());
+            a(aVar, view2, TbadkCoreApplication.getInst().getSkinType());
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // android.widget.ExpandableListAdapter
+    public View getGroupView(int i, boolean z, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeCommon;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), view2, viewGroup})) == null) {
+            if (view2 != null && (view2.getTag() instanceof b)) {
+                bVar = (b) view2.getTag();
+            } else {
+                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d03bf, (ViewGroup) null);
+                bVar = new b();
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e74);
+                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f09089e);
+                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f090e13);
+                view2.setTag(bVar);
+                view2.setClickable(false);
+            }
+            ul7 group = getGroup(i);
+            if (group == null) {
+                return view2;
+            }
+            bVar.b.setText(StringHelper.cutStringWithSuffix(group.a(), 15, null));
+            if (i == 0) {
+                bVar.c.setVisibility(0);
+                bVar.d.setVisibility(8);
+            } else {
+                bVar.c.setVisibility(8);
+                bVar.d.setVisibility(0);
+            }
+            b(bVar, view2, TbadkCoreApplication.getInst().getSkinType());
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

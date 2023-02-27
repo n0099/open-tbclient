@@ -3,8 +3,8 @@ package com.baidu.tbadk.download;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.filedownloader.data.ApkDownloadData;
-import com.baidu.tieba.gb5;
 import com.baidu.tieba.recapp.report.DownloadStaticsData;
+import com.baidu.tieba.tc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ public class DownloadData implements Serializable, Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
     public String action;
     public String app_icon;
-    public transient gb5 callback;
+    public transient tc5 callback;
     public String check;
     public String description;
     public DownloadStaticsData downloadStaticsData;
@@ -169,12 +169,12 @@ public class DownloadData implements Serializable, Cloneable {
         this.url = str2;
     }
 
-    public DownloadData(String str, String str2, String str3, gb5 gb5Var) {
+    public DownloadData(String str, String str2, String str3, tc5 tc5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, gb5Var};
+            Object[] objArr = {str, str2, str3, tc5Var};
             interceptable.invokeUnInit(65539, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -200,7 +200,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.callback = gb5Var;
+        this.callback = tc5Var;
         this.status = 5;
     }
 
@@ -245,13 +245,13 @@ public class DownloadData implements Serializable, Cloneable {
         return (String) invokeV.objValue;
     }
 
-    public gb5 getCallback() {
+    public tc5 getCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.callback;
         }
-        return (gb5) invokeV.objValue;
+        return (tc5) invokeV.objValue;
     }
 
     public String getCheck() {
@@ -491,10 +491,10 @@ public class DownloadData implements Serializable, Cloneable {
         }
     }
 
-    public void setCallback(gb5 gb5Var) {
+    public void setCallback(tc5 tc5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, gb5Var) == null) {
-            this.callback = gb5Var;
+        if (interceptable == null || interceptable.invokeL(1048609, this, tc5Var) == null) {
+            this.callback = tc5Var;
         }
     }
 

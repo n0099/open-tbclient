@@ -1,7 +1,7 @@
 package com.baidu.tieba;
+
+import android.view.MotionEvent;
 /* loaded from: classes7.dex */
 public interface zw0 {
-    void a(vv0 vv0Var);
-
-    int getExpectOrder();
+    boolean onTouchEvent(MotionEvent motionEvent);
 }

@@ -1,77 +1,215 @@
 package com.xiaomi.push;
 
+import android.annotation.TargetApi;
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.clientreport.processor.IEventProcessor;
-import com.xiaomi.clientreport.processor.IPerfProcessor;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.text.TextUtils;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileLock;
+import java.util.Arrays;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class bs implements Runnable {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+public class bs {
+    public static String a() {
+        return Build.VERSION.RELEASE + "-" + Build.VERSION.INCREMENTAL;
+    }
 
-    /* renamed from: a  reason: collision with other field name */
-    public com.xiaomi.clientreport.processor.c f171a;
+    public static String a(Context context) {
+        String a = bv.a(context).a("sp_client_report_status", "sp_client_report_key", "");
+        if (TextUtils.isEmpty(a)) {
+            String a2 = bo.a(20);
+            bv.a(context).m222a("sp_client_report_status", "sp_client_report_key", a2);
+            return a2;
+        }
+        return a;
+    }
 
-    public bs() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    public static void a(Context context, String str) {
+        Intent intent = new Intent("com.xiaomi.xmsf.push.XMSF_UPLOAD_ACTIVE");
+        intent.putExtra("pkgname", context.getPackageName());
+        intent.putExtra("category", "category_client_report_data");
+        intent.putExtra("name", "quality_support");
+        intent.putExtra("data", str);
+        context.sendBroadcast(intent, "com.xiaomi.xmsf.permission.USE_XMSF_UPLOAD");
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x00e4, code lost:
+        if (r7 == null) goto L57;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void a(Context context, String str, String str2) {
+        File file;
+        RandomAccessFile randomAccessFile;
+        Exception e;
+        File externalFilesDir = context.getExternalFilesDir(str2);
+        if (externalFilesDir != null) {
+            if (!externalFilesDir.exists()) {
+                externalFilesDir.mkdirs();
+            }
+            File externalFilesDir2 = context.getExternalFilesDir(str);
+            if (externalFilesDir2 != null) {
+                if (!externalFilesDir2.exists()) {
+                    externalFilesDir2.mkdirs();
+                    return;
+                }
+                File[] listFiles = externalFilesDir2.listFiles(new bt());
+                if (listFiles == null || listFiles.length <= 0) {
+                    return;
+                }
+                long currentTimeMillis = System.currentTimeMillis();
+                FileLock fileLock = null;
+                RandomAccessFile randomAccessFile2 = null;
+                File file2 = null;
+                for (File file3 : listFiles) {
+                    if (file3 != null) {
+                        try {
+                        } catch (Exception e2) {
+                            file = file2;
+                            randomAccessFile = randomAccessFile2;
+                            e = e2;
+                        } catch (Throwable th) {
+                            th = th;
+                        }
+                        if (!TextUtils.isEmpty(file3.getAbsolutePath())) {
+                            file = new File(file3.getAbsolutePath() + ".lock");
+                            try {
+                                y.m760a(file);
+                                randomAccessFile = new RandomAccessFile(file, "rw");
+                                try {
+                                    try {
+                                        fileLock = randomAccessFile.getChannel().lock();
+                                        File file4 = new File(externalFilesDir.getAbsolutePath() + File.separator + file3.getName() + currentTimeMillis);
+                                        try {
+                                            y.b(file3, file4);
+                                        } catch (IOException e3) {
+                                            e3.printStackTrace();
+                                            file3.delete();
+                                            file4.delete();
+                                        }
+                                        file3.delete();
+                                        if (fileLock != null && fileLock.isValid()) {
+                                            try {
+                                                fileLock.release();
+                                            } catch (IOException e4) {
+                                                com.xiaomi.channel.commonutils.logger.b.a(e4);
+                                            }
+                                        }
+                                        y.a(randomAccessFile);
+                                    } catch (Exception e5) {
+                                        e = e5;
+                                        com.xiaomi.channel.commonutils.logger.b.a(e);
+                                        if (fileLock != null && fileLock.isValid()) {
+                                            try {
+                                                fileLock.release();
+                                            } catch (IOException e6) {
+                                                com.xiaomi.channel.commonutils.logger.b.a(e6);
+                                            }
+                                        }
+                                        y.a(randomAccessFile);
+                                    }
+                                } catch (Throwable th2) {
+                                    th = th2;
+                                    randomAccessFile2 = randomAccessFile;
+                                    file2 = file;
+                                    if (fileLock != null && fileLock.isValid()) {
+                                        try {
+                                            fileLock.release();
+                                        } catch (IOException e7) {
+                                            com.xiaomi.channel.commonutils.logger.b.a(e7);
+                                        }
+                                    }
+                                    y.a(randomAccessFile2);
+                                    if (file2 != null) {
+                                        file2.delete();
+                                    }
+                                    throw th;
+                                }
+                            } catch (Exception e8) {
+                                randomAccessFile = randomAccessFile2;
+                                e = e8;
+                            } catch (Throwable th3) {
+                                th = th3;
+                            }
+                            file.delete();
+                            randomAccessFile2 = randomAccessFile;
+                            file2 = file;
+                        }
+                    }
+                    if (fileLock != null && fileLock.isValid()) {
+                        try {
+                            fileLock.release();
+                        } catch (IOException e9) {
+                            com.xiaomi.channel.commonutils.logger.b.a(e9);
+                        }
+                    }
+                    y.a(randomAccessFile2);
+                    if (file2 != null) {
+                        file2.delete();
+                    }
+                }
             }
         }
     }
 
-    public void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.a = context;
+    public static void a(Context context, List<String> list) {
+        if (list == null || list.size() <= 0 || !m218a(context)) {
+            return;
+        }
+        for (String str : list) {
+            if (!TextUtils.isEmpty(str)) {
+                a(context, str);
+            }
         }
     }
 
-    public void a(com.xiaomi.clientreport.processor.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f171a = cVar;
+    /* renamed from: a  reason: collision with other method in class */
+    public static boolean m218a(Context context) {
+        try {
+            return context.getApplicationContext().getPackageManager().getPackageInfo("com.xiaomi.xmsf", 0).versionCode >= 108;
+        } catch (PackageManager.NameNotFoundException unused) {
+            return false;
         }
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        bw a;
-        String str;
-        long currentTimeMillis;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+    /* renamed from: a  reason: collision with other method in class */
+    public static boolean m219a(Context context, String str) {
+        File file = new File(str);
+        long maxFileLength = com.xiaomi.clientreport.manager.a.a(context).m102a().getMaxFileLength();
+        if (file.exists()) {
             try {
-                if (this.f171a != null) {
-                    this.f171a.a();
+                if (file.length() > maxFileLength) {
+                    return false;
                 }
-                com.xiaomi.channel.commonutils.logger.b.c("begin read and send perf / event");
-                if (this.f171a instanceof IEventProcessor) {
-                    a = bw.a(this.a);
-                    str = "event_last_upload_time";
-                    currentTimeMillis = System.currentTimeMillis();
-                } else if (!(this.f171a instanceof IPerfProcessor)) {
-                    return;
-                } else {
-                    a = bw.a(this.a);
-                    str = "perf_last_upload_time";
-                    currentTimeMillis = System.currentTimeMillis();
-                }
-                a.m228a("sp_client_report_status", str, currentTimeMillis);
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
+                return false;
             }
+        } else {
+            y.m760a(file);
         }
+        return true;
+    }
+
+    @TargetApi(9)
+    public static byte[] a(String str) {
+        byte[] copyOf = Arrays.copyOf(bl.m213a(str), 16);
+        copyOf[0] = 68;
+        copyOf[15] = 84;
+        return copyOf;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static File[] m220a(Context context, String str) {
+        File externalFilesDir = context.getExternalFilesDir(str);
+        if (externalFilesDir != null) {
+            return externalFilesDir.listFiles(new bu());
+        }
+        return null;
     }
 }

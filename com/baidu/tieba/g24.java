@@ -1,210 +1,142 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class g24 {
+public class g24 extends s14 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public interface d {
-        void onFail(String str);
-
-        void onSuccess();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947742016, "Lcom/baidu/tieba/g24;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947742016, "Lcom/baidu/tieba/g24;");
+                return;
+            }
+        }
+        c = wp1.a;
     }
 
-    /* loaded from: classes4.dex */
-    public static class c implements d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g24() {
+        super("ReservationGame");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
 
-        /* loaded from: classes4.dex */
-        public class a implements d {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
-
-            public a(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
+    @Override // com.baidu.tieba.s14
+    public m12 a(@NonNull JSONObject jSONObject, @NonNull qm2 qm2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, qm2Var)) == null) {
+            if (jSONObject == null) {
+                qm2Var.onFail(202, "params may be error");
+                return null;
+            }
+            if (c) {
+                Log.e("ReservationGameAction", "params is " + jSONObject.toString());
+            }
+            String optString = jSONObject.optString("apkId");
+            int optInt = jSONObject.optInt("isReservation");
+            if (TextUtils.isEmpty(optString)) {
+                qm2Var.onFail(31023, "reservation apk id is empty");
+                return null;
+            } else if (optInt == 0) {
+                qm2Var.onFail(31024, "reservation status error");
+                return null;
+            } else {
+                String string = ai3.a().getString("reservation_apk_ids", "");
+                if (optInt != 1) {
+                    if (optInt == 2) {
+                        if (b(string, optString)) {
+                            qm2Var.a(null);
+                        } else {
+                            qm2Var.onFail(31025, "reservation cancel fail");
+                        }
                     }
-                }
-                this.a = cVar;
-            }
-
-            @Override // com.baidu.tieba.g24.d
-            public void onFail(String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                    this.a.a.onFail(str);
-                }
-            }
-
-            @Override // com.baidu.tieba.g24.d
-            public void onSuccess() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.a.a.onSuccess();
-                }
-            }
-        }
-
-        public c(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        @Override // com.baidu.tieba.g24.d
-        public void onFail(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.onFail(str);
-            }
-        }
-
-        @Override // com.baidu.tieba.g24.d
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                g24.b(new a(this));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class a implements d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        public a(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        @Override // com.baidu.tieba.g24.d
-        public void onFail(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.onFail(str);
-            }
-        }
-
-        @Override // com.baidu.tieba.g24.d
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.onSuccess();
-                k24.f();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements ip1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        public b(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        @Override // com.baidu.tieba.ip1
-        public void onResult(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i == 0) {
-                    this.a.onSuccess();
                 } else {
-                    this.a.onFail("login error");
+                    d(string, optString);
+                    qm2Var.a(null);
+                }
+                return null;
+            }
+        }
+        return (m12) invokeLL.objValue;
+    }
+
+    public final boolean b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return true;
+            }
+            ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(str.split(",")));
+            boolean remove = arrayList.remove(str2);
+            if (remove) {
+                c(arrayList);
+            }
+            return remove;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void c(ArrayList<String> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            for (int i = 0; i < arrayList.size(); i++) {
+                stringBuffer.append(arrayList.get(i));
+                if (i < arrayList.size() - 1) {
+                    stringBuffer.append(",");
                 }
             }
+            ai3.a().putString("reservation_apk_ids", stringBuffer.toString());
         }
     }
 
-    public static void a(w83 w83Var, d dVar) {
+    public final void d(String str, String str2) {
+        HashSet hashSet;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, w83Var, dVar) == null) {
-            if (w83Var.N().e(w83Var.w())) {
-                dVar.onSuccess();
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            if (TextUtils.isEmpty(str)) {
+                hashSet = new HashSet();
             } else {
-                w83Var.N().f(w83Var.w(), null, new b(dVar));
+                hashSet = new HashSet(Arrays.asList(str.split(",")));
             }
-        }
-    }
-
-    public static void b(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, dVar) == null) {
-            n54.a().b(new a(dVar));
-        }
-    }
-
-    public static void c(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, dVar) == null) {
-            w83 b0 = w83.b0();
-            if (b0 != null && b0.w() != null) {
-                a(b0, new c(dVar));
-            } else {
-                dVar.onFail("SwanApp is null or SwanActivity is null");
-            }
+            hashSet.add(str2);
+            c(new ArrayList<>(hashSet));
         }
     }
 }

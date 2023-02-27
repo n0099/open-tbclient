@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,98 +11,26 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class m25 {
     public static /* synthetic */ Interceptable $ic;
-    public static final c a;
-    public static final c b;
-    public static final boolean c;
+    public static final m25 c;
+    public static final m25 d;
+    public static final m25 e;
+    public static final m25 f;
+    public static final m25 g;
+    public static final m25 h;
+    public static final m25 i;
+    public static final m25 j;
+    public static final m25 k;
+    public static final m25 l;
+    public static final m25 m;
+    public static final m25 n;
+    public static final m25 o;
+    public static final m25 p;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(String str, String str2, String str3);
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tieba.m25.c
-        public void a(String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
-                if (str2 != null) {
-                    str3 = "code:" + str2 + " message:" + str3;
-                }
-                Log.e("BridgeLogger", str3);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class d implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ d(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tieba.m25.c
-        public void a(String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
-                StatisticItem statisticItem = new StatisticItem("c10729");
-                statisticItem.param("obj_param1", str);
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str3);
-                if (BdBaseApplication.getInst() != null) {
-                    TiebaStatic.log(statisticItem);
-                }
-            }
-        }
-    }
+    public final String a;
+    public final boolean b;
 
     static {
         InterceptResult invokeClinit;
-        boolean z;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947920793, "Lcom/baidu/tieba/m25;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -117,37 +42,65 @@ public class m25 {
                 return;
             }
         }
-        a = new b(null);
-        b = new d(null);
-        if (BdBaseApplication.getInst() != null && !BdBaseApplication.getInst().isDebugMode()) {
-            z = false;
-        } else {
-            z = true;
-        }
-        c = z;
+        c = new m25("sync_finish", false);
+        d = new m25("main_page_load_finish", false);
+        e = new m25("pb_load_finish", false);
+        f = new m25("frs_load_finish", false);
+        g = new m25("main_page_recommend", true);
+        h = new m25("main_page_common_tab", true);
+        i = new m25("main_page_hot_topic", true);
+        j = new m25("main_page_concern", true);
+        k = new m25("main_page_enter_forum", true);
+        l = new m25("main_page_message", true);
+        m = new m25("main_page_person_info", true);
+        n = new m25("write_page", true);
+        o = new m25("pb_page", true);
+        p = new m25("frs_page", true);
     }
 
-    public static void a(String str) {
+    public m25(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && c) {
-            a.a(null, null, str);
-        }
-    }
-
-    public static void b(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
-            a(str3);
-        }
-    }
-
-    public static void c(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
-            if (c) {
-                a.a(str, str2, str3);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            b.a(str, str2, str3);
         }
+        this.a = str;
+        this.b = z;
+    }
+
+    public static m25 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return new m25("main_page_common_tab_" + str, true);
+        }
+        return (m25) invokeL.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
     }
 }

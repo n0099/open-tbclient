@@ -1,14 +1,5 @@
 package com.baidu.searchbox.ai;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Array;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -19,11 +10,9 @@ import java.nio.LongBuffer;
 import java.util.Arrays;
 /* loaded from: classes2.dex */
 public final class Tensor implements AutoCloseable {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public DataType datatype;
     public long nativeHandle;
-    public long[] shapeCopy;
+    public long[] shapeCopy = null;
 
     public static native ByteBuffer buffer(long j, int i);
 
@@ -36,271 +25,148 @@ public final class Tensor implements AutoCloseable {
     public static native long readArray(long j, int i, Object obj);
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(132136565, "Lcom/baidu/searchbox/ai/Tensor;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(132136565, "Lcom/baidu/searchbox/ai/Tensor;");
-                return;
-            }
-        }
         Common.getSDKVersion();
-    }
-
-    public Tensor() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.shapeCopy = null;
     }
 
     @Override // java.lang.AutoCloseable
     public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.nativeHandle;
-            if (j != 0) {
-                deleteNaTensor(j, this.datatype.value());
-                this.nativeHandle = 0L;
-            }
+        long j = this.nativeHandle;
+        if (j != 0) {
+            deleteNaTensor(j, this.datatype.value());
+            this.nativeHandle = 0L;
         }
     }
 
     public DataType getDataType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.datatype;
-        }
-        return (DataType) invokeV.objValue;
+        return this.datatype;
     }
 
     public long getNativeHandle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.nativeHandle;
-        }
-        return invokeV.longValue;
+        return this.nativeHandle;
     }
 
     public int getNumDimens() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.shapeCopy.length;
-        }
-        return invokeV.intValue;
+        return this.shapeCopy.length;
     }
 
     public int getNumElements() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return numElements(this.shapeCopy);
-        }
-        return invokeV.intValue;
+        return numElements(this.shapeCopy);
     }
 
     public long[] shape() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.shapeCopy;
-        }
-        return (long[]) invokeV.objValue;
+        return this.shapeCopy;
     }
 
     public static void assertArgIsArray(Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, obj) != null) || obj.getClass().isArray()) {
+        if (obj.getClass().isArray()) {
             return;
         }
         throw new IllegalArgumentException("object must is array");
     }
 
+    public static Tensor createInstance(Object obj) {
+        assertArgIsArray(obj);
+        DataType dataTypeOf = DataType.dataTypeOf(obj);
+        Tensor tensor = new Tensor();
+        tensor.datatype = dataTypeOf;
+        long[] jArr = new long[numDimensions(obj, dataTypeOf)];
+        tensor.shapeCopy = jArr;
+        fillShape(obj, 0, jArr);
+        tensor.nativeHandle = createNaTensorAndSetValue(dataTypeOf.value(), flatShape(tensor.shapeCopy), flatObject(obj, tensor.shapeCopy, dataTypeOf));
+        return tensor;
+    }
+
     public static long[] flatShape(long[] jArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, jArr)) == null) {
-            long[] jArr2 = new long[1];
-            long j = 1;
-            for (long j2 : jArr) {
-                j *= j2;
-            }
-            jArr2[0] = j;
-            return jArr2;
+        long[] jArr2 = new long[1];
+        long j = 1;
+        for (long j2 : jArr) {
+            j *= j2;
         }
-        return (long[]) invokeL.objValue;
+        jArr2[0] = j;
+        return jArr2;
     }
 
     private ByteBuffer getBuffer(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65552, this, i)) == null) {
-            return buffer(this.nativeHandle, i).order(ByteOrder.nativeOrder());
-        }
-        return (ByteBuffer) invokeI.objValue;
+        return buffer(this.nativeHandle, i).order(ByteOrder.nativeOrder());
     }
 
     public static int numArrayDimensions(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, obj)) == null) {
-            Class<?> cls = obj.getClass();
-            int i = 0;
-            while (cls.isArray()) {
-                cls = cls.getComponentType();
-                i++;
-            }
-            return i;
+        Class<?> cls = obj.getClass();
+        int i = 0;
+        while (cls.isArray()) {
+            cls = cls.getComponentType();
+            i++;
         }
-        return invokeL.intValue;
+        return i;
     }
 
     public static int numElements(long[] jArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, jArr)) == null) {
-            int i = 1;
-            for (long j : jArr) {
-                i *= (int) j;
-            }
-            return i;
+        int i = 1;
+        for (long j : jArr) {
+            i *= (int) j;
         }
-        return invokeL.intValue;
+        return i;
     }
 
     public <T> T read(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, t)) == null) {
-            assertArgIsArray(t);
-            readArray(this.nativeHandle, this.datatype.value(), t);
-            return t;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public static Tensor createInstance(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {
-            assertArgIsArray(obj);
-            DataType dataTypeOf = DataType.dataTypeOf(obj);
-            Tensor tensor = new Tensor();
-            tensor.datatype = dataTypeOf;
-            long[] jArr = new long[numDimensions(obj, dataTypeOf)];
-            tensor.shapeCopy = jArr;
-            fillShape(obj, 0, jArr);
-            tensor.nativeHandle = createNaTensorAndSetValue(dataTypeOf.value(), flatShape(tensor.shapeCopy), flatObject(obj, tensor.shapeCopy, dataTypeOf));
-            return tensor;
-        }
-        return (Tensor) invokeL.objValue;
+        assertArgIsArray(t);
+        readArray(this.nativeHandle, this.datatype.value(), t);
+        return t;
     }
 
     public static Tensor createInstance(long[] jArr, ByteBuffer byteBuffer) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, jArr, byteBuffer)) == null) {
-            Tensor innerCreateInstance = innerCreateInstance(DataType.UINT8, jArr);
-            byteBuffer.rewind();
-            innerCreateInstance.getBuffer(DataType.UINT8.value()).put(byteBuffer);
-            return innerCreateInstance;
-        }
-        return (Tensor) invokeLL.objValue;
+        Tensor innerCreateInstance = innerCreateInstance(DataType.UINT8, jArr);
+        byteBuffer.rewind();
+        innerCreateInstance.getBuffer(DataType.UINT8.value()).put(byteBuffer);
+        return innerCreateInstance;
     }
 
     public static Tensor innerCreateInstance(DataType dataType, long[] jArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, dataType, jArr)) == null) {
-            Tensor tensor = new Tensor();
-            tensor.datatype = dataType;
-            tensor.shapeCopy = Arrays.copyOf(jArr, jArr.length);
-            tensor.nativeHandle = createNaTensor(dataType.value(), flatShape(jArr));
-            return tensor;
-        }
-        return (Tensor) invokeLL.objValue;
+        Tensor tensor = new Tensor();
+        tensor.datatype = dataType;
+        tensor.shapeCopy = Arrays.copyOf(jArr, jArr.length);
+        tensor.nativeHandle = createNaTensor(dataType.value(), flatShape(jArr));
+        return tensor;
     }
 
     public static int numDimensions(Object obj, DataType dataType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, obj, dataType)) == null) {
-            int numArrayDimensions = numArrayDimensions(obj);
-            if (dataType == DataType.STRING && numArrayDimensions > 0) {
-                return numArrayDimensions - 1;
-            }
-            return numArrayDimensions;
+        int numArrayDimensions = numArrayDimensions(obj);
+        if (dataType == DataType.STRING && numArrayDimensions > 0) {
+            return numArrayDimensions - 1;
         }
-        return invokeLL.intValue;
+        return numArrayDimensions;
     }
 
     public static Tensor createInstance(long[] jArr, DoubleBuffer doubleBuffer) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, jArr, doubleBuffer)) == null) {
-            Tensor innerCreateInstance = innerCreateInstance(DataType.DOUBLE, jArr);
-            doubleBuffer.rewind();
-            innerCreateInstance.getBuffer(DataType.DOUBLE.value()).asDoubleBuffer().put(doubleBuffer);
-            return innerCreateInstance;
-        }
-        return (Tensor) invokeLL.objValue;
+        Tensor innerCreateInstance = innerCreateInstance(DataType.DOUBLE, jArr);
+        doubleBuffer.rewind();
+        innerCreateInstance.getBuffer(DataType.DOUBLE.value()).asDoubleBuffer().put(doubleBuffer);
+        return innerCreateInstance;
     }
 
     public static Tensor createInstance(long[] jArr, FloatBuffer floatBuffer) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, jArr, floatBuffer)) == null) {
-            Tensor innerCreateInstance = innerCreateInstance(DataType.FLOAT, jArr);
-            floatBuffer.rewind();
-            innerCreateInstance.getBuffer(DataType.FLOAT.value()).asFloatBuffer().put(floatBuffer);
-            return innerCreateInstance;
-        }
-        return (Tensor) invokeLL.objValue;
+        Tensor innerCreateInstance = innerCreateInstance(DataType.FLOAT, jArr);
+        floatBuffer.rewind();
+        innerCreateInstance.getBuffer(DataType.FLOAT.value()).asFloatBuffer().put(floatBuffer);
+        return innerCreateInstance;
     }
 
     public static Tensor createInstance(long[] jArr, IntBuffer intBuffer) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, jArr, intBuffer)) == null) {
-            Tensor innerCreateInstance = innerCreateInstance(DataType.INT32, jArr);
-            intBuffer.rewind();
-            innerCreateInstance.getBuffer(DataType.INT32.value()).asIntBuffer().put(intBuffer);
-            return innerCreateInstance;
-        }
-        return (Tensor) invokeLL.objValue;
+        Tensor innerCreateInstance = innerCreateInstance(DataType.INT32, jArr);
+        intBuffer.rewind();
+        innerCreateInstance.getBuffer(DataType.INT32.value()).asIntBuffer().put(intBuffer);
+        return innerCreateInstance;
     }
 
     public static Tensor createInstance(long[] jArr, LongBuffer longBuffer) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, jArr, longBuffer)) == null) {
-            Tensor innerCreateInstance = innerCreateInstance(DataType.INT64, jArr);
-            longBuffer.rewind();
-            innerCreateInstance.getBuffer(DataType.INT64.value()).asLongBuffer().put(longBuffer);
-            return innerCreateInstance;
-        }
-        return (Tensor) invokeLL.objValue;
+        Tensor innerCreateInstance = innerCreateInstance(DataType.INT64, jArr);
+        longBuffer.rewind();
+        innerCreateInstance.getBuffer(DataType.INT64.value()).asLongBuffer().put(longBuffer);
+        return innerCreateInstance;
     }
 
     public static void fillShape(Object obj, int i, long[] jArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(65549, null, obj, i, jArr) == null) && jArr != null && i != jArr.length) {
+        if (jArr != null && i != jArr.length) {
             int length = Array.getLength(obj);
             if (length != 0) {
                 if (jArr[i] == 0) {
@@ -318,11 +184,6 @@ public final class Tensor implements AutoCloseable {
     }
 
     public static Object flatObject(Object obj, long[] jArr, DataType dataType) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, obj, jArr, dataType)) == null) {
-            return Util.flat(obj, jArr, dataType);
-        }
-        return invokeLLL.objValue;
+        return Util.flat(obj, jArr, dataType);
     }
 }

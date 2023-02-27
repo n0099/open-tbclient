@@ -1,12 +1,6 @@
 package com.baidu.searchbox.account.contants;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class LoginConstants {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int BOX_CHINA_MOBILE_OAUTH = 9;
     public static final int BOX_FACE_LOGIN = 8;
     public static final int BOX_FAST_LOGIN = 5;
@@ -25,19 +19,4 @@ public class LoginConstants {
     public static final String SMS_LOGIN = "sms";
     public static final String USERNAME_LOGIN = "username";
     public static final String WECHAT_LOGIN = "wechat";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public LoginConstants() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

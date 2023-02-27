@@ -336,7 +336,7 @@ public class NavigationBarCoverTip extends LinearLayout {
             Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
             this.a = loadAnimation;
             loadAnimation.setAnimationListener(new b(this));
-            Animation loadAnimation2 = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100c2);
+            Animation loadAnimation2 = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100c7);
             this.b = loadAnimation2;
             loadAnimation2.setAnimationListener(new c(this));
             this.c = new d(this);

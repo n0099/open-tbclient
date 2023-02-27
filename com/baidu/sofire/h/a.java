@@ -100,7 +100,7 @@ public class a {
                 return true;
             }
             try {
-                a = com.baidu.sofire.a.a.a(this.a, com.baidu.sofire.k.a.b() + "p/1/r", str, false, false);
+                a = com.baidu.sofire.a.a.a(this.a, com.baidu.sofire.k.b.b() + "p/1/r", str, false, false);
             } catch (Throwable unused) {
                 int i = b.a;
             }

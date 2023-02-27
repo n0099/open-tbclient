@@ -1,12 +1,6 @@
 package com.baidu.sapi2.result;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class OneKeyLoginResult extends SapiResult {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int ONE_KEY_LOGIN_CODE_ANDROID_VERSION_BELOW_KITKAT = -109;
     public static final int ONE_KEY_LOGIN_CODE_CHECK_JS_FAIL = -106;
     public static final int ONE_KEY_LOGIN_CODE_CHECK_SIGN_FAIL = -108;
@@ -40,7 +34,6 @@ public class OneKeyLoginResult extends SapiResult {
     public static final String ONE_KEY_LOGIN_MSG_UNKNOW = "未知错误";
     public static final String ONE_KEY_LOGIN_MSG_UNSUPPORT = "不支持一键登录";
     public static String secondJsCode;
-    public transient /* synthetic */ FieldHolder $fh;
     public boolean enable;
     public String encryptPhoneNum;
     public boolean hasHistory;
@@ -49,18 +42,6 @@ public class OneKeyLoginResult extends SapiResult {
     public String sign;
 
     public OneKeyLoginResult() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.msgMap.put(-100, "未知错误");
         this.msgMap.put(-101, ONE_KEY_LOGIN_MSG_UNSUPPORT);
         this.msgMap.put(-102, ONE_KEY_LOGIN_MSG_GET_TOKEN_FAIL);

@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.ah;
+import com.baidu.tieba.gq5;
 import com.baidu.tieba.on;
 import com.baidu.tieba.rc;
-import com.baidu.tieba.so5;
 import com.baidu.tieba.vc;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.zg;
@@ -163,7 +163,7 @@ public class BigdayImageLoaderProc implements ah<on> {
             if (StringUtils.isNull(str)) {
                 return null;
             }
-            so5.g(BigdayImageLoaderProc.class.getSimpleName(), str);
+            gq5.g(BigdayImageLoaderProc.class.getSimpleName(), str);
             WebClient webClient = new WebClient();
             if (xgVar != null) {
                 xgVar.a = webClient;
@@ -196,7 +196,7 @@ public class BigdayImageLoaderProc implements ah<on> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            return TbImageMemoryCache.n().t(str);
+            return TbImageMemoryCache.p().w(str);
         }
         return (on) invokeCommon.objValue;
     }
@@ -207,7 +207,7 @@ public class BigdayImageLoaderProc implements ah<on> {
         if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof on)) {
             on onVar = (on) obj;
             if (onVar.u()) {
-                TbImageMemoryCache.n().f(str, onVar);
+                TbImageMemoryCache.p().g(str, onVar);
             }
         }
     }

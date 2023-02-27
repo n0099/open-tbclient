@@ -1,82 +1,118 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.util.io.AssetUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Locale;
 /* loaded from: classes4.dex */
-public final class hl3 {
+public final class hl3<ValueT> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public ValueT b;
+    public a<ValueT> c;
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            if (context == null || TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                ap4.d(context.getAssets().open(str, 0));
-                return true;
-            } catch (IOException unused) {
-                ap4.d(null);
-                return false;
-            } catch (Throwable th) {
-                ap4.d(null);
-                throw th;
-            }
-        }
-        return invokeLL.booleanValue;
+    /* loaded from: classes4.dex */
+    public interface a<ValueT> {
+        ValueT update() throws IllegalStateException;
     }
 
-    public static String b(Context context, String str) {
-        InterceptResult invokeLL;
-        InputStream inputStream;
+    /* JADX DEBUG: Multi-variable search result rejected for r6v1, resolved type: com.baidu.tieba.jl3 */
+    /* JADX WARN: Multi-variable type inference failed */
+    public hl3(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            InputStream inputStream2 = null;
-            r0 = null;
-            String str2 = null;
-            try {
-                inputStream = context.getAssets().open(str);
-            } catch (IOException e) {
-                e = e;
-                inputStream = null;
-            } catch (Throwable th) {
-                th = th;
-                ap4.d(inputStream2);
-                throw th;
-            }
-            if (inputStream == null) {
-                ap4.d(inputStream);
-                return null;
-            }
-            try {
-                try {
-                    str2 = dp4.b(inputStream);
-                } catch (IOException e2) {
-                    e = e2;
-                    if (gp1.a) {
-                        Log.w(AssetUtils.TAG, "loadPresetDatas", e);
-                    }
-                    ap4.d(inputStream);
-                    return str2;
-                }
-                ap4.d(inputStream);
-                return str2;
-            } catch (Throwable th2) {
-                th = th2;
-                inputStream2 = inputStream;
-                ap4.d(inputStream2);
-                throw th;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeLL.objValue;
+        this.a = str;
+        jl3.a().h(this);
+    }
+
+    public boolean update(a<ValueT> aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) {
+            if (aVar == null) {
+                return false;
+            }
+            try {
+                if (!update((hl3<ValueT>) aVar.update())) {
+                    return false;
+                }
+                return true;
+            } catch (IllegalStateException e) {
+                m62.o("Tracer", "index update IllegalStateException " + e.getMessage());
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public CharSequence a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ValueT valuet = this.b;
+            if (valuet == null) {
+                return "";
+            }
+            return valuet.toString();
+        }
+        return (CharSequence) invokeV.objValue;
+    }
+
+    public boolean update() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return update((a) this.c);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public hl3<ValueT> b(a<ValueT> aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
+            this.c = aVar;
+            update();
+            return this;
+        }
+        return (hl3) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r5v1, resolved type: com.baidu.tieba.jl3 */
+    /* JADX WARN: Multi-variable type inference failed */
+    public boolean update(ValueT valuet) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, valuet)) == null) {
+            this.b = valuet;
+            jl3.a().e(this);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return String.format(Locale.getDefault(), "%s :: %s(%s)", super.toString(), this.a, a());
+        }
+        return (String) invokeV.objValue;
     }
 }

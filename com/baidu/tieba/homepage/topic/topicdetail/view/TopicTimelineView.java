@@ -18,7 +18,7 @@ import com.baidu.tbadk.widget.layout.ForbidParentSwipeBackLinearLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.homepage.topic.topicdetail.adapter.TopicTimelineAdapter;
-import com.baidu.tieba.rg7;
+import com.baidu.tieba.nj7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -113,13 +113,13 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         a(context);
     }
 
-    public void setData(rg7 rg7Var) {
+    public void setData(nj7 nj7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rg7Var) == null) {
-            if (rg7Var != null && !ListUtils.isEmpty(rg7Var.b)) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nj7Var) == null) {
+            if (nj7Var != null && !ListUtils.isEmpty(nj7Var.b)) {
                 setVisibility(0);
-                this.b.setText(rg7Var.a);
-                this.d.setData(rg7Var.b);
+                this.b.setText(nj7Var.a);
+                this.d.setData(nj7Var.b);
                 this.d.notifyDataSetChanged();
                 return;
             }
@@ -177,9 +177,9 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08d6, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092458);
-            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f092457);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08f7, (ViewGroup) this, true);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0924a5);
+            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0924a4);
             TopicTimelineAdapter topicTimelineAdapter = new TopicTimelineAdapter(context);
             this.d = topicTimelineAdapter;
             this.c.setAdapter(topicTimelineAdapter);

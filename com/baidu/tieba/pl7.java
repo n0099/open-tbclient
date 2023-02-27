@@ -1,29 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.BroadcastInfo;
-import tbclient.GetForumBroadcastList.DataRes;
-import tbclient.Page;
 /* loaded from: classes5.dex */
 public class pl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ql7> a;
-    public Page b;
-    public boolean c;
-    public boolean d;
+    public List<qn> a;
 
-    public pl7() {
+    public pl7(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+        zu6 zu6Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,74 +36,23 @@ public class pl7 {
             }
         }
         this.a = new ArrayList();
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921336, zu6.class, tbPageContext);
+        if (runTask != null && (zu6Var = (zu6) runTask.getData()) != null) {
+            this.a.add(zu6Var);
         }
-        return invokeV.booleanValue;
+        this.a.add(new ql7(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC));
+        this.a.add(new ol7(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC_VIDEO));
+        bdTypeRecyclerView.a(this.a);
     }
 
-    public List<ql7> b() {
-        InterceptResult invokeV;
+    public void a(TbPageTag tbPageTag) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, dataRes) != null) || dataRes == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, tbPageTag) != null) || ListUtils.isEmpty(this.a)) {
             return;
         }
-        Page page = dataRes.page;
-        this.b = page;
-        if (page != null) {
-            boolean z = true;
-            if (page.has_more.intValue() != 1) {
-                z = false;
-            }
-            this.c = z;
-        }
-        List<BroadcastInfo> list = dataRes.bcast_infos;
-        if (list != null) {
-            for (int i = 0; i < list.size(); i++) {
-                ql7 ql7Var = new ql7();
-                ql7Var.l(list.get(i));
-                this.a.add(ql7Var);
-            }
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void f() {
-        List<ql7> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (ql7 ql7Var : this.a) {
-                if (ql7Var != null) {
-                    jl7.w().A(ql7Var.e().forum_id.longValue(), ql7Var.b() * 100, ql7Var.i());
-                }
+        for (qn qnVar : this.a) {
+            if (qnVar instanceof zu6) {
+                ((zu6) qnVar).C(tbPageTag);
             }
         }
     }

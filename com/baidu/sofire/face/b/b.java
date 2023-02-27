@@ -17,6 +17,7 @@ import com.baidu.sofire.utility.WbEncryptUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -42,10 +43,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0084 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0083 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x0091 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:90:0x008a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:82:0x0090 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:92:0x0089 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r1v12 */
     /* JADX WARN: Type inference failed for: r1v5 */
     /* JADX WARN: Type inference failed for: r1v6, types: [java.io.ByteArrayOutputStream] */
@@ -59,10 +60,11 @@ public class b {
         ByteArrayInputStream byteArrayInputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, context, str, bArr, str2)) == null) {
+            Random random = d.a;
             char[] charArray = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
             char[] cArr = new char[16];
             for (int i = 0; i < 16; i++) {
-                cArr[i] = charArray[new Random().nextInt(62)];
+                cArr[i] = charArray[d.a.nextInt(62)];
             }
             byte[] bytes2 = new String(cArr).getBytes();
             if (!TextUtils.isEmpty(str)) {
@@ -282,13 +284,13 @@ public class b {
                     try {
                         X509Certificate x509Certificate = (X509Certificate) certificate;
                         sb.append(x509Certificate.toString());
-                        sb.append(";");
+                        sb.append(ParamableElem.DIVIDE_PARAM);
                         byte[] encoded = x509Certificate.getPublicKey().getEncoded();
                         if (encoded != null) {
                             String encodeToString = Base64.encodeToString(encoded, 0);
                             str2 = str2 + c.a(encodeToString.replace("\n", "").replace("\r", ""));
                         }
-                        str2 = str2 + ";";
+                        str2 = str2 + ParamableElem.DIVIDE_PARAM;
                     } catch (Throwable unused) {
                     }
                 }
@@ -310,7 +312,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
-                String string = d.a(context).a.getString("lt_sha", "");
+                String string = e.a(context).a.getString("lt_sha", "");
                 if (TextUtils.isEmpty(string)) {
                     int i = a.a;
                     return new JSONArray();

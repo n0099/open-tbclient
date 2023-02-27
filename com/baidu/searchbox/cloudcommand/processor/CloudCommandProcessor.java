@@ -2,7 +2,6 @@ package com.baidu.searchbox.cloudcommand.processor;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.UniKV;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.cloudcommand.dao.CloudCommandDao;
@@ -11,19 +10,13 @@ import com.baidu.searchbox.cloudcontrol.data.CloudControlRequestInfo;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlResponseInfo;
 import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.ak1;
-import com.baidu.tieba.ck1;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.lk1;
+import com.baidu.tieba.nk1;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class CloudCommandProcessor implements ICloudControlProcessor {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String COMMAND_CLOUD_VERSION = "command_cloudconfig_version";
     public static final String COMMAND_KEY = "command";
     public static final String COMMAND_VERSION_ASC_DEFAULT = "0";
@@ -43,136 +36,101 @@ public class CloudCommandProcessor implements ICloudControlProcessor {
     public static final String VALUE_FILTER = "2";
     public static final String VALUE_INVALID = "0";
     public static final String VALUE_SUC = "1";
-    public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public ck1<ICloudCommandObserver> mCloudCommandObservers;
+    public nk1<ICloudCommandObserver> mCloudCommandObservers;
 
     public void initmCloudCommandObservers() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ak1 b = ak1.b();
-            this.mCloudCommandObservers = b;
-            b.a(new ICloudCommandObserver_CloudCommandProcessor_ListProvider());
-        }
+        lk1 b = lk1.b();
+        this.mCloudCommandObservers = b;
+        b.a(new ICloudCommandObserver_CloudCommandProcessor_ListProvider());
     }
 
     public CloudCommandProcessor() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         initmCloudCommandObservers();
     }
 
     public static UniKV sharedPrefsWrapper() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new UniKV(SP_COMMAND_FILE_NAME);
-        }
-        return (UniKV) invokeV.objValue;
+        return new UniKV(SP_COMMAND_FILE_NAME);
     }
 
     private ICloudCommandObserver getCommandObserver(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
-            ck1<ICloudCommandObserver> ck1Var = this.mCloudCommandObservers;
-            if (ck1Var != null && ck1Var.getList() != null && this.mCloudCommandObservers.getList().size() > 0) {
-                for (ICloudCommandObserver iCloudCommandObserver : this.mCloudCommandObservers.getList()) {
-                    if (TextUtils.equals(str, iCloudCommandObserver.getCommandType())) {
-                        return iCloudCommandObserver;
-                    }
+        nk1<ICloudCommandObserver> nk1Var = this.mCloudCommandObservers;
+        if (nk1Var != null && nk1Var.getList() != null && this.mCloudCommandObservers.getList().size() > 0) {
+            for (ICloudCommandObserver iCloudCommandObserver : this.mCloudCommandObservers.getList()) {
+                if (TextUtils.equals(str, iCloudCommandObserver.getCommandType())) {
+                    return iCloudCommandObserver;
                 }
-                return null;
             }
             return null;
         }
-        return (ICloudCommandObserver) invokeL.objValue;
+        return null;
     }
 
     private void handleReceiveCommand(JSONArray jSONArray, ICloudControlUBCCallBack iCloudControlUBCCallBack) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, this, jSONArray, iCloudControlUBCCallBack) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONArray jSONArray2 = new JSONArray();
-            int i = 0;
-            int i2 = 0;
-            int i3 = 0;
-            for (int i4 = 0; i4 < jSONArray.length(); i4++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i4);
-                JSONObject jSONObject2 = new JSONObject();
-                if (optJSONObject != null) {
-                    i++;
-                    String optString = optJSONObject.optString("type");
-                    String optString2 = optJSONObject.optString("msgid");
-                    String optString3 = optJSONObject.optString("version");
-                    JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
-                    jSONObject2.put("product", optString);
-                    jSONObject2.put("version", optString2);
-                    if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
-                        if (CloudCommandDao.getInstance().queryDispatched(optString2, 1).size() <= 0) {
-                            ICloudCommandObserver commandObserver = getCommandObserver(optString);
-                            if (commandObserver != null) {
-                                commandObserver.dispatch(optJSONObject2);
-                                CloudCommandDao.getInstance().addCommand(optString, optString2, 1, optString3, System.currentTimeMillis());
-                                i2++;
-                                jSONObject2.put("valid", "1");
-                            } else {
-                                jSONObject2.put("valid", "0");
-                            }
+        JSONObject jSONObject = new JSONObject();
+        JSONArray jSONArray2 = new JSONArray();
+        int i = 0;
+        int i2 = 0;
+        int i3 = 0;
+        for (int i4 = 0; i4 < jSONArray.length(); i4++) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(i4);
+            JSONObject jSONObject2 = new JSONObject();
+            if (optJSONObject != null) {
+                i++;
+                String optString = optJSONObject.optString("type");
+                String optString2 = optJSONObject.optString("msgid");
+                String optString3 = optJSONObject.optString("version");
+                JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
+                jSONObject2.put("product", optString);
+                jSONObject2.put("version", optString2);
+                if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
+                    if (CloudCommandDao.getInstance().queryDispatched(optString2, 1).size() <= 0) {
+                        ICloudCommandObserver commandObserver = getCommandObserver(optString);
+                        if (commandObserver != null) {
+                            commandObserver.dispatch(optJSONObject2);
+                            CloudCommandDao.getInstance().addCommand(optString, optString2, 1, optString3, System.currentTimeMillis());
+                            i2++;
+                            jSONObject2.put("valid", "1");
                         } else {
-                            i3++;
-                            jSONObject2.put("valid", "2");
+                            jSONObject2.put("valid", "0");
                         }
-                        jSONArray2.put(jSONObject2);
                     } else {
-                        jSONObject2.put("valid", "0");
-                        jSONArray2.put(jSONObject2);
+                        i3++;
+                        jSONObject2.put("valid", "2");
                     }
+                    jSONArray2.put(jSONObject2);
+                } else {
+                    jSONObject2.put("valid", "0");
+                    jSONArray2.put(jSONObject2);
                 }
             }
-            jSONObject.put("count", String.format("%s,%s,%s", Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)));
-            jSONObject.put("items", jSONArray2);
-            if (iCloudControlUBCCallBack != null) {
-                iCloudControlUBCCallBack.setServiceInfo(jSONObject);
-            }
+        }
+        jSONObject.put("count", String.format("%s,%s,%s", Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)));
+        jSONObject.put("items", jSONArray2);
+        if (iCloudControlUBCCallBack != null) {
+            iCloudControlUBCCallBack.setServiceInfo(jSONObject);
         }
     }
 
     @Override // com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor
     public CloudControlRequestInfo getPostData(String str, boolean z, JSONObject jSONObject) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), jSONObject})) == null) {
-            if (jSONObject != null && jSONObject.length() == 0) {
-                return null;
-            }
-            String string = sharedPrefsWrapper().getString(COMMAND_CLOUD_VERSION, "0");
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("step", string);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return new CloudControlRequestInfo("command", null, null, "", jSONObject2);
+        if (jSONObject != null && jSONObject.length() == 0) {
+            return null;
         }
-        return (CloudControlRequestInfo) invokeCommon.objValue;
+        String string = sharedPrefsWrapper().getString(COMMAND_CLOUD_VERSION, "0");
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            jSONObject2.put("step", string);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return new CloudControlRequestInfo("command", null, null, "", jSONObject2);
     }
 
     @Override // com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor
     public void processServiceData(CloudControlResponseInfo cloudControlResponseInfo, ICloudControlUBCCallBack iCloudControlUBCCallBack) throws JSONException {
-        JSONObject serviceData;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cloudControlResponseInfo, iCloudControlUBCCallBack) != null) || (serviceData = cloudControlResponseInfo.getServiceData()) == null) {
+        JSONObject serviceData = cloudControlResponseInfo.getServiceData();
+        if (serviceData == null) {
             return;
         }
         String optString = serviceData.optString("step");

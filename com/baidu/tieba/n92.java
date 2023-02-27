@@ -1,40 +1,33 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 /* loaded from: classes5.dex */
 public class n92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Timer a;
-    public volatile boolean b;
-    public final o92 c;
 
     /* loaded from: classes5.dex */
-    public class a extends TimerTask {
+    public static class a implements SwanAppNetworkUtils.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n92 a;
+        public final /* synthetic */ String a;
 
-        public a(n92 n92Var) {
+        public a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {n92Var};
+                Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,163 +37,88 @@ public class n92 {
                     return;
                 }
             }
-            this.a = n92Var;
+            this.a = str;
         }
 
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
+        public void onResult(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (n92.d) {
-                    Log.d("RequestMonitor", ">> finish collecting request info.");
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                n92.b(this.a, i);
+            }
+        }
+    }
+
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            SwanAppNetworkUtils.b(new a(str));
+        }
+    }
+
+    public static void b(String str, int i) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        str2 = "unknown";
+                    } else {
+                        str2 = "offline";
+                    }
+                } else {
+                    str2 = "bad";
                 }
-                this.a.b = false;
+            } else {
+                str2 = FrsActivityConfig.GOOD;
             }
+            c(str, str2);
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final n92 a;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            d(str, str2, null);
+        }
+    }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-618873564, "Lcom/baidu/tieba/n92$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-618873564, "Lcom/baidu/tieba/n92$b;");
-                    return;
-                }
+    public static void d(String str, String str2, @Nullable String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
+            e(str, str2, str3, 0, 0, 0, 0L);
+        }
+    }
+
+    public static void e(String str, String str2, @Nullable String str3, int i, int i2, int i3, long j) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) == null) {
+            og3 og3Var = new og3();
+            og3Var.a = "swan";
+            og3Var.b = str;
+            og3Var.a("appid", l93.K().getAppId());
+            og3Var.a(DpStatConstants.KEY_NETWORK_STATUS, str2);
+            if (!TextUtils.isEmpty(str3)) {
+                og3Var.a("request", str3);
+                og3Var.a("request_total", String.valueOf(i));
+                og3Var.a("request_fail", String.valueOf(i2));
+                og3Var.a("request_slow", String.valueOf(i3));
+                og3Var.a("error_duration", String.valueOf(j));
             }
-            a = new n92(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947957218, "Lcom/baidu/tieba/n92;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+            String str4 = "1";
+            if (r92.d().c()) {
+                obj = "1";
+            } else {
+                obj = "0";
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947957218, "Lcom/baidu/tieba/n92;");
-                return;
+            og3Var.a("jserror", obj);
+            if (!m92.b()) {
+                str4 = "0";
             }
-        }
-        d = gp1.a;
-    }
-
-    public n92() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = true;
-        this.c = new o92();
-    }
-
-    public static n92 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return b.a;
-        }
-        return (n92) invokeV.objValue;
-    }
-
-    public List<m92> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c.a.d();
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = true;
-            h();
-            this.c.h();
-        }
-    }
-
-    public final void h() {
-        Timer timer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (timer = this.a) != null) {
-            timer.cancel();
-            this.a = null;
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b = false;
-            h();
-            if (d) {
-                Log.d("RequestMonitor", ">> stop to collect request info.");
-            }
-        }
-    }
-
-    public /* synthetic */ n92(a aVar) {
-        this();
-    }
-
-    public void e(m92 m92Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m92Var) == null) && this.b) {
-            if (d) {
-                Log.d("RequestMonitor", ">> add request " + m92Var.toString());
-            }
-            this.c.a(m92Var);
-        }
-    }
-
-    @NonNull
-    public p92 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            p92 g = this.c.g();
-            if (d) {
-                Log.d("RequestMonitor", ">> requestResult: " + g.d() + g.c());
-            }
-            return g;
-        }
-        return (p92) invokeV.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (d) {
-                Log.d("RequestMonitor", ">> start to collect request info. ");
-            }
-            this.c.i();
-            h();
-            Timer timer = new Timer();
-            this.a = timer;
-            timer.schedule(new a(this), LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION);
+            og3Var.a(UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY, str4);
+            fg3.x("1619", og3Var);
         }
     }
 }

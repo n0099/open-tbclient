@@ -1,100 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideo;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.JvmStatic;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class tz0 {
+public class tz0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final tz0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public final boolean a(int i) {
-        InterceptResult invokeI;
+    public static int a(BdVideoSeries bdVideoSeries) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i == 0 : invokeI.booleanValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948198367, "Lcom/baidu/tieba/tz0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bdVideoSeries)) == null) {
+            if (bdVideoSeries != null && bdVideoSeries.getSelectedVideo() != null) {
+                return h11.c(bdVideoSeries.getSelectedVideo().getTotalLength());
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948198367, "Lcom/baidu/tieba/tz0;");
-                return;
-            }
+            return 0;
         }
-        a = new tz0();
+        return invokeL.intValue;
     }
 
-    public tz0() {
+    public static void b(@Nullable BdVideoSeries bdVideoSeries, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if ((interceptable == null || interceptable.invokeLII(65537, null, bdVideoSeries, i, i2) == null) && bdVideoSeries != null && bdVideoSeries.getSelectedVideo() != null) {
+            bdVideoSeries.setPositionMs(i);
+            bdVideoSeries.setDurationMs(i2);
+            BdVideo selectedVideo = bdVideoSeries.getSelectedVideo();
+            selectedVideo.setCurrentLength((i / 1000) + "");
+            BdVideo selectedVideo2 = bdVideoSeries.getSelectedVideo();
+            selectedVideo2.setTotalLength((i2 / 1000) + "");
         }
     }
 
-    @JvmStatic
-    public static final JSONArray b(String str) {
+    @NonNull
+    public static String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            zz0 c = a.c(str);
-            if (c != null) {
-                JSONArray jSONArray = new JSONArray();
-                uz0.a(c, jSONArray);
-                sz0.a(c, jSONArray);
-                return jSONArray;
-            }
-            return null;
-        }
-        return (JSONArray) invokeL.objValue;
-    }
-
-    public final zz0 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int optInt = jSONObject.optInt("version", -1);
-                if (!a.a(optInt)) {
-                    return null;
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    int d = h11.d(str, -1);
+                    if (d < 0) {
+                        return "";
+                    }
+                    return h11.b(d, false);
+                } catch (Exception e) {
+                    l11.k("toTimeString(" + str + SmallTailInfo.EMOTION_SUFFIX, e);
                 }
-                zz0 zz0Var = new zz0();
-                zz0Var.e(optInt);
-                zz0Var.d(jSONObject.optString("mode"));
-                uz0.b(zz0Var, jSONObject);
-                sz0.b(zz0Var, jSONObject);
-                Unit unit = Unit.INSTANCE;
-                return zz0Var;
-            } catch (Exception unused) {
-                return null;
             }
+            return "";
         }
-        return (zz0) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 }

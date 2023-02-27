@@ -1,367 +1,476 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.stats.SpeedStatsMainTable;
+import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.Scopes;
 /* loaded from: classes4.dex */
-public class im5 {
+public class im5 extends hm5 {
     public static /* synthetic */ Interceptable $ic;
+    public static im5 E;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public String i;
+    public long A;
+    public long B;
+    public long C;
+    public long D;
+    public boolean b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public long f;
+    public long g;
+    public long h;
+    public long i;
+    public long j;
+    public long k;
+    public long l;
+    public long m;
+    public long n;
+    public long o;
+    public long p;
+    public long q;
+    public long r;
+    public long s;
+    public long t;
+    public long u;
+    public long v;
+    public long w;
+    public long x;
+    public long y;
+    public long z;
 
-    public im5(jo joVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947858328, "Lcom/baidu/tieba/im5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947858328, "Lcom/baidu/tieba/im5;");
+        }
+    }
+
+    public void B(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+        }
+    }
+
+    public void i(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+        }
+    }
+
+    public void p(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
+        }
+    }
+
+    public im5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {joVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 2;
-        this.b = "index";
-        this.c = "index";
-        this.d = "2001";
-        this.e = 1;
-        this.f = 1;
-        this.g = 1;
-        this.h = 3;
-        this.i = "personalize_page";
-        if (joVar != null && joVar.getListView() != null) {
-            String a = TbPageExtraHelper.findPageExtraByView(joVar.getListView()).a();
-            this.a = c(a);
-            this.b = e(a);
-            this.c = d(a);
-            this.d = i(a);
-            this.e = a(a);
-            this.f = b(a);
-            this.g = f(a);
-            this.h = g(a);
-            this.i = h(a);
-            hn5.b("currentPageKey=" + a);
-            hn5.b(toString());
-        }
+        this.b = false;
+        this.c = false;
+        this.d = false;
+        this.e = false;
+        this.f = -1L;
+        this.g = -1L;
+        this.h = -1L;
+        this.i = -1L;
+        this.j = -1L;
+        this.k = -1L;
+        this.l = -1L;
+        this.m = -1L;
+        this.n = -1L;
+        this.o = -1L;
+        this.p = -1L;
+        this.q = -1L;
+        this.r = -1L;
+        this.s = -1L;
+        this.t = -1L;
+        this.u = -1L;
+        this.v = -1L;
+        this.w = -1L;
+        this.x = -1L;
+        this.y = -1L;
+        this.z = -1L;
+        this.A = -1L;
+        this.B = -1L;
+        this.C = -1L;
+        this.D = -1L;
     }
 
-    public static int a(String str) {
-        InterceptResult invokeL;
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if ("a072".equals(str)) {
-                return 10;
-            }
-            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str)) {
-                if ("a005".equals(str)) {
-                    return 4;
-                }
-                if ("a007".equals(str)) {
-                    return 12;
-                }
-                if ("a038".equals(str)) {
-                    return 9;
-                }
-                if ("a066".equals(str)) {
-                    return 15;
-                }
-                if ("a067".equals(str)) {
-                    return 21;
-                }
-                if ("a001".equals(str) || "a002".equals(str)) {
-                    return 1;
-                }
-                if ("a011".equals(str)) {
-                    return 3;
-                }
-                if ("a068".equals(str)) {
-                    return 22;
-                }
-                if (!"a008".equals(str)) {
-                    return 1;
-                }
-                return 13;
-            }
-            return 2;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.b = false;
+            this.c = false;
+            this.f = -1L;
+            this.g = -1L;
+            this.w = -1L;
+            this.h = -1L;
+            this.i = -1L;
+            this.j = -1L;
+            this.B = -1L;
+            this.t = -1L;
+            this.u = -1L;
+            this.r = -1L;
+            this.C = -1L;
+            this.D = -1L;
+            this.k = -1L;
+            this.l = -1L;
+            this.m = -1L;
+            this.n = -1L;
+            this.o = -1L;
+            this.p = -1L;
+            this.q = -1L;
+            this.s = -1L;
+            this.v = -1L;
+            this.x = -1L;
+            this.y = -1L;
+            this.z = -1L;
+            this.A = -1L;
         }
-        return invokeL.intValue;
     }
 
-    public static int b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if ("a072".equals(str)) {
-                return 10;
-            }
-            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str)) {
-                if ("a005".equals(str)) {
-                    return 7;
-                }
-                if ("a007".equals(str)) {
-                    return 9;
-                }
-                if ("a038".equals(str)) {
-                    return 4;
-                }
-                if ("a066".equals(str)) {
-                    return 11;
-                }
-                if ("a067".equals(str)) {
-                    return 18;
-                }
-                if (!"a001".equals(str) && !"a002".equals(str)) {
-                    if (!"a010".equals(str) && !"a014".equals(str)) {
-                        if ("a011".equals(str)) {
-                            return 3;
-                        }
-                        if ("a068".equals(str)) {
-                            return 19;
-                        }
-                        if ("a008".equals(str)) {
-                            return 10;
-                        }
-                    } else {
-                        return 5;
-                    }
-                }
-                return 1;
-            }
-            return 2;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str) && !"a072".equals(str)) {
-                if ("a005".equals(str)) {
-                    return 20;
-                }
-                if ("a001".equals(str) || "a002".equals(str)) {
-                    return 2;
-                }
-                if ("a038".equals(str)) {
-                    return 1;
-                }
-                if ("a066".equals(str)) {
-                    return 18;
-                }
-                if ("a067".equals(str)) {
-                    return 19;
-                }
-                if ("a011".equals(str)) {
-                    return 4;
-                }
-                if ("a068".equals(str) || "a023".equals(str) || !"a024".equals(str)) {
-                    return 2;
-                }
-                return 17;
-            }
-            return 3;
-        }
-        return invokeL.intValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str) && !"a072".equals(str)) {
-                if ("a005".equals(str)) {
-                    return "pb";
-                }
-                if ("a007".equals(str) || "a001".equals(str) || "a002".equals(str)) {
-                    return "index";
-                }
-                if ("a038".equals(str)) {
-                    return "concern_tab";
-                }
-                if ("a066".equals(str)) {
-                    return ImageViewerConfig.FROM_GAME_VIDEO;
-                }
-                if ("a067".equals(str)) {
-                    return "video_tab";
-                }
-                if ("a011".equals(str)) {
-                    return Scopes.PROFILE;
-                }
-                if ("a068".equals(str)) {
-                    return "14";
-                }
-                if (!"a023".equals(str)) {
-                    return "index";
-                }
-                return "auto_midpage";
-            }
-            return "frs";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str) && !"a072".equals(str)) {
-                if ("a005".equals(str)) {
-                    return "pb";
-                }
-                if ("a038".equals(str)) {
-                    return ImageViewerConfig.FROM_CONCERN;
-                }
-                if ("a066".equals(str)) {
-                    return ImageViewerConfig.FROM_GAME_VIDEO;
-                }
-                if ("a067".equals(str)) {
-                    return "video_tab";
-                }
-                if ("a001".equals(str)) {
-                    return "index";
-                }
-                "a002".equals(str);
-                return "index";
-            }
-            return "frs";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static int f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str) && !"a072".equals(str)) {
-                if ("a005".equals(str)) {
-                    return 4;
-                }
-                if ("a001".equals(str) || "a002".equals(str)) {
-                    return 1;
-                }
-                if ("a038".equals(str)) {
-                    return 9;
-                }
-                if ("a066".equals(str)) {
-                    return 12;
-                }
-                if ("a067".equals(str)) {
-                    return 16;
-                }
-                if (!"a011".equals(str)) {
-                    return 1;
-                }
-                return 8;
-            }
-            return 2;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str) && !"a072".equals(str)) {
-                if ("a005".equals(str)) {
-                    return 2;
-                }
-                if ("a001".equals(str) || "a002".equals(str)) {
-                    return 3;
-                }
-                if ("a038".equals(str)) {
-                    return 4;
-                }
-                if ("a066".equals(str)) {
-                    return 9;
-                }
-                if ("a067".equals(str)) {
-                    return 10;
-                }
-                if ("a011".equals(str)) {
-                    return 6;
-                }
-                if ("a075".equals(str)) {
-                    return 12;
-                }
-                if (!"a076".equals(str)) {
-                    return 3;
-                }
-                return 13;
-            }
-            return 1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str) && !"a072".equals(str)) {
-                if (!"a001".equals(str) && !"a002".equals(str)) {
-                    if ("a011".equals(str)) {
-                        return "person_page";
-                    }
-                    if ("a038".equals(str)) {
-                        return "concern_page";
-                    }
-                    return null;
-                }
-                return "personalize_page";
-            }
-            return "frs_page";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (!"a006".equals(str) && !"a070".equals(str) && !"a071".equals(str) && !"a072".equals(str)) {
-                if ("a005".equals(str)) {
-                    return "2002";
-                }
-                if ("a023".equals(str)) {
-                    return "2005";
-                }
-                if ("a001".equals(str)) {
-                    return "2001";
-                }
-                "a002".equals(str);
-                return "2001";
-            }
-            return "2003";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String toString() {
+    public static im5 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "AdapterSourceItem:【pbPageFromType=" + this.a + ",imageViewerFromType=" + this.b + ",videoLocationType=" + this.c + ",videoStageType=" + this.d + ",agreeLocate=" + this.e + ",disagreeLocate=" + this.f + ",pageFrom=" + this.g + ",shareReportFrom=" + this.h + ",stType=" + this.i + "】";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (E == null) {
+                synchronized (im5.class) {
+                    if (E == null) {
+                        E = new im5();
+                    }
+                }
+            }
+            return E;
         }
-        return (String) invokeV.objValue;
+        return (im5) invokeV.objValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.f;
+        }
+        return invokeV.longValue;
+    }
+
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.w;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void A(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            this.i = j;
+        }
+    }
+
+    public void C(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.y = j;
+        }
+    }
+
+    public void D(long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeJ(1048579, this, j) != null) || this.z > 0) {
+            return;
+        }
+        this.z = j;
+    }
+
+    public void E(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.A = j;
+        }
+    }
+
+    public void F(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.g = j;
+        }
+    }
+
+    public void G(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.o = j;
+        }
+    }
+
+    public void H(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.n = j;
+        }
+    }
+
+    public void I(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.x = j;
+        }
+    }
+
+    public void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            this.r = j;
+        }
+    }
+
+    public void k(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+            this.s = j;
+        }
+    }
+
+    public void l(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
+            this.u = j;
+        }
+    }
+
+    public void m(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
+            this.t = j;
+        }
+    }
+
+    public void n(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
+            this.p = j;
+        }
+    }
+
+    public void o(long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeJ(1048597, this, j) != null) || this.v > 0) {
+            return;
+        }
+        this.v = j;
+        this.w = System.currentTimeMillis() - this.f;
+    }
+
+    public void q(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
+            this.k = j;
+        }
+    }
+
+    public void r(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
+            this.m = j;
+        }
+    }
+
+    public void s(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048601, this, j) == null) {
+            this.l = j;
+        }
+    }
+
+    public void t(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048602, this, j) == null) {
+            this.f = j;
+        }
+    }
+
+    public void u(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048603, this, j) == null) {
+            this.h = j;
+        }
+    }
+
+    public void v(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
+            this.B = j;
+        }
+    }
+
+    public void w(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048605, this, j) == null) {
+            this.C = j;
+        }
+    }
+
+    public void x(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048606, this, j) == null) {
+            this.D = j;
+            this.c = true;
+        }
+    }
+
+    public void y(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048607, this, j) == null) {
+            this.q = j;
+        }
+    }
+
+    public void z(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0170  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0172  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void f() {
+        int i;
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            long j = 0;
+            if (this.D - this.f <= 0 || this.d || this.v <= 0 || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
+                return;
+            }
+            long j2 = this.g - this.f;
+            long j3 = -1;
+            long j4 = this.t;
+            if (j4 > 0) {
+                j3 = this.u - j4;
+            }
+            this.d = true;
+            long j5 = this.D - this.C;
+            lh a = hm5.a();
+            a.b("procname", "main");
+            a.b("appc", String.valueOf(j2));
+            a.b("loadclass", String.valueOf(this.h));
+            a.b("sapiinit", String.valueOf(this.i));
+            a.b("acctinit", String.valueOf(this.A));
+            a.b("iminit", String.valueOf(this.y));
+            a.b("plugininit", String.valueOf(this.z));
+            a.b("patchloaded", String.valueOf(this.j));
+            a.b("naslibinit", String.valueOf(this.k));
+            a.b("websocketinit", String.valueOf(this.l));
+            a.b("settinginit", String.valueOf(this.m));
+            a.b("toastinit", String.valueOf(this.n));
+            a.b("tiebastaticinit", String.valueOf(this.o));
+            a.b("cdninit", String.valueOf(this.p));
+            a.b("messagesetinit", String.valueOf(this.q));
+            a.b("logores", String.valueOf(this.B));
+            if (b55.m().n("static_opt_open", 0) > 0) {
+                i = 1;
+            } else {
+                i = 0;
+            }
+            a.b("opttest", String.valueOf(i));
+            long j6 = this.r;
+            if (j6 <= 0) {
+                str = "1";
+            } else if (this.t <= 0 || j3 <= 0) {
+                str = "1";
+            } else {
+                a.b("adc", String.valueOf(j6 + this.s));
+                a.b(SpeedStatsMainTable.AD_SHOW, String.valueOf(j3));
+                a.b("adrequest", String.valueOf(this.s));
+                j = this.r + this.s + j3;
+                str = "1";
+                a.b("hasad", str);
+                a.b("tabc", String.valueOf(j5));
+                a.b("costt", String.valueOf(this.w - j));
+                if (this.b) {
+                    str2 = "0";
+                } else {
+                    str2 = str;
+                }
+                a.b("newinst", str2);
+                a.c("pluginloadsync", Boolean.valueOf(this.e));
+                a.b("hptotal", String.valueOf(this.v));
+                a.b("locationinit", String.valueOf(j2 + this.B + this.r + j3 + this.s + j5 + this.v));
+                a.b("userperceptiont", String.valueOf(this.x - j));
+                BdStatisticsManager.getInstance().performance("startt", a);
+                h();
+            }
+            a.b("hasad", "0");
+            long j7 = this.s;
+            if (j7 > 0) {
+                j = j7;
+            }
+            a.b("tabc", String.valueOf(j5));
+            a.b("costt", String.valueOf(this.w - j));
+            if (this.b) {
+            }
+            a.b("newinst", str2);
+            a.c("pluginloadsync", Boolean.valueOf(this.e));
+            a.b("hptotal", String.valueOf(this.v));
+            a.b("locationinit", String.valueOf(j2 + this.B + this.r + j3 + this.s + j5 + this.v));
+            a.b("userperceptiont", String.valueOf(this.x - j));
+            BdStatisticsManager.getInstance().performance("startt", a);
+            h();
+        }
+    }
+
+    public void g(long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048589, this, j) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow() && j > 0) {
+            lh a = hm5.a();
+            a.b("procname", "remote");
+            a.b("costt", String.valueOf(j));
+            BdStatisticsManager.getInstance().performance("startt", a);
+        }
     }
 }

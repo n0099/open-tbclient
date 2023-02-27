@@ -1,9 +1,5 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,30 +9,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class kz1 extends cz1 {
+public class kz1 extends jz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.zw1
+    @Override // com.baidu.tieba.px1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PhoneCallApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ActionConfigApi" : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kz1(@NonNull xw1 xw1Var) {
-        super(xw1Var);
+    public kz1(@NonNull nx1 nx1Var) {
+        super(nx1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xw1Var};
+            Object[] objArr = {nx1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((xw1) newInitContext.callArgs[0]);
+                super((nx1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -44,33 +40,23 @@ public class kz1 extends cz1 {
         }
     }
 
-    public w02 x(String str) {
-        InterceptResult invokeL;
+    public m12 x() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#makePhoneCall", false);
-            if (n()) {
-                w52.c("PhoneCallApi", "PhoneCallApi does not supported when app is invisible.");
-                return new w02(1001, "PhoneCallApi does not supported when app is invisible.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#isAllowedAdOpenAppSync", false);
+            if (m93.b0() == null) {
+                return new m12(1001, "swan app is null");
             }
-            Intent intent = new Intent("android.intent.action.DIAL");
-            Pair<w02, JSONObject> s = s(str);
-            w02 w02Var = (w02) s.first;
-            if (!w02Var.isSuccess()) {
-                return w02Var;
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("isAllowed", ts2.a().d());
+                return new m12(0, "success", jSONObject);
+            } catch (Exception e) {
+                m62.d("ActionConfigApi", e.getMessage(), e);
+                return new m12(1001, e.getMessage() + "");
             }
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (jSONObject != null) {
-                String optString = jSONObject.optString("phoneNumber");
-                if (!TextUtils.isEmpty(optString)) {
-                    intent.setData(Uri.fromParts("tel", optString, null));
-                }
-            }
-            if (fl3.g(getContext(), intent)) {
-                return w02.f();
-            }
-            return new w02(1001);
         }
-        return (w02) invokeL.objValue;
+        return (m12) invokeV.objValue;
     }
 }

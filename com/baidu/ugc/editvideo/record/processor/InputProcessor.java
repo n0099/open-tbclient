@@ -2,19 +2,13 @@ package com.baidu.ugc.editvideo.record.processor;
 
 import android.graphics.Bitmap;
 import android.opengl.GLES20;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.arface.utils.ThreadPool;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
-import com.baidu.tieba.lx9;
-import com.baidu.tieba.pg0;
-import com.baidu.tieba.xg0;
-import com.baidu.tieba.yx9;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.bh0;
+import com.baidu.tieba.i1a;
+import com.baidu.tieba.tg0;
+import com.baidu.tieba.v1a;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
@@ -23,141 +17,60 @@ import com.baidu.ugc.utils.FileUtils;
 import java.io.File;
 /* loaded from: classes7.dex */
 public class InputProcessor extends BaseEffectProcessor {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public int mTestSavePicCount;
 
-    public InputProcessor() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     private void testPic(int i, String str) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65537, this, i, str) == null) || (i2 = this.mTestSavePicCount) >= 10) {
-            return;
-        }
-        if (i2 == 0) {
-            yx9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.processor.InputProcessor.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ InputProcessor this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+        int i2 = this.mTestSavePicCount;
+        if (i2 < 10) {
+            if (i2 == 0) {
+                v1a.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.record.processor.InputProcessor.1
+                    @Override // java.lang.Runnable
+                    public void run() {
                         FileUtils.deleteFileOrDir(new File("/sdcard/zhmy/"));
                     }
+                });
+            }
+            final String str2 = str + "-test-" + this.mTestSavePicCount + "—" + System.currentTimeMillis() + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
+            FullFrameRect fullFrameRect = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+            GLES20.glViewport(0, 0, this.mPreviewWidth, this.mPreviewHeight);
+            GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+            fullFrameRect.drawFrame(i, GlUtil.IDENTITY_MATRIX);
+            final Bitmap saveOffscreenBitmap = MultiDataSourceUtil.saveOffscreenBitmap(this.mPreviewWidth, this.mPreviewHeight);
+            ThreadPool.b().e(new Runnable() { // from class: com.baidu.ugc.editvideo.record.processor.InputProcessor.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    FileUtils.saveBitmap2PNG("/sdcard/zhmy/", str2, saveOffscreenBitmap, 100);
                 }
             });
+            this.mTestSavePicCount++;
         }
-        FullFrameRect fullFrameRect = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
-        GLES20.glViewport(0, 0, this.mPreviewWidth, this.mPreviewHeight);
-        GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-        fullFrameRect.drawFrame(i, GlUtil.IDENTITY_MATRIX);
-        ThreadPool.b().e(new Runnable(this, str + "-test-" + this.mTestSavePicCount + "—" + System.currentTimeMillis() + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX, MultiDataSourceUtil.saveOffscreenBitmap(this.mPreviewWidth, this.mPreviewHeight)) { // from class: com.baidu.ugc.editvideo.record.processor.InputProcessor.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ InputProcessor this$0;
-            public final /* synthetic */ Bitmap val$bitmap;
-            public final /* synthetic */ String val$name;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, r7, r8};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.val$name = r7;
-                this.val$bitmap = r8;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    FileUtils.saveBitmap2PNG("/sdcard/zhmy/", this.val$name, this.val$bitmap, 100);
-                }
-            }
-        });
-        this.mTestSavePicCount++;
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(pg0 pg0Var, int i, float[] fArr) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, pg0Var, i, fArr)) == null) {
-            if (pg0Var == null || pg0Var.l() == null) {
-                return i;
-            }
-            MediaTrack mediaTrack = (MediaTrack) lx9.c(pg0Var.l(), 0);
-            boolean m = xg0.m(mediaTrack, "input_blank");
-            int f = !m ? pg0Var.f(mediaTrack, pg0Var.f(mediaTrack, pg0Var.f(mediaTrack, pg0Var.f(mediaTrack, pg0Var.f(mediaTrack, i, 1, null), 5, null), 2, null), 3, null), 4, null) : i;
-            if (m) {
-                for (int i2 = 1; i2 < pg0Var.l().size(); i2++) {
-                    MediaTrack mediaTrack2 = pg0Var.l().get(i2);
-                    if (mediaTrack2 != null && xg0.m(mediaTrack2, "multi_input")) {
-                        f = pg0Var.i(mediaTrack2, f, null);
-                    }
-                }
-                f = pg0Var.f(mediaTrack, f, 1, null);
-            }
-            return f == 0 ? i : f;
+    public int onProcessFrame(tg0 tg0Var, int i, float[] fArr) {
+        if (tg0Var == null || tg0Var.l() == null) {
+            return i;
         }
-        return invokeLIL.intValue;
+        MediaTrack mediaTrack = (MediaTrack) i1a.c(tg0Var.l(), 0);
+        boolean m = bh0.m(mediaTrack, "input_blank");
+        int g = !m ? tg0Var.g(mediaTrack, tg0Var.g(mediaTrack, tg0Var.g(mediaTrack, tg0Var.g(mediaTrack, tg0Var.g(mediaTrack, i, 1, null), 5, null), 2, null), 3, null), 4, null) : i;
+        if (m) {
+            for (int i2 = 1; i2 < tg0Var.l().size(); i2++) {
+                MediaTrack mediaTrack2 = tg0Var.l().get(i2);
+                if (mediaTrack2 != null && bh0.m(mediaTrack2, "multi_input")) {
+                    g = tg0Var.j(mediaTrack2, g, null);
+                }
+            }
+            g = tg0Var.g(mediaTrack, g, 1, null);
+        }
+        return g == 0 ? i : g;
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.BaseEffectProcessor
     public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.BaseEffectProcessor
     public void releaseInGlThread() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
     }
 }

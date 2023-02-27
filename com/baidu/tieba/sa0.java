@@ -1,234 +1,183 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Uri;
+import android.util.DisplayMetrics;
+import android.view.View;
+import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.Set;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.Intrinsics;
+import java.text.DecimalFormat;
+import java.util.HashSet;
 /* loaded from: classes6.dex */
-public class sa0 implements SharedPreferences {
+public class sa0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
 
-    @JvmOverloads
-    public sa0(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = context.getSharedPreferences(str, 0);
-    }
-
-    @Override // android.content.SharedPreferences
-    public boolean contains(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            return sharedPreferences.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            sharedPreferences.edit().remove(str).apply();
-        }
-    }
-
-    @Override // android.content.SharedPreferences
-    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, onSharedPreferenceChangeListener) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            sharedPreferences.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
-        }
-    }
-
-    @Override // android.content.SharedPreferences
-    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, onSharedPreferenceChangeListener) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            sharedPreferences.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
-        }
-    }
-
-    public final void d(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            sharedPreferences.edit().putBoolean(str, z).apply();
-        }
-    }
-
-    public final void e(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            sharedPreferences.edit().putLong(str, j).apply();
-        }
-    }
-
-    public final void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            sharedPreferences.edit().putString(str, str2).apply();
-        }
-    }
-
-    @Override // android.content.SharedPreferences
-    public boolean getBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            return sharedPreferences.getBoolean(str, z);
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public float getFloat(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            return sharedPreferences.getFloat(str, f);
-        }
-        return invokeLF.floatValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public int getInt(String str, int i) {
+    public static String a(Context context, int i) {
         InterceptResult invokeLI;
+        String string;
+        Float valueOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
+            if (i < 0) {
+                return "";
             }
-            return sharedPreferences.getInt(str, i);
+            long j = i;
+            if (j < 10000) {
+                return i + context.getString(R.string.obfuscated_res_0x7f0f0abe);
+            }
+            if (j < 100000000) {
+                string = context.getString(R.string.obfuscated_res_0x7f0f0abb);
+                valueOf = Float.valueOf(i / 10000.0f);
+            } else {
+                string = context.getString(R.string.obfuscated_res_0x7f0f0ab5);
+                valueOf = Float.valueOf(i / 1.0E8f);
+            }
+            DecimalFormat decimalFormat = new DecimalFormat("####.#");
+            return decimalFormat.format(valueOf) + string;
         }
-        return invokeLI.intValue;
+        return (String) invokeLI.objValue;
     }
 
-    @Override // android.content.SharedPreferences
-    public long getLong(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            return sharedPreferences.getLong(str, j);
-        }
-        return invokeLJ.longValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public String getString(String str, String str2) {
+    public static String j(String str, String... strArr) {
         InterceptResult invokeLL;
+        int indexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, strArr)) == null) {
+            if (strArr == null) {
+                return str;
             }
-            return sharedPreferences.getString(str, str2);
+            HashSet hashSet = new HashSet(Uri.parse(str).getQueryParameterNames());
+            for (String str2 : strArr) {
+                hashSet.remove(str2);
+            }
+            StringBuilder sb = new StringBuilder();
+            if (str.contains("?")) {
+                sb.append(str.substring(0, str.indexOf("?")));
+            } else {
+                sb.append(str);
+            }
+            sb.append("?");
+            if (hashSet.size() > 0 && (indexOf = str.indexOf("&")) > 0) {
+                sb.append(str.substring(indexOf));
+            }
+            return sb.toString();
         }
         return (String) invokeLL.objValue;
     }
 
-    @Override // android.content.SharedPreferences
-    public Set<String> getStringSet(String str, Set<String> set) {
-        InterceptResult invokeLL;
+    public static int b(Context context, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, set)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            return sharedPreferences.getStringSet(str, set);
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, context, f)) == null) {
+            return (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f);
         }
-        return (Set) invokeLL.objValue;
+        return invokeLF.intValue;
     }
 
-    @Override // android.content.SharedPreferences
-    public SharedPreferences.Editor edit() {
-        InterceptResult invokeV;
+    public static float c(Resources resources, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            return sharedPreferences.edit();
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, resources, f)) == null) {
+            return (f * resources.getDisplayMetrics().density) + 0.5f;
         }
-        return (SharedPreferences.Editor) invokeV.objValue;
+        return invokeLF.floatValue;
     }
 
-    @Override // android.content.SharedPreferences
-    public Map<String, ?> getAll() {
-        InterceptResult invokeV;
+    public static int i(Context context, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences == null) {
-                Intrinsics.throwNpe();
-            }
-            return sharedPreferences.getAll();
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65544, null, context, f)) == null) {
+            return (int) ((f / context.getResources().getDisplayMetrics().density) + 0.5f);
         }
-        return (Map) invokeV.objValue;
+        return invokeLF.intValue;
+    }
+
+    @SuppressLint({"MissingPermission"})
+    public static NetworkInfo d(Context context) {
+        InterceptResult invokeL;
+        ConnectivityManager connectivityManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            try {
+                connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
+            } catch (SecurityException e) {
+                e.printStackTrace();
+                connectivityManager = null;
+            }
+            if (connectivityManager == null) {
+                return null;
+            }
+            return connectivityManager.getActiveNetworkInfo();
+        }
+        return (NetworkInfo) invokeL.objValue;
+    }
+
+    public static int e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            return displayMetrics.widthPixels;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            NetworkInfo d = d(context);
+            if (d != null && d.isConnectedOrConnecting()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            NetworkInfo d = d(context);
+            if (d != null && d.isAvailable() && d.getType() == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(View view2, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, view2, i, i2)) == null) {
+            if (view2 == null) {
+                return false;
+            }
+            int[] iArr = new int[2];
+            view2.getLocationOnScreen(iArr);
+            int i3 = iArr[0];
+            int i4 = iArr[1];
+            int measuredWidth = view2.getMeasuredWidth() + i3;
+            int measuredHeight = view2.getMeasuredHeight() + i4;
+            if (i2 < i4 || i2 > measuredHeight || i < i3 || i > measuredWidth) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLII.booleanValue;
     }
 }

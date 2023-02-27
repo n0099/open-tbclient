@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,176 +14,64 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class d36 {
     public static /* synthetic */ Interceptable $ic;
+    public static d36 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public List<String> b;
-    public List<SdkLiveInfoData> c;
-    public n36 d;
-    public List<Cdo> e;
-    public boolean f;
-    public String g;
-    public String h;
+    public List<StatisticItem> a;
 
-    public d36(g26 g26Var, String str, String str2) {
+    public d36() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g26Var, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = false;
-        this.f = false;
-        this.b = new ArrayList();
-        this.c = new ArrayList();
-        this.e = new ArrayList();
-        if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-            this.f = true;
-        }
-        this.g = str;
-        this.h = str2;
-        a(g26Var);
-    }
-
-    public boolean a(g26 g26Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, g26Var)) == null) {
-            if (g26Var == null) {
-                return false;
-            }
-            boolean e = e(g26Var.b);
-            this.a = g26Var.a;
-            return e;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void g(n36 n36Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, n36Var) == null) {
-            this.d = n36Var;
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = false;
-            List<String> list = this.b;
-            if (list != null) {
-                list.clear();
-            }
-            List<SdkLiveInfoData> list2 = this.c;
-            if (list2 != null) {
-                list2.clear();
-            }
-            List<Cdo> list3 = this.e;
-            if (list3 != null) {
-                list3.clear();
             }
         }
     }
 
-    public boolean f() {
+    public static d36 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final ArrayList<Cdo> c(List<SdkLiveInfoData> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-            ArrayList<Cdo> arrayList = new ArrayList<>();
-            int size = list.size();
-            for (int i = 0; i < size; i += 2) {
-                c26 c26Var = new c26();
-                p16 p16Var = new p16();
-                p16Var.a = list.get(i);
-                p16Var.f = true;
-                p16Var.b = this.f;
-                p16Var.c = this.g;
-                p16Var.d = this.h;
-                int i2 = i + 1;
-                p16Var.e = i2;
-                c26Var.a = p16Var;
-                if (i2 < size) {
-                    p16 p16Var2 = new p16();
-                    p16Var2.a = list.get(i2);
-                    p16Var2.b = this.f;
-                    p16Var2.c = this.g;
-                    p16Var2.d = this.h;
-                    p16Var2.e = i + 2;
-                    c26Var.b = p16Var2;
-                    p16Var2.g = true;
-                } else {
-                    p16Var.f = false;
-                    p16Var.h = true;
-                }
-                arrayList.add(c26Var);
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public List<Cdo> d() {
-        InterceptResult invokeV;
-        pd6 pd6Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(this.e)) {
-                arrayList.addAll(this.e);
-            }
-            n36 n36Var = this.d;
-            if (n36Var != null && (pd6Var = n36Var.a) != null && !ListUtils.isEmpty(pd6Var.c())) {
-                arrayList.add(0, this.d);
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final boolean e(List<SdkLiveInfoData> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return false;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (SdkLiveInfoData sdkLiveInfoData : list) {
-                if (sdkLiveInfoData != null) {
-                    String str = sdkLiveInfoData.liveId;
-                    if (!this.b.contains(str)) {
-                        arrayList.add(sdkLiveInfoData);
-                        this.b.add(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (d36.class) {
+                    if (b == null) {
+                        b = new d36();
                     }
                 }
             }
-            if (ListUtils.isEmpty(arrayList)) {
-                return false;
-            }
-            this.c.addAll(arrayList);
-            ArrayList<Cdo> c = c(this.c);
-            this.e = c;
-            if (ListUtils.isEmpty(c)) {
-                return false;
-            }
-            return true;
+            return b;
         }
-        return invokeL.booleanValue;
+        return (d36) invokeV.objValue;
+    }
+
+    public void a(StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null) {
+            return;
+        }
+        if (this.a == null) {
+            this.a = new ArrayList();
+        }
+        List<StatisticItem> list = this.a;
+        if (list != null) {
+            list.add(statisticItem);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || ListUtils.getCount(this.a) == 0) {
+            return;
+        }
+        for (StatisticItem statisticItem : this.a) {
+            if (statisticItem != null) {
+                TiebaStatic.log(statisticItem);
+            }
+        }
+        this.a.clear();
     }
 }

@@ -9,7 +9,7 @@ public final class ce {
     public static void tl() {
         dd.tm().put(com.kwad.sdk.core.webview.a.a.a.class, new d());
         dd.tm().put(b.a.class, new en());
-        dd.tm().put(a.C0641a.class, new cm());
+        dd.tm().put(a.C0631a.class, new cm());
         dd.tm().put(com.kwad.sdk.core.webview.a.a.b.class, new aq());
         dd.tm().put(com.kwad.sdk.core.webview.a.a.c.class, new dj());
     }

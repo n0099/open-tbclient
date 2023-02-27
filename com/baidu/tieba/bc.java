@@ -79,9 +79,9 @@ public abstract class bc<M extends Message<?>, T extends MessageTask, R extends 
         this.a = messageManager;
     }
 
-    public void s(BdUniqueId bdUniqueId) {
+    public void t(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, bdUniqueId) == null) {
             ej.c();
             if (bdUniqueId == null) {
                 return;
@@ -101,9 +101,9 @@ public abstract class bc<M extends Message<?>, T extends MessageTask, R extends 
         }
     }
 
-    public void t(MessageListener<?> messageListener) {
+    public void u(MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, messageListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, messageListener) == null) {
             ej.c();
             if (messageListener == null) {
                 return;
@@ -230,16 +230,27 @@ public abstract class bc<M extends Message<?>, T extends MessageTask, R extends 
         }
     }
 
-    public void u(int i) {
+    public void s(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            ej.c();
+            if (i != 0) {
+                b(i);
+                this.d.remove(i);
+            }
+        }
+    }
+
+    public void v(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             this.c.remove(i);
         }
     }
 
-    public synchronized void v(int i) {
+    public synchronized void w(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             synchronized (this) {
                 this.b.remove(i);
             }

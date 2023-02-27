@@ -25,12 +25,12 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a39;
+import com.baidu.tieba.b39;
+import com.baidu.tieba.d39;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.i05;
 import com.baidu.tieba.jf;
-import com.baidu.tieba.oz8;
-import com.baidu.tieba.pz8;
-import com.baidu.tieba.rz8;
+import com.baidu.tieba.p15;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
     public static String h = "st_type";
     public transient /* synthetic */ FieldHolder $fh;
     public ProgressBar a;
-    public oz8 b;
+    public a39 b;
     public b c;
     public ListView d;
     public ViewGroup e;
@@ -93,18 +93,18 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            ArrayList<rz8> c;
-            rz8 rz8Var;
+            ArrayList<d39> c;
+            d39 d39Var;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || (c = this.a.b.c()) == null || i >= c.size() || (rz8Var = c.get(i)) == null) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || (c = this.a.b.c()) == null || i >= c.size() || (d39Var = c.get(i)) == null) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(this.a.getPageContext().getPageActivity(), rz8Var.b, rz8Var.a, rz8Var.c)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(this.a.getPageContext().getPageActivity(), d39Var.b, d39Var.a, d39Var.c)));
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<Object, pz8, pz8> {
+    public class b extends BdAsyncTask<Object, b39, b39> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -132,21 +132,21 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(pz8 pz8Var) {
+        public void onPostExecute(b39 b39Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pz8Var) == null) && pz8Var != null) {
-                this.b.A1(pz8Var, false);
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b39Var) == null) && b39Var != null) {
+                this.b.A1(b39Var, false);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
-        public void onProgressUpdate(pz8... pz8VarArr) {
+        public void onProgressUpdate(b39... b39VarArr) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, pz8VarArr) == null) {
-                super.onProgressUpdate(pz8VarArr);
-                this.b.A1(pz8VarArr[0], false);
+            if (interceptable == null || interceptable.invokeL(1048579, this, b39VarArr) == null) {
+                super.onProgressUpdate(b39VarArr);
+                this.b.A1(b39VarArr[0], false);
             }
         }
 
@@ -171,20 +171,20 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public pz8 doInBackground(Object... objArr) {
+        public b39 doInBackground(Object... objArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                pz8 pz8Var = new pz8();
-                i05.d();
-                jf<String> e = i05.e("tb.first_dir");
+                b39 b39Var = new b39();
+                p15.d();
+                jf<String> e = p15.e("tb.first_dir");
                 String str = e.get("first_dir_cache_key");
                 boolean z = true;
                 boolean z2 = false;
                 if (str != null) {
                     if (!str.equals("")) {
-                        pz8Var.e(str);
-                        publishProgress(pz8Var);
+                        b39Var.e(str);
+                        publishProgress(b39Var);
                         z2 = z;
                         this.a = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/forum/forumdir");
                         if (this.b.f != null) {
@@ -192,7 +192,7 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
                         }
                         String postNetData = this.a.postNetData();
                         if (!this.a.getNetContext().getResponse().isRequestSuccess()) {
-                            pz8Var.e(postNetData);
+                            b39Var.e(postNetData);
                             String trim = (postNetData + "").trim();
                             if (trim.equals((str + "").trim())) {
                                 if (z2) {
@@ -202,9 +202,9 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
                                 e.e("first_dir_cache_key", postNetData, 86400000L);
                             }
                         } else {
-                            pz8Var.g(this.a.getErrorString());
+                            b39Var.g(this.a.getErrorString());
                         }
-                        return pz8Var;
+                        return b39Var;
                     }
                 }
                 z = false;
@@ -215,9 +215,9 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
                 String postNetData2 = this.a.postNetData();
                 if (!this.a.getNetContext().getResponse().isRequestSuccess()) {
                 }
-                return pz8Var;
+                return b39Var;
             }
-            return (pz8) invokeL.objValue;
+            return (b39) invokeL.objValue;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -295,7 +295,7 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0136);
+            setContentView(R.layout.obfuscated_res_0x7f0d0137);
             z1();
             D1(bundle);
             y1();
@@ -303,20 +303,20 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
         }
     }
 
-    public void A1(pz8 pz8Var, boolean z) {
+    public void A1(b39 b39Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, pz8Var, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, b39Var, z) == null) {
             this.a.setVisibility(8);
             this.d.setEnabled(true);
             this.c = null;
             if (z) {
                 return;
             }
-            if (pz8Var.c()) {
-                showToast(pz8Var.b());
+            if (b39Var.c()) {
+                showToast(b39Var.b());
                 return;
             }
-            this.b.d(pz8Var.h());
+            this.b.d(b39Var.h());
             this.d.setVisibility(4);
             this.b.notifyDataSetChanged();
             this.d.setVisibility(0);
@@ -358,7 +358,7 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
             if (viewGroup != null) {
                 ViewHelper.processSkin(viewGroup, i);
             }
-            SkinManager.setFrsPBBgColor(findViewById(R.id.obfuscated_res_0x7f091db6), i);
+            SkinManager.setFrsPBBgColor(findViewById(R.id.obfuscated_res_0x7f091dfa), i);
         }
     }
 
@@ -369,14 +369,14 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
             this.g = navigationBar;
             navigationBar.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f02ed));
             this.g.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.d = (ListView) findViewById(R.id.obfuscated_res_0x7f09141d);
-            this.b = new oz8(getPageContext().getPageActivity(), new pz8(), true);
+            this.d = (ListView) findViewById(R.id.obfuscated_res_0x7f09145e);
+            this.b = new a39(getPageContext().getPageActivity(), new b39(), true);
             TextView textView = new TextView(getActivity());
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + ej.g(getActivity(), R.dimen.obfuscated_res_0x7f07026f)));
             this.d.addHeaderView(textView);
             this.d.setAdapter((ListAdapter) this.b);
-            this.a = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091bd5);
-            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0903c0);
+            this.a = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091c06);
+            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0903fc);
             this.e = viewGroup;
             ViewHelper.prepareNewView(viewGroup);
         }

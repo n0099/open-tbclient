@@ -3,48 +3,41 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.CharArrayWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.math.BigInteger;
 /* loaded from: classes5.dex */
 public class o50 {
     public static /* synthetic */ Interceptable $ic;
+    public static byte[] a;
+    public static byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(InputStream inputStream, OutputStream outputStream, int i) throws IOException {
+    public static byte[] a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65536, null, inputStream, outputStream, i) == null) {
-            byte[] bArr = new byte[i];
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (read > 0) {
-                    outputStream.write(bArr, 0, read);
-                } else {
-                    return;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            byte[] bArr = b;
+            if (bArr != null) {
+                return bArr;
             }
+            byte[] byteArray = new BigInteger(n50.c).modPow(new BigInteger(n50.d), new BigInteger(n50.e)).toByteArray();
+            b = byteArray;
+            return byteArray;
         }
+        return (byte[]) invokeV.objValue;
     }
 
-    public static String b(InputStream inputStream, String str) throws IOException {
-        InterceptResult invokeLL;
+    public static byte[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, inputStream, str)) == null) {
-            CharArrayWriter charArrayWriter = new CharArrayWriter();
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, str);
-            char[] cArr = new char[8192];
-            while (true) {
-                int read = inputStreamReader.read(cArr);
-                if (read > 0) {
-                    charArrayWriter.write(cArr, 0, read);
-                } else {
-                    return charArrayWriter.toString();
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            byte[] bArr = a;
+            if (bArr != null) {
+                return bArr;
             }
-        } else {
-            return (String) invokeLL.objValue;
+            byte[] byteArray = new BigInteger(n50.a).modPow(new BigInteger(n50.b), new BigInteger(n50.e)).toByteArray();
+            a = byteArray;
+            return byteArray;
         }
+        return (byte[]) invokeV.objValue;
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
-import com.alipay.sdk.encrypt.a;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,9 +9,9 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.tieba.ah;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.lg5;
 import com.baidu.tieba.on;
 import com.baidu.tieba.xg;
-import com.baidu.tieba.ye5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -173,7 +172,7 @@ public class LocalFileImageLoaderProc implements ah<on> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            on checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), TbImageMemoryCache.n().t(toCacheKey(str)), i, i2);
+            on checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), TbImageMemoryCache.p().w(toCacheKey(str)), i, i2);
             if (checkIsValidPicMemoryCache != null && checkIsValidPicMemoryCache.p() != null && !checkIsValidPicMemoryCache.p().isRecycled()) {
                 return checkIsValidPicMemoryCache;
             }
@@ -186,8 +185,8 @@ public class LocalFileImageLoaderProc implements ah<on> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            ImageOperation g = ye5.g(this.width, this.height);
-            return "image_" + str + ':' + g.actionName + a.h + g.actionParam;
+            ImageOperation g = lg5.g(this.width, this.height);
+            return "image_" + str + ':' + g.actionName + '=' + g.actionParam;
         }
         return (String) invokeL.objValue;
     }
@@ -200,7 +199,7 @@ public class LocalFileImageLoaderProc implements ah<on> {
             if (onVar.u()) {
                 onVar.A(i);
                 onVar.z(i2);
-                TbImageMemoryCache.n().f(toCacheKey(str), onVar);
+                TbImageMemoryCache.p().g(toCacheKey(str), onVar);
             }
         }
     }

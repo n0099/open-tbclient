@@ -1,100 +1,89 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.im.db.pojo.ApkDetailPojo;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import protobuf.Item;
+import tbclient.TopicList.MediaTopic;
+import tbclient.VideoInfo;
 /* loaded from: classes5.dex */
-public class ml7 {
+public class ml7 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Long a;
-    public String b;
-    public Double c;
-    public String d;
-    public List<String> e;
-    public Double f;
-    public Integer g;
-    public String h;
-    public String i;
-    public String j;
-    public Integer k;
-    public Integer l;
-    public String m;
-    public String n;
-    public ApkDetailPojo o;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947976593, "Lcom/baidu/tieba/ml7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947976593, "Lcom/baidu/tieba/ml7;");
+                return;
+            }
+        }
+        a = BdUniqueId.gen();
+    }
 
     public ml7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static ml7 a(Item item) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, item)) == null) {
-            if (item == null) {
-                return null;
-            }
-            ml7 ml7Var = new ml7();
-            ml7Var.a = item.itemId;
-            ml7Var.b = item.itemName;
-            ml7Var.c = item.iconSize;
-            ml7Var.d = item.iconUrl;
-            ml7Var.e = item.tags;
-            ml7Var.f = item.score;
-            ml7Var.g = item.star;
-            ml7Var.h = item.buttonName;
-            ml7Var.i = item.buttonLink;
-            ml7Var.j = item.itemAppid;
-            ml7Var.k = item.categoryId;
-            ml7Var.l = item.buttonLinkType;
-            ml7Var.m = item.apkName;
-            ml7Var.n = item.forumName;
-            ml7Var.o = ApkDetailPojo.G(item.apkDetail);
-            return ml7Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return a;
         }
-        return (ml7) invokeL.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public static ml7 b(tbclient.Item item) {
-        InterceptResult invokeL;
+    public void a(MediaTopic mediaTopic) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, item)) == null) {
-            if (item == null) {
-                return null;
-            }
-            ml7 ml7Var = new ml7();
-            ml7Var.a = item.item_id;
-            ml7Var.b = item.item_name;
-            ml7Var.c = item.icon_size;
-            ml7Var.d = item.icon_url;
-            ml7Var.e = item.tags;
-            ml7Var.f = item.score;
-            ml7Var.g = item.star;
-            ml7Var.h = item.button_name;
-            ml7Var.i = item.button_link;
-            ml7Var.j = item.item_appid;
-            ml7Var.k = item.category_id;
-            ml7Var.l = item.button_link_type;
-            ml7Var.m = item.apk_name;
-            ml7Var.n = item.forum_name;
-            ml7Var.o = ApkDetailPojo.H(item.apk_detail);
-            return ml7Var;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, mediaTopic) != null) || mediaTopic == null) {
+            return;
         }
-        return (ml7) invokeL.objValue;
+        mediaTopic.topic_id.longValue();
+        String str = mediaTopic.topic_name;
+        String str2 = mediaTopic.pic_url;
+        VideoInfo videoInfo = mediaTopic.video_info;
+        if (videoInfo != null && videoInfo.video_duration.intValue() > 0) {
+            b(mediaTopic.video_info);
+        }
+    }
+
+    public void b(VideoInfo videoInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoInfo) == null) {
+            String str = videoInfo.video_md5;
+            String str2 = videoInfo.video_url;
+            videoInfo.video_duration.intValue();
+            videoInfo.video_width.intValue();
+            videoInfo.video_height.intValue();
+            String str3 = videoInfo.thumbnail_url;
+            videoInfo.thumbnail_width.intValue();
+            videoInfo.thumbnail_height.intValue();
+            videoInfo.video_length.intValue();
+            videoInfo.play_count.intValue();
+        }
     }
 }

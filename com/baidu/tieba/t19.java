@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,13 +13,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class t19 extends ThreadData {
+public class t19 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public xz4 a;
-    public zz4 b;
-    public boolean c;
+    public String a;
+    public NetWork b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +33,7 @@ public class t19 extends ThreadData {
                 return;
             }
         }
-        d = BdUniqueId.gen();
+        c = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
     }
 
     public t19() {
@@ -48,43 +49,86 @@ public class t19 extends ThreadData {
                 return;
             }
         }
-        this.c = false;
+        this.b = null;
     }
 
-    public xz4 c() {
-        InterceptResult invokeV;
+    public void a() {
+        NetWork netWork;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (netWork = this.b) != null) {
+            netWork.cancelNetConnect();
         }
-        return (xz4) invokeV.objValue;
     }
 
-    public zz4 f() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            NetWork netWork = this.b;
+            if (netWork != null) {
+                return netWork.getErrorString();
+            }
+            return null;
         }
-        return (zz4) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return d;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
+            NetWork netWork = this.b;
+            if (netWork != null) {
+                return netWork.getNetContext().getResponse().isRequestSuccess();
+            }
+            return false;
         }
         return invokeV.booleanValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public String e(String str) {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            if (currentAccountObj != null) {
+                str2 = currentAccountObj.getID();
+            } else {
+                str2 = null;
+            }
+            NetWork netWork = new NetWork(c);
+            this.b = netWork;
+            netWork.addPostData("user_id", str2);
+            this.b.addPostData("forum_ids", str);
+            this.b.addPostData("authsid", this.a);
+            this.b.getNetContext().getRequest().mNeedBackgroundLogin = true;
+            this.b.getNetContext().getRequest().mIsNeedTbs = true;
+            this.b.setNeedSig(true);
+            return this.b.postNetData();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            NetWork netWork = new NetWork(c);
+            this.b = netWork;
+            netWork.addPostData("authsid", this.a);
+            this.b.getNetContext().getRequest().mNeedBackgroundLogin = true;
+            this.b.getNetContext().getRequest().mIsNeedTbs = true;
+            this.b.setNeedSig(true);
+            return this.b.postNetData();
+        }
+        return (String) invokeV.objValue;
     }
 }

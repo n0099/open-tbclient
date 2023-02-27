@@ -16,8 +16,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.jl5;
-import com.baidu.tieba.kl5;
+import com.baidu.tieba.xm5;
+import com.baidu.tieba.ym5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ public class SusPendedView extends LinearLayout {
     public LinearLayout a;
     public TranView b;
     public LinearLayout c;
-    public kl5 d;
+    public ym5 d;
     public float e;
     public float f;
     public boolean g;
@@ -191,10 +191,10 @@ public class SusPendedView extends LinearLayout {
         }
     }
 
-    public void setContentViewTop(kl5 kl5Var) {
+    public void setContentViewTop(ym5 ym5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, kl5Var) == null) {
-            this.d = kl5Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, ym5Var) == null) {
+            this.d = ym5Var;
         }
     }
 
@@ -230,11 +230,11 @@ public class SusPendedView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            kl5 kl5Var = this.d;
-            if (kl5Var == null) {
+            ym5 ym5Var = this.d;
+            if (ym5Var == null) {
                 return false;
             }
-            return kl5Var.x();
+            return ym5Var.x();
         }
         return invokeV.booleanValue;
     }
@@ -403,9 +403,9 @@ public class SusPendedView extends LinearLayout {
                 float f = this.f;
                 float f2 = this.e;
                 if (f > f2 && this.g) {
-                    kl5 kl5Var = this.d;
-                    if (kl5Var instanceof jl5) {
-                        ((jl5) kl5Var).L(f - f2);
+                    ym5 ym5Var = this.d;
+                    if (ym5Var instanceof xm5) {
+                        ((xm5) ym5Var).L(f - f2);
                     }
                     LinearLayout linearLayout = this.a;
                     float f3 = this.f;

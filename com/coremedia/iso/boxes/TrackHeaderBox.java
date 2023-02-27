@@ -22,6 +22,7 @@ import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.util.DateHelper;
 import com.googlecode.mp4parser.util.Matrix;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.nio.ByteBuffer;
 import java.util.Date;
 import org.aspectj.lang.JoinPoint;
@@ -513,7 +514,7 @@ public class TrackHeaderBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_11, this, this));
-            return "TrackHeaderBox[creationTime=" + getCreationTime() + ";modificationTime=" + getModificationTime() + ";trackId=" + getTrackId() + ";duration=" + getDuration() + ";layer=" + getLayer() + ";alternateGroup=" + getAlternateGroup() + ";volume=" + getVolume() + ";matrix=" + this.matrix + ";" + BigImageLoaderProc.NCDN_PER + getWidth() + ";height=" + getHeight() + PreferencesUtil.RIGHT_MOUNT;
+            return "TrackHeaderBox[creationTime=" + getCreationTime() + ParamableElem.DIVIDE_PARAM + "modificationTime=" + getModificationTime() + ParamableElem.DIVIDE_PARAM + "trackId=" + getTrackId() + ParamableElem.DIVIDE_PARAM + "duration=" + getDuration() + ParamableElem.DIVIDE_PARAM + "layer=" + getLayer() + ParamableElem.DIVIDE_PARAM + "alternateGroup=" + getAlternateGroup() + ParamableElem.DIVIDE_PARAM + "volume=" + getVolume() + ParamableElem.DIVIDE_PARAM + "matrix=" + this.matrix + ParamableElem.DIVIDE_PARAM + BigImageLoaderProc.NCDN_PER + getWidth() + ParamableElem.DIVIDE_PARAM + "height=" + getHeight() + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

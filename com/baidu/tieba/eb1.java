@@ -1,9 +1,93 @@
 package com.baidu.tieba;
+
+import android.text.TextUtils;
+import android.webkit.JavascriptInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface eb1 {
-    void a(String str, String str2);
+public class eb1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public a a;
+    public db1 b;
+    public int c;
 
-    void cancel();
+    /* loaded from: classes4.dex */
+    public interface a {
+        String a();
+    }
 
-    void setHttpAuthUsernamePassword(String str, String str2, String str3, String str4);
+    public eb1(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = 0;
+        this.c = i;
+    }
+
+    public void a(db1 db1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, db1Var) == null) {
+            this.b = db1Var;
+        }
+    }
+
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.a = aVar;
+        }
+    }
+
+    @JavascriptInterface
+    public void getPerformanceTiming(String str) {
+        db1 db1Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (db1Var = this.b) != null) {
+            db1Var.b(str);
+        }
+    }
+
+    @JavascriptInterface
+    public String getSysHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            a aVar = this.a;
+            if (aVar == null) {
+                return "";
+            }
+            String a2 = aVar.a();
+            if (TextUtils.isEmpty(a2)) {
+                return "";
+            }
+            return a2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @JavascriptInterface
+    public int pageType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
 }

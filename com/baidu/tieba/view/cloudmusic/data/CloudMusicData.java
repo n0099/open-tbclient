@@ -4,13 +4,13 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.Serializable;
 import java.util.List;
 /* loaded from: classes6.dex */
@@ -19,7 +19,7 @@ public class CloudMusicData extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
     @SerializedName("music_tag_list")
     public List<MusicTagList> music_tag_list;
-    @SerializedName("tag_list")
+    @SerializedName(PushConstants.SUB_TAGS_STATUS_LIST)
     public List<TagList> tag_list;
 
     /* loaded from: classes6.dex */
@@ -31,7 +31,7 @@ public class CloudMusicData extends OrmObject {
         public List<MusicList> music_list;
         @SerializedName("page")
         public Page page;
-        @SerializedName(TiebaStatic.Params.TAG_ID)
+        @SerializedName("tag_id")
         public int tag_id;
 
         /* loaded from: classes6.dex */

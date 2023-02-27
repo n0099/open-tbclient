@@ -1,14 +1,5 @@
 package com.google.zxing.client.result;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,11 +11,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
 public final class CalendarParsedResult extends ParsedResult {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Pattern DATE_TIME;
-    public static final Pattern RFC2445_DURATION;
-    public static final long[] RFC2445_DURATION_FIELD_UNITS;
-    public transient /* synthetic */ FieldHolder $fh;
     public final String[] attendees;
     public final String description;
     public final Date end;
@@ -36,63 +22,68 @@ public final class CalendarParsedResult extends ParsedResult {
     public final Date start;
     public final boolean startAllDay;
     public final String summary;
+    public static final Pattern RFC2445_DURATION = Pattern.compile("P(?:(\\d+)W)?(?:(\\d+)D)?(?:T(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+)S)?)?");
+    public static final long[] RFC2445_DURATION_FIELD_UNITS = {604800000, 86400000, 3600000, 60000, 1000};
+    public static final Pattern DATE_TIME = Pattern.compile("[0-9]{8}(T[0-9]{6}Z?)?");
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2063781658, "Lcom/google/zxing/client/result/CalendarParsedResult;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(2063781658, "Lcom/google/zxing/client/result/CalendarParsedResult;");
-                return;
-            }
-        }
-        RFC2445_DURATION = Pattern.compile("P(?:(\\d+)W)?(?:(\\d+)D)?(?:T(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+)S)?)?");
-        RFC2445_DURATION_FIELD_UNITS = new long[]{604800000, 86400000, 3600000, 60000, 1000};
-        DATE_TIME = Pattern.compile("[0-9]{8}(T[0-9]{6}Z?)?");
+    public static DateFormat buildDateFormat() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd", Locale.ENGLISH);
+        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+        return simpleDateFormat;
     }
 
-    @Override // com.google.zxing.client.result.ParsedResult
-    public String getDisplayResult() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StringBuilder sb = new StringBuilder(100);
-            ParsedResult.maybeAppend(this.summary, sb);
-            ParsedResult.maybeAppend(format(this.startAllDay, this.start), sb);
-            ParsedResult.maybeAppend(format(this.endAllDay, this.end), sb);
-            ParsedResult.maybeAppend(this.location, sb);
-            ParsedResult.maybeAppend(this.organizer, sb);
-            ParsedResult.maybeAppend(this.attendees, sb);
-            ParsedResult.maybeAppend(this.description, sb);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
+    public static DateFormat buildDateTimeFormat() {
+        return new SimpleDateFormat("yyyyMMdd'T'HHmmss", Locale.ENGLISH);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public String[] getAttendees() {
+        return this.attendees;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public Date getEnd() {
+        return this.end;
+    }
+
+    public double getLatitude() {
+        return this.latitude;
+    }
+
+    public String getLocation() {
+        return this.location;
+    }
+
+    public double getLongitude() {
+        return this.longitude;
+    }
+
+    public String getOrganizer() {
+        return this.organizer;
+    }
+
+    public Date getStart() {
+        return this.start;
+    }
+
+    public String getSummary() {
+        return this.summary;
+    }
+
+    public boolean isEndAllDay() {
+        return this.endAllDay;
+    }
+
+    public boolean isStartAllDay() {
+        return this.startAllDay;
+    }
+
     public CalendarParsedResult(String str, String str2, String str3, String str4, String str5, String str6, String[] strArr, String str7, double d, double d2) {
         super(ParsedResultType.CALENDAR);
         boolean z;
         Date date;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4, str5, str6, strArr, str7, Double.valueOf(d), Double.valueOf(d2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ParsedResultType) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.summary = str;
         try {
             this.start = parseDate(str2);
@@ -130,188 +121,67 @@ public final class CalendarParsedResult extends ParsedResult {
         }
     }
 
-    public static DateFormat buildDateFormat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd", Locale.ENGLISH);
-            simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
-            return simpleDateFormat;
-        }
-        return (DateFormat) invokeV.objValue;
-    }
-
-    public static DateFormat buildDateTimeFormat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new SimpleDateFormat("yyyyMMdd'T'HHmmss", Locale.ENGLISH);
-        }
-        return (DateFormat) invokeV.objValue;
-    }
-
-    public String[] getAttendees() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.attendees;
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    public String getDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.description;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Date getEnd() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.end;
-        }
-        return (Date) invokeV.objValue;
-    }
-
-    public double getLatitude() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.latitude;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public String getLocation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.location;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public double getLongitude() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.longitude;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public String getOrganizer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.organizer;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Date getStart() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.start;
-        }
-        return (Date) invokeV.objValue;
-    }
-
-    public String getSummary() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.summary;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean isEndAllDay() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.endAllDay;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isStartAllDay() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.startAllDay;
-        }
-        return invokeV.booleanValue;
-    }
-
     public static String format(boolean z, Date date) {
-        InterceptResult invokeZL;
         DateFormat dateTimeInstance;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(InputDeviceCompat.SOURCE_TRACKBALL, null, z, date)) == null) {
-            if (date == null) {
-                return null;
-            }
-            if (z) {
-                dateTimeInstance = DateFormat.getDateInstance(2);
-            } else {
-                dateTimeInstance = DateFormat.getDateTimeInstance(2, 2);
-            }
-            return dateTimeInstance.format(date);
+        if (date == null) {
+            return null;
         }
-        return (String) invokeZL.objValue;
+        if (z) {
+            dateTimeInstance = DateFormat.getDateInstance(2);
+        } else {
+            dateTimeInstance = DateFormat.getDateTimeInstance(2, 2);
+        }
+        return dateTimeInstance.format(date);
     }
 
     public static Date parseDate(String str) throws ParseException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (DATE_TIME.matcher(str).matches()) {
-                if (str.length() == 8) {
-                    return buildDateFormat().parse(str);
-                }
-                if (str.length() == 16 && str.charAt(15) == 'Z') {
-                    Date parse = buildDateTimeFormat().parse(str.substring(0, 15));
-                    GregorianCalendar gregorianCalendar = new GregorianCalendar();
-                    long time = parse.getTime() + gregorianCalendar.get(15);
-                    gregorianCalendar.setTime(new Date(time));
-                    return new Date(time + gregorianCalendar.get(16));
-                }
-                return buildDateTimeFormat().parse(str);
+        if (DATE_TIME.matcher(str).matches()) {
+            if (str.length() == 8) {
+                return buildDateFormat().parse(str);
             }
-            throw new ParseException(str, 0);
+            if (str.length() == 16 && str.charAt(15) == 'Z') {
+                Date parse = buildDateTimeFormat().parse(str.substring(0, 15));
+                GregorianCalendar gregorianCalendar = new GregorianCalendar();
+                long time = parse.getTime() + gregorianCalendar.get(15);
+                gregorianCalendar.setTime(new Date(time));
+                return new Date(time + gregorianCalendar.get(16));
+            }
+            return buildDateTimeFormat().parse(str);
         }
-        return (Date) invokeL.objValue;
+        throw new ParseException(str, 0);
     }
 
     public static long parseDurationMS(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, charSequence)) == null) {
-            if (charSequence == null) {
-                return -1L;
-            }
-            Matcher matcher = RFC2445_DURATION.matcher(charSequence);
-            if (!matcher.matches()) {
-                return -1L;
-            }
-            long j = 0;
-            int i = 0;
-            while (i < RFC2445_DURATION_FIELD_UNITS.length) {
-                int i2 = i + 1;
-                String group = matcher.group(i2);
-                if (group != null) {
-                    j += RFC2445_DURATION_FIELD_UNITS[i] * Integer.parseInt(group);
-                }
-                i = i2;
-            }
-            return j;
+        if (charSequence == null) {
+            return -1L;
         }
-        return invokeL.longValue;
+        Matcher matcher = RFC2445_DURATION.matcher(charSequence);
+        if (!matcher.matches()) {
+            return -1L;
+        }
+        long j = 0;
+        int i = 0;
+        while (i < RFC2445_DURATION_FIELD_UNITS.length) {
+            int i2 = i + 1;
+            String group = matcher.group(i2);
+            if (group != null) {
+                j += RFC2445_DURATION_FIELD_UNITS[i] * Integer.parseInt(group);
+            }
+            i = i2;
+        }
+        return j;
+    }
+
+    @Override // com.google.zxing.client.result.ParsedResult
+    public String getDisplayResult() {
+        StringBuilder sb = new StringBuilder(100);
+        ParsedResult.maybeAppend(this.summary, sb);
+        ParsedResult.maybeAppend(format(this.startAllDay, this.start), sb);
+        ParsedResult.maybeAppend(format(this.endAllDay, this.end), sb);
+        ParsedResult.maybeAppend(this.location, sb);
+        ParsedResult.maybeAppend(this.organizer, sb);
+        ParsedResult.maybeAppend(this.attendees, sb);
+        ParsedResult.maybeAppend(this.description, sb);
+        return sb.toString();
     }
 }

@@ -14,17 +14,17 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lb5;
-import com.baidu.tieba.p15;
-import com.baidu.tieba.sb5;
-import com.baidu.tieba.wb5;
+import com.baidu.tieba.b35;
+import com.baidu.tieba.fd5;
+import com.baidu.tieba.jd5;
+import com.baidu.tieba.yc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class DLauncher extends RelativeLayout implements sb5 {
+public class DLauncher extends RelativeLayout implements fd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -32,9 +32,9 @@ public class DLauncher extends RelativeLayout implements sb5 {
     public TextView c;
     public int d;
     public String e;
-    public wb5 f;
+    public jd5 f;
 
-    @Override // com.baidu.tieba.sb5
+    @Override // com.baidu.tieba.fd5
     public void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -42,13 +42,13 @@ public class DLauncher extends RelativeLayout implements sb5 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DLauncher(Context context, wb5 wb5Var) {
+    public DLauncher(Context context, jd5 jd5Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, wb5Var};
+            Object[] objArr = {context, jd5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -60,32 +60,32 @@ public class DLauncher extends RelativeLayout implements sb5 {
             }
         }
         this.d = 0;
-        if (wb5Var == null) {
+        if (jd5Var == null) {
             return;
         }
-        this.f = wb5Var;
+        this.f = jd5Var;
         setLayoutParams(new AbsListView.LayoutParams(-1, -2));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.topMargin = getResources().getDimensionPixelOffset(R.dimen.M_H_X008);
         layoutParams.leftMargin = getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
         layoutParams.rightMargin = getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
         this.b = new EMTextView(context);
-        setName(wb5Var.b);
+        setName(jd5Var.b);
         setIcon();
-        setToolId(wb5Var.c);
+        setToolId(jd5Var.c);
         this.b.setGravity(17);
-        p15 d = p15.d(this.b);
+        b35 d = b35.d(this.b);
         d.z(R.dimen.T_X09);
         d.v(R.color.CAM_X0106);
         context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023c);
         addView(this.b, layoutParams);
     }
 
-    @Override // com.baidu.tieba.mb5
-    public void A(lb5 lb5Var) {
+    @Override // com.baidu.tieba.zc5
+    public void A(yc5 yc5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, lb5Var) == null) && lb5Var != null && lb5Var.a == 2) {
-            Object obj = lb5Var.c;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, yc5Var) == null) && yc5Var != null && yc5Var.a == 2) {
+            Object obj = yc5Var.c;
             if (obj == null) {
                 c();
             } else if (obj instanceof String) {
@@ -152,7 +152,7 @@ public class DLauncher extends RelativeLayout implements sb5 {
         }
     }
 
-    @Override // com.baidu.tieba.sb5
+    @Override // com.baidu.tieba.fd5
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -169,7 +169,7 @@ public class DLauncher extends RelativeLayout implements sb5 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sb5
+    @Override // com.baidu.tieba.fd5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -179,7 +179,7 @@ public class DLauncher extends RelativeLayout implements sb5 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.sb5
+    @Override // com.baidu.tieba.fd5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -187,7 +187,7 @@ public class DLauncher extends RelativeLayout implements sb5 {
         }
     }
 
-    @Override // com.baidu.tieba.sb5
+    @Override // com.baidu.tieba.fd5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
@@ -195,7 +195,7 @@ public class DLauncher extends RelativeLayout implements sb5 {
             if (isEnabled()) {
                 SkinManager.setBackgroundResource(this, R.drawable.btn_editor_selector, i);
             }
-            p15.d(this.b).v(R.color.CAM_X0106);
+            b35.d(this.b).v(R.color.CAM_X0106);
             if (this.f == null) {
                 return;
             }
@@ -255,11 +255,11 @@ public class DLauncher extends RelativeLayout implements sb5 {
         Drawable drawable2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            wb5 wb5Var = this.f;
-            int i = wb5Var.h;
-            int i2 = wb5Var.r;
+            jd5 jd5Var = this.f;
+            int i = jd5Var.h;
+            int i2 = jd5Var.r;
             if (i <= 0) {
-                i = wb5Var.d;
+                i = jd5Var.d;
             }
             if (this.f.i) {
                 drawable = SvgManager.getInstance().getSeletableDrawableForEditorTools(i, this.f.e, this.d);

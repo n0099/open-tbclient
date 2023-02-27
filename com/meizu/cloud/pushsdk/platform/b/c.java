@@ -8,29 +8,27 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
-import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ScheduledExecutorService;
 /* loaded from: classes8.dex */
 public abstract class c<T extends BasicPushStatus> {
-    public ScheduledExecutorService d;
-    public Context e;
-    public String f;
-    public String g;
-    public String h;
-    public volatile String i;
-    public com.meizu.cloud.pushsdk.platform.a.a j;
-    public boolean k = true;
-    public boolean l = true;
-    public String a = null;
+    public final Context a;
+    public String b;
+    public String c;
+    public String d;
+    public final com.meizu.cloud.pushsdk.platform.a.a e;
+    public ScheduledExecutorService h;
+    public boolean f = true;
+    public boolean g = true;
+    public String i = null;
 
     public c(Context context, String str, String str2, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
-        this.d = scheduledExecutorService;
-        this.e = context;
-        this.f = str;
-        this.g = str2;
-        this.j = aVar;
+        this.h = scheduledExecutorService;
+        this.a = context;
+        this.b = str;
+        this.c = str2;
+        this.e = aVar;
     }
 
     private boolean a(int i) {
@@ -43,7 +41,7 @@ public abstract class c<T extends BasicPushStatus> {
     }
 
     private boolean h() {
-        return this.l && !this.e.getPackageName().equals(this.a);
+        return this.g && !this.a.getPackageName().equals(this.i);
     }
 
     public String a(Context context, String str) {
@@ -57,28 +55,28 @@ public abstract class c<T extends BasicPushStatus> {
                         break;
                     }
                     ResolveInfo next = it.next();
-                    if ("com.meizu.cloud".equals(next.serviceInfo.packageName)) {
+                    if (PushConstants.PUSH_PACKAGE_NAME.equals(next.serviceInfo.packageName)) {
                         ServiceInfo serviceInfo = next.serviceInfo;
-                        this.a = serviceInfo.packageName;
+                        this.i = serviceInfo.packageName;
                         str2 = serviceInfo.name;
                         break;
                     }
                 }
                 if (TextUtils.isEmpty(str2) && queryIntentServices.size() > 0) {
-                    this.a = queryIntentServices.get(0).serviceInfo.packageName;
+                    this.i = queryIntentServices.get(0).serviceInfo.packageName;
                     str2 = queryIntentServices.get(0).serviceInfo.name;
                 }
             }
         }
-        DebugLogger.i("Strategy", "current process packageName " + this.a);
+        DebugLogger.i("Strategy", "current process packageName " + this.i);
         return str2;
     }
 
     public void a(Intent intent) {
         try {
-            intent.setPackage(this.a);
+            intent.setPackage(this.i);
             intent.setAction(PushConstants.MZ_PUSH_MANAGER_SERVICE_ACTION);
-            this.e.startService(intent);
+            this.a.startService(intent);
         } catch (Exception e) {
             DebugLogger.e("Strategy", "start RemoteService error " + e.getMessage());
         }
@@ -87,7 +85,7 @@ public abstract class c<T extends BasicPushStatus> {
     public abstract void a(T t);
 
     public void a(boolean z) {
-        this.k = z;
+        this.f = z;
     }
 
     public abstract boolean a();
@@ -95,17 +93,17 @@ public abstract class c<T extends BasicPushStatus> {
     public abstract T b();
 
     public void b(String str) {
-        this.f = str;
+        this.b = str;
     }
 
     public abstract Intent c();
 
     public void c(String str) {
-        this.g = str;
+        this.c = str;
     }
 
     public void d(String str) {
-        this.h = str;
+        this.d = str;
     }
 
     public Intent[] d() {
@@ -119,7 +117,7 @@ public abstract class c<T extends BasicPushStatus> {
     public abstract int g();
 
     public boolean k() {
-        return this.l && this.k && !TextUtils.isEmpty(a(this.e, PushConstants.MZ_PUSH_MANAGER_SERVICE_ACTION));
+        return this.g && this.f && !TextUtils.isEmpty(a(this.a, PushConstants.MZ_PUSH_MANAGER_SERVICE_ACTION));
     }
 
     public boolean l() {
@@ -127,7 +125,7 @@ public abstract class c<T extends BasicPushStatus> {
     }
 
     public boolean m() {
-        ScheduledExecutorService scheduledExecutorService = this.d;
+        ScheduledExecutorService scheduledExecutorService = this.h;
         if (scheduledExecutorService != null) {
             scheduledExecutorService.execute(new Runnable() { // from class: com.meizu.cloud.pushsdk.platform.b.c.1
                 @Override // java.lang.Runnable
@@ -140,7 +138,7 @@ public abstract class c<T extends BasicPushStatus> {
         return n();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:44:0x010d  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00ff  */
     /* JADX WARN: Removed duplicated region for block: B:47:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -171,7 +169,7 @@ public abstract class c<T extends BasicPushStatus> {
                         a(intent);
                     }
                 }
-                MzSystemUtils.sendMessageFromBroadcast(this.e, new Intent("com.meizu.cloud.pushservice.action.PUSH_SERVICE_START"), null, this.e.getPackageName());
+                com.meizu.cloud.pushsdk.a.a(this.a);
             } else {
                 t = e();
                 DebugLogger.i("Strategy", "real response status " + t);
@@ -208,13 +206,5 @@ public abstract class c<T extends BasicPushStatus> {
         a((c<T>) t);
         if (t == null) {
         }
-    }
-
-    public String o() {
-        if (TextUtils.isEmpty(this.i)) {
-            this.i = MzSystemUtils.getDeviceId(this.e);
-            DebugLogger.e("Strategy", "deviceId " + this.i);
-        }
-        return this.i;
     }
 }

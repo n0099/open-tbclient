@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o45;
+import com.baidu.tieba.a65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -99,18 +99,18 @@ public class CustomPrivacyDialogView extends LinearLayout {
             gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0211));
             setBackgroundDrawable(gradientDrawable);
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d020b, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091b98);
-            this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0907a7);
-            this.c = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0907a8);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0218, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091bd9);
+            this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0907e4);
+            this.c = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0907e5);
             this.b.setTextSize(R.dimen.tbds34);
-            o45 o45Var = new o45();
-            o45Var.s(R.color.CAM_X0105);
-            this.b.setConfig(o45Var);
+            a65 a65Var = new a65();
+            a65Var.s(R.color.CAM_X0105);
+            this.b.setConfig(a65Var);
             this.c.setTextSize(R.dimen.tbds34);
-            o45 o45Var2 = new o45();
-            o45Var2.q(R.color.CAM_X0302);
-            this.c.setConfig(o45Var2);
+            a65 a65Var2 = new a65();
+            a65Var2.q(R.color.CAM_X0302);
+            this.c.setConfig(a65Var2);
         }
     }
 

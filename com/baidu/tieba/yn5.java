@@ -1,64 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.AppTransmitData;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class yn5 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(TiebaStatic.Params.WISE_SAMPLE_ID, c());
-                jSONObject.put(DI.YY.YY_HDID, TbadkCoreApplication.getInst().getHdid());
-                jSONObject.put("yy_version", "");
-            } catch (JSONException e) {
-                BdLog.e(e);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948335945, "Lcom/baidu/tieba/yn5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return jSONObject.toString();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948335945, "Lcom/baidu/tieba/yn5;");
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        new ArrayList();
     }
 
-    public static AppTransmitData b() {
-        InterceptResult invokeV;
+    public static void a(xn5 xn5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            AppTransmitData.Builder builder = new AppTransmitData.Builder();
-            builder.wise_sample_id = c();
-            builder.yy_hdid = TbadkCoreApplication.getInst().getHdid();
-            builder.yy_version = "";
-            return builder.build(false);
-        }
-        return (AppTransmitData) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a = str;
+        if (interceptable == null || interceptable.invokeL(65537, null, xn5Var) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001453, xn5Var));
         }
     }
 }

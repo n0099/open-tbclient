@@ -1,55 +1,95 @@
 package com.baidu.tieba;
 
+import android.os.SystemClock;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ClassForumInfo;
-import tbclient.GetVerticalForumList.DataRes;
-import tbclient.Page;
-import tbclient.RecommendForumInfo;
 /* loaded from: classes5.dex */
 public class o78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<m78> a;
+    public long a;
+    public long b;
+    public long c;
+    public boolean d;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947985273, "Lcom/baidu/tieba/o78;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947985273, "Lcom/baidu/tieba/o78;");
+        }
+    }
 
     public o78() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void a(DataRes dataRes) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = 0L;
+            this.b = 0L;
+            this.c = 0L;
         }
-        if (dataRes.class_foruminfo != null) {
-            this.a = new ArrayList();
-            for (ClassForumInfo classForumInfo : dataRes.class_foruminfo) {
-                m78 m78Var = new m78();
-                m78Var.b = classForumInfo.class_id;
-                m78Var.c = classForumInfo.class_name;
-                m78Var.d = classForumInfo.class_icon;
-                ArrayList arrayList = new ArrayList();
-                for (RecommendForumInfo recommendForumInfo : classForumInfo.forum_info) {
-                    arrayList.add(new s78(recommendForumInfo, false));
-                }
-                m78Var.a = arrayList;
-                this.a.add(m78Var);
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = SystemClock.elapsedRealtime();
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = SystemClock.elapsedRealtime();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.d = true;
+            this.a = SystemClock.elapsedRealtime();
+        }
+    }
+
+    public void d(ns8 ns8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, ns8Var) == null) && this.d) {
+            this.d = false;
+            long elapsedRealtime = SystemClock.elapsedRealtime();
+            long j = this.b - this.a;
+            long j2 = elapsedRealtime - this.c;
+            long j3 = j2 + j;
+            if ((BdNetTypeUtil.netType() == 2 || j <= 17500) && ns8Var != null) {
+                ns8Var.a(j, j2, j3);
             }
         }
-        Page page = dataRes.page;
     }
 }

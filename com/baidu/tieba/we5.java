@@ -1,23 +1,17 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class we5 {
+public class we5 {
     public static /* synthetic */ Interceptable $ic;
+    public static we5 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract String a();
-
-    public abstract Bitmap b(Bitmap bitmap, boolean z) throws Exception;
-
-    public abstract void d(String str);
+    public int a;
 
     public we5() {
         Interceptable interceptable = $ic;
@@ -29,16 +23,41 @@ public abstract class we5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
     }
 
-    public Bitmap c(String str) throws Exception {
-        InterceptResult invokeL;
+    public static we5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return b(BitmapHelper.loadBitmap(str), true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (we5.class) {
+                    if (b == null) {
+                        b = new we5();
+                    }
+                }
+            }
+            return b;
         }
-        return (Bitmap) invokeL.objValue;
+        return (we5) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a = i;
+        }
     }
 }

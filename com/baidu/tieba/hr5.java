@@ -1,106 +1,84 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.graphics.drawable.Drawable;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.Rect;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.switchs.ThreadCardImgClickToPBSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.controller.AbstractDraweeController;
-import com.facebook.drawee.drawable.ScalingUtils;
-import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
-import com.facebook.drawee.view.SimpleDraweeView;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class hr5 {
+public class hr5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947833342, "Lcom/baidu/tieba/hr5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947833342, "Lcom/baidu/tieba/hr5;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @SuppressLint({"UseCompatLoadingForDrawables"})
-        public final Drawable a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return TbadkCoreApplication.getInst().getDrawable(SkinManager.getResourceId(R.drawable.pic_use_header_28_n));
-            }
-            return (Drawable) invokeV.objValue;
-        }
-    }
-
-    public hr5() {
+    public static boolean a(Context context, String str, zx4 zx4Var) {
+        InterceptResult invokeLLL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, str, zx4Var)) == null) {
+            if (context == null || zx4Var == null) {
+                return false;
             }
+            if ("index".equals(str)) {
+                i = 2;
+            } else if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
+                i = 1;
+            } else if ("hot_topic".equals(str)) {
+                i = 0;
+            } else if ("frs".equals(str)) {
+                i = 3;
+            } else {
+                i = -1;
+            }
+            if (i == -1) {
+                return false;
+            }
+            ThreadCardUtils.jumpToPB(zx4Var.getThreadData().originalThreadData, context, i, (Rect) null, zx4Var.getThreadData().getForum_name());
+            return true;
         }
+        return invokeLLL.booleanValue;
     }
 
-    public void a(String url, SimpleDraweeView imageView) {
+    public static boolean b(Context context, String str, zx4 zx4Var) {
+        InterceptResult invokeLLL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, url, imageView) == null) {
-            Intrinsics.checkNotNullParameter(url, "url");
-            Intrinsics.checkNotNullParameter(imageView, "imageView");
-            GenericDraweeHierarchyBuilder fadeDuration = new GenericDraweeHierarchyBuilder(imageView.getResources()).setActualImageScaleType(ScalingUtils.ScaleType.FIT_CENTER).setFadeDuration(0);
-            AbstractDraweeController build = Fresco.newDraweeControllerBuilder().setUri(url).setAutoPlayAnimations(true).build();
-            Drawable a2 = a.a();
-            if (a2 != null) {
-                fadeDuration.setPlaceholderImage(a2);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, zx4Var)) == null) {
+            if (context == null || zx4Var == null) {
+                return false;
             }
-            imageView.setHierarchy(fadeDuration.build());
-            imageView.setController(build);
+            if ("index".equals(str)) {
+                i = 2;
+            } else if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
+                i = 1;
+            } else if ("hot_topic".equals(str)) {
+                i = 0;
+            } else if ("frs".equals(str)) {
+                i = 3;
+            } else {
+                i = -1;
+            }
+            if (i == -1) {
+                return false;
+            }
+            ThreadCardUtils.jumpToPB(zx4Var, context, i, false);
+            return true;
         }
+        return invokeLLL.booleanValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (ThreadCardImgClickToPBSwitch.getIsOn() && UbsABTestHelper.isImgClickToPb()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

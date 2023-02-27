@@ -1,19 +1,9 @@
 package com.baidu.livesdk.api.im.live;
-
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class ImageAudioMsg {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int IM_MSG_TYPE_AUDIO = 1;
     public static final int IM_MSG_TYPE_IMG = 0;
     public static final int SUCCESS = 0;
-    public transient /* synthetic */ FieldHolder $fh;
     public int audioDuration;
     public int heigth;
     public int thumbHeigth;
@@ -23,145 +13,67 @@ public class ImageAudioMsg {
     public String url;
     public int width;
 
-    public ImageAudioMsg() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public int getAudioDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.audioDuration;
-        }
-        return invokeV.intValue;
+        return this.audioDuration;
     }
 
     public int getHeigth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.heigth;
-        }
-        return invokeV.intValue;
+        return this.heigth;
     }
 
     public int getThumbHeigth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.thumbHeigth;
-        }
-        return invokeV.intValue;
+        return this.thumbHeigth;
     }
 
     public String getThumbUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.thumbUrl;
-        }
-        return (String) invokeV.objValue;
+        return this.thumbUrl;
     }
 
     public int getThurbWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.thurbWidth;
-        }
-        return invokeV.intValue;
+        return this.thurbWidth;
     }
 
     public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.type;
-        }
-        return invokeV.intValue;
+        return this.type;
     }
 
     public String getUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.url;
-        }
-        return (String) invokeV.objValue;
+        return this.url;
     }
 
     public int getWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.width;
-        }
-        return invokeV.intValue;
+        return this.width;
     }
 
     public void setAudioDuration(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.audioDuration = i;
-        }
+        this.audioDuration = i;
     }
 
     public void setHeigth(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.heigth = i;
-        }
+        this.heigth = i;
     }
 
     public void setThumbHeigth(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.thumbHeigth = i;
-        }
+        this.thumbHeigth = i;
     }
 
     public void setThumbUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.thumbUrl = str;
-        }
+        this.thumbUrl = str;
     }
 
     public void setThurbWidth(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.thurbWidth = i;
-        }
+        this.thurbWidth = i;
     }
 
     public void setType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.type = i;
-        }
+        this.type = i;
     }
 
     public void setUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.url = str;
-        }
+        this.url = str;
     }
 
     public void setWidth(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.width = i;
-        }
+        this.width = i;
     }
 }

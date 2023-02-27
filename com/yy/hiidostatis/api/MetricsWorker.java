@@ -2,13 +2,6 @@ package com.yy.hiidostatis.api;
 
 import android.content.Context;
 import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.defs.controller.HttpSendController;
 import com.yy.hiidostatis.defs.interf.IMetricsAPI;
 import com.yy.hiidostatis.defs.obj.ActionResult;
@@ -28,13 +21,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class MetricsWorker implements IMetricsAPI {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACT = "mmetric";
-    public transient /* synthetic */ FieldHolder $fh;
     public String appKey;
     public String appVer;
     public Context context;
-    public AtomicInteger count;
+    public AtomicInteger count = new AtomicInteger(0);
     public long expire;
     public HttpSendController httpSendController;
     public String mac;
@@ -48,27 +39,10 @@ public class MetricsWorker implements IMetricsAPI {
     public String sdkVer;
 
     private String notNull(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
+        return str == null ? "" : str;
     }
 
     public MetricsWorker(Context context, int i, HttpSendController httpSendController, long j, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), httpSendController, Long.valueOf(j), str, str2, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.count = new AtomicInteger(0);
         this.maxCount = i;
         this.httpSendController = httpSendController;
         this.expire = j;
@@ -81,21 +55,6 @@ public class MetricsWorker implements IMetricsAPI {
 
     @Deprecated
     public MetricsWorker(Context context, int i, HttpSendController httpSendController, long j, String str, String str2, String str3, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), httpSendController, Long.valueOf(j), str, str2, str3, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.count = new AtomicInteger(0);
         this.maxCount = i;
         this.httpSendController = httpSendController;
         this.expire = j;
@@ -108,183 +67,149 @@ public class MetricsWorker implements IMetricsAPI {
     }
 
     private void sendPkg(MetricsPkg metricsPkg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, metricsPkg) == null) {
-            try {
-                for (JSONObject jSONObject : metricsPkg.toJson()) {
-                    String content = toContent(jSONObject);
-                    if (content != null) {
-                        this.httpSendController.send(content, this.expire);
-                    }
+        try {
+            for (JSONObject jSONObject : metricsPkg.toJson()) {
+                String content = toContent(jSONObject);
+                if (content != null) {
+                    this.httpSendController.send(content, this.expire);
                 }
-            } catch (Throwable th) {
-                L.debug(this, th.getMessage(), new Object[0]);
             }
+        } catch (Throwable th) {
+            L.debug(this, th.getMessage(), new Object[0]);
         }
     }
 
     private String toContent(JSONObject jSONObject) {
-        InterceptResult invokeL;
         String str;
         JSONArray jSONArray;
         JSONArray jSONArray2;
         JSONArray jSONArray3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject)) == null) {
-            try {
-                StatisContent statisContent = new StatisContent();
-                String valueOf = String.valueOf(Util.wallTimeSec());
-                statisContent.put("act", ACT);
-                statisContent.put("time", valueOf);
-                statisContent.put("key", CommonFiller.calKey(ACT, valueOf));
-                statisContent.put("appkey", this.appKey);
-                statisContent.put("ver", notNull(this.appVer));
-                statisContent.put(BaseStatisContent.SDKVER, notNull(this.sdkVer));
-                statisContent.put("sys", 2);
-                if (this.osVer == null) {
-                    str = ArdUtil.getOS();
-                    this.osVer = str;
-                } else {
-                    str = this.osVer;
-                }
-                statisContent.put("osver", notNull(str));
-                statisContent.put("model", notNull(Build.MODEL));
-                statisContent.put("net", ArdUtil.getNetworkTypeNew(this.context));
-                statisContent.put(BaseStatisContent.NTM, ArdUtil.getNtm(this.context));
-                statisContent.put("hdid", DeviceProxy.getHdid(this.context));
-                statisContent.put("imei", CommonFiller.getIMEI(this.context));
-                statisContent.put("mac", CommonFiller.getMacAddr(this.context));
-                statisContent.put(BaseStatisContent.SJP, ArdUtil.getSjp(this.context));
-                statisContent.put(BaseStatisContent.GUID, StringUtil.geneGuid());
-                System.currentTimeMillis();
-                statisContent.put("clienttime", String.valueOf(jSONObject.getLong("clienttime") / 1000));
-                if (jSONObject.has("reqdata")) {
-                    jSONArray = jSONObject.getJSONArray("reqdata");
-                } else {
-                    jSONArray = null;
-                }
-                if (jSONObject.has("counterdata")) {
-                    jSONArray2 = jSONObject.getJSONArray("counterdata");
-                } else {
-                    jSONArray2 = null;
-                }
-                if (jSONObject.has("flatdata")) {
-                    jSONArray3 = jSONObject.getJSONArray("flatdata");
-                } else {
-                    jSONArray3 = null;
-                }
-                if (jSONArray != null) {
-                    statisContent.put("reqdata", notNull(jSONArray.toString()));
-                }
-                if (jSONArray2 != null) {
-                    statisContent.put("counterdata", notNull(jSONArray2.toString()));
-                }
-                if (jSONArray3 != null) {
-                    statisContent.put("flatdata", notNull(jSONArray3.toString()));
-                }
-                return statisContent.toString();
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return null;
+        try {
+            StatisContent statisContent = new StatisContent();
+            String valueOf = String.valueOf(Util.wallTimeSec());
+            statisContent.put("act", ACT);
+            statisContent.put("time", valueOf);
+            statisContent.put("key", CommonFiller.calKey(ACT, valueOf));
+            statisContent.put("appkey", this.appKey);
+            statisContent.put("ver", notNull(this.appVer));
+            statisContent.put(BaseStatisContent.SDKVER, notNull(this.sdkVer));
+            statisContent.put("sys", 2);
+            if (this.osVer == null) {
+                str = ArdUtil.getOS();
+                this.osVer = str;
+            } else {
+                str = this.osVer;
             }
+            statisContent.put("osver", notNull(str));
+            statisContent.put("model", notNull(Build.MODEL));
+            statisContent.put("net", ArdUtil.getNetworkTypeNew(this.context));
+            statisContent.put(BaseStatisContent.NTM, ArdUtil.getNtm(this.context));
+            statisContent.put("hdid", DeviceProxy.getHdid(this.context));
+            statisContent.put("imei", CommonFiller.getIMEI(this.context));
+            statisContent.put("mac", CommonFiller.getMacAddr(this.context));
+            statisContent.put(BaseStatisContent.SJP, ArdUtil.getSjp(this.context));
+            statisContent.put(BaseStatisContent.GUID, StringUtil.geneGuid());
+            System.currentTimeMillis();
+            statisContent.put("clienttime", String.valueOf(jSONObject.getLong("clienttime") / 1000));
+            if (jSONObject.has("reqdata")) {
+                jSONArray = jSONObject.getJSONArray("reqdata");
+            } else {
+                jSONArray = null;
+            }
+            if (jSONObject.has("counterdata")) {
+                jSONArray2 = jSONObject.getJSONArray("counterdata");
+            } else {
+                jSONArray2 = null;
+            }
+            if (jSONObject.has("flatdata")) {
+                jSONArray3 = jSONObject.getJSONArray("flatdata");
+            } else {
+                jSONArray3 = null;
+            }
+            if (jSONArray != null) {
+                statisContent.put("reqdata", notNull(jSONArray.toString()));
+            }
+            if (jSONArray2 != null) {
+                statisContent.put("counterdata", notNull(jSONArray2.toString()));
+            }
+            if (jSONArray3 != null) {
+                statisContent.put("flatdata", notNull(jSONArray3.toString()));
+            }
+            return statisContent.toString();
+        } catch (Throwable th) {
+            th.printStackTrace();
+            return null;
         }
-        return (String) invokeL.objValue;
     }
 
     public MetricsPkg cutPiece() {
-        InterceptResult invokeV;
         MetricsPkg metricsPkg;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.count.get() > this.maxCount) {
-                    metricsPkg = this.pkg;
-                    this.pkg = new MetricsPkg(this.maxCount);
-                    this.count.set(0);
-                } else {
-                    metricsPkg = null;
-                }
+        synchronized (this) {
+            if (this.count.get() > this.maxCount) {
+                metricsPkg = this.pkg;
+                this.pkg = new MetricsPkg(this.maxCount);
+                this.count.set(0);
+            } else {
+                metricsPkg = null;
             }
-            return metricsPkg;
         }
-        return (MetricsPkg) invokeV.objValue;
+        return metricsPkg;
     }
 
     @Deprecated
     public void onTimer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i = this.periodCount + 1;
-            this.periodCount = i;
-            if (i >= this.period) {
-                this.periodCount = 0;
-                sendNow();
-            }
+        int i = this.periodCount + 1;
+        this.periodCount = i;
+        if (i >= this.period) {
+            this.periodCount = 0;
+            sendNow();
         }
     }
 
     public void sendNow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            MetricsPkg metricsPkg = this.pkg;
-            this.pkg = new MetricsPkg(this.maxCount);
-            this.count.set(0);
-            if (!metricsPkg.isEmpty()) {
-                sendPkg(metricsPkg);
-            }
+        MetricsPkg metricsPkg = this.pkg;
+        this.pkg = new MetricsPkg(this.maxCount);
+        this.count.set(0);
+        if (!metricsPkg.isEmpty()) {
+            sendPkg(metricsPkg);
         }
     }
 
     @Override // com.yy.hiidostatis.defs.interf.IMetricsAPI
     public void reportCount(int i, String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j)}) == null) {
-            reportCount(i, str, str2, j, 1);
-        }
+        reportCount(i, str, str2, j, 1);
     }
 
     @Override // com.yy.hiidostatis.defs.interf.IMetricsAPI
     public void reportReturnCode(int i, String str, long j, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), str2}) == null) {
-            reportReturnCode(i, str, j, str2, null);
-        }
+        reportReturnCode(i, str, j, str2, null);
     }
 
     @Override // com.yy.hiidostatis.defs.interf.IMetricsAPI
     public void reportCount(int i, String str, String str2, long j, int i2) {
         MetricsPkg cutPiece;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
-            Counter counter = new Counter(i, str, str2);
-            counter.count(j, i2);
-            if (this.pkg.addCounter(counter) && this.count.incrementAndGet() > this.maxCount && (cutPiece = cutPiece()) != null) {
-                sendPkg(cutPiece);
-            }
+        Counter counter = new Counter(i, str, str2);
+        counter.count(j, i2);
+        if (this.pkg.addCounter(counter) && this.count.incrementAndGet() > this.maxCount && (cutPiece = cutPiece()) != null) {
+            sendPkg(cutPiece);
         }
     }
 
     @Override // com.yy.hiidostatis.defs.interf.IMetricsAPI
     public void reportReturnCode(int i, String str, long j, String str2, Map<String, String> map) {
         MetricsPkg cutPiece;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), str2, map}) == null) {
-            this.pkg.addActionResult(new ActionResult(i, str, j, str2, map));
-            if (this.count.incrementAndGet() > this.maxCount && (cutPiece = cutPiece()) != null) {
-                sendPkg(cutPiece);
-            }
+        this.pkg.addActionResult(new ActionResult(i, str, j, str2, map));
+        if (this.count.incrementAndGet() > this.maxCount && (cutPiece = cutPiece()) != null) {
+            sendPkg(cutPiece);
         }
     }
 
     @Override // com.yy.hiidostatis.defs.interf.IMetricsAPI
     public void reportSrcData(int i, String str, String str2, long j, Map<String, String> map) {
         MetricsPkg cutPiece;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j), map}) == null) {
-            this.pkg.addMetricsValue(new MetricsValue(i, str, str2, j, map));
-            if (this.count.incrementAndGet() > this.maxCount && (cutPiece = cutPiece()) != null) {
-                sendPkg(cutPiece);
-            }
+        this.pkg.addMetricsValue(new MetricsValue(i, str, str2, j, map));
+        if (this.count.incrementAndGet() > this.maxCount && (cutPiece = cutPiece()) != null) {
+            sendPkg(cutPiece);
         }
     }
 }

@@ -1,5 +1,11 @@
 package com.baidu.tieba;
+
+import com.baidu.nadcore.player.widget.BdThumbSeekBarView;
 /* loaded from: classes5.dex */
 public interface lu0 {
-    boolean a(int i);
+    void a(BdThumbSeekBarView bdThumbSeekBarView);
+
+    void b(BdThumbSeekBarView bdThumbSeekBarView, int i, boolean z);
+
+    void c(BdThumbSeekBarView bdThumbSeekBarView);
 }

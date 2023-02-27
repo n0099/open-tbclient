@@ -1,11 +1,6 @@
 package com.facebook.animated.giflite;
 
 import android.graphics.Movie;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.animated.giflite.decoder.GifMetadataDecoder;
 import com.facebook.animated.giflite.draw.MovieAnimatedImage;
 import com.facebook.animated.giflite.draw.MovieDrawer;
@@ -24,83 +19,56 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes7.dex */
 public class GifDecoder implements ImageDecoder {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public GifDecoder() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static AnimatedDrawableFrameInfo.DisposalMethod translateFrameDisposal(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i != 2) {
-                if (i != 3) {
-                    return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
-                }
-                return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_PREVIOUS;
+        if (i != 2) {
+            if (i != 3) {
+                return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
             }
-            return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND;
+            return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_PREVIOUS;
         }
-        return (AnimatedDrawableFrameInfo.DisposalMethod) invokeI.objValue;
+        return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND;
     }
 
     @Override // com.facebook.imagepipeline.decoder.ImageDecoder
     public CloseableImage decode(EncodedImage encodedImage, int i, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
-        InterceptResult invokeLILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048576, this, encodedImage, i, qualityInfo, imageDecodeOptions)) == null) {
-            InputStream inputStream = encodedImage.getInputStream();
+        InputStream inputStream = encodedImage.getInputStream();
+        try {
             try {
-                try {
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    GifMetadataDecoder create = GifMetadataDecoder.create(inputStream, byteArrayOutputStream);
-                    if (byteArrayOutputStream.size() > 0) {
-                        inputStream.close();
-                        inputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-                    }
-                    inputStream.reset();
-                    Movie decodeStream = Movie.decodeStream(inputStream);
-                    MovieDrawer movieDrawer = new MovieDrawer(decodeStream);
-                    int frameCount = create.getFrameCount();
-                    MovieFrame[] movieFrameArr = new MovieFrame[frameCount];
-                    int i2 = 0;
-                    int i3 = 0;
-                    while (i3 < frameCount) {
-                        int frameDurationMs = create.getFrameDurationMs(i3);
-                        int i4 = i2 + frameDurationMs;
-                        movieFrameArr[i3] = new MovieFrame(movieDrawer, i4, frameDurationMs, decodeStream.width(), decodeStream.height(), translateFrameDisposal(create.getFrameDisposal(i3)));
-                        i3++;
-                        i2 = i4;
-                    }
-                    CloseableAnimatedImage closeableAnimatedImage = new CloseableAnimatedImage(AnimatedImageResult.forAnimatedImage(new MovieAnimatedImage(movieFrameArr, encodedImage.getSize(), decodeStream.duration(), create.getLoopCount())), false);
-                    try {
-                        inputStream.close();
-                    } catch (IOException unused) {
-                    }
-                    return closeableAnimatedImage;
-                } catch (IOException e) {
-                    throw new RuntimeException("Error while decoding gif", e);
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                GifMetadataDecoder create = GifMetadataDecoder.create(inputStream, byteArrayOutputStream);
+                if (byteArrayOutputStream.size() > 0) {
+                    inputStream.close();
+                    inputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
                 }
-            } catch (Throwable th) {
+                inputStream.reset();
+                Movie decodeStream = Movie.decodeStream(inputStream);
+                MovieDrawer movieDrawer = new MovieDrawer(decodeStream);
+                int frameCount = create.getFrameCount();
+                MovieFrame[] movieFrameArr = new MovieFrame[frameCount];
+                int i2 = 0;
+                int i3 = 0;
+                while (i3 < frameCount) {
+                    int frameDurationMs = create.getFrameDurationMs(i3);
+                    int i4 = i2 + frameDurationMs;
+                    movieFrameArr[i3] = new MovieFrame(movieDrawer, i4, frameDurationMs, decodeStream.width(), decodeStream.height(), translateFrameDisposal(create.getFrameDisposal(i3)));
+                    i3++;
+                    i2 = i4;
+                }
+                CloseableAnimatedImage closeableAnimatedImage = new CloseableAnimatedImage(AnimatedImageResult.forAnimatedImage(new MovieAnimatedImage(movieFrameArr, encodedImage.getSize(), decodeStream.duration(), create.getLoopCount())), false);
                 try {
                     inputStream.close();
-                } catch (IOException unused2) {
+                } catch (IOException unused) {
                 }
-                throw th;
+                return closeableAnimatedImage;
+            } catch (IOException e) {
+                throw new RuntimeException("Error while decoding gif", e);
             }
+        } catch (Throwable th) {
+            try {
+                inputStream.close();
+            } catch (IOException unused2) {
+            }
+            throw th;
         }
-        return (CloseableImage) invokeLILL.objValue;
     }
 }

@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
+import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.jn2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,51 +13,157 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class hn2 extends qm2<en2> {
+public abstract class hn2<W extends jn2> implements ZeusPlugin {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.qm2
+    public in2<W> a;
+    public ZeusPlugin.Callback b;
     @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "extractMediaMetadata" : (String) invokeV.objValue;
-    }
+    public W c;
+    public boolean d;
+    public final List<ZeusPlugin.Command> e;
+    public jn2.a f;
 
-    public hn2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public class a implements jn2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hn2 a;
+
+        public a(hn2 hn2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hn2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hn2Var;
+        }
+
+        @Override // com.baidu.tieba.jn2.a
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                synchronized (this.a) {
+                    if (hn2.g) {
+                        Log.i("BaseInlineController", "组件初始化完成，开始flush挂起的指令=====");
+                    }
+                    this.a.d();
+                    this.a.d = true;
+                    if (hn2.g) {
+                        Log.i("BaseInlineController", "指令flush完成=========================");
+                    }
+                }
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qm2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull en2 en2Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947829405, "Lcom/baidu/tieba/hn2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947829405, "Lcom/baidu/tieba/hn2;");
+                return;
+            }
+        }
+        g = wp1.a;
+    }
+
+    public hn2(@NonNull W w) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, en2Var) == null) {
-            Object obj = command.obj;
-            if (obj instanceof ArrayList) {
-                ArrayList arrayList = (ArrayList) obj;
-                if (arrayList.size() < 4) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {w};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = false;
+        this.e = new ArrayList();
+        this.f = new a(this);
+        this.a = new in2<>();
+        this.c = w;
+        if (g) {
+            Log.i("BaseInlineController", "开始初始化组件");
+        }
+        this.c.A(this.f);
+    }
+
+    @Override // com.baidu.webkit.sdk.plugin.ZeusPlugin
+    public void setCallback(ZeusPlugin.Callback callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callback) == null) {
+            this.b = callback;
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.e.size() == 0) {
+            return;
+        }
+        Iterator<ZeusPlugin.Command> it = this.e.iterator();
+        while (it.hasNext()) {
+            ZeusPlugin.Command next = it.next();
+            if (g) {
+                Log.i("BaseInlineController", "flush-尝试分发Command: + " + next.what);
+            }
+            this.a.b(next, this.c);
+            it.remove();
+        }
+    }
+
+    @Override // com.baidu.webkit.sdk.plugin.ZeusPlugin
+    public void sendCommand(ZeusPlugin.Command command) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command) == null) {
+            synchronized (this) {
+                if (command == null) {
                     return;
                 }
-                HashMap hashMap = new HashMap();
-                hashMap.put("Cookie", (String) arrayList.get(1));
-                hashMap.put("User-Agent", (String) arrayList.get(2));
-                hashMap.put("Referer", (String) arrayList.get(3));
-                en2Var.k((String) arrayList.get(0), hashMap);
+                if (this.d) {
+                    if (g) {
+                        Log.v("BaseInlineController", "组件已初始化，直接尝试分发Command: + " + command.what);
+                    }
+                    this.a.b(command, this.c);
+                } else {
+                    ZeusPlugin.Command command2 = new ZeusPlugin.Command();
+                    command2.what = command.what;
+                    command2.arg1 = command.arg1;
+                    command2.arg2 = command.arg2;
+                    command2.arg3 = command.arg3;
+                    command2.arg4 = command.arg4;
+                    command2.arg5 = command.arg5;
+                    command2.obj = command.obj;
+                    this.e.add(command2);
+                    if (g) {
+                        Log.i("BaseInlineController", "组件未初始化，加入Pending队列： " + command2.what);
+                    }
+                    this.a.c(command);
+                }
             }
         }
     }

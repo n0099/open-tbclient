@@ -2,161 +2,115 @@ package com.baidu.pass.biometrics.face.liveness.d;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class b extends Dialog {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public ViewSwitcher a;
     public LinearLayout b;
-    public TextView c;
+    public ImageView c;
     public TextView d;
     public TextView e;
     public TextView f;
     public TextView g;
-    public Context h;
+    public TextView h;
+    public Context i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
-        super(context, R.style.obfuscated_res_0x7f100149);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.h = context;
+        super(context, R.style.obfuscated_res_0x7f10014b);
+        this.i = context;
         a();
-    }
-
-    private void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d04d6);
-            setCanceledOnTouchOutside(false);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0918ae);
-            this.a = (ViewSwitcher) findViewById(R.id.obfuscated_res_0x7f09272a);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092385);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09168f);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091b50);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09177a);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09178a);
-        }
     }
 
     public void a(int i) {
         int min;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (i < 1) {
-                min = 1;
-            } else {
-                min = Math.min(i, 2);
-            }
-            if (min == 2) {
-                this.a.setDisplayedChild(0);
-            } else {
-                this.a.setDisplayedChild(1);
-            }
+        if (i < 1) {
+            min = 1;
+        } else {
+            min = Math.min(i, 2);
+        }
+        if (min == 2) {
+            this.a.setDisplayedChild(0);
+        } else {
+            this.a.setDisplayedChild(1);
         }
     }
 
     public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.d.setVisibility(i);
-        }
+        this.e.setVisibility(i);
     }
 
     public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.c.setVisibility(i);
-        }
+        this.d.setVisibility(i);
     }
 
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.d.setText(str);
-        }
+    private void a() {
+        setContentView(R.layout.obfuscated_res_0x7f0d04e7);
+        setCanceledOnTouchOutside(false);
+        this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0918ef);
+        this.a = (ViewSwitcher) findViewById(R.id.obfuscated_res_0x7f092786);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0923d4);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0923cf);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0916d0);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091b91);
+        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0917bb);
+        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0917cb);
+    }
+
+    public void a(Drawable drawable) {
+        this.c.setVisibility(0);
+        this.c.setBackgroundDrawable(drawable);
     }
 
     public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.c.setText(str);
-        }
+        this.d.setText(str);
+    }
+
+    public void a(String str) {
+        this.e.setText(str);
     }
 
     public void a(String str, View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, onClickListener) == null) {
-            this.f.setText(str);
-            this.f.setOnClickListener(onClickListener);
-        }
+        this.g.setText(str);
+        this.g.setOnClickListener(onClickListener);
     }
 
     public void b(String str, View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, onClickListener) == null) {
-            this.g.setText(str);
-            this.g.setOnClickListener(onClickListener);
-        }
+        this.h.setText(str);
+        this.h.setOnClickListener(onClickListener);
     }
 
     public void c(String str, View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, onClickListener) == null) {
-            this.e.setText(str);
-            this.e.setOnClickListener(onClickListener);
-        }
+        this.f.setText(str);
+        this.f.setOnClickListener(onClickListener);
     }
 
     public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            if (z) {
-                this.b.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f0b));
-                this.c.setTextColor(this.h.getResources().getColor(R.color.obfuscated_res_0x7f0608f5));
-                this.d.setTextColor(this.h.getResources().getColor(R.color.obfuscated_res_0x7f0608e9));
-                this.f.setTextColor(this.h.getResources().getColor(R.color.obfuscated_res_0x7f0608ed));
-                this.e.setTextColor(this.h.getResources().getColor(R.color.obfuscated_res_0x7f0608f1));
-                this.g.setTextColor(this.h.getResources().getColor(R.color.obfuscated_res_0x7f0608ed));
-                this.f.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f05));
-                this.e.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f07));
-                this.g.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f05));
-                return;
-            }
-            this.b.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f0a));
-            this.c.setTextColor(this.h.getResources().getColor(R.color.obfuscated_res_0x7f0608f4));
-            this.d.setTextColor(this.h.getResources().getColor(R.color.obfuscated_res_0x7f0608e8));
-            this.f.setTextColor(this.h.getResources().getColor(R.color.obfuscated_res_0x7f0608ec));
-            this.g.setTextColor(this.h.getResources().getColor(R.color.obfuscated_res_0x7f0608ec));
-            this.e.setTextColor(this.h.getResources().getColor(R.color.obfuscated_res_0x7f0608f0));
-            this.f.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f04));
-            this.e.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f06));
-            this.g.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f04));
+        if (z) {
+            this.b.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f12));
+            this.d.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060788));
+            this.e.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f06077c));
+            this.g.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060780));
+            this.f.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060784));
+            this.h.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060780));
+            this.g.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f0c));
+            this.f.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f0e));
+            this.h.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f0c));
+            return;
         }
+        this.b.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f11));
+        this.d.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060787));
+        this.e.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f06077b));
+        this.g.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f06077f));
+        this.h.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f06077f));
+        this.f.setTextColor(this.i.getResources().getColor(R.color.obfuscated_res_0x7f060783));
+        this.g.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f0b));
+        this.f.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f0d));
+        this.h.setBackgroundDrawable(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f0b));
     }
 }

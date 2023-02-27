@@ -1,12 +1,5 @@
 package okhttp3.internal.connection;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.InetAddress;
@@ -27,126 +20,65 @@ import okhttp3.Route;
 import okhttp3.internal.Util;
 /* loaded from: classes9.dex */
 public final class RouteSelector {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final Address address;
     public final Call call;
     public final EventListener eventListener;
-    public List<InetSocketAddress> inetSocketAddresses;
     public int nextProxyIndex;
-    public final List<Route> postponedRoutes;
-    public List<Proxy> proxies;
     public final RouteDatabase routeDatabase;
+    public List<Proxy> proxies = Collections.emptyList();
+    public List<InetSocketAddress> inetSocketAddresses = Collections.emptyList();
+    public final List<Route> postponedRoutes = new ArrayList();
 
     /* loaded from: classes9.dex */
     public static final class Selection {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public int ipv4Size;
-        public int nextRouteIndex;
+        public int nextRouteIndex = 0;
         public final List<Route> routes;
 
         public Selection(List<Route> list, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {list, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.nextRouteIndex = 0;
             this.routes = list;
             this.ipv4Size = i;
         }
 
         public List<Route> getAll() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new ArrayList(this.routes);
-            }
-            return (List) invokeV.objValue;
+            return new ArrayList(this.routes);
         }
 
         public int getIPv4Size() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.ipv4Size;
-            }
-            return invokeV.intValue;
+            return this.ipv4Size;
         }
 
         public boolean hasNext() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.nextRouteIndex < this.routes.size()) {
-                    return true;
-                }
-                return false;
+            if (this.nextRouteIndex < this.routes.size()) {
+                return true;
             }
-            return invokeV.booleanValue;
-        }
-
-        public Route next() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (hasNext()) {
-                    List<Route> list = this.routes;
-                    int i = this.nextRouteIndex;
-                    this.nextRouteIndex = i + 1;
-                    return list.get(i);
-                }
-                throw new NoSuchElementException();
-            }
-            return (Route) invokeV.objValue;
+            return false;
         }
 
         public Route markNextIPv4() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                for (int i = this.nextRouteIndex; i < this.routes.size(); i++) {
-                    if (this.routes.get(i).socketAddress().getAddress() instanceof Inet4Address) {
-                        this.nextRouteIndex = i;
-                        List<Route> list = this.routes;
-                        this.nextRouteIndex = i + 1;
-                        return list.get(i);
-                    }
+            for (int i = this.nextRouteIndex; i < this.routes.size(); i++) {
+                if (this.routes.get(i).socketAddress().getAddress() instanceof Inet4Address) {
+                    this.nextRouteIndex = i;
+                    List<Route> list = this.routes;
+                    this.nextRouteIndex = i + 1;
+                    return list.get(i);
                 }
-                return null;
             }
-            return (Route) invokeV.objValue;
+            return null;
+        }
+
+        public Route next() {
+            if (hasNext()) {
+                List<Route> list = this.routes;
+                int i = this.nextRouteIndex;
+                this.nextRouteIndex = i + 1;
+                return list.get(i);
+            }
+            throw new NoSuchElementException();
         }
     }
 
     public RouteSelector(Address address, RouteDatabase routeDatabase, Call call, EventListener eventListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {address, routeDatabase, call, eventListener};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.proxies = Collections.emptyList();
-        this.inetSocketAddresses = Collections.emptyList();
-        this.postponedRoutes = new ArrayList();
         this.address = address;
         this.routeDatabase = routeDatabase;
         this.call = call;
@@ -155,161 +87,127 @@ public final class RouteSelector {
     }
 
     public static String getHostString(InetSocketAddress inetSocketAddress) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inetSocketAddress)) == null) {
-            InetAddress address = inetSocketAddress.getAddress();
-            if (address == null) {
-                return inetSocketAddress.getHostName();
-            }
-            return address.getHostAddress();
+        InetAddress address = inetSocketAddress.getAddress();
+        if (address == null) {
+            return inetSocketAddress.getHostName();
         }
-        return (String) invokeL.objValue;
+        return address.getHostAddress();
     }
 
     private boolean hasNextProxy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (this.nextProxyIndex < this.proxies.size()) {
-                return true;
-            }
-            return false;
+        if (this.nextProxyIndex < this.proxies.size()) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public boolean hasNext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!hasNextProxy() && this.postponedRoutes.isEmpty()) {
-                return false;
-            }
-            return true;
+        if (!hasNextProxy() && this.postponedRoutes.isEmpty()) {
+            return false;
         }
-        return invokeV.booleanValue;
+        return true;
     }
 
     private Proxy nextProxy() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            if (hasNextProxy()) {
-                List<Proxy> list = this.proxies;
-                int i = this.nextProxyIndex;
-                this.nextProxyIndex = i + 1;
-                Proxy proxy = list.get(i);
-                resetNextInetSocketAddress(proxy);
-                return proxy;
-            }
-            throw new SocketException("No route to " + this.address.url().host() + "; exhausted proxy configurations: " + this.proxies);
+        if (hasNextProxy()) {
+            List<Proxy> list = this.proxies;
+            int i = this.nextProxyIndex;
+            this.nextProxyIndex = i + 1;
+            Proxy proxy = list.get(i);
+            resetNextInetSocketAddress(proxy);
+            return proxy;
         }
-        return (Proxy) invokeV.objValue;
+        throw new SocketException("No route to " + this.address.url().host() + "; exhausted proxy configurations: " + this.proxies);
     }
 
     private void resetNextInetSocketAddress(Proxy proxy) throws IOException {
         String host;
         int port;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, proxy) == null) {
-            this.inetSocketAddresses = new ArrayList();
-            if (proxy.type() != Proxy.Type.DIRECT && proxy.type() != Proxy.Type.SOCKS) {
-                SocketAddress address = proxy.address();
-                if (address instanceof InetSocketAddress) {
-                    InetSocketAddress inetSocketAddress = (InetSocketAddress) address;
-                    host = getHostString(inetSocketAddress);
-                    port = inetSocketAddress.getPort();
-                } else {
-                    throw new IllegalArgumentException("Proxy.address() is not an InetSocketAddress: " + address.getClass());
-                }
+        this.inetSocketAddresses = new ArrayList();
+        if (proxy.type() != Proxy.Type.DIRECT && proxy.type() != Proxy.Type.SOCKS) {
+            SocketAddress address = proxy.address();
+            if (address instanceof InetSocketAddress) {
+                InetSocketAddress inetSocketAddress = (InetSocketAddress) address;
+                host = getHostString(inetSocketAddress);
+                port = inetSocketAddress.getPort();
             } else {
-                host = this.address.url().host();
-                port = this.address.url().port();
+                throw new IllegalArgumentException("Proxy.address() is not an InetSocketAddress: " + address.getClass());
             }
-            if (port >= 1 && port <= 65535) {
-                if (proxy.type() == Proxy.Type.SOCKS) {
-                    this.inetSocketAddresses.add(InetSocketAddress.createUnresolved(host, port));
-                    return;
-                }
-                this.eventListener.dnsStart(this.call, host);
-                List<InetAddress> lookup = this.address.dns().lookup(host);
-                if (!lookup.isEmpty()) {
-                    this.eventListener.dnsEnd(this.call, host, lookup);
-                    int size = lookup.size();
-                    for (int i = 0; i < size; i++) {
-                        this.inetSocketAddresses.add(new InetSocketAddress(lookup.get(i), port));
-                    }
-                    return;
-                }
-                throw new UnknownHostException(this.address.dns() + " returned no addresses for " + host);
-            }
-            throw new SocketException("No route to " + host + ":" + port + "; port is out of range");
+        } else {
+            host = this.address.url().host();
+            port = this.address.url().port();
         }
+        if (port >= 1 && port <= 65535) {
+            if (proxy.type() == Proxy.Type.SOCKS) {
+                this.inetSocketAddresses.add(InetSocketAddress.createUnresolved(host, port));
+                return;
+            }
+            this.eventListener.dnsStart(this.call, host);
+            List<InetAddress> lookup = this.address.dns().lookup(host);
+            if (!lookup.isEmpty()) {
+                this.eventListener.dnsEnd(this.call, host, lookup);
+                int size = lookup.size();
+                for (int i = 0; i < size; i++) {
+                    this.inetSocketAddresses.add(new InetSocketAddress(lookup.get(i), port));
+                }
+                return;
+            }
+            throw new UnknownHostException(this.address.dns() + " returned no addresses for " + host);
+        }
+        throw new SocketException("No route to " + host + ":" + port + "; port is out of range");
     }
 
     private void resetNextProxy(HttpUrl httpUrl, Proxy proxy) {
         List<Proxy> immutableList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, this, httpUrl, proxy) == null) {
-            if (proxy != null) {
-                this.proxies = Collections.singletonList(proxy);
+        if (proxy != null) {
+            this.proxies = Collections.singletonList(proxy);
+        } else {
+            List<Proxy> select = this.address.proxySelector().select(httpUrl.uri());
+            if (select != null && !select.isEmpty()) {
+                immutableList = Util.immutableList(select);
             } else {
-                List<Proxy> select = this.address.proxySelector().select(httpUrl.uri());
-                if (select != null && !select.isEmpty()) {
-                    immutableList = Util.immutableList(select);
-                } else {
-                    immutableList = Util.immutableList(Proxy.NO_PROXY);
-                }
-                this.proxies = immutableList;
+                immutableList = Util.immutableList(Proxy.NO_PROXY);
             }
-            this.nextProxyIndex = 0;
+            this.proxies = immutableList;
         }
+        this.nextProxyIndex = 0;
     }
 
     public void connectFailed(Route route, IOException iOException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, route, iOException) == null) {
-            if (route.proxy().type() != Proxy.Type.DIRECT && this.address.proxySelector() != null) {
-                this.address.proxySelector().connectFailed(this.address.url().uri(), route.proxy().address(), iOException);
-            }
-            this.routeDatabase.failed(route);
+        if (route.proxy().type() != Proxy.Type.DIRECT && this.address.proxySelector() != null) {
+            this.address.proxySelector().connectFailed(this.address.url().uri(), route.proxy().address(), iOException);
         }
+        this.routeDatabase.failed(route);
     }
 
     public Selection next() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (hasNext()) {
-                ArrayList arrayList = new ArrayList();
-                int i = 0;
-                while (hasNextProxy()) {
-                    Proxy nextProxy = nextProxy();
-                    int size = this.inetSocketAddresses.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        Route route = new Route(this.address, nextProxy, this.inetSocketAddresses.get(i2), i2);
-                        if (this.routeDatabase.shouldPostpone(route)) {
-                            this.postponedRoutes.add(route);
-                        } else {
-                            arrayList.add(route);
-                        }
-                        if (this.inetSocketAddresses.get(i2).getAddress() instanceof Inet4Address) {
-                            i++;
-                        }
+        if (hasNext()) {
+            ArrayList arrayList = new ArrayList();
+            int i = 0;
+            while (hasNextProxy()) {
+                Proxy nextProxy = nextProxy();
+                int size = this.inetSocketAddresses.size();
+                for (int i2 = 0; i2 < size; i2++) {
+                    Route route = new Route(this.address, nextProxy, this.inetSocketAddresses.get(i2), i2);
+                    if (this.routeDatabase.shouldPostpone(route)) {
+                        this.postponedRoutes.add(route);
+                    } else {
+                        arrayList.add(route);
                     }
-                    if (!arrayList.isEmpty()) {
-                        break;
+                    if (this.inetSocketAddresses.get(i2).getAddress() instanceof Inet4Address) {
+                        i++;
                     }
                 }
-                if (arrayList.isEmpty()) {
-                    arrayList.addAll(this.postponedRoutes);
-                    this.postponedRoutes.clear();
+                if (!arrayList.isEmpty()) {
+                    break;
                 }
-                return new Selection(arrayList, i);
             }
-            throw new NoSuchElementException();
+            if (arrayList.isEmpty()) {
+                arrayList.addAll(this.postponedRoutes);
+                this.postponedRoutes.clear();
+            }
+            return new Selection(arrayList, i);
         }
-        return (Selection) invokeV.objValue;
+        throw new NoSuchElementException();
     }
 }

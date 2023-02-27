@@ -1,182 +1,91 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdhttpdns.BDHttpDnsResult;
-import com.baidu.searchbox.dns.transmit.DnsTransmitter;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import com.baidu.audiorecorder.lib.voice.SendVoiceView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.editortools.RawLayout;
+import com.baidu.tieba.view.BdTopToast;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.Inet4Address;
-import java.net.Inet6Address;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public final class kp {
+public class kp extends jd5 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile kp a;
+    public static final int t;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(int i, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str);
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public a b;
-        public final /* synthetic */ kp c;
-
-        public b(kp kpVar, String str, a aVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448309480, "Lcom/baidu/tieba/kp;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kpVar, str, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = kpVar;
-            this.a = str;
-            this.b = aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            ArrayList<String> arrayList;
-            ArrayList<String> arrayList2;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Map d = this.c.d(this.a);
-                if (d != null) {
-                    arrayList2 = (ArrayList) d.get("ipv6");
-                    arrayList = (ArrayList) d.get(DnsTransmitter.TYPE_VALUE_IPV4);
-                } else {
-                    arrayList = null;
-                    arrayList2 = null;
-                }
-                if ((arrayList != null && !arrayList.isEmpty()) || (arrayList2 != null && !arrayList2.isEmpty())) {
-                    i = 0;
-                } else {
-                    i = -1;
-                }
-                this.b.a(i, arrayList, arrayList2, 60L, this.a);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448309480, "Lcom/baidu/tieba/kp;");
+                return;
             }
         }
+        t = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds26);
     }
 
-    public kp() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kp(Context context) {
+        super(context, (String) null, 6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1421);
+        this.d = R.drawable.icon_pure_post_voice24;
+        this.f = R.color.CAM_X0105;
+        this.i = false;
+        this.j = true;
+        this.o = true;
+        this.n = 5;
+        this.m = new SendVoiceView(context);
+        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(0, -2);
+        int i3 = t;
+        ((LinearLayout.LayoutParams) layoutParams).topMargin = i3;
+        ((LinearLayout.LayoutParams) layoutParams).bottomMargin = i3;
+        ((LinearLayout.LayoutParams) layoutParams).weight = 1.0f;
+        ((View) this.m).setLayoutParams(layoutParams);
+        this.p = new int[0];
     }
 
-    public static kp c() {
+    @Override // com.baidu.tieba.jd5
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (kp.class) {
-                    if (a == null) {
-                        a = new kp();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.k && getContext() != null && (this.m instanceof SendVoiceView)) {
+                BdTopToast bdTopToast = new BdTopToast(getContext());
+                bdTopToast.h(false);
+                bdTopToast.g(getContext().getString(R.string.function_can_not_use));
+                bdTopToast.i((ViewGroup) ((SendVoiceView) this.m).getRootView());
             }
-            return a;
+            return this.k;
         }
-        return (kp) invokeV.objValue;
-    }
-
-    public void b(String str, a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) && str != null && !str.isEmpty()) {
-            pp.b().a().execute(new b(this, str, aVar));
-        }
-    }
-
-    public final Map<String, ArrayList> d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            try {
-                InetAddress[] allByName = InetAddress.getAllByName(str);
-                if (allByName != null && allByName.length != 0) {
-                    ArrayList arrayList = new ArrayList();
-                    ArrayList arrayList2 = new ArrayList();
-                    HashMap hashMap = new HashMap();
-                    for (InetAddress inetAddress : allByName) {
-                        if (inetAddress instanceof Inet4Address) {
-                            String hostAddress = inetAddress.getHostAddress();
-                            if (jp.l(hostAddress)) {
-                                arrayList.add(hostAddress);
-                            }
-                        } else if (inetAddress instanceof Inet6Address) {
-                            String hostAddress2 = inetAddress.getHostAddress();
-                            if (jp.m(hostAddress2)) {
-                                arrayList2.add(hostAddress2);
-                            }
-                        }
-                    }
-                    hashMap.put(DnsTransmitter.TYPE_VALUE_IPV4, arrayList);
-                    hashMap.put("ipv6", arrayList2);
-                    if (arrayList.isEmpty() && arrayList2.isEmpty()) {
-                        op.a("Dns resolve failed, host(%s), get no valid resolve result", str);
-                        return null;
-                    }
-                    op.a("Dns resolve successful, host(%s), ipv4List(%s), ipv6List(%s)", str, arrayList.toString(), arrayList2.toString());
-                    return hashMap;
-                }
-                op.a("Dns resolve failed, host(%s), get empty resolve result", str);
-                return null;
-            } catch (UnknownHostException e) {
-                e.printStackTrace();
-                op.a("Dns resolve failed, host(%s), caught UnknownHostException", str);
-                return null;
-            }
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public BDHttpDnsResult e(String str) {
-        InterceptResult invokeL;
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Map<String, ArrayList> d = d(str);
-            ArrayList arrayList2 = null;
-            if (d != null) {
-                arrayList2 = d.get(DnsTransmitter.TYPE_VALUE_IPV4);
-                arrayList = d.get("ipv6");
-            } else {
-                arrayList = null;
-            }
-            if ((arrayList2 != null && !arrayList2.isEmpty()) || (arrayList != null && !arrayList.isEmpty())) {
-                return new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, arrayList2, arrayList);
-            }
-            return new BDHttpDnsResult(BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorDnsResolve);
-        }
-        return (BDHttpDnsResult) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

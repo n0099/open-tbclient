@@ -1,105 +1,785 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Environment;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.tieba.wg1;
+import com.baidu.platform.comapi.UIMsg;
+import com.baidu.poly.statistics.exception.ServerDataException;
+import com.baidu.poly.widget.PayChannelEntity;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ug1 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String b = "payChannel";
+    public static String c = "installmentPeriod";
+    public static String d = "payType";
+    public static volatile ug1 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public wg1 a;
+    public rg1 a;
 
-    public ug1(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948209930, "Lcom/baidu/tieba/ug1;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948209930, "Lcom/baidu/tieba/ug1;");
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends mg1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mg1 a;
+        public final /* synthetic */ ug1 b;
+
+        public a(ug1 ug1Var, mg1 mg1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ug1Var, mg1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ug1Var;
+            this.a = mg1Var;
+        }
+
+        @Override // com.baidu.tieba.mg1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.b.w("7", 119501, "cashier/channelAllInfo", i);
+                this.a.b(th, str);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.mg1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt(StatConstants.KEY_EXT_ERR_CODE, -1);
+                    int optInt2 = jSONObject.optInt("errno", -1);
+                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                    if (optJSONObject == null || optInt != 0 || optInt2 != 0) {
+                        this.b.w("7", 119503, "cashier/channelAllInfo", optInt2);
+                        String optString = jSONObject.optString("errmsg");
+                        mg1 mg1Var = this.a;
+                        ServerDataException serverDataException = new ServerDataException("errmsg = " + optString);
+                        mg1Var.b(serverDataException, "errno is " + optInt2);
+                        return;
+                    }
+                    this.a.c(optJSONObject);
+                } catch (JSONException unused) {
+                    this.b.w("7", 119502, "cashier/channelAllInfo", -1);
+                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends mg1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ mg1 b;
+        public final /* synthetic */ ug1 c;
+
+        public b(ug1 ug1Var, String str, mg1 mg1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ug1Var, str, mg1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ug1Var;
+            this.a = str;
+            this.b = mg1Var;
+        }
+
+        @Override // com.baidu.tieba.mg1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLIL(1048576, this, th, i, str) != null) {
+                return;
+            }
+            this.c.x("8", 119501, "cashier/launchpayment", i, this.a);
+            this.b.b(th, ii1.a().getResources().getString(R.string.obfuscated_res_0x7f0f043f));
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.mg1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("errno", -1);
+                    if (optInt != 0) {
+                        this.c.x("8", 119503, "cashier/launchpayment", optInt, this.a);
+                        String optString = jSONObject.optString("msg");
+                        mg1 mg1Var = this.b;
+                        mg1Var.b(new ServerDataException("msg = " + optString), optString);
+                        return;
+                    }
+                    this.b.c(this.c.y(jSONObject.optJSONObject("data")));
+                } catch (JSONException unused) {
+                    this.c.x("8", 119502, "cashier/launchpayment", -1, this.a);
+                    this.b.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends mg1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mg1 a;
+        public final /* synthetic */ ug1 b;
+
+        public c(ug1 ug1Var, mg1 mg1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ug1Var, mg1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ug1Var;
+            this.a = mg1Var;
+        }
+
+        @Override // com.baidu.tieba.mg1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.b.w("8", 119501, "cashier/pay", i);
+                this.a.b(th, str);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.mg1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("errno", -1);
+                    if (optInt != 0) {
+                        this.b.w("8", 119503, "cashier/pay", optInt);
+                        String optString = jSONObject.optString("msg");
+                        mg1 mg1Var = this.a;
+                        mg1Var.b(new ServerDataException("msg = " + optString), optString);
+                        return;
+                    }
+                    this.a.c(this.b.y(jSONObject.optJSONObject("data")));
+                } catch (Throwable unused) {
+                    this.b.w("8", 119502, "cashier/pay", -1);
+                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d extends mg1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mg1 a;
+        public final /* synthetic */ ug1 b;
+
+        public d(ug1 ug1Var, mg1 mg1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ug1Var, mg1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ug1Var;
+            this.a = mg1Var;
+        }
+
+        @Override // com.baidu.tieba.mg1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.b.w("105", 119501, "cashier/sdkAdaptH5QueryPay", i);
+                this.a.b(th, str);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.mg1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("errno", -1);
+                    if (optInt != 0) {
+                        this.b.w("105", 119503, "cashier/sdkAdaptH5QueryPay", optInt);
+                        String optString = jSONObject.optString("msg");
+                        mg1 mg1Var = this.a;
+                        ServerDataException serverDataException = new ServerDataException("msg = " + optString);
+                        mg1Var.b(serverDataException, "errno is " + optInt);
+                        return;
+                    }
+                    this.a.c(jSONObject.optJSONObject("data"));
+                } catch (Throwable unused) {
+                    this.b.w("105", 119502, "cashier/sdkAdaptH5QueryPay", -1);
+                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e extends mg1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mg1 a;
+
+        public e(ug1 ug1Var, mg1 mg1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ug1Var, mg1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mg1Var;
+        }
+
+        @Override // com.baidu.tieba.mg1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.a.b(th, str);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.mg1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("errno", -1);
+                    if (optInt == 0) {
+                        this.a.c(jSONObject.optJSONObject("data"));
+                        return;
+                    }
+                    String optString = jSONObject.optString("msg");
+                    mg1 mg1Var = this.a;
+                    ServerDataException serverDataException = new ServerDataException("msg=" + optString);
+                    mg1Var.b(serverDataException, "code=" + optInt);
+                } catch (Throwable th) {
+                    ei1.d(th.getMessage());
+                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class f extends mg1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mg1 a;
+
+        public f(ug1 ug1Var, mg1 mg1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ug1Var, mg1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mg1Var;
+        }
+
+        @Override // com.baidu.tieba.mg1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.a.b(th, str);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.mg1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("errno", -1);
+                    if (optInt == 0) {
+                        this.a.c(jSONObject.optJSONObject("data"));
+                        return;
+                    }
+                    String optString = jSONObject.optString("msg");
+                    mg1 mg1Var = this.a;
+                    ServerDataException serverDataException = new ServerDataException("msg=" + optString);
+                    mg1Var.b(serverDataException, "code=" + optInt);
+                } catch (Throwable th) {
+                    ei1.d(th.getMessage());
+                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class g extends mg1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mg1 a;
+
+        public g(ug1 ug1Var, mg1 mg1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ug1Var, mg1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mg1Var;
+        }
+
+        @Override // com.baidu.tieba.mg1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.a.b(th, str);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.mg1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("errno", -1);
+                    if (optInt == 0) {
+                        this.a.c(jSONObject.optJSONObject("data"));
+                        return;
+                    }
+                    String optString = jSONObject.optString("msg");
+                    mg1 mg1Var = this.a;
+                    ServerDataException serverDataException = new ServerDataException("msg=" + optString);
+                    mg1Var.b(serverDataException, "code=" + optInt);
+                } catch (Throwable th) {
+                    ei1.d(th.getMessage());
+                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
+                }
+            }
+        }
+    }
+
+    public ug1(rg1 rg1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {rg1Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        File b = b(context, "bitmap");
-        if (!b.exists()) {
-            b.mkdirs();
-        }
-        try {
-            this.a = wg1.r(b, 1, 1, Config.FULL_TRACE_LOG_LIMIT);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        this.a = rg1Var;
     }
 
-    public void a(String str) {
+    public final og1 i(og1 og1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a == null) {
-            return;
-        }
-        try {
-            wg1.c m = this.a.m(ah1.b(str));
-            if (m == null) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, og1Var)) == null) {
+            if (og1Var == null) {
+                og1Var = new og1();
             }
-            if (qg1.b(str, m.f(0))) {
-                m.e();
-            } else {
-                m.a();
-            }
-            this.a.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
+            vg1.d(og1Var);
+            return og1Var;
         }
+        return (og1) invokeL.objValue;
     }
 
-    public File b(Context context, String str) {
+    public ng1 d(Bundle bundle, og1 og1Var) {
         InterceptResult invokeLL;
-        String path;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            if ("mounted".equals(Environment.getExternalStorageState()) && context.getExternalCacheDir() != null) {
-                path = context.getExternalCacheDir().getPath();
-            } else {
-                path = context.getCacheDir().getPath();
-            }
-            return new File(path + File.separator + str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bundle, og1Var)) == null) {
+            ng1 ng1Var = new ng1();
+            t(ng1Var, bundle);
+            ng1Var.d(d, "android");
+            n(bundle, ng1Var, og1Var);
+            return ng1Var;
         }
-        return (File) invokeLL.objValue;
+        return (ng1) invokeLL.objValue;
     }
 
-    public Bitmap c(String str, int i, int i2) {
-        InterceptResult invokeLII;
+    public void e(Bundle bundle, mg1<JSONObject> mg1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, str, i, i2)) == null) {
-            if (this.a == null) {
-                return null;
-            }
-            wg1.e o = this.a.o(ah1.b(str));
-            if (o == null) {
-                return null;
-            }
-            FileInputStream fileInputStream = (FileInputStream) o.a(0);
-            if (i > 0 && i2 > 0) {
-                return zg1.b(fileInputStream.getFD(), i, i2);
-            }
-            return BitmapFactory.decodeFileDescriptor(fileInputStream.getFD());
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle, mg1Var) == null) {
+            f(bundle, false, mg1Var);
         }
-        return (Bitmap) invokeLII.objValue;
+    }
+
+    public void u(Bundle bundle, mg1<Map<String, String>> mg1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048592, this, bundle, mg1Var) == null) {
+            og1 h = h();
+            ng1 d2 = d(bundle, h);
+            this.a.a(wg1.l(), h, d2, new c(this, mg1Var));
+        }
+    }
+
+    public static ug1 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (e == null) {
+                synchronized (ug1.class) {
+                    if (e == null) {
+                        e = new ug1(new sg1());
+                    }
+                }
+            }
+            return e;
+        }
+        return (ug1) invokeV.objValue;
+    }
+
+    public void f(Bundle bundle, boolean z, mg1<JSONObject> mg1Var) {
+        String c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bundle, Boolean.valueOf(z), mg1Var}) == null) {
+            og1 h = h();
+            Set<String> keySet = bundle.keySet();
+            ng1 ng1Var = new ng1();
+            for (String str : keySet) {
+                if ((bundle.get(str) instanceof String) && (!z || !"bduss".equals(str))) {
+                    ng1Var.d(str, bundle.get(str).toString());
+                }
+            }
+            n(bundle, ng1Var, h);
+            r(bundle, ng1Var, h);
+            p(bundle, ng1Var, h);
+            if (z) {
+                c2 = wg1.d();
+            } else {
+                c2 = wg1.c();
+            }
+            rh1.a("1.02", System.currentTimeMillis());
+            this.a.a(c2, h, ng1Var, new a(this, mg1Var));
+        }
+    }
+
+    public void g(String str, ng1 ng1Var, mg1<JSONObject> mg1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, ng1Var, mg1Var) == null) {
+            this.a.a(str, h(), ng1Var, new g(this, mg1Var));
+        }
+    }
+
+    public final void n(Bundle bundle, ng1 ng1Var, og1 og1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048585, this, bundle, ng1Var, og1Var) == null) {
+            String string = bundle.getString("bduss");
+            if (TextUtils.isEmpty(string)) {
+                return;
+            }
+            o(string, og1Var);
+        }
+    }
+
+    public final void p(Bundle bundle, ng1 ng1Var, og1 og1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048587, this, bundle, ng1Var, og1Var) == null) {
+            String string = bundle.getString("clientId");
+            if (TextUtils.isEmpty(string)) {
+                return;
+            }
+            q(string, og1Var);
+        }
+    }
+
+    public final void r(Bundle bundle, ng1 ng1Var, og1 og1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048589, this, bundle, ng1Var, og1Var) == null) {
+            String string = bundle.getString("openBduss");
+            if (TextUtils.isEmpty(string)) {
+                return;
+            }
+            s(string, og1Var);
+        }
+    }
+
+    public final og1 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            og1 og1Var = new og1();
+            vg1.d(og1Var);
+            return og1Var;
+        }
+        return (og1) invokeV.objValue;
+    }
+
+    public void k(String str, String str2, String str3, mg1<JSONObject> mg1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048582, this, str, str2, str3, mg1Var) == null) {
+            og1 h = h();
+            o(str, h);
+            ng1 ng1Var = new ng1();
+            ng1Var.d("bduss", str);
+            ng1Var.d("payChannel", str2);
+            ng1Var.d("appKey", str3);
+            this.a.a(wg1.i(), h, ng1Var, new e(this, mg1Var));
+        }
+    }
+
+    public void l(String str, String str2, String str3, mg1<JSONObject> mg1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048583, this, str, str2, str3, mg1Var) == null) {
+            og1 h = h();
+            o(str, h);
+            ng1 ng1Var = new ng1();
+            ng1Var.d("appKey", str3);
+            ng1Var.d("bduss", str);
+            ng1Var.d("payChannel", str2);
+            ng1Var.d("sign", lh1.c("appKey=" + str3 + "&bduss=" + str + "&payChannel=" + str2 + "&lLoIsWxrSeJmHQD2TVQQ"));
+            this.a.a(wg1.k(), h, ng1Var, new f(this, mg1Var));
+        }
+    }
+
+    public void m(Bundle bundle, mg1<JSONObject> mg1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle, mg1Var) == null) {
+            og1 h = h();
+            Set<String> keySet = bundle.keySet();
+            ng1 ng1Var = new ng1();
+            for (String str : keySet) {
+                if (bundle.get(str) instanceof String) {
+                    ng1Var.d(str, bundle.get(str).toString());
+                }
+            }
+            this.a.a(wg1.m(), h, ng1Var, new d(this, mg1Var));
+        }
+    }
+
+    public final void t(ng1 ng1Var, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048591, this, ng1Var, bundle) == null) && bundle != null && ng1Var != null) {
+            for (String str : bundle.keySet()) {
+                ng1Var.d(str, bundle.getString(str));
+            }
+            Iterator<Map.Entry<String, String>> it = ng1Var.b().entrySet().iterator();
+            while (it.hasNext()) {
+                if (TextUtils.isEmpty(it.next().getValue())) {
+                    it.remove();
+                }
+            }
+        }
+    }
+
+    public final void o(String str, og1 og1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, str, og1Var) == null) {
+            String a2 = og1Var.a("Cookie");
+            String str2 = "BDUSS=" + str;
+            if (a2 == null) {
+                og1Var.d("Cookie", str2);
+                return;
+            }
+            og1Var.d("Cookie", a2 + "; " + str2);
+        }
+    }
+
+    public final void q(String str, og1 og1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, str, og1Var) == null) {
+            String a2 = og1Var.a("Cookie");
+            String str2 = "CLIENTID=" + str;
+            if (a2 == null) {
+                og1Var.d("Cookie", str2);
+                return;
+            }
+            og1Var.d("Cookie", a2 + "; " + str2);
+        }
+    }
+
+    public final void s(String str, og1 og1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, str, og1Var) == null) {
+            String a2 = og1Var.a("Cookie");
+            String str2 = "OPENBDUSS=" + str;
+            if (a2 == null) {
+                og1Var.d("Cookie", str2);
+                return;
+            }
+            og1Var.d("Cookie", a2 + "; " + str2);
+        }
+    }
+
+    public void v(og1 og1Var, Bundle bundle, mg1<Map<String, String>> mg1Var, PayChannelEntity payChannelEntity, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048593, this, og1Var, bundle, mg1Var, payChannelEntity, str) == null) {
+            og1 i = i(og1Var);
+            Set<String> keySet = bundle.keySet();
+            ng1 ng1Var = new ng1();
+            for (String str2 : keySet) {
+                if (bundle.get(str2) instanceof String) {
+                    ng1Var.d(str2, bundle.get(str2).toString());
+                }
+            }
+            if (payChannelEntity == null) {
+                return;
+            }
+            String payChannel = payChannelEntity.getPayChannel();
+            if (!TextUtils.isEmpty(payChannel)) {
+                ng1Var.d(b, payChannel);
+            }
+            String installmentPeriod = payChannelEntity.getInstallmentPeriod();
+            if (!TextUtils.isEmpty(installmentPeriod)) {
+                ng1Var.d(c, installmentPeriod);
+            }
+            n(bundle, ng1Var, i);
+            this.a.a(wg1.j(), i, ng1Var, new b(this, str, mg1Var));
+        }
+    }
+
+    public final void x(String str, int i, String str2, int i2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3}) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("exceptionType", "" + i);
+            hashMap.put("path", str2);
+            hashMap.put(StatConstants.KEY_EXT_ERR_CODE, "" + i2);
+            if (!TextUtils.isEmpty(str3)) {
+                hashMap.put("isFoldChannel", str3);
+            }
+            rh1.c(str, hashMap);
+        }
+    }
+
+    public final void w(String str, int i, String str2, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("exceptionType", "" + i);
+            hashMap.put("path", str2);
+            hashMap.put(StatConstants.KEY_EXT_ERR_CODE, "" + i2);
+            rh1.c(str, hashMap);
+        }
+    }
+
+    public final Map<String, String> y(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, jSONObject)) == null) {
+            Map<String, String> c2 = fi1.c();
+            if (jSONObject != null) {
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    if (!TextUtils.isEmpty(next)) {
+                        c2.put(next, jSONObject.optString(next));
+                    }
+                }
+            }
+            return c2;
+        }
+        return (Map) invokeL.objValue;
     }
 }

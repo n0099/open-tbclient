@@ -1,7 +1,7 @@
 package com.baidu.searchbox.retrieve.inter.upload;
 
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface IActiveUploadResult {
     String getSource();
 

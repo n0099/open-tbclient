@@ -3,35 +3,19 @@ package com.baidu.mobstat;
 import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class HeadObject {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public String A;
     public int B;
-    public String C;
     public String D;
-    public String E;
-    public boolean a;
     public String b;
     public String c;
-    public String d;
-    public String e;
-    public String f;
-    public int g;
     public String h;
     public String i;
     public int j;
     public int k;
-    public String l;
     public String m;
     public String n;
     public String o;
@@ -46,176 +30,130 @@ public class HeadObject {
     public String x;
     public JSONObject y;
     public JSONObject z;
-
-    public HeadObject() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = false;
-        this.d = "0";
-        this.e = null;
-        this.f = null;
-        this.g = -1;
-        this.l = null;
-        this.C = "";
-        this.E = "";
-    }
+    public boolean a = false;
+    public String d = "0";
+    public String e = null;
+    public String f = null;
+    public int g = -1;
+    public String l = null;
+    public String C = "";
+    public String E = "";
 
     private synchronized void a(Context context) {
         String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, context) == null) {
-            synchronized (this) {
-                if (this.a) {
-                    return;
-                }
-                bn.e(context, com.kuaishou.weapon.p0.h.c);
-                bn.e(context, com.kuaishou.weapon.p0.h.a);
-                bn.e(context, "android.permission.ACCESS_NETWORK_STATE");
-                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                this.b = CooperService.instance().getOSVersion();
-                this.c = CooperService.instance().getOSSysVersion();
-                this.n = CooperService.instance().getPhoneModel();
-                this.o = CooperService.instance().getManufacturer();
-                this.x = CooperService.instance().getUUID();
-                this.y = CooperService.instance().getHeaderExt(context);
-                this.z = CooperService.instance().getPushId(context);
-                this.f = CooperService.instance().getCUID(context, true);
-                this.i = CooperService.instance().getDeviceId(telephonyManager, context);
-                if (bp.a().i(context)) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                this.d = str;
-                if (bw.u(context)) {
-                    this.d = "2";
-                }
-                this.d += "-26";
-                if (bu.a().d()) {
-                    try {
-                        this.q = CooperService.instance().getPhoneAddress(context, CooperService.instance().isDeviceMacEnabled(context));
-                    } catch (Exception unused) {
-                    }
-                    try {
-                        this.s = bw.l(2, context);
-                    } catch (Exception unused2) {
-                    }
-                }
-                try {
-                    this.t = bw.a(context, 2);
-                } catch (Exception unused3) {
-                }
-                try {
-                    this.m = CooperService.instance().getOperator(telephonyManager);
-                } catch (Exception unused4) {
-                }
-                try {
-                    this.j = bw.c(context);
-                    this.k = bw.d(context);
-                    if (context.getResources().getConfiguration().orientation == 2) {
-                        int i = this.j ^ this.k;
-                        this.j = i;
-                        int i2 = this.k ^ i;
-                        this.k = i2;
-                        this.j = i ^ i2;
-                    }
-                } catch (Exception unused5) {
-                }
-                this.l = CooperService.instance().getAppChannel(context);
-                this.e = CooperService.instance().getAppKey(context);
-                try {
-                    this.g = CooperService.instance().getAppVersionCode(context);
-                    this.h = CooperService.instance().getAppVersionName(context);
-                } catch (Exception unused6) {
-                }
-                try {
-                    this.p = CooperService.instance().getLinkedWay(context);
-                } catch (Exception unused7) {
-                }
-                this.u = bw.b();
-                this.v = android.os.Build.BOARD;
-                this.w = android.os.Build.BRAND;
-                this.A = CooperService.instance().getUserId(context);
-                this.a = true;
-                this.C = bp.a().u(context);
+        if (this.a) {
+            return;
+        }
+        bn.e(context, com.kuaishou.weapon.p0.h.c);
+        bn.e(context, com.kuaishou.weapon.p0.h.a);
+        bn.e(context, "android.permission.ACCESS_NETWORK_STATE");
+        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+        this.b = CooperService.instance().getOSVersion();
+        this.c = CooperService.instance().getOSSysVersion();
+        this.n = CooperService.instance().getPhoneModel();
+        this.o = CooperService.instance().getManufacturer();
+        this.x = CooperService.instance().getUUID();
+        this.y = CooperService.instance().getHeaderExt(context);
+        this.z = CooperService.instance().getPushId(context);
+        this.f = CooperService.instance().getCUID(context, true);
+        this.i = CooperService.instance().getDeviceId(telephonyManager, context);
+        if (bp.a().i(context)) {
+            str = "1";
+        } else {
+            str = "0";
+        }
+        this.d = str;
+        if (bw.u(context)) {
+            this.d = "2";
+        }
+        this.d += "-26";
+        if (bu.a().d()) {
+            try {
+                this.q = CooperService.instance().getPhoneAddress(context, CooperService.instance().isDeviceMacEnabled(context));
+            } catch (Exception unused) {
+            }
+            try {
+                this.s = bw.l(2, context);
+            } catch (Exception unused2) {
             }
         }
+        try {
+            this.t = bw.a(context, 2);
+        } catch (Exception unused3) {
+        }
+        try {
+            this.m = CooperService.instance().getOperator(telephonyManager);
+        } catch (Exception unused4) {
+        }
+        try {
+            this.j = bw.c(context);
+            this.k = bw.d(context);
+            if (context.getResources().getConfiguration().orientation == 2) {
+                int i = this.j ^ this.k;
+                this.j = i;
+                int i2 = this.k ^ i;
+                this.k = i2;
+                this.j = i ^ i2;
+            }
+        } catch (Exception unused5) {
+        }
+        this.l = CooperService.instance().getAppChannel(context);
+        this.e = CooperService.instance().getAppKey(context);
+        try {
+            this.g = CooperService.instance().getAppVersionCode(context);
+            this.h = CooperService.instance().getAppVersionName(context);
+        } catch (Exception unused6) {
+        }
+        try {
+            this.p = CooperService.instance().getLinkedWay(context);
+        } catch (Exception unused7) {
+        }
+        this.u = bw.b();
+        this.v = android.os.Build.BOARD;
+        this.w = android.os.Build.BRAND;
+        this.A = CooperService.instance().getUserId(context);
+        this.a = true;
+        this.C = bp.a().u(context);
     }
 
     public synchronized void installHeader(Context context, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, jSONObject) == null) {
-            synchronized (this) {
-                a(context);
-                if (jSONObject.length() > 10) {
-                    return;
-                }
-                updateHeader(context, jSONObject);
-            }
+        a(context);
+        if (jSONObject.length() > 10) {
+            return;
         }
+        updateHeader(context, jSONObject);
     }
 
     public void setHeaderExt(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            this.y = jSONObject;
-        }
+        this.y = jSONObject;
     }
 
     public void setHeaderPy(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.E = str;
-        }
+        this.E = str;
     }
 
     public void setPushInfo(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            this.z = jSONObject;
-        }
+        this.z = jSONObject;
     }
 
     public void setStartType(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            if (z) {
-                this.B = 1;
-            } else {
-                this.B = 0;
-            }
+        if (z) {
+            this.B = 1;
+        } else {
+            this.B = 0;
         }
     }
 
     public void setUserId(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.A = str;
-        }
+        this.A = str;
     }
 
     public void setUserProperty(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.C = str;
-        }
+        this.C = str;
     }
 
     public void setZid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.D = str;
-        }
+        this.D = str;
     }
 
     public synchronized void updateHeader(Context context, JSONObject jSONObject) {
@@ -239,191 +177,186 @@ public class HeadObject {
         Object obj18;
         Object obj19;
         JSONObject jSONObject2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, jSONObject) == null) {
-            synchronized (this) {
-                try {
-                    jSONObject.put("o", "Android");
-                    int i = 0;
-                    jSONObject.put("st", 0);
-                    if (this.b == null) {
-                        obj = "";
-                    } else {
-                        obj = this.b;
-                    }
-                    jSONObject.put("s", obj);
-                    if (this.c == null) {
-                        obj2 = "";
-                    } else {
-                        obj2 = this.c;
-                    }
-                    jSONObject.put("sv", obj2);
-                    if (this.e == null) {
-                        obj3 = "";
-                    } else {
-                        obj3 = this.e;
-                    }
-                    jSONObject.put("k", obj3);
-                    if (this.d == null) {
-                        obj4 = "0";
-                    } else {
-                        obj4 = this.d;
-                    }
-                    jSONObject.put(Config.PLATFORM_TYPE, obj4);
-                    jSONObject.put("i", "");
-                    jSONObject.put("v", "4.0.9.7");
-                    jSONObject.put(Config.STAT_SDK_CHANNEL, 26);
-                    jSONObject.put("a", this.g);
-                    if (this.h == null) {
-                        obj5 = "";
-                    } else {
-                        obj5 = this.h;
-                    }
-                    jSONObject.put("n", obj5);
-                    jSONObject.put("d", "");
-                    if (this.q == null) {
-                        obj6 = "";
-                    } else {
-                        obj6 = this.q;
-                    }
-                    jSONObject.put(Config.DEVICE_MAC_ID, obj6);
-                    if (this.s == null) {
-                        obj7 = "";
-                    } else {
-                        obj7 = this.s;
-                    }
-                    jSONObject.put(Config.DEVICE_BLUETOOTH_MAC, obj7);
-                    if (this.i == null) {
-                        obj8 = "";
-                    } else {
-                        obj8 = this.i;
-                    }
-                    jSONObject.put(Config.DEVICE_ID_SEC, obj8);
-                    if (this.f == null) {
-                        obj9 = "";
-                    } else {
-                        obj9 = this.f;
-                    }
-                    jSONObject.put(Config.CUID_SEC, obj9);
-                    jSONObject.put(Config.SDK_TAG, 2);
-                    jSONObject.put("w", this.j);
-                    jSONObject.put("h", this.k);
-                    if (this.t == null) {
-                        obj10 = "";
-                    } else {
-                        obj10 = this.t;
-                    }
-                    jSONObject.put("dn", obj10);
-                    if (this.l == null) {
-                        obj11 = "";
-                    } else {
-                        obj11 = this.l;
-                    }
-                    jSONObject.put("c", obj11);
-                    if (this.m == null) {
-                        obj12 = "";
-                    } else {
-                        obj12 = this.m;
-                    }
-                    jSONObject.put("op", obj12);
-                    if (this.n == null) {
-                        obj13 = "";
-                    } else {
-                        obj13 = this.n;
-                    }
-                    jSONObject.put("m", obj13);
-                    if (this.o == null) {
-                        obj14 = "";
-                    } else {
-                        obj14 = this.o;
-                    }
-                    jSONObject.put("ma", obj14);
-                    if (this.p == null) {
-                        obj15 = "";
-                    } else {
-                        obj15 = this.p;
-                    }
-                    jSONObject.put("l", obj15);
-                    jSONObject.put("t", System.currentTimeMillis());
-                    jSONObject.put("pn", bw.n(2, context));
-                    if (this.u == null) {
-                        obj16 = "";
-                    } else {
-                        obj16 = this.u;
-                    }
-                    jSONObject.put(Config.ROM, obj16);
-                    if (this.v == null) {
-                        obj17 = "";
-                    } else {
-                        obj17 = this.v;
-                    }
-                    jSONObject.put(Config.DEVICE_BOARD, obj17);
-                    if (this.w == null) {
-                        obj18 = "";
-                    } else {
-                        obj18 = this.w;
-                    }
-                    jSONObject.put(Config.DEVICE_BRAND, obj18);
-                    jSONObject.put("td", bw.b(context));
-                    if (context != null && context.getApplicationInfo() != null) {
-                        i = context.getApplicationInfo().targetSdkVersion;
-                    }
-                    jSONObject.put(Config.TARGET_SDK_VERSION, i);
-                    jSONObject.put(Config.USER_PROPERTY, this.C);
-                    jSONObject.put(Config.OAID, bw.b(2, context));
-                    jSONObject.put(Config.OUT_OAID, bw.c(2, context));
-                    jSONObject.put("from", "0");
-                    jSONObject.put(Config.GAID, bw.e(2, context));
-                    jSONObject.put("iid", bw.d(2, context));
-                    jSONObject.put(Config.CUID3, bw.f(2, context));
-                    jSONObject.put(Config.SSAID, bw.g(2, context));
-                    jSONObject.put(Config.PY, this.E);
-                    jSONObject.put(Config.PLT, CooperService.instance().getPlatformType());
-                    jSONObject.put("im", bw.w(context));
-                    if (!TextUtils.isEmpty(this.A)) {
-                        if (!TextUtils.isEmpty(this.C)) {
-                            jSONObject2 = new JSONObject(this.C);
-                        } else {
-                            jSONObject2 = new JSONObject();
-                        }
-                        JSONArray jSONArray = new JSONArray();
-                        jSONArray.put(this.A);
-                        jSONArray.put("1");
-                        jSONObject2.put("uid_", jSONArray);
-                        jSONObject.put(Config.USER_PROPERTY, jSONObject2.toString());
-                    }
-                    jSONObject.put(Config.UID_CHANGE, "");
-                    jSONObject.put("at", "0");
-                    String s = bw.s(context);
-                    jSONObject.put(Config.PROCESS_LABEL, s);
-                    Object obj20 = null;
-                    if (!TextUtils.isEmpty(s)) {
-                        obj20 = bw.t(context);
-                    }
-                    if (obj20 == null) {
-                        obj20 = "";
-                    }
-                    jSONObject.put(Config.PROCESS_CLASS, obj20);
-                    if (this.x == null) {
-                        obj19 = "";
-                    } else {
-                        obj19 = this.x;
-                    }
-                    jSONObject.put("sign", obj19);
-                    if (this.y != null && this.y.length() != 0) {
-                        jSONObject.put("ext", this.y);
-                    } else {
-                        jSONObject.remove("ext");
-                    }
-                    if (this.z == null) {
-                        this.z = new JSONObject();
-                    }
-                    jSONObject.put("push", this.z);
-                    jSONObject.put("uid", this.A);
-                    jSONObject.put(Config.START_TYPE, String.valueOf(this.B));
-                } catch (Exception unused) {
-                }
+        try {
+            jSONObject.put("o", "Android");
+            int i = 0;
+            jSONObject.put("st", 0);
+            if (this.b == null) {
+                obj = "";
+            } else {
+                obj = this.b;
             }
+            jSONObject.put("s", obj);
+            if (this.c == null) {
+                obj2 = "";
+            } else {
+                obj2 = this.c;
+            }
+            jSONObject.put("sv", obj2);
+            if (this.e == null) {
+                obj3 = "";
+            } else {
+                obj3 = this.e;
+            }
+            jSONObject.put("k", obj3);
+            if (this.d == null) {
+                obj4 = "0";
+            } else {
+                obj4 = this.d;
+            }
+            jSONObject.put("pt", obj4);
+            jSONObject.put("i", "");
+            jSONObject.put("v", "4.0.9.7");
+            jSONObject.put(Config.STAT_SDK_CHANNEL, 26);
+            jSONObject.put("a", this.g);
+            if (this.h == null) {
+                obj5 = "";
+            } else {
+                obj5 = this.h;
+            }
+            jSONObject.put("n", obj5);
+            jSONObject.put("d", "");
+            if (this.q == null) {
+                obj6 = "";
+            } else {
+                obj6 = this.q;
+            }
+            jSONObject.put(Config.DEVICE_MAC_ID, obj6);
+            if (this.s == null) {
+                obj7 = "";
+            } else {
+                obj7 = this.s;
+            }
+            jSONObject.put(Config.DEVICE_BLUETOOTH_MAC, obj7);
+            if (this.i == null) {
+                obj8 = "";
+            } else {
+                obj8 = this.i;
+            }
+            jSONObject.put(Config.DEVICE_ID_SEC, obj8);
+            if (this.f == null) {
+                obj9 = "";
+            } else {
+                obj9 = this.f;
+            }
+            jSONObject.put(Config.CUID_SEC, obj9);
+            jSONObject.put(Config.SDK_TAG, 2);
+            jSONObject.put("w", this.j);
+            jSONObject.put("h", this.k);
+            if (this.t == null) {
+                obj10 = "";
+            } else {
+                obj10 = this.t;
+            }
+            jSONObject.put("dn", obj10);
+            if (this.l == null) {
+                obj11 = "";
+            } else {
+                obj11 = this.l;
+            }
+            jSONObject.put("c", obj11);
+            if (this.m == null) {
+                obj12 = "";
+            } else {
+                obj12 = this.m;
+            }
+            jSONObject.put("op", obj12);
+            if (this.n == null) {
+                obj13 = "";
+            } else {
+                obj13 = this.n;
+            }
+            jSONObject.put("m", obj13);
+            if (this.o == null) {
+                obj14 = "";
+            } else {
+                obj14 = this.o;
+            }
+            jSONObject.put("ma", obj14);
+            if (this.p == null) {
+                obj15 = "";
+            } else {
+                obj15 = this.p;
+            }
+            jSONObject.put("l", obj15);
+            jSONObject.put("t", System.currentTimeMillis());
+            jSONObject.put("pn", bw.n(2, context));
+            if (this.u == null) {
+                obj16 = "";
+            } else {
+                obj16 = this.u;
+            }
+            jSONObject.put(Config.ROM, obj16);
+            if (this.v == null) {
+                obj17 = "";
+            } else {
+                obj17 = this.v;
+            }
+            jSONObject.put(Config.DEVICE_BOARD, obj17);
+            if (this.w == null) {
+                obj18 = "";
+            } else {
+                obj18 = this.w;
+            }
+            jSONObject.put(Config.DEVICE_BRAND, obj18);
+            jSONObject.put("td", bw.b(context));
+            if (context != null && context.getApplicationInfo() != null) {
+                i = context.getApplicationInfo().targetSdkVersion;
+            }
+            jSONObject.put(Config.TARGET_SDK_VERSION, i);
+            jSONObject.put(Config.USER_PROPERTY, this.C);
+            jSONObject.put(Config.OAID, bw.b(2, context));
+            jSONObject.put(Config.OUT_OAID, bw.c(2, context));
+            jSONObject.put("from", "0");
+            jSONObject.put(Config.GAID, bw.e(2, context));
+            jSONObject.put("iid", bw.d(2, context));
+            jSONObject.put(Config.CUID3, bw.f(2, context));
+            jSONObject.put(Config.SSAID, bw.g(2, context));
+            jSONObject.put(Config.PY, this.E);
+            jSONObject.put(Config.PLT, CooperService.instance().getPlatformType());
+            jSONObject.put("im", bw.w(context));
+            if (!TextUtils.isEmpty(this.A)) {
+                if (!TextUtils.isEmpty(this.C)) {
+                    jSONObject2 = new JSONObject(this.C);
+                } else {
+                    jSONObject2 = new JSONObject();
+                }
+                JSONArray jSONArray = new JSONArray();
+                jSONArray.put(this.A);
+                jSONArray.put("1");
+                jSONObject2.put("uid_", jSONArray);
+                jSONObject.put(Config.USER_PROPERTY, jSONObject2.toString());
+            }
+            jSONObject.put(Config.UID_CHANGE, "");
+            jSONObject.put("at", "0");
+            String s = bw.s(context);
+            jSONObject.put(Config.PROCESS_LABEL, s);
+            Object obj20 = null;
+            if (!TextUtils.isEmpty(s)) {
+                obj20 = bw.t(context);
+            }
+            if (obj20 == null) {
+                obj20 = "";
+            }
+            jSONObject.put(Config.PROCESS_CLASS, obj20);
+            if (this.x == null) {
+                obj19 = "";
+            } else {
+                obj19 = this.x;
+            }
+            jSONObject.put("sign", obj19);
+            if (this.y != null && this.y.length() != 0) {
+                jSONObject.put("ext", this.y);
+            } else {
+                jSONObject.remove("ext");
+            }
+            if (this.z == null) {
+                this.z = new JSONObject();
+            }
+            jSONObject.put("push", this.z);
+            jSONObject.put("uid", this.A);
+            jSONObject.put(Config.START_TYPE, String.valueOf(this.B));
+        } catch (Exception unused) {
         }
     }
 }

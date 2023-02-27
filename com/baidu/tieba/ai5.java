@@ -1,122 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.mutiprocess.location.LocationEvent;
-import com.baidu.tieba.tbadkCore.location.LocationData;
-import com.baidu.tieba.tbadkCore.location.LocationModel;
-import com.baidu.tieba.tbadkCore.location.LocationSocketRequestMessage;
-import com.baidu.tieba.tbadkCore.location.LocationSocketResponsedMessage;
-import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
+import android.content.Context;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.module.frs.Frs$From;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ai5 implements fh5<LocationEvent> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public yb a;
+public interface ai5 {
+    public static final a a = a.a;
+
+    void a(TbPageContext<?> tbPageContext, long j);
+
+    void b(Context context, Frs$From frs$From, Long l, String str);
 
     /* loaded from: classes3.dex */
-    public class a extends yb {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ a a;
+        public static final ServiceReference b;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ai5 ai5Var, int i, boolean z) {
-            super(i, z);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-946634177, "Lcom/baidu/tieba/ai5$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-946634177, "Lcom/baidu/tieba/ai5$a;");
+                    return;
+                }
+            }
+            a = new a();
+            b = new ServiceReference("Frs", "FrsService");
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ai5Var, Integer.valueOf(i), Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        /* renamed from: a */
-        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            LocationData locationData;
+        public final ServiceReference a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, socketResponsedMessage) != null) || socketResponsedMessage == null) {
-                return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b;
             }
-            LocationEvent locationEvent = new LocationEvent();
-            locationEvent.setType(1);
-            locationEvent.eventType = 1;
-            locationEvent.errorCode = socketResponsedMessage.getError();
-            locationEvent.errorMsg = socketResponsedMessage.getErrorString();
-            if (socketResponsedMessage instanceof LocationSocketResponsedMessage) {
-                locationEvent.locationData = ((LocationSocketResponsedMessage) socketResponsedMessage).getLocationData();
-            }
-            if (socketResponsedMessage.getError() == 0 && (locationData = locationEvent.locationData) != null) {
-                LocationModel.J(locationData);
-                h39.a().f(System.currentTimeMillis());
-                h39.a().d(locationEvent.locationData);
-            }
-            lh5.i(locationEvent);
+            return (ServiceReference) invokeV.objValue;
         }
-    }
-
-    public ai5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new a(this, 303017, true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fh5
-    /* renamed from: a */
-    public boolean onEvent(LocationEvent locationEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, locationEvent)) == null) {
-            if (locationEvent == null) {
-                return false;
-            }
-            if (locationEvent.getType() == 3) {
-                MessageManager.getInstance().unRegisterListener(this.a);
-                MessageManager.getInstance().registerListener(this.a);
-                LocationSocketRequestMessage locationSocketRequestMessage = new LocationSocketRequestMessage();
-                locationSocketRequestMessage.setLat(locationEvent.lat);
-                locationSocketRequestMessage.setLng(locationEvent.lng);
-                MessageManager.getInstance().sendMessage(locationSocketRequestMessage);
-            } else if (locationEvent.eventType == 1) {
-                LocationSocketResponsedMessage locationSocketResponsedMessage = new LocationSocketResponsedMessage();
-                locationSocketResponsedMessage.setError(locationEvent.errorCode);
-                locationSocketResponsedMessage.setErrorString(locationEvent.errorMsg);
-                locationSocketResponsedMessage.setLocationData(locationEvent.locationData);
-                MessageManager.getInstance().dispatchResponsedMessage(locationSocketResponsedMessage);
-            } else if (locationEvent.locationData != null && locationEvent.needRefresh) {
-                h39.a().d(locationEvent.locationData);
-            } else {
-                MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(locationEvent.isShowLocation, locationEvent.locName, locationEvent.locAddr, locationEvent.locSn));
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

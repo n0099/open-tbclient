@@ -1,7 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.widget.SlideInterceptor;
+import java.io.File;
 /* loaded from: classes5.dex */
-public interface lu1 extends SlideInterceptor {
-    double A();
+public interface lu1 extends d33 {
+    File a();
+
+    void e(String str, String str2);
+
+    void e(String str, String str2, Throwable th);
+
+    void flush(boolean z);
+
+    void i(String str, String str2);
+
+    void w(String str, String str2);
+
+    void w(String str, String str2, Throwable th);
 }

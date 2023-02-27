@@ -13,293 +13,157 @@ import androidx.appcompat.view.menu.MenuWrapperICS;
 import androidx.collection.SimpleArrayMap;
 import androidx.core.internal.view.SupportMenu;
 import androidx.core.internal.view.SupportMenuItem;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class SupportActionModeWrapper extends android.view.ActionMode {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final Context mContext;
     public final ActionMode mWrappedObject;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public static class CallbackWrapper implements ActionMode.Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final ArrayList<SupportActionModeWrapper> mActionModes;
         public final Context mContext;
-        public final SimpleArrayMap<Menu, Menu> mMenus;
         public final ActionMode.Callback mWrappedCallback;
+        public final ArrayList<SupportActionModeWrapper> mActionModes = new ArrayList<>();
+        public final SimpleArrayMap<Menu, Menu> mMenus = new SimpleArrayMap<>();
 
         public CallbackWrapper(Context context, ActionMode.Callback callback) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, callback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.mContext = context;
             this.mWrappedCallback = callback;
-            this.mActionModes = new ArrayList<>();
-            this.mMenus = new SimpleArrayMap<>();
-        }
-
-        private Menu getMenuWrapper(Menu menu) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, menu)) == null) {
-                Menu menu2 = this.mMenus.get(menu);
-                if (menu2 == null) {
-                    MenuWrapperICS menuWrapperICS = new MenuWrapperICS(this.mContext, (SupportMenu) menu);
-                    this.mMenus.put(menu, menuWrapperICS);
-                    return menuWrapperICS;
-                }
-                return menu2;
-            }
-            return (Menu) invokeL.objValue;
-        }
-
-        @Override // androidx.appcompat.view.ActionMode.Callback
-        public void onDestroyActionMode(ActionMode actionMode) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, actionMode) == null) {
-                this.mWrappedCallback.onDestroyActionMode(getActionModeWrapper(actionMode));
-            }
-        }
-
-        public android.view.ActionMode getActionModeWrapper(ActionMode actionMode) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, actionMode)) == null) {
-                int size = this.mActionModes.size();
-                for (int i = 0; i < size; i++) {
-                    SupportActionModeWrapper supportActionModeWrapper = this.mActionModes.get(i);
-                    if (supportActionModeWrapper != null && supportActionModeWrapper.mWrappedObject == actionMode) {
-                        return supportActionModeWrapper;
-                    }
-                }
-                SupportActionModeWrapper supportActionModeWrapper2 = new SupportActionModeWrapper(this.mContext, actionMode);
-                this.mActionModes.add(supportActionModeWrapper2);
-                return supportActionModeWrapper2;
-            }
-            return (android.view.ActionMode) invokeL.objValue;
         }
 
         @Override // androidx.appcompat.view.ActionMode.Callback
         public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, actionMode, menuItem)) == null) {
-                return this.mWrappedCallback.onActionItemClicked(getActionModeWrapper(actionMode), new MenuItemWrapperICS(this.mContext, (SupportMenuItem) menuItem));
-            }
-            return invokeLL.booleanValue;
+            return this.mWrappedCallback.onActionItemClicked(getActionModeWrapper(actionMode), new MenuItemWrapperICS(this.mContext, (SupportMenuItem) menuItem));
         }
 
         @Override // androidx.appcompat.view.ActionMode.Callback
         public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, actionMode, menu)) == null) {
-                return this.mWrappedCallback.onCreateActionMode(getActionModeWrapper(actionMode), getMenuWrapper(menu));
-            }
-            return invokeLL.booleanValue;
+            return this.mWrappedCallback.onCreateActionMode(getActionModeWrapper(actionMode), getMenuWrapper(menu));
         }
 
         @Override // androidx.appcompat.view.ActionMode.Callback
         public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, actionMode, menu)) == null) {
-                return this.mWrappedCallback.onPrepareActionMode(getActionModeWrapper(actionMode), getMenuWrapper(menu));
+            return this.mWrappedCallback.onPrepareActionMode(getActionModeWrapper(actionMode), getMenuWrapper(menu));
+        }
+
+        private Menu getMenuWrapper(Menu menu) {
+            Menu menu2 = this.mMenus.get(menu);
+            if (menu2 == null) {
+                MenuWrapperICS menuWrapperICS = new MenuWrapperICS(this.mContext, (SupportMenu) menu);
+                this.mMenus.put(menu, menuWrapperICS);
+                return menuWrapperICS;
             }
-            return invokeLL.booleanValue;
+            return menu2;
+        }
+
+        public android.view.ActionMode getActionModeWrapper(ActionMode actionMode) {
+            int size = this.mActionModes.size();
+            for (int i = 0; i < size; i++) {
+                SupportActionModeWrapper supportActionModeWrapper = this.mActionModes.get(i);
+                if (supportActionModeWrapper != null && supportActionModeWrapper.mWrappedObject == actionMode) {
+                    return supportActionModeWrapper;
+                }
+            }
+            SupportActionModeWrapper supportActionModeWrapper2 = new SupportActionModeWrapper(this.mContext, actionMode);
+            this.mActionModes.add(supportActionModeWrapper2);
+            return supportActionModeWrapper2;
+        }
+
+        @Override // androidx.appcompat.view.ActionMode.Callback
+        public void onDestroyActionMode(ActionMode actionMode) {
+            this.mWrappedCallback.onDestroyActionMode(getActionModeWrapper(actionMode));
         }
     }
 
     public SupportActionModeWrapper(Context context, ActionMode actionMode) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, actionMode};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mContext = context;
         this.mWrappedObject = actionMode;
     }
 
     @Override // android.view.ActionMode
     public void finish() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mWrappedObject.finish();
-        }
+        this.mWrappedObject.finish();
     }
 
     @Override // android.view.ActionMode
     public View getCustomView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mWrappedObject.getCustomView();
-        }
-        return (View) invokeV.objValue;
+        return this.mWrappedObject.getCustomView();
     }
 
     @Override // android.view.ActionMode
     public Menu getMenu() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new MenuWrapperICS(this.mContext, (SupportMenu) this.mWrappedObject.getMenu());
-        }
-        return (Menu) invokeV.objValue;
+        return new MenuWrapperICS(this.mContext, (SupportMenu) this.mWrappedObject.getMenu());
     }
 
     @Override // android.view.ActionMode
     public MenuInflater getMenuInflater() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mWrappedObject.getMenuInflater();
-        }
-        return (MenuInflater) invokeV.objValue;
+        return this.mWrappedObject.getMenuInflater();
     }
 
     @Override // android.view.ActionMode
     public CharSequence getSubtitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mWrappedObject.getSubtitle();
-        }
-        return (CharSequence) invokeV.objValue;
+        return this.mWrappedObject.getSubtitle();
     }
 
     @Override // android.view.ActionMode
     public Object getTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mWrappedObject.getTag();
-        }
-        return invokeV.objValue;
+        return this.mWrappedObject.getTag();
     }
 
     @Override // android.view.ActionMode
     public CharSequence getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.mWrappedObject.getTitle();
-        }
-        return (CharSequence) invokeV.objValue;
+        return this.mWrappedObject.getTitle();
     }
 
     @Override // android.view.ActionMode
     public boolean getTitleOptionalHint() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.mWrappedObject.getTitleOptionalHint();
-        }
-        return invokeV.booleanValue;
+        return this.mWrappedObject.getTitleOptionalHint();
     }
 
     @Override // android.view.ActionMode
     public void invalidate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.mWrappedObject.invalidate();
-        }
+        this.mWrappedObject.invalidate();
     }
 
     @Override // android.view.ActionMode
     public boolean isTitleOptional() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.mWrappedObject.isTitleOptional();
-        }
-        return invokeV.booleanValue;
+        return this.mWrappedObject.isTitleOptional();
     }
 
     @Override // android.view.ActionMode
     public void setCustomView(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
-            this.mWrappedObject.setCustomView(view2);
-        }
+        this.mWrappedObject.setCustomView(view2);
     }
 
     @Override // android.view.ActionMode
     public void setSubtitle(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.mWrappedObject.setSubtitle(i);
-        }
+        this.mWrappedObject.setSubtitle(i);
     }
 
     @Override // android.view.ActionMode
     public void setTag(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, obj) == null) {
-            this.mWrappedObject.setTag(obj);
-        }
+        this.mWrappedObject.setTag(obj);
     }
 
     @Override // android.view.ActionMode
     public void setTitle(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.mWrappedObject.setTitle(i);
-        }
+        this.mWrappedObject.setTitle(i);
     }
 
     @Override // android.view.ActionMode
     public void setTitleOptionalHint(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.mWrappedObject.setTitleOptionalHint(z);
-        }
+        this.mWrappedObject.setTitleOptionalHint(z);
     }
 
     @Override // android.view.ActionMode
     public void setSubtitle(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, charSequence) == null) {
-            this.mWrappedObject.setSubtitle(charSequence);
-        }
+        this.mWrappedObject.setSubtitle(charSequence);
     }
 
     @Override // android.view.ActionMode
     public void setTitle(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, charSequence) == null) {
-            this.mWrappedObject.setTitle(charSequence);
-        }
+        this.mWrappedObject.setTitle(charSequence);
     }
 }

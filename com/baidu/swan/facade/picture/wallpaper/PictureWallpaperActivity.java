@@ -9,303 +9,171 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import androidx.annotation.AnyThread;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.swan.apps.SwanAppBaseActivity;
 import com.baidu.swan.apps.res.widget.loadingview.LoadingView;
 import com.baidu.swan.facade.picture.widget.PictureCropView;
 import com.baidu.swan.facade.picture.widget.PictureView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nm3;
-import com.baidu.tieba.o83;
-import com.baidu.tieba.ql3;
-import com.baidu.tieba.qm3;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.dn3;
+import com.baidu.tieba.e93;
+import com.baidu.tieba.gm3;
+import com.baidu.tieba.gn3;
 import java.io.IOException;
 /* loaded from: classes3.dex */
 public class PictureWallpaperActivity extends SwanAppBaseActivity implements View.OnClickListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public PictureCropView m;
     public LoadingView n;
-    public String o;
-    public String p;
+    public String o = null;
+    public String p = null;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PictureWallpaperActivity a;
 
         /* renamed from: com.baidu.swan.facade.picture.wallpaper.PictureWallpaperActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0203a implements PictureView.c {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public C0203a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
+        public class C0191a implements PictureView.c {
+            public C0191a() {
             }
 
             @Override // com.baidu.swan.facade.picture.widget.PictureView.c
             public void a() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.J(false);
-                }
+                PictureWallpaperActivity.this.J(false);
             }
 
             @Override // com.baidu.swan.facade.picture.widget.PictureView.c
             public void b() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.a.a.J(true);
-                }
+                PictureWallpaperActivity.this.J(true);
             }
         }
 
-        public a(PictureWallpaperActivity pictureWallpaperActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pictureWallpaperActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pictureWallpaperActivity;
+        public a() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.m.setData(this.a.o, this.a.p, new C0203a(this));
-            }
+            PictureWallpaperActivity.this.m.setData(PictureWallpaperActivity.this.o, PictureWallpaperActivity.this.p, new C0191a());
         }
     }
 
     /* loaded from: classes3.dex */
     public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PictureCropView a;
-        public final /* synthetic */ PictureWallpaperActivity b;
 
-        public b(PictureWallpaperActivity pictureWallpaperActivity, PictureCropView pictureCropView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pictureWallpaperActivity, pictureCropView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = pictureWallpaperActivity;
+        public b(PictureCropView pictureCropView) {
             this.a = pictureCropView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Bitmap croppedImage = this.a.getCroppedImage();
-                if (croppedImage != null) {
-                    try {
-                        WallpaperManager.getInstance(this.b.getApplicationContext()).setBitmap(croppedImage);
-                        z = true;
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    this.b.L(z);
+            Bitmap croppedImage = this.a.getCroppedImage();
+            if (croppedImage != null) {
+                try {
+                    WallpaperManager.getInstance(PictureWallpaperActivity.this.getApplicationContext()).setBitmap(croppedImage);
+                    z = true;
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-                z = false;
-                this.b.L(z);
+                PictureWallpaperActivity.this.L(z);
             }
+            z = false;
+            PictureWallpaperActivity.this.L(z);
         }
     }
 
     /* loaded from: classes3.dex */
     public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
-        public final /* synthetic */ PictureWallpaperActivity b;
 
-        public c(PictureWallpaperActivity pictureWallpaperActivity, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pictureWallpaperActivity, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = pictureWallpaperActivity;
+        public c(boolean z) {
             this.a = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.n.setVisibility(8);
-                if (this.a) {
-                    o83.f(this.b.getApplicationContext(), R.string.obfuscated_res_0x7f0f1337).v();
-                } else {
-                    o83.f(this.b.getApplicationContext(), R.string.obfuscated_res_0x7f0f1336).v();
-                }
-                this.b.finish();
+            PictureWallpaperActivity.this.n.setVisibility(8);
+            if (this.a) {
+                e93.f(PictureWallpaperActivity.this.getApplicationContext(), R.string.obfuscated_res_0x7f0f1339).v();
+            } else {
+                e93.f(PictureWallpaperActivity.this.getApplicationContext(), R.string.obfuscated_res_0x7f0f1338).v();
             }
+            PictureWallpaperActivity.this.finish();
         }
-    }
-
-    public PictureWallpaperActivity() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.o = null;
-        this.p = null;
     }
 
     public final void K() {
-        PictureCropView pictureCropView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (pictureCropView = this.m) != null && pictureCropView.f()) {
+        PictureCropView pictureCropView = this.m;
+        if (pictureCropView != null && pictureCropView.f()) {
             this.n.setVisibility(0);
-            ql3.k(new b(this, pictureCropView), "set-wallpaper");
+            gm3.k(new b(pictureCropView), "set-wallpaper");
         }
     }
 
     public final void F(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
-            if (intent != null) {
-                this.o = intent.getStringExtra("extra_picture_url");
-                this.p = intent.getStringExtra("extra_picture_referer");
-            }
-            if (TextUtils.isEmpty(this.o)) {
-                finish();
-            }
+        if (intent != null) {
+            this.o = intent.getStringExtra("extra_picture_url");
+            this.p = intent.getStringExtra("extra_picture_referer");
+        }
+        if (TextUtils.isEmpty(this.o)) {
+            finish();
         }
     }
 
     public void J(boolean z) {
-        PictureCropView pictureCropView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (pictureCropView = this.m) != null && z) {
-            findViewById(R.id.obfuscated_res_0x7f091aef).setEnabled(pictureCropView.f());
+        PictureCropView pictureCropView = this.m;
+        if (pictureCropView != null && z) {
+            findViewById(R.id.obfuscated_res_0x7f091b30).setEnabled(pictureCropView.f());
         }
     }
 
     @AnyThread
     public final void L(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            qm3.e0(new c(this, z));
-        }
+        gn3.e0(new c(z));
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-            int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f091aee) {
-                onBackPressed();
-            } else if (id == R.id.obfuscated_res_0x7f091aef) {
-                K();
-            }
+        int id = view2.getId();
+        if (id == R.id.obfuscated_res_0x7f091b2f) {
+            onBackPressed();
+        } else if (id == R.id.obfuscated_res_0x7f091b30) {
+            K();
         }
     }
 
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.mm4, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.cn4, android.app.Activity
     public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            int c0 = qm3.c0(this);
-            super.onCreate(bundle);
-            qm3.g(this, c0);
-            setContentView(R.layout.obfuscated_res_0x7f0d084d);
-            nm3.a(this);
-            F(getIntent());
-            G();
-        }
+        int c0 = gn3.c0(this);
+        super.onCreate(bundle);
+        gn3.g(this, c0);
+        setContentView(R.layout.obfuscated_res_0x7f0d086e);
+        dn3.a(this);
+        F(getIntent());
+        G();
     }
 
     public static void H(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, context, str, str2) == null) {
-            Intent intent = new Intent(context, PictureWallpaperActivity.class);
-            intent.putExtra("extra_picture_url", str);
-            intent.putExtra("extra_picture_referer", str2);
-            boolean z = context instanceof Activity;
-            if (!z) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
-            context.startActivity(intent);
-            if (z) {
-                ((Activity) context).overridePendingTransition(R.anim.obfuscated_res_0x7f010022, 0);
-            }
+        Intent intent = new Intent(context, PictureWallpaperActivity.class);
+        intent.putExtra("extra_picture_url", str);
+        intent.putExtra("extra_picture_referer", str2);
+        boolean z = context instanceof Activity;
+        if (!z) {
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+        }
+        context.startActivity(intent);
+        if (z) {
+            ((Activity) context).overridePendingTransition(R.anim.obfuscated_res_0x7f010022, 0);
         }
     }
 
     public final void G() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.m = (PictureCropView) findViewById(R.id.obfuscated_res_0x7f091aed);
-            LoadingView loadingView = (LoadingView) findViewById(R.id.obfuscated_res_0x7f091aeb);
-            this.n = loadingView;
-            loadingView.setMsg(R.string.obfuscated_res_0x7f0f1334);
-            findViewById(R.id.obfuscated_res_0x7f091aee).setOnClickListener(this);
-            findViewById(R.id.obfuscated_res_0x7f091aef).setOnClickListener(this);
-            this.m.post(new a(this));
-        }
+        this.m = (PictureCropView) findViewById(R.id.obfuscated_res_0x7f091b2e);
+        LoadingView loadingView = (LoadingView) findViewById(R.id.obfuscated_res_0x7f091b2c);
+        this.n = loadingView;
+        loadingView.setMsg(R.string.obfuscated_res_0x7f0f1336);
+        findViewById(R.id.obfuscated_res_0x7f091b2f).setOnClickListener(this);
+        findViewById(R.id.obfuscated_res_0x7f091b30).setOnClickListener(this);
+        this.m.post(new a());
     }
 }

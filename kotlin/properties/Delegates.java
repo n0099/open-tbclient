@@ -1,7 +1,7 @@
 package kotlin.properties;
 
 import androidx.exifinterface.media.ExifInterface;
-import com.heytap.mcssdk.mode.MessageStat;
+import com.heytap.msp.push.mode.MessageStat;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function3;

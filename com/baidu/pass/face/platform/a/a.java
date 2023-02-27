@@ -1,102 +1,48 @@
 package com.baidu.pass.face.platform.a;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class a {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "a";
-    public static HashMap<String, Object> b;
-    public static ArrayList<Integer> c;
-    public static HashMap<String, Integer> d;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-360335294, "Lcom/baidu/pass/face/platform/a/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-360335294, "Lcom/baidu/pass/face/platform/a/a;");
-                return;
-            }
-        }
-        b = new HashMap<>();
-        c = new ArrayList<>();
-        d = new HashMap<>();
-    }
-
-    public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    public static HashMap<String, Object> b = new HashMap<>();
+    public static ArrayList<Integer> c = new ArrayList<>();
+    public static HashMap<String, Integer> d = new HashMap<>();
 
     public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-        }
     }
 
     public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            HashMap<String, Integer> hashMap = d;
-            if (hashMap != null && !hashMap.containsKey(str)) {
-                d.put(str, 1);
-                return;
-            }
-            HashMap<String, Integer> hashMap2 = d;
-            if (hashMap2 == null || !hashMap2.containsKey(str)) {
-                return;
-            }
-            d.put(str, Integer.valueOf(d.get(str).intValue() + 1));
+        HashMap<String, Integer> hashMap = d;
+        if (hashMap != null && !hashMap.containsKey(str)) {
+            d.put(str, 1);
+            return;
         }
+        HashMap<String, Integer> hashMap2 = d;
+        if (hashMap2 == null || !hashMap2.containsKey(str)) {
+            return;
+        }
+        d.put(str, Integer.valueOf(d.get(str).intValue() + 1));
     }
 
     public static void a(String str, Object obj) {
-        HashMap<String, Object> hashMap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, obj) == null) || (hashMap = b) == null || hashMap.containsKey(str)) {
+        HashMap<String, Object> hashMap = b;
+        if (hashMap == null || hashMap.containsKey(str)) {
             return;
         }
         b.put(str, obj);
     }
 
     public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            b = new HashMap<>();
-            c = new ArrayList<>();
-            d = new HashMap<>();
-        }
+        b = new HashMap<>();
+        c = new ArrayList<>();
+        d = new HashMap<>();
     }
 
     public static void b(String str, Object obj) {
-        HashMap<String, Object> hashMap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, null, str, obj) == null) || (hashMap = b) == null) {
-            return;
+        HashMap<String, Object> hashMap = b;
+        if (hashMap != null) {
+            hashMap.put(str, obj);
         }
-        hashMap.put(str, obj);
     }
 }

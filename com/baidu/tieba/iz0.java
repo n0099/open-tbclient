@@ -1,53 +1,20 @@
 package com.baidu.tieba;
 
-import android.widget.LinearLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class iz0 extends ty0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+/* loaded from: classes4.dex */
+public interface iz0 {
+    void a(@Nullable dx0 dx0Var);
 
-    public iz0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        getContentView().setClickable(false);
-    }
+    void b(@NonNull fx0 fx0Var);
 
-    @Override // com.baidu.tieba.ty0
-    public void N() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.N();
-            LinearLayout linearLayout = this.i;
-            if (linearLayout != null) {
-                linearLayout.setClickable(false);
-            }
-        }
-    }
+    void c(int i, @NonNull cx0 cx0Var);
 
-    @Override // com.baidu.tieba.ty0
-    public void O() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.O();
-            LinearLayout linearLayout = this.f;
-            if (linearLayout != null) {
-                linearLayout.setClickable(false);
-            }
-        }
-    }
+    void d(@NonNull bw0 bw0Var);
+
+    void e(cx0 cx0Var);
+
+    void f(@NonNull fx0 fx0Var);
+
+    void release();
 }

@@ -1,117 +1,165 @@
 package com.baidu.tieba;
 
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class xi5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public BdUniqueId c;
-    public ni5 d;
-    public zi5 e;
-    public Object f;
 
-    public xi5(int i, ni5 ni5Var, zi5 zi5Var, mi5 mi5Var) {
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), ni5Var, zi5Var, mi5Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return b55.m().j();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static ContentResolver b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return b55.m().k();
+        }
+        return (ContentResolver) invokeV.objValue;
+    }
+
+    public static int c(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            return dh.e(f(str), i);
+        }
+        return invokeLI.intValue;
+    }
+
+    public static OrmObject d(String str, Class<?> cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, cls)) == null) {
+            if (str != null && cls != null) {
+                return OrmObject.objectWithJsonStr(f(str), cls);
             }
+            return null;
         }
-        this.b = true;
-        this.a = i;
-        this.d = ni5Var;
-        this.e = zi5Var;
+        return (OrmObject) invokeLL.objValue;
     }
 
-    public ni5 a() {
-        InterceptResult invokeV;
+    public static String e(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            String f = f(str);
+            if (f != null) {
+                return f;
+            }
+            return str2;
         }
-        return (ni5) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public static void i(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public Object c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return invokeV.objValue;
-    }
-
-    public zi5 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (zi5) invokeV.objValue;
-    }
-
-    public BdUniqueId e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void g(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
-            this.f = obj;
+        if (interceptable == null || interceptable.invokeLI(65544, null, str, i) == null) {
+            k(str, Integer.valueOf(i));
         }
     }
 
-    public void h(zi5 zi5Var) {
+    public static void j(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, zi5Var) == null) {
-            this.e = zi5Var;
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
+            k(str, str2);
         }
     }
 
-    public void i(BdUniqueId bdUniqueId) {
+    public static void k(String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
-            this.c = bdUniqueId;
+        if (interceptable == null || interceptable.invokeLL(65546, null, str, obj) == null) {
+            l(Uri.parse(a() + str), h(str, obj));
+        }
+    }
+
+    public static void l(Uri uri, ContentValues contentValues) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, uri, contentValues) == null) {
+            m(uri, contentValues);
+        }
+    }
+
+    public static String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            return g(Uri.parse(a() + str));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String g(Uri uri) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, uri)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            try {
+                str = b().getType(uri);
+            } catch (SecurityException e) {
+                BdLog.detailException(e);
+                str = null;
+            }
+            long currentTimeMillis2 = System.currentTimeMillis();
+            wi5.m("getValue uri=" + uri + " Time:" + (currentTimeMillis2 - currentTimeMillis));
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static ContentValues h(String str, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, obj)) == null) {
+            ContentValues contentValues = new ContentValues();
+            String str2 = null;
+            if (obj != null) {
+                if (obj instanceof String) {
+                    str2 = (String) obj;
+                } else if (obj instanceof Boolean) {
+                    str2 = String.valueOf(obj);
+                } else if (obj instanceof Integer) {
+                    str2 = String.valueOf(obj);
+                } else if (obj instanceof Long) {
+                    str2 = String.valueOf(obj);
+                } else if (obj instanceof Float) {
+                    str2 = String.valueOf(obj);
+                } else if (obj instanceof Double) {
+                    str2 = String.valueOf(obj);
+                }
+            }
+            contentValues.put(str, str2);
+            return contentValues;
+        }
+        return (ContentValues) invokeLL.objValue;
+    }
+
+    public static void m(Uri uri, ContentValues contentValues) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, null, uri, contentValues) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            try {
+                b().insert(uri, contentValues);
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+            long currentTimeMillis2 = System.currentTimeMillis();
+            wi5.m("setValue uri=" + uri + " Time:" + (currentTimeMillis2 - currentTimeMillis));
         }
     }
 }

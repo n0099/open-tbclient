@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,22 +10,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.PbPage.RecommendBook;
-/* loaded from: classes7.dex */
-public class xy4 extends PostData {
+/* loaded from: classes6.dex */
+public class xy4 extends zx4 implements ak5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId i1;
+    public static final BdUniqueId b;
+    public static final int[] c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String Z0;
-    public String a1;
-    public String b1;
-    public String c1;
-    public String d1;
-    public String e1;
-    public List<String> f1;
-    public String g1;
-    public String h1;
+    public int a;
+
+    @Override // com.baidu.tieba.zx4
+    public wz4 getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (wz4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zx4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +51,8 @@ public class xy4 extends PostData {
                 return;
             }
         }
-        i1 = BdUniqueId.gen();
+        b = BdUniqueId.gen();
+        c = new int[]{0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15};
     }
 
     public xy4() {
@@ -54,46 +65,25 @@ public class xy4 extends PostData {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = 6;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return i1;
+            return this.a;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public boolean p1() {
-        InterceptResult invokeV;
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!StringUtils.isNull(this.c1)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a = i;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void q1(RecommendBook recommendBook) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, recommendBook) != null) || recommendBook == null) {
-            return;
-        }
-        this.Z0 = recommendBook.recommend_text;
-        this.a1 = recommendBook.suggest_text;
-        this.b1 = recommendBook.suggest_url;
-        this.c1 = recommendBook.book_id;
-        recommendBook.book_type.intValue();
-        this.d1 = recommendBook.book_cover;
-        this.e1 = recommendBook.book_title;
-        this.f1 = recommendBook.book_tips;
-        this.g1 = recommendBook.botton_text;
-        this.h1 = recommendBook.subscript_icon;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.p35;
+import com.baidu.tieba.b55;
 import com.baidu.tieba.qf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -79,7 +79,7 @@ public class BigdaySwitch extends qf {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return p35.m().n("key_bigday_sync_switch", 0);
+            return b55.m().n("key_bigday_sync_switch", 0);
         }
         return invokeV.intValue;
     }

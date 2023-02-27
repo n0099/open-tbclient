@@ -1,75 +1,68 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.MalformedURLException;
+@Service
 /* loaded from: classes5.dex */
-public class p64 {
+public class p64 implements tq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gg2 a;
 
-    public p64(gg2 gg2Var) {
+    public p64() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {gg2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = gg2Var;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            a(str, "keyboardcomplete");
         }
     }
 
-    public void c(String str) {
+    @Override // com.baidu.tieba.tq1
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            a(str, "keyboardconfirm");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return i34.g();
         }
+        return (String) invokeV.objValue;
     }
 
-    public void d(String str) {
+    @Override // com.baidu.tieba.tq1
+    public boolean b() {
+        InterceptResult invokeV;
+        s82 m;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (m93.M() != null && m93.M().w0()) {
+                v82 V = zu2.U().V();
+                if (V == null || (m = V.m()) == null || !(m instanceof j54)) {
+                    return true;
+                }
+                return ((j54) m).D3();
             }
-            a(str, "keyboardinput");
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void a(String str, String str2) {
-        gg2 gg2Var;
+    @Override // com.baidu.tieba.tq1
+    public String c(String str) throws MalformedURLException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && (gg2Var = this.a) != null && gg2Var.n() != null && this.a.n().hasEventListener(str2)) {
-            r64 r64Var = new r64();
-            r64Var.value = str;
-            JSEvent jSEvent = new JSEvent(str2);
-            jSEvent.data = r64Var;
-            this.a.n().dispatchEvent(jSEvent);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return i34.d(str);
         }
+        return (String) invokeL.objValue;
     }
 }

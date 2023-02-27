@@ -2,51 +2,23 @@ package com.baidu.searchbox.pms.utils;
 
 import android.os.Build;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Closeable;
 import java.io.File;
 import java.util.Collection;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CommonUtils {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "pmsCommonUtils";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public CommonUtils() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     public static String getCpuAbi() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return Build.CPU_ABI;
-        }
-        return (String) invokeV.objValue;
+        return Build.CPU_ABI;
     }
 
     public static void closeSafely(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
+        if (closeable != null) {
             try {
                 closeable.close();
             } catch (Exception e) {
@@ -58,91 +30,63 @@ public class CommonUtils {
     }
 
     public static boolean isEmpty(Collection collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, collection)) == null) {
-            if (collection != null && collection.size() != 0) {
-                return false;
-            }
-            return true;
+        if (collection != null && collection.size() != 0) {
+            return false;
         }
-        return invokeL.booleanValue;
+        return true;
     }
 
     public static String createErrorJson(String... strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, strArr)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (strArr != null) {
-                try {
-                    if (strArr.length > 0 && strArr.length % 2 == 0) {
-                        for (int i = 0; i < strArr.length; i += 2) {
-                            String str = strArr[i];
-                            String str2 = strArr[i + 1];
-                            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                                jSONObject.put(str, str2);
-                            }
+        JSONObject jSONObject = new JSONObject();
+        if (strArr != null) {
+            try {
+                if (strArr.length > 0 && strArr.length % 2 == 0) {
+                    for (int i = 0; i < strArr.length; i += 2) {
+                        String str = strArr[i];
+                        String str2 = strArr[i + 1];
+                        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                            jSONObject.put(str, str2);
                         }
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return ",errmsg:" + jSONObject.toString();
         }
-        return (String) invokeL.objValue;
+        return ",errmsg:" + jSONObject.toString();
     }
 
     public static boolean isEmpty(Map map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
-            if (map != null && map.size() != 0) {
-                return false;
-            }
-            return true;
+        if (map != null && map.size() != 0) {
+            return false;
         }
-        return invokeL.booleanValue;
+        return true;
     }
 
     public static String mergePath(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
-            return pathCombine(str, str2, File.separator);
-        }
-        return (String) invokeLL.objValue;
+        return pathCombine(str, str2, File.separator);
     }
 
     public static void postThread(Runnable runnable, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, runnable, str) == null) {
-            ExecutorUtilsExt.postOnElastic(runnable, str, 3);
-        }
+        ExecutorUtilsExt.postOnElastic(runnable, str, 3);
     }
 
     public static String pathCombine(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str2;
-            }
-            if (TextUtils.isEmpty(str2)) {
-                return str;
-            }
-            if (str.endsWith(str3)) {
-                if (str2.startsWith(str3)) {
-                    return str.concat(str2.substring(str3.length()));
-                }
-                return str.concat(str2);
-            } else if (str2.startsWith(str3)) {
-                return str.concat(str2);
-            } else {
-                return str.concat(str3).concat(str2);
-            }
+        if (TextUtils.isEmpty(str)) {
+            return str2;
         }
-        return (String) invokeLLL.objValue;
+        if (TextUtils.isEmpty(str2)) {
+            return str;
+        }
+        if (str.endsWith(str3)) {
+            if (str2.startsWith(str3)) {
+                return str.concat(str2.substring(str3.length()));
+            }
+            return str.concat(str2);
+        } else if (str2.startsWith(str3)) {
+            return str.concat(str2);
+        } else {
+            return str.concat(str3).concat(str2);
+        }
     }
 }

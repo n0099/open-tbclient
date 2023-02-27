@@ -1,18 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes5.dex */
 public class nx8 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static Context b;
+    public static final Map<String, Set<Cdo>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,16 +27,30 @@ public class nx8 {
                 return;
             }
         }
-        a = AppConfig.isDebug();
-        b = AppRuntime.getAppContext();
+        a = new HashMap();
     }
 
-    public static Context a() {
-        InterceptResult invokeV;
+    public static Set<Cdo> a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return a.get(str);
         }
-        return (Context) invokeV.objValue;
+        return (Set) invokeL.objValue;
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && a.get(str) != null) {
+            a.get(str).clear();
+            a.remove(str);
+        }
+    }
+
+    public static void b(String str, Set<Cdo> set) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, set) == null) {
+            a.put(str, set);
+        }
     }
 }

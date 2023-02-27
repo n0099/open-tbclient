@@ -1,21 +1,13 @@
 package com.baidu.sapi2.result;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.utils.Log;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class OneKeyLoginOptResult implements NoProguard {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "OneKeyLoginOptResult";
-    public transient /* synthetic */ FieldHolder $fh;
     public int code;
     public String extraStr;
     public String operateType;
@@ -31,122 +23,64 @@ public class OneKeyLoginOptResult implements NoProguard {
         public static final String SUB_CODE = "1";
     }
 
-    public OneKeyLoginOptResult() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public int getCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.code;
-        }
-        return invokeV.intValue;
+        return this.code;
     }
 
     public String getExtraStr() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.extraStr;
-        }
-        return (String) invokeV.objValue;
+        return this.extraStr;
     }
 
     public String getOperateType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.operateType;
-        }
-        return (String) invokeV.objValue;
+        return this.operateType;
     }
 
     public String getSecurityPhone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.securityPhone;
-        }
-        return (String) invokeV.objValue;
+        return this.securityPhone;
     }
 
     public int getSubCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.subCode;
-        }
-        return invokeV.intValue;
+        return this.subCode;
     }
 
     public static OneKeyLoginOptResult formatOptResult(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            OneKeyLoginOptResult oneKeyLoginOptResult = new OneKeyLoginOptResult();
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    oneKeyLoginOptResult.code = jSONObject.optInt("0", -202);
-                    oneKeyLoginOptResult.subCode = jSONObject.optInt("1", -202);
-                    oneKeyLoginOptResult.operateType = jSONObject.optString("2");
-                    oneKeyLoginOptResult.extraStr = jSONObject.optString("3");
-                } catch (JSONException e) {
-                    Log.e(TAG, e.getMessage());
-                }
+        OneKeyLoginOptResult oneKeyLoginOptResult = new OneKeyLoginOptResult();
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                oneKeyLoginOptResult.code = jSONObject.optInt("0", -202);
+                oneKeyLoginOptResult.subCode = jSONObject.optInt("1", -202);
+                oneKeyLoginOptResult.operateType = jSONObject.optString("2");
+                oneKeyLoginOptResult.extraStr = jSONObject.optString("3");
+            } catch (JSONException e) {
+                Log.e(TAG, e.getMessage());
             }
-            return oneKeyLoginOptResult;
         }
-        return (OneKeyLoginOptResult) invokeL.objValue;
+        return oneKeyLoginOptResult;
     }
 
     public static boolean isValid(OneKeyLoginOptResult oneKeyLoginOptResult) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, oneKeyLoginOptResult)) == null) {
-            if (oneKeyLoginOptResult != null && oneKeyLoginOptResult.code == 0 && oneKeyLoginOptResult.subCode == 0 && !TextUtils.isEmpty(oneKeyLoginOptResult.operateType) && !TextUtils.isEmpty(oneKeyLoginOptResult.extraStr)) {
-                return true;
-            }
-            return false;
+        if (oneKeyLoginOptResult != null && oneKeyLoginOptResult.code == 0 && oneKeyLoginOptResult.subCode == 0 && !TextUtils.isEmpty(oneKeyLoginOptResult.operateType) && !TextUtils.isEmpty(oneKeyLoginOptResult.extraStr)) {
+            return true;
         }
-        return invokeL.booleanValue;
+        return false;
     }
 
     public void setCode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.code = i;
-        }
+        this.code = i;
     }
 
     public void setSubCode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.subCode = i;
-        }
+        this.subCode = i;
     }
 
     public void generateSecurityPhone() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Log.d(TAG, "generateSecurityPhone extraStr=" + this.extraStr);
-            if (!TextUtils.isEmpty(this.extraStr)) {
-                try {
-                    this.securityPhone = new JSONObject(this.extraStr).optString(OptResultFields.SECURITY_PHONE);
-                } catch (JSONException e) {
-                    Log.e(TAG, e.getMessage());
-                }
+        Log.d(TAG, "generateSecurityPhone extraStr=" + this.extraStr);
+        if (!TextUtils.isEmpty(this.extraStr)) {
+            try {
+                this.securityPhone = new JSONObject(this.extraStr).optString(OptResultFields.SECURITY_PHONE);
+            } catch (JSONException e) {
+                Log.e(TAG, e.getMessage());
             }
         }
     }

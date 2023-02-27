@@ -1,37 +1,27 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.component.toast.TaskToastViewData;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.tieba.tv;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class sv {
+public final class sv extends qt<pq> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public WindowManager b;
-    public volatile int c;
-    public View d;
-    public View e;
-    public WindowManager.LayoutParams f;
-    public Handler g;
-    public Runnable h;
-    public Runnable i;
-    public boolean j;
-    public View k;
-    public View l;
+    public tv a;
+    public final long b;
+    public final int c;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public static final class a<T> implements nt<TaskToastViewData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ sv a;
@@ -54,132 +44,163 @@ public class sv {
             this.a = svVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.d != null) {
-                    if (this.a.d.getParent() != null) {
-                        this.a.b.removeView(this.a.d);
+        /* renamed from: com.baidu.tieba.sv$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public static final class C0420a implements tv.a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ TaskToastViewData b;
+            public final /* synthetic */ a c;
+
+            public C0420a(String str, TaskToastViewData taskToastViewData, a aVar, TaskToastViewData taskToastViewData2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {str, taskToastViewData, aVar, taskToastViewData2};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
-                    this.a.d = null;
                 }
-                if (this.a.k != null) {
-                    if (this.a.k.getParent() != null) {
-                        this.a.b.removeView(this.a.k);
+                this.a = str;
+                this.b = taskToastViewData;
+                this.c = aVar;
+            }
+
+            @Override // com.baidu.tieba.tv.a
+            public final void a() {
+                zs b;
+                uu d;
+                uu d2;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    tu v = BDPTask.m.v();
+                    if (v != null && (d2 = v.d()) != null) {
+                        d2.b(this.b.getTaskInfoSingleKey(), pr.c.a());
                     }
-                    this.a.k = null;
+                    tu v2 = BDPTask.m.v();
+                    if (v2 != null && (d = v2.d()) != null) {
+                        d.a(this.b.getTaskInfoSingleKey());
+                    }
+                    tu v3 = BDPTask.m.v();
+                    if (v3 != null && (b = v3.b()) != null) {
+                        b.a(this.a, 2);
+                    }
+                    this.c.a.h(this.b.getTaskInfo());
+                }
+            }
+        }
+
+        /* loaded from: classes6.dex */
+        public static final class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ Context a;
+            public final /* synthetic */ a b;
+
+            public b(Context context, a aVar, TaskToastViewData taskToastViewData) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {context, aVar, taskToastViewData};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = context;
+                this.b = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public final void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.b.a.a.k(this.a);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.nt
+        /* renamed from: a */
+        public final void onChanged(TaskToastViewData taskToastViewData) {
+            Context context;
+            ts h;
+            ts h2;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, taskToastViewData) == null) && taskToastViewData != null) {
+                this.a.a.a(this.a.c);
+                this.a.a.d(taskToastViewData.getMessage());
+                this.a.a.e(taskToastViewData.getBackColor());
+                this.a.a.h(taskToastViewData.getDuration());
+                this.a.a.j(taskToastViewData.getTxtColor());
+                this.a.a.b(taskToastViewData.getToastLayoutParams());
+                this.a.a.q(taskToastViewData.getBgUrl());
+                String backBtnBgUrl = taskToastViewData.getBackBtnBgUrl();
+                if (backBtnBgUrl != null) {
+                    this.a.a.o(backBtnBgUrl);
+                }
+                String backBtnColor = taskToastViewData.getBackBtnColor();
+                if (backBtnColor != null) {
+                    this.a.a.n(backBtnColor);
+                }
+                String backBtnSchema = taskToastViewData.getBackBtnSchema();
+                if (backBtnSchema != null) {
+                    this.a.a.c(new C0420a(backBtnSchema, taskToastViewData, this, taskToastViewData));
+                }
+                String backBtnTxt = taskToastViewData.getBackBtnTxt();
+                if (backBtnTxt != null) {
+                    this.a.a.i(backBtnTxt);
+                }
+                String backBtnTxtColor = taskToastViewData.getBackBtnTxtColor();
+                if (backBtnTxtColor != null) {
+                    this.a.a.p(backBtnTxtColor);
+                }
+                tu v = BDPTask.m.v();
+                Activity activity = null;
+                if (v != null && (h2 = v.h()) != null) {
+                    context = h2.getAppContext();
+                } else {
+                    context = null;
+                }
+                tu v2 = BDPTask.m.v();
+                if (v2 != null && (h = v2.h()) != null) {
+                    activity = h.a();
+                }
+                if (activity == null) {
+                    activity = context;
+                }
+                if (activity != null) {
+                    int showType = taskToastViewData.getShowType();
+                    if (showType != 1) {
+                        if (showType == 2) {
+                            wt.d(new b(activity, this, taskToastViewData), this.a.b);
+                        }
+                    } else if (context != null) {
+                        this.a.a.g(context);
+                    }
+                    this.a.i(taskToastViewData.getTaskInfo(), taskToastViewData.getTaskStatus());
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sv a;
-
-        public b(sv svVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {svVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = svVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a.j) {
-                        if (this.a.k != null && (this.a.k.getParent() instanceof ViewGroup)) {
-                            ((ViewGroup) this.a.k.getParent()).removeView(this.a.k);
-                        }
-                        WindowManager.LayoutParams m = this.a.m();
-                        this.a.l = new FrameLayout(this.a.a);
-                        this.a.l.setClickable(true);
-                        this.a.b.addView(this.a.l, m);
-                        this.a.k = this.a.l;
-                    }
-                    if (this.a.e != null && (this.a.e.getParent() instanceof ViewGroup)) {
-                        ((ViewGroup) this.a.e.getParent()).removeView(this.a.e);
-                    }
-                    this.a.b.addView(this.a.e, this.a.f);
-                    this.a.d = this.a.e;
-                    this.a.g.postDelayed(this.a.i, this.a.c * 1000);
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sv a;
-
-        public c(sv svVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {svVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = svVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a.d != null) {
-                        if (this.a.d.getParent() != null) {
-                            this.a.b.removeViewImmediate(this.a.d);
-                        }
-                        this.a.d = null;
-                    }
-                    if (this.a.k != null) {
-                        if (this.a.k.getParent() != null) {
-                            this.a.b.removeViewImmediate(this.a.k);
-                        }
-                        this.a.k = null;
-                    }
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public sv(Context context) {
+    public sv() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -189,103 +210,39 @@ public class sv {
                 return;
             }
         }
-        this.a = context;
-        this.b = (WindowManager) context.getSystemService("window");
-        this.g = new Handler(Looper.getMainLooper());
-        this.i = new a(this);
-        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        this.f = layoutParams;
-        layoutParams.height = -2;
-        layoutParams.width = -2;
-        layoutParams.format = -3;
-        layoutParams.windowAnimations = R.style.obfuscated_res_0x7f10041e;
-        layoutParams.type = 2005;
-        layoutParams.setTitle("Toast");
-        WindowManager.LayoutParams layoutParams2 = this.f;
-        layoutParams2.flags = 168;
-        layoutParams2.gravity = 81;
-        layoutParams2.y = -30;
+        this.a = new tv();
+        this.b = 100L;
         this.c = 2;
     }
 
-    public void d(int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jt
+    /* renamed from: g */
+    public void a(pq pqVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (i <= 0) {
-                i = 2;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pqVar) == null) {
+            pqVar.a().l(new a(this));
+        }
+    }
+
+    public final void h(TaskInfo taskInfo) {
+        tu v;
+        cv f;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskInfo) == null) && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
+            f.a("y_task_toast", "icon_clk", dv.b(dv.a, taskInfo.getId(), taskInfo.getActTaskId(), null, 4, null));
+        }
+    }
+
+    public final void i(TaskInfo taskInfo, TaskStatus taskStatus) {
+        cv f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, taskInfo, taskStatus) == null) {
+            String c = dv.a.c(taskStatus);
+            tu v = BDPTask.m.v();
+            if (v != null && (f = v.f()) != null) {
+                f.a("y_task_toast", "c_pv", dv.a.a(taskInfo.getId(), taskInfo.getActTaskId(), c));
             }
-            this.c = i;
-        }
-    }
-
-    public void f(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            this.e = view2;
-            view2.setClickable(true);
-        }
-    }
-
-    public void j(int i) {
-        WindowManager.LayoutParams layoutParams;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (layoutParams = this.f) != null) {
-            layoutParams.windowAnimations = i;
-        }
-    }
-
-    public void n(int i) {
-        WindowManager.LayoutParams layoutParams;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (layoutParams = this.f) != null) {
-            layoutParams.type = i;
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Runnable runnable = this.h;
-            if (runnable != null) {
-                this.g.removeCallbacks(runnable);
-            }
-            b bVar = new b(this);
-            this.h = bVar;
-            this.g.post(bVar);
-        }
-    }
-
-    public void i() {
-        Handler handler;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (handler = this.g) != null) {
-            handler.post(new c(this));
-            this.g.removeCallbacks(this.i);
-        }
-    }
-
-    public final WindowManager.LayoutParams m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.width = -1;
-            layoutParams.height = -1;
-            layoutParams.verticalMargin = pv.m(this.a);
-            layoutParams.flags = 2176;
-            layoutParams.type = 2005;
-            return layoutParams;
-        }
-        return (WindowManager.LayoutParams) invokeV.objValue;
-    }
-
-    public void e(int i, int i2, int i3) {
-        WindowManager.LayoutParams layoutParams;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3) == null) && (layoutParams = this.f) != null) {
-            layoutParams.gravity = i;
-            layoutParams.x = i2;
-            layoutParams.y = i3;
         }
     }
 }

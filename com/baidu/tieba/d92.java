@@ -1,19 +1,18 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes4.dex */
-public final class d92 {
+public class d92 implements c92 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<z82> a;
-    public boolean b;
+    public List<c92> a;
 
     public d92() {
         Interceptable interceptable = $ic;
@@ -28,57 +27,53 @@ public final class d92 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = false;
+        this.a = new CopyOnWriteArrayList();
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.c92
+    public void a() {
+        List<c92> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String g = kl3.g(System.currentTimeMillis(), "【HH:mm:ss】");
-            List<z82> list = this.a;
-            if (list != null && !list.isEmpty()) {
-                int i = 0;
-                int i2 = 0;
-                int i3 = 0;
-                for (z82 z82Var : this.a) {
-                    if (z82Var.c()) {
-                        i++;
-                        if (z82Var.b()) {
-                            i2++;
-                        } else {
-                            i3++;
-                        }
-                    }
-                }
-                return String.format("\n%s jserror：共%d个，影响渲染%d个（框架%d个，开发者%d个）；", g, Integer.valueOf(this.a.size()), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3));
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.a) != null && list.size() > 0) {
+            for (c92 c92Var : this.a) {
+                c92Var.a();
             }
-            return String.format("\n%s jserror：共0个；", g);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(List<z82> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null && !list.isEmpty()) {
-            this.a = list;
         }
     }
 
-    public void d(boolean z) {
+    @Override // com.baidu.tieba.c92
+    public void b() {
+        List<c92> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.b = z;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (list = this.a) != null && list.size() > 0) {
+            for (c92 c92Var : this.a) {
+                c92Var.b();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.c92
+    public void c() {
+        List<c92> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (list = this.a) != null && list.size() > 0) {
+            for (c92 c92Var : this.a) {
+                c92Var.c();
+            }
+        }
+    }
+
+    public void d(@NonNull c92 c92Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, c92Var) == null) {
+            this.a.add(c92Var);
+        }
+    }
+
+    public void e(@NonNull c92 c92Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, c92Var) == null) {
+            this.a.remove(c92Var);
         }
     }
 }

@@ -1,100 +1,90 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class cg2 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes3.dex */
+public class cg2 extends nj2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public int b;
-    public final jl4 c;
-    public long d;
+    public final List<mj2> d;
 
-    public cg2(@NonNull String str, @NonNull jl4 jl4Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cg2() {
+        super("combine");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, jl4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 0;
-        this.d = 0L;
-        this.a = str;
-        this.c = jl4Var;
+        this.d = new ArrayList();
     }
 
-    public boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i > this.c.b) {
-                return false;
-            }
-            boolean e = e();
-            if (!e) {
-                this.b++;
-            }
-            return !e;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public boolean d(String str) {
+    @Override // com.baidu.tieba.mj2
+    public String c(k82 k82Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return TextUtils.equals(str, this.a);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.d >= this.c.c) {
-                this.d = currentTimeMillis;
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k82Var)) == null) {
+            if (k82Var != null && this.d.size() > 0) {
+                int i = 0;
+                StringBuilder sb = new StringBuilder();
+                for (mj2 mj2Var : this.d) {
+                    sb.append(mj2Var.d("event" + i, k82Var));
+                    i++;
+                }
+                if (mj2.b) {
+                    Log.d("JSEventDispatcher", "combine msg - " + sb.toString());
+                }
+                return sb.toString();
             }
-            return false;
+            return null;
         }
-        return invokeV.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.mj2
+    public void h(k82 k82Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.b >= this.c.a) {
-                return true;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k82Var) == null) && k82Var != null && !k82Var.isWebView() && this.d.size() > 0) {
+            if (mj2.b) {
+                Log.d("JSEventDispatcher", "dispatch event - " + this.a + " on v8");
             }
-            return false;
+            for (mj2 mj2Var : this.d) {
+                JSEvent e = mj2Var.e(k82Var);
+                if (e != null) {
+                    j(k82Var, e);
+                    if (mj2.b) {
+                        Log.d("JSEventDispatcher", "dispatchJSEvent action - " + e.type + " on v8 : " + e.data);
+                    }
+                }
+            }
         }
-        return invokeV.booleanValue;
+    }
+
+    public cg2 t(mj2 mj2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mj2Var)) == null) {
+            if (mj2Var != null && !this.d.contains(mj2Var)) {
+                this.d.add(mj2Var);
+            }
+            return this;
+        }
+        return (cg2) invokeL.objValue;
     }
 }

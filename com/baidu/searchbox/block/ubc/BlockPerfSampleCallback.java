@@ -7,59 +7,33 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.PerfSampleManager;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.config.QuickPersistConfig;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 @Service
 /* loaded from: classes2.dex */
 public class BlockPerfSampleCallback implements PerfSampleManager.IPerfSampleCallback {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVE_BLOCK_UPLOAD_TYPE = "1";
     public static final String PASSIVE_BLOCK_UPLOAD_TYPE = "0";
     public static final String UBC_BLOCK_ID = "3256";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public BlockPerfSampleCallback() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     @Override // com.baidu.searchbox.PerfSampleManager.IPerfSampleCallback
     public String getSampleFlag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            if (uBCManager != null) {
-                String uploadType = uBCManager.getUploadType("3256");
-                if (AppConfig.isDebug()) {
-                    Log.d("BlockPerfSampleCallback", "getSampleFlag uploadType " + uploadType);
-                }
-                if (TextUtils.equals("1", uploadType)) {
-                    if (!UbcBlockRegister.sEnable) {
-                        QuickPersistConfig.getInstance().putBoolean(UbcBlockRegister.KEY_BLOCK_CATCH_ACTIVE_UPLOAD, true);
-                    }
-                } else if (TextUtils.equals("0", uploadType) && UbcBlockRegister.sEnable) {
-                    QuickPersistConfig.getInstance().putBoolean(UbcBlockRegister.KEY_BLOCK_CATCH_ACTIVE_UPLOAD, false);
-                }
+        UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+        if (uBCManager != null) {
+            String uploadType = uBCManager.getUploadType("3256");
+            if (AppConfig.isDebug()) {
+                Log.d("BlockPerfSampleCallback", "getSampleFlag uploadType " + uploadType);
             }
-            if (UbcBlockRegister.sEnable) {
-                return "3256";
+            if (TextUtils.equals("1", uploadType)) {
+                if (!UbcBlockRegister.sEnable) {
+                    QuickPersistConfig.getInstance().putBoolean(UbcBlockRegister.KEY_BLOCK_CATCH_ACTIVE_UPLOAD, true);
+                }
+            } else if (TextUtils.equals("0", uploadType) && UbcBlockRegister.sEnable) {
+                QuickPersistConfig.getInstance().putBoolean(UbcBlockRegister.KEY_BLOCK_CATCH_ACTIVE_UPLOAD, false);
             }
-            return "";
         }
-        return (String) invokeV.objValue;
+        if (UbcBlockRegister.sEnable) {
+            return "3256";
+        }
+        return "";
     }
 }

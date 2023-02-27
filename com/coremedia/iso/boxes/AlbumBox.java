@@ -15,6 +15,7 @@ import com.coremedia.iso.IsoTypeWriter;
 import com.coremedia.iso.Utf8;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.nio.ByteBuffer;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
@@ -187,7 +188,7 @@ public class AlbumBox extends AbstractFullBox {
             StringBuilder sb = new StringBuilder();
             sb.append("AlbumBox[language=");
             sb.append(getLanguage());
-            sb.append(";");
+            sb.append(ParamableElem.DIVIDE_PARAM);
             sb.append("albumTitle=");
             sb.append(getAlbumTitle());
             if (this.trackNumber >= 0) {

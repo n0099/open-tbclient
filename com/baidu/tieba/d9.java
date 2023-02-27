@@ -20,10 +20,10 @@ public class d9 {
     public static final d9 f;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean a;
-    public yi1 b;
+    public jj1 b;
     public long c;
     public final Handler d;
-    public final CopyOnWriteArrayList<ul1> e;
+    public final CopyOnWriteArrayList<fm1> e;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -62,11 +62,11 @@ public class d9 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a == 1 && ((float) (System.currentTimeMillis() - this.b.c)) < jj1.i() * 60000.0f) {
+                if ((this.a == 1 && ((float) (System.currentTimeMillis() - this.b.c)) < uj1.i() * 60000.0f) || !rj0.a().n()) {
                     return;
                 }
                 if (this.b.b == null) {
-                    this.b.b = new yi1();
+                    this.b.b = new jj1();
                 }
                 this.b.b.k();
                 this.b.c = System.currentTimeMillis();
@@ -108,12 +108,12 @@ public class d9 {
 
     public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !m51.b()) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !u51.b()) {
             return;
         }
-        Context b2 = nj0.b();
+        Context b2 = rj0.b();
         if (b2 instanceof Application) {
-            ((Application) b2).registerActivityLifecycleCallbacks(new cj1());
+            ((Application) b2).registerActivityLifecycleCallbacks(new nj1());
         }
     }
 
@@ -121,7 +121,7 @@ public class d9 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject d = wi1.a().d();
+            JSONObject d = hj1.a().d();
             if (d == null || d.optBoolean("real_time_query_switch", true)) {
                 return true;
             }

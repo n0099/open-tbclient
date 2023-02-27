@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
+import androidx.annotation.NonNull;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface dt1 {
-    void a(Activity activity, Bundle bundle, sw2 sw2Var);
+    boolean a(@NonNull JSONObject jSONObject);
 }

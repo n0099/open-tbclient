@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.PostPrefixData;
@@ -23,7 +22,6 @@ public class EditVideoActivityConfig extends IntentConfig {
     public static final String FROM_TYPE_RECORD_VIDEO_ACTIVITY = "from_record_activity";
     public static final String FROM_TYPE_WRITE_ACTIVITY_EDIT = "from_write_activity_edit";
     public static final String KEY_ANTI_DATA = "anti_data";
-    public static final String KEY_PRO_ZONE = "pro_zone";
     public static String LOCAL_PATH_KEY = "local_path";
     public static String MUSIC_ID_KEY = "music_id";
     public static String POSITION_KEY = "position";
@@ -105,16 +103,9 @@ public class EditVideoActivityConfig extends IntentConfig {
         }
     }
 
-    public void setProZone(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            getIntent().putExtra(KEY_PRO_ZONE, i);
-        }
-    }
-
     public void setStatisticFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             getIntent().putExtra(WriteActivityConfig.KEY_STATISTIS_FROM, i);
         }
     }

@@ -1,13 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbPageContext;
+import android.widget.MediaController;
+import com.baidu.tieba.play.TbVideoViewContainer;
 /* loaded from: classes5.dex */
-public interface ns8 {
-    String O();
+public interface ns8 extends MediaController.MediaPlayerControl {
+    void a(long j, long j2, long j3);
 
-    int m1();
+    int getCurrentPositionSync();
 
-    TbPageContext<?> p();
+    os8 getMediaProgressObserver();
 
-    void q0();
+    int getPcdnState();
+
+    void setLooping(boolean z);
+
+    void setOnSurfaceDestroyedListener(TbVideoViewContainer.a aVar);
+
+    void setOperableVideoContainer(gt8 gt8Var);
+
+    void setPlayMode(String str);
+
+    void setStageType(String str);
+
+    void setVideoPath(String str, String str2);
+
+    void setVideoStatData(bt8 bt8Var);
+
+    void setVolume(float f, float f2);
+
+    void stopPlayback();
 }

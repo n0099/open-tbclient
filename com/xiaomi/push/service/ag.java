@@ -1,118 +1,88 @@
 package com.xiaomi.push.service;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.xiaomi.push.Cif;
+import com.xiaomi.push.id;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class ag {
-    public static /* synthetic */ Interceptable $ic;
     public static a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static b f910a;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static b f887a;
 
     /* loaded from: classes8.dex */
     public interface a {
-        Map<String, String> a(Context context, Cif cif);
+        Map<String, String> a(Context context, id idVar);
 
         /* renamed from: a  reason: collision with other method in class */
-        void m678a(Context context, Cif cif);
+        void m675a(Context context, id idVar);
 
-        boolean a(Context context, Cif cif, boolean z);
+        boolean a(Context context, id idVar, boolean z);
     }
 
     /* loaded from: classes8.dex */
     public interface b {
-        void a(Cif cif);
+        void a(id idVar);
 
         void a(String str);
 
         /* renamed from: a  reason: collision with other method in class */
-        boolean m679a(Cif cif);
+        boolean m676a(id idVar);
     }
 
-    public static Map<String, String> a(Context context, Cif cif) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, cif)) == null) {
-            a aVar = a;
-            if (aVar == null || cif == null) {
-                com.xiaomi.channel.commonutils.logger.b.m105a("pepa listener or container is null");
-                return null;
-            }
-            return aVar.a(context, cif);
+    public static Map<String, String> a(Context context, id idVar) {
+        a aVar = a;
+        if (aVar == null || idVar == null) {
+            com.xiaomi.channel.commonutils.logger.b.m97a("pepa listener or container is null");
+            return null;
         }
-        return (Map) invokeLL.objValue;
+        return aVar.a(context, idVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m676a(Context context, Cif cif) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, cif) == null) {
-            a aVar = a;
-            if (aVar == null || cif == null) {
-                com.xiaomi.channel.commonutils.logger.b.m105a("handle msg wrong");
-            } else {
-                aVar.m678a(context, cif);
-            }
+    public static void m673a(Context context, id idVar) {
+        a aVar = a;
+        if (aVar == null || idVar == null) {
+            com.xiaomi.channel.commonutils.logger.b.m97a("handle msg wrong");
+        } else {
+            aVar.m675a(context, idVar);
         }
     }
 
-    public static void a(Cif cif) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, cif) == null) {
-            b bVar = f910a;
-            if (bVar == null || cif == null) {
-                com.xiaomi.channel.commonutils.logger.b.m105a("pepa clearMessage is null");
-            } else {
-                bVar.a(cif);
-            }
+    public static void a(id idVar) {
+        b bVar = f887a;
+        if (bVar == null || idVar == null) {
+            com.xiaomi.channel.commonutils.logger.b.m97a("pepa clearMessage is null");
+        } else {
+            bVar.a(idVar);
         }
     }
 
     public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            b bVar = f910a;
-            if (bVar == null || str == null) {
-                com.xiaomi.channel.commonutils.logger.b.m105a("pepa clearMessage is null");
-            } else {
-                bVar.a(str);
-            }
+        b bVar = f887a;
+        if (bVar == null || str == null) {
+            com.xiaomi.channel.commonutils.logger.b.m97a("pepa clearMessage is null");
+        } else {
+            bVar.a(str);
         }
     }
 
-    public static boolean a(Context context, Cif cif, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, cif, z)) == null) {
-            a aVar = a;
-            if (aVar == null || cif == null) {
-                com.xiaomi.channel.commonutils.logger.b.m105a("pepa judement listener or container is null");
-                return false;
-            }
-            return aVar.a(context, cif, z);
+    public static boolean a(Context context, id idVar, boolean z) {
+        a aVar = a;
+        if (aVar == null || idVar == null) {
+            com.xiaomi.channel.commonutils.logger.b.m97a("pepa judement listener or container is null");
+            return false;
         }
-        return invokeLLZ.booleanValue;
+        return aVar.a(context, idVar, z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m677a(Cif cif) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cif)) == null) {
-            b bVar = f910a;
-            if (bVar == null || cif == null) {
-                com.xiaomi.channel.commonutils.logger.b.m105a("pepa handleReceiveMessage is null");
-                return false;
-            }
-            return bVar.m679a(cif);
+    public static boolean m674a(id idVar) {
+        b bVar = f887a;
+        if (bVar == null || idVar == null) {
+            com.xiaomi.channel.commonutils.logger.b.m97a("pepa handleReceiveMessage is null");
+            return false;
         }
-        return invokeL.booleanValue;
+        return bVar.m676a(idVar);
     }
 }

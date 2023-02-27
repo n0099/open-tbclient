@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,13 +10,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class jd8 extends PostData {
+public class jd8 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c1;
+    public static BdUniqueId i;
     public transient /* synthetic */ FieldHolder $fh;
-    public wy4 Z0;
-    public wy4 a1;
-    public wy4 b1;
+    public String a;
+    public String b;
+    public int c;
+    public int d;
+    public boolean e;
+    public String f;
+    public String g;
+    public boolean h;
 
     static {
         InterceptResult invokeClinit;
@@ -33,51 +36,70 @@ public class jd8 extends PostData {
                 return;
             }
         }
-        c1 = BdUniqueId.gen();
+        i = BdUniqueId.gen();
     }
 
-    public jd8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.tieba.Cdo
+    @Override // com.baidu.tieba.Cdo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c1;
+            return i;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public boolean p1() {
-        InterceptResult invokeV;
+    public jd8(ForumData forumData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            wy4 wy4Var = this.Z0;
-            if (wy4Var != null && !StringUtils.isNull(wy4Var.b)) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {forumData};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            wy4 wy4Var2 = this.a1;
-            if (wy4Var2 != null && !StringUtils.isNull(wy4Var2.b)) {
-                return true;
-            }
-            wy4 wy4Var3 = this.b1;
-            if (wy4Var3 != null && !StringUtils.isNull(wy4Var3.b)) {
-                return true;
-            }
-            return false;
         }
-        return invokeV.booleanValue;
+        this.e = false;
+        if (forumData == null) {
+            return;
+        }
+        this.a = forumData.getName();
+        this.b = forumData.getImage_url();
+        this.c = forumData.getPost_num();
+        this.d = forumData.getMember_num();
+        this.f = forumData.getId();
+        this.h = forumData.isLike() == 1;
+    }
+
+    public jd8(z05 z05Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {z05Var};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.e = false;
+        if (z05Var == null) {
+            return;
+        }
+        this.a = z05Var.b;
+        this.b = z05Var.c;
+        this.c = z05Var.g;
+        this.d = z05Var.h;
+        this.f = z05Var.a;
+        this.h = z05Var.e();
     }
 }

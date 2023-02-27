@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tbadk.mutiprocess.event.TopToastEvent;
-import com.baidu.tieba.cm7;
-import com.baidu.tieba.hk7;
-import com.baidu.tieba.mh5;
-import com.baidu.tieba.ql7;
+import com.baidu.tieba.dn7;
+import com.baidu.tieba.mo7;
+import com.baidu.tieba.yo7;
+import com.baidu.tieba.zi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,15 +25,15 @@ import java.util.List;
 public class SingleForumBroadcastFeedActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hk7 a;
+    public dn7 a;
     public OfficialBarFeedMsglistView b;
     public String c;
     public byte d;
-    public mh5 e;
-    public hk7.d f;
+    public zi5 e;
+    public dn7.d f;
 
     /* loaded from: classes4.dex */
-    public class a extends mh5<TopToastEvent> {
+    public class a extends zi5<TopToastEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleForumBroadcastFeedActivity c;
@@ -57,7 +57,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fh5
+        @Override // com.baidu.tieba.si5
         /* renamed from: a */
         public boolean onEvent(TopToastEvent topToastEvent) {
             InterceptResult invokeL;
@@ -74,7 +74,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements hk7.d {
+    public class b implements dn7.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleForumBroadcastFeedActivity a;
@@ -97,16 +97,16 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
             this.a = singleForumBroadcastFeedActivity;
         }
 
-        @Override // com.baidu.tieba.hk7.d
-        public void a(List<cm7> list) {
+        @Override // com.baidu.tieba.dn7.d
+        public void a(List<yo7> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 this.a.b.s(list, null);
             }
         }
 
-        @Override // com.baidu.tieba.hk7.d
-        public void onReadCountLoad(LongSparseArray<ql7> longSparseArray) {
+        @Override // com.baidu.tieba.dn7.d
+        public void onReadCountLoad(LongSparseArray<mo7> longSparseArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, longSparseArray) == null) {
                 this.a.b.t(longSparseArray);
@@ -136,9 +136,9 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            hk7 hk7Var = this.a;
-            if (hk7Var != null) {
-                hk7Var.e();
+            dn7 dn7Var = this.a;
+            if (dn7Var != null) {
+                dn7Var.e();
             }
             unRegisterResponsedEventListener();
         }
@@ -158,9 +158,9 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            hk7 hk7Var = new hk7(getPageContext());
-            this.a = hk7Var;
-            hk7Var.i(this.f);
+            dn7 dn7Var = new dn7(getPageContext());
+            this.a = dn7Var;
+            dn7Var.i(this.f);
             this.b = new OfficialBarFeedMsglistView(this, true);
             if (getIntent() != null) {
                 this.c = getIntent().getStringExtra("key_uid");

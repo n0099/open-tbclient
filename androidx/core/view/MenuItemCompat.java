@@ -7,15 +7,8 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import androidx.core.internal.view.SupportMenuItem;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class MenuItemCompat {
-    public static /* synthetic */ Interceptable $ic = null;
     @Deprecated
     public static final int SHOW_AS_ACTION_ALWAYS = 2;
     @Deprecated
@@ -27,7 +20,6 @@ public final class MenuItemCompat {
     @Deprecated
     public static final int SHOW_AS_ACTION_WITH_TEXT = 4;
     public static final String TAG = "MenuItemCompat";
-    public transient /* synthetic */ FieldHolder $fh;
 
     @Deprecated
     /* loaded from: classes.dex */
@@ -37,330 +29,185 @@ public final class MenuItemCompat {
         boolean onMenuItemActionExpand(MenuItem menuItem);
     }
 
-    public MenuItemCompat() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Deprecated
     public static boolean collapseActionView(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, menuItem)) == null) {
-            return menuItem.collapseActionView();
-        }
-        return invokeL.booleanValue;
+        return menuItem.collapseActionView();
     }
 
     @Deprecated
     public static boolean expandActionView(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, menuItem)) == null) {
-            return menuItem.expandActionView();
-        }
-        return invokeL.booleanValue;
+        return menuItem.expandActionView();
     }
 
     public static ActionProvider getActionProvider(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, menuItem)) == null) {
-            if (menuItem instanceof SupportMenuItem) {
-                return ((SupportMenuItem) menuItem).getSupportActionProvider();
-            }
-            Log.w(TAG, "getActionProvider: item does not implement SupportMenuItem; returning null");
-            return null;
+        if (menuItem instanceof SupportMenuItem) {
+            return ((SupportMenuItem) menuItem).getSupportActionProvider();
         }
-        return (ActionProvider) invokeL.objValue;
+        Log.w(TAG, "getActionProvider: item does not implement SupportMenuItem; returning null");
+        return null;
     }
 
     @Deprecated
     public static View getActionView(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, menuItem)) == null) {
-            return menuItem.getActionView();
-        }
-        return (View) invokeL.objValue;
+        return menuItem.getActionView();
     }
 
     public static int getAlphabeticModifiers(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, menuItem)) == null) {
-            if (menuItem instanceof SupportMenuItem) {
-                return ((SupportMenuItem) menuItem).getAlphabeticModifiers();
-            }
-            if (Build.VERSION.SDK_INT >= 26) {
-                return menuItem.getAlphabeticModifiers();
-            }
-            return 0;
+        if (menuItem instanceof SupportMenuItem) {
+            return ((SupportMenuItem) menuItem).getAlphabeticModifiers();
         }
-        return invokeL.intValue;
+        if (Build.VERSION.SDK_INT >= 26) {
+            return menuItem.getAlphabeticModifiers();
+        }
+        return 0;
     }
 
     public static CharSequence getContentDescription(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, menuItem)) == null) {
-            if (menuItem instanceof SupportMenuItem) {
-                return ((SupportMenuItem) menuItem).getContentDescription();
-            }
-            if (Build.VERSION.SDK_INT >= 26) {
-                return menuItem.getContentDescription();
-            }
-            return null;
+        if (menuItem instanceof SupportMenuItem) {
+            return ((SupportMenuItem) menuItem).getContentDescription();
         }
-        return (CharSequence) invokeL.objValue;
+        if (Build.VERSION.SDK_INT >= 26) {
+            return menuItem.getContentDescription();
+        }
+        return null;
     }
 
     public static ColorStateList getIconTintList(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, menuItem)) == null) {
-            if (menuItem instanceof SupportMenuItem) {
-                return ((SupportMenuItem) menuItem).getIconTintList();
-            }
-            if (Build.VERSION.SDK_INT >= 26) {
-                return menuItem.getIconTintList();
-            }
-            return null;
+        if (menuItem instanceof SupportMenuItem) {
+            return ((SupportMenuItem) menuItem).getIconTintList();
         }
-        return (ColorStateList) invokeL.objValue;
+        if (Build.VERSION.SDK_INT >= 26) {
+            return menuItem.getIconTintList();
+        }
+        return null;
     }
 
     public static PorterDuff.Mode getIconTintMode(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, menuItem)) == null) {
-            if (menuItem instanceof SupportMenuItem) {
-                return ((SupportMenuItem) menuItem).getIconTintMode();
-            }
-            if (Build.VERSION.SDK_INT >= 26) {
-                return menuItem.getIconTintMode();
-            }
-            return null;
+        if (menuItem instanceof SupportMenuItem) {
+            return ((SupportMenuItem) menuItem).getIconTintMode();
         }
-        return (PorterDuff.Mode) invokeL.objValue;
+        if (Build.VERSION.SDK_INT >= 26) {
+            return menuItem.getIconTintMode();
+        }
+        return null;
     }
 
     public static int getNumericModifiers(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, menuItem)) == null) {
-            if (menuItem instanceof SupportMenuItem) {
-                return ((SupportMenuItem) menuItem).getNumericModifiers();
-            }
-            if (Build.VERSION.SDK_INT >= 26) {
-                return menuItem.getNumericModifiers();
-            }
-            return 0;
+        if (menuItem instanceof SupportMenuItem) {
+            return ((SupportMenuItem) menuItem).getNumericModifiers();
         }
-        return invokeL.intValue;
+        if (Build.VERSION.SDK_INT >= 26) {
+            return menuItem.getNumericModifiers();
+        }
+        return 0;
     }
 
     public static CharSequence getTooltipText(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, menuItem)) == null) {
-            if (menuItem instanceof SupportMenuItem) {
-                return ((SupportMenuItem) menuItem).getTooltipText();
-            }
-            if (Build.VERSION.SDK_INT >= 26) {
-                return menuItem.getTooltipText();
-            }
-            return null;
+        if (menuItem instanceof SupportMenuItem) {
+            return ((SupportMenuItem) menuItem).getTooltipText();
         }
-        return (CharSequence) invokeL.objValue;
+        if (Build.VERSION.SDK_INT >= 26) {
+            return menuItem.getTooltipText();
+        }
+        return null;
     }
 
     @Deprecated
     public static boolean isActionViewExpanded(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, menuItem)) == null) {
-            return menuItem.isActionViewExpanded();
-        }
-        return invokeL.booleanValue;
+        return menuItem.isActionViewExpanded();
     }
 
     public static MenuItem setActionProvider(MenuItem menuItem, ActionProvider actionProvider) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, menuItem, actionProvider)) == null) {
-            if (menuItem instanceof SupportMenuItem) {
-                return ((SupportMenuItem) menuItem).setSupportActionProvider(actionProvider);
-            }
-            Log.w(TAG, "setActionProvider: item does not implement SupportMenuItem; ignoring");
-            return menuItem;
+        if (menuItem instanceof SupportMenuItem) {
+            return ((SupportMenuItem) menuItem).setSupportActionProvider(actionProvider);
         }
-        return (MenuItem) invokeLL.objValue;
+        Log.w(TAG, "setActionProvider: item does not implement SupportMenuItem; ignoring");
+        return menuItem;
     }
 
     @Deprecated
     public static MenuItem setActionView(MenuItem menuItem, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, menuItem, i)) == null) {
-            return menuItem.setActionView(i);
-        }
-        return (MenuItem) invokeLI.objValue;
+        return menuItem.setActionView(i);
     }
 
     public static void setContentDescription(MenuItem menuItem, CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65552, null, menuItem, charSequence) == null) {
-            if (menuItem instanceof SupportMenuItem) {
-                ((SupportMenuItem) menuItem).setContentDescription(charSequence);
-            } else if (Build.VERSION.SDK_INT >= 26) {
-                menuItem.setContentDescription(charSequence);
-            }
+        if (menuItem instanceof SupportMenuItem) {
+            ((SupportMenuItem) menuItem).setContentDescription(charSequence);
+        } else if (Build.VERSION.SDK_INT >= 26) {
+            menuItem.setContentDescription(charSequence);
         }
     }
 
     public static void setIconTintList(MenuItem menuItem, ColorStateList colorStateList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65553, null, menuItem, colorStateList) == null) {
-            if (menuItem instanceof SupportMenuItem) {
-                ((SupportMenuItem) menuItem).setIconTintList(colorStateList);
-            } else if (Build.VERSION.SDK_INT >= 26) {
-                menuItem.setIconTintList(colorStateList);
-            }
+        if (menuItem instanceof SupportMenuItem) {
+            ((SupportMenuItem) menuItem).setIconTintList(colorStateList);
+        } else if (Build.VERSION.SDK_INT >= 26) {
+            menuItem.setIconTintList(colorStateList);
         }
     }
 
     public static void setIconTintMode(MenuItem menuItem, PorterDuff.Mode mode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65554, null, menuItem, mode) == null) {
-            if (menuItem instanceof SupportMenuItem) {
-                ((SupportMenuItem) menuItem).setIconTintMode(mode);
-            } else if (Build.VERSION.SDK_INT >= 26) {
-                menuItem.setIconTintMode(mode);
-            }
+        if (menuItem instanceof SupportMenuItem) {
+            ((SupportMenuItem) menuItem).setIconTintMode(mode);
+        } else if (Build.VERSION.SDK_INT >= 26) {
+            menuItem.setIconTintMode(mode);
         }
     }
 
     @Deprecated
-    public static MenuItem setOnActionExpandListener(MenuItem menuItem, OnActionExpandListener onActionExpandListener) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, menuItem, onActionExpandListener)) == null) {
-            return menuItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener(onActionExpandListener) { // from class: androidx.core.view.MenuItemCompat.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ OnActionExpandListener val$listener;
+    public static MenuItem setOnActionExpandListener(MenuItem menuItem, final OnActionExpandListener onActionExpandListener) {
+        return menuItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener() { // from class: androidx.core.view.MenuItemCompat.1
+            @Override // android.view.MenuItem.OnActionExpandListener
+            public boolean onMenuItemActionCollapse(MenuItem menuItem2) {
+                return OnActionExpandListener.this.onMenuItemActionCollapse(menuItem2);
+            }
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {onActionExpandListener};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$listener = onActionExpandListener;
-                }
-
-                @Override // android.view.MenuItem.OnActionExpandListener
-                public boolean onMenuItemActionCollapse(MenuItem menuItem2) {
-                    InterceptResult invokeL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, menuItem2)) == null) {
-                        return this.val$listener.onMenuItemActionCollapse(menuItem2);
-                    }
-                    return invokeL.booleanValue;
-                }
-
-                @Override // android.view.MenuItem.OnActionExpandListener
-                public boolean onMenuItemActionExpand(MenuItem menuItem2) {
-                    InterceptResult invokeL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuItem2)) == null) {
-                        return this.val$listener.onMenuItemActionExpand(menuItem2);
-                    }
-                    return invokeL.booleanValue;
-                }
-            });
-        }
-        return (MenuItem) invokeLL.objValue;
+            @Override // android.view.MenuItem.OnActionExpandListener
+            public boolean onMenuItemActionExpand(MenuItem menuItem2) {
+                return OnActionExpandListener.this.onMenuItemActionExpand(menuItem2);
+            }
+        });
     }
 
     @Deprecated
     public static void setShowAsAction(MenuItem menuItem, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65558, null, menuItem, i) == null) {
-            menuItem.setShowAsAction(i);
-        }
+        menuItem.setShowAsAction(i);
     }
 
     public static void setTooltipText(MenuItem menuItem, CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65559, null, menuItem, charSequence) == null) {
-            if (menuItem instanceof SupportMenuItem) {
-                ((SupportMenuItem) menuItem).setTooltipText(charSequence);
-            } else if (Build.VERSION.SDK_INT >= 26) {
-                menuItem.setTooltipText(charSequence);
-            }
+        if (menuItem instanceof SupportMenuItem) {
+            ((SupportMenuItem) menuItem).setTooltipText(charSequence);
+        } else if (Build.VERSION.SDK_INT >= 26) {
+            menuItem.setTooltipText(charSequence);
         }
     }
 
     @Deprecated
     public static MenuItem setActionView(MenuItem menuItem, View view2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, menuItem, view2)) == null) {
-            return menuItem.setActionView(view2);
-        }
-        return (MenuItem) invokeLL.objValue;
+        return menuItem.setActionView(view2);
     }
 
     public static void setAlphabeticShortcut(MenuItem menuItem, char c, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{menuItem, Character.valueOf(c), Integer.valueOf(i)}) == null) {
-            if (menuItem instanceof SupportMenuItem) {
-                ((SupportMenuItem) menuItem).setAlphabeticShortcut(c, i);
-            } else if (Build.VERSION.SDK_INT >= 26) {
-                menuItem.setAlphabeticShortcut(c, i);
-            }
+        if (menuItem instanceof SupportMenuItem) {
+            ((SupportMenuItem) menuItem).setAlphabeticShortcut(c, i);
+        } else if (Build.VERSION.SDK_INT >= 26) {
+            menuItem.setAlphabeticShortcut(c, i);
         }
     }
 
     public static void setNumericShortcut(MenuItem menuItem, char c, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65555, null, new Object[]{menuItem, Character.valueOf(c), Integer.valueOf(i)}) == null) {
-            if (menuItem instanceof SupportMenuItem) {
-                ((SupportMenuItem) menuItem).setNumericShortcut(c, i);
-            } else if (Build.VERSION.SDK_INT >= 26) {
-                menuItem.setNumericShortcut(c, i);
-            }
+        if (menuItem instanceof SupportMenuItem) {
+            ((SupportMenuItem) menuItem).setNumericShortcut(c, i);
+        } else if (Build.VERSION.SDK_INT >= 26) {
+            menuItem.setNumericShortcut(c, i);
         }
     }
 
     public static void setShortcut(MenuItem menuItem, char c, char c2, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{menuItem, Character.valueOf(c), Character.valueOf(c2), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-            if (menuItem instanceof SupportMenuItem) {
-                ((SupportMenuItem) menuItem).setShortcut(c, c2, i, i2);
-            } else if (Build.VERSION.SDK_INT >= 26) {
-                menuItem.setShortcut(c, c2, i, i2);
-            }
+        if (menuItem instanceof SupportMenuItem) {
+            ((SupportMenuItem) menuItem).setShortcut(c, c2, i, i2);
+        } else if (Build.VERSION.SDK_INT >= 26) {
+            menuItem.setShortcut(c, c2, i, i2);
         }
     }
 }

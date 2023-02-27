@@ -5,13 +5,6 @@ import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Objects;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
@@ -19,8 +12,6 @@ import com.facebook.drawee.drawable.ScalingUtils;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class ScaleTypeDrawable extends ForwardingDrawable {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     @VisibleForTesting
     public Matrix mDrawMatrix;
     @VisibleForTesting
@@ -36,24 +27,8 @@ public class ScaleTypeDrawable extends ForwardingDrawable {
     @VisibleForTesting
     public int mUnderlyingWidth;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ScaleTypeDrawable(Drawable drawable, ScalingUtils.ScaleType scaleType) {
         super((Drawable) Preconditions.checkNotNull(drawable));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, scaleType};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Drawable) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mFocusPoint = null;
         this.mUnderlyingWidth = 0;
         this.mUnderlyingHeight = 0;
@@ -61,24 +36,8 @@ public class ScaleTypeDrawable extends ForwardingDrawable {
         this.mScaleType = scaleType;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ScaleTypeDrawable(Drawable drawable, ScalingUtils.ScaleType scaleType, @Nullable PointF pointF) {
         super((Drawable) Preconditions.checkNotNull(drawable));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, scaleType, pointF};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Drawable) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mFocusPoint = null;
         this.mUnderlyingWidth = 0;
         this.mUnderlyingHeight = 0;
@@ -89,27 +48,24 @@ public class ScaleTypeDrawable extends ForwardingDrawable {
 
     private void configureBoundsIfUnderlyingChanged() {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            ScalingUtils.ScaleType scaleType = this.mScaleType;
-            boolean z2 = true;
-            if (scaleType instanceof ScalingUtils.StatefulScaleType) {
-                Object state = ((ScalingUtils.StatefulScaleType) scaleType).getState();
-                if (state != null && state.equals(this.mScaleTypeState)) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                this.mScaleTypeState = state;
-            } else {
+        ScalingUtils.ScaleType scaleType = this.mScaleType;
+        boolean z2 = true;
+        if (scaleType instanceof ScalingUtils.StatefulScaleType) {
+            Object state = ((ScalingUtils.StatefulScaleType) scaleType).getState();
+            if (state != null && state.equals(this.mScaleTypeState)) {
                 z = false;
+            } else {
+                z = true;
             }
-            if (this.mUnderlyingWidth == getCurrent().getIntrinsicWidth() && this.mUnderlyingHeight == getCurrent().getIntrinsicHeight()) {
-                z2 = false;
-            }
-            if (z2 || z) {
-                configureBounds();
-            }
+            this.mScaleTypeState = state;
+        } else {
+            z = false;
+        }
+        if (this.mUnderlyingWidth == getCurrent().getIntrinsicWidth() && this.mUnderlyingHeight == getCurrent().getIntrinsicHeight()) {
+            z2 = false;
+        }
+        if (z2 || z) {
+            configureBounds();
         }
     }
 
@@ -117,134 +73,86 @@ public class ScaleTypeDrawable extends ForwardingDrawable {
     public void configureBounds() {
         float f;
         float f2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Drawable current = getCurrent();
-            Rect bounds = getBounds();
-            int width = bounds.width();
-            int height = bounds.height();
-            int intrinsicWidth = current.getIntrinsicWidth();
-            this.mUnderlyingWidth = intrinsicWidth;
-            int intrinsicHeight = current.getIntrinsicHeight();
-            this.mUnderlyingHeight = intrinsicHeight;
-            if (intrinsicWidth > 0 && intrinsicHeight > 0) {
-                if (intrinsicWidth == width && intrinsicHeight == height) {
-                    current.setBounds(bounds);
-                    this.mDrawMatrix = null;
-                    return;
-                } else if (this.mScaleType == ScalingUtils.ScaleType.FIT_XY) {
-                    current.setBounds(bounds);
-                    this.mDrawMatrix = null;
-                    return;
+        Drawable current = getCurrent();
+        Rect bounds = getBounds();
+        int width = bounds.width();
+        int height = bounds.height();
+        int intrinsicWidth = current.getIntrinsicWidth();
+        this.mUnderlyingWidth = intrinsicWidth;
+        int intrinsicHeight = current.getIntrinsicHeight();
+        this.mUnderlyingHeight = intrinsicHeight;
+        if (intrinsicWidth > 0 && intrinsicHeight > 0) {
+            if (intrinsicWidth == width && intrinsicHeight == height) {
+                current.setBounds(bounds);
+                this.mDrawMatrix = null;
+                return;
+            } else if (this.mScaleType == ScalingUtils.ScaleType.FIT_XY) {
+                current.setBounds(bounds);
+                this.mDrawMatrix = null;
+                return;
+            } else {
+                current.setBounds(0, 0, intrinsicWidth, intrinsicHeight);
+                ScalingUtils.ScaleType scaleType = this.mScaleType;
+                Matrix matrix = this.mTempMatrix;
+                PointF pointF = this.mFocusPoint;
+                if (pointF != null) {
+                    f = pointF.x;
                 } else {
-                    current.setBounds(0, 0, intrinsicWidth, intrinsicHeight);
-                    ScalingUtils.ScaleType scaleType = this.mScaleType;
-                    Matrix matrix = this.mTempMatrix;
-                    PointF pointF = this.mFocusPoint;
-                    if (pointF != null) {
-                        f = pointF.x;
-                    } else {
-                        f = 0.5f;
-                    }
-                    PointF pointF2 = this.mFocusPoint;
-                    if (pointF2 != null) {
-                        f2 = pointF2.y;
-                    } else {
-                        f2 = 0.5f;
-                    }
-                    scaleType.getTransform(matrix, bounds, intrinsicWidth, intrinsicHeight, f, f2);
-                    this.mDrawMatrix = this.mTempMatrix;
-                    return;
+                    f = 0.5f;
                 }
+                PointF pointF2 = this.mFocusPoint;
+                if (pointF2 != null) {
+                    f2 = pointF2.y;
+                } else {
+                    f2 = 0.5f;
+                }
+                scaleType.getTransform(matrix, bounds, intrinsicWidth, intrinsicHeight, f, f2);
+                this.mDrawMatrix = this.mTempMatrix;
+                return;
             }
-            current.setBounds(bounds);
-            this.mDrawMatrix = null;
         }
+        current.setBounds(bounds);
+        this.mDrawMatrix = null;
     }
 
     @Override // com.facebook.drawee.drawable.ForwardingDrawable, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            configureBoundsIfUnderlyingChanged();
-            if (this.mDrawMatrix != null) {
-                int save = canvas.save();
-                canvas.clipRect(getBounds());
-                canvas.concat(this.mDrawMatrix);
-                super.draw(canvas);
-                canvas.restoreToCount(save);
-                return;
-            }
+        configureBoundsIfUnderlyingChanged();
+        if (this.mDrawMatrix != null) {
+            int save = canvas.save();
+            canvas.clipRect(getBounds());
+            canvas.concat(this.mDrawMatrix);
             super.draw(canvas);
+            canvas.restoreToCount(save);
+            return;
         }
+        super.draw(canvas);
     }
 
     @Override // com.facebook.drawee.drawable.ForwardingDrawable, com.facebook.drawee.drawable.TransformCallback
     public void getTransform(Matrix matrix) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, matrix) == null) {
-            getParentTransform(matrix);
-            configureBoundsIfUnderlyingChanged();
-            Matrix matrix2 = this.mDrawMatrix;
-            if (matrix2 != null) {
-                matrix.preConcat(matrix2);
-            }
+        getParentTransform(matrix);
+        configureBoundsIfUnderlyingChanged();
+        Matrix matrix2 = this.mDrawMatrix;
+        if (matrix2 != null) {
+            matrix.preConcat(matrix2);
         }
     }
 
     @Override // com.facebook.drawee.drawable.ForwardingDrawable, android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, rect) == null) {
-            configureBounds();
-        }
+        configureBounds();
     }
 
     @Override // com.facebook.drawee.drawable.ForwardingDrawable
     public Drawable setCurrent(Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, drawable)) == null) {
-            Drawable current = super.setCurrent(drawable);
-            configureBounds();
-            return current;
-        }
-        return (Drawable) invokeL.objValue;
-    }
-
-    public void setScaleType(ScalingUtils.ScaleType scaleType) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, scaleType) != null) || Objects.equal(this.mScaleType, scaleType)) {
-            return;
-        }
-        this.mScaleType = scaleType;
-        this.mScaleTypeState = null;
+        Drawable current = super.setCurrent(drawable);
         configureBounds();
-        invalidateSelf();
-    }
-
-    @Nullable
-    public PointF getFocusPoint() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mFocusPoint;
-        }
-        return (PointF) invokeV.objValue;
-    }
-
-    public ScalingUtils.ScaleType getScaleType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mScaleType;
-        }
-        return (ScalingUtils.ScaleType) invokeV.objValue;
+        return current;
     }
 
     public void setFocusPoint(@Nullable PointF pointF) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, pointF) != null) || Objects.equal(this.mFocusPoint, pointF)) {
+        if (Objects.equal(this.mFocusPoint, pointF)) {
             return;
         }
         if (pointF == null) {
@@ -257,5 +165,24 @@ public class ScaleTypeDrawable extends ForwardingDrawable {
         }
         configureBounds();
         invalidateSelf();
+    }
+
+    public void setScaleType(ScalingUtils.ScaleType scaleType) {
+        if (Objects.equal(this.mScaleType, scaleType)) {
+            return;
+        }
+        this.mScaleType = scaleType;
+        this.mScaleTypeState = null;
+        configureBounds();
+        invalidateSelf();
+    }
+
+    @Nullable
+    public PointF getFocusPoint() {
+        return this.mFocusPoint;
+    }
+
+    public ScalingUtils.ScaleType getScaleType() {
+        return this.mScaleType;
     }
 }

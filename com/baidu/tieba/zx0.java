@@ -1,54 +1,63 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tieba.un0;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class zx0 implements cy0 {
+public class zx0 extends hx0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948375191, "Lcom/baidu/tieba/zx0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948375191, "Lcom/baidu/tieba/zx0;");
+                return;
+            }
+        }
+        gt0.f();
+    }
 
     public zx0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = gt0.b();
     }
 
-    @Override // com.baidu.tieba.cy0
-    @NonNull
-    public vx0 create(@NonNull String str) {
-        InterceptResult invokeL;
-        char c;
+    @Override // com.baidu.tieba.hx0
+    public void a(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != -812096555) {
-                if (hashCode == 26276517 && str.equals("CyberNetPlayer")) {
-                    c = 0;
-                }
-                c = 65535;
-            } else {
-                if (str.equals("CyberSysPlayer")) {
-                    c = 1;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                return new fy0();
-            }
-            return new xx0();
+        if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && new os0().a()) {
+            un0.a.a().a();
+            CyberPlayerManager.prefetch(str, rj0.e(), "", 0, i, (CyberPlayerManager.HttpDNS) null);
         }
-        return (vx0) invokeL.objValue;
     }
 }

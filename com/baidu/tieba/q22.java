@@ -1,100 +1,172 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Typeface;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
+import com.baidu.swan.apps.canvas.view.CanvasView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-/* loaded from: classes6.dex */
-public class q22 extends c22 {
+import java.io.File;
+import java.util.Calendar;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class q22 extends j22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public float b;
-    public boolean c;
-    public boolean d;
 
-    public q22() {
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o42 a;
+        public final /* synthetic */ CanvasView b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ UnitedSchemeEntity d;
+        public final /* synthetic */ m93 e;
+        public final /* synthetic */ CallbackHandler f;
+
+        public a(q22 q22Var, o42 o42Var, CanvasView canvasView, String str, UnitedSchemeEntity unitedSchemeEntity, m93 m93Var, CallbackHandler callbackHandler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q22Var, o42Var, canvasView, str, unitedSchemeEntity, m93Var, callbackHandler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = o42Var;
+            this.b = canvasView;
+            this.c = str;
+            this.d = unitedSchemeEntity;
+            this.e = m93Var;
+            this.f = callbackHandler;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                boolean i2 = this.a.i(this.b, this.c);
+                HashMap<String, String> params = this.d.getParams();
+                if (params != null && !params.isEmpty()) {
+                    String str = params.get("params");
+                    String str2 = null;
+                    JSONObject jSONObject = new JSONObject();
+                    if (str != null) {
+                        try {
+                            str2 = new JSONObject(str).optString("cb");
+                            jSONObject.putOpt("tempFilePath", ug3.J(this.c, this.e.b));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    if (!TextUtils.isEmpty(str2)) {
+                        if (i2) {
+                            i = 0;
+                        } else {
+                            i = 1001;
+                        }
+                        this.f.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, i).toString());
+                    }
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q22(ja3 ja3Var) {
+        super(ja3Var, "/swanAPI/canvas/toTempFilePath");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ja3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((ja3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "sans-serif";
-        this.b = nm3.g(10.0f);
-        this.c = false;
-        this.d = false;
     }
 
-    @Override // com.baidu.tieba.c22
-    public void a(d22 d22Var, Canvas canvas) {
-        int i;
+    @Override // com.baidu.tieba.jb3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m93 m93Var) {
+        InterceptResult invokeLLLL;
+        String str;
+        u82 H;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, d22Var, canvas) == null) {
-            if (this.c && this.d) {
-                i = 3;
-            } else if (this.c) {
-                i = 1;
-            } else if (this.d) {
-                i = 2;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m93Var)) == null) {
+            o42 m = m(unitedSchemeEntity);
+            if (m == null) {
+                m62.c("SwanAppCanvas", "CanvasToTempFilePath action parse model is null");
+                unitedSchemeEntity.result = l(201);
+                return false;
+            }
+            String x = ug3.x(m93Var.b);
+            if (TextUtils.isEmpty(x)) {
+                m62.c("SwanAppCanvas", "CanvasToTempFilePath cache path is empty");
+                unitedSchemeEntity.result = l(201);
+                return false;
+            }
+            String str2 = x + File.separator + Calendar.getInstance().getTimeInMillis();
+            if (m.h()) {
+                str = str2 + ".jpg";
             } else {
-                i = 0;
+                str = str2 + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
             }
-            d22Var.e.setTypeface(Typeface.create(this.a, i));
-            d22Var.e.setTextSize(this.b);
+            String str3 = str;
+            if (TextUtils.isEmpty(m.c) && (H = zu2.U().H()) != null) {
+                m.c = H.t3();
+            }
+            if (!TextUtils.isEmpty(m.c) && !TextUtils.isEmpty(m.b)) {
+                CanvasView a2 = n52.a(m);
+                if (a2 == null) {
+                    m62.c("SwanAppCanvas", "CanvasToTempFilePath canvas view is null");
+                    unitedSchemeEntity.result = l(201);
+                    return false;
+                }
+                gm3.k(new a(this, m, a2, str3, unitedSchemeEntity, m93Var, callbackHandler), "tempFilePath");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
+            }
+            m62.c("SwanAppCanvas", "CanvasToTempFilePath slave id = " + m.c + " ; canvas id = " + m.b);
+            unitedSchemeEntity.result = l(201);
+            return false;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.c22
-    public void b(JSONArray jSONArray) {
-        String[] split;
+    public o42 m(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 0) {
-                    for (String str : jSONArray.optString(0).split(" ")) {
-                        if (str.contains("italic")) {
-                            this.d = true;
-                        } else if (str.contains("oblique")) {
-                            this.d = true;
-                        } else if (str.contains("bold")) {
-                            this.c = true;
-                        } else if (!str.contains("normal")) {
-                            if (Character.isDigit(str.charAt(0))) {
-                                int length = str.length();
-                                int i = 0;
-                                while (true) {
-                                    if (i >= str.length()) {
-                                        break;
-                                    } else if (!Character.isDigit(str.charAt(i))) {
-                                        length = i;
-                                        break;
-                                    } else {
-                                        i++;
-                                    }
-                                }
-                                this.b = nm3.g(Float.parseFloat(str.substring(0, length)));
-                            } else {
-                                this.a = str;
-                            }
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                if (gp1.a) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
+            String str = unitedSchemeEntity.getParams().get("params");
+            if (!TextUtils.isEmpty(str)) {
+                return new o42(str);
             }
+            return null;
         }
+        return (o42) invokeL.objValue;
     }
 }

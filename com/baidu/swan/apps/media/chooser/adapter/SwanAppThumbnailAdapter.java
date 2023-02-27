@@ -6,16 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.swan.apps.media.chooser.model.VideoModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ds2;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.ts2;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.AbstractDraweeController;
 import com.facebook.drawee.generic.GenericDraweeHierarchy;
@@ -27,117 +21,64 @@ import java.io.File;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<MediaModel> a;
     public MediaModel b;
     public int c;
 
     /* loaded from: classes3.dex */
     public class a extends RecyclerView.ViewHolder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public SimpleDraweeView a;
         public View b;
         public View c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SwanAppThumbnailAdapter swanAppThumbnailAdapter, View view2) {
             super(view2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppThumbnailAdapter, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0908aa);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0908e5);
             this.b = view2.findViewById(R.id.obfuscated_res_0x7f090268);
             this.c = view2.findViewById(R.id.obfuscated_res_0x7f090267);
         }
     }
 
     public SwanAppThumbnailAdapter(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706ea);
     }
 
     public MediaModel d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            ArrayList<MediaModel> arrayList = this.a;
-            if (arrayList != null && i >= 0 && i < arrayList.size()) {
-                return this.a.get(i);
-            }
-            return null;
+        ArrayList<MediaModel> arrayList = this.a;
+        if (arrayList != null && i >= 0 && i < arrayList.size()) {
+            return this.a.get(i);
         }
-        return (MediaModel) invokeI.objValue;
+        return null;
     }
 
     public void i(ArrayList<MediaModel> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
-            this.a = arrayList;
-            if (arrayList != null && arrayList.size() == 1) {
-                this.b = arrayList.get(0);
-            }
-            notifyDataSetChanged();
+        this.a = arrayList;
+        if (arrayList != null && arrayList.size() == 1) {
+            this.b = arrayList.get(0);
         }
+        notifyDataSetChanged();
     }
 
     public ArrayList<MediaModel> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (ArrayList) invokeV.objValue;
+        return this.a;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ArrayList<MediaModel> arrayList = this.a;
-            if (arrayList == null) {
-                return 0;
-            }
-            return arrayList.size();
+        ArrayList<MediaModel> arrayList = this.a;
+        if (arrayList == null) {
+            return 0;
         }
-        return invokeV.intValue;
+        return arrayList.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: f */
     public void onBindViewHolder(a aVar, int i) {
-        ArrayList<MediaModel> arrayList;
         int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, aVar, i) != null) || (arrayList = this.a) == null) {
+        ArrayList<MediaModel> arrayList = this.a;
+        if (arrayList == null) {
             return;
         }
         MediaModel mediaModel = arrayList.get(i);
@@ -163,7 +104,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         aVar.a.setController(build);
         DraweeHierarchy hierarchy = build.getHierarchy();
         if (hierarchy instanceof GenericDraweeHierarchy) {
-            ds2.C().c((GenericDraweeHierarchy) hierarchy, false);
+            ts2.C().c((GenericDraweeHierarchy) hierarchy, false);
         }
     }
 
@@ -171,43 +112,33 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: g */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) {
-            return new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d086a, viewGroup, false));
-        }
-        return (a) invokeLI.objValue;
+        return new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d088b, viewGroup, false));
     }
 
     public int h(MediaModel mediaModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, mediaModel)) == null) {
-            ArrayList<MediaModel> arrayList = this.a;
-            if (arrayList == null) {
-                return 0;
-            }
-            MediaModel mediaModel2 = this.b;
-            this.b = mediaModel;
-            int size = arrayList.size();
-            int i = 0;
-            int i2 = -1;
-            for (int i3 = 0; i3 < size; i3++) {
-                if (mediaModel2 != null && mediaModel2.equals(this.a.get(i3))) {
-                    notifyItemChanged(i3);
-                    i++;
-                }
-                if (mediaModel != null && mediaModel.equals(this.a.get(i3))) {
-                    notifyItemChanged(i3);
-                    i++;
-                    i2 = i3;
-                }
-                if (i >= 2) {
-                    break;
-                }
-            }
-            return i2;
+        ArrayList<MediaModel> arrayList = this.a;
+        if (arrayList == null) {
+            return 0;
         }
-        return invokeL.intValue;
+        MediaModel mediaModel2 = this.b;
+        this.b = mediaModel;
+        int size = arrayList.size();
+        int i = 0;
+        int i2 = -1;
+        for (int i3 = 0; i3 < size; i3++) {
+            if (mediaModel2 != null && mediaModel2.equals(this.a.get(i3))) {
+                notifyItemChanged(i3);
+                i++;
+            }
+            if (mediaModel != null && mediaModel.equals(this.a.get(i3))) {
+                notifyItemChanged(i3);
+                i++;
+                i2 = i3;
+            }
+            if (i >= 2) {
+                break;
+            }
+        }
+        return i2;
     }
 }

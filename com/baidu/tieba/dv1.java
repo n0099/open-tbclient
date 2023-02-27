@@ -1,31 +1,18 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.webkit.ValueCallback;
+import java.util.concurrent.ExecutorService;
+import org.json.JSONArray;
 /* loaded from: classes4.dex */
-public interface dv1 extends u72 {
-    boolean canGoBack();
+public interface dv1 {
+    ExecutorService d();
 
-    View covertToView();
+    void e(String str, int i, JSONArray jSONArray);
 
-    void destroy();
+    void f(String str, int i);
 
-    @Override // com.baidu.tieba.u72
-    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
+    void g(String str, String str2, int i, String str3, int i2);
 
-    int getContentHeight();
+    void i(String str, int i, String str2);
 
-    View getCurrentWebView();
-
-    float getScale();
-
-    int getWebViewScrollX();
-
-    int getWebViewScrollY();
-
-    void goBack();
-
-    void setDefaultViewSize(int i, int i2, String str);
-
-    void webViewScrollTo(int i, int i2);
+    void n(String str, String str2, int i, String str3, long j, int i2);
 }

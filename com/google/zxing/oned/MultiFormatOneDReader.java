@@ -1,11 +1,5 @@
 package com.google.zxing.oned;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.NotFoundException;
@@ -19,27 +13,11 @@ import java.util.Collection;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public final class MultiFormatOneDReader extends OneDReader {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final OneDReader[] readers;
 
     public MultiFormatOneDReader(Map<DecodeHintType, ?> map) {
         Collection collection;
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {map};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         if (map == null) {
             collection = null;
         } else {
@@ -92,27 +70,19 @@ public final class MultiFormatOneDReader extends OneDReader {
 
     @Override // com.google.zxing.oned.OneDReader
     public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, bitArray, map)) == null) {
-            for (OneDReader oneDReader : this.readers) {
-                try {
-                    return oneDReader.decodeRow(i, bitArray, map);
-                } catch (ReaderException unused) {
-                }
+        for (OneDReader oneDReader : this.readers) {
+            try {
+                return oneDReader.decodeRow(i, bitArray, map);
+            } catch (ReaderException unused) {
             }
-            throw NotFoundException.getNotFoundInstance();
         }
-        return (Result) invokeILL.objValue;
+        throw NotFoundException.getNotFoundInstance();
     }
 
     @Override // com.google.zxing.oned.OneDReader, com.google.zxing.Reader
     public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (OneDReader oneDReader : this.readers) {
-                oneDReader.reset();
-            }
+        for (OneDReader oneDReader : this.readers) {
+            oneDReader.reset();
         }
     }
 }

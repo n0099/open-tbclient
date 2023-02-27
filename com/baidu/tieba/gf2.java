@@ -1,23 +1,25 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Application;
+import android.content.Context;
 import android.util.Log;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.sr2;
-import com.baidu.tieba.tt2;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.IOException;
 /* loaded from: classes4.dex */
-public class gf2 {
+public class gf2 extends hf2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static Boolean b;
-    public static int c;
+    public static final boolean b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,150 +35,71 @@ public class gf2 {
                 return;
             }
         }
-        a = gp1.a;
-        ds2.g0().getSwitch("swan_naview_slave_preload_type", 0);
-        c = 0;
+        b = wp1.a;
+        c = "swan_preset" + File.separator + "preset_list.json";
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    public gf2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            Boolean bool = b;
-            if (bool != null) {
-                return bool.booleanValue();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            Boolean valueOf = Boolean.valueOf(a());
-            b = valueOf;
-            return valueOf.booleanValue();
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean e() {
+    @Override // com.baidu.tieba.hf2
+    public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (c == 2) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return xl3.b(ts2.c(), c);
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static boolean f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.hf2
+    public boolean e(if2 if2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (c == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (c == 3) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            boolean z = false;
-            if (!qf2.U().r0()) {
-                Log.w("NASlaveConfig", "v8 is not enabled");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, if2Var)) == null) {
+            if (if2Var == null) {
                 return false;
-            } else if (!ds2.F0().j(1)) {
-                return false;
-            } else {
-                String c0 = qf2.U().c0();
-                if (TextUtils.isEmpty(c0)) {
-                    Log.w("NASlaveConfig", "base path is not exists");
-                    return false;
-                } else if (!new File(c0, "slave-talos/index.js").isFile()) {
-                    Log.w("NASlaveConfig", "talos-js file is not exists");
-                    return false;
-                } else if (a && v43.Y()) {
-                    return true;
-                } else {
-                    if (c != 0) {
-                        z = true;
+            }
+            Context appContext = AppRuntime.getAppContext();
+            String str = "swan_preset" + File.separator + if2Var.g + File.separator + if2Var.q;
+            try {
+                File j = j(if2Var.h, if2Var.g, if2Var.i);
+                if (j == null) {
+                    if (b) {
+                        Log.e("AssetPresetController", "获取解压路径失败");
                     }
-                    if (a) {
-                        Log.d("NASlaveConfig", "isNARenderEnabled canUseNA: " + z);
-                    }
-                    return z;
+                    return false;
                 }
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static int b(@Nullable l93 l93Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, l93Var)) == null) {
-            if (l93Var == null || !d()) {
-                return 0;
-            }
-            return "na".equals(l93Var.r) ? 1 : 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null) {
-                return 0;
-            }
-            if (str.contains("?")) {
-                str = str.substring(0, str.indexOf("?"));
-            }
-            int b2 = b(ju2.U().f(str));
-            if (a) {
-                Log.d("NASlaveConfig", "getSlaveType pageUrl: " + str + " slaveType:" + b2);
-            }
-            return b2;
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean h(w83 w83Var) {
-        InterceptResult invokeL;
-        tt2.a W;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, w83Var)) == null) {
-            if (w83Var == null || !w83Var.E()) {
+                return n(new BufferedInputStream(appContext.getAssets().open(str)), j);
+            } catch (IOException e) {
+                if (b) {
+                    e.printStackTrace();
+                }
                 return false;
             }
-            if (v43.B(w83Var.W())) {
-                str = sr2.b.g().getPath() + File.separator;
-            } else {
-                str = sr2.e.i(W.H(), W.v1()).getPath() + File.separator;
-            }
-            if (a) {
-                Log.d("NASlaveConfig", "手动解析的basePath: " + str);
-            }
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            ju2.U().K(str);
-            return true;
         }
         return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.hf2
+    public String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            Application c2 = ts2.c();
+            return xl3.b(c2, "swan_preset" + File.separator + str + File.separator + "app_info.json");
+        }
+        return (String) invokeL.objValue;
     }
 }

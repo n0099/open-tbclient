@@ -168,15 +168,15 @@ public class ContextDelegate {
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             if (mIsFbeProject == null) {
                 try {
-                    if ("file".equals(j.a("ro.crypto.type", "unknow"))) {
+                    if ("file".equals(n.a(com.heytap.mcssdk.utils.a.b, "unknow"))) {
                         z = true;
                     } else {
                         z = false;
                     }
                     mIsFbeProject = Boolean.valueOf(z);
-                    p.b(TAG, "mIsFbeProject = " + mIsFbeProject.toString());
+                    u.b(TAG, "mIsFbeProject = " + mIsFbeProject.toString());
                 } catch (Exception e) {
-                    p.a(TAG, "mIsFbeProject = " + e.getMessage());
+                    u.a(TAG, "mIsFbeProject = " + e.getMessage());
                 }
             }
             Boolean bool = mIsFbeProject;

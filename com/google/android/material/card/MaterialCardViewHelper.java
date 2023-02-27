@@ -20,17 +20,8 @@ import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleRes;
 import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.ripple.RippleUtils;
@@ -42,13 +33,11 @@ import com.google.android.material.shape.ShapeAppearanceModel;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class MaterialCardViewHelper {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final float CARD_VIEW_SHADOW_MULTIPLIER = 1.5f;
     public static final int CHECKED_ICON_LAYER_INDEX = 2;
-    public static final int[] CHECKED_STATE_SET;
-    public static final double COS_45;
+    public static final int[] CHECKED_STATE_SET = {16842912};
+    public static final double COS_45 = Math.cos(Math.toRadians(45.0d));
     public static final int DEFAULT_STROKE_VALUE = -1;
-    public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final MaterialShapeDrawable bgDrawable;
     public boolean checkable;
@@ -70,7 +59,6 @@ public class MaterialCardViewHelper {
     public final MaterialShapeDrawable foregroundContentDrawable;
     @Nullable
     public MaterialShapeDrawable foregroundShapeDrawable;
-    public boolean isBackgroundOverwritten;
     @NonNull
     public final MaterialCardView materialCardView;
     @Nullable
@@ -84,104 +72,261 @@ public class MaterialCardViewHelper {
     @Dimension
     public int strokeWidth;
     @NonNull
-    public final Rect userContentPadding;
+    public final Rect userContentPadding = new Rect();
+    public boolean isBackgroundOverwritten = false;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1777237122, "Lcom/google/android/material/card/MaterialCardViewHelper;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1777237122, "Lcom/google/android/material/card/MaterialCardViewHelper;");
-                return;
-            }
+    private float calculateHorizontalBackgroundPadding() {
+        float f;
+        float maxCardElevation = this.materialCardView.getMaxCardElevation();
+        if (shouldAddCornerPaddingOutsideCardBackground()) {
+            f = calculateActualCornerPadding();
+        } else {
+            f = 0.0f;
         }
-        CHECKED_STATE_SET = new int[]{16842912};
-        COS_45 = Math.cos(Math.toRadians(45.0d));
+        return maxCardElevation + f;
+    }
+
+    private float calculateVerticalBackgroundPadding() {
+        float f;
+        float maxCardElevation = this.materialCardView.getMaxCardElevation() * 1.5f;
+        if (shouldAddCornerPaddingOutsideCardBackground()) {
+            f = calculateActualCornerPadding();
+        } else {
+            f = 0.0f;
+        }
+        return maxCardElevation + f;
+    }
+
+    private boolean canClipToOutline() {
+        if (Build.VERSION.SDK_INT >= 21 && this.bgDrawable.isRoundRect()) {
+            return true;
+        }
+        return false;
+    }
+
+    @NonNull
+    private Drawable createCheckedIconLayer() {
+        StateListDrawable stateListDrawable = new StateListDrawable();
+        Drawable drawable = this.checkedIcon;
+        if (drawable != null) {
+            stateListDrawable.addState(CHECKED_STATE_SET, drawable);
+        }
+        return stateListDrawable;
+    }
+
+    @NonNull
+    private Drawable createCompatRippleDrawable() {
+        StateListDrawable stateListDrawable = new StateListDrawable();
+        MaterialShapeDrawable createForegroundShapeDrawable = createForegroundShapeDrawable();
+        this.compatRippleDrawable = createForegroundShapeDrawable;
+        createForegroundShapeDrawable.setFillColor(this.rippleColor);
+        stateListDrawable.addState(new int[]{16842919}, this.compatRippleDrawable);
+        return stateListDrawable;
+    }
+
+    @NonNull
+    private Drawable createForegroundRippleDrawable() {
+        if (RippleUtils.USE_FRAMEWORK_RIPPLE) {
+            this.foregroundShapeDrawable = createForegroundShapeDrawable();
+            return new RippleDrawable(this.rippleColor, null, this.foregroundShapeDrawable);
+        }
+        return createCompatRippleDrawable();
+    }
+
+    @NonNull
+    private MaterialShapeDrawable createForegroundShapeDrawable() {
+        return new MaterialShapeDrawable(this.shapeAppearanceModel);
     }
 
     @NonNull
     private Drawable getClickableForeground() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            if (this.rippleDrawable == null) {
-                this.rippleDrawable = createForegroundRippleDrawable();
-            }
-            if (this.clickableForegroundDrawable == null) {
-                LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{this.rippleDrawable, this.foregroundContentDrawable, createCheckedIconLayer()});
-                this.clickableForegroundDrawable = layerDrawable;
-                layerDrawable.setId(2, R.id.obfuscated_res_0x7f091698);
-            }
-            return this.clickableForegroundDrawable;
+        if (this.rippleDrawable == null) {
+            this.rippleDrawable = createForegroundRippleDrawable();
         }
-        return (Drawable) invokeV.objValue;
+        if (this.clickableForegroundDrawable == null) {
+            LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{this.rippleDrawable, this.foregroundContentDrawable, createCheckedIconLayer()});
+            this.clickableForegroundDrawable = layerDrawable;
+            layerDrawable.setId(2, R.id.obfuscated_res_0x7f0916d9);
+        }
+        return this.clickableForegroundDrawable;
     }
 
     private float getParentCardViewCalculatedCornerPadding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            if (this.materialCardView.getPreventCornerOverlap()) {
-                if (Build.VERSION.SDK_INT < 21 || this.materialCardView.getUseCompatPadding()) {
-                    return (float) ((1.0d - COS_45) * this.materialCardView.getCardViewRadius());
-                }
-                return 0.0f;
+        if (this.materialCardView.getPreventCornerOverlap()) {
+            if (Build.VERSION.SDK_INT < 21 || this.materialCardView.getUseCompatPadding()) {
+                return (float) ((1.0d - COS_45) * this.materialCardView.getCardViewRadius());
             }
             return 0.0f;
         }
-        return invokeV.floatValue;
+        return 0.0f;
+    }
+
+    private boolean shouldAddCornerPaddingInsideCardBackground() {
+        if (this.materialCardView.getPreventCornerOverlap() && !canClipToOutline()) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean shouldAddCornerPaddingOutsideCardBackground() {
+        if (this.materialCardView.getPreventCornerOverlap() && canClipToOutline() && this.materialCardView.getUseCompatPadding()) {
+            return true;
+        }
+        return false;
+    }
+
+    private void updateRippleColor() {
+        Drawable drawable;
+        if (RippleUtils.USE_FRAMEWORK_RIPPLE && (drawable = this.rippleDrawable) != null) {
+            ((RippleDrawable) drawable).setColor(this.rippleColor);
+            return;
+        }
+        MaterialShapeDrawable materialShapeDrawable = this.compatRippleDrawable;
+        if (materialShapeDrawable != null) {
+            materialShapeDrawable.setFillColor(this.rippleColor);
+        }
+    }
+
+    @RequiresApi(api = 23)
+    public void forceRippleRedraw() {
+        Drawable drawable = this.rippleDrawable;
+        if (drawable != null) {
+            Rect bounds = drawable.getBounds();
+            int i = bounds.bottom;
+            this.rippleDrawable.setBounds(bounds.left, bounds.top, bounds.right, i - 1);
+            this.rippleDrawable.setBounds(bounds.left, bounds.top, bounds.right, i);
+        }
+    }
+
+    @NonNull
+    public MaterialShapeDrawable getBackground() {
+        return this.bgDrawable;
+    }
+
+    public ColorStateList getCardBackgroundColor() {
+        return this.bgDrawable.getFillColor();
+    }
+
+    public ColorStateList getCardForegroundColor() {
+        return this.foregroundContentDrawable.getFillColor();
+    }
+
+    @Nullable
+    public Drawable getCheckedIcon() {
+        return this.checkedIcon;
+    }
+
+    @Nullable
+    public ColorStateList getCheckedIconTint() {
+        return this.checkedIconTint;
+    }
+
+    public float getCornerRadius() {
+        return this.bgDrawable.getTopLeftCornerResolvedSize();
+    }
+
+    @FloatRange(from = 0.0d, to = 1.0d)
+    public float getProgress() {
+        return this.bgDrawable.getInterpolation();
+    }
+
+    @Nullable
+    public ColorStateList getRippleColor() {
+        return this.rippleColor;
+    }
+
+    public ShapeAppearanceModel getShapeAppearanceModel() {
+        return this.shapeAppearanceModel;
+    }
+
+    @ColorInt
+    public int getStrokeColor() {
+        ColorStateList colorStateList = this.strokeColor;
+        if (colorStateList == null) {
+            return -1;
+        }
+        return colorStateList.getDefaultColor();
+    }
+
+    @Nullable
+    public ColorStateList getStrokeColorStateList() {
+        return this.strokeColor;
+    }
+
+    @Dimension
+    public int getStrokeWidth() {
+        return this.strokeWidth;
+    }
+
+    @NonNull
+    public Rect getUserContentPadding() {
+        return this.userContentPadding;
+    }
+
+    public boolean isBackgroundOverwritten() {
+        return this.isBackgroundOverwritten;
+    }
+
+    public boolean isCheckable() {
+        return this.checkable;
+    }
+
+    public void updateClickable() {
+        Drawable drawable;
+        Drawable drawable2 = this.fgDrawable;
+        if (this.materialCardView.isClickable()) {
+            drawable = getClickableForeground();
+        } else {
+            drawable = this.foregroundContentDrawable;
+        }
+        this.fgDrawable = drawable;
+        if (drawable2 != drawable) {
+            updateInsetForeground(drawable);
+        }
     }
 
     public void updateContentPadding() {
         boolean z;
         float f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            if (!shouldAddCornerPaddingInsideCardBackground() && !shouldAddCornerPaddingOutsideCardBackground()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                f = calculateActualCornerPadding();
-            } else {
-                f = 0.0f;
-            }
-            int parentCardViewCalculatedCornerPadding = (int) (f - getParentCardViewCalculatedCornerPadding());
-            MaterialCardView materialCardView = this.materialCardView;
-            Rect rect = this.userContentPadding;
-            materialCardView.setAncestorContentPadding(rect.left + parentCardViewCalculatedCornerPadding, rect.top + parentCardViewCalculatedCornerPadding, rect.right + parentCardViewCalculatedCornerPadding, rect.bottom + parentCardViewCalculatedCornerPadding);
+        if (!shouldAddCornerPaddingInsideCardBackground() && !shouldAddCornerPaddingOutsideCardBackground()) {
+            z = false;
+        } else {
+            z = true;
         }
+        if (z) {
+            f = calculateActualCornerPadding();
+        } else {
+            f = 0.0f;
+        }
+        int parentCardViewCalculatedCornerPadding = (int) (f - getParentCardViewCalculatedCornerPadding());
+        MaterialCardView materialCardView = this.materialCardView;
+        Rect rect = this.userContentPadding;
+        materialCardView.setAncestorContentPadding(rect.left + parentCardViewCalculatedCornerPadding, rect.top + parentCardViewCalculatedCornerPadding, rect.right + parentCardViewCalculatedCornerPadding, rect.bottom + parentCardViewCalculatedCornerPadding);
+    }
+
+    public void updateElevation() {
+        this.bgDrawable.setElevation(this.materialCardView.getCardElevation());
+    }
+
+    public void updateInsets() {
+        if (!isBackgroundOverwritten()) {
+            this.materialCardView.setBackgroundInternal(insetDrawable(this.bgDrawable));
+        }
+        this.materialCardView.setForeground(insetDrawable(this.fgDrawable));
+    }
+
+    public void updateStroke() {
+        this.foregroundContentDrawable.setStroke(this.strokeWidth, this.strokeColor);
     }
 
     public MaterialCardViewHelper(@NonNull MaterialCardView materialCardView, AttributeSet attributeSet, int i, @StyleRes int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {materialCardView, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.userContentPadding = new Rect();
-        this.isBackgroundOverwritten = false;
         this.materialCardView = materialCardView;
         MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(materialCardView.getContext(), attributeSet, i, i2);
         this.bgDrawable = materialShapeDrawable;
         materialShapeDrawable.initializeElevationOverlay(materialCardView.getContext());
         this.bgDrawable.setShadowColor(-12303292);
         ShapeAppearanceModel.Builder builder = this.bgDrawable.getShapeAppearanceModel().toBuilder();
-        TypedArray obtainStyledAttributes = materialCardView.getContext().obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.CardView, i, R.style.obfuscated_res_0x7f1000fc);
+        TypedArray obtainStyledAttributes = materialCardView.getContext().obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.CardView, i, R.style.obfuscated_res_0x7f1000fe);
         if (obtainStyledAttributes.hasValue(3)) {
             builder.setAllCornerSizes(obtainStyledAttributes.getDimension(3, 0.0f));
         }
@@ -194,552 +339,203 @@ public class MaterialCardViewHelper {
     }
 
     private float calculateActualCornerPadding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            return Math.max(Math.max(calculateCornerPaddingForCornerTreatment(this.shapeAppearanceModel.getTopLeftCorner(), this.bgDrawable.getTopLeftCornerResolvedSize()), calculateCornerPaddingForCornerTreatment(this.shapeAppearanceModel.getTopRightCorner(), this.bgDrawable.getTopRightCornerResolvedSize())), Math.max(calculateCornerPaddingForCornerTreatment(this.shapeAppearanceModel.getBottomRightCorner(), this.bgDrawable.getBottomRightCornerResolvedSize()), calculateCornerPaddingForCornerTreatment(this.shapeAppearanceModel.getBottomLeftCorner(), this.bgDrawable.getBottomLeftCornerResolvedSize())));
-        }
-        return invokeV.floatValue;
+        return Math.max(Math.max(calculateCornerPaddingForCornerTreatment(this.shapeAppearanceModel.getTopLeftCorner(), this.bgDrawable.getTopLeftCornerResolvedSize()), calculateCornerPaddingForCornerTreatment(this.shapeAppearanceModel.getTopRightCorner(), this.bgDrawable.getTopRightCornerResolvedSize())), Math.max(calculateCornerPaddingForCornerTreatment(this.shapeAppearanceModel.getBottomRightCorner(), this.bgDrawable.getBottomRightCornerResolvedSize()), calculateCornerPaddingForCornerTreatment(this.shapeAppearanceModel.getBottomLeftCorner(), this.bgDrawable.getBottomLeftCornerResolvedSize())));
     }
 
     private float calculateCornerPaddingForCornerTreatment(CornerTreatment cornerTreatment, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65539, this, cornerTreatment, f)) == null) {
-            if (cornerTreatment instanceof RoundedCornerTreatment) {
-                return (float) ((1.0d - COS_45) * f);
-            }
-            if (cornerTreatment instanceof CutCornerTreatment) {
-                return f / 2.0f;
-            }
-            return 0.0f;
+        if (cornerTreatment instanceof RoundedCornerTreatment) {
+            return (float) ((1.0d - COS_45) * f);
         }
-        return invokeLF.floatValue;
-    }
-
-    private float calculateHorizontalBackgroundPadding() {
-        InterceptResult invokeV;
-        float f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            float maxCardElevation = this.materialCardView.getMaxCardElevation();
-            if (shouldAddCornerPaddingOutsideCardBackground()) {
-                f = calculateActualCornerPadding();
-            } else {
-                f = 0.0f;
-            }
-            return maxCardElevation + f;
+        if (cornerTreatment instanceof CutCornerTreatment) {
+            return f / 2.0f;
         }
-        return invokeV.floatValue;
-    }
-
-    private float calculateVerticalBackgroundPadding() {
-        InterceptResult invokeV;
-        float f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            float maxCardElevation = this.materialCardView.getMaxCardElevation() * 1.5f;
-            if (shouldAddCornerPaddingOutsideCardBackground()) {
-                f = calculateActualCornerPadding();
-            } else {
-                f = 0.0f;
-            }
-            return maxCardElevation + f;
-        }
-        return invokeV.floatValue;
-    }
-
-    private boolean canClipToOutline() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            if (Build.VERSION.SDK_INT >= 21 && this.bgDrawable.isRoundRect()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @NonNull
-    private Drawable createCheckedIconLayer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            StateListDrawable stateListDrawable = new StateListDrawable();
-            Drawable drawable = this.checkedIcon;
-            if (drawable != null) {
-                stateListDrawable.addState(CHECKED_STATE_SET, drawable);
-            }
-            return stateListDrawable;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    @NonNull
-    private Drawable createCompatRippleDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            StateListDrawable stateListDrawable = new StateListDrawable();
-            MaterialShapeDrawable createForegroundShapeDrawable = createForegroundShapeDrawable();
-            this.compatRippleDrawable = createForegroundShapeDrawable;
-            createForegroundShapeDrawable.setFillColor(this.rippleColor);
-            stateListDrawable.addState(new int[]{16842919}, this.compatRippleDrawable);
-            return stateListDrawable;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    @NonNull
-    private Drawable createForegroundRippleDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            if (RippleUtils.USE_FRAMEWORK_RIPPLE) {
-                this.foregroundShapeDrawable = createForegroundShapeDrawable();
-                return new RippleDrawable(this.rippleColor, null, this.foregroundShapeDrawable);
-            }
-            return createCompatRippleDrawable();
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    @NonNull
-    private MaterialShapeDrawable createForegroundShapeDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            return new MaterialShapeDrawable(this.shapeAppearanceModel);
-        }
-        return (MaterialShapeDrawable) invokeV.objValue;
-    }
-
-    private boolean shouldAddCornerPaddingInsideCardBackground() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
-            if (this.materialCardView.getPreventCornerOverlap() && !canClipToOutline()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    private boolean shouldAddCornerPaddingOutsideCardBackground() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
-            if (this.materialCardView.getPreventCornerOverlap() && canClipToOutline() && this.materialCardView.getUseCompatPadding()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    private void updateRippleColor() {
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            if (RippleUtils.USE_FRAMEWORK_RIPPLE && (drawable = this.rippleDrawable) != null) {
-                ((RippleDrawable) drawable).setColor(this.rippleColor);
-                return;
-            }
-            MaterialShapeDrawable materialShapeDrawable = this.compatRippleDrawable;
-            if (materialShapeDrawable != null) {
-                materialShapeDrawable.setFillColor(this.rippleColor);
-            }
-        }
-    }
-
-    @RequiresApi(api = 23)
-    public void forceRippleRedraw() {
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (drawable = this.rippleDrawable) != null) {
-            Rect bounds = drawable.getBounds();
-            int i = bounds.bottom;
-            this.rippleDrawable.setBounds(bounds.left, bounds.top, bounds.right, i - 1);
-            this.rippleDrawable.setBounds(bounds.left, bounds.top, bounds.right, i);
-        }
-    }
-
-    @NonNull
-    public MaterialShapeDrawable getBackground() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.bgDrawable;
-        }
-        return (MaterialShapeDrawable) invokeV.objValue;
-    }
-
-    public ColorStateList getCardBackgroundColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.bgDrawable.getFillColor();
-        }
-        return (ColorStateList) invokeV.objValue;
-    }
-
-    public ColorStateList getCardForegroundColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.foregroundContentDrawable.getFillColor();
-        }
-        return (ColorStateList) invokeV.objValue;
-    }
-
-    @Nullable
-    public Drawable getCheckedIcon() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.checkedIcon;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    @Nullable
-    public ColorStateList getCheckedIconTint() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.checkedIconTint;
-        }
-        return (ColorStateList) invokeV.objValue;
-    }
-
-    public float getCornerRadius() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.bgDrawable.getTopLeftCornerResolvedSize();
-        }
-        return invokeV.floatValue;
-    }
-
-    @FloatRange(from = 0.0d, to = 1.0d)
-    public float getProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.bgDrawable.getInterpolation();
-        }
-        return invokeV.floatValue;
-    }
-
-    @Nullable
-    public ColorStateList getRippleColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.rippleColor;
-        }
-        return (ColorStateList) invokeV.objValue;
-    }
-
-    public ShapeAppearanceModel getShapeAppearanceModel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.shapeAppearanceModel;
-        }
-        return (ShapeAppearanceModel) invokeV.objValue;
-    }
-
-    @ColorInt
-    public int getStrokeColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ColorStateList colorStateList = this.strokeColor;
-            if (colorStateList == null) {
-                return -1;
-            }
-            return colorStateList.getDefaultColor();
-        }
-        return invokeV.intValue;
-    }
-
-    @Nullable
-    public ColorStateList getStrokeColorStateList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.strokeColor;
-        }
-        return (ColorStateList) invokeV.objValue;
-    }
-
-    @Dimension
-    public int getStrokeWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.strokeWidth;
-        }
-        return invokeV.intValue;
-    }
-
-    @NonNull
-    public Rect getUserContentPadding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.userContentPadding;
-        }
-        return (Rect) invokeV.objValue;
-    }
-
-    public boolean isBackgroundOverwritten() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.isBackgroundOverwritten;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isCheckable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.checkable;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void updateClickable() {
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            Drawable drawable2 = this.fgDrawable;
-            if (this.materialCardView.isClickable()) {
-                drawable = getClickableForeground();
-            } else {
-                drawable = this.foregroundContentDrawable;
-            }
-            this.fgDrawable = drawable;
-            if (drawable2 != drawable) {
-                updateInsetForeground(drawable);
-            }
-        }
-    }
-
-    public void updateElevation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            this.bgDrawable.setElevation(this.materialCardView.getCardElevation());
-        }
-    }
-
-    public void updateInsets() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            if (!isBackgroundOverwritten()) {
-                this.materialCardView.setBackgroundInternal(insetDrawable(this.bgDrawable));
-            }
-            this.materialCardView.setForeground(insetDrawable(this.fgDrawable));
-        }
-    }
-
-    public void updateStroke() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
-            this.foregroundContentDrawable.setStroke(this.strokeWidth, this.strokeColor);
-        }
+        return 0.0f;
     }
 
     @NonNull
     private Drawable insetDrawable(Drawable drawable) {
-        InterceptResult invokeL;
         boolean z;
         int ceil;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, drawable)) == null) {
-            if (Build.VERSION.SDK_INT < 21) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z && !this.materialCardView.getUseCompatPadding()) {
-                ceil = 0;
-                i = 0;
-            } else {
-                int ceil2 = (int) Math.ceil(calculateVerticalBackgroundPadding());
-                ceil = (int) Math.ceil(calculateHorizontalBackgroundPadding());
-                i = ceil2;
-            }
-            return new InsetDrawable(this, drawable, ceil, i, ceil, i) { // from class: com.google.android.material.card.MaterialCardViewHelper.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MaterialCardViewHelper this$0;
-
-                @Override // android.graphics.drawable.Drawable
-                public int getMinimumHeight() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        return -1;
-                    }
-                    return invokeV.intValue;
-                }
-
-                @Override // android.graphics.drawable.Drawable
-                public int getMinimumWidth() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                        return -1;
-                    }
-                    return invokeV.intValue;
-                }
-
-                @Override // android.graphics.drawable.InsetDrawable, android.graphics.drawable.DrawableWrapper, android.graphics.drawable.Drawable
-                public boolean getPadding(Rect rect) {
-                    InterceptResult invokeL2;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, rect)) == null) {
-                        return false;
-                    }
-                    return invokeL2.booleanValue;
-                }
-
-                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                {
-                    super(drawable, ceil, i, ceil, i);
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, drawable, Integer.valueOf(ceil), Integer.valueOf(i), Integer.valueOf(ceil), Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            Object[] objArr2 = newInitContext.callArgs;
-                            super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue());
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-            };
+        if (Build.VERSION.SDK_INT < 21) {
+            z = true;
+        } else {
+            z = false;
         }
-        return (Drawable) invokeL.objValue;
+        if (!z && !this.materialCardView.getUseCompatPadding()) {
+            ceil = 0;
+            i = 0;
+        } else {
+            int ceil2 = (int) Math.ceil(calculateVerticalBackgroundPadding());
+            ceil = (int) Math.ceil(calculateHorizontalBackgroundPadding());
+            i = ceil2;
+        }
+        return new InsetDrawable(drawable, ceil, i, ceil, i) { // from class: com.google.android.material.card.MaterialCardViewHelper.1
+            @Override // android.graphics.drawable.Drawable
+            public int getMinimumHeight() {
+                return -1;
+            }
+
+            @Override // android.graphics.drawable.Drawable
+            public int getMinimumWidth() {
+                return -1;
+            }
+
+            @Override // android.graphics.drawable.InsetDrawable, android.graphics.drawable.DrawableWrapper, android.graphics.drawable.Drawable
+            public boolean getPadding(Rect rect) {
+                return false;
+            }
+        };
     }
 
     private void updateInsetForeground(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, this, drawable) == null) {
-            if (Build.VERSION.SDK_INT >= 23 && (this.materialCardView.getForeground() instanceof InsetDrawable)) {
-                ((InsetDrawable) this.materialCardView.getForeground()).setDrawable(drawable);
-            } else {
-                this.materialCardView.setForeground(insetDrawable(drawable));
-            }
+        if (Build.VERSION.SDK_INT >= 23 && (this.materialCardView.getForeground() instanceof InsetDrawable)) {
+            ((InsetDrawable) this.materialCardView.getForeground()).setDrawable(drawable);
+        } else {
+            this.materialCardView.setForeground(insetDrawable(drawable));
         }
     }
 
+    public void setBackgroundOverwritten(boolean z) {
+        this.isBackgroundOverwritten = z;
+    }
+
+    public void setCardBackgroundColor(ColorStateList colorStateList) {
+        this.bgDrawable.setFillColor(colorStateList);
+    }
+
+    public void setCardForegroundColor(@Nullable ColorStateList colorStateList) {
+        MaterialShapeDrawable materialShapeDrawable = this.foregroundContentDrawable;
+        if (colorStateList == null) {
+            colorStateList = ColorStateList.valueOf(0);
+        }
+        materialShapeDrawable.setFillColor(colorStateList);
+    }
+
+    public void setCheckable(boolean z) {
+        this.checkable = z;
+    }
+
     public void setCheckedIcon(@Nullable Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, drawable) == null) {
-            this.checkedIcon = drawable;
-            if (drawable != null) {
-                Drawable wrap = DrawableCompat.wrap(drawable.mutate());
-                this.checkedIcon = wrap;
-                DrawableCompat.setTintList(wrap, this.checkedIconTint);
-            }
-            if (this.clickableForegroundDrawable != null) {
-                this.clickableForegroundDrawable.setDrawableByLayerId(R.id.obfuscated_res_0x7f091698, createCheckedIconLayer());
-            }
+        this.checkedIcon = drawable;
+        if (drawable != null) {
+            Drawable wrap = DrawableCompat.wrap(drawable.mutate());
+            this.checkedIcon = wrap;
+            DrawableCompat.setTintList(wrap, this.checkedIconTint);
+        }
+        if (this.clickableForegroundDrawable != null) {
+            this.clickableForegroundDrawable.setDrawableByLayerId(R.id.obfuscated_res_0x7f0916d9, createCheckedIconLayer());
+        }
+    }
+
+    public void setCheckedIconTint(@Nullable ColorStateList colorStateList) {
+        this.checkedIconTint = colorStateList;
+        Drawable drawable = this.checkedIcon;
+        if (drawable != null) {
+            DrawableCompat.setTintList(drawable, colorStateList);
         }
     }
 
     public void setCornerRadius(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048600, this, f) == null) {
-            setShapeAppearanceModel(this.shapeAppearanceModel.withCornerSize(f));
-            this.fgDrawable.invalidateSelf();
-            if (shouldAddCornerPaddingOutsideCardBackground() || shouldAddCornerPaddingInsideCardBackground()) {
-                updateContentPadding();
-            }
-            if (shouldAddCornerPaddingOutsideCardBackground()) {
-                updateInsets();
-            }
+        setShapeAppearanceModel(this.shapeAppearanceModel.withCornerSize(f));
+        this.fgDrawable.invalidateSelf();
+        if (shouldAddCornerPaddingOutsideCardBackground() || shouldAddCornerPaddingInsideCardBackground()) {
+            updateContentPadding();
+        }
+        if (shouldAddCornerPaddingOutsideCardBackground()) {
+            updateInsets();
         }
     }
 
-    public void setShapeAppearanceModel(@NonNull ShapeAppearanceModel shapeAppearanceModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, shapeAppearanceModel) == null) {
-            this.shapeAppearanceModel = shapeAppearanceModel;
-            this.bgDrawable.setShapeAppearanceModel(shapeAppearanceModel);
-            MaterialShapeDrawable materialShapeDrawable = this.bgDrawable;
-            materialShapeDrawable.setShadowBitmapDrawingEnable(!materialShapeDrawable.isRoundRect());
-            MaterialShapeDrawable materialShapeDrawable2 = this.foregroundContentDrawable;
-            if (materialShapeDrawable2 != null) {
-                materialShapeDrawable2.setShapeAppearanceModel(shapeAppearanceModel);
-            }
-            MaterialShapeDrawable materialShapeDrawable3 = this.foregroundShapeDrawable;
-            if (materialShapeDrawable3 != null) {
-                materialShapeDrawable3.setShapeAppearanceModel(shapeAppearanceModel);
-            }
-            MaterialShapeDrawable materialShapeDrawable4 = this.compatRippleDrawable;
-            if (materialShapeDrawable4 != null) {
-                materialShapeDrawable4.setShapeAppearanceModel(shapeAppearanceModel);
-            }
+    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
+        this.bgDrawable.setInterpolation(f);
+        MaterialShapeDrawable materialShapeDrawable = this.foregroundContentDrawable;
+        if (materialShapeDrawable != null) {
+            materialShapeDrawable.setInterpolation(f);
         }
+        MaterialShapeDrawable materialShapeDrawable2 = this.foregroundShapeDrawable;
+        if (materialShapeDrawable2 != null) {
+            materialShapeDrawable2.setInterpolation(f);
+        }
+    }
+
+    public void setRippleColor(@Nullable ColorStateList colorStateList) {
+        this.rippleColor = colorStateList;
+        updateRippleColor();
+    }
+
+    public void setShapeAppearanceModel(@NonNull ShapeAppearanceModel shapeAppearanceModel) {
+        this.shapeAppearanceModel = shapeAppearanceModel;
+        this.bgDrawable.setShapeAppearanceModel(shapeAppearanceModel);
+        MaterialShapeDrawable materialShapeDrawable = this.bgDrawable;
+        materialShapeDrawable.setShadowBitmapDrawingEnable(!materialShapeDrawable.isRoundRect());
+        MaterialShapeDrawable materialShapeDrawable2 = this.foregroundContentDrawable;
+        if (materialShapeDrawable2 != null) {
+            materialShapeDrawable2.setShapeAppearanceModel(shapeAppearanceModel);
+        }
+        MaterialShapeDrawable materialShapeDrawable3 = this.foregroundShapeDrawable;
+        if (materialShapeDrawable3 != null) {
+            materialShapeDrawable3.setShapeAppearanceModel(shapeAppearanceModel);
+        }
+        MaterialShapeDrawable materialShapeDrawable4 = this.compatRippleDrawable;
+        if (materialShapeDrawable4 != null) {
+            materialShapeDrawable4.setShapeAppearanceModel(shapeAppearanceModel);
+        }
+    }
+
+    public void setStrokeColor(ColorStateList colorStateList) {
+        if (this.strokeColor == colorStateList) {
+            return;
+        }
+        this.strokeColor = colorStateList;
+        updateStroke();
+    }
+
+    public void setStrokeWidth(@Dimension int i) {
+        if (i == this.strokeWidth) {
+            return;
+        }
+        this.strokeWidth = i;
+        updateStroke();
     }
 
     public void loadFromAttributes(@NonNull TypedArray typedArray) {
         Drawable drawable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, typedArray) == null) {
-            ColorStateList colorStateList = MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, 8);
-            this.strokeColor = colorStateList;
-            if (colorStateList == null) {
-                this.strokeColor = ColorStateList.valueOf(-1);
-            }
-            this.strokeWidth = typedArray.getDimensionPixelSize(9, 0);
-            boolean z = typedArray.getBoolean(0, false);
-            this.checkable = z;
-            this.materialCardView.setLongClickable(z);
-            this.checkedIconTint = MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, 3);
-            setCheckedIcon(MaterialResources.getDrawable(this.materialCardView.getContext(), typedArray, 2));
-            ColorStateList colorStateList2 = MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, 4);
-            this.rippleColor = colorStateList2;
-            if (colorStateList2 == null) {
-                this.rippleColor = ColorStateList.valueOf(MaterialColors.getColor(this.materialCardView, R.attr.obfuscated_res_0x7f04016f));
-            }
-            setCardForegroundColor(MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, 1));
-            updateRippleColor();
-            updateElevation();
-            updateStroke();
-            this.materialCardView.setBackgroundInternal(insetDrawable(this.bgDrawable));
-            if (this.materialCardView.isClickable()) {
-                drawable = getClickableForeground();
-            } else {
-                drawable = this.foregroundContentDrawable;
-            }
-            this.fgDrawable = drawable;
-            this.materialCardView.setForeground(insetDrawable(drawable));
+        ColorStateList colorStateList = MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, 8);
+        this.strokeColor = colorStateList;
+        if (colorStateList == null) {
+            this.strokeColor = ColorStateList.valueOf(-1);
         }
+        this.strokeWidth = typedArray.getDimensionPixelSize(9, 0);
+        boolean z = typedArray.getBoolean(0, false);
+        this.checkable = z;
+        this.materialCardView.setLongClickable(z);
+        this.checkedIconTint = MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, 3);
+        setCheckedIcon(MaterialResources.getDrawable(this.materialCardView.getContext(), typedArray, 2));
+        ColorStateList colorStateList2 = MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, 4);
+        this.rippleColor = colorStateList2;
+        if (colorStateList2 == null) {
+            this.rippleColor = ColorStateList.valueOf(MaterialColors.getColor(this.materialCardView, R.attr.obfuscated_res_0x7f040171));
+        }
+        setCardForegroundColor(MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, 1));
+        updateRippleColor();
+        updateElevation();
+        updateStroke();
+        this.materialCardView.setBackgroundInternal(insetDrawable(this.bgDrawable));
+        if (this.materialCardView.isClickable()) {
+            drawable = getClickableForeground();
+        } else {
+            drawable = this.foregroundContentDrawable;
+        }
+        this.fgDrawable = drawable;
+        this.materialCardView.setForeground(insetDrawable(drawable));
     }
 
     public void onMeasure(int i, int i2) {
         boolean z;
         int i3;
         int i4;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) && this.clickableForegroundDrawable != null) {
+        if (this.clickableForegroundDrawable != null) {
             int i5 = this.checkedIconMargin;
             int i6 = this.checkedIconSize;
             int i7 = (i - i5) - i6;
@@ -766,95 +562,8 @@ public class MaterialCardViewHelper {
         }
     }
 
-    public void setBackgroundOverwritten(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.isBackgroundOverwritten = z;
-        }
-    }
-
-    public void setCardBackgroundColor(ColorStateList colorStateList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, colorStateList) == null) {
-            this.bgDrawable.setFillColor(colorStateList);
-        }
-    }
-
-    public void setCardForegroundColor(@Nullable ColorStateList colorStateList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, colorStateList) == null) {
-            MaterialShapeDrawable materialShapeDrawable = this.foregroundContentDrawable;
-            if (colorStateList == null) {
-                colorStateList = ColorStateList.valueOf(0);
-            }
-            materialShapeDrawable.setFillColor(colorStateList);
-        }
-    }
-
-    public void setCheckable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
-            this.checkable = z;
-        }
-    }
-
-    public void setCheckedIconTint(@Nullable ColorStateList colorStateList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, colorStateList) == null) {
-            this.checkedIconTint = colorStateList;
-            Drawable drawable = this.checkedIcon;
-            if (drawable != null) {
-                DrawableCompat.setTintList(drawable, colorStateList);
-            }
-        }
-    }
-
-    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048601, this, f) == null) {
-            this.bgDrawable.setInterpolation(f);
-            MaterialShapeDrawable materialShapeDrawable = this.foregroundContentDrawable;
-            if (materialShapeDrawable != null) {
-                materialShapeDrawable.setInterpolation(f);
-            }
-            MaterialShapeDrawable materialShapeDrawable2 = this.foregroundShapeDrawable;
-            if (materialShapeDrawable2 != null) {
-                materialShapeDrawable2.setInterpolation(f);
-            }
-        }
-    }
-
-    public void setRippleColor(@Nullable ColorStateList colorStateList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, colorStateList) == null) {
-            this.rippleColor = colorStateList;
-            updateRippleColor();
-        }
-    }
-
-    public void setStrokeColor(ColorStateList colorStateList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048604, this, colorStateList) != null) || this.strokeColor == colorStateList) {
-            return;
-        }
-        this.strokeColor = colorStateList;
-        updateStroke();
-    }
-
-    public void setStrokeWidth(@Dimension int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048605, this, i) != null) || i == this.strokeWidth) {
-            return;
-        }
-        this.strokeWidth = i;
-        updateStroke();
-    }
-
     public void setUserContentPadding(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048606, this, i, i2, i3, i4) == null) {
-            this.userContentPadding.set(i, i2, i3, i4);
-            updateContentPadding();
-        }
+        this.userContentPadding.set(i, i2, i3, i4);
+        updateContentPadding();
     }
 }

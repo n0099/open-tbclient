@@ -1,13 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ta2 {
+public class ta2 extends na2<JSONObject, m12> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,18 +28,31 @@ public class ta2 {
         }
     }
 
-    public sa2 a(Context context, int i) {
-        InterceptResult invokeLI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ra2
+    @NonNull
+    /* renamed from: c */
+    public m12 a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    return new ua2(context);
-                }
-                return new wa2(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return new m12(202);
             }
-            return new ua2(context);
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject == null) {
+                return new m12(202, "data is required");
+            }
+            String optString = optJSONObject.optString("content");
+            String optString2 = optJSONObject.optString("type");
+            String optString3 = optJSONObject.optString("source");
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
+                m62.k("Api-HandleException", String.format("发生jserror: type = %s, source = %s, content = %s", optString2, optString3, optString));
+                r92.d().e(p92.a(optString2, optString, optString3));
+                return new m12(0);
+            }
+            return new m12(202);
         }
-        return (sa2) invokeLI.objValue;
+        return (m12) invokeL.objValue;
     }
 }

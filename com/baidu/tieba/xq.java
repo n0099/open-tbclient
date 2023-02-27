@@ -10,14 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes7.dex */
-public final class xq extends zq {
+/* loaded from: classes6.dex */
+public final class xq extends dr {
     public static /* synthetic */ Interceptable $ic;
-    public static final a g;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
     public final String d;
-    public int e;
-    public final int f;
+    public final String e;
 
     static {
         InterceptResult invokeClinit;
@@ -32,17 +31,17 @@ public final class xq extends zq {
                 return;
             }
         }
-        g = new a(null);
+        f = new a(null);
     }
 
-    @Override // com.baidu.tieba.nr
+    @Override // com.baidu.tieba.rr
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskInterruptAction" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskDuplicatedCacheAction" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,28 +64,28 @@ public final class xq extends zq {
             this();
         }
 
-        public final xq a(TaskInfo taskInfo, int i) {
-            InterceptResult invokeLI;
+        public final xq a(TaskInfo taskInfo, String str) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, taskInfo, i)) == null) {
-                return new xq(taskInfo, null, 50, i, null, null, 50, null);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskInfo, str)) == null) {
+                return new xq(taskInfo, str, null, 0, null, null, 60, null);
             }
-            return (xq) invokeLI.objValue;
+            return (xq) invokeLL.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xq(TaskInfo taskInfo, String str, int i, int i2, Integer num, String str2) {
-        super(str, num, str2);
+    public xq(TaskInfo taskInfo, String str, String str2, int i, Integer num, String str3) {
+        super(str2, num, str3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo, str, Integer.valueOf(i), Integer.valueOf(i2), num, str2};
+            Object[] objArr = {taskInfo, str, str2, Integer.valueOf(i), num, str3};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (Integer) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -95,68 +94,52 @@ public final class xq extends zq {
             }
         }
         this.d = str;
-        this.e = i;
-        this.f = i2;
+        this.e = str2;
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public /* synthetic */ xq(TaskInfo taskInfo, String str, int i, int i2, Integer num, String str2, int i3, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskInfo, r2, r3, r4, r5, r6);
-        int i4;
-        int i5;
+    public /* synthetic */ xq(TaskInfo taskInfo, String str, String str2, int i, Integer num, String str3, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(taskInfo, str, r3, r4, r5, r6);
+        int i3;
         Integer num2;
-        String str3;
-        String singleKey = (i3 & 2) != 0 ? taskInfo.getSingleKey() : str;
-        if ((i3 & 4) != 0) {
-            i4 = 50;
+        String str4;
+        String singleKey = (i2 & 4) != 0 ? taskInfo.getSingleKey() : str2;
+        if ((i2 & 8) != 0) {
+            i3 = 8;
         } else {
-            i4 = i;
+            i3 = i;
         }
-        if ((i3 & 8) != 0) {
-            i5 = 0;
-        } else {
-            i5 = i2;
-        }
-        if ((i3 & 16) != 0) {
+        if ((i2 & 16) != 0) {
             num2 = null;
         } else {
             num2 = num;
         }
-        if ((i3 & 32) != 0) {
-            str3 = null;
+        if ((i2 & 32) != 0) {
+            str4 = null;
         } else {
-            str3 = str2;
+            str4 = str3;
         }
     }
 
-    @Override // com.baidu.tieba.zq
+    @Override // com.baidu.tieba.dr
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+            return this.e;
         }
         return (String) invokeV.objValue;
     }
 
-    public int g() {
+    public final String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
+            return this.d;
         }
-        return invokeV.intValue;
-    }
-
-    public final int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 }

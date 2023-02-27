@@ -1,35 +1,21 @@
 package com.baidu.tieba;
 
-import android.graphics.Paint;
-import android.view.View;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class qn4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(View view2) {
-        InterceptResult invokeL;
+    public static Drawable a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
-            return view2.getLayerType();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
+            return context.getDrawable(i);
         }
-        return invokeL.intValue;
-    }
-
-    public static void b(View view2, int i, Paint paint) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65537, null, view2, i, paint) == null) {
-            view2.setLayerType(i, paint);
-        }
-    }
-
-    public static void c(View view2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65538, null, view2, z) == null) {
-            view2.setSaveFromParentEnabled(z);
-        }
+        return (Drawable) invokeLI.objValue;
     }
 }

@@ -1,23 +1,12 @@
 package com.baidu.searchbox.live.interfaces.feedpay;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\t\n\u0002\u0010\b\n\u0002\b \u0018\u0000 -:\u0001-B\u0007¢\u0006\u0004\b+\u0010,J\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003R$\u0010\u0005\u001a\u0004\u0018\u00010\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0005\u0010\u0006\u001a\u0004\b\u0007\u0010\b\"\u0004\b\t\u0010\nR$\u0010\u000b\u001a\u0004\u0018\u00010\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u000b\u0010\u0006\u001a\u0004\b\f\u0010\b\"\u0004\b\r\u0010\nR\"\u0010\u000f\u001a\u00020\u000e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u000f\u0010\u0010\u001a\u0004\b\u0011\u0010\u0012\"\u0004\b\u0013\u0010\u0014R\"\u0010\u0015\u001a\u00020\u000e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0015\u0010\u0010\u001a\u0004\b\u0016\u0010\u0012\"\u0004\b\u0017\u0010\u0014R$\u0010\u0018\u001a\u0004\u0018\u00010\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0018\u0010\u0006\u001a\u0004\b\u0019\u0010\b\"\u0004\b\u001a\u0010\nR$\u0010\u001b\u001a\u0004\u0018\u00010\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001b\u0010\u0006\u001a\u0004\b\u001c\u0010\b\"\u0004\b\u001d\u0010\nR\"\u0010\u001e\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001e\u0010\u001f\u001a\u0004\b\u001e\u0010\u0003\"\u0004\b \u0010!R\"\u0010\"\u001a\u00020\u000e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\"\u0010\u0010\u001a\u0004\b#\u0010\u0012\"\u0004\b$\u0010\u0014R$\u0010%\u001a\u0004\u0018\u00010\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b%\u0010\u0006\u001a\u0004\b&\u0010\b\"\u0004\b'\u0010\nR$\u0010(\u001a\u0004\u0018\u00010\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b(\u0010\u0006\u001a\u0004\b)\u0010\b\"\u0004\b*\u0010\n¨\u0006."}, d2 = {"Lcom/baidu/searchbox/live/interfaces/feedpay/LiveFeedPayInfo;", "", "isValid", "()Z", "", "business", "Ljava/lang/String;", "getBusiness", "()Ljava/lang/String;", "setBusiness", "(Ljava/lang/String;)V", "couponID", "getCouponID", "setCouponID", "", "currentPrice", "I", "getCurrentPrice", "()I", "setCurrentPrice", "(I)V", "cutPrice", "getCutPrice", "setCutPrice", "ext", "getExt", "setExt", "from", "getFrom", "setFrom", "isFree", "Z", "setFree", "(Z)V", "originPrice", "getOriginPrice", "setOriginPrice", "resId", "getResId", "setResId", "source", "getSource", "setSource", "<init>", "()V", "Companion", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public final class LiveFeedPayInfo {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Companion Companion;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final Companion Companion = new Companion(null);
     public String business;
     public String couponID;
     public int currentPrice;
@@ -29,40 +18,10 @@ public final class LiveFeedPayInfo {
     public String resId;
     public String source;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(911157504, "Lcom/baidu/searchbox/live/interfaces/feedpay/LiveFeedPayInfo;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(911157504, "Lcom/baidu/searchbox/live/interfaces/feedpay/LiveFeedPayInfo;");
-                return;
-            }
-        }
-        Companion = new Companion(null);
-    }
-
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u000b\u0010\fJ?\u0010\t\u001a\u0004\u0018\u00010\b2\b\u0010\u0002\u001a\u0004\u0018\u00010\u00012\u0006\u0010\u0004\u001a\u00020\u00032\b\u0010\u0005\u001a\u0004\u0018\u00010\u00012\b\u0010\u0006\u001a\u0004\u0018\u00010\u00012\b\u0010\u0007\u001a\u0004\u0018\u00010\u0001¢\u0006\u0004\b\t\u0010\n¨\u0006\r"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/feedpay/LiveFeedPayInfo$Companion;", "", "resId", "", "isFree", "source", "from", "ext", "Lcom/baidu/searchbox/live/interfaces/feedpay/LiveFeedPayInfo;", "with", "(Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/baidu/searchbox/live/interfaces/feedpay/LiveFeedPayInfo;", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
     public static final class Companion {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
         public Companion() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
         }
 
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
@@ -70,206 +29,102 @@ public final class LiveFeedPayInfo {
         }
 
         public final LiveFeedPayInfo with(String str, boolean z, String str2, String str3, String str4) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), str2, str3, str4})) == null) {
-                LiveFeedPayInfo liveFeedPayInfo = new LiveFeedPayInfo();
-                liveFeedPayInfo.setResId(str);
-                liveFeedPayInfo.setFree(z);
-                liveFeedPayInfo.setSource(str2);
-                liveFeedPayInfo.setFrom(str3);
-                liveFeedPayInfo.setExt(str4);
-                return liveFeedPayInfo;
-            }
-            return (LiveFeedPayInfo) invokeCommon.objValue;
-        }
-    }
-
-    public LiveFeedPayInfo() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+            LiveFeedPayInfo liveFeedPayInfo = new LiveFeedPayInfo();
+            liveFeedPayInfo.setResId(str);
+            liveFeedPayInfo.setFree(z);
+            liveFeedPayInfo.setSource(str2);
+            liveFeedPayInfo.setFrom(str3);
+            liveFeedPayInfo.setExt(str4);
+            return liveFeedPayInfo;
         }
     }
 
     public final String getBusiness() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.business;
-        }
-        return (String) invokeV.objValue;
+        return this.business;
     }
 
     public final String getCouponID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.couponID;
-        }
-        return (String) invokeV.objValue;
+        return this.couponID;
     }
 
     public final int getCurrentPrice() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.currentPrice;
-        }
-        return invokeV.intValue;
+        return this.currentPrice;
     }
 
     public final int getCutPrice() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.cutPrice;
-        }
-        return invokeV.intValue;
+        return this.cutPrice;
     }
 
     public final String getExt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.ext;
-        }
-        return (String) invokeV.objValue;
+        return this.ext;
     }
 
     public final String getFrom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.from;
-        }
-        return (String) invokeV.objValue;
+        return this.from;
     }
 
     public final int getOriginPrice() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.originPrice;
-        }
-        return invokeV.intValue;
+        return this.originPrice;
     }
 
     public final String getResId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.resId;
-        }
-        return (String) invokeV.objValue;
+        return this.resId;
     }
 
     public final String getSource() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.source;
-        }
-        return (String) invokeV.objValue;
+        return this.source;
     }
 
     public final boolean isFree() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.isFree;
-        }
-        return invokeV.booleanValue;
+        return this.isFree;
     }
 
     public final boolean isValid() {
-        InterceptResult invokeV;
         int i;
         int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (!TextUtils.isEmpty(this.resId) && (i = this.currentPrice) >= 0 && (i2 = this.originPrice) >= 0 && i <= i2) {
-                return true;
-            }
-            return false;
+        if (!TextUtils.isEmpty(this.resId) && (i = this.currentPrice) >= 0 && (i2 = this.originPrice) >= 0 && i <= i2) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public final void setBusiness(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.business = str;
-        }
+        this.business = str;
     }
 
     public final void setCouponID(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.couponID = str;
-        }
+        this.couponID = str;
     }
 
     public final void setCurrentPrice(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.currentPrice = i;
-        }
+        this.currentPrice = i;
     }
 
     public final void setCutPrice(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.cutPrice = i;
-        }
+        this.cutPrice = i;
     }
 
     public final void setExt(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.ext = str;
-        }
+        this.ext = str;
     }
 
     public final void setFree(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.isFree = z;
-        }
+        this.isFree = z;
     }
 
     public final void setFrom(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.from = str;
-        }
+        this.from = str;
     }
 
     public final void setOriginPrice(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.originPrice = i;
-        }
+        this.originPrice = i;
     }
 
     public final void setResId(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.resId = str;
-        }
+        this.resId = str;
     }
 
     public final void setSource(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.source = str;
-        }
+        this.source = str;
     }
 }

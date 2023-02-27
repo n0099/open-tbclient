@@ -24,17 +24,17 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gt6;
-import com.baidu.tieba.j36;
-import com.baidu.tieba.qb0;
-import com.baidu.tieba.tf5;
+import com.baidu.tieba.a56;
+import com.baidu.tieba.fw6;
+import com.baidu.tieba.gh5;
+import com.baidu.tieba.ub0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AlaLiveTabFeedPageFragment extends BaseFragment implements gt6 {
+public class AlaLiveTabFeedPageFragment extends BaseFragment implements fw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ILiveFeedPageView a;
@@ -101,7 +101,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements gt6 {
         this.e = new a(this, 2921774);
     }
 
-    @Override // com.baidu.tieba.gt6
+    @Override // com.baidu.tieba.fw6
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -109,7 +109,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements gt6 {
         }
     }
 
-    @Override // com.baidu.tieba.gt6
+    @Override // com.baidu.tieba.fw6
     public void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -117,7 +117,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements gt6 {
         }
     }
 
-    @Override // com.baidu.tieba.gt6
+    @Override // com.baidu.tieba.fw6
     public void d0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -126,7 +126,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements gt6 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.vj5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.il5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -147,7 +147,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements gt6 {
             if (iLiveFeedPageView != null) {
                 iLiveFeedPageView.onViewDestroy();
             }
-            tf5.e().b();
+            gh5.e().b();
             MessageManager.getInstance().unRegisterListener(this.e);
         }
     }
@@ -204,7 +204,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements gt6 {
         }
     }
 
-    @Override // com.baidu.tieba.gt6
+    @Override // com.baidu.tieba.fw6
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
@@ -249,9 +249,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements gt6 {
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             E1("onChangeSkinType");
             super.onChangeSkinType(i);
-            if (i == 1) {
-                str = "night";
-            } else if (i == 4) {
+            if (i == 4) {
                 str = "dark";
             } else {
                 str = "day";
@@ -275,8 +273,8 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements gt6 {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(null);
             E1("onCreate");
-            j36.a().c(TbadkCoreApplication.getInst());
-            this.a = new qb0();
+            a56.a().c(TbadkCoreApplication.getInst());
+            this.a = new ub0();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_END_STAMP_KEY);
             registerListener(this.e);
             this.d = new PollingModel(getPageContext(), getUniqueId());
@@ -291,7 +289,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements gt6 {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5038);
             E1("onCreateView");
             if (this.a == null) {
-                this.a = new qb0();
+                this.a = new ub0();
             }
             View onCreateView = this.a.onCreateView(getFragmentActivity(), this, LiveFeedPageSdk.HOST_LIVE_TAB, "tab", null, null, false);
             if (onCreateView.getParent() instanceof ViewGroup) {
@@ -320,7 +318,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements gt6 {
             }
             this.c = isPrimary();
             if (isPrimary() && (pollingModel = this.d) != null) {
-                pollingModel.n0(PollingModel.MEMBER_BROADCAST);
+                pollingModel.u0(PollingModel.MEMBER_BROADCAST);
             }
         }
     }

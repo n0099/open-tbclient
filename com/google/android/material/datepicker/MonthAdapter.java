@@ -8,22 +8,11 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MonthAdapter extends BaseAdapter {
-    public static /* synthetic */ Interceptable $ic;
-    public static final int MAXIMUM_WEEKS;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final int MAXIMUM_WEEKS = UtcDates.getUtcCalendar().getMaximum(4);
     public final CalendarConstraints calendarConstraints;
     public CalendarStyle calendarStyle;
     public final DateSelector<?> dateSelector;
@@ -31,229 +20,137 @@ public class MonthAdapter extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public boolean hasStableIds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1214660795, "Lcom/google/android/material/datepicker/MonthAdapter;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1214660795, "Lcom/google/android/material/datepicker/MonthAdapter;");
-                return;
-            }
-        }
-        MAXIMUM_WEEKS = UtcDates.getUtcCalendar().getMaximum(4);
+        return true;
     }
 
     public int firstPositionInMonth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.month.daysFromStartOfWeekToFirstOfMonth();
-        }
-        return invokeV.intValue;
+        return this.month.daysFromStartOfWeekToFirstOfMonth();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.month.daysInMonth + firstPositionInMonth();
-        }
-        return invokeV.intValue;
+        return this.month.daysInMonth + firstPositionInMonth();
     }
 
     public int lastPositionInMonth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return (this.month.daysFromStartOfWeekToFirstOfMonth() + this.month.daysInMonth) - 1;
-        }
-        return invokeV.intValue;
+        return (this.month.daysFromStartOfWeekToFirstOfMonth() + this.month.daysInMonth) - 1;
     }
 
     public MonthAdapter(Month month, DateSelector<?> dateSelector, CalendarConstraints calendarConstraints) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {month, dateSelector, calendarConstraints};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.month = month;
         this.dateSelector = dateSelector;
         this.calendarConstraints = calendarConstraints;
     }
 
     private void initializeStyles(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, this, context) == null) && this.calendarStyle == null) {
+        if (this.calendarStyle == null) {
             this.calendarStyle = new CalendarStyle(context);
         }
     }
 
     public int dayToPosition(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return firstPositionInMonth() + (i - 1);
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return i / this.month.daysInWeek;
-        }
-        return invokeI.longValue;
-    }
-
-    public boolean isFirstInRow(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            if (i % this.month.daysInWeek == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public boolean isLastInRow(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            if ((i + 1) % this.month.daysInWeek == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public int positionToDay(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            return (i - this.month.daysFromStartOfWeekToFirstOfMonth()) + 1;
-        }
-        return invokeI.intValue;
-    }
-
-    public boolean withinMonth(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            if (i >= firstPositionInMonth() && i <= lastPositionInMonth()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
+        return firstPositionInMonth() + (i - 1);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     @Nullable
     public Long getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (i >= this.month.daysFromStartOfWeekToFirstOfMonth() && i <= lastPositionInMonth()) {
-                return Long.valueOf(this.month.getDay(positionToDay(i)));
-            }
-            return null;
+        if (i >= this.month.daysFromStartOfWeekToFirstOfMonth() && i <= lastPositionInMonth()) {
+            return Long.valueOf(this.month.getDay(positionToDay(i)));
         }
-        return (Long) invokeI.objValue;
+        return null;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i / this.month.daysInWeek;
+    }
+
+    public boolean isFirstInRow(int i) {
+        if (i % this.month.daysInWeek == 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isLastInRow(int i) {
+        if ((i + 1) % this.month.daysInWeek == 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public int positionToDay(int i) {
+        return (i - this.month.daysFromStartOfWeekToFirstOfMonth()) + 1;
+    }
+
+    public boolean withinMonth(int i) {
+        if (i >= firstPositionInMonth() && i <= lastPositionInMonth()) {
+            return true;
+        }
+        return false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0074 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0075  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0070 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0071  */
     @Override // android.widget.Adapter
     @NonNull
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public TextView getView(int i, @Nullable View view2, @NonNull ViewGroup viewGroup) {
-        InterceptResult invokeILL;
         Long item;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            initializeStyles(viewGroup.getContext());
-            TextView textView = (TextView) view2;
-            if (view2 == null) {
-                textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05d1, viewGroup, false);
-            }
-            int firstPositionInMonth = i - firstPositionInMonth();
-            if (firstPositionInMonth >= 0) {
-                Month month = this.month;
-                if (firstPositionInMonth < month.daysInMonth) {
-                    int i2 = firstPositionInMonth + 1;
-                    textView.setTag(month);
-                    textView.setText(String.valueOf(i2));
-                    long day = this.month.getDay(i2);
-                    if (this.month.year == Month.current().year) {
-                        textView.setContentDescription(DateStrings.getMonthDayOfWeekDay(day));
-                    } else {
-                        textView.setContentDescription(DateStrings.getYearMonthDayOfWeekDay(day));
-                    }
-                    textView.setVisibility(0);
-                    textView.setEnabled(true);
-                    item = getItem(i);
-                    if (item != null) {
-                        return textView;
-                    }
-                    if (this.calendarConstraints.getDateValidator().isValid(item.longValue())) {
-                        textView.setEnabled(true);
-                        Iterator<Long> it = this.dateSelector.getSelectedDays().iterator();
-                        while (it.hasNext()) {
-                            if (UtcDates.canonicalYearMonthDay(item.longValue()) == UtcDates.canonicalYearMonthDay(it.next().longValue())) {
-                                this.calendarStyle.selectedDay.styleItem(textView);
-                                return textView;
-                            }
-                        }
-                        if (UtcDates.getTodayCalendar().getTimeInMillis() == item.longValue()) {
-                            this.calendarStyle.todayDay.styleItem(textView);
-                            return textView;
-                        }
-                        this.calendarStyle.day.styleItem(textView);
-                        return textView;
-                    }
-                    textView.setEnabled(false);
-                    this.calendarStyle.invalidDay.styleItem(textView);
+        initializeStyles(viewGroup.getContext());
+        TextView textView = (TextView) view2;
+        if (view2 == null) {
+            textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05e5, viewGroup, false);
+        }
+        int firstPositionInMonth = i - firstPositionInMonth();
+        if (firstPositionInMonth >= 0) {
+            Month month = this.month;
+            if (firstPositionInMonth < month.daysInMonth) {
+                int i2 = firstPositionInMonth + 1;
+                textView.setTag(month);
+                textView.setText(String.valueOf(i2));
+                long day = this.month.getDay(i2);
+                if (this.month.year == Month.current().year) {
+                    textView.setContentDescription(DateStrings.getMonthDayOfWeekDay(day));
+                } else {
+                    textView.setContentDescription(DateStrings.getYearMonthDayOfWeekDay(day));
+                }
+                textView.setVisibility(0);
+                textView.setEnabled(true);
+                item = getItem(i);
+                if (item != null) {
                     return textView;
                 }
+                if (this.calendarConstraints.getDateValidator().isValid(item.longValue())) {
+                    textView.setEnabled(true);
+                    Iterator<Long> it = this.dateSelector.getSelectedDays().iterator();
+                    while (it.hasNext()) {
+                        if (UtcDates.canonicalYearMonthDay(item.longValue()) == UtcDates.canonicalYearMonthDay(it.next().longValue())) {
+                            this.calendarStyle.selectedDay.styleItem(textView);
+                            return textView;
+                        }
+                    }
+                    if (UtcDates.getTodayCalendar().getTimeInMillis() == item.longValue()) {
+                        this.calendarStyle.todayDay.styleItem(textView);
+                        return textView;
+                    }
+                    this.calendarStyle.day.styleItem(textView);
+                    return textView;
+                }
+                textView.setEnabled(false);
+                this.calendarStyle.invalidDay.styleItem(textView);
+                return textView;
             }
-            textView.setVisibility(8);
-            textView.setEnabled(false);
-            item = getItem(i);
-            if (item != null) {
-            }
-        } else {
-            return (TextView) invokeILL.objValue;
+        }
+        textView.setVisibility(8);
+        textView.setEnabled(false);
+        item = getItem(i);
+        if (item != null) {
         }
     }
 }

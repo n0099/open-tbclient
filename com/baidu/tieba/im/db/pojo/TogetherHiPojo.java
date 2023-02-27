@@ -36,7 +36,7 @@ public class TogetherHiPojo extends OrmObject {
         }
     }
 
-    public static TogetherHiPojo G(TogetherHi togetherHi) {
+    public static TogetherHiPojo N(TogetherHi togetherHi) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, togetherHi)) == null) {
@@ -58,7 +58,7 @@ public class TogetherHiPojo extends OrmObject {
         return (TogetherHiPojo) invokeL.objValue;
     }
 
-    public static TogetherHiPojo H(tbclient.TogetherHi togetherHi) {
+    public static TogetherHiPojo O(tbclient.TogetherHi togetherHi) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, togetherHi)) == null) {

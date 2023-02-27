@@ -4,16 +4,7 @@ import android.annotation.SuppressLint;
 import android.graphics.Rect;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.ad.reflux.KsRefluxView;
 import com.kwad.components.ad.reward.e;
 import com.kwad.components.ad.reward.page.BackPressHandleResult;
@@ -36,375 +27,185 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk.core.webview.a.kwai.a {
-    public static /* synthetic */ Interceptable $ic = null;
     public static long qY = 2000;
-    public transient /* synthetic */ FieldHolder $fh;
     public KsAdWebView bF;
-    public int bH;
-    public x.b bM;
     public aa dP;
     public com.kwad.sdk.core.webview.b mJsBridgeContext;
     public com.kwad.components.core.webview.a mJsInterface;
-    public List<com.kwad.components.core.c.a.c> me;
     public List<com.kwad.components.ad.reward.c.b> qW;
     public KsRefluxView qX;
-    public Runnable qZ;
-    public com.kwad.components.ad.reward.c.c ra;
-    public KsAdWebView.d rb;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1298625209, "Lcom/kwad/components/ad/reward/presenter/p;")) == null) {
-            return;
+    public List<com.kwad.components.core.c.a.c> me = new ArrayList();
+    public int bH = -1;
+    public Runnable qZ = new Runnable() { // from class: com.kwad.components.ad.reward.presenter.p.1
+        /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
+            jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.kwad.components.ad.reward.presenter.p.b(com.kwad.components.ad.reward.presenter.p):java.lang.String
+            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
+            	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
+            Caused by: java.lang.IndexOutOfBoundsException: Index: 0
+            	at java.base/java.util.Collections$EmptyList.get(Collections.java:4807)
+            	at jadx.core.dex.nodes.InsnNode.getArg(InsnNode.java:104)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:117)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
+            	... 1 more
+            */
+        @Override // java.lang.Runnable
+        public final void run() {
+            /*
+                r5 = this;
+                com.kwad.components.ad.reward.presenter.p r0 = com.kwad.components.ad.reward.presenter.p.this
+                com.kwad.components.ad.reward.presenter.p.a(r0)
+                com.kwad.components.ad.reward.presenter.p r0 = com.kwad.components.ad.reward.presenter.p.this
+                com.kwad.components.ad.reward.k r1 = r0.nM
+                boolean r1 = r1.mz
+                java.lang.String r0 = com.kwad.components.ad.reward.presenter.p.b(r0)
+                long r2 = com.kwad.components.ad.reward.presenter.p.ho()
+                java.lang.String r4 = "reflux"
+                com.kwad.components.ad.reward.monitor.a.a(r1, r4, r0, r2)
+                return
+            */
+            throw new UnsupportedOperationException("Method not decompiled: com.kwad.components.ad.reward.presenter.p.AnonymousClass1.run():void");
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+    };
+    public com.kwad.components.ad.reward.c.c ra = new com.kwad.components.ad.reward.c.c(null) { // from class: com.kwad.components.ad.reward.presenter.p.2
+        {
+            super(null);
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1298625209, "Lcom/kwad/components/ad/reward/presenter/p;");
+
+        @Override // com.kwad.components.ad.reward.c.c
+        public final void d(com.kwad.components.ad.reward.c.b bVar) {
+            p.this.nM.b(bVar);
         }
-    }
 
-    public p() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        @Override // com.kwad.components.ad.reward.c.c
+        public final void e(com.kwad.components.ad.reward.c.b bVar) {
+            p.this.nM.c(bVar);
         }
-        this.me = new ArrayList();
-        this.bH = -1;
-        this.qZ = new Runnable(this) { // from class: com.kwad.components.ad.reward.presenter.p.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ p rc;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.rc = this;
+    };
+    public x.b bM = new x.b() { // from class: com.kwad.components.ad.reward.presenter.p.4
+        @Override // com.kwad.components.core.webview.jshandler.x.b
+        public final void a(x.a aVar) {
+            KsRefluxView ksRefluxView;
+            p.this.bH = aVar.status;
+            boolean z = true;
+            if (p.this.bH == 1) {
+                ksRefluxView = p.this.qX;
+            } else {
+                ksRefluxView = p.this.qX;
+                z = false;
             }
+            ksRefluxView.z(z);
+            bd.c(p.this.qZ);
+        }
+    };
+    public KsAdWebView.d rb = new KsAdWebView.d() { // from class: com.kwad.components.ad.reward.presenter.p.5
+        @Override // com.kwad.components.core.webview.KsAdWebView.d
+        public final void a(int i, String str, String str2) {
+            p.this.hn();
+        }
 
-            /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
-                jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.kwad.components.ad.reward.presenter.p.b(com.kwad.components.ad.reward.presenter.p):java.lang.String
-                	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
-                	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
-                Caused by: java.lang.IndexOutOfBoundsException: Index: 0
-                	at java.base/java.util.Collections$EmptyList.get(Collections.java:4807)
-                	at jadx.core.dex.nodes.InsnNode.getArg(InsnNode.java:104)
-                	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:117)
-                	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
-                	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
-                	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
-                	... 1 more
-                */
-            @Override // java.lang.Runnable
-            public final void run() {
-                /*
-                    r5 = this;
-                    com.baidu.titan.sdk.runtime.Interceptable r0 = com.kwad.components.ad.reward.presenter.p.AnonymousClass1.$ic
-                    if (r0 != 0) goto L1d
-                L4:
-                    com.kwad.components.ad.reward.presenter.p r0 = r5.rc
-                    com.kwad.components.ad.reward.presenter.p.a(r0)
-                    com.kwad.components.ad.reward.presenter.p r0 = r5.rc
-                    com.kwad.components.ad.reward.k r1 = r0.nM
-                    boolean r1 = r1.mz
-                    java.lang.String r0 = com.kwad.components.ad.reward.presenter.p.b(r0)
-                    long r2 = com.kwad.components.ad.reward.presenter.p.ho()
-                    java.lang.String r4 = "reflux"
-                    com.kwad.components.ad.reward.monitor.a.a(r1, r4, r0, r2)
-                    return
-                L1d:
-                    r3 = r0
-                    r4 = 1048576(0x100000, float:1.469368E-39)
-                    com.baidu.titan.sdk.runtime.InterceptResult r0 = r3.invokeV(r4, r5)
-                    if (r0 == 0) goto L4
-                    return
-                */
-                throw new UnsupportedOperationException("Method not decompiled: com.kwad.components.ad.reward.presenter.p.AnonymousClass1.run():void");
-            }
-        };
-        this.ra = new com.kwad.components.ad.reward.c.c(this, null) { // from class: com.kwad.components.ad.reward.presenter.p.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ p rc;
+        @Override // com.kwad.components.core.webview.KsAdWebView.d
+        public final void bv() {
+        }
 
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(null);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr = {this, r8};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        super(newInitContext2.callArgs[0]);
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.rc = this;
-            }
-
-            @Override // com.kwad.components.ad.reward.c.c
-            public final void d(com.kwad.components.ad.reward.c.b bVar) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, bVar) == null) {
-                    this.rc.nM.b(bVar);
-                }
-            }
-
-            @Override // com.kwad.components.ad.reward.c.c
-            public final void e(com.kwad.components.ad.reward.c.b bVar) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-                    this.rc.nM.c(bVar);
-                }
-            }
-        };
-        this.bM = new x.b(this) { // from class: com.kwad.components.ad.reward.presenter.p.4
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ p rc;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.rc = this;
-            }
-
-            @Override // com.kwad.components.core.webview.jshandler.x.b
-            public final void a(x.a aVar) {
-                KsRefluxView ksRefluxView;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar) == null) {
-                    this.rc.bH = aVar.status;
-                    boolean z = true;
-                    if (this.rc.bH == 1) {
-                        ksRefluxView = this.rc.qX;
-                    } else {
-                        ksRefluxView = this.rc.qX;
-                        z = false;
-                    }
-                    ksRefluxView.z(z);
-                    bd.c(this.rc.qZ);
-                }
-            }
-        };
-        this.rb = new KsAdWebView.d(this) { // from class: com.kwad.components.ad.reward.presenter.p.5
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ p rc;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.rc = this;
-            }
-
-            @Override // com.kwad.components.core.webview.KsAdWebView.d
-            public final void a(int i3, String str, String str2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i3, str, str2) == null) {
-                    this.rc.hn();
-                }
-            }
-
-            @Override // com.kwad.components.core.webview.KsAdWebView.d
-            public final void bv() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                }
-            }
-
-            /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
-                jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.kwad.components.ad.reward.presenter.p.b(com.kwad.components.ad.reward.presenter.p):java.lang.String
-                	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
-                	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
-                Caused by: java.lang.IndexOutOfBoundsException: Index: 0
-                	at java.base/java.util.Collections$EmptyList.get(Collections.java:4807)
-                	at jadx.core.dex.nodes.InsnNode.getArg(InsnNode.java:104)
-                	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:117)
-                	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
-                	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
-                	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
-                	... 1 more
-                */
-            @Override // com.kwad.components.core.webview.KsAdWebView.d
-            public final void bw() {
-                /*
-                    r6 = this;
-                    com.baidu.titan.sdk.runtime.Interceptable r0 = com.kwad.components.ad.reward.presenter.p.AnonymousClass5.$ic
-                    if (r0 != 0) goto L23
-                L4:
-                    com.kwad.components.ad.reward.presenter.p r0 = r6.rc
-                    com.kwad.components.ad.reward.k r1 = r0.nM
-                    boolean r1 = r1.mz
-                    java.lang.String r0 = com.kwad.components.ad.reward.presenter.p.b(r0)
-                    long r2 = java.lang.System.currentTimeMillis()
-                    com.kwad.components.ad.reward.presenter.p r4 = r6.rc
-                    com.kwad.components.core.webview.KsAdWebView r4 = com.kwad.components.ad.reward.presenter.p.h(r4)
-                    long r4 = r4.getLoadTime()
-                    long r2 = r2 - r4
-                    java.lang.String r4 = "reflux"
-                    com.kwad.components.ad.reward.monitor.a.b(r1, r4, r0, r2)
-                    return
-                L23:
-                    r4 = r0
-                    r5 = 1048578(0x100002, float:1.469371E-39)
-                    com.baidu.titan.sdk.runtime.InterceptResult r0 = r4.invokeV(r5, r6)
-                    if (r0 == 0) goto L4
-                    return
-                */
-                throw new UnsupportedOperationException("Method not decompiled: com.kwad.components.ad.reward.presenter.p.AnonymousClass5.bw():void");
-            }
-        };
-    }
+        /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
+            jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.kwad.components.ad.reward.presenter.p.b(com.kwad.components.ad.reward.presenter.p):java.lang.String
+            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
+            	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
+            Caused by: java.lang.IndexOutOfBoundsException: Index: 0
+            	at java.base/java.util.Collections$EmptyList.get(Collections.java:4807)
+            	at jadx.core.dex.nodes.InsnNode.getArg(InsnNode.java:104)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:117)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
+            	... 1 more
+            */
+        @Override // com.kwad.components.core.webview.KsAdWebView.d
+        public final void bw() {
+            /*
+                r6 = this;
+                com.kwad.components.ad.reward.presenter.p r0 = com.kwad.components.ad.reward.presenter.p.this
+                com.kwad.components.ad.reward.k r1 = r0.nM
+                boolean r1 = r1.mz
+                java.lang.String r0 = com.kwad.components.ad.reward.presenter.p.b(r0)
+                long r2 = java.lang.System.currentTimeMillis()
+                com.kwad.components.ad.reward.presenter.p r4 = com.kwad.components.ad.reward.presenter.p.this
+                com.kwad.components.core.webview.KsAdWebView r4 = com.kwad.components.ad.reward.presenter.p.h(r4)
+                long r4 = r4.getLoadTime()
+                long r2 = r2 - r4
+                java.lang.String r4 = "reflux"
+                com.kwad.components.ad.reward.monitor.a.b(r1, r4, r0, r2)
+                return
+            */
+            throw new UnsupportedOperationException("Method not decompiled: com.kwad.components.ad.reward.presenter.p.AnonymousClass5.bw():void");
+        }
+    };
 
     private void a(com.kwad.components.core.webview.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, aVar) == null) {
-            aa aaVar = new aa();
-            this.dP = aaVar;
-            aVar.a(aaVar);
-            aVar.a(new com.kwad.components.core.webview.jshandler.f(this.mJsBridgeContext, this.me, this));
-            aVar.a(new com.kwad.components.core.webview.jshandler.l(this.mJsBridgeContext));
-            aVar.a(new com.kwad.components.core.webview.jshandler.o(this.mJsBridgeContext));
-            aVar.a(new com.kwad.components.core.webview.jshandler.k(this.mJsBridgeContext));
-            aVar.a(new x(this.bM, getUrl()));
-            List<AdTemplate> f = com.kwad.components.ad.reward.c.b.f(this.qW);
-            aVar.a(new u(f, this.me));
-            aVar.a(new com.kwad.components.core.webview.jshandler.q(null));
-            aVar.a(new s(this.mJsBridgeContext));
-            com.kwad.components.core.webview.jshandler.e eVar = new com.kwad.components.core.webview.jshandler.e(f);
-            eVar.a(this);
-            aVar.a(eVar);
-            aVar.a(new w(new w.a(this) { // from class: com.kwad.components.ad.reward.presenter.p.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ p rc;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.rc = this;
+        aa aaVar = new aa();
+        this.dP = aaVar;
+        aVar.a(aaVar);
+        aVar.a(new com.kwad.components.core.webview.jshandler.f(this.mJsBridgeContext, this.me, this));
+        aVar.a(new com.kwad.components.core.webview.jshandler.l(this.mJsBridgeContext));
+        aVar.a(new com.kwad.components.core.webview.jshandler.o(this.mJsBridgeContext));
+        aVar.a(new com.kwad.components.core.webview.jshandler.k(this.mJsBridgeContext));
+        aVar.a(new x(this.bM, getUrl()));
+        List<AdTemplate> f = com.kwad.components.ad.reward.c.b.f(this.qW);
+        aVar.a(new u(f, this.me));
+        aVar.a(new com.kwad.components.core.webview.jshandler.q(null));
+        aVar.a(new s(this.mJsBridgeContext));
+        com.kwad.components.core.webview.jshandler.e eVar = new com.kwad.components.core.webview.jshandler.e(f);
+        eVar.a(this);
+        aVar.a(eVar);
+        aVar.a(new w(new w.a() { // from class: com.kwad.components.ad.reward.presenter.p.3
+            @Override // com.kwad.components.core.webview.jshandler.w.a
+            public final void a(com.kwad.components.core.webview.a.b bVar) {
+                if (bVar.pv() <= 0 || p.this.qW == null) {
+                    return;
                 }
-
-                @Override // com.kwad.components.core.webview.jshandler.w.a
-                public final void a(com.kwad.components.core.webview.a.b bVar) {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, bVar) == null) || bVar.pv() <= 0 || this.rc.qW == null) {
-                        return;
+                AdTemplate adTemplate = null;
+                Iterator it = p.this.qW.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
                     }
-                    AdTemplate adTemplate = null;
-                    Iterator it = this.rc.qW.iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        AdTemplate adTemplate2 = ((com.kwad.components.ad.reward.c.b) it.next()).getAdTemplate();
-                        if (com.kwad.sdk.core.response.a.d.ca(adTemplate2) == bVar.pv()) {
-                            adTemplate = adTemplate2;
-                            break;
-                        }
-                    }
-                    if (adTemplate != null) {
-                        AdWebViewActivityProxy.launch(this.rc.getContext(), new AdWebViewActivityProxy.a.C0605a().ao(bVar.title).ap(bVar.url).N(adTemplate).nx());
+                    AdTemplate adTemplate2 = ((com.kwad.components.ad.reward.c.b) it.next()).getAdTemplate();
+                    if (com.kwad.sdk.core.response.a.d.ca(adTemplate2) == bVar.pv()) {
+                        adTemplate = adTemplate2;
+                        break;
                     }
                 }
-            }));
-        }
+                if (adTemplate != null) {
+                    AdWebViewActivityProxy.launch(p.this.getContext(), new AdWebViewActivityProxy.a.C0595a().ao(bVar.title).ap(bVar.url).N(adTemplate).nx());
+                }
+            }
+        }));
     }
 
     private void aE() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.bH = -1;
-            aF();
-            this.qX.z(false);
-            String url = getUrl();
-            com.kwad.components.ad.reward.monitor.a.a(this.nM.mz, "reflux", url);
-            com.kwad.sdk.core.e.b.d("RewardRefluxPresenter", "startPreloadWebView url : " + url);
-            if (ax.dT(url)) {
-                hn();
-                return;
-            }
-            this.bF.loadUrl(url);
-            bd.runOnUiThreadDelay(this.qZ, qY);
+        this.bH = -1;
+        aF();
+        this.qX.z(false);
+        String url = getUrl();
+        com.kwad.components.ad.reward.monitor.a.a(this.nM.mz, "reflux", url);
+        com.kwad.sdk.core.e.b.d("RewardRefluxPresenter", "startPreloadWebView url : " + url);
+        if (ax.dT(url)) {
+            hn();
+            return;
         }
+        this.bF.loadUrl(url);
+        bd.runOnUiThreadDelay(this.qZ, qY);
     }
 
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void aF() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            clearJsInterfaceRegister();
-            com.kwad.components.core.webview.a aVar = new com.kwad.components.core.webview.a(this.bF);
-            this.mJsInterface = aVar;
-            a(aVar);
-            this.bF.addJavascriptInterface(this.mJsInterface, "KwaiAd");
-        }
+        clearJsInterfaceRegister();
+        com.kwad.components.core.webview.a aVar = new com.kwad.components.core.webview.a(this.bF);
+        this.mJsInterface = aVar;
+        a(aVar);
+        this.bF.addJavascriptInterface(this.mJsInterface, "KwaiAd");
     }
 
     /* JADX DEBUG: Marked for inline */
@@ -414,24 +215,17 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
     }
 
     private void clearJsInterfaceRegister() {
-        com.kwad.components.core.webview.a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || (aVar = this.mJsInterface) == null) {
-            return;
+        com.kwad.components.core.webview.a aVar = this.mJsInterface;
+        if (aVar != null) {
+            aVar.destroy();
+            this.mJsInterface = null;
         }
-        aVar.destroy();
-        this.mJsInterface = null;
     }
 
     @Nullable
     public static String getUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            String str = com.kwad.components.ad.reward.kwai.b.fU() != null ? com.kwad.components.ad.reward.kwai.b.fU().h5Url : "";
-            return TextUtils.isEmpty(str) ? "" : str;
-        }
-        return (String) invokeV.objValue;
+        String str = com.kwad.components.ad.reward.kwai.b.fU() != null ? com.kwad.components.ad.reward.kwai.b.fU().h5Url : "";
+        return TextUtils.isEmpty(str) ? "" : str;
     }
 
     /* JADX DEBUG: Marked for inline */
@@ -441,23 +235,17 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
     }
 
     private void hl() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            SceneImpl sceneImpl = this.nM.mAdTemplate.mAdScene;
-            SceneImpl m91clone = sceneImpl != null ? sceneImpl.m91clone() : null;
-            if (m91clone != null) {
-                com.kwad.components.ad.reward.e.a(m91clone, this);
-            }
+        SceneImpl sceneImpl = this.nM.mAdTemplate.mAdScene;
+        SceneImpl m92clone = sceneImpl != null ? sceneImpl.m92clone() : null;
+        if (m92clone != null) {
+            com.kwad.components.ad.reward.e.a(m92clone, this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hn() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            this.qX.getNativeView().c(com.kwad.components.ad.reflux.a.b(this.qW, this.me));
-            this.qX.z(false);
-        }
+        this.qX.getNativeView().c(com.kwad.components.ad.reflux.a.b(this.qW, this.me));
+        this.qX.z(false);
     }
 
     /* JADX DEBUG: Marked for inline */
@@ -467,164 +255,123 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
     }
 
     private void inflateJsBridgeContext() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            com.kwad.sdk.core.webview.b bVar = new com.kwad.sdk.core.webview.b();
-            this.mJsBridgeContext = bVar;
-            bVar.setAdTemplateList(com.kwad.components.ad.reward.c.b.f(this.qW));
-            com.kwad.sdk.core.webview.b bVar2 = this.mJsBridgeContext;
-            com.kwad.components.ad.reward.k kVar = this.nM;
-            bVar2.mScreenOrientation = kVar.mScreenOrientation;
-            AdBaseFrameLayout adBaseFrameLayout = kVar.mRootContainer;
-            bVar2.agd = adBaseFrameLayout;
-            bVar2.Gl = adBaseFrameLayout;
-            bVar2.Fv = this.bF;
-        }
+        com.kwad.sdk.core.webview.b bVar = new com.kwad.sdk.core.webview.b();
+        this.mJsBridgeContext = bVar;
+        bVar.setAdTemplateList(com.kwad.components.ad.reward.c.b.f(this.qW));
+        com.kwad.sdk.core.webview.b bVar2 = this.mJsBridgeContext;
+        com.kwad.components.ad.reward.k kVar = this.nM;
+        bVar2.mScreenOrientation = kVar.mScreenOrientation;
+        AdBaseFrameLayout adBaseFrameLayout = kVar.mRootContainer;
+        bVar2.agd = adBaseFrameLayout;
+        bVar2.Gl = adBaseFrameLayout;
+        bVar2.Fv = this.bF;
     }
 
     @Override // com.kwad.components.ad.reward.e.a
     public final void C(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-        }
     }
 
     @Override // com.kwad.sdk.core.webview.a.kwai.a
     public final void a(@Nullable com.kwad.sdk.core.webview.a.a.a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null) {
-            return;
-        }
-        com.kwad.components.ad.reward.c.b a = com.kwad.components.ad.reward.k.a(this.qW, aVar.creativeId);
-        if (a != null) {
-            this.nM.b(a);
+        if (aVar != null) {
+            com.kwad.components.ad.reward.c.b a = com.kwad.components.ad.reward.k.a(this.qW, aVar.creativeId);
+            if (a != null) {
+                this.nM.b(a);
+            }
         }
     }
 
     @Override // com.kwad.components.ad.reward.presenter.a, com.kwad.sdk.mvp.Presenter
     public final void aq() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.aq();
-            KsAdWebView ksAdWebView = this.bF;
-            if (ksAdWebView != null) {
-                this.bF.setClientConfig(ksAdWebView.getClientConfig().R(this.nM.mAdTemplate).b(this.rb));
-            }
-            com.kwad.components.ad.reward.monitor.a.a(this.nM.mz, "reflux");
-            hl();
+        super.aq();
+        KsAdWebView ksAdWebView = this.bF;
+        if (ksAdWebView != null) {
+            this.bF.setClientConfig(ksAdWebView.getClientConfig().R(this.nM.mAdTemplate).b(this.rb));
         }
+        com.kwad.components.ad.reward.monitor.a.a(this.nM.mz, "reflux");
+        hl();
     }
 
     @Override // com.kwad.components.core.webview.jshandler.e.b
     public final void b(AdTemplate adTemplate, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048579, this, adTemplate, j) == null) {
-            this.nM.c(com.kwad.components.ad.reward.k.a(this.qW, j));
-        }
+        this.nM.c(com.kwad.components.ad.reward.k.a(this.qW, j));
     }
 
     @Override // com.kwad.components.ad.reflux.KsRefluxView.a
     public final void dh() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            List<com.kwad.components.ad.reward.c.b> list = this.qW;
-            if (list != null && list.size() > 0) {
-                com.kwad.sdk.core.report.a.b(this.qW.get(0).getAdTemplate(), new com.kwad.sdk.core.report.f().aJ(1).aP(this.qX.eC() ? 8 : 9), (JSONObject) null);
-            }
-            this.nM.mAdOpenInteractionListener.j(false);
-            gR();
+        List<com.kwad.components.ad.reward.c.b> list = this.qW;
+        if (list != null && list.size() > 0) {
+            com.kwad.sdk.core.report.a.b(this.qW.get(0).getAdTemplate(), new com.kwad.sdk.core.report.f().aJ(1).aP(this.qX.eC() ? 8 : 9), (JSONObject) null);
         }
+        this.nM.mAdOpenInteractionListener.j(false);
+        gR();
     }
 
     @Override // com.kwad.components.ad.reward.e.a
     public final void e(@Nullable List<com.kwad.components.ad.reward.c.b> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            com.kwad.sdk.core.e.b.d("RewardRefluxPresenter", "onRefluxAdLoad :" + list.size());
-            this.qW = list;
-            if (list.size() > 0) {
-                this.me.clear();
-                for (com.kwad.components.ad.reward.c.b bVar : this.qW) {
-                    com.kwad.components.core.c.a.c cVar = new com.kwad.components.core.c.a.c(bVar.getAdTemplate());
-                    com.kwad.sdk.core.e.b.d("RewardRefluxPresenter", "onRefluxAdLoad helper: " + cVar.mJ());
-                    this.me.add(cVar);
-                }
-                if (this.bF == null) {
-                    hn();
-                    return;
-                }
-                inflateJsBridgeContext();
-                aE();
+        com.kwad.sdk.core.e.b.d("RewardRefluxPresenter", "onRefluxAdLoad :" + list.size());
+        this.qW = list;
+        if (list.size() > 0) {
+            this.me.clear();
+            for (com.kwad.components.ad.reward.c.b bVar : this.qW) {
+                com.kwad.components.core.c.a.c cVar = new com.kwad.components.core.c.a.c(bVar.getAdTemplate());
+                com.kwad.sdk.core.e.b.d("RewardRefluxPresenter", "onRefluxAdLoad helper: " + cVar.mJ());
+                this.me.add(cVar);
             }
+            if (this.bF == null) {
+                hn();
+                return;
+            }
+            inflateJsBridgeContext();
+            aE();
         }
     }
 
     @Override // com.kwad.components.ad.reflux.KsRefluxView.a
     public final void eI() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.nM.eF.pause();
-        }
+        this.nM.eF.pause();
     }
 
     public final BackPressHandleResult fS() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !this.nM.fD() ? BackPressHandleResult.NOT_HANDLED : isRefluxVisible() ? BackPressHandleResult.HANDLED_CLOSE : hm() ? BackPressHandleResult.HANDLED : BackPressHandleResult.NOT_HANDLED : (BackPressHandleResult) invokeV.objValue;
+        return !this.nM.fD() ? BackPressHandleResult.NOT_HANDLED : isRefluxVisible() ? BackPressHandleResult.HANDLED_CLOSE : hm() ? BackPressHandleResult.HANDLED : BackPressHandleResult.NOT_HANDLED;
     }
 
     public final boolean hm() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            List<com.kwad.components.ad.reward.c.b> list = this.qW;
-            if (list == null || list.size() <= 0) {
-                return false;
-            }
-            aa aaVar = this.dP;
-            if (aaVar != null) {
-                aaVar.py();
-            }
-            this.qX.show();
-            aa aaVar2 = this.dP;
-            if (aaVar2 != null) {
-                aaVar2.pz();
-                return true;
-            }
+        List<com.kwad.components.ad.reward.c.b> list = this.qW;
+        if (list == null || list.size() <= 0) {
+            return false;
+        }
+        aa aaVar = this.dP;
+        if (aaVar != null) {
+            aaVar.py();
+        }
+        this.qX.show();
+        aa aaVar2 = this.dP;
+        if (aaVar2 != null) {
+            aaVar2.pz();
             return true;
         }
-        return invokeV.booleanValue;
+        return true;
     }
 
     public final boolean isRefluxVisible() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.qX == null) {
-                return false;
-            }
-            return this.qX.getGlobalVisibleRect(new Rect());
+        if (this.qX == null) {
+            return false;
         }
-        return invokeV.booleanValue;
+        return this.qX.getGlobalVisibleRect(new Rect());
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            super.onCreate();
-            KsRefluxView ksRefluxView = (KsRefluxView) findViewById(R.id.obfuscated_res_0x7f0912b4);
-            this.qX = ksRefluxView;
-            this.bF = ksRefluxView.getWebView();
-            this.qX.setViewListener(this);
-            this.qX.setInnerAdInteractionListener(this.ra);
-        }
+        super.onCreate();
+        KsRefluxView ksRefluxView = (KsRefluxView) findViewById(R.id.obfuscated_res_0x7f0912f5);
+        this.qX = ksRefluxView;
+        this.bF = ksRefluxView.getWebView();
+        this.qX.setViewListener(this);
+        this.qX.setInnerAdInteractionListener(this.ra);
     }
 
     @Override // com.kwad.components.ad.reward.e.a
     public final void onRequestResult(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-        }
     }
 }

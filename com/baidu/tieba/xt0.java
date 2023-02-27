@@ -1,66 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
 import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
-import org.json.JSONArray;
-import org.json.JSONObject;
-@JvmName(name = "AuthParser")
-/* loaded from: classes7.dex */
+@JvmName(name = "InteractiveABConfig")
+/* loaded from: classes6.dex */
 public final class xt0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final vt0 a(String str) {
-        InterceptResult invokeL;
+    public static final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str != null) {
-                try {
-                    JSONArray optJSONArray = new JSONObject(str).optJSONArray("hosts");
-                    if (optJSONArray == null) {
-                        return null;
-                    }
-                    ArrayList arrayList = new ArrayList();
-                    int length = optJSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        if (optJSONObject != null) {
-                            String host = optJSONObject.optString("host");
-                            String optString = optJSONObject.optString("auth");
-                            Intrinsics.checkNotNullExpressionValue(host, "host");
-                            arrayList.add(new ut0(host, b(optString)));
-                        }
-                    }
-                    return new vt0(arrayList);
-                } catch (Exception e) {
-                    nk0.a("AuthParser", e.getMessage());
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (yt0.a() != 1) {
+                return true;
             }
-            return null;
+            return false;
         }
-        return (vt0) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static final wt0 b(String str) {
-        InterceptResult invokeL;
+    public static final boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (yt0.a() != 0 && yt0.a() != 2) {
+                return false;
             }
-            List split$default = StringsKt__StringsKt.split$default((CharSequence) str, new String[]{"_"}, false, 0, 6, (Object) null);
-            if (split$default.size() < 4) {
-                return null;
-            }
-            return new wt0(BdVideoSeries.parseIntSafe((String) split$default.get(0), 0), BdVideoSeries.parseIntSafe((String) split$default.get(1), 0), BdVideoSeries.parseIntSafe((String) split$default.get(2), 0), BdVideoSeries.parseIntSafe((String) split$default.get(3), 0));
+            return true;
         }
-        return (wt0) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

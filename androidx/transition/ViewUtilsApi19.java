@@ -4,96 +4,43 @@ import android.annotation.SuppressLint;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RequiresApi(19)
 /* loaded from: classes.dex */
 public class ViewUtilsApi19 extends ViewUtilsBase {
-    public static /* synthetic */ Interceptable $ic = null;
     public static boolean sTryHiddenTransitionAlpha = true;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(905819173, "Landroidx/transition/ViewUtilsApi19;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(905819173, "Landroidx/transition/ViewUtilsApi19;");
-        }
-    }
 
     @Override // androidx.transition.ViewUtilsBase
     public void clearNonTransitionAlpha(@NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-        }
     }
 
     @Override // androidx.transition.ViewUtilsBase
     public void saveNonTransitionAlpha(@NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-        }
-    }
-
-    public ViewUtilsApi19() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
     }
 
     @Override // androidx.transition.ViewUtilsBase
     @SuppressLint({"NewApi"})
     public float getTransitionAlpha(@NonNull View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            if (sTryHiddenTransitionAlpha) {
-                try {
-                    return view2.getTransitionAlpha();
-                } catch (NoSuchMethodError unused) {
-                    sTryHiddenTransitionAlpha = false;
-                }
+        if (sTryHiddenTransitionAlpha) {
+            try {
+                return view2.getTransitionAlpha();
+            } catch (NoSuchMethodError unused) {
+                sTryHiddenTransitionAlpha = false;
             }
-            return view2.getAlpha();
         }
-        return invokeL.floatValue;
+        return view2.getAlpha();
     }
 
     @Override // androidx.transition.ViewUtilsBase
     @SuppressLint({"NewApi"})
     public void setTransitionAlpha(@NonNull View view2, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048579, this, view2, f) == null) {
-            if (sTryHiddenTransitionAlpha) {
-                try {
-                    view2.setTransitionAlpha(f);
-                    return;
-                } catch (NoSuchMethodError unused) {
-                    sTryHiddenTransitionAlpha = false;
-                }
+        if (sTryHiddenTransitionAlpha) {
+            try {
+                view2.setTransitionAlpha(f);
+                return;
+            } catch (NoSuchMethodError unused) {
+                sTryHiddenTransitionAlpha = false;
             }
-            view2.setAlpha(f);
         }
+        view2.setAlpha(f);
     }
 }

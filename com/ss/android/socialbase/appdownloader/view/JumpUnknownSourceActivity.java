@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.Nullable;
-import com.baidu.searchbox.live.frame.IntentData;
 import com.ss.android.socialbase.appdownloader.b;
 import com.ss.android.socialbase.appdownloader.c.c;
 import com.ss.android.socialbase.appdownloader.c.k;
@@ -113,7 +112,7 @@ public class JumpUnknownSourceActivity extends Activity {
         Intent intent = getIntent();
         this.b = intent;
         if (intent != null) {
-            this.c = (Intent) intent.getParcelableExtra(IntentData.KEY);
+            this.c = (Intent) intent.getParcelableExtra("intent");
             this.d = intent.getIntExtra("id", -1);
             try {
                 this.e = new JSONObject(intent.getStringExtra("config"));

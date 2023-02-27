@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class cc extends bc<SocketMessage, SocketMessageTask, vb, SocketResponsedMessage> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,11 +41,21 @@ public class cc extends bc<SocketMessage, SocketMessageTask, vb, SocketResponsed
         this.e = gc.c();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.oa
+    /* renamed from: A */
+    public void f(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, socketMessage, socketMessageTask) == null) {
+            this.i.f(socketMessage, socketMessageTask);
+        }
+    }
+
     @Override // com.baidu.tieba.oa
     public LinkedList<SocketMessage> e(int i, BdUniqueId bdUniqueId) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bdUniqueId)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bdUniqueId)) == null) {
             return this.i.e(i, bdUniqueId);
         }
         return (LinkedList) invokeIL.objValue;
@@ -54,45 +64,35 @@ public class cc extends bc<SocketMessage, SocketMessageTask, vb, SocketResponsed
     @Override // com.baidu.tieba.oa
     public void h(int i, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bdUniqueId) == null) {
             this.i.h(i, bdUniqueId);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.bc
-    /* renamed from: x */
+    /* renamed from: y */
     public SocketMessage m(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, socketMessage, socketMessageTask)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, socketMessage, socketMessageTask)) == null) {
             return this.a.getController().k(socketMessage, socketMessageTask);
         }
         return (SocketMessage) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oa
-    /* renamed from: z */
-    public void f(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, socketMessage, socketMessageTask) == null) {
-            this.i.f(socketMessage, socketMessageTask);
-        }
-    }
-
-    public za w() {
+    public za x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.i;
         }
         return (za) invokeV.objValue;
     }
 
-    public void y(BdUniqueId bdUniqueId) {
+    public void z(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
             this.i.B(bdUniqueId);
         }
     }

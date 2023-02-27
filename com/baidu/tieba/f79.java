@@ -1,53 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import java.io.IOException;
 /* loaded from: classes4.dex */
-public class f79 extends CustomMessageListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
+public interface f79 {
+    void a(i79 i79Var);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f79(MainTabActivity mainTabActivity, z49 z49Var) {
-        super(2016493);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, z49Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = mainTabActivity;
-    }
+    VideoFinishResult b(String str, int i) throws IOException;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        wa5 wa5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof wa5) && (wa5Var = (wa5) customResponsedMessage.getData()) != null && !StringUtils.isNull(wa5Var.a)) {
-            no5.h(wa5Var);
-            if (StringUtils.isNull(wa5Var.c)) {
-                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{wa5Var.a});
-            } else {
-                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{wa5Var.a, wa5Var.c});
-            }
-        }
-    }
+    void cancel();
 }

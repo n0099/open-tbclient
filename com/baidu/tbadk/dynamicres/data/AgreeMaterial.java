@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.xr5;
+import com.baidu.tieba.ot5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class AgreeMaterial extends OrmObject {
         public String tid;
 
         /* loaded from: classes3.dex */
-        public class a implements xr5.a {
+        public class a implements ot5.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Data a;
@@ -64,7 +64,7 @@ public class AgreeMaterial extends OrmObject {
                 this.a = data;
             }
 
-            @Override // com.baidu.tieba.xr5.a
+            @Override // com.baidu.tieba.ot5.a
             public void a(boolean z, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
@@ -78,7 +78,7 @@ public class AgreeMaterial extends OrmObject {
         }
 
         /* loaded from: classes3.dex */
-        public class b implements xr5.a {
+        public class b implements ot5.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Data a;
@@ -101,7 +101,7 @@ public class AgreeMaterial extends OrmObject {
                 this.a = data;
             }
 
-            @Override // com.baidu.tieba.xr5.a
+            @Override // com.baidu.tieba.ot5.a
             public void a(boolean z, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
@@ -128,15 +128,15 @@ public class AgreeMaterial extends OrmObject {
             }
         }
 
-        public void G() {
+        public void N() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                H(this.dayRes, new a(this));
-                H(this.nightRes, new b(this));
+                O(this.dayRes, new a(this));
+                O(this.nightRes, new b(this));
             }
         }
 
-        public static Data J(JSONObject jSONObject) {
+        public static Data Q(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
@@ -157,25 +157,21 @@ public class AgreeMaterial extends OrmObject {
             return (Data) invokeL.objValue;
         }
 
-        public final void H(String str, xr5.a aVar) {
+        public final void O(String str, ot5.a aVar) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) != null) || StringUtils.isNull(str)) {
                 return;
             }
-            new xr5(TBLottieAnimationView.getAnimationPath(), str, aVar).execute(new Void[0]);
+            new ot5(TBLottieAnimationView.getAnimationPath(), str, aVar).execute(new Void[0]);
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:30:0x008c, code lost:
-            if (java.util.Arrays.asList(r8.fid.split(",")).contains(r11) != false) goto L13;
+        /* JADX WARN: Code restructure failed: missing block: B:39:0x00b9, code lost:
+            if (com.baidu.tbadk.dynamicres.data.AgreeMaterial.O(r8.nightDirName + r9) == false) goto L35;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:39:0x00bb, code lost:
-            if (com.baidu.tbadk.dynamicres.data.AgreeMaterial.H(r8.nightDirName + r9) == false) goto L29;
-         */
-        /* JADX WARN: Removed duplicated region for block: B:33:0x0091  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public String I(String str, String str2, String str3) {
+        public String P(String str, String str2, String str3) {
             InterceptResult invokeLLL;
             StringBuilder sb;
             String str4;
@@ -185,39 +181,34 @@ public class AgreeMaterial extends OrmObject {
                 long g = dh.g(this.startTime, 0L);
                 long g2 = dh.g(this.endTime, 0L);
                 if (currentTimeMillis >= g && currentTimeMillis < g2 && !StringUtils.isNull(this.dayDirName)) {
-                    if (AgreeMaterial.H(this.dayDirName + str)) {
+                    if (AgreeMaterial.O(this.dayDirName + str)) {
                         boolean z = false;
+                        boolean z2 = true;
                         if (!this.all) {
                             if (!StringUtils.isNull(str2) && !StringUtils.isNull(this.tid) && Arrays.asList(this.tid.split(",")).contains(str2)) {
                                 z = true;
                             }
-                            if (!z) {
-                                if (!StringUtils.isNull(str3)) {
-                                    if (!StringUtils.isNull(this.fid)) {
-                                    }
-                                }
-                            }
-                            if (z) {
-                                int skinType = TbadkCoreApplication.getInst().getSkinType();
-                                if (skinType == 1 || skinType == 4) {
-                                    if (!StringUtils.isNull(this.nightDirName)) {
-                                    }
-                                    return this.dayDirName + str;
-                                }
-                                if (skinType != 1 && skinType != 4) {
-                                    sb = new StringBuilder();
-                                    str4 = this.dayDirName;
-                                } else {
-                                    sb = new StringBuilder();
-                                    str4 = this.nightDirName;
-                                }
-                                sb.append(str4);
-                                sb.append(str);
-                                return sb.toString();
+                            if (z || StringUtils.isNull(str3) || StringUtils.isNull(this.fid) || !Arrays.asList(this.fid.split(",")).contains(str3)) {
+                                z2 = z;
                             }
                         }
-                        z = true;
-                        if (z) {
+                        if (z2) {
+                            int skinType = TbadkCoreApplication.getInst().getSkinType();
+                            if (skinType == 4) {
+                                if (!StringUtils.isNull(this.nightDirName)) {
+                                }
+                                return this.dayDirName + str;
+                            }
+                            if (skinType == 4) {
+                                sb = new StringBuilder();
+                                str4 = this.nightDirName;
+                            } else {
+                                sb = new StringBuilder();
+                                str4 = this.dayDirName;
+                            }
+                            sb.append(str4);
+                            sb.append(str);
+                            return sb.toString();
                         }
                     }
                 }
@@ -241,7 +232,7 @@ public class AgreeMaterial extends OrmObject {
         }
     }
 
-    public static boolean H(String str) {
+    public static boolean O(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
@@ -260,7 +251,7 @@ public class AgreeMaterial extends OrmObject {
         return invokeL.booleanValue;
     }
 
-    public static AgreeMaterial I(JSONObject jSONObject) {
+    public static AgreeMaterial P(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
@@ -268,10 +259,10 @@ public class AgreeMaterial extends OrmObject {
                 return null;
             }
             AgreeMaterial agreeMaterial = new AgreeMaterial();
-            agreeMaterial.staticData = Data.J(jSONObject.optJSONObject("static"));
-            agreeMaterial.singleTapData = Data.J(jSONObject.optJSONObject("single_point"));
-            agreeMaterial.doubleTapData = Data.J(jSONObject.optJSONObject("double_click"));
-            agreeMaterial.longPressData = Data.J(jSONObject.optJSONObject("long_press"));
+            agreeMaterial.staticData = Data.Q(jSONObject.optJSONObject("static"));
+            agreeMaterial.singleTapData = Data.Q(jSONObject.optJSONObject("single_point"));
+            agreeMaterial.doubleTapData = Data.Q(jSONObject.optJSONObject("double_click"));
+            agreeMaterial.longPressData = Data.Q(jSONObject.optJSONObject("long_press"));
             return agreeMaterial;
         }
         return (AgreeMaterial) invokeL.objValue;

@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.codec.language.bm.Rule;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes2.dex */
 public final class AppProcessPolicy$ProcessType {
@@ -32,7 +33,7 @@ public final class AppProcessPolicy$ProcessType {
                 return;
             }
         }
-        ALL = new AppProcessPolicy$ProcessType("ALL", 0);
+        ALL = new AppProcessPolicy$ProcessType(Rule.ALL, 0);
         DEFAULT = new AppProcessPolicy$ProcessType(EngineName.DEFAULT_ENGINE, 1);
         SERVER = new AppProcessPolicy$ProcessType("SERVER", 2);
         AppProcessPolicy$ProcessType appProcessPolicy$ProcessType = new AppProcessPolicy$ProcessType("OTHER", 3);

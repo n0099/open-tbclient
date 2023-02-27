@@ -1,124 +1,88 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.itemtab.card.CardItemDetailListItemLayout;
+import com.baidu.tieba.frs.forumRule.ForumRulesShowActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class e07 extends hx<l07> {
+public class e07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View f;
-    public EMTextView g;
-    public ArrayList<q07> h;
+    public final List<qn> a;
+    public BdTypeRecyclerView b;
+    public h07 c;
+    public g07 d;
+    public f07 e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e07(Context context) {
-        super(context);
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        }
+    }
+
+    public e07(ForumRulesShowActivity forumRulesShowActivity, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {forumRulesShowActivity, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ArrayList();
+        a(forumRulesShowActivity, bdTypeRecyclerView);
     }
 
-    @Override // com.baidu.tieba.hx
-    public View k() {
-        InterceptResult invokeV;
+    public final void a(ForumRulesShowActivity forumRulesShowActivity, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f == null) {
-                View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01a1, (ViewGroup) null, true);
-                this.f = inflate;
-                this.g = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f091090);
-            }
-            return this.f;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, forumRulesShowActivity, bdTypeRecyclerView) == null) {
+            this.b = bdTypeRecyclerView;
+            this.c = new h07(forumRulesShowActivity, l07.m);
+            this.d = new g07(forumRulesShowActivity, m07.d);
+            this.e = new f07(forumRulesShowActivity, k07.f);
+            this.a.add(this.c);
+            this.a.add(this.d);
+            this.a.add(this.e);
+            bdTypeRecyclerView.a(this.a);
         }
-        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ay
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    public void c(List<Cdo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            p15 d = p15.d(this.f);
-            d.n(R.string.J_X06);
-            d.f(R.color.CAM_X0205);
-            p15 d2 = p15.d(this.g);
-            d2.A(R.string.F_X02);
-            d2.v(R.color.CAM_X0105);
-            for (int i2 = 0; i2 < ((ViewGroup) this.f).getChildCount(); i2++) {
-                if (((ViewGroup) this.f).getChildAt(i2) instanceof CardItemDetailListItemLayout) {
-                    ((CardItemDetailListItemLayout) ((ViewGroup) this.f).getChildAt(i2)).d();
-                }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            BdTypeRecyclerView bdTypeRecyclerView = this.b;
+            if (bdTypeRecyclerView != null) {
+                bdTypeRecyclerView.setData(list);
+            }
+            g07 g07Var = this.d;
+            if (g07Var != null) {
+                g07Var.w(list);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zx
-    /* renamed from: s */
-    public void a(l07 l07Var) {
-        boolean z;
-        View childAt;
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, l07Var) == null) && l07Var != null && l07Var.f()) {
-            ArrayList<q07> c = l07Var.c();
-            if (ListUtils.getCount(c) != ListUtils.getCount(this.h)) {
-                if (ListUtils.getCount(this.h) > 0) {
-                    ((ViewGroup) this.f).removeViews(1, ListUtils.getCount(this.h));
-                }
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            h07 h07Var = this.c;
+            if (h07Var != null) {
+                h07Var.setFrom(str);
             }
-            if (c != null) {
-                for (int i = 0; i < c.size(); i++) {
-                    if (z) {
-                        childAt = new CardItemDetailListItemLayout(this.b);
-                        ((ViewGroup) this.f).addView(childAt, -1, -2);
-                    } else {
-                        childAt = ((ViewGroup) this.f).getChildAt(i + 1);
-                    }
-                    if (childAt instanceof CardItemDetailListItemLayout) {
-                        ((CardItemDetailListItemLayout) childAt).setData(c.get(i));
-                    }
-                }
+            f07 f07Var = this.e;
+            if (f07Var != null) {
+                f07Var.setFrom(str);
             }
-            ViewGroup viewGroup = (ViewGroup) this.f;
-            int childCount = viewGroup.getChildCount() - 1;
-            while (true) {
-                if (childCount <= 0) {
-                    break;
-                }
-                if ((viewGroup.getChildAt(childCount) instanceof CardItemDetailListItemLayout) && viewGroup.getChildAt(childCount).getVisibility() == 0) {
-                    ((CardItemDetailListItemLayout) viewGroup.getChildAt(childCount)).setDividerVisible(false);
-                    break;
-                }
-                childCount--;
-            }
-            this.h = c;
         }
     }
 }

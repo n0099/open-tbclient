@@ -2,7 +2,7 @@ package com.baidu.lcp.sdk.pb;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.j90;
+import com.baidu.tieba.n90;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -87,7 +87,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
 
         public final void maybeForceBuilderInitialization() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             }
         }
 
@@ -108,11 +108,11 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
             maybeForceBuilderInitialization();
         }
 
-        public static /* synthetic */ b l() {
-            return q();
+        public static /* synthetic */ b k() {
+            return p();
         }
 
-        public static b q() {
+        public static b p() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -123,7 +123,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
 
         @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
         public /* bridge */ /* synthetic */ GeneratedMessageLite.Builder clear() {
-            o();
+            n();
             return this;
         }
 
@@ -156,7 +156,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                if (!s() || !hasErrorCode() || !hasErrorMsg()) {
+                if (!r() || !hasErrorCode() || !hasErrorMsg()) {
                     return false;
                 }
                 return true;
@@ -166,7 +166,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite.Builder
-        /* renamed from: m */
+        /* renamed from: l */
         public LcmPb$LcmResponse build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -182,21 +182,21 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder
-        /* renamed from: p */
+        /* renamed from: o */
         public b mo29clone() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-                b q = q();
-                q.t(buildPartial());
-                return q;
+                b p = p();
+                p.s(buildPartial());
+                return p;
             }
             return (b) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-        /* renamed from: r */
+        /* renamed from: q */
         public LcmPb$LcmResponse getDefaultInstanceForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -206,7 +206,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
             return (LcmPb$LcmResponse) invokeV.objValue;
         }
 
-        public boolean s() {
+        public boolean r() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
@@ -220,71 +220,18 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
 
         @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
         public /* bridge */ /* synthetic */ MessageLite.Builder clear() {
-            o();
-            return this;
-        }
-
-        @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-        public /* bridge */ /* synthetic */ AbstractMessageLite.Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-            u(codedInputStream, extensionRegistryLite);
-            return this;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.google.protobuf.GeneratedMessageLite] */
-        /* JADX DEBUG: Return type fixed from 'com.google.protobuf.GeneratedMessageLite$Builder' to match base method */
-        @Override // com.google.protobuf.GeneratedMessageLite.Builder
-        public /* bridge */ /* synthetic */ b mergeFrom(LcmPb$LcmResponse lcmPb$LcmResponse) {
-            t(lcmPb$LcmResponse);
-            return this;
-        }
-
-        public b v(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) {
-                this.a |= 2;
-                this.c = i;
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b w(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048602, this, j)) == null) {
-                this.a |= 1;
-                this.b = j;
-                return this;
-            }
-            return (b) invokeJ.objValue;
-        }
-
-        public b x(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048603, this, j)) == null) {
-                this.a |= 8;
-                this.e = j;
-                return this;
-            }
-            return (b) invokeJ.objValue;
-        }
-
-        @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-        public /* bridge */ /* synthetic */ MessageLite.Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-            u(codedInputStream, extensionRegistryLite);
+            n();
             return this;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite.Builder
-        /* renamed from: n */
+        /* renamed from: m */
         public LcmPb$LcmResponse buildPartial() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-                LcmPb$LcmResponse lcmPb$LcmResponse = new LcmPb$LcmResponse(this, (j90) null);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                LcmPb$LcmResponse lcmPb$LcmResponse = new LcmPb$LcmResponse(this, (n90) null);
                 int i = this.a;
                 int i2 = 1;
                 if ((i & 1) != 1) {
@@ -309,7 +256,60 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
             return (LcmPb$LcmResponse) invokeV.objValue;
         }
 
-        public b o() {
+        @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+        public /* bridge */ /* synthetic */ AbstractMessageLite.Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            t(codedInputStream, extensionRegistryLite);
+            return this;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.google.protobuf.GeneratedMessageLite] */
+        /* JADX DEBUG: Return type fixed from 'com.google.protobuf.GeneratedMessageLite$Builder' to match base method */
+        @Override // com.google.protobuf.GeneratedMessageLite.Builder
+        public /* bridge */ /* synthetic */ b mergeFrom(LcmPb$LcmResponse lcmPb$LcmResponse) {
+            s(lcmPb$LcmResponse);
+            return this;
+        }
+
+        public b u(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) {
+                this.a |= 2;
+                this.c = i;
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b v(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048602, this, j)) == null) {
+                this.a |= 1;
+                this.b = j;
+                return this;
+            }
+            return (b) invokeJ.objValue;
+        }
+
+        public b w(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048603, this, j)) == null) {
+                this.a |= 8;
+                this.e = j;
+                return this;
+            }
+            return (b) invokeJ.objValue;
+        }
+
+        @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+        public /* bridge */ /* synthetic */ MessageLite.Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            t(codedInputStream, extensionRegistryLite);
+            return this;
+        }
+
+        public b n() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
@@ -330,7 +330,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
             return (b) invokeV.objValue;
         }
 
-        public b t(LcmPb$LcmResponse lcmPb$LcmResponse) {
+        public b s(LcmPb$LcmResponse lcmPb$LcmResponse) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, lcmPb$LcmResponse)) == null) {
@@ -338,17 +338,17 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
                     return this;
                 }
                 if (lcmPb$LcmResponse.hasLogId()) {
-                    w(lcmPb$LcmResponse.getLogId());
+                    v(lcmPb$LcmResponse.getLogId());
                 }
                 if (lcmPb$LcmResponse.hasErrorCode()) {
-                    v(lcmPb$LcmResponse.getErrorCode());
+                    u(lcmPb$LcmResponse.getErrorCode());
                 }
                 if (lcmPb$LcmResponse.hasErrorMsg()) {
                     this.a |= 4;
                     this.d = lcmPb$LcmResponse.errorMsg_;
                 }
                 if (lcmPb$LcmResponse.hasNextIntervalMs()) {
-                    x(lcmPb$LcmResponse.getNextIntervalMs());
+                    w(lcmPb$LcmResponse.getNextIntervalMs());
                 }
                 return this;
             }
@@ -359,7 +359,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public b u(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+        public b t(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, codedInputStream, extensionRegistryLite)) == null) {
@@ -368,7 +368,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
                     try {
                         LcmPb$LcmResponse parsePartialFrom = LcmPb$LcmResponse.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
                         if (parsePartialFrom != null) {
-                            t(parsePartialFrom);
+                            s(parsePartialFrom);
                         }
                         return this;
                     } catch (InvalidProtocolBufferException e) {
@@ -386,7 +386,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
                 } catch (Throwable th2) {
                     th = th2;
                     if (lcmPb$LcmResponse != null) {
-                        t(lcmPb$LcmResponse);
+                        s(lcmPb$LcmResponse);
                     }
                     throw th;
                 }
@@ -437,7 +437,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            return b.l();
+            return b.k();
         }
         return (b) invokeV.objValue;
     }
@@ -662,7 +662,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         }
     }
 
-    public /* synthetic */ LcmPb$LcmResponse(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, j90 j90Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ LcmPb$LcmResponse(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, n90 n90Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -708,7 +708,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         }
     }
 
-    public /* synthetic */ LcmPb$LcmResponse(GeneratedMessageLite.Builder builder, j90 j90Var) {
+    public /* synthetic */ LcmPb$LcmResponse(GeneratedMessageLite.Builder builder, n90 n90Var) {
         this(builder);
     }
 
@@ -754,7 +754,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, lcmPb$LcmResponse)) == null) {
             b newBuilder = newBuilder();
-            newBuilder.t(lcmPb$LcmResponse);
+            newBuilder.s(lcmPb$LcmResponse);
             return newBuilder;
         }
         return (b) invokeL.objValue;

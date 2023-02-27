@@ -14,11 +14,9 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
 import androidx.core.app.NotificationCompat;
-import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.arch.ServiceLocator;
 import com.baidu.live.arch.runtime.MiniShellRuntime;
 import com.baidu.live.arch.utils.MiniUniqueId;
@@ -34,6 +32,7 @@ import com.baidu.searchbox.live.action.MixMediaEvent;
 import com.baidu.searchbox.live.action.YYPluginEvent;
 import com.baidu.searchbox.live.component.service.LiveItemModelListService;
 import com.baidu.searchbox.live.data.constant.MixTagConstants;
+import com.baidu.searchbox.live.data.constant.MixYaLogConstants;
 import com.baidu.searchbox.live.eventbus.EventAction;
 import com.baidu.searchbox.live.eventbus.MixEventBus;
 import com.baidu.searchbox.live.frame.IntentData;
@@ -46,6 +45,8 @@ import com.baidu.searchbox.live.service.ILiveListState;
 import com.baidu.searchbox.live.service.LiveMixRoomInfoService;
 import com.baidu.searchbox.live.service.MixListOperatorInterface;
 import com.baidu.searchbox.live.service.MixNotifyBackgroundService;
+import com.baidu.searchbox.live.service.MixRequestServiceLocator;
+import com.baidu.searchbox.live.service.MixYaLogService;
 import com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell;
 import com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell$invokeAbility$2;
 import com.baidu.searchbox.live.ubc.MediaLivePluginLogger;
@@ -55,13 +56,6 @@ import com.baidu.searchbox.player.helper.OrientationHelper;
 import com.baidu.searchbox.player.utils.BdActivityUtils;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipeline;
 import com.facebook.imagepipeline.request.ImageRequest;
@@ -79,118 +73,99 @@ import kotlin.jvm.internal.PropertyReference1Impl;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KProperty;
 import org.json.JSONObject;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000»\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u000e\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010\u0015\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006*\u0001M\u0018\u0000 \u007f2\u00020\u00012\u00020\u00022\u00020\u0003:\u0003\u007f\u0080\u0001B\u001f\u0012\u0006\u0010x\u001a\u00020w\u0012\u0006\u0010z\u001a\u00020y\u0012\u0006\u0010|\u001a\u00020{¢\u0006\u0004\b}\u0010~J\u0019\u0010\u0007\u001a\u00020\u00062\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\t\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\t\u0010\nJ\u000f\u0010\f\u001a\u00020\u000bH\u0016¢\u0006\u0004\b\f\u0010\rJ\r\u0010\u000e\u001a\u00020\u0006¢\u0006\u0004\b\u000e\u0010\nJ\u0017\u0010\u0011\u001a\u00020\u00062\u0006\u0010\u0010\u001a\u00020\u000fH\u0002¢\u0006\u0004\b\u0011\u0010\u0012J)\u0010\u0018\u001a\u00020\u00062\u0006\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0015\u001a\u00020\u00132\b\u0010\u0017\u001a\u0004\u0018\u00010\u0016H\u0016¢\u0006\u0004\b\u0018\u0010\u0019J\u0017\u0010\u001c\u001a\u00020\u00062\u0006\u0010\u001b\u001a\u00020\u001aH\u0016¢\u0006\u0004\b\u001c\u0010\u001dJ\u000f\u0010\u001e\u001a\u00020\u0006H\u0007¢\u0006\u0004\b\u001e\u0010\nJ\u000f\u0010\u001f\u001a\u00020\u0006H\u0007¢\u0006\u0004\b\u001f\u0010\nJ\u001f\u0010#\u001a\u00020\"2\u0006\u0010 \u001a\u00020\u00132\u0006\u0010\u0005\u001a\u00020!H\u0016¢\u0006\u0004\b#\u0010$J\u000f\u0010%\u001a\u00020\u0006H\u0016¢\u0006\u0004\b%\u0010\nJ\u0017\u0010(\u001a\u00020\u00062\u0006\u0010'\u001a\u00020&H\u0016¢\u0006\u0004\b(\u0010)J\u000f\u0010*\u001a\u00020\u0006H\u0016¢\u0006\u0004\b*\u0010\nJ\u000f\u0010+\u001a\u00020\u0006H\u0016¢\u0006\u0004\b+\u0010\nJ'\u0010.\u001a\u00020\u00062\u0006\u0010,\u001a\u00020\u00132\u0006\u0010'\u001a\u00020&2\u0006\u0010-\u001a\u00020\"H\u0016¢\u0006\u0004\b.\u0010/J\u0017\u00101\u001a\u00020\u00062\u0006\u00100\u001a\u00020\u0016H\u0016¢\u0006\u0004\b1\u00102J\u000f\u00103\u001a\u00020\u0006H\u0007¢\u0006\u0004\b3\u0010\nJ\u000f\u00104\u001a\u00020\u0006H\u0002¢\u0006\u0004\b4\u0010\nJ/\u00109\u001a\u00020\u00062\u0006\u0010\u0014\u001a\u00020\u00132\u000e\u00106\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u000f052\u0006\u00108\u001a\u000207H\u0016¢\u0006\u0004\b9\u0010:J\u000f\u0010;\u001a\u00020\u0006H\u0007¢\u0006\u0004\b;\u0010\nJ\u000f\u0010<\u001a\u00020\u0006H\u0007¢\u0006\u0004\b<\u0010\nJ\u000f\u0010=\u001a\u00020\u0006H\u0007¢\u0006\u0004\b=\u0010\nJ\u000f\u0010>\u001a\u00020\u0006H\u0002¢\u0006\u0004\b>\u0010\nJ\r\u0010?\u001a\u00020\u0006¢\u0006\u0004\b?\u0010\nR\"\u0010@\u001a\u00020\u00138\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b@\u0010A\u001a\u0004\bB\u0010C\"\u0004\bD\u0010ER\"\u0010G\u001a\u00020F8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bG\u0010H\u001a\u0004\bI\u0010J\"\u0004\bK\u0010LR\u001d\u0010R\u001a\u00020M8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bN\u0010O\u001a\u0004\bP\u0010QR\u0016\u0010S\u001a\u00020\"8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bS\u0010TR\u0016\u0010U\u001a\u00020\"8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bU\u0010TR\u0016\u0010V\u001a\u00020\"8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bV\u0010TR\"\u0010W\u001a\u00020\"8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bW\u0010T\u001a\u0004\bW\u0010X\"\u0004\bY\u0010ZR\u0018\u0010\\\u001a\u0004\u0018\u00010[8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\\\u0010]R.\u0010`\u001a\u0004\u0018\u00010^2\b\u0010_\u001a\u0004\u0018\u00010^8\u0006@FX\u0086\u000e¢\u0006\u0012\n\u0004\b`\u0010a\u001a\u0004\bb\u0010c\"\u0004\bd\u0010eR\u0018\u0010g\u001a\u0004\u0018\u00010f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bg\u0010hR\u0018\u0010j\u001a\u0004\u0018\u00010i8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bj\u0010kR\u001d\u0010p\u001a\u00020l8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bm\u0010O\u001a\u0004\bn\u0010oR\u001e\u0010s\u001a\n r*\u0004\u0018\u00010q0q8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bs\u0010tR\u0018\u0010u\u001a\u0004\u0018\u00010\u000b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bu\u0010v¨\u0006\u0081\u0001"}, d2 = {"Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell;", "Landroidx/lifecycle/LifecycleObserver;", "Lcom/baidu/searchbox/live/eventbus/EventAction;", "Lcom/baidu/searchbox/live/shell/list/basic/AbstractMixFakeShell;", "Lcom/baidu/searchbox/live/action/AbstractEvent;", "event", "", NotificationCompat.CATEGORY_CALL, "(Lcom/baidu/searchbox/live/action/AbstractEvent;)V", "checkImpl", "()V", "Landroid/view/View;", "createContainerView", "()Landroid/view/View;", "hideActivityBackground", "", "content", "log", "(Ljava/lang/String;)V", "", "requestCode", "resultCode", "Landroid/content/Intent;", "data", "onActivityResult", "(IILandroid/content/Intent;)V", "Landroid/content/res/Configuration;", "newConfig", "onConfigurationChanged", "(Landroid/content/res/Configuration;)V", "onCreate", MissionEvent.MESSAGE_DESTROY, "keyCode", "Landroid/view/KeyEvent;", "", "onKeyDown", "(ILandroid/view/KeyEvent;)Z", "onLiveAttach", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "model", "onLiveBindData", "(Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;)V", "onLiveDeselected", "onLiveDetach", CriusAttrConstants.POSITION, "isFromUser", "onLiveSelected", "(ILcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;Z)V", IntentData.KEY, "onNewIntent", "(Landroid/content/Intent;)V", MissionEvent.MESSAGE_PAUSE, "onRealDetach", "", "permissions", "", "grantResults", "onRequestPermissionsResult", "(I[Ljava/lang/String;[I)V", "onResume", "onStart", MissionEvent.MESSAGE_STOP, "registerRoomInfoService", "showActivityBackground", "curPosition", "I", "getCurPosition", "()I", "setCurPosition", "(I)V", "Landroid/os/Handler;", "handler", "Landroid/os/Handler;", "getHandler", "()Landroid/os/Handler;", "setHandler", "(Landroid/os/Handler;)V", "com/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$invokeAbility$2$1", "invokeAbility$delegate", "Lkotlin/Lazy;", "getInvokeAbility", "()Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$invokeAbility$2$1;", "invokeAbility", "isAttach", "Z", "isDestroy", "isDetach", "isSelected", "()Z", "setSelected", "(Z)V", "Lcom/baidu/searchbox/player/helper/OrientationHelper;", "mOrientationHelper", "Lcom/baidu/searchbox/player/helper/OrientationHelper;", "Lcom/baidu/live/mix/interfaces/MixLiveInterface;", "value", "mixLiveImpl", "Lcom/baidu/live/mix/interfaces/MixLiveInterface;", "getMixLiveImpl", "()Lcom/baidu/live/mix/interfaces/MixLiveInterface;", "setMixLiveImpl", "(Lcom/baidu/live/mix/interfaces/MixLiveInterface;)V", "Lcom/baidu/live/mix/MixLiveItemModel;", "mixModel", "Lcom/baidu/live/mix/MixLiveItemModel;", "Lcom/baidu/searchbox/live/mix/MixRoomInfo;", "mixRoomInfo", "Lcom/baidu/searchbox/live/mix/MixRoomInfo;", "Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$OrientationChangeCallBack;", "orientationChangeCallBack$delegate", "getOrientationChangeCallBack", "()Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$OrientationChangeCallBack;", "orientationChangeCallBack", "Lcom/baidu/searchbox/live/interfaces/mix/PluginInvokeService;", "kotlin.jvm.PlatformType", "pluginInvokeService", "Lcom/baidu/searchbox/live/interfaces/mix/PluginInvokeService;", "yyView", "Landroid/view/View;", "Landroid/content/Context;", "context", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "mixUniqueId", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "mixActivity", "<init>", "(Landroid/content/Context;Lcom/baidu/live/arch/utils/MiniUniqueId;Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;)V", "Companion", "OrientationChangeCallBack", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000»\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u000e\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010\u0015\n\u0002\b\u0014\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\b\u0010\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006*\u0001T\u0018\u0000 \u0089\u00012\u00020\u00012\u00020\u00022\u00020\u0003:\u0004\u0089\u0001\u008a\u0001B'\u0012\b\u0010\u0082\u0001\u001a\u00030\u0081\u0001\u0012\b\u0010\u0084\u0001\u001a\u00030\u0083\u0001\u0012\b\u0010\u0086\u0001\u001a\u00030\u0085\u0001¢\u0006\u0006\b\u0087\u0001\u0010\u0088\u0001J\u0019\u0010\u0007\u001a\u00020\u00062\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\t\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\t\u0010\nJ\u000f\u0010\f\u001a\u00020\u000bH\u0016¢\u0006\u0004\b\f\u0010\rJ\u000f\u0010\u000e\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\u000e\u0010\nJ\r\u0010\u000f\u001a\u00020\u0006¢\u0006\u0004\b\u000f\u0010\nJ\u0017\u0010\u0012\u001a\u00020\u00062\u0006\u0010\u0011\u001a\u00020\u0010H\u0002¢\u0006\u0004\b\u0012\u0010\u0013J)\u0010\u0019\u001a\u00020\u00062\u0006\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0016\u001a\u00020\u00142\b\u0010\u0018\u001a\u0004\u0018\u00010\u0017H\u0016¢\u0006\u0004\b\u0019\u0010\u001aJ\u0017\u0010\u001d\u001a\u00020\u00062\u0006\u0010\u001c\u001a\u00020\u001bH\u0016¢\u0006\u0004\b\u001d\u0010\u001eJ\u000f\u0010\u001f\u001a\u00020\u0006H\u0007¢\u0006\u0004\b\u001f\u0010\nJ\u000f\u0010 \u001a\u00020\u0006H\u0007¢\u0006\u0004\b \u0010\nJ\u001f\u0010$\u001a\u00020#2\u0006\u0010!\u001a\u00020\u00142\u0006\u0010\u0005\u001a\u00020\"H\u0016¢\u0006\u0004\b$\u0010%J\u000f\u0010&\u001a\u00020\u0006H\u0016¢\u0006\u0004\b&\u0010\nJ\u0017\u0010)\u001a\u00020\u00062\u0006\u0010(\u001a\u00020'H\u0016¢\u0006\u0004\b)\u0010*J\u000f\u0010+\u001a\u00020\u0006H\u0016¢\u0006\u0004\b+\u0010\nJ\u000f\u0010,\u001a\u00020\u0006H\u0016¢\u0006\u0004\b,\u0010\nJ'\u0010/\u001a\u00020\u00062\u0006\u0010-\u001a\u00020\u00142\u0006\u0010(\u001a\u00020'2\u0006\u0010.\u001a\u00020#H\u0016¢\u0006\u0004\b/\u00100J\u0017\u00102\u001a\u00020\u00062\u0006\u00101\u001a\u00020\u0017H\u0016¢\u0006\u0004\b2\u00103J\u000f\u00104\u001a\u00020\u0006H\u0007¢\u0006\u0004\b4\u0010\nJ\u000f\u00105\u001a\u00020\u0006H\u0002¢\u0006\u0004\b5\u0010\nJ/\u0010:\u001a\u00020\u00062\u0006\u0010\u0015\u001a\u00020\u00142\u000e\u00107\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u0010062\u0006\u00109\u001a\u000208H\u0016¢\u0006\u0004\b:\u0010;J\u000f\u0010<\u001a\u00020\u0006H\u0007¢\u0006\u0004\b<\u0010\nJ\u000f\u0010=\u001a\u00020\u0006H\u0007¢\u0006\u0004\b=\u0010\nJ\u000f\u0010>\u001a\u00020\u0006H\u0007¢\u0006\u0004\b>\u0010\nJ\u000f\u0010?\u001a\u00020\u0006H\u0002¢\u0006\u0004\b?\u0010\nJ\r\u0010@\u001a\u00020\u0006¢\u0006\u0004\b@\u0010\nJ\u000f\u0010A\u001a\u00020\u0006H\u0002¢\u0006\u0004\bA\u0010\nJ\u000f\u0010B\u001a\u00020\u0006H\u0002¢\u0006\u0004\bB\u0010\nJ\u000f\u0010C\u001a\u00020\u0006H\u0002¢\u0006\u0004\bC\u0010\nJ\u0017\u0010E\u001a\u00020\u00062\u0006\u0010D\u001a\u00020\u0014H\u0002¢\u0006\u0004\bE\u0010FR\"\u0010G\u001a\u00020\u00148\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bG\u0010H\u001a\u0004\bI\u0010J\"\u0004\bK\u0010FR\u0016\u0010L\u001a\u00020\u00148\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bL\u0010HR\"\u0010N\u001a\u00020M8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bN\u0010O\u001a\u0004\bP\u0010Q\"\u0004\bR\u0010SR\u001d\u0010Y\u001a\u00020T8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bU\u0010V\u001a\u0004\bW\u0010XR\u0016\u0010Z\u001a\u00020#8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bZ\u0010[R\u0016\u0010\\\u001a\u00020#8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\\\u0010[R\u0016\u0010]\u001a\u00020#8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b]\u0010[R\"\u0010^\u001a\u00020#8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b^\u0010[\u001a\u0004\b^\u0010_\"\u0004\b`\u0010aR\u0016\u0010b\u001a\u00020#8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bb\u0010[R\u0016\u0010c\u001a\u00020#8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bc\u0010[R\u0018\u0010e\u001a\u0004\u0018\u00010d8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\be\u0010fR.\u0010i\u001a\u0004\u0018\u00010g2\b\u0010h\u001a\u0004\u0018\u00010g8\u0006@FX\u0086\u000e¢\u0006\u0012\n\u0004\bi\u0010j\u001a\u0004\bk\u0010l\"\u0004\bm\u0010nR\u0018\u0010p\u001a\u0004\u0018\u00010o8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bp\u0010qR\u0018\u0010s\u001a\u0004\u0018\u00010r8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bs\u0010tR\u001d\u0010y\u001a\u00020u8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bv\u0010V\u001a\u0004\bw\u0010xR\u001e\u0010|\u001a\n {*\u0004\u0018\u00010z0z8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b|\u0010}R\u0016\u0010~\u001a\u00020\u00148\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b~\u0010HR\u0019\u0010\u007f\u001a\u0004\u0018\u00010\u000b8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b\u007f\u0010\u0080\u0001¨\u0006\u008b\u0001"}, d2 = {"Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell;", "Landroidx/lifecycle/LifecycleObserver;", "Lcom/baidu/searchbox/live/eventbus/EventAction;", "Lcom/baidu/searchbox/live/shell/list/basic/AbstractMixFakeShell;", "Lcom/baidu/searchbox/live/action/AbstractEvent;", "event", "", NotificationCompat.CATEGORY_CALL, "(Lcom/baidu/searchbox/live/action/AbstractEvent;)V", "checkImpl", "()V", "Landroid/view/View;", "createContainerView", "()Landroid/view/View;", "createLiveView", "hideActivityBackground", "", "content", "log", "(Ljava/lang/String;)V", "", "requestCode", "resultCode", "Landroid/content/Intent;", "data", "onActivityResult", "(IILandroid/content/Intent;)V", "Landroid/content/res/Configuration;", "newConfig", "onConfigurationChanged", "(Landroid/content/res/Configuration;)V", "onCreate", MissionEvent.MESSAGE_DESTROY, "keyCode", "Landroid/view/KeyEvent;", "", "onKeyDown", "(ILandroid/view/KeyEvent;)Z", "onLiveAttach", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "model", "onLiveBindData", "(Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;)V", "onLiveDeselected", "onLiveDetach", CriusAttrConstants.POSITION, "isFromUser", "onLiveSelected", "(ILcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;Z)V", "intent", "onNewIntent", "(Landroid/content/Intent;)V", MissionEvent.MESSAGE_PAUSE, "onRealDetach", "", "permissions", "", "grantResults", "onRequestPermissionsResult", "(I[Ljava/lang/String;[I)V", "onResume", "onStart", MissionEvent.MESSAGE_STOP, "registerRoomInfoService", "showActivityBackground", "syncActivityLifecycle", "syncAttachState", "syncSelectState", "state", "syncYYActivityLifecycle", "(I)V", "curPosition", "I", "getCurPosition", "()I", "setCurPosition", "curState", "Landroid/os/Handler;", "handler", "Landroid/os/Handler;", "getHandler", "()Landroid/os/Handler;", "setHandler", "(Landroid/os/Handler;)V", "com/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$invokeAbility$2$1", "invokeAbility$delegate", "Lkotlin/Lazy;", "getInvokeAbility", "()Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$invokeAbility$2$1;", "invokeAbility", "isAttach", "Z", "isDestroy", "isDetach", "isSelected", "()Z", "setSelected", "(Z)V", "isYYAttach", "isYYSelect", "Lcom/baidu/searchbox/player/helper/OrientationHelper;", "mOrientationHelper", "Lcom/baidu/searchbox/player/helper/OrientationHelper;", "Lcom/baidu/live/mix/interfaces/MixLiveInterface;", "value", "mixLiveImpl", "Lcom/baidu/live/mix/interfaces/MixLiveInterface;", "getMixLiveImpl", "()Lcom/baidu/live/mix/interfaces/MixLiveInterface;", "setMixLiveImpl", "(Lcom/baidu/live/mix/interfaces/MixLiveInterface;)V", "Lcom/baidu/live/mix/MixLiveItemModel;", "mixModel", "Lcom/baidu/live/mix/MixLiveItemModel;", "Lcom/baidu/searchbox/live/mix/MixRoomInfo;", "mixRoomInfo", "Lcom/baidu/searchbox/live/mix/MixRoomInfo;", "Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$OrientationChangeCallBack;", "orientationChangeCallBack$delegate", "getOrientationChangeCallBack", "()Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$OrientationChangeCallBack;", "orientationChangeCallBack", "Lcom/baidu/searchbox/live/interfaces/mix/PluginInvokeService;", "kotlin.jvm.PlatformType", "pluginInvokeService", "Lcom/baidu/searchbox/live/interfaces/mix/PluginInvokeService;", "yyState", "yyView", "Landroid/view/View;", "Landroid/content/Context;", "context", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "mixUniqueId", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "mixActivity", "<init>", "(Landroid/content/Context;Lcom/baidu/live/arch/utils/MiniUniqueId;Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;)V", "Companion", "OrientationChangeCallBack", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public final class MixYYFakeShell extends AbstractMixFakeShell implements LifecycleObserver, EventAction<AbstractEvent> {
-    public static final /* synthetic */ KProperty[] $$delegatedProperties;
-    public static /* synthetic */ Interceptable $ic = null;
-    @Deprecated
-    public static final Companion Companion;
     public static final String ROOM_ID_YY = "roomid";
     public static final String SID_CONST_KEY = "sid_shiyan";
+    public static int STATE_INIT;
     public static boolean hasSelected;
     public static boolean isLoadPlugin;
     public static int lastContextHashCode;
-    public transient /* synthetic */ FieldHolder $fh;
     public int curPosition;
+    public int curState;
     public Handler handler;
     public final Lazy invokeAbility$delegate;
     public boolean isAttach;
     public boolean isDestroy;
     public boolean isDetach;
     public boolean isSelected;
+    public boolean isYYAttach;
+    public boolean isYYSelect;
     public OrientationHelper mOrientationHelper;
     public MixLiveInterface mixLiveImpl;
     public MixLiveItemModel mixModel;
     public MixRoomInfo mixRoomInfo;
     public final Lazy orientationChangeCallBack$delegate;
     public final PluginInvokeService pluginInvokeService;
+    public int yyState;
     public View yyView;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2058280434, "Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(2058280434, "Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell;");
-                return;
-            }
-        }
-        $$delegatedProperties = new KProperty[]{Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(MixYYFakeShell.class), "orientationChangeCallBack", "getOrientationChangeCallBack()Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$OrientationChangeCallBack;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(MixYYFakeShell.class), "invokeAbility", "getInvokeAbility()Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$invokeAbility$2$1;"))};
-        Companion = new Companion(null);
-    }
+    public static final /* synthetic */ KProperty[] $$delegatedProperties = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(MixYYFakeShell.class), "orientationChangeCallBack", "getOrientationChangeCallBack()Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$OrientationChangeCallBack;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(MixYYFakeShell.class), "invokeAbility", "getInvokeAbility()Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$invokeAbility$2$1;"))};
+    @Deprecated
+    public static final Companion Companion = new Companion(null);
+    public static int STATE_CREATE = 1;
+    public static int STATE_START = 2;
+    public static int STATE_RESUME = 3;
+    public static int STATE_PAUSE = 4;
+    public static int STATE_STOP = 5;
+    public static int STATE_DESTROY = 6;
 
     private final MixYYFakeShell$invokeAbility$2.AnonymousClass1 getInvokeAbility() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
-            Lazy lazy = this.invokeAbility$delegate;
-            KProperty kProperty = $$delegatedProperties[1];
-            return (MixYYFakeShell$invokeAbility$2.AnonymousClass1) lazy.getValue();
-        }
-        return (MixYYFakeShell$invokeAbility$2.AnonymousClass1) invokeV.objValue;
+        Lazy lazy = this.invokeAbility$delegate;
+        KProperty kProperty = $$delegatedProperties[1];
+        return (MixYYFakeShell$invokeAbility$2.AnonymousClass1) lazy.getValue();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final OrientationChangeCallBack getOrientationChangeCallBack() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
-            Lazy lazy = this.orientationChangeCallBack$delegate;
-            KProperty kProperty = $$delegatedProperties[0];
-            return (OrientationChangeCallBack) lazy.getValue();
-        }
-        return (OrientationChangeCallBack) invokeV.objValue;
+        Lazy lazy = this.orientationChangeCallBack$delegate;
+        KProperty kProperty = $$delegatedProperties[0];
+        return (OrientationChangeCallBack) lazy.getValue();
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\b\n\u0002\u0010\b\n\u0002\b\t\b\u0082\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0015\u0010\u0016R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\"\u0010\u0006\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0006\u0010\u0007\u001a\u0004\b\b\u0010\t\"\u0004\b\n\u0010\u000bR\"\u0010\f\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\f\u0010\u0007\u001a\u0004\b\f\u0010\t\"\u0004\b\r\u0010\u000bR\"\u0010\u000f\u001a\u00020\u000e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u000f\u0010\u0010\u001a\u0004\b\u0011\u0010\u0012\"\u0004\b\u0013\u0010\u0014¨\u0006\u0017"}, d2 = {"Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$Companion;", "", "ROOM_ID_YY", "Ljava/lang/String;", "SID_CONST_KEY", "", "hasSelected", "Z", "getHasSelected", "()Z", "setHasSelected", "(Z)V", "isLoadPlugin", "setLoadPlugin", "", "lastContextHashCode", "I", "getLastContextHashCode", "()I", "setLastContextHashCode", "(I)V", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0018\n\u0002\u0010\u000b\n\u0002\b\u000e\b\u0082\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b*\u0010+R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\"\u0010\u0006\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0006\u0010\u0007\u001a\u0004\b\b\u0010\t\"\u0004\b\n\u0010\u000bR\"\u0010\f\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\f\u0010\u0007\u001a\u0004\b\r\u0010\t\"\u0004\b\u000e\u0010\u000bR\"\u0010\u000f\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u000f\u0010\u0007\u001a\u0004\b\u0010\u0010\t\"\u0004\b\u0011\u0010\u000bR\"\u0010\u0012\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0012\u0010\u0007\u001a\u0004\b\u0013\u0010\t\"\u0004\b\u0014\u0010\u000bR\"\u0010\u0015\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0015\u0010\u0007\u001a\u0004\b\u0016\u0010\t\"\u0004\b\u0017\u0010\u000bR\"\u0010\u0018\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0018\u0010\u0007\u001a\u0004\b\u0019\u0010\t\"\u0004\b\u001a\u0010\u000bR\"\u0010\u001b\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001b\u0010\u0007\u001a\u0004\b\u001c\u0010\t\"\u0004\b\u001d\u0010\u000bR\"\u0010\u001f\u001a\u00020\u001e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001f\u0010 \u001a\u0004\b!\u0010\"\"\u0004\b#\u0010$R\"\u0010%\u001a\u00020\u001e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b%\u0010 \u001a\u0004\b%\u0010\"\"\u0004\b&\u0010$R\"\u0010'\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b'\u0010\u0007\u001a\u0004\b(\u0010\t\"\u0004\b)\u0010\u000b¨\u0006,"}, d2 = {"Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$Companion;", "", "ROOM_ID_YY", "Ljava/lang/String;", "SID_CONST_KEY", "", "STATE_CREATE", "I", "getSTATE_CREATE", "()I", "setSTATE_CREATE", "(I)V", "STATE_DESTROY", "getSTATE_DESTROY", "setSTATE_DESTROY", "STATE_INIT", "getSTATE_INIT", "setSTATE_INIT", "STATE_PAUSE", "getSTATE_PAUSE", "setSTATE_PAUSE", "STATE_RESUME", "getSTATE_RESUME", "setSTATE_RESUME", "STATE_START", "getSTATE_START", "setSTATE_START", "STATE_STOP", "getSTATE_STOP", "setSTATE_STOP", "", "hasSelected", "Z", "getHasSelected", "()Z", "setHasSelected", "(Z)V", "isLoadPlugin", "setLoadPlugin", "lastContextHashCode", "getLastContextHashCode", "setLastContextHashCode", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
     public static final class Companion {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
         public Companion() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
         }
 
         public final boolean getHasSelected() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
-                return invokeV.booleanValue;
-            }
             return MixYYFakeShell.hasSelected;
         }
 
         public final int getLastContextHashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
-                return invokeV.intValue;
-            }
             return MixYYFakeShell.lastContextHashCode;
         }
 
+        public final int getSTATE_CREATE() {
+            return MixYYFakeShell.STATE_CREATE;
+        }
+
+        public final int getSTATE_DESTROY() {
+            return MixYYFakeShell.STATE_DESTROY;
+        }
+
+        public final int getSTATE_INIT() {
+            return MixYYFakeShell.STATE_INIT;
+        }
+
+        public final int getSTATE_PAUSE() {
+            return MixYYFakeShell.STATE_PAUSE;
+        }
+
+        public final int getSTATE_RESUME() {
+            return MixYYFakeShell.STATE_RESUME;
+        }
+
+        public final int getSTATE_START() {
+            return MixYYFakeShell.STATE_START;
+        }
+
+        public final int getSTATE_STOP() {
+            return MixYYFakeShell.STATE_STOP;
+        }
+
         public final boolean isLoadPlugin() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) != null) {
-                return invokeV.booleanValue;
-            }
             return MixYYFakeShell.isLoadPlugin;
         }
 
@@ -199,36 +174,50 @@ public final class MixYYFakeShell extends AbstractMixFakeShell implements Lifecy
         }
 
         public final void setHasSelected(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeZ(1048579, this, z) != null) {
-                return;
-            }
             MixYYFakeShell.hasSelected = z;
         }
 
         public final void setLastContextHashCode(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeI(1048580, this, i) != null) {
-                return;
-            }
             MixYYFakeShell.lastContextHashCode = i;
         }
 
         public final void setLoadPlugin(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeZ(1048581, this, z) != null) {
-                return;
-            }
             MixYYFakeShell.isLoadPlugin = z;
+        }
+
+        public final void setSTATE_CREATE(int i) {
+            MixYYFakeShell.STATE_CREATE = i;
+        }
+
+        public final void setSTATE_DESTROY(int i) {
+            MixYYFakeShell.STATE_DESTROY = i;
+        }
+
+        public final void setSTATE_INIT(int i) {
+            MixYYFakeShell.STATE_INIT = i;
+        }
+
+        public final void setSTATE_PAUSE(int i) {
+            MixYYFakeShell.STATE_PAUSE = i;
+        }
+
+        public final void setSTATE_RESUME(int i) {
+            MixYYFakeShell.STATE_RESUME = i;
+        }
+
+        public final void setSTATE_START(int i) {
+            MixYYFakeShell.STATE_START = i;
+        }
+
+        public final void setSTATE_STOP(int i) {
+            MixYYFakeShell.STATE_STOP = i;
         }
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u00000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0010\t\n\u0002\b\u0007\u0018\u00002\u00020\u0001B\u0015\u0012\f\u0010\u000b\u001a\b\u0012\u0004\u0012\u00020\n0\t¢\u0006\u0004\b\u001e\u0010\u001fJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006R\u0016\u0010\u0007\u001a\u00020\u00028\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\b\u0007\u0010\bR\u001f\u0010\u000b\u001a\b\u0012\u0004\u0012\u00020\n0\t8\u0006@\u0006¢\u0006\f\n\u0004\b\u000b\u0010\f\u001a\u0004\b\r\u0010\u000eR\"\u0010\u0010\u001a\u00020\u000f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0010\u0010\u0011\u001a\u0004\b\u0012\u0010\u0013\"\u0004\b\u0014\u0010\u0015R\"\u0010\u0016\u001a\u00020\u000f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0016\u0010\u0011\u001a\u0004\b\u0017\u0010\u0013\"\u0004\b\u0018\u0010\u0015R\u0016\u0010\u001a\u001a\u00020\u00198\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001a\u0010\u001bR\u0016\u0010\u001c\u001a\u00020\u000f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001c\u0010\u0011R\u0016\u0010\u001d\u001a\u00020\u000f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001d\u0010\u0011¨\u0006 "}, d2 = {"Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$OrientationChangeCallBack;", "com/baidu/searchbox/player/helper/OrientationHelper$IOrientationChange", "", "i", "", "onOrientationChanged", "(I)V", "DELAY_TIME", "I", "Ljava/lang/ref/WeakReference;", "Landroid/app/Activity;", "activityRef", "Ljava/lang/ref/WeakReference;", "getActivityRef", "()Ljava/lang/ref/WeakReference;", "", "canChangeOrientation", "Z", "getCanChangeOrientation", "()Z", "setCanChangeOrientation", "(Z)V", "fullScreenMode", "getFullScreenMode", "setFullScreenMode", "", "mChangedTime", "J", "mIsLandscape", "mIsPortrait", "<init>", "(Ljava/lang/ref/WeakReference;)V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
     public static final class OrientationChangeCallBack implements OrientationHelper.IOrientationChange {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int DELAY_TIME;
+        public final int DELAY_TIME = 1000;
         public final WeakReference<Activity> activityRef;
         public boolean canChangeOrientation;
         public boolean fullScreenMode;
@@ -237,49 +226,27 @@ public final class MixYYFakeShell extends AbstractMixFakeShell implements Lifecy
         public boolean mIsPortrait;
 
         public OrientationChangeCallBack(WeakReference<Activity> weakReference) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {weakReference};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.activityRef = weakReference;
-            this.DELAY_TIME = 1000;
+        }
+
+        public final void setCanChangeOrientation(boolean z) {
+            this.canChangeOrientation = z;
+        }
+
+        public final void setFullScreenMode(boolean z) {
+            this.fullScreenMode = z;
         }
 
         public final WeakReference<Activity> getActivityRef() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.activityRef;
-            }
-            return (WeakReference) invokeV.objValue;
+            return this.activityRef;
         }
 
         public final boolean getCanChangeOrientation() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.canChangeOrientation;
-            }
-            return invokeV.booleanValue;
+            return this.canChangeOrientation;
         }
 
         public final boolean getFullScreenMode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.fullScreenMode;
-            }
-            return invokeV.booleanValue;
+            return this.fullScreenMode;
         }
 
         @Override // com.baidu.searchbox.player.helper.OrientationHelper.IOrientationChange
@@ -287,8 +254,7 @@ public final class MixYYFakeShell extends AbstractMixFakeShell implements Lifecy
             Activity activity;
             Activity activity2;
             Activity activity3;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || !this.canChangeOrientation || OrientationHelper.isSystemOrientationLocked(MiniShellRuntime.INSTANCE.getAppApplication())) {
+            if (!this.canChangeOrientation || OrientationHelper.isSystemOrientationLocked(MiniShellRuntime.INSTANCE.getAppApplication())) {
                 return;
             }
             if (!this.fullScreenMode) {
@@ -329,408 +295,401 @@ public final class MixYYFakeShell extends AbstractMixFakeShell implements Lifecy
                 }
             }
         }
-
-        public final void setCanChangeOrientation(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-                this.canChangeOrientation = z;
-            }
-        }
-
-        public final void setFullScreenMode(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-                this.fullScreenMode = z;
-            }
-        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MixYYFakeShell(final Context context, MiniUniqueId miniUniqueId, IMixActivityInterface iMixActivityInterface) {
-        super(context, miniUniqueId, iMixActivityInterface);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, miniUniqueId, iMixActivityInterface};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (MiniUniqueId) objArr2[1], (IMixActivityInterface) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+    @Override // com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell
+    public View createContainerView() {
+        int hashCode = getContext().hashCode();
+        int i = lastContextHashCode;
+        if (i == 0 || i != hashCode) {
+            hasSelected = false;
+            lastContextHashCode = hashCode;
+            log("MixLiveShell createContainerView rest hasSelected");
+        }
+        log("MixLiveShell createLiveView ");
+        checkImpl();
+        Application appApplication = MiniShellRuntime.INSTANCE.getAppApplication();
+        if (appApplication != null) {
+            OrientationHelper orientationHelper = new OrientationHelper(appApplication, 3);
+            this.mOrientationHelper = orientationHelper;
+            if (orientationHelper != null && orientationHelper.canDetectOrientation()) {
+                OrientationHelper orientationHelper2 = this.mOrientationHelper;
+                if (orientationHelper2 != null) {
+                    orientationHelper2.enableSensor();
+                }
+                OrientationHelper orientationHelper3 = this.mOrientationHelper;
+                if (orientationHelper3 != null) {
+                    orientationHelper3.setListener(getOrientationChangeCallBack());
+                }
             }
         }
-        this.orientationChangeCallBack$delegate = LazyKt__LazyJVMKt.lazy(new Function0<OrientationChangeCallBack>(context) { // from class: com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell$orientationChangeCallBack$2
-            public static /* synthetic */ Interceptable $ic;
-            public final /* synthetic */ Context $context;
-            public transient /* synthetic */ FieldHolder $fh;
+        createLiveView();
+        return getLiveContainer();
+    }
 
+    public MixYYFakeShell(final Context context, MiniUniqueId miniUniqueId, IMixActivityInterface iMixActivityInterface) {
+        super(context, miniUniqueId, iMixActivityInterface);
+        int i = STATE_INIT;
+        this.curState = i;
+        this.yyState = i;
+        this.orientationChangeCallBack$delegate = LazyKt__LazyJVMKt.lazy(new Function0<OrientationChangeCallBack>() { // from class: com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell$orientationChangeCallBack$2
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super(0);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr3 = {context};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        super(((Integer) newInitContext2.callArgs[0]).intValue());
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.$context = context;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
             public final MixYYFakeShell.OrientationChangeCallBack invoke() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    Context context2 = this.$context;
-                    if (context2 != null) {
-                        return new MixYYFakeShell.OrientationChangeCallBack(new WeakReference((Activity) context2));
-                    }
-                    throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
+                Context context2 = context;
+                if (context2 != null) {
+                    return new MixYYFakeShell.OrientationChangeCallBack(new WeakReference((Activity) context2));
                 }
-                return (MixYYFakeShell.OrientationChangeCallBack) invokeV.objValue;
+                throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
             }
         });
         this.handler = new Handler(Looper.getMainLooper());
         this.pluginInvokeService = (PluginInvokeService) ServiceManager.getService(PluginInvokeService.Companion.getSERVICE_REFERENCE());
-        this.invokeAbility$delegate = LazyKt__LazyJVMKt.lazy(new Function0<MixYYFakeShell$invokeAbility$2.AnonymousClass1>(this) { // from class: com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell$invokeAbility$2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ MixYYFakeShell this$0;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        this.invokeAbility$delegate = LazyKt__LazyJVMKt.lazy(new Function0<MixYYFakeShell$invokeAbility$2.AnonymousClass1>() { // from class: com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell$invokeAbility$2
             {
                 super(0);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr3 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        super(((Integer) newInitContext2.callArgs[0]).intValue());
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            /* JADX WARN: Type inference failed for: r0v2, types: [com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell$invokeAbility$2$1] */
+            /* JADX WARN: Type inference failed for: r0v0, types: [com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell$invokeAbility$2$1] */
             @Override // kotlin.jvm.functions.Function0
             public final AnonymousClass1 invoke() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return new InvokeAbility(this) { // from class: com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell$invokeAbility$2.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ MixYYFakeShell$invokeAbility$2 this$0;
+                return new InvokeAbility() { // from class: com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell$invokeAbility$2.1
+                    @Override // com.baidu.live.mix.interfaces.InvokeAbility
+                    public MixShellServiceCenter getMixShellServiceCenter() {
+                        return null;
+                    }
 
-                        @Override // com.baidu.live.mix.interfaces.InvokeAbility
-                        public MixShellServiceCenter getMixShellServiceCenter() {
-                            InterceptResult invokeV2;
-                            Interceptable interceptable3 = $ic;
-                            if (interceptable3 == null || (invokeV2 = interceptable3.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                                return null;
-                            }
-                            return (MixShellServiceCenter) invokeV2.objValue;
-                        }
+                    @Override // com.baidu.live.mix.interfaces.InvokeAbility
+                    public MixPagerInfoService getPagerInfoService() {
+                        return null;
+                    }
 
-                        @Override // com.baidu.live.mix.interfaces.InvokeAbility
-                        public MixPagerInfoService getPagerInfoService() {
-                            InterceptResult invokeV2;
-                            Interceptable interceptable3 = $ic;
-                            if (interceptable3 == null || (invokeV2 = interceptable3.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                                return null;
-                            }
-                            return (MixPagerInfoService) invokeV2.objValue;
+                    @Override // com.baidu.live.mix.interfaces.InvokeAbility
+                    public void removeRoom(JSONObject jSONObject) {
+                        MixYYFakeShell mixYYFakeShell = MixYYFakeShell.this;
+                        mixYYFakeShell.log("MixLiveShell invokeAbility removeRoom ：" + jSONObject);
+                        MixListOperatorInterface mixListOperatorInterface = (MixListOperatorInterface) ServiceLocator.Companion.getGlobalService(MixListOperatorInterface.class);
+                        if (mixListOperatorInterface != null) {
+                            mixListOperatorInterface.removeRoom(jSONObject);
                         }
+                    }
 
-                        /* JADX DEBUG: Incorrect args count in method signature: ()V */
-                        {
-                            Interceptable interceptable3 = $ic;
-                            if (interceptable3 != null) {
-                                InitContext newInitContext2 = TitanRuntime.newInitContext();
-                                newInitContext2.initArgs = r2;
-                                Object[] objArr3 = {this};
-                                interceptable3.invokeUnInit(65536, newInitContext2);
-                                int i3 = newInitContext2.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
-                                    newInitContext2.thisArg = this;
-                                    interceptable3.invokeInitBody(65536, newInitContext2);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
+                    @Override // com.baidu.live.mix.interfaces.InvokeAbility
+                    public void switchLiveListScrollable(boolean z) {
+                        MixYYFakeShell mixYYFakeShell = MixYYFakeShell.this;
+                        mixYYFakeShell.log("MixLiveShell invokeAbility switchLiveListScrollable switch：" + z);
+                        MixListOperatorInterface mixListOperatorInterface = (MixListOperatorInterface) ServiceLocator.Companion.getGlobalService(MixListOperatorInterface.class);
+                        if (mixListOperatorInterface != null) {
+                            mixListOperatorInterface.switchLiveListScrollable(z, false);
                         }
+                    }
 
-                        @Override // com.baidu.live.mix.interfaces.InvokeAbility
-                        public void eventDispatcher(String str, JSONObject jSONObject) {
-                            Interceptable interceptable3 = $ic;
-                            if ((interceptable3 == null || interceptable3.invokeLL(1048576, this, str, jSONObject) == null) && Intrinsics.areEqual("resume_live_background", str)) {
-                                this.this$0.this$0.showActivityBackground();
-                            }
-                        }
+                    @Override // com.baidu.live.mix.interfaces.InvokeAbility
+                    public void switchScreenAutoRotate(boolean z) {
+                        MixYYFakeShell.OrientationChangeCallBack orientationChangeCallBack;
+                        MixYYFakeShell mixYYFakeShell = MixYYFakeShell.this;
+                        mixYYFakeShell.log("MixLiveShell invokeAbility switchScreenAutoRotate switch：" + z);
+                        orientationChangeCallBack = MixYYFakeShell.this.getOrientationChangeCallBack();
+                        orientationChangeCallBack.setCanChangeOrientation(z);
+                    }
 
-                        @Override // com.baidu.live.mix.interfaces.InvokeAbility
-                        public void insertRoom(int i3, JSONObject jSONObject) {
-                            Interceptable interceptable3 = $ic;
-                            if (interceptable3 == null || interceptable3.invokeIL(1048579, this, i3, jSONObject) == null) {
-                                MixYYFakeShell mixYYFakeShell = this.this$0.this$0;
-                                mixYYFakeShell.log("MixLiveShell invokeAbility insertRoom " + i3 + " " + jSONObject);
-                            }
+                    @Override // com.baidu.live.mix.interfaces.InvokeAbility
+                    public void eventDispatcher(String str, JSONObject jSONObject) {
+                        if (Intrinsics.areEqual("resume_live_background", str)) {
+                            MixYYFakeShell.this.showActivityBackground();
                         }
+                    }
 
-                        @Override // com.baidu.live.mix.interfaces.InvokeAbility
-                        public void loadFinish() {
-                            Interceptable interceptable3 = $ic;
-                            if (interceptable3 != null && interceptable3.invokeV(1048580, this) != null) {
-                                return;
-                            }
-                            this.this$0.this$0.log("MixLiveShell invokeAbility loadFinish ");
-                        }
+                    @Override // com.baidu.live.mix.interfaces.InvokeAbility
+                    public void insertRoom(int i2, JSONObject jSONObject) {
+                        MixYYFakeShell mixYYFakeShell = MixYYFakeShell.this;
+                        mixYYFakeShell.log("MixLiveShell invokeAbility insertRoom " + i2 + " " + jSONObject);
+                    }
 
-                        @Override // com.baidu.live.mix.interfaces.InvokeAbility
-                        public void scrollToNextLiveRoom() {
-                            MixListOperatorInterface mixListOperatorInterface;
-                            Interceptable interceptable3 = $ic;
-                            if ((interceptable3 == null || interceptable3.invokeV(1048582, this) == null) && (mixListOperatorInterface = (MixListOperatorInterface) ServiceLocator.Companion.getGlobalService(MixListOperatorInterface.class)) != null) {
-                                mixListOperatorInterface.scrollToNextLiveRoom();
-                            }
-                        }
+                    @Override // com.baidu.live.mix.interfaces.InvokeAbility
+                    public void loadFinish() {
+                        MixYYFakeShell.this.log("MixLiveShell invokeAbility loadFinish ");
+                    }
 
-                        @Override // com.baidu.live.mix.interfaces.InvokeAbility
-                        public void scrollToPreLiveRoom() {
-                            MixListOperatorInterface mixListOperatorInterface;
-                            Interceptable interceptable3 = $ic;
-                            if ((interceptable3 == null || interceptable3.invokeV(1048583, this) == null) && (mixListOperatorInterface = (MixListOperatorInterface) ServiceLocator.Companion.getGlobalService(MixListOperatorInterface.class)) != null) {
-                                mixListOperatorInterface.scrollToPreLiveRoom();
-                            }
+                    @Override // com.baidu.live.mix.interfaces.InvokeAbility
+                    public void scrollToNextLiveRoom() {
+                        MixListOperatorInterface mixListOperatorInterface = (MixListOperatorInterface) ServiceLocator.Companion.getGlobalService(MixListOperatorInterface.class);
+                        if (mixListOperatorInterface != null) {
+                            mixListOperatorInterface.scrollToNextLiveRoom();
                         }
+                    }
 
-                        @Override // com.baidu.live.mix.interfaces.InvokeAbility
-                        public void removeRoom(JSONObject jSONObject) {
-                            Interceptable interceptable3 = $ic;
-                            if (interceptable3 == null || interceptable3.invokeL(1048581, this, jSONObject) == null) {
-                                MixYYFakeShell mixYYFakeShell = this.this$0.this$0;
-                                mixYYFakeShell.log("MixLiveShell invokeAbility removeRoom ：" + jSONObject);
-                                MixListOperatorInterface mixListOperatorInterface = (MixListOperatorInterface) ServiceLocator.Companion.getGlobalService(MixListOperatorInterface.class);
-                                if (mixListOperatorInterface != null) {
-                                    mixListOperatorInterface.removeRoom(jSONObject);
-                                }
-                            }
+                    @Override // com.baidu.live.mix.interfaces.InvokeAbility
+                    public void scrollToPreLiveRoom() {
+                        MixListOperatorInterface mixListOperatorInterface = (MixListOperatorInterface) ServiceLocator.Companion.getGlobalService(MixListOperatorInterface.class);
+                        if (mixListOperatorInterface != null) {
+                            mixListOperatorInterface.scrollToPreLiveRoom();
                         }
-
-                        @Override // com.baidu.live.mix.interfaces.InvokeAbility
-                        public void switchLiveListScrollable(boolean z) {
-                            Interceptable interceptable3 = $ic;
-                            if (interceptable3 == null || interceptable3.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-                                MixYYFakeShell mixYYFakeShell = this.this$0.this$0;
-                                mixYYFakeShell.log("MixLiveShell invokeAbility switchLiveListScrollable switch：" + z);
-                                MixListOperatorInterface mixListOperatorInterface = (MixListOperatorInterface) ServiceLocator.Companion.getGlobalService(MixListOperatorInterface.class);
-                                if (mixListOperatorInterface != null) {
-                                    mixListOperatorInterface.switchLiveListScrollable(z, false);
-                                }
-                            }
-                        }
-
-                        @Override // com.baidu.live.mix.interfaces.InvokeAbility
-                        public void switchScreenAutoRotate(boolean z) {
-                            MixYYFakeShell.OrientationChangeCallBack orientationChangeCallBack;
-                            Interceptable interceptable3 = $ic;
-                            if (interceptable3 == null || interceptable3.invokeZ(1048585, this, z) == null) {
-                                MixYYFakeShell mixYYFakeShell = this.this$0.this$0;
-                                mixYYFakeShell.log("MixLiveShell invokeAbility switchScreenAutoRotate switch：" + z);
-                                orientationChangeCallBack = this.this$0.this$0.getOrientationChangeCallBack();
-                                orientationChangeCallBack.setCanChangeOrientation(z);
-                            }
-                        }
-                    };
-                }
-                return (AnonymousClass1) invokeV.objValue;
+                    }
+                };
             }
         });
     }
 
+    @Override // com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell, com.baidu.live.arch.api.IExtLifecycle
+    public void onActivityResult(int i, int i2, Intent intent) {
+        super.onActivityResult(i, i2, intent);
+        log("MixLiveShell onActivityResult " + i + " " + i2 + " " + intent);
+        checkImpl();
+        try {
+            MixLiveInterface mixLiveInterface = this.mixLiveImpl;
+            if (mixLiveInterface != null) {
+                mixLiveInterface.onActivityResult(i, i2, intent);
+            }
+        } catch (Throwable th) {
+            log("onActivityResult crash throwable th：" + th);
+        }
+    }
+
+    private final void onRealDetach() {
+        log("RoomLifrCycle MixLiveShell onRealDetach");
+        if (!this.isDetach) {
+            this.isDetach = true;
+            super.onLiveDetach();
+            Lifecycle lifeCycle = getMixActivity().getLifeCycle();
+            if (lifeCycle != null) {
+                lifeCycle.removeObserver(this);
+            }
+            MixEventBus.getInstance().unRegister(this);
+            this.isSelected = false;
+            syncSelectState();
+            syncAttachState();
+            this.yyView = null;
+        }
+    }
+
     private final void registerRoomInfoService() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            ServiceLocator.Companion.registerGlobalServices(LiveMixRoomInfoService.class, new LiveMixRoomInfoService(this) { // from class: com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell$registerRoomInfoService$1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MixYYFakeShell this$0;
+        ServiceLocator.Companion.registerGlobalServices(LiveMixRoomInfoService.class, new LiveMixRoomInfoService() { // from class: com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell$registerRoomInfoService$1
+            @Override // com.baidu.searchbox.live.service.LiveMixRoomInfoService
+            public void updateRoomInfo(MixRoomInfo mixRoomInfo) {
+                MixYYFakeShell.this.mixRoomInfo = mixRoomInfo;
+            }
 
-                /* JADX DEBUG: Incorrect args count in method signature: ()V */
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
+            @Override // com.baidu.searchbox.live.service.LiveMixRoomInfoService
+            public MixRoomInfo getRoomInfo() {
+                MixRoomInfo mixRoomInfo;
+                mixRoomInfo = MixYYFakeShell.this.mixRoomInfo;
+                return mixRoomInfo;
+            }
+        });
+    }
 
-                @Override // com.baidu.searchbox.live.service.LiveMixRoomInfoService
-                public void updateRoomInfo(MixRoomInfo mixRoomInfo) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null && interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mixRoomInfo) != null) {
-                        return;
-                    }
-                    this.this$0.mixRoomInfo = mixRoomInfo;
-                }
-
-                @Override // com.baidu.searchbox.live.service.LiveMixRoomInfoService
-                public MixRoomInfo getRoomInfo() {
-                    InterceptResult invokeV;
-                    MixRoomInfo mixRoomInfo;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
-                        return (MixRoomInfo) invokeV.objValue;
-                    }
-                    mixRoomInfo = this.this$0.mixRoomInfo;
-                    return mixRoomInfo;
-                }
-            });
+    private final void syncActivityLifecycle() {
+        if (this.curState == this.yyState) {
+            return;
+        }
+        checkImpl();
+        if (this.mixLiveImpl != null) {
+            int i = this.curState;
+            int i2 = this.yyState;
+            if (i > i2) {
+                syncYYActivityLifecycle(i2 + 1);
+                syncActivityLifecycle();
+                return;
+            }
+            syncYYActivityLifecycle(i);
+            syncActivityLifecycle();
         }
     }
 
     public final int getCurPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.curPosition;
-        }
-        return invokeV.intValue;
+        return this.curPosition;
     }
 
     public final Handler getHandler() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.handler;
-        }
-        return (Handler) invokeV.objValue;
+        return this.handler;
     }
 
     public final MixLiveInterface getMixLiveImpl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mixLiveImpl;
-        }
-        return (MixLiveInterface) invokeV.objValue;
+        return this.mixLiveImpl;
     }
 
     public final void hideActivityBackground() {
-        MixNotifyBackgroundService mixNotifyBackgroundService;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (mixNotifyBackgroundService = (MixNotifyBackgroundService) ServiceLocator.Companion.getGlobalService(MixNotifyBackgroundService.class)) != null) {
+        MixNotifyBackgroundService mixNotifyBackgroundService = (MixNotifyBackgroundService) ServiceLocator.Companion.getGlobalService(MixNotifyBackgroundService.class);
+        if (mixNotifyBackgroundService != null) {
             mixNotifyBackgroundService.hideActivityBackground();
         }
     }
 
     public final boolean isSelected() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.isSelected;
+        return this.isSelected;
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+    public final void onCreate() {
+        this.isDestroy = false;
+        this.curState = STATE_CREATE;
+        log("MixLiveShell onCreate ");
+        registerRoomInfoService();
+        syncActivityLifecycle();
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    public final void onDestroy() {
+        this.isDestroy = true;
+        this.curState = STATE_DESTROY;
+        log("MixLiveShell onDestroy ");
+        OrientationHelper orientationHelper = this.mOrientationHelper;
+        if (orientationHelper != null) {
+            orientationHelper.disable();
         }
-        return invokeV.booleanValue;
+        this.mOrientationHelper = null;
+        syncActivityLifecycle();
+        isLoadPlugin = false;
+        ServiceLocator.Companion.unregisterGlobalService(LiveMixRoomInfoService.class);
+        MixEventBus.getInstance().unRegister(this);
+        Handler handler = this.handler;
+        if (handler != null) {
+            handler.removeCallbacksAndMessages(null);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell
+    public void onLiveAttach() {
+        super.onLiveAttach();
+        this.isAttach = true;
+        log("RoomLifrCycle MixLiveShell onLiveAttach ");
+        Lifecycle lifeCycle = getMixActivity().getLifeCycle();
+        if (lifeCycle != null) {
+            lifeCycle.addObserver(this);
+        }
+        MixEventBus.getInstance().register(this, YYPluginEvent.LoadYYPluginRes.class, this);
+        syncAttachState();
     }
 
     @Override // com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell
     public void onLiveDeselected() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            log("RoomLifrCycle MixLiveShell onLiveDeselected selectSetFalse");
-            onRealDetach();
-        }
+        log("RoomLifrCycle MixLiveShell onLiveDeselected selectSetFalse");
+        onRealDetach();
     }
 
     @Override // com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell
     public void onLiveDetach() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            log("RoomLifrCycle MixLiveShell onLiveDetach");
-            this.isAttach = false;
-            onRealDetach();
-        }
+        log("RoomLifrCycle MixLiveShell onLiveDetach");
+        this.isAttach = false;
+        onRealDetach();
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+    public final void onPause() {
+        log("MixLiveShell onPause ");
+        this.curState = STATE_PAUSE;
+        syncActivityLifecycle();
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    public final void onResume() {
+        log("MixLiveShell onResume ");
+        this.curState = STATE_RESUME;
+        syncActivityLifecycle();
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    public final void onStart() {
+        log("MixLiveShell onStart ");
+        this.curState = STATE_START;
+        syncActivityLifecycle();
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    public final void onStop() {
+        log("MixLiveShell onStop ");
+        this.curState = STATE_STOP;
+        syncActivityLifecycle();
     }
 
     public final void showActivityBackground() {
-        MixNotifyBackgroundService mixNotifyBackgroundService;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048604, this) == null) && (mixNotifyBackgroundService = (MixNotifyBackgroundService) ServiceLocator.Companion.getGlobalService(MixNotifyBackgroundService.class)) != null) {
+        MixNotifyBackgroundService mixNotifyBackgroundService = (MixNotifyBackgroundService) ServiceLocator.Companion.getGlobalService(MixNotifyBackgroundService.class);
+        if (mixNotifyBackgroundService != null) {
             mixNotifyBackgroundService.showActivityBackground();
         }
     }
 
-    public final void setCurPosition(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-            this.curPosition = i;
+    @Override // com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell, com.baidu.live.arch.api.IExtLifecycle
+    public void onConfigurationChanged(Configuration configuration) {
+        super.onConfigurationChanged(configuration);
+        log("MixLiveShell onConfigurationChanged ");
+        checkImpl();
+        try {
+            MixLiveInterface mixLiveInterface = this.mixLiveImpl;
+            if (mixLiveInterface != null) {
+                mixLiveInterface.onConfigurationChanged(configuration);
+            }
+        } catch (Throwable th) {
+            log("onConfigurationChanged crash throwable th：" + th);
         }
+    }
+
+    @Override // com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell, com.baidu.live.arch.api.IExtLifecycle
+    public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        log("MixLiveShell onNewIntent ");
+        hasSelected = false;
+        checkImpl();
+        try {
+            MixLiveInterface mixLiveInterface = this.mixLiveImpl;
+            if (mixLiveInterface != null) {
+                mixLiveInterface.onNewIntent(intent);
+            }
+        } catch (Throwable th) {
+            log("onNewIntent crash throwable th：" + th);
+        }
+    }
+
+    public final void setCurPosition(int i) {
+        this.curPosition = i;
     }
 
     public final void setHandler(Handler handler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, handler) == null) {
-            this.handler = handler;
-        }
+        this.handler = handler;
     }
 
     public final void setMixLiveImpl(MixLiveInterface mixLiveInterface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, mixLiveInterface) == null) {
-            this.mixLiveImpl = mixLiveInterface;
-            if (mixLiveInterface != null) {
-                mixLiveInterface.setInvokeListener(getInvokeAbility());
-            }
+        this.mixLiveImpl = mixLiveInterface;
+        if (mixLiveInterface != null) {
+            mixLiveInterface.setInvokeListener(getInvokeAbility());
         }
     }
 
     public final void setSelected(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
-            this.isSelected = z;
+        this.isSelected = z;
+    }
+
+    @Override // com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell, com.baidu.live.arch.api.IExtLifecycle
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        boolean z;
+        log("MixLiveShell onKeyDown " + i);
+        checkImpl();
+        if (!super.onKeyDown(i, keyEvent)) {
+            MixLiveInterface mixLiveInterface = this.mixLiveImpl;
+            if (mixLiveInterface != null) {
+                z = mixLiveInterface.onKeyDown(i, keyEvent);
+            } else {
+                z = false;
+            }
+            if (!z) {
+                return false;
+            }
         }
+        return true;
     }
 
     private final void checkImpl() {
         Object obj;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65548, this) == null) && this.mixLiveImpl == null && MiniPluginManager.INSTANCE.isYYPluginAvailable()) {
+        if (this.mixLiveImpl == null && MiniPluginManager.INSTANCE.isYYPluginAvailable()) {
             try {
                 PluginInvokeService pluginInvokeService = this.pluginInvokeService;
                 MixLiveInterface mixLiveInterface = null;
@@ -750,274 +709,287 @@ public final class MixYYFakeShell extends AbstractMixFakeShell implements Lifecy
         }
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    public final void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.isDestroy = true;
-            log("MixLiveShell onDestroy ");
-            OrientationHelper orientationHelper = this.mOrientationHelper;
-            if (orientationHelper != null) {
-                orientationHelper.disable();
+    private final void createLiveView() {
+        View view2;
+        try {
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+            MixLiveInterface mixLiveInterface = this.mixLiveImpl;
+            if (mixLiveInterface != null) {
+                view2 = mixLiveInterface.createLiveView(getContext());
+            } else {
+                view2 = null;
             }
-            this.mOrientationHelper = null;
-            checkImpl();
-            try {
-                MixLiveInterface mixLiveInterface = this.mixLiveImpl;
-                if (mixLiveInterface != null) {
-                    mixLiveInterface.onDestroy();
+            this.yyView = view2;
+            log("MixLiveShell recreateLiveView " + view2);
+            if (view2 != null) {
+                if (view2.getParent() != null) {
+                    if (!Intrinsics.areEqual(view2.getParent(), getLiveContainer())) {
+                        log("LoadYYPluginRes yyView remove old parent");
+                        ViewParent parent = view2.getParent();
+                        if (parent != null) {
+                            ((ViewGroup) parent).removeView(view2);
+                            LiveContainer liveContainer = getLiveContainer();
+                            if (liveContainer != null) {
+                                liveContainer.addView(view2, layoutParams);
+                            }
+                        } else {
+                            throw new TypeCastException("null cannot be cast to non-null type android.view.ViewGroup");
+                        }
+                    }
+                } else {
+                    LiveContainer liveContainer2 = getLiveContainer();
+                    if (liveContainer2 != null) {
+                        liveContainer2.addView(view2, layoutParams);
+                    }
                 }
-            } catch (Throwable th) {
-                log("onDestroy crash throwable th：" + th);
             }
-            isLoadPlugin = false;
-            ServiceLocator.Companion.unregisterGlobalService(LiveMixRoomInfoService.class);
-            MixEventBus.getInstance().unRegister(this);
-            Handler handler = this.handler;
-            if (handler != null) {
-                handler.removeCallbacksAndMessages(null);
-            }
+            log("MixLiveShell createLiveView " + view2);
+        } catch (Throwable th) {
+            log("recreateLiveView crash throwable th :" + th);
         }
     }
 
-    @Override // com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell
-    public void onLiveAttach() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            super.onLiveAttach();
-            this.isAttach = true;
-            log("RoomLifrCycle MixLiveShell onLiveAttach ");
-            Lifecycle lifeCycle = getMixActivity().getLifeCycle();
-            if (lifeCycle != null) {
-                lifeCycle.addObserver(this);
-            }
-            MixEventBus.getInstance().register(this, YYPluginEvent.LoadYYPluginRes.class, this);
-            checkImpl();
-            try {
-                MixLiveInterface mixLiveInterface = this.mixLiveImpl;
-                if (mixLiveInterface != null) {
-                    LiveContainer liveContainer = getLiveContainer();
-                    if (liveContainer == null) {
-                        Intrinsics.throwNpe();
+    private final void syncAttachState() {
+        log("syncAttachState isAttach：" + this.isAttach + " isYYAttach:" + this.isYYAttach + " curState:" + this.curState);
+        if (this.isAttach == this.isYYAttach) {
+            return;
+        }
+        checkImpl();
+        MixLiveInterface mixLiveInterface = this.mixLiveImpl;
+        if (mixLiveInterface != null) {
+            if (this.isAttach) {
+                if (this.curState == STATE_RESUME) {
+                    if (this.yyView == null) {
+                        createLiveView();
                     }
-                    MixLiveItemModel mixLiveItemModel = this.mixModel;
-                    if (mixLiveItemModel == null) {
-                        Intrinsics.throwNpe();
+                    try {
+                        MixLiveInterface mixLiveInterface2 = this.mixLiveImpl;
+                        if (mixLiveInterface2 != null) {
+                            LiveContainer liveContainer = getLiveContainer();
+                            if (liveContainer == null) {
+                                Intrinsics.throwNpe();
+                            }
+                            MixLiveItemModel mixLiveItemModel = this.mixModel;
+                            if (mixLiveItemModel == null) {
+                                Intrinsics.throwNpe();
+                            }
+                            mixLiveInterface2.onLiveAttach(liveContainer, mixLiveItemModel);
+                        }
+                        this.isYYAttach = this.isAttach;
+                        return;
+                    } catch (Throwable th) {
+                        log("onLiveAttach crash throwable th：" + th);
+                        return;
                     }
-                    mixLiveInterface.onLiveAttach(liveContainer, mixLiveItemModel);
                 }
-            } catch (Throwable th) {
-                log("onLiveAttach crash throwable th：" + th);
+                return;
             }
+            if (mixLiveInterface != null) {
+                try {
+                    mixLiveInterface.onLiveDetach();
+                } catch (Throwable th2) {
+                    log("onLiveDetach crash throwable th: " + th2);
+                    return;
+                }
+            }
+            this.isYYAttach = this.isAttach;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void log(String str) {
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, this, str) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(str);
-            sb.append(" mixLiveImpl:");
-            MixLiveInterface mixLiveInterface = this.mixLiveImpl;
-            if (mixLiveInterface != null) {
-                i = mixLiveInterface.hashCode();
-            } else {
-                i = 0;
-            }
-            sb.append(i);
-            sb.append(" this:");
-            sb.append(hashCode());
-            sb.append(WebvttCueParser.CHAR_SPACE);
-            sb.append("context:");
-            sb.append(getContext().hashCode());
-            ListLogKt.log(MixTagConstants.MIX_YY_LIVE, sb.toString());
+        StringBuilder sb = new StringBuilder();
+        sb.append(str);
+        sb.append(" mixLiveImpl:");
+        MixLiveInterface mixLiveInterface = this.mixLiveImpl;
+        if (mixLiveInterface != null) {
+            i = mixLiveInterface.hashCode();
+        } else {
+            i = 0;
+        }
+        sb.append(i);
+        sb.append(" this:");
+        sb.append(hashCode());
+        sb.append(WebvttCueParser.CHAR_SPACE);
+        sb.append("context:");
+        sb.append(getContext().hashCode());
+        String sb2 = sb.toString();
+        ListLogKt.log(MixTagConstants.MIX_YY_LIVE, sb2);
+        MixYaLogService mixYaLogService = (MixYaLogService) MixRequestServiceLocator.Companion.getGlobalService(MixYaLogService.class);
+        if (mixYaLogService != null) {
+            mixYaLogService.yaLogWithStringFormat(MixYaLogConstants.MIX_CELL_ID, "yy", sb2);
         }
     }
 
-    private final void onRealDetach() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            log("RoomLifrCycle MixLiveShell onRealDetach");
-            if (!this.isDetach) {
-                this.isDetach = true;
-                super.onLiveDetach();
-                Lifecycle lifeCycle = getMixActivity().getLifeCycle();
-                if (lifeCycle != null) {
-                    lifeCycle.removeObserver(this);
-                }
-                MixEventBus.getInstance().unRegister(this);
-                checkImpl();
-                if (this.isSelected) {
-                    log("RoomLifrCycle MixLiveShell onLiveDetach onLiveDeselected");
+    private final void syncSelectState() {
+        String str;
+        log("syncSelectState isSelected：" + this.isSelected + " isYYSelect:" + this.isYYSelect + " curState:" + this.curState);
+        if (this.isSelected == this.isYYSelect) {
+            return;
+        }
+        checkImpl();
+        if (this.mixLiveImpl != null) {
+            if (this.isSelected) {
+                if (this.curState == STATE_RESUME) {
+                    if (this.yyView == null) {
+                        createLiveView();
+                    }
                     try {
                         MixLiveInterface mixLiveInterface = this.mixLiveImpl;
                         if (mixLiveInterface != null) {
+                            MixLiveItemModel mixLiveItemModel = this.mixModel;
+                            if (mixLiveItemModel == null) {
+                                Intrinsics.throwNpe();
+                            }
+                            mixLiveInterface.onLiveBindData(mixLiveItemModel);
+                        }
+                    } catch (Throwable th) {
+                        log("mixLiveImpl onLiveBindData crash throwable th: " + th);
+                    }
+                    try {
+                        MixLiveInterface mixLiveInterface2 = this.mixLiveImpl;
+                        if (mixLiveInterface2 != null) {
+                            int i = this.curPosition;
                             LiveContainer liveContainer = getLiveContainer();
                             if (liveContainer == null) {
                                 Intrinsics.throwNpe();
                             }
-                            mixLiveInterface.onLiveDeselected(liveContainer);
+                            MixLiveItemModel mixLiveItemModel2 = this.mixModel;
+                            if (mixLiveItemModel2 == null) {
+                                Intrinsics.throwNpe();
+                            }
+                            mixLiveInterface2.onLiveSelected(i, liveContainer, mixLiveItemModel2, false);
                         }
-                    } catch (Throwable th) {
-                        log("onLiveDetach crash throwable th：" + th);
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("MixLiveShell onLiveSelected item=");
+                        MixLiveItemModel mixLiveItemModel3 = this.mixModel;
+                        if (mixLiveItemModel3 != null) {
+                            str = mixLiveItemModel3.toString();
+                        } else {
+                            str = null;
+                        }
+                        sb.append(str);
+                        log(sb.toString());
+                        this.isYYSelect = this.isSelected;
+                        return;
+                    } catch (Throwable th2) {
+                        log("mixLiveImpl?.onLiveSelected crash throwable th$ " + th2);
+                        return;
                     }
                 }
-                log("RoomLifrCycle MixLiveShell onLiveDetach selectSetFalse isSelected: " + this.isSelected);
+                return;
+            }
+            log("RoomLifrCycle MixLiveShell onLiveDeselected");
+            try {
+                MixLiveInterface mixLiveInterface3 = this.mixLiveImpl;
+                if (mixLiveInterface3 != null) {
+                    LiveContainer liveContainer2 = getLiveContainer();
+                    if (liveContainer2 == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    mixLiveInterface3.onLiveDeselected(liveContainer2);
+                }
+                this.isYYSelect = this.isSelected;
+            } catch (Throwable th3) {
+                log("onLiveDeselected crash throwable th：" + th3);
+            }
+        }
+    }
+
+    private final void syncYYActivityLifecycle(int i) {
+        log("syncYYActivityLifecycle newYYState：" + i + " oldYYState:" + this.yyState + " curState:" + this.curState);
+        MixLiveInterface mixLiveInterface = this.mixLiveImpl;
+        if (mixLiveInterface != null && i != STATE_INIT) {
+            if (i == STATE_CREATE) {
+                if (mixLiveInterface != null) {
+                    try {
+                        Context context = getContext();
+                        if (context != null) {
+                            mixLiveInterface.attachActivity((Activity) context);
+                        } else {
+                            throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
+                        }
+                    } catch (Throwable th) {
+                        log("onCreate attachActivity crash throwable th：" + th);
+                    }
+                }
                 try {
                     MixLiveInterface mixLiveInterface2 = this.mixLiveImpl;
                     if (mixLiveInterface2 != null) {
-                        mixLiveInterface2.onLiveDetach();
+                        mixLiveInterface2.onCreate();
                     }
+                    this.yyState = i;
                 } catch (Throwable th2) {
-                    log("onLiveDetach crash throwable th: " + th2);
+                    log("onCreate crash throwable th：" + th2);
                 }
-                this.yyView = null;
+            } else if (i == STATE_START) {
+                if (mixLiveInterface != null) {
+                    try {
+                        mixLiveInterface.onStart();
+                    } catch (Throwable th3) {
+                        log("onStart crash throwable th：" + th3);
+                        return;
+                    }
+                }
+                this.yyState = i;
+            } else if (i == STATE_RESUME) {
+                if (mixLiveInterface != null) {
+                    try {
+                        mixLiveInterface.onResume();
+                    } catch (Throwable th4) {
+                        log("onResume crash throwable th：" + th4);
+                    }
+                }
+                this.yyState = i;
+                if (this.curState == STATE_RESUME) {
+                    syncAttachState();
+                    syncSelectState();
+                }
+            } else if (i == STATE_PAUSE) {
+                if (mixLiveInterface != null) {
+                    try {
+                        mixLiveInterface.onPause();
+                    } catch (Throwable th5) {
+                        log("onPause crash throwable th：" + th5);
+                        return;
+                    }
+                }
+                this.yyState = i;
+            } else if (i == STATE_STOP) {
+                if (mixLiveInterface != null) {
+                    try {
+                        mixLiveInterface.onStop();
+                    } catch (Throwable th6) {
+                        log("onStop crash throwable th：" + th6);
+                        return;
+                    }
+                }
+                this.yyState = i;
+            } else if (i == STATE_DESTROY) {
+                if (mixLiveInterface != null) {
+                    try {
+                        mixLiveInterface.onDestroy();
+                    } catch (Throwable th7) {
+                        log("onDestroy crash throwable th：" + th7);
+                        return;
+                    }
+                }
+                this.yyState = i;
             }
-            this.isSelected = false;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.live.eventbus.EventAction
     public void call(AbstractEvent abstractEvent) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, abstractEvent) == null) && abstractEvent != null && abstractEvent.getUniqueId() == getMixUniqueId().getId() && (abstractEvent instanceof YYPluginEvent.LoadYYPluginRes) && ((YYPluginEvent.LoadYYPluginRes) abstractEvent).getRes() == 2) {
+        if (abstractEvent != null && abstractEvent.getUniqueId() == getMixUniqueId().getId() && (abstractEvent instanceof YYPluginEvent.LoadYYPluginRes) && ((YYPluginEvent.LoadYYPluginRes) abstractEvent).getRes() == 2) {
             if (this.isDestroy) {
                 log("load plugin suc but is destroy");
                 return;
             }
             log("MixLiveShell LoadYYPluginSuc isSelected: " + this.isSelected);
-            checkImpl();
-            try {
-                MixLiveInterface mixLiveInterface = this.mixLiveImpl;
-                if (mixLiveInterface != null) {
-                    Context context = getContext();
-                    if (context != null) {
-                        mixLiveInterface.attachActivity((Activity) context);
-                    } else {
-                        throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
-                    }
-                }
-            } catch (Throwable th) {
-                log("mixLiveImpl attachActivity th: " + th.getMessage());
-            }
-            try {
-                MixLiveInterface mixLiveInterface2 = this.mixLiveImpl;
-                if (mixLiveInterface2 != null) {
-                    mixLiveInterface2.onCreate();
-                }
-            } catch (Throwable th2) {
-                log("mixLiveImpl onCreate th: " + th2.getMessage());
-            }
-            try {
-                MixLiveInterface mixLiveInterface3 = this.mixLiveImpl;
-                if (mixLiveInterface3 != null) {
-                    mixLiveInterface3.onStart();
-                }
-            } catch (Throwable th3) {
-                log("mixLiveImpl onStart th: " + th3.getMessage());
-            }
-            if (this.isAttach || this.isSelected) {
-                if (this.yyView == null) {
-                    try {
-                        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-                        MixLiveInterface mixLiveInterface4 = this.mixLiveImpl;
-                        if (mixLiveInterface4 != null) {
-                            view2 = mixLiveInterface4.createLiveView(getContext());
-                        } else {
-                            view2 = null;
-                        }
-                        this.yyView = view2;
-                        log("MixLiveShell recreateLiveView " + view2);
-                        if (view2 != null) {
-                            if (view2.getParent() != null) {
-                                if (!Intrinsics.areEqual(view2.getParent(), getLiveContainer())) {
-                                    log("LoadYYPluginRes yyView remove old parent");
-                                    ViewParent parent = view2.getParent();
-                                    if (parent != null) {
-                                        ((ViewGroup) parent).removeView(view2);
-                                        LiveContainer liveContainer = getLiveContainer();
-                                        if (liveContainer != null) {
-                                            liveContainer.addView(view2, layoutParams);
-                                        }
-                                    } else {
-                                        throw new TypeCastException("null cannot be cast to non-null type android.view.ViewGroup");
-                                    }
-                                }
-                            } else {
-                                LiveContainer liveContainer2 = getLiveContainer();
-                                if (liveContainer2 != null) {
-                                    liveContainer2.addView(view2, layoutParams);
-                                }
-                            }
-                        }
-                    } catch (Throwable th4) {
-                        log("recreateLiveView crash throwable th :" + th4);
-                    }
-                }
-                try {
-                    MixLiveInterface mixLiveInterface5 = this.mixLiveImpl;
-                    if (mixLiveInterface5 != null) {
-                        mixLiveInterface5.onResume();
-                    }
-                } catch (Throwable th5) {
-                    log("mixLiveImpl onResume th: " + th5.getMessage());
-                }
-                try {
-                    MixLiveInterface mixLiveInterface6 = this.mixLiveImpl;
-                    if (mixLiveInterface6 != null) {
-                        LiveContainer liveContainer3 = getLiveContainer();
-                        if (liveContainer3 == null) {
-                            Intrinsics.throwNpe();
-                        }
-                        MixLiveItemModel mixLiveItemModel = this.mixModel;
-                        if (mixLiveItemModel == null) {
-                            Intrinsics.throwNpe();
-                        }
-                        mixLiveInterface6.onLiveAttach(liveContainer3, mixLiveItemModel);
-                    }
-                } catch (Throwable th6) {
-                    log("mixLiveImpl onLiveAttach th: " + th6.getMessage());
-                }
-            }
-            if (this.isSelected) {
-                try {
-                    MixLiveInterface mixLiveInterface7 = this.mixLiveImpl;
-                    if (mixLiveInterface7 != null) {
-                        MixLiveItemModel mixLiveItemModel2 = this.mixModel;
-                        if (mixLiveItemModel2 == null) {
-                            Intrinsics.throwNpe();
-                        }
-                        mixLiveInterface7.onLiveBindData(mixLiveItemModel2);
-                    }
-                } catch (Throwable th7) {
-                    log("mixLiveImpl onLiveBindData th: " + th7.getMessage());
-                }
-                try {
-                    MixLiveInterface mixLiveInterface8 = this.mixLiveImpl;
-                    if (mixLiveInterface8 != null) {
-                        int i = this.curPosition;
-                        LiveContainer liveContainer4 = getLiveContainer();
-                        if (liveContainer4 == null) {
-                            Intrinsics.throwNpe();
-                        }
-                        MixLiveItemModel mixLiveItemModel3 = this.mixModel;
-                        if (mixLiveItemModel3 == null) {
-                            Intrinsics.throwNpe();
-                        }
-                        mixLiveInterface8.onLiveSelected(i, liveContainer4, mixLiveItemModel3, false);
-                        return;
-                    }
-                    return;
-                } catch (Throwable th8) {
-                    log("mixLiveImpl onLiveSelected th: " + th8.getMessage());
-                    return;
-                }
-            }
-            log("load plugin suc but not selected");
+            syncActivityLifecycle();
         }
     }
 
@@ -1038,541 +1010,239 @@ public final class MixYYFakeShell extends AbstractMixFakeShell implements Lifecy
         String str11;
         JSONObject jSONObject3;
         String str12;
-        JSONObject jSONObject4;
-        IntentData intent;
-        String liveSource;
-        JSONObject originJson;
         String str13;
+        String str14;
+        JSONObject jSONObject4;
+        String str15;
+        String str16;
+        IntentData intent;
+        IntentData.SchemeModel schemeData;
+        JSONObject otherParams;
+        IntentData intent2;
+        JSONObject originJson;
+        String str17;
         JSONObject optJSONObject;
         String optString;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, liveItemModel) == null) {
-            super.onLiveBindData(liveItemModel);
-            log("MixLiveShell onLiveBindData " + liveItemModel.getRoomId() + WebvttCueParser.CHAR_SPACE + liveItemModel.getTitle());
-            JSONObject originJson2 = liveItemModel.getOriginJson();
-            if (originJson2 != null) {
-                str = originJson2.optString("sid");
+        super.onLiveBindData(liveItemModel);
+        log("MixLiveShell onLiveBindData " + liveItemModel.getRoomId() + WebvttCueParser.CHAR_SPACE + liveItemModel.getTitle());
+        JSONObject originJson2 = liveItemModel.getOriginJson();
+        if (originJson2 != null) {
+            str = originJson2.optString("sid");
+        } else {
+            str = null;
+        }
+        JSONObject originJson3 = liveItemModel.getOriginJson();
+        if (originJson3 != null) {
+            str2 = originJson3.optString(YyLiveRoomConfig.KEY_SSID);
+        } else {
+            str2 = null;
+        }
+        JSONObject originJson4 = liveItemModel.getOriginJson();
+        if (originJson4 != null) {
+            str3 = originJson4.optString("templateId");
+        } else {
+            str3 = null;
+        }
+        JSONObject originJson5 = liveItemModel.getOriginJson();
+        if (originJson5 != null) {
+            str4 = originJson5.optString("token");
+        } else {
+            str4 = null;
+        }
+        JSONObject originJson6 = liveItemModel.getOriginJson();
+        if (originJson6 != null) {
+            str5 = originJson6.optString("recommend");
+        } else {
+            str5 = null;
+        }
+        JSONObject originJson7 = liveItemModel.getOriginJson();
+        if (originJson7 != null) {
+            str6 = originJson7.optString("anchorUid");
+        } else {
+            str6 = null;
+        }
+        JSONObject originJson8 = liveItemModel.getOriginJson();
+        if (originJson8 != null) {
+            str7 = originJson8.optString("thumb");
+        } else {
+            str7 = null;
+        }
+        JSONObject originJson9 = liveItemModel.getOriginJson();
+        if (originJson9 != null) {
+            str8 = originJson9.optString("from");
+        } else {
+            str8 = null;
+        }
+        JSONObject originJson10 = liveItemModel.getOriginJson();
+        if (originJson10 != null) {
+            str9 = originJson10.optString("tpl");
+        } else {
+            str9 = null;
+        }
+        JSONObject originJson11 = liveItemModel.getOriginJson();
+        if (originJson11 != null) {
+            str10 = originJson11.optString(YyLiveRoomConfig.KEY_STREAMINFO);
+        } else {
+            str10 = null;
+        }
+        try {
+            jSONObject = new JSONObject(str10);
+        } catch (Exception unused) {
+            jSONObject = null;
+        }
+        JSONObject originJson12 = liveItemModel.getOriginJson();
+        if (originJson12 != null) {
+            jSONObject2 = originJson12.optJSONObject("ext");
+        } else {
+            jSONObject2 = null;
+        }
+        JSONObject originJson13 = liveItemModel.getOriginJson();
+        if (originJson13 != null) {
+            str11 = originJson13.optString("extLog");
+        } else {
+            str11 = null;
+        }
+        try {
+            jSONObject3 = new JSONObject(str11);
+        } catch (Exception e) {
+            e.printStackTrace();
+            jSONObject3 = null;
+        }
+        if (jSONObject3 == null) {
+            jSONObject3 = new JSONObject();
+        }
+        AppInfoService appInfoService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
+        JSONObject jSONObject5 = jSONObject;
+        if (appInfoService != null && (str13 = appInfoService.getSid()) != null) {
+            str12 = str9;
+        } else {
+            str12 = str9;
+            str13 = "";
+        }
+        jSONObject3.put(SID_CONST_KEY, str13);
+        jSONObject3.put(ROOM_ID_YY, liveItemModel.getRoomId());
+        JSONObject slog = liveItemModel.getSlog();
+        if (slog != null && (optJSONObject = slog.optJSONObject("rec_ext")) != null && (optString = optJSONObject.optString("vt_ctr_fea")) != null) {
+            str14 = str8;
+            JSONObject jSONObject6 = new JSONObject();
+            jSONObject6.put("vt_ctr_fea", optString);
+            jSONObject3.put("gr_ext", jSONObject6);
+        } else {
+            str14 = str8;
+        }
+        JSONObject originJson14 = liveItemModel.getOriginJson();
+        if (originJson14 != null) {
+            jSONObject4 = originJson14.optJSONObject("extendInfo");
+        } else {
+            jSONObject4 = null;
+        }
+        if (jSONObject4 == null) {
+            jSONObject4 = new JSONObject();
+        }
+        if (jSONObject4 != null) {
+            str15 = jSONObject4.optString("ext");
+        } else {
+            str15 = null;
+        }
+        if (TextUtils.isEmpty(str15) && jSONObject4 != 0) {
+            if (jSONObject2 != null) {
+                str17 = jSONObject2.toString();
             } else {
-                str = null;
+                str17 = null;
             }
-            JSONObject originJson3 = liveItemModel.getOriginJson();
-            if (originJson3 != null) {
-                str2 = originJson3.optString(YyLiveRoomConfig.KEY_SSID);
-            } else {
-                str2 = null;
-            }
-            JSONObject originJson4 = liveItemModel.getOriginJson();
-            if (originJson4 != null) {
-                str3 = originJson4.optString("templateId");
-            } else {
-                str3 = null;
-            }
-            JSONObject originJson5 = liveItemModel.getOriginJson();
-            if (originJson5 != null) {
-                str4 = originJson5.optString("token");
-            } else {
-                str4 = null;
-            }
-            JSONObject originJson6 = liveItemModel.getOriginJson();
-            if (originJson6 != null) {
-                str5 = originJson6.optString("recommend");
-            } else {
-                str5 = null;
-            }
-            JSONObject originJson7 = liveItemModel.getOriginJson();
-            if (originJson7 != null) {
-                str6 = originJson7.optString("anchorUid");
-            } else {
-                str6 = null;
-            }
-            JSONObject originJson8 = liveItemModel.getOriginJson();
-            if (originJson8 != null) {
-                str7 = originJson8.optString("thumb");
-            } else {
-                str7 = null;
-            }
-            JSONObject originJson9 = liveItemModel.getOriginJson();
-            if (originJson9 != null) {
-                str8 = originJson9.optString("from");
-            } else {
-                str8 = null;
-            }
-            JSONObject originJson10 = liveItemModel.getOriginJson();
-            if (originJson10 != null) {
-                str9 = originJson10.optString("tpl");
-            } else {
-                str9 = null;
-            }
-            JSONObject originJson11 = liveItemModel.getOriginJson();
-            if (originJson11 != null) {
-                str10 = originJson11.optString(YyLiveRoomConfig.KEY_STREAMINFO);
-            } else {
-                str10 = null;
-            }
-            try {
-                jSONObject = new JSONObject(str10);
-            } catch (Exception unused) {
-                jSONObject = null;
-            }
-            JSONObject originJson12 = liveItemModel.getOriginJson();
-            if (originJson12 != null) {
-                jSONObject2 = originJson12.optJSONObject("ext");
-            } else {
-                jSONObject2 = null;
-            }
-            JSONObject originJson13 = liveItemModel.getOriginJson();
-            if (originJson13 != null) {
-                str11 = originJson13.optString("extLog");
-            } else {
-                str11 = null;
-            }
-            try {
-                jSONObject3 = new JSONObject(str11);
-            } catch (Exception e) {
-                e.printStackTrace();
-                jSONObject3 = null;
-            }
-            if (jSONObject3 == null) {
-                jSONObject3 = new JSONObject();
-            }
-            AppInfoService appInfoService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
-            String str14 = "";
-            JSONObject jSONObject5 = jSONObject;
-            jSONObject3.put(SID_CONST_KEY, (appInfoService == null || (r0 = appInfoService.getSid()) == null) ? "" : "");
-            jSONObject3.put(ROOM_ID_YY, liveItemModel.getRoomId());
-            JSONObject slog = liveItemModel.getSlog();
-            if (slog != null && (optJSONObject = slog.optJSONObject("rec_ext")) != null && (optString = optJSONObject.optString("vt_ctr_fea")) != null) {
-                str12 = str9;
-                JSONObject jSONObject6 = new JSONObject();
-                jSONObject6.put("vt_ctr_fea", optString);
-                jSONObject3.put("gr_ext", jSONObject6);
-            } else {
-                str12 = str9;
-            }
-            JSONObject originJson14 = liveItemModel.getOriginJson();
-            if (originJson14 != null) {
-                jSONObject4 = originJson14.optJSONObject("extendInfo");
-            } else {
-                jSONObject4 = null;
-            }
-            if (jSONObject4 == null) {
-                jSONObject4 = new JSONObject();
-            }
-            if (TextUtils.isEmpty(jSONObject4.optString("ext"))) {
-                if (jSONObject2 != null) {
-                    str13 = jSONObject2.toString();
-                } else {
-                    str13 = null;
-                }
-                jSONObject4.put("ext", str13);
-            }
+            jSONObject4.put("ext", str17);
+        }
+        if (jSONObject4 != null) {
             jSONObject4.put("extLog", jSONObject3);
+        }
+        if (jSONObject4 != null) {
             JSONObject originJson15 = liveItemModel.getOriginJson();
-            jSONObject4.put("extSchema", (originJson15 == null || (r2 = originJson15.optString("extSchema", "")) == null) ? "" : "");
-            if (!hasSelected && (originJson = liveItemModel.getOriginJson()) != null && originJson.optInt("isMix") == 1) {
+            jSONObject4.put("extSchema", (originJson15 == null || (r1 = originJson15.optString("extSchema", "")) == null) ? "" : "");
+        }
+        if (!hasSelected && (originJson = liveItemModel.getOriginJson()) != null && originJson.optInt("isMix") == 1) {
+            if (jSONObject4 != null) {
                 jSONObject4.put("firstJump", 1);
-            } else {
-                jSONObject4.remove("firstJump");
             }
-            ILiveListState iLiveListState = (ILiveListState) ServiceLocator.Companion.getGlobalService(ILiveListState.class);
-            if (iLiveListState != null && (intent = iLiveListState.getIntent()) != null && (liveSource = intent.getLiveSource()) != null) {
-                str14 = liveSource;
-            }
-            MixLiveItemModel mixLiveItemModel = new MixLiveItemModel(liveItemModel.getRoomId(), str, str2, str3, str4, str5, str6, str7, str8, str12, jSONObject5, jSONObject4, liveItemModel.getCover(), liveItemModel.getLiveType(), liveItemModel.getScheme(), liveItemModel.getPlayUrl(), str14, liveItemModel.getOtherParams(), null);
-            this.mixModel = mixLiveItemModel;
-            log("MixLiveShell onLiveBindData mixModel=" + mixLiveItemModel.toString());
+        } else if (jSONObject4 != null) {
+            jSONObject4.remove("firstJump");
         }
-    }
-
-    @Override // com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell
-    public View createContainerView() {
-        InterceptResult invokeV;
-        View view2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int hashCode = getContext().hashCode();
-            int i = lastContextHashCode;
-            if (i == 0 || i != hashCode) {
-                hasSelected = false;
-                lastContextHashCode = hashCode;
-                log("MixLiveShell createContainerView rest hasSelected");
-            }
-            log("MixLiveShell createLiveView ");
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            checkImpl();
-            Application appApplication = MiniShellRuntime.INSTANCE.getAppApplication();
-            if (appApplication != null) {
-                OrientationHelper orientationHelper = new OrientationHelper(appApplication, 3);
-                this.mOrientationHelper = orientationHelper;
-                if (orientationHelper != null && orientationHelper.canDetectOrientation()) {
-                    OrientationHelper orientationHelper2 = this.mOrientationHelper;
-                    if (orientationHelper2 != null) {
-                        orientationHelper2.enableSensor();
-                    }
-                    OrientationHelper orientationHelper3 = this.mOrientationHelper;
-                    if (orientationHelper3 != null) {
-                        orientationHelper3.setListener(getOrientationChangeCallBack());
-                    }
-                }
-            }
-            try {
-                MixLiveInterface mixLiveInterface = this.mixLiveImpl;
-                if (mixLiveInterface != null) {
-                    view2 = mixLiveInterface.createLiveView(getContext());
-                } else {
-                    view2 = null;
-                }
-                this.yyView = view2;
-                if (view2 != null) {
-                    if (view2.getParent() != null) {
-                        if (true ^ Intrinsics.areEqual(view2.getParent(), getLiveContainer())) {
-                            log("createContainerView yyView remove old parent");
-                            ViewParent parent = view2.getParent();
-                            if (parent != null) {
-                                ((ViewGroup) parent).removeView(view2);
-                                LiveContainer liveContainer = getLiveContainer();
-                                if (liveContainer != null) {
-                                    liveContainer.addView(view2, layoutParams);
-                                }
-                            } else {
-                                throw new TypeCastException("null cannot be cast to non-null type android.view.ViewGroup");
-                            }
-                        }
-                    } else {
-                        LiveContainer liveContainer2 = getLiveContainer();
-                        if (liveContainer2 != null) {
-                            liveContainer2.addView(view2, layoutParams);
-                        }
-                    }
-                }
-                log("MixLiveShell createLiveView " + view2);
-            } catch (Throwable th) {
-                log("LiveContainer createLiveView crash throwable th: " + th);
-            }
-            return getLiveContainer();
+        ILiveListState iLiveListState = (ILiveListState) ServiceLocator.Companion.getGlobalService(ILiveListState.class);
+        String str18 = (iLiveListState == null || (intent2 = iLiveListState.getIntent()) == null || (str18 = intent2.getLiveSource()) == null) ? "" : "";
+        ILiveListState iLiveListState2 = (ILiveListState) ServiceLocator.Companion.getGlobalService(ILiveListState.class);
+        if (iLiveListState2 != null && (intent = iLiveListState2.getIntent()) != null && (schemeData = intent.getSchemeData()) != null && (otherParams = schemeData.getOtherParams()) != null) {
+            str16 = otherParams.getString("task_token");
+        } else {
+            str16 = null;
         }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell, com.baidu.live.arch.api.IExtLifecycle
-    public void onActivityResult(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
-            log("MixLiveShell onActivityResult " + i + " " + i2 + " " + intent);
-            checkImpl();
-            try {
-                MixLiveInterface mixLiveInterface = this.mixLiveImpl;
-                if (mixLiveInterface != null) {
-                    mixLiveInterface.onActivityResult(i, i2, intent);
-                }
-            } catch (Throwable th) {
-                log("onActivityResult crash throwable th：" + th);
-            }
+        if (str16 != null && jSONObject4 != null) {
+            jSONObject4.put("task_token", str16);
         }
-    }
-
-    @Override // com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell, com.baidu.live.arch.api.IExtLifecycle
-    public void onConfigurationChanged(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, configuration) == null) {
-            super.onConfigurationChanged(configuration);
-            log("MixLiveShell onConfigurationChanged ");
-            checkImpl();
-            try {
-                MixLiveInterface mixLiveInterface = this.mixLiveImpl;
-                if (mixLiveInterface != null) {
-                    mixLiveInterface.onConfigurationChanged(configuration);
-                }
-            } catch (Throwable th) {
-                log("onConfigurationChanged crash throwable th：" + th);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell, com.baidu.live.arch.api.IExtLifecycle
-    public void onNewIntent(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, intent) == null) {
-            super.onNewIntent(intent);
-            log("MixLiveShell onNewIntent ");
-            hasSelected = false;
-            checkImpl();
-            try {
-                MixLiveInterface mixLiveInterface = this.mixLiveImpl;
-                if (mixLiveInterface != null) {
-                    mixLiveInterface.onNewIntent(intent);
-                }
-            } catch (Throwable th) {
-                log("onNewIntent crash throwable th：" + th);
-            }
-        }
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    public final void onCreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.isDestroy = false;
-            log("MixLiveShell onCreate ");
-            checkImpl();
-            registerRoomInfoService();
-            try {
-                MixLiveInterface mixLiveInterface = this.mixLiveImpl;
-                if (mixLiveInterface != null) {
-                    Context context = getContext();
-                    if (context != null) {
-                        mixLiveInterface.attachActivity((Activity) context);
-                    } else {
-                        throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
-                    }
-                }
-            } catch (Throwable th) {
-                log("onCreate attachActivity crash throwable th：" + th);
-            }
-            try {
-                MixLiveInterface mixLiveInterface2 = this.mixLiveImpl;
-                if (mixLiveInterface2 != null) {
-                    mixLiveInterface2.onCreate();
-                }
-            } catch (Throwable th2) {
-                log("onCreate onCreate crash throwable th：" + th2);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell, com.baidu.live.arch.api.IExtLifecycle
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048588, this, i, keyEvent)) == null) {
-            log("MixLiveShell onKeyDown " + i);
-            checkImpl();
-            if (!super.onKeyDown(i, keyEvent)) {
-                MixLiveInterface mixLiveInterface = this.mixLiveImpl;
-                if (mixLiveInterface != null) {
-                    z = mixLiveInterface.onKeyDown(i, keyEvent);
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeIL.booleanValue;
+        MixLiveItemModel mixLiveItemModel = new MixLiveItemModel(liveItemModel.getRoomId(), str, str2, str3, str4, str5, str6, str7, str14, str12, jSONObject5, jSONObject4, liveItemModel.getCover(), liveItemModel.getLiveType(), liveItemModel.getScheme(), liveItemModel.getPlayUrl(), str18, liveItemModel.getOtherParams(), null);
+        this.mixModel = mixLiveItemModel;
+        log("MixLiveShell onLiveBindData mixModel=" + mixLiveItemModel.toString());
     }
 
     @Override // com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell
     public void onLiveSelected(int i, LiveContainer.LiveItemModel liveItemModel, boolean z) {
-        View view2;
         ImagePipeline imagePipeline;
-        String str;
         MixLiveItemModel mixLiveItemModel;
         String roomId;
         MixLiveItemModel mixLiveItemModel2;
         JSONObject extendInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i), liveItemModel, Boolean.valueOf(z)}) == null) {
-            super.onLiveSelected(i, liveItemModel, z);
-            this.isDetach = false;
-            MediaLivePluginLogger.Companion.getInstance().logLiveRoomLeave("yyLive");
-            this.curPosition = i;
-            if (!isLoadPlugin) {
-                isLoadPlugin = true;
-                MixEventBus mixEventBus = MixEventBus.getInstance();
-                YYPluginEvent.StartLoadYYPluginEvent startLoadYYPluginEvent = YYPluginEvent.StartLoadYYPluginEvent.INSTANCE;
-                startLoadYYPluginEvent.setUniqueId(getMixUniqueId().getId());
-                mixEventBus.post(startLoadYYPluginEvent);
-            }
-            log("RoomLifrCycle MixLiveShell onLiveSelected ");
-            checkImpl();
-            if (this.yyView == null) {
-                try {
-                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-                    MixLiveInterface mixLiveInterface = this.mixLiveImpl;
-                    if (mixLiveInterface != null) {
-                        view2 = mixLiveInterface.createLiveView(getContext());
-                    } else {
-                        view2 = null;
-                    }
-                    this.yyView = view2;
-                    log("MixLiveShell recreateLiveView " + view2);
-                    if (view2 != null) {
-                        if (view2.getParent() != null) {
-                            if (!Intrinsics.areEqual(view2.getParent(), getLiveContainer())) {
-                                log("onLiveSelected yyView remove old parent");
-                                ViewParent parent = view2.getParent();
-                                if (parent != null) {
-                                    ((ViewGroup) parent).removeView(view2);
-                                    LiveContainer liveContainer = getLiveContainer();
-                                    if (liveContainer != null) {
-                                        liveContainer.addView(view2, layoutParams);
-                                    }
-                                } else {
-                                    throw new TypeCastException("null cannot be cast to non-null type android.view.ViewGroup");
-                                }
-                            }
-                        } else {
-                            LiveContainer liveContainer2 = getLiveContainer();
-                            if (liveContainer2 != null) {
-                                liveContainer2.addView(view2, layoutParams);
-                            }
-                        }
-                    }
-                } catch (Throwable th) {
-                    log("onLiveSelected yyView create crash throwable th: " + th);
-                }
-            }
-            this.isSelected = true;
-            log("RoomLifrCycle MixLiveShell onLiveSelected selectSetTrue :" + this.isSelected);
-            if (hasSelected && (mixLiveItemModel2 = this.mixModel) != null && (extendInfo = mixLiveItemModel2.getExtendInfo()) != null) {
-                extendInfo.remove("firstJump");
-            }
-            if (MiniPluginManager.INSTANCE.isMediaPluginAvailable() && (mixLiveItemModel = this.mixModel) != null && (roomId = mixLiveItemModel.getRoomId()) != null) {
-                MixEventBus mixEventBus2 = MixEventBus.getInstance();
-                MixMediaEvent.YYGoBackPopUp yYGoBackPopUp = new MixMediaEvent.YYGoBackPopUp(roomId);
-                yYGoBackPopUp.setUniqueId(getMixUniqueId().getId());
-                mixEventBus2.post(yYGoBackPopUp);
-            }
-            try {
-                MixLiveInterface mixLiveInterface2 = this.mixLiveImpl;
-                if (mixLiveInterface2 != null) {
-                    MixLiveItemModel mixLiveItemModel3 = this.mixModel;
-                    if (mixLiveItemModel3 == null) {
-                        Intrinsics.throwNpe();
-                    }
-                    mixLiveInterface2.onLiveBindData(mixLiveItemModel3);
-                }
-            } catch (Throwable th2) {
-                log("mixLiveImpl onLiveBindData crash throwable th: " + th2);
-            }
-            try {
-                MixLiveInterface mixLiveInterface3 = this.mixLiveImpl;
-                if (mixLiveInterface3 != null) {
-                    LiveContainer liveContainer3 = getLiveContainer();
-                    if (liveContainer3 == null) {
-                        Intrinsics.throwNpe();
-                    }
-                    MixLiveItemModel mixLiveItemModel4 = this.mixModel;
-                    if (mixLiveItemModel4 == null) {
-                        Intrinsics.throwNpe();
-                    }
-                    mixLiveInterface3.onLiveSelected(i, liveContainer3, mixLiveItemModel4, false);
-                }
-                StringBuilder sb = new StringBuilder();
-                sb.append("MixLiveShell onLiveSelected item=");
-                MixLiveItemModel mixLiveItemModel5 = this.mixModel;
-                if (mixLiveItemModel5 != null) {
-                    str = mixLiveItemModel5.toString();
-                } else {
-                    str = null;
-                }
-                sb.append(str);
-                log(sb.toString());
-            } catch (Throwable th3) {
-                log("mixLiveImpl?.onLiveSelected crash throwable th$ " + th3);
-            }
-            LiveItemModelListService liveItemModelListService = (LiveItemModelListService) ServiceLocator.Companion.getGlobalService(LiveItemModelListService.class);
-            if (liveItemModelListService != null) {
-                List<LiveContainer.LiveItemModel> liveItemModels = liveItemModelListService.getLiveItemModels();
-                if (liveItemModelListService.getCurrentPosition() >= 0 && liveItemModelListService.getCurrentPosition() + 1 < liveItemModels.size()) {
-                    int currentPosition = liveItemModelListService.getCurrentPosition() + 1;
-                    if (!liveItemModels.get(currentPosition).isYYLive() && (imagePipeline = Fresco.getImagePipeline()) != null) {
-                        imagePipeline.prefetchToBitmapCache(ImageRequest.fromUri(liveItemModels.get(currentPosition).getCover()), null);
-                    }
-                }
-            }
-            hasSelected = true;
-            log("MixLiveShell hasSelected " + hasSelected);
+        super.onLiveSelected(i, liveItemModel, z);
+        this.isDetach = false;
+        MediaLivePluginLogger.Companion.getInstance().logLiveRoomLeave("yyLive");
+        this.curPosition = i;
+        if (!isLoadPlugin) {
+            isLoadPlugin = true;
+            MixEventBus mixEventBus = MixEventBus.getInstance();
+            YYPluginEvent.StartLoadYYPluginEvent startLoadYYPluginEvent = YYPluginEvent.StartLoadYYPluginEvent.INSTANCE;
+            startLoadYYPluginEvent.setUniqueId(getMixUniqueId().getId());
+            mixEventBus.post(startLoadYYPluginEvent);
         }
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    public final void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            log("MixLiveShell onPause ");
-            checkImpl();
-            try {
-                MixLiveInterface mixLiveInterface = this.mixLiveImpl;
-                if (mixLiveInterface != null) {
-                    mixLiveInterface.onPause();
+        log("RoomLifrCycle MixLiveShell onLiveSelected ");
+        checkImpl();
+        if (this.yyView == null) {
+            createLiveView();
+        }
+        this.isSelected = true;
+        log("RoomLifrCycle MixLiveShell onLiveSelected selectSetTrue :" + this.isSelected);
+        if (hasSelected && (mixLiveItemModel2 = this.mixModel) != null && (extendInfo = mixLiveItemModel2.getExtendInfo()) != null) {
+            extendInfo.remove("firstJump");
+        }
+        if (MiniPluginManager.INSTANCE.isMediaPluginAvailable() && (mixLiveItemModel = this.mixModel) != null && (roomId = mixLiveItemModel.getRoomId()) != null) {
+            MixEventBus mixEventBus2 = MixEventBus.getInstance();
+            MixMediaEvent.YYGoBackPopUp yYGoBackPopUp = new MixMediaEvent.YYGoBackPopUp(roomId);
+            yYGoBackPopUp.setUniqueId(getMixUniqueId().getId());
+            mixEventBus2.post(yYGoBackPopUp);
+        }
+        syncSelectState();
+        LiveItemModelListService liveItemModelListService = (LiveItemModelListService) ServiceLocator.Companion.getGlobalService(LiveItemModelListService.class);
+        if (liveItemModelListService != null) {
+            List<LiveContainer.LiveItemModel> liveItemModels = liveItemModelListService.getLiveItemModels();
+            if (liveItemModelListService.getCurrentPosition() >= 0 && liveItemModelListService.getCurrentPosition() + 1 < liveItemModels.size()) {
+                int currentPosition = liveItemModelListService.getCurrentPosition() + 1;
+                if (!liveItemModels.get(currentPosition).isYYLive() && (imagePipeline = Fresco.getImagePipeline()) != null) {
+                    imagePipeline.prefetchToBitmapCache(ImageRequest.fromUri(liveItemModels.get(currentPosition).getCover()), null);
                 }
-            } catch (Throwable th) {
-                log("onPause crash throwable th：" + th);
             }
         }
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    public final void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            log("MixLiveShell onResume ");
-            checkImpl();
-            try {
-                MixLiveInterface mixLiveInterface = this.mixLiveImpl;
-                if (mixLiveInterface != null) {
-                    mixLiveInterface.onResume();
-                }
-            } catch (Throwable th) {
-                log("onResume crash throwable th：" + th);
-            }
-        }
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    public final void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            log("MixLiveShell onStart ");
-            checkImpl();
-            try {
-                MixLiveInterface mixLiveInterface = this.mixLiveImpl;
-                if (mixLiveInterface != null) {
-                    mixLiveInterface.onStart();
-                }
-            } catch (Throwable th) {
-                log("onStart crash throwable th： " + th);
-            }
-        }
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-    public final void onStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            log("MixLiveShell onStop ");
-            checkImpl();
-            try {
-                MixLiveInterface mixLiveInterface = this.mixLiveImpl;
-                if (mixLiveInterface != null) {
-                    mixLiveInterface.onStop();
-                }
-            } catch (Throwable th) {
-                log("onStop crash throwable th：" + th);
-            }
-        }
+        hasSelected = true;
+        log("MixLiveShell hasSelected " + hasSelected);
     }
 
     @Override // com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell, com.baidu.live.arch.api.IExtLifecycle
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048596, this, i, strArr, iArr) == null) {
-            super.onRequestPermissionsResult(i, strArr, iArr);
-            log("MixLiveShell onRequestPermissionsResult ");
-            checkImpl();
-            try {
-                MixLiveInterface mixLiveInterface = this.mixLiveImpl;
-                if (mixLiveInterface != null) {
-                    mixLiveInterface.onRequestPermissionsResult(i, strArr, iArr);
-                }
-            } catch (Throwable th) {
-                log("onRequestPermissionsResult crash throwable th：" + th);
+        super.onRequestPermissionsResult(i, strArr, iArr);
+        log("MixLiveShell onRequestPermissionsResult ");
+        checkImpl();
+        try {
+            MixLiveInterface mixLiveInterface = this.mixLiveImpl;
+            if (mixLiveInterface != null) {
+                mixLiveInterface.onRequestPermissionsResult(i, strArr, iArr);
             }
+        } catch (Throwable th) {
+            log("onRequestPermissionsResult crash throwable th：" + th);
         }
     }
 }

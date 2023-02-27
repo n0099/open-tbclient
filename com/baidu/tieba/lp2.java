@@ -1,22 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.core.content.FileProvider;
-import com.baidu.mobstat.Config;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class lp2 {
+public class lp2 extends gn2<xp2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public int d;
+
+    @Override // com.baidu.tieba.gn2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRemoteAudioPlayState" : (String) invokeV.objValue;
+    }
 
     public lp2() {
         Interceptable interceptable = $ic;
@@ -32,21 +36,25 @@ public class lp2 {
         }
     }
 
-    public JSONObject a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gn2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull xp2 xp2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("userId", this.a);
-                jSONObject.put(FileProvider.DISPLAYNAME_FIELD, this.b);
-                jSONObject.put(Config.EVENT_ATTR, this.c);
-                jSONObject.put("role", this.d);
-                return jSONObject;
-            } catch (JSONException unused) {
-                return null;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, xp2Var) == null) {
+            String str = command.what;
+            d(xp2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof JSONObject) {
+                JSONObject jSONObject = (JSONObject) obj;
+                if (jSONObject.has("status") && jSONObject.has("userId")) {
+                    long optLong = jSONObject.optLong("userId", -1L);
+                    boolean optBoolean = jSONObject.optBoolean("status");
+                    if (vp2.a(optLong)) {
+                        xp2Var.p(optLong, optBoolean);
+                    }
+                }
             }
         }
-        return (JSONObject) invokeV.objValue;
     }
 }

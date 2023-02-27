@@ -3,24 +3,21 @@ package com.baidu.tieba;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class p84 {
+public class p84 extends v34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public boolean cancel;
-    @V8JavascriptField
-    public boolean confirm;
+    public String socketTaskId;
 
-    public p84(boolean z) {
+    public p84(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,16 +27,7 @@ public class p84 {
                 return;
             }
         }
-        this.confirm = z;
-        this.cancel = !z;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanGameReloadResult{confirm=" + this.confirm + ", cancel=" + this.cancel + '}';
-        }
-        return (String) invokeV.objValue;
+        this.socketTaskId = str;
+        this.errMsg = str2;
     }
 }

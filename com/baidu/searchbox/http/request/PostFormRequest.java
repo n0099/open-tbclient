@@ -1,12 +1,6 @@
 package com.baidu.searchbox.http.request;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.AbstractHttpManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import okhttp3.FormBody;
@@ -15,155 +9,59 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 /* loaded from: classes2.dex */
 public class PostFormRequest extends HttpParaRequest<PostFormRequestBuilder> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
     public static class PostFormRequestBuilder extends HttpRequestParasBuilder<PostFormRequestBuilder> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public PostFormRequestBuilder(AbstractHttpManager abstractHttpManager) {
             super(abstractHttpManager);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {abstractHttpManager};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((AbstractHttpManager) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
         }
 
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public PostFormRequestBuilder(PostFormRequest postFormRequest) {
             this(postFormRequest, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {postFormRequest};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this((PostFormRequest) objArr2[0], (AbstractHttpManager) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public PostFormRequestBuilder(PostFormRequest postFormRequest, AbstractHttpManager abstractHttpManager) {
             super(postFormRequest, abstractHttpManager);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {postFormRequest, abstractHttpManager};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((HttpParaRequest) objArr2[0], (AbstractHttpManager) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
         public PostFormRequest build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return new PostFormRequest(this);
-            }
-            return (PostFormRequest) invokeV.objValue;
+            return new PostFormRequest(this);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PostFormRequest(PostFormRequestBuilder postFormRequestBuilder) {
         super(postFormRequestBuilder);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {postFormRequestBuilder};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((HttpRequestParasBuilder) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
     }
 
     @Override // com.baidu.searchbox.http.request.HttpRequest
     public Request buildOkRequest(RequestBody requestBody) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) {
-            return this.okRequestBuilder.post(requestBody).build();
-        }
-        return (Request) invokeL.objValue;
+        return this.okRequestBuilder.post(requestBody).build();
     }
 
     @Override // com.baidu.searchbox.http.request.HttpRequest
     public RequestBody buildOkRequestBody() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LinkedHashMap<String, String> linkedHashMap = this.params;
-            if (linkedHashMap != null && !linkedHashMap.isEmpty()) {
-                FormBody.Builder builder = new FormBody.Builder();
-                for (Map.Entry<String, String> entry : this.params.entrySet()) {
-                    builder.add(entry.getKey(), entry.getValue());
-                }
-                return builder.build();
+        LinkedHashMap<String, String> linkedHashMap = this.params;
+        if (linkedHashMap != null && !linkedHashMap.isEmpty()) {
+            FormBody.Builder builder = new FormBody.Builder();
+            for (Map.Entry<String, String> entry : this.params.entrySet()) {
+                builder.add(entry.getKey(), entry.getValue());
             }
-            return RequestBody.create((MediaType) null, new byte[0]);
+            return builder.build();
         }
-        return (RequestBody) invokeV.objValue;
+        return RequestBody.create((MediaType) null, new byte[0]);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.request.HttpRequest
     public PostFormRequestBuilder newBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return new PostFormRequestBuilder(this);
-        }
-        return (PostFormRequestBuilder) invokeV.objValue;
+        return new PostFormRequestBuilder(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.request.HttpRequest
     public PostFormRequestBuilder newBuilder(AbstractHttpManager abstractHttpManager) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, abstractHttpManager)) == null) {
-            return new PostFormRequestBuilder(this, abstractHttpManager);
-        }
-        return (PostFormRequestBuilder) invokeL.objValue;
+        return new PostFormRequestBuilder(this, abstractHttpManager);
     }
 }

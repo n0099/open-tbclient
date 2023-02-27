@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.vivo.push.util.u;
 /* loaded from: classes8.dex */
 public final class n extends Handler {
     public static /* synthetic */ Interceptable $ic;
@@ -39,7 +40,7 @@ public final class n extends Handler {
             Object obj = message.obj;
             if (obj instanceof l) {
                 l lVar = (l) obj;
-                com.vivo.push.util.p.c("PushClientThread", "PushClientThread-handleMessage, task = ".concat(String.valueOf(lVar)));
+                u.c("PushClientThread", "PushClientThread-handleMessage, task = ".concat(String.valueOf(lVar)));
                 lVar.run();
             }
         }

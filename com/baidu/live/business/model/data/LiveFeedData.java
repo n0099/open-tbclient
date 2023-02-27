@@ -1,17 +1,10 @@
 package com.baidu.live.business.model.data;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LiveFeedData {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public LiveBannerWrapData bannerWrapData;
     public int errno;
     public LiveFeedConfig feedConfig;
@@ -25,44 +18,23 @@ public class LiveFeedData {
     public LiveTabWrapData tabWrapData;
     public LiveFeedToolWrapData toolWrapData;
 
-    public LiveFeedData() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public void getDataByCache(int i, String str, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.errno = i;
-            this.msg = str;
-            LiveTabWrapData liveTabWrapData = new LiveTabWrapData();
-            this.tabWrapData = liveTabWrapData;
-            liveTabWrapData.parserJson(null, z, this.errno, z2);
-            LiveFeedConfig liveFeedConfig = new LiveFeedConfig();
-            this.feedConfig = liveFeedConfig;
-            liveFeedConfig.parserJson(null, z, z);
-        }
+        this.errno = i;
+        this.msg = str;
+        LiveTabWrapData liveTabWrapData = new LiveTabWrapData();
+        this.tabWrapData = liveTabWrapData;
+        liveTabWrapData.parserJson(null, z, this.errno, z2);
+        LiveFeedConfig liveFeedConfig = new LiveFeedConfig();
+        this.feedConfig = liveFeedConfig;
+        liveFeedConfig.parserJson(null, z, z);
     }
 
     public void parserJson(JSONObject jSONObject, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{jSONObject, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            parserJson(jSONObject, i, z, false);
-        }
+        parserJson(jSONObject, i, z, false);
     }
 
     public void parserJson(JSONObject jSONObject, int i, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{jSONObject, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || jSONObject == null) {
+        if (jSONObject == null) {
             return;
         }
         this.errno = jSONObject.optInt("errno");

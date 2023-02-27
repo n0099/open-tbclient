@@ -1,117 +1,64 @@
 package com.googlecode.mp4parser.boxes.mp4.samplegrouping;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 /* loaded from: classes8.dex */
 public class TemporalLevelEntry extends GroupEntry {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "tele";
-    public transient /* synthetic */ FieldHolder $fh;
     public boolean levelIndependentlyDecodable;
     public short reserved;
 
-    public TemporalLevelEntry() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // com.googlecode.mp4parser.boxes.mp4.samplegrouping.GroupEntry
     public ByteBuffer get() {
-        InterceptResult invokeV;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ByteBuffer allocate = ByteBuffer.allocate(1);
-            if (this.levelIndependentlyDecodable) {
-                i = 128;
-            } else {
-                i = 0;
-            }
-            allocate.put((byte) i);
-            allocate.rewind();
-            return allocate;
+        ByteBuffer allocate = ByteBuffer.allocate(1);
+        if (this.levelIndependentlyDecodable) {
+            i = 128;
+        } else {
+            i = 0;
         }
-        return (ByteBuffer) invokeV.objValue;
+        allocate.put((byte) i);
+        allocate.rewind();
+        return allocate;
     }
 
     public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ((this.levelIndependentlyDecodable ? 1 : 0) * 31) + this.reserved;
-        }
-        return invokeV.intValue;
+        return ((this.levelIndependentlyDecodable ? 1 : 0) * 31) + this.reserved;
     }
 
     public boolean isLevelIndependentlyDecodable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.levelIndependentlyDecodable;
-        }
-        return invokeV.booleanValue;
+        return this.levelIndependentlyDecodable;
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "TemporalLevelEntry{levelIndependentlyDecodable=" + this.levelIndependentlyDecodable + '}';
-        }
-        return (String) invokeV.objValue;
+        return "TemporalLevelEntry{levelIndependentlyDecodable=" + this.levelIndependentlyDecodable + '}';
     }
 
     public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || TemporalLevelEntry.class != obj.getClass()) {
-                return false;
-            }
-            TemporalLevelEntry temporalLevelEntry = (TemporalLevelEntry) obj;
-            if (this.levelIndependentlyDecodable == temporalLevelEntry.levelIndependentlyDecodable && this.reserved == temporalLevelEntry.reserved) {
-                return true;
-            }
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || TemporalLevelEntry.class != obj.getClass()) {
             return false;
         }
-        return invokeL.booleanValue;
+        TemporalLevelEntry temporalLevelEntry = (TemporalLevelEntry) obj;
+        if (this.levelIndependentlyDecodable == temporalLevelEntry.levelIndependentlyDecodable && this.reserved == temporalLevelEntry.reserved) {
+            return true;
+        }
+        return false;
     }
 
     @Override // com.googlecode.mp4parser.boxes.mp4.samplegrouping.GroupEntry
     public void parse(ByteBuffer byteBuffer) {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, byteBuffer) == null) {
-            if ((byteBuffer.get() & 128) == 128) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.levelIndependentlyDecodable = z;
+        if ((byteBuffer.get() & 128) == 128) {
+            z = true;
+        } else {
+            z = false;
         }
+        this.levelIndependentlyDecodable = z;
     }
 
     public void setLevelIndependentlyDecodable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.levelIndependentlyDecodable = z;
-        }
+        this.levelIndependentlyDecodable = z;
     }
 }

@@ -2,20 +2,25 @@ package com.sdk.j;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.sdk.f.g;
-@SuppressLint({"ApplySharedPref"})
+import com.sdk.f.f;
+import java.security.MessageDigest;
+import java.util.Stack;
 /* loaded from: classes8.dex */
-public class a {
+public class a extends com.sdk.i.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.j.a";
-    public static final Boolean b;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,78 +36,195 @@ public class a {
                 return;
             }
         }
-        b = Boolean.valueOf(g.b);
+        b = f.a;
+        new Stack();
     }
 
-    public static void a(Context context, String str) {
+    @SuppressLint({"NewApi"})
+    public static int a() {
+        int i;
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
-            SharedPreferences sharedPreferences = context.getSharedPreferences("ZzxCache", 0);
-            SharedPreferences.Editor edit = sharedPreferences.edit();
-            for (String str2 : sharedPreferences.getAll().keySet()) {
-                if (str2.startsWith(str)) {
-                    edit.remove(str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                i = Build.VERSION.SDK_INT;
+            } catch (Exception e) {
+                e = e;
+                i = -1;
+            }
+            try {
+                com.sdk.o.a.a("android ：", String.valueOf(i), Boolean.valueOf(b));
+            } catch (Exception e2) {
+                e = e2;
+                com.sdk.o.a.a(a, e.getMessage(), Boolean.valueOf(b));
+                return i;
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (context == null) {
+                com.sdk.i.a.a(a, "getAppLable", "mContext 为空", b);
+                return null;
+            }
+            try {
+                PackageManager packageManager = context.getPackageManager();
+                return packageManager.getApplicationLabel(packageManager.getApplicationInfo(context.getPackageName(), 128)).toString();
+            } catch (Exception e) {
+                com.sdk.o.a.a(a, e.getMessage(), Boolean.valueOf(b));
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String a(byte[] bArr, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str)) == null) {
+            MessageDigest messageDigest = MessageDigest.getInstance(str);
+            messageDigest.update(bArr);
+            byte[] digest = messageDigest.digest();
+            String str2 = "";
+            for (int i = 0; i < digest.length; i++) {
+                if (i != 0) {
+                    str2 = str2 + ":";
                 }
+                String hexString = Integer.toHexString(digest[i] & 255);
+                if (hexString.length() == 1) {
+                    str2 = str2 + "0";
+                }
+                str2 = str2 + hexString;
             }
-            edit.commit();
-        }
-    }
-
-    public static void a(Context context, String str, Long l) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, context, str, l) == null) {
-            try {
-                SharedPreferences.Editor edit = context.getSharedPreferences("ZzxCache", 0).edit();
-                edit.putLong(str, l.longValue());
-                edit.commit();
-            } catch (Exception e) {
-                com.sdk.n.a.a(a, e.getMessage(), b);
-            }
-        }
-    }
-
-    public static boolean a(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) {
-            try {
-                SharedPreferences.Editor edit = context.getSharedPreferences("ZzxCache", 0).edit();
-                edit.putString(str, str2);
-                return edit.commit();
-            } catch (Exception e) {
-                com.sdk.n.a.a(a, e.getMessage(), b);
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static Long b(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            long j = 0;
-            try {
-                j = context.getSharedPreferences("ZzxCache", 0).getLong(str, 0L);
-            } catch (Exception e) {
-                com.sdk.n.a.a(a, e.getMessage(), b);
-            }
-            return Long.valueOf(j);
-        }
-        return (Long) invokeLL.objValue;
-    }
-
-    public static String c(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
-            try {
-                return context.getSharedPreferences("ZzxCache", 0).getString(str, "");
-            } catch (Exception e) {
-                com.sdk.n.a.a(a, e.getMessage(), b);
-                return "";
-            }
+            return str2;
         }
         return (String) invokeLL.objValue;
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        PackageInfo packageInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            try {
+                packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 64);
+            } catch (PackageManager.NameNotFoundException e) {
+                com.sdk.o.a.a(a, e.getMessage(), Boolean.valueOf(b));
+                packageInfo = null;
+            }
+            if (packageInfo != null) {
+                int i = packageInfo.applicationInfo.flags;
+                try {
+                    return a(packageInfo.signatures[0].toByteArray(), "MD5");
+                } catch (Exception e2) {
+                    com.sdk.o.a.a(a, e2.getMessage(), Boolean.valueOf(b));
+                    return null;
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            if (context == null) {
+                com.sdk.o.a.c(a, "mContext 为空", Boolean.valueOf(b));
+                return null;
+            }
+            try {
+                return context.getPackageName();
+            } catch (Exception e) {
+                com.sdk.o.a.a(a, e.getMessage(), Boolean.valueOf(b));
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            if (context == null) {
+                return -1;
+            }
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(c(context), 1);
+                if (packageInfo != null) {
+                    return packageInfo.versionCode;
+                }
+                return -1;
+            } catch (Exception e) {
+                com.sdk.o.a.a(a, e.getMessage(), Boolean.valueOf(b));
+                return -1;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public static String e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+                if (packageInfo != null) {
+                    return packageInfo.versionName;
+                }
+                return null;
+            } catch (Exception e) {
+                com.sdk.o.a.a(a, e.getMessage(), Boolean.valueOf(b));
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0047  */
+    /* JADX WARN: Removed duplicated region for block: B:27:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String a(Context context, String str) {
+        InterceptResult invokeLL;
+        Object obj;
+        String str2;
+        ApplicationInfo applicationInfo;
+        Bundle bundle;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            if (context != null && !com.sdk.o.a.a(str).booleanValue()) {
+                try {
+                    applicationInfo = context.getPackageManager().getApplicationInfo(c(context), 128);
+                } catch (Exception e) {
+                    com.sdk.o.a.b(a, e.getMessage(), Boolean.valueOf(b));
+                }
+                if (applicationInfo != null && (bundle = applicationInfo.metaData) != null) {
+                    obj = bundle.get(str);
+                    str2 = (String) obj;
+                    if (!com.sdk.o.a.a(str2).booleanValue()) {
+                        return com.sdk.v.a.c;
+                    }
+                    return str2;
+                }
+            }
+            obj = null;
+            str2 = (String) obj;
+            if (!com.sdk.o.a.a(str2).booleanValue()) {
+            }
+        } else {
+            return (String) invokeLL.objValue;
+        }
     }
 }

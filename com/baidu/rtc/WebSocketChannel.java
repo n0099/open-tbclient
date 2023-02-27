@@ -5,9 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.net.MailTo;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobstat.Config;
@@ -1007,7 +1005,7 @@ public class WebSocketChannel {
                         janusTransaction3.success.success(jSONObject);
                     }
                     this.ackTransactions.remove(optString5);
-                } else if (optString.equals(a.O)) {
+                } else if (optString.equals("timeout")) {
                     this.mHandler.removeCallbacks(this.fireKeepAlive);
                     this.keepAliveTimer.removeCallbacks(this.serverKeepAliveTimeout);
                     if (this.mIsEnableErrorInfoMonitor) {
@@ -2399,6 +2397,27 @@ public class WebSocketChannel {
         }
     }
 
+    public void trickleCandidate(BigInteger bigInteger, IceCandidate iceCandidate) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048630, this, bigInteger, iceCandidate) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject.putOpt("candidate", iceCandidate.sdp);
+                jSONObject.putOpt("sdpMid", iceCandidate.sdpMid);
+                jSONObject.putOpt("sdpMLineIndex", Integer.valueOf(iceCandidate.sdpMLineIndex));
+                jSONObject2.putOpt("janus", "trickle");
+                jSONObject2.putOpt("candidate", jSONObject);
+                jSONObject2.putOpt("transaction", randomString(12));
+                jSONObject2.putOpt("session_id", this.mSessionId);
+                jSONObject2.putOpt("handle_id", bigInteger);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            sendMessage(jSONObject2);
+        }
+    }
+
     public void sendMessageToUser(String str, long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{str, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
@@ -2472,7 +2491,7 @@ public class WebSocketChannel {
                 jSONObject.putOpt("request", "senddata");
                 jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
                 jSONObject.putOpt("id", Long.valueOf(this.mUserId));
-                jSONObject.putOpt(MailTo.TO, Long.valueOf(j));
+                jSONObject.putOpt("to", Long.valueOf(j));
                 jSONObject.putOpt("data", str);
                 jSONObject.putOpt("internal", Boolean.valueOf(z));
                 jSONObject2.putOpt("janus", "message");
@@ -2770,27 +2789,6 @@ public class WebSocketChannel {
                 e.printStackTrace();
             }
             sendMessage(jSONObject);
-        }
-    }
-
-    public void trickleCandidate(BigInteger bigInteger, IceCandidate iceCandidate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048630, this, bigInteger, iceCandidate) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject.putOpt("candidate", iceCandidate.sdp);
-                jSONObject.putOpt("sdpMid", iceCandidate.sdpMid);
-                jSONObject.putOpt("sdpMLineIndex", Integer.valueOf(iceCandidate.sdpMLineIndex));
-                jSONObject2.putOpt("janus", "trickle");
-                jSONObject2.putOpt("candidate", jSONObject);
-                jSONObject2.putOpt("transaction", randomString(12));
-                jSONObject2.putOpt("session_id", this.mSessionId);
-                jSONObject2.putOpt("handle_id", bigInteger);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            sendMessage(jSONObject2);
         }
     }
 }

@@ -7,8 +7,8 @@ import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.ou8;
-import com.baidu.tieba.ug5;
+import com.baidu.tieba.ay8;
+import com.baidu.tieba.hi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ChatRoomDispatcher implements ou8 {
+public class ChatRoomDispatcher implements ay8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OPEN_GROUPCHAT_SCHEME = "com.baidu.tieba://unidispatch/router/portal";
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public class ChatRoomDispatcher implements ou8 {
         return (JSONObject) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ou8
+    @Override // com.baidu.tieba.ay8
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) {
@@ -67,7 +67,7 @@ public class ChatRoomDispatcher implements ou8 {
             if (!ViewHelper.checkUpIsLoginFromH5(loginActivityConfig)) {
                 return;
             }
-            ug5.a().a(context, optLong, -1, optString);
+            hi5.a().a(context, optLong, -1, optString);
         }
     }
 }

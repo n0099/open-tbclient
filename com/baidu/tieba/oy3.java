@@ -1,137 +1,72 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class oy3 {
+public class oy3 extends py3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.py3
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            if (context == null) {
-                return false;
-            }
-            try {
-                if (context.getPackageManager() == null) {
-                    return false;
-                }
-                context.getPackageManager().getPackageInfo(str, 0);
-                return true;
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
-    public static boolean c(String str, boolean z) {
-        InterceptResult invokeLZ;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oy3(Context context, ny3 ny3Var) {
+        super(context, ny3Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, str, z)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                return b(AppRuntime.getAppContext(), new File(str), z);
-            } catch (Exception unused) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, ny3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (ny3) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeLZ.booleanValue;
+        this.q = SpeedStatsUtils.UBC_VALUE_BANNER;
+        this.r = PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK;
+        this.s = "MSSP,ANTI,NMON";
+        this.t = "LP,DL";
     }
 
-    public static boolean b(Context context, File file, boolean z) {
-        InterceptResult invokeLLZ;
+    @Override // com.baidu.tieba.py3
+    public HashMap<String, String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, context, file, z)) == null) {
-            if (context != null && file != null && file.isFile() && file.exists()) {
-                Intent intent = new Intent("android.intent.action.VIEW");
-                try {
-                    intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
-                    intent.setFlags(1342177280);
-                    intent.putExtra("android.intent.extra.INSTALLER_PACKAGE_NAME", context.getPackageName());
-                    if (z) {
-                        intent.putExtra("android.intent.extra.RETURN_RESULT", true);
-                    }
-                    if (!py3.m()) {
-                        intent.setComponent(new ComponentName("com.android.packageinstaller", "com.android.packageinstaller.PackageInstallerActivity"));
-                    }
-                    e(context, file, intent);
-                    context.startActivity(intent);
-                } catch (Exception unused) {
-                    intent.setComponent(null);
-                    e(context, file, intent);
-                    try {
-                        context.startActivity(intent);
-                    } catch (Exception unused2) {
-                    }
-                }
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            HashMap<String, String> hashMap = new HashMap<>();
+            hashMap.put("act", this.t);
+            hashMap.put("prod", this.q);
+            hashMap.put("at", this.r);
+            hashMap.put("fet", this.s);
+            if (this.i != null) {
+                hashMap.put("w", "" + this.i.d());
+                hashMap.put("h", "" + this.i.a());
             }
-            return false;
+            return hashMap;
         }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static String d(Context context, @NonNull String str) {
-        InterceptResult invokeLL;
-        PackageInfo packageArchiveInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            File file = new File(str);
-            if (file.exists() && (packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(file.getAbsolutePath(), 1)) != null) {
-                return packageArchiveInfo.packageName;
-            }
-            return "";
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean e(Context context, File file, Intent intent) {
-        InterceptResult invokeLLL;
-        ActivityInfo activityInfo;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, file, intent)) == null) {
-            if (py3.m()) {
-                try {
-                    Uri l = ox3.b().l(context, file);
-                    if (l == null) {
-                        return false;
-                    }
-                    intent.setDataAndType(l, intent.getType());
-                    List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-                    if (queryIntentActivities == null) {
-                        return true;
-                    }
-                    for (ResolveInfo resolveInfo : queryIntentActivities) {
-                        if (resolveInfo != null && (activityInfo = resolveInfo.activityInfo) != null && (str = activityInfo.packageName) != null) {
-                            context.grantUriPermission(str, l, 1);
-                        }
-                    }
-                } catch (IllegalArgumentException unused) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLLL.booleanValue;
+        return (HashMap) invokeV.objValue;
     }
 }

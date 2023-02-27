@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.media.MediaSessionManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.m80;
+import com.baidu.tieba.q80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -86,7 +86,7 @@ public class MediaChatMessageCloudManager implements IMediaChatMessageCloudManag
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 creatMethodIntent.putExtra(Constants.EXTRA_FROM_MEDIA, true);
                 try {
-                    m80.e(this.mContext).d(this.mContext, creatMethodIntent);
+                    q80.e(this.mContext).d(this.mContext, creatMethodIntent);
                 } catch (Exception e) {
                     LogUtils.e(TAG, "Exception ", e);
                 }
@@ -126,7 +126,7 @@ public class MediaChatMessageCloudManager implements IMediaChatMessageCloudManag
                 creatMethodIntent.putExtra(Constants.EXTRA_SCREEN_KEY, fetchMsgParam.getScreenKey());
                 creatMethodIntent.putExtra(Constants.EXTRA_BC_FETCH_TRIGGER_REASON, fetchMsgParam.getFetchTriggerReason());
                 try {
-                    m80.e(this.mContext).d(this.mContext, creatMethodIntent);
+                    q80.e(this.mContext).d(this.mContext, creatMethodIntent);
                 } catch (Exception e) {
                     fetchMsgParam.onRequestResult(6, "start service exception", new FetchMsgResponse());
                     LogUtils.e(TAG, "Exception ", e);
@@ -146,10 +146,10 @@ public class MediaChatMessageCloudManager implements IMediaChatMessageCloudManag
             if (chatMsg != null && chatMsg.getCategory() >= 0) {
                 Intent creatMethodIntent = Utility.creatMethodIntent(this.mContext, 55);
                 creatMethodIntent.putExtra(Constants.EXTRA_FROM_MEDIA, true);
-                creatMethodIntent.putExtra(Constants.EXTRA_PARAM, sendMsgParam);
+                creatMethodIntent.putExtra("param", sendMsgParam);
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, ListenerManager.getInstance().addListener(sendMsgParam.getRequestCallBack()));
                 try {
-                    m80.e(this.mContext).d(this.mContext, creatMethodIntent);
+                    q80.e(this.mContext).d(this.mContext, creatMethodIntent);
                     return;
                 } catch (Exception e) {
                     sendMsgParam.onRequestResult(6, "send msg failed", null);

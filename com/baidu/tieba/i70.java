@@ -1,29 +1,35 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.internal.Util;
+import com.baidu.tieba.n70;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.net.Proxy;
-import java.net.ProxySelector;
-import java.net.SocketAddress;
-import java.net.URI;
-import java.util.Collections;
-import java.util.List;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Iterator;
+import java.util.concurrent.Executor;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
-public class i70 extends ProxySelector {
+public final class i70 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // java.net.ProxySelector
-    public void connectFailed(URI uri, SocketAddress socketAddress, IOException iOException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, uri, socketAddress, iOException) == null) {
-        }
-    }
+    public int a;
+    public int b;
+    @Nullable
+    public Runnable c;
+    @Nullable
+    public Executor d;
+    public final Deque<n70.a> e;
+    public final Deque<n70.a> f;
+    public final Deque<n70> g;
 
     public i70() {
         Interceptable interceptable = $ic;
@@ -35,20 +41,158 @@ public class i70 extends ProxySelector {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 64;
+        this.b = 5;
+        this.e = new ArrayDeque();
+        this.f = new ArrayDeque();
+        this.g = new ArrayDeque();
+    }
+
+    public synchronized Executor c() {
+        InterceptResult invokeV;
+        Executor executor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                if (this.d == null) {
+                    this.d = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BaiduNetwork Dispatcher", false));
+                }
+                executor = this.d;
+            }
+            return executor;
+        }
+        return (Executor) invokeV.objValue;
+    }
+
+    public i70(Executor executor) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {executor};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 64;
+        this.b = 5;
+        this.e = new ArrayDeque();
+        this.f = new ArrayDeque();
+        this.g = new ArrayDeque();
+        this.d = executor;
+    }
+
+    public synchronized void a(n70.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            synchronized (this) {
+                if (this.f.size() < this.a && i(aVar) < this.b) {
+                    this.f.add(aVar);
+                    c().execute(aVar);
+                } else {
+                    this.e.add(aVar);
+                }
             }
         }
     }
 
-    @Override // java.net.ProxySelector
-    public List<Proxy> select(URI uri) {
+    public final int i(n70.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
-            if (uri != null) {
-                return Collections.singletonList(Proxy.NO_PROXY);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar)) == null) {
+            int i = 0;
+            for (n70.a aVar2 : this.f) {
+                if (!aVar2.b().c && aVar2.c().equals(aVar.c())) {
+                    i++;
+                }
             }
-            throw new IllegalArgumentException("uri must not be null");
+            return i;
         }
-        return (List) invokeL.objValue;
+        return invokeL.intValue;
+    }
+
+    public synchronized void b(n70 n70Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n70Var) == null) {
+            synchronized (this) {
+                this.g.add(n70Var);
+            }
+        }
+    }
+
+    public void d(n70.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            f(this.f, aVar, true);
+        }
+    }
+
+    public void e(n70 n70Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, n70Var) == null) {
+            f(this.g, n70Var, false);
+        }
+    }
+
+    public final <T> void f(Deque<T> deque, T t, boolean z) {
+        int h;
+        Runnable runnable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048581, this, deque, t, z) == null) {
+            synchronized (this) {
+                if (deque.remove(t)) {
+                    if (z) {
+                        g();
+                    }
+                    h = h();
+                    runnable = this.c;
+                } else {
+                    throw new AssertionError("Call wasn't in-flight!");
+                }
+            }
+            if (h == 0 && runnable != null) {
+                runnable.run();
+            }
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.f.size() >= this.a || this.e.isEmpty()) {
+            return;
+        }
+        Iterator<n70.a> it = this.e.iterator();
+        while (it.hasNext()) {
+            n70.a next = it.next();
+            if (i(next) < this.b) {
+                it.remove();
+                this.f.add(next);
+                c().execute(next);
+            }
+            if (this.f.size() >= this.a) {
+                return;
+            }
+        }
+    }
+
+    public synchronized int h() {
+        InterceptResult invokeV;
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                size = this.f.size() + this.g.size();
+            }
+            return size;
+        }
+        return invokeV.intValue;
     }
 }

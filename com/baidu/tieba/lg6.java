@@ -1,6 +1,9 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,70 +11,60 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class lg6 {
+public class lg6 extends mg6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId P0;
+    public static final BdUniqueId Q0;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<? extends jg6> a;
-    public List<? extends Object> b;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947941966, "Lcom/baidu/tieba/lg6;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947941966, "Lcom/baidu/tieba/lg6;");
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final boolean a;
-
-        public a(boolean z, int i) {
-            Interceptable interceptable = $ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947941966, "Lcom/baidu/tieba/lg6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = z;
-        }
-
-        public final boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947941966, "Lcom/baidu/tieba/lg6;");
+                return;
             }
-            return invokeV.booleanValue;
         }
+        P0 = BdUniqueId.gen();
+        Q0 = BdUniqueId.gen();
     }
 
-    public lg6() {
+    @Override // com.baidu.tieba.mg6, com.baidu.tieba.eg6, com.baidu.tieba.zx4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.mg6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ThreadData threadData = this.a;
+            if (threadData != null && threadData.getThreadType() == 67) {
+                return Q0;
+            }
+            return P0;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public lg6(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {threadData};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -81,70 +74,37 @@ public final class lg6 {
                 return;
             }
         }
-        this.a = CollectionsKt__CollectionsKt.emptyList();
-        this.b = CollectionsKt__CollectionsKt.emptyList();
+        this.a = threadData;
     }
 
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.util.List<? extends com.baidu.tieba.jg6>, java.util.List<com.baidu.tieba.jg6> */
-    public final List<jg6> b() {
-        InterceptResult invokeV;
+    public StatisticItem Z(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            StatisticItem f = f(str);
+            f.delete("obj_type");
+            f.delete("obj_type");
+            f.param("obj_type", 3);
+            return f;
         }
-        return (List) invokeV.objValue;
+        return (StatisticItem) invokeL.objValue;
     }
 
-    public final List<Object> c() {
-        InterceptResult invokeV;
+    public static boolean W(ThreadData threadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final a a(sf6 item, vh6 timer, mf6 config) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(timer, "timer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            Iterator<? extends jg6> it = this.a.iterator();
-            int i = 0;
-            boolean z = false;
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                jg6 next = it.next();
-                boolean b = next.b(item, timer, config);
-                if (b) {
-                    i = next.a();
-                    z = b;
-                    break;
-                }
-                z = b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
+            if (threadData == null) {
+                return false;
             }
-            return new a(z, i);
+            if (threadData.getThreadType() == 49 || threadData.getThreadType() == 69) {
+                return true;
+            }
+            if (threadData.getThreadType() != 67 || threadData.getThreadAlaInfo() == null || threadData.getThreadAlaInfo().friendRoomStatus != 2) {
+                return false;
+            }
+            return true;
         }
-        return (a) invokeLLL.objValue;
-    }
-
-    public final void d(List<? extends jg6> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            Intrinsics.checkNotNullParameter(list, "<set-?>");
-            this.a = list;
-        }
-    }
-
-    public final void e(List<? extends Object> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            Intrinsics.checkNotNullParameter(list, "<set-?>");
-            this.b = list;
-        }
+        return invokeL.booleanValue;
     }
 }

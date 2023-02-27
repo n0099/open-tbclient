@@ -19,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.huawei.hms.common.internal.TransactionIdCreater;
 import com.ss.android.download.api.config.n;
 import com.ss.android.download.api.download.DownloadModel;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
@@ -33,7 +34,7 @@ import org.json.JSONObject;
 public class l {
     public static Object[] b = new Object[0];
     public static Object[] c = new Object[73];
-    public static final char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] a = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     public static String d = null;
 
     public static boolean a() {

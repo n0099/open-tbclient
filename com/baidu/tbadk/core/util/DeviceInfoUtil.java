@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 /* loaded from: classes3.dex */
 public class DeviceInfoUtil {
     public static /* synthetic */ Interceptable $ic;
@@ -225,7 +226,7 @@ public class DeviceInfoUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             try {
-                Class<?> cls = Class.forName("android.os.SystemProperties");
+                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
                 String str3 = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str);
                 if (TextUtils.isEmpty(str3)) {
                     return str2;

@@ -1,120 +1,72 @@
 package com.baidu.ugc.audioedit;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tt9;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.qx9;
 import org.vinuxproject.sonic.Sonic;
 /* loaded from: classes7.dex */
-public class AudioSpeedOperator implements tt9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public class AudioSpeedOperator implements qx9 {
     public Sonic mSonic;
 
-    public AudioSpeedOperator() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.tt9
+    @Override // com.baidu.tieba.qx9
     public int availableBytes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Sonic sonic = this.mSonic;
-            if (sonic != null) {
-                return sonic.a();
-            }
-            return 0;
+        Sonic sonic = this.mSonic;
+        if (sonic != null) {
+            return sonic.a();
         }
-        return invokeV.intValue;
+        return 0;
     }
 
-    @Override // com.baidu.tieba.tt9
+    @Override // com.baidu.tieba.qx9
     public void close() {
-        Sonic sonic;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (sonic = this.mSonic) != null) {
+        Sonic sonic = this.mSonic;
+        if (sonic != null) {
             sonic.b();
         }
     }
 
-    @Override // com.baidu.tieba.tt9
+    @Override // com.baidu.tieba.qx9
     public void flush() {
-        Sonic sonic;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (sonic = this.mSonic) != null) {
+        Sonic sonic = this.mSonic;
+        if (sonic != null) {
             sonic.c();
         }
     }
 
-    @Override // com.baidu.tieba.tt9
+    @Override // com.baidu.tieba.qx9
     public byte[] getOutPutBytes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int availableBytes = availableBytes();
-            byte[] bArr = new byte[availableBytes];
-            receiveBytes(bArr, availableBytes);
-            return bArr;
-        }
-        return (byte[]) invokeV.objValue;
+        int availableBytes = availableBytes();
+        byte[] bArr = new byte[availableBytes];
+        receiveBytes(bArr, availableBytes);
+        return bArr;
     }
 
-    @Override // com.baidu.tieba.tt9
+    @Override // com.baidu.tieba.qx9
     public void init(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            this.mSonic = new Sonic(i, i2);
-        }
+        this.mSonic = new Sonic(i, i2);
     }
 
-    @Override // com.baidu.tieba.tt9
+    @Override // com.baidu.tieba.qx9
     public boolean putBytes(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, bArr, i)) == null) {
-            Sonic sonic = this.mSonic;
-            if (sonic != null) {
-                sonic.d(bArr, i);
-                return true;
-            }
-            return false;
+        Sonic sonic = this.mSonic;
+        if (sonic != null) {
+            sonic.d(bArr, i);
+            return true;
         }
-        return invokeLI.booleanValue;
+        return false;
     }
 
-    @Override // com.baidu.tieba.tt9
+    @Override // com.baidu.tieba.qx9
     public int receiveBytes(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, bArr, i)) == null) {
-            Sonic sonic = this.mSonic;
-            if (sonic != null) {
-                return sonic.e(bArr, i);
-            }
-            return 0;
+        Sonic sonic = this.mSonic;
+        if (sonic != null) {
+            return sonic.e(bArr, i);
         }
-        return invokeLI.intValue;
+        return 0;
     }
 
-    @Override // com.baidu.tieba.tt9
+    @Override // com.baidu.tieba.qx9
     public void setSpeed(float f) {
-        Sonic sonic;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048583, this, f) == null) && (sonic = this.mSonic) != null) {
+        Sonic sonic = this.mSonic;
+        if (sonic != null) {
             sonic.f(f);
         }
     }

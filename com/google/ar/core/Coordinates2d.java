@@ -1,107 +1,32 @@
 package com.google.ar.core;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public final class Coordinates2d {
-    public static final /* synthetic */ Coordinates2d[] $VALUES;
-    public static /* synthetic */ Interceptable $ic;
-    public static final Coordinates2d IMAGE_NORMALIZED;
-    public static final Coordinates2d IMAGE_PIXELS;
-    public static final Coordinates2d OPENGL_NORMALIZED_DEVICE_COORDINATES;
-    public static final Coordinates2d TEXTURE_NORMALIZED;
-    public static final Coordinates2d TEXTURE_TEXELS;
-    public static final Coordinates2d VIEW;
-    public static final Coordinates2d VIEW_NORMALIZED;
-    public transient /* synthetic */ FieldHolder $fh;
+public enum Coordinates2d {
+    TEXTURE_TEXELS(0),
+    TEXTURE_NORMALIZED(1),
+    IMAGE_PIXELS(2),
+    IMAGE_NORMALIZED(3),
+    OPENGL_NORMALIZED_DEVICE_COORDINATES(6),
+    VIEW(7),
+    VIEW_NORMALIZED(8);
+    
     public final int nativeCode;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2124598372, "Lcom/google/ar/core/Coordinates2d;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-2124598372, "Lcom/google/ar/core/Coordinates2d;");
-                return;
-            }
-        }
-        TEXTURE_TEXELS = new Coordinates2d("TEXTURE_TEXELS", 0, 0);
-        TEXTURE_NORMALIZED = new Coordinates2d("TEXTURE_NORMALIZED", 1, 1);
-        IMAGE_PIXELS = new Coordinates2d("IMAGE_PIXELS", 2, 2);
-        IMAGE_NORMALIZED = new Coordinates2d("IMAGE_NORMALIZED", 3, 3);
-        OPENGL_NORMALIZED_DEVICE_COORDINATES = new Coordinates2d("OPENGL_NORMALIZED_DEVICE_COORDINATES", 4, 6);
-        VIEW = new Coordinates2d("VIEW", 5, 7);
-        Coordinates2d coordinates2d = new Coordinates2d("VIEW_NORMALIZED", 6, 8);
-        VIEW_NORMALIZED = coordinates2d;
-        $VALUES = new Coordinates2d[]{TEXTURE_TEXELS, TEXTURE_NORMALIZED, IMAGE_PIXELS, IMAGE_NORMALIZED, OPENGL_NORMALIZED_DEVICE_COORDINATES, VIEW, coordinates2d};
-    }
-
-    public Coordinates2d(String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                String str2 = (String) objArr2[0];
-                ((Integer) objArr2[1]).intValue();
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.nativeCode = i2;
+    Coordinates2d(int i) {
+        this.nativeCode = i;
     }
 
     public static Coordinates2d forNumber(int i) {
-        InterceptResult invokeI;
         Coordinates2d[] values;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            for (Coordinates2d coordinates2d : values()) {
-                if (coordinates2d.nativeCode == i) {
-                    return coordinates2d;
-                }
+        for (Coordinates2d coordinates2d : values()) {
+            if (coordinates2d.nativeCode == i) {
+                return coordinates2d;
             }
-            StringBuilder sb = new StringBuilder(60);
-            sb.append("Unexpected value for native Coordinates2d, value=");
-            sb.append(i);
-            throw new FatalException(sb.toString());
         }
-        return (Coordinates2d) invokeI.objValue;
-    }
-
-    public static Coordinates2d valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return (Coordinates2d) Enum.valueOf(Coordinates2d.class, str);
-        }
-        return (Coordinates2d) invokeL.objValue;
-    }
-
-    public static Coordinates2d[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return (Coordinates2d[]) $VALUES.clone();
-        }
-        return (Coordinates2d[]) invokeV.objValue;
+        StringBuilder sb = new StringBuilder(60);
+        sb.append("Unexpected value for native Coordinates2d, value=");
+        sb.append(i);
+        throw new FatalException(sb.toString());
     }
 }

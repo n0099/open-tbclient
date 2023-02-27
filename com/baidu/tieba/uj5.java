@@ -1,237 +1,81 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.GuildActivityConfig;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.pageInfo.TbPageTag;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.mutiprocess.soloader.SoLoaderEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class uj5 {
+public class uj5 extends zk1<nm> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static StatisticItem a(StatisticItem statisticItem, TbPageTag tbPageTag) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, statisticItem, tbPageTag)) == null) {
-            if (tbPageTag != null && statisticItem != null) {
-                if (!TextUtils.isEmpty(tbPageTag.locatePage)) {
-                    if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
-                        statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
-                    }
-                    statisticItem.param(TiebaStatic.Params.OBJ_TAB, tbPageTag.locatePage);
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b implements nm {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                statisticItem.param("sort_tab", tbPageTag.sortType);
-                return statisticItem;
             }
-            return null;
         }
-        return (StatisticItem) invokeLL.objValue;
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.nm
+        public void a(@NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                SoLoaderEvent soLoaderEvent = new SoLoaderEvent();
+                soLoaderEvent.name = str;
+                yi5.i(soLoaderEvent);
+            }
+        }
     }
 
-    public static StatisticItem h(Context context, StatisticItem statisticItem) {
-        InterceptResult invokeLL;
+    public uj5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, statisticItem)) == null) {
-            if (context != null && statisticItem != null) {
-                TbPageTag l = l(context);
-                if (l != null) {
-                    if (!TextUtils.isEmpty(l.locatePage)) {
-                        if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
-                            statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
-                        }
-                        statisticItem.param(TiebaStatic.Params.OBJ_TAB, l.locatePage);
-                    }
-                    statisticItem.param("sort_tab", l.sortType);
-                }
-                return statisticItem;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return null;
         }
-        return (StatisticItem) invokeLL.objValue;
     }
 
-    public static StatisticItem b(Context context, StatisticItem statisticItem) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zk1
+    /* renamed from: a */
+    public nm createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, statisticItem)) == null) {
-            if (context != null && statisticItem != null) {
-                return c(statisticItem, j(context));
-            }
-            return statisticItem;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new b(null);
         }
-        return (StatisticItem) invokeLL.objValue;
-    }
-
-    public static StatisticItem c(StatisticItem statisticItem, tj5 tj5Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, statisticItem, tj5Var)) == null) {
-            if (tj5Var != null && statisticItem != null) {
-                return d(statisticItem, tj5Var.b(), tj5Var.a());
-            }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeLL.objValue;
-    }
-
-    public static StatisticItem e(Context context, StatisticItem statisticItem) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, statisticItem)) == null) {
-            if (context != null && statisticItem != null) {
-                return f(statisticItem, j(context));
-            }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeLL.objValue;
-    }
-
-    public static StatisticItem f(StatisticItem statisticItem, tj5 tj5Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, statisticItem, tj5Var)) == null) {
-            if (tj5Var != null && statisticItem != null) {
-                return g(statisticItem, tj5Var.b(), tj5Var.a());
-            }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeLL.objValue;
-    }
-
-    public static StatisticItem d(StatisticItem statisticItem, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, statisticItem, tbPageTag, tbPageTag2)) == null) {
-            if (statisticItem == null) {
-                return null;
-            }
-            if (tbPageTag2 != null) {
-                if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
-                    if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
-                        statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
-                    }
-                    statisticItem.param(TiebaStatic.Params.OBJ_TAB, tbPageTag2.locatePage);
-                }
-                statisticItem.param("sort_tab", tbPageTag2.sortType);
-            }
-            if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
-                statisticItem.param(GuildActivityConfig.FROM_PAGE, tbPageTag.locatePage);
-            }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeLLL.objValue;
-    }
-
-    public static StatisticItem g(StatisticItem statisticItem, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, statisticItem, tbPageTag, tbPageTag2)) == null) {
-            if (statisticItem == null) {
-                return null;
-            }
-            if (tbPageTag2 != null) {
-                if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PAGE, tbPageTag2.locatePage);
-                }
-                statisticItem.param("sort_tab", tbPageTag2.sortType);
-            }
-            if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
-                if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
-                    statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
-                }
-                statisticItem.param(TiebaStatic.Params.OBJ_TAB, tbPageTag.locatePage);
-            }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeLLL.objValue;
-    }
-
-    public static StatisticItem i(Context context, ThreadData threadData, String str) {
-        InterceptResult invokeLLL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, threadData, str)) == null) {
-            if (context != null && threadData != null && !StringUtils.isNull(str)) {
-                StatisticItem statisticItem = new StatisticItem(str);
-                statisticItem.param("tid", threadData.getId()).param("fid", threadData.getFid()).param("thread_type", threadData.getThreadType()).param("card_type", threadData.getRecomCardType()).param("nid", threadData.getNid());
-                if (threadData.getBaijiahaoData() != null && !dj.isEmpty(threadData.getBaijiahaoData().oriUgcVid)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
-                }
-                StatisticItem param = statisticItem.param("weight", threadData.mRecomWeight).param("ab_tag", threadData.mRecomAbTag).param("extra", threadData.mRecomExtra);
-                if (threadData.isSubPb) {
-                    str2 = "2";
-                } else {
-                    str2 = "1";
-                }
-                param.param("obj_type", str2).param("source", threadData.mRecomSource);
-                h(context, statisticItem);
-                return statisticItem;
-            }
-            return null;
-        }
-        return (StatisticItem) invokeLLL.objValue;
-    }
-
-    public static tj5 j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            y9<?> b = da.b(context);
-            if (!(b instanceof sj5)) {
-                return null;
-            }
-            return ((sj5) b).getTbPageInfo();
-        }
-        return (tj5) invokeL.objValue;
-    }
-
-    public static TbPageTag k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            tj5 j = j(context);
-            if (j == null) {
-                return null;
-            }
-            return j.a();
-        }
-        return (TbPageTag) invokeL.objValue;
-    }
-
-    public static TbPageTag m(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, intent)) == null) {
-            if (intent != null) {
-                return (TbPageTag) intent.getParcelableExtra("tb_page_tag_source_trace");
-            }
-            return null;
-        }
-        return (TbPageTag) invokeL.objValue;
-    }
-
-    public static TbPageTag l(Context context) {
-        InterceptResult invokeL;
-        y9<?> b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            if (context != null && (b = da.b(context)) != null && b.getPageContext() != null && b.getPageContext().getPageActivity() != null) {
-                return m(b.getPageContext().getPageActivity().getIntent());
-            }
-            return null;
-        }
-        return (TbPageTag) invokeL.objValue;
+        return (nm) invokeV.objValue;
     }
 }

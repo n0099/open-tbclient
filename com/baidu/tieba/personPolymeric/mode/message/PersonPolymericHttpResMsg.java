@@ -3,7 +3,7 @@ package com.baidu.tieba.personPolymeric.mode.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.pi8;
+import com.baidu.tieba.bm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -46,7 +46,7 @@ public class PersonPolymericHttpResMsg extends TbHttpResponsedMessage {
                 if (getError() != 0) {
                     return;
                 }
-                pi8 personCenterData = personPolymericReqMsg.getPersonCenterData();
+                bm8 personCenterData = personPolymericReqMsg.getPersonCenterData();
                 if (personalResIdl.data != null && personCenterData != null) {
                     personCenterData.a(personalResIdl);
                 }

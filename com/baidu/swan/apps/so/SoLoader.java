@@ -7,22 +7,13 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Keep;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.soloader.SoUtils;
-import com.baidu.tieba.ap4;
-import com.baidu.tieba.gp1;
-import com.baidu.tieba.me3;
-import com.baidu.tieba.ne3;
-import com.baidu.tieba.qe3;
-import com.baidu.tieba.re3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.cf3;
+import com.baidu.tieba.df3;
+import com.baidu.tieba.gf3;
+import com.baidu.tieba.hf3;
+import com.baidu.tieba.qp4;
+import com.baidu.tieba.wp1;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -41,268 +32,169 @@ import java.util.zip.ZipFile;
 @Keep
 /* loaded from: classes3.dex */
 public final class SoLoader {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final boolean DEBUG;
     public static final String TAG = "SoLoader";
-    public static final Set<String> sLoadedLibraries;
-    public static final List<File> soSources;
-    public transient /* synthetic */ FieldHolder $fh;
-    public StringBuilder sb;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-716524410, "Lcom/baidu/swan/apps/so/SoLoader;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-716524410, "Lcom/baidu/swan/apps/so/SoLoader;");
-                return;
-            }
-        }
-        DEBUG = gp1.a;
-        sLoadedLibraries = Collections.synchronizedSet(new HashSet());
-        soSources = new ArrayList();
-    }
+    public StringBuilder sb = new StringBuilder();
+    public static final boolean DEBUG = wp1.a;
+    public static final Set<String> sLoadedLibraries = Collections.synchronizedSet(new HashSet());
+    public static final List<File> soSources = new ArrayList();
 
     private void addSysSoLibraryDirectory() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            String str = System.getenv("LD_LIBRARY_PATH");
-            if (str == null) {
-                str = "/vendor/lib:/system/lib";
-            }
-            for (String str2 : str.split(":")) {
-                File file = new File(str2);
-                if (!soSources.contains(file)) {
-                    soSources.add(file);
-                }
+        String str = System.getenv("LD_LIBRARY_PATH");
+        if (str == null) {
+            str = "/vendor/lib:/system/lib";
+        }
+        for (String str2 : str.split(":")) {
+            File file = new File(str2);
+            if (!soSources.contains(file)) {
+                soSources.add(file);
             }
         }
     }
 
     public static String getV8SoDependentFilePath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (!sLoadedLibraries.contains(qe3.c())) {
-                return null;
-            }
-            String d = qe3.d();
-            if (DEBUG) {
-                Log.i("SoLoader", "getV8SoDependentFilePath:" + d);
-            }
-            return d;
+        if (!sLoadedLibraries.contains(gf3.c())) {
+            return null;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public SoLoader() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        String d = gf3.d();
+        if (DEBUG) {
+            Log.i("SoLoader", "getV8SoDependentFilePath:" + d);
         }
-        this.sb = new StringBuilder();
+        return d;
     }
 
     public String getErrorLog() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.sb.toString();
-        }
-        return (String) invokeV.objValue;
+        return this.sb.toString();
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: java.util.List<java.io.File> */
     /* JADX WARN: Multi-variable type inference failed */
     private void addLocalSoLibraryDirectory(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new File(getNativeLibraryDir(context)));
-            arrayList.add(new File(context.getFilesDir(), "lib"));
-            for (int i = 0; i < arrayList.size(); i++) {
-                if (!soSources.contains(arrayList.get(i))) {
-                    soSources.add(arrayList.get(i));
-                }
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(new File(getNativeLibraryDir(context)));
+        arrayList.add(new File(context.getFilesDir(), "lib"));
+        for (int i = 0; i < arrayList.size(); i++) {
+            if (!soSources.contains(arrayList.get(i))) {
+                soSources.add(arrayList.get(i));
             }
         }
     }
 
     public static synchronized File findSoFilesInLibrary(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            synchronized (SoLoader.class) {
-                String fullName = SoUtils.getFullName(str);
-                if (soSources.size() == 0) {
-                    new SoLoader().initSoSource(context);
-                }
-                for (File file : soSources) {
-                    File file2 = new File(file, fullName);
-                    if (file2.exists()) {
-                        return file2;
-                    }
-                }
-                return null;
+        synchronized (SoLoader.class) {
+            String fullName = SoUtils.getFullName(str);
+            if (soSources.size() == 0) {
+                new SoLoader().initSoSource(context);
             }
+            for (File file : soSources) {
+                File file2 = new File(file, fullName);
+                if (file2.exists()) {
+                    return file2;
+                }
+            }
+            return null;
         }
-        return (File) invokeLL.objValue;
     }
 
     private String getNativeLibraryDir(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
-            try {
-                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                if (SoUtils.hasGingerbread()) {
-                    return packageInfo.applicationInfo.nativeLibraryDir;
-                }
-                return new File(packageInfo.applicationInfo.dataDir, "lib").getAbsolutePath();
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "";
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            if (SoUtils.hasGingerbread()) {
+                return packageInfo.applicationInfo.nativeLibraryDir;
             }
+            return new File(packageInfo.applicationInfo.dataDir, "lib").getAbsolutePath();
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return "";
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static re3 loadV8EngineSo(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, context)) == null) {
-            String c = qe3.c();
-            if (sLoadedLibraries.contains(c)) {
-                return re3.e();
-            }
-            re3 h = qe3.h(context, new SoLoader());
-            if (h.b()) {
-                sLoadedLibraries.add(c);
-            }
-            return h;
-        }
-        return (re3) invokeL.objValue;
     }
 
     public static File getReleaseSoFilePath(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            return new File(context.getFilesDir(), "lib");
-        }
-        return (File) invokeL.objValue;
+        return new File(context.getFilesDir(), "lib");
     }
 
     private void initSoSource(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, this, context) == null) {
-            if (DEBUG) {
-                Log.d("SoLoader", "initSoSource is called");
-            }
-            synchronized (SoLoader.class) {
-                addSysSoLibraryDirectory();
-                addLocalSoLibraryDirectory(context);
-            }
+        if (DEBUG) {
+            Log.d("SoLoader", "initSoSource is called");
+        }
+        synchronized (SoLoader.class) {
+            addSysSoLibraryDirectory();
+            addLocalSoLibraryDirectory(context);
         }
     }
 
     public static boolean isSoLoadedSucc(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            return sLoadedLibraries.contains(str);
+        return sLoadedLibraries.contains(str);
+    }
+
+    public static hf3 loadV8EngineSo(Context context) {
+        String c = gf3.c();
+        if (sLoadedLibraries.contains(c)) {
+            return hf3.e();
         }
-        return invokeL.booleanValue;
+        hf3 h = gf3.h(context, new SoLoader());
+        if (h.b()) {
+            sLoadedLibraries.add(c);
+        }
+        return h;
     }
 
     public void appendErrorLog(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (DEBUG) {
-                Log.e("SoLoader", String.valueOf(str));
-            }
-            this.sb.append(str);
-            this.sb.append("\n");
+        if (DEBUG) {
+            Log.e("SoLoader", String.valueOf(str));
         }
+        this.sb.append(str);
+        this.sb.append("\n");
     }
 
     public ZipFile getApkZipFile(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            try {
-                return new ZipFile(context.getApplicationInfo().sourceDir);
-            } catch (IOException e) {
-                this.sb.append(Log.getStackTraceString(e));
-                if (DEBUG) {
-                    e.printStackTrace();
-                    return null;
-                }
+        try {
+            return new ZipFile(context.getApplicationInfo().sourceDir);
+        } catch (IOException e) {
+            this.sb.append(Log.getStackTraceString(e));
+            if (DEBUG) {
+                e.printStackTrace();
                 return null;
             }
+            return null;
         }
-        return (ZipFile) invokeL.objValue;
     }
 
     private long getSoSize(ZipFile zipFile, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, zipFile, str)) == null) {
-            if (zipFile == null) {
-                return 0L;
-            }
-            try {
-                ZipEntry entry = zipFile.getEntry(str);
-                if (entry == null) {
-                    return 0L;
-                }
-                return entry.getSize();
-            } catch (Exception e) {
-                if (!DEBUG) {
-                    return 0L;
-                }
-                Log.e("SoLoader", "SoLoader getSoSize exception.", e);
-                return 0L;
-            }
+        if (zipFile == null) {
+            return 0L;
         }
-        return invokeLL.longValue;
+        try {
+            ZipEntry entry = zipFile.getEntry(str);
+            if (entry == null) {
+                return 0L;
+            }
+            return entry.getSize();
+        } catch (Exception e) {
+            if (!DEBUG) {
+                return 0L;
+            }
+            Log.e("SoLoader", "SoLoader getSoSize exception.", e);
+            return 0L;
+        }
     }
 
     public static boolean load(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, str)) == null) {
-            if (sLoadedLibraries.contains(str)) {
-                return true;
-            }
-            boolean load = load(context, str, (ne3) null, true);
-            if (load) {
-                sLoadedLibraries.add(str);
-            }
-            return load;
+        if (sLoadedLibraries.contains(str)) {
+            return true;
         }
-        return invokeLL.booleanValue;
+        boolean load = load(context, str, (df3) null, true);
+        if (load) {
+            sLoadedLibraries.add(str);
+        }
+        return load;
     }
 
     public static void load(Context context, String str, boolean z, boolean z2) {
         boolean load;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65547, null, new Object[]{context, str, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || sLoadedLibraries.contains(str)) {
+        if (sLoadedLibraries.contains(str)) {
             return;
         }
-        me3 a = me3.a();
+        cf3 a = cf3.a();
         if (!z) {
             load = new SoLoader().loadInternalFromLocal(context, str, a, z2);
         } else {
@@ -314,261 +206,224 @@ public final class SoLoader {
     }
 
     @SuppressLint({"BDThrowableCheck"})
-    private boolean loadInternal(Context context, String str, ne3 ne3Var, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, this, new Object[]{context, str, ne3Var, Boolean.valueOf(z)})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                if (!DEBUG) {
-                    return false;
-                }
-                throw new IllegalArgumentException("load so library argument error,soName is null.");
-            } else if (loadLibrary(ne3Var, str, SoUtils.SOLOG.SO_LOAD_LIBRARY)) {
-                return true;
-            } else {
-                return loadInternalFromLocal(context, str, ne3Var, z);
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static boolean load(Context context, String str, ne3 ne3Var, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, str, ne3Var, Boolean.valueOf(z)})) == null) {
-            if (ne3Var == null) {
-                ne3Var = me3.a();
-            }
-            SoLoader soLoader = new SoLoader();
-            if (soSources.size() == 0) {
-                soLoader.initSoSource(context);
-            }
-            return soLoader.loadInternal(context, str, ne3Var, z);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    private boolean load(ne3 ne3Var, String str, String str2, String str3) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65550, this, ne3Var, str, str2, str3)) == null) {
-            try {
-                ne3Var.load(str2);
-                return true;
-            } catch (Throwable th) {
-                if (DEBUG) {
-                    Log.e("SoLoader", "SoLoader load exception.", th);
-                }
-                StringBuilder sb = this.sb;
-                sb.append(str3 + ":::" + str2 + ":" + Log.getStackTraceString(th));
+    private boolean loadInternal(Context context, String str, df3 df3Var, boolean z) {
+        if (TextUtils.isEmpty(str)) {
+            if (!DEBUG) {
                 return false;
             }
+            throw new IllegalArgumentException("load so library argument error,soName is null.");
+        } else if (loadLibrary(df3Var, str, SoUtils.SOLOG.SO_LOAD_LIBRARY)) {
+            return true;
+        } else {
+            return loadInternalFromLocal(context, str, df3Var, z);
         }
-        return invokeLLLL.booleanValue;
     }
 
-    private boolean loadInternalFromLocal(Context context, String str, ne3 ne3Var, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, this, new Object[]{context, str, ne3Var, Boolean.valueOf(z)})) == null) {
-            String fullName = SoUtils.getFullName(str);
-            ZipFile apkZipFile = getApkZipFile(context);
-            if (apkZipFile == null) {
+    public static boolean load(Context context, String str, df3 df3Var, boolean z) {
+        if (df3Var == null) {
+            df3Var = cf3.a();
+        }
+        SoLoader soLoader = new SoLoader();
+        if (soSources.size() == 0) {
+            soLoader.initSoSource(context);
+        }
+        return soLoader.loadInternal(context, str, df3Var, z);
+    }
+
+    private boolean load(df3 df3Var, String str, String str2, String str3) {
+        try {
+            df3Var.load(str2);
+            return true;
+        } catch (Throwable th) {
+            if (DEBUG) {
+                Log.e("SoLoader", "SoLoader load exception.", th);
+            }
+            StringBuilder sb = this.sb;
+            sb.append(str3 + ":::" + str2 + ":" + Log.getStackTraceString(th));
+            return false;
+        }
+    }
+
+    private boolean loadInternalFromLocal(Context context, String str, df3 df3Var, boolean z) {
+        String fullName = SoUtils.getFullName(str);
+        ZipFile apkZipFile = getApkZipFile(context);
+        if (apkZipFile == null) {
+            SoUtils.sendLog(this.sb.toString());
+            return false;
+        }
+        try {
+            String str2 = SoUtils.uris[0] + File.separator + fullName;
+            File file = new File(getNativeLibraryDir(context), fullName);
+            if (file.exists()) {
+                if (file.length() == getSoSize(apkZipFile, str2) && load(df3Var, fullName, file.getAbsolutePath(), SoUtils.SOLOG.SO_NATIVE_LIB_LOAD)) {
+                    return true;
+                }
+            }
+            File file2 = new File(getReleaseSoFilePath(context), fullName);
+            if (file2.exists()) {
+                if (file2.length() == getSoSize(apkZipFile, str2) && load(df3Var, fullName, file2.getAbsolutePath(), SoUtils.SOLOG.SO_RELEASE_LIB_LOAD)) {
+                    return true;
+                }
+            }
+            if (!z) {
                 SoUtils.sendLog(this.sb.toString());
                 return false;
             }
-            try {
-                String str2 = SoUtils.uris[0] + File.separator + fullName;
-                File file = new File(getNativeLibraryDir(context), fullName);
-                if (file.exists() && file.length() == getSoSize(apkZipFile, str2) && load(ne3Var, fullName, file.getAbsolutePath(), SoUtils.SOLOG.SO_NATIVE_LIB_LOAD)) {
+            for (int i = 0; i < SoUtils.uris.length; i++) {
+                if (executeRelease(apkZipFile, fullName, SoUtils.uris[i], new File(getReleaseSoFilePath(context), fullName)) && load(df3Var, fullName, file2.getAbsolutePath(), SoUtils.SOLOG.SO_RELEASE_EXECUTE_LOAD)) {
                     return true;
                 }
-                File file2 = new File(getReleaseSoFilePath(context), fullName);
-                if (file2.exists() && file2.length() == getSoSize(apkZipFile, str2) && load(ne3Var, fullName, file2.getAbsolutePath(), SoUtils.SOLOG.SO_RELEASE_LIB_LOAD)) {
-                    return true;
-                }
-                if (!z) {
-                    SoUtils.sendLog(this.sb.toString());
-                    return false;
-                }
-                for (int i = 0; i < SoUtils.uris.length; i++) {
-                    if (executeRelease(apkZipFile, fullName, SoUtils.uris[i], new File(getReleaseSoFilePath(context), fullName)) && load(ne3Var, fullName, file2.getAbsolutePath(), SoUtils.SOLOG.SO_RELEASE_EXECUTE_LOAD)) {
-                        return true;
-                    }
-                }
-                SoUtils.sendLog(this.sb.toString());
-                return false;
-            } finally {
-                ap4.d(apkZipFile);
             }
+            SoUtils.sendLog(this.sb.toString());
+            return false;
+        } finally {
+            qp4.d(apkZipFile);
         }
-        return invokeCommon.booleanValue;
     }
 
-    private boolean loadLibrary(ne3 ne3Var, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65553, this, ne3Var, str, str2)) == null) {
-            String simpleName = SoUtils.getSimpleName(str);
-            try {
-                ne3Var.loadLibrary(simpleName);
-                return true;
-            } catch (Throwable th) {
-                if (DEBUG) {
-                    Log.e("SoLoader", "SoLoader load exception.", th);
-                }
-                StringBuilder sb = this.sb;
-                sb.append(str2 + ":::" + simpleName + ":" + Log.getStackTraceString(th));
-                return false;
+    private boolean loadLibrary(df3 df3Var, String str, String str2) {
+        String simpleName = SoUtils.getSimpleName(str);
+        try {
+            df3Var.loadLibrary(simpleName);
+            return true;
+        } catch (Throwable th) {
+            if (DEBUG) {
+                Log.e("SoLoader", "SoLoader load exception.", th);
             }
+            StringBuilder sb = this.sb;
+            sb.append(str2 + ":::" + simpleName + ":" + Log.getStackTraceString(th));
+            return false;
         }
-        return invokeLLL.booleanValue;
     }
 
     private boolean releaseFileFromApk(ZipFile zipFile, File file, String str) {
-        InterceptResult invokeLLL;
         FileOutputStream fileOutputStream;
-        InputStream inputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65555, this, zipFile, file, str)) == null) {
-            File file2 = new File(file.getAbsoluteFile() + ".tmp");
-            InputStream inputStream2 = null;
-            if (zipFile != null) {
+        File file2 = new File(file.getAbsoluteFile() + ".tmp");
+        InputStream inputStream = null;
+        if (zipFile != null) {
+            try {
+                InputStream inputStream2 = zipFile.getInputStream(zipFile.getEntry(str));
                 try {
-                    inputStream = zipFile.getInputStream(zipFile.getEntry(str));
+                    fileOutputStream = new FileOutputStream(file2);
                     try {
-                        fileOutputStream = new FileOutputStream(file2);
+                        if (SoUtils.copyStream(inputStream2, fileOutputStream, 256) > 0) {
+                            boolean renameTo = file2.renameTo(file);
+                            qp4.d(inputStream2);
+                            qp4.d(fileOutputStream);
+                            return renameTo;
+                        }
+                        inputStream = inputStream2;
                     } catch (Exception e) {
                         e = e;
-                        fileOutputStream = null;
-                    } catch (Throwable th) {
-                        th = th;
-                        fileOutputStream = null;
+                        inputStream = inputStream2;
+                        try {
+                            if (DEBUG) {
+                                Log.e("SoLoader", "SoLoader releaseFileFromApk exception.", e);
+                            }
+                            qp4.d(inputStream);
+                            qp4.d(fileOutputStream);
+                            return false;
+                        } catch (Throwable th) {
+                            th = th;
+                            qp4.d(inputStream);
+                            qp4.d(fileOutputStream);
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        inputStream = inputStream2;
+                        qp4.d(inputStream);
+                        qp4.d(fileOutputStream);
+                        throw th;
                     }
                 } catch (Exception e2) {
                     e = e2;
                     fileOutputStream = null;
-                } catch (Throwable th2) {
-                    th = th2;
+                } catch (Throwable th3) {
+                    th = th3;
                     fileOutputStream = null;
                 }
-                try {
-                    if (SoUtils.copyStream(inputStream, fileOutputStream, 256) > 0) {
-                        boolean renameTo = file2.renameTo(file);
-                        ap4.d(inputStream);
-                        ap4.d(fileOutputStream);
-                        return renameTo;
-                    }
-                    inputStream2 = inputStream;
-                } catch (Exception e3) {
-                    e = e3;
-                    inputStream2 = inputStream;
-                    try {
-                        if (DEBUG) {
-                            Log.e("SoLoader", "SoLoader releaseFileFromApk exception.", e);
-                        }
-                        ap4.d(inputStream2);
-                        ap4.d(fileOutputStream);
-                        return false;
-                    } catch (Throwable th3) {
-                        th = th3;
-                        ap4.d(inputStream2);
-                        ap4.d(fileOutputStream);
-                        throw th;
-                    }
-                } catch (Throwable th4) {
-                    th = th4;
-                    inputStream2 = inputStream;
-                    ap4.d(inputStream2);
-                    ap4.d(fileOutputStream);
-                    throw th;
-                }
-            } else {
+            } catch (Exception e3) {
+                e = e3;
+                fileOutputStream = null;
+            } catch (Throwable th4) {
+                th = th4;
                 fileOutputStream = null;
             }
-            ap4.d(inputStream2);
-            ap4.d(fileOutputStream);
-            return false;
+        } else {
+            fileOutputStream = null;
         }
-        return invokeLLL.booleanValue;
+        qp4.d(inputStream);
+        qp4.d(fileOutputStream);
+        return false;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:56:0x00a8 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x0083 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x00a4 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:66:0x003d */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x0081 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x00ab A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x007d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x00a7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x0098 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r2v0, types: [java.io.File] */
     /* JADX WARN: Type inference failed for: r2v1 */
+    /* JADX WARN: Type inference failed for: r2v15, types: [java.io.IOException] */
     /* JADX WARN: Type inference failed for: r2v3, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r2v8 */
+    /* JADX WARN: Type inference failed for: r2v9 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean executeRelease(ZipFile zipFile, String str, String str2, File file) {
-        InterceptResult invokeLLLL;
         FileChannel fileChannel;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zipFile, str, str2, file)) == null) {
-            if (zipFile == null || file == null) {
-                return false;
-            }
-            boolean z = true;
-            ?? parentFile = file.getParentFile();
-            if (parentFile == 0) {
-                return false;
-            }
-            if (!parentFile.exists()) {
-                parentFile.mkdirs();
-            }
-            FileLock fileLock = null;
+        if (zipFile == null || file == null) {
+            return false;
+        }
+        boolean z = true;
+        ?? parentFile = file.getParentFile();
+        if (parentFile == 0) {
+            return false;
+        }
+        if (!parentFile.exists()) {
+            parentFile.mkdirs();
+        }
+        FileLock fileLock = null;
+        try {
             try {
-                try {
-                    File file2 = new File((File) parentFile, str + ".lock");
-                    if (!file2.exists()) {
-                        try {
-                            file2.createNewFile();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
+                File file2 = new File((File) parentFile, str + ".lock");
+                boolean exists = file2.exists();
+                fileChannel = exists;
+                if (!exists) {
+                    try {
+                        file2.createNewFile();
+                        fileChannel = exists;
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        fileChannel = e;
                     }
+                }
+                try {
                     try {
                         fileChannel = new RandomAccessFile(file2, "rw").getChannel();
                         try {
+                            fileLock = fileChannel.lock();
+                        } catch (IOException e2) {
                             try {
-                                fileLock = fileChannel.lock();
-                            } catch (Exception e2) {
-                                e = e2;
-                                this.sb.append(Log.getStackTraceString(e));
-                                e.printStackTrace();
-                                if (fileLock != null) {
-                                    try {
-                                        fileLock.release();
-                                    } catch (IOException e3) {
-                                        e = e3;
-                                        e.printStackTrace();
-                                        ap4.d(fileChannel);
-                                        return z;
-                                    }
-                                }
-                                ap4.d(fileChannel);
-                                return z;
-                            }
-                        } catch (IOException e4) {
-                            try {
-                                e4.printStackTrace();
-                            } catch (FileNotFoundException e5) {
-                                e = e5;
+                                e2.printStackTrace();
+                            } catch (FileNotFoundException e3) {
+                                e = e3;
                                 e.printStackTrace();
                                 if (fileLock != null) {
                                     z = releaseFileFromApk(zipFile, file, str2 + File.separator + str);
                                 }
                                 if (fileLock != null) {
                                 }
-                                ap4.d(fileChannel);
+                                qp4.d(fileChannel);
                                 return z;
                             }
                         }
-                    } catch (FileNotFoundException e6) {
-                        e = e6;
+                    } catch (FileNotFoundException e4) {
+                        e = e4;
                         fileChannel = null;
                     }
                     if (fileLock != null && fileLock.isValid()) {
@@ -577,39 +432,60 @@ public final class SoLoader {
                     if (fileLock != null) {
                         try {
                             fileLock.release();
-                        } catch (IOException e7) {
-                            e = e7;
+                        } catch (IOException e5) {
+                            e = e5;
                             e.printStackTrace();
-                            ap4.d(fileChannel);
+                            qp4.d(fileChannel);
                             return z;
                         }
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    if (0 != 0) {
+                } catch (Exception e6) {
+                    e = e6;
+                    this.sb.append(Log.getStackTraceString(e));
+                    e.printStackTrace();
+                    if (fileLock != null) {
                         try {
                             fileLock.release();
-                        } catch (IOException e8) {
-                            e8.printStackTrace();
+                        } catch (IOException e7) {
+                            e = e7;
+                            e.printStackTrace();
+                            qp4.d(fileChannel);
+                            return z;
                         }
                     }
-                    ap4.d(parentFile);
-                    throw th;
+                    qp4.d(fileChannel);
+                    return z;
                 }
-            } catch (Exception e9) {
-                e = e9;
-                fileChannel = null;
-            } catch (Throwable th2) {
-                th = th2;
-                parentFile = 0;
+            } catch (Throwable th) {
+                th = th;
                 if (0 != 0) {
+                    try {
+                        fileLock.release();
+                    } catch (IOException e8) {
+                        e8.printStackTrace();
+                    }
                 }
-                ap4.d(parentFile);
+                qp4.d(parentFile);
                 throw th;
             }
-            ap4.d(fileChannel);
+        } catch (Exception e9) {
+            e = e9;
+            fileChannel = null;
+            this.sb.append(Log.getStackTraceString(e));
+            e.printStackTrace();
+            if (fileLock != null) {
+            }
+            qp4.d(fileChannel);
             return z;
+        } catch (Throwable th2) {
+            th = th2;
+            parentFile = 0;
+            if (0 != 0) {
+            }
+            qp4.d(parentFile);
+            throw th;
         }
-        return invokeLLLL.booleanValue;
+        qp4.d(fileChannel);
+        return z;
     }
 }

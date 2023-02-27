@@ -16,6 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -172,7 +173,7 @@ public class s {
                 byte[] data = gnssNavigationMessage.getData();
                 int length = data.length;
                 for (int i = 0; i < length; i++) {
-                    sb.append(String.format("%8s", Integer.toBinaryString(data[i] & 255)).replace(WebvttCueParser.CHAR_SPACE, '0'));
+                    sb.append(String.format("%8s", Integer.toBinaryString(data[i] & 255)).replace(WebvttCueParser.CHAR_SPACE, TransactionIdCreater.FILL_BYTE));
                 }
                 return sb.toString();
             }
@@ -332,7 +333,7 @@ public class s {
                 byte[] data = gnssNavigationMessage.getData();
                 int length = data.length;
                 for (int i = 0; i < length; i++) {
-                    String replace = String.format("%8s", Integer.toBinaryString(data[i] & 255)).replace(WebvttCueParser.CHAR_SPACE, '0');
+                    String replace = String.format("%8s", Integer.toBinaryString(data[i] & 255)).replace(WebvttCueParser.CHAR_SPACE, TransactionIdCreater.FILL_BYTE);
                     if (i % 4 == 0) {
                         replace = replace.substring(2, 8);
                     }

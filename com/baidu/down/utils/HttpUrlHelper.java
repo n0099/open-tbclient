@@ -1,8 +1,6 @@
 package com.baidu.down.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.encrypt.a;
-import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -16,6 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.android.material.badge.BadgeDrawable;
+import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.io.UnsupportedEncodingException;
 import java.net.InetAddress;
 import java.net.MalformedURLException;
@@ -30,6 +29,7 @@ import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import org.apache.commons.codec.net.RFC1522Codec;
 /* loaded from: classes2.dex */
 public final class HttpUrlHelper {
     public static /* synthetic */ Interceptable $ic = null;
@@ -93,7 +93,7 @@ public final class HttpUrlHelper {
                         return;
                     }
                 }
-                SUCCESS = new ParseResult(c.p, 0);
+                SUCCESS = new ParseResult("SUCCESS", 0);
                 MISSING_SCHEME = new ParseResult("MISSING_SCHEME", 1);
                 UNSUPPORTED_SCHEME = new ParseResult("UNSUPPORTED_SCHEME", 2);
                 INVALID_PORT = new ParseResult("INVALID_PORT", 3);
@@ -172,6 +172,21 @@ public final class HttpUrlHelper {
                 }
                 this.encodedPathSegments.add("");
             }
+        }
+
+        public HttpUrlHelper build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (this.scheme != null) {
+                    if (this.host != null) {
+                        return new HttpUrlHelper(this, null);
+                    }
+                    throw new IllegalStateException("host == null");
+                }
+                throw new IllegalStateException("scheme == null");
+            }
+            return (HttpUrlHelper) invokeV.objValue;
         }
 
         private Builder addPathSegments(String str, boolean z) {
@@ -834,21 +849,6 @@ public final class HttpUrlHelper {
             return invokeLII.intValue;
         }
 
-        public HttpUrlHelper build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (this.scheme != null) {
-                    if (this.host != null) {
-                        return new HttpUrlHelper(this, null);
-                    }
-                    throw new IllegalStateException("host == null");
-                }
-                throw new IllegalStateException("scheme == null");
-            }
-            return (HttpUrlHelper) invokeV.objValue;
-        }
-
         public int effectivePort() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -887,7 +887,7 @@ public final class HttpUrlHelper {
                     return ParseResult.MISSING_SCHEME;
                 }
                 int slashCount = slashCount(str, skipLeadingAsciiWhitespace, skipTrailingAsciiWhitespace);
-                char c2 = '?';
+                char c2 = RFC1522Codec.SEP;
                 char c3 = '#';
                 if (slashCount < 2 && httpUrlHelper != null && httpUrlHelper.scheme.equals(this.scheme)) {
                     this.encodedUsername = httpUrlHelper.encodedUsername();
@@ -933,7 +933,7 @@ public final class HttpUrlHelper {
                             }
                             i2 = i + 1;
                         }
-                        c2 = '?';
+                        c2 = RFC1522Codec.SEP;
                         c3 = '#';
                     }
                     int portColonOffset = portColonOffset(str, i2, delimiterOffset);
@@ -1078,7 +1078,7 @@ public final class HttpUrlHelper {
                 }
                 HttpUrlHelper.pathSegmentsToString(sb, this.encodedPathSegments);
                 if (this.encodedQueryNamesAndValues != null) {
-                    sb.append('?');
+                    sb.append(RFC1522Codec.SEP);
                     HttpUrlHelper.namesAndValuesToQueryString(sb, this.encodedQueryNamesAndValues);
                 }
                 if (this.encodedFragment != null) {
@@ -1149,7 +1149,7 @@ public final class HttpUrlHelper {
                 return;
             }
         }
-        HEX_DIGITS = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        HEX_DIGITS = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
     public String encodedPassword() {
@@ -1513,7 +1513,7 @@ public final class HttpUrlHelper {
                 }
                 sb.append(str);
                 if (str2 != null) {
-                    sb.append(a.h);
+                    sb.append('=');
                     sb.append(str2);
                 }
             }

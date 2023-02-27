@@ -1,78 +1,96 @@
 package com.baidu.tieba;
 
-import android.animation.AnimatorInflater;
-import android.animation.ObjectAnimator;
-import android.animation.StateListAnimator;
-import android.content.Context;
-import android.content.res.TypedArray;
-import android.util.AttributeSet;
-import android.view.View;
-import android.view.ViewOutlineProvider;
-import androidx.annotation.RequiresApi;
-import androidx.constraintlayout.motion.widget.Key;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.player.LivePlayer;
+import com.baidu.searchbox.player.callback.IVideoPlayerCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@RequiresApi(21)
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yb0 {
+public class yb0 implements IVideoPlayerCallback, LivePlayer.OnInfoListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948324258, "Lcom/baidu/tieba/yb0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948324258, "Lcom/baidu/tieba/yb0;");
-                return;
-            }
-        }
-        a = new int[]{16843848};
-    }
-
-    public static void a(View view2) {
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void goBackOrForeground(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
-            view2.setOutlineProvider(ViewOutlineProvider.BOUNDS);
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
         }
     }
 
-    public static void b(View view2, float f) {
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onBufferEnd() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65538, null, view2, f) == null) {
-            int integer = view2.getResources().getInteger(R.integer.obfuscated_res_0x7f0a0011);
-            StateListAnimator stateListAnimator = new StateListAnimator();
-            long j = integer;
-            stateListAnimator.addState(new int[]{16842766, R.attr.obfuscated_res_0x7f040492, -2130969747}, ObjectAnimator.ofFloat(view2, Key.ELEVATION, 0.0f).setDuration(j));
-            stateListAnimator.addState(new int[]{16842766}, ObjectAnimator.ofFloat(view2, Key.ELEVATION, f).setDuration(j));
-            stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(view2, Key.ELEVATION, 0.0f).setDuration(0L));
-            view2.setStateListAnimator(stateListAnimator);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    public static void c(View view2, AttributeSet attributeSet, int i, int i2) {
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onBufferStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65539, null, view2, attributeSet, i, i2) == null) {
-            Context context = view2.getContext();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a, i, i2);
-            try {
-                if (obtainStyledAttributes.hasValue(0)) {
-                    view2.setStateListAnimator(AnimatorInflater.loadStateListAnimator(context, obtainStyledAttributes.getResourceId(0, 0)));
-                }
-            } catch (Exception unused) {
-            } catch (Throwable th) {
-                obtainStyledAttributes.recycle();
-                throw th;
-            }
-            obtainStyledAttributes.recycle();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onNetworkSpeedUpdate(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onPrepared() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onSeekEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onUpdateProgress(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3) == null) {
+        }
+    }
+
+    public yb0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer.OnInfoListener
+    public Object onInfo(int i, int i2, Object obj) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048579, this, i, i2, obj)) == null) {
+            return Boolean.FALSE;
+        }
+        return invokeIIL.objValue;
     }
 }

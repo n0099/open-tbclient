@@ -1,109 +1,172 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a83;
-import com.baidu.tieba.ts1;
+import com.baidu.searchbox.bddownload.core.Util;
+import com.baidu.tieba.r72;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+import java.util.Map;
+import okhttp3.internal.http2.Http2Codec;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes6.dex */
 public class s72 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void a(boolean z, String str);
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a implements ts1.b {
+    public static class a extends r72.b {
         public static /* synthetic */ Interceptable $ic;
+        public static final boolean b;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ b b;
 
-        public a(Context context, b bVar) {
+        @Override // com.baidu.tieba.r72.b
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "101 Switching Protocols" : (String) invokeV.objValue;
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-477574882, "Lcom/baidu/tieba/s72$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-477574882, "Lcom/baidu/tieba/s72$a;");
+                    return;
+                }
+            }
+            b = wp1.a;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(r72.a aVar) {
+            super(aVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, bVar};
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((r72.a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.r72.b
+        public Map<String, String> b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("Upgrade", "websocket");
+                hashMap.put(HTTP.CONN_DIRECTIVE, "Upgrade");
+                try {
+                    hashMap.put("Sec-WebSocket-Accept", t72.g(this.a.a.get("sec-websocket-key")));
+                } catch (NoSuchAlgorithmException e) {
+                    if (b) {
+                        Log.e("HandShakeResponse", "make accept key fail for error invalid algorithm", e);
+                    }
+                }
+                return hashMap;
+            }
+            return (Map) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends r72.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String b;
+
+        @Override // com.baidu.tieba.r72.b
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "200 OK" : (String) invokeV.objValue;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(r72.a aVar) {
+            super(aVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((r72.a) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = context;
-            this.b = bVar;
         }
 
-        @Override // com.baidu.tieba.ts1.b
-        public void a(boolean z) {
+        @Override // com.baidu.tieba.r72.b
+        public String a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (!z) {
-                    w52.c("DeveloperAuthenticateHelper", "Authentication Fail : Not developer");
-                    this.b.a(false, this.a.getString(R.string.obfuscated_res_0x7f0f010f));
-                    return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.b == null) {
+                    this.b = new o72().toString();
                 }
-                w52.c("DeveloperAuthenticateHelper", "Authentication Success");
-                this.b.a(true, "");
+                return this.b;
             }
+            return (String) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.ts1.b
-        public void b(Exception exc) {
-            String str;
+        @Override // com.baidu.tieba.r72.b
+        public Map<String, String> b() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                w52.d("DeveloperAuthenticateHelper", "onFail : Authentication exception :", exc);
-                String message = exc.getMessage();
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.a.getString(R.string.obfuscated_res_0x7f0f010f));
-                if (TextUtils.isEmpty(message)) {
-                    str = "";
-                } else {
-                    str = "\n" + message;
-                }
-                sb.append(str);
-                this.b.a(false, sb.toString());
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("Content-Type", "application/json; charset=UTF-8");
+                hashMap.put(Util.ACCEPT_RANGES, "bytes");
+                hashMap.put(HTTP.CONN_DIRECTIVE, Http2Codec.KEEP_ALIVE);
+                return hashMap;
             }
+            return (Map) invokeV.objValue;
         }
     }
 
-    public static void a(@NonNull w83 w83Var, @NonNull Context context, @NonNull b bVar) {
+    public static r72.b a(r72.a aVar) {
+        InterceptResult invokeL;
+        Map<String, String> map;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, w83Var, context, bVar) == null) {
-            jp1.b(w83Var.O(), new a(context, bVar));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aVar)) == null) {
+            if (aVar != null && (map = aVar.a) != null && map.size() >= 1) {
+                if (t72.f(aVar.a)) {
+                    aVar.e = true;
+                    return new a(aVar);
+                }
+                aVar.e = false;
+                return new b(aVar);
+            }
+            return null;
         }
-    }
-
-    public static void b(Context context, @StringRes int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65537, null, context, i, str) == null) {
-            a83.a aVar = new a83.a(context);
-            aVar.U(i);
-            aVar.x(str);
-            aVar.n(new eo3());
-            aVar.O(R.string.obfuscated_res_0x7f0f011c, null);
-            aVar.X();
-        }
-    }
-
-    public static void c(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            b(context, R.string.obfuscated_res_0x7f0f0155, str);
-        }
+        return (r72.b) invokeL.objValue;
     }
 }

@@ -2,8 +2,6 @@ package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,36 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import tbclient.ThreadInfo;
+import tbclient.BawuRoleInfoPub;
+import tbclient.ForumRuleDetail.DataRes;
 /* loaded from: classes5.dex */
-public class n07 extends sw4 {
+public class n07 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ThreadData> a;
-
-    @Override // com.baidu.tieba.sw4
-    public py4 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (py4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sw4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -55,7 +30,7 @@ public class n07 extends sw4 {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        a = BdUniqueId.gen();
     }
 
     public n07() {
@@ -68,48 +43,30 @@ public class n07 extends sw4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        setSupportType(BaseCardInfo.SupportType.FULL);
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    @Override // com.baidu.tieba.Cdo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return a;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public List<ThreadData> c() {
-        InterceptResult invokeV;
+    public void a(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a.size() > 10) {
-                ArrayList arrayList = new ArrayList();
-                Iterator<ThreadData> it = this.a.iterator();
-                while (it.hasNext() && arrayList.size() < 10) {
-                    arrayList.add(it.next());
-                }
-                return arrayList;
-            }
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void f(List<ThreadInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = new ArrayList();
-            for (ThreadInfo threadInfo : list) {
-                ThreadData threadData = new ThreadData();
-                threadData.parserProtobuf(threadInfo);
-                this.a.add(threadData);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) {
+            BawuRoleInfoPub bawuRoleInfoPub = dataRes.bazhu;
+            String str = bawuRoleInfoPub.name_show;
+            String str2 = bawuRoleInfoPub.portrait;
+            dataRes.is_manager.intValue();
+            dataRes.bazhu.user_level.intValue();
+            String str3 = dataRes.publish_time;
+            dataRes.audit_status.intValue();
         }
     }
 }

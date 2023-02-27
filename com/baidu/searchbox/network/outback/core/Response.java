@@ -1,23 +1,14 @@
 package com.baidu.searchbox.network.outback.core;
 
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.core.Headers;
 import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedInputStream;
 import java.io.Closeable;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class Response implements Closeable {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public ResponseBody body;
     @Nullable
@@ -43,10 +34,8 @@ public final class Response implements Closeable {
     public final NetworkStatRecord statRecord;
     public final long tcpTime;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         @Nullable
         public ResponseBody body;
         @Nullable
@@ -74,38 +63,12 @@ public final class Response implements Closeable {
         public long tcpTime;
 
         public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.code = -1;
             this.isConnReused = false;
             this.headers = new Headers.Builder();
         }
 
         public Builder(Response response) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {response};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             this.code = -1;
             this.isConnReused = false;
             this.request = response.request;
@@ -130,304 +93,166 @@ public final class Response implements Closeable {
         }
 
         private void checkPriorResponse(Response response) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(65538, this, response) != null) || response.body == null) {
+            if (response.body == null) {
                 return;
             }
             throw new IllegalArgumentException("priorResponse.body != null");
         }
 
         public Builder body(@Nullable ResponseBody responseBody) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseBody)) == null) {
-                this.body = responseBody;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.body = responseBody;
+            return this;
         }
 
         public Builder cacheResponse(@Nullable Response response) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, response)) == null) {
-                if (response != null) {
-                    checkSupportResponse("cacheResponse", response);
-                }
-                this.cacheResponse = response;
-                return this;
+            if (response != null) {
+                checkSupportResponse("cacheResponse", response);
             }
-            return (Builder) invokeL.objValue;
+            this.cacheResponse = response;
+            return this;
         }
 
         public Builder cached(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.cached = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.cached = z;
+            return this;
         }
 
         public Builder code(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-                this.code = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
+            this.code = i;
+            return this;
         }
 
         public Builder dnsTime(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-                this.dnsTime = j;
-                return this;
-            }
-            return (Builder) invokeJ.objValue;
+            this.dnsTime = j;
+            return this;
         }
 
         public Builder headers(Headers headers) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, headers)) == null) {
-                this.headers = headers.newBuilder();
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.headers = headers.newBuilder();
+            return this;
         }
 
         public Builder isConnReused(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-                this.isConnReused = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.isConnReused = z;
+            return this;
         }
 
         public Builder message(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-                this.message = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.message = str;
+            return this;
         }
 
         public Builder netEngine(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-                this.netEngine = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
+            this.netEngine = i;
+            return this;
         }
 
         public Builder networkResponse(@Nullable Response response) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, response)) == null) {
-                if (response != null) {
-                    checkSupportResponse("networkResponse", response);
-                }
-                this.networkResponse = response;
-                return this;
+            if (response != null) {
+                checkSupportResponse("networkResponse", response);
             }
-            return (Builder) invokeL.objValue;
+            this.networkResponse = response;
+            return this;
         }
 
         public Builder priorResponse(@Nullable Response response) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, response)) == null) {
-                if (response != null) {
-                    checkPriorResponse(response);
-                }
-                this.priorResponse = response;
-                return this;
+            if (response != null) {
+                checkPriorResponse(response);
             }
-            return (Builder) invokeL.objValue;
+            this.priorResponse = response;
+            return this;
         }
 
         public Builder protocol(Protocol protocol) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, protocol)) == null) {
-                this.protocol = protocol;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.protocol = protocol;
+            return this;
         }
 
         public Builder receivedResponseAtMillis(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048591, this, j)) == null) {
-                this.receivedResponseAtMillis = j;
-                return this;
-            }
-            return (Builder) invokeJ.objValue;
+            this.receivedResponseAtMillis = j;
+            return this;
         }
 
         public Builder removeHeader(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-                this.headers.removeAll(str);
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.headers.removeAll(str);
+            return this;
         }
 
         public Builder request(Request request) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, request)) == null) {
-                this.request = request;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.request = request;
+            return this;
         }
 
         public Builder sendTime(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048594, this, j)) == null) {
-                this.sendTime = j;
-                return this;
-            }
-            return (Builder) invokeJ.objValue;
+            this.sendTime = j;
+            return this;
         }
 
         public Builder sentRequestAtMillis(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j)) == null) {
-                this.sentRequestAtMillis = j;
-                return this;
-            }
-            return (Builder) invokeJ.objValue;
+            this.sentRequestAtMillis = j;
+            return this;
         }
 
         public Builder sslTime(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048596, this, j)) == null) {
-                this.sslTime = j;
-                return this;
-            }
-            return (Builder) invokeJ.objValue;
+            this.sslTime = j;
+            return this;
         }
 
         public Builder statRecord(@Nullable NetworkStatRecord networkStatRecord) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, networkStatRecord)) == null) {
-                this.statRecord = networkStatRecord;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.statRecord = networkStatRecord;
+            return this;
         }
 
         public Builder tcpTime(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048598, this, j)) == null) {
-                this.tcpTime = j;
-                return this;
-            }
-            return (Builder) invokeJ.objValue;
+            this.tcpTime = j;
+            return this;
         }
 
         private void checkSupportResponse(String str, Response response) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65539, this, str, response) == null) {
-                if (response.body == null) {
-                    if (response.networkResponse == null) {
-                        if (response.cacheResponse == null) {
-                            if (response.priorResponse == null) {
-                                return;
-                            }
-                            throw new IllegalArgumentException(str + ".priorResponse != null");
+            if (response.body == null) {
+                if (response.networkResponse == null) {
+                    if (response.cacheResponse == null) {
+                        if (response.priorResponse == null) {
+                            return;
                         }
-                        throw new IllegalArgumentException(str + ".cacheResponse != null");
+                        throw new IllegalArgumentException(str + ".priorResponse != null");
                     }
-                    throw new IllegalArgumentException(str + ".networkResponse != null");
+                    throw new IllegalArgumentException(str + ".cacheResponse != null");
                 }
-                throw new IllegalArgumentException(str + ".body != null");
+                throw new IllegalArgumentException(str + ".networkResponse != null");
             }
+            throw new IllegalArgumentException(str + ".body != null");
         }
 
         public Builder addHeader(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-                this.headers.add(str, str2);
-                return this;
-            }
-            return (Builder) invokeLL.objValue;
+            this.headers.add(str, str2);
+            return this;
         }
 
         public Builder header(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
-                this.headers.set(str, str2);
-                return this;
-            }
-            return (Builder) invokeLL.objValue;
+            this.headers.set(str, str2);
+            return this;
         }
 
         public Response build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.request != null) {
-                    if (this.code >= 0) {
-                        if (this.message != null) {
-                            return new Response(this);
-                        }
-                        throw new IllegalStateException("message == null");
+            if (this.request != null) {
+                if (this.code >= 0) {
+                    if (this.message != null) {
+                        return new Response(this);
                     }
-                    throw new IllegalStateException("code < 0: " + this.code);
+                    throw new IllegalStateException("message == null");
                 }
-                throw new IllegalStateException("request == null");
+                throw new IllegalStateException("code < 0: " + this.code);
             }
-            return (Response) invokeV.objValue;
+            throw new IllegalStateException("request == null");
         }
 
         public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-                return "Builder{request=" + this.request + ", protocol=" + this.protocol + ", code=" + this.code + ", message='" + this.message + "', headers=" + this.headers + ", body=" + this.body + ", networkResponse=" + this.networkResponse + ", cacheResponse=" + this.cacheResponse + ", priorResponse=" + this.priorResponse + ", sentRequestAtMillis=" + this.sentRequestAtMillis + ", receivedResponseAtMillis=" + this.receivedResponseAtMillis + ", netEngine=" + this.netEngine + ", isConnReused=" + this.isConnReused + ", dnsTime=" + this.dnsTime + ", sslTime=" + this.sslTime + ", tcpTime=" + this.tcpTime + ", sendTime=" + this.sendTime + ", cached=" + this.cached + '}';
-            }
-            return (String) invokeV.objValue;
+            return "Builder{request=" + this.request + ", protocol=" + this.protocol + ", code=" + this.code + ", message='" + this.message + "', headers=" + this.headers + ", body=" + this.body + ", networkResponse=" + this.networkResponse + ", cacheResponse=" + this.cacheResponse + ", priorResponse=" + this.priorResponse + ", sentRequestAtMillis=" + this.sentRequestAtMillis + ", receivedResponseAtMillis=" + this.receivedResponseAtMillis + ", netEngine=" + this.netEngine + ", isConnReused=" + this.isConnReused + ", dnsTime=" + this.dnsTime + ", sslTime=" + this.sslTime + ", tcpTime=" + this.tcpTime + ", sendTime=" + this.sendTime + ", cached=" + this.cached + '}';
         }
     }
 
     public Response(Builder builder) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.request = builder.request;
         this.protocol = builder.protocol;
         this.code = builder.code;
@@ -451,297 +276,159 @@ public final class Response implements Closeable {
 
     @Nullable
     public ResponseBody body() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.body;
-        }
-        return (ResponseBody) invokeV.objValue;
+        return this.body;
     }
 
     @Nullable
     public Response cacheResponse() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.cacheResponse;
-        }
-        return (Response) invokeV.objValue;
+        return this.cacheResponse;
     }
 
     public boolean cached() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.cached;
-        }
-        return invokeV.booleanValue;
+        return this.cached;
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ResponseBody responseBody = this.body;
-            if (responseBody != null) {
-                responseBody.close();
-                return;
-            }
-            throw new IllegalStateException("response is not eligible for a body and must not be closed");
+        ResponseBody responseBody = this.body;
+        if (responseBody != null) {
+            responseBody.close();
+            return;
         }
+        throw new IllegalStateException("response is not eligible for a body and must not be closed");
     }
 
     public int code() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.code;
-        }
-        return invokeV.intValue;
+        return this.code;
     }
 
     public long dnsTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.dnsTime;
-        }
-        return invokeV.longValue;
+        return this.dnsTime;
     }
 
     @Nullable
     public NetworkStatRecord getStatRecord() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.statRecord;
-        }
-        return (NetworkStatRecord) invokeV.objValue;
+        return this.statRecord;
     }
 
     public Headers headers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.headers;
-        }
-        return (Headers) invokeV.objValue;
+        return this.headers;
     }
 
     public boolean isConnReused() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.isConnReused;
-        }
-        return invokeV.booleanValue;
+        return this.isConnReused;
     }
 
     public boolean isRedirect() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int i = this.code;
-            if (i == 307 || i == 308) {
-                return true;
-            }
-            switch (i) {
-                case 300:
-                case 301:
-                case 302:
-                case 303:
-                    return true;
-                default:
-                    return false;
-            }
+        int i = this.code;
+        if (i == 307 || i == 308) {
+            return true;
         }
-        return invokeV.booleanValue;
+        switch (i) {
+            case 300:
+            case 301:
+            case 302:
+            case 303:
+                return true;
+            default:
+                return false;
+        }
     }
 
     public boolean isSuccessful() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            int i = this.code;
-            if (i >= 200 && i < 300) {
-                return true;
-            }
-            return false;
+        int i = this.code;
+        if (i >= 200 && i < 300) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public String message() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.message;
-        }
-        return (String) invokeV.objValue;
+        return this.message;
     }
 
     public int netEngine() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.netEngine;
-        }
-        return invokeV.intValue;
+        return this.netEngine;
     }
 
     @Nullable
     public Response networkResponse() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.networkResponse;
-        }
-        return (Response) invokeV.objValue;
+        return this.networkResponse;
     }
 
     public Builder newBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return new Builder(this);
-        }
-        return (Builder) invokeV.objValue;
+        return new Builder(this);
     }
 
     @Nullable
     public Response priorResponse() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.priorResponse;
-        }
-        return (Response) invokeV.objValue;
+        return this.priorResponse;
     }
 
     public Protocol protocol() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.protocol;
-        }
-        return (Protocol) invokeV.objValue;
+        return this.protocol;
     }
 
     public long receivedResponseAtMillis() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.receivedResponseAtMillis;
-        }
-        return invokeV.longValue;
+        return this.receivedResponseAtMillis;
     }
 
     public Request request() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return this.request;
-        }
-        return (Request) invokeV.objValue;
+        return this.request;
     }
 
     public long sendTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return this.sendTime;
-        }
-        return invokeV.longValue;
+        return this.sendTime;
     }
 
     public long sentRequestAtMillis() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.sentRequestAtMillis;
-        }
-        return invokeV.longValue;
+        return this.sentRequestAtMillis;
     }
 
     public long sslTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.sslTime;
-        }
-        return invokeV.longValue;
+        return this.sslTime;
     }
 
     public long tcpTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return this.tcpTime;
-        }
-        return invokeV.longValue;
+        return this.tcpTime;
     }
 
     @Nullable
     public String header(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            return header(str, null);
-        }
-        return (String) invokeL.objValue;
+        return header(str, null);
     }
 
     public List<String> headers(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            return this.headers.values(str);
-        }
-        return (List) invokeL.objValue;
+        return this.headers.values(str);
     }
 
     @Nullable
     public String header(String str, @Nullable String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-            String str3 = this.headers.get(str);
-            if (str3 != null) {
-                return str3;
-            }
-            return str2;
+        String str3 = this.headers.get(str);
+        if (str3 != null) {
+            return str3;
         }
-        return (String) invokeLL.objValue;
+        return str2;
     }
 
     public ResponseBody peekBody(long j) throws IOException {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048594, this, j)) == null) {
-            int i = (int) j;
-            BufferedInputStream bufferedInputStream = new BufferedInputStream(this.body.inputStream(), i);
-            byte[] bArr = new byte[i];
-            bufferedInputStream.mark(0);
-            int read = bufferedInputStream.read(bArr);
-            if (read < j) {
-                byte[] bArr2 = new byte[read];
-                System.arraycopy(bArr, 0, bArr2, 0, read);
-                bArr = bArr2;
-            }
-            bufferedInputStream.reset();
-            ResponseBody create = ResponseBody.create(this.body.contentType(), this.body.contentLength(), bufferedInputStream);
-            this.body = create;
-            return ResponseBody.create(create.contentType(), bArr);
+        int i = (int) j;
+        BufferedInputStream bufferedInputStream = new BufferedInputStream(this.body.inputStream(), i);
+        byte[] bArr = new byte[i];
+        bufferedInputStream.mark(0);
+        int read = bufferedInputStream.read(bArr);
+        if (read < j) {
+            byte[] bArr2 = new byte[read];
+            System.arraycopy(bArr, 0, bArr2, 0, read);
+            bArr = bArr2;
         }
-        return (ResponseBody) invokeJ.objValue;
+        bufferedInputStream.reset();
+        ResponseBody create = ResponseBody.create(this.body.contentType(), this.body.contentLength(), bufferedInputStream);
+        this.body = create;
+        return ResponseBody.create(create.contentType(), bArr);
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            return "Response{protocol=" + this.protocol + ", code=" + this.code + ", message=" + this.message + ", url=" + this.request.url() + '}';
-        }
-        return (String) invokeV.objValue;
+        return "Response{protocol=" + this.protocol + ", code=" + this.code + ", message=" + this.message + ", url=" + this.request.url() + '}';
     }
 }

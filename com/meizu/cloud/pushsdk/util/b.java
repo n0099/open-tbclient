@@ -11,7 +11,7 @@ public class b {
     }
 
     public static String a(Context context, String str, String str2) {
-        return l(context, str).getString(str2, "");
+        return n(context, str).getString(str2, "");
     }
 
     public static void a(Context context, int i, String str) {
@@ -22,20 +22,24 @@ public class b {
         a(context, "mz_push_preference", str + ".notification_id", i);
     }
 
+    public static void a(Context context, String str, long j) {
+        a(context, "mz_push_preference_new", str + ".ad_last_close_time", j);
+    }
+
     public static void a(Context context, String str, String str2, int i) {
-        l(context, str).edit().putInt(str2, i).apply();
+        n(context, str).edit().putInt(str2, i).apply();
     }
 
     public static void a(Context context, String str, String str2, long j) {
-        l(context, str).edit().putLong(str2, j).apply();
+        n(context, str).edit().putLong(str2, j).apply();
     }
 
     public static void a(Context context, String str, String str2, String str3) {
-        l(context, str).edit().putString(str2, str3).apply();
+        n(context, str).edit().putString(str2, str3).apply();
     }
 
     public static void a(Context context, String str, String str2, boolean z) {
-        l(context, str).edit().putBoolean(str2, z).apply();
+        n(context, str).edit().putBoolean(str2, z).apply();
     }
 
     public static void a(Context context, String str, boolean z) {
@@ -47,7 +51,7 @@ public class b {
     }
 
     public static int b(Context context, String str, String str2) {
-        return l(context, str).getInt(str2, 0);
+        return n(context, str).getInt(str2, 0);
     }
 
     public static void b(Context context, String str, int i) {
@@ -63,25 +67,29 @@ public class b {
     }
 
     public static int c(Context context, String str) {
-        SharedPreferences l = l(context, "mz_push_preference");
-        return l.getInt(str + ".notification_id", 0);
+        SharedPreferences n = n(context, "mz_push_preference");
+        return n.getInt(str + ".notification_id", 0);
     }
 
     public static long c(Context context, String str, String str2) {
-        return l(context, str).getLong(str2, 0L);
+        return n(context, str).getLong(str2, 0L);
     }
 
     public static void c(Context context, String str, int i) {
         a(context, "mz_push_preference", str + ".message_seq", i);
     }
 
+    public static void c(Context context, String str, boolean z) {
+        a(context, "mz_push_preference", str + ".first_request_publicKey", z);
+    }
+
     public static int d(Context context, String str) {
-        SharedPreferences l = l(context, "mz_push_preference");
-        return l.getInt(str + ".notification_push_task_id", 0);
+        SharedPreferences n = n(context, "mz_push_preference");
+        return n.getInt(str + ".notification_push_task_id", 0);
     }
 
     public static boolean d(Context context, String str, String str2) {
-        return l(context, str).getBoolean(str2, true);
+        return n(context, str).getBoolean(str2, true);
     }
 
     public static boolean e(Context context, String str) {
@@ -89,7 +97,7 @@ public class b {
     }
 
     public static boolean e(Context context, String str, String str2) {
-        return l(context, str).edit().remove(str2).commit();
+        return n(context, str).edit().remove(str2).commit();
     }
 
     public static boolean f(Context context, String str) {
@@ -97,7 +105,7 @@ public class b {
     }
 
     public static boolean f(Context context, String str, String str2) {
-        return l(context, str).contains(str2);
+        return n(context, str).contains(str2);
     }
 
     public static String g(Context context, String str) {
@@ -143,7 +151,15 @@ public class b {
         a(context, "mz_push_preference", str + ".encryption_public_key", str2);
     }
 
-    public static SharedPreferences l(Context context, String str) {
+    public static boolean l(Context context, String str) {
+        return d(context, "mz_push_preference", str + ".first_request_publicKey");
+    }
+
+    public static long m(Context context, String str) {
+        return c(context, "mz_push_preference_new", str + ".ad_last_close_time");
+    }
+
+    public static SharedPreferences n(Context context, String str) {
         return context.getSharedPreferences(str, 0);
     }
 }

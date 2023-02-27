@@ -10,21 +10,11 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.pms.utils.DebugUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PmsContentProviderImpl {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String AUTHORITY;
+    public static final String AUTHORITY = AppRuntime.getApplication().getPackageName() + ".pms.db.provider";
     public static final Uri BASE_URI;
     public static final int CODE_EXECUTE_SQL = 102;
     public static final int CODE_QUERY_SQL = 101;
@@ -37,24 +27,10 @@ public class PmsContentProviderImpl {
     public static final String PATH_QUERY_SQL = "query_sql";
     public static final String PATH_TABLE_PACKAGE_INFO = "package_info";
     public static final UriMatcher sUriMatcher;
-    public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public DbHelper mDbHelper;
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1872703561, "Lcom/baidu/searchbox/pms/db/PmsContentProviderImpl;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1872703561, "Lcom/baidu/searchbox/pms/db/PmsContentProviderImpl;");
-                return;
-            }
-        }
-        AUTHORITY = AppRuntime.getApplication().getPackageName() + ".pms.db.provider";
         Uri parse = Uri.parse("content://" + AUTHORITY);
         BASE_URI = parse;
         CONTENT_URI_PACKAGE_INFO = parse.buildUpon().appendPath("package_info").build();
@@ -68,228 +44,156 @@ public class PmsContentProviderImpl {
     }
 
     public PmsContentProviderImpl(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mContext = context;
     }
 
     @Nullable
     public static String getType(@NonNull Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
-            if (sUriMatcher.match(uri) != 100) {
-                return null;
-            }
-            return "package_info";
+        if (sUriMatcher.match(uri) != 100) {
+            return null;
         }
-        return (String) invokeL.objValue;
+        return "package_info";
     }
 
     public static int deleteExt(Context context, Uri uri, String str, String[] strArr) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, uri, str, strArr)) == null) {
-            try {
-                return context.getContentResolver().delete(uri, str, strArr);
-            } catch (IllegalArgumentException e) {
-                DebugUtils.throwExceptionForDebug(e);
-                return 0;
-            }
+        try {
+            return context.getContentResolver().delete(uri, str, strArr);
+        } catch (IllegalArgumentException e) {
+            DebugUtils.throwExceptionForDebug(e);
+            return 0;
         }
-        return invokeLLLL.intValue;
+    }
+
+    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
+        String type = getType(uri);
+        if (TextUtils.isEmpty(type)) {
+            return 0;
+        }
+        try {
+            return getDbHelper().getWritableDatabase().update(type, contentValues, str, strArr);
+        } catch (SQLiteFullException e) {
+            DebugUtils.printStackTrace(e);
+            return 0;
+        } catch (SQLiteReadOnlyDatabaseException e2) {
+            DebugUtils.printStackTrace(e2);
+            return 0;
+        }
     }
 
     public static void execSqlExt(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
-            try {
-                context.getContentResolver().query(CONTENT_URI_EXECUTE_SQL, null, str, null, null);
-            } catch (IllegalArgumentException e) {
-                DebugUtils.throwExceptionForDebug(e);
-            }
+        try {
+            context.getContentResolver().query(CONTENT_URI_EXECUTE_SQL, null, str, null, null);
+        } catch (IllegalArgumentException e) {
+            DebugUtils.throwExceptionForDebug(e);
         }
     }
 
     private DbHelper getDbHelper() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            if (this.mDbHelper == null) {
-                this.mDbHelper = new DbHelper(this.mContext);
-            }
-            return this.mDbHelper;
+        if (this.mDbHelper == null) {
+            this.mDbHelper = new DbHelper(this.mContext);
         }
-        return (DbHelper) invokeV.objValue;
+        return this.mDbHelper;
     }
 
     public static long insertExt(Context context, Uri uri, ContentValues contentValues) {
         Uri uri2;
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, uri, contentValues)) == null) {
-            try {
-                uri2 = context.getContentResolver().insert(uri, contentValues);
-            } catch (IllegalArgumentException e) {
-                DebugUtils.throwExceptionForDebug(e);
-                uri2 = null;
-            }
-            if (uri2 == null) {
-                return 0L;
-            }
-            try {
-                return Long.parseLong(uri2.getQueryParameter("id"));
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return 0L;
-            }
+        try {
+            uri2 = context.getContentResolver().insert(uri, contentValues);
+        } catch (IllegalArgumentException e) {
+            DebugUtils.throwExceptionForDebug(e);
+            uri2 = null;
         }
-        return invokeLLL.longValue;
-    }
-
-    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, uri, str, strArr)) == null) {
-            String type = getType(uri);
-            if (TextUtils.isEmpty(type)) {
-                return 0;
-            }
-            try {
-                return getDbHelper().getWritableDatabase().delete(type, str, strArr);
-            } catch (SQLiteFullException e) {
-                DebugUtils.printStackTrace(e);
-                return 0;
-            } catch (SQLiteReadOnlyDatabaseException e2) {
-                DebugUtils.printStackTrace(e2);
-                return 0;
-            }
+        if (uri2 == null) {
+            return 0L;
         }
-        return invokeLLL.intValue;
-    }
-
-    public static Cursor queryExt(Context context, Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, uri, strArr, str, strArr2, str2})) == null) {
-            try {
-                return context.getContentResolver().query(uri, strArr, str, strArr2, str2);
-            } catch (IllegalArgumentException e) {
-                DebugUtils.throwExceptionForDebug(e);
-                return null;
-            }
+        try {
+            return Long.parseLong(uri2.getQueryParameter("id"));
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            return 0L;
         }
-        return (Cursor) invokeCommon.objValue;
     }
 
     public static Cursor queryExt(Context context, String str, @Nullable String[] strArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, str, strArr)) == null) {
-            try {
-                return context.getContentResolver().query(CONTENT_URI_QUERY_SQL, null, str, strArr, null);
-            } catch (IllegalArgumentException e) {
-                DebugUtils.throwExceptionForDebug(e);
-                return null;
-            }
+        try {
+            return context.getContentResolver().query(CONTENT_URI_QUERY_SQL, null, str, strArr, null);
+        } catch (IllegalArgumentException e) {
+            DebugUtils.throwExceptionForDebug(e);
+            return null;
         }
-        return (Cursor) invokeLLL.objValue;
+    }
+
+    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
+        String type = getType(uri);
+        if (TextUtils.isEmpty(type)) {
+            return 0;
+        }
+        try {
+            return getDbHelper().getWritableDatabase().delete(type, str, strArr);
+        } catch (SQLiteFullException e) {
+            DebugUtils.printStackTrace(e);
+            return 0;
+        } catch (SQLiteReadOnlyDatabaseException e2) {
+            DebugUtils.printStackTrace(e2);
+            return 0;
+        }
+    }
+
+    public static Cursor queryExt(Context context, Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
+        try {
+            return context.getContentResolver().query(uri, strArr, str, strArr2, str2);
+        } catch (IllegalArgumentException e) {
+            DebugUtils.throwExceptionForDebug(e);
+            return null;
+        }
     }
 
     public static int updateExt(Context context, Uri uri, ContentValues contentValues, String str, String[] strArr) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65545, null, context, uri, contentValues, str, strArr)) == null) {
-            try {
-                return context.getContentResolver().update(uri, contentValues, str, strArr);
-            } catch (IllegalArgumentException e) {
-                DebugUtils.throwExceptionForDebug(e);
-                return 0;
-            }
+        try {
+            return context.getContentResolver().update(uri, contentValues, str, strArr);
+        } catch (IllegalArgumentException e) {
+            DebugUtils.throwExceptionForDebug(e);
+            return 0;
         }
-        return invokeLLLLL.intValue;
     }
 
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, contentValues)) == null) {
-            String type = getType(uri);
-            if (TextUtils.isEmpty(type)) {
-                return null;
-            }
-            long j = 0;
-            try {
-                j = getDbHelper().getWritableDatabase().insert(type, null, contentValues);
-            } catch (SQLiteFullException e) {
-                DebugUtils.printStackTrace(e);
-            } catch (SQLiteReadOnlyDatabaseException e2) {
-                DebugUtils.printStackTrace(e2);
-            }
-            Uri.Builder appendPath = BASE_URI.buildUpon().appendPath(type);
-            return appendPath.appendQueryParameter("id", j + "").build();
+        String type = getType(uri);
+        if (TextUtils.isEmpty(type)) {
+            return null;
         }
-        return (Uri) invokeLL.objValue;
+        long j = 0;
+        try {
+            j = getDbHelper().getWritableDatabase().insert(type, null, contentValues);
+        } catch (SQLiteFullException e) {
+            DebugUtils.printStackTrace(e);
+        } catch (SQLiteReadOnlyDatabaseException e2) {
+            DebugUtils.printStackTrace(e2);
+        }
+        Uri.Builder appendPath = BASE_URI.buildUpon().appendPath(type);
+        return appendPath.appendQueryParameter("id", j + "").build();
     }
 
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, uri, strArr, str, strArr2, str2)) == null) {
-            try {
-                String type = getType(uri);
-                if (!TextUtils.isEmpty(type)) {
-                    return getDbHelper().getReadableDatabase().query(type, strArr, str, strArr2, null, null, str2);
-                }
-                int match = sUriMatcher.match(uri);
-                if (match != 101) {
-                    if (match == 102) {
-                        getDbHelper().getWritableDatabase().execSQL(str);
-                        return null;
-                    }
+        try {
+            String type = getType(uri);
+            if (!TextUtils.isEmpty(type)) {
+                return getDbHelper().getReadableDatabase().query(type, strArr, str, strArr2, null, null, str2);
+            }
+            int match = sUriMatcher.match(uri);
+            if (match != 101) {
+                if (match == 102) {
+                    getDbHelper().getWritableDatabase().execSQL(str);
                     return null;
                 }
-                return getDbHelper().getReadableDatabase().rawQuery(str, strArr2);
-            } catch (Exception e) {
-                DebugUtils.printStackTrace(e);
                 return null;
             }
+            return getDbHelper().getReadableDatabase().rawQuery(str, strArr2);
+        } catch (Exception e) {
+            DebugUtils.printStackTrace(e);
+            return null;
         }
-        return (Cursor) invokeLLLLL.objValue;
-    }
-
-    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, uri, contentValues, str, strArr)) == null) {
-            String type = getType(uri);
-            if (TextUtils.isEmpty(type)) {
-                return 0;
-            }
-            try {
-                return getDbHelper().getWritableDatabase().update(type, contentValues, str, strArr);
-            } catch (SQLiteFullException e) {
-                DebugUtils.printStackTrace(e);
-                return 0;
-            } catch (SQLiteReadOnlyDatabaseException e2) {
-                DebugUtils.printStackTrace(e2);
-                return 0;
-            }
-        }
-        return invokeLLLL.intValue;
     }
 }

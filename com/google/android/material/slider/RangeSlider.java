@@ -12,105 +12,29 @@ import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RangeSlider extends BaseSlider<RangeSlider, OnChangeListener, OnSliderTouchListener> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface OnChangeListener extends BaseOnChangeListener<RangeSlider> {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface OnSliderTouchListener extends BaseOnSliderTouchListener<RangeSlider> {
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RangeSlider(@NonNull Context context) {
         this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RangeSlider(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040637);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RangeSlider(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04076e});
-        if (obtainStyledAttributes.hasValue(0)) {
-            setValues(convertToFloat(obtainStyledAttributes.getResources().obtainTypedArray(obtainStyledAttributes.getResourceId(0, 0))));
-        }
-        obtainStyledAttributes.recycle();
     }
 
     public static List<Float> convertToFloat(TypedArray typedArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, typedArray)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < typedArray.length(); i++) {
-                arrayList.add(Float.valueOf(typedArray.getFloat(i, -1.0f)));
-            }
-            return arrayList;
+        ArrayList arrayList = new ArrayList();
+        for (int i = 0; i < typedArray.length(); i++) {
+            arrayList.add(Float.valueOf(typedArray.getFloat(i, -1.0f)));
         }
-        return (List) invokeL.objValue;
+        return arrayList;
     }
 
     @Override // com.google.android.material.slider.BaseSlider, android.view.View
@@ -240,10 +164,30 @@ public class RangeSlider extends BaseSlider<RangeSlider, OnChangeListener, OnSli
 
     @Override // com.google.android.material.slider.BaseSlider
     public void setValues(@NonNull List<Float> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048628, this, list) == null) {
-            super.setValues(list);
+        super.setValues(list);
+    }
+
+    public RangeSlider(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04063a);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider, android.view.View, android.view.KeyEvent.Callback
+    public /* bridge */ /* synthetic */ boolean onKeyDown(int i, @NonNull KeyEvent keyEvent) {
+        return super.onKeyDown(i, keyEvent);
+    }
+
+    @Override // com.google.android.material.slider.BaseSlider, android.view.View, android.view.KeyEvent.Callback
+    public /* bridge */ /* synthetic */ boolean onKeyUp(int i, @NonNull KeyEvent keyEvent) {
+        return super.onKeyUp(i, keyEvent);
+    }
+
+    public RangeSlider(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040773});
+        if (obtainStyledAttributes.hasValue(0)) {
+            setValues(convertToFloat(obtainStyledAttributes.getResources().obtainTypedArray(obtainStyledAttributes.getResourceId(0, 0))));
         }
+        obtainStyledAttributes.recycle();
     }
 
     @Override // com.google.android.material.slider.BaseSlider
@@ -378,12 +322,7 @@ public class RangeSlider extends BaseSlider<RangeSlider, OnChangeListener, OnSli
     @Override // com.google.android.material.slider.BaseSlider
     @NonNull
     public List<Float> getValues() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return super.getValues();
-        }
-        return (List) invokeV.objValue;
+        return super.getValues();
     }
 
     @Override // com.google.android.material.slider.BaseSlider
@@ -391,21 +330,8 @@ public class RangeSlider extends BaseSlider<RangeSlider, OnChangeListener, OnSli
         return super.hasLabelFormatter();
     }
 
-    @Override // com.google.android.material.slider.BaseSlider, android.view.View, android.view.KeyEvent.Callback
-    public /* bridge */ /* synthetic */ boolean onKeyDown(int i, @NonNull KeyEvent keyEvent) {
-        return super.onKeyDown(i, keyEvent);
-    }
-
-    @Override // com.google.android.material.slider.BaseSlider, android.view.View, android.view.KeyEvent.Callback
-    public /* bridge */ /* synthetic */ boolean onKeyUp(int i, @NonNull KeyEvent keyEvent) {
-        return super.onKeyUp(i, keyEvent);
-    }
-
     @Override // com.google.android.material.slider.BaseSlider
     public void setValues(@NonNull Float... fArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048629, this, fArr) == null) {
-            super.setValues(fArr);
-        }
+        super.setValues(fArr);
     }
 }

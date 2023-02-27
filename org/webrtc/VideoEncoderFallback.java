@@ -1,72 +1,16 @@
 package org.webrtc;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.VideoEncoder;
 /* loaded from: classes9.dex */
 public class VideoEncoderFallback extends WrappedNativeVideoEncoder {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final VideoEncoder fallback;
     public final VideoEncoder primary;
 
     public static native long nativeCreateEncoder(VideoEncoder videoEncoder, VideoEncoder videoEncoder2);
 
     public VideoEncoderFallback(VideoEncoder videoEncoder, VideoEncoder videoEncoder2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {videoEncoder, videoEncoder2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.fallback = videoEncoder;
         this.primary = videoEncoder2;
-    }
-
-    @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
-    public long createNativeVideoEncoder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return nativeCreateEncoder(this.fallback, this.primary);
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
-    public /* bridge */ /* synthetic */ String getImplementationName() {
-        return super.getImplementationName();
-    }
-
-    @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
-    public /* bridge */ /* synthetic */ VideoEncoder.ScalingSettings getScalingSettings() {
-        return super.getScalingSettings();
-    }
-
-    @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
-    public boolean isHardwareEncoder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.primary.isHardwareEncoder();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
-    public /* bridge */ /* synthetic */ VideoCodecStatus release() {
-        return super.release();
     }
 
     @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
@@ -82,5 +26,30 @@ public class VideoEncoderFallback extends WrappedNativeVideoEncoder {
     @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
     public /* bridge */ /* synthetic */ VideoCodecStatus setRateAllocation(VideoEncoder.BitrateAllocation bitrateAllocation, int i) {
         return super.setRateAllocation(bitrateAllocation, i);
+    }
+
+    @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
+    public long createNativeVideoEncoder() {
+        return nativeCreateEncoder(this.fallback, this.primary);
+    }
+
+    @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
+    public /* bridge */ /* synthetic */ String getImplementationName() {
+        return super.getImplementationName();
+    }
+
+    @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
+    public /* bridge */ /* synthetic */ VideoEncoder.ScalingSettings getScalingSettings() {
+        return super.getScalingSettings();
+    }
+
+    @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
+    public boolean isHardwareEncoder() {
+        return this.primary.isHardwareEncoder();
+    }
+
+    @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
+    public /* bridge */ /* synthetic */ VideoCodecStatus release() {
+        return super.release();
     }
 }

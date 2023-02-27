@@ -1,21 +1,15 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.util.Map;
+import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface qt1 {
-    void a(Context context, JSONObject jSONObject);
+    void a(String str, String str2);
 
-    void b(Context context, JSONObject jSONObject);
+    File b(Context context, String str);
 
-    void c(GenericDraweeHierarchy genericDraweeHierarchy, boolean z);
+    JSONObject c(Context context, String str);
 
-    void d(Context context, String[] strArr, int i);
-
-    ImageRequestBuilder e(ImageRequestBuilder imageRequestBuilder, Map<String, String> map);
-
-    void f(Context context, JSONObject jSONObject);
+    void d();
 }

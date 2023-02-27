@@ -64,7 +64,7 @@ public class ab {
         }
         b = (-100000000) - 200;
         c = (-100000000) + PassBiometricResult.ERROR_CODE_LACK_SO_ERROR;
-        d = (-100000000) - 213;
+        d = (-100000000) + PassBiometricResult.ERROR_CODE_NOT_INIT_PASS_SDK;
         e = (-100000000) - 214;
         f = (-100000000) - 221;
         g = (-100000000) - 230;
@@ -164,9 +164,9 @@ public class ab {
             int i3 = a - i2;
             Application app = BdBaseApplication.getInst().getApp();
             if (i3 > -300 && i3 <= -200) {
-                return app.getString(R.string.obfuscated_res_0x7f0f095b);
+                return app.getString(R.string.obfuscated_res_0x7f0f0964);
             }
-            return app.getString(R.string.obfuscated_res_0x7f0f095c);
+            return app.getString(R.string.obfuscated_res_0x7f0f0965);
         }
         return (String) invokeI.objValue;
     }

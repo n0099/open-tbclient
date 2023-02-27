@@ -1,6 +1,7 @@
 package com.meizu.cloud.pushsdk.notification.b;
 
 import android.app.Notification;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
@@ -16,10 +17,10 @@ public class a extends c {
 
     private void b(RemoteViews remoteViews, MessageV3 messageV3) {
         Bitmap a;
-        if (messageV3.getmNotificationStyle() == null || a()) {
+        if (messageV3.getNotificationStyle() == null || a()) {
             return;
         }
-        if (TextUtils.isEmpty(messageV3.getmNotificationStyle().getExpandableImageUrl()) || (a = a(messageV3.getmNotificationStyle().getExpandableImageUrl())) == null) {
+        if (TextUtils.isEmpty(messageV3.getNotificationStyle().getExpandableImageUrl()) || (a = a(messageV3.getNotificationStyle().getExpandableImageUrl())) == null) {
             remoteViews.setViewVisibility(com.meizu.cloud.pushsdk.notification.c.c.g(this.a), 8);
             return;
         }
@@ -28,7 +29,7 @@ public class a extends c {
     }
 
     @Override // com.meizu.cloud.pushsdk.notification.a
-    public void b(Notification notification, MessageV3 messageV3) {
+    public void a(Notification notification, MessageV3 messageV3, PendingIntent pendingIntent) {
         if (MinSdkChecker.isSupportNotificationBuild()) {
             RemoteViews remoteViews = new RemoteViews(this.a.getPackageName(), com.meizu.cloud.pushsdk.notification.c.c.a(this.a));
             remoteViews.setTextViewText(com.meizu.cloud.pushsdk.notification.c.c.d(this.a), messageV3.getTitle());

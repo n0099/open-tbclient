@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.rule.TaskRuleData;
+import com.baidu.bdtask.model.guide.TaskGuideData;
+import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.bdtask.model.ui.TaskUIData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,63 +12,61 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ju extends au<TaskRuleData> {
+public final class ju extends eu<TaskGuideData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final gu a;
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "rule" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "guide" : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ju(cu cuVar) {
-        super(cuVar);
+    public ju(gu guVar) {
+        super(guVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cuVar};
+            Object[] objArr = {guVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((cu) newInitContext.callArgs[0]);
+                super((gu) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = guVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.au
+    @Override // com.baidu.tieba.eu
     /* renamed from: c */
-    public TaskRuleData a(String str) {
+    public TaskGuideData a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                String version = jSONObject.optString("ver");
-                String upgrade = jSONObject.optString("url");
-                long optLong = jSONObject.optLong("expire");
-                int optInt = jSONObject.optInt("stay", Integer.MAX_VALUE);
-                int optInt2 = jSONObject.optInt("repeat", Integer.MAX_VALUE);
-                boolean optBoolean = jSONObject.optBoolean(TaskRuleData.keyUniq);
-                boolean optBoolean2 = jSONObject.optBoolean(TaskRuleData.keyPersist);
-                int optInt3 = jSONObject.optInt(TaskRuleData.keyNoClickTimes, -1);
-                boolean optBoolean3 = jSONObject.optBoolean("auto", true);
-                int optInt4 = jSONObject.optInt(TaskRuleData.keyPersistOnFail, 0);
-                Intrinsics.checkExpressionValueIsNotNull(version, "version");
-                Intrinsics.checkExpressionValueIsNotNull(upgrade, "upgrade");
-                return new TaskRuleData(version, upgrade, optLong, optInt, optInt2, optBoolean, optBoolean2, optBoolean3, optInt3, optInt4);
+                int optInt = jSONObject.optInt(TaskResponseData.keyUiType);
+                eu a = this.a.a(TaskUIData.key);
+                String optString = jSONObject.optString(TaskUIData.key);
+                Intrinsics.checkExpressionValueIsNotNull(optString, "guide.optString(TaskUIData.key)");
+                TaskUIData taskUIData = (TaskUIData) a.a(optString);
+                if (taskUIData != null) {
+                    return new TaskGuideData(optInt, taskUIData);
+                }
+                return new TaskGuideData(0, null, 3, null);
             } catch (Exception e) {
                 e.printStackTrace();
-                return null;
+                return new TaskGuideData(0, null, 3, null);
             }
         }
-        return (TaskRuleData) invokeL.objValue;
+        return (TaskGuideData) invokeL.objValue;
     }
 }

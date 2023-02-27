@@ -4,10 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.webkit.internal.RC4;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
@@ -22,229 +18,191 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes7.dex */
 public final class c {
-    public static /* synthetic */ Interceptable $ic;
     public static String a;
-    public transient /* synthetic */ FieldHolder $fh;
 
     public static int a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            String[] split = str.split("_");
-            if (split.length > 0) {
-                return Integer.parseInt(split[0]);
-            }
-            return 0;
+        String[] split = str.split("_");
+        if (split.length > 0) {
+            return Integer.parseInt(split[0]);
         }
-        return invokeL.intValue;
+        return 0;
     }
 
     public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                Context d = com.baidu.webkit.logsdk.a.b.d();
-                if (d == null || d.getFilesDir() == null) {
-                    return "";
-                }
-                String str = d.getFilesDir().getAbsolutePath() + "/bdlogs";
-                if (str.endsWith(File.separator)) {
-                    str = str.substring(0, str.length() - 1);
-                }
-                a = str;
-                new File(a).mkdirs();
-                e("BdLogSDK", "Workspace = " + a);
-                return a;
+        if (TextUtils.isEmpty(a)) {
+            Context d = com.baidu.webkit.logsdk.a.b.d();
+            if (d == null || d.getFilesDir() == null) {
+                return "";
             }
+            String str = d.getFilesDir().getAbsolutePath() + "/bdlogs";
+            if (str.endsWith(File.separator)) {
+                str = str.substring(0, str.length() - 1);
+            }
+            a = str;
+            new File(a).mkdirs();
+            e("BdLogSDK", "Workspace = " + a);
             return a;
         }
-        return (String) invokeV.objValue;
+        return a;
     }
 
     public static String a(com.baidu.webkit.logsdk.b.b bVar, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bVar, str)) == null) {
-            String c = bVar.c(str);
-            if (TextUtils.isEmpty(c)) {
-                com.baidu.webkit.logsdk.b c2 = com.baidu.webkit.logsdk.a.b.a().c();
-                d(com.baidu.webkit.logsdk.b.b.e());
-                int d = d(str);
-                d(com.baidu.webkit.logsdk.b.b.g());
-                String a2 = c2.a(d);
-                if (!TextUtils.isEmpty(a2)) {
-                    bVar.a(str, a2);
-                }
-                return a2;
+        String c = bVar.c(str);
+        if (TextUtils.isEmpty(c)) {
+            com.baidu.webkit.logsdk.b c2 = com.baidu.webkit.logsdk.a.b.a().c();
+            d(com.baidu.webkit.logsdk.b.b.e());
+            int d = d(str);
+            d(com.baidu.webkit.logsdk.b.b.g());
+            String a2 = c2.a(d);
+            if (!TextUtils.isEmpty(a2)) {
+                bVar.a(str, a2);
             }
-            return c;
+            return a2;
         }
-        return (String) invokeLL.objValue;
+        return c;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:65:0x00aa A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:75:0x00a0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x009c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x00a6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String a(File file) {
-        InterceptResult invokeL;
         DataInputStream dataInputStream;
         Throwable th;
         ByteArrayOutputStream byteArrayOutputStream;
         Exception e;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, file)) != null) {
-            return (String) invokeL.objValue;
-        }
         if (file == null || !file.exists()) {
             return "";
         }
         e("BdLogSDK", "readDataFromFile " + file.getName());
         try {
             dataInputStream = new DataInputStream(new FileInputStream(file));
+        } catch (Exception e2) {
+            dataInputStream = null;
+            e = e2;
+            byteArrayOutputStream = null;
+        } catch (Throwable th2) {
+            dataInputStream = null;
+            th = th2;
+            byteArrayOutputStream = null;
+        }
+        try {
+            byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                byteArrayOutputStream = new ByteArrayOutputStream();
                 try {
-                    try {
-                        byte[] bArr = new byte[1024];
-                        while (true) {
-                            int read = dataInputStream.read(bArr);
-                            if (read == -1) {
-                                break;
-                            }
-                            byteArrayOutputStream.write(bArr, 0, read);
+                    byte[] bArr = new byte[1024];
+                    while (true) {
+                        int read = dataInputStream.read(bArr);
+                        if (read == -1) {
+                            break;
                         }
-                        String str = new String(Base64.decode(new String(RC4.kernelEncrypt(byteArrayOutputStream.toByteArray())), 0));
-                        try {
-                            byteArrayOutputStream.close();
-                        } catch (Exception e2) {
-                            Log.w("BdLogSDK", "readStatisticsDataFromFile close Exception", e2);
-                        }
-                        try {
-                            dataInputStream.close();
-                        } catch (Exception e3) {
-                            Log.w("BdLogSDK", "readUserBehaviorStatisticsDataFromFile close Exception", e3);
-                        }
-                        return str;
-                    } catch (Exception e4) {
-                        e = e4;
-                        Log.w("BdLogSDK", "readStatisticsDataFromFile Exception", e);
-                        if (byteArrayOutputStream != null) {
-                            try {
-                                byteArrayOutputStream.close();
-                            } catch (Exception e5) {
-                                Log.w("BdLogSDK", "readStatisticsDataFromFile close Exception", e5);
-                            }
-                        }
-                        if (dataInputStream != null) {
-                            try {
-                                dataInputStream.close();
-                                return "";
-                            } catch (Exception e6) {
-                                Log.w("BdLogSDK", "readUserBehaviorStatisticsDataFromFile close Exception", e6);
-                                return "";
-                            }
-                        }
-                        return "";
+                        byteArrayOutputStream.write(bArr, 0, read);
                     }
-                } catch (Throwable th2) {
-                    th = th2;
+                    String str = new String(Base64.decode(new String(RC4.kernelEncrypt(byteArrayOutputStream.toByteArray())), 0));
+                    try {
+                        byteArrayOutputStream.close();
+                    } catch (Exception e3) {
+                        Log.w("BdLogSDK", "readStatisticsDataFromFile close Exception", e3);
+                    }
+                    try {
+                        dataInputStream.close();
+                    } catch (Exception e4) {
+                        Log.w("BdLogSDK", "readUserBehaviorStatisticsDataFromFile close Exception", e4);
+                    }
+                    return str;
+                } catch (Exception e5) {
+                    e = e5;
+                    Log.w("BdLogSDK", "readStatisticsDataFromFile Exception", e);
                     if (byteArrayOutputStream != null) {
                         try {
                             byteArrayOutputStream.close();
-                        } catch (Exception e7) {
-                            Log.w("BdLogSDK", "readStatisticsDataFromFile close Exception", e7);
+                        } catch (Exception e6) {
+                            Log.w("BdLogSDK", "readStatisticsDataFromFile close Exception", e6);
                         }
                     }
                     if (dataInputStream != null) {
                         try {
                             dataInputStream.close();
-                        } catch (Exception e8) {
-                            Log.w("BdLogSDK", "readUserBehaviorStatisticsDataFromFile close Exception", e8);
+                            return "";
+                        } catch (Exception e7) {
+                            Log.w("BdLogSDK", "readUserBehaviorStatisticsDataFromFile close Exception", e7);
+                            return "";
                         }
                     }
-                    throw th;
+                    return "";
                 }
-            } catch (Exception e9) {
-                e = e9;
-                byteArrayOutputStream = null;
             } catch (Throwable th3) {
                 th = th3;
-                byteArrayOutputStream = null;
                 if (byteArrayOutputStream != null) {
+                    try {
+                        byteArrayOutputStream.close();
+                    } catch (Exception e8) {
+                        Log.w("BdLogSDK", "readStatisticsDataFromFile close Exception", e8);
+                    }
                 }
                 if (dataInputStream != null) {
+                    try {
+                        dataInputStream.close();
+                    } catch (Exception e9) {
+                        Log.w("BdLogSDK", "readUserBehaviorStatisticsDataFromFile close Exception", e9);
+                    }
                 }
                 throw th;
             }
         } catch (Exception e10) {
-            dataInputStream = null;
             e = e10;
             byteArrayOutputStream = null;
         } catch (Throwable th4) {
-            dataInputStream = null;
             th = th4;
             byteArrayOutputStream = null;
+            if (byteArrayOutputStream != null) {
+            }
+            if (dataInputStream != null) {
+            }
+            throw th;
         }
     }
 
     public static String a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            int a2 = a(str2);
-            com.baidu.webkit.logsdk.b.b e = com.baidu.webkit.logsdk.a.b.a().e();
-            if (a2 != 0) {
-                if (a2 != 1) {
-                    return null;
-                }
-                return "";
+        int a2 = a(str2);
+        com.baidu.webkit.logsdk.b.b e = com.baidu.webkit.logsdk.a.b.a().e();
+        if (a2 != 0) {
+            if (a2 != 1) {
+                return null;
             }
-            return b.a(str, a(e, str2));
+            return "";
         }
-        return (String) invokeLL.objValue;
+        return b.a(str, a(e, str2));
     }
 
     public static void a(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, str3) == null) {
-            if (!com.baidu.webkit.logsdk.a.b || TextUtils.isEmpty(str3)) {
-                if (com.baidu.webkit.logsdk.a.a) {
-                    Log.i(str, str2);
-                    return;
-                }
+        if (!com.baidu.webkit.logsdk.a.b || TextUtils.isEmpty(str3)) {
+            if (com.baidu.webkit.logsdk.a.a) {
+                Log.i(str, str2);
                 return;
             }
-            Log.d(str, str2 + " = " + str3);
+            return;
         }
+        Log.d(str, str2 + " = " + str3);
     }
 
     public static void a(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, th) == null) {
-            th.printStackTrace();
-            if (com.baidu.webkit.logsdk.a.b) {
-                System.exit(0);
-            }
+        th.printStackTrace();
+        if (com.baidu.webkit.logsdk.a.b) {
+            System.exit(0);
         }
     }
 
     public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            StringBuffer stringBuffer = new StringBuffer(a());
-            stringBuffer.append(File.separator);
-            stringBuffer.append(str);
-            return stringBuffer.toString();
-        }
-        return (String) invokeL.objValue;
+        StringBuffer stringBuffer = new StringBuffer(a());
+        stringBuffer.append(File.separator);
+        stringBuffer.append(str);
+        return stringBuffer.toString();
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0067 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:56:0x00a0 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0066 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x00a0 */
     /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: java.lang.String */
     /* JADX DEBUG: Multi-variable search result rejected for r6v2, resolved type: java.nio.channels.FileChannel */
     /* JADX DEBUG: Multi-variable search result rejected for r6v3, resolved type: java.nio.channels.FileChannel */
@@ -257,13 +215,6 @@ public final class c {
         DataOutputStream dataOutputStream2;
         byte[] encode;
         FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            dataOutputStream = null;
-            if (interceptable.invokeLL(65544, null, str, str2) != null) {
-                return;
-            }
-        }
         FileLock fileLock = null;
         try {
             try {
@@ -370,65 +321,46 @@ public final class c {
     }
 
     public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            try {
-                byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes("UTF-8"));
-                StringBuilder sb = new StringBuilder(digest.length * 2);
-                for (byte b : digest) {
-                    int i = b & 255;
-                    if (i < 16) {
-                        sb.append("0");
-                    }
-                    sb.append(Integer.toHexString(i));
+        try {
+            byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes("UTF-8"));
+            StringBuilder sb = new StringBuilder(digest.length * 2);
+            for (byte b : digest) {
+                int i = b & 255;
+                if (i < 16) {
+                    sb.append("0");
                 }
-                return sb.toString();
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return null;
-            } catch (NoSuchAlgorithmException e2) {
-                e2.printStackTrace();
-                return null;
+                sb.append(Integer.toHexString(i));
             }
+            return sb.toString();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return null;
+        } catch (NoSuchAlgorithmException e2) {
+            e2.printStackTrace();
+            return null;
         }
-        return (String) invokeL.objValue;
     }
 
     public static String c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, str2)) == null) {
-            String str3 = str + "-" + str2;
-            a("BdLogSDK", "getFilename realName", str3);
-            return Base64.encodeToString(str3.getBytes(), 0);
-        }
-        return (String) invokeLL.objValue;
+        String str3 = str + "-" + str2;
+        a("BdLogSDK", "getFilename realName", str3);
+        return Base64.encodeToString(str3.getBytes(), 0);
     }
 
     public static int d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            String[] split = str.split("_");
-            if (split.length > 1) {
-                return Integer.parseInt(split[1]);
-            }
-            return 0;
+        String[] split = str.split("_");
+        if (split.length > 1) {
+            return Integer.parseInt(split[1]);
         }
-        return invokeL.intValue;
+        return 0;
     }
 
     public static void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, str, str2) == null) {
-            new File(b(c(str, str2))).delete();
-        }
+        new File(b(c(str, str2))).delete();
     }
 
     public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65549, null, str, str2) == null) && com.baidu.webkit.logsdk.a.a) {
+        if (com.baidu.webkit.logsdk.a.a) {
             Log.w(str, str2);
         }
     }

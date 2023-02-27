@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.b55;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.p35;
 import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -75,9 +75,9 @@ public class IMUserListModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            p35 m = p35.m();
+            b55 m = b55.m();
             long o = m.o("im_user_list_request_lasttime_" + TbadkCoreApplication.getCurrentAccount(), 0L);
-            if (o == 0 || System.currentTimeMillis() - o > REQUEST_SPACE) {
+            if (o == 0 || System.currentTimeMillis() - o > 7200000) {
                 return true;
             }
             return false;
@@ -115,7 +115,7 @@ public class IMUserListModel extends BdBaseModel {
             sendMessage(new IMUserListHttpReqMessage(list));
         } else if (canRequestIfControl()) {
             sendMessage(new IMUserListHttpReqMessage(list));
-            p35 m = p35.m();
+            b55 m = b55.m();
             m.A("im_user_list_request_lasttime_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
         }
     }

@@ -1,40 +1,39 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s50;
-import com.baidu.tieba.v50;
+import com.baidu.helios.trusts.zone.TrustSubjectManager;
+import com.baidu.tieba.w50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.UUID;
-import org.json.JSONObject;
+import java.io.UnsupportedEncodingException;
+import java.util.concurrent.ExecutorService;
 /* loaded from: classes7.dex */
-public class z50 extends v50 {
+public abstract class z50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s50.a d;
-    public a e;
+    public w50.a a;
+    public b b;
+    public String c;
 
     /* loaded from: classes7.dex */
-    public class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public boolean b;
-        public p50 c;
-        public String d;
-        public String e;
-        public final /* synthetic */ z50 f;
+        public final /* synthetic */ d a;
+        public final /* synthetic */ String b;
 
-        public a(z50 z50Var) {
+        public a(z50 z50Var, d dVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {z50Var};
+                Object[] objArr = {z50Var, dVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,139 +43,142 @@ public class z50 extends v50 {
                     return;
                 }
             }
-            this.f = z50Var;
-            this.b = true;
-            this.c = new p50();
+            this.a = dVar;
+            this.b = str;
         }
 
-        public String a() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
-        }
-
-        public void b(String str) {
-            String str2;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (str2 = this.d) == str) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.onResult(this.b, null);
             }
-            if (str == null || !str.equals(str2)) {
-                this.d = str;
-                this.b = true;
-            }
-        }
-
-        public void c(long j) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) || this.a == j) {
-                return;
-            }
-            this.a = j;
-            this.b = true;
-        }
-
-        public void d(String str) {
-            String str2;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (str2 = this.e) == str) {
-                return;
-            }
-            if (str == null || !str.equals(str2)) {
-                this.e = str;
-                this.b = true;
-            }
-        }
-
-        public boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                String g = this.f.d.g("cache.dat", true);
-                if (TextUtils.isEmpty(g)) {
-                    return false;
-                }
-                try {
-                    JSONObject jSONObject = new JSONObject(g);
-                    this.d = jSONObject.optString("form_id");
-                    this.a = jSONObject.getLong("lst_fe_ts");
-                    jSONObject.getInt("c_form_ver");
-                    this.e = jSONObject.getString("uuid");
-                    this.c.b(jSONObject.getLong("flags"));
-                    return true;
-                } catch (Exception unused) {
-                    return false;
-                }
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                if (this.b) {
-                    try {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("form_id", this.d);
-                        jSONObject.put("lst_fe_ts", this.a);
-                        jSONObject.put("c_form_ver", 1);
-                        jSONObject.put("flags", this.c.d());
-                        jSONObject.put("uuid", this.e);
-                        this.f.d.i("cache.dat", jSONObject.toString(), true);
-                        this.b = false;
-                        return true;
-                    } catch (Exception unused) {
-                    }
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z50() {
-        super("iid");
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Context a;
+        public w50 b;
+        public TrustSubjectManager.f c;
+        public ExecutorService d;
+        public ExecutorService e;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = false;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface d<T> {
+        void a(int i, Exception exc, Bundle bundle);
+
+        void onResult(T t, Bundle bundle);
+    }
+
+    public z50(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new a(this);
+        this.c = str;
     }
 
-    @Override // com.baidu.tieba.v50
-    public String c() {
+    public static String b(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            String format = String.format("%s-%s-", str, str2);
+            try {
+                str3 = new q50("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(new v40().a(format.getBytes("UTF-8")));
+            } catch (UnsupportedEncodingException unused) {
+                str3 = null;
+            }
+            if (TextUtils.isEmpty(str3)) {
+                str3 = "AAAAAAAA";
+            }
+            return format + str3;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final void a(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.b = bVar;
+            this.a = bVar.b.d().f("ids");
+        }
+    }
+
+    public abstract String c();
+
+    public byte[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e.a() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (byte[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.v50
-    public void f(v50.c cVar) {
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.d = this.a.f(e());
-            this.e.e();
-            if (TextUtils.isEmpty(this.e.a())) {
-                String uuid = UUID.randomUUID().toString();
-                this.e.d(uuid);
-                try {
-                    this.e.b(v50.b("A50", new m50("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(uuid.getBytes("UTF-8"))));
-                } catch (Exception unused) {
-                }
-                this.e.c(System.currentTimeMillis());
-            }
-            this.e.f();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public abstract void f(c cVar);
+
+    public void g(d<String> dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
+            this.b.d.submit(new a(this, dVar, c()));
         }
     }
 }

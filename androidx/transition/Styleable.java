@@ -2,40 +2,31 @@ package androidx.transition;
 
 import android.annotation.SuppressLint;
 import androidx.annotation.StyleableRes;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"InlinedApi"})
 /* loaded from: classes.dex */
 public class Styleable {
-    public static /* synthetic */ Interceptable $ic;
     @StyleableRes
-    public static final int[] ARC_MOTION;
+    public static final int[] TRANSITION_TARGET = {16842799, 16843740, 16843841, 16843842, 16843853, 16843854};
     @StyleableRes
-    public static final int[] CHANGE_BOUNDS;
+    public static final int[] TRANSITION_MANAGER = {16843741, 16843742, 16843743};
     @StyleableRes
-    public static final int[] CHANGE_TRANSFORM;
+    public static final int[] TRANSITION = {16843073, 16843160, 16843746, 16843855};
     @StyleableRes
-    public static final int[] FADE;
+    public static final int[] CHANGE_BOUNDS = {16843983};
     @StyleableRes
-    public static final int[] PATTERN_PATH_MOTION;
+    public static final int[] VISIBILITY_TRANSITION = {16843900};
     @StyleableRes
-    public static final int[] SLIDE;
+    public static final int[] FADE = {16843745};
     @StyleableRes
-    public static final int[] TRANSITION;
+    public static final int[] CHANGE_TRANSFORM = {16843964, 16843965};
     @StyleableRes
-    public static final int[] TRANSITION_MANAGER;
+    public static final int[] SLIDE = {16843824};
     @StyleableRes
-    public static final int[] TRANSITION_SET;
+    public static final int[] TRANSITION_SET = {16843744};
     @StyleableRes
-    public static final int[] TRANSITION_TARGET;
+    public static final int[] ARC_MOTION = {16843901, 16843902, 16843903};
     @StyleableRes
-    public static final int[] VISIBILITY_TRANSITION;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final int[] PATTERN_PATH_MOTION = {16843978};
 
     /* loaded from: classes.dex */
     public interface ArcMotion {
@@ -127,45 +118,5 @@ public class Styleable {
     public interface VisibilityTransition {
         @StyleableRes
         public static final int TRANSITION_VISIBILITY_MODE = 0;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1466469936, "Landroidx/transition/Styleable;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1466469936, "Landroidx/transition/Styleable;");
-                return;
-            }
-        }
-        TRANSITION_TARGET = new int[]{16842799, 16843740, 16843841, 16843842, 16843853, 16843854};
-        TRANSITION_MANAGER = new int[]{16843741, 16843742, 16843743};
-        TRANSITION = new int[]{16843073, 16843160, 16843746, 16843855};
-        CHANGE_BOUNDS = new int[]{16843983};
-        VISIBILITY_TRANSITION = new int[]{16843900};
-        FADE = new int[]{16843745};
-        CHANGE_TRANSFORM = new int[]{16843964, 16843965};
-        SLIDE = new int[]{16843824};
-        TRANSITION_SET = new int[]{16843744};
-        ARC_MOTION = new int[]{16843901, 16843902, 16843903};
-        PATTERN_PATH_MOTION = new int[]{16843978};
-    }
-
-    public Styleable() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
     }
 }

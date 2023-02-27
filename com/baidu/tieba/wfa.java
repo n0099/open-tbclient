@@ -1,43 +1,41 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.aea;
+import com.baidu.tieba.yea;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ThreadFactory;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes6.dex */
-public final class wfa extends aea {
+public class wfa extends yea {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<yea.a> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ThreadFactory a;
 
-    public wfa(ThreadFactory threadFactory) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadFactory};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948270039, "Lcom/baidu/tieba/wfa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948270039, "Lcom/baidu/tieba/wfa;");
                 return;
             }
         }
-        this.a = threadFactory;
+        a = new CopyOnWriteArrayList();
     }
 
-    @Override // com.baidu.tieba.aea
-    public aea.a createWorker() {
-        InterceptResult invokeV;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new xfa(this.a);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            for (yea.a aVar : a) {
+                aVar.onFinish();
+            }
         }
-        return (aea.a) invokeV.objValue;
     }
 }

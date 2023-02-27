@@ -1,11 +1,11 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.util.PriorityOrganizer;
 /* loaded from: classes6.dex */
 public interface s49 {
-    int getCurrentTabType();
+    void a(int i);
 
-    @NonNull
-    PriorityOrganizer p0();
+    void b();
+
+    void c(l49 l49Var);
+
+    void d(int i, boolean z, d49 d49Var);
 }

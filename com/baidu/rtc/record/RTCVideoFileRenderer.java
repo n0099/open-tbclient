@@ -11,7 +11,7 @@ import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.rtc.RTCAudioSamples;
 import com.baidu.rtc.record.RTCVideoFileRenderer;
-import com.baidu.tieba.pda;
+import com.baidu.tieba.kma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -114,7 +114,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
         if ((interceptable != null && interceptable.invokeL(65537, this, rTCAudioSamples) != null) || rTCAudioSamples == null) {
             return;
         }
-        this.audioThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.xk1
+        this.audioThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.il1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -136,7 +136,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
             if (this.videoEncoder == null) {
                 initVideoEncoder();
             }
-            this.renderThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.zk1
+            this.renderThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.kl1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -313,7 +313,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                 MediaCodec createEncoderByType = MediaCodec.createEncoderByType(this.encodeParams.getVideoCodec());
                 this.videoEncoder = createEncoderByType;
                 createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-                this.renderThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.wk1
+                this.renderThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.hl1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -393,7 +393,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
     }
 
     public /* synthetic */ void b() {
-        this.eglBase = pda.c(this.sharedContext, EglBase.CONFIG_RECORDABLE);
+        this.eglBase = kma.c(this.sharedContext, EglBase.CONFIG_RECORDABLE);
         Surface createInputSurface = this.videoEncoder.createInputSurface();
         this.surface = createInputSurface;
         this.eglBase.createSurface(createInputSurface);
@@ -423,7 +423,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
             this.isRunning = false;
             Handler handler = this.audioThreadHandler;
             if (handler != null) {
-                handler.post(new Runnable() { // from class: com.baidu.tieba.vk1
+                handler.post(new Runnable() { // from class: com.baidu.tieba.gl1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -438,7 +438,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
             }
             Handler handler2 = this.renderThreadHandler;
             if (handler2 != null) {
-                handler2.post(new Runnable() { // from class: com.baidu.tieba.yk1
+                handler2.post(new Runnable() { // from class: com.baidu.tieba.jl1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

@@ -16,7 +16,6 @@ public class ForumWriteData implements Serializable {
     public final AntiData antiData;
     public String avatar;
     public int categoryId;
-    public int defaultZone;
     public String firstCategory;
     public String firstDir;
     public final String forumId;
@@ -49,7 +48,6 @@ public class ForumWriteData implements Serializable {
         }
         this.categoryId = -1;
         this.forumLevel = -1;
-        this.defaultZone = -1;
         this.forumId = str;
         this.forumName = str2;
         this.prefixData = postPrefixData;
@@ -70,16 +68,9 @@ public class ForumWriteData implements Serializable {
         }
     }
 
-    public void setDefaultZone(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.defaultZone = i;
-        }
-    }
-
     public void setPrivateThread(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             this.privateThread = i;
         }
     }

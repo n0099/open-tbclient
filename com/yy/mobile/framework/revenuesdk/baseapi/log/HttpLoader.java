@@ -4,13 +4,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -19,31 +15,21 @@ import java.util.zip.GZIPInputStream;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes8.dex */
 public class HttpLoader {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public HttpLoader() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0098 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x00e2 */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: java.lang.String */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v2, resolved type: java.util.zip.GZIPInputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v3, resolved type: java.util.zip.GZIPInputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v5, resolved type: java.util.zip.GZIPInputStream */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r6v1 */
+    /* JADX WARN: Type inference failed for: r6v9, types: [java.util.zip.GZIPInputStream, java.io.InputStream] */
     public static String postJson(String str, String str2) {
-        InterceptResult invokeLL;
         GZIPInputStream gZIPInputStream;
         BufferedReader bufferedReader;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            String str3 = "";
-            BufferedReader bufferedReader2 = null;
+        String str3 = "";
+        BufferedReader bufferedReader2 = null;
+        try {
             try {
                 try {
                     HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
@@ -57,7 +43,7 @@ public class HttpLoader {
                     httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
                     httpURLConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
                     httpURLConnection.setRequestProperty(BOSTokenRequest.ACCEPT, "application/json");
-                    if (str2 != null && !TextUtils.isEmpty(str2)) {
+                    if (str2 != 0 && !TextUtils.isEmpty(str2)) {
                         httpURLConnection.setRequestProperty("Content-Length", String.valueOf(str2.getBytes().length));
                         OutputStream outputStream = httpURLConnection.getOutputStream();
                         outputStream.write(str2.getBytes());
@@ -65,19 +51,16 @@ public class HttpLoader {
                         outputStream.close();
                     }
                     if (httpURLConnection.getResponseCode() == 200) {
-                        gZIPInputStream = new GZIPInputStream(httpURLConnection.getInputStream());
+                        str2 = new GZIPInputStream(httpURLConnection.getInputStream());
                         try {
-                            try {
-                                bufferedReader = new BufferedReader(new InputStreamReader(gZIPInputStream, "UTF-8"));
-                            } catch (Exception e) {
-                                e = e;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
+                            bufferedReader = new BufferedReader(new InputStreamReader((InputStream) str2, "UTF-8"));
+                        } catch (Exception e) {
+                            e = e;
                         }
                         try {
                             str3 = bufferedReader.readLine();
                             bufferedReader2 = bufferedReader;
+                            gZIPInputStream = str2;
                         } catch (Exception e2) {
                             bufferedReader2 = bufferedReader;
                             e = e2;
@@ -90,13 +73,13 @@ public class HttpLoader {
                                     e3.printStackTrace();
                                 }
                             }
-                            if (gZIPInputStream != null) {
-                                gZIPInputStream.close();
+                            if (str2 != 0) {
+                                str2.close();
                             }
                             return str3;
-                        } catch (Throwable th2) {
+                        } catch (Throwable th) {
                             bufferedReader2 = bufferedReader;
-                            th = th2;
+                            th = th;
                             if (bufferedReader2 != null) {
                                 try {
                                     bufferedReader2.close();
@@ -104,9 +87,9 @@ public class HttpLoader {
                                     e4.printStackTrace();
                                 }
                             }
-                            if (gZIPInputStream != null) {
+                            if (str2 != 0) {
                                 try {
-                                    gZIPInputStream.close();
+                                    str2.close();
                                 } catch (Exception e5) {
                                     e5.printStackTrace();
                                 }
@@ -123,21 +106,22 @@ public class HttpLoader {
                             e6.printStackTrace();
                         }
                     }
-                } catch (Exception e7) {
-                    e7.printStackTrace();
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-            } catch (Exception e8) {
-                e = e8;
-                gZIPInputStream = null;
+            } catch (Exception e7) {
+                e = e7;
+                str2 = 0;
             } catch (Throwable th3) {
                 th = th3;
-                gZIPInputStream = null;
+                str2 = 0;
             }
             if (gZIPInputStream != null) {
                 gZIPInputStream.close();
             }
-            return str3;
+        } catch (Exception e8) {
+            e8.printStackTrace();
         }
-        return (String) invokeLL.objValue;
+        return str3;
     }
 }

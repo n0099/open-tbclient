@@ -8,22 +8,22 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.dq5;
+import com.baidu.tieba.fm7;
 import com.baidu.tieba.im.model.MsglistModel;
-import com.baidu.tieba.jj7;
-import com.baidu.tieba.oj7;
-import com.baidu.tieba.po5;
+import com.baidu.tieba.km7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class MsglistActivity<T> extends TalkableActivity<T> implements jj7 {
+public abstract class MsglistActivity<T> extends TalkableActivity<T> implements fm7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean u;
 
-    public abstract boolean P1(jj7 jj7Var);
+    public abstract boolean P1(fm7 fm7Var);
 
     public abstract boolean Q1(Bundle bundle);
 
@@ -90,7 +90,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
     }
 
-    @Override // com.baidu.tieba.jj7
+    @Override // com.baidu.tieba.fm7
     public void i1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -98,7 +98,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
     }
 
-    @Override // androidx.activity.ComponentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -164,7 +164,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             }
             S1();
             V1();
-            oj7.a = po5.b();
+            km7.a = dq5.b();
         }
     }
 

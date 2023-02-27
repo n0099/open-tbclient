@@ -1,5 +1,6 @@
 package com.kwad.sdk.api.loader;
 
+import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,7 +8,7 @@ import java.security.DigestInputStream;
 import java.security.MessageDigest;
 /* loaded from: classes8.dex */
 public final class s {
-    public static final char[] SI = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] SI = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0060 */
     /* JADX WARN: Multi-variable type inference failed */

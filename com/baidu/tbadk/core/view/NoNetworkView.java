@@ -20,9 +20,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.NoNetworkMoreActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qv4;
-import com.baidu.tieba.r49;
+import com.baidu.tieba.d89;
 import com.baidu.tieba.x9;
+import com.baidu.tieba.xw4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -288,7 +288,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
             this.c = (TextView) findViewById(R.id.check_detail_view);
             setOnClickListener(this);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, r49.noNetworkView);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d89.noNetworkView);
                 this.d = obtainStyledAttributes.getBoolean(0, false);
                 obtainStyledAttributes.recycle();
             }
@@ -307,13 +307,15 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     }
 
     public void d(x9<?> x9Var, int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, x9Var, i) == null) {
             if (x9Var instanceof TbPageContext) {
                 TbPageContext tbPageContext = (TbPageContext) x9Var;
-                qv4 layoutMode = tbPageContext.getLayoutMode();
-                boolean z = true;
-                if (i != 1) {
+                xw4 layoutMode = tbPageContext.getLayoutMode();
+                if (i == 4) {
+                    z = true;
+                } else {
                     z = false;
                 }
                 layoutMode.l(z);

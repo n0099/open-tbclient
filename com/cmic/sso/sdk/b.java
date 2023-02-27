@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
+    public static String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
@@ -31,5 +32,21 @@ public class b {
                 classClinitInterceptable.invokePostClinit(-1436890238, "Lcom/cmic/sso/sdk/b$a;");
             }
         }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(999621023, "Lcom/cmic/sso/sdk/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(999621023, "Lcom/cmic/sso/sdk/b;");
+                return;
+            }
+        }
+        a = new String[]{"120", "0", "196", "1", "213", "2", "2"};
     }
 }

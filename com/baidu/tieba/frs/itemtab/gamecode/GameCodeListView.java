@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b35;
+import com.baidu.tieba.cp5;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.on5;
-import com.baidu.tieba.p15;
-import com.baidu.tieba.r07;
+import com.baidu.tieba.q37;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.GameCodeList;
 /* loaded from: classes4.dex */
-public class GameCodeListView extends ConstraintLayout implements on5 {
+public class GameCodeListView extends ConstraintLayout implements cp5 {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public static final int g;
@@ -89,11 +89,11 @@ public class GameCodeListView extends ConstraintLayout implements on5 {
         a(context);
     }
 
-    @Override // com.baidu.tieba.on5
+    @Override // com.baidu.tieba.cp5
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            p15 d = p15.d(this);
+            b35 d = b35.d(this);
             d.n(R.string.J_X14);
             d.f(R.color.CAM_X0212);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
@@ -174,8 +174,8 @@ public class GameCodeListView extends ConstraintLayout implements on5 {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0332, this);
-            EMTextView eMTextView = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090cfe);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0340, this);
+            EMTextView eMTextView = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090d3f);
             this.a = eMTextView;
             eMTextView.setTextSize(0, j);
             EMTextView eMTextView2 = this.a;
@@ -183,16 +183,16 @@ public class GameCodeListView extends ConstraintLayout implements on5 {
             eMTextView2.setPadding(i2, g, i2, h);
             this.a.setGravity(1);
             this.a.setText(R.string.obfuscated_res_0x7f0f0276);
-            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090cfd);
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090d3e);
             this.b = recyclerView;
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
             GameCodeAdapter gameCodeAdapter = new GameCodeAdapter(context);
             this.c = gameCodeAdapter;
             this.b.setAdapter(gameCodeAdapter);
-            EMTextView eMTextView3 = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090cfc);
+            EMTextView eMTextView3 = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090d3d);
             this.d = eMTextView3;
             eMTextView3.setTextSize(0, k);
-            this.d.setText(R.string.obfuscated_res_0x7f0f038c);
+            this.d.setText(R.string.obfuscated_res_0x7f0f038d);
             ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) this.d.getLayoutParams();
             ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = l;
             this.d.setLayoutParams(layoutParams);
@@ -202,10 +202,10 @@ public class GameCodeListView extends ConstraintLayout implements on5 {
         }
     }
 
-    public void b(r07 r07Var) {
+    public void b(q37 q37Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r07Var) == null) {
-            this.c.g(r07Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q37Var) == null) {
+            this.c.g(q37Var);
         }
     }
 

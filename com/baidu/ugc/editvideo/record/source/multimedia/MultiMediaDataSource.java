@@ -15,8 +15,6 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Surface;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffectConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
@@ -27,18 +25,13 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransitionConfig;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
-import com.baidu.tieba.gx9;
-import com.baidu.tieba.hx9;
-import com.baidu.tieba.lx9;
-import com.baidu.tieba.rg0;
-import com.baidu.tieba.su9;
-import com.baidu.tieba.xg0;
-import com.baidu.tieba.yx9;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.bh0;
+import com.baidu.tieba.d1a;
+import com.baidu.tieba.e1a;
+import com.baidu.tieba.i1a;
+import com.baidu.tieba.py9;
+import com.baidu.tieba.v1a;
+import com.baidu.tieba.vg0;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.data.MultiMediaDataTrack;
 import com.baidu.ugc.editvideo.faceunity.gles.EglCore;
@@ -65,29 +58,20 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
 public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.Callback, IMultiMediaDataSource, IVLogCommunicateProtocol, IVlogEditManager, MultiMediaDataSourceRealTimer.AnimatorUpdateListener, MultiDataSourceUtil.OnInitMultiMediaListener, MultiDataSourceUtil.OnReleaseMultiMediaListener {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int Gl_THREAD_DELETE_ONE = 2;
     public static final int Gl_THREAD_INIT_ONE = 1;
     public static final int Gl_THREAD_MULTI_INIT_NEXT = 4;
     public static final int MSG_UPDATE_TIMELINE = 1;
-    public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean isCancel;
-    public volatile boolean isLooping;
     public volatile boolean isMute;
-    public volatile boolean isPaused;
     public volatile boolean isPrepared;
-    public volatile boolean isProgressSeeking;
     public volatile int[] mAudioChangeTypes;
     public Map<String, MediaTrack> mCommonTrackMap;
-    public AtomicInteger mCurrentIndex;
     public List<EffectChangeObserver> mEffectChangeObservers;
     public EGLContext mEglContext;
     public EglCore mEglCore;
-    public int mFrameRate;
-    public Handler mMainHandler;
     public List<MediaTrackChangeObserver> mMediaTrackChangeObservers;
     public MediaTrackConfig mMediaTrackConfig;
-    public MultiMediaAdapter mMultiMediaAdapter;
     public MultiMediaStateEventListener mMultiMediaStateEventListener;
     public MultiMediaTimelineUpdateListener mMultiMediaTimelineUpdateListener;
     public MultiMediaTimelineUpdateListener mMultiMediaTimelineUpdateListenerByMainThread;
@@ -98,327 +82,210 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
     public volatile long mPlayTime;
     public OnPreRunnableTask mPreRunnableTask;
     public IMultiMediaPreparedListener mPreparedListener;
-    public Handler mReadPhotoHandler;
-    public volatile int mRepeatIndex;
-    public final Map<String, ShaderConfig> mShaderConfigMap;
     public NewSubTitleCreater mSubTitleCreater;
     public List<SubTitleUnit> mSubTitleUnitList;
     public volatile MultiMediaDataSourceRealTimer mTimer;
-    public List<MediaTrack> mUpdateMediaTracks;
-    public List<MultiMediaDataTrack> mUpdateMultiMediaDataTrack;
     public float mVideoRatio;
     public SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener;
-
-    public MultiMediaDataSource() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    public AtomicInteger mCurrentIndex = new AtomicInteger();
+    public final Map<String, ShaderConfig> mShaderConfigMap = new HashMap();
+    public List<MediaTrack> mUpdateMediaTracks = new ArrayList();
+    public List<MultiMediaDataTrack> mUpdateMultiMediaDataTrack = new ArrayList();
+    public volatile boolean isProgressSeeking = false;
+    public volatile boolean isPaused = false;
+    public volatile boolean isLooping = true;
+    public volatile int mRepeatIndex = -1;
+    public int mFrameRate = 30;
+    public MultiMediaAdapter mMultiMediaAdapter = new MultiMediaAdapter() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.14
+        @Override // com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.MultiMediaAdapter
+        public void destroyPlayer(int i, MultiMediaData multiMediaData) {
+            MultiMediaData multiMediaData2;
+            MultiMediaDataTrack inputMultiMediaDataTrack = MultiMediaDataSource.this.getInputMultiMediaDataTrack();
+            if (inputMultiMediaDataTrack == null || i1a.e(inputMultiMediaDataTrack.multiMediaDataList) || (multiMediaData2 = (MultiMediaData) i1a.c(inputMultiMediaDataTrack.multiMediaDataList, i)) == null) {
                 return;
             }
+            d1a.b("destroyPlayer : " + i);
+            if (!MultiMediaDataSource.this.isPaused) {
+                MultiMediaDataSource.this.onReleaseMultiMedia(multiMediaData2);
+                return;
+            }
+            multiMediaData2.releaseSurface();
+            multiMediaData2.releasePlayer();
         }
-        this.mCurrentIndex = new AtomicInteger();
-        this.mShaderConfigMap = new HashMap();
-        this.mUpdateMediaTracks = new ArrayList();
-        this.mUpdateMultiMediaDataTrack = new ArrayList();
-        this.isProgressSeeking = false;
-        this.isPaused = false;
-        this.isLooping = true;
-        this.mRepeatIndex = -1;
-        this.mFrameRate = 30;
-        this.mMultiMediaAdapter = new MultiMediaAdapter(this) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.14
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ MultiMediaDataSource this$0;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
+        @Override // com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.MultiMediaAdapter
+        public int getCount() {
+            MultiMediaDataTrack inputMultiMediaDataTrack = MultiMediaDataSource.this.getInputMultiMediaDataTrack();
+            if (inputMultiMediaDataTrack == null) {
+                return 0;
             }
+            return i1a.b(inputMultiMediaDataTrack.multiMediaDataList);
+        }
 
-            @Override // com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.MultiMediaAdapter
-            public void destroyPlayer(int i3, MultiMediaData multiMediaData) {
-                MultiMediaDataTrack inputMultiMediaDataTrack;
-                MultiMediaData multiMediaData2;
-                Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, multiMediaData) == null) || (inputMultiMediaDataTrack = this.this$0.getInputMultiMediaDataTrack()) == null || lx9.e(inputMultiMediaDataTrack.multiMediaDataList) || (multiMediaData2 = (MultiMediaData) lx9.c(inputMultiMediaDataTrack.multiMediaDataList, i3)) == null) {
+        @Override // com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.MultiMediaAdapter
+        public MultiMediaData instantiatePlayer(int i) {
+            MultiMediaDataTrack inputMultiMediaDataTrack = MultiMediaDataSource.this.getInputMultiMediaDataTrack();
+            if (inputMultiMediaDataTrack == null || i1a.e(inputMultiMediaDataTrack.multiMediaDataList)) {
+                return null;
+            }
+            MultiMediaData multiMediaData = (MultiMediaData) i1a.c(inputMultiMediaDataTrack.multiMediaDataList, i);
+            if (multiMediaData.player != null) {
+                return null;
+            }
+            if (multiMediaData.type == 1) {
+                MultiMediaDataSource.this.createPlayer(multiMediaData);
+            }
+            if (multiMediaData.textureId == 0) {
+                Message obtain = Message.obtain();
+                obtain.what = 1;
+                obtain.obj = multiMediaData;
+                MultiMediaDataSource.this.mReadPhotoHandler.sendMessage(obtain);
+            } else {
+                MultiMediaDataSource.this.bindPlayerSurfaceTexture(multiMediaData);
+            }
+            d1a.b("instantiatePlayer : " + i);
+            return multiMediaData;
+        }
+
+        @Override // com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.MultiMediaAdapter
+        public boolean isPlayerType(int i) {
+            MultiMediaDataTrack inputMultiMediaDataTrack = MultiMediaDataSource.this.getInputMultiMediaDataTrack();
+            return (inputMultiMediaDataTrack == null || i1a.e(inputMultiMediaDataTrack.multiMediaDataList) || ((MultiMediaData) i1a.c(inputMultiMediaDataTrack.multiMediaDataList, i)) == null) ? false : true;
+        }
+    };
+    public Handler mMainHandler = new Handler(Looper.getMainLooper(), this);
+    public Handler mReadPhotoHandler = new Handler(MultiMediaDataSourceTimerManager.getInstance().getReadPhotoLooper()) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.1
+        public EGLContext mInnerEglContext;
+
+        private void initGlResource(MultiMediaData multiMediaData) {
+            if (multiMediaData == null) {
+                return;
+            }
+            try {
+                if (MultiMediaDataSource.this.mEglContext == null || MultiMediaDataSource.this.isPaused || MultiMediaDataSource.this.mEglContext == EGL14.EGL_NO_CONTEXT) {
                     return;
                 }
-                gx9.b("destroyPlayer : " + i3);
-                if (!this.this$0.isPaused) {
-                    this.this$0.onReleaseMultiMedia(multiMediaData2);
+                MultiMediaDataSource.this.mOffscreenSurface.makeCurrent();
+                MultiMediaDataSource.this.initMultiMedia(multiMediaData);
+            } catch (RuntimeException e) {
+                if (bh0.l()) {
+                    Log.d(bh0.a, e.getLocalizedMessage());
+                }
+            }
+        }
+
+        private void initNextGlResource(MultiMediaData multiMediaData) {
+            if (multiMediaData == null) {
+                return;
+            }
+            try {
+                if (MultiMediaDataSource.this.mEglContext == null || MultiMediaDataSource.this.isPaused || MultiMediaDataSource.this.mEglContext == EGL14.EGL_NO_CONTEXT) {
                     return;
                 }
-                multiMediaData2.releaseSurface();
-                multiMediaData2.releasePlayer();
-            }
-
-            @Override // com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.MultiMediaAdapter
-            public int getCount() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    MultiMediaDataTrack inputMultiMediaDataTrack = this.this$0.getInputMultiMediaDataTrack();
-                    if (inputMultiMediaDataTrack == null) {
-                        return 0;
-                    }
-                    return lx9.b(inputMultiMediaDataTrack.multiMediaDataList);
+                MultiMediaDataSource.this.mOffscreenSurface.makeCurrent();
+                int i = multiMediaData.frameIndex != multiMediaData.frameCount ? multiMediaData.frameIndex + 1 : 0;
+                if (i == multiMediaData.frameCount) {
+                    i = 0;
                 }
-                return invokeV.intValue;
-            }
-
-            @Override // com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.MultiMediaAdapter
-            public MultiMediaData instantiatePlayer(int i3) {
-                InterceptResult invokeI;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i3)) == null) {
-                    MultiMediaDataTrack inputMultiMediaDataTrack = this.this$0.getInputMultiMediaDataTrack();
-                    if (inputMultiMediaDataTrack == null || lx9.e(inputMultiMediaDataTrack.multiMediaDataList)) {
-                        return null;
-                    }
-                    MultiMediaData multiMediaData = (MultiMediaData) lx9.c(inputMultiMediaDataTrack.multiMediaDataList, i3);
-                    if (multiMediaData.player != null) {
-                        return null;
-                    }
-                    if (multiMediaData.type == 1) {
-                        this.this$0.createPlayer(multiMediaData);
-                    }
-                    if (multiMediaData.textureId == 0) {
-                        Message obtain = Message.obtain();
-                        obtain.what = 1;
-                        obtain.obj = multiMediaData;
-                        this.this$0.mReadPhotoHandler.sendMessage(obtain);
-                    } else {
-                        this.this$0.bindPlayerSurfaceTexture(multiMediaData);
-                    }
-                    gx9.b("instantiatePlayer : " + i3);
-                    return multiMediaData;
-                }
-                return (MultiMediaData) invokeI.objValue;
-            }
-
-            @Override // com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.MultiMediaAdapter
-            public boolean isPlayerType(int i3) {
-                InterceptResult invokeI;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048579, this, i3)) == null) {
-                    MultiMediaDataTrack inputMultiMediaDataTrack = this.this$0.getInputMultiMediaDataTrack();
-                    return (inputMultiMediaDataTrack == null || lx9.e(inputMultiMediaDataTrack.multiMediaDataList) || ((MultiMediaData) lx9.c(inputMultiMediaDataTrack.multiMediaDataList, i3)) == null) ? false : true;
-                }
-                return invokeI.booleanValue;
-            }
-        };
-        this.mMainHandler = new Handler(Looper.getMainLooper(), this);
-        this.mReadPhotoHandler = new Handler(this, MultiMediaDataSourceTimerManager.getInstance().getReadPhotoLooper()) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public EGLContext mInnerEglContext;
-            public final /* synthetic */ MultiMediaDataSource this$0;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(r8);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr = {this, r8};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        super((Looper) newInitContext2.callArgs[0]);
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            private void initGlResource(MultiMediaData multiMediaData) {
-                Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(65537, this, multiMediaData) == null) || multiMediaData == null) {
-                    return;
-                }
+                Bitmap decodeBitmap = MultiDataSourceUtil.decodeBitmap(multiMediaData.path + File.separator + i + "." + multiMediaData.frameSuffix);
                 try {
-                    if (this.this$0.mEglContext == null || this.this$0.isPaused || this.this$0.mEglContext == EGL14.EGL_NO_CONTEXT) {
-                        return;
-                    }
-                    this.this$0.mOffscreenSurface.makeCurrent();
-                    this.this$0.initMultiMedia(multiMediaData);
-                } catch (RuntimeException e) {
-                    if (xg0.l()) {
-                        Log.d(xg0.a, e.getLocalizedMessage());
-                    }
+                    int type = GLUtils.getType(decodeBitmap);
+                    int internalFormat = GLUtils.getInternalFormat(decodeBitmap);
+                    d1a.b("type : " + type + " internalFormat : " + internalFormat);
+                } catch (Exception unused) {
+                    decodeBitmap = e1a.c(decodeBitmap, Bitmap.CompressFormat.PNG, 100);
+                }
+                if (multiMediaData.backupFrameTextureId != 0) {
+                    GLES20.glBindTexture(3553, multiMediaData.backupFrameTextureId);
+                } else {
+                    multiMediaData.backupFrameTextureId = vg0.b();
+                }
+                GLUtils.texImage2D(3553, 0, decodeBitmap, 0);
+                GLES20.glBindTexture(3553, 0);
+                decodeBitmap.recycle();
+            } catch (RuntimeException e) {
+                if (bh0.l()) {
+                    Log.d(bh0.a, e.getLocalizedMessage());
                 }
             }
+        }
 
-            private void initNextGlResource(MultiMediaData multiMediaData) {
-                Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(65538, this, multiMediaData) == null) || multiMediaData == null) {
+        private void initSurface() {
+            try {
+                EGLContext eGLContext = MultiMediaDataSource.this.mEglContext;
+                if (eGLContext == null) {
+                    this.mInnerEglContext = null;
+                    d1a.b("no gl context");
                     return;
                 }
-                try {
-                    if (this.this$0.mEglContext == null || this.this$0.isPaused || this.this$0.mEglContext == EGL14.EGL_NO_CONTEXT) {
+                if (this.mInnerEglContext != null) {
+                    if (eGLContext != null && eGLContext != this.mInnerEglContext && eGLContext != EGL14.EGL_NO_CONTEXT) {
+                        MultiMediaDataSource.this.releaseEgl();
+                    }
+                    if (MultiMediaDataSource.this.mEglCore == null || this.mInnerEglContext == null || this.mInnerEglContext == EGL14.EGL_NO_CONTEXT) {
                         return;
                     }
-                    this.this$0.mOffscreenSurface.makeCurrent();
-                    int i3 = multiMediaData.frameIndex != multiMediaData.frameCount ? multiMediaData.frameIndex + 1 : 0;
-                    if (i3 == multiMediaData.frameCount) {
-                        i3 = 0;
-                    }
-                    Bitmap decodeBitmap = MultiDataSourceUtil.decodeBitmap(multiMediaData.path + File.separator + i3 + "." + multiMediaData.frameSuffix);
-                    try {
-                        int type = GLUtils.getType(decodeBitmap);
-                        int internalFormat = GLUtils.getInternalFormat(decodeBitmap);
-                        gx9.b("type : " + type + " internalFormat : " + internalFormat);
-                    } catch (Exception unused) {
-                        decodeBitmap = hx9.c(decodeBitmap, Bitmap.CompressFormat.PNG, 100);
-                    }
-                    if (multiMediaData.backupFrameTextureId != 0) {
-                        GLES20.glBindTexture(3553, multiMediaData.backupFrameTextureId);
-                    } else {
-                        multiMediaData.backupFrameTextureId = rg0.b();
-                    }
-                    GLUtils.texImage2D(3553, 0, decodeBitmap, 0);
-                    GLES20.glBindTexture(3553, 0);
-                    decodeBitmap.recycle();
-                } catch (RuntimeException e) {
-                    if (xg0.l()) {
-                        Log.d(xg0.a, e.getLocalizedMessage());
-                    }
+                    MultiMediaDataSource.this.mEglCore = new EglCore(this.mInnerEglContext, 2);
+                    MultiMediaDataSource.this.mOffscreenSurface = new OffscreenSurface(MultiMediaDataSource.this.mEglCore, 1, 1);
+                    return;
+                }
+                this.mInnerEglContext = eGLContext;
+                if (MultiMediaDataSource.this.mEglCore == null) {
+                }
+            } catch (Exception e) {
+                if (bh0.l()) {
+                    Log.d(bh0.a, e.getLocalizedMessage());
                 }
             }
+        }
 
-            private void initSurface() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(65539, this) == null) {
-                    try {
-                        EGLContext eGLContext = this.this$0.mEglContext;
-                        if (eGLContext == null) {
-                            this.mInnerEglContext = null;
-                            gx9.b("no gl context");
-                            return;
-                        }
-                        if (this.mInnerEglContext != null) {
-                            if (eGLContext != null && eGLContext != this.mInnerEglContext && eGLContext != EGL14.EGL_NO_CONTEXT) {
-                                this.this$0.releaseEgl();
-                            }
-                            if (this.this$0.mEglCore == null || this.mInnerEglContext == null || this.mInnerEglContext == EGL14.EGL_NO_CONTEXT) {
-                                return;
-                            }
-                            this.this$0.mEglCore = new EglCore(this.mInnerEglContext, 2);
-                            this.this$0.mOffscreenSurface = new OffscreenSurface(this.this$0.mEglCore, 1, 1);
-                            return;
-                        }
-                        this.mInnerEglContext = eGLContext;
-                        if (this.this$0.mEglCore == null) {
-                        }
-                    } catch (Exception e) {
-                        if (xg0.l()) {
-                            Log.d(xg0.a, e.getLocalizedMessage());
-                        }
-                    }
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            super.handleMessage(message);
+            d1a.b("initSurface what : " + message.what + " mInnerEglContext : " + this.mInnerEglContext + " MultiMediaDataSource.this.mEglContext : " + MultiMediaDataSource.this.mEglContext);
+            initSurface();
+            int i = message.what;
+            if (i == 1) {
+                Object obj = message.obj;
+                if (obj instanceof MultiMediaData) {
+                    initGlResource((MultiMediaData) obj);
+                }
+            } else if (i == 2) {
+                MultiDataSourceUtil.glDeleteTextures(message.arg1);
+            } else if (i != 4) {
+            } else {
+                Object obj2 = message.obj;
+                if (obj2 instanceof MultiMediaData) {
+                    initNextGlResource((MultiMediaData) obj2);
                 }
             }
-
-            @Override // android.os.Handler
-            public void handleMessage(Message message) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
-                    super.handleMessage(message);
-                    gx9.b("initSurface what : " + message.what + " mInnerEglContext : " + this.mInnerEglContext + " MultiMediaDataSource.this.mEglContext : " + this.this$0.mEglContext);
-                    initSurface();
-                    int i3 = message.what;
-                    if (i3 == 1) {
-                        Object obj = message.obj;
-                        if (obj instanceof MultiMediaData) {
-                            initGlResource((MultiMediaData) obj);
-                        }
-                    } else if (i3 == 2) {
-                        MultiDataSourceUtil.glDeleteTextures(message.arg1);
-                    } else if (i3 != 4) {
-                    } else {
-                        Object obj2 = message.obj;
-                        if (obj2 instanceof MultiMediaData) {
-                            initNextGlResource((MultiMediaData) obj2);
-                        }
-                    }
-                }
-            }
-        };
-    }
+        }
+    };
 
     private void applyTimeLineOnTemplateType() {
-        MediaTrackConfig mediaTrackConfig;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65561, this) == null) || (mediaTrackConfig = this.mMediaTrackConfig) == null || !TextUtils.equals(mediaTrackConfig.importType, MediaTrackConfig.AE_IMPORT_TEMPLATE) || lx9.e(this.mMediaTrackConfig.mediaTracks) || getInputTrack() == null) {
+        MediaTrackConfig mediaTrackConfig = this.mMediaTrackConfig;
+        if (mediaTrackConfig == null || !TextUtils.equals(mediaTrackConfig.importType, MediaTrackConfig.AE_IMPORT_TEMPLATE) || i1a.e(this.mMediaTrackConfig.mediaTracks) || getInputTrack() == null) {
             return;
         }
-        xg0.d(getInputTrack(), getInputSegmentFromConfig(), this.mMediaTrackConfig);
+        bh0.d(getInputTrack(), getInputSegmentFromConfig(), this.mMediaTrackConfig);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bindPlayerSurfaceTexture(MultiMediaData multiMediaData) {
-        VLogSimplePlayer vLogSimplePlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65562, this, multiMediaData) == null) || (vLogSimplePlayer = multiMediaData.player) == null) {
+    public void bindPlayerSurfaceTexture(final MultiMediaData multiMediaData) {
+        VLogSimplePlayer vLogSimplePlayer = multiMediaData.player;
+        if (vLogSimplePlayer == null) {
             return;
         }
         multiMediaData.playerReady = false;
         SurfaceTexture surfaceTexture = new SurfaceTexture(multiMediaData.textureId);
         multiMediaData.surfaceTexture = surfaceTexture;
-        surfaceTexture.setOnFrameAvailableListener(new SurfaceTexture.OnFrameAvailableListener(this, multiMediaData) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.25
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ MultiMediaDataSource this$0;
-            public final /* synthetic */ MultiMediaData val$multiMediaData;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, multiMediaData};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.val$multiMediaData = multiMediaData;
-            }
-
+        surfaceTexture.setOnFrameAvailableListener(new SurfaceTexture.OnFrameAvailableListener() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.25
             @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
             public void onFrameAvailable(SurfaceTexture surfaceTexture2) {
-                Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, surfaceTexture2) == null) || this.val$multiMediaData.playerReady || surfaceTexture2.getTimestamp() == 0) {
+                if (multiMediaData.playerReady || surfaceTexture2.getTimestamp() == 0) {
                     return;
                 }
-                this.val$multiMediaData.playerReady = true;
+                multiMediaData.playerReady = true;
             }
         });
         Surface surface = new Surface(multiMediaData.surfaceTexture);
@@ -430,395 +297,215 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
 
     /* JADX INFO: Access modifiers changed from: private */
     public MultiMediaData createMultiMediaData(MultiMediaData multiMediaData, long j, MediaSegment mediaSegment) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65563, this, new Object[]{multiMediaData, Long.valueOf(j), mediaSegment})) == null) {
-            MultiMediaData multiMediaData2 = (MultiMediaData) multiMediaData.clone();
-            multiMediaData2.textureId = 0;
-            multiMediaData2.backupFrameTextureId = 0;
-            multiMediaData2.mtx = new float[16];
-            multiMediaData2.surfaceTexture = null;
-            multiMediaData2.surface = null;
-            multiMediaData2.player = null;
-            multiMediaData2.uuid = null;
-            multiMediaData2.subTitleText = null;
-            multiMediaData2.start = j;
-            multiMediaData2.end = multiMediaData.end;
-            mediaSegment.end = (j - multiMediaData.start) + mediaSegment.start;
-            multiMediaData.end = j;
-            return multiMediaData2;
-        }
-        return (MultiMediaData) invokeCommon.objValue;
+        MultiMediaData multiMediaData2 = (MultiMediaData) multiMediaData.clone();
+        multiMediaData2.textureId = 0;
+        multiMediaData2.backupFrameTextureId = 0;
+        multiMediaData2.mtx = new float[16];
+        multiMediaData2.surfaceTexture = null;
+        multiMediaData2.surface = null;
+        multiMediaData2.player = null;
+        multiMediaData2.uuid = null;
+        multiMediaData2.subTitleText = null;
+        multiMediaData2.start = j;
+        multiMediaData2.end = multiMediaData.end;
+        mediaSegment.end = (j - multiMediaData.start) + mediaSegment.start;
+        multiMediaData.end = j;
+        return multiMediaData2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void createPlayer(MultiMediaData multiMediaData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65564, this, multiMediaData) == null) {
-            synchronized (this) {
-                if (multiMediaData.type != 0 && multiMediaData.player == null) {
-                    VLogSimplePlayer vLogSimplePlayer = new VLogSimplePlayer(multiMediaData.path);
-                    vLogSimplePlayer.setOnPreparedListener(new IMediaPlayer.OnPreparedListener(this, multiMediaData) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.20
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ MultiMediaDataSource this$0;
-                        public final /* synthetic */ MultiMediaData val$multiMediaData;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, multiMediaData};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$multiMediaData = multiMediaData;
-                        }
-
-                        @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnPreparedListener
-                        public void onPrepared(IMediaPlayer iMediaPlayer) {
-                            SurfaceTexture surfaceTexture;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, iMediaPlayer) == null) {
-                                MultiMediaData multiMediaData2 = this.val$multiMediaData;
-                                if (!multiMediaData2.playerReady && (surfaceTexture = multiMediaData2.surfaceTexture) != null && surfaceTexture.getTimestamp() != 0) {
-                                    this.val$multiMediaData.playerReady = true;
-                                }
-                                this.this$0.notifyFrameAvailable();
-                            }
-                        }
-                    });
-                    vLogSimplePlayer.setOnInfoListener(new IMediaPlayer.OnInfoListener(this, multiMediaData) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.21
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ MultiMediaDataSource this$0;
-                        public final /* synthetic */ MultiMediaData val$multiMediaData;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, multiMediaData};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$multiMediaData = multiMediaData;
-                        }
-
-                        @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnInfoListener
-                        public boolean onInfo(IMediaPlayer iMediaPlayer, int i, int i2) {
-                            InterceptResult invokeLII;
-                            SurfaceTexture surfaceTexture;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, iMediaPlayer, i, i2)) == null) {
-                                if (i == 3) {
-                                    MultiMediaData multiMediaData2 = this.val$multiMediaData;
-                                    if (!multiMediaData2.playerReady && (surfaceTexture = multiMediaData2.surfaceTexture) != null && surfaceTexture.getTimestamp() != 0) {
-                                        this.val$multiMediaData.playerReady = true;
-                                    }
-                                } else if (i != 702) {
-                                    return false;
-                                }
-                                this.this$0.notifyFrameAvailable();
-                                return false;
-                            }
-                            return invokeLII.booleanValue;
-                        }
-                    });
-                    vLogSimplePlayer.setOnErrorListener(new IMediaPlayer.OnErrorListener(this, multiMediaData) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.22
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ MultiMediaDataSource this$0;
-                        public final /* synthetic */ MultiMediaData val$multiMediaData;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, multiMediaData};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$multiMediaData = multiMediaData;
-                        }
-
-                        /* JADX DEBUG: Incorrect finally slice size: {[IGET, INVOKE] complete}, expected: {[IGET, IPUT, IF] complete} */
-                        /* JADX WARN: Code restructure failed: missing block: B:11:0x0018, code lost:
-                            if (r6 != null) goto L13;
-                         */
-                        /* JADX WARN: Code restructure failed: missing block: B:12:0x001a, code lost:
-                            r6.player = null;
-                         */
-                        /* JADX WARN: Code restructure failed: missing block: B:16:0x0023, code lost:
-                            if (r6 == null) goto L14;
-                         */
-                        /* JADX WARN: Code restructure failed: missing block: B:19:0x002c, code lost:
-                            if (r4.this$0.isPaused != false) goto L19;
-                         */
-                        /* JADX WARN: Code restructure failed: missing block: B:20:0x002e, code lost:
-                            r4.this$0.createPlayer(r4.val$multiMediaData);
-                            r4.this$0.bindPlayerSurfaceTexture(r4.val$multiMediaData);
-                         */
-                        /* JADX WARN: Code restructure failed: missing block: B:21:0x003c, code lost:
-                            return false;
-                         */
-                        /* JADX WARN: Code restructure failed: missing block: B:36:?, code lost:
-                            return false;
-                         */
-                        /* JADX WARN: Finally extract failed */
-                        @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnErrorListener
-                        /*
-                            Code decompiled incorrectly, please refer to instructions dump.
-                        */
-                        public boolean onError(IMediaPlayer iMediaPlayer, int i, int i2) {
-                            InterceptResult invokeLII;
-                            MultiMediaData multiMediaData2;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null && (invokeLII = interceptable2.invokeLII(1048576, this, iMediaPlayer, i, i2)) != null) {
-                                return invokeLII.booleanValue;
-                            }
-                            try {
-                                if (this.val$multiMediaData != null && this.val$multiMediaData.player != null) {
-                                    this.val$multiMediaData.player.release();
-                                }
-                                multiMediaData2 = this.val$multiMediaData;
-                            } catch (Throwable th) {
-                                try {
-                                    gx9.g(th);
-                                    multiMediaData2 = this.val$multiMediaData;
-                                } catch (Throwable th2) {
-                                    MultiMediaData multiMediaData3 = this.val$multiMediaData;
-                                    if (multiMediaData3 != null) {
-                                        multiMediaData3.player = null;
-                                    }
-                                    throw th2;
-                                }
-                            }
-                        }
-                    });
-                    vLogSimplePlayer.setOnSeekCompleteListener(new IMediaPlayer.OnSeekCompleteListener(this, multiMediaData) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.23
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ MultiMediaDataSource this$0;
-                        public final /* synthetic */ MultiMediaData val$multiMediaData;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, multiMediaData};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$multiMediaData = multiMediaData;
-                        }
-
-                        @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnSeekCompleteListener
-                        public void onSeekComplete(IMediaPlayer iMediaPlayer) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, iMediaPlayer) == null) {
-                                this.this$0.notifyFrameAvailable(this.val$multiMediaData.surfaceTexture);
-                            }
-                        }
-                    });
-                    vLogSimplePlayer.setOnSpeedChangeListener(new IMediaPlayer.OnSpeedChangeListener(this, multiMediaData) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.24
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ MultiMediaDataSource this$0;
-                        public final /* synthetic */ MultiMediaData val$multiMediaData;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, multiMediaData};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$multiMediaData = multiMediaData;
-                        }
-
-                        @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnSpeedChangeListener
-                        public void onSpeedChange(float f) {
-                            Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeF(1048576, this, f) == null) || this.this$0.mOnPlayStateListener == null) {
-                                return;
-                            }
-                            this.this$0.mOnPlayStateListener.onSpeedChanged(f, this.val$multiMediaData);
-                        }
-                    });
-                    float f = this.isMute ? 0.0f : multiMediaData.volume;
-                    vLogSimplePlayer.setVolume(f, f);
-                    if (MediaSegment.SEG_TYPE_INPUT_SUPERPOSITION_FOOTER.equals(multiMediaData.inputType)) {
-                        vLogSimplePlayer.seekTo(0L);
-                    } else {
-                        vLogSimplePlayer.seekTo(multiMediaData.start);
+    public synchronized void createPlayer(final MultiMediaData multiMediaData) {
+        if (multiMediaData.type != 0 && multiMediaData.player == null) {
+            VLogSimplePlayer vLogSimplePlayer = new VLogSimplePlayer(multiMediaData.path);
+            vLogSimplePlayer.setOnPreparedListener(new IMediaPlayer.OnPreparedListener() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.20
+                @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnPreparedListener
+                public void onPrepared(IMediaPlayer iMediaPlayer) {
+                    SurfaceTexture surfaceTexture;
+                    MultiMediaData multiMediaData2 = multiMediaData;
+                    if (!multiMediaData2.playerReady && (surfaceTexture = multiMediaData2.surfaceTexture) != null && surfaceTexture.getTimestamp() != 0) {
+                        multiMediaData.playerReady = true;
                     }
-                    vLogSimplePlayer.setAudioChangeType(this.mAudioChangeTypes);
-                    vLogSimplePlayer.setSpeed(multiMediaData.getCurrentSpeed());
-                    multiMediaData.player = vLogSimplePlayer;
+                    MultiMediaDataSource.this.notifyFrameAvailable();
                 }
+            });
+            vLogSimplePlayer.setOnInfoListener(new IMediaPlayer.OnInfoListener() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.21
+                @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnInfoListener
+                public boolean onInfo(IMediaPlayer iMediaPlayer, int i, int i2) {
+                    SurfaceTexture surfaceTexture;
+                    if (i == 3) {
+                        MultiMediaData multiMediaData2 = multiMediaData;
+                        if (!multiMediaData2.playerReady && (surfaceTexture = multiMediaData2.surfaceTexture) != null && surfaceTexture.getTimestamp() != 0) {
+                            multiMediaData.playerReady = true;
+                        }
+                    } else if (i != 702) {
+                        return false;
+                    }
+                    MultiMediaDataSource.this.notifyFrameAvailable();
+                    return false;
+                }
+            });
+            vLogSimplePlayer.setOnErrorListener(new IMediaPlayer.OnErrorListener() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.22
+                /* JADX DEBUG: Incorrect finally slice size: {[IGET, INVOKE] complete}, expected: {[IGET, IPUT, IF] complete} */
+                /* JADX WARN: Code restructure failed: missing block: B:10:0x0016, code lost:
+                    r2.player = null;
+                 */
+                /* JADX WARN: Code restructure failed: missing block: B:14:0x001f, code lost:
+                    if (r2 == null) goto L12;
+                 */
+                /* JADX WARN: Code restructure failed: missing block: B:17:0x0028, code lost:
+                    if (r0.this$0.isPaused != false) goto L17;
+                 */
+                /* JADX WARN: Code restructure failed: missing block: B:18:0x002a, code lost:
+                    r0.this$0.createPlayer(r2);
+                    r0.this$0.bindPlayerSurfaceTexture(r2);
+                 */
+                /* JADX WARN: Code restructure failed: missing block: B:19:0x0038, code lost:
+                    return false;
+                 */
+                /* JADX WARN: Code restructure failed: missing block: B:30:?, code lost:
+                    return false;
+                 */
+                /* JADX WARN: Code restructure failed: missing block: B:9:0x0014, code lost:
+                    if (r2 != null) goto L11;
+                 */
+                /* JADX WARN: Finally extract failed */
+                @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnErrorListener
+                /*
+                    Code decompiled incorrectly, please refer to instructions dump.
+                */
+                public boolean onError(IMediaPlayer iMediaPlayer, int i, int i2) {
+                    MultiMediaData multiMediaData2;
+                    try {
+                        if (multiMediaData != null && multiMediaData.player != null) {
+                            multiMediaData.player.release();
+                        }
+                        multiMediaData2 = multiMediaData;
+                    } catch (Throwable th) {
+                        try {
+                            d1a.g(th);
+                            multiMediaData2 = multiMediaData;
+                        } catch (Throwable th2) {
+                            MultiMediaData multiMediaData3 = multiMediaData;
+                            if (multiMediaData3 != null) {
+                                multiMediaData3.player = null;
+                            }
+                            throw th2;
+                        }
+                    }
+                }
+            });
+            vLogSimplePlayer.setOnSeekCompleteListener(new IMediaPlayer.OnSeekCompleteListener() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.23
+                @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnSeekCompleteListener
+                public void onSeekComplete(IMediaPlayer iMediaPlayer) {
+                    MultiMediaDataSource.this.notifyFrameAvailable(multiMediaData.surfaceTexture);
+                }
+            });
+            vLogSimplePlayer.setOnSpeedChangeListener(new IMediaPlayer.OnSpeedChangeListener() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.24
+                @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnSpeedChangeListener
+                public void onSpeedChange(float f) {
+                    if (MultiMediaDataSource.this.mOnPlayStateListener != null) {
+                        MultiMediaDataSource.this.mOnPlayStateListener.onSpeedChanged(f, multiMediaData);
+                    }
+                }
+            });
+            float f = this.isMute ? 0.0f : multiMediaData.volume;
+            vLogSimplePlayer.setVolume(f, f);
+            if (MediaSegment.SEG_TYPE_INPUT_SUPERPOSITION_FOOTER.equals(multiMediaData.inputType)) {
+                vLogSimplePlayer.seekTo(0L);
+            } else {
+                vLogSimplePlayer.seekTo(multiMediaData.start);
             }
+            vLogSimplePlayer.setAudioChangeType(this.mAudioChangeTypes);
+            vLogSimplePlayer.setSpeed(multiMediaData.getCurrentSpeed());
+            multiMediaData.player = vLogSimplePlayer;
         }
     }
 
     private MediaTrack getEffectTrack() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) {
-            MediaTrack effectTrack = MultiDataSourceUtil.getEffectTrack(this.mUpdateMediaTracks);
-            if (effectTrack == null) {
-                effectTrack = new MediaTrack();
-                effectTrack.trackType = "effect";
-                MediaTrack inputTrack = getInputTrack();
-                int i = 1;
-                if (inputTrack != null && TextUtils.equals("input_blank", inputTrack.trackType)) {
-                    int i2 = 1;
-                    while (i < this.mUpdateMediaTracks.size()) {
-                        MediaTrack mediaTrack = this.mUpdateMediaTracks.get(i);
-                        if (mediaTrack != null && TextUtils.equals("multi_input", mediaTrack.trackType)) {
-                            i2++;
-                        }
-                        i++;
+        MediaTrack effectTrack = MultiDataSourceUtil.getEffectTrack(this.mUpdateMediaTracks);
+        if (effectTrack == null) {
+            effectTrack = new MediaTrack();
+            effectTrack.trackType = "effect";
+            MediaTrack inputTrack = getInputTrack();
+            int i = 1;
+            if (inputTrack != null && TextUtils.equals("input_blank", inputTrack.trackType)) {
+                int i2 = 1;
+                while (i < this.mUpdateMediaTracks.size()) {
+                    MediaTrack mediaTrack = this.mUpdateMediaTracks.get(i);
+                    if (mediaTrack != null && TextUtils.equals("multi_input", mediaTrack.trackType)) {
+                        i2++;
                     }
-                    i = i2;
+                    i++;
                 }
-                this.mUpdateMediaTracks.add(i, effectTrack);
-                this.mUpdateMultiMediaDataTrack.add(i, new MultiMediaDataTrack());
+                i = i2;
             }
-            if (lx9.e(effectTrack.mediaSegments)) {
-                effectTrack.mediaSegments = new ArrayList();
-            }
-            return effectTrack;
+            this.mUpdateMediaTracks.add(i, effectTrack);
+            this.mUpdateMultiMediaDataTrack.add(i, new MultiMediaDataTrack());
         }
-        return (MediaTrack) invokeV.objValue;
+        if (i1a.e(effectTrack.mediaSegments)) {
+            effectTrack.mediaSegments = new ArrayList();
+        }
+        return effectTrack;
     }
 
     private ArrayList<MultiMediaData> getInputMultiMediaDataList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65566, this)) == null) {
-            if (getInputMultiMediaDataTrack() == null) {
-                return null;
-            }
-            return (ArrayList) getInputMultiMediaDataTrack().multiMediaDataList;
+        if (getInputMultiMediaDataTrack() == null) {
+            return null;
         }
-        return (ArrayList) invokeV.objValue;
+        return (ArrayList) getInputMultiMediaDataTrack().multiMediaDataList;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public MultiMediaDataTrack getInputMultiMediaDataTrack() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65567, this)) == null) ? (MultiMediaDataTrack) lx9.c(this.mUpdateMultiMediaDataTrack, 0) : (MultiMediaDataTrack) invokeV.objValue;
+        return (MultiMediaDataTrack) i1a.c(this.mUpdateMultiMediaDataTrack, 0);
     }
 
     private List<MediaSegment> getInputSegmentFromConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65568, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (MediaTrack mediaTrack : this.mMediaTrackConfig.mediaTracks) {
-                if (mediaTrack != null && !lx9.e(mediaTrack.mediaSegments)) {
-                    for (MediaSegment mediaSegment : mediaTrack.mediaSegments) {
-                        if (mediaSegment != null && "input".equals(mediaSegment.type)) {
-                            arrayList.add(mediaSegment);
-                        }
-                    }
-                    if (!lx9.e(arrayList)) {
-                        break;
+        ArrayList arrayList = new ArrayList();
+        for (MediaTrack mediaTrack : this.mMediaTrackConfig.mediaTracks) {
+            if (mediaTrack != null && !i1a.e(mediaTrack.mediaSegments)) {
+                for (MediaSegment mediaSegment : mediaTrack.mediaSegments) {
+                    if (mediaSegment != null && "input".equals(mediaSegment.type)) {
+                        arrayList.add(mediaSegment);
                     }
                 }
+                if (!i1a.e(arrayList)) {
+                    break;
+                }
             }
-            return arrayList;
         }
-        return (List) invokeV.objValue;
+        return arrayList;
     }
 
     private MediaTrack getInputTrack() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65569, this)) == null) ? (MediaTrack) lx9.c(this.mUpdateMediaTracks, 0) : (MediaTrack) invokeV.objValue;
+        return (MediaTrack) i1a.c(this.mUpdateMediaTracks, 0);
     }
 
     private long getMaxVideoDurationFromConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65570, this)) == null) {
-            MediaTrackConfig mediaTrackConfig = this.mMediaTrackConfig;
-            if (mediaTrackConfig == null) {
-                return 0L;
-            }
-            return mediaTrackConfig.maxVideoDuration;
+        MediaTrackConfig mediaTrackConfig = this.mMediaTrackConfig;
+        if (mediaTrackConfig == null) {
+            return 0L;
         }
-        return invokeV.longValue;
+        return mediaTrackConfig.maxVideoDuration;
     }
 
     private int getOriginalInputSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65571, this)) == null) {
-            int size = getInputMultiMediaDataTrack().multiMediaDataList.size();
-            if (getInputMultiMediaDataTrack().hasHeader()) {
-                size--;
-            }
-            return getInputMultiMediaDataTrack().hasFooter() ? size - 1 : size;
+        int size = getInputMultiMediaDataTrack().multiMediaDataList.size();
+        if (getInputMultiMediaDataTrack().hasHeader()) {
+            size--;
         }
-        return invokeV.intValue;
+        return getInputMultiMediaDataTrack().hasFooter() ? size - 1 : size;
     }
 
     private long getSegmentsDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65572, this)) == null) ? MultiDataSourceUtil.getSegmentsDuration(getInputTrack()) : invokeV.longValue;
+        return MultiDataSourceUtil.getSegmentsDuration(getInputTrack());
     }
 
     private void initAllPlayers() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65573, this) == null) || lx9.e(this.mUpdateMultiMediaDataTrack)) {
+        if (i1a.e(this.mUpdateMultiMediaDataTrack)) {
             return;
         }
-        int b = lx9.b(this.mUpdateMultiMediaDataTrack);
+        int b = i1a.b(this.mUpdateMultiMediaDataTrack);
         if (b > 0) {
             MultiMediaDataTrack inputMultiMediaDataTrack = getInputMultiMediaDataTrack();
             MultiMediaData multiMediaData = inputMultiMediaDataTrack.multiMediaDataSuperpositionHeader;
@@ -831,7 +518,7 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
             }
         }
         for (int i = 1; i < b; i++) {
-            if (!lx9.e(this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataList)) {
+            if (!i1a.e(this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataList)) {
                 List<MultiMediaData> list = this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataList;
                 int size = list.size();
                 for (int i2 = 0; i2 < size; i2++) {
@@ -846,236 +533,198 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void initMultiMedia(MultiMediaData multiMediaData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65574, this, multiMediaData) == null) {
-            synchronized (this) {
-                initMultiMedia(multiMediaData, 0L);
-            }
-        }
+        initMultiMedia(multiMediaData, 0L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void initMultiMedia(MultiMediaData multiMediaData, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65575, this, multiMediaData, j) == null) {
-            synchronized (this) {
-                if (multiMediaData != null) {
-                    if (!TextUtils.isEmpty(multiMediaData.path) && ((multiMediaData.textureId == 0 || multiMediaData.isFrameSequential()) && !this.isPaused)) {
-                        if (multiMediaData.type == 0) {
-                            String str = multiMediaData.path;
-                            if (multiMediaData.isFrameSequential()) {
-                                int i = (int) (((float) (this.mPlayTime - j)) / (1000.0f / multiMediaData.frameFps));
-                                if (i < 0) {
-                                    return;
-                                }
-                                if (multiMediaData.frameStartIndex == 0) {
-                                    if (!new File(str + File.separator + "0." + multiMediaData.frameSuffix).exists()) {
-                                        multiMediaData.frameStartIndex = 1;
-                                    }
-                                }
-                                int i2 = (i % multiMediaData.frameCount) + multiMediaData.frameStartIndex;
-                                if (i2 == multiMediaData.frameIndex && multiMediaData.textureId != 0) {
-                                    return;
-                                }
-                                if (multiMediaData.backupFrameTextureId != 0) {
-                                    multiMediaData.frameIndex = i2;
-                                    multiMediaData.releasePlayer();
-                                    multiMediaData.releaseSurface();
-                                    int i3 = multiMediaData.textureId;
-                                    multiMediaData.textureId = multiMediaData.backupFrameTextureId;
-                                    multiMediaData.backupFrameTextureId = i3;
-                                } else {
-                                    multiMediaData.frameIndex = i2;
-                                    multiMediaData.releasePlayer();
-                                    multiMediaData.releaseSurface();
-                                    MultiDataSourceUtil.glDeleteTextures(multiMediaData);
-                                    Bitmap decodeBitmap = MultiDataSourceUtil.decodeBitmap(str + File.separator + "" + i2 + "." + multiMediaData.frameSuffix);
-                                    try {
-                                        gx9.b("type : " + GLUtils.getType(decodeBitmap) + " internalFormat : " + GLUtils.getInternalFormat(decodeBitmap));
-                                    } catch (Exception unused) {
-                                        decodeBitmap = hx9.c(decodeBitmap, Bitmap.CompressFormat.PNG, 100);
-                                    }
-                                    multiMediaData.textureId = MultiDataSourceUtil.initImageByBitmap(multiMediaData, decodeBitmap);
-                                }
-                                Message obtain = Message.obtain();
-                                obtain.what = 4;
-                                obtain.obj = multiMediaData;
-                                this.mReadPhotoHandler.sendMessage(obtain);
-                            } else {
-                                Bitmap decodeBitmap2 = MultiDataSourceUtil.decodeBitmap(str);
-                                try {
-                                    gx9.b("type : " + GLUtils.getType(decodeBitmap2) + " internalFormat : " + GLUtils.getInternalFormat(decodeBitmap2));
-                                } catch (Exception unused2) {
-                                    decodeBitmap2 = hx9.c(decodeBitmap2, Bitmap.CompressFormat.PNG, 100);
-                                }
-                                multiMediaData.textureId = MultiDataSourceUtil.initImageByBitmap(multiMediaData, decodeBitmap2);
-                            }
-                        } else {
-                            if (multiMediaData.width == 0 || multiMediaData.height == 0 || multiMediaData.originalDuration == 0) {
-                                MultiDataSourceUtil.initVideoByPath(multiMediaData);
-                            }
-                            multiMediaData.textureId = rg0.d();
-                            Matrix.setIdentityM(multiMediaData.mtx, 0);
-                            bindPlayerSurfaceTexture(multiMediaData);
+        if (multiMediaData != null) {
+            if (!TextUtils.isEmpty(multiMediaData.path) && ((multiMediaData.textureId == 0 || multiMediaData.isFrameSequential()) && !this.isPaused)) {
+                if (multiMediaData.type == 0) {
+                    String str = multiMediaData.path;
+                    if (multiMediaData.isFrameSequential()) {
+                        int i = (int) (((float) (this.mPlayTime - j)) / (1000.0f / multiMediaData.frameFps));
+                        if (i < 0) {
+                            return;
                         }
+                        if (multiMediaData.frameStartIndex == 0) {
+                            if (!new File(str + File.separator + "0." + multiMediaData.frameSuffix).exists()) {
+                                multiMediaData.frameStartIndex = 1;
+                            }
+                        }
+                        int i2 = (i % multiMediaData.frameCount) + multiMediaData.frameStartIndex;
+                        if (i2 == multiMediaData.frameIndex && multiMediaData.textureId != 0) {
+                            return;
+                        }
+                        if (multiMediaData.backupFrameTextureId != 0) {
+                            multiMediaData.frameIndex = i2;
+                            multiMediaData.releasePlayer();
+                            multiMediaData.releaseSurface();
+                            int i3 = multiMediaData.textureId;
+                            multiMediaData.textureId = multiMediaData.backupFrameTextureId;
+                            multiMediaData.backupFrameTextureId = i3;
+                        } else {
+                            multiMediaData.frameIndex = i2;
+                            multiMediaData.releasePlayer();
+                            multiMediaData.releaseSurface();
+                            MultiDataSourceUtil.glDeleteTextures(multiMediaData);
+                            Bitmap decodeBitmap = MultiDataSourceUtil.decodeBitmap(str + File.separator + "" + i2 + "." + multiMediaData.frameSuffix);
+                            try {
+                                d1a.b("type : " + GLUtils.getType(decodeBitmap) + " internalFormat : " + GLUtils.getInternalFormat(decodeBitmap));
+                            } catch (Exception unused) {
+                                decodeBitmap = e1a.c(decodeBitmap, Bitmap.CompressFormat.PNG, 100);
+                            }
+                            multiMediaData.textureId = MultiDataSourceUtil.initImageByBitmap(multiMediaData, decodeBitmap);
+                        }
+                        Message obtain = Message.obtain();
+                        obtain.what = 4;
+                        obtain.obj = multiMediaData;
+                        this.mReadPhotoHandler.sendMessage(obtain);
+                    } else {
+                        Bitmap decodeBitmap2 = MultiDataSourceUtil.decodeBitmap(str);
+                        try {
+                            d1a.b("type : " + GLUtils.getType(decodeBitmap2) + " internalFormat : " + GLUtils.getInternalFormat(decodeBitmap2));
+                        } catch (Exception unused2) {
+                            decodeBitmap2 = e1a.c(decodeBitmap2, Bitmap.CompressFormat.PNG, 100);
+                        }
+                        multiMediaData.textureId = MultiDataSourceUtil.initImageByBitmap(multiMediaData, decodeBitmap2);
                     }
+                } else {
+                    if (multiMediaData.width == 0 || multiMediaData.height == 0 || multiMediaData.originalDuration == 0) {
+                        MultiDataSourceUtil.initVideoByPath(multiMediaData);
+                    }
+                    multiMediaData.textureId = vg0.d();
+                    Matrix.setIdentityM(multiMediaData.mtx, 0);
+                    bindPlayerSurfaceTexture(multiMediaData);
                 }
             }
         }
     }
 
     public static boolean interceptUpdateByRepeat(MediaTrack mediaTrack, int i, long j) {
-        InterceptResult invokeCommon;
         int[] findIndexInSegments;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65576, null, new Object[]{mediaTrack, Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            int i2 = -1;
-            for (int i3 : MultiDataSourceUtil.findIndexInSegments(mediaTrack.mediaSegments, j)) {
-                if (i2 == -1 || i2 > i3) {
-                    i2 = i3;
-                }
+        int i2 = -1;
+        for (int i3 : MultiDataSourceUtil.findIndexInSegments(mediaTrack.mediaSegments, j)) {
+            if (i2 == -1 || i2 > i3) {
+                i2 = i3;
             }
-            return (i == -1 || i == i2) ? false : true;
         }
-        return invokeCommon.booleanValue;
+        return (i == -1 || i == i2) ? false : true;
     }
 
     private void log() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65577, this) == null) && xg0.l()) {
-            Log.d(xg0.a, "---------------------MultiMediaData--start----------------------------");
+        if (bh0.l()) {
+            Log.d(bh0.a, "---------------------MultiMediaData--start----------------------------");
             if (this.mUpdateMultiMediaDataTrack != null) {
                 for (int i = 0; i < this.mUpdateMultiMediaDataTrack.size(); i++) {
                     MultiMediaDataTrack multiMediaDataTrack = this.mUpdateMultiMediaDataTrack.get(i);
                     if (multiMediaDataTrack.multiMediaDataList != null) {
                         for (int i2 = 0; i2 < multiMediaDataTrack.multiMediaDataList.size(); i2++) {
                             MultiMediaData multiMediaData = multiMediaDataTrack.multiMediaDataList.get(i2);
-                            String str = xg0.a;
+                            String str = bh0.a;
                             Log.d(str, "track : " + i + " --> multiMediaData : " + i2 + ": " + multiMediaData.start + "----" + multiMediaData.end + "---> tid : " + multiMediaData.textureId + " path : " + multiMediaData.path + " rotation : " + multiMediaData.rotation + " w : " + multiMediaData.width + " h : " + multiMediaData.height + " defaultEffect : " + multiMediaData.addDefaultEffect);
                         }
                     }
                     MultiMediaData multiMediaData2 = multiMediaDataTrack.multiMediaDataSuperpositionHeader;
                     if (multiMediaData2 != null) {
-                        String str2 = xg0.a;
+                        String str2 = bh0.a;
                         Log.d(str2, "SuperpositionHeader track : " + i + " --> multiMediaData  : " + multiMediaData2.start + "----" + multiMediaData2.end + "---> tid : " + multiMediaData2.textureId + " path : " + multiMediaData2.path + " rotation : " + multiMediaData2.rotation + " w : " + multiMediaData2.width + " h : " + multiMediaData2.height);
                     }
                     MultiMediaData multiMediaData3 = multiMediaDataTrack.multiMediaDataSuperpositionFooter;
                     if (multiMediaData3 != null) {
-                        String str3 = xg0.a;
+                        String str3 = bh0.a;
                         Log.d(str3, "SuperpositionFooter track : " + i + " --> multiMediaData  : " + multiMediaData3.start + "----" + multiMediaData3.end + "---> tid : " + multiMediaData3.textureId + " path : " + multiMediaData3.path + " rotation : " + multiMediaData3.rotation + " w : " + multiMediaData3.width + " h : " + multiMediaData3.height);
                     }
                 }
             }
-            Log.d(xg0.a, "-----------------MultiMediaData---end-----------------------------");
+            Log.d(bh0.a, "-----------------MultiMediaData---end-----------------------------");
         }
     }
 
     private void notifyEffectChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65578, this) == null) {
-            int b = lx9.b(this.mEffectChangeObservers);
-            for (int i = 0; i < b; i++) {
-                EffectChangeObserver effectChangeObserver = (EffectChangeObserver) lx9.c(this.mEffectChangeObservers, i);
-                if (effectChangeObserver != null) {
-                    effectChangeObserver.onChanged(getShaderConfigMap(), getUpdateMediaTracks());
-                }
+        int b = i1a.b(this.mEffectChangeObservers);
+        for (int i = 0; i < b; i++) {
+            EffectChangeObserver effectChangeObserver = (EffectChangeObserver) i1a.c(this.mEffectChangeObservers, i);
+            if (effectChangeObserver != null) {
+                effectChangeObserver.onChanged(getShaderConfigMap(), getUpdateMediaTracks());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyFrameAvailable() {
-        SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65579, this) == null) || (onFrameAvailableListener = this.onFrameAvailableListener) == null) {
-            return;
+        SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener = this.onFrameAvailableListener;
+        if (onFrameAvailableListener != null) {
+            onFrameAvailableListener.onFrameAvailable(null);
         }
-        onFrameAvailableListener.onFrameAvailable(null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyFrameAvailable(SurfaceTexture surfaceTexture) {
-        SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65580, this, surfaceTexture) == null) || (onFrameAvailableListener = this.onFrameAvailableListener) == null) {
-            return;
+        SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener = this.onFrameAvailableListener;
+        if (onFrameAvailableListener != null) {
+            onFrameAvailableListener.onFrameAvailable(surfaceTexture);
         }
-        onFrameAvailableListener.onFrameAvailable(surfaceTexture);
     }
 
     private void notifyIndexChanged(int i, int i2) {
         MultiMediaStateEventListener multiMediaStateEventListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(65581, this, i, i2) == null) || i == i2 || (multiMediaStateEventListener = this.mMultiMediaStateEventListener) == null) {
+        if (i == i2 || (multiMediaStateEventListener = this.mMultiMediaStateEventListener) == null) {
             return;
         }
         multiMediaStateEventListener.onIndexChanged(i, i2);
     }
 
     private void notifyLoop() {
-        MultiMediaStateEventListener multiMediaStateEventListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65582, this) == null) || (multiMediaStateEventListener = this.mMultiMediaStateEventListener) == null) {
-            return;
+        MultiMediaStateEventListener multiMediaStateEventListener = this.mMultiMediaStateEventListener;
+        if (multiMediaStateEventListener != null) {
+            multiMediaStateEventListener.onLoop();
         }
-        multiMediaStateEventListener.onLoop();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyMediaTracksChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65583, this) == null) {
-            int b = lx9.b(this.mMediaTrackChangeObservers);
-            for (int i = 0; i < b; i++) {
-                MediaTrackChangeObserver mediaTrackChangeObserver = (MediaTrackChangeObserver) lx9.c(this.mMediaTrackChangeObservers, i);
-                if (mediaTrackChangeObserver != null) {
-                    mediaTrackChangeObserver.onChanged(getUpdateMediaTracks());
-                }
+        int b = i1a.b(this.mMediaTrackChangeObservers);
+        for (int i = 0; i < b; i++) {
+            MediaTrackChangeObserver mediaTrackChangeObserver = (MediaTrackChangeObserver) i1a.c(this.mMediaTrackChangeObservers, i);
+            if (mediaTrackChangeObserver != null) {
+                mediaTrackChangeObserver.onChanged(getUpdateMediaTracks());
             }
         }
     }
 
     private void notifyPlayEnd() {
-        MultiMediaStateEventListener multiMediaStateEventListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65584, this) == null) || (multiMediaStateEventListener = this.mMultiMediaStateEventListener) == null) {
-            return;
+        MultiMediaStateEventListener multiMediaStateEventListener = this.mMultiMediaStateEventListener;
+        if (multiMediaStateEventListener != null) {
+            multiMediaStateEventListener.onPlayEnd();
         }
-        multiMediaStateEventListener.onPlayEnd();
     }
 
     private void notifyRepeatIndexEnd(int i) {
-        MultiMediaStateEventListener multiMediaStateEventListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65585, this, i) == null) || (multiMediaStateEventListener = this.mMultiMediaStateEventListener) == null) {
-            return;
+        MultiMediaStateEventListener multiMediaStateEventListener = this.mMultiMediaStateEventListener;
+        if (multiMediaStateEventListener != null) {
+            multiMediaStateEventListener.onRepeatIndexEnd(i);
         }
-        multiMediaStateEventListener.onRepeatIndexEnd(i);
     }
 
     private void notifyRepeatIndexLoop(int i) {
-        MultiMediaStateEventListener multiMediaStateEventListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65586, this, i) == null) || (multiMediaStateEventListener = this.mMultiMediaStateEventListener) == null) {
-            return;
+        MultiMediaStateEventListener multiMediaStateEventListener = this.mMultiMediaStateEventListener;
+        if (multiMediaStateEventListener != null) {
+            multiMediaStateEventListener.onRepeatIndexLoop(i);
         }
-        multiMediaStateEventListener.onRepeatIndexLoop(i);
     }
 
     private void notifyTimelineUpdate(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65587, this, j) == null) {
-            if (this.mMultiMediaTimelineUpdateListener != null) {
-                updateSubtitle(j);
-                this.mMultiMediaTimelineUpdateListener.onTimelineUpdate(j, getSegmentsDuration());
-            }
-            if (this.mMultiMediaTimelineUpdateListenerByMainThread != null) {
-                Handler handler = this.mMainHandler;
-                handler.sendMessage(handler.obtainMessage(1, Long.valueOf(j)));
-            }
-            if (this.mMultiMediaTimelineUpdateListener == null && this.mMultiMediaTimelineUpdateListenerByMainThread == null) {
-                updateSubtitle(j);
-            }
+        if (this.mMultiMediaTimelineUpdateListener != null) {
+            updateSubtitle(j);
+            this.mMultiMediaTimelineUpdateListener.onTimelineUpdate(j, getSegmentsDuration());
+        }
+        if (this.mMultiMediaTimelineUpdateListenerByMainThread != null) {
+            Handler handler = this.mMainHandler;
+            handler.sendMessage(handler.obtainMessage(1, Long.valueOf(j)));
+        }
+        if (this.mMultiMediaTimelineUpdateListener == null && this.mMultiMediaTimelineUpdateListenerByMainThread == null) {
+            updateSubtitle(j);
         }
     }
 
@@ -1083,46 +732,43 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
         VLogSimplePlayer vLogSimplePlayer;
         VLogSimplePlayer vLogSimplePlayer2;
         VLogSimplePlayer vLogSimplePlayer3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65588, this, z) == null) {
-            List<MultiMediaDataTrack> list = this.mUpdateMultiMediaDataTrack;
-            if (lx9.e(list)) {
-                return;
-            }
-            int b = lx9.b(list);
-            for (int i = 0; i < b; i++) {
-                MultiMediaDataTrack multiMediaDataTrack = (MultiMediaDataTrack) lx9.c(list, i);
-                if (multiMediaDataTrack != null) {
-                    MultiMediaData multiMediaData = multiMediaDataTrack.multiMediaDataSuperpositionHeader;
-                    if (multiMediaData != null && multiMediaData.type == 1 && (vLogSimplePlayer3 = multiMediaData.player) != null) {
-                        if (vLogSimplePlayer3.isPlaying()) {
-                            vLogSimplePlayer3.pause();
-                        }
-                        if (z) {
-                            vLogSimplePlayer3.seekTo(multiMediaData.start);
-                        }
+        List<MultiMediaDataTrack> list = this.mUpdateMultiMediaDataTrack;
+        if (i1a.e(list)) {
+            return;
+        }
+        int b = i1a.b(list);
+        for (int i = 0; i < b; i++) {
+            MultiMediaDataTrack multiMediaDataTrack = (MultiMediaDataTrack) i1a.c(list, i);
+            if (multiMediaDataTrack != null) {
+                MultiMediaData multiMediaData = multiMediaDataTrack.multiMediaDataSuperpositionHeader;
+                if (multiMediaData != null && multiMediaData.type == 1 && (vLogSimplePlayer3 = multiMediaData.player) != null) {
+                    if (vLogSimplePlayer3.isPlaying()) {
+                        vLogSimplePlayer3.pause();
                     }
-                    MultiMediaData multiMediaData2 = multiMediaDataTrack.multiMediaDataSuperpositionFooter;
-                    if (multiMediaData2 != null && multiMediaData2.type == 1 && (vLogSimplePlayer2 = multiMediaData2.player) != null) {
-                        if (vLogSimplePlayer2.isPlaying()) {
-                            vLogSimplePlayer2.pause();
-                        }
-                        if (z) {
-                            vLogSimplePlayer2.seekTo(0L);
-                        }
+                    if (z) {
+                        vLogSimplePlayer3.seekTo(multiMediaData.start);
                     }
-                    List<MultiMediaData> list2 = multiMediaDataTrack.multiMediaDataList;
-                    if (!lx9.e(list2)) {
-                        int b2 = lx9.b(list2);
-                        for (int i2 = 0; i2 < b2; i2++) {
-                            MultiMediaData multiMediaData3 = list2.get(i2);
-                            if (multiMediaData3.type == 1 && (vLogSimplePlayer = multiMediaData3.player) != null) {
-                                if (vLogSimplePlayer.isPlaying()) {
-                                    vLogSimplePlayer.pause();
-                                }
-                                if (z) {
-                                    vLogSimplePlayer.seekTo(multiMediaData3.start);
-                                }
+                }
+                MultiMediaData multiMediaData2 = multiMediaDataTrack.multiMediaDataSuperpositionFooter;
+                if (multiMediaData2 != null && multiMediaData2.type == 1 && (vLogSimplePlayer2 = multiMediaData2.player) != null) {
+                    if (vLogSimplePlayer2.isPlaying()) {
+                        vLogSimplePlayer2.pause();
+                    }
+                    if (z) {
+                        vLogSimplePlayer2.seekTo(0L);
+                    }
+                }
+                List<MultiMediaData> list2 = multiMediaDataTrack.multiMediaDataList;
+                if (!i1a.e(list2)) {
+                    int b2 = i1a.b(list2);
+                    for (int i2 = 0; i2 < b2; i2++) {
+                        MultiMediaData multiMediaData3 = list2.get(i2);
+                        if (multiMediaData3.type == 1 && (vLogSimplePlayer = multiMediaData3.player) != null) {
+                            if (vLogSimplePlayer.isPlaying()) {
+                                vLogSimplePlayer.pause();
+                            }
+                            if (z) {
+                                vLogSimplePlayer.seekTo(multiMediaData3.start);
                             }
                         }
                     }
@@ -1133,145 +779,106 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
 
     /* JADX INFO: Access modifiers changed from: private */
     public void postPrepared() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65589, this) == null) {
-            this.mNeedInitMultiMediaData = false;
-            if (this.isPrepared) {
-                return;
-            }
-            yx9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.19
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MultiMediaDataSource this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.mPreparedListener == null) {
-                        return;
-                    }
-                    this.this$0.mPreparedListener.onPrepared();
-                }
-            });
-            this.isPrepared = true;
+        this.mNeedInitMultiMediaData = false;
+        if (this.isPrepared) {
+            return;
         }
+        v1a.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.19
+            @Override // java.lang.Runnable
+            public void run() {
+                if (MultiMediaDataSource.this.mPreparedListener != null) {
+                    MultiMediaDataSource.this.mPreparedListener.onPrepared();
+                }
+            }
+        });
+        this.isPrepared = true;
     }
 
     private void refreshUpdateMultiMediaDataTrack(List<MultiMediaData> list) {
         String str;
         String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65590, this, list) == null) {
-            MultiMediaDataTrack inputMultiMediaDataTrack = getInputMultiMediaDataTrack();
-            MultiMediaData multiMediaData = null;
-            MultiMediaData multiMediaData2 = inputMultiMediaDataTrack.hasHeader() ? inputMultiMediaDataTrack.multiMediaDataList.get(0) : null;
-            if (inputMultiMediaDataTrack.hasFooter()) {
-                List<MultiMediaData> list2 = inputMultiMediaDataTrack.multiMediaDataList;
-                multiMediaData = list2.get(list2.size() - 1);
-            }
-            ArrayList arrayList = new ArrayList();
-            List<MultiMediaData> list3 = inputMultiMediaDataTrack.multiMediaDataList;
-            if (list3 == null || list3.size() == 0 || list == null || list.size() == 0) {
-                return;
-            }
-            for (MultiMediaData multiMediaData3 : list) {
-                Iterator<MultiMediaData> it = inputMultiMediaDataTrack.multiMediaDataList.iterator();
-                while (true) {
-                    if (it.hasNext()) {
-                        MultiMediaData next = it.next();
-                        if (multiMediaData3 != null && next != null && (str = multiMediaData3.path) != null && (str2 = next.path) != null && str.equals(str2) && multiMediaData3.start == next.start && multiMediaData3.end == next.end) {
-                            arrayList.add(next);
-                            break;
-                        }
+        MultiMediaDataTrack inputMultiMediaDataTrack = getInputMultiMediaDataTrack();
+        MultiMediaData multiMediaData = null;
+        MultiMediaData multiMediaData2 = inputMultiMediaDataTrack.hasHeader() ? inputMultiMediaDataTrack.multiMediaDataList.get(0) : null;
+        if (inputMultiMediaDataTrack.hasFooter()) {
+            List<MultiMediaData> list2 = inputMultiMediaDataTrack.multiMediaDataList;
+            multiMediaData = list2.get(list2.size() - 1);
+        }
+        ArrayList arrayList = new ArrayList();
+        List<MultiMediaData> list3 = inputMultiMediaDataTrack.multiMediaDataList;
+        if (list3 == null || list3.size() == 0 || list == null || list.size() == 0) {
+            return;
+        }
+        for (MultiMediaData multiMediaData3 : list) {
+            Iterator<MultiMediaData> it = inputMultiMediaDataTrack.multiMediaDataList.iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    MultiMediaData next = it.next();
+                    if (multiMediaData3 != null && next != null && (str = multiMediaData3.path) != null && (str2 = next.path) != null && str.equals(str2) && multiMediaData3.start == next.start && multiMediaData3.end == next.end) {
+                        arrayList.add(next);
+                        break;
                     }
                 }
             }
-            inputMultiMediaDataTrack.multiMediaDataList.clear();
-            if (multiMediaData2 != null) {
-                inputMultiMediaDataTrack.multiMediaDataList.add(multiMediaData2);
-            }
-            inputMultiMediaDataTrack.multiMediaDataList.addAll(arrayList);
-            if (multiMediaData != null) {
-                inputMultiMediaDataTrack.multiMediaDataList.add(multiMediaData);
-            }
+        }
+        inputMultiMediaDataTrack.multiMediaDataList.clear();
+        if (multiMediaData2 != null) {
+            inputMultiMediaDataTrack.multiMediaDataList.add(multiMediaData2);
+        }
+        inputMultiMediaDataTrack.multiMediaDataList.addAll(arrayList);
+        if (multiMediaData != null) {
+            inputMultiMediaDataTrack.multiMediaDataList.add(multiMediaData);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void releaseEgl() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65591, this) == null) {
-            OffscreenSurface offscreenSurface = this.mOffscreenSurface;
-            if (offscreenSurface != null) {
-                offscreenSurface.release();
-                this.mOffscreenSurface = null;
-                gx9.b("releaseEgl mOffscreenSurface");
-            }
-            EglCore eglCore = this.mEglCore;
-            if (eglCore != null) {
-                eglCore.release();
-                this.mEglCore = null;
-                gx9.b("releaseEgl mEglCore");
-            }
-            this.mEglContext = null;
+        OffscreenSurface offscreenSurface = this.mOffscreenSurface;
+        if (offscreenSurface != null) {
+            offscreenSurface.release();
+            this.mOffscreenSurface = null;
+            d1a.b("releaseEgl mOffscreenSurface");
         }
+        EglCore eglCore = this.mEglCore;
+        if (eglCore != null) {
+            eglCore.release();
+            this.mEglCore = null;
+            d1a.b("releaseEgl mEglCore");
+        }
+        this.mEglContext = null;
     }
 
     private void releaseSubtitleCache() {
-        NewSubTitleCreater newSubTitleCreater;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65592, this) == null) || (newSubTitleCreater = this.mSubTitleCreater) == null) {
-            return;
+        NewSubTitleCreater newSubTitleCreater = this.mSubTitleCreater;
+        if (newSubTitleCreater != null) {
+            newSubTitleCreater.releaseBitmap();
         }
-        newSubTitleCreater.releaseBitmap();
     }
 
     private void releaseSurface() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65593, this) == null) {
-            int b = lx9.b(this.mUpdateMultiMediaDataTrack);
-            for (int i = 0; i < b; i++) {
-                List<MultiMediaData> list = this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataList;
-                if (list != null) {
-                    for (MultiMediaData multiMediaData : list) {
-                        multiMediaData.releaseSurface();
-                        multiMediaData.releasePlayer();
-                    }
+        int b = i1a.b(this.mUpdateMultiMediaDataTrack);
+        for (int i = 0; i < b; i++) {
+            List<MultiMediaData> list = this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataList;
+            if (list != null) {
+                for (MultiMediaData multiMediaData : list) {
+                    multiMediaData.releaseSurface();
+                    multiMediaData.releasePlayer();
                 }
-                if (this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataSuperpositionHeader != null) {
-                    this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataSuperpositionHeader.releaseSurface();
-                    this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataSuperpositionHeader.releasePlayer();
-                }
-                if (this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataSuperpositionFooter != null) {
-                    this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataSuperpositionFooter.releaseSurface();
-                    this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataSuperpositionFooter.releasePlayer();
-                }
+            }
+            if (this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataSuperpositionHeader != null) {
+                this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataSuperpositionHeader.releaseSurface();
+                this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataSuperpositionHeader.releasePlayer();
+            }
+            if (this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataSuperpositionFooter != null) {
+                this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataSuperpositionFooter.releaseSurface();
+                this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataSuperpositionFooter.releasePlayer();
             }
         }
     }
 
     private void resetTimer() {
-        MultiMediaDataSourceRealTimer multiMediaDataSourceRealTimer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65594, this) == null) || (multiMediaDataSourceRealTimer = this.mTimer) == null) {
+        MultiMediaDataSourceRealTimer multiMediaDataSourceRealTimer = this.mTimer;
+        if (multiMediaDataSourceRealTimer == null) {
             return;
         }
         multiMediaDataSourceRealTimer.reset();
@@ -1279,103 +886,69 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
     }
 
     private void runOnDraw(Runnable runnable) {
-        OnPreRunnableTask onPreRunnableTask;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65595, this, runnable) == null) || (onPreRunnableTask = this.mPreRunnableTask) == null || onPreRunnableTask.getRunOnDrawList() == null) {
+        OnPreRunnableTask onPreRunnableTask = this.mPreRunnableTask;
+        if (onPreRunnableTask == null || onPreRunnableTask.getRunOnDrawList() == null) {
             return;
         }
         this.mPreRunnableTask.getRunOnDrawList().add(runnable);
     }
 
     private int seekInternal(MediaTrack mediaTrack, List<MultiMediaData> list, long j, int i) {
-        InterceptResult invokeCommon;
         List<MultiMediaData> list2;
         int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65596, this, new Object[]{mediaTrack, list, Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            int[] findIndexInSegments = MultiDataSourceUtil.findIndexInSegments(mediaTrack.mediaSegments, j);
-            int i3 = -1;
-            int i4 = 0;
-            int i5 = -1;
-            while (i4 < findIndexInSegments.length) {
-                int i6 = findIndexInSegments[i4];
-                if (i5 == i3 || i5 > i6) {
-                    list2 = list;
-                    i5 = i6;
-                } else {
-                    list2 = list;
-                }
-                MultiMediaData multiMediaData = (MultiMediaData) lx9.c(list2, i6);
-                MediaSegment mediaSegment = (MediaSegment) lx9.c(mediaTrack.mediaSegments, i6);
-                if (multiMediaData == null || mediaSegment == null) {
+        int[] findIndexInSegments = MultiDataSourceUtil.findIndexInSegments(mediaTrack.mediaSegments, j);
+        int i3 = -1;
+        int i4 = 0;
+        int i5 = -1;
+        while (i4 < findIndexInSegments.length) {
+            int i6 = findIndexInSegments[i4];
+            if (i5 == i3 || i5 > i6) {
+                list2 = list;
+                i5 = i6;
+            } else {
+                list2 = list;
+            }
+            final MultiMediaData multiMediaData = (MultiMediaData) i1a.c(list2, i6);
+            MediaSegment mediaSegment = (MediaSegment) i1a.c(mediaTrack.mediaSegments, i6);
+            if (multiMediaData == null || mediaSegment == null) {
+                i2 = i4;
+            } else {
+                int i7 = multiMediaData.type;
+                if (i7 == 1) {
+                    VLogSimplePlayer vLogSimplePlayer = multiMediaData.player;
+                    if (vLogSimplePlayer == null) {
+                        return i5;
+                    }
+                    long j2 = this.mPlayTime;
                     i2 = i4;
+                    long j3 = mediaSegment.start;
+                    vLogSimplePlayer.seekTo(j2 > j3 ? Math.min((((float) (j - j3)) * multiMediaData.getCurrentSpeed()) + ((float) multiMediaData.start), (float) multiMediaData.end) : multiMediaData.start);
+                    if (i == 2 || i == 3) {
+                        vLogSimplePlayer.start();
+                    }
                 } else {
-                    int i7 = multiMediaData.type;
-                    if (i7 == 1) {
-                        VLogSimplePlayer vLogSimplePlayer = multiMediaData.player;
-                        if (vLogSimplePlayer == null) {
-                            return i5;
-                        }
-                        long j2 = this.mPlayTime;
-                        i2 = i4;
-                        long j3 = mediaSegment.start;
-                        vLogSimplePlayer.seekTo(j2 > j3 ? Math.min((((float) (j - j3)) * multiMediaData.getCurrentSpeed()) + ((float) multiMediaData.start), (float) multiMediaData.end) : multiMediaData.start);
-                        if (i == 2 || i == 3) {
-                            vLogSimplePlayer.start();
-                        }
-                    } else {
-                        i2 = i4;
-                        if (i7 == 0 && multiMediaData.isFrameSequential()) {
-                            runOnDraw(new Runnable(this, multiMediaData) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.18
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ MultiMediaDataSource this$0;
-                                public final /* synthetic */ MultiMediaData val$data;
-
-                                {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this, multiMediaData};
-                                        interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i8 = newInitContext.flag;
-                                        if ((i8 & 1) != 0) {
-                                            int i9 = i8 & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable2.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.this$0 = this;
-                                    this.val$data = multiMediaData;
-                                }
-
-                                @Override // java.lang.Runnable
-                                public void run() {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                        this.this$0.initMultiMedia(this.val$data);
-                                    }
-                                }
-                            });
-                        }
+                    i2 = i4;
+                    if (i7 == 0 && multiMediaData.isFrameSequential()) {
+                        runOnDraw(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.18
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                MultiMediaDataSource.this.initMultiMedia(multiMediaData);
+                            }
+                        });
                     }
                 }
-                i4 = i2 + 1;
-                i3 = -1;
             }
-            return i5;
+            i4 = i2 + 1;
+            i3 = -1;
         }
-        return invokeCommon.intValue;
+        return i5;
     }
 
     private void seekSuperpositionHeaderAndFooter(int i, MediaTrack mediaTrack) {
-        MultiMediaDataTrack inputMultiMediaDataTrack;
         MediaSegment mediaSegment;
         MediaSegment mediaSegment2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65597, this, i, mediaTrack) == null) || (inputMultiMediaDataTrack = getInputMultiMediaDataTrack()) == null) {
+        MultiMediaDataTrack inputMultiMediaDataTrack = getInputMultiMediaDataTrack();
+        if (inputMultiMediaDataTrack == null) {
             return;
         }
         MultiMediaData multiMediaData = inputMultiMediaDataTrack.multiMediaDataSuperpositionHeader;
@@ -1410,12 +983,11 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
         }
     }
 
-    private void setCurrentSubtitle(SubTitleUnit subTitleUnit) {
+    private void setCurrentSubtitle(final SubTitleUnit subTitleUnit) {
         Bitmap bitmap;
         MediaTrack buildSubtitleAndStickerTrack;
         int indexOf;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65598, this, subTitleUnit) == null) || subTitleUnit == null || (bitmap = subTitleUnit.textBitmap) == null || bitmap.isRecycled() || this.mSubTitleUnitList == null || this.mUpdateMediaTracks.size() != this.mUpdateMultiMediaDataTrack.size() || (indexOf = this.mUpdateMediaTracks.indexOf((buildSubtitleAndStickerTrack = MultiDataSourceUtil.buildSubtitleAndStickerTrack(this.mUpdateMediaTracks, this.mUpdateMultiMediaDataTrack)))) < 0) {
+        if (subTitleUnit == null || (bitmap = subTitleUnit.textBitmap) == null || bitmap.isRecycled() || this.mSubTitleUnitList == null || this.mUpdateMediaTracks.size() != this.mUpdateMultiMediaDataTrack.size() || (indexOf = this.mUpdateMediaTracks.indexOf((buildSubtitleAndStickerTrack = MultiDataSourceUtil.buildSubtitleAndStickerTrack(this.mUpdateMediaTracks, this.mUpdateMultiMediaDataTrack)))) < 0) {
             return;
         }
         MultiMediaDataTrack multiMediaDataTrack = this.mUpdateMultiMediaDataTrack.get(indexOf);
@@ -1425,67 +997,38 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
         }
         for (int i = 0; i < buildSubtitleAndStickerTrack.mediaSegments.size(); i++) {
             MediaSegment mediaSegment = buildSubtitleAndStickerTrack.mediaSegments.get(i);
-            MultiMediaData multiMediaData = multiMediaDataTrack.multiMediaDataList.get(i);
+            final MultiMediaData multiMediaData = multiMediaDataTrack.multiMediaDataList.get(i);
             if (TextUtils.equals(mediaSegment.type, SubtitleLog.TAG)) {
                 if (TextUtils.equals(multiMediaData.subTitleText, subTitleUnit.line) && multiMediaData.textureId != 0 && subTitleUnit.mIsNeedCache) {
                     return;
                 }
                 mediaSegment.effectStart = subTitleUnit.startTime;
                 mediaSegment.effectEnd = subTitleUnit.endTime;
-                mediaSegment.mediaAEffect = xg0.i(buildSubtitleAndStickerTrack, this.mMediaTrackConfig, mediaSegment.type, this.mSubTitleUnitList.indexOf(subTitleUnit), this.mSubTitleUnitList.size(), subTitleUnit.endTime - subTitleUnit.startTime);
-                gx9.c("zmy", "subTitleUnit.line : " + subTitleUnit.line + " multiMediaData.subTitleText : " + multiMediaData.subTitleText + " subTitleUnit.startTime : " + subTitleUnit.startTime + " end :" + subTitleUnit.startTime + " playTime : " + this.mPlayTime);
+                mediaSegment.mediaAEffect = bh0.i(buildSubtitleAndStickerTrack, this.mMediaTrackConfig, mediaSegment.type, this.mSubTitleUnitList.indexOf(subTitleUnit), this.mSubTitleUnitList.size(), subTitleUnit.endTime - subTitleUnit.startTime);
+                d1a.c("zmy", "subTitleUnit.line : " + subTitleUnit.line + " multiMediaData.subTitleText : " + multiMediaData.subTitleText + " subTitleUnit.startTime : " + subTitleUnit.startTime + " end :" + subTitleUnit.startTime + " playTime : " + this.mPlayTime);
                 multiMediaData.subTitleText = subTitleUnit.line;
-                runOnDraw(new Runnable(this, multiMediaData, subTitleUnit) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.7
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MultiMediaDataSource this$0;
-                    public final /* synthetic */ MultiMediaData val$multiMediaData;
-                    public final /* synthetic */ SubTitleUnit val$subTitleUnit;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, multiMediaData, subTitleUnit};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$multiMediaData = multiMediaData;
-                        this.val$subTitleUnit = subTitleUnit;
-                    }
-
+                runOnDraw(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.7
                     @Override // java.lang.Runnable
                     public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            MultiDataSourceUtil.glDeleteTextures(this.val$multiMediaData);
-                            if (TextUtils.isEmpty(this.val$multiMediaData.subTitleText)) {
-                                return;
-                            }
-                            MultiMediaData multiMediaData2 = this.val$multiMediaData;
-                            multiMediaData2.width = 0;
-                            multiMediaData2.height = 0;
-                            if (!this.val$subTitleUnit.textBitmap.isRecycled()) {
-                                Bitmap copy = this.val$subTitleUnit.textBitmap.copy(Bitmap.Config.ARGB_8888, false);
-                                MultiMediaData multiMediaData3 = this.val$multiMediaData;
-                                multiMediaData3.textureId = MultiDataSourceUtil.initImageByBitmap(multiMediaData3, copy);
-                            }
-                            MultiMediaData multiMediaData4 = this.val$multiMediaData;
-                            multiMediaData4.scaleType = "adaptive";
-                            SubTitleUnit subTitleUnit2 = this.val$subTitleUnit;
-                            multiMediaData4.start = subTitleUnit2.startTime;
-                            multiMediaData4.end = subTitleUnit2.endTime;
-                            multiMediaData4.x = subTitleUnit2.x;
-                            multiMediaData4.y = subTitleUnit2.y;
+                        MultiDataSourceUtil.glDeleteTextures(multiMediaData);
+                        if (TextUtils.isEmpty(multiMediaData.subTitleText)) {
+                            return;
                         }
+                        MultiMediaData multiMediaData2 = multiMediaData;
+                        multiMediaData2.width = 0;
+                        multiMediaData2.height = 0;
+                        if (!subTitleUnit.textBitmap.isRecycled()) {
+                            Bitmap copy = subTitleUnit.textBitmap.copy(Bitmap.Config.ARGB_8888, false);
+                            MultiMediaData multiMediaData3 = multiMediaData;
+                            multiMediaData3.textureId = MultiDataSourceUtil.initImageByBitmap(multiMediaData3, copy);
+                        }
+                        MultiMediaData multiMediaData4 = multiMediaData;
+                        multiMediaData4.scaleType = "adaptive";
+                        SubTitleUnit subTitleUnit2 = subTitleUnit;
+                        multiMediaData4.start = subTitleUnit2.startTime;
+                        multiMediaData4.end = subTitleUnit2.endTime;
+                        multiMediaData4.x = subTitleUnit2.x;
+                        multiMediaData4.y = subTitleUnit2.y;
                     }
                 });
             }
@@ -1493,26 +1036,22 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
     }
 
     private void startTimer(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65599, this, j) == null) {
-            MultiMediaDataSourceRealTimer multiMediaDataSourceRealTimer = this.mTimer;
-            if (multiMediaDataSourceRealTimer == null) {
-                multiMediaDataSourceRealTimer = new MultiMediaDataSourceRealTimer();
-                multiMediaDataSourceRealTimer.setDuration(getSegmentsDuration());
-                multiMediaDataSourceRealTimer.setUpdateListener(this);
-                multiMediaDataSourceRealTimer.setAnimatorListenerAdapter(this);
-                multiMediaDataSourceRealTimer.setFrameRate(this.mFrameRate);
-            }
-            multiMediaDataSourceRealTimer.setCurrentPlayTime(j);
-            multiMediaDataSourceRealTimer.start();
-            this.mTimer = multiMediaDataSourceRealTimer;
+        MultiMediaDataSourceRealTimer multiMediaDataSourceRealTimer = this.mTimer;
+        if (multiMediaDataSourceRealTimer == null) {
+            multiMediaDataSourceRealTimer = new MultiMediaDataSourceRealTimer();
+            multiMediaDataSourceRealTimer.setDuration(getSegmentsDuration());
+            multiMediaDataSourceRealTimer.setUpdateListener(this);
+            multiMediaDataSourceRealTimer.setAnimatorListenerAdapter(this);
+            multiMediaDataSourceRealTimer.setFrameRate(this.mFrameRate);
         }
+        multiMediaDataSourceRealTimer.setCurrentPlayTime(j);
+        multiMediaDataSourceRealTimer.start();
+        this.mTimer = multiMediaDataSourceRealTimer;
     }
 
     private void stopTimer() {
-        MultiMediaDataSourceRealTimer multiMediaDataSourceRealTimer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65600, this) == null) || (multiMediaDataSourceRealTimer = this.mTimer) == null) {
+        MultiMediaDataSourceRealTimer multiMediaDataSourceRealTimer = this.mTimer;
+        if (multiMediaDataSourceRealTimer == null) {
             return;
         }
         multiMediaDataSourceRealTimer.stop();
@@ -1520,19 +1059,16 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateSubtitle(long j) {
-        NewSubTitleCreater newSubTitleCreater;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65601, this, j) == null) || (newSubTitleCreater = this.mSubTitleCreater) == null) {
-            return;
+        NewSubTitleCreater newSubTitleCreater = this.mSubTitleCreater;
+        if (newSubTitleCreater != null) {
+            setCurrentSubtitle(newSubTitleCreater.getSubTitle(j, getDuration()));
         }
-        setCurrentSubtitle(newSubTitleCreater.getSubTitle(j, getDuration()));
     }
 
     private void updateSuperpositionHeaderAndFooterTimeLine(long j, List<MultiMediaDataTrack> list) {
         VLogSimplePlayer vLogSimplePlayer;
         VLogSimplePlayer vLogSimplePlayer2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(65602, this, j, list) == null) || list == null) {
+        if (list == null) {
             return;
         }
         MultiMediaData multiMediaData = list.get(0).multiMediaDataSuperpositionHeader;
@@ -1559,38 +1095,37 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void addMultiMediaData(int i, List<MultiMediaData> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, list) == null) || lx9.e(list)) {
+        if (i1a.e(list)) {
             return;
         }
         int originalInputSize = getOriginalInputSize();
         MediaTrack inputTrack = getInputTrack();
         int hasGlobalFilter = MultiDataSourceUtil.hasGlobalFilter(inputTrack);
         String str = hasGlobalFilter >= 0 ? inputTrack.mediaSegments.get(hasGlobalFilter).lutConfigKey : null;
-        int b = lx9.b(list) - 1;
+        int b = i1a.b(list) - 1;
         while (true) {
             if (b < 0) {
                 MediaTrackConfig mediaTrackConfig = this.mMediaTrackConfig;
-                if (mediaTrackConfig != null && !lx9.e(mediaTrackConfig.mediaTracks)) {
+                if (mediaTrackConfig != null && !i1a.e(mediaTrackConfig.mediaTracks)) {
                     MediaSegment mediaSegment = this.mMediaTrackConfig.mediaTracks.get(0).superpositionHeader;
                     MediaSegment mediaSegment2 = this.mMediaTrackConfig.mediaTracks.get(0).superpositionFooter;
                     if (mediaSegment != null || mediaSegment2 != null) {
-                        int max = Math.max(xg0.j, (mediaSegment == null ? 0 : 1) + (mediaSegment2 == null ? 0 : 1));
+                        int max = Math.max(bh0.j, (mediaSegment == null ? 0 : 1) + (mediaSegment2 == null ? 0 : 1));
                         if (originalInputSize < max && originalInputSize + list.size() >= max) {
-                            xg0.b(inputTrack, this.mShaderConfigMap, this.mMediaTrackConfig.mediaTracks.get(0));
-                            xg0.c(inputTrack, this.mMediaTrackConfig);
+                            bh0.b(inputTrack, this.mShaderConfigMap, this.mMediaTrackConfig.mediaTracks.get(0));
+                            bh0.c(inputTrack, this.mMediaTrackConfig);
                             MultiDataSourceUtil.applySuperpositionSegment(this.mUpdateMediaTracks, this.mShaderConfigMap, this.mUpdateMultiMediaDataTrack, this, this);
                         }
                     }
                 }
                 applyTimeLineOnTemplateType();
-                xg0.a(inputTrack, getMaxVideoDurationFromConfig());
+                bh0.a(inputTrack, getMaxVideoDurationFromConfig());
                 stopTimer();
                 resetTimer();
                 notifyMediaTracksChanged();
                 return;
             }
-            MultiMediaData multiMediaData = (MultiMediaData) lx9.c(list, b);
+            MultiMediaData multiMediaData = (MultiMediaData) i1a.c(list, b);
             if (multiMediaData != null) {
                 this.mMultiMediaAdapter.clearByIndex(i + b);
                 int addMultiMediaData = MultiDataSourceUtil.addMultiMediaData(getInputMultiMediaDataTrack(), i, multiMediaData);
@@ -1612,16 +1147,15 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x002d, code lost:
-        if (r4.mCommonTrackMap.containsKey(r5.trackType) == false) goto L14;
+    /* JADX WARN: Code restructure failed: missing block: B:9:0x0029, code lost:
+        if (r3.mCommonTrackMap.containsKey(r4.trackType) == false) goto L12;
      */
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void addOneTrack(MediaTrack mediaTrack) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaTrack) == null) || mediaTrack == null) {
+        if (mediaTrack == null) {
             return;
         }
         MediaTrack trackByType = MultiDataSourceUtil.getTrackByType(this.mUpdateMediaTracks, mediaTrack.trackType);
@@ -1639,9 +1173,8 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
-    public void addStickerData(MultiMediaData multiMediaData, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, multiMediaData, str) == null) || multiMediaData == null || TextUtils.isEmpty(str)) {
+    public void addStickerData(final MultiMediaData multiMediaData, String str) {
+        if (multiMediaData == null || TextUtils.isEmpty(str)) {
             return;
         }
         MediaTrack buildSubtitleAndStickerTrack = MultiDataSourceUtil.buildSubtitleAndStickerTrack(this.mUpdateMediaTracks, this.mUpdateMultiMediaDataTrack);
@@ -1657,38 +1190,11 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
             transData2Segment.type = str;
             buildSubtitleAndStickerTrack.mediaSegments.add(transData2Segment);
         }
-        runOnDraw(new Runnable(this, multiMediaData) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.15
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ MultiMediaDataSource this$0;
-            public final /* synthetic */ MultiMediaData val$stickerData;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, multiMediaData};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.val$stickerData = multiMediaData;
-            }
-
+        runOnDraw(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.15
             @Override // java.lang.Runnable
             public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.this$0.initMultiMedia(this.val$stickerData);
-                    this.this$0.notifyFrameAvailable();
-                }
+                MultiMediaDataSource.this.initMultiMedia(multiMediaData);
+                MultiMediaDataSource.this.notifyFrameAvailable();
             }
         });
         notifyMediaTracksChanged();
@@ -1698,427 +1204,323 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void deleteMultiMediaData(int i) {
         int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            int originalInputSize = getOriginalInputSize();
-            int deleteMultiMediaData = MultiDataSourceUtil.deleteMultiMediaData(this.mUpdateMultiMediaDataTrack, i, this);
-            if (deleteMultiMediaData == -1) {
-                return;
-            }
-            MediaTrack inputTrack = getInputTrack();
-            inputTrack.mediaSegments.remove(deleteMultiMediaData);
-            if (!lx9.e(inputTrack.mediaTransitions)) {
-                if (deleteMultiMediaData == inputTrack.mediaTransitions.size()) {
-                    deleteMultiMediaData--;
-                }
-                inputTrack.mediaTransitions.remove(deleteMultiMediaData);
-            }
-            MultiMediaDataTrack inputMultiMediaDataTrack = getInputMultiMediaDataTrack();
-            MediaTrackConfig mediaTrackConfig = this.mMediaTrackConfig;
-            if (mediaTrackConfig != null && inputMultiMediaDataTrack != null && !lx9.e(mediaTrackConfig.mediaTracks) && ((this.mMediaTrackConfig.mediaTracks.get(0).superpositionHeader != null || this.mMediaTrackConfig.mediaTracks.get(0).superpositionFooter != null) && originalInputSize >= (i2 = xg0.j) && originalInputSize - 1 < i2)) {
-                onReleaseMultiMedia(inputMultiMediaDataTrack.multiMediaDataSuperpositionHeader);
-                inputMultiMediaDataTrack.multiMediaDataSuperpositionHeader = null;
-                onReleaseMultiMedia(inputMultiMediaDataTrack.multiMediaDataSuperpositionFooter);
-                inputMultiMediaDataTrack.multiMediaDataSuperpositionFooter = null;
-                inputTrack.superpositionHeader = null;
-                inputTrack.superpositionFooter = null;
-            }
-            this.mMultiMediaAdapter.clear();
-            applyTimeLineOnTemplateType();
-            xg0.a(inputTrack, getMaxVideoDurationFromConfig());
-            stopTimer();
-            resetTimer();
-            notifyMediaTracksChanged();
+        int originalInputSize = getOriginalInputSize();
+        int deleteMultiMediaData = MultiDataSourceUtil.deleteMultiMediaData(this.mUpdateMultiMediaDataTrack, i, this);
+        if (deleteMultiMediaData == -1) {
+            return;
         }
+        MediaTrack inputTrack = getInputTrack();
+        inputTrack.mediaSegments.remove(deleteMultiMediaData);
+        if (!i1a.e(inputTrack.mediaTransitions)) {
+            if (deleteMultiMediaData == inputTrack.mediaTransitions.size()) {
+                deleteMultiMediaData--;
+            }
+            inputTrack.mediaTransitions.remove(deleteMultiMediaData);
+        }
+        MultiMediaDataTrack inputMultiMediaDataTrack = getInputMultiMediaDataTrack();
+        MediaTrackConfig mediaTrackConfig = this.mMediaTrackConfig;
+        if (mediaTrackConfig != null && inputMultiMediaDataTrack != null && !i1a.e(mediaTrackConfig.mediaTracks) && ((this.mMediaTrackConfig.mediaTracks.get(0).superpositionHeader != null || this.mMediaTrackConfig.mediaTracks.get(0).superpositionFooter != null) && originalInputSize >= (i2 = bh0.j) && originalInputSize - 1 < i2)) {
+            onReleaseMultiMedia(inputMultiMediaDataTrack.multiMediaDataSuperpositionHeader);
+            inputMultiMediaDataTrack.multiMediaDataSuperpositionHeader = null;
+            onReleaseMultiMedia(inputMultiMediaDataTrack.multiMediaDataSuperpositionFooter);
+            inputMultiMediaDataTrack.multiMediaDataSuperpositionFooter = null;
+            inputTrack.superpositionHeader = null;
+            inputTrack.superpositionFooter = null;
+        }
+        this.mMultiMediaAdapter.clear();
+        applyTimeLineOnTemplateType();
+        bh0.a(inputTrack, getMaxVideoDurationFromConfig());
+        stopTimer();
+        resetTimer();
+        notifyMediaTracksChanged();
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public int editOneEffect(int i, MediaAEffectConfig mediaAEffectConfig, long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), mediaAEffectConfig, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            MediaTrack effectTrack = getEffectTrack();
-            MediaSegment mediaSegment = (MediaSegment) lx9.c(effectTrack.mediaSegments, i);
-            if (mediaSegment != null) {
-                mediaSegment.start = j;
-                mediaSegment.end = j2;
-            } else {
-                MediaSegment mediaSegment2 = new MediaSegment();
-                mediaSegment2.start = j;
-                mediaSegment2.end = j2;
-                MediaAEffect mediaAEffect = mediaAEffectConfig.getMediaAEffect();
-                mediaSegment2.mediaAEffect = mediaAEffect;
-                mediaSegment2.type = "effect";
-                mediaSegment2.effectConfigKey = mediaAEffect.name;
-                effectTrack.mediaSegments.add(mediaSegment2);
-                this.mShaderConfigMap.put(mediaSegment2.mediaAEffect.shaderConfigKey, mediaAEffectConfig.getShaderConfig());
-                i = lx9.b(effectTrack.mediaSegments) - 1;
-            }
-            notifyEffectChanged();
-            return i;
+        MediaTrack effectTrack = getEffectTrack();
+        MediaSegment mediaSegment = (MediaSegment) i1a.c(effectTrack.mediaSegments, i);
+        if (mediaSegment != null) {
+            mediaSegment.start = j;
+            mediaSegment.end = j2;
+        } else {
+            MediaSegment mediaSegment2 = new MediaSegment();
+            mediaSegment2.start = j;
+            mediaSegment2.end = j2;
+            MediaAEffect mediaAEffect = mediaAEffectConfig.getMediaAEffect();
+            mediaSegment2.mediaAEffect = mediaAEffect;
+            mediaSegment2.type = "effect";
+            mediaSegment2.effectConfigKey = mediaAEffect.name;
+            effectTrack.mediaSegments.add(mediaSegment2);
+            this.mShaderConfigMap.put(mediaSegment2.mediaAEffect.shaderConfigKey, mediaAEffectConfig.getShaderConfig());
+            i = i1a.b(effectTrack.mediaSegments) - 1;
         }
-        return invokeCommon.intValue;
+        notifyEffectChanged();
+        return i;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public String exportConfigJson(String str) {
-        InterceptResult invokeL;
         String a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            synchronized (this.mShaderConfigMap) {
-                MediaTrackConfig exportConfigJson = ImportExportConfigUtil.exportConfigJson(this.mShaderConfigMap, this.mUpdateMediaTracks, getInputMultiMediaDataTrack(), this.mMediaTrackConfig, str);
-                exportConfigJson.videoRatio = this.mVideoRatio;
-                a = new su9().a(exportConfigJson);
-            }
-            return a;
+        synchronized (this.mShaderConfigMap) {
+            MediaTrackConfig exportConfigJson = ImportExportConfigUtil.exportConfigJson(this.mShaderConfigMap, this.mUpdateMediaTracks, getInputMultiMediaDataTrack(), this.mMediaTrackConfig, str);
+            exportConfigJson.videoRatio = this.mVideoRatio;
+            a = new py9().a(exportConfigJson);
         }
-        return (String) invokeL.objValue;
+        return a;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource
     public int getCurrentIndex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mCurrentIndex.get() : invokeV.intValue;
+        return this.mCurrentIndex.get();
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource
     public long getCurrentPlayTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mPlayTime : invokeV.longValue;
+        return this.mPlayTime;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public SubTitleUnit getCurrentSubtitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (lx9.e(this.mSubTitleUnitList)) {
-                return null;
-            }
-            long currentPlayTime = getCurrentPlayTime();
-            for (SubTitleUnit subTitleUnit : this.mSubTitleUnitList) {
-                if (currentPlayTime >= subTitleUnit.startTime && currentPlayTime <= subTitleUnit.endTime) {
-                    return subTitleUnit;
-                }
-            }
+        if (i1a.e(this.mSubTitleUnitList)) {
             return null;
         }
-        return (SubTitleUnit) invokeV.objValue;
+        long currentPlayTime = getCurrentPlayTime();
+        for (SubTitleUnit subTitleUnit : this.mSubTitleUnitList) {
+            if (currentPlayTime >= subTitleUnit.startTime && currentPlayTime <= subTitleUnit.endTime) {
+                return subTitleUnit;
+            }
+        }
+        return null;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource
     public long getDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? getSegmentsDuration() : invokeV.longValue;
+        return getSegmentsDuration();
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public ArrayList<MultiMediaData> getInputMultiMediaData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (getInputMultiMediaDataTrack() == null) {
-                return null;
-            }
-            ArrayList<MultiMediaData> arrayList = new ArrayList<>();
-            if (getInputMultiMediaDataTrack().multiMediaDataList != null) {
-                for (MultiMediaData multiMediaData : getInputMultiMediaDataTrack().multiMediaDataList) {
-                    if (!multiMediaData.isHeader() && !multiMediaData.isFooter()) {
-                        arrayList.add(multiMediaData);
-                    }
+        if (getInputMultiMediaDataTrack() == null) {
+            return null;
+        }
+        ArrayList<MultiMediaData> arrayList = new ArrayList<>();
+        if (getInputMultiMediaDataTrack().multiMediaDataList != null) {
+            for (MultiMediaData multiMediaData : getInputMultiMediaDataTrack().multiMediaDataList) {
+                if (!multiMediaData.isHeader() && !multiMediaData.isFooter()) {
+                    arrayList.add(multiMediaData);
                 }
             }
-            return arrayList;
         }
-        return (ArrayList) invokeV.objValue;
+        return arrayList;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource
     public MediaTrackConfig getMediaTrackConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mMediaTrackConfig : (MediaTrackConfig) invokeV.objValue;
+        return this.mMediaTrackConfig;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public MultiMediaData getMultiMediaData(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            MultiMediaDataTrack inputMultiMediaDataTrack = getInputMultiMediaDataTrack();
-            if (inputMultiMediaDataTrack != null) {
-                return (MultiMediaData) lx9.c(inputMultiMediaDataTrack.multiMediaDataList, i);
-            }
-            return null;
+        MultiMediaDataTrack inputMultiMediaDataTrack = getInputMultiMediaDataTrack();
+        if (inputMultiMediaDataTrack != null) {
+            return (MultiMediaData) i1a.c(inputMultiMediaDataTrack.multiMediaDataList, i);
         }
-        return (MultiMediaData) invokeI.objValue;
+        return null;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource
     public List<MultiMediaDataTrack> getMultiMediaDataTrack() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mUpdateMultiMediaDataTrack : (List) invokeV.objValue;
+        return this.mUpdateMultiMediaDataTrack;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public MediaTrack getOriginEffectTrack() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mOriginEffectTrack : (MediaTrack) invokeV.objValue;
+        return this.mOriginEffectTrack;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource
     public Map<String, ShaderConfig> getShaderConfigMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mShaderConfigMap : (Map) invokeV.objValue;
+        return this.mShaderConfigMap;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public List<MultiMediaData> getStickerMultiMediaDataList(boolean z) {
-        InterceptResult invokeZ;
         int indexOf;
         MultiMediaDataTrack multiMediaDataTrack;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048592, this, z)) == null) {
-            MediaTrack subtitleAndStickerTrack = MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mUpdateMediaTracks);
-            if (subtitleAndStickerTrack == null || lx9.e(subtitleAndStickerTrack.mediaSegments) || (indexOf = this.mUpdateMediaTracks.indexOf(subtitleAndStickerTrack)) < 0 || (multiMediaDataTrack = this.mUpdateMultiMediaDataTrack.get(indexOf)) == null || lx9.e(multiMediaDataTrack.multiMediaDataList)) {
-                return null;
-            }
-            if (z) {
-                ArrayList arrayList = new ArrayList();
-                for (MultiMediaData multiMediaData : multiMediaDataTrack.multiMediaDataList) {
-                    arrayList.add((MultiMediaData) multiMediaData.clone());
-                }
-                return arrayList;
-            }
-            return multiMediaDataTrack.multiMediaDataList;
+        MediaTrack subtitleAndStickerTrack = MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mUpdateMediaTracks);
+        if (subtitleAndStickerTrack == null || i1a.e(subtitleAndStickerTrack.mediaSegments) || (indexOf = this.mUpdateMediaTracks.indexOf(subtitleAndStickerTrack)) < 0 || (multiMediaDataTrack = this.mUpdateMultiMediaDataTrack.get(indexOf)) == null || i1a.e(multiMediaDataTrack.multiMediaDataList)) {
+            return null;
         }
-        return (List) invokeZ.objValue;
+        if (z) {
+            ArrayList arrayList = new ArrayList();
+            for (MultiMediaData multiMediaData : multiMediaDataTrack.multiMediaDataList) {
+                arrayList.add((MultiMediaData) multiMediaData.clone());
+            }
+            return arrayList;
+        }
+        return multiMediaDataTrack.multiMediaDataList;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public List<MediaSegment> getStickerSegmentsData(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
-            MediaTrack subtitleAndStickerTrack = MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mUpdateMediaTracks);
-            if (subtitleAndStickerTrack == null || lx9.e(subtitleAndStickerTrack.mediaSegments)) {
-                return null;
-            }
-            if (z) {
-                ArrayList arrayList = new ArrayList();
-                for (MediaSegment mediaSegment : subtitleAndStickerTrack.mediaSegments) {
-                    arrayList.add(mediaSegment.m35clone());
-                }
-                return arrayList;
-            }
-            return subtitleAndStickerTrack.mediaSegments;
+        MediaTrack subtitleAndStickerTrack = MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mUpdateMediaTracks);
+        if (subtitleAndStickerTrack == null || i1a.e(subtitleAndStickerTrack.mediaSegments)) {
+            return null;
         }
-        return (List) invokeZ.objValue;
+        if (z) {
+            ArrayList arrayList = new ArrayList();
+            for (MediaSegment mediaSegment : subtitleAndStickerTrack.mediaSegments) {
+                arrayList.add(mediaSegment.m35clone());
+            }
+            return arrayList;
+        }
+        return subtitleAndStickerTrack.mediaSegments;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public List<MediaSegment> getStickerSegmentsDataByType(String str) {
-        InterceptResult invokeL;
         MediaTrack subtitleAndStickerTrack;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (subtitleAndStickerTrack = MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mUpdateMediaTracks)) == null || lx9.e(subtitleAndStickerTrack.mediaSegments)) {
-                return null;
-            }
-            return MultiDataSourceUtil.getStickerSegmentsDataByType(subtitleAndStickerTrack, str);
+        if (TextUtils.isEmpty(str) || (subtitleAndStickerTrack = MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mUpdateMediaTracks)) == null || i1a.e(subtitleAndStickerTrack.mediaSegments)) {
+            return null;
         }
-        return (List) invokeL.objValue;
+        return MultiDataSourceUtil.getStickerSegmentsDataByType(subtitleAndStickerTrack, str);
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource
     public List<MediaTrack> getUpdateMediaTracks() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mUpdateMediaTracks : (List) invokeV.objValue;
+        return this.mUpdateMediaTracks;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public float getVideoRatio() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mVideoRatio : invokeV.floatValue;
+        return this.mVideoRatio;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol
     public float getVolume(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
-            if (lx9.e(this.mUpdateMultiMediaDataTrack) || lx9.e(getInputMultiMediaDataTrack().multiMediaDataList) || lx9.c(getInputMultiMediaDataTrack().multiMediaDataList, i) == null) {
-                return 1.0f;
-            }
-            return ((MultiMediaData) lx9.c(getInputMultiMediaDataTrack().multiMediaDataList, i)).volume;
+        if (i1a.e(this.mUpdateMultiMediaDataTrack) || i1a.e(getInputMultiMediaDataTrack().multiMediaDataList) || i1a.c(getInputMultiMediaDataTrack().multiMediaDataList, i) == null) {
+            return 1.0f;
         }
-        return invokeI.floatValue;
+        return ((MultiMediaData) i1a.c(getInputMultiMediaDataTrack().multiMediaDataList, i)).volume;
     }
 
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, message)) == null) {
-            if (message.what == 1 && this.mMultiMediaTimelineUpdateListenerByMainThread != null && (message.obj instanceof Long) && !this.isPaused) {
-                updateSubtitle(((Long) message.obj).longValue());
-                this.mMultiMediaTimelineUpdateListenerByMainThread.onTimelineUpdate(((Long) message.obj).longValue(), getSegmentsDuration());
-                return false;
-            }
+        if (message.what == 1 && this.mMultiMediaTimelineUpdateListenerByMainThread != null && (message.obj instanceof Long) && !this.isPaused) {
+            updateSubtitle(((Long) message.obj).longValue());
+            this.mMultiMediaTimelineUpdateListenerByMainThread.onTimelineUpdate(((Long) message.obj).longValue(), getSegmentsDuration());
             return false;
         }
-        return invokeL.booleanValue;
+        return false;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol
     public boolean isMute() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.isMute : invokeV.booleanValue;
+        return this.isMute;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource
     public boolean isPaused() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.mTimer == null || !this.mTimer.isPlaying() : invokeV.booleanValue;
+        return this.mTimer == null || !this.mTimer.isPlaying();
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol
     public boolean isPlaying() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            MultiMediaDataSourceRealTimer multiMediaDataSourceRealTimer = this.mTimer;
-            return multiMediaDataSourceRealTimer != null && multiMediaDataSourceRealTimer.isPlaying();
-        }
-        return invokeV.booleanValue;
+        MultiMediaDataSourceRealTimer multiMediaDataSourceRealTimer = this.mTimer;
+        return multiMediaDataSourceRealTimer != null && multiMediaDataSourceRealTimer.isPlaying();
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource
     public boolean isResourceReady() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            List<MultiMediaDataTrack> list = this.mUpdateMultiMediaDataTrack;
-            if (list == null) {
-                return false;
-            }
-            boolean z = true;
-            for (MultiMediaDataTrack multiMediaDataTrack : list) {
-                List<MultiMediaData> list2 = multiMediaDataTrack.multiMediaDataList;
-                if (list2 != null) {
-                    Iterator<MultiMediaData> it = list2.iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        MultiMediaData next = it.next();
-                        if (next.type == 1 && !next.playerReady) {
-                            z = false;
-                            break;
-                        }
+        List<MultiMediaDataTrack> list = this.mUpdateMultiMediaDataTrack;
+        if (list == null) {
+            return false;
+        }
+        boolean z = true;
+        for (MultiMediaDataTrack multiMediaDataTrack : list) {
+            List<MultiMediaData> list2 = multiMediaDataTrack.multiMediaDataList;
+            if (list2 != null) {
+                Iterator<MultiMediaData> it = list2.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    MultiMediaData next = it.next();
+                    if (next.type == 1 && !next.playerReady) {
+                        z = false;
+                        break;
                     }
                 }
-                if (!z) {
-                    break;
-                }
-                MultiMediaData multiMediaData = multiMediaDataTrack.multiMediaDataSuperpositionHeader;
-                if (multiMediaData != null && multiMediaData.type == 1 && !multiMediaData.playerReady) {
-                    return false;
-                }
-                MultiMediaData multiMediaData2 = multiMediaDataTrack.multiMediaDataSuperpositionFooter;
-                if (multiMediaData2 != null && multiMediaData2.type == 1 && !multiMediaData2.playerReady) {
-                    return false;
-                }
             }
-            return z;
+            if (!z) {
+                break;
+            }
+            MultiMediaData multiMediaData = multiMediaDataTrack.multiMediaDataSuperpositionHeader;
+            if (multiMediaData != null && multiMediaData.type == 1 && !multiMediaData.playerReady) {
+                return false;
+            }
+            MultiMediaData multiMediaData2 = multiMediaDataTrack.multiMediaDataSuperpositionFooter;
+            if (multiMediaData2 != null && multiMediaData2.type == 1 && !multiMediaData2.playerReady) {
+                return false;
+            }
         }
-        return invokeV.booleanValue;
+        return z;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void modifyTimeByRange(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            MultiDataSourceUtil.modifyTimeByRange(this.mUpdateMediaTracks, this.mOriginEffectTrack, j, j2);
-        }
+        MultiDataSourceUtil.modifyTimeByRange(this.mUpdateMediaTracks, this.mOriginEffectTrack, j, j2);
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void needDrawEffect(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
-        }
     }
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationCancel(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, animator) == null) {
-            this.isCancel = true;
-        }
+        this.isCancel = true;
     }
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationEnd(Animator animator) {
         MultiMediaTimelineUpdateListener multiMediaTimelineUpdateListener;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, animator) == null) {
-            if (this.isPaused || this.isProgressSeeking || this.isCancel) {
-                this.isCancel = false;
-            } else if (!this.isLooping) {
-                if (getDuration() - this.mPlayTime < 30 && (multiMediaTimelineUpdateListener = this.mMultiMediaTimelineUpdateListener) != null) {
-                    multiMediaTimelineUpdateListener.onTimelineUpdate(getSegmentsDuration(), getSegmentsDuration());
-                }
-                if (getDuration() - this.mPlayTime < 30 && this.mMultiMediaTimelineUpdateListenerByMainThread != null) {
-                    Handler handler = this.mMainHandler;
-                    handler.sendMessage(handler.obtainMessage(1, Long.valueOf(getSegmentsDuration())));
-                }
-                pausePlayer(false);
-                notifyPlayEnd();
-            } else if (this.mRepeatIndex != -1 && this.mRepeatIndex == lx9.b(getInputMultiMediaDataList()) - 1 && lx9.b(getInputMultiMediaDataList()) > 1) {
-                onAnimationUpdate(0L);
-            } else {
-                stopTimer();
-                this.mCurrentIndex.set(0);
-                this.mMultiMediaAdapter.positionChanged(this.mCurrentIndex.get());
-                this.mPlayTime = 0L;
-                pausePlayer(true);
-                notifyLoop();
-                startTimer(this.mPlayTime);
+        if (this.isPaused || this.isProgressSeeking || this.isCancel) {
+            this.isCancel = false;
+        } else if (!this.isLooping) {
+            if (getDuration() - this.mPlayTime < 30 && (multiMediaTimelineUpdateListener = this.mMultiMediaTimelineUpdateListener) != null) {
+                multiMediaTimelineUpdateListener.onTimelineUpdate(getSegmentsDuration(), getSegmentsDuration());
             }
+            if (getDuration() - this.mPlayTime < 30 && this.mMultiMediaTimelineUpdateListenerByMainThread != null) {
+                Handler handler = this.mMainHandler;
+                handler.sendMessage(handler.obtainMessage(1, Long.valueOf(getSegmentsDuration())));
+            }
+            pausePlayer(false);
+            notifyPlayEnd();
+        } else if (this.mRepeatIndex != -1 && this.mRepeatIndex == i1a.b(getInputMultiMediaDataList()) - 1 && i1a.b(getInputMultiMediaDataList()) > 1) {
+            onAnimationUpdate(0L);
+        } else {
+            stopTimer();
+            this.mCurrentIndex.set(0);
+            this.mMultiMediaAdapter.positionChanged(this.mCurrentIndex.get());
+            this.mPlayTime = 0L;
+            pausePlayer(true);
+            notifyLoop();
+            startTimer(this.mPlayTime);
         }
     }
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationRepeat(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, animator) == null) {
-        }
     }
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationStart(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, animator) == null) {
-        }
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSourceRealTimer.AnimatorUpdateListener
     public void onAnimationUpdate(long j) {
         int[] findIndexInSegments;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048609, this, j) == null) || this.isPaused) {
+        if (this.isPaused) {
             return;
         }
         this.mPlayTime = j;
@@ -2148,54 +1550,25 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
             int i3 = this.mCurrentIndex.get();
             this.mCurrentIndex.set(updateTimeline != -1 ? updateTimeline : 0);
             notifyIndexChanged(i3, this.mCurrentIndex.get());
-            int b = lx9.b(this.mUpdateMediaTracks);
-            if (b > 1 && b == lx9.b(this.mUpdateMultiMediaDataTrack)) {
+            int b = i1a.b(this.mUpdateMediaTracks);
+            if (b > 1 && b == i1a.b(this.mUpdateMultiMediaDataTrack)) {
                 for (int i4 = 1; i4 < b; i4++) {
-                    MediaTrack mediaTrack = (MediaTrack) lx9.c(this.mUpdateMediaTracks, i4);
-                    MultiMediaDataTrack multiMediaDataTrack = (MultiMediaDataTrack) lx9.c(this.mUpdateMultiMediaDataTrack, i4);
+                    MediaTrack mediaTrack = (MediaTrack) i1a.c(this.mUpdateMediaTracks, i4);
+                    MultiMediaDataTrack multiMediaDataTrack = (MultiMediaDataTrack) i1a.c(this.mUpdateMultiMediaDataTrack, i4);
                     if (mediaTrack != null && multiMediaDataTrack != null) {
-                        List<MultiMediaData> list = multiMediaDataTrack.multiMediaDataList;
-                        List<MediaSegment> list2 = mediaTrack.mediaSegments;
+                        final List<MultiMediaData> list = multiMediaDataTrack.multiMediaDataList;
+                        final List<MediaSegment> list2 = mediaTrack.mediaSegments;
                         MultiDataSourceUtil.updateTimeline(mediaTrack, list, j);
                         if (list2 != null && list != null) {
-                            runOnDraw(new Runnable(this, list, list2) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.2
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ MultiMediaDataSource this$0;
-                                public final /* synthetic */ List val$mediaSegments;
-                                public final /* synthetic */ List val$multiMediaDataList;
-
-                                {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this, list, list2};
-                                        interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i5 = newInitContext.flag;
-                                        if ((i5 & 1) != 0) {
-                                            int i6 = i5 & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable2.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.this$0 = this;
-                                    this.val$multiMediaDataList = list;
-                                    this.val$mediaSegments = list2;
-                                }
-
+                            runOnDraw(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.2
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                        for (int i5 = 0; i5 < this.val$multiMediaDataList.size(); i5++) {
-                                            MultiMediaData multiMediaData = (MultiMediaData) this.val$multiMediaDataList.get(i5);
-                                            MediaSegment mediaSegment = (MediaSegment) this.val$mediaSegments.get(i5);
-                                            long j2 = mediaSegment != null ? mediaSegment.start : 0L;
-                                            if (this.this$0.mPlayTime >= j2) {
-                                                this.this$0.initMultiMedia(multiMediaData, j2);
-                                            }
+                                    for (int i5 = 0; i5 < list.size(); i5++) {
+                                        MultiMediaData multiMediaData = (MultiMediaData) list.get(i5);
+                                        MediaSegment mediaSegment = (MediaSegment) list2.get(i5);
+                                        long j2 = mediaSegment != null ? mediaSegment.start : 0L;
+                                        if (MultiMediaDataSource.this.mPlayTime >= j2) {
+                                            MultiMediaDataSource.this.initMultiMedia(multiMediaData, j2);
                                         }
                                     }
                                 }
@@ -2211,124 +1584,84 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogLifeProtocol
     public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            resetTimer();
-            release();
-            NewSubTitleCreater newSubTitleCreater = this.mSubTitleCreater;
-            if (newSubTitleCreater != null) {
-                newSubTitleCreater.release();
-            }
-            this.onFrameAvailableListener = null;
-            List<EffectChangeObserver> list = this.mEffectChangeObservers;
-            if (list != null) {
-                list.clear();
-                this.mEffectChangeObservers = null;
-            }
-            List<MediaTrackChangeObserver> list2 = this.mMediaTrackChangeObservers;
-            if (list2 != null) {
-                list2.clear();
-                this.mMediaTrackChangeObservers = null;
-            }
-            this.mReadPhotoHandler.removeCallbacksAndMessages(null);
+        resetTimer();
+        release();
+        NewSubTitleCreater newSubTitleCreater = this.mSubTitleCreater;
+        if (newSubTitleCreater != null) {
+            newSubTitleCreater.release();
         }
+        this.onFrameAvailableListener = null;
+        List<EffectChangeObserver> list = this.mEffectChangeObservers;
+        if (list != null) {
+            list.clear();
+            this.mEffectChangeObservers = null;
+        }
+        List<MediaTrackChangeObserver> list2 = this.mMediaTrackChangeObservers;
+        if (list2 != null) {
+            list2.clear();
+            this.mMediaTrackChangeObservers = null;
+        }
+        this.mReadPhotoHandler.removeCallbacksAndMessages(null);
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource
     public void onInit() {
         List<MultiMediaData> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
-            if (Build.VERSION.SDK_INT >= 17) {
-                this.mEglContext = EGL14.eglGetCurrentContext();
-            }
-            if (lx9.e(getInputMultiMediaDataList())) {
-                return;
-            }
-            List<MultiMediaDataTrack> list2 = this.mUpdateMultiMediaDataTrack;
-            for (int i = 0; i < lx9.b(list2); i++) {
-                MultiMediaDataTrack multiMediaDataTrack = list2.get(i);
-                if (multiMediaDataTrack != null && (list = multiMediaDataTrack.multiMediaDataList) != null) {
-                    if (i == 0) {
-                        initMultiMedia((MultiMediaData) lx9.c(list, this.mCurrentIndex.get()));
-                        initMultiMedia((MultiMediaData) lx9.c(multiMediaDataTrack.multiMediaDataList, this.mCurrentIndex.get() + 1));
-                        initMultiMedia(multiMediaDataTrack.multiMediaDataSuperpositionHeader);
-                        initMultiMedia(multiMediaDataTrack.multiMediaDataSuperpositionFooter);
-                    } else {
-                        for (int i2 = 0; i2 < multiMediaDataTrack.multiMediaDataList.size(); i2++) {
-                            initMultiMedia(multiMediaDataTrack.multiMediaDataList.get(i2));
-                        }
+        if (Build.VERSION.SDK_INT >= 17) {
+            this.mEglContext = EGL14.eglGetCurrentContext();
+        }
+        if (i1a.e(getInputMultiMediaDataList())) {
+            return;
+        }
+        List<MultiMediaDataTrack> list2 = this.mUpdateMultiMediaDataTrack;
+        for (int i = 0; i < i1a.b(list2); i++) {
+            MultiMediaDataTrack multiMediaDataTrack = list2.get(i);
+            if (multiMediaDataTrack != null && (list = multiMediaDataTrack.multiMediaDataList) != null) {
+                if (i == 0) {
+                    initMultiMedia((MultiMediaData) i1a.c(list, this.mCurrentIndex.get()));
+                    initMultiMedia((MultiMediaData) i1a.c(multiMediaDataTrack.multiMediaDataList, this.mCurrentIndex.get() + 1));
+                    initMultiMedia(multiMediaDataTrack.multiMediaDataSuperpositionHeader);
+                    initMultiMedia(multiMediaDataTrack.multiMediaDataSuperpositionFooter);
+                } else {
+                    for (int i2 = 0; i2 < multiMediaDataTrack.multiMediaDataList.size(); i2++) {
+                        initMultiMedia(multiMediaDataTrack.multiMediaDataList.get(i2));
                     }
                 }
             }
-            if (this.mMediaTrackConfig == null || this.isPaused || this.mNeedInitMultiMediaData) {
-                postPrepared();
-            }
+        }
+        if (this.mMediaTrackConfig == null || this.isPaused || this.mNeedInitMultiMediaData) {
+            postPrepared();
         }
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil.OnInitMultiMediaListener
-    public void onInitMultiMedia(MultiMediaData multiMediaData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, multiMediaData) == null) {
-            this.mNeedInitMultiMediaData = true;
-            createPlayer(multiMediaData);
-            runOnDraw(new Runnable(this, multiMediaData) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.13
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MultiMediaDataSource this$0;
-                public final /* synthetic */ MultiMediaData val$multiMediaData;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, multiMediaData};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$multiMediaData = multiMediaData;
+    public void onInitMultiMedia(final MultiMediaData multiMediaData) {
+        this.mNeedInitMultiMediaData = true;
+        createPlayer(multiMediaData);
+        runOnDraw(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.13
+            @Override // java.lang.Runnable
+            public void run() {
+                MultiMediaDataSource.this.initMultiMedia(multiMediaData);
+                if ((multiMediaData.isHeader() || multiMediaData.isSuperpositionHeader() || multiMediaData.isOtherTrack()) && MultiMediaDataSource.this.mCurrentIndex.get() == 0) {
+                    MultiMediaDataSource.this.postPrepared();
                 }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.initMultiMedia(this.val$multiMediaData);
-                        if ((this.val$multiMediaData.isHeader() || this.val$multiMediaData.isSuperpositionHeader() || this.val$multiMediaData.isOtherTrack()) && this.this$0.mCurrentIndex.get() == 0) {
-                            this.this$0.postPrepared();
-                        }
-                    }
-                }
-            });
-        }
+            }
+        });
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogLifeProtocol
     public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-            this.isPaused = true;
-            this.isPrepared = false;
-            this.mNeedInitMultiMediaData = true;
-            pause();
-            releaseSurface();
-            this.mMultiMediaAdapter.clear();
-        }
+        this.isPaused = true;
+        this.isPrepared = false;
+        this.mNeedInitMultiMediaData = true;
+        pause();
+        releaseSurface();
+        this.mMultiMediaAdapter.clear();
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil.OnReleaseMultiMediaListener
     public void onReleaseMultiMedia(MultiMediaData multiMediaData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048614, this, multiMediaData) == null) || multiMediaData == null) {
+        if (multiMediaData == null) {
             return;
         }
         multiMediaData.releaseSurface();
@@ -2351,159 +1684,130 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogLifeProtocol
     public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-            this.isPaused = false;
-            notifyEffectChanged();
-            initAllPlayers();
-            this.mMultiMediaAdapter.positionChanged(this.mCurrentIndex.get());
-            seek(this.mPlayTime);
-            updateSubtitle(this.mPlayTime);
-        }
+        this.isPaused = false;
+        notifyEffectChanged();
+        initAllPlayers();
+        this.mMultiMediaAdapter.positionChanged(this.mCurrentIndex.get());
+        seek(this.mPlayTime);
+        updateSubtitle(this.mPlayTime);
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol
     public void pause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
-            stopTimer();
-            resetTimer();
-            pausePlayer(false);
-            IVLogPlayControlProtocol.OnPlayStateListener onPlayStateListener = this.mOnPlayStateListener;
-            if (onPlayStateListener != null) {
-                onPlayStateListener.onPause();
-            }
+        stopTimer();
+        resetTimer();
+        pausePlayer(false);
+        IVLogPlayControlProtocol.OnPlayStateListener onPlayStateListener = this.mOnPlayStateListener;
+        if (onPlayStateListener != null) {
+            onPlayStateListener.onPause();
         }
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol
     public void prepareAsync() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
-        }
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public boolean rangeSegmentScope(int i, long j, long j2) {
-        InterceptResult invokeCommon;
         MultiMediaDataTrack multiMediaDataTrack;
         MediaTrack inputTrack;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048618, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if (j <= j2 && j >= 0 && (multiMediaDataTrack = (MultiMediaDataTrack) lx9.c(getMultiMediaDataTrack(), 0)) != null && !lx9.e(multiMediaDataTrack.multiMediaDataList) && lx9.c(multiMediaDataTrack.multiMediaDataList, i) != null) {
-                MultiMediaData multiMediaData = (MultiMediaData) lx9.c(multiMediaDataTrack.multiMediaDataList, i);
-                if ((multiMediaData.type != 1 || ((float) (j2 - j)) <= ((float) multiMediaData.originalDuration) / multiMediaData.getCurrentSpeed()) && (inputTrack = getInputTrack()) != null && !lx9.e(inputTrack.mediaSegments)) {
-                    long currentSpeed = (((float) (multiMediaData.end - multiMediaData.start)) / multiMediaData.getCurrentSpeed()) - ((float) (j2 - j));
-                    multiMediaData.start = ((float) j) * multiMediaData.getCurrentSpeed();
-                    multiMediaData.end = ((float) j2) * multiMediaData.getCurrentSpeed();
-                    int b = lx9.b(inputTrack.mediaSegments);
-                    ((MediaSegment) lx9.c(inputTrack.mediaSegments, i)).end -= currentSpeed;
-                    for (int i2 = i + 1; i2 < b; i2++) {
-                        MediaSegment mediaSegment = (MediaSegment) lx9.c(inputTrack.mediaSegments, i2);
-                        mediaSegment.start -= currentSpeed;
-                        mediaSegment.end -= currentSpeed;
-                    }
-                    applyTimeLineOnTemplateType();
-                    xg0.a(getInputTrack(), getMaxVideoDurationFromConfig());
-                    stopTimer();
-                    resetTimer();
-                    notifyMediaTracksChanged();
-                    return true;
+        if (j <= j2 && j >= 0 && (multiMediaDataTrack = (MultiMediaDataTrack) i1a.c(getMultiMediaDataTrack(), 0)) != null && !i1a.e(multiMediaDataTrack.multiMediaDataList) && i1a.c(multiMediaDataTrack.multiMediaDataList, i) != null) {
+            MultiMediaData multiMediaData = (MultiMediaData) i1a.c(multiMediaDataTrack.multiMediaDataList, i);
+            if ((multiMediaData.type != 1 || ((float) (j2 - j)) <= ((float) multiMediaData.originalDuration) / multiMediaData.getCurrentSpeed()) && (inputTrack = getInputTrack()) != null && !i1a.e(inputTrack.mediaSegments)) {
+                long currentSpeed = (((float) (multiMediaData.end - multiMediaData.start)) / multiMediaData.getCurrentSpeed()) - ((float) (j2 - j));
+                multiMediaData.start = ((float) j) * multiMediaData.getCurrentSpeed();
+                multiMediaData.end = ((float) j2) * multiMediaData.getCurrentSpeed();
+                int b = i1a.b(inputTrack.mediaSegments);
+                ((MediaSegment) i1a.c(inputTrack.mediaSegments, i)).end -= currentSpeed;
+                for (int i2 = i + 1; i2 < b; i2++) {
+                    MediaSegment mediaSegment = (MediaSegment) i1a.c(inputTrack.mediaSegments, i2);
+                    mediaSegment.start -= currentSpeed;
+                    mediaSegment.end -= currentSpeed;
                 }
+                applyTimeLineOnTemplateType();
+                bh0.a(getInputTrack(), getMaxVideoDurationFromConfig());
+                stopTimer();
+                resetTimer();
+                notifyMediaTracksChanged();
+                return true;
             }
-            return false;
         }
-        return invokeCommon.booleanValue;
+        return false;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource
     public void registerObserver(EffectChangeObserver effectChangeObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, effectChangeObserver) == null) {
-            if (this.mEffectChangeObservers == null) {
-                this.mEffectChangeObservers = new ArrayList();
-            }
-            if (this.mEffectChangeObservers.contains(effectChangeObserver)) {
-                return;
-            }
-            this.mEffectChangeObservers.add(effectChangeObserver);
+        if (this.mEffectChangeObservers == null) {
+            this.mEffectChangeObservers = new ArrayList();
         }
+        if (this.mEffectChangeObservers.contains(effectChangeObserver)) {
+            return;
+        }
+        this.mEffectChangeObservers.add(effectChangeObserver);
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource
     public void registerObserver(MediaTrackChangeObserver mediaTrackChangeObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, mediaTrackChangeObserver) == null) {
-            if (this.mMediaTrackChangeObservers == null) {
-                this.mMediaTrackChangeObservers = new ArrayList();
-            }
-            if (this.mMediaTrackChangeObservers.contains(mediaTrackChangeObserver)) {
-                return;
-            }
-            this.mMediaTrackChangeObservers.add(mediaTrackChangeObserver);
+        if (this.mMediaTrackChangeObservers == null) {
+            this.mMediaTrackChangeObservers = new ArrayList();
         }
+        if (this.mMediaTrackChangeObservers.contains(mediaTrackChangeObserver)) {
+            return;
+        }
+        this.mMediaTrackChangeObservers.add(mediaTrackChangeObserver);
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol
     public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
-            stopTimer();
-            this.mCurrentIndex.set(0);
-            this.mPlayTime = 0L;
-            releaseSurface();
-        }
+        stopTimer();
+        this.mCurrentIndex.set(0);
+        this.mPlayTime = 0L;
+        releaseSurface();
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource
     public void releaseTextures() {
         List<MultiMediaData> list;
         int b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
-            int b2 = lx9.b(this.mUpdateMultiMediaDataTrack);
-            for (int i = 0; i < b2; i++) {
-                MultiMediaDataTrack multiMediaDataTrack = (MultiMediaDataTrack) lx9.c(this.mUpdateMultiMediaDataTrack, i);
-                if (multiMediaDataTrack != null && !lx9.e(multiMediaDataTrack.multiMediaDataList) && (b = lx9.b((list = multiMediaDataTrack.multiMediaDataList))) != 0) {
-                    for (int i2 = 0; i2 < b; i2++) {
-                        MultiDataSourceUtil.glDeleteTextures((MultiMediaData) lx9.c(list, i2));
-                    }
-                    if (this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataSuperpositionHeader != null) {
-                        MultiDataSourceUtil.glDeleteTextures(this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataSuperpositionHeader);
-                    }
-                    if (this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataSuperpositionFooter != null) {
-                        MultiDataSourceUtil.glDeleteTextures(this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataSuperpositionFooter);
-                    }
+        int b2 = i1a.b(this.mUpdateMultiMediaDataTrack);
+        for (int i = 0; i < b2; i++) {
+            MultiMediaDataTrack multiMediaDataTrack = (MultiMediaDataTrack) i1a.c(this.mUpdateMultiMediaDataTrack, i);
+            if (multiMediaDataTrack != null && !i1a.e(multiMediaDataTrack.multiMediaDataList) && (b = i1a.b((list = multiMediaDataTrack.multiMediaDataList))) != 0) {
+                for (int i2 = 0; i2 < b; i2++) {
+                    MultiDataSourceUtil.glDeleteTextures((MultiMediaData) i1a.c(list, i2));
+                }
+                if (this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataSuperpositionHeader != null) {
+                    MultiDataSourceUtil.glDeleteTextures(this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataSuperpositionHeader);
+                }
+                if (this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataSuperpositionFooter != null) {
+                    MultiDataSourceUtil.glDeleteTextures(this.mUpdateMultiMediaDataTrack.get(i).multiMediaDataSuperpositionFooter);
                 }
             }
-            releaseEgl();
         }
+        releaseEgl();
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void removeLastEffect() {
-        MediaTrack effectTrack;
-        List<MediaSegment> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048623, this) == null) || (list = (effectTrack = getEffectTrack()).mediaSegments) == null) {
-            return;
-        }
-        MediaSegment mediaSegment = (MediaSegment) lx9.c(list, list.size() - 1);
-        if (mediaSegment != null) {
-            effectTrack.mediaSegments.remove(mediaSegment);
-        }
-        if (lx9.e(effectTrack.mediaSegments)) {
-            int indexOf = this.mUpdateMediaTracks.indexOf(effectTrack);
-            this.mUpdateMediaTracks.remove(effectTrack);
-            lx9.g(this.mUpdateMultiMediaDataTrack, indexOf);
+        MediaTrack effectTrack = getEffectTrack();
+        List<MediaSegment> list = effectTrack.mediaSegments;
+        if (list != null) {
+            MediaSegment mediaSegment = (MediaSegment) i1a.c(list, list.size() - 1);
+            if (mediaSegment != null) {
+                effectTrack.mediaSegments.remove(mediaSegment);
+            }
+            if (i1a.e(effectTrack.mediaSegments)) {
+                int indexOf = this.mUpdateMediaTracks.indexOf(effectTrack);
+                this.mUpdateMediaTracks.remove(effectTrack);
+                i1a.g(this.mUpdateMultiMediaDataTrack, indexOf);
+            }
         }
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void removeOneTrack(String str) {
-        MediaTrack trackByType;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048624, this, str) == null) || (trackByType = MultiDataSourceUtil.getTrackByType(this.mUpdateMediaTracks, str)) == null) {
+        MediaTrack trackByType = MultiDataSourceUtil.getTrackByType(this.mUpdateMediaTracks, str);
+        if (trackByType == null) {
             return;
         }
         MultiDataSourceUtil.removeOneTrack(trackByType, this.mUpdateMediaTracks, this.mUpdateMultiMediaDataTrack, this);
@@ -2518,29 +1822,25 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
     public void repeatIndex(int i) {
         MediaTrack inputTrack;
         MediaSegment mediaSegment;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
-            this.mRepeatIndex = i;
-            if (this.mRepeatIndex == -1 || (inputTrack = getInputTrack()) == null || (mediaSegment = (MediaSegment) lx9.c(inputTrack.mediaSegments, this.mRepeatIndex)) == null) {
-                return;
-            }
-            if (this.mPlayTime < mediaSegment.start || this.mPlayTime > mediaSegment.end) {
-                this.mCurrentIndex.set(i);
-                seek(mediaSegment.start + 1);
-            }
+        this.mRepeatIndex = i;
+        if (this.mRepeatIndex == -1 || (inputTrack = getInputTrack()) == null || (mediaSegment = (MediaSegment) i1a.c(inputTrack.mediaSegments, this.mRepeatIndex)) == null) {
+            return;
+        }
+        if (this.mPlayTime < mediaSegment.start || this.mPlayTime > mediaSegment.end) {
+            this.mCurrentIndex.set(i);
+            seek(mediaSegment.start + 1);
         }
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
-    public void replaceStickerData(int i, MultiMediaData multiMediaData, String str) {
+    public void replaceStickerData(int i, final MultiMediaData multiMediaData, String str) {
         MediaTrack subtitleAndStickerTrack;
         int indexOf;
         MultiMediaDataTrack multiMediaDataTrack;
         MediaSegment mediaSegment;
         int indexOf2;
-        MultiMediaData multiMediaData2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(1048626, this, i, multiMediaData, str) == null) || multiMediaData == null || TextUtils.isEmpty(str) || (subtitleAndStickerTrack = MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mUpdateMediaTracks)) == null || lx9.e(subtitleAndStickerTrack.mediaSegments) || (indexOf = this.mUpdateMediaTracks.indexOf(subtitleAndStickerTrack)) < 0 || (multiMediaDataTrack = this.mUpdateMultiMediaDataTrack.get(indexOf)) == null || lx9.e(multiMediaDataTrack.multiMediaDataList) || (mediaSegment = (MediaSegment) lx9.c(getStickerSegmentsDataByType(str), i)) == null || (indexOf2 = subtitleAndStickerTrack.mediaSegments.indexOf(mediaSegment)) < 0 || (multiMediaData2 = (MultiMediaData) lx9.c(multiMediaDataTrack.multiMediaDataList, indexOf2)) == null) {
+        final MultiMediaData multiMediaData2;
+        if (multiMediaData == null || TextUtils.isEmpty(str) || (subtitleAndStickerTrack = MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mUpdateMediaTracks)) == null || i1a.e(subtitleAndStickerTrack.mediaSegments) || (indexOf = this.mUpdateMediaTracks.indexOf(subtitleAndStickerTrack)) < 0 || (multiMediaDataTrack = this.mUpdateMultiMediaDataTrack.get(indexOf)) == null || i1a.e(multiMediaDataTrack.multiMediaDataList) || (mediaSegment = (MediaSegment) i1a.c(getStickerSegmentsDataByType(str), i)) == null || (indexOf2 = subtitleAndStickerTrack.mediaSegments.indexOf(mediaSegment)) < 0 || (multiMediaData2 = (MultiMediaData) i1a.c(multiMediaDataTrack.multiMediaDataList, indexOf2)) == null) {
             return;
         }
         multiMediaData.end = multiMediaData2.end;
@@ -2549,43 +1849,14 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
         multiMediaData.angle = multiMediaData2.angle;
         multiMediaData.scaleX = multiMediaData2.scaleX;
         multiMediaData.scaleY = multiMediaData2.scaleY;
-        lx9.g(multiMediaDataTrack.multiMediaDataList, indexOf2);
+        i1a.g(multiMediaDataTrack.multiMediaDataList, indexOf2);
         multiMediaDataTrack.multiMediaDataList.add(indexOf2, multiMediaData);
-        runOnDraw(new Runnable(this, multiMediaData2, multiMediaData) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.16
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ MultiMediaDataSource this$0;
-            public final /* synthetic */ MultiMediaData val$multiMediaData;
-            public final /* synthetic */ MultiMediaData val$stickerData;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, multiMediaData2, multiMediaData};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.val$multiMediaData = multiMediaData2;
-                this.val$stickerData = multiMediaData;
-            }
-
+        runOnDraw(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.16
             @Override // java.lang.Runnable
             public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    MultiDataSourceUtil.glDeleteTextures(this.val$multiMediaData);
-                    this.this$0.initMultiMedia(this.val$stickerData);
-                    this.this$0.notifyFrameAvailable();
-                }
+                MultiDataSourceUtil.glDeleteTextures(multiMediaData2);
+                MultiMediaDataSource.this.initMultiMedia(multiMediaData);
+                MultiMediaDataSource.this.notifyFrameAvailable();
             }
         });
         notifyMediaTracksChanged();
@@ -2594,32 +1865,29 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol
     public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
-            stopTimer();
-            resetTimer();
-            this.mCurrentIndex.set(0);
-            this.mMultiMediaAdapter.positionChanged(this.mCurrentIndex.get());
-            this.mPlayTime = 0L;
-            pausePlayer(true);
-        }
+        stopTimer();
+        resetTimer();
+        this.mCurrentIndex.set(0);
+        this.mMultiMediaAdapter.positionChanged(this.mCurrentIndex.get());
+        this.mPlayTime = 0L;
+        pausePlayer(true);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0055  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0058  */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0070  */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0072  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00b8  */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x0154  */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x015b  */
-    /* JADX WARN: Removed duplicated region for block: B:75:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0051  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0054  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x006c  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x006e  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x00b4  */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x0150  */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x0157  */
+    /* JADX WARN: Removed duplicated region for block: B:70:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void seek(long j) {
         long j2;
-        MultiMediaData multiMediaData;
+        final MultiMediaData multiMediaData;
         int b;
         int i;
         int i2;
@@ -2629,8 +1897,7 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
         VLogSimplePlayer vLogSimplePlayer;
         VLogSimplePlayer vLogSimplePlayer2;
         int i4;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048628, this, j) == null) || lx9.e(this.mUpdateMultiMediaDataTrack) || lx9.e(getInputMultiMediaDataTrack().multiMediaDataList)) {
+        if (i1a.e(this.mUpdateMultiMediaDataTrack) || i1a.e(getInputMultiMediaDataTrack().multiMediaDataList)) {
             return;
         }
         boolean isPlaying = isPlaying();
@@ -2649,49 +1916,22 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
                 int i5 = this.mCurrentIndex.get();
                 this.mCurrentIndex.set(seekInternal != -1 ? 0 : seekInternal);
                 this.mMultiMediaAdapter.positionChanged(this.mCurrentIndex.get());
-                multiMediaData = (MultiMediaData) lx9.c(list, this.mCurrentIndex.get());
+                multiMediaData = (MultiMediaData) i1a.c(list, this.mCurrentIndex.get());
                 if (multiMediaData != null && multiMediaData.textureId == 0) {
-                    runOnDraw(new Runnable(this, multiMediaData) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.12
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ MultiMediaDataSource this$0;
-                        public final /* synthetic */ MultiMediaData val$multiMediaData;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, multiMediaData};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i6 = newInitContext.flag;
-                                if ((i6 & 1) != 0) {
-                                    int i7 = i6 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$multiMediaData = multiMediaData;
-                        }
-
+                    runOnDraw(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.12
                         @Override // java.lang.Runnable
                         public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.this$0.initMultiMedia(this.val$multiMediaData);
-                                this.this$0.notifyFrameAvailable();
-                            }
+                            MultiMediaDataSource.this.initMultiMedia(multiMediaData);
+                            MultiMediaDataSource.this.notifyFrameAvailable();
                         }
                     });
                 }
                 notifyIndexChanged(i5, this.mCurrentIndex.get());
-                b = lx9.b(this.mUpdateMediaTracks);
-                if (b > 1 && b == lx9.b(this.mUpdateMultiMediaDataTrack)) {
+                b = i1a.b(this.mUpdateMediaTracks);
+                if (b > 1 && b == i1a.b(this.mUpdateMultiMediaDataTrack)) {
                     i4 = 1;
                     while (i4 < b) {
-                        seekInternal((MediaTrack) lx9.c(this.mUpdateMediaTracks, i4), this.mUpdateMultiMediaDataTrack.get(i4).multiMediaDataList, j2, isPlaying ? 3 : 4);
+                        seekInternal((MediaTrack) i1a.c(this.mUpdateMediaTracks, i4), this.mUpdateMultiMediaDataTrack.get(i4).multiMediaDataList, j2, isPlaying ? 3 : 4);
                         i4++;
                         b = b;
                         i5 = i5;
@@ -2702,13 +1942,13 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
                 i2 = b;
                 i3 = seekInternal;
                 seekSuperpositionHeaderAndFooter(3, inputTrack);
-                MultiMediaData multiMediaData3 = (MultiMediaData) lx9.c(list, this.mCurrentIndex.get());
+                MultiMediaData multiMediaData3 = (MultiMediaData) i1a.c(list, this.mCurrentIndex.get());
                 if (i2 <= 1 || (multiMediaData3 != null && (multiMediaData3.type != 1 || ((vLogSimplePlayer2 = multiMediaData3.player) != null && vLogSimplePlayer2.isInPlaybackState())))) {
                     notifyFrameAvailable();
                 }
                 seekSuperpositionHeaderAndFooter(3, inputTrack);
                 notifyTimelineUpdate(j2);
-                if (i != i3 && (multiMediaData2 = (MultiMediaData) lx9.c(getInputMultiMediaDataTrack().multiMediaDataList, i)) != null && (vLogSimplePlayer = multiMediaData2.player) != null && ((float) vLogSimplePlayer.getCurrentPosition()) != ((float) multiMediaData2.start) / multiMediaData2.getCurrentSpeed()) {
+                if (i != i3 && (multiMediaData2 = (MultiMediaData) i1a.c(getInputMultiMediaDataTrack().multiMediaDataList, i)) != null && (vLogSimplePlayer = multiMediaData2.player) != null && ((float) vLogSimplePlayer.getCurrentPosition()) != ((float) multiMediaData2.start) / multiMediaData2.getCurrentSpeed()) {
                     multiMediaData2.player.seekTo(multiMediaData2.start);
                 }
                 if (isPlaying) {
@@ -2731,45 +1971,18 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
         int i52 = this.mCurrentIndex.get();
         this.mCurrentIndex.set(seekInternal2 != -1 ? 0 : seekInternal2);
         this.mMultiMediaAdapter.positionChanged(this.mCurrentIndex.get());
-        multiMediaData = (MultiMediaData) lx9.c(list2, this.mCurrentIndex.get());
+        multiMediaData = (MultiMediaData) i1a.c(list2, this.mCurrentIndex.get());
         if (multiMediaData != null) {
-            runOnDraw(new Runnable(this, multiMediaData) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.12
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MultiMediaDataSource this$0;
-                public final /* synthetic */ MultiMediaData val$multiMediaData;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = objArr;
-                        Object[] objArr = {this, multiMediaData};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i6 = newInitContext.flag;
-                        if ((i6 & 1) != 0) {
-                            int i7 = i6 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$multiMediaData = multiMediaData;
-                }
-
+            runOnDraw(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.12
                 @Override // java.lang.Runnable
                 public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.initMultiMedia(this.val$multiMediaData);
-                        this.this$0.notifyFrameAvailable();
-                    }
+                    MultiMediaDataSource.this.initMultiMedia(multiMediaData);
+                    MultiMediaDataSource.this.notifyFrameAvailable();
                 }
             });
         }
         notifyIndexChanged(i52, this.mCurrentIndex.get());
-        b = lx9.b(this.mUpdateMediaTracks);
+        b = i1a.b(this.mUpdateMediaTracks);
         if (b > 1) {
             i4 = 1;
             while (i4 < b) {
@@ -2779,7 +1992,7 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
         i2 = b;
         i3 = seekInternal2;
         seekSuperpositionHeaderAndFooter(3, inputTrack2);
-        MultiMediaData multiMediaData32 = (MultiMediaData) lx9.c(list2, this.mCurrentIndex.get());
+        MultiMediaData multiMediaData32 = (MultiMediaData) i1a.c(list2, this.mCurrentIndex.get());
         if (i2 <= 1) {
         }
         notifyFrameAvailable();
@@ -2799,8 +2012,7 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
     public void seek(long j, int i) {
         MultiMediaData multiMediaData;
         VLogSimplePlayer vLogSimplePlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) || lx9.e(this.mUpdateMultiMediaDataTrack) || lx9.e(getInputMultiMediaDataTrack().multiMediaDataList)) {
+        if (i1a.e(this.mUpdateMultiMediaDataTrack) || i1a.e(getInputMultiMediaDataTrack().multiMediaDataList)) {
             return;
         }
         this.isProgressSeeking = i == 0 || i == 1;
@@ -2817,19 +2029,19 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
         MediaTrack inputTrack = getInputTrack();
         int seekInternal = seekInternal(inputTrack, getInputMultiMediaDataTrack().multiMediaDataList, this.mPlayTime, i);
         this.mCurrentIndex.set(seekInternal == -1 ? 0 : seekInternal);
-        int b = lx9.b(this.mUpdateMediaTracks);
-        if (b > 1 && b == lx9.b(this.mUpdateMultiMediaDataTrack)) {
+        int b = i1a.b(this.mUpdateMediaTracks);
+        if (b > 1 && b == i1a.b(this.mUpdateMultiMediaDataTrack)) {
             for (int i2 = 1; i2 < b; i2++) {
-                seekInternal((MediaTrack) lx9.c(this.mUpdateMediaTracks, i2), this.mUpdateMultiMediaDataTrack.get(i2).multiMediaDataList, this.mPlayTime, i);
+                seekInternal((MediaTrack) i1a.c(this.mUpdateMediaTracks, i2), this.mUpdateMultiMediaDataTrack.get(i2).multiMediaDataList, this.mPlayTime, i);
             }
         }
         seekSuperpositionHeaderAndFooter(i, inputTrack);
         notifyFrameAvailable();
         notifyTimelineUpdate(this.mPlayTime);
         if (i == 2) {
-            int b2 = lx9.b(getInputMultiMediaDataTrack().multiMediaDataList);
+            int b2 = i1a.b(getInputMultiMediaDataTrack().multiMediaDataList);
             for (int i3 = 0; i3 < b2; i3++) {
-                if (seekInternal != i3 && (multiMediaData = (MultiMediaData) lx9.c(getInputMultiMediaDataTrack().multiMediaDataList, i3)) != null && (vLogSimplePlayer = multiMediaData.player) != null && ((float) vLogSimplePlayer.getCurrentPosition()) != ((float) multiMediaData.start) / multiMediaData.getCurrentSpeed()) {
+                if (seekInternal != i3 && (multiMediaData = (MultiMediaData) i1a.c(getInputMultiMediaDataTrack().multiMediaDataList, i3)) != null && (vLogSimplePlayer = multiMediaData.player) != null && ((float) vLogSimplePlayer.getCurrentPosition()) != ((float) multiMediaData.start) / multiMediaData.getCurrentSpeed()) {
                     vLogSimplePlayer.seekTo(multiMediaData.start);
                 }
             }
@@ -2841,45 +2053,34 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void setAngle(int i, float f) {
-        MultiMediaData multiMediaData;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048630, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) || (multiMediaData = getMultiMediaData(i)) == null) {
-            return;
+        MultiMediaData multiMediaData = getMultiMediaData(i);
+        if (multiMediaData != null) {
+            multiMediaData.angle = f;
         }
-        multiMediaData.angle = f;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     @Deprecated
     public void setAngle(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048631, this, i, i2) == null) {
-            setAngle(i, i2);
-        }
+        setAngle(i, i2);
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void setAudioChangeType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048632, this, i) == null) {
-            setAudioChangeType(new int[]{i});
-        }
+        setAudioChangeType(new int[]{i});
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void setAudioChangeType(int[] iArr) {
         MultiMediaDataTrack inputMultiMediaDataTrack;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, iArr) == null) {
-            this.mAudioChangeTypes = iArr;
-            if (lx9.e(this.mUpdateMediaTracks) || (inputMultiMediaDataTrack = getInputMultiMediaDataTrack()) == null || lx9.e(inputMultiMediaDataTrack.multiMediaDataList)) {
-                return;
-            }
-            for (MultiMediaData multiMediaData : inputMultiMediaDataTrack.multiMediaDataList) {
-                VLogSimplePlayer vLogSimplePlayer = multiMediaData.player;
-                if (vLogSimplePlayer != null) {
-                    vLogSimplePlayer.setAudioChangeType(iArr);
-                }
+        this.mAudioChangeTypes = iArr;
+        if (i1a.e(this.mUpdateMediaTracks) || (inputMultiMediaDataTrack = getInputMultiMediaDataTrack()) == null || i1a.e(inputMultiMediaDataTrack.multiMediaDataList)) {
+            return;
+        }
+        for (MultiMediaData multiMediaData : inputMultiMediaDataTrack.multiMediaDataList) {
+            VLogSimplePlayer vLogSimplePlayer = multiMediaData.player;
+            if (vLogSimplePlayer != null) {
+                vLogSimplePlayer.setAudioChangeType(iArr);
             }
         }
     }
@@ -2887,67 +2088,57 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void setAudioChangeType(int[] iArr, double[] dArr, int[] iArr2) {
         MultiMediaDataTrack inputMultiMediaDataTrack;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048634, this, iArr, dArr, iArr2) == null) {
-            this.mAudioChangeTypes = iArr;
-            if (lx9.e(this.mUpdateMediaTracks) || (inputMultiMediaDataTrack = getInputMultiMediaDataTrack()) == null || lx9.e(inputMultiMediaDataTrack.multiMediaDataList)) {
-                return;
-            }
-            for (MultiMediaData multiMediaData : inputMultiMediaDataTrack.multiMediaDataList) {
-                VLogSimplePlayer vLogSimplePlayer = multiMediaData.player;
-                if (vLogSimplePlayer != null) {
-                    vLogSimplePlayer.setAudioChangeType(iArr, dArr, iArr2);
-                }
+        this.mAudioChangeTypes = iArr;
+        if (i1a.e(this.mUpdateMediaTracks) || (inputMultiMediaDataTrack = getInputMultiMediaDataTrack()) == null || i1a.e(inputMultiMediaDataTrack.multiMediaDataList)) {
+            return;
+        }
+        for (MultiMediaData multiMediaData : inputMultiMediaDataTrack.multiMediaDataList) {
+            VLogSimplePlayer vLogSimplePlayer = multiMediaData.player;
+            if (vLogSimplePlayer != null) {
+                vLogSimplePlayer.setAudioChangeType(iArr, dArr, iArr2);
             }
         }
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void setEffectList(List<MediaSegment> list, Map<String, ShaderConfig> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048635, this, list, map) == null) {
-            MediaTrack effectTrack = getEffectTrack();
-            if (lx9.e(list) && map.isEmpty()) {
-                int indexOf = this.mUpdateMediaTracks.indexOf(effectTrack);
-                this.mUpdateMediaTracks.remove(effectTrack);
-                lx9.g(this.mUpdateMultiMediaDataTrack, indexOf);
-                return;
-            }
-            effectTrack.mediaSegments.clear();
-            effectTrack.mediaSegments.addAll(list);
-            this.mShaderConfigMap.putAll(map);
-            notifyEffectChanged();
+        MediaTrack effectTrack = getEffectTrack();
+        if (i1a.e(list) && map.isEmpty()) {
+            int indexOf = this.mUpdateMediaTracks.indexOf(effectTrack);
+            this.mUpdateMediaTracks.remove(effectTrack);
+            i1a.g(this.mUpdateMultiMediaDataTrack, indexOf);
+            return;
         }
+        effectTrack.mediaSegments.clear();
+        effectTrack.mediaSegments.addAll(list);
+        this.mShaderConfigMap.putAll(map);
+        notifyEffectChanged();
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void setFilter(float f, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048636, this, new Object[]{Float.valueOf(f), str}) == null) {
-            setFilter(-1, f, str);
-            Iterator<Map.Entry<String, ShaderConfig>> it = this.mShaderConfigMap.entrySet().iterator();
-            while (it.hasNext()) {
-                if (it.next().getKey().contains(xg0.d)) {
-                    it.remove();
-                }
+        setFilter(-1, f, str);
+        Iterator<Map.Entry<String, ShaderConfig>> it = this.mShaderConfigMap.entrySet().iterator();
+        while (it.hasNext()) {
+            if (it.next().getKey().contains(bh0.d)) {
+                it.remove();
             }
-            notifyEffectChanged();
         }
+        notifyEffectChanged();
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
-    public void setFilter(int i, float f, String str) {
-        MediaTextureData mediaTextureData;
+    public void setFilter(int i, float f, final String str) {
+        final MediaTextureData mediaTextureData;
         boolean z;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), str}) == null) || TextUtils.isEmpty(str)) {
+        if (TextUtils.isEmpty(str)) {
             return;
         }
         MediaTrack inputTrack = getInputTrack();
-        String str2 = i >= 0 ? xg0.d + i : xg0.c;
+        String str2 = i >= 0 ? bh0.d + i : bh0.c;
         if (inputTrack != null) {
             String str3 = TextUtils.equals(str, IVlogEditManager.FILTER_ORIGINAL) ? "" : str2;
-            if (xg0.m(inputTrack, "input_blank")) {
+            if (bh0.m(inputTrack, "input_blank")) {
                 int i2 = 1;
                 int i3 = -1;
                 while (true) {
@@ -2955,7 +2146,7 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
                         break;
                     }
                     MediaTrack mediaTrack = this.mUpdateMediaTracks.get(i2);
-                    if (mediaTrack != null && xg0.m(mediaTrack, "multi_input")) {
+                    if (mediaTrack != null && bh0.m(mediaTrack, "multi_input")) {
                         if (i3 == -1) {
                             i3 = i2;
                         }
@@ -2988,41 +2179,14 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
         }
         if (TextUtils.equals(str, IVlogEditManager.FILTER_ORIGINAL)) {
             ShaderConfig shaderConfig = this.mShaderConfigMap.get(str2);
-            if (shaderConfig != null && !lx9.e(shaderConfig.textures)) {
+            if (shaderConfig != null && !i1a.e(shaderConfig.textures)) {
                 for (MediaTextureData mediaTextureData2 : shaderConfig.textures) {
-                    int i4 = mediaTextureData2.textureId;
+                    final int i4 = mediaTextureData2.textureId;
                     if (i4 != 0) {
-                        runOnDraw(new Runnable(this, i4) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.3
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ MultiMediaDataSource this$0;
-                            public final /* synthetic */ int val$textureId;
-
-                            {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, Integer.valueOf(i4)};
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i5 = newInitContext.flag;
-                                    if ((i5 & 1) != 0) {
-                                        int i6 = i5 & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.this$0 = this;
-                                this.val$textureId = i4;
-                            }
-
+                        runOnDraw(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.3
                             @Override // java.lang.Runnable
                             public void run() {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    MultiDataSourceUtil.glDeleteTextures(this.val$textureId);
-                                }
+                                MultiDataSourceUtil.glDeleteTextures(i4);
                             }
                         });
                         mediaTextureData2.textureId = 0;
@@ -3036,7 +2200,7 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
                 this.mShaderConfigMap.put(str2, ShaderConfig.getLutShaderConfig());
             }
             ShaderConfig shaderConfig2 = this.mShaderConfigMap.get(str2);
-            if (lx9.e(shaderConfig2.textures)) {
+            if (i1a.e(shaderConfig2.textures)) {
                 mediaTextureData = new MediaTextureData();
                 mediaTextureData.type = MediaTextureData.TEXTURE_LUT;
                 mediaTextureData.path = str;
@@ -3045,7 +2209,7 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
                 arrayList.add(mediaTextureData);
                 z = true;
             } else {
-                mediaTextureData = (MediaTextureData) lx9.c(shaderConfig2.textures, 0);
+                mediaTextureData = (MediaTextureData) i1a.c(shaderConfig2.textures, 0);
                 z = !TextUtils.equals(mediaTextureData.path, str);
                 shaderConfig2.textures.clear();
                 shaderConfig2.textures.add(mediaTextureData);
@@ -3058,44 +2222,16 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
             shaderParams.values = new float[]{1.0f - f};
             shaderConfig2.fParams.add(shaderParams);
             if (z) {
-                runOnDraw(new Runnable(this, str, mediaTextureData) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.4
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MultiMediaDataSource this$0;
-                    public final /* synthetic */ String val$path;
-                    public final /* synthetic */ MediaTextureData val$textureData;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, str, mediaTextureData};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i5 = newInitContext.flag;
-                            if ((i5 & 1) != 0) {
-                                int i6 = i5 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$path = str;
-                        this.val$textureData = mediaTextureData;
-                    }
-
+                runOnDraw(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        Bitmap decodeBitmap;
-                        Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (decodeBitmap = MultiDataSourceUtil.decodeBitmap(this.val$path)) == null) {
-                            return;
+                        Bitmap decodeBitmap = MultiDataSourceUtil.decodeBitmap(str);
+                        if (decodeBitmap != null) {
+                            MultiDataSourceUtil.glDeleteTextures(mediaTextureData.textureId);
+                            int b = vg0.b();
+                            GLUtils.texImage2D(3553, 0, decodeBitmap, 0);
+                            mediaTextureData.textureId = b;
                         }
-                        MultiDataSourceUtil.glDeleteTextures(this.val$textureData.textureId);
-                        int b = rg0.b();
-                        GLUtils.texImage2D(3553, 0, decodeBitmap, 0);
-                        this.val$textureData.textureId = b;
                     }
                 });
             }
@@ -3107,583 +2243,425 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void setFrameRate(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048638, this, i) == null) {
-            this.mFrameRate = i;
-        }
+        this.mFrameRate = i;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol
     public void setLooping(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048639, this, z) == null) {
-            this.isLooping = z;
-            IVLogPlayControlProtocol.OnPlayStateListener onPlayStateListener = this.mOnPlayStateListener;
-            if (onPlayStateListener != null) {
-                onPlayStateListener.onSetIsLoop(z);
-            }
+        this.isLooping = z;
+        IVLogPlayControlProtocol.OnPlayStateListener onPlayStateListener = this.mOnPlayStateListener;
+        if (onPlayStateListener != null) {
+            onPlayStateListener.onSetIsLoop(z);
         }
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void setMediaTrackConfig(MediaTrackConfig mediaTrackConfig) {
         MediaTrack effectTrack;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048640, this, mediaTrackConfig) == null) {
-            this.isPrepared = false;
-            this.mMediaTrackConfig = mediaTrackConfig;
-            List<MultiMediaData> stickerMultiMediaDataList = getStickerMultiMediaDataList(false);
-            List<MediaSegment> stickerSegmentsData = getStickerSegmentsData(false);
-            MediaTrackConfig mediaTrackConfig2 = this.mMediaTrackConfig;
-            if (mediaTrackConfig2 != null && (effectTrack = MultiDataSourceUtil.getEffectTrack(mediaTrackConfig2.mediaTracks)) != null) {
-                Object clone = effectTrack.clone();
-                if (clone instanceof MediaTrack) {
-                    this.mOriginEffectTrack = (MediaTrack) clone;
-                }
+        this.isPrepared = false;
+        this.mMediaTrackConfig = mediaTrackConfig;
+        List<MultiMediaData> stickerMultiMediaDataList = getStickerMultiMediaDataList(false);
+        List<MediaSegment> stickerSegmentsData = getStickerSegmentsData(false);
+        MediaTrackConfig mediaTrackConfig2 = this.mMediaTrackConfig;
+        if (mediaTrackConfig2 != null && (effectTrack = MultiDataSourceUtil.getEffectTrack(mediaTrackConfig2.mediaTracks)) != null) {
+            Object clone = effectTrack.clone();
+            if (clone instanceof MediaTrack) {
+                this.mOriginEffectTrack = (MediaTrack) clone;
             }
-            if (xg0.k(this.mUpdateMediaTracks, "user_background")) {
-                if (this.mCommonTrackMap == null) {
-                    this.mCommonTrackMap = new HashMap();
-                }
-                MediaTrack trackByType = MultiDataSourceUtil.getTrackByType(this.mUpdateMediaTracks, "user_background");
-                if (!this.mCommonTrackMap.containsKey("user_background")) {
-                    this.mCommonTrackMap.put("user_background", trackByType);
-                }
-            }
-            MultiDataSourceUtil.releaseOtherTrack(this.mUpdateMediaTracks, this.mUpdateMultiMediaDataTrack, this);
-            stopTimer();
-            resetTimer();
-            pausePlayer(true);
-            this.mMultiMediaAdapter.clear();
-            releaseSubtitleCache();
-            MultiDataSourceUtil.buildMultiMediaDataSource(getInputMultiMediaDataList(), mediaTrackConfig, this.mUpdateMultiMediaDataTrack, this.mUpdateMediaTracks, this.mShaderConfigMap, this, this);
-            Map<String, MediaTrack> map = this.mCommonTrackMap;
-            if (map != null) {
-                for (Map.Entry<String, MediaTrack> entry : map.entrySet()) {
-                    addOneTrack(entry.getValue());
-                }
-            }
-            MultiDataSourceUtil.buildSubtitleAndStickerTrack(this.mUpdateMediaTracks, this.mUpdateMultiMediaDataTrack);
-            setStickerDataList(stickerMultiMediaDataList, stickerSegmentsData);
-            this.mCurrentIndex.set(0);
-            this.mMultiMediaAdapter.positionChanged(this.mCurrentIndex.get());
-            this.mPlayTime = 0L;
-            if (this.mNeedInitMultiMediaData) {
-                notifyFrameAvailable();
-            } else {
-                MultiMediaData multiMediaData = (MultiMediaData) lx9.c(getInputMultiMediaData(), this.mCurrentIndex.get());
-                if (multiMediaData == null || multiMediaData.textureId == 0) {
-                    this.mNeedInitMultiMediaData = true;
-                } else {
-                    postPrepared();
-                }
-            }
-            log();
-            notifyEffectChanged();
         }
+        if (bh0.k(this.mUpdateMediaTracks, "user_background")) {
+            if (this.mCommonTrackMap == null) {
+                this.mCommonTrackMap = new HashMap();
+            }
+            MediaTrack trackByType = MultiDataSourceUtil.getTrackByType(this.mUpdateMediaTracks, "user_background");
+            if (!this.mCommonTrackMap.containsKey("user_background")) {
+                this.mCommonTrackMap.put("user_background", trackByType);
+            }
+        }
+        MultiDataSourceUtil.releaseOtherTrack(this.mUpdateMediaTracks, this.mUpdateMultiMediaDataTrack, this);
+        stopTimer();
+        resetTimer();
+        pausePlayer(true);
+        this.mMultiMediaAdapter.clear();
+        releaseSubtitleCache();
+        MultiDataSourceUtil.buildMultiMediaDataSource(getInputMultiMediaDataList(), mediaTrackConfig, this.mUpdateMultiMediaDataTrack, this.mUpdateMediaTracks, this.mShaderConfigMap, this, this);
+        Map<String, MediaTrack> map = this.mCommonTrackMap;
+        if (map != null) {
+            for (Map.Entry<String, MediaTrack> entry : map.entrySet()) {
+                addOneTrack(entry.getValue());
+            }
+        }
+        MultiDataSourceUtil.buildSubtitleAndStickerTrack(this.mUpdateMediaTracks, this.mUpdateMultiMediaDataTrack);
+        setStickerDataList(stickerMultiMediaDataList, stickerSegmentsData);
+        this.mCurrentIndex.set(0);
+        this.mMultiMediaAdapter.positionChanged(this.mCurrentIndex.get());
+        this.mPlayTime = 0L;
+        if (this.mNeedInitMultiMediaData) {
+            notifyFrameAvailable();
+        } else {
+            MultiMediaData multiMediaData = (MultiMediaData) i1a.c(getInputMultiMediaData(), this.mCurrentIndex.get());
+            if (multiMediaData == null || multiMediaData.textureId == 0) {
+                this.mNeedInitMultiMediaData = true;
+            } else {
+                postPrepared();
+            }
+        }
+        log();
+        notifyEffectChanged();
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void setMultiMediaData(List<MultiMediaData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048641, this, list) == null) {
-            if (lx9.e(list)) {
-                reset();
-                this.mUpdateMultiMediaDataTrack.clear();
-                this.mUpdateMediaTracks.clear();
-                this.mShaderConfigMap.clear();
-                return;
-            }
-            this.mMultiMediaAdapter.seek0AndClearOther(list.get(0), 0);
-            MultiDataSourceUtil.buildMultiMediaDataTrackList(list, this.mUpdateMultiMediaDataTrack);
-            MultiDataSourceUtil.buildInputTrack(list, this.mUpdateMediaTracks);
-            initAllPlayers();
-            notifyEffectChanged();
+        if (i1a.e(list)) {
+            reset();
+            this.mUpdateMultiMediaDataTrack.clear();
+            this.mUpdateMediaTracks.clear();
+            this.mShaderConfigMap.clear();
+            return;
         }
+        this.mMultiMediaAdapter.seek0AndClearOther(list.get(0), 0);
+        MultiDataSourceUtil.buildMultiMediaDataTrackList(list, this.mUpdateMultiMediaDataTrack);
+        MultiDataSourceUtil.buildInputTrack(list, this.mUpdateMediaTracks);
+        initAllPlayers();
+        notifyEffectChanged();
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogCommunicateProtocol
     public void setMultiMediaStateEventListener(MultiMediaStateEventListener multiMediaStateEventListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048642, this, multiMediaStateEventListener) == null) {
-            this.mMultiMediaStateEventListener = multiMediaStateEventListener;
-        }
+        this.mMultiMediaStateEventListener = multiMediaStateEventListener;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogCommunicateProtocol
     public void setMultiMediaTimelineUpdateListener(MultiMediaTimelineUpdateListener multiMediaTimelineUpdateListener, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048643, this, multiMediaTimelineUpdateListener, z) == null) {
-            if (z) {
-                this.mMultiMediaTimelineUpdateListenerByMainThread = multiMediaTimelineUpdateListener;
-            } else {
-                this.mMultiMediaTimelineUpdateListener = multiMediaTimelineUpdateListener;
-            }
+        if (z) {
+            this.mMultiMediaTimelineUpdateListenerByMainThread = multiMediaTimelineUpdateListener;
+        } else {
+            this.mMultiMediaTimelineUpdateListener = multiMediaTimelineUpdateListener;
         }
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol
     public void setMute(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048644, this, z) == null) {
-            this.isMute = z;
-            int b = lx9.b(getInputMultiMediaDataList());
-            for (int i = 0; i < b; i++) {
-                MultiMediaData multiMediaData = (MultiMediaData) lx9.c(getInputMultiMediaDataList(), i);
-                if (multiMediaData.type == 1 && multiMediaData.player != null) {
-                    float f = z ? 0.0f : multiMediaData.volume;
-                    multiMediaData.player.setVolume(f, f);
-                }
+        this.isMute = z;
+        int b = i1a.b(getInputMultiMediaDataList());
+        for (int i = 0; i < b; i++) {
+            MultiMediaData multiMediaData = (MultiMediaData) i1a.c(getInputMultiMediaDataList(), i);
+            if (multiMediaData.type == 1 && multiMediaData.player != null) {
+                float f = z ? 0.0f : multiMediaData.volume;
+                multiMediaData.player.setVolume(f, f);
             }
         }
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogCommunicateProtocol
     public void setOnFrameAvailableListener(SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048645, this, onFrameAvailableListener) == null) {
-            this.onFrameAvailableListener = onFrameAvailableListener;
-        }
+        this.onFrameAvailableListener = onFrameAvailableListener;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol
     public void setOnPlayStateListener(IVLogPlayControlProtocol.OnPlayStateListener onPlayStateListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048646, this, onPlayStateListener) == null) {
-            this.mOnPlayStateListener = onPlayStateListener;
-        }
+        this.mOnPlayStateListener = onPlayStateListener;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogCommunicateProtocol
     public void setPreRunnableTask(OnPreRunnableTask onPreRunnableTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048647, this, onPreRunnableTask) == null) {
-            this.mPreRunnableTask = onPreRunnableTask;
-        }
+        this.mPreRunnableTask = onPreRunnableTask;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol
     public void setPreparedListener(IMultiMediaPreparedListener iMultiMediaPreparedListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048648, this, iMultiMediaPreparedListener) == null) {
-            this.mPreparedListener = iMultiMediaPreparedListener;
-        }
+        this.mPreparedListener = iMultiMediaPreparedListener;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void setScale(float f, float f2) {
-        MultiMediaData multiMediaData;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048649, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || (multiMediaData = getMultiMediaData(this.mCurrentIndex.get())) == null) {
-            return;
+        MultiMediaData multiMediaData = getMultiMediaData(this.mCurrentIndex.get());
+        if (multiMediaData != null) {
+            multiMediaData.scaleX = f;
+            multiMediaData.scaleY = f2;
         }
-        multiMediaData.scaleX = f;
-        multiMediaData.scaleY = f2;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void setScaleType(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048650, this, str) == null) || getInputMultiMediaDataList() == null) {
-            return;
-        }
-        Iterator<MultiMediaData> it = getInputMultiMediaDataList().iterator();
-        while (it.hasNext()) {
-            it.next().scaleType = str;
+        if (getInputMultiMediaDataList() != null) {
+            Iterator<MultiMediaData> it = getInputMultiMediaDataList().iterator();
+            while (it.hasNext()) {
+                it.next().scaleType = str;
+            }
         }
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
-    public void setStickerDataList(List<MultiMediaData> list, List<MediaSegment> list2) {
+    public void setStickerDataList(final List<MultiMediaData> list, List<MediaSegment> list2) {
         MediaTrack buildSubtitleAndStickerTrack;
         int indexOf;
         MultiMediaDataTrack multiMediaDataTrack;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048651, this, list, list2) == null) {
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            if (list2 == null) {
-                list2 = new ArrayList<>();
-            }
-            if (lx9.b(list) == lx9.b(list2) && (buildSubtitleAndStickerTrack = MultiDataSourceUtil.buildSubtitleAndStickerTrack(this.mUpdateMediaTracks, this.mUpdateMultiMediaDataTrack)) != null && (indexOf = this.mUpdateMediaTracks.indexOf(buildSubtitleAndStickerTrack)) >= 0 && (multiMediaDataTrack = this.mUpdateMultiMediaDataTrack.get(indexOf)) != null) {
-                List<MultiMediaData> list3 = multiMediaDataTrack.multiMediaDataList;
-                List<MediaSegment> list4 = buildSubtitleAndStickerTrack.mediaSegments;
-                if (list3 == null || list4 == null) {
-                    return;
-                }
-                ArrayList arrayList = new ArrayList();
-                for (MultiMediaData multiMediaData : list3) {
-                    boolean z = true;
-                    Iterator<MultiMediaData> it = list.iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        MultiMediaData next = it.next();
-                        if (TextUtils.equals(multiMediaData.uuid, next.uuid) && TextUtils.equals(multiMediaData.path, next.path)) {
-                            z = false;
-                            break;
-                        }
-                    }
-                    if (z) {
-                        arrayList.add(multiMediaData);
-                    }
-                }
-                list3.clear();
-                list4.clear();
-                list3.addAll(list);
-                list4.addAll(list2);
-                runOnDraw(new Runnable(this, arrayList, list) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.17
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MultiMediaDataSource this$0;
-                    public final /* synthetic */ List val$deleteMultiMediaDataList;
-                    public final /* synthetic */ List val$tempFinalList;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, arrayList, list};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$deleteMultiMediaDataList = arrayList;
-                        this.val$tempFinalList = list;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            for (MultiMediaData multiMediaData2 : this.val$deleteMultiMediaDataList) {
-                                MultiDataSourceUtil.glDeleteTextures(multiMediaData2);
-                                for (MultiMediaData multiMediaData3 : this.val$tempFinalList) {
-                                    if (TextUtils.equals(multiMediaData2.uuid, multiMediaData3.uuid)) {
-                                        MultiDataSourceUtil.glDeleteTextures(multiMediaData3);
-                                    }
-                                }
-                            }
-                            for (MultiMediaData multiMediaData4 : this.val$tempFinalList) {
-                                this.this$0.initMultiMedia(multiMediaData4);
-                            }
-                        }
-                    }
-                });
-                notifyMediaTracksChanged();
-                notifyFrameAvailable();
-            }
+        if (list == null) {
+            list = new ArrayList<>();
         }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
-    public void setSubtitle(List<SubTitleUnit> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048652, this, list) == null) {
-            this.mSubTitleUnitList = list;
-            NewSubTitleCreater newSubTitleCreater = this.mSubTitleCreater;
-            if (newSubTitleCreater == null) {
-                NewSubTitleCreater newSubTitleCreater2 = new NewSubTitleCreater(list);
-                this.mSubTitleCreater = newSubTitleCreater2;
-                newSubTitleCreater2.setSubtitleCreaterCallBack(new NewSubTitleCreater.SubtitleCreaterCallBack(this) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.5
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MultiMediaDataSource this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // com.baidu.ugc.editvideo.subtitle.NewSubTitleCreater.SubtitleCreaterCallBack
-                    public void onSubtitleBitmapCreated() {
-                        Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.this$0.mTimer == null) {
-                            MultiMediaDataSource multiMediaDataSource = this.this$0;
-                            multiMediaDataSource.updateSubtitle(multiMediaDataSource.mPlayTime);
-                            this.this$0.notifyFrameAvailable();
-                        }
-                    }
-                });
-            } else {
-                newSubTitleCreater.setSubTitleUnits(list);
+        if (list2 == null) {
+            list2 = new ArrayList<>();
+        }
+        if (i1a.b(list) == i1a.b(list2) && (buildSubtitleAndStickerTrack = MultiDataSourceUtil.buildSubtitleAndStickerTrack(this.mUpdateMediaTracks, this.mUpdateMultiMediaDataTrack)) != null && (indexOf = this.mUpdateMediaTracks.indexOf(buildSubtitleAndStickerTrack)) >= 0 && (multiMediaDataTrack = this.mUpdateMultiMediaDataTrack.get(indexOf)) != null) {
+            List<MultiMediaData> list3 = multiMediaDataTrack.multiMediaDataList;
+            List<MediaSegment> list4 = buildSubtitleAndStickerTrack.mediaSegments;
+            if (list3 == null || list4 == null) {
+                return;
             }
-            int i = 0;
-            if (list != null) {
-                MediaTrack buildSubtitleAndStickerTrack = MultiDataSourceUtil.buildSubtitleAndStickerTrack(this.mUpdateMediaTracks, this.mUpdateMultiMediaDataTrack);
-                Iterator<MediaSegment> it = buildSubtitleAndStickerTrack.mediaSegments.iterator();
+            final ArrayList arrayList = new ArrayList();
+            for (MultiMediaData multiMediaData : list3) {
+                boolean z = true;
+                Iterator<MultiMediaData> it = list.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
-                    } else if (TextUtils.equals(SubtitleLog.TAG, it.next().type)) {
-                        i = 1;
+                    }
+                    MultiMediaData next = it.next();
+                    if (TextUtils.equals(multiMediaData.uuid, next.uuid) && TextUtils.equals(multiMediaData.path, next.path)) {
+                        z = false;
                         break;
                     }
                 }
-                if (i == 0) {
-                    MediaSegment mediaSegment = new MediaSegment();
-                    mediaSegment.type = SubtitleLog.TAG;
-                    buildSubtitleAndStickerTrack.mediaSegments.add(mediaSegment);
-                    int indexOf = this.mUpdateMediaTracks.indexOf(buildSubtitleAndStickerTrack);
-                    if (indexOf >= 0) {
-                        this.mUpdateMultiMediaDataTrack.get(indexOf).multiMediaDataList.add(new MultiMediaData());
-                    }
-                }
-                updateSubtitle(this.mPlayTime);
-                return;
-            }
-            MediaTrack subtitleAndStickerTrack = MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mUpdateMediaTracks);
-            if (subtitleAndStickerTrack == null) {
-                return;
-            }
-            int indexOf2 = this.mUpdateMediaTracks.indexOf(subtitleAndStickerTrack);
-            if (indexOf2 >= 0) {
-                MultiMediaDataTrack multiMediaDataTrack = this.mUpdateMultiMediaDataTrack.get(indexOf2);
-                List<MediaSegment> list2 = subtitleAndStickerTrack.mediaSegments;
-                if (list2 != null && multiMediaDataTrack.multiMediaDataList != null && list2.size() == multiMediaDataTrack.multiMediaDataList.size()) {
-                    while (i < subtitleAndStickerTrack.mediaSegments.size()) {
-                        MediaSegment mediaSegment2 = subtitleAndStickerTrack.mediaSegments.get(i);
-                        if (TextUtils.equals(mediaSegment2.type, SubtitleLog.TAG)) {
-                            MultiMediaData multiMediaData = multiMediaDataTrack.multiMediaDataList.get(i);
-                            runOnDraw(new Runnable(this, multiMediaData.textureId, mediaSegment2.textureId) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.6
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ MultiMediaDataSource this$0;
-                                public final /* synthetic */ int val$mediaSegmentTextureId;
-                                public final /* synthetic */ int val$multiMediaDataTextureId;
-
-                                {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this, Integer.valueOf(r7), Integer.valueOf(r8)};
-                                        interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable2.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.this$0 = this;
-                                    this.val$multiMediaDataTextureId = r7;
-                                    this.val$mediaSegmentTextureId = r8;
-                                }
-
-                                @Override // java.lang.Runnable
-                                public void run() {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                        MultiDataSourceUtil.glDeleteTextures(this.val$multiMediaDataTextureId);
-                                        MultiDataSourceUtil.glDeleteTextures(this.val$mediaSegmentTextureId);
-                                    }
-                                }
-                            });
-                            subtitleAndStickerTrack.mediaSegments.remove(mediaSegment2);
-                            multiMediaDataTrack.multiMediaDataList.remove(multiMediaData);
-                        }
-                        i++;
-                    }
+                if (z) {
+                    arrayList.add(multiMediaData);
                 }
             }
-            notifyMediaTracksChanged();
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
-    public void setSubtitleConfig(SubTitleConfig subTitleConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048653, this, subTitleConfig) == null) {
-            if (this.mSubTitleCreater == null) {
-                NewSubTitleCreater newSubTitleCreater = new NewSubTitleCreater(null);
-                this.mSubTitleCreater = newSubTitleCreater;
-                newSubTitleCreater.setSubtitleCreaterCallBack(new NewSubTitleCreater.SubtitleCreaterCallBack(this) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.8
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MultiMediaDataSource this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
+            list3.clear();
+            list4.clear();
+            list3.addAll(list);
+            list4.addAll(list2);
+            runOnDraw(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.17
+                @Override // java.lang.Runnable
+                public void run() {
+                    for (MultiMediaData multiMediaData2 : arrayList) {
+                        MultiDataSourceUtil.glDeleteTextures(multiMediaData2);
+                        for (MultiMediaData multiMediaData3 : list) {
+                            if (TextUtils.equals(multiMediaData2.uuid, multiMediaData3.uuid)) {
+                                MultiDataSourceUtil.glDeleteTextures(multiMediaData3);
                             }
                         }
-                        this.this$0 = this;
                     }
-
-                    @Override // com.baidu.ugc.editvideo.subtitle.NewSubTitleCreater.SubtitleCreaterCallBack
-                    public void onSubtitleBitmapCreated() {
-                        Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.this$0.mTimer == null) {
-                            MultiMediaDataSource multiMediaDataSource = this.this$0;
-                            multiMediaDataSource.updateSubtitle(multiMediaDataSource.mPlayTime);
-                            this.this$0.notifyFrameAvailable();
-                        }
+                    for (MultiMediaData multiMediaData4 : list) {
+                        MultiMediaDataSource.this.initMultiMedia(multiMediaData4);
                     }
-                });
-            }
-            this.mSubTitleCreater.setSubTitleConfig(subTitleConfig);
-            updateSubtitle(this.mPlayTime);
-            notifyEffectChanged();
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
-    public void setSubtitleOnStickerLayerTop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048654, this) == null) {
-            int i = 0;
-            List<MediaSegment> stickerSegmentsData = getStickerSegmentsData(false);
-            List<MultiMediaData> stickerMultiMediaDataList = getStickerMultiMediaDataList(false);
-            if (lx9.e(stickerSegmentsData) || lx9.e(stickerMultiMediaDataList) || lx9.b(stickerSegmentsData) != lx9.b(stickerMultiMediaDataList)) {
-                return;
-            }
-            while (true) {
-                if (i >= stickerSegmentsData.size()) {
-                    i = -1;
-                    break;
-                } else if (stickerSegmentsData.get(i) != null && TextUtils.equals(stickerSegmentsData.get(i).type, SubtitleLog.TAG)) {
-                    break;
-                } else {
-                    i++;
                 }
-            }
-            if (i != -1) {
-                lx9.h(stickerSegmentsData, i, stickerSegmentsData.size() - 1);
-                lx9.h(stickerMultiMediaDataList, i, stickerMultiMediaDataList.size() - 1);
-            }
+            });
             notifyMediaTracksChanged();
             notifyFrameAvailable();
         }
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
-    public void setTransitionByIndex(int i, MediaTransitionConfig mediaTransitionConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048655, this, i, mediaTransitionConfig) == null) {
-            MediaTrack inputTrack = getInputTrack();
-            if (mediaTransitionConfig == null || mediaTransitionConfig.mediaTransition == null) {
-                if (!lx9.e(inputTrack.mediaTransitions)) {
-                    inputTrack.mediaTransitions.set(i, new MediaTransition());
-                    xg0.a(inputTrack, getMaxVideoDurationFromConfig());
-                }
-                notifyEffectChanged();
-                return;
-            }
-            if (lx9.e(inputTrack.mediaTransitions)) {
-                int b = lx9.b(inputTrack.mediaSegments) - 1;
-                ArrayList arrayList = new ArrayList();
-                for (int i2 = 0; i2 < b; i2++) {
-                    if (i2 == i) {
-                        MediaTransition mediaTransition = mediaTransitionConfig.mediaTransition;
-                        long j = ((MediaSegment) lx9.c(inputTrack.mediaSegments, i2)).end;
-                        long j2 = mediaTransition.duration;
-                        mediaTransition.start = j - (j2 / 2);
-                        mediaTransition.end = j + (j2 / 2);
-                        arrayList.add(mediaTransition);
-                    } else {
-                        arrayList.add(new MediaTransition());
+    public void setSubtitle(List<SubTitleUnit> list) {
+        this.mSubTitleUnitList = list;
+        NewSubTitleCreater newSubTitleCreater = this.mSubTitleCreater;
+        if (newSubTitleCreater == null) {
+            NewSubTitleCreater newSubTitleCreater2 = new NewSubTitleCreater(list);
+            this.mSubTitleCreater = newSubTitleCreater2;
+            newSubTitleCreater2.setSubtitleCreaterCallBack(new NewSubTitleCreater.SubtitleCreaterCallBack() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.5
+                @Override // com.baidu.ugc.editvideo.subtitle.NewSubTitleCreater.SubtitleCreaterCallBack
+                public void onSubtitleBitmapCreated() {
+                    if (MultiMediaDataSource.this.mTimer == null) {
+                        MultiMediaDataSource multiMediaDataSource = MultiMediaDataSource.this;
+                        multiMediaDataSource.updateSubtitle(multiMediaDataSource.mPlayTime);
+                        MultiMediaDataSource.this.notifyFrameAvailable();
                     }
                 }
-                inputTrack.mediaTransitions = arrayList;
-            } else {
-                MediaTransition mediaTransition2 = (MediaTransition) lx9.c(inputTrack.mediaTransitions, i);
-                MediaTransition mediaTransition3 = mediaTransitionConfig.mediaTransition;
-                long j3 = (mediaTransition3.duration - mediaTransition2.duration) / 2;
-                mediaTransition3.start = mediaTransition2.start + j3;
-                mediaTransition3.end = mediaTransition2.end + j3;
-                inputTrack.mediaTransitions.set(i, mediaTransition3);
-            }
-            xg0.a(inputTrack, getMaxVideoDurationFromConfig());
-            for (Map.Entry<String, ShaderConfig> entry : mediaTransitionConfig.shaderConfigMap.entrySet()) {
-                this.mShaderConfigMap.put(entry.getKey(), entry.getValue());
-            }
-            notifyEffectChanged();
+            });
+        } else {
+            newSubTitleCreater.setSubTitleUnits(list);
         }
+        int i = 0;
+        if (list != null) {
+            MediaTrack buildSubtitleAndStickerTrack = MultiDataSourceUtil.buildSubtitleAndStickerTrack(this.mUpdateMediaTracks, this.mUpdateMultiMediaDataTrack);
+            Iterator<MediaSegment> it = buildSubtitleAndStickerTrack.mediaSegments.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                } else if (TextUtils.equals(SubtitleLog.TAG, it.next().type)) {
+                    i = 1;
+                    break;
+                }
+            }
+            if (i == 0) {
+                MediaSegment mediaSegment = new MediaSegment();
+                mediaSegment.type = SubtitleLog.TAG;
+                buildSubtitleAndStickerTrack.mediaSegments.add(mediaSegment);
+                int indexOf = this.mUpdateMediaTracks.indexOf(buildSubtitleAndStickerTrack);
+                if (indexOf >= 0) {
+                    this.mUpdateMultiMediaDataTrack.get(indexOf).multiMediaDataList.add(new MultiMediaData());
+                }
+            }
+            updateSubtitle(this.mPlayTime);
+            return;
+        }
+        MediaTrack subtitleAndStickerTrack = MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mUpdateMediaTracks);
+        if (subtitleAndStickerTrack == null) {
+            return;
+        }
+        int indexOf2 = this.mUpdateMediaTracks.indexOf(subtitleAndStickerTrack);
+        if (indexOf2 >= 0) {
+            MultiMediaDataTrack multiMediaDataTrack = this.mUpdateMultiMediaDataTrack.get(indexOf2);
+            List<MediaSegment> list2 = subtitleAndStickerTrack.mediaSegments;
+            if (list2 != null && multiMediaDataTrack.multiMediaDataList != null && list2.size() == multiMediaDataTrack.multiMediaDataList.size()) {
+                while (i < subtitleAndStickerTrack.mediaSegments.size()) {
+                    MediaSegment mediaSegment2 = subtitleAndStickerTrack.mediaSegments.get(i);
+                    if (TextUtils.equals(mediaSegment2.type, SubtitleLog.TAG)) {
+                        MultiMediaData multiMediaData = multiMediaDataTrack.multiMediaDataList.get(i);
+                        final int i2 = multiMediaData.textureId;
+                        final int i3 = mediaSegment2.textureId;
+                        runOnDraw(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.6
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                MultiDataSourceUtil.glDeleteTextures(i2);
+                                MultiDataSourceUtil.glDeleteTextures(i3);
+                            }
+                        });
+                        subtitleAndStickerTrack.mediaSegments.remove(mediaSegment2);
+                        multiMediaDataTrack.multiMediaDataList.remove(multiMediaData);
+                    }
+                    i++;
+                }
+            }
+        }
+        notifyMediaTracksChanged();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:30:0x004f  */
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
+    public void setSubtitleConfig(SubTitleConfig subTitleConfig) {
+        if (this.mSubTitleCreater == null) {
+            NewSubTitleCreater newSubTitleCreater = new NewSubTitleCreater(null);
+            this.mSubTitleCreater = newSubTitleCreater;
+            newSubTitleCreater.setSubtitleCreaterCallBack(new NewSubTitleCreater.SubtitleCreaterCallBack() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.8
+                @Override // com.baidu.ugc.editvideo.subtitle.NewSubTitleCreater.SubtitleCreaterCallBack
+                public void onSubtitleBitmapCreated() {
+                    if (MultiMediaDataSource.this.mTimer == null) {
+                        MultiMediaDataSource multiMediaDataSource = MultiMediaDataSource.this;
+                        multiMediaDataSource.updateSubtitle(multiMediaDataSource.mPlayTime);
+                        MultiMediaDataSource.this.notifyFrameAvailable();
+                    }
+                }
+            });
+        }
+        this.mSubTitleCreater.setSubTitleConfig(subTitleConfig);
+        updateSubtitle(this.mPlayTime);
+        notifyEffectChanged();
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
+    public void setSubtitleOnStickerLayerTop() {
+        int i = 0;
+        List<MediaSegment> stickerSegmentsData = getStickerSegmentsData(false);
+        List<MultiMediaData> stickerMultiMediaDataList = getStickerMultiMediaDataList(false);
+        if (i1a.e(stickerSegmentsData) || i1a.e(stickerMultiMediaDataList) || i1a.b(stickerSegmentsData) != i1a.b(stickerMultiMediaDataList)) {
+            return;
+        }
+        while (true) {
+            if (i >= stickerSegmentsData.size()) {
+                i = -1;
+                break;
+            } else if (stickerSegmentsData.get(i) != null && TextUtils.equals(stickerSegmentsData.get(i).type, SubtitleLog.TAG)) {
+                break;
+            } else {
+                i++;
+            }
+        }
+        if (i != -1) {
+            i1a.h(stickerSegmentsData, i, stickerSegmentsData.size() - 1);
+            i1a.h(stickerMultiMediaDataList, i, stickerMultiMediaDataList.size() - 1);
+        }
+        notifyMediaTracksChanged();
+        notifyFrameAvailable();
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
+    public void setTransitionByIndex(int i, MediaTransitionConfig mediaTransitionConfig) {
+        MediaTrack inputTrack = getInputTrack();
+        if (mediaTransitionConfig == null || mediaTransitionConfig.mediaTransition == null) {
+            if (!i1a.e(inputTrack.mediaTransitions)) {
+                inputTrack.mediaTransitions.set(i, new MediaTransition());
+                bh0.a(inputTrack, getMaxVideoDurationFromConfig());
+            }
+            notifyEffectChanged();
+            return;
+        }
+        if (i1a.e(inputTrack.mediaTransitions)) {
+            int b = i1a.b(inputTrack.mediaSegments) - 1;
+            ArrayList arrayList = new ArrayList();
+            for (int i2 = 0; i2 < b; i2++) {
+                if (i2 == i) {
+                    MediaTransition mediaTransition = mediaTransitionConfig.mediaTransition;
+                    long j = ((MediaSegment) i1a.c(inputTrack.mediaSegments, i2)).end;
+                    long j2 = mediaTransition.duration;
+                    mediaTransition.start = j - (j2 / 2);
+                    mediaTransition.end = j + (j2 / 2);
+                    arrayList.add(mediaTransition);
+                } else {
+                    arrayList.add(new MediaTransition());
+                }
+            }
+            inputTrack.mediaTransitions = arrayList;
+        } else {
+            MediaTransition mediaTransition2 = (MediaTransition) i1a.c(inputTrack.mediaTransitions, i);
+            MediaTransition mediaTransition3 = mediaTransitionConfig.mediaTransition;
+            long j3 = (mediaTransition3.duration - mediaTransition2.duration) / 2;
+            mediaTransition3.start = mediaTransition2.start + j3;
+            mediaTransition3.end = mediaTransition2.end + j3;
+            inputTrack.mediaTransitions.set(i, mediaTransition3);
+        }
+        bh0.a(inputTrack, getMaxVideoDurationFromConfig());
+        for (Map.Entry<String, ShaderConfig> entry : mediaTransitionConfig.shaderConfigMap.entrySet()) {
+            this.mShaderConfigMap.put(entry.getKey(), entry.getValue());
+        }
+        notifyEffectChanged();
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:28:0x004b  */
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void setVideoRatio(float f) {
         float f2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048656, this, f) == null) {
-            MultiDataSourceUtil.sDefaultScaleType = "center_inside";
-            float f3 = this.mVideoRatio;
-            float f4 = 1.0f;
-            if (f3 != 0.0f && f != 0.0f) {
-                if (f3 < 1.0f || f < 1.0f) {
-                    float f5 = this.mVideoRatio;
-                    if (f5 > 1.0f || f > 1.0f) {
-                        float f6 = this.mVideoRatio;
-                        if (f6 <= f) {
-                            f6 = 1.0f / f;
-                        }
-                        float f7 = this.mVideoRatio;
-                        f4 = f6;
-                        f2 = f7 > f ? f : 1.0f / f7;
-                    } else {
-                        f2 = f / f5;
+        MultiDataSourceUtil.sDefaultScaleType = "center_inside";
+        float f3 = this.mVideoRatio;
+        float f4 = 1.0f;
+        if (f3 != 0.0f && f != 0.0f) {
+            if (f3 < 1.0f || f < 1.0f) {
+                float f5 = this.mVideoRatio;
+                if (f5 > 1.0f || f > 1.0f) {
+                    float f6 = this.mVideoRatio;
+                    if (f6 <= f) {
+                        f6 = 1.0f / f;
                     }
-                    if (!lx9.e(getInputMultiMediaDataList())) {
-                        Iterator<MultiMediaData> it = getInputMultiMediaDataList().iterator();
-                        while (it.hasNext()) {
-                            MultiMediaData next = it.next();
-                            next.x *= f4;
-                            next.y *= f2;
-                        }
-                    }
-                    this.mVideoRatio = f;
+                    float f7 = this.mVideoRatio;
+                    f4 = f6;
+                    f2 = f7 > f ? f : 1.0f / f7;
+                } else {
+                    f2 = f / f5;
                 }
-                f4 = f3 / f;
+                if (!i1a.e(getInputMultiMediaDataList())) {
+                    Iterator<MultiMediaData> it = getInputMultiMediaDataList().iterator();
+                    while (it.hasNext()) {
+                        MultiMediaData next = it.next();
+                        next.x *= f4;
+                        next.y *= f2;
+                    }
+                }
+                this.mVideoRatio = f;
             }
-            f2 = 1.0f;
-            if (!lx9.e(getInputMultiMediaDataList())) {
-            }
-            this.mVideoRatio = f;
+            f4 = f3 / f;
         }
+        f2 = 1.0f;
+        if (!i1a.e(getInputMultiMediaDataList())) {
+        }
+        this.mVideoRatio = f;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol
     public void setVolume(float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048657, this, f) == null) || lx9.b(this.mUpdateMultiMediaDataTrack) == 0) {
+        if (i1a.b(this.mUpdateMultiMediaDataTrack) == 0) {
             return;
         }
         for (MultiMediaData multiMediaData : getInputMultiMediaDataTrack().multiMediaDataList) {
@@ -3701,8 +2679,7 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
     public void setVolume(int i, float f) {
         MultiMediaData multiMediaData;
         VLogSimplePlayer vLogSimplePlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048658, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) || lx9.b(this.mUpdateMultiMediaDataTrack) == 0 || (multiMediaData = (MultiMediaData) lx9.c(getInputMultiMediaDataTrack().multiMediaDataList, i)) == null || multiMediaData.type != 1 || (vLogSimplePlayer = multiMediaData.player) == null) {
+        if (i1a.b(this.mUpdateMultiMediaDataTrack) == 0 || (multiMediaData = (MultiMediaData) i1a.c(getInputMultiMediaDataTrack().multiMediaDataList, i)) == null || multiMediaData.type != 1 || (vLogSimplePlayer = multiMediaData.player) == null) {
             return;
         }
         multiMediaData.volume = f;
@@ -3711,69 +2688,39 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void setX(float f) {
-        MultiMediaData multiMediaData;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048659, this, f) == null) || (multiMediaData = getMultiMediaData(this.mCurrentIndex.get())) == null) {
-            return;
+        MultiMediaData multiMediaData = getMultiMediaData(this.mCurrentIndex.get());
+        if (multiMediaData != null) {
+            multiMediaData.x = f;
         }
-        multiMediaData.x = f;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void setY(float f) {
-        MultiMediaData multiMediaData;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048660, this, f) == null) || (multiMediaData = getMultiMediaData(this.mCurrentIndex.get())) == null) {
-            return;
+        MultiMediaData multiMediaData = getMultiMediaData(this.mCurrentIndex.get());
+        if (multiMediaData != null) {
+            multiMediaData.y = f;
         }
-        multiMediaData.y = f;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
-    public void split(int i, long j, OnMultiMediaSplitListener onMultiMediaSplitListener) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048661, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), onMultiMediaSplitListener}) == null) || lx9.e(getMultiMediaDataTrack()) || lx9.e(getInputMultiMediaDataTrack().multiMediaDataList) || lx9.e(getUpdateMediaTracks()) || lx9.e(getInputTrack().mediaSegments)) {
+    public void split(final int i, final long j, final OnMultiMediaSplitListener onMultiMediaSplitListener) {
+        if (i1a.e(getMultiMediaDataTrack()) || i1a.e(getInputMultiMediaDataTrack().multiMediaDataList) || i1a.e(getUpdateMediaTracks()) || i1a.e(getInputTrack().mediaSegments)) {
             return;
         }
-        MultiMediaData multiMediaData = (MultiMediaData) lx9.c(getInputMultiMediaDataTrack().multiMediaDataList, i);
-        MediaSegment mediaSegment = (MediaSegment) lx9.c(getInputTrack().mediaSegments, i);
+        final MultiMediaData multiMediaData = (MultiMediaData) i1a.c(getInputMultiMediaDataTrack().multiMediaDataList, i);
+        final MediaSegment mediaSegment = (MediaSegment) i1a.c(getInputTrack().mediaSegments, i);
         long j2 = mediaSegment.start;
         if (j2 > j || mediaSegment.end < j) {
             return;
         }
-        long currentSpeed = (((((float) (j - j2)) * (((float) (multiMediaData.end - multiMediaData.start)) / multiMediaData.getCurrentSpeed())) / ((float) (mediaSegment.end - mediaSegment.start))) * multiMediaData.getCurrentSpeed()) + ((float) multiMediaData.start);
+        final long currentSpeed = (((((float) (j - j2)) * (((float) (multiMediaData.end - multiMediaData.start)) / multiMediaData.getCurrentSpeed())) / ((float) (mediaSegment.end - mediaSegment.start))) * multiMediaData.getCurrentSpeed()) + ((float) multiMediaData.start);
         pausePlayer(false);
         VLogSimplePlayer vLogSimplePlayer = multiMediaData.player;
         if (multiMediaData.type != 1 || vLogSimplePlayer == null) {
             if (multiMediaData.type == 0) {
-                addMultiMediaData(i + 1, new ArrayList<MultiMediaData>(this, multiMediaData, currentSpeed, mediaSegment) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.11
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MultiMediaDataSource this$0;
-                    public final /* synthetic */ long val$currentDataPlayPosition;
-                    public final /* synthetic */ MultiMediaData val$data;
-                    public final /* synthetic */ MediaSegment val$segment;
-
+                addMultiMediaData(i + 1, new ArrayList<MultiMediaData>() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.11
                     {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, multiMediaData, Long.valueOf(currentSpeed), mediaSegment};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$data = multiMediaData;
-                        this.val$currentDataPlayPosition = currentSpeed;
-                        this.val$segment = mediaSegment;
-                        add(this.this$0.createMultiMediaData(this.val$data, this.val$currentDataPlayPosition, this.val$segment));
+                        add(MultiMediaDataSource.this.createMultiMediaData(multiMediaData, currentSpeed, mediaSegment));
                     }
                 });
                 if (onMultiMediaSplitListener != null) {
@@ -3782,119 +2729,37 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
                 notifyMediaTracksChanged();
             }
         } else if (onMultiMediaSplitListener == null) {
-            addMultiMediaData(i + 1, new ArrayList<MultiMediaData>(this, multiMediaData, currentSpeed, mediaSegment) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MultiMediaDataSource this$0;
-                public final /* synthetic */ long val$currentDataPlayPosition;
-                public final /* synthetic */ MultiMediaData val$data;
-                public final /* synthetic */ MediaSegment val$segment;
-
+            addMultiMediaData(i + 1, new ArrayList<MultiMediaData>() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.9
                 {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, multiMediaData, Long.valueOf(currentSpeed), mediaSegment};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$data = multiMediaData;
-                    this.val$currentDataPlayPosition = currentSpeed;
-                    this.val$segment = mediaSegment;
-                    add(this.this$0.createMultiMediaData(this.val$data, this.val$currentDataPlayPosition, this.val$segment));
+                    add(MultiMediaDataSource.this.createMultiMediaData(multiMediaData, currentSpeed, mediaSegment));
                 }
             });
         } else {
-            vLogSimplePlayer.setOnSeekCompleteListener(new IMediaPlayer.OnSeekCompleteListener(this, multiMediaData, vLogSimplePlayer.getOnSeekCompleteListener(), i, mediaSegment, j, onMultiMediaSplitListener) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.10
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MultiMediaDataSource this$0;
-                public final /* synthetic */ MultiMediaData val$data;
-                public final /* synthetic */ long val$fuzzyPlayPosition;
-                public final /* synthetic */ int val$index;
-                public final /* synthetic */ OnMultiMediaSplitListener val$l;
-                public final /* synthetic */ IMediaPlayer.OnSeekCompleteListener val$onSeekCompleteListener;
-                public final /* synthetic */ MediaSegment val$segment;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, multiMediaData, r8, Integer.valueOf(i), mediaSegment, Long.valueOf(j), onMultiMediaSplitListener};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$data = multiMediaData;
-                    this.val$onSeekCompleteListener = r8;
-                    this.val$index = i;
-                    this.val$segment = mediaSegment;
-                    this.val$fuzzyPlayPosition = j;
-                    this.val$l = onMultiMediaSplitListener;
-                }
-
+            final IMediaPlayer.OnSeekCompleteListener onSeekCompleteListener = vLogSimplePlayer.getOnSeekCompleteListener();
+            vLogSimplePlayer.setOnSeekCompleteListener(new IMediaPlayer.OnSeekCompleteListener() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.10
                 @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnSeekCompleteListener
                 public void onSeekComplete(IMediaPlayer iMediaPlayer) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, iMediaPlayer) == null) {
-                        this.val$data.player.setOnSeekCompleteListener(this.val$onSeekCompleteListener);
-                        long currentPosition = iMediaPlayer.getCurrentPosition();
-                        this.this$0.addMultiMediaData(this.val$index + 1, new ArrayList<MultiMediaData>(this, currentPosition) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.10.1
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ AnonymousClass10 this$1;
-                            public final /* synthetic */ long val$position;
-
-                            {
-                                Interceptable interceptable3 = $ic;
-                                if (interceptable3 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, Long.valueOf(currentPosition)};
-                                    interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable3.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.this$1 = this;
-                                this.val$position = currentPosition;
-                                AnonymousClass10 anonymousClass10 = this.this$1;
-                                add(anonymousClass10.this$0.createMultiMediaData(anonymousClass10.val$data, this.val$position, anonymousClass10.val$segment));
-                            }
-                        });
-                        long j3 = this.val$fuzzyPlayPosition;
-                        MultiMediaData multiMediaData2 = this.val$data;
-                        long j4 = multiMediaData2.end;
-                        long j5 = multiMediaData2.start;
-                        if (j4 - j5 != 0) {
-                            float currentSpeed2 = ((float) (currentPosition - j5)) / multiMediaData2.getCurrentSpeed();
-                            MediaSegment mediaSegment2 = this.val$segment;
-                            float f = currentSpeed2 * ((float) (mediaSegment2.end - mediaSegment2.start));
-                            MultiMediaData multiMediaData3 = this.val$data;
-                            j3 = ((f / ((float) (multiMediaData3.end - multiMediaData3.start))) / multiMediaData3.getCurrentSpeed()) + ((float) this.val$segment.start);
+                    multiMediaData.player.setOnSeekCompleteListener(onSeekCompleteListener);
+                    final long currentPosition = iMediaPlayer.getCurrentPosition();
+                    MultiMediaDataSource.this.addMultiMediaData(i + 1, new ArrayList<MultiMediaData>() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSource.10.1
+                        {
+                            AnonymousClass10 anonymousClass10 = AnonymousClass10.this;
+                            add(MultiMediaDataSource.this.createMultiMediaData(multiMediaData, currentPosition, mediaSegment));
                         }
-                        this.val$l.onSplitPoint(j3);
-                        this.this$0.notifyMediaTracksChanged();
+                    });
+                    long j3 = j;
+                    MultiMediaData multiMediaData2 = multiMediaData;
+                    long j4 = multiMediaData2.end;
+                    long j5 = multiMediaData2.start;
+                    if (j4 - j5 != 0) {
+                        float currentSpeed2 = ((float) (currentPosition - j5)) / multiMediaData2.getCurrentSpeed();
+                        MediaSegment mediaSegment2 = mediaSegment;
+                        float f = currentSpeed2 * ((float) (mediaSegment2.end - mediaSegment2.start));
+                        MultiMediaData multiMediaData3 = multiMediaData;
+                        j3 = ((f / ((float) (multiMediaData3.end - multiMediaData3.start))) / multiMediaData3.getCurrentSpeed()) + ((float) mediaSegment.start);
                     }
+                    onMultiMediaSplitListener.onSplitPoint(j3);
+                    MultiMediaDataSource.this.notifyMediaTracksChanged();
                 }
             });
             vLogSimplePlayer.seekTo(currentSpeed);
@@ -3904,13 +2769,10 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol
     public void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048662, this) == null) {
-            startTimer(this.mPlayTime);
-            IVLogPlayControlProtocol.OnPlayStateListener onPlayStateListener = this.mOnPlayStateListener;
-            if (onPlayStateListener != null) {
-                onPlayStateListener.onStart();
-            }
+        startTimer(this.mPlayTime);
+        IVLogPlayControlProtocol.OnPlayStateListener onPlayStateListener = this.mOnPlayStateListener;
+        if (onPlayStateListener != null) {
+            onPlayStateListener.onStart();
         }
     }
 
@@ -3919,19 +2781,18 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
         MediaTrack inputTrack;
         ArrayList<MultiMediaData> inputMultiMediaDataList;
         int b;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048663, this, list) == null) || lx9.e(list) || (inputTrack = getInputTrack()) == null || (b = lx9.b((inputMultiMediaDataList = getInputMultiMediaDataList()))) != lx9.b(list)) {
+        if (i1a.e(list) || (inputTrack = getInputTrack()) == null || (b = i1a.b((inputMultiMediaDataList = getInputMultiMediaDataList()))) != i1a.b(list)) {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        int b2 = lx9.b(inputTrack.mediaSegments);
+        int b2 = i1a.b(inputTrack.mediaSegments);
         for (int i = 0; i < b; i++) {
             int i2 = 0;
             while (true) {
                 if (i2 >= b2) {
                     break;
-                } else if (lx9.c(list, i) == lx9.c(inputMultiMediaDataList, i2)) {
-                    arrayList.add(lx9.c(inputTrack.mediaSegments, i2));
+                } else if (i1a.c(list, i) == i1a.c(inputMultiMediaDataList, i2)) {
+                    arrayList.add(i1a.c(inputTrack.mediaSegments, i2));
                     break;
                 } else {
                     i2++;
@@ -3943,7 +2804,7 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
         getInputMultiMediaDataTrack().multiMediaDataList.clear();
         getInputMultiMediaDataTrack().multiMediaDataList.addAll(list);
         applyTimeLineOnTemplateType();
-        xg0.a(inputTrack, getMaxVideoDurationFromConfig());
+        bh0.a(inputTrack, getMaxVideoDurationFromConfig());
         this.mMultiMediaAdapter.clear();
         reset();
         start();
@@ -3957,8 +2818,7 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
         MediaSegment mediaSegment;
         int indexOf2;
         MultiMediaData multiMediaData;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048664, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2)}) == null) || TextUtils.isEmpty(str) || j < 0 || j2 < 0 || j2 - j <= 0 || (subtitleAndStickerTrack = MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mUpdateMediaTracks)) == null || lx9.e(subtitleAndStickerTrack.mediaSegments) || (indexOf = this.mUpdateMediaTracks.indexOf(subtitleAndStickerTrack)) < 0 || (multiMediaDataTrack = this.mUpdateMultiMediaDataTrack.get(indexOf)) == null || lx9.e(multiMediaDataTrack.multiMediaDataList) || (mediaSegment = (MediaSegment) lx9.c(getStickerSegmentsDataByType(str), i)) == null || (indexOf2 = subtitleAndStickerTrack.mediaSegments.indexOf(mediaSegment)) < 0 || (multiMediaData = (MultiMediaData) lx9.c(multiMediaDataTrack.multiMediaDataList, indexOf2)) == null) {
+        if (TextUtils.isEmpty(str) || j < 0 || j2 < 0 || j2 - j <= 0 || (subtitleAndStickerTrack = MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mUpdateMediaTracks)) == null || i1a.e(subtitleAndStickerTrack.mediaSegments) || (indexOf = this.mUpdateMediaTracks.indexOf(subtitleAndStickerTrack)) < 0 || (multiMediaDataTrack = this.mUpdateMultiMediaDataTrack.get(indexOf)) == null || i1a.e(multiMediaDataTrack.multiMediaDataList) || (mediaSegment = (MediaSegment) i1a.c(getStickerSegmentsDataByType(str), i)) == null || (indexOf2 = subtitleAndStickerTrack.mediaSegments.indexOf(mediaSegment)) < 0 || (multiMediaData = (MultiMediaData) i1a.c(multiMediaDataTrack.multiMediaDataList, indexOf2)) == null) {
             return;
         }
         if (j2 > getDuration()) {

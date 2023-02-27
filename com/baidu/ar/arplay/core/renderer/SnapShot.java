@@ -2,85 +2,34 @@ package com.baidu.ar.arplay.core.renderer;
 
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class SnapShot {
-    public static /* synthetic */ Interceptable $ic;
     public static Bitmap mCaptureScreenBmp;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(492241921, "Lcom/baidu/ar/arplay/core/renderer/SnapShot;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(492241921, "Lcom/baidu/ar/arplay/core/renderer/SnapShot;");
-        }
-    }
-
-    public SnapShot() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
 
     public static void destroyCache() {
-        Bitmap bitmap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || (bitmap = mCaptureScreenBmp) == null) {
-            return;
+        Bitmap bitmap = mCaptureScreenBmp;
+        if (bitmap != null) {
+            bitmap.recycle();
+            mCaptureScreenBmp = null;
         }
-        bitmap.recycle();
-        mCaptureScreenBmp = null;
     }
 
     public static Bitmap getCacheBitmap(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
-            Bitmap bitmap = mCaptureScreenBmp;
-            if (bitmap != null && (i != bitmap.getWidth() || i2 != mCaptureScreenBmp.getHeight())) {
-                mCaptureScreenBmp.recycle();
-                mCaptureScreenBmp = null;
-            }
-            if (mCaptureScreenBmp == null) {
-                mCaptureScreenBmp = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
-            }
-            return mCaptureScreenBmp;
+        Bitmap bitmap = mCaptureScreenBmp;
+        if (bitmap != null && (i != bitmap.getWidth() || i2 != mCaptureScreenBmp.getHeight())) {
+            mCaptureScreenBmp.recycle();
+            mCaptureScreenBmp = null;
         }
-        return (Bitmap) invokeII.objValue;
+        if (mCaptureScreenBmp == null) {
+            mCaptureScreenBmp = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
+        }
+        return mCaptureScreenBmp;
     }
 
     public static Bitmap rotateBitmap(Bitmap bitmap, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap, i)) == null) {
-            Matrix matrix = new Matrix();
-            matrix.postScale(1.0f, -1.0f, bitmap.getWidth() / 2, bitmap.getHeight() / 2);
-            matrix.postRotate(i, bitmap.getWidth() / 2, bitmap.getHeight() / 2);
-            return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-        }
-        return (Bitmap) invokeLI.objValue;
+        Matrix matrix = new Matrix();
+        matrix.postScale(1.0f, -1.0f, bitmap.getWidth() / 2, bitmap.getHeight() / 2);
+        matrix.postRotate(i, bitmap.getWidth() / 2, bitmap.getHeight() / 2);
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 }

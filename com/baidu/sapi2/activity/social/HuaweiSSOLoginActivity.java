@@ -3,20 +3,12 @@ package com.baidu.sapi2.activity.social;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hmf.tasks.Task;
+import com.baidu.tieba.ega;
+import com.huawei.hms.common.ApiException;
 import com.huawei.hms.support.hwid.HuaweiIdAuthManager;
 import com.huawei.hms.support.hwid.request.HuaweiIdAuthParams;
 import com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper;
@@ -24,147 +16,97 @@ import com.huawei.hms.support.hwid.result.AuthHuaweiId;
 import com.huawei.hms.support.hwid.service.HuaweiIdAuthService;
 /* loaded from: classes2.dex */
 public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String p;
+    public static final String p = HuaweiSSOLoginActivity.class.getSimpleName();
     public static final int q = 1002;
     public static final int r = 1003;
-    public transient /* synthetic */ FieldHolder $fh;
     public HuaweiIdAuthService n;
     public HuaweiIdAuthParams o;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1063310999, "Lcom/baidu/sapi2/activity/social/HuaweiSSOLoginActivity;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1063310999, "Lcom/baidu/sapi2/activity/social/HuaweiSSOLoginActivity;");
-                return;
-            }
-        }
-        p = HuaweiSSOLoginActivity.class.getSimpleName();
-    }
-
-    public HuaweiSSOLoginActivity() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
+    private void d() {
+        HuaweiIdAuthParams createParams = new HuaweiIdAuthParamsHelper(HuaweiIdAuthParams.DEFAULT_AUTH_REQUEST_PARAM).setIdToken().setAccessToken().createParams();
+        this.o = createParams;
+        HuaweiIdAuthService service = HuaweiIdAuthManager.getService(this, createParams);
+        this.n = service;
+        startActivityForResult(service.getSignInIntent(), 1002);
     }
 
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.setupViews();
-            setTitleText(R.string.sapi_sdk_title_login_hw);
-            try {
-                d();
-            } catch (Exception e) {
-                e.printStackTrace();
-                finish();
-            }
-        }
-    }
-
-    private void a(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65538, this, i, str) == null) {
-            if (((BaseSSOLoginActivity) this).g == 2001) {
-                Intent intent = new Intent();
-                intent.putExtra("result_code", i);
-                intent.putExtra("result_msg", str);
-                setResult(1002, intent);
-            } else if (CoreViewRouter.getInstance().getWebAuthListener() != null) {
-                ((BaseSSOLoginActivity) this).h.setResultCode(i);
-                ((BaseSSOLoginActivity) this).h.setResultMsg(str);
-                CoreViewRouter.getInstance().getWebAuthListener().onFailure(((BaseSSOLoginActivity) this).h);
-                CoreViewRouter.getInstance().release();
-            }
+        super.setupViews();
+        setTitleText(R.string.sapi_sdk_title_login_hw);
+        try {
+            d();
+        } catch (Exception e) {
+            e.printStackTrace();
             finish();
         }
     }
 
-    private void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                a(-204, getString(R.string.sapi_sdk_third_error_hw));
-                return;
-            }
-            SapiWebView sapiWebView = this.sapiWebView;
-            if (sapiWebView == null) {
-                return;
-            }
-            sapiWebView.loadHuaWeiSSOLogin(str, c());
+    private void a(int i, String str) {
+        if (((BaseSSOLoginActivity) this).g == 2001) {
+            Intent intent = new Intent();
+            intent.putExtra("result_code", i);
+            intent.putExtra("result_msg", str);
+            setResult(1002, intent);
+        } else if (CoreViewRouter.getInstance().getWebAuthListener() != null) {
+            ((BaseSSOLoginActivity) this).h.setResultCode(i);
+            ((BaseSSOLoginActivity) this).h.setResultMsg(str);
+            CoreViewRouter.getInstance().getWebAuthListener().onFailure(((BaseSSOLoginActivity) this).h);
+            CoreViewRouter.getInstance().release();
         }
+        finish();
+    }
+
+    private void b(String str) {
+        if (TextUtils.isEmpty(str)) {
+            a(-204, getString(R.string.sapi_sdk_third_error_hw));
+            return;
+        }
+        SapiWebView sapiWebView = this.sapiWebView;
+        if (sapiWebView == null) {
+            return;
+        }
+        sapiWebView.loadHuaWeiSSOLogin(str, c());
     }
 
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.social.SocialLoginBase, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            super.onCreate(bundle);
-            setupViews();
-        }
-    }
-
-    private void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            HuaweiIdAuthParams createParams = new HuaweiIdAuthParamsHelper(HuaweiIdAuthParams.DEFAULT_AUTH_REQUEST_PARAM).setIdToken().setAccessToken().createParams();
-            this.o = createParams;
-            HuaweiIdAuthService service = HuaweiIdAuthManager.getService(this, createParams);
-            this.n = service;
-            startActivityForResult(service.getSignInIntent(), 1002);
-        }
+        super.onCreate(bundle);
+        setupViews();
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
-            if (i == 1002) {
-                Task parseAuthResultFromIntent = HuaweiIdAuthManager.parseAuthResultFromIntent(intent);
-                if (parseAuthResultFromIntent.isSuccessful()) {
-                    AuthHuaweiId authHuaweiId = (AuthHuaweiId) parseAuthResultFromIntent.getResult();
-                    String str = p;
-                    Log.i(str, authHuaweiId.getDisplayName() + " signIn success ");
-                    String str2 = p;
-                    Log.i(str2, "AccessToken: " + authHuaweiId.getAccessToken());
-                    b(authHuaweiId.getAccessToken());
-                    return;
-                }
-                a(-202, getString(R.string.sapi_sdk_huawei_login_fail));
-                String str3 = p;
-                Log.i(str3, "signIn failed: " + parseAuthResultFromIntent.getException().getStatusCode());
-            } else if (i == 1003) {
-                Task parseAuthResultFromIntent2 = HuaweiIdAuthManager.parseAuthResultFromIntent(intent);
-                if (parseAuthResultFromIntent2.isSuccessful()) {
-                    AuthHuaweiId authHuaweiId2 = (AuthHuaweiId) parseAuthResultFromIntent2.getResult();
-                    Log.i(p, "signIn get code success.");
-                    String str4 = p;
-                    Log.i(str4, "ServerAuthCode: " + authHuaweiId2.getAuthorizationCode());
-                    b(authHuaweiId2.getAuthorizationCode());
-                    return;
-                }
-                a(-202, getString(R.string.sapi_sdk_huawei_login_fail));
-                String str5 = p;
-                Log.i(str5, "signIn get code failed: " + parseAuthResultFromIntent2.getException().getStatusCode());
-            } else {
-                a(-202, getString(R.string.sapi_sdk_third_error_hw));
+        super.onActivityResult(i, i2, intent);
+        if (i == 1002) {
+            ega parseAuthResultFromIntent = HuaweiIdAuthManager.parseAuthResultFromIntent(intent);
+            if (parseAuthResultFromIntent.h()) {
+                AuthHuaweiId authHuaweiId = (AuthHuaweiId) parseAuthResultFromIntent.e();
+                String str = p;
+                Log.i(str, authHuaweiId.getDisplayName() + " signIn success ");
+                String str2 = p;
+                Log.i(str2, "AccessToken: " + authHuaweiId.getAccessToken());
+                b(authHuaweiId.getAccessToken());
+                return;
             }
+            a(-202, getString(R.string.sapi_sdk_huawei_login_fail));
+            String str3 = p;
+            Log.i(str3, "signIn failed: " + ((ApiException) parseAuthResultFromIntent.d()).getStatusCode());
+        } else if (i == 1003) {
+            ega parseAuthResultFromIntent2 = HuaweiIdAuthManager.parseAuthResultFromIntent(intent);
+            if (parseAuthResultFromIntent2.h()) {
+                AuthHuaweiId authHuaweiId2 = (AuthHuaweiId) parseAuthResultFromIntent2.e();
+                Log.i(p, "signIn get code success.");
+                String str4 = p;
+                Log.i(str4, "ServerAuthCode: " + authHuaweiId2.getAuthorizationCode());
+                b(authHuaweiId2.getAuthorizationCode());
+                return;
+            }
+            a(-202, getString(R.string.sapi_sdk_huawei_login_fail));
+            String str5 = p;
+            Log.i(str5, "signIn get code failed: " + ((ApiException) parseAuthResultFromIntent2.d()).getStatusCode());
+        } else {
+            a(-202, getString(R.string.sapi_sdk_third_error_hw));
         }
     }
 }

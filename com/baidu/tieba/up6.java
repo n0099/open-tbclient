@@ -1,46 +1,50 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.forumMember.manito.ManitoMemberItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.bean.LocalAlbumInfo;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.RecordConstants;
+import java.nio.Buffer;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class up6 extends as6<vp6, ManitoMemberItemViewHolder> {
+public class up6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener l;
+    public int a;
+    public int b;
+    public MultiMediaData c;
+    public float d;
+    public boolean e;
+    public String f;
+    public boolean g;
+    public Buffer h;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ up6 a;
+        public int a;
+        public int b;
+        public MultiMediaData c;
+        public List<LocalAlbumInfo> d;
+        public float e;
+        public String f;
+        public boolean g;
+        public boolean h;
+        public String i;
+        public boolean j;
+        public Buffer k;
+        public long l;
 
-        public a(up6 up6Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {up6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,110 +54,120 @@ public class up6 extends as6<vp6, ManitoMemberItemViewHolder> {
                     return;
                 }
             }
-            this.a = up6Var;
+            this.a = RecordConstants.VIDEO_CONSTANT_WIDTH;
+            this.b = RecordConstants.VIDEO_CONSTANT_HEIGHT;
+            this.e = 0.0f;
+            this.g = false;
+            this.h = false;
+            this.j = false;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        public a n(Buffer buffer) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                vp6 vp6Var = (vp6) view2.getTag();
-                TiebaStatic.log("c10624");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.mContext, vp6Var.h(), vp6Var.f(), "")));
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer)) == null) {
+                this.k = buffer;
+                return this;
             }
+            return (a) invokeL.objValue;
+        }
+
+        public a o(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                this.b = i;
+                return this;
+            }
+            return (a) invokeI.objValue;
+        }
+
+        public a p(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+                this.j = z;
+                return this;
+            }
+            return (a) invokeZ.objValue;
+        }
+
+        public a q(MultiMediaData multiMediaData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, multiMediaData)) == null) {
+                this.c = multiMediaData;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a r(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
+                this.e = f;
+                return this;
+            }
+            return (a) invokeF.objValue;
+        }
+
+        public a s(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+                this.i = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a t(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+                this.a = i;
+                return this;
+            }
+            return (a) invokeI.objValue;
+        }
+
+        public up6 m() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new up6(this);
+            }
+            return (up6) invokeV.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public up6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    public up6(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = new a(this);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: G */
-    public ManitoMemberItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            return new ManitoMemberItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0596, (ViewGroup) null));
-        }
-        return (ManitoMemberItemViewHolder) invokeL.objValue;
-    }
-
-    public final SpannableStringBuilder F(String str, String[] strArr, int[] iArr) {
-        InterceptResult invokeLLL;
-        int indexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, strArr, iArr)) == null) {
-            if (str != null && strArr != null && iArr != null && strArr.length > 0 && iArr.length > 0 && strArr.length == iArr.length) {
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                SpannableString spannableString = new SpannableString(str);
-                for (int i = 0; i < strArr.length; i++) {
-                    if (strArr[i] != null && (indexOf = str.indexOf(strArr[i])) >= 0) {
-                        spannableString.setSpan(new ForegroundColorSpan(iArr[i]), indexOf, strArr[i].length() + indexOf, 17);
-                    }
-                }
-                spannableStringBuilder.append((CharSequence) spannableString);
-                return spannableStringBuilder;
-            }
-            return null;
-        }
-        return (SpannableStringBuilder) invokeLLL.objValue;
-    }
-
-    public View H(int i, View view2, ViewGroup viewGroup, vp6 vp6Var, ManitoMemberItemViewHolder manitoMemberItemViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vp6Var, manitoMemberItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) vp6Var, (vp6) manitoMemberItemViewHolder);
-            if (vp6Var != null && manitoMemberItemViewHolder != null) {
-                if (manitoMemberItemViewHolder.f != this.f) {
-                    SkinManager.setBackgroundResource(manitoMemberItemViewHolder.getView(), R.drawable.frs_member_manito_bg);
-                    SkinManager.setViewTextColor(manitoMemberItemViewHolder.b, R.color.CAM_X0106, 1);
-                    SkinManager.setViewTextColor(manitoMemberItemViewHolder.c, R.color.CAM_X0109, 1);
-                    SkinManager.setBackgroundColor(manitoMemberItemViewHolder.e, R.color.CAM_X0204);
-                    SkinManager.setViewTextColor(manitoMemberItemViewHolder.d, R.color.CAM_X0109, 1);
-                }
-                manitoMemberItemViewHolder.a.e(vp6Var.b(), 12, false);
-                manitoMemberItemViewHolder.b.setText(rp5.g(vp6Var.g(), 16));
-                if (StringUtils.isNull(vp6Var.c())) {
-                    manitoMemberItemViewHolder.c.setText(R.string.god_intro_default);
-                } else {
-                    manitoMemberItemViewHolder.c.setText(rp5.g(vp6Var.c(), 30));
-                }
-                int color = SkinManager.getColor(R.color.CAM_X0301);
-                String numberUniformFormat = StringHelper.numberUniformFormat(vp6Var.a());
-                manitoMemberItemViewHolder.d.setText(F(String.format(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0657), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
-                manitoMemberItemViewHolder.getView().setTag(vp6Var);
-                manitoMemberItemViewHolder.getView().setOnClickListener(this.l);
-                manitoMemberItemViewHolder.f = this.f;
-            }
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.as6, com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        H(i, view2, viewGroup, (vp6) obj, (ManitoMemberItemViewHolder) viewHolder);
-        return view2;
+        this.a = aVar.a;
+        this.b = aVar.b;
+        this.d = aVar.e;
+        String unused = aVar.f;
+        this.c = aVar.c;
+        List unused2 = aVar.d;
+        this.e = aVar.g;
+        boolean unused3 = aVar.h;
+        this.f = aVar.i;
+        this.g = aVar.j;
+        this.h = aVar.k;
+        long unused4 = aVar.l;
     }
 }

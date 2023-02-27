@@ -1,62 +1,45 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class y04 extends c14 {
+/* loaded from: classes6.dex */
+public class y04 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public class a implements pn3<wd3> {
+    /* loaded from: classes6.dex */
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final y04 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ am2 a;
 
-        public a(y04 y04Var, am2 am2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y04Var, am2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-312205041, "Lcom/baidu/tieba/y04$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-312205041, "Lcom/baidu/tieba/y04$a;");
                     return;
                 }
             }
-            this.a = am2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pn3
-        /* renamed from: b */
-        public void a(wd3 wd3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wd3Var) == null) {
-                boolean z = true;
-                if ((wd3Var == null || wd3Var.d || wd3Var.j != 1) ? false : false) {
-                    this.a.a(null);
-                } else {
-                    this.a.onFail(10001, "authorize fail.");
-                }
-            }
+            a = new y04();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public y04() {
-        super("authorize");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,32 +47,79 @@ public class y04 extends c14 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.c14
-    public w02 a(@NonNull JSONObject jSONObject, @NonNull am2 am2Var) {
-        InterceptResult invokeLL;
+    public static y04 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, am2Var)) == null) {
-            if (c14.b && jSONObject.optBoolean("debug", false)) {
-                Log.i("authorize", "debug mode: true.");
-                am2Var.a(null);
-                return null;
-            }
-            w83 b0 = w83.b0();
-            if (b0 == null) {
-                am2Var.onFail(10001, "authorize fail.");
-                return null;
-            }
-            b0.e0().e("mapp_gamecenter_private_api", new a(this, am2Var));
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
         }
-        return (w02) invokeLL.objValue;
+        return (y04) invokeV.objValue;
+    }
+
+    public void a(@NonNull JSONObject jSONObject, @NonNull f14 f14Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, f14Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            String optString = jSONObject.optString("url");
+            if (!optBoolean) {
+                f14Var.a(new g14(31008, "download is not exist"));
+            } else {
+                d64.c().c(optString);
+            }
+        }
+    }
+
+    public void c(@NonNull JSONObject jSONObject, @NonNull f14 f14Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, f14Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            String optString = jSONObject.optString("url");
+            if (!optBoolean) {
+                f14Var.a(new g14(31008, "download is not exist"));
+            } else {
+                d64.c().e(optString);
+            }
+        }
+    }
+
+    public void e(@NonNull JSONObject jSONObject, @NonNull f14 f14Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, jSONObject, f14Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            String optString = jSONObject.optString("url");
+            if (!optBoolean) {
+                f14Var.a(new g14(31008, "download is not exist"));
+            } else {
+                d64.c().f(optString);
+            }
+        }
+    }
+
+    public void d(@NonNull JSONObject jSONObject, @NonNull f14 f14Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, f14Var) == null) {
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            if (!optBoolean) {
+                f14Var.a(new g14(31008, "download is not exist"));
+                return;
+            }
+            String optString = jSONObject.optString("packageName");
+            String optString2 = jSONObject.optString("apkId");
+            String optString3 = jSONObject.optString("url");
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                if (!d64.c().a(optString3, optString, optString2, optBoolean, new a14(f14Var))) {
+                    f14Var.a(new g14(31006, "is not in main process"));
+                    return;
+                }
+                return;
+            }
+            f14Var.a(new g14(31007, "invalid params"));
+        }
     }
 }

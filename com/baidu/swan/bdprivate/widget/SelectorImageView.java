@@ -6,188 +6,77 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.BdBaseImageView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class SelectorImageView extends BdBaseImageView {
-    public static /* synthetic */ Interceptable $ic = null;
     public static int c = 255;
-    public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-2026389849, "Lcom/baidu/swan/bdprivate/widget/SelectorImageView;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-2026389849, "Lcom/baidu/swan/bdprivate/widget/SelectorImageView;");
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class a implements View.OnTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                int action = motionEvent.getAction();
-                if (action != 0) {
-                    if (action == 1 || action == 3) {
-                        Log.d("ACTION_UP", "ACTION_UP");
-                        if (view2 instanceof ImageView) {
-                            ((ImageView) view2).setImageAlpha(255);
-                            return false;
-                        }
-                        return false;
-                    }
-                    return false;
-                }
-                Log.d("ACTION_DOWN", "ACTION_DOWN");
-                if (view2 instanceof ImageView) {
-                    ((ImageView) view2).setImageAlpha(76);
-                    return false;
-                }
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SelectorImageView(Context context) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            if (isEnabled()) {
-                int action = motionEvent.getAction();
-                if (action != 0) {
-                    if (action == 1 || action == 3) {
-                        Log.d("ACTION_UP", "ACTION_UP");
-                        setImageAlpha(c);
-                    }
-                } else {
-                    Log.d("ACTION_DOWN", "ACTION_DOWN");
-                    setImageAlpha(76);
+        if (isEnabled()) {
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action == 1 || action == 3) {
+                    Log.d("ACTION_UP", "ACTION_UP");
+                    setImageAlpha(c);
                 }
-            }
-            return super.onTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectorImageView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+            } else {
+                Log.d("ACTION_DOWN", "ACTION_DOWN");
+                setImageAlpha(76);
             }
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectorImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public static View.OnTouchListener getStaticOnTouchListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return new a();
-        }
-        return (View.OnTouchListener) invokeV.objValue;
+        return super.onTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     @Deprecated
     public void setEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            super.setEnabled(z);
-            if (!z) {
-                setImageAlpha(255);
-            } else {
-                setImageAlpha(c);
-            }
+        super.setEnabled(z);
+        if (!z) {
+            setImageAlpha(255);
+        } else {
+            setImageAlpha(c);
         }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class a implements View.OnTouchListener {
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action == 1 || action == 3) {
+                    Log.d("ACTION_UP", "ACTION_UP");
+                    if (view2 instanceof ImageView) {
+                        ((ImageView) view2).setImageAlpha(255);
+                        return false;
+                    }
+                    return false;
+                }
+                return false;
+            }
+            Log.d("ACTION_DOWN", "ACTION_DOWN");
+            if (view2 instanceof ImageView) {
+                ((ImageView) view2).setImageAlpha(76);
+                return false;
+            }
+            return false;
+        }
+    }
+
+    public SelectorImageView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+    }
+
+    public SelectorImageView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+    }
+
+    public static View.OnTouchListener getStaticOnTouchListener() {
+        return new a();
     }
 }

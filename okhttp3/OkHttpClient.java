@@ -1,16 +1,6 @@
 package okhttp3;
 
 import android.annotation.TargetApi;
-import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.data.a;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.Proxy;
 import java.net.ProxySelector;
@@ -50,11 +40,7 @@ import okhttp3.internal.tls.OkHostnameVerifier;
 import okhttp3.internal.ws.RealWebSocket;
 /* loaded from: classes9.dex */
 public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory {
-    public static /* synthetic */ Interceptable $ic;
-    public static final List<ConnectionSpec> DEFAULT_CONNECTION_SPECS;
-    public static final List<Protocol> DEFAULT_PROTOCOLS;
     public static int sDefaultFallbackConnectDealyMs;
-    public transient /* synthetic */ FieldHolder $fh;
     public final Authenticator authenticator;
     @Nullable
     public final Cache cache;
@@ -88,11 +74,11 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
     public final SocketFactory socketFactory;
     public final SSLSocketFactory sslSocketFactory;
     public final int writeTimeout;
+    public static final List<Protocol> DEFAULT_PROTOCOLS = Util.immutableList(Protocol.HTTP_2, Protocol.HTTP_1_1);
+    public static final List<ConnectionSpec> DEFAULT_CONNECTION_SPECS = Util.immutableList(ConnectionSpec.MODERN_TLS, ConnectionSpec.CLEARTEXT);
 
     /* loaded from: classes9.dex */
     public static final class Builder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public Authenticator authenticator;
         @Nullable
         public Cache cache;
@@ -130,18 +116,6 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
         public int writeTimeout;
 
         public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.interceptors = new ArrayList();
             this.networkInterceptors = new ArrayList();
             this.dispatcher = new Dispatcher();
@@ -175,20 +149,6 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
         }
 
         public Builder(OkHttpClient okHttpClient) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {okHttpClient};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             this.interceptors = new ArrayList();
             this.networkInterceptors = new ArrayList();
             this.dispatcher = okHttpClient.dispatcher;
@@ -224,950 +184,483 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
         }
 
         public Builder protocols(List<Protocol> list) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, list)) == null) {
-                ArrayList arrayList = new ArrayList(list);
-                if (!arrayList.contains(Protocol.H2_PRIOR_KNOWLEDGE) && !arrayList.contains(Protocol.HTTP_1_1)) {
-                    throw new IllegalArgumentException("protocols must contain h2_prior_knowledge or http/1.1: " + arrayList);
-                } else if (arrayList.contains(Protocol.H2_PRIOR_KNOWLEDGE) && arrayList.size() > 1) {
-                    throw new IllegalArgumentException("protocols containing h2_prior_knowledge cannot use other protocols: " + arrayList);
-                } else if (!arrayList.contains(Protocol.HTTP_1_0)) {
-                    if (!arrayList.contains(null)) {
-                        arrayList.remove(Protocol.SPDY_3);
-                        this.protocols = Collections.unmodifiableList(arrayList);
-                        return this;
-                    }
-                    throw new IllegalArgumentException("protocols must not contain null");
-                } else {
-                    throw new IllegalArgumentException("protocols must not contain http/1.0: " + arrayList);
+            ArrayList arrayList = new ArrayList(list);
+            if (!arrayList.contains(Protocol.H2_PRIOR_KNOWLEDGE) && !arrayList.contains(Protocol.HTTP_1_1)) {
+                throw new IllegalArgumentException("protocols must contain h2_prior_knowledge or http/1.1: " + arrayList);
+            } else if (arrayList.contains(Protocol.H2_PRIOR_KNOWLEDGE) && arrayList.size() > 1) {
+                throw new IllegalArgumentException("protocols containing h2_prior_knowledge cannot use other protocols: " + arrayList);
+            } else if (!arrayList.contains(Protocol.HTTP_1_0)) {
+                if (!arrayList.contains(null)) {
+                    arrayList.remove(Protocol.SPDY_3);
+                    this.protocols = Collections.unmodifiableList(arrayList);
+                    return this;
                 }
+                throw new IllegalArgumentException("protocols must not contain null");
+            } else {
+                throw new IllegalArgumentException("protocols must not contain http/1.0: " + arrayList);
             }
-            return (Builder) invokeL.objValue;
         }
 
         public Builder addInterceptor(Interceptor interceptor) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, interceptor)) == null) {
-                if (interceptor != null) {
-                    this.interceptors.add(interceptor);
-                    return this;
-                }
-                throw new IllegalArgumentException("interceptor == null");
+            if (interceptor != null) {
+                this.interceptors.add(interceptor);
+                return this;
             }
-            return (Builder) invokeL.objValue;
+            throw new IllegalArgumentException("interceptor == null");
         }
 
         public Builder addNetworkInterceptor(Interceptor interceptor) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interceptor)) == null) {
-                if (interceptor != null) {
-                    this.networkInterceptors.add(interceptor);
-                    return this;
-                }
-                throw new IllegalArgumentException("interceptor == null");
+            if (interceptor != null) {
+                this.networkInterceptors.add(interceptor);
+                return this;
             }
-            return (Builder) invokeL.objValue;
+            throw new IllegalArgumentException("interceptor == null");
         }
 
         public Builder authenticator(Authenticator authenticator) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, authenticator)) == null) {
-                if (authenticator != null) {
-                    this.authenticator = authenticator;
-                    return this;
-                }
-                throw new NullPointerException("authenticator == null");
+            if (authenticator != null) {
+                this.authenticator = authenticator;
+                return this;
             }
-            return (Builder) invokeL.objValue;
+            throw new NullPointerException("authenticator == null");
         }
 
         public Builder cache(@Nullable Cache cache) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cache)) == null) {
-                this.cache = cache;
-                this.internalCache = null;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.cache = cache;
+            this.internalCache = null;
+            return this;
         }
 
         @TargetApi(26)
         public Builder callTimeout(Duration duration) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, duration)) == null) {
-                this.callTimeout = Util.checkDuration(a.O, duration.toMillis(), TimeUnit.MILLISECONDS);
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.callTimeout = Util.checkDuration("timeout", duration.toMillis(), TimeUnit.MILLISECONDS);
+            return this;
         }
 
         public Builder certificatePinner(CertificatePinner certificatePinner) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, certificatePinner)) == null) {
-                if (certificatePinner != null) {
-                    this.certificatePinner = certificatePinner;
-                    return this;
-                }
-                throw new NullPointerException("certificatePinner == null");
+            if (certificatePinner != null) {
+                this.certificatePinner = certificatePinner;
+                return this;
             }
-            return (Builder) invokeL.objValue;
+            throw new NullPointerException("certificatePinner == null");
         }
 
         @TargetApi(26)
         public Builder connectTimeout(Duration duration) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, duration)) == null) {
-                this.connectTimeout = Util.checkDuration(a.O, duration.toMillis(), TimeUnit.MILLISECONDS);
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.connectTimeout = Util.checkDuration("timeout", duration.toMillis(), TimeUnit.MILLISECONDS);
+            return this;
         }
 
         public Builder connectionPool(ConnectionPool connectionPool) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, connectionPool)) == null) {
-                if (connectionPool != null) {
-                    this.connectionPool = connectionPool;
-                    return this;
-                }
-                throw new NullPointerException("connectionPool == null");
+            if (connectionPool != null) {
+                this.connectionPool = connectionPool;
+                return this;
             }
-            return (Builder) invokeL.objValue;
+            throw new NullPointerException("connectionPool == null");
         }
 
         public Builder connectionSpecs(List<ConnectionSpec> list) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, list)) == null) {
-                this.connectionSpecs = Util.immutableList(list);
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.connectionSpecs = Util.immutableList(list);
+            return this;
         }
 
         public Builder cookieJar(CookieJar cookieJar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, cookieJar)) == null) {
-                if (cookieJar != null) {
-                    this.cookieJar = cookieJar;
-                    return this;
-                }
-                throw new NullPointerException("cookieJar == null");
+            if (cookieJar != null) {
+                this.cookieJar = cookieJar;
+                return this;
             }
-            return (Builder) invokeL.objValue;
+            throw new NullPointerException("cookieJar == null");
         }
 
         public Builder dispatcher(Dispatcher dispatcher) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, dispatcher)) == null) {
-                if (dispatcher != null) {
-                    this.dispatcher = dispatcher;
-                    return this;
-                }
-                throw new IllegalArgumentException("dispatcher == null");
+            if (dispatcher != null) {
+                this.dispatcher = dispatcher;
+                return this;
             }
-            return (Builder) invokeL.objValue;
+            throw new IllegalArgumentException("dispatcher == null");
         }
 
         public Builder dns(Dns dns) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, dns)) == null) {
-                if (dns != null) {
-                    this.dns = dns;
-                    return this;
-                }
-                throw new NullPointerException("dns == null");
+            if (dns != null) {
+                this.dns = dns;
+                return this;
             }
-            return (Builder) invokeL.objValue;
+            throw new NullPointerException("dns == null");
         }
 
         public Builder eventListener(EventListener eventListener) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, eventListener)) == null) {
-                if (eventListener != null) {
-                    this.eventListenerFactory = EventListener.factory(eventListener);
-                    return this;
-                }
-                throw new NullPointerException("eventListener == null");
+            if (eventListener != null) {
+                this.eventListenerFactory = EventListener.factory(eventListener);
+                return this;
             }
-            return (Builder) invokeL.objValue;
+            throw new NullPointerException("eventListener == null");
         }
 
         public Builder eventListenerFactory(EventListener.Factory factory) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, factory)) == null) {
-                if (factory != null) {
-                    this.eventListenerFactory = EventListener.wrapFactory(factory);
-                    return this;
-                }
-                throw new NullPointerException("eventListenerFactory == null");
+            if (factory != null) {
+                this.eventListenerFactory = EventListener.wrapFactory(factory);
+                return this;
             }
-            return (Builder) invokeL.objValue;
+            throw new NullPointerException("eventListenerFactory == null");
         }
 
         public Builder fallbackConnectDelayMs(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
-                this.fallbackConnectDelayMs = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
+            this.fallbackConnectDelayMs = i;
+            return this;
         }
 
         public Builder followRedirects(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048594, this, z)) == null) {
-                this.followRedirects = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.followRedirects = z;
+            return this;
         }
 
         public Builder followSslRedirects(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048595, this, z)) == null) {
-                this.followSslRedirects = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.followSslRedirects = z;
+            return this;
         }
 
         public Builder hostnameVerifier(HostnameVerifier hostnameVerifier) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, hostnameVerifier)) == null) {
-                if (hostnameVerifier != null) {
-                    this.hostnameVerifier = hostnameVerifier;
-                    return this;
-                }
-                throw new NullPointerException("hostnameVerifier == null");
+            if (hostnameVerifier != null) {
+                this.hostnameVerifier = hostnameVerifier;
+                return this;
             }
-            return (Builder) invokeL.objValue;
+            throw new NullPointerException("hostnameVerifier == null");
         }
 
         @TargetApi(26)
         public Builder pingInterval(Duration duration) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, duration)) == null) {
-                this.pingInterval = Util.checkDuration(a.O, duration.toMillis(), TimeUnit.MILLISECONDS);
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.pingInterval = Util.checkDuration("timeout", duration.toMillis(), TimeUnit.MILLISECONDS);
+            return this;
         }
 
         public Builder preConnect(PreConnectParams preConnectParams) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, preConnectParams)) == null) {
-                this.preConnectParams = preConnectParams;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.preConnectParams = preConnectParams;
+            return this;
         }
 
         public Builder proxy(@Nullable Proxy proxy) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, proxy)) == null) {
-                this.proxy = proxy;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.proxy = proxy;
+            return this;
         }
 
         public Builder proxyAuthenticator(Authenticator authenticator) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, authenticator)) == null) {
-                if (authenticator != null) {
-                    this.proxyAuthenticator = authenticator;
-                    return this;
-                }
-                throw new NullPointerException("proxyAuthenticator == null");
+            if (authenticator != null) {
+                this.proxyAuthenticator = authenticator;
+                return this;
             }
-            return (Builder) invokeL.objValue;
+            throw new NullPointerException("proxyAuthenticator == null");
         }
 
         public Builder proxySelector(ProxySelector proxySelector) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, proxySelector)) == null) {
-                if (proxySelector != null) {
-                    this.proxySelector = proxySelector;
-                    return this;
-                }
-                throw new NullPointerException("proxySelector == null");
+            if (proxySelector != null) {
+                this.proxySelector = proxySelector;
+                return this;
             }
-            return (Builder) invokeL.objValue;
+            throw new NullPointerException("proxySelector == null");
         }
 
         @TargetApi(26)
         public Builder readTimeout(Duration duration) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, duration)) == null) {
-                this.readTimeout = Util.checkDuration(a.O, duration.toMillis(), TimeUnit.MILLISECONDS);
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.readTimeout = Util.checkDuration("timeout", duration.toMillis(), TimeUnit.MILLISECONDS);
+            return this;
         }
 
         public Builder retryOnConnectionFailure(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048608, this, z)) == null) {
-                this.retryOnConnectionFailure = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.retryOnConnectionFailure = z;
+            return this;
         }
 
         public void setInternalCache(@Nullable InternalCache internalCache) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048609, this, internalCache) == null) {
-                this.internalCache = internalCache;
-                this.cache = null;
-            }
+            this.internalCache = internalCache;
+            this.cache = null;
         }
 
         public Builder socketFactory(SocketFactory socketFactory) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, socketFactory)) == null) {
-                if (socketFactory != null) {
-                    this.socketFactory = socketFactory;
-                    return this;
-                }
-                throw new NullPointerException("socketFactory == null");
+            if (socketFactory != null) {
+                this.socketFactory = socketFactory;
+                return this;
             }
-            return (Builder) invokeL.objValue;
+            throw new NullPointerException("socketFactory == null");
         }
 
         public Builder sslSocketFactory(SSLSocketFactory sSLSocketFactory) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, sSLSocketFactory)) == null) {
-                if (sSLSocketFactory != null) {
-                    this.sslSocketFactory = sSLSocketFactory;
-                    this.certificateChainCleaner = Platform.get().buildCertificateChainCleaner(sSLSocketFactory);
-                    return this;
-                }
-                throw new NullPointerException("sslSocketFactory == null");
+            if (sSLSocketFactory != null) {
+                this.sslSocketFactory = sSLSocketFactory;
+                this.certificateChainCleaner = Platform.get().buildCertificateChainCleaner(sSLSocketFactory);
+                return this;
             }
-            return (Builder) invokeL.objValue;
+            throw new NullPointerException("sslSocketFactory == null");
         }
 
         @TargetApi(26)
         public Builder writeTimeout(Duration duration) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, duration)) == null) {
-                this.writeTimeout = Util.checkDuration(a.O, duration.toMillis(), TimeUnit.MILLISECONDS);
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.writeTimeout = Util.checkDuration("timeout", duration.toMillis(), TimeUnit.MILLISECONDS);
+            return this;
         }
 
         public OkHttpClient build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return new OkHttpClient(this);
-            }
-            return (OkHttpClient) invokeV.objValue;
+            return new OkHttpClient(this);
         }
 
         public List<Interceptor> interceptors() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-                return this.interceptors;
-            }
-            return (List) invokeV.objValue;
+            return this.interceptors;
         }
 
         public List<Interceptor> networkInterceptors() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-                return this.networkInterceptors;
-            }
-            return (List) invokeV.objValue;
+            return this.networkInterceptors;
         }
 
         public Builder callTimeout(long j, TimeUnit timeUnit) {
-            InterceptResult invokeJL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048581, this, j, timeUnit)) == null) {
-                this.callTimeout = Util.checkDuration(a.O, j, timeUnit);
-                return this;
-            }
-            return (Builder) invokeJL.objValue;
+            this.callTimeout = Util.checkDuration("timeout", j, timeUnit);
+            return this;
         }
 
         public Builder connectTimeout(long j, TimeUnit timeUnit) {
-            InterceptResult invokeJL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j, timeUnit)) == null) {
-                this.connectTimeout = Util.checkDuration(a.O, j, timeUnit);
-                return this;
-            }
-            return (Builder) invokeJL.objValue;
+            this.connectTimeout = Util.checkDuration("timeout", j, timeUnit);
+            return this;
         }
 
         public Builder pingInterval(long j, TimeUnit timeUnit) {
-            InterceptResult invokeJL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048599, this, j, timeUnit)) == null) {
-                this.pingInterval = Util.checkDuration("interval", j, timeUnit);
-                return this;
-            }
-            return (Builder) invokeJL.objValue;
+            this.pingInterval = Util.checkDuration("interval", j, timeUnit);
+            return this;
         }
 
         public Builder readTimeout(long j, TimeUnit timeUnit) {
-            InterceptResult invokeJL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048606, this, j, timeUnit)) == null) {
-                this.readTimeout = Util.checkDuration(a.O, j, timeUnit);
-                return this;
-            }
-            return (Builder) invokeJL.objValue;
+            this.readTimeout = Util.checkDuration("timeout", j, timeUnit);
+            return this;
         }
 
         public Builder sslSocketFactory(SSLSocketFactory sSLSocketFactory, X509TrustManager x509TrustManager) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048612, this, sSLSocketFactory, x509TrustManager)) == null) {
-                if (sSLSocketFactory != null) {
-                    if (x509TrustManager != null) {
-                        this.sslSocketFactory = sSLSocketFactory;
-                        this.certificateChainCleaner = CertificateChainCleaner.get(x509TrustManager);
-                        return this;
-                    }
-                    throw new NullPointerException("trustManager == null");
+            if (sSLSocketFactory != null) {
+                if (x509TrustManager != null) {
+                    this.sslSocketFactory = sSLSocketFactory;
+                    this.certificateChainCleaner = CertificateChainCleaner.get(x509TrustManager);
+                    return this;
                 }
-                throw new NullPointerException("sslSocketFactory == null");
+                throw new NullPointerException("trustManager == null");
             }
-            return (Builder) invokeLL.objValue;
+            throw new NullPointerException("sslSocketFactory == null");
         }
 
         public Builder writeTimeout(long j, TimeUnit timeUnit) {
-            InterceptResult invokeJL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048613, this, j, timeUnit)) == null) {
-                this.writeTimeout = Util.checkDuration(a.O, j, timeUnit);
-                return this;
-            }
-            return (Builder) invokeJL.objValue;
+            this.writeTimeout = Util.checkDuration("timeout", j, timeUnit);
+            return this;
         }
     }
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(210185728, "Lokhttp3/OkHttpClient;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(210185728, "Lokhttp3/OkHttpClient;");
-                return;
-            }
-        }
-        DEFAULT_PROTOCOLS = Util.immutableList(Protocol.HTTP_2, Protocol.HTTP_1_1);
-        DEFAULT_CONNECTION_SPECS = Util.immutableList(ConnectionSpec.MODERN_TLS, ConnectionSpec.CLEARTEXT);
         Internal.instance = new Internal() { // from class: okhttp3.OkHttpClient.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
             @Override // okhttp3.internal.Internal
             public void addLenient(Headers.Builder builder, String str) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, builder, str) == null) {
-                    builder.addLenient(str);
-                }
+                builder.addLenient(str);
             }
 
             @Override // okhttp3.internal.Internal
             public boolean connectionBecameIdle(ConnectionPool connectionPool, RealConnection realConnection) {
-                InterceptResult invokeLL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048580, this, connectionPool, realConnection)) == null) {
-                    return connectionPool.connectionBecameIdle(realConnection);
-                }
-                return invokeLL.booleanValue;
+                return connectionPool.connectionBecameIdle(realConnection);
             }
 
             @Override // okhttp3.internal.Internal
             public boolean equalsNonHost(Address address, Address address2) {
-                InterceptResult invokeLL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048582, this, address, address2)) == null) {
-                    return address.equalsNonHost(address2);
-                }
-                return invokeLL.booleanValue;
+                return address.equalsNonHost(address2);
             }
 
             @Override // okhttp3.internal.Internal
             public Call newWebSocketCall(OkHttpClient okHttpClient, Request request) {
-                InterceptResult invokeLL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048585, this, okHttpClient, request)) == null) {
-                    return RealCall.newRealCall(okHttpClient, request, true);
-                }
-                return (Call) invokeLL.objValue;
+                return RealCall.newRealCall(okHttpClient, request, true);
             }
 
             @Override // okhttp3.internal.Internal
             public void put(ConnectionPool connectionPool, RealConnection realConnection) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048586, this, connectionPool, realConnection) == null) {
-                    connectionPool.put(realConnection);
-                }
+                connectionPool.put(realConnection);
             }
 
             @Override // okhttp3.internal.Internal
             public void setCache(Builder builder, InternalCache internalCache) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048588, this, builder, internalCache) == null) {
-                    builder.setInternalCache(internalCache);
-                }
+                builder.setInternalCache(internalCache);
             }
 
             @Override // okhttp3.internal.Internal
             @Nullable
             public IOException timeoutExit(Call call, @Nullable IOException iOException) {
-                InterceptResult invokeLL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048590, this, call, iOException)) == null) {
-                    return ((RealCall) call).timeoutExit(iOException);
-                }
-                return (IOException) invokeLL.objValue;
+                return ((RealCall) call).timeoutExit(iOException);
             }
 
             @Override // okhttp3.internal.Internal
             public void addLenient(Headers.Builder builder, String str, String str2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, builder, str, str2) == null) {
-                    builder.addLenient(str, str2);
-                }
+                builder.addLenient(str, str2);
             }
 
             @Override // okhttp3.internal.Internal
             public void apply(ConnectionSpec connectionSpec, SSLSocket sSLSocket, boolean z) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, connectionSpec, sSLSocket, z) == null) {
-                    connectionSpec.apply(sSLSocket, z);
-                }
+                connectionSpec.apply(sSLSocket, z);
             }
 
             @Override // okhttp3.internal.Internal
             public Socket deduplicate(ConnectionPool connectionPool, Address address, StreamAllocation streamAllocation) {
-                InterceptResult invokeLLL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048581, this, connectionPool, address, streamAllocation)) == null) {
-                    return connectionPool.deduplicate(address, streamAllocation);
-                }
-                return (Socket) invokeLLL.objValue;
+                return connectionPool.deduplicate(address, streamAllocation);
             }
 
             @Override // okhttp3.internal.Internal
             public int code(Response.Builder builder) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048579, this, builder)) == null) {
-                    return builder.code;
-                }
-                return invokeL.intValue;
+                return builder.code;
             }
 
             @Override // okhttp3.internal.Internal
             public boolean isInvalidHttpUrlHost(IllegalArgumentException illegalArgumentException) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, illegalArgumentException)) == null) {
-                    return illegalArgumentException.getMessage().startsWith("Invalid URL host");
-                }
-                return invokeL.booleanValue;
+                return illegalArgumentException.getMessage().startsWith("Invalid URL host");
             }
 
             @Override // okhttp3.internal.Internal
             public RouteDatabase routeDatabase(ConnectionPool connectionPool) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048587, this, connectionPool)) == null) {
-                    return connectionPool.routeDatabase;
-                }
-                return (RouteDatabase) invokeL.objValue;
+                return connectionPool.routeDatabase;
             }
 
             @Override // okhttp3.internal.Internal
             public StreamAllocation streamAllocation(Call call) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048589, this, call)) == null) {
-                    return ((RealCall) call).streamAllocation();
-                }
-                return (StreamAllocation) invokeL.objValue;
+                return ((RealCall) call).streamAllocation();
             }
 
             @Override // okhttp3.internal.Internal
             public RealConnection get(ConnectionPool connectionPool, Address address, StreamAllocation streamAllocation, Route route) {
-                InterceptResult invokeLLLL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLLLL = interceptable2.invokeLLLL(1048583, this, connectionPool, address, streamAllocation, route)) == null) {
-                    return connectionPool.get(address, streamAllocation, route);
-                }
-                return (RealConnection) invokeLLLL.objValue;
+                return connectionPool.get(address, streamAllocation, route);
             }
         };
         sDefaultFallbackConnectDealyMs = 0;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public OkHttpClient() {
         this(new Builder());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((Builder) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
     }
 
     public Authenticator authenticator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.authenticator;
-        }
-        return (Authenticator) invokeV.objValue;
+        return this.authenticator;
     }
 
     @Nullable
     public Cache cache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.cache;
-        }
-        return (Cache) invokeV.objValue;
+        return this.cache;
     }
 
     public int callTimeoutMillis() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.callTimeout;
-        }
-        return invokeV.intValue;
+        return this.callTimeout;
     }
 
     public CertificatePinner certificatePinner() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.certificatePinner;
-        }
-        return (CertificatePinner) invokeV.objValue;
+        return this.certificatePinner;
     }
 
     public int connectTimeoutMillis() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.connectTimeout;
-        }
-        return invokeV.intValue;
+        return this.connectTimeout;
     }
 
     public ConnectionPool connectionPool() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.connectionPool;
-        }
-        return (ConnectionPool) invokeV.objValue;
+        return this.connectionPool;
     }
 
     public List<ConnectionSpec> connectionSpecs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.connectionSpecs;
-        }
-        return (List) invokeV.objValue;
+        return this.connectionSpecs;
     }
 
     public CookieJar cookieJar() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.cookieJar;
-        }
-        return (CookieJar) invokeV.objValue;
+        return this.cookieJar;
     }
 
     public Dispatcher dispatcher() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.dispatcher;
-        }
-        return (Dispatcher) invokeV.objValue;
+        return this.dispatcher;
     }
 
     public Dns dns() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.dns;
-        }
-        return (Dns) invokeV.objValue;
+        return this.dns;
     }
 
     public EventListener.Factory eventListenerFactory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.eventListenerFactory;
-        }
-        return (EventListener.Factory) invokeV.objValue;
+        return this.eventListenerFactory;
     }
 
     public boolean followRedirects() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.followRedirects;
-        }
-        return invokeV.booleanValue;
+        return this.followRedirects;
     }
 
     public boolean followSslRedirects() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.followSslRedirects;
-        }
-        return invokeV.booleanValue;
+        return this.followSslRedirects;
     }
 
     public int getFallbackConnectDelayMs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.fallbackConnectDelayMs;
-        }
-        return invokeV.intValue;
+        return this.fallbackConnectDelayMs;
     }
 
     public PreConnectParams getPreConnectParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.preConnectParams;
-        }
-        return (PreConnectParams) invokeV.objValue;
+        return this.preConnectParams;
     }
 
     public HostnameVerifier hostnameVerifier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.hostnameVerifier;
-        }
-        return (HostnameVerifier) invokeV.objValue;
+        return this.hostnameVerifier;
     }
 
     public List<Interceptor> interceptors() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.interceptors;
-        }
-        return (List) invokeV.objValue;
+        return this.interceptors;
     }
 
     public InternalCache internalCache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            Cache cache = this.cache;
-            if (cache != null) {
-                return cache.internalCache;
-            }
-            return this.internalCache;
+        Cache cache = this.cache;
+        if (cache != null) {
+            return cache.internalCache;
         }
-        return (InternalCache) invokeV.objValue;
+        return this.internalCache;
     }
 
     public List<Interceptor> networkInterceptors() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.networkInterceptors;
-        }
-        return (List) invokeV.objValue;
+        return this.networkInterceptors;
     }
 
     public Builder newBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return new Builder(this);
-        }
-        return (Builder) invokeV.objValue;
+        return new Builder(this);
     }
 
     public int pingIntervalMillis() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return this.pingInterval;
-        }
-        return invokeV.intValue;
+        return this.pingInterval;
     }
 
     public List<Protocol> protocols() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return this.protocols;
-        }
-        return (List) invokeV.objValue;
+        return this.protocols;
     }
 
     @Nullable
     public Proxy proxy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.proxy;
-        }
-        return (Proxy) invokeV.objValue;
+        return this.proxy;
     }
 
     public Authenticator proxyAuthenticator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.proxyAuthenticator;
-        }
-        return (Authenticator) invokeV.objValue;
+        return this.proxyAuthenticator;
     }
 
     public ProxySelector proxySelector() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return this.proxySelector;
-        }
-        return (ProxySelector) invokeV.objValue;
+        return this.proxySelector;
     }
 
     public int readTimeoutMillis() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            return this.readTimeout;
-        }
-        return invokeV.intValue;
+        return this.readTimeout;
     }
 
     public boolean retryOnConnectionFailure() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            return this.retryOnConnectionFailure;
-        }
-        return invokeV.booleanValue;
+        return this.retryOnConnectionFailure;
     }
 
     public SocketFactory socketFactory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            return this.socketFactory;
-        }
-        return (SocketFactory) invokeV.objValue;
+        return this.socketFactory;
     }
 
     public SSLSocketFactory sslSocketFactory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            return this.sslSocketFactory;
-        }
-        return (SSLSocketFactory) invokeV.objValue;
+        return this.sslSocketFactory;
     }
 
     public int writeTimeoutMillis() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            return this.writeTimeout;
-        }
-        return invokeV.intValue;
+        return this.writeTimeout;
     }
 
     public OkHttpClient(Builder builder) {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.dispatcher = builder.dispatcher;
         this.proxy = builder.proxy;
         this.protocols = builder.protocols;
@@ -1227,63 +720,42 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
     }
 
     public static SSLSocketFactory newSslSocketFactory(X509TrustManager x509TrustManager) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, x509TrustManager)) == null) {
-            try {
-                SSLContext sSLContext = Platform.get().getSSLContext();
-                sSLContext.init(null, new TrustManager[]{x509TrustManager}, null);
-                return sSLContext.getSocketFactory();
-            } catch (GeneralSecurityException e) {
-                throw Util.assertionError("No System TLS", e);
-            }
+        try {
+            SSLContext sSLContext = Platform.get().getSSLContext();
+            sSLContext.init(null, new TrustManager[]{x509TrustManager}, null);
+            return sSLContext.getSocketFactory();
+        } catch (GeneralSecurityException e) {
+            throw Util.assertionError("No System TLS", e);
         }
-        return (SSLSocketFactory) invokeL.objValue;
     }
 
     public static void setDefaultFallbackConnectDealyMs(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) && i >= 0) {
+        if (i >= 0) {
             sDefaultFallbackConnectDealyMs = i;
         }
     }
 
     @Override // okhttp3.Call.Factory
     public Call newCall(Request request) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, request)) == null) {
-            return RealCall.newRealCall(this, request, false);
-        }
-        return (Call) invokeL.objValue;
+        return RealCall.newRealCall(this, request, false);
     }
 
     private boolean shouldStartPreConnect(PreConnectParams preConnectParams) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, preConnectParams)) == null) {
-            if (preConnectParams != null && preConnectParams.getPreConnectEnabled() && preConnectParams.getMaxPreConnectNum() > 0 && preConnectParams.getPreConnectDelayTimeMs() > 0 && preConnectParams.getMaxSingleHostPreConnectNum() > 0 && preConnectParams.getPreConnectPeriodTimeMs() > 0 && preConnectParams.getPreConnectUrlsAllowlist() != null && preConnectParams.getPreConnectUrlsAllowlist().size() > 0) {
-                if (preConnectParams.getPreConnectDelayUrlsWithNum() != null && preConnectParams.getPreConnectDelayUrlsWithNum().size() > 0) {
-                    return true;
-                }
-                if (preConnectParams.getPreConnectNoDelayUrlsWithNum() != null && preConnectParams.getPreConnectNoDelayUrlsWithNum().size() > 0) {
-                    return true;
-                }
+        if (preConnectParams != null && preConnectParams.getPreConnectEnabled() && preConnectParams.getMaxPreConnectNum() > 0 && preConnectParams.getPreConnectDelayTimeMs() > 0 && preConnectParams.getMaxSingleHostPreConnectNum() > 0 && preConnectParams.getPreConnectPeriodTimeMs() > 0 && preConnectParams.getPreConnectUrlsAllowlist() != null && preConnectParams.getPreConnectUrlsAllowlist().size() > 0) {
+            if (preConnectParams.getPreConnectDelayUrlsWithNum() != null && preConnectParams.getPreConnectDelayUrlsWithNum().size() > 0) {
+                return true;
             }
-            return false;
+            if (preConnectParams.getPreConnectNoDelayUrlsWithNum() != null && preConnectParams.getPreConnectNoDelayUrlsWithNum().size() > 0) {
+                return true;
+            }
         }
-        return invokeL.booleanValue;
+        return false;
     }
 
     @Override // okhttp3.WebSocket.Factory
     public WebSocket newWebSocket(Request request, WebSocketListener webSocketListener) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, request, webSocketListener)) == null) {
-            RealWebSocket realWebSocket = new RealWebSocket(request, webSocketListener, new Random(), this.pingInterval);
-            realWebSocket.connect(this);
-            return realWebSocket;
-        }
-        return (WebSocket) invokeLL.objValue;
+        RealWebSocket realWebSocket = new RealWebSocket(request, webSocketListener, new Random(), this.pingInterval);
+        realWebSocket.connect(this);
+        return realWebSocket;
     }
 }

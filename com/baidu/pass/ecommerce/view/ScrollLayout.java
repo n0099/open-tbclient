@@ -7,22 +7,12 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import android.widget.Scroller;
-import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.ecommerce.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class ScrollLayout extends FrameLayout {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final float DRAG_SPEED_MULTIPLIER = 1.2f;
     public static final int DRAG_SPEED_SLOP = 30;
     public static final int FLING_VELOCITY_SLOP = 80;
@@ -31,7 +21,6 @@ public class ScrollLayout extends FrameLayout {
     public static final int MOTION_DISTANCE_SLOP = 10;
     public static final float SCROLL_TO_CLOSE_OFFSET_FACTOR = 0.5f;
     public static final float SCROLL_TO_EXIT_OFFSET_FACTOR = 0.8f;
-    public transient /* synthetic */ FieldHolder $fh;
     public final RecyclerView.OnScrollListener associatedRecyclerViewListener;
     public int contentHeight;
     public InnerStatus currentInnerStatus;
@@ -54,6 +43,15 @@ public class ScrollLayout extends FrameLayout {
     public Scroller scroller;
 
     /* loaded from: classes2.dex */
+    public enum InnerStatus {
+        EXIT,
+        HALF,
+        OPENED,
+        MOVING,
+        SCROLLING
+    }
+
+    /* loaded from: classes2.dex */
     public interface OnScrollChangedListener {
         void onChildScroll(int i);
 
@@ -62,26 +60,19 @@ public class ScrollLayout extends FrameLayout {
         void onScrollProgressChanged(float f);
     }
 
+    /* loaded from: classes2.dex */
+    public enum Status {
+        EXIT,
+        HALF,
+        OPENED
+    }
+
     /* renamed from: com.baidu.pass.ecommerce.view.ScrollLayout$3  reason: invalid class name */
     /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$pass$ecommerce$view$ScrollLayout$InnerStatus;
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1661783382, "Lcom/baidu/pass/ecommerce/view/ScrollLayout$3;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1661783382, "Lcom/baidu/pass/ecommerce/view/ScrollLayout$3;");
-                    return;
-                }
-            }
             int[] iArr = new int[InnerStatus.values().length];
             $SwitchMap$com$baidu$pass$ecommerce$view$ScrollLayout$InnerStatus = iArr;
             try {
@@ -95,164 +86,8 @@ public class ScrollLayout extends FrameLayout {
         }
     }
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
-    public static final class InnerStatus {
-        public static final /* synthetic */ InnerStatus[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final InnerStatus EXIT;
-        public static final InnerStatus HALF;
-        public static final InnerStatus MOVING;
-        public static final InnerStatus OPENED;
-        public static final InnerStatus SCROLLING;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-775397067, "Lcom/baidu/pass/ecommerce/view/ScrollLayout$InnerStatus;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-775397067, "Lcom/baidu/pass/ecommerce/view/ScrollLayout$InnerStatus;");
-                    return;
-                }
-            }
-            EXIT = new InnerStatus("EXIT", 0);
-            HALF = new InnerStatus("HALF", 1);
-            OPENED = new InnerStatus("OPENED", 2);
-            MOVING = new InnerStatus("MOVING", 3);
-            InnerStatus innerStatus = new InnerStatus("SCROLLING", 4);
-            SCROLLING = innerStatus;
-            $VALUES = new InnerStatus[]{EXIT, HALF, OPENED, MOVING, innerStatus};
-        }
-
-        public InnerStatus(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public static InnerStatus valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                return (InnerStatus) Enum.valueOf(InnerStatus.class, str);
-            }
-            return (InnerStatus) invokeL.objValue;
-        }
-
-        public static InnerStatus[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return (InnerStatus[]) $VALUES.clone();
-            }
-            return (InnerStatus[]) invokeV.objValue;
-        }
-    }
-
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
-    public static final class Status {
-        public static final /* synthetic */ Status[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final Status EXIT;
-        public static final Status HALF;
-        public static final Status OPENED;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-85134489, "Lcom/baidu/pass/ecommerce/view/ScrollLayout$Status;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-85134489, "Lcom/baidu/pass/ecommerce/view/ScrollLayout$Status;");
-                    return;
-                }
-            }
-            EXIT = new Status("EXIT", 0);
-            HALF = new Status("HALF", 1);
-            Status status = new Status("OPENED", 2);
-            OPENED = status;
-            $VALUES = new Status[]{EXIT, HALF, status};
-        }
-
-        public Status(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public static Status valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                return (Status) Enum.valueOf(Status.class, str);
-            }
-            return (Status) invokeL.objValue;
-        }
-
-        public static Status[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return (Status[]) $VALUES.clone();
-            }
-            return (Status[]) invokeV.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ScrollLayout(Context context) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.lastFlingStatus = Status.OPENED;
         this.isEnable = true;
         this.isSupportExit = false;
@@ -264,175 +99,52 @@ public class ScrollLayout extends FrameLayout {
         this.maxOffset = 0;
         this.openedOffset = 0;
         this.exitOffset = 0;
-        this.gestureListener = new GestureDetector.SimpleOnGestureListener(this) { // from class: com.baidu.pass.ecommerce.view.ScrollLayout.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ScrollLayout this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
+        this.gestureListener = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.pass.ecommerce.view.ScrollLayout.1
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-                InterceptResult invokeCommon;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                    if (f2 > 80.0f) {
-                        if (!this.this$0.lastFlingStatus.equals(Status.HALF) || (-this.this$0.getScrollY()) <= this.this$0.maxOffset) {
-                            this.this$0.scrollToHalf();
-                            this.this$0.lastFlingStatus = Status.HALF;
-                        } else {
-                            this.this$0.lastFlingStatus = Status.EXIT;
-                            this.this$0.scrollToExit();
-                        }
-                        return true;
-                    }
-                    int i3 = (f2 > 80.0f ? 1 : (f2 == 80.0f ? 0 : -1));
-                    if (i3 < 0 && this.this$0.getScrollY() <= (-this.this$0.maxOffset)) {
-                        this.this$0.scrollToHalf();
-                        this.this$0.lastFlingStatus = Status.HALF;
-                        return true;
-                    } else if (i3 < 0 && this.this$0.getScrollY() > (-this.this$0.maxOffset)) {
-                        this.this$0.scrollToOpened();
-                        this.this$0.lastFlingStatus = Status.OPENED;
-                        return true;
+                if (f2 > 80.0f) {
+                    if (ScrollLayout.this.lastFlingStatus.equals(Status.HALF) && (-ScrollLayout.this.getScrollY()) > ScrollLayout.this.maxOffset) {
+                        ScrollLayout.this.lastFlingStatus = Status.EXIT;
+                        ScrollLayout.this.scrollToExit();
                     } else {
-                        return false;
+                        ScrollLayout.this.scrollToHalf();
+                        ScrollLayout.this.lastFlingStatus = Status.HALF;
                     }
+                    return true;
                 }
-                return invokeCommon.booleanValue;
+                int i = (f2 > 80.0f ? 1 : (f2 == 80.0f ? 0 : -1));
+                if (i < 0 && ScrollLayout.this.getScrollY() <= (-ScrollLayout.this.maxOffset)) {
+                    ScrollLayout.this.scrollToHalf();
+                    ScrollLayout.this.lastFlingStatus = Status.HALF;
+                    return true;
+                } else if (i < 0 && ScrollLayout.this.getScrollY() > (-ScrollLayout.this.maxOffset)) {
+                    ScrollLayout.this.scrollToOpened();
+                    ScrollLayout.this.lastFlingStatus = Status.OPENED;
+                    return true;
+                } else {
+                    return false;
+                }
             }
         };
-        this.associatedRecyclerViewListener = new RecyclerView.OnScrollListener(this) { // from class: com.baidu.pass.ecommerce.view.ScrollLayout.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ScrollLayout this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
+        this.associatedRecyclerViewListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.pass.ecommerce.view.ScrollLayout.2
+            @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
+            public void onScrollStateChanged(RecyclerView recyclerView, int i) {
+                super.onScrollStateChanged(recyclerView, i);
+                ScrollLayout.this.updateRecyclerViewScrollState(recyclerView);
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrollStateChanged(RecyclerView recyclerView, int i3) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView, i3) == null) {
-                    super.onScrollStateChanged(recyclerView, i3);
-                    this.this$0.updateRecyclerViewScrollState(recyclerView);
-                }
-            }
-
-            @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrolled(RecyclerView recyclerView, int i3, int i4) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i3, i4) == null) {
-                    super.onScrolled(recyclerView, i3, i4);
-                    this.this$0.updateRecyclerViewScrollState(recyclerView);
-                }
+            public void onScrolled(RecyclerView recyclerView, int i, int i2) {
+                super.onScrolled(recyclerView, i, i2);
+                ScrollLayout.this.updateRecyclerViewScrollState(recyclerView);
             }
         };
         this.scroller = new Scroller(getContext(), null, true);
         this.gestureDetector = new GestureDetector(getContext(), this.gestureListener);
     }
 
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
-            if (!this.isCurrentPointerIntercepted) {
-                return false;
-            }
-            this.gestureDetector.onTouchEvent(motionEvent);
-            int action = motionEvent.getAction();
-            if (action != 0) {
-                if (action != 1) {
-                    if (action != 2) {
-                        if (action != 3) {
-                            return false;
-                        }
-                    } else {
-                        int y = (int) ((motionEvent.getY() - this.lastY) * 1.2f);
-                        int signum = ((int) Math.signum(y)) * Math.min(Math.abs(y), 30);
-                        if (disposeEdgeValue(signum)) {
-                            return true;
-                        }
-                        this.currentInnerStatus = InnerStatus.MOVING;
-                        int scrollY = getScrollY() - signum;
-                        int i = -this.openedOffset;
-                        if (scrollY >= i) {
-                            scrollTo(0, i);
-                        } else {
-                            int i2 = -this.maxOffset;
-                            if (scrollY <= i2 && !this.isSupportExit) {
-                                scrollTo(0, i2);
-                            } else {
-                                scrollTo(0, scrollY);
-                            }
-                        }
-                        this.lastY = motionEvent.getY();
-                        return true;
-                    }
-                }
-                if (this.currentInnerStatus != InnerStatus.MOVING) {
-                    return false;
-                }
-                completeMove();
-                return true;
-            }
-            this.lastY = motionEvent.getY();
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ScrollLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.lastFlingStatus = Status.OPENED;
         this.isEnable = true;
         this.isSupportExit = false;
@@ -444,99 +156,44 @@ public class ScrollLayout extends FrameLayout {
         this.maxOffset = 0;
         this.openedOffset = 0;
         this.exitOffset = 0;
-        this.gestureListener = new GestureDetector.SimpleOnGestureListener(this) { // from class: com.baidu.pass.ecommerce.view.ScrollLayout.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ScrollLayout this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = objArr2;
-                    Object[] objArr22 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
+        this.gestureListener = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.pass.ecommerce.view.ScrollLayout.1
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-                InterceptResult invokeCommon;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                    if (f2 > 80.0f) {
-                        if (!this.this$0.lastFlingStatus.equals(Status.HALF) || (-this.this$0.getScrollY()) <= this.this$0.maxOffset) {
-                            this.this$0.scrollToHalf();
-                            this.this$0.lastFlingStatus = Status.HALF;
-                        } else {
-                            this.this$0.lastFlingStatus = Status.EXIT;
-                            this.this$0.scrollToExit();
-                        }
-                        return true;
-                    }
-                    int i3 = (f2 > 80.0f ? 1 : (f2 == 80.0f ? 0 : -1));
-                    if (i3 < 0 && this.this$0.getScrollY() <= (-this.this$0.maxOffset)) {
-                        this.this$0.scrollToHalf();
-                        this.this$0.lastFlingStatus = Status.HALF;
-                        return true;
-                    } else if (i3 < 0 && this.this$0.getScrollY() > (-this.this$0.maxOffset)) {
-                        this.this$0.scrollToOpened();
-                        this.this$0.lastFlingStatus = Status.OPENED;
-                        return true;
+                if (f2 > 80.0f) {
+                    if (ScrollLayout.this.lastFlingStatus.equals(Status.HALF) && (-ScrollLayout.this.getScrollY()) > ScrollLayout.this.maxOffset) {
+                        ScrollLayout.this.lastFlingStatus = Status.EXIT;
+                        ScrollLayout.this.scrollToExit();
                     } else {
-                        return false;
+                        ScrollLayout.this.scrollToHalf();
+                        ScrollLayout.this.lastFlingStatus = Status.HALF;
                     }
+                    return true;
                 }
-                return invokeCommon.booleanValue;
+                int i = (f2 > 80.0f ? 1 : (f2 == 80.0f ? 0 : -1));
+                if (i < 0 && ScrollLayout.this.getScrollY() <= (-ScrollLayout.this.maxOffset)) {
+                    ScrollLayout.this.scrollToHalf();
+                    ScrollLayout.this.lastFlingStatus = Status.HALF;
+                    return true;
+                } else if (i < 0 && ScrollLayout.this.getScrollY() > (-ScrollLayout.this.maxOffset)) {
+                    ScrollLayout.this.scrollToOpened();
+                    ScrollLayout.this.lastFlingStatus = Status.OPENED;
+                    return true;
+                } else {
+                    return false;
+                }
             }
         };
-        this.associatedRecyclerViewListener = new RecyclerView.OnScrollListener(this) { // from class: com.baidu.pass.ecommerce.view.ScrollLayout.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ScrollLayout this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = objArr2;
-                    Object[] objArr22 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
+        this.associatedRecyclerViewListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.pass.ecommerce.view.ScrollLayout.2
+            @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
+            public void onScrollStateChanged(RecyclerView recyclerView, int i) {
+                super.onScrollStateChanged(recyclerView, i);
+                ScrollLayout.this.updateRecyclerViewScrollState(recyclerView);
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrollStateChanged(RecyclerView recyclerView, int i3) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView, i3) == null) {
-                    super.onScrollStateChanged(recyclerView, i3);
-                    this.this$0.updateRecyclerViewScrollState(recyclerView);
-                }
-            }
-
-            @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrolled(RecyclerView recyclerView, int i3, int i4) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i3, i4) == null) {
-                    super.onScrolled(recyclerView, i3, i4);
-                    this.this$0.updateRecyclerViewScrollState(recyclerView);
-                }
+            public void onScrolled(RecyclerView recyclerView, int i, int i2) {
+                super.onScrolled(recyclerView, i, i2);
+                ScrollLayout.this.updateRecyclerViewScrollState(recyclerView);
             }
         };
         this.scroller = new Scroller(getContext(), null, true);
@@ -544,101 +201,46 @@ public class ScrollLayout extends FrameLayout {
         initFromAttributes(context, attributeSet);
     }
 
-    private void initFromAttributes(Context context, AttributeSet attributeSet) {
-        int dimensionPixelOffset;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.SapiSdkScrollLayout);
-            if (obtainStyledAttributes.hasValue(2) && (dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(2, this.maxOffset)) != getContentHeight()) {
-                this.maxOffset = getContentHeight() - dimensionPixelOffset;
-            }
-            if (obtainStyledAttributes.hasValue(5)) {
-                this.openedOffset = obtainStyledAttributes.getDimensionPixelOffset(5, this.openedOffset);
-            } else if (obtainStyledAttributes.hasValue(1)) {
-                int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(1, getContentHeight());
-                if (dimensionPixelOffset2 != getContentHeight()) {
-                    this.exitOffset = getContentHeight() - dimensionPixelOffset2;
-                }
-            } else if (obtainStyledAttributes.hasValue(0)) {
-                this.isAllowHorizontalScroll = obtainStyledAttributes.getBoolean(0, true);
-            } else if (obtainStyledAttributes.hasValue(3)) {
-                this.isSupportExit = obtainStyledAttributes.getBoolean(3, true);
-            } else if (obtainStyledAttributes.hasValue(4)) {
-                int integer = obtainStyledAttributes.getInteger(4, 0);
-                if (integer != 0) {
-                    if (integer != 2) {
-                        setToOpen();
-                    } else {
-                        setToExit();
-                    }
-                } else {
-                    setHalf();
-                }
-            }
-            obtainStyledAttributes.recycle();
-        }
-    }
-
     @Override // android.view.View
     public void scrollTo(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
-            super.scrollTo(i, i2);
-            int i3 = this.maxOffset;
-            int i4 = this.openedOffset;
-            if (i3 == i4) {
-                return;
+        super.scrollTo(i, i2);
+        int i3 = this.maxOffset;
+        int i4 = this.openedOffset;
+        if (i3 == i4) {
+            return;
+        }
+        int i5 = -i2;
+        if (i5 <= i3) {
+            onScrollProgressChanged((i5 - i4) / (i3 - i4));
+        } else {
+            onScrollProgressChanged((i5 - i3) / (i3 - this.exitOffset));
+        }
+        if (i2 == (-this.openedOffset)) {
+            InnerStatus innerStatus = this.currentInnerStatus;
+            InnerStatus innerStatus2 = InnerStatus.OPENED;
+            if (innerStatus != innerStatus2) {
+                this.currentInnerStatus = innerStatus2;
+                onScrollFinished(Status.OPENED);
             }
-            int i5 = -i2;
-            if (i5 <= i3) {
-                onScrollProgressChanged((i5 - i4) / (i3 - i4));
-            } else {
-                onScrollProgressChanged((i5 - i3) / (i3 - this.exitOffset));
+        } else if (i2 == (-this.maxOffset)) {
+            InnerStatus innerStatus3 = this.currentInnerStatus;
+            InnerStatus innerStatus4 = InnerStatus.HALF;
+            if (innerStatus3 != innerStatus4) {
+                this.currentInnerStatus = innerStatus4;
+                onScrollFinished(Status.HALF);
             }
-            if (i2 == (-this.openedOffset)) {
-                InnerStatus innerStatus = this.currentInnerStatus;
-                InnerStatus innerStatus2 = InnerStatus.OPENED;
-                if (innerStatus != innerStatus2) {
-                    this.currentInnerStatus = innerStatus2;
-                    onScrollFinished(Status.OPENED);
-                }
-            } else if (i2 == (-this.maxOffset)) {
-                InnerStatus innerStatus3 = this.currentInnerStatus;
-                InnerStatus innerStatus4 = InnerStatus.HALF;
-                if (innerStatus3 != innerStatus4) {
-                    this.currentInnerStatus = innerStatus4;
-                    onScrollFinished(Status.HALF);
-                }
-            } else if (this.isSupportExit && i2 == (-this.exitOffset)) {
-                InnerStatus innerStatus5 = this.currentInnerStatus;
-                InnerStatus innerStatus6 = InnerStatus.EXIT;
-                if (innerStatus5 != innerStatus6) {
-                    this.currentInnerStatus = innerStatus6;
-                    onScrollFinished(Status.EXIT);
-                }
+        } else if (this.isSupportExit && i2 == (-this.exitOffset)) {
+            InnerStatus innerStatus5 = this.currentInnerStatus;
+            InnerStatus innerStatus6 = InnerStatus.EXIT;
+            if (innerStatus5 != innerStatus6) {
+                this.currentInnerStatus = innerStatus6;
+                onScrollFinished(Status.EXIT);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ScrollLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.lastFlingStatus = Status.OPENED;
         this.isEnable = true;
         this.isSupportExit = false;
@@ -650,99 +252,44 @@ public class ScrollLayout extends FrameLayout {
         this.maxOffset = 0;
         this.openedOffset = 0;
         this.exitOffset = 0;
-        this.gestureListener = new GestureDetector.SimpleOnGestureListener(this) { // from class: com.baidu.pass.ecommerce.view.ScrollLayout.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ScrollLayout this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = objArr22;
-                    Object[] objArr22 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i32 = newInitContext2.flag;
-                    if ((i32 & 1) != 0) {
-                        int i4 = i32 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
+        this.gestureListener = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.pass.ecommerce.view.ScrollLayout.1
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-                InterceptResult invokeCommon;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                    if (f2 > 80.0f) {
-                        if (!this.this$0.lastFlingStatus.equals(Status.HALF) || (-this.this$0.getScrollY()) <= this.this$0.maxOffset) {
-                            this.this$0.scrollToHalf();
-                            this.this$0.lastFlingStatus = Status.HALF;
-                        } else {
-                            this.this$0.lastFlingStatus = Status.EXIT;
-                            this.this$0.scrollToExit();
-                        }
-                        return true;
-                    }
-                    int i32 = (f2 > 80.0f ? 1 : (f2 == 80.0f ? 0 : -1));
-                    if (i32 < 0 && this.this$0.getScrollY() <= (-this.this$0.maxOffset)) {
-                        this.this$0.scrollToHalf();
-                        this.this$0.lastFlingStatus = Status.HALF;
-                        return true;
-                    } else if (i32 < 0 && this.this$0.getScrollY() > (-this.this$0.maxOffset)) {
-                        this.this$0.scrollToOpened();
-                        this.this$0.lastFlingStatus = Status.OPENED;
-                        return true;
+                if (f2 > 80.0f) {
+                    if (ScrollLayout.this.lastFlingStatus.equals(Status.HALF) && (-ScrollLayout.this.getScrollY()) > ScrollLayout.this.maxOffset) {
+                        ScrollLayout.this.lastFlingStatus = Status.EXIT;
+                        ScrollLayout.this.scrollToExit();
                     } else {
-                        return false;
+                        ScrollLayout.this.scrollToHalf();
+                        ScrollLayout.this.lastFlingStatus = Status.HALF;
                     }
+                    return true;
                 }
-                return invokeCommon.booleanValue;
+                int i2 = (f2 > 80.0f ? 1 : (f2 == 80.0f ? 0 : -1));
+                if (i2 < 0 && ScrollLayout.this.getScrollY() <= (-ScrollLayout.this.maxOffset)) {
+                    ScrollLayout.this.scrollToHalf();
+                    ScrollLayout.this.lastFlingStatus = Status.HALF;
+                    return true;
+                } else if (i2 < 0 && ScrollLayout.this.getScrollY() > (-ScrollLayout.this.maxOffset)) {
+                    ScrollLayout.this.scrollToOpened();
+                    ScrollLayout.this.lastFlingStatus = Status.OPENED;
+                    return true;
+                } else {
+                    return false;
+                }
             }
         };
-        this.associatedRecyclerViewListener = new RecyclerView.OnScrollListener(this) { // from class: com.baidu.pass.ecommerce.view.ScrollLayout.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ScrollLayout this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = objArr22;
-                    Object[] objArr22 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i32 = newInitContext2.flag;
-                    if ((i32 & 1) != 0) {
-                        int i4 = i32 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
+        this.associatedRecyclerViewListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.pass.ecommerce.view.ScrollLayout.2
+            @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
+            public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
+                super.onScrollStateChanged(recyclerView, i2);
+                ScrollLayout.this.updateRecyclerViewScrollState(recyclerView);
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrollStateChanged(RecyclerView recyclerView, int i32) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView, i32) == null) {
-                    super.onScrollStateChanged(recyclerView, i32);
-                    this.this$0.updateRecyclerViewScrollState(recyclerView);
-                }
-            }
-
-            @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrolled(RecyclerView recyclerView, int i32, int i4) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i32, i4) == null) {
-                    super.onScrolled(recyclerView, i32, i4);
-                    this.this$0.updateRecyclerViewScrollState(recyclerView);
-                }
+            public void onScrolled(RecyclerView recyclerView, int i2, int i22) {
+                super.onScrolled(recyclerView, i2, i22);
+                ScrollLayout.this.updateRecyclerViewScrollState(recyclerView);
             }
         };
         this.scroller = new Scroller(getContext(), null, true);
@@ -751,200 +298,152 @@ public class ScrollLayout extends FrameLayout {
     }
 
     private void onScrollFinished(Status status) {
-        OnScrollChangedListener onScrollChangedListener;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65546, this, status) == null) && (onScrollChangedListener = this.onScrollChangedListener) != null) {
+        OnScrollChangedListener onScrollChangedListener = this.onScrollChangedListener;
+        if (onScrollChangedListener != null) {
             onScrollChangedListener.onScrollFinished(status);
         }
     }
 
     private void onScrollProgressChanged(float f) {
-        OnScrollChangedListener onScrollChangedListener;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(65547, this, f) == null) && (onScrollChangedListener = this.onScrollChangedListener) != null) {
+        OnScrollChangedListener onScrollChangedListener = this.onScrollChangedListener;
+        if (onScrollChangedListener != null) {
             onScrollChangedListener.onScrollProgressChanged(f);
         }
     }
 
     public void setAllowHorizontalScroll(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.isAllowHorizontalScroll = z;
-        }
+        this.isAllowHorizontalScroll = z;
     }
 
     public void setAssociatedRecyclerView(RecyclerView recyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, recyclerView) == null) {
-            recyclerView.addOnScrollListener(this.associatedRecyclerViewListener);
-            updateRecyclerViewScrollState(recyclerView);
-        }
+        recyclerView.addOnScrollListener(this.associatedRecyclerViewListener);
+        updateRecyclerViewScrollState(recyclerView);
     }
 
     public void setContentHeight(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.contentHeight = i;
-        }
+        this.contentHeight = i;
     }
 
     public void setDraggable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.isDraggable = z;
-        }
+        this.isDraggable = z;
     }
 
     public void setEnable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.isEnable = z;
-        }
+        this.isEnable = z;
     }
 
     public void setExitOffset(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.exitOffset = getContentHeight() - i;
-        }
+        this.exitOffset = getContentHeight() - i;
     }
 
     public void setHalfOffset(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            this.maxOffset = getContentHeight() - i;
-        }
+        this.maxOffset = getContentHeight() - i;
     }
 
     public void setIsSupportExit(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.isSupportExit = z;
-        }
+        this.isSupportExit = z;
     }
 
     public void setOnScrollChangedListener(OnScrollChangedListener onScrollChangedListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, onScrollChangedListener) == null) {
-            this.onScrollChangedListener = onScrollChangedListener;
-        }
+        this.onScrollChangedListener = onScrollChangedListener;
     }
 
     public void setOpenedOffset(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            this.openedOffset = i;
-        }
+        this.openedOffset = i;
     }
 
     private void completeMove() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            float f = -((this.maxOffset - this.openedOffset) * 0.5f);
-            if (getScrollY() > f) {
-                scrollToOpened();
-            } else if (this.isSupportExit) {
-                int i = this.exitOffset;
-                int i2 = this.maxOffset;
-                float f2 = -(((i - i2) * 0.8f) + i2);
-                if (getScrollY() <= f && getScrollY() > f2) {
-                    scrollToHalf();
-                } else {
-                    scrollToExit();
-                }
-            } else {
+        float f = -((this.maxOffset - this.openedOffset) * 0.5f);
+        if (getScrollY() > f) {
+            scrollToOpened();
+        } else if (this.isSupportExit) {
+            int i = this.exitOffset;
+            int i2 = this.maxOffset;
+            float f2 = -(((i - i2) * 0.8f) + i2);
+            if (getScrollY() <= f && getScrollY() > f2) {
                 scrollToHalf();
+            } else {
+                scrollToExit();
             }
+        } else {
+            scrollToHalf();
         }
-    }
-
-    public void scrollToExit() {
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || !this.isSupportExit || this.currentInnerStatus == InnerStatus.EXIT || this.exitOffset == this.maxOffset || (i2 = (-getScrollY()) - (i = this.exitOffset)) == 0) {
-            return;
-        }
-        this.currentInnerStatus = InnerStatus.SCROLLING;
-        this.scroller.startScroll(0, getScrollY(), 0, i2, Math.abs((i2 * 300) / (i - this.maxOffset)) + 100);
-        invalidate();
-    }
-
-    public void scrollToHalf() {
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || this.currentInnerStatus == InnerStatus.HALF || this.maxOffset == this.openedOffset || (i2 = (-getScrollY()) - (i = this.maxOffset)) == 0) {
-            return;
-        }
-        this.currentInnerStatus = InnerStatus.SCROLLING;
-        this.scroller.startScroll(0, getScrollY(), 0, i2, Math.abs((i2 * 300) / (i - this.openedOffset)) + 100);
-        invalidate();
-    }
-
-    public void scrollToOpened() {
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || this.currentInnerStatus == InnerStatus.OPENED || this.maxOffset == this.openedOffset || (i2 = (-getScrollY()) - (i = this.openedOffset)) == 0) {
-            return;
-        }
-        this.currentInnerStatus = InnerStatus.SCROLLING;
-        this.scroller.startScroll(0, getScrollY(), 0, i2, Math.abs((i2 * 300) / (this.maxOffset - i)) + 100);
-        invalidate();
     }
 
     private boolean disposeEdgeValue(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i)) == null) {
-            if (this.isSupportExit) {
-                if (i <= 0 && getScrollY() >= (-this.openedOffset)) {
-                    return true;
-                }
-                if (i >= 0 && getScrollY() <= (-this.exitOffset)) {
-                    return true;
-                }
-                return false;
-            } else if (i <= 0 && getScrollY() >= (-this.openedOffset)) {
+        if (this.isSupportExit) {
+            if (i <= 0 && getScrollY() >= (-this.openedOffset)) {
                 return true;
-            } else {
-                if (i >= 0 && getScrollY() <= (-this.maxOffset)) {
-                    return true;
-                }
-                return false;
             }
+            if (i >= 0 && getScrollY() <= (-this.exitOffset)) {
+                return true;
+            }
+            return false;
+        } else if (i <= 0 && getScrollY() >= (-this.openedOffset)) {
+            return true;
+        } else {
+            if (i >= 0 && getScrollY() <= (-this.maxOffset)) {
+                return true;
+            }
+            return false;
         }
-        return invokeI.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateRecyclerViewScrollState(RecyclerView recyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, this, recyclerView) == null) {
-            if (recyclerView.getChildCount() == 0) {
-                setDraggable(true);
-                return;
+        if (recyclerView.getChildCount() == 0) {
+            setDraggable(true);
+            return;
+        }
+        RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
+        int[] iArr = new int[1];
+        if (layoutManager instanceof LinearLayoutManager) {
+            iArr[0] = ((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition();
+        } else if (layoutManager instanceof StaggeredGridLayoutManager) {
+            iArr = ((StaggeredGridLayoutManager) layoutManager).findFirstVisibleItemPositions(null);
+        }
+        if (iArr[0] == 0 && recyclerView.getChildAt(0).getTop() == recyclerView.getPaddingTop()) {
+            setDraggable(true);
+        } else {
+            setDraggable(false);
+        }
+    }
+
+    private void initFromAttributes(Context context, AttributeSet attributeSet) {
+        int dimensionPixelOffset;
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.SapiSdkScrollLayout);
+        if (obtainStyledAttributes.hasValue(2) && (dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(2, this.maxOffset)) != getContentHeight()) {
+            this.maxOffset = getContentHeight() - dimensionPixelOffset;
+        }
+        if (obtainStyledAttributes.hasValue(5)) {
+            this.openedOffset = obtainStyledAttributes.getDimensionPixelOffset(5, this.openedOffset);
+        } else if (obtainStyledAttributes.hasValue(1)) {
+            int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(1, getContentHeight());
+            if (dimensionPixelOffset2 != getContentHeight()) {
+                this.exitOffset = getContentHeight() - dimensionPixelOffset2;
             }
-            RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
-            int[] iArr = new int[1];
-            if (layoutManager instanceof LinearLayoutManager) {
-                iArr[0] = ((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition();
-            } else if (layoutManager instanceof StaggeredGridLayoutManager) {
-                iArr = ((StaggeredGridLayoutManager) layoutManager).findFirstVisibleItemPositions(null);
-            }
-            if (iArr[0] == 0 && recyclerView.getChildAt(0).getTop() == recyclerView.getPaddingTop()) {
-                setDraggable(true);
+        } else if (obtainStyledAttributes.hasValue(0)) {
+            this.isAllowHorizontalScroll = obtainStyledAttributes.getBoolean(0, true);
+        } else if (obtainStyledAttributes.hasValue(3)) {
+            this.isSupportExit = obtainStyledAttributes.getBoolean(3, true);
+        } else if (obtainStyledAttributes.hasValue(4)) {
+            int integer = obtainStyledAttributes.getInteger(4, 0);
+            if (integer != 0) {
+                if (integer != 2) {
+                    setToOpen();
+                } else {
+                    setToExit();
+                }
             } else {
-                setDraggable(false);
+                setHalf();
             }
         }
+        obtainStyledAttributes.recycle();
     }
 
     @Override // android.view.View
     public void computeScroll() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.scroller.isFinished() && this.scroller.computeScrollOffset()) {
+        if (!this.scroller.isFinished() && this.scroller.computeScrollOffset()) {
             int currY = this.scroller.getCurrY();
             scrollTo(0, currY);
             if (currY != (-this.openedOffset) && currY != (-this.maxOffset) && (!this.isSupportExit || currY != (-this.exitOffset))) {
@@ -955,70 +454,74 @@ public class ScrollLayout extends FrameLayout {
         }
     }
 
-    public int getContentHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.contentHeight;
+    public void scrollToExit() {
+        int i;
+        int i2;
+        if (!this.isSupportExit || this.currentInnerStatus == InnerStatus.EXIT || this.exitOffset == this.maxOffset || (i2 = (-getScrollY()) - (i = this.exitOffset)) == 0) {
+            return;
         }
-        return invokeV.intValue;
+        this.currentInnerStatus = InnerStatus.SCROLLING;
+        this.scroller.startScroll(0, getScrollY(), 0, i2, Math.abs((i2 * 300) / (i - this.maxOffset)) + 100);
+        invalidate();
+    }
+
+    public void scrollToHalf() {
+        int i;
+        int i2;
+        if (this.currentInnerStatus == InnerStatus.HALF || this.maxOffset == this.openedOffset || (i2 = (-getScrollY()) - (i = this.maxOffset)) == 0) {
+            return;
+        }
+        this.currentInnerStatus = InnerStatus.SCROLLING;
+        this.scroller.startScroll(0, getScrollY(), 0, i2, Math.abs((i2 * 300) / (i - this.openedOffset)) + 100);
+        invalidate();
+    }
+
+    public void scrollToOpened() {
+        int i;
+        int i2;
+        if (this.currentInnerStatus == InnerStatus.OPENED || this.maxOffset == this.openedOffset || (i2 = (-getScrollY()) - (i = this.openedOffset)) == 0) {
+            return;
+        }
+        this.currentInnerStatus = InnerStatus.SCROLLING;
+        this.scroller.startScroll(0, getScrollY(), 0, i2, Math.abs((i2 * 300) / (this.maxOffset - i)) + 100);
+        invalidate();
+    }
+
+    public int getContentHeight() {
+        return this.contentHeight;
     }
 
     public Status getCurrentStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = AnonymousClass3.$SwitchMap$com$baidu$pass$ecommerce$view$ScrollLayout$InnerStatus[this.currentInnerStatus.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    return Status.HALF;
-                }
-                return Status.EXIT;
+        int i = AnonymousClass3.$SwitchMap$com$baidu$pass$ecommerce$view$ScrollLayout$InnerStatus[this.currentInnerStatus.ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                return Status.HALF;
             }
-            return Status.OPENED;
+            return Status.EXIT;
         }
-        return (Status) invokeV.objValue;
+        return Status.OPENED;
     }
 
     public boolean isAllowHorizontalScroll() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.isAllowHorizontalScroll;
-        }
-        return invokeV.booleanValue;
+        return this.isAllowHorizontalScroll;
     }
 
     public boolean isDraggable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.isDraggable;
-        }
-        return invokeV.booleanValue;
+        return this.isDraggable;
     }
 
     public boolean isSupportExit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.isSupportExit;
-        }
-        return invokeV.booleanValue;
+        return this.isSupportExit;
     }
 
     public void setHalf() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            scrollTo(0, -this.maxOffset);
-            this.currentInnerStatus = InnerStatus.HALF;
-            this.lastFlingStatus = Status.HALF;
-        }
+        scrollTo(0, -this.maxOffset);
+        this.currentInnerStatus = InnerStatus.HALF;
+        this.lastFlingStatus = Status.HALF;
     }
 
     public void setToExit() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048599, this) != null) || !this.isSupportExit) {
+        if (!this.isSupportExit) {
             return;
         }
         scrollTo(0, -this.exitOffset);
@@ -1026,94 +529,129 @@ public class ScrollLayout extends FrameLayout {
     }
 
     public void setToOpen() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            scrollTo(0, -this.openedOffset);
-            this.currentInnerStatus = InnerStatus.OPENED;
-            this.lastFlingStatus = Status.OPENED;
-        }
+        scrollTo(0, -this.openedOffset);
+        this.currentInnerStatus = InnerStatus.OPENED;
+        this.lastFlingStatus = Status.OPENED;
     }
 
     public void showOrHide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            InnerStatus innerStatus = this.currentInnerStatus;
-            if (innerStatus == InnerStatus.HALF) {
-                scrollToOpened();
-            } else if (innerStatus == InnerStatus.OPENED) {
-                scrollToHalf();
-            }
+        InnerStatus innerStatus = this.currentInnerStatus;
+        if (innerStatus == InnerStatus.HALF) {
+            scrollToOpened();
+        } else if (innerStatus == InnerStatus.OPENED) {
+            scrollToHalf();
         }
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
-            if (!this.isEnable) {
-                return false;
-            }
-            if (!this.isDraggable && this.currentInnerStatus == InnerStatus.OPENED) {
-                return false;
-            }
-            int action = motionEvent.getAction();
-            if (action != 0) {
-                if (action != 1) {
-                    if (action != 2) {
-                        if (action != 3) {
-                            return false;
-                        }
-                    } else if (!this.isAllowPointerIntercepted) {
+        if (!this.isEnable) {
+            return false;
+        }
+        if (!this.isDraggable && this.currentInnerStatus == InnerStatus.OPENED) {
+            return false;
+        }
+        int action = motionEvent.getAction();
+        if (action != 0) {
+            if (action != 1) {
+                if (action != 2) {
+                    if (action != 3) {
                         return false;
-                    } else {
-                        if (this.isCurrentPointerIntercepted) {
-                            return true;
-                        }
-                        int y = (int) (motionEvent.getY() - this.lastDownY);
-                        int x = (int) (motionEvent.getX() - this.lastDownX);
-                        if (Math.abs(y) < 10) {
-                            return false;
-                        }
-                        if (Math.abs(y) < Math.abs(x) && this.isAllowHorizontalScroll) {
-                            this.isAllowPointerIntercepted = false;
-                            this.isCurrentPointerIntercepted = false;
-                            return false;
-                        }
-                        InnerStatus innerStatus = this.currentInnerStatus;
-                        if (innerStatus == InnerStatus.OPENED) {
-                            if (y < 0) {
-                                return false;
-                            }
-                        } else if (innerStatus == InnerStatus.HALF && !this.isSupportExit && y > 0) {
-                            return false;
-                        }
-                        this.isCurrentPointerIntercepted = true;
+                    }
+                } else if (!this.isAllowPointerIntercepted) {
+                    return false;
+                } else {
+                    if (this.isCurrentPointerIntercepted) {
                         return true;
                     }
-                }
-                this.isAllowPointerIntercepted = true;
-                this.isCurrentPointerIntercepted = false;
-                if (this.currentInnerStatus == InnerStatus.MOVING) {
-                    return true;
-                }
-            } else {
-                float x2 = motionEvent.getX();
-                float y2 = motionEvent.getY();
-                this.lastY = y2;
-                this.lastDownX = x2;
-                this.lastDownY = y2;
-                this.isAllowPointerIntercepted = true;
-                this.isCurrentPointerIntercepted = false;
-                if (!this.scroller.isFinished()) {
-                    this.scroller.forceFinished(true);
-                    this.currentInnerStatus = InnerStatus.MOVING;
+                    int y = (int) (motionEvent.getY() - this.lastDownY);
+                    int x = (int) (motionEvent.getX() - this.lastDownX);
+                    if (Math.abs(y) < 10) {
+                        return false;
+                    }
+                    if (Math.abs(y) < Math.abs(x) && this.isAllowHorizontalScroll) {
+                        this.isAllowPointerIntercepted = false;
+                        this.isCurrentPointerIntercepted = false;
+                        return false;
+                    }
+                    InnerStatus innerStatus = this.currentInnerStatus;
+                    if (innerStatus == InnerStatus.OPENED) {
+                        if (y < 0) {
+                            return false;
+                        }
+                    } else if (innerStatus == InnerStatus.HALF && !this.isSupportExit && y > 0) {
+                        return false;
+                    }
                     this.isCurrentPointerIntercepted = true;
                     return true;
                 }
             }
+            this.isAllowPointerIntercepted = true;
+            this.isCurrentPointerIntercepted = false;
+            if (this.currentInnerStatus == InnerStatus.MOVING) {
+                return true;
+            }
+        } else {
+            float x2 = motionEvent.getX();
+            float y2 = motionEvent.getY();
+            this.lastY = y2;
+            this.lastDownX = x2;
+            this.lastDownY = y2;
+            this.isAllowPointerIntercepted = true;
+            this.isCurrentPointerIntercepted = false;
+            if (!this.scroller.isFinished()) {
+                this.scroller.forceFinished(true);
+                this.currentInnerStatus = InnerStatus.MOVING;
+                this.isCurrentPointerIntercepted = true;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        if (!this.isCurrentPointerIntercepted) {
             return false;
         }
-        return invokeL.booleanValue;
+        this.gestureDetector.onTouchEvent(motionEvent);
+        int action = motionEvent.getAction();
+        if (action != 0) {
+            if (action != 1) {
+                if (action != 2) {
+                    if (action != 3) {
+                        return false;
+                    }
+                } else {
+                    int y = (int) ((motionEvent.getY() - this.lastY) * 1.2f);
+                    int signum = ((int) Math.signum(y)) * Math.min(Math.abs(y), 30);
+                    if (disposeEdgeValue(signum)) {
+                        return true;
+                    }
+                    this.currentInnerStatus = InnerStatus.MOVING;
+                    int scrollY = getScrollY() - signum;
+                    int i = -this.openedOffset;
+                    if (scrollY >= i) {
+                        scrollTo(0, i);
+                    } else {
+                        int i2 = -this.maxOffset;
+                        if (scrollY <= i2 && !this.isSupportExit) {
+                            scrollTo(0, i2);
+                        } else {
+                            scrollTo(0, scrollY);
+                        }
+                    }
+                    this.lastY = motionEvent.getY();
+                    return true;
+                }
+            }
+            if (this.currentInnerStatus != InnerStatus.MOVING) {
+                return false;
+            }
+            completeMove();
+            return true;
+        }
+        this.lastY = motionEvent.getY();
+        return true;
     }
 }

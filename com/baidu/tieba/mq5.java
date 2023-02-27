@@ -1,261 +1,135 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.RectF;
+import android.os.Build;
 import android.text.TextUtils;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.launch.ScheduleStrategy;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
+import java.lang.reflect.Field;
+import tbclient.CommonReq;
 /* loaded from: classes5.dex */
 public class mq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Paint a;
-    public final Paint b;
-    public final Paint c;
-    public final View d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public float l;
-    public final Paint m;
-    public int n;
-    public int o;
-    public int p;
-    public int q;
-    public int r;
-    public int s;
-    public int t;
-    public float[] u;
-    public int v;
 
-    public mq5(View view2) {
+    public static void a(Object obj, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new Paint();
-        this.b = new Paint();
-        this.c = new Paint();
-        this.e = 16;
-        this.f = 16;
-        this.g = -1;
-        this.h = DebugControllerOverlayDrawable.TEXT_BACKGROUND_COLOR;
-        this.i = 20;
-        this.j = 20;
-        this.k = 36;
-        this.l = 0.0f;
-        this.m = new Paint();
-        this.n = 3;
-        this.o = R.color.CAM_X0101;
-        this.p = R.color.CAM_X0305;
-        this.q = 20;
-        this.r = 20;
-        this.s = 36;
-        this.t = 0;
-        this.v = 0;
-        this.d = view2;
-        int color = getContext().getResources().getColor(R.color.black_alpha40);
-        this.h = color;
-        this.b.setColor(color);
-        this.b.setAntiAlias(true);
-        this.i = (int) getContext().getResources().getDimension(R.dimen.tbfontsize26);
-        int color2 = getContext().getResources().getColor(R.color.CAM_X0101);
-        this.g = color2;
-        this.a.setColor(color2);
-        this.a.setTextSize(this.i);
-        this.a.setAntiAlias(true);
-        this.a.setTypeface(n15.I(n15.F(R.string.F_X02)));
-        this.e = ej.g(getContext(), R.dimen.tbds16);
-        this.f = ej.g(getContext(), R.dimen.tbds16);
-        this.j = ej.g(getContext(), R.dimen.tbds22);
-        this.k = ej.g(getContext(), R.dimen.tbds40);
-        this.l = n15.z(R.string.J_X01)[0];
-        int dimension = (int) getContext().getResources().getDimension(R.dimen.tbfontsize26);
-        this.q = dimension;
-        this.c.setTextSize(dimension);
-        this.a.setAntiAlias(true);
-        this.m.setAntiAlias(true);
-        this.r = ej.g(getContext(), R.dimen.tbds16);
-        this.s = ej.g(getContext(), R.dimen.tbds22);
-        this.t = ej.g(getContext(), R.dimen.tbds5);
-        this.v = ej.g(getContext(), R.dimen.M_W_X006);
-        ej.g(getContext(), R.dimen.M_H_X004);
-        i(TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    private Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            View view2 = this.d;
-            if (view2 != null && view2.getContext() != null) {
-                return this.d.getContext();
-            }
-            return TbadkCoreApplication.getInst().getContext();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public final void e() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (view2 = this.d) != null) {
-            view2.invalidate();
+        if (interceptable == null || interceptable.invokeLZ(65536, null, obj, z) == null) {
+            b(obj, z, false);
         }
     }
 
-    public void a(Canvas canvas, String str, boolean z) {
-        int i;
+    public static void b(Object obj, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048576, this, canvas, str, z) == null) && canvas != null && this.d != null && !TextUtils.isEmpty(str)) {
-            int save = canvas.save();
-            this.d.getPaddingLeft();
-            int paddingRight = this.d.getPaddingRight();
-            this.d.getPaddingTop();
-            int paddingBottom = this.d.getPaddingBottom();
-            int left = this.d.getLeft();
-            int right = this.d.getRight();
-            int top = this.d.getTop();
-            int bottom = this.d.getBottom();
-            float measureText = this.a.measureText(str);
-            Paint.FontMetrics fontMetrics = this.a.getFontMetrics();
-            if (z) {
-                if (this.u == null) {
-                    this.u = n15.C(R.array.S_O_X001);
-                }
-                float[] fArr = this.u;
-                if (fArr != null && fArr.length >= 4) {
-                    i = save;
-                    this.a.setShadowLayer(fArr[1], fArr[2], fArr[3], (int) fArr[0]);
-                } else {
-                    i = save;
-                }
-                int i2 = this.v;
-                canvas.drawText(str, (((right - left) - paddingRight) - i2) - measureText, (((bottom - top) - paddingBottom) - i2) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.a);
-            } else {
-                i = save;
-                float f = this.k + measureText;
-                float f2 = this.i + this.j;
-                canvas.translate((((right - left) - paddingRight) - f) - this.f, (((bottom - top) - paddingBottom) - f2) - this.e);
-                RectF rectF = new RectF(0.0f, 0.0f, f, f2);
-                float f3 = this.l;
-                if (f3 < 1.0f) {
-                    this.l = f3 * f2;
-                }
-                float f4 = this.l;
-                canvas.drawRoundRect(rectF, f4, f4, this.b);
-                this.a.clearShadowLayer();
-                canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.a);
-            }
-            int i3 = i;
-            if (i3 >= 1 && i3 <= canvas.getSaveCount()) {
-                canvas.restoreToCount(i3);
-            }
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            c(obj, z, z2, false);
         }
     }
 
-    public void b(Canvas canvas, String str, int i) {
+    public static void c(Object obj, boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, str, i) == null) && canvas != null && this.d != null && !TextUtils.isEmpty(str)) {
-            if (i != 0) {
-                this.p = i;
-                this.m.setColor(SkinManager.getColor(i));
-            }
-            int save = canvas.save();
-            int paddingLeft = this.d.getPaddingLeft();
-            this.d.getPaddingRight();
-            int paddingTop = this.d.getPaddingTop();
-            this.d.getPaddingBottom();
-            float measureText = this.c.measureText(str);
-            canvas.translate(paddingLeft, paddingTop);
-            RectF rectF = new RectF(0.0f, 0.0f, this.s + measureText, this.q + this.r);
-            int i2 = this.t;
-            canvas.drawRoundRect(rectF, i2, i2, this.m);
-            Paint.FontMetrics fontMetrics = this.c.getFontMetrics();
-            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.c);
-            if (save >= 1 && save <= canvas.getSaveCount()) {
-                canvas.restoreToCount(save);
-            }
-        }
-    }
-
-    public float c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return ej.G(this.a, str).height() + this.j;
-        }
-        return invokeL.floatValue;
-    }
-
-    public float d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return ej.H(this.a, str) + this.k;
-        }
-        return invokeL.floatValue;
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.g = i;
-            this.a.setColor(i);
-            e();
-        }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.i = i;
-            this.a.setTextSize(i);
-            e();
-        }
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) != null) || this.n == i) {
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) != null) || obj == null) {
             return;
         }
-        this.n = i;
-        this.c.setColor(SkinManager.getColor(i, this.o));
-        this.m.setColor(SkinManager.getColor(i, this.p));
-    }
-
-    public void f(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            this.f = i;
-            this.e = i2;
-            e();
+        try {
+            Field field = obj.getClass().getField("common");
+            int i = 1;
+            if (!field.isAccessible()) {
+                field.setAccessible(true);
+            }
+            CommonReq.Builder builder = new CommonReq.Builder();
+            builder._client_type = 2;
+            builder._client_version = TbConfig.getVersion();
+            builder._client_id = TbadkCoreApplication.getClientId();
+            if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
+                builder.subapp_type = TbConfig.getSubappType();
+            }
+            if (!TbadkCoreApplication.getInst().isOfficial()) {
+                builder.apid = TbConfig.SW_APID;
+            }
+            builder._phone_imei = TbadkCoreApplication.getInst().getImei();
+            builder.from = TbadkCoreApplication.getFrom();
+            builder.cuid = TbadkCoreApplication.getInst().getCuid();
+            builder.cuid_galaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            builder.c3_aid = TbadkCoreApplication.getInst().getCuidGalaxy3();
+            builder.cuid_gid = TbadkCoreApplication.getInst().getCuidGid();
+            builder._timestamp = Long.valueOf(System.currentTimeMillis());
+            builder.model = gj.g();
+            builder._os_version = gj.k();
+            builder.brand = Build.BRAND;
+            builder.user_agent = qr5.b();
+            if (z) {
+                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
+                    builder.BDUSS = wi5.b();
+                    if (!StringUtils.isNull(wi5.e())) {
+                        builder.stoken = wi5.e();
+                    }
+                } else {
+                    AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+                    if (currentAccountInfo != null) {
+                        builder.BDUSS = currentAccountInfo.getBDUSS();
+                        String a = lx4.a(currentAccountInfo);
+                        if (!StringUtils.isNull(a)) {
+                            builder.stoken = a;
+                        }
+                    }
+                }
+            }
+            if (z2) {
+                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
+                    builder.tbs = wi5.f();
+                } else {
+                    builder.tbs = TbadkCoreApplication.getInst().getTbs();
+                }
+            }
+            if (z3) {
+                builder.applist = TbadkCoreApplication.getInst().getInstalledAppIds();
+            }
+            builder.mac = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
+            builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
+            builder.lego_lib_version = TbConfig.getLegoLibVersion();
+            if (b55.m().n("android_safe_sdk_open", 0) == 1) {
+                builder.z_id = TbadkCoreApplication.getInst().getZid();
+            }
+            builder.net_type = Integer.valueOf(BdNetTypeUtil.netType());
+            builder.oaid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+            builder.sample_id = TbSingleton.getInstance().getSampleId();
+            builder.is_teenager = 0;
+            builder.sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();
+            builder.framework_ver = TbadkCoreApplication.getInst().getFramework_ver();
+            builder.naws_game_ver = TbadkCoreApplication.getInst().getNaws_game_ver();
+            builder.q_type = Integer.valueOf(hx4.c().e());
+            builder.scr_h = Integer.valueOf(ej.j(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(ej.l(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(ej.i(TbadkCoreApplication.getInst()));
+            builder.active_timestamp = Long.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
+            builder.first_install_time = Long.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
+            builder.last_update_time = Long.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
+            builder.event_day = TbSingleton.getInstance().getData();
+            builder.android_id = TbadkCoreApplication.getInst().getAndroidId();
+            if (!PermissionUtil.isAgreePrivacyPolicy()) {
+                i = 2;
+            }
+            builder.cmode = Integer.valueOf(i);
+            builder.start_type = Integer.valueOf(p35.f);
+            builder.start_scheme = p35.e();
+            builder.extra = b55.m().s("key_sync_extra_field", "");
+            builder.personalized_rec_switch = Integer.valueOf(TbSingleton.getInstance().getPersonalizedRecSwitch());
+            builder.device_score = String.valueOf(ScheduleStrategy.getDeviceScore());
+            field.set(obj, builder.build(false));
+        } catch (Throwable th) {
+            if (BdLog.isDebugMode()) {
+                th.printStackTrace();
+            }
         }
     }
 }

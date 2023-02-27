@@ -1,67 +1,71 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pz8 extends fz8 {
+public class pz8 extends mz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<rz8> c;
 
-    public pz8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pz8(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new ArrayList<>();
     }
 
-    public ArrayList<rz8> h() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.sz8
+    public void a(ShareEntity shareEntity, tz8 tz8Var) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fz8
-    public void d(JSONObject jSONObject) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            ArrayList<rz8> arrayList = new ArrayList<>();
-            JSONArray optJSONArray = jSONObject.optJSONArray("forum_dir");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    rz8 rz8Var = new rz8();
-                    rz8Var.a(optJSONArray.getJSONObject(i));
-                    arrayList.add(rz8Var);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, shareEntity, tz8Var) == null) {
+            if (shareEntity != null && !TextUtils.isEmpty(shareEntity.getContent())) {
+                if (TextUtils.isEmpty(shareEntity.getContent())) {
+                    str = shareEntity.getTitle() + shareEntity.getLinkUrl();
+                } else {
+                    str = shareEntity.getContent() + shareEntity.getLinkUrl();
+                }
+                Intent intent = new Intent();
+                intent.setAction("android.intent.action.SEND");
+                intent.putExtra("android.intent.extra.TEXT", str);
+                intent.setType("text/plain");
+                Context context = this.b;
+                if (vz8.startActivity(context, Intent.createChooser(intent, context.getString(R.string.obfuscated_res_0x7f0f123b)))) {
+                    if (tz8Var != null) {
+                        tz8Var.b1(0, 1);
+                        return;
+                    }
+                    return;
+                } else if (tz8Var != null) {
+                    tz8Var.b1(0, 2);
+                    return;
+                } else {
+                    return;
                 }
             }
-            i(arrayList);
-        }
-    }
-
-    public void i(ArrayList<rz8> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.c = arrayList;
-            g(null);
+            ej.P(d(), R.string.obfuscated_res_0x7f0f120c);
+            if (tz8Var != null) {
+                tz8Var.b1(0, 2);
+            }
         }
     }
 }

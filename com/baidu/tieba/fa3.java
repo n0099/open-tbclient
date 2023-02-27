@@ -1,66 +1,159 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-@Deprecated
 /* loaded from: classes4.dex */
-public class fa3 extends ta3 {
+public final class fa3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fa3(t93 t93Var) {
-        super(t93Var, "/swanAPI/isLoginSync");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t93Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947757361, "Lcom/baidu/tieba/fa3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947757361, "Lcom/baidu/tieba/fa3;");
                 return;
             }
         }
+        a = wp1.a;
     }
 
-    @Override // com.baidu.tieba.ta3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
-        InterceptResult invokeLLLL;
+    public static ja3 a(UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
-            if (w83Var == null) {
-                w52.c("isLogin", "swanApp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, unitedSchemeMainDispatcher)) == null) {
+            ja3 ja3Var = new ja3();
+            unitedSchemeMainDispatcher.setDynamicDispatcher("swanAPI", ja3Var);
+            ts2.s().a(ja3Var);
+            ja3Var.b(new zc3(ja3Var));
+            ja3Var.b(new yc3(ja3Var));
+            ja3Var.b(new fd3(ja3Var));
+            ja3Var.b(new dd3(ja3Var));
+            ja3Var.b(new cd3(ja3Var));
+            ja3Var.b(new wc3(ja3Var));
+            ja3Var.b(new pc3(ja3Var));
+            ja3Var.b(new oc3(ja3Var));
+            ja3Var.b(new nc3(ja3Var));
+            ja3Var.b(new qc3(ja3Var));
+            ja3Var.b(new uc3(ja3Var));
+            ja3Var.b(new tc3(ja3Var));
+            ja3Var.b(new hd3(ja3Var));
+            ja3Var.b(new jd3(ja3Var));
+            ja3Var.b(new id3(ja3Var));
+            ja3Var.b(new ra3(ja3Var));
+            ja3Var.b(new kc3(ja3Var));
+            ja3Var.b(new m22(ja3Var));
+            ja3Var.b(new p22(ja3Var));
+            ja3Var.b(new r22(ja3Var));
+            ja3Var.b(new k22(ja3Var));
+            ja3Var.b(new n22(ja3Var));
+            ja3Var.b(new q22(ja3Var));
+            ja3Var.b(new rw2(ja3Var));
+            ja3Var.b(new qw2(ja3Var));
+            ja3Var.b(new ny2(ja3Var));
+            ja3Var.b(new g82(ja3Var));
+            ja3Var.b(new a72(ja3Var));
+            ja3Var.b(new hh3(ja3Var));
+            ja3Var.b(new ah3(ja3Var));
+            ja3Var.b(new bh3(ja3Var));
+            ja3Var.b(new eh3(ja3Var));
+            ja3Var.b(new u03(ja3Var));
+            ja3Var.b(new bs2(ja3Var));
+            ja3Var.b(new yr2(ja3Var));
+            ja3Var.b(new cs2(ja3Var));
+            ja3Var.b(new qk3(ja3Var));
+            ja3Var.b(new rk3(ja3Var));
+            ja3Var.b(new sk3(ja3Var));
+            ja3Var.b(new tk3(ja3Var));
+            ja3Var.b(new uk3(ja3Var));
+            ja3Var.b(new vk3(ja3Var));
+            ja3Var.b(new wk3(ja3Var));
+            ja3Var.b(new xk3(ja3Var));
+            ja3Var.b(new uv2(ja3Var));
+            ja3Var.b(new x12(ja3Var));
+            ja3Var.b(new c22(ja3Var));
+            ja3Var.b(new y12(ja3Var));
+            ja3Var.b(new b22(ja3Var));
+            ja3Var.b(new z12(ja3Var));
+            ja3Var.b(new a22(ja3Var));
+            ja3Var.b(new o52(ja3Var));
+            ja3Var.b(new p52(ja3Var));
+            ja3Var.b(new fm2(ja3Var));
+            ja3Var.b(new eq1(ja3Var));
+            ja3Var.b(new bq1(ja3Var));
+            ja3Var.b(new zj3(ja3Var));
+            ja3Var.b(new ak3(ja3Var));
+            ja3Var.b(new jj3(ja3Var));
+            ja3Var.b(new xo3(ja3Var));
+            ja3Var.b(new q12(ja3Var));
+            ja3Var.b(new vw2(ja3Var));
+            ja3Var.b(new ww2(ja3Var));
+            ja3Var.b(new uw2(ja3Var));
+            ja3Var.b(new zg3(ja3Var));
+            ja3Var.b(new v72(ja3Var));
+            ja3Var.b(new dl3(ja3Var));
+            ja3Var.b(new cl3(ja3Var));
+            ja3Var.b(new el3(ja3Var));
+            ja3Var.b(new tj3(ja3Var));
+            ja3Var.b(new ic3(ja3Var));
+            ja3Var.b(new fc3(ja3Var));
+            ja3Var.b(new bb3(ja3Var));
+            if (a) {
+                ja3Var.b(new gd3(ja3Var));
+                ja3Var.b(new k72(ja3Var));
             }
-            boolean e = w83Var.N().e(context);
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("isLogin", e);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-                return true;
-            } catch (JSONException unused) {
-                w52.c("isLogin", "json parse fail");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
+            ja3Var.b(new eb3(ja3Var));
+            ja3Var.b(new va3(ja3Var));
+            ja3Var.b(new ma3(ja3Var));
+            ja3Var.b(new xa3(ja3Var));
+            ja3Var.b(new l22(ja3Var));
+            ja3Var.b(new o22(ja3Var));
+            ja3Var.b(new j52(ja3Var));
+            ja3Var.b(new pb3(ja3Var));
+            ja3Var.b(new sb3(ja3Var));
+            ja3Var.b(new tb3(ja3Var));
+            ja3Var.b(new rb3(ja3Var));
+            ja3Var.b(new ub3(ja3Var));
+            ja3Var.b(new ad3(ja3Var));
+            ja3Var.b(new gw1(ja3Var));
+            ja3Var.b(new wj2(ja3Var));
+            ja3Var.b(new nb3(ja3Var));
+            ja3Var.b(new ob3(ja3Var));
+            ja3Var.b(new mc3(ja3Var));
+            ja3Var.b(new vb3(ja3Var));
+            ja3Var.b(new ib3(ja3Var));
+            ja3Var.b(new oa3(ja3Var));
+            ja3Var.b(new ez2(ja3Var));
+            ja3Var.b(new wa3(ja3Var));
+            ja3Var.b(new cq2(ja3Var));
+            ja3Var.b(new eq2(ja3Var));
+            ja3Var.b(new ac3(ja3Var));
+            ja3Var.b(new bc3(ja3Var));
+            ja3Var.b(new yy2(ja3Var));
+            ja3Var.b(new jq1(ja3Var));
+            ja3Var.b(new w13(ja3Var));
+            ja3Var.b(new nw1(ja3Var));
+            ja3Var.b(new rw1(ja3Var));
+            ja3Var.b(new pw1(ja3Var));
+            ja3Var.b(new sw1(ja3Var));
+            ja3Var.b(new qw1(ja3Var));
+            ja3Var.b(new be3(ja3Var));
+            ja3Var.b(new ew1(ja3Var));
+            ja3Var.b(new fw1(ja3Var));
+            ja3Var.b(new lw1(ja3Var));
+            ts2.Y().a(ja3Var);
+            return ja3Var;
         }
-        return invokeLLLL.booleanValue;
+        return (ja3) invokeL.objValue;
     }
 }

@@ -17,6 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -131,7 +132,7 @@ public class JsonTransHelper {
             builder.card_title = jSONObject.optString("card_title");
             builder.button_title = jSONObject.optString("button_title");
             builder.effect_time = Long.valueOf(jSONObject.optLong("effect_time"));
-            builder.expire_time = Long.valueOf(jSONObject.optLong("expire_time"));
+            builder.expire_time = Long.valueOf(jSONObject.optLong(PushConstants.REGISTER_STATUS_EXPIRE_TIME));
             return builder.build(false);
         }
         return (McnAdInfo) invokeL.objValue;
@@ -223,7 +224,7 @@ public class JsonTransHelper {
             builder.thread_content = jSONObject.optString("thread_content");
             builder.lego_card = jSONObject.optString("lego_card");
             builder.video_info = parseVideoInfoFromJson(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
-            builder.tag_name = jSONObject.optString("tag_name");
+            builder.tag_name = jSONObject.optString(PushConstants.SUB_TAGS_STATUS_NAME);
             builder.button_url = jSONObject.optString("button_url");
             builder.ad_source = jSONObject.optString(TiebaStatic.Params.T_PLUS_AD_SOURCE);
             builder.tag_name_url = jSONObject.optString("tag_name_url");
@@ -328,7 +329,7 @@ public class JsonTransHelper {
                 jSONObject.put("card_title", mcnAdInfo.card_title);
                 jSONObject.put("button_title", mcnAdInfo.button_title);
                 jSONObject.put("effect_time", mcnAdInfo.effect_time);
-                jSONObject.put("expire_time", mcnAdInfo.expire_time);
+                jSONObject.put(PushConstants.REGISTER_STATUS_EXPIRE_TIME, mcnAdInfo.expire_time);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -487,7 +488,7 @@ public class JsonTransHelper {
                 jSONObject.put("thread_content", goodsInfo.thread_content);
                 jSONObject.put("lego_card", goodsInfo.lego_card);
                 jSONObject.put(WriteActivityConfig.VIDEO_INFO, toVideoInfoJson(goodsInfo.video_info));
-                jSONObject.put("tag_name", goodsInfo.tag_name);
+                jSONObject.put(PushConstants.SUB_TAGS_STATUS_NAME, goodsInfo.tag_name);
                 jSONObject.put("button_url", goodsInfo.button_url);
                 jSONObject.put(TiebaStatic.Params.T_PLUS_AD_SOURCE, goodsInfo.ad_source);
                 jSONObject.put("tag_name_url", goodsInfo.tag_name_url);

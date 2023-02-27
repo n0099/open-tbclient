@@ -2,8 +2,6 @@ package com.baidu.sapi2.activity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
@@ -19,89 +17,47 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.PtokenStat;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class NormalizeGuestAccountActivity extends BaseActivity {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
-    public transient /* synthetic */ FieldHolder $fh;
-    public NormalizeGuestAccountResult t;
+    public NormalizeGuestAccountResult t = new NormalizeGuestAccountResult() { // from class: com.baidu.sapi2.activity.NormalizeGuestAccountActivity.1
+        @Override // com.baidu.sapi2.result.NormalizeGuestAccountResult
+        public void finishActivity() {
+            super.finishActivity();
+            NormalizeGuestAccountActivity.this.finish();
+            CoreViewRouter.getInstance().release();
+        }
+    };
     public String u;
     public SocialType v;
 
-    public NormalizeGuestAccountActivity() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.t = new NormalizeGuestAccountResult(this) { // from class: com.baidu.sapi2.activity.NormalizeGuestAccountActivity.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ NormalizeGuestAccountActivity a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.a = this;
-            }
-
-            @Override // com.baidu.sapi2.result.NormalizeGuestAccountResult
-            public void finishActivity() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    super.finishActivity();
-                    this.a.finish();
-                    CoreViewRouter.getInstance().release();
-                }
-            }
-        };
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            SapiWebView sapiWebView = this.sapiWebView;
-            if (sapiWebView != null && sapiWebView.canGoBack()) {
-                this.sapiWebView.goBack();
-            } else {
-                onClose();
-            }
+        SapiWebView sapiWebView = this.sapiWebView;
+        if (sapiWebView != null && sapiWebView.canGoBack()) {
+            this.sapiWebView.goBack();
+        } else {
+            onClose();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            if (CoreViewRouter.getInstance().getNormalizeGuestAccountCallback() != null) {
-                CoreViewRouter.getInstance().getNormalizeGuestAccountCallback().onFailure(this.t);
-            }
+        if (CoreViewRouter.getInstance().getNormalizeGuestAccountCallback() != null) {
+            CoreViewRouter.getInstance().getNormalizeGuestAccountCallback().onFailure(this.t);
+        }
+        finish();
+        CoreViewRouter.getInstance().release();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c() {
+        if (CoreViewRouter.getInstance().getNormalizeGuestAccountCallback() != null) {
+            CoreViewRouter.getInstance().getNormalizeGuestAccountCallback().onSuccess(this.t);
+        }
+        NormalizeGuestAccountDTO normalizeGuestAccountDTO = CoreViewRouter.getInstance().getNormalizeGuestAccountDTO();
+        if (normalizeGuestAccountDTO != null && normalizeGuestAccountDTO.finishActivityAfterSuc) {
             finish();
             CoreViewRouter.getInstance().release();
         }
@@ -109,228 +65,112 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
 
     @Override // com.baidu.sapi2.activity.TitleActivity
     public SapiWebDTO getWebDTO() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return CoreViewRouter.getInstance().getNormalizeGuestAccountDTO();
-        }
-        return (SapiWebDTO) invokeV.objValue;
+        return CoreViewRouter.getInstance().getNormalizeGuestAccountDTO();
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.init();
-            this.t.activity = this;
-        }
+        super.init();
+        this.t.activity = this;
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onBottomBackBtnClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onBottomBackBtnClick();
-            a();
-        }
+        super.onBottomBackBtnClick();
+        a();
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onClose();
-            this.t.setResultCode(-301);
-            this.t.setResultMsg("您已取消操作");
-            b();
-        }
+        super.onClose();
+        this.t.setResultCode(-301);
+        this.t.setResultMsg("您已取消操作");
+        b();
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onLeftBtnClick();
-            if (!this.executeSubClassMethod) {
-                return;
-            }
-            a();
+        super.onLeftBtnClick();
+        if (!this.executeSubClassMethod) {
+            return;
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            if (CoreViewRouter.getInstance().getNormalizeGuestAccountCallback() != null) {
-                CoreViewRouter.getInstance().getNormalizeGuestAccountCallback().onSuccess(this.t);
-            }
-            NormalizeGuestAccountDTO normalizeGuestAccountDTO = CoreViewRouter.getInstance().getNormalizeGuestAccountDTO();
-            if (normalizeGuestAccountDTO != null && normalizeGuestAccountDTO.finishActivityAfterSuc) {
-                finish();
-                CoreViewRouter.getInstance().release();
-            }
-        }
+        a();
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            super.onCreate(bundle);
-            try {
-                setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
-                this.u = getIntent().getStringExtra("EXTRA_BDUSS");
-                SapiAccount accountFromBduss = SapiContext.getInstance().getAccountFromBduss(this.u);
-                if (!TextUtils.isEmpty(this.u) && accountFromBduss != null) {
-                    this.v = accountFromBduss.getSocialType();
-                    init();
-                    setupViews();
-                    return;
-                }
-                this.t.setResultCode(-204);
-                this.t.setResultMsg("参数错误，请稍后再试");
-                b();
-            } catch (Throwable th) {
-                reportWebviewError(th);
-                this.t.setResultCode(-202);
-                this.t.setResultMsg("网络连接失败，请检查网络设置");
-                b();
+        super.onCreate(bundle);
+        try {
+            setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
+            this.u = getIntent().getStringExtra("EXTRA_BDUSS");
+            SapiAccount accountFromBduss = SapiContext.getInstance().getAccountFromBduss(this.u);
+            if (!TextUtils.isEmpty(this.u) && accountFromBduss != null) {
+                this.v = accountFromBduss.getSocialType();
+                init();
+                setupViews();
+                return;
             }
+            this.t.setResultCode(-204);
+            this.t.setResultMsg("参数错误，请稍后再试");
+            b();
+        } catch (Throwable th) {
+            reportWebviewError(th);
+            this.t.setResultCode(-202);
+            this.t.setResultMsg("网络连接失败，请检查网络设置");
+            b();
         }
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.setupViews();
-            this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback(this) { // from class: com.baidu.sapi2.activity.NormalizeGuestAccountActivity.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ NormalizeGuestAccountActivity a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
-                }
-
-                @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
-                public void onBack() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.a.a();
-                    }
-                }
-            });
-            this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback(this) { // from class: com.baidu.sapi2.activity.NormalizeGuestAccountActivity.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ NormalizeGuestAccountActivity a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
-                }
-
-                @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
-                public void onFinish() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.a.onClose();
-                    }
-                }
-            });
-            ArrayList arrayList = new ArrayList();
-            NormalizeGuestAccountDTO normalizeGuestAccountDTO = CoreViewRouter.getInstance().getNormalizeGuestAccountDTO();
-            if (normalizeGuestAccountDTO != null) {
-                if (WebLoginDTO.statExtraValid(normalizeGuestAccountDTO.statExtra)) {
-                    arrayList.add(new PassNameValuePair("extrajson", WebLoginDTO.getStatExtraDecode(normalizeGuestAccountDTO.statExtra)));
-                }
-                str = normalizeGuestAccountDTO.description;
-            } else {
-                str = "";
+        super.setupViews();
+        this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.sapi2.activity.NormalizeGuestAccountActivity.2
+            @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
+            public void onBack() {
+                NormalizeGuestAccountActivity.this.a();
             }
-            this.sapiWebView.setNormalizeGuestAccountCallback(new SapiJsCallBacks.NormalizeGuestAccountCallback(this) { // from class: com.baidu.sapi2.activity.NormalizeGuestAccountActivity.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ NormalizeGuestAccountActivity a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
-                }
-
-                @Override // com.baidu.sapi2.SapiJsCallBacks.NormalizeGuestAccountCallback
-                public void onFailure(int i, String str2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str2) == null) {
-                        this.a.t.setResultCode(i);
-                        this.a.t.setResultMsg(str2);
-                        this.a.b();
-                    }
-                }
-
-                @Override // com.baidu.sapi2.SapiJsCallBacks.NormalizeGuestAccountCallback
-                public void onSuccess(boolean z, String str2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str2) == null) {
-                        try {
-                            SapiAccountManager.getGlobalCallback().onLoginStatusChange();
-                        } catch (Exception unused) {
-                            Log.e(Log.TAG, new Object[0]);
-                        }
-                        this.a.t.isAccountMerge = z;
-                        this.a.t.setNormalizeWay(str2);
-                        this.a.t.setResultCode(0);
-                        this.a.t.setResultMsg("成功");
-                        this.a.c();
-                        new PtokenStat().onEvent(PtokenStat.NORMAL_GUEST);
-                    }
-                }
-            }, str);
-            setNewLoginTitleAndSetStyleChangeCallBack();
-            this.sapiWebView.loadNormalizeGuestAccount(arrayList, this.u, this.v);
+        });
+        this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.NormalizeGuestAccountActivity.3
+            @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
+            public void onFinish() {
+                NormalizeGuestAccountActivity.this.onClose();
+            }
+        });
+        ArrayList arrayList = new ArrayList();
+        NormalizeGuestAccountDTO normalizeGuestAccountDTO = CoreViewRouter.getInstance().getNormalizeGuestAccountDTO();
+        if (normalizeGuestAccountDTO != null) {
+            if (WebLoginDTO.statExtraValid(normalizeGuestAccountDTO.statExtra)) {
+                arrayList.add(new PassNameValuePair("extrajson", WebLoginDTO.getStatExtraDecode(normalizeGuestAccountDTO.statExtra)));
+            }
+            str = normalizeGuestAccountDTO.description;
+        } else {
+            str = "";
         }
+        this.sapiWebView.setNormalizeGuestAccountCallback(new SapiJsCallBacks.NormalizeGuestAccountCallback() { // from class: com.baidu.sapi2.activity.NormalizeGuestAccountActivity.4
+            @Override // com.baidu.sapi2.SapiJsCallBacks.NormalizeGuestAccountCallback
+            public void onFailure(int i, String str2) {
+                NormalizeGuestAccountActivity.this.t.setResultCode(i);
+                NormalizeGuestAccountActivity.this.t.setResultMsg(str2);
+                NormalizeGuestAccountActivity.this.b();
+            }
+
+            @Override // com.baidu.sapi2.SapiJsCallBacks.NormalizeGuestAccountCallback
+            public void onSuccess(boolean z, String str2) {
+                try {
+                    SapiAccountManager.getGlobalCallback().onLoginStatusChange();
+                } catch (Exception unused) {
+                    Log.e(Log.TAG, new Object[0]);
+                }
+                NormalizeGuestAccountActivity.this.t.isAccountMerge = z;
+                NormalizeGuestAccountActivity.this.t.setNormalizeWay(str2);
+                NormalizeGuestAccountActivity.this.t.setResultCode(0);
+                NormalizeGuestAccountActivity.this.t.setResultMsg("成功");
+                NormalizeGuestAccountActivity.this.c();
+                new PtokenStat().onEvent(PtokenStat.NORMAL_GUEST);
+            }
+        }, str);
+        setNewLoginTitleAndSetStyleChangeCallBack();
+        this.sapiWebView.loadNormalizeGuestAccount(arrayList, this.u, this.v);
     }
 }

@@ -1,12 +1,6 @@
 package com.baidu.searchbox.cloudcontrol.constant;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class CloudControlConstant {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String CONNECT_RUN_TYPE = "lcs";
     public static final String COOL_RUN_TIME = "0";
     public static final String HOT_RUN_TIME = "1";
@@ -21,19 +15,4 @@ public class CloudControlConstant {
     public static final String SP_KEY_PUBPARAM = "sp_pubparam";
     public static final String SP_KEY_RUNTYPE_BLACK = "sp_runtype_black";
     public static final String SP_KEY_STRAT_TIME = "st";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public CloudControlConstant() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

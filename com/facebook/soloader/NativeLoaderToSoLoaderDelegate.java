@@ -1,65 +1,27 @@
 package com.facebook.soloader;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.soloader.nativeloader.NativeLoaderDelegate;
 import java.io.IOException;
 /* loaded from: classes7.dex */
 public class NativeLoaderToSoLoaderDelegate implements NativeLoaderDelegate {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public NativeLoaderToSoLoaderDelegate() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // com.facebook.soloader.nativeloader.NativeLoaderDelegate
     public int getSoSourcesVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return SoLoader.getSoSourcesVersion();
-        }
-        return invokeV.intValue;
+        return SoLoader.getSoSourcesVersion();
     }
 
     @Override // com.facebook.soloader.nativeloader.NativeLoaderDelegate
     public String getLibraryPath(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return SoLoader.getLibraryPath(str);
-        }
-        return (String) invokeL.objValue;
+        return SoLoader.getLibraryPath(str);
     }
 
     @Override // com.facebook.soloader.nativeloader.NativeLoaderDelegate
     public boolean loadLibrary(String str, int i) {
-        InterceptResult invokeLI;
         int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
-            if ((i & 1) != 0) {
-                i2 = 16;
-            } else {
-                i2 = 0;
-            }
-            return SoLoader.loadLibrary(str, i2 | 0);
+        if ((i & 1) != 0) {
+            i2 = 16;
+        } else {
+            i2 = 0;
         }
-        return invokeLI.booleanValue;
+        return SoLoader.loadLibrary(str, i2 | 0);
     }
 }

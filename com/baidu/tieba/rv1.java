@@ -1,104 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tieba.tv1;
 /* loaded from: classes6.dex */
-public class rv1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public int e;
-    public int f;
-    public boolean g;
+public interface rv1<T extends tv1> extends uv1<T> {
+    void E();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948134972, "Lcom/baidu/tieba/rv1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948134972, "Lcom/baidu/tieba/rv1;");
-                return;
-            }
-        }
-        boolean z = gp1.a;
-    }
+    void F(ViewGroup viewGroup);
 
-    public rv1(String str, String str2, String str3, int i, int i2, int i3, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        this.d = i;
-        this.e = i2;
-        this.f = i3;
-        this.g = z;
-    }
+    void G(View view2);
 
-    public qx2 a() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("showMuteBtn", true);
-                jSONObject.put("showCenterPlayBtn", true);
-                qx2 qx2Var = new qx2();
-                qx2Var.j = "SwanAdPlayer";
-                qx2Var.b = "SwanAdPlayer";
-                qx2Var.o = true;
-                qx2Var.k = false;
-                if (!this.g) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                qx2Var.x = z;
-                qx2Var.I = false;
-                qx2Var.l = this.a;
-                qx2Var.y = this.b;
-                qx2Var.c = this.c;
-                cz2 cz2Var = new cz2(0, 0, this.d, this.e);
-                qx2Var.h = cz2Var;
-                cz2Var.i(true);
-                qx2Var.m = this.f;
-                if (this.g) {
-                    qx2Var.q = AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY;
-                }
-                return qx2.h(jSONObject, qx2Var);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (qx2) invokeV.objValue;
-    }
+    void P(boolean z);
+
+    void V();
+
+    void g0(String str, String str2);
 }

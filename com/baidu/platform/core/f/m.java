@@ -8,7 +8,6 @@ import com.baidu.mapapi.search.core.TaxiInfo;
 import com.baidu.mapapi.search.core.VehicleInfo;
 import com.baidu.mapapi.search.route.TransitRouteLine;
 import com.baidu.mapapi.search.route.TransitRouteResult;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -48,7 +47,7 @@ public class m extends k {
                 RouteNode routeNode = new RouteNode();
                 routeNode.setTitle(optJSONObject.optString(ActVideoSetting.WIFI_DISPLAY));
                 routeNode.setUid(optJSONObject.optString("uid"));
-                routeNode.setLocation(CoordUtil.decodeLocation(optJSONObject.optString(Config.PLATFORM_TYPE)));
+                routeNode.setLocation(CoordUtil.decodeLocation(optJSONObject.optString("pt")));
                 return routeNode;
             }
             return null;

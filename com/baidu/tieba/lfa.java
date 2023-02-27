@@ -1,82 +1,36 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bea;
+import com.baidu.tieba.efa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.CompositeException;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public final class lfa<T> implements bea.c<T> {
+public class lfa extends ffa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bea<T> a;
-    public final lea<? super T> b;
-    public final lea<Throwable> c;
+    public final Context c;
+    public final String d;
+    public gfa e;
+    public volatile mfa f;
+    public final Object g;
+    public zea h;
+    public final Map<String, String> i;
+    public volatile nfa j;
 
-    /* loaded from: classes5.dex */
-    public static final class a<T> extends cea<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final cea<? super T> b;
-        public final lea<? super T> c;
-        public final lea<Throwable> d;
-
-        public a(cea<? super T> ceaVar, lea<? super T> leaVar, lea<Throwable> leaVar2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ceaVar, leaVar, leaVar2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ceaVar;
-            this.c = leaVar;
-            this.d = leaVar2;
-        }
-
-        @Override // com.baidu.tieba.cea
-        public void b(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                try {
-                    this.d.call(th);
-                    this.b.b(th);
-                } catch (Throwable th2) {
-                    jea.e(th2);
-                    this.b.b(new CompositeException(th, th2));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.cea
-        public void c(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-                try {
-                    this.c.call(t);
-                    this.b.c(t);
-                } catch (Throwable th) {
-                    jea.h(th, this, t);
-                }
-            }
-        }
-    }
-
-    public lfa(bea<T> beaVar, lea<? super T> leaVar, lea<Throwable> leaVar2) {
+    public lfa(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {beaVar, leaVar, leaVar2};
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -86,22 +40,131 @@ public final class lfa<T> implements bea.c<T> {
                 return;
             }
         }
-        this.a = beaVar;
-        this.b = leaVar;
-        this.c = leaVar2;
+        this.g = new Object();
+        this.h = zea.b;
+        this.i = new HashMap();
+        this.c = context;
+        this.d = str;
     }
 
-    public void call(cea<? super T> ceaVar) {
+    public static String e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ceaVar) == null) {
-            a aVar = new a(ceaVar, this.b, this.c);
-            ceaVar.a(aVar);
-            this.a.j(aVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            int i = 0;
+            if (str.length() > 0) {
+                while (str.charAt(i) == '/') {
+                    i++;
+                }
+            }
+            return WebvttCueParser.CHAR_SLASH + str.substring(i);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.cfa
+    public String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? i(str, null) : (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.cfa
+    public zea b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.h == null) {
+                this.h = zea.b;
+            }
+            if (this.h == zea.b && this.f == null) {
+                f();
+            }
+            zea zeaVar = this.h;
+            return zeaVar == null ? zea.b : zeaVar;
+        }
+        return (zea) invokeV.objValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f == null) {
+            synchronized (this.g) {
+                if (this.f == null) {
+                    if (this.e != null) {
+                        this.f = new qfa(this.e.b());
+                        this.e.a();
+                        throw null;
+                    }
+                    this.f = new tfa(this.c, this.d);
+                    this.j = new nfa(this.f);
+                }
+                h();
+            }
         }
     }
 
-    @Override // com.baidu.tieba.bea.c, com.baidu.tieba.lea
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((cea) ((cea) obj));
+    public final String g(String str) {
+        InterceptResult invokeL;
+        efa.a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            Map<String, efa.a> a = efa.a();
+            if (a.containsKey(str) && (aVar = a.get(str)) != null) {
+                return aVar.a(this);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ffa, com.baidu.tieba.cfa
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ffa, com.baidu.tieba.cfa
+    public String getIdentifier() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "DEFAULT_INSTANCE" : (String) invokeV.objValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.h == zea.b) {
+            if (this.f != null) {
+                this.h = ifa.f(this.f.a("/region", null), this.f.a("/agcgw/url", null));
+            } else {
+                Log.w("AGConnectServiceConfig", "get route fail , config not ready");
+            }
+        }
+    }
+
+    public String i(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
+            if (str != null) {
+                if (this.f == null) {
+                    f();
+                }
+                String e = e(str);
+                String str3 = this.i.get(e);
+                if (str3 != null) {
+                    return str3;
+                }
+                String g = g(e);
+                if (g != null) {
+                    return g;
+                }
+                String a = this.f.a(e, str2);
+                return nfa.c(a) ? this.j.a(a, str2) : a;
+            }
+            throw new NullPointerException("path must not be null.");
+        }
+        return (String) invokeLL.objValue;
     }
 }

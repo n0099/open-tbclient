@@ -12,25 +12,15 @@ import android.support.v4.media.session.PlaybackStateCompat;
 import android.view.KeyEvent;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
-import androidx.core.view.InputDeviceCompat;
 import androidx.media.app.NotificationCompat;
 import androidx.media2.common.MediaMetadata;
 import androidx.media2.session.MediaSession;
 import androidx.media2.session.MediaSessionService;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.ActionJsonData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes.dex */
 public class MediaNotificationHandler extends MediaSession.SessionCallback.ForegroundServiceEventCallback {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String NOTIFICATION_CHANNEL_ID = "default_channel_id";
     public static final int NOTIFICATION_ID = 1001;
-    public transient /* synthetic */ FieldHolder $fh;
     public final String mNotificationChannelName;
     public final NotificationManager mNotificationManager;
     public final NotificationCompat.Action mPauseAction;
@@ -41,30 +31,14 @@ public class MediaNotificationHandler extends MediaSession.SessionCallback.Foreg
     public final Intent mStartSelfIntent;
 
     public static boolean isPlaybackStopped(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? i == 1 || i == 0 || i == 3 : invokeI.booleanValue;
+        return i == 1 || i == 0 || i == 3;
     }
 
     public MediaNotificationHandler(MediaSessionService mediaSessionService) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mediaSessionService};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mServiceInstance = mediaSessionService;
         MediaSessionService mediaSessionService2 = this.mServiceInstance;
         this.mStartSelfIntent = new Intent(mediaSessionService2, mediaSessionService2.getClass());
-        this.mNotificationManager = (NotificationManager) this.mServiceInstance.getSystemService(ActionJsonData.TAG_NOTIFICATION);
+        this.mNotificationManager = (NotificationManager) this.mServiceInstance.getSystemService("notification");
         this.mNotificationChannelName = this.mServiceInstance.getResources().getString(com.baidu.tieba.R.string.default_notification_channel_name);
         this.mPlayAction = createNotificationAction(com.baidu.tieba.R.drawable.media_session_service_notification_ic_play, com.baidu.tieba.R.string.play_button_content_description, 4L);
         this.mPauseAction = createNotificationAction(com.baidu.tieba.R.drawable.media_session_service_notification_ic_pause, com.baidu.tieba.R.string.pause_button_content_description, 2L);
@@ -73,73 +47,53 @@ public class MediaNotificationHandler extends MediaSession.SessionCallback.Foreg
     }
 
     private NotificationCompat.Action createNotificationAction(int i, int i2, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)})) == null) {
-            return new NotificationCompat.Action(i, this.mServiceInstance.getResources().getText(i2), createPendingIntent(j));
-        }
-        return (NotificationCompat.Action) invokeCommon.objValue;
+        return new NotificationCompat.Action(i, this.mServiceInstance.getResources().getText(i2), createPendingIntent(j));
     }
 
     private PendingIntent createPendingIntent(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j)) == null) {
-            int keyCode = PlaybackStateCompat.toKeyCode(j);
-            Intent intent = new Intent("android.intent.action.MEDIA_BUTTON");
-            MediaSessionService mediaSessionService = this.mServiceInstance;
-            intent.setComponent(new ComponentName(mediaSessionService, mediaSessionService.getClass()));
-            intent.putExtra("android.intent.extra.KEY_EVENT", new KeyEvent(0, keyCode));
-            if (Build.VERSION.SDK_INT >= 26 && j != 2) {
-                return PendingIntent.getForegroundService(this.mServiceInstance, keyCode, intent, 0);
-            }
-            return PendingIntent.getService(this.mServiceInstance, keyCode, intent, 0);
+        int keyCode = PlaybackStateCompat.toKeyCode(j);
+        Intent intent = new Intent("android.intent.action.MEDIA_BUTTON");
+        MediaSessionService mediaSessionService = this.mServiceInstance;
+        intent.setComponent(new ComponentName(mediaSessionService, mediaSessionService.getClass()));
+        intent.putExtra("android.intent.extra.KEY_EVENT", new KeyEvent(0, keyCode));
+        if (Build.VERSION.SDK_INT >= 26 && j != 2) {
+            return PendingIntent.getForegroundService(this.mServiceInstance, keyCode, intent, 0);
         }
-        return (PendingIntent) invokeJ.objValue;
+        return PendingIntent.getService(this.mServiceInstance, keyCode, intent, 0);
     }
 
     private void ensureNotificationChannel() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && Build.VERSION.SDK_INT >= 26 && this.mNotificationManager.getNotificationChannel(NOTIFICATION_CHANNEL_ID) == null) {
+        if (Build.VERSION.SDK_INT >= 26 && this.mNotificationManager.getNotificationChannel(NOTIFICATION_CHANNEL_ID) == null) {
             this.mNotificationManager.createNotificationChannel(new NotificationChannel(NOTIFICATION_CHANNEL_ID, this.mNotificationChannelName, 2));
         }
     }
 
     private int getSmallIconResId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            int i = this.mServiceInstance.getApplicationInfo().icon;
-            if (i != 0) {
-                return i;
-            }
-            return com.baidu.tieba.R.drawable.media_session_service_notification_ic_music_note;
+        int i = this.mServiceInstance.getApplicationInfo().icon;
+        if (i != 0) {
+            return i;
         }
-        return invokeV.intValue;
+        return com.baidu.tieba.R.drawable.media_session_service_notification_ic_music_note;
     }
 
     private void stopForegroundServiceIfNeeded() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            List<MediaSession> sessions = this.mServiceInstance.getSessions();
-            boolean z = false;
-            for (int i = 0; i < sessions.size(); i++) {
-                if (!isPlaybackStopped(sessions.get(i).getPlayer().getPlayerState())) {
-                    return;
-                }
+        List<MediaSession> sessions = this.mServiceInstance.getSessions();
+        boolean z = false;
+        for (int i = 0; i < sessions.size(); i++) {
+            if (!isPlaybackStopped(sessions.get(i).getPlayer().getPlayerState())) {
+                return;
             }
-            if (Build.VERSION.SDK_INT < 21) {
-                z = true;
-            }
-            this.mServiceInstance.stopForeground(z);
         }
+        if (Build.VERSION.SDK_INT < 21) {
+            z = true;
+        }
+        this.mServiceInstance.stopForeground(z);
     }
 
     @Override // androidx.media2.session.MediaSession.SessionCallback.ForegroundServiceEventCallback
     public void onPlayerStateChanged(MediaSession mediaSession, int i) {
-        MediaSessionService.MediaNotification onUpdateNotification;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048576, this, mediaSession, i) != null) || (onUpdateNotification = this.mServiceInstance.onUpdateNotification(mediaSession)) == null) {
+        MediaSessionService.MediaNotification onUpdateNotification = this.mServiceInstance.onUpdateNotification(mediaSession);
+        if (onUpdateNotification == null) {
             return;
         }
         int notificationId = onUpdateNotification.getNotificationId();
@@ -158,36 +112,28 @@ public class MediaNotificationHandler extends MediaSession.SessionCallback.Foreg
 
     @Override // androidx.media2.session.MediaSession.SessionCallback.ForegroundServiceEventCallback
     public void onSessionClosed(MediaSession mediaSession) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaSession) == null) {
-            this.mServiceInstance.removeSession(mediaSession);
-            stopForegroundServiceIfNeeded();
-        }
+        this.mServiceInstance.removeSession(mediaSession);
+        stopForegroundServiceIfNeeded();
     }
 
     public MediaSessionService.MediaNotification onUpdateNotification(MediaSession mediaSession) {
-        InterceptResult invokeL;
         MediaMetadata metadata;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaSession)) == null) {
-            ensureNotificationChannel();
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(this.mServiceInstance, NOTIFICATION_CHANNEL_ID);
-            builder.addAction(this.mSkipToPrevAction);
-            if (mediaSession.getPlayer().getPlayerState() == 2) {
-                builder.addAction(this.mPauseAction);
-            } else {
-                builder.addAction(this.mPlayAction);
-            }
-            builder.addAction(this.mSkipToNextAction);
-            if (mediaSession.getPlayer().getCurrentMediaItem() != null && (metadata = mediaSession.getPlayer().getCurrentMediaItem().getMetadata()) != null) {
-                CharSequence text = metadata.getText("android.media.metadata.DISPLAY_TITLE");
-                if (text == null) {
-                    text = metadata.getText("android.media.metadata.TITLE");
-                }
-                builder.setContentTitle(text).setContentText(metadata.getText("android.media.metadata.ARTIST")).setLargeIcon(metadata.getBitmap("android.media.metadata.ALBUM_ART"));
-            }
-            return new MediaSessionService.MediaNotification(1001, builder.setContentIntent(mediaSession.getImpl().getSessionActivity()).setDeleteIntent(createPendingIntent(1L)).setOnlyAlertOnce(true).setSmallIcon(getSmallIconResId()).setStyle(new NotificationCompat.MediaStyle().setCancelButtonIntent(createPendingIntent(1L)).setMediaSession(mediaSession.getSessionCompat().getSessionToken()).setShowActionsInCompactView(1)).setVisibility(1).setOngoing(false).build());
+        ensureNotificationChannel();
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this.mServiceInstance, NOTIFICATION_CHANNEL_ID);
+        builder.addAction(this.mSkipToPrevAction);
+        if (mediaSession.getPlayer().getPlayerState() == 2) {
+            builder.addAction(this.mPauseAction);
+        } else {
+            builder.addAction(this.mPlayAction);
         }
-        return (MediaSessionService.MediaNotification) invokeL.objValue;
+        builder.addAction(this.mSkipToNextAction);
+        if (mediaSession.getPlayer().getCurrentMediaItem() != null && (metadata = mediaSession.getPlayer().getCurrentMediaItem().getMetadata()) != null) {
+            CharSequence text = metadata.getText("android.media.metadata.DISPLAY_TITLE");
+            if (text == null) {
+                text = metadata.getText("android.media.metadata.TITLE");
+            }
+            builder.setContentTitle(text).setContentText(metadata.getText("android.media.metadata.ARTIST")).setLargeIcon(metadata.getBitmap("android.media.metadata.ALBUM_ART"));
+        }
+        return new MediaSessionService.MediaNotification(1001, builder.setContentIntent(mediaSession.getImpl().getSessionActivity()).setDeleteIntent(createPendingIntent(1L)).setOnlyAlertOnce(true).setSmallIcon(getSmallIconResId()).setStyle(new NotificationCompat.MediaStyle().setCancelButtonIntent(createPendingIntent(1L)).setMediaSession(mediaSession.getSessionCompat().getSessionToken()).setShowActionsInCompactView(1)).setVisibility(1).setOngoing(false).build());
     }
 }

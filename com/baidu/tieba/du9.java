@@ -1,29 +1,10 @@
 package com.baidu.tieba;
 
-import java.io.IOException;
+import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface du9 {
-    int a() throws IOException;
+    boolean a(JSONObject jSONObject, boolean z, boolean z2);
 
-    int b() throws IOException;
-
-    boolean c();
-
-    void close();
-
-    void d();
-
-    int e() throws IOException;
-
-    boolean f();
-
-    byte[] g();
-
-    long getCurrentPosition();
-
-    long getDuration();
-
-    void h(long j);
-
-    void seek(long j);
+    boolean b(File file, long j, boolean z, boolean z2);
 }

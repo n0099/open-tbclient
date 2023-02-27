@@ -1,108 +1,74 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.tieba.tt2;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class u14 {
+public class u14 implements hv1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile u14 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public p14 a;
+    public t14 b;
 
-    public static void a(String str, String str2, long j) {
+    public u14() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, str2, Long.valueOf(j)}) == null) {
-            t14 t14Var = new t14();
-            t14Var.b = str;
-            t14Var.e = str2;
-            if (w83.M() != null && w83.M().Y() != null) {
-                tt2.a Y = w83.M().Y();
-                t14Var.a = pf3.n(Y.G());
-                t14Var.f = Y.H();
-                t14Var.c = Y.T();
-                t14Var.a("play_time", Long.valueOf(j));
-            }
-            pf3.y("916", "68", t14Var);
-        }
-    }
-
-    public static void b(String str, String str2) {
-        String str3;
-        tt2.a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            if (w83.M() != null && w83.M().Y() != null) {
-                aVar = w83.M().Y();
-                str3 = pf3.n(aVar.G());
-            } else {
-                str3 = "";
-                aVar = null;
-            }
-            if (aVar != null && TextUtils.equals(str3, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME)) {
-                t14 t14Var = new t14();
-                t14Var.b = str;
-                t14Var.e = str2;
-                t14Var.a = str3;
-                t14Var.f = aVar.H();
-                t14Var.c = aVar.T();
-                pf3.y("916", "68", t14Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        c();
     }
 
-    public static void c(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
-            t14 t14Var = new t14();
-            t14Var.b = str;
-            t14Var.e = str2;
-            if (w83.M() != null && w83.M().Y() != null) {
-                tt2.a Y = w83.M().Y();
-                t14Var.a = pf3.n(Y.G());
-                t14Var.f = Y.H();
-                t14Var.c = Y.T();
-            }
-            t14Var.k = str3;
-            pf3.y("916", "68", t14Var);
-        }
-    }
-
-    public static void d(String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            t14 t14Var = new t14();
-            t14Var.b = str;
-            t14Var.e = "show";
-            if (w83.M() != null && w83.M().Y() != null) {
-                tt2.a Y = w83.M().Y();
-                t14Var.a = pf3.n(Y.G());
-                t14Var.f = Y.H();
-                t14Var.c = Y.T();
-            }
-            if (e()) {
-                str2 = "0";
-            } else {
-                str2 = "1";
-            }
-            t14Var.a("early", str2);
-            pf3.y("916", "68", t14Var);
-        }
-    }
-
-    public static boolean e() {
+    public static u14 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (t94.c() > 0 && g54.c() && System.currentTimeMillis() - t94.c() > LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (u14.class) {
+                    if (c == null) {
+                        c = new u14();
+                    }
+                }
             }
-            return false;
+            return c;
         }
-        return invokeV.booleanValue;
+        return (u14) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = new p14();
+            this.b = new t14();
+        }
+    }
+
+    @Override // com.baidu.tieba.hv1
+    public m12 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull qm2 qm2Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, qm2Var)) == null) {
+            if (this.a.e(str)) {
+                return this.a.a(str, jSONObject, qm2Var);
+            }
+            if (this.a.f()) {
+                return this.b.a(str, jSONObject, qm2Var);
+            }
+            return new m12(10001, "authorize fail.");
+        }
+        return (m12) invokeLLL.objValue;
     }
 }

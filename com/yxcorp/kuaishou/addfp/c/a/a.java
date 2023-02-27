@@ -12,6 +12,7 @@ import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import com.kuaishou.weapon.p0.h;
 import com.kuaishou.weapon.p0.i1;
 import com.yxcorp.kuaishou.addfp.KWEGIDDFP;
@@ -612,7 +613,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
             try {
-                Class<?> cls = Class.forName("android.os.SystemProperties");
+                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
                 str3 = (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, str2);
             } catch (Exception unused) {
                 str3 = null;

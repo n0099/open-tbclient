@@ -1,9 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.tieba.dv1;
+import android.content.Context;
+import com.baidu.swan.apps.core.container.NgWebView;
 /* loaded from: classes4.dex */
-public interface fv1<T extends dv1> extends cv1<T> {
-    @Nullable
-    uc3 getParams();
+public interface fv1 {
+    void a(NgWebView ngWebView);
+
+    void b(NgWebView ngWebView, String str);
+
+    void c(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z);
+
+    void d(String str, Context context);
+
+    void e(String str, Context context);
 }

@@ -1,159 +1,69 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.searchbox.http.callback.StringResponseCallback;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.pms.PMSConstants;
+import com.baidu.tieba.vi4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Response;
-import org.json.JSONException;
+import java.util.Map;
 import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class yu3 {
+public class yu3 implements wj4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a extends StringResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Response a;
-        public final /* synthetic */ String b;
-
-        public a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = str;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                yu3.d("get launch scheme fail: network err with exception: " + exc.getMessage(), this.b, "", true);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-                if (yu3.a) {
-                    Log.d("SwanAppExchanger", "startLaunchAction onSuccess result: " + str);
-                    Log.d("SwanAppExchanger", "startLaunchAction onSuccess status: " + i);
-                }
-                if (i == 200) {
-                    try {
-                        zu3.a(new JSONObject(str).optString("data"));
-                        return;
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        yu3.d("get launch scheme fail: " + e.getMessage(), this.b, str, false);
-                        return;
-                    }
-                }
-                String f = yu3.f(this.a);
-                if (!TextUtils.isEmpty(f)) {
-                    zu3.a(f);
-                    return;
-                }
-                yu3.d("get launch scheme fail: request fail with code " + i, this.b, str, true);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.StringResponseCallback, com.baidu.searchbox.http.callback.ResponseCallback
-        public String parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                this.a = response;
-                return super.parseResponse(response, i);
-            }
-            return (String) invokeLI.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948342610, "Lcom/baidu/tieba/yu3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948342610, "Lcom/baidu/tieba/yu3;");
-                return;
-            }
-        }
-        a = gp1.a;
-        b = SchemeConfig.getSchemeHead() + "://";
-    }
-
-    public static void d(String str, String str2, String str3, boolean z) {
+    public yu3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
-            if (z) {
-                o83.g(AppRuntime.getAppContext(), "打开失败，请检查网络设置").G();
-            }
-            pk3 pk3Var = new pk3();
-            pk3Var.k(1L);
-            pk3Var.i(12L);
-            pk3Var.f(str);
-            tk3.a().f(pk3Var);
-            if (a) {
-                Log.w("SwanAppExchanger", "open aiapp fail, url : " + str2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void e(String str) {
+    @Override // com.baidu.tieba.vi4
+    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, vi4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().setHeader("Swan-Accept", "swan/json").userAgent(vk3.a()).url(str).build().executeAsyncOnUIBack(new a(str));
+        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
+            if (PMSConstants.a(xg4.b())) {
+                pi4.b(str, map, map2, jSONObject, new ps3(aVar));
+            } else {
+                pi4.b(str, map, map2, jSONObject, new wi4(aVar));
+            }
         }
     }
 
-    public static String f(Response response) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.wj4
+    public ij4 c(String str, int i) throws Exception {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, response)) == null) {
-            if (response == null) {
-                return null;
-            }
-            String header = response.header("Location");
-            if (TextUtils.isEmpty(header) || !header.startsWith("baiduboxapp://")) {
-                return null;
-            }
-            return header.replace("baiduboxapp://", b);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            return gj4.a(str, i);
         }
-        return (String) invokeL.objValue;
+        return (ij4) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.vi4
+    public void z(String str, Map<String, String> map, Map<String, String> map2, vi4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, map, map2, aVar) == null) {
+            if (PMSConstants.a(xg4.b())) {
+                pi4.a(str, map, map2, new ps3(aVar));
+            } else {
+                pi4.a(str, map, map2, new wi4(aVar));
+            }
+        }
     }
 }

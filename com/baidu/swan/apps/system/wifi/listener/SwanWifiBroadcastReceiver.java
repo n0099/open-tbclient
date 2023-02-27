@@ -8,60 +8,53 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Parcelable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.mcast.McastConfig;
-import com.baidu.tieba.nj3;
-import com.baidu.tieba.oj3;
-import com.baidu.tieba.pj3;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.dk3;
+import com.baidu.tieba.ek3;
+import com.baidu.tieba.fk3;
 /* loaded from: classes3.dex */
 public class SwanWifiBroadcastReceiver extends BroadcastReceiver {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public nj3 mConnectListener;
-    public oj3 mConnectSuccessListener;
-    public boolean mIsRegistered;
-    public boolean mIsWifiDisconnected;
-    public pj3 mScanListener;
+    public dk3 mConnectListener;
+    public ek3 mConnectSuccessListener;
+    public fk3 mScanListener;
     public WifiManager mWifiManager;
+    public boolean mIsWifiDisconnected = true;
+    public boolean mIsRegistered = false;
 
     public SwanWifiBroadcastReceiver(WifiManager wifiManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wifiManager};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mIsWifiDisconnected = true;
-        this.mIsRegistered = false;
         this.mWifiManager = wifiManager;
     }
 
     public synchronized void registerSelf(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            synchronized (this) {
-                if (context != null) {
-                    if (!this.mIsRegistered) {
-                        IntentFilter intentFilter = new IntentFilter();
-                        intentFilter.addAction("android.net.wifi.SCAN_RESULTS");
-                        intentFilter.addAction("android.net.wifi.supplicant.STATE_CHANGE");
-                        intentFilter.addAction(McastConfig.ACTION_NETWORK_STATE_CHANGED);
-                        context.registerReceiver(this, intentFilter);
-                        this.mIsRegistered = true;
-                    }
-                }
+        if (context != null) {
+            if (!this.mIsRegistered) {
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction("android.net.wifi.SCAN_RESULTS");
+                intentFilter.addAction("android.net.wifi.supplicant.STATE_CHANGE");
+                intentFilter.addAction(McastConfig.ACTION_NETWORK_STATE_CHANGED);
+                context.registerReceiver(this, intentFilter);
+                this.mIsRegistered = true;
+            }
+        }
+    }
+
+    public void setConnectListener(dk3 dk3Var) {
+        this.mConnectListener = dk3Var;
+    }
+
+    public void setConnectSuccessListener(ek3 ek3Var) {
+        this.mConnectSuccessListener = ek3Var;
+    }
+
+    public void setScanListener(fk3 fk3Var) {
+        this.mScanListener = fk3Var;
+    }
+
+    public synchronized void unregisterSelf(Context context) {
+        if (context != null) {
+            if (this.mIsRegistered) {
+                context.unregisterReceiver(this);
+                this.mIsRegistered = false;
             }
         }
     }
@@ -69,9 +62,8 @@ public class SwanWifiBroadcastReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         char c;
-        nj3 nj3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || intent.getAction() == null) {
+        dk3 dk3Var;
+        if (intent.getAction() == null) {
             return;
         }
         String action = intent.getAction();
@@ -103,13 +95,13 @@ public class SwanWifiBroadcastReceiver extends BroadcastReceiver {
                         if (!this.mIsWifiDisconnected) {
                             return;
                         }
-                        nj3 nj3Var2 = this.mConnectListener;
-                        if (nj3Var2 != null) {
-                            nj3Var2.a(wifiInfo);
+                        dk3 dk3Var2 = this.mConnectListener;
+                        if (dk3Var2 != null) {
+                            dk3Var2.a(wifiInfo);
                         }
-                        oj3 oj3Var = this.mConnectSuccessListener;
-                        if (oj3Var != null && this.mIsWifiDisconnected) {
-                            oj3Var.a(wifiInfo);
+                        ek3 ek3Var = this.mConnectSuccessListener;
+                        if (ek3Var != null && this.mIsWifiDisconnected) {
+                            ek3Var.a(wifiInfo);
                         }
                         this.mIsWifiDisconnected = false;
                     }
@@ -120,51 +112,16 @@ public class SwanWifiBroadcastReceiver extends BroadcastReceiver {
                     return;
                 }
                 return;
-            } else if (intent.getIntExtra("supplicantError", -1) == 1 && (nj3Var = this.mConnectListener) != null) {
-                nj3Var.onError(1);
+            } else if (intent.getIntExtra("supplicantError", -1) == 1 && (dk3Var = this.mConnectListener) != null) {
+                dk3Var.onError(1);
                 return;
             } else {
                 return;
             }
         }
-        pj3 pj3Var = this.mScanListener;
-        if (pj3Var != null) {
-            pj3Var.a(this.mWifiManager.getScanResults());
-        }
-    }
-
-    public void setConnectListener(nj3 nj3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nj3Var) == null) {
-            this.mConnectListener = nj3Var;
-        }
-    }
-
-    public void setConnectSuccessListener(oj3 oj3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, oj3Var) == null) {
-            this.mConnectSuccessListener = oj3Var;
-        }
-    }
-
-    public void setScanListener(pj3 pj3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, pj3Var) == null) {
-            this.mScanListener = pj3Var;
-        }
-    }
-
-    public synchronized void unregisterSelf(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            synchronized (this) {
-                if (context != null) {
-                    if (this.mIsRegistered) {
-                        context.unregisterReceiver(this);
-                        this.mIsRegistered = false;
-                    }
-                }
-            }
+        fk3 fk3Var = this.mScanListener;
+        if (fk3Var != null) {
+            fk3Var.a(this.mWifiManager.getScanResults());
         }
     }
 }

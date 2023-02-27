@@ -1,38 +1,15 @@
 package com.baidu.ugc.editvideo.magicmusic;
 
-import com.baidu.tieba.lx9;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.i1a;
 import com.baidu.ugc.editvideo.magicmusic.effect.BaseEffect;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class EffectUtil {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public EffectUtil() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static void addEffect(BaseEffect baseEffect, List<BaseEffect> list) {
         int i;
         int i2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, baseEffect, list) == null) || baseEffect == null || list == null) {
+        if (baseEffect == null || list == null) {
             return;
         }
         ArrayList arrayList = new ArrayList();
@@ -75,20 +52,15 @@ public class EffectUtil {
     }
 
     public static BaseEffect getEffectInList(int i, List<BaseEffect> list) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, list)) == null) {
-            if (lx9.e(list)) {
-                return null;
-            }
-            for (int size = list.size() - 1; size >= 0; size--) {
-                BaseEffect baseEffect = list.get(size);
-                if (baseEffect.startTime <= i && baseEffect.endTime >= i) {
-                    return baseEffect;
-                }
-            }
+        if (i1a.e(list)) {
             return null;
         }
-        return (BaseEffect) invokeIL.objValue;
+        for (int size = list.size() - 1; size >= 0; size--) {
+            BaseEffect baseEffect = list.get(size);
+            if (baseEffect.startTime <= i && baseEffect.endTime >= i) {
+                return baseEffect;
+            }
+        }
+        return null;
     }
 }

@@ -12,24 +12,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kz;
-import com.baidu.tieba.oz4;
-import com.baidu.tieba.p15;
-import com.baidu.tieba.sw4;
+import com.baidu.tieba.b35;
+import com.baidu.tieba.dy;
+import com.baidu.tieba.oz;
+import com.baidu.tieba.v05;
 import com.baidu.tieba.view.TbImageAutoSwitch;
-import com.baidu.tieba.zx;
+import com.baidu.tieba.zu4;
+import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +38,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class HeadlinesAgreeCardView extends FrameLayout implements zx<sw4> {
+public class HeadlinesAgreeCardView extends FrameLayout implements dy<zx4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int k;
     public static final int l;
@@ -52,8 +50,8 @@ public class HeadlinesAgreeCardView extends FrameLayout implements zx<sw4> {
     public TbImageAutoSwitch d;
     public TextView e;
     public HeadlinesItemInfoView f;
-    public oz4 g;
-    public kz h;
+    public v05 g;
+    public oz h;
     public final List<String> i;
     public final TbImageAutoSwitch.b j;
 
@@ -248,10 +246,26 @@ public class HeadlinesAgreeCardView extends FrameLayout implements zx<sw4> {
         f(context);
     }
 
+    public void g() {
+        v05 v05Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (v05Var = this.g) != null && !TextUtils.isEmpty(v05Var.a())) {
+            zu4.v(getContext(), null, this.g.a(), true);
+        }
+    }
+
+    public void h() {
+        v05 v05Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (v05Var = this.g) != null && !TextUtils.isEmpty(v05Var.i())) {
+            zu4.v(getContext(), null, this.g.i(), true);
+        }
+    }
+
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            p15.d(this.e).v(R.color.CAM_X0109);
+            b35.d(this.e).v(R.color.CAM_X0109);
         }
     }
 
@@ -269,10 +283,10 @@ public class HeadlinesAgreeCardView extends FrameLayout implements zx<sw4> {
         }
     }
 
-    public void setOnStatListener(kz kzVar) {
+    public void setOnStatListener(oz ozVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, kzVar) == null) {
-            this.h = kzVar;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ozVar) == null) {
+            this.h = ozVar;
         }
     }
 
@@ -306,29 +320,13 @@ public class HeadlinesAgreeCardView extends FrameLayout implements zx<sw4> {
         }
     }
 
-    public void g() {
-        oz4 oz4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (oz4Var = this.g) != null && !TextUtils.isEmpty(oz4Var.a())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(getContext(), null, this.g.a(), true)));
-        }
-    }
-
-    public void h() {
-        oz4 oz4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (oz4Var = this.g) != null && !TextUtils.isEmpty(oz4Var.i())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(getContext(), null, this.g.i(), true)));
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zx
+    @Override // com.baidu.tieba.dy
     /* renamed from: i */
-    public void a(sw4 sw4Var) {
+    public void a(zx4 zx4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, sw4Var) == null) && sw4Var != null && sw4Var.getThreadData() != null && sw4Var.getThreadData().getTaskInfoData() != null && sw4Var.getThreadData().getTaskInfoData().e() != null) {
-            oz4 e = sw4Var.getThreadData().getTaskInfoData().e();
+        if ((interceptable == null || interceptable.invokeL(1048580, this, zx4Var) == null) && zx4Var != null && zx4Var.getThreadData() != null && zx4Var.getThreadData().getTaskInfoData() != null && zx4Var.getThreadData().getTaskInfoData().e() != null) {
+            v05 e = zx4Var.getThreadData().getTaskInfoData().e();
             this.g = e;
             this.b.setData(e);
             this.i.clear();
@@ -337,11 +335,11 @@ public class HeadlinesAgreeCardView extends FrameLayout implements zx<sw4> {
             if (!TextUtils.isEmpty(this.g.h())) {
                 this.e.setText(this.g.h());
             }
-            k(sw4Var.getThreadData());
+            k(zx4Var.getThreadData());
             this.f.setOnBannerClickListener(new b(this));
-            kz kzVar = this.h;
-            if (kzVar != null) {
-                kzVar.onShow();
+            oz ozVar = this.h;
+            if (ozVar != null) {
+                ozVar.onShow();
             }
         }
     }

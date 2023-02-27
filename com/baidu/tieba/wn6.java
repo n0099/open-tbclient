@@ -1,39 +1,44 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.ac5;
-import com.baidu.tieba.faceshop.EmotionGroupData;
-import com.baidu.tieba.faceshop.MyEmotionGroupData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wn6 extends ac5 {
+public class wn6 {
     public static /* synthetic */ Interceptable $ic;
-    public static wn6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<dc5> a;
 
-    @Override // com.baidu.tieba.ac5
-    public int c() {
-        InterceptResult invokeV;
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 4;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
-        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ac5
-    public void d() {
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
         }
     }
 
@@ -47,46 +52,25 @@ public class wn6 extends ac5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new LinkedList<>();
     }
 
-    public static wn6 e() {
-        InterceptResult invokeV;
+    public static wn6 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (wn6.class) {
-                    if (b == null) {
-                        b = new wn6();
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            return b;
+            wn6 wn6Var = new wn6();
+            wn6Var.b(jSONObject.optString("common_color"));
+            wn6Var.c(jSONObject.optString("dark_color"));
+            wn6Var.d(jSONObject.optString("font_color"));
+            wn6Var.e(jSONObject.optString("light_color"));
+            wn6Var.f(jSONObject.optString("pattern_image"));
+            return wn6Var;
         }
-        return (wn6) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ac5
-    public void b(ac5.a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD()) {
-            List<MyEmotionGroupData> h = jn6.c().h(TbadkCoreApplication.getCurrentAccount());
-            this.a.clear();
-            for (MyEmotionGroupData myEmotionGroupData : h) {
-                EmotionGroupData n = rn6.o().n(myEmotionGroupData.getGroupId());
-                if (n != null) {
-                    ln6 ln6Var = new ln6(n);
-                    if (ln6Var.d() != null) {
-                        this.a.add(ln6Var);
-                        if (aVar != null) {
-                            aVar.a(ln6Var);
-                        }
-                    }
-                }
-            }
-        }
+        return (wn6) invokeL.objValue;
     }
 }

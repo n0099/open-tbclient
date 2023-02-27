@@ -1,12 +1,5 @@
 package com.googlecode.mp4parser.authoring.tracks;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
 import com.coremedia.iso.boxes.SampleDependencyTypeBox;
@@ -24,68 +17,31 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class SilenceTrackImpl implements Track {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public long[] decodingTimes;
-    public List<Sample> samples;
+    public List<Sample> samples = new LinkedList();
     public Track source;
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (List) invokeV.objValue;
+        return null;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (List) invokeV.objValue;
+        return null;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public SubSampleInformationBox getSubsampleInformationBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return null;
-        }
-        return (SubSampleInformationBox) invokeV.objValue;
+        return null;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public long[] getSyncSamples() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return null;
-        }
-        return (long[]) invokeV.objValue;
+        return null;
     }
 
     public SilenceTrackImpl(Track track, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {track, Long.valueOf(j)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.samples = new LinkedList();
         this.source = track;
         if (AudioSampleEntry.TYPE3.equals(track.getSampleDescriptionBox().getSampleEntry().getType())) {
             int l2i = CastUtils.l2i(((getTrackMetaData().getTimescale() * j) / 1000) / 1024);
@@ -93,12 +49,12 @@ public class SilenceTrackImpl implements Track {
             this.decodingTimes = jArr;
             Arrays.fill(jArr, ((getTrackMetaData().getTimescale() * j) / l2i) / 1000);
             while (true) {
-                int i3 = l2i - 1;
+                int i = l2i - 1;
                 if (l2i <= 0) {
                     return;
                 }
                 this.samples.add(new SampleImpl((ByteBuffer) ByteBuffer.wrap(new byte[]{33, 16, 4, 96, -116, 28}).rewind()));
-                l2i = i3;
+                l2i = i;
             }
         } else {
             throw new RuntimeException("Tracks of type " + track.getClass().getSimpleName() + " are not supported");
@@ -107,75 +63,40 @@ public class SilenceTrackImpl implements Track {
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public long getDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = 0;
-            for (long j2 : this.decodingTimes) {
-                j += j2;
-            }
-            return j;
+        long j = 0;
+        for (long j2 : this.decodingTimes) {
+            j += j2;
         }
-        return invokeV.longValue;
+        return j;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public String getHandler() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.source.getHandler();
-        }
-        return (String) invokeV.objValue;
+        return this.source.getHandler();
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public Box getMediaHeaderBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.source.getMediaHeaderBox();
-        }
-        return (Box) invokeV.objValue;
+        return this.source.getMediaHeaderBox();
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public SampleDescriptionBox getSampleDescriptionBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.source.getSampleDescriptionBox();
-        }
-        return (SampleDescriptionBox) invokeV.objValue;
+        return this.source.getSampleDescriptionBox();
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public long[] getSampleDurations() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.decodingTimes;
-        }
-        return (long[]) invokeV.objValue;
+        return this.decodingTimes;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public List<Sample> getSamples() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.samples;
-        }
-        return (List) invokeV.objValue;
+        return this.samples;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public TrackMetaData getTrackMetaData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.source.getTrackMetaData();
-        }
-        return (TrackMetaData) invokeV.objValue;
+        return this.source.getTrackMetaData();
     }
 }

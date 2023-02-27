@@ -300,12 +300,12 @@ public class i7<K, V> implements Iterable<d8.b<K, V>> {
             q8 q8Var = new q8(32);
             q8Var.a('{');
             q8Var.m(kArr[0]);
-            q8Var.a(com.alipay.sdk.encrypt.a.h);
+            q8Var.a('=');
             q8Var.m(vArr[0]);
             for (int i = 1; i < this.c; i++) {
                 q8Var.n(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 q8Var.m(kArr[i]);
-                q8Var.a(com.alipay.sdk.encrypt.a.h);
+                q8Var.a('=');
                 q8Var.m(vArr[i]);
             }
             q8Var.a('}');

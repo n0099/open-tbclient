@@ -1,61 +1,65 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.reflect.Method;
 /* loaded from: classes8.dex */
-public class ax {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile boolean a;
-    public transient /* synthetic */ FieldHolder $fh;
+public class ax implements at {
+    public Context a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-56379159, "Lcom/xiaomi/push/ax;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-56379159, "Lcom/xiaomi/push/ax;");
-        }
+    /* renamed from: a  reason: collision with other field name */
+    public Class<?> f126a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public Object f127a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public Method f128a = null;
+    public Method b = null;
+    public Method c = null;
+    public Method d = null;
+
+    public ax(Context context) {
+        this.a = context;
+        a(context);
     }
 
-    public static void a(Class<?> cls, Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, cls, context) == null) || a) {
-            return;
+    private String a(Context context, Method method) {
+        Object obj = this.f127a;
+        if (obj == null || method == null) {
+            return null;
         }
         try {
-            a = true;
-            cls.getDeclaredMethod("InitEntry", Context.class).invoke(cls, context);
-        } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.m105a("mdid:load lib error " + th);
+            Object invoke = method.invoke(obj, context);
+            if (invoke != null) {
+                return (String) invoke;
+            }
+            return null;
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.a("miui invoke error", e);
+            return null;
         }
     }
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                Class<?> a2 = v.a(context, "com.bun.miitmdid.core.JLibrary");
-                if (a2 != null) {
-                    a(a2, context);
-                    return true;
-                }
-                return false;
-            } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.m105a("mdid:check error " + th);
-                return false;
-            }
+    private void a(Context context) {
+        try {
+            Class<?> a = s.a(context, "com.android.id.impl.IdProviderImpl");
+            this.f126a = a;
+            this.f127a = a.newInstance();
+            this.b = this.f126a.getMethod("getOAID", Context.class);
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.a("miui load class error", e);
         }
-        return invokeL.booleanValue;
+    }
+
+    @Override // com.xiaomi.push.at
+    /* renamed from: a */
+    public String mo182a() {
+        return a(this.a, this.b);
+    }
+
+    @Override // com.xiaomi.push.at
+    /* renamed from: a */
+    public boolean mo183a() {
+        return (this.f126a == null || this.f127a == null) ? false : true;
     }
 }

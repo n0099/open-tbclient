@@ -1,167 +1,56 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.frs.accelerator.PkgNameAndNodeInfoData;
+import com.baidu.tieba.frs.accelerator.TornadoNodeInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.load.engine.GlideException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
-public class cx6 extends bx6 {
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes3.dex */
+public class cx6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout K;
-    public TextView L;
-    public TextView M;
-    public TextView N;
 
-    @Override // com.baidu.tieba.bx6, com.baidu.tieba.mc6
-    public int d() {
-        InterceptResult invokeV;
+    public static Map<Integer, PkgNameAndNodeInfoData> a(List<TornadoNodeInfo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0192 : invokeV.intValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements tr5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cx6 a;
-
-        public a(cx6 cx6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cx6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (!ListUtils.isEmpty(list)) {
+                HashMap hashMap = new HashMap();
+                int i = 0;
+                for (int i2 = 0; i2 < list.size(); i2++) {
+                    for (int i3 = 0; i3 < list.get(i2).getNodeInfoList().size(); i3++) {
+                        hashMap.put(Integer.valueOf(i), new PkgNameAndNodeInfoData(list.get(i2).getPackageName(), list.get(i2).getNodeInfoList().get(i3), list.get(i2).getGameId()));
+                        i++;
+                    }
                 }
+                return hashMap;
             }
-            this.a = cx6Var;
+            return null;
         }
+        return (Map) invokeL.objValue;
+    }
 
-        @Override // com.baidu.tieba.tr5
-        public void a(View view2, int i, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                cx6 cx6Var = this.a;
-                if (cx6Var.v != null && cx6Var.N()) {
-                    UrlManager urlManager = UrlManager.getInstance();
-                    cx6 cx6Var2 = this.a;
-                    urlManager.dealOneLink(cx6Var2.b, new String[]{cx6Var2.v.getActUrl()});
+    public static String[] b(List<TornadoNodeInfo> list, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
+            if (!ListUtils.isEmpty(list) && i > 0) {
+                String[] strArr = new String[i];
+                int i2 = 0;
+                for (int i3 = 0; i3 < list.size(); i3++) {
+                    for (int i4 = 0; i4 < list.get(i3).getNodeInfoList().size(); i4++) {
+                        strArr[i2] = list.get(i3).getNodeInfoList().get(i4).getNodeName();
+                        i2++;
+                    }
                 }
+                return strArr;
             }
+            return null;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cx6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        View h = h();
-        this.K = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f09154b);
-        this.L = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09154e);
-        this.M = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09154c);
-        this.N = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091542);
-    }
-
-    public boolean N() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TbadkCoreApplication.isLogin()) {
-                return true;
-            }
-            ViewHelper.skipToLoginActivity(this.b.getPageActivity());
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.bx6
-    public void x(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && this.v != null && N()) {
-            UrlManager.getInstance().dealOneLink(this.b, new String[]{this.v.getActUrl()});
-        }
-    }
-
-    @Override // com.baidu.tieba.bx6, com.baidu.tieba.mc6
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
-            if (this.u != i) {
-                SkinManager.setBackgroundColor(this.K, R.color.CAM_X0205);
-                SkinManager.setViewTextColor(this.L, (int) R.color.CAM_X0106);
-                SkinManager.setViewTextColor(this.M, (int) R.color.CAM_X0106);
-                SkinManager.setViewTextColor(this.N, (int) R.color.CAM_X0302);
-                SkinManager.setBackgroundResource(this.N, R.drawable.bg_card_frs_lottery_btn);
-            }
-            super.j(tbPageContext, i);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bx6, com.baidu.tieba.mc6
-    /* renamed from: y */
-    public void i(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, threadData) != null) || threadData == null) {
-            return;
-        }
-        if (ListUtils.getCount(threadData.getMedias()) > 1) {
-            ArrayList<MediaData> arrayList = new ArrayList<>();
-            arrayList.add(threadData.getMedias().get(0));
-            threadData.setMedias(arrayList);
-        }
-        super.i(threadData);
-        this.z.setImageClickListener(new a(this));
-        tw4 tw4Var = (tw4) ListUtils.getItem(threadData.getActDatas(), 0);
-        if (tw4Var != null) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd");
-            this.L.setText(StringUtils.string(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0b2d), GlideException.IndentedAppendable.INDENT, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(tw4Var.b()))), "-", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(tw4Var.c())))));
-            this.M.setText(String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0b28), String.valueOf(tw4Var.f())));
-            this.N.setText(R.string.obfuscated_res_0x7f0f0b27);
-            this.k.setCommentNumEnable(false);
-        }
+        return (String[]) invokeLI.objValue;
     }
 }

@@ -1,94 +1,25 @@
 package com.baidu.nadcore.download.proxy;
 
 import androidx.annotation.NonNull;
-import com.baidu.tieba.cl0;
-import com.baidu.tieba.yl0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.cm0;
+import com.baidu.tieba.gl0;
 /* loaded from: classes2.dex */
 public interface IAdDownloader {
-    int a(@NonNull cl0 cl0Var, @NonNull yl0 yl0Var);
 
-    void b(@NonNull cl0 cl0Var);
-
-    void c(@NonNull cl0 cl0Var);
-
-    void d(@NonNull cl0 cl0Var, @NonNull yl0 yl0Var);
-
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class STATE {
-        public static final /* synthetic */ STATE[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final STATE DOWNLOADED;
-        public static final STATE DOWNLOADING;
-        public static final STATE DOWNLOAD_FAILED;
-        public static final STATE DOWNLOAD_PAUSED;
-        public static final STATE NOT_START;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(197848584, "Lcom/baidu/nadcore/download/proxy/IAdDownloader$STATE;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(197848584, "Lcom/baidu/nadcore/download/proxy/IAdDownloader$STATE;");
-                    return;
-                }
-            }
-            NOT_START = new STATE("NOT_START", 0);
-            DOWNLOADING = new STATE("DOWNLOADING", 1);
-            DOWNLOAD_PAUSED = new STATE("DOWNLOAD_PAUSED", 2);
-            DOWNLOADED = new STATE("DOWNLOADED", 3);
-            STATE state = new STATE("DOWNLOAD_FAILED", 4);
-            DOWNLOAD_FAILED = state;
-            $VALUES = new STATE[]{NOT_START, DOWNLOADING, DOWNLOAD_PAUSED, DOWNLOADED, state};
-        }
-
-        public STATE(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public static STATE valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                return (STATE) Enum.valueOf(STATE.class, str);
-            }
-            return (STATE) invokeL.objValue;
-        }
-
-        public static STATE[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return (STATE[]) $VALUES.clone();
-            }
-            return (STATE[]) invokeV.objValue;
-        }
+    public enum STATE {
+        NOT_START,
+        DOWNLOADING,
+        DOWNLOAD_PAUSED,
+        DOWNLOADED,
+        DOWNLOAD_FAILED
     }
+
+    int a(@NonNull gl0 gl0Var, @NonNull cm0 cm0Var);
+
+    void b(@NonNull gl0 gl0Var);
+
+    void c(@NonNull gl0 gl0Var);
+
+    void d(@NonNull gl0 gl0Var, @NonNull cm0 cm0Var);
 }

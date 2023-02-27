@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.app.Activity;
 import android.util.Log;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ai2 extends ProviderDelegation {
+public abstract class ai2 implements lv2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +28,7 @@ public class ai2 extends ProviderDelegation {
                 return;
             }
         }
-        a = gp1.a;
+        a = wp1.a;
     }
 
     public ai2() {
@@ -47,38 +45,27 @@ public class ai2 extends ProviderDelegation {
         }
     }
 
-    public static int c(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.lv2
+    public void a(boolean z, Activity activity) {
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return bi2.b().c(i);
-            }
-            Bundle bundle = new Bundle();
-            bundle.putInt("level", i);
-            l53 c = j53.c(ai2.class, bundle);
-            int i2 = 0;
-            if (c.a()) {
-                i2 = c.a.getInt("count", 0);
-            }
+        if ((interceptable == null || interceptable.invokeZL(1048576, this, z, activity) == null) && ci2.a() && !z) {
             if (a) {
-                Log.d("RecoveryCountDelegation", "GetRecoveryCount level=" + i + ";count=" + i2);
+                j = System.currentTimeMillis();
+            } else {
+                j = 0;
             }
-            return i2;
+            boolean B = dn3.B();
+            if (a) {
+                long currentTimeMillis = System.currentTimeMillis();
+                Log.d("DiskCleanerLifecycleObserver", "detect all process is on baground cost - " + (currentTimeMillis - j) + "ms");
+            }
+            if (B) {
+                boolean n = ei2.n();
+                m62.k("DiskCleanerLifecycleObserver", "all app process in background，run clean task");
+                yh2.c().d().u(null, n, 16);
+                ei2.p(false);
+            }
         }
-        return invokeI.intValue;
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            int i = bundle.getInt("level", -1);
-            Bundle bundle2 = new Bundle();
-            bundle2.putInt("count", bi2.b().c(i));
-            return bundle2;
-        }
-        return (Bundle) invokeL.objValue;
     }
 }

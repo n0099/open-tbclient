@@ -1,6 +1,5 @@
 package com.kwad.sdk.collector.kwai;
 
-import com.heytap.mcssdk.mode.CommandMessage;
 import com.kwad.components.offline.api.BuildConfig;
 import com.kwad.sdk.collector.model.e;
 import com.kwad.sdk.core.network.d;
@@ -12,7 +11,7 @@ public final class b extends d {
     public b(Collection<e> collection) {
         putBody("collectData", a(collection));
         putBody("collectType", 1);
-        putBody(CommandMessage.SDK_VERSION, BuildConfig.VERSION_NAME);
+        putBody(com.heytap.mcssdk.constant.b.C, BuildConfig.VERSION_NAME);
         putBody("sdkVersionCode", BuildConfig.VERSION_CODE);
     }
 

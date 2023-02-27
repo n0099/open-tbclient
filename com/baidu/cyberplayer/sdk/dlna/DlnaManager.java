@@ -1,14 +1,9 @@
 package com.baidu.cyberplayer.sdk.dlna;
 
 import com.baidu.cyberplayer.sdk.Keep;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
 /* loaded from: classes2.dex */
 public class DlnaManager {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int DLNA_ERROR_CREATE_CTRL_POINT_TIMER_THREAD_FAIL = -1011;
     public static final int DLNA_ERROR_CREATE_SSDP_THREAD_FIAL = -1017;
     public static final int DLNA_ERROR_DATA_INVALIDATE = -1015;
@@ -40,19 +35,4 @@ public class DlnaManager {
     public static final int DLNA_PLAY_SUB_STATUS_UNKNOW = -1;
     public static final int DLNA_SUB_ERROR_NETWORK_NOT_WIFI = -2001;
     public static final int DLNA_SUB_ERROR_NETWORK_UNREACHABLE = -2000;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public DlnaManager() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

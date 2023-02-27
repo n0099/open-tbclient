@@ -1,278 +1,103 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import com.baidu.tieba.ju2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.Sets;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import okhttp3.Headers;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yz2 extends ta3 {
+public class yz2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, Long> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948347384, "Lcom/baidu/tieba/yz2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static JSONObject a(wz2 wz2Var, boolean z, Bitmap bitmap, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{wz2Var, Boolean.valueOf(z), bitmap, Boolean.valueOf(z2)})) == null) {
+            JSONObject e = vz2.e();
+            if (wz2Var != null) {
+                try {
+                    e.put("page", wz2Var.b);
+                } catch (JSONException e2) {
+                    if (m93.v) {
+                        e2.printStackTrace();
+                    }
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948347384, "Lcom/baidu/tieba/yz2;");
-                return;
+            e.put("firstPage", z2);
+            if (z && bitmap != null) {
+                e.put("image", vz2.c(bitmap));
             }
+            return e;
         }
-        d = Sets.newHashSet("REFERER", "USER-AGENT");
+        return (JSONObject) invokeCommon.objValue;
     }
 
-    public String o() {
-        InterceptResult invokeV;
+    public static JSONObject b(wz2 wz2Var) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return ds2.q().a().getCookie(".baidu.com");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yz2(t93 t93Var, String str) {
-        super(t93Var, str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t93Var, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, wz2Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (wz2Var != null) {
+                try {
+                    if (wz2Var.g == 0) {
+                        str = "0";
+                    } else {
+                        str = "1";
+                    }
+                    jSONObject.put("isH5Componet", str);
+                } catch (JSONException e) {
+                    if (m93.v) {
+                        e.printStackTrace();
+                    }
+                }
             }
+            return jSONObject;
         }
-        this.c = new ConcurrentHashMap<>();
+        return (JSONObject) invokeL.objValue;
     }
 
-    public void j(@NonNull JSONObject jSONObject, String str) throws JSONException {
-        String str2;
+    public static void c(wz2 wz2Var, int i, boolean z, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, jSONObject, str) != null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{wz2Var, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            d(wz2Var, i, false, null, z, i2);
         }
-        String optString = jSONObject.optString("Cookie");
-        if (TextUtils.isEmpty(optString)) {
-            jSONObject.put("Cookie", str);
-            return;
-        }
-        if (optString.endsWith(";")) {
-            str2 = optString + str;
-        } else {
-            str2 = optString + ";" + str;
-        }
-        jSONObject.put("Cookie", str2);
     }
 
-    public boolean k(w83 w83Var, UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeLL;
+    public static void d(wz2 wz2Var, int i, boolean z, Bitmap bitmap, boolean z2, int i2) {
+        ju2.a W;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w83Var, unitedSchemeEntity)) == null) {
-            if (w83Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
-                return false;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{wz2Var, Integer.valueOf(i), Boolean.valueOf(z), bitmap, Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) {
+            fl3 fl3Var = new fl3();
+            fl3Var.k(5L);
+            fl3Var.i(i);
+            if (!ag3.d || z2) {
+                fl3Var.f(a(wz2Var, z, bitmap, z2).toString());
             }
-            JSONObject a = ta3.a(unitedSchemeEntity, "params");
-            if (a == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal params");
-                return false;
-            } else if (TextUtils.isEmpty(a.optString("cb"))) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal cb");
-                return false;
-            } else if (TextUtils.isEmpty(a.optString("url"))) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal url");
-                return false;
+            String valueOf = String.valueOf(i2);
+            ng3 ng3Var = new ng3();
+            ng3Var.p(fl3Var);
+            ng3Var.q(fg3.n(l93.K().k()));
+            ng3Var.m(l93.K().getAppId());
+            ng3Var.s = wz2Var.b;
+            ng3Var.n(false);
+            m93 b0 = m93.b0();
+            if (b0 == null) {
+                W = null;
             } else {
-                return true;
+                W = b0.W();
             }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void r(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, jSONObject) == null) && !TextUtils.isEmpty(str) && jSONObject != null && jSONObject != null) {
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("header", jSONObject);
-                HashMap hashMap = new HashMap();
-                hashMap.put("data", jSONObject2.toString());
-                ju2.U().u(new xi2(str, hashMap));
-            } catch (JSONException e) {
-                if (ta3.b) {
-                    e.printStackTrace();
-                }
+            if (!ag3.d || z2) {
+                ng3Var.s(valueOf);
+                ng3Var.r(W);
+                ng3Var.e(b(wz2Var));
+                ng3Var.e(mf3.d().e());
+                ng3Var.e(mf3.d().g());
             }
-        }
-    }
-
-    public static HashMap<String, String> l(@Nullable JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject != null && jSONObject.length() >= 1) {
-                HashMap<String, String> hashMap = new HashMap<>();
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    if (!TextUtils.isEmpty(next) && !d.contains(next.toUpperCase())) {
-                        String optString = jSONObject.optString(next);
-                        if (TextUtils.isEmpty(optString)) {
-                            optString = "";
-                        }
-                        hashMap.put(next, optString);
-                    }
-                }
-                return hashMap;
-            }
-            return null;
-        }
-        return (HashMap) invokeL.objValue;
-    }
-
-    public JSONObject t(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (i != 5) {
-                                    return UnitedSchemeUtility.wrapCallbackParams(202, "illegal request");
-                                }
-                                return UnitedSchemeUtility.wrapCallbackParams(202, "illegal upload file over size.");
-                            }
-                            return UnitedSchemeUtility.wrapCallbackParams(202, "HTTP method is invalid");
-                        }
-                        return UnitedSchemeUtility.wrapCallbackParams(202, "request:fail parameter error: arrayBuffer of data exceed size limit.");
-                    }
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "request url header must be https or wss");
-                }
-                return UnitedSchemeUtility.wrapCallbackParams(202, "illegal request");
-            }
-            return UnitedSchemeUtility.wrapCallbackParams(0);
-        }
-        return (JSONObject) invokeI.objValue;
-    }
-
-    public static HashMap<String, String> m(@Nullable JSONObject jSONObject, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, jSONObject, z)) == null) {
-            HashMap<String, String> l = l(jSONObject);
-            if (z) {
-                if (l == null) {
-                    l = new HashMap<>();
-                }
-                l.put("Referer", ly1.d());
-            }
-            return l;
-        }
-        return (HashMap) invokeLZ.objValue;
-    }
-
-    public static JSONObject s(Headers headers) throws JSONException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, headers)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (headers == null) {
-                return jSONObject;
-            }
-            for (String str : headers.names()) {
-                if (!TextUtils.isEmpty(str)) {
-                    List<String> values = headers.values(str);
-                    StringBuilder sb = new StringBuilder();
-                    int size = values.size();
-                    for (int i = 0; i < size; i++) {
-                        sb.append(values.get(i));
-                        if (i == size - 1) {
-                            break;
-                        }
-                        sb.append(",");
-                    }
-                    jSONObject.put(str, sb.toString());
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public JSONObject n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put("cancelTag", str);
-                }
-            } catch (JSONException e) {
-                if (ta3.b) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public final long p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0L;
-            }
-            try {
-                return this.c.get(str).longValue();
-            } catch (Exception unused) {
-                return 0L;
-            }
-        }
-        return invokeL.longValue;
-    }
-
-    public final void q(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && this.c != null && !TextUtils.isEmpty(str)) {
-            this.c.remove(str);
+            fg3.R(ng3Var);
         }
     }
 }

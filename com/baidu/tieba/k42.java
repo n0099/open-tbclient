@@ -1,151 +1,151 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
+import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class k42 extends m42 {
+public class k42 extends j42 {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, Class<? extends s22>> m;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public JSONObject j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public JSONArray o;
-    public float p;
-    @Nullable
-    public JSONObject q;
-    public long r;
-    public String s;
+    public List<s22> k;
+    public boolean l;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947863040, "Lcom/baidu/tieba/k42;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947863040, "Lcom/baidu/tieba/k42;");
+                return;
+            }
+        }
+        HashMap hashMap = new HashMap();
+        m = hashMap;
+        hashMap.put("setFillStyle", p32.class);
+        m.put("fillRect", e32.class);
+        m.put("setStrokeStyle", y32.class);
+        m.put("strokeStyle", f42.class);
+        m.put("setLineCap", s32.class);
+        m.put("setLineJoin", u32.class);
+        m.put("setLineWidth", v32.class);
+        m.put("setLineDash", t32.class);
+        m.put("setMiterLimit", w32.class);
+        m.put("strokeRect", e42.class);
+        m.put("moveTo", i32.class);
+        m.put("lineTo", h32.class);
+        m.put("stroke", d42.class);
+        m.put("fill", d32.class);
+        m.put("beginPath", v22.class);
+        m.put("rect", k32.class);
+        m.put("clearRect", x22.class);
+        m.put("closePath", z22.class);
+        m.put("arc", u22.class);
+        m.put("bezierCurveTo", w22.class);
+        m.put("quadraticCurveTo", j32.class);
+        m.put("scale", o32.class);
+        m.put("rotate", m32.class);
+        m.put("translate", i42.class);
+        m.put("transform", h42.class);
+        m.put("setTransform", b42.class);
+        m.put("font", g32.class);
+        m.put("setFontSize", q32.class);
+        m.put("setTextAlign", z32.class);
+        m.put("setTextBaseline", a42.class);
+        m.put("fillText", f32.class);
+        m.put("strokeText", g42.class);
+        m.put("clip", y22.class);
+        m.put("drawImage", c32.class);
+        m.put("save", n32.class);
+        m.put("restore", l32.class);
+        m.put("setShadow", x32.class);
+        m.put("setGlobalAlpha", r32.class);
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k42(String str, @NonNull String str2) {
-        super(str, str2);
+    public k42(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.k = 0;
-        this.m = 0;
-        this.p = -1.0f;
-        this.s = "";
-    }
-
-    @Override // com.baidu.tieba.m42, com.baidu.tieba.vy2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        this.j = jSONObject.optJSONObject("style");
-        this.q = jSONObject.optJSONObject(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
-        i();
-        h();
-    }
-
-    @Override // com.baidu.tieba.m42
-    public void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            super.g(jSONObject);
-            i();
-            h();
+        this.k = new ArrayList();
+        this.l = false;
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            JSONArray jSONArray = new JSONArray(jSONObject.optString(NotificationCompat.WearableExtender.KEY_ACTIONS));
+            int length = jSONArray.length();
+            for (int i3 = 0; i3 < length; i3++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i3);
+                String optString = optJSONObject.optString("method");
+                JSONArray optJSONArray = optJSONObject.optJSONArray("data");
+                Class<? extends s22> cls = m.get(optString);
+                if (cls != null) {
+                    s22 newInstance = cls.newInstance();
+                    newInstance.b(optJSONArray);
+                    this.k.add(newInstance);
+                }
+            }
+            this.l = jSONObject.optInt("reserve") != 0;
+        } catch (Exception e) {
+            if (wp1.a) {
+                e.printStackTrace();
+            }
         }
     }
 
-    @Override // com.baidu.tieba.m42
-    public Object clone() throws CloneNotSupportedException {
+    public List<s22> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.k;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            k42 k42Var = (k42) super.clone();
-            if (this.j != null) {
-                try {
-                    k42Var.j = new JSONObject(this.j.toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (this.o != null) {
-                try {
-                    k42Var.o = new JSONArray(this.o.toString());
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-            }
-            if (this.q != null) {
-                try {
-                    k42Var.q = new JSONObject(this.q.toString());
-                } catch (JSONException e3) {
-                    e3.printStackTrace();
-                }
-            }
-            return k42Var;
+            return this.l;
         }
-        return invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void h() {
-        JSONObject jSONObject;
+    @Override // com.baidu.tieba.j42, com.baidu.tieba.c52, com.baidu.tieba.lz2
+    public boolean isValid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (jSONObject = this.q) != null) {
-            try {
-                this.r = Long.parseLong(jSONObject.optString("duration"));
-            } catch (Exception unused) {
-                w52.b("Component-Model-View", "duration occurs exception");
-                this.r = 0L;
-            }
-            this.s = this.q.optString("easing");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return super.isValid();
         }
-    }
-
-    public final void i() {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (jSONObject = this.j) != null) {
-            try {
-                this.k = Color.parseColor(jSONObject.optString("bgColor"));
-            } catch (Exception unused) {
-                w52.b("Component-Model-View", "backgroundColor occurs exception");
-                this.k = 0;
-            }
-            this.l = this.j.optInt("borderWidth");
-            try {
-                this.m = Color.parseColor(this.j.optString("borderColor"));
-            } catch (Exception unused2) {
-                w52.b("Component-Model-View", "borderColor occurs exception");
-                this.m = 0;
-            }
-            this.n = nm3.g(this.j.optInt("borderRadius"));
-            this.p = wl3.b(this.j, NativeConstants.OPACITY, -1.0f);
-            this.o = this.j.optJSONArray(CriusAttrConstants.PADDING);
-        }
+        return invokeV.booleanValue;
     }
 }

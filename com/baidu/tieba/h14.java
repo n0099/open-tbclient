@@ -1,96 +1,73 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.net.Uri;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.tieba.tt2;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class h14 extends c14 {
+public class h14 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h14() {
-        super("navigateToSwanGame");
+    public h14(String str, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = str;
+        this.b = str2;
+        this.c = i;
     }
 
-    @Override // com.baidu.tieba.c14
-    public w02 a(JSONObject paramsJson, am2 callback) {
-        InterceptResult invokeLL;
-        boolean z;
-        Uri parse;
-        tt2.a W;
-        String I;
-        tt2.a W2;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, paramsJson, callback)) == null) {
-            Intrinsics.checkNotNullParameter(paramsJson, "paramsJson");
-            Intrinsics.checkNotNullParameter(callback, "callback");
-            Application c = ds2.c();
-            if (c == null) {
-                callback.onFail(202, "params may be error");
-                return null;
-            }
-            String optString = paramsJson.optString("appKey");
-            boolean z2 = false;
-            if (optString != null && optString.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                callback.onFail(202, "params may be error");
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            w83 b0 = w83.b0();
-            String str = "";
-            jSONObject.put("pre_source", (b0 == null || (W2 = b0.W()) == null || (r8 = W2.T()) == null) ? "" : "");
-            w83 b02 = w83.b0();
-            if (b02 != null && (W = b02.W()) != null && (I = W.I()) != null) {
-                str = I;
-            }
-            jSONObject.put("pre_appid", str);
-            paramsJson.put(UBCCloudControlProcessor.UBC_KEY, jSONObject);
-            String d1 = ut2.d1(optString, 1, paramsJson);
-            if ((d1 == null || d1.length() == 0) ? true : true) {
-                parse = null;
-            } else {
-                parse = Uri.parse(d1);
-            }
-            if (parse == null) {
-                callback.onFail(202, "params may be error");
-                return null;
-            }
-            if (SchemeRouter.invokeScheme(c, parse, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
-                callback.a(null);
-            } else {
-                callback.onFail(202, "params may be error");
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (w02) invokeLL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return TextUtils.equals(this.a, "onSuccess");
+        }
+        return invokeV.booleanValue;
     }
 }

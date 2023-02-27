@@ -2,7 +2,6 @@ package com.baidu.ar.arplay.core.engine3d;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.engine.engine3d.AbstractARPEngine3D;
 import com.baidu.ar.arplay.core.engine.engine3d.IARPCamera;
 import com.baidu.ar.arplay.core.engine.engine3d.IARPNode;
@@ -12,102 +11,64 @@ import com.baidu.ar.arplay.representation.Matrixf4x4;
 import com.baidu.ar.arplay.representation.Quaternion;
 import com.baidu.ar.arplay.representation.Vector3f;
 import com.baidu.ar.arplay.representation.Vector4f;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class ARPEngine3D extends AbstractARPEngine3D {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public ARPEngine3D() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static void a(Vector3f vector3f, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65537, null, vector3f, f) == null) {
-            nativeSetMovePlane(vector3f.getX(), vector3f.getY(), vector3f.getZ(), f);
-        }
+        nativeSetMovePlane(vector3f.getX(), vector3f.getY(), vector3f.getZ(), f);
     }
 
     private IARPScene bf() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            long nativeGetCurrentScene = nativeGetCurrentScene();
-            if (nativeGetCurrentScene == -1) {
-                return null;
-            }
-            ARPScene aRPScene = new ARPScene();
-            aRPScene.setInternal(nativeGetCurrentScene);
-            return aRPScene;
+        long nativeGetCurrentScene = nativeGetCurrentScene();
+        if (nativeGetCurrentScene == -1) {
+            return null;
         }
-        return (IARPScene) invokeV.objValue;
+        ARPScene aRPScene = new ARPScene();
+        aRPScene.setInternal(nativeGetCurrentScene);
+        return aRPScene;
     }
 
     public static native void nativeSetMovePlane(float f, float f2, float f3, float f4);
 
     @Override // com.baidu.ar.arplay.core.engine.d
     public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ARPCamera.be();
-        }
+        ARPCamera.be();
     }
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPEngine3D
     public IARPScene getCurrentScene() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? bf() : (IARPScene) invokeV.objValue;
+        return bf();
     }
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPEngine3D
     public void initWorldAxis() {
-        IARPScene bf;
         Vector3f vector3f;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bf = bf()) == null) {
-            return;
-        }
-        IARPNode rootNode = bf.getRootNode();
-        if (this.mIsActiveByARPlayVersionCase) {
-            vector3f = new Vector3f(0.0f, 1.0f, 0.0f);
-            if (rootNode == null) {
-                return;
+        IARPScene bf = bf();
+        if (bf != null) {
+            IARPNode rootNode = bf.getRootNode();
+            if (this.mIsActiveByARPlayVersionCase) {
+                vector3f = new Vector3f(0.0f, 1.0f, 0.0f);
+                if (rootNode == null) {
+                    return;
+                }
+            } else {
+                a(new Vector3f(0.0f, 0.0f, 1.0f), 0.0f);
+                vector3f = new Vector3f(0.0f, 0.0f, 1.0f);
+                if (rootNode == null) {
+                    return;
+                }
             }
-        } else {
-            a(new Vector3f(0.0f, 0.0f, 1.0f), 0.0f);
-            vector3f = new Vector3f(0.0f, 0.0f, 1.0f);
-            if (rootNode == null) {
-                return;
-            }
+            rootNode.setRotateWorldAxis(vector3f);
         }
-        rootNode.setRotateWorldAxis(vector3f);
     }
 
     public native long nativeGetCurrentScene();
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPEngine3D
     public void sceneRotateToCamera() {
-        IARPScene currentScene;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (currentScene = getCurrentScene()) == null) {
+        IARPScene currentScene = getCurrentScene();
+        if (currentScene == null) {
             return;
         }
         IARPCamera activeCamera = currentScene.getActiveCamera();
@@ -158,9 +119,8 @@ public class ARPEngine3D extends AbstractARPEngine3D {
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPEngine3D
     public void sceneWorldPositionToOrigin() {
-        IARPScene currentScene;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (currentScene = getCurrentScene()) == null) {
+        IARPScene currentScene = getCurrentScene();
+        if (currentScene == null) {
             return;
         }
         IARPNode rootNode = currentScene.getRootNode();
@@ -172,9 +132,8 @@ public class ARPEngine3D extends AbstractARPEngine3D {
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPEngine3D
     public void updateNodeUniform(String str, HashMap<String, Object> hashMap) {
-        IARPScene currentScene;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, hashMap) == null) || (currentScene = getCurrentScene()) == null || TextUtils.isEmpty(str) || hashMap == null) {
+        IARPScene currentScene = getCurrentScene();
+        if (currentScene == null || TextUtils.isEmpty(str) || hashMap == null) {
             return;
         }
         IARPNode nodeByName = currentScene.getNodeByName(str);

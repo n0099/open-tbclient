@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.crash.model.message.MemoryInfo;
 import com.kwad.sdk.crash.model.message.ThreadInfo;
@@ -199,7 +200,7 @@ public abstract class d {
                     it.remove();
                 }
             }
-            File file9 = new File(file.getParentFile().getParent(), "custom");
+            File file9 = new File(file.getParentFile().getParent(), ExceptionHandlerImpl.KEY_CUSTOM);
             if (file9.exists()) {
                 for (File file10 : file9.listFiles()) {
                     if (!file10.isDirectory() && (file10.getName().startsWith(a.mLogUUID) || file10.getName().startsWith(db(a.mLogUUID)))) {

@@ -1,172 +1,138 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class k68 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public TailData b;
+    public TextView c;
+    public TextView d;
+    public Context e;
+    public String f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947865148, "Lcom/baidu/tieba/k68;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947865148, "Lcom/baidu/tieba/k68;");
-                return;
-            }
-        }
-        a = c68.c + "draft/";
-        b = a + "upload_draft";
-    }
-
-    public static void a() {
+    public k68() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            File file = new File(b);
-            if (file.exists()) {
-                file.delete();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0010 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v2, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r2v6, types: [com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft] */
-    public static FaceGroupDraft b() {
+    public TailData c() {
         InterceptResult invokeV;
-        FaceGroupDraft faceGroupDraft;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File file = new File(b);
-            ?? r2 = 0;
-            r2 = null;
-            r2 = null;
-            r2 = null;
-            r2 = null;
-            FaceGroupDraft faceGroupDraft2 = null;
-            r2 = null;
-            r2 = null;
-            ObjectInputStream objectInputStream = null;
-            try {
-                if (!file.exists()) {
-                    return null;
-                }
-                try {
-                    ObjectInputStream objectInputStream2 = new ObjectInputStream(new FileInputStream(file));
-                    try {
-                        Object readObject = objectInputStream2.readObject();
-                        if (readObject != null && (readObject instanceof FaceGroupDraft)) {
-                            faceGroupDraft2 = (FaceGroupDraft) readObject;
-                        }
-                        objectInputStream2.close();
-                        ch.c(objectInputStream2);
-                        return faceGroupDraft2;
-                    } catch (IOException e) {
-                        e = e;
-                        FaceGroupDraft faceGroupDraft3 = faceGroupDraft2;
-                        objectInputStream = objectInputStream2;
-                        faceGroupDraft = faceGroupDraft3;
-                        e.printStackTrace();
-                        ch.c(objectInputStream);
-                        r2 = faceGroupDraft;
-                        return r2;
-                    } catch (ClassNotFoundException e2) {
-                        e = e2;
-                        FaceGroupDraft faceGroupDraft4 = faceGroupDraft2;
-                        objectInputStream = objectInputStream2;
-                        faceGroupDraft = faceGroupDraft4;
-                        e.printStackTrace();
-                        ch.c(objectInputStream);
-                        r2 = faceGroupDraft;
-                        return r2;
-                    } catch (Throwable th) {
-                        th = th;
-                        FaceGroupDraft faceGroupDraft5 = faceGroupDraft2;
-                        objectInputStream = objectInputStream2;
-                        faceGroupDraft = faceGroupDraft5;
-                        th.printStackTrace();
-                        ch.c(objectInputStream);
-                        r2 = faceGroupDraft;
-                        return r2;
-                    }
-                } catch (IOException e3) {
-                    e = e3;
-                    faceGroupDraft = null;
-                } catch (ClassNotFoundException e4) {
-                    e = e4;
-                    faceGroupDraft = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    faceGroupDraft = null;
-                }
-            } catch (Throwable th3) {
-                ch.c(r2);
-                throw th3;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (TailData) invokeV.objValue;
+    }
+
+    public void a(TbPageContext<?> tbPageContext) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            xw4 layoutMode = tbPageContext.getLayoutMode();
+            if (skinType == 4) {
+                z = true;
+            } else {
+                z = false;
             }
-        } else {
-            return (FaceGroupDraft) invokeV.objValue;
+            layoutMode.l(z);
+            tbPageContext.getLayoutMode().k(this.a);
+            d(this.f);
         }
     }
 
-    public static void c(FaceGroupDraft faceGroupDraft) {
-        ObjectOutputStream objectOutputStream;
+    public final void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, faceGroupDraft) == null) {
-            ObjectOutputStream objectOutputStream2 = null;
-            try {
-                try {
-                    File file = new File(a);
-                    if (!file.exists()) {
-                        file.mkdirs();
-                    }
-                    a();
-                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(b));
-                } finally {
-                    ch.d(objectOutputStream2);
-                }
-            } catch (FileNotFoundException e) {
-                e = e;
-            } catch (IOException e2) {
-                e = e2;
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                objectOutputStream.writeObject(faceGroupDraft);
-                ch.d(objectOutputStream);
-            } catch (FileNotFoundException e3) {
-                e = e3;
-                objectOutputStream2 = objectOutputStream;
-                e.printStackTrace();
-            } catch (IOException e4) {
-                e = e4;
-                objectOutputStream2 = objectOutputStream;
-                e.printStackTrace();
-            } catch (Throwable th2) {
-                th = th2;
-                objectOutputStream2 = objectOutputStream;
-                th.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f = str;
+            this.c.setTextColor(y68.a(str));
         }
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.c.setText(TbFaceManager.i().t(this.e, z68.a(str), null));
+        }
+    }
+
+    public void f(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
+            this.d.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void g(Boolean bool) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bool) == null) {
+            TextView textView = this.d;
+            if (bool.booleanValue()) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            textView.setVisibility(i);
+        }
+    }
+
+    public void h(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
+            this.a.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void i(TailData tailData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tailData) == null) {
+            this.b = tailData;
+            e(tailData.getContent());
+            d(tailData.getFontColor());
+        }
+    }
+
+    public View b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            this.e = context;
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08b7, (ViewGroup) null);
+            this.a = inflate;
+            inflate.setTag(this);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092254);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092253);
+            this.d = textView;
+            textView.setTag(this);
+            return this.a;
+        }
+        return (View) invokeL.objValue;
     }
 }

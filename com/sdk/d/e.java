@@ -3,6 +3,7 @@ package com.sdk.d;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -90,7 +91,7 @@ public abstract class e<Params, Progress, Result> implements k {
         this.e = new AtomicBoolean();
         this.f = new AtomicBoolean();
         this.g = false;
-        this.h = Boolean.valueOf(com.sdk.f.g.c);
+        this.h = Boolean.valueOf(com.sdk.f.f.b);
         this.c = new com.sdk.d.c(this);
         this.d = new d(this, this.c);
     }
@@ -132,7 +133,7 @@ public abstract class e<Params, Progress, Result> implements k {
                                     if (intValue != 3) {
                                         if (intValue == 4 && objArr.length == 2) {
                                             eVar2.p = e.a.f;
-                                            eVar2.m.a((com.sdk.a.i) objArr[1], eVar2.y.d);
+                                            eVar2.m.a((com.sdk.a.h) objArr[1], eVar2.y.d);
                                             return;
                                         }
                                         return;
@@ -146,8 +147,8 @@ public abstract class e<Params, Progress, Result> implements k {
                                         if (aVar2 != 0) {
                                             aVar2.a(intValue2, 302002, str);
                                             bVar.g = null;
-                                            return;
                                         }
+                                        Log.e(com.sdk.g.b.a, "BaseProtocol onFailure: ");
                                         return;
                                     } else {
                                         return;

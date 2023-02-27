@@ -1,46 +1,44 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.net.http.SslError;
-import android.os.Message;
-import android.view.KeyEvent;
-import android.webkit.SslErrorHandler;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface u91 extends a91 {
-    void B(AbsNadBrowserView absNadBrowserView, float f, float f2);
+public final class u91 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void C0(AbsNadBrowserView absNadBrowserView, String str, boolean z);
+    public final void a(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+        }
+    }
 
-    void D0(AbsNadBrowserView absNadBrowserView, SslErrorHandler sslErrorHandler, SslError sslError);
+    public final void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        }
+    }
 
-    void I0(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
+    }
 
-    boolean M(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
-
-    boolean N0(AbsNadBrowserView absNadBrowserView, String str);
-
-    void S(AbsNadBrowserView absNadBrowserView, String str);
-
-    void S0(AbsNadBrowserView absNadBrowserView, String str, Bitmap bitmap);
-
-    void T0(AbsNadBrowserView absNadBrowserView, v91 v91Var, String str, String str2);
-
-    void a1();
-
-    void b(AbsNadBrowserView absNadBrowserView, int i, String str, String str2);
-
-    void i(AbsNadBrowserView absNadBrowserView, String str);
-
-    void j(AbsNadBrowserView absNadBrowserView);
-
-    void k0();
-
-    void m1(AbsNadBrowserView absNadBrowserView, int i);
-
-    x91 n0(AbsNadBrowserView absNadBrowserView, String str);
-
-    void r0(AbsNadBrowserView absNadBrowserView, Message message, Message message2);
-
-    void w(AbsNadBrowserView absNadBrowserView, String str);
+    public u91() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

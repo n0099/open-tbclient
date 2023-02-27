@@ -7,18 +7,17 @@ import androidx.annotation.RequiresApi;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
-import com.baidu.searchbox.cloudcommand.dao.CloudCommandTable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
+import com.baidu.tieba.ay8;
+import com.baidu.tieba.cq5;
+import com.baidu.tieba.cr5;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.hl7;
+import com.baidu.tieba.do7;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
-import com.baidu.tieba.kp5;
-import com.baidu.tieba.oo5;
-import com.baidu.tieba.op5;
-import com.baidu.tieba.ou8;
+import com.baidu.tieba.yq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,13 +28,13 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class SelectPrivateMsgPageDispatcher implements ou8 {
+/* loaded from: classes4.dex */
+public class SelectPrivateMsgPageDispatcher implements ay8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a extends kp5<ImMessageCenterPojo> {
+    /* loaded from: classes4.dex */
+    public class a extends yq5<ImMessageCenterPojo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -59,20 +58,20 @@ public class SelectPrivateMsgPageDispatcher implements ou8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kp5
+        @Override // com.baidu.tieba.yq5
         /* renamed from: a */
         public ImMessageCenterPojo doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return hl7.f().i(this.a);
+                return do7.f().i(this.a);
             }
             return (ImMessageCenterPojo) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements oo5<ImMessageCenterPojo> {
+    /* loaded from: classes4.dex */
+    public class b implements cq5<ImMessageCenterPojo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -98,7 +97,7 @@ public class SelectPrivateMsgPageDispatcher implements ou8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oo5
+        @Override // com.baidu.tieba.cq5
         /* renamed from: a */
         public void onReturnDataInUI(ImMessageCenterPojo imMessageCenterPojo) {
             Interceptable interceptable = $ic;
@@ -136,7 +135,7 @@ public class SelectPrivateMsgPageDispatcher implements ou8 {
         }
     }
 
-    @Override // com.baidu.tieba.ou8
+    @Override // com.baidu.tieba.ay8
     @RequiresApi(api = 19)
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
@@ -153,13 +152,13 @@ public class SelectPrivateMsgPageDispatcher implements ou8 {
                         if (!TextUtils.isEmpty(optString2)) {
                             str = new String(Base64.decode(optString2, 2), StandardCharsets.UTF_8);
                         }
-                        arrayList.add(new ReportPrivateMsgData(jSONObject2.optString(CloudCommandTable.MSG_ID), str, jSONObject2.optString(FileMetaUtil.CREATE_TIME)));
+                        arrayList.add(new ReportPrivateMsgData(jSONObject2.optString("msgId"), str, jSONObject2.optString(FileMetaUtil.CREATE_TIME)));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
             }
-            op5.c(new a(this, optString), new b(this, optString, arrayList));
+            cr5.c(new a(this, optString), new b(this, optString, arrayList));
         }
     }
 }

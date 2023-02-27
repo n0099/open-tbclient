@@ -1,189 +1,119 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.net.http.SslError;
+import android.webkit.SslErrorHandler;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class re6 {
+public class re6 implements je6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final re6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
-    public int c;
-    public long d;
-    public long e;
-    public String f;
-    public long g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public int m;
-    public double n;
+    public long a;
+
+    @Override // com.baidu.tieba.je6
+    public void a(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, webView, sslErrorHandler, sslError) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.je6
+    public void e(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) {
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948118790, "Lcom/baidu/tieba/re6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948118790, "Lcom/baidu/tieba/re6;");
+                return;
+            }
+        }
+        b = new re6();
+    }
 
     public re6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public String a() {
+    public static re6 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-        return (String) invokeV.objValue;
+        return (re6) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.je6
+    public void b(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.h;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView) == null) {
+            this.a = 0L;
         }
-        return (String) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.je6
+    public void c(WebView webView, WebResourceRequest webResourceRequest, int i, CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.i;
+        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, webView, webResourceRequest, i, charSequence) == null) {
+            ke6.b("lt-log", "onPageError：" + webResourceRequest.getUrl());
         }
-        return (String) invokeV.objValue;
     }
 
-    public long d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.je6
+    public void d(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) {
+            this.a = System.currentTimeMillis();
+            ke6.b("lt-log", "onPageStarted：" + str);
         }
-        return invokeV.longValue;
     }
 
-    public int e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.je6
+    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.m;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, str)) == null) {
+            ke6.b("lt-log", "shouldOverrideUrlLoading：" + str);
+            return false;
         }
-        return invokeV.intValue;
+        return invokeLL.booleanValue;
     }
 
-    public long f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.je6
+    public void onPageFinished(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, webView, str) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            ke6.b("lt-log", "onPageFinished：(" + (currentTimeMillis - this.a) + "ms)" + str);
         }
-        return invokeV.longValue;
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return invokeV.longValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public double i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.n;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (StringUtils.isNull(this.l)) {
-                return this.k;
-            }
-            return this.l;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public void n(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048589, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString("order_id");
-        jSONObject.optLong(MemberPayActivityConfig.SCENE_ID);
-        this.b = jSONObject.optLong("scores");
-        this.c = jSONObject.optInt("status");
-        this.d = jSONObject.optLong("create_time");
-        this.e = jSONObject.optLong("finish_time");
-        this.f = jSONObject.optString("title");
-        this.g = jSONObject.optLong("money");
-        jSONObject.optString("preg_field");
-        this.k = jSONObject.optString("user_name");
-        this.l = jSONObject.optString("user_nickname");
-        this.h = jSONObject.optString("activity_desc");
-        this.i = jSONObject.optString("activity_url");
-        this.j = jSONObject.optString("button_name");
-        this.m = jSONObject.optInt("price_type", 0);
-        this.n = jSONObject.optDouble("order_yy_amount", 0.0d);
-        jSONObject.optDouble("order_amount", 0.0d);
     }
 }

@@ -1,7 +1,9 @@
 package com.baidu.adp.lib.util;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
@@ -48,5 +50,15 @@ public class NetworkState implements Serializable {
         this.mCurNetState = i2;
         this.mlastChangedTime = j;
         this.mCurChangedTime = j2;
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "LastNetState: " + this.mLastNetState + " CurNetState: " + this.mCurNetState + " LastChangedTime: " + this.mlastChangedTime + " CurChangedTime: " + this.mCurChangedTime;
+        }
+        return (String) invokeV.objValue;
     }
 }

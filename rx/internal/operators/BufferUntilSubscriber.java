@@ -1,307 +1,157 @@
 package rx.internal.operators;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dea;
-import com.baidu.tieba.kea;
-import com.baidu.tieba.pia;
-import com.baidu.tieba.uia;
-import com.baidu.tieba.xda;
-import com.baidu.tieba.yda;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.fna;
+import com.baidu.tieba.kra;
+import com.baidu.tieba.pra;
+import com.baidu.tieba.sma;
+import com.baidu.tieba.tma;
+import com.baidu.tieba.yma;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class BufferUntilSubscriber<T> extends pia<T, T> {
-    public static /* synthetic */ Interceptable $ic;
-    public static final yda d;
-    public transient /* synthetic */ FieldHolder $fh;
+public final class BufferUntilSubscriber<T> extends kra<T, T> {
+    public static final tma d = new a();
     public final State<T> b;
     public boolean c;
 
     /* loaded from: classes9.dex */
-    public static final class b<T> implements xda.a<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static class a implements tma {
+        @Override // com.baidu.tieba.tma
+        public void onCompleted() {
+        }
+
+        @Override // com.baidu.tieba.tma
+        public void onError(Throwable th) {
+        }
+
+        @Override // com.baidu.tieba.tma
+        public void onNext(Object obj) {
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public static final class b<T> implements sma.a<T> {
         public final State<T> a;
 
         /* loaded from: classes9.dex */
-        public class a implements kea {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
+        public class a implements fna {
+            public a() {
             }
 
-            @Override // com.baidu.tieba.kea
+            @Override // com.baidu.tieba.fna
             public void call() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.set(BufferUntilSubscriber.d);
-                }
+                b.this.a.set(BufferUntilSubscriber.d);
             }
         }
 
         public b(State<T> state) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {state};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.a = state;
         }
 
-        @Override // com.baidu.tieba.xda.a, com.baidu.tieba.lea
+        @Override // com.baidu.tieba.sma.a, com.baidu.tieba.gna
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((dea) ((dea) obj));
+            call((yma) ((yma) obj));
         }
 
-        public void call(dea<? super T> deaVar) {
+        public void call(yma<? super T> ymaVar) {
             boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, deaVar) == null) {
-                if (this.a.casObserverRef(null, deaVar)) {
-                    deaVar.b(uia.a(new a(this)));
-                    synchronized (this.a.guard) {
-                        z = true;
-                        if (!this.a.emitting) {
-                            this.a.emitting = true;
-                        } else {
-                            z = false;
-                        }
+            if (this.a.casObserverRef(null, ymaVar)) {
+                ymaVar.b(pra.a(new a()));
+                synchronized (this.a.guard) {
+                    z = true;
+                    if (!this.a.emitting) {
+                        this.a.emitting = true;
+                    } else {
+                        z = false;
                     }
-                    if (!z) {
-                        return;
-                    }
-                    while (true) {
-                        Object poll = this.a.buffer.poll();
-                        if (poll != null) {
-                            NotificationLite.a(this.a.get(), poll);
-                        } else {
-                            synchronized (this.a.guard) {
-                                if (this.a.buffer.isEmpty()) {
-                                    this.a.emitting = false;
-                                    return;
-                                }
+                }
+                if (!z) {
+                    return;
+                }
+                while (true) {
+                    Object poll = this.a.buffer.poll();
+                    if (poll != null) {
+                        NotificationLite.a(this.a.get(), poll);
+                    } else {
+                        synchronized (this.a.guard) {
+                            if (this.a.buffer.isEmpty()) {
+                                this.a.emitting = false;
+                                return;
                             }
                         }
                     }
-                } else {
-                    deaVar.onError(new IllegalStateException("Only one subscriber allowed!"));
                 }
+            } else {
+                ymaVar.onError(new IllegalStateException("Only one subscriber allowed!"));
             }
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static final class State<T> extends AtomicReference<yda<? super T>> {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final long serialVersionUID = 8026705089538090368L;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final ConcurrentLinkedQueue<Object> buffer;
-        public boolean emitting;
-        public final Object guard;
-
-        public State() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.guard = new Object();
-            this.buffer = new ConcurrentLinkedQueue<>();
-        }
-
-        public boolean casObserverRef(yda<? super T> ydaVar, yda<? super T> ydaVar2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ydaVar, ydaVar2)) == null) {
-                return compareAndSet(ydaVar, ydaVar2);
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static class a implements yda {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.yda
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.yda
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.yda
-        public void onNext(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-381439062, "Lrx/internal/operators/BufferUntilSubscriber;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-381439062, "Lrx/internal/operators/BufferUntilSubscriber;");
-                return;
-            }
-        }
-        d = new a();
     }
 
     public static <T> BufferUntilSubscriber<T> D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new BufferUntilSubscriber<>(new State());
-        }
-        return (BufferUntilSubscriber) invokeV.objValue;
+        return new BufferUntilSubscriber<>(new State());
     }
 
-    @Override // com.baidu.tieba.yda
+    @Override // com.baidu.tieba.tma
     public void onCompleted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.c) {
-                this.b.get().onCompleted();
-            } else {
-                E(NotificationLite.b());
-            }
+        if (this.c) {
+            this.b.get().onCompleted();
+        } else {
+            E(NotificationLite.b());
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* loaded from: classes9.dex */
+    public static final class State<T> extends AtomicReference<tma<? super T>> {
+        public static final long serialVersionUID = 8026705089538090368L;
+        public boolean emitting;
+        public final Object guard = new Object();
+        public final ConcurrentLinkedQueue<Object> buffer = new ConcurrentLinkedQueue<>();
+
+        public boolean casObserverRef(tma<? super T> tmaVar, tma<? super T> tmaVar2) {
+            return compareAndSet(tmaVar, tmaVar2);
+        }
+    }
+
     public BufferUntilSubscriber(State<T> state) {
         super(new b(state));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {state};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((xda.a) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.b = state;
     }
 
-    public final void E(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            synchronized (this.b.guard) {
-                this.b.buffer.add(obj);
-                if (this.b.get() != null && !this.b.emitting) {
-                    this.c = true;
-                    this.b.emitting = true;
-                }
-            }
-            if (!this.c) {
-                return;
-            }
-            while (true) {
-                Object poll = this.b.buffer.poll();
-                if (poll != null) {
-                    NotificationLite.a(this.b.get(), poll);
-                } else {
-                    return;
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.yda
+    @Override // com.baidu.tieba.tma
     public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            if (this.c) {
-                this.b.get().onError(th);
-            } else {
-                E(NotificationLite.c(th));
-            }
+        if (this.c) {
+            this.b.get().onError(th);
+        } else {
+            E(NotificationLite.c(th));
         }
     }
 
-    @Override // com.baidu.tieba.yda
+    @Override // com.baidu.tieba.tma
     public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-            if (this.c) {
-                this.b.get().onNext(t);
+        if (this.c) {
+            this.b.get().onNext(t);
+        } else {
+            E(NotificationLite.h(t));
+        }
+    }
+
+    public final void E(Object obj) {
+        synchronized (this.b.guard) {
+            this.b.buffer.add(obj);
+            if (this.b.get() != null && !this.b.emitting) {
+                this.c = true;
+                this.b.emitting = true;
+            }
+        }
+        if (!this.c) {
+            return;
+        }
+        while (true) {
+            Object poll = this.b.buffer.poll();
+            if (poll != null) {
+                NotificationLite.a(this.b.get(), poll);
             } else {
-                E(NotificationLite.h(t));
+                return;
             }
         }
     }

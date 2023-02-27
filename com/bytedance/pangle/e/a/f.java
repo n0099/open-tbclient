@@ -1,62 +1,30 @@
 package com.bytedance.pangle.e.a;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public final class f {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public int[] a;
     public int[] b;
 
-    public f() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static final int a(int[] iArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, iArr, i)) == null) {
-            int i2 = iArr[i / 4];
-            if ((i % 4) / 2 == 0) {
-                return i2 & 65535;
-            }
-            return i2 >>> 16;
+        int i2 = iArr[i / 4];
+        if ((i % 4) / 2 == 0) {
+            return i2 & 65535;
         }
-        return invokeLI.intValue;
+        return i2 >>> 16;
     }
 
     public final String a(int i) {
-        InterceptResult invokeI;
         int[] iArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i >= 0 && (iArr = this.a) != null && i < iArr.length) {
-                int i2 = iArr[i];
-                int a = a(this.b, i2);
-                StringBuilder sb = new StringBuilder(a);
-                while (a != 0) {
-                    i2 += 2;
-                    sb.append((char) a(this.b, i2));
-                    a--;
-                }
-                return sb.toString();
+        if (i >= 0 && (iArr = this.a) != null && i < iArr.length) {
+            int i2 = iArr[i];
+            int a = a(this.b, i2);
+            StringBuilder sb = new StringBuilder(a);
+            while (a != 0) {
+                i2 += 2;
+                sb.append((char) a(this.b, i2));
+                a--;
             }
-            return null;
+            return sb.toString();
         }
-        return (String) invokeI.objValue;
+        return null;
     }
 }

@@ -1,25 +1,79 @@
 package com.baidu.tieba;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
-import org.json.JSONArray;
+import java.util.HashSet;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class vn1 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
-    public static String c;
-    public static String d;
+    public static volatile vn1 g;
     public transient /* synthetic */ FieldHolder $fh;
+    public BroadcastReceiver a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public HashSet<String> f;
+
+    /* loaded from: classes6.dex */
+    public class a extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vn1 a;
+
+        public a(vn1 vn1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vn1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vn1Var;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                String stringExtra = intent.getStringExtra("ss");
+                if (this.a.b == 1) {
+                    return;
+                }
+                if (!TextUtils.isEmpty(stringExtra)) {
+                    if ("LOADED".equals(stringExtra)) {
+                        if (this.a.f.isEmpty()) {
+                            return;
+                        }
+                        this.a.b = 1;
+                        return;
+                    }
+                    this.a.b = 1;
+                    this.a.f.add(stringExtra);
+                    return;
+                }
+                this.a.b = 1;
+            }
+        }
+    }
 
     public vn1() {
         Interceptable interceptable = $ic;
@@ -31,138 +85,129 @@ public class vn1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = 0;
+        this.c = false;
+        this.d = false;
+        this.e = false;
+        this.f = new HashSet<>();
+    }
+
+    public static vn1 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (g == null) {
+                synchronized (vn1.class) {
+                    if (g == null) {
+                        g = new vn1();
+                    }
+                }
+            }
+            return g;
+        }
+        return (vn1) invokeV.objValue;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.c) {
+                return -1000;
+            }
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!this.d) {
+                return false;
+            }
+            if (!this.e) {
+                return true;
+            }
+            if (!this.c || this.b == 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b = 0;
+            this.f.clear();
         }
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    public void d(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             try {
-                if (TextUtils.isEmpty(a)) {
-                    a = go1.e(context);
+                if (this.a != null) {
+                    return;
                 }
-                if (TextUtils.isEmpty(a)) {
-                    return "";
-                }
-                return a;
+                this.a = new a(this);
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction("android.intent.action.SIM_STATE_CHANGED");
+                context.registerReceiver(this.a, intentFilter);
             } catch (Throwable th) {
-                go1.d(th);
-                return "";
+                vo1.d(th);
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String d(Context context) {
-        InterceptResult invokeL;
+    public void g(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             try {
-                if (TextUtils.isEmpty(b)) {
-                    b = go1.g(context);
+                if (this.a == null) {
+                    return;
                 }
-                if (TextUtils.isEmpty(b)) {
-                    return "";
-                }
-                return b;
+                context.unregisterReceiver(this.a);
+                this.a = null;
             } catch (Throwable th) {
-                go1.d(th);
-                return "";
+                vo1.d(th);
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String e(Context context) {
-        InterceptResult invokeL;
+    public void e(Context context, JSONObject jSONObject) {
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            try {
-                if (TextUtils.isEmpty(c)) {
-                    c = context.getPackageName();
-                }
-                if (TextUtils.isEmpty(c)) {
-                    return "";
-                }
-                return c;
-            } catch (Throwable th) {
-                go1.d(th);
-                return "";
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject) == null) {
+            boolean z3 = false;
+            if (jSONObject.optInt("1", 0) == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.d = z;
+            if (jSONObject.optInt("2", 0) == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            this.c = z2;
+            if (jSONObject.optInt("3", 0) == 1) {
+                z3 = true;
+            }
+            this.e = z3;
+            if (this.c) {
+                d(context);
+            } else {
+                g(context);
             }
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static JSONObject c(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("1", b(context));
-                jSONObject.put("3", d(context));
-                jSONObject.put("2", e(context));
-                jSONObject.put("4", f(context));
-                jSONObject.put("5", str);
-                jSONObject.put("6", System.currentTimeMillis());
-                jSONObject.put("7", "0");
-                jSONObject.put("8", tm1.b);
-                jSONObject.put("9", AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
-                jSONObject.put("10", "1.1.4");
-                jSONObject.put("14", go1.i(context));
-                jSONObject.put("23", sn1.a(context));
-                jSONObject.put("26", "");
-                jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_PAGE_SHOW, um1.f(context).J());
-                return jSONObject;
-            } catch (Throwable th) {
-                go1.d(th);
-                return null;
-            }
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public static String f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            try {
-                if (!TextUtils.isEmpty(d)) {
-                    return d;
-                }
-                String b2 = ho1.b(context);
-                d = b2;
-                return b2;
-            } catch (Throwable unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public yn1 a(Context context, String str, String str2, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                JSONArray jSONArray = new JSONArray(str);
-                JSONObject c2 = c(context, str2);
-                c2.put("module_section", jSONArray);
-                yn1 yn1Var = new yn1();
-                yn1Var.e(i);
-                yn1Var.c(c2.toString());
-                yn1Var.g(i2);
-                return yn1Var;
-            } catch (Throwable th) {
-                go1.d(th);
-                return null;
-            }
-        }
-        return (yn1) invokeCommon.objValue;
     }
 }

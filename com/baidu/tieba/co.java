@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class co {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class co {
     public HashSet<Integer> l;
     public HashSet<Integer> m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +72,7 @@ public class co {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -199,7 +199,7 @@ public class co {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             if (i > 0) {
-                return tn5.p(this.a.E(i - this.a.getHeaderViewsCount()));
+                return hp5.p(this.a.E(i - this.a.getHeaderViewsCount()));
             }
             return false;
         }
@@ -278,8 +278,8 @@ public class co {
                 if (E instanceof BaseCardInfo) {
                     return ((BaseCardInfo) E).position;
                 }
-                if (E instanceof hy4) {
-                    return ((hy4) E).j();
+                if (E instanceof oz4) {
+                    return ((oz4) E).k();
                 }
             }
             return -1;

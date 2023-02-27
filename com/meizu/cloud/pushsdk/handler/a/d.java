@@ -19,8 +19,8 @@ public class d extends a<String> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     public void a(String str, com.meizu.cloud.pushsdk.notification.c cVar) {
-        if (b() != null) {
-            b().a(c(), str);
+        if (c() != null) {
+            c().a(d(), str);
         }
     }
 
@@ -32,11 +32,11 @@ public class d extends a<String> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: j */
+    /* renamed from: l */
     public String c(Intent intent) {
         String stringExtra = intent.getStringExtra("registration_id");
-        com.meizu.cloud.pushsdk.util.b.g(c(), stringExtra, c().getPackageName());
-        com.meizu.cloud.pushsdk.util.b.a(c(), 0, c().getPackageName());
+        com.meizu.cloud.pushsdk.util.b.g(d(), stringExtra, d().getPackageName());
+        com.meizu.cloud.pushsdk.util.b.a(d(), 0, d().getPackageName());
         return stringExtra;
     }
 }

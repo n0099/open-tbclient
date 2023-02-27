@@ -1,130 +1,82 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.CountDownLatch;
+import com.baidu.webkit.sdk.CookieManager;
+import com.baidu.webkit.sdk.CookieSyncManager;
 /* loaded from: classes5.dex */
-public abstract class nn3<OuT> implements Runnable {
+public class nn3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final qn3<OuT> a;
-    public OuT b;
-
-    public abstract void c();
 
     /* loaded from: classes5.dex */
-    public static class a extends nn3<OuT> {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CountDownLatch c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(qn3 qn3Var, CountDownLatch countDownLatch) {
-            super(qn3Var, null);
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qn3Var, countDownLatch};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((qn3) objArr2[0], (a) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.c = countDownLatch;
         }
 
-        @Override // com.baidu.tieba.nn3
-        public void c() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.countDown();
+                CookieManager.getInstance().setCookie(".baidu.com", en3.k(".baidu.com", "SP_FW_VER", ri3.h(0), 2937600L));
+                CookieManager.getInstance().setCookie(".baidu.com", en3.k(".baidu.com", "SG_FW_VER", ri3.h(1), 2937600L));
+                nn3.b();
             }
         }
     }
 
-    public nn3(qn3<OuT> qn3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qn3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948008182, "Lcom/baidu/tieba/nn3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948008182, "Lcom/baidu/tieba/nn3;");
                 return;
             }
         }
-        this.b = null;
-        this.a = qn3Var;
+        ts2.g0().getSwitch("swan_env_init_thread_pool_optimize", true);
     }
 
-    public static <OuT> OuT b(qn3<OuT> qn3Var) {
-        InterceptResult invokeL;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, qn3Var)) == null) {
-            return (OuT) a(Looper.getMainLooper(), qn3Var);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            l93.M().post(new a());
         }
-        return (OuT) invokeL.objValue;
     }
 
-    public /* synthetic */ nn3(qn3 qn3Var, a aVar) {
-        this(qn3Var);
-    }
-
-    public static <OuT> OuT a(Looper looper, qn3<OuT> qn3Var) {
-        InterceptResult invokeLL;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, looper, qn3Var)) == null) {
-            if (qn3Var == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            if (tl3.f()) {
+                CookieManager.getInstance().flush();
+                return;
             }
-            if (looper != null && Thread.currentThread() != looper.getThread()) {
-                CountDownLatch countDownLatch = new CountDownLatch(1);
-                a aVar = new a(qn3Var, countDownLatch);
-                new Handler(looper).post(aVar);
-                try {
-                    countDownLatch.await();
-                } catch (InterruptedException e) {
-                    w52.o("Awaiting", "callOnLooper: Thread=" + Thread.currentThread().getName() + " ret by InterruptedException " + e);
-                    e.printStackTrace();
-                }
-                return aVar.b;
-            }
-            return qn3Var.create();
-        }
-        return (OuT) invokeLL.objValue;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                try {
-                    this.b = this.a.create();
-                } catch (Exception e) {
-                    w52.o("Awaiting", "catch: " + e + "\n" + Log.getStackTraceString(e));
-                }
-            } finally {
-                c();
-            }
+            CookieSyncManager.createInstance(AppRuntime.getAppContext());
+            CookieSyncManager.getInstance().sync();
         }
     }
 }

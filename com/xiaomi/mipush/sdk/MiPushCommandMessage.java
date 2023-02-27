@@ -1,18 +1,11 @@
 package com.xiaomi.mipush.sdk;
 
 import android.os.Bundle;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.PushMessageHandler;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class MiPushCommandMessage implements PushMessageHandler.a {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_AUTO_MARK_PKGS = "autoMarkPkgs";
     public static final String KEY_CATEGORY = "category";
     public static final String KEY_COMMAND = "command";
@@ -20,7 +13,6 @@ public class MiPushCommandMessage implements PushMessageHandler.a {
     public static final String KEY_REASON = "reason";
     public static final String KEY_RESULT_CODE = "resultCode";
     public static final long serialVersionUID = 1;
-    public transient /* synthetic */ FieldHolder $fh;
     public List<String> autoMarkPkgs;
     public String category;
     public String command;
@@ -28,142 +20,83 @@ public class MiPushCommandMessage implements PushMessageHandler.a {
     public String reason;
     public long resultCode;
 
-    public MiPushCommandMessage() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static MiPushCommandMessage fromBundle(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bundle)) == null) {
-            MiPushCommandMessage miPushCommandMessage = new MiPushCommandMessage();
-            miPushCommandMessage.command = bundle.getString("command");
-            miPushCommandMessage.resultCode = bundle.getLong("resultCode");
-            miPushCommandMessage.reason = bundle.getString("reason");
-            miPushCommandMessage.commandArguments = bundle.getStringArrayList(KEY_COMMAND_ARGUMENTS);
-            miPushCommandMessage.category = bundle.getString("category");
-            miPushCommandMessage.autoMarkPkgs = bundle.getStringArrayList(KEY_AUTO_MARK_PKGS);
-            return miPushCommandMessage;
-        }
-        return (MiPushCommandMessage) invokeL.objValue;
+        MiPushCommandMessage miPushCommandMessage = new MiPushCommandMessage();
+        miPushCommandMessage.command = bundle.getString("command");
+        miPushCommandMessage.resultCode = bundle.getLong("resultCode");
+        miPushCommandMessage.reason = bundle.getString("reason");
+        miPushCommandMessage.commandArguments = bundle.getStringArrayList(KEY_COMMAND_ARGUMENTS);
+        miPushCommandMessage.category = bundle.getString("category");
+        miPushCommandMessage.autoMarkPkgs = bundle.getStringArrayList(KEY_AUTO_MARK_PKGS);
+        return miPushCommandMessage;
     }
 
     public List<String> getAutoMarkPkgs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.autoMarkPkgs : (List) invokeV.objValue;
+        return this.autoMarkPkgs;
     }
 
     public String getCategory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.category : (String) invokeV.objValue;
+        return this.category;
     }
 
     public String getCommand() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.command : (String) invokeV.objValue;
+        return this.command;
     }
 
     public List<String> getCommandArguments() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.commandArguments : (List) invokeV.objValue;
+        return this.commandArguments;
     }
 
     public String getReason() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.reason : (String) invokeV.objValue;
+        return this.reason;
     }
 
     public long getResultCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.resultCode : invokeV.longValue;
+        return this.resultCode;
     }
 
     public void setAutoMarkPkgs(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.autoMarkPkgs = list;
-        }
+        this.autoMarkPkgs = list;
     }
 
     public void setCategory(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.category = str;
-        }
+        this.category = str;
     }
 
     public void setCommand(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.command = str;
-        }
+        this.command = str;
     }
 
     public void setCommandArguments(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            this.commandArguments = list;
-        }
+        this.commandArguments = list;
     }
 
     public void setReason(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.reason = str;
-        }
+        this.reason = str;
     }
 
     public void setResultCode(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.resultCode = j;
-        }
+        this.resultCode = j;
     }
 
     public Bundle toBundle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("command", this.command);
-            bundle.putLong("resultCode", this.resultCode);
-            bundle.putString("reason", this.reason);
-            List<String> list = this.commandArguments;
-            if (list != null) {
-                bundle.putStringArrayList(KEY_COMMAND_ARGUMENTS, (ArrayList) list);
-            }
-            bundle.putString("category", this.category);
-            List<String> list2 = this.autoMarkPkgs;
-            if (list2 != null) {
-                bundle.putStringArrayList(KEY_AUTO_MARK_PKGS, (ArrayList) list2);
-            }
-            return bundle;
+        Bundle bundle = new Bundle();
+        bundle.putString("command", this.command);
+        bundle.putLong("resultCode", this.resultCode);
+        bundle.putString("reason", this.reason);
+        List<String> list = this.commandArguments;
+        if (list != null) {
+            bundle.putStringArrayList(KEY_COMMAND_ARGUMENTS, (ArrayList) list);
         }
-        return (Bundle) invokeV.objValue;
+        bundle.putString("category", this.category);
+        List<String> list2 = this.autoMarkPkgs;
+        if (list2 != null) {
+            bundle.putStringArrayList(KEY_AUTO_MARK_PKGS, (ArrayList) list2);
+        }
+        return bundle;
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return "command={" + this.command + "}, resultCode={" + this.resultCode + "}, reason={" + this.reason + "}, category={" + this.category + "}, commandArguments={" + this.commandArguments + "}";
-        }
-        return (String) invokeV.objValue;
+        return "command={" + this.command + "}, resultCode={" + this.resultCode + "}, reason={" + this.reason + "}, category={" + this.category + "}, commandArguments={" + this.commandArguments + "}";
     }
 }

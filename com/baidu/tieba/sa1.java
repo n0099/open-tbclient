@@ -1,51 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.app.Activity;
+import android.content.Intent;
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface sa1 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "webViewInit");
-    public static final sa1 b = new a();
+    void c();
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a();
-    }
+    boolean d();
 
-    int a(Context context, b bVar);
+    @NonNull
+    Activity getActivity();
 
-    /* loaded from: classes6.dex */
-    public static class a implements sa1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.sa1
-        public int a(Context context, b bVar) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, bVar)) == null) {
-                return 0;
-            }
-            return invokeLL.intValue;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
+    @NonNull
+    Intent getIntent();
 }

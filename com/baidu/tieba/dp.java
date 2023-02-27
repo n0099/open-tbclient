@@ -3,23 +3,40 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.lang.reflect.Array;
+import java.security.InvalidParameterException;
 /* loaded from: classes4.dex */
 public class dp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static float a(int i) {
-        InterceptResult invokeI;
+    public static String a(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    return i != 3 ? 0.0f : 5.5f;
-                }
-                return -7.7f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, obj)) == null) {
+            if (obj == null) {
+                return null;
             }
-            return 6.6f;
+            if (obj.getClass().isArray()) {
+                int length = Array.getLength(obj);
+                StringBuilder sb = new StringBuilder();
+                sb.append('[');
+                int i = 0;
+                while (i < length) {
+                    sb.append(Array.get(obj, i));
+                    sb.append(',');
+                    sb.append(WebvttCueParser.CHAR_SPACE);
+                    i++;
+                }
+                if (i > 0) {
+                    sb.delete(sb.length() - 2, sb.length());
+                }
+                sb.append(']');
+                return sb.toString();
+            }
+            throw new InvalidParameterException("Not a primitive array: " + obj.getClass());
         }
-        return invokeI.floatValue;
+        return (String) invokeL.objValue;
     }
 }

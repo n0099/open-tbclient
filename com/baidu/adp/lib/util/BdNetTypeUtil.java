@@ -13,8 +13,13 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.service.AsyncService;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tieba.cg;
 import com.baidu.tieba.dj;
+import com.baidu.tieba.el;
 import com.baidu.tieba.gj;
+import com.baidu.tieba.r08;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,12 +50,17 @@ public class BdNetTypeUtil {
     public static final int NETWORK_TYPE_EVDO_A = 6;
     public static final int NETWORK_TYPE_EVDO_B = 12;
     public static final int NETWORK_TYPE_GPRS = 1;
+    public static final int NETWORK_TYPE_GSM = 16;
     public static final int NETWORK_TYPE_HSDPA = 8;
     public static final int NETWORK_TYPE_HSPA = 10;
     public static final int NETWORK_TYPE_HSPAP = 15;
     public static final int NETWORK_TYPE_HSUPA = 9;
     public static final int NETWORK_TYPE_IDEN = 11;
+    public static final int NETWORK_TYPE_IWLAN = 18;
     public static final int NETWORK_TYPE_LTE = 13;
+    public static final int NETWORK_TYPE_LTE_CA = 19;
+    public static final int NETWORK_TYPE_NR = 20;
+    public static final int NETWORK_TYPE_TD_SCDMA = 17;
     public static final int NETWORK_TYPE_UMTS = 3;
     public static final int NETWORK_TYPE_UNKNOWN = 0;
     public static final int NET_TPYE_UNAVAILABLE = 0;
@@ -81,36 +91,6 @@ public class BdNetTypeUtil {
     public String mProxyHost;
     public int mProxyPort;
     public int operatorType;
-
-    public static int getNetworkClass(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i)) == null) {
-            switch (i) {
-                case 1:
-                case 2:
-                case 4:
-                case 7:
-                case 11:
-                    return 1;
-                case 3:
-                case 5:
-                case 6:
-                case 8:
-                case 9:
-                case 10:
-                case 12:
-                case 14:
-                case 15:
-                    return 2;
-                case 13:
-                    return 3;
-                default:
-                    return 4;
-            }
-        }
-        return invokeI.intValue;
-    }
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -152,6 +132,8 @@ public class BdNetTypeUtil {
                     networkState.mCurChangedTime = currentTimeMillis;
                     BdNetTypeUtil.setNetWorkChangedTime(currentTimeMillis);
                     MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangedMessage(networkState));
+                    r08 a = el.a();
+                    a.c(Config.DEVICE_PART, "net status: " + networkState.toString());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -815,5 +797,57 @@ public class BdNetTypeUtil {
             this.mProxyHost = Proxy.getDefaultHost();
             this.mProxyPort = Proxy.getDefaultPort();
         }
+    }
+
+    public static int getNetworkClass(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i)) == null) {
+            boolean netBdABTest = ((cg) ServiceManager.getService(cg.a)).netBdABTest();
+            switch (i) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                    return 1;
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                    return 2;
+                case 13:
+                    return 3;
+                case 16:
+                    if (!netBdABTest) {
+                        return 1;
+                    }
+                    return 0;
+                case 17:
+                    if (!netBdABTest) {
+                        return 2;
+                    }
+                    return 0;
+                case 18:
+                case 19:
+                    if (!netBdABTest) {
+                        return 3;
+                    }
+                    return 0;
+                case 20:
+                    if (netBdABTest) {
+                        return 0;
+                    }
+                    return 4;
+                default:
+                    return 0;
+            }
+        }
+        return invokeI.intValue;
     }
 }

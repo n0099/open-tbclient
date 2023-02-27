@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.tieba.tt2;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.so.SoLoader;
+import com.baidu.swan.apps.so.SoUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,207 +17,66 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Iterator;
+import java.util.zip.ZipFile;
 /* loaded from: classes4.dex */
-public final class gf3 {
+public class gf3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static volatile boolean b;
-    public static volatile boolean c;
-    public static volatile boolean d;
-    public static volatile boolean e;
-    public static volatile boolean f;
-    public static volatile boolean g;
-    public static HashMap<String, String> h;
-    public static String i;
+    public static final String b;
+    public static final boolean c;
+    public static final String[] d;
+    public static String e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Bundle a;
-
-        public a(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bundle;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.remove("page_display_flag_for_statistic");
-            }
-        }
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "v8.engine" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zf3 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
 
-        public b(zf3 zf3Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zf3Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+        /* renamed from: com.baidu.tieba.gf3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public static class RunnableC0267a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public RunnableC0267a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
                 }
             }
-            this.a = zf3Var;
-            this.b = str;
-            this.c = str2;
-        }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b(pf3.k(this.b));
-                this.a.d(this.c);
-                pf3.onEvent(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zf3 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-
-        public c(zf3 zf3Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zf3Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    gf3.a();
                 }
             }
-            this.a = zf3Var;
-            this.b = str;
-            this.c = str2;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public static void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.d(this.b);
-                this.a.b(pf3.k(this.c));
-                pf3.onEvent(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zf3 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-
-        public d(zf3 zf3Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zf3Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zf3Var;
-            this.b = str;
-            this.c = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b(pf3.k(this.b));
-                this.a.d(this.c);
-                pf3.onEvent(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class e implements pn3<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zf3 a;
-
-        public e(zf3 zf3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zf3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zf3Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pn3
-        /* renamed from: b */
-        public void a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-                this.a.a(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject);
-                pf3.onEvent(this.a);
-                w52.k("SwanAppLaunchUbc", jSONObject.toString());
-                ds2.p0().flush(false);
+            if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+                ExecutorUtilsExt.postOnElastic(new RunnableC0267a(), "V8SoCleaner", 3);
             }
         }
     }
@@ -235,492 +94,291 @@ public final class gf3 {
                 return;
             }
         }
-        a = gp1.a;
-        b = false;
-        c = false;
-        d = false;
-        e = false;
-        f = false;
-        g = false;
+        a = wp1.a;
+        b = is2.g() + "/v8_so/";
+        c = ts2.e0().b();
+        d = ts2.e0().a();
+        e = null;
     }
 
-    public static synchronized boolean e() {
-        InterceptResult invokeV;
-        boolean z;
+    public static void a() {
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            synchronized (gf3.class) {
-                z = b;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            File file = new File(b);
+            if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
+                String D = gn3.D();
+                for (File file2 : listFiles) {
+                    if (!TextUtils.equals(file2.getName(), D)) {
+                        qp4.L(file2);
+                    }
+                }
+            }
+        }
+    }
+
+    @NonNull
+    public static ArrayList<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            arrayList.add("v8.engine");
+            arrayList.add("zeusv8");
+            if (c) {
+                arrayList.add("com.baidu.zeus");
+            }
+            String[] strArr = d;
+            if (strArr != null && strArr.length != 0) {
+                arrayList.addAll(Arrays.asList(strArr));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (c) {
+                return e;
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @SuppressLint({"BDSoLoader"})
+    public static boolean e(@Nullable String str, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, soLoader)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                System.loadLibrary(str);
+                return true;
+            } catch (Throwable th) {
+                soLoader.appendErrorLog("loadLibsSo: " + th.getMessage());
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @SuppressLint({"UnsafeDynamicallyLoadedCode", "BDSoLoader"})
+    public static boolean f(@Nullable String str, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, soLoader)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                System.load(str);
+                return true;
+            } catch (Throwable th) {
+                soLoader.appendErrorLog("loadSoByPath: " + th.getMessage());
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean l(@Nullable HashMap<String, String> hashMap, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        boolean f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, hashMap, soLoader)) == null) {
+            String[] strArr = d;
+            boolean z = true;
+            if (strArr != null && strArr.length != 0) {
+                for (String str : strArr) {
+                    if (hashMap == null) {
+                        f = e(str, soLoader);
+                    } else {
+                        f = f(hashMap.get(str), soLoader);
+                    }
+                    if (!f) {
+                        z = false;
+                    }
+                }
             }
             return z;
         }
-        return invokeV.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public static boolean f() {
-        InterceptResult invokeV;
+    public static boolean g(@NonNull Context context, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            return c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            return d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
-            return f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
-            return e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
-            return g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void r() {
-        w83 M;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65562, null) != null) || (M = w83.M()) == null) {
-            return;
-        }
-        s(M.W());
-    }
-
-    public static void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65567, null) == null) {
-            B(false);
-        }
-    }
-
-    public static void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65568, null) == null) {
-            A(false);
-        }
-    }
-
-    public static void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65569, null) == null) {
-            C(false);
-        }
-    }
-
-    public static void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65570, null) == null) {
-            y();
-            D(false);
-            x();
-            w();
-            E(false);
-        }
-    }
-
-    public static synchronized void A(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            synchronized (gf3.class) {
-                c = z;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, soLoader)) == null) {
+            if (c) {
+                File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(context, "com.baidu.zeus");
+                if (findSoFilesInLibrary == null || findSoFilesInLibrary.length() == 0) {
+                    return false;
+                }
+                e = findSoFilesInLibrary.getAbsolutePath();
+                m("loadV8EngineSo: v8 dependentFile:" + e);
             }
-        }
-    }
-
-    public static synchronized void B(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
-            synchronized (gf3.class) {
-                d = z;
+            boolean l = l(null, soLoader);
+            boolean e2 = e("v8.engine", soLoader);
+            if (!l || !e2) {
+                return false;
             }
+            return true;
         }
+        return invokeLL.booleanValue;
     }
 
-    public static synchronized void C(boolean z) {
+    public static hf3 h(@NonNull Context context, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
-            synchronized (gf3.class) {
-                b = z;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, soLoader)) == null) {
+            if (g(context, soLoader)) {
+                m("loadV8EngineBySystemMethod:success.");
+                return hf3.e();
             }
-        }
-    }
-
-    public static void D(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
-            f = z;
-        }
-    }
-
-    public static void E(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
-            e = z;
-        }
-    }
-
-    public static void o(tt2.a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65559, null, aVar) == null) && aVar != null && !f) {
-            D(true);
-            k(aVar, "naarrsuccess");
-        }
-    }
-
-    public static void q(tt2.a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65561, null, aVar) == null) && aVar != null && !g()) {
-            B(true);
-            k(aVar, "arrivecancel");
-        }
-    }
-
-    public static void t(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65564, null, str) == null) && g) {
-            Log.d("SwanAppLaunchUbc", "handle record slave id case relaunch");
-            jz2.e(str);
-            g = false;
-        }
-    }
-
-    public static void F(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            if (h == null) {
-                h = new HashMap<>();
+            hf3 k = k(context, soLoader);
+            if (k.b()) {
+                m("loadV8EngineSoWithSystemPath:success.");
+                return k;
             }
-            h.put(str, str2);
+            hf3 j = j(context, soLoader);
+            if (!j.b()) {
+                SoUtils.onEvent("26", soLoader.getErrorLog());
+            } else {
+                m("loadV8EngineSoWithCustomPath:success.");
+            }
+            return j;
         }
+        return (hf3) invokeLL.objValue;
     }
 
-    public static void k(tt2.a aVar, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65555, null, aVar, str) == null) {
-            l(aVar, str, System.currentTimeMillis(), null);
-        }
-    }
-
-    public static void G() {
-        f82 V;
-        cv1 o3;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65543, null) != null) || (V = ju2.U().V()) == null) {
-            return;
-        }
-        c82 m = V.m();
-        if ((m instanceof e82) && (o3 = ((e82) m).o3()) != null) {
-            i = o3.a();
-        }
-    }
-
-    public static void H() {
-        HybridUbcFlow d2;
+    public static hf3 k(@NonNull Context context, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
         boolean z;
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65544, null) != null) || (d2 = b23.d("startup")) == null) {
-            return;
-        }
-        if (!d2.w() && !d2.t()) {
-            z = false;
-        } else {
-            z = true;
-        }
-        if (!z) {
-            d2.E("value", "fe_success");
-        }
-    }
-
-    public static void a(nv1 nv1Var) {
-        w83 M;
-        tt2.a W;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65545, null, nv1Var) != null) || f() || g() || nv1Var == null || (M = w83.M()) == null || (W = M.W()) == null) {
-            return;
-        }
-        if (a) {
-            Log.d("SwanAppLaunchUbc", "real start handle arrival report ");
-        }
-        A(true);
-        B(true);
-        c(W, nv1Var.b, "0", nv1Var.c, b(nv1Var.g), false);
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static String b(String str) {
-        InterceptResult invokeL;
-        char c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            switch (str.hashCode()) {
-                case 48:
-                    if (str.equals("0")) {
-                        c2 = 0;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 49:
-                    if (str.equals("1")) {
-                        c2 = 1;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 50:
-                    if (str.equals("2")) {
-                        c2 = 2;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 51:
-                    if (str.equals("3")) {
-                        c2 = 3;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                default:
-                    c2 = 65535;
-                    break;
-            }
-            if (c2 == 1) {
-                return "2";
-            }
-            if (c2 == 2) {
-                return "3";
-            }
-            if (c2 != 3) {
-                return "0";
-            }
-            return "4";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void d(@NonNull tt2.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, aVar) == null) {
-            E(true);
-            zf3 zf3Var = new zf3();
-            zf3Var.a = pf3.n(0);
-            zf3Var.b = "launch";
-            zf3Var.e = "narendersuccess";
-            zf3Var.h(aVar);
-            p23.e().d(new d(zf3Var, aVar.W(), aVar.s0().getString(UBCCloudControlProcessor.UBC_KEY)), "handleNaRenderSuccess", true);
-        }
-    }
-
-    public static void v(@NonNull tt2 tt2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65566, null, tt2Var) == null) {
-            zf3 zf3Var = new zf3();
-            zf3Var.a = pf3.n(0);
-            zf3Var.f = tt2Var.H();
-            zf3Var.c = tt2Var.T();
-            zf3Var.b = "show";
-            p23.e().d(new b(zf3Var, tt2Var.W(), tt2Var.s0().getString(UBCCloudControlProcessor.UBC_KEY)), "onShow606", true);
-        }
-    }
-
-    public static void c(tt2.a aVar, long j, String str, long j2, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{aVar, Long.valueOf(j), str, Long.valueOf(j2), str2, Boolean.valueOf(z)}) == null) && aVar != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            A(true);
-            if (z || j > 0) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("valuetype", str);
-                } catch (JSONException e2) {
-                    if (a) {
-                        e2.printStackTrace();
-                    }
-                }
-                l(aVar, "arrivesuccess", j, jSONObject);
-            }
-            if (z || j2 > 0) {
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put("valuetype", str2);
-                } catch (JSONException e3) {
-                    if (a) {
-                        e3.printStackTrace();
-                    }
-                }
-                l(aVar, "fmparrsuccess", j2, jSONObject2);
-            }
-        }
-    }
-
-    public static void l(tt2.a aVar, String str, long j, JSONObject jSONObject) {
-        String H;
-        String jSONObject2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65556, null, new Object[]{aVar, str, Long.valueOf(j), jSONObject}) == null) && (H = aVar.H()) != null && aVar != null) {
-            long j2 = 0;
-            if (j != -1) {
-                long l = aVar.l("launch_time", 0L);
-                if (j <= 0) {
-                    j = System.currentTimeMillis();
-                }
-                j2 = j - l;
-            }
-            zf3 zf3Var = new zf3();
-            zf3Var.a = pf3.n(aVar.G());
-            zf3Var.f = H;
-            if (n62.d()) {
-                zf3Var.c = "remote-debug";
-            } else if (v43.D()) {
-                zf3Var.c = "local-debug";
-            } else {
-                zf3Var.c = aVar.T();
-            }
-            zf3Var.b = "launch";
-            zf3Var.e = str;
-            zf3Var.a("arrivetime", String.valueOf(j2));
-            if (jSONObject != null) {
-                zf3Var.e(jSONObject);
-            }
-            Bundle P = aVar.P();
-            if (P != null) {
-                zf3Var.d(P.getString(UBCCloudControlProcessor.UBC_KEY));
-            }
-            zf3Var.b(pf3.k(aVar.W()));
-            if (a) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("handle record arrival event, arrivalValue ");
-                sb.append(str);
-                sb.append(" arrive time : ");
-                sb.append(j2);
-                sb.append(" extJson :");
-                if (jSONObject == null) {
-                    jSONObject2 = "";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, soLoader)) == null) {
+            e = null;
+            HashMap hashMap = new HashMap();
+            Iterator<String> it = b().iterator();
+            while (it.hasNext()) {
+                String next = it.next();
+                File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(context, next);
+                if (findSoFilesInLibrary != null && findSoFilesInLibrary.exists() && findSoFilesInLibrary.length() != 0) {
+                    z = true;
                 } else {
-                    jSONObject2 = jSONObject.toString();
+                    z = false;
                 }
-                sb.append(jSONObject2);
-                Log.d("SwanAppLaunchUbc", sb.toString());
-            }
-            pf3.onEvent(zf3Var);
-        }
-    }
-
-    public static void m(@NonNull tt2 tt2Var, int i2, @NonNull pk3 pk3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65557, null, tt2Var, i2, pk3Var) == null) {
-            zf3 zf3Var = new zf3();
-            zf3Var.a = pf3.n(i2);
-            zf3Var.b = "launch";
-            zf3Var.e = com.baidu.pass.biometrics.face.liveness.b.a.g0;
-            zf3Var.a("errcode", String.valueOf(pk3Var.a()));
-            zf3Var.a("msg", pk3Var.g().toString());
-            zf3Var.h(tt2Var);
-            zf3Var.d(tt2Var.s0().getString(UBCCloudControlProcessor.UBC_KEY));
-            zf3Var.b(pf3.k(tt2Var.W()));
-            ml3.d(tt2Var, new e(zf3Var));
-        }
-    }
-
-    public static void n(zf3 zf3Var, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65558, null, zf3Var, str, str2) == null) {
-            p23.e().d(new c(zf3Var, str2, str), "onLaunchSuccessUBC", true);
-        }
-    }
-
-    public static void p(tt2.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65560, null, aVar) == null) {
-            if (a) {
-                Log.d("SwanAppLaunchUbc", "handle relaunch arrival");
-            }
-            jz2.e(i);
-            if (!i()) {
-                d(aVar);
-            }
-            if (!f() && !g()) {
-                c(aVar, -1L, "1", -1L, "1", true);
-            }
-        }
-    }
-
-    public static void s(tt2 tt2Var) {
-        Bundle P;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65563, null, tt2Var) == null) && tt2Var != null && e() && (P = tt2Var.P()) != null) {
-            long j = P.getLong("page_display_flag_for_statistic");
-            long l = tt2Var.l("launch_time", 0L);
-            long currentTimeMillis = System.currentTimeMillis();
-            if (j > 0) {
-                zf3 zf3Var = new zf3();
-                zf3Var.a = pf3.n(tt2Var.G());
-                zf3Var.f = tt2Var.H();
-                zf3Var.c = tt2Var.T();
-                zf3Var.b = "launch";
-                zf3Var.e = "realsuccess";
-                zf3Var.r = String.valueOf(currentTimeMillis - l);
-                zf3Var.d(P.getString(UBCCloudControlProcessor.UBC_KEY));
-                pf3.onEvent(zf3Var);
-                qm3.e0(new a(P));
-                H();
-            }
-        }
-    }
-
-    public static void u(String str, tt2.a aVar) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65565, null, str, aVar) == null) {
-            HashMap<String, String> hashMap = h;
-            String str3 = "";
-            if (hashMap == null) {
-                str2 = "";
-            } else {
-                str2 = hashMap.get(i);
-            }
-            if (a) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("handle relaunch , launchPage : ");
-                sb.append(str);
-                sb.append(" lastSlavePath ：");
-                if (str2 != null) {
-                    str3 = str2;
+                if (z) {
+                    str = findSoFilesInLibrary.getAbsolutePath();
+                } else {
+                    str = null;
                 }
-                sb.append(str3);
-                Log.d("SwanAppLaunchUbc", sb.toString());
+                hashMap.put(next, str);
             }
-            if (TextUtils.equals(str, str2)) {
-                p(aVar);
-                return;
+            return i(hashMap, soLoader);
+        }
+        return (hf3) invokeLL.objValue;
+    }
+
+    public static hf3 i(@NonNull HashMap<String, String> hashMap, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, hashMap, soLoader)) == null) {
+            m("loadV8EngineSoByMap:" + hashMap);
+            String str = hashMap.get("com.baidu.zeus");
+            boolean z = false;
+            if (c && str == null) {
+                return hf3.d(false, false);
             }
-            x();
-            g = true;
+            boolean f = f(hashMap.get("zeusv8"), soLoader);
+            boolean l = l(hashMap, soLoader);
+            boolean f2 = f(hashMap.get("v8.engine"), soLoader);
+            if (f2) {
+                e = str;
+            }
+            if (l && f2) {
+                z = true;
+            }
+            return hf3.d(f, z);
+        }
+        return (hf3) invokeLL.objValue;
+    }
+
+    public static hf3 j(@NonNull Context context, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, soLoader)) == null) {
+            e = null;
+            HashMap hashMap = new HashMap();
+            String D = gn3.D();
+            File file = new File(b, D);
+            Iterator<String> it = b().iterator();
+            while (true) {
+                boolean z = true;
+                if (!it.hasNext()) {
+                    break;
+                }
+                String next = it.next();
+                File file2 = new File(file, SoUtils.getFullName(next));
+                if ((!file2.exists() || file2.length() == 0) ? false : false) {
+                    str = file2.getAbsolutePath();
+                } else {
+                    str = null;
+                }
+                hashMap.put(next, str);
+            }
+            if (!hashMap.containsValue(null)) {
+                return i(hashMap, soLoader);
+            }
+            String str2 = "swan_v8so_unzip_times_" + D;
+            int i = ai3.a().getInt(str2, 0);
+            if (i >= 3) {
+                soLoader.appendErrorLog("loadV8EngineSoWithCustomPath:reach max unzip times.");
+                return k(context, soLoader);
+            }
+            ai3.a().putInt(str2, i + 1);
+            String str3 = "lib" + File.separator + SoUtils.getCurrentCpuAbi();
+            ZipFile apkZipFile = soLoader.getApkZipFile(context);
+            try {
+                if (apkZipFile == null) {
+                    soLoader.appendErrorLog("loadV8EngineSoWithCustomPath:zipFile is null.");
+                    return k(context, soLoader);
+                }
+                try {
+                    for (String str4 : hashMap.keySet()) {
+                        if (hashMap.get(str4) == null) {
+                            String fullName = SoUtils.getFullName(str4);
+                            File file3 = new File(file, fullName);
+                            if (soLoader.executeRelease(apkZipFile, fullName, str3, file3)) {
+                                hashMap.put(str4, file3.getAbsolutePath());
+                            }
+                        }
+                    }
+                } catch (Exception e2) {
+                    soLoader.appendErrorLog("loadV8EngineSoWithCustomPath:" + e2.getMessage());
+                    if (a) {
+                        Log.e("V8InnerSoLoader", "loadV8EngineSoWithCustomPath:" + e2);
+                    }
+                }
+                return i(hashMap, soLoader);
+            } finally {
+                qp4.d(apkZipFile);
+            }
+        }
+        return (hf3) invokeLL.objValue;
+    }
+
+    public static void m(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65549, null, str) == null) && a) {
+            Log.d("V8InnerSoLoader", str);
         }
     }
 }

@@ -1,14 +1,65 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.net.Uri;
-import com.baidu.tieba.ia3;
-/* loaded from: classes5.dex */
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
 public interface it1 {
-    boolean a(Activity activity, String str, ia3.b bVar);
+    boolean A();
 
-    boolean b(Context context, String str);
+    boolean B();
 
-    boolean c(Activity activity, Uri uri, String str);
+    JSONObject C();
+
+    boolean D();
+
+    void E();
+
+    long F();
+
+    boolean G();
+
+    long H();
+
+    String getExpInfos();
+
+    JSONObject getRawSwitch();
+
+    int getSwitch(String str, int i);
+
+    String getSwitch(String str, String str2);
+
+    boolean getSwitch(String str, boolean z);
+
+    boolean j();
+
+    String k();
+
+    boolean l();
+
+    boolean m();
+
+    long n();
+
+    boolean o();
+
+    boolean p();
+
+    int q();
+
+    boolean r();
+
+    boolean s();
+
+    boolean t();
+
+    int u();
+
+    boolean v();
+
+    boolean w();
+
+    boolean x();
+
+    int y();
+
+    boolean z();
 }

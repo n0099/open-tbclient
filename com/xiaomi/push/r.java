@@ -1,127 +1,14 @@
 package com.xiaomi.push;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 /* loaded from: classes8.dex */
 public class r {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile r a;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with other field name */
-    public Context f850a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public Handler f851a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public Map<String, Map<String, String>> f852a;
-
-    public r(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f850a = context;
-        this.f851a = new Handler(Looper.getMainLooper());
-        this.f852a = new HashMap();
-    }
-
-    public static r a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (a == null) {
-                synchronized (r.class) {
-                    if (a == null) {
-                        a = new r(context);
-                    }
-                }
-            }
-            return a;
-        }
-        return (r) invokeL.objValue;
-    }
-
-    private synchronized String a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, str2)) == null) {
-            synchronized (this) {
-                if (this.f852a != null && !TextUtils.isEmpty(str)) {
-                    if (!TextUtils.isEmpty(str2)) {
-                        try {
-                            Map<String, String> map = this.f852a.get(str);
-                            return map != null ? map.get(str2) : "";
-                        } catch (Throwable unused) {
-                            return "";
-                        }
-                    }
-                }
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    private synchronized void b(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2, str3) == null) {
-            synchronized (this) {
-                if (this.f852a == null) {
-                    this.f852a = new HashMap();
-                }
-                Map<String, String> map = this.f852a.get(str);
-                if (map == null) {
-                    map = new HashMap<>();
-                }
-                map.put(str2, str3);
-                this.f852a.put(str, map);
-            }
-        }
-    }
-
-    public synchronized String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
-            synchronized (this) {
-                String a2 = a(str, str2);
-                return !TextUtils.isEmpty(a2) ? a2 : this.f850a.getSharedPreferences(str, 4).getString(str2, str3);
-            }
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m645a(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) {
-            synchronized (this) {
-                b(str, str2, str3);
-                this.f851a.post(new s(this, str, str2, str3));
-            }
+    public static String a(String str, String str2) {
+        try {
+            return (String) s.a(null, CountryCodeBean.ANDRIOD_SYSTEMPROP).getMethod("get", String.class, String.class).invoke(null, str, str2);
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.m97a("SystemProperties.get: " + e);
+            return str2;
         }
     }
 }

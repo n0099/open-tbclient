@@ -1,14 +1,5 @@
 package com.googlecode.mp4parser.authoring.tracks;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
 import com.coremedia.iso.boxes.SampleDependencyTypeBox;
@@ -39,10 +30,8 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class AACTrackImpl extends AbstractTrack {
-    public static /* synthetic */ Interceptable $ic;
     public static Map<Integer, String> audioObjectTypes;
     public static Map<Integer, Integer> samplingFrequencyIndexMap;
-    public transient /* synthetic */ FieldHolder $fh;
     public long avgBitRate;
     public int bufferSizeDB;
     public long[] decTimes;
@@ -55,55 +44,31 @@ public class AACTrackImpl extends AbstractTrack {
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (List) invokeV.objValue;
+        return null;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public String getHandler() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "soun" : (String) invokeV.objValue;
+        return "soun";
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (List) invokeV.objValue;
+        return null;
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public SubSampleInformationBox getSubsampleInformationBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return null;
-        }
-        return (SubSampleInformationBox) invokeV.objValue;
+        return null;
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public long[] getSyncSamples() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return null;
-        }
-        return (long[]) invokeV.objValue;
+        return null;
     }
 
     /* loaded from: classes8.dex */
     public class AdtsHeader {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public int bufferFullness;
         public int channelconfig;
         public int copyrightStart;
@@ -118,55 +83,22 @@ public class AACTrackImpl extends AbstractTrack {
         public int protectionAbsent;
         public int sampleFrequencyIndex;
         public int sampleRate;
-        public final /* synthetic */ AACTrackImpl this$0;
 
-        public AdtsHeader(AACTrackImpl aACTrackImpl) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aACTrackImpl};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = aACTrackImpl;
+        public AdtsHeader() {
         }
 
         public int getSize() {
-            InterceptResult invokeV;
             int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.protectionAbsent == 0) {
-                    i = 2;
-                } else {
-                    i = 0;
-                }
-                return i + 7;
+            if (this.protectionAbsent == 0) {
+                i = 2;
+            } else {
+                i = 0;
             }
-            return invokeV.intValue;
+            return i + 7;
         }
     }
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-731103246, "Lcom/googlecode/mp4parser/authoring/tracks/AACTrackImpl;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-731103246, "Lcom/googlecode/mp4parser/authoring/tracks/AACTrackImpl;");
-                return;
-            }
-        }
         HashMap hashMap = new HashMap();
         audioObjectTypes = hashMap;
         hashMap.put(1, "AAC Main");
@@ -243,40 +175,12 @@ public class AACTrackImpl extends AbstractTrack {
     }
 
     public AACTrackImpl(DataSource dataSource) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dataSource};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.trackMetaData = new TrackMetaData();
         this.lang = "eng";
         parse(dataSource);
     }
 
     public AACTrackImpl(DataSource dataSource, String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dataSource, str};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.trackMetaData = new TrackMetaData();
         this.lang = "eng";
         this.lang = str;
@@ -284,207 +188,163 @@ public class AACTrackImpl extends AbstractTrack {
     }
 
     private void parse(DataSource dataSource) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, dataSource) == null) {
-            this.samples = new ArrayList();
-            AdtsHeader readSamples = readSamples(dataSource);
-            this.firstHeader = readSamples;
-            double d = readSamples.sampleRate / 1024.0d;
-            double size = this.samples.size() / d;
-            LinkedList linkedList = new LinkedList();
-            Iterator<Sample> it = this.samples.iterator();
-            long j = 0;
-            while (true) {
-                int i = 0;
-                if (!it.hasNext()) {
-                    break;
+        this.samples = new ArrayList();
+        AdtsHeader readSamples = readSamples(dataSource);
+        this.firstHeader = readSamples;
+        double d = readSamples.sampleRate / 1024.0d;
+        double size = this.samples.size() / d;
+        LinkedList linkedList = new LinkedList();
+        Iterator<Sample> it = this.samples.iterator();
+        long j = 0;
+        while (true) {
+            int i = 0;
+            if (!it.hasNext()) {
+                break;
+            }
+            int size2 = (int) it.next().getSize();
+            j += size2;
+            linkedList.add(Integer.valueOf(size2));
+            while (linkedList.size() > d) {
+                linkedList.pop();
+            }
+            if (linkedList.size() == ((int) d)) {
+                Iterator it2 = linkedList.iterator();
+                while (it2.hasNext()) {
+                    i += ((Integer) it2.next()).intValue();
                 }
-                int size2 = (int) it.next().getSize();
-                j += size2;
-                linkedList.add(Integer.valueOf(size2));
-                while (linkedList.size() > d) {
-                    linkedList.pop();
-                }
-                if (linkedList.size() == ((int) d)) {
-                    Iterator it2 = linkedList.iterator();
-                    while (it2.hasNext()) {
-                        i += ((Integer) it2.next()).intValue();
-                    }
-                    double size3 = ((i * 8.0d) / linkedList.size()) * d;
-                    if (size3 > this.maxBitRate) {
-                        this.maxBitRate = (int) size3;
-                    }
+                double size3 = ((i * 8.0d) / linkedList.size()) * d;
+                if (size3 > this.maxBitRate) {
+                    this.maxBitRate = (int) size3;
                 }
             }
-            this.avgBitRate = (int) ((j * 8) / size);
-            this.bufferSizeDB = 1536;
-            this.sampleDescriptionBox = new SampleDescriptionBox();
-            AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE3);
-            int i2 = this.firstHeader.channelconfig;
-            if (i2 == 7) {
-                audioSampleEntry.setChannelCount(8);
-            } else {
-                audioSampleEntry.setChannelCount(i2);
-            }
-            audioSampleEntry.setSampleRate(this.firstHeader.sampleRate);
-            audioSampleEntry.setDataReferenceIndex(1);
-            audioSampleEntry.setSampleSize(16);
-            ESDescriptorBox eSDescriptorBox = new ESDescriptorBox();
-            ESDescriptor eSDescriptor = new ESDescriptor();
-            eSDescriptor.setEsId(0);
-            SLConfigDescriptor sLConfigDescriptor = new SLConfigDescriptor();
-            sLConfigDescriptor.setPredefined(2);
-            eSDescriptor.setSlConfigDescriptor(sLConfigDescriptor);
-            DecoderConfigDescriptor decoderConfigDescriptor = new DecoderConfigDescriptor();
-            decoderConfigDescriptor.setObjectTypeIndication(64);
-            decoderConfigDescriptor.setStreamType(5);
-            decoderConfigDescriptor.setBufferSizeDB(this.bufferSizeDB);
-            decoderConfigDescriptor.setMaxBitRate(this.maxBitRate);
-            decoderConfigDescriptor.setAvgBitRate(this.avgBitRate);
-            AudioSpecificConfig audioSpecificConfig = new AudioSpecificConfig();
-            audioSpecificConfig.setAudioObjectType(2);
-            audioSpecificConfig.setSamplingFrequencyIndex(this.firstHeader.sampleFrequencyIndex);
-            audioSpecificConfig.setChannelConfiguration(this.firstHeader.channelconfig);
-            decoderConfigDescriptor.setAudioSpecificInfo(audioSpecificConfig);
-            eSDescriptor.setDecoderConfigDescriptor(decoderConfigDescriptor);
-            ByteBuffer serialize = eSDescriptor.serialize();
-            eSDescriptorBox.setEsDescriptor(eSDescriptor);
-            eSDescriptorBox.setData(serialize);
-            audioSampleEntry.addBox(eSDescriptorBox);
-            this.sampleDescriptionBox.addBox(audioSampleEntry);
-            this.trackMetaData.setCreationTime(new Date());
-            this.trackMetaData.setModificationTime(new Date());
-            this.trackMetaData.setLanguage(this.lang);
-            this.trackMetaData.setVolume(1.0f);
-            this.trackMetaData.setTimescale(this.firstHeader.sampleRate);
-            long[] jArr = new long[this.samples.size()];
-            this.decTimes = jArr;
-            Arrays.fill(jArr, 1024L);
         }
+        this.avgBitRate = (int) ((j * 8) / size);
+        this.bufferSizeDB = 1536;
+        this.sampleDescriptionBox = new SampleDescriptionBox();
+        AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE3);
+        int i2 = this.firstHeader.channelconfig;
+        if (i2 == 7) {
+            audioSampleEntry.setChannelCount(8);
+        } else {
+            audioSampleEntry.setChannelCount(i2);
+        }
+        audioSampleEntry.setSampleRate(this.firstHeader.sampleRate);
+        audioSampleEntry.setDataReferenceIndex(1);
+        audioSampleEntry.setSampleSize(16);
+        ESDescriptorBox eSDescriptorBox = new ESDescriptorBox();
+        ESDescriptor eSDescriptor = new ESDescriptor();
+        eSDescriptor.setEsId(0);
+        SLConfigDescriptor sLConfigDescriptor = new SLConfigDescriptor();
+        sLConfigDescriptor.setPredefined(2);
+        eSDescriptor.setSlConfigDescriptor(sLConfigDescriptor);
+        DecoderConfigDescriptor decoderConfigDescriptor = new DecoderConfigDescriptor();
+        decoderConfigDescriptor.setObjectTypeIndication(64);
+        decoderConfigDescriptor.setStreamType(5);
+        decoderConfigDescriptor.setBufferSizeDB(this.bufferSizeDB);
+        decoderConfigDescriptor.setMaxBitRate(this.maxBitRate);
+        decoderConfigDescriptor.setAvgBitRate(this.avgBitRate);
+        AudioSpecificConfig audioSpecificConfig = new AudioSpecificConfig();
+        audioSpecificConfig.setAudioObjectType(2);
+        audioSpecificConfig.setSamplingFrequencyIndex(this.firstHeader.sampleFrequencyIndex);
+        audioSpecificConfig.setChannelConfiguration(this.firstHeader.channelconfig);
+        decoderConfigDescriptor.setAudioSpecificInfo(audioSpecificConfig);
+        eSDescriptor.setDecoderConfigDescriptor(decoderConfigDescriptor);
+        ByteBuffer serialize = eSDescriptor.serialize();
+        eSDescriptorBox.setEsDescriptor(eSDescriptor);
+        eSDescriptorBox.setData(serialize);
+        audioSampleEntry.addBox(eSDescriptorBox);
+        this.sampleDescriptionBox.addBox(audioSampleEntry);
+        this.trackMetaData.setCreationTime(new Date());
+        this.trackMetaData.setModificationTime(new Date());
+        this.trackMetaData.setLanguage(this.lang);
+        this.trackMetaData.setVolume(1.0f);
+        this.trackMetaData.setTimescale(this.firstHeader.sampleRate);
+        long[] jArr = new long[this.samples.size()];
+        this.decTimes = jArr;
+        Arrays.fill(jArr, 1024L);
     }
 
     private AdtsHeader readADTSHeader(DataSource dataSource) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, dataSource)) == null) {
-            AdtsHeader adtsHeader = new AdtsHeader(this);
-            ByteBuffer allocate = ByteBuffer.allocate(7);
-            while (allocate.position() < 7) {
-                if (dataSource.read(allocate) == -1) {
-                    return null;
-                }
+        AdtsHeader adtsHeader = new AdtsHeader();
+        ByteBuffer allocate = ByteBuffer.allocate(7);
+        while (allocate.position() < 7) {
+            if (dataSource.read(allocate) == -1) {
+                return null;
             }
-            BitReaderBuffer bitReaderBuffer = new BitReaderBuffer((ByteBuffer) allocate.rewind());
-            if (bitReaderBuffer.readBits(12) == 4095) {
-                adtsHeader.mpegVersion = bitReaderBuffer.readBits(1);
-                adtsHeader.layer = bitReaderBuffer.readBits(2);
-                adtsHeader.protectionAbsent = bitReaderBuffer.readBits(1);
-                adtsHeader.profile = bitReaderBuffer.readBits(2) + 1;
-                int readBits = bitReaderBuffer.readBits(4);
-                adtsHeader.sampleFrequencyIndex = readBits;
-                adtsHeader.sampleRate = samplingFrequencyIndexMap.get(Integer.valueOf(readBits)).intValue();
-                bitReaderBuffer.readBits(1);
-                adtsHeader.channelconfig = bitReaderBuffer.readBits(3);
-                adtsHeader.original = bitReaderBuffer.readBits(1);
-                adtsHeader.home = bitReaderBuffer.readBits(1);
-                adtsHeader.copyrightedStream = bitReaderBuffer.readBits(1);
-                adtsHeader.copyrightStart = bitReaderBuffer.readBits(1);
-                adtsHeader.frameLength = bitReaderBuffer.readBits(13);
-                adtsHeader.bufferFullness = bitReaderBuffer.readBits(11);
-                int readBits2 = bitReaderBuffer.readBits(2) + 1;
-                adtsHeader.numAacFramesPerAdtsFrame = readBits2;
-                if (readBits2 == 1) {
-                    if (adtsHeader.protectionAbsent == 0) {
-                        dataSource.read(ByteBuffer.allocate(2));
-                    }
-                    return adtsHeader;
-                }
-                throw new IOException("This muxer can only work with 1 AAC frame per ADTS frame");
-            }
-            throw new IOException("Expected Start Word 0xfff");
         }
-        return (AdtsHeader) invokeL.objValue;
+        BitReaderBuffer bitReaderBuffer = new BitReaderBuffer((ByteBuffer) allocate.rewind());
+        if (bitReaderBuffer.readBits(12) == 4095) {
+            adtsHeader.mpegVersion = bitReaderBuffer.readBits(1);
+            adtsHeader.layer = bitReaderBuffer.readBits(2);
+            adtsHeader.protectionAbsent = bitReaderBuffer.readBits(1);
+            adtsHeader.profile = bitReaderBuffer.readBits(2) + 1;
+            int readBits = bitReaderBuffer.readBits(4);
+            adtsHeader.sampleFrequencyIndex = readBits;
+            adtsHeader.sampleRate = samplingFrequencyIndexMap.get(Integer.valueOf(readBits)).intValue();
+            bitReaderBuffer.readBits(1);
+            adtsHeader.channelconfig = bitReaderBuffer.readBits(3);
+            adtsHeader.original = bitReaderBuffer.readBits(1);
+            adtsHeader.home = bitReaderBuffer.readBits(1);
+            adtsHeader.copyrightedStream = bitReaderBuffer.readBits(1);
+            adtsHeader.copyrightStart = bitReaderBuffer.readBits(1);
+            adtsHeader.frameLength = bitReaderBuffer.readBits(13);
+            adtsHeader.bufferFullness = bitReaderBuffer.readBits(11);
+            int readBits2 = bitReaderBuffer.readBits(2) + 1;
+            adtsHeader.numAacFramesPerAdtsFrame = readBits2;
+            if (readBits2 == 1) {
+                if (adtsHeader.protectionAbsent == 0) {
+                    dataSource.read(ByteBuffer.allocate(2));
+                }
+                return adtsHeader;
+            }
+            throw new IOException("This muxer can only work with 1 AAC frame per ADTS frame");
+        }
+        throw new IOException("Expected Start Word 0xfff");
     }
 
     private AdtsHeader readSamples(DataSource dataSource) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, dataSource)) == null) {
-            AdtsHeader adtsHeader = null;
-            while (true) {
-                AdtsHeader readADTSHeader = readADTSHeader(dataSource);
-                if (readADTSHeader == null) {
-                    return adtsHeader;
-                }
-                if (adtsHeader == null) {
-                    adtsHeader = readADTSHeader;
-                }
-                ByteBuffer map = dataSource.map(dataSource.position(), readADTSHeader.frameLength - readADTSHeader.getSize());
-                this.samples.add(new SampleImpl(map));
-                dataSource.position((dataSource.position() + readADTSHeader.frameLength) - readADTSHeader.getSize());
-                map.rewind();
+        AdtsHeader adtsHeader = null;
+        while (true) {
+            AdtsHeader readADTSHeader = readADTSHeader(dataSource);
+            if (readADTSHeader == null) {
+                return adtsHeader;
             }
-        } else {
-            return (AdtsHeader) invokeL.objValue;
+            if (adtsHeader == null) {
+                adtsHeader = readADTSHeader;
+            }
+            ByteBuffer map = dataSource.map(dataSource.position(), readADTSHeader.frameLength - readADTSHeader.getSize());
+            this.samples.add(new SampleImpl(map));
+            dataSource.position((dataSource.position() + readADTSHeader.frameLength) - readADTSHeader.getSize());
+            map.rewind();
         }
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public Box getMediaHeaderBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new SoundMediaHeaderBox();
-        }
-        return (Box) invokeV.objValue;
+        return new SoundMediaHeaderBox();
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public SampleDescriptionBox getSampleDescriptionBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.sampleDescriptionBox;
-        }
-        return (SampleDescriptionBox) invokeV.objValue;
+        return this.sampleDescriptionBox;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public long[] getSampleDurations() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.decTimes;
-        }
-        return (long[]) invokeV.objValue;
+        return this.decTimes;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public List<Sample> getSamples() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.samples;
-        }
-        return (List) invokeV.objValue;
+        return this.samples;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public TrackMetaData getTrackMetaData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.trackMetaData;
-        }
-        return (TrackMetaData) invokeV.objValue;
+        return this.trackMetaData;
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "AACTrackImpl{sampleRate=" + this.firstHeader.sampleRate + ", channelconfig=" + this.firstHeader.channelconfig + '}';
-        }
-        return (String) invokeV.objValue;
+        return "AACTrackImpl{sampleRate=" + this.firstHeader.sampleRate + ", channelconfig=" + this.firstHeader.channelconfig + '}';
     }
 }

@@ -1,23 +1,28 @@
 package com.vivo.push.util;
 
-import android.content.Context;
-import android.os.Process;
-import android.util.Log;
+import android.os.Build;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
+import java.lang.reflect.Method;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
-public final class n implements o {
+public final class n {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
+    public static final boolean a;
+    public static final boolean b;
+    public static final boolean c;
+    public static final boolean d;
+    public static final boolean e;
+    public static Method f;
+    public static String g;
+    public static String h;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,185 +38,122 @@ public final class n implements o {
                 return;
             }
         }
-        a = "(" + Process.myPid() + SmallTailInfo.EMOTION_SUFFIX;
+        a = ag.b("ro.vivo.product.overseas", "no").equals("yes");
+        b = b("rom_1.0");
+        c = b("rom_2.0");
+        d = b("rom_2.5");
+        e = b("rom_3.0");
+        g = null;
+        h = null;
     }
 
-    public n() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static boolean a() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            p.a();
-            if (com.vivo.push.e.a.a().c()) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (TextUtils.isEmpty(Build.MANUFACTURER)) {
+                u.d("Device", "Build.MANUFACTURER is null");
+                return false;
             }
-            return false;
+            u.d("Device", "Build.MANUFACTURER is " + Build.MANUFACTURER);
+            if (!Build.MANUFACTURER.toLowerCase().contains("bbk") && !Build.MANUFACTURER.toLowerCase().startsWith("vivo")) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    private void a(Context context, String str, int i) {
+    public static synchronized String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65538, this, context, str, i) == null) {
-            com.vivo.push.b.n nVar = new com.vivo.push.b.n();
-            nVar.b(str);
-            nVar.a(i);
-            if (i > 0) {
-                d("LogController", str);
-            }
-            if (context.getPackageName().equals("com.vivo.pushservice")) {
-                nVar.a(true);
-                Iterator<String> it = com.vivo.push.e.a.a().b().iterator();
-                while (it.hasNext()) {
-                    com.vivo.push.a.a.a(context, nVar, it.next());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (n.class) {
+                if (g == null && h == null) {
+                    try {
+                        Method declaredMethod = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP).getDeclaredMethod("get", String.class, String.class);
+                        f = declaredMethod;
+                        declaredMethod.setAccessible(true);
+                        g = (String) f.invoke(null, "ro.vivo.rom", "@><@");
+                        h = (String) f.invoke(null, "ro.vivo.rom.version", "@><@");
+                    } catch (Exception unused) {
+                        u.b("Device", "getRomCode error");
+                    }
                 }
-                return;
+                u.d("Device", "sRomProperty1 : " + g + " ; sRomProperty2 : " + h);
+                String a2 = a(g);
+                if (!TextUtils.isEmpty(a2)) {
+                    return a2;
+                }
+                String a3 = a(h);
+                if (TextUtils.isEmpty(a3)) {
+                    return null;
+                }
+                return a3;
             }
-            nVar.a(false);
-            com.vivo.push.a.a.a(context, nVar, context.getPackageName());
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.vivo.push.util.o
-    public final int a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            String concat = "VivoPush.".concat(String.valueOf(str));
-            return Log.e(concat, a + str2);
-        }
-        return invokeLL.intValue;
-    }
-
-    @Override // com.vivo.push.util.o
-    public final int b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            String concat = "VivoPush.".concat(String.valueOf(str));
-            return Log.w(concat, a + str2);
-        }
-        return invokeLL.intValue;
-    }
-
-    @Override // com.vivo.push.util.o
-    public final int c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-            String concat = "VivoPush.".concat(String.valueOf(str));
-            return Log.d(concat, a + str2);
-        }
-        return invokeLL.intValue;
-    }
-
-    @Override // com.vivo.push.util.o
-    public final int a(String str, String str2, Throwable th) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, th)) == null) {
-            String concat = "VivoPush.".concat(String.valueOf(str));
-            return Log.e(concat, a + str2, th);
-        }
-        return invokeLLL.intValue;
-    }
-
-    @Override // com.vivo.push.util.o
-    public final int a(String str, Throwable th) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, th)) == null) {
-            return Log.e("VivoPush.".concat(String.valueOf(str)), Log.getStackTraceString(th));
-        }
-        return invokeLL.intValue;
-    }
-
-    @Override // com.vivo.push.util.o
-    public final void b(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048583, this, context, str) == null) && a()) {
-            a(context, str, 1);
-        }
-    }
-
-    @Override // com.vivo.push.util.o
-    public final void c(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, context, str) == null) && a()) {
-            a(context, str, 2);
-        }
-    }
-
-    @Override // com.vivo.push.util.o
-    public final String a(Throwable th) {
+    public static String a(String str) {
         InterceptResult invokeL;
+        String substring;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, th)) == null) {
-            return Log.getStackTraceString(th);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            Matcher matcher = Pattern.compile("rom_([\\d]*).?([\\d]*)", 2).matcher(str);
+            if (!matcher.find()) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append(matcher.group(1));
+            if (TextUtils.isEmpty(matcher.group(2))) {
+                substring = "0";
+            } else {
+                substring = matcher.group(2).substring(0, 1);
+            }
+            sb.append(substring);
+            return sb.toString();
         }
         return (String) invokeL.objValue;
     }
 
-    @Override // com.vivo.push.util.o
-    public final void a(Context context, String str) {
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) && a()) {
-            a(context, str, 0);
-        }
-    }
-
-    @Override // com.vivo.push.util.o
-    public final int b(String str, String str2, Throwable th) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, str, str2, th)) == null) {
-            if (p.a()) {
-                String concat = "VivoPush.".concat(String.valueOf(str));
-                return Log.i(concat, a + str2, th);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            String b2 = ag.b("ro.vivo.rom", "");
+            String b3 = ag.b("ro.vivo.rom.version", "");
+            u.d("Device", "ro.vivo.rom = " + b2 + " ; ro.vivo.rom.version = " + b3);
+            if (b2 == null || !b2.contains(str)) {
+                if (b3 != null && b3.contains(str)) {
+                    return true;
+                }
+                return false;
             }
-            return -1;
+            return true;
         }
-        return invokeLLL.intValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.vivo.push.util.o
-    public final int d(String str, String str2) {
+    public static String a(String str, String str2) {
+        String str3;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) {
-            if (p.a()) {
-                String concat = "VivoPush.".concat(String.valueOf(str));
-                return Log.i(concat, a + str2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            try {
+                str3 = (String) Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP).getMethod("get", String.class).invoke(null, str);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                str3 = str2;
             }
-            return -1;
-        }
-        return invokeLL.intValue;
-    }
-
-    @Override // com.vivo.push.util.o
-    public final int e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
-            if (p.a()) {
-                String concat = "VivoPush.".concat(String.valueOf(str));
-                return Log.v(concat, a + str2);
+            if (str3 != null && str3.length() != 0) {
+                return str3;
             }
-            return -1;
+            return str2;
         }
-        return invokeLL.intValue;
+        return (String) invokeLL.objValue;
     }
 }

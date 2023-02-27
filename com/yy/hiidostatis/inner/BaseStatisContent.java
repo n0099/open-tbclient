@@ -1,14 +1,5 @@
 package com.yy.hiidostatis.inner;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.io.UnsupportedEncodingException;
@@ -18,7 +9,6 @@ import java.util.Map;
 import java.util.TreeMap;
 /* loaded from: classes8.dex */
 public class BaseStatisContent {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACT = "act";
     public static final String APPID = "app";
     public static final String APPKEY = "appkey";
@@ -26,7 +16,26 @@ public class BaseStatisContent {
     public static final String AUTOID = "hd_autoid";
     public static final String BDCUID = "bdcuid";
     public static final String CHANNEL = "chn";
-    public static final Comparator<String> COMPARATOR;
+    public static final Comparator<String> COMPARATOR = new Comparator<String>() { // from class: com.yy.hiidostatis.inner.BaseStatisContent.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        public int compare(String str, String str2) {
+            boolean equals = "act".equals(str);
+            boolean equals2 = "act".equals(str2);
+            if (!equals && !equals2) {
+                return str.compareTo(str2);
+            }
+            if (!equals && equals2) {
+                return 1;
+            }
+            if (equals && !equals2) {
+                return -1;
+            }
+            if (!equals || equals2) {
+            }
+            return 0;
+        }
+    };
     public static final String CREPID = "hd_crepid";
     public static final String CURPID = "hd_curpid";
     public static final String FROM = "from";
@@ -56,250 +65,110 @@ public class BaseStatisContent {
     public static final String TIME = "time";
     public static final String TIMEZONE = "timezone";
     public static final String VER = "ver";
-    public transient /* synthetic */ FieldHolder $fh;
-    public TreeMap<String, String> raw;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1292266077, "Lcom/yy/hiidostatis/inner/BaseStatisContent;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1292266077, "Lcom/yy/hiidostatis/inner/BaseStatisContent;");
-                return;
-            }
-        }
-        COMPARATOR = new Comparator<String>() { // from class: com.yy.hiidostatis.inner.BaseStatisContent.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // java.util.Comparator
-            public int compare(String str, String str2) {
-                InterceptResult invokeLL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-                    boolean equals = "act".equals(str);
-                    boolean equals2 = "act".equals(str2);
-                    if (!equals && !equals2) {
-                        return str.compareTo(str2);
-                    }
-                    if (!equals && equals2) {
-                        return 1;
-                    }
-                    if (equals && !equals2) {
-                        return -1;
-                    }
-                    if (!equals || equals2) {
-                    }
-                    return 0;
-                }
-                return invokeLL.intValue;
-            }
-        };
-    }
-
-    public BaseStatisContent() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.raw = new TreeMap<>(COMPARATOR);
-    }
+    public TreeMap<String, String> raw = new TreeMap<>(COMPARATOR);
 
     public BaseStatisContent copy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            BaseStatisContent baseStatisContent = new BaseStatisContent();
-            TreeMap<String, String> treeMap = new TreeMap<>(COMPARATOR);
-            baseStatisContent.raw = treeMap;
-            treeMap.putAll(this.raw);
-            return baseStatisContent;
-        }
-        return (BaseStatisContent) invokeV.objValue;
+        BaseStatisContent baseStatisContent = new BaseStatisContent();
+        TreeMap<String, String> treeMap = new TreeMap<>(COMPARATOR);
+        baseStatisContent.raw = treeMap;
+        treeMap.putAll(this.raw);
+        return baseStatisContent;
     }
 
     public boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.raw.isEmpty();
-        }
-        return invokeV.booleanValue;
+        return this.raw.isEmpty();
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return getContent();
-        }
-        return (String) invokeV.objValue;
+        return getContent();
     }
 
     public boolean containsKey(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return this.raw.containsKey(str);
-        }
-        return invokeL.booleanValue;
+        return this.raw.containsKey(str);
     }
 
     public String get(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return this.raw.get(str);
-        }
-        return (String) invokeL.objValue;
+        return this.raw.get(str);
     }
 
     public synchronized String getContent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                StringBuilder sb = new StringBuilder();
-                for (Map.Entry<String, String> entry : this.raw.entrySet()) {
-                    String value = entry.getValue();
-                    if (Util.empty(value)) {
-                        L.verbose(this, "No value for key %s", entry.getKey());
-                    } else {
-                        sb.append(entry.getKey());
-                        sb.append("=");
-                        try {
-                            sb.append(URLEncoder.encode(value, "UTF-8"));
-                        } catch (UnsupportedEncodingException unused) {
-                            L.debug(this, "encoding fail for key %s", entry.getKey());
-                        }
-                        sb.append("&");
-                    }
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry<String, String> entry : this.raw.entrySet()) {
+            String value = entry.getValue();
+            if (Util.empty(value)) {
+                L.verbose(this, "No value for key %s", entry.getKey());
+            } else {
+                sb.append(entry.getKey());
+                sb.append("=");
+                try {
+                    sb.append(URLEncoder.encode(value, "UTF-8"));
+                } catch (UnsupportedEncodingException unused) {
+                    L.debug(this, "encoding fail for key %s", entry.getKey());
                 }
-                if (sb.length() == 0) {
-                    L.debug(this, "Warn : http content may be null?", new Object[0]);
-                    return null;
-                }
-                if (sb.length() > 0) {
-                    sb.append("hd_p=E&");
-                }
-                sb.replace(sb.length() - 1, sb.length(), "");
-                String sb2 = sb.toString();
-                sb.setLength(0);
-                return sb2;
+                sb.append("&");
             }
         }
-        return (String) invokeV.objValue;
+        if (sb.length() == 0) {
+            L.debug(this, "Warn : http content may be null?", new Object[0]);
+            return null;
+        }
+        if (sb.length() > 0) {
+            sb.append("hd_p=E&");
+        }
+        sb.replace(sb.length() - 1, sb.length(), "");
+        String sb2 = sb.toString();
+        sb.setLength(0);
+        return sb2;
     }
 
     public String put(String str, double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, Double.valueOf(d)})) == null) {
-            return put(str, String.valueOf(d));
-        }
-        return (String) invokeCommon.objValue;
+        return put(str, String.valueOf(d));
     }
 
     public String put(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i)) == null) {
-            return put(str, String.valueOf(i));
-        }
-        return (String) invokeLI.objValue;
+        return put(str, String.valueOf(i));
     }
 
     public String put(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, str, j)) == null) {
-            return put(str, String.valueOf(j));
-        }
-        return (String) invokeLJ.objValue;
+        return put(str, String.valueOf(j));
     }
 
     public synchronized String put(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-            synchronized (this) {
-                if (Util.empty(str)) {
-                    L.debug("BaseStatisContent", "key is invalid for value %s", str2);
-                    return null;
-                }
-                return this.raw.put(str, Util.asEmptyOnNull(str2));
-            }
+        if (Util.empty(str)) {
+            L.debug("BaseStatisContent", "key is invalid for value %s", str2);
+            return null;
         }
-        return (String) invokeLL.objValue;
+        return this.raw.put(str, Util.asEmptyOnNull(str2));
     }
 
     public synchronized String put(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048585, this, str, str2, z)) == null) {
-            synchronized (this) {
-                if (Util.empty(str)) {
-                    L.debug("BaseStatisContent", "key is invalid for value %s", str2);
-                    return null;
-                }
-                String asEmptyOnNull = Util.asEmptyOnNull(str2);
-                if (z) {
-                    return this.raw.put(str, asEmptyOnNull);
-                }
-                if (this.raw.containsKey(str)) {
-                    return this.raw.get(str);
-                }
-                return this.raw.put(str, asEmptyOnNull);
-            }
+        if (Util.empty(str)) {
+            L.debug("BaseStatisContent", "key is invalid for value %s", str2);
+            return null;
         }
-        return (String) invokeLLZ.objValue;
+        String asEmptyOnNull = Util.asEmptyOnNull(str2);
+        if (z) {
+            return this.raw.put(str, asEmptyOnNull);
+        } else if (this.raw.containsKey(str)) {
+            return this.raw.get(str);
+        } else {
+            return this.raw.put(str, asEmptyOnNull);
+        }
     }
 
     public synchronized void putContent(BaseStatisContent baseStatisContent, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048586, this, baseStatisContent, z) == null) {
-            synchronized (this) {
-                if (baseStatisContent != null) {
-                    if (!baseStatisContent.isEmpty()) {
-                        for (Map.Entry<String, String> entry : baseStatisContent.raw.entrySet()) {
-                            if (z) {
-                                String put = put(entry.getKey(), entry.getValue());
-                                if (put != null) {
-                                    L.brief("value-cover:isCover=%b,key=%s,old-value=%s,new-value=%s", Boolean.valueOf(z), entry.getKey(), put, entry.getValue());
-                                }
-                            } else if (!containsKey(entry.getKey())) {
-                                put(entry.getKey(), entry.getValue());
-                            } else {
-                                L.brief("value-cover:isCover=%b,key=%s,old-value=%s,new-value=%s,ignore-value=%s", Boolean.valueOf(z), entry.getKey(), get(entry.getKey()), get(entry.getKey()), entry.getValue());
-                            }
+        if (baseStatisContent != null) {
+            if (!baseStatisContent.isEmpty()) {
+                for (Map.Entry<String, String> entry : baseStatisContent.raw.entrySet()) {
+                    if (z) {
+                        String put = put(entry.getKey(), entry.getValue());
+                        if (put != null) {
+                            L.brief("value-cover:isCover=%b,key=%s,old-value=%s,new-value=%s", Boolean.valueOf(z), entry.getKey(), put, entry.getValue());
                         }
+                    } else if (!containsKey(entry.getKey())) {
+                        put(entry.getKey(), entry.getValue());
+                    } else {
+                        L.brief("value-cover:isCover=%b,key=%s,old-value=%s,new-value=%s,ignore-value=%s", Boolean.valueOf(z), entry.getKey(), get(entry.getKey()), get(entry.getKey()), entry.getValue());
                     }
                 }
             }

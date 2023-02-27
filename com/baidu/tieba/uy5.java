@@ -1,146 +1,193 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.advert.sdk.data.AdInfo;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AdWebViewActivityConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.PvThread;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.mx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.connect.share.QzonePublish;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 /* loaded from: classes6.dex */
 public class uy5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public int g;
-    public int h;
-    public int i;
-    public long j;
-    public long k;
 
-    public uy5() {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (!dj.isEmpty(str) && str.indexOf("cuid=") <= -1) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(str);
+                if (str.indexOf("?") > 0) {
+                    sb.append("&");
+                } else {
+                    sb.append("?");
+                }
+                if (!UtilHelper.isNativeAdURL(str)) {
+                    sb.append("cuid=");
+                    sb.append(TbadkCoreApplication.getInst().getCuid());
+                    sb.append("&cuid_galaxy2=");
+                    sb.append(TbadkCoreApplication.getInst().getCuidGalaxy2());
+                    sb.append("&c3_aid=");
+                    sb.append(TbadkCoreApplication.getInst().getCuidGalaxy3());
+                    sb.append("&cuid_gid=");
+                    sb.append(TbadkCoreApplication.getInst().getCuidGid());
+                }
+                sb.append("&timestamp=");
+                sb.append(System.currentTimeMillis());
+                return sb.toString();
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (!dj.isEmpty(str) && str.indexOf("_client_version=") > -1) {
+                return str;
+            }
+            return str + "&_client_version=" + TbConfig.getVersion();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void c(Context context) {
+        CookieManager cookieManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            mx4.b c = mx4.b().c(TbadkCoreApplication.getCurrentBduss());
+            try {
+                CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
+                cookieManager = CookieManager.getInstance();
+            } catch (Throwable th) {
+                BdLog.e(th);
+                cookieManager = null;
+            }
+            if (cookieManager == null) {
                 return;
             }
-        }
-        this.d = "";
-        this.c = "";
-        this.e = "";
-        this.f = "";
-        this.b = "";
-        this.a = "";
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return !TextUtils.isEmpty(this.d);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static uy5 a(AdInfo adInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adInfo)) == null) {
-            uy5 uy5Var = new uy5();
-            if (adInfo == null) {
-                return uy5Var;
+            if (c != null) {
+                cookieManager.setAcceptCookie(true);
+                cookieManager.setCookie(PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE, "CUID=" + TbadkCoreApplication.getInst().getCuid() + "; domain=.baidu.com; cuid_galaxy2=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + "; c3_aid=" + TbadkCoreApplication.getInst().getCuidGalaxy3() + "; cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ParamableElem.DIVIDE_PARAM);
+                String a = lx4.a(TbadkCoreApplication.getCurrentAccountInfo());
+                StringBuilder sb = new StringBuilder();
+                if (!StringUtils.isNull(a)) {
+                    sb.append("STOKEN=");
+                    sb.append(a);
+                    sb.append("; domain=.tieba.baidu.com;");
+                    cookieManager.setCookie("tieba.baidu.com", sb.toString());
+                }
+            } else {
+                try {
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        cookieManager.removeAllCookies(null);
+                        CookieManager.getInstance().flush();
+                    } else {
+                        cookieManager.removeAllCookie();
+                        CookieSyncManager.createInstance(context);
+                        CookieSyncManager.getInstance().sync();
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e);
+                }
             }
-            uy5Var.a = adInfo.adImgUrl;
-            uy5Var.b = adInfo.redirectUrl;
-            uy5Var.j = adInfo.startShowTime;
-            uy5Var.k = adInfo.endShowTime;
-            uy5Var.d = adInfo.videoLocalPath;
-            uy5Var.e = adInfo.videoJumpUrl;
-            uy5Var.f = adInfo.videoMd5;
-            uy5Var.g = adInfo.videoDuration;
-            uy5Var.h = adInfo.videoWidth;
-            uy5Var.i = adInfo.videoHight;
-            uy5Var.c = adInfo.adVideoUrl;
-            return uy5Var;
-        }
-        return (uy5) invokeL.objValue;
-    }
-
-    public static uy5 b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            uy5 uy5Var = new uy5();
             try {
-                JSONObject jSONObject = new JSONObject(str);
-                uy5Var.a = jSONObject.optString("adImgUrl");
-                uy5Var.b = jSONObject.optString("redirectUrl");
-                uy5Var.d = jSONObject.optString("videoLocalPath");
-                uy5Var.j = jSONObject.optLong("startShowTime");
-                uy5Var.k = jSONObject.optLong("endShowTime");
-                uy5Var.e = jSONObject.optString("videoJumpUrl");
-                uy5Var.f = jSONObject.optString("videoMd5");
-                uy5Var.g = jSONObject.optInt(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION);
-                uy5Var.h = jSONObject.optInt("videoWidth");
-                uy5Var.i = jSONObject.optInt("videoHeight");
-                uy5Var.c = jSONObject.optString("adVideoUrl");
-            } catch (JSONException e) {
-                e.printStackTrace();
+                if (Build.VERSION.SDK_INT >= 21) {
+                    CookieManager.getInstance().flush();
+                } else {
+                    CookieSyncManager.getInstance().sync();
+                }
+            } catch (Exception e2) {
+                BdLog.e(e2);
             }
-            return uy5Var;
         }
-        return (uy5) invokeL.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public static String d(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if ((System.currentTimeMillis() / 1000 >= this.j && System.currentTimeMillis() / 1000 <= this.k) || (this.j == 0 && this.k == 0)) {
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            if (!str.startsWith("http://") && !str.startsWith("https://")) {
+                str = "http://".concat(str);
             }
-            return false;
+            if (str.contains("?")) {
+                str3 = "&st_type=" + str2;
+            } else {
+                str3 = "?st_type=" + str2;
+            }
+            return str.concat(str3);
         }
-        return invokeV.booleanValue;
+        return (String) invokeLL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
+            return;
+        }
+        new PvThread("open_webview", true).start();
+    }
+
+    public static void f(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {
+            String b = b(a(str));
             try {
-                jSONObject.put("adImgUrl", this.a);
-                jSONObject.put("redirectUrl", this.b);
-                jSONObject.put("videoLocalPath", this.d);
-                jSONObject.put("startShowTime", this.j);
-                jSONObject.put("endShowTime", this.k);
-                jSONObject.put("videoMd5", this.f);
-                jSONObject.put("videoJumpUrl", this.e);
-                jSONObject.put(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, this.g);
-                jSONObject.put("videoWidth", this.h);
-                jSONObject.put("videoHeight", this.i);
-                jSONObject.put("adVideoUrl", this.c);
-            } catch (JSONException e) {
-                e.printStackTrace();
+                Intent intent = new Intent("android.intent.action.VIEW");
+                intent.setData(Uri.parse(b));
+                if (!(context instanceof Activity)) {
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                }
+                context.startActivity(intent);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            return jSONObject.toString();
         }
-        return (String) invokeV.objValue;
+    }
+
+    public static void g(Context context, String str, String str2, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65542, null, context, str, str2, bundle) == null) {
+            h(context, str2, str, true, true, true, bundle);
+        }
+    }
+
+    public static void h(Context context, String str, String str2, boolean z, boolean z2, boolean z3, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), bundle}) == null) {
+            e();
+            try {
+                if (StringUtils.isNull(str2)) {
+                    return;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AdWebViewActivityConfig(context, str, str2, z, z2, z3, bundle)));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 }

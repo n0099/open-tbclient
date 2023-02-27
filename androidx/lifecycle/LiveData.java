@@ -5,24 +5,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.arch.core.executor.ArchTaskExecutor;
 import androidx.arch.core.internal.SafeIterableMap;
-import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public abstract class LiveData<T> {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final Object NOT_SET;
+    public static final Object NOT_SET = new Object();
     public static final int START_VERSION = -1;
-    public transient /* synthetic */ FieldHolder $fh;
     public int mActiveCount;
     public volatile Object mData;
     public final Object mDataLock;
@@ -34,463 +23,191 @@ public abstract class LiveData<T> {
     public int mVersion;
 
     public void onActive() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
     }
 
     public void onInactive() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-        }
     }
 
     /* loaded from: classes.dex */
     public class AlwaysActiveObserver extends LiveData<T>.ObserverWrapper {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ LiveData this$0;
-
         @Override // androidx.lifecycle.LiveData.ObserverWrapper
         public boolean shouldBeActive() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
+            return true;
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public AlwaysActiveObserver(LiveData liveData, Observer<? super T> observer) {
-            super(liveData, observer);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {liveData, observer};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((LiveData) objArr2[0], (Observer) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = liveData;
+        public AlwaysActiveObserver(Observer<? super T> observer) {
+            super(observer);
         }
     }
 
     /* loaded from: classes.dex */
     public class LifecycleBoundObserver extends LiveData<T>.ObserverWrapper implements LifecycleEventObserver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         @NonNull
         public final LifecycleOwner mOwner;
-        public final /* synthetic */ LiveData this$0;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LifecycleBoundObserver(@NonNull LiveData liveData, LifecycleOwner lifecycleOwner, Observer<? super T> observer) {
-            super(liveData, observer);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {liveData, lifecycleOwner, observer};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((LiveData) objArr2[0], (Observer) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = liveData;
+        public LifecycleBoundObserver(@NonNull LifecycleOwner lifecycleOwner, Observer<? super T> observer) {
+            super(observer);
             this.mOwner = lifecycleOwner;
         }
 
         @Override // androidx.lifecycle.LiveData.ObserverWrapper
         public void detachObserver() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.mOwner.getLifecycle().removeObserver(this);
-            }
+            this.mOwner.getLifecycle().removeObserver(this);
         }
 
         @Override // androidx.lifecycle.LiveData.ObserverWrapper
         public boolean shouldBeActive() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.mOwner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED);
-            }
-            return invokeV.booleanValue;
+            return this.mOwner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED);
         }
 
         @Override // androidx.lifecycle.LiveData.ObserverWrapper
         public boolean isAttachedTo(LifecycleOwner lifecycleOwner) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lifecycleOwner)) == null) {
-                if (this.mOwner == lifecycleOwner) {
-                    return true;
-                }
-                return false;
+            if (this.mOwner == lifecycleOwner) {
+                return true;
             }
-            return invokeL.booleanValue;
+            return false;
         }
 
         @Override // androidx.lifecycle.LifecycleEventObserver
         public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, lifecycleOwner, event) == null) {
-                if (this.mOwner.getLifecycle().getCurrentState() == Lifecycle.State.DESTROYED) {
-                    this.this$0.removeObserver(this.mObserver);
-                } else {
-                    activeStateChanged(shouldBeActive());
-                }
+            if (this.mOwner.getLifecycle().getCurrentState() == Lifecycle.State.DESTROYED) {
+                LiveData.this.removeObserver(this.mObserver);
+            } else {
+                activeStateChanged(shouldBeActive());
             }
         }
     }
 
     /* loaded from: classes.dex */
     public abstract class ObserverWrapper {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public boolean mActive;
-        public int mLastVersion;
+        public int mLastVersion = -1;
         public final Observer<? super T> mObserver;
-        public final /* synthetic */ LiveData this$0;
 
         public void detachObserver() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
         }
 
         public boolean isAttachedTo(LifecycleOwner lifecycleOwner) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lifecycleOwner)) == null) {
-                return false;
-            }
-            return invokeL.booleanValue;
+            return false;
         }
 
         public abstract boolean shouldBeActive();
 
-        public ObserverWrapper(LiveData liveData, Observer<? super T> observer) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {liveData, observer};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = liveData;
-            this.mLastVersion = -1;
+        public ObserverWrapper(Observer<? super T> observer) {
             this.mObserver = observer;
         }
 
         public void activeStateChanged(boolean z) {
             boolean z2;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || z == this.mActive) {
+            if (z == this.mActive) {
                 return;
             }
             this.mActive = z;
             int i = 1;
-            if (this.this$0.mActiveCount == 0) {
+            if (LiveData.this.mActiveCount == 0) {
                 z2 = true;
             } else {
                 z2 = false;
             }
-            LiveData liveData = this.this$0;
+            LiveData liveData = LiveData.this;
             int i2 = liveData.mActiveCount;
             if (!this.mActive) {
                 i = -1;
             }
             liveData.mActiveCount = i2 + i;
             if (z2 && this.mActive) {
-                this.this$0.onActive();
+                LiveData.this.onActive();
             }
-            LiveData liveData2 = this.this$0;
+            LiveData liveData2 = LiveData.this;
             if (liveData2.mActiveCount == 0 && !this.mActive) {
                 liveData2.onInactive();
             }
             if (this.mActive) {
-                this.this$0.dispatchingValue(this);
+                LiveData.this.dispatchingValue(this);
             }
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(886563558, "Landroidx/lifecycle/LiveData;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(886563558, "Landroidx/lifecycle/LiveData;");
-                return;
-            }
-        }
-        NOT_SET = new Object();
-    }
-
-    @Nullable
-    public T getValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            T t = (T) this.mData;
-            if (t != NOT_SET) {
-                return t;
-            }
-            return null;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public int getVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mVersion;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean hasActiveObservers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.mActiveCount > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean hasObservers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.mObservers.size() > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     public LiveData() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mDataLock = new Object();
         this.mObservers = new SafeIterableMap<>();
         this.mActiveCount = 0;
         this.mPendingData = NOT_SET;
-        this.mPostValueRunnable = new Runnable(this) { // from class: androidx.lifecycle.LiveData.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ LiveData this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: androidx.lifecycle.LiveData */
+        this.mPostValueRunnable = new Runnable() { // from class: androidx.lifecycle.LiveData.1
+            /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: androidx.lifecycle.LiveData */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable
             public void run() {
                 Object obj;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    synchronized (this.this$0.mDataLock) {
-                        obj = this.this$0.mPendingData;
-                        this.this$0.mPendingData = LiveData.NOT_SET;
-                    }
-                    this.this$0.setValue(obj);
+                synchronized (LiveData.this.mDataLock) {
+                    obj = LiveData.this.mPendingData;
+                    LiveData.this.mPendingData = LiveData.NOT_SET;
                 }
+                LiveData.this.setValue(obj);
             }
         };
         this.mData = NOT_SET;
         this.mVersion = -1;
     }
 
-    public LiveData(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+    @Nullable
+    public T getValue() {
+        T t = (T) this.mData;
+        if (t != NOT_SET) {
+            return t;
         }
+        return null;
+    }
+
+    public int getVersion() {
+        return this.mVersion;
+    }
+
+    public boolean hasActiveObservers() {
+        if (this.mActiveCount > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean hasObservers() {
+        if (this.mObservers.size() > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public LiveData(T t) {
         this.mDataLock = new Object();
         this.mObservers = new SafeIterableMap<>();
         this.mActiveCount = 0;
         this.mPendingData = NOT_SET;
-        this.mPostValueRunnable = new Runnable(this) { // from class: androidx.lifecycle.LiveData.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ LiveData this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = objArr;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: androidx.lifecycle.LiveData */
+        this.mPostValueRunnable = new Runnable() { // from class: androidx.lifecycle.LiveData.1
+            /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: androidx.lifecycle.LiveData */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable
             public void run() {
                 Object obj;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    synchronized (this.this$0.mDataLock) {
-                        obj = this.this$0.mPendingData;
-                        this.this$0.mPendingData = LiveData.NOT_SET;
-                    }
-                    this.this$0.setValue(obj);
+                synchronized (LiveData.this.mDataLock) {
+                    obj = LiveData.this.mPendingData;
+                    LiveData.this.mPendingData = LiveData.NOT_SET;
                 }
+                LiveData.this.setValue(obj);
             }
         };
         this.mData = t;
         this.mVersion = 0;
     }
 
-    public void dispatchingValue(@Nullable LiveData<T>.ObserverWrapper observerWrapper) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, observerWrapper) == null) {
-            if (this.mDispatchingValue) {
-                this.mDispatchInvalidated = true;
-                return;
-            }
-            this.mDispatchingValue = true;
-            do {
-                this.mDispatchInvalidated = false;
-                if (observerWrapper != null) {
-                    considerNotify(observerWrapper);
-                    observerWrapper = null;
-                } else {
-                    SafeIterableMap<Observer<? super T>, LiveData<T>.ObserverWrapper>.IteratorWithAdditions iteratorWithAdditions = this.mObservers.iteratorWithAdditions();
-                    while (iteratorWithAdditions.hasNext()) {
-                        considerNotify((ObserverWrapper) iteratorWithAdditions.next().getValue());
-                        if (this.mDispatchInvalidated) {
-                            break;
-                        }
-                    }
-                }
-            } while (this.mDispatchInvalidated);
-            this.mDispatchingValue = false;
-        }
-    }
-
     public static void assertMainThread(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || ArchTaskExecutor.getInstance().isMainThread()) {
+        if (ArchTaskExecutor.getInstance().isMainThread()) {
             return;
         }
         throw new IllegalStateException("Cannot invoke " + str + " on a background thread");
     }
 
-    @MainThread
-    public void observeForever(@NonNull Observer<? super T> observer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, observer) == null) {
-            assertMainThread("observeForever");
-            AlwaysActiveObserver alwaysActiveObserver = new AlwaysActiveObserver(this, observer);
-            LiveData<T>.ObserverWrapper putIfAbsent = this.mObservers.putIfAbsent(observer, alwaysActiveObserver);
-            if (!(putIfAbsent instanceof LifecycleBoundObserver)) {
-                if (putIfAbsent != null) {
-                    return;
-                }
-                alwaysActiveObserver.activeStateChanged(true);
-                return;
-            }
-            throw new IllegalArgumentException("Cannot add the same observer with different lifecycles");
-        }
-    }
-
-    @MainThread
-    public void removeObservers(@NonNull LifecycleOwner lifecycleOwner) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, lifecycleOwner) == null) {
-            assertMainThread("removeObservers");
-            Iterator<Map.Entry<Observer<? super T>, LiveData<T>.ObserverWrapper>> it = this.mObservers.iterator();
-            while (it.hasNext()) {
-                Map.Entry<Observer<? super T>, LiveData<T>.ObserverWrapper> next = it.next();
-                if (next.getValue().isAttachedTo(lifecycleOwner)) {
-                    removeObserver(next.getKey());
-                }
-            }
-        }
-    }
-
     private void considerNotify(LiveData<T>.ObserverWrapper observerWrapper) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, observerWrapper) != null) || !observerWrapper.mActive) {
+        if (!observerWrapper.mActive) {
             return;
         }
         if (!observerWrapper.shouldBeActive()) {
@@ -506,67 +223,106 @@ public abstract class LiveData<T> {
         observerWrapper.mObserver.onChanged((Object) this.mData);
     }
 
-    public void postValue(T t) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, t) == null) {
-            synchronized (this.mDataLock) {
-                if (this.mPendingData == NOT_SET) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                this.mPendingData = t;
-            }
-            if (!z) {
+    @MainThread
+    public void observeForever(@NonNull Observer<? super T> observer) {
+        assertMainThread("observeForever");
+        AlwaysActiveObserver alwaysActiveObserver = new AlwaysActiveObserver(observer);
+        LiveData<T>.ObserverWrapper putIfAbsent = this.mObservers.putIfAbsent(observer, alwaysActiveObserver);
+        if (!(putIfAbsent instanceof LifecycleBoundObserver)) {
+            if (putIfAbsent != null) {
                 return;
             }
-            ArchTaskExecutor.getInstance().postToMainThread(this.mPostValueRunnable);
+            alwaysActiveObserver.activeStateChanged(true);
+            return;
         }
+        throw new IllegalArgumentException("Cannot add the same observer with different lifecycles");
+    }
+
+    public void postValue(T t) {
+        boolean z;
+        synchronized (this.mDataLock) {
+            if (this.mPendingData == NOT_SET) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.mPendingData = t;
+        }
+        if (!z) {
+            return;
+        }
+        ArchTaskExecutor.getInstance().postToMainThread(this.mPostValueRunnable);
     }
 
     @MainThread
     public void removeObserver(@NonNull Observer<? super T> observer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, observer) == null) {
-            assertMainThread("removeObserver");
-            LiveData<T>.ObserverWrapper remove = this.mObservers.remove(observer);
-            if (remove == null) {
-                return;
+        assertMainThread("removeObserver");
+        LiveData<T>.ObserverWrapper remove = this.mObservers.remove(observer);
+        if (remove == null) {
+            return;
+        }
+        remove.detachObserver();
+        remove.activeStateChanged(false);
+    }
+
+    @MainThread
+    public void removeObservers(@NonNull LifecycleOwner lifecycleOwner) {
+        assertMainThread("removeObservers");
+        Iterator<Map.Entry<Observer<? super T>, LiveData<T>.ObserverWrapper>> it = this.mObservers.iterator();
+        while (it.hasNext()) {
+            Map.Entry<Observer<? super T>, LiveData<T>.ObserverWrapper> next = it.next();
+            if (next.getValue().isAttachedTo(lifecycleOwner)) {
+                removeObserver(next.getKey());
             }
-            remove.detachObserver();
-            remove.activeStateChanged(false);
         }
     }
 
     @MainThread
     public void setValue(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, t) == null) {
-            assertMainThread("setValue");
-            this.mVersion++;
-            this.mData = t;
-            dispatchingValue(null);
+        assertMainThread("setValue");
+        this.mVersion++;
+        this.mData = t;
+        dispatchingValue(null);
+    }
+
+    public void dispatchingValue(@Nullable LiveData<T>.ObserverWrapper observerWrapper) {
+        if (this.mDispatchingValue) {
+            this.mDispatchInvalidated = true;
+            return;
         }
+        this.mDispatchingValue = true;
+        do {
+            this.mDispatchInvalidated = false;
+            if (observerWrapper != null) {
+                considerNotify(observerWrapper);
+                observerWrapper = null;
+            } else {
+                SafeIterableMap<Observer<? super T>, LiveData<T>.ObserverWrapper>.IteratorWithAdditions iteratorWithAdditions = this.mObservers.iteratorWithAdditions();
+                while (iteratorWithAdditions.hasNext()) {
+                    considerNotify((ObserverWrapper) iteratorWithAdditions.next().getValue());
+                    if (this.mDispatchInvalidated) {
+                        break;
+                    }
+                }
+            }
+        } while (this.mDispatchInvalidated);
+        this.mDispatchingValue = false;
     }
 
     @MainThread
     public void observe(@NonNull LifecycleOwner lifecycleOwner, @NonNull Observer<? super T> observer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, lifecycleOwner, observer) == null) {
-            assertMainThread("observe");
-            if (lifecycleOwner.getLifecycle().getCurrentState() == Lifecycle.State.DESTROYED) {
-                return;
-            }
-            LifecycleBoundObserver lifecycleBoundObserver = new LifecycleBoundObserver(this, lifecycleOwner, observer);
-            LiveData<T>.ObserverWrapper putIfAbsent = this.mObservers.putIfAbsent(observer, lifecycleBoundObserver);
-            if (putIfAbsent != null && !putIfAbsent.isAttachedTo(lifecycleOwner)) {
-                throw new IllegalArgumentException("Cannot add the same observer with different lifecycles");
-            }
-            if (putIfAbsent != null) {
-                return;
-            }
-            lifecycleOwner.getLifecycle().addObserver(lifecycleBoundObserver);
+        assertMainThread("observe");
+        if (lifecycleOwner.getLifecycle().getCurrentState() == Lifecycle.State.DESTROYED) {
+            return;
         }
+        LifecycleBoundObserver lifecycleBoundObserver = new LifecycleBoundObserver(lifecycleOwner, observer);
+        LiveData<T>.ObserverWrapper putIfAbsent = this.mObservers.putIfAbsent(observer, lifecycleBoundObserver);
+        if (putIfAbsent != null && !putIfAbsent.isAttachedTo(lifecycleOwner)) {
+            throw new IllegalArgumentException("Cannot add the same observer with different lifecycles");
+        }
+        if (putIfAbsent != null) {
+            return;
+        }
+        lifecycleOwner.getLifecycle().addObserver(lifecycleBoundObserver);
     }
 }

@@ -1,147 +1,132 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final class vw3 implements yw3 {
+public class vw3<ContenT> {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] d;
-    public static final int e;
-    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
-    public ww3 a;
-    public final SQLiteDatabase b;
-    public final SQLiteDatabase c;
+    public final Map<String, vw3<ContenT>.a> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948255159, "Lcom/baidu/tieba/vw3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final ContenT b;
+        public final /* synthetic */ vw3 c;
+
+        public a(vw3 vw3Var, String str, ContenT content) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vw3Var, str, content};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948255159, "Lcom/baidu/tieba/vw3;");
-                return;
+            this.c = vw3Var;
+            this.a = str;
+            this.b = content;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.d(this.a);
             }
         }
-        d = new String[]{"_id", "createAt", "uri", "packagename", "path", "size", "progress", "status"};
-        e = DownloadState.DOWNLOADED.value();
-        f = DownloadState.DOWNLOAD_PAUSED.value();
     }
 
-    public vw3(Context context, qw3 qw3Var) {
+    public vw3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, qw3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        ww3 ww3Var = new ww3(context);
-        this.a = ww3Var;
-        this.b = ww3Var.getWritableDatabase();
-        this.c = this.a.getReadableDatabase();
+        this.a = new HashMap();
     }
 
-    @Override // com.baidu.tieba.yw3
-    public void a(DownloadInfo downloadInfo) {
+    public synchronized ContenT a(String str, ContenT content, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) {
-            this.b.execSQL("REPLACE INTO ad_download(_id,createAt,uri,packagename,path,size,progress,status)VALUES(?,?,?,?,?,?,?,?);", new Object[]{downloadInfo.getId(), Long.valueOf(downloadInfo.getCreateAt()), downloadInfo.getUri(), downloadInfo.getPackageName(), downloadInfo.getPath(), Long.valueOf(downloadInfo.getSize()), Long.valueOf(downloadInfo.getProgress()), Integer.valueOf(downloadInfo.getStatus())});
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, content, Long.valueOf(j)})) == null) {
+            synchronized (this) {
+                d(str);
+                if (content == null) {
+                    return null;
+                }
+                vw3<ContenT>.a aVar = new a(this, str, content);
+                this.a.put(str, aVar);
+                if (j > 0) {
+                    l93.M().postDelayed(aVar, j);
+                }
+                return content;
+            }
         }
+        return (ContenT) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.yw3
-    public void b() {
+    public synchronized void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.execSQL("UPDATE ad_download SET status=? WHERE status!=?;", new Object[]{Integer.valueOf(f), Integer.valueOf(e)});
-        }
-    }
-
-    @Override // com.baidu.tieba.yw3
-    public synchronized void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                if (this.a == null) {
-                    return;
+                for (vw3<ContenT>.a aVar : this.a.values()) {
+                    if (aVar != null) {
+                        l93.M().removeCallbacks(aVar);
+                    }
                 }
-                try {
-                    this.a.close();
-                    this.a = null;
-                } catch (Exception unused) {
-                }
+                this.a.clear();
             }
         }
     }
 
-    @Override // com.baidu.tieba.yw3
-    public DownloadInfo c(String str) {
+    public ContenT c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Cursor query = this.c.query("ad_download", d, "_id=?", new String[]{str}, null, null, "createAt desc");
-            if (query.moveToNext()) {
-                DownloadInfo downloadInfo = new DownloadInfo();
-                d(query, downloadInfo);
-                query.close();
-                return downloadInfo;
+            vw3<ContenT>.a aVar = this.a.get(str);
+            if (aVar == null) {
+                return null;
             }
-            query.close();
-            return null;
+            return aVar.b;
         }
-        return (DownloadInfo) invokeL.objValue;
+        return (ContenT) invokeL.objValue;
     }
 
-    public final void d(Cursor cursor, DownloadInfo downloadInfo) {
+    public synchronized ContenT d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, cursor, downloadInfo) == null) {
-            int columnIndex = cursor.getColumnIndex("_id");
-            int columnIndex2 = cursor.getColumnIndex("createAt");
-            int columnIndex3 = cursor.getColumnIndex("uri");
-            int columnIndex4 = cursor.getColumnIndex("packagename");
-            int columnIndex5 = cursor.getColumnIndex("path");
-            int columnIndex6 = cursor.getColumnIndex("size");
-            int columnIndex7 = cursor.getColumnIndex("progress");
-            int columnIndex8 = cursor.getColumnIndex("status");
-            downloadInfo.setId(cursor.getString(columnIndex));
-            downloadInfo.setCreateAt(cursor.getLong(columnIndex2));
-            downloadInfo.setUri(cursor.getString(columnIndex3));
-            downloadInfo.setPackageName(cursor.getString(columnIndex4));
-            downloadInfo.setPath(cursor.getString(columnIndex5));
-            downloadInfo.setSize(cursor.getLong(columnIndex6));
-            downloadInfo.setProgress(cursor.getLong(columnIndex7));
-            downloadInfo.setStatus(cursor.getInt(columnIndex8));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                vw3<ContenT>.a remove = this.a.remove(str);
+                if (remove != null) {
+                    l93.M().removeCallbacks(remove);
+                    return remove.b;
+                }
+                return null;
+            }
         }
-    }
-
-    @Override // com.baidu.tieba.yw3
-    public void delete(DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, downloadInfo) == null) {
-            this.b.delete("ad_download", "_id=?", new String[]{String.valueOf(downloadInfo.getId())});
-        }
+        return (ContenT) invokeL.objValue;
     }
 }

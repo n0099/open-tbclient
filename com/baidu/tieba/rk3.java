@@ -1,118 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class rk3<ValueT> {
+public class rk3 extends pk3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public ValueT b;
-    public a<ValueT> c;
 
-    /* loaded from: classes6.dex */
-    public interface a<ValueT> {
-        ValueT update() throws IllegalStateException;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r6v1, resolved type: com.baidu.tieba.tk3 */
-    /* JADX WARN: Multi-variable type inference failed */
-    public rk3(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rk3(ja3 ja3Var) {
+        super(ja3Var, "/swanAPI/closeTabBarBadge");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {ja3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((ja3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        tk3.a().h(this);
     }
 
-    public boolean update(a<ValueT> aVar) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.jb3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m93 m93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) {
-            if (aVar == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m93Var)) == null) {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                m62.c("closeTabBarBadge", "paramsJson is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            try {
-                if (!update((rk3<ValueT>) aVar.update())) {
-                    return false;
-                }
+            int optInt = optParamsAsJo.optInt("index");
+            if (pk3.k()) {
+                m62.c("CloseTabBarBadgeAction", "fail not TabBar page");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
+                return false;
+            }
+            yk3 j = pk3.j();
+            if (j == null) {
+                m62.c("CloseTabBarBadgeAction", "tabBarViewController is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (!j.i(optInt)) {
+                m62.c("closeTabBarBadge", "close bottom badge fail");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 return true;
-            } catch (IllegalStateException e) {
-                w52.o("Tracer", "index update IllegalStateException " + e.getMessage());
-                return false;
             }
         }
-        return invokeL.booleanValue;
-    }
-
-    public CharSequence a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ValueT valuet = this.b;
-            if (valuet == null) {
-                return "";
-            }
-            return valuet.toString();
-        }
-        return (CharSequence) invokeV.objValue;
-    }
-
-    public boolean update() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return update((a) this.c);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public rk3<ValueT> b(a<ValueT> aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            this.c = aVar;
-            update();
-            return this;
-        }
-        return (rk3) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r5v1, resolved type: com.baidu.tieba.tk3 */
-    /* JADX WARN: Multi-variable type inference failed */
-    public boolean update(ValueT valuet) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, valuet)) == null) {
-            this.b = valuet;
-            tk3.a().e(this);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return String.format(Locale.getDefault(), "%s :: %s(%s)", super.toString(), this.a, a());
-        }
-        return (String) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

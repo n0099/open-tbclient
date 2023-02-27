@@ -2,7 +2,7 @@ package com.baidu.tieba.browser.core.webview.flyweight.img;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
-import com.baidu.tieba.xa6;
+import com.baidu.tieba.vc6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,7 +36,7 @@ public class WebViewGlideModule extends AppGlideModule {
     public void registerComponents(@NonNull Context context, @NonNull Glide glide, Registry registry) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, glide, registry) == null) {
-            registry.prepend(String.class, InputStream.class, new xa6());
+            registry.prepend(String.class, InputStream.class, new vc6());
         }
     }
 }

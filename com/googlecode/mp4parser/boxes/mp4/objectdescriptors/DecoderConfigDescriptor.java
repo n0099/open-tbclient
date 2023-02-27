@@ -1,15 +1,6 @@
 package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.Hex;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -22,9 +13,7 @@ import java.util.logging.Logger;
 @Descriptor(tags = {4})
 /* loaded from: classes8.dex */
 public class DecoderConfigDescriptor extends BaseDescriptor {
-    public static /* synthetic */ Interceptable $ic;
-    public static Logger log;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static Logger log = Logger.getLogger(DecoderConfigDescriptor.class.getName());
     public AudioSpecificConfig audioSpecificInfo;
     public long avgBitRate;
     public int bufferSizeDB;
@@ -32,137 +21,55 @@ public class DecoderConfigDescriptor extends BaseDescriptor {
     public DecoderSpecificInfo decoderSpecificInfo;
     public long maxBitRate;
     public int objectTypeIndication;
-    public List<ProfileLevelIndicationDescriptor> profileLevelIndicationDescriptors;
+    public List<ProfileLevelIndicationDescriptor> profileLevelIndicationDescriptors = new ArrayList();
     public int streamType;
     public int upStream;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-582946862, "Lcom/googlecode/mp4parser/boxes/mp4/objectdescriptors/DecoderConfigDescriptor;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-582946862, "Lcom/googlecode/mp4parser/boxes/mp4/objectdescriptors/DecoderConfigDescriptor;");
-                return;
-            }
-        }
-        log = Logger.getLogger(DecoderConfigDescriptor.class.getName());
-    }
-
-    public DecoderConfigDescriptor() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.profileLevelIndicationDescriptors = new ArrayList();
-    }
-
     public AudioSpecificConfig getAudioSpecificInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.audioSpecificInfo;
-        }
-        return (AudioSpecificConfig) invokeV.objValue;
+        return this.audioSpecificInfo;
     }
 
     public long getAvgBitRate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.avgBitRate;
-        }
-        return invokeV.longValue;
+        return this.avgBitRate;
     }
 
     public int getBufferSizeDB() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.bufferSizeDB;
-        }
-        return invokeV.intValue;
+        return this.bufferSizeDB;
     }
 
     public DecoderSpecificInfo getDecoderSpecificInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.decoderSpecificInfo;
-        }
-        return (DecoderSpecificInfo) invokeV.objValue;
+        return this.decoderSpecificInfo;
     }
 
     public long getMaxBitRate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.maxBitRate;
-        }
-        return invokeV.longValue;
+        return this.maxBitRate;
     }
 
     public int getObjectTypeIndication() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.objectTypeIndication;
-        }
-        return invokeV.intValue;
+        return this.objectTypeIndication;
     }
 
     public List<ProfileLevelIndicationDescriptor> getProfileLevelIndicationDescriptors() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.profileLevelIndicationDescriptors;
-        }
-        return (List) invokeV.objValue;
+        return this.profileLevelIndicationDescriptors;
     }
 
     public int getStreamType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.streamType;
-        }
-        return invokeV.intValue;
+        return this.streamType;
     }
 
     public int getUpStream() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.upStream;
-        }
-        return invokeV.intValue;
+        return this.upStream;
     }
 
     public int serializedSize() {
-        InterceptResult invokeV;
         int serializedSize;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            AudioSpecificConfig audioSpecificConfig = this.audioSpecificInfo;
-            if (audioSpecificConfig == null) {
-                serializedSize = 0;
-            } else {
-                serializedSize = audioSpecificConfig.serializedSize();
-            }
-            return serializedSize + 15;
+        AudioSpecificConfig audioSpecificConfig = this.audioSpecificInfo;
+        if (audioSpecificConfig == null) {
+            serializedSize = 0;
+        } else {
+            serializedSize = audioSpecificConfig.serializedSize();
         }
-        return invokeV.intValue;
+        return serializedSize + 15;
     }
 
     @Override // com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor
@@ -170,179 +77,145 @@ public class DecoderConfigDescriptor extends BaseDescriptor {
         Integer num;
         Integer num2;
         int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, byteBuffer) == null) {
-            this.objectTypeIndication = IsoTypeReader.readUInt8(byteBuffer);
-            int readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
-            this.streamType = readUInt8 >>> 2;
-            this.upStream = (readUInt8 >> 1) & 1;
-            this.bufferSizeDB = IsoTypeReader.readUInt24(byteBuffer);
-            this.maxBitRate = IsoTypeReader.readUInt32(byteBuffer);
-            this.avgBitRate = IsoTypeReader.readUInt32(byteBuffer);
-            if (byteBuffer.remaining() > 2) {
-                int position = byteBuffer.position();
-                BaseDescriptor createFrom = ObjectDescriptorFactory.createFrom(this.objectTypeIndication, byteBuffer);
-                int position2 = byteBuffer.position() - position;
-                Logger logger = log;
-                StringBuilder sb = new StringBuilder();
-                sb.append(createFrom);
-                sb.append(" - DecoderConfigDescr1 read: ");
-                sb.append(position2);
-                sb.append(", size: ");
-                if (createFrom != null) {
-                    num2 = Integer.valueOf(createFrom.getSize());
-                } else {
-                    num2 = null;
-                }
-                sb.append(num2);
-                logger.finer(sb.toString());
-                if (createFrom != null && position2 < (size = createFrom.getSize())) {
-                    byte[] bArr = new byte[size - position2];
-                    this.configDescriptorDeadBytes = bArr;
-                    byteBuffer.get(bArr);
-                }
-                if (createFrom instanceof DecoderSpecificInfo) {
-                    this.decoderSpecificInfo = (DecoderSpecificInfo) createFrom;
-                }
-                if (createFrom instanceof AudioSpecificConfig) {
-                    this.audioSpecificInfo = (AudioSpecificConfig) createFrom;
-                }
+        this.objectTypeIndication = IsoTypeReader.readUInt8(byteBuffer);
+        int readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
+        this.streamType = readUInt8 >>> 2;
+        this.upStream = (readUInt8 >> 1) & 1;
+        this.bufferSizeDB = IsoTypeReader.readUInt24(byteBuffer);
+        this.maxBitRate = IsoTypeReader.readUInt32(byteBuffer);
+        this.avgBitRate = IsoTypeReader.readUInt32(byteBuffer);
+        if (byteBuffer.remaining() > 2) {
+            int position = byteBuffer.position();
+            BaseDescriptor createFrom = ObjectDescriptorFactory.createFrom(this.objectTypeIndication, byteBuffer);
+            int position2 = byteBuffer.position() - position;
+            Logger logger = log;
+            StringBuilder sb = new StringBuilder();
+            sb.append(createFrom);
+            sb.append(" - DecoderConfigDescr1 read: ");
+            sb.append(position2);
+            sb.append(", size: ");
+            if (createFrom != null) {
+                num2 = Integer.valueOf(createFrom.getSize());
+            } else {
+                num2 = null;
             }
-            while (byteBuffer.remaining() > 2) {
-                long position3 = byteBuffer.position();
-                BaseDescriptor createFrom2 = ObjectDescriptorFactory.createFrom(this.objectTypeIndication, byteBuffer);
-                long position4 = byteBuffer.position() - position3;
-                Logger logger2 = log;
-                StringBuilder sb2 = new StringBuilder();
-                sb2.append(createFrom2);
-                sb2.append(" - DecoderConfigDescr2 read: ");
-                sb2.append(position4);
-                sb2.append(", size: ");
-                if (createFrom2 != null) {
-                    num = Integer.valueOf(createFrom2.getSize());
-                } else {
-                    num = null;
-                }
-                sb2.append(num);
-                logger2.finer(sb2.toString());
-                if (createFrom2 instanceof ProfileLevelIndicationDescriptor) {
-                    this.profileLevelIndicationDescriptors.add((ProfileLevelIndicationDescriptor) createFrom2);
-                }
+            sb.append(num2);
+            logger.finer(sb.toString());
+            if (createFrom != null && position2 < (size = createFrom.getSize())) {
+                byte[] bArr = new byte[size - position2];
+                this.configDescriptorDeadBytes = bArr;
+                byteBuffer.get(bArr);
+            }
+            if (createFrom instanceof DecoderSpecificInfo) {
+                this.decoderSpecificInfo = (DecoderSpecificInfo) createFrom;
+            }
+            if (createFrom instanceof AudioSpecificConfig) {
+                this.audioSpecificInfo = (AudioSpecificConfig) createFrom;
+            }
+        }
+        while (byteBuffer.remaining() > 2) {
+            long position3 = byteBuffer.position();
+            BaseDescriptor createFrom2 = ObjectDescriptorFactory.createFrom(this.objectTypeIndication, byteBuffer);
+            long position4 = byteBuffer.position() - position3;
+            Logger logger2 = log;
+            StringBuilder sb2 = new StringBuilder();
+            sb2.append(createFrom2);
+            sb2.append(" - DecoderConfigDescr2 read: ");
+            sb2.append(position4);
+            sb2.append(", size: ");
+            if (createFrom2 != null) {
+                num = Integer.valueOf(createFrom2.getSize());
+            } else {
+                num = null;
+            }
+            sb2.append(num);
+            logger2.finer(sb2.toString());
+            if (createFrom2 instanceof ProfileLevelIndicationDescriptor) {
+                this.profileLevelIndicationDescriptors.add((ProfileLevelIndicationDescriptor) createFrom2);
             }
         }
     }
 
     public ByteBuffer serialize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ByteBuffer allocate = ByteBuffer.allocate(serializedSize());
-            IsoTypeWriter.writeUInt8(allocate, 4);
-            IsoTypeWriter.writeUInt8(allocate, serializedSize() - 2);
-            IsoTypeWriter.writeUInt8(allocate, this.objectTypeIndication);
-            IsoTypeWriter.writeUInt8(allocate, (this.streamType << 2) | (this.upStream << 1) | 1);
-            IsoTypeWriter.writeUInt24(allocate, this.bufferSizeDB);
-            IsoTypeWriter.writeUInt32(allocate, this.maxBitRate);
-            IsoTypeWriter.writeUInt32(allocate, this.avgBitRate);
-            AudioSpecificConfig audioSpecificConfig = this.audioSpecificInfo;
-            if (audioSpecificConfig != null) {
-                allocate.put(audioSpecificConfig.serialize().array());
-            }
-            return allocate;
+        ByteBuffer allocate = ByteBuffer.allocate(serializedSize());
+        IsoTypeWriter.writeUInt8(allocate, 4);
+        IsoTypeWriter.writeUInt8(allocate, serializedSize() - 2);
+        IsoTypeWriter.writeUInt8(allocate, this.objectTypeIndication);
+        IsoTypeWriter.writeUInt8(allocate, (this.streamType << 2) | (this.upStream << 1) | 1);
+        IsoTypeWriter.writeUInt24(allocate, this.bufferSizeDB);
+        IsoTypeWriter.writeUInt32(allocate, this.maxBitRate);
+        IsoTypeWriter.writeUInt32(allocate, this.avgBitRate);
+        AudioSpecificConfig audioSpecificConfig = this.audioSpecificInfo;
+        if (audioSpecificConfig != null) {
+            allocate.put(audioSpecificConfig.serialize().array());
         }
-        return (ByteBuffer) invokeV.objValue;
+        return allocate;
     }
 
     public void setAudioSpecificInfo(AudioSpecificConfig audioSpecificConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, audioSpecificConfig) == null) {
-            this.audioSpecificInfo = audioSpecificConfig;
-        }
+        this.audioSpecificInfo = audioSpecificConfig;
     }
 
     public void setAvgBitRate(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.avgBitRate = j;
-        }
+        this.avgBitRate = j;
     }
 
     public void setBufferSizeDB(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.bufferSizeDB = i;
-        }
+        this.bufferSizeDB = i;
     }
 
     public void setMaxBitRate(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.maxBitRate = j;
-        }
+        this.maxBitRate = j;
     }
 
     public void setObjectTypeIndication(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.objectTypeIndication = i;
-        }
+        this.objectTypeIndication = i;
     }
 
     public void setStreamType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.streamType = i;
-        }
+        this.streamType = i;
     }
 
     public void setUpStream(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.upStream = i;
-        }
+        this.upStream = i;
     }
 
     @Override // com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor
     public String toString() {
-        InterceptResult invokeV;
         String obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("DecoderConfigDescriptor");
-            sb.append("{objectTypeIndication=");
-            sb.append(this.objectTypeIndication);
-            sb.append(", streamType=");
-            sb.append(this.streamType);
-            sb.append(", upStream=");
-            sb.append(this.upStream);
-            sb.append(", bufferSizeDB=");
-            sb.append(this.bufferSizeDB);
-            sb.append(", maxBitRate=");
-            sb.append(this.maxBitRate);
-            sb.append(", avgBitRate=");
-            sb.append(this.avgBitRate);
-            sb.append(", decoderSpecificInfo=");
-            sb.append(this.decoderSpecificInfo);
-            sb.append(", audioSpecificInfo=");
-            sb.append(this.audioSpecificInfo);
-            sb.append(", configDescriptorDeadBytes=");
-            byte[] bArr = this.configDescriptorDeadBytes;
-            if (bArr == null) {
-                bArr = new byte[0];
-            }
-            sb.append(Hex.encodeHex(bArr));
-            sb.append(", profileLevelIndicationDescriptors=");
-            List<ProfileLevelIndicationDescriptor> list = this.profileLevelIndicationDescriptors;
-            if (list == null) {
-                obj = StringUtil.NULL_STRING;
-            } else {
-                obj = Arrays.asList(list).toString();
-            }
-            sb.append(obj);
-            sb.append('}');
-            return sb.toString();
+        StringBuilder sb = new StringBuilder();
+        sb.append("DecoderConfigDescriptor");
+        sb.append("{objectTypeIndication=");
+        sb.append(this.objectTypeIndication);
+        sb.append(", streamType=");
+        sb.append(this.streamType);
+        sb.append(", upStream=");
+        sb.append(this.upStream);
+        sb.append(", bufferSizeDB=");
+        sb.append(this.bufferSizeDB);
+        sb.append(", maxBitRate=");
+        sb.append(this.maxBitRate);
+        sb.append(", avgBitRate=");
+        sb.append(this.avgBitRate);
+        sb.append(", decoderSpecificInfo=");
+        sb.append(this.decoderSpecificInfo);
+        sb.append(", audioSpecificInfo=");
+        sb.append(this.audioSpecificInfo);
+        sb.append(", configDescriptorDeadBytes=");
+        byte[] bArr = this.configDescriptorDeadBytes;
+        if (bArr == null) {
+            bArr = new byte[0];
         }
-        return (String) invokeV.objValue;
+        sb.append(Hex.encodeHex(bArr));
+        sb.append(", profileLevelIndicationDescriptors=");
+        List<ProfileLevelIndicationDescriptor> list = this.profileLevelIndicationDescriptors;
+        if (list == null) {
+            obj = StringUtil.NULL_STRING;
+        } else {
+            obj = Arrays.asList(list).toString();
+        }
+        sb.append(obj);
+        sb.append('}');
+        return sb.toString();
     }
 }

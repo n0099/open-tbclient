@@ -1,40 +1,42 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.Rect;
-import android.view.View;
-import androidx.annotation.NonNull;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class eh9 {
+public class eh9 extends ad5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dh9 a;
-    public final x9 b;
-    public final fo c;
-    public Runnable d;
-    public boolean e;
-    public Runnable f;
+    public b a;
 
     /* loaded from: classes4.dex */
-    public class a implements Runnable {
+    public interface b {
+        void a(String str);
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements zc5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eh9 a;
+        public final /* synthetic */ dh9 a;
+        public final /* synthetic */ eh9 b;
 
-        public a(eh9 eh9Var) {
+        public a(eh9 eh9Var, dh9 dh9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {eh9Var};
+                Object[] objArr = {eh9Var, dh9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,150 +46,124 @@ public class eh9 {
                     return;
                 }
             }
-            this.a = eh9Var;
+            this.b = eh9Var;
+            this.a = dh9Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.zc5
+        public void A(yc5 yc5Var) {
+            dh9 dh9Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
-                this.a.a.d();
+            if ((interceptable != null && interceptable.invokeL(1048576, this, yc5Var) != null) || (dh9Var = this.a) == null || dh9Var.b() == null || yc5Var == null) {
+                return;
             }
+            int i = yc5Var.a;
+            if (i != 4) {
+                if (i != 7) {
+                    if (i == 8) {
+                        this.a.z();
+                        if (!this.b.h(this.a.getContext(), 25066)) {
+                            return;
+                        }
+                        this.a.p();
+                        if (this.b.a != null) {
+                            this.b.a.a(this.a.m());
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                }
+                this.a.getContext().showToast((int) R.string.over_limit_tip);
+                return;
+            }
+            this.a.v((String) yc5Var.c);
         }
     }
 
-    public eh9(x9 x9Var, fo foVar) {
+    public eh9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x9Var, foVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.f = new a(this);
-        this.b = x9Var;
-        this.c = foVar;
     }
 
-    @NonNull
-    public final Rect b(View view2) {
+    @Override // com.baidu.tieba.ad5
+    public cd5 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            Rect rect = new Rect();
-            view2.getGlobalVisibleRect(rect);
-            return rect;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EditorTools editorTools = new EditorTools(context);
+            editorTools.setHideBigEmotion(true);
+            editorTools.setBarLauncherType(4);
+            editorTools.setBackgroundColorId(R.color.CAM_X0207);
+            return new dh9(editorTools);
         }
-        return (Rect) invokeL.objValue;
+        return (cd5) invokeL.objValue;
     }
 
-    public final boolean c(Rect rect) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ad5
+    public void c(cd5 cd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect)) == null) {
-            float j = ej.j(TbadkCoreApplication.getInst());
-            int i = (int) (0.0f * j);
-            int i2 = (int) (j * 0.66f);
-            if (rect.top >= i && rect.bottom <= i2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && (view2.getTag(R.id.virtual_image_user_head) instanceof dh9)) {
-            ((dh9) view2.getTag(R.id.virtual_image_user_head)).e();
-            view2.setTag(R.id.virtual_image_user_head, null);
-        }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048583, this, i) != null) || this.e) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cd5Var) != null) || !(cd5Var instanceof dh9)) {
             return;
         }
-        if (this.d == null) {
-            this.d = new Runnable() { // from class: com.baidu.tieba.ch9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        eh9.this.f();
-                    }
-                }
-            };
-        }
-        gh.a().postDelayed(this.d, i);
+        EditorTools b2 = cd5Var.b();
+        a aVar = new a(this, (dh9) cd5Var);
+        b2.setActionListener(4, aVar);
+        b2.setActionListener(7, aVar);
+        b2.setActionListener(8, aVar);
     }
 
-    public void d() {
+    @Override // com.baidu.tieba.ad5
+    public void d(cd5 cd5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.d != null) {
-            gh.a().removeCallbacks(this.d);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cd5Var) != null) || cd5Var == null) {
+            return;
         }
+        EditorTools b2 = cd5Var.b();
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(5);
+        b2.h(arrayList);
+        jd5 p = b2.p(5);
+        if (p != null) {
+            p.e(false);
+            p.d = 0;
+        }
+        b2.d(new fh9(b2.getContext()));
+        b2.f();
+        b2.C(new yc5(35, 5, Boolean.FALSE));
+        b2.q();
     }
 
-    public final void f() {
-        fo foVar;
+    public cd5 g(Context context, b bVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.b != null && (foVar = this.c) != null && foVar.getListView().getChildCount() != 0 && this.c.getContentViewsCount() != 0) {
-            Context context = this.c.getListView().getContext();
-            if (context instanceof Activity) {
-                Activity activity = (Activity) context;
-                if (!activity.isFinishing() && !activity.isDestroyed()) {
-                    int childCount = this.c.getListView().getChildCount();
-                    for (int i = 0; i < childCount; i++) {
-                        View childAt = this.c.getListView().getChildAt(i);
-                        if (childAt != null && (childAt.getTag(R.id.virtual_image_user_head) instanceof dh9)) {
-                            dh9 dh9Var = (dh9) childAt.getTag(R.id.virtual_image_user_head);
-                            if (c(b(childAt))) {
-                                dh9Var.play();
-                            }
-                        }
-                    }
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, bVar)) == null) {
+            this.a = bVar;
+            return super.a(context);
+        }
+        return (cd5) invokeLL.objValue;
+    }
+
+    public final boolean h(TbPageContext<?> tbPageContext, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, tbPageContext, i)) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount != null && currentAccount.length() > 0) {
+                return true;
             }
+            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
+            return false;
         }
-    }
-
-    public void g() {
-        fo foVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.e && this.b != null && (foVar = this.c) != null && foVar.getListView() != null && this.c.getListView().getChildCount() != 0 && this.c.getContentViewsCount() != 0) {
-            int childCount = this.c.getListView().getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                View childAt = this.c.getListView().getChildAt(i);
-                if (childAt != null && (childAt.getTag(R.id.virtual_image_user_head) instanceof dh9)) {
-                    dh9 dh9Var = (dh9) childAt.getTag(R.id.virtual_image_user_head);
-                    this.a = dh9Var;
-                    if (dh9Var.c()) {
-                        this.a.b();
-                        p35.m().w("key_reaction_guide_show_number", true);
-                        gh.a().postDelayed(this.f, 4000L);
-                        return;
-                    }
-                }
-            }
-        }
+        return invokeLI.booleanValue;
     }
 }

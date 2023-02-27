@@ -1,11 +1,5 @@
 package com.google.gson.internal;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.InstanceCreator;
 import com.google.gson.JsonIOException;
 import com.google.gson.internal.reflect.ReflectionAccessor;
@@ -33,614 +27,178 @@ import java.util.concurrent.ConcurrentNavigableMap;
 import java.util.concurrent.ConcurrentSkipListMap;
 /* loaded from: classes8.dex */
 public final class ConstructorConstructor {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final ReflectionAccessor accessor;
+    public final ReflectionAccessor accessor = ReflectionAccessor.getInstance();
     public final Map<Type, InstanceCreator<?>> instanceCreators;
 
     public ConstructorConstructor(Map<Type, InstanceCreator<?>> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {map};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.accessor = ReflectionAccessor.getInstance();
         this.instanceCreators = map;
     }
 
     private <T> ObjectConstructor<T> newDefaultConstructor(Class<? super T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, cls)) == null) {
-            try {
-                Constructor<? super T> declaredConstructor = cls.getDeclaredConstructor(new Class[0]);
-                if (!declaredConstructor.isAccessible()) {
-                    this.accessor.makeAccessible(declaredConstructor);
-                }
-                return new ObjectConstructor<T>(this, declaredConstructor) { // from class: com.google.gson.internal.ConstructorConstructor.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ConstructorConstructor this$0;
-                    public final /* synthetic */ Constructor val$constructor;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, declaredConstructor};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$constructor = declaredConstructor;
-                    }
-
-                    @Override // com.google.gson.internal.ObjectConstructor
-                    public T construct() {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                            try {
-                                return (T) this.val$constructor.newInstance(null);
-                            } catch (IllegalAccessException e) {
-                                throw new AssertionError(e);
-                            } catch (InstantiationException e2) {
-                                throw new RuntimeException("Failed to invoke " + this.val$constructor + " with no args", e2);
-                            } catch (InvocationTargetException e3) {
-                                throw new RuntimeException("Failed to invoke " + this.val$constructor + " with no args", e3.getTargetException());
-                            }
-                        }
-                        return (T) invokeV.objValue;
-                    }
-                };
-            } catch (NoSuchMethodException unused) {
-                return null;
+        try {
+            final Constructor<? super T> declaredConstructor = cls.getDeclaredConstructor(new Class[0]);
+            if (!declaredConstructor.isAccessible()) {
+                this.accessor.makeAccessible(declaredConstructor);
             }
-        }
-        return (ObjectConstructor) invokeL.objValue;
-    }
-
-    private <T> ObjectConstructor<T> newDefaultImplementationConstructor(Type type, Class<? super T> cls) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, type, cls)) == null) {
-            if (Collection.class.isAssignableFrom(cls)) {
-                if (SortedSet.class.isAssignableFrom(cls)) {
-                    return new ObjectConstructor<T>(this) { // from class: com.google.gson.internal.ConstructorConstructor.4
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ ConstructorConstructor this$0;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                        }
-
-                        @Override // com.google.gson.internal.ObjectConstructor
-                        public T construct() {
-                            InterceptResult invokeV;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                                return (T) new TreeSet();
-                            }
-                            return (T) invokeV.objValue;
-                        }
-                    };
-                }
-                if (EnumSet.class.isAssignableFrom(cls)) {
-                    return new ObjectConstructor<T>(this, type) { // from class: com.google.gson.internal.ConstructorConstructor.5
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ ConstructorConstructor this$0;
-                        public final /* synthetic */ Type val$type;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, type};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$type = type;
-                        }
-
-                        @Override // com.google.gson.internal.ObjectConstructor
-                        public T construct() {
-                            InterceptResult invokeV;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                                Type type2 = this.val$type;
-                                if (type2 instanceof ParameterizedType) {
-                                    Type type3 = ((ParameterizedType) type2).getActualTypeArguments()[0];
-                                    if (type3 instanceof Class) {
-                                        return (T) EnumSet.noneOf((Class) type3);
-                                    }
-                                    throw new JsonIOException("Invalid EnumSet type: " + this.val$type.toString());
-                                }
-                                throw new JsonIOException("Invalid EnumSet type: " + this.val$type.toString());
-                            }
-                            return (T) invokeV.objValue;
-                        }
-                    };
-                }
-                if (Set.class.isAssignableFrom(cls)) {
-                    return new ObjectConstructor<T>(this) { // from class: com.google.gson.internal.ConstructorConstructor.6
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ ConstructorConstructor this$0;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                        }
-
-                        @Override // com.google.gson.internal.ObjectConstructor
-                        public T construct() {
-                            InterceptResult invokeV;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                                return (T) new LinkedHashSet();
-                            }
-                            return (T) invokeV.objValue;
-                        }
-                    };
-                }
-                if (Queue.class.isAssignableFrom(cls)) {
-                    return new ObjectConstructor<T>(this) { // from class: com.google.gson.internal.ConstructorConstructor.7
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ ConstructorConstructor this$0;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                        }
-
-                        @Override // com.google.gson.internal.ObjectConstructor
-                        public T construct() {
-                            InterceptResult invokeV;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                                return (T) new ArrayDeque();
-                            }
-                            return (T) invokeV.objValue;
-                        }
-                    };
-                }
-                return new ObjectConstructor<T>(this) { // from class: com.google.gson.internal.ConstructorConstructor.8
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ConstructorConstructor this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // com.google.gson.internal.ObjectConstructor
-                    public T construct() {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                            return (T) new ArrayList();
-                        }
-                        return (T) invokeV.objValue;
-                    }
-                };
-            } else if (Map.class.isAssignableFrom(cls)) {
-                if (ConcurrentNavigableMap.class.isAssignableFrom(cls)) {
-                    return new ObjectConstructor<T>(this) { // from class: com.google.gson.internal.ConstructorConstructor.9
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ ConstructorConstructor this$0;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                        }
-
-                        @Override // com.google.gson.internal.ObjectConstructor
-                        public T construct() {
-                            InterceptResult invokeV;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                                return (T) new ConcurrentSkipListMap();
-                            }
-                            return (T) invokeV.objValue;
-                        }
-                    };
-                }
-                if (ConcurrentMap.class.isAssignableFrom(cls)) {
-                    return new ObjectConstructor<T>(this) { // from class: com.google.gson.internal.ConstructorConstructor.10
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ ConstructorConstructor this$0;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                        }
-
-                        @Override // com.google.gson.internal.ObjectConstructor
-                        public T construct() {
-                            InterceptResult invokeV;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                                return (T) new ConcurrentHashMap();
-                            }
-                            return (T) invokeV.objValue;
-                        }
-                    };
-                }
-                if (SortedMap.class.isAssignableFrom(cls)) {
-                    return new ObjectConstructor<T>(this) { // from class: com.google.gson.internal.ConstructorConstructor.11
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ ConstructorConstructor this$0;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                        }
-
-                        @Override // com.google.gson.internal.ObjectConstructor
-                        public T construct() {
-                            InterceptResult invokeV;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                                return (T) new TreeMap();
-                            }
-                            return (T) invokeV.objValue;
-                        }
-                    };
-                }
-                if ((type instanceof ParameterizedType) && !String.class.isAssignableFrom(TypeToken.get(((ParameterizedType) type).getActualTypeArguments()[0]).getRawType())) {
-                    return new ObjectConstructor<T>(this) { // from class: com.google.gson.internal.ConstructorConstructor.12
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ ConstructorConstructor this$0;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                        }
-
-                        @Override // com.google.gson.internal.ObjectConstructor
-                        public T construct() {
-                            InterceptResult invokeV;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                                return (T) new LinkedHashMap();
-                            }
-                            return (T) invokeV.objValue;
-                        }
-                    };
-                }
-                return new ObjectConstructor<T>(this) { // from class: com.google.gson.internal.ConstructorConstructor.13
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ConstructorConstructor this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // com.google.gson.internal.ObjectConstructor
-                    public T construct() {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                            return (T) new LinkedTreeMap();
-                        }
-                        return (T) invokeV.objValue;
-                    }
-                };
-            } else {
-                return null;
-            }
-        }
-        return (ObjectConstructor) invokeLL.objValue;
-    }
-
-    private <T> ObjectConstructor<T> newUnsafeAllocator(Type type, Class<? super T> cls) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, type, cls)) == null) {
-            return new ObjectConstructor<T>(this, cls, type) { // from class: com.google.gson.internal.ConstructorConstructor.14
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ConstructorConstructor this$0;
-                public final UnsafeAllocator unsafeAllocator;
-                public final /* synthetic */ Class val$rawType;
-                public final /* synthetic */ Type val$type;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, cls, type};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$rawType = cls;
-                    this.val$type = type;
-                    this.unsafeAllocator = UnsafeAllocator.create();
-                }
-
+            return new ObjectConstructor<T>() { // from class: com.google.gson.internal.ConstructorConstructor.3
                 @Override // com.google.gson.internal.ObjectConstructor
                 public T construct() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        try {
-                            return (T) this.unsafeAllocator.newInstance(this.val$rawType);
-                        } catch (Exception e) {
-                            throw new RuntimeException("Unable to invoke no-args constructor for " + this.val$type + ". Registering an InstanceCreator with Gson for this type may fix this problem.", e);
-                        }
+                    try {
+                        return (T) declaredConstructor.newInstance(null);
+                    } catch (IllegalAccessException e) {
+                        throw new AssertionError(e);
+                    } catch (InstantiationException e2) {
+                        throw new RuntimeException("Failed to invoke " + declaredConstructor + " with no args", e2);
+                    } catch (InvocationTargetException e3) {
+                        throw new RuntimeException("Failed to invoke " + declaredConstructor + " with no args", e3.getTargetException());
                     }
-                    return (T) invokeV.objValue;
                 }
             };
+        } catch (NoSuchMethodException unused) {
+            return null;
         }
-        return (ObjectConstructor) invokeLL.objValue;
+    }
+
+    private <T> ObjectConstructor<T> newDefaultImplementationConstructor(final Type type, Class<? super T> cls) {
+        if (Collection.class.isAssignableFrom(cls)) {
+            if (SortedSet.class.isAssignableFrom(cls)) {
+                return new ObjectConstructor<T>() { // from class: com.google.gson.internal.ConstructorConstructor.4
+                    @Override // com.google.gson.internal.ObjectConstructor
+                    public T construct() {
+                        return (T) new TreeSet();
+                    }
+                };
+            }
+            if (EnumSet.class.isAssignableFrom(cls)) {
+                return new ObjectConstructor<T>() { // from class: com.google.gson.internal.ConstructorConstructor.5
+                    @Override // com.google.gson.internal.ObjectConstructor
+                    public T construct() {
+                        Type type2 = type;
+                        if (type2 instanceof ParameterizedType) {
+                            Type type3 = ((ParameterizedType) type2).getActualTypeArguments()[0];
+                            if (type3 instanceof Class) {
+                                return (T) EnumSet.noneOf((Class) type3);
+                            }
+                            throw new JsonIOException("Invalid EnumSet type: " + type.toString());
+                        }
+                        throw new JsonIOException("Invalid EnumSet type: " + type.toString());
+                    }
+                };
+            }
+            if (Set.class.isAssignableFrom(cls)) {
+                return new ObjectConstructor<T>() { // from class: com.google.gson.internal.ConstructorConstructor.6
+                    @Override // com.google.gson.internal.ObjectConstructor
+                    public T construct() {
+                        return (T) new LinkedHashSet();
+                    }
+                };
+            }
+            if (Queue.class.isAssignableFrom(cls)) {
+                return new ObjectConstructor<T>() { // from class: com.google.gson.internal.ConstructorConstructor.7
+                    @Override // com.google.gson.internal.ObjectConstructor
+                    public T construct() {
+                        return (T) new ArrayDeque();
+                    }
+                };
+            }
+            return new ObjectConstructor<T>() { // from class: com.google.gson.internal.ConstructorConstructor.8
+                @Override // com.google.gson.internal.ObjectConstructor
+                public T construct() {
+                    return (T) new ArrayList();
+                }
+            };
+        } else if (Map.class.isAssignableFrom(cls)) {
+            if (ConcurrentNavigableMap.class.isAssignableFrom(cls)) {
+                return new ObjectConstructor<T>() { // from class: com.google.gson.internal.ConstructorConstructor.9
+                    @Override // com.google.gson.internal.ObjectConstructor
+                    public T construct() {
+                        return (T) new ConcurrentSkipListMap();
+                    }
+                };
+            }
+            if (ConcurrentMap.class.isAssignableFrom(cls)) {
+                return new ObjectConstructor<T>() { // from class: com.google.gson.internal.ConstructorConstructor.10
+                    @Override // com.google.gson.internal.ObjectConstructor
+                    public T construct() {
+                        return (T) new ConcurrentHashMap();
+                    }
+                };
+            }
+            if (SortedMap.class.isAssignableFrom(cls)) {
+                return new ObjectConstructor<T>() { // from class: com.google.gson.internal.ConstructorConstructor.11
+                    @Override // com.google.gson.internal.ObjectConstructor
+                    public T construct() {
+                        return (T) new TreeMap();
+                    }
+                };
+            }
+            if ((type instanceof ParameterizedType) && !String.class.isAssignableFrom(TypeToken.get(((ParameterizedType) type).getActualTypeArguments()[0]).getRawType())) {
+                return new ObjectConstructor<T>() { // from class: com.google.gson.internal.ConstructorConstructor.12
+                    @Override // com.google.gson.internal.ObjectConstructor
+                    public T construct() {
+                        return (T) new LinkedHashMap();
+                    }
+                };
+            }
+            return new ObjectConstructor<T>() { // from class: com.google.gson.internal.ConstructorConstructor.13
+                @Override // com.google.gson.internal.ObjectConstructor
+                public T construct() {
+                    return (T) new LinkedTreeMap();
+                }
+            };
+        } else {
+            return null;
+        }
+    }
+
+    private <T> ObjectConstructor<T> newUnsafeAllocator(final Type type, final Class<? super T> cls) {
+        return new ObjectConstructor<T>() { // from class: com.google.gson.internal.ConstructorConstructor.14
+            public final UnsafeAllocator unsafeAllocator = UnsafeAllocator.create();
+
+            @Override // com.google.gson.internal.ObjectConstructor
+            public T construct() {
+                try {
+                    return (T) this.unsafeAllocator.newInstance(cls);
+                } catch (Exception e) {
+                    throw new RuntimeException("Unable to invoke no-args constructor for " + type + ". Registering an InstanceCreator with Gson for this type may fix this problem.", e);
+                }
+            }
+        };
     }
 
     public <T> ObjectConstructor<T> get(TypeToken<T> typeToken) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, typeToken)) == null) {
-            Type type = typeToken.getType();
-            Class<? super T> rawType = typeToken.getRawType();
-            InstanceCreator<?> instanceCreator = this.instanceCreators.get(type);
-            if (instanceCreator != null) {
-                return new ObjectConstructor<T>(this, instanceCreator, type) { // from class: com.google.gson.internal.ConstructorConstructor.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ConstructorConstructor this$0;
-                    public final /* synthetic */ Type val$type;
-                    public final /* synthetic */ InstanceCreator val$typeCreator;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, instanceCreator, type};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$typeCreator = instanceCreator;
-                        this.val$type = type;
-                    }
-
-                    @Override // com.google.gson.internal.ObjectConstructor
-                    public T construct() {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                            return (T) this.val$typeCreator.createInstance(this.val$type);
-                        }
-                        return (T) invokeV.objValue;
-                    }
-                };
-            }
-            InstanceCreator<?> instanceCreator2 = this.instanceCreators.get(rawType);
-            if (instanceCreator2 != null) {
-                return new ObjectConstructor<T>(this, instanceCreator2, type) { // from class: com.google.gson.internal.ConstructorConstructor.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ConstructorConstructor this$0;
-                    public final /* synthetic */ InstanceCreator val$rawTypeCreator;
-                    public final /* synthetic */ Type val$type;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, instanceCreator2, type};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$rawTypeCreator = instanceCreator2;
-                        this.val$type = type;
-                    }
-
-                    @Override // com.google.gson.internal.ObjectConstructor
-                    public T construct() {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                            return (T) this.val$rawTypeCreator.createInstance(this.val$type);
-                        }
-                        return (T) invokeV.objValue;
-                    }
-                };
-            }
-            ObjectConstructor<T> newDefaultConstructor = newDefaultConstructor(rawType);
-            if (newDefaultConstructor != null) {
-                return newDefaultConstructor;
-            }
-            ObjectConstructor<T> newDefaultImplementationConstructor = newDefaultImplementationConstructor(type, rawType);
-            if (newDefaultImplementationConstructor != null) {
-                return newDefaultImplementationConstructor;
-            }
-            return newUnsafeAllocator(type, rawType);
+        final Type type = typeToken.getType();
+        Class<? super T> rawType = typeToken.getRawType();
+        final InstanceCreator<?> instanceCreator = this.instanceCreators.get(type);
+        if (instanceCreator != null) {
+            return new ObjectConstructor<T>() { // from class: com.google.gson.internal.ConstructorConstructor.1
+                @Override // com.google.gson.internal.ObjectConstructor
+                public T construct() {
+                    return (T) instanceCreator.createInstance(type);
+                }
+            };
         }
-        return (ObjectConstructor) invokeL.objValue;
+        final InstanceCreator<?> instanceCreator2 = this.instanceCreators.get(rawType);
+        if (instanceCreator2 != null) {
+            return new ObjectConstructor<T>() { // from class: com.google.gson.internal.ConstructorConstructor.2
+                @Override // com.google.gson.internal.ObjectConstructor
+                public T construct() {
+                    return (T) instanceCreator2.createInstance(type);
+                }
+            };
+        }
+        ObjectConstructor<T> newDefaultConstructor = newDefaultConstructor(rawType);
+        if (newDefaultConstructor != null) {
+            return newDefaultConstructor;
+        }
+        ObjectConstructor<T> newDefaultImplementationConstructor = newDefaultImplementationConstructor(type, rawType);
+        if (newDefaultImplementationConstructor != null) {
+            return newDefaultImplementationConstructor;
+        }
+        return newUnsafeAllocator(type, rawType);
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.instanceCreators.toString();
-        }
-        return (String) invokeV.objValue;
+        return this.instanceCreators.toString();
     }
 }

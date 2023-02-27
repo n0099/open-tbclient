@@ -68,30 +68,30 @@ public class h {
     /* JADX DEBUG: Null dom frontier in handler: all -> 0x0338 */
     /* JADX DEBUG: Null dom frontier in handler: all -> 0x0339 */
     /* JADX DEBUG: Null dom frontier in handler: all -> 0x0346 */
-    /* JADX WARN: Code restructure failed: missing block: B:110:0x0230, code lost:
-        if (r1 == null) goto L96;
+    /* JADX WARN: Code restructure failed: missing block: B:106:0x0270, code lost:
+        if (r1 == null) goto L83;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:123:0x0270, code lost:
-        if (r1 == null) goto L96;
+    /* JADX WARN: Code restructure failed: missing block: B:115:0x02b0, code lost:
+        if (r1 == null) goto L83;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:136:0x02b0, code lost:
-        if (r1 == null) goto L96;
+    /* JADX WARN: Code restructure failed: missing block: B:124:0x02f0, code lost:
+        if (r1 == null) goto L83;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:149:0x02f0, code lost:
-        if (r1 == null) goto L96;
+    /* JADX WARN: Code restructure failed: missing block: B:133:0x032f, code lost:
+        if (r1 == null) goto L83;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:162:0x032f, code lost:
-        if (r1 == null) goto L96;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:163:0x0331, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:134:0x0331, code lost:
         r16 = r1;
         r2 = r3;
      */
-    /* JADX WARN: Removed duplicated region for block: B:109:0x022d A[Catch: all -> 0x0338, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x0338, blocks: (B:109:0x022d, B:122:0x026d, B:135:0x02ad, B:148:0x02ed, B:161:0x032c), top: B:184:0x0020 }] */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x026d A[Catch: all -> 0x0338, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x0338, blocks: (B:109:0x022d, B:122:0x026d, B:135:0x02ad, B:148:0x02ed, B:161:0x032c), top: B:184:0x0020 }] */
-    /* JADX WARN: Removed duplicated region for block: B:135:0x02ad A[Catch: all -> 0x0338, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x0338, blocks: (B:109:0x022d, B:122:0x026d, B:135:0x02ad, B:148:0x02ed, B:161:0x032c), top: B:184:0x0020 }] */
-    /* JADX WARN: Removed duplicated region for block: B:148:0x02ed A[Catch: all -> 0x0338, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x0338, blocks: (B:109:0x022d, B:122:0x026d, B:135:0x02ad, B:148:0x02ed, B:161:0x032c), top: B:184:0x0020 }] */
-    /* JADX WARN: Removed duplicated region for block: B:161:0x032c A[Catch: all -> 0x0338, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x0338, blocks: (B:109:0x022d, B:122:0x026d, B:135:0x02ad, B:148:0x02ed, B:161:0x032c), top: B:184:0x0020 }] */
+    /* JADX WARN: Code restructure failed: missing block: B:97:0x0230, code lost:
+        if (r1 == null) goto L83;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:105:0x026d A[Catch: all -> 0x0338, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x0338, blocks: (B:96:0x022d, B:105:0x026d, B:114:0x02ad, B:123:0x02ed, B:132:0x032c), top: B:155:0x0020 }] */
+    /* JADX WARN: Removed duplicated region for block: B:114:0x02ad A[Catch: all -> 0x0338, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x0338, blocks: (B:96:0x022d, B:105:0x026d, B:114:0x02ad, B:123:0x02ed, B:132:0x032c), top: B:155:0x0020 }] */
+    /* JADX WARN: Removed duplicated region for block: B:123:0x02ed A[Catch: all -> 0x0338, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x0338, blocks: (B:96:0x022d, B:105:0x026d, B:114:0x02ad, B:123:0x02ed, B:132:0x032c), top: B:155:0x0020 }] */
+    /* JADX WARN: Removed duplicated region for block: B:132:0x032c A[Catch: all -> 0x0338, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x0338, blocks: (B:96:0x022d, B:105:0x026d, B:114:0x02ad, B:123:0x02ed, B:132:0x032c), top: B:155:0x0020 }] */
+    /* JADX WARN: Removed duplicated region for block: B:96:0x022d A[Catch: all -> 0x0338, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x0338, blocks: (B:96:0x022d, B:105:0x026d, B:114:0x02ad, B:123:0x02ed, B:132:0x032c), top: B:155:0x0020 }] */
     /* JADX WARN: Type inference failed for: r10v0, types: [int, java.io.BufferedReader] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -405,17 +405,17 @@ public class h {
         return (String) invokeLL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:62:0x0109 A[Catch: Exception -> 0x00ea, TRY_ENTER, TryCatch #2 {Exception -> 0x00ea, blocks: (B:46:0x00e6, B:50:0x00ee, B:52:0x00f3, B:62:0x0109, B:64:0x010e, B:66:0x0113), top: B:89:0x0024 }] */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x010e A[Catch: Exception -> 0x00ea, TryCatch #2 {Exception -> 0x00ea, blocks: (B:46:0x00e6, B:50:0x00ee, B:52:0x00f3, B:62:0x0109, B:64:0x010e, B:66:0x0113), top: B:89:0x0024 }] */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x0113 A[Catch: Exception -> 0x00ea, TRY_LEAVE, TryCatch #2 {Exception -> 0x00ea, blocks: (B:46:0x00e6, B:50:0x00ee, B:52:0x00f3, B:62:0x0109, B:64:0x010e, B:66:0x0113), top: B:89:0x0024 }] */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x0101 A[Catch: Exception -> 0x00e3, TRY_ENTER, TryCatch #5 {Exception -> 0x00e3, blocks: (B:44:0x00df, B:48:0x00e7, B:50:0x00ec, B:59:0x0101, B:61:0x0106, B:63:0x010b), top: B:84:0x0024 }] */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x0106 A[Catch: Exception -> 0x00e3, TryCatch #5 {Exception -> 0x00e3, blocks: (B:44:0x00df, B:48:0x00e7, B:50:0x00ec, B:59:0x0101, B:61:0x0106, B:63:0x010b), top: B:84:0x0024 }] */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x010b A[Catch: Exception -> 0x00e3, TRY_LEAVE, TryCatch #5 {Exception -> 0x00e3, blocks: (B:44:0x00df, B:48:0x00e7, B:50:0x00ec, B:59:0x0101, B:61:0x0106, B:63:0x010b), top: B:84:0x0024 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String a(String str, Network network) {
         InterceptResult invokeLL;
         InputStream inputStream;
-        BufferedReader bufferedReader;
         InputStreamReader inputStreamReader;
+        BufferedReader bufferedReader;
         BufferedReader bufferedReader2;
         InputStreamReader inputStreamReader2;
         Interceptable interceptable = $ic;
@@ -430,7 +430,7 @@ public class h {
             try {
                 try {
                     URL url = new URL(str);
-                    HttpsURLConnection httpsURLConnection = (network == null || Build.VERSION.SDK_INT < 21) ? (HttpsURLConnection) url.openConnection() : (HttpsURLConnection) network.openConnection(url);
+                    HttpsURLConnection httpsURLConnection = (HttpsURLConnection) ((network == null || Build.VERSION.SDK_INT < 21) ? url.openConnection() : network.openConnection(url));
                     httpsURLConnection.setRequestProperty(BOSTokenRequest.ACCEPT, "*/*");
                     httpsURLConnection.setRequestProperty("connection", HTTP.CONN_KEEP_ALIVE);
                     httpsURLConnection.setRequestMethod("GET");
@@ -458,9 +458,9 @@ public class h {
                     if (httpsURLConnection.getResponseCode() == 200) {
                         inputStream = httpsURLConnection.getInputStream();
                         try {
-                            InputStreamReader inputStreamReader3 = new InputStreamReader(inputStream);
+                            inputStreamReader = new InputStreamReader(inputStream);
                             try {
-                                BufferedReader bufferedReader3 = new BufferedReader(inputStreamReader3);
+                                BufferedReader bufferedReader3 = new BufferedReader(inputStreamReader);
                                 while (true) {
                                     try {
                                         String readLine = bufferedReader3.readLine();
@@ -470,7 +470,6 @@ public class h {
                                         str2 = str2 + readLine;
                                     } catch (Throwable th) {
                                         th = th;
-                                        inputStreamReader = inputStreamReader3;
                                         bufferedReader = bufferedReader3;
                                         try {
                                             CtAuth.warn(a, "doGet error", th);
@@ -503,17 +502,24 @@ public class h {
                                         }
                                     }
                                 }
-                                inputStreamReader2 = inputStreamReader3;
+                                inputStreamReader2 = inputStreamReader;
                                 bufferedReader2 = bufferedReader3;
                             } catch (Throwable th3) {
                                 th = th3;
-                                inputStreamReader = inputStreamReader3;
                                 bufferedReader = null;
+                                CtAuth.warn(a, "doGet error", th);
+                                if (bufferedReader != null) {
+                                }
+                                if (inputStreamReader != null) {
+                                }
+                                if (inputStream != null) {
+                                }
+                                return str2;
                             }
                         } catch (Throwable th4) {
                             th = th4;
-                            bufferedReader = null;
                             inputStreamReader = null;
+                            bufferedReader = null;
                             CtAuth.warn(a, "doGet error", th);
                             if (bufferedReader != null) {
                             }
@@ -537,12 +543,12 @@ public class h {
                     if (inputStream != null) {
                         inputStream.close();
                     }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Throwable th5) {
+                    th = th5;
+                    inputStream = null;
                 }
-            } catch (Throwable th5) {
-                th = th5;
-                inputStream = null;
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
             return str2;
         }

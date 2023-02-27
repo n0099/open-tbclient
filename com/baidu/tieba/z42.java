@@ -1,50 +1,54 @@
 package com.baidu.tieba;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Interpolator;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.motion.utils.Easing;
+import androidx.constraintlayout.motion.widget.Key;
+import androidx.core.view.InputDeviceCompat;
+import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
+import com.baidu.tieba.a52;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
-import org.json.JSONException;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class z42 extends v93 {
+public abstract class z42<V extends View, M extends a52> extends b52<V, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.v93
-    @NonNull
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "/swanAPI/coverimage" : (String) invokeV.objValue;
-    }
-
     /* loaded from: classes7.dex */
-    public class a implements a52 {
+    public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b52 a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ z42 c;
+        public final /* synthetic */ SwanAppComponentContainerView a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ a52 c;
 
-        public a(z42 z42Var, b52 b52Var, CallbackHandler callbackHandler) {
+        public a(z42 z42Var, SwanAppComponentContainerView swanAppComponentContainerView, boolean z, a52 a52Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {z42Var, b52Var, callbackHandler};
+                Object[] objArr = {z42Var, swanAppComponentContainerView, Boolean.valueOf(z), a52Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,52 +58,45 @@ public class z42 extends v93 {
                     return;
                 }
             }
-            this.c = z42Var;
-            this.a = b52Var;
-            this.b = callbackHandler;
+            this.a = swanAppComponentContainerView;
+            this.b = z;
+            this.c = a52Var;
         }
 
-        @Override // com.baidu.tieba.a52
-        public void a(int i, View view2, @Nullable Object obj) {
-            String str;
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, view2, obj) == null) {
-                c52 c52Var = (c52) this.a.n();
-                if (i == 0 || i == 1) {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("type", "loadState");
-                        jSONObject.put("parentId", c52Var.d);
-                        jSONObject.put("viewId", c52Var.b);
-                        if (i == 1) {
-                            str = "finish";
-                        } else {
-                            str = "error";
-                        }
-                        jSONObject.put("loadState", str);
-                    } catch (JSONException e) {
-                        w52.d("Component-Action-ImageCover", "loadState callback error", e);
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
+                if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+                    if (this.b) {
+                        marginLayoutParams.leftMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                    } else {
+                        marginLayoutParams.topMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                     }
-                    this.c.s(this.b, jSONObject, c52Var.e);
+                    this.c.h.l(marginLayoutParams.leftMargin);
+                    this.c.h.m(marginLayoutParams.topMargin);
+                    this.a.setLayoutParams(marginLayoutParams);
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z42(t93 t93Var) {
-        super(t93Var, "/swanAPI/coverimage");
+    public z42(@Nullable Context context, @NonNull M m) {
+        super(context, m);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t93Var};
+            Object[] objArr = {context, m};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((t93) objArr2[0], (String) objArr2[1]);
+                super((Context) objArr2[0], (c52) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -107,133 +104,291 @@ public class z42 extends v93 {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.b52
+    @NonNull
+    /* renamed from: I */
+    public e62 k(@NonNull M m, @NonNull M m2) {
+        InterceptResult invokeLL;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, m, m2)) == null) {
+            e62 k = super.k(m, m2);
+            if (m2.j != null && ((jSONObject = m.j) == null || !TextUtils.equals(jSONObject.toString(), m2.j.toString()))) {
+                k.b(4);
+            }
+            return k;
+        }
+        return (e62) invokeLL.objValue;
+    }
+
+    public void Q(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048588, this, v, m) != null) || m.j == null) {
+            return;
+        }
+        if (b52.h) {
+            Log.d("Component-View", "renderBackground");
+        }
+        GradientDrawable gradientDrawable = new GradientDrawable();
+        gradientDrawable.setColor(m.k);
+        gradientDrawable.setCornerRadius(m.n);
+        gradientDrawable.setStroke(m.l, m.m);
+        v.setBackground(gradientDrawable);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.b52
+    /* renamed from: O */
+    public void C(@NonNull V v, @NonNull M m, @NonNull e62 e62Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048586, this, v, m, e62Var) == null) {
+            super.C(v, m, e62Var);
+            if (e62Var.a(4)) {
+                R(v, m);
+                Q(v, m);
+                P(v, m);
+            }
+        }
+    }
+
     @Nullable
-    public final c52 r(UnitedSchemeEntity unitedSchemeEntity) {
+    public final ValueAnimator F(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull a52 a52Var, @NonNull a52 a52Var2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppComponentContainerView, a52Var, a52Var2)) == null) {
+            if (a52Var2.j != null) {
+                float b = mm3.b(a52Var.j, NativeConstants.OPACITY, 1.0f);
+                float b2 = mm3.b(a52Var2.j, NativeConstants.OPACITY, b);
+                if (b != b2) {
+                    return ObjectAnimator.ofFloat(swanAppComponentContainerView, Key.ALPHA, b, b2);
+                }
+            }
+            return null;
+        }
+        return (ValueAnimator) invokeLLL.objValue;
+    }
+
+    public final AnimatorSet G(long j, @NonNull Interpolator interpolator, List<Animator> list) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), interpolator, list})) == null) {
+            if (j <= 0 || list == null) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (Animator animator : list) {
+                if (animator != null) {
+                    arrayList.add(animator);
+                }
+            }
+            if (arrayList.size() == 0) {
+                return null;
+            }
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.setInterpolator(interpolator);
+            animatorSet.setDuration(j);
+            animatorSet.playTogether(arrayList);
+            return animatorSet;
+        }
+        return (AnimatorSet) invokeCommon.objValue;
+    }
+
+    @Nullable
+    public final ValueAnimator H(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull a52 a52Var, @NonNull a52 a52Var2, boolean z) {
+        InterceptResult invokeCommon;
+        int e;
+        int e2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{swanAppComponentContainerView, a52Var, a52Var2, Boolean.valueOf(z)})) == null) {
+            sz2 sz2Var = a52Var.h;
+            if (sz2Var == null || a52Var2.h == null) {
+                return null;
+            }
+            if (z) {
+                e = sz2Var.d();
+            } else {
+                e = sz2Var.e();
+            }
+            sz2 sz2Var2 = a52Var2.h;
+            if (z) {
+                e2 = sz2Var2.d();
+            } else {
+                e2 = sz2Var2.e();
+            }
+            if (e == e2) {
+                return null;
+            }
+            ValueAnimator ofInt = ValueAnimator.ofInt(e, e2);
+            ofInt.addUpdateListener(new a(this, swanAppComponentContainerView, z, a52Var2));
+            return ofInt;
+        }
+        return (ValueAnimator) invokeCommon.objValue;
+    }
+
+    public final boolean J() {
+        InterceptResult invokeV;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (!s(4) || !t() || (jSONObject = ((a52) n()).q) == null || TextUtils.isEmpty(jSONObject.optString("duration"))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public final Interpolator K(@NonNull String str) {
         InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, unitedSchemeEntity)) == null) {
-            if (unitedSchemeEntity == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            switch (str.hashCode()) {
+                case -1965120668:
+                    if (str.equals("ease-in")) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1102672091:
+                    if (str.equals(Easing.LINEAR_NAME)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -789192465:
+                    if (str.equals("ease-out")) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -361990811:
+                    if (str.equals("ease-in-out")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3105774:
+                    if (str.equals("ease")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
-            JSONObject k = k(unitedSchemeEntity);
-            if (k == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                w52.c("Component-Action-ImageCover", "params is null");
-                return null;
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            return PathInterpolatorCompat.create(0.25f, 0.1f, 0.25f, 1.0f);
+                        }
+                        return PathInterpolatorCompat.create(0.42f, 0.0f, 0.58f, 1.0f);
+                    }
+                    return PathInterpolatorCompat.create(0.0f, 0.0f, 0.58f, 1.0f);
+                }
+                return PathInterpolatorCompat.create(0.42f, 0.0f, 1.0f, 1.0f);
             }
-            c52 c52Var = new c52();
-            try {
-                c52Var.a(k);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                w52.d("Component-Action-ImageCover", "model parse exception:", e);
-            }
-            return c52Var;
+            return PathInterpolatorCompat.create(0.0f, 0.0f, 1.0f, 1.0f);
         }
-        return (c52) invokeL.objValue;
+        return (Interpolator) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.v93
-    public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, w83 w83Var) {
-        InterceptResult invokeLLLLL;
+    public final boolean N(boolean z) {
+        InterceptResult invokeZ;
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, w83Var)) == null) {
-            if (ta3.b) {
-                Log.d("Component-Action-ImageCover", "insert");
-            }
-            c52 r = r(unitedSchemeEntity);
-            if (r == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                w52.c("Component-Action-ImageCover", "model is null");
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
+            SwanAppComponentContainerView m = m();
+            a52 a52Var = (a52) p();
+            a52 a52Var2 = (a52) n();
+            if (m == null || a52Var == null || (jSONObject = a52Var2.q) == null || TextUtils.isEmpty(jSONObject.optString("duration"))) {
                 return false;
             }
-            b52 b52Var = new b52(context, r);
-            b52Var.e0(new a(this, b52Var, callbackHandler));
-            n42 insert = b52Var.insert();
-            boolean a2 = insert.a();
-            if (a2) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            ArrayList arrayList = new ArrayList();
+            if (z) {
+                arrayList.add(H(m, a52Var, a52Var2, false));
+                arrayList.add(H(m, a52Var, a52Var2, true));
             } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.b);
+                arrayList.add(F(m, a52Var, a52Var2));
             }
-            return a2;
+            AnimatorSet G = G(a52Var2.r, K(a52Var2.s), arrayList);
+            if (G != null) {
+                G.start();
+            }
+            return true;
         }
-        return invokeLLLLL.booleanValue;
+        return invokeZ.booleanValue;
     }
 
-    @Override // com.baidu.tieba.v93
-    public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, w83 w83Var) {
-        InterceptResult invokeLLLLL;
+    public final boolean L() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, w83Var)) == null) {
-            if (ta3.b) {
-                Log.d("Component-Action-ImageCover", "remove");
-            }
-            c52 r = r(unitedSchemeEntity);
-            if (r == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                w52.c("Component-Action-ImageCover", "model is null");
-                return false;
-            }
-            b52 b52Var = (b52) j52.a(r);
-            if (b52Var == null) {
-                String str2 = "can't find imageCoverView component:#" + r.b;
-                w52.c("Component-Action-ImageCover", str2);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
-                return false;
-            }
-            n42 B = b52Var.B();
-            boolean a2 = B.a();
-            if (a2) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
-            }
-            return a2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return N(false);
         }
-        return invokeLLLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.v93
-    public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, w83 w83Var) {
-        InterceptResult invokeLLLLL;
+    public final boolean M() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, w83Var)) == null) {
-            if (ta3.b) {
-                Log.d("Component-Action-ImageCover", StickerDataChangeType.UPDATE);
-            }
-            c52 r = r(unitedSchemeEntity);
-            if (r == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                w52.c("Component-Action-ImageCover", "model is null");
-                return false;
-            }
-            b52 b52Var = (b52) j52.a(r);
-            if (b52Var == null) {
-                String str2 = "can't find imageCoverView component:#" + r.b;
-                w52.c("Component-Action-ImageCover", str2);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
-                return false;
-            }
-            n42 update = b52Var.update((b52) r);
-            boolean a2 = update.a();
-            if (a2) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
-            }
-            return a2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return N(true);
         }
-        return invokeLLLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public final void s(@NonNull CallbackHandler callbackHandler, JSONObject jSONObject, String str) {
+    public void P(@NonNull View view2, @NonNull M m) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, callbackHandler, jSONObject, str) == null) {
-            w52.i("Component-Action-ImageCover", "sendAsyncCallback info: " + jSONObject);
-            if (!TextUtils.isEmpty(str)) {
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-            }
+        if ((interceptable != null && interceptable.invokeLL(1048587, this, view2, m) != null) || m.j == null) {
+            return;
         }
+        if (b52.h) {
+            Log.d("Component-View", "renderAlpha");
+        }
+        if (J()) {
+            if (b52.h) {
+                Log.d("Component-View", "renderAlpha with animation");
+            }
+            if (!L()) {
+                m62.o("Component-View", "performAlphaUpdateAnimation fail");
+                return;
+            }
+            return;
+        }
+        float f = m.p;
+        if (f >= 0.0f && f <= 1.0f) {
+            view2.setAlpha(f);
+            return;
+        }
+        m62.o("Component-View", "alpha invalid: " + m.p);
+    }
+
+    public void R(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048589, this, v, m) != null) || m.j == null) {
+            return;
+        }
+        if (b52.h) {
+            Log.d("Component-View", "renderPadding");
+        }
+        JSONArray jSONArray = m.o;
+        if (jSONArray == null) {
+            return;
+        }
+        if (jSONArray.length() == 4) {
+            v.setPadding(dn3.g((float) jSONArray.optDouble(3, 0.0d)), dn3.g((float) jSONArray.optDouble(0, 0.0d)), dn3.g((float) jSONArray.optDouble(1, 0.0d)), dn3.g((float) jSONArray.optDouble(2, 0.0d)));
+            return;
+        }
+        m62.c("Component-View", "invalid padding array length: " + jSONArray.length());
     }
 }

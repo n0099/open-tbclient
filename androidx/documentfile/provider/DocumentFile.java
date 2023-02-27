@@ -6,18 +6,10 @@ import android.os.Build;
 import android.provider.DocumentsContract;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes.dex */
 public abstract class DocumentFile {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DocumentFile";
-    public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public final DocumentFile mParent;
 
@@ -60,94 +52,50 @@ public abstract class DocumentFile {
     public abstract boolean renameTo(@NonNull String str);
 
     public DocumentFile(@Nullable DocumentFile documentFile) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {documentFile};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mParent = documentFile;
     }
 
     @NonNull
     public static DocumentFile fromFile(@NonNull File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            return new RawDocumentFile(null, file);
-        }
-        return (DocumentFile) invokeL.objValue;
+        return new RawDocumentFile(null, file);
     }
 
     @Nullable
     public DocumentFile findFile(@NonNull String str) {
-        InterceptResult invokeL;
         DocumentFile[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            for (DocumentFile documentFile : listFiles()) {
-                if (str.equals(documentFile.getName())) {
-                    return documentFile;
-                }
+        for (DocumentFile documentFile : listFiles()) {
+            if (str.equals(documentFile.getName())) {
+                return documentFile;
             }
-            return null;
         }
-        return (DocumentFile) invokeL.objValue;
+        return null;
     }
 
     @Nullable
     public static DocumentFile fromSingleUri(@NonNull Context context, @NonNull Uri uri) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, uri)) == null) {
-            if (Build.VERSION.SDK_INT < 19) {
-                return null;
-            }
-            return new SingleDocumentFile(null, context, uri);
+        if (Build.VERSION.SDK_INT < 19) {
+            return null;
         }
-        return (DocumentFile) invokeLL.objValue;
+        return new SingleDocumentFile(null, context, uri);
     }
 
     @Nullable
     public static DocumentFile fromTreeUri(@NonNull Context context, @NonNull Uri uri) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, uri)) == null) {
-            if (Build.VERSION.SDK_INT < 21) {
-                return null;
-            }
-            return new TreeDocumentFile(null, context, DocumentsContract.buildDocumentUriUsingTree(uri, DocumentsContract.getTreeDocumentId(uri)));
+        if (Build.VERSION.SDK_INT < 21) {
+            return null;
         }
-        return (DocumentFile) invokeLL.objValue;
+        return new TreeDocumentFile(null, context, DocumentsContract.buildDocumentUriUsingTree(uri, DocumentsContract.getTreeDocumentId(uri)));
     }
 
     public static boolean isDocumentUri(@NonNull Context context, @Nullable Uri uri) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, uri)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return DocumentsContract.isDocumentUri(context, uri);
-            }
-            return false;
+        if (Build.VERSION.SDK_INT >= 19) {
+            return DocumentsContract.isDocumentUri(context, uri);
         }
-        return invokeLL.booleanValue;
+        return false;
     }
 
     @Nullable
     public DocumentFile getParentFile() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.mParent;
-        }
-        return (DocumentFile) invokeV.objValue;
+        return this.mParent;
     }
 }

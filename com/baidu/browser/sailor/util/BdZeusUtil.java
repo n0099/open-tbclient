@@ -247,64 +247,64 @@ public final class BdZeusUtil implements INoProGuard {
             inputStream = context.getResources().openRawResource(context.getResources().getIdentifier("tnconfig", "raw", context.getPackageName()));
             try {
                 byteArrayOutputStream = new ByteArrayOutputStream();
-                try {
-                    byte[] bArr = new byte[1024];
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read == -1) {
-                            break;
-                        }
-                        byteArrayOutputStream.write(bArr, 0, read);
+            } catch (Exception unused) {
+            } catch (Throwable th2) {
+                byteArrayOutputStream = null;
+                th = th2;
+            }
+            try {
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = inputStream.read(bArr);
+                    if (read == -1) {
+                        break;
                     }
-                    String trim = new String(byteArrayOutputStream.toByteArray()).trim();
+                    byteArrayOutputStream.write(bArr, 0, read);
+                }
+                String trim = new String(byteArrayOutputStream.toByteArray()).trim();
+                try {
+                    byteArrayOutputStream.close();
+                } catch (Exception unused2) {
+                }
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (Exception unused3) {
+                    }
+                }
+                return trim;
+            } catch (Exception unused4) {
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                if (byteArrayOutputStream2 != null) {
+                    try {
+                        byteArrayOutputStream2.close();
+                    } catch (Exception unused5) {
+                    }
+                }
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                        return DEFAULT_TNNUMBER;
+                    } catch (Exception unused6) {
+                        return DEFAULT_TNNUMBER;
+                    }
+                }
+                return DEFAULT_TNNUMBER;
+            } catch (Throwable th3) {
+                th = th3;
+                if (byteArrayOutputStream != null) {
                     try {
                         byteArrayOutputStream.close();
-                    } catch (Exception unused) {
+                    } catch (Exception unused7) {
                     }
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (Exception unused2) {
-                        }
-                    }
-                    return trim;
-                } catch (Exception unused3) {
-                    byteArrayOutputStream2 = byteArrayOutputStream;
-                    if (byteArrayOutputStream2 != null) {
-                        try {
-                            byteArrayOutputStream2.close();
-                        } catch (Exception unused4) {
-                        }
-                    }
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                            return DEFAULT_TNNUMBER;
-                        } catch (Exception unused5) {
-                            return DEFAULT_TNNUMBER;
-                        }
-                    }
-                    return DEFAULT_TNNUMBER;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (byteArrayOutputStream != null) {
-                        try {
-                            byteArrayOutputStream.close();
-                        } catch (Exception unused6) {
-                        }
-                    }
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (Exception unused7) {
-                        }
-                    }
-                    throw th;
                 }
-            } catch (Exception unused8) {
-            } catch (Throwable th3) {
-                byteArrayOutputStream = null;
-                th = th3;
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (Exception unused8) {
+                    }
+                }
+                throw th;
             }
         } catch (Exception unused9) {
             inputStream = null;

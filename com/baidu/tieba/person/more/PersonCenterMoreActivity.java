@@ -10,7 +10,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ConsumptionRecordsActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonMoreActivityConfig;
@@ -19,9 +18,10 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.hj8;
-import com.baidu.tieba.ik8;
-import com.baidu.tieba.ld6;
+import com.baidu.tieba.tm8;
+import com.baidu.tieba.un8;
+import com.baidu.tieba.xf6;
+import com.baidu.tieba.zu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,13 +31,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hj8 a;
+    public tm8 a;
     public Bundle b;
-    public ik8 c;
-    public ld6 d;
+    public un8 c;
+    public xf6 d;
 
     /* loaded from: classes5.dex */
-    public class a extends ld6<ik8> {
+    public class a extends xf6<un8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterMoreActivity b;
@@ -61,14 +61,14 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ld6
+        @Override // com.baidu.tieba.xf6
         /* renamed from: d */
-        public void a(View view2, ik8 ik8Var) {
+        public void a(View view2, un8 un8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ik8Var) != null) {
+            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, un8Var) != null) {
                 return;
             }
-            this.b.c = ik8Var;
+            this.b.c = un8Var;
             if (this.b.c == null || this.b.D1()) {
                 return;
             }
@@ -111,9 +111,9 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            hj8 hj8Var = this.a;
-            if (hj8Var != null) {
-                hj8Var.d();
+            tm8 tm8Var = this.a;
+            if (tm8Var != null) {
+                tm8Var.d();
             }
         }
     }
@@ -154,7 +154,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         } else if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, str));
         } else {
-            BrowserHelper.y(getPageContext().getPageActivity(), true, str);
+            zu4.D(getPageContext().getPageActivity(), true, str);
         }
     }
 
@@ -167,10 +167,10 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
             if (intent != null) {
                 this.b = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d072e);
-            hj8 hj8Var = new hj8(getPageContext(), this.b, this.d);
-            this.a = hj8Var;
-            hj8Var.c();
+            setContentView(R.layout.obfuscated_res_0x7f0d0744);
+            tm8 tm8Var = new tm8(getPageContext(), this.b, this.d);
+            this.a = tm8Var;
+            tm8Var.c();
         }
     }
 

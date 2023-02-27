@@ -1,149 +1,48 @@
 package com.baidu.pass;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class R {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
     public static final class color {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int pass_base_ui_dialog_bg_color = 0x7f0608dc;
-        public static final int pass_base_ui_dialog_bg_dark_color = 0x7f0608dd;
-        public static final int pass_base_ui_dialog_content_text_color = 0x7f0608de;
-        public static final int pass_base_ui_dialog_content_text_dark_color = 0x7f0608df;
-        public static final int pass_base_ui_dialog_negative_btn_text_color = 0x7f0608e0;
-        public static final int pass_base_ui_dialog_negative_btn_text_dark_color = 0x7f0608e1;
-        public static final int pass_base_ui_dialog_positive_btn_text_color = 0x7f0608e2;
-        public static final int pass_base_ui_dialog_positive_btn_text_dark_color = 0x7f0608e3;
-        public static final int pass_base_ui_dialog_split_line_color = 0x7f0608e4;
-        public static final int pass_base_ui_dialog_split_line_dark_color = 0x7f0608e5;
-        public static final int pass_base_ui_dialog_title_dark_text_color = 0x7f0608e6;
-        public static final int pass_base_ui_dialog_title_text_color = 0x7f0608e7;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public color() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        public static final int pass_base_ui_dialog_bg_color = 0x7f06076f;
+        public static final int pass_base_ui_dialog_bg_dark_color = 0x7f060770;
+        public static final int pass_base_ui_dialog_content_text_color = 0x7f060771;
+        public static final int pass_base_ui_dialog_content_text_dark_color = 0x7f060772;
+        public static final int pass_base_ui_dialog_negative_btn_text_color = 0x7f060773;
+        public static final int pass_base_ui_dialog_negative_btn_text_dark_color = 0x7f060774;
+        public static final int pass_base_ui_dialog_positive_btn_text_color = 0x7f060775;
+        public static final int pass_base_ui_dialog_positive_btn_text_dark_color = 0x7f060776;
+        public static final int pass_base_ui_dialog_split_line_color = 0x7f060777;
+        public static final int pass_base_ui_dialog_split_line_dark_color = 0x7f060778;
+        public static final int pass_base_ui_dialog_title_dark_text_color = 0x7f060779;
+        public static final int pass_base_ui_dialog_title_text_color = 0x7f06077a;
     }
 
     /* loaded from: classes2.dex */
     public static final class drawable {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int pass_base_ui_common_dialog_bg = 0x7f080efd;
-        public static final int pass_base_ui_common_dialog_dark_bg = 0x7f080efe;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public drawable() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        public static final int pass_base_ui_common_dialog_bg = 0x7f080f04;
+        public static final int pass_base_ui_common_dialog_dark_bg = 0x7f080f05;
     }
 
     /* loaded from: classes2.dex */
     public static final class id {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int negative_btn = 0x7f09177a;
-        public static final int pass_base_ui_dialog_content = 0x7f0918a4;
-        public static final int pass_base_ui_dialog_horizontal_split_line = 0x7f0918a5;
-        public static final int pass_base_ui_dialog_root_view = 0x7f0918a6;
-        public static final int pass_base_ui_dialog_title = 0x7f0918a7;
-        public static final int pass_base_ui_dialog_vertical_split_line = 0x7f0918a8;
-        public static final int pass_base_ui_first_btn_layout = 0x7f0918a9;
-        public static final int positive_btn = 0x7f091b50;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public id() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        public static final int negative_btn = 0x7f0917bb;
+        public static final int pass_base_ui_dialog_content = 0x7f0918e5;
+        public static final int pass_base_ui_dialog_horizontal_split_line = 0x7f0918e6;
+        public static final int pass_base_ui_dialog_root_view = 0x7f0918e7;
+        public static final int pass_base_ui_dialog_title = 0x7f0918e8;
+        public static final int pass_base_ui_dialog_vertical_split_line = 0x7f0918e9;
+        public static final int pass_base_ui_first_btn_layout = 0x7f0918ea;
+        public static final int positive_btn = 0x7f091b91;
     }
 
     /* loaded from: classes2.dex */
     public static final class layout {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int pass_sdk_base_ui_common_dialog = 0x7f0d06cd;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public layout() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        public static final int pass_sdk_base_ui_common_dialog = 0x7f0d06e3;
     }
 
     /* loaded from: classes2.dex */
     public static final class style {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int pass_base_ui_common_dialog_style = 0x7f1003d5;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public style() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public R() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+        public static final int pass_base_ui_common_dialog_style = 0x7f1003d8;
     }
 }

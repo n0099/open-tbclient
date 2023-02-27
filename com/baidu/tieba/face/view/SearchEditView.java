@@ -197,7 +197,7 @@ public class SearchEditView extends RelativeLayout {
             if (i == 0) {
                 this.a.setHintTextColor(getResources().getColor(R.color.CAM_X0109));
             } else {
-                this.a.setHintTextColor(getResources().getColor(R.color.CAM_X0109_1));
+                this.a.setHintTextColor(getResources().getColor(R.color.CAM_X0109_2));
             }
         }
     }

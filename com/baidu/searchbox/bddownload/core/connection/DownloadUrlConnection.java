@@ -2,17 +2,10 @@ package com.baidu.searchbox.bddownload.core.connection;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.IRedirectHandler;
 import com.baidu.searchbox.bddownload.RedirectUtil;
 import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.searchbox.bddownload.core.connection.DownloadConnection;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -24,453 +17,206 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class DownloadUrlConnection implements DownloadConnection, DownloadConnection.Connected {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DownloadUrlConnection";
-    public transient /* synthetic */ FieldHolder $fh;
     public Configuration configuration;
     public URLConnection connection;
     public IRedirectHandler redirectHandler;
     public URL url;
 
     /* loaded from: classes2.dex */
-    public static class Configuration {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Integer connectTimeout;
-        public Proxy proxy;
-        public Integer readTimeout;
-
-        public Configuration() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public Configuration connectTimeout(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                this.connectTimeout = Integer.valueOf(i);
-                return this;
-            }
-            return (Configuration) invokeI.objValue;
-        }
-
-        public Configuration proxy(Proxy proxy) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, proxy)) == null) {
-                this.proxy = proxy;
-                return this;
-            }
-            return (Configuration) invokeL.objValue;
-        }
-
-        public Configuration readTimeout(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                this.readTimeout = Integer.valueOf(i);
-                return this;
-            }
-            return (Configuration) invokeI.objValue;
-        }
-    }
-
-    /* loaded from: classes2.dex */
     public static class Factory implements DownloadConnection.Factory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final Configuration configuration;
 
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public Factory() {
             this(null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    this((Configuration) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
         }
 
         public Factory(Configuration configuration) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {configuration};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             Util.d(DownloadUrlConnection.TAG, "Factory ");
             this.configuration = configuration;
         }
 
         @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection.Factory
         public DownloadConnection create(String str) throws IOException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return new DownloadUrlConnection(str, this.configuration);
-            }
-            return (DownloadConnection) invokeL.objValue;
+            return new DownloadUrlConnection(str, this.configuration);
         }
 
         public DownloadConnection create(URL url) throws IOException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url)) == null) {
-                return new DownloadUrlConnection(url, this.configuration);
-            }
-            return (DownloadConnection) invokeL.objValue;
+            return new DownloadUrlConnection(url, this.configuration);
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class RedirectHandler implements IRedirectHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public String redirectLocation;
-
-        public RedirectHandler() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
 
         @Override // com.baidu.searchbox.bddownload.IRedirectHandler
         @Nullable
         public String getRedirectLocation() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.redirectLocation;
-            }
-            return (String) invokeV.objValue;
+            return this.redirectLocation;
         }
 
         @Override // com.baidu.searchbox.bddownload.IRedirectHandler
         public void handleRedirect(DownloadConnection downloadConnection, DownloadConnection.Connected connected, Map<String, List<String>> map) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadConnection, connected, map) == null) {
-                DownloadUrlConnection downloadUrlConnection = (DownloadUrlConnection) downloadConnection;
-                int i = 0;
-                for (int responseCode = connected.getResponseCode(); RedirectUtil.isRedirect(responseCode); responseCode = downloadUrlConnection.getResponseCode()) {
-                    downloadUrlConnection.release();
-                    i++;
-                    if (i <= 10) {
-                        this.redirectLocation = RedirectUtil.getRedirectedUrl(connected, responseCode);
-                        downloadUrlConnection.url = new URL(this.redirectLocation);
-                        downloadUrlConnection.configUrlConnection();
-                        Util.addRequestHeaderFields(map, downloadUrlConnection);
-                        downloadUrlConnection.connection.connect();
-                    } else {
-                        throw new ProtocolException("Too many redirect requests: " + i);
-                    }
+            DownloadUrlConnection downloadUrlConnection = (DownloadUrlConnection) downloadConnection;
+            int i = 0;
+            for (int responseCode = connected.getResponseCode(); RedirectUtil.isRedirect(responseCode); responseCode = downloadUrlConnection.getResponseCode()) {
+                downloadUrlConnection.release();
+                i++;
+                if (i <= 10) {
+                    this.redirectLocation = RedirectUtil.getRedirectedUrl(connected, responseCode);
+                    downloadUrlConnection.url = new URL(this.redirectLocation);
+                    downloadUrlConnection.configUrlConnection();
+                    Util.addRequestHeaderFields(map, downloadUrlConnection);
+                    downloadUrlConnection.connection.connect();
+                } else {
+                    throw new ProtocolException("Too many redirect requests: " + i);
                 }
             }
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DownloadUrlConnection(String str) throws IOException {
         this(str, (Configuration) null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (Configuration) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    }
+
+    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
+    public String getRequestProperty(String str) {
+        return this.connection.getRequestProperty(str);
+    }
+
+    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection.Connected
+    public String getResponseHeaderField(String str) {
+        return this.connection.getHeaderField(str);
+    }
+
+    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
+    public boolean setRequestMethod(@NonNull String str) throws ProtocolException {
+        URLConnection uRLConnection = this.connection;
+        if (uRLConnection instanceof HttpURLConnection) {
+            ((HttpURLConnection) uRLConnection).setRequestMethod(str);
+            return true;
+        }
+        return false;
+    }
+
+    /* loaded from: classes2.dex */
+    public static class Configuration {
+        public Integer connectTimeout;
+        public Proxy proxy;
+        public Integer readTimeout;
+
+        public Configuration connectTimeout(int i) {
+            this.connectTimeout = Integer.valueOf(i);
+            return this;
+        }
+
+        public Configuration proxy(Proxy proxy) {
+            this.proxy = proxy;
+            return this;
+        }
+
+        public Configuration readTimeout(int i) {
+            this.readTimeout = Integer.valueOf(i);
+            return this;
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DownloadUrlConnection(String str, Configuration configuration) throws IOException {
         this(new URL(str), configuration);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, configuration};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((URL) objArr2[0], (Configuration) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
+    public void addHeader(String str, String str2) {
+        this.connection.addRequestProperty(str, str2);
+    }
+
     public DownloadUrlConnection(URL url, Configuration configuration) throws IOException {
         this(url, configuration, new RedirectHandler());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {url, configuration};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((URL) objArr2[0], (Configuration) objArr2[1], (IRedirectHandler) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
     }
 
     public DownloadUrlConnection(URL url, Configuration configuration, IRedirectHandler iRedirectHandler) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {url, configuration, iRedirectHandler};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
         this.configuration = configuration;
         this.url = url;
         this.redirectHandler = iRedirectHandler;
         configUrlConnection();
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DownloadUrlConnection(URLConnection uRLConnection) {
         this(uRLConnection, new RedirectHandler());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uRLConnection};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((URLConnection) objArr2[0], (IRedirectHandler) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
     }
 
     public DownloadUrlConnection(URLConnection uRLConnection, IRedirectHandler iRedirectHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uRLConnection, iRedirectHandler};
-            interceptable.invokeUnInit(65541, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65541, newInitContext);
-                return;
-            }
-        }
         this.connection = uRLConnection;
         this.url = uRLConnection.getURL();
         this.redirectHandler = iRedirectHandler;
     }
 
-    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
-    public void addHeader(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            this.connection.addRequestProperty(str, str2);
-        }
-    }
-
     public void configUrlConnection() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Util.d(TAG, "config connection for " + this.url);
-            Configuration configuration = this.configuration;
-            if (configuration != null && configuration.proxy != null) {
-                this.connection = this.url.openConnection(this.configuration.proxy);
-            } else {
-                this.connection = this.url.openConnection();
+        Util.d(TAG, "config connection for " + this.url);
+        Configuration configuration = this.configuration;
+        if (configuration != null && configuration.proxy != null) {
+            this.connection = this.url.openConnection(this.configuration.proxy);
+        } else {
+            this.connection = this.url.openConnection();
+        }
+        Configuration configuration2 = this.configuration;
+        if (configuration2 != null) {
+            if (configuration2.readTimeout != null) {
+                this.connection.setReadTimeout(this.configuration.readTimeout.intValue());
             }
-            Configuration configuration2 = this.configuration;
-            if (configuration2 != null) {
-                if (configuration2.readTimeout != null) {
-                    this.connection.setReadTimeout(this.configuration.readTimeout.intValue());
-                }
-                if (this.configuration.connectTimeout != null) {
-                    this.connection.setConnectTimeout(this.configuration.connectTimeout.intValue());
-                }
+            if (this.configuration.connectTimeout != null) {
+                this.connection.setConnectTimeout(this.configuration.connectTimeout.intValue());
             }
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
     public DownloadConnection.Connected execute() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Map<String, List<String>> requestProperties = getRequestProperties();
-            this.connection.connect();
-            this.redirectHandler.handleRedirect(this, this, requestProperties);
-            return this;
-        }
-        return (DownloadConnection.Connected) invokeV.objValue;
+        Map<String, List<String>> requestProperties = getRequestProperties();
+        this.connection.connect();
+        this.redirectHandler.handleRedirect(this, this, requestProperties);
+        return this;
     }
 
     @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection.Connected
     public InputStream getInputStream() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.connection.getInputStream();
-        }
-        return (InputStream) invokeV.objValue;
+        return this.connection.getInputStream();
     }
 
     @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection.Connected
     public String getRedirectLocation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.redirectHandler.getRedirectLocation();
-        }
-        return (String) invokeV.objValue;
+        return this.redirectHandler.getRedirectLocation();
     }
 
     @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
     public Map<String, List<String>> getRequestProperties() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.connection.getRequestProperties();
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection.Connected
-    public Map<String, List<String>> getResponseHeaderFields() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.connection.getHeaderFields();
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            try {
-                InputStream inputStream = this.connection.getInputStream();
-                if (inputStream != null) {
-                    inputStream.close();
-                }
-            } catch (IOException unused) {
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
-    public String getRequestProperty(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            return this.connection.getRequestProperty(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection.Connected
-    public String getResponseHeaderField(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            return this.connection.getHeaderField(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
-    public boolean setRequestMethod(@NonNull String str) throws ProtocolException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            URLConnection uRLConnection = this.connection;
-            if (uRLConnection instanceof HttpURLConnection) {
-                ((HttpURLConnection) uRLConnection).setRequestMethod(str);
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return this.connection.getRequestProperties();
     }
 
     @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection.Connected
     public int getResponseCode() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            URLConnection uRLConnection = this.connection;
-            if (uRLConnection instanceof HttpURLConnection) {
-                return ((HttpURLConnection) uRLConnection).getResponseCode();
-            }
-            Util.d(TAG, "getResponseCode " + this.url);
-            return 0;
+        URLConnection uRLConnection = this.connection;
+        if (uRLConnection instanceof HttpURLConnection) {
+            return ((HttpURLConnection) uRLConnection).getResponseCode();
         }
-        return invokeV.intValue;
+        Util.d(TAG, "getResponseCode " + this.url);
+        return 0;
+    }
+
+    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection.Connected
+    public Map<String, List<String>> getResponseHeaderFields() {
+        return this.connection.getHeaderFields();
+    }
+
+    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
+    public void release() {
+        try {
+            InputStream inputStream = this.connection.getInputStream();
+            if (inputStream != null) {
+                inputStream.close();
+            }
+        } catch (IOException unused) {
+        }
     }
 }

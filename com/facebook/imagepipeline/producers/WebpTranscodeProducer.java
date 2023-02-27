@@ -1,11 +1,5 @@
 package com.facebook.imagepipeline.producers;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.memory.PooledByteBufferFactory;
 import com.facebook.common.memory.PooledByteBufferOutputStream;
@@ -22,41 +16,19 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class WebpTranscodeProducer implements Producer<EncodedImage> {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_JPEG_QUALITY = 80;
     public static final String PRODUCER_NAME = "WebpTranscodeProducer";
-    public transient /* synthetic */ FieldHolder $fh;
     public final Executor mExecutor;
     public final Producer<EncodedImage> mInputProducer;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
     /* loaded from: classes7.dex */
     public class WebpTranscodeConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final ProducerContext mContext;
         public TriState mShouldTranscodeWhenFinished;
-        public final /* synthetic */ WebpTranscodeProducer this$0;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WebpTranscodeConsumer(WebpTranscodeProducer webpTranscodeProducer, Consumer<EncodedImage> consumer, ProducerContext producerContext) {
+        public WebpTranscodeConsumer(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
             super(consumer);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {webpTranscodeProducer, consumer, producerContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Consumer) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = webpTranscodeProducer;
             this.mContext = producerContext;
             this.mShouldTranscodeWhenFinished = TriState.UNSET;
         }
@@ -64,183 +36,108 @@ public class WebpTranscodeProducer implements Producer<EncodedImage> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
         public void onNewResultImpl(@Nullable EncodedImage encodedImage, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, encodedImage, i) == null) {
-                if (this.mShouldTranscodeWhenFinished == TriState.UNSET && encodedImage != null) {
-                    this.mShouldTranscodeWhenFinished = WebpTranscodeProducer.shouldTranscode(encodedImage);
-                }
-                if (this.mShouldTranscodeWhenFinished == TriState.NO) {
+            if (this.mShouldTranscodeWhenFinished == TriState.UNSET && encodedImage != null) {
+                this.mShouldTranscodeWhenFinished = WebpTranscodeProducer.shouldTranscode(encodedImage);
+            }
+            if (this.mShouldTranscodeWhenFinished == TriState.NO) {
+                getConsumer().onNewResult(encodedImage, i);
+            } else if (BaseConsumer.isLast(i)) {
+                if (this.mShouldTranscodeWhenFinished != TriState.YES || encodedImage == null) {
                     getConsumer().onNewResult(encodedImage, i);
-                } else if (BaseConsumer.isLast(i)) {
-                    if (this.mShouldTranscodeWhenFinished != TriState.YES || encodedImage == null) {
-                        getConsumer().onNewResult(encodedImage, i);
-                    } else {
-                        this.this$0.transcodeLastResult(encodedImage, getConsumer(), this.mContext);
-                    }
+                } else {
+                    WebpTranscodeProducer.this.transcodeLastResult(encodedImage, getConsumer(), this.mContext);
                 }
             }
         }
     }
 
     public WebpTranscodeProducer(Executor executor, PooledByteBufferFactory pooledByteBufferFactory, Producer<EncodedImage> producer) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {executor, pooledByteBufferFactory, producer};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mExecutor = (Executor) Preconditions.checkNotNull(executor);
         this.mPooledByteBufferFactory = (PooledByteBufferFactory) Preconditions.checkNotNull(pooledByteBufferFactory);
         this.mInputProducer = (Producer) Preconditions.checkNotNull(producer);
     }
 
-    @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
-            this.mInputProducer.produceResults(new WebpTranscodeConsumer(this, consumer, producerContext), producerContext);
-        }
-    }
-
-    public static void doTranscode(EncodedImage encodedImage, PooledByteBufferOutputStream pooledByteBufferOutputStream) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, encodedImage, pooledByteBufferOutputStream) == null) {
-            InputStream inputStream = encodedImage.getInputStream();
-            ImageFormat imageFormat_WrapIOException = ImageFormatChecker.getImageFormat_WrapIOException(inputStream);
-            if (imageFormat_WrapIOException != DefaultImageFormats.WEBP_SIMPLE && imageFormat_WrapIOException != DefaultImageFormats.WEBP_EXTENDED) {
-                if (imageFormat_WrapIOException != DefaultImageFormats.WEBP_LOSSLESS && imageFormat_WrapIOException != DefaultImageFormats.WEBP_EXTENDED_WITH_ALPHA) {
-                    throw new IllegalArgumentException("Wrong image format");
-                }
-                WebpTranscoderFactory.getWebpTranscoder().transcodeWebpToPng(inputStream, pooledByteBufferOutputStream);
-                encodedImage.setImageFormat(DefaultImageFormats.PNG);
-                return;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void transcodeLastResult(EncodedImage encodedImage, Consumer<EncodedImage> consumer, ProducerContext producerContext) {
+        Preconditions.checkNotNull(encodedImage);
+        final EncodedImage cloneOrNull = EncodedImage.cloneOrNull(encodedImage);
+        this.mExecutor.execute(new StatefulProducerRunnable<EncodedImage>(consumer, producerContext.getProducerListener(), producerContext, PRODUCER_NAME) { // from class: com.facebook.imagepipeline.producers.WebpTranscodeProducer.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.facebook.imagepipeline.producers.StatefulProducerRunnable, com.facebook.common.executors.StatefulRunnable
+            public void disposeResult(EncodedImage encodedImage2) {
+                EncodedImage.closeSafely(encodedImage2);
             }
-            WebpTranscoderFactory.getWebpTranscoder().transcodeWebpToJpeg(inputStream, pooledByteBufferOutputStream, 80);
-            encodedImage.setImageFormat(DefaultImageFormats.JPEG);
-        }
+
+            @Override // com.facebook.imagepipeline.producers.StatefulProducerRunnable, com.facebook.common.executors.StatefulRunnable
+            public void onFailure(Exception exc) {
+                EncodedImage.closeSafely(cloneOrNull);
+                super.onFailure(exc);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.facebook.imagepipeline.producers.StatefulProducerRunnable, com.facebook.common.executors.StatefulRunnable
+            public void onSuccess(EncodedImage encodedImage2) {
+                EncodedImage.closeSafely(cloneOrNull);
+                super.onSuccess((AnonymousClass1) encodedImage2);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.facebook.common.executors.StatefulRunnable
+            public EncodedImage getResult() throws Exception {
+                PooledByteBufferOutputStream newOutputStream = WebpTranscodeProducer.this.mPooledByteBufferFactory.newOutputStream();
+                try {
+                    WebpTranscodeProducer.doTranscode(cloneOrNull, newOutputStream);
+                    CloseableReference of = CloseableReference.of(newOutputStream.toByteBuffer());
+                    EncodedImage encodedImage2 = new EncodedImage(of);
+                    encodedImage2.copyMetaDataFrom(cloneOrNull);
+                    CloseableReference.closeSafely(of);
+                    return encodedImage2;
+                } finally {
+                    newOutputStream.close();
+                }
+            }
+
+            @Override // com.facebook.imagepipeline.producers.StatefulProducerRunnable, com.facebook.common.executors.StatefulRunnable
+            public void onCancellation() {
+                EncodedImage.closeSafely(cloneOrNull);
+                super.onCancellation();
+            }
+        });
     }
 
     public static TriState shouldTranscode(EncodedImage encodedImage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, encodedImage)) == null) {
-            Preconditions.checkNotNull(encodedImage);
-            ImageFormat imageFormat_WrapIOException = ImageFormatChecker.getImageFormat_WrapIOException(encodedImage.getInputStream());
-            if (DefaultImageFormats.isStaticWebpFormat(imageFormat_WrapIOException)) {
-                WebpTranscoder webpTranscoder = WebpTranscoderFactory.getWebpTranscoder();
-                if (webpTranscoder == null) {
-                    return TriState.NO;
-                }
-                return TriState.valueOf(!webpTranscoder.isWebpNativelySupported(imageFormat_WrapIOException));
-            } else if (imageFormat_WrapIOException == ImageFormat.UNKNOWN) {
-                return TriState.UNSET;
-            } else {
+        Preconditions.checkNotNull(encodedImage);
+        ImageFormat imageFormat_WrapIOException = ImageFormatChecker.getImageFormat_WrapIOException(encodedImage.getInputStream());
+        if (DefaultImageFormats.isStaticWebpFormat(imageFormat_WrapIOException)) {
+            WebpTranscoder webpTranscoder = WebpTranscoderFactory.getWebpTranscoder();
+            if (webpTranscoder == null) {
                 return TriState.NO;
             }
+            return TriState.valueOf(!webpTranscoder.isWebpNativelySupported(imageFormat_WrapIOException));
+        } else if (imageFormat_WrapIOException == ImageFormat.UNKNOWN) {
+            return TriState.UNSET;
+        } else {
+            return TriState.NO;
         }
-        return (TriState) invokeL.objValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void transcodeLastResult(EncodedImage encodedImage, Consumer<EncodedImage> consumer, ProducerContext producerContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, this, encodedImage, consumer, producerContext) == null) {
-            Preconditions.checkNotNull(encodedImage);
-            this.mExecutor.execute(new StatefulProducerRunnable<EncodedImage>(this, consumer, producerContext.getProducerListener(), producerContext, PRODUCER_NAME, EncodedImage.cloneOrNull(encodedImage)) { // from class: com.facebook.imagepipeline.producers.WebpTranscodeProducer.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ WebpTranscodeProducer this$0;
-                public final /* synthetic */ EncodedImage val$encodedImageCopy;
+    @Override // com.facebook.imagepipeline.producers.Producer
+    public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
+        this.mInputProducer.produceResults(new WebpTranscodeConsumer(consumer, producerContext), producerContext);
+    }
 
-                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                {
-                    super(consumer, r12, producerContext, r14);
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, consumer, r12, producerContext, r14, r15};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            Object[] objArr2 = newInitContext.callArgs;
-                            super((Consumer) objArr2[0], (ProducerListener2) objArr2[1], (ProducerContext) objArr2[2], (String) objArr2[3]);
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$encodedImageCopy = r15;
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.facebook.imagepipeline.producers.StatefulProducerRunnable, com.facebook.common.executors.StatefulRunnable
-                public void disposeResult(EncodedImage encodedImage2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, encodedImage2) == null) {
-                        EncodedImage.closeSafely(encodedImage2);
-                    }
-                }
-
-                @Override // com.facebook.imagepipeline.producers.StatefulProducerRunnable, com.facebook.common.executors.StatefulRunnable
-                public void onFailure(Exception exc) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048581, this, exc) == null) {
-                        EncodedImage.closeSafely(this.val$encodedImageCopy);
-                        super.onFailure(exc);
-                    }
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.facebook.imagepipeline.producers.StatefulProducerRunnable, com.facebook.common.executors.StatefulRunnable
-                public void onSuccess(EncodedImage encodedImage2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048582, this, encodedImage2) == null) {
-                        EncodedImage.closeSafely(this.val$encodedImageCopy);
-                        super.onSuccess((AnonymousClass1) encodedImage2);
-                    }
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.facebook.common.executors.StatefulRunnable
-                public EncodedImage getResult() throws Exception {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                        PooledByteBufferOutputStream newOutputStream = this.this$0.mPooledByteBufferFactory.newOutputStream();
-                        try {
-                            WebpTranscodeProducer.doTranscode(this.val$encodedImageCopy, newOutputStream);
-                            CloseableReference of = CloseableReference.of(newOutputStream.toByteBuffer());
-                            EncodedImage encodedImage2 = new EncodedImage(of);
-                            encodedImage2.copyMetaDataFrom(this.val$encodedImageCopy);
-                            CloseableReference.closeSafely(of);
-                            return encodedImage2;
-                        } finally {
-                            newOutputStream.close();
-                        }
-                    }
-                    return (EncodedImage) invokeV.objValue;
-                }
-
-                @Override // com.facebook.imagepipeline.producers.StatefulProducerRunnable, com.facebook.common.executors.StatefulRunnable
-                public void onCancellation() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
-                        EncodedImage.closeSafely(this.val$encodedImageCopy);
-                        super.onCancellation();
-                    }
-                }
-            });
+    public static void doTranscode(EncodedImage encodedImage, PooledByteBufferOutputStream pooledByteBufferOutputStream) throws Exception {
+        InputStream inputStream = encodedImage.getInputStream();
+        ImageFormat imageFormat_WrapIOException = ImageFormatChecker.getImageFormat_WrapIOException(inputStream);
+        if (imageFormat_WrapIOException != DefaultImageFormats.WEBP_SIMPLE && imageFormat_WrapIOException != DefaultImageFormats.WEBP_EXTENDED) {
+            if (imageFormat_WrapIOException != DefaultImageFormats.WEBP_LOSSLESS && imageFormat_WrapIOException != DefaultImageFormats.WEBP_EXTENDED_WITH_ALPHA) {
+                throw new IllegalArgumentException("Wrong image format");
+            }
+            WebpTranscoderFactory.getWebpTranscoder().transcodeWebpToPng(inputStream, pooledByteBufferOutputStream);
+            encodedImage.setImageFormat(DefaultImageFormats.PNG);
+            return;
         }
+        WebpTranscoderFactory.getWebpTranscoder().transcodeWebpToJpeg(inputStream, pooledByteBufferOutputStream, 80);
+        encodedImage.setImageFormat(DefaultImageFormats.JPEG);
     }
 }

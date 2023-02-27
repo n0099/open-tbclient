@@ -1,25 +1,11 @@
 package com.meizu.cloud.pushsdk.b;
-
-import com.meizu.cloud.pushsdk.b.a.b;
 /* loaded from: classes8.dex */
 public class a {
-    public static b.a a(String str, String str2, String str3) {
-        return new b.a(str, str2, str3);
+    public static com.meizu.cloud.pushsdk.b.b.d<Boolean> a() {
+        return com.meizu.cloud.pushsdk.b.b.a.a("android.os.BuildExt").a("isProductInternational", new Class[0]).a(new Object[0]);
     }
 
-    public static b.C0667b a(String str) {
-        return new b.C0667b(str);
-    }
-
-    public static void a() {
-        com.meizu.cloud.pushsdk.b.a.a.a();
-    }
-
-    public static b.d b(String str) {
-        return new b.d(str);
-    }
-
-    public static b.c c(String str) {
-        return new b.c(str);
+    public static com.meizu.cloud.pushsdk.b.b.d<Boolean> b() {
+        return com.meizu.cloud.pushsdk.b.b.a.a("android.os.BuildExt").a("isFlymeRom", new Class[0]).a(new Object[0]);
     }
 }

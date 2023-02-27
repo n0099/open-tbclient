@@ -1,11 +1,5 @@
 package okhttp3;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import java.io.IOException;
 import java.security.Principal;
@@ -19,28 +13,12 @@ import javax.net.ssl.SSLSession;
 import okhttp3.internal.Util;
 /* loaded from: classes9.dex */
 public final class Handshake {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final CipherSuite cipherSuite;
     public final List<Certificate> localCertificates;
     public final List<Certificate> peerCertificates;
     public final TlsVersion tlsVersion;
 
     public Handshake(TlsVersion tlsVersion, CipherSuite cipherSuite, List<Certificate> list, List<Certificate> list2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tlsVersion, cipherSuite, list, list2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.tlsVersion = tlsVersion;
         this.cipherSuite = cipherSuite;
         this.peerCertificates = list;
@@ -48,148 +26,98 @@ public final class Handshake {
     }
 
     public static Handshake get(TlsVersion tlsVersion, CipherSuite cipherSuite, List<Certificate> list, List<Certificate> list2) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, tlsVersion, cipherSuite, list, list2)) == null) {
-            if (tlsVersion != null) {
-                if (cipherSuite != null) {
-                    return new Handshake(tlsVersion, cipherSuite, Util.immutableList(list), Util.immutableList(list2));
-                }
-                throw new NullPointerException("cipherSuite == null");
+        if (tlsVersion != null) {
+            if (cipherSuite != null) {
+                return new Handshake(tlsVersion, cipherSuite, Util.immutableList(list), Util.immutableList(list2));
             }
-            throw new NullPointerException("tlsVersion == null");
+            throw new NullPointerException("cipherSuite == null");
         }
-        return (Handshake) invokeLLLL.objValue;
+        throw new NullPointerException("tlsVersion == null");
     }
 
     public static Handshake get(SSLSession sSLSession) throws IOException {
-        InterceptResult invokeL;
         Certificate[] certificateArr;
         List emptyList;
         List emptyList2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sSLSession)) == null) {
-            String cipherSuite = sSLSession.getCipherSuite();
-            if (cipherSuite != null) {
-                if (!"SSL_NULL_WITH_NULL_NULL".equals(cipherSuite)) {
-                    CipherSuite forJavaName = CipherSuite.forJavaName(cipherSuite);
-                    String protocol = sSLSession.getProtocol();
-                    if (protocol != null) {
-                        if (!HlsPlaylistParser.METHOD_NONE.equals(protocol)) {
-                            TlsVersion forJavaName2 = TlsVersion.forJavaName(protocol);
-                            try {
-                                certificateArr = sSLSession.getPeerCertificates();
-                            } catch (SSLPeerUnverifiedException unused) {
-                                certificateArr = null;
-                            }
-                            if (certificateArr != null) {
-                                emptyList = Util.immutableList(certificateArr);
-                            } else {
-                                emptyList = Collections.emptyList();
-                            }
-                            Certificate[] localCertificates = sSLSession.getLocalCertificates();
-                            if (localCertificates != null) {
-                                emptyList2 = Util.immutableList(localCertificates);
-                            } else {
-                                emptyList2 = Collections.emptyList();
-                            }
-                            return new Handshake(forJavaName2, forJavaName, emptyList, emptyList2);
+        String cipherSuite = sSLSession.getCipherSuite();
+        if (cipherSuite != null) {
+            if (!"SSL_NULL_WITH_NULL_NULL".equals(cipherSuite)) {
+                CipherSuite forJavaName = CipherSuite.forJavaName(cipherSuite);
+                String protocol = sSLSession.getProtocol();
+                if (protocol != null) {
+                    if (!HlsPlaylistParser.METHOD_NONE.equals(protocol)) {
+                        TlsVersion forJavaName2 = TlsVersion.forJavaName(protocol);
+                        try {
+                            certificateArr = sSLSession.getPeerCertificates();
+                        } catch (SSLPeerUnverifiedException unused) {
+                            certificateArr = null;
                         }
-                        throw new IOException("tlsVersion == NONE");
+                        if (certificateArr != null) {
+                            emptyList = Util.immutableList(certificateArr);
+                        } else {
+                            emptyList = Collections.emptyList();
+                        }
+                        Certificate[] localCertificates = sSLSession.getLocalCertificates();
+                        if (localCertificates != null) {
+                            emptyList2 = Util.immutableList(localCertificates);
+                        } else {
+                            emptyList2 = Collections.emptyList();
+                        }
+                        return new Handshake(forJavaName2, forJavaName, emptyList, emptyList2);
                     }
-                    throw new IllegalStateException("tlsVersion == null");
+                    throw new IOException("tlsVersion == NONE");
                 }
-                throw new IOException("cipherSuite == SSL_NULL_WITH_NULL_NULL");
+                throw new IllegalStateException("tlsVersion == null");
             }
-            throw new IllegalStateException("cipherSuite == null");
+            throw new IOException("cipherSuite == SSL_NULL_WITH_NULL_NULL");
         }
-        return (Handshake) invokeL.objValue;
+        throw new IllegalStateException("cipherSuite == null");
     }
 
     public CipherSuite cipherSuite() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.cipherSuite;
-        }
-        return (CipherSuite) invokeV.objValue;
+        return this.cipherSuite;
+    }
+
+    public int hashCode() {
+        return ((((((527 + this.tlsVersion.hashCode()) * 31) + this.cipherSuite.hashCode()) * 31) + this.peerCertificates.hashCode()) * 31) + this.localCertificates.hashCode();
     }
 
     public List<Certificate> localCertificates() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.localCertificates;
-        }
-        return (List) invokeV.objValue;
+        return this.localCertificates;
     }
 
     @Nullable
     public Principal localPrincipal() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!this.localCertificates.isEmpty()) {
-                return ((X509Certificate) this.localCertificates.get(0)).getSubjectX500Principal();
-            }
-            return null;
+        if (!this.localCertificates.isEmpty()) {
+            return ((X509Certificate) this.localCertificates.get(0)).getSubjectX500Principal();
         }
-        return (Principal) invokeV.objValue;
+        return null;
     }
 
     public List<Certificate> peerCertificates() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.peerCertificates;
-        }
-        return (List) invokeV.objValue;
+        return this.peerCertificates;
     }
 
     @Nullable
     public Principal peerPrincipal() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!this.peerCertificates.isEmpty()) {
-                return ((X509Certificate) this.peerCertificates.get(0)).getSubjectX500Principal();
-            }
-            return null;
+        if (!this.peerCertificates.isEmpty()) {
+            return ((X509Certificate) this.peerCertificates.get(0)).getSubjectX500Principal();
         }
-        return (Principal) invokeV.objValue;
+        return null;
     }
 
     public TlsVersion tlsVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.tlsVersion;
-        }
-        return (TlsVersion) invokeV.objValue;
+        return this.tlsVersion;
     }
 
     public boolean equals(@Nullable Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (!(obj instanceof Handshake)) {
-                return false;
-            }
-            Handshake handshake = (Handshake) obj;
-            if (!this.tlsVersion.equals(handshake.tlsVersion) || !this.cipherSuite.equals(handshake.cipherSuite) || !this.peerCertificates.equals(handshake.peerCertificates) || !this.localCertificates.equals(handshake.localCertificates)) {
-                return false;
-            }
-            return true;
+        if (!(obj instanceof Handshake)) {
+            return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ((((((527 + this.tlsVersion.hashCode()) * 31) + this.cipherSuite.hashCode()) * 31) + this.peerCertificates.hashCode()) * 31) + this.localCertificates.hashCode();
+        Handshake handshake = (Handshake) obj;
+        if (!this.tlsVersion.equals(handshake.tlsVersion) || !this.cipherSuite.equals(handshake.cipherSuite) || !this.peerCertificates.equals(handshake.peerCertificates) || !this.localCertificates.equals(handshake.localCertificates)) {
+            return false;
         }
-        return invokeV.intValue;
+        return true;
     }
 }

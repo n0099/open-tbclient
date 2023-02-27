@@ -1,71 +1,82 @@
 package com.xiaomi.push;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class jg extends iz {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+public class jg {
+    public static int a = Integer.MAX_VALUE;
 
-    public jg() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
+    public static void a(jd jdVar, byte b) {
+        a(jdVar, b, a);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jg(int i, String str) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+    public static void a(jd jdVar, byte b, int i) {
+        if (i <= 0) {
+            throw new ix("Maximum skip depth exceeded");
         }
-        this.a = 0;
-        this.a = i;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jg(String str) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+        int i2 = 0;
+        switch (b) {
+            case 2:
+                jdVar.mo623a();
                 return;
-            }
+            case 3:
+                jdVar.a();
+                return;
+            case 4:
+                jdVar.mo610a();
+                return;
+            case 5:
+            case 7:
+            case 9:
+            default:
+                return;
+            case 6:
+                jdVar.mo620a();
+                return;
+            case 8:
+                jdVar.mo611a();
+                return;
+            case 10:
+                jdVar.mo612a();
+                return;
+            case 11:
+                jdVar.mo619a();
+                return;
+            case 12:
+                jdVar.mo617a();
+                while (true) {
+                    byte b2 = jdVar.mo613a().a;
+                    if (b2 == 0) {
+                        jdVar.f();
+                        return;
+                    } else {
+                        a(jdVar, b2, i - 1);
+                        jdVar.g();
+                    }
+                }
+            case 13:
+                jc mo615a = jdVar.mo615a();
+                while (i2 < mo615a.f815a) {
+                    int i3 = i - 1;
+                    a(jdVar, mo615a.a, i3);
+                    a(jdVar, mo615a.b, i3);
+                    i2++;
+                }
+                jdVar.h();
+                return;
+            case 14:
+                jh mo616a = jdVar.mo616a();
+                while (i2 < mo616a.f816a) {
+                    a(jdVar, mo616a.a, i - 1);
+                    i2++;
+                }
+                jdVar.j();
+                return;
+            case 15:
+                jb mo614a = jdVar.mo614a();
+                while (i2 < mo614a.f814a) {
+                    a(jdVar, mo614a.a, i - 1);
+                    i2++;
+                }
+                jdVar.i();
+                return;
         }
-        this.a = 0;
     }
 }

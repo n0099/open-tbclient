@@ -10,9 +10,9 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a98;
+import com.baidu.tieba.b35;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.p15;
+import com.baidu.tieba.mc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -57,12 +57,12 @@ public class TextLineView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65538, this, z) == null) {
             if (z) {
-                p15 d = p15.d(this);
+                b35 d = b35.d(this);
                 d.v(R.color.CAM_X0105);
                 d.A(R.string.F_X02);
                 return;
             }
-            p15 d2 = p15.d(this);
+            b35 d2 = b35.d(this);
             d2.v(R.color.CAM_X0108);
             d2.A(R.string.F_X01);
         }
@@ -107,7 +107,7 @@ public class TextLineView extends TextView {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a98.TextLineView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, mc8.TextLineView);
         this.b = obtainStyledAttributes.getDimensionPixelSize(2, 0);
         this.c = obtainStyledAttributes.getDimensionPixelSize(3, 0);
         this.d = obtainStyledAttributes.getDimensionPixelSize(0, 0);

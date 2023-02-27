@@ -1,167 +1,155 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.au4;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nu5 {
+public class nu5 extends BitmapDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public au4 b;
-    public b c;
-    public MarkData d;
-    public final au4.a e;
+    public int a;
+    public Context b;
+    public Rect c;
+    public String d;
+    public Matrix e;
+    public int f;
+    public int g;
+    public float h;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(boolean z);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements au4.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nu5 a;
-
-        public a(nu5 nu5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nu5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nu5Var;
-        }
-
-        @Override // com.baidu.tieba.au4.a
-        public void a(boolean z, boolean z2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
-                if (z) {
-                    if (z2) {
-                        ej.Q(this.a.a, this.a.a.getString(R.string.add_mark));
-                    } else {
-                        ej.Q(this.a.a, this.a.a.getString(R.string.remove_mark));
-                    }
-                    if (this.a.c != null) {
-                        this.a.c.a(z2);
-                    }
-                    if (this.a.d != null) {
-                        g29 g29Var = new g29();
-                        g29Var.a = this.a.d.getThreadId();
-                        g29Var.b = z2;
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, g29Var));
-                        return;
-                    }
-                    return;
-                }
-                ej.Q(this.a.a, this.a.a.getString(R.string.update_mark_failed));
-            }
-        }
-    }
-
-    public nu5(Context context) {
+    public nu5(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = 0;
         this.b = null;
-        this.e = new a(this);
-        this.a = context;
-        if (context instanceof BaseActivity) {
-            this.b = au4.b((BaseActivity) context);
-        } else if (context instanceof BaseFragmentActivity) {
-            this.b = au4.c((BaseFragmentActivity) context);
-        }
-        au4 au4Var = this.b;
-        if (au4Var != null) {
-            au4Var.j(this.e);
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = 0;
+        this.g = 0;
+        this.h = 0.9f;
+        this.b = context;
+        this.a = i;
+        this.d = String.valueOf(i);
+    }
+
+    public void a(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            this.f = i;
+            this.g = i2;
+            Rect rect = this.c;
+            if (rect == null) {
+                return;
+            }
+            super.setBounds(rect.left, rect.top + i2, rect.right, rect.bottom);
         }
     }
 
-    public void g(boolean z) {
-        au4 au4Var;
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        on onVar;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (au4Var = this.b) != null) {
-            au4Var.h(z);
-        }
-    }
-
-    public void h(MarkData markData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, markData) == null) {
-            this.d = markData;
-            au4 au4Var = this.b;
-            if (au4Var != null) {
-                au4Var.i(markData);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) && this.a > 0 && this.b != null) {
+            Paint paint = new Paint();
+            ColorMatrix colorMatrix = new ColorMatrix();
+            TbImageMemoryCache p = TbImageMemoryCache.p();
+            if (p != null && (str2 = this.d) != null) {
+                onVar = p.w(str2);
+            } else {
+                onVar = null;
+            }
+            if (onVar == null) {
+                Bitmap resBitmap = BitmapHelper.getResBitmap(this.b, this.a);
+                if (resBitmap != null) {
+                    onVar = new on(resBitmap, false, (String) null);
+                }
+                if (p != null && onVar != null && (str = this.d) != null) {
+                    p.g(str, onVar);
+                }
+            }
+            if (onVar != null) {
+                int r = onVar.r();
+                int m = onVar.m();
+                if (r > 0 && m > 0 && this.c != null) {
+                    canvas.save();
+                    canvas.clipRect(super.getBounds());
+                    if (m <= 0 && r <= 0 && this.f == 0 && this.g == 0) {
+                        onVar.e(canvas, 0.0f, 0.0f, null);
+                    } else {
+                        if (this.e == null) {
+                            Matrix matrix = new Matrix();
+                            this.e = matrix;
+                            matrix.postTranslate(this.f, this.g);
+                            Rect rect = this.c;
+                            float f = (rect.right - rect.left) / r;
+                            float f2 = (rect.bottom - rect.top) / m;
+                            if (f >= f2) {
+                                f = f2;
+                            }
+                            if (f < 1.0f) {
+                                this.e.postScale(f, f);
+                            }
+                        }
+                        if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                            float f3 = this.h;
+                            colorMatrix.setScale(f3, f3, f3, 1.0f);
+                            paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
+                            onVar.f(canvas, this.e, paint);
+                        } else {
+                            onVar.f(canvas, this.e, null);
+                        }
+                    }
+                    canvas.restore();
+                }
             }
         }
     }
 
-    public void i(b bVar) {
+    @Override // android.graphics.drawable.Drawable
+    public void setBounds(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.c = bVar;
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
+            this.c = new Rect(i, i2, i3, i4);
+            this.e = null;
+            super.setBounds(i, i2, i3, i4);
         }
     }
 
-    public void d() {
-        au4 au4Var;
+    @Override // android.graphics.drawable.Drawable
+    public void setBounds(Rect rect) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (au4Var = this.b) != null) {
-            au4Var.a();
-            this.b.h(true);
+        if (interceptable == null || interceptable.invokeL(1048579, this, rect) == null) {
+            this.c = new Rect(rect);
+            this.e = null;
+            super.setBounds(rect);
         }
-    }
-
-    public void e() {
-        au4 au4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (au4Var = this.b) != null && au4Var.e()) {
-            this.b.d();
-            this.b.h(false);
-        }
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            au4 au4Var = this.b;
-            if (au4Var != null) {
-                return au4Var.e();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

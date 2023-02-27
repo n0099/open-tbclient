@@ -1,60 +1,32 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.storage.swankv.AshmemFileDescriptor;
-import com.baidu.storage.swankv.SwanKV;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class ph3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final AshmemFileDescriptor a;
-    public volatile SwanKV b;
+public interface ph3 {
+    String a(String str);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948061998, "Lcom/baidu/tieba/ph3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948061998, "Lcom/baidu/tieba/ph3;");
-                return;
-            }
-        }
-        nh3.f();
-    }
+    boolean b(String str);
 
-    public AshmemFileDescriptor a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (AshmemFileDescriptor) invokeV.objValue;
-    }
+    String c(String str);
 
     @NonNull
-    public SwanKV b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (SwanKV) invokeV.objValue;
-    }
+    qh3 d();
 
-    public void c(@NonNull SwanKV swanKV) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanKV) == null) {
-            this.b = swanKV;
-        }
-    }
+    String e(String str);
+
+    String f();
+
+    String g(String str);
+
+    String h(String str);
+
+    String i(String str);
+
+    boolean j(String str, boolean z);
+
+    String k();
+
+    boolean l(String str);
+
+    String m(String str);
 }

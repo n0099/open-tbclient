@@ -20,6 +20,8 @@ public class TbadkCoreStatisticKey {
     public static final String CHANDE_OLD_SUCCESS = "c10492";
     public static final String CLOSE_AD_TIME = "c14534";
     public static final String CONCERN_TAB_THREAD_CLICK = "c12352";
+    public static final String DOWNLOAD_FLOAT_BALL_CLICK = "c15181";
+    public static final String DOWNLOAD_FLOAT_BALL_SHOW = "c15179";
     public static final String ENTER_FORUM_EDIT_MENTION_CLICK = "c10149";
     public static final String ENTER_FORUM_EDIT_RECOMMENDFRS_CLICK = "c10098";
     public static final String FACESHOP_DELETE = "c12233";

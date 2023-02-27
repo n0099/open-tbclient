@@ -1,19 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.ala.data.SdkLiveInfoData;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class g26 {
+public class g26 extends m53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public ArrayList<SdkLiveInfoData> b;
 
     public g26() {
         Interceptable interceptable = $ic;
@@ -25,32 +24,19 @@ public class g26 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = false;
     }
 
-    public void a(JSONObject jSONObject, String str) {
+    @Override // com.baidu.tieba.m53
+    public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, jSONObject, str) != null) || jSONObject == null) {
-            return;
-        }
-        boolean z = true;
-        if (jSONObject.optInt("has_more") != 1) {
-            z = false;
-        }
-        this.a = z;
-        JSONArray optJSONArray = jSONObject.optJSONArray("live_list");
-        if (optJSONArray != null && optJSONArray.length() > 0) {
-            this.b = new ArrayList<>(optJSONArray.length());
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
-                    sdkLiveInfoData.fromJson(optJSONObject, str);
-                    this.b.add(sdkLiveInfoData);
-                }
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            String string = bundle.getString("key_param_url");
+            if (StringUtils.isNull(string)) {
+                c();
+            } else {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2001447, string));
             }
         }
     }

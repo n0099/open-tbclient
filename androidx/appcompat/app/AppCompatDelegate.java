@@ -24,22 +24,12 @@ import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.widget.VectorEnabledTintResources;
 import androidx.collection.ArraySet;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public abstract class AppCompatDelegate {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final int FEATURE_ACTION_MODE_OVERLAY = 10;
     public static final int FEATURE_SUPPORT_ACTION_BAR = 108;
@@ -54,10 +44,9 @@ public abstract class AppCompatDelegate {
     public static final int MODE_NIGHT_UNSPECIFIED = -100;
     public static final int MODE_NIGHT_YES = 2;
     public static final String TAG = "AppCompatDelegate";
-    public static final ArraySet<WeakReference<AppCompatDelegate>> sActivityDelegates;
-    public static final Object sActivityDelegatesLock;
+    public static final ArraySet<WeakReference<AppCompatDelegate>> sActivityDelegates = new ArraySet<>();
+    public static final Object sActivityDelegatesLock = new Object();
     public static int sDefaultNightMode = -100;
-    public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
@@ -71,9 +60,6 @@ public abstract class AppCompatDelegate {
 
     @Deprecated
     public void attachBaseContext(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-        }
     }
 
     public abstract View createView(@Nullable View view2, String str, @NonNull Context context, @NonNull AttributeSet attributeSet);
@@ -85,12 +71,7 @@ public abstract class AppCompatDelegate {
     public abstract ActionBarDrawerToggle.Delegate getDrawerToggleDelegate();
 
     public int getLocalNightMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return -100;
-        }
-        return invokeV.intValue;
+        return -100;
     }
 
     public abstract MenuInflater getMenuInflater();
@@ -138,9 +119,6 @@ public abstract class AppCompatDelegate {
     public abstract void setSupportActionBar(@Nullable Toolbar toolbar);
 
     public void setTheme(@StyleRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
-        }
     }
 
     public abstract void setTitle(@Nullable CharSequence charSequence);
@@ -148,172 +126,88 @@ public abstract class AppCompatDelegate {
     @Nullable
     public abstract ActionMode startSupportActionMode(@NonNull ActionMode.Callback callback);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-943532633, "Landroidx/appcompat/app/AppCompatDelegate;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-943532633, "Landroidx/appcompat/app/AppCompatDelegate;");
-                return;
-            }
-        }
-        sActivityDelegates = new ArraySet<>();
-        sActivityDelegatesLock = new Object();
-    }
-
-    public AppCompatDelegate() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+    public static void applyDayNightToActiveDelegates() {
+        synchronized (sActivityDelegatesLock) {
+            Iterator<WeakReference<AppCompatDelegate>> it = sActivityDelegates.iterator();
+            while (it.hasNext()) {
+                AppCompatDelegate appCompatDelegate = it.next().get();
+                if (appCompatDelegate != null) {
+                    appCompatDelegate.applyDayNight();
+                }
             }
         }
     }
 
     public static int getDefaultNightMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return sDefaultNightMode;
-        }
-        return invokeV.intValue;
+        return sDefaultNightMode;
     }
 
     public static boolean isCompatVectorFromResourcesEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return VectorEnabledTintResources.isCompatVectorFromResourcesEnabled();
-        }
-        return invokeV.booleanValue;
+        return VectorEnabledTintResources.isCompatVectorFromResourcesEnabled();
     }
 
     public static void addActiveDelegate(@NonNull AppCompatDelegate appCompatDelegate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, appCompatDelegate) == null) {
-            synchronized (sActivityDelegatesLock) {
-                removeDelegateFromActives(appCompatDelegate);
-                sActivityDelegates.add(new WeakReference<>(appCompatDelegate));
-            }
+        synchronized (sActivityDelegatesLock) {
+            removeDelegateFromActives(appCompatDelegate);
+            sActivityDelegates.add(new WeakReference<>(appCompatDelegate));
         }
     }
 
     public static void removeActivityDelegate(@NonNull AppCompatDelegate appCompatDelegate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, appCompatDelegate) == null) {
-            synchronized (sActivityDelegatesLock) {
-                removeDelegateFromActives(appCompatDelegate);
+        synchronized (sActivityDelegatesLock) {
+            removeDelegateFromActives(appCompatDelegate);
+        }
+    }
+
+    public static void removeDelegateFromActives(@NonNull AppCompatDelegate appCompatDelegate) {
+        synchronized (sActivityDelegatesLock) {
+            Iterator<WeakReference<AppCompatDelegate>> it = sActivityDelegates.iterator();
+            while (it.hasNext()) {
+                AppCompatDelegate appCompatDelegate2 = it.next().get();
+                if (appCompatDelegate2 == appCompatDelegate || appCompatDelegate2 == null) {
+                    it.remove();
+                }
             }
         }
     }
 
     public static void setCompatVectorFromResourcesEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
-            VectorEnabledTintResources.setCompatVectorFromResourcesEnabled(z);
-        }
+        VectorEnabledTintResources.setCompatVectorFromResourcesEnabled(z);
     }
 
     public static void setDefaultNightMode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65549, null, i) == null) {
-            if (i != -1 && i != 0 && i != 1 && i != 2 && i != 3) {
-                Log.d(TAG, "setDefaultNightMode() called with an unknown mode");
-            } else if (sDefaultNightMode != i) {
-                sDefaultNightMode = i;
-                applyDayNightToActiveDelegates();
-            }
+        if (i != -1 && i != 0 && i != 1 && i != 2 && i != 3) {
+            Log.d(TAG, "setDefaultNightMode() called with an unknown mode");
+        } else if (sDefaultNightMode != i) {
+            sDefaultNightMode = i;
+            applyDayNightToActiveDelegates();
         }
     }
 
     @NonNull
     @CallSuper
     public Context attachBaseContext2(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            attachBaseContext(context);
-            return context;
-        }
-        return (Context) invokeL.objValue;
-    }
-
-    public static void applyDayNightToActiveDelegates() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            synchronized (sActivityDelegatesLock) {
-                Iterator<WeakReference<AppCompatDelegate>> it = sActivityDelegates.iterator();
-                while (it.hasNext()) {
-                    AppCompatDelegate appCompatDelegate = it.next().get();
-                    if (appCompatDelegate != null) {
-                        appCompatDelegate.applyDayNight();
-                    }
-                }
-            }
-        }
+        attachBaseContext(context);
+        return context;
     }
 
     @NonNull
     public static AppCompatDelegate create(@NonNull Activity activity, @Nullable AppCompatCallback appCompatCallback) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, appCompatCallback)) == null) {
-            return new AppCompatDelegateImpl(activity, appCompatCallback);
-        }
-        return (AppCompatDelegate) invokeLL.objValue;
+        return new AppCompatDelegateImpl(activity, appCompatCallback);
     }
 
     @NonNull
     public static AppCompatDelegate create(@NonNull Dialog dialog, @Nullable AppCompatCallback appCompatCallback) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, dialog, appCompatCallback)) == null) {
-            return new AppCompatDelegateImpl(dialog, appCompatCallback);
-        }
-        return (AppCompatDelegate) invokeLL.objValue;
+        return new AppCompatDelegateImpl(dialog, appCompatCallback);
     }
 
     @NonNull
     public static AppCompatDelegate create(@NonNull Context context, @NonNull Activity activity, @Nullable AppCompatCallback appCompatCallback) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, activity, appCompatCallback)) == null) {
-            return new AppCompatDelegateImpl(context, activity, appCompatCallback);
-        }
-        return (AppCompatDelegate) invokeLLL.objValue;
+        return new AppCompatDelegateImpl(context, activity, appCompatCallback);
     }
 
     @NonNull
     public static AppCompatDelegate create(@NonNull Context context, @NonNull Window window, @Nullable AppCompatCallback appCompatCallback) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, context, window, appCompatCallback)) == null) {
-            return new AppCompatDelegateImpl(context, window, appCompatCallback);
-        }
-        return (AppCompatDelegate) invokeLLL.objValue;
-    }
-
-    public static void removeDelegateFromActives(@NonNull AppCompatDelegate appCompatDelegate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, appCompatDelegate) == null) {
-            synchronized (sActivityDelegatesLock) {
-                Iterator<WeakReference<AppCompatDelegate>> it = sActivityDelegates.iterator();
-                while (it.hasNext()) {
-                    AppCompatDelegate appCompatDelegate2 = it.next().get();
-                    if (appCompatDelegate2 == appCompatDelegate || appCompatDelegate2 == null) {
-                        it.remove();
-                    }
-                }
-            }
-        }
+        return new AppCompatDelegateImpl(context, window, appCompatCallback);
     }
 }

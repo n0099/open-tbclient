@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.FileObserver;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.k.p;
+import com.baidu.sofire.k.u;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,18 +50,18 @@ public class e extends FileObserver {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     synchronized (e.class) {
-                        if (!com.baidu.sofire.k.a.d(this.a.a)) {
+                        if (!com.baidu.sofire.k.b.e(this.a.a)) {
                             e eVar = this.a;
                             String str = eVar.b;
                             String str2 = eVar.a;
                             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                                com.baidu.sofire.k.a.a(new File(str), new File(str2));
+                                com.baidu.sofire.a.a.a(new File(str), new File(str2));
                             }
-                            com.baidu.sofire.k.a.a(this.a.a, true);
+                            com.baidu.sofire.k.b.a(this.a.a, true);
                             c.a(new File(this.a.a));
                             e eVar2 = this.a;
                             c.a(eVar2.d, eVar2.c, new File(this.a.a), new File(this.a.b));
-                            com.baidu.sofire.c.a.a(this.a.d).c(this.a.c, -1);
+                            com.baidu.sofire.c.a.a(this.a.d).b(this.a.c, -1);
                         }
                     }
                 } catch (Throwable unused) {
@@ -96,7 +96,7 @@ public class e extends FileObserver {
             this.c = i;
             this.d = context;
         } catch (Throwable th) {
-            com.baidu.sofire.k.a.a(th);
+            com.baidu.sofire.k.b.a(th);
         }
     }
 
@@ -124,7 +124,7 @@ public class e extends FileObserver {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
             if (i == 2 || i == 4 || i == 64 || i == 128 || i == 512 || i == 1024 || i == 2048) {
                 try {
-                    p.a(this.d).a(new a(this));
+                    u.a(this.d).a(new a(this));
                 } catch (Throwable unused) {
                     int i2 = b.a;
                 }

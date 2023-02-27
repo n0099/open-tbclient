@@ -1,42 +1,43 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.api.module.subscription.SubscribeHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fm2 {
+public class fm2 extends jb3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "guide_pull_toast" : (String) invokeV.objValue;
-    }
+    public Context c;
+    public m93 d;
+    public CallbackHandler e;
 
     /* loaded from: classes4.dex */
-    public static class a implements Runnable {
+    public class a implements SubscribeHelper.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
+        public final /* synthetic */ UnitedSchemeEntity a;
 
-        public a(String str) {
+        public a(fm2 fm2Var, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str};
+                Object[] objArr = {fm2Var, unitedSchemeEntity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,167 +47,193 @@ public class fm2 {
                     return;
                 }
             }
+            this.a = unitedSchemeEntity;
+        }
+
+        @Override // com.baidu.swan.apps.api.module.subscription.SubscribeHelper.k
+        public void a(int i, @NonNull String str, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, jSONObject) == null) {
+                this.a.result = UnitedSchemeUtility.wrapCallbackParams(i, str);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements SubscribeHelper.k {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ fm2 b;
+
+        public b(fm2 fm2Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fm2Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = fm2Var;
             this.a = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.swan.apps.api.module.subscription.SubscribeHelper.k
+        public void a(int i, @NonNull String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                kh3.a().putString("swan_guide_toast", this.a);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947768862, "Lcom/baidu/tieba/fm2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947768862, "Lcom/baidu/tieba/fm2;");
-                return;
-            }
-        }
-        a = gp1.a;
-    }
-
-    public static void a(JSONObject jSONObject, JSONObject jSONObject2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, jSONObject, jSONObject2) == null) && jSONObject != null && jSONObject2 != null) {
-            try {
-                if (!TextUtils.equals(jSONObject.optString("bbasp_guide_reset", "0"), jSONObject2.optString("bbasp_guide_reset", "-1"))) {
-                    jSONObject.put("bbasp_guide_shown_count", "0");
-                    jSONObject.put("bbasp_guide_last_time", "0");
-                    jSONObject.put("bbasp_guide_image_index", "0");
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, jSONObject) == null) {
+                if (jSONObject == null) {
+                    this.b.e.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(i, str).toString());
                 } else {
-                    jSONObject.put("bbasp_guide_shown_count", jSONObject2.optString("bbasp_guide_shown_count", "0"));
-                    jSONObject.put("bbasp_guide_last_time", jSONObject2.optString("bbasp_guide_last_time", "0"));
+                    this.b.e.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, i).toString());
                 }
-                if (!TextUtils.equals(jSONObject.optString("bbaspg_guide_reset", "0"), jSONObject2.optString("bbaspg_guide_reset", "-1"))) {
-                    jSONObject.put("bbaspg_guide_shown_count", "0");
-                    jSONObject.put("bbaspg_guide_last_time", "0");
-                    jSONObject.put("bbaspg_guide_image_index", "0");
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements gm2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ fm2 b;
+
+        public c(fm2 fm2Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fm2Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                jSONObject.put("bbaspg_guide_shown_count", jSONObject2.optString("bbaspg_guide_shown_count", "0"));
-                jSONObject.put("bbaspg_guide_last_time", jSONObject2.optString("bbaspg_guide_last_time", "0"));
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
             }
+            this.b = fm2Var;
+            this.a = str;
         }
-    }
 
-    public static void b(JSONObject jSONObject, JSONObject jSONObject2) {
-        JSONArray optJSONArray;
-        JSONArray optJSONArray2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, jSONObject, jSONObject2) == null) && jSONObject != null && jSONObject2 != null && (optJSONArray = jSONObject2.optJSONArray("custom_guide_list")) != null && optJSONArray.length() > 0 && (optJSONArray2 = jSONObject.optJSONArray("custom_guide_list")) != null && optJSONArray2.length() > 0) {
-            int length = optJSONArray2.length();
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = optJSONArray2.optJSONObject(i);
-                String optString = optJSONObject.optString("appid", "");
-                String optString2 = optJSONObject.optString("reset", "0");
-                int length2 = optJSONArray.length();
-                int i2 = 0;
-                while (true) {
-                    if (i2 < length2) {
-                        JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
-                        String optString3 = optJSONObject2.optString("appid", "-1");
-                        String optString4 = optJSONObject2.optString("reset", "0");
-                        if (TextUtils.equals(optString3, optString)) {
-                            try {
-                                if (!TextUtils.equals(optString4, optString2)) {
-                                    optJSONObject.put("shown_count", "0");
-                                    optJSONObject.put("last_time", "0");
-                                    optJSONObject.put("image_index", "0");
-                                } else {
-                                    optJSONObject.put("shown_count", jSONObject2.optString("shown_count", "0"));
-                                    optJSONObject.put("last_time", jSONObject2.optString("last_time", "0"));
-                                    optJSONObject.put("image_index", jSONObject2.optString("image_index", "0"));
-                                }
-                            } catch (JSONException e) {
-                                if (a) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        } else {
-                            i2++;
-                        }
+        @Override // com.baidu.tieba.q73
+        public void a(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+                this.b.e.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                if (!s73.c.c()) {
+                    if (ts2.h0().e(this.b.c)) {
+                        s73.c.e();
+                    } else {
+                        s73.c.f();
                     }
                 }
             }
         }
-    }
 
-    public static JSONObject d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String string = kh3.a().getString("swan_guide_toast", "");
-            if (TextUtils.isEmpty(string)) {
-                return null;
-            }
-            try {
-                return new JSONObject(string);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-                return null;
+        @Override // com.baidu.tieba.q73
+        public void onFail(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                this.b.e.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(500105, "请求formId失败").toString());
             }
         }
-        return (JSONObject) invokeV.objValue;
     }
 
-    public static String e() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fm2(ja3 ja3Var) {
+        super(ja3Var, "/swanAPI/getFormId");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String string = kh3.a().getString("guide_toast_version", "0");
-            if (a) {
-                Log.d("SwanAppGuideToast", "version = " + string);
-            }
-            return string;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, jSONObject) == null) {
-            if (a) {
-                Log.d("SwanAppGuideToast", "processGuide guideObject = " + jSONObject);
-            }
-            if (jSONObject == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ja3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            String optString = jSONObject.optString("version");
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject != null && !TextUtils.equals(e(), optString)) {
-                JSONObject d = d();
-                if (d == null) {
-                    g(optJSONObject.toString());
-                    return;
-                }
-                a(optJSONObject, d);
-                b(optJSONObject, d);
-                g(optJSONObject.toString());
-                kh3.a().putString("guide_toast_version", optString);
-            }
         }
     }
 
-    public static void g(String str) {
+    @Override // com.baidu.tieba.jb3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m93 m93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65543, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m93Var)) == null) {
+            if (unitedSchemeEntity == null) {
+                if (jb3.b) {
+                    Log.w("GetFormIdAction", "entity is null");
+                }
+                return false;
+            } else if (m93Var != null && (context instanceof Activity) && callbackHandler != null) {
+                this.c = context;
+                this.d = m93Var;
+                this.e = callbackHandler;
+                JSONObject a2 = jb3.a(unitedSchemeEntity, "params");
+                if (a2 != null && a2.length() != 0) {
+                    String optString = a2.optString("cb");
+                    if (TextUtils.isEmpty(optString)) {
+                        if (jb3.b) {
+                            Log.w("GetFormIdAction", "cb is empty");
+                        }
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "cb is empty");
+                        return false;
+                    }
+                    String O = m93Var.O();
+                    if (TextUtils.isEmpty(O)) {
+                        if (jb3.b) {
+                            Log.w("GetFormIdAction", "appKey is empty");
+                        }
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "appKey is empty");
+                        return false;
+                    }
+                    if (TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE.equals(a2.optString("reportType"))) {
+                        SubscribeHelper subscribeHelper = new SubscribeHelper();
+                        if (!subscribeHelper.n(this.c, this.d, O, a2, SubscribeHelper.invokeSubscribeFrom.GET_FORM_ID_BUTTON, new a(this, unitedSchemeEntity))) {
+                            return false;
+                        }
+                        subscribeHelper.o(O, new b(this, optString));
+                    } else {
+                        l(O, optString);
+                    }
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    return true;
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
+                return false;
+            } else {
+                if (jb3.b) {
+                    Log.d("GetFormIdAction", "runtime parameter error");
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "runtime parameter error");
+                return false;
+            }
         }
-        ql3.k(new a(str), "swanGuideUpdateRunnable");
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void l(@NonNull String str, @NonNull String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            if (!SubscribeHelper.l()) {
+                this.e.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(mm3.f(null, "data", mm3.f(null, "formid", "")), 0).toString());
+                return;
+            }
+            ts2.W().c(str, new c(this, str2));
+        }
     }
 }

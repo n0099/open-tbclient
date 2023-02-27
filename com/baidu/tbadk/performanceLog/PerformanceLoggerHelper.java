@@ -6,13 +6,13 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.b55;
+import com.baidu.tieba.cm5;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.ok5;
-import com.baidu.tieba.p35;
-import com.baidu.tieba.sk5;
-import com.baidu.tieba.tk5;
-import com.baidu.tieba.uk5;
-import com.baidu.tieba.vk5;
+import com.baidu.tieba.gm5;
+import com.baidu.tieba.hm5;
+import com.baidu.tieba.im5;
+import com.baidu.tieba.jm5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -75,7 +75,7 @@ public class PerformanceLoggerHelper {
         this.isSmallFlow = false;
         this.maxIntervalForOnce = 86400L;
         this.smallFlowInterval = 0L;
-        this.startSmallFlowTime = p35.m().o(TB_PERFOR_SMALLFLOW_TIME, 0L);
+        this.startSmallFlowTime = b55.m().o(TB_PERFOR_SMALLFLOW_TIME, 0L);
         BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
         this.smallFlowInterval = this.maxIntervalForOnce;
         BdBaseApplication.getInst().setSmallFlowInterval(this.smallFlowInterval);
@@ -360,7 +360,7 @@ public class PerformanceLoggerHelper {
         return (String) invokeV.objValue;
     }
 
-    public tk5 getLoggerWithType(int i) {
+    public hm5 getLoggerWithType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
@@ -369,57 +369,57 @@ public class PerformanceLoggerHelper {
             }
             switch (i) {
                 case 1000:
-                    vk5 vk5Var = new vk5();
-                    vk5Var.a = "frs";
-                    return vk5Var;
+                    jm5 jm5Var = new jm5();
+                    jm5Var.a = "frs";
+                    return jm5Var;
                 case 1001:
-                    vk5 vk5Var2 = new vk5();
-                    vk5Var2.a = "pb";
-                    return vk5Var2;
+                    jm5 jm5Var2 = new jm5();
+                    jm5Var2.a = "pb";
+                    return jm5Var2;
                 case 1002:
-                    sk5 sk5Var = new sk5();
-                    sk5Var.a = "im";
-                    return sk5Var;
+                    gm5 gm5Var = new gm5();
+                    gm5Var.a = "im";
+                    return gm5Var;
                 case 1003:
                 case 1006:
                 case 1007:
                 default:
                     return null;
                 case 1004:
-                    vk5 vk5Var3 = new vk5();
-                    vk5Var3.a = "photo_live";
-                    return vk5Var3;
+                    jm5 jm5Var3 = new jm5();
+                    jm5Var3.a = "photo_live";
+                    return jm5Var3;
                 case 1005:
-                    ok5 ok5Var = new ok5();
-                    ok5Var.a = "home_page";
-                    return ok5Var;
+                    cm5 cm5Var = new cm5();
+                    cm5Var.a = "home_page";
+                    return cm5Var;
                 case 1008:
-                    vk5 vk5Var4 = new vk5();
-                    vk5Var4.a = "user_center";
-                    return vk5Var4;
+                    jm5 jm5Var4 = new jm5();
+                    jm5Var4.a = "user_center";
+                    return jm5Var4;
                 case 1009:
-                    vk5 vk5Var5 = new vk5();
-                    vk5Var5.a = "sign_all";
-                    return vk5Var5;
+                    jm5 jm5Var5 = new jm5();
+                    jm5Var5.a = "sign_all";
+                    return jm5Var5;
                 case 1010:
-                    vk5 vk5Var6 = new vk5();
-                    vk5Var6.a = "person_center";
-                    return vk5Var6;
+                    jm5 jm5Var6 = new jm5();
+                    jm5Var6.a = "person_center";
+                    return jm5Var6;
                 case 1011:
-                    vk5 vk5Var7 = new vk5();
-                    vk5Var7.a = "person_center_home";
-                    return vk5Var7;
+                    jm5 jm5Var7 = new jm5();
+                    jm5Var7.a = "person_center_home";
+                    return jm5Var7;
                 case 1012:
-                    vk5 vk5Var8 = new vk5();
-                    vk5Var8.a = "person_center_post";
-                    return vk5Var8;
+                    jm5 jm5Var8 = new jm5();
+                    jm5Var8.a = "person_center_post";
+                    return jm5Var8;
                 case 1013:
-                    vk5 vk5Var9 = new vk5();
-                    vk5Var9.a = "person_center_dynamic";
-                    return vk5Var9;
+                    jm5 jm5Var9 = new jm5();
+                    jm5Var9.a = "person_center_dynamic";
+                    return jm5Var9;
             }
         }
-        return (tk5) invokeI.objValue;
+        return (hm5) invokeI.objValue;
     }
 
     public String getNetType() {
@@ -455,17 +455,17 @@ public class PerformanceLoggerHelper {
                 if (0 == j || currentTimeMillis - j >= this.smallFlowInterval) {
                     this.startSmallFlowTime = currentTimeMillis;
                     BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
-                    p35.m().A(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
+                    b55.m().A(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
                 }
             } else {
                 this.startSmallFlowTime = 0L;
                 BdBaseApplication.getInst().setStartSmallFlowTime(0L);
-                p35.m().A(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
+                b55.m().A(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
             }
             this.isSmallFlow = z;
             BdBaseApplication.getInst().setIsSmallFlow(z);
             if (BdStatisticsManager.getInstance().isMainProcess()) {
-                uk5.b().f();
+                im5.b().f();
             }
         }
     }

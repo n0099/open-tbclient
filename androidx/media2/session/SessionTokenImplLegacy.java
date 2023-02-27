@@ -7,20 +7,11 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.util.ObjectsCompat;
-import androidx.core.view.InputDeviceCompat;
 import androidx.media2.session.SessionToken;
 import androidx.versionedparcelable.CustomVersionedParcelable;
 import androidx.versionedparcelable.VersionedParcelable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class SessionTokenImplLegacy extends CustomVersionedParcelable implements SessionToken.SessionTokenImpl {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public ComponentName mComponentName;
     public Bundle mExtras;
     public MediaSessionCompat.Token mLegacyToken;
@@ -31,149 +22,71 @@ public final class SessionTokenImplLegacy extends CustomVersionedParcelable impl
 
     @Override // androidx.media2.session.SessionToken.SessionTokenImpl
     public boolean isLegacySession() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+        return true;
     }
 
     public SessionTokenImplLegacy() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
     }
 
     @Override // androidx.media2.session.SessionToken.SessionTokenImpl
     public Object getBinder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mLegacyToken;
-        }
-        return invokeV.objValue;
+        return this.mLegacyToken;
     }
 
     @Override // androidx.media2.session.SessionToken.SessionTokenImpl
     public ComponentName getComponentName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mComponentName;
-        }
-        return (ComponentName) invokeV.objValue;
+        return this.mComponentName;
     }
 
     @Override // androidx.media2.session.SessionToken.SessionTokenImpl
     @Nullable
     public Bundle getExtras() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mExtras;
-        }
-        return (Bundle) invokeV.objValue;
+        return this.mExtras;
     }
 
     @Override // androidx.media2.session.SessionToken.SessionTokenImpl
     @NonNull
     public String getPackageName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mPackageName;
-        }
-        return (String) invokeV.objValue;
+        return this.mPackageName;
     }
 
     @Override // androidx.media2.session.SessionToken.SessionTokenImpl
     @Nullable
     public String getServiceName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ComponentName componentName = this.mComponentName;
-            if (componentName == null) {
-                return null;
-            }
-            return componentName.getClassName();
+        ComponentName componentName = this.mComponentName;
+        if (componentName == null) {
+            return null;
         }
-        return (String) invokeV.objValue;
+        return componentName.getClassName();
     }
 
     @Override // androidx.media2.session.SessionToken.SessionTokenImpl
     public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.mType != 101) {
-                return 0;
-            }
-            return 2;
+        if (this.mType != 101) {
+            return 0;
         }
-        return invokeV.intValue;
+        return 2;
     }
 
     @Override // androidx.media2.session.SessionToken.SessionTokenImpl
     public int getUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.mUid;
-        }
-        return invokeV.intValue;
+        return this.mUid;
     }
 
     public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return ObjectsCompat.hash(Integer.valueOf(this.mType), this.mComponentName, this.mLegacyToken);
-        }
-        return invokeV.intValue;
+        return ObjectsCompat.hash(Integer.valueOf(this.mType), this.mComponentName, this.mLegacyToken);
     }
 
     @Override // androidx.versionedparcelable.CustomVersionedParcelable
     public void onPostParceling() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.mLegacyToken = MediaSessionCompat.Token.fromBundle(this.mLegacyTokenBundle);
-        }
+        this.mLegacyToken = MediaSessionCompat.Token.fromBundle(this.mLegacyTokenBundle);
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return "SessionToken {legacyToken=" + this.mLegacyToken + "}";
-        }
-        return (String) invokeV.objValue;
+        return "SessionToken {legacyToken=" + this.mLegacyToken + "}";
     }
 
     public SessionTokenImplLegacy(ComponentName componentName, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {componentName, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         if (componentName != null) {
             this.mLegacyToken = null;
             this.mUid = i;
@@ -187,20 +100,6 @@ public final class SessionTokenImplLegacy extends CustomVersionedParcelable impl
     }
 
     public SessionTokenImplLegacy(MediaSessionCompat.Token token, String str, int i, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {token, str, Integer.valueOf(i), bundle};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         if (token != null) {
             if (str != null) {
                 if (!TextUtils.isEmpty(str)) {
@@ -220,43 +119,35 @@ public final class SessionTokenImplLegacy extends CustomVersionedParcelable impl
     }
 
     public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (!(obj instanceof SessionTokenImplLegacy)) {
-                return false;
-            }
-            SessionTokenImplLegacy sessionTokenImplLegacy = (SessionTokenImplLegacy) obj;
-            int i = this.mType;
-            if (i != sessionTokenImplLegacy.mType) {
-                return false;
-            }
-            if (i != 100) {
-                if (i != 101) {
-                    return false;
-                }
-                return ObjectsCompat.equals(this.mComponentName, sessionTokenImplLegacy.mComponentName);
-            }
-            return ObjectsCompat.equals(this.mLegacyToken, sessionTokenImplLegacy.mLegacyToken);
+        if (!(obj instanceof SessionTokenImplLegacy)) {
+            return false;
         }
-        return invokeL.booleanValue;
+        SessionTokenImplLegacy sessionTokenImplLegacy = (SessionTokenImplLegacy) obj;
+        int i = this.mType;
+        if (i != sessionTokenImplLegacy.mType) {
+            return false;
+        }
+        if (i != 100) {
+            if (i != 101) {
+                return false;
+            }
+            return ObjectsCompat.equals(this.mComponentName, sessionTokenImplLegacy.mComponentName);
+        }
+        return ObjectsCompat.equals(this.mLegacyToken, sessionTokenImplLegacy.mLegacyToken);
     }
 
     @Override // androidx.versionedparcelable.CustomVersionedParcelable
     public void onPreParceling(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            MediaSessionCompat.Token token = this.mLegacyToken;
-            if (token != null) {
-                synchronized (token) {
-                    VersionedParcelable session2Token = this.mLegacyToken.getSession2Token();
-                    this.mLegacyToken.setSession2Token(null);
-                    this.mLegacyTokenBundle = this.mLegacyToken.toBundle();
-                    this.mLegacyToken.setSession2Token(session2Token);
-                }
-                return;
+        MediaSessionCompat.Token token = this.mLegacyToken;
+        if (token != null) {
+            synchronized (token) {
+                VersionedParcelable session2Token = this.mLegacyToken.getSession2Token();
+                this.mLegacyToken.setSession2Token(null);
+                this.mLegacyTokenBundle = this.mLegacyToken.toBundle();
+                this.mLegacyToken.setSession2Token(session2Token);
             }
-            this.mLegacyTokenBundle = null;
+            return;
         }
+        this.mLegacyTokenBundle = null;
     }
 }

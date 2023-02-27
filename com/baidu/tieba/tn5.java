@@ -1,464 +1,168 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.Closeables;
-import com.baidu.android.util.io.FileUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.SignAllForumAdvertActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.debugtool.annotation.Modify;
-import com.baidu.tieba.debugtool.annotation.ModifyClass;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.zy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
-import okhttp3.Response;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-@ModifyClass
 /* loaded from: classes6.dex */
-public class tn5 {
+public class tn5 extends jn5<d15, ThreadCardViewHolder<d15>> {
     public static /* synthetic */ Interceptable $ic;
-    public static tn5 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public xf6<d15> g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948186990, "Lcom/baidu/tieba/tn5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948186990, "Lcom/baidu/tieba/tn5;");
-        }
-    }
+    /* loaded from: classes6.dex */
+    public class a extends xf6<d15> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tn5 b;
 
-    @Modify(description = "广告-热启动是否开启debug模式", type = 33)
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static double i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return 0.0d;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public static String m(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) {
-            if (i != -1) {
-                return i != 0 ? i != 1 ? i != 2 ? i != 3 ? "PLG_Other" : "PLG_CPC" : "PLG_OperateHighly" : "PLG_OperateNormal" : "PLG_GD";
+        public a(tn5 tn5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tn5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return null;
+            this.b = tn5Var;
         }
-        return (String) invokeI.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xf6
+        /* renamed from: d */
+        public void a(View view2, d15 d15Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, d15Var) == null) {
+                super.a(view2, d15Var);
+                if (d15Var != null && d15Var.getThreadData() != null && !ListUtils.isEmpty(d15Var.getThreadData().getLinkDataList()) && d15Var.getThreadData().getLinkDataList().get(0) != null) {
+                    Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+                    if (!TextUtils.isEmpty(d15Var.getThreadData().getLinkDataList().get(0).linkUrl) && (currentActivity instanceof TbPageContextSupport)) {
+                        UrlManager.getInstance().dealOneLink(((TbPageContextSupport) currentActivity).getPageContext(), new String[]{d15Var.getThreadData().getLinkDataList().get(0).linkUrl});
+                    }
+                    this.b.u(view2, d15Var);
+                }
+            }
+        }
     }
 
-    public tn5() {
+    /* loaded from: classes6.dex */
+    public class b implements no {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tn5 a;
+
+        public b(tn5 tn5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tn5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tn5Var;
+        }
+
+        @Override // com.baidu.tieba.no
+        public void b(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (cdo instanceof d15) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                d15 d15Var = (d15) cdo;
+                if (this.a.g != null) {
+                    this.a.g.a(threadCardViewHolder.getView(), d15Var);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tn5(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, ThreadData.TYPE_SINGLE_LINK);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.g = new a(this);
     }
 
-    @Modify(description = "广告-禁止初始化穿山甲", type = 33)
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (p35.m().n("key_fun_cjs_init", 1) == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Modify(description = "广告-禁止初始化广点通", type = 33)
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (p35.m().n("key_fun_gdt_init", 1) == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Modify(description = "广告-禁止初始化快手", type = 33)
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (p35.m().n("key_fun_ks_init", 1) == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Modify(description = "广告-FRS页面混排广告条数", type = 33)
-    public static int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return p35.m().n("key_mix_frs_ad_count", 5);
-        }
-        return invokeV.intValue;
-    }
-
-    public static synchronized tn5 j() {
-        InterceptResult invokeV;
-        tn5 tn5Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            synchronized (tn5.class) {
-                if (a == null) {
-                    a = new tn5();
-                }
-                tn5Var = a;
-            }
-            return tn5Var;
-        }
-        return (tn5) invokeV.objValue;
-    }
-
-    public static int k() {
-        InterceptResult invokeV;
-        int min;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            int s = s();
-            int t = t();
-            if (s == t || (min = Math.min(s, t)) <= 0 || min >= 10000) {
-                return 1000;
-            }
-            return min;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int l() {
-        InterceptResult invokeV;
-        int max;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            int s = s();
-            int t = t();
-            if (s == t || (max = Math.max(s, t)) <= 0 || max >= 10000) {
-                return 1400;
-            }
-            return max;
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
-            if (w()) {
-                if (jj1.b() && u()) {
-                    return true;
-                }
-                return false;
-            }
-            return u();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Modify(description = "广告-开屏广告第一次超时时间(新)", type = 33)
-    public static int s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
-            return p35.m().n("key_splash_new_policy_first_timeout", 1000);
-        }
-        return invokeV.intValue;
-    }
-
-    @Modify(description = "广告-开屏广告第二次超时时间(新)", type = 33)
-    public static int t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
-            return p35.m().n("key_splash_new_policy_second_timeout", 1400);
-        }
-        return invokeV.intValue;
-    }
-
-    @Modify(description = "广告-开屏是否展示小熊开关(新)", type = 33)
-    public static boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
-            if (p35.m().n("key_splash_new_policy_bear_enable", 0) != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Modify(description = "广告-开屏是否展示序章CPC开关(新)", type = 33)
-    public static boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
-            if (p35.m().n("key_splash_new_policy_plg_cpc_enable", 0) != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Modify(description = "广告-开屏是否展示序章开关(新)", type = 33)
-    public static boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
-            if (p35.m().n("key_splash_new_policy_plg_enable", 0) != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return TbadkSettings.getInst().loadString(SignAllForumAdvertActivityConfig.AD_URL, null);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            String h = h();
-            if (!TextUtils.isEmpty(h)) {
-                zg.h().k(h, 10, null, 0, 0, null, new Object[0]);
-            }
-        }
-    }
-
-    public static String g(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
-            List<d67> j = e67.m().j(str);
-            JSONArray jSONArray = new JSONArray();
-            for (d67 d67Var : j) {
-                for (int i2 = 0; i2 < d67Var.e && jSONArray.length() < i; i2++) {
-                    try {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("id", d67Var.d + i2);
-                        jSONObject.put("ecpm", String.valueOf(d67Var.f));
-                        jSONArray.put(jSONObject);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return wi.j(jSONArray.toString().getBytes(StandardCharsets.UTF_8));
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public long b(File file, String str) {
-        InterceptResult invokeLL;
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) {
-            long j = 0;
-            if (TextUtils.isEmpty(str) || file == null) {
-                return 0L;
-            }
-            InputStream inputStream = null;
-            try {
-                Response executeSync = HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().url(str).build().executeSync();
-                if (executeSync != null && executeSync.code() == 200) {
-                    InputStream byteStream = executeSync.body().byteStream();
-                    if (byteStream != null) {
-                        try {
-                            fileOutputStream = new FileOutputStream(file);
-                            try {
-                                j = FileUtils.copyStream(byteStream, fileOutputStream);
-                            } catch (Exception e) {
-                                e = e;
-                                inputStream = byteStream;
-                                try {
-                                    TiebaStatic.log(e.toString());
-                                    Closeables.closeSafely(inputStream);
-                                    Closeables.closeSafely(fileOutputStream);
-                                    return j;
-                                } catch (Throwable th) {
-                                    th = th;
-                                    Closeables.closeSafely(inputStream);
-                                    Closeables.closeSafely(fileOutputStream);
-                                    throw th;
-                                }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                inputStream = byteStream;
-                                Closeables.closeSafely(inputStream);
-                                Closeables.closeSafely(fileOutputStream);
-                                throw th;
-                            }
-                        } catch (Exception e2) {
-                            e = e2;
-                            fileOutputStream = null;
-                        } catch (Throwable th3) {
-                            th = th3;
-                            fileOutputStream = null;
-                        }
-                    } else {
-                        fileOutputStream = null;
-                    }
-                    inputStream = byteStream;
-                } else {
-                    fileOutputStream = null;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                fileOutputStream = null;
-            } catch (Throwable th4) {
-                th = th4;
-                fileOutputStream = null;
-            }
-            Closeables.closeSafely(inputStream);
-            Closeables.closeSafely(fileOutputStream);
-            return j;
-        }
-        return invokeLL.longValue;
-    }
-
-    public static boolean n(String str) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            if (!UbsABTestHelper.isFrsFunAdSdkTest()) {
-                return false;
-            }
-            if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z || o(str) <= 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean p(Object obj) {
-        InterceptResult invokeL;
-        i29 i29Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, obj)) == null) {
-            if (obj instanceof hy4) {
-                return true;
-            }
-            if (obj instanceof wz4) {
-                i29Var = ((wz4) obj).t.funAdData;
-            } else if (obj instanceof ThreadData) {
-                i29Var = ((ThreadData) obj).funAdData;
-            } else if (obj instanceof PostData) {
-                i29Var = ((PostData) obj).w0;
-            } else {
-                i29Var = null;
-            }
-            if (i29Var != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int o(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: N */
+    public ThreadCardViewHolder<d15> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
-            int i = 0;
-            for (d67 d67Var : e67.m().j(str)) {
-                i += d67Var.e;
-            }
-            return i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            zy.b bVar = new zy.b(this.c.getPageActivity(), false);
+            bVar.h(new vy(this.c.getPageActivity()));
+            zy k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.d);
+            k.s(A());
+            ThreadCardViewHolder<d15> threadCardViewHolder = new ThreadCardViewHolder<>(k);
+            threadCardViewHolder.i(this.mPageId);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
         }
-        return invokeL.intValue;
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    @Modify(description = "广告-是否需要请求frs页面的小熊广告", type = 33)
-    public static boolean r() {
-        InterceptResult invokeV;
-        boolean z;
-        boolean z2;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: O */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, d15 d15Var, ThreadCardViewHolder<d15> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
-            if (p35.m().n("splash_origin_ad_strategy_key", 1) == 1) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, d15Var, threadCardViewHolder})) == null) {
+            if (d15Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = d15Var.t) != null) {
+                threadData.statFloor = getPositionByType(i) + 1;
+                threadCardViewHolder.a().r(i);
+                threadCardViewHolder.e(d15Var);
+                threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
+                return threadCardViewHolder.getView();
             }
-            if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            if (!z && !z2) {
-                return true;
-            }
-            return false;
+            return null;
         }
-        return invokeV.booleanValue;
+        return (View) invokeCommon.objValue;
     }
 }

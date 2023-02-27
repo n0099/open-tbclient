@@ -9,6 +9,7 @@ import com.baidu.mapapi.http.AsyncHttpClient;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapsdkplatform.comapi.util.SyncSysInfo;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
+import com.baidu.pass.ecommerce.StatKey;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -245,7 +246,7 @@ public class f {
             if (z) {
                 linkedHashMap.put("type", "publish");
             } else {
-                linkedHashMap.put("type", "edit");
+                linkedHashMap.put("type", StatKey.EDITADDR_TAG_STAGE_EDIT);
             }
             linkedHashMap.put(PackageTable.MD5, b2);
             linkedHashMap.put("token", SyncSysInfo.getAuthToken());

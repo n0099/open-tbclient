@@ -1,19 +1,11 @@
 package com.kwad.components.splash.monitor;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ksad.json.annotation.KsJson;
 import java.io.Serializable;
 import java.util.List;
 @KsJson
 /* loaded from: classes8.dex */
 public class SplashMonitorInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int CHECK_BACKUP_FAILED = 4;
     public static final int CHECK_BACKUP_SUCCESS = 3;
     public static final int CHECK_CACHE = 2;
@@ -48,7 +40,6 @@ public class SplashMonitorInfo extends com.kwad.sdk.core.response.kwai.a impleme
     public static final int TYPE_DOWNLOAD = 1;
     public static final int TYPE_UPDATE = 2;
     public static final long serialVersionUID = 3528420046810658543L;
-    public transient /* synthetic */ FieldHolder $fh;
     public long cacheValidTime;
     public long checkDataTime;
     public long costTime;
@@ -70,217 +61,103 @@ public class SplashMonitorInfo extends com.kwad.sdk.core.response.kwai.a impleme
     public int totalCount;
     public int type;
 
-    public SplashMonitorInfo() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public SplashMonitorInfo setCacheValidTime(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            this.cacheValidTime = j;
-            return this;
-        }
-        return (SplashMonitorInfo) invokeJ.objValue;
+        this.cacheValidTime = j;
+        return this;
     }
 
     public SplashMonitorInfo setCheckDataTime(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            this.checkDataTime = j;
-            return this;
-        }
-        return (SplashMonitorInfo) invokeJ.objValue;
+        this.checkDataTime = j;
+        return this;
     }
 
     public SplashMonitorInfo setCostTime(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            this.costTime = j;
-            return this;
-        }
-        return (SplashMonitorInfo) invokeJ.objValue;
+        this.costTime = j;
+        return this;
     }
 
     public SplashMonitorInfo setCount(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            this.count = i;
-            return this;
-        }
-        return (SplashMonitorInfo) invokeI.objValue;
+        this.count = i;
+        return this;
     }
 
     public SplashMonitorInfo setCreativeId(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
-            this.creativeId = j;
-            return this;
-        }
-        return (SplashMonitorInfo) invokeJ.objValue;
+        this.creativeId = j;
+        return this;
     }
 
     public SplashMonitorInfo setCreativeIds(List<String> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
-            this.creativeIds = list;
-            return this;
-        }
-        return (SplashMonitorInfo) invokeL.objValue;
+        this.creativeIds = list;
+        return this;
     }
 
     public SplashMonitorInfo setErrorCode(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            this.errorCode = i;
-            return this;
-        }
-        return (SplashMonitorInfo) invokeI.objValue;
+        this.errorCode = i;
+        return this;
     }
 
     public SplashMonitorInfo setErrorMsg(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            this.errorMsg = str;
-            return this;
-        }
-        return (SplashMonitorInfo) invokeL.objValue;
+        this.errorMsg = str;
+        return this;
     }
 
     public SplashMonitorInfo setFailUrl(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            this.failUrl = str;
-            return this;
-        }
-        return (SplashMonitorInfo) invokeL.objValue;
+        this.failUrl = str;
+        return this;
     }
 
     public SplashMonitorInfo setIds(List<String> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, list)) == null) {
-            this.ids = list;
-            return this;
-        }
-        return (SplashMonitorInfo) invokeL.objValue;
+        this.ids = list;
+        return this;
     }
 
     public SplashMonitorInfo setLoadAndCheckDataTime(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
-            this.loadAndCheckDataTime = j;
-            return this;
-        }
-        return (SplashMonitorInfo) invokeJ.objValue;
+        this.loadAndCheckDataTime = j;
+        return this;
     }
 
     public SplashMonitorInfo setLoadDataTime(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-            this.loadDataTime = j;
-            return this;
-        }
-        return (SplashMonitorInfo) invokeJ.objValue;
+        this.loadDataTime = j;
+        return this;
     }
 
     public SplashMonitorInfo setMaterialType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            this.materialType = i;
-            return this;
-        }
-        return (SplashMonitorInfo) invokeI.objValue;
+        this.materialType = i;
+        return this;
     }
 
     public SplashMonitorInfo setPreloadId(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            this.preloadId = str;
-            return this;
-        }
-        return (SplashMonitorInfo) invokeL.objValue;
+        this.preloadId = str;
+        return this;
     }
 
     public SplashMonitorInfo setPreloadIds(List<String> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, list)) == null) {
-            this.preloadIds = list;
-            return this;
-        }
-        return (SplashMonitorInfo) invokeL.objValue;
+        this.preloadIds = list;
+        return this;
     }
 
     public SplashMonitorInfo setRatioCount(double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{Double.valueOf(d)})) == null) {
-            this.ratioCount = d;
-            return this;
-        }
-        return (SplashMonitorInfo) invokeCommon.objValue;
+        this.ratioCount = d;
+        return this;
     }
 
     public SplashMonitorInfo setSize(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j)) == null) {
-            this.size = j;
-            return this;
-        }
-        return (SplashMonitorInfo) invokeJ.objValue;
+        this.size = j;
+        return this;
     }
 
     public SplashMonitorInfo setStatus(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
-            this.status = i;
-            return this;
-        }
-        return (SplashMonitorInfo) invokeI.objValue;
+        this.status = i;
+        return this;
     }
 
     public SplashMonitorInfo setTotalCount(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
-            this.totalCount = i;
-            return this;
-        }
-        return (SplashMonitorInfo) invokeI.objValue;
+        this.totalCount = i;
+        return this;
     }
 
     public SplashMonitorInfo setType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
-            this.type = i;
-            return this;
-        }
-        return (SplashMonitorInfo) invokeI.objValue;
+        this.type = i;
+        return this;
     }
 }

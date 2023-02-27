@@ -1,14 +1,5 @@
 package com.googlecode.mp4parser.authoring.builder;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoFile;
 import com.coremedia.iso.IsoTypeWriter;
@@ -73,650 +64,425 @@ import java.util.Map;
 import java.util.logging.Logger;
 /* loaded from: classes8.dex */
 public class FragmentedMp4Builder implements Mp4Builder {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Logger LOG;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final Logger LOG = Logger.getLogger(FragmentedMp4Builder.class.getName());
     public FragmentIntersectionFinder intersectionFinder;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1860598360, "Lcom/googlecode/mp4parser/authoring/builder/FragmentedMp4Builder;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1860598360, "Lcom/googlecode/mp4parser/authoring/builder/FragmentedMp4Builder;");
-                return;
-            }
-        }
-        LOG = Logger.getLogger(FragmentedMp4Builder.class.getName());
-    }
-
-    public FragmentedMp4Builder() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
     public List<String> getAllowedHandlers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            return Arrays.asList("soun", "vide");
-        }
-        return (List) invokeV.objValue;
+        return Arrays.asList("soun", "vide");
     }
 
     public Date getDate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            return new Date();
-        }
-        return (Date) invokeV.objValue;
+        return new Date();
     }
 
     public FragmentIntersectionFinder getFragmentIntersectionFinder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            return this.intersectionFinder;
-        }
-        return (FragmentIntersectionFinder) invokeV.objValue;
+        return this.intersectionFinder;
     }
 
     private long getTrackDuration(Movie movie, Track track) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, movie, track)) == null) {
-            return (track.getDuration() * movie.getTimescale()) / track.getTrackMetaData().getTimescale();
-        }
-        return invokeLL.longValue;
+        return (track.getDuration() * movie.getTimescale()) / track.getTrackMetaData().getTimescale();
     }
 
     public DataInformationBox createDinf(Movie movie, Track track) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, movie, track)) == null) {
-            DataInformationBox dataInformationBox = new DataInformationBox();
-            DataReferenceBox dataReferenceBox = new DataReferenceBox();
-            dataInformationBox.addBox(dataReferenceBox);
-            DataEntryUrlBox dataEntryUrlBox = new DataEntryUrlBox();
-            dataEntryUrlBox.setFlags(1);
-            dataReferenceBox.addBox(dataEntryUrlBox);
-            return dataInformationBox;
-        }
-        return (DataInformationBox) invokeLL.objValue;
+        DataInformationBox dataInformationBox = new DataInformationBox();
+        DataReferenceBox dataReferenceBox = new DataReferenceBox();
+        dataInformationBox.addBox(dataReferenceBox);
+        DataEntryUrlBox dataEntryUrlBox = new DataEntryUrlBox();
+        dataEntryUrlBox.setFlags(1);
+        dataReferenceBox.addBox(dataEntryUrlBox);
+        return dataInformationBox;
     }
 
     public Box createEdts(Track track, Movie movie) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, track, movie)) == null) {
-            EditListBox editList = track.getTrackMetaData().getEditList();
-            if (editList != null) {
-                EditBox editBox = new EditBox();
-                editBox.addBox(editList);
-                return editBox;
-            }
-            return null;
+        EditListBox editList = track.getTrackMetaData().getEditList();
+        if (editList != null) {
+            EditBox editBox = new EditBox();
+            editBox.addBox(editList);
+            return editBox;
         }
-        return (Box) invokeLL.objValue;
+        return null;
     }
 
     public Box createMdia(Track track, Movie movie) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, track, movie)) == null) {
-            MediaBox mediaBox = new MediaBox();
-            mediaBox.addBox(createMdhd(movie, track));
-            mediaBox.addBox(createMdiaHdlr(track, movie));
-            mediaBox.addBox(createMinf(track, movie));
-            return mediaBox;
-        }
-        return (Box) invokeLL.objValue;
+        MediaBox mediaBox = new MediaBox();
+        mediaBox.addBox(createMdhd(movie, track));
+        mediaBox.addBox(createMdiaHdlr(track, movie));
+        mediaBox.addBox(createMinf(track, movie));
+        return mediaBox;
     }
 
     public Box createMdiaHdlr(Track track, Movie movie) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, track, movie)) == null) {
-            HandlerBox handlerBox = new HandlerBox();
-            handlerBox.setHandlerType(track.getHandler());
-            return handlerBox;
+        HandlerBox handlerBox = new HandlerBox();
+        handlerBox.setHandlerType(track.getHandler());
+        return handlerBox;
+    }
+
+    public Box createMfra(Movie movie, Container container) {
+        MovieFragmentRandomAccessBox movieFragmentRandomAccessBox = new MovieFragmentRandomAccessBox();
+        for (Track track : movie.getTracks()) {
+            movieFragmentRandomAccessBox.addBox(createTfra(track, container));
         }
-        return (Box) invokeLL.objValue;
+        MovieFragmentRandomAccessOffsetBox movieFragmentRandomAccessOffsetBox = new MovieFragmentRandomAccessOffsetBox();
+        movieFragmentRandomAccessBox.addBox(movieFragmentRandomAccessOffsetBox);
+        movieFragmentRandomAccessOffsetBox.setMfraSize(movieFragmentRandomAccessBox.getSize());
+        return movieFragmentRandomAccessBox;
     }
 
     public Box createMinf(Track track, Movie movie) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, track, movie)) == null) {
-            MediaInformationBox mediaInformationBox = new MediaInformationBox();
-            mediaInformationBox.addBox(track.getMediaHeaderBox());
-            mediaInformationBox.addBox(createDinf(movie, track));
-            mediaInformationBox.addBox(createStbl(movie, track));
-            return mediaInformationBox;
-        }
-        return (Box) invokeLL.objValue;
+        MediaInformationBox mediaInformationBox = new MediaInformationBox();
+        mediaInformationBox.addBox(track.getMediaHeaderBox());
+        mediaInformationBox.addBox(createDinf(movie, track));
+        mediaInformationBox.addBox(createStbl(movie, track));
+        return mediaInformationBox;
+    }
+
+    public Box createStbl(Movie movie, Track track) {
+        SampleTableBox sampleTableBox = new SampleTableBox();
+        createStsd(track, sampleTableBox);
+        sampleTableBox.addBox(new TimeToSampleBox());
+        sampleTableBox.addBox(new SampleToChunkBox());
+        sampleTableBox.addBox(new SampleSizeBox());
+        sampleTableBox.addBox(new StaticChunkOffsetBox());
+        return sampleTableBox;
     }
 
     public void createStsd(Track track, SampleTableBox sampleTableBox) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048595, this, track, sampleTableBox) == null) {
-            sampleTableBox.addBox(track.getSampleDescriptionBox());
-        }
+        sampleTableBox.addBox(track.getSampleDescriptionBox());
     }
 
     public TrackFragmentBaseMediaDecodeTimeBox createTfdt(long j, Track track) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048596, this, j, track)) == null) {
-            TrackFragmentBaseMediaDecodeTimeBox trackFragmentBaseMediaDecodeTimeBox = new TrackFragmentBaseMediaDecodeTimeBox();
-            trackFragmentBaseMediaDecodeTimeBox.setVersion(1);
-            long[] sampleDurations = track.getSampleDurations();
-            long j2 = 0;
-            for (int i = 1; i < j; i++) {
-                j2 += sampleDurations[i];
-            }
-            trackFragmentBaseMediaDecodeTimeBox.setBaseMediaDecodeTime(j2);
-            return trackFragmentBaseMediaDecodeTimeBox;
+        TrackFragmentBaseMediaDecodeTimeBox trackFragmentBaseMediaDecodeTimeBox = new TrackFragmentBaseMediaDecodeTimeBox();
+        trackFragmentBaseMediaDecodeTimeBox.setVersion(1);
+        long[] sampleDurations = track.getSampleDurations();
+        long j2 = 0;
+        for (int i = 1; i < j; i++) {
+            j2 += sampleDurations[i];
         }
-        return (TrackFragmentBaseMediaDecodeTimeBox) invokeJL.objValue;
+        trackFragmentBaseMediaDecodeTimeBox.setBaseMediaDecodeTime(j2);
+        return trackFragmentBaseMediaDecodeTimeBox;
+    }
+
+    public Box createTrak(Track track, Movie movie) {
+        Logger logger = LOG;
+        logger.fine("Creating Track " + track);
+        TrackBox trackBox = new TrackBox();
+        trackBox.addBox(createTkhd(movie, track));
+        Box createEdts = createEdts(track, movie);
+        if (createEdts != null) {
+            trackBox.addBox(createEdts);
+        }
+        trackBox.addBox(createMdia(track, movie));
+        return trackBox;
     }
 
     @Override // com.googlecode.mp4parser.authoring.builder.Mp4Builder
     public Container build(Movie movie) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, movie)) == null) {
-            Logger logger = LOG;
-            logger.fine("Creating movie " + movie);
-            if (this.intersectionFinder == null) {
-                Track track = null;
-                Iterator<Track> it = movie.getTracks().iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    Track next = it.next();
-                    if (next.getHandler().equals("vide")) {
-                        track = next;
-                        break;
-                    }
+        Logger logger = LOG;
+        logger.fine("Creating movie " + movie);
+        if (this.intersectionFinder == null) {
+            Track track = null;
+            Iterator<Track> it = movie.getTracks().iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
                 }
-                this.intersectionFinder = new SyncSampleIntersectFinderImpl(movie, track, -1);
+                Track next = it.next();
+                if (next.getHandler().equals("vide")) {
+                    track = next;
+                    break;
+                }
             }
-            BasicContainer basicContainer = new BasicContainer();
-            basicContainer.addBox(createFtyp(movie));
-            basicContainer.addBox(createMoov(movie));
-            for (Box box : createMoofMdat(movie)) {
-                basicContainer.addBox(box);
-            }
-            basicContainer.addBox(createMfra(movie, basicContainer));
-            return basicContainer;
+            this.intersectionFinder = new SyncSampleIntersectFinderImpl(movie, track, -1);
         }
-        return (Container) invokeL.objValue;
+        BasicContainer basicContainer = new BasicContainer();
+        basicContainer.addBox(createFtyp(movie));
+        basicContainer.addBox(createMoov(movie));
+        for (Box box : createMoofMdat(movie)) {
+            basicContainer.addBox(box);
+        }
+        basicContainer.addBox(createMfra(movie, basicContainer));
+        return basicContainer;
     }
 
     public List<Box> createMoofMdat(Movie movie) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, movie)) == null) {
-            List<Box> linkedList = new LinkedList<>();
-            HashMap hashMap = new HashMap();
-            int i = 0;
-            for (Track track : movie.getTracks()) {
-                long[] sampleNumbers = this.intersectionFinder.sampleNumbers(track);
-                hashMap.put(track, sampleNumbers);
-                i = Math.max(i, sampleNumbers.length);
-            }
-            int i2 = 1;
-            int i3 = 0;
-            while (i3 < i) {
-                int i4 = i2;
-                for (Track track2 : sortTracksInSequence(movie.getTracks(), i3, hashMap)) {
-                    if (getAllowedHandlers().isEmpty() || getAllowedHandlers().contains(track2.getHandler())) {
-                        i4 = createFragment(linkedList, track2, (long[]) hashMap.get(track2), i3, i4);
-                    }
-                }
-                i3++;
-                i2 = i4;
-            }
-            return linkedList;
+        List<Box> linkedList = new LinkedList<>();
+        HashMap hashMap = new HashMap();
+        int i = 0;
+        for (Track track : movie.getTracks()) {
+            long[] sampleNumbers = this.intersectionFinder.sampleNumbers(track);
+            hashMap.put(track, sampleNumbers);
+            i = Math.max(i, sampleNumbers.length);
         }
-        return (List) invokeL.objValue;
-    }
-
-    public Box createMvex(Movie movie) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, movie)) == null) {
-            MovieExtendsBox movieExtendsBox = new MovieExtendsBox();
-            MovieExtendsHeaderBox movieExtendsHeaderBox = new MovieExtendsHeaderBox();
-            movieExtendsHeaderBox.setVersion(1);
-            for (Track track : movie.getTracks()) {
-                long trackDuration = getTrackDuration(movie, track);
-                if (movieExtendsHeaderBox.getFragmentDuration() < trackDuration) {
-                    movieExtendsHeaderBox.setFragmentDuration(trackDuration);
+        int i2 = 1;
+        int i3 = 0;
+        while (i3 < i) {
+            int i4 = i2;
+            for (Track track2 : sortTracksInSequence(movie.getTracks(), i3, hashMap)) {
+                if (getAllowedHandlers().isEmpty() || getAllowedHandlers().contains(track2.getHandler())) {
+                    i4 = createFragment(linkedList, track2, (long[]) hashMap.get(track2), i3, i4);
                 }
             }
-            movieExtendsBox.addBox(movieExtendsHeaderBox);
-            for (Track track2 : movie.getTracks()) {
-                movieExtendsBox.addBox(createTrex(movie, track2));
-            }
-            return movieExtendsBox;
+            i3++;
+            i2 = i4;
         }
-        return (Box) invokeL.objValue;
-    }
-
-    public Box createMvhd(Movie movie) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, movie)) == null) {
-            MovieHeaderBox movieHeaderBox = new MovieHeaderBox();
-            movieHeaderBox.setVersion(1);
-            movieHeaderBox.setCreationTime(getDate());
-            movieHeaderBox.setModificationTime(getDate());
-            long j = 0;
-            movieHeaderBox.setDuration(0L);
-            movieHeaderBox.setTimescale(movie.getTimescale());
-            for (Track track : movie.getTracks()) {
-                if (j < track.getTrackMetaData().getTrackId()) {
-                    j = track.getTrackMetaData().getTrackId();
-                }
-            }
-            movieHeaderBox.setNextTrackId(j + 1);
-            return movieHeaderBox;
-        }
-        return (Box) invokeL.objValue;
+        return linkedList;
     }
 
     public int createFragment(List<Box> list, Track track, long[] jArr, int i, int i2) {
-        InterceptResult invokeCommon;
         long size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{list, track, jArr, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (i < jArr.length) {
-                long j = jArr[i];
-                int i3 = i + 1;
-                if (i3 < jArr.length) {
-                    size = jArr[i3];
-                } else {
-                    size = track.getSamples().size() + 1;
-                }
-                if (j != size) {
-                    long j2 = size;
-                    list.add(createMoof(j, j2, track, i2));
-                    int i4 = i2 + 1;
-                    list.add(createMdat(j, j2, track, i2));
-                    return i4;
-                }
-                return i2;
+        if (i < jArr.length) {
+            long j = jArr[i];
+            int i3 = i + 1;
+            if (i3 < jArr.length) {
+                size = jArr[i3];
+            } else {
+                size = track.getSamples().size() + 1;
+            }
+            if (j != size) {
+                long j2 = size;
+                list.add(createMoof(j, j2, track, i2));
+                int i4 = i2 + 1;
+                list.add(createMdat(j, j2, track, i2));
+                return i4;
             }
             return i2;
         }
-        return invokeCommon.intValue;
+        return i2;
     }
 
     public Box createFtyp(Movie movie) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, movie)) == null) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add("isom");
-            linkedList.add("iso2");
-            linkedList.add("avc1");
-            return new FileTypeBox("isom", 0L, linkedList);
-        }
-        return (Box) invokeL.objValue;
-    }
-
-    public void setIntersectionFinder(FragmentIntersectionFinder fragmentIntersectionFinder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, fragmentIntersectionFinder) == null) {
-            this.intersectionFinder = fragmentIntersectionFinder;
-        }
-    }
-
-    public Box createMdat(long j, long j2, Track track, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), track, Integer.valueOf(i)})) == null) {
-            return new Box(this, j, j2, track, i) { // from class: com.googlecode.mp4parser.authoring.builder.FragmentedMp4Builder.1Mdat
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public Container parent;
-                public long size_;
-                public final /* synthetic */ FragmentedMp4Builder this$0;
-                public final /* synthetic */ long val$endSample;
-                public final /* synthetic */ int val$i;
-                public final /* synthetic */ long val$startSample;
-                public final /* synthetic */ Track val$track;
-
-                @Override // com.coremedia.iso.boxes.Box
-                public String getType() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) ? MediaDataBox.TYPE : (String) invokeV.objValue;
-                }
-
-                @Override // com.coremedia.iso.boxes.Box
-                public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j3, BoxParser boxParser) throws IOException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048581, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j3), boxParser}) == null) {
-                    }
-                }
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Long.valueOf(j), Long.valueOf(j2), track, Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$startSample = j;
-                    this.val$endSample = j2;
-                    this.val$track = track;
-                    this.val$i = i;
-                    this.size_ = -1L;
-                }
-
-                @Override // com.coremedia.iso.boxes.Box
-                public void getBox(WritableByteChannel writableByteChannel) throws IOException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, writableByteChannel) == null) {
-                        ByteBuffer allocate = ByteBuffer.allocate(8);
-                        IsoTypeWriter.writeUInt32(allocate, CastUtils.l2i(getSize()));
-                        allocate.put(IsoFile.fourCCtoBytes(getType()));
-                        allocate.rewind();
-                        writableByteChannel.write(allocate);
-                        for (Sample sample : this.this$0.getSamples(this.val$startSample, this.val$endSample, this.val$track, this.val$i)) {
-                            sample.writeTo(writableByteChannel);
-                        }
-                    }
-                }
-
-                @Override // com.coremedia.iso.boxes.Box
-                public long getOffset() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                        throw new RuntimeException("Doesn't have any meaning for programmatically created boxes");
-                    }
-                    return invokeV.longValue;
-                }
-
-                @Override // com.coremedia.iso.boxes.Box
-                public Container getParent() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                        return this.parent;
-                    }
-                    return (Container) invokeV.objValue;
-                }
-
-                @Override // com.coremedia.iso.boxes.Box
-                public long getSize() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) {
-                        long j3 = this.size_;
-                        if (j3 != -1) {
-                            return j3;
-                        }
-                        long j4 = 8;
-                        for (Sample sample : this.this$0.getSamples(this.val$startSample, this.val$endSample, this.val$track, this.val$i)) {
-                            j4 += sample.getSize();
-                        }
-                        this.size_ = j4;
-                        return j4;
-                    }
-                    return invokeV.longValue;
-                }
-
-                @Override // com.coremedia.iso.boxes.Box
-                public void setParent(Container container) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048582, this, container) == null) {
-                        this.parent = container;
-                    }
-                }
-            };
-        }
-        return (Box) invokeCommon.objValue;
-    }
-
-    public Box createMfhd(long j, long j2, Track track, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), track, Integer.valueOf(i)})) == null) {
-            MovieFragmentHeaderBox movieFragmentHeaderBox = new MovieFragmentHeaderBox();
-            movieFragmentHeaderBox.setSequenceNumber(i);
-            return movieFragmentHeaderBox;
-        }
-        return (Box) invokeCommon.objValue;
-    }
-
-    public Box createMdhd(Movie movie, Track track) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, movie, track)) == null) {
-            MediaHeaderBox mediaHeaderBox = new MediaHeaderBox();
-            mediaHeaderBox.setCreationTime(track.getTrackMetaData().getCreationTime());
-            mediaHeaderBox.setModificationTime(getDate());
-            mediaHeaderBox.setDuration(0L);
-            mediaHeaderBox.setTimescale(track.getTrackMetaData().getTimescale());
-            mediaHeaderBox.setLanguage(track.getTrackMetaData().getLanguage());
-            return mediaHeaderBox;
-        }
-        return (Box) invokeLL.objValue;
-    }
-
-    public Box createMfra(Movie movie, Container container) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, movie, container)) == null) {
-            MovieFragmentRandomAccessBox movieFragmentRandomAccessBox = new MovieFragmentRandomAccessBox();
-            for (Track track : movie.getTracks()) {
-                movieFragmentRandomAccessBox.addBox(createTfra(track, container));
-            }
-            MovieFragmentRandomAccessOffsetBox movieFragmentRandomAccessOffsetBox = new MovieFragmentRandomAccessOffsetBox();
-            movieFragmentRandomAccessBox.addBox(movieFragmentRandomAccessOffsetBox);
-            movieFragmentRandomAccessOffsetBox.setMfraSize(movieFragmentRandomAccessBox.getSize());
-            return movieFragmentRandomAccessBox;
-        }
-        return (Box) invokeLL.objValue;
-    }
-
-    public Box createStbl(Movie movie, Track track) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, movie, track)) == null) {
-            SampleTableBox sampleTableBox = new SampleTableBox();
-            createStsd(track, sampleTableBox);
-            sampleTableBox.addBox(new TimeToSampleBox());
-            sampleTableBox.addBox(new SampleToChunkBox());
-            sampleTableBox.addBox(new SampleSizeBox());
-            sampleTableBox.addBox(new StaticChunkOffsetBox());
-            return sampleTableBox;
-        }
-        return (Box) invokeLL.objValue;
-    }
-
-    public Box createTrak(Track track, Movie movie) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048601, this, track, movie)) == null) {
-            Logger logger = LOG;
-            logger.fine("Creating Track " + track);
-            TrackBox trackBox = new TrackBox();
-            trackBox.addBox(createTkhd(movie, track));
-            Box createEdts = createEdts(track, movie);
-            if (createEdts != null) {
-                trackBox.addBox(createEdts);
-            }
-            trackBox.addBox(createMdia(track, movie));
-            return trackBox;
-        }
-        return (Box) invokeLL.objValue;
-    }
-
-    public Box createMoof(long j, long j2, Track track, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), track, Integer.valueOf(i)})) == null) {
-            MovieFragmentBox movieFragmentBox = new MovieFragmentBox();
-            movieFragmentBox.addBox(createMfhd(j, j2, track, i));
-            movieFragmentBox.addBox(createTraf(j, j2, track, i));
-            TrackRunBox trackRunBox = movieFragmentBox.getTrackRunBoxes().get(0);
-            trackRunBox.setDataOffset(1);
-            trackRunBox.setDataOffset((int) (movieFragmentBox.getSize() + 8));
-            return movieFragmentBox;
-        }
-        return (Box) invokeCommon.objValue;
-    }
-
-    public Box createTfhd(long j, long j2, Track track, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), track, Integer.valueOf(i)})) == null) {
-            TrackFragmentHeaderBox trackFragmentHeaderBox = new TrackFragmentHeaderBox();
-            trackFragmentHeaderBox.setDefaultSampleFlags(new SampleFlags());
-            trackFragmentHeaderBox.setBaseDataOffset(-1L);
-            trackFragmentHeaderBox.setTrackId(track.getTrackMetaData().getTrackId());
-            return trackFragmentHeaderBox;
-        }
-        return (Box) invokeCommon.objValue;
-    }
-
-    public Box createTraf(long j, long j2, Track track, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), track, Integer.valueOf(i)})) == null) {
-            TrackFragmentBox trackFragmentBox = new TrackFragmentBox();
-            trackFragmentBox.addBox(createTfhd(j, j2, track, i));
-            trackFragmentBox.addBox(createTfdt(j, track));
-            trackFragmentBox.addBox(createTrun(j, j2, track, i));
-            return trackFragmentBox;
-        }
-        return (Box) invokeCommon.objValue;
-    }
-
-    public long[] getSampleSizes(long j, long j2, Track track, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), track, Integer.valueOf(i)})) == null) {
-            List<Sample> samples = getSamples(j, j2, track, i);
-            int size = samples.size();
-            long[] jArr = new long[size];
-            for (int i2 = 0; i2 < size; i2++) {
-                jArr[i2] = samples.get(i2).getSize();
-            }
-            return jArr;
-        }
-        return (long[]) invokeCommon.objValue;
-    }
-
-    public List<Sample> getSamples(long j, long j2, Track track, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), track, Integer.valueOf(i)})) == null) {
-            return track.getSamples().subList(CastUtils.l2i(j) - 1, CastUtils.l2i(j2) - 1);
-        }
-        return (List) invokeCommon.objValue;
+        LinkedList linkedList = new LinkedList();
+        linkedList.add("isom");
+        linkedList.add("iso2");
+        linkedList.add("avc1");
+        return new FileTypeBox("isom", 0L, linkedList);
     }
 
     public Box createMoov(Movie movie) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, movie)) == null) {
-            MovieBox movieBox = new MovieBox();
-            movieBox.addBox(createMvhd(movie));
-            for (Track track : movie.getTracks()) {
-                movieBox.addBox(createTrak(track, movie));
-            }
-            movieBox.addBox(createMvex(movie));
-            return movieBox;
+        MovieBox movieBox = new MovieBox();
+        movieBox.addBox(createMvhd(movie));
+        for (Track track : movie.getTracks()) {
+            movieBox.addBox(createTrak(track, movie));
         }
-        return (Box) invokeL.objValue;
+        movieBox.addBox(createMvex(movie));
+        return movieBox;
+    }
+
+    public void setIntersectionFinder(FragmentIntersectionFinder fragmentIntersectionFinder) {
+        this.intersectionFinder = fragmentIntersectionFinder;
+    }
+
+    public Box createMdat(final long j, final long j2, final Track track, final int i) {
+        return new Box() { // from class: com.googlecode.mp4parser.authoring.builder.FragmentedMp4Builder.1Mdat
+            public Container parent;
+            public long size_ = -1;
+
+            @Override // com.coremedia.iso.boxes.Box
+            public String getType() {
+                return MediaDataBox.TYPE;
+            }
+
+            @Override // com.coremedia.iso.boxes.Box
+            public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j3, BoxParser boxParser) throws IOException {
+            }
+
+            @Override // com.coremedia.iso.boxes.Box
+            public void getBox(WritableByteChannel writableByteChannel) throws IOException {
+                ByteBuffer allocate = ByteBuffer.allocate(8);
+                IsoTypeWriter.writeUInt32(allocate, CastUtils.l2i(getSize()));
+                allocate.put(IsoFile.fourCCtoBytes(getType()));
+                allocate.rewind();
+                writableByteChannel.write(allocate);
+                for (Sample sample : FragmentedMp4Builder.this.getSamples(j, j2, track, i)) {
+                    sample.writeTo(writableByteChannel);
+                }
+            }
+
+            @Override // com.coremedia.iso.boxes.Box
+            public long getOffset() {
+                throw new RuntimeException("Doesn't have any meaning for programmatically created boxes");
+            }
+
+            @Override // com.coremedia.iso.boxes.Box
+            public Container getParent() {
+                return this.parent;
+            }
+
+            @Override // com.coremedia.iso.boxes.Box
+            public long getSize() {
+                long j3 = this.size_;
+                if (j3 != -1) {
+                    return j3;
+                }
+                long j4 = 8;
+                for (Sample sample : FragmentedMp4Builder.this.getSamples(j, j2, track, i)) {
+                    j4 += sample.getSize();
+                }
+                this.size_ = j4;
+                return j4;
+            }
+
+            @Override // com.coremedia.iso.boxes.Box
+            public void setParent(Container container) {
+                this.parent = container;
+            }
+        };
+    }
+
+    public Box createMfhd(long j, long j2, Track track, int i) {
+        MovieFragmentHeaderBox movieFragmentHeaderBox = new MovieFragmentHeaderBox();
+        movieFragmentHeaderBox.setSequenceNumber(i);
+        return movieFragmentHeaderBox;
+    }
+
+    public Box createMoof(long j, long j2, Track track, int i) {
+        MovieFragmentBox movieFragmentBox = new MovieFragmentBox();
+        movieFragmentBox.addBox(createMfhd(j, j2, track, i));
+        movieFragmentBox.addBox(createTraf(j, j2, track, i));
+        TrackRunBox trackRunBox = movieFragmentBox.getTrackRunBoxes().get(0);
+        trackRunBox.setDataOffset(1);
+        trackRunBox.setDataOffset((int) (movieFragmentBox.getSize() + 8));
+        return movieFragmentBox;
+    }
+
+    public Box createTfhd(long j, long j2, Track track, int i) {
+        TrackFragmentHeaderBox trackFragmentHeaderBox = new TrackFragmentHeaderBox();
+        trackFragmentHeaderBox.setDefaultSampleFlags(new SampleFlags());
+        trackFragmentHeaderBox.setBaseDataOffset(-1L);
+        trackFragmentHeaderBox.setTrackId(track.getTrackMetaData().getTrackId());
+        return trackFragmentHeaderBox;
+    }
+
+    public Box createTraf(long j, long j2, Track track, int i) {
+        TrackFragmentBox trackFragmentBox = new TrackFragmentBox();
+        trackFragmentBox.addBox(createTfhd(j, j2, track, i));
+        trackFragmentBox.addBox(createTfdt(j, track));
+        trackFragmentBox.addBox(createTrun(j, j2, track, i));
+        return trackFragmentBox;
+    }
+
+    public long[] getSampleSizes(long j, long j2, Track track, int i) {
+        List<Sample> samples = getSamples(j, j2, track, i);
+        int size = samples.size();
+        long[] jArr = new long[size];
+        for (int i2 = 0; i2 < size; i2++) {
+            jArr[i2] = samples.get(i2).getSize();
+        }
+        return jArr;
+    }
+
+    public List<Sample> getSamples(long j, long j2, Track track, int i) {
+        return track.getSamples().subList(CastUtils.l2i(j) - 1, CastUtils.l2i(j2) - 1);
+    }
+
+    public Box createMdhd(Movie movie, Track track) {
+        MediaHeaderBox mediaHeaderBox = new MediaHeaderBox();
+        mediaHeaderBox.setCreationTime(track.getTrackMetaData().getCreationTime());
+        mediaHeaderBox.setModificationTime(getDate());
+        mediaHeaderBox.setDuration(0L);
+        mediaHeaderBox.setTimescale(track.getTrackMetaData().getTimescale());
+        mediaHeaderBox.setLanguage(track.getTrackMetaData().getLanguage());
+        return mediaHeaderBox;
+    }
+
+    public Box createTrex(Movie movie, Track track) {
+        TrackExtendsBox trackExtendsBox = new TrackExtendsBox();
+        trackExtendsBox.setTrackId(track.getTrackMetaData().getTrackId());
+        trackExtendsBox.setDefaultSampleDescriptionIndex(1L);
+        trackExtendsBox.setDefaultSampleDuration(0L);
+        trackExtendsBox.setDefaultSampleSize(0L);
+        SampleFlags sampleFlags = new SampleFlags();
+        if ("soun".equals(track.getHandler()) || "subt".equals(track.getHandler())) {
+            sampleFlags.setSampleDependsOn(2);
+            sampleFlags.setSampleIsDependedOn(2);
+        }
+        trackExtendsBox.setDefaultSampleFlags(sampleFlags);
+        return trackExtendsBox;
+    }
+
+    public Box createMvex(Movie movie) {
+        MovieExtendsBox movieExtendsBox = new MovieExtendsBox();
+        MovieExtendsHeaderBox movieExtendsHeaderBox = new MovieExtendsHeaderBox();
+        movieExtendsHeaderBox.setVersion(1);
+        for (Track track : movie.getTracks()) {
+            long trackDuration = getTrackDuration(movie, track);
+            if (movieExtendsHeaderBox.getFragmentDuration() < trackDuration) {
+                movieExtendsHeaderBox.setFragmentDuration(trackDuration);
+            }
+        }
+        movieExtendsBox.addBox(movieExtendsHeaderBox);
+        for (Track track2 : movie.getTracks()) {
+            movieExtendsBox.addBox(createTrex(movie, track2));
+        }
+        return movieExtendsBox;
+    }
+
+    public Box createMvhd(Movie movie) {
+        MovieHeaderBox movieHeaderBox = new MovieHeaderBox();
+        movieHeaderBox.setVersion(1);
+        movieHeaderBox.setCreationTime(getDate());
+        movieHeaderBox.setModificationTime(getDate());
+        long j = 0;
+        movieHeaderBox.setDuration(0L);
+        movieHeaderBox.setTimescale(movie.getTimescale());
+        for (Track track : movie.getTracks()) {
+            if (j < track.getTrackMetaData().getTrackId()) {
+                j = track.getTrackMetaData().getTrackId();
+            }
+        }
+        movieHeaderBox.setNextTrackId(j + 1);
+        return movieHeaderBox;
     }
 
     public Box createPdin(Movie movie) {
-        InterceptResult invokeL;
         long j;
         long j2;
         Iterator<Sample> it;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, movie)) == null) {
-            ProgressiveDownloadInformationBox progressiveDownloadInformationBox = new ProgressiveDownloadInformationBox();
-            LinkedList linkedList = new LinkedList();
-            Iterator<Track> it2 = movie.getTracks().iterator();
-            double d = 0.0d;
-            long j3 = 0;
-            while (true) {
-                j = 10000;
-                if (!it2.hasNext()) {
-                    break;
-                }
-                Track next = it2.next();
-                long duration = next.getDuration() / next.getTrackMetaData().getTimescale();
-                if (duration > j3) {
-                    j3 = duration;
-                }
-                List<Sample> samples = next.getSamples();
-                if (samples.size() < 10000) {
-                    while (samples.iterator().hasNext()) {
-                        d += it.next().getSize();
-                    }
-                } else {
-                    long j4 = 0;
-                    for (int i = 0; i < 10000; i++) {
-                        j4 += samples.get(i).getSize();
-                    }
-                    d += (j4 * samples.size()) / 10000;
-                }
+        ProgressiveDownloadInformationBox progressiveDownloadInformationBox = new ProgressiveDownloadInformationBox();
+        LinkedList linkedList = new LinkedList();
+        Iterator<Track> it2 = movie.getTracks().iterator();
+        double d = 0.0d;
+        long j3 = 0;
+        while (true) {
+            j = 10000;
+            if (!it2.hasNext()) {
+                break;
             }
-            double d2 = j3;
-            double d3 = (d * 1.2d) / d2;
-            do {
-                long round = Math.round(((d3 * d2) / j) - d2) * 1000;
-                if (round > 0) {
-                    j2 = round + 3000;
-                } else {
-                    j2 = 0;
+            Track next = it2.next();
+            long duration = next.getDuration() / next.getTrackMetaData().getTimescale();
+            if (duration > j3) {
+                j3 = duration;
+            }
+            List<Sample> samples = next.getSamples();
+            if (samples.size() < 10000) {
+                while (samples.iterator().hasNext()) {
+                    d += it.next().getSize();
                 }
-                linkedList.add(new ProgressiveDownloadInformationBox.Entry(j, j2));
-                j *= 2;
-            } while (d3 > j);
-            progressiveDownloadInformationBox.setEntries(linkedList);
-            return progressiveDownloadInformationBox;
+            } else {
+                long j4 = 0;
+                for (int i = 0; i < 10000; i++) {
+                    j4 += samples.get(i).getSize();
+                }
+                d += (j4 * samples.size()) / 10000;
+            }
         }
-        return (Box) invokeL.objValue;
+        double d2 = j3;
+        double d3 = (d * 1.2d) / d2;
+        do {
+            long round = Math.round(((d3 * d2) / j) - d2) * 1000;
+            if (round > 0) {
+                j2 = round + 3000;
+            } else {
+                j2 = 0;
+            }
+            linkedList.add(new ProgressiveDownloadInformationBox.Entry(j, j2));
+            j *= 2;
+        } while (d3 > j);
+        progressiveDownloadInformationBox.setEntries(linkedList);
+        return progressiveDownloadInformationBox;
     }
 
     public Box createTfra(Track track, Container container) {
-        InterceptResult invokeLL;
         SampleFlags defaultSampleFlags;
         TrackFragmentRandomAccessBox trackFragmentRandomAccessBox;
         LinkedList linkedList;
@@ -729,311 +495,241 @@ public class FragmentedMp4Builder implements Mp4Builder {
         List list2;
         Box box;
         LinkedList linkedList2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, track, container)) == null) {
-            TrackFragmentRandomAccessBox trackFragmentRandomAccessBox2 = new TrackFragmentRandomAccessBox();
-            trackFragmentRandomAccessBox2.setVersion(1);
-            LinkedList linkedList3 = new LinkedList();
-            Iterator<Box> it2 = Path.getPaths(container, "moov/mvex/trex").iterator();
-            TrackExtendsBox trackExtendsBox2 = null;
-            while (it2.hasNext()) {
-                TrackExtendsBox trackExtendsBox3 = trackExtendsBox2;
-                trackExtendsBox2 = (TrackExtendsBox) it2.next();
-                trackFragmentRandomAccessBox2 = trackFragmentRandomAccessBox2;
-                linkedList3 = linkedList3;
-                if (trackExtendsBox2.getTrackId() != track.getTrackMetaData().getTrackId()) {
-                    trackExtendsBox2 = trackExtendsBox3;
-                }
+        TrackFragmentRandomAccessBox trackFragmentRandomAccessBox2 = new TrackFragmentRandomAccessBox();
+        trackFragmentRandomAccessBox2.setVersion(1);
+        LinkedList linkedList3 = new LinkedList();
+        Iterator<Box> it2 = Path.getPaths(container, "moov/mvex/trex").iterator();
+        TrackExtendsBox trackExtendsBox2 = null;
+        while (it2.hasNext()) {
+            TrackExtendsBox trackExtendsBox3 = trackExtendsBox2;
+            trackExtendsBox2 = (TrackExtendsBox) it2.next();
+            trackFragmentRandomAccessBox2 = trackFragmentRandomAccessBox2;
+            linkedList3 = linkedList3;
+            if (trackExtendsBox2.getTrackId() != track.getTrackMetaData().getTrackId()) {
+                trackExtendsBox2 = trackExtendsBox3;
             }
-            Iterator<Box> it3 = container.getBoxes().iterator();
-            long j = 0;
-            long j2 = 0;
-            while (it3.hasNext()) {
-                Box next = it3.next();
-                if (next instanceof MovieFragmentBox) {
-                    List boxes = ((MovieFragmentBox) next).getBoxes(TrackFragmentBox.class);
-                    int i4 = 0;
-                    int i5 = 0;
-                    while (i5 < boxes.size()) {
-                        TrackFragmentBox trackFragmentBox = (TrackFragmentBox) boxes.get(i5);
-                        if (trackFragmentBox.getTrackFragmentHeaderBox().getTrackId() == track.getTrackMetaData().getTrackId()) {
-                            List boxes2 = trackFragmentBox.getBoxes(TrackRunBox.class);
-                            int i6 = 0;
-                            while (i6 < boxes2.size()) {
-                                LinkedList linkedList4 = new LinkedList();
-                                TrackRunBox trackRunBox = (TrackRunBox) boxes2.get(i6);
-                                long j3 = j2;
-                                int i7 = 0;
-                                while (i7 < trackRunBox.getEntries().size()) {
-                                    TrackRunBox.Entry entry = trackRunBox.getEntries().get(i7);
-                                    if (i7 == 0 && trackRunBox.isFirstSampleFlagsPresent()) {
-                                        defaultSampleFlags = trackRunBox.getFirstSampleFlags();
-                                    } else if (trackRunBox.isSampleFlagsPresent()) {
-                                        defaultSampleFlags = entry.getSampleFlags();
-                                    } else {
-                                        defaultSampleFlags = trackExtendsBox2.getDefaultSampleFlags();
-                                    }
-                                    if (defaultSampleFlags == null && track.getHandler().equals("vide")) {
-                                        throw new RuntimeException("Cannot find SampleFlags for video track but it's required to build tfra");
-                                    }
-                                    if (defaultSampleFlags != null && defaultSampleFlags.getSampleDependsOn() != 2) {
-                                        trackFragmentRandomAccessBox = trackFragmentRandomAccessBox2;
-                                        linkedList = linkedList3;
-                                        trackExtendsBox = trackExtendsBox2;
-                                        it = it3;
-                                        i = i7;
-                                        i2 = i6;
-                                        linkedList2 = linkedList4;
-                                        i3 = i5;
-                                        list = boxes2;
-                                        list2 = boxes;
-                                        box = next;
-                                    } else {
-                                        trackFragmentRandomAccessBox = trackFragmentRandomAccessBox2;
-                                        linkedList = linkedList3;
-                                        trackExtendsBox = trackExtendsBox2;
-                                        it = it3;
-                                        i = i7;
-                                        i2 = i6;
-                                        i3 = i5;
-                                        list = boxes2;
-                                        list2 = boxes;
-                                        box = next;
-                                        linkedList2 = linkedList4;
-                                        linkedList2.add(new TrackFragmentRandomAccessBox.Entry(j3, j, i5 + 1, i6 + 1, i7 + 1));
-                                    }
-                                    j3 += entry.getSampleDuration();
-                                    i7 = i + 1;
-                                    boxes = list2;
-                                    linkedList4 = linkedList2;
-                                    trackFragmentRandomAccessBox2 = trackFragmentRandomAccessBox;
-                                    linkedList3 = linkedList;
-                                    trackExtendsBox2 = trackExtendsBox;
-                                    it3 = it;
-                                    next = box;
-                                    i6 = i2;
-                                    i5 = i3;
-                                    boxes2 = list;
-                                    i4 = 0;
-                                }
-                                if (linkedList4.size() == trackRunBox.getEntries().size() && trackRunBox.getEntries().size() > 0) {
-                                    linkedList3.add((TrackFragmentRandomAccessBox.Entry) linkedList4.get(i4));
-                                } else {
-                                    linkedList3.addAll(linkedList4);
-                                }
-                                i6++;
-                                j2 = j3;
-                            }
-                            continue;
-                        }
-                        i5++;
-                        boxes = boxes;
-                        trackFragmentRandomAccessBox2 = trackFragmentRandomAccessBox2;
-                        linkedList3 = linkedList3;
-                        trackExtendsBox2 = trackExtendsBox2;
-                        it3 = it3;
-                        next = next;
-                        i4 = 0;
-                    }
-                    continue;
-                }
-                j += next.getSize();
-                trackFragmentRandomAccessBox2 = trackFragmentRandomAccessBox2;
-                linkedList3 = linkedList3;
-                trackExtendsBox2 = trackExtendsBox2;
-                it3 = it3;
-            }
-            trackFragmentRandomAccessBox2.setEntries(linkedList3);
-            trackFragmentRandomAccessBox2.setTrackId(track.getTrackMetaData().getTrackId());
-            return trackFragmentRandomAccessBox2;
         }
-        return (Box) invokeLL.objValue;
+        Iterator<Box> it3 = container.getBoxes().iterator();
+        long j = 0;
+        long j2 = 0;
+        while (it3.hasNext()) {
+            Box next = it3.next();
+            if (next instanceof MovieFragmentBox) {
+                List boxes = ((MovieFragmentBox) next).getBoxes(TrackFragmentBox.class);
+                int i4 = 0;
+                int i5 = 0;
+                while (i5 < boxes.size()) {
+                    TrackFragmentBox trackFragmentBox = (TrackFragmentBox) boxes.get(i5);
+                    if (trackFragmentBox.getTrackFragmentHeaderBox().getTrackId() == track.getTrackMetaData().getTrackId()) {
+                        List boxes2 = trackFragmentBox.getBoxes(TrackRunBox.class);
+                        int i6 = 0;
+                        while (i6 < boxes2.size()) {
+                            LinkedList linkedList4 = new LinkedList();
+                            TrackRunBox trackRunBox = (TrackRunBox) boxes2.get(i6);
+                            long j3 = j2;
+                            int i7 = 0;
+                            while (i7 < trackRunBox.getEntries().size()) {
+                                TrackRunBox.Entry entry = trackRunBox.getEntries().get(i7);
+                                if (i7 == 0 && trackRunBox.isFirstSampleFlagsPresent()) {
+                                    defaultSampleFlags = trackRunBox.getFirstSampleFlags();
+                                } else if (trackRunBox.isSampleFlagsPresent()) {
+                                    defaultSampleFlags = entry.getSampleFlags();
+                                } else {
+                                    defaultSampleFlags = trackExtendsBox2.getDefaultSampleFlags();
+                                }
+                                if (defaultSampleFlags == null && track.getHandler().equals("vide")) {
+                                    throw new RuntimeException("Cannot find SampleFlags for video track but it's required to build tfra");
+                                }
+                                if (defaultSampleFlags != null && defaultSampleFlags.getSampleDependsOn() != 2) {
+                                    trackFragmentRandomAccessBox = trackFragmentRandomAccessBox2;
+                                    linkedList = linkedList3;
+                                    trackExtendsBox = trackExtendsBox2;
+                                    it = it3;
+                                    i = i7;
+                                    i2 = i6;
+                                    linkedList2 = linkedList4;
+                                    i3 = i5;
+                                    list = boxes2;
+                                    list2 = boxes;
+                                    box = next;
+                                } else {
+                                    trackFragmentRandomAccessBox = trackFragmentRandomAccessBox2;
+                                    linkedList = linkedList3;
+                                    trackExtendsBox = trackExtendsBox2;
+                                    it = it3;
+                                    i = i7;
+                                    i2 = i6;
+                                    i3 = i5;
+                                    list = boxes2;
+                                    list2 = boxes;
+                                    box = next;
+                                    linkedList2 = linkedList4;
+                                    linkedList2.add(new TrackFragmentRandomAccessBox.Entry(j3, j, i5 + 1, i6 + 1, i7 + 1));
+                                }
+                                j3 += entry.getSampleDuration();
+                                i7 = i + 1;
+                                boxes = list2;
+                                linkedList4 = linkedList2;
+                                trackFragmentRandomAccessBox2 = trackFragmentRandomAccessBox;
+                                linkedList3 = linkedList;
+                                trackExtendsBox2 = trackExtendsBox;
+                                it3 = it;
+                                next = box;
+                                i6 = i2;
+                                i5 = i3;
+                                boxes2 = list;
+                                i4 = 0;
+                            }
+                            if (linkedList4.size() == trackRunBox.getEntries().size() && trackRunBox.getEntries().size() > 0) {
+                                linkedList3.add((TrackFragmentRandomAccessBox.Entry) linkedList4.get(i4));
+                            } else {
+                                linkedList3.addAll(linkedList4);
+                            }
+                            i6++;
+                            j2 = j3;
+                        }
+                        continue;
+                    }
+                    i5++;
+                    boxes = boxes;
+                    trackFragmentRandomAccessBox2 = trackFragmentRandomAccessBox2;
+                    linkedList3 = linkedList3;
+                    trackExtendsBox2 = trackExtendsBox2;
+                    it3 = it3;
+                    next = next;
+                    i4 = 0;
+                }
+                continue;
+            }
+            j += next.getSize();
+            trackFragmentRandomAccessBox2 = trackFragmentRandomAccessBox2;
+            linkedList3 = linkedList3;
+            trackExtendsBox2 = trackExtendsBox2;
+            it3 = it3;
+        }
+        trackFragmentRandomAccessBox2.setEntries(linkedList3);
+        trackFragmentRandomAccessBox2.setTrackId(track.getTrackMetaData().getTrackId());
+        return trackFragmentRandomAccessBox2;
     }
 
     public Box createTkhd(Movie movie, Track track) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, movie, track)) == null) {
-            TrackHeaderBox trackHeaderBox = new TrackHeaderBox();
-            trackHeaderBox.setVersion(1);
-            trackHeaderBox.setFlags(7);
-            trackHeaderBox.setAlternateGroup(track.getTrackMetaData().getGroup());
-            trackHeaderBox.setCreationTime(track.getTrackMetaData().getCreationTime());
-            trackHeaderBox.setDuration(0L);
-            trackHeaderBox.setHeight(track.getTrackMetaData().getHeight());
-            trackHeaderBox.setWidth(track.getTrackMetaData().getWidth());
-            trackHeaderBox.setLayer(track.getTrackMetaData().getLayer());
-            trackHeaderBox.setModificationTime(getDate());
-            trackHeaderBox.setTrackId(track.getTrackMetaData().getTrackId());
-            trackHeaderBox.setVolume(track.getTrackMetaData().getVolume());
-            return trackHeaderBox;
-        }
-        return (Box) invokeLL.objValue;
-    }
-
-    public Box createTrex(Movie movie, Track track) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048602, this, movie, track)) == null) {
-            TrackExtendsBox trackExtendsBox = new TrackExtendsBox();
-            trackExtendsBox.setTrackId(track.getTrackMetaData().getTrackId());
-            trackExtendsBox.setDefaultSampleDescriptionIndex(1L);
-            trackExtendsBox.setDefaultSampleDuration(0L);
-            trackExtendsBox.setDefaultSampleSize(0L);
-            SampleFlags sampleFlags = new SampleFlags();
-            if ("soun".equals(track.getHandler()) || "subt".equals(track.getHandler())) {
-                sampleFlags.setSampleDependsOn(2);
-                sampleFlags.setSampleIsDependedOn(2);
-            }
-            trackExtendsBox.setDefaultSampleFlags(sampleFlags);
-            return trackExtendsBox;
-        }
-        return (Box) invokeLL.objValue;
+        TrackHeaderBox trackHeaderBox = new TrackHeaderBox();
+        trackHeaderBox.setVersion(1);
+        trackHeaderBox.setFlags(7);
+        trackHeaderBox.setAlternateGroup(track.getTrackMetaData().getGroup());
+        trackHeaderBox.setCreationTime(track.getTrackMetaData().getCreationTime());
+        trackHeaderBox.setDuration(0L);
+        trackHeaderBox.setHeight(track.getTrackMetaData().getHeight());
+        trackHeaderBox.setWidth(track.getTrackMetaData().getWidth());
+        trackHeaderBox.setLayer(track.getTrackMetaData().getLayer());
+        trackHeaderBox.setModificationTime(getDate());
+        trackHeaderBox.setTrackId(track.getTrackMetaData().getTrackId());
+        trackHeaderBox.setVolume(track.getTrackMetaData().getVolume());
+        return trackHeaderBox;
     }
 
     public TrackRunBox createTrun(long j, long j2, Track track, int i) {
-        InterceptResult invokeCommon;
         CompositionTimeToSample.Entry[] entryArr;
         int i2;
         boolean z;
         boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), track, Integer.valueOf(i)})) == null) {
-            TrackRunBox trackRunBox = new TrackRunBox();
-            long[] sampleSizes = getSampleSizes(j, j2, track, i);
-            trackRunBox.setSampleDurationPresent(true);
-            trackRunBox.setSampleSizePresent(true);
-            ArrayList arrayList = new ArrayList(CastUtils.l2i(j2 - j));
-            List<CompositionTimeToSample.Entry> compositionTimeEntries = track.getCompositionTimeEntries();
-            if (compositionTimeEntries != null && compositionTimeEntries.size() > 0) {
-                entryArr = (CompositionTimeToSample.Entry[]) compositionTimeEntries.toArray(new CompositionTimeToSample.Entry[compositionTimeEntries.size()]);
-            } else {
-                entryArr = null;
-            }
-            if (entryArr != null) {
-                i2 = entryArr[0].getCount();
-            } else {
-                i2 = -1;
-            }
-            long j3 = i2;
-            if (j3 > 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            trackRunBox.setSampleCompositionTimeOffsetPresent(z);
-            int i3 = 0;
-            for (long j4 = 1; j4 < j; j4++) {
-                if (entryArr != null) {
-                    j3--;
-                    if (j3 == 0 && entryArr.length - i3 > 1) {
-                        i3++;
-                        j3 = entryArr[i3].getCount();
-                    }
-                }
-            }
-            if ((track.getSampleDependencies() != null && !track.getSampleDependencies().isEmpty()) || (track.getSyncSamples() != null && track.getSyncSamples().length != 0)) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            trackRunBox.setSampleFlagsPresent(z2);
-            for (int i4 = 0; i4 < sampleSizes.length; i4++) {
-                TrackRunBox.Entry entry = new TrackRunBox.Entry();
-                entry.setSampleSize(sampleSizes[i4]);
-                if (z2) {
-                    SampleFlags sampleFlags = new SampleFlags();
-                    if (track.getSampleDependencies() != null && !track.getSampleDependencies().isEmpty()) {
-                        SampleDependencyTypeBox.Entry entry2 = track.getSampleDependencies().get(i4);
-                        sampleFlags.setSampleDependsOn(entry2.getSampleDependsOn());
-                        sampleFlags.setSampleIsDependedOn(entry2.getSampleIsDependentOn());
-                        sampleFlags.setSampleHasRedundancy(entry2.getSampleHasRedundancy());
-                    }
-                    if (track.getSyncSamples() != null && track.getSyncSamples().length > 0) {
-                        if (Arrays.binarySearch(track.getSyncSamples(), j + i4) >= 0) {
-                            sampleFlags.setSampleIsDifferenceSample(false);
-                            sampleFlags.setSampleDependsOn(2);
-                        } else {
-                            sampleFlags.setSampleIsDifferenceSample(true);
-                            sampleFlags.setSampleDependsOn(1);
-                        }
-                    }
-                    entry.setSampleFlags(sampleFlags);
-                }
-                entry.setSampleDuration(track.getSampleDurations()[CastUtils.l2i((j + i4) - 1)]);
-                if (entryArr != null) {
-                    entry.setSampleCompositionTimeOffset(entryArr[i3].getOffset());
-                    j3--;
-                    if (j3 == 0 && entryArr.length - i3 > 1) {
-                        i3++;
-                        j3 = entryArr[i3].getCount();
-                    }
-                }
-                arrayList.add(entry);
-            }
-            trackRunBox.setEntries(arrayList);
-            return trackRunBox;
+        TrackRunBox trackRunBox = new TrackRunBox();
+        long[] sampleSizes = getSampleSizes(j, j2, track, i);
+        trackRunBox.setSampleDurationPresent(true);
+        trackRunBox.setSampleSizePresent(true);
+        ArrayList arrayList = new ArrayList(CastUtils.l2i(j2 - j));
+        List<CompositionTimeToSample.Entry> compositionTimeEntries = track.getCompositionTimeEntries();
+        if (compositionTimeEntries != null && compositionTimeEntries.size() > 0) {
+            entryArr = (CompositionTimeToSample.Entry[]) compositionTimeEntries.toArray(new CompositionTimeToSample.Entry[compositionTimeEntries.size()]);
+        } else {
+            entryArr = null;
         }
-        return (TrackRunBox) invokeCommon.objValue;
+        if (entryArr != null) {
+            i2 = entryArr[0].getCount();
+        } else {
+            i2 = -1;
+        }
+        long j3 = i2;
+        if (j3 > 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        trackRunBox.setSampleCompositionTimeOffsetPresent(z);
+        int i3 = 0;
+        for (long j4 = 1; j4 < j; j4++) {
+            if (entryArr != null) {
+                j3--;
+                if (j3 == 0 && entryArr.length - i3 > 1) {
+                    i3++;
+                    j3 = entryArr[i3].getCount();
+                }
+            }
+        }
+        if ((track.getSampleDependencies() != null && !track.getSampleDependencies().isEmpty()) || (track.getSyncSamples() != null && track.getSyncSamples().length != 0)) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        trackRunBox.setSampleFlagsPresent(z2);
+        for (int i4 = 0; i4 < sampleSizes.length; i4++) {
+            TrackRunBox.Entry entry = new TrackRunBox.Entry();
+            entry.setSampleSize(sampleSizes[i4]);
+            if (z2) {
+                SampleFlags sampleFlags = new SampleFlags();
+                if (track.getSampleDependencies() != null && !track.getSampleDependencies().isEmpty()) {
+                    SampleDependencyTypeBox.Entry entry2 = track.getSampleDependencies().get(i4);
+                    sampleFlags.setSampleDependsOn(entry2.getSampleDependsOn());
+                    sampleFlags.setSampleIsDependedOn(entry2.getSampleIsDependentOn());
+                    sampleFlags.setSampleHasRedundancy(entry2.getSampleHasRedundancy());
+                }
+                if (track.getSyncSamples() != null && track.getSyncSamples().length > 0) {
+                    if (Arrays.binarySearch(track.getSyncSamples(), j + i4) >= 0) {
+                        sampleFlags.setSampleIsDifferenceSample(false);
+                        sampleFlags.setSampleDependsOn(2);
+                    } else {
+                        sampleFlags.setSampleIsDifferenceSample(true);
+                        sampleFlags.setSampleDependsOn(1);
+                    }
+                }
+                entry.setSampleFlags(sampleFlags);
+            }
+            entry.setSampleDuration(track.getSampleDurations()[CastUtils.l2i((j + i4) - 1)]);
+            if (entryArr != null) {
+                entry.setSampleCompositionTimeOffset(entryArr[i3].getOffset());
+                j3--;
+                if (j3 == 0 && entryArr.length - i3 > 1) {
+                    i3++;
+                    j3 = entryArr[i3].getCount();
+                }
+            }
+            arrayList.add(entry);
+        }
+        trackRunBox.setEntries(arrayList);
+        return trackRunBox;
     }
 
-    public List<Track> sortTracksInSequence(List<Track> list, int i, Map<Track, long[]> map) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048610, this, list, i, map)) == null) {
-            LinkedList linkedList = new LinkedList(list);
-            Collections.sort(linkedList, new Comparator<Track>(this, map, i) { // from class: com.googlecode.mp4parser.authoring.builder.FragmentedMp4Builder.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ FragmentedMp4Builder this$0;
-                public final /* synthetic */ int val$cycle;
-                public final /* synthetic */ Map val$intersectionMap;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, map, Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$intersectionMap = map;
-                    this.val$cycle = i;
+    public List<Track> sortTracksInSequence(List<Track> list, final int i, final Map<Track, long[]> map) {
+        LinkedList linkedList = new LinkedList(list);
+        Collections.sort(linkedList, new Comparator<Track>() { // from class: com.googlecode.mp4parser.authoring.builder.FragmentedMp4Builder.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // java.util.Comparator
+            public int compare(Track track, Track track2) {
+                long j = ((long[]) map.get(track))[i];
+                long j2 = ((long[]) map.get(track2))[i];
+                long[] sampleDurations = track.getSampleDurations();
+                long[] sampleDurations2 = track2.getSampleDurations();
+                long j3 = 0;
+                for (int i2 = 1; i2 < j; i2++) {
+                    j3 += sampleDurations[i2 - 1];
                 }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // java.util.Comparator
-                public int compare(Track track, Track track2) {
-                    InterceptResult invokeLL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, track, track2)) == null) {
-                        long j = ((long[]) this.val$intersectionMap.get(track))[this.val$cycle];
-                        long j2 = ((long[]) this.val$intersectionMap.get(track2))[this.val$cycle];
-                        long[] sampleDurations = track.getSampleDurations();
-                        long[] sampleDurations2 = track2.getSampleDurations();
-                        long j3 = 0;
-                        for (int i2 = 1; i2 < j; i2++) {
-                            j3 += sampleDurations[i2 - 1];
-                        }
-                        long j4 = 0;
-                        for (int i3 = 1; i3 < j2; i3++) {
-                            j4 += sampleDurations2[i3 - 1];
-                        }
-                        return (int) (((j3 / track.getTrackMetaData().getTimescale()) - (j4 / track2.getTrackMetaData().getTimescale())) * 100.0d);
-                    }
-                    return invokeLL.intValue;
+                long j4 = 0;
+                for (int i3 = 1; i3 < j2; i3++) {
+                    j4 += sampleDurations2[i3 - 1];
                 }
-            });
-            return linkedList;
-        }
-        return (List) invokeLIL.objValue;
+                return (int) (((j3 / track.getTrackMetaData().getTimescale()) - (j4 / track2.getTrackMetaData().getTimescale())) * 100.0d);
+            }
+        });
+        return linkedList;
     }
 }

@@ -1,95 +1,55 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tbadk.img.effect.ImageOperation;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes7.dex */
-public class ze5 extends we5 {
+public final class ze5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    @Override // com.baidu.tieba.we5
-    public String a() {
+    public static final boolean a() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "rotate" : (String) invokeV.objValue;
-    }
-
-    public ze5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
-    }
-
-    public static ImageOperation e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            ImageOperation imageOperation = new ImageOperation();
-            imageOperation.actionName = "rotate";
-            imageOperation.actionParam = String.valueOf(i);
-            return imageOperation;
-        }
-        return (ImageOperation) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.we5
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || str == null) {
-            return;
-        }
-        this.a = Integer.parseInt(str);
-    }
-
-    @Override // com.baidu.tieba.we5
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
-            if (bitmap == null) {
-                return null;
-            }
-            TbImageMemoryCache.n().l(BitmapHelper.getBitmapSize(bitmap) * 2);
-            int i = this.a;
-            if (i != 0 && i != 1) {
-                if (i != 2 && i != 3) {
-                    return bitmap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (of5.b.a().a("show_write_tip")) {
+                xb5 a = nf5.b.a().a();
+                if (a != null && a.b == 0) {
+                    z = true;
+                } else {
+                    z = false;
                 }
-                return BitmapHelper.reversalBitmap(bitmap, this.a);
+                if (!z) {
+                    return true;
+                }
             }
-            return BitmapHelper.rotateBitmap(bitmap, this.a);
+            return false;
         }
-        return (Bitmap) invokeLZ.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.we5
-    public Bitmap c(String str) throws Exception {
-        InterceptResult invokeL;
+    public static final int b(boolean z) {
+        InterceptResult invokeZ;
+        ThemeColorInfo themeColorInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int max = Math.max(ej.l(TbadkCoreApplication.getInst().getApp()), ej.j(TbadkCoreApplication.getInst().getApp()));
-            return b(BitmapHelper.loadResizedBitmap(str, max, max), true);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
+            if (!z) {
+                return SkinManager.getColor(R.color.CAM_X0110);
+            }
+            xb5 a = nf5.b.a().a();
+            if (a != null) {
+                themeColorInfo = a.f;
+            } else {
+                themeColorInfo = null;
+            }
+            if (a() && themeColorInfo != null) {
+                return SkinManager.getColorFromServerColor(themeColorInfo, R.color.CAM_X0301);
+            }
+            return SkinManager.getColor(R.color.CAM_X0302);
         }
-        return (Bitmap) invokeL.objValue;
+        return invokeZ.intValue;
     }
 }

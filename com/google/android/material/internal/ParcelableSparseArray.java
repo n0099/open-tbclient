@@ -6,153 +6,62 @@ import android.util.SparseArray;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ParcelableSparseArray extends SparseArray<Parcelable> implements Parcelable {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<ParcelableSparseArray> CREATOR;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final Parcelable.Creator<ParcelableSparseArray> CREATOR = new Parcelable.ClassLoaderCreator<ParcelableSparseArray>() { // from class: com.google.android.material.internal.ParcelableSparseArray.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        @Nullable
+        public ParcelableSparseArray createFromParcel(@NonNull Parcel parcel) {
+            return new ParcelableSparseArray(parcel, null);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        @NonNull
+        public ParcelableSparseArray[] newArray(int i) {
+            return new ParcelableSparseArray[i];
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // android.os.Parcelable.ClassLoaderCreator
+        @NonNull
+        public ParcelableSparseArray createFromParcel(@NonNull Parcel parcel, ClassLoader classLoader) {
+            return new ParcelableSparseArray(parcel, classLoader);
+        }
+    };
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1311843093, "Lcom/google/android/material/internal/ParcelableSparseArray;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1311843093, "Lcom/google/android/material/internal/ParcelableSparseArray;");
-                return;
-            }
-        }
-        CREATOR = new Parcelable.ClassLoaderCreator<ParcelableSparseArray>() { // from class: com.google.android.material.internal.ParcelableSparseArray.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.os.Parcelable.Creator
-            @Nullable
-            public ParcelableSparseArray createFromParcel(@NonNull Parcel parcel) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
-                    return new ParcelableSparseArray(parcel, null);
-                }
-                return (ParcelableSparseArray) invokeL.objValue;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.os.Parcelable.Creator
-            @NonNull
-            public ParcelableSparseArray[] newArray(int i) {
-                InterceptResult invokeI;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i)) == null) {
-                    return new ParcelableSparseArray[i];
-                }
-                return (ParcelableSparseArray[]) invokeI.objValue;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.ClassLoaderCreator
-            @NonNull
-            public ParcelableSparseArray createFromParcel(@NonNull Parcel parcel, ClassLoader classLoader) {
-                InterceptResult invokeLL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, classLoader)) == null) {
-                    return new ParcelableSparseArray(parcel, classLoader);
-                }
-                return (ParcelableSparseArray) invokeLL.objValue;
-            }
-        };
+        return 0;
     }
 
     public ParcelableSparseArray() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
     }
 
     public ParcelableSparseArray(@NonNull Parcel parcel, @Nullable ClassLoader classLoader) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel, classLoader};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         int readInt = parcel.readInt();
         int[] iArr = new int[readInt];
         parcel.readIntArray(iArr);
         Parcelable[] readParcelableArray = parcel.readParcelableArray(classLoader);
-        for (int i3 = 0; i3 < readInt; i3++) {
-            put(iArr[i3], readParcelableArray[i3]);
+        for (int i = 0; i < readInt; i++) {
+            put(iArr[i], readParcelableArray[i]);
         }
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(@NonNull Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
-            int size = size();
-            int[] iArr = new int[size];
-            Parcelable[] parcelableArr = new Parcelable[size];
-            for (int i2 = 0; i2 < size; i2++) {
-                iArr[i2] = keyAt(i2);
-                parcelableArr[i2] = valueAt(i2);
-            }
-            parcel.writeInt(size);
-            parcel.writeIntArray(iArr);
-            parcel.writeParcelableArray(parcelableArr, i);
+        int size = size();
+        int[] iArr = new int[size];
+        Parcelable[] parcelableArr = new Parcelable[size];
+        for (int i2 = 0; i2 < size; i2++) {
+            iArr[i2] = keyAt(i2);
+            parcelableArr[i2] = valueAt(i2);
         }
+        parcel.writeInt(size);
+        parcel.writeIntArray(iArr);
+        parcel.writeParcelableArray(parcelableArr, i);
     }
 }

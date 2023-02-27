@@ -75,29 +75,29 @@ public final class FrsGroupCardLayoutBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f090dda;
-            RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090dda);
+            int i = R.id.obfuscated_res_0x7f090e1b;
+            RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090e1b);
             if (recyclerView != null) {
-                i = R.id.obfuscated_res_0x7f090e25;
-                BdRoundedImageView bdRoundedImageView = (BdRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e25);
+                i = R.id.obfuscated_res_0x7f090e66;
+                BdRoundedImageView bdRoundedImageView = (BdRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e66);
                 if (bdRoundedImageView != null) {
-                    i = R.id.obfuscated_res_0x7f090e2b;
-                    ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e2b);
+                    i = R.id.obfuscated_res_0x7f090e6c;
+                    ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e6c);
                     if (imageView != null) {
-                        i = R.id.obfuscated_res_0x7f090e2d;
-                        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e2d);
+                        i = R.id.obfuscated_res_0x7f090e6e;
+                        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e6e);
                         if (relativeLayout != null) {
-                            i = R.id.obfuscated_res_0x7f090e36;
-                            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e36);
+                            i = R.id.obfuscated_res_0x7f090e77;
+                            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e77);
                             if (textView != null) {
-                                i = R.id.obfuscated_res_0x7f091656;
-                                ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091656);
+                                i = R.id.obfuscated_res_0x7f091697;
+                                ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091697);
                                 if (imageView2 != null) {
-                                    i = R.id.obfuscated_res_0x7f091657;
-                                    LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091657);
+                                    i = R.id.obfuscated_res_0x7f091698;
+                                    LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091698);
                                     if (linearLayout != null) {
-                                        i = R.id.obfuscated_res_0x7f09166a;
-                                        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09166a);
+                                        i = R.id.obfuscated_res_0x7f0916ab;
+                                        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916ab);
                                         if (textView2 != null) {
                                             RelativeLayout relativeLayout2 = (RelativeLayout) view2;
                                             return new FrsGroupCardLayoutBinding(relativeLayout2, recyclerView, bdRoundedImageView, imageView, relativeLayout, textView, imageView2, linearLayout, textView2, relativeLayout2);
@@ -119,7 +119,7 @@ public final class FrsGroupCardLayoutBinding implements ViewBinding {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0319, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0327, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

@@ -3,398 +3,178 @@ package org.webrtc;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 /* loaded from: classes9.dex */
 public class ThreadUtils {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: org.webrtc.ThreadUtils$1CaughtException  reason: invalid class name */
+    /* loaded from: classes9.dex */
+    public class C1CaughtException {
+        public Exception e;
+    }
+
+    /* renamed from: org.webrtc.ThreadUtils$1Result  reason: invalid class name */
+    /* loaded from: classes9.dex */
+    public class C1Result {
+        public V value;
+    }
 
     /* loaded from: classes9.dex */
     public interface BlockingOperation {
         void run() throws InterruptedException;
     }
 
-    /* renamed from: org.webrtc.ThreadUtils$1CaughtException  reason: invalid class name */
-    /* loaded from: classes9.dex */
-    public class C1CaughtException {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Exception e;
-
-        public C1CaughtException() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* renamed from: org.webrtc.ThreadUtils$1Result  reason: invalid class name */
-    /* loaded from: classes9.dex */
-    public class C1Result {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public V value;
-
-        public C1Result() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
     /* loaded from: classes9.dex */
     public static class ThreadChecker {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         @Nullable
-        public Thread thread;
-
-        public ThreadChecker() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.thread = Thread.currentThread();
-        }
+        public Thread thread = Thread.currentThread();
 
         public void checkIsOnValidThread() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.thread == null) {
-                    this.thread = Thread.currentThread();
-                }
-                if (Thread.currentThread() == this.thread) {
-                    return;
-                }
-                throw new IllegalStateException("Wrong thread");
+            if (this.thread == null) {
+                this.thread = Thread.currentThread();
             }
+            if (Thread.currentThread() == this.thread) {
+                return;
+            }
+            throw new IllegalStateException("Wrong thread");
         }
 
         public void detachThread() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.thread = null;
-            }
-        }
-    }
-
-    public ThreadUtils() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            this.thread = null;
         }
     }
 
     public static void checkIsOnMainThread() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65539, null) != null) || Thread.currentThread() == Looper.getMainLooper().getThread()) {
+        if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
             return;
         }
         throw new IllegalStateException("Not on main thread!");
     }
 
-    public static void awaitUninterruptibly(CountDownLatch countDownLatch) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, countDownLatch) == null) {
-            executeUninterruptibly(new BlockingOperation(countDownLatch) { // from class: org.webrtc.ThreadUtils.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ CountDownLatch val$latch;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {countDownLatch};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$latch = countDownLatch;
-                }
-
-                @Override // org.webrtc.ThreadUtils.BlockingOperation
-                public void run() throws InterruptedException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.val$latch.await();
-                    }
-                }
-            });
-        }
+    public static void awaitUninterruptibly(final CountDownLatch countDownLatch) {
+        executeUninterruptibly(new BlockingOperation() { // from class: org.webrtc.ThreadUtils.2
+            @Override // org.webrtc.ThreadUtils.BlockingOperation
+            public void run() throws InterruptedException {
+                countDownLatch.await();
+            }
+        });
     }
 
     public static void executeUninterruptibly(BlockingOperation blockingOperation) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, blockingOperation) == null) {
-            boolean z = false;
-            while (true) {
-                try {
-                    blockingOperation.run();
-                    break;
-                } catch (InterruptedException unused) {
-                    z = true;
-                }
+        boolean z = false;
+        while (true) {
+            try {
+                blockingOperation.run();
+                break;
+            } catch (InterruptedException unused) {
+                z = true;
             }
-            if (z) {
-                Thread.currentThread().interrupt();
-            }
+        }
+        if (z) {
+            Thread.currentThread().interrupt();
         }
     }
 
-    public static void joinUninterruptibly(Thread thread) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, thread) == null) {
-            executeUninterruptibly(new BlockingOperation(thread) { // from class: org.webrtc.ThreadUtils.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Thread val$thread;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {thread};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$thread = thread;
-                }
-
-                @Override // org.webrtc.ThreadUtils.BlockingOperation
-                public void run() throws InterruptedException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.val$thread.join();
-                    }
-                }
-            });
-        }
+    public static void joinUninterruptibly(final Thread thread) {
+        executeUninterruptibly(new BlockingOperation() { // from class: org.webrtc.ThreadUtils.1
+            @Override // org.webrtc.ThreadUtils.BlockingOperation
+            public void run() throws InterruptedException {
+                thread.join();
+            }
+        });
     }
 
     public static boolean awaitUninterruptibly(CountDownLatch countDownLatch, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, countDownLatch, j)) == null) {
-            long elapsedRealtime = SystemClock.elapsedRealtime();
-            boolean z = false;
-            long j2 = j;
-            boolean z2 = false;
-            do {
-                try {
-                    z = countDownLatch.await(j2, TimeUnit.MILLISECONDS);
-                    break;
-                } catch (InterruptedException unused) {
-                    z2 = true;
-                    j2 = j - (SystemClock.elapsedRealtime() - elapsedRealtime);
-                    if (j2 <= 0) {
-                    }
-                }
-            } while (j2 <= 0);
-            if (z2) {
-                Thread.currentThread().interrupt();
-            }
-            return z;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public static boolean joinUninterruptibly(Thread thread, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65545, null, thread, j)) == null) {
-            long elapsedRealtime = SystemClock.elapsedRealtime();
-            boolean z = false;
-            long j2 = j;
-            while (j2 > 0) {
-                try {
-                    thread.join(j2);
-                    break;
-                } catch (InterruptedException unused) {
-                    j2 = j - (SystemClock.elapsedRealtime() - elapsedRealtime);
-                    z = true;
+        long elapsedRealtime = SystemClock.elapsedRealtime();
+        boolean z = false;
+        long j2 = j;
+        boolean z2 = false;
+        do {
+            try {
+                z = countDownLatch.await(j2, TimeUnit.MILLISECONDS);
+                break;
+            } catch (InterruptedException unused) {
+                z2 = true;
+                j2 = j - (SystemClock.elapsedRealtime() - elapsedRealtime);
+                if (j2 <= 0) {
                 }
             }
-            if (z) {
-                Thread.currentThread().interrupt();
-            }
-            return !thread.isAlive();
+        } while (j2 <= 0);
+        if (z2) {
+            Thread.currentThread().interrupt();
         }
-        return invokeLJ.booleanValue;
+        return z;
     }
 
     public static StackTraceElement[] concatStackTraces(StackTraceElement[] stackTraceElementArr, StackTraceElement[] stackTraceElementArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, stackTraceElementArr, stackTraceElementArr2)) == null) {
-            StackTraceElement[] stackTraceElementArr3 = new StackTraceElement[stackTraceElementArr.length + stackTraceElementArr2.length];
-            System.arraycopy(stackTraceElementArr, 0, stackTraceElementArr3, 0, stackTraceElementArr.length);
-            System.arraycopy(stackTraceElementArr2, 0, stackTraceElementArr3, stackTraceElementArr.length, stackTraceElementArr2.length);
-            return stackTraceElementArr3;
-        }
-        return (StackTraceElement[]) invokeLL.objValue;
+        StackTraceElement[] stackTraceElementArr3 = new StackTraceElement[stackTraceElementArr.length + stackTraceElementArr2.length];
+        System.arraycopy(stackTraceElementArr, 0, stackTraceElementArr3, 0, stackTraceElementArr.length);
+        System.arraycopy(stackTraceElementArr2, 0, stackTraceElementArr3, stackTraceElementArr.length, stackTraceElementArr2.length);
+        return stackTraceElementArr3;
     }
 
-    public static void invokeAtFrontUninterruptibly(Handler handler, Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, handler, runnable) == null) {
-            invokeAtFrontUninterruptibly(handler, new Callable<Void>(runnable) { // from class: org.webrtc.ThreadUtils.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Runnable val$runner;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {runnable};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$runner = runnable;
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // java.util.concurrent.Callable
-                public Void call() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                        this.val$runner.run();
-                        return null;
-                    }
-                    return (Void) invokeV.objValue;
-                }
-            });
-        }
+    public static void invokeAtFrontUninterruptibly(Handler handler, final Runnable runnable) {
+        invokeAtFrontUninterruptibly(handler, new Callable<Void>() { // from class: org.webrtc.ThreadUtils.4
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // java.util.concurrent.Callable
+            public Void call() {
+                runnable.run();
+                return null;
+            }
+        });
     }
 
-    public static <V> V invokeAtFrontUninterruptibly(Handler handler, Callable<V> callable) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, handler, callable)) == null) {
-            if (handler.getLooper().getThread() == Thread.currentThread()) {
+    public static boolean joinUninterruptibly(Thread thread, long j) {
+        long elapsedRealtime = SystemClock.elapsedRealtime();
+        boolean z = false;
+        long j2 = j;
+        while (j2 > 0) {
+            try {
+                thread.join(j2);
+                break;
+            } catch (InterruptedException unused) {
+                j2 = j - (SystemClock.elapsedRealtime() - elapsedRealtime);
+                z = true;
+            }
+        }
+        if (z) {
+            Thread.currentThread().interrupt();
+        }
+        return !thread.isAlive();
+    }
+
+    public static <V> V invokeAtFrontUninterruptibly(Handler handler, final Callable<V> callable) {
+        if (handler.getLooper().getThread() == Thread.currentThread()) {
+            try {
+                return callable.call();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+        final C1Result c1Result = new C1Result();
+        final C1CaughtException c1CaughtException = new C1CaughtException();
+        final CountDownLatch countDownLatch = new CountDownLatch(1);
+        handler.post(new Runnable() { // from class: org.webrtc.ThreadUtils.3
+            /* JADX WARN: Type inference failed for: r1v2, types: [V, java.lang.Object] */
+            @Override // java.lang.Runnable
+            public void run() {
                 try {
-                    return callable.call();
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
+                    C1Result.this.value = callable.call();
+                } catch (Exception e2) {
+                    c1CaughtException.e = e2;
                 }
+                countDownLatch.countDown();
             }
-            C1Result c1Result = new C1Result();
-            C1CaughtException c1CaughtException = new C1CaughtException();
-            CountDownLatch countDownLatch = new CountDownLatch(1);
-            handler.post(new Runnable(c1Result, callable, c1CaughtException, countDownLatch) { // from class: org.webrtc.ThreadUtils.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ CountDownLatch val$barrier;
-                public final /* synthetic */ Callable val$callable;
-                public final /* synthetic */ C1CaughtException val$caughtException;
-                public final /* synthetic */ C1Result val$result;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {c1Result, callable, c1CaughtException, countDownLatch};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$result = c1Result;
-                    this.val$callable = callable;
-                    this.val$caughtException = c1CaughtException;
-                    this.val$barrier = countDownLatch;
-                }
-
-                /* JADX WARN: Type inference failed for: r1v2, types: [V, java.lang.Object] */
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        try {
-                            this.val$result.value = this.val$callable.call();
-                        } catch (Exception e2) {
-                            this.val$caughtException.e = e2;
-                        }
-                        this.val$barrier.countDown();
-                    }
-                }
-            });
-            awaitUninterruptibly(countDownLatch);
-            if (c1CaughtException.e == null) {
-                return c1Result.value;
-            }
-            RuntimeException runtimeException = new RuntimeException(c1CaughtException.e);
-            runtimeException.setStackTrace(concatStackTraces(c1CaughtException.e.getStackTrace(), runtimeException.getStackTrace()));
-            throw runtimeException;
+        });
+        awaitUninterruptibly(countDownLatch);
+        if (c1CaughtException.e == null) {
+            return c1Result.value;
         }
-        return (V) invokeLL.objValue;
+        RuntimeException runtimeException = new RuntimeException(c1CaughtException.e);
+        runtimeException.setStackTrace(concatStackTraces(c1CaughtException.e.getStackTrace(), runtimeException.getStackTrace()));
+        throw runtimeException;
     }
 }

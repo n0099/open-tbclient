@@ -2,11 +2,15 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
+import android.webkit.JavascriptInterface;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class db2 {
     public static /* synthetic */ Interceptable $ic;
@@ -26,56 +30,41 @@ public class db2 {
                 return;
             }
         }
-        a = gp1.a;
+        a = wp1.a;
     }
 
-    public static boolean a(u72 u72Var, String str) {
+    public db2(k82 k82Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {k82Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @JavascriptInterface
+    public String setData(String str, String str2) {
         InterceptResult invokeLL;
-        w83 b0;
-        ya2 a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, u72Var, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
             if (a) {
-                Log.d("MasterIsolationHelper", "JS CALL - " + str);
+                Log.d("DaemonJsBridge", "slave id: " + str + " data: " + str2);
             }
-            boolean z = false;
-            if (v43.D()) {
-                return false;
+            int i = 0;
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                zu2.U().y(new pj2(str, str2), false);
+            } else {
+                i = 202;
             }
-            if (u72Var != null && !TextUtils.isEmpty(u72Var.getContainerId())) {
-                if (lb2.i().k(u72Var.getContainerId())) {
-                    return true;
-                }
-                if (!wc2.h()) {
-                    return false;
-                }
-                String containerId = u72Var.getContainerId();
-                if (!cb2.a(containerId) || (b0 = w83.b0()) == null || !b(u72Var) || (a2 = fb2.b().a()) == null) {
-                    return false;
-                }
-                String h = a2.h();
-                if (TextUtils.isEmpty(h)) {
-                    return false;
-                }
-                z = (TextUtils.equals(a2.i().a(), u72Var.getContainerId()) && TextUtils.equals(h, b0.b)) ? true : true;
-                if (a && z) {
-                    Log.w("MasterIsolationHelper", "master id - " + containerId + ",can not call API - " + str + ", intercept for preload/prefetch");
-                }
-            }
-            return z;
+            return UnitedSchemeUtility.wrapCallbackParams(i).toString();
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean b(u72 u72Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, u72Var)) == null) {
-            if ((u72Var instanceof eg2) && ((eg2) u72Var).getInvokeSourceType() == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (String) invokeLL.objValue;
     }
 }

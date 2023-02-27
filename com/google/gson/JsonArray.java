@@ -1,11 +1,5 @@
 package com.google.gson;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -13,373 +7,217 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes8.dex */
 public final class JsonArray extends JsonElement implements Iterable<JsonElement> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final List<JsonElement> elements;
 
     public JsonArray() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.elements = new ArrayList();
     }
 
     @Override // com.google.gson.JsonElement
     public BigDecimal getAsBigDecimal() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.elements.size() == 1) {
-                return this.elements.get(0).getAsBigDecimal();
-            }
-            throw new IllegalStateException();
+        if (this.elements.size() == 1) {
+            return this.elements.get(0).getAsBigDecimal();
         }
-        return (BigDecimal) invokeV.objValue;
+        throw new IllegalStateException();
     }
 
     @Override // com.google.gson.JsonElement
     public BigInteger getAsBigInteger() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.elements.size() == 1) {
-                return this.elements.get(0).getAsBigInteger();
-            }
-            throw new IllegalStateException();
+        if (this.elements.size() == 1) {
+            return this.elements.get(0).getAsBigInteger();
         }
-        return (BigInteger) invokeV.objValue;
+        throw new IllegalStateException();
     }
 
     @Override // com.google.gson.JsonElement
     public boolean getAsBoolean() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.elements.size() == 1) {
-                return this.elements.get(0).getAsBoolean();
-            }
-            throw new IllegalStateException();
+        if (this.elements.size() == 1) {
+            return this.elements.get(0).getAsBoolean();
         }
-        return invokeV.booleanValue;
+        throw new IllegalStateException();
     }
 
     @Override // com.google.gson.JsonElement
     public byte getAsByte() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (this.elements.size() == 1) {
-                return this.elements.get(0).getAsByte();
-            }
-            throw new IllegalStateException();
+        if (this.elements.size() == 1) {
+            return this.elements.get(0).getAsByte();
         }
-        return invokeV.byteValue;
+        throw new IllegalStateException();
     }
 
     @Override // com.google.gson.JsonElement
     public char getAsCharacter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (this.elements.size() == 1) {
-                return this.elements.get(0).getAsCharacter();
-            }
-            throw new IllegalStateException();
+        if (this.elements.size() == 1) {
+            return this.elements.get(0).getAsCharacter();
         }
-        return invokeV.charValue;
+        throw new IllegalStateException();
     }
 
     @Override // com.google.gson.JsonElement
     public double getAsDouble() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (this.elements.size() == 1) {
-                return this.elements.get(0).getAsDouble();
-            }
-            throw new IllegalStateException();
+        if (this.elements.size() == 1) {
+            return this.elements.get(0).getAsDouble();
         }
-        return invokeV.doubleValue;
+        throw new IllegalStateException();
     }
 
     @Override // com.google.gson.JsonElement
     public float getAsFloat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (this.elements.size() == 1) {
-                return this.elements.get(0).getAsFloat();
-            }
-            throw new IllegalStateException();
+        if (this.elements.size() == 1) {
+            return this.elements.get(0).getAsFloat();
         }
-        return invokeV.floatValue;
+        throw new IllegalStateException();
     }
 
     @Override // com.google.gson.JsonElement
     public int getAsInt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            if (this.elements.size() == 1) {
-                return this.elements.get(0).getAsInt();
-            }
-            throw new IllegalStateException();
+        if (this.elements.size() == 1) {
+            return this.elements.get(0).getAsInt();
         }
-        return invokeV.intValue;
+        throw new IllegalStateException();
     }
 
     @Override // com.google.gson.JsonElement
     public long getAsLong() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (this.elements.size() == 1) {
-                return this.elements.get(0).getAsLong();
-            }
-            throw new IllegalStateException();
+        if (this.elements.size() == 1) {
+            return this.elements.get(0).getAsLong();
         }
-        return invokeV.longValue;
+        throw new IllegalStateException();
     }
 
     @Override // com.google.gson.JsonElement
     public Number getAsNumber() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            if (this.elements.size() == 1) {
-                return this.elements.get(0).getAsNumber();
-            }
-            throw new IllegalStateException();
+        if (this.elements.size() == 1) {
+            return this.elements.get(0).getAsNumber();
         }
-        return (Number) invokeV.objValue;
+        throw new IllegalStateException();
     }
 
     @Override // com.google.gson.JsonElement
     public short getAsShort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            if (this.elements.size() == 1) {
-                return this.elements.get(0).getAsShort();
-            }
-            throw new IllegalStateException();
+        if (this.elements.size() == 1) {
+            return this.elements.get(0).getAsShort();
         }
-        return invokeV.shortValue;
+        throw new IllegalStateException();
     }
 
     @Override // com.google.gson.JsonElement
     public String getAsString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            if (this.elements.size() == 1) {
-                return this.elements.get(0).getAsString();
-            }
-            throw new IllegalStateException();
+        if (this.elements.size() == 1) {
+            return this.elements.get(0).getAsString();
         }
-        return (String) invokeV.objValue;
+        throw new IllegalStateException();
     }
 
     public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return this.elements.hashCode();
-        }
-        return invokeV.intValue;
+        return this.elements.hashCode();
     }
 
     @Override // java.lang.Iterable
     public Iterator<JsonElement> iterator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.elements.iterator();
-        }
-        return (Iterator) invokeV.objValue;
+        return this.elements.iterator();
     }
 
     public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            return this.elements.size();
-        }
-        return invokeV.intValue;
+        return this.elements.size();
     }
 
     public JsonArray(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.elements = new ArrayList(i);
     }
 
     public void add(JsonElement jsonElement) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jsonElement) == null) {
-            if (jsonElement == null) {
-                jsonElement = JsonNull.INSTANCE;
-            }
-            this.elements.add(jsonElement);
+        if (jsonElement == null) {
+            jsonElement = JsonNull.INSTANCE;
         }
+        this.elements.add(jsonElement);
     }
 
     public void addAll(JsonArray jsonArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jsonArray) == null) {
-            this.elements.addAll(jsonArray.elements);
-        }
+        this.elements.addAll(jsonArray.elements);
     }
 
     public boolean contains(JsonElement jsonElement) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jsonElement)) == null) {
-            return this.elements.contains(jsonElement);
-        }
-        return invokeL.booleanValue;
+        return this.elements.contains(jsonElement);
     }
 
     public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
-            if (obj != this && (!(obj instanceof JsonArray) || !((JsonArray) obj).elements.equals(this.elements))) {
-                return false;
-            }
-            return true;
+        if (obj != this && (!(obj instanceof JsonArray) || !((JsonArray) obj).elements.equals(this.elements))) {
+            return false;
         }
-        return invokeL.booleanValue;
+        return true;
     }
 
     public JsonElement get(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            return this.elements.get(i);
-        }
-        return (JsonElement) invokeI.objValue;
+        return this.elements.get(i);
     }
 
     public JsonElement remove(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) {
-            return this.elements.remove(i);
-        }
-        return (JsonElement) invokeI.objValue;
+        return this.elements.remove(i);
     }
 
     public void add(Boolean bool) {
         JsonElement jsonPrimitive;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
-            List<JsonElement> list = this.elements;
-            if (bool == null) {
-                jsonPrimitive = JsonNull.INSTANCE;
-            } else {
-                jsonPrimitive = new JsonPrimitive(bool);
-            }
-            list.add(jsonPrimitive);
+        List<JsonElement> list = this.elements;
+        if (bool == null) {
+            jsonPrimitive = JsonNull.INSTANCE;
+        } else {
+            jsonPrimitive = new JsonPrimitive(bool);
         }
+        list.add(jsonPrimitive);
     }
 
     public boolean remove(JsonElement jsonElement) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, jsonElement)) == null) {
-            return this.elements.remove(jsonElement);
-        }
-        return invokeL.booleanValue;
+        return this.elements.remove(jsonElement);
     }
 
     public void add(Character ch) {
         JsonElement jsonPrimitive;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ch) == null) {
-            List<JsonElement> list = this.elements;
-            if (ch == null) {
-                jsonPrimitive = JsonNull.INSTANCE;
-            } else {
-                jsonPrimitive = new JsonPrimitive(ch);
-            }
-            list.add(jsonPrimitive);
+        List<JsonElement> list = this.elements;
+        if (ch == null) {
+            jsonPrimitive = JsonNull.INSTANCE;
+        } else {
+            jsonPrimitive = new JsonPrimitive(ch);
         }
+        list.add(jsonPrimitive);
     }
 
     public void add(Number number) {
         JsonElement jsonPrimitive;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, number) == null) {
-            List<JsonElement> list = this.elements;
-            if (number == null) {
-                jsonPrimitive = JsonNull.INSTANCE;
-            } else {
-                jsonPrimitive = new JsonPrimitive(number);
-            }
-            list.add(jsonPrimitive);
+        List<JsonElement> list = this.elements;
+        if (number == null) {
+            jsonPrimitive = JsonNull.INSTANCE;
+        } else {
+            jsonPrimitive = new JsonPrimitive(number);
         }
+        list.add(jsonPrimitive);
     }
 
     public void add(String str) {
         JsonElement jsonPrimitive;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            List<JsonElement> list = this.elements;
-            if (str == null) {
-                jsonPrimitive = JsonNull.INSTANCE;
-            } else {
-                jsonPrimitive = new JsonPrimitive(str);
-            }
-            list.add(jsonPrimitive);
+        List<JsonElement> list = this.elements;
+        if (str == null) {
+            jsonPrimitive = JsonNull.INSTANCE;
+        } else {
+            jsonPrimitive = new JsonPrimitive(str);
         }
+        list.add(jsonPrimitive);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.JsonElement
     public JsonArray deepCopy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (!this.elements.isEmpty()) {
-                JsonArray jsonArray = new JsonArray(this.elements.size());
-                for (JsonElement jsonElement : this.elements) {
-                    jsonArray.add(jsonElement.deepCopy());
-                }
-                return jsonArray;
+        if (!this.elements.isEmpty()) {
+            JsonArray jsonArray = new JsonArray(this.elements.size());
+            for (JsonElement jsonElement : this.elements) {
+                jsonArray.add(jsonElement.deepCopy());
             }
-            return new JsonArray();
+            return jsonArray;
         }
-        return (JsonArray) invokeV.objValue;
+        return new JsonArray();
     }
 
     public JsonElement set(int i, JsonElement jsonElement) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048603, this, i, jsonElement)) == null) {
-            return this.elements.set(i, jsonElement);
-        }
-        return (JsonElement) invokeIL.objValue;
+        return this.elements.set(i, jsonElement);
     }
 }

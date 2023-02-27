@@ -1,43 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdBaseActivity;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestCommonViewHolder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class zx7 extends qn<ey7, SearchSuggestCommonViewHolder> {
+public class zx7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
+    public final HashMap<String, st4> a;
 
     /* loaded from: classes7.dex */
-    public class a implements no {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
+    }
 
-        public a(zx7 zx7Var, Context context) {
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public String b;
+        public HashMap<String, String> c;
+
+        public b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zx7Var, context};
+                Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,95 +46,164 @@ public class zx7 extends qn<ey7, SearchSuggestCommonViewHolder> {
                     return;
                 }
             }
-            this.a = context;
-        }
-
-        @Override // com.baidu.tieba.no
-        public void b(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(cdo instanceof ey7)) {
+            this.a = false;
+            Uri parse = Uri.parse(str);
+            this.a = "tblego".equals(parse.getScheme());
+            if (e()) {
+                this.b = parse.getAuthority() + parse.getPath();
+                this.c = new HashMap<>();
+                for (String str2 : parse.getQueryParameterNames()) {
+                    this.c.put(str2, parse.getQueryParameter(str2));
+                }
                 return;
             }
-            ey7 ey7Var = (ey7) cdo;
-            String a = ey7Var.a();
-            String b = ey7Var.b();
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921595, b);
-            Context context = this.a;
-            if (context != null && (context instanceof BdBaseActivity)) {
-                customResponsedMessage.setmOrginalMessage(new CustomMessage(2921595, ((BdBaseActivity) context).getUniqueId()));
+            this.b = "";
+            this.c = new HashMap<>();
+        }
+
+        public static b a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                return new b(str);
             }
-            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-            TiebaStatic.eventStat(this.a, "search_bar_result_click", "click", 1, new Object[0]);
-            TiebaStatic.log(new StatisticItem("c12842").param("obj_name", a).param("obj_source", "2").param("obj_type", "1").param("obj_locate", i + 1).param("obj_param1", b));
+            return (b) invokeL.objValue;
+        }
+
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public HashMap<String, String> c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.c;
+            }
+            return (HashMap) invokeV.objValue;
+        }
+
+        public boolean e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.a;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public String d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                if (!TextUtils.isEmpty(str) && e()) {
+                    for (String str2 : this.c.keySet()) {
+                        if (str.equals(str2)) {
+                            return this.c.get(str2);
+                        }
+                    }
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zx7(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    /* loaded from: classes7.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static zx7 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-216992943, "Lcom/baidu/tieba/zx7$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-216992943, "Lcom/baidu/tieba/zx7$c;");
+                    return;
+                }
+            }
+            a = new zx7(null);
+        }
+    }
+
+    public zx7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.mType = bdUniqueId;
-        setOnAdapterItemClickListener(new a(this, context));
+        this.a = new HashMap<>();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: s */
-    public SearchSuggestCommonViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static zx7 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new SearchSuggestCommonViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07d4, viewGroup, false));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c.a;
         }
-        return (SearchSuggestCommonViewHolder) invokeL.objValue;
+        return (zx7) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ey7 ey7Var, SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
-        t(i, view2, viewGroup, ey7Var, searchSuggestCommonViewHolder);
-        return view2;
+    public /* synthetic */ zx7(a aVar) {
+        this();
     }
 
-    public View t(int i, View view2, ViewGroup viewGroup, ey7 ey7Var, SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
-        InterceptResult invokeCommon;
+    public void b(pt4 pt4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ey7Var, searchSuggestCommonViewHolder})) == null) {
-            if (ey7Var == null) {
-                return view2;
+        if (interceptable == null || interceptable.invokeL(1048576, this, pt4Var) == null) {
+            c(pt4Var.c(), pt4Var);
+        }
+    }
+
+    public void c(String str, st4 st4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, st4Var) == null) {
+            this.a.put(str, st4Var);
+        }
+    }
+
+    public void d(Object obj, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, str) != null) || str == null) {
+            return;
+        }
+        b a2 = b.a(str);
+        st4 st4Var = this.a.get(a2.b());
+        if (st4Var != null && a2.e()) {
+            st4Var.b(obj, a2.c(), str);
+        }
+    }
+
+    public void e(Object obj, String str, HashMap<String, String> hashMap, w9 w9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(1048579, this, obj, str, hashMap, w9Var) != null) || str == null) {
+            return;
+        }
+        b a2 = b.a(str);
+        st4 st4Var = this.a.get(a2.b());
+        if (st4Var != null && a2.e()) {
+            if (hashMap != null && !hashMap.isEmpty()) {
+                a2.c().putAll(hashMap);
             }
-            u(searchSuggestCommonViewHolder);
-            WebPManager.setPureDrawable(searchSuggestCommonViewHolder.c, R.drawable.icon_search_scan, R.color.CAM_X0109, null);
-            yx7.a(searchSuggestCommonViewHolder.b, ey7Var.b(), ey7Var.a());
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final void u(SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, searchSuggestCommonViewHolder) == null) {
-            p15 d = p15.d(searchSuggestCommonViewHolder.b);
-            d.v(R.color.CAM_X0105);
-            d.z(R.dimen.T_X06);
-            SkinManager.setBackgroundResource(searchSuggestCommonViewHolder.a, R.drawable.addresslist_item_bg);
-            p15.d(searchSuggestCommonViewHolder.d).f(R.color.CAM_X0203);
+            st4Var.a(obj, a2.c(), str, w9Var);
         }
     }
 }

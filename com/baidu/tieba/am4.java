@@ -1,78 +1,100 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.open.SocialOperation;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class am4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final int b;
+    public final int c;
+    public final String d;
+    public final String e;
+    public final String f;
+    public final String g;
+    public final Set<String> h;
+    public final String i;
+    public final Long j;
+    public int k;
 
-    public static String a(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    public am4(String str, int i, int i2, String str2, String str3, String str4, String str5, Set<String> set, String str6, Long l) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2, str3, str4, str5, set, str6, l};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return sb.toString();
         }
-        return (String) invokeLLZ.objValue;
+        this.a = str;
+        this.c = i2;
+        this.b = i;
+        this.d = str2;
+        this.e = str3;
+        this.f = str4;
+        this.g = str5;
+        this.h = set;
+        this.i = str6;
+        this.j = l;
     }
 
-    public static String b(File file, boolean z) {
-        InterceptResult invokeLZ;
-        FileInputStream fileInputStream;
+    public static am4 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
+        HashSet hashSet;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, file, z)) == null) {
-            FileInputStream fileInputStream2 = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                fileInputStream = new FileInputStream(file);
-                try {
-                    byte[] bArr = new byte[8192];
-                    while (true) {
-                        int read = fileInputStream.read(bArr);
-                        if (read > 0) {
-                            messageDigest.update(bArr, 0, read);
-                        } else {
-                            String a = a(messageDigest.digest(), "", z);
-                            ap4.d(fileInputStream);
-                            return a;
+                String optString = jSONObject.optString("version");
+                if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+                    return null;
+                }
+                String optString2 = optJSONObject.optString("content_type");
+                int optInt = optJSONObject.optInt("official_no");
+                int optInt2 = optJSONObject.optInt("container_no");
+                String optString3 = optJSONObject.optString("host_name");
+                String optString4 = optJSONObject.optString("share_callback_url");
+                JSONArray optJSONArray = optJSONObject.optJSONArray(SocialOperation.GAME_SIGNATURE);
+                String optString5 = optJSONObject.optString("scheme_head");
+                String optString6 = optJSONObject.optString("failure_url");
+                HashSet hashSet2 = new HashSet();
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        String optString7 = optJSONArray.optString(i);
+                        if (!TextUtils.isEmpty(optString7)) {
+                            hashSet2.add(optString7);
                         }
                     }
-                } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused) {
-                    ap4.d(fileInputStream);
-                    return null;
-                } catch (Throwable th) {
-                    th = th;
-                    fileInputStream2 = fileInputStream;
-                    ap4.d(fileInputStream2);
-                    throw th;
                 }
-            } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused2) {
-                fileInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
+                if (hashSet2.size() > 0) {
+                    hashSet = hashSet2;
+                } else {
+                    hashSet = null;
+                }
+                am4 am4Var = new am4(optString2, optInt, optInt2, optString3, optString4, optString6, optString, hashSet, optString5, null);
+                am4Var.k = optJSONObject.optInt("use_openbundleid", -1);
+                return am4Var;
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                return null;
             }
-        } else {
-            return (String) invokeLZ.objValue;
         }
+        return (am4) invokeL.objValue;
     }
 }

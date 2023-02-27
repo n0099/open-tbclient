@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
+import android.content.ContentProviderClient;
 import android.content.Context;
-import android.database.Cursor;
 import android.net.Uri;
-import com.baidu.tieba.g60;
+import android.os.Build;
+import android.os.Bundle;
+import com.baidu.tieba.k60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
@@ -11,8 +13,8 @@ public class j60 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, g60.a aVar) {
-        String str;
+    public static void a(Context context, k60.a aVar) {
+        Bundle call;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
             if (context == null) {
@@ -20,14 +22,23 @@ public class j60 {
                 return;
             }
             try {
-                Cursor query = context.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
-                if (query != null) {
-                    str = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
-                    query.close();
+                Uri parse = Uri.parse("content://cn.nubia.identity/identity");
+                if (Build.VERSION.SDK_INT > 17) {
+                    ContentProviderClient acquireContentProviderClient = context.getContentResolver().acquireContentProviderClient(parse);
+                    if (acquireContentProviderClient != null) {
+                        call = acquireContentProviderClient.call("getOAID", null, null);
+                        if (Build.VERSION.SDK_INT >= 24) {
+                            acquireContentProviderClient.close();
+                        } else {
+                            acquireContentProviderClient.release();
+                        }
+                    } else {
+                        call = null;
+                    }
                 } else {
-                    str = null;
+                    call = context.getContentResolver().call(parse, "getOAID", (String) null, (Bundle) null);
                 }
-                aVar.a(true, str);
+                aVar.a(true, (call == null || call.getInt("code", -1) != 0) ? null : call.getString("id"));
             } catch (Throwable unused) {
                 aVar.a(false, null);
             }

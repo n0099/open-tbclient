@@ -1,293 +1,226 @@
 package com.xiaomi.push;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Build;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
+import android.content.SharedPreferences;
+import com.xiaomi.push.am;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
-import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.HashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class de {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "/MiPushLog";
-    public transient /* synthetic */ FieldHolder $fh;
+    public static volatile de a;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f225a;
-    @SuppressLint({"SimpleDateFormat"})
+    public Context f209a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final SimpleDateFormat f226a;
+    public final ConcurrentLinkedQueue<b> f210a;
 
-    /* renamed from: a  reason: collision with other field name */
-    public ArrayList<File> f227a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public boolean f228a;
-    public int b;
-
-    /* renamed from: b  reason: collision with other field name */
-    public String f229b;
-    public String c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-56376865, "Lcom/xiaomi/push/de;")) == null) {
-            return;
+    /* loaded from: classes8.dex */
+    public class a extends b {
+        public a() {
+            super();
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-56376865, "Lcom/xiaomi/push/de;");
+
+        @Override // com.xiaomi.push.de.b, com.xiaomi.push.am.b
+        public void b() {
+            de.this.b();
         }
     }
 
-    public de() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f226a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        this.b = 2097152;
-        this.f227a = new ArrayList<>();
-    }
+    /* loaded from: classes8.dex */
+    public class b extends am.b {
+        public long a = System.currentTimeMillis();
 
-    private void a(BufferedReader bufferedReader, BufferedWriter bufferedWriter, Pattern pattern) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, this, bufferedReader, bufferedWriter, pattern) == null) {
-            char[] cArr = new char[4096];
-            int read = bufferedReader.read(cArr);
-            boolean z = false;
-            while (read != -1 && !z) {
-                String str = new String(cArr, 0, read);
-                Matcher matcher = pattern.matcher(str);
-                int i = 0;
-                int i2 = 0;
-                while (true) {
-                    if (i >= read || !matcher.find(i)) {
-                        break;
-                    }
-                    int start = matcher.start();
-                    String substring = str.substring(start, this.f229b.length() + start);
-                    if (this.f228a) {
-                        if (substring.compareTo(this.c) > 0) {
-                            read = start;
-                            z = true;
-                            break;
-                        }
-                    } else if (substring.compareTo(this.f229b) >= 0) {
-                        this.f228a = true;
-                        i2 = start;
-                    }
-                    int indexOf = str.indexOf(10, start);
-                    if (indexOf == -1) {
-                        indexOf = this.f229b.length();
-                    }
-                    i = start + indexOf;
-                }
-                if (this.f228a) {
-                    int i3 = read - i2;
-                    this.f225a += i3;
-                    bufferedWriter.write(cArr, i2, i3);
-                    if (z || this.f225a > this.b) {
-                        return;
-                    }
-                }
-                read = bufferedReader.read(cArr);
-            }
+        public b() {
+        }
+
+        /* JADX DEBUG: Possible override for method com.xiaomi.push.am.b.a()V */
+        public boolean a() {
+            return true;
+        }
+
+        @Override // com.xiaomi.push.am.b
+        public void b() {
+        }
+
+        /* JADX DEBUG: Possible override for method com.xiaomi.push.am.b.b()V */
+        /* renamed from: b  reason: collision with other method in class */
+        public final boolean m275b() {
+            return System.currentTimeMillis() - this.a > 172800000;
         }
     }
 
-    private void a(File file) {
-        BufferedReader bufferedReader;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(65539, this, file) != null) {
-            return;
+    /* loaded from: classes8.dex */
+    public class c extends b {
+        public int a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public File f212a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public String f213a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public boolean f214a;
+        public String b;
+
+        /* renamed from: b  reason: collision with other field name */
+        public boolean f215b;
+
+        public c(String str, String str2, File file, boolean z) {
+            super();
+            this.f213a = str;
+            this.b = str2;
+            this.f212a = file;
+            this.f215b = z;
         }
-        Pattern compile = Pattern.compile("\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}");
-        BufferedReader bufferedReader2 = null;
-        try {
+
+        private boolean c() {
+            int i;
+            int i2 = 0;
+            SharedPreferences sharedPreferences = de.this.f209a.getSharedPreferences("log.timestamp", 0);
+            String string = sharedPreferences.getString("log.requst", "");
+            long currentTimeMillis = System.currentTimeMillis();
             try {
-                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
-                try {
-                    bufferedWriter.write("model :" + Build.MODEL + "; os :" + Build.VERSION.INCREMENTAL + "; uid :" + com.xiaomi.push.service.bv.m724a() + "; lng :" + Locale.getDefault().toString() + "; sdk :48; andver :" + Build.VERSION.SDK_INT + "\n");
-                    this.f225a = 0;
-                    Iterator<File> it = this.f227a.iterator();
-                    while (it.hasNext()) {
-                        bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(it.next())));
-                        try {
-                            a(bufferedReader, bufferedWriter, compile);
-                            bufferedReader.close();
-                            bufferedReader2 = bufferedReader;
-                        } catch (FileNotFoundException e) {
-                            e = e;
-                            bufferedReader2 = bufferedWriter;
-                            str = "LOG: filter error = " + e.getMessage();
-                            com.xiaomi.channel.commonutils.logger.b.c(str);
-                            ab.a(bufferedReader2);
-                            ab.a(bufferedReader);
-                            return;
-                        } catch (IOException e2) {
-                            e = e2;
-                            bufferedReader2 = bufferedWriter;
-                            str = "LOG: filter error = " + e.getMessage();
-                            com.xiaomi.channel.commonutils.logger.b.c(str);
-                            ab.a(bufferedReader2);
-                            ab.a(bufferedReader);
-                            return;
-                        } catch (Throwable th) {
-                            th = th;
-                            bufferedReader2 = bufferedWriter;
-                            ab.a(bufferedReader2);
-                            ab.a(bufferedReader);
-                            throw th;
-                        }
-                    }
-                    bufferedWriter.write(cv.a().c());
-                    ab.a(bufferedWriter);
-                    ab.a(bufferedReader2);
-                } catch (FileNotFoundException e3) {
-                    e = e3;
-                    bufferedReader = bufferedReader2;
-                } catch (IOException e4) {
-                    e = e4;
-                    bufferedReader = bufferedReader2;
-                } catch (Throwable th2) {
-                    th = th2;
-                    bufferedReader = bufferedReader2;
-                }
-            } catch (Throwable th3) {
-                th = th3;
+                JSONObject jSONObject = new JSONObject(string);
+                currentTimeMillis = jSONObject.getLong("time");
+                i = jSONObject.getInt("times");
+            } catch (JSONException unused) {
+                i = 0;
             }
-        } catch (FileNotFoundException e5) {
-            e = e5;
-            bufferedReader = null;
-        } catch (IOException e6) {
-            e = e6;
-            bufferedReader = null;
-        } catch (Throwable th4) {
-            th = th4;
-            bufferedReader = null;
-        }
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public de m279a(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-            if (file.exists()) {
-                this.f227a.add(file);
-            }
-            return this;
-        }
-        return (de) invokeL.objValue;
-    }
-
-    public de a(Date date, Date date2) {
-        InterceptResult invokeLL;
-        String format;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, date, date2)) == null) {
-            if (date.after(date2)) {
-                this.f229b = this.f226a.format(date2);
-                format = this.f226a.format(date);
+            if (System.currentTimeMillis() - currentTimeMillis >= 86400000) {
+                currentTimeMillis = System.currentTimeMillis();
+            } else if (i > 10) {
+                return false;
             } else {
-                this.f229b = this.f226a.format(date);
-                format = this.f226a.format(date2);
+                i2 = i;
             }
-            this.c = format;
-            return this;
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("time", currentTimeMillis);
+                jSONObject2.put("times", i2 + 1);
+                sharedPreferences.edit().putString("log.requst", jSONObject2.toString()).commit();
+            } catch (JSONException e) {
+                com.xiaomi.channel.commonutils.logger.b.c("JSONException on put " + e.getMessage());
+            }
+            return true;
         }
-        return (de) invokeLL.objValue;
+
+        /* JADX DEBUG: Possible override for method com.xiaomi.push.am.b.a()V */
+        @Override // com.xiaomi.push.de.b
+        public boolean a() {
+            return bi.e(de.this.f209a) || (this.f215b && bi.b(de.this.f209a));
+        }
+
+        @Override // com.xiaomi.push.de.b, com.xiaomi.push.am.b
+        public void b() {
+            try {
+                if (c()) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("uid", com.xiaomi.push.service.bv.m721a());
+                    hashMap.put("token", this.b);
+                    hashMap.put("net", bi.m205a(de.this.f209a));
+                    bi.a(this.f213a, hashMap, this.f212a, "file");
+                }
+                this.f214a = true;
+            } catch (IOException unused) {
+            }
+        }
+
+        @Override // com.xiaomi.push.am.b
+        /* renamed from: c  reason: collision with other method in class */
+        public void mo276c() {
+            if (!this.f214a) {
+                int i = this.a + 1;
+                this.a = i;
+                if (i < 3) {
+                    de.this.f210a.add(this);
+                }
+            }
+            if (this.f214a || this.a >= 3) {
+                this.f212a.delete();
+            }
+            de.this.a((1 << this.a) * 1000);
+        }
     }
 
-    public File a(Context context, Date date, Date date2, File file) {
-        InterceptResult invokeLLLL;
-        File file2;
-        File file3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, date, date2, file)) == null) {
-            if ("com.xiaomi.xmsf".equalsIgnoreCase(context.getPackageName())) {
-                file2 = new File(context.getExternalFilesDir(null), com.xiaomi.push.service.bk.N);
-                if (!file2.exists()) {
-                    file2 = new File(context.getFilesDir(), com.xiaomi.push.service.bk.N);
-                }
-                if (!file2.exists()) {
-                    file2 = context.getFilesDir();
-                }
-                m279a(new File(file2, "xmsf.log.1"));
-                file3 = new File(file2, "xmsf.log");
-            } else {
-                file2 = new File(context.getExternalFilesDir(null) + a);
-                m279a(new File(file2, "log0.txt"));
-                file3 = new File(file2, "log1.txt");
-            }
-            m279a(file3);
-            if (file2.isDirectory()) {
-                File file4 = new File(file, date.getTime() + "-" + date2.getTime() + ".zip");
-                if (file4.exists()) {
-                    return null;
-                }
-                a(date, date2);
-                long currentTimeMillis = System.currentTimeMillis();
-                File file5 = new File(file, "log.txt");
-                a(file5);
-                com.xiaomi.channel.commonutils.logger.b.c("LOG: filter cost = " + (System.currentTimeMillis() - currentTimeMillis));
-                if (file5.exists()) {
-                    long currentTimeMillis2 = System.currentTimeMillis();
-                    ab.a(file4, file5);
-                    com.xiaomi.channel.commonutils.logger.b.c("LOG: zip cost = " + (System.currentTimeMillis() - currentTimeMillis2));
-                    file5.delete();
-                    if (file4.exists()) {
-                        return file4;
-                    }
-                }
-                return null;
-            }
-            return null;
-        }
-        return (File) invokeLLLL.objValue;
+    public de(Context context) {
+        ConcurrentLinkedQueue<b> concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
+        this.f210a = concurrentLinkedQueue;
+        this.f209a = context;
+        concurrentLinkedQueue.add(new a());
+        b(0L);
     }
 
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || i == 0) {
+    public static de a(Context context) {
+        if (a == null) {
+            synchronized (de.class) {
+                if (a == null) {
+                    a = new de(context);
+                }
+            }
+        }
+        a.f209a = context;
+        return a;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(long j) {
+        b peek = this.f210a.peek();
+        if (peek == null || !peek.a()) {
             return;
         }
-        this.b = i;
+        b(j);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        if (aa.b() || aa.m171a()) {
+            return;
+        }
+        try {
+            File file = new File(this.f209a.getExternalFilesDir(null) + "/.logcache");
+            if (file.exists() && file.isDirectory()) {
+                for (File file2 : file.listFiles()) {
+                    file2.delete();
+                }
+            }
+        } catch (NullPointerException unused) {
+        }
+    }
+
+    private void b(long j) {
+        if (this.f210a.isEmpty()) {
+            return;
+        }
+        gy.a(new dg(this), j);
+    }
+
+    private void c() {
+        while (!this.f210a.isEmpty()) {
+            b peek = this.f210a.peek();
+            if (peek != null) {
+                if (!peek.m275b() && this.f210a.size() <= 6) {
+                    return;
+                }
+                com.xiaomi.channel.commonutils.logger.b.c("remove Expired task");
+                this.f210a.remove(peek);
+            }
+        }
+    }
+
+    public void a() {
+        c();
+        a(0L);
+    }
+
+    public void a(String str, String str2, Date date, Date date2, int i, boolean z) {
+        this.f210a.add(new df(this, i, date, date2, str, str2, z));
+        b(0L);
     }
 }

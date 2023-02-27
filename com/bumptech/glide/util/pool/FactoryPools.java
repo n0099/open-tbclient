@@ -3,24 +3,17 @@ package com.bumptech.glide.util.pool;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.util.Pools;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public final class FactoryPools {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_POOL_SIZE = 20;
-    public static final Resetter<Object> EMPTY_RESETTER;
+    public static final Resetter<Object> EMPTY_RESETTER = new Resetter<Object>() { // from class: com.bumptech.glide.util.pool.FactoryPools.1
+        @Override // com.bumptech.glide.util.pool.FactoryPools.Resetter
+        public void reset(@NonNull Object obj) {
+        }
+    };
     public static final String TAG = "FactoryPools";
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
     public interface Factory<T> {
@@ -40,27 +33,11 @@ public final class FactoryPools {
 
     /* loaded from: classes7.dex */
     public static final class FactoryPool<T> implements Pools.Pool<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final Factory<T> factory;
         public final Pools.Pool<T> pool;
         public final Resetter<T> resetter;
 
         public FactoryPool(@NonNull Pools.Pool<T> pool, @NonNull Factory<T> factory, @NonNull Resetter<T> resetter) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pool, factory, resetter};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.pool = pool;
             this.factory = factory;
             this.resetter = resetter;
@@ -68,218 +45,77 @@ public final class FactoryPools {
 
         @Override // androidx.core.util.Pools.Pool
         public T acquire() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                T acquire = this.pool.acquire();
-                if (acquire == null) {
-                    acquire = this.factory.create();
-                    if (Log.isLoggable(FactoryPools.TAG, 2)) {
-                        Log.v(FactoryPools.TAG, "Created new " + acquire.getClass());
-                    }
+            T acquire = this.pool.acquire();
+            if (acquire == null) {
+                acquire = this.factory.create();
+                if (Log.isLoggable(FactoryPools.TAG, 2)) {
+                    Log.v(FactoryPools.TAG, "Created new " + acquire.getClass());
                 }
-                if (acquire instanceof Poolable) {
-                    ((Poolable) acquire).getVerifier().setRecycled(false);
-                }
-                return acquire;
             }
-            return (T) invokeV.objValue;
+            if (acquire instanceof Poolable) {
+                ((Poolable) acquire).getVerifier().setRecycled(false);
+            }
+            return acquire;
         }
 
         @Override // androidx.core.util.Pools.Pool
         public boolean release(@NonNull T t) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
-                if (t instanceof Poolable) {
-                    ((Poolable) t).getVerifier().setRecycled(true);
-                }
-                this.resetter.reset(t);
-                return this.pool.release(t);
+            if (t instanceof Poolable) {
+                ((Poolable) t).getVerifier().setRecycled(true);
             }
-            return invokeL.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1279720053, "Lcom/bumptech/glide/util/pool/FactoryPools;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1279720053, "Lcom/bumptech/glide/util/pool/FactoryPools;");
-                return;
-            }
-        }
-        EMPTY_RESETTER = new Resetter<Object>() { // from class: com.bumptech.glide.util.pool.FactoryPools.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.bumptech.glide.util.pool.FactoryPools.Resetter
-            public void reset(@NonNull Object obj) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                }
-            }
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-        };
-    }
-
-    public FactoryPools() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+            this.resetter.reset(t);
+            return this.pool.release(t);
         }
     }
 
     @NonNull
     public static <T> Resetter<T> emptyResetter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return (Resetter<T>) EMPTY_RESETTER;
-        }
-        return (Resetter) invokeV.objValue;
+        return (Resetter<T>) EMPTY_RESETTER;
     }
 
     @NonNull
     public static <T> Pools.Pool<List<T>> threadSafeList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return threadSafeList(20);
-        }
-        return (Pools.Pool) invokeV.objValue;
+        return threadSafeList(20);
     }
 
     @NonNull
     public static <T extends Poolable> Pools.Pool<T> build(@NonNull Pools.Pool<T> pool, @NonNull Factory<T> factory) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, pool, factory)) == null) {
-            return build(pool, factory, emptyResetter());
-        }
-        return (Pools.Pool) invokeLL.objValue;
+        return build(pool, factory, emptyResetter());
     }
 
     @NonNull
     public static <T extends Poolable> Pools.Pool<T> simple(int i, @NonNull Factory<T> factory) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, null, i, factory)) == null) {
-            return build(new Pools.SimplePool(i), factory);
-        }
-        return (Pools.Pool) invokeIL.objValue;
+        return build(new Pools.SimplePool(i), factory);
     }
 
     @NonNull
     public static <T extends Poolable> Pools.Pool<T> threadSafe(int i, @NonNull Factory<T> factory) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i, factory)) == null) {
-            return build(new Pools.SynchronizedPool(i), factory);
-        }
-        return (Pools.Pool) invokeIL.objValue;
+        return build(new Pools.SynchronizedPool(i), factory);
     }
 
     @NonNull
     public static <T> Pools.Pool<T> build(@NonNull Pools.Pool<T> pool, @NonNull Factory<T> factory, @NonNull Resetter<T> resetter) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, pool, factory, resetter)) == null) {
-            return new FactoryPool(pool, factory, resetter);
-        }
-        return (Pools.Pool) invokeLLL.objValue;
+        return new FactoryPool(pool, factory, resetter);
     }
 
     @NonNull
     public static <T> Pools.Pool<List<T>> threadSafeList(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
-            return build(new Pools.SynchronizedPool(i), new Factory<List<T>>() { // from class: com.bumptech.glide.util.pool.FactoryPools.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
+        return build(new Pools.SynchronizedPool(i), new Factory<List<T>>() { // from class: com.bumptech.glide.util.pool.FactoryPools.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.bumptech.glide.util.pool.FactoryPools.Factory
+            @NonNull
+            public List<T> create() {
+                return new ArrayList();
+            }
+        }, new Resetter<List<T>>() { // from class: com.bumptech.glide.util.pool.FactoryPools.3
+            @Override // com.bumptech.glide.util.pool.FactoryPools.Resetter
+            public /* bridge */ /* synthetic */ void reset(@NonNull Object obj) {
+                reset((List) ((List) obj));
+            }
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                        }
-                    }
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.bumptech.glide.util.pool.FactoryPools.Factory
-                @NonNull
-                public List<T> create() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                        return new ArrayList();
-                    }
-                    return (List) invokeV.objValue;
-                }
-            }, new Resetter<List<T>>() { // from class: com.bumptech.glide.util.pool.FactoryPools.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                        }
-                    }
-                }
-
-                @Override // com.bumptech.glide.util.pool.FactoryPools.Resetter
-                public /* bridge */ /* synthetic */ void reset(@NonNull Object obj) {
-                    reset((List) ((List) obj));
-                }
-
-                public void reset(@NonNull List<T> list) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                        list.clear();
-                    }
-                }
-            });
-        }
-        return (Pools.Pool) invokeI.objValue;
+            public void reset(@NonNull List<T> list) {
+                list.clear();
+            }
+        });
     }
 }

@@ -1,51 +1,65 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Matrix;
-import android.view.WindowManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.webrtc.TextureBufferImpl;
-import org.webrtc.VideoFrame;
-/* compiled from: CameraSession.java */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final /* synthetic */ class nda {
+public class nda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static VideoFrame.TextureBuffer a(TextureBufferImpl textureBufferImpl, boolean z, int i) {
-        InterceptResult invokeCommon;
+    public nda() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{textureBufferImpl, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            Matrix matrix = new Matrix();
-            matrix.preTranslate(0.5f, 0.5f);
-            if (z) {
-                matrix.preScale(-1.0f, 1.0f);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            matrix.preRotate(i);
-            matrix.preTranslate(-0.5f, -0.5f);
-            return textureBufferImpl.applyTransformMatrix(matrix, textureBufferImpl.getWidth(), textureBufferImpl.getHeight());
         }
-        return (VideoFrame.TextureBuffer) invokeCommon.objValue;
     }
 
-    public static int b(Context context) {
-        InterceptResult invokeL;
+    public static void b(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            int rotation = ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getRotation();
-            if (rotation != 1) {
-                if (rotation != 2) {
-                    if (rotation != 3) {
-                        return 0;
-                    }
-                    return 270;
-                }
-                return 180;
-            }
-            return 90;
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || str2.length() <= 4000) {
+            return;
         }
-        return invokeL.intValue;
+        int i = 0;
+        while (i < str2.length()) {
+            int i2 = i + 4000;
+            if (i2 < str2.length()) {
+                str2.substring(i, i2);
+            } else {
+                str2.substring(i);
+            }
+            i = i2;
+        }
+    }
+
+    public static void a(String str) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            StackTraceElement[] stackTrace = new Throwable().fillInStackTrace().getStackTrace();
+            int i = 2;
+            while (true) {
+                if (i < stackTrace.length) {
+                    if (!stackTrace[i].getClass().equals(nda.class)) {
+                        String className = stackTrace[i].getClassName();
+                        str2 = className.substring(className.lastIndexOf(46) + 1);
+                        break;
+                    }
+                    i++;
+                } else {
+                    str2 = "";
+                    break;
+                }
+            }
+            b("HonorPush_" + str2, str, null);
+        }
     }
 }

@@ -48,13 +48,6 @@ import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.Toolbar;
 import androidx.annotation.Keep;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.PluginContext;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -63,1858 +56,1038 @@ import java.util.function.Consumer;
 @Keep
 /* loaded from: classes7.dex */
 public abstract class GenerateActivityWrapper extends Activity implements a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public Activity mOriginActivity;
     public PluginContext pluginContext;
 
-    public GenerateActivityWrapper() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // android.app.Activity
     public void closeContextMenu() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mOriginActivity.closeContextMenu();
-        }
+        this.mOriginActivity.closeContextMenu();
     }
 
     @Override // android.app.Activity
     public void closeOptionsMenu() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.mOriginActivity.closeOptionsMenu();
-        }
+        this.mOriginActivity.closeOptionsMenu();
     }
 
     @Override // android.app.Activity
     public void enterPictureInPictureMode() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.mOriginActivity.enterPictureInPictureMode();
-        }
+        this.mOriginActivity.enterPictureInPictureMode();
     }
 
     @Override // android.app.Activity
     public void finish() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.mOriginActivity.finish();
-        }
+        this.mOriginActivity.finish();
     }
 
     @Override // android.app.Activity
     public void finishAffinity() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.mOriginActivity.finishAffinity();
-        }
+        this.mOriginActivity.finishAffinity();
     }
 
     @Override // android.app.Activity
     public void finishAfterTransition() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.mOriginActivity.finishAfterTransition();
-        }
+        this.mOriginActivity.finishAfterTransition();
     }
 
     @Override // android.app.Activity
     public void finishAndRemoveTask() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.mOriginActivity.finishAndRemoveTask();
-        }
+        this.mOriginActivity.finishAndRemoveTask();
     }
 
     @Override // android.app.Activity
     public ActionBar getActionBar() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.mOriginActivity.getActionBar();
-        }
-        return (ActionBar) invokeV.objValue;
+        return this.mOriginActivity.getActionBar();
     }
 
     @Override // android.app.Activity
     public ComponentName getCallingActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return this.mOriginActivity.getCallingActivity();
-        }
-        return (ComponentName) invokeV.objValue;
+        return this.mOriginActivity.getCallingActivity();
     }
 
     @Override // android.app.Activity
     public String getCallingPackage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return this.mOriginActivity.getCallingPackage();
-        }
-        return (String) invokeV.objValue;
+        return this.mOriginActivity.getCallingPackage();
     }
 
     @Override // android.app.Activity
     public int getChangingConfigurations() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.mOriginActivity.getChangingConfigurations();
-        }
-        return invokeV.intValue;
+        return this.mOriginActivity.getChangingConfigurations();
     }
 
     @Override // android.app.Activity
     public ComponentName getComponentName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.mOriginActivity.getComponentName();
-        }
-        return (ComponentName) invokeV.objValue;
+        return this.mOriginActivity.getComponentName();
     }
 
     @Override // android.app.Activity
     public Scene getContentScene() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return this.mOriginActivity.getContentScene();
-        }
-        return (Scene) invokeV.objValue;
+        return this.mOriginActivity.getContentScene();
     }
 
     @Override // android.app.Activity
     public TransitionManager getContentTransitionManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            return this.mOriginActivity.getContentTransitionManager();
-        }
-        return (TransitionManager) invokeV.objValue;
+        return this.mOriginActivity.getContentTransitionManager();
     }
 
     @Override // android.app.Activity
     public View getCurrentFocus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            return this.mOriginActivity.getCurrentFocus();
-        }
-        return (View) invokeV.objValue;
+        return this.mOriginActivity.getCurrentFocus();
     }
 
     @Override // android.app.Activity
     public FragmentManager getFragmentManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            return this.mOriginActivity.getFragmentManager();
-        }
-        return (FragmentManager) invokeV.objValue;
+        return this.mOriginActivity.getFragmentManager();
     }
 
     @Override // android.app.Activity
     public Intent getIntent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            return this.mOriginActivity.getIntent();
-        }
-        return (Intent) invokeV.objValue;
+        return this.mOriginActivity.getIntent();
     }
 
     @Override // android.app.Activity
     public Object getLastNonConfigurationInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            return this.mOriginActivity.getLastNonConfigurationInstance();
-        }
-        return invokeV.objValue;
+        return this.mOriginActivity.getLastNonConfigurationInstance();
     }
 
     @Override // android.app.Activity
     public LayoutInflater getLayoutInflater() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            return this.mOriginActivity.getLayoutInflater();
-        }
-        return (LayoutInflater) invokeV.objValue;
+        return this.mOriginActivity.getLayoutInflater();
     }
 
     @Override // android.app.Activity
     public LoaderManager getLoaderManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            return this.mOriginActivity.getLoaderManager();
-        }
-        return (LoaderManager) invokeV.objValue;
+        return this.mOriginActivity.getLoaderManager();
     }
 
     @Override // android.app.Activity
     public String getLocalClassName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            return this.mOriginActivity.getLocalClassName();
-        }
-        return (String) invokeV.objValue;
+        return this.mOriginActivity.getLocalClassName();
     }
 
     @Override // android.app.Activity
     public int getMaxNumPictureInPictureActions() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            return this.mOriginActivity.getMaxNumPictureInPictureActions();
-        }
-        return invokeV.intValue;
+        return this.mOriginActivity.getMaxNumPictureInPictureActions();
     }
 
     @Override // android.app.Activity
     public MenuInflater getMenuInflater() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            return this.mOriginActivity.getMenuInflater();
-        }
-        return (MenuInflater) invokeV.objValue;
+        return this.mOriginActivity.getMenuInflater();
     }
 
     @Override // android.app.Activity
     public Intent getParentActivityIntent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
-            return this.mOriginActivity.getParentActivityIntent();
-        }
-        return (Intent) invokeV.objValue;
+        return this.mOriginActivity.getParentActivityIntent();
     }
 
     @Override // android.app.Activity
     public Uri getReferrer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
-            return this.mOriginActivity.getReferrer();
-        }
-        return (Uri) invokeV.objValue;
+        return this.mOriginActivity.getReferrer();
     }
 
     @Override // android.app.Activity
     public int getRequestedOrientation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
-            return this.mOriginActivity.getRequestedOrientation();
-        }
-        return invokeV.intValue;
+        return this.mOriginActivity.getRequestedOrientation();
     }
 
     @Override // android.app.Activity
     public int getTaskId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
-            return this.mOriginActivity.getTaskId();
-        }
-        return invokeV.intValue;
+        return this.mOriginActivity.getTaskId();
     }
 
     @Override // android.app.Activity
     public VoiceInteractor getVoiceInteractor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
-            return this.mOriginActivity.getVoiceInteractor();
-        }
-        return (VoiceInteractor) invokeV.objValue;
+        return this.mOriginActivity.getVoiceInteractor();
     }
 
     @Override // android.app.Activity
     public Window getWindow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
-            return this.mOriginActivity.getWindow();
-        }
-        return (Window) invokeV.objValue;
+        return this.mOriginActivity.getWindow();
     }
 
     @Override // android.app.Activity
     public WindowManager getWindowManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
-            return this.mOriginActivity.getWindowManager();
-        }
-        return (WindowManager) invokeV.objValue;
+        return this.mOriginActivity.getWindowManager();
     }
 
     @Override // android.app.Activity
     public boolean hasWindowFocus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
-            return this.mOriginActivity.hasWindowFocus();
-        }
-        return invokeV.booleanValue;
+        return this.mOriginActivity.hasWindowFocus();
     }
 
     public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
-            return this.mOriginActivity.hashCode();
-        }
-        return invokeV.intValue;
+        return this.mOriginActivity.hashCode();
     }
 
     @Override // android.app.Activity
     public void invalidateOptionsMenu() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
-            this.mOriginActivity.invalidateOptionsMenu();
-        }
+        this.mOriginActivity.invalidateOptionsMenu();
     }
 
     @Override // android.app.Activity
     public boolean isActivityTransitionRunning() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
-            return this.mOriginActivity.isActivityTransitionRunning();
-        }
-        return invokeV.booleanValue;
+        return this.mOriginActivity.isActivityTransitionRunning();
     }
 
     @Override // android.app.Activity
     public boolean isChangingConfigurations() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
-            return this.mOriginActivity.isChangingConfigurations();
-        }
-        return invokeV.booleanValue;
+        return this.mOriginActivity.isChangingConfigurations();
     }
 
     @Override // android.app.Activity
     public boolean isDestroyed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
-            return this.mOriginActivity.isDestroyed();
-        }
-        return invokeV.booleanValue;
+        return this.mOriginActivity.isDestroyed();
     }
 
     @Override // android.app.Activity
     public boolean isFinishing() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
-            return this.mOriginActivity.isFinishing();
-        }
-        return invokeV.booleanValue;
+        return this.mOriginActivity.isFinishing();
     }
 
     @Override // android.app.Activity
     public boolean isImmersive() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
-            return this.mOriginActivity.isImmersive();
-        }
-        return invokeV.booleanValue;
+        return this.mOriginActivity.isImmersive();
     }
 
     @Override // android.app.Activity
     public boolean isInMultiWindowMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
-            return this.mOriginActivity.isInMultiWindowMode();
-        }
-        return invokeV.booleanValue;
+        return this.mOriginActivity.isInMultiWindowMode();
     }
 
     @Override // android.app.Activity
     public boolean isInPictureInPictureMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
-            return this.mOriginActivity.isInPictureInPictureMode();
-        }
-        return invokeV.booleanValue;
+        return this.mOriginActivity.isInPictureInPictureMode();
     }
 
     @Override // android.app.Activity
     public boolean isLocalVoiceInteractionSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
-            return this.mOriginActivity.isLocalVoiceInteractionSupported();
-        }
-        return invokeV.booleanValue;
+        return this.mOriginActivity.isLocalVoiceInteractionSupported();
     }
 
     @Override // android.app.Activity
     public boolean isTaskRoot() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
-            return this.mOriginActivity.isTaskRoot();
-        }
-        return invokeV.booleanValue;
+        return this.mOriginActivity.isTaskRoot();
     }
 
     @Override // android.app.Activity
     public boolean isVoiceInteraction() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
-            return this.mOriginActivity.isVoiceInteraction();
-        }
-        return invokeV.booleanValue;
+        return this.mOriginActivity.isVoiceInteraction();
     }
 
     @Override // android.app.Activity
     public boolean isVoiceInteractionRoot() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
-            return this.mOriginActivity.isVoiceInteractionRoot();
-        }
-        return invokeV.booleanValue;
+        return this.mOriginActivity.isVoiceInteractionRoot();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048643, this) == null) {
-            this.mOriginActivity.onAttachedToWindow();
-        }
+        this.mOriginActivity.onAttachedToWindow();
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048644, this) == null) {
-            this.mOriginActivity.onBackPressed();
-        }
+        this.mOriginActivity.onBackPressed();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onContentChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048646, this) == null) {
-            this.mOriginActivity.onContentChanged();
-        }
+        this.mOriginActivity.onContentChanged();
     }
 
     @Override // android.app.Activity
     public CharSequence onCreateDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048651, this)) == null) {
-            return this.mOriginActivity.onCreateDescription();
-        }
-        return (CharSequence) invokeV.objValue;
+        return this.mOriginActivity.onCreateDescription();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048659, this) == null) {
-            this.mOriginActivity.onDetachedFromWindow();
-        }
+        this.mOriginActivity.onDetachedFromWindow();
     }
 
     @Override // android.app.Activity
     public void onEnterAnimationComplete() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048660, this) == null) {
-            this.mOriginActivity.onEnterAnimationComplete();
-        }
+        this.mOriginActivity.onEnterAnimationComplete();
     }
 
     @Override // android.app.Activity
     public void onLocalVoiceInteractionStarted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048668, this) == null) {
-            this.mOriginActivity.onLocalVoiceInteractionStarted();
-        }
+        this.mOriginActivity.onLocalVoiceInteractionStarted();
     }
 
     @Override // android.app.Activity
     public void onLocalVoiceInteractionStopped() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048669, this) == null) {
-            this.mOriginActivity.onLocalVoiceInteractionStopped();
-        }
+        this.mOriginActivity.onLocalVoiceInteractionStopped();
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onLowMemory() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048670, this) == null) {
-            this.mOriginActivity.onLowMemory();
-        }
+        this.mOriginActivity.onLowMemory();
     }
 
     @Override // android.app.Activity
     public boolean onNavigateUp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048675, this)) == null) {
-            return this.mOriginActivity.onNavigateUp();
-        }
-        return invokeV.booleanValue;
+        return this.mOriginActivity.onNavigateUp();
     }
 
     @Override // android.app.Activity
     public boolean onPictureInPictureRequested() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048683, this)) == null) {
-            return this.mOriginActivity.onPictureInPictureRequested();
-        }
-        return invokeV.booleanValue;
+        return this.mOriginActivity.onPictureInPictureRequested();
     }
 
     @Override // android.app.Activity
     public Uri onProvideReferrer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048691, this)) == null) {
-            return this.mOriginActivity.onProvideReferrer();
-        }
-        return (Uri) invokeV.objValue;
+        return this.mOriginActivity.onProvideReferrer();
     }
 
     @Override // android.app.Activity
     public Object onRetainNonConfigurationInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048694, this)) == null) {
-            return this.mOriginActivity.onRetainNonConfigurationInstance();
-        }
-        return invokeV.objValue;
+        return this.mOriginActivity.onRetainNonConfigurationInstance();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onSearchRequested() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048696, this)) == null) {
-            return this.mOriginActivity.onSearchRequested();
-        }
-        return invokeV.booleanValue;
+        return this.mOriginActivity.onSearchRequested();
     }
 
     @Override // android.app.Activity
     public void onStateNotSaved() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048698, this) == null) {
-            this.mOriginActivity.onStateNotSaved();
-        }
+        this.mOriginActivity.onStateNotSaved();
     }
 
     @Override // android.app.Activity
     public void onUserInteraction() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048703, this) == null) {
-            this.mOriginActivity.onUserInteraction();
-        }
+        this.mOriginActivity.onUserInteraction();
     }
 
     @Override // android.app.Activity
     public void openOptionsMenu() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048709, this) == null) {
-            this.mOriginActivity.openOptionsMenu();
-        }
+        this.mOriginActivity.openOptionsMenu();
     }
 
     @Override // android.app.Activity
     public void postponeEnterTransition() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048711, this) == null) {
-            this.mOriginActivity.postponeEnterTransition();
-        }
+        this.mOriginActivity.postponeEnterTransition();
     }
 
     @Override // android.app.Activity
     public void recreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048712, this) == null) {
-            this.mOriginActivity.recreate();
-        }
+        this.mOriginActivity.recreate();
     }
 
     @Override // android.app.Activity
     public boolean releaseInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048715, this)) == null) {
-            return this.mOriginActivity.releaseInstance();
-        }
-        return invokeV.booleanValue;
+        return this.mOriginActivity.releaseInstance();
     }
 
     @Override // android.app.Activity
     public void reportFullyDrawn() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048716, this) == null) {
-            this.mOriginActivity.reportFullyDrawn();
-        }
+        this.mOriginActivity.reportFullyDrawn();
     }
 
     @Override // android.app.Activity
     public void showLockTaskEscapeMessage() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048747, this) == null) {
-            this.mOriginActivity.showLockTaskEscapeMessage();
-        }
+        this.mOriginActivity.showLockTaskEscapeMessage();
     }
 
     @Override // android.app.Activity
     public void startLockTask() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048769, this) == null) {
-            this.mOriginActivity.startLockTask();
-        }
+        this.mOriginActivity.startLockTask();
     }
 
     @Override // android.app.Activity
     public void startPostponedEnterTransition() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048773, this) == null) {
-            this.mOriginActivity.startPostponedEnterTransition();
-        }
+        this.mOriginActivity.startPostponedEnterTransition();
     }
 
     @Override // android.app.Activity
     public void stopLocalVoiceInteraction() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048775, this) == null) {
-            this.mOriginActivity.stopLocalVoiceInteraction();
-        }
+        this.mOriginActivity.stopLocalVoiceInteraction();
     }
 
     @Override // android.app.Activity
     public void stopLockTask() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048776, this) == null) {
-            this.mOriginActivity.stopLockTask();
-        }
+        this.mOriginActivity.stopLockTask();
     }
 
     @Override // android.app.Activity
     public void addContentView(View view2, ViewGroup.LayoutParams layoutParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, layoutParams) == null) {
-            this.mOriginActivity.addContentView(view2, layoutParams);
-        }
+        this.mOriginActivity.addContentView(view2, layoutParams);
     }
 
     @Override // android.app.Activity
     public void finishActivityFromChild(Activity activity, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048592, this, activity, i) == null) {
-            this.mOriginActivity.finishActivityFromChild(activity, i);
-        }
+        this.mOriginActivity.finishActivityFromChild(activity, i);
     }
 
     @Override // android.app.Activity
     public boolean navigateUpToFromChild(Activity activity, Intent intent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048638, this, activity, intent)) == null) {
-            return this.mOriginActivity.navigateUpToFromChild(activity, intent);
-        }
-        return invokeLL.booleanValue;
+        return this.mOriginActivity.navigateUpToFromChild(activity, intent);
     }
 
     @Override // android.app.Activity
     public void onActivityReenter(int i, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048641, this, i, intent) == null) {
-            this.mOriginActivity.onActivityReenter(i, intent);
-        }
+        this.mOriginActivity.onActivityReenter(i, intent);
     }
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle, PersistableBundle persistableBundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048649, this, bundle, persistableBundle) == null) {
-            this.mOriginActivity.onCreate(bundle, persistableBundle);
-        }
+        this.mOriginActivity.onCreate(bundle, persistableBundle);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onCreatePanelMenu(int i, Menu menu) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048654, this, i, menu)) == null) {
-            return this.mOriginActivity.onCreatePanelMenu(i, menu);
-        }
-        return invokeIL.booleanValue;
+        return this.mOriginActivity.onCreatePanelMenu(i, menu);
     }
 
     @Override // android.app.Activity
     public boolean onCreateThumbnail(Bitmap bitmap, Canvas canvas) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048656, this, bitmap, canvas)) == null) {
-            return this.mOriginActivity.onCreateThumbnail(bitmap, canvas);
-        }
-        return invokeLL.booleanValue;
+        return this.mOriginActivity.onCreateThumbnail(bitmap, canvas);
     }
 
     @Override // android.app.Activity
     public void onGetDirectActions(CancellationSignal cancellationSignal, Consumer consumer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048662, this, cancellationSignal, consumer) == null) {
-            this.mOriginActivity.onGetDirectActions(cancellationSignal, consumer);
-        }
+        this.mOriginActivity.onGetDirectActions(cancellationSignal, consumer);
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048663, this, i, keyEvent)) == null) {
-            return this.mOriginActivity.onKeyDown(i, keyEvent);
-        }
-        return invokeIL.booleanValue;
+        return this.mOriginActivity.onKeyDown(i, keyEvent);
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048664, this, i, keyEvent)) == null) {
-            return this.mOriginActivity.onKeyLongPress(i, keyEvent);
-        }
-        return invokeIL.booleanValue;
+        return this.mOriginActivity.onKeyLongPress(i, keyEvent);
     }
 
     @Override // android.app.Activity
     public boolean onKeyShortcut(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048666, this, i, keyEvent)) == null) {
-            return this.mOriginActivity.onKeyShortcut(i, keyEvent);
-        }
-        return invokeIL.booleanValue;
+        return this.mOriginActivity.onKeyShortcut(i, keyEvent);
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048667, this, i, keyEvent)) == null) {
-            return this.mOriginActivity.onKeyUp(i, keyEvent);
-        }
-        return invokeIL.booleanValue;
+        return this.mOriginActivity.onKeyUp(i, keyEvent);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onMenuItemSelected(int i, MenuItem menuItem) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048671, this, i, menuItem)) == null) {
-            return this.mOriginActivity.onMenuItemSelected(i, menuItem);
-        }
-        return invokeIL.booleanValue;
+        return this.mOriginActivity.onMenuItemSelected(i, menuItem);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onMenuOpened(int i, Menu menu) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048672, this, i, menu)) == null) {
-            return this.mOriginActivity.onMenuOpened(i, menu);
-        }
-        return invokeIL.booleanValue;
+        return this.mOriginActivity.onMenuOpened(i, menu);
     }
 
     @Override // android.app.Activity
     public void onMultiWindowModeChanged(boolean z, Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048674, this, z, configuration) == null) {
-            this.mOriginActivity.onMultiWindowModeChanged(z, configuration);
-        }
+        this.mOriginActivity.onMultiWindowModeChanged(z, configuration);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onPanelClosed(int i, Menu menu) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048679, this, i, menu) == null) {
-            this.mOriginActivity.onPanelClosed(i, menu);
-        }
+        this.mOriginActivity.onPanelClosed(i, menu);
     }
 
     @Override // android.app.Activity
     public void onPictureInPictureModeChanged(boolean z, Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048682, this, z, configuration) == null) {
-            this.mOriginActivity.onPictureInPictureModeChanged(z, configuration);
-        }
+        this.mOriginActivity.onPictureInPictureModeChanged(z, configuration);
     }
 
     @Override // android.app.Activity
     public void onPostCreate(Bundle bundle, PersistableBundle persistableBundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048684, this, bundle, persistableBundle) == null) {
-            this.mOriginActivity.onPostCreate(bundle, persistableBundle);
-        }
+        this.mOriginActivity.onPostCreate(bundle, persistableBundle);
     }
 
     @Override // android.app.Activity
     public void onRestoreInstanceState(Bundle bundle, PersistableBundle persistableBundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048693, this, bundle, persistableBundle) == null) {
-            this.mOriginActivity.onRestoreInstanceState(bundle, persistableBundle);
-        }
+        this.mOriginActivity.onRestoreInstanceState(bundle, persistableBundle);
     }
 
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle, PersistableBundle persistableBundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048695, this, bundle, persistableBundle) == null) {
-            this.mOriginActivity.onSaveInstanceState(bundle, persistableBundle);
-        }
+        this.mOriginActivity.onSaveInstanceState(bundle, persistableBundle);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048707, this, callback, i)) == null) {
-            return this.mOriginActivity.onWindowStartingActionMode(callback, i);
-        }
-        return (ActionMode) invokeLI.objValue;
+        return this.mOriginActivity.onWindowStartingActionMode(callback, i);
     }
 
     @Override // android.app.Activity
     public void overridePendingTransition(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048710, this, i, i2) == null) {
-            this.mOriginActivity.overridePendingTransition(i, i2);
-        }
+        this.mOriginActivity.overridePendingTransition(i, i2);
     }
 
     @Override // android.app.Activity
     public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048723, this, view2, layoutParams) == null) {
-            this.mOriginActivity.setContentView(view2, layoutParams);
-        }
+        this.mOriginActivity.setContentView(view2, layoutParams);
     }
 
     @Override // android.app.Activity
     public void setLocusContext(LocusId locusId, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048730, this, locusId, bundle) == null) {
-            this.mOriginActivity.setLocusContext(locusId, bundle);
-        }
+        this.mOriginActivity.setLocusContext(locusId, bundle);
     }
 
     @Override // android.app.Activity
     public void setVrModeEnabled(boolean z, ComponentName componentName) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048742, this, z, componentName) == null) {
-            this.mOriginActivity.setVrModeEnabled(z, componentName);
-        }
+        this.mOriginActivity.setVrModeEnabled(z, componentName);
     }
 
     @Override // android.app.Activity
     public ActionMode startActionMode(ActionMode.Callback callback, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048749, this, callback, i)) == null) {
-            return this.mOriginActivity.startActionMode(callback, i);
-        }
-        return (ActionMode) invokeLI.objValue;
+        return this.mOriginActivity.startActionMode(callback, i);
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
     public void startActivities(Intent[] intentArr, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048751, this, intentArr, bundle) == null) {
-            this.mOriginActivity.startActivities(intentArr, bundle);
-        }
+        this.mOriginActivity.startActivities(intentArr, bundle);
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
     public void startActivity(Intent intent, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048753, this, intent, bundle) == null) {
-            this.mOriginActivity.startActivity(intent, bundle);
-        }
+        this.mOriginActivity.startActivity(intent, bundle);
     }
 
     @Override // android.app.Activity
     public void startActivityForResult(Intent intent, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048754, this, intent, i) == null) {
-            this.mOriginActivity.startActivityForResult(intent, i);
-        }
+        this.mOriginActivity.startActivityForResult(intent, i);
     }
 
     @Override // android.app.Activity
     public boolean startActivityIfNeeded(Intent intent, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048760, this, intent, i)) == null) {
-            return this.mOriginActivity.startActivityIfNeeded(intent, i);
-        }
-        return invokeLI.booleanValue;
+        return this.mOriginActivity.startActivityIfNeeded(intent, i);
     }
 
     @Override // android.app.Activity
     public boolean startNextMatchingActivity(Intent intent, Bundle bundle) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048772, this, intent, bundle)) == null) {
-            return this.mOriginActivity.startNextMatchingActivity(intent, bundle);
-        }
-        return invokeLL.booleanValue;
+        return this.mOriginActivity.startNextMatchingActivity(intent, bundle);
     }
 
     @Override // android.app.Activity
     public void triggerSearch(String str, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048779, this, str, bundle) == null) {
-            this.mOriginActivity.triggerSearch(str, bundle);
-        }
+        this.mOriginActivity.triggerSearch(str, bundle);
     }
 
     @Override // android.app.Activity
     public PendingIntent createPendingResult(int i, Intent intent, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), intent, Integer.valueOf(i2)})) == null) {
-            return this.mOriginActivity.createPendingResult(i, intent, i2);
-        }
-        return (PendingIntent) invokeCommon.objValue;
+        return this.mOriginActivity.createPendingResult(i, intent, i2);
     }
 
     @Override // android.app.Activity, android.view.View.OnCreateContextMenuListener
     public void onCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048650, this, contextMenu, view2, contextMenuInfo) == null) {
-            this.mOriginActivity.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
-        }
+        this.mOriginActivity.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
     }
 
     @Override // android.app.Activity, android.view.LayoutInflater.Factory
     public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048658, this, str, context, attributeSet)) == null) {
-            return this.mOriginActivity.onCreateView(str, context, attributeSet);
-        }
-        return (View) invokeLLL.objValue;
+        return this.mOriginActivity.onCreateView(str, context, attributeSet);
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyMultiple(int i, int i2, KeyEvent keyEvent) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048665, this, i, i2, keyEvent)) == null) {
-            return this.mOriginActivity.onKeyMultiple(i, i2, keyEvent);
-        }
-        return invokeIIL.booleanValue;
+        return this.mOriginActivity.onKeyMultiple(i, i2, keyEvent);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onPreparePanel(int i, View view2, Menu menu) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048687, this, i, view2, menu)) == null) {
-            return this.mOriginActivity.onPreparePanel(i, view2, menu);
-        }
-        return invokeILL.booleanValue;
+        return this.mOriginActivity.onPreparePanel(i, view2, menu);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onProvideKeyboardShortcuts(List list, Menu menu, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048690, this, list, menu, i) == null) {
-            this.mOriginActivity.onProvideKeyboardShortcuts(list, menu, i);
-        }
+        this.mOriginActivity.onProvideKeyboardShortcuts(list, menu, i);
     }
 
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048692, this, i, strArr, iArr) == null) {
-            this.mOriginActivity.onRequestPermissionsResult(i, strArr, iArr);
-        }
+        this.mOriginActivity.onRequestPermissionsResult(i, strArr, iArr);
     }
 
     @Override // android.app.Activity
     public void startActivityForResult(Intent intent, int i, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048755, this, intent, i, bundle) == null) {
-            this.mOriginActivity.startActivityForResult(intent, i, bundle);
-        }
+        this.mOriginActivity.startActivityForResult(intent, i, bundle);
     }
 
     @Override // android.app.Activity
     public void startActivityFromChild(Activity activity, Intent intent, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048756, this, activity, intent, i) == null) {
-            this.mOriginActivity.startActivityFromChild(activity, intent, i);
-        }
+        this.mOriginActivity.startActivityFromChild(activity, intent, i);
     }
 
     @Override // android.app.Activity
     public void startActivityFromFragment(Fragment fragment, Intent intent, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048758, this, fragment, intent, i) == null) {
-            this.mOriginActivity.startActivityFromFragment(fragment, intent, i);
-        }
+        this.mOriginActivity.startActivityFromFragment(fragment, intent, i);
     }
 
     @Override // android.app.Activity
     public boolean startActivityIfNeeded(Intent intent, int i, Bundle bundle) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048761, this, intent, i, bundle)) == null) {
-            return this.mOriginActivity.startActivityIfNeeded(intent, i, bundle);
-        }
-        return invokeLIL.booleanValue;
+        return this.mOriginActivity.startActivityIfNeeded(intent, i, bundle);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchGenericMotionEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            return this.mOriginActivity.dispatchGenericMotionEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
+        return this.mOriginActivity.dispatchGenericMotionEvent(motionEvent);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, keyEvent)) == null) {
-            return this.mOriginActivity.dispatchKeyEvent(keyEvent);
-        }
-        return invokeL.booleanValue;
+        return this.mOriginActivity.dispatchKeyEvent(keyEvent);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchKeyShortcutEvent(KeyEvent keyEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, keyEvent)) == null) {
-            return this.mOriginActivity.dispatchKeyShortcutEvent(keyEvent);
-        }
-        return invokeL.booleanValue;
+        return this.mOriginActivity.dispatchKeyShortcutEvent(keyEvent);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, accessibilityEvent)) == null) {
-            return this.mOriginActivity.dispatchPopulateAccessibilityEvent(accessibilityEvent);
-        }
-        return invokeL.booleanValue;
+        return this.mOriginActivity.dispatchPopulateAccessibilityEvent(accessibilityEvent);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
-            return this.mOriginActivity.dispatchTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
+        return this.mOriginActivity.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTrackballEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
-            return this.mOriginActivity.dispatchTrackballEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
+        return this.mOriginActivity.dispatchTrackballEvent(motionEvent);
     }
 
     @Override // android.app.Activity
     public boolean enterPictureInPictureMode(PictureInPictureParams pictureInPictureParams) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, pictureInPictureParams)) == null) {
-            return this.mOriginActivity.enterPictureInPictureMode(pictureInPictureParams);
-        }
-        return invokeL.booleanValue;
+        return this.mOriginActivity.enterPictureInPictureMode(pictureInPictureParams);
     }
 
     @Override // android.app.Activity
     public View findViewById(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            return this.mOriginActivity.findViewById(i);
-        }
-        return (View) invokeI.objValue;
+        return this.mOriginActivity.findViewById(i);
     }
 
     @Override // android.app.Activity
     public void finishActivity(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.mOriginActivity.finishActivity(i);
-        }
+        this.mOriginActivity.finishActivity(i);
     }
 
     @Override // android.app.Activity
     public void finishFromChild(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, activity) == null) {
-            this.mOriginActivity.finishFromChild(activity);
-        }
+        this.mOriginActivity.finishFromChild(activity);
     }
 
     @Override // android.app.Activity
     public SharedPreferences getPreferences(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i)) == null) {
-            return this.mOriginActivity.getPreferences(i);
-        }
-        return (SharedPreferences) invokeI.objValue;
+        return this.mOriginActivity.getPreferences(i);
     }
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Object getSystemService(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, str)) == null) {
-            return this.pluginContext.getSystemService(str);
-        }
-        return invokeL.objValue;
+        return this.pluginContext.getSystemService(str);
     }
 
     @Override // android.app.Activity
     public boolean moveTaskToBack(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048636, this, z)) == null) {
-            return this.mOriginActivity.moveTaskToBack(z);
-        }
-        return invokeZ.booleanValue;
+        return this.mOriginActivity.moveTaskToBack(z);
     }
 
     @Override // android.app.Activity
     public boolean navigateUpTo(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048637, this, intent)) == null) {
-            return this.mOriginActivity.navigateUpTo(intent);
-        }
-        return invokeL.booleanValue;
+        return this.mOriginActivity.navigateUpTo(intent);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onActionModeFinished(ActionMode actionMode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048639, this, actionMode) == null) {
-            this.mOriginActivity.onActionModeFinished(actionMode);
-        }
+        this.mOriginActivity.onActionModeFinished(actionMode);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onActionModeStarted(ActionMode actionMode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048640, this, actionMode) == null) {
-            this.mOriginActivity.onActionModeStarted(actionMode);
-        }
+        this.mOriginActivity.onActionModeStarted(actionMode);
     }
 
     @Override // android.app.Activity
     public void onAttachFragment(Fragment fragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048642, this, fragment) == null) {
-            this.mOriginActivity.onAttachFragment(fragment);
-        }
+        this.mOriginActivity.onAttachFragment(fragment);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048645, this, configuration) == null) {
-            this.mOriginActivity.onConfigurationChanged(configuration);
-        }
+        this.mOriginActivity.onConfigurationChanged(configuration);
     }
 
     @Override // android.app.Activity
     public boolean onContextItemSelected(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048647, this, menuItem)) == null) {
-            return this.mOriginActivity.onContextItemSelected(menuItem);
-        }
-        return invokeL.booleanValue;
+        return this.mOriginActivity.onContextItemSelected(menuItem);
     }
 
     @Override // android.app.Activity
     public void onContextMenuClosed(Menu menu) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048648, this, menu) == null) {
-            this.mOriginActivity.onContextMenuClosed(menu);
-        }
+        this.mOriginActivity.onContextMenuClosed(menu);
     }
 
     @Override // android.app.Activity
     public void onCreateNavigateUpTaskStack(TaskStackBuilder taskStackBuilder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048652, this, taskStackBuilder) == null) {
-            this.mOriginActivity.onCreateNavigateUpTaskStack(taskStackBuilder);
-        }
+        this.mOriginActivity.onCreateNavigateUpTaskStack(taskStackBuilder);
     }
 
     @Override // android.app.Activity
     public boolean onCreateOptionsMenu(Menu menu) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048653, this, menu)) == null) {
-            return this.mOriginActivity.onCreateOptionsMenu(menu);
-        }
-        return invokeL.booleanValue;
+        return this.mOriginActivity.onCreateOptionsMenu(menu);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public View onCreatePanelView(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048655, this, i)) == null) {
-            return this.mOriginActivity.onCreatePanelView(i);
-        }
-        return (View) invokeI.objValue;
+        return this.mOriginActivity.onCreatePanelView(i);
     }
 
     @Override // android.app.Activity
     public boolean onGenericMotionEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048661, this, motionEvent)) == null) {
-            return this.mOriginActivity.onGenericMotionEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
+        return this.mOriginActivity.onGenericMotionEvent(motionEvent);
     }
 
     @Override // android.app.Activity
     public void onMultiWindowModeChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048673, this, z) == null) {
-            this.mOriginActivity.onMultiWindowModeChanged(z);
-        }
+        this.mOriginActivity.onMultiWindowModeChanged(z);
     }
 
     @Override // android.app.Activity
     public boolean onNavigateUpFromChild(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048676, this, activity)) == null) {
-            return this.mOriginActivity.onNavigateUpFromChild(activity);
-        }
-        return invokeL.booleanValue;
+        return this.mOriginActivity.onNavigateUpFromChild(activity);
     }
 
     @Override // android.app.Activity
     public boolean onOptionsItemSelected(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048677, this, menuItem)) == null) {
-            return this.mOriginActivity.onOptionsItemSelected(menuItem);
-        }
-        return invokeL.booleanValue;
+        return this.mOriginActivity.onOptionsItemSelected(menuItem);
     }
 
     @Override // android.app.Activity
     public void onOptionsMenuClosed(Menu menu) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048678, this, menu) == null) {
-            this.mOriginActivity.onOptionsMenuClosed(menu);
-        }
+        this.mOriginActivity.onOptionsMenuClosed(menu);
     }
 
     @Override // android.app.Activity
     public void onPictureInPictureModeChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048681, this, z) == null) {
-            this.mOriginActivity.onPictureInPictureModeChanged(z);
-        }
+        this.mOriginActivity.onPictureInPictureModeChanged(z);
     }
 
     @Override // android.app.Activity
     public void onPrepareNavigateUpTaskStack(TaskStackBuilder taskStackBuilder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048685, this, taskStackBuilder) == null) {
-            this.mOriginActivity.onPrepareNavigateUpTaskStack(taskStackBuilder);
-        }
+        this.mOriginActivity.onPrepareNavigateUpTaskStack(taskStackBuilder);
     }
 
     @Override // android.app.Activity
     public boolean onPrepareOptionsMenu(Menu menu) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048686, this, menu)) == null) {
-            return this.mOriginActivity.onPrepareOptionsMenu(menu);
-        }
-        return invokeL.booleanValue;
+        return this.mOriginActivity.onPrepareOptionsMenu(menu);
     }
 
     @Override // android.app.Activity
     public void onProvideAssistContent(AssistContent assistContent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048688, this, assistContent) == null) {
-            this.mOriginActivity.onProvideAssistContent(assistContent);
-        }
+        this.mOriginActivity.onProvideAssistContent(assistContent);
     }
 
     @Override // android.app.Activity
     public void onProvideAssistData(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048689, this, bundle) == null) {
-            this.mOriginActivity.onProvideAssistData(bundle);
-        }
+        this.mOriginActivity.onProvideAssistData(bundle);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onSearchRequested(SearchEvent searchEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048697, this, searchEvent)) == null) {
-            return this.mOriginActivity.onSearchRequested(searchEvent);
-        }
-        return invokeL.booleanValue;
+        return this.mOriginActivity.onSearchRequested(searchEvent);
     }
 
     @Override // android.app.Activity
     public void onTopResumedActivityChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048699, this, z) == null) {
-            this.mOriginActivity.onTopResumedActivityChanged(z);
-        }
+        this.mOriginActivity.onTopResumedActivityChanged(z);
     }
 
     @Override // android.app.Activity
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048700, this, motionEvent)) == null) {
-            return this.mOriginActivity.onTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
+        return this.mOriginActivity.onTouchEvent(motionEvent);
     }
 
     @Override // android.app.Activity
     public boolean onTrackballEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048701, this, motionEvent)) == null) {
-            return this.mOriginActivity.onTrackballEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
+        return this.mOriginActivity.onTrackballEvent(motionEvent);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks2
     public void onTrimMemory(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048702, this, i) == null) {
-            this.mOriginActivity.onTrimMemory(i);
-        }
+        this.mOriginActivity.onTrimMemory(i);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048704, this, layoutParams) == null) {
-            this.mOriginActivity.onWindowAttributesChanged(layoutParams);
-        }
+        this.mOriginActivity.onWindowAttributesChanged(layoutParams);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048705, this, z) == null) {
-            this.mOriginActivity.onWindowFocusChanged(z);
-        }
+        this.mOriginActivity.onWindowFocusChanged(z);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public ActionMode onWindowStartingActionMode(ActionMode.Callback callback) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048706, this, callback)) == null) {
-            return this.mOriginActivity.onWindowStartingActionMode(callback);
-        }
-        return (ActionMode) invokeL.objValue;
+        return this.mOriginActivity.onWindowStartingActionMode(callback);
     }
 
     @Override // android.app.Activity
     public void openContextMenu(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048708, this, view2) == null) {
-            this.mOriginActivity.openContextMenu(view2);
-        }
+        this.mOriginActivity.openContextMenu(view2);
     }
 
     @Override // android.app.Activity
     public void registerActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks activityLifecycleCallbacks) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048713, this, activityLifecycleCallbacks) == null) {
-            this.mOriginActivity.registerActivityLifecycleCallbacks(activityLifecycleCallbacks);
-        }
+        this.mOriginActivity.registerActivityLifecycleCallbacks(activityLifecycleCallbacks);
     }
 
     @Override // android.app.Activity
     public void registerForContextMenu(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048714, this, view2) == null) {
-            this.mOriginActivity.registerForContextMenu(view2);
-        }
+        this.mOriginActivity.registerForContextMenu(view2);
     }
 
     @Override // android.app.Activity
     public DragAndDropPermissions requestDragAndDropPermissions(DragEvent dragEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048717, this, dragEvent)) == null) {
-            return this.mOriginActivity.requestDragAndDropPermissions(dragEvent);
-        }
-        return (DragAndDropPermissions) invokeL.objValue;
+        return this.mOriginActivity.requestDragAndDropPermissions(dragEvent);
     }
 
     @Override // android.app.Activity
     public boolean requestVisibleBehind(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048718, this, z)) == null) {
-            return this.mOriginActivity.requestVisibleBehind(z);
-        }
-        return invokeZ.booleanValue;
+        return this.mOriginActivity.requestVisibleBehind(z);
     }
 
     @Override // android.app.Activity
     public void setActionBar(Toolbar toolbar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048719, this, toolbar) == null) {
-            this.mOriginActivity.setActionBar(toolbar);
-        }
+        this.mOriginActivity.setActionBar(toolbar);
     }
 
     @Override // android.app.Activity
     public void setContentTransitionManager(TransitionManager transitionManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048720, this, transitionManager) == null) {
-            this.mOriginActivity.setContentTransitionManager(transitionManager);
-        }
+        this.mOriginActivity.setContentTransitionManager(transitionManager);
     }
 
     @Override // android.app.Activity
     public void setContentView(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048721, this, i) == null) {
-            this.mOriginActivity.setContentView(i);
-        }
+        this.mOriginActivity.setContentView(i);
     }
 
     @Override // android.app.Activity
     public void setEnterSharedElementCallback(SharedElementCallback sharedElementCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048724, this, sharedElementCallback) == null) {
-            this.mOriginActivity.setEnterSharedElementCallback(sharedElementCallback);
-        }
+        this.mOriginActivity.setEnterSharedElementCallback(sharedElementCallback);
     }
 
     @Override // android.app.Activity
     public void setExitSharedElementCallback(SharedElementCallback sharedElementCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048725, this, sharedElementCallback) == null) {
-            this.mOriginActivity.setExitSharedElementCallback(sharedElementCallback);
-        }
+        this.mOriginActivity.setExitSharedElementCallback(sharedElementCallback);
     }
 
     @Override // android.app.Activity
     public void setFinishOnTouchOutside(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048726, this, z) == null) {
-            this.mOriginActivity.setFinishOnTouchOutside(z);
-        }
+        this.mOriginActivity.setFinishOnTouchOutside(z);
     }
 
     @Override // android.app.Activity
     public void setImmersive(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048727, this, z) == null) {
-            this.mOriginActivity.setImmersive(z);
-        }
+        this.mOriginActivity.setImmersive(z);
     }
 
     @Override // android.app.Activity
     public void setInheritShowWhenLocked(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048728, this, z) == null) {
-            this.mOriginActivity.setInheritShowWhenLocked(z);
-        }
+        this.mOriginActivity.setInheritShowWhenLocked(z);
     }
 
     @Override // android.app.Activity
     public void setIntent(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048729, this, intent) == null) {
-            this.mOriginActivity.setIntent(intent);
-        }
+        this.mOriginActivity.setIntent(intent);
     }
 
     @Override // android.app.Activity
     public void setPictureInPictureParams(PictureInPictureParams pictureInPictureParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048731, this, pictureInPictureParams) == null) {
-            this.mOriginActivity.setPictureInPictureParams(pictureInPictureParams);
-        }
+        this.mOriginActivity.setPictureInPictureParams(pictureInPictureParams);
     }
 
     @Override // android.app.Activity
     public void setRequestedOrientation(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048732, this, i) == null) {
-            this.mOriginActivity.setRequestedOrientation(i);
-        }
+        this.mOriginActivity.setRequestedOrientation(i);
     }
 
     @Override // android.app.Activity
     public void setShowWhenLocked(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048733, this, z) == null) {
-            this.mOriginActivity.setShowWhenLocked(z);
-        }
+        this.mOriginActivity.setShowWhenLocked(z);
     }
 
     @Override // android.app.Activity
     public void setTaskDescription(ActivityManager.TaskDescription taskDescription) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048734, this, taskDescription) == null) {
-            this.mOriginActivity.setTaskDescription(taskDescription);
-        }
+        this.mOriginActivity.setTaskDescription(taskDescription);
     }
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public void setTheme(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048735, this, i) == null) {
-            this.mOriginActivity.setTheme(i);
-        }
+        this.mOriginActivity.setTheme(i);
     }
 
     @Override // android.app.Activity
     public void setTitle(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048736, this, i) == null) {
-            this.mOriginActivity.setTitle(i);
-        }
+        this.mOriginActivity.setTitle(i);
     }
 
     @Override // android.app.Activity
     public void setTitleColor(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048738, this, i) == null) {
-            this.mOriginActivity.setTitleColor(i);
-        }
+        this.mOriginActivity.setTitleColor(i);
     }
 
     @Override // android.app.Activity
     public boolean setTranslucent(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048739, this, z)) == null) {
-            return this.mOriginActivity.setTranslucent(z);
-        }
-        return invokeZ.booleanValue;
+        return this.mOriginActivity.setTranslucent(z);
     }
 
     @Override // android.app.Activity
     public void setTurnScreenOn(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048740, this, z) == null) {
-            this.mOriginActivity.setTurnScreenOn(z);
-        }
+        this.mOriginActivity.setTurnScreenOn(z);
     }
 
     @Override // android.app.Activity
     public void setVisible(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048741, this, z) == null) {
-            this.mOriginActivity.setVisible(z);
-        }
+        this.mOriginActivity.setVisible(z);
     }
 
     @Override // com.bytedance.pangle.wrapper.a
     public void setWrapperActivityTheme(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048743, this, i) == null) {
-            try {
-                super.setTheme(i);
-            } catch (Exception unused) {
-            }
+        try {
+            super.setTheme(i);
+        } catch (Exception unused) {
         }
     }
 
     @Override // android.app.Activity
     public boolean shouldShowRequestPermissionRationale(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048744, this, str)) == null) {
-            return this.mOriginActivity.shouldShowRequestPermissionRationale(str);
-        }
-        return invokeL.booleanValue;
+        return this.mOriginActivity.shouldShowRequestPermissionRationale(str);
     }
 
     @Override // android.app.Activity
     public boolean shouldUpRecreateTask(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048745, this, intent)) == null) {
-            return this.mOriginActivity.shouldUpRecreateTask(intent);
-        }
-        return invokeL.booleanValue;
+        return this.mOriginActivity.shouldUpRecreateTask(intent);
     }
 
     @Override // android.app.Activity
     public boolean showAssist(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048746, this, bundle)) == null) {
-            return this.mOriginActivity.showAssist(bundle);
-        }
-        return invokeL.booleanValue;
+        return this.mOriginActivity.showAssist(bundle);
     }
 
     @Override // android.app.Activity
     public ActionMode startActionMode(ActionMode.Callback callback) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048748, this, callback)) == null) {
-            return this.mOriginActivity.startActionMode(callback);
-        }
-        return (ActionMode) invokeL.objValue;
+        return this.mOriginActivity.startActionMode(callback);
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
     public void startActivities(Intent[] intentArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048750, this, intentArr) == null) {
-            this.mOriginActivity.startActivities(intentArr);
-        }
+        this.mOriginActivity.startActivities(intentArr);
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
     public void startActivity(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048752, this, intent) == null) {
-            this.mOriginActivity.startActivity(intent);
-        }
+        this.mOriginActivity.startActivity(intent);
     }
 
     @Override // android.app.Activity
     public void startLocalVoiceInteraction(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048768, this, bundle) == null) {
-            this.mOriginActivity.startLocalVoiceInteraction(bundle);
-        }
+        this.mOriginActivity.startLocalVoiceInteraction(bundle);
     }
 
     @Override // android.app.Activity
     public void startManagingCursor(Cursor cursor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048770, this, cursor) == null) {
-            this.mOriginActivity.startManagingCursor(cursor);
-        }
+        this.mOriginActivity.startManagingCursor(cursor);
     }
 
     @Override // android.app.Activity
     public boolean startNextMatchingActivity(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048771, this, intent)) == null) {
-            return this.mOriginActivity.startNextMatchingActivity(intent);
-        }
-        return invokeL.booleanValue;
+        return this.mOriginActivity.startNextMatchingActivity(intent);
     }
 
     @Override // android.app.Activity
     public void stopManagingCursor(Cursor cursor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048777, this, cursor) == null) {
-            this.mOriginActivity.stopManagingCursor(cursor);
-        }
+        this.mOriginActivity.stopManagingCursor(cursor);
     }
 
     @Override // android.app.Activity
     public void takeKeyEvents(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048778, this, z) == null) {
-            this.mOriginActivity.takeKeyEvents(z);
-        }
+        this.mOriginActivity.takeKeyEvents(z);
     }
 
     @Override // android.app.Activity
     public void unregisterActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks activityLifecycleCallbacks) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048780, this, activityLifecycleCallbacks) == null) {
-            this.mOriginActivity.unregisterActivityLifecycleCallbacks(activityLifecycleCallbacks);
-        }
+        this.mOriginActivity.unregisterActivityLifecycleCallbacks(activityLifecycleCallbacks);
     }
 
     @Override // android.app.Activity
     public void unregisterForContextMenu(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048781, this, view2) == null) {
-            this.mOriginActivity.unregisterForContextMenu(view2);
-        }
+        this.mOriginActivity.unregisterForContextMenu(view2);
     }
 
     @Override // android.app.Activity
     public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048586, this, str, fileDescriptor, printWriter, strArr) == null) {
-            this.mOriginActivity.dump(str, fileDescriptor, printWriter, strArr);
-        }
+        this.mOriginActivity.dump(str, fileDescriptor, printWriter, strArr);
     }
 
     @Override // android.app.Activity, android.view.LayoutInflater.Factory2
     public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048657, this, view2, str, context, attributeSet)) == null) {
-            return this.mOriginActivity.onCreateView(view2, str, context, attributeSet);
-        }
-        return (View) invokeLLLL.objValue;
+        return this.mOriginActivity.onCreateView(view2, str, context, attributeSet);
     }
 
     @Override // android.app.Activity
     public void onPerformDirectAction(String str, Bundle bundle, CancellationSignal cancellationSignal, Consumer consumer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048680, this, str, bundle, cancellationSignal, consumer) == null) {
-            this.mOriginActivity.onPerformDirectAction(str, bundle, cancellationSignal, consumer);
-        }
+        this.mOriginActivity.onPerformDirectAction(str, bundle, cancellationSignal, consumer);
     }
 
     @Override // android.app.Activity
     public void startActivityFromChild(Activity activity, Intent intent, int i, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048757, this, activity, intent, i, bundle) == null) {
-            this.mOriginActivity.startActivityFromChild(activity, intent, i, bundle);
-        }
+        this.mOriginActivity.startActivityFromChild(activity, intent, i, bundle);
     }
 
     @Override // android.app.Activity
     public void startActivityFromFragment(Fragment fragment, Intent intent, int i, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048759, this, fragment, intent, i, bundle) == null) {
-            this.mOriginActivity.startActivityFromFragment(fragment, intent, i, bundle);
-        }
+        this.mOriginActivity.startActivityFromFragment(fragment, intent, i, bundle);
     }
 
     @Override // android.app.Activity
     public void startSearch(String str, boolean z, Bundle bundle, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048774, this, new Object[]{str, Boolean.valueOf(z), bundle, Boolean.valueOf(z2)}) == null) {
-            this.mOriginActivity.startSearch(str, z, bundle, z2);
-        }
+        this.mOriginActivity.startSearch(str, z, bundle, z2);
     }
 
     @Override // android.app.Activity
     public void setContentView(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048722, this, view2) == null) {
-            this.mOriginActivity.setContentView(view2);
-        }
+        this.mOriginActivity.setContentView(view2);
     }
 
     @Override // android.app.Activity
     public void setTitle(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048737, this, charSequence) == null) {
-            this.mOriginActivity.setTitle(charSequence);
-        }
+        this.mOriginActivity.setTitle(charSequence);
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
     public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048762, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            this.mOriginActivity.startIntentSender(intentSender, intent, i, i2, i3);
-        }
+        this.mOriginActivity.startIntentSender(intentSender, intent, i, i2, i3);
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
     public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048763, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bundle}) == null) {
-            this.mOriginActivity.startIntentSender(intentSender, intent, i, i2, i3, bundle);
-        }
+        this.mOriginActivity.startIntentSender(intentSender, intent, i, i2, i3, bundle);
     }
 
     @Override // android.app.Activity
     public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048764, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.mOriginActivity.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
-        }
+        this.mOriginActivity.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
     }
 
     @Override // android.app.Activity
     public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048765, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
-            this.mOriginActivity.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4, bundle);
-        }
+        this.mOriginActivity.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4, bundle);
     }
 
     @Override // android.app.Activity
     public void startIntentSenderFromChild(Activity activity, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048766, this, new Object[]{activity, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.mOriginActivity.startIntentSenderFromChild(activity, intentSender, i, intent, i2, i3, i4);
-        }
+        this.mOriginActivity.startIntentSenderFromChild(activity, intentSender, i, intent, i2, i3, i4);
     }
 
     @Override // android.app.Activity
     public void startIntentSenderFromChild(Activity activity, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048767, this, new Object[]{activity, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
-            this.mOriginActivity.startIntentSenderFromChild(activity, intentSender, i, intent, i2, i3, i4, bundle);
-        }
+        this.mOriginActivity.startIntentSenderFromChild(activity, intentSender, i, intent, i2, i3, i4, bundle);
     }
 }

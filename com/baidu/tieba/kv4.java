@@ -1,17 +1,41 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.browser.UegTbJsBridge;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.xiuba.JSResultData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import java.util.HashMap;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class kv4 {
+public class kv4 implements ee6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
+
+    @Override // com.baidu.tieba.ee6
+    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
+        de6.a(this, webView, str, jSONObject);
+    }
 
     public kv4() {
         Interceptable interceptable = $ic;
@@ -23,37 +47,200 @@ public class kv4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 1500;
-        this.b = 3000;
-        this.c = 6000;
     }
 
-    public void a(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.ee6
+    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (!TextUtils.equals("CommonJSBridge", str)) {
+                return false;
+            }
+            if (TextUtils.equals("startLoginModule", str2)) {
+                try {
+                    jsPromptResult.confirm(h(webView, new JSONObject(str3).optString("cssUrl")).a());
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else if (CommonTbJsBridge.LOAD_THIRD_PARTY_LOGIN.equals(str2)) {
+                jsPromptResult.confirm(e(webView, str3));
+            } else if (CommonTbJsBridge.START_DOWNLOAD_CSS.equals(str2)) {
+                try {
+                    jsPromptResult.confirm(g(webView, new JSONObject(str3).optString(TTDownloadField.TT_DOWNLOAD_URL)).a());
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
+                }
+            } else if (UegTbJsBridge.METHOD_BIND_MOBILE_NUMBER.equals(str2)) {
+                jsPromptResult.confirm(c(webView).a());
+                return true;
+            }
+            return false;
         }
-        try {
-            jSONObject.optInt("wifiSlow", -1);
-            jSONObject.optInt("threeGSlow", -1);
-            jSONObject.optInt("twoGSlow", -1);
-            int optInt = jSONObject.optInt("wifiLog", -1);
-            if (optInt > 0) {
-                this.a = optInt;
+        return invokeLLLLL.booleanValue;
+    }
+
+    public n69 c(WebView webView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
+            n69 n69Var = new n69();
+            try {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, f85.b()));
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            int optInt2 = jSONObject.optInt("threeGLog", -1);
-            if (optInt2 > 0) {
-                this.b = optInt2;
-            }
-            int optInt3 = jSONObject.optInt("twoGLog", -1);
-            if (optInt3 > 0) {
-                this.c = optInt3;
-            }
-            jSONObject.optInt("mobile_cdn_switch", 1);
-        } catch (Exception unused) {
+            return n69Var;
         }
+        return (n69) invokeL.objValue;
+    }
+
+    public n69 d(WebView webView, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, webView, i, str)) == null) {
+            n69 n69Var = new n69();
+            JSONObject jSONObject = new JSONObject();
+            Activity a = wd6.a(webView.getContext());
+            if (a == null) {
+                try {
+                    jSONObject.put("resultCode", 0);
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+                n69Var.o(jSONObject.toString());
+                return n69Var;
+            }
+            LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) a, true);
+            loginActivityConfig.setThirdPartyLoginForResult(i, str);
+            loginActivityConfig.setUrl(webView.getOriginalUrl());
+            ViewHelper.checkUpIsLoginFromH5(loginActivityConfig);
+            try {
+                jSONObject.put("resultCode", 1);
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+            }
+            n69Var.o(jSONObject.toString());
+            return n69Var;
+        }
+        return (n69) invokeLIL.objValue;
+    }
+
+    public final String e(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
+            if (!dj.isEmpty(str)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    return d(webView, jSONObject.optInt("socialType", 0), jSONObject.optString("activityId")).a();
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                    return null;
+                }
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public n69 h(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, str)) == null) {
+            n69 n69Var = new n69();
+            Activity a = wd6.a(webView.getContext());
+            if (a != null) {
+                ViewHelper.checkUpIsLoginFromH5(a, webView.getOriginalUrl(), str);
+            }
+            JSResultData jSResultData = new JSResultData();
+            jSResultData.setStatus(1);
+            jSResultData.setErrorCode("0");
+            jSResultData.setErrorMsg("");
+            n69Var.o(OrmObject.jsonStrWithObject(jSResultData));
+            return n69Var;
+        }
+        return (n69) invokeLL.objValue;
+    }
+
+    public n69 f(WebView webView, HashMap<String, Boolean> hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, hashMap)) == null) {
+            if (hashMap == null || hashMap.get("isLogin") == null || !Boolean.TRUE.equals(hashMap.get("isLogin"))) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("resultCode", 1);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            a(webView, CommonTbJsBridge.LOGIN_RESULT_TO_H5, jSONObject);
+            n69 n69Var = new n69();
+            n69Var.o(jSONObject.toString());
+            return n69Var;
+        }
+        return (n69) invokeLL.objValue;
+    }
+
+    public n69 i(WebView webView, HashMap<String, Object> hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, hashMap)) == null) {
+            if (hashMap == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("resultCode", 1);
+                jSONObject.put("socialType", hashMap.get("social_type"));
+                jSONObject.put("activityId", hashMap.get("activityId"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            a(webView, CommonTbJsBridge.RESULT_THIRD_PARTY_LOGIN, jSONObject);
+            n69 n69Var = new n69();
+            n69Var.o(jSONObject.toString());
+            return n69Var;
+        }
+        return (n69) invokeLL.objValue;
+    }
+
+    public n69 g(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, str)) == null) {
+            n69 n69Var = new n69();
+            JSONObject jSONObject = new JSONObject();
+            if (!dj.isEmpty(str)) {
+                try {
+                    if (dj.isEmpty(str)) {
+                        jSONObject.put("resultCode", 0);
+                        n69Var.o(jSONObject.toString());
+                        return n69Var;
+                    }
+                    String customLoginCssFileName = FileHelper.getCustomLoginCssFileName(str);
+                    String customLoginCssStoragePath = FileHelper.getCustomLoginCssStoragePath(str);
+                    if (!FileHelper.checkIsCssFile(customLoginCssStoragePath)) {
+                        jSONObject.put("resultCode", 0);
+                        n69Var.o(jSONObject.toString());
+                        return n69Var;
+                    }
+                    DownloadData downloadData = new DownloadData(customLoginCssFileName, customLoginCssFileName, str, null);
+                    downloadData.setPath(customLoginCssStoragePath);
+                    uc5.k().l(downloadData);
+                    jSONObject.put("resultCode", 1);
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+            }
+            n69Var.o(jSONObject.toString());
+            return n69Var;
+        }
+        return (n69) invokeLL.objValue;
     }
 }

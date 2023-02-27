@@ -4,7 +4,7 @@ import android.os.Process;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.eh5;
+import com.baidu.tieba.ri5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
-public abstract class StickyEvent extends OrmObject implements Serializable, eh5 {
+public abstract class StickyEvent extends OrmObject implements Serializable, ri5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mPid;
@@ -37,7 +37,7 @@ public abstract class StickyEvent extends OrmObject implements Serializable, eh5
         this.mPid = Process.myPid();
     }
 
-    @Override // com.baidu.tieba.eh5
+    @Override // com.baidu.tieba.ri5
     public int getPid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public abstract class StickyEvent extends OrmObject implements Serializable, eh5
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.eh5
+    @Override // com.baidu.tieba.ri5
     public int getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public abstract class StickyEvent extends OrmObject implements Serializable, eh5
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.eh5
+    @Override // com.baidu.tieba.ri5
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -74,7 +74,7 @@ public abstract class StickyEvent extends OrmObject implements Serializable, eh5
         }
     }
 
-    @Override // com.baidu.tieba.eh5
+    @Override // com.baidu.tieba.ri5
     public void setTag(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) && bdUniqueId != null) {

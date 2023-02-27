@@ -1,23 +1,97 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ListView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.im.chat.emoji.ImEmojiUtil;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.GroupChatBottomSheetController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class ds7 implements bs7 {
+public class ds7 implements al1<ei5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Integer> a;
+
+    /* loaded from: classes4.dex */
+    public class a implements ei5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
+        public GroupChatBottomSheetController b;
+
+        public a(ds7 ds7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ds7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ei5
+        public void onChangeSkinType(int i) {
+            GroupChatBottomSheetController groupChatBottomSheetController;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (groupChatBottomSheetController = this.b) != null) {
+                groupChatBottomSheetController.b0(i);
+            }
+        }
+
+        @Override // com.baidu.tieba.ji5
+        public void a(@NonNull TbPageContext tbPageContext, @Nullable List<Long> list, long j, String str, long j2, boolean z, boolean z2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, list, Long.valueOf(j), str, Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                GroupChatBottomSheetController groupChatBottomSheetController = this.b;
+                if (groupChatBottomSheetController == null) {
+                    this.b = new GroupChatBottomSheetController(tbPageContext, j, str, j2, list, z, z2);
+                } else {
+                    groupChatBottomSheetController.i0(j, str, j2, list, z, z2);
+                }
+                this.b.k0();
+            }
+        }
+
+        @Override // com.baidu.tieba.ei5
+        public void onDestroy() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                GroupChatBottomSheetController groupChatBottomSheetController = this.b;
+                if (groupChatBottomSheetController != null) {
+                    groupChatBottomSheetController.c0();
+                }
+                this.b = null;
+            }
+        }
+
+        @Override // com.baidu.tieba.ei5
+        public void onPause() {
+            GroupChatBottomSheetController groupChatBottomSheetController;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (groupChatBottomSheetController = this.b) != null) {
+                groupChatBottomSheetController.e0();
+            }
+        }
+
+        @Override // com.baidu.tieba.ei5
+        public void onResume() {
+            GroupChatBottomSheetController groupChatBottomSheetController;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (groupChatBottomSheetController = this.b) != null) {
+                groupChatBottomSheetController.f0();
+            }
+        }
+    }
 
     public ds7() {
         Interceptable interceptable = $ic;
@@ -29,48 +103,19 @@ public class ds7 implements bs7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        HashMap<String, Integer> hashMap = new HashMap<>(3);
-        this.a = hashMap;
-        hashMap.put("#(滑稽)", Integer.valueOf(ImEmojiUtil.a));
-        this.a.put("#(香槟)", Integer.valueOf(ImEmojiUtil.b));
-        this.a.put("#(炸药)", Integer.valueOf(ImEmojiUtil.c));
     }
 
-    @Override // com.baidu.tieba.bs7
-    public boolean a(ChatMessage... chatMessageArr) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.al1
+    /* renamed from: a */
+    public ei5 getService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatMessageArr)) == null) {
-            return this.a.containsKey(c(chatMessageArr));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-        return invokeL.booleanValue;
-    }
-
-    public final String c(ChatMessage... chatMessageArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessageArr)) == null) {
-            if (chatMessageArr != null && chatMessageArr.length > 0 && chatMessageArr[0] != null) {
-                return chatMessageArr[0].getContent();
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.bs7
-    public void b(ListView listView, ChatMessage... chatMessageArr) {
-        View childAt;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listView, chatMessageArr) != null) || listView == null || (childAt = listView.getChildAt(listView.getLastVisiblePosition() - listView.getFirstVisiblePosition())) == null) {
-            return;
-        }
-        TbRichTextView tbRichTextView = (TbRichTextView) childAt.findViewById(R.id.tex_msgitem_text);
-        if (chatMessageArr != null && chatMessageArr.length > 1) {
-            ImEmojiUtil.m(listView.getContext(), (FrameLayout) listView.getRootView().findViewById(16908290), this.a.get(c(chatMessageArr)).intValue(), tbRichTextView, null);
-        }
+        return (ei5) invokeV.objValue;
     }
 }

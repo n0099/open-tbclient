@@ -5,38 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.Preconditions;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public final class AccountPicker {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public AccountPicker() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     /* loaded from: classes7.dex */
     public static class AccountChooserOptions {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         @Nullable
         public Account zza;
         public boolean zzb;
@@ -60,20 +36,6 @@ public final class AccountPicker {
         public String zzm;
         public boolean zzn;
         public boolean zzo;
-
-        public AccountChooserOptions() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
 
         public static /* bridge */ /* synthetic */ boolean zzA(AccountChooserOptions accountChooserOptions) {
             boolean z = accountChooserOptions.zzo;
@@ -122,140 +84,87 @@ public final class AccountPicker {
 
         /* loaded from: classes7.dex */
         public static class Builder {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
             @Nullable
             public Account zza;
             @Nullable
             public ArrayList<Account> zzb;
             @Nullable
             public ArrayList<String> zzc;
-            public boolean zzd;
+            public boolean zzd = false;
             @Nullable
             public String zze;
             @Nullable
             public Bundle zzf;
 
-            public Builder() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.zzd = false;
-            }
-
             @NonNull
             public Builder setAlwaysShowAccountPicker(boolean z) {
-                InterceptResult invokeZ;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-                    this.zzd = z;
-                    return this;
-                }
-                return (Builder) invokeZ.objValue;
+                this.zzd = z;
+                return this;
             }
 
             @NonNull
             public Builder setOptionsForAddingAccount(@Nullable Bundle bundle) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bundle)) == null) {
-                    this.zzf = bundle;
-                    return this;
-                }
-                return (Builder) invokeL.objValue;
+                this.zzf = bundle;
+                return this;
             }
 
             @NonNull
             public Builder setSelectedAccount(@Nullable Account account) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, account)) == null) {
-                    this.zza = account;
-                    return this;
-                }
-                return (Builder) invokeL.objValue;
+                this.zza = account;
+                return this;
             }
 
             @NonNull
             public Builder setTitleOverrideText(@Nullable String str) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                    this.zze = str;
-                    return this;
-                }
-                return (Builder) invokeL.objValue;
+                this.zze = str;
+                return this;
             }
 
             @NonNull
             public AccountChooserOptions build() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    Preconditions.checkArgument(true, "We only support hostedDomain filter for account chip styled account picker");
-                    Preconditions.checkArgument(true, "Consent is only valid for account chip styled account picker");
-                    AccountChooserOptions accountChooserOptions = new AccountChooserOptions();
-                    accountChooserOptions.zzd = this.zzc;
-                    accountChooserOptions.zzc = this.zzb;
-                    accountChooserOptions.zze = this.zzd;
-                    accountChooserOptions.zzl = null;
-                    accountChooserOptions.zzj = null;
-                    accountChooserOptions.zzg = this.zzf;
-                    accountChooserOptions.zza = this.zza;
-                    accountChooserOptions.zzb = false;
-                    accountChooserOptions.zzh = false;
-                    accountChooserOptions.zzm = null;
-                    accountChooserOptions.zzi = 0;
-                    accountChooserOptions.zzf = this.zze;
-                    accountChooserOptions.zzk = false;
-                    accountChooserOptions.zzn = false;
-                    accountChooserOptions.zzo = false;
-                    return accountChooserOptions;
-                }
-                return (AccountChooserOptions) invokeV.objValue;
+                Preconditions.checkArgument(true, "We only support hostedDomain filter for account chip styled account picker");
+                Preconditions.checkArgument(true, "Consent is only valid for account chip styled account picker");
+                AccountChooserOptions accountChooserOptions = new AccountChooserOptions();
+                accountChooserOptions.zzd = this.zzc;
+                accountChooserOptions.zzc = this.zzb;
+                accountChooserOptions.zze = this.zzd;
+                accountChooserOptions.zzl = null;
+                accountChooserOptions.zzj = null;
+                accountChooserOptions.zzg = this.zzf;
+                accountChooserOptions.zza = this.zza;
+                accountChooserOptions.zzb = false;
+                accountChooserOptions.zzh = false;
+                accountChooserOptions.zzm = null;
+                accountChooserOptions.zzi = 0;
+                accountChooserOptions.zzf = this.zze;
+                accountChooserOptions.zzk = false;
+                accountChooserOptions.zzn = false;
+                accountChooserOptions.zzo = false;
+                return accountChooserOptions;
             }
 
             @NonNull
             public Builder setAllowableAccounts(@Nullable List<Account> list) {
-                InterceptResult invokeL;
                 ArrayList<Account> arrayList;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-                    if (list == null) {
-                        arrayList = null;
-                    } else {
-                        arrayList = new ArrayList<>(list);
-                    }
-                    this.zzb = arrayList;
-                    return this;
+                if (list == null) {
+                    arrayList = null;
+                } else {
+                    arrayList = new ArrayList<>(list);
                 }
-                return (Builder) invokeL.objValue;
+                this.zzb = arrayList;
+                return this;
             }
 
             @NonNull
             public Builder setAllowableAccountsTypes(@Nullable List<String> list) {
-                InterceptResult invokeL;
                 ArrayList<String> arrayList;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-                    if (list == null) {
-                        arrayList = null;
-                    } else {
-                        arrayList = new ArrayList<>(list);
-                    }
-                    this.zzc = arrayList;
-                    return this;
+                if (list == null) {
+                    arrayList = null;
+                } else {
+                    arrayList = new ArrayList<>(list);
                 }
-                return (Builder) invokeL.objValue;
+                this.zzc = arrayList;
+                return this;
             }
         }
     }
@@ -263,76 +172,66 @@ public final class AccountPicker {
     @NonNull
     @Deprecated
     public static Intent newChooseAccountIntent(@Nullable Account account, @Nullable ArrayList<Account> arrayList, @Nullable String[] strArr, boolean z, @Nullable String str, @Nullable String str2, @Nullable String[] strArr2, @Nullable Bundle bundle) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{account, arrayList, strArr, Boolean.valueOf(z), str, str2, strArr2, bundle})) == null) {
-            Intent intent = new Intent();
-            Preconditions.checkArgument(true, "We only support hostedDomain filter for account chip styled account picker");
-            intent.setAction("com.google.android.gms.common.account.CHOOSE_ACCOUNT");
-            intent.setPackage("com.google.android.gms");
-            intent.putExtra("allowableAccounts", arrayList);
-            intent.putExtra("allowableAccountTypes", strArr);
-            intent.putExtra("addAccountOptions", bundle);
-            intent.putExtra("selectedAccount", account);
-            intent.putExtra("alwaysPromptForAccount", z);
-            intent.putExtra("descriptionTextOverride", str);
-            intent.putExtra("authTokenType", str2);
-            intent.putExtra("addAccountRequiredFeatures", strArr2);
-            intent.putExtra("setGmsCoreAccount", false);
-            intent.putExtra("overrideTheme", 0);
-            intent.putExtra("overrideCustomTheme", 0);
-            intent.putExtra("hostedDomainFilter", (String) null);
-            return intent;
-        }
-        return (Intent) invokeCommon.objValue;
+        Intent intent = new Intent();
+        Preconditions.checkArgument(true, "We only support hostedDomain filter for account chip styled account picker");
+        intent.setAction("com.google.android.gms.common.account.CHOOSE_ACCOUNT");
+        intent.setPackage("com.google.android.gms");
+        intent.putExtra(com.huawei.hms.common.AccountPicker.EXTRA_ALLOWABLE_ACCOUNTS_ARRAYLIST, arrayList);
+        intent.putExtra(com.huawei.hms.common.AccountPicker.EXTRA_ALLOWABLE_ACCOUNT_TYPES_STRING_ARRAY, strArr);
+        intent.putExtra(com.huawei.hms.common.AccountPicker.EXTRA_ADD_ACCOUNT_OPTIONS_BUNDLE, bundle);
+        intent.putExtra(com.huawei.hms.common.AccountPicker.EXTRA_SELECTED_ACCOUNT, account);
+        intent.putExtra(com.huawei.hms.common.AccountPicker.EXTRA_ALWAYS_PROMPT_FOR_ACCOUNT, z);
+        intent.putExtra(com.huawei.hms.common.AccountPicker.EXTRA_DESCRIPTION_TEXT_OVERRIDE, str);
+        intent.putExtra(com.huawei.hms.common.AccountPicker.EXTRA_ADD_ACCOUNT_AUTH_TOKEN_TYPE_STRING, str2);
+        intent.putExtra(com.huawei.hms.common.AccountPicker.EXTRA_ADD_ACCOUNT_REQUIRED_FEATURES_STRING_ARRAY, strArr2);
+        intent.putExtra("setGmsCoreAccount", false);
+        intent.putExtra(com.huawei.hms.common.AccountPicker.EXTRA_OVERRIDE_THEME, 0);
+        intent.putExtra(com.huawei.hms.common.AccountPicker.EXTRA_OVERRIDE_CUSTOM_THEME, 0);
+        intent.putExtra(com.huawei.hms.common.AccountPicker.EXTRA_HOSTED_DOMAIN_FILTER, (String) null);
+        return intent;
     }
 
     @NonNull
     public static Intent newChooseAccountIntent(@NonNull AccountChooserOptions accountChooserOptions) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, accountChooserOptions)) == null) {
-            Intent intent = new Intent();
-            AccountChooserOptions.zzD(accountChooserOptions);
-            AccountChooserOptions.zze(accountChooserOptions);
-            Preconditions.checkArgument(true, "We only support hostedDomain filter for account chip styled account picker");
-            AccountChooserOptions.zzd(accountChooserOptions);
-            Preconditions.checkArgument(true, "Consent is only valid for account chip styled account picker");
-            AccountChooserOptions.zzB(accountChooserOptions);
-            Preconditions.checkArgument(true, "Making the selected account non-clickable is only supported for the theme THEME_DAY_NIGHT_GOOGLE_MATERIAL2");
-            AccountChooserOptions.zzD(accountChooserOptions);
-            intent.setAction("com.google.android.gms.common.account.CHOOSE_ACCOUNT");
-            intent.setPackage("com.google.android.gms");
-            intent.putExtra("allowableAccounts", accountChooserOptions.zzc);
-            if (accountChooserOptions.zzd != null) {
-                intent.putExtra("allowableAccountTypes", (String[]) accountChooserOptions.zzd.toArray(new String[0]));
-            }
-            intent.putExtra("addAccountOptions", accountChooserOptions.zzg);
-            intent.putExtra("selectedAccount", accountChooserOptions.zza);
-            AccountChooserOptions.zzB(accountChooserOptions);
-            intent.putExtra("selectedAccountIsNotClickable", false);
-            intent.putExtra("alwaysPromptForAccount", accountChooserOptions.zze);
-            intent.putExtra("descriptionTextOverride", accountChooserOptions.zzf);
-            AccountChooserOptions.zzC(accountChooserOptions);
-            intent.putExtra("setGmsCoreAccount", false);
-            AccountChooserOptions.zzf(accountChooserOptions);
-            intent.putExtra("realClientPackage", (String) null);
-            AccountChooserOptions.zza(accountChooserOptions);
-            intent.putExtra("overrideTheme", 0);
-            AccountChooserOptions.zzD(accountChooserOptions);
-            intent.putExtra("overrideCustomTheme", 0);
-            AccountChooserOptions.zze(accountChooserOptions);
-            intent.putExtra("hostedDomainFilter", (String) null);
-            Bundle bundle = new Bundle();
-            AccountChooserOptions.zzD(accountChooserOptions);
-            AccountChooserOptions.zzd(accountChooserOptions);
-            AccountChooserOptions.zzz(accountChooserOptions);
-            AccountChooserOptions.zzA(accountChooserOptions);
-            if (!bundle.isEmpty()) {
-                intent.putExtra("first_party_options_bundle", bundle);
-            }
-            return intent;
+        Intent intent = new Intent();
+        AccountChooserOptions.zzD(accountChooserOptions);
+        AccountChooserOptions.zze(accountChooserOptions);
+        Preconditions.checkArgument(true, "We only support hostedDomain filter for account chip styled account picker");
+        AccountChooserOptions.zzd(accountChooserOptions);
+        Preconditions.checkArgument(true, "Consent is only valid for account chip styled account picker");
+        AccountChooserOptions.zzB(accountChooserOptions);
+        Preconditions.checkArgument(true, "Making the selected account non-clickable is only supported for the theme THEME_DAY_NIGHT_GOOGLE_MATERIAL2");
+        AccountChooserOptions.zzD(accountChooserOptions);
+        intent.setAction("com.google.android.gms.common.account.CHOOSE_ACCOUNT");
+        intent.setPackage("com.google.android.gms");
+        intent.putExtra(com.huawei.hms.common.AccountPicker.EXTRA_ALLOWABLE_ACCOUNTS_ARRAYLIST, accountChooserOptions.zzc);
+        if (accountChooserOptions.zzd != null) {
+            intent.putExtra(com.huawei.hms.common.AccountPicker.EXTRA_ALLOWABLE_ACCOUNT_TYPES_STRING_ARRAY, (String[]) accountChooserOptions.zzd.toArray(new String[0]));
         }
-        return (Intent) invokeL.objValue;
+        intent.putExtra(com.huawei.hms.common.AccountPicker.EXTRA_ADD_ACCOUNT_OPTIONS_BUNDLE, accountChooserOptions.zzg);
+        intent.putExtra(com.huawei.hms.common.AccountPicker.EXTRA_SELECTED_ACCOUNT, accountChooserOptions.zza);
+        AccountChooserOptions.zzB(accountChooserOptions);
+        intent.putExtra("selectedAccountIsNotClickable", false);
+        intent.putExtra(com.huawei.hms.common.AccountPicker.EXTRA_ALWAYS_PROMPT_FOR_ACCOUNT, accountChooserOptions.zze);
+        intent.putExtra(com.huawei.hms.common.AccountPicker.EXTRA_DESCRIPTION_TEXT_OVERRIDE, accountChooserOptions.zzf);
+        AccountChooserOptions.zzC(accountChooserOptions);
+        intent.putExtra("setGmsCoreAccount", false);
+        AccountChooserOptions.zzf(accountChooserOptions);
+        intent.putExtra(com.huawei.hms.common.AccountPicker.EXTRA_REAL_CLIENT_PACKAGE, (String) null);
+        AccountChooserOptions.zza(accountChooserOptions);
+        intent.putExtra(com.huawei.hms.common.AccountPicker.EXTRA_OVERRIDE_THEME, 0);
+        AccountChooserOptions.zzD(accountChooserOptions);
+        intent.putExtra(com.huawei.hms.common.AccountPicker.EXTRA_OVERRIDE_CUSTOM_THEME, 0);
+        AccountChooserOptions.zze(accountChooserOptions);
+        intent.putExtra(com.huawei.hms.common.AccountPicker.EXTRA_HOSTED_DOMAIN_FILTER, (String) null);
+        Bundle bundle = new Bundle();
+        AccountChooserOptions.zzD(accountChooserOptions);
+        AccountChooserOptions.zzd(accountChooserOptions);
+        AccountChooserOptions.zzz(accountChooserOptions);
+        AccountChooserOptions.zzA(accountChooserOptions);
+        if (!bundle.isEmpty()) {
+            intent.putExtra("first_party_options_bundle", bundle);
+        }
+        return intent;
     }
 }

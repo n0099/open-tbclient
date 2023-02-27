@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.util.z;
 /* loaded from: classes8.dex */
 public final class f implements Runnable {
     public static /* synthetic */ Interceptable $ic;
@@ -36,16 +35,16 @@ public final class f implements Runnable {
     @Override // java.lang.Runnable
     public final void run() {
         Context context;
-        Context context2;
-        Context context3;
+        long j;
+        boolean d;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             context = this.b.h;
             if (context != null && !TextUtils.isEmpty(this.a)) {
-                context2 = this.b.h;
-                context3 = this.b.h;
-                if (z.b(context2, context3.getPackageName(), this.a)) {
-                    this.b.i();
+                j = this.b.k;
+                d = e.d(j);
+                if (d) {
+                    e.i();
                 }
             }
         }

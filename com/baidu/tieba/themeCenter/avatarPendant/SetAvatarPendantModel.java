@@ -7,8 +7,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.s19;
-import com.baidu.tieba.w79;
+import com.baidu.tieba.e59;
+import com.baidu.tieba.jb9;
 import com.baidu.tieba.wb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -91,23 +91,23 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
                 return;
             }
             if (responsedMessage.getError() == 0) {
-                this.a.O(true);
+                this.a.V(true);
             } else {
-                this.a.O(false);
+                this.a.V(false);
             }
             if (z) {
                 SetPendantHttpResponse setPendantHttpResponse = (SetPendantHttpResponse) responsedMessage;
-                this.a.M(setPendantHttpResponse.getPendantId());
+                this.a.T(setPendantHttpResponse.getPendantId());
                 this.a.c = setPendantHttpResponse.getFreeUseLevel();
             } else if (responsedMessage instanceof SetPendantSocketResponse) {
                 SetPendantSocketResponse setPendantSocketResponse = (SetPendantSocketResponse) responsedMessage;
-                this.a.M(setPendantSocketResponse.getPendantId());
+                this.a.T(setPendantSocketResponse.getPendantId());
                 this.a.c = setPendantSocketResponse.getFreeUseLevel();
             }
             if (this.a.e != null) {
-                int i = w79.b;
-                if (responsedMessage.getError() == w79.c) {
-                    i = w79.a;
+                int i = jb9.b;
+                if (responsedMessage.getError() == jb9.c) {
+                    i = jb9.a;
                 }
                 this.a.e.j1(this.a.d, this.a.a, this.a.c, responsedMessage.getErrorString(), i);
             }
@@ -129,33 +129,33 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
         }
         this.d = false;
         this.f = new a(this, CmdConfigHttp.CMD_SET_PENDANT, 309412);
-        s19.h(309412, SetPendantSocketResponse.class, false, false);
-        s19.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
+        e59.h(309412, SetPendantSocketResponse.class, false, false);
+        e59.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
         registerListener(this.f);
     }
 
-    public void M(long j) {
+    public void T(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             this.a = j;
         }
     }
 
-    public void N(b bVar) {
+    public void U(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.e = bVar;
         }
     }
 
-    public void O(boolean z) {
+    public void V(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             this.d = z;
         }
     }
 
-    public void L(long j, int i, int i2) {
+    public void S(long j, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
             SetPendantRequest setPendantRequest = new SetPendantRequest();

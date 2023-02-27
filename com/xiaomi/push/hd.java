@@ -1,125 +1,223 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.service.XMPushService;
+import android.content.SharedPreferences;
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileLock;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class hd implements XMPushService.n {
-    public static /* synthetic */ Interceptable $ic;
+public class hd {
     public static boolean a;
-    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with other field name */
-    public int f486a;
+    /* loaded from: classes8.dex */
+    public static class a implements Runnable {
+        public Context a;
 
-    /* renamed from: a  reason: collision with other field name */
-    public Context f487a;
-    public boolean b;
+        /* renamed from: a  reason: collision with other field name */
+        public hg f467a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-56373052, "Lcom/xiaomi/push/hd;")) == null) {
+        public a(Context context, hg hgVar) {
+            this.f467a = hgVar;
+            this.a = context;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            hd.c(this.a, this.f467a);
+        }
+    }
+
+    public static void a(Context context) {
+        File file = new File(context.getFilesDir() + "/tdReadTemp");
+        if (file.exists()) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-56373052, "Lcom/xiaomi/push/hd;");
-        }
+        file.mkdirs();
     }
 
-    public hd(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f487a = context;
+    public static void a(Context context, hg hgVar) {
+        aj.a(context).a(new a(context, hgVar));
     }
 
-    private String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? "com.xiaomi.xmsf".equals(str) ? "1000271" : this.f487a.getSharedPreferences("pref_registered_pkg_names", 0).getString(str, null) : (String) invokeL.objValue;
-    }
-
-    private void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            this.b = com.xiaomi.push.service.ba.a(context).a(ho.ak.a(), true);
-            int a2 = com.xiaomi.push.service.ba.a(context).a(ho.al.a(), 7200);
-            this.f486a = a2;
-            this.f486a = Math.max(60, a2);
-        }
-    }
-
-    public static void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
-            a = z;
-        }
-    }
-
-    private boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? Math.abs((System.currentTimeMillis() / 1000) - this.f487a.getSharedPreferences("mipush_extra", 4).getLong("last_tiny_data_upload_timestamp", -1L)) > ((long) this.f486a) : invokeV.booleanValue;
-    }
-
-    private boolean a(hh hhVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, hhVar)) == null) {
-            if (!bj.b(this.f487a) || hhVar == null || TextUtils.isEmpty(a(this.f487a.getPackageName())) || !new File(this.f487a.getFilesDir(), "tiny_data.data").exists() || a) {
-                return false;
-            }
-            return !com.xiaomi.push.service.ba.a(this.f487a).a(ho.aV.a(), false) || j.m611a(this.f487a) || j.m613b(this.f487a);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.xiaomi.push.service.XMPushService.n
-    /* renamed from: a  reason: collision with other method in class */
-    public void mo469a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            hh a2 = hg.a(this.f487a).a();
-            if (hi.a(this.f487a) && a2 != null) {
-                hf.a(this.f487a, a2, com.xiaomi.push.service.ca.f988a);
-                com.xiaomi.push.service.ca.a();
-                com.xiaomi.channel.commonutils.logger.b.c("coord data upload");
-            }
-            a(this.f487a);
-            if (this.b && a()) {
-                com.xiaomi.channel.commonutils.logger.b.m105a("TinyData TinyDataCacheProcessor.pingFollowUpAction ts:" + System.currentTimeMillis());
-                if (a(a2)) {
-                    a = true;
-                    he.a(this.f487a, a2);
-                    return;
+    public static void a(Context context, hg hgVar, File file, byte[] bArr) {
+        String str;
+        int a2;
+        ArrayList arrayList = new ArrayList();
+        byte[] bArr2 = new byte[4];
+        BufferedInputStream bufferedInputStream = null;
+        try {
+            try {
+                BufferedInputStream bufferedInputStream2 = new BufferedInputStream(new FileInputStream(file));
+                loop0: while (true) {
+                    int i = 0;
+                    int i2 = 0;
+                    while (true) {
+                        try {
+                            int read = bufferedInputStream2.read(bArr2);
+                            if (read == -1) {
+                                break loop0;
+                            } else if (read == 4) {
+                                a2 = ac.a(bArr2);
+                                if (a2 < 1 || a2 > 10240) {
+                                    break loop0;
+                                }
+                                byte[] bArr3 = new byte[a2];
+                                int read2 = bufferedInputStream2.read(bArr3);
+                                if (read2 != a2) {
+                                    str = "TinyData read from cache file failed cause buffer size not equal length. size:" + read2 + "__length:" + a2;
+                                    break loop0;
+                                }
+                                byte[] a3 = h.a(bArr, bArr3);
+                                if (a3 != null && a3.length != 0) {
+                                    hl hlVar = new hl();
+                                    ir.a(hlVar, a3);
+                                    hlVar.a("item_size", String.valueOf(a3.length));
+                                    arrayList.add(hlVar);
+                                    i++;
+                                    i2 += a3.length;
+                                    if (i >= 8 || i2 >= 10240) {
+                                    }
+                                }
+                                com.xiaomi.channel.commonutils.logger.b.d("TinyData read from cache file failed cause decrypt fail");
+                            } else {
+                                str = "TinyData read from cache file failed cause lengthBuffer error. size:" + read;
+                                break loop0;
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            bufferedInputStream = bufferedInputStream2;
+                            com.xiaomi.channel.commonutils.logger.b.a(e);
+                            y.a(bufferedInputStream);
+                            return;
+                        } catch (Throwable th) {
+                            th = th;
+                            bufferedInputStream = bufferedInputStream2;
+                            y.a(bufferedInputStream);
+                            throw th;
+                        }
+                    }
+                    he.a(context, hgVar, arrayList);
+                    arrayList.clear();
                 }
-                com.xiaomi.channel.commonutils.logger.b.m105a("TinyData TinyDataCacheProcessor.pingFollowUpAction !canUpload(uploader) ts:" + System.currentTimeMillis());
+                str = "TinyData read from cache file failed cause lengthBuffer < 1 || too big. length:" + a2;
+                com.xiaomi.channel.commonutils.logger.b.d(str);
+                he.a(context, hgVar, arrayList);
+                if (file != null && file.exists() && !file.delete()) {
+                    com.xiaomi.channel.commonutils.logger.b.m97a("TinyData delete reading temp file failed");
+                }
+                y.a(bufferedInputStream2);
+            } catch (Exception e2) {
+                e = e2;
             }
+        } catch (Throwable th2) {
+            th = th2;
         }
+    }
+
+    public static void b(Context context) {
+        SharedPreferences.Editor edit = context.getSharedPreferences("mipush_extra", 4).edit();
+        edit.putLong("last_tiny_data_upload_timestamp", System.currentTimeMillis() / 1000);
+        edit.commit();
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:34:0x00b7  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x00bb  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void c(Context context, hg hgVar) {
+        RandomAccessFile randomAccessFile;
+        File file;
+        if (a) {
+            com.xiaomi.channel.commonutils.logger.b.m97a("TinyData extractTinyData is running");
+            return;
+        }
+        a = true;
+        File file2 = new File(context.getFilesDir(), "tiny_data.data");
+        if (!file2.exists()) {
+            com.xiaomi.channel.commonutils.logger.b.m97a("TinyData no ready file to get data.");
+            return;
+        }
+        a(context);
+        byte[] a2 = com.xiaomi.push.service.ca.a(context);
+        FileLock fileLock = null;
+        try {
+            try {
+                File file3 = new File(context.getFilesDir(), "tiny_data.lock");
+                y.m760a(file3);
+                randomAccessFile = new RandomAccessFile(file3, "rw");
+                try {
+                    fileLock = randomAccessFile.getChannel().lock();
+                    file2.renameTo(new File(context.getFilesDir() + "/tdReadTemp/tiny_data.data"));
+                    if (fileLock != null && fileLock.isValid()) {
+                        try {
+                            fileLock.release();
+                        } catch (IOException e) {
+                            e = e;
+                            com.xiaomi.channel.commonutils.logger.b.a(e);
+                            y.a(randomAccessFile);
+                            file = new File(context.getFilesDir() + "/tdReadTemp/tiny_data.data");
+                            if (file.exists()) {
+                            }
+                        }
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
+                    if (fileLock != null && fileLock.isValid()) {
+                        try {
+                            fileLock.release();
+                        } catch (IOException e3) {
+                            e = e3;
+                            com.xiaomi.channel.commonutils.logger.b.a(e);
+                            y.a(randomAccessFile);
+                            file = new File(context.getFilesDir() + "/tdReadTemp/tiny_data.data");
+                            if (file.exists()) {
+                            }
+                        }
+                    }
+                    y.a(randomAccessFile);
+                    file = new File(context.getFilesDir() + "/tdReadTemp/tiny_data.data");
+                    if (file.exists()) {
+                    }
+                }
+            } catch (Throwable th) {
+                th = th;
+                if (fileLock != null && fileLock.isValid()) {
+                    try {
+                        fileLock.release();
+                    } catch (IOException e4) {
+                        com.xiaomi.channel.commonutils.logger.b.a(e4);
+                    }
+                }
+                y.a(randomAccessFile);
+                throw th;
+            }
+        } catch (Exception e5) {
+            e = e5;
+            randomAccessFile = null;
+        } catch (Throwable th2) {
+            th = th2;
+            randomAccessFile = null;
+            if (fileLock != null) {
+                fileLock.release();
+            }
+            y.a(randomAccessFile);
+            throw th;
+        }
+        y.a(randomAccessFile);
+        file = new File(context.getFilesDir() + "/tdReadTemp/tiny_data.data");
+        if (file.exists()) {
+            com.xiaomi.channel.commonutils.logger.b.m97a("TinyData no ready file to get data.");
+            return;
+        }
+        a(context, hgVar, file, a2);
+        hc.a(false);
+        b(context);
+        a = false;
     }
 }

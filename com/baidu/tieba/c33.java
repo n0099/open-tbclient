@@ -1,23 +1,56 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.tieba.br2;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes3.dex */
-public class c33 implements pn3<HybridUbcFlow> {
+public class c33 implements qu2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<String> c;
+    public CopyOnWriteArrayList<b33> d;
+    public boolean e;
+    public i43 f;
 
     /* loaded from: classes3.dex */
-    public class a implements pn3<HybridUbcFlow> {
+    public class a implements i43 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c33 c;
+
+        @Override // com.baidu.tieba.i43
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.i43
+        public void c(@NonNull Runnable runnable, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.i43
+        public String getName() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "GlobalJsBridge" : (String) invokeV.objValue;
+        }
 
         public a(c33 c33Var) {
             Interceptable interceptable = $ic;
@@ -31,45 +64,71 @@ public class c33 implements pn3<HybridUbcFlow> {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = c33Var;
+        }
+
+        @Override // com.baidu.tieba.i43
+        public void e(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048580, this, str) != null) {
+                return;
+            }
+            this.c.e = true;
+        }
+
+        @Override // com.baidu.tieba.i43
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+                return;
+            }
+            this.c.e = false;
+        }
+
+        @Override // com.baidu.tieba.i43
+        public void d(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+                this.c.e = false;
+                if (this.c.d.isEmpty()) {
+                    return;
+                }
+                long currentTimeMillis = System.currentTimeMillis();
+                Iterator<b33> it = this.c.d.iterator();
+                while (it.hasNext()) {
+                    it.next().a();
+                }
+                if (qu2.a) {
+                    long currentTimeMillis2 = System.currentTimeMillis();
+                    Log.d("SwanPerformance", "pending api dispatch cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms, listener count = " + this.c.d.size());
                 }
             }
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pn3
-        /* renamed from: b */
-        public void a(HybridUbcFlow hybridUbcFlow) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) != null) || c33.b(hybridUbcFlow)) {
-                return;
+    /* loaded from: classes3.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final c33 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-939305560, "Lcom/baidu/tieba/c33$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-939305560, "Lcom/baidu/tieba/c33$b;");
+                    return;
+                }
             }
-            long f = hybridUbcFlow.f("na_first_meaningful_paint", "naStart");
-            if (f <= 0) {
-                f = hybridUbcFlow.f("na_first_paint", "naStart");
-            }
-            if (f <= 0) {
-                f = hybridUbcFlow.f("slave_first_rendered", "naStart");
-            }
-            if (f <= 0) {
-                f = hybridUbcFlow.f("fe_page_show", "naStart");
-            }
-            if (f <= 0) {
-                f = hybridUbcFlow.f("na_page_show", "naStart");
-            }
-            if (f <= 0) {
-                f = hybridUbcFlow.f("na_receive_intent", "naStart");
-            }
-            if (f <= 0) {
-                f = System.currentTimeMillis();
-            }
-            Bundle bundle = new Bundle();
-            bundle.putLong("property_launch_cost", f);
-            m53 e = m53.e();
-            o53 o53Var = new o53(20, bundle);
-            o53Var.f(true);
-            e.h(o53Var);
-            j23.h().end(f);
-            z23.e().f();
+            a = new c33(null);
         }
     }
 
@@ -83,41 +142,54 @@ public class c33 implements pn3<HybridUbcFlow> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = new ArrayList();
+        this.d = new CopyOnWriteArrayList<>();
+        this.e = false;
+        this.f = new a(this);
+        this.c.clear();
+        List<String> list = this.c;
+        list.add(UnitedSchemeEntity.UNITED_SCHEME + "swanAPI/openStatisticEvent?");
     }
 
-    public static boolean b(HybridUbcFlow hybridUbcFlow) {
+    public /* synthetic */ c33(a aVar) {
+        this();
+    }
+
+    public void d(b33 b33Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b33Var) != null) || b33Var == null) {
+            return;
+        }
+        this.d.add(b33Var);
+        g43.g().i(this.f, 4000);
+    }
+
+    public static c33 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (c33) invokeV.objValue;
+    }
+
+    public boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hybridUbcFlow)) == null) {
-            if (hybridUbcFlow.p("performanceEnd") && !hybridUbcFlow.p("na_first_meaningful_paint")) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || !this.e) {
+                return false;
+            }
+            for (String str2 : this.c) {
+                if (str.startsWith(str2)) {
+                    return true;
+                }
             }
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pn3
-    /* renamed from: c */
-    public void a(HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            hybridUbcFlow.J("670");
-            hybridUbcFlow.D("preload_scene", "1");
-            hybridUbcFlow.E("from", "swan");
-            hybridUbcFlow.H("component_reporter", new x13());
-            hybridUbcFlow.H("component_reporter", new a13());
-            hybridUbcFlow.H("component_reporter", new u13());
-            hybridUbcFlow.H("component_reporter", new z13());
-            hybridUbcFlow.H("callback_on_submit", new br2.a());
-            hybridUbcFlow.H("fmp_callback", new f33("fmp_callback"));
-            hybridUbcFlow.H("fmp_callback", new t33());
-            hybridUbcFlow.H("callback_on_submit", new f33("callback_on_submit"));
-            hybridUbcFlow.H("callback_on_submit", new uk3());
-            hybridUbcFlow.H("callback_on_submit", new a(this));
-        }
     }
 }

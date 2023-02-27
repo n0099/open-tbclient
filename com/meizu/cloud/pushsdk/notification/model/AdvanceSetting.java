@@ -76,8 +76,8 @@ public class AdvanceSetting implements Parcelable {
                     advanceSetting.setNotifyType(NotifyType.parse(jSONObject.getJSONObject("nt")));
                 }
                 boolean z = true;
-                if (!jSONObject.isNull(CLEAR_NOTIFICATION)) {
-                    advanceSetting.setClearNotification(jSONObject.getInt(CLEAR_NOTIFICATION) != 0);
+                if (!jSONObject.isNull("cn")) {
+                    advanceSetting.setClearNotification(jSONObject.getInt("cn") != 0);
                 }
                 if (!jSONObject.isNull(HEAD_UP_NOTIFICATION)) {
                     if (jSONObject.getInt(HEAD_UP_NOTIFICATION) == 0) {

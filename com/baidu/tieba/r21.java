@@ -1,16 +1,19 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class r21 extends q21 {
+public class r21 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile r21 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ConcurrentHashMap<String, o21> a;
 
     public r21() {
         Interceptable interceptable = $ic;
@@ -22,51 +25,52 @@ public class r21 extends q21 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ConcurrentHashMap<>();
     }
 
-    @Override // com.baidu.tieba.t21
-    public boolean isValid() {
+    public static r21 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String sb = this.a.toString();
-            if (!TextUtils.isEmpty(sb) && sb.contains("ci") && sb.contains("ext")) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (r21.class) {
+                    if (b == null) {
+                        b = new r21();
+                    }
+                }
             }
-            return false;
+            return b;
         }
-        return invokeV.booleanValue;
+        return (r21) invokeV.objValue;
     }
 
-    public r21 e(String str) {
+    @NonNull
+    public o21 b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            d("cr", str);
-            return this;
+            if (str == null) {
+                str = "";
+            }
+            o21 o21Var = (o21) g21.b(this.a, str);
+            if (o21Var == null) {
+                synchronized (r21.class) {
+                    o21Var = (o21) g21.b(this.a, str);
+                    if (o21Var == null) {
+                        if (TextUtils.isEmpty(str)) {
+                            o21Var = q21.a().a();
+                        } else {
+                            o21Var = q21.a().b(str);
+                        }
+                        g21.e(this.a, str, o21Var);
+                    }
+                }
+            }
+            return o21Var;
         }
-        return (r21) invokeL.objValue;
-    }
-
-    public r21 f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            d("ci", str);
-            return this;
-        }
-        return (r21) invokeL.objValue;
-    }
-
-    public r21 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            d("ext", str);
-            return this;
-        }
-        return (r21) invokeL.objValue;
+        return (o21) invokeL.objValue;
     }
 }

@@ -4,6 +4,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.PushManager;
@@ -14,11 +15,12 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mutiprocess.push.PushRecevierEvent;
+import com.baidu.tieba.b55;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.k85;
-import com.baidu.tieba.lh5;
-import com.baidu.tieba.p35;
 import com.baidu.tieba.push.PushGeneralData;
+import com.baidu.tieba.r08;
+import com.baidu.tieba.w95;
+import com.baidu.tieba.yi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -51,21 +53,21 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     @Override // com.baidu.android.pushservice.PushMessageReceiver
     public void onNotificationArrived(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, context, str, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, context, str, str2, str3) == null) {
         }
     }
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
     public void onSetTags(Context context, int i, List<String> list, List<String> list2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
         }
     }
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
     public void onUnbind(Context context, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048583, this, context, i, str) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048586, this, context, i, str) == null) {
         }
     }
 
@@ -87,10 +89,12 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public void onBind(Context context, int i, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Integer.valueOf(i), str, str2, str3, str4}) == null) {
-            String str5 = "onBind errorCode=" + i;
+            r08 yunPushLog = YunPushLog.getInstance();
+            yunPushLog.c(TAG, "onBind errorCode:" + i + " appid:" + str + " userId:" + str2 + " channelId:" + str3 + " requestId:" + str4);
             if (i == 0) {
                 PushManager.setPushBackStatus(TbadkCoreApplication.getInst(), false);
-                p35.m().w(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
+                b55 m = b55.m();
+                m.w(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
                 TbadkCoreApplication.getInst().setYunpushChannelId(str3);
             }
         }
@@ -133,8 +137,8 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                     pushGeneralData.parseData(jSONObject.optString("st_ext"));
                     PushRecevierEvent pushRecevierEvent = new PushRecevierEvent();
                     pushRecevierEvent.generalData = pushGeneralData;
-                    lh5.i(pushRecevierEvent);
-                } else if (!k85.L()) {
+                    yi5.i(pushRecevierEvent);
+                } else if (!w95.L()) {
                     int e = dh.e(str6, 2500);
                     if (e < 2500) {
                         e += 2500;
@@ -150,9 +154,36 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     }
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
+    public void onMessage(Context context, String str, String str2, int i, PushMessageReceiver.PushCallBackExtra pushCallBackExtra) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, str, str2, Integer.valueOf(i), pushCallBackExtra}) == null) {
+            r08 yunPushLog = YunPushLog.getInstance();
+            yunPushLog.c(TAG, "onMessage message:" + str + " customContentString:" + str2 + " notifyId:" + i + " extra:" + pushCallBackExtra);
+        }
+    }
+
+    @Override // com.baidu.android.pushservice.PushMessageReceiver
+    public void onNotificationArrived(Context context, String str, String str2, String str3, PushMessageReceiver.PushCallBackExtra pushCallBackExtra) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048582, this, context, str, str2, str3, pushCallBackExtra) == null) {
+            r08 yunPushLog = YunPushLog.getInstance();
+            yunPushLog.c(TAG, "onNotificationArrived title:" + str + " description:" + str2 + " customContentString:" + str3 + " extra:" + pushCallBackExtra);
+        }
+    }
+
+    @Override // com.baidu.android.pushservice.PushMessageReceiver
+    public void onNotificationClicked(Context context, String str, String str2, String str3, PushMessageReceiver.PushCallBackExtra pushCallBackExtra) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str, str2, str3, pushCallBackExtra) == null) {
+            r08 yunPushLog = YunPushLog.getInstance();
+            yunPushLog.c(TAG, "onNotificationClicked title:" + str + " description:" + str2 + " customContentString:" + str3 + " extra:" + pushCallBackExtra);
+        }
+    }
+
+    @Override // com.baidu.android.pushservice.PushMessageReceiver
     public void onNotificationClicked(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048581, this, context, str, str2, str3) == null) && !TextUtils.isEmpty(str3)) {
+        if ((interceptable == null || interceptable.invokeLLLL(1048583, this, context, str, str2, str3) == null) && !TextUtils.isEmpty(str3)) {
             try {
                 JSONObject jSONObject = new JSONObject(str3);
                 String str4 = null;

@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.v98;
+import com.baidu.tieba.hd8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -72,9 +72,9 @@ public class PbThreadPostView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f091991);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091992);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091990);
+            this.b = findViewById(R.id.obfuscated_res_0x7f0919d2);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0919d3);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0919d1);
         }
     }
 
@@ -86,7 +86,7 @@ public class PbThreadPostView extends LinearLayout {
             setClipToPadding(false);
             setOrientation(1);
             setGravity(17);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d071b, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0731, (ViewGroup) this, true);
             a();
         }
     }
@@ -108,9 +108,9 @@ public class PbThreadPostView extends LinearLayout {
         }
     }
 
-    public void setData(v98 v98Var) {
+    public void setData(hd8 hd8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, v98Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, hd8Var) == null) {
             c(TbadkCoreApplication.getInst().getSkinType());
         }
     }

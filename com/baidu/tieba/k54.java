@@ -1,199 +1,152 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+import android.content.Intent;
+import android.text.TextUtils;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.v8engine.V8ExceptionInfo;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.swan.games.glsurface.DuMixGameSurfaceView;
+import com.baidu.tieba.c64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.http.cookie.ClientCookie;
-import org.json.JSONObject;
+import java.io.File;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class k54 {
+public class k54 implements wq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public String b;
-
-        public a(boolean z, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = false;
-            this.a = z;
-            this.b = str;
-        }
-
-        public static a c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return new a(false, "未启用真机调试");
-            }
-            return (a) invokeV.objValue;
-        }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    public k54(JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    public k54() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = null;
-        this.b = null;
-        this.c = false;
-        this.d = false;
-        this.e = false;
-        this.f = false;
-        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("inspector")) != null) {
-            this.a = optJSONObject.optString("hostname", null);
-            this.b = optJSONObject.optString(ClientCookie.PORT_ATTR, null);
-            this.c = optJSONObject.optBoolean("breakOnStart", false);
-        }
-        SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext());
-        boolean z = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_ENABLED", false);
-        this.f = z;
-        if (z) {
-            this.a = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_HOSTNAME", this.a);
-            this.b = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_PORT", this.b);
-            this.c = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_BREAK_FIRST_ENABLED", this.c);
-            this.d = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_DEBUGGER_DISABLED", this.d);
-        }
-        String str = this.a;
-        if (str != null && !str.trim().equals("")) {
-            this.e = true;
         }
     }
 
-    public static a f(k54 k54Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, k54Var)) == null) {
-            if (k54Var == null) {
-                return a.c();
-            }
-            return k54Var.e();
-        }
-        return (a) invokeL.objValue;
-    }
-
-    public String a() {
+    @Override // com.baidu.tieba.wq1
+    public SwanCoreVersion m() {
         InterceptResult invokeV;
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.a);
-            if (this.b != null) {
-                str = ":" + this.b;
-            } else {
-                str = "";
+            return m54.m().s();
+        }
+        return (SwanCoreVersion) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wq1
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            m54.C();
+        }
+    }
+
+    @Override // com.baidu.tieba.wq1
+    public ExtensionCore s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return m54.m().k();
+        }
+        return (ExtensionCore) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wq1
+    public yj2 t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return z44.i();
+        }
+        return (yj2) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wq1
+    public lm2 n(SwanAppActivity swanAppActivity, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppActivity, str)) == null) {
+            return new n54(swanAppActivity, str);
+        }
+        return (lm2) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.wq1
+    public void v(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048586, this, str, z) == null) {
+            sb4.a().d(str, z);
+        }
+    }
+
+    @Override // com.baidu.tieba.wq1
+    public uc2 o(fo3<Exception> fo3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fo3Var)) == null) {
+            return new s54(fo3Var);
+        }
+        return (uc2) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.wq1
+    public void p(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
+            m54.m().z(intent);
+        }
+    }
+
+    @Override // com.baidu.tieba.wq1
+    public View q(s82 s82Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, s82Var)) == null) {
+            if (s82Var instanceof j54) {
+                return ((j54) s82Var).v3();
             }
-            sb.append(str);
-            return sb.toString();
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (View) invokeL.objValue;
     }
 
-    public a e() {
-        InterceptResult invokeV;
-        String str;
+    @Override // com.baidu.tieba.wq1
+    public void r(V8ExceptionInfo v8ExceptionInfo) {
+        DuMixGameSurfaceView r;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!this.f && c()) {
-                return new a(false, "线上包禁用真机调试");
+        if ((interceptable == null || interceptable.invokeL(1048581, this, v8ExceptionInfo) == null) && (r = m54.m().r()) != null) {
+            r.r(v8ExceptionInfo);
+        }
+    }
+
+    @Override // com.baidu.tieba.wq1
+    public int u(String str, long j) {
+        InterceptResult invokeLJ;
+        g94 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, str, j)) == null) {
+            if (TextUtils.isEmpty(str) || (a = g94.a(qp4.E(new File(c64.d.h(str, String.valueOf(j)), "game.json")))) == null) {
+                return 0;
             }
-            boolean z = this.e;
-            if (!z) {
-                str = "未启用真机调试";
-            } else if (this.f) {
-                str = "使用了 debug 面板配置";
-            } else {
-                str = "启用了真机调试";
-            }
-            return new a(z, str);
+            return a.b;
         }
-        return (a) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return y02.f(w83.g0());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
+        return invokeLJ.intValue;
     }
 }

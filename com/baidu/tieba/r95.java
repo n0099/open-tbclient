@@ -1,67 +1,134 @@
 package com.baidu.tieba;
 
-import android.text.TextPaint;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
+import com.baidu.tbadk.data.LiveRemindRecommendData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class r95 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "表情包";
+    public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948076475, "Lcom/baidu/tieba/r95;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948076475, "Lcom/baidu/tieba/r95;");
-        }
-    }
-
-    public static String a(String str, String str2, float f, TextPaint textPaint) {
-        InterceptResult invokeCommon;
+    public static String a(String str, int i) {
+        InterceptResult invokeLI;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
-            if (textPaint == null) {
-                textPaint = new TextPaint();
-            }
-            return b(textPaint, str, f - textPaint.measureText(str2), str2);
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static String b(TextPaint textPaint, String str, float f, String str2) {
-        InterceptResult invokeCommon;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{textPaint, str, Float.valueOf(f), str2})) == null) {
-            float measureText = textPaint.measureText(str);
-            if (measureText > f) {
-                if (str.endsWith(a)) {
-                    str = str.substring(0, str.length() - 3);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            if (i == 1) {
+                str2 = "index";
+            } else if (i == 2) {
+                str2 = "pb_live";
+            } else if (i == 3) {
+                int i2 = a;
+                if (i2 == 1) {
+                    str2 = "video_bar_live";
+                } else {
+                    if (i2 == 2) {
+                        str2 = "video_immer_live";
+                    }
+                    str2 = "";
                 }
-                str3 = StringHelper.STRING_MORE + a;
-            } else if (!str.endsWith(a)) {
-                str3 = a;
             } else {
-                str3 = "";
+                if (i == 4) {
+                    str2 = YYLiveUtil.SOURCE_PB_DATU_EOF;
+                }
+                str2 = "";
             }
-            while (str.length() > 0 && measureText > f) {
-                str = rp5.n(str, rp5.f(str) - 1);
-                measureText = textPaint.measureText(str);
-            }
-            return str + str3;
+            return str + "?source=" + str2;
         }
-        return (String) invokeCommon.objValue;
+        return (String) invokeLI.objValue;
+    }
+
+    public static String b(LiveRemindRecommendData liveRemindRecommendData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, liveRemindRecommendData)) == null) {
+            if (liveRemindRecommendData != null && !StringUtils.isNull(liveRemindRecommendData.getLiveIconScheme())) {
+                b = liveRemindRecommendData.getShowPage();
+                String liveIconScheme = liveRemindRecommendData.getLiveIconScheme();
+                if (liveRemindRecommendData.getShowPage() == 3) {
+                    String c = c();
+                    if (liveIconScheme.contains("closeLink")) {
+                        return SchemeActionHelper.replaceUrlParameter(liveIconScheme.replace("VIDEOICONBACK", c + "_back"), "source", c);
+                    }
+                    return SchemeActionHelper.replaceUrlParameter(liveIconScheme, "source", c);
+                }
+                return liveIconScheme;
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            int i = a;
+            if (i == 1) {
+                return YYLiveUtil.SOURCE_HOMEPAGE_VIDEO_CHANNEL;
+            }
+            if (i == 2) {
+                return YYLiveUtil.SOURCE_HOMEPAGE_VIDEO_MIDDLE;
+            }
+            int i2 = b;
+            if (i2 == 1) {
+                return "index_gz";
+            }
+            if (i2 == 2) {
+                return AddFriendActivityConfig.TYPE_PB_HEAD;
+            }
+            return YYLiveUtil.SOURCE_NOT_DEFINE;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_LIVE_ICON_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).eventStat();
+        }
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_LIVE_ICON_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).eventStat();
+        }
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            Uri parse = Uri.parse(str);
+            if (parse == null) {
+                return "";
+            }
+            String queryParameter = parse.getQueryParameter("source");
+            if (StringUtils.isNull(queryParameter)) {
+                return "";
+            }
+            return queryParameter;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
+            a = i;
+        }
     }
 }

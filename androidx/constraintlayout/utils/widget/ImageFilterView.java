@@ -18,17 +18,8 @@ import android.widget.ImageView;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.constraintlayout.widget.R;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class ImageFilterView extends AppCompatImageView {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public float mCrossfade;
     public ImageMatrix mImageMatrix;
     public LayerDrawable mLayer;
@@ -40,217 +31,8 @@ public class ImageFilterView extends AppCompatImageView {
     public float mRoundPercent;
     public ViewOutlineProvider mViewOutlineProvider;
 
-    /* loaded from: classes.dex */
-    public static class ImageMatrix {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float[] m;
-        public float mBrightness;
-        public ColorMatrix mColorMatrix;
-        public float mContrast;
-        public float mSaturation;
-        public ColorMatrix mTmpColorMatrix;
-        public float mWarmth;
-
-        public ImageMatrix() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.m = new float[20];
-            this.mColorMatrix = new ColorMatrix();
-            this.mTmpColorMatrix = new ColorMatrix();
-            this.mBrightness = 1.0f;
-            this.mSaturation = 1.0f;
-            this.mContrast = 1.0f;
-            this.mWarmth = 1.0f;
-        }
-
-        private void brightness(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(65537, this, f) == null) {
-                float[] fArr = this.m;
-                fArr[0] = f;
-                fArr[1] = 0.0f;
-                fArr[2] = 0.0f;
-                fArr[3] = 0.0f;
-                fArr[4] = 0.0f;
-                fArr[5] = 0.0f;
-                fArr[6] = f;
-                fArr[7] = 0.0f;
-                fArr[8] = 0.0f;
-                fArr[9] = 0.0f;
-                fArr[10] = 0.0f;
-                fArr[11] = 0.0f;
-                fArr[12] = f;
-                fArr[13] = 0.0f;
-                fArr[14] = 0.0f;
-                fArr[15] = 0.0f;
-                fArr[16] = 0.0f;
-                fArr[17] = 0.0f;
-                fArr[18] = 1.0f;
-                fArr[19] = 0.0f;
-            }
-        }
-
-        private void saturation(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(65538, this, f) == null) {
-                float f2 = 1.0f - f;
-                float f3 = 0.2999f * f2;
-                float f4 = 0.587f * f2;
-                float f5 = f2 * 0.114f;
-                float[] fArr = this.m;
-                fArr[0] = f3 + f;
-                fArr[1] = f4;
-                fArr[2] = f5;
-                fArr[3] = 0.0f;
-                fArr[4] = 0.0f;
-                fArr[5] = f3;
-                fArr[6] = f4 + f;
-                fArr[7] = f5;
-                fArr[8] = 0.0f;
-                fArr[9] = 0.0f;
-                fArr[10] = f3;
-                fArr[11] = f4;
-                fArr[12] = f5 + f;
-                fArr[13] = 0.0f;
-                fArr[14] = 0.0f;
-                fArr[15] = 0.0f;
-                fArr[16] = 0.0f;
-                fArr[17] = 0.0f;
-                fArr[18] = 1.0f;
-                fArr[19] = 0.0f;
-            }
-        }
-
-        public void updateMatrix(ImageView imageView) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, imageView) == null) {
-                this.mColorMatrix.reset();
-                float f = this.mSaturation;
-                boolean z2 = true;
-                if (f != 1.0f) {
-                    saturation(f);
-                    this.mColorMatrix.set(this.m);
-                    z = true;
-                } else {
-                    z = false;
-                }
-                float f2 = this.mContrast;
-                if (f2 != 1.0f) {
-                    this.mTmpColorMatrix.setScale(f2, f2, f2, 1.0f);
-                    this.mColorMatrix.postConcat(this.mTmpColorMatrix);
-                    z = true;
-                }
-                float f3 = this.mWarmth;
-                if (f3 != 1.0f) {
-                    warmth(f3);
-                    this.mTmpColorMatrix.set(this.m);
-                    this.mColorMatrix.postConcat(this.mTmpColorMatrix);
-                    z = true;
-                }
-                float f4 = this.mBrightness;
-                if (f4 != 1.0f) {
-                    brightness(f4);
-                    this.mTmpColorMatrix.set(this.m);
-                    this.mColorMatrix.postConcat(this.mTmpColorMatrix);
-                } else {
-                    z2 = z;
-                }
-                if (z2) {
-                    imageView.setColorFilter(new ColorMatrixColorFilter(this.mColorMatrix));
-                } else {
-                    imageView.clearColorFilter();
-                }
-            }
-        }
-
-        private void warmth(float f) {
-            float log;
-            float f2;
-            float f3;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(65539, this, f) == null) {
-                if (f <= 0.0f) {
-                    f = 0.01f;
-                }
-                float f4 = (5000.0f / f) / 100.0f;
-                if (f4 > 66.0f) {
-                    double d = f4 - 60.0f;
-                    f2 = ((float) Math.pow(d, -0.13320475816726685d)) * 329.69873f;
-                    log = ((float) Math.pow(d, 0.07551484555006027d)) * 288.12216f;
-                } else {
-                    log = (((float) Math.log(f4)) * 99.4708f) - 161.11957f;
-                    f2 = 255.0f;
-                }
-                if (f4 < 66.0f) {
-                    if (f4 > 19.0f) {
-                        f3 = (((float) Math.log(f4 - 10.0f)) * 138.51773f) - 305.0448f;
-                    } else {
-                        f3 = 0.0f;
-                    }
-                } else {
-                    f3 = 255.0f;
-                }
-                float min = Math.min(255.0f, Math.max(f2, 0.0f));
-                float min2 = Math.min(255.0f, Math.max(log, 0.0f));
-                float min3 = Math.min(255.0f, Math.max(f3, 0.0f));
-                float min4 = Math.min(255.0f, Math.max(255.0f, 0.0f));
-                float min5 = Math.min(255.0f, Math.max((((float) Math.log(50.0f)) * 99.4708f) - 161.11957f, 0.0f));
-                float min6 = min3 / Math.min(255.0f, Math.max((((float) Math.log(40.0f)) * 138.51773f) - 305.0448f, 0.0f));
-                float[] fArr = this.m;
-                fArr[0] = min / min4;
-                fArr[1] = 0.0f;
-                fArr[2] = 0.0f;
-                fArr[3] = 0.0f;
-                fArr[4] = 0.0f;
-                fArr[5] = 0.0f;
-                fArr[6] = min2 / min5;
-                fArr[7] = 0.0f;
-                fArr[8] = 0.0f;
-                fArr[9] = 0.0f;
-                fArr[10] = 0.0f;
-                fArr[11] = 0.0f;
-                fArr[12] = min6;
-                fArr[13] = 0.0f;
-                fArr[14] = 0.0f;
-                fArr[15] = 0.0f;
-                fArr[16] = 0.0f;
-                fArr[17] = 0.0f;
-                fArr[18] = 1.0f;
-                fArr[19] = 0.0f;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ImageFilterView(Context context) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mImageMatrix = new ImageMatrix();
         this.mOverlay = true;
         this.mCrossfade = 0.0f;
@@ -259,106 +41,229 @@ public class ImageFilterView extends AppCompatImageView {
         init(context, null);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ImageFilterView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mImageMatrix = new ImageMatrix();
-        this.mOverlay = true;
-        this.mCrossfade = 0.0f;
-        this.mRoundPercent = 0.0f;
-        this.mRound = Float.NaN;
-        init(context, attributeSet);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ImageFilterView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mImageMatrix = new ImageMatrix();
-        this.mOverlay = true;
-        this.mCrossfade = 0.0f;
-        this.mRoundPercent = 0.0f;
-        this.mRound = Float.NaN;
-        init(context, attributeSet);
-    }
-
     private void setOverlay(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65542, this, z) == null) {
-            this.mOverlay = z;
+        this.mOverlay = z;
+    }
+
+    @Override // android.view.View
+    public void draw(Canvas canvas) {
+        boolean z;
+        if (Build.VERSION.SDK_INT < 21 && this.mRoundPercent != 0.0f && this.mPath != null) {
+            z = true;
+            canvas.save();
+            canvas.clipPath(this.mPath);
+        } else {
+            z = false;
+        }
+        super.draw(canvas);
+        if (z) {
+            canvas.restore();
         }
     }
 
     public void setBrightness(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
-            ImageMatrix imageMatrix = this.mImageMatrix;
-            imageMatrix.mBrightness = f;
-            imageMatrix.updateMatrix(this);
-        }
+        ImageMatrix imageMatrix = this.mImageMatrix;
+        imageMatrix.mBrightness = f;
+        imageMatrix.updateMatrix(this);
     }
 
     public void setContrast(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {
-            ImageMatrix imageMatrix = this.mImageMatrix;
-            imageMatrix.mContrast = f;
-            imageMatrix.updateMatrix(this);
-        }
+        ImageMatrix imageMatrix = this.mImageMatrix;
+        imageMatrix.mContrast = f;
+        imageMatrix.updateMatrix(this);
     }
 
     public void setSaturation(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
-            ImageMatrix imageMatrix = this.mImageMatrix;
-            imageMatrix.mSaturation = f;
-            imageMatrix.updateMatrix(this);
-        }
+        ImageMatrix imageMatrix = this.mImageMatrix;
+        imageMatrix.mSaturation = f;
+        imageMatrix.updateMatrix(this);
     }
 
     public void setWarmth(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048590, this, f) == null) {
-            ImageMatrix imageMatrix = this.mImageMatrix;
-            imageMatrix.mWarmth = f;
-            imageMatrix.updateMatrix(this);
+        ImageMatrix imageMatrix = this.mImageMatrix;
+        imageMatrix.mWarmth = f;
+        imageMatrix.updateMatrix(this);
+    }
+
+    /* loaded from: classes.dex */
+    public static class ImageMatrix {
+        public float[] m = new float[20];
+        public ColorMatrix mColorMatrix = new ColorMatrix();
+        public ColorMatrix mTmpColorMatrix = new ColorMatrix();
+        public float mBrightness = 1.0f;
+        public float mSaturation = 1.0f;
+        public float mContrast = 1.0f;
+        public float mWarmth = 1.0f;
+
+        private void brightness(float f) {
+            float[] fArr = this.m;
+            fArr[0] = f;
+            fArr[1] = 0.0f;
+            fArr[2] = 0.0f;
+            fArr[3] = 0.0f;
+            fArr[4] = 0.0f;
+            fArr[5] = 0.0f;
+            fArr[6] = f;
+            fArr[7] = 0.0f;
+            fArr[8] = 0.0f;
+            fArr[9] = 0.0f;
+            fArr[10] = 0.0f;
+            fArr[11] = 0.0f;
+            fArr[12] = f;
+            fArr[13] = 0.0f;
+            fArr[14] = 0.0f;
+            fArr[15] = 0.0f;
+            fArr[16] = 0.0f;
+            fArr[17] = 0.0f;
+            fArr[18] = 1.0f;
+            fArr[19] = 0.0f;
+        }
+
+        private void saturation(float f) {
+            float f2 = 1.0f - f;
+            float f3 = 0.2999f * f2;
+            float f4 = 0.587f * f2;
+            float f5 = f2 * 0.114f;
+            float[] fArr = this.m;
+            fArr[0] = f3 + f;
+            fArr[1] = f4;
+            fArr[2] = f5;
+            fArr[3] = 0.0f;
+            fArr[4] = 0.0f;
+            fArr[5] = f3;
+            fArr[6] = f4 + f;
+            fArr[7] = f5;
+            fArr[8] = 0.0f;
+            fArr[9] = 0.0f;
+            fArr[10] = f3;
+            fArr[11] = f4;
+            fArr[12] = f5 + f;
+            fArr[13] = 0.0f;
+            fArr[14] = 0.0f;
+            fArr[15] = 0.0f;
+            fArr[16] = 0.0f;
+            fArr[17] = 0.0f;
+            fArr[18] = 1.0f;
+            fArr[19] = 0.0f;
+        }
+
+        private void warmth(float f) {
+            float log;
+            float f2;
+            float f3;
+            if (f <= 0.0f) {
+                f = 0.01f;
+            }
+            float f4 = (5000.0f / f) / 100.0f;
+            if (f4 > 66.0f) {
+                double d = f4 - 60.0f;
+                f2 = ((float) Math.pow(d, -0.13320475816726685d)) * 329.69873f;
+                log = ((float) Math.pow(d, 0.07551484555006027d)) * 288.12216f;
+            } else {
+                log = (((float) Math.log(f4)) * 99.4708f) - 161.11957f;
+                f2 = 255.0f;
+            }
+            if (f4 < 66.0f) {
+                if (f4 > 19.0f) {
+                    f3 = (((float) Math.log(f4 - 10.0f)) * 138.51773f) - 305.0448f;
+                } else {
+                    f3 = 0.0f;
+                }
+            } else {
+                f3 = 255.0f;
+            }
+            float min = Math.min(255.0f, Math.max(f2, 0.0f));
+            float min2 = Math.min(255.0f, Math.max(log, 0.0f));
+            float min3 = Math.min(255.0f, Math.max(f3, 0.0f));
+            float min4 = Math.min(255.0f, Math.max(255.0f, 0.0f));
+            float min5 = Math.min(255.0f, Math.max((((float) Math.log(50.0f)) * 99.4708f) - 161.11957f, 0.0f));
+            float min6 = min3 / Math.min(255.0f, Math.max((((float) Math.log(40.0f)) * 138.51773f) - 305.0448f, 0.0f));
+            float[] fArr = this.m;
+            fArr[0] = min / min4;
+            fArr[1] = 0.0f;
+            fArr[2] = 0.0f;
+            fArr[3] = 0.0f;
+            fArr[4] = 0.0f;
+            fArr[5] = 0.0f;
+            fArr[6] = min2 / min5;
+            fArr[7] = 0.0f;
+            fArr[8] = 0.0f;
+            fArr[9] = 0.0f;
+            fArr[10] = 0.0f;
+            fArr[11] = 0.0f;
+            fArr[12] = min6;
+            fArr[13] = 0.0f;
+            fArr[14] = 0.0f;
+            fArr[15] = 0.0f;
+            fArr[16] = 0.0f;
+            fArr[17] = 0.0f;
+            fArr[18] = 1.0f;
+            fArr[19] = 0.0f;
+        }
+
+        public void updateMatrix(ImageView imageView) {
+            boolean z;
+            this.mColorMatrix.reset();
+            float f = this.mSaturation;
+            boolean z2 = true;
+            if (f != 1.0f) {
+                saturation(f);
+                this.mColorMatrix.set(this.m);
+                z = true;
+            } else {
+                z = false;
+            }
+            float f2 = this.mContrast;
+            if (f2 != 1.0f) {
+                this.mTmpColorMatrix.setScale(f2, f2, f2, 1.0f);
+                this.mColorMatrix.postConcat(this.mTmpColorMatrix);
+                z = true;
+            }
+            float f3 = this.mWarmth;
+            if (f3 != 1.0f) {
+                warmth(f3);
+                this.mTmpColorMatrix.set(this.m);
+                this.mColorMatrix.postConcat(this.mTmpColorMatrix);
+                z = true;
+            }
+            float f4 = this.mBrightness;
+            if (f4 != 1.0f) {
+                brightness(f4);
+                this.mTmpColorMatrix.set(this.m);
+                this.mColorMatrix.postConcat(this.mTmpColorMatrix);
+            } else {
+                z2 = z;
+            }
+            if (z2) {
+                imageView.setColorFilter(new ColorMatrixColorFilter(this.mColorMatrix));
+            } else {
+                imageView.clearColorFilter();
+            }
         }
     }
 
+    public ImageFilterView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.mImageMatrix = new ImageMatrix();
+        this.mOverlay = true;
+        this.mCrossfade = 0.0f;
+        this.mRoundPercent = 0.0f;
+        this.mRound = Float.NaN;
+        init(context, attributeSet);
+    }
+
+    public ImageFilterView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.mImageMatrix = new ImageMatrix();
+        this.mOverlay = true;
+        this.mCrossfade = 0.0f;
+        this.mRoundPercent = 0.0f;
+        this.mRound = Float.NaN;
+        init(context, attributeSet);
+    }
+
     private void init(Context context, AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, this, context, attributeSet) == null) && attributeSet != null) {
+        if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.ImageFilterView);
             int indexCount = obtainStyledAttributes.getIndexCount();
             Drawable drawable = obtainStyledAttributes.getDrawable(0);
@@ -398,250 +303,137 @@ public class ImageFilterView extends AppCompatImageView {
         }
     }
 
-    @Override // android.view.View
-    public void draw(Canvas canvas) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            if (Build.VERSION.SDK_INT < 21 && this.mRoundPercent != 0.0f && this.mPath != null) {
-                z = true;
-                canvas.save();
-                canvas.clipPath(this.mPath);
-            } else {
-                z = false;
-            }
-            super.draw(canvas);
-            if (z) {
-                canvas.restore();
-            }
-        }
-    }
-
-    public void setCrossfade(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
-            this.mCrossfade = f;
-            if (this.mLayers != null) {
-                if (!this.mOverlay) {
-                    this.mLayer.getDrawable(0).setAlpha((int) ((1.0f - this.mCrossfade) * 255.0f));
-                }
-                this.mLayer.getDrawable(1).setAlpha((int) (this.mCrossfade * 255.0f));
-                super.setImageDrawable(this.mLayer);
-            }
-        }
-    }
-
     public float getBrightness() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mImageMatrix.mBrightness;
-        }
-        return invokeV.floatValue;
+        return this.mImageMatrix.mBrightness;
     }
 
     public float getContrast() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mImageMatrix.mContrast;
-        }
-        return invokeV.floatValue;
+        return this.mImageMatrix.mContrast;
     }
 
     public float getCrossfade() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mCrossfade;
-        }
-        return invokeV.floatValue;
+        return this.mCrossfade;
     }
 
     public float getRound() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mRound;
-        }
-        return invokeV.floatValue;
+        return this.mRound;
     }
 
     public float getRoundPercent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mRoundPercent;
-        }
-        return invokeV.floatValue;
+        return this.mRoundPercent;
     }
 
     public float getSaturation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.mImageMatrix.mSaturation;
-        }
-        return invokeV.floatValue;
+        return this.mImageMatrix.mSaturation;
     }
 
     public float getWarmth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.mImageMatrix.mWarmth;
+        return this.mImageMatrix.mWarmth;
+    }
+
+    public void setCrossfade(float f) {
+        this.mCrossfade = f;
+        if (this.mLayers != null) {
+            if (!this.mOverlay) {
+                this.mLayer.getDrawable(0).setAlpha((int) ((1.0f - this.mCrossfade) * 255.0f));
+            }
+            this.mLayer.getDrawable(1).setAlpha((int) (this.mCrossfade * 255.0f));
+            super.setImageDrawable(this.mLayer);
         }
-        return invokeV.floatValue;
     }
 
     @RequiresApi(21)
     public void setRound(float f) {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048587, this, f) == null) {
-            if (Float.isNaN(f)) {
-                this.mRound = f;
-                float f2 = this.mRoundPercent;
-                this.mRoundPercent = -1.0f;
-                setRoundPercent(f2);
-                return;
-            }
-            if (this.mRound != f) {
-                z = true;
-            } else {
-                z = false;
-            }
+        if (Float.isNaN(f)) {
             this.mRound = f;
-            if (f != 0.0f) {
-                if (this.mPath == null) {
-                    this.mPath = new Path();
-                }
-                if (this.mRect == null) {
-                    this.mRect = new RectF();
-                }
-                if (Build.VERSION.SDK_INT >= 21) {
-                    if (this.mViewOutlineProvider == null) {
-                        ViewOutlineProvider viewOutlineProvider = new ViewOutlineProvider(this) { // from class: androidx.constraintlayout.utils.widget.ImageFilterView.2
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ ImageFilterView this$0;
-
-                            {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this};
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i = newInitContext.flag;
-                                    if ((i & 1) != 0) {
-                                        int i2 = i & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.this$0 = this;
-                            }
-
-                            @Override // android.view.ViewOutlineProvider
-                            public void getOutline(View view2, Outline outline) {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view2, outline) == null) {
-                                    outline.setRoundRect(0, 0, this.this$0.getWidth(), this.this$0.getHeight(), this.this$0.mRound);
-                                }
-                            }
-                        };
-                        this.mViewOutlineProvider = viewOutlineProvider;
-                        setOutlineProvider(viewOutlineProvider);
-                    }
-                    setClipToOutline(true);
-                }
-                this.mRect.set(0.0f, 0.0f, getWidth(), getHeight());
-                this.mPath.reset();
-                Path path = this.mPath;
-                RectF rectF = this.mRect;
-                float f3 = this.mRound;
-                path.addRoundRect(rectF, f3, f3, Path.Direction.CW);
-            } else if (Build.VERSION.SDK_INT >= 21) {
-                setClipToOutline(false);
+            float f2 = this.mRoundPercent;
+            this.mRoundPercent = -1.0f;
+            setRoundPercent(f2);
+            return;
+        }
+        if (this.mRound != f) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.mRound = f;
+        if (f != 0.0f) {
+            if (this.mPath == null) {
+                this.mPath = new Path();
             }
-            if (z && Build.VERSION.SDK_INT >= 21) {
-                invalidateOutline();
+            if (this.mRect == null) {
+                this.mRect = new RectF();
             }
+            if (Build.VERSION.SDK_INT >= 21) {
+                if (this.mViewOutlineProvider == null) {
+                    ViewOutlineProvider viewOutlineProvider = new ViewOutlineProvider() { // from class: androidx.constraintlayout.utils.widget.ImageFilterView.2
+                        @Override // android.view.ViewOutlineProvider
+                        public void getOutline(View view2, Outline outline) {
+                            outline.setRoundRect(0, 0, ImageFilterView.this.getWidth(), ImageFilterView.this.getHeight(), ImageFilterView.this.mRound);
+                        }
+                    };
+                    this.mViewOutlineProvider = viewOutlineProvider;
+                    setOutlineProvider(viewOutlineProvider);
+                }
+                setClipToOutline(true);
+            }
+            this.mRect.set(0.0f, 0.0f, getWidth(), getHeight());
+            this.mPath.reset();
+            Path path = this.mPath;
+            RectF rectF = this.mRect;
+            float f3 = this.mRound;
+            path.addRoundRect(rectF, f3, f3, Path.Direction.CW);
+        } else if (Build.VERSION.SDK_INT >= 21) {
+            setClipToOutline(false);
+        }
+        if (z && Build.VERSION.SDK_INT >= 21) {
+            invalidateOutline();
         }
     }
 
     @RequiresApi(21)
     public void setRoundPercent(float f) {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048588, this, f) == null) {
-            if (this.mRoundPercent != f) {
-                z = true;
-            } else {
-                z = false;
+        if (this.mRoundPercent != f) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.mRoundPercent = f;
+        if (f != 0.0f) {
+            if (this.mPath == null) {
+                this.mPath = new Path();
             }
-            this.mRoundPercent = f;
-            if (f != 0.0f) {
-                if (this.mPath == null) {
-                    this.mPath = new Path();
-                }
-                if (this.mRect == null) {
-                    this.mRect = new RectF();
-                }
-                if (Build.VERSION.SDK_INT >= 21) {
-                    if (this.mViewOutlineProvider == null) {
-                        ViewOutlineProvider viewOutlineProvider = new ViewOutlineProvider(this) { // from class: androidx.constraintlayout.utils.widget.ImageFilterView.1
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ ImageFilterView this$0;
-
-                            {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this};
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i = newInitContext.flag;
-                                    if ((i & 1) != 0) {
-                                        int i2 = i & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.this$0 = this;
-                            }
-
-                            @Override // android.view.ViewOutlineProvider
-                            public void getOutline(View view2, Outline outline) {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view2, outline) == null) {
-                                    int width = this.this$0.getWidth();
-                                    int height = this.this$0.getHeight();
-                                    outline.setRoundRect(0, 0, width, height, (Math.min(width, height) * this.this$0.mRoundPercent) / 2.0f);
-                                }
-                            }
-                        };
-                        this.mViewOutlineProvider = viewOutlineProvider;
-                        setOutlineProvider(viewOutlineProvider);
-                    }
-                    setClipToOutline(true);
-                }
-                int width = getWidth();
-                int height = getHeight();
-                float min = (Math.min(width, height) * this.mRoundPercent) / 2.0f;
-                this.mRect.set(0.0f, 0.0f, width, height);
-                this.mPath.reset();
-                this.mPath.addRoundRect(this.mRect, min, min, Path.Direction.CW);
-            } else if (Build.VERSION.SDK_INT >= 21) {
-                setClipToOutline(false);
+            if (this.mRect == null) {
+                this.mRect = new RectF();
             }
-            if (z && Build.VERSION.SDK_INT >= 21) {
-                invalidateOutline();
+            if (Build.VERSION.SDK_INT >= 21) {
+                if (this.mViewOutlineProvider == null) {
+                    ViewOutlineProvider viewOutlineProvider = new ViewOutlineProvider() { // from class: androidx.constraintlayout.utils.widget.ImageFilterView.1
+                        @Override // android.view.ViewOutlineProvider
+                        public void getOutline(View view2, Outline outline) {
+                            int width = ImageFilterView.this.getWidth();
+                            int height = ImageFilterView.this.getHeight();
+                            outline.setRoundRect(0, 0, width, height, (Math.min(width, height) * ImageFilterView.this.mRoundPercent) / 2.0f);
+                        }
+                    };
+                    this.mViewOutlineProvider = viewOutlineProvider;
+                    setOutlineProvider(viewOutlineProvider);
+                }
+                setClipToOutline(true);
             }
+            int width = getWidth();
+            int height = getHeight();
+            float min = (Math.min(width, height) * this.mRoundPercent) / 2.0f;
+            this.mRect.set(0.0f, 0.0f, width, height);
+            this.mPath.reset();
+            this.mPath.addRoundRect(this.mRect, min, min, Path.Direction.CW);
+        } else if (Build.VERSION.SDK_INT >= 21) {
+            setClipToOutline(false);
+        }
+        if (z && Build.VERSION.SDK_INT >= 21) {
+            invalidateOutline();
         }
     }
 }

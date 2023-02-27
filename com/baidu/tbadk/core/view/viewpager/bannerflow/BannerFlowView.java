@@ -10,11 +10,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d75;
+import com.baidu.tieba.e75;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.r55;
-import com.baidu.tieba.s55;
-import com.baidu.tieba.u55;
-import com.baidu.tieba.v55;
+import com.baidu.tieba.g75;
+import com.baidu.tieba.h75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,8 +26,8 @@ public class BannerFlowView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public ViewPager a;
     public IndicatorView b;
-    public r55 c;
-    public v55 d;
+    public d75 c;
+    public h75 d;
     public View e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -89,8 +89,8 @@ public class BannerFlowView extends FrameLayout {
             this.b = indicatorView;
             indicatorView.setSpacing(0);
             a();
-            this.c = new r55(context, this.a, this.b, null);
-            this.d = new v55(context, u55.a);
+            this.c = new d75(context, this.a, this.b, null);
+            this.d = new h75(context, g75.a);
             this.c.j(5000L);
             this.c.i(context, this.d);
             addView(this.a, new FrameLayout.LayoutParams(-1, -1));
@@ -122,11 +122,11 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setOnItemClickListener(s55.a<u55, v55.a> aVar) {
-        v55 v55Var;
+    public void setOnItemClickListener(e75.a<g75, h75.a> aVar) {
+        h75 h75Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && (v55Var = this.d) != null) {
-            v55Var.e(aVar);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && (h75Var = this.d) != null) {
+            h75Var.e(aVar);
         }
     }
 }

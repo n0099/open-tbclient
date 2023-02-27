@@ -1,12 +1,5 @@
 package com.bumptech.glide.load.engine;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.GlideContext;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.Registry;
@@ -27,9 +20,6 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public final class DecodeHelper<Transcode> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final List<Key> cacheKeys;
     public DecodeJob.DiskCacheProvider diskCacheProvider;
     public DiskCacheStrategy diskCacheStrategy;
     public GlideContext glideContext;
@@ -38,7 +28,6 @@ public final class DecodeHelper<Transcode> {
     public boolean isLoadDataSet;
     public boolean isScaleOnlyOrNoTransform;
     public boolean isTransformationRequired;
-    public final List<ModelLoader.LoadData<?>> loadData;
     public Object model;
     public Options options;
     public Priority priority;
@@ -47,320 +36,191 @@ public final class DecodeHelper<Transcode> {
     public Class<Transcode> transcodeClass;
     public Map<Class<?>, Transformation<?>> transformations;
     public int width;
-
-    public DecodeHelper() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.loadData = new ArrayList();
-        this.cacheKeys = new ArrayList();
-    }
+    public final List<ModelLoader.LoadData<?>> loadData = new ArrayList();
+    public final List<Key> cacheKeys = new ArrayList();
 
     public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.glideContext = null;
-            this.model = null;
-            this.signature = null;
-            this.resourceClass = null;
-            this.transcodeClass = null;
-            this.options = null;
-            this.priority = null;
-            this.transformations = null;
-            this.diskCacheStrategy = null;
-            this.loadData.clear();
-            this.isLoadDataSet = false;
-            this.cacheKeys.clear();
-            this.isCacheKeysSet = false;
-        }
+        this.glideContext = null;
+        this.model = null;
+        this.signature = null;
+        this.resourceClass = null;
+        this.transcodeClass = null;
+        this.options = null;
+        this.priority = null;
+        this.transformations = null;
+        this.diskCacheStrategy = null;
+        this.loadData.clear();
+        this.isLoadDataSet = false;
+        this.cacheKeys.clear();
+        this.isCacheKeysSet = false;
     }
 
     public ArrayPool getArrayPool() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.glideContext.getArrayPool();
-        }
-        return (ArrayPool) invokeV.objValue;
+        return this.glideContext.getArrayPool();
     }
 
     public DiskCache getDiskCache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.diskCacheProvider.getDiskCache();
-        }
-        return (DiskCache) invokeV.objValue;
+        return this.diskCacheProvider.getDiskCache();
     }
 
     public DiskCacheStrategy getDiskCacheStrategy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.diskCacheStrategy;
-        }
-        return (DiskCacheStrategy) invokeV.objValue;
+        return this.diskCacheStrategy;
     }
 
     public int getHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.height;
-        }
-        return invokeV.intValue;
+        return this.height;
     }
 
     public Class<?> getModelClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.model.getClass();
-        }
-        return (Class) invokeV.objValue;
+        return this.model.getClass();
     }
 
     public Options getOptions() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.options;
-        }
-        return (Options) invokeV.objValue;
+        return this.options;
     }
 
     public Priority getPriority() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.priority;
-        }
-        return (Priority) invokeV.objValue;
+        return this.priority;
     }
 
     public List<Class<?>> getRegisteredResourceClasses() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.glideContext.getRegistry().getRegisteredResourceClasses(this.model.getClass(), this.resourceClass, this.transcodeClass);
-        }
-        return (List) invokeV.objValue;
+        return this.glideContext.getRegistry().getRegisteredResourceClasses(this.model.getClass(), this.resourceClass, this.transcodeClass);
     }
 
     public Key getSignature() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.signature;
-        }
-        return (Key) invokeV.objValue;
+        return this.signature;
     }
 
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.lang.Class<Transcode>, java.lang.Class<?> */
+    /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: java.lang.Class<Transcode>, java.lang.Class<?> */
     public Class<?> getTranscodeClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return (Class<Transcode>) this.transcodeClass;
-        }
-        return (Class) invokeV.objValue;
+        return (Class<Transcode>) this.transcodeClass;
     }
 
     public int getWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.width;
-        }
-        return invokeV.intValue;
+        return this.width;
     }
 
     public boolean isScaleOnlyOrNoTransform() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return this.isScaleOnlyOrNoTransform;
-        }
-        return invokeV.booleanValue;
+        return this.isScaleOnlyOrNoTransform;
     }
 
     public List<Key> getCacheKeys() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!this.isCacheKeysSet) {
-                this.isCacheKeysSet = true;
-                this.cacheKeys.clear();
-                List<ModelLoader.LoadData<?>> loadData = getLoadData();
-                int size = loadData.size();
-                for (int i = 0; i < size; i++) {
-                    ModelLoader.LoadData<?> loadData2 = loadData.get(i);
-                    if (!this.cacheKeys.contains(loadData2.sourceKey)) {
-                        this.cacheKeys.add(loadData2.sourceKey);
-                    }
-                    for (int i2 = 0; i2 < loadData2.alternateKeys.size(); i2++) {
-                        if (!this.cacheKeys.contains(loadData2.alternateKeys.get(i2))) {
-                            this.cacheKeys.add(loadData2.alternateKeys.get(i2));
-                        }
-                    }
-                }
-            }
-            return this.cacheKeys;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public List<ModelLoader.LoadData<?>> getLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!this.isLoadDataSet) {
-                this.isLoadDataSet = true;
-                this.loadData.clear();
-                List modelLoaders = this.glideContext.getRegistry().getModelLoaders(this.model);
-                int size = modelLoaders.size();
-                for (int i = 0; i < size; i++) {
-                    ModelLoader.LoadData<?> buildLoadData = ((ModelLoader) modelLoaders.get(i)).buildLoadData(this.model, this.width, this.height, this.options);
-                    if (buildLoadData != null) {
-                        this.loadData.add(buildLoadData);
-                    }
-                }
-            }
-            return this.loadData;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public <Data> LoadPath<Data, ?, Transcode> getLoadPath(Class<Data> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cls)) == null) {
-            return this.glideContext.getRegistry().getLoadPath(cls, this.resourceClass, this.transcodeClass);
-        }
-        return (LoadPath) invokeL.objValue;
-    }
-
-    public List<ModelLoader<File, ?>> getModelLoaders(File file) throws Registry.NoModelLoaderAvailableException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, file)) == null) {
-            return this.glideContext.getRegistry().getModelLoaders(file);
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public <Z> ResourceEncoder<Z> getResultEncoder(Resource<Z> resource) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, resource)) == null) {
-            return this.glideContext.getRegistry().getResultEncoder(resource);
-        }
-        return (ResourceEncoder) invokeL.objValue;
-    }
-
-    public <X> Encoder<X> getSourceEncoder(X x) throws Registry.NoSourceEncoderAvailableException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, x)) == null) {
-            return this.glideContext.getRegistry().getSourceEncoder(x);
-        }
-        return (Encoder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.lang.Class<?> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public boolean hasLoadPath(Class<?> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, cls)) == null) {
-            if (getLoadPath(cls) != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean isResourceEncoderAvailable(Resource<?> resource) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, resource)) == null) {
-            return this.glideContext.getRegistry().isResourceEncoderAvailable(resource);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean isSourceKey(Key key) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, key)) == null) {
+        if (!this.isCacheKeysSet) {
+            this.isCacheKeysSet = true;
+            this.cacheKeys.clear();
             List<ModelLoader.LoadData<?>> loadData = getLoadData();
             int size = loadData.size();
             for (int i = 0; i < size; i++) {
-                if (loadData.get(i).sourceKey.equals(key)) {
-                    return true;
+                ModelLoader.LoadData<?> loadData2 = loadData.get(i);
+                if (!this.cacheKeys.contains(loadData2.sourceKey)) {
+                    this.cacheKeys.add(loadData2.sourceKey);
+                }
+                for (int i2 = 0; i2 < loadData2.alternateKeys.size(); i2++) {
+                    if (!this.cacheKeys.contains(loadData2.alternateKeys.get(i2))) {
+                        this.cacheKeys.add(loadData2.alternateKeys.get(i2));
+                    }
                 }
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        return this.cacheKeys;
+    }
+
+    public List<ModelLoader.LoadData<?>> getLoadData() {
+        if (!this.isLoadDataSet) {
+            this.isLoadDataSet = true;
+            this.loadData.clear();
+            List modelLoaders = this.glideContext.getRegistry().getModelLoaders(this.model);
+            int size = modelLoaders.size();
+            for (int i = 0; i < size; i++) {
+                ModelLoader.LoadData<?> buildLoadData = ((ModelLoader) modelLoaders.get(i)).buildLoadData(this.model, this.width, this.height, this.options);
+                if (buildLoadData != null) {
+                    this.loadData.add(buildLoadData);
+                }
+            }
+        }
+        return this.loadData;
+    }
+
+    public <Data> LoadPath<Data, ?, Transcode> getLoadPath(Class<Data> cls) {
+        return this.glideContext.getRegistry().getLoadPath(cls, this.resourceClass, this.transcodeClass);
+    }
+
+    public List<ModelLoader<File, ?>> getModelLoaders(File file) throws Registry.NoModelLoaderAvailableException {
+        return this.glideContext.getRegistry().getModelLoaders(file);
+    }
+
+    public <Z> ResourceEncoder<Z> getResultEncoder(Resource<Z> resource) {
+        return this.glideContext.getRegistry().getResultEncoder(resource);
+    }
+
+    public <X> Encoder<X> getSourceEncoder(X x) throws Registry.NoSourceEncoderAvailableException {
+        return this.glideContext.getRegistry().getSourceEncoder(x);
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Class<?> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public boolean hasLoadPath(Class<?> cls) {
+        if (getLoadPath(cls) != null) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isResourceEncoderAvailable(Resource<?> resource) {
+        return this.glideContext.getRegistry().isResourceEncoderAvailable(resource);
+    }
+
+    public boolean isSourceKey(Key key) {
+        List<ModelLoader.LoadData<?>> loadData = getLoadData();
+        int size = loadData.size();
+        for (int i = 0; i < size; i++) {
+            if (loadData.get(i).sourceKey.equals(key)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public <Z> Transformation<Z> getTransformation(Class<Z> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, cls)) == null) {
-            Transformation<Z> transformation = (Transformation<Z>) this.transformations.get(cls);
-            if (transformation == null) {
-                Iterator<Map.Entry<Class<?>, Transformation<?>>> it = this.transformations.entrySet().iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    Map.Entry<Class<?>, Transformation<?>> next = it.next();
-                    if (next.getKey().isAssignableFrom(cls)) {
-                        transformation = (Transformation<Z>) next.getValue();
-                        break;
-                    }
+        Transformation<Z> transformation = (Transformation<Z>) this.transformations.get(cls);
+        if (transformation == null) {
+            Iterator<Map.Entry<Class<?>, Transformation<?>>> it = this.transformations.entrySet().iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                Map.Entry<Class<?>, Transformation<?>> next = it.next();
+                if (next.getKey().isAssignableFrom(cls)) {
+                    transformation = (Transformation<Z>) next.getValue();
+                    break;
                 }
             }
-            if (transformation == null) {
-                if (this.transformations.isEmpty() && this.isTransformationRequired) {
-                    throw new IllegalArgumentException("Missing transformation for " + cls + ". If you wish to ignore unknown resource types, use the optional transformation methods.");
-                }
-                return UnitTransformation.get();
-            }
-            return transformation;
         }
-        return (Transformation) invokeL.objValue;
+        if (transformation == null) {
+            if (this.transformations.isEmpty() && this.isTransformationRequired) {
+                throw new IllegalArgumentException("Missing transformation for " + cls + ". If you wish to ignore unknown resource types, use the optional transformation methods.");
+            }
+            return UnitTransformation.get();
+        }
+        return transformation;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: java.lang.Class<R> */
+    /* JADX WARN: Multi-variable type inference failed */
     public <R> void init(GlideContext glideContext, Object obj, Key key, int i, int i2, DiskCacheStrategy diskCacheStrategy, Class<?> cls, Class<R> cls2, Priority priority, Options options, Map<Class<?>, Transformation<?>> map, boolean z, boolean z2, DecodeJob.DiskCacheProvider diskCacheProvider) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{glideContext, obj, key, Integer.valueOf(i), Integer.valueOf(i2), diskCacheStrategy, cls, cls2, priority, options, map, Boolean.valueOf(z), Boolean.valueOf(z2), diskCacheProvider}) == null) {
-            this.glideContext = glideContext;
-            this.model = obj;
-            this.signature = key;
-            this.width = i;
-            this.height = i2;
-            this.diskCacheStrategy = diskCacheStrategy;
-            this.resourceClass = cls;
-            this.diskCacheProvider = diskCacheProvider;
-            this.transcodeClass = cls2;
-            this.priority = priority;
-            this.options = options;
-            this.transformations = map;
-            this.isTransformationRequired = z;
-            this.isScaleOnlyOrNoTransform = z2;
-        }
+        this.glideContext = glideContext;
+        this.model = obj;
+        this.signature = key;
+        this.width = i;
+        this.height = i2;
+        this.diskCacheStrategy = diskCacheStrategy;
+        this.resourceClass = cls;
+        this.diskCacheProvider = diskCacheProvider;
+        this.transcodeClass = cls2;
+        this.priority = priority;
+        this.options = options;
+        this.transformations = map;
+        this.isTransformationRequired = z;
+        this.isScaleOnlyOrNoTransform = z2;
     }
 }

@@ -1,39 +1,21 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class ld6<T extends BaseCardInfo> {
+public class ld6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
-
-    public void a(View view2, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, t) == null) {
-        }
-    }
-
-    public void b(View view2, T t, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, t, obj) == null) {
-        }
-    }
-
-    public boolean c(View view2, T t, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, view2, t, str)) == null) {
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
+    public ArrayList<String> a;
+    public String b;
+    public String c;
+    public ArrayList<String> d;
+    public boolean e;
+    public boolean f;
 
     public ld6() {
         Interceptable interceptable = $ic;
@@ -47,5 +29,14 @@ public class ld6<T extends BaseCardInfo> {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "OfflineRuleData{firstScreenDataUrls=" + this.a + ", moduleName='" + this.b + "', path='" + this.c + "', sources=" + this.d + ", isOffline=" + this.e + ", isHttpMode=" + this.f + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

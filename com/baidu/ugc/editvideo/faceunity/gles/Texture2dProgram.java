@@ -3,22 +3,12 @@ package com.baidu.ugc.editvideo.faceunity.gles;
 import android.opengl.GLES20;
 import android.text.TextUtils;
 import androidx.constraintlayout.motion.widget.Key;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.gx9;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.d1a;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
 /* loaded from: classes7.dex */
 public class Texture2dProgram {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAGMENT_SHADER_2D = "precision mediump float;\nvarying vec2 vTextureCoord;\nuniform sampler2D sTexture;\nuniform float alpha;\nvoid main() {\n    vec4 color = texture2D(sTexture, vTextureCoord);\n    gl_FragColor = color * alpha;\n}\n";
     public static final String FRAGMENT_SHADER_2D_BLEND = "precision mediump float;\nvarying vec2 vTextureCoord;\nvarying vec2 vTextureCoord2;\nuniform sampler2D sTexture;\nuniform sampler2D sTexture2;\nuniform float thresholdSensitivity;\nuniform float smoothing;\nuniform vec3 colorToReplace;\nconst highp vec3 W = vec3(0.2125, 0.7154, 0.0721);void main() {\n    vec4 textureColor =texture2D(sTexture, vTextureCoord);\n    vec4 textureColor2 =texture2D(sTexture2, vTextureCoord2);\n    float maskY = 0.2989 * colorToReplace.r + 0.5866 * colorToReplace.g + 0.1145 * colorToReplace.b;\n    float maskCr = 0.7132 * (colorToReplace.r - maskY);\n    float maskCb = 0.5647 * (colorToReplace.b - maskY);\n    float Y = 0.2989 * textureColor.r + 0.5866 * textureColor.g + 0.1145 * textureColor.b;\n    float Cr = 0.7132 * (textureColor.r - Y);\n    float Cb = 0.5647 * (textureColor.b - Y);\n    float L = dot(textureColor.rgb, W);\n    float maskL = dot(colorToReplace.rgb, W);\n    float blendValue = 1.0 - smoothstep(thresholdSensitivity, thresholdSensitivity + smoothing, distance(vec3(Cr, Cb, L), vec3(maskCr, maskCb, maskL)));\n    gl_FragColor = mix(textureColor, textureColor2, blendValue);\n}\n";
     public static final String FRAGMENT_SHADER_2D_FOLLOW = "precision mediump float;\nvarying vec2 vTextureCoord;\nuniform sampler2D sTexture;\nuniform float alpha;\nuniform float dx;\nuniform float dy;\nvoid main() {\n    vec4 color = texture2D(sTexture, vTextureCoord);\n    vec2 st = vTextureCoord.xy;\n    float l = step(dx, st.x);\n    float b = step(dy, st.y);\n    float p = b*l;\n    float r = step(dx, 1.0 - st.x);\n    float t = step(dy, 1.0 - st.y);\n          p*=r*t;\n    if(p==0.0){\n       gl_FragColor = vec4(1.0);\n     }else{\n       gl_FragColor =color * alpha;}\n}\n";
@@ -36,17 +26,9 @@ public class Texture2dProgram {
     public static final String VERTEX_SHADER = "uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n";
     public static final String VERTEX_SHADER_BLEND = "uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nuniform mat4 uTexMatrix2;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nattribute vec4 aTextureCoord2;\nvarying vec2 vTextureCoord;\nvarying vec2 vTextureCoord2;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n    vTextureCoord2 = (uTexMatrix2 * aTextureCoord2).xy;\n}\n";
     public static final String VERTEX_SHADER_LINE = "uniform mat4 uMVPMatrix;\nattribute vec4 aPosition;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n}\n";
-    public transient /* synthetic */ FieldHolder $fh;
-    public float mAlpha;
     public float mColorAdjust;
-    public float[] mColorToReplace;
-    public float mDistance;
-    public float mDx;
-    public float mDy;
     public int mFilterInputTextureUniform;
     public int mFilterInputTextureUniform2;
-    public float[] mKernel;
-    public float[] mMaskColor;
     public int mMaskMode;
     public int mProgramHandle;
     public ProgramType mProgramType;
@@ -62,33 +44,41 @@ public class Texture2dProgram {
     public int muTexMatrixLoc;
     public int muTexMatrixLoc2;
     public int muTexOffsetLoc;
+    public float[] mKernel = new float[9];
+    public float[] mColorToReplace = {0.0f, 0.0f, 0.0f};
+    public float[] mMaskColor = {1.0f, 0.0f, 0.0f, 0.5f};
+    public float mAlpha = 1.0f;
+    public float mDistance = 1.0f;
+    public float mDx = 0.01f;
+    public float mDy = 0.01f;
+
+    /* loaded from: classes7.dex */
+    public enum ProgramType {
+        TEXTURE_2D,
+        TEXTURE_EXT,
+        TEXTURE_EXT_BW,
+        TEXTURE_EXT_FILT,
+        TEXTURE_2D_BLEND,
+        TEXTURE_2D_HUMAN_SEGMENTATION,
+        TEXTURE_2D_SLIDE,
+        TEXTURE_2D_X_BLUR,
+        TEXTURE_2D_FOLLOW,
+        TEXTURE_2D_AR,
+        TEXTURE_2D_FILTER,
+        TEXTURE_2D_LINE,
+        TEXTURE_2D_AR_ALPHA
+    }
 
     public int hexCharToDecimal(char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Character.valueOf(c)})) == null) ? (c < 'A' || c > 'F') ? c - '0' : (c + '\n') - 65 : invokeCommon.intValue;
+        return (c < 'A' || c > 'F') ? c - '0' : (c + '\n') - 65;
     }
 
     /* renamed from: com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram$1  reason: invalid class name */
     /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$ugc$editvideo$faceunity$gles$Texture2dProgram$ProgramType;
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1579727484, "Lcom/baidu/ugc/editvideo/faceunity/gles/Texture2dProgram$1;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1579727484, "Lcom/baidu/ugc/editvideo/faceunity/gles/Texture2dProgram$1;");
-                    return;
-                }
-            }
             int[] iArr = new int[ProgramType.values().length];
             $SwitchMap$com$baidu$ugc$editvideo$faceunity$gles$Texture2dProgram$ProgramType = iArr;
             try {
@@ -146,116 +136,7 @@ public class Texture2dProgram {
         }
     }
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
-    public static final class ProgramType {
-        public static final /* synthetic */ ProgramType[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final ProgramType TEXTURE_2D;
-        public static final ProgramType TEXTURE_2D_AR;
-        public static final ProgramType TEXTURE_2D_AR_ALPHA;
-        public static final ProgramType TEXTURE_2D_BLEND;
-        public static final ProgramType TEXTURE_2D_FILTER;
-        public static final ProgramType TEXTURE_2D_FOLLOW;
-        public static final ProgramType TEXTURE_2D_HUMAN_SEGMENTATION;
-        public static final ProgramType TEXTURE_2D_LINE;
-        public static final ProgramType TEXTURE_2D_SLIDE;
-        public static final ProgramType TEXTURE_2D_X_BLUR;
-        public static final ProgramType TEXTURE_EXT;
-        public static final ProgramType TEXTURE_EXT_BW;
-        public static final ProgramType TEXTURE_EXT_FILT;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1607465457, "Lcom/baidu/ugc/editvideo/faceunity/gles/Texture2dProgram$ProgramType;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1607465457, "Lcom/baidu/ugc/editvideo/faceunity/gles/Texture2dProgram$ProgramType;");
-                    return;
-                }
-            }
-            TEXTURE_2D = new ProgramType("TEXTURE_2D", 0);
-            TEXTURE_EXT = new ProgramType("TEXTURE_EXT", 1);
-            TEXTURE_EXT_BW = new ProgramType("TEXTURE_EXT_BW", 2);
-            TEXTURE_EXT_FILT = new ProgramType("TEXTURE_EXT_FILT", 3);
-            TEXTURE_2D_BLEND = new ProgramType("TEXTURE_2D_BLEND", 4);
-            TEXTURE_2D_HUMAN_SEGMENTATION = new ProgramType("TEXTURE_2D_HUMAN_SEGMENTATION", 5);
-            TEXTURE_2D_SLIDE = new ProgramType("TEXTURE_2D_SLIDE", 6);
-            TEXTURE_2D_X_BLUR = new ProgramType("TEXTURE_2D_X_BLUR", 7);
-            TEXTURE_2D_FOLLOW = new ProgramType("TEXTURE_2D_FOLLOW", 8);
-            TEXTURE_2D_AR = new ProgramType("TEXTURE_2D_AR", 9);
-            TEXTURE_2D_FILTER = new ProgramType("TEXTURE_2D_FILTER", 10);
-            TEXTURE_2D_LINE = new ProgramType("TEXTURE_2D_LINE", 11);
-            ProgramType programType = new ProgramType("TEXTURE_2D_AR_ALPHA", 12);
-            TEXTURE_2D_AR_ALPHA = programType;
-            $VALUES = new ProgramType[]{TEXTURE_2D, TEXTURE_EXT, TEXTURE_EXT_BW, TEXTURE_EXT_FILT, TEXTURE_2D_BLEND, TEXTURE_2D_HUMAN_SEGMENTATION, TEXTURE_2D_SLIDE, TEXTURE_2D_X_BLUR, TEXTURE_2D_FOLLOW, TEXTURE_2D_AR, TEXTURE_2D_FILTER, TEXTURE_2D_LINE, programType};
-        }
-
-        public ProgramType(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public static ProgramType valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                return (ProgramType) Enum.valueOf(ProgramType.class, str);
-            }
-            return (ProgramType) invokeL.objValue;
-        }
-
-        public static ProgramType[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return (ProgramType[]) $VALUES.clone();
-            }
-            return (ProgramType[]) invokeV.objValue;
-        }
-    }
-
     public Texture2dProgram(ProgramType programType) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {programType};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mKernel = new float[9];
-        this.mColorToReplace = new float[]{0.0f, 0.0f, 0.0f};
-        this.mMaskColor = new float[]{1.0f, 0.0f, 0.0f, 0.5f};
-        this.mAlpha = 1.0f;
-        this.mDistance = 1.0f;
-        this.mDx = 0.01f;
-        this.mDy = 0.01f;
         this.mProgramType = programType;
         switch (AnonymousClass1.$SwitchMap$com$baidu$ugc$editvideo$faceunity$gles$Texture2dProgram$ProgramType[programType.ordinal()]) {
             case 1:
@@ -314,7 +195,7 @@ public class Texture2dProgram {
                 throw new RuntimeException("Unhandled type " + programType);
         }
         if (this.mProgramHandle != 0) {
-            gx9.c("Grafika", "Created program " + this.mProgramHandle + " (" + programType + SmallTailInfo.EMOTION_SUFFIX);
+            d1a.c("Grafika", "Created program " + this.mProgramHandle + " (" + programType + SmallTailInfo.EMOTION_SUFFIX);
             int glGetAttribLocation = GLES20.glGetAttribLocation(this.mProgramHandle, "aPosition");
             this.maPositionLoc = glGetAttribLocation;
             GlUtil.checkLocation(glGetAttribLocation, "aPosition");
@@ -372,282 +253,228 @@ public class Texture2dProgram {
     }
 
     public int createTexture2DObject() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int[] iArr = new int[1];
-            GLES20.glGenTextures(1, iArr, 0);
-            GlUtil.checkGlError("glGenTextures");
-            int i = iArr[0];
-            GLES20.glBindTexture(this.mTextureTarget, i);
-            GlUtil.checkGlError("glBindTexture " + i);
-            GLES20.glTexParameterf(3553, 10241, 9728.0f);
-            GLES20.glTexParameterf(3553, 10240, 9729.0f);
-            GLES20.glTexParameteri(3553, 10242, 33071);
-            GLES20.glTexParameteri(3553, 10243, 33071);
-            GlUtil.checkGlError("glTexParameter");
-            return i;
-        }
-        return invokeV.intValue;
+        int[] iArr = new int[1];
+        GLES20.glGenTextures(1, iArr, 0);
+        GlUtil.checkGlError("glGenTextures");
+        int i = iArr[0];
+        GLES20.glBindTexture(this.mTextureTarget, i);
+        GlUtil.checkGlError("glBindTexture " + i);
+        GLES20.glTexParameterf(3553, 10241, 9728.0f);
+        GLES20.glTexParameterf(3553, 10240, 9729.0f);
+        GLES20.glTexParameteri(3553, 10242, 33071);
+        GLES20.glTexParameteri(3553, 10243, 33071);
+        GlUtil.checkGlError("glTexParameter");
+        return i;
     }
 
     public int createTextureObject() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int[] iArr = new int[1];
-            GLES20.glGenTextures(1, iArr, 0);
-            GlUtil.checkGlError("glGenTextures");
-            int i = iArr[0];
-            GLES20.glBindTexture(this.mTextureTarget, i);
-            GlUtil.checkGlError("glBindTexture " + i);
-            GLES20.glTexParameterf(36197, 10241, 9728.0f);
-            GLES20.glTexParameterf(36197, 10240, 9729.0f);
-            GLES20.glTexParameteri(36197, 10242, 33071);
-            GLES20.glTexParameteri(36197, 10243, 33071);
-            GlUtil.checkGlError("glTexParameter");
-            return i;
-        }
-        return invokeV.intValue;
+        int[] iArr = new int[1];
+        GLES20.glGenTextures(1, iArr, 0);
+        GlUtil.checkGlError("glGenTextures");
+        int i = iArr[0];
+        GLES20.glBindTexture(this.mTextureTarget, i);
+        GlUtil.checkGlError("glBindTexture " + i);
+        GLES20.glTexParameterf(36197, 10241, 9728.0f);
+        GLES20.glTexParameterf(36197, 10240, 9729.0f);
+        GLES20.glTexParameteri(36197, 10242, 33071);
+        GLES20.glTexParameteri(36197, 10243, 33071);
+        GlUtil.checkGlError("glTexParameter");
+        return i;
     }
 
     public void draw(float[] fArr, FloatBuffer floatBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fArr, floatBuffer) == null) {
-            GlUtil.checkGlError("draw start");
-            GLES20.glUseProgram(this.mProgramHandle);
-            GlUtil.checkGlError("glUseProgram");
-            GLES20.glUniformMatrix4fv(this.muMVPMatrixLoc, 1, false, fArr, 0);
-            GlUtil.checkGlError("glUniformMatrix4fv");
-            GLES20.glEnableVertexAttribArray(this.maPositionLoc);
-            GlUtil.checkGlError("glEnableVertexAttribArray");
-            GLES20.glVertexAttribPointer(this.maPositionLoc, 2, 5126, false, 0, (Buffer) floatBuffer);
-            GlUtil.checkGlError("glVertexAttribPointer");
-            GLES20.glUniform4f(this.muColorLocation, 1.0f, 1.0f, 1.0f, 1.0f);
-            GLES20.glLineWidth(2.0f);
-            GLES20.glDrawArrays(2, 0, 4);
-        }
+        GlUtil.checkGlError("draw start");
+        GLES20.glUseProgram(this.mProgramHandle);
+        GlUtil.checkGlError("glUseProgram");
+        GLES20.glUniformMatrix4fv(this.muMVPMatrixLoc, 1, false, fArr, 0);
+        GlUtil.checkGlError("glUniformMatrix4fv");
+        GLES20.glEnableVertexAttribArray(this.maPositionLoc);
+        GlUtil.checkGlError("glEnableVertexAttribArray");
+        GLES20.glVertexAttribPointer(this.maPositionLoc, 2, 5126, false, 0, (Buffer) floatBuffer);
+        GlUtil.checkGlError("glVertexAttribPointer");
+        GLES20.glUniform4f(this.muColorLocation, 1.0f, 1.0f, 1.0f, 1.0f);
+        GLES20.glLineWidth(2.0f);
+        GLES20.glDrawArrays(2, 0, 4);
     }
 
     public void setTexSize(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) {
-            float f = 1.0f / i;
-            float f2 = 1.0f / i2;
-            float f3 = -f;
-            float f4 = -f2;
-            this.mTexOffset = new float[]{f3, f4, 0.0f, f4, f, f4, f3, 0.0f, 0.0f, 0.0f, f, 0.0f, f3, f2, 0.0f, f2, f, f2};
-        }
+        float f = 1.0f / i;
+        float f2 = 1.0f / i2;
+        float f3 = -f;
+        float f4 = -f2;
+        this.mTexOffset = new float[]{f3, f4, 0.0f, f4, f, f4, f3, 0.0f, 0.0f, 0.0f, f, 0.0f, f3, f2, 0.0f, f2, f, f2};
     }
 
     public void draw(float[] fArr, FloatBuffer floatBuffer, int i, int i2, int i3, int i4, float[] fArr2, FloatBuffer floatBuffer2, int i5, int i6) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{fArr, floatBuffer, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fArr2, floatBuffer2, Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-            GlUtil.checkGlError("draw start");
-            GLES20.glUseProgram(this.mProgramHandle);
-            GlUtil.checkGlError("glUseProgram");
-            GLES20.glActiveTexture(33984);
-            GLES20.glBindTexture(this.mTextureTarget, i5);
-            GLES20.glUniformMatrix4fv(this.muMVPMatrixLoc, 1, false, fArr, 0);
-            GlUtil.checkGlError("glUniformMatrix4fv");
-            GLES20.glUniformMatrix4fv(this.muTexMatrixLoc, 1, false, fArr2, 0);
-            GlUtil.checkGlError("glUniformMatrix4fv");
-            GLES20.glEnableVertexAttribArray(this.maPositionLoc);
-            GlUtil.checkGlError("glEnableVertexAttribArray");
-            GLES20.glVertexAttribPointer(this.maPositionLoc, i3, 5126, false, i4, (Buffer) floatBuffer);
-            GlUtil.checkGlError("glVertexAttribPointer");
-            GLES20.glEnableVertexAttribArray(this.maTextureCoordLoc);
-            GlUtil.checkGlError("glEnableVertexAttribArray");
-            GLES20.glVertexAttribPointer(this.maTextureCoordLoc, 2, 5126, false, i6, (Buffer) floatBuffer2);
-            GlUtil.checkGlError("glVertexAttribPointer");
-            int i7 = this.muKernelLoc;
-            if (i7 >= 0) {
-                GLES20.glUniform1fv(i7, 9, this.mKernel, 0);
-                GLES20.glUniform2fv(this.muTexOffsetLoc, 9, this.mTexOffset, 0);
-                GLES20.glUniform1f(this.muColorAdjustLoc, this.mColorAdjust);
-            }
-            onDrawArraysPre();
-            GLES20.glDrawArrays(5, i, i2);
-            GlUtil.checkGlError("glDrawArrays");
-            GLES20.glDisableVertexAttribArray(this.maPositionLoc);
-            GLES20.glDisableVertexAttribArray(this.maTextureCoordLoc);
-            GLES20.glBindTexture(this.mTextureTarget, 0);
-            GLES20.glUseProgram(0);
+        GlUtil.checkGlError("draw start");
+        GLES20.glUseProgram(this.mProgramHandle);
+        GlUtil.checkGlError("glUseProgram");
+        GLES20.glActiveTexture(33984);
+        GLES20.glBindTexture(this.mTextureTarget, i5);
+        GLES20.glUniformMatrix4fv(this.muMVPMatrixLoc, 1, false, fArr, 0);
+        GlUtil.checkGlError("glUniformMatrix4fv");
+        GLES20.glUniformMatrix4fv(this.muTexMatrixLoc, 1, false, fArr2, 0);
+        GlUtil.checkGlError("glUniformMatrix4fv");
+        GLES20.glEnableVertexAttribArray(this.maPositionLoc);
+        GlUtil.checkGlError("glEnableVertexAttribArray");
+        GLES20.glVertexAttribPointer(this.maPositionLoc, i3, 5126, false, i4, (Buffer) floatBuffer);
+        GlUtil.checkGlError("glVertexAttribPointer");
+        GLES20.glEnableVertexAttribArray(this.maTextureCoordLoc);
+        GlUtil.checkGlError("glEnableVertexAttribArray");
+        GLES20.glVertexAttribPointer(this.maTextureCoordLoc, 2, 5126, false, i6, (Buffer) floatBuffer2);
+        GlUtil.checkGlError("glVertexAttribPointer");
+        int i7 = this.muKernelLoc;
+        if (i7 >= 0) {
+            GLES20.glUniform1fv(i7, 9, this.mKernel, 0);
+            GLES20.glUniform2fv(this.muTexOffsetLoc, 9, this.mTexOffset, 0);
+            GLES20.glUniform1f(this.muColorAdjustLoc, this.mColorAdjust);
         }
+        onDrawArraysPre();
+        GLES20.glDrawArrays(5, i, i2);
+        GlUtil.checkGlError("glDrawArrays");
+        GLES20.glDisableVertexAttribArray(this.maPositionLoc);
+        GLES20.glDisableVertexAttribArray(this.maTextureCoordLoc);
+        GLES20.glBindTexture(this.mTextureTarget, 0);
+        GLES20.glUseProgram(0);
     }
 
     public void draw(float[] fArr, FloatBuffer floatBuffer, int i, int i2, int i3, int i4, float[] fArr2, FloatBuffer floatBuffer2, int i5, int i6, int i7, float[] fArr3, FloatBuffer floatBuffer3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{fArr, floatBuffer, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fArr2, floatBuffer2, Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), fArr3, floatBuffer3}) == null) {
-            GlUtil.checkGlError("draw start");
-            GLES20.glUseProgram(this.mProgramHandle);
-            GlUtil.checkGlError("glUseProgram");
-            GLES20.glActiveTexture(33984);
-            GLES20.glBindTexture(this.mTextureTarget, i5);
-            GLES20.glUniform1i(this.mFilterInputTextureUniform, 0);
-            GLES20.glUniformMatrix4fv(this.muMVPMatrixLoc, 1, false, fArr, 0);
+        GlUtil.checkGlError("draw start");
+        GLES20.glUseProgram(this.mProgramHandle);
+        GlUtil.checkGlError("glUseProgram");
+        GLES20.glActiveTexture(33984);
+        GLES20.glBindTexture(this.mTextureTarget, i5);
+        GLES20.glUniform1i(this.mFilterInputTextureUniform, 0);
+        GLES20.glUniformMatrix4fv(this.muMVPMatrixLoc, 1, false, fArr, 0);
+        GlUtil.checkGlError("glUniformMatrix4fv");
+        GLES20.glUniformMatrix4fv(this.muTexMatrixLoc, 1, false, fArr2, 0);
+        GlUtil.checkGlError("glUniformMatrix4fv");
+        GLES20.glEnableVertexAttribArray(this.maPositionLoc);
+        GlUtil.checkGlError("glEnableVertexAttribArray");
+        GLES20.glVertexAttribPointer(this.maPositionLoc, i3, 5126, false, i4, (Buffer) floatBuffer);
+        GlUtil.checkGlError("glVertexAttribPointer");
+        GLES20.glEnableVertexAttribArray(this.maTextureCoordLoc);
+        GlUtil.checkGlError("glEnableVertexAttribArray");
+        GLES20.glVertexAttribPointer(this.maTextureCoordLoc, 2, 5126, false, i6, (Buffer) floatBuffer2);
+        GlUtil.checkGlError("glVertexAttribPointer");
+        GLES20.glActiveTexture(33985);
+        GLES20.glBindTexture(this.mTextureTarget, i7);
+        GLES20.glUniform1i(this.mFilterInputTextureUniform2, 1);
+        if (this.mProgramType != ProgramType.TEXTURE_2D_FILTER) {
+            GLES20.glUniformMatrix4fv(this.muTexMatrixLoc2, 1, false, fArr3, 0);
             GlUtil.checkGlError("glUniformMatrix4fv");
-            GLES20.glUniformMatrix4fv(this.muTexMatrixLoc, 1, false, fArr2, 0);
-            GlUtil.checkGlError("glUniformMatrix4fv");
-            GLES20.glEnableVertexAttribArray(this.maPositionLoc);
+            GLES20.glEnableVertexAttribArray(this.maTextureCoordLoc2);
             GlUtil.checkGlError("glEnableVertexAttribArray");
-            GLES20.glVertexAttribPointer(this.maPositionLoc, i3, 5126, false, i4, (Buffer) floatBuffer);
+            GLES20.glVertexAttribPointer(this.maTextureCoordLoc2, 2, 5126, false, i6, (Buffer) floatBuffer3);
             GlUtil.checkGlError("glVertexAttribPointer");
-            GLES20.glEnableVertexAttribArray(this.maTextureCoordLoc);
-            GlUtil.checkGlError("glEnableVertexAttribArray");
-            GLES20.glVertexAttribPointer(this.maTextureCoordLoc, 2, 5126, false, i6, (Buffer) floatBuffer2);
-            GlUtil.checkGlError("glVertexAttribPointer");
-            GLES20.glActiveTexture(33985);
-            GLES20.glBindTexture(this.mTextureTarget, i7);
-            GLES20.glUniform1i(this.mFilterInputTextureUniform2, 1);
-            if (this.mProgramType != ProgramType.TEXTURE_2D_FILTER) {
-                GLES20.glUniformMatrix4fv(this.muTexMatrixLoc2, 1, false, fArr3, 0);
-                GlUtil.checkGlError("glUniformMatrix4fv");
-                GLES20.glEnableVertexAttribArray(this.maTextureCoordLoc2);
-                GlUtil.checkGlError("glEnableVertexAttribArray");
-                GLES20.glVertexAttribPointer(this.maTextureCoordLoc2, 2, 5126, false, i6, (Buffer) floatBuffer3);
-                GlUtil.checkGlError("glVertexAttribPointer");
-            }
-            int i8 = this.muKernelLoc;
-            if (i8 >= 0) {
-                GLES20.glUniform1fv(i8, 9, this.mKernel, 0);
-                GLES20.glUniform2fv(this.muTexOffsetLoc, 9, this.mTexOffset, 0);
-                GLES20.glUniform1f(this.muColorAdjustLoc, this.mColorAdjust);
-            }
-            onDrawArraysPre();
-            GLES20.glDrawArrays(5, i, i2);
-            GlUtil.checkGlError("glDrawArrays");
-            GLES20.glDisableVertexAttribArray(this.maPositionLoc);
-            GLES20.glDisableVertexAttribArray(this.maTextureCoordLoc);
-            if (this.mProgramType != ProgramType.TEXTURE_2D_FILTER) {
-                GLES20.glDisableVertexAttribArray(this.maTextureCoordLoc2);
-            }
-            GLES20.glBindTexture(this.mTextureTarget, 0);
-            GLES20.glUseProgram(0);
         }
+        int i8 = this.muKernelLoc;
+        if (i8 >= 0) {
+            GLES20.glUniform1fv(i8, 9, this.mKernel, 0);
+            GLES20.glUniform2fv(this.muTexOffsetLoc, 9, this.mTexOffset, 0);
+            GLES20.glUniform1f(this.muColorAdjustLoc, this.mColorAdjust);
+        }
+        onDrawArraysPre();
+        GLES20.glDrawArrays(5, i, i2);
+        GlUtil.checkGlError("glDrawArrays");
+        GLES20.glDisableVertexAttribArray(this.maPositionLoc);
+        GLES20.glDisableVertexAttribArray(this.maTextureCoordLoc);
+        if (this.mProgramType != ProgramType.TEXTURE_2D_FILTER) {
+            GLES20.glDisableVertexAttribArray(this.maTextureCoordLoc2);
+        }
+        GLES20.glBindTexture(this.mTextureTarget, 0);
+        GLES20.glUseProgram(0);
     }
 
     public ProgramType getProgramType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mProgramType;
-        }
-        return (ProgramType) invokeV.objValue;
+        return this.mProgramType;
     }
 
     public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            gx9.c("Grafika", "deleting program " + this.mProgramHandle);
-            GLES20.glDeleteProgram(this.mProgramHandle);
-            this.mProgramHandle = -1;
-        }
+        d1a.c("Grafika", "deleting program " + this.mProgramHandle);
+        GLES20.glDeleteProgram(this.mProgramHandle);
+        this.mProgramHandle = -1;
     }
 
     public int hexToDecimal(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
-            }
-            int i = 0;
-            for (int i2 = 0; i2 < str.length(); i2++) {
-                i = (i * 16) + hexCharToDecimal(str.charAt(i2));
-            }
-            return i;
+        if (TextUtils.isEmpty(str)) {
+            return 0;
         }
-        return invokeL.intValue;
+        int i = 0;
+        for (int i2 = 0; i2 < str.length(); i2++) {
+            i = (i * 16) + hexCharToDecimal(str.charAt(i2));
+        }
+        return i;
     }
 
     public void setAlpha(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
-            this.mAlpha = f;
-        }
+        this.mAlpha = f;
     }
 
     public void setDistance(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048587, this, f) == null) {
-            this.mDistance = f;
-        }
+        this.mDistance = f;
     }
 
     public void onDrawArraysPre() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, Key.ALPHA), this.mAlpha);
-            if (this.mProgramType == ProgramType.TEXTURE_2D_BLEND) {
-                GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "thresholdSensitivity"), 0.5f);
-                GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "smoothing"), 0.2f);
-                GLES20.glUniform3fv(GLES20.glGetUniformLocation(this.mProgramHandle, "colorToReplace"), 1, FloatBuffer.wrap(this.mColorToReplace));
-            }
-            if (this.mProgramType == ProgramType.TEXTURE_2D_HUMAN_SEGMENTATION) {
-                GLES20.glUniform1i(GLES20.glGetUniformLocation(this.mProgramHandle, "maskMode"), this.mMaskMode);
-                GLES20.glUniform4fv(GLES20.glGetUniformLocation(this.mProgramHandle, "maskColor"), 1, FloatBuffer.wrap(this.mMaskColor));
-            }
-            ProgramType programType = this.mProgramType;
-            if (programType == ProgramType.TEXTURE_2D_SLIDE || programType == ProgramType.TEXTURE_2D_X_BLUR) {
-                GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "distance"), this.mDistance);
-            }
-            if (this.mProgramType == ProgramType.TEXTURE_2D_FOLLOW) {
-                GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "dx"), this.mDx);
-                GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "dy"), this.mDy);
-            }
+        GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, Key.ALPHA), this.mAlpha);
+        if (this.mProgramType == ProgramType.TEXTURE_2D_BLEND) {
+            GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "thresholdSensitivity"), 0.5f);
+            GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "smoothing"), 0.2f);
+            GLES20.glUniform3fv(GLES20.glGetUniformLocation(this.mProgramHandle, "colorToReplace"), 1, FloatBuffer.wrap(this.mColorToReplace));
+        }
+        if (this.mProgramType == ProgramType.TEXTURE_2D_HUMAN_SEGMENTATION) {
+            GLES20.glUniform1i(GLES20.glGetUniformLocation(this.mProgramHandle, "maskMode"), this.mMaskMode);
+            GLES20.glUniform4fv(GLES20.glGetUniformLocation(this.mProgramHandle, "maskColor"), 1, FloatBuffer.wrap(this.mMaskColor));
+        }
+        ProgramType programType = this.mProgramType;
+        if (programType == ProgramType.TEXTURE_2D_SLIDE || programType == ProgramType.TEXTURE_2D_X_BLUR) {
+            GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "distance"), this.mDistance);
+        }
+        if (this.mProgramType == ProgramType.TEXTURE_2D_FOLLOW) {
+            GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "dx"), this.mDx);
+            GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "dy"), this.mDy);
         }
     }
 
     public void setDxDy(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            this.mDx = f;
-            this.mDy = f2;
-        }
-    }
-
-    public void setHumanSegMaskParams(int i, String str, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), str, Float.valueOf(f)}) == null) {
-            this.mMaskMode = i;
-            if (!TextUtils.isEmpty(str) && str.length() >= 6) {
-                try {
-                    String substring = str.substring(str.length() - 6, str.length() - 4);
-                    String substring2 = str.substring(str.length() - 4, str.length() - 2);
-                    String substring3 = str.substring(str.length() - 2, str.length());
-                    int hexToDecimal = hexToDecimal(substring.toUpperCase());
-                    int hexToDecimal2 = hexToDecimal(substring2.toUpperCase());
-                    int hexToDecimal3 = hexToDecimal(substring3.toUpperCase());
-                    this.mMaskColor[0] = (hexToDecimal * 1.0f) / 255.0f;
-                    this.mMaskColor[1] = (hexToDecimal2 * 1.0f) / 255.0f;
-                    this.mMaskColor[2] = (hexToDecimal3 * 1.0f) / 255.0f;
-                } catch (Exception unused) {
-                    float[] fArr = this.mMaskColor;
-                    fArr[0] = 1.0f;
-                    fArr[1] = 0.0f;
-                    fArr[2] = 0.0f;
-                }
-                this.mMaskColor[3] = f;
-            }
-        }
+        this.mDx = f;
+        this.mDy = f2;
     }
 
     public void setKernel(float[] fArr, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048590, this, fArr, f) == null) {
-            if (fArr.length == 9) {
-                System.arraycopy(fArr, 0, this.mKernel, 0, 9);
-                this.mColorAdjust = f;
-                return;
+        if (fArr.length == 9) {
+            System.arraycopy(fArr, 0, this.mKernel, 0, 9);
+            this.mColorAdjust = f;
+            return;
+        }
+        throw new IllegalArgumentException("Kernel size is " + fArr.length + " vs. 9");
+    }
+
+    public void setHumanSegMaskParams(int i, String str, float f) {
+        this.mMaskMode = i;
+        if (!TextUtils.isEmpty(str) && str.length() >= 6) {
+            try {
+                String substring = str.substring(str.length() - 6, str.length() - 4);
+                String substring2 = str.substring(str.length() - 4, str.length() - 2);
+                String substring3 = str.substring(str.length() - 2, str.length());
+                int hexToDecimal = hexToDecimal(substring.toUpperCase());
+                int hexToDecimal2 = hexToDecimal(substring2.toUpperCase());
+                int hexToDecimal3 = hexToDecimal(substring3.toUpperCase());
+                this.mMaskColor[0] = (hexToDecimal * 1.0f) / 255.0f;
+                this.mMaskColor[1] = (hexToDecimal2 * 1.0f) / 255.0f;
+                this.mMaskColor[2] = (hexToDecimal3 * 1.0f) / 255.0f;
+            } catch (Exception unused) {
+                float[] fArr = this.mMaskColor;
+                fArr[0] = 1.0f;
+                fArr[1] = 0.0f;
+                fArr[2] = 0.0f;
             }
-            throw new IllegalArgumentException("Kernel size is " + fArr.length + " vs. 9");
+            this.mMaskColor[3] = f;
         }
     }
 
     public void setShaderBgColor(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, str) == null) && !TextUtils.isEmpty(str) && str.length() >= 6) {
+        if (!TextUtils.isEmpty(str) && str.length() >= 6) {
             try {
                 String substring = str.substring(str.length() - 6, str.length() - 4);
                 String substring2 = str.substring(str.length() - 4, str.length() - 2);

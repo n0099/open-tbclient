@@ -6,15 +6,9 @@ import android.text.Html;
 import android.text.Spanned;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"InlinedApi"})
 /* loaded from: classes.dex */
 public final class HtmlCompat {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int FROM_HTML_MODE_COMPACT = 63;
     public static final int FROM_HTML_MODE_LEGACY = 0;
     public static final int FROM_HTML_OPTION_USE_CSS_COLORS = 256;
@@ -26,58 +20,28 @@ public final class HtmlCompat {
     public static final int FROM_HTML_SEPARATOR_LINE_BREAK_PARAGRAPH = 1;
     public static final int TO_HTML_PARAGRAPH_LINES_CONSECUTIVE = 0;
     public static final int TO_HTML_PARAGRAPH_LINES_INDIVIDUAL = 1;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public HtmlCompat() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     @NonNull
     public static Spanned fromHtml(@NonNull String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                return Html.fromHtml(str, i);
-            }
-            return Html.fromHtml(str);
+        if (Build.VERSION.SDK_INT >= 24) {
+            return Html.fromHtml(str, i);
         }
-        return (Spanned) invokeLI.objValue;
+        return Html.fromHtml(str);
     }
 
     @NonNull
     public static String toHtml(@NonNull Spanned spanned, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, spanned, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                return Html.toHtml(spanned, i);
-            }
-            return Html.toHtml(spanned);
+        if (Build.VERSION.SDK_INT >= 24) {
+            return Html.toHtml(spanned, i);
         }
-        return (String) invokeLI.objValue;
+        return Html.toHtml(spanned);
     }
 
     @NonNull
     public static Spanned fromHtml(@NonNull String str, int i, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
-        InterceptResult invokeLILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65538, null, str, i, imageGetter, tagHandler)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                return Html.fromHtml(str, i, imageGetter, tagHandler);
-            }
-            return Html.fromHtml(str, imageGetter, tagHandler);
+        if (Build.VERSION.SDK_INT >= 24) {
+            return Html.fromHtml(str, i, imageGetter, tagHandler);
         }
-        return (Spanned) invokeLILL.objValue;
+        return Html.fromHtml(str, imageGetter, tagHandler);
     }
 }

@@ -2,27 +2,16 @@ package com.google.android.gms.common.internal;
 
 import android.os.IBinder;
 import android.os.IInterface;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public abstract class zzae extends com.google.android.gms.internal.common.zzb implements zzaf {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     public static zzaf zzb(IBinder iBinder) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, iBinder)) == null) {
-            if (iBinder == null) {
-                return null;
-            }
-            IInterface queryLocalInterface = iBinder.queryLocalInterface("com.google.android.gms.common.internal.IGoogleCertificatesApi");
-            if (queryLocalInterface instanceof zzaf) {
-                return (zzaf) queryLocalInterface;
-            }
-            return new zzad(iBinder);
+        if (iBinder == null) {
+            return null;
         }
-        return (zzaf) invokeL.objValue;
+        IInterface queryLocalInterface = iBinder.queryLocalInterface("com.google.android.gms.common.internal.IGoogleCertificatesApi");
+        if (queryLocalInterface instanceof zzaf) {
+            return (zzaf) queryLocalInterface;
+        }
+        return new zzad(iBinder);
     }
 }

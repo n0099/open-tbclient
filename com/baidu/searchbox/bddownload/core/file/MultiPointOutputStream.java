@@ -6,8 +6,6 @@ import android.os.SystemClock;
 import android.util.SparseArray;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.bddownload.BdDownload;
 import com.baidu.searchbox.bddownload.DownloadTask;
@@ -18,13 +16,6 @@ import com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore;
 import com.baidu.searchbox.bddownload.core.cause.EndCause;
 import com.baidu.searchbox.bddownload.core.exception.PreAllocateException;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -41,10 +32,8 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.locks.LockSupport;
 /* loaded from: classes2.dex */
 public class MultiPointOutputStream {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final ExecutorService FILE_IO_EXECUTOR;
+    public static final ExecutorService FILE_IO_EXECUTOR = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BdDownload file io", false));
     public static final String TAG = "MultiPointOutputStream";
-    public transient /* synthetic */ FieldHolder $fh;
     public final AtomicLong allNoSyncLength;
     public boolean canceled;
     public final StreamsState doneState;
@@ -74,122 +63,104 @@ public class MultiPointOutputStream {
 
     /* loaded from: classes2.dex */
     public static class StreamsState {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public boolean isNoMoreStream;
-        public List<Integer> newNoMoreStreamBlockList;
-        public List<Integer> noMoreStreamBlockList;
-
-        public StreamsState() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.noMoreStreamBlockList = new ArrayList();
-            this.newNoMoreStreamBlockList = new ArrayList();
-        }
+        public List<Integer> noMoreStreamBlockList = new ArrayList();
+        public List<Integer> newNoMoreStreamBlockList = new ArrayList();
 
         public boolean isStreamsEndOrChanged() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!this.isNoMoreStream && this.newNoMoreStreamBlockList.size() <= 0) {
-                    return false;
-                }
-                return true;
+            if (!this.isNoMoreStream && this.newNoMoreStreamBlockList.size() <= 0) {
+                return false;
             }
-            return invokeV.booleanValue;
+            return true;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1161035627, "Lcom/baidu/searchbox/bddownload/core/file/MultiPointOutputStream;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    private void inspectValidPath() {
+        if (this.path == null && this.task.getFile() != null) {
+            this.path = this.task.getFile().getAbsolutePath();
+        }
+    }
+
+    public void cancelAsync() {
+        FILE_IO_EXECUTOR.execute(new Runnable() { // from class: com.baidu.searchbox.bddownload.core.file.MultiPointOutputStream.2
+            @Override // java.lang.Runnable
+            public void run() {
+                MultiPointOutputStream.this.cancel();
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1161035627, "Lcom/baidu/searchbox/bddownload/core/file/MultiPointOutputStream;");
+        });
+    }
+
+    public Future executeSyncRunnableAsync() {
+        return FILE_IO_EXECUTOR.submit(this.syncRunnable);
+    }
+
+    public long getNextParkMillisecond() {
+        return this.syncBufferIntervalMills - (now() - this.lastSyncTimestamp.get());
+    }
+
+    public void inspectAndPersist() throws IOException {
+        IOException iOException = this.syncException;
+        if (iOException == null) {
+            if (this.syncFuture == null) {
+                synchronized (this.syncRunnable) {
+                    if (this.syncFuture == null) {
+                        this.syncFuture = executeSyncRunnableAsync();
+                    }
+                }
                 return;
             }
+            return;
         }
-        FILE_IO_EXECUTOR = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BdDownload file io", false));
+        throw iOException;
+    }
+
+    public boolean isNoNeedFlushForLength() {
+        if (this.allNoSyncLength.get() < this.syncBufferSize) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isRunSyncThreadValid() {
+        if (this.runSyncThread != null) {
+            return true;
+        }
+        return false;
+    }
+
+    public long now() {
+        return SystemClock.uptimeMillis();
+    }
+
+    public void parkThread() {
+        LockSupport.park();
     }
 
     public void runSyncDelayException() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            try {
-                runSync();
-            } catch (IOException e) {
-                this.syncException = e;
-                Util.w(TAG, "Sync to breakpoint-store for task[" + this.task.getId() + "] failed with cause: " + e);
-            }
+        try {
+            runSync();
+        } catch (IOException e) {
+            this.syncException = e;
+            Util.w(TAG, "Sync to breakpoint-store for task[" + this.task.getId() + "] failed with cause: " + e);
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MultiPointOutputStream(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull DownloadStore downloadStore) {
         this(downloadTask, breakpointInfo, downloadStore, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {downloadTask, breakpointInfo, downloadStore};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((DownloadTask) objArr2[0], (BreakpointInfo) objArr2[1], (DownloadStore) objArr2[2], (Runnable) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
     }
 
     public synchronized void write(int i, byte[] bArr, int i2) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2)}) == null) {
-            synchronized (this) {
-                if (this.canceled) {
-                    return;
-                }
-                outputStream(i).write(bArr, 0, i2);
-                long j = i2;
-                this.allNoSyncLength.addAndGet(j);
-                this.noSyncLengthMap.get(i).addAndGet(j);
-                inspectAndPersist();
-            }
+        if (this.canceled) {
+            return;
         }
+        outputStream(i).write(bArr, 0, i2);
+        long j = i2;
+        this.allNoSyncLength.addAndGet(j);
+        this.noSyncLengthMap.get(i).addAndGet(j);
+        inspectAndPersist();
     }
 
     public MultiPointOutputStream(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull DownloadStore downloadStore, @Nullable Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {downloadTask, breakpointInfo, downloadStore, runnable};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.outputStreamMap = new SparseArray<>();
         this.noSyncLengthMap = new SparseArray<>();
         this.allNoSyncLength = new AtomicLong();
@@ -209,35 +180,10 @@ public class MultiPointOutputStream {
         this.isPreAllocateLength = BdDownload.with().processFileStrategy().isPreAllocateLength(downloadTask);
         this.noMoreStreamList = new ArrayList<>();
         if (runnable == null) {
-            this.syncRunnable = new Runnable(this) { // from class: com.baidu.searchbox.bddownload.core.file.MultiPointOutputStream.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MultiPointOutputStream this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext2 = TitanRuntime.newInitContext();
-                        newInitContext2.initArgs = r2;
-                        Object[] objArr2 = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i3 = newInitContext2.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext2.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext2);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
+            this.syncRunnable = new Runnable() { // from class: com.baidu.searchbox.bddownload.core.file.MultiPointOutputStream.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.runSyncDelayException();
-                    }
+                    MultiPointOutputStream.this.runSyncDelayException();
                 }
             };
         } else {
@@ -249,257 +195,128 @@ public class MultiPointOutputStream {
         }
     }
 
-    private void inspectValidPath() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.path == null && this.task.getFile() != null) {
-            this.path = this.task.getFile().getAbsolutePath();
-        }
-    }
-
-    public void cancelAsync() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            FILE_IO_EXECUTOR.execute(new Runnable(this) { // from class: com.baidu.searchbox.bddownload.core.file.MultiPointOutputStream.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MultiPointOutputStream this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.cancel();
-                    }
-                }
-            });
-        }
-    }
-
-    public Future executeSyncRunnableAsync() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return FILE_IO_EXECUTOR.submit(this.syncRunnable);
-        }
-        return (Future) invokeV.objValue;
-    }
-
-    public long getNextParkMillisecond() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.syncBufferIntervalMills - (now() - this.lastSyncTimestamp.get());
-        }
-        return invokeV.longValue;
-    }
-
-    public void inspectAndPersist() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            IOException iOException = this.syncException;
-            if (iOException == null) {
-                if (this.syncFuture == null) {
-                    synchronized (this.syncRunnable) {
-                        if (this.syncFuture == null) {
-                            this.syncFuture = executeSyncRunnableAsync();
-                        }
-                    }
-                    return;
-                }
-                return;
-            }
-            throw iOException;
-        }
-    }
-
-    public boolean isNoNeedFlushForLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.allNoSyncLength.get() < this.syncBufferSize) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isRunSyncThreadValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (this.runSyncThread != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public long now() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return SystemClock.uptimeMillis();
-        }
-        return invokeV.longValue;
-    }
-
-    public void parkThread() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            LockSupport.park();
-        }
-    }
-
     public synchronized void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                if (this.requireStreamBlocks == null) {
-                    return;
+        if (this.requireStreamBlocks == null) {
+            return;
+        }
+        if (this.canceled) {
+            return;
+        }
+        this.canceled = true;
+        this.noMoreStreamList.addAll(this.requireStreamBlocks);
+        if (this.allNoSyncLength.get() <= 0) {
+            for (Integer num : this.requireStreamBlocks) {
+                try {
+                    close(num.intValue());
+                } catch (IOException e) {
+                    Util.d(TAG, "OutputStream close failed task[" + this.task.getId() + "] block[" + num + PreferencesUtil.RIGHT_MOUNT + e);
                 }
-                if (this.canceled) {
-                    return;
-                }
-                this.canceled = true;
-                this.noMoreStreamList.addAll(this.requireStreamBlocks);
-                if (this.allNoSyncLength.get() <= 0) {
-                    for (Integer num : this.requireStreamBlocks) {
-                        try {
-                            close(num.intValue());
-                        } catch (IOException e) {
-                            Util.d(TAG, "OutputStream close failed task[" + this.task.getId() + "] block[" + num + PreferencesUtil.RIGHT_MOUNT + e);
-                        }
-                    }
-                    this.store.onTaskEnd(this.task.getId(), EndCause.CANCELED, null);
-                    return;
-                }
-                if (this.syncFuture != null && !this.syncFuture.isDone()) {
-                    inspectValidPath();
-                    BdDownload.with().processFileStrategy().getFileLock().increaseLock(this.path);
-                    try {
-                        ensureSync(true, -1);
-                        BdDownload.with().processFileStrategy().getFileLock().decreaseLock(this.path);
-                    } catch (Throwable th) {
-                        BdDownload.with().processFileStrategy().getFileLock().decreaseLock(this.path);
-                        throw th;
-                    }
-                }
-                for (Integer num2 : this.requireStreamBlocks) {
-                    try {
-                        close(num2.intValue());
-                    } catch (IOException e2) {
-                        Util.d(TAG, "OutputStream close failed task[" + this.task.getId() + "] block[" + num2 + PreferencesUtil.RIGHT_MOUNT + e2);
-                    }
-                }
-                this.store.onTaskEnd(this.task.getId(), EndCause.CANCELED, null);
-                return;
+            }
+            this.store.onTaskEnd(this.task.getId(), EndCause.CANCELED, null);
+            return;
+        }
+        if (this.syncFuture != null && !this.syncFuture.isDone()) {
+            inspectValidPath();
+            BdDownload.with().processFileStrategy().getFileLock().increaseLock(this.path);
+            try {
+                ensureSync(true, -1);
+                BdDownload.with().processFileStrategy().getFileLock().decreaseLock(this.path);
+            } catch (Throwable th) {
+                BdDownload.with().processFileStrategy().getFileLock().decreaseLock(this.path);
+                throw th;
             }
         }
+        for (Integer num2 : this.requireStreamBlocks) {
+            try {
+                close(num2.intValue());
+            } catch (IOException e2) {
+                Util.d(TAG, "OutputStream close failed task[" + this.task.getId() + "] block[" + num2 + PreferencesUtil.RIGHT_MOUNT + e2);
+            }
+        }
+        this.store.onTaskEnd(this.task.getId(), EndCause.CANCELED, null);
+        return;
     }
 
     public void catchBlockConnectException(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.noMoreStreamList.add(Integer.valueOf(i));
-        }
+        this.noMoreStreamList.add(Integer.valueOf(i));
     }
 
     public void parkThread(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
-            LockSupport.parkNanos(TimeUnit.MILLISECONDS.toNanos(j));
-        }
+        LockSupport.parkNanos(TimeUnit.MILLISECONDS.toNanos(j));
     }
 
     public void setRequireStreamBlocks(List<Integer> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, list) == null) {
-            this.requireStreamBlocks = list;
-        }
+        this.requireStreamBlocks = list;
     }
 
     public void unparkThread(Thread thread) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, thread) == null) {
-            LockSupport.unpark(thread);
-        }
+        LockSupport.unpark(thread);
     }
 
     public synchronized void close(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            synchronized (this) {
-                DownloadOutputStream downloadOutputStream = this.outputStreamMap.get(i);
-                if (downloadOutputStream != null) {
-                    downloadOutputStream.close();
-                    this.outputStreamMap.remove(i);
-                    this.noSyncLengthMap.remove(i);
-                    Util.d(TAG, "OutputStream close task[" + this.task.getId() + "] block[" + i + PreferencesUtil.RIGHT_MOUNT);
-                }
-            }
+        DownloadOutputStream downloadOutputStream = this.outputStreamMap.get(i);
+        if (downloadOutputStream != null) {
+            downloadOutputStream.close();
+            this.outputStreamMap.remove(i);
+            this.noSyncLengthMap.remove(i);
+            Util.d(TAG, "OutputStream close task[" + this.task.getId() + "] block[" + i + PreferencesUtil.RIGHT_MOUNT);
         }
     }
 
     public void inspectComplete(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            BlockInfo block = this.info.getBlock(i);
-            if (Util.isCorrectFull(block.getCurrentOffset(), block.getContentLength())) {
-                return;
-            }
-            throw new IOException("The current offset on block-info isn't update correct, " + block.getCurrentOffset() + " != " + block.getContentLength() + " on " + i);
+        BlockInfo block = this.info.getBlock(i);
+        if (Util.isCorrectFull(block.getCurrentOffset(), block.getContentLength())) {
+            return;
         }
+        throw new IOException("The current offset on block-info isn't update correct, " + block.getCurrentOffset() + " != " + block.getContentLength() + " on " + i);
     }
 
     public void done(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.noMoreStreamList.add(Integer.valueOf(i));
-            try {
-                if (this.syncException == null) {
-                    if (this.syncFuture != null && !this.syncFuture.isDone()) {
-                        AtomicLong atomicLong = this.noSyncLengthMap.get(i);
-                        if (atomicLong != null && atomicLong.get() > 0) {
-                            inspectStreamState(this.doneState);
-                            ensureSync(this.doneState.isNoMoreStream, i);
-                        }
-                    } else if (this.syncFuture == null) {
-                        Util.d(TAG, "OutputStream done but no need to ensure sync, because the sync job not run yet. task[" + this.task.getId() + "] block[" + i + PreferencesUtil.RIGHT_MOUNT);
-                    } else {
-                        Util.d(TAG, "OutputStream done but no need to ensure sync, because the syncFuture.isDone[" + this.syncFuture.isDone() + "] task[" + this.task.getId() + "] block[" + i + PreferencesUtil.RIGHT_MOUNT);
+        this.noMoreStreamList.add(Integer.valueOf(i));
+        try {
+            if (this.syncException == null) {
+                if (this.syncFuture != null && !this.syncFuture.isDone()) {
+                    AtomicLong atomicLong = this.noSyncLengthMap.get(i);
+                    if (atomicLong != null && atomicLong.get() > 0) {
+                        inspectStreamState(this.doneState);
+                        ensureSync(this.doneState.isNoMoreStream, i);
                     }
-                    return;
+                } else if (this.syncFuture == null) {
+                    Util.d(TAG, "OutputStream done but no need to ensure sync, because the sync job not run yet. task[" + this.task.getId() + "] block[" + i + PreferencesUtil.RIGHT_MOUNT);
+                } else {
+                    Util.d(TAG, "OutputStream done but no need to ensure sync, because the syncFuture.isDone[" + this.syncFuture.isDone() + "] task[" + this.task.getId() + "] block[" + i + PreferencesUtil.RIGHT_MOUNT);
                 }
-                throw this.syncException;
-            } finally {
-                close(i);
+                return;
+            }
+            throw this.syncException;
+        } finally {
+            close(i);
+        }
+    }
+
+    public void inspectStreamState(StreamsState streamsState) {
+        streamsState.newNoMoreStreamBlockList.clear();
+        int size = new HashSet((List) this.noMoreStreamList.clone()).size();
+        if (size != this.requireStreamBlocks.size()) {
+            Util.d(TAG, "task[" + this.task.getId() + "] current need fetching block count " + this.requireStreamBlocks.size() + " is not equal to no more stream block count " + size);
+            streamsState.isNoMoreStream = false;
+        } else {
+            Util.d(TAG, "task[" + this.task.getId() + "] current need fetching block count " + this.requireStreamBlocks.size() + " is equal to no more stream block count " + size);
+            streamsState.isNoMoreStream = true;
+        }
+        SparseArray<DownloadOutputStream> clone = this.outputStreamMap.clone();
+        int size2 = clone.size();
+        for (int i = 0; i < size2; i++) {
+            int keyAt = clone.keyAt(i);
+            if (this.noMoreStreamList.contains(Integer.valueOf(keyAt)) && !streamsState.noMoreStreamBlockList.contains(Integer.valueOf(keyAt))) {
+                streamsState.noMoreStreamBlockList.add(Integer.valueOf(keyAt));
+                streamsState.newNoMoreStreamBlockList.add(Integer.valueOf(keyAt));
             }
         }
     }
 
     public void ensureSync(boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && this.syncFuture != null && !this.syncFuture.isDone()) {
+        if (this.syncFuture != null && !this.syncFuture.isDone()) {
             if (!z) {
                 this.parkedRunBlockThreadMap.put(i, Thread.currentThread());
             }
@@ -524,207 +341,167 @@ public class MultiPointOutputStream {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0060  */
-    /* JADX WARN: Removed duplicated region for block: B:38:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x005c  */
+    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void flushProcess() throws IOException {
         int size;
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this.noSyncLengthMap) {
-                size = this.noSyncLengthMap.size();
+        synchronized (this.noSyncLengthMap) {
+            size = this.noSyncLengthMap.size();
+        }
+        SparseArray sparseArray = new SparseArray(size);
+        int i = 0;
+        while (true) {
+            long j = 0;
+            if (i >= size) {
+                break;
             }
-            SparseArray sparseArray = new SparseArray(size);
-            int i = 0;
-            while (true) {
-                long j = 0;
-                if (i >= size) {
-                    break;
+            try {
+                int keyAt = this.outputStreamMap.keyAt(i);
+                long j2 = this.noSyncLengthMap.get(keyAt).get();
+                if (j2 > 0) {
+                    sparseArray.put(keyAt, Long.valueOf(j2));
+                    this.outputStreamMap.get(keyAt).flushAndSync();
                 }
-                try {
-                    int keyAt = this.outputStreamMap.keyAt(i);
-                    long j2 = this.noSyncLengthMap.get(keyAt).get();
-                    if (j2 > 0) {
-                        sparseArray.put(keyAt, Long.valueOf(j2));
-                        this.outputStreamMap.get(keyAt).flushAndSync();
-                    }
-                    i++;
-                } catch (IOException e) {
-                    Util.w(TAG, "OutputStream flush and sync data to filesystem failed " + e);
-                    z = false;
+                i++;
+            } catch (IOException e) {
+                Util.w(TAG, "OutputStream flush and sync data to filesystem failed " + e);
+                z = false;
+            }
+            if (!z) {
+                int size2 = sparseArray.size();
+                for (int i2 = 0; i2 < size2; i2++) {
+                    int keyAt2 = sparseArray.keyAt(i2);
+                    long longValue = ((Long) sparseArray.valueAt(i2)).longValue();
+                    this.store.onSyncToFilesystemSuccess(this.info, keyAt2, longValue);
+                    j += longValue;
+                    this.noSyncLengthMap.get(keyAt2).addAndGet(-longValue);
+                    Util.d(TAG, "OutputStream sync success (" + this.task.getId() + ") block(" + keyAt2 + ")  syncLength(" + longValue + ") currentOffset(" + this.info.getBlock(keyAt2).getCurrentOffset() + SmallTailInfo.EMOTION_SUFFIX);
                 }
-                if (!z) {
-                    int size2 = sparseArray.size();
-                    for (int i2 = 0; i2 < size2; i2++) {
-                        int keyAt2 = sparseArray.keyAt(i2);
-                        long longValue = ((Long) sparseArray.valueAt(i2)).longValue();
-                        this.store.onSyncToFilesystemSuccess(this.info, keyAt2, longValue);
-                        j += longValue;
-                        this.noSyncLengthMap.get(keyAt2).addAndGet(-longValue);
-                        Util.d(TAG, "OutputStream sync success (" + this.task.getId() + ") block(" + keyAt2 + ")  syncLength(" + longValue + ") currentOffset(" + this.info.getBlock(keyAt2).getCurrentOffset() + SmallTailInfo.EMOTION_SUFFIX);
-                    }
-                    this.allNoSyncLength.addAndGet(-j);
-                    this.lastSyncTimestamp.set(SystemClock.uptimeMillis());
-                    return;
-                }
+                this.allNoSyncLength.addAndGet(-j);
+                this.lastSyncTimestamp.set(SystemClock.uptimeMillis());
                 return;
             }
-            z = true;
-            if (!z) {
-            }
+            return;
+        }
+        z = true;
+        if (!z) {
         }
     }
 
     public void runSync() throws IOException {
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            Util.d(TAG, "OutputStream start flush looper task[" + this.task.getId() + "] with syncBufferIntervalMills[" + this.syncBufferIntervalMills + "] syncBufferSize[" + this.syncBufferSize + PreferencesUtil.RIGHT_MOUNT);
-            this.runSyncThread = Thread.currentThread();
-            long j = (long) this.syncBufferIntervalMills;
-            flushProcess();
-            while (true) {
-                parkThread(j);
-                inspectStreamState(this.state);
-                if (this.state.isStreamsEndOrChanged()) {
-                    Util.d(TAG, "runSync state change isNoMoreStream[" + this.state.isNoMoreStream + "] newNoMoreStreamBlockList[" + this.state.newNoMoreStreamBlockList + PreferencesUtil.RIGHT_MOUNT);
-                    if (this.allNoSyncLength.get() > 0) {
-                        flushProcess();
+        Util.d(TAG, "OutputStream start flush looper task[" + this.task.getId() + "] with syncBufferIntervalMills[" + this.syncBufferIntervalMills + "] syncBufferSize[" + this.syncBufferSize + PreferencesUtil.RIGHT_MOUNT);
+        this.runSyncThread = Thread.currentThread();
+        long j = (long) this.syncBufferIntervalMills;
+        flushProcess();
+        while (true) {
+            parkThread(j);
+            inspectStreamState(this.state);
+            if (this.state.isStreamsEndOrChanged()) {
+                Util.d(TAG, "runSync state change isNoMoreStream[" + this.state.isNoMoreStream + "] newNoMoreStreamBlockList[" + this.state.newNoMoreStreamBlockList + PreferencesUtil.RIGHT_MOUNT);
+                if (this.allNoSyncLength.get() > 0) {
+                    flushProcess();
+                }
+                for (Integer num : this.state.newNoMoreStreamBlockList) {
+                    Thread thread = this.parkedRunBlockThreadMap.get(num.intValue());
+                    this.parkedRunBlockThreadMap.remove(num.intValue());
+                    if (thread != null) {
+                        unparkThread(thread);
                     }
-                    for (Integer num : this.state.newNoMoreStreamBlockList) {
-                        Thread thread = this.parkedRunBlockThreadMap.get(num.intValue());
-                        this.parkedRunBlockThreadMap.remove(num.intValue());
-                        if (thread != null) {
-                            unparkThread(thread);
-                        }
-                    }
-                    if (this.state.isNoMoreStream) {
-                        break;
-                    }
+                }
+                if (this.state.isNoMoreStream) {
+                    break;
+                }
+            } else {
+                if (isNoNeedFlushForLength()) {
+                    i = this.syncBufferIntervalMills;
                 } else {
-                    if (isNoNeedFlushForLength()) {
+                    j = getNextParkMillisecond();
+                    if (j <= 0) {
+                        flushProcess();
                         i = this.syncBufferIntervalMills;
-                    } else {
-                        j = getNextParkMillisecond();
-                        if (j <= 0) {
-                            flushProcess();
-                            i = this.syncBufferIntervalMills;
-                        }
                     }
-                    j = i;
                 }
+                j = i;
             }
-            int size = this.parkedRunBlockThreadMap.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                Thread valueAt = this.parkedRunBlockThreadMap.valueAt(i2);
-                if (valueAt != null) {
-                    unparkThread(valueAt);
-                }
-            }
-            this.parkedRunBlockThreadMap.clear();
-            Util.d(TAG, "OutputStream stop flush looper task[" + this.task.getId() + PreferencesUtil.RIGHT_MOUNT);
         }
+        int size = this.parkedRunBlockThreadMap.size();
+        for (int i2 = 0; i2 < size; i2++) {
+            Thread valueAt = this.parkedRunBlockThreadMap.valueAt(i2);
+            if (valueAt != null) {
+                unparkThread(valueAt);
+            }
+        }
+        this.parkedRunBlockThreadMap.clear();
+        Util.d(TAG, "OutputStream stop flush looper task[" + this.task.getId() + PreferencesUtil.RIGHT_MOUNT);
     }
 
     public void inspectFreeSpace(StatFs statFs, long j) throws PreAllocateException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048587, this, statFs, j) == null) {
-            long freeSpaceBytes = Util.getFreeSpaceBytes(statFs);
-            if (freeSpaceBytes >= j) {
-                return;
-            }
-            throw new PreAllocateException(j, freeSpaceBytes);
+        long freeSpaceBytes = Util.getFreeSpaceBytes(statFs);
+        if (freeSpaceBytes >= j) {
+            return;
         }
-    }
-
-    public void inspectStreamState(StreamsState streamsState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, streamsState) == null) {
-            streamsState.newNoMoreStreamBlockList.clear();
-            int size = new HashSet((List) this.noMoreStreamList.clone()).size();
-            if (size != this.requireStreamBlocks.size()) {
-                Util.d(TAG, "task[" + this.task.getId() + "] current need fetching block count " + this.requireStreamBlocks.size() + " is not equal to no more stream block count " + size);
-                streamsState.isNoMoreStream = false;
-            } else {
-                Util.d(TAG, "task[" + this.task.getId() + "] current need fetching block count " + this.requireStreamBlocks.size() + " is equal to no more stream block count " + size);
-                streamsState.isNoMoreStream = true;
-            }
-            SparseArray<DownloadOutputStream> clone = this.outputStreamMap.clone();
-            int size2 = clone.size();
-            for (int i = 0; i < size2; i++) {
-                int keyAt = clone.keyAt(i);
-                if (this.noMoreStreamList.contains(Integer.valueOf(keyAt)) && !streamsState.noMoreStreamBlockList.contains(Integer.valueOf(keyAt))) {
-                    streamsState.noMoreStreamBlockList.add(Integer.valueOf(keyAt));
-                    streamsState.newNoMoreStreamBlockList.add(Integer.valueOf(keyAt));
-                }
-            }
-        }
+        throw new PreAllocateException(j, freeSpaceBytes);
     }
 
     public synchronized DownloadOutputStream outputStream(int i) throws IOException {
-        InterceptResult invokeI;
         DownloadOutputStream downloadOutputStream;
         Uri uri;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            synchronized (this) {
-                downloadOutputStream = this.outputStreamMap.get(i);
-                if (downloadOutputStream == null) {
-                    boolean isUriFileScheme = Util.isUriFileScheme(this.task.getUri());
-                    if (isUriFileScheme) {
-                        File file = this.task.getFile();
-                        if (file != null) {
-                            File parentFile = this.task.getParentFile();
-                            if (!parentFile.exists() && !parentFile.mkdirs()) {
-                                throw new IOException("Create parent folder failed!");
-                            }
-                            if (file.createNewFile()) {
-                                Util.d(TAG, "Create new file: " + file.getName());
-                            }
-                            uri = Uri.fromFile(file);
-                        } else {
-                            throw new FileNotFoundException("Filename is not ready!");
-                        }
-                    } else {
-                        uri = this.task.getUri();
+        downloadOutputStream = this.outputStreamMap.get(i);
+        if (downloadOutputStream == null) {
+            boolean isUriFileScheme = Util.isUriFileScheme(this.task.getUri());
+            if (isUriFileScheme) {
+                File file = this.task.getFile();
+                if (file != null) {
+                    File parentFile = this.task.getParentFile();
+                    if (!parentFile.exists() && !parentFile.mkdirs()) {
+                        throw new IOException("Create parent folder failed!");
                     }
-                    DownloadOutputStream create = BdDownload.with().outputStreamFactory().create(BdDownload.with().context(), uri, this.flushBufferSize);
-                    if (this.supportSeek) {
-                        long rangeLeft = this.info.getBlock(i).getRangeLeft();
-                        if (rangeLeft > 0) {
-                            create.seek(rangeLeft);
-                            Util.d(TAG, "Create output stream write from (" + this.task.getId() + ") block(" + i + ") " + rangeLeft);
-                        }
+                    if (file.createNewFile()) {
+                        Util.d(TAG, "Create new file: " + file.getName());
                     }
-                    if (this.firstOutputStream) {
-                        this.store.markFileDirty(this.task.getId());
-                    }
-                    if (!this.info.isChunked() && this.firstOutputStream && this.isPreAllocateLength) {
-                        long totalLength = this.info.getTotalLength();
-                        if (isUriFileScheme) {
-                            File file2 = this.task.getFile();
-                            long length = totalLength - file2.length();
-                            if (length > 0) {
-                                inspectFreeSpace(new StatFs(file2.getAbsolutePath()), length);
-                                create.setLength(totalLength);
-                            }
-                        } else {
-                            create.setLength(totalLength);
-                        }
-                    }
-                    synchronized (this.noSyncLengthMap) {
-                        this.outputStreamMap.put(i, create);
-                        this.noSyncLengthMap.put(i, new AtomicLong());
-                    }
-                    this.firstOutputStream = false;
-                    downloadOutputStream = create;
+                    uri = Uri.fromFile(file);
+                } else {
+                    throw new FileNotFoundException("Filename is not ready!");
+                }
+            } else {
+                uri = this.task.getUri();
+            }
+            DownloadOutputStream create = BdDownload.with().outputStreamFactory().create(BdDownload.with().context(), uri, this.flushBufferSize);
+            if (this.supportSeek) {
+                long rangeLeft = this.info.getBlock(i).getRangeLeft();
+                if (rangeLeft > 0) {
+                    create.seek(rangeLeft);
+                    Util.d(TAG, "Create output stream write from (" + this.task.getId() + ") block(" + i + ") " + rangeLeft);
                 }
             }
-            return downloadOutputStream;
+            if (this.firstOutputStream) {
+                this.store.markFileDirty(this.task.getId());
+            }
+            if (!this.info.isChunked() && this.firstOutputStream && this.isPreAllocateLength) {
+                long totalLength = this.info.getTotalLength();
+                if (isUriFileScheme) {
+                    File file2 = this.task.getFile();
+                    long length = totalLength - file2.length();
+                    if (length > 0) {
+                        inspectFreeSpace(new StatFs(file2.getAbsolutePath()), length);
+                        create.setLength(totalLength);
+                    }
+                } else {
+                    create.setLength(totalLength);
+                }
+            }
+            synchronized (this.noSyncLengthMap) {
+                this.outputStreamMap.put(i, create);
+                this.noSyncLengthMap.put(i, new AtomicLong());
+            }
+            this.firstOutputStream = false;
+            downloadOutputStream = create;
         }
-        return (DownloadOutputStream) invokeI.objValue;
+        return downloadOutputStream;
     }
 }

@@ -1,116 +1,55 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.ViewGroup;
+import androidx.viewpager.widget.ViewPager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class k35 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static j35 a = null;
-    public static int b = 0;
-    public static int c = 0;
-    public static int d = 0;
-    public static int e = 1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947862172, "Lcom/baidu/tieba/k35;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public k35() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947862172, "Lcom/baidu/tieba/k35;");
-        }
-    }
-
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            j35 j35Var = a;
-            if (j35Var == null) {
-                return -1;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return j35Var.getCurrentTabType();
         }
-        return invokeV.intValue;
+        this.a = -2;
+        this.b = -1;
     }
 
-    public static Class<?> b() {
-        InterceptResult invokeV;
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            j35 j35Var = a;
-            if (j35Var == null) {
-                return null;
-            }
-            return j35Var.d();
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a = i;
         }
-        return (Class) invokeV.objValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public void b(ViewPager viewPager) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            j35 j35Var = a;
-            if (j35Var == null) {
-                return null;
-            }
-            return j35Var.f();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d(Context context) {
-        j35 j35Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) != null) || (j35Var = a) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewPager) != null) || viewPager == null) {
             return;
         }
-        j35Var.a(context);
-    }
-
-    public static void h(j35 j35Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, j35Var) == null) {
-            a = j35Var;
+        ViewGroup.LayoutParams layoutParams = viewPager.getLayoutParams();
+        if (layoutParams == null) {
+            layoutParams = new ViewGroup.LayoutParams(this.b, this.a);
+        } else {
+            layoutParams.height = this.a;
+            layoutParams.width = this.b;
         }
-    }
-
-    public static void e(Context context, int i) {
-        j35 j35Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65541, null, context, i) != null) || (j35Var = a) == null) {
-            return;
-        }
-        j35Var.b(context, i);
-    }
-
-    public static void f(Context context, int i, boolean z) {
-        j35 j35Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65542, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (j35Var = a) == null) {
-            return;
-        }
-        j35Var.c(context, i, z);
-    }
-
-    public static void g(Context context, int i, boolean z) {
-        j35 j35Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (j35Var = a) == null) {
-            return;
-        }
-        j35Var.e(context, i, z);
+        viewPager.setLayoutParams(layoutParams);
     }
 }

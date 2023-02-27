@@ -7,16 +7,9 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.floating.widget.FloatContainer;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
@@ -25,8 +18,6 @@ import kotlin.jvm.internal.Intrinsics;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes2.dex */
 public final class FloatContainer extends FrameLayout {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public HashMap _$_findViewCache;
     public ClickListener clickListener;
     public final com.baidu.searchbox.floating.config.Config config;
@@ -54,91 +45,40 @@ public final class FloatContainer extends FrameLayout {
     }
 
     public void _$_clearFindViewByIdCache() {
-        HashMap hashMap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hashMap = this._$_findViewCache) == null) {
-            return;
+        HashMap hashMap = this._$_findViewCache;
+        if (hashMap != null) {
+            hashMap.clear();
         }
-        hashMap.clear();
     }
 
     public View _$_findCachedViewById(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (this._$_findViewCache == null) {
-                this._$_findViewCache = new HashMap();
-            }
-            View view2 = (View) this._$_findViewCache.get(Integer.valueOf(i));
-            if (view2 == null) {
-                View findViewById = findViewById(i);
-                this._$_findViewCache.put(Integer.valueOf(i), findViewById);
-                return findViewById;
-            }
-            return view2;
+        if (this._$_findViewCache == null) {
+            this._$_findViewCache = new HashMap();
         }
-        return (View) invokeI.objValue;
+        View view2 = (View) this._$_findViewCache.get(Integer.valueOf(i));
+        if (view2 == null) {
+            View findViewById = findViewById(i);
+            this._$_findViewCache.put(Integer.valueOf(i), findViewById);
+            return findViewById;
+        }
+        return view2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FloatContainer(com.baidu.searchbox.floating.config.Config config, Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {config, context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         Intrinsics.checkNotNullParameter(config, "config");
         Intrinsics.checkNotNullParameter(context, "context");
         this.config = config;
-        this.gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener(this) { // from class: com.baidu.searchbox.floating.widget.FloatContainer$gestureDetector$1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ FloatContainer this$0;
-
-            /* JADX DEBUG: Incorrect args count in method signature: ()V */
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr3 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
+        this.gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.searchbox.floating.widget.FloatContainer$gestureDetector$1
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public boolean onSingleTapUp(MotionEvent motionEvent) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, motionEvent)) == null) {
-                    FloatContainer.ClickListener clickListener = this.this$0.getClickListener();
-                    if (clickListener != null) {
-                        clickListener.onClick();
-                        return true;
-                    }
+                FloatContainer.ClickListener clickListener = FloatContainer.this.getClickListener();
+                if (clickListener != null) {
+                    clickListener.onClick();
                     return true;
                 }
-                return invokeL.booleanValue;
+                return true;
             }
         });
     }
@@ -148,108 +88,66 @@ public final class FloatContainer extends FrameLayout {
     }
 
     public final ClickListener getClickListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.clickListener;
-        }
-        return (ClickListener) invokeV.objValue;
+        return this.clickListener;
     }
 
     public final com.baidu.searchbox.floating.config.Config getConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.config;
-        }
-        return (com.baidu.searchbox.floating.config.Config) invokeV.objValue;
+        return this.config;
     }
 
     public final LayoutListener getLayoutListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.layoutListener;
-        }
-        return (LayoutListener) invokeV.objValue;
+        return this.layoutListener;
     }
 
     public final TouchListener getTouchListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.touchListener;
-        }
-        return (TouchListener) invokeV.objValue;
+        return this.touchListener;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
         TouchListener touchListener;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
-            if (motionEvent != null && (touchListener = this.touchListener) != null) {
-                touchListener.onTouch(motionEvent);
-            }
-            if (!this.config.isDragging() && !super.onInterceptTouchEvent(motionEvent)) {
-                return false;
-            }
-            return true;
+        if (motionEvent != null && (touchListener = this.touchListener) != null) {
+            touchListener.onTouch(motionEvent);
         }
-        return invokeL.booleanValue;
+        if (!this.config.isDragging() && !super.onInterceptTouchEvent(motionEvent)) {
+            return false;
+        }
+        return true;
     }
 
     @Override // android.view.View
     @SuppressLint({"ClickableViewAccessibility"})
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
         TouchListener touchListener;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
-            if (motionEvent != null && (touchListener = this.touchListener) != null) {
-                touchListener.onTouch(motionEvent);
-            }
-            if (!this.config.isDragging() && !super.onTouchEvent(motionEvent)) {
-                return false;
-            }
-            return true;
+        if (motionEvent != null && (touchListener = this.touchListener) != null) {
+            touchListener.onTouch(motionEvent);
         }
-        return invokeL.booleanValue;
+        if (!this.config.isDragging() && !super.onTouchEvent(motionEvent)) {
+            return false;
+        }
+        return true;
     }
 
     public final void setClickListener(ClickListener clickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, clickListener) == null) {
-            this.clickListener = clickListener;
-        }
+        this.clickListener = clickListener;
     }
 
     public final void setLayoutListener(LayoutListener layoutListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, layoutListener) == null) {
-            this.layoutListener = layoutListener;
-        }
+        this.layoutListener = layoutListener;
     }
 
     public final void setTouchListener(TouchListener touchListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, touchListener) == null) {
-            this.touchListener = touchListener;
-        }
+        this.touchListener = touchListener;
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            super.onLayout(z, i, i2, i3, i4);
-            if (!this.isCreate) {
-                this.isCreate = true;
-                LayoutListener layoutListener = this.layoutListener;
-                if (layoutListener != null) {
-                    layoutListener.onLayout();
-                }
+        super.onLayout(z, i, i2, i3, i4);
+        if (!this.isCreate) {
+            this.isCreate = true;
+            LayoutListener layoutListener = this.layoutListener;
+            if (layoutListener != null) {
+                layoutListener.onLayout();
             }
         }
     }

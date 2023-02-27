@@ -1,76 +1,120 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class ci6 extends BaseCardInfo {
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import kotlin.Unit;
+/* loaded from: classes3.dex */
+public final class ci6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadData a;
+    public final int a;
+    public final Set<ai6> b;
+    public int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947675769, "Lcom/baidu/tieba/ci6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947675769, "Lcom/baidu/tieba/ci6;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    public ci6() {
+    public ci6(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = i;
+        this.b = new LinkedHashSet();
+    }
+
+    public final ai6 a(int i, int i2) {
+        InterceptResult invokeII;
+        ai6 ai6Var;
+        Object obj;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            synchronized (this) {
+                Iterator<T> it = this.b.iterator();
+                while (true) {
+                    ai6Var = null;
+                    if (it.hasNext()) {
+                        obj = it.next();
+                        ai6 ai6Var2 = (ai6) obj;
+                        if (ai6Var2.k() >= i && ai6Var2.i() >= i2 && ai6Var2.k() - i < 5 && ai6Var2.i() - i2 < 5) {
+                            z = true;
+                            continue;
+                        } else {
+                            z = false;
+                            continue;
+                        }
+                        if (z) {
+                            break;
+                        }
+                    } else {
+                        obj = null;
+                        break;
+                    }
+                }
+                ai6 ai6Var3 = (ai6) obj;
+                if (ai6Var3 != null) {
+                    this.b.remove(ai6Var3);
+                    this.c -= ai6Var3.j();
+                    ai6Var = ai6Var3;
+                }
+            }
+            return ai6Var;
+        }
+        return (ai6) invokeII.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                for (ai6 ai6Var : this.b) {
+                    ai6Var.e();
+                }
+                this.b.clear();
+                this.c = 0;
+                Unit unit = Unit.INSTANCE;
             }
         }
     }
 
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
+    public final boolean c(ai6 ai6Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ai6Var)) == null) {
+            if (ai6Var == null || ai6Var.g() == null) {
+                return true;
+            }
+            if (this.b.contains(ai6Var)) {
+                return false;
+            }
+            if (ai6Var.j() + this.c > this.a) {
+                BdLog.v("DrawingCache [Release][+] OOM Pool");
+                return false;
+            }
+            synchronized (this) {
+                this.b.add(ai6Var);
+                ai6Var.f();
+                this.c += ai6Var.j();
+                Unit unit = Unit.INSTANCE;
+            }
+            return true;
         }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void c(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
-            this.a = threadData;
-        }
+        return invokeL.booleanValue;
     }
 }

@@ -804,8 +804,8 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
     public void g(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048647, this, bundle) == null) {
-            if (bundle.get(Constants.EXTRA_PARAM) != null) {
-                Bundle bundle2 = (Bundle) bundle.get(Constants.EXTRA_PARAM);
+            if (bundle.get("param") != null) {
+                Bundle bundle2 = (Bundle) bundle.get("param");
                 int i = bundle2.getInt("type");
                 if (i == i.d.ordinal()) {
                     bundle2.putLong("layer_addr", this.z.a);
@@ -1326,12 +1326,12 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{bundle, Long.valueOf(j2), Integer.valueOf(i)})) == null) {
             l lVar = this.A;
             if (lVar != null && j2 == lVar.a && this.B != null) {
-                bundle.putBundle(Constants.EXTRA_PARAM, this.B.a(bundle.getInt("index"), bundle.getInt("zoom")));
+                bundle.putBundle("param", this.B.a(bundle.getInt("index"), bundle.getInt("zoom")));
                 return this.A.e;
             }
             ac acVar = this.v;
             if (acVar != null && j2 == acVar.a) {
-                bundle.putBundle(Constants.EXTRA_PARAM, this.w.a(bundle.getInt("x"), bundle.getInt("y"), bundle.getInt("zoom"), null));
+                bundle.putBundle("param", this.w.a(bundle.getInt("x"), bundle.getInt("y"), bundle.getInt("zoom"), null));
                 return this.v.e;
             }
             return 0;

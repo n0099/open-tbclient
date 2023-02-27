@@ -1,13 +1,5 @@
 package com.googlecode.mp4parser.boxes.apple;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.lang.JoinPoint;
@@ -15,91 +7,42 @@ import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
 /* loaded from: classes8.dex */
 public class AppleTrackNumberBox extends AppleDataBox {
-    public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_2 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_3 = null;
-    public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
 
     @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
     public int getDataLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 8;
-        }
-        return invokeV.intValue;
+        return 8;
     }
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1008778371, "Lcom/googlecode/mp4parser/boxes/apple/AppleTrackNumberBox;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1008778371, "Lcom/googlecode/mp4parser/boxes/apple/AppleTrackNumberBox;");
-                return;
-            }
-        }
         ajc$preClinit();
     }
 
+    public AppleTrackNumberBox() {
+        super("tkrn", 0);
+    }
+
     public int getA() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.a;
-        }
-        return invokeV.intValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+        return this.a;
     }
 
     public int getB() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return this.b;
-        }
-        return invokeV.intValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+        return this.b;
     }
 
     @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
     public byte[] writeData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ByteBuffer allocate = ByteBuffer.allocate(8);
-            allocate.putInt(this.a);
-            allocate.putInt(this.b);
-            return allocate.array();
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppleTrackNumberBox() {
-        super("tkrn", 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], ((Integer) objArr[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
+        ByteBuffer allocate = ByteBuffer.allocate(8);
+        allocate.putInt(this.a);
+        allocate.putInt(this.b);
+        return allocate.array();
     }
 
     public static /* synthetic */ void ajc$preClinit() {
@@ -112,26 +55,17 @@ public class AppleTrackNumberBox extends AppleDataBox {
 
     @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
     public void parseData(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) {
-            this.a = byteBuffer.getInt();
-            this.b = byteBuffer.getInt();
-        }
+        this.a = byteBuffer.getInt();
+        this.b = byteBuffer.getInt();
     }
 
     public void setA(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i)));
-            this.a = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i)));
+        this.a = i;
     }
 
     public void setB(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i)));
-            this.b = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i)));
+        this.b = i;
     }
 }

@@ -1,43 +1,85 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.searchbox.v8engine.JSExceptionType;
+import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 /* loaded from: classes7.dex */
-public class yb4 extends f34 {
+public class yb4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public int errCode;
 
-    public yb4(int i, String str) {
+    public static String c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            switch (i) {
+                case 1:
+                    return "boolean";
+                case 2:
+                case 3:
+                case 5:
+                    return com.baidu.sapi2.views.logindialog.view.a.k;
+                case 4:
+                case 9:
+                case 10:
+                default:
+                    return "object";
+                case 6:
+                    return "array object";
+                case 7:
+                    return EMABTest.TYPE_STRING;
+                case 8:
+                    return "function object";
+                case 11:
+                    return StringUtil.NULL_STRING;
+                case 12:
+                    return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
             }
         }
-        this.errCode = i;
-        this.errMsg = str;
+        return (String) invokeI.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static String a(@NonNull String str, @NonNull JSTypeMismatchException jSTypeMismatchException) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "DesktopCommonResult{errCode=" + this.errCode + ", errMsg='" + this.errMsg + "'}";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, jSTypeMismatchException)) == null) {
+            return String.format("%s:fail parameter error: parameter.%s should be %s instead of %s", str, jSTypeMismatchException.name, c(jSTypeMismatchException.requiredType), c(jSTypeMismatchException.actualType));
         }
-        return (String) invokeV.objValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public static void d(wg2 wg2Var, JSTypeMismatchException jSTypeMismatchException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, wg2Var, jSTypeMismatchException) == null) {
+            wg2Var.throwJSException(JSExceptionType.TypeError, String.format("The \"%s\" argument must be %s. Received type %s", jSTypeMismatchException.name, c(jSTypeMismatchException.requiredType), c(jSTypeMismatchException.actualType)));
+        }
+    }
+
+    public static String b(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return String.format("%s: %s", str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void call(t12 t12Var, boolean z, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{t12Var, Boolean.valueOf(z), obj}) == null) {
+            u34 e = u34.e(t12Var);
+            if (z) {
+                e.d(obj);
+            } else {
+                e.b(obj);
+            }
+        }
     }
 }

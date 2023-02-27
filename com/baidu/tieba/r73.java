@@ -1,78 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
+import android.os.Bundle;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.tieba.s73;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.TimerTask;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class r73 extends TimerTask {
+public final class r73 extends m53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public final WheelView3d d;
 
-    public r73(WheelView3d wheelView3d, int i) {
+    public r73() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView3d, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = wheelView3d;
-        this.c = i;
-        this.a = Integer.MAX_VALUE;
-        this.b = 0;
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public final void run() {
+    @Override // com.baidu.tieba.m53
+    public void b(Bundle params) {
+        s73.a b;
+        s73.a b2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a == Integer.MAX_VALUE) {
-                this.a = this.c;
-            }
-            int i = this.a;
-            int i2 = (int) (i * 0.1f);
-            this.b = i2;
-            if (i2 == 0) {
-                if (i < 0) {
-                    this.b = -1;
-                } else {
-                    this.b = 1;
+        if (interceptable == null || interceptable.invokeL(1048576, this, params) == null) {
+            Intrinsics.checkNotNullParameter(params, "params");
+            String string = params.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID);
+            String string2 = params.getString("swanId");
+            String string3 = params.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+            String string4 = params.getString("hostName");
+            if (ProcessUtils.isMainProcess()) {
+                if (string != null && (b2 = s73.c.b()) != null) {
+                    b2.a(string, string3, string4);
+                }
+                if (string2 != null && (b = s73.c.b()) != null) {
+                    b.b(string2, string3, string4);
                 }
             }
-            if (Math.abs(this.a) <= 1) {
-                this.d.b();
-                this.d.getHandler().sendEmptyMessage(3000);
-                return;
-            }
-            WheelView3d wheelView3d = this.d;
-            wheelView3d.setTotalScrollY(wheelView3d.getTotalScrollY() + this.b);
-            if (!this.d.i()) {
-                float itemHeight = this.d.getItemHeight();
-                float itemsCount = ((this.d.getItemsCount() - 1) - this.d.getInitPosition()) * itemHeight;
-                if (this.d.getTotalScrollY() <= (-this.d.getInitPosition()) * itemHeight || this.d.getTotalScrollY() >= itemsCount) {
-                    WheelView3d wheelView3d2 = this.d;
-                    wheelView3d2.setTotalScrollY(wheelView3d2.getTotalScrollY() - this.b);
-                    this.d.b();
-                    this.d.getHandler().sendEmptyMessage(3000);
-                    return;
-                }
-            }
-            this.d.getHandler().sendEmptyMessage(1000);
-            this.a -= this.b;
         }
     }
 }

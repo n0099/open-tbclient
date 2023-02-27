@@ -1,53 +1,109 @@
 package com.xiaomi.push;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.push.iz;
+import java.io.UnsupportedEncodingException;
+import java.nio.ByteBuffer;
 /* loaded from: classes8.dex */
-public final class jj {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final byte a;
+public class jj extends iz {
+    public static int b = 10000;
+    public static int c = 10000;
+    public static int d = 10000;
+    public static int e = 10485760;
+    public static int f = 104857600;
 
-    /* renamed from: a  reason: collision with other field name */
-    public final int f836a;
+    /* loaded from: classes8.dex */
+    public static class a extends iz.a {
+        public a() {
+            super(false, true);
+        }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public jj() {
-        this((byte) 0, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this(((Byte) objArr[0]).byteValue(), ((Integer) objArr[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        public a(boolean z, boolean z2, int i) {
+            super(z, z2, i);
+        }
+
+        @Override // com.xiaomi.push.iz.a, com.xiaomi.push.jf
+        public jd a(jn jnVar) {
+            jj jjVar = new jj(jnVar, ((iz.a) this).f810a, this.b);
+            int i = ((iz.a) this).a;
+            if (i != 0) {
+                jjVar.b(i);
             }
+            return jjVar;
         }
     }
 
-    public jj(byte b, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Byte.valueOf(b), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+    public jj(jn jnVar, boolean z, boolean z2) {
+        super(jnVar, z, z2);
+    }
+
+    @Override // com.xiaomi.push.iz, com.xiaomi.push.jd
+    /* renamed from: a */
+    public jb mo614a() {
+        byte a2 = a();
+        int mo611a = mo611a();
+        if (mo611a <= c) {
+            return new jb(a2, mo611a);
         }
-        this.a = b;
-        this.f836a = i;
+        throw new je(3, "Thrift list size " + mo611a + " out of range!");
+    }
+
+    @Override // com.xiaomi.push.iz, com.xiaomi.push.jd
+    /* renamed from: a */
+    public jc mo615a() {
+        byte a2 = a();
+        byte a3 = a();
+        int mo611a = mo611a();
+        if (mo611a <= b) {
+            return new jc(a2, a3, mo611a);
+        }
+        throw new je(3, "Thrift map size " + mo611a + " out of range!");
+    }
+
+    @Override // com.xiaomi.push.iz, com.xiaomi.push.jd
+    /* renamed from: a */
+    public jh mo616a() {
+        byte a2 = a();
+        int mo611a = mo611a();
+        if (mo611a <= d) {
+            return new jh(a2, mo611a);
+        }
+        throw new je(3, "Thrift set size " + mo611a + " out of range!");
+    }
+
+    @Override // com.xiaomi.push.iz, com.xiaomi.push.jd
+    /* renamed from: a */
+    public String mo618a() {
+        int mo611a = mo611a();
+        if (mo611a > e) {
+            throw new je(3, "Thrift string size " + mo611a + " out of range!");
+        } else if (((jd) this).a.b() >= mo611a) {
+            try {
+                String str = new String(((jd) this).a.mo636a(), ((jd) this).a.a(), mo611a, "UTF-8");
+                ((jd) this).a.a(mo611a);
+                return str;
+            } catch (UnsupportedEncodingException unused) {
+                throw new ix("JVM DOES NOT SUPPORT UTF-8");
+            }
+        } else {
+            return a(mo611a);
+        }
+    }
+
+    @Override // com.xiaomi.push.iz, com.xiaomi.push.jd
+    /* renamed from: a */
+    public ByteBuffer mo619a() {
+        int mo611a = mo611a();
+        if (mo611a > f) {
+            throw new je(3, "Thrift binary size " + mo611a + " out of range!");
+        }
+        c(mo611a);
+        if (((jd) this).a.b() >= mo611a) {
+            ByteBuffer wrap = ByteBuffer.wrap(((jd) this).a.mo636a(), ((jd) this).a.a(), mo611a);
+            ((jd) this).a.a(mo611a);
+            return wrap;
+        }
+        byte[] bArr = new byte[mo611a];
+        ((jd) this).a.b(bArr, 0, mo611a);
+        return ByteBuffer.wrap(bArr);
     }
 }

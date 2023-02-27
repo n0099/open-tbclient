@@ -1,80 +1,27 @@
 package com.baidu.tieba;
 
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
-import android.os.Environment;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.google.protobuf.CodedInputStream;
 /* loaded from: classes6.dex */
 public class r51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static PendingIntent a(Context context, int i, Intent intent, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return str + "/bddownload/";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            return e(context, "/mnt/sdcard");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static File b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                if (Build.VERSION.SDK_INT > 28) {
-                    return context.getExternalFilesDir(null);
-                }
-                if ("mounted".equals(Environment.getExternalStorageState())) {
-                    if (k51.a(context, "android.permission.WRITE_EXTERNAL_STORAGE") && k51.b("permission_storage")) {
-                        return c();
-                    }
-                    if (Build.VERSION.SDK_INT >= 19) {
-                        return context.getExternalFilesDir(null);
-                    }
-                    return context.getFilesDir();
-                }
-                return context.getFilesDir();
-            } catch (Exception unused) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, Integer.valueOf(i), intent, Integer.valueOf(i2)})) == null) {
+            if (Build.VERSION.SDK_INT >= 31) {
+                return PendingIntent.getBroadcast(context, i, intent, i2 | CodedInputStream.DEFAULT_SIZE_LIMIT);
             }
+            return PendingIntent.getBroadcast(context, i, intent, i2);
         }
-        return (File) invokeL.objValue;
-    }
-
-    public static File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return Environment.getExternalStorageDirectory();
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static String e(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            try {
-                return a(b(context).getPath());
-            } catch (Throwable unused) {
-                return a(str);
-            }
-        }
-        return (String) invokeLL.objValue;
+        return (PendingIntent) invokeCommon.objValue;
     }
 }

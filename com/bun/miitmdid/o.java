@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.interfaces.IIdProvider;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
+import com.huawei.hms.common.internal.TransactionIdCreater;
 import org.aspectj.runtime.reflect.SignatureImpl;
 @Keep
 /* loaded from: classes7.dex */
@@ -103,7 +104,7 @@ public abstract class o implements IIdProvider {
                 return;
             }
         }
-        e = new char[]{'0', SignatureImpl.SEP};
+        e = new char[]{TransactionIdCreater.FILL_BYTE, SignatureImpl.SEP};
     }
 
     public o() {

@@ -1,20 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.MapStatus;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.kd4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nd4 extends id4<iv2> {
+public class nd4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,73 +27,31 @@ public class nd4 extends id4<iv2> {
                 return;
             }
         }
-        boolean z = gp1.a;
+        a = wp1.a;
     }
 
-    public nd4() {
+    public static void a(@NonNull m93 m93Var, @NonNull kd4.e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65537, null, m93Var, eVar) == null) {
+            long l = m93Var.W().l("launch_time", 0L);
+            if (l <= 0) {
+                if (a) {
+                    Log.d("GameWebViewStatistic", "doH5GameLoadingFinishStats: launchTime is invalid.");
+                    return;
+                }
+                return;
             }
+            og3 og3Var = new og3();
+            og3Var.a = fg3.n(m93Var.W().G());
+            og3Var.f = m93Var.getAppId();
+            og3Var.c = m93Var.W().T();
+            og3Var.b = "startup";
+            og3Var.g = eVar.a;
+            og3Var.e = eVar.b;
+            og3Var.a("na_start", Long.valueOf(l));
+            og3Var.a("h5_start", Long.valueOf(eVar.c));
+            og3Var.a("h5_finish", Long.valueOf(eVar.d));
+            fg3.x("1235", og3Var);
         }
-    }
-
-    public static nd4 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new nd4();
-        }
-        return (nd4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.id4
-    public boolean b(Context context, iv2 iv2Var, fv2 fv2Var, w83 w83Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, iv2Var, fv2Var, w83Var, jSONObject)) == null) {
-            return e(context, iv2Var, fv2Var, w83Var, jSONObject);
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final boolean e(Context context, iv2 iv2Var, fv2 fv2Var, w83 w83Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, iv2Var, fv2Var, w83Var, jSONObject)) == null) {
-            w52.i("map", "GetRegionAction start");
-            ev1 A = ju2.U().A(iv2Var.c);
-            if (!(A instanceof cv1)) {
-                w52.c("map", "WebViewManager is null");
-                return false;
-            }
-            ge4 d = fd4.b().c((cv1) A).d(iv2Var.b);
-            if (d == null) {
-                w52.c("map", "can not find map by id " + iv2Var.b);
-                return false;
-            }
-            MapStatus mapStatus = d.l.getMap().getMapStatus();
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                jSONObject3.put("latitude", mapStatus.bound.southwest.latitude);
-                jSONObject3.put("longitude", mapStatus.bound.southwest.longitude);
-                jSONObject2.put("latitude", mapStatus.bound.northeast.latitude);
-                jSONObject2.put("longitude", mapStatus.bound.northeast.longitude);
-                jSONObject.put("southwest", jSONObject3);
-                jSONObject.put("northeast", jSONObject2);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            w52.i("map", "GetRegionAction end");
-            return true;
-        }
-        return invokeLLLLL.booleanValue;
     }
 }

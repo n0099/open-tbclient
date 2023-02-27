@@ -1,12 +1,7 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.MessageQueue;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sb6;
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,137 +9,123 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Field;
+import com.baidubce.http.Headers;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 /* loaded from: classes6.dex */
 public class sb6 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public OkHttpClient a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948145698, "Lcom/baidu/tieba/sb6;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948145698, "Lcom/baidu/tieba/sb6;");
-        }
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public static class b implements Interceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Handler a;
-        public final Looper b;
-        public MessageQueue c;
 
-        public a(Looper looper) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // okhttp3.Interceptor
+        @NonNull
+        public Response intercept(Interceptor.Chain chain) throws IOException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
+                Response.Builder newBuilder = chain.proceed(chain.request()).newBuilder();
+                newBuilder.removeHeader("Pragma");
+                newBuilder.removeHeader(Headers.CACHE_CONTROL).header(Headers.CACHE_CONTROL, "no-cache");
+                return newBuilder.build();
+            }
+            return (Response) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c implements Interceptor {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+
+        public c(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = looper;
-            this.a = new Handler(looper);
+            this.a = i;
         }
 
-        public static /* synthetic */ boolean b(Runnable runnable) {
-            runnable.run();
-            return false;
-        }
-
-        public boolean c(Runnable runnable) {
+        @Override // okhttp3.Interceptor
+        @NonNull
+        public Response intercept(@NonNull Interceptor.Chain chain) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable)) == null) {
-                if (a() == null) {
-                    return false;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
+                Request request = chain.request();
+                Response proceed = chain.proceed(request);
+                int i = 0;
+                while (!proceed.isSuccessful() && i < this.a) {
+                    i++;
+                    ke6.b("lt-log", "retryNum=" + i + ",url:" + request.url());
+                    proceed = chain.proceed(request);
                 }
-                return this.a.post(runnable);
+                return proceed;
             }
-            return invokeL.booleanValue;
+            return (Response) invokeL.objValue;
         }
+    }
 
-        public void e(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, runnable) == null) && a() != null) {
-                this.a.removeCallbacks(runnable);
-            }
-        }
+    /* loaded from: classes6.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final sb6 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        public void f(final Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, runnable) != null) || a() == null) {
-                return;
-            }
-            this.c.addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.tieba.ob6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.os.MessageQueue.IdleHandler
-                public final boolean queueIdle() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? sb6.a.b(runnable) : invokeV.booleanValue;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-437744222, "Lcom/baidu/tieba/sb6$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-            });
-        }
-
-        @SuppressLint({"DiscouragedPrivateApi"})
-        public final synchronized MessageQueue a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                synchronized (this) {
-                    if (this.c != null) {
-                        return this.c;
-                    }
-                    if (Build.VERSION.SDK_INT >= 23) {
-                        MessageQueue queue = this.b.getQueue();
-                        this.c = queue;
-                        return queue;
-                    }
-                    try {
-                        Field declaredField = Looper.class.getDeclaredField("mQueue");
-                        declaredField.setAccessible(true);
-                        Object obj = declaredField.get(this.b);
-                        if (obj instanceof MessageQueue) {
-                            this.c = (MessageQueue) obj;
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return this.c;
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-437744222, "Lcom/baidu/tieba/sb6$d;");
+                    return;
                 }
             }
-            return (MessageQueue) invokeV.objValue;
-        }
-
-        public boolean d(Runnable runnable, long j) {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, runnable, j)) == null) {
-                if (a() == null) {
-                    return false;
-                }
-                return this.a.postDelayed(runnable, j);
-            }
-            return invokeLJ.booleanValue;
+            a = new sb6(null);
         }
     }
 
@@ -152,29 +133,34 @@ public class sb6 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static a a() {
-        InterceptResult invokeV;
+    public /* synthetic */ sb6(a aVar) {
+        this();
+    }
+
+    public static OkHttpClient b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (sb6.class) {
-                    if (a == null) {
-                        a = new a(Looper.getMainLooper());
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            d.a.a(context);
+            return d.a.a;
         }
-        return (a) invokeV.objValue;
+        return (OkHttpClient) invokeL.objValue;
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && this.a == null) {
+            this.a = new OkHttpClient.Builder().addInterceptor(new c(2)).addNetworkInterceptor(new b()).readTimeout(20L, TimeUnit.SECONDS).writeTimeout(20L, TimeUnit.SECONDS).connectTimeout(20L, TimeUnit.SECONDS).followRedirects(false).build();
+        }
     }
 }

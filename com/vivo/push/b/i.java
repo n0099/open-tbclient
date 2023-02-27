@@ -13,12 +13,13 @@ public final class i extends s {
     public String a;
     public String b;
     public String c;
+    public String d;
 
     @Override // com.vivo.push.b.s, com.vivo.push.o
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "OnBindCommand" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "OnBindCommand" : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -42,17 +43,6 @@ public final class i extends s {
     }
 
     @Override // com.vivo.push.b.s, com.vivo.push.o
-    public final void c(com.vivo.push.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            super.c(aVar);
-            aVar.a("app_id", this.a);
-            aVar.a("client_id", this.b);
-            aVar.a("client_token", this.c);
-        }
-    }
-
-    @Override // com.vivo.push.b.s, com.vivo.push.o
     public final void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
@@ -60,6 +50,19 @@ public final class i extends s {
             this.a = aVar.a("app_id");
             this.b = aVar.a("client_id");
             this.c = aVar.a("client_token");
+            this.d = aVar.a("client_token_validity_period");
+        }
+    }
+
+    @Override // com.vivo.push.b.s, com.vivo.push.o
+    public final void c(com.vivo.push.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            super.c(aVar);
+            aVar.a("app_id", this.a);
+            aVar.a("client_id", this.b);
+            aVar.a("client_token", this.c);
+            aVar.a("client_token_validity_period", this.d);
         }
     }
 
@@ -77,6 +80,15 @@ public final class i extends s {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
         }
         return (String) invokeV.objValue;
     }

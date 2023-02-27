@@ -3,18 +3,11 @@ package com.baidu.cyberplayer.sdk.statistics;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.CyberVersion;
 import com.baidu.cyberplayer.sdk.o;
 import com.baidu.mobstat.Config;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -24,67 +17,32 @@ import java.nio.channels.FileLock;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes2.dex */
 public class d {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public String a = null;
+    public String b = null;
     public String c;
 
     public d() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = null;
         this.c = null;
         this.c = "video_session";
         a(CyberPlayerManager.getApplicationContext());
     }
 
     public d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = null;
         this.c = null;
         this.c = str;
         a(CyberPlayerManager.getApplicationContext());
     }
 
     public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            File file = new File(str);
-            if (file.exists() && file.isFile()) {
-                file.renameTo(new File(str2));
-            }
+        File file = new File(str);
+        if (file.exists() && file.isFile()) {
+            file.renameTo(new File(str2));
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0065 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x0067 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:96:0x001c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0062 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0064 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:92:0x0019 */
     /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.nio.channels.FileLock */
     /* JADX DEBUG: Multi-variable search result rejected for r3v3, resolved type: java.nio.channels.FileLock */
     /* JADX DEBUG: Multi-variable search result rejected for r3v5, resolved type: java.nio.channels.FileLock */
@@ -95,11 +53,10 @@ public class d {
     /* JADX WARN: Type inference failed for: r3v6, types: [java.nio.channels.FileLock] */
     /* JADX WARN: Type inference failed for: r3v8 */
     /* JADX WARN: Type inference failed for: r3v9 */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:63:0x009b -> B:88:0x009e). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:61:0x0098 -> B:83:0x009b). Please submit an issue!!! */
     public static void a(String str, byte[] bArr, String str2) {
         RandomAccessFile randomAccessFile;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65539, null, str, bArr, str2) == null) || bArr == null || TextUtils.isEmpty(str)) {
+        if (bArr == null || TextUtils.isEmpty(str)) {
             return;
         }
         FileLock fileLock = 0;
@@ -116,59 +73,59 @@ public class d {
             } catch (Exception e) {
                 CyberLog.e("DpStatFileWriter", "file close fail", e);
             }
-            try {
-            } catch (Error e2) {
-                e = e2;
-                CyberLog.e("DpStatFileWriter", "FileWriter invoke write error:", e);
-                if (fileLock != 0) {
-                    try {
-                        fileLock.release();
-                    } catch (Exception e3) {
-                        CyberLog.e("DpStatFileWriter", "file lock release fail", e3);
-                    }
-                }
-                if (randomAccessFile != null) {
-                    randomAccessFile.close();
-                }
-                return;
-            } catch (Exception e4) {
-                e = e4;
-                CyberLog.e("DpStatFileWriter", "FileWriter invoke write exception:", e);
-                if (fileLock != 0) {
-                    try {
-                        fileLock.release();
-                    } catch (Exception e5) {
-                        CyberLog.e("DpStatFileWriter", "file lock release fail", e5);
-                    }
-                }
-                if (randomAccessFile != null) {
-                    randomAccessFile.close();
-                }
-                return;
-            }
-        } catch (Error e6) {
-            e = e6;
+        } catch (Error e2) {
+            e = e2;
             randomAccessFile = null;
-        } catch (Exception e7) {
-            e = e7;
+        } catch (Exception e3) {
+            e = e3;
             randomAccessFile = null;
         } catch (Throwable th2) {
             th = th2;
             if (0 != 0) {
                 try {
                     fileLock.release();
-                } catch (Exception e8) {
-                    CyberLog.e("DpStatFileWriter", "file lock release fail", e8);
+                } catch (Exception e4) {
+                    CyberLog.e("DpStatFileWriter", "file lock release fail", e4);
                 }
             }
             if (0 != 0) {
                 try {
                     fileLock.close();
-                } catch (Exception e9) {
-                    CyberLog.e("DpStatFileWriter", "file close fail", e9);
+                } catch (Exception e5) {
+                    CyberLog.e("DpStatFileWriter", "file close fail", e5);
                 }
             }
             throw th;
+        }
+        try {
+        } catch (Error e6) {
+            e = e6;
+            CyberLog.e("DpStatFileWriter", "FileWriter invoke write error:", e);
+            if (fileLock != 0) {
+                try {
+                    fileLock.release();
+                } catch (Exception e7) {
+                    CyberLog.e("DpStatFileWriter", "file lock release fail", e7);
+                }
+            }
+            if (randomAccessFile != null) {
+                randomAccessFile.close();
+            }
+            return;
+        } catch (Exception e8) {
+            e = e8;
+            CyberLog.e("DpStatFileWriter", "FileWriter invoke write exception:", e);
+            if (fileLock != 0) {
+                try {
+                    fileLock.release();
+                } catch (Exception e9) {
+                    CyberLog.e("DpStatFileWriter", "file lock release fail", e9);
+                }
+            }
+            if (randomAccessFile != null) {
+                randomAccessFile.close();
+            }
+            return;
         }
         if (randomAccessFile.length() > Config.FULL_TRACE_LOG_LIMIT) {
             try {
@@ -198,31 +155,20 @@ public class d {
     }
 
     public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            File file = new File(str);
-            return file.exists() && file.isFile() && file.delete();
-        }
-        return invokeL.booleanValue;
+        File file = new File(str);
+        return file.exists() && file.isFile() && file.delete();
     }
 
     public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            File file = new File(str);
-            return file.exists() && file.isFile();
+        if (TextUtils.isEmpty(str)) {
+            return false;
         }
-        return invokeL.booleanValue;
+        File file = new File(str);
+        return file.exists() && file.isFile();
     }
 
     public void a() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b)) {
+        if (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
@@ -247,8 +193,7 @@ public class d {
 
     public void a(Context context) {
         String b;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || context == null || (b = o.b(context)) == null) {
+        if (context == null || (b = o.b(context)) == null) {
             return;
         }
         new File(b).mkdirs();
@@ -258,8 +203,7 @@ public class d {
     }
 
     public void a(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || bArr == null || TextUtils.isEmpty(this.a)) {
+        if (bArr == null || TextUtils.isEmpty(this.a)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
@@ -276,54 +220,50 @@ public class d {
     }
 
     public boolean b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            boolean z = false;
-            boolean z2 = true;
-            try {
-                FileInputStream fileInputStream = new FileInputStream(str);
-                InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String a = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.c.equals("live_show_session") ? 24 : 1);
-                if (TextUtils.isEmpty(a)) {
-                    z = true;
-                } else {
-                    while (true) {
-                        try {
-                            String readLine = bufferedReader.readLine();
-                            if (readLine == null) {
-                                break;
-                            } else if (!DpSessionDatasUploader.getInstance().a(Base64.decode(readLine, 2), a, false)) {
-                                try {
-                                    a(str2, readLine.getBytes(), "\r\n");
-                                    z2 = false;
-                                } catch (Exception e) {
-                                    e = e;
-                                    e.printStackTrace();
-                                    CyberLog.e("DpStatFileWriter", "readAndUploadLogFile failed");
-                                    return z;
-                                }
-                            }
-                        } catch (Exception e2) {
-                            e = e2;
-                            z = z2;
-                            e.printStackTrace();
-                            CyberLog.e("DpStatFileWriter", "readAndUploadLogFile failed");
-                            return z;
-                        }
-                    }
-                    z = z2;
-                }
-                bufferedReader.close();
-                inputStreamReader.close();
-                fileInputStream.close();
-            } catch (Exception e3) {
-                e = e3;
+        boolean z = false;
+        boolean z2 = true;
+        try {
+            FileInputStream fileInputStream = new FileInputStream(str);
+            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            String a = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.c.equals("live_show_session") ? 24 : 1);
+            if (TextUtils.isEmpty(a)) {
                 z = true;
+            } else {
+                while (true) {
+                    try {
+                        String readLine = bufferedReader.readLine();
+                        if (readLine == null) {
+                            break;
+                        }
+                        if (!DpSessionDatasUploader.getInstance().a(Base64.decode(readLine, 2), a, false)) {
+                            try {
+                                a(str2, readLine.getBytes(), "\r\n");
+                                z2 = false;
+                            } catch (Exception e) {
+                                e = e;
+                                e.printStackTrace();
+                                CyberLog.e("DpStatFileWriter", "readAndUploadLogFile failed");
+                                return z;
+                            }
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
+                        z = z2;
+                        e.printStackTrace();
+                        CyberLog.e("DpStatFileWriter", "readAndUploadLogFile failed");
+                        return z;
+                    }
+                }
+                z = z2;
             }
-            return z;
+            bufferedReader.close();
+            inputStreamReader.close();
+            fileInputStream.close();
+        } catch (Exception e3) {
+            e = e3;
+            z = true;
         }
-        return invokeLL.booleanValue;
+        return z;
     }
 }

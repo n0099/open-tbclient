@@ -11,34 +11,13 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.util.Arrays;
 /* loaded from: classes7.dex */
 public abstract class RoundedDrawable extends Drawable implements Rounded, TransformAwareDrawable {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    @VisibleForTesting
-    public final RectF mBitmapBounds;
-    public int mBorderColor;
-    public final Path mBorderPath;
-    @VisibleForTesting
-    public final float[] mBorderRadii;
-    public float mBorderWidth;
-    @VisibleForTesting
-    public final Matrix mBoundsTransform;
-    public final float[] mCornerRadii;
     public final Drawable mDelegate;
-    @VisibleForTesting
-    public final RectF mDrawableBounds;
     @Nullable
     @VisibleForTesting
     public RectF mInsideBorderBounds;
@@ -48,271 +27,162 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
     @Nullable
     @VisibleForTesting
     public Matrix mInsideBorderTransform;
-    @VisibleForTesting
-    public final Matrix mInverseParentTransform;
-    public boolean mIsCircle;
-    public boolean mIsPathDirty;
-    public boolean mIsShaderTransformDirty;
-    public float mPadding;
-    public boolean mPaintFilterBitmap;
-    @VisibleForTesting
-    public final Matrix mParentTransform;
-    public final Path mPath;
-    @VisibleForTesting
-    public final Matrix mPrevBoundsTransform;
     @Nullable
     @VisibleForTesting
     public Matrix mPrevInsideBorderTransform;
-    @VisibleForTesting
-    public final Matrix mPrevParentTransform;
-    @VisibleForTesting
-    public final RectF mPrevRootBounds;
-    public boolean mRadiiNonZero;
-    @VisibleForTesting
-    public final RectF mRootBounds;
-    public boolean mScaleDownInsideBorders;
-    @VisibleForTesting
-    public final Matrix mTransform;
     @Nullable
     public TransformCallback mTransformCallback;
+    public boolean mIsCircle = false;
+    public boolean mRadiiNonZero = false;
+    public float mBorderWidth = 0.0f;
+    public final Path mPath = new Path();
+    public boolean mIsShaderTransformDirty = true;
+    public int mBorderColor = 0;
+    public final Path mBorderPath = new Path();
+    public final float[] mCornerRadii = new float[8];
+    @VisibleForTesting
+    public final float[] mBorderRadii = new float[8];
+    @VisibleForTesting
+    public final RectF mRootBounds = new RectF();
+    @VisibleForTesting
+    public final RectF mPrevRootBounds = new RectF();
+    @VisibleForTesting
+    public final RectF mBitmapBounds = new RectF();
+    @VisibleForTesting
+    public final RectF mDrawableBounds = new RectF();
+    @VisibleForTesting
+    public final Matrix mBoundsTransform = new Matrix();
+    @VisibleForTesting
+    public final Matrix mPrevBoundsTransform = new Matrix();
+    @VisibleForTesting
+    public final Matrix mParentTransform = new Matrix();
+    @VisibleForTesting
+    public final Matrix mPrevParentTransform = new Matrix();
+    @VisibleForTesting
+    public final Matrix mInverseParentTransform = new Matrix();
+    @VisibleForTesting
+    public final Matrix mTransform = new Matrix();
+    public float mPadding = 0.0f;
+    public boolean mScaleDownInsideBorders = false;
+    public boolean mPaintFilterBitmap = false;
+    public boolean mIsPathDirty = true;
 
     public RoundedDrawable(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mIsCircle = false;
-        this.mRadiiNonZero = false;
-        this.mBorderWidth = 0.0f;
-        this.mPath = new Path();
-        this.mIsShaderTransformDirty = true;
-        this.mBorderColor = 0;
-        this.mBorderPath = new Path();
-        this.mCornerRadii = new float[8];
-        this.mBorderRadii = new float[8];
-        this.mRootBounds = new RectF();
-        this.mPrevRootBounds = new RectF();
-        this.mBitmapBounds = new RectF();
-        this.mDrawableBounds = new RectF();
-        this.mBoundsTransform = new Matrix();
-        this.mPrevBoundsTransform = new Matrix();
-        this.mParentTransform = new Matrix();
-        this.mPrevParentTransform = new Matrix();
-        this.mInverseParentTransform = new Matrix();
-        this.mTransform = new Matrix();
-        this.mPadding = 0.0f;
-        this.mScaleDownInsideBorders = false;
-        this.mPaintFilterBitmap = false;
-        this.mIsPathDirty = true;
         this.mDelegate = drawable;
     }
 
     @Override // android.graphics.drawable.Drawable
     public void clearColorFilter() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mDelegate.clearColorFilter();
-        }
+        this.mDelegate.clearColorFilter();
     }
 
     @Override // android.graphics.drawable.Drawable
     @RequiresApi(api = 19)
     public int getAlpha() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mDelegate.getAlpha();
-        }
-        return invokeV.intValue;
+        return this.mDelegate.getAlpha();
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
     public int getBorderColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mBorderColor;
-        }
-        return invokeV.intValue;
+        return this.mBorderColor;
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
     public float getBorderWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mBorderWidth;
-        }
-        return invokeV.floatValue;
+        return this.mBorderWidth;
     }
 
     @Override // android.graphics.drawable.Drawable
     @Nullable
     @RequiresApi(api = 21)
     public ColorFilter getColorFilter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mDelegate.getColorFilter();
-        }
-        return (ColorFilter) invokeV.objValue;
+        return this.mDelegate.getColorFilter();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.mDelegate.getIntrinsicHeight();
-        }
-        return invokeV.intValue;
+        return this.mDelegate.getIntrinsicHeight();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.mDelegate.getIntrinsicWidth();
-        }
-        return invokeV.intValue;
+        return this.mDelegate.getIntrinsicWidth();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getOpacity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.mDelegate.getOpacity();
-        }
-        return invokeV.intValue;
+        return this.mDelegate.getOpacity();
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
     public float getPadding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.mPadding;
-        }
-        return invokeV.floatValue;
+        return this.mPadding;
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
     public boolean getPaintFilterBitmap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.mPaintFilterBitmap;
-        }
-        return invokeV.booleanValue;
+        return this.mPaintFilterBitmap;
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
     public float[] getRadii() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.mCornerRadii;
-        }
-        return (float[]) invokeV.objValue;
+        return this.mCornerRadii;
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
     public boolean getScaleDownInsideBorders() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.mScaleDownInsideBorders;
-        }
-        return invokeV.booleanValue;
+        return this.mScaleDownInsideBorders;
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
     public boolean isCircle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.mIsCircle;
-        }
-        return invokeV.booleanValue;
+        return this.mIsCircle;
     }
 
     @VisibleForTesting
     public boolean shouldRound() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            if (!this.mIsCircle && !this.mRadiiNonZero && this.mBorderWidth <= 0.0f) {
-                return false;
-            }
-            return true;
+        if (!this.mIsCircle && !this.mRadiiNonZero && this.mBorderWidth <= 0.0f) {
+            return false;
         }
-        return invokeV.booleanValue;
+        return true;
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(@NonNull Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            if (FrescoSystrace.isTracing()) {
-                FrescoSystrace.beginSection("RoundedDrawable#draw");
-            }
-            this.mDelegate.draw(canvas);
-            if (FrescoSystrace.isTracing()) {
-                FrescoSystrace.endSection();
-            }
+        if (FrescoSystrace.isTracing()) {
+            FrescoSystrace.beginSection("RoundedDrawable#draw");
+        }
+        this.mDelegate.draw(canvas);
+        if (FrescoSystrace.isTracing()) {
+            FrescoSystrace.endSection();
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, rect) == null) {
-            this.mDelegate.setBounds(rect);
-        }
+        this.mDelegate.setBounds(rect);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.mDelegate.setAlpha(i);
-        }
+        this.mDelegate.setAlpha(i);
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
     public void setCircle(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.mIsCircle = z;
-            this.mIsPathDirty = true;
-            invalidateSelf();
-        }
+        this.mIsCircle = z;
+        this.mIsPathDirty = true;
+        invalidateSelf();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(@Nullable ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, colorFilter) == null) {
-            this.mDelegate.setColorFilter(colorFilter);
-        }
+        this.mDelegate.setColorFilter(colorFilter);
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
     public void setPadding(float f) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048596, this, f) == null) && this.mPadding != f) {
+        if (this.mPadding != f) {
             this.mPadding = f;
             this.mIsPathDirty = true;
             invalidateSelf();
@@ -321,8 +191,7 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
 
     @Override // com.facebook.drawee.drawable.Rounded
     public void setPaintFilterBitmap(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048597, this, z) == null) && this.mPaintFilterBitmap != z) {
+        if (this.mPaintFilterBitmap != z) {
             this.mPaintFilterBitmap = z;
             invalidateSelf();
         }
@@ -331,30 +200,26 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
     @Override // com.facebook.drawee.drawable.Rounded
     public void setRadius(float f) {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048599, this, f) == null) {
-            boolean z2 = false;
-            int i = (f > 0.0f ? 1 : (f == 0.0f ? 0 : -1));
-            if (i >= 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            Preconditions.checkState(z);
-            Arrays.fill(this.mCornerRadii, f);
-            if (i != 0) {
-                z2 = true;
-            }
-            this.mRadiiNonZero = z2;
-            this.mIsPathDirty = true;
-            invalidateSelf();
+        boolean z2 = false;
+        int i = (f > 0.0f ? 1 : (f == 0.0f ? 0 : -1));
+        if (i >= 0) {
+            z = true;
+        } else {
+            z = false;
         }
+        Preconditions.checkState(z);
+        Arrays.fill(this.mCornerRadii, f);
+        if (i != 0) {
+            z2 = true;
+        }
+        this.mRadiiNonZero = z2;
+        this.mIsPathDirty = true;
+        invalidateSelf();
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
     public void setScaleDownInsideBorders(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048600, this, z) == null) && this.mScaleDownInsideBorders != z) {
+        if (this.mScaleDownInsideBorders != z) {
             this.mScaleDownInsideBorders = z;
             this.mIsPathDirty = true;
             invalidateSelf();
@@ -363,71 +228,58 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
 
     @Override // com.facebook.drawee.drawable.TransformAwareDrawable
     public void setTransformCallback(@Nullable TransformCallback transformCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, transformCallback) == null) {
-            this.mTransformCallback = transformCallback;
-        }
+        this.mTransformCallback = transformCallback;
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
     public void setBorder(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            if (this.mBorderColor != i || this.mBorderWidth != f) {
-                this.mBorderColor = i;
-                this.mBorderWidth = f;
-                this.mIsPathDirty = true;
-                invalidateSelf();
-            }
+        if (this.mBorderColor != i || this.mBorderWidth != f) {
+            this.mBorderColor = i;
+            this.mBorderWidth = f;
+            this.mIsPathDirty = true;
+            invalidateSelf();
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(int i, @NonNull PorterDuff.Mode mode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048594, this, i, mode) == null) {
-            this.mDelegate.setColorFilter(i, mode);
-        }
+        this.mDelegate.setColorFilter(i, mode);
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
     public void setRadii(float[] fArr) {
         boolean z;
         boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, fArr) == null) {
-            if (fArr == null) {
-                Arrays.fill(this.mCornerRadii, 0.0f);
-                this.mRadiiNonZero = false;
+        if (fArr == null) {
+            Arrays.fill(this.mCornerRadii, 0.0f);
+            this.mRadiiNonZero = false;
+        } else {
+            if (fArr.length == 8) {
+                z = true;
             } else {
-                if (fArr.length == 8) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                Preconditions.checkArgument(z, "radii should have exactly 8 values");
-                System.arraycopy(fArr, 0, this.mCornerRadii, 0, 8);
-                this.mRadiiNonZero = false;
-                for (int i = 0; i < 8; i++) {
-                    boolean z3 = this.mRadiiNonZero;
-                    if (fArr[i] > 0.0f) {
-                        z2 = true;
-                    } else {
-                        z2 = false;
-                    }
-                    this.mRadiiNonZero = z3 | z2;
-                }
+                z = false;
             }
-            this.mIsPathDirty = true;
-            invalidateSelf();
+            Preconditions.checkArgument(z, "radii should have exactly 8 values");
+            System.arraycopy(fArr, 0, this.mCornerRadii, 0, 8);
+            this.mRadiiNonZero = false;
+            for (int i = 0; i < 8; i++) {
+                boolean z3 = this.mRadiiNonZero;
+                if (fArr[i] > 0.0f) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                this.mRadiiNonZero = z3 | z2;
+            }
         }
+        this.mIsPathDirty = true;
+        invalidateSelf();
     }
 
     public void updatePath() {
         float[] fArr;
         float f;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && this.mIsPathDirty) {
+        if (this.mIsPathDirty) {
             this.mBorderPath.reset();
             RectF rectF = this.mRootBounds;
             float f2 = this.mBorderWidth;
@@ -480,67 +332,64 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
 
     public void updateTransform() {
         Matrix matrix;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            TransformCallback transformCallback = this.mTransformCallback;
-            if (transformCallback != null) {
-                transformCallback.getTransform(this.mParentTransform);
-                this.mTransformCallback.getRootBounds(this.mRootBounds);
+        TransformCallback transformCallback = this.mTransformCallback;
+        if (transformCallback != null) {
+            transformCallback.getTransform(this.mParentTransform);
+            this.mTransformCallback.getRootBounds(this.mRootBounds);
+        } else {
+            this.mParentTransform.reset();
+            this.mRootBounds.set(getBounds());
+        }
+        this.mBitmapBounds.set(0.0f, 0.0f, getIntrinsicWidth(), getIntrinsicHeight());
+        this.mDrawableBounds.set(this.mDelegate.getBounds());
+        this.mBoundsTransform.setRectToRect(this.mBitmapBounds, this.mDrawableBounds, Matrix.ScaleToFit.FILL);
+        if (this.mScaleDownInsideBorders) {
+            RectF rectF = this.mInsideBorderBounds;
+            if (rectF == null) {
+                this.mInsideBorderBounds = new RectF(this.mRootBounds);
             } else {
-                this.mParentTransform.reset();
-                this.mRootBounds.set(getBounds());
+                rectF.set(this.mRootBounds);
             }
-            this.mBitmapBounds.set(0.0f, 0.0f, getIntrinsicWidth(), getIntrinsicHeight());
-            this.mDrawableBounds.set(this.mDelegate.getBounds());
-            this.mBoundsTransform.setRectToRect(this.mBitmapBounds, this.mDrawableBounds, Matrix.ScaleToFit.FILL);
+            RectF rectF2 = this.mInsideBorderBounds;
+            float f = this.mBorderWidth;
+            rectF2.inset(f, f);
+            if (this.mInsideBorderTransform == null) {
+                this.mInsideBorderTransform = new Matrix();
+            }
+            this.mInsideBorderTransform.setRectToRect(this.mRootBounds, this.mInsideBorderBounds, Matrix.ScaleToFit.FILL);
+        } else {
+            Matrix matrix2 = this.mInsideBorderTransform;
+            if (matrix2 != null) {
+                matrix2.reset();
+            }
+        }
+        if (!this.mParentTransform.equals(this.mPrevParentTransform) || !this.mBoundsTransform.equals(this.mPrevBoundsTransform) || ((matrix = this.mInsideBorderTransform) != null && !matrix.equals(this.mPrevInsideBorderTransform))) {
+            this.mIsShaderTransformDirty = true;
+            this.mParentTransform.invert(this.mInverseParentTransform);
+            this.mTransform.set(this.mParentTransform);
             if (this.mScaleDownInsideBorders) {
-                RectF rectF = this.mInsideBorderBounds;
-                if (rectF == null) {
-                    this.mInsideBorderBounds = new RectF(this.mRootBounds);
+                this.mTransform.postConcat(this.mInsideBorderTransform);
+            }
+            this.mTransform.preConcat(this.mBoundsTransform);
+            this.mPrevParentTransform.set(this.mParentTransform);
+            this.mPrevBoundsTransform.set(this.mBoundsTransform);
+            if (this.mScaleDownInsideBorders) {
+                Matrix matrix3 = this.mPrevInsideBorderTransform;
+                if (matrix3 == null) {
+                    this.mPrevInsideBorderTransform = new Matrix(this.mInsideBorderTransform);
                 } else {
-                    rectF.set(this.mRootBounds);
+                    matrix3.set(this.mInsideBorderTransform);
                 }
-                RectF rectF2 = this.mInsideBorderBounds;
-                float f = this.mBorderWidth;
-                rectF2.inset(f, f);
-                if (this.mInsideBorderTransform == null) {
-                    this.mInsideBorderTransform = new Matrix();
-                }
-                this.mInsideBorderTransform.setRectToRect(this.mRootBounds, this.mInsideBorderBounds, Matrix.ScaleToFit.FILL);
             } else {
-                Matrix matrix2 = this.mInsideBorderTransform;
-                if (matrix2 != null) {
-                    matrix2.reset();
+                Matrix matrix4 = this.mPrevInsideBorderTransform;
+                if (matrix4 != null) {
+                    matrix4.reset();
                 }
             }
-            if (!this.mParentTransform.equals(this.mPrevParentTransform) || !this.mBoundsTransform.equals(this.mPrevBoundsTransform) || ((matrix = this.mInsideBorderTransform) != null && !matrix.equals(this.mPrevInsideBorderTransform))) {
-                this.mIsShaderTransformDirty = true;
-                this.mParentTransform.invert(this.mInverseParentTransform);
-                this.mTransform.set(this.mParentTransform);
-                if (this.mScaleDownInsideBorders) {
-                    this.mTransform.postConcat(this.mInsideBorderTransform);
-                }
-                this.mTransform.preConcat(this.mBoundsTransform);
-                this.mPrevParentTransform.set(this.mParentTransform);
-                this.mPrevBoundsTransform.set(this.mBoundsTransform);
-                if (this.mScaleDownInsideBorders) {
-                    Matrix matrix3 = this.mPrevInsideBorderTransform;
-                    if (matrix3 == null) {
-                        this.mPrevInsideBorderTransform = new Matrix(this.mInsideBorderTransform);
-                    } else {
-                        matrix3.set(this.mInsideBorderTransform);
-                    }
-                } else {
-                    Matrix matrix4 = this.mPrevInsideBorderTransform;
-                    if (matrix4 != null) {
-                        matrix4.reset();
-                    }
-                }
-            }
-            if (!this.mRootBounds.equals(this.mPrevRootBounds)) {
-                this.mIsPathDirty = true;
-                this.mPrevRootBounds.set(this.mRootBounds);
-            }
+        }
+        if (!this.mRootBounds.equals(this.mPrevRootBounds)) {
+            this.mIsPathDirty = true;
+            this.mPrevRootBounds.set(this.mRootBounds);
         }
     }
 }

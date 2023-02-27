@@ -30,15 +30,6 @@ public class e {
         a = new ConcurrentHashMap<>(16);
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a.isEmpty();
-        }
-        return invokeV.booleanValue;
-    }
-
     public static void a(String str, TokenListener tokenListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, str, tokenListener) == null) {
@@ -49,7 +40,7 @@ public class e {
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             return !a.containsKey(str);
         }
         return invokeL.booleanValue;
@@ -57,7 +48,7 @@ public class e {
 
     public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
             a.remove(str);
         }
     }
@@ -65,7 +56,7 @@ public class e {
     public static TokenListener c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             return a.get(str);
         }
         return (TokenListener) invokeL.objValue;

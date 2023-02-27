@@ -19,23 +19,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
 import androidx.appcompat.widget.AppCompatTextView;
-import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.TextViewCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.animation.AnimatorSetCompat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class IndicatorViewController {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int CAPTION_OPACITY_FADE_ANIMATION_DURATION = 167;
     public static final int CAPTION_STATE_ERROR = 1;
     public static final int CAPTION_STATE_HELPER_TEXT = 2;
@@ -44,7 +36,6 @@ public final class IndicatorViewController {
     public static final int COUNTER_INDEX = 2;
     public static final int ERROR_INDEX = 0;
     public static final int HELPER_INDEX = 1;
-    public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public Animator captionAnimator;
     public FrameLayout captionArea;
@@ -77,174 +68,90 @@ public final class IndicatorViewController {
     public Typeface typeface;
 
     public boolean isCaptionView(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) ? i == 0 || i == 1 : invokeI.booleanValue;
+        return i == 0 || i == 1;
     }
 
     public IndicatorViewController(@NonNull TextInputLayout textInputLayout) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {textInputLayout};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         Context context = textInputLayout.getContext();
         this.context = context;
         this.textInputView = textInputLayout;
         this.captionTranslationYPx = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070226);
     }
 
-    private ObjectAnimator createCaptionOpacityAnimator(TextView textView, boolean z) {
-        InterceptResult invokeLZ;
-        float f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, this, textView, z)) == null) {
-            if (z) {
-                f = 1.0f;
-            } else {
-                f = 0.0f;
-            }
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(textView, View.ALPHA, f);
-            ofFloat.setDuration(167L);
-            ofFloat.setInterpolator(AnimationUtils.LINEAR_INTERPOLATOR);
-            return ofFloat;
-        }
-        return (ObjectAnimator) invokeLZ.objValue;
-    }
-
-    private void setTextViewTypeface(@Nullable TextView textView, Typeface typeface) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65548, this, textView, typeface) == null) && textView != null) {
-            textView.setTypeface(typeface);
-        }
-    }
-
-    private void setViewGroupGoneIfEmpty(@NonNull ViewGroup viewGroup, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65549, this, viewGroup, i) == null) && i == 0) {
-            viewGroup.setVisibility(8);
-        }
-    }
-
     private ObjectAnimator createCaptionTranslationYAnimator(TextView textView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, textView)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(textView, View.TRANSLATION_Y, -this.captionTranslationYPx, 0.0f);
-            ofFloat.setDuration(217L);
-            ofFloat.setInterpolator(AnimationUtils.LINEAR_OUT_SLOW_IN_INTERPOLATOR);
-            return ofFloat;
-        }
-        return (ObjectAnimator) invokeL.objValue;
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(textView, View.TRANSLATION_Y, -this.captionTranslationYPx, 0.0f);
+        ofFloat.setDuration(217L);
+        ofFloat.setInterpolator(AnimationUtils.LINEAR_OUT_SLOW_IN_INTERPOLATOR);
+        return ofFloat;
     }
 
     @Nullable
     private TextView getCaptionViewFromDisplayState(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    return null;
-                }
-                return this.helperTextView;
+        if (i != 1) {
+            if (i != 2) {
+                return null;
             }
-            return this.errorView;
+            return this.helperTextView;
         }
-        return (TextView) invokeI.objValue;
+        return this.errorView;
     }
 
     private boolean isCaptionStateError(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65545, this, i)) == null) {
-            if (i == 1 && this.errorView != null && !TextUtils.isEmpty(this.errorText)) {
-                return true;
-            }
-            return false;
+        if (i == 1 && this.errorView != null && !TextUtils.isEmpty(this.errorText)) {
+            return true;
         }
-        return invokeI.booleanValue;
+        return false;
     }
 
     private boolean isCaptionStateHelperText(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65546, this, i)) == null) {
-            if (i == 2 && this.helperTextView != null && !TextUtils.isEmpty(this.helperText)) {
-                return true;
-            }
-            return false;
+        if (i == 2 && this.helperTextView != null && !TextUtils.isEmpty(this.helperText)) {
+            return true;
         }
-        return invokeI.booleanValue;
+        return false;
     }
 
     public void setErrorContentDescription(@Nullable CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, charSequence) == null) {
-            this.errorViewContentDescription = charSequence;
-            TextView textView = this.errorView;
-            if (textView != null) {
-                textView.setContentDescription(charSequence);
-            }
+        this.errorViewContentDescription = charSequence;
+        TextView textView = this.errorView;
+        if (textView != null) {
+            textView.setContentDescription(charSequence);
         }
     }
 
     public void setErrorTextAppearance(@StyleRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            this.errorTextAppearance = i;
-            TextView textView = this.errorView;
-            if (textView != null) {
-                this.textInputView.setTextAppearanceCompatWithErrorFallback(textView, i);
-            }
+        this.errorTextAppearance = i;
+        TextView textView = this.errorView;
+        if (textView != null) {
+            this.textInputView.setTextAppearanceCompatWithErrorFallback(textView, i);
         }
     }
 
     public void setErrorViewTextColor(@Nullable ColorStateList colorStateList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, colorStateList) == null) {
-            this.errorViewTextColor = colorStateList;
-            TextView textView = this.errorView;
-            if (textView != null && colorStateList != null) {
-                textView.setTextColor(colorStateList);
-            }
+        this.errorViewTextColor = colorStateList;
+        TextView textView = this.errorView;
+        if (textView != null && colorStateList != null) {
+            textView.setTextColor(colorStateList);
         }
     }
 
     public void setHelperTextAppearance(@StyleRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-            this.helperTextTextAppearance = i;
-            TextView textView = this.helperTextView;
-            if (textView != null) {
-                TextViewCompat.setTextAppearance(textView, i);
-            }
+        this.helperTextTextAppearance = i;
+        TextView textView = this.helperTextView;
+        if (textView != null) {
+            TextViewCompat.setTextAppearance(textView, i);
         }
     }
 
     public void setHelperTextViewTextColor(@Nullable ColorStateList colorStateList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, colorStateList) == null) {
-            this.helperTextViewTextColor = colorStateList;
-            TextView textView = this.helperTextView;
-            if (textView != null && colorStateList != null) {
-                textView.setTextColor(colorStateList);
-            }
+        this.helperTextViewTextColor = colorStateList;
+        TextView textView = this.helperTextView;
+        if (textView != null && colorStateList != null) {
+            textView.setTextColor(colorStateList);
         }
     }
 
     public void setTypefaces(Typeface typeface) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048603, this, typeface) == null) && typeface != this.typeface) {
+        if (typeface != this.typeface) {
             this.typeface = typeface;
             setTextViewTypeface(this.errorView, typeface);
             setTextViewTypeface(this.helperTextView, typeface);
@@ -252,231 +159,42 @@ public final class IndicatorViewController {
     }
 
     public void showError(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, charSequence) == null) {
-            cancelCaptionAnimator();
-            this.errorText = charSequence;
-            this.errorView.setText(charSequence);
-            if (this.captionDisplayed != 1) {
-                this.captionToShow = 1;
-            }
-            updateCaptionViewsVisibility(this.captionDisplayed, this.captionToShow, shouldAnimateCaptionView(this.errorView, charSequence));
+        cancelCaptionAnimator();
+        this.errorText = charSequence;
+        this.errorView.setText(charSequence);
+        if (this.captionDisplayed != 1) {
+            this.captionToShow = 1;
         }
+        updateCaptionViewsVisibility(this.captionDisplayed, this.captionToShow, shouldAnimateCaptionView(this.errorView, charSequence));
     }
 
     public void showHelper(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, charSequence) == null) {
-            cancelCaptionAnimator();
-            this.helperText = charSequence;
-            this.helperTextView.setText(charSequence);
-            if (this.captionDisplayed != 2) {
-                this.captionToShow = 2;
-            }
-            updateCaptionViewsVisibility(this.captionDisplayed, this.captionToShow, shouldAnimateCaptionView(this.helperTextView, charSequence));
+        cancelCaptionAnimator();
+        this.helperText = charSequence;
+        this.helperTextView.setText(charSequence);
+        if (this.captionDisplayed != 2) {
+            this.captionToShow = 2;
         }
+        updateCaptionViewsVisibility(this.captionDisplayed, this.captionToShow, shouldAnimateCaptionView(this.helperTextView, charSequence));
     }
 
-    private boolean canAdjustIndicatorPadding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            if (this.indicatorArea != null && this.textInputView.getEditText() != null) {
-                return true;
-            }
-            return false;
+    private ObjectAnimator createCaptionOpacityAnimator(TextView textView, boolean z) {
+        float f;
+        if (z) {
+            f = 1.0f;
+        } else {
+            f = 0.0f;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void adjustIndicatorPadding() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && canAdjustIndicatorPadding()) {
-            ViewCompat.setPaddingRelative(this.indicatorArea, ViewCompat.getPaddingStart(this.textInputView.getEditText()), 0, ViewCompat.getPaddingEnd(this.textInputView.getEditText()), 0);
-        }
-    }
-
-    public void cancelCaptionAnimator() {
-        Animator animator;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (animator = this.captionAnimator) != null) {
-            animator.cancel();
-        }
-    }
-
-    public boolean errorIsDisplayed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return isCaptionStateError(this.captionDisplayed);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean errorShouldBeShown() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return isCaptionStateError(this.captionToShow);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Nullable
-    public CharSequence getErrorContentDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.errorViewContentDescription;
-        }
-        return (CharSequence) invokeV.objValue;
-    }
-
-    @Nullable
-    public CharSequence getErrorText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.errorText;
-        }
-        return (CharSequence) invokeV.objValue;
-    }
-
-    @ColorInt
-    public int getErrorViewCurrentTextColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            TextView textView = this.errorView;
-            if (textView != null) {
-                return textView.getCurrentTextColor();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Nullable
-    public ColorStateList getErrorViewTextColors() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            TextView textView = this.errorView;
-            if (textView != null) {
-                return textView.getTextColors();
-            }
-            return null;
-        }
-        return (ColorStateList) invokeV.objValue;
-    }
-
-    public CharSequence getHelperText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.helperText;
-        }
-        return (CharSequence) invokeV.objValue;
-    }
-
-    @Nullable
-    public ColorStateList getHelperTextViewColors() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            TextView textView = this.helperTextView;
-            if (textView != null) {
-                return textView.getTextColors();
-            }
-            return null;
-        }
-        return (ColorStateList) invokeV.objValue;
-    }
-
-    @ColorInt
-    public int getHelperTextViewCurrentTextColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            TextView textView = this.helperTextView;
-            if (textView != null) {
-                return textView.getCurrentTextColor();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean helperTextIsDisplayed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return isCaptionStateHelperText(this.captionDisplayed);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean helperTextShouldBeShown() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return isCaptionStateHelperText(this.captionToShow);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void hideHelperText() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            cancelCaptionAnimator();
-            if (this.captionDisplayed == 2) {
-                this.captionToShow = 0;
-            }
-            updateCaptionViewsVisibility(this.captionDisplayed, this.captionToShow, shouldAnimateCaptionView(this.helperTextView, null));
-        }
-    }
-
-    public boolean isErrorEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.errorEnabled;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isHelperTextEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.helperTextEnabled;
-        }
-        return invokeV.booleanValue;
-    }
-
-    private void createCaptionAnimators(@NonNull List<Animator> list, boolean z, @Nullable TextView textView, int i, int i2, int i3) {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{list, Boolean.valueOf(z), textView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) && textView != null && z) {
-            if (i == i3 || i == i2) {
-                if (i3 == i) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                list.add(createCaptionOpacityAnimator(textView, z2));
-                if (i3 == i) {
-                    list.add(createCaptionTranslationYAnimator(textView));
-                }
-            }
-        }
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(textView, View.ALPHA, f);
+        ofFloat.setDuration(167L);
+        ofFloat.setInterpolator(AnimationUtils.LINEAR_INTERPOLATOR);
+        return ofFloat;
     }
 
     private void setCaptionViewVisibilities(int i, int i2) {
         TextView captionViewFromDisplayState;
         TextView captionViewFromDisplayState2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeII(65547, this, i, i2) != null) || i == i2) {
+        if (i == i2) {
             return;
         }
         if (i2 != 0 && (captionViewFromDisplayState2 = getCaptionViewFromDisplayState(i2)) != null) {
@@ -492,22 +210,28 @@ public final class IndicatorViewController {
         this.captionDisplayed = i2;
     }
 
-    private boolean shouldAnimateCaptionView(@Nullable TextView textView, @Nullable CharSequence charSequence) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, this, textView, charSequence)) == null) {
-            if (ViewCompat.isLaidOut(this.textInputView) && this.textInputView.isEnabled() && (this.captionToShow != this.captionDisplayed || textView == null || !TextUtils.equals(textView.getText(), charSequence))) {
-                return true;
-            }
-            return false;
+    private void setTextViewTypeface(@Nullable TextView textView, Typeface typeface) {
+        if (textView != null) {
+            textView.setTypeface(typeface);
         }
-        return invokeLL.booleanValue;
+    }
+
+    private void setViewGroupGoneIfEmpty(@NonNull ViewGroup viewGroup, int i) {
+        if (i == 0) {
+            viewGroup.setVisibility(8);
+        }
+    }
+
+    private boolean shouldAnimateCaptionView(@Nullable TextView textView, @Nullable CharSequence charSequence) {
+        if (ViewCompat.isLaidOut(this.textInputView) && this.textInputView.isEnabled() && (this.captionToShow != this.captionDisplayed || textView == null || !TextUtils.equals(textView.getText(), charSequence))) {
+            return true;
+        }
+        return false;
     }
 
     public void removeIndicator(TextView textView, int i) {
         FrameLayout frameLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048595, this, textView, i) != null) || this.indicatorArea == null) {
+        if (this.indicatorArea == null) {
             return;
         }
         if (isCaptionView(i) && (frameLayout = this.captionArea) != null) {
@@ -523,9 +247,140 @@ public final class IndicatorViewController {
         setViewGroupGoneIfEmpty(this.indicatorArea, i3);
     }
 
-    private void updateCaptionViewsVisibility(int i, int i2, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65551, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) != null) || i == i2) {
+    private boolean canAdjustIndicatorPadding() {
+        if (this.indicatorArea != null && this.textInputView.getEditText() != null) {
+            return true;
+        }
+        return false;
+    }
+
+    public void adjustIndicatorPadding() {
+        if (canAdjustIndicatorPadding()) {
+            ViewCompat.setPaddingRelative(this.indicatorArea, ViewCompat.getPaddingStart(this.textInputView.getEditText()), 0, ViewCompat.getPaddingEnd(this.textInputView.getEditText()), 0);
+        }
+    }
+
+    public void cancelCaptionAnimator() {
+        Animator animator = this.captionAnimator;
+        if (animator != null) {
+            animator.cancel();
+        }
+    }
+
+    public boolean errorIsDisplayed() {
+        return isCaptionStateError(this.captionDisplayed);
+    }
+
+    public boolean errorShouldBeShown() {
+        return isCaptionStateError(this.captionToShow);
+    }
+
+    @Nullable
+    public CharSequence getErrorContentDescription() {
+        return this.errorViewContentDescription;
+    }
+
+    @Nullable
+    public CharSequence getErrorText() {
+        return this.errorText;
+    }
+
+    @ColorInt
+    public int getErrorViewCurrentTextColor() {
+        TextView textView = this.errorView;
+        if (textView != null) {
+            return textView.getCurrentTextColor();
+        }
+        return -1;
+    }
+
+    @Nullable
+    public ColorStateList getErrorViewTextColors() {
+        TextView textView = this.errorView;
+        if (textView != null) {
+            return textView.getTextColors();
+        }
+        return null;
+    }
+
+    public CharSequence getHelperText() {
+        return this.helperText;
+    }
+
+    @Nullable
+    public ColorStateList getHelperTextViewColors() {
+        TextView textView = this.helperTextView;
+        if (textView != null) {
+            return textView.getTextColors();
+        }
+        return null;
+    }
+
+    @ColorInt
+    public int getHelperTextViewCurrentTextColor() {
+        TextView textView = this.helperTextView;
+        if (textView != null) {
+            return textView.getCurrentTextColor();
+        }
+        return -1;
+    }
+
+    public boolean helperTextIsDisplayed() {
+        return isCaptionStateHelperText(this.captionDisplayed);
+    }
+
+    public boolean helperTextShouldBeShown() {
+        return isCaptionStateHelperText(this.captionToShow);
+    }
+
+    public void hideError() {
+        this.errorText = null;
+        cancelCaptionAnimator();
+        if (this.captionDisplayed == 1) {
+            if (this.helperTextEnabled && !TextUtils.isEmpty(this.helperText)) {
+                this.captionToShow = 2;
+            } else {
+                this.captionToShow = 0;
+            }
+        }
+        updateCaptionViewsVisibility(this.captionDisplayed, this.captionToShow, shouldAnimateCaptionView(this.errorView, null));
+    }
+
+    public void hideHelperText() {
+        cancelCaptionAnimator();
+        if (this.captionDisplayed == 2) {
+            this.captionToShow = 0;
+        }
+        updateCaptionViewsVisibility(this.captionDisplayed, this.captionToShow, shouldAnimateCaptionView(this.helperTextView, null));
+    }
+
+    public boolean isErrorEnabled() {
+        return this.errorEnabled;
+    }
+
+    public boolean isHelperTextEnabled() {
+        return this.helperTextEnabled;
+    }
+
+    private void createCaptionAnimators(@NonNull List<Animator> list, boolean z, @Nullable TextView textView, int i, int i2, int i3) {
+        boolean z2;
+        if (textView != null && z) {
+            if (i == i3 || i == i2) {
+                if (i3 == i) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                list.add(createCaptionOpacityAnimator(textView, z2));
+                if (i3 == i) {
+                    list.add(createCaptionTranslationYAnimator(textView));
+                }
+            }
+        }
+    }
+
+    private void updateCaptionViewsVisibility(final int i, final int i2, boolean z) {
+        if (i == i2) {
             return;
         }
         if (z) {
@@ -535,63 +390,31 @@ public final class IndicatorViewController {
             createCaptionAnimators(arrayList, this.helperTextEnabled, this.helperTextView, 2, i, i2);
             createCaptionAnimators(arrayList, this.errorEnabled, this.errorView, 1, i, i2);
             AnimatorSetCompat.playTogether(animatorSet, arrayList);
-            animatorSet.addListener(new AnimatorListenerAdapter(this, i2, getCaptionViewFromDisplayState(i), i, getCaptionViewFromDisplayState(i2)) { // from class: com.google.android.material.textfield.IndicatorViewController.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ IndicatorViewController this$0;
-                public final /* synthetic */ int val$captionToHide;
-                public final /* synthetic */ int val$captionToShow;
-                public final /* synthetic */ TextView val$captionViewToHide;
-                public final /* synthetic */ TextView val$captionViewToShow;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2), r8, Integer.valueOf(i), r10};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$captionToShow = i2;
-                    this.val$captionViewToHide = r8;
-                    this.val$captionToHide = i;
-                    this.val$captionViewToShow = r10;
-                }
-
+            final TextView captionViewFromDisplayState = getCaptionViewFromDisplayState(i);
+            final TextView captionViewFromDisplayState2 = getCaptionViewFromDisplayState(i2);
+            animatorSet.addListener(new AnimatorListenerAdapter() { // from class: com.google.android.material.textfield.IndicatorViewController.1
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
-                        this.this$0.captionDisplayed = this.val$captionToShow;
-                        this.this$0.captionAnimator = null;
-                        TextView textView = this.val$captionViewToHide;
-                        if (textView != null) {
-                            textView.setVisibility(4);
-                            if (this.val$captionToHide == 1 && this.this$0.errorView != null) {
-                                this.this$0.errorView.setText((CharSequence) null);
-                            }
+                    IndicatorViewController.this.captionDisplayed = i2;
+                    IndicatorViewController.this.captionAnimator = null;
+                    TextView textView = captionViewFromDisplayState;
+                    if (textView != null) {
+                        textView.setVisibility(4);
+                        if (i == 1 && IndicatorViewController.this.errorView != null) {
+                            IndicatorViewController.this.errorView.setText((CharSequence) null);
                         }
-                        TextView textView2 = this.val$captionViewToShow;
-                        if (textView2 != null) {
-                            textView2.setTranslationY(0.0f);
-                            this.val$captionViewToShow.setAlpha(1.0f);
-                        }
+                    }
+                    TextView textView2 = captionViewFromDisplayState2;
+                    if (textView2 != null) {
+                        textView2.setTranslationY(0.0f);
+                        captionViewFromDisplayState2.setAlpha(1.0f);
                     }
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
-                    TextView textView;
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) && (textView = this.val$captionViewToShow) != null) {
+                    TextView textView = captionViewFromDisplayState2;
+                    if (textView != null) {
                         textView.setVisibility(0);
                     }
                 }
@@ -606,57 +429,37 @@ public final class IndicatorViewController {
     }
 
     public void addIndicator(TextView textView, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, textView, i) == null) {
-            if (this.indicatorArea == null && this.captionArea == null) {
-                LinearLayout linearLayout = new LinearLayout(this.context);
-                this.indicatorArea = linearLayout;
-                linearLayout.setOrientation(0);
-                this.textInputView.addView(this.indicatorArea, -1, -2);
-                this.captionArea = new FrameLayout(this.context);
-                this.indicatorArea.addView(this.captionArea, new LinearLayout.LayoutParams(0, -2, 1.0f));
-                if (this.textInputView.getEditText() != null) {
-                    adjustIndicatorPadding();
-                }
+        if (this.indicatorArea == null && this.captionArea == null) {
+            LinearLayout linearLayout = new LinearLayout(this.context);
+            this.indicatorArea = linearLayout;
+            linearLayout.setOrientation(0);
+            this.textInputView.addView(this.indicatorArea, -1, -2);
+            this.captionArea = new FrameLayout(this.context);
+            this.indicatorArea.addView(this.captionArea, new LinearLayout.LayoutParams(0, -2, 1.0f));
+            if (this.textInputView.getEditText() != null) {
+                adjustIndicatorPadding();
             }
-            if (isCaptionView(i)) {
-                this.captionArea.setVisibility(0);
-                this.captionArea.addView(textView);
-                this.captionViewsAdded++;
-            } else {
-                this.indicatorArea.addView(textView, new LinearLayout.LayoutParams(-2, -2));
-            }
-            this.indicatorArea.setVisibility(0);
-            this.indicatorsAdded++;
         }
-    }
-
-    public void hideError() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.errorText = null;
-            cancelCaptionAnimator();
-            if (this.captionDisplayed == 1) {
-                if (this.helperTextEnabled && !TextUtils.isEmpty(this.helperText)) {
-                    this.captionToShow = 2;
-                } else {
-                    this.captionToShow = 0;
-                }
-            }
-            updateCaptionViewsVisibility(this.captionDisplayed, this.captionToShow, shouldAnimateCaptionView(this.errorView, null));
+        if (isCaptionView(i)) {
+            this.captionArea.setVisibility(0);
+            this.captionArea.addView(textView);
+            this.captionViewsAdded++;
+        } else {
+            this.indicatorArea.addView(textView, new LinearLayout.LayoutParams(-2, -2));
         }
+        this.indicatorArea.setVisibility(0);
+        this.indicatorsAdded++;
     }
 
     public void setErrorEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048597, this, z) != null) || this.errorEnabled == z) {
+        if (this.errorEnabled == z) {
             return;
         }
         cancelCaptionAnimator();
         if (z) {
             AppCompatTextView appCompatTextView = new AppCompatTextView(this.context);
             this.errorView = appCompatTextView;
-            appCompatTextView.setId(R.id.obfuscated_res_0x7f0922a3);
+            appCompatTextView.setId(R.id.obfuscated_res_0x7f0922ed);
             if (Build.VERSION.SDK_INT >= 17) {
                 this.errorView.setTextAlignment(5);
             }
@@ -681,15 +484,14 @@ public final class IndicatorViewController {
     }
 
     public void setHelperTextEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048601, this, z) != null) || this.helperTextEnabled == z) {
+        if (this.helperTextEnabled == z) {
             return;
         }
         cancelCaptionAnimator();
         if (z) {
             AppCompatTextView appCompatTextView = new AppCompatTextView(this.context);
             this.helperTextView = appCompatTextView;
-            appCompatTextView.setId(R.id.obfuscated_res_0x7f0922a4);
+            appCompatTextView.setId(R.id.obfuscated_res_0x7f0922ee);
             if (Build.VERSION.SDK_INT >= 17) {
                 this.helperTextView.setTextAlignment(5);
             }

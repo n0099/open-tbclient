@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ay;
+import com.baidu.tieba.b35;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.p15;
+import com.baidu.tieba.ey;
 import com.baidu.tieba.widget.InterestForumTagView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class InterestForumTagLayout extends LinearLayout implements ay {
+public class InterestForumTagLayout extends LinearLayout implements ey {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final float a;
@@ -163,13 +163,13 @@ public class InterestForumTagLayout extends LinearLayout implements ay {
         }
     }
 
-    @Override // com.baidu.tieba.ay
+    @Override // com.baidu.tieba.ey
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) {
             TextView textView = this.c;
             if (textView != null) {
-                p15 d = p15.d(textView);
+                b35 d = b35.d(textView);
                 d.v(R.color.CAM_X0109);
                 d.z(R.dimen.T_X06);
             }
@@ -178,8 +178,8 @@ public class InterestForumTagLayout extends LinearLayout implements ay {
                 int childCount = linearLayout.getChildCount();
                 for (int i2 = 0; i2 < childCount; i2++) {
                     View childAt = this.d.getChildAt(i2);
-                    if (childAt instanceof ay) {
-                        ((ay) childAt).onChangeSkinType(tbPageContext, i);
+                    if (childAt instanceof ey) {
+                        ((ey) childAt).onChangeSkinType(tbPageContext, i);
                     }
                 }
             }
@@ -263,7 +263,7 @@ public class InterestForumTagLayout extends LinearLayout implements ay {
         EMTextView eMTextView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (eMTextView = this.e) != null) {
-            p15 d = p15.d(eMTextView);
+            b35 d = b35.d(eMTextView);
             d.v(R.color.CAM_X0110);
             d.z(R.dimen.T_X06);
         }
@@ -289,9 +289,9 @@ public class InterestForumTagLayout extends LinearLayout implements ay {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.d != null && getContext() != null) {
             if (this.g) {
-                string = this.b.getString(R.string.obfuscated_res_0x7f0f09b9);
+                string = this.b.getString(R.string.obfuscated_res_0x7f0f09c2);
             } else {
-                string = this.b.getString(R.string.obfuscated_res_0x7f0f09b7);
+                string = this.b.getString(R.string.obfuscated_res_0x7f0f09c0);
             }
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             EMTextView eMTextView = new EMTextView(getContext());
@@ -326,7 +326,7 @@ public class InterestForumTagLayout extends LinearLayout implements ay {
             setOrientation(1);
             TextView textView = new TextView(getContext());
             this.c = textView;
-            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f09bd));
+            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f09c6));
             addView(this.c, new LinearLayout.LayoutParams(-2, -2));
             RelativeLayout relativeLayout = new RelativeLayout(getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
@@ -334,7 +334,7 @@ public class InterestForumTagLayout extends LinearLayout implements ay {
             addView(relativeLayout, layoutParams);
             ImageView imageView = new ImageView(getContext());
             this.f = imageView;
-            imageView.setId(R.id.obfuscated_res_0x7f09103e);
+            imageView.setId(R.id.obfuscated_res_0x7f09107f);
             int g = ej.g(getContext(), R.dimen.tbds42);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(g, g);
             layoutParams2.addRule(11, -1);
@@ -346,7 +346,7 @@ public class InterestForumTagLayout extends LinearLayout implements ay {
             this.d.setMinimumHeight(ej.g(getContext(), R.dimen.tbds68));
             RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams3.addRule(15, -1);
-            layoutParams3.addRule(0, R.id.obfuscated_res_0x7f09103e);
+            layoutParams3.addRule(0, R.id.obfuscated_res_0x7f09107f);
             relativeLayout.addView(this.d, layoutParams3);
             onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
         }

@@ -5,333 +5,246 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes.dex */
 public class FragmentLifecycleCallbacksDispatcher {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final FragmentManager mFragmentManager;
     @NonNull
-    public final CopyOnWriteArrayList<FragmentLifecycleCallbacksHolder> mLifecycleCallbacks;
+    public final CopyOnWriteArrayList<FragmentLifecycleCallbacksHolder> mLifecycleCallbacks = new CopyOnWriteArrayList<>();
 
     /* loaded from: classes.dex */
     public static final class FragmentLifecycleCallbacksHolder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         @NonNull
         public final FragmentManager.FragmentLifecycleCallbacks mCallback;
         public final boolean mRecursive;
 
         public FragmentLifecycleCallbacksHolder(@NonNull FragmentManager.FragmentLifecycleCallbacks fragmentLifecycleCallbacks, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fragmentLifecycleCallbacks, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.mCallback = fragmentLifecycleCallbacks;
             this.mRecursive = z;
         }
     }
 
     public FragmentLifecycleCallbacksDispatcher(@NonNull FragmentManager fragmentManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fragmentManager};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mLifecycleCallbacks = new CopyOnWriteArrayList<>();
         this.mFragmentManager = fragmentManager;
     }
 
     public void unregisterFragmentLifecycleCallbacks(@NonNull FragmentManager.FragmentLifecycleCallbacks fragmentLifecycleCallbacks) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, fragmentLifecycleCallbacks) == null) {
-            synchronized (this.mLifecycleCallbacks) {
-                int i = 0;
-                int size = this.mLifecycleCallbacks.size();
-                while (true) {
-                    if (i >= size) {
-                        break;
-                    } else if (this.mLifecycleCallbacks.get(i).mCallback == fragmentLifecycleCallbacks) {
-                        this.mLifecycleCallbacks.remove(i);
-                        break;
-                    } else {
-                        i++;
-                    }
+        synchronized (this.mLifecycleCallbacks) {
+            int i = 0;
+            int size = this.mLifecycleCallbacks.size();
+            while (true) {
+                if (i >= size) {
+                    break;
+                } else if (this.mLifecycleCallbacks.get(i).mCallback == fragmentLifecycleCallbacks) {
+                    this.mLifecycleCallbacks.remove(i);
+                    break;
+                } else {
+                    i++;
                 }
             }
         }
     }
 
     public void dispatchOnFragmentActivityCreated(@NonNull Fragment fragment, @Nullable Bundle bundle, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, fragment, bundle, z) == null) {
-            Fragment parent = this.mFragmentManager.getParent();
-            if (parent != null) {
-                parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentActivityCreated(fragment, bundle, true);
-            }
-            Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
-            while (it.hasNext()) {
-                FragmentLifecycleCallbacksHolder next = it.next();
-                if (!z || next.mRecursive) {
-                    next.mCallback.onFragmentActivityCreated(this.mFragmentManager, fragment, bundle);
-                }
+        Fragment parent = this.mFragmentManager.getParent();
+        if (parent != null) {
+            parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentActivityCreated(fragment, bundle, true);
+        }
+        Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
+        while (it.hasNext()) {
+            FragmentLifecycleCallbacksHolder next = it.next();
+            if (!z || next.mRecursive) {
+                next.mCallback.onFragmentActivityCreated(this.mFragmentManager, fragment, bundle);
             }
         }
     }
 
     public void dispatchOnFragmentAttached(@NonNull Fragment fragment, @NonNull Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragment, context, z) == null) {
-            Fragment parent = this.mFragmentManager.getParent();
-            if (parent != null) {
-                parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentAttached(fragment, context, true);
-            }
-            Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
-            while (it.hasNext()) {
-                FragmentLifecycleCallbacksHolder next = it.next();
-                if (!z || next.mRecursive) {
-                    next.mCallback.onFragmentAttached(this.mFragmentManager, fragment, context);
-                }
+        Fragment parent = this.mFragmentManager.getParent();
+        if (parent != null) {
+            parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentAttached(fragment, context, true);
+        }
+        Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
+        while (it.hasNext()) {
+            FragmentLifecycleCallbacksHolder next = it.next();
+            if (!z || next.mRecursive) {
+                next.mCallback.onFragmentAttached(this.mFragmentManager, fragment, context);
             }
         }
     }
 
     public void dispatchOnFragmentCreated(@NonNull Fragment fragment, @Nullable Bundle bundle, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, fragment, bundle, z) == null) {
-            Fragment parent = this.mFragmentManager.getParent();
-            if (parent != null) {
-                parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentCreated(fragment, bundle, true);
-            }
-            Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
-            while (it.hasNext()) {
-                FragmentLifecycleCallbacksHolder next = it.next();
-                if (!z || next.mRecursive) {
-                    next.mCallback.onFragmentCreated(this.mFragmentManager, fragment, bundle);
-                }
+        Fragment parent = this.mFragmentManager.getParent();
+        if (parent != null) {
+            parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentCreated(fragment, bundle, true);
+        }
+        Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
+        while (it.hasNext()) {
+            FragmentLifecycleCallbacksHolder next = it.next();
+            if (!z || next.mRecursive) {
+                next.mCallback.onFragmentCreated(this.mFragmentManager, fragment, bundle);
             }
         }
     }
 
     public void dispatchOnFragmentPreAttached(@NonNull Fragment fragment, @NonNull Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048582, this, fragment, context, z) == null) {
-            Fragment parent = this.mFragmentManager.getParent();
-            if (parent != null) {
-                parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentPreAttached(fragment, context, true);
-            }
-            Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
-            while (it.hasNext()) {
-                FragmentLifecycleCallbacksHolder next = it.next();
-                if (!z || next.mRecursive) {
-                    next.mCallback.onFragmentPreAttached(this.mFragmentManager, fragment, context);
-                }
+        Fragment parent = this.mFragmentManager.getParent();
+        if (parent != null) {
+            parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentPreAttached(fragment, context, true);
+        }
+        Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
+        while (it.hasNext()) {
+            FragmentLifecycleCallbacksHolder next = it.next();
+            if (!z || next.mRecursive) {
+                next.mCallback.onFragmentPreAttached(this.mFragmentManager, fragment, context);
             }
         }
     }
 
     public void dispatchOnFragmentPreCreated(@NonNull Fragment fragment, @Nullable Bundle bundle, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048583, this, fragment, bundle, z) == null) {
-            Fragment parent = this.mFragmentManager.getParent();
-            if (parent != null) {
-                parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentPreCreated(fragment, bundle, true);
-            }
-            Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
-            while (it.hasNext()) {
-                FragmentLifecycleCallbacksHolder next = it.next();
-                if (!z || next.mRecursive) {
-                    next.mCallback.onFragmentPreCreated(this.mFragmentManager, fragment, bundle);
-                }
+        Fragment parent = this.mFragmentManager.getParent();
+        if (parent != null) {
+            parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentPreCreated(fragment, bundle, true);
+        }
+        Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
+        while (it.hasNext()) {
+            FragmentLifecycleCallbacksHolder next = it.next();
+            if (!z || next.mRecursive) {
+                next.mCallback.onFragmentPreCreated(this.mFragmentManager, fragment, bundle);
             }
         }
     }
 
     public void dispatchOnFragmentSaveInstanceState(@NonNull Fragment fragment, @NonNull Bundle bundle, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048585, this, fragment, bundle, z) == null) {
-            Fragment parent = this.mFragmentManager.getParent();
-            if (parent != null) {
-                parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentSaveInstanceState(fragment, bundle, true);
-            }
-            Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
-            while (it.hasNext()) {
-                FragmentLifecycleCallbacksHolder next = it.next();
-                if (!z || next.mRecursive) {
-                    next.mCallback.onFragmentSaveInstanceState(this.mFragmentManager, fragment, bundle);
-                }
+        Fragment parent = this.mFragmentManager.getParent();
+        if (parent != null) {
+            parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentSaveInstanceState(fragment, bundle, true);
+        }
+        Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
+        while (it.hasNext()) {
+            FragmentLifecycleCallbacksHolder next = it.next();
+            if (!z || next.mRecursive) {
+                next.mCallback.onFragmentSaveInstanceState(this.mFragmentManager, fragment, bundle);
             }
         }
     }
 
     public void dispatchOnFragmentDestroyed(@NonNull Fragment fragment, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, fragment, z) == null) {
-            Fragment parent = this.mFragmentManager.getParent();
-            if (parent != null) {
-                parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentDestroyed(fragment, true);
-            }
-            Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
-            while (it.hasNext()) {
-                FragmentLifecycleCallbacksHolder next = it.next();
-                if (!z || next.mRecursive) {
-                    next.mCallback.onFragmentDestroyed(this.mFragmentManager, fragment);
-                }
+        Fragment parent = this.mFragmentManager.getParent();
+        if (parent != null) {
+            parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentDestroyed(fragment, true);
+        }
+        Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
+        while (it.hasNext()) {
+            FragmentLifecycleCallbacksHolder next = it.next();
+            if (!z || next.mRecursive) {
+                next.mCallback.onFragmentDestroyed(this.mFragmentManager, fragment);
             }
         }
     }
 
     public void dispatchOnFragmentDetached(@NonNull Fragment fragment, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, fragment, z) == null) {
-            Fragment parent = this.mFragmentManager.getParent();
-            if (parent != null) {
-                parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentDetached(fragment, true);
-            }
-            Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
-            while (it.hasNext()) {
-                FragmentLifecycleCallbacksHolder next = it.next();
-                if (!z || next.mRecursive) {
-                    next.mCallback.onFragmentDetached(this.mFragmentManager, fragment);
-                }
+        Fragment parent = this.mFragmentManager.getParent();
+        if (parent != null) {
+            parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentDetached(fragment, true);
+        }
+        Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
+        while (it.hasNext()) {
+            FragmentLifecycleCallbacksHolder next = it.next();
+            if (!z || next.mRecursive) {
+                next.mCallback.onFragmentDetached(this.mFragmentManager, fragment);
             }
         }
     }
 
     public void dispatchOnFragmentPaused(@NonNull Fragment fragment, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048581, this, fragment, z) == null) {
-            Fragment parent = this.mFragmentManager.getParent();
-            if (parent != null) {
-                parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentPaused(fragment, true);
-            }
-            Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
-            while (it.hasNext()) {
-                FragmentLifecycleCallbacksHolder next = it.next();
-                if (!z || next.mRecursive) {
-                    next.mCallback.onFragmentPaused(this.mFragmentManager, fragment);
-                }
+        Fragment parent = this.mFragmentManager.getParent();
+        if (parent != null) {
+            parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentPaused(fragment, true);
+        }
+        Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
+        while (it.hasNext()) {
+            FragmentLifecycleCallbacksHolder next = it.next();
+            if (!z || next.mRecursive) {
+                next.mCallback.onFragmentPaused(this.mFragmentManager, fragment);
             }
         }
     }
 
     public void dispatchOnFragmentResumed(@NonNull Fragment fragment, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, fragment, z) == null) {
-            Fragment parent = this.mFragmentManager.getParent();
-            if (parent != null) {
-                parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentResumed(fragment, true);
-            }
-            Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
-            while (it.hasNext()) {
-                FragmentLifecycleCallbacksHolder next = it.next();
-                if (!z || next.mRecursive) {
-                    next.mCallback.onFragmentResumed(this.mFragmentManager, fragment);
-                }
+        Fragment parent = this.mFragmentManager.getParent();
+        if (parent != null) {
+            parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentResumed(fragment, true);
+        }
+        Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
+        while (it.hasNext()) {
+            FragmentLifecycleCallbacksHolder next = it.next();
+            if (!z || next.mRecursive) {
+                next.mCallback.onFragmentResumed(this.mFragmentManager, fragment);
             }
         }
     }
 
     public void dispatchOnFragmentStarted(@NonNull Fragment fragment, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048586, this, fragment, z) == null) {
-            Fragment parent = this.mFragmentManager.getParent();
-            if (parent != null) {
-                parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentStarted(fragment, true);
-            }
-            Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
-            while (it.hasNext()) {
-                FragmentLifecycleCallbacksHolder next = it.next();
-                if (!z || next.mRecursive) {
-                    next.mCallback.onFragmentStarted(this.mFragmentManager, fragment);
-                }
+        Fragment parent = this.mFragmentManager.getParent();
+        if (parent != null) {
+            parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentStarted(fragment, true);
+        }
+        Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
+        while (it.hasNext()) {
+            FragmentLifecycleCallbacksHolder next = it.next();
+            if (!z || next.mRecursive) {
+                next.mCallback.onFragmentStarted(this.mFragmentManager, fragment);
             }
         }
     }
 
     public void dispatchOnFragmentStopped(@NonNull Fragment fragment, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048587, this, fragment, z) == null) {
-            Fragment parent = this.mFragmentManager.getParent();
-            if (parent != null) {
-                parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentStopped(fragment, true);
-            }
-            Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
-            while (it.hasNext()) {
-                FragmentLifecycleCallbacksHolder next = it.next();
-                if (!z || next.mRecursive) {
-                    next.mCallback.onFragmentStopped(this.mFragmentManager, fragment);
-                }
+        Fragment parent = this.mFragmentManager.getParent();
+        if (parent != null) {
+            parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentStopped(fragment, true);
+        }
+        Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
+        while (it.hasNext()) {
+            FragmentLifecycleCallbacksHolder next = it.next();
+            if (!z || next.mRecursive) {
+                next.mCallback.onFragmentStopped(this.mFragmentManager, fragment);
             }
         }
     }
 
     public void dispatchOnFragmentViewDestroyed(@NonNull Fragment fragment, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048589, this, fragment, z) == null) {
-            Fragment parent = this.mFragmentManager.getParent();
-            if (parent != null) {
-                parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentViewDestroyed(fragment, true);
-            }
-            Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
-            while (it.hasNext()) {
-                FragmentLifecycleCallbacksHolder next = it.next();
-                if (!z || next.mRecursive) {
-                    next.mCallback.onFragmentViewDestroyed(this.mFragmentManager, fragment);
-                }
+        Fragment parent = this.mFragmentManager.getParent();
+        if (parent != null) {
+            parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentViewDestroyed(fragment, true);
+        }
+        Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
+        while (it.hasNext()) {
+            FragmentLifecycleCallbacksHolder next = it.next();
+            if (!z || next.mRecursive) {
+                next.mCallback.onFragmentViewDestroyed(this.mFragmentManager, fragment);
             }
         }
     }
 
     public void dispatchOnFragmentViewCreated(@NonNull Fragment fragment, @NonNull View view2, @Nullable Bundle bundle, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{fragment, view2, bundle, Boolean.valueOf(z)}) == null) {
-            Fragment parent = this.mFragmentManager.getParent();
-            if (parent != null) {
-                parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentViewCreated(fragment, view2, bundle, true);
-            }
-            Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
-            while (it.hasNext()) {
-                FragmentLifecycleCallbacksHolder next = it.next();
-                if (!z || next.mRecursive) {
-                    next.mCallback.onFragmentViewCreated(this.mFragmentManager, fragment, view2, bundle);
-                }
+        Fragment parent = this.mFragmentManager.getParent();
+        if (parent != null) {
+            parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentViewCreated(fragment, view2, bundle, true);
+        }
+        Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
+        while (it.hasNext()) {
+            FragmentLifecycleCallbacksHolder next = it.next();
+            if (!z || next.mRecursive) {
+                next.mCallback.onFragmentViewCreated(this.mFragmentManager, fragment, view2, bundle);
             }
         }
     }
 
     public void registerFragmentLifecycleCallbacks(@NonNull FragmentManager.FragmentLifecycleCallbacks fragmentLifecycleCallbacks, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048590, this, fragmentLifecycleCallbacks, z) == null) {
-            this.mLifecycleCallbacks.add(new FragmentLifecycleCallbacksHolder(fragmentLifecycleCallbacks, z));
-        }
+        this.mLifecycleCallbacks.add(new FragmentLifecycleCallbacksHolder(fragmentLifecycleCallbacks, z));
     }
 }

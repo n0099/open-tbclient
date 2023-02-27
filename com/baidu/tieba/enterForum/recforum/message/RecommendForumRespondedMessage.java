@@ -2,7 +2,7 @@ package com.baidu.tieba.enterForum.recforum.message;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.tk6;
+import com.baidu.tieba.sn6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class RecommendForumRespondedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tk6 recommendForumData;
+    public sn6 recommendForumData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecommendForumRespondedMessage(int i) {
@@ -40,16 +40,16 @@ public class RecommendForumRespondedMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
-            this.recommendForumData = tk6.b(jSONObject);
+            this.recommendForumData = sn6.b(jSONObject);
         }
     }
 
-    public tk6 getRecommendForumData() {
+    public sn6 getRecommendForumData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.recommendForumData;
         }
-        return (tk6) invokeV.objValue;
+        return (sn6) invokeV.objValue;
     }
 }

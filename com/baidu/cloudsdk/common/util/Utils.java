@@ -12,7 +12,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -207,7 +206,7 @@ public final class Utils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, intent)) == null) {
             Validator.notNull(context, "context");
-            Validator.notNull(intent, IntentData.KEY);
+            Validator.notNull(intent, "intent");
             if (context.getPackageManager().resolveActivity(intent, 0) == null) {
                 return false;
             }

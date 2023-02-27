@@ -1,110 +1,30 @@
 package com.baidu.swan.apps.gamecenter;
-
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes3.dex */
-public final class GameCenterDownloadState {
-    public static final /* synthetic */ GameCenterDownloadState[] $VALUES;
-    public static /* synthetic */ Interceptable $ic;
-    public static final GameCenterDownloadState CANCEL;
-    public static final GameCenterDownloadState DOWNLOADING;
-    public static final GameCenterDownloadState FAILED;
-    public static final GameCenterDownloadState FINISH;
-    public static final GameCenterDownloadState PAUSE;
-    public static final GameCenterDownloadState UNKNOWN;
-    public static final GameCenterDownloadState WAITING;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(564736756, "Lcom/baidu/swan/apps/gamecenter/GameCenterDownloadState;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(564736756, "Lcom/baidu/swan/apps/gamecenter/GameCenterDownloadState;");
-                return;
-            }
-        }
-        WAITING = new GameCenterDownloadState("WAITING", 0);
-        DOWNLOADING = new GameCenterDownloadState("DOWNLOADING", 1);
-        PAUSE = new GameCenterDownloadState("PAUSE", 2);
-        FAILED = new GameCenterDownloadState("FAILED", 3);
-        CANCEL = new GameCenterDownloadState("CANCEL", 4);
-        FINISH = new GameCenterDownloadState("FINISH", 5);
-        GameCenterDownloadState gameCenterDownloadState = new GameCenterDownloadState(RomUtils.UNKNOWN, 6);
-        UNKNOWN = gameCenterDownloadState;
-        $VALUES = new GameCenterDownloadState[]{WAITING, DOWNLOADING, PAUSE, FAILED, CANCEL, FINISH, gameCenterDownloadState};
-    }
-
-    public GameCenterDownloadState(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                String str2 = (String) objArr2[0];
-                ((Integer) objArr2[1]).intValue();
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+public enum GameCenterDownloadState {
+    WAITING,
+    DOWNLOADING,
+    PAUSE,
+    FAILED,
+    CANCEL,
+    FINISH,
+    UNKNOWN;
 
     public static GameCenterDownloadState getState(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                return UNKNOWN;
-                            }
-                            return FAILED;
+        if (i != 0) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return UNKNOWN;
                         }
-                        return FINISH;
+                        return FAILED;
                     }
-                    return PAUSE;
+                    return FINISH;
                 }
-                return DOWNLOADING;
+                return PAUSE;
             }
-            return WAITING;
+            return DOWNLOADING;
         }
-        return (GameCenterDownloadState) invokeI.objValue;
-    }
-
-    public static GameCenterDownloadState valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return (GameCenterDownloadState) Enum.valueOf(GameCenterDownloadState.class, str);
-        }
-        return (GameCenterDownloadState) invokeL.objValue;
-    }
-
-    public static GameCenterDownloadState[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return (GameCenterDownloadState[]) $VALUES.clone();
-        }
-        return (GameCenterDownloadState[]) invokeV.objValue;
+        return WAITING;
     }
 }

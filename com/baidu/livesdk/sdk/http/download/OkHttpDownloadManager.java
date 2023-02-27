@@ -1,64 +1,26 @@
 package com.baidu.livesdk.sdk.http.download;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.livesdk.api.http.HttpRequestEntity;
 import com.baidu.livesdk.api.http.download.DownloadEntity;
 import com.baidu.livesdk.api.http.download.DownloadManager;
 import com.baidu.livesdk.api.http.download.Downloader;
 import com.baidu.livesdk.sdk.http.OkHttpRequestManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class OkHttpDownloadManager extends OkHttpRequestManager implements DownloadManager {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public OkHttpDownloadManager() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.livesdk.sdk.http.OkHttpRequestManager
     public OkHttpDownloader createRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new OkHttpDownloader();
-        }
-        return (OkHttpDownloader) invokeV.objValue;
+        return new OkHttpDownloader();
     }
 
     @Override // com.baidu.livesdk.api.http.download.DownloadManager
     public Downloader getLoader(DownloadEntity downloadEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadEntity)) == null) {
-            return getRequest((HttpRequestEntity) downloadEntity);
-        }
-        return (Downloader) invokeL.objValue;
+        return getRequest((HttpRequestEntity) downloadEntity);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.livesdk.sdk.http.OkHttpRequestManager, com.baidu.livesdk.api.http.HttpRequestManager
     public OkHttpDownloader getRequest(HttpRequestEntity httpRequestEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, httpRequestEntity)) == null) {
-            return (OkHttpDownloader) super.getRequest(httpRequestEntity);
-        }
-        return (OkHttpDownloader) invokeL.objValue;
+        return (OkHttpDownloader) super.getRequest(httpRequestEntity);
     }
 }

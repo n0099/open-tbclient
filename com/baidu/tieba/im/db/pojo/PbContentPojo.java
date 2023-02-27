@@ -2,7 +2,7 @@ package com.baidu.tieba.im.db.pojo;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ml7;
+import com.baidu.tieba.io7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ public class PbContentPojo extends OrmObject {
     public Integer isLongPic;
     public Integer isNativeApp;
     public Integer isSub;
-    public ml7 item;
+    public io7 item;
     public String itemForumName;
     public Long itemId;
     public String link;
@@ -80,7 +80,7 @@ public class PbContentPojo extends OrmObject {
         return (Integer) invokeV.objValue;
     }
 
-    public void G(PbContent pbContent) {
+    public void N(PbContent pbContent) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, pbContent) != null) || pbContent == null) {
             return;
@@ -112,23 +112,23 @@ public class PbContentPojo extends OrmObject {
         this.btnType = pbContent.btnType;
         this.originSize = pbContent.originSize;
         this.count = pbContent.count;
-        this.graffitiInfo = GraffitiInfoPojo.G(pbContent.graffitiInfo);
-        this.highTogether = TogetherHiPojo.G(pbContent.highTogether);
+        this.graffitiInfo = GraffitiInfoPojo.N(pbContent.graffitiInfo);
+        this.highTogether = TogetherHiPojo.N(pbContent.highTogether);
         this.mediaSubtitle = pbContent.mediaSubtitle;
         this.urlType = pbContent.urlType;
-        this.memeInfo = MemeInfoPojo.G(pbContent.memeInfo);
+        this.memeInfo = MemeInfoPojo.N(pbContent.memeInfo);
         this.isLongPic = pbContent.isLongPic;
         this.showOriginalBtn = pbContent.showOriginalBtn;
         this.cdnSrcActive = pbContent.cdnSrcActive;
         this.topicSpecialIcon = pbContent.topicSpecialIcon;
         this.itemId = pbContent.itemId;
         this.itemForumName = pbContent.itemForumName;
-        this.tiebaplusInfo = TiebaPlusInfoPojo.G(pbContent.tiebaplusInfo);
-        this.item = ml7.a(pbContent.item);
+        this.tiebaplusInfo = TiebaPlusInfoPojo.N(pbContent.tiebaplusInfo);
+        this.item = io7.a(pbContent.item);
         this.picId = pbContent.picId;
     }
 
-    public void H(tbclient.PbContent pbContent) {
+    public void O(tbclient.PbContent pbContent) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pbContent) != null) || pbContent == null) {
             return;
@@ -160,19 +160,19 @@ public class PbContentPojo extends OrmObject {
         this.btnType = pbContent.btn_type;
         this.originSize = pbContent.origin_size;
         this.count = pbContent.count;
-        this.graffitiInfo = GraffitiInfoPojo.H(pbContent.graffiti_info);
-        this.highTogether = TogetherHiPojo.H(pbContent.high_together);
+        this.graffitiInfo = GraffitiInfoPojo.O(pbContent.graffiti_info);
+        this.highTogether = TogetherHiPojo.O(pbContent.high_together);
         this.mediaSubtitle = pbContent.media_subtitle;
         this.urlType = pbContent.url_type;
-        this.memeInfo = MemeInfoPojo.H(pbContent.meme_info);
+        this.memeInfo = MemeInfoPojo.O(pbContent.meme_info);
         this.isLongPic = pbContent.is_long_pic;
         this.showOriginalBtn = pbContent.show_original_btn;
         this.cdnSrcActive = pbContent.cdn_src_active;
         this.topicSpecialIcon = pbContent.topic_special_icon;
         this.itemId = pbContent.item_id;
         this.itemForumName = pbContent.item_forum_name;
-        this.tiebaplusInfo = TiebaPlusInfoPojo.H(pbContent.tiebaplus_info);
-        this.item = ml7.b(pbContent.item);
+        this.tiebaplusInfo = TiebaPlusInfoPojo.O(pbContent.tiebaplus_info);
+        this.item = io7.b(pbContent.item);
         this.picId = pbContent.pic_id;
     }
 }

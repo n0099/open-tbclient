@@ -36,10 +36,10 @@ import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b35;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.p15;
+import com.baidu.tieba.ou5;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.xs5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +48,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class OriginalThreadCardView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int s;
@@ -76,12 +76,12 @@ public class OriginalThreadCardView extends RelativeLayout {
     public boolean q;
     public int r;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(OriginalThreadInfo originalThreadInfo);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -266,11 +266,11 @@ public class OriginalThreadCardView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             View view2 = this.p;
             if (view2 != null) {
-                p15.d(view2).f(i);
+                b35.d(view2).f(i);
             }
             TextView textView = this.b;
             if (textView != null) {
-                p15.d(textView).f(i);
+                b35.d(textView).f(i);
             }
         }
     }
@@ -306,7 +306,7 @@ public class OriginalThreadCardView extends RelativeLayout {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, itemStarData)) == null) {
-            SpannableStringBuilder d = xs5.d(itemStarData);
+            SpannableStringBuilder d = ou5.d(itemStarData);
             d.append((CharSequence) str);
             return d;
         }
@@ -530,7 +530,7 @@ public class OriginalThreadCardView extends RelativeLayout {
                         textView.setText(charSequence);
                     }
                     if (c != null) {
-                        TiePlusEventController.i(originalThreadInfo.h());
+                        TiePlusEventController.j(originalThreadInfo.h());
                     }
                     l(originalThreadInfo.G, originalThreadInfo.f, originalThreadInfo.e);
                     setTag(originalThreadInfo);

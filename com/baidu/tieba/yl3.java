@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import androidx.annotation.NonNull;
+import androidx.annotation.ColorInt;
+import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,25 +10,18 @@ public class yl3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(@NonNull Context context, @NonNull String str) {
-        InterceptResult invokeLL;
-        String[] strArr;
+    public static boolean a(@ColorInt int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            try {
-                strArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 4096).requestedPermissions;
-            } catch (PackageManager.NameNotFoundException unused) {
-            }
-            if (strArr == null) {
-                return false;
-            }
-            for (String str2 : strArr) {
-                if (str.equals(str2)) {
-                    return true;
-                }
-            }
-            return false;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? ((int) (((((double) ((16711680 & i) >> 16)) * 0.299d) + (((double) ((65280 & i) >> 8)) * 0.587d)) + (((double) (i & 255)) * 0.114d))) >= 220 : invokeI.booleanValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return V8Engine.toColorRGBA(str);
         }
-        return invokeLL.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

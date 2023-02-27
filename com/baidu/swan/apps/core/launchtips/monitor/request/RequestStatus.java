@@ -1,97 +1,23 @@
 package com.baidu.swan.apps.core.launchtips.monitor.request;
 
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes3.dex */
-public final class RequestStatus {
-    public static final /* synthetic */ RequestStatus[] $VALUES;
-    public static /* synthetic */ Interceptable $ic;
-    public static final RequestStatus STATUS_CORE_FAILED;
-    public static final RequestStatus STATUS_FAILED;
-    public static final RequestStatus STATUS_SEND;
-    public static final RequestStatus STATUS_SERVER_FAILED;
-    public static final RequestStatus STATUS_SLOW;
-    public static final RequestStatus STATUS_SUCCESS;
-    public static final RequestStatus STATUS_UNKNOWN;
-    public transient /* synthetic */ FieldHolder $fh;
+public enum RequestStatus {
+    STATUS_SEND("send"),
+    STATUS_SUCCESS(DnsModel.MSG_OK),
+    STATUS_FAILED("failRate"),
+    STATUS_UNKNOWN("unknown"),
+    STATUS_SLOW("slow"),
+    STATUS_CORE_FAILED("coreFail"),
+    STATUS_SERVER_FAILED("serverRate");
+    
     public final String mStatus;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1261936752, "Lcom/baidu/swan/apps/core/launchtips/monitor/request/RequestStatus;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1261936752, "Lcom/baidu/swan/apps/core/launchtips/monitor/request/RequestStatus;");
-                return;
-            }
-        }
-        STATUS_SEND = new RequestStatus("STATUS_SEND", 0, "send");
-        STATUS_SUCCESS = new RequestStatus("STATUS_SUCCESS", 1, DnsModel.MSG_OK);
-        STATUS_FAILED = new RequestStatus("STATUS_FAILED", 2, "failRate");
-        STATUS_UNKNOWN = new RequestStatus("STATUS_UNKNOWN", 3, "unknown");
-        STATUS_SLOW = new RequestStatus("STATUS_SLOW", 4, "slow");
-        STATUS_CORE_FAILED = new RequestStatus("STATUS_CORE_FAILED", 5, "coreFail");
-        RequestStatus requestStatus = new RequestStatus("STATUS_SERVER_FAILED", 6, "serverRate");
-        STATUS_SERVER_FAILED = requestStatus;
-        $VALUES = new RequestStatus[]{STATUS_SEND, STATUS_SUCCESS, STATUS_FAILED, STATUS_UNKNOWN, STATUS_SLOW, STATUS_CORE_FAILED, requestStatus};
-    }
-
-    public RequestStatus(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                String str3 = (String) objArr2[0];
-                ((Integer) objArr2[1]).intValue();
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mStatus = str2;
-    }
-
-    public static RequestStatus valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return (RequestStatus) Enum.valueOf(RequestStatus.class, str);
-        }
-        return (RequestStatus) invokeL.objValue;
-    }
-
-    public static RequestStatus[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return (RequestStatus[]) $VALUES.clone();
-        }
-        return (RequestStatus[]) invokeV.objValue;
+    RequestStatus(String str) {
+        this.mStatus = str;
     }
 
     public String getStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mStatus;
-        }
-        return (String) invokeV.objValue;
+        return this.mStatus;
     }
 }

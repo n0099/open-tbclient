@@ -1,30 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ow5 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ow5 extends rw5<tw5> {
+    void a(int i);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948046684, "Lcom/baidu/tieba/ow5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948046684, "Lcom/baidu/tieba/ow5;");
-                return;
-            }
-        }
-        a = TbConfig.TIEBA_ADDRESS + "mo/q/account_page";
-    }
+    List<Integer> d();
+
+    void e(List<nw5> list, String str, String str2, String str3, String str4, boolean z, int i);
+
+    TypeAdapter.ViewHolder g(ViewGroup viewGroup, Object obj);
+
+    void i(List<nw5> list, int i);
+
+    void k(List<Object> list);
+
+    View m(int i, View view2, ViewGroup viewGroup, Object obj);
+
+    void n(int i, ViewGroup viewGroup, TypeAdapter.ViewHolder viewHolder, Object obj);
+
+    void o(List<nw5> list, List<nw5> list2, boolean z, int i);
+
+    void p(String str);
 }

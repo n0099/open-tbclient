@@ -1,11 +1,27 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.IMManager;
+import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.IMPushUploadManager;
-import com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener;
-import com.baidu.android.imsdk.upload.utils.RequsetNetworkUtils;
+import com.baidu.android.imsdk.internal.IMConfigInternal;
+import com.baidu.android.imsdk.internal.MessageFactory;
+import com.baidu.android.imsdk.internal.NotifyMessageHandler;
+import com.baidu.android.imsdk.request.Message;
+import com.baidu.android.imsdk.task.TaskManager;
+import com.baidu.android.imsdk.ubc.CaseUbc;
+import com.baidu.android.imsdk.ubc.UBCConstants;
+import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.lcp.sdk.client.bean.BLCPRequest;
+import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.tieba.d90;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,134 +29,201 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+import java.util.LinkedHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
 public class q80 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile q80 c;
-    public static HashMap<String, AtomicBoolean> d;
+    public static Handler c;
+    public static final HandlerThread d;
+    public static volatile LinkedHashMap<Long, Message> e;
+    public static volatile q80 f;
+    public static Context g;
     public transient /* synthetic */ FieldHolder $fh;
-    public o80 a;
-    public s80 b;
+    public AtomicInteger a;
+    public d90 b;
 
-    /* loaded from: classes6.dex */
-    public class b implements IMPushUploadResponseListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ List c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ q80 e;
-
-        /* loaded from: classes6.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b bVar = this.a;
-                    bVar.e.g(bVar.b, bVar.a, bVar.c, bVar.d);
-                }
-            }
-        }
-
-        public b(q80 q80Var, String str, Context context, List list, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q80Var, str, context, list, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = q80Var;
-            this.a = str;
-            this.b = context;
-            this.c = list;
-            this.d = i;
-        }
-
-        @Override // com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener
-        public void uploadResponse(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                ((AtomicBoolean) q80.d.get(this.a)).set(false);
-                if (i == 0) {
-                    this.e.a.f().execute(new a(this));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ q80 d;
+        public final /* synthetic */ Intent a;
+        public final /* synthetic */ q80 b;
 
-        public a(q80 q80Var, Context context, String str, int i) {
+        public a(q80 q80Var, Intent intent) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q80Var, context, str, Integer.valueOf(i)};
+                Object[] objArr = {q80Var, intent};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.d = q80Var;
-            this.a = context;
-            this.b = str;
-            this.c = i;
+            this.b = q80Var;
+            this.a = intent;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.g(this.a);
             }
-            this.d.j(this.a, this.b, this.c);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements d90 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.f90
+        public void onResponse(int i, String str, long j, long j2, long j3, byte[] bArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), bArr}) == null) {
+            }
+        }
+
+        public b(q80 q80Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q80Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.d90
+        public void onResponse(int i, String str, @NonNull d90.a aVar) {
+            Message message;
+            JSONArray optJSONArray;
+            Message message2;
+            Message message3;
+            String str2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, aVar) == null) {
+                LogUtils.i("IMServiceImpl", "IMService err :" + i + ", methodId :" + aVar.a + ", data :" + aVar.c.length + ", Response :" + new String(aVar.c));
+                if (aVar.a == 231) {
+                    NotifyMessageHandler.handleRtcReport("begin", new String(aVar.c));
+                    CaseUbc.DebugInfo debugInfo = new CaseUbc.DebugInfo();
+                    debugInfo.curClassName = "IMServiceImpl.response";
+                    debugInfo.extInfo = "begin";
+                    e80.d().f(CaseUbc.generateUBCData(q80.g, "-1", "", debugInfo), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                }
+                long j = aVar.b;
+                long j2 = aVar.a;
+                String str3 = "";
+                JSONArray jSONArray = new JSONArray();
+                try {
+                    for (c90 c90Var : aVar.d) {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("event", c90Var.a);
+                        jSONObject.put("timestamp_ms", c90Var.b);
+                        jSONArray.put(jSONObject);
+                    }
+                    JSONObject jSONObject2 = new JSONObject();
+                    jSONObject2.put("event_list", jSONArray);
+                    str3 = jSONObject2.toString();
+                } catch (JSONException e) {
+                    LogUtils.i("IMServiceImpl", "event_list JSONException:" + e.getMessage());
+                }
+                if (i == 0) {
+                    try {
+                        JSONObject jSONObject3 = new JSONObject(new String(aVar.c));
+                        int optInt = jSONObject3.optInt(PmsConstant.Statistic.STATISTIC_ERRCODE, -1);
+                        String optString = jSONObject3.optString("msg", "server msg is null");
+                        if (optInt == 4001) {
+                            LoginManager.getInstance(q80.g).triggleLogoutListener(4001, Constants.ERROR_LOGIN_STATE_ERROR);
+                        }
+                        if (jSONObject3.has(Constants.EXTRA_NOTIFY_ID)) {
+                            try {
+                                if (jSONObject3.has("event_list") && (optJSONArray = jSONObject3.optJSONArray("event_list")) != null) {
+                                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                                        jSONArray.put(optJSONArray.get(i2));
+                                    }
+                                }
+                                JSONObject jSONObject4 = new JSONObject();
+                                jSONObject4.put("event", "CIMNotify");
+                                jSONObject4.put("timestamp_ms", System.currentTimeMillis());
+                                jSONArray.put(jSONObject4);
+                                JSONObject jSONObject5 = new JSONObject();
+                                jSONObject5.put("event_list", jSONArray);
+                                str3 = jSONObject5.toString();
+                                LogUtils.d("IMServiceImpl", "Notify eventList :" + str3);
+                            } catch (JSONException e2) {
+                                LogUtils.i("IMServiceImpl", "event_list JSONException:" + e2.getMessage());
+                            }
+                        }
+                        if (j2 == 96) {
+                            NotifyMessageHandler.handleDeliverMessage(q80.g.getApplicationContext(), jSONObject3, str3);
+                            return;
+                        } else if (j2 == 196) {
+                            NotifyMessageHandler.handleMcastMessage(q80.g.getApplicationContext(), jSONObject3, str3);
+                            return;
+                        } else if (j2 == 197) {
+                            NotifyMessageHandler.handleConfigMessage(q80.g.getApplicationContext(), jSONObject3);
+                            return;
+                        } else if (j2 == 226) {
+                            NotifyMessageHandler.handleMediaNotifyMessage(q80.g.getApplicationContext(), jSONObject3);
+                            return;
+                        } else if (j2 == 231) {
+                            NotifyMessageHandler.handleRtcNotifyMessage(q80.g, jSONObject3);
+                            return;
+                        } else {
+                            if (j2 != 236 && j2 != 238) {
+                                LogUtils.d("IMServiceImpl", "key :" + j + "，response :" + jSONObject3.toString() + ", eventList :" + str3);
+                                synchronized (q80.e) {
+                                    if (q80.e.containsKey(Long.valueOf(j)) && (message2 = (Message) q80.e.remove(Long.valueOf(j))) != null) {
+                                        message2.setEventList(str3);
+                                        message2.handleMessageResult(q80.g, jSONObject3, optInt, optString);
+                                    }
+                                }
+                                return;
+                            }
+                            NotifyMessageHandler.handleBusinessCustomizeNotify(q80.g.getApplicationContext(), (int) j2, jSONObject3);
+                            return;
+                        }
+                    } catch (JSONException e3) {
+                        LogUtils.e("IMServiceImpl", "handle response e :", e3);
+                        synchronized (q80.e) {
+                            if (q80.e.containsKey(Long.valueOf(j)) && (message = (Message) q80.e.remove(Long.valueOf(j))) != null) {
+                                message.setEventList(str3);
+                                message.handleMessageResult(q80.g, null, 1010, e3.getMessage());
+                            }
+                            return;
+                        }
+                    }
+                }
+                synchronized (q80.e) {
+                    if (q80.e.containsKey(Long.valueOf(j)) && (message3 = (Message) q80.e.remove(Long.valueOf(j))) != null) {
+                        message3.setEventList(str3);
+                        Context context = q80.g;
+                        if (TextUtils.isEmpty(str)) {
+                            str2 = "lcp error";
+                        } else {
+                            str2 = str;
+                        }
+                        message3.handleMessageResult(context, null, i, str2);
+                    }
+                }
+                LoginManager.getInstance(q80.g).setCurrentState(LoginManager.LoginState.NOT_LOGIN);
+            }
         }
     }
 
@@ -157,23 +240,17 @@ public class q80 {
                 return;
             }
         }
-        d = new HashMap<>(2);
+        HandlerThread handlerThread = new HandlerThread("IMServiceImpl HandlerThread");
+        d = handlerThread;
+        handlerThread.start();
+        c = new Handler(d.getLooper());
+        e = new LinkedHashMap<>();
     }
 
-    public void f() {
-        o80 o80Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (o80Var = this.a) != null) {
-            o80Var.c();
-        }
-    }
-
-    public q80(Context context) {
+    public q80() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -183,99 +260,135 @@ public class q80 {
                 return;
             }
         }
-        this.a = o80.h(context);
-        this.b = new s80();
+        this.a = new AtomicInteger();
+        this.b = new b(this);
+        f();
     }
 
-    public static Boolean i(String str) {
-        InterceptResult invokeL;
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (d.get(str) == null) {
-                d.put(str, new AtomicBoolean(false));
-                return Boolean.FALSE;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int[] iArr = {96, Constants.METHOD_MEDIA_NOTIFY, 196, Constants.METHOD_IM_DELIVER_CONFIG_MSG, 231, Constants.METHOD_IM_CONSULT_NOTIFY_MSG, 238};
+            for (int i = 0; i < 7; i++) {
+                i(2, Integer.valueOf(iArr[i]).intValue());
             }
-            return Boolean.valueOf(d.get(str).get());
+            i(3, 196);
         }
-        return (Boolean) invokeL.objValue;
     }
 
-    public static q80 h(Context context) {
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            IMManager.init(g.getApplicationContext(), IMConfigInternal.getInstance().getProductLine(g.getApplicationContext()));
+            h();
+        }
+    }
+
+    public static void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
+            synchronized (e) {
+                for (Message message : e.values()) {
+                    if (message != null) {
+                        message.handleMessageResult(context, null, -1, "");
+                    }
+                }
+                e.clear();
+            }
+        }
+    }
+
+    public static q80 e(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            if (c == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            if (f == null) {
                 synchronized (q80.class) {
-                    if (c == null) {
-                        c = new q80(context);
+                    if (f == null) {
+                        g = context.getApplicationContext();
+                        f = new q80();
                     }
                 }
             }
-            return c;
+            return f;
         }
         return (q80) invokeL.objValue;
     }
 
-    public synchronized void e(Context context, String str, int i) {
+    public void d(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, context, str, i) == null) {
-            synchronized (this) {
-                try {
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (!TextUtils.isEmpty(str) && context != null && RequsetNetworkUtils.isConnected(context) && t80.f(context) && t80.e(context, Integer.parseInt(str))) {
-                    if (this.a != null) {
-                        this.a.f().execute(new a(this, context, str, i));
-                    }
-                    return;
-                }
-                w90.a("FlowTrackManager", "flow 无网、参数不对、未命中小流量不上报");
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+            LogUtils.e("IMServiceImpl", "IMServiceImpl.getInstance(context).enqueueWork");
+            TaskManager.getInstance(context).submitForNetWork(new a(this, intent));
         }
     }
 
-    public final void g(Context context, String str, List<u80> list, int i) {
+    public final void i(int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, context, str, list, i) == null) && list != null && list.size() > 0) {
-            ArrayList arrayList = new ArrayList();
-            for (u80 u80Var : list) {
-                if (u80Var != null) {
-                    arrayList.add(u80Var.b());
-                }
-            }
-            w90.a("FlowTrackManager", "flow clear上报成功的数据");
-            i90.j(context).e(str, arrayList);
-            if (i90.j(context).i(str) > 0) {
-                j(context, str, i);
-            }
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            e90 e90Var = new e90();
+            e90Var.a = i;
+            e90Var.b = i2;
+            z80.c(e90Var, this.b);
         }
     }
 
-    public final void j(Context context, String str, int i) {
+    public void g(@NonNull Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, context, str, i) == null) {
-            w90.a("FlowTrackManager", "flow begin uplodFlow~~~");
-            if (d.get(str) == null) {
-                d.put(str, new AtomicBoolean(true));
-            } else {
-                d.get(str).set(true);
-            }
-            ArrayList arrayList = new ArrayList();
-            s80 s80Var = this.b;
-            if (s80Var != null) {
-                byte[] c2 = s80Var.c(context, str, arrayList, i);
-                if (c2 != null && arrayList.size() > 0) {
-                    if (c2.length >= 307200) {
-                        w90.a("FlowTrackManager", "flow 上报数据长度超过300k");
-                        d.get(str).set(false);
-                        return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
+            LogUtils.d("IMServiceImpl", "-- onHandleWork -- " + intent);
+            try {
+                int intExtra = intent.getIntExtra("method", -1);
+                int intExtra2 = intent.getIntExtra("service_id", -1);
+                LogUtils.d("IMServiceImpl", "-- onHandleWork methodId : " + intExtra);
+                if (intExtra != -1 && intExtra2 != -1) {
+                    if (intExtra == 50 || intExtra == 201) {
+                        h();
                     }
-                    IMPushUploadManager.getInstance(context).requestUpload(null, c2, "", new b(this, str, context, arrayList, i));
-                    return;
+                    Message createNewMessage = MessageFactory.getInstance().createNewMessage(g, intExtra, intent);
+                    if (createNewMessage != null) {
+                        LogUtils.d("IMServiceImpl", "IMLoginState = " + LoginManager.getInstance(g).getCurrentState() + ", methodId :" + intExtra);
+                        createNewMessage.isSending(true);
+                        BLCPRequest bLCPRequest = new BLCPRequest();
+                        bLCPRequest.a = (long) intExtra2;
+                        long type = (long) createNewMessage.getType();
+                        bLCPRequest.b = type;
+                        if (intExtra2 == 3 && type == 55) {
+                            bLCPRequest.b = 185L;
+                        }
+                        bLCPRequest.c = createNewMessage.getBody().getBytes();
+                        bLCPRequest.e = BLCPRequest.SendTimeoutSecond.TIMEOUT_30s;
+                        String str = System.currentTimeMillis() + "";
+                        long j = (bLCPRequest.a * 1000000000000000L) + bLCPRequest.b;
+                        StringBuilder sb = new StringBuilder();
+                        sb.append((System.currentTimeMillis() + "").substring(str.length() - 6));
+                        sb.append(this.a.incrementAndGet());
+                        bLCPRequest.d = j + (Long.parseLong(sb.toString()) * 1000);
+                        synchronized (e) {
+                            if (intExtra == 50) {
+                                if (BIMManager.isIMLogined(g)) {
+                                    LogUtils.d("IMServiceImpl", "cur state is loggined, abandon other 50");
+                                    CaseUbc.DebugInfo debugInfo = new CaseUbc.DebugInfo();
+                                    debugInfo.curClassName = "onHandleWork IM logined";
+                                    debugInfo.extInfo = e.keySet().toString();
+                                    CaseUbc.caseType = "imcase_login";
+                                    e80.d().f(CaseUbc.generateUBCData(g, "-1", "", debugInfo), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                                    return;
+                                }
+                                e.clear();
+                                e.put(Long.valueOf(bLCPRequest.d), createNewMessage);
+                                e.putAll((LinkedHashMap) e.clone());
+                                LogUtils.d("IMServiceImpl", "cur method :50, cur msgList :" + e.keySet());
+                            } else {
+                                e.put(Long.valueOf(bLCPRequest.d), createNewMessage);
+                            }
+                            LogUtils.d("IMServiceImpl", "requestTaskManager msg Id:" + bLCPRequest.d + ". msg :" + e.keySet().toString());
+                            z80.c(bLCPRequest, this.b);
+                        }
+                    }
                 }
-                w90.a("FlowTrackManager", "flow 上报数据为空");
-                d.get(str).set(false);
+            } catch (Exception e2) {
+                LogUtils.e("IMServiceImpl", "onStartCommand isSmallFlow Exception", e2);
             }
         }
     }

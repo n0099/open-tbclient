@@ -6,14 +6,9 @@ import android.hardware.camera2.CameraDevice;
 import android.media.ImageReader;
 import android.os.Handler;
 import android.view.Surface;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class SharedCamera {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     private native void nativeSharedCameraCaptureSessionActive(long j, CameraCaptureSession cameraCaptureSession);
 
     private native void nativeSharedCameraCaptureSessionClosed(long j, CameraCaptureSession cameraCaptureSession);

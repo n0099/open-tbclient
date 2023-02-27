@@ -2,14 +2,12 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.if2;
-import com.baidu.tieba.sr2;
+import com.baidu.tieba.is2;
+import com.baidu.tieba.ls2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,51 +15,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedInputStream;
 import java.io.File;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.io.IOException;
+import java.nio.channels.ReadableByteChannel;
+import java.util.HashMap;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class hf2 {
+public abstract class hf2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void d(@NonNull PMSAppInfo pMSAppInfo, @Nullable if2.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, pMSAppInfo, aVar) == null) {
-        }
-    }
+    public abstract boolean e(if2 if2Var);
 
-    public static if2.a e(@NonNull PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, pMSAppInfo)) == null) {
-            return null;
-        }
-        return (if2.a) invokeL.objValue;
-    }
+    public abstract String f(String str);
 
-    public static void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
-        }
-    }
+    public abstract String i();
 
     /* loaded from: classes4.dex */
-    public static class a implements Runnable {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cv1 a;
+        public final /* synthetic */ HybridUbcFlow a;
+        public final /* synthetic */ if2 b;
+        public final /* synthetic */ jf2 c;
+        public final /* synthetic */ hf2 d;
 
-        public a(cv1 cv1Var) {
+        public a(hf2 hf2Var, HybridUbcFlow hybridUbcFlow, if2 if2Var, jf2 jf2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cv1Var};
+                Object[] objArr = {hf2Var, hybridUbcFlow, if2Var, jf2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -71,14 +58,67 @@ public class hf2 {
                     return;
                 }
             }
-            this.a = cv1Var;
+            this.d = hf2Var;
+            this.a = hybridUbcFlow;
+            this.b = if2Var;
+            this.c = jf2Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                hf2.i(this.a);
+                HybridUbcFlow hybridUbcFlow = this.a;
+                UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("loadPresetApp#run-start");
+                ubcFlowEvent.a(true);
+                hybridUbcFlow.F(ubcFlowEvent);
+                String f = this.d.f(this.b.g);
+                if (TextUtils.isEmpty(f)) {
+                    this.c.onFailed(0);
+                    return;
+                }
+                JSONObject d = mm3.d(f);
+                HybridUbcFlow hybridUbcFlow2 = this.a;
+                UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("loadPresetApp#run-appInfoJson");
+                ubcFlowEvent2.a(true);
+                hybridUbcFlow2.F(ubcFlowEvent2);
+                PMSAppInfo l = this.d.l(this.b, d);
+                if (l == null) {
+                    this.c.onFailed(1);
+                    return;
+                }
+                HybridUbcFlow hybridUbcFlow3 = this.a;
+                UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("loadPresetApp#run-PMSAppInfo");
+                ubcFlowEvent3.a(true);
+                hybridUbcFlow3.F(ubcFlowEvent3);
+                this.c.a(l);
+                long currentTimeMillis = System.currentTimeMillis();
+                boolean e = this.d.e(this.b);
+                if (hf2.a) {
+                    Log.d("PresetController", "签名+解压 耗时：" + (System.currentTimeMillis() - currentTimeMillis));
+                }
+                HybridUbcFlow hybridUbcFlow4 = this.a;
+                UbcFlowEvent ubcFlowEvent4 = new UbcFlowEvent("loadPresetApp#run-doUnzipBundle");
+                ubcFlowEvent4.a(true);
+                hybridUbcFlow4.F(ubcFlowEvent4);
+                if (e) {
+                    hf2 hf2Var = this.d;
+                    if2 if2Var = this.b;
+                    l.setOrientation(hf2Var.g(if2Var.h, if2Var.g, if2Var.i));
+                    l.updateInstallSrc(3);
+                    jh4.i().a(this.b, l);
+                    HybridUbcFlow hybridUbcFlow5 = this.a;
+                    UbcFlowEvent ubcFlowEvent5 = new UbcFlowEvent("loadPresetApp#run-bulkInsert");
+                    ubcFlowEvent5.a(true);
+                    hybridUbcFlow5.F(ubcFlowEvent5);
+                    this.c.b(l);
+                } else {
+                    this.c.onFailed(2);
+                }
+                HybridUbcFlow hybridUbcFlow6 = this.a;
+                UbcFlowEvent ubcFlowEvent6 = new UbcFlowEvent("loadPresetApp#run-return");
+                ubcFlowEvent6.a(true);
+                hybridUbcFlow6.F(ubcFlowEvent6);
             }
         }
     }
@@ -96,183 +136,183 @@ public class hf2 {
                 return;
             }
         }
-        a = gp1.a;
-        ds2.g0().getSwitch("swan_next_page_res_load", 0);
-        b = false;
-        w52.k("SwanAppSlaveTopPages", "swan_top_page_res_load - " + b);
-        l();
+        a = wp1.a;
     }
 
-    public static boolean a(@NonNull cv1<?> cv1Var, @NonNull wy2 wy2Var) {
+    public hf2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public boolean d(ReadableByteChannel readableByteChannel, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cv1Var, wy2Var)) == null) {
-            l93 f = ju2.U().f(wy2Var.d);
-            if (a) {
-                Log.d("SwanAppSlaveTopPages", "page path - " + wy2Var.a);
-                Log.d("SwanAppSlaveTopPages", "page route path - " + wy2Var.d);
-            }
-            return qm3.S(cv1Var, f.r);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static if2.a b(@NonNull w83 w83Var, @NonNull cv1<?> cv1Var, @NonNull PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, w83Var, cv1Var, pMSAppInfo)) == null) {
-            Set<String> m = m(pMSAppInfo);
-            if (m != null && m.size() > 0) {
-                String str = pMSAppInfo.appId;
-                String valueOf = String.valueOf(pMSAppInfo.versionCode);
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(valueOf)) {
-                    String str2 = sr2.e.i(str, valueOf).getPath() + File.separator;
-                    if2 if2Var = new if2();
-                    for (String str3 : m) {
-                        if (h(str2, str3)) {
-                            wy2 d = wy2.d(om3.g(str3), str2);
-                            if (qm3.b(w83Var.Q(), d, true) && a(cv1Var, d)) {
-                                if2Var.a(f(cv1Var, d));
-                            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, readableByteChannel, str)) == null) {
+            if (readableByteChannel != null) {
+                try {
+                    if (!TextUtils.isEmpty(str)) {
+                        long currentTimeMillis = System.currentTimeMillis();
+                        boolean c = zm3.c(readableByteChannel, str);
+                        if (a) {
+                            Log.d("PresetController", "签名校验结果：" + c + " ,耗时：" + (System.currentTimeMillis() - currentTimeMillis));
                         }
+                        return c;
                     }
-                    return if2Var.b();
+                } catch (IOException e) {
+                    if (a) {
+                        e.printStackTrace();
+                    }
+                    return false;
+                } finally {
+                    qp4.d(readableByteChannel);
                 }
             }
-            return null;
-        }
-        return (if2.a) invokeLLL.objValue;
-    }
-
-    public static wy2 c() {
-        InterceptResult invokeV;
-        SwanAppActivity w;
-        e82 H;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            w83 b0 = w83.b0();
-            if (b0 == null || (w = b0.w()) == null || w.isFinishing() || w.isDestroyed() || (H = ju2.U().H()) == null) {
-                return null;
-            }
-            return H.m3();
-        }
-        return (wy2) invokeV.objValue;
-    }
-
-    public static xi2 f(cv1<?> cv1Var, wy2 wy2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, cv1Var, wy2Var)) == null) {
-            return nf2.a(fc3.a(cv1Var, wy2Var, ""));
-        }
-        return (xi2) invokeLL.objValue;
-    }
-
-    public static boolean h(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
-            return sr2.C(str, str2);
+            return false;
         }
         return invokeLL.booleanValue;
     }
 
-    public static JSONObject g(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
+    public void k(if2 if2Var, jf2 jf2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, pMSAppInfo)) == null) {
-            return bz2.g().k(pMSAppInfo);
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static void i(cv1<?> cv1Var) {
-        long j;
-        PMSAppInfo f0;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65545, null, cv1Var) != null) || !b || cv1Var == null) {
-            return;
-        }
-        if (a) {
-            j = System.currentTimeMillis();
-        } else {
-            j = 0;
-        }
-        w83 b0 = w83.b0();
-        if (b0 == null || (f0 = b0.W().f0()) == null) {
-            return;
-        }
-        if2.a e = e(f0);
-        if (e == null) {
-            e = b(b0, cv1Var, f0);
-            d(f0, e);
-        }
-        if (e != null) {
-            qf2.U().V0(cv1Var.a(), e);
-        }
-        if (a) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Log.d("SwanAppSlaveTopPages", "sendTopPageMsg cost - " + (currentTimeMillis - j) + "ms");
-        }
-    }
-
-    public static void j(cv1<?> cv1Var) {
-        long j;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65546, null, cv1Var) == null) && b && cv1Var != null) {
-            if (a) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, if2Var, jf2Var) == null) {
+            HybridUbcFlow p = r23.p("startup");
+            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("loadPresetApp-start");
+            ubcFlowEvent.a(true);
+            p.F(ubcFlowEvent);
+            if (jf2Var == null) {
+                return;
             }
-            ExecutorUtilsExt.postOnElastic(new a(cv1Var), "SwanAppSlaveTopPages", 2);
-            if (a) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.d("SwanAppSlaveTopPages", "sendTopPageMsg async cost - " + (currentTimeMillis - j) + "ms");
+            if (if2Var == null) {
+                jf2Var.onFailed(0);
+                return;
             }
+            gm3.k(new a(this, p, if2Var, jf2Var), "加载小程序预置包");
+            UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("loadPresetApp-return");
+            ubcFlowEvent2.a(true);
+            p.F(ubcFlowEvent2);
         }
     }
 
-    public static Set<String> k(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public boolean n(BufferedInputStream bufferedInputStream, File file) {
+        InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONObject)) == null) {
-            if (jSONObject.length() <= 0) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, bufferedInputStream, file)) == null) {
+            if (bufferedInputStream != null) {
+                try {
+                    if (file != null) {
+                        ls2.c i = ls2.i(bufferedInputStream);
+                        if (i != null && i.b != -1) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        if (z) {
+                            return ls2.d(bufferedInputStream, file, i.b).a;
+                        }
+                        return tp4.d(bufferedInputStream, file.getPath());
+                    }
+                } catch (IOException e) {
+                    if (a) {
+                        e.printStackTrace();
+                    }
+                    return false;
+                } finally {
+                    qp4.d(bufferedInputStream);
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final int g(int i, String str, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)})) == null) {
+            if (i == 1) {
+                return us2.i().u(str, j);
+            }
+            return 0;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public HashMap<String, if2> h() {
+        InterceptResult invokeV;
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String i = i();
+            if (TextUtils.isEmpty(i) || (optJSONArray = mm3.d(i).optJSONArray("list")) == null) {
                 return null;
             }
-            LinkedHashSet linkedHashSet = new LinkedHashSet();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!TextUtils.isEmpty(next)) {
-                    linkedHashSet.add(next);
+            HashMap<String, if2> hashMap = new HashMap<>();
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                if2 m = m(optJSONArray.optJSONObject(i2));
+                if (m != null) {
+                    hashMap.put(m.g, m);
                 }
             }
-            if (a) {
-                Log.d("SwanAppSlaveTopPages", "get top pages - " + linkedHashSet);
-            }
-            return linkedHashSet;
+            return hashMap;
         }
-        return (Set) invokeL.objValue;
+        return (HashMap) invokeV.objValue;
     }
 
-    public static Set<String> m(@NonNull PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
+    public File j(int i, String str, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, pMSAppInfo)) == null) {
-            if (a) {
-                wy2 c = c();
-                Log.d("SwanAppSlaveTopPages", "current page - " + c);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)})) == null) {
+            if (i == 0) {
+                return is2.e.i(str, String.valueOf(j));
             }
-            JSONObject g = g(pMSAppInfo);
-            if (g != null && g.length() > 0) {
-                if (a) {
-                    Log.d("SwanAppSlaveTopPages", "pages info - " + g);
-                }
-                return k(g);
+            if (i == 1) {
+                return us2.g().a(str, String.valueOf(j));
             }
             return null;
         }
-        return (Set) invokeL.objValue;
+        return (File) invokeCommon.objValue;
+    }
+
+    public final PMSAppInfo l(if2 if2Var, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        PMSAppInfo a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, if2Var, jSONObject)) == null) {
+            if (jSONObject == null || if2Var == null || (a2 = tm4.a(jSONObject)) == null) {
+                return null;
+            }
+            a2.copyMainPkgInfo(if2Var);
+            a2.createTime = System.currentTimeMillis();
+            return a2;
+        }
+        return (PMSAppInfo) invokeLL.objValue;
+    }
+
+    public final if2 m(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        if2 if2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, jSONObject)) == null) {
+            if (jSONObject == null || (if2Var = (if2) tm4.j(jSONObject, new if2())) == null) {
+                return null;
+            }
+            if2Var.o = jSONObject.optInt("pkg_type");
+            if2Var.q = jSONObject.optString("bundle_name");
+            if (!if2Var.a()) {
+                return null;
+            }
+            return if2Var;
+        }
+        return (if2) invokeL.objValue;
     }
 }

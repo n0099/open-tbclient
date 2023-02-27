@@ -1,108 +1,56 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.os.Handler;
+import android.os.Looper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes4.dex */
-public final class ch6 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
+public class ch6 {
     public static /* synthetic */ Interceptable $ic;
+    public static Handler a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final hg6 a(v0 v0Var) {
-        InterceptResult invokeL;
+    public ch6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, v0Var)) == null) {
-            Intrinsics.checkNotNullParameter(v0Var, "<this>");
-            return (hg6) v0Var.d(hg6.class);
-        }
-        return (hg6) invokeL.objValue;
-    }
-
-    public static final eg6 b(v0 v0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, v0Var)) == null) {
-            Intrinsics.checkNotNullParameter(v0Var, "<this>");
-            return (eg6) v0Var.d(eg6.class);
-        }
-        return (eg6) invokeL.objValue;
-    }
-
-    public static final long c(v0 v0Var) {
-        InterceptResult invokeL;
-        sf6 a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, v0Var)) == null) {
-            Intrinsics.checkNotNullParameter(v0Var, "<this>");
-            eg6 b = b(v0Var);
-            if (b == null || (a = b.a()) == null) {
-                return 0L;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return a.g();
         }
-        return invokeL.longValue;
     }
 
-    public static final dg6 d(v0 v0Var) {
-        InterceptResult invokeL;
+    public static Handler a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, v0Var)) == null) {
-            Intrinsics.checkNotNullParameter(v0Var, "<this>");
-            return (dg6) v0Var.d(dg6.class);
-        }
-        return (dg6) invokeL.objValue;
-    }
-
-    public static final fg6 e(v0 v0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, v0Var)) == null) {
-            Intrinsics.checkNotNullParameter(v0Var, "<this>");
-            return (fg6) v0Var.d(fg6.class);
-        }
-        return (fg6) invokeL.objValue;
-    }
-
-    public static final long f(v0 v0Var) {
-        InterceptResult invokeL;
-        sf6 a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, v0Var)) == null) {
-            Intrinsics.checkNotNullParameter(v0Var, "<this>");
-            eg6 b = b(v0Var);
-            if (b == null || (a = b.a()) == null) {
-                return 0L;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (ch6.class) {
+                    if (a == null) {
+                        a = new Handler(Looper.getMainLooper());
+                    }
+                }
             }
-            return a.j();
+            return a;
         }
-        return invokeL.longValue;
+        return (Handler) invokeV.objValue;
     }
 
-    public static final boolean g(v0 v0Var, long j) {
-        InterceptResult invokeLJ;
+    public static void b(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, v0Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(v0Var, "<this>");
-            if (j - f(v0Var) < 0) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
+            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
+                a().post(runnable);
+            } else {
+                runnable.run();
             }
-            return false;
         }
-        return invokeLJ.booleanValue;
-    }
-
-    public static final boolean h(v0 v0Var, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, v0Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(v0Var, "<this>");
-            if (j - f(v0Var) > c(v0Var)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLJ.booleanValue;
     }
 }

@@ -1,42 +1,75 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.swan.games.glsurface.DuMixGameSurfaceView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayDeque;
 /* loaded from: classes6.dex */
-public class u54 implements l64 {
+public class u54 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile u54 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948161973, "Lcom/baidu/tieba/u54;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948161973, "Lcom/baidu/tieba/u54;");
+                return;
+            }
+        }
+        boolean z = wp1.a;
+    }
 
     public u54() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        new ArrayDeque();
     }
 
-    @Override // com.baidu.tieba.l64
-    public void a(k94 k94Var, j94 j94Var) {
+    public static u54 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, k94Var, j94Var) == null) && j94Var != null) {
-            j94Var.a(k94Var, "Method 'shareVideo' is not implemented.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (u54.class) {
+                    if (a == null) {
+                        a = new u54();
+                    }
+                }
+            }
+            return a;
         }
+        return (u54) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.l64
-    public void b(b94 b94Var, a94 a94Var) {
+    public DuMixGameSurfaceView a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b94Var, a94Var) == null) && a94Var != null) {
-            a94Var.a(b94Var, "Method 'clipVideo' is not implemented.");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            return new DuMixGameSurfaceView(context);
         }
+        return (DuMixGameSurfaceView) invokeL.objValue;
     }
 }

@@ -1,53 +1,108 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.ComponentInfo;
-import android.content.pm.ResolveInfo;
-import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class sh1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public long b;
+    public String c;
+    public String d;
+    public JSONObject e;
 
-    public static Intent a(Context context) {
-        InterceptResult invokeL;
-        List<ResolveInfo> queryIntentActivities;
+    public sh1(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = new JSONObject();
+        this.a = str;
+        this.b = System.currentTimeMillis();
+        this.c = gi1.c();
+    }
+
+    public sh1 a(String str, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, obj)) == null) {
+            try {
+                this.e.put(str, obj);
+            } catch (JSONException unused) {
+            }
+            return this;
+        }
+        return (sh1) invokeLL.objValue;
+    }
+
+    public sh1 b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            this.d = str;
+            return this;
+        }
+        return (sh1) invokeL.objValue;
+    }
+
+    public sh1 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            this.e = jSONObject;
+            return this;
+        }
+        return (sh1) invokeL.objValue;
+    }
+
+    public JSONObject d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.a)) {
+                ei1.d("statistics action can not null");
                 return null;
             }
+            JSONObject jSONObject = new JSONObject();
             try {
-                queryIntentActivities = context.getPackageManager().queryIntentActivities(new Intent("baidu.intent.action.account.AUTH_WIDGET_FOR_CASHIER"), 32);
-            } catch (Throwable th) {
-                th1.d(th);
-            }
-            if (queryIntentActivities != null && queryIntentActivities.size() != 0) {
-                for (ResolveInfo resolveInfo : queryIntentActivities) {
-                    String str = resolveInfo.activityInfo.permission;
-                    ActivityInfo activityInfo = resolveInfo.activityInfo;
-                    Intent intent = new Intent("baidu.intent.action.account.AUTH_WIDGET_FOR_CASHIER");
-                    intent.setClassName(((ComponentInfo) activityInfo).packageName, ((ComponentInfo) activityInfo).name);
-                    if (Build.VERSION.SDK_INT > 11) {
-                        intent.addFlags(32);
-                    }
-                    if (TextUtils.isEmpty(str) || context.checkCallingOrSelfPermission(str) == 0) {
-                        if (intent.getComponent() != null && context.getPackageName().equals(intent.getComponent().getPackageName())) {
-                            return intent;
-                        }
+                jSONObject.put("a", this.a);
+                jSONObject.put("t", this.b);
+                jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.c);
+                if (this.e != null) {
+                    jSONObject.put("cn", this.e);
+                } else if (!TextUtils.isEmpty(this.d)) {
+                    try {
+                        jSONObject.put("cn", new JSONObject(this.d));
+                    } catch (JSONException unused) {
+                        jSONObject.put("cn", this.d);
                     }
                 }
-                return null;
+            } catch (JSONException e) {
+                if (ei1.d) {
+                    e.printStackTrace();
+                }
             }
-            return null;
+            return jSONObject;
         }
-        return (Intent) invokeL.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

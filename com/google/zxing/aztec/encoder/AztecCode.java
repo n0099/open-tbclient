@@ -1,114 +1,51 @@
 package com.google.zxing.aztec.encoder;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.common.BitMatrix;
 /* loaded from: classes8.dex */
 public final class AztecCode {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public int codeWords;
     public boolean compact;
     public int layers;
     public BitMatrix matrix;
     public int size;
 
-    public AztecCode() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public int getCodeWords() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.codeWords;
-        }
-        return invokeV.intValue;
+        return this.codeWords;
     }
 
     public int getLayers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.layers;
-        }
-        return invokeV.intValue;
+        return this.layers;
     }
 
     public BitMatrix getMatrix() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.matrix;
-        }
-        return (BitMatrix) invokeV.objValue;
+        return this.matrix;
     }
 
     public int getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.size;
-        }
-        return invokeV.intValue;
+        return this.size;
     }
 
     public boolean isCompact() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.compact;
-        }
-        return invokeV.booleanValue;
+        return this.compact;
     }
 
     public void setCodeWords(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.codeWords = i;
-        }
+        this.codeWords = i;
     }
 
     public void setCompact(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.compact = z;
-        }
+        this.compact = z;
     }
 
     public void setLayers(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.layers = i;
-        }
+        this.layers = i;
     }
 
     public void setMatrix(BitMatrix bitMatrix) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bitMatrix) == null) {
-            this.matrix = bitMatrix;
-        }
+        this.matrix = bitMatrix;
     }
 
     public void setSize(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.size = i;
-        }
+        this.size = i;
     }
 }

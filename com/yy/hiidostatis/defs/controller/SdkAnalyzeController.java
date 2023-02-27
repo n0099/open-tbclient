@@ -1,12 +1,6 @@
 package com.yy.hiidostatis.defs.controller;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.defs.interf.IConfigAPI;
 import com.yy.hiidostatis.defs.interf.IStatisAPI;
 import com.yy.hiidostatis.inner.util.ArdUtil;
@@ -20,197 +14,133 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class SdkAnalyzeController {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String PACKAGE_NAME = "%PACKAGE_NAME%";
     public static final String PREF_KEY_SDK_ANALYZE_REPORT_DATE = "PREF_KEY_SDK_ANALYZE_REPORT_DATE";
-    public transient /* synthetic */ FieldHolder $fh;
     public IConfigAPI mConfigAPI;
     public IStatisAPI statisAPI;
 
     public SdkAnalyzeController(IStatisAPI iStatisAPI, IConfigAPI iConfigAPI) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {iStatisAPI, iConfigAPI};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.statisAPI = iStatisAPI;
         this.mConfigAPI = iConfigAPI;
     }
 
+    private void startSdkAnalyzeReport(final Context context, final long j) {
+        ThreadPool.getPool().execute(new Runnable() { // from class: com.yy.hiidostatis.defs.controller.SdkAnalyzeController.1
+            /* JADX WARN: Removed duplicated region for block: B:18:0x0079  */
+            @Override // java.lang.Runnable
+            /*
+                Code decompiled incorrectly, please refer to instructions dump.
+            */
+            public void run() {
+                boolean z;
+                String formatDate = Util.formatDate("yyyyMMdd", System.currentTimeMillis());
+                if (DefaultPreference.getPreference().getPrefString(context, SdkAnalyzeController.PREF_KEY_SDK_ANALYZE_REPORT_DATE, "").equals(formatDate)) {
+                    L.debug("SdkAnalyzeController", "sdk Analyze is reported today[%s]，so not report again!", formatDate);
+                    return;
+                }
+                JSONObject sdkListConfig = SdkAnalyzeController.this.mConfigAPI.getSdkListConfig(context, true);
+                if (sdkListConfig != null) {
+                    try {
+                    } catch (JSONException e) {
+                        L.debug("SdkAnalyzeController", "get json.enable exception: %s", e);
+                    }
+                    if (sdkListConfig.has("enable")) {
+                        if ("1".equals(sdkListConfig.get("enable") + "")) {
+                            z = true;
+                            L.debug("SdkAnalyzeController", "sdkAnalyze enable is %b", Boolean.valueOf(z));
+                            if (z) {
+                                JSONArray jSONArray = null;
+                                try {
+                                    jSONArray = sdkListConfig.getJSONArray("sdkListConfig");
+                                } catch (JSONException e2) {
+                                    L.debug("SdkAnalyzeController", "get json.sdkListConfig exception: %s", e2);
+                                }
+                                if (jSONArray == null || jSONArray.length() == 0) {
+                                    L.debug("SdkAnalyzeController", "get sdkListJsonArray is null!", new Object[0]);
+                                } else {
+                                    SdkAnalyzeController.this.reportSdkList(context, j, jSONArray);
+                                }
+                            }
+                            DefaultPreference.getPreference().setPrefString(context, SdkAnalyzeController.PREF_KEY_SDK_ANALYZE_REPORT_DATE, formatDate);
+                        }
+                    }
+                }
+                z = false;
+                L.debug("SdkAnalyzeController", "sdkAnalyze enable is %b", Boolean.valueOf(z));
+                if (z) {
+                }
+                DefaultPreference.getPreference().setPrefString(context, SdkAnalyzeController.PREF_KEY_SDK_ANALYZE_REPORT_DATE, formatDate);
+            }
+        }, 16000L);
+    }
+
+    public void reportSdkAnalyze(Context context, long j) {
+        startSdkAnalyzeReport(context, j);
+    }
+
     private String getSdkList(Context context, JSONArray jSONArray) {
-        InterceptResult invokeLL;
         String string;
         String str;
         String str2;
         String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, context, jSONArray)) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            for (int i = 0; i < jSONArray.length(); i++) {
+        StringBuffer stringBuffer = new StringBuffer();
+        for (int i = 0; i < jSONArray.length(); i++) {
+            try {
+                JSONObject jSONObject = jSONArray.getJSONObject(i);
+                string = jSONObject.getString("sdkName");
+                str = null;
+                if (jSONObject.has("sdkFileName")) {
+                    str2 = jSONObject.getString("sdkFileName");
+                } else {
+                    str2 = null;
+                }
+                if (jSONObject.has("sdkClassName")) {
+                    str3 = jSONObject.getString("sdkClassName");
+                } else {
+                    str3 = null;
+                }
+                if (jSONObject.has("sdkConfigKey")) {
+                    str = jSONObject.getString("sdkConfigKey");
+                }
+            } catch (JSONException e) {
+                e = e;
+            }
+            if (Util.empty(ArdUtil.getMetaDataParam(context, str)) && !Util.isExistClass(str3)) {
                 try {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i);
-                    string = jSONObject.getString("sdkName");
-                    str = null;
-                    if (jSONObject.has("sdkFileName")) {
-                        str2 = jSONObject.getString("sdkFileName");
-                    } else {
-                        str2 = null;
-                    }
-                    if (jSONObject.has("sdkClassName")) {
-                        str3 = jSONObject.getString("sdkClassName");
-                    } else {
-                        str3 = null;
-                    }
-                    if (jSONObject.has("sdkConfigKey")) {
-                        str = jSONObject.getString("sdkConfigKey");
-                    }
-                } catch (JSONException e) {
-                    e = e;
+                } catch (JSONException e2) {
+                    e = e2;
+                    L.debug("SdkAnalyzeController", "getSdkList exception: %s", e);
                 }
-                if (Util.empty(ArdUtil.getMetaDataParam(context, str)) && !Util.isExistClass(str3)) {
-                    try {
-                    } catch (JSONException e2) {
-                        e = e2;
-                        L.debug("SdkAnalyzeController", "getSdkList exception: %s", e);
-                    }
-                    if (!isExistFile(context, str2)) {
-                    }
+                if (!isExistFile(context, str2)) {
                 }
-                stringBuffer.append(string);
-                stringBuffer.append("|");
             }
-            if (stringBuffer.length() > 0) {
-                stringBuffer.setLength(stringBuffer.length() - 1);
-            }
-            L.debug("SdkAnalyzeController", "sdklist length=%d,sdklist bypes length=%d", Integer.valueOf(stringBuffer.toString().length()), Integer.valueOf(stringBuffer.toString().getBytes().length));
-            L.debug("SdkAnalyzeController", "sdklist=%s", stringBuffer.toString());
-            return stringBuffer.toString();
+            stringBuffer.append(string);
+            stringBuffer.append("|");
         }
-        return (String) invokeLL.objValue;
+        if (stringBuffer.length() > 0) {
+            stringBuffer.setLength(stringBuffer.length() - 1);
+        }
+        L.debug("SdkAnalyzeController", "sdklist length=%d,sdklist bypes length=%d", Integer.valueOf(stringBuffer.toString().length()), Integer.valueOf(stringBuffer.toString().getBytes().length));
+        L.debug("SdkAnalyzeController", "sdklist=%s", stringBuffer.toString());
+        return stringBuffer.toString();
     }
 
     private boolean isExistFile(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, str)) == null) {
-            if (context != null && !Util.empty(str)) {
-                try {
-                    String replaceAll = str.replaceAll(PACKAGE_NAME, context.getPackageName());
-                    boolean exists = new File(replaceAll).exists();
-                    L.debug(this, "fileName:%s,newFileName:%s,isExist:%b", str, replaceAll, Boolean.valueOf(exists));
-                    return exists;
-                } catch (Throwable th) {
-                    L.debug(this, th.getMessage(), new Object[0]);
-                }
+        if (context != null && !Util.empty(str)) {
+            try {
+                String replaceAll = str.replaceAll(PACKAGE_NAME, context.getPackageName());
+                boolean exists = new File(replaceAll).exists();
+                L.debug(this, "fileName:%s,newFileName:%s,isExist:%b", str, replaceAll, Boolean.valueOf(exists));
+                return exists;
+            } catch (Throwable th) {
+                L.debug(this, th.getMessage(), new Object[0]);
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+        return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void reportSdkList(Context context, long j, JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{context, Long.valueOf(j), jSONArray}) == null) {
-            this.statisAPI.reportSdkList(j, getSdkList(context, jSONArray));
-        }
-    }
-
-    private void startSdkAnalyzeReport(Context context, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65542, this, context, j) == null) {
-            ThreadPool.getPool().execute(new Runnable(this, context, j) { // from class: com.yy.hiidostatis.defs.controller.SdkAnalyzeController.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ SdkAnalyzeController this$0;
-                public final /* synthetic */ Context val$context;
-                public final /* synthetic */ long val$uid;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, context, Long.valueOf(j)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$context = context;
-                    this.val$uid = j;
-                }
-
-                /* JADX WARN: Removed duplicated region for block: B:20:0x007d  */
-                @Override // java.lang.Runnable
-                /*
-                    Code decompiled incorrectly, please refer to instructions dump.
-                */
-                public void run() {
-                    boolean z;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        String formatDate = Util.formatDate("yyyyMMdd", System.currentTimeMillis());
-                        if (DefaultPreference.getPreference().getPrefString(this.val$context, SdkAnalyzeController.PREF_KEY_SDK_ANALYZE_REPORT_DATE, "").equals(formatDate)) {
-                            L.debug("SdkAnalyzeController", "sdk Analyze is reported today[%s]，so not report again!", formatDate);
-                            return;
-                        }
-                        JSONObject sdkListConfig = this.this$0.mConfigAPI.getSdkListConfig(this.val$context, true);
-                        if (sdkListConfig != null) {
-                            try {
-                            } catch (JSONException e) {
-                                L.debug("SdkAnalyzeController", "get json.enable exception: %s", e);
-                            }
-                            if (sdkListConfig.has("enable")) {
-                                if ("1".equals(sdkListConfig.get("enable") + "")) {
-                                    z = true;
-                                    L.debug("SdkAnalyzeController", "sdkAnalyze enable is %b", Boolean.valueOf(z));
-                                    if (z) {
-                                        JSONArray jSONArray = null;
-                                        try {
-                                            jSONArray = sdkListConfig.getJSONArray("sdkListConfig");
-                                        } catch (JSONException e2) {
-                                            L.debug("SdkAnalyzeController", "get json.sdkListConfig exception: %s", e2);
-                                        }
-                                        if (jSONArray == null || jSONArray.length() == 0) {
-                                            L.debug("SdkAnalyzeController", "get sdkListJsonArray is null!", new Object[0]);
-                                        } else {
-                                            this.this$0.reportSdkList(this.val$context, this.val$uid, jSONArray);
-                                        }
-                                    }
-                                    DefaultPreference.getPreference().setPrefString(this.val$context, SdkAnalyzeController.PREF_KEY_SDK_ANALYZE_REPORT_DATE, formatDate);
-                                }
-                            }
-                        }
-                        z = false;
-                        L.debug("SdkAnalyzeController", "sdkAnalyze enable is %b", Boolean.valueOf(z));
-                        if (z) {
-                        }
-                        DefaultPreference.getPreference().setPrefString(this.val$context, SdkAnalyzeController.PREF_KEY_SDK_ANALYZE_REPORT_DATE, formatDate);
-                    }
-                }
-            }, 16000L);
-        }
-    }
-
-    public void reportSdkAnalyze(Context context, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048576, this, context, j) == null) {
-            startSdkAnalyzeReport(context, j);
-        }
+        this.statisAPI.reportSdkList(j, getSdkList(context, jSONArray));
     }
 }

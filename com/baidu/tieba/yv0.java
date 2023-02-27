@@ -1,56 +1,15 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.event.StatisticsEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class yv0 implements cw0 {
+public class yv0 extends vv0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a a;
-    public int b;
-
-    /* loaded from: classes7.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yv0 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(yv0 yv0Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yv0Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yv0Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-                this.a.doTask();
-                sendMessageDelayed(obtainMessage(1), this.a.b);
-            }
-        }
-    }
 
     public yv0() {
         Interceptable interceptable = $ic;
@@ -62,27 +21,94 @@ public abstract class yv0 implements cw0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new a(this, Looper.getMainLooper());
-        this.b = 500;
     }
 
-    @Override // com.baidu.tieba.cw0
-    public void cancel() {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.removeMessages(1);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c(xv0.w(StatisticsEvent.ACTION_PLAYER_PAUSE));
         }
     }
 
-    @Override // com.baidu.tieba.cw0
-    public void start() {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            cancel();
-            this.a.obtainMessage(1).sendToTarget();
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            c(xv0.w(StatisticsEvent.ACTION_PLAYER_RESUME));
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            c(xv0.w(StatisticsEvent.ACTION_PLAYER_START));
+        }
+    }
+
+    public void d(int i, int i2, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, obj) == null) {
+            bw0 w = xv0.w(StatisticsEvent.ACTION_PLAYER_ERROR);
+            w.n(2, String.valueOf(obj));
+            w.n(4, Integer.valueOf(i2));
+            c(w);
+        }
+    }
+
+    public void e(int i, int i2, Object obj) {
+        bw0 w;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj) == null) {
+            if (i != 701) {
+                if (i != 702) {
+                    if (i != 904 && i != 956) {
+                        if (i != 10009) {
+                            if (i != 11004) {
+                                if (i != 11005) {
+                                    w = null;
+                                } else {
+                                    w = xv0.w(StatisticsEvent.ACTION_ERROR_RETRY_END);
+                                }
+                            } else {
+                                w = xv0.w(StatisticsEvent.ACTION_ERROR_RETRY_START);
+                                w.n(4, Integer.valueOf(i2));
+                            }
+                        } else {
+                            w = xv0.w("statistics_player_carlton");
+                            w.n(2, String.valueOf(obj));
+                        }
+                    } else {
+                        w = xv0.w(StatisticsEvent.ACTION_PLAYER_FIRST_FRAME_DISPLAY);
+                        w.n(2, String.valueOf(obj));
+                    }
+                } else {
+                    w = xv0.w(StatisticsEvent.ACTION_BUFFER_END);
+                }
+            } else {
+                w = xv0.w(StatisticsEvent.ACTION_BUFFER_START);
+            }
+            if (w != null) {
+                c(w);
+            }
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            bw0 w = xv0.w(StatisticsEvent.ACTION_PLAYER_COMPLETE);
+            w.n(1, Integer.valueOf(i));
+            c(w);
+        }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            bw0 w = xv0.w(StatisticsEvent.ACTION_PLAYER_STOP);
+            w.n(1, Integer.valueOf(i));
+            c(w);
         }
     }
 }

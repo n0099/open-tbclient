@@ -9,17 +9,9 @@ import androidx.constraintlayout.solver.widgets.ConstraintWidget;
 import androidx.constraintlayout.widget.ConstraintHelper;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.R;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class Layer extends ConstraintHelper {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Layer";
-    public transient /* synthetic */ FieldHolder $fh;
     public boolean mApplyElevationOnAttach;
     public boolean mApplyVisibilityOnAttach;
     public float mComputedCenterX;
@@ -39,24 +31,8 @@ public class Layer extends ConstraintHelper {
     public float mShiftY;
     public View[] mViews;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public Layer(Context context) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mRotationCenterX = Float.NaN;
         this.mRotationCenterY = Float.NaN;
         this.mGroupRotateAngle = Float.NaN;
@@ -75,40 +51,94 @@ public class Layer extends ConstraintHelper {
     }
 
     @Override // androidx.constraintlayout.widget.ConstraintHelper
-    public void updatePostLayout(ConstraintLayout constraintLayout) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, constraintLayout) == null) {
-            reCacheViews();
-            this.mComputedCenterX = Float.NaN;
-            this.mComputedCenterY = Float.NaN;
-            ConstraintWidget constraintWidget = ((ConstraintLayout.LayoutParams) getLayoutParams()).getConstraintWidget();
-            constraintWidget.setWidth(0);
-            constraintWidget.setHeight(0);
-            calcCenters();
-            layout(((int) this.mComputedMinX) - getPaddingLeft(), ((int) this.mComputedMinY) - getPaddingTop(), ((int) this.mComputedMaxX) + getPaddingRight(), ((int) this.mComputedMaxY) + getPaddingBottom());
-            transform();
+    public void init(AttributeSet attributeSet) {
+        super.init(attributeSet);
+        this.mUseViewMeasure = false;
+        if (attributeSet != null) {
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.ConstraintLayout_Layout);
+            int indexCount = obtainStyledAttributes.getIndexCount();
+            for (int i = 0; i < indexCount; i++) {
+                int index = obtainStyledAttributes.getIndex(i);
+                if (index == 6) {
+                    this.mApplyVisibilityOnAttach = true;
+                } else if (index == 13) {
+                    this.mApplyElevationOnAttach = true;
+                }
+            }
+            obtainStyledAttributes.recycle();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Layer(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+    @Override // android.view.View
+    public void setElevation(float f) {
+        super.setElevation(f);
+        applyLayoutFeatures();
+    }
+
+    @Override // android.view.View
+    public void setPivotX(float f) {
+        this.mRotationCenterX = f;
+        transform();
+    }
+
+    @Override // android.view.View
+    public void setPivotY(float f) {
+        this.mRotationCenterY = f;
+        transform();
+    }
+
+    @Override // android.view.View
+    public void setRotation(float f) {
+        this.mGroupRotateAngle = f;
+        transform();
+    }
+
+    @Override // android.view.View
+    public void setScaleX(float f) {
+        this.mScaleX = f;
+        transform();
+    }
+
+    @Override // android.view.View
+    public void setScaleY(float f) {
+        this.mScaleY = f;
+        transform();
+    }
+
+    @Override // android.view.View
+    public void setTranslationX(float f) {
+        this.mShiftX = f;
+        transform();
+    }
+
+    @Override // android.view.View
+    public void setTranslationY(float f) {
+        this.mShiftY = f;
+        transform();
+    }
+
+    @Override // android.view.View
+    public void setVisibility(int i) {
+        super.setVisibility(i);
+        applyLayoutFeatures();
+    }
+
+    @Override // androidx.constraintlayout.widget.ConstraintHelper
+    public void updatePreDraw(ConstraintLayout constraintLayout) {
+        this.mContainer = constraintLayout;
+        float rotation = getRotation();
+        if (rotation == 0.0f) {
+            if (!Float.isNaN(this.mGroupRotateAngle)) {
+                this.mGroupRotateAngle = rotation;
                 return;
             }
+            return;
         }
+        this.mGroupRotateAngle = rotation;
+    }
+
+    public Layer(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
         this.mRotationCenterX = Float.NaN;
         this.mRotationCenterY = Float.NaN;
         this.mGroupRotateAngle = Float.NaN;
@@ -126,25 +156,8 @@ public class Layer extends ConstraintHelper {
         this.mShiftY = 0.0f;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public Layer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.mRotationCenterX = Float.NaN;
         this.mRotationCenterY = Float.NaN;
         this.mGroupRotateAngle = Float.NaN;
@@ -164,8 +177,7 @@ public class Layer extends ConstraintHelper {
 
     private void reCacheViews() {
         int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65539, this) != null) || this.mContainer == null || (i = this.mCount) == 0) {
+        if (this.mContainer == null || (i = this.mCount) == 0) {
             return;
         }
         View[] viewArr = this.mViews;
@@ -179,8 +191,7 @@ public class Layer extends ConstraintHelper {
 
     private void transform() {
         double radians;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) != null) || this.mContainer == null) {
+        if (this.mContainer == null) {
             return;
         }
         if (this.mViews == null) {
@@ -215,8 +226,7 @@ public class Layer extends ConstraintHelper {
     }
 
     public void calcCenters() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.mContainer == null) {
+        if (this.mContainer == null) {
             return;
         }
         if (!this.mNeedBounds && !Float.isNaN(this.mComputedCenterX) && !Float.isNaN(this.mComputedCenterY)) {
@@ -255,152 +265,42 @@ public class Layer extends ConstraintHelper {
         }
     }
 
-    @Override // androidx.constraintlayout.widget.ConstraintHelper
-    public void init(AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet) == null) {
-            super.init(attributeSet);
-            this.mUseViewMeasure = false;
-            if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.ConstraintLayout_Layout);
-                int indexCount = obtainStyledAttributes.getIndexCount();
-                for (int i = 0; i < indexCount; i++) {
-                    int index = obtainStyledAttributes.getIndex(i);
-                    if (index == 6) {
-                        this.mApplyVisibilityOnAttach = true;
-                    } else if (index == 13) {
-                        this.mApplyElevationOnAttach = true;
-                    }
-                }
-                obtainStyledAttributes.recycle();
-            }
-        }
-    }
-
     @Override // androidx.constraintlayout.widget.ConstraintHelper, android.view.View
     public void onAttachedToWindow() {
         float f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onAttachedToWindow();
-            this.mContainer = (ConstraintLayout) getParent();
-            if (this.mApplyVisibilityOnAttach || this.mApplyElevationOnAttach) {
-                int visibility = getVisibility();
-                if (Build.VERSION.SDK_INT >= 21) {
-                    f = getElevation();
-                } else {
-                    f = 0.0f;
-                }
-                for (int i = 0; i < this.mCount; i++) {
-                    View viewById = this.mContainer.getViewById(this.mIds[i]);
-                    if (viewById != null) {
-                        if (this.mApplyVisibilityOnAttach) {
-                            viewById.setVisibility(visibility);
-                        }
-                        if (this.mApplyElevationOnAttach && f > 0.0f && Build.VERSION.SDK_INT >= 21) {
-                            viewById.setTranslationZ(viewById.getTranslationZ() + f);
-                        }
+        super.onAttachedToWindow();
+        this.mContainer = (ConstraintLayout) getParent();
+        if (this.mApplyVisibilityOnAttach || this.mApplyElevationOnAttach) {
+            int visibility = getVisibility();
+            if (Build.VERSION.SDK_INT >= 21) {
+                f = getElevation();
+            } else {
+                f = 0.0f;
+            }
+            for (int i = 0; i < this.mCount; i++) {
+                View viewById = this.mContainer.getViewById(this.mIds[i]);
+                if (viewById != null) {
+                    if (this.mApplyVisibilityOnAttach) {
+                        viewById.setVisibility(visibility);
+                    }
+                    if (this.mApplyElevationOnAttach && f > 0.0f && Build.VERSION.SDK_INT >= 21) {
+                        viewById.setTranslationZ(viewById.getTranslationZ() + f);
                     }
                 }
             }
         }
     }
 
-    @Override // android.view.View
-    public void setElevation(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
-            super.setElevation(f);
-            applyLayoutFeatures();
-        }
-    }
-
-    @Override // android.view.View
-    public void setPivotX(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
-            this.mRotationCenterX = f;
-            transform();
-        }
-    }
-
-    @Override // android.view.View
-    public void setPivotY(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
-            this.mRotationCenterY = f;
-            transform();
-        }
-    }
-
-    @Override // android.view.View
-    public void setRotation(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
-            this.mGroupRotateAngle = f;
-            transform();
-        }
-    }
-
-    @Override // android.view.View
-    public void setScaleX(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
-            this.mScaleX = f;
-            transform();
-        }
-    }
-
-    @Override // android.view.View
-    public void setScaleY(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
-            this.mScaleY = f;
-            transform();
-        }
-    }
-
-    @Override // android.view.View
-    public void setTranslationX(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {
-            this.mShiftX = f;
-            transform();
-        }
-    }
-
-    @Override // android.view.View
-    public void setTranslationY(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
-            this.mShiftY = f;
-            transform();
-        }
-    }
-
-    @Override // android.view.View
-    public void setVisibility(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            super.setVisibility(i);
-            applyLayoutFeatures();
-        }
-    }
-
     @Override // androidx.constraintlayout.widget.ConstraintHelper
-    public void updatePreDraw(ConstraintLayout constraintLayout) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, constraintLayout) == null) {
-            this.mContainer = constraintLayout;
-            float rotation = getRotation();
-            if (rotation == 0.0f) {
-                if (!Float.isNaN(this.mGroupRotateAngle)) {
-                    this.mGroupRotateAngle = rotation;
-                    return;
-                }
-                return;
-            }
-            this.mGroupRotateAngle = rotation;
-        }
+    public void updatePostLayout(ConstraintLayout constraintLayout) {
+        reCacheViews();
+        this.mComputedCenterX = Float.NaN;
+        this.mComputedCenterY = Float.NaN;
+        ConstraintWidget constraintWidget = ((ConstraintLayout.LayoutParams) getLayoutParams()).getConstraintWidget();
+        constraintWidget.setWidth(0);
+        constraintWidget.setHeight(0);
+        calcCenters();
+        layout(((int) this.mComputedMinX) - getPaddingLeft(), ((int) this.mComputedMinY) - getPaddingTop(), ((int) this.mComputedMaxX) + getPaddingRight(), ((int) this.mComputedMaxY) + getPaddingBottom());
+        transform();
     }
 }

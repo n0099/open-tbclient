@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import androidx.core.net.MailTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
@@ -211,7 +210,7 @@ public class AdvisoryCallHistoryMsg extends NormalMsg {
                         this.mFromUid = optJSONObject.optLong("uid");
                         this.mFromTips = optJSONObject.optString("tips");
                     }
-                    JSONObject optJSONObject2 = jSONObject.optJSONObject(MailTo.TO);
+                    JSONObject optJSONObject2 = jSONObject.optJSONObject("to");
                     if (optJSONObject2 != null) {
                         this.mToUid = optJSONObject2.optLong("uid");
                         this.mToTips = optJSONObject2.optString("tips");
@@ -241,7 +240,7 @@ public class AdvisoryCallHistoryMsg extends NormalMsg {
                 jSONObject.put("media_type", this.mMediaType);
                 jSONObject.put("room_id", this.mRoomId);
                 jSONObject.put("from", jSONObject2);
-                jSONObject.put(MailTo.TO, jSONObject3);
+                jSONObject.put("to", jSONObject3);
                 return setMsgContent(jSONObject.toString());
             } catch (JSONException unused) {
                 LogUtils.e(TAG, "content error!");

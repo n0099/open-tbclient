@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import androidx.core.net.MailTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.IMListener;
@@ -213,7 +212,7 @@ public class IMDelMsg extends Message {
                 jSONObject.put("method", 57);
                 jSONObject.put("appid", this.mAppid);
                 jSONObject.put("uk", this.mUk);
-                jSONObject.put(MailTo.TO, this.mToId);
+                jSONObject.put("to", this.mToId);
                 if (this.mSessionType > 0) {
                     jSONObject.put("session_type", this.mSessionType);
                 }

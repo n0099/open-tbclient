@@ -1,72 +1,39 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import com.baidu.tieba.fb8;
-import com.baidu.tieba.g25;
-import com.baidu.tieba.gb8;
-import com.baidu.tieba.hb8;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.re8;
+import com.baidu.tieba.s35;
+import com.baidu.tieba.se8;
+import com.baidu.tieba.te8;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class InitPbNetRequestTask extends LaunchTask {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "AppCreate_initPbNetRequest" : (String) invokeV.objValue;
+        return "AppCreate_initPbNetRequest";
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public int getProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    public InitPbNetRequestTask() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+        return 1;
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        try {
+            Class.forName("com.baidu.tieba.pb.pb.main.PbActivityStatic");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        if (re8.a().c() && s35.a().c == 1) {
+            new te8().i(s35.a().d);
+        }
+        if (re8.a().c() && s35.a().c == 2) {
             try {
-                Class.forName("com.baidu.tieba.pb.pb.main.PbActivityStatic");
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-            if (fb8.a().c() && g25.a().c == 1) {
-                new hb8().i(g25.a().d);
-            }
-            if (fb8.a().c() && g25.a().c == 2) {
-                try {
-                    String str = g25.a().d;
-                    gb8.l(new String[]{new JSONObject(str.substring(str.indexOf("tbyunpushnotifybody=") + 20)).getString("jump_scheme")});
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
+                String str = s35.a().d;
+                se8.l(new String[]{new JSONObject(str.substring(str.indexOf("tbyunpushnotifybody=") + 20)).getString("jump_scheme")});
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
     }

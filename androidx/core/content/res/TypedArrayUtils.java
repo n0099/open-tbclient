@@ -13,295 +13,173 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleableRes;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.xmlpull.v1.XmlPullParser;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class TypedArrayUtils {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String NAMESPACE = "http://schemas.android.com/apk/res/android";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public TypedArrayUtils() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     public static int getAttr(@NonNull Context context, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, context, i, i2)) == null) {
-            TypedValue typedValue = new TypedValue();
-            context.getTheme().resolveAttribute(i, typedValue, true);
-            if (typedValue.resourceId != 0) {
-                return i;
-            }
-            return i2;
+        TypedValue typedValue = new TypedValue();
+        context.getTheme().resolveAttribute(i, typedValue, true);
+        if (typedValue.resourceId != 0) {
+            return i;
         }
-        return invokeLII.intValue;
+        return i2;
     }
 
     @Nullable
     public static Drawable getDrawable(@NonNull TypedArray typedArray, @StyleableRes int i, @StyleableRes int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, typedArray, i, i2)) == null) {
-            Drawable drawable = typedArray.getDrawable(i);
-            if (drawable == null) {
-                return typedArray.getDrawable(i2);
-            }
-            return drawable;
+        Drawable drawable = typedArray.getDrawable(i);
+        if (drawable == null) {
+            return typedArray.getDrawable(i2);
         }
-        return (Drawable) invokeLII.objValue;
+        return drawable;
     }
 
     @Nullable
     public static String getString(@NonNull TypedArray typedArray, @StyleableRes int i, @StyleableRes int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65551, null, typedArray, i, i2)) == null) {
-            String string = typedArray.getString(i);
-            if (string == null) {
-                return typedArray.getString(i2);
-            }
-            return string;
+        String string = typedArray.getString(i);
+        if (string == null) {
+            return typedArray.getString(i2);
         }
-        return (String) invokeLII.objValue;
+        return string;
     }
 
     @Nullable
     public static CharSequence getText(@NonNull TypedArray typedArray, @StyleableRes int i, @StyleableRes int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65552, null, typedArray, i, i2)) == null) {
-            CharSequence text = typedArray.getText(i);
-            if (text == null) {
-                return typedArray.getText(i2);
-            }
-            return text;
+        CharSequence text = typedArray.getText(i);
+        if (text == null) {
+            return typedArray.getText(i2);
         }
-        return (CharSequence) invokeLII.objValue;
+        return text;
     }
 
     @Nullable
     public static CharSequence[] getTextArray(@NonNull TypedArray typedArray, @StyleableRes int i, @StyleableRes int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65553, null, typedArray, i, i2)) == null) {
-            CharSequence[] textArray = typedArray.getTextArray(i);
-            if (textArray == null) {
-                return typedArray.getTextArray(i2);
-            }
-            return textArray;
+        CharSequence[] textArray = typedArray.getTextArray(i);
+        if (textArray == null) {
+            return typedArray.getTextArray(i2);
         }
-        return (CharSequence[]) invokeLII.objValue;
+        return textArray;
     }
 
     public static boolean getBoolean(@NonNull TypedArray typedArray, @StyleableRes int i, @StyleableRes int i2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{typedArray, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            return typedArray.getBoolean(i, typedArray.getBoolean(i2, z));
-        }
-        return invokeCommon.booleanValue;
+        return typedArray.getBoolean(i, typedArray.getBoolean(i2, z));
     }
 
     public static int getInt(@NonNull TypedArray typedArray, @StyleableRes int i, @StyleableRes int i2, int i3) {
-        InterceptResult invokeLIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(InputDeviceCompat.SOURCE_TRACKBALL, null, typedArray, i, i2, i3)) == null) {
-            return typedArray.getInt(i, typedArray.getInt(i2, i3));
-        }
-        return invokeLIII.intValue;
+        return typedArray.getInt(i, typedArray.getInt(i2, i3));
     }
 
     @Nullable
     public static String getNamedString(@NonNull TypedArray typedArray, @NonNull XmlPullParser xmlPullParser, @NonNull String str, @StyleableRes int i) {
-        InterceptResult invokeLLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65549, null, typedArray, xmlPullParser, str, i)) == null) {
-            if (!hasAttribute(xmlPullParser, str)) {
-                return null;
-            }
-            return typedArray.getString(i);
+        if (!hasAttribute(xmlPullParser, str)) {
+            return null;
         }
-        return (String) invokeLLLI.objValue;
+        return typedArray.getString(i);
     }
 
     @AnyRes
     public static int getResourceId(@NonNull TypedArray typedArray, @StyleableRes int i, @StyleableRes int i2, @AnyRes int i3) {
-        InterceptResult invokeLIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65550, null, typedArray, i, i2, i3)) == null) {
-            return typedArray.getResourceId(i, typedArray.getResourceId(i2, i3));
-        }
-        return invokeLIII.intValue;
+        return typedArray.getResourceId(i, typedArray.getResourceId(i2, i3));
     }
 
     @NonNull
     public static TypedArray obtainAttributes(@NonNull Resources resources, @Nullable Resources.Theme theme, @NonNull AttributeSet attributeSet, @NonNull int[] iArr) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65555, null, resources, theme, attributeSet, iArr)) == null) {
-            if (theme == null) {
-                return resources.obtainAttributes(attributeSet, iArr);
-            }
-            return theme.obtainStyledAttributes(attributeSet, iArr, 0, 0);
+        if (theme == null) {
+            return resources.obtainAttributes(attributeSet, iArr);
         }
-        return (TypedArray) invokeLLLL.objValue;
+        return theme.obtainStyledAttributes(attributeSet, iArr, 0, 0);
     }
 
     @Nullable
     public static TypedValue peekNamedValue(@NonNull TypedArray typedArray, @NonNull XmlPullParser xmlPullParser, @NonNull String str, int i) {
-        InterceptResult invokeLLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65556, null, typedArray, xmlPullParser, str, i)) == null) {
-            if (!hasAttribute(xmlPullParser, str)) {
-                return null;
-            }
-            return typedArray.peekValue(i);
+        if (!hasAttribute(xmlPullParser, str)) {
+            return null;
         }
-        return (TypedValue) invokeLLLI.objValue;
+        return typedArray.peekValue(i);
     }
 
     public static boolean getNamedBoolean(@NonNull TypedArray typedArray, @NonNull XmlPullParser xmlPullParser, @NonNull String str, @StyleableRes int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{typedArray, xmlPullParser, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (!hasAttribute(xmlPullParser, str)) {
-                return z;
-            }
-            return typedArray.getBoolean(i, z);
+        if (!hasAttribute(xmlPullParser, str)) {
+            return z;
         }
-        return invokeCommon.booleanValue;
+        return typedArray.getBoolean(i, z);
     }
 
     @ColorInt
     public static int getNamedColor(@NonNull TypedArray typedArray, @NonNull XmlPullParser xmlPullParser, @NonNull String str, @StyleableRes int i, @ColorInt int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{typedArray, xmlPullParser, str, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (!hasAttribute(xmlPullParser, str)) {
-                return i2;
-            }
-            return typedArray.getColor(i, i2);
+        if (!hasAttribute(xmlPullParser, str)) {
+            return i2;
         }
-        return invokeCommon.intValue;
+        return typedArray.getColor(i, i2);
     }
 
     public static float getNamedFloat(@NonNull TypedArray typedArray, @NonNull XmlPullParser xmlPullParser, @NonNull String str, @StyleableRes int i, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{typedArray, xmlPullParser, str, Integer.valueOf(i), Float.valueOf(f)})) == null) {
-            if (!hasAttribute(xmlPullParser, str)) {
-                return f;
-            }
-            return typedArray.getFloat(i, f);
+        if (!hasAttribute(xmlPullParser, str)) {
+            return f;
         }
-        return invokeCommon.floatValue;
+        return typedArray.getFloat(i, f);
     }
 
     public static int getNamedInt(@NonNull TypedArray typedArray, @NonNull XmlPullParser xmlPullParser, @NonNull String str, @StyleableRes int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{typedArray, xmlPullParser, str, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (!hasAttribute(xmlPullParser, str)) {
-                return i2;
-            }
-            return typedArray.getInt(i, i2);
+        if (!hasAttribute(xmlPullParser, str)) {
+            return i2;
         }
-        return invokeCommon.intValue;
+        return typedArray.getInt(i, i2);
     }
 
     @AnyRes
     public static int getNamedResourceId(@NonNull TypedArray typedArray, @NonNull XmlPullParser xmlPullParser, @NonNull String str, @StyleableRes int i, @AnyRes int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{typedArray, xmlPullParser, str, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (!hasAttribute(xmlPullParser, str)) {
-                return i2;
-            }
-            return typedArray.getResourceId(i, i2);
+        if (!hasAttribute(xmlPullParser, str)) {
+            return i2;
         }
-        return invokeCommon.intValue;
+        return typedArray.getResourceId(i, i2);
     }
 
     @Nullable
     public static ColorStateList getNamedColorStateList(@NonNull TypedArray typedArray, @NonNull XmlPullParser xmlPullParser, @Nullable Resources.Theme theme, @NonNull String str, @StyleableRes int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{typedArray, xmlPullParser, theme, str, Integer.valueOf(i)})) == null) {
-            if (hasAttribute(xmlPullParser, str)) {
-                TypedValue typedValue = new TypedValue();
-                typedArray.getValue(i, typedValue);
-                int i2 = typedValue.type;
-                if (i2 != 2) {
-                    if (i2 >= 28 && i2 <= 31) {
-                        return getNamedColorStateListFromInt(typedValue);
-                    }
-                    return ColorStateListInflaterCompat.inflate(typedArray.getResources(), typedArray.getResourceId(i, 0), theme);
+        if (hasAttribute(xmlPullParser, str)) {
+            TypedValue typedValue = new TypedValue();
+            typedArray.getValue(i, typedValue);
+            int i2 = typedValue.type;
+            if (i2 != 2) {
+                if (i2 >= 28 && i2 <= 31) {
+                    return getNamedColorStateListFromInt(typedValue);
                 }
-                throw new UnsupportedOperationException("Failed to resolve attribute at index " + i + ": " + typedValue);
+                return ColorStateListInflaterCompat.inflate(typedArray.getResources(), typedArray.getResourceId(i, 0), theme);
             }
-            return null;
+            throw new UnsupportedOperationException("Failed to resolve attribute at index " + i + ": " + typedValue);
         }
-        return (ColorStateList) invokeCommon.objValue;
+        return null;
     }
 
     @NonNull
     public static ColorStateList getNamedColorStateListFromInt(@NonNull TypedValue typedValue) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, typedValue)) == null) {
-            return ColorStateList.valueOf(typedValue.data);
-        }
-        return (ColorStateList) invokeL.objValue;
+        return ColorStateList.valueOf(typedValue.data);
     }
 
     public static ComplexColorCompat getNamedComplexColor(@NonNull TypedArray typedArray, @NonNull XmlPullParser xmlPullParser, @Nullable Resources.Theme theme, @NonNull String str, @StyleableRes int i, @ColorInt int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{typedArray, xmlPullParser, theme, str, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (hasAttribute(xmlPullParser, str)) {
-                TypedValue typedValue = new TypedValue();
-                typedArray.getValue(i, typedValue);
-                int i3 = typedValue.type;
-                if (i3 >= 28 && i3 <= 31) {
-                    return ComplexColorCompat.from(typedValue.data);
-                }
-                ComplexColorCompat inflate = ComplexColorCompat.inflate(typedArray.getResources(), typedArray.getResourceId(i, 0), theme);
-                if (inflate != null) {
-                    return inflate;
-                }
+        if (hasAttribute(xmlPullParser, str)) {
+            TypedValue typedValue = new TypedValue();
+            typedArray.getValue(i, typedValue);
+            int i3 = typedValue.type;
+            if (i3 >= 28 && i3 <= 31) {
+                return ComplexColorCompat.from(typedValue.data);
             }
-            return ComplexColorCompat.from(i2);
+            ComplexColorCompat inflate = ComplexColorCompat.inflate(typedArray.getResources(), typedArray.getResourceId(i, 0), theme);
+            if (inflate != null) {
+                return inflate;
+            }
         }
-        return (ComplexColorCompat) invokeCommon.objValue;
+        return ComplexColorCompat.from(i2);
     }
 
     public static boolean hasAttribute(@NonNull XmlPullParser xmlPullParser, @NonNull String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, xmlPullParser, str)) == null) {
-            if (xmlPullParser.getAttributeValue("http://schemas.android.com/apk/res/android", str) != null) {
-                return true;
-            }
-            return false;
+        if (xmlPullParser.getAttributeValue("http://schemas.android.com/apk/res/android", str) != null) {
+            return true;
         }
-        return invokeLL.booleanValue;
+        return false;
     }
 }

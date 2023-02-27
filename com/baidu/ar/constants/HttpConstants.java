@@ -1,12 +1,6 @@
 package com.baidu.ar.constants;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class HttpConstants {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String AIP_APP_ID = "aip_app_id";
     public static final String APP_VERSION = "app_version";
     public static final String AR_KEY = "ar_key";
@@ -65,19 +59,4 @@ public class HttpConstants {
     public static final String SDK_VERSION_NAME = "sdk_version_name";
     public static final String SIGN = "sign";
     public static final String TIMESTAMP = "timestamp";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public HttpConstants() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

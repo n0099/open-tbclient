@@ -87,7 +87,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
                         HashMap hashMap = null;
                         if (obj instanceof String) {
                             HashMap hashMap2 = new HashMap();
-                            hashMap2.put(ServerSideVerificationOptions.TRANS_ID, String.valueOf(aDEvent.getParas()[0]));
+                            hashMap2.put("transId", String.valueOf(aDEvent.getParas()[0]));
                             hashMap = hashMap2;
                         } else if (obj instanceof Map) {
                             hashMap = (Map) obj;

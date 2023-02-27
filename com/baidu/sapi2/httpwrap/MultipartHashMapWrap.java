@@ -2,37 +2,15 @@ package com.baidu.sapi2.httpwrap;
 
 import com.baidu.pass.http.MultipartHashMap;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
 /* loaded from: classes2.dex */
 public class MultipartHashMapWrap extends MultipartHashMap {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     public MultipartHashMapWrap() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         putAll(Utils.buildCommonParams());
     }
 
     @Override // com.baidu.pass.http.HttpHashMap
     public void doSign(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            put(FunAdSdk.PLATFORM_SIG, SapiUtils.calculateSig(getMap(), str));
-        }
+        put(FunAdSdk.PLATFORM_SIG, SapiUtils.calculateSig(getMap(), str));
     }
 }

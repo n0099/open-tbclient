@@ -1,85 +1,57 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URL;
-import java.util.List;
-import java.util.regex.Pattern;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
-@JvmName(name = "AuthStrategyHelper")
 /* loaded from: classes7.dex */
-public final class yt0 {
+public class yt0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile vt0 a;
+    public static final int a = 0;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("host", "vdept3.bdstatic.com");
-                jSONObject2.put("auth", "1_1_1_3");
-                jSONArray.put(jSONObject2);
-                jSONObject.put("hosts", jSONArray);
-            } catch (Exception e) {
-                nk0.c("AuthStrategyHelper", e.toString());
-            }
-            String jSONObject3 = jSONObject.toString();
-            Intrinsics.checkNotNullExpressionValue(jSONObject3, "defaultHostAuthConfig.toString()");
-            return jSONObject3;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static final List<ut0> b() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948341556, "Lcom/baidu/tieba/yt0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948341556, "Lcom/baidu/tieba/yt0;");
+                return;
+            }
+        }
+        w11.h();
+    }
+
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                a = xt0.a(p11.l().getString("host_auth_config", a()));
-            }
-            vt0 vt0Var = a;
-            if (vt0Var != null) {
-                return vt0Var.a();
-            }
-            return null;
+            return b;
         }
-        return (List) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static final synchronized ut0 c(String str) {
-        InterceptResult invokeL;
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            synchronized (yt0.class) {
-                if (str == null) {
-                    return null;
-                }
-                List<ut0> b = b();
-                if (b == null) {
-                    return null;
-                }
-                try {
-                    String host = new URL(str).getHost();
-                    for (ut0 ut0Var : b) {
-                        if (Pattern.matches(ut0Var.b(), host)) {
-                            return ut0Var;
-                        }
-                    }
-                } catch (Exception e) {
-                    nk0.a("AuthStrategyHelper", e.getMessage());
-                }
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a;
         }
-        return (ut0) invokeL.objValue;
+        return invokeV.intValue;
     }
 }

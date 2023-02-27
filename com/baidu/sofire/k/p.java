@@ -1,9 +1,9 @@
 package com.baidu.sofire.k;
 
+import android.accounts.NetworkErrorException;
 import android.content.Context;
-import android.os.Build;
-import android.util.Base64;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,70 +11,65 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.RejectedExecutionException;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
+import okhttp3.Interceptor;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import org.apache.http.conn.ssl.SSLSocketFactory;
 /* loaded from: classes3.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
-    public static final int f;
-    public static volatile p g;
-    public static final int h;
-    public static long i;
+    public static final byte[] b;
+    public static OkHttpClient c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadPoolExecutor a;
-    public ThreadPoolExecutor b;
-    public BlockingQueue<Runnable> c;
-    public BlockingQueue<Runnable> d;
-    public Context e;
+    public Context a;
 
     /* loaded from: classes3.dex */
-    public static class a implements ThreadFactory {
+    public class a implements Interceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicInteger a;
-        public final String b;
-        public final int c;
+        public final /* synthetic */ p a;
 
-        public a(String str, int i) {
+        public a(p pVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
+                Object[] objArr = {pVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = new AtomicInteger(1);
-            this.b = str;
-            this.c = i;
+            this.a = pVar;
         }
 
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
+        @Override // okhttp3.Interceptor
+        public Response intercept(Interceptor.Chain chain) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, this.b + this.a.getAndIncrement());
-                if (thread.isDaemon()) {
-                    thread.setDaemon(false);
-                }
-                thread.setPriority(this.c);
-                return thread;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
+                System.currentTimeMillis();
+                Request request = chain.request();
+                Context context = this.a.a;
+                Response proceed = chain.proceed(request);
+                System.currentTimeMillis();
+                return proceed;
             }
-            return (Thread) invokeL.objValue;
+            return (Response) invokeL.objValue;
         }
     }
 
@@ -91,113 +86,160 @@ public class p {
                 return;
             }
         }
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f = availableProcessors;
-        h = (availableProcessors * 2) + 1;
-        i = 0L;
+        b = new byte[1024];
     }
 
-    public p() {
+    public p(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = new LinkedBlockingQueue(100);
-        this.d = new LinkedBlockingQueue(10);
-        int i4 = f;
-        int max = Math.max(4, i4);
-        int max2 = Math.max(max, (i4 * 2) + 1);
-        TimeUnit timeUnit = TimeUnit.SECONDS;
-        this.a = new ThreadPoolExecutor(max, max2, 10L, timeUnit, this.c, new a("sofire_pool_thread_", 5), new ThreadPoolExecutor.AbortPolicy());
-        this.b = new ThreadPoolExecutor(2, h, 10L, timeUnit, this.d, new a("sofire_pool_core_thread_", 6), new ThreadPoolExecutor.DiscardOldestPolicy());
-        if (Build.VERSION.SDK_INT >= 9) {
-            this.a.allowCoreThreadTimeOut(true);
-            this.b.allowCoreThreadTimeOut(true);
-        }
+        this.a = context;
     }
 
-    public static p a(Context context) {
+    public static boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (g == null) {
-                try {
-                    synchronized (p.class) {
-                        if (g == null) {
-                            g = new p();
-                        }
-                    }
-                } catch (Throwable unused) {
-                    int i2 = com.baidu.sofire.a.b.a;
-                }
-            }
-            if (g != null && g.e == null && context != null) {
-                g.e = context;
-            }
-            return g;
+            return context.getPackageName().contains("com.baidu.searchbox");
         }
-        return (p) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public int a(Runnable runnable) {
+    public String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                ThreadPoolExecutor threadPoolExecutor = this.a;
-                if (threadPoolExecutor != null) {
-                    threadPoolExecutor.execute(runnable);
-                    return 1;
-                }
-                return -2;
-            } catch (RejectedExecutionException e) {
-                try {
-                    if (this.e != null && System.currentTimeMillis() - i >= 86400000) {
-                        HashMap hashMap = new HashMap();
-                        hashMap.put("0", Integer.valueOf(f));
-                        hashMap.put("1", Integer.valueOf(this.a.getCorePoolSize()));
-                        hashMap.put("2", Integer.valueOf(this.a.getMaximumPoolSize()));
-                        hashMap.put("3", Base64.encodeToString(com.baidu.sofire.a.b.a(e).getBytes(), 0).replace("\n", "").replace("\t", "").replace("\r", ""));
-                        com.baidu.sofire.k.a.a(this.e.getApplicationContext(), "1003147", (Map<String, Object>) hashMap, true);
-                        i = System.currentTimeMillis();
+                if (q.a(this.a)) {
+                    Response execute = a().newCall(a(str, (byte[]) null)).execute();
+                    int code = execute.code();
+                    if (code == 200) {
+                        return execute.body().string();
                     }
-                } catch (Throwable unused) {
-                    int i2 = com.baidu.sofire.a.b.a;
+                    throw new NetworkErrorException(String.valueOf(code));
                 }
-                int i3 = com.baidu.sofire.a.b.a;
-                return -1;
-            } catch (Throwable unused2) {
-                int i4 = com.baidu.sofire.a.b.a;
-                return -3;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public int b(Runnable runnable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable)) == null) {
-            try {
-                ThreadPoolExecutor threadPoolExecutor = this.b;
-                if (threadPoolExecutor != null) {
-                    threadPoolExecutor.execute(runnable);
-                    return 1;
-                }
-                return -2;
+                throw new NetworkErrorException("Not allow background connect.");
             } catch (Throwable unused) {
-                int i2 = com.baidu.sofire.a.b.a;
-                return -3;
+                int i = com.baidu.sofire.a.b.a;
+                return "";
             }
         }
-        return invokeL.intValue;
+        return (String) invokeL.objValue;
+    }
+
+    public OkHttpClient a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (c == null) {
+                synchronized (p.class) {
+                    if (c == null) {
+                        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+                        builder.hostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
+                        builder.connectTimeout(AppConfig.TIMESTAMP_AVAILABLE_DURATION, TimeUnit.MILLISECONDS);
+                        builder.addInterceptor(new a(this));
+                        c = builder.build();
+                    }
+                }
+            }
+            return c;
+        }
+        return (OkHttpClient) invokeV.objValue;
+    }
+
+    public final Request a(String str, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr)) == null) {
+            try {
+                MediaType parse = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
+                String str2 = b.o(this.a)[0];
+                Request.Builder url = new Request.Builder().url(str);
+                if (bArr != null) {
+                    url.post(RequestBody.create(parse, bArr));
+                }
+                Request.Builder addHeader = url.addHeader("User-Agent", "eos/" + str2 + "/" + v.a(this.a) + "/3.6.0.4").addHeader("Pragma", "no-cache").addHeader("Accept", "*/*");
+                return addHeader.addHeader("Accept-Language", Locale.getDefault().getLanguage() + "-" + Locale.getDefault().getCountry()).addHeader("x-device-id", j.a(d.a(this.a))).build();
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+                return null;
+            }
+        }
+        return (Request) invokeLL.objValue;
+    }
+
+    public boolean a(String str, File file) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, file)) == null) {
+            try {
+                if (q.a(this.a)) {
+                    Response execute = a().newCall(new Request.Builder().url(str).build()).execute();
+                    int code = execute.code();
+                    if (code == 200) {
+                        InputStream byteStream = execute.body().byteStream();
+                        if (byteStream != null) {
+                            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
+                            while (true) {
+                                byte[] bArr = b;
+                                int read = byteStream.read(bArr);
+                                if (read == -1) {
+                                    break;
+                                }
+                                bufferedOutputStream.write(bArr, 0, read);
+                                bufferedOutputStream.flush();
+                            }
+                            bufferedOutputStream.flush();
+                            bufferedOutputStream.close();
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        byteStream.close();
+                        return z;
+                    }
+                    throw new NetworkErrorException(String.valueOf(code));
+                }
+                throw new NetworkErrorException("Not allow background connect.");
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public String b(String str, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bArr)) == null) {
+            try {
+                if (q.a(this.a)) {
+                    Response execute = a().newCall(a(str, bArr)).execute();
+                    int code = execute.code();
+                    if (code == 200) {
+                        return execute.body().string();
+                    }
+                    throw new NetworkErrorException(String.valueOf(code));
+                }
+                throw new NetworkErrorException("Not allow background connect.");
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
     }
 }

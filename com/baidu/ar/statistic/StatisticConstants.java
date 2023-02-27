@@ -1,12 +1,6 @@
 package com.baidu.ar.statistic;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class StatisticConstants {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTH_FAILURE = "event_auth_fail";
     public static final String CLOUD_SEARCH_SUCCESS = "cloud_imgsearch_success";
     public static final String DEVICE_SEARCH_SUCCESS = "ondevice_imgsearch_success";
@@ -92,19 +86,4 @@ public class StatisticConstants {
     public static final String VPS_SESSION_ID = "session_id";
     public static final String VPS_SUB_INDOOR_SERVICE_DURATION = "indoor_service_duration";
     public static final String VPS_TRACK_ON = "vps_track_on";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public StatisticConstants() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

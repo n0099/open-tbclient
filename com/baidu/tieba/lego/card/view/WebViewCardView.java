@@ -240,7 +240,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         }
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.vv7
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.az7
     public void c(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048580, this, bdUniqueId) != null) || bdUniqueId == null) {
@@ -255,7 +255,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            this.n = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01c4, (ViewGroup) null);
+            this.n = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01d1, (ViewGroup) null);
             G();
             return this.n;
         }
@@ -297,7 +297,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
                 JSONObject jSONObject = new JSONObject(str);
                 String optString = jSONObject.optString("interfaceName");
                 String optString2 = jSONObject.optString("methodName");
-                String optString3 = jSONObject.optString(Constants.EXTRA_PARAM);
+                String optString3 = jSONObject.optString("param");
                 if (!StringUtils.isNull(optString) && !StringUtils.isNull(optString2) && !StringUtils.isNull(optString3)) {
                     return this.p.dealJsInterface(optString, optString2, optString3, jsPromptResult);
                 }

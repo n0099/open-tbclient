@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bm7;
-import com.baidu.tieba.eo7;
-import com.baidu.tieba.kn7;
-import com.baidu.tieba.xk7;
+import com.baidu.tieba.ar7;
+import com.baidu.tieba.gq7;
+import com.baidu.tieba.tn7;
+import com.baidu.tieba.xo7;
 import com.baidu.tieba.yf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -82,12 +82,12 @@ public class MultiImageTextTopView extends RelativeLayout {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bm7.a a;
+        public final /* synthetic */ xo7.a a;
         public final /* synthetic */ TbPageContext b;
         public final /* synthetic */ int c;
         public final /* synthetic */ MultiImageTextTopView d;
 
-        public b(MultiImageTextTopView multiImageTextTopView, bm7.a aVar, TbPageContext tbPageContext, int i) {
+        public b(MultiImageTextTopView multiImageTextTopView, xo7.a aVar, TbPageContext tbPageContext, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,18 +110,18 @@ public class MultiImageTextTopView extends RelativeLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            bm7.a aVar;
+            xo7.a aVar;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a) != null && !StringUtils.isNull(aVar.d)) {
                 UrlManager.getInstance().dealOneLink(this.b, new String[]{this.a.d});
                 if (this.c == 1) {
                     TiebaStatic.eventStat(this.d.a, "official_msg_ck", "click", 1, "fid", this.a.e);
-                    xk7 n = eo7.n(this.a.f);
+                    tn7 n = ar7.n(this.a.f);
                     if (n != null) {
                         TiebaStatic.eventStat(this.d.a, "message_open_detail", "click", 1, "task_type", n.a, "task_id", n.b, "loc", "0");
                         int i = this.a.g;
                         if ((i == 1 || i == 3) && !"0".equals(n.b)) {
-                            kn7.c().a(n.b);
+                            gq7.c().a(n.b);
                         }
                     }
                     StatisticItem statisticItem = new StatisticItem("official_message_open_detail");
@@ -246,11 +246,11 @@ public class MultiImageTextTopView extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05c3, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0923dd);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05d7, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092428);
             this.b = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0923f9);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092446);
             this.d = (TextView) findViewById(R.id.show_time);
             setOnLongClickListener(new a(this));
         }
@@ -267,7 +267,7 @@ public class MultiImageTextTopView extends RelativeLayout {
         }
     }
 
-    public void setData(TbPageContext<?> tbPageContext, bm7.a aVar, View view2, int i) {
+    public void setData(TbPageContext<?> tbPageContext, xo7.a aVar, View view2, int i) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048579, this, tbPageContext, aVar, view2, i) == null) {

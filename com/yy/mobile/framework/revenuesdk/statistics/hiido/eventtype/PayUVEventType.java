@@ -1,12 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PayUVEventType {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String PAY_AMOUNT_DIALOG_COMFIRM_BTN_CLICK = "2";
     public static final String PAY_AMOUNT_DIALOG_ITEM_CLICK = "3";
     public static final String PAY_AMOUNT_DIALOG_SHOW = "1";
@@ -74,74 +68,23 @@ public class PayUVEventType {
     public static final String THIRD_PART_PAY_WAY_DIALOG_SHOW = "28";
     public static final String THIRD_PAY_WAY_DIALOG_CHANNEL_CLICK = "30";
     public static final String THIRD_PAY_WAY_DIALOG_COMFIRM_BTN_CLICK = "29";
-    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class SplitOrderScene {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final String NORMAL_PAY = "0";
         public static final String SPLIT_AFTER_PAY = "2";
         public static final String SPLIT_BEFORE_PAY = "1";
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PayUVEventType this$0;
 
-        public SplitOrderScene(PayUVEventType payUVEventType) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {payUVEventType};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = payUVEventType;
+        public SplitOrderScene() {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class UserType {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final String BAIDU = "2";
         public static final String YYUID = "1";
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PayUVEventType this$0;
 
-        public UserType(PayUVEventType payUVEventType) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {payUVEventType};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = payUVEventType;
-        }
-    }
-
-    public PayUVEventType() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        public UserType() {
         }
     }
 }

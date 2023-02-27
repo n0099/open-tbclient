@@ -15,15 +15,53 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public interface IMcsSdkService extends IInterface {
 
     /* loaded from: classes8.dex */
-    public abstract class Stub extends Binder implements IMcsSdkService {
+    public static class Default implements IMcsSdkService {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Default() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return null;
+            }
+            return (IBinder) invokeV.objValue;
+        }
+
+        @Override // com.mcs.aidl.IMcsSdkService
+        public void process(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static abstract class Stub extends Binder implements IMcsSdkService {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.mcs.aidl.IMcsSdkService";
         public static final int TRANSACTION_process = 1;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes8.dex */
-        public class Proxy implements IMcsSdkService {
+        public static class Proxy implements IMcsSdkService {
             public static /* synthetic */ Interceptable $ic;
+            public static IMcsSdkService sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder mRemote;
 
@@ -72,8 +110,11 @@ public interface IMcsSdkService extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        this.mRemote.transact(1, obtain, obtain2, 0);
-                        obtain2.readException();
+                        if (this.mRemote.transact(1, obtain, obtain2, 0) || Stub.getDefaultImpl() == null) {
+                            obtain2.readException();
+                        } else {
+                            Stub.getDefaultImpl().process(bundle);
+                        }
                     } finally {
                         obtain2.recycle();
                         obtain.recycle();
@@ -109,6 +150,25 @@ public interface IMcsSdkService extends IInterface {
                 return (queryLocalInterface == null || !(queryLocalInterface instanceof IMcsSdkService)) ? new Proxy(iBinder) : (IMcsSdkService) queryLocalInterface;
             }
             return (IMcsSdkService) invokeL.objValue;
+        }
+
+        public static IMcsSdkService getDefaultImpl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Proxy.sDefaultImpl : (IMcsSdkService) invokeV.objValue;
+        }
+
+        public static boolean setDefaultImpl(IMcsSdkService iMcsSdkService) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iMcsSdkService)) == null) {
+                if (Proxy.sDefaultImpl != null || iMcsSdkService == null) {
+                    return false;
+                }
+                Proxy.sDefaultImpl = iMcsSdkService;
+                return true;
+            }
+            return invokeL.booleanValue;
         }
 
         @Override // android.os.IInterface

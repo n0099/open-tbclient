@@ -1,26 +1,15 @@
 package com.google.gson.stream;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Closeable;
 import java.io.Flushable;
 import java.io.IOException;
 import java.io.Writer;
 /* loaded from: classes8.dex */
 public class JsonWriter implements Closeable, Flushable {
-    public static /* synthetic */ Interceptable $ic;
     public static final String[] HTML_SAFE_REPLACEMENT_CHARS;
-    public static final String[] REPLACEMENT_CHARS;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final String[] REPLACEMENT_CHARS = new String[128];
     public String deferredName;
     public boolean htmlSafe;
     public String indent;
@@ -28,23 +17,10 @@ public class JsonWriter implements Closeable, Flushable {
     public final Writer out;
     public String separator;
     public boolean serializeNulls;
-    public int[] stack;
-    public int stackSize;
+    public int[] stack = new int[32];
+    public int stackSize = 0;
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(935776889, "Lcom/google/gson/stream/JsonWriter;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(935776889, "Lcom/google/gson/stream/JsonWriter;");
-                return;
-            }
-        }
-        REPLACEMENT_CHARS = new String[128];
         for (int i = 0; i <= 31; i++) {
             REPLACEMENT_CHARS[i] = String.format("\\u%04x", Integer.valueOf(i));
         }
@@ -66,22 +42,6 @@ public class JsonWriter implements Closeable, Flushable {
     }
 
     public JsonWriter(Writer writer) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {writer};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.stack = new int[32];
-        this.stackSize = 0;
         push(6);
         this.separator = ":";
         this.serializeNulls = true;
@@ -92,85 +52,90 @@ public class JsonWriter implements Closeable, Flushable {
         throw new NullPointerException("out == null");
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0038  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private void string(String str) throws IOException {
-        String[] strArr;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, this, str) == null) {
-            if (this.htmlSafe) {
-                strArr = HTML_SAFE_REPLACEMENT_CHARS;
-            } else {
-                strArr = REPLACEMENT_CHARS;
-            }
-            this.out.write("\"");
-            int length = str.length();
-            int i = 0;
-            for (int i2 = 0; i2 < length; i2++) {
-                char charAt = str.charAt(i2);
-                if (charAt < 128) {
-                    str2 = strArr[charAt];
-                    if (str2 == null) {
-                    }
-                    if (i < i2) {
-                        this.out.write(str, i, i2 - i);
-                    }
-                    this.out.write(str2);
-                    i = i2 + 1;
-                } else {
-                    if (charAt == 8232) {
-                        str2 = "\\u2028";
-                    } else if (charAt == 8233) {
-                        str2 = "\\u2029";
-                    }
-                    if (i < i2) {
-                    }
-                    this.out.write(str2);
-                    i = i2 + 1;
-                }
-            }
-            if (i < length) {
-                this.out.write(str, i, length - i);
-            }
-            this.out.write("\"");
+    private void push(int i) {
+        int i2 = this.stackSize;
+        int[] iArr = this.stack;
+        if (i2 == iArr.length) {
+            int[] iArr2 = new int[i2 * 2];
+            System.arraycopy(iArr, 0, iArr2, 0, i2);
+            this.stack = iArr2;
         }
+        int[] iArr3 = this.stack;
+        int i3 = this.stackSize;
+        this.stackSize = i3 + 1;
+        iArr3[i3] = i;
     }
 
-    public JsonWriter value(double d) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Double.valueOf(d)})) == null) {
-            writeDeferredName();
-            if (!this.lenient && (Double.isNaN(d) || Double.isInfinite(d))) {
-                throw new IllegalArgumentException("Numeric values must be finite, but was " + d);
-            }
-            beforeValue();
-            this.out.append((CharSequence) Double.toString(d));
-            return this;
+    private void replaceTop(int i) {
+        this.stack[this.stackSize - 1] = i;
+    }
+
+    public JsonWriter jsonValue(String str) throws IOException {
+        if (str == null) {
+            return nullValue();
         }
-        return (JsonWriter) invokeCommon.objValue;
+        writeDeferredName();
+        beforeValue();
+        this.out.append((CharSequence) str);
+        return this;
+    }
+
+    public JsonWriter name(String str) throws IOException {
+        if (str != null) {
+            if (this.deferredName == null) {
+                if (this.stackSize != 0) {
+                    this.deferredName = str;
+                    return this;
+                }
+                throw new IllegalStateException("JsonWriter is closed.");
+            }
+            throw new IllegalStateException();
+        }
+        throw new NullPointerException("name == null");
+    }
+
+    public final void setHtmlSafe(boolean z) {
+        this.htmlSafe = z;
+    }
+
+    public final void setIndent(String str) {
+        if (str.length() == 0) {
+            this.indent = null;
+            this.separator = ":";
+            return;
+        }
+        this.indent = str;
+        this.separator = ": ";
+    }
+
+    public final void setLenient(boolean z) {
+        this.lenient = z;
+    }
+
+    public final void setSerializeNulls(boolean z) {
+        this.serializeNulls = z;
+    }
+
+    public JsonWriter value(long j) throws IOException {
+        writeDeferredName();
+        beforeValue();
+        this.out.write(Long.toString(j));
+        return this;
     }
 
     private void beforeName() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            int peek = peek();
-            if (peek == 5) {
-                this.out.write(44);
-            } else if (peek != 3) {
-                throw new IllegalStateException("Nesting problem.");
-            }
-            newline();
-            replaceTop(4);
+        int peek = peek();
+        if (peek == 5) {
+            this.out.write(44);
+        } else if (peek != 3) {
+            throw new IllegalStateException("Nesting problem.");
         }
+        newline();
+        replaceTop(4);
     }
 
     private void newline() throws IOException {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65541, this) != null) || this.indent == null) {
+        if (this.indent == null) {
             return;
         }
         this.out.write("\n");
@@ -181,21 +146,15 @@ public class JsonWriter implements Closeable, Flushable {
     }
 
     private int peek() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            int i = this.stackSize;
-            if (i != 0) {
-                return this.stack[i - 1];
-            }
-            throw new IllegalStateException("JsonWriter is closed.");
+        int i = this.stackSize;
+        if (i != 0) {
+            return this.stack[i - 1];
         }
-        return invokeV.intValue;
+        throw new IllegalStateException("JsonWriter is closed.");
     }
 
     private void writeDeferredName() throws IOException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65547, this) == null) && this.deferredName != null) {
+        if (this.deferredName != null) {
             beforeName();
             string(this.deferredName);
             this.deferredName = null;
@@ -203,355 +162,226 @@ public class JsonWriter implements Closeable, Flushable {
     }
 
     public JsonWriter beginArray() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            writeDeferredName();
-            return open(1, PreferencesUtil.LEFT_MOUNT);
-        }
-        return (JsonWriter) invokeV.objValue;
+        writeDeferredName();
+        return open(1, PreferencesUtil.LEFT_MOUNT);
     }
 
     public JsonWriter beginObject() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            writeDeferredName();
-            return open(3, "{");
-        }
-        return (JsonWriter) invokeV.objValue;
+        writeDeferredName();
+        return open(3, "{");
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.out.close();
-            int i = this.stackSize;
-            if (i <= 1 && (i != 1 || this.stack[i - 1] == 7)) {
-                this.stackSize = 0;
-                return;
-            }
-            throw new IOException("Incomplete document");
+        this.out.close();
+        int i = this.stackSize;
+        if (i <= 1 && (i != 1 || this.stack[i - 1] == 7)) {
+            this.stackSize = 0;
+            return;
         }
+        throw new IOException("Incomplete document");
     }
 
     public JsonWriter endArray() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return close(1, 2, PreferencesUtil.RIGHT_MOUNT);
-        }
-        return (JsonWriter) invokeV.objValue;
+        return close(1, 2, PreferencesUtil.RIGHT_MOUNT);
     }
 
     public JsonWriter endObject() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return close(3, 5, "}");
-        }
-        return (JsonWriter) invokeV.objValue;
+        return close(3, 5, "}");
     }
 
     public void flush() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.stackSize != 0) {
-                this.out.flush();
-                return;
-            }
-            throw new IllegalStateException("JsonWriter is closed.");
+        if (this.stackSize != 0) {
+            this.out.flush();
+            return;
         }
+        throw new IllegalStateException("JsonWriter is closed.");
     }
 
     public final boolean getSerializeNulls() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.serializeNulls;
-        }
-        return invokeV.booleanValue;
+        return this.serializeNulls;
     }
 
     public final boolean isHtmlSafe() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.htmlSafe;
-        }
-        return invokeV.booleanValue;
+        return this.htmlSafe;
     }
 
     public boolean isLenient() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.lenient;
-        }
-        return invokeV.booleanValue;
+        return this.lenient;
     }
 
     public JsonWriter nullValue() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.deferredName != null) {
-                if (this.serializeNulls) {
-                    writeDeferredName();
-                } else {
-                    this.deferredName = null;
-                    return this;
-                }
+        if (this.deferredName != null) {
+            if (this.serializeNulls) {
+                writeDeferredName();
+            } else {
+                this.deferredName = null;
+                return this;
             }
-            beforeValue();
-            this.out.write(StringUtil.NULL_STRING);
-            return this;
         }
-        return (JsonWriter) invokeV.objValue;
+        beforeValue();
+        this.out.write(StringUtil.NULL_STRING);
+        return this;
     }
 
     private void beforeValue() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            int peek = peek();
-            if (peek != 1) {
-                if (peek != 2) {
-                    if (peek != 4) {
-                        if (peek != 6) {
-                            if (peek == 7) {
-                                if (!this.lenient) {
-                                    throw new IllegalStateException("JSON must have only one top-level value.");
-                                }
-                            } else {
-                                throw new IllegalStateException("Nesting problem.");
+        int peek = peek();
+        if (peek != 1) {
+            if (peek != 2) {
+                if (peek != 4) {
+                    if (peek != 6) {
+                        if (peek == 7) {
+                            if (!this.lenient) {
+                                throw new IllegalStateException("JSON must have only one top-level value.");
                             }
+                        } else {
+                            throw new IllegalStateException("Nesting problem.");
                         }
-                        replaceTop(7);
-                        return;
                     }
-                    this.out.append((CharSequence) this.separator);
-                    replaceTop(5);
+                    replaceTop(7);
                     return;
                 }
-                this.out.append(',');
-                newline();
+                this.out.append((CharSequence) this.separator);
+                replaceTop(5);
                 return;
             }
-            replaceTop(2);
+            this.out.append(',');
             newline();
+            return;
         }
+        replaceTop(2);
+        newline();
     }
 
     private JsonWriter close(int i, int i2, String str) throws IOException {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i, i2, str)) == null) {
-            int peek = peek();
-            if (peek != i2 && peek != i) {
-                throw new IllegalStateException("Nesting problem.");
-            }
-            if (this.deferredName == null) {
-                this.stackSize--;
-                if (peek == i2) {
-                    newline();
-                }
-                this.out.write(str);
-                return this;
-            }
-            throw new IllegalStateException("Dangling name: " + this.deferredName);
+        int peek = peek();
+        if (peek != i2 && peek != i) {
+            throw new IllegalStateException("Nesting problem.");
         }
-        return (JsonWriter) invokeIIL.objValue;
-    }
-
-    private JsonWriter open(int i, String str) throws IOException {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, this, i, str)) == null) {
-            beforeValue();
-            push(i);
+        if (this.deferredName == null) {
+            this.stackSize--;
+            if (peek == i2) {
+                newline();
+            }
             this.out.write(str);
             return this;
         }
-        return (JsonWriter) invokeIL.objValue;
+        throw new IllegalStateException("Dangling name: " + this.deferredName);
     }
 
-    private void push(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65544, this, i) == null) {
-            int i2 = this.stackSize;
-            int[] iArr = this.stack;
-            if (i2 == iArr.length) {
-                int[] iArr2 = new int[i2 * 2];
-                System.arraycopy(iArr, 0, iArr2, 0, i2);
-                this.stack = iArr2;
-            }
-            int[] iArr3 = this.stack;
-            int i3 = this.stackSize;
-            this.stackSize = i3 + 1;
-            iArr3[i3] = i;
+    private JsonWriter open(int i, String str) throws IOException {
+        beforeValue();
+        push(i);
+        this.out.write(str);
+        return this;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0034  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private void string(String str) throws IOException {
+        String[] strArr;
+        String str2;
+        if (this.htmlSafe) {
+            strArr = HTML_SAFE_REPLACEMENT_CHARS;
+        } else {
+            strArr = REPLACEMENT_CHARS;
         }
-    }
-
-    private void replaceTop(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65545, this, i) == null) {
-            this.stack[this.stackSize - 1] = i;
-        }
-    }
-
-    public JsonWriter jsonValue(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (str == null) {
-                return nullValue();
-            }
-            writeDeferredName();
-            beforeValue();
-            this.out.append((CharSequence) str);
-            return this;
-        }
-        return (JsonWriter) invokeL.objValue;
-    }
-
-    public final void setHtmlSafe(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.htmlSafe = z;
-        }
-    }
-
-    public final void setIndent(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            if (str.length() == 0) {
-                this.indent = null;
-                this.separator = ":";
-                return;
-            }
-            this.indent = str;
-            this.separator = ": ";
-        }
-    }
-
-    public final void setLenient(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.lenient = z;
-        }
-    }
-
-    public final void setSerializeNulls(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.serializeNulls = z;
-        }
-    }
-
-    public JsonWriter value(long j) throws IOException {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048593, this, j)) == null) {
-            writeDeferredName();
-            beforeValue();
-            this.out.write(Long.toString(j));
-            return this;
-        }
-        return (JsonWriter) invokeJ.objValue;
-    }
-
-    public JsonWriter name(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (str != null) {
-                if (this.deferredName == null) {
-                    if (this.stackSize != 0) {
-                        this.deferredName = str;
-                        return this;
-                    }
-                    throw new IllegalStateException("JsonWriter is closed.");
+        this.out.write("\"");
+        int length = str.length();
+        int i = 0;
+        for (int i2 = 0; i2 < length; i2++) {
+            char charAt = str.charAt(i2);
+            if (charAt < 128) {
+                str2 = strArr[charAt];
+                if (str2 == null) {
                 }
-                throw new IllegalStateException();
-            }
-            throw new NullPointerException("name == null");
-        }
-        return (JsonWriter) invokeL.objValue;
-    }
-
-    public JsonWriter value(Boolean bool) throws IOException {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, bool)) == null) {
-            if (bool == null) {
-                return nullValue();
-            }
-            writeDeferredName();
-            beforeValue();
-            Writer writer = this.out;
-            if (bool.booleanValue()) {
-                str = "true";
+                if (i < i2) {
+                    this.out.write(str, i, i2 - i);
+                }
+                this.out.write(str2);
+                i = i2 + 1;
             } else {
-                str = "false";
+                if (charAt == 8232) {
+                    str2 = "\\u2028";
+                } else if (charAt == 8233) {
+                    str2 = "\\u2029";
+                }
+                if (i < i2) {
+                }
+                this.out.write(str2);
+                i = i2 + 1;
             }
-            writer.write(str);
-            return this;
         }
-        return (JsonWriter) invokeL.objValue;
+        if (i < length) {
+            this.out.write(str, i, length - i);
+        }
+        this.out.write("\"");
     }
 
     public JsonWriter value(Number number) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, number)) == null) {
-            if (number == null) {
-                return nullValue();
-            }
-            writeDeferredName();
-            String obj = number.toString();
-            if (!this.lenient && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals("NaN"))) {
-                throw new IllegalArgumentException("Numeric values must be finite, but was " + number);
-            }
-            beforeValue();
-            this.out.append((CharSequence) obj);
-            return this;
+        if (number == null) {
+            return nullValue();
         }
-        return (JsonWriter) invokeL.objValue;
+        writeDeferredName();
+        String obj = number.toString();
+        if (!this.lenient && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals("NaN"))) {
+            throw new IllegalArgumentException("Numeric values must be finite, but was " + number);
+        }
+        beforeValue();
+        this.out.append((CharSequence) obj);
+        return this;
+    }
+
+    public JsonWriter value(double d) throws IOException {
+        writeDeferredName();
+        if (!this.lenient && (Double.isNaN(d) || Double.isInfinite(d))) {
+            throw new IllegalArgumentException("Numeric values must be finite, but was " + d);
+        }
+        beforeValue();
+        this.out.append((CharSequence) Double.toString(d));
+        return this;
+    }
+
+    public JsonWriter value(Boolean bool) throws IOException {
+        String str;
+        if (bool == null) {
+            return nullValue();
+        }
+        writeDeferredName();
+        beforeValue();
+        Writer writer = this.out;
+        if (bool.booleanValue()) {
+            str = "true";
+        } else {
+            str = "false";
+        }
+        writer.write(str);
+        return this;
     }
 
     public JsonWriter value(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
-            if (str == null) {
-                return nullValue();
-            }
-            writeDeferredName();
-            beforeValue();
-            string(str);
-            return this;
+        if (str == null) {
+            return nullValue();
         }
-        return (JsonWriter) invokeL.objValue;
+        writeDeferredName();
+        beforeValue();
+        string(str);
+        return this;
     }
 
     public JsonWriter value(boolean z) throws IOException {
-        InterceptResult invokeZ;
         String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048597, this, z)) == null) {
-            writeDeferredName();
-            beforeValue();
-            Writer writer = this.out;
-            if (z) {
-                str = "true";
-            } else {
-                str = "false";
-            }
-            writer.write(str);
-            return this;
+        writeDeferredName();
+        beforeValue();
+        Writer writer = this.out;
+        if (z) {
+            str = "true";
+        } else {
+            str = "false";
         }
-        return (JsonWriter) invokeZ.objValue;
+        writer.write(str);
+        return this;
     }
 }

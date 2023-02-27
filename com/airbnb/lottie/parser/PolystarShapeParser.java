@@ -7,11 +7,10 @@ import com.airbnb.lottie.model.animatable.AnimatableFloatValue;
 import com.airbnb.lottie.model.animatable.AnimatableValue;
 import com.airbnb.lottie.model.content.PolystarShape;
 import com.airbnb.lottie.parser.moshi.JsonReader;
-import com.baidu.mobstat.Config;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class PolystarShapeParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "sy", Config.PLATFORM_TYPE, "p", "r", "or", "os", "ir", "is", "hd");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "sy", "pt", "p", "r", "or", "os", "ir", "is", "hd");
 
     public static PolystarShape parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
         String str = null;

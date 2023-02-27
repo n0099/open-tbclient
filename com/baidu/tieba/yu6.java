@@ -1,147 +1,155 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.aggregation.VideoAggregationModel;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
+import tbclient.ForumToolPerm;
 /* loaded from: classes7.dex */
 public class yu6 {
     public static /* synthetic */ Interceptable $ic;
+    public static UserData a;
+    public static boolean b;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public tu6 a;
-    public String b;
-    public VideoAggregationModel c;
-    public boolean d;
-    public VideoAggregationModel.c e;
 
-    /* loaded from: classes7.dex */
-    public class a implements VideoAggregationModel.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yu6 a;
+    public static UserData a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return a;
+        }
+        return (UserData) invokeV.objValue;
+    }
 
-        public a(yu6 yu6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yu6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            UserData a2 = a();
+            if (a2 == null || a2.getIs_manager() != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            UserData a2 = a();
+            if (a2 == null || a2.getIs_manager() != 3) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static UserData b(FrsViewData frsViewData) {
+        InterceptResult invokeL;
+        UserData userData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, frsViewData)) == null) {
+            if (frsViewData != null) {
+                userData = frsViewData.getUserData();
+            } else {
+                userData = null;
+            }
+            a = userData;
+            return userData;
+        }
+        return (UserData) invokeL.objValue;
+    }
+
+    public static boolean d(UserData userData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, userData)) == null) {
+            if (userData == null) {
+                return false;
+            }
+            int is_manager = userData.getIs_manager();
+            if (is_manager != 1 && is_manager != 2 && is_manager != 3 && is_manager != 4) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        List<ForumToolPerm> forumToolAuth;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            UserData a2 = a();
+            if (a2 != null && (forumToolAuth = a2.getForumToolAuth()) != null) {
+                for (int i = 0; i < forumToolAuth.size(); i++) {
+                    ForumToolPerm forumToolPerm = forumToolAuth.get(i);
+                    if (forumToolPerm != null && forumToolPerm.perm.longValue() == 1) {
+                        return true;
+                    }
                 }
             }
-            this.a = yu6Var;
+            return false;
         }
+        return invokeV.booleanValue;
+    }
 
-        @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.c
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a.a == null) {
-                return;
-            }
-            this.a.a.n();
-            this.a.a.k(str);
-            this.a.a.onLoadFail();
+    public static void i(lx lxVar, FrsViewData frsViewData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65544, null, lxVar, frsViewData) != null) || lxVar == null) {
+            return;
         }
-
-        @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.c
-        public void b(List<wu6> list, boolean z, boolean z2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || this.a.a == null) {
-                return;
-            }
-            this.a.a.n();
-            this.a.d = z2;
-            this.a.a.T0(list, z, z2);
+        if (frsViewData != null && frsViewData.getForum() != null) {
+            b = frsViewData.getForum().isFrsMask();
+            c = frsViewData.getForum().getId();
+        }
+        if (frsViewData != null && (d(b(frsViewData)) || h())) {
+            lxVar.f(4);
+        } else {
+            lxVar.g(4);
         }
     }
 
-    public yu6(TbPageContext tbPageContext, tu6 tu6Var) {
+    public static void j(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, tu6Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeLL(65545, null, threadCommentAndPraiseInfoLayout, frsViewData) != null) || threadCommentAndPraiseInfoLayout == null) {
+            return;
         }
-        a aVar = new a(this);
-        this.e = aVar;
-        this.a = tu6Var;
-        this.c = new VideoAggregationModel(tbPageContext, aVar);
-    }
-
-    public void f(String str) {
-        VideoAggregationModel videoAggregationModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (videoAggregationModel = this.c) != null) {
-            videoAggregationModel.setFrom(str);
+        if (frsViewData != null && frsViewData.getForum() != null) {
+            b = frsViewData.getForum().isFrsMask();
+            c = frsViewData.getForum().getId();
         }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = str;
-            VideoAggregationModel videoAggregationModel = this.c;
-            if (videoAggregationModel != null) {
-                videoAggregationModel.L(str);
-            }
-        }
-    }
-
-    public void h(String str) {
-        VideoAggregationModel videoAggregationModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (videoAggregationModel = this.c) != null) {
-            videoAggregationModel.M(str);
-        }
-    }
-
-    public void i(String str) {
-        VideoAggregationModel videoAggregationModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && (videoAggregationModel = this.c) != null) {
-            videoAggregationModel.N(str);
-        }
-    }
-
-    public void c() {
-        VideoAggregationModel videoAggregationModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (videoAggregationModel = this.c) != null) {
-            videoAggregationModel.cancelLoadData();
-        }
-    }
-
-    public void d() {
-        VideoAggregationModel videoAggregationModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (videoAggregationModel = this.c) != null && this.d) {
-            videoAggregationModel.loadData();
-        }
-    }
-
-    public void e() {
-        VideoAggregationModel videoAggregationModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (videoAggregationModel = this.c) != null) {
-            videoAggregationModel.K();
+        if (frsViewData != null && d(b(frsViewData))) {
+            threadCommentAndPraiseInfoLayout.setManageVisible(true);
+        } else {
+            threadCommentAndPraiseInfoLayout.setManageVisible(false);
         }
     }
 }

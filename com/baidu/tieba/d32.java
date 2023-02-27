@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.DashPathEffect;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,10 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes4.dex */
-public class d32 extends c22 {
+public class d32 extends s22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DashPathEffect a;
+
+    @Override // com.baidu.tieba.s22
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        }
+    }
 
     public d32() {
         Interceptable interceptable = $ic;
@@ -28,37 +33,14 @@ public class d32 extends c22 {
         }
     }
 
-    @Override // com.baidu.tieba.c22
-    public void a(d22 d22Var, Canvas canvas) {
-        DashPathEffect dashPathEffect;
+    @Override // com.baidu.tieba.s22
+    public void a(t22 t22Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, d22Var, canvas) == null) && (dashPathEffect = this.a) != null) {
-            d22Var.c.setPathEffect(dashPathEffect);
-        }
-    }
-
-    @Override // com.baidu.tieba.c22
-    public void b(JSONArray jSONArray) {
-        float[] fArr;
-        JSONArray optJSONArray;
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            int i = 0;
-            if (jSONArray.length() > 0 && (optJSONArray = jSONArray.optJSONArray(0)) != null && (length = optJSONArray.length()) > 0) {
-                fArr = new float[length];
-                for (int i2 = 0; i2 < length; i2++) {
-                    fArr[i2] = nm3.g((float) optJSONArray.optDouble(i2));
-                }
-            } else {
-                fArr = null;
-            }
-            if (jSONArray.length() > 1) {
-                i = nm3.g((float) jSONArray.optDouble(1));
-            }
-            if (fArr != null && i >= 0) {
-                this.a = new DashPathEffect(fArr, i);
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, t22Var, canvas) == null) {
+            int alpha = t22Var.b.getAlpha();
+            t22Var.c(t22Var.b);
+            canvas.drawPath(t22Var.f, t22Var.b);
+            t22Var.b.setAlpha(alpha);
         }
     }
 }

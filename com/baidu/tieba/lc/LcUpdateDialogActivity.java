@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.clientupdate.ClientUpdater;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
@@ -22,12 +23,16 @@ import com.baidu.clientupdate.download.DownloadState;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
+import com.baidu.tbadk.core.atomData.LogoActivityConfig;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
+import com.baidu.tieba.r08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -147,7 +152,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
         }
     }
@@ -155,7 +160,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
         }
     }
@@ -193,7 +198,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
             setSwipeBackEnabled(false);
             setContentView(R.layout.activity_lc_update_layout);
             C1(bundle);
-            D1();
+            initView();
             registerReceiver();
         }
     }
@@ -201,7 +206,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
             ClientUpdateInfo clientUpdateInfo = this.k;
             if (clientUpdateInfo != null) {
@@ -239,9 +244,9 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         return invokeV.booleanValue;
     }
 
-    public final void D1() {
+    public final void initView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.b = (LinearLayout) findViewById(R.id.lc_update_trans_bg);
             this.c = (LinearLayout) findViewById(R.id.lc_update_bg);
             this.d = (TextView) findViewById(R.id.lc_update_title);
@@ -296,5 +301,18 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         SkinManager.setBackgroundResource(this.i, R.drawable.dialog_right_button_selector);
         SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0302);
         SkinManager.setBackgroundColor(this.j, R.color.CAM_X0211);
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onResume();
+            if (TbSingleton.getInstance().isSplashShowing()) {
+                r08 defaultLog = DefaultLog.getInstance();
+                defaultLog.b("BaseActivity", "resume LcUpdateDialogActivity failed，because of splash showing. IS_MAIN_TAB_SPLASH_SHOW=" + MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW + ", IS_HOT_SPLASH_SHOW=" + LogoActivityConfig.IS_HOT_SPLASH_SHOW);
+                finish();
+            }
+        }
     }
 }

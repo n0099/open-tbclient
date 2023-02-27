@@ -1,24 +1,28 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
-public class ac1 implements InvocationHandler {
+public abstract class ac1 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xb1 a;
+    public long a;
+    public long b;
 
-    public ac1(xb1 xb1Var) {
+    public abstract void c();
+
+    public abstract void d();
+
+    public ac1(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xb1Var};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,26 +32,33 @@ public class ac1 implements InvocationHandler {
                 return;
             }
         }
-        this.a = xb1Var;
+        this.a = j;
+        this.b = j2;
     }
 
-    @Override // java.lang.reflect.InvocationHandler
-    public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
-        InterceptResult invokeLLL;
+    public final long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, method, objArr)) == null) {
-            if (this.a != null) {
-                try {
-                    this.a.onTranslucent(((Boolean) objArr[0]).booleanValue());
-                    return null;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    this.a.onTranslucent(false);
-                    return null;
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeLLL.objValue;
+        return invokeV.longValue;
+    }
+
+    public final long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            d();
+        }
     }
 }

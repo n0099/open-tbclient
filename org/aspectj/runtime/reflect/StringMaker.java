@@ -1,48 +1,25 @@
 package org.aspectj.runtime.reflect;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Modifier;
 /* loaded from: classes9.dex */
 public class StringMaker {
-    public static /* synthetic */ Interceptable $ic;
     public static StringMaker longStringMaker;
     public static StringMaker middleStringMaker;
     public static StringMaker shortStringMaker;
-    public transient /* synthetic */ FieldHolder $fh;
     public int cacheOffset;
-    public boolean includeArgs;
-    public boolean includeEnclosingPoint;
-    public boolean includeJoinPointTypeName;
-    public boolean includeModifiers;
-    public boolean includeThrows;
-    public boolean shortKindName;
-    public boolean shortPrimaryTypeNames;
-    public boolean shortTypeNames;
+    public boolean shortTypeNames = true;
+    public boolean includeArgs = true;
+    public boolean includeThrows = false;
+    public boolean includeModifiers = false;
+    public boolean shortPrimaryTypeNames = false;
+    public boolean includeJoinPointTypeName = true;
+    public boolean includeEnclosingPoint = true;
+    public boolean shortKindName = true;
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1878984293, "Lorg/aspectj/runtime/reflect/StringMaker;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1878984293, "Lorg/aspectj/runtime/reflect/StringMaker;");
-                return;
-            }
-        }
         StringMaker stringMaker = new StringMaker();
         shortStringMaker = stringMaker;
         stringMaker.shortTypeNames = true;
@@ -72,32 +49,8 @@ public class StringMaker {
         stringMaker3.cacheOffset = 2;
     }
 
-    public StringMaker() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.shortTypeNames = true;
-        this.includeArgs = true;
-        this.includeThrows = false;
-        this.includeModifiers = false;
-        this.shortPrimaryTypeNames = false;
-        this.includeJoinPointTypeName = true;
-        this.includeEnclosingPoint = true;
-        this.shortKindName = true;
-    }
-
     public void addSignature(StringBuffer stringBuffer, Class[] clsArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, stringBuffer, clsArr) != null) || clsArr == null) {
+        if (clsArr == null) {
             return;
         }
         if (!this.includeArgs) {
@@ -115,107 +68,73 @@ public class StringMaker {
     }
 
     public void addThrows(StringBuffer stringBuffer, Class[] clsArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, stringBuffer, clsArr) == null) && this.includeThrows && clsArr != null && clsArr.length != 0) {
+        if (this.includeThrows && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             addTypeNames(stringBuffer, clsArr);
         }
     }
 
     public void addTypeNames(StringBuffer stringBuffer, Class[] clsArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, stringBuffer, clsArr) == null) {
-            for (int i = 0; i < clsArr.length; i++) {
-                if (i > 0) {
-                    stringBuffer.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                }
-                stringBuffer.append(makeTypeName(clsArr[i]));
+        for (int i = 0; i < clsArr.length; i++) {
+            if (i > 0) {
+                stringBuffer.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
+            stringBuffer.append(makeTypeName(clsArr[i]));
         }
     }
 
     public String makePrimaryTypeName(Class cls, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, cls, str)) == null) {
-            return makeTypeName(cls, str, this.shortPrimaryTypeNames);
-        }
-        return (String) invokeLL.objValue;
+        return makeTypeName(cls, str, this.shortPrimaryTypeNames);
     }
 
     public String makeKindName(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            int lastIndexOf = str.lastIndexOf(45);
-            if (lastIndexOf == -1) {
-                return str;
-            }
-            return str.substring(lastIndexOf + 1);
+        int lastIndexOf = str.lastIndexOf(45);
+        if (lastIndexOf == -1) {
+            return str;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public String makeTypeName(Class cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, cls)) == null) {
-            return makeTypeName(cls, cls.getName(), this.shortTypeNames);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String stripPackageName(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            int lastIndexOf = str.lastIndexOf(46);
-            if (lastIndexOf == -1) {
-                return str;
-            }
-            return str.substring(lastIndexOf + 1);
-        }
-        return (String) invokeL.objValue;
+        return str.substring(lastIndexOf + 1);
     }
 
     public String makeModifiersString(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (!this.includeModifiers) {
-                return "";
-            }
-            String modifier = Modifier.toString(i);
-            if (modifier.length() == 0) {
-                return "";
-            }
-            StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(modifier);
-            stringBuffer.append(" ");
-            return stringBuffer.toString();
+        if (!this.includeModifiers) {
+            return "";
         }
-        return (String) invokeI.objValue;
+        String modifier = Modifier.toString(i);
+        if (modifier.length() == 0) {
+            return "";
+        }
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(modifier);
+        stringBuffer.append(" ");
+        return stringBuffer.toString();
+    }
+
+    public String makeTypeName(Class cls) {
+        return makeTypeName(cls, cls.getName(), this.shortTypeNames);
+    }
+
+    public String stripPackageName(String str) {
+        int lastIndexOf = str.lastIndexOf(46);
+        if (lastIndexOf == -1) {
+            return str;
+        }
+        return str.substring(lastIndexOf + 1);
     }
 
     public String makeTypeName(Class cls, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048583, this, cls, str, z)) == null) {
-            if (cls == null) {
-                return "ANONYMOUS";
-            }
-            if (cls.isArray()) {
-                Class<?> componentType = cls.getComponentType();
-                StringBuffer stringBuffer = new StringBuffer();
-                stringBuffer.append(makeTypeName(componentType, componentType.getName(), z));
-                stringBuffer.append("[]");
-                return stringBuffer.toString();
-            } else if (z) {
-                return stripPackageName(str).replace('$', IStringUtil.EXTENSION_SEPARATOR);
-            } else {
-                return str.replace('$', IStringUtil.EXTENSION_SEPARATOR);
-            }
+        if (cls == null) {
+            return "ANONYMOUS";
         }
-        return (String) invokeLLZ.objValue;
+        if (cls.isArray()) {
+            Class<?> componentType = cls.getComponentType();
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(makeTypeName(componentType, componentType.getName(), z));
+            stringBuffer.append("[]");
+            return stringBuffer.toString();
+        } else if (z) {
+            return stripPackageName(str).replace('$', IStringUtil.EXTENSION_SEPARATOR);
+        } else {
+            return str.replace('$', IStringUtil.EXTENSION_SEPARATOR);
+        }
     }
 }

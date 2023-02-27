@@ -2,9 +2,9 @@ package com.baidu.tieba.filedownloader;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.dp6;
-import com.baidu.tieba.ep6;
-import com.baidu.tieba.ht8;
+import com.baidu.tieba.cs6;
+import com.baidu.tieba.ds6;
+import com.baidu.tieba.tw8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,13 +20,13 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0002\u0018\u0000 \u00122\u00020\u0001:\u0001\u0012B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u0010\u0010\u0007\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\n\u001a\u00020\u000b2\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\f\u001a\u00020\u000b2\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\r\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\u000e\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u0018\u0010\u000f\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\t2\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u0018\u0010\u0010\u001a\u00020\u00112\u0006\u0010\b\u001a\u00020\t2\u0006\u0010\u0005\u001a\u00020\u0006H\u0016¨\u0006\u0013"}, d2 = {"Lcom/baidu/tieba/filedownloader/TbFileDownloaderImpl;", "Lcom/baidu/tieba/filedownloader/interfaces/IFileDownloader;", "()V", "addGlobalCallback", "", WebChromeClient.KEY_ARG_CALLBACK, "Lcom/baidu/tieba/filedownloader/interfaces/IStatusCallback;", "cancel", "data", "Lcom/baidu/tbadk/download/DownloadData;", "getProgress", "", "getStatus", "pause", "removeGlobalCallback", "resume", "start", "", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+@Metadata(d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0002\u0018\u0000 \u00122\u00020\u0001:\u0001\u0012B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u0010\u0010\u0007\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\n\u001a\u00020\u000b2\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\f\u001a\u00020\u000b2\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\r\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\u000e\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u0018\u0010\u000f\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\t2\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u0018\u0010\u0010\u001a\u00020\u00112\u0006\u0010\b\u001a\u00020\t2\u0006\u0010\u0005\u001a\u00020\u0006H\u0016¨\u0006\u0013"}, d2 = {"Lcom/baidu/tieba/filedownloader/TbFileDownloaderImpl;", "Lcom/baidu/tieba/filedownloader/interfaces/IFileDownloader;", "()V", "addGlobalCallback", "", WebChromeClient.KEY_ARG_CALLBACK, "Lcom/baidu/tieba/filedownloader/interfaces/IStatusCallback;", "cancel", "data", "Lcom/baidu/tbadk/download/DownloadData;", "getProgress", "", "getStatus", "pause", "removeGlobalCallback", "resume", "start", "", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes4.dex */
-public final class TbFileDownloaderImpl implements dp6 {
+public final class TbFileDownloaderImpl implements cs6 {
     public static /* synthetic */ Interceptable $ic;
     public static final a a;
     public static final Lazy<TbFileDownloaderImpl> b;
-    public static final ht8 c;
+    public static final tw8 c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public /* synthetic */ TbFileDownloaderImpl(DefaultConstructorMarker defaultConstructorMarker) {
@@ -81,7 +81,7 @@ public final class TbFileDownloaderImpl implements dp6 {
         }
         a = new a(null);
         b = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) TbFileDownloaderImpl$Companion$sInstance$2.INSTANCE);
-        ht8 o = ht8.o();
+        tw8 o = tw8.o();
         Intrinsics.checkNotNullExpressionValue(o, "getInstance()");
         c = o;
     }
@@ -100,8 +100,8 @@ public final class TbFileDownloaderImpl implements dp6 {
         }
     }
 
-    @Override // com.baidu.tieba.dp6
-    public void a(ep6 callback) {
+    @Override // com.baidu.tieba.cs6
+    public void a(ds6 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, callback) == null) {
             Intrinsics.checkNotNullParameter(callback, "callback");
@@ -109,7 +109,7 @@ public final class TbFileDownloaderImpl implements dp6 {
         }
     }
 
-    @Override // com.baidu.tieba.dp6
+    @Override // com.baidu.tieba.cs6
     public void c(DownloadData data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
@@ -118,18 +118,18 @@ public final class TbFileDownloaderImpl implements dp6 {
         }
     }
 
-    @Override // com.baidu.tieba.dp6
+    @Override // com.baidu.tieba.cs6
     public int d(DownloadData data) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, data)) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
-            return ht8.q(data);
+            return tw8.q(data);
         }
         return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.dp6
+    @Override // com.baidu.tieba.cs6
     public void e(DownloadData data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, data) == null) {
@@ -138,7 +138,7 @@ public final class TbFileDownloaderImpl implements dp6 {
         }
     }
 
-    @Override // com.baidu.tieba.dp6
+    @Override // com.baidu.tieba.cs6
     public int f(DownloadData data) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -149,8 +149,8 @@ public final class TbFileDownloaderImpl implements dp6 {
         return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.dp6
-    public void g(ep6 callback) {
+    @Override // com.baidu.tieba.cs6
+    public void g(ds6 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, callback) == null) {
             Intrinsics.checkNotNullParameter(callback, "callback");
@@ -158,8 +158,8 @@ public final class TbFileDownloaderImpl implements dp6 {
         }
     }
 
-    @Override // com.baidu.tieba.dp6
-    public boolean b(DownloadData data, ep6 callback) {
+    @Override // com.baidu.tieba.cs6
+    public boolean b(DownloadData data, ds6 callback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data, callback)) == null) {

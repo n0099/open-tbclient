@@ -6,12 +6,6 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.f;
 /* loaded from: classes7.dex */
 public interface d extends IInterface {
@@ -25,284 +19,213 @@ public interface d extends IInterface {
 
     /* loaded from: classes7.dex */
     public static abstract class a extends Binder implements d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
         @Override // android.os.IInterface
         public IBinder asBinder() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
+            return this;
         }
 
         /* renamed from: com.bytedance.pangle.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0523a implements d {
-            public static /* synthetic */ Interceptable $ic;
+        public static class C0509a implements d {
             public static d a;
-            public transient /* synthetic */ FieldHolder $fh;
             public IBinder b;
 
-            public C0523a(IBinder iBinder) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {iBinder};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
+            public C0509a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
             @Override // com.bytedance.pangle.d
             public final ComponentName a(Intent intent, String str) {
-                InterceptResult invokeLL;
                 ComponentName componentName;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, intent, str)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.bytedance.pangle.IServiceManager");
-                        if (intent != null) {
-                            obtain.writeInt(1);
-                            intent.writeToParcel(obtain, 0);
-                        } else {
-                            obtain.writeInt(0);
-                        }
-                        obtain.writeString(str);
-                        if (!this.b.transact(1, obtain, obtain2, 0) && a.a() != null) {
-                            return a.a().a(intent, str);
-                        }
-                        obtain2.readException();
-                        if (obtain2.readInt() != 0) {
-                            componentName = (ComponentName) ComponentName.CREATOR.createFromParcel(obtain2);
-                        } else {
-                            componentName = null;
-                        }
-                        return componentName;
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.bytedance.pangle.IServiceManager");
+                    if (intent != null) {
+                        obtain.writeInt(1);
+                        intent.writeToParcel(obtain, 0);
+                    } else {
+                        obtain.writeInt(0);
                     }
+                    obtain.writeString(str);
+                    if (!this.b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        return a.a().a(intent, str);
+                    }
+                    obtain2.readException();
+                    if (obtain2.readInt() != 0) {
+                        componentName = (ComponentName) ComponentName.CREATOR.createFromParcel(obtain2);
+                    } else {
+                        componentName = null;
+                    }
+                    return componentName;
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
-                return (ComponentName) invokeLL.objValue;
             }
 
             @Override // com.bytedance.pangle.d
             public final boolean b(Intent intent, String str) {
-                InterceptResult invokeLL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, intent, str)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.bytedance.pangle.IServiceManager");
-                        boolean z = true;
-                        if (intent != null) {
-                            obtain.writeInt(1);
-                            intent.writeToParcel(obtain, 0);
-                        } else {
-                            obtain.writeInt(0);
-                        }
-                        obtain.writeString(str);
-                        if (!this.b.transact(2, obtain, obtain2, 0) && a.a() != null) {
-                            return a.a().b(intent, str);
-                        }
-                        obtain2.readException();
-                        if (obtain2.readInt() == 0) {
-                            z = false;
-                        }
-                        return z;
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.bytedance.pangle.IServiceManager");
+                    boolean z = true;
+                    if (intent != null) {
+                        obtain.writeInt(1);
+                        intent.writeToParcel(obtain, 0);
+                    } else {
+                        obtain.writeInt(0);
                     }
+                    obtain.writeString(str);
+                    if (!this.b.transact(2, obtain, obtain2, 0) && a.a() != null) {
+                        return a.a().b(intent, str);
+                    }
+                    obtain2.readException();
+                    if (obtain2.readInt() == 0) {
+                        z = false;
+                    }
+                    return z;
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
-                return invokeLL.booleanValue;
             }
 
             @Override // com.bytedance.pangle.d
             public final void a(f fVar) {
                 IBinder iBinder;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.bytedance.pangle.IServiceManager");
-                        if (fVar != null) {
-                            iBinder = fVar.asBinder();
-                        } else {
-                            iBinder = null;
-                        }
-                        obtain.writeStrongBinder(iBinder);
-                        if (!this.b.transact(4, obtain, obtain2, 0) && a.a() != null) {
-                            a.a().a(fVar);
-                        } else {
-                            obtain2.readException();
-                        }
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.bytedance.pangle.IServiceManager");
+                    if (fVar != null) {
+                        iBinder = fVar.asBinder();
+                    } else {
+                        iBinder = null;
                     }
+                    obtain.writeStrongBinder(iBinder);
+                    if (!this.b.transact(4, obtain, obtain2, 0) && a.a() != null) {
+                        a.a().a(fVar);
+                    } else {
+                        obtain2.readException();
+                    }
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
             }
 
             @Override // com.bytedance.pangle.d
             public final boolean a(Intent intent, f fVar, int i, String str) {
-                InterceptResult invokeLLIL;
                 IBinder iBinder;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, intent, fVar, i, str)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.bytedance.pangle.IServiceManager");
-                        boolean z = true;
-                        if (intent != null) {
-                            obtain.writeInt(1);
-                            intent.writeToParcel(obtain, 0);
-                        } else {
-                            obtain.writeInt(0);
-                        }
-                        if (fVar != null) {
-                            iBinder = fVar.asBinder();
-                        } else {
-                            iBinder = null;
-                        }
-                        obtain.writeStrongBinder(iBinder);
-                        obtain.writeInt(i);
-                        obtain.writeString(str);
-                        if (!this.b.transact(3, obtain, obtain2, 0) && a.a() != null) {
-                            return a.a().a(intent, fVar, i, str);
-                        }
-                        obtain2.readException();
-                        if (obtain2.readInt() == 0) {
-                            z = false;
-                        }
-                        return z;
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.bytedance.pangle.IServiceManager");
+                    boolean z = true;
+                    if (intent != null) {
+                        obtain.writeInt(1);
+                        intent.writeToParcel(obtain, 0);
+                    } else {
+                        obtain.writeInt(0);
                     }
+                    if (fVar != null) {
+                        iBinder = fVar.asBinder();
+                    } else {
+                        iBinder = null;
+                    }
+                    obtain.writeStrongBinder(iBinder);
+                    obtain.writeInt(i);
+                    obtain.writeString(str);
+                    if (!this.b.transact(3, obtain, obtain2, 0) && a.a() != null) {
+                        return a.a().a(intent, fVar, i, str);
+                    }
+                    obtain2.readException();
+                    if (obtain2.readInt() == 0) {
+                        z = false;
+                    }
+                    return z;
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
-                return invokeLLIL.booleanValue;
             }
 
             @Override // android.os.IInterface
             public final IBinder asBinder() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                    return this.b;
-                }
-                return (IBinder) invokeV.objValue;
+                return this.b;
             }
         }
 
         public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             attachInterface(this, "com.bytedance.pangle.IServiceManager");
         }
 
         public static d a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return C0523a.a;
-            }
-            return (d) invokeV.objValue;
+            return C0509a.a;
         }
 
         public static d a(IBinder iBinder) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iBinder)) == null) {
-                if (iBinder == null) {
-                    return null;
-                }
-                IInterface queryLocalInterface = iBinder.queryLocalInterface("com.bytedance.pangle.IServiceManager");
-                if (queryLocalInterface != null && (queryLocalInterface instanceof d)) {
-                    return (d) queryLocalInterface;
-                }
-                return new C0523a(iBinder);
+            if (iBinder == null) {
+                return null;
             }
-            return (d) invokeL.objValue;
+            IInterface queryLocalInterface = iBinder.queryLocalInterface("com.bytedance.pangle.IServiceManager");
+            if (queryLocalInterface != null && (queryLocalInterface instanceof d)) {
+                return (d) queryLocalInterface;
+            }
+            return new C0509a(iBinder);
         }
 
         @Override // android.os.Binder
         public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
-                Intent intent = null;
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (i != 1598968902) {
-                                    return super.onTransact(i, parcel, parcel2, i2);
-                                }
-                                parcel2.writeString("com.bytedance.pangle.IServiceManager");
-                                return true;
+            Intent intent = null;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 1598968902) {
+                                return super.onTransact(i, parcel, parcel2, i2);
                             }
-                            parcel.enforceInterface("com.bytedance.pangle.IServiceManager");
-                            a(f.a.a(parcel.readStrongBinder()));
-                            parcel2.writeNoException();
+                            parcel2.writeString("com.bytedance.pangle.IServiceManager");
                             return true;
                         }
                         parcel.enforceInterface("com.bytedance.pangle.IServiceManager");
-                        if (parcel.readInt() != 0) {
-                            intent = (Intent) Intent.CREATOR.createFromParcel(parcel);
-                        }
-                        boolean a = a(intent, f.a.a(parcel.readStrongBinder()), parcel.readInt(), parcel.readString());
+                        a(f.a.a(parcel.readStrongBinder()));
                         parcel2.writeNoException();
-                        parcel2.writeInt(a ? 1 : 0);
                         return true;
                     }
                     parcel.enforceInterface("com.bytedance.pangle.IServiceManager");
                     if (parcel.readInt() != 0) {
                         intent = (Intent) Intent.CREATOR.createFromParcel(parcel);
                     }
-                    boolean b = b(intent, parcel.readString());
+                    boolean a = a(intent, f.a.a(parcel.readStrongBinder()), parcel.readInt(), parcel.readString());
                     parcel2.writeNoException();
-                    parcel2.writeInt(b ? 1 : 0);
+                    parcel2.writeInt(a ? 1 : 0);
                     return true;
                 }
                 parcel.enforceInterface("com.bytedance.pangle.IServiceManager");
                 if (parcel.readInt() != 0) {
                     intent = (Intent) Intent.CREATOR.createFromParcel(parcel);
                 }
-                ComponentName a2 = a(intent, parcel.readString());
+                boolean b = b(intent, parcel.readString());
                 parcel2.writeNoException();
-                if (a2 != null) {
-                    parcel2.writeInt(1);
-                    a2.writeToParcel(parcel2, 1);
-                } else {
-                    parcel2.writeInt(0);
-                }
+                parcel2.writeInt(b ? 1 : 0);
                 return true;
             }
-            return invokeCommon.booleanValue;
+            parcel.enforceInterface("com.bytedance.pangle.IServiceManager");
+            if (parcel.readInt() != 0) {
+                intent = (Intent) Intent.CREATOR.createFromParcel(parcel);
+            }
+            ComponentName a2 = a(intent, parcel.readString());
+            parcel2.writeNoException();
+            if (a2 != null) {
+                parcel2.writeInt(1);
+                a2.writeToParcel(parcel2, 1);
+            } else {
+                parcel2.writeInt(0);
+            }
+            return true;
         }
     }
 }

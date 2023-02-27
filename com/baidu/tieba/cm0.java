@@ -1,7 +1,16 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
-public interface cm0 {
-    void a();
 
-    void b();
+import androidx.annotation.Nullable;
+import java.io.File;
+/* loaded from: classes3.dex */
+public interface cm0 {
+    void a(int i, long j, long j2);
+
+    void b(long j, File file);
+
+    void c(int i, int i2);
+
+    void d(@Nullable ol0 ol0Var);
+
+    void onSuccess(int i);
 }

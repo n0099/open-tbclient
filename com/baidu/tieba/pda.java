@@ -1,54 +1,45 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import javax.annotation.Nullable;
-import org.webrtc.EglBase;
-import org.webrtc.EglBase10;
-import org.webrtc.EglBase14;
-/* compiled from: EglBase.java */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final /* synthetic */ class pda {
+public class pda implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ eea a;
+    public final /* synthetic */ rda b;
 
-    public static EglBase a() {
-        InterceptResult invokeV;
+    public pda(rda rdaVar, eea eeaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return c(null, EglBase.CONFIG_PLAIN);
-        }
-        return (EglBase) invokeV.objValue;
-    }
-
-    public static EglBase b(EglBase.Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            return c(context, EglBase.CONFIG_PLAIN);
-        }
-        return (EglBase) invokeL.objValue;
-    }
-
-    public static EglBase d(int[] iArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iArr)) == null) {
-            return new EglBase10(null, iArr);
-        }
-        return (EglBase) invokeL.objValue;
-    }
-
-    public static EglBase c(@Nullable EglBase.Context context, int[] iArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, iArr)) == null) {
-            if (EglBase14.isEGL14Supported() && (context == null || (context instanceof EglBase14.Context))) {
-                return new EglBase14((EglBase14.Context) context, iArr);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rdaVar, eeaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return new EglBase10((EglBase10.Context) context, iArr);
         }
-        return (EglBase) invokeLL.objValue;
+        this.b = rdaVar;
+        this.a = eeaVar;
+    }
+
+    @Override // java.lang.Runnable
+    public final void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.b.c) {
+                tea<TResult> teaVar = this.b.a;
+                if (teaVar != 0) {
+                    teaVar.a(this.a);
+                }
+            }
+        }
     }
 }

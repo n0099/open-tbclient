@@ -2,110 +2,103 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.db.DBTableDefine;
+import com.xiaomi.push.aj;
+import com.xiaomi.push.ci;
 /* loaded from: classes8.dex */
 public class bw {
-    public static /* synthetic */ Interceptable $ic;
     public static volatile bw a;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f172a;
+    public Context f152a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public cl f154a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public cm f155a;
+    public String e;
+    public String f;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final String f156a = "push_stat_sp";
+
+    /* renamed from: b  reason: collision with other field name */
+    public final String f157b = "upload_time";
+
+    /* renamed from: c  reason: collision with other field name */
+    public final String f158c = DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM;
+    public final String d = "check_time";
+
+    /* renamed from: a  reason: collision with other field name */
+    public aj.a f153a = new bx(this);
+    public aj.a b = new by(this);
+    public aj.a c = new bz(this);
 
     public bw(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f172a = context;
+        this.f152a = context;
     }
 
     public static bw a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (a == null) {
-                synchronized (bw.class) {
-                    if (a == null) {
-                        a = new bw(context);
-                    }
+        if (a == null) {
+            synchronized (bw.class) {
+                if (a == null) {
+                    a = new bw(context);
                 }
             }
-            return a;
         }
-        return (bw) invokeL.objValue;
+        return a;
     }
 
-    public synchronized long a(String str, String str2, long j) {
-        InterceptResult invokeCommon;
-        long j2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j)})) == null) {
-            synchronized (this) {
-                try {
-                    j2 = this.f172a.getSharedPreferences(str, 4).getLong(str2, j);
-                } catch (Throwable unused) {
-                    return j;
-                }
-            }
-            return j2;
-        }
-        return invokeCommon.longValue;
+    private boolean a() {
+        return com.xiaomi.push.service.ba.a(this.f152a).a(hm.StatDataSwitch.a(), true);
     }
 
-    public synchronized String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        String string;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3)) == null) {
-            synchronized (this) {
-                try {
-                    string = this.f172a.getSharedPreferences(str, 4).getString(str2, str3);
-                } catch (Throwable unused) {
-                    return str3;
-                }
-            }
-            return string;
-        }
-        return (String) invokeLLL.objValue;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(String str) {
+        SharedPreferences.Editor edit = this.f152a.getSharedPreferences("push_stat_sp", 0).edit();
+        edit.putLong(str, System.currentTimeMillis());
+        q.a(edit);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String c() {
+        return this.f152a.getDatabasePath(ca.f162a).getAbsolutePath();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m228a(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) == null) {
-            synchronized (this) {
-                SharedPreferences.Editor edit = this.f172a.getSharedPreferences(str, 4).edit();
-                edit.putLong(str2, j);
-                edit.commit();
+    public String m225a() {
+        return this.e;
+    }
+
+    public void a(ci.a aVar) {
+        ci.a(this.f152a).a(aVar);
+    }
+
+    public void a(hl hlVar) {
+        if (a() && com.xiaomi.push.service.bz.a(hlVar.e())) {
+            a(cf.a(this.f152a, c(), hlVar));
+        }
+    }
+
+    public void a(String str) {
+        if (a() && !TextUtils.isEmpty(str)) {
+            a(cn.a(this.f152a, str));
+        }
+    }
+
+    public void a(String str, String str2, Boolean bool) {
+        if (this.f154a != null) {
+            if (bool.booleanValue()) {
+                this.f154a.a(this.f152a, str2, str);
+            } else {
+                this.f154a.b(this.f152a, str2, str);
             }
         }
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m229a(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
-            synchronized (this) {
-                SharedPreferences.Editor edit = this.f172a.getSharedPreferences(str, 4).edit();
-                edit.putString(str2, str3);
-                edit.commit();
-            }
-        }
+    public String b() {
+        return this.f;
     }
 }

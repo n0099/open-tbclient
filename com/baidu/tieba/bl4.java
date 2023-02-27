@@ -1,25 +1,26 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class bl4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile bl4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public int b;
+    public JSONArray a;
+    public JSONObject b;
 
-    public bl4() {
+    public bl4(JSONArray jSONArray, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONArray, jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,81 +30,25 @@ public class bl4 {
                 return;
             }
         }
-        this.b = 0;
-        this.a = hg4.b().i().getInt("max_emit_app_close_num", 1);
+        this.a = jSONArray;
+        this.b = jSONObject;
     }
 
-    public static bl4 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (bl4.class) {
-                    if (c == null) {
-                        c = new bl4();
-                    }
-                }
-            }
-            return c;
-        }
-        return (bl4) invokeV.objValue;
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || c == null) {
-            return;
-        }
-        c = null;
-    }
-
-    public String b() {
+    public JSONArray a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return hg4.b().i().getString("simple_control_item_version", "0");
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return (JSONArray) invokeV.objValue;
     }
 
-    public synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.b++;
-            }
-        }
-    }
-
-    public synchronized boolean d() {
+    public JSONObject b() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                if (this.b < this.a) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-            }
-            return z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void e(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("max_emit_app_close_num")) {
-            return;
-        }
-        int optInt = optJSONObject.optInt("max_emit_app_close_num", 1);
-        hg4.b().i().putString("simple_control_item_version", optString);
-        hg4.b().i().putInt("max_emit_app_close_num", optInt);
+        return (JSONObject) invokeV.objValue;
     }
 }

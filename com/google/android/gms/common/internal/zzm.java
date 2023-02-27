@@ -5,53 +5,29 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.Feature;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 /* loaded from: classes7.dex */
 public final class zzm implements Parcelable.Creator<GetServiceRequest> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public zzm() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static void zza(GetServiceRequest getServiceRequest, Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, getServiceRequest, parcel, i) == null) {
-            int beginObjectHeader = SafeParcelWriter.beginObjectHeader(parcel);
-            SafeParcelWriter.writeInt(parcel, 1, getServiceRequest.zza);
-            SafeParcelWriter.writeInt(parcel, 2, getServiceRequest.zzb);
-            SafeParcelWriter.writeInt(parcel, 3, getServiceRequest.zzc);
-            SafeParcelWriter.writeString(parcel, 4, getServiceRequest.zzd, false);
-            SafeParcelWriter.writeIBinder(parcel, 5, getServiceRequest.zze, false);
-            SafeParcelWriter.writeTypedArray(parcel, 6, getServiceRequest.zzf, i, false);
-            SafeParcelWriter.writeBundle(parcel, 7, getServiceRequest.zzg, false);
-            SafeParcelWriter.writeParcelable(parcel, 8, getServiceRequest.zzh, i, false);
-            SafeParcelWriter.writeTypedArray(parcel, 10, getServiceRequest.zzi, i, false);
-            SafeParcelWriter.writeTypedArray(parcel, 11, getServiceRequest.zzj, i, false);
-            SafeParcelWriter.writeBoolean(parcel, 12, getServiceRequest.zzk);
-            SafeParcelWriter.writeInt(parcel, 13, getServiceRequest.zzl);
-            SafeParcelWriter.writeBoolean(parcel, 14, getServiceRequest.zzm);
-            SafeParcelWriter.writeString(parcel, 15, getServiceRequest.zza(), false);
-            SafeParcelWriter.finishObjectHeader(parcel, beginObjectHeader);
-        }
+        int beginObjectHeader = SafeParcelWriter.beginObjectHeader(parcel);
+        SafeParcelWriter.writeInt(parcel, 1, getServiceRequest.zza);
+        SafeParcelWriter.writeInt(parcel, 2, getServiceRequest.zzb);
+        SafeParcelWriter.writeInt(parcel, 3, getServiceRequest.zzc);
+        SafeParcelWriter.writeString(parcel, 4, getServiceRequest.zzd, false);
+        SafeParcelWriter.writeIBinder(parcel, 5, getServiceRequest.zze, false);
+        SafeParcelWriter.writeTypedArray(parcel, 6, getServiceRequest.zzf, i, false);
+        SafeParcelWriter.writeBundle(parcel, 7, getServiceRequest.zzg, false);
+        SafeParcelWriter.writeParcelable(parcel, 8, getServiceRequest.zzh, i, false);
+        SafeParcelWriter.writeTypedArray(parcel, 10, getServiceRequest.zzi, i, false);
+        SafeParcelWriter.writeTypedArray(parcel, 11, getServiceRequest.zzj, i, false);
+        SafeParcelWriter.writeBoolean(parcel, 12, getServiceRequest.zzk);
+        SafeParcelWriter.writeInt(parcel, 13, getServiceRequest.zzl);
+        SafeParcelWriter.writeBoolean(parcel, 14, getServiceRequest.zzm);
+        SafeParcelWriter.writeString(parcel, 15, getServiceRequest.zza(), false);
+        SafeParcelWriter.finishObjectHeader(parcel, beginObjectHeader);
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */

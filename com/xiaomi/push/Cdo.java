@@ -1,18 +1,41 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.os.Build;
 /* renamed from: com.xiaomi.push.do  reason: invalid class name */
 /* loaded from: classes8.dex */
 public class Cdo {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static void a(byte[] bArr) {
+        if (bArr.length >= 2) {
+            bArr[0] = 99;
+            bArr[1] = 100;
+        }
+    }
 
-    public static void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
-            dr.a(context).m288a();
+    public static boolean a(Context context, String str, long j) {
+        if (com.xiaomi.push.service.ba.a(context).a(hm.DCJobMutualSwitch.a(), false)) {
+            return (Build.VERSION.SDK_INT < 29 || context.getApplicationInfo().targetSdkVersion < 29) && !ah.a(context, str, j);
+        }
+        return false;
+    }
+
+    public static byte[] a(String str, byte[] bArr) {
+        byte[] m213a = bl.m213a(str);
+        try {
+            a(m213a);
+            return h.a(m213a, bArr);
+        } catch (Exception unused) {
+            return null;
+        }
+    }
+
+    public static byte[] b(String str, byte[] bArr) {
+        byte[] m213a = bl.m213a(str);
+        try {
+            a(m213a);
+            return h.b(m213a, bArr);
+        } catch (Exception unused) {
+            return null;
         }
     }
 }

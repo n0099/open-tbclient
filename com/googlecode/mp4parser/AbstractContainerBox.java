@@ -1,11 +1,5 @@
 package com.googlecode.mp4parser;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoTypeWriter;
 import com.coremedia.iso.boxes.Box;
@@ -15,8 +9,6 @@ import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 /* loaded from: classes8.dex */
 public class AbstractContainerBox extends BasicContainer implements Box {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public ByteBuffer header;
     public boolean largeBox;
     public long offset;
@@ -24,122 +16,74 @@ public class AbstractContainerBox extends BasicContainer implements Box {
     public String type;
 
     public AbstractContainerBox(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.type = str;
     }
 
     public void getBox(WritableByteChannel writableByteChannel) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, writableByteChannel) == null) {
-            writableByteChannel.write(getHeader());
-            writeContainer(writableByteChannel);
-        }
+        writableByteChannel.write(getHeader());
+        writeContainer(writableByteChannel);
     }
 
     @Override // com.coremedia.iso.boxes.Box
     public void setParent(Container container) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, container) == null) {
-            this.parent = container;
-        }
+        this.parent = container;
     }
 
     public ByteBuffer getHeader() {
-        InterceptResult invokeV;
         ByteBuffer wrap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!this.largeBox && getSize() < 4294967296L) {
-                wrap = ByteBuffer.wrap(new byte[]{0, 0, 0, 0, this.type.getBytes()[0], this.type.getBytes()[1], this.type.getBytes()[2], this.type.getBytes()[3]});
-                IsoTypeWriter.writeUInt32(wrap, getSize());
-            } else {
-                byte[] bArr = new byte[16];
-                bArr[3] = 1;
-                bArr[4] = this.type.getBytes()[0];
-                bArr[5] = this.type.getBytes()[1];
-                bArr[6] = this.type.getBytes()[2];
-                bArr[7] = this.type.getBytes()[3];
-                wrap = ByteBuffer.wrap(bArr);
-                wrap.position(8);
-                IsoTypeWriter.writeUInt64(wrap, getSize());
-            }
-            wrap.rewind();
-            return wrap;
+        if (!this.largeBox && getSize() < 4294967296L) {
+            wrap = ByteBuffer.wrap(new byte[]{0, 0, 0, 0, this.type.getBytes()[0], this.type.getBytes()[1], this.type.getBytes()[2], this.type.getBytes()[3]});
+            IsoTypeWriter.writeUInt32(wrap, getSize());
+        } else {
+            byte[] bArr = new byte[16];
+            bArr[3] = 1;
+            bArr[4] = this.type.getBytes()[0];
+            bArr[5] = this.type.getBytes()[1];
+            bArr[6] = this.type.getBytes()[2];
+            bArr[7] = this.type.getBytes()[3];
+            wrap = ByteBuffer.wrap(bArr);
+            wrap.position(8);
+            IsoTypeWriter.writeUInt64(wrap, getSize());
         }
-        return (ByteBuffer) invokeV.objValue;
+        wrap.rewind();
+        return wrap;
     }
 
     @Override // com.coremedia.iso.boxes.Box
     public long getOffset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.offset;
-        }
-        return invokeV.longValue;
+        return this.offset;
     }
 
     @Override // com.coremedia.iso.boxes.Box
     public Container getParent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.parent;
-        }
-        return (Container) invokeV.objValue;
+        return this.parent;
     }
 
     public long getSize() {
-        InterceptResult invokeV;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            long containerSize = getContainerSize();
-            if (!this.largeBox && 8 + containerSize < 4294967296L) {
-                i = 8;
-            } else {
-                i = 16;
-            }
-            return containerSize + i;
+        long containerSize = getContainerSize();
+        if (!this.largeBox && 8 + containerSize < 4294967296L) {
+            i = 8;
+        } else {
+            i = 16;
         }
-        return invokeV.longValue;
+        return containerSize + i;
     }
 
     @Override // com.coremedia.iso.boxes.Box
     public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.type;
-        }
-        return (String) invokeV.objValue;
+        return this.type;
     }
 
     public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
-            this.offset = dataSource.position() - byteBuffer.remaining();
-            if (byteBuffer.remaining() == 16) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.largeBox = z;
-            parseContainer(dataSource, j, boxParser);
+        this.offset = dataSource.position() - byteBuffer.remaining();
+        if (byteBuffer.remaining() == 16) {
+            z = true;
+        } else {
+            z = false;
         }
+        this.largeBox = z;
+        parseContainer(dataSource, j, boxParser);
     }
 }

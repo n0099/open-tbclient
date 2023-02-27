@@ -1,70 +1,44 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.StyleRes;
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.swan.apps.res.ui.FullScreenFloatView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class v73 extends Dialog {
+public class v73 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v73(@NonNull Context context, @StyleRes int i) {
-        super(context, i);
+    public static FullScreenFloatView a(Context context, ViewGroup viewGroup, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, viewGroup, i)) == null) {
+            if (context != null && viewGroup != null) {
+                FullScreenFloatView b = b(context, i);
+                viewGroup.addView(b);
+                return b;
             }
+            return null;
         }
-        this.a = s73.b;
+        return (FullScreenFloatView) invokeLLI.objValue;
     }
 
-    public void a(boolean z) {
-        boolean z2;
+    public static FullScreenFloatView b(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (s73.b && z) {
-                z2 = true;
-            } else {
-                z2 = false;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            if (context == null) {
+                return null;
             }
-            this.a = z2;
+            int i2 = R.layout.obfuscated_res_0x7f0d00a8;
+            if (i != 1 && i == 2) {
+                i2 = R.layout.obfuscated_res_0x7f0d00a9;
+            }
+            return (FullScreenFloatView) LayoutInflater.from(context.getApplicationContext()).inflate(i2, (ViewGroup) null);
         }
-    }
-
-    @Override // android.app.Dialog
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a) {
-                s73.k(this);
-            }
-            boolean f = s73.f(this);
-            if (f) {
-                getWindow().setFlags(8, 8);
-            }
-            super.show();
-            if (f) {
-                getWindow().clearFlags(8);
-            }
-        }
+        return (FullScreenFloatView) invokeLI.objValue;
     }
 }

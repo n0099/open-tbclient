@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
-import androidx.core.net.MailTo;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
@@ -29,7 +28,7 @@ import com.baidu.android.imsdk.ubc.ScreenUbc;
 import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.a80;
+import com.baidu.tieba.e80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -413,7 +412,7 @@ public class IMFetchMsgByIdMsg extends Message {
                         LogUtils.e(str, "clientLogId :" + e7.getMessage());
                     }
                     this.this$0.mUbcData.setDebugInfo(this.this$0.mDebugInfo);
-                    a80.d().f(this.this$0.mUbcData.generateUBCData(String.valueOf(this.mErrorCode), this.mStrMsg), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                    e80.d().f(this.this$0.mUbcData.generateUBCData(String.valueOf(this.mErrorCode), this.mStrMsg), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                 }
             }
         }
@@ -641,7 +640,7 @@ public class IMFetchMsgByIdMsg extends Message {
                 }
                 jSONObject.put("count", this.mCount);
                 if (this.mContacter >= 0) {
-                    jSONObject.put(MailTo.TO, this.mContacter);
+                    jSONObject.put("to", this.mContacter);
                 }
                 if (this.mCategory >= 0) {
                     jSONObject.put("category", this.mCategory);

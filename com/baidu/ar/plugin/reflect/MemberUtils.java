@@ -1,13 +1,5 @@
 package com.baidu.ar.plugin.reflect;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Member;
 import java.lang.reflect.Modifier;
@@ -15,33 +7,16 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class MemberUtils {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int ACCESS_TEST = 7;
-    public static final Class<?>[] ORDERED_PRIMITIVE_TYPES;
+    public static final Class<?>[] ORDERED_PRIMITIVE_TYPES = {Byte.TYPE, Short.TYPE, Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE};
     public static final Map<Class<?>, Class<?>> primitiveWrapperMap;
     public static final Map<Class<?>, Class<?>> wrapperPrimitiveMap;
-    public transient /* synthetic */ FieldHolder $fh;
 
     public static boolean isPackageAccess(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? (i & 7) == 0 : invokeI.booleanValue;
+        return (i & 7) == 0;
     }
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-113773022, "Lcom/baidu/ar/plugin/reflect/MemberUtils;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-113773022, "Lcom/baidu/ar/plugin/reflect/MemberUtils;");
-                return;
-            }
-        }
-        ORDERED_PRIMITIVE_TYPES = new Class[]{Byte.TYPE, Short.TYPE, Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE};
         HashMap hashMap = new HashMap();
         primitiveWrapperMap = hashMap;
         hashMap.put(Boolean.TYPE, Boolean.class);
@@ -64,255 +39,186 @@ public class MemberUtils {
         }
     }
 
-    public MemberUtils() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
     public static int compareParameterTypes(Class<?>[] clsArr, Class<?>[] clsArr2, Class<?>[] clsArr3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, clsArr, clsArr2, clsArr3)) == null) {
-            float totalTransformationCost = getTotalTransformationCost(clsArr3, clsArr);
-            float totalTransformationCost2 = getTotalTransformationCost(clsArr3, clsArr2);
-            if (totalTransformationCost < totalTransformationCost2) {
-                return -1;
-            }
-            if (totalTransformationCost2 < totalTransformationCost) {
-                return 1;
-            }
-            return 0;
+        float totalTransformationCost = getTotalTransformationCost(clsArr3, clsArr);
+        float totalTransformationCost2 = getTotalTransformationCost(clsArr3, clsArr2);
+        if (totalTransformationCost < totalTransformationCost2) {
+            return -1;
         }
-        return invokeLLL.intValue;
-    }
-
-    public static float getObjectTransformationCost(Class<?> cls, Class<?> cls2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, cls2)) == null) {
-            if (cls2.isPrimitive()) {
-                return getPrimitivePromotionCost(cls, cls2);
-            }
-            float f = 0.0f;
-            while (true) {
-                if (cls != null && !cls2.equals(cls)) {
-                    if (cls2.isInterface() && isAssignable(cls, cls2)) {
-                        f += 0.25f;
-                        break;
-                    }
-                    f += 1.0f;
-                    cls = cls.getSuperclass();
-                } else {
-                    break;
-                }
-            }
-            if (cls == null) {
-                return f + 1.5f;
-            }
-            return f;
+        if (totalTransformationCost2 < totalTransformationCost) {
+            return 1;
         }
-        return invokeLL.floatValue;
-    }
-
-    public static float getPrimitivePromotionCost(Class<?> cls, Class<?> cls2) {
-        InterceptResult invokeLL;
-        float f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, cls2)) == null) {
-            if (!cls.isPrimitive()) {
-                cls = wrapperToPrimitive(cls);
-                f = 0.1f;
-            } else {
-                f = 0.0f;
-            }
-            int i = 0;
-            while (cls != cls2) {
-                Class<?>[] clsArr = ORDERED_PRIMITIVE_TYPES;
-                if (i >= clsArr.length) {
-                    break;
-                }
-                if (cls == clsArr[i]) {
-                    f += 0.1f;
-                    if (i < clsArr.length - 1) {
-                        cls = clsArr[i + 1];
-                    }
-                }
-                i++;
-            }
-            return f;
-        }
-        return invokeLL.floatValue;
-    }
-
-    public static float getTotalTransformationCost(Class<?>[] clsArr, Class<?>[] clsArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, clsArr, clsArr2)) == null) {
-            float f = 0.0f;
-            for (int i = 0; i < clsArr.length; i++) {
-                f += getObjectTransformationCost(clsArr[i], clsArr2[i]);
-            }
-            return f;
-        }
-        return invokeLL.floatValue;
-    }
-
-    public static boolean isAssignable(Class<?> cls, Class<?> cls2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, cls, cls2)) == null) {
-            return isAssignable(cls, cls2, true);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean isAccessible(Member member) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, member)) == null) {
-            if (member != null && Modifier.isPublic(member.getModifiers()) && !member.isSynthetic()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static Class<?> primitiveToWrapper(Class<?> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, cls)) == null) {
-            if (cls != null && cls.isPrimitive()) {
-                return primitiveWrapperMap.get(cls);
-            }
-            return cls;
-        }
-        return (Class) invokeL.objValue;
-    }
-
-    public static Class<?> wrapperToPrimitive(Class<?> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, cls)) == null) {
-            return wrapperPrimitiveMap.get(cls);
-        }
-        return (Class) invokeL.objValue;
-    }
-
-    public static boolean isAssignable(Class<?> cls, Class<?> cls2, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65544, null, cls, cls2, z)) == null) {
-            if (cls2 == null) {
-                return false;
-            }
-            if (cls == null) {
-                return !cls2.isPrimitive();
-            }
-            if (z) {
-                if (cls.isPrimitive() && !cls2.isPrimitive() && (cls = primitiveToWrapper(cls)) == null) {
-                    return false;
-                }
-                if (cls2.isPrimitive() && !cls.isPrimitive() && (cls = wrapperToPrimitive(cls)) == null) {
-                    return false;
-                }
-            }
-            if (cls.equals(cls2)) {
-                return true;
-            }
-            if (cls.isPrimitive()) {
-                if (!cls2.isPrimitive()) {
-                    return false;
-                }
-                if (Integer.TYPE.equals(cls)) {
-                    if (!Long.TYPE.equals(cls2) && !Float.TYPE.equals(cls2) && !Double.TYPE.equals(cls2)) {
-                        return false;
-                    }
-                    return true;
-                } else if (Long.TYPE.equals(cls)) {
-                    if (!Float.TYPE.equals(cls2) && !Double.TYPE.equals(cls2)) {
-                        return false;
-                    }
-                    return true;
-                } else if (Boolean.TYPE.equals(cls) || Double.TYPE.equals(cls)) {
-                    return false;
-                } else {
-                    if (Float.TYPE.equals(cls)) {
-                        return Double.TYPE.equals(cls2);
-                    }
-                    if (Character.TYPE.equals(cls)) {
-                        if (!Integer.TYPE.equals(cls2) && !Long.TYPE.equals(cls2) && !Float.TYPE.equals(cls2) && !Double.TYPE.equals(cls2)) {
-                            return false;
-                        }
-                        return true;
-                    } else if (Short.TYPE.equals(cls)) {
-                        if (!Integer.TYPE.equals(cls2) && !Long.TYPE.equals(cls2) && !Float.TYPE.equals(cls2) && !Double.TYPE.equals(cls2)) {
-                            return false;
-                        }
-                        return true;
-                    } else if (!Byte.TYPE.equals(cls)) {
-                        return false;
-                    } else {
-                        if (!Short.TYPE.equals(cls2) && !Integer.TYPE.equals(cls2) && !Long.TYPE.equals(cls2) && !Float.TYPE.equals(cls2) && !Double.TYPE.equals(cls2)) {
-                            return false;
-                        }
-                        return true;
-                    }
-                }
-            }
-            return cls2.isAssignableFrom(cls);
-        }
-        return invokeLLZ.booleanValue;
+        return 0;
     }
 
     public static boolean isAssignable(Class<?>[] clsArr, Class<?>[] clsArr2, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65545, null, clsArr, clsArr2, z)) == null) {
-            if (!Utils.isSameLength(clsArr, clsArr2)) {
+        if (!Utils.isSameLength(clsArr, clsArr2)) {
+            return false;
+        }
+        if (clsArr == null) {
+            clsArr = Utils.EMPTY_CLASS_ARRAY;
+        }
+        if (clsArr2 == null) {
+            clsArr2 = Utils.EMPTY_CLASS_ARRAY;
+        }
+        for (int i = 0; i < clsArr.length; i++) {
+            if (!isAssignable(clsArr[i], clsArr2[i], z)) {
                 return false;
             }
-            if (clsArr == null) {
-                clsArr = Utils.EMPTY_CLASS_ARRAY;
+        }
+        return true;
+    }
+
+    public static float getObjectTransformationCost(Class<?> cls, Class<?> cls2) {
+        if (cls2.isPrimitive()) {
+            return getPrimitivePromotionCost(cls, cls2);
+        }
+        float f = 0.0f;
+        while (true) {
+            if (cls != null && !cls2.equals(cls)) {
+                if (cls2.isInterface() && isAssignable(cls, cls2)) {
+                    f += 0.25f;
+                    break;
+                }
+                f += 1.0f;
+                cls = cls.getSuperclass();
+            } else {
+                break;
             }
-            if (clsArr2 == null) {
-                clsArr2 = Utils.EMPTY_CLASS_ARRAY;
+        }
+        if (cls == null) {
+            return f + 1.5f;
+        }
+        return f;
+    }
+
+    public static float getPrimitivePromotionCost(Class<?> cls, Class<?> cls2) {
+        float f;
+        if (!cls.isPrimitive()) {
+            cls = wrapperToPrimitive(cls);
+            f = 0.1f;
+        } else {
+            f = 0.0f;
+        }
+        int i = 0;
+        while (cls != cls2) {
+            Class<?>[] clsArr = ORDERED_PRIMITIVE_TYPES;
+            if (i >= clsArr.length) {
+                break;
             }
-            for (int i = 0; i < clsArr.length; i++) {
-                if (!isAssignable(clsArr[i], clsArr2[i], z)) {
-                    return false;
+            if (cls == clsArr[i]) {
+                f += 0.1f;
+                if (i < clsArr.length - 1) {
+                    cls = clsArr[i + 1];
                 }
             }
+            i++;
+        }
+        return f;
+    }
+
+    public static float getTotalTransformationCost(Class<?>[] clsArr, Class<?>[] clsArr2) {
+        float f = 0.0f;
+        for (int i = 0; i < clsArr.length; i++) {
+            f += getObjectTransformationCost(clsArr[i], clsArr2[i]);
+        }
+        return f;
+    }
+
+    public static boolean isAssignable(Class<?> cls, Class<?> cls2) {
+        return isAssignable(cls, cls2, true);
+    }
+
+    public static boolean isAccessible(Member member) {
+        if (member != null && Modifier.isPublic(member.getModifiers()) && !member.isSynthetic()) {
             return true;
         }
-        return invokeLLZ.booleanValue;
+        return false;
+    }
+
+    public static Class<?> primitiveToWrapper(Class<?> cls) {
+        if (cls != null && cls.isPrimitive()) {
+            return primitiveWrapperMap.get(cls);
+        }
+        return cls;
     }
 
     public static boolean setAccessibleWorkaround(AccessibleObject accessibleObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, accessibleObject)) == null) {
-            if (accessibleObject != null && !accessibleObject.isAccessible()) {
-                Member member = (Member) accessibleObject;
-                if (!accessibleObject.isAccessible() && Modifier.isPublic(member.getModifiers()) && isPackageAccess(member.getDeclaringClass().getModifiers())) {
-                    try {
-                        accessibleObject.setAccessible(true);
-                        return true;
-                    } catch (SecurityException unused) {
-                    }
+        if (accessibleObject != null && !accessibleObject.isAccessible()) {
+            Member member = (Member) accessibleObject;
+            if (!accessibleObject.isAccessible() && Modifier.isPublic(member.getModifiers()) && isPackageAccess(member.getDeclaringClass().getModifiers())) {
+                try {
+                    accessibleObject.setAccessible(true);
+                    return true;
+                } catch (SecurityException unused) {
                 }
             }
+        }
+        return false;
+    }
+
+    public static Class<?> wrapperToPrimitive(Class<?> cls) {
+        return wrapperPrimitiveMap.get(cls);
+    }
+
+    public static boolean isAssignable(Class<?> cls, Class<?> cls2, boolean z) {
+        if (cls2 == null) {
             return false;
         }
-        return invokeL.booleanValue;
+        if (cls == null) {
+            return !cls2.isPrimitive();
+        }
+        if (z) {
+            if (cls.isPrimitive() && !cls2.isPrimitive() && (cls = primitiveToWrapper(cls)) == null) {
+                return false;
+            }
+            if (cls2.isPrimitive() && !cls.isPrimitive() && (cls = wrapperToPrimitive(cls)) == null) {
+                return false;
+            }
+        }
+        if (cls.equals(cls2)) {
+            return true;
+        }
+        if (cls.isPrimitive()) {
+            if (!cls2.isPrimitive()) {
+                return false;
+            }
+            if (Integer.TYPE.equals(cls)) {
+                if (!Long.TYPE.equals(cls2) && !Float.TYPE.equals(cls2) && !Double.TYPE.equals(cls2)) {
+                    return false;
+                }
+                return true;
+            } else if (Long.TYPE.equals(cls)) {
+                if (!Float.TYPE.equals(cls2) && !Double.TYPE.equals(cls2)) {
+                    return false;
+                }
+                return true;
+            } else if (Boolean.TYPE.equals(cls) || Double.TYPE.equals(cls)) {
+                return false;
+            } else {
+                if (Float.TYPE.equals(cls)) {
+                    return Double.TYPE.equals(cls2);
+                }
+                if (Character.TYPE.equals(cls)) {
+                    if (!Integer.TYPE.equals(cls2) && !Long.TYPE.equals(cls2) && !Float.TYPE.equals(cls2) && !Double.TYPE.equals(cls2)) {
+                        return false;
+                    }
+                    return true;
+                } else if (Short.TYPE.equals(cls)) {
+                    if (!Integer.TYPE.equals(cls2) && !Long.TYPE.equals(cls2) && !Float.TYPE.equals(cls2) && !Double.TYPE.equals(cls2)) {
+                        return false;
+                    }
+                    return true;
+                } else if (!Byte.TYPE.equals(cls)) {
+                    return false;
+                } else {
+                    if (!Short.TYPE.equals(cls2) && !Integer.TYPE.equals(cls2) && !Long.TYPE.equals(cls2) && !Float.TYPE.equals(cls2) && !Double.TYPE.equals(cls2)) {
+                        return false;
+                    }
+                    return true;
+                }
+            }
+        }
+        return cls2.isAssignableFrom(cls);
     }
 }

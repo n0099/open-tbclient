@@ -1,10 +1,6 @@
 package com.yy.hiidostatis.defs.controller;
 
 import android.content.Context;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.ArdUtil;
 import com.yy.hiidostatis.inner.util.ThreadPool;
 import com.yy.hiidostatis.inner.util.hdid.DeviceProxy;
@@ -17,27 +13,9 @@ import java.net.URLEncoder;
 import javax.net.ssl.HttpsURLConnection;
 /* loaded from: classes8.dex */
 public class BindTestPhoneController {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public BindTestPhoneController() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static void bind(String str, Context context) {
-        int indexOf;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, str, context) != null) || (indexOf = str.indexOf(":")) < 0) {
+        int indexOf = str.indexOf(":");
+        if (indexOf < 0) {
             return;
         }
         StringBuilder sb = new StringBuilder();
@@ -79,118 +57,92 @@ public class BindTestPhoneController {
         } catch (UnsupportedEncodingException e4) {
             e4.printStackTrace();
         }
-        ThreadPool.getPool().execute(new Runnable(sb.toString()) { // from class: com.yy.hiidostatis.defs.controller.BindTestPhoneController.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ String val$nurl;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {r6};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.val$nurl = r6;
-            }
-
+        final String sb2 = sb.toString();
+        ThreadPool.getPool().execute(new Runnable() { // from class: com.yy.hiidostatis.defs.controller.BindTestPhoneController.1
             @Override // java.lang.Runnable
             public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    BindTestPhoneController.get(this.val$nurl);
-                }
+                BindTestPhoneController.get(sb2);
             }
         });
     }
 
     public static void get(String str) {
         InputStream inputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            HttpsURLConnection httpsURLConnection = null;
-            InputStream inputStream2 = null;
-            try {
-                HttpsURLConnection httpsURLConnection2 = (HttpsURLConnection) new URL(str).openConnection();
+        HttpsURLConnection httpsURLConnection;
+        HttpsURLConnection httpsURLConnection2 = null;
+        InputStream inputStream2 = null;
+        try {
+            httpsURLConnection = (HttpsURLConnection) new URL(str).openConnection();
+        } catch (Throwable th) {
+            th = th;
+            inputStream = null;
+        }
+        try {
+            httpsURLConnection.setConnectTimeout(30000);
+            httpsURLConnection.setReadTimeout(60000);
+            httpsURLConnection.setUseCaches(false);
+            httpsURLConnection.setRequestMethod("GET");
+            httpsURLConnection.setInstanceFollowRedirects(true);
+            httpsURLConnection.setRequestProperty("User-Agent", "Hiido");
+            httpsURLConnection.connect();
+            if (httpsURLConnection.getResponseCode() == 200) {
+                L.verbose("HttpUtil", "get url=[%s] is ok", str);
+                inputStream2 = httpsURLConnection.getInputStream();
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = inputStream2.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    byteArrayOutputStream.write(bArr, 0, read);
+                }
+                L.verbose("HttpUtil", "the result is %s", new String(byteArrayOutputStream.toByteArray(), "UTF-8"));
+                byteArrayOutputStream.close();
+            } else {
+                L.warn("HttpUtil", "http get [%s] error! status:%d", str, Integer.valueOf(httpsURLConnection.getResponseCode()));
+            }
+            if (httpsURLConnection != null) {
                 try {
-                    httpsURLConnection2.setConnectTimeout(30000);
-                    httpsURLConnection2.setReadTimeout(60000);
-                    httpsURLConnection2.setUseCaches(false);
-                    httpsURLConnection2.setRequestMethod("GET");
-                    httpsURLConnection2.setInstanceFollowRedirects(true);
-                    httpsURLConnection2.setRequestProperty("User-Agent", "Hiido");
-                    httpsURLConnection2.connect();
-                    if (httpsURLConnection2.getResponseCode() == 200) {
-                        L.verbose("HttpUtil", "get url=[%s] is ok", str);
-                        inputStream2 = httpsURLConnection2.getInputStream();
-                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                        byte[] bArr = new byte[1024];
-                        while (true) {
-                            int read = inputStream2.read(bArr);
-                            if (read == -1) {
-                                break;
-                            }
-                            byteArrayOutputStream.write(bArr, 0, read);
-                        }
-                        L.verbose("HttpUtil", "the result is %s", new String(byteArrayOutputStream.toByteArray(), "UTF-8"));
-                        byteArrayOutputStream.close();
-                    } else {
-                        L.warn("HttpUtil", "http get [%s] error! status:%d", str, Integer.valueOf(httpsURLConnection2.getResponseCode()));
-                    }
-                    if (httpsURLConnection2 != null) {
-                        try {
-                            httpsURLConnection2.disconnect();
-                        } catch (Throwable th) {
-                            L.debug("BindTestPhoneController", th.getMessage(), new Object[0]);
-                            return;
-                        }
-                    }
-                    if (inputStream2 != null) {
-                        inputStream2.close();
-                    }
+                    httpsURLConnection.disconnect();
                 } catch (Throwable th2) {
-                    th = th2;
-                    inputStream = null;
-                    httpsURLConnection = httpsURLConnection2;
+                    L.debug("BindTestPhoneController", th2.getMessage(), new Object[0]);
+                    return;
+                }
+            }
+            if (inputStream2 != null) {
+                inputStream2.close();
+            }
+        } catch (Throwable th3) {
+            th = th3;
+            inputStream = null;
+            httpsURLConnection2 = httpsURLConnection;
+            try {
+                L.error("BindTestPhoneController", th.getMessage(), new Object[0]);
+                if (httpsURLConnection2 != null) {
                     try {
-                        L.error("BindTestPhoneController", th.getMessage(), new Object[0]);
-                        if (httpsURLConnection != null) {
-                            try {
-                                httpsURLConnection.disconnect();
-                            } catch (Throwable th3) {
-                                L.debug("BindTestPhoneController", th3.getMessage(), new Object[0]);
-                                return;
-                            }
-                        }
-                        if (inputStream != null) {
-                            inputStream.close();
-                        }
+                        httpsURLConnection2.disconnect();
                     } catch (Throwable th4) {
-                        if (httpsURLConnection != null) {
-                            try {
-                                httpsURLConnection.disconnect();
-                            } catch (Throwable th5) {
-                                L.debug("BindTestPhoneController", th5.getMessage(), new Object[0]);
-                                throw th4;
-                            }
-                        }
-                        if (inputStream != null) {
-                            inputStream.close();
-                        }
-                        throw th4;
+                        L.debug("BindTestPhoneController", th4.getMessage(), new Object[0]);
+                        return;
                     }
                 }
-            } catch (Throwable th6) {
-                th = th6;
-                inputStream = null;
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+            } catch (Throwable th5) {
+                if (httpsURLConnection2 != null) {
+                    try {
+                        httpsURLConnection2.disconnect();
+                    } catch (Throwable th6) {
+                        L.debug("BindTestPhoneController", th6.getMessage(), new Object[0]);
+                        throw th5;
+                    }
+                }
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+                throw th5;
             }
         }
     }

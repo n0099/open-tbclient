@@ -1,194 +1,87 @@
 package com.baidu.sapi2;
 
 import android.graphics.drawable.Drawable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.callback.TitleBtnCallback;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class PassportViewManager implements NoProguard {
-    public static /* synthetic */ Interceptable $ic;
     public static SapiConfiguration c;
     public static PassportViewManager d;
-    public transient /* synthetic */ FieldHolder $fh;
     public TitleBtnCallback a;
-    public TitleViewModule b;
+    public TitleViewModule b = null;
 
     /* loaded from: classes2.dex */
     public static class TitleViewModule implements NoProguard {
-        public static /* synthetic */ Interceptable $ic;
-        public static final int DEFAULT_TEXT_COLOR;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int bgColor;
-        public int bgHeight;
-        public int dividerLineVisible;
-        public Drawable leftBtnDrawableBottom;
-        public Drawable leftBtnDrawableLeft;
-        public Drawable leftBtnDrawableRight;
-        public Drawable leftBtnDrawableTop;
-        public int leftBtnImgResId;
-        public int leftBtnImgVisible;
-        public String leftBtnText;
-        public int leftBtnTextColor;
-        public float leftBtnTextSize;
-        public int leftBtnTextVisible;
-        public String rightBtnText;
-        public int rightBtnTextColor;
-        public float rightBtnTextSize;
-        public int rightBtnVisible;
-        public Drawable titleDrawableBottom;
-        public Drawable titleDrawableLeft;
-        public Drawable titleDrawableRight;
-        public Drawable titleDrawableTop;
-        public String titleText;
-        public boolean titleTextBold;
-        public int titleTextColor;
-        public float titleTextSize;
-        public int titleVisible;
-        public boolean useWebviewTitle;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1697857134, "Lcom/baidu/sapi2/PassportViewManager$TitleViewModule;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1697857134, "Lcom/baidu/sapi2/PassportViewManager$TitleViewModule;");
-                    return;
-                }
-            }
-            DEFAULT_TEXT_COLOR = PassportViewManager.c.context.getResources().getColor(R.color.sapi_sdk_edit_text_color);
-        }
-
-        public TitleViewModule() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.bgColor = Integer.MAX_VALUE;
-            this.bgHeight = Integer.MAX_VALUE;
-            this.leftBtnImgResId = Integer.MAX_VALUE;
-            this.leftBtnImgVisible = 0;
-            this.leftBtnTextColor = DEFAULT_TEXT_COLOR;
-            this.leftBtnText = null;
-            this.leftBtnTextVisible = 4;
-            this.leftBtnTextSize = PassportViewManager.c.context.getResources().getDimension(R.dimen.sapi_sdk_title_left_btn_text_size);
-            this.leftBtnDrawableLeft = null;
-            this.leftBtnDrawableTop = null;
-            this.leftBtnDrawableRight = null;
-            this.leftBtnDrawableBottom = null;
-            this.titleTextColor = DEFAULT_TEXT_COLOR;
-            this.titleText = null;
-            this.titleVisible = 0;
-            this.titleTextSize = PassportViewManager.c.context.getResources().getDimension(R.dimen.sapi_sdk_title_text_size);
-            this.titleTextBold = false;
-            this.useWebviewTitle = true;
-            this.titleDrawableLeft = null;
-            this.titleDrawableTop = null;
-            this.titleDrawableRight = null;
-            this.titleDrawableBottom = null;
-            this.rightBtnTextColor = DEFAULT_TEXT_COLOR;
-            this.rightBtnText = null;
-            this.rightBtnVisible = 4;
-            this.rightBtnTextSize = PassportViewManager.c.context.getResources().getDimension(R.dimen.sapi_sdk_title_right_btn_text_size);
-            this.dividerLineVisible = 0;
-        }
+        public static final int DEFAULT_TEXT_COLOR = PassportViewManager.c.context.getResources().getColor(R.color.sapi_sdk_edit_text_color);
+        public int bgColor = Integer.MAX_VALUE;
+        public int bgHeight = Integer.MAX_VALUE;
+        public int leftBtnImgResId = Integer.MAX_VALUE;
+        public int leftBtnImgVisible = 0;
+        public int leftBtnTextColor = DEFAULT_TEXT_COLOR;
+        public String leftBtnText = null;
+        public int leftBtnTextVisible = 4;
+        public float leftBtnTextSize = PassportViewManager.c.context.getResources().getDimension(R.dimen.sapi_sdk_title_left_btn_text_size);
+        public Drawable leftBtnDrawableLeft = null;
+        public Drawable leftBtnDrawableTop = null;
+        public Drawable leftBtnDrawableRight = null;
+        public Drawable leftBtnDrawableBottom = null;
+        public int titleTextColor = DEFAULT_TEXT_COLOR;
+        public String titleText = null;
+        public int titleVisible = 0;
+        public float titleTextSize = PassportViewManager.c.context.getResources().getDimension(R.dimen.sapi_sdk_title_text_size);
+        public boolean titleTextBold = false;
+        public boolean useWebviewTitle = true;
+        public Drawable titleDrawableLeft = null;
+        public Drawable titleDrawableTop = null;
+        public Drawable titleDrawableRight = null;
+        public Drawable titleDrawableBottom = null;
+        public int rightBtnTextColor = DEFAULT_TEXT_COLOR;
+        public String rightBtnText = null;
+        public int rightBtnVisible = 4;
+        public float rightBtnTextSize = PassportViewManager.c.context.getResources().getDimension(R.dimen.sapi_sdk_title_right_btn_text_size);
+        public int dividerLineVisible = 0;
     }
 
     public PassportViewManager() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = null;
         c = SapiAccountManager.getInstance().getSapiConfiguration();
     }
 
     public static synchronized PassportViewManager getInstance() {
-        InterceptResult invokeV;
         PassportViewManager passportViewManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (PassportViewManager.class) {
-                if (d == null) {
-                    d = new PassportViewManager();
-                }
-                passportViewManager = d;
+        synchronized (PassportViewManager.class) {
+            if (d == null) {
+                d = new PassportViewManager();
             }
-            return passportViewManager;
+            passportViewManager = d;
         }
-        return (PassportViewManager) invokeV.objValue;
+        return passportViewManager;
     }
 
     public TitleBtnCallback getTitleBtnCallback() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (TitleBtnCallback) invokeV.objValue;
+        return this.a;
     }
 
     public TitleViewModule getTitleViewModule() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (TitleViewModule) invokeV.objValue;
+        return this.b;
     }
 
     public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a = null;
-            this.b = null;
-            SapiWebView.statLoadLogin = null;
-        }
+        this.a = null;
+        this.b = null;
+        SapiWebView.statLoadLogin = null;
     }
 
     public void configTitle(TitleViewModule titleViewModule) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, titleViewModule) == null) {
-            this.b = titleViewModule;
-            if (titleViewModule.bgColor == Integer.MAX_VALUE) {
-                titleViewModule.bgColor = -1;
-            }
-            if (titleViewModule.leftBtnImgResId == Integer.MAX_VALUE) {
-                titleViewModule.leftBtnImgResId = R.drawable.sapi_sdk_btn_back;
-            }
+        this.b = titleViewModule;
+        if (titleViewModule.bgColor == Integer.MAX_VALUE) {
+            titleViewModule.bgColor = -1;
+        }
+        if (titleViewModule.leftBtnImgResId == Integer.MAX_VALUE) {
+            titleViewModule.leftBtnImgResId = R.drawable.sapi_sdk_btn_back;
         }
     }
 
     public void setTitleBtnCallback(TitleBtnCallback titleBtnCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, titleBtnCallback) == null) {
-            this.a = titleBtnCallback;
-        }
+        this.a = titleBtnCallback;
     }
 }

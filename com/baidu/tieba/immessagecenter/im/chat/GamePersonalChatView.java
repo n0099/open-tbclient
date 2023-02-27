@@ -23,24 +23,24 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.DeviceInfoUtil;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b35;
+import com.baidu.tieba.cq5;
+import com.baidu.tieba.cr5;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.go7;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.MemoryChangedMessage;
-import com.baidu.tieba.kl7;
-import com.baidu.tieba.kp5;
-import com.baidu.tieba.lb5;
-import com.baidu.tieba.mb5;
-import com.baidu.tieba.oo5;
-import com.baidu.tieba.op5;
-import com.baidu.tieba.os7;
-import com.baidu.tieba.p15;
-import com.baidu.tieba.pk7;
+import com.baidu.tieba.ln7;
+import com.baidu.tieba.pv7;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.tieba.view.gameim.GameContactsView;
 import com.baidu.tieba.view.gameim.GamePersonalChatTitleView;
+import com.baidu.tieba.yc5;
+import com.baidu.tieba.yq5;
+import com.baidu.tieba.zc5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,15 +52,15 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GamePersonalChatView extends PersonalChatView {
     public static /* synthetic */ Interceptable $ic;
     public static final int E;
     public transient /* synthetic */ FieldHolder $fh;
     public String A;
     public String B;
-    public pk7 C;
-    public mb5 D;
+    public ln7 C;
+    public zc5 D;
     public final GamePersonalChatActivity r;
     public boolean s;
     public GameContactsView t;
@@ -71,8 +71,8 @@ public class GamePersonalChatView extends PersonalChatView {
     public int y;
     public String z;
 
-    /* loaded from: classes5.dex */
-    public class a implements oo5<Void> {
+    /* loaded from: classes4.dex */
+    public class a implements cq5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserData a;
@@ -98,7 +98,7 @@ public class GamePersonalChatView extends PersonalChatView {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oo5
+        @Override // com.baidu.tieba.cq5
         /* renamed from: a */
         public void onReturnDataInUI(Void r5) {
             Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public class GamePersonalChatView extends PersonalChatView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,7 +143,7 @@ public class GamePersonalChatView extends PersonalChatView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c extends m {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -180,7 +180,7 @@ public class GamePersonalChatView extends PersonalChatView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -232,7 +232,7 @@ public class GamePersonalChatView extends PersonalChatView {
                         this.a.m0();
                         return;
                     }
-                    List<pk7> h = pk7.h(hashMap);
+                    List<ln7> h = ln7.h(hashMap);
                     if (!h.isEmpty()) {
                         this.a.r0(h);
                         return;
@@ -246,7 +246,7 @@ public class GamePersonalChatView extends PersonalChatView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -284,7 +284,7 @@ public class GamePersonalChatView extends PersonalChatView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class f implements GameContactsView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -309,25 +309,25 @@ public class GamePersonalChatView extends PersonalChatView {
         }
 
         @Override // com.baidu.tieba.view.gameim.GameContactsView.a
-        public void a(View view2, pk7 pk7Var, int i) {
+        public void a(View view2, ln7 ln7Var, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLLI(1048576, this, view2, pk7Var, i) != null) || pk7Var == null) {
+            if ((interceptable != null && interceptable.invokeLLI(1048576, this, view2, ln7Var, i) != null) || ln7Var == null) {
                 return;
             }
-            this.a.C = pk7Var;
+            this.a.C = ln7Var;
             if (i != 3) {
-                this.a.u.h(pk7Var);
+                this.a.u.h(ln7Var);
                 this.a.r.K = false;
-                this.a.w0(pk7Var);
-                os7.h(this.a.B, this.a.A, pk7Var.d(), pk7Var.b(), pk7Var.e());
+                this.a.w0(ln7Var);
+                pv7.h(this.a.B, this.a.A, ln7Var.d(), ln7Var.b(), ln7Var.e());
             }
             if (i != 1) {
-                os7.e(this.a.B, this.a.A, pk7Var.d(), pk7Var.b(), pk7Var.e());
+                pv7.e(this.a.B, this.a.A, ln7Var.d(), ln7Var.b(), ln7Var.e());
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class g implements GamePersonalChatTitleView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -352,23 +352,23 @@ public class GamePersonalChatView extends PersonalChatView {
         }
 
         @Override // com.baidu.tieba.view.gameim.GamePersonalChatTitleView.b
-        public void a(@NonNull pk7 pk7Var) {
+        public void a(@NonNull ln7 ln7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pk7Var) == null) {
-                os7.a(this.a.B, this.a.A, pk7Var.d(), pk7Var.b(), pk7Var.e());
-                if (pk7Var.e()) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, ln7Var) == null) {
+                pv7.a(this.a.B, this.a.A, ln7Var.d(), ln7Var.b(), ln7Var.e());
+                if (ln7Var.e()) {
                     if (this.a.r.z1() != null && !TextUtils.isEmpty(this.a.z)) {
                         this.a.r.z1().sendTextMessage(this.a.z);
                         return;
                     }
                     return;
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921713, pk7Var));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921713, ln7Var));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class h extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -399,9 +399,9 @@ public class GamePersonalChatView extends PersonalChatView {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Object obj;
-            pk7 g;
+            ln7 g;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921712 || !(customResponsedMessage.getData() instanceof HashMap) || (obj = ((HashMap) customResponsedMessage.getData()).get("imUser")) == null || (g = pk7.g(obj)) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921712 || !(customResponsedMessage.getData() instanceof HashMap) || (obj = ((HashMap) customResponsedMessage.getData()).get("imUser")) == null || (g = ln7.g(obj)) == null) {
                 return;
             }
             if (this.a.t.b(g)) {
@@ -415,7 +415,7 @@ public class GamePersonalChatView extends PersonalChatView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class i extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -466,8 +466,8 @@ public class GamePersonalChatView extends PersonalChatView {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class j implements mb5 {
+    /* loaded from: classes4.dex */
+    public class j implements zc5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GamePersonalChatView a;
@@ -490,18 +490,18 @@ public class GamePersonalChatView extends PersonalChatView {
             this.a = gamePersonalChatView;
         }
 
-        @Override // com.baidu.tieba.mb5
-        public void A(lb5 lb5Var) {
+        @Override // com.baidu.tieba.zc5
+        public void A(yc5 yc5Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, lb5Var) == null) && lb5Var != null && this.a.C != null) {
-                int i = lb5Var.a;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, yc5Var) == null) && yc5Var != null && this.a.C != null) {
+                int i = yc5Var.a;
                 if (i == 14) {
-                    os7.d(this.a.B, this.a.A, this.a.C.b(), this.a.C.e());
+                    pv7.d(this.a.B, this.a.A, this.a.C.b(), this.a.C.e());
                     return;
                 }
                 int i2 = 1;
                 if (i == 63) {
-                    Object obj = lb5Var.c;
+                    Object obj = yc5Var.c;
                     if (obj instanceof Boolean) {
                         boolean booleanValue = ((Boolean) obj).booleanValue();
                         String str = this.a.B;
@@ -511,10 +511,10 @@ public class GamePersonalChatView extends PersonalChatView {
                         if (!booleanValue) {
                             i2 = 2;
                         }
-                        os7.f(str, str2, b, e, i2);
+                        pv7.f(str, str2, b, e, i2);
                     }
                 } else if (i == 62) {
-                    Object obj2 = lb5Var.c;
+                    Object obj2 = yc5Var.c;
                     if (obj2 instanceof Boolean) {
                         boolean booleanValue2 = ((Boolean) obj2).booleanValue();
                         String str3 = this.a.B;
@@ -524,16 +524,16 @@ public class GamePersonalChatView extends PersonalChatView {
                         if (!booleanValue2) {
                             i2 = 2;
                         }
-                        os7.c(str3, str4, b2, e2, i2);
+                        pv7.c(str3, str4, b2, e2, i2);
                     }
                 } else if (i == 64) {
-                    os7.b(this.a.B, this.a.A, this.a.C.b(), this.a.C.e());
+                    pv7.b(this.a.B, this.a.A, this.a.C.b(), this.a.C.e());
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class k implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -568,8 +568,8 @@ public class GamePersonalChatView extends PersonalChatView {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class l extends kp5<Void> {
+    /* loaded from: classes4.dex */
+    public class l extends yq5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LinkedList a;
@@ -593,19 +593,19 @@ public class GamePersonalChatView extends PersonalChatView {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kp5
+        @Override // com.baidu.tieba.yq5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return kl7.w().a(this.a);
+                return go7.w().a(this.a);
             }
             return (Void) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class m implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -723,12 +723,12 @@ public class GamePersonalChatView extends PersonalChatView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             super.onChangeSkinType(i2);
-            p15.d(this.t).f(R.color.CAM_X0204);
+            b35.d(this.t).f(R.color.CAM_X0204);
             this.u.g();
         }
     }
 
-    public final void r0(@NonNull List<pk7> list) {
+    public final void r0(@NonNull List<ln7> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.t.a(list);
@@ -771,7 +771,7 @@ public class GamePersonalChatView extends PersonalChatView {
         }
         GamePersonalChatActivity gamePersonalChatActivity = this.r;
         ej.z(gamePersonalChatActivity, gamePersonalChatActivity.getCurrentFocus());
-        this.mTool.C(new lb5(5, -1, null));
+        this.mTool.C(new yc5(5, -1, null));
     }
 
     public final void p0() {
@@ -896,18 +896,18 @@ public class GamePersonalChatView extends PersonalChatView {
                 str3 = (String) hashMap2.get("order_area");
                 StringBuilder sb = new StringBuilder();
                 if (!TextUtils.isEmpty(str4)) {
-                    sb.append(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07f8), str4));
+                    sb.append(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07f9), str4));
                 }
                 if (!TextUtils.isEmpty(str)) {
-                    sb.append(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07f6), str));
+                    sb.append(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07f7), str));
                 }
                 if (!TextUtils.isEmpty(str2)) {
-                    sb.append(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07f7), str2));
+                    sb.append(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07f8), str2));
                 }
                 if (!TextUtils.isEmpty(str3)) {
-                    sb.append(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07f4), str3));
+                    sb.append(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07f5), str3));
                 }
-                sb.append(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07f5));
+                sb.append(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07f6));
                 this.z = sb.toString();
             }
         }
@@ -923,21 +923,21 @@ public class GamePersonalChatView extends PersonalChatView {
         }
         if (!TextUtils.isEmpty(str3)) {
         }
-        sb2.append(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07f5));
+        sb2.append(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07f6));
         this.z = sb2.toString();
     }
 
-    public final void w0(@NonNull pk7 pk7Var) {
+    public final void w0(@NonNull ln7 ln7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, pk7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, ln7Var) == null) {
             UserData userData = new UserData();
-            userData.setPortrait(pk7Var.a());
-            userData.setName_show(pk7Var.c());
-            userData.setUserId(pk7Var.d());
-            userData.setUserIdLong(dh.g(pk7Var.d(), 0L));
+            userData.setPortrait(ln7Var.a());
+            userData.setName_show(ln7Var.c());
+            userData.setUserId(ln7Var.d());
+            userData.setUserIdLong(dh.g(ln7Var.d(), 0L));
             LinkedList linkedList = new LinkedList();
             linkedList.add(String.valueOf(userData.getUserId()));
-            op5.c(new l(this, linkedList), new a(this, userData));
+            cr5.c(new l(this, linkedList), new a(this, userData));
         }
     }
 }

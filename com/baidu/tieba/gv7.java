@@ -1,61 +1,50 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public interface gv7 {
-    a getParallelCharge();
+public class gv7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public ArrayList<String> c;
-        public ArrayList<String> d;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static boolean a(ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imMessageCenterShowItemData)) == null) {
+            if (imMessageCenterShowItemData == null) {
+                return false;
             }
-            this.c = new ArrayList<>();
-            this.d = new ArrayList<>();
-        }
-
-        public void a(JSONObject jSONObject) {
-            JSONArray optJSONArray;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && (optJSONArray = jSONObject.optJSONArray("ad_monitor_url")) != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        String optString = optJSONObject.optString("show_url");
-                        if (!TextUtils.isEmpty(optString)) {
-                            this.c.add(optString);
-                        }
-                        String optString2 = optJSONObject.optString("click_url");
-                        if (!TextUtils.isEmpty(optString2)) {
-                            this.d.add(optString2);
-                        }
-                    }
-                }
+            if (!String.valueOf(4).equals(imMessageCenterShowItemData.getOwnerName()) && !"".equals(imMessageCenterShowItemData.getOwnerName())) {
+                return false;
             }
+            return true;
         }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imMessageCenterShowItemData)) == null) {
+            if (imMessageCenterShowItemData == null) {
+                return false;
+            }
+            return String.valueOf(9).equals(imMessageCenterShowItemData.getOwnerName());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, imMessageCenterShowItemData)) == null) {
+            if (imMessageCenterShowItemData == null || !String.valueOf(8).equals(imMessageCenterShowItemData.getOwnerName()) || "3222425470".equals(imMessageCenterShowItemData.getFriendId()) || "801001117".equals(imMessageCenterShowItemData.getFriendId()) || "5044059141".equals(imMessageCenterShowItemData.getFriendId())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

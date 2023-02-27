@@ -1,80 +1,56 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.VideoInfo;
 /* loaded from: classes5.dex */
-public final class k15 {
+public class k15 {
     public static /* synthetic */ Interceptable $ic;
-    public static final k15 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947860250, "Lcom/baidu/tieba/k15;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947860250, "Lcom/baidu/tieba/k15;");
-                return;
-            }
-        }
-        a = new k15();
-    }
-
-    public k15() {
+    public static VideoInfo a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final void a(String json) {
-        boolean z;
-        List entityList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
-            Intrinsics.checkNotNullParameter(json, "json");
-            String g = f15.g();
-            jf<String> g2 = i05.g("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), g);
-            if (g2 != null) {
-                String str = g2.get(g);
-                if (str != null) {
-                    if (str.length() > 0) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (!z) {
-                        str = null;
-                    }
-                    if (str != null && (entityList = DataExt.toEntityList(str, DialogStrategiesData.class)) != null) {
-                        List entityList2 = DataExt.toEntityList(json, DialogStrategiesData.class);
-                        Intrinsics.checkNotNullExpressionValue(entityList2, "toEntityList(json, Dialo…rategiesData::class.java)");
-                        l15.b(entityList, entityList2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            if (jSONObject != null) {
+                VideoInfo.Builder builder = new VideoInfo.Builder();
+                builder.video_md5 = jSONObject.optString(VideoFinishResult.KEY_VIDEO_MD5);
+                builder.video_url = jSONObject.optString("video_url");
+                builder.video_duration = Integer.valueOf(jSONObject.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION));
+                builder.video_width = Integer.valueOf(jSONObject.optInt("video_width"));
+                builder.video_height = Integer.valueOf(jSONObject.optInt("video_height"));
+                builder.thumbnail_url = jSONObject.optString("thumbnail_url");
+                builder.thumbnail_width = Integer.valueOf(jSONObject.optInt("thumbnail_width"));
+                builder.thumbnail_height = Integer.valueOf(jSONObject.optInt("thumbnail_height"));
+                builder.video_length = Integer.valueOf(jSONObject.optInt("video_length"));
+                builder.play_count = Integer.valueOf(jSONObject.optInt("play_count"));
+                builder.media_subtitle = jSONObject.optString("media_subtitle");
+                builder.video_desc = new ArrayList();
+                JSONArray optJSONArray = jSONObject.optJSONArray("video_desc");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        builder.video_desc.add(j15.a(optJSONArray.optJSONObject(i)));
                     }
                 }
-                g2.a(g, json);
+                builder.video_select_flag = Integer.valueOf(jSONObject.optInt("video_select_flag"));
+                builder.video_type = Integer.valueOf(jSONObject.optInt("video_type"));
+                builder.is_vertical = Integer.valueOf(jSONObject.optInt(TiebaStatic.Params.IS_VERTICAL));
+                builder.video_h265 = j15.a(jSONObject.optJSONObject("video_h265"));
+                builder.mcn_lead_page = jSONObject.optString("mcn_lead_page");
+                builder.mcn_ad_card = vz4.a(jSONObject.optJSONObject("mcn_ad_card"));
+                builder.wth_mid_loc = Double.valueOf(jSONObject.optDouble("wth_mid_loc"));
+                builder.hth_mid_loc = Double.valueOf(jSONObject.optDouble("hth_mid_loc"));
+                return builder.build(true);
             }
+            return null;
         }
+        return (VideoInfo) invokeL.objValue;
     }
 }

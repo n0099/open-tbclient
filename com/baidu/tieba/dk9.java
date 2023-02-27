@@ -1,63 +1,52 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.data.SelectForumData;
-import com.baidu.tieba.frs.FrsTabInfoData;
-import com.baidu.tieba.frs.FrsTabItemData;
-import com.baidu.tieba.write.view.ForumTabSelectedView;
+import android.content.Context;
+import android.graphics.Bitmap;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
+import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
 /* loaded from: classes4.dex */
-public class dk9 extends pk9<el9> implements rk9 {
+public class dk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public ForumTabSelectedView g;
-    @Nullable
-    public View h;
-    public String i;
-    public final ForumTabSelectedView.d j;
 
-    @Override // com.baidu.tieba.uk9
-    public void a(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947707575, "Lcom/baidu/tieba/dk9;")) == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.uk9
-    public void e(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) {
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947707575, "Lcom/baidu/tieba/dk9;");
         }
     }
 
     /* loaded from: classes4.dex */
-    public class a implements ForumTabSelectedView.d {
+    public static class a implements fk9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dk9 a;
+        public final /* synthetic */ fk9 a;
 
-        public a(dk9 dk9Var) {
+        public a(fk9 fk9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dk9Var};
+                Object[] objArr = {fk9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -67,168 +56,119 @@ public class dk9 extends pk9<el9> implements rk9 {
                     return;
                 }
             }
-            this.a = dk9Var;
+            this.a = fk9Var;
         }
 
-        @Override // com.baidu.tieba.write.view.ForumTabSelectedView.d
-        public void a(FrsTabItemData frsTabItemData) {
+        @Override // com.baidu.tieba.fk9
+        public void a(int i, Bitmap bitmap) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, frsTabItemData) == null) {
-                ((el9) this.a.d).b = frsTabItemData;
-                dk9 dk9Var = this.a;
-                dk9Var.y(dk9Var.d);
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
+                fk9 fk9Var = this.a;
+                if (fk9Var != null) {
+                    fk9Var.a(i, bitmap);
+                }
+                d1a.d("single-frameResult: " + i);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dk9(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, el9.class);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.j = new a(this);
-        this.i = this.a.getString(R.string.obfuscated_res_0x7f0f0720);
-    }
+    /* loaded from: classes4.dex */
+    public static class b implements fk9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fk9 a;
 
-    public final void C(FrsTabInfoData frsTabInfoData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, frsTabInfoData) == null) && frsTabInfoData != null && !ListUtils.isEmpty(frsTabInfoData.tabList)) {
-            ArrayList arrayList = new ArrayList();
-            for (FrsTabItemData frsTabItemData : frsTabInfoData.tabList) {
-                String str = this.i;
-                if ((str != null && frsTabItemData != null && str.equals(frsTabItemData.name)) || frsTabItemData.isNoShowInPublisher) {
-                    arrayList.add(frsTabItemData);
+        public b(fk9 fk9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fk9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            frsTabInfoData.tabList.removeAll(arrayList);
+            this.a = fk9Var;
         }
-    }
 
-    @Override // com.baidu.tieba.uk9
-    public void c(WriteData writeData) {
-        ForumTabSelectedView forumTabSelectedView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) != null) || (forumTabSelectedView = this.g) == null || forumTabSelectedView.getVisibility() != 0 || writeData == null) {
-            return;
-        }
-        D d = this.d;
-        if (((el9) d).a != null) {
-            writeData.setIsForumBusinessAccount(((el9) d).a.isForumBusinessAccount);
-        }
-        FrsTabItemData selectedTabItemData = this.g.getSelectedTabItemData();
-        if (selectedTabItemData == null) {
-            return;
-        }
-        writeData.setTabId(selectedTabItemData.tabId);
-        writeData.setTabName(selectedTabItemData.name);
-        writeData.setIsGeneralTab(selectedTabItemData.isGeneralTab);
-    }
-
-    @Override // com.baidu.tieba.uk9
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            ForumTabSelectedView forumTabSelectedView = this.g;
-            if (forumTabSelectedView != null) {
-                forumTabSelectedView.o(i);
-            }
-            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0210);
-        }
-    }
-
-    @Override // com.baidu.tieba.pk9, com.baidu.tieba.uk9
-    public void q(@NonNull List<uk9<?>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            super.q(list);
-            for (uk9<?> uk9Var : list) {
-                if (uk9Var instanceof yj9) {
-                    w((yj9) uk9Var);
+        @Override // com.baidu.tieba.fk9
+        public void a(int i, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
+                fk9 fk9Var = this.a;
+                if (fk9Var != null) {
+                    fk9Var.a(i, bitmap);
                 }
+                d1a.d("multi-frameResult: " + i);
             }
         }
     }
 
-    @Override // com.baidu.tieba.rk9
-    public void onUpdate(Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, obj) != null) || !(obj instanceof SelectForumData) || this.c == null) {
-            return;
-        }
-        SelectForumData selectForumData = (SelectForumData) obj;
-        if (!ListUtils.isEmpty(selectForumData.tabInfoList)) {
-            FrsTabInfoData frsTabInfoData = new FrsTabInfoData();
-            frsTabInfoData.selectedTabId = -1;
-            List<FrsTabItemData> list = selectForumData.tabInfoList;
-            frsTabInfoData.tabList = list;
-            if (selectForumData.isForumBusinessAccount && list != null) {
-                FrsTabItemData frsTabItemData = new FrsTabItemData();
-                frsTabItemData.tabId = 505;
-                frsTabItemData.name = "官方";
-                frsTabInfoData.tabList.add(0, frsTabItemData);
-            }
-            frsTabInfoData.isForumBusinessAccount = selectForumData.isForumBusinessAccount;
-            if (this.g != null) {
-                C(frsTabInfoData);
-                this.g.setData(frsTabInfoData);
-                if (this.g.getVisibility() == 0) {
-                    this.c.setVisibility(0);
-                } else {
-                    this.c.setVisibility(8);
-                }
-            }
-            ((el9) this.d).a = frsTabInfoData;
-            WriteData writeData = this.e;
-            if (writeData != null) {
-                writeData.setFrsTabInfoData(frsTabInfoData);
-                return;
-            }
-            return;
-        }
-        this.c.setVisibility(8);
-    }
-
-    @Override // com.baidu.tieba.uk9
-    public View s(@NonNull ViewGroup viewGroup) {
+    public static TbMultiMediaData a(VideoInfo videoInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04c0, viewGroup, false);
-            this.c = inflate;
-            this.g = (ForumTabSelectedView) inflate.findViewById(R.id.obfuscated_res_0x7f090ca3);
-            this.h = this.c.findViewById(R.id.obfuscated_res_0x7f090ca0);
-            ForumTabSelectedView forumTabSelectedView = this.g;
-            if (forumTabSelectedView != null) {
-                forumTabSelectedView.setBgColor(R.color.CAM_X0205);
-                WriteData writeData = this.e;
-                if (writeData != null) {
-                    C(writeData.getFrsTabInfoData());
-                    this.g.setData(this.e.getFrsTabInfoData());
-                    if (this.g.getVisibility() == 0) {
-                        this.c.setVisibility(0);
-                    } else {
-                        this.c.setVisibility(8);
-                    }
-                }
-                this.g.setActivity(this.a);
-                this.g.setTabSelectedListener(this.j);
-            }
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, videoInfo)) == null) {
+            TbMultiMediaData tbMultiMediaData = new TbMultiMediaData();
+            tbMultiMediaData.path = videoInfo.getVideoPath();
+            tbMultiMediaData.coverPath = videoInfo.getThumbPath();
+            tbMultiMediaData.height = videoInfo.getVideoHeight();
+            tbMultiMediaData.width = videoInfo.getVideoWidth();
+            tbMultiMediaData.type = 1;
+            tbMultiMediaData.start = 0L;
+            tbMultiMediaData.end = videoInfo.getVideoDuration() * 1000;
+            tbMultiMediaData.originalDuration = videoInfo.getVideoDuration() * 1000;
+            tbMultiMediaData.scaleType = "center_inside";
+            tbMultiMediaData.videoInfoSource = videoInfo.getVideoSource();
+            return tbMultiMediaData;
         }
-        return (View) invokeL.objValue;
+        return (TbMultiMediaData) invokeL.objValue;
+    }
+
+    public static void b(VlogEditManager vlogEditManager, Context context, int i, int i2, int i3, fk9 fk9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{vlogEditManager, context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), fk9Var}) == null) && vlogEditManager != null && context != null && i > 0) {
+            ok9 ok9Var = new ok9();
+            ok9Var.a = vlogEditManager.getDuration();
+            ok9Var.b = i;
+            ok9Var.f = vlogEditManager.getInputMultiMediaData();
+            MediaTrack mediaTrack = (MediaTrack) i1a.c(vlogEditManager.getUpdateMediaTracks(), 0);
+            if (mediaTrack == null) {
+                return;
+            }
+            ok9Var.e = mediaTrack.mediaSegments;
+            if (i2 == 0) {
+                i2 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
+            }
+            ok9Var.c = i2;
+            if (i3 == 0) {
+                i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
+            }
+            ok9Var.d = i3;
+            ik9.f().i(ok9Var, new b(fk9Var));
+        }
+    }
+
+    public static void c(MultiMediaData multiMediaData, Context context, int i, int i2, int i3, fk9 fk9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{multiMediaData, context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), fk9Var}) == null) && multiMediaData != null && context != null && i > 0) {
+            pk9 pk9Var = new pk9();
+            pk9Var.b = i;
+            pk9Var.a = multiMediaData.originalDuration;
+            pk9Var.e = multiMediaData;
+            if (i2 == 0) {
+                i2 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
+            }
+            pk9Var.c = i2;
+            if (i3 == 0) {
+                i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
+            }
+            pk9Var.d = i3;
+            ik9.f().j(pk9Var, new a(fk9Var));
+        }
     }
 }

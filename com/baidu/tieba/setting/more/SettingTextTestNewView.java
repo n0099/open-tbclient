@@ -50,7 +50,7 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             boolean z2 = false;
-            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
                 z = true;
             } else {
                 z = false;
@@ -64,9 +64,9 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
                 TextView textView = this.e;
                 Context context = this.a;
                 if (z) {
-                    i2 = R.style.obfuscated_res_0x7f1003fa;
+                    i2 = R.style.obfuscated_res_0x7f1003fd;
                 } else {
-                    i2 = R.style.obfuscated_res_0x7f1003f9;
+                    i2 = R.style.obfuscated_res_0x7f1003fc;
                 }
                 textView.setTextAppearance(context, i2);
                 SkinManager.setBackgroundResource(this.e, R.drawable.icon_news_text_prompt);
@@ -81,9 +81,9 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             TextView textView2 = this.e;
             Context context2 = this.a;
             if (z) {
-                i = R.style.obfuscated_res_0x7f1003fc;
+                i = R.style.obfuscated_res_0x7f1003ff;
             } else {
-                i = R.style.obfuscated_res_0x7f1003fb;
+                i = R.style.obfuscated_res_0x7f1003fe;
             }
             textView2.setTextAppearance(context2, i);
         }

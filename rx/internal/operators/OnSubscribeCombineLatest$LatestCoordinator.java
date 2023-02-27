@@ -1,22 +1,13 @@
 package rx.internal.operators;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dea;
-import com.baidu.tieba.eea;
-import com.baidu.tieba.mga;
-import com.baidu.tieba.rea;
-import com.baidu.tieba.sea;
-import com.baidu.tieba.vea;
-import com.baidu.tieba.xda;
-import com.baidu.tieba.zda;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.hpa;
+import com.baidu.tieba.mna;
+import com.baidu.tieba.nna;
+import com.baidu.tieba.qna;
+import com.baidu.tieba.sma;
+import com.baidu.tieba.uma;
+import com.baidu.tieba.yma;
+import com.baidu.tieba.zma;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Queue;
@@ -25,55 +16,31 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.CompositeException;
 /* loaded from: classes9.dex */
-public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends AtomicInteger implements zda, eea {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final Object MISSING;
+public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends AtomicInteger implements uma, zma {
+    public static final Object MISSING = new Object();
     public static final long serialVersionUID = 8567835998786448817L;
-    public transient /* synthetic */ FieldHolder $fh;
     public int active;
-    public final dea<? super R> actual;
+    public final yma<? super R> actual;
     public final int bufferSize;
     public volatile boolean cancelled;
-    public final rea<? extends R> combiner;
+    public final mna<? extends R> combiner;
     public int complete;
     public final boolean delayError;
     public volatile boolean done;
     public final AtomicReference<Throwable> error;
     public final Object[] latest;
-    public final mga<Object> queue;
+    public final hpa<Object> queue;
     public final AtomicLong requested;
-    public final vea<T, R>[] subscribers;
+    public final qna<T, R>[] subscribers;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1941477574, "Lrx/internal/operators/OnSubscribeCombineLatest$LatestCoordinator;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1941477574, "Lrx/internal/operators/OnSubscribeCombineLatest$LatestCoordinator;");
-                return;
-            }
-        }
-        MISSING = new Object();
-    }
-
-    @Override // com.baidu.tieba.eea
+    @Override // com.baidu.tieba.zma
     public boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.cancelled;
-        }
-        return invokeV.booleanValue;
+        return this.cancelled;
     }
 
-    @Override // com.baidu.tieba.eea
+    @Override // com.baidu.tieba.zma
     public void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && !this.cancelled) {
+        if (!this.cancelled) {
             this.cancelled = true;
             if (getAndIncrement() == 0) {
                 cancel(this.queue);
@@ -81,178 +48,201 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
         }
     }
 
-    public OnSubscribeCombineLatest$LatestCoordinator(dea<? super R> deaVar, rea<? extends R> reaVar, int i, int i2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {deaVar, reaVar, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.actual = deaVar;
-        this.combiner = reaVar;
+    public OnSubscribeCombineLatest$LatestCoordinator(yma<? super R> ymaVar, mna<? extends R> mnaVar, int i, int i2, boolean z) {
+        this.actual = ymaVar;
+        this.combiner = mnaVar;
         this.bufferSize = i2;
         this.delayError = z;
-        Object[] objArr2 = new Object[i];
-        this.latest = objArr2;
-        Arrays.fill(objArr2, MISSING);
-        this.subscribers = new vea[i];
-        this.queue = new mga<>(i2);
+        Object[] objArr = new Object[i];
+        this.latest = objArr;
+        Arrays.fill(objArr, MISSING);
+        this.subscribers = new qna[i];
+        this.queue = new hpa<>(i2);
         this.requested = new AtomicLong();
         this.error = new AtomicReference<>();
     }
 
-    public boolean checkTerminated(boolean z, boolean z2, dea<?> deaVar, Queue<?> queue, boolean z3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), deaVar, queue, Boolean.valueOf(z3)})) == null) {
-            if (this.cancelled) {
-                cancel(queue);
-                return true;
-            } else if (z) {
-                if (z3) {
-                    if (z2) {
-                        Throwable th = this.error.get();
-                        if (th != null) {
-                            deaVar.onError(th);
-                        } else {
-                            deaVar.onCompleted();
-                        }
-                        return true;
+    public void cancel(Queue<?> queue) {
+        queue.clear();
+        for (qna<T, R> qnaVar : this.subscribers) {
+            qnaVar.unsubscribe();
+        }
+    }
+
+    @Override // com.baidu.tieba.uma
+    public void request(long j) {
+        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i >= 0) {
+            if (i != 0) {
+                nna.b(this.requested, j);
+                drain();
+                return;
+            }
+            return;
+        }
+        throw new IllegalArgumentException("n >= required but it was " + j);
+    }
+
+    public void subscribe(sma<? extends T>[] smaVarArr) {
+        qna<T, R>[] qnaVarArr = this.subscribers;
+        int length = qnaVarArr.length;
+        for (int i = 0; i < length; i++) {
+            qnaVarArr[i] = new qna<>(this, i);
+        }
+        lazySet(0);
+        this.actual.b(this);
+        this.actual.f(this);
+        for (int i2 = 0; i2 < length && !this.cancelled; i2++) {
+            smaVarArr[i2].u(qnaVarArr[i2]);
+        }
+    }
+
+    public boolean checkTerminated(boolean z, boolean z2, yma<?> ymaVar, Queue<?> queue, boolean z3) {
+        if (this.cancelled) {
+            cancel(queue);
+            return true;
+        } else if (z) {
+            if (z3) {
+                if (z2) {
+                    Throwable th = this.error.get();
+                    if (th != null) {
+                        ymaVar.onError(th);
+                    } else {
+                        ymaVar.onCompleted();
                     }
-                    return false;
-                }
-                Throwable th2 = this.error.get();
-                if (th2 != null) {
-                    cancel(queue);
-                    deaVar.onError(th2);
                     return true;
-                } else if (z2) {
-                    deaVar.onCompleted();
-                    return true;
-                } else {
-                    return false;
                 }
+                return false;
+            }
+            Throwable th2 = this.error.get();
+            if (th2 != null) {
+                cancel(queue);
+                ymaVar.onError(th2);
+                return true;
+            } else if (z2) {
+                ymaVar.onCompleted();
+                return true;
             } else {
                 return false;
             }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public void cancel(Queue<?> queue) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, queue) == null) {
-            queue.clear();
-            for (vea<T, R> veaVar : this.subscribers) {
-                veaVar.unsubscribe();
-            }
+        } else {
+            return false;
         }
     }
 
     public void combine(Object obj, int i) {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, obj, i) == null) {
-            vea<T, R> veaVar = this.subscribers[i];
-            synchronized (this) {
-                int length = this.latest.length;
-                Object obj2 = this.latest[i];
-                int i2 = this.active;
-                if (obj2 == MISSING) {
-                    i2++;
-                    this.active = i2;
-                }
-                int i3 = this.complete;
-                if (obj == null) {
-                    i3++;
-                    this.complete = i3;
-                } else {
-                    this.latest[i] = NotificationLite.e(obj);
-                }
-                boolean z2 = false;
-                if (i2 == length) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (i3 == length || (obj == null && obj2 == MISSING)) {
-                    z2 = true;
-                }
-                if (!z2) {
-                    if (obj != null && z) {
-                        this.queue.l(veaVar, this.latest.clone());
-                    } else if (obj == null && this.error.get() != null && (obj2 == MISSING || !this.delayError)) {
-                        this.done = true;
-                    }
-                } else {
+        qna<T, R> qnaVar = this.subscribers[i];
+        synchronized (this) {
+            int length = this.latest.length;
+            Object obj2 = this.latest[i];
+            int i2 = this.active;
+            if (obj2 == MISSING) {
+                i2++;
+                this.active = i2;
+            }
+            int i3 = this.complete;
+            if (obj == null) {
+                i3++;
+                this.complete = i3;
+            } else {
+                this.latest[i] = NotificationLite.e(obj);
+            }
+            boolean z2 = false;
+            if (i2 == length) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (i3 == length || (obj == null && obj2 == MISSING)) {
+                z2 = true;
+            }
+            if (!z2) {
+                if (obj != null && z) {
+                    this.queue.l(qnaVar, this.latest.clone());
+                } else if (obj == null && this.error.get() != null && (obj2 == MISSING || !this.delayError)) {
                     this.done = true;
                 }
-            }
-            if (!z && obj != null) {
-                veaVar.g(1L);
             } else {
-                drain();
+                this.done = true;
             }
+        }
+        if (!z && obj != null) {
+            qnaVar.g(1L);
+        } else {
+            drain();
         }
     }
 
     /* JADX DEBUG: Type inference failed for r1v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x0093, code lost:
+        if (r3 == 0) goto L36;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x009c, code lost:
+        if (r13 == Long.MAX_VALUE) goto L36;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x009e, code lost:
+        com.baidu.tieba.nna.g(r10, r3);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x00a1, code lost:
+        r12 = addAndGet(-r12);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x00a6, code lost:
+        if (r12 != 0) goto L6;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x00a8, code lost:
+        return;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void drain() {
         long j;
         boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || getAndIncrement() != 0) {
+        if (getAndIncrement() != 0) {
             return;
         }
-        mga<Object> mgaVar = this.queue;
-        dea<? super R> deaVar = this.actual;
+        hpa<Object> hpaVar = this.queue;
+        yma<? super R> ymaVar = this.actual;
         boolean z2 = this.delayError;
         AtomicLong atomicLong = this.requested;
         int i = 1;
-        while (!checkTerminated(this.done, mgaVar.isEmpty(), deaVar, mgaVar, z2)) {
+        while (!checkTerminated(this.done, hpaVar.isEmpty(), ymaVar, hpaVar, z2)) {
             long j2 = atomicLong.get();
             long j3 = 0;
             while (true) {
                 if (j3 != j2) {
                     boolean z3 = this.done;
-                    vea veaVar = (vea) mgaVar.peek();
-                    if (veaVar == null) {
+                    qna qnaVar = (qna) hpaVar.peek();
+                    if (qnaVar == null) {
                         z = true;
                     } else {
                         z = false;
                     }
                     long j4 = j3;
-                    if (checkTerminated(z3, z, deaVar, mgaVar, z2)) {
+                    if (checkTerminated(z3, z, ymaVar, hpaVar, z2)) {
                         return;
                     }
                     if (z) {
                         j = j4;
                         break;
                     }
-                    mgaVar.poll();
-                    Object[] objArr = (Object[]) mgaVar.poll();
+                    hpaVar.poll();
+                    Object[] objArr = (Object[]) hpaVar.poll();
                     if (objArr == null) {
                         this.cancelled = true;
-                        cancel(mgaVar);
-                        deaVar.onError(new IllegalStateException("Broken queue?! Sender received but not the array."));
+                        cancel(hpaVar);
+                        ymaVar.onError(new IllegalStateException("Broken queue?! Sender received but not the array."));
                         return;
                     }
                     try {
-                        deaVar.onNext((R) this.combiner.call(objArr));
-                        veaVar.g(1L);
+                        ymaVar.onNext((R) this.combiner.call(objArr));
+                        qnaVar.g(1L);
                         j3 = j4 + 1;
                     } catch (Throwable th) {
                         this.cancelled = true;
-                        cancel(mgaVar);
-                        deaVar.onError(th);
+                        cancel(hpaVar);
+                        ymaVar.onError(th);
                         return;
                     }
                 } else {
@@ -260,70 +250,26 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
                     break;
                 }
             }
-            if (j != 0 && j2 != Long.MAX_VALUE) {
-                sea.g(atomicLong, j);
-            }
-            i = addAndGet(-i);
-            if (i == 0) {
-                return;
-            }
         }
     }
 
     public void onError(Throwable th) {
         Throwable th2;
         Throwable th3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
-            AtomicReference<Throwable> atomicReference = this.error;
-            do {
-                th2 = atomicReference.get();
-                if (th2 != null) {
-                    if (th2 instanceof CompositeException) {
-                        ArrayList arrayList = new ArrayList(((CompositeException) th2).getExceptions());
-                        arrayList.add(th);
-                        th3 = new CompositeException(arrayList);
-                    } else {
-                        th3 = new CompositeException(Arrays.asList(th2, th));
-                    }
+        AtomicReference<Throwable> atomicReference = this.error;
+        do {
+            th2 = atomicReference.get();
+            if (th2 != null) {
+                if (th2 instanceof CompositeException) {
+                    ArrayList arrayList = new ArrayList(((CompositeException) th2).getExceptions());
+                    arrayList.add(th);
+                    th3 = new CompositeException(arrayList);
                 } else {
-                    th3 = th;
+                    th3 = new CompositeException(Arrays.asList(th2, th));
                 }
-            } while (!atomicReference.compareAndSet(th2, th3));
-        }
-    }
-
-    @Override // com.baidu.tieba.zda
-    public void request(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i >= 0) {
-                if (i != 0) {
-                    sea.b(this.requested, j);
-                    drain();
-                    return;
-                }
-                return;
+            } else {
+                th3 = th;
             }
-            throw new IllegalArgumentException("n >= required but it was " + j);
-        }
-    }
-
-    public void subscribe(xda<? extends T>[] xdaVarArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, xdaVarArr) == null) {
-            vea<T, R>[] veaVarArr = this.subscribers;
-            int length = veaVarArr.length;
-            for (int i = 0; i < length; i++) {
-                veaVarArr[i] = new vea<>(this, i);
-            }
-            lazySet(0);
-            this.actual.b(this);
-            this.actual.f(this);
-            for (int i2 = 0; i2 < length && !this.cancelled; i2++) {
-                xdaVarArr[i2].u(veaVarArr[i2]);
-            }
-        }
+        } while (!atomicReference.compareAndSet(th2, th3));
     }
 }

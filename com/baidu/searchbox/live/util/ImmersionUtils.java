@@ -9,88 +9,38 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.live.arch.utils.RomUtils;
 import com.baidu.live.arch.utils.StatusBarUtils;
 import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
 public class ImmersionUtils {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int STANDARD_STATUSBAR_HEIGHT = 50;
     public static boolean canUseImmersion = false;
     public static boolean isMeiZuCanUseImmersive = true;
     public static boolean isMeiZuCanUseImmersiveHaveSet;
     public static DisplayMetrics sDisplayMetrics;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-624287023, "Lcom/baidu/searchbox/live/util/ImmersionUtils;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-624287023, "Lcom/baidu/searchbox/live/util/ImmersionUtils;");
-        }
-    }
-
-    public ImmersionUtils() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
 
     public static boolean canUseImmersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return canUseImmersion;
-        }
-        return invokeV.booleanValue;
+        return canUseImmersion;
     }
 
     public static Context getApplication() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            AppInfoService appInfoService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
-            if (appInfoService != null) {
-                return appInfoService.getApplication();
-            }
-            return null;
+        AppInfoService appInfoService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
+        if (appInfoService != null) {
+            return appInfoService.getApplication();
         }
-        return (Context) invokeV.objValue;
+        return null;
     }
 
     public static void changeStatusBarIconAndTextColor(boolean z, Activity activity) {
         int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(65539, null, z, activity) == null) && activity != null && activity.getWindow() != null) {
+        if (activity != null && activity.getWindow() != null) {
             if (Build.VERSION.SDK_INT < 23) {
                 StatusBarUtils.from(activity).setTransparentStatusbar(true).setLightStatusBar(!z).process();
                 return;
@@ -114,142 +64,63 @@ public class ImmersionUtils {
     }
 
     public static void setupNavigationBarStyleImmersiveSticky(Activity activity, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65547, null, activity, z) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 19 && activity != null) {
-                if (i >= 23) {
-                    useNavigationBarStyleImmersiveStickyM(activity, z);
-                    StatusBarUtils.from(activity).setTransparentStatusbar(true).setLightStatusBar(true).process();
-                    canUseImmersion = true;
-                    return;
-                } else if (!StatusBarUtils.from(activity).setTransparentStatusbar(true).setLightStatusBar(true).process()) {
-                    canUseImmersion = false;
-                    return;
-                } else if (Build.VERSION.SDK_INT < 21) {
-                    useNavigationBarStyleImmersiveStickyKitKat(activity);
-                    canUseImmersion = true;
-                    return;
-                } else {
-                    useNavigationBarStyleImmersiveStickyL(activity);
-                    fixFullScreen4Notch(activity, true);
-                    canUseImmersion = true;
-                    return;
-                }
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 19 && activity != null) {
+            if (i >= 23) {
+                useNavigationBarStyleImmersiveStickyM(activity, z);
+                StatusBarUtils.from(activity).setTransparentStatusbar(true).setLightStatusBar(true).process();
+                canUseImmersion = true;
+                return;
+            } else if (!StatusBarUtils.from(activity).setTransparentStatusbar(true).setLightStatusBar(true).process()) {
+                canUseImmersion = false;
+                return;
+            } else if (Build.VERSION.SDK_INT < 21) {
+                useNavigationBarStyleImmersiveStickyKitKat(activity);
+                canUseImmersion = true;
+                return;
+            } else {
+                useNavigationBarStyleImmersiveStickyL(activity);
+                fixFullScreen4Notch(activity, true);
+                canUseImmersion = true;
+                return;
             }
-            canUseImmersion = false;
         }
+        canUseImmersion = false;
     }
 
     public static int dp2px(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, null, f)) == null) {
-            return (int) ((f * getApplication().getResources().getDisplayMetrics().density) + 0.5f);
-        }
-        return invokeF.intValue;
+        return (int) ((f * getApplication().getResources().getDisplayMetrics().density) + 0.5f);
     }
 
     public static float getDensity(@Nullable Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            initDisplayMetrics(getApplication());
-            DisplayMetrics displayMetrics = sDisplayMetrics;
-            if (displayMetrics != null) {
-                return displayMetrics.density;
-            }
-            return 0.0f;
+        initDisplayMetrics(getApplication());
+        DisplayMetrics displayMetrics = sDisplayMetrics;
+        if (displayMetrics != null) {
+            return displayMetrics.density;
         }
-        return invokeL.floatValue;
+        return 0.0f;
     }
 
     public static void initDisplayMetrics(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
-            Context application = getApplication();
-            if (sDisplayMetrics == null) {
-                if (application != null) {
-                    context = application;
-                }
-                if (context == null) {
-                    return;
-                }
-                sDisplayMetrics = context.getResources().getDisplayMetrics();
+        Context application = getApplication();
+        if (sDisplayMetrics == null) {
+            if (application != null) {
+                context = application;
             }
+            if (context == null) {
+                return;
+            }
+            sDisplayMetrics = context.getResources().getDisplayMetrics();
         }
     }
 
     public static void setupNavBarStyleImmersiveStickyWithLightStatusBar(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, activity) == null) {
-            setupNavigationBarStyleImmersiveSticky(activity, false);
-            changeStatusBarIconAndTextColor(true, activity);
-        }
-    }
-
-    public static void useNavigationBarStyleImmersiveStickyL(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, activity) == null) {
-            useNavigationBarStyleImmersiveStickyL(activity, false, false);
-        }
-    }
-
-    @SuppressLint({"WrongConstant"})
-    public static void fixFullScreen4Notch(Activity activity, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65541, null, activity, z) == null) && activity != null && Build.VERSION.SDK_INT >= 28) {
-            Window window = activity.getWindow();
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            if (z) {
-                attributes.layoutInDisplayCutoutMode = 1;
-            } else {
-                attributes.layoutInDisplayCutoutMode = 0;
-            }
-            window.setAttributes(attributes);
-        }
-    }
-
-    public static void useNavigationBarStyleImmersiveStickyM(Activity activity, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65552, null, activity, z) == null) {
-            useNavigationBarStyleImmersiveStickyL(activity, z, true);
-        }
-    }
-
-    public static int getStatusBarHeight() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            Context application = getApplication();
-            int i2 = 0;
-            if (application == null) {
-                return 0;
-            }
-            try {
-                i = application.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
-            } catch (Exception e) {
-                e.printStackTrace();
-                i = 0;
-            }
-            if (i > 0) {
-                try {
-                    i2 = application.getResources().getDimensionPixelSize(i);
-                } catch (Exception unused) {
-                }
-            }
-            if (i2 == 0) {
-                return (int) (getDensity(null) * 25.0f);
-            }
-            return i2;
-        }
-        return invokeV.intValue;
+        setupNavigationBarStyleImmersiveSticky(activity, false);
+        changeStatusBarIconAndTextColor(true, activity);
     }
 
     public static void useNavigationBarStyleImmersiveStickyKitKat(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65548, null, activity) != null) || activity == null) {
+        if (activity == null) {
             return;
         }
         boolean z = false;
@@ -268,17 +139,62 @@ public class ImmersionUtils {
         }
     }
 
+    public static void useNavigationBarStyleImmersiveStickyL(Activity activity) {
+        useNavigationBarStyleImmersiveStickyL(activity, false, false);
+    }
+
+    @SuppressLint({"WrongConstant"})
+    public static void fixFullScreen4Notch(Activity activity, boolean z) {
+        if (activity != null && Build.VERSION.SDK_INT >= 28) {
+            Window window = activity.getWindow();
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            if (z) {
+                attributes.layoutInDisplayCutoutMode = 1;
+            } else {
+                attributes.layoutInDisplayCutoutMode = 0;
+            }
+            window.setAttributes(attributes);
+        }
+    }
+
+    public static void useNavigationBarStyleImmersiveStickyM(Activity activity, boolean z) {
+        useNavigationBarStyleImmersiveStickyL(activity, z, true);
+    }
+
+    public static int getStatusBarHeight() {
+        int i;
+        Context application = getApplication();
+        int i2 = 0;
+        if (application == null) {
+            return 0;
+        }
+        try {
+            i = application.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+        } catch (Exception e) {
+            e.printStackTrace();
+            i = 0;
+        }
+        if (i > 0) {
+            try {
+                i2 = application.getResources().getDimensionPixelSize(i);
+            } catch (Exception unused) {
+            }
+        }
+        if (i2 == 0) {
+            return (int) (getDensity(null) * 25.0f);
+        }
+        return i2;
+    }
+
     public static void useNavigationBarStyleImmersiveStickyL(Activity activity, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65550, null, new Object[]{activity, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || activity == null) {
+        if (activity == null) {
             return;
         }
         useNavigationBarStyleImmersiveStickyL(activity.getWindow(), z, z2);
     }
 
     public static void useNavigationBarStyleImmersiveStickyL(Window window, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65551, null, new Object[]{window, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || window == null) {
+        if (window == null) {
             return;
         }
         try {

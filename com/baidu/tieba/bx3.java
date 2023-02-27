@@ -1,10 +1,15 @@
 package com.baidu.tieba;
-
-import com.baidu.swan.game.ad.downloader.exception.DownloadException;
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
 /* loaded from: classes3.dex */
 public interface bx3 {
-    void a(DownloadException downloadException);
+    void b(boolean z, String str);
 
-    void b(DownloadInfo downloadInfo);
+    void c(boolean z);
+
+    void d(int i, int i2);
+
+    void onClick();
+
+    void onClose();
+
+    void onError(String str);
 }

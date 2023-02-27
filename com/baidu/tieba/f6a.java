@@ -1,30 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.c6a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.api.KsNativeAd;
+import com.fun.ad.sdk.FunAdLoader;
 /* loaded from: classes4.dex */
-public class f6a extends l6a {
+public class f6a implements c6a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ KsNativeAd c;
-    public final /* synthetic */ e6a d;
+    public final /* synthetic */ z5a a;
 
-    public f6a(e6a e6aVar, KsNativeAd ksNativeAd) {
+    public f6a(h6a h6aVar, z5a z5aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e6aVar, ksNativeAd};
+            Object[] objArr = {h6aVar, z5aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,37 +28,13 @@ public class f6a extends l6a {
                 return;
             }
         }
-        this.d = e6aVar;
-        this.c = ksNativeAd;
+        this.a = z5aVar;
     }
 
-    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
-    public boolean handleDownloadDialog(DialogInterface.OnClickListener onClickListener) {
+    @Override // com.baidu.tieba.c6a.a
+    public FunAdLoader a(n5a n5aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onClickListener)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
-    public void onAdClicked(View view2, KsNativeAd ksNativeAd) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ksNativeAd) == null) {
-            LogPrinter.d();
-            this.d.onAdClicked(ksNativeAd, this.b, new String[0]);
-            this.b = true;
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
-    public void onAdShow(KsNativeAd ksNativeAd) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksNativeAd) == null) {
-            LogPrinter.d();
-            this.d.onAdShow(this.c, this.a, new String[0]);
-            this.a = true;
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, n5aVar)) == null) ? new nba(this.a, n5aVar) : (FunAdLoader) invokeL.objValue;
     }
 }

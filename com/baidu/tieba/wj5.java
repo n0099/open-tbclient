@@ -1,20 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestDataManager;
+import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
+import com.baidu.tbadk.switchs.PraiseSwitch;
+import com.baidu.tbadk.switchs.WindowGreySwitch;
+import com.baidu.tieba.person.ProfileVirtualImageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class wj5 {
+public class wj5 implements si5<SyncDataEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-
-    public abstract int b();
-
-    public abstract boolean c();
 
     public wj5() {
         Interceptable interceptable = $ic;
@@ -26,64 +27,35 @@ public abstract class wj5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = p35.m().i("page_stay_duration_switch", false);
     }
 
-    public boolean a(yj5 yj5Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.si5
+    /* renamed from: a */
+    public boolean onEvent(SyncDataEvent syncDataEvent) {
         InterceptResult invokeL;
-        int b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, yj5Var)) == null) {
-            if (yj5Var != null && !yj5Var.p()) {
-                if (yj5Var.a) {
-                    yj5Var.x(xj5.b(yj5Var.h(), 6));
-                } else {
-                    if (b() > zj5.b().c()) {
-                        b = zj5.b().c();
-                    } else {
-                        b = b();
-                    }
-                    if (b > 5) {
-                        b = 5;
-                    }
-                    yj5Var.x(xj5.b(yj5Var.h(), b));
-                }
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, syncDataEvent)) == null) {
+            boolean z = false;
+            if (syncDataEvent == null) {
+                return false;
             }
-            return false;
+            TbSingleton.getInstance().setSampleId(syncDataEvent.sampleId);
+            gp5.d().f(syncDataEvent.abtestExtraData);
+            UbsABTestDataManager.getInstance().parseJSONArrayByStr(syncDataEvent.ubsABTest);
+            TbSingleton.getInstance().setUserGrowthTaskListData(syncDataEvent.userGrowthTaskListData);
+            ProfileVirtualImageInfo.getInstance().parseRemoteInfo(syncDataEvent.profileVirtualImageInfo);
+            t9 f = t9.f();
+            if (syncDataEvent.themeIsBlack == 1) {
+                z = true;
+            }
+            f.q(z);
+            WindowGreySwitch.setNewValue(syncDataEvent.themeIsBlack);
+            SwitchManager.getInstance().turn(PraiseSwitch.KEY, syncDataEvent.praiseSwitch);
+            return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-                return this.a;
-            }
-            if (!TbadkCoreApplication.getInst().isPageStayOpen()) {
-                e(false);
-                return false;
-            } else if (!zj5.b().f()) {
-                e(false);
-                return false;
-            } else {
-                e(true);
-                return true;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && this.a != z) {
-            p35.m().w("page_stay_duration_switch", true);
-            this.a = z;
-        }
     }
 }

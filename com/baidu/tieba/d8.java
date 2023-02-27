@@ -648,7 +648,7 @@ public class d8<K, V> implements Iterable<b<K, V>> {
                         k = "(this)";
                     }
                     sb.append(k);
-                    sb.append(com.alipay.sdk.encrypt.a.h);
+                    sb.append('=');
                     Object obj = objArr[i];
                     if (obj == this) {
                         obj = "(this)";
@@ -668,7 +668,7 @@ public class d8<K, V> implements Iterable<b<K, V>> {
                         k2 = "(this)";
                     }
                     sb.append(k2);
-                    sb.append(com.alipay.sdk.encrypt.a.h);
+                    sb.append('=');
                     Object obj2 = objArr[i2];
                     if (obj2 == this) {
                         obj2 = "(this)";

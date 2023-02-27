@@ -1,13 +1,8 @@
 package com.google.android.gms.actions;
 
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class ItemListIntents {
-    public static /* synthetic */ Interceptable $ic = null;
     @NonNull
     public static final String ACTION_ACCEPT_ITEM = "com.google.android.gms.actions.ACCEPT_ITEM";
     @NonNull
@@ -30,19 +25,4 @@ public class ItemListIntents {
     public static final String EXTRA_LIST_NAME = "com.google.android.gms.actions.extra.LIST_NAME";
     @NonNull
     public static final String EXTRA_LIST_QUERY = "com.google.android.gms.actions.extra.LIST_QUERY";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public ItemListIntents() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

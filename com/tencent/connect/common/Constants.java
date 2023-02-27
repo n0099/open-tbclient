@@ -1,19 +1,10 @@
 package com.tencent.connect.common;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes8.dex */
 public class Constants {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIVITY_CANCEL = 0;
     public static final int ACTIVITY_OK = -1;
-    public static String APP_SPECIFIC_ROOT = null;
     public static final String CANCEL_URI = "auth://cancel";
     public static final String CLOSE_URI = "auth://close";
     public static final int CODE_REQUEST_MAX = 6656;
@@ -52,12 +43,8 @@ public class Constants {
     public static final String KEY_ERROR_MSG = "key_error_msg";
     public static final String KEY_PARAMS = "key_params";
     public static final String KEY_PPSTS = "ppsts";
-    public static String KEY_PROXY_APPID = null;
-    public static String KEY_QRCODE = null;
     public static final String KEY_REQUEST_CODE = "key_request_code";
     public static final String KEY_RESPONSE = "key_response";
-    public static String KEY_RESTORE_LANDSCAPE = null;
-    public static String KEY_SCOPE = null;
     public static final String KEY_STAY = "stay_back_stack";
     public static final String LOGIN_INFO = "login_info";
     public static final String MOBILEQQ_PACKAGE_NAME = "com.tencent.mobileqq";
@@ -114,7 +101,6 @@ public class Constants {
     public static final String PARAM_SCOPE = "scope";
     public static final String PREFERENCE_PF = "pfStore";
     public static final String QQ_APPID = "100686848";
-    public static String QQ_SHARE_TEMP_DIR = null;
     public static final int REQUEST_API = 10100;
     public static final int REQUEST_APPBAR = 10102;
     public static final int REQUEST_AVATER = 11102;
@@ -199,40 +185,10 @@ public class Constants {
     public static final String VIA_TO_TYPE_QQ_GROUP = "1";
     public static final String VIA_TO_TYPE_QZONE = "4";
     public static final String VIA_WAP_STATE = "ANDROIDSDK.WPASTATE.XX";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-871563897, "Lcom/tencent/connect/common/Constants;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-871563897, "Lcom/tencent/connect/common/Constants;");
-                return;
-            }
-        }
-        APP_SPECIFIC_ROOT = "tencent" + File.separator + "mobileqq" + File.separator + "opensdk";
-        QQ_SHARE_TEMP_DIR = "tmp";
-        KEY_RESTORE_LANDSCAPE = "key_restore_landscape";
-        KEY_SCOPE = "key_scope";
-        KEY_QRCODE = "key_qrcode";
-        KEY_PROXY_APPID = "key_proxy_appid";
-    }
-
-    public Constants() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    public static String APP_SPECIFIC_ROOT = "tencent" + File.separator + "mobileqq" + File.separator + "opensdk";
+    public static String QQ_SHARE_TEMP_DIR = "tmp";
+    public static String KEY_RESTORE_LANDSCAPE = "key_restore_landscape";
+    public static String KEY_SCOPE = "key_scope";
+    public static String KEY_QRCODE = "key_qrcode";
+    public static String KEY_PROXY_APPID = "key_proxy_appid";
 }

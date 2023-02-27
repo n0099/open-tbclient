@@ -1,38 +1,143 @@
 package com.baidu.tieba;
 
+import android.app.ActivityManager;
+import android.app.Application;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
+import android.util.SparseArray;
+import android.util.SparseIntArray;
+import androidx.annotation.AnyThread;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.io.DocumentOpenUtil;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.sapi2.SapiWebView;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
-import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
-import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.SwanRelayActivity;
+import com.baidu.swan.apps.env.launch.SwanLauncher;
+import com.baidu.swan.apps.model.SwanTaskDeadEvent;
+import com.baidu.tieba.ju2;
+import com.baidu.tieba.ku2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.load.resource.bitmap.Downsampler;
-import com.fun.ad.sdk.FunAdSdk;
-import com.google.android.exoplayer2.util.ColorParser;
-import com.google.android.exoplayer2.util.MimeTypes;
-import java.util.HashMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class sl3 {
+public class sl3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Pattern b;
-    public static HashMap<String, Integer> c;
-    public static HashMap<String, Integer> d;
-    public static HashMap<String, String> e;
-    public static HashMap<String, String> f;
+    public static final boolean f;
+    public static final boolean g;
+    public static volatile sl3 h;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public ActivityManager a;
+    public List<ActivityManager.AppTask> b;
+    @Nullable
+    public ArrayList<Integer> c;
+    public final SparseIntArray d;
+    public final SparseArray<SwanTaskDeadEvent> e;
+
+    public static boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ju2.a a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ sl3 c;
+
+        public a(sl3 sl3Var, ju2.a aVar, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sl3Var, aVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = sl3Var;
+            this.a = aVar;
+            this.b = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.i();
+                ju2.a aVar = this.a;
+                if (aVar != null && "1202000800000000".equals(aVar.T())) {
+                    SwanTaskDeadEvent swanTaskDeadEvent = (SwanTaskDeadEvent) this.a.m("key_stack_info");
+                    if (swanTaskDeadEvent != null) {
+                        this.c.c = swanTaskDeadEvent.getStackList();
+                        SparseArray<SwanTaskDeadEvent> historyCache = swanTaskDeadEvent.getHistoryCache();
+                        if (historyCache != null) {
+                            for (int i = 0; i < historyCache.size(); i++) {
+                                int keyAt = historyCache.keyAt(i);
+                                SwanTaskDeadEvent valueAt = historyCache.valueAt(i);
+                                if (valueAt != null && valueAt.getAppId() != null) {
+                                    this.c.e.put(keyAt, valueAt);
+                                    this.c.d.put(valueAt.getAppId().hashCode(), keyAt);
+                                }
+                            }
+                        }
+                        this.c.h(null, swanTaskDeadEvent.getTaskId(), this.b);
+                    }
+                    if (sl3.f) {
+                        Log.d("SwanActivityTaskManager", "stack back: " + this.c.c);
+                        return;
+                    }
+                    return;
+                }
+                ju2.a aVar2 = this.a;
+                if (aVar2 != null) {
+                    this.c.h(aVar2.H(), -1, this.b);
+                }
+                sl3 sl3Var = this.c;
+                sl3Var.c = sl3Var.o();
+                if (sl3.f) {
+                    Log.d("SwanActivityTaskManager", "getLaunchTask=" + this.c.c);
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -47,401 +152,427 @@ public final class sl3 {
                 return;
             }
         }
-        a = gp1.a;
-        b = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
-        c = new HashMap<>();
-        d = new HashMap<>();
-        e = new HashMap<>();
-        f = new HashMap<>();
-        a("application/andrew-inset", "ez", 5);
-        a("application/dsptype", "tsp", 5);
-        a("application/futuresplash", "spl", 5);
-        a("application/hta", "hta", 5);
-        a("application/mac-binhex40", "hqx", 5);
-        a("application/mac-compactpro", "cpt", 5);
-        a("application/mathematica", BaseContentUploader.NB, 5);
-        a("application/msaccess", "mdb", 5);
-        a("application/oda", "oda", 5);
-        a("application/ogg", "ogg", 1);
-        a(DocumentOpenUtil.PDF_TYPE, DocumentOpenUtil.PDF, 4);
-        a("application/pgp-keys", "key", 5);
-        a("application/pgp-signature", "pgp", 5);
-        a("application/pics-rules", "prf", 5);
-        a("application/rar", "rar", 8);
-        a("application/rdf+xml", "rdf", 5);
-        a("application/rss+xml", "rss", 5);
-        a("application/zip", StatConstants.VALUE_TYPE_ZIP, 8);
-        a("application/vnd.android.package-archive", "apk", 3);
-        a("application/vnd.cinderella", "cdy", 5);
-        a("application/vnd.ms-pki.stl", "stl", 5);
-        a("application/vnd.oasis.opendocument.database", "odb", 5);
-        a("application/vnd.oasis.opendocument.formula", "odf", 5);
-        a("application/vnd.oasis.opendocument.graphics", "odg", 5);
-        a("application/vnd.oasis.opendocument.graphics-template", "otg", 5);
-        a("application/vnd.oasis.opendocument.image", "odi", 5);
-        a("application/vnd.oasis.opendocument.spreadsheet", "ods", 5);
-        a("application/vnd.oasis.opendocument.spreadsheet-template", "ots", 5);
-        a("application/vnd.oasis.opendocument.text", "odt", 5);
-        a("application/vnd.oasis.opendocument.text-master", "odm", 5);
-        a("application/vnd.oasis.opendocument.text-template", "ott", 5);
-        a("application/vnd.oasis.opendocument.text-web", "oth", 5);
-        a("application/vnd.google-earth.kml+xml", "kml", 5);
-        a("application/vnd.google-earth.kmz", "kmz", 5);
-        a(DocumentOpenUtil.WORD_TYPE, DocumentOpenUtil.DOC, 4);
-        a(DocumentOpenUtil.WORD_TYPE, "dot", 4);
-        a(DocumentOpenUtil.DOCUMENT_TYPE, DocumentOpenUtil.DOCX, 4);
-        a("application/vnd.openxmlformats-officedocument.wordprocessingml.template", "dotx", 4);
-        a(DocumentOpenUtil.EXCEL_TYPE, DocumentOpenUtil.XLS, 4);
-        a(DocumentOpenUtil.EXCEL_TYPE, "xlt", 4);
-        a(DocumentOpenUtil.SHEET_TYPE, DocumentOpenUtil.XLSX, 4);
-        a("application/vnd.openxmlformats-officedocument.spreadsheetml.template", "xltx", 4);
-        a(DocumentOpenUtil.PPT_TYPE, DocumentOpenUtil.PPT, 4);
-        a(DocumentOpenUtil.PPT_TYPE, "pot", 4);
-        a(DocumentOpenUtil.PPT_TYPE, "pps", 4);
-        a(DocumentOpenUtil.PRESENT_TYPE, DocumentOpenUtil.PPTX, 4);
-        a("application/vnd.openxmlformats-officedocument.presentationml.template", "potx", 4);
-        a("application/vnd.openxmlformats-officedocument.presentationml.slideshow", "ppsx", 4);
-        a("application/vnd.rim.cod", "cod", 5);
-        a("application/vnd.smaf", "mmf", 5);
-        a("application/vnd.stardivision.calc", "sdc", 5);
-        a("application/vnd.stardivision.draw", "sda", 5);
-        a("application/vnd.stardivision.impress", "sdd", 5);
-        a("application/vnd.stardivision.impress", "sdp", 5);
-        a("application/vnd.stardivision.math", "smf", 5);
-        a("application/vnd.stardivision.writer", "sdw", 5);
-        a("application/vnd.stardivision.writer", "vor", 5);
-        a("application/vnd.stardivision.writer-global", "sgl", 5);
-        a("application/vnd.sun.xml.calc", "sxc", 5);
-        a("application/vnd.sun.xml.calc.template", "stc", 5);
-        a("application/vnd.sun.xml.draw", "sxd", 5);
-        a("application/vnd.sun.xml.draw.template", "std", 5);
-        a("application/vnd.sun.xml.impress", "sxi", 5);
-        a("application/vnd.sun.xml.impress.template", "sti", 5);
-        a("application/vnd.sun.xml.math", "sxm", 5);
-        a("application/vnd.sun.xml.writer", "sxw", 5);
-        a("application/vnd.sun.xml.writer.global", "sxg", 5);
-        a("application/vnd.sun.xml.writer.template", "stw", 5);
-        a("application/vnd.visio", "vsd", 5);
-        a("application/x-abiword", "abw", 5);
-        a("application/x-apple-diskimage", "dmg", 5);
-        a("application/x-bcpio", "bcpio", 5);
-        a("application/x-bittorrent", "torrent", 5);
-        a("application/x-cdf", "cdf", 5);
-        a("application/x-cdlink", "vcd", 5);
-        a("application/x-chess-pgn", "pgn", 5);
-        a("application/x-cpio", "cpio", 5);
-        a("application/x-debian-package", "deb", 5);
-        a("application/x-debian-package", "udeb", 5);
-        a("application/x-director", "dcr", 5);
-        a("application/x-director", MapBundleKey.MapObjKey.OBJ_DIR, 5);
-        a("application/x-director", "dxr", 5);
-        a("application/x-dms", "dms", 5);
-        a("application/x-doom", "wad", 5);
-        a("application/x-dvi", "dvi", 5);
-        a("application/x-flac", "flac", 1);
-        a("application/x-font", "pfa", 5);
-        a("application/x-font", "pfb", 5);
-        a("application/x-font", "gsf", 5);
-        a("application/x-font", "pcf", 5);
-        a("application/x-font", "pcf.Z", 5);
-        a("application/x-freemind", FunAdSdk.PLATFORM_MM, 5);
-        a("application/x-futuresplash", "spl", 5);
-        a("application/x-gnumeric", "gnumeric", 5);
-        a("application/x-go-sgf", "sgf", 5);
-        a("application/x-graphing-calculator", "gcf", 5);
-        a("application/x-gtar", "gtar", 5);
-        a("application/x-gtar", "tgz", 5);
-        a("application/x-gtar", "taz", 5);
-        a("application/x-hdf", "hdf", 5);
-        a("application/x-ica", "ica", 5);
-        a("application/x-internet-signup", "ins", 5);
-        a("application/x-internet-signup", "isp", 5);
-        a("application/x-iphone", "iii", 5);
-        a("application/x-iso9660-image", "iso", 5);
-        a("application/x-jmol", "jmz", 5);
-        a("application/x-kchart", "chrt", 5);
-        a("application/x-killustrator", "kil", 5);
-        a("application/x-koan", "skp", 5);
-        a("application/x-koan", "skd", 5);
-        a("application/x-koan", "skt", 5);
-        a("application/x-koan", "skm", 5);
-        a("application/x-kpresenter", "kpr", 5);
-        a("application/x-kpresenter", "kpt", 5);
-        a("application/x-kspread", "ksp", 5);
-        a("application/x-kword", "kwd", 5);
-        a("application/x-kword", "kwt", 5);
-        a("application/x-latex", "latex", 5);
-        a("application/x-lha", "lha", 5);
-        a("application/x-lzh", "lzh", 5);
-        a("application/x-lzx", "lzx", 5);
-        a("application/x-maker", "frm", 5);
-        a("application/x-maker", "maker", 5);
-        a("application/x-maker", "frame", 5);
-        a("application/x-maker", "fb", 5);
-        a("application/x-maker", "book", 5);
-        a("application/x-maker", "fbdoc", 5);
-        a("application/x-mif", "mif", 5);
-        a("application/x-ms-wmd", "wmd", 5);
-        a("application/x-ms-wmz", "wmz", 5);
-        a("application/x-msi", "msi", 5);
-        a("application/x-ns-proxy-autoconfig", "pac", 5);
-        a("application/x-nwc", "nwc", 5);
-        a("application/x-object", "o", 5);
-        a("application/x-oz-application", "oza", 5);
-        a("application/x-pkcs12", "p12", 5);
-        a("application/x-pkcs12", "pfx", 5);
-        a("application/x-pkcs7-certreqresp", "p7r", 5);
-        a("application/x-pkcs7-crl", "crl", 5);
-        a("application/x-quicktimeplayer", "qtl", 5);
-        a("application/x-shar", "shar", 5);
-        a("application/x-shockwave-flash", "swf", 5);
-        a("application/x-stuffit", "sit", 5);
-        a("application/x-sv4cpio", "sv4cpio", 5);
-        a("application/x-sv4crc", "sv4crc", 5);
-        a("application/x-tar", "tar", 8);
-        a("application/x-texinfo", "texinfo", 5);
-        a("application/x-texinfo", "texi", 5);
-        a("application/x-troff", "t", 5);
-        a("application/x-troff", "roff", 5);
-        a("application/x-troff-man", "man", 5);
-        a("application/x-ustar", "ustar", 5);
-        a("application/x-wais-source", "src", 5);
-        a("application/x-wingz", "wz", 5);
-        a("application/x-webarchive", "webarchive", 5);
-        a("application/x-webarchive-xml", "webarchivexml", 5);
-        a("application/x-x509-ca-cert", "crt", 5);
-        a("application/x-x509-user-cert", "crt", 5);
-        a("application/x-xcf", "xcf", 5);
-        a("application/x-xfig", "fig", 5);
-        a("application/xhtml+xml", "xhtml", 5);
-        a("application/font-sfnt", "ttf", 5);
-        a(MimeTypes.AUDIO_AMR_NB, "3gpp", 1);
-        a("audio/amr", "amr", 1);
-        a("audio/basic", "snd", 1);
-        a("audio/midi", "mid", 1);
-        a("audio/midi", "midi", 1);
-        a("audio/midi", "kar", 1);
-        a("audio/midi", "xmf", 1);
-        a("audio/mobile-xmf", "mxmf", 1);
-        a(MimeTypes.AUDIO_MPEG, "mp3", 1);
-        a(MimeTypes.AUDIO_MPEG, "mpga", 1);
-        a(MimeTypes.AUDIO_MPEG, "mpega", 1);
-        a(MimeTypes.AUDIO_MPEG, "mp2", 1);
-        a(MimeTypes.AUDIO_MPEG, "m4a", 1);
-        a("audio/mpegurl", "m3u", 1);
-        a("audio/prs.sid", "sid", 1);
-        a("audio/x-aiff", "aif", 1);
-        a("audio/x-aiff", "aiff", 1);
-        a("audio/x-aiff", "aifc", 1);
-        a("audio/x-gsm", "gsm", 1);
-        a("audio/x-mpegurl", "m3u", 1);
-        a("audio/x-ms-wma", "wma", 1);
-        a("audio/x-ms-wax", "wax", 1);
-        a("audio/x-pn-realaudio", MultiRatePlayUrlHelper.ABBR_RATE_NAME, 1);
-        a("audio/x-pn-realaudio", com.kuaishou.weapon.p0.u.B, 1);
-        a("audio/x-pn-realaudio", "ram", 1);
-        a("audio/x-realaudio", MultiRatePlayUrlHelper.ABBR_RATE_NAME, 1);
-        a("audio/x-scpls", "pls", 1);
-        a("audio/x-sd2", "sd2", 1);
-        a("audio/x-wav", "wav", 1);
-        a("image/bmp", "bmp", 2);
-        a("image/gif", NativeConstants.TYPE_GIF, 2);
-        a("image/ico", "cur", 5);
-        a("image/ico", "ico", 2);
-        a("image/ief", "ief", 5);
-        a("image/jpeg", "jpeg", 2);
-        a("image/jpeg", "jpg", 2);
-        a("image/jpeg", "jpe", 2);
-        a("image/pcx", "pcx", 5);
-        a("image/png", "png", 2);
-        a("image/svg+xml", "svg", 5);
-        a("image/svg+xml", "svgz", 5);
-        a("image/tiff", "tiff", 5);
-        a("image/tiff", "tif", 5);
-        a("image/vnd.djvu", "djvu", 5);
-        a("image/vnd.djvu", "djv", 5);
-        a(Downsampler.WBMP_MIME_TYPE, "wbmp", 2);
-        a("image/x-cmu-raster", "ras", 5);
-        a("image/x-coreldraw", "cdr", 5);
-        a("image/x-coreldrawpattern", "pat", 5);
-        a("image/x-coreldrawtemplate", "cdt", 5);
-        a("image/x-corelphotopaint", "cpt", 5);
-        a("image/x-icon", "ico", 2);
-        a("image/x-jg", "art", 5);
-        a("image/x-jng", "jng", 5);
-        a("image/x-ms-bmp", "bmp", 2);
-        a("image/x-photoshop", "psd", 5);
-        a("image/x-portable-anymap", "pnm", 5);
-        a("image/x-portable-bitmap", "pbm", 5);
-        a("image/x-portable-graymap", "pgm", 5);
-        a("image/x-portable-pixmap", "ppm", 5);
-        a("image/x-rgb", ColorParser.RGB, 5);
-        a("image/x-xbitmap", "xbm", 5);
-        a("image/x-xpixmap", "xpm", 5);
-        a("image/x-xwindowdump", "xwd", 5);
-        a("model/iges", "igs", 5);
-        a("model/iges", "iges", 5);
-        a("model/mesh", "msh", 5);
-        a("model/mesh", "mesh", 5);
-        a("model/mesh", "silo", 5);
-        a("text/calendar", "ics", 5);
-        a("text/calendar", "icz", 5);
-        a("text/comma-separated-values", "csv", 5);
-        a("text/css", "css", 5);
-        a(SapiWebView.DATA_MIME_TYPE, "htm", 11);
-        a(SapiWebView.DATA_MIME_TYPE, "html", 11);
-        a("text/h323", "323", 5);
-        a("text/iuls", "uls", 5);
-        a("text/mathml", "mml", 5);
-        a("text/plain-story", "txt", 6);
-        a("text/plain", "dat", 5);
-        a("text/plain", "txt", 4);
-        a("text/plain", "asc", 4);
-        a("text/plain", "text", 4);
-        a("text/plain", "diff", 4);
-        a("text/plain", "po", 4);
-        a("text/richtext", "rtx", 4);
-        a("text/rtf", "rtf", 4);
-        a("text/texmacs", "ts", 5);
-        a("text/text", "phps", 5);
-        a("text/tab-separated-values", "tsv", 5);
-        a("text/xml", "xml", 4);
-        a("text/x-bibtex", "bib", 5);
-        a("text/x-boo", "boo", 5);
-        a("text/x-c++hdr", "h++", 5);
-        a("text/x-c++hdr", "hpp", 5);
-        a("text/x-c++hdr", "hxx", 5);
-        a("text/x-c++hdr", "hh", 5);
-        a("text/x-c++src", "c++", 5);
-        a("text/x-c++src", "cpp", 5);
-        a("text/x-c++src", "cxx", 5);
-        a("text/x-chdr", "h", 5);
-        a("text/x-component", "htc", 5);
-        a("text/x-csh", "csh", 5);
-        a("text/x-csrc", "c", 5);
-        a("text/x-dsrc", "d", 5);
-        a("text/x-haskell", "hs", 5);
-        a("text/x-java", ExceptionHandlerImpl.EXCEPTION_TYPE_JAVA, 5);
-        a("text/x-literate-haskell", "lhs", 5);
-        a("text/x-moc", "moc", 5);
-        a("text/x-pascal", "p", 5);
-        a("text/x-pascal", "pas", 5);
-        a("text/x-pcs-gcd", "gcd", 5);
-        a("text/x-setext", "etx", 5);
-        a("text/x-tcl", "tcl", 5);
-        a("text/x-tex", "tex", 5);
-        a("text/x-tex", "ltx", 5);
-        a("text/x-tex", "sty", 5);
-        a("text/x-tex", "cls", 5);
-        a("text/x-vcalendar", "vcs", 5);
-        a("text/x-vcard", "vcf", 5);
-        a("video/mkv", "mkv", 0);
-        a(MimeTypes.VIDEO_H263, "3gpp", 0);
-        a(MimeTypes.VIDEO_H263, "3gp", 0);
-        a(MimeTypes.VIDEO_H263, "3g2", 0);
-        a("video/dl", "dl", 0);
-        a("video/dv", "dif", 0);
-        a("video/dv", "dv", 0);
-        a("video/fli", "fli", 0);
-        a("video/m4v", "m4v", 0);
-        a("video/mpeg", "mpeg", 0);
-        a("video/mpeg", "mpg", 0);
-        a("video/mpeg", "mpe", 0);
-        a(MimeTypes.VIDEO_MP4, "mp4", 0);
-        a("video/mpeg", "vob", 0);
-        a("video/quicktime", "qt", 0);
-        a("video/quicktime", "mov", 0);
-        a("video/vnd.mpegurl", "mxu", 0);
-        a("video/x-la-asf", "lsf", 0);
-        a("video/x-la-asf", "lsx", 0);
-        a("video/x-mng", "mng", 0);
-        a("video/x-ms-asf", "asf", 0);
-        a("video/x-ms-asf", "asx", 0);
-        a("video/x-ms-wm", "wm", 0);
-        a("video/x-ms-wmv", "wmv", 0);
-        a("video/x-ms-wmx", "wmx", 0);
-        a("video/x-ms-wvx", "wvx", 0);
-        a("video/x-msvideo", "avi", 0);
-        a("video/x-sgi-movie", "movie", 0);
-        a("video/x-webex", "wrf", 0);
-        a("x-conference/x-cooltalk", "ice", 5);
-        a("x-epoc/x-sisx-app", "sisx", 5);
-        a("video/vnd.rn-realvideo", "rmvb", 0);
-        a("video/x-flv", "flv", 0);
-        a("audio/aac", "aac", 1);
-        a("application/vnd.rn-realmedia", com.kuaishou.weapon.p0.u.B, 0);
-        a("message/rfc822", "mht", 11);
-        Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        f = wp1.a;
+        g = tl3.f();
     }
 
-    public static void a(String str, String str2, int i) {
+    public static sl3 m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, str, str2, i) == null) {
-            c.put(str2, Integer.valueOf(i));
-            d.put(str, Integer.valueOf(i));
-            e.put(str2, str);
-            if (!f.containsKey(str)) {
-                f.put(str, str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (h == null) {
+                synchronized (sl3.class) {
+                    if (h == null) {
+                        h = new sl3();
+                    }
+                }
             }
+            return h;
+        }
+        return (sl3) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.e.clear();
+            this.d.clear();
         }
     }
 
-    public static String b(String str) {
+    public sl3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = new SparseIntArray();
+        this.e = new SparseArray<>();
+        Application c = ts2.c();
+        if (c != null) {
+            this.a = (ActivityManager) c.getSystemService("activity");
+        }
+    }
+
+    public int p() {
+        InterceptResult invokeV;
+        ActivityManager activityManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (g && (activityManager = this.a) != null) {
+                try {
+                    return n(activityManager.getAppTasks().get(0));
+                } catch (Exception e) {
+                    if (f) {
+                        Log.e("SwanActivityTaskManager", "getTopTaskId", e);
+                    }
+                }
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public static void r(@NonNull Message message) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65549, null, message) != null) || !j()) {
+            return;
+        }
+        m().A((Bundle) message.obj);
+    }
+
+    @RequiresApi(api = 21)
+    public final int n(ActivityManager.AppTask appTask) {
         InterceptResult invokeL;
-        int lastIndexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str == null || (lastIndexOf = str.lastIndexOf(".")) == -1 || lastIndexOf == str.length()) {
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, appTask)) == null) {
+            if (appTask != null) {
+                try {
+                    ActivityManager.RecentTaskInfo taskInfo = appTask.getTaskInfo();
+                    if (taskInfo != null) {
+                        return taskInfo.id;
+                    }
+                    return -1;
+                } catch (Exception e) {
+                    if (f) {
+                        Log.e("SwanActivityTaskManager", "getTaskId", e);
+                        return -1;
+                    }
+                    return -1;
+                }
             }
-            return str.substring(lastIndexOf + 1);
+            return -1;
         }
-        return (String) invokeL.objValue;
+        return invokeL.intValue;
+    }
+
+    public void y(@Nullable ju2.a aVar, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048589, this, aVar, i) == null) {
+            gm3.l(new a(this, aVar, i), "getLaunchTask");
+        }
+    }
+
+    public static void q(@NonNull Message message) {
+        ArrayList<Integer> arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65548, null, message) != null) || !j()) {
+            return;
+        }
+        sl3 m = m();
+        Object obj = message.obj;
+        if (obj instanceof Bundle) {
+            Bundle bundle = (Bundle) obj;
+            bundle.setClassLoader(SwanTaskDeadEvent.class.getClassLoader());
+            SwanTaskDeadEvent swanTaskDeadEvent = (SwanTaskDeadEvent) bundle.getParcelable("key_stack_info");
+            if (swanTaskDeadEvent != null && !TextUtils.isEmpty(swanTaskDeadEvent.getAppId())) {
+                if (ProcessUtils.isMainProcess() || ((arrayList = m.c) != null && arrayList.contains(Integer.valueOf(swanTaskDeadEvent.getTaskId())))) {
+                    m.d.put(swanTaskDeadEvent.getAppId().hashCode(), swanTaskDeadEvent.getTaskId());
+                    m.e.put(swanTaskDeadEvent.getTaskId(), swanTaskDeadEvent);
+                }
+            }
+        }
+    }
+
+    public final void A(@Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) && bundle != null && this.c != null) {
+            String string = bundle.getString("app_id");
+            int i = bundle.getInt("key_task_id", -1);
+            if (!TextUtils.isEmpty(string)) {
+                int i2 = this.d.get(string.hashCode(), -1);
+                if (i2 > -1) {
+                    this.c.remove(Integer.valueOf(i2));
+                    this.d.delete(string.hashCode());
+                    this.e.remove(i2);
+                    if (f) {
+                        Log.d("SwanActivityTaskManager", "removeTaskFromCache: " + string + ", oldTask=" + i2);
+                    }
+                }
+                this.c.remove(Integer.valueOf(i));
+                return;
+            }
+            int i3 = bundle.getInt("key_task_id_old", -1);
+            if (i3 == -1) {
+                this.c.remove(Integer.valueOf(i));
+            } else {
+                int i4 = 0;
+                while (true) {
+                    if (i4 >= this.c.size()) {
+                        break;
+                    } else if (this.c.get(i4).intValue() == i3) {
+                        this.c.set(i4, Integer.valueOf(i));
+                        break;
+                    } else {
+                        i4++;
+                    }
+                }
+                SwanTaskDeadEvent swanTaskDeadEvent = this.e.get(i3);
+                if (swanTaskDeadEvent != null) {
+                    if (swanTaskDeadEvent.getAppId() != null) {
+                        this.d.delete(swanTaskDeadEvent.getAppId().hashCode());
+                    }
+                    this.e.remove(i3);
+                }
+            }
+            if (f) {
+                Log.d("SwanActivityTaskManager", "removeTaskFromCache nowTask=" + i + ", old=" + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.c);
+            }
+        }
+    }
+
+    public final void h(@Nullable String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, i2) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putInt("key_task_id", i2);
+            bundle.putInt("key_task_id_old", i);
+            bundle.putString("app_id", str);
+            c63 e = c63.e();
+            e63 e63Var = new e63(123, bundle);
+            e63Var.f(true);
+            e.h(e63Var);
+        }
+    }
+
+    public boolean l(int i) {
+        InterceptResult invokeI;
+        ActivityManager activityManager;
+        List<ActivityManager.AppTask> appTasks;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (!j() || !g || (activityManager = this.a) == null || (appTasks = activityManager.getAppTasks()) == null) {
+                return false;
+            }
+            int i2 = 0;
+            for (ActivityManager.AppTask appTask : appTasks) {
+                if (i2 > 0 && n(appTask) == i) {
+                    appTask.finishAndRemoveTask();
+                    return true;
+                }
+                i2++;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public synchronized boolean v(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
+            synchronized (this) {
+                ArrayList<Integer> arrayList = this.c;
+                if (z) {
+                    arrayList = o();
+                }
+                if (arrayList != null && !arrayList.isEmpty() && this.a != null) {
+                    this.b = null;
+                    Iterator<Integer> it = arrayList.iterator();
+                    while (it.hasNext()) {
+                        if (u(it.next().intValue(), true, true)) {
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+        }
+        return invokeZ.booleanValue;
     }
 
     @Nullable
-    public static String c(String str) {
-        InterceptResult invokeL;
+    public final ArrayList<Integer> o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ArrayList<Integer> arrayList = null;
+            if (!g) {
                 return null;
             }
-            return f.get(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str != null && !TextUtils.isEmpty(str)) {
-                return e.get(str);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            try {
-                Matcher matcher = b.matcher(str);
-                if (matcher.find()) {
-                    return matcher.group(1);
-                }
-                return null;
-            } catch (IllegalStateException e2) {
-                if (a) {
-                    e2.printStackTrace();
+            ActivityManager activityManager = this.a;
+            if (activityManager != null) {
+                List<ActivityManager.AppTask> appTasks = activityManager.getAppTasks();
+                int size = appTasks.size();
+                if (size < 2) {
                     return null;
                 }
-                return null;
+                arrayList = new ArrayList<>(size - 1);
+                for (int i = 1; i < size; i++) {
+                    int n = n(appTasks.get(i));
+                    if (n != -1) {
+                        arrayList.add(Integer.valueOf(n));
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public final boolean s(int i, boolean z) {
+        InterceptResult invokeCommon;
+        ActivityManager activityManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (!g) {
+                return false;
+            }
+            List<ActivityManager.AppTask> list = this.b;
+            if ((!z || list == null) && (activityManager = this.a) != null) {
+                list = activityManager.getAppTasks();
+                if (z) {
+                    this.b = list;
+                }
+            }
+            if (list != null) {
+                for (ActivityManager.AppTask appTask : list) {
+                    if (i == n(appTask)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public void z(@Nullable Intent intent, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048590, this, intent, i) == null) {
+            ArrayList<Integer> o = o();
+            int i2 = -1;
+            if (!t(this.c, o)) {
+                i();
+                h(null, -1, i);
+            }
+            if (f) {
+                if (intent != null) {
+                    i2 = intent.getFlags();
+                }
+                Log.d("SwanActivityTaskManager", "onNewIntent: " + i + ", newTaskList=" + o + ", mLaunchTaskList=" + this.c + ", flag=" + i2);
+            }
+            this.c = o;
+        }
+    }
+
+    public final boolean t(List<Integer> list, List<Integer> list2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list, list2)) == null) {
+            if (list == null || list2 == null || list.size() != list2.size()) {
+                return false;
+            }
+            for (int i = 0; i < list.size(); i++) {
+                if (!TextUtils.equals(String.valueOf(list.get(i)), String.valueOf(list2.get(i)))) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @AnyThread
+    public synchronized boolean u(int i, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            synchronized (this) {
+                if (i > -1) {
+                    if (this.a != null) {
+                        if (s(i, z)) {
+                            if (f) {
+                                Log.i("SwanActivityTaskManager", "moveTaskToFront:" + i);
+                            }
+                            try {
+                                this.a.moveTaskToFront(i, 2, null);
+                                return true;
+                            } catch (Exception e) {
+                                m62.d("SwanActivityTaskManager", "moveTaskToFront", e);
+                            }
+                        } else if (this.e.indexOfKey(i) >= 0) {
+                            SwanTaskDeadEvent swanTaskDeadEvent = this.e.get(i);
+                            if (swanTaskDeadEvent != null) {
+                                ku2.a aVar = (ku2.a) ((ku2.a) ((ku2.a) new ku2.a().v0(swanTaskDeadEvent.getAppId())).R0(swanTaskDeadEvent.getPageScheme())).I0("1202000800000000");
+                                Bundle bundle = new Bundle();
+                                ArrayList<Integer> stackList = swanTaskDeadEvent.getStackList();
+                                if (stackList != null && !stackList.isEmpty()) {
+                                    SparseArray<SwanTaskDeadEvent> sparseArray = new SparseArray<>();
+                                    Iterator<Integer> it = stackList.iterator();
+                                    while (it.hasNext()) {
+                                        Integer next = it.next();
+                                        SwanTaskDeadEvent swanTaskDeadEvent2 = this.e.get(next.intValue(), null);
+                                        if (swanTaskDeadEvent2 != null) {
+                                            sparseArray.put(next.intValue(), swanTaskDeadEvent2);
+                                        }
+                                    }
+                                    swanTaskDeadEvent.setHistoryCache(sparseArray);
+                                }
+                                bundle.putParcelable("key_stack_info", swanTaskDeadEvent);
+                                SwanLauncher.j().n(aVar, bundle);
+                                if (f) {
+                                    Log.i("SwanActivityTaskManager", "launch dead app:" + swanTaskDeadEvent.getAppId());
+                                }
+                                return true;
+                            }
+                        } else if (f) {
+                            Log.d("SwanActivityTaskManager", "Not Found taskId:" + i + " cacheSize:" + this.e.size());
+                        }
+                        return false;
+                    }
+                }
+                return false;
             }
         }
-        return (String) invokeL.objValue;
+        return invokeCommon.booleanValue;
+    }
+
+    public boolean w(@NonNull Context context, int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            try {
+                Intent intent = new Intent(context, SwanRelayActivity.class);
+                intent.putExtra("key_task_id", i);
+                intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+                PendingIntent.getActivity(context, 0, intent, 134217728).send();
+                return true;
+            } catch (Exception e) {
+                if (f) {
+                    Log.e("SwanActivityTaskManager", "moveTaskToFrontByActivity", e);
+                }
+                return u(i, z, false);
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public void x(@Nullable SwanAppActivity swanAppActivity) {
+        v82 X;
+        u82 u82Var;
+        nz2 N1;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, swanAppActivity) == null) && j() && swanAppActivity != null && (X = swanAppActivity.X()) != null && (u82Var = (u82) X.n(u82.class)) != null && (N1 = u82Var.N1()) != null) {
+            Bundle bundle = new Bundle();
+            String P = swanAppActivity.P();
+            int taskId = swanAppActivity.getTaskId();
+            bundle.putParcelable("key_stack_info", new SwanTaskDeadEvent(P, taskId, N1.i() + "?" + N1.j(), this.c));
+            bundle.setClassLoader(SwanTaskDeadEvent.class.getClassLoader());
+            c63 e = c63.e();
+            e63 e63Var = new e63(124, bundle);
+            e63Var.f(true);
+            e.h(e63Var);
+            if (f) {
+                Log.d("SwanActivityTaskManager", "notify dead " + swanAppActivity.P() + StringUtil.ARRAY_ELEMENT_SEPARATOR + swanAppActivity.getTaskId());
+            }
+        }
     }
 }

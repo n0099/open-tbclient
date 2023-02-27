@@ -130,7 +130,7 @@ public class RewardVideoAD extends LiteAbstractAD<RVADI> {
                             return;
                         }
                         HashMap hashMap = new HashMap();
-                        hashMap.put(ServerSideVerificationOptions.TRANS_ID, aDEvent.getParas()[0]);
+                        hashMap.put("transId", aDEvent.getParas()[0]);
                         this.adListener.onReward(hashMap);
                         return;
                     case 6:

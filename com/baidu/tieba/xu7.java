@@ -1,139 +1,36 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Set;
-/* loaded from: classes7.dex */
-public class xu7 extends zs4 {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+/* loaded from: classes6.dex */
+public abstract class xu7 implements wu7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<vu7> a;
+    public zu7 b;
+    public wu7 c;
+    public int d;
 
-    @Override // com.baidu.tieba.zs4
-    public String c() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "post" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends BdAsyncTask<Object, Integer, et4> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public volatile NetWork a;
-        public String b;
-        public String c;
-        public HashMap<String, String> d;
-        public w9 e;
-
-        public a(xu7 xu7Var, String str, String str2, HashMap<String, String> hashMap, w9 w9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xu7Var, str, str2, hashMap, w9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            this.b = str;
-            this.c = str2;
-            this.d = hashMap;
-            this.e = w9Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public et4 doInBackground(Object... objArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                et4 et4Var = new et4();
-                try {
-                    this.a = new NetWork(TbConfig.SERVER_ADDRESS + this.c);
-                    Set<String> keySet = this.d.keySet();
-                    if (keySet.size() > 0) {
-                        for (String str : keySet) {
-                            if (!"url".equalsIgnoreCase(str)) {
-                                this.a.addPostData(str, this.d.get(str));
-                            }
-                        }
-                    }
-                    this.a.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
-                    this.a.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
-                    boolean z = true;
-                    this.a.getNetContext().getRequest().mIsNeedTbs = true;
-                    String postNetData = this.a.postNetData();
-                    if (!this.a.getNetContext().getResponse().isNetSuccess()) {
-                        et4Var.b = this.a.getNetErrorCode();
-                        et4Var.c = this.a.getNetString();
-                    } else {
-                        et4Var.b = this.a.getServerErrorCode();
-                        et4Var.c = this.a.getErrorString();
-                    }
-                    if (this.a.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
-                        if (et4Var.b != 0) {
-                            z = false;
-                        }
-                        et4Var.a = z;
-                        return et4Var;
-                    }
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-                et4Var.a = false;
-                return et4Var;
-            }
-            return (et4) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(et4 et4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, et4Var) == null) {
-                w9 w9Var = this.e;
-                if (w9Var != null) {
-                    w9Var.c(et4Var);
-                }
-                tu7.a().d(this.c, this.d, et4Var);
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.a != null) {
-                    this.a.cancelNetConnect();
-                    this.a = null;
-                }
-                super.cancel(true);
-                w9 w9Var = this.e;
-                if (w9Var != null) {
-                    w9Var.c(null);
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public abstract List<vu7> j(List list);
 
     public xu7() {
         Interceptable interceptable = $ic;
@@ -145,21 +42,96 @@ public class xu7 extends zs4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+        this.d = -1;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.a.size() > 0) {
+                return this.a.size();
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public List<vu7> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return Collections.unmodifiableList(this.a);
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public vu7 d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i >= 0 && i < e()) {
+                return f().get(i);
+            }
+            return null;
+        }
+        return (vu7) invokeI.objValue;
+    }
+
+    public void i(int i) {
+        zu7 zu7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && i >= 0 && (zu7Var = this.b) != null) {
+            zu7Var.c(i, 1);
+        }
+    }
+
+    public void k(wu7 wu7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, wu7Var) == null) {
+            this.c = wu7Var;
+        }
+    }
+
+    public void l(zu7 zu7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, zu7Var) == null) {
+            this.b = zu7Var;
+        }
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void g(List list) {
+        List<vu7> j;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && list != null && !list.isEmpty() && (j = j(list)) != null && !j.isEmpty()) {
+            this.a.addAll(j);
+            zu7 zu7Var = this.b;
+            if (zu7Var != null) {
+                zu7Var.a(0, e());
             }
         }
     }
 
-    @Override // com.baidu.tieba.zs4, com.baidu.tieba.ct4
-    public void a(Object obj, HashMap<String, String> hashMap, String str, w9 w9Var) {
+    public void h(List list) {
+        List<vu7> j;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, obj, hashMap, str, w9Var) == null) && hashMap != null && !hashMap.isEmpty() && hashMap.containsKey("url")) {
-            String str2 = hashMap.get("url");
-            if (TextUtils.isEmpty(str2)) {
-                return;
-            }
-            a aVar = new a(this, str, str2, hashMap, w9Var);
-            aVar.setPriority(2);
-            aVar.execute(new Object[0]);
+        if ((interceptable == null || interceptable.invokeL(1048582, this, list) == null) && list != null && !list.isEmpty() && (j = j(list)) != null && !j.isEmpty() && this.b != null) {
+            int e = e();
+            this.a.clear();
+            this.b.b(0, e);
+            this.a.addAll(j);
+            this.b.c(0, e());
         }
     }
 }

@@ -1,98 +1,35 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class n88 implements g65 {
-    public static /* synthetic */ Interceptable $ic;
-    public static n88 a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface n88 {
+    void a();
 
-    public n88() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void c(boolean z);
 
-    public static synchronized n88 d() {
-        InterceptResult invokeV;
-        n88 n88Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (n88.class) {
-                if (a == null) {
-                    a = new n88();
-                }
-                n88Var = a;
-            }
-            return n88Var;
-        }
-        return (n88) invokeV.objValue;
-    }
+    void d();
 
-    @Override // com.baidu.tieba.g65
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                SapiAccountManager.getInstance().logout();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
+    void e(boolean z, List<Cdo> list);
 
-    @Override // com.baidu.tieba.g65
-    public void b(AccountData accountData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
-            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
-            if (!TextUtils.isEmpty(accountData.getID()) && loginAccounts != null && loginAccounts.size() > 0) {
-                for (SapiAccount sapiAccount : loginAccounts) {
-                    if (accountData.getID().equals(sapiAccount.uid)) {
-                        SapiAccountManager.getInstance().validate(sapiAccount);
-                        return;
-                    }
-                }
-            }
-        }
-    }
+    void h(String str);
 
-    @Override // com.baidu.tieba.g65
-    public void c(AccountData accountData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-            if (accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) {
-                SapiAccountManager.getInstance().logout();
-                return;
-            }
-            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
-            if (loginAccounts != null && loginAccounts.size() > 0) {
-                for (SapiAccount sapiAccount : loginAccounts) {
-                    if (accountData.getID().equals(sapiAccount.uid)) {
-                        SapiAccountManager.getInstance().removeLoginAccount(sapiAccount);
-                        return;
-                    }
-                }
-            }
-        }
-    }
+    void i(int i);
+
+    void k();
+
+    void l(int i);
+
+    void m(boolean z);
+
+    void n();
+
+    void o(m88 m88Var);
+
+    void onCreate();
+
+    void onDestroy();
+
+    void p();
+
+    void q(String str);
 }

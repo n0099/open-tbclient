@@ -1,90 +1,154 @@
 package com.baidu.sofire.k;
 
-import com.baidu.sofire.jni.Asc;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
 public class e {
-    public static /* synthetic */ Interceptable $ic;
-    public static Asc a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2074258985, "Lcom/baidu/sofire/k/e;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(2074258985, "Lcom/baidu/sofire/k/e;");
-                return;
-            }
-        }
-        a = new Asc();
-    }
-
-    public static byte[] a(byte[] bArr, byte[] bArr2, boolean z) {
-        InterceptResult invokeLLZ;
-        byte[] dcn;
+    public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, bArr, bArr2, z)) == null) {
-            if (bArr != null) {
+        if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
+            com.baidu.sofire.j.a a2 = com.baidu.sofire.j.a.a(context);
+            a2.d.putString("rpandid", "");
+            a2.d.commit();
+            a2.d.putString("rpiiem", "");
+            a2.d.commit();
+            if (TextUtils.isEmpty("")) {
+                a2.d.putString("rpiiemn", "");
+                a2.d.commit();
+            } else {
                 try {
+                    a2.d.putString("rpiiemn", new String(Base64.encode(f.b(com.baidu.sofire.j.a.k, "".getBytes("UTF-8"), true), 10), "UTF-8"));
+                    a2.d.commit();
                 } catch (Throwable unused) {
                     int i = com.baidu.sofire.a.b.a;
                 }
-                if (bArr.length > 0 && bArr2 != null && bArr2.length > 0) {
-                    Asc asc = a;
-                    if (asc != null) {
-                        if (z) {
-                            dcn = asc.dc(bArr2, bArr);
-                        } else {
-                            dcn = asc.dcn(bArr2, bArr);
-                        }
-                        if (dcn != null && dcn.length > 0) {
-                            return dcn;
-                        }
-                    }
-                    return new byte[0];
+            }
+            if (TextUtils.isEmpty("")) {
+                a2.b.putString("p_s_o_d_t", "");
+                a2.b.commit();
+            } else {
+                try {
+                    a2.b.putString("p_s_o_d_t", new String(Base64.encode(f.b(com.baidu.sofire.j.a.k, "".getBytes("UTF-8"), true), 10), "UTF-8"));
+                    a2.b.commit();
+                } catch (Throwable unused2) {
+                    int i2 = com.baidu.sofire.a.b.a;
                 }
             }
-            return new byte[0];
+            a2.b.putLong("p_s_o_d_t_t", 0L);
+            a2.b.commit();
+            if (TextUtils.isEmpty("")) {
+                a2.b.putString("p_s_s_o_t", "");
+                a2.b.commit();
+            } else {
+                try {
+                    a2.b.putString("p_s_s_o_t", new String(Base64.encode(f.b(com.baidu.sofire.j.a.k, "".getBytes("UTF-8"), true), 10), "UTF-8"));
+                    a2.b.commit();
+                } catch (Throwable unused3) {
+                    int i3 = com.baidu.sofire.a.b.a;
+                }
+            }
+            a2.b.putLong("p_s_s_o_t_t", 0L);
+            a2.b.commit();
+            if (TextUtils.isEmpty("")) {
+                a2.b.putString("p_s_n_o_t", "");
+                a2.b.commit();
+            } else {
+                try {
+                    a2.b.putString("p_s_n_o_t", new String(Base64.encode(f.b(com.baidu.sofire.j.a.k, "".getBytes("UTF-8"), true), 10), "UTF-8"));
+                    a2.b.commit();
+                } catch (Throwable unused4) {
+                    int i4 = com.baidu.sofire.a.b.a;
+                }
+            }
+            a2.b.putLong("p_s_n_o_t_t", 0L);
+            a2.b.commit();
+            if (b(context)) {
+                if (TextUtils.isEmpty("")) {
+                    a2.b.putString("p_s_e_c_t", "");
+                    a2.b.commit();
+                } else {
+                    try {
+                        a2.b.putString("p_s_e_c_t", new String(Base64.encode(f.b(com.baidu.sofire.j.a.k, "".getBytes("UTF-8"), true), 10), "UTF-8"));
+                        a2.b.commit();
+                    } catch (Throwable unused5) {
+                        int i5 = com.baidu.sofire.a.b.a;
+                    }
+                }
+                a2.b.putLong("p_s_e_c_t_t", 0L);
+                a2.b.commit();
+                if (TextUtils.isEmpty("")) {
+                    a2.b.putString("p_s_s_c_t", "");
+                    a2.b.commit();
+                } else {
+                    try {
+                        a2.b.putString("p_s_s_c_t", new String(Base64.encode(f.b(com.baidu.sofire.j.a.k, "".getBytes("UTF-8"), true), 10), "UTF-8"));
+                        a2.b.commit();
+                    } catch (Throwable unused6) {
+                        int i6 = com.baidu.sofire.a.b.a;
+                    }
+                }
+                a2.b.putLong("p_s_s_c_t_t", 0L);
+                a2.b.commit();
+                if (TextUtils.isEmpty("")) {
+                    a2.b.putString("p_s_a_i_t", "");
+                    a2.b.commit();
+                } else {
+                    try {
+                        a2.b.putString("p_s_a_i_t", new String(Base64.encode(f.b(com.baidu.sofire.j.a.k, "".getBytes("UTF-8"), true), 10), "UTF-8"));
+                        a2.b.commit();
+                    } catch (Throwable unused7) {
+                        int i7 = com.baidu.sofire.a.b.a;
+                    }
+                }
+                a2.b.putLong("p_s_a_i_t_t", 0L);
+                a2.b.commit();
+                if (TextUtils.isEmpty("")) {
+                    a2.b.putString("p_s_i_t", "");
+                    a2.b.commit();
+                } else {
+                    try {
+                        a2.b.putString("p_s_i_t", new String(Base64.encode(f.b(com.baidu.sofire.j.a.k, "".getBytes("UTF-8"), true), 10), "UTF-8"));
+                        a2.b.commit();
+                    } catch (Throwable unused8) {
+                        int i8 = com.baidu.sofire.a.b.a;
+                    }
+                }
+                a2.b.putLong("p_s_i_t_t", 0L);
+                a2.b.commit();
+            }
         }
-        return (byte[]) invokeLLZ.objValue;
     }
 
-    public static byte[] b(byte[] bArr, byte[] bArr2, boolean z) {
-        InterceptResult invokeLLZ;
-        byte[] acn;
+    public static synchronized boolean b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, bArr, bArr2, z)) == null) {
-            if (bArr != null) {
-                try {
-                } catch (Throwable unused) {
-                    int i = com.baidu.sofire.a.b.a;
-                }
-                if (bArr.length > 0 && bArr2 != null && bArr2.length > 0) {
-                    Asc asc = a;
-                    if (asc != null) {
-                        if (z) {
-                            acn = asc.ac(bArr2, bArr);
-                        } else {
-                            acn = asc.acn(bArr2, bArr);
-                        }
-                        if (acn != null && acn.length > 0) {
-                            return acn;
-                        }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            synchronized (e.class) {
+                int i = a;
+                boolean z = false;
+                if (i != -1) {
+                    if (i == 1) {
+                        z = true;
                     }
-                    return new byte[0];
+                    return z;
                 }
+                String packageName = context.getPackageName();
+                if (TextUtils.isEmpty(packageName)) {
+                    return false;
+                }
+                packageName.toLowerCase().contains("baidu");
+                a = 1;
+                return true;
             }
-            return new byte[0];
         }
-        return (byte[]) invokeLLZ.objValue;
+        return invokeL.booleanValue;
     }
 }

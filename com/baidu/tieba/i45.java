@@ -1,84 +1,69 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.MalformedURLException;
+import java.net.URL;
 /* loaded from: classes4.dex */
-public class i45 implements k45 {
+public class i45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TBLottieAnimationView a;
 
-    public i45(Context context) {
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return true;
+            }
+            try {
+                URL url = new URL(str);
+                String protocol = url.getProtocol();
+                if ("file".equals(protocol)) {
+                    return true;
+                }
+                if (!"http".equals(protocol) && !"https".equals(protocol)) {
+                    return false;
+                }
+                if (url.getHost().endsWith(".baidu.com")) {
+                    if (str.contains("tieba_hybrid_enabled=1")) {
+                        return true;
+                    }
+                    if (str.contains("tieba_hybrid_enabled%3D1")) {
+                        return true;
+                    }
+                }
+                return false;
+            } catch (MalformedURLException unused) {
+                return false;
             }
         }
-        TBLottieAnimationView tBLottieAnimationView = new TBLottieAnimationView(context);
-        this.a = tBLottieAnimationView;
-        tBLottieAnimationView.loop(true);
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.k45
-    public void a(g45 g45Var) {
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, g45Var) == null) {
-            TBLottieAnimationView tBLottieAnimationView = this.a;
-            int i = g45Var.c;
-            int i2 = -2;
-            if (i < 0) {
-                i = -2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return true;
             }
-            int i3 = g45Var.c;
-            if (i3 >= 0) {
-                i2 = i3;
+            try {
+                URL url = new URL(str);
+                String protocol = url.getProtocol();
+                if ("file".equals(protocol)) {
+                    return true;
+                }
+                if (!"http".equals(protocol) && !"https".equals(protocol)) {
+                    return false;
+                }
+                return url.getHost().endsWith(".baidu.com");
+            } catch (MalformedURLException unused) {
+                return false;
             }
-            tBLottieAnimationView.setLayoutParams(new LinearLayout.LayoutParams(i, i2));
-            SkinManager.setLottieAnimation(this.a, g45Var.b);
         }
-    }
-
-    @Override // com.baidu.tieba.k45
-    public View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.k45
-    public void onDismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.cancelAnimation();
-        }
-    }
-
-    @Override // com.baidu.tieba.k45
-    public void onShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.playAnimation();
-        }
+        return invokeL.booleanValue;
     }
 }

@@ -21,7 +21,7 @@ import com.baidu.tbadk.suspended.SuspendIdleView;
 import com.baidu.tbadk.suspended.TranView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.zq5;
+import com.baidu.tieba.qs5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +42,7 @@ public class FloatWebLayout extends FrameLayout {
     public ImageView f;
     public TextView g;
     public LinearLayout h;
-    public zq5 i;
+    public qs5 i;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -179,9 +179,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null && suspendIdleView.getRatio() == 1.0f) {
                 this.b.h();
             }
-            zq5 zq5Var = this.i;
-            if (zq5Var != null) {
-                zq5Var.A();
+            qs5 qs5Var = this.i;
+            if (qs5Var != null) {
+                qs5Var.A();
             }
             this.a.setOnClickListener(null);
         }
@@ -244,9 +244,9 @@ public class FloatWebLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDetachedFromWindow();
-            zq5 zq5Var = this.i;
-            if (zq5Var != null) {
-                zq5Var.onDestroy();
+            qs5 qs5Var = this.i;
+            if (qs5Var != null) {
+                qs5Var.onDestroy();
             }
         }
     }
@@ -318,9 +318,9 @@ public class FloatWebLayout extends FrameLayout {
     public final void f(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            zq5 zq5Var = new zq5(context, this.h, this);
-            this.i = zq5Var;
-            this.b.setContentViewTop(zq5Var);
+            qs5 qs5Var = new qs5(context, this.h, this);
+            this.i = qs5Var;
+            this.b.setContentViewTop(qs5Var);
         }
     }
 
@@ -338,9 +338,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null) {
                 suspendIdleView.i();
             }
-            zq5 zq5Var = this.i;
-            if (zq5Var != null) {
-                zq5Var.z(str, false);
+            qs5 qs5Var = this.i;
+            if (qs5Var != null) {
+                qs5Var.z(str, false);
                 this.i.onResume();
             }
             this.a.setOnClickListener(new c(this));
@@ -362,7 +362,7 @@ public class FloatWebLayout extends FrameLayout {
             this.b = (SuspendIdleView) findViewById(R.id.suspended_view);
             this.c = (LinearLayout) findViewById(R.id.navigation_bar_group);
             this.d = (NavigationBar) findViewById(R.id.suspended_navigation_bar);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090718);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090755);
             h(context);
             g(context);
             f(context);

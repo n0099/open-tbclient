@@ -179,7 +179,7 @@ public class i {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             com.baidu.sofire.a.a.b();
             try {
-                if (m.a(this.a)) {
+                if (q.a(this.a)) {
                     InputStream inputStream = null;
                     try {
                         this.b = "GET";
@@ -223,7 +223,7 @@ public class i {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, bArr)) == null) {
             com.baidu.sofire.a.a.b();
             try {
-                if (m.a(this.a)) {
+                if (q.a(this.a)) {
                     this.b = "POST";
                     this.c = str;
                     InputStream inputStream = null;
@@ -272,7 +272,7 @@ public class i {
                 URL url = new URL(this.c);
                 String str = null;
                 int i = 80;
-                if (!a.m(this.a)) {
+                if (!b.l(this.a)) {
                     if (Build.VERSION.SDK_INT >= 13) {
                         str = System.getProperties().getProperty("http.proxyHost");
                         String property = System.getProperties().getProperty("http.proxyPort");
@@ -309,14 +309,14 @@ public class i {
                 httpURLConnection.setInstanceFollowRedirects(true);
                 httpURLConnection.setConnectTimeout(120000);
                 httpURLConnection.setReadTimeout(120000);
-                String str2 = a.p(this.a)[0];
-                httpURLConnection.setRequestProperty("User-Agent", "eos/" + str2 + "/" + q.a(this.a) + "/3.5.9.6");
+                String str2 = b.o(this.a)[0];
+                httpURLConnection.setRequestProperty("User-Agent", "eos/" + str2 + "/" + v.a(this.a) + "/3.6.0.4");
                 httpURLConnection.setRequestProperty("Pragma", "no-cache");
                 httpURLConnection.setRequestProperty("Accept", "*/*");
                 httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
                 httpURLConnection.setRequestProperty("Accept-Encoding", "gzip,deflate");
                 httpURLConnection.setRequestProperty("Accept-Language", Locale.getDefault().getLanguage() + "-" + Locale.getDefault().getCountry());
-                httpURLConnection.setRequestProperty("x-device-id", j.a(c.a(this.a)));
+                httpURLConnection.setRequestProperty("x-device-id", j.a(d.a(this.a)));
                 return httpURLConnection;
             }
             throw new IllegalArgumentException();
@@ -385,13 +385,13 @@ public class i {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, file)) == null) {
             com.baidu.sofire.a.a.b();
             try {
-                if (!a.l(this.a)) {
+                if (!b.k(this.a)) {
                     return false;
                 }
                 if (TextUtils.isEmpty(str)) {
                     return false;
                 }
-                if (!m.a(this.a)) {
+                if (!q.a(this.a)) {
                     return false;
                 }
                 InputStream inputStream = null;
@@ -403,7 +403,7 @@ public class i {
                     httpURLConnection = null;
                 }
                 try {
-                    if (a.l(this.a)) {
+                    if (b.k(this.a)) {
                         try {
                             InputStream inputStream2 = httpURLConnection.getInputStream();
                             if ("gzip".equalsIgnoreCase(httpURLConnection.getContentEncoding())) {

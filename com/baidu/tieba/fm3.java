@@ -1,40 +1,34 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Rect;
 import android.os.Build;
+import android.os.Looper;
 import android.text.TextUtils;
+import android.text.format.Formatter;
 import android.util.Log;
-import android.view.DisplayCutout;
-import android.view.View;
-import android.view.WindowInsets;
-import android.view.WindowManager;
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.ju2;
+import com.baidu.tieba.m72;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.baidu.webkit.sdk.WebView;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class fm3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final String b;
-    public static final String c;
-    public static boolean d;
-    public static String e;
-    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -50,406 +44,394 @@ public class fm3 {
                 return;
             }
         }
-        a = gp1.a;
-        b = en3.b;
-        c = en3.c;
-        d = false;
+        a = wp1.a;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    public static String a(int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return a("EMUI");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            return a("MIUI");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            return a(b);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
-            return a("VIVO");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String str2 = e;
-            if (str2 != null) {
-                return str2.equals(str);
-            }
-            String g = g("ro.miui.ui.version.name");
-            f = g;
-            if (!TextUtils.isEmpty(g)) {
-                e = "MIUI";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (a) {
+                if (l53.p()) {
+                    return zl3.d(i, SchemeCollecter.CLASSIFY_SWAN_V8);
+                }
+                return "";
+            } else if (z) {
+                return zl3.d(i, SchemeCollecter.CLASSIFY_SWAN_V8);
             } else {
-                String g2 = g("ro.build.version.emui");
-                f = g2;
-                if (!TextUtils.isEmpty(g2)) {
-                    e = "EMUI";
-                } else {
-                    String g3 = g(c);
-                    f = g3;
-                    if (!TextUtils.isEmpty(g3)) {
-                        e = b;
-                    } else {
-                        String g4 = g("ro.vivo.os.version");
-                        f = g4;
-                        if (!TextUtils.isEmpty(g4)) {
-                            e = "VIVO";
-                        } else {
-                            String g5 = g("ro.smartisan.version");
-                            f = g5;
-                            if (!TextUtils.isEmpty(g5)) {
-                                e = "SMARTISAN";
-                            } else {
-                                String g6 = g(RomUtils.KEY_VERSION_GIONEE);
-                                f = g6;
-                                if (!TextUtils.isEmpty(g6)) {
-                                    e = "SMARTISAN";
-                                } else {
-                                    String g7 = g(RomUtils.KEY_VERSION_NUBIA);
-                                    f = g7;
-                                    if (!TextUtils.isEmpty(g7)) {
-                                        e = RomUtils.ROM_NUBIA;
-                                    } else {
-                                        String str3 = Build.DISPLAY;
-                                        f = str3;
-                                        if (str3.toUpperCase().contains("FLYME")) {
-                                            e = "FLYME";
-                                        } else {
-                                            f = "unknown";
-                                            e = Build.MANUFACTURER.toUpperCase();
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                return zl3.d(i, SchemeCollecter.CLASSIFY_SWAN_WEBVIEW);
+            }
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            SwanCoreVersion M = zu2.U().M();
+            String str2 = "";
+            if (M == null) {
+                str = "";
+            } else {
+                String str3 = M.swanCoreVersionName;
+                str2 = SwanCoreVersion.getTypeString(M.swanCoreType);
+                str = str3;
+            }
+            sb.append("swanjs: ");
+            sb.append(str2);
+            sb.append("/");
+            sb.append(str);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c(Context context) {
+        InterceptResult invokeL;
+        String w1;
+        String v1;
+        sv1 o3;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            m93 b0 = m93.b0();
+            String str2 = "";
+            if (context == null || b0 == null || b0.k() != 0) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            ju2.a W = b0.W();
+            String formatFileSize = Formatter.formatFileSize(AppRuntime.getAppContext(), W.i1());
+            sb.append("size: ");
+            if (TextUtils.isEmpty(formatFileSize)) {
+                formatFileSize = "";
+            }
+            sb.append(formatFileSize);
+            sb.append("\n");
+            sb.append("version: ");
+            if (TextUtils.isEmpty(W.w1())) {
+                w1 = "";
+            } else {
+                w1 = W.w1();
+            }
+            sb.append(w1);
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append("code: ");
+            if (TextUtils.isEmpty(W.v1())) {
+                v1 = "";
+            } else {
+                v1 = W.v1();
+            }
+            sb.append(v1);
+            sb.append("\n");
+            sb.append("is opt pkg: ");
+            sb.append(rz2.g().h(W.f0()));
+            sb.append("\n");
+            sb.append("swan native: ");
+            if (ht3.getContext() != null) {
+                str2 = ht3.getContext().b();
+            }
+            sb.append(str2);
+            sb.append("\n");
+            sb.append(b());
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append(e(0));
+            sb.append("\n");
+            sb.append("is v8 master: ");
+            sb.append(gg2.U().r0());
+            sb.append("\n");
+            String a2 = a(0, gg2.U().r0());
+            sb.append("is native desc: ");
+            sb.append(!TextUtils.isEmpty(a2));
+            sb.append("\n");
+            boolean m = ck2.m();
+            sb.append("debugDynamicLibEnable: ");
+            sb.append(m);
+            sb.append('\n');
+            if (m) {
+                List<String> o = ck2.o();
+                sb.append("debugDynamicLibList: {");
+                if (!o.isEmpty()) {
+                    sb.append('\n');
+                    for (String str3 : o) {
+                        sb.append(str3);
+                        sb.append('\n');
                     }
                 }
+                sb.append("}\n");
             }
-            return e.equals(str);
+            u82 H = zu2.U().H();
+            if (H != null && (o3 = H.o3()) != null) {
+                int Q = o3.Q();
+                sb.append("top fragment na-slave: ");
+                if (Q == 1) {
+                    str = "NA";
+                } else {
+                    str = WebView.LOGTAG;
+                }
+                sb.append(str);
+                sb.append("\n");
+            }
+            return sb.toString();
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public static int b(Activity activity) {
+    public static String d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            DisplayCutout c2 = c(activity);
-            if (c2 == null || Build.VERSION.SDK_INT < 28) {
-                return 0;
-            }
-            List<Rect> boundingRects = c2.getBoundingRects();
-            return boundingRects.get(0).right - boundingRects.get(0).left;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            return "model: " + Build.MODEL + "\nandroid: " + Build.VERSION.RELEASE + StringUtil.ARRAY_ELEMENT_SEPARATOR + "api level: " + Build.VERSION.SDK_INT + "\ncuid: " + ts2.h0().i(ts2.c()) + "\n";
         }
-        return invokeL.intValue;
+        return (String) invokeL.objValue;
     }
 
-    public static DisplayCutout c(Activity activity) {
-        InterceptResult invokeL;
-        View decorView;
-        WindowInsets rootWindowInsets;
+    public static String e(int i) {
+        InterceptResult invokeI;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
-            if (activity == null || activity.getWindow() == null || Build.VERSION.SDK_INT < 28 || (decorView = activity.getWindow().getDecorView()) == null || (rootWindowInsets = decorView.getRootWindowInsets()) == null) {
-                return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            String str2 = "";
+            if (i != 0) {
+                return "";
             }
-            return rootWindowInsets.getDisplayCutout();
+            StringBuilder sb = new StringBuilder();
+            ExtensionCore T = gg2.U().T();
+            if (T == null) {
+                str = "";
+            } else {
+                String str3 = T.extensionCoreVersionName;
+                String typeString = SwanCoreVersion.getTypeString(T.extensionCoreType);
+                str = str3;
+                str2 = typeString;
+            }
+            sb.append("extensionjs: ");
+            sb.append(str2);
+            sb.append("/");
+            sb.append(str);
+            return sb.toString();
         }
-        return (DisplayCutout) invokeL.objValue;
+        return (String) invokeI.objValue;
     }
 
-    public static boolean h(Context context) {
+    public static String h(Context context) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            if (context == null) {
-                return false;
-            }
-            if (m()) {
-                return i(context);
-            }
-            if (r()) {
-                return l(context);
-            }
-            if (o()) {
-                return k(context);
-            }
-            if (!n()) {
-                return false;
-            }
-            return j(context);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean i(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            try {
-                Class<?> loadClass = context.getClassLoader().loadClass("com.huawei.android.util.HwNotchSizeUtil");
-                return ((Boolean) loadClass.getMethod("hasNotchInScreen", new Class[0]).invoke(loadClass, new Object[0])).booleanValue();
-            } catch (Exception e2) {
-                if (!a) {
-                    return false;
-                }
-                e2.printStackTrace();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i < 26) {
-                return 0;
-            }
-            if (i >= 28) {
-                return f();
-            }
-            if (!h(context)) {
-                return 0;
-            }
-            if (n()) {
-                Resources resources = context.getResources();
-                try {
-                    int identifier = resources.getIdentifier("notch_height", EMABTest.TYPE_DIMEN, "android");
-                    if (identifier > 0) {
-                        return resources.getDimensionPixelSize(identifier);
-                    }
-                } catch (Exception unused) {
-                    return 0;
-                }
-            }
-            if (m()) {
-                try {
-                    Class<?> loadClass = context.getClassLoader().loadClass("com.huawei.android.util.HwNotchSizeUtil");
-                    return ((int[]) loadClass.getMethod("getNotchSize", new Class[0]).invoke(loadClass, new Object[0]))[1];
-                } catch (Exception unused2) {
-                    return 0;
-                }
-            } else if (o()) {
-                return 80;
+            ft3 context2 = ht3.getContext();
+            StringBuilder sb = new StringBuilder();
+            sb.append("name: ");
+            sb.append(ts2.n().a());
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append("version: ");
+            if (context2 != null) {
+                str = context2.h();
             } else {
-                if (!r()) {
-                    return 0;
-                }
-                return nm3.g(32.0f);
+                str = "";
             }
+            sb.append(str);
+            sb.append("\n");
+            return sb.toString();
         }
-        return invokeL.intValue;
+        return (String) invokeL.objValue;
     }
 
-    public static String g(String str) {
-        InterceptResult invokeL;
-        BufferedReader bufferedReader;
+    public static void m(Activity activity) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            BufferedReader bufferedReader2 = null;
-            try {
-                bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()));
-                try {
-                    try {
-                        String readLine = bufferedReader.readLine();
-                        ap4.d(bufferedReader);
-                        return readLine;
-                    } catch (IOException e2) {
-                        e = e2;
-                        if (a) {
-                            Log.e("SwanAppRomUtils", "Unable to read prop " + str, e);
-                        }
-                        ap4.d(bufferedReader);
-                        ap4.d(bufferedReader);
-                        return null;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    bufferedReader2 = bufferedReader;
-                    ap4.d(bufferedReader2);
-                    throw th;
-                }
-            } catch (IOException e3) {
-                e = e3;
-                bufferedReader = null;
-            } catch (Throwable th2) {
-                th = th2;
-                ap4.d(bufferedReader2);
-                throw th;
-            }
-        } else {
-            return (String) invokeL.objValue;
+        if ((interceptable != null && interceptable.invokeL(65549, null, activity) != null) || activity == null) {
+            return;
         }
+        try {
+            str = l(activity);
+        } catch (Exception e) {
+            if (!a) {
+                m62.l("SwanAppEnvironmentUtils", "getExtraInfo error", e);
+                str = "";
+            } else {
+                throw e;
+            }
+        }
+        m62.k("SwanAppEnvironmentUtils", "recordExtraInfoToLogSystem\n--------------------ExtraInfo list----------------------\n" + str + "--------------------ExtraInfo end-----------------------");
+        String k = ts2.g0().k();
+        m62.k("SwanAppEnvironmentUtils", "sid = " + k);
+        md2.k();
     }
 
-    @RequiresApi(28)
-    public static int f() {
+    public static String f() {
         InterceptResult invokeV;
-        DisplayCutout displayCutout;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            int i = 0;
-            if (w83.M() != null && w83.M().getActivity() != null) {
-                try {
-                    WindowInsets rootWindowInsets = w83.M().getActivity().getWindow().getDecorView().getRootWindowInsets();
-                    if (rootWindowInsets == null || (displayCutout = rootWindowInsets.getDisplayCutout()) == null) {
-                        return 0;
-                    }
-                    i = displayCutout.getSafeInsetTop();
-                    if (a) {
-                        Log.d("SwanAppRomUtils", "刘海屏高度:" + i);
-                    }
-                } catch (Exception e2) {
-                    if (a) {
-                        Log.w("SwanAppRomUtils", e2);
-                    }
-                }
-            }
-            return i;
+            StringBuilder sb = new StringBuilder();
+            SwanCoreVersion M = zu2.U().M();
+            sb.append("game-core version : ");
+            sb.append(ri3.i(M, 1));
+            return sb.toString();
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    @SuppressLint({"PrivateApi"})
-    public static boolean j(@NonNull Context context) {
+    public static String g(Context context) {
         InterceptResult invokeL;
+        String v1;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            try {
-                Class<?> loadClass = context.getClassLoader().loadClass("android.os.SystemProperties");
-                if (((Integer) loadClass.getMethod("getInt", String.class, Integer.TYPE).invoke(loadClass, "ro.miui.notch", 0)).intValue() != 1) {
-                    return false;
-                }
-                return true;
-            } catch (Exception e2) {
-                if (!a) {
-                    return false;
-                }
-                e2.printStackTrace();
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            m93 b0 = m93.b0();
+            String str = "";
+            if (context == null || b0 == null || b0.k() != 1) {
+                return "";
             }
+            StringBuilder sb = new StringBuilder();
+            ju2.a W = b0.W();
+            sb.append(f());
+            sb.append("\n");
+            sb.append("host version : ");
+            sb.append(gn3.u(AppRuntime.getAppContext(), AppRuntime.getAppContext().getPackageName()));
+            sb.append("\n");
+            sb.append("enable V8: ");
+            sb.append(gg2.U().r0());
+            sb.append("\n");
+            sb.append("aps version: ");
+            if (TextUtils.isEmpty(W.v1())) {
+                v1 = "";
+            } else {
+                v1 = W.v1();
+            }
+            sb.append(v1);
+            sb.append("\n");
+            String formatFileSize = Formatter.formatFileSize(AppRuntime.getAppContext(), W.i1());
+            sb.append("app bundle size: ");
+            if (TextUtils.isEmpty(formatFileSize)) {
+                formatFileSize = "";
+            }
+            sb.append(formatFileSize);
+            sb.append("\n");
+            sb.append("app bundle version: ");
+            if (!TextUtils.isEmpty(W.w1())) {
+                str = W.w1();
+            }
+            sb.append(str);
+            sb.append("\n");
+            sb.append("app is opt pkg: ");
+            sb.append(rz2.g().h(W.f0()));
+            sb.append("\n");
+            String b = us2.h().b();
+            if (!TextUtils.isEmpty(b)) {
+                sb.append("app sconsole version: ");
+                sb.append(b);
+                sb.append("\n");
+            }
+            sb.append("game engine version: ");
+            sb.append("1.3.6.1");
+            sb.append("\n");
+            sb.append("so version: ");
+            sb.append(ai3.a().getLong("swan_so_installed_version_code_zeus", 0L));
+            sb.append("\n");
+            return sb.toString();
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    @SuppressLint({"PrivateApi"})
-    public static boolean l(@NonNull Context context) {
+    public static void i(Context context, fo3<String> fo3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, context, fo3Var) == null) {
+            o92.e(fo3Var);
+        }
+    }
+
+    public static String j(@NonNull m93 m93Var) {
         InterceptResult invokeL;
+        String str;
+        SwanAppConfigData.h hVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, m93Var)) == null) {
+            PMSAppInfo f0 = m93Var.W().f0();
+            if (f0 == null) {
+                return "no info";
+            }
+            StringBuilder sb = new StringBuilder();
+            boolean i = rz2.g().i(f0);
+            boolean j0 = gg2.U().j0();
+            boolean z = false;
+            SwanAppConfigData Q = m93Var.Q();
+            if (Q != null && (hVar = Q.t) != null) {
+                z = hVar.a;
+                str = hVar.b;
+            } else {
+                str = "";
+            }
+            sb.append("is server on: ");
+            sb.append(i);
+            sb.append("\n");
+            sb.append("app.json info: ");
+            sb.append("enabled/");
+            sb.append(z);
+            sb.append(", trigger/");
+            sb.append(str);
+            sb.append("\n");
+            sb.append("is hit: ");
+            sb.append(j0);
+            sb.append("\n");
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String k() {
+        InterceptResult invokeV;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (a) {
+                j = System.nanoTime();
+            } else {
+                j = 0;
+            }
+            m72.d g = m72.c().g();
+            if (a) {
+                Log.d("SwanAppEnvironmentUtils", "获取内存信息耗时: " + ((System.nanoTime() - j) / 1000000) + " ms");
+            }
+            return "设备总内存：" + g.c + " M，设备剩余内存：" + g.d + " M，小程序启动占用内存：" + g.a + " M，宿主APP占用内存：" + g.b + " M\n";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String l(Context context) {
+        InterceptResult invokeL;
+        long j;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
-            try {
-                Class<?> loadClass = context.getClassLoader().loadClass("android.util.FtFeature");
-                return ((Boolean) loadClass.getMethod("isFeatureSupport", Integer.TYPE).invoke(loadClass, 32)).booleanValue();
-            } catch (Exception e2) {
-                if (!a) {
-                    return false;
+            if (a) {
+                j = System.nanoTime();
+            } else {
+                j = 0;
+            }
+            m93 b0 = m93.b0();
+            if (b0 != null && context != null) {
+                String str = "=========================\n= " + b0.W().K() + "\n=========================\n===== 小程序信息 =====\n" + c(context) + "\n===== 设备信息 =====\n" + d(context) + "\n===== 宿主信息 =====\n" + h(context) + "\n===== 内存信息 =====\n" + k() + "\n===== onPrefetch信息 =====\n" + j(b0) + "\n";
+                if (a) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("获取启动时信息耗时：");
+                    sb.append((System.nanoTime() - j) / 1000000);
+                    sb.append(" ms 是否主线程：");
+                    if (Looper.getMainLooper() == Looper.myLooper()) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    sb.append(z);
+                    Log.d("SwanAppEnvironmentUtils", sb.toString());
                 }
-                e2.printStackTrace();
-                return false;
+                m62.k("SwanAppEnvironmentUtils", str);
+                return str;
             }
+            return "";
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean k(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            return context.getPackageManager().hasSystemFeature(en3.d);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean p(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, activity)) == null) {
-            if (c(activity) != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void s(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65555, null, activity) == null) && Build.VERSION.SDK_INT >= 28) {
-            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
-            attributes.layoutInDisplayCutoutMode = 1;
-            activity.getWindow().setAttributes(attributes);
-        }
-    }
-
-    public static boolean q(Activity activity, View view2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, activity, view2)) == null) {
-            DisplayCutout c2 = c(activity);
-            if (c2 != null && Build.VERSION.SDK_INT >= 28) {
-                List<Rect> boundingRects = c2.getBoundingRects();
-                int i = boundingRects.get(0).left;
-                int i2 = boundingRects.get(0).right;
-                int i3 = boundingRects.get(0).top;
-                int i4 = boundingRects.get(0).bottom;
-                int[] iArr = new int[2];
-                view2.getLocationOnScreen(iArr);
-                int width = view2.getWidth();
-                int height = view2.getHeight();
-                int i5 = iArr[0];
-                int i6 = iArr[0] + width;
-                int i7 = iArr[1];
-                int i8 = iArr[1] + height;
-                if (((i8 <= i4 && i8 > i3) || (i7 < i4 && i7 >= i3)) && ((i6 > i && i6 <= i2) || ((i5 >= i && i6 <= i2) || ((i5 >= i && i5 < i2) || (i5 < i && i6 > i2))))) {
-                    d = true;
-                    return true;
-                } else if (((i5 >= i && i5 < i2) || (i6 > i && i6 <= i2)) && ((i8 > i3 && i8 <= i4) || ((i7 >= i3 && i8 <= i4) || ((i7 >= i3 && i7 < i4) || (i7 < i3 && i8 > i4))))) {
-                    d = true;
-                    return true;
-                } else if (i5 <= i && i6 >= i2 && i7 <= i3 && i8 >= i4) {
-                    d = true;
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.da;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.pv5;
-import com.baidu.tieba.py4;
+import com.baidu.tieba.gx5;
+import com.baidu.tieba.wz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,16 +36,16 @@ public class NEGFeedBackView extends AppCompatImageView {
     public int e;
     public int f;
     public int g;
-    public pv5 h;
+    public gx5 h;
     public View.OnClickListener i;
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(ArrayList<Integer> arrayList, String str, py4 py4Var);
+        void a(ArrayList<Integer> arrayList, String str, wz4 wz4Var);
 
-        void b(py4 py4Var, CompoundButton compoundButton, boolean z);
+        void b(wz4 wz4Var, CompoundButton compoundButton, boolean z);
 
-        void c(py4 py4Var);
+        void c(wz4 wz4Var);
     }
 
     public void setACRotateAnimation() {
@@ -128,7 +128,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public final void p(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) {
-            this.h = new pv5(tbPageContext, this);
+            this.h = new gx5(tbPageContext, this);
             setOnClickListener(this.i);
             setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             q();
@@ -156,10 +156,10 @@ public class NEGFeedBackView extends AppCompatImageView {
         }
     }
 
-    public void setData(py4 py4Var) {
+    public void setData(wz4 wz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, py4Var) == null) {
-            this.h.v(py4Var);
+        if (interceptable == null || interceptable.invokeL(1048587, this, wz4Var) == null) {
+            this.h.v(wz4Var);
         }
     }
 

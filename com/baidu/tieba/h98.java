@@ -1,23 +1,8 @@
 package com.baidu.tieba;
 
-import java.util.List;
-import tbclient.ExcPbPage.ExcellentPbThreadInfo;
-import tbclient.ExcPbPage.UserInfo;
-import tbclient.Post;
-import tbclient.User;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes4.dex */
 public interface h98 {
-    int getErroCode();
-
-    String getErrorText();
-
-    List<Post> getPostList();
-
-    ExcellentPbThreadInfo getThreadInfo();
-
-    UserInfo getUserInfo();
-
-    List<User> getUserList();
-
-    boolean isEmpty();
+    public static final BdUniqueId a = BdUniqueId.gen();
+    public static final BdUniqueId b = BdUniqueId.gen();
 }

@@ -1,13 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.dc4;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface ec4 extends cc4 {
-    void d(lc4 lc4Var);
+public class ec4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public String uuap_p_token;
+    @V8JavascriptField
+    public String uuap_p_token_offline;
+    @V8JavascriptField
+    public String uuap_s_token;
 
-    void m(boolean z);
-
-    void t(dc4.b bVar);
-
-    void update();
+    public ec4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

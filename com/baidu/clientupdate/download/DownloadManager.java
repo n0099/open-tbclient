@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.jni.MiniGzip;
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
@@ -31,7 +32,6 @@ import com.baidu.down.request.taskmanager.TaskFacade;
 import com.baidu.down.utils.Utils;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.searchbox.cloudcommand.dao.CloudCommandTable;
 import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -793,7 +793,7 @@ public final class DownloadManager {
                                 e.printStackTrace();
                                 JSONObject jSONObject = new JSONObject();
                                 try {
-                                    jSONObject.put(CloudCommandTable.MSG_ID, "2");
+                                    jSONObject.put("msgId", "2");
                                     jSONObject.put("messageDetail", e.getMessage());
                                 } catch (JSONException e2) {
                                     e2.printStackTrace();
@@ -927,16 +927,16 @@ public final class DownloadManager {
             d dVar = this.mLogUtils;
             String c = this.mBaiduParamManager.c();
             String b = this.mBaiduParamManager.b();
-            dVar.a(c, "0", b, "a8", "1", (System.currentTimeMillis() / 1000) + "", "", "RSA", str);
+            dVar.a(c, "0", b, "a8", "1", (System.currentTimeMillis() / 1000) + "", "", RSAUtil.ALGORITHM_RSA, str);
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x018c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x018d */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Removed duplicated region for block: B:25:0x0052  */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x019d  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x01e8  */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x020a  */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x019e  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x01ea  */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x020c  */
     /* JADX WARN: Type inference failed for: r7v10 */
     /* JADX WARN: Type inference failed for: r7v11 */
     /* JADX WARN: Type inference failed for: r7v13, types: [boolean] */
@@ -1047,7 +1047,7 @@ public final class DownloadManager {
                 } else if (z) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put(CloudCommandTable.MSG_ID, "5");
+                        jSONObject.put("msgId", "5");
                         jSONObject.put("messageDetail", "not enough free space");
                     } catch (JSONException e4) {
                         e4.printStackTrace();
@@ -1199,7 +1199,7 @@ public final class DownloadManager {
                     LogUtil.logE("DownloadManager", "apk的md5值：" + a2);
                     if (str4.equals(a2)) {
                         LogUtil.logE("DownloadManager", "第一次RSA验证通过");
-                        this.mLogUtils.a(this.mBaiduParamManager.c(), "0", this.mBaiduParamManager.b(), "a8", "0", (System.currentTimeMillis() / 1000) + "", "", "RSA", "");
+                        this.mLogUtils.a(this.mBaiduParamManager.c(), "0", this.mBaiduParamManager.b(), "a8", "0", (System.currentTimeMillis() / 1000) + "", "", RSAUtil.ALGORITHM_RSA, "");
                         j.a(this.mContext, this.privateApkFile);
                     } else if (this.isDownloadPublicKey.booleanValue()) {
                         LogUtil.logE("DownloadManager", "RSA验证失败，下载公钥重新验证");

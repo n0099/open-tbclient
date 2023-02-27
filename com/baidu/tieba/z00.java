@@ -1,167 +1,88 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.content.pm.Signature;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class z00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public a b;
+    public v00 a;
+    public List<y00> b;
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public class a implements Comparator<y00> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public File a;
-        public String b;
-        public a c;
-        public boolean d;
-        public final /* synthetic */ z00 e;
 
-        public a(z00 z00Var, File file) {
+        public a(z00 z00Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {z00Var, file};
+                Object[] objArr = {z00Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.e = z00Var;
-            this.d = false;
-            this.d = true;
-            this.a = file;
-            this.b = file.getName();
         }
 
-        public a(z00 z00Var, String str, a aVar) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(y00 y00Var, y00 y00Var2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z00Var, str, aVar};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, y00Var, y00Var2)) == null) {
+                int i = y00Var2.b - y00Var.b;
+                if (i == 0) {
+                    if (y00Var.d && y00Var2.d) {
+                        return 0;
+                    }
+                    if (y00Var.d) {
+                        return -1;
+                    }
+                    if (y00Var2.d) {
+                        return 1;
+                    }
                 }
+                return i;
             }
-            this.e = z00Var;
-            this.d = false;
-            this.b = str;
-            this.c = aVar;
-            this.d = false;
-        }
-
-        public a a(File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-                if (this.d) {
-                    throw new IllegalStateException("isolate session is not support");
-                }
-                ArrayList arrayList = new ArrayList();
-                a aVar = this;
-                do {
-                    arrayList.add(aVar.h());
-                    aVar = aVar.i();
-                } while (aVar != null);
-                int size = arrayList.size() - 1;
-                while (size >= 0) {
-                    size--;
-                    file = new File(file, (String) arrayList.get(size));
-                }
-                return new a(this.e, file);
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? new a(this.e, str, this) : (a) invokeL.objValue;
-        }
-
-        public String c(String str, boolean z) {
-            InterceptResult invokeLZ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) ? z00.b(f(), str, "UTF-8", z) : (String) invokeLZ.objValue;
-        }
-
-        public void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                f().mkdirs();
-            }
-        }
-
-        public boolean e(String str, String str2, boolean z) {
-            InterceptResult invokeLLZ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048580, this, str, str2, z)) == null) ? z00.d(f(), str, str2, "UTF-8", z) : invokeLLZ.booleanValue;
-        }
-
-        public File f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                File file = this.a;
-                if (file != null) {
-                    return file;
-                }
-                File file2 = this.c == null ? new File(this.e.a(), this.b) : new File(this.c.f(), this.b);
-                this.a = file2;
-                return file2;
-            }
-            return (File) invokeV.objValue;
-        }
-
-        public File g(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? new File(this.a, str) : (File) invokeL.objValue;
-        }
-
-        public String h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (String) invokeV.objValue;
-        }
-
-        public a i() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.c : (a) invokeV.objValue;
+            return invokeLL.intValue;
         }
     }
 
-    public z00(Context context) {
+    public z00() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -171,137 +92,179 @@ public class z00 {
                 return;
             }
         }
-        this.a = context;
-        f().mkdirs();
+        c();
     }
 
-    public static String b(File file, String str, String str2, boolean z) {
-        InterceptResult invokeCommon;
-        FileInputStream fileInputStream;
-        Throwable th;
-        ByteArrayOutputStream byteArrayOutputStream;
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
+        StringBuilder sb;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{file, str, str2, Boolean.valueOf(z)})) != null) {
-            return (String) invokeCommon.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr != null) {
+                String str = "";
+                for (byte b : bArr) {
+                    String hexString = Integer.toHexString(b & 255);
+                    if (hexString.length() == 1) {
+                        sb = new StringBuilder();
+                        sb.append(str);
+                        str = "0";
+                    } else {
+                        sb = new StringBuilder();
+                    }
+                    sb.append(str);
+                    sb.append(hexString);
+                    str = sb.toString();
+                }
+                return str.toLowerCase();
+            }
+            throw new IllegalArgumentException("Argument b ( byte array ) is null! ");
         }
-        c(file);
-        File file2 = new File(file, str);
-        FileInputStream fileInputStream2 = null;
-        try {
-            byteArrayOutputStream = new ByteArrayOutputStream();
-            try {
-                fileInputStream = new FileInputStream(file2);
-                try {
-                    byte[] bArr = new byte[8192];
-                    while (true) {
-                        int read = fileInputStream.read(bArr);
-                        if (read <= 0) {
-                            break;
+        return (String) invokeL.objValue;
+    }
+
+    public static byte[] f(byte[] bArr, v00 v00Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, v00Var)) == null) {
+            s00 a2 = s00.a();
+            a2.b(2, v00Var);
+            return a2.c(bArr);
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public List<y00> b(Context context, Intent intent, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, context, intent, z)) == null) {
+            ArrayList arrayList = new ArrayList();
+            PackageManager packageManager = context.getPackageManager();
+            List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 0);
+            if (queryBroadcastReceivers != null) {
+                for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
+                    ActivityInfo activityInfo = resolveInfo.activityInfo;
+                    if (activityInfo != null && activityInfo.applicationInfo != null) {
+                        try {
+                            Bundle bundle = packageManager.getReceiverInfo(new ComponentName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name), 128).metaData;
+                            if (bundle != null) {
+                                String string = bundle.getString("galaxy_data");
+                                if (!TextUtils.isEmpty(string)) {
+                                    byte[] b = a10.b(string.getBytes(IMAudioTransRequest.CHARSET));
+                                    JSONObject jSONObject = new JSONObject(new String(b));
+                                    y00 y00Var = new y00();
+                                    y00Var.b = jSONObject.getInt("priority");
+                                    y00Var.a = resolveInfo.activityInfo.applicationInfo;
+                                    if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
+                                        y00Var.d = true;
+                                    }
+                                    if (z) {
+                                        String string2 = bundle.getString("galaxy_sf");
+                                        if (!TextUtils.isEmpty(string2)) {
+                                            PackageInfo packageInfo = packageManager.getPackageInfo(resolveInfo.activityInfo.applicationInfo.packageName, 64);
+                                            JSONArray jSONArray = jSONObject.getJSONArray("sigs");
+                                            int length = jSONArray.length();
+                                            String[] strArr = new String[length];
+                                            for (int i = 0; i < length; i++) {
+                                                strArr[i] = jSONArray.getString(i);
+                                            }
+                                            if (e(strArr, g(packageInfo.signatures))) {
+                                                byte[] f = f(a10.b(string2.getBytes()), this.a);
+                                                if (f != null && Arrays.equals(f, c10.a(b))) {
+                                                    y00Var.c = true;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    arrayList.add(y00Var);
+                                }
+                            }
+                        } catch (Exception unused) {
                         }
-                        byteArrayOutputStream.write(bArr, 0, read);
                     }
-                    byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    if (z) {
-                        byteArray = new l00().b(byteArray);
-                    }
-                    String str3 = new String(byteArray, str2);
-                    d10.b(fileInputStream);
-                    d10.b(byteArrayOutputStream);
-                    return str3;
-                } catch (Exception unused) {
-                    fileInputStream2 = fileInputStream;
-                    d10.b(fileInputStream2);
-                    d10.b(byteArrayOutputStream);
-                    return "";
-                } catch (Throwable th2) {
-                    th = th2;
-                    d10.b(fileInputStream);
-                    d10.b(byteArrayOutputStream);
-                    throw th;
                 }
-            } catch (Exception unused2) {
-            } catch (Throwable th3) {
-                fileInputStream = null;
-                th = th3;
             }
-        } catch (Exception unused3) {
-            byteArrayOutputStream = null;
-        } catch (Throwable th4) {
-            fileInputStream = null;
-            th = th4;
-            byteArrayOutputStream = null;
+            Collections.sort(arrayList, new a(this));
+            return arrayList;
+        }
+        return (List) invokeLLZ.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = new w00(e10.a(), e10.b());
         }
     }
 
-    public static void c(File file) {
+    public boolean d(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, file) == null) {
-            file.mkdirs();
-        }
-    }
-
-    public static boolean d(File file, String str, String str2, String str3, boolean z) {
-        InterceptResult invokeCommon;
-        FileOutputStream fileOutputStream;
-        Throwable th;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{file, str, str2, str3, Boolean.valueOf(z)})) != null) {
-            return invokeCommon.booleanValue;
-        }
-        c(file);
-        File file2 = new File(file, str);
-        FileOutputStream fileOutputStream2 = null;
-        try {
-            fileOutputStream = new FileOutputStream(file2);
-            try {
-                if (z) {
-                    fileOutputStream.write(new l00().a(str2.getBytes()));
-                } else {
-                    fileOutputStream.write(str2.getBytes(str3));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            List<y00> b = b(context, new Intent("com.baidu.intent.action.GALAXY").setPackage(context.getPackageName()), true);
+            if (b == null || b.size() == 0) {
+                for (int i = 0; i < 3; i++) {
+                    Log.w("CuidBuddyInfoManager", "galaxy lib host missing meta-data,make sure you know the right way to integrate galaxy");
                 }
-                d10.b(fileOutputStream);
-                return true;
-            } catch (Exception unused) {
-                fileOutputStream2 = fileOutputStream;
-                d10.b(fileOutputStream2);
                 return false;
-            } catch (Throwable th2) {
-                th = th2;
-                d10.b(fileOutputStream);
-                throw th;
             }
-        } catch (Exception unused2) {
-        } catch (Throwable th3) {
-            fileOutputStream = null;
-            th = th3;
-        }
-    }
-
-    public File a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new File(this.a.getApplicationInfo().dataDir) : (File) invokeV.objValue;
-    }
-
-    public synchronized a e() {
-        InterceptResult invokeV;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                if (this.b == null) {
-                    this.b = new a(this, ".cesium", null);
+            boolean z = b.get(0).c;
+            if (!z) {
+                for (int i2 = 0; i2 < 3; i2++) {
+                    Log.w("CuidBuddyInfoManager", "galaxy config err, In the release version of the signature should be matched");
                 }
-                aVar = this.b;
             }
-            return aVar;
+            return z;
         }
-        return (a) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final File f() {
-        InterceptResult invokeV;
+    public final boolean e(String[] strArr, String[] strArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new File(a(), ".cesium") : (File) invokeV.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, strArr, strArr2)) == null) {
+            if (strArr == null || strArr2 == null || strArr.length != strArr2.length) {
+                return false;
+            }
+            HashSet hashSet = new HashSet();
+            for (String str : strArr) {
+                hashSet.add(str);
+            }
+            HashSet hashSet2 = new HashSet();
+            for (String str2 : strArr2) {
+                hashSet2.add(str2);
+            }
+            return hashSet.equals(hashSet2);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final String[] g(Signature[] signatureArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, signatureArr)) == null) {
+            int length = signatureArr.length;
+            String[] strArr = new String[length];
+            for (int i = 0; i < length; i++) {
+                strArr[i] = a(c10.a(signatureArr[i].toByteArray()));
+            }
+            return strArr;
+        }
+        return (String[]) invokeL.objValue;
+    }
+
+    public List<y00> h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            List<y00> list = this.b;
+            if (list != null) {
+                return list;
+            }
+            d(context);
+            List<y00> b = b(context, new Intent("com.baidu.intent.action.GALAXY"), true);
+            this.b = b;
+            return b;
+        }
+        return (List) invokeL.objValue;
     }
 }

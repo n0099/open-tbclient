@@ -1,12 +1,6 @@
 package com.baidu.mobstat;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class Build {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int SDK_CHANNEL_VALUE = 26;
     public static final boolean SDK_ENABLE_DEVICE = false;
     public static final boolean SDK_ENABLE_FEED = true;
@@ -35,19 +29,4 @@ public class Build {
     public static final boolean SDK_WITH_AUTOTRACE = true;
     public static final int SDK_WITH_BPLUS = 2;
     public static final boolean SDK_WITH_EXT = false;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public Build() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

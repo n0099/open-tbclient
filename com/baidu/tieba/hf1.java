@@ -1,78 +1,16 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nps.pm.provider.BundleOpProvider;
-import com.baidu.nps.utils.ContextHolder;
-import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.app.Activity;
 /* loaded from: classes4.dex */
-public class hf1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface hf1 {
 
-    public static ef1 a(Uri uri) {
-        InterceptResult invokeL;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, uri)) == null) {
-            ef1 ef1Var = new ef1();
-            if (uri != null) {
-                String queryParameter = uri.getQueryParameter("downloaded_size");
-                long j2 = 0;
-                if (!TextUtils.isEmpty(queryParameter)) {
-                    j = Long.valueOf(queryParameter).longValue();
-                } else {
-                    j = 0;
-                }
-                String queryParameter2 = uri.getQueryParameter(PackageTable.TOTAL_SIZE);
-                if (!TextUtils.isEmpty(queryParameter2)) {
-                    j2 = Long.valueOf(queryParameter2).longValue();
-                }
-                ef1Var.a = j;
-                ef1Var.b = j2;
-            }
-            return ef1Var;
-        }
-        return (ef1) invokeL.objValue;
+    /* loaded from: classes4.dex */
+    public interface a {
     }
 
-    public static Uri b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).build();
-        }
-        return (Uri) invokeV.objValue;
-    }
+    void a(String str);
 
-    public static Uri c(String str, long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).appendQueryParameter("downloaded_size", String.valueOf(j)).appendQueryParameter(PackageTable.TOTAL_SIZE, String.valueOf(j2)).build();
-        }
-        return (Uri) invokeCommon.objValue;
-    }
+    String b(Activity activity, String str, a aVar);
 
-    public static Uri d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).build();
-        }
-        return (Uri) invokeL.objValue;
-    }
-
-    public static Uri e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).build();
-        }
-        return (Uri) invokeL.objValue;
-    }
+    void c(String str, String str2, int i);
 }

@@ -1,8 +1,12 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,279 +14,65 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.Iterator;
+import java.util.Locale;
 /* loaded from: classes5.dex */
-public class p23 implements n23, au2 {
+public class p23 implements fo3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
-    public static final ExecutorService e;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final s33 c;
-    public final s33 d;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
+        public volatile long a;
 
-        public a(p23 p23Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p23Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-        }
+        /* renamed from: com.baidu.tieba.p23$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public static class C0370a {
+            public static /* synthetic */ Interceptable $ic;
+            public static a a;
+            public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (n23.b) {
-                    try {
-                        n23.b.wait(this.a);
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-435365634, "Lcom/baidu/tieba/p23$a$a;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(-435365634, "Lcom/baidu/tieba/p23$a$a;");
+                        return;
                     }
                 }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements s33 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Map<Runnable, String> c;
-        public boolean d;
-
-        @Override // com.baidu.tieba.s33
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                a = new a();
             }
         }
 
-        @Override // com.baidu.tieba.s33
-        public String getName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "HighPriorityTask" : (String) invokeV.objValue;
-        }
-
-        public b(p23 p23Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p23Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = new ConcurrentHashMap();
-            this.d = false;
-        }
-
-        @Override // com.baidu.tieba.s33
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.d = false;
-                f();
-            }
-        }
-
-        @Override // com.baidu.tieba.s33
-        public void c(@NonNull Runnable runnable, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
-                if (this.d) {
-                    this.c.put(runnable, str);
-                } else {
-                    ql3.l(runnable, str);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.s33
-        public void d(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.d = false;
-                long currentTimeMillis = System.currentTimeMillis();
-                int size = this.c.size();
-                f();
-                if (au2.a) {
-                    long currentTimeMillis2 = System.currentTimeMillis();
-                    Log.d("SwanPerformance", "high task dispatch cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; task num = " + size);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.s33
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.d = true;
-            }
-        }
-
-        public final void f() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.c.isEmpty()) {
-                return;
-            }
-            for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
-                if (entry != null) {
-                    ql3.l(entry.getKey(), entry.getValue());
-                }
-            }
-            this.c.clear();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements s33 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Map<Runnable, String> c;
-        public boolean d;
-        public final /* synthetic */ p23 e;
-
-        @Override // com.baidu.tieba.s33
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.s33
-        public String getName() {
+        public static a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "LowPriorityTask" : (String) invokeV.objValue;
-        }
-
-        public c(p23 p23Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p23Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                return C0370a.a;
             }
-            this.e = p23Var;
-            this.c = new ConcurrentHashMap();
-            this.d = false;
-        }
-
-        @Override // com.baidu.tieba.s33
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.d = false;
-                f();
-            }
-        }
-
-        @Override // com.baidu.tieba.s33
-        public void c(@NonNull Runnable runnable, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
-                if (this.d) {
-                    this.c.put(runnable, str);
-                } else {
-                    ql3.l(runnable, str);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.s33
-        public void d(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.d = false;
-                long currentTimeMillis = System.currentTimeMillis();
-                int size = this.c.size();
-                f();
-                if (au2.a) {
-                    long currentTimeMillis2 = System.currentTimeMillis();
-                    Log.d("SwanPerformance", "low task dispatch cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; task num = " + size);
-                }
-                if (x23.e()) {
-                    this.e.c();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.s33
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.d = true;
-                if (x23.e()) {
-                    this.e.b(x23.f());
-                }
-            }
-        }
-
-        public final void f() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.c.isEmpty()) {
-                return;
-            }
-            for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
-                if (entry != null) {
-                    ql3.l(entry.getKey(), entry.getValue());
-                }
-            }
-            this.c.clear();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static final p23 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-568050056, "Lcom/baidu/tieba/p23$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-568050056, "Lcom/baidu/tieba/p23$d;");
-                    return;
-                }
-            }
-            a = new p23(null);
+            return (a) invokeV.objValue;
         }
     }
 
@@ -299,7 +89,7 @@ public class p23 implements n23, au2 {
                 return;
             }
         }
-        e = Executors.newSingleThreadExecutor();
+        a = wp1.a;
     }
 
     public p23() {
@@ -312,75 +102,216 @@ public class p23 implements n23, au2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fo3
+    /* renamed from: b */
+    public void a(HybridUbcFlow hybridUbcFlow) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
+            c(hybridUbcFlow);
+        }
+    }
+
+    @SuppressLint({"SwanDebugLog", "LogConditional"})
+    public void c(HybridUbcFlow hybridUbcFlow) {
+        String str;
+        String str2;
+        boolean z;
+        boolean z2;
+        String str3;
+        String str4;
+        String str5;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) && hybridUbcFlow != null && !hybridUbcFlow.f.isEmpty()) {
+            long f = hybridUbcFlow.f("slave_first_rendered", "master_dispatch_start");
+            il3.g.update((hl3<Long>) Long.valueOf(f));
+            String str6 = "naStart";
+            il3.b.update((hl3<Long>) Long.valueOf(hybridUbcFlow.f("slave_first_rendered", "naStart")));
+            String str7 = "aps_start_download";
+            String str8 = "aps_end_req";
+            il3.c.update((hl3<Long>) Long.valueOf(hybridUbcFlow.f("aps_end_download", "aps_start_download", "aps_end_req", "aps_start_req", "naStart")));
+            long f2 = hybridUbcFlow.f("na_first_meaningful_paint", "naStart");
+            long j = 1;
+            if (f2 < 1) {
+                f2 = hybridUbcFlow.f("na_first_paint", "naStart");
+            }
+            if (f2 >= 1) {
+                j = f2;
+            }
+            a.a().a = j;
+            m93 b0 = m93.b0();
+            if (b0 == null) {
                 return;
             }
-        }
-        this.c = new b(this);
-        this.d = new c(this);
-    }
-
-    public static p23 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return d.a;
-        }
-        return (p23) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.n23
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (au2.a) {
-                Log.d("SwanPerformance", "low priority thread notify");
+            if (!a && !l53.d("aiapps_startup_reporter", false)) {
+                return;
             }
-            synchronized (n23.b) {
-                try {
-                    n23.b.notifyAll();
+            int i = l53.u().getInt("aiapps_startup_reporter_resolution", 100);
+            String Z = b0.Z();
+            if (TextUtils.isEmpty(Z)) {
+                Z = "";
+            }
+            if (TextUtils.isEmpty(b0.b)) {
+                str = "";
+            } else {
+                str = b0.b;
+            }
+            Log.i("StartupReporter", "\n\n  小程序启动性能报告: " + Z + " appID: " + str + " speedLog\n");
+            StringBuilder sb = new StringBuilder();
+            for (int i2 = 0; i2 < i; i2++) {
+                sb.append("&");
+            }
+            boolean z3 = true;
+            Log.i("StartupReporter", String.format(" Cost [%s] Delta Src  Total Action", sb.toString()));
+            long g = hybridUbcFlow.f.get(0).g();
+            Iterator<UbcFlowEvent> it = hybridUbcFlow.f.iterator();
+            long j2 = 0;
+            while (it.hasNext()) {
+                UbcFlowEvent next = it.next();
+                if (!next.b() || l53.d("aiapps_startup_reporter_local_report", z3)) {
+                    String[] strArr = new String[2];
+                    Iterator<UbcFlowEvent> it2 = it;
+                    strArr[0] = next.a;
+                    strArr[z3 ? 1 : 0] = str6;
+                    long f3 = hybridUbcFlow.f(strArr);
+                    if (f3 < 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (f3 > j) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    if (z) {
+                        f3 = 0;
+                    }
+                    if (z2) {
+                        f3 = j;
+                    }
+                    long j3 = f3 - j2;
+                    if (j3 < 0) {
+                        str3 = str6;
+                        j3 = 0;
+                    } else {
+                        str3 = str6;
+                    }
+                    long j4 = i;
+                    String str9 = str7;
+                    String str10 = str8;
+                    int round = Math.round((float) ((f3 * j4) / j));
+                    if (round > i) {
+                        round = i;
+                    }
+                    int round2 = Math.round((float) ((j4 * j3) / j));
+                    if (round2 > i) {
+                        round2 = i;
+                    }
+                    StringBuilder sb2 = new StringBuilder();
+                    long j5 = j;
+                    sb2.append(String.format(Locale.getDefault(), " %5d ", Long.valueOf(f3)));
+                    if (z) {
+                        str4 = "<";
+                    } else {
+                        str4 = PreferencesUtil.LEFT_MOUNT;
+                    }
+                    sb2.append(str4);
+                    for (int i3 = 0; i3 < i; i3++) {
+                        if (i3 > round) {
+                            sb2.append(".");
+                        } else if (i3 > round2) {
+                            sb2.append("=");
+                        } else {
+                            sb2.append("#");
+                        }
+                    }
+                    if (z2) {
+                        str5 = ">";
+                    } else {
+                        str5 = PreferencesUtil.RIGHT_MOUNT;
+                    }
+                    sb2.append(str5);
+                    sb2.append(String.format(Locale.getDefault(), "%5d", Long.valueOf(j3)));
+                    sb2.append(String.format("  %s", next.f()));
+                    sb2.append(String.format(Locale.getDefault(), " %6d ", Long.valueOf(next.g() - g)));
+                    sb2.append(next.a);
+                    if (next.b()) {
+                        sb2.append("(LocalRecord)");
+                    }
+                    Log.i("StartupReporter", sb2.toString());
+                    it = it2;
+                    j2 = f3;
+                    str6 = str3;
+                    j = j5;
+                    str7 = str9;
+                    str8 = str10;
+                    z3 = true;
                 }
             }
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            q33.g().i(this.c, 3000);
-            q33.g().i(this.d, 5000);
-        }
-    }
-
-    public /* synthetic */ p23(a aVar) {
-        this();
-    }
-
-    @Override // com.baidu.tieba.n23
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (au2.a) {
-                Log.d("SwanPerformance", "low priority thread wait = " + i);
+            String str11 = str6;
+            String str12 = str7;
+            String str13 = str8;
+            long j6 = j;
+            Log.i("StartupReporter", "Total  ： " + hybridUbcFlow.f.size());
+            StringBuilder sb3 = new StringBuilder();
+            sb3.append("\n========APS下载完成:" + hybridUbcFlow.f("aps_end_download", str11));
+            sb3.append("\n========解压包时长:" + hybridUbcFlow.f("package_end_unzip", "first_anim_start", "aps_end_download"));
+            sb3.append("\n========第一次setData的调用:" + hybridUbcFlow.f("slave_first_loaded", "slave_js_parsed"));
+            sb3.append("\n========master第一次和slave通信:" + hybridUbcFlow.f("slave_first_loaded", "master_first_init_data"));
+            sb3.append("\n========slave第一次收到数据:" + hybridUbcFlow.f("slave_first_recieve_data", "master_first_init_data"));
+            sb3.append("\n========slave第一次渲染完成:" + hybridUbcFlow.f("slave_first_rendered", "slave_first_recieve_data"));
+            sb3.append("\n========第一次动画时长:" + hybridUbcFlow.f("first_anim_end", "first_anim_start"));
+            sb3.append("\n========第二次动画时长:" + hybridUbcFlow.f("second_anim_end", "second_anim_start"));
+            sb3.append("\n\n核心指标--------");
+            sb3.append("\n========aps接口时长:" + hybridUbcFlow.f(str13, "aps_start_req", str11));
+            sb3.append("\n========aps纯下载时长:" + hybridUbcFlow.f("aps_end_download", str12, str13, "aps_start_req", str11));
+            sb3.append("\n========");
+            sb3.append("\n========准备启动时长:" + hybridUbcFlow.f("na_launch_activity", str11));
+            sb3.append("\n========准备查库时长:" + hybridUbcFlow.f("na_query_db", str11));
+            sb3.append("\n========Activity调起时长:" + hybridUbcFlow.f("frame_start_create", "na_launch_activity"));
+            sb3.append("\n========");
+            sb3.append("\n========预加载等待时长:" + hybridUbcFlow.f("na_pre_load_ok", "na_pre_load_check"));
+            sb3.append("\n========主线程阻塞时长:" + hybridUbcFlow.f("na_post_to_main_end", "na_post_to_main_start"));
+            sb3.append("\n========本地小程序包加载及渲染总时长:" + hybridUbcFlow.f("slave_first_rendered", "first_anim_start"));
+            sb3.append("\n\n启动线性跟踪分段指标简报--------");
+            sb3.append("\n========取包（网络开销，从小程序入口，到APS及前置接口等网络交互完成）:" + hybridUbcFlow.f("first_anim_start", str11));
+            sb3.append("\n========安装（IO开销，从下载完成，到小程序包解压安装作业完成）:" + hybridUbcFlow.f("package_end_unzip", "first_anim_start"));
+            sb3.append("\n========下载-安装（IO开销，从下载开始，到小程序包解压安装作业完成）:" + hybridUbcFlow.f("package_end_unzip", str12));
+            sb3.append("\n========小程序框架启动总时长（NA开销，从开始，到 NA 准备完成）:" + hybridUbcFlow.f("master_dispatch_start", str11));
+            sb3.append("\n========AppReady派发时长:" + hybridUbcFlow.f("fe_master_dispatch_start", "master_dispatch_start"));
+            sb3.append("\n========小程序业务渲染总时长（H5开销，从 NA 准备完成，到页面渲染）:" + f);
+            int optInt = hybridUbcFlow.m().optInt("type", -1);
+            String h = hybridUbcFlow.h("preload_scene");
+            String h2 = hybridUbcFlow.h("app_package_version");
+            String str14 = "-1";
+            if (TextUtils.isEmpty(h)) {
+                h = "-1";
             }
-            e.execute(new a(this, i));
-        }
-    }
-
-    public boolean d(@NonNull Runnable runnable, @NonNull String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, runnable, str, z)) == null) {
-            if (z) {
-                this.c.c(runnable, str);
-                return true;
-            } else if (x23.e()) {
-                e.execute(runnable);
-                return true;
+            String h3 = hybridUbcFlow.h("package_type");
+            if (!TextUtils.isEmpty(h3)) {
+                str14 = h3;
+            }
+            String h4 = hybridUbcFlow.h("preload");
+            sb3.append("\n\n小程序启动总时长：========> " + j6 + " LaunchDiff=" + hybridUbcFlow.f(str11, "user_action"));
+            if (!hybridUbcFlow.d.contains("package_start_unzip")) {
+                str2 = "(热启动)";
             } else {
-                this.d.c(runnable, str);
-                return true;
+                str2 = "(冷启动)";
             }
+            sb3.append(str2);
+            sb3.append("  relaunchType:" + optInt);
+            sb3.append("  preloadType:" + h);
+            sb3.append(" packageType:" + str14);
+            sb3.append(" preload:" + h4);
+            if (!TextUtils.isEmpty(h2)) {
+                sb3.append(" packageVersion:" + h2);
+            }
+            Log.i("StartupReporter", "Report ： " + sb3.toString());
         }
-        return invokeLLZ.booleanValue;
     }
 }

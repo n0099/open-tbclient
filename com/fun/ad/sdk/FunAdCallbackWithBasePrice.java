@@ -2,14 +2,14 @@ package com.fun.ad.sdk;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h7a;
+import com.baidu.tieba.kba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 /* loaded from: classes7.dex */
-public class FunAdCallbackWithBasePrice implements FunAdCallback, h7a {
+public class FunAdCallbackWithBasePrice implements FunAdCallback, kba {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,7 +27,7 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, h7a {
         }
     }
 
-    @Override // com.baidu.tieba.h7a
+    @Override // com.baidu.tieba.kba
     public final void onAdClicked(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, pid) == null) {
@@ -48,7 +48,7 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, h7a {
         }
     }
 
-    @Override // com.baidu.tieba.h7a
+    @Override // com.baidu.tieba.kba
     public final void onAdClose(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, pid) == null) {
@@ -69,7 +69,7 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, h7a {
         }
     }
 
-    @Override // com.baidu.tieba.h7a
+    @Override // com.baidu.tieba.kba
     public final void onAdLoad(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, pid) == null) {
@@ -90,7 +90,7 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, h7a {
         }
     }
 
-    @Override // com.baidu.tieba.h7a
+    @Override // com.baidu.tieba.kba
     public final void onAdLoadError(Ssp.Pid pid, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048585, this, pid, i, str) == null) {
@@ -111,7 +111,7 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, h7a {
         }
     }
 
-    @Override // com.baidu.tieba.h7a
+    @Override // com.baidu.tieba.kba
     public final void onAdLoaded(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, pid) == null) {
@@ -132,7 +132,7 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, h7a {
         }
     }
 
-    @Override // com.baidu.tieba.h7a
+    @Override // com.baidu.tieba.kba
     public final void onAdShow(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, pid) == null) {
@@ -153,7 +153,7 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, h7a {
         }
     }
 
-    @Override // com.baidu.tieba.h7a
+    @Override // com.baidu.tieba.kba
     public final void onAdShowError(Ssp.Pid pid, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048594, this, pid, i, str) == null) {
@@ -174,7 +174,7 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, h7a {
         }
     }
 
-    @Override // com.baidu.tieba.h7a
+    @Override // com.baidu.tieba.kba
     public final void onRewardedVideo(Ssp.Pid pid, boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{pid, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {

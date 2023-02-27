@@ -1,530 +1,130 @@
 package com.baidu.tieba;
 
-import android.animation.ObjectAnimator;
-import android.animation.PropertyValuesHolder;
-import android.os.Handler;
-import android.os.Message;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.ActivityOptions;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.NinePatch;
+import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.NinePatchDrawable;
+import android.os.Build;
 import android.text.TextUtils;
-import android.view.View;
-import androidx.constraintlayout.motion.widget.Key;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.widget.bubble.BubbleManager;
-import com.baidu.nadcore.widget.bubble.BubblePosition;
-import com.baidu.platform.comapi.map.NodeType;
-import com.baidu.tieba.b51;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 /* loaded from: classes5.dex */
-public abstract class jc1 {
+public class jc1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public int c;
-    public BubbleManager.b d;
-    public BubbleManager.a e;
-    public g f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
-    public ObjectAnimator j;
-    public boolean k;
-    public nc1 l;
-    public fc1 m;
 
-    public abstract nc1 f();
-
-    public abstract void j();
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jc1 a;
-
-        public a(jc1 jc1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jc1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jc1Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.k();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jc1 a;
-
-        public b(jc1 jc1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jc1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jc1Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                jc1 jc1Var = this.a;
-                BubblePosition b = jc1Var.m.b(jc1Var.l);
-                if (b == BubblePosition.INVALID) {
-                    this.a.l.m();
-                    ec1.a().b("——>show: remove bubble view end");
-                    jc1 jc1Var2 = this.a;
-                    if (jc1Var2.g) {
-                        jc1Var2.l.l();
-                        ec1.a().b("——>show: remove bg view end");
-                    }
-                    jc1 jc1Var3 = this.a;
-                    if (jc1Var3.h) {
-                        jc1Var3.l.k();
-                        ec1.a().b("——>show: remove anchorlayer view end");
-                        return;
-                    }
-                    return;
-                }
-                this.a.l.z(b);
-                this.a.q(b);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BubblePosition a;
-        public final /* synthetic */ jc1 b;
-
-        public c(jc1 jc1Var, BubblePosition bubblePosition) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jc1Var, bubblePosition};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = jc1Var;
-            this.a = bubblePosition;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            int i;
-            int i2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                jc1 jc1Var = this.b;
-                int[] i3 = jc1Var.m.i(this.a, jc1Var.l);
-                this.b.l.A(i3);
-                jc1 jc1Var2 = this.b;
-                if (jc1Var2.i) {
-                    int a = b51.c.a(null, jc1Var2.m.b + 11.0f);
-                    BubblePosition bubblePosition = this.a;
-                    if (bubblePosition != BubblePosition.UP && bubblePosition != BubblePosition.DOWN) {
-                        if (bubblePosition == BubblePosition.RIGHT || bubblePosition == BubblePosition.LEFT) {
-                            if (this.a == BubblePosition.LEFT) {
-                                i2 = i3[0] + a;
-                            } else {
-                                i2 = i3[0] - a;
-                            }
-                            jc1 jc1Var3 = this.b;
-                            jc1Var3.b(jc1Var3.l.b, i2, i3[0], i3[1], i3[1]);
-                        }
-                    } else {
-                        if (this.a == BubblePosition.UP) {
-                            i = i3[1] + a;
-                        } else {
-                            i = i3[1] - a;
-                        }
-                        jc1 jc1Var4 = this.b;
-                        jc1Var4.b(jc1Var4.l.b, i3[0], i3[0], i, i3[1]);
+    @SuppressLint({"DiscouragedPrivateApi"})
+    public static void a(Activity activity, hc1 hc1Var) {
+        Class<?>[] declaredClasses;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, activity, hc1Var) == null) {
+            try {
+                Method declaredMethod = Activity.class.getDeclaredMethod("getActivityOptions", new Class[0]);
+                declaredMethod.setAccessible(true);
+                Object invoke = declaredMethod.invoke(activity, new Object[0]);
+                Class<?> cls = null;
+                for (Class<?> cls2 : Activity.class.getDeclaredClasses()) {
+                    if (cls2.getSimpleName().contains("TranslucentConversionListener")) {
+                        cls = cls2;
                     }
                 }
-                jc1 jc1Var5 = this.b;
-                if (jc1Var5.h) {
-                    jc1Var5.l.y();
-                }
-                jc1 jc1Var6 = this.b;
-                jc1Var6.a = true;
-                if (jc1Var6.b) {
-                    jc1Var6.f.sendEmptyMessageDelayed(0, jc1Var6.c);
-                }
-                BubbleManager.b bVar = this.b.d;
-                if (bVar != null) {
-                    bVar.c();
+                Object newProxyInstance = Proxy.newProxyInstance(Activity.class.getClassLoader(), new Class[]{cls}, new kc1(hc1Var));
+                Method declaredMethod2 = Activity.class.getDeclaredMethod("convertToTranslucent", cls, ActivityOptions.class);
+                declaredMethod2.setAccessible(true);
+                declaredMethod2.invoke(activity, newProxyInstance, invoke);
+            } catch (Throwable unused) {
+                if (hc1Var != null) {
+                    hc1Var.onTranslucent(false);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jc1 a;
-
-        public d(jc1 jc1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jc1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static void b(Activity activity, hc1 hc1Var) {
+        Class<?>[] declaredClasses;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, activity, hc1Var) == null) {
+            try {
+                Class<?> cls = null;
+                for (Class<?> cls2 : Activity.class.getDeclaredClasses()) {
+                    if (cls2.getSimpleName().contains("TranslucentConversionListener")) {
+                        cls = cls2;
+                    }
                 }
-            }
-            this.a = jc1Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.i(view2);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jc1 a;
-
-        public e(jc1 jc1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jc1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                Method declaredMethod = Activity.class.getDeclaredMethod("convertToTranslucent", cls);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(activity, null);
+                if (hc1Var != null) {
+                    hc1Var.onTranslucent(true);
                 }
-            }
-            this.a = jc1Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.i(view2);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class f implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jc1 a;
-
-        public f(jc1 jc1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jc1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jc1Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.i(view2);
-                BubbleManager.a aVar = this.a.e;
-                if (aVar != null) {
-                    aVar.a();
+            } catch (Throwable unused) {
+                if (hc1Var != null) {
+                    hc1Var.onTranslucent(false);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class g extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<jc1> a;
+    public static Drawable e(Context context, String str) {
+        InterceptResult invokeLL;
+        Bitmap decodeFile;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str) || (decodeFile = BitmapFactory.decodeFile(str)) == null) {
+                return null;
+            }
+            byte[] ninePatchChunk = decodeFile.getNinePatchChunk();
+            if (NinePatch.isNinePatchChunk(ninePatchChunk)) {
+                return new NinePatchDrawable(context.getResources(), decodeFile, ninePatchChunk, new Rect(), null);
+            }
+            return new BitmapDrawable(context.getResources(), decodeFile);
+        }
+        return (Drawable) invokeLL.objValue;
+    }
 
-        public g(jc1 jc1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jc1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static void c(Activity activity, hc1 hc1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, activity, hc1Var) == null) {
+            try {
+                Method declaredMethod = Activity.class.getDeclaredMethod("convertFromTranslucent", new Class[0]);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(activity, new Object[0]);
+                if (hc1Var != null) {
+                    hc1Var.onTranslucent(false);
+                }
+            } catch (Throwable unused) {
+                if (hc1Var != null) {
+                    hc1Var.onTranslucent(true);
                 }
             }
-            this.a = new WeakReference<>(jc1Var);
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            jc1 jc1Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0 && (jc1Var = this.a.get()) != null) {
-                jc1Var.c();
-            }
         }
     }
 
-    public jc1(nc1 nc1Var) {
+    public static void d(Activity activity, hc1 hc1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {nc1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65539, null, activity, hc1Var) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    a(activity, hc1Var);
+                } else {
+                    b(activity, hc1Var);
+                }
+            } catch (Throwable unused) {
+                if (hc1Var != null) {
+                    hc1Var.onTranslucent(false);
+                }
             }
-        }
-        this.b = true;
-        this.c = NodeType.E_PARTICLE;
-        this.k = true;
-        this.m = new fc1();
-        this.l = nc1Var;
-    }
-
-    public final void b(View view2, float f2, float f3, float f4, float f5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            ObjectAnimator objectAnimator = this.j;
-            if (objectAnimator != null && objectAnimator.isRunning()) {
-                this.j.cancel();
-            }
-            ObjectAnimator duration = ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofFloat(Key.ALPHA, 0.0f, 1.0f), PropertyValuesHolder.ofFloat(Key.TRANSLATION_X, f2, f3), PropertyValuesHolder.ofFloat(Key.TRANSLATION_Y, f4, f5)).setDuration(180L);
-            this.j = duration;
-            duration.start();
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.a) {
-            return;
-        }
-        ck0.b(new a(this));
-    }
-
-    public fc1 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.m;
-        }
-        return (fc1) invokeV.objValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return !this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            nc1 nc1Var = this.l;
-            if (nc1Var != null) {
-                nc1Var.n();
-                this.l = null;
-            }
-            this.d = null;
-            this.f = null;
-            this.j = null;
-        }
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public void i(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
-            BubbleManager.b bVar = this.d;
-            if (bVar != null) {
-                bVar.a();
-            }
-            if (this.k) {
-                c();
-            }
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            if (i <= 0) {
-                this.c = NodeType.E_PARTICLE;
-            } else {
-                this.c = i;
-            }
-        }
-    }
-
-    public void n(BubbleManager.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
-            this.d = bVar;
-        }
-    }
-
-    public void q(BubblePosition bubblePosition) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, bubblePosition) == null) {
-            this.l.j(new c(this, bubblePosition));
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.l.g()) {
-            this.f = new g(this);
-            this.l.v(new d(this));
-            this.l.u(new e(this));
-            this.l.t(new f(this));
-        }
-    }
-
-    public void p() {
-        nc1 nc1Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048590, this) != null) || (nc1Var = this.l) == null || nc1Var.c == null || TextUtils.isEmpty(nc1Var.c()) || !this.l.h() || !h()) {
-            return;
-        }
-        o();
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.a) {
-            ObjectAnimator objectAnimator = this.j;
-            if (objectAnimator != null && objectAnimator.isRunning()) {
-                this.j.cancel();
-            }
-            if (this.g) {
-                this.l.l();
-                ec1.a().b("——>dismiss BgView end");
-            }
-            if (this.h) {
-                this.l.k();
-                ec1.a().b("——>dismiss anchorLayer end");
-            }
-            this.l.m();
-            ec1.a().b("——>dismiss BubbleView end");
-            this.a = false;
-            g gVar = this.f;
-            if (gVar != null) {
-                gVar.removeMessages(0);
-            }
-            BubbleManager.b bVar = this.d;
-            if (bVar != null) {
-                bVar.b();
-            }
-            l();
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            ec1.a().b("——>show");
-            g();
-            if (this.g) {
-                this.l.q();
-            }
-            if (this.h) {
-                this.l.p();
-                this.l.o();
-            }
-            this.l.r();
-            if (!this.k) {
-                this.l.f();
-            }
-            j();
-            this.l.j(new b(this));
         }
     }
 }

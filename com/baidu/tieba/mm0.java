@@ -1,51 +1,25 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.download.view.IDownloadViewCreator;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class mm0 {
     public static /* synthetic */ Interceptable $ic;
-    public static IDownloadViewCreator a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947977337, "Lcom/baidu/tieba/mm0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947977337, "Lcom/baidu/tieba/mm0;");
-        }
-    }
-
-    public static vl0<?> a(@NonNull ViewGroup viewGroup, IDownloadViewCreator.ViewType viewType) {
-        InterceptResult invokeLL;
+    public static File a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, viewGroup, viewType)) == null) {
-            if (a == null) {
-                synchronized (cj0.class) {
-                    if (a == null) {
-                        a = (IDownloadViewCreator) ServiceManager.getService(IDownloadViewCreator.a);
-                    }
-                    if (a == null) {
-                        a = IDownloadViewCreator.b;
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            File externalCacheDir = context.getExternalCacheDir();
+            if (externalCacheDir == null) {
+                return context.getCacheDir();
             }
-            return a.a(viewGroup, viewType);
+            return externalCacheDir;
         }
-        return (vl0) invokeLL.objValue;
+        return (File) invokeL.objValue;
     }
 }

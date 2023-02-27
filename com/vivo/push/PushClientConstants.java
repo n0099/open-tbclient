@@ -7,6 +7,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public final class PushClientConstants {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String COM_ANDROID_SYSTEMUI = "com.android.systemui";
+    public static final String NOTIFICATION_PERMISSION_ACTION = "com.android.notification.permission.action.FRONT";
     public static final String PUSH_APP_ALIAS = "com.vivo.pushservice.app.alias";
     public static final String PUSH_APP_TAGS = "com.vivo.pushservice.app.tags";
     public static final String TAG_CLASS_NAME = "className";

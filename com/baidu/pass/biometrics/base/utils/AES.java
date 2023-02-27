@@ -1,11 +1,5 @@
 package com.baidu.pass.biometrics.base.utils;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.Cipher;
@@ -14,70 +8,22 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes2.dex */
 public class AES {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String d = "UTF-8";
     public static final String e = "AES/CBC/NoPadding";
     public static final String f = "AES";
-    public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
     public String c;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AES() {
         this("AES", "AES/CBC/NoPadding", "UTF-8");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((String) objArr[0], (String) objArr[1], (String) objArr[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AES(String str, String str2) {
         this(str, str2, "UTF-8");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
     }
 
     public AES(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.a = "UTF-8";
         this.b = "AES/CBC/NoPadding";
         this.c = "AES";
@@ -86,57 +32,42 @@ public class AES {
         this.a = str3;
     }
 
-    public byte[] decrypt(byte[] bArr, String str, String str2) throws Exception {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, bArr, str, str2)) == null) {
-            if (bArr != null && bArr.length != 0) {
-                byte[] bArr2 = new byte[0];
-                try {
-                    IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.a));
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.c);
-                    Cipher cipher = Cipher.getInstance(this.b);
-                    cipher.init(2, secretKeySpec, ivParameterSpec);
-                    return cipher.doFinal(bArr);
-                } catch (Throwable unused) {
-                    return bArr2;
-                }
-            }
-            throw new Exception("Empty string");
+    public static String a(String str) {
+        int length = 16 - (str.getBytes().length % 16);
+        for (int i = 0; i < length; i++) {
+            str = str + WebvttCueParser.CHAR_SPACE;
         }
-        return (byte[]) invokeLLL.objValue;
+        return str;
+    }
+
+    public byte[] decrypt(byte[] bArr, String str, String str2) throws Exception {
+        if (bArr != null && bArr.length != 0) {
+            byte[] bArr2 = new byte[0];
+            try {
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.a));
+                SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.c);
+                Cipher cipher = Cipher.getInstance(this.b);
+                cipher.init(2, secretKeySpec, ivParameterSpec);
+                return cipher.doFinal(bArr);
+            } catch (Throwable unused) {
+                return bArr2;
+            }
+        }
+        throw new Exception("Empty string");
     }
 
     public byte[] encrypt(String str, String str2, String str3) throws Exception {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3)) == null) {
-            if (str != null && str.length() != 0) {
-                try {
-                    IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.a));
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.c);
-                    Cipher cipher = Cipher.getInstance(this.b);
-                    cipher.init(1, secretKeySpec, ivParameterSpec);
-                    return cipher.doFinal(a(str).getBytes());
-                } catch (NoSuchAlgorithmException | NoSuchPaddingException unused) {
-                    return null;
-                }
+        if (str != null && str.length() != 0) {
+            try {
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.a));
+                SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.c);
+                Cipher cipher = Cipher.getInstance(this.b);
+                cipher.init(1, secretKeySpec, ivParameterSpec);
+                return cipher.doFinal(a(str).getBytes());
+            } catch (NoSuchAlgorithmException | NoSuchPaddingException unused) {
+                return null;
             }
-            throw new Exception("Empty string");
         }
-        return (byte[]) invokeLLL.objValue;
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            int length = 16 - (str.getBytes().length % 16);
-            for (int i = 0; i < length; i++) {
-                str = str + WebvttCueParser.CHAR_SPACE;
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
+        throw new Exception("Empty string");
     }
 }

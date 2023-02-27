@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.p09;
+import com.baidu.tieba.b49;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,10 +32,10 @@ public class MemberPayResult {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DYNAMIC_DISAPPEAR_CLICK = "click";
         public static final String DYNAMIC_DISAPPEAR_CONCEL = "concel";
-        public static final int NEW_TIP_COLOR_ID = 2131099752;
+        public static final int NEW_TIP_COLOR_ID = 2131099718;
         public static final String NEW_TIP_TEXT = "NEW";
         public static final String TIP_SHOW = "1";
-        public static final int WAIT_TIP_COLOR_ID = 2131099799;
+        public static final int WAIT_TIP_COLOR_ID = 2131099749;
         public static final String WAIT_TIP_TEXT = "敬请期待";
         public transient /* synthetic */ FieldHolder $fh;
         @SerializedName("dynamic_color")
@@ -129,14 +130,10 @@ public class MemberPayResult {
                 if ("1".equals(this.showAwait)) {
                     return SkinManager.getColor(WAIT_TIP_COLOR_ID);
                 }
-                int skinType = TbadkCoreApplication.getInst().getSkinType();
-                if (skinType == 1) {
-                    return p09.f(this.dynamicColorNight);
+                if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                    return b49.f(this.dynamicColorDark);
                 }
-                if (skinType == 4) {
-                    return p09.f(this.dynamicColorDark);
-                }
-                return p09.f(this.dynamicColor);
+                return b49.f(this.dynamicColor);
             }
             return invokeV.intValue;
         }
@@ -388,7 +385,7 @@ public class MemberPayResult {
             this.j = jSONObject.optInt("is_autopay");
             this.k = false;
             jSONObject.optString("payment_pos_key");
-            this.d = jSONObject.optString("tag_name");
+            this.d = jSONObject.optString(PushConstants.SUB_TAGS_STATUS_NAME);
         }
     }
 

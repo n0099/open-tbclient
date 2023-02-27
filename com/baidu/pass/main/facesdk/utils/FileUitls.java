@@ -5,12 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,23 +16,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class FileUitls {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public FileUitls() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     /*  JADX ERROR: NullPointerException in pass: RegionMakerVisitor
         java.lang.NullPointerException: Cannot read field "wordsInUse" because "set" is null
         	at java.base/java.util.BitSet.or(BitSet.java:943)
@@ -51,105 +28,78 @@ public class FileUitls {
         	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:730)
         	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
         	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
-        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:735)
-        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
-        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
         	at jadx.core.dex.visitors.regions.RegionMakerVisitor.visit(RegionMakerVisitor.java:52)
         */
-    public static boolean assetOpen(android.content.Context r4, java.lang.String r5) {
+    public static boolean assetOpen(android.content.Context r2, java.lang.String r3) {
         /*
-            com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.pass.main.facesdk.utils.FileUitls.$ic
-            if (r0 != 0) goto L17
-        L4:
             r0 = 0
-            if (r4 == 0) goto L16
-            boolean r1 = android.text.TextUtils.isEmpty(r5)
-            if (r1 == 0) goto Le
-            goto L16
-        Le:
-            android.content.res.AssetManager r4 = r4.getAssets()     // Catch: java.lang.Exception -> L16
-            r4.open(r5)     // Catch: java.lang.Exception -> L16
+            if (r2 == 0) goto L12
+            boolean r1 = android.text.TextUtils.isEmpty(r3)
+            if (r1 == 0) goto La
+            goto L12
+        La:
+            android.content.res.AssetManager r2 = r2.getAssets()     // Catch: java.lang.Exception -> L12
+            r2.open(r3)     // Catch: java.lang.Exception -> L12
             r0 = 1
-        L16:
+        L12:
             return r0
-        L17:
-            r1 = r0
-            r2 = 65537(0x10001, float:9.1837E-41)
-            r3 = 0
-            com.baidu.titan.sdk.runtime.InterceptResult r0 = r1.invokeLL(r2, r3, r4, r5)
-            if (r0 == 0) goto L4
-            boolean r1 = r0.booleanValue
-            return r1
         */
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.pass.main.facesdk.utils.FileUitls.assetOpen(android.content.Context, java.lang.String):boolean");
     }
 
     public static void deleteLicense(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            File file = new File(context.getFilesDir().getParent() + "/" + str);
-            if (file.exists()) {
-                file.delete();
-            }
-            File dir = context.getDir(str, 0);
-            if (dir == null || !dir.exists()) {
-                return;
-            }
-            dir.delete();
+        File file = new File(context.getFilesDir().getParent() + "/" + str);
+        if (file.exists()) {
+            file.delete();
         }
+        File dir = context.getDir(str, 0);
+        if (dir == null || !dir.exists()) {
+            return;
+        }
+        dir.delete();
     }
 
     public static boolean fileIsExists(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                if (new File(str).exists()) {
-                    return true;
-                }
-                Log.i("wtf", "file_state->file not exits");
-                return false;
-            } catch (Exception e) {
-                Log.i("wtf", "file_state->" + e.getMessage());
-                return false;
+        try {
+            if (new File(str).exists()) {
+                return true;
             }
+            Log.i("wtf", "file_state->file not exits");
+            return false;
+        } catch (Exception e) {
+            Log.i("wtf", "file_state->" + e.getMessage());
+            return false;
         }
-        return invokeL.booleanValue;
     }
 
     public static File getBatchFaceDirectory(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            File sDRootFile = getSDRootFile();
-            if (sDRootFile == null || !sDRootFile.exists()) {
-                return null;
-            }
-            File file = new File(sDRootFile, str);
-            if (file.exists()) {
-                return file;
-            }
-            file.mkdirs();
+        File sDRootFile = getSDRootFile();
+        if (sDRootFile == null || !sDRootFile.exists()) {
+            return null;
+        }
+        File file = new File(sDRootFile, str);
+        if (file.exists()) {
             return file;
         }
-        return (File) invokeL.objValue;
+        file.mkdirs();
+        return file;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:45:0x0038 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:13:0x001e */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0034 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r0v0 */
+    /* JADX WARN: Type inference failed for: r0v1, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r0v2 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static Bitmap getBitmap(Context context, String str) {
-        InterceptResult invokeLL;
         InputStream inputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65541, null, context, str)) != null) {
-            return (Bitmap) invokeLL.objValue;
-        }
-        InputStream inputStream2 = null;
+        ?? r0 = 0;
         try {
-            inputStream = context.getResources().getAssets().open(str);
             try {
+                inputStream = context.getResources().getAssets().open(str);
                 try {
                     Bitmap decodeStream = BitmapFactory.decodeStream(inputStream);
                     if (inputStream != null) {
@@ -174,10 +124,10 @@ public class FileUitls {
                 }
             } catch (Throwable th) {
                 th = th;
-                inputStream2 = inputStream;
-                if (inputStream2 != null) {
+                r0 = context;
+                if (r0 != 0) {
                     try {
-                        inputStream2.close();
+                        r0.close();
                     } catch (IOException e4) {
                         e4.printStackTrace();
                     }
@@ -189,131 +139,121 @@ public class FileUitls {
             inputStream = null;
         } catch (Throwable th2) {
             th = th2;
-            if (inputStream2 != null) {
+            if (r0 != 0) {
             }
             throw th;
         }
     }
 
     public static byte[] getByteArrayFromAssets(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
-            byte[] bArr = null;
-            try {
-                InputStream open = context.getAssets().open(str);
-                bArr = new byte[open.available()];
-                open.read(bArr);
-                open.close();
-                return bArr;
-            } catch (IOException e) {
-                Log.e("zq", "e-->" + e.getMessage());
-                e.printStackTrace();
-                return bArr;
-            }
+        byte[] bArr = null;
+        try {
+            InputStream open = context.getAssets().open(str);
+            bArr = new byte[open.available()];
+            open.read(bArr);
+            open.close();
+            return bArr;
+        } catch (IOException e) {
+            Log.e("zq", "e-->" + e.getMessage());
+            e.printStackTrace();
+            return bArr;
         }
-        return (byte[]) invokeLL.objValue;
     }
 
     public static File getFaceDirectory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            File sDRootFile = getSDRootFile();
-            if (sDRootFile == null || !sDRootFile.exists()) {
-                return null;
-            }
-            File file = new File(sDRootFile, "faces");
-            if (file.exists()) {
-                return file;
-            }
-            file.mkdirs();
+        File sDRootFile = getSDRootFile();
+        if (sDRootFile == null || !sDRootFile.exists()) {
+            return null;
+        }
+        File file = new File(sDRootFile, "faces");
+        if (file.exists()) {
             return file;
         }
-        return (File) invokeV.objValue;
+        file.mkdirs();
+        return file;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0034, code lost:
-        if (r3 == null) goto L5;
+    /* JADX DEBUG: Null dom frontier in handler: FileNotFoundException -> 0x0038 */
+    /* JADX DEBUG: Null dom frontier in handler: IOException -> 0x0020 */
+    /* JADX DEBUG: Null dom frontier in handler: IOException -> 0x002f */
+    /* JADX DEBUG: Null dom frontier in handler: IOException -> 0x0030 */
+    /* JADX DEBUG: Null dom frontier in handler: IOException -> 0x0063 */
+    /* JADX DEBUG: Null dom frontier in handler: IOException -> 0x0069 */
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0030, code lost:
+        if (r3 == null) goto L3;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x0036, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0032, code lost:
         r3.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x003c, code lost:
-        if (r3 == null) goto L5;
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0038, code lost:
+        if (r3 == null) goto L3;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x0058, code lost:
-        if (r3 != null) goto L13;
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0054, code lost:
+        if (r3 != null) goto L12;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x005a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0056, code lost:
         r3.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x0064, code lost:
-        if (r3 == null) goto L12;
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x0060, code lost:
+        if (r3 == null) goto L11;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x0067, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x0063, code lost:
         return r0;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static byte[] getModelContent(Context context, String str) {
-        InterceptResult invokeLL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65544, null, context, str)) != null) {
-            return (byte[]) invokeLL.objValue;
-        }
         byte[] bArr = new byte[0];
         File file = new File(str);
-        FileInputStream fileInputStream2 = null;
+        FileInputStream fileInputStream = null;
         if (file.exists()) {
             try {
-                fileInputStream = new FileInputStream(file);
-            } catch (FileNotFoundException unused) {
-            } catch (IOException unused2) {
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                bArr = new byte[fileInputStream.available()];
-                fileInputStream.read(bArr);
+                FileInputStream fileInputStream2 = new FileInputStream(file);
                 try {
-                    fileInputStream.close();
-                } catch (IOException unused3) {
-                }
-                fileInputStream2 = fileInputStream;
-            } catch (FileNotFoundException unused4) {
-                fileInputStream2 = fileInputStream;
-            } catch (IOException unused5) {
-                fileInputStream2 = fileInputStream;
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = fileInputStream;
-                if (fileInputStream2 != null) {
+                    bArr = new byte[fileInputStream2.available()];
+                    fileInputStream2.read(bArr);
                     try {
                         fileInputStream2.close();
-                    } catch (IOException unused6) {
+                    } catch (IOException unused) {
                     }
+                    fileInputStream = fileInputStream2;
+                } catch (FileNotFoundException unused2) {
+                    fileInputStream = fileInputStream2;
+                } catch (IOException unused3) {
+                    fileInputStream = fileInputStream2;
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream = fileInputStream2;
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException unused4) {
+                        }
+                    }
+                    throw th;
                 }
-                throw th;
+            } catch (FileNotFoundException unused5) {
+            } catch (IOException unused6) {
+            } catch (Throwable th2) {
+                th = th2;
             }
         }
-        if (bArr.length > 0) {
-            return bArr;
-        }
         try {
+            if (bArr.length > 0) {
+                return bArr;
+            }
             try {
-                fileInputStream2 = context.getResources().getAssets().open(str);
-                bArr = new byte[fileInputStream2.available()];
-                fileInputStream2.read(bArr);
+                fileInputStream = context.getResources().getAssets().open(str);
+                bArr = new byte[fileInputStream.available()];
+                fileInputStream.read(bArr);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } catch (Throwable th3) {
-            if (fileInputStream2 != null) {
+            if (fileInputStream != null) {
                 try {
-                    fileInputStream2.close();
+                    fileInputStream.close();
                 } catch (IOException unused7) {
                 }
             }
@@ -322,146 +262,119 @@ public class FileUitls {
     }
 
     public static String getSDPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            File externalStorageDirectory = Environment.getExternalStorageState().equals("mounted") ? Environment.getExternalStorageDirectory() : null;
-            if (externalStorageDirectory != null) {
-                return externalStorageDirectory.toString();
-            }
-            return null;
+        File externalStorageDirectory = Environment.getExternalStorageState().equals("mounted") ? Environment.getExternalStorageDirectory() : null;
+        if (externalStorageDirectory != null) {
+            return externalStorageDirectory.toString();
         }
-        return (String) invokeV.objValue;
+        return null;
     }
 
     public static File getSDRootFile() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (isSdCardAvailable()) {
-                return Environment.getExternalStorageDirectory();
-            }
-            return null;
+        if (isSdCardAvailable()) {
+            return Environment.getExternalStorageDirectory();
         }
-        return (File) invokeV.objValue;
+        return null;
     }
 
     public static boolean isSdCardAvailable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? Environment.getExternalStorageState().equals("mounted") : invokeV.booleanValue;
+        return Environment.getExternalStorageState().equals("mounted");
     }
 
     public static String readFile(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            File file = new File(str);
-            String str2 = "";
-            if (!file.isDirectory()) {
-                try {
-                    FileInputStream fileInputStream = new FileInputStream(file);
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
-                    while (true) {
-                        String readLine = bufferedReader.readLine();
-                        if (readLine == null) {
-                            break;
-                        }
-                        str2 = readLine;
+        File file = new File(str);
+        String str2 = "";
+        if (!file.isDirectory()) {
+            try {
+                FileInputStream fileInputStream = new FileInputStream(file);
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+                while (true) {
+                    String readLine = bufferedReader.readLine();
+                    if (readLine == null) {
+                        break;
                     }
-                    fileInputStream.close();
-                } catch (FileNotFoundException unused) {
-                } catch (IOException e) {
-                    Log.d("TestFile", e.getMessage());
+                    str2 = readLine;
                 }
-                return str2;
+                fileInputStream.close();
+            } catch (FileNotFoundException unused) {
+            } catch (IOException e) {
+                Log.d("TestFile", e.getMessage());
             }
-            Log.d("TestFile", "The File doesn't not exist.");
             return str2;
         }
-        return (String) invokeL.objValue;
+        Log.d("TestFile", "The File doesn't not exist.");
+        return str2;
     }
 
     public static ArrayList<String> readLicense(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            File file = new File(str);
-            if (!file.isDirectory()) {
-                try {
-                    FileInputStream fileInputStream = new FileInputStream(file);
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
-                    while (true) {
-                        String readLine = bufferedReader.readLine();
-                        if (readLine == null) {
-                            break;
-                        }
-                        arrayList.add(readLine);
+        ArrayList<String> arrayList = new ArrayList<>();
+        File file = new File(str);
+        if (!file.isDirectory()) {
+            try {
+                FileInputStream fileInputStream = new FileInputStream(file);
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+                while (true) {
+                    String readLine = bufferedReader.readLine();
+                    if (readLine == null) {
+                        break;
                     }
-                    fileInputStream.close();
-                } catch (FileNotFoundException unused) {
-                } catch (IOException e) {
-                    Log.d("TestFile", e.getMessage());
+                    arrayList.add(readLine);
                 }
-                return arrayList;
+                fileInputStream.close();
+            } catch (FileNotFoundException unused) {
+            } catch (IOException e) {
+                Log.d("TestFile", e.getMessage());
             }
-            Log.d("TestFile", "The File doesn't not exist.");
             return arrayList;
         }
-        return (ArrayList) invokeL.objValue;
+        Log.d("TestFile", "The File doesn't not exist.");
+        return arrayList;
     }
 
     public static boolean saveFile(File file, Bitmap bitmap) {
-        InterceptResult invokeLL;
         FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, file, bitmap)) == null) {
-            FileOutputStream fileOutputStream2 = null;
+        FileOutputStream fileOutputStream2 = null;
+        try {
             try {
-                try {
-                    fileOutputStream = new FileOutputStream(file);
-                } catch (Throwable th) {
-                    th = th;
-                }
+                fileOutputStream = new FileOutputStream(file);
             } catch (Exception e) {
                 e = e;
             }
-            try {
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
-                try {
-                    fileOutputStream.close();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                return true;
-            } catch (Exception e3) {
-                e = e3;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                        return false;
-                    } catch (Exception e4) {
-                        e4.printStackTrace();
-                        return false;
-                    }
-                }
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (Exception e5) {
-                        e5.printStackTrace();
-                    }
-                }
-                throw th;
-            }
+        } catch (Throwable th) {
+            th = th;
         }
-        return invokeLL.booleanValue;
+        try {
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
+            try {
+                fileOutputStream.close();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            return true;
+        } catch (Exception e3) {
+            e = e3;
+            fileOutputStream2 = fileOutputStream;
+            e.printStackTrace();
+            if (fileOutputStream2 != null) {
+                try {
+                    fileOutputStream2.close();
+                    return false;
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                    return false;
+                }
+            }
+            return false;
+        } catch (Throwable th2) {
+            th = th2;
+            fileOutputStream2 = fileOutputStream;
+            if (fileOutputStream2 != null) {
+                try {
+                    fileOutputStream2.close();
+                } catch (Exception e5) {
+                    e5.printStackTrace();
+                }
+            }
+            throw th;
+        }
     }
 }

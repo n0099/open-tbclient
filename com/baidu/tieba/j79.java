@@ -1,104 +1,173 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class j79 {
+public abstract class j79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q79 a;
-    public d15 b;
-    public p79 c;
-    public o79 d;
-    public m79 e;
-    public k79 f;
-    public k79 g;
-    public k79 h;
-    public n79 i;
-    public l79 j;
-    public MainTabActivity k;
-    public z49 l;
-    public boolean m;
+    public i79 a;
+    public final String b;
+    public final int c;
+    public final long d;
+    public final String e;
+    public final int f;
 
-    public j79(@NonNull MainTabActivity mainTabActivity, @NonNull z49 z49Var) {
+    public abstract void a();
+
+    public abstract boolean c();
+
+    public abstract m79 g(ArrayList<Integer> arrayList, String str, int i);
+
+    public j79(String str, int i, int i2, long j, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, z49Var};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = false;
-        this.k = mainTabActivity;
-        this.l = z49Var;
-        this.a = new q79(mainTabActivity.getPageContext(), z49Var, mainTabActivity, false);
-        this.b = new d15(mainTabActivity.getPageContext());
-        this.c = new p79(mainTabActivity, z49Var);
-        this.d = new o79(mainTabActivity, z49Var);
-        this.i = new n79(mainTabActivity, z49Var);
-        this.j = new l79(mainTabActivity, z49Var);
-        this.e = new m79(mainTabActivity, z49Var);
+        this.b = str;
+        this.c = i2;
+        this.d = j;
+        this.e = str2;
+        this.f = i;
     }
 
-    public void a() {
+    public byte[] b(RandomAccessFile randomAccessFile, int i) {
+        InterceptResult invokeLI;
+        int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.m) {
-            return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, randomAccessFile, i)) == null) {
+            if (randomAccessFile != null && i >= 0) {
+                if (i == this.c) {
+                    i2 = (int) (this.d - ((i - 1) * this.f));
+                } else {
+                    i2 = this.f;
+                }
+                byte[] bArr = new byte[i2];
+                boolean z = false;
+                try {
+                    synchronized (randomAccessFile) {
+                        randomAccessFile.seek((i - 1) * this.f);
+                        if (randomAccessFile.read(bArr, 0, i2) != -1) {
+                            z = true;
+                        }
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if (z) {
+                    return bArr;
+                }
+            }
+            return null;
         }
-        LinkedList linkedList = new LinkedList();
-        linkedList.add(this.j);
-        linkedList.add(this.c);
-        linkedList.add(this.d);
-        linkedList.add(this.e);
-        a15.g(linkedList);
+        return (byte[]) invokeLI.objValue;
     }
 
-    public void b() {
+    public void d(int i) {
+        i79 i79Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.m) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (i79Var = this.a) != null) {
+            i79Var.onProgressUpdate(i / 100.0f);
         }
-        ut7.m = false;
-        LinkedList linkedList = new LinkedList();
-        linkedList.add(this.j);
-        linkedList.add(this.a);
-        a15.g(linkedList);
     }
 
-    public void c() {
+    public void f(i79 i79Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add(this.a);
-            linkedList.add(this.c);
-            linkedList.add(this.d);
-            linkedList.add(this.j);
-            linkedList.add(this.b);
-            linkedList.add(this.i);
-            k79 k79Var = new k79(this.k, this.l, "source_from_help");
-            this.f = k79Var;
-            linkedList.add(k79Var);
-            k79 k79Var2 = new k79(this.k, this.l, "source_from_virtual_image");
-            this.g = k79Var2;
-            linkedList.add(k79Var2);
-            k79 k79Var3 = new k79(this.k, this.l, "source_from_theme");
-            this.h = k79Var3;
-            linkedList.add(k79Var3);
-            a15.g(linkedList);
-            this.m = true;
+        if (interceptable == null || interceptable.invokeL(1048581, this, i79Var) == null) {
+            this.a = i79Var;
         }
+    }
+
+    public final String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            try {
+                JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
+                if (optJSONObject != null) {
+                    return optJSONObject.optString("video_url");
+                }
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public m79 h(RandomAccessFile randomAccessFile, int i, long j, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{randomAccessFile, Integer.valueOf(i), Long.valueOf(j), str})) == null) {
+            byte[] b = b(randomAccessFile, i);
+            if (b == null) {
+                m79 m79Var = new m79();
+                m79Var.b = -1;
+                m79Var.c = "上传文件不存在";
+                return m79Var;
+            } else if (c()) {
+                return null;
+            } else {
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
+                netWork.addPostData("chunk_no", String.valueOf(i));
+                netWork.addPostData("chunk_sum", String.valueOf(this.c));
+                netWork.addPostData("chunk_size", String.valueOf(b.length));
+                netWork.addPostData("video_size", String.valueOf(this.d));
+                netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, this.e);
+                netWork.addPostData("video_len", String.valueOf(j));
+                netWork.addPostData(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
+                netWork.addPostData("video_chunk", b);
+                netWork.addPostData("upload_id", str);
+                if (c()) {
+                    return null;
+                }
+                String postMultiNetData = netWork.postMultiNetData();
+                if (c()) {
+                    return null;
+                }
+                m79 m79Var2 = new m79();
+                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                    m79Var2.a = e(postMultiNetData);
+                } else {
+                    if (netWork.getNetContext().getResponse().isNetSuccess()) {
+                        m79Var2.b = netWork.getNetContext().getResponse().mServerErrorCode;
+                    } else {
+                        m79Var2.b = netWork.getNetContext().getResponse().mNetErrorCode;
+                    }
+                    m79Var2.c = netWork.getNetContext().getResponse().mErrorString;
+                }
+                return m79Var2;
+            }
+        }
+        return (m79) invokeCommon.objValue;
     }
 }

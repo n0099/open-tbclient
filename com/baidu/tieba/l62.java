@@ -1,29 +1,22 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.sapi2.activity.BaseActivity;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.http.cookie.ClientCookie;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class l62 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean a;
+    public static final Map<String, rv1> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public JSONArray b;
-    public String c;
-    public String d;
 
     static {
         InterceptResult invokeClinit;
@@ -38,60 +31,103 @@ public class l62 {
                 return;
             }
         }
-        e = gp1.a;
+        a = wp1.a;
+        b = new HashMap(2);
     }
 
-    public l62() {
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && c()) {
+            b();
         }
     }
 
-    public static l62 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static rv1 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            l62 l62Var = new l62();
-            try {
-                l62Var.b = jSONObject.getJSONArray("host");
-                l62Var.a = jSONObject.getString("appKey");
-                jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                l62Var.c = jSONObject.getString(ClientCookie.PORT_ATTR);
-                l62Var.d = Uri.decode(jSONObject.optString("url"));
-                return l62Var;
-            } catch (JSONException unused) {
-                if (e) {
-                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params is invalid");
-                    return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a) {
+                Log.d("ConsoleCache", "create new sConsole");
+            }
+            m62.n(true);
+            return gg2.U().f0().b(AppRuntime.getAppContext());
+        }
+        return (rv1) invokeV.objValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            m93 b0 = m93.b0();
+            if (b0 != null && !TextUtils.isEmpty(b0.b)) {
+                return k62.b(o12.a(b0.b));
+            }
+            if (a) {
+                Log.w("ConsoleCache", "swanApp is null or appId is empty");
+                return false;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:15:0x002d A[Catch: all -> 0x006f, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x000d, B:11:0x0018, B:13:0x001f, B:15:0x002d, B:17:0x003d, B:18:0x0053, B:20:0x0057), top: B:30:0x0007 }] */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0057 A[Catch: all -> 0x006f, TRY_LEAVE, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x000d, B:11:0x0018, B:13:0x001f, B:15:0x002d, B:17:0x003d, B:18:0x0053, B:20:0x0057), top: B:30:0x0007 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static synchronized rv1 b() {
+        InterceptResult invokeV;
+        String str;
+        rv1 rv1Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (l62.class) {
+                m93 b0 = m93.b0();
+                if (b0 != null && !TextUtils.isEmpty(b0.getAppId())) {
+                    str = b0.getAppId();
+                    String a2 = o12.a(str);
+                    rv1Var = b.get(a2);
+                    if (rv1Var == null) {
+                        e();
+                        rv1Var = a();
+                        b.put(a2, rv1Var);
+                        if (a) {
+                            Log.d("ConsoleCache", "can not find sconsole for appId - " + str);
+                        }
+                    }
+                    if (a) {
+                        Log.d("ConsoleCache", "get sconsole for appId - " + str);
+                    }
                 }
-                return null;
+                str = "_no_id_";
+                String a22 = o12.a(str);
+                rv1Var = b.get(a22);
+                if (rv1Var == null) {
+                }
+                if (a) {
+                }
             }
+            return rv1Var;
         }
-        return (l62) invokeL.objValue;
+        return (rv1) invokeV.objValue;
     }
 
-    public String a(int i) {
-        InterceptResult invokeI;
+    public static synchronized void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            JSONArray jSONArray = this.b;
-            if (jSONArray == null) {
-                return "";
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            synchronized (l62.class) {
+                if (b.size() > 0) {
+                    for (String str : b.keySet()) {
+                        rv1 rv1Var = b.get(str);
+                        if (rv1Var != null) {
+                            rv1Var.E();
+                        }
+                    }
+                    b.clear();
+                }
             }
-            String optString = jSONArray.optString(i);
-            if (TextUtils.isEmpty(optString)) {
-                return "";
-            }
-            return "http://" + optString + ":" + this.c;
         }
-        return (String) invokeI.objValue;
     }
 }

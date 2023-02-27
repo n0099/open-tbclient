@@ -27,9 +27,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pm;
 import com.baidu.tieba.qm;
-import com.baidu.tieba.um;
+import com.baidu.tieba.rm;
+import com.baidu.tieba.vm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -109,7 +109,7 @@ public class TbAlphaVideo extends FrameLayout implements Animatable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, packageInfo, errorInfo) == null) {
                 super.onDownloadSuccess(packageInfo, errorInfo);
-                File file = new File(um.b(this.a));
+                File file = new File(vm.b(this.a));
                 if (!StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(this.a)) && file.exists()) {
                     this.b.setSourceFile(file);
                     this.b.i();
@@ -497,16 +497,16 @@ public class TbAlphaVideo extends FrameLayout implements Animatable {
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            File file = new File(um.b(str));
+            File file = new File(vm.b(str));
             if (!StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(str)) && file.exists()) {
                 setSourceFile(file);
                 i();
                 return;
             }
             RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(qm.a);
+            requestParams.setRunType(rm.a);
             requestParams.setRunNode("aps");
-            requestParams.addChannel(new pm("com.baidu.tieba.resloader." + str, new a(this, str)));
+            requestParams.addChannel(new qm("com.baidu.tieba.resloader." + str, new a(this, str)));
             PmsManager.getInstance().execute(requestParams);
         }
     }

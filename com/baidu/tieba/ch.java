@@ -11,7 +11,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Reader;
 import java.net.HttpURLConnection;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ch {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

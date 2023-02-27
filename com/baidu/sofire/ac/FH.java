@@ -10,13 +10,12 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.sofire.a.b;
 import com.baidu.sofire.b.c;
-import com.baidu.sofire.b.d;
-import com.baidu.sofire.b.e;
-import com.baidu.sofire.b.k;
+import com.baidu.sofire.b.i;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.j.a;
-import com.baidu.sofire.k.m;
-import com.baidu.sofire.k.n;
+import com.baidu.sofire.k.k;
+import com.baidu.sofire.k.q;
+import com.baidu.sofire.k.r;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +47,7 @@ public class FH {
     public static String getVersion(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? "3.5.9.6" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? "3.6.0.4" : (String) invokeL.objValue;
     }
 
     public FH() {
@@ -68,8 +67,8 @@ public class FH {
     public static void bc(Context context, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65537, null, context, z) == null) {
-            String str = e.a;
-            if (context != null && n.a(context)) {
+            String str = c.a;
+            if (context != null && r.a(context)) {
                 a.a(context).a(z);
             }
         }
@@ -96,7 +95,7 @@ public class FH {
     public static void setAgreePolicy(Context context, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65568, null, context, z) == null) {
-            e.a(context, z);
+            c.a(context, z);
         }
     }
 
@@ -113,7 +112,8 @@ public class FH {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65550, null, context, str, i)) == null) {
-            return e.a(context, str, i, (String) null);
+            k.a();
+            return c.a(context, str, i, (String) null);
         }
         return (String) invokeLLI.objValue;
     }
@@ -121,7 +121,7 @@ public class FH {
     public static void tryLoadModule(Context context, BDModuleLoadCallback bDModuleLoadCallback, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65571, null, context, bDModuleLoadCallback, i) == null) {
-            e.a(context, i, bDModuleLoadCallback, true);
+            c.a(context, i, bDModuleLoadCallback, true);
         }
     }
 
@@ -129,7 +129,7 @@ public class FH {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), str, callback, clsArr, objArr})) == null) {
-            return e.a(i, str, callback, clsArr, objArr);
+            return c.a(i, str, callback, clsArr, objArr);
         }
         return invokeCommon.booleanValue;
     }
@@ -137,7 +137,7 @@ public class FH {
     public static void initDelay(Context context, int i, String str, String str2, int... iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65555, null, new Object[]{context, Integer.valueOf(i), str, str2, iArr}) == null) {
-            e.a(context, i, str, str2, iArr);
+            c.a(context, i, str, str2, iArr);
         }
     }
 
@@ -154,7 +154,7 @@ public class FH {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), str, clsArr, objArr})) == null) {
-            return e.a(i, str, clsArr, objArr);
+            return c.a(i, str, clsArr, objArr);
         }
         return (Pair) invokeCommon.objValue;
     }
@@ -163,7 +163,8 @@ public class FH {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65551, null, context, str, i, str2)) == null) {
-            return e.a(context, str, i, str2);
+            k.a();
+            return c.a(context, str, i, str2);
         }
         return (String) invokeLLIL.objValue;
     }
@@ -171,7 +172,7 @@ public class FH {
     public static void init(Context context, String str, String str2, int... iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65553, null, context, str, str2, iArr) == null) {
-            e.a(context, 0, str, str2, iArr);
+            c.a(context, 0, str, str2, iArr);
         }
     }
 
@@ -180,17 +181,17 @@ public class FH {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            String str2 = e.a;
+            String str2 = c.a;
             try {
-                if (TextUtils.isEmpty(c.a)) {
+                if (TextUtils.isEmpty(com.baidu.sofire.b.a.a)) {
                     str = "";
                 } else {
-                    str = Base64.encodeToString(c.a.getBytes(), 0);
+                    str = Base64.encodeToString(com.baidu.sofire.b.a.a.getBytes(), 0);
                 }
-                return new Pair<>(Integer.valueOf(c.b), str);
+                return new Pair<>(Integer.valueOf(com.baidu.sofire.b.a.b), str);
             } catch (Throwable unused) {
                 int i = b.a;
-                return new Pair<>(Integer.valueOf(c.b), "");
+                return new Pair<>(Integer.valueOf(com.baidu.sofire.b.a.b), "");
             }
         }
         return (Pair) invokeV.objValue;
@@ -198,14 +199,14 @@ public class FH {
 
     public static Object getPInfo(int i, int i2) {
         InterceptResult invokeII;
-        k kVar;
-        List<ApkInfo> a;
+        i iVar;
+        List<ApkInfo> b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65546, null, i, i2)) == null) {
             try {
-                Context context = d.e;
-                if (context != null && n.a(context) && i2 == 1 && i > 0 && (kVar = k.f) != null && (a = kVar.a()) != null && a.size() > 0) {
-                    for (ApkInfo apkInfo : a) {
+                Context context = com.baidu.sofire.b.b.e;
+                if (context != null && r.a(context) && i2 == 1 && i > 0 && (iVar = i.g) != null && (b = iVar.b()) != null && b.size() > 0) {
+                    for (ApkInfo apkInfo : b) {
                         if (apkInfo.key == i) {
                             String str = apkInfo.versionName;
                             if (str == null) {
@@ -228,37 +229,37 @@ public class FH {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{context, str, str2, Integer.valueOf(i), str3})) == null) {
-            String str4 = e.a;
+            String str4 = c.a;
             if (context != null) {
                 try {
                 } catch (Throwable unused) {
                     int i2 = b.a;
                 }
-                if (n.a(context)) {
+                if (r.a(context)) {
                     if (TextUtils.isEmpty(str)) {
-                        return com.baidu.sofire.k.a.a(context, 8);
+                        return com.baidu.sofire.k.b.a(context, 8);
                     }
                     int i3 = 2;
-                    Pair<Integer, Object> a = e.a(100067, "retrieveToken", new Class[]{String.class, String.class, Integer.TYPE, String.class}, str, str2, Integer.valueOf(i), str3);
+                    Pair<Integer, Object> a = c.a(100067, "retrieveToken", new Class[]{String.class, String.class, Integer.TYPE, String.class}, str, str2, Integer.valueOf(i), str3);
                     if (((Integer) a.first).intValue() == 0) {
                         String str5 = (String) a.second;
                         if (!TextUtils.isEmpty(str5)) {
                             return str5;
                         }
-                        return com.baidu.sofire.k.a.a(context, 9);
+                        return com.baidu.sofire.k.b.a(context, 9);
                     }
                     if (((Integer) a.first).intValue() != 4 && ((Integer) a.first).intValue() != 3) {
                         if (((Integer) a.first).intValue() == 5 || ((Integer) a.first).intValue() == 11) {
-                            return com.baidu.sofire.k.a.a(context, 7);
+                            return com.baidu.sofire.k.b.a(context, 7);
                         }
-                        return com.baidu.sofire.k.a.a(context, 8);
+                        return com.baidu.sofire.k.b.a(context, 8);
                     }
-                    String[] p = com.baidu.sofire.k.a.p(context);
-                    e.a(context, 0, p[0], p[1], 100067);
+                    String[] o = com.baidu.sofire.k.b.o(context);
+                    c.a(context, 0, o[0], o[1], 100067);
                     if (((Integer) a.first).intValue() == 3) {
                         i3 = 5;
                     }
-                    return com.baidu.sofire.k.a.a(context, i3);
+                    return com.baidu.sofire.k.b.a(context, i3);
                 }
             }
             return "";
@@ -270,7 +271,7 @@ public class FH {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
-            return e.b(context);
+            return c.b(context);
         }
         return (String) invokeL.objValue;
     }
@@ -279,9 +280,9 @@ public class FH {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i)) == null) {
-            Context context = d.e;
-            if (context != null && n.a(context)) {
-                return com.baidu.sofire.k.a.b(i);
+            Context context = com.baidu.sofire.b.b.e;
+            if (context != null && r.a(context)) {
+                return com.baidu.sofire.k.b.b(i);
             }
             return false;
         }
@@ -291,21 +292,21 @@ public class FH {
     public static void setDeviceInfoCallback(DeviceInfoCallback deviceInfoCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65569, null, deviceInfoCallback) == null) {
-            m.a = deviceInfoCallback;
+            q.a = deviceInfoCallback;
         }
     }
 
     public static void init(Context context, String str, String str2, BDModuleLoadCallback bDModuleLoadCallback, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{context, str, str2, bDModuleLoadCallback, Integer.valueOf(i)}) == null) {
-            e.a(context, 0, str, str2, bDModuleLoadCallback, i);
+            c.a(context, 0, str, str2, bDModuleLoadCallback, i);
         }
     }
 
     public static void initDelay(Context context, int i, String str, String str2, BDModuleLoadCallback bDModuleLoadCallback, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{context, Integer.valueOf(i), str, str2, bDModuleLoadCallback, Integer.valueOf(i2)}) == null) {
-            e.a(context, i, str, str2, bDModuleLoadCallback, i2);
+            c.a(context, i, str, str2, bDModuleLoadCallback, i2);
         }
     }
 
@@ -319,7 +320,7 @@ public class FH {
                 if (context == null) {
                     return new Pair<>(-1, "");
                 }
-                if (!n.a(context)) {
+                if (!r.a(context)) {
                     return new Pair<>(12, "");
                 }
                 JSONObject jSONObject = new JSONObject(str);
@@ -327,8 +328,8 @@ public class FH {
                 if (!TextUtils.isEmpty(optString) && !"init".equals(optString) && !"initDelay".equals(optString) && !NotificationCompat.CATEGORY_CALL.equals(optString)) {
                     JSONArray optJSONArray = jSONObject.optJSONArray("p");
                     if (optString.equals("callSync")) {
-                        if (d.e == null) {
-                            d.e = context.getApplicationContext();
+                        if (com.baidu.sofire.b.b.e == null) {
+                            com.baidu.sofire.b.b.e = context.getApplicationContext();
                         }
                         if (optJSONArray != null && optJSONArray.length() == 2) {
                             method = FH.class.getMethod("callSync", Integer.TYPE, String.class);
@@ -552,7 +553,7 @@ public class FH {
                                 if (context != null) {
                                     objArr[i3] = context;
                                 } else {
-                                    Context context2 = d.e;
+                                    Context context2 = com.baidu.sofire.b.b.e;
                                     if (context2 != null) {
                                         objArr[i3] = context2;
                                     } else {
@@ -672,10 +673,10 @@ public class FH {
     public static void setDid(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65570, null, context, str) == null) {
-            String str2 = e.a;
+            String str2 = c.a;
             if (context != null) {
                 try {
-                    if (n.a(context)) {
+                    if (r.a(context)) {
                         a a = a.a(context);
                         a.d.putString("s_h_d_id", str);
                         if (Build.VERSION.SDK_INT >= 9) {
@@ -696,7 +697,7 @@ public class FH {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65572, null, context, str)) == null) {
-            String str2 = e.a;
+            String str2 = c.a;
             if (context == null) {
                 return "";
             }
@@ -705,10 +706,10 @@ public class FH {
                 int i2 = b.a;
                 i = 501;
             }
-            if (!n.a(context)) {
+            if (!r.a(context)) {
                 return "";
             }
-            Pair<Integer, Object> b = e.b(1, "xgz", new Class[]{String.class}, str);
+            Pair<Integer, Object> b = c.b(1, "xgz", new Class[]{String.class}, str);
             if (((Integer) b.first).intValue() == 0 && !TextUtils.isEmpty((String) b.second)) {
                 return (String) b.second;
             }
@@ -718,7 +719,7 @@ public class FH {
                 i = ((Integer) b.first).intValue();
             }
             try {
-                return new JSONObject().put("rc", i).put("z", e.b(context)).toString();
+                return new JSONObject().put("rc", i).put("z", c.b(context)).toString();
             } catch (Throwable unused2) {
                 int i3 = b.a;
                 return "";

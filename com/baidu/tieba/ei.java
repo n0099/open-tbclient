@@ -804,7 +804,7 @@ public class ei {
                     for (int i = 0; i < size; i++) {
                         sb.append("&rec");
                         sb.append(i);
-                        sb.append(com.alipay.sdk.encrypt.a.h);
+                        sb.append('=');
                         try {
                             sb.append(URLEncoder.encode(arrayList.get(i), IMAudioTransRequest.CHARSET));
                         } catch (UnsupportedEncodingException e2) {

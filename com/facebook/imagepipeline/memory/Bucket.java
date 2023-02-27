@@ -1,12 +1,5 @@
 package com.facebook.imagepipeline.memory;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.logging.FLog;
@@ -18,9 +11,7 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes7.dex */
 public class Bucket<V> {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BUCKET";
-    public transient /* synthetic */ FieldHolder $fh;
     public final boolean mFixBucketsReinitialization;
     public final Queue mFreeList;
     public int mInUseLength;
@@ -30,20 +21,6 @@ public class Bucket<V> {
     public Bucket(int i, int i2, int i3, boolean z) {
         boolean z2;
         boolean z3;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         if (i > 0) {
             z2 = true;
         } else {
@@ -65,109 +42,72 @@ public class Bucket<V> {
     }
 
     public void addToFreeList(V v) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, v) == null) {
-            this.mFreeList.add(v);
+        this.mFreeList.add(v);
+    }
+
+    public void release(V v) {
+        Preconditions.checkNotNull(v);
+        boolean z = false;
+        if (this.mFixBucketsReinitialization) {
+            if (this.mInUseLength > 0) {
+                z = true;
+            }
+            Preconditions.checkState(z);
+            this.mInUseLength--;
+            addToFreeList(v);
+            return;
         }
+        int i = this.mInUseLength;
+        if (i > 0) {
+            this.mInUseLength = i - 1;
+            addToFreeList(v);
+            return;
+        }
+        FLog.e(TAG, "Tried to release value %s from an empty bucket!", v);
     }
 
     public void decrementInUseCount() {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.mInUseLength > 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            Preconditions.checkState(z);
-            this.mInUseLength--;
+        if (this.mInUseLength > 0) {
+            z = true;
+        } else {
+            z = false;
         }
+        Preconditions.checkState(z);
+        this.mInUseLength--;
     }
 
     @Nullable
     @Deprecated
     public V get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            V pop = pop();
-            if (pop != null) {
-                this.mInUseLength++;
-            }
-            return pop;
+        V pop = pop();
+        if (pop != null) {
+            this.mInUseLength++;
         }
-        return (V) invokeV.objValue;
+        return pop;
     }
 
     public int getFreeListSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mFreeList.size();
-        }
-        return invokeV.intValue;
+        return this.mFreeList.size();
     }
 
     public int getInUseCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mInUseLength;
-        }
-        return invokeV.intValue;
+        return this.mInUseLength;
     }
 
     public void incrementInUseCount() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.mInUseLength++;
-        }
+        this.mInUseLength++;
     }
 
     public boolean isMaxLengthExceeded() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.mInUseLength + getFreeListSize() > this.mMaxLength) {
-                return true;
-            }
-            return false;
+        if (this.mInUseLength + getFreeListSize() > this.mMaxLength) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     @Nullable
     public V pop() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return (V) this.mFreeList.poll();
-        }
-        return (V) invokeV.objValue;
-    }
-
-    public void release(V v) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v) == null) {
-            Preconditions.checkNotNull(v);
-            boolean z = false;
-            if (this.mFixBucketsReinitialization) {
-                if (this.mInUseLength > 0) {
-                    z = true;
-                }
-                Preconditions.checkState(z);
-                this.mInUseLength--;
-                addToFreeList(v);
-                return;
-            }
-            int i = this.mInUseLength;
-            if (i > 0) {
-                this.mInUseLength = i - 1;
-                addToFreeList(v);
-                return;
-            }
-            FLog.e(TAG, "Tried to release value %s from an empty bucket!", v);
-        }
+        return (V) this.mFreeList.poll();
     }
 }

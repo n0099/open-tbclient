@@ -2,8 +2,6 @@ package com.baidu.pass.ecommerce.presenter;
 
 import android.content.Context;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.location.BDLocation;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
@@ -23,18 +21,12 @@ import com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack;
 import com.baidu.pass.ecommerce.common.request.NetCallback;
 import com.baidu.pass.ecommerce.request.AddressRequestFactory;
 import com.baidu.sapi2.utils.Log;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements GetLocationCallback {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int GET_LOCATION_CODE = 1001;
     public static final String KEY_BDSTOKEN = "bdstoken";
     public static final int LOC_QUERY_ADDR_LIST_CODE = 1004;
@@ -43,332 +35,144 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
     public static final int SUGGEST_LIST_PAGE_SIZE = 20;
     public static final String TAG = "MapLocationPoiPresenter";
     public static final int USER_SEARCH_TYPE = 1;
-    public transient /* synthetic */ FieldHolder $fh;
-    public List<JSONObject> addrListByUserInput;
-    public List<JSONObject> addrListByUserMapChoice;
     public String bdSTokenFromAddrEdit;
     public String currentUniqueTag;
-    public boolean hasNextPageByUserInput;
-    public boolean hasNextPageByUserMapChoiceLoc;
     public double locLat4Api;
     public double locLng4Api;
     public String mapGeoAddrText;
-    public MapObject paramsMap;
-    public int queryAddrListType;
-    public int queryListPageNum;
     public String selectedAddrId;
     public String userSearchText;
+    public MapObject paramsMap = new MapObject();
+    public int queryAddrListType = 0;
+    public int queryListPageNum = 0;
+    public boolean hasNextPageByUserInput = true;
+    public boolean hasNextPageByUserMapChoiceLoc = true;
+    public List<JSONObject> addrListByUserInput = new ArrayList();
+    public List<JSONObject> addrListByUserMapChoice = new ArrayList();
 
     public MapLocationPoiPresenter(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.paramsMap = new MapObject();
-        this.queryAddrListType = 0;
-        this.queryListPageNum = 0;
-        this.hasNextPageByUserInput = true;
-        this.hasNextPageByUserMapChoiceLoc = true;
-        this.addrListByUserInput = new ArrayList();
-        this.addrListByUserMapChoice = new ArrayList();
     }
 
-    public void processGetReverseGeoCodeResult(ReverseGeoCodeResult reverseGeoCodeResult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, reverseGeoCodeResult) == null) {
-            Log.d(TAG, "onGetReverseGeoCodeResult");
-            if (reverseGeoCodeResult == null) {
-                return;
-            }
-            this.paramsMap = createParamsByRegionInfo(reverseGeoCodeResult);
-            String str = null;
-            List<PoiInfo> poiList = reverseGeoCodeResult.getPoiList();
-            if (poiList != null && poiList.size() > 0) {
-                str = poiList.get(0).getName();
-            }
-            if (TextUtils.isEmpty(str)) {
-                str = reverseGeoCodeResult.getAddress();
-            }
-            this.mapGeoAddrText = str;
-            queryAddrListByLocAddr();
-        }
-    }
-
-    public void reverseGeoCode(LatLng latLng) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, latLng) == null) {
-            Log.d(TAG, "reverseGeoCode lat=" + latLng.latitude + ", lng=" + latLng.longitude);
-            GeoCoder newInstance = GeoCoder.newInstance();
-            newInstance.setOnGetGeoCodeResultListener(new OnGetGeoCoderResultListener(this) { // from class: com.baidu.pass.ecommerce.presenter.MapLocationPoiPresenter.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MapLocationPoiPresenter this$0;
-
-                @Override // com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener
-                public void onGetGeoCodeResult(GeoCodeResult geoCodeResult) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, geoCodeResult) == null) {
-                    }
-                }
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener
-                public void onGetReverseGeoCodeResult(ReverseGeoCodeResult reverseGeoCodeResult) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, reverseGeoCodeResult) == null) && reverseGeoCodeResult != null && reverseGeoCodeResult.error == SearchResult.ERRORNO.NO_ERROR) {
-                        this.this$0.processGetReverseGeoCodeResult(reverseGeoCodeResult);
-                    }
+    public void mapLocItem2RegoinDetail(final JSONObject jSONObject) {
+        if (TextUtils.isEmpty(this.bdSTokenFromAddrEdit)) {
+            getBdStokenFromServer(1005, new SyncActionCallBack() { // from class: com.baidu.pass.ecommerce.presenter.MapLocationPoiPresenter.5
+                @Override // com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack
+                public void doNext(int i) {
+                    MapLocationPoiPresenter.this.executeMapLocation2Region(jSONObject);
                 }
             });
-            newInstance.reverseGeoCode(new ReverseGeoCodeOption().location(latLng).newVersion(1));
-        }
-    }
-
-    public void mapLocItem2RegoinDetail(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
-            if (TextUtils.isEmpty(this.bdSTokenFromAddrEdit)) {
-                getBdStokenFromServer(1005, new SyncActionCallBack(this, jSONObject) { // from class: com.baidu.pass.ecommerce.presenter.MapLocationPoiPresenter.5
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MapLocationPoiPresenter this$0;
-                    public final /* synthetic */ JSONObject val$jsonObj;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, jSONObject};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$jsonObj = jSONObject;
-                    }
-
-                    @Override // com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack
-                    public void doNext(int i) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null && interceptable2.invokeI(1048576, this, i) != null) {
-                            return;
-                        }
-                        this.this$0.executeMapLocation2Region(this.val$jsonObj);
-                    }
-                });
-            } else {
-                executeMapLocation2Region(jSONObject);
-            }
+        } else {
+            executeMapLocation2Region(jSONObject);
         }
     }
 
     public void queryAddrListByUserInputLoc(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            setSelectedAddrId("");
-            this.userSearchText = str;
-            queryNextPageAddrList(true);
+        setSelectedAddrId("");
+        this.userSearchText = str;
+        queryNextPageAddrList(true);
+    }
+
+    public void queryNextPageAddrList(boolean z) {
+        int i;
+        if (1 == this.queryAddrListType) {
+            this.paramsMap.putValue("query", this.userSearchText);
+        } else {
+            this.paramsMap.putValue("query", this.mapGeoAddrText);
         }
+        if (z) {
+            i = 0;
+        } else {
+            i = this.queryListPageNum + 1;
+        }
+        this.queryListPageNum = i;
+        this.paramsMap.putValue(SuggestAddrField.KEY_PAGE_NUM, Integer.valueOf(i));
+        locationQueryAddrList(this.paramsMap);
     }
 
     public void setBdSTokenFromAddrEdit(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.bdSTokenFromAddrEdit = str;
-        }
+        this.bdSTokenFromAddrEdit = str;
     }
 
     public void setQueryAddrListType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.queryAddrListType = i;
-        }
+        this.queryAddrListType = i;
     }
 
     public void setSelectedAddrId(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.selectedAddrId = str;
-        }
+        this.selectedAddrId = str;
     }
 
-    public void getBdStokenFromServer(int i, SyncActionCallBack syncActionCallBack) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, syncActionCallBack) == null) {
-            AddressRequestFactory.newGetAddressListRequest().submit(new NetCallback(this, syncActionCallBack, i) { // from class: com.baidu.pass.ecommerce.presenter.MapLocationPoiPresenter.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MapLocationPoiPresenter this$0;
-                public final /* synthetic */ int val$fromActionCode;
-                public final /* synthetic */ SyncActionCallBack val$syncActionCallBack;
+    public void getBdStokenFromServer(final int i, final SyncActionCallBack syncActionCallBack) {
+        AddressRequestFactory.newGetAddressListRequest().submit(new NetCallback() { // from class: com.baidu.pass.ecommerce.presenter.MapLocationPoiPresenter.1
+            @Override // com.baidu.pass.ecommerce.common.request.NetCallback
+            public void onFailure(int i2, String str) {
+                MapLocationPoiPresenter.this.doFailure(i, i2, str);
+            }
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, syncActionCallBack, Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$syncActionCallBack = syncActionCallBack;
-                    this.val$fromActionCode = i;
+            @Override // com.baidu.pass.ecommerce.common.request.NetCallback
+            public void onSuccess(JSONObject jSONObject) {
+                MapLocationPoiPresenter.this.bdSTokenFromAddrEdit = jSONObject.optString("bdstoken");
+                Log.d(MapLocationPoiPresenter.TAG, "bdSToken from address list request is " + MapLocationPoiPresenter.this.bdSTokenFromAddrEdit);
+                SyncActionCallBack syncActionCallBack2 = syncActionCallBack;
+                if (syncActionCallBack2 != null) {
+                    syncActionCallBack2.doNext(i);
                 }
-
-                @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-                public void onFailure(int i2, String str) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null && interceptable2.invokeIL(1048576, this, i2, str) != null) {
-                        return;
-                    }
-                    this.this$0.doFailure(this.val$fromActionCode, i2, str);
-                }
-
-                @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-                public void onSuccess(JSONObject jSONObject) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-                        this.this$0.bdSTokenFromAddrEdit = jSONObject.optString("bdstoken");
-                        Log.d(MapLocationPoiPresenter.TAG, "bdSToken from address list request is " + this.this$0.bdSTokenFromAddrEdit);
-                        SyncActionCallBack syncActionCallBack2 = this.val$syncActionCallBack;
-                        if (syncActionCallBack2 != null) {
-                            syncActionCallBack2.doNext(this.val$fromActionCode);
-                        }
-                    }
-                }
-            });
-        }
+            }
+        });
     }
 
     private MapObject createParamsByRegionInfo(ReverseGeoCodeResult reverseGeoCodeResult) {
-        InterceptResult invokeL;
         String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, this, reverseGeoCodeResult)) == null) {
-            MapObject mapObject = new MapObject();
-            ReverseGeoCodeResult.AddressComponent addressDetail = reverseGeoCodeResult.getAddressDetail();
-            if (addressDetail != null) {
-                Log.d(TAG, "province=" + addressDetail.province + " city=" + addressDetail.city);
-                str = addressDetail.city;
-                if (TextUtils.isEmpty(str)) {
-                    str = addressDetail.province;
-                }
-            } else {
-                str = "";
+        MapObject mapObject = new MapObject();
+        ReverseGeoCodeResult.AddressComponent addressDetail = reverseGeoCodeResult.getAddressDetail();
+        if (addressDetail != null) {
+            Log.d(TAG, "province=" + addressDetail.province + " city=" + addressDetail.city);
+            str = addressDetail.city;
+            if (TextUtils.isEmpty(str)) {
+                str = addressDetail.province;
             }
-            mapObject.putValue("city_name", str);
-            mapObject.putValue(SuggestAddrField.KEY_LAT, Double.valueOf(this.locLat4Api));
-            mapObject.putValue(SuggestAddrField.KEY_LNG, Double.valueOf(this.locLng4Api));
-            mapObject.putValue(SuggestAddrField.KEY_PAGE_SIZE, 20);
-            return mapObject;
+        } else {
+            str = "";
         }
-        return (MapObject) invokeL.objValue;
+        mapObject.putValue("city_name", str);
+        mapObject.putValue(SuggestAddrField.KEY_LAT, Double.valueOf(this.locLat4Api));
+        mapObject.putValue(SuggestAddrField.KEY_LNG, Double.valueOf(this.locLng4Api));
+        mapObject.putValue(SuggestAddrField.KEY_PAGE_SIZE, 20);
+        return mapObject;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void executeMapLocation2Region(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65555, this, jSONObject) == null) {
-            MapObject mapObject = new MapObject();
-            mapObject.putValue("bdstoken", this.bdSTokenFromAddrEdit);
-            mapObject.putValue(SuggestAddrField.KEY_MAP_NAME, jSONObject.optString(SuggestAddrField.KEY_MAP_NAME));
-            mapObject.putValue(SuggestAddrField.KEY_MAP_ADDRESS, jSONObject.optString(SuggestAddrField.KEY_MAP_ADDRESS));
-            mapObject.putValue(SuggestAddrField.KEY_MAP_ADDRID, jSONObject.optString(SuggestAddrField.KEY_MAP_ADDRID));
-            mapObject.putValue(SuggestAddrField.KEY_MAP_PROVINCE, jSONObject.optString(SuggestAddrField.KEY_MAP_PROVINCE));
-            mapObject.putValue(SuggestAddrField.KEY_MAP_CITY, jSONObject.optString(SuggestAddrField.KEY_MAP_CITY));
-            mapObject.putValue(SuggestAddrField.KEY_MAP_DISTRICT, jSONObject.optString(SuggestAddrField.KEY_MAP_DISTRICT));
-            mapObject.putValue(SuggestAddrField.KEY_MAP_LAT, Double.valueOf(jSONObject.optDouble(SuggestAddrField.KEY_MAP_LAT)));
-            mapObject.putValue(SuggestAddrField.KEY_MAP_LNG, Double.valueOf(jSONObject.optDouble(SuggestAddrField.KEY_MAP_LNG)));
-            AddressRequestFactory.newMapLoc2Region(mapObject).submit(new NetCallback(this) { // from class: com.baidu.pass.ecommerce.presenter.MapLocationPoiPresenter.6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MapLocationPoiPresenter this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
+        MapObject mapObject = new MapObject();
+        mapObject.putValue("bdstoken", this.bdSTokenFromAddrEdit);
+        mapObject.putValue(SuggestAddrField.KEY_MAP_NAME, jSONObject.optString(SuggestAddrField.KEY_MAP_NAME));
+        mapObject.putValue(SuggestAddrField.KEY_MAP_ADDRESS, jSONObject.optString(SuggestAddrField.KEY_MAP_ADDRESS));
+        mapObject.putValue(SuggestAddrField.KEY_MAP_ADDRID, jSONObject.optString(SuggestAddrField.KEY_MAP_ADDRID));
+        mapObject.putValue(SuggestAddrField.KEY_MAP_PROVINCE, jSONObject.optString(SuggestAddrField.KEY_MAP_PROVINCE));
+        mapObject.putValue(SuggestAddrField.KEY_MAP_CITY, jSONObject.optString(SuggestAddrField.KEY_MAP_CITY));
+        mapObject.putValue(SuggestAddrField.KEY_MAP_DISTRICT, jSONObject.optString(SuggestAddrField.KEY_MAP_DISTRICT));
+        mapObject.putValue(SuggestAddrField.KEY_MAP_LAT, Double.valueOf(jSONObject.optDouble(SuggestAddrField.KEY_MAP_LAT)));
+        mapObject.putValue(SuggestAddrField.KEY_MAP_LNG, Double.valueOf(jSONObject.optDouble(SuggestAddrField.KEY_MAP_LNG)));
+        AddressRequestFactory.newMapLoc2Region(mapObject).submit(new NetCallback() { // from class: com.baidu.pass.ecommerce.presenter.MapLocationPoiPresenter.6
+            @Override // com.baidu.pass.ecommerce.common.request.NetCallback
+            public void onSuccess(JSONObject jSONObject2) {
+                JSONObject optJSONObject = jSONObject2.optJSONObject("addr_info");
+                if (optJSONObject == null) {
+                    return;
                 }
+                MapLocationPoiPresenter.this.doResult(1005, optJSONObject);
+            }
 
-                @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-                public void onSuccess(JSONObject jSONObject2) {
-                    JSONObject optJSONObject;
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject2) != null) || (optJSONObject = jSONObject2.optJSONObject("addr_info")) == null) {
-                        return;
-                    }
-                    this.this$0.doResult(1005, optJSONObject);
-                }
-
-                @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-                public void onFailure(int i, String str) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null && interceptable2.invokeIL(1048576, this, i, str) != null) {
-                        return;
-                    }
-                    this.this$0.doFailure(1005, i, str);
-                }
-            });
-        }
+            @Override // com.baidu.pass.ecommerce.common.request.NetCallback
+            public void onFailure(int i, String str) {
+                MapLocationPoiPresenter.this.doFailure(1005, i, str);
+            }
+        });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateAddrListByUserInput(JSONObject jSONObject) {
         boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65558, this, jSONObject) != null) || TextUtils.isEmpty(this.userSearchText)) {
+        if (TextUtils.isEmpty(this.userSearchText)) {
             return;
         }
         if (isFirstPage()) {
@@ -397,299 +201,196 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
         doResult(1004, this.addrListByUserInput);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void updateAddrListByUserMapChoice(JSONObject jSONObject) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65559, this, jSONObject) == null) {
-            if (isFirstPage()) {
-                this.addrListByUserMapChoice.clear();
-            }
-            JSONArray optJSONArray = jSONObject.optJSONArray(SuggestAddrField.KEY_QUERY_LIST);
-            if (optJSONArray != null && optJSONArray.length() != 0) {
-                int length = optJSONArray.length();
-                if (length >= 20) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                this.hasNextPageByUserMapChoiceLoc = z;
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        this.addrListByUserMapChoice.add(optJSONObject);
-                    } else {
-                        Log.d(TAG, "item of address list is error, index=" + i);
-                    }
-                }
-            } else {
-                this.hasNextPageByUserMapChoiceLoc = false;
-            }
-            doResult(1004, this.addrListByUserMapChoice);
-        }
-    }
-
     public void updateLatLngAndReverseGeoCode(LatLng latLng) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, latLng) == null) {
-            Log.d(TAG, "updateLatLngAndReverseGeoCode lat=" + latLng.latitude + ", lng=" + latLng.longitude);
-            BDLocation convertBdLocation = OnceLocationManager.getInstance().convertBdLocation(latLng.latitude, latLng.longitude, "bd09ll");
-            this.locLat4Api = convertBdLocation.getLatitude();
-            this.locLng4Api = convertBdLocation.getLongitude();
-            Log.d(TAG, "updateLatLngAndReverseGeoCode locLat4Api=" + this.locLat4Api + ", locLng4Api=" + this.locLng4Api);
-            reverseGeoCode(latLng);
-        }
+        Log.d(TAG, "updateLatLngAndReverseGeoCode lat=" + latLng.latitude + ", lng=" + latLng.longitude);
+        BDLocation convertBdLocation = OnceLocationManager.getInstance().convertBdLocation(latLng.latitude, latLng.longitude, "bd09ll");
+        this.locLat4Api = convertBdLocation.getLatitude();
+        this.locLng4Api = convertBdLocation.getLongitude();
+        Log.d(TAG, "updateLatLngAndReverseGeoCode locLat4Api=" + this.locLat4Api + ", locLng4Api=" + this.locLng4Api);
+        reverseGeoCode(latLng);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void executeLocationQueryAddrList(MapObject mapObject, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65554, this, mapObject, str) == null) {
-            mapObject.putValue("bdstoken", this.bdSTokenFromAddrEdit);
-            Log.d(TAG, "executeLocationQueryAddrList params: " + mapObject.toString());
-            AddressRequestFactory.newLocationQueryAddrList(mapObject).submit(new NetCallback(this, str) { // from class: com.baidu.pass.ecommerce.presenter.MapLocationPoiPresenter.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MapLocationPoiPresenter this$0;
-                public final /* synthetic */ String val$uniqueTag;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$uniqueTag = str;
+    public void executeLocationQueryAddrList(MapObject mapObject, final String str) {
+        mapObject.putValue("bdstoken", this.bdSTokenFromAddrEdit);
+        Log.d(TAG, "executeLocationQueryAddrList params: " + mapObject.toString());
+        AddressRequestFactory.newLocationQueryAddrList(mapObject).submit(new NetCallback() { // from class: com.baidu.pass.ecommerce.presenter.MapLocationPoiPresenter.4
+            @Override // com.baidu.pass.ecommerce.common.request.NetCallback
+            public void onFailure(int i, String str2) {
+                if (!TextUtils.equals(str, MapLocationPoiPresenter.this.currentUniqueTag)) {
+                    return;
                 }
-
-                @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-                public void onFailure(int i, String str2) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeIL(1048576, this, i, str2) != null) || !TextUtils.equals(this.val$uniqueTag, this.this$0.currentUniqueTag)) {
-                        return;
-                    }
-                    if (1 == this.this$0.queryAddrListType) {
-                        this.this$0.hasNextPageByUserInput = false;
-                    } else {
-                        this.this$0.hasNextPageByUserMapChoiceLoc = false;
-                    }
-                    this.this$0.doFailure(1004, str2);
+                if (1 == MapLocationPoiPresenter.this.queryAddrListType) {
+                    MapLocationPoiPresenter.this.hasNextPageByUserInput = false;
+                } else {
+                    MapLocationPoiPresenter.this.hasNextPageByUserMapChoiceLoc = false;
                 }
+                MapLocationPoiPresenter.this.doFailure(1004, str2);
+            }
 
-                @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-                public void onShowLoading() {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.this$0.isFirstPage()) {
-                        return;
-                    }
-                    this.this$0.showLoading(1004);
+            @Override // com.baidu.pass.ecommerce.common.request.NetCallback
+            public void onShowLoading() {
+                if (MapLocationPoiPresenter.this.isFirstPage()) {
+                    MapLocationPoiPresenter.this.showLoading(1004);
                 }
+            }
 
-                @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-                public void onSuccess(JSONObject jSONObject) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || !TextUtils.equals(this.val$uniqueTag, this.this$0.currentUniqueTag)) {
-                        return;
-                    }
-                    if (1 == this.this$0.queryAddrListType) {
-                        this.this$0.updateAddrListByUserInput(jSONObject);
-                    } else {
-                        this.this$0.updateAddrListByUserMapChoice(jSONObject);
-                    }
+            @Override // com.baidu.pass.ecommerce.common.request.NetCallback
+            public void onSuccess(JSONObject jSONObject) {
+                if (!TextUtils.equals(str, MapLocationPoiPresenter.this.currentUniqueTag)) {
+                    return;
                 }
-            });
+                if (1 == MapLocationPoiPresenter.this.queryAddrListType) {
+                    MapLocationPoiPresenter.this.updateAddrListByUserInput(jSONObject);
+                } else {
+                    MapLocationPoiPresenter.this.updateAddrListByUserMapChoice(jSONObject);
+                }
+            }
+        });
+    }
+
+    @Override // com.baidu.pass.ecommerce.callback.GetLocationCallback
+    public void onGetLocation(double d, double d2) {
+        Log.d(TAG, "onGetLocation lat=" + d + ", lng=" + d2);
+        if (d > 0.0d && d2 > 0.0d) {
+            doResult(1001, new MyLocationData.Builder().latitude(d).longitude(d2).build());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean isFirstPage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) {
-            if (this.queryListPageNum == 0) {
-                return true;
-            }
-            return false;
+        if (this.queryListPageNum == 0) {
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public void cleanUserSearchAndEmptyQueryContent() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.addrListByUserInput.clear();
-            this.userSearchText = "";
-        }
+        this.addrListByUserInput.clear();
+        this.userSearchText = "";
     }
 
     public List<JSONObject> getAddrList4AdapterShow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (1 == this.queryAddrListType) {
-                return this.addrListByUserInput;
-            }
-            return this.addrListByUserMapChoice;
+        if (1 == this.queryAddrListType) {
+            return this.addrListByUserInput;
         }
-        return (List) invokeV.objValue;
+        return this.addrListByUserMapChoice;
     }
 
     public List<JSONObject> getAddrListByUserInput() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.addrListByUserInput;
-        }
-        return (List) invokeV.objValue;
+        return this.addrListByUserInput;
     }
 
     public List<JSONObject> getAddrListByUserMapChoice() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.addrListByUserMapChoice;
-        }
-        return (List) invokeV.objValue;
+        return this.addrListByUserMapChoice;
     }
 
     public String getSelectedAddrId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.selectedAddrId;
-        }
-        return (String) invokeV.objValue;
+        return this.selectedAddrId;
     }
 
     public boolean isHasNextPage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (1 == this.queryAddrListType) {
-                return this.hasNextPageByUserInput;
-            }
-            return this.hasNextPageByUserMapChoiceLoc;
+        if (1 == this.queryAddrListType) {
+            return this.hasNextPageByUserInput;
         }
-        return invokeV.booleanValue;
+        return this.hasNextPageByUserMapChoiceLoc;
     }
 
     public boolean isHasNextPageByUserInput() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.hasNextPageByUserInput;
-        }
-        return invokeV.booleanValue;
+        return this.hasNextPageByUserInput;
     }
 
     public boolean isHasNextPageByUserMapChoiceLoc() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.hasNextPageByUserMapChoiceLoc;
-        }
-        return invokeV.booleanValue;
+        return this.hasNextPageByUserMapChoiceLoc;
     }
 
     public void queryAddrListByLocAddr() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            setSelectedAddrId("");
-            queryNextPageAddrList(true);
-        }
+        setSelectedAddrId("");
+        queryNextPageAddrList(true);
     }
 
     public void requestLocation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            Log.d(TAG, "requestLocation -------");
-            OnceLocationManager.getInstance().requestLocation(this);
+        Log.d(TAG, "requestLocation -------");
+        OnceLocationManager.getInstance().requestLocation(this);
+    }
+
+    private void locationQueryAddrList(final MapObject mapObject) {
+        this.currentUniqueTag = mapObject.getStrValue("city_name") + mapObject.getStrValue("query");
+        if (TextUtils.isEmpty(this.bdSTokenFromAddrEdit)) {
+            getBdStokenFromServer(1004, new SyncActionCallBack() { // from class: com.baidu.pass.ecommerce.presenter.MapLocationPoiPresenter.3
+                @Override // com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack
+                public void doNext(int i) {
+                    MapLocationPoiPresenter mapLocationPoiPresenter = MapLocationPoiPresenter.this;
+                    mapLocationPoiPresenter.executeLocationQueryAddrList(mapObject, mapLocationPoiPresenter.currentUniqueTag);
+                }
+            });
+        } else {
+            executeLocationQueryAddrList(mapObject, this.currentUniqueTag);
         }
     }
 
-    private void locationQueryAddrList(MapObject mapObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65557, this, mapObject) == null) {
-            this.currentUniqueTag = mapObject.getStrValue("city_name") + mapObject.getStrValue("query");
-            if (TextUtils.isEmpty(this.bdSTokenFromAddrEdit)) {
-                getBdStokenFromServer(1004, new SyncActionCallBack(this, mapObject) { // from class: com.baidu.pass.ecommerce.presenter.MapLocationPoiPresenter.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MapLocationPoiPresenter this$0;
-                    public final /* synthetic */ MapObject val$paramsMap;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, mapObject};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$paramsMap = mapObject;
-                    }
-
-                    @Override // com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack
-                    public void doNext(int i) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
-                            MapLocationPoiPresenter mapLocationPoiPresenter = this.this$0;
-                            mapLocationPoiPresenter.executeLocationQueryAddrList(this.val$paramsMap, mapLocationPoiPresenter.currentUniqueTag);
-                        }
-                    }
-                });
-            } else {
-                executeLocationQueryAddrList(mapObject, this.currentUniqueTag);
-            }
+    public void processGetReverseGeoCodeResult(ReverseGeoCodeResult reverseGeoCodeResult) {
+        Log.d(TAG, "onGetReverseGeoCodeResult");
+        if (reverseGeoCodeResult == null) {
+            return;
         }
+        this.paramsMap = createParamsByRegionInfo(reverseGeoCodeResult);
+        String str = null;
+        List<PoiInfo> poiList = reverseGeoCodeResult.getPoiList();
+        if (poiList != null && poiList.size() > 0) {
+            str = poiList.get(0).getName();
+        }
+        if (TextUtils.isEmpty(str)) {
+            str = reverseGeoCodeResult.getAddress();
+        }
+        this.mapGeoAddrText = str;
+        queryAddrListByLocAddr();
     }
 
-    public void queryNextPageAddrList(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            if (1 == this.queryAddrListType) {
-                this.paramsMap.putValue("query", this.userSearchText);
-            } else {
-                this.paramsMap.putValue("query", this.mapGeoAddrText);
+    public void reverseGeoCode(LatLng latLng) {
+        Log.d(TAG, "reverseGeoCode lat=" + latLng.latitude + ", lng=" + latLng.longitude);
+        GeoCoder newInstance = GeoCoder.newInstance();
+        newInstance.setOnGetGeoCodeResultListener(new OnGetGeoCoderResultListener() { // from class: com.baidu.pass.ecommerce.presenter.MapLocationPoiPresenter.2
+            @Override // com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener
+            public void onGetGeoCodeResult(GeoCodeResult geoCodeResult) {
             }
-            if (z) {
-                i = 0;
-            } else {
-                i = this.queryListPageNum + 1;
+
+            @Override // com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener
+            public void onGetReverseGeoCodeResult(ReverseGeoCodeResult reverseGeoCodeResult) {
+                if (reverseGeoCodeResult != null && reverseGeoCodeResult.error == SearchResult.ERRORNO.NO_ERROR) {
+                    MapLocationPoiPresenter.this.processGetReverseGeoCodeResult(reverseGeoCodeResult);
+                }
             }
-            this.queryListPageNum = i;
-            this.paramsMap.putValue(SuggestAddrField.KEY_PAGE_NUM, Integer.valueOf(i));
-            locationQueryAddrList(this.paramsMap);
-        }
+        });
+        newInstance.reverseGeoCode(new ReverseGeoCodeOption().location(latLng).newVersion(1));
     }
 
-    @Override // com.baidu.pass.ecommerce.callback.GetLocationCallback
-    public void onGetLocation(double d, double d2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Double.valueOf(d), Double.valueOf(d2)}) == null) {
-            Log.d(TAG, "onGetLocation lat=" + d + ", lng=" + d2);
-            if (d > 0.0d && d2 > 0.0d) {
-                doResult(1001, new MyLocationData.Builder().latitude(d).longitude(d2).build());
-            }
+    /* JADX INFO: Access modifiers changed from: private */
+    public void updateAddrListByUserMapChoice(JSONObject jSONObject) {
+        boolean z;
+        if (isFirstPage()) {
+            this.addrListByUserMapChoice.clear();
         }
+        JSONArray optJSONArray = jSONObject.optJSONArray(SuggestAddrField.KEY_QUERY_LIST);
+        if (optJSONArray != null && optJSONArray.length() != 0) {
+            int length = optJSONArray.length();
+            if (length >= 20) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.hasNextPageByUserMapChoiceLoc = z;
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    this.addrListByUserMapChoice.add(optJSONObject);
+                } else {
+                    Log.d(TAG, "item of address list is error, index=" + i);
+                }
+            }
+        } else {
+            this.hasNextPageByUserMapChoiceLoc = false;
+        }
+        doResult(1004, this.addrListByUserMapChoice);
     }
 }

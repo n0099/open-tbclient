@@ -14,10 +14,11 @@ import com.cmic.sso.sdk.e.k;
 import com.cmic.sso.sdk.e.n;
 /* loaded from: classes7.dex */
 public class h {
-    public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
-    public static long c;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = null;
+    public static String b = null;
+    public static long c = 0;
+    public static int d = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -111,6 +112,7 @@ public class h {
                 }
                 c = k.a("phonescripstarttime", 0L);
                 b = k.b("pre_sim_key", "");
+                d = k.a("phonescripversion", -1);
                 String b3 = b.b(context, b2);
                 a = b3;
                 return b3;
@@ -129,6 +131,7 @@ public class h {
             c = System.currentTimeMillis() + j2;
             c.b("sLifeTime", c + "");
             b = str2;
+            d = 2;
             if (!"operator".equals(str3)) {
                 n.a(new n.a(context, str, str2) { // from class: com.cmic.sso.sdk.e.h.1
                     public static /* synthetic */ Interceptable $ic;
@@ -181,6 +184,7 @@ public class h {
             a2.a("phonescripstarttime");
             a2.a("phonescripcache");
             a2.a("pre_sim_key");
+            a2.a("phonescripversion");
             if (z2) {
                 a2.a();
             } else {
@@ -190,6 +194,7 @@ public class h {
                 a = null;
                 b = null;
                 c = 0L;
+                d = -1;
             }
         }
     }
@@ -216,15 +221,19 @@ public class h {
             int a2 = a(aVar.b("scripKey"));
             aVar.a("imsiState", a2 + "");
             c.b("PhoneScripUtils", "simState = " + a2);
-            if (k.a("phonescripversion", 0) != 2 && a2 != 0) {
+            if (a2 == 0) {
+                return false;
+            }
+            if (d == -1) {
+                d = k.a("phonescripversion", -1);
+            }
+            if (d != 2) {
                 a(true, false);
                 b.a();
                 c.b("PhoneScripUtils", "phoneScriptVersion change");
                 return false;
-            } else if (a2 != 1) {
-                if (a2 == 2) {
-                    a(true, false);
-                }
+            } else if (a2 == 2) {
+                a(true, false);
                 return false;
             } else {
                 return c();

@@ -1,42 +1,25 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.payment.PaymentManager;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import android.content.pm.PackageInfo;
+import com.baidu.nps.utils.ContextHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class mf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Bundle bundle) {
+    public static PackageInfo a(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, bundle) == null) {
-            if (bundle == null) {
-                PaymentManager.i(3, "闪付返回信息为空");
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            if (!new File(str).exists()) {
+                return null;
             }
-            String string = bundle.getString("statusCode");
-            try {
-                PaymentManager.i(Integer.parseInt(string), bundle.getString("payInfo"));
-            } catch (NumberFormatException e) {
-                PaymentManager.i(3, e.getMessage());
-            }
+            return ContextHolder.getApplicationContext().getPackageManager().getPackageArchiveInfo(str, i);
         }
-    }
-
-    public static void b(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, bundle) == null) {
-            kf1.a().g(bundle);
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && ProcessUtils.isMainProcess()) {
-            kf1.a().h("");
-        }
+        return (PackageInfo) invokeLI.objValue;
     }
 }

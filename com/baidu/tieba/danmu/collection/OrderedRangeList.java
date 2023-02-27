@@ -24,14 +24,13 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import kotlin.Metadata;
 import kotlin.Pair;
-import kotlin.Unit;
 import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.comparisons.ComparisonsKt__ComparisonsKt;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010%\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010!\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010 \n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\f\u0018\u0000*\u0004\b\u0000\u0010\u00012\u00020\u0002:\u0001.B\u001f\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\u0006\u0010\u0005\u001a\u00020\u0004\u0012\b\b\u0002\u0010\u0006\u001a\u00020\u0004¢\u0006\u0002\u0010\u0007J7\u0010\u0015\u001a\u00020\u00162\u0012\u0010\u0017\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\n0\u00182\u0006\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0019\u001a\u00028\u0000¢\u0006\u0002\u0010\u001aJ\u001c\u0010\u001b\u001a\u00020\u00162\u0012\u0010\u0011\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\n0\u0018H\u0002J\u0006\u0010\u001c\u001a\u00020\u001dJ\u0013\u0010\u001e\u001a\u00020\u00162\u0006\u0010\u0019\u001a\u00028\u0000¢\u0006\u0002\u0010\u001fJ0\u0010 \u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\n0\u00182\u0006\u0010!\u001a\u00020\u00042\u0014\u0010\"\u001a\u0010\u0012\u0006\u0012\u0004\u0018\u00018\u0000\u0012\u0004\u0012\u00020\u00160#J\u0006\u0010$\u001a\u00020\u0016J0\u0010%\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\n0\u00182\u0006\u0010!\u001a\u00020\u00042\u0014\u0010&\u001a\u0010\u0012\u0006\u0012\u0004\u0018\u00018\u0000\u0012\u0004\u0012\u00020\u00040#J/\u0010'\u001a\b\u0012\u0004\u0012\u00028\u00000\n2\u0006\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00042\n\b\u0002\u0010\u0019\u001a\u0004\u0018\u00018\u0000H\u0002¢\u0006\u0002\u0010(J\u0016\u0010)\u001a\u00020\u001d2\f\u0010*\u001a\b\u0012\u0004\u0012\u00028\u00000\nH\u0002J\u0013\u0010+\u001a\u00020\u001d2\u0006\u0010\u0019\u001a\u00028\u0000¢\u0006\u0002\u0010,J\u0014\u0010+\u001a\u00020\u001d2\f\u0010*\u001a\b\u0012\u0004\u0012\u00028\u00000\nJ\u0016\u0010-\u001a\u00020\u001d2\u0006\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0004R \u0010\b\u001a\u0014\u0012\u0004\u0012\u00028\u0000\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\n0\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010\u0005\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000eR\u001a\u0010\u000f\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\n0\u0010X\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010\u0011\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\n0\u0012X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010\u0003\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0013\u0010\f\"\u0004\b\u0014\u0010\u000e¨\u0006/"}, d2 = {"Lcom/baidu/tieba/danmu/collection/OrderedRangeList;", ExifInterface.GPS_DIRECTION_TRUE, "", "start", "", "end", CriusAttrConstants.MARGIN, "(III)V", "dataHolderMap", "", "Lcom/baidu/tieba/danmu/collection/OrderedRangeList$Holder;", "getEnd", "()I", "setEnd", "(I)V", "holderPool", "Landroidx/core/util/Pools$SimplePool;", "holders", "", "getStart", "setStart", StickerDataChangeType.ADD, "", "place", "", "data", "(Ljava/util/List;IILjava/lang/Object;)Z", "checkContinuous", "clear", "", "contains", "(Ljava/lang/Object;)Z", "find", CloudStabilityUBCUtils.KEY_LENGTH, "predicate", "Lkotlin/Function1;", "isEmpty", "min", "selector", "obtain", "(IILjava/lang/Object;)Lcom/baidu/tieba/danmu/collection/OrderedRangeList$Holder;", "recycle", "holder", "remove", "(Ljava/lang/Object;)V", StickerDataChangeType.UPDATE, "Holder", "danmu_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+@Metadata(d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010%\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010!\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010 \n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\f\u0018\u0000*\u0004\b\u0000\u0010\u00012\u00020\u0002:\u0001.B\u001f\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\u0006\u0010\u0005\u001a\u00020\u0004\u0012\b\b\u0002\u0010\u0006\u001a\u00020\u0004¢\u0006\u0002\u0010\u0007J7\u0010\u0015\u001a\u00020\u00162\u0012\u0010\u0017\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\n0\u00182\u0006\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0019\u001a\u00028\u0000¢\u0006\u0002\u0010\u001aJ\u001c\u0010\u001b\u001a\u00020\u00162\u0012\u0010\u0011\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\n0\u0018H\u0002J\u0006\u0010\u001c\u001a\u00020\u001dJ\u0013\u0010\u001e\u001a\u00020\u00162\u0006\u0010\u0019\u001a\u00028\u0000¢\u0006\u0002\u0010\u001fJ0\u0010 \u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\n0\u00182\u0006\u0010!\u001a\u00020\u00042\u0014\u0010\"\u001a\u0010\u0012\u0006\u0012\u0004\u0018\u00018\u0000\u0012\u0004\u0012\u00020\u00160#J\u0006\u0010$\u001a\u00020\u0016J0\u0010%\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\n0\u00182\u0006\u0010!\u001a\u00020\u00042\u0014\u0010&\u001a\u0010\u0012\u0006\u0012\u0004\u0018\u00018\u0000\u0012\u0004\u0012\u00020\u00040#J/\u0010'\u001a\b\u0012\u0004\u0012\u00028\u00000\n2\u0006\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00042\n\b\u0002\u0010\u0019\u001a\u0004\u0018\u00018\u0000H\u0002¢\u0006\u0002\u0010(J\u0016\u0010)\u001a\u00020\u001d2\f\u0010*\u001a\b\u0012\u0004\u0012\u00028\u00000\nH\u0002J\u0013\u0010+\u001a\u00020\u001d2\u0006\u0010\u0019\u001a\u00028\u0000¢\u0006\u0002\u0010,J\u0014\u0010+\u001a\u00020\u001d2\f\u0010*\u001a\b\u0012\u0004\u0012\u00028\u00000\nJ\u0016\u0010-\u001a\u00020\u001d2\u0006\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0004R \u0010\b\u001a\u0014\u0012\u0004\u0012\u00028\u0000\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\n0\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010\u0005\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000eR\u001a\u0010\u000f\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\n0\u0010X\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010\u0011\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\n0\u0012X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010\u0003\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0013\u0010\f\"\u0004\b\u0014\u0010\u000e¨\u0006/"}, d2 = {"Lcom/baidu/tieba/danmu/collection/OrderedRangeList;", ExifInterface.GPS_DIRECTION_TRUE, "", "start", "", "end", CriusAttrConstants.MARGIN, "(III)V", "dataHolderMap", "", "Lcom/baidu/tieba/danmu/collection/OrderedRangeList$Holder;", "getEnd", "()I", "setEnd", "(I)V", "holderPool", "Landroidx/core/util/Pools$SimplePool;", "holders", "", "getStart", "setStart", "add", "", "place", "", "data", "(Ljava/util/List;IILjava/lang/Object;)Z", "checkContinuous", "clear", "", "contains", "(Ljava/lang/Object;)Z", "find", CloudStabilityUBCUtils.KEY_LENGTH, "predicate", "Lkotlin/Function1;", "isEmpty", "min", "selector", "obtain", "(IILjava/lang/Object;)Lcom/baidu/tieba/danmu/collection/OrderedRangeList$Holder;", "recycle", "holder", "remove", "(Ljava/lang/Object;)V", StickerDataChangeType.UPDATE, "Holder", "danmu_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes4.dex */
 public final class OrderedRangeList<T> {
     public static /* synthetic */ Interceptable $ic;
@@ -165,10 +164,10 @@ public final class OrderedRangeList<T> {
                 sb.append(IStringUtil.TOP_PATH);
                 sb.append(this.b);
                 sb.append(']');
-                if (this.c == null) {
-                    str = null;
-                } else {
+                if (this.c != null) {
                     str = "-Data";
+                } else {
+                    str = null;
                 }
                 if (str == null) {
                     str = "";
@@ -202,11 +201,9 @@ public final class OrderedRangeList<T> {
         for (int i6 = 0; i6 < 100; i6++) {
             simplePool.release(new a<>(0, 0, null, 7, null));
         }
-        Unit unit = Unit.INSTANCE;
         this.d = simplePool;
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new a(g(), f(), null, 4, null));
-        Unit unit2 = Unit.INSTANCE;
+        arrayList.add(new a(this.a, this.b, null, 4, null));
         this.e = arrayList;
         this.f = new LinkedHashMap();
     }
@@ -217,11 +214,11 @@ public final class OrderedRangeList<T> {
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.tieba.danmu.collection.OrderedRangeList */
     /* JADX WARN: Multi-variable type inference failed */
-    public static /* synthetic */ a j(OrderedRangeList orderedRangeList, int i, int i2, Object obj, int i3, Object obj2) {
+    public static /* synthetic */ a h(OrderedRangeList orderedRangeList, int i, int i2, Object obj, int i3, Object obj2) {
         if ((i3 & 4) != 0) {
             obj = null;
         }
-        return orderedRangeList.i(i, i2, obj);
+        return orderedRangeList.g(i, i2, obj);
     }
 
     public final boolean a(List<a<T>> place, int i, int i2, T t) {
@@ -301,15 +298,15 @@ public final class OrderedRangeList<T> {
                     int i3 = b;
                     while (binarySearch + 1 < this.e.size() && this.e.get(binarySearch).a() == null) {
                         i3 = this.e.get(binarySearch).b();
-                        k(this.e.remove(binarySearch));
+                        i(this.e.remove(binarySearch));
                     }
-                    this.e.add(binarySearch, j(this, i2 + this.c, i3, null, 4, null));
+                    this.e.add(binarySearch, h(this, i2 + this.c, i3, null, 4, null));
                 }
-                a<T> i4 = i(i, i2, t);
-                this.e.add(binarySearch, i4);
-                this.f.put(t, i4);
+                a<T> g = g(i, i2, t);
+                this.e.add(binarySearch, g);
+                this.f.put(t, g);
                 for (a<T> aVar : place) {
-                    k(aVar);
+                    i(aVar);
                 }
                 return true;
             }
@@ -360,24 +357,6 @@ public final class OrderedRangeList<T> {
         }
     }
 
-    public final int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
     public final boolean d(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -387,22 +366,22 @@ public final class OrderedRangeList<T> {
         return invokeL.booleanValue;
     }
 
-    public final void k(a<T> aVar) {
+    public final void i(a<T> aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) && this.d.release(aVar)) {
+        if ((interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) && this.d.release(aVar)) {
             aVar.e(null);
             aVar.g(-1);
             aVar.f(-1);
         }
     }
 
-    public final void m(T t) {
+    public final void k(T t) {
         a<T> aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, t) != null) || (aVar = this.f.get(t)) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048585, this, t) != null) || (aVar = this.f.get(t)) == null) {
             return;
         }
-        l(aVar);
+        j(aVar);
     }
 
     /* JADX DEBUG: Type inference failed for r3v13. Raw type applied. Possible types: T, ? super T */
@@ -449,11 +428,11 @@ public final class OrderedRangeList<T> {
         return (List) invokeIL.objValue;
     }
 
-    public final List<a<T>> h(int i, Function1<? super T, Integer> selector) {
+    public final List<a<T>> f(int i, Function1<? super T, Integer> selector) {
         InterceptResult invokeIL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i, selector)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, selector)) == null) {
             Intrinsics.checkNotNullParameter(selector, "selector");
             if (this.e.isEmpty()) {
                 List<a<T>> emptyList = Collections.emptyList();
@@ -521,17 +500,17 @@ public final class OrderedRangeList<T> {
         return (List) invokeIL.objValue;
     }
 
-    public final a<T> i(int i, int i2, T t) {
+    public final a<T> g(int i, int i2, T t) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, t)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048582, this, i, i2, t)) == null) {
             a<T> acquire = this.d.acquire();
-            if (acquire == null) {
-                acquire = null;
-            } else {
+            if (acquire != null) {
                 acquire.g(i);
                 acquire.f(i2);
                 acquire.e(t);
+            } else {
+                acquire = null;
             }
             if (acquire == null) {
                 return new a<>(i, i2, t);
@@ -541,9 +520,9 @@ public final class OrderedRangeList<T> {
         return (a) invokeIIL.objValue;
     }
 
-    public final void l(a<T> holder) {
+    public final void j(a<T> holder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, holder) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, holder) == null) {
             Intrinsics.checkNotNullParameter(holder, "holder");
             List<a<T>> list = this.e;
             final Integer valueOf = Integer.valueOf(holder.d());
@@ -596,7 +575,7 @@ public final class OrderedRangeList<T> {
                     d = aVar.d();
                     binarySearch--;
                     this.e.remove(binarySearch);
-                    k(aVar);
+                    i(aVar);
                 }
             }
             int i = d;
@@ -605,22 +584,22 @@ public final class OrderedRangeList<T> {
                 this.f.remove(a2);
             }
             this.e.remove(binarySearch);
-            k(holder);
+            i(holder);
             if (binarySearch < this.e.size()) {
                 a<T> aVar2 = this.e.get(binarySearch);
                 if (aVar2.a() == null) {
                     b = aVar2.b();
                     this.e.remove(binarySearch);
-                    k(aVar2);
+                    i(aVar2);
                 }
             }
-            this.e.add(binarySearch, j(this, i, b, null, 4, null));
+            this.e.add(binarySearch, h(this, i, b, null, 4, null));
         }
     }
 
     public final void update(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
             this.a = i;
             this.b = i2;
             c();

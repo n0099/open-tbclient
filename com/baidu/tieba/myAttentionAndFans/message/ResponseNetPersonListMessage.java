@@ -5,11 +5,11 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.az4;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.i05;
+import com.baidu.tieba.h05;
 import com.baidu.tieba.jf;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
+import com.baidu.tieba.p15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public az4 data;
+    public h05 data;
     public int mErrCode;
     public String mErrMsg;
 
@@ -71,8 +71,8 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
                     z = false;
                 }
                 String str2 = new String(bArr);
-                i05.d();
-                jf<String> e = i05.e("tb.my_pages");
+                p15.d();
+                jf<String> e = p15.e("tb.my_pages");
                 if (e != null) {
                     if (z) {
                         str = "personal_followme";
@@ -94,20 +94,20 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
             if (statusCode == 200 && error == 0) {
                 this.mErrCode = jSONObject.optInt("error_code");
                 this.mErrMsg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-                az4 az4Var = new az4();
-                this.data = az4Var;
-                az4Var.c(jSONObject);
+                h05 h05Var = new h05();
+                this.data = h05Var;
+                h05Var.c(jSONObject);
             }
         }
     }
 
-    public az4 getData() {
+    public h05 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.data;
         }
-        return (az4) invokeV.objValue;
+        return (h05) invokeV.objValue;
     }
 
     public String getErrMsg() {

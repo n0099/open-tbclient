@@ -1,48 +1,47 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import com.baidu.live.business.model.data.LiveSearchResultInfo;
-import com.baidu.live.feed.search.model.data.RequestSearchData;
+import android.content.Intent;
+import com.baidu.live.feed.search.LiveFeedSearchActivity;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes4.dex */
-public interface fb0 {
-    void a(Context context, String str);
+public class fb0 implements ac0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(Context context);
-
-    void c();
-
-    void d();
-
-    void e(Context context);
-
-    void f(Context context, int i);
-
-    void g(String str, String str2, RequestSearchData requestSearchData);
-
-    void h();
-
-    void i(String str);
-
-    void j(LiveSearchResultInfo liveSearchResultInfo, Context context, int i);
-
-    void onDetach();
-
-    /* loaded from: classes4.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static /* synthetic */ void a(fb0 fb0Var, String str, String str2, RequestSearchData requestSearchData, int i, Object obj) {
-            if (obj == null) {
-                if ((i & 4) != 0) {
-                    requestSearchData = new RequestSearchData();
-                }
-                fb0Var.g(str, str2, requestSearchData);
-                return;
+    public fb0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: searchWord");
+        }
+    }
+
+    @Override // com.baidu.tieba.ac0
+    public void a(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) && context != null) {
+            Intent intent = new Intent(context, LiveFeedSearchActivity.class);
+            intent.putExtra("source", str);
+            if (!(context instanceof Activity)) {
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            }
+            context.startActivity(intent);
         }
     }
 }

@@ -63,7 +63,7 @@ public class ALaKeepAliveService extends BdBaseService {
         intent.setPackage(context.getPackageName());
         intent.putExtra(KEY_CONTENT_TITLE, str);
         intent.putExtra(KEY_CONTENT_TEXT, str2);
-        intent.putExtra(KEY_TICKER, str3);
+        intent.putExtra("ticker", str3);
         if (i != 0) {
             intent.putExtra(KEY_NOTIFICATION_ID, i);
         }
@@ -80,7 +80,7 @@ public class ALaKeepAliveService extends BdBaseService {
             } else {
                 String stringExtra = intent.getStringExtra(KEY_CONTENT_TITLE);
                 String stringExtra2 = intent.getStringExtra(KEY_CONTENT_TEXT);
-                String stringExtra3 = intent.getStringExtra(KEY_TICKER);
+                String stringExtra3 = intent.getStringExtra("ticker");
                 int intExtra = intent.getIntExtra(KEY_NOTIFICATION_ID, Integer.MAX_VALUE);
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext());
                 builder.setContentTitle(stringExtra).setContentText(stringExtra2).setSmallIcon(R.drawable.ic_icon_foreground).setTicker(stringExtra3);

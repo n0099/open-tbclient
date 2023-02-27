@@ -1,196 +1,106 @@
 package com.yy.gslbsdk.control;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
 /* loaded from: classes8.dex */
 public class NetworkStatus {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int IP_V4 = 1;
     public static final int IP_V6 = 2;
     public static final int STATUS_IP_V4_AND_V6 = 3;
     public static final int STATUS_IP_V4_ONLY = 1;
     public static final int STATUS_IP_V6_ONLY = 2;
     public static final int STATUS_IP_V_NONE = 0;
-    public static NetworkStatus sInstance;
-    public transient /* synthetic */ FieldHolder $fh;
-    public boolean mEnableV6;
-    public int mStatus;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1339305767, "Lcom/yy/gslbsdk/control/NetworkStatus;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1339305767, "Lcom/yy/gslbsdk/control/NetworkStatus;");
-                return;
-            }
-        }
-        sInstance = new NetworkStatus();
-    }
-
-    public NetworkStatus() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mEnableV6 = true;
-        this.mStatus = 0;
-    }
+    public static NetworkStatus sInstance = new NetworkStatus();
+    public boolean mEnableV6 = true;
+    public int mStatus = 0;
 
     public static NetworkStatus getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (sInstance == null) {
-                sInstance = new NetworkStatus();
-            }
-            return sInstance;
+        if (sInstance == null) {
+            sInstance = new NetworkStatus();
         }
-        return (NetworkStatus) invokeV.objValue;
+        return sInstance;
     }
 
     public static NetworkStatus getInstanceClone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return getInstance().m768clone();
-        }
-        return (NetworkStatus) invokeV.objValue;
+        return getInstance().m761clone();
     }
 
     public boolean canV4() {
-        InterceptResult invokeV;
         boolean z;
         boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if ((this.mStatus & 1) > 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (this.mStatus == 1) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            if (z2 || z || this.mStatus == 0) {
-                return true;
-            }
-            return false;
+        if ((this.mStatus & 1) > 0) {
+            z = true;
+        } else {
+            z = false;
         }
-        return invokeV.booleanValue;
+        if (this.mStatus == 1) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        if (z2 || z || this.mStatus == 0) {
+            return true;
+        }
+        return false;
     }
 
     public boolean canV6() {
-        InterceptResult invokeV;
         boolean z;
         boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if ((this.mStatus & 2) > 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (this.mStatus == 2) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            if (z2) {
-                return true;
-            }
-            if (this.mEnableV6 && z) {
-                return true;
-            }
-            return false;
+        if ((this.mStatus & 2) > 0) {
+            z = true;
+        } else {
+            z = false;
         }
-        return invokeV.booleanValue;
+        if (this.mStatus == 2) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        if (z2) {
+            return true;
+        }
+        if (this.mEnableV6 && z) {
+            return true;
+        }
+        return false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public NetworkStatus m768clone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            NetworkStatus networkStatus = new NetworkStatus();
-            networkStatus.mEnableV6 = this.mEnableV6;
-            networkStatus.mStatus = this.mStatus;
-            return networkStatus;
-        }
-        return (NetworkStatus) invokeV.objValue;
+    public NetworkStatus m761clone() {
+        NetworkStatus networkStatus = new NetworkStatus();
+        networkStatus.mEnableV6 = this.mEnableV6;
+        networkStatus.mStatus = this.mStatus;
+        return networkStatus;
     }
 
     public int getStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mStatus;
-        }
-        return invokeV.intValue;
+        return this.mStatus;
     }
 
     public boolean isEnableV6() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mEnableV6;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void updateEnableV6(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
-            getInstance().mEnableV6 = z;
-        }
-    }
-
-    public static void updateStatus(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65541, null, i) == null) {
-            getInstance().mStatus = i;
-        }
+        return this.mEnableV6;
     }
 
     public String toString() {
-        InterceptResult invokeV;
         String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Locale locale = Locale.US;
-            Object[] objArr = new Object[2];
-            if (this.mEnableV6) {
-                str = "true";
-            } else {
-                str = "false";
-            }
-            objArr[0] = str;
-            objArr[1] = Integer.valueOf(this.mStatus);
-            return String.format(locale, "[EnableV6=%s, Status=%d]", objArr);
+        Locale locale = Locale.US;
+        Object[] objArr = new Object[2];
+        if (this.mEnableV6) {
+            str = "true";
+        } else {
+            str = "false";
         }
-        return (String) invokeV.objValue;
+        objArr[0] = str;
+        objArr[1] = Integer.valueOf(this.mStatus);
+        return String.format(locale, "[EnableV6=%s, Status=%d]", objArr);
+    }
+
+    public static void updateEnableV6(boolean z) {
+        getInstance().mEnableV6 = z;
+    }
+
+    public static void updateStatus(int i) {
+        getInstance().mStatus = i;
     }
 }

@@ -3,14 +3,14 @@ package com.baidu.android.pushservice;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.pushservice.h.a.b;
-import com.baidu.android.pushservice.httpapi.k;
-import com.baidu.android.pushservice.httpapi.n;
-import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.message.PublicMsg;
+import com.baidu.android.pushservice.p.k;
+import com.baidu.android.pushservice.p.m;
+import com.baidu.android.pushservice.p.n;
+import com.baidu.android.pushservice.util.Utility;
+import com.baidu.bdtask.ctrl.model.TaskProcess;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -40,9 +40,9 @@ public class h {
             }
         }
         this.a = context;
-        com.baidu.android.pushservice.a.b.a(context);
+        com.baidu.android.pushservice.k.b.a(context);
         j.a(context);
-        com.baidu.android.pushservice.g.e.a();
+        com.baidu.android.pushservice.z.e.a();
     }
 
     public static synchronized h a(Context context) {
@@ -61,99 +61,78 @@ public class h {
         return (h) invokeL.objValue;
     }
 
-    private void a() {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            com.baidu.android.pushservice.h.a.c.a(this.a.getApplicationContext());
-        }
-    }
-
-    private void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             PushSettings.a(this.a, 0);
         }
     }
 
-    private void b(Intent intent) {
-        com.baidu.android.pushservice.httpapi.e eVar;
+    public final void a(Intent intent) {
+        com.baidu.android.pushservice.p.e eVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, intent) == null) {
-            com.baidu.android.pushservice.httpapi.i iVar = new com.baidu.android.pushservice.httpapi.i(intent);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
+            com.baidu.android.pushservice.p.i iVar = new com.baidu.android.pushservice.p.i(intent);
             int intExtra = intent.getIntExtra("bind_status", 0);
             int intExtra2 = intent.getIntExtra("push_sdk_version", 0);
-            com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_BIND ", this.a);
-            String d = com.baidu.android.pushservice.a.b.a(this.a).d(iVar.d);
-            if (!TextUtils.isEmpty(iVar.g) && com.baidu.android.pushservice.a.b.a(this.a).b(iVar.d, iVar.g) && !TextUtils.isEmpty(d)) {
+            com.baidu.android.pushservice.u.a.a("RegistrationService", "<<< METHOD_BIND ", this.a);
+            String a = com.baidu.android.pushservice.k.b.a(this.a).a(iVar.c);
+            if (!TextUtils.isEmpty(iVar.f) && com.baidu.android.pushservice.k.b.a(this.a).a(iVar.c, iVar.f) && !TextUtils.isEmpty(a)) {
                 Intent intent2 = new Intent();
                 intent2.putExtra("method", iVar.a);
                 intent2.putExtra(GameCodeGetResponseMsg.PARAM_ERROR_MSG, 0);
-                intent2.putExtra("content", d.getBytes());
+                intent2.putExtra("content", a.getBytes());
                 intent2.putExtra("bind_status", intExtra);
-                m.b(this.a, intent2, "com.baidu.android.pushservice.action.RECEIVE", iVar.d);
+                Utility.c(this.a, intent2, "com.baidu.android.pushservice.action.RECEIVE", iVar.c);
                 return;
             }
             if (intent.hasExtra("bind_notify_status")) {
-                eVar = new com.baidu.android.pushservice.httpapi.e(iVar, this.a, intExtra, intExtra2, intent.getStringExtra("bind_notify_status"));
+                eVar = new com.baidu.android.pushservice.p.e(iVar, this.a, intExtra, intExtra2, intent.getStringExtra("bind_notify_status"));
             } else {
-                eVar = new com.baidu.android.pushservice.httpapi.e(iVar, this.a, intExtra, intExtra2);
+                eVar = new com.baidu.android.pushservice.p.e(iVar, this.a, intExtra, intExtra2);
             }
             if (a(eVar)) {
                 return;
             }
-            new Thread(new com.baidu.android.pushservice.httpapi.e(iVar, this.a, intExtra, intExtra2)).start();
+            new Thread(new com.baidu.android.pushservice.p.e(iVar, this.a, intExtra, intExtra2)).start();
         }
     }
 
-    private void c(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, intent) == null) {
-            com.baidu.android.pushservice.httpapi.i iVar = new com.baidu.android.pushservice.httpapi.i(intent);
-            com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_UNBIND ", this.a);
-            if (!TextUtils.isEmpty(iVar.d) && !TextUtils.isEmpty(iVar.g)) {
-                com.baidu.android.pushservice.a.e a = com.baidu.android.pushservice.a.b.a(this.a).a(iVar.d);
-                if (a != null && !TextUtils.isEmpty(a.a())) {
-                    iVar.e = a.a();
-                }
-                com.baidu.android.pushservice.a.b.a(this.a).e(iVar.d);
-            }
-            a(new n(iVar, this.a));
-        }
-    }
-
-    private void d(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, intent) == null) {
-            com.baidu.android.pushservice.httpapi.i iVar = new com.baidu.android.pushservice.httpapi.i(intent);
-            String stringExtra = intent.getStringExtra("tags");
-            com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< ACTION_SET_TAGS ", this.a);
-            a(new com.baidu.android.pushservice.httpapi.m(iVar, this.a, stringExtra));
-        }
-    }
-
-    private void e(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, this, intent) == null) {
-            com.baidu.android.pushservice.httpapi.i iVar = new com.baidu.android.pushservice.httpapi.i(intent);
-            String stringExtra = intent.getStringExtra("tags");
-            com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< ACTION_GBIND ", this.a);
-            a(new com.baidu.android.pushservice.httpapi.h(iVar, this.a, stringExtra));
-        }
-    }
-
-    private void f(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, intent) == null) {
-            com.baidu.android.pushservice.httpapi.i iVar = new com.baidu.android.pushservice.httpapi.i(intent);
-            com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_LISTTAGS ", this.a);
-            a(new k(iVar, this.a));
-        }
-    }
-
-    public boolean a(Intent intent) {
+    public boolean a(com.baidu.android.pushservice.p.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
+            try {
+                com.baidu.android.pushservice.z.e.a().a(aVar);
+                return true;
+            } catch (Exception e) {
+                com.baidu.android.pushservice.u.a.a("RegistrationService", e, this.a);
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public final void b(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
+            com.baidu.android.pushservice.p.i iVar = new com.baidu.android.pushservice.p.i(intent);
+            String stringExtra = intent.getStringExtra(TaskProcess.keyTags);
+            com.baidu.android.pushservice.u.a.a("RegistrationService", "<<< ACTION_GBIND ", this.a);
+            a(new com.baidu.android.pushservice.p.h(iVar, this.a, stringExtra));
+        }
+    }
+
+    public boolean c(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, intent)) == null) {
             if (intent == null || TextUtils.isEmpty(intent.getAction())) {
                 return false;
             }
@@ -167,29 +146,29 @@ public class h {
                 return true;
             } else if ("com.baidu.android.pushservice.action.privatenotification.CLICK".equals(action) || "com.baidu.android.pushservice.action.privatenotification.DELETE".equals(action)) {
                 PublicMsg publicMsg2 = (PublicMsg) intent.getParcelableExtra("public_msg");
-                if (m.b(this.a, publicMsg2)) {
-                    publicMsg2.handlePrivateNotification(this.a, action, intent.getStringExtra("msg_id"), intent.getStringExtra("app_id"), intent.getByteArrayExtra("baidu_message_secur_info"), intent.getByteArrayExtra("baidu_message_body"));
+                if (Utility.a(this.a, publicMsg2)) {
+                    publicMsg2.handlePrivateNotification(this.a, action, intent.getStringExtra("msg_id"), intent.getStringExtra("app_id"), intent.getByteArrayExtra("baidu_message_secur_info"), intent.getByteArrayExtra("baidu_message_body"), intent.getIntExtra("float_window_show_type", 0), intent.getStringExtra("notification_log_ext"));
                     return true;
                 }
                 return true;
             } else if ("com.baidu.android.pushservice.action.METHOD".equals(action)) {
                 String stringExtra = intent.getStringExtra("method");
                 if ("method_bind".equals(stringExtra)) {
-                    b(intent);
+                    a(intent);
                 } else if ("method_unbind".equals(stringExtra)) {
-                    c(intent);
-                } else if ("method_set_tags".equals(stringExtra) || "method_set_sdk_tags".equals(stringExtra)) {
-                    d(intent);
-                } else if ("method_del_tags".equals(stringExtra) || "method_del_sdk_tags".equals(stringExtra)) {
-                    e(intent);
-                } else if ("method_listtags".equals(stringExtra) || "method_list_sdk_tags".equals(stringExtra)) {
                     f(intent);
+                } else if ("method_set_tags".equals(stringExtra) || "method_set_sdk_tags".equals(stringExtra)) {
+                    e(intent);
+                } else if ("method_del_tags".equals(stringExtra) || "method_del_sdk_tags".equals(stringExtra)) {
+                    b(intent);
+                } else if ("method_listtags".equals(stringExtra) || "method_list_sdk_tags".equals(stringExtra)) {
+                    d(intent);
                 } else if ("com.baidu.android.pushservice.action.SEND_APPSTAT".equals(stringExtra)) {
-                    a();
+                    b();
                 } else if (!"com.baidu.android.pushservice.action.ENBALE_APPSTAT".equals(stringExtra)) {
                     return false;
                 } else {
-                    b();
+                    a();
                 }
                 return true;
             } else {
@@ -199,19 +178,38 @@ public class h {
         return invokeL.booleanValue;
     }
 
-    public boolean a(com.baidu.android.pushservice.httpapi.a aVar) {
-        InterceptResult invokeL;
+    public final void d(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            try {
-                com.baidu.android.pushservice.g.e.a().a(aVar);
-                return true;
-            } catch (Exception e) {
-                com.baidu.android.pushservice.f.a.a("RegistrationService", e, this.a);
-                new b.c(this.a.getApplicationContext()).a(Log.getStackTraceString(e)).a();
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeL(1048582, this, intent) == null) {
+            com.baidu.android.pushservice.p.i iVar = new com.baidu.android.pushservice.p.i(intent);
+            com.baidu.android.pushservice.u.a.a("RegistrationService", "<<< METHOD_LISTTAGS ", this.a);
+            a(new k(iVar, this.a));
         }
-        return invokeL.booleanValue;
+    }
+
+    public final void e(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, intent) == null) {
+            com.baidu.android.pushservice.p.i iVar = new com.baidu.android.pushservice.p.i(intent);
+            String stringExtra = intent.getStringExtra(TaskProcess.keyTags);
+            com.baidu.android.pushservice.u.a.a("RegistrationService", "<<< ACTION_SET_TAGS ", this.a);
+            a(new m(iVar, this.a, stringExtra));
+        }
+    }
+
+    public final void f(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) == null) {
+            com.baidu.android.pushservice.p.i iVar = new com.baidu.android.pushservice.p.i(intent);
+            com.baidu.android.pushservice.u.a.a("RegistrationService", "<<< METHOD_UNBIND ", this.a);
+            if (!TextUtils.isEmpty(iVar.c) && !TextUtils.isEmpty(iVar.f)) {
+                com.baidu.android.pushservice.k.e c = com.baidu.android.pushservice.k.b.a(this.a).c(iVar.c);
+                if (c != null && !TextUtils.isEmpty(c.a())) {
+                    iVar.d = c.a();
+                }
+                com.baidu.android.pushservice.k.b.a(this.a).d(iVar.c);
+            }
+            a(new n(iVar, this.a));
+        }
     }
 }

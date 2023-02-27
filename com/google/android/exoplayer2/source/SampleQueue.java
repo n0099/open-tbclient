@@ -1,13 +1,6 @@
 package com.google.android.exoplayer2.source;
 
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.FormatHolder;
 import com.google.android.exoplayer2.decoder.CryptoInfo;
@@ -24,25 +17,23 @@ import java.nio.ByteBuffer;
 import kotlin.jvm.internal.ByteCompanionObject;
 /* loaded from: classes7.dex */
 public final class SampleQueue implements TrackOutput {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int ADVANCE_FAILED = -1;
     public static final int INITIAL_SCRATCH_SIZE = 32;
-    public transient /* synthetic */ FieldHolder $fh;
     public final int allocationLength;
     public final Allocator allocator;
     public Format downstreamFormat;
-    public final SampleMetadataQueue.SampleExtrasHolder extrasHolder;
     public AllocationNode firstAllocationNode;
     public Format lastUnadjustedFormat;
-    public final SampleMetadataQueue metadataQueue;
     public boolean pendingFormatAdjustment;
     public boolean pendingSplice;
     public AllocationNode readAllocationNode;
     public long sampleOffsetUs;
-    public final ParsableByteArray scratch;
     public long totalBytesWritten;
     public UpstreamFormatChangedListener upstreamFormatChangeListener;
     public AllocationNode writeAllocationNode;
+    public final SampleMetadataQueue metadataQueue = new SampleMetadataQueue();
+    public final SampleMetadataQueue.SampleExtrasHolder extrasHolder = new SampleMetadataQueue.SampleExtrasHolder();
+    public final ParsableByteArray scratch = new ParsableByteArray(32);
 
     /* loaded from: classes7.dex */
     public interface UpstreamFormatChangedListener {
@@ -51,8 +42,6 @@ public final class SampleQueue implements TrackOutput {
 
     /* loaded from: classes7.dex */
     public static final class AllocationNode {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         @Nullable
         public Allocation allocation;
         public final long endPosition;
@@ -62,75 +51,31 @@ public final class SampleQueue implements TrackOutput {
         public boolean wasInitialized;
 
         public AllocationNode(long j, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.startPosition = j;
             this.endPosition = j + i;
         }
 
-        public AllocationNode clear() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.allocation = null;
-                AllocationNode allocationNode = this.next;
-                this.next = null;
-                return allocationNode;
-            }
-            return (AllocationNode) invokeV.objValue;
+        public void initialize(Allocation allocation, AllocationNode allocationNode) {
+            this.allocation = allocation;
+            this.next = allocationNode;
+            this.wasInitialized = true;
         }
 
-        public void initialize(Allocation allocation, AllocationNode allocationNode) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, allocation, allocationNode) == null) {
-                this.allocation = allocation;
-                this.next = allocationNode;
-                this.wasInitialized = true;
-            }
+        public AllocationNode clear() {
+            this.allocation = null;
+            AllocationNode allocationNode = this.next;
+            this.next = null;
+            return allocationNode;
         }
 
         public int translateOffset(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-                return ((int) (j - this.startPosition)) + this.allocation.offset;
-            }
-            return invokeJ.intValue;
+            return ((int) (j - this.startPosition)) + this.allocation.offset;
         }
     }
 
     public SampleQueue(Allocator allocator) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {allocator};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.allocator = allocator;
         this.allocationLength = allocator.getIndividualAllocationLength();
-        this.metadataQueue = new SampleMetadataQueue();
-        this.extrasHolder = new SampleMetadataQueue.SampleExtrasHolder();
-        this.scratch = new ParsableByteArray(32);
         AllocationNode allocationNode = new AllocationNode(0L, this.allocationLength);
         this.firstAllocationNode = allocationNode;
         this.readAllocationNode = allocationNode;
@@ -138,10 +83,6 @@ public final class SampleQueue implements TrackOutput {
     }
 
     private void advanceReadTo(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeJ(65537, this, j) != null) {
-            return;
-        }
         while (true) {
             AllocationNode allocationNode = this.readAllocationNode;
             if (j >= allocationNode.endPosition) {
@@ -152,72 +93,8 @@ public final class SampleQueue implements TrackOutput {
         }
     }
 
-    private void postAppend(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65541, this, i) == null) {
-            long j = this.totalBytesWritten + i;
-            this.totalBytesWritten = j;
-            AllocationNode allocationNode = this.writeAllocationNode;
-            if (j == allocationNode.endPosition) {
-                this.writeAllocationNode = allocationNode.next;
-            }
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.TrackOutput
-    public void format(Format format) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, format) == null) {
-            Format adjustedSampleFormat = getAdjustedSampleFormat(format, this.sampleOffsetUs);
-            boolean format2 = this.metadataQueue.format(adjustedSampleFormat);
-            this.lastUnadjustedFormat = format;
-            this.pendingFormatAdjustment = false;
-            UpstreamFormatChangedListener upstreamFormatChangedListener = this.upstreamFormatChangeListener;
-            if (upstreamFormatChangedListener != null && format2) {
-                upstreamFormatChangedListener.onUpstreamFormatChanged(adjustedSampleFormat);
-            }
-        }
-    }
-
-    public void reset(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.metadataQueue.reset(z);
-            clearAllocationNodes(this.firstAllocationNode);
-            AllocationNode allocationNode = new AllocationNode(0L, this.allocationLength);
-            this.firstAllocationNode = allocationNode;
-            this.readAllocationNode = allocationNode;
-            this.writeAllocationNode = allocationNode;
-            this.totalBytesWritten = 0L;
-            this.allocator.trim();
-        }
-    }
-
-    public void setSampleOffsetUs(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048596, this, j) == null) && this.sampleOffsetUs != j) {
-            this.sampleOffsetUs = j;
-            this.pendingFormatAdjustment = true;
-        }
-    }
-
-    public void setUpstreamFormatChangeListener(UpstreamFormatChangedListener upstreamFormatChangedListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, upstreamFormatChangedListener) == null) {
-            this.upstreamFormatChangeListener = upstreamFormatChangedListener;
-        }
-    }
-
-    public void sourceId(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            this.metadataQueue.sourceId(i);
-        }
-    }
-
     private void clearAllocationNodes(AllocationNode allocationNode) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, this, allocationNode) != null) || !allocationNode.wasInitialized) {
+        if (!allocationNode.wasInitialized) {
             return;
         }
         AllocationNode allocationNode2 = this.writeAllocationNode;
@@ -232,8 +109,7 @@ public final class SampleQueue implements TrackOutput {
 
     private void discardDownstreamTo(long j) {
         AllocationNode allocationNode;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeJ(65539, this, j) != null) || j == -1) {
+        if (j == -1) {
             return;
         }
         while (true) {
@@ -249,105 +125,136 @@ public final class SampleQueue implements TrackOutput {
         }
     }
 
-    private int preAppend(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) {
-            AllocationNode allocationNode = this.writeAllocationNode;
-            if (!allocationNode.wasInitialized) {
-                allocationNode.initialize(this.allocator.allocate(), new AllocationNode(this.writeAllocationNode.endPosition, this.allocationLength));
-            }
-            return Math.min(i, (int) (this.writeAllocationNode.endPosition - this.totalBytesWritten));
+    private void postAppend(int i) {
+        long j = this.totalBytesWritten + i;
+        this.totalBytesWritten = j;
+        AllocationNode allocationNode = this.writeAllocationNode;
+        if (j == allocationNode.endPosition) {
+            this.writeAllocationNode = allocationNode.next;
         }
-        return invokeI.intValue;
+    }
+
+    private int preAppend(int i) {
+        AllocationNode allocationNode = this.writeAllocationNode;
+        if (!allocationNode.wasInitialized) {
+            allocationNode.initialize(this.allocator.allocate(), new AllocationNode(this.writeAllocationNode.endPosition, this.allocationLength));
+        }
+        return Math.min(i, (int) (this.writeAllocationNode.endPosition - this.totalBytesWritten));
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.TrackOutput
+    public void format(Format format) {
+        Format adjustedSampleFormat = getAdjustedSampleFormat(format, this.sampleOffsetUs);
+        boolean format2 = this.metadataQueue.format(adjustedSampleFormat);
+        this.lastUnadjustedFormat = format;
+        this.pendingFormatAdjustment = false;
+        UpstreamFormatChangedListener upstreamFormatChangedListener = this.upstreamFormatChangeListener;
+        if (upstreamFormatChangedListener != null && format2) {
+            upstreamFormatChangedListener.onUpstreamFormatChanged(adjustedSampleFormat);
+        }
+    }
+
+    public void reset(boolean z) {
+        this.metadataQueue.reset(z);
+        clearAllocationNodes(this.firstAllocationNode);
+        AllocationNode allocationNode = new AllocationNode(0L, this.allocationLength);
+        this.firstAllocationNode = allocationNode;
+        this.readAllocationNode = allocationNode;
+        this.writeAllocationNode = allocationNode;
+        this.totalBytesWritten = 0L;
+        this.allocator.trim();
+    }
+
+    public void setSampleOffsetUs(long j) {
+        if (this.sampleOffsetUs != j) {
+            this.sampleOffsetUs = j;
+            this.pendingFormatAdjustment = true;
+        }
+    }
+
+    public void setUpstreamFormatChangeListener(UpstreamFormatChangedListener upstreamFormatChangedListener) {
+        this.upstreamFormatChangeListener = upstreamFormatChangedListener;
+    }
+
+    public void sourceId(int i) {
+        this.metadataQueue.sourceId(i);
     }
 
     public static Format getAdjustedSampleFormat(Format format, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, format, j)) == null) {
-            if (format == null) {
-                return null;
-            }
-            if (j != 0) {
-                long j2 = format.subsampleOffsetUs;
-                if (j2 != Long.MAX_VALUE) {
-                    return format.copyWithSubsampleOffsetUs(j2 + j);
-                }
-                return format;
+        if (format == null) {
+            return null;
+        }
+        if (j != 0) {
+            long j2 = format.subsampleOffsetUs;
+            if (j2 != Long.MAX_VALUE) {
+                return format.copyWithSubsampleOffsetUs(j2 + j);
             }
             return format;
         }
-        return (Format) invokeLJ.objValue;
+        return format;
     }
 
     @Override // com.google.android.exoplayer2.extractor.TrackOutput
     public void sampleData(ParsableByteArray parsableByteArray, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048594, this, parsableByteArray, i) == null) {
-            while (i > 0) {
-                int preAppend = preAppend(i);
-                AllocationNode allocationNode = this.writeAllocationNode;
-                parsableByteArray.readBytes(allocationNode.allocation.data, allocationNode.translateOffset(this.totalBytesWritten), preAppend);
-                i -= preAppend;
-                postAppend(preAppend);
-            }
+        while (i > 0) {
+            int preAppend = preAppend(i);
+            AllocationNode allocationNode = this.writeAllocationNode;
+            parsableByteArray.readBytes(allocationNode.allocation.data, allocationNode.translateOffset(this.totalBytesWritten), preAppend);
+            i -= preAppend;
+            postAppend(preAppend);
         }
     }
 
     private void readData(long j, ByteBuffer byteBuffer, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Long.valueOf(j), byteBuffer, Integer.valueOf(i)}) == null) {
-            advanceReadTo(j);
-            while (i > 0) {
-                int min = Math.min(i, (int) (this.readAllocationNode.endPosition - j));
-                AllocationNode allocationNode = this.readAllocationNode;
-                byteBuffer.put(allocationNode.allocation.data, allocationNode.translateOffset(j), min);
-                i -= min;
-                j += min;
-                AllocationNode allocationNode2 = this.readAllocationNode;
-                if (j == allocationNode2.endPosition) {
-                    this.readAllocationNode = allocationNode2.next;
-                }
+        advanceReadTo(j);
+        while (i > 0) {
+            int min = Math.min(i, (int) (this.readAllocationNode.endPosition - j));
+            AllocationNode allocationNode = this.readAllocationNode;
+            byteBuffer.put(allocationNode.allocation.data, allocationNode.translateOffset(j), min);
+            i -= min;
+            j += min;
+            AllocationNode allocationNode2 = this.readAllocationNode;
+            if (j == allocationNode2.endPosition) {
+                this.readAllocationNode = allocationNode2.next;
             }
         }
+    }
+
+    public int advanceTo(long j, boolean z, boolean z2) {
+        return this.metadataQueue.advanceTo(j, z, z2);
+    }
+
+    public void discardTo(long j, boolean z, boolean z2) {
+        discardDownstreamTo(this.metadataQueue.discardTo(j, z, z2));
     }
 
     @Override // com.google.android.exoplayer2.extractor.TrackOutput
     public int sampleData(ExtractorInput extractorInput, int i, boolean z) throws IOException, InterruptedException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{extractorInput, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            int preAppend = preAppend(i);
-            AllocationNode allocationNode = this.writeAllocationNode;
-            int read = extractorInput.read(allocationNode.allocation.data, allocationNode.translateOffset(this.totalBytesWritten), preAppend);
-            if (read == -1) {
-                if (z) {
-                    return -1;
-                }
-                throw new EOFException();
+        int preAppend = preAppend(i);
+        AllocationNode allocationNode = this.writeAllocationNode;
+        int read = extractorInput.read(allocationNode.allocation.data, allocationNode.translateOffset(this.totalBytesWritten), preAppend);
+        if (read == -1) {
+            if (z) {
+                return -1;
             }
-            postAppend(read);
-            return read;
+            throw new EOFException();
         }
-        return invokeCommon.intValue;
+        postAppend(read);
+        return read;
     }
 
     private void readData(long j, byte[] bArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j), bArr, Integer.valueOf(i)}) == null) {
-            advanceReadTo(j);
-            int i2 = i;
-            while (i2 > 0) {
-                int min = Math.min(i2, (int) (this.readAllocationNode.endPosition - j));
-                AllocationNode allocationNode = this.readAllocationNode;
-                System.arraycopy(allocationNode.allocation.data, allocationNode.translateOffset(j), bArr, i - i2, min);
-                i2 -= min;
-                j += min;
-                AllocationNode allocationNode2 = this.readAllocationNode;
-                if (j == allocationNode2.endPosition) {
-                    this.readAllocationNode = allocationNode2.next;
-                }
+        advanceReadTo(j);
+        int i2 = i;
+        while (i2 > 0) {
+            int min = Math.min(i2, (int) (this.readAllocationNode.endPosition - j));
+            AllocationNode allocationNode = this.readAllocationNode;
+            System.arraycopy(allocationNode.allocation.data, allocationNode.translateOffset(j), bArr, i - i2, min);
+            i2 -= min;
+            j += min;
+            AllocationNode allocationNode2 = this.readAllocationNode;
+            if (j == allocationNode2.endPosition) {
+                this.readAllocationNode = allocationNode2.next;
             }
         }
     }
@@ -355,262 +262,182 @@ public final class SampleQueue implements TrackOutput {
     private void readEncryptionData(DecoderInputBuffer decoderInputBuffer, SampleMetadataQueue.SampleExtrasHolder sampleExtrasHolder) {
         boolean z;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, this, decoderInputBuffer, sampleExtrasHolder) == null) {
-            long j = sampleExtrasHolder.offset;
-            this.scratch.reset(1);
-            readData(j, this.scratch.data, 1);
-            long j2 = j + 1;
-            byte b = this.scratch.data[0];
-            if ((b & 128) != 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            int i2 = b & ByteCompanionObject.MAX_VALUE;
-            CryptoInfo cryptoInfo = decoderInputBuffer.cryptoInfo;
-            if (cryptoInfo.iv == null) {
-                cryptoInfo.iv = new byte[16];
-            }
-            readData(j2, decoderInputBuffer.cryptoInfo.iv, i2);
-            long j3 = j2 + i2;
-            if (z) {
-                this.scratch.reset(2);
-                readData(j3, this.scratch.data, 2);
-                j3 += 2;
-                i = this.scratch.readUnsignedShort();
-            } else {
-                i = 1;
-            }
-            int[] iArr = decoderInputBuffer.cryptoInfo.numBytesOfClearData;
-            if (iArr == null || iArr.length < i) {
-                iArr = new int[i];
-            }
-            int[] iArr2 = iArr;
-            int[] iArr3 = decoderInputBuffer.cryptoInfo.numBytesOfEncryptedData;
-            if (iArr3 == null || iArr3.length < i) {
-                iArr3 = new int[i];
-            }
-            int[] iArr4 = iArr3;
-            if (z) {
-                int i3 = i * 6;
-                this.scratch.reset(i3);
-                readData(j3, this.scratch.data, i3);
-                j3 += i3;
-                this.scratch.setPosition(0);
-                for (int i4 = 0; i4 < i; i4++) {
-                    iArr2[i4] = this.scratch.readUnsignedShort();
-                    iArr4[i4] = this.scratch.readUnsignedIntToInt();
-                }
-            } else {
-                iArr2[0] = 0;
-                iArr4[0] = sampleExtrasHolder.size - ((int) (j3 - sampleExtrasHolder.offset));
-            }
-            TrackOutput.CryptoData cryptoData = sampleExtrasHolder.cryptoData;
-            CryptoInfo cryptoInfo2 = decoderInputBuffer.cryptoInfo;
-            cryptoInfo2.set(i, iArr2, iArr4, cryptoData.encryptionKey, cryptoInfo2.iv, cryptoData.cryptoMode, cryptoData.encryptedBlocks, cryptoData.clearBlocks);
-            long j4 = sampleExtrasHolder.offset;
-            int i5 = (int) (j3 - j4);
-            sampleExtrasHolder.offset = j4 + i5;
-            sampleExtrasHolder.size -= i5;
+        long j = sampleExtrasHolder.offset;
+        this.scratch.reset(1);
+        readData(j, this.scratch.data, 1);
+        long j2 = j + 1;
+        byte b = this.scratch.data[0];
+        if ((b & 128) != 0) {
+            z = true;
+        } else {
+            z = false;
         }
-    }
-
-    public int advanceTo(long j, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            return this.metadataQueue.advanceTo(j, z, z2);
+        int i2 = b & ByteCompanionObject.MAX_VALUE;
+        CryptoInfo cryptoInfo = decoderInputBuffer.cryptoInfo;
+        if (cryptoInfo.iv == null) {
+            cryptoInfo.iv = new byte[16];
         }
-        return invokeCommon.intValue;
-    }
-
-    public void discardTo(long j, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            discardDownstreamTo(this.metadataQueue.discardTo(j, z, z2));
+        readData(j2, decoderInputBuffer.cryptoInfo.iv, i2);
+        long j3 = j2 + i2;
+        if (z) {
+            this.scratch.reset(2);
+            readData(j3, this.scratch.data, 2);
+            j3 += 2;
+            i = this.scratch.readUnsignedShort();
+        } else {
+            i = 1;
         }
+        int[] iArr = decoderInputBuffer.cryptoInfo.numBytesOfClearData;
+        if (iArr == null || iArr.length < i) {
+            iArr = new int[i];
+        }
+        int[] iArr2 = iArr;
+        int[] iArr3 = decoderInputBuffer.cryptoInfo.numBytesOfEncryptedData;
+        if (iArr3 == null || iArr3.length < i) {
+            iArr3 = new int[i];
+        }
+        int[] iArr4 = iArr3;
+        if (z) {
+            int i3 = i * 6;
+            this.scratch.reset(i3);
+            readData(j3, this.scratch.data, i3);
+            j3 += i3;
+            this.scratch.setPosition(0);
+            for (int i4 = 0; i4 < i; i4++) {
+                iArr2[i4] = this.scratch.readUnsignedShort();
+                iArr4[i4] = this.scratch.readUnsignedIntToInt();
+            }
+        } else {
+            iArr2[0] = 0;
+            iArr4[0] = sampleExtrasHolder.size - ((int) (j3 - sampleExtrasHolder.offset));
+        }
+        TrackOutput.CryptoData cryptoData = sampleExtrasHolder.cryptoData;
+        CryptoInfo cryptoInfo2 = decoderInputBuffer.cryptoInfo;
+        cryptoInfo2.set(i, iArr2, iArr4, cryptoData.encryptionKey, cryptoInfo2.iv, cryptoData.cryptoMode, cryptoData.encryptedBlocks, cryptoData.clearBlocks);
+        long j4 = sampleExtrasHolder.offset;
+        int i5 = (int) (j3 - j4);
+        sampleExtrasHolder.offset = j4 + i5;
+        sampleExtrasHolder.size -= i5;
     }
 
     public int advanceToEnd() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.metadataQueue.advanceToEnd();
-        }
-        return invokeV.intValue;
+        return this.metadataQueue.advanceToEnd();
     }
 
     public void discardToEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            discardDownstreamTo(this.metadataQueue.discardToEnd());
-        }
+        discardDownstreamTo(this.metadataQueue.discardToEnd());
     }
 
     public void discardToRead() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            discardDownstreamTo(this.metadataQueue.discardToRead());
-        }
+        discardDownstreamTo(this.metadataQueue.discardToRead());
     }
 
     public long getLargestQueuedTimestampUs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.metadataQueue.getLargestQueuedTimestampUs();
-        }
-        return invokeV.longValue;
+        return this.metadataQueue.getLargestQueuedTimestampUs();
     }
 
     public int getReadIndex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.metadataQueue.getReadIndex();
-        }
-        return invokeV.intValue;
+        return this.metadataQueue.getReadIndex();
     }
 
     public Format getUpstreamFormat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.metadataQueue.getUpstreamFormat();
-        }
-        return (Format) invokeV.objValue;
+        return this.metadataQueue.getUpstreamFormat();
     }
 
     public int getWriteIndex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.metadataQueue.getWriteIndex();
-        }
-        return invokeV.intValue;
+        return this.metadataQueue.getWriteIndex();
     }
 
     public boolean hasNextSample() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.metadataQueue.hasNextSample();
-        }
-        return invokeV.booleanValue;
+        return this.metadataQueue.hasNextSample();
     }
 
     public int peekSourceId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.metadataQueue.peekSourceId();
-        }
-        return invokeV.intValue;
+        return this.metadataQueue.peekSourceId();
     }
 
     public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            reset(false);
-        }
+        reset(false);
     }
 
     public void rewind() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.metadataQueue.rewind();
-            this.readAllocationNode = this.firstAllocationNode;
-        }
+        this.metadataQueue.rewind();
+        this.readAllocationNode = this.firstAllocationNode;
     }
 
     public void splice() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.pendingSplice = true;
-        }
+        this.pendingSplice = true;
     }
 
     public void discardUpstreamSamples(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            long discardUpstreamSamples = this.metadataQueue.discardUpstreamSamples(i);
-            this.totalBytesWritten = discardUpstreamSamples;
-            if (discardUpstreamSamples != 0) {
-                AllocationNode allocationNode = this.firstAllocationNode;
-                if (discardUpstreamSamples != allocationNode.startPosition) {
-                    while (this.totalBytesWritten > allocationNode.endPosition) {
-                        allocationNode = allocationNode.next;
-                    }
-                    AllocationNode allocationNode2 = allocationNode.next;
-                    clearAllocationNodes(allocationNode2);
-                    AllocationNode allocationNode3 = new AllocationNode(allocationNode.endPosition, this.allocationLength);
-                    allocationNode.next = allocationNode3;
-                    if (this.totalBytesWritten != allocationNode.endPosition) {
-                        allocationNode3 = allocationNode;
-                    }
-                    this.writeAllocationNode = allocationNode3;
-                    if (this.readAllocationNode == allocationNode2) {
-                        this.readAllocationNode = allocationNode.next;
-                        return;
-                    }
+        long discardUpstreamSamples = this.metadataQueue.discardUpstreamSamples(i);
+        this.totalBytesWritten = discardUpstreamSamples;
+        if (discardUpstreamSamples != 0) {
+            AllocationNode allocationNode = this.firstAllocationNode;
+            if (discardUpstreamSamples != allocationNode.startPosition) {
+                while (this.totalBytesWritten > allocationNode.endPosition) {
+                    allocationNode = allocationNode.next;
+                }
+                AllocationNode allocationNode2 = allocationNode.next;
+                clearAllocationNodes(allocationNode2);
+                AllocationNode allocationNode3 = new AllocationNode(allocationNode.endPosition, this.allocationLength);
+                allocationNode.next = allocationNode3;
+                if (this.totalBytesWritten != allocationNode.endPosition) {
+                    allocationNode3 = allocationNode;
+                }
+                this.writeAllocationNode = allocationNode3;
+                if (this.readAllocationNode == allocationNode2) {
+                    this.readAllocationNode = allocationNode.next;
                     return;
                 }
+                return;
             }
-            clearAllocationNodes(this.firstAllocationNode);
-            AllocationNode allocationNode4 = new AllocationNode(this.totalBytesWritten, this.allocationLength);
-            this.firstAllocationNode = allocationNode4;
-            this.readAllocationNode = allocationNode4;
-            this.writeAllocationNode = allocationNode4;
         }
+        clearAllocationNodes(this.firstAllocationNode);
+        AllocationNode allocationNode4 = new AllocationNode(this.totalBytesWritten, this.allocationLength);
+        this.firstAllocationNode = allocationNode4;
+        this.readAllocationNode = allocationNode4;
+        this.writeAllocationNode = allocationNode4;
     }
 
     public int read(FormatHolder formatHolder, DecoderInputBuffer decoderInputBuffer, boolean z, boolean z2, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{formatHolder, decoderInputBuffer, Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j)})) == null) {
-            int read = this.metadataQueue.read(formatHolder, decoderInputBuffer, z, z2, this.downstreamFormat, this.extrasHolder);
-            if (read != -5) {
-                if (read != -4) {
-                    if (read == -3) {
-                        return -3;
-                    }
-                    throw new IllegalStateException();
+        int read = this.metadataQueue.read(formatHolder, decoderInputBuffer, z, z2, this.downstreamFormat, this.extrasHolder);
+        if (read != -5) {
+            if (read != -4) {
+                if (read == -3) {
+                    return -3;
                 }
-                if (!decoderInputBuffer.isEndOfStream()) {
-                    if (decoderInputBuffer.timeUs < j) {
-                        decoderInputBuffer.addFlag(Integer.MIN_VALUE);
-                    }
-                    if (decoderInputBuffer.isEncrypted()) {
-                        readEncryptionData(decoderInputBuffer, this.extrasHolder);
-                    }
-                    decoderInputBuffer.ensureSpaceForWrite(this.extrasHolder.size);
-                    SampleMetadataQueue.SampleExtrasHolder sampleExtrasHolder = this.extrasHolder;
-                    readData(sampleExtrasHolder.offset, decoderInputBuffer.data, sampleExtrasHolder.size);
-                }
-                return -4;
+                throw new IllegalStateException();
             }
-            this.downstreamFormat = formatHolder.format;
-            return -5;
+            if (!decoderInputBuffer.isEndOfStream()) {
+                if (decoderInputBuffer.timeUs < j) {
+                    decoderInputBuffer.addFlag(Integer.MIN_VALUE);
+                }
+                if (decoderInputBuffer.isEncrypted()) {
+                    readEncryptionData(decoderInputBuffer, this.extrasHolder);
+                }
+                decoderInputBuffer.ensureSpaceForWrite(this.extrasHolder.size);
+                SampleMetadataQueue.SampleExtrasHolder sampleExtrasHolder = this.extrasHolder;
+                readData(sampleExtrasHolder.offset, decoderInputBuffer.data, sampleExtrasHolder.size);
+            }
+            return -4;
         }
-        return invokeCommon.intValue;
+        this.downstreamFormat = formatHolder.format;
+        return -5;
     }
 
     @Override // com.google.android.exoplayer2.extractor.TrackOutput
     public void sampleMetadata(long j, int i, int i2, int i3, TrackOutput.CryptoData cryptoData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), cryptoData}) == null) {
-            if (this.pendingFormatAdjustment) {
-                format(this.lastUnadjustedFormat);
-            }
-            if (this.pendingSplice) {
-                if ((i & 1) != 0 && this.metadataQueue.attemptSplice(j)) {
-                    this.pendingSplice = false;
-                } else {
-                    return;
-                }
-            }
-            this.metadataQueue.commitSample(j + this.sampleOffsetUs, i, (this.totalBytesWritten - i2) - i3, i2, cryptoData);
+        if (this.pendingFormatAdjustment) {
+            format(this.lastUnadjustedFormat);
         }
+        if (this.pendingSplice) {
+            if ((i & 1) != 0 && this.metadataQueue.attemptSplice(j)) {
+                this.pendingSplice = false;
+            } else {
+                return;
+            }
+        }
+        this.metadataQueue.commitSample(j + this.sampleOffsetUs, i, (this.totalBytesWritten - i2) - i3, i2, cryptoData);
     }
 }

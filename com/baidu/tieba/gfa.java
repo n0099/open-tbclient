@@ -2,13 +2,19 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import rx.internal.operators.OperatorPublish$InnerProducer;
+import java.io.InputStream;
+@Deprecated
 /* loaded from: classes4.dex */
-public final class gfa<T> extends dea<T> implements eea {
+public abstract class gfa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void g();
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            throw null;
+        }
+    }
 
-    public abstract void h(OperatorPublish$InnerProducer<T> operatorPublish$InnerProducer);
+    public abstract InputStream b();
 }

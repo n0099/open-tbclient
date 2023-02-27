@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.ac.U;
-import com.baidu.sofire.b.k;
-import com.baidu.sofire.b.l;
+import com.baidu.sofire.b.i;
+import com.baidu.sofire.b.j;
 import com.baidu.sofire.core.ApkInfo;
-import com.baidu.sofire.k.p;
+import com.baidu.sofire.k.u;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -46,7 +46,7 @@ public final class f implements Runnable {
     public void run() {
         boolean z;
         ApkInfo b;
-        List<ApkInfo> a;
+        List<ApkInfo> b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
@@ -58,30 +58,30 @@ public final class f implements Runnable {
                     a.a(this.b, intent);
                 }
                 String action = this.a.getAction();
-                if (this.c && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.k.a.l(this.b) && U.sMonitorNetworkWhenUpgradeNoNet) {
-                    p.a(this.b).b(new U(this.b.getApplicationContext(), 3, false));
+                if (this.c && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.k.b.k(this.b) && U.sMonitorNetworkWhenUpgradeNoNet) {
+                    u.a(this.b).b(new U(this.b.getApplicationContext(), 3, false));
                     z = true;
                 } else {
                     z = false;
                 }
-                if (this.c && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.k.a.a && !z && com.baidu.sofire.k.a.m(this.b)) {
-                    p.a(this.b).b(new U(this.b.getApplicationContext(), 3, false));
+                if (this.c && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.k.b.a && !z && com.baidu.sofire.k.b.l(this.b)) {
+                    u.a(this.b).b(new U(this.b.getApplicationContext(), 3, false));
                 }
                 if (this.c) {
                     return;
                 }
                 String stringExtra2 = this.a.getStringExtra("from_plugin_package");
                 if (TextUtils.isEmpty(stringExtra2)) {
-                    k kVar = k.f;
-                    if (kVar != null && (a = kVar.a()) != null) {
-                        for (int i = 0; i < a.size(); i++) {
-                            ApkInfo apkInfo = a.get(i);
+                    i iVar = i.g;
+                    if (iVar != null && (b2 = iVar.b()) != null) {
+                        for (int i = 0; i < b2.size(); i++) {
+                            ApkInfo apkInfo = b2.get(i);
                             if (apkInfo.intentFilters != null) {
                                 for (int i2 = 0; i2 < apkInfo.intentFilters.size(); i2++) {
-                                    l lVar = apkInfo.intentFilters.get(i2);
-                                    if (lVar.d.match(this.a.getAction(), this.a.getType(), this.a.getScheme(), this.a.getData(), this.a.getCategories(), "PIF") >= 0) {
-                                        Class<?> loadClass = apkInfo.classLoader.loadClass(lVar.b);
-                                        loadClass.getDeclaredMethod(lVar.c, Context.class, Intent.class).invoke(loadClass.newInstance(), this.b.getApplicationContext(), this.a);
+                                    j jVar = apkInfo.intentFilters.get(i2);
+                                    if (jVar.d.match(this.a.getAction(), this.a.getType(), this.a.getScheme(), this.a.getData(), this.a.getCategories(), "PIF") >= 0) {
+                                        Class<?> loadClass = apkInfo.classLoader.loadClass(jVar.b);
+                                        loadClass.getDeclaredMethod(jVar.c, Context.class, Intent.class).invoke(loadClass.newInstance(), this.b.getApplicationContext(), this.a);
                                     }
                                 }
                             }
@@ -90,8 +90,8 @@ public final class f implements Runnable {
                 } else if (this.b.getPackageName().equals(stringExtra2)) {
                     MyReceiver.a(this.b.getClassLoader(), this.a, this.b);
                 } else {
-                    k kVar2 = k.f;
-                    if (kVar2 == null || (b = kVar2.b(stringExtra2)) == null) {
+                    i iVar2 = i.g;
+                    if (iVar2 == null || (b = iVar2.b(stringExtra2)) == null) {
                         return;
                     }
                     MyReceiver.a(b.classLoader, this.a, this.b);

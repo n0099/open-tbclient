@@ -1,29 +1,7 @@
 package com.baidu.tieba;
+
+import android.media.MediaFormat;
 /* loaded from: classes5.dex */
 public interface ny9 {
-    void a(int i);
-
-    void b(String str);
-
-    boolean c();
-
-    ny9 d();
-
-    void e(boolean z);
-
-    void f(String str);
-
-    void g(String str);
-
-    String getAAID();
-
-    String getOAID();
-
-    int getStatusCode();
-
-    String getVAID();
-
-    void h(boolean z);
-
-    boolean isSupport();
+    void a(MediaFormat mediaFormat);
 }

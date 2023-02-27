@@ -1,13 +1,6 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.ubcprocessor.UBCCloudConfigObserver;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,78 +8,70 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Service
 /* loaded from: classes7.dex */
-public class zz9 implements UBCCloudConfigObserver {
+public class zz9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948377392, "Lcom/baidu/tieba/zz9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948377392, "Lcom/baidu/tieba/zz9;");
-                return;
-            }
-        }
-        a = AppConfig.isDebug();
-    }
+    public int a;
+    public boolean b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public boolean g;
+    public String h;
 
     public zz9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.searchbox.ubcprocessor.UBCCloudConfigObserver
-    public void onReceiveUbcCloudConfig(String str, JSONObject jSONObject) {
-        String optString;
-        boolean z;
+    public JSONObject a() {
+        InterceptResult invokeV;
+        JSONObject jSONObject;
+        JSONException e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-            if (a) {
-                Log.d("YaLogConfigObserver", "receive YaLog ID config data: " + str);
-            }
-            if (TextUtils.isEmpty(str)) {
-                if (a) {
-                    Log.d("YaLogConfigObserver", "YaLog ID config data is null");
-                    return;
-                }
-                return;
-            }
-            if (jSONObject == null) {
-                optString = "0";
-            } else {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                jSONObject = new JSONObject();
                 try {
-                    optString = jSONObject.optString("version_asc");
-                } catch (JSONException e) {
-                    if (a) {
-                        e.printStackTrace();
-                        return;
-                    }
-                    return;
+                    jSONObject.put("type", this.a);
+                    jSONObject.put("doReport", this.b);
+                    jSONObject.put("name", this.c);
+                    jSONObject.put("code", this.d);
+                    jSONObject.put("msg", this.e);
+                    jSONObject.put("data", this.f);
+                    jSONObject.put("isShowSpecialToast", this.g);
+                    jSONObject.put("specialToast", this.h);
+                } catch (JSONException e2) {
+                    e = e2;
+                    e.printStackTrace();
+                    return jSONObject;
                 }
+            } catch (JSONException e3) {
+                jSONObject = null;
+                e = e3;
             }
-            if (!"0".equals(optString)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            ((xz9) ServiceManager.getService(xz9.a)).b(new JSONObject(str), z);
+            return jSONObject;
         }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "type:" + this.a + "name:" + this.c + "code:" + this.d + "msg:" + this.e + "data" + this.f + "doReport : " + this.b;
+        }
+        return (String) invokeV.objValue;
     }
 }

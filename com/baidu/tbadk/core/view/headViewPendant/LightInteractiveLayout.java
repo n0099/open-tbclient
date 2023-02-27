@@ -33,6 +33,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewCommonUtil;
 import com.baidu.tbadk.core.view.headViewPendant.LightEmotionAdapter;
 import com.baidu.tbadk.data.LightEmotionData;
@@ -40,15 +41,16 @@ import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dj;
+import com.baidu.tieba.e65;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.f65;
 import com.baidu.tieba.im.util.MessageUtils;
-import com.baidu.tieba.s45;
-import com.baidu.tieba.t45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -66,8 +68,8 @@ public class LightInteractiveLayout extends ConstraintLayout {
     public View c;
     public View d;
     public ImageView e;
-    public t45 f;
-    public Context g;
+    public f65 f;
+    public WeakReference<Context> g;
     public LightEmotionAdapter h;
     public ImageView i;
     public RelativeLayout j;
@@ -426,19 +428,18 @@ public class LightInteractiveLayout extends ConstraintLayout {
 
     public void setListBackground(int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeII(1048589, this, i, i2) != null) || this.e == null) {
-            return;
-        }
-        int l = ej.l(this.g) / 2;
-        int j = ej.j(this.g) / 3;
-        if (i < l && i2 < j) {
-            SkinManager.setImageResource(this.e, R.drawable.icon_qinghudong_left_up);
-        } else if (i < l && i2 > j) {
-            SkinManager.setImageResource(this.e, R.drawable.icon_qinghudong_left_below);
-        } else if (i > l && i2 < j) {
-            SkinManager.setImageResource(this.e, R.drawable.icon_qinghudong_right_up);
-        } else if (i > l && i2 > j) {
-            SkinManager.setImageResource(this.e, R.drawable.icon_qinghudong_right_below);
+        if ((interceptable == null || interceptable.invokeII(1048589, this, i, i2) == null) && this.e != null && getViewContext() != null) {
+            int l = ej.l(getViewContext()) / 2;
+            int j = ej.j(getViewContext()) / 3;
+            if (i < l && i2 < j) {
+                SkinManager.setImageResource(this.e, R.drawable.icon_qinghudong_left_up);
+            } else if (i < l && i2 > j) {
+                SkinManager.setImageResource(this.e, R.drawable.icon_qinghudong_left_below);
+            } else if (i > l && i2 < j) {
+                SkinManager.setImageResource(this.e, R.drawable.icon_qinghudong_right_up);
+            } else if (i > l && i2 > j) {
+                SkinManager.setImageResource(this.e, R.drawable.icon_qinghudong_right_below);
+            }
         }
     }
 
@@ -484,13 +485,13 @@ public class LightInteractiveLayout extends ConstraintLayout {
         }
     }
 
-    public void setOnDismissListener(t45 t45Var) {
+    public void setOnDismissListener(f65 f65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, t45Var) == null) {
-            this.f = t45Var;
+        if (interceptable == null || interceptable.invokeL(1048592, this, f65Var) == null) {
+            this.f = f65Var;
             LightEmotionAdapter lightEmotionAdapter = this.h;
             if (lightEmotionAdapter != null) {
-                lightEmotionAdapter.i(t45Var);
+                lightEmotionAdapter.i(f65Var);
             }
         }
     }
@@ -527,13 +528,48 @@ public class LightInteractiveLayout extends ConstraintLayout {
         return invokeLII.booleanValue;
     }
 
+    private Context getViewContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+            WeakReference<Context> weakReference = this.g;
+            if (weakReference != null) {
+                return weakReference.get();
+            }
+            f65 f65Var = this.f;
+            if (f65Var != null) {
+                f65Var.onClose();
+                return null;
+            }
+            return null;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public MetaData getUserInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.A;
+        }
+        return (MetaData) invokeV.objValue;
+    }
+
+    public void x() {
+        AnimatorSet animatorSet;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && (animatorSet = this.s) != null) {
+            animatorSet.cancel();
+        }
+    }
+
     public final void A() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.A != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.g, this.A.getUserId(), this.A.getUserName())));
-            t45 t45Var = this.f;
-            if (t45Var != null) {
-                t45Var.onClose();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.A != null && getViewContext() != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getViewContext(), this.A.getUserId(), this.A.getUserName())));
+            f65 f65Var = this.f;
+            if (f65Var != null) {
+                f65Var.onClose();
             }
         }
     }
@@ -626,9 +662,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
                 int rawY = (int) motionEvent.getRawY();
                 this.w = rawY;
                 if (!z(this.b, this.v, rawY)) {
-                    t45 t45Var = this.f;
-                    if (t45Var != null) {
-                        t45Var.onClose();
+                    f65 f65Var = this.f;
+                    if (f65Var != null) {
+                        f65Var.onClose();
                         return true;
                     }
                     return true;
@@ -656,7 +692,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
                 D(lightEmotionData.getId());
                 MetaData metaData2 = this.A;
                 if (metaData2 != null) {
-                    s45.a(this.y, metaData2.getUserId(), lightEmotionData.getId());
+                    e65.a(this.y, metaData2.getUserId(), lightEmotionData.getId());
                 }
             } else if (i2 == 3) {
                 HashMap hashMap = new HashMap();
@@ -687,47 +723,30 @@ public class LightInteractiveLayout extends ConstraintLayout {
     public final void y(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, context) == null) {
-            this.g = context;
-            this.h = new LightEmotionAdapter(context);
-            LayoutInflater.from(context).inflate(R.layout.light_inter_layout, (ViewGroup) this, true);
+            this.g = new WeakReference<>(context);
+            this.h = new LightEmotionAdapter(getViewContext());
+            LayoutInflater.from(getViewContext()).inflate(R.layout.light_inter_layout, (ViewGroup) this, true);
             this.b = (BdRecyclerView) findViewById(R.id.light_list_view);
             this.e = (ImageView) findViewById(R.id.list_view_bobble);
-            this.i = new TbImageView(context);
-            ej.g(this.g, R.dimen.tbds104);
-            ej.g(this.g, R.dimen.tbds208);
-            ej.g(this.g, R.dimen.tbds100);
-            ej.g(this.g, R.dimen.tbds85);
-            ej.g(this.g, R.dimen.tbds250);
-            ej.g(this.g, R.dimen.tbds432);
+            this.i = new TbImageView(getViewContext());
+            UtilHelper.getDimenPixelSize(R.dimen.tbds104);
+            UtilHelper.getDimenPixelSize(R.dimen.tbds208);
+            UtilHelper.getDimenPixelSize(R.dimen.tbds100);
+            UtilHelper.getDimenPixelSize(R.dimen.tbds85);
+            UtilHelper.getDimenPixelSize(R.dimen.tbds250);
+            UtilHelper.getDimenPixelSize(R.dimen.tbds432);
             new Matrix();
-            this.j = new RelativeLayout(this.g);
+            this.j = new RelativeLayout(getViewContext());
             this.j.setLayoutParams(new RelativeLayout.LayoutParams(-2, -1));
             SkinManager.setImageResource(this.i, R.drawable.icon_pic_qinghudong_home_normal);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ej.g(this.g, R.dimen.tbds104), ej.g(this.g, R.dimen.tbds104));
-            layoutParams.topMargin = ej.g(this.g, R.dimen.tbds23);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds104), UtilHelper.getDimenPixelSize(R.dimen.tbds104));
+            layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds23);
             layoutParams.gravity = 81;
             this.i.setLayoutParams(layoutParams);
             this.j.addView(this.i);
             this.b.addOnItemTouchListener(this.D);
             this.s = new AnimatorSet();
             setClipChildren(false);
-        }
-    }
-
-    public MetaData getUserInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.A;
-        }
-        return (MetaData) invokeV.objValue;
-    }
-
-    public void x() {
-        AnimatorSet animatorSet;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && (animatorSet = this.s) != null) {
-            animatorSet.cancel();
         }
     }
 
@@ -750,63 +769,64 @@ public class LightInteractiveLayout extends ConstraintLayout {
 
     public void setLocation(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) {
-            int l = ej.l(this.g) / 2;
-            int j = ej.j(this.g) / 3;
-            this.t = i;
-            this.u = i2;
-            c cVar = new c(this, this.g);
-            cVar.setOrientation(0);
-            BdRecyclerView bdRecyclerView = this.b;
-            if (bdRecyclerView != null && this.e != null) {
-                ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) bdRecyclerView.getLayoutParams();
-                if (this.x == 3) {
-                    this.k = i - ej.g(this.g, R.dimen.tbds550);
-                    this.l = i2 + ej.g(this.g, R.dimen.tbds70);
-                    ViewCommonUtil.setViewPadding(this.b, -1, -1, -1, ej.g(getContext(), R.dimen.tbds10));
-                    this.p = 700.0f;
-                    this.q = -200.0f;
-                    cVar.setStackFromEnd(false);
-                    cVar.setReverseLayout(false);
-                } else if (i < l && i2 < j) {
-                    ViewCommonUtil.setViewPadding(this.b, -1, -1, -1, ej.g(getContext(), R.dimen.tbds10));
-                    if (this.r) {
-                        ViewCommonUtil.setViewMargin(this.i, -1, ej.g(getContext(), R.dimen.tbds38), -1, -1);
-                    }
-                    this.k = i - ej.g(this.g, R.dimen.tbds80);
-                    this.l = i2;
-                    this.p = 100.0f;
-                    this.q = -200.0f;
-                } else if (i < l && i2 > j) {
-                    this.k = i - ej.g(this.g, R.dimen.tbds80);
-                    this.l = i2 - ej.g(this.g, R.dimen.tbds280);
-                    this.p = 100.0f;
-                    this.q = 100.0f;
-                } else if (i > l && i2 < j) {
-                    ViewCommonUtil.setViewPadding(this.b, -1, -1, -1, ej.g(getContext(), R.dimen.tbds10));
-                    this.k = i - ej.g(this.g, R.dimen.tbds626);
-                    this.l = i2 + ej.g(this.g, R.dimen.tbds10);
-                    this.p = 740.0f;
-                    this.q = -200.0f;
-                    cVar.setStackFromEnd(false);
-                    cVar.setReverseLayout(false);
-                } else if (i > l && i2 > j) {
-                    this.k = i - ej.g(this.g, R.dimen.tbds626);
-                    this.l = i2 - ej.g(this.g, R.dimen.tbds300);
-                    this.p = 740.0f;
-                    this.q = 100.0f;
-                    cVar.setStackFromEnd(false);
-                    cVar.setReverseLayout(false);
-                }
-                setListBackground(this.t, this.u);
-                layoutParams.setMargins(this.k, this.l, this.m, this.n);
-                this.b.setLayoutManager(cVar);
-                this.b.setAdapter(this.h);
+        if ((interceptable != null && interceptable.invokeII(1048590, this, i, i2) != null) || getViewContext() == null) {
+            return;
+        }
+        int l = ej.l(getViewContext()) / 2;
+        int j = ej.j(getViewContext()) / 3;
+        this.t = i;
+        this.u = i2;
+        c cVar = new c(this, getViewContext());
+        cVar.setOrientation(0);
+        BdRecyclerView bdRecyclerView = this.b;
+        if (bdRecyclerView != null && this.e != null) {
+            ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) bdRecyclerView.getLayoutParams();
+            if (this.x == 3) {
+                this.k = i - UtilHelper.getDimenPixelSize(R.dimen.tbds550);
+                this.l = i2 + UtilHelper.getDimenPixelSize(R.dimen.tbds70);
+                ViewCommonUtil.setViewPadding(this.b, -1, -1, -1, UtilHelper.getDimenPixelSize(R.dimen.tbds10));
+                this.p = 700.0f;
+                this.q = -200.0f;
+                cVar.setStackFromEnd(false);
+                cVar.setReverseLayout(false);
+            } else if (i < l && i2 < j) {
+                ViewCommonUtil.setViewPadding(this.b, -1, -1, -1, UtilHelper.getDimenPixelSize(R.dimen.tbds10));
                 if (this.r) {
-                    this.b.r(this.j);
+                    ViewCommonUtil.setViewMargin(this.i, -1, UtilHelper.getDimenPixelSize(R.dimen.tbds38), -1, -1);
                 }
-                setImageData();
+                this.k = i - UtilHelper.getDimenPixelSize(R.dimen.tbds80);
+                this.l = i2;
+                this.p = 100.0f;
+                this.q = -200.0f;
+            } else if (i < l && i2 > j) {
+                this.k = i - UtilHelper.getDimenPixelSize(R.dimen.tbds80);
+                this.l = i2 - UtilHelper.getDimenPixelSize(R.dimen.tbds280);
+                this.p = 100.0f;
+                this.q = 100.0f;
+            } else if (i > l && i2 < j) {
+                ViewCommonUtil.setViewPadding(this.b, -1, -1, -1, UtilHelper.getDimenPixelSize(R.dimen.tbds10));
+                this.k = i - UtilHelper.getDimenPixelSize(R.dimen.tbds626);
+                this.l = i2 + UtilHelper.getDimenPixelSize(R.dimen.tbds10);
+                this.p = 740.0f;
+                this.q = -200.0f;
+                cVar.setStackFromEnd(false);
+                cVar.setReverseLayout(false);
+            } else if (i > l && i2 > j) {
+                this.k = i - UtilHelper.getDimenPixelSize(R.dimen.tbds626);
+                this.l = i2 - UtilHelper.getDimenPixelSize(R.dimen.tbds300);
+                this.p = 740.0f;
+                this.q = 100.0f;
+                cVar.setStackFromEnd(false);
+                cVar.setReverseLayout(false);
             }
+            setListBackground(this.t, this.u);
+            layoutParams.setMargins(this.k, this.l, this.m, this.n);
+            this.b.setLayoutManager(cVar);
+            this.b.setAdapter(this.h);
+            if (this.r) {
+                this.b.r(this.j);
+            }
+            setImageData();
         }
     }
 }

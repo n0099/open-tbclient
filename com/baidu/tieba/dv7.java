@@ -1,52 +1,100 @@
 package com.baidu.tieba;
 
+import android.widget.ListView;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class dv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ArrayList<cv7> a;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ListView a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ cv7 c;
+        public final /* synthetic */ ChatMessage d;
+        public final /* synthetic */ ChatMessage e;
+
+        public a(dv7 dv7Var, ListView listView, List list, cv7 cv7Var, ChatMessage chatMessage, ChatMessage chatMessage2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dv7Var, listView, list, cv7Var, chatMessage, chatMessage2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = listView;
+            this.b = list;
+            this.c = cv7Var;
+            this.d = chatMessage;
+            this.e = chatMessage2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.getLastVisiblePosition() != this.b.size() - 1) {
+                return;
+            }
+            this.c.b(this.a, this.d, this.e);
+        }
+    }
+
+    public dv7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return R.drawable.icon_hand_normal_card_recommend;
-                case 2:
-                    return R.drawable.icon_comment_n;
-                case 3:
-                    return R.drawable.icon_home_yule;
-                case 4:
-                    return R.drawable.icon_see_n;
-                case 5:
-                    return R.drawable.icon_frs_ba_ticket;
-                case 6:
-                    return R.drawable.icon_frs_game;
-                case 7:
-                    return R.drawable.icon_frs_news;
-                case 8:
-                    return R.drawable.icon_new_live;
-                case 9:
-                    return R.drawable.icon_hottopic_new;
-                case 10:
-                    return R.drawable.icon_hottopic_hot;
-                case 11:
-                    return R.drawable.icon_hottopic_tuijian;
-                case 12:
-                    return R.drawable.icon_people_num;
-                case 13:
-                    return R.drawable.icon_time_start;
-                case 14:
-                    return R.drawable.lego_interview_notice_button_before_selector;
-                case 15:
-                    return R.drawable.lego_interview_notice_button_after_selector;
-                default:
-                    return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeI.intValue;
+        ArrayList<cv7> arrayList = new ArrayList<>(2);
+        this.a = arrayList;
+        arrayList.add(new bv7());
+        this.a.add(new ev7());
+    }
+
+    public void a(MsglistModel msglistModel, ListView listView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, msglistModel, listView) == null) && msglistModel != null && msglistModel.getData() != null) {
+            List<ChatMessage> chatMessages = msglistModel.getData().getChatMessages();
+            if (ListUtils.isEmpty(chatMessages)) {
+                return;
+            }
+            ChatMessage chatMessage = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 1);
+            ChatMessage chatMessage2 = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 2);
+            Iterator<cv7> it = this.a.iterator();
+            while (it.hasNext()) {
+                cv7 next = it.next();
+                if (next.a(chatMessage, chatMessage2)) {
+                    listView.postDelayed(new a(this, listView, chatMessages, next, chatMessage, chatMessage2), 200L);
+                    return;
+                }
+            }
+        }
     }
 }

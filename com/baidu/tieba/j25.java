@@ -1,28 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.Message;
+import android.app.Activity;
+import android.content.DialogInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class j25 {
+public abstract class j25 extends g25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Activity c;
+    public TBAlertBuilder d;
+    public DialogInterface.OnDismissListener e;
+
+    public abstract void g(TBAlertBuilder tBAlertBuilder);
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public abstract void i();
 
     /* loaded from: classes5.dex */
-    public static class a implements Runnable {
+    public class a implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Message a;
+        public final /* synthetic */ j25 a;
 
-        public a(Message message) {
+        public a(j25 j25Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {message};
+                Object[] objArr = {j25Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -32,29 +47,61 @@ public final class j25 {
                     return;
                 }
             }
-            this.a = message;
+            this.a = j25Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().sendMessage(this.a);
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.a.h();
+                this.a.c();
+                if (this.a.e != null) {
+                    this.a.e.onDismiss(dialogInterface);
+                }
             }
         }
     }
 
-    public static void a(Message<?> message) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j25(Activity activity) {
+        super(activity);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, message) == null) {
-            MessageManager.getInstance().sendMessage(message);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = activity;
+    }
+
+    @Override // com.baidu.tieba.g25
+    public void b() {
+        TBAlertBuilder tBAlertBuilder;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tBAlertBuilder = this.d) != null) {
+            tBAlertBuilder.dismiss();
         }
     }
 
-    public static void b(Message<?> message) {
+    @Override // com.baidu.tieba.g25
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, message) == null) {
-            gh.a().post(new a(message));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.c);
+            this.d = tBAlertBuilder;
+            tBAlertBuilder.s(new a(this));
+            g(this.d);
+            i();
         }
     }
 }

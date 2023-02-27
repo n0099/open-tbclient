@@ -1,12 +1,6 @@
 package androidx.core.view;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class InputDeviceCompat {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int SOURCE_ANY = -256;
     public static final int SOURCE_CLASS_BUTTON = 1;
     public static final int SOURCE_CLASS_JOYSTICK = 16;
@@ -28,19 +22,4 @@ public final class InputDeviceCompat {
     public static final int SOURCE_TOUCH_NAVIGATION = 2097152;
     public static final int SOURCE_TRACKBALL = 65540;
     public static final int SOURCE_UNKNOWN = 0;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public InputDeviceCompat() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

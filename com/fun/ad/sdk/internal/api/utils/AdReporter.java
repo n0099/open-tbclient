@@ -10,8 +10,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.tieba.b2a;
-import com.baidu.tieba.v6a;
+import com.baidu.tieba.e6a;
+import com.baidu.tieba.yaa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,6 +23,7 @@ import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.internal.api.SidSessionMeta;
 import com.fun.ad.sdk.internal.api.reporter.Reporter;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import com.kuaishou.weapon.p0.i1;
 import java.io.File;
 import java.util.ArrayList;
@@ -120,7 +121,7 @@ public class AdReporter<A> {
                 return;
             }
         }
-        a = v6a.a();
+        a = yaa.a();
     }
 
     public AdReporter(String str, String str2, String str3) {
@@ -320,7 +321,7 @@ public class AdReporter<A> {
             int i2 = i + 1;
             objArr[i] = DI.AB_NAME;
             int i3 = i2 + 1;
-            Boolean bool = b2a.a;
+            Boolean bool = e6a.a;
             if (Settings.Secure.getInt(FunAdSdk.getAppContext().getContentResolver(), "adb_enabled", 0) != 0) {
                 z = true;
             } else {
@@ -330,10 +331,10 @@ public class AdReporter<A> {
             int i4 = i3 + 1;
             objArr[i3] = "rt";
             int i5 = i4 + 1;
-            if (b2a.a == null) {
+            if (e6a.a == null) {
                 String str2 = null;
                 try {
-                    Object invoke = Class.forName("android.os.SystemProperties").getMethod("get", String.class).invoke(null, "ro.secure");
+                    Object invoke = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP).getMethod("get", String.class).invoke(null, "ro.secure");
                     if (invoke != null) {
                         str2 = (String) invoke;
                     }
@@ -348,7 +349,7 @@ public class AdReporter<A> {
                     String str3 = System.getenv("PATH");
                     if (TextUtils.isEmpty(str3)) {
                         split = new String[]{"/sbin", "/system/bin", "/system/xbin", "/data/local/xbin", "/data/local/bin", "/system/sd/xbin", "/system/bin/failsafe", "/data/local"};
-                    } else if (!b2a.b && str3 == null) {
+                    } else if (!e6a.b && str3 == null) {
                         throw new AssertionError();
                     } else {
                         split = str3.split(":");
@@ -369,13 +370,13 @@ public class AdReporter<A> {
                     }
                     if (!z4) {
                         z3 = false;
-                        b2a.a = Boolean.valueOf(z3);
+                        e6a.a = Boolean.valueOf(z3);
                     }
                 }
                 z3 = true;
-                b2a.a = Boolean.valueOf(z3);
+                e6a.a = Boolean.valueOf(z3);
             }
-            objArr[i4] = Boolean.valueOf(b2a.a.booleanValue());
+            objArr[i4] = Boolean.valueOf(e6a.a.booleanValue());
             int i7 = i5 + 1;
             objArr[i5] = "vn";
             int i8 = i7 + 1;

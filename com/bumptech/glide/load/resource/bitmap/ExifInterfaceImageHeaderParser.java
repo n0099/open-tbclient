@@ -3,12 +3,6 @@ package com.bumptech.glide.load.resource.bitmap;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.ImageHeaderParser;
 import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import com.bumptech.glide.util.ByteBufferUtil;
@@ -18,66 +12,29 @@ import java.nio.ByteBuffer;
 @RequiresApi(27)
 /* loaded from: classes7.dex */
 public final class ExifInterfaceImageHeaderParser implements ImageHeaderParser {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public ExifInterfaceImageHeaderParser() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // com.bumptech.glide.load.ImageHeaderParser
     public int getOrientation(@NonNull InputStream inputStream, @NonNull ArrayPool arrayPool) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, inputStream, arrayPool)) == null) {
-            int attributeInt = new ExifInterface(inputStream).getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
-            if (attributeInt == 0) {
-                return -1;
-            }
-            return attributeInt;
+        int attributeInt = new ExifInterface(inputStream).getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
+        if (attributeInt == 0) {
+            return -1;
         }
-        return invokeLL.intValue;
+        return attributeInt;
     }
 
     @Override // com.bumptech.glide.load.ImageHeaderParser
     public int getOrientation(@NonNull ByteBuffer byteBuffer, @NonNull ArrayPool arrayPool) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer, arrayPool)) == null) {
-            return getOrientation(ByteBufferUtil.toStream(byteBuffer), arrayPool);
-        }
-        return invokeLL.intValue;
+        return getOrientation(ByteBufferUtil.toStream(byteBuffer), arrayPool);
     }
 
     @Override // com.bumptech.glide.load.ImageHeaderParser
     @NonNull
     public ImageHeaderParser.ImageType getType(@NonNull InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream)) == null) {
-            return ImageHeaderParser.ImageType.UNKNOWN;
-        }
-        return (ImageHeaderParser.ImageType) invokeL.objValue;
+        return ImageHeaderParser.ImageType.UNKNOWN;
     }
 
     @Override // com.bumptech.glide.load.ImageHeaderParser
     @NonNull
     public ImageHeaderParser.ImageType getType(@NonNull ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, byteBuffer)) == null) {
-            return ImageHeaderParser.ImageType.UNKNOWN;
-        }
-        return (ImageHeaderParser.ImageType) invokeL.objValue;
+        return ImageHeaderParser.ImageType.UNKNOWN;
     }
 }

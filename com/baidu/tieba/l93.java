@@ -1,11 +1,15 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.tieba.pu2;
+import com.baidu.tieba.q93;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,133 +17,182 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayDeque;
+import java.util.HashSet;
+import java.util.Queue;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class l93 {
+public abstract class l93 extends i93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean t;
-    public static final k93<l93> u;
-    public static final j93<l93> v;
+    public static final boolean i;
+    public static volatile l93 j;
+    public static Handler k;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
-    public boolean f;
-    public String g;
+    public pq1 a;
+    public final Set<fo3<q93.a>> b;
+    public volatile int c;
+    public final Queue<Runnable> d;
+    public Runnable e;
+    public vi4 f;
+    public wb3 g;
     public boolean h;
-    public boolean i;
-    public String j;
-    public boolean k;
-    public boolean l;
-    public boolean m;
-    public boolean n;
-    public boolean o;
-    public boolean p;
-    public String q;
-    public String r;
-    public String s;
+
+    public abstract vi4 I();
+
+    public abstract wb3 J();
+
+    public abstract void Q();
 
     /* loaded from: classes5.dex */
-    public static class a extends k93<l93> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q93.a a;
+        public final /* synthetic */ l93 b;
 
-        public a() {
+        /* renamed from: com.baidu.tieba.l93$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class RunnableC0323a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ fo3 a;
+            public final /* synthetic */ a b;
+
+            public RunnableC0323a(a aVar, fo3 fo3Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, fo3Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = fo3Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.a(this.b.a);
+                }
+            }
+        }
+
+        public a(l93 l93Var, q93.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l93Var, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = l93Var;
+            this.a = aVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.k93
-        /* renamed from: b */
-        public void a(@NonNull l93 l93Var, @NonNull cs2 cs2Var) throws Exception {
+        @Override // java.lang.Runnable
+        public void run() {
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l93Var, cs2Var) == null) {
-                cs2Var.writeInt(l93Var.a);
-                cs2Var.f(l93Var.b);
-                cs2Var.f(l93Var.c);
-                cs2Var.f(l93Var.d);
-                cs2Var.writeInt(l93Var.e);
-                cs2Var.writeBoolean(l93Var.f);
-                cs2Var.f(l93Var.g);
-                cs2Var.writeBoolean(l93Var.h);
-                cs2Var.writeBoolean(l93Var.i);
-                cs2Var.f(l93Var.j);
-                cs2Var.writeBoolean(l93Var.k);
-                cs2Var.writeBoolean(l93Var.l);
-                cs2Var.writeBoolean(l93Var.m);
-                cs2Var.writeBoolean(l93Var.n);
-                cs2Var.writeBoolean(l93Var.o);
-                cs2Var.writeBoolean(l93Var.p);
-                cs2Var.f(l93Var.q);
-                cs2Var.f(l93Var.r);
-                cs2Var.f(l93Var.s);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (Looper.getMainLooper() == Looper.myLooper()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                for (fo3 fo3Var : this.b.b) {
+                    if (z && !this.a.e("event_flag_force_post", false)) {
+                        fo3Var.a(this.a);
+                    } else {
+                        l93.M().post(new RunnableC0323a(this, fo3Var));
+                    }
+                }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class b extends j93<l93> {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fo3 a;
+        public final /* synthetic */ l93 b;
 
-        public b() {
+        public b(l93 l93Var, fo3 fo3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l93Var, fo3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = l93Var;
+            this.a = fo3Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.j93
-        /* renamed from: b */
-        public l93 a(@NonNull bs2 bs2Var) throws Exception {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bs2Var)) == null) {
-                l93 l93Var = new l93();
-                l93Var.a = bs2Var.readInt();
-                l93Var.b = bs2Var.g();
-                l93Var.c = bs2Var.g();
-                l93Var.d = bs2Var.g();
-                l93Var.e = bs2Var.readInt();
-                l93Var.f = bs2Var.readBoolean();
-                l93Var.g = bs2Var.g();
-                l93Var.h = bs2Var.readBoolean();
-                l93Var.i = bs2Var.readBoolean();
-                l93Var.j = bs2Var.g();
-                l93Var.k = bs2Var.readBoolean();
-                l93Var.l = bs2Var.readBoolean();
-                l93Var.m = bs2Var.readBoolean();
-                l93Var.n = bs2Var.readBoolean();
-                l93Var.o = bs2Var.readBoolean();
-                l93Var.p = bs2Var.readBoolean();
-                l93Var.q = bs2Var.g();
-                l93Var.r = bs2Var.g();
-                l93Var.s = bs2Var.g();
-                return l93Var;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.b.add(this.a);
             }
-            return (l93) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fo3 a;
+        public final /* synthetic */ l93 b;
+
+        public c(l93 l93Var, fo3 fo3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l93Var, fo3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = l93Var;
+            this.a = fo3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.b.remove(this.a);
+            }
         }
     }
 
@@ -156,9 +209,89 @@ public class l93 {
                 return;
             }
         }
-        t = gp1.a;
-        u = new a();
-        v = new b();
+        i = wp1.a;
+    }
+
+    public static l93 K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            l93 L = L();
+            if (!L.h) {
+                L.O();
+            }
+            return L;
+        }
+        return (l93) invokeV.objValue;
+    }
+
+    public static Handler M() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (k == null) {
+                k = new Handler(Looper.getMainLooper());
+            }
+            return k;
+        }
+        return (Handler) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.p93
+    public wb3 B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.g == null) {
+                this.g = J();
+            }
+            return this.g;
+        }
+        return (wb3) invokeV.objValue;
+    }
+
+    public vi4 N() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.f == null) {
+                this.f = I();
+            }
+            return this.f;
+        }
+        return (vi4) invokeV.objValue;
+    }
+
+    public final void O() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.h) {
+            P();
+            N();
+            y53.S();
+            Q();
+            this.h = true;
+        }
+    }
+
+    public final void P() {
+        wb3 B;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (B = B()) != null) {
+            B.J();
+        }
+    }
+
+    @Override // com.baidu.tieba.p93
+    public pq1 x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.a == null) {
+                this.a = new pq1();
+            }
+            return this.a;
+        }
+        return (pq1) invokeV.objValue;
     }
 
     public l93() {
@@ -166,169 +299,120 @@ public class l93 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.l = false;
-        this.m = false;
-        this.n = true;
-        this.o = false;
-        this.p = false;
-        this.a = -16777216;
-        this.c = "#ffffff";
-        this.j = "default";
-        this.e = -1;
-        this.f = false;
+        new pu2.a();
+        this.b = new HashSet();
+        this.c = 0;
+        this.d = new ArrayDeque();
+        this.e = null;
+        this.h = false;
     }
 
-    public static l93 d() {
+    @Override // com.baidu.tieba.p93
+    public void o(fo3<q93.a> fo3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, fo3Var) == null) && fo3Var != null) {
+            R(new c(this, fo3Var));
+        }
+    }
+
+    @Override // com.baidu.tieba.p93
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            v(str, null);
+        }
+    }
+
+    @Override // com.baidu.tieba.p93
+    public void u(fo3<q93.a> fo3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, fo3Var) == null) && fo3Var != null) {
+            R(new b(this, fo3Var));
+        }
+    }
+
+    public static l93 L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (t) {
-                Log.w("WindowConfig", "WindowConfig#createNullObject stack=" + Log.getStackTraceString(new Exception()));
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (j instanceof r93) {
+                return j;
             }
-            return new l93();
+            synchronized (l93.class) {
+                if (j instanceof r93) {
+                    return j;
+                }
+                SwanAppProcessInfo current = SwanAppProcessInfo.current();
+                if (current.isSwanClient) {
+                    if (i && j != null) {
+                        throw new IllegalStateException("When convinced current process is swan client，but Swan instance already init with: " + j);
+                    }
+                    j = new r93();
+                    return j;
+                } else if (current.isSwanService) {
+                    if (!(j instanceof t93)) {
+                        if (i && j != null) {
+                            throw new IllegalStateException("When convinced current process is swan service，but Swan instance already init with: " + j);
+                        }
+                        j = new t93();
+                    }
+                    return j;
+                } else {
+                    if (j == null) {
+                        j = new k93();
+                    }
+                    return j;
+                }
+            }
         }
         return (l93) invokeV.objValue;
     }
 
-    public static l93 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.p93
+    public void A(q93.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return d();
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            if (i) {
+                Log.i("SwanImpl", "SwanEvent dispatchEvent: " + aVar + " mEventCallbacks:" + this.b.size());
             }
-            return c(jSONObject);
-        }
-        return (l93) invokeL.objValue;
-    }
-
-    public static boolean f(l93 l93Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, l93Var)) == null) {
-            if (l93Var == null) {
-                return false;
+            if (aVar != null) {
+                R(new a(this, aVar));
             }
-            if (!l93Var.h && !TextUtils.equals(l93Var.j, "custom")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && !this.p) {
-            this.p = true;
         }
     }
 
-    public static l93 b(String str, @NonNull l93 l93Var) {
-        InterceptResult invokeLL;
+    public final synchronized void R(@NonNull Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, l93Var)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return l93Var;
-            }
-            try {
-                return e(new JSONObject(str), l93Var);
-            } catch (JSONException e) {
-                if (t) {
-                    Log.d("WindowConfig", "buildPageWindowConfig jsonString failed: " + Log.getStackTraceString(e));
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, runnable) == null) {
+            synchronized (this) {
+                this.d.offer(runnable);
+                if (this.e == null) {
+                    while (!this.d.isEmpty()) {
+                        Runnable poll = this.d.poll();
+                        this.e = poll;
+                        if (poll != null) {
+                            poll.run();
+                        }
+                        this.e = null;
+                    }
                 }
-                return l93Var;
             }
         }
-        return (l93) invokeLL.objValue;
     }
 
-    public static l93 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.p93
+    public void v(String str, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("window");
-            if (optJSONObject == null) {
-                return d();
-            }
-            l93 l93Var = new l93();
-            String optString = optJSONObject.optString("navigationBarBackgroundColor");
-            if (TextUtils.isEmpty(optString)) {
-                optString = "#000000";
-            }
-            l93Var.a = SwanAppConfigData.t(optString);
-            String optString2 = optJSONObject.optString("navigationBarTextStyle");
-            if (TextUtils.isEmpty(optString2)) {
-                optString2 = "white";
-            }
-            l93Var.c = optString2;
-            l93Var.b = optJSONObject.optString("navigationBarTitleText");
-            l93Var.d = optJSONObject.optString("backgroundTextStyle", "black");
-            l93Var.e = SwanAppConfigData.t(optJSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR));
-            l93Var.f = optJSONObject.optBoolean("enablePullDownRefresh");
-            l93Var.g = optJSONObject.optString("onReachBottomDistance");
-            l93Var.h = optJSONObject.optBoolean("enableOpacityNavigationBar");
-            l93Var.i = optJSONObject.optBoolean("enableOpacityNavigationBarText");
-            l93Var.j = optJSONObject.optString("navigationStyle", "default");
-            l93Var.k = optJSONObject.optBoolean("navigationHomeButtonHidden");
-            l93Var.q = optJSONObject.optString("textSizeAdjust");
-            l93Var.s = optJSONObject.optString("htmlFontSize");
-            optJSONObject.optJSONArray("fontFace");
-            return l93Var;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, str, bundle) == null) {
+            A(new q93.a(str, bundle));
         }
-        return (l93) invokeL.objValue;
-    }
-
-    public static l93 e(JSONObject jSONObject, @NonNull l93 l93Var) {
-        InterceptResult invokeLL;
-        int t2;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, jSONObject, l93Var)) == null) {
-            l93 l93Var2 = new l93();
-            String optString = jSONObject.optString("navigationBarBackgroundColor");
-            if (TextUtils.isEmpty(optString)) {
-                t2 = l93Var.a;
-            } else {
-                t2 = SwanAppConfigData.t(optString);
-            }
-            l93Var2.a = t2;
-            l93Var2.b = jSONObject.optString("navigationBarTitleText", l93Var.b);
-            String optString2 = jSONObject.optString("navigationBarTextStyle");
-            if (TextUtils.isEmpty(optString2)) {
-                optString2 = l93Var.c;
-            }
-            l93Var2.c = optString2;
-            l93Var2.d = jSONObject.optString("backgroundTextStyle", l93Var.d);
-            if (jSONObject.has(TtmlNode.ATTR_TTS_BACKGROUND_COLOR)) {
-                i = SwanAppConfigData.t(jSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR));
-            } else {
-                i = l93Var.e;
-            }
-            l93Var2.e = i;
-            l93Var2.f = jSONObject.optBoolean("enablePullDownRefresh", l93Var.f);
-            l93Var2.g = jSONObject.optString("onReachBottomDistance", l93Var.g);
-            l93Var2.h = jSONObject.optBoolean("enableOpacityNavigationBar", l93Var.h);
-            l93Var2.i = jSONObject.optBoolean("enableOpacityNavigationBarText", l93Var.i);
-            l93Var2.j = jSONObject.optString("navigationStyle", l93Var.j);
-            l93Var2.k = jSONObject.optBoolean("navigationHomeButtonHidden", l93Var.k);
-            l93Var2.l = jSONObject.optBoolean("disableSwipeBack", false);
-            l93Var2.m = jSONObject.optBoolean("disableFullscreenSwipeBack", false);
-            l93Var2.n = jSONObject.optBoolean("pageFavoriteEnable", true);
-            l93Var2.o = jSONObject.optBoolean("_hasVideo", false);
-            l93Var2.r = jSONObject.optString("viewMode", l93Var.r);
-            l93Var2.s = jSONObject.optString("htmlFontSize", l93Var.s);
-            jSONObject.optJSONArray("fontFace");
-            return l93Var2;
-        }
-        return (l93) invokeLL.objValue;
     }
 }

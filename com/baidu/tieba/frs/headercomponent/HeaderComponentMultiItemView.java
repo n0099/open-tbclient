@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b35;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.p15;
-import com.baidu.tieba.pz6;
+import com.baidu.tieba.o27;
 import com.baidu.tieba.view.TbImageAutoSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -45,7 +45,7 @@ public class HeaderComponentMultiItemView extends FrameLayout {
     public TbImageView d;
     public ViewGroup e;
     public TbImageAutoSwitch f;
-    public pz6 g;
+    public o27 g;
     public List<String> h;
     public LiveFuseForumData i;
     public boolean j;
@@ -66,13 +66,13 @@ public class HeaderComponentMultiItemView extends FrameLayout {
 
         /* renamed from: com.baidu.tieba.frs.headercomponent.HeaderComponentMultiItemView$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0282a implements View.OnClickListener {
+        public class View$OnClickListenerC0258a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0282a(a aVar, int i) {
+            public View$OnClickListenerC0258a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public class HeaderComponentMultiItemView extends FrameLayout {
             if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeadImageView)) {
                 HeadImageView headImageView = (HeadImageView) view2;
                 headImageView.K((String) this.a.h.get(i), 12, false);
-                headImageView.setOnClickListener(new View$OnClickListenerC0282a(this, i));
+                headImageView.setOnClickListener(new View$OnClickListenerC0258a(this, i));
             }
         }
 
@@ -216,10 +216,27 @@ public class HeaderComponentMultiItemView extends FrameLayout {
         n = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds2);
     }
 
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.i == null) {
+            return;
+        }
+        if (TbadkCoreApplication.getInst().getSkinType() == 0) {
+            this.d.K(this.i.bjimg_light_small, 10, false);
+        } else {
+            this.d.K(this.i.bjimg_dark_small, 10, false);
+        }
+        this.c.j0(this.i.icon_url, 38);
+        this.c.setAlpha(1.0f);
+        b35 d = b35.d(this.e);
+        d.n(R.string.J_X06);
+        d.f(R.color.CAM_X0201);
+    }
+
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            p15.d(this.b).v(R.color.CAM_X0105);
+            b35.d(this.b).v(R.color.CAM_X0105);
             if (!ListUtils.isEmpty(this.f.getChildViews())) {
                 for (View view2 : this.f.getChildViews()) {
                     if (view2 instanceof HeadImageView) {
@@ -280,14 +297,14 @@ public class HeaderComponentMultiItemView extends FrameLayout {
         h();
     }
 
-    public void g(LiveFuseForumData liveFuseForumData, pz6 pz6Var) {
+    public void g(LiveFuseForumData liveFuseForumData, o27 o27Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, liveFuseForumData, pz6Var) != null) || liveFuseForumData == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, liveFuseForumData, o27Var) != null) || liveFuseForumData == null) {
             return;
         }
         this.i = liveFuseForumData;
-        this.g = pz6Var;
+        this.g = o27Var;
         Integer num = liveFuseForumData.head_img_style;
         if (num != null && num.intValue() != 0) {
             z = false;
@@ -305,9 +322,9 @@ public class HeaderComponentMultiItemView extends FrameLayout {
         }
         j();
         setOnClickListener(new b(this, liveFuseForumData));
-        pz6 pz6Var2 = this.g;
-        if (pz6Var2 != null) {
-            pz6Var2.a(2, liveFuseForumData);
+        o27 o27Var2 = this.g;
+        if (o27Var2 != null) {
+            o27Var2.a(2, liveFuseForumData);
         }
     }
 
@@ -339,27 +356,27 @@ public class HeaderComponentMultiItemView extends FrameLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d031e, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d032c, (ViewGroup) null);
             this.a = inflate;
             addView(inflate);
-            this.d = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0906e9);
-            ViewGroup viewGroup = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0906f3);
+            this.d = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090726);
+            ViewGroup viewGroup = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f090730);
             this.e = viewGroup;
             viewGroup.getLayoutParams().width = (ej.l(getContext()) - (getResources().getDimensionPixelSize(R.dimen.M_W_X004) * 3)) / 2;
-            TbImageView tbImageView = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0906e9);
+            TbImageView tbImageView = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090726);
             this.d = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
             this.d.setDrawCorner(true);
             this.d.setRadiusById(R.string.J_X06);
             this.d.setPlaceHolder(2);
             this.d.setConrers(15);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0906f2);
-            GifView gifView = (GifView) this.a.findViewById(R.id.obfuscated_res_0x7f0906ee);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09072f);
+            GifView gifView = (GifView) this.a.findViewById(R.id.obfuscated_res_0x7f09072b);
             this.c = gifView;
             gifView.setScaleType(ImageView.ScaleType.FIT_XY);
             this.c.setShowStaticDrawable(false);
             this.c.setDrawerType(1);
-            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.findViewById(R.id.obfuscated_res_0x7f0906ed);
+            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.findViewById(R.id.obfuscated_res_0x7f09072a);
             this.f = tbImageAutoSwitch;
             int i = l;
             tbImageAutoSwitch.l(4, i, i, m);
@@ -368,27 +385,5 @@ public class HeaderComponentMultiItemView extends FrameLayout {
             this.f.setCarouselPeriod(2000);
             this.f.setAdapter(this.k);
         }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.i == null) {
-            return;
-        }
-        int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 0) {
-            this.d.K(this.i.bjimg_light_small, 10, false);
-        } else {
-            this.d.K(this.i.bjimg_dark_small, 10, false);
-        }
-        this.c.j0(this.i.icon_url, 38);
-        if (skinType == 1) {
-            this.c.setAlpha(0.7f);
-        } else {
-            this.c.setAlpha(1.0f);
-        }
-        p15 d = p15.d(this.e);
-        d.n(R.string.J_X06);
-        d.f(R.color.CAM_X0201);
     }
 }

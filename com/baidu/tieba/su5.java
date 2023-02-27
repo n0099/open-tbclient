@@ -1,7 +1,51 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface su5 extends kl5 {
-    void onDestroy();
 
-    void onResume();
+import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.ItemCardView;
+import com.baidu.tbadk.gif.GifView;
+import com.baidu.tbadk.widget.tiejia.TiebaPlusRecommendCard;
+import com.baidu.tieba.view.festivalview.FestivalTipView;
+/* loaded from: classes6.dex */
+public interface su5 {
+    ug<TiebaPlusRecommendCard> B1();
+
+    int C();
+
+    void F(Context context, String str);
+
+    void H(Context context, String str);
+
+    ug<RelativeLayout> P();
+
+    ug<FestivalTipView> R();
+
+    ug<ImageView> T();
+
+    ug<View> U();
+
+    void V(Context context, String str);
+
+    void W(Context context, String str, boolean z);
+
+    ug<TextView> W0();
+
+    void c0(Context context, String str, String str2);
+
+    void e1(Context context, String str);
+
+    void g0(Context context, String str);
+
+    ListView getListView();
+
+    ug<ItemCardView> l0();
+
+    ug<GifView> v();
+
+    ug<LinearLayout> y();
 }

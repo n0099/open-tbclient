@@ -1,29 +1,19 @@
 package com.baidu.tieba;
+
+import com.baidu.swan.game.ad.downloader.exception.DownloadException;
 /* loaded from: classes5.dex */
 public interface px3 {
-    long a();
+    void a();
 
-    void b(boolean z);
+    void b(DownloadException downloadException);
 
-    boolean c();
+    void c();
 
-    boolean d();
+    void d();
 
-    String e();
+    void e(long j, long j2);
 
-    long f();
+    void f(long j, long j2);
 
-    String g();
-
-    long h();
-
-    Long i();
-
-    boolean j();
-
-    boolean k();
-
-    String l();
-
-    String m();
+    void onStart();
 }

@@ -1,105 +1,99 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.bdtask.ctrl.model.TaskProcess;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class l56 extends rn {
+public class l56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context b;
-    public View c;
-    public ImageView d;
-    public TextView e;
-    public View f;
-    public View g;
-    public View.OnClickListener h;
+    public ThreadData a;
+    public boolean b;
+    public long c;
+    public List<a> d;
 
-    public l56(Context context) {
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void a(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+                return;
+            }
+            this.a = jSONObject.optInt("tag_type");
+            this.b = jSONObject.optString("tag_word");
+        }
+    }
+
+    public l56() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.b = context;
-    }
-
-    public void f(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.h = onClickListener;
         }
     }
 
-    @Override // com.baidu.tieba.rn
-    public View a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d00f6, (ViewGroup) null);
-            this.c = inflate;
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901de);
-            this.d = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0901dd);
-            this.f = this.c.findViewById(R.id.obfuscated_res_0x7f0901df);
-            this.g = this.c.findViewById(R.id.obfuscated_res_0x7f0901dc);
-            e(TbadkCoreApplication.getInst().getSkinType());
-            return this.c;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.rn
-    public void d() {
-        View.OnClickListener onClickListener;
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (onClickListener = this.h) != null && (view2 = this.c) != null) {
-            onClickListener.onClick(view2);
+        boolean z = true;
+        if (jSONObject.optInt(TiebaStatic.Params.IS_FOLLOW) != 1) {
+            z = false;
         }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            View view2 = this.c;
-            if (view2 != null) {
-                SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
-            }
-            TextView textView = this.e;
-            if (textView != null) {
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0304);
-            }
-            ImageView imageView = this.d;
-            if (imageView != null) {
-                SkinManager.setImageResource(imageView, R.drawable.icon_inf_arrowblue_n);
-            }
-            View view3 = this.f;
-            if (view3 != null) {
-                SkinManager.setBackgroundResource(view3, R.color.CAM_X0204);
-            }
-            View view4 = this.g;
-            if (view4 != null) {
-                SkinManager.setBackgroundResource(view4, R.color.CAM_X0204);
+        this.b = z;
+        this.c = jSONObject.optLong("last_watch_time");
+        JSONObject optJSONObject = jSONObject.optJSONObject("thread_info");
+        if (optJSONObject != null) {
+            ThreadData threadData = new ThreadData();
+            this.a = threadData;
+            threadData.parserJson(optJSONObject);
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray(TaskProcess.keyTags);
+        if (optJSONArray == null) {
+            return;
+        }
+        int length = optJSONArray.length();
+        this.d = new ArrayList(length);
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+            if (optJSONObject2 != null) {
+                a aVar = new a();
+                aVar.a(optJSONObject2);
+                this.d.add(aVar);
             }
         }
     }

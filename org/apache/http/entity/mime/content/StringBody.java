@@ -1,12 +1,5 @@
 package org.apache.http.entity.mime.content;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,89 +9,48 @@ import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 /* loaded from: classes9.dex */
 public class StringBody extends AbstractContentBody {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final Charset charset;
     public final byte[] content;
 
     @Override // org.apache.http.entity.mime.content.ContentBody
     public String getFilename() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
+        return null;
     }
 
     @Override // org.apache.http.entity.mime.content.ContentDescriptor
     public String getTransferEncoding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "8bit" : (String) invokeV.objValue;
+        return "8bit";
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public StringBody(String str) throws UnsupportedEncodingException {
         this(str, "text/plain", null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (String) objArr2[1], (Charset) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+    }
+
+    public static StringBody create(String str) throws IllegalArgumentException {
+        return create(str, null, null);
     }
 
     @Override // org.apache.http.entity.mime.content.ContentBody
     public void writeTo(OutputStream outputStream) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, outputStream) == null) {
-            if (outputStream != null) {
-                ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(this.content);
-                byte[] bArr = new byte[4096];
-                while (true) {
-                    int read = byteArrayInputStream.read(bArr);
-                    if (read != -1) {
-                        outputStream.write(bArr, 0, read);
-                    } else {
-                        outputStream.flush();
-                        return;
-                    }
+        if (outputStream != null) {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(this.content);
+            byte[] bArr = new byte[4096];
+            while (true) {
+                int read = byteArrayInputStream.read(bArr);
+                if (read != -1) {
+                    outputStream.write(bArr, 0, read);
+                } else {
+                    outputStream.flush();
+                    return;
                 }
-            } else {
-                throw new IllegalArgumentException("Output stream may not be null");
             }
+        } else {
+            throw new IllegalArgumentException("Output stream may not be null");
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public StringBody(String str, String str2, Charset charset) throws UnsupportedEncodingException {
         super(str2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, charset};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         if (str != null) {
             charset = charset == null ? Charset.forName("US-ASCII") : charset;
             this.content = str.getBytes(charset.name());
@@ -108,92 +60,38 @@ public class StringBody extends AbstractContentBody {
         throw new IllegalArgumentException("Text may not be null");
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public static StringBody create(String str, String str2, Charset charset) throws IllegalArgumentException {
+        try {
+            return new StringBody(str, str2, charset);
+        } catch (UnsupportedEncodingException e) {
+            throw new IllegalArgumentException("Charset " + charset + " is not supported", e);
+        }
+    }
+
     public StringBody(String str, Charset charset) throws UnsupportedEncodingException {
         this(str, "text/plain", charset);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, charset};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (String) objArr2[1], (Charset) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public static StringBody create(String str) throws IllegalArgumentException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return create(str, null, null);
-        }
-        return (StringBody) invokeL.objValue;
-    }
-
-    public static StringBody create(String str, String str2, Charset charset) throws IllegalArgumentException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, charset)) == null) {
-            try {
-                return new StringBody(str, str2, charset);
-            } catch (UnsupportedEncodingException e) {
-                throw new IllegalArgumentException("Charset " + charset + " is not supported", e);
-            }
-        }
-        return (StringBody) invokeLLL.objValue;
     }
 
     public static StringBody create(String str, Charset charset) throws IllegalArgumentException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, charset)) == null) {
-            return create(str, null, charset);
-        }
-        return (StringBody) invokeLL.objValue;
+        return create(str, null, charset);
     }
 
     @Deprecated
     public void writeTo(OutputStream outputStream, int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, outputStream, i) == null) {
-            writeTo(outputStream);
-        }
+        writeTo(outputStream);
     }
 
     @Override // org.apache.http.entity.mime.content.ContentDescriptor
     public String getCharset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.charset.name();
-        }
-        return (String) invokeV.objValue;
+        return this.charset.name();
     }
 
     @Override // org.apache.http.entity.mime.content.ContentDescriptor
     public long getContentLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.content.length;
-        }
-        return invokeV.longValue;
+        return this.content.length;
     }
 
     public Reader getReader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new InputStreamReader(new ByteArrayInputStream(this.content), this.charset);
-        }
-        return (Reader) invokeV.objValue;
+        return new InputStreamReader(new ByteArrayInputStream(this.content), this.charset);
     }
 }

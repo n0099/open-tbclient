@@ -1,11 +1,5 @@
 package com.bytedance.pangle.d;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.util.f;
 import java.io.Closeable;
 import java.io.File;
@@ -20,18 +14,14 @@ import java.util.Map;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes7.dex */
 public final class c implements Closeable {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final FileInputStream a;
     public a b;
     public b[] c;
-    public C0524c[] d;
-    public final Map<String, C0524c> e;
+    public C0510c[] d;
+    public final Map<String, C0510c> e = new HashMap();
 
     /* loaded from: classes7.dex */
     public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final byte[] a;
         public final short b;
         public final short c;
@@ -50,20 +40,6 @@ public final class c implements Closeable {
         public a(FileChannel fileChannel) {
             int i;
             ByteOrder byteOrder;
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fileChannel};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.a = new byte[16];
             fileChannel.position(0L);
             fileChannel.read(ByteBuffer.wrap(this.a));
@@ -88,9 +64,9 @@ public final class c implements Closeable {
                 c.b(fileChannel, allocate, "failed to read rest part of ehdr.");
                 this.b = allocate.getShort();
                 this.c = allocate.getShort();
-                int i4 = allocate.getInt();
-                this.d = i4;
-                c.a(i4, 1, "bad elf version: " + this.d);
+                int i2 = allocate.getInt();
+                this.d = i2;
+                c.a(i2, 1, "bad elf version: " + this.d);
                 byte b3 = this.a[4];
                 if (b3 != 1) {
                     if (b3 == 2) {
@@ -124,8 +100,6 @@ public final class c implements Closeable {
 
     /* loaded from: classes7.dex */
     public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final int a;
         public final int b;
         public final long c;
@@ -136,20 +110,6 @@ public final class c implements Closeable {
         public final long h;
 
         public b(ByteBuffer byteBuffer, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {byteBuffer, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             if (i != 1) {
                 if (i == 2) {
                     this.a = byteBuffer.getInt();
@@ -181,9 +141,7 @@ public final class c implements Closeable {
 
     /* renamed from: com.bytedance.pangle.d.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0524c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static class C0510c {
         public final int a;
         public final int b;
         public final long c;
@@ -196,21 +154,7 @@ public final class c implements Closeable {
         public final long j;
         public String k;
 
-        public C0524c(ByteBuffer byteBuffer, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {byteBuffer, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
+        public C0510c(ByteBuffer byteBuffer, int i) {
             if (i != 1) {
                 if (i == 2) {
                     this.a = byteBuffer.getInt();
@@ -241,33 +185,18 @@ public final class c implements Closeable {
             this.k = null;
         }
 
-        public /* synthetic */ C0524c(ByteBuffer byteBuffer, int i, byte b) {
+        public /* synthetic */ C0510c(ByteBuffer byteBuffer, int i, byte b) {
             this(byteBuffer, i);
         }
     }
 
     public c(File file) {
         ByteOrder byteOrder;
-        C0524c[] c0524cArr;
-        C0524c[] c0524cArr2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {file};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+        C0510c[] c0510cArr;
+        C0510c[] c0510cArr2;
         this.b = null;
         this.c = null;
         this.d = null;
-        this.e = new HashMap();
         FileInputStream fileInputStream = new FileInputStream(file);
         this.a = fileInputStream;
         FileChannel channel = fileInputStream.getChannel();
@@ -282,51 +211,46 @@ public final class c implements Closeable {
         allocate.order(byteOrder);
         channel.position(this.b.f);
         this.c = new b[this.b.k];
-        for (int i3 = 0; i3 < this.c.length; i3++) {
+        for (int i = 0; i < this.c.length; i++) {
             b(channel, allocate, "failed to read phdr.");
-            this.c[i3] = new b(allocate, this.b.a[4], (byte) 0);
+            this.c[i] = new b(allocate, this.b.a[4], (byte) 0);
         }
         channel.position(this.b.g);
         allocate.limit(this.b.l);
-        this.d = new C0524c[this.b.m];
-        int i4 = 0;
+        this.d = new C0510c[this.b.m];
+        int i2 = 0;
         while (true) {
-            c0524cArr = this.d;
-            if (i4 >= c0524cArr.length) {
+            c0510cArr = this.d;
+            if (i2 >= c0510cArr.length) {
                 break;
             }
             b(channel, allocate, "failed to read shdr.");
-            this.d[i4] = new C0524c(allocate, this.b.a[4], (byte) 0);
-            i4++;
+            this.d[i2] = new C0510c(allocate, this.b.a[4], (byte) 0);
+            i2++;
         }
         short s = this.b.n;
         if (s > 0) {
-            C0524c c0524c = c0524cArr[s];
-            ByteBuffer allocate2 = ByteBuffer.allocate((int) c0524c.f);
-            this.a.getChannel().position(c0524c.e);
-            b(this.a.getChannel(), allocate2, "failed to read section: " + c0524c.k);
-            for (C0524c c0524c2 : this.d) {
-                allocate2.position(c0524c2.a);
+            C0510c c0510c = c0510cArr[s];
+            ByteBuffer allocate2 = ByteBuffer.allocate((int) c0510c.f);
+            this.a.getChannel().position(c0510c.e);
+            b(this.a.getChannel(), allocate2, "failed to read section: " + c0510c.k);
+            for (C0510c c0510c2 : this.d) {
+                allocate2.position(c0510c2.a);
                 String a2 = a(allocate2);
-                c0524c2.k = a2;
-                this.e.put(a2, c0524c2);
+                c0510c2.k = a2;
+                this.e.put(a2, c0510c2);
             }
         }
     }
 
     public static String a(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, byteBuffer)) == null) {
-            byte[] array = byteBuffer.array();
-            int position = byteBuffer.position();
-            while (byteBuffer.hasRemaining() && array[byteBuffer.position()] != 0) {
-                byteBuffer.position(byteBuffer.position() + 1);
-            }
+        byte[] array = byteBuffer.array();
+        int position = byteBuffer.position();
+        while (byteBuffer.hasRemaining() && array[byteBuffer.position()] != 0) {
             byteBuffer.position(byteBuffer.position() + 1);
-            return new String(array, position, (byteBuffer.position() - position) - 1, Charset.forName(HTTP.ASCII));
         }
-        return (String) invokeL.objValue;
+        byteBuffer.position(byteBuffer.position() + 1);
+        return new String(array, position, (byteBuffer.position() - position) - 1, Charset.forName(HTTP.ASCII));
     }
 
     public static /* synthetic */ void a(int i, int i2, String str) {
@@ -337,44 +261,33 @@ public final class c implements Closeable {
     }
 
     public static boolean a(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
-            try {
-                f.a(new c(file));
-                return true;
-            } catch (IOException unused) {
-                f.a((Closeable) null);
-                return false;
-            } catch (Throwable th) {
-                f.a((Closeable) null);
-                throw th;
-            }
+        try {
+            f.a(new c(file));
+            return true;
+        } catch (IOException unused) {
+            f.a((Closeable) null);
+            return false;
+        } catch (Throwable th) {
+            f.a((Closeable) null);
+            throw th;
         }
-        return invokeL.booleanValue;
     }
 
     public static void b(FileChannel fileChannel, ByteBuffer byteBuffer, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, fileChannel, byteBuffer, str) == null) {
-            byteBuffer.rewind();
-            int read = fileChannel.read(byteBuffer);
-            if (read == byteBuffer.limit()) {
-                byteBuffer.flip();
-                return;
-            }
-            throw new IOException(str + " Rest bytes insufficient, expect to read " + byteBuffer.limit() + " bytes but only " + read + " bytes were read.");
+        byteBuffer.rewind();
+        int read = fileChannel.read(byteBuffer);
+        if (read == byteBuffer.limit()) {
+            byteBuffer.flip();
+            return;
         }
+        throw new IOException(str + " Rest bytes insufficient, expect to read " + byteBuffer.limit() + " bytes but only " + read + " bytes were read.");
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public final void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.close();
-            this.e.clear();
-            this.c = null;
-            this.d = null;
-        }
+        this.a.close();
+        this.e.clear();
+        this.c = null;
+        this.d = null;
     }
 }

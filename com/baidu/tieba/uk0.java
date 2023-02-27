@@ -1,346 +1,33 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.content.pm.PackageInfo;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.connect.NetWorkUtils;
+import com.baidu.nadcore.download.basic.AdAppStateManager;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class uk0 implements xk0 {
+public class uk0 implements cm0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final z21 a;
+    public final gl0 a;
+    public int b;
 
-    /* loaded from: classes6.dex */
-    public static class f {
-        public static /* synthetic */ Interceptable $ic;
-        public static xk0 a;
-        public static final xk0 b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* loaded from: classes6.dex */
-        public static class a implements xk0 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Throwable a;
-
-            @Override // com.baidu.tieba.xk0
-            public void b(HashMap<String, cl0> hashMap) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
-                }
-            }
-
-            @Override // com.baidu.tieba.xk0
-            public void c(l21 l21Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l21Var) == null) {
-                }
-            }
-
-            @Override // com.baidu.tieba.xk0
-            public void update(l21 l21Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, l21Var) == null) {
-                }
-            }
-
-            public a(Throwable th) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {th};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = th;
-                if (this.a != null) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("v", "5.10.0.63");
-                    hashMap.put("e", this.a.toString());
-                    n21.b(new ClogBuilder().y(ClogBuilder.LogType.CHECK).k("12").l("4000").m(new JSONObject(hashMap).toString()));
-                }
-            }
-
-            @Override // com.baidu.tieba.xk0
-            public List<cl0> a() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    return new ArrayList();
-                }
-                return (List) invokeV.objValue;
-            }
-        }
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-372352915, "Lcom/baidu/tieba/uk0$f;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-372352915, "Lcom/baidu/tieba/uk0$f;");
-                    return;
-                }
-            }
-            try {
-                if (m51.b()) {
-                    a = new uk0(null);
-                } else {
-                    a = b(null);
-                }
-            } catch (Throwable th) {
-                a = b(th);
-            }
-            b = a;
-        }
-
-        public static xk0 b(Throwable th) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
-                return new a(th);
-            }
-            return (xk0) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Set a;
-        public final /* synthetic */ uk0 b;
-
-        public a(uk0 uk0Var, Set set) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uk0Var, set};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = uk0Var;
-            this.a = set;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a.beginTransaction();
-                try {
-                    for (String str : this.a) {
-                        l21 l21Var = new l21();
-                        l21Var.o(str);
-                        this.b.a.delete(l21Var, new x21[0]);
-                    }
-                    this.b.a.setTransactionSuccessful();
-                } finally {
-                    this.b.a.endTransaction();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ HashMap a;
-        public final /* synthetic */ uk0 b;
-
-        public b(uk0 uk0Var, HashMap hashMap) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uk0Var, hashMap};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = uk0Var;
-            this.a = hashMap;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a.beginTransaction();
-                try {
-                    for (Map.Entry entry : this.a.entrySet()) {
-                        cl0 cl0Var = (cl0) entry.getValue();
-                        if (cl0Var != null) {
-                            l21 a = vk0.a(cl0Var);
-                            if (!TextUtils.isEmpty(a.g())) {
-                                this.b.a.a(a, new x21[0]);
-                            }
-                        }
-                    }
-                    this.b.a.setTransactionSuccessful();
-                } finally {
-                    this.b.a.endTransaction();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l21 a;
-        public final /* synthetic */ uk0 b;
-
-        public c(uk0 uk0Var, l21 l21Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uk0Var, l21Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = uk0Var;
-            this.a = l21Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a.a(this.a, new x21[0]);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l21 a;
-        public final /* synthetic */ uk0 b;
-
-        public d(uk0 uk0Var, l21 l21Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uk0Var, l21Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = uk0Var;
-            this.a = l21Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a.update(this.a, new x21[0]);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Runnable a;
-
-        public e(uk0 uk0Var, Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uk0Var, runnable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = runnable;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.a.run();
-                } catch (Throwable th) {
-                    if (!yg0.a) {
-                        Log.d("AdDownloadDBHelper", "wrapExecutor", th);
-                        return;
-                    }
-                    throw th;
-                }
-            }
-        }
-    }
-
-    public uk0() {
+    public uk0(@NonNull gl0 gl0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {gl0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -350,104 +37,147 @@ public class uk0 implements xk0 {
                 return;
             }
         }
-        wk0 wk0Var = new wk0();
-        wk0Var.getReadableDatabase();
-        wk0Var.close();
-        SQLiteDatabase openDatabase = SQLiteDatabase.openDatabase(nj0.b().getDatabasePath("nad.core.download.db").getPath(), null, 0);
-        openDatabase.setLocale(Locale.US);
-        this.a = new yk0(openDatabase);
+        this.b = 0;
+        this.a = gl0Var;
     }
 
-    public /* synthetic */ uk0(a aVar) {
-        this();
-    }
-
-    @Override // com.baidu.tieba.xk0
-    public void b(HashMap<String, cl0> hashMap) {
+    @Override // com.baidu.tieba.cm0
+    public void a(int i, long j, long j2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) != null) || z11.c(hashMap)) {
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) != null) || j < 0 || j2 <= 0 || j > j2) {
             return;
         }
-        f(new b(this, hashMap), "update_apk_data", 3);
+        this.a.i = (float) h21.a(j, j2);
+        this.a.c = AdDownloadStatus.DOWNLOADING;
+        tk0.b().f(AdDownloadAction.PROGRESS_UPDATE, this.a);
     }
 
-    @Override // com.baidu.tieba.xk0
-    public void c(l21 l21Var) {
+    @Override // com.baidu.tieba.cm0
+    public void b(long j, File file) {
+        AdDownloadAction adDownloadAction;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l21Var) != null) || TextUtils.isEmpty(l21Var.g())) {
-            return;
-        }
-        f(new c(this, l21Var), "update_apk_data", 3);
-    }
-
-    @Override // com.baidu.tieba.xk0
-    public void update(l21 l21Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, l21Var) != null) || TextUtils.isEmpty(l21Var.g())) {
-            return;
-        }
-        f(new d(this, l21Var), "update_apk_data", 3);
-    }
-
-    public static xk0 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return f.b;
-        }
-        return (xk0) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0068  */
-    @Override // com.baidu.tieba.xk0
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public List<cl0> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            l21 l21Var = new l21();
-            l31 e2 = l31.e();
-            e2.a("o", l21Var.b().d());
-            e2.c("o", l21Var);
-            HashSet hashSet = new HashSet();
-            Cursor query = this.a.query(e2);
-            try {
-                long currentTimeMillis = System.currentTimeMillis();
-                if (query.moveToFirst()) {
-                    do {
-                        l21 l21Var2 = new l21();
-                        e31.b(l21Var2, query);
-                        if (l21Var2.x() + tk0.b < currentTimeMillis) {
-                            hashSet.add(l21Var2.g());
-                        } else {
-                            x11.b(arrayList, vk0.b(l21Var2));
-                        }
-                    } while (query.moveToNext());
-                    qj0.a(query);
-                    if (hashSet.size() > 0) {
-                        f(new a(this, hashSet), "remove_outdated_apk_data", 3);
-                    }
-                    return arrayList;
-                }
-                qj0.a(query);
-                if (hashSet.size() > 0) {
-                }
-                return arrayList;
-            } catch (Throwable th) {
-                qj0.a(query);
-                throw th;
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, file) == null) {
+            if (this.a.c == AdDownloadStatus.PAUSE) {
+                adDownloadAction = AdDownloadAction.RESUME;
+            } else {
+                adDownloadAction = AdDownloadAction.START;
             }
+            this.a.l = System.currentTimeMillis();
+            gl0 gl0Var = this.a;
+            gl0Var.c = AdDownloadStatus.DOWNLOADING;
+            gl0Var.h = file;
+            gl0Var.q.e = j;
+            tk0.b().f(adDownloadAction, this.a);
+            xk0.b().update(this.a);
+            xk0.b().e(this.a);
         }
-        return (List) invokeV.objValue;
     }
 
-    public final void f(@NonNull Runnable runnable, @NonNull String str, int i) {
+    @Override // com.baidu.tieba.cm0
+    public void c(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, runnable, str, i) == null) {
-            o31.c(new e(this, runnable), str, i);
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            this.a.c = AdDownloadStatus.PAUSE;
+            tk0.b().f(AdDownloadAction.PAUSE, this.a);
+            pl0.f().i(this.a, "notify_type_pause");
+            xk0.b().e(this.a);
+        }
+    }
+
+    @Override // com.baidu.tieba.cm0
+    public void d(@Nullable ol0 ol0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ol0Var) == null) {
+            if (e(ol0Var)) {
+                gl0 gl0Var = this.a;
+                if (gl0Var.c == AdDownloadStatus.PAUSE) {
+                    tk0.b().j(this.a);
+                } else {
+                    gl0Var.i = 0.0f;
+                    gl0Var.j = 0.0f;
+                    tk0.b().k(this.a);
+                }
+                this.b++;
+            } else {
+                gl0 gl0Var2 = this.a;
+                gl0Var2.c = AdDownloadStatus.FAILED;
+                gl0Var2.i = 0.0f;
+                gl0Var2.j = 0.0f;
+                tk0.b().g(AdDownloadAction.FAIL, this.a, ol0Var);
+                pl0.f().i(this.a, "notify_type_stop");
+            }
+            xk0.b().e(this.a);
+        }
+    }
+
+    public final boolean e(@Nullable ol0 ol0Var) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ol0Var)) == null) {
+            if (ol0Var == null || !ol0Var.c) {
+                return false;
+            }
+            if (ln0.b().a().a("nad_failed_retry_switch", 0) == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                return false;
+            }
+            if (this.b >= ln0.b().a().a("nad_failed_retry_count", 0)) {
+                return false;
+            }
+            if (ln0.b().a().a("nad_failed_retry_without_wifi", 0) == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (!z2 && !NetWorkUtils.c(rj0.b())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.cm0
+    public void onSuccess(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.a.m = System.currentTimeMillis();
+            if (TextUtils.isEmpty(this.a.d)) {
+                gl0 gl0Var = this.a;
+                gl0Var.d = km0.b(gl0Var.h);
+            }
+            if (km0.f(this.a.h)) {
+                PackageInfo packageArchiveInfo = rj0.b().getPackageManager().getPackageArchiveInfo(this.a.h.getAbsolutePath(), 128);
+                if (packageArchiveInfo != null) {
+                    gl0 gl0Var2 = this.a;
+                    gl0Var2.o = packageArchiveInfo.versionName;
+                    gl0Var2.n = packageArchiveInfo.versionCode;
+                }
+                AdAppStateManager.instance().register(this.a);
+                gl0 gl0Var3 = this.a;
+                gl0Var3.c = AdDownloadStatus.COMPLETED;
+                gl0Var3.i = 1.0f;
+                gl0Var3.j = 1.0f;
+                tk0.b().f(AdDownloadAction.COMPLETE, this.a);
+                im0.f().k(this.a);
+                pl0.f().k(this.a);
+                xk0.b().e(this.a);
+                gl0 gl0Var4 = this.a;
+                km0.e(gl0Var4.h, gl0Var4.a());
+                return;
+            }
+            gl0 gl0Var5 = this.a;
+            gl0Var5.c = AdDownloadStatus.FAILED;
+            gl0Var5.i = 0.0f;
+            gl0Var5.j = 0.0f;
+            tk0.b().f(AdDownloadAction.FAIL, this.a);
+            xk0.b().e(this.a);
         }
     }
 }

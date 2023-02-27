@@ -1,70 +1,62 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
+import android.content.Context;
+import android.text.SpannableString;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import android.text.style.AbsoluteSizeSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.nad.jni.NADNativeHelper;
-import com.baidu.nadcore.net.request.Headers;
-import com.baidu.prologue.business.data.BaseVM;
-import com.baidu.prologue.business.data.ParseError;
-import com.baidu.tbadk.browser.SearchJsBridge;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tbadk.util.AdExtParam;
+import com.baidu.tieba.xi1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
-import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
-import com.qq.e.comm.constants.Constants;
-import java.io.UnsupportedEncodingException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.text.DecimalFormat;
 import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yi1 {
+public class yi1 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Handler a;
-    public zi1 b;
-    public int c;
-    public volatile boolean d;
+    public List<xi1.a> a;
+    public Context b;
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
 
     /* loaded from: classes7.dex */
-    public class a extends ms0<String> {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ long c;
+        public TextView a;
+        public TextView b;
+        public ImageView c;
+        public TextView d;
+        public ImageView e;
+        public LinearLayout f;
+        public LinearLayout g;
+        public TextView h;
+        public ImageView i;
 
-        public String f(Headers headers, String str, int i) throws Exception {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
-        }
-
-        public a(yi1 yi1Var, String str, long j, long j2) {
+        public a(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yi1Var, str, Long.valueOf(j), Long.valueOf(j2)};
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -74,172 +66,24 @@ public class yi1 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = j;
-            this.c = j2;
-        }
-
-        @Override // com.baidu.tieba.ks0
-        public void a(Exception exc, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
-                BaseVM.n(this.a, this.b, this.c, exc.getMessage(), StickerDataChangeType.UPDATE);
-            }
-        }
-
-        @Override // com.baidu.tieba.ls0
-        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
-            f(headers, str, i);
-            return str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ls0
-        /* renamed from: e */
-        public void b(Headers headers, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) {
-                BaseVM.n(this.a, this.b, this.c, BasicPushStatus.SUCCESS_CODE, StickerDataChangeType.UPDATE);
-                try {
-                    dj1.e(str, this.a);
-                } catch (ParseError e) {
-                    e.printStackTrace();
-                }
-            }
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09079b);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09079a);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fbb);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905f8);
+            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09079c);
+            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090798);
+            this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090795);
+            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090799);
+            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fc5);
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b extends ms0<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ zi1 d;
-        public final /* synthetic */ yi1 e;
-
-        public String f(Headers headers, String str, int i) throws Exception {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
-        }
-
-        public b(yi1 yi1Var, String str, long j, long j2, zi1 zi1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yi1Var, str, Long.valueOf(j), Long.valueOf(j2), zi1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = yi1Var;
-            this.a = str;
-            this.b = j;
-            this.c = j2;
-            this.d = zi1Var;
-        }
-
-        @Override // com.baidu.tieba.ks0
-        public void a(Exception exc, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
-                BaseVM.o(this.a, this.b, this.c, exc.getMessage(), "query", this.e.d, "");
-                if (!this.e.d && this.e.a != null) {
-                    this.e.a.removeCallbacksAndMessages(null);
-                    this.e.a.post(new c(this.e, this.a));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ls0
-        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
-            f(headers, str, i);
-            return str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ls0
-        /* renamed from: e */
-        public void b(Headers headers, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) {
-                BaseVM.o(this.a, this.b, this.c, BasicPushStatus.SUCCESS_CODE, "query", this.e.d, str);
-                if (!this.e.d) {
-                    this.e.a.removeCallbacksAndMessages(null);
-                    try {
-                        List<kj1> e = dj1.e(str, this.a);
-                        if (e != null && e.size() > 0 && e.get(0) != null) {
-                            this.d.b(e.get(0));
-                        } else if (dj1.a(str)) {
-                            this.d.a(new Throwable("no ad"));
-                        } else {
-                            new c(this.e, this.a).run();
-                        }
-                    } catch (ParseError e2) {
-                        e2.printStackTrace();
-                        this.d.a(e2);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yi1 a;
-
-        public c(yi1 yi1Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yi1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yi1Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.d = true;
-            kj1 n = ij1.n(cj1.b());
-            if (this.a.b == null) {
-                return;
-            }
-            if (n != null) {
-                n.D = 2;
-                this.a.b.b(n);
-                return;
-            }
-            this.a.b.a(new Throwable("no ad"));
-        }
-    }
-
-    public yi1() {
+    public yi1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -249,341 +93,105 @@ public class yi1 {
                 return;
             }
         }
-        this.a = new Handler(Looper.getMainLooper());
-        this.c = 5000;
-        this.d = false;
+        this.b = context;
     }
 
-    public final void e(JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    public final String a(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || wi1.a().d() == null || !wi1.a().d().has("client_ext") || (optJSONObject = wi1.a().d().optJSONObject("client_ext")) == null) {
-            return;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return new DecimalFormat("0").format((j * 1.0d) / 100.0d);
         }
-        Iterator<String> keys = optJSONObject.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            try {
-                jSONObject.put(next, optJSONObject.opt(next));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
+        return (String) invokeJ.objValue;
     }
 
-    public final void f(HashMap<String, String> hashMap) {
-        String o;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: b */
+    public xi1.a getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
-            vj0 a2 = nj0.a();
-            if (TextUtils.isEmpty(a2.o())) {
-                o = a2.v();
-            } else {
-                o = a2.o();
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i < this.a.size()) {
+                return this.a.get(i);
             }
-            hashMap.put("ver", o);
-            hashMap.put("sv", "1.0");
-            hashMap.put("uid", a2.s());
-            hashMap.put(TiebaStatic.Params.BDID, a2.n());
-            hashMap.put("cuid", a2.g());
-            String e = fk0.c().e(false);
-            if (!TextUtils.isEmpty(e)) {
-                hashMap.put(SearchJsBridge.COOKIE_MOD, e);
-            }
-            String h = fk0.c().h(false);
-            if (!TextUtils.isEmpty(h)) {
-                hashMap.put("ov", h);
-            }
-            String b2 = fk0.c().b(false);
-            if (!TextUtils.isEmpty(b2)) {
-                hashMap.put("imei", b2);
-            }
-            hashMap.put("ua", a2.p());
-            hashMap.put("fmt", "json");
-            hashMap.put("apna", a2.packageName());
-            hashMap.put("eid", a2.i());
-            hashMap.put("st", "1");
-            hashMap.put("ot", "2");
-            hashMap.put("nt", String.valueOf(new is0().c()));
-            hashMap.put(Config.EXCEPTION_CRASH_TYPE, "2");
-            hashMap.put("is_https", "1");
-            String a3 = fk0.c().a(false);
-            if (!TextUtils.isEmpty(a3)) {
-                hashMap.put(HttpRequest.ANDROID_ID, a3);
-            }
-            hashMap.put("from", wi1.a().from());
-            hashMap.put("cfrom", wi1.a().a());
-            hashMap.put("User-Agent", nj0.e());
+            return null;
         }
+        return (xi1.a) invokeI.objValue;
     }
 
-    public final void g(@NonNull HashMap<String, String> hashMap, String str, String str2, long j) {
-        int i;
-        int i2;
-        Iterator<kj1> it;
+    public void c(List<xi1.a> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{hashMap, str, str2, Long.valueOf(j)}) == null) {
-            try {
-                JSONArray jSONArray = new JSONArray();
-                JSONObject jSONObject = new JSONObject();
-                new JSONObject();
-                if (d9.f().h()) {
-                    jSONObject.put("k", "cmd");
-                    jSONObject.put("v", str2);
-                    jSONArray.put(jSONObject);
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("k", AdExtParam.KEY_NAD_CORE_VERSION);
-                jSONObject2.put("v", "5.10.0.63");
-                jSONArray.put(jSONObject2);
-                JSONObject jSONObject3 = new JSONObject();
-                List<kj1> s = ij1.s();
-                ArrayList arrayList = new ArrayList();
-                ArrayList arrayList2 = new ArrayList();
-                JSONArray jSONArray2 = new JSONArray();
-                TextUtils.equals(str, wi1.a().e());
-                if (s != null && s.size() > 0) {
-                    Iterator<kj1> it2 = s.iterator();
-                    i = 0;
-                    while (it2.hasNext()) {
-                        kj1 next = it2.next();
-                        JSONObject jSONObject4 = new JSONObject();
-                        jSONObject4.put("k", next.c);
-                        if (!TextUtils.isEmpty(next.c)) {
-                            int f = ij1.f(next, cj1.b());
-                            StringBuilder sb = new StringBuilder();
-                            it = it2;
-                            sb.append("onAdSuccess: ");
-                            sb.append(f);
-                            Log.e("Afd", sb.toString());
-                            if (f == 0) {
-                                if (next.m()) {
-                                    x11.b(arrayList2, next.c);
-                                }
-                                if (next.k()) {
-                                    x11.b(arrayList, next.c);
-                                }
-                            } else if (next.m()) {
-                                i |= f;
-                            }
-                        } else {
-                            it = it2;
-                        }
-                        jSONObject4.put("r", String.valueOf(next.x));
-                        if (next.m()) {
-                            jSONArray2.put(jSONObject4);
-                        }
-                        it2 = it;
-                    }
-                } else {
-                    i = 0;
-                }
-                jSONObject3.put("d", jSONArray2);
-                jSONObject3.put("s", mj1.d());
-                jSONArray.put(new JSONObject());
-                if (TextUtils.equals(str2, "query")) {
-                    JSONObject jSONObject5 = new JSONObject();
-                    jSONObject5.put("k", "ukey");
-                    jSONObject5.put("v", TextUtils.join(",", arrayList));
-                    jSONArray.put(jSONObject5);
-                    JSONObject jSONObject6 = new JSONObject();
-                    jSONObject6.put("k", "xz_ukey");
-                    jSONObject6.put("v", TextUtils.join(",", arrayList2));
-                    jSONArray.put(jSONObject6);
-                    if (arrayList2.isEmpty()) {
-                        if (i == 0) {
-                            i = 1;
-                        }
-                        BaseVM.d = String.valueOf(i);
-                    } else {
-                        BaseVM.d = "";
-                    }
-                }
-                JSONObject jSONObject7 = new JSONObject();
-                jSONObject7.put("k", "logid");
-                jSONObject7.put("v", String.valueOf(j));
-                jSONArray.put(jSONObject7);
-                JSONObject jSONObject8 = new JSONObject();
-                jSONObject8.put("k", "uid");
-                jSONObject8.put("v", nj0.a().s());
-                jSONArray.put(jSONObject8);
-                JSONObject jSONObject9 = new JSONObject();
-                jSONObject9.put("k", "ext_info");
-                JSONObject jSONObject10 = new JSONObject();
-                jSONObject10.put("ipdx", xn0.a().a());
-                jSONObject10.put("update_mark", NADNativeHelper.b());
-                jSONObject10.put("boot_mark", NADNativeHelper.a());
-                try {
-                    e(jSONObject10);
-                    jSONObject10.put(Constants.KEYS.AD_INFO, jSONObject3);
-                    jSONObject9.put("v", jSONObject10.toString());
-                    jSONArray.put(jSONObject9);
-                    JSONObject jSONObject11 = new JSONObject();
-                    jSONObject11.put("k", AdExtParam.KEY_IADEX);
-                    jSONObject11.put("v", nj0.d().m());
-                    jSONArray.put(jSONObject11);
-                    String f2 = fk0.c().f(false);
-                    if (!TextUtils.isEmpty(f2)) {
-                        JSONObject jSONObject12 = new JSONObject();
-                        jSONObject12.put("k", "oaid_v");
-                        jSONObject12.put("v", f2);
-                        jSONArray.put(jSONObject12);
-                    }
-                    try {
-                        JSONObject jSONObject13 = new JSONObject();
-                        jSONObject13.put("k", "encoded_ua_new");
-                        jSONObject13.put("v", URLEncoder.encode(nj0.e(), IMAudioTransRequest.CHARSET));
-                        jSONArray.put(jSONObject13);
-                    } catch (UnsupportedEncodingException unused) {
-                    }
-                    JSONObject jSONObject14 = new JSONObject();
-                    jSONObject14.put("k", "boot_type");
-                    jSONObject14.put("v", cj1.b());
-                    jSONArray.put(jSONObject14);
-                    JSONObject jSONObject15 = new JSONObject();
-                    jSONObject15.put("k", "hot_background_time");
-                    jSONObject15.put("v", ((int) (System.currentTimeMillis() - cj1.a())) / 1000);
-                    jSONArray.put(jSONObject15);
-                    JSONObject jSONObject16 = new JSONObject();
-                    jSONObject16.put("k", "is_block_shake_gesture");
-                    if (jj1.M()) {
-                        i2 = 1;
-                    } else {
-                        i2 = 0;
-                    }
-                    jSONObject16.put("v", i2);
-                    jSONArray.put(jSONObject16);
-                    hashMap.put("ext", jSONArray.toString());
-                } catch (JSONException e) {
-                    e = e;
-                    e.printStackTrace();
-                }
-            } catch (JSONException e2) {
-                e = e2;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a = list;
+            notifyDataSetChanged();
         }
     }
 
-    public final String h(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
-        String query;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, map)) == null) {
-            if (map != null && map.size() != 0) {
-                URI create = URI.create(str);
-                if (TextUtils.isEmpty(create.getQuery())) {
-                    query = "";
-                } else {
-                    query = create.getQuery();
-                }
-                StringBuilder sb = new StringBuilder(query);
-                if (sb.length() > 0) {
-                    sb.append('&');
-                }
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    sb.append(entry.getKey());
-                    sb.append("=");
-                    sb.append(entry.getValue());
-                    sb.append('&');
-                }
-                if (sb.length() > 0) {
-                    sb.deleteCharAt(sb.length() - 1);
-                }
-                try {
-                    return new URI(create.getScheme(), create.getAuthority(), create.getPath(), sb.toString(), create.getFragment()).toString();
-                } catch (URISyntaxException e) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<xi1.a> list = this.a;
+            if (list == null) {
+                return 0;
             }
-            return str;
+            return list.size();
         }
-        return (String) invokeLL.objValue;
+        return invokeV.intValue;
     }
 
-    public final ts0 i(String str, String str2, long j) {
-        InterceptResult invokeCommon;
-        String str3;
-        String str4;
-        String h;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j)})) == null) {
-            if (TextUtils.equals("query", str) && jj1.u() && cj1.b() == 0) {
-                h = hj1.m().k(str);
-            } else {
-                String a2 = si1.a();
-                if (TextUtils.equals(str, "query") && jj1.N() && wi1.a().d() != null && !TextUtils.isEmpty(wi1.a().d().optString("host_url"))) {
-                    a2 = wi1.a().d().optString("host_url");
-                }
-                StringBuilder sb = new StringBuilder();
-                sb.append(a2);
-                if (TextUtils.equals(str, StickerDataChangeType.UPDATE)) {
-                    str3 = "?action=update";
-                } else {
-                    str3 = "?action=query";
-                }
-                sb.append(str3);
-                String sb2 = sb.toString();
-                HashMap<String, String> hashMap = new HashMap<>();
-                if (TextUtils.equals(str, StickerDataChangeType.UPDATE)) {
-                    str4 = String.valueOf(jj1.o());
-                } else {
-                    str4 = "1";
-                }
-                hashMap.put("ac", str4);
-                hashMap.put("pid", str2);
-                hashMap.put("product_id ", nj0.a().r());
-                f(hashMap);
-                g(hashMap, str2, str, j);
-                h = h(sb2, hashMap);
-            }
-            ts0 ts0Var = new ts0();
-            ts0Var.l(h);
-            ts0Var.a("User-Agent", nj0.e());
-            ts0Var.c();
-            return ts0Var;
-        }
-        return (ts0) invokeCommon.objValue;
-    }
-
-    public void j(String str, zi1 zi1Var) {
-        Handler handler;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, zi1Var) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            ej1.a(String.valueOf(currentTimeMillis));
-            ts0 i = i("query", str, currentTimeMillis);
-            i.g(this.c);
-            JSONObject d = wi1.a().d();
-            if (d != null && d.has("query_response_thread")) {
-                if (d.optInt("query_response_thread", 0) == 0) {
-                    z = true;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            xi1.a item = getItem(i);
+            if (item == null) {
+                return view2;
+            }
+            boolean z2 = false;
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d020c, (ViewGroup) null, false);
+                view2.setTag(new a(view2));
+            }
+            if (view2.getTag() != null && (view2.getTag() instanceof a)) {
+                a aVar = (a) view2.getTag();
+                if (item.a == -1) {
+                    aVar.g.setVisibility(8);
+                    aVar.f.setVisibility(0);
+                    aVar.h.setText(item.d);
+                    ImageView imageView = aVar.i;
+                    if (item.h == 1) {
+                        z2 = true;
+                    }
+                    imageView.setSelected(z2);
                 } else {
-                    z = false;
+                    aVar.g.setVisibility(0);
+                    aVar.f.setVisibility(8);
+                    aVar.a.setText(item.d);
+                    if (TextUtils.isEmpty(item.e)) {
+                        aVar.b.setVisibility(8);
+                    } else {
+                        aVar.b.setVisibility(0);
+                        aVar.b.setText(item.e);
+                    }
+                    ImageView imageView2 = aVar.c;
+                    if (item.h == 1) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    imageView2.setSelected(z);
+                    SpannableString spannableString = new SpannableString("￥" + a(item.g.longValue()));
+                    spannableString.setSpan(new AbsoluteSizeSpan(zh1.a(this.b, 14.0f)), 0, 1, 33);
+                    aVar.d.setText(spannableString);
                 }
-                i.i(z);
             }
-            as0.b().a().a(i, new b(this, str, currentTimeMillis, System.currentTimeMillis(), zi1Var));
-            this.b = zi1Var;
-            this.d = false;
-            int f = wi1.a().f() - jj1.m();
-            this.c = f;
-            if (f > 0 && (handler = this.a) != null) {
-                handler.postDelayed(new c(this, str), this.c);
-            }
+            return view2;
         }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            String optString = wi1.a().d().optString("na_cpc_update_pid");
-            if (TextUtils.isEmpty(optString)) {
-                optString = wi1.a().e();
-            }
-            String str = optString;
-            as0.b().a().a(i(StickerDataChangeType.UPDATE, str, currentTimeMillis), new a(this, str, currentTimeMillis, System.currentTimeMillis()));
-        }
+        return (View) invokeILL.objValue;
     }
 }

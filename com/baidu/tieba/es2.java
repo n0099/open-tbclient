@@ -1,164 +1,300 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.Editable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.PopupWindow;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class es2 {
+public class es2 extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SwanAppActivity a;
+    public EditText b;
+    public String[] c;
+    public int d;
+    public d e;
 
-    @Inject(force = false)
-    public static hu2 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new v64();
-        }
-        return (hu2) invokeV.objValue;
+    /* loaded from: classes4.dex */
+    public interface d {
+        void a();
+
+        void b(int i);
     }
 
-    @Inject(force = false)
-    public static mg2 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new f44();
+    /* loaded from: classes4.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GridView a;
+        public final /* synthetic */ AdapterView.OnItemClickListener b;
+
+        /* loaded from: classes4.dex */
+        public class a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                    int intValue = ((Integer) view2.getTag()).intValue();
+                    b bVar = this.a;
+                    bVar.b.onItemClick(bVar.a, view2, intValue, intValue);
+                }
+            }
         }
-        return (mg2) invokeV.objValue;
+
+        public b(es2 es2Var, GridView gridView, AdapterView.OnItemClickListener onItemClickListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {es2Var, gridView, onItemClickListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gridView;
+            this.b = onItemClickListener;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int childCount = this.a.getChildCount();
+                if (childCount > 0) {
+                    this.a.setClickable(false);
+                    for (int i = 0; i < childCount; i++) {
+                        View childAt = this.a.getChildAt(i);
+                        childAt.setTag(Integer.valueOf(i));
+                        childAt.setOnClickListener(new a(this));
+                    }
+                    return;
+                }
+                this.a.setOnItemClickListener(this.b);
+            }
+        }
     }
 
-    @Inject(force = false)
-    public static aq1 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return hb4.a();
+    /* loaded from: classes4.dex */
+    public class a implements AdapterView.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ es2 b;
+
+        public a(es2 es2Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {es2Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = es2Var;
+            this.a = i;
         }
-        return (aq1) invokeV.objValue;
+
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                int selectionStart = this.b.b.getSelectionStart();
+                Editable text = this.b.b.getText();
+                if (i == 11) {
+                    if (selectionStart > 0 && text != null && text.length() > 0) {
+                        int i2 = selectionStart - 1;
+                        text.delete(i2, selectionStart);
+                        this.b.b.setText(text);
+                        this.b.b.setSelection(i2);
+                        return;
+                    }
+                    return;
+                }
+                int length = text.length();
+                int i3 = this.a;
+                if (length < i3 || i3 < 0) {
+                    text.insert(selectionStart, this.b.c[i]);
+                    this.b.b.setText(text);
+                    this.b.b.setSelection(selectionStart + this.b.c[i].length());
+                }
+            }
+        }
     }
 
-    @Inject(force = false)
-    public static bq1 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return x54.a();
+    /* loaded from: classes4.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ es2 a;
+
+        public c(es2 es2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {es2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = es2Var;
         }
-        return (bq1) invokeV.objValue;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
+                this.a.b.clearFocus();
+            }
+        }
     }
 
-    @Inject(force = false)
-    public static cq1 e() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public es2(@NonNull SwanAppActivity swanAppActivity, @NonNull EditText editText, int i, int i2) {
+        super(swanAppActivity);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return new y54();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {swanAppActivity, editText, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (cq1) invokeV.objValue;
+        this.c = new String[12];
+        c(i);
+        d(swanAppActivity, editText, i2);
     }
 
-    @Inject(force = false)
-    public static dq1 f() {
-        InterceptResult invokeV;
+    public void e(@NonNull d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return new z54();
+        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
+            this.e = dVar;
         }
-        return (dq1) invokeV.objValue;
     }
 
-    @Inject(force = false)
-    public static eq1 g() {
-        InterceptResult invokeV;
+    public final void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return new a64();
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            int i2 = 0;
+            while (i2 < 9) {
+                int i3 = i2 + 1;
+                this.c[i2] = String.valueOf(i3);
+                i2 = i3;
+            }
+            if (i == 1) {
+                this.c[9] = "X";
+            } else if (i == 0) {
+                this.c[9] = "";
+            } else if (i == 2) {
+                this.c[9] = ".";
+            }
+            this.c[10] = "0";
         }
-        return (eq1) invokeV.objValue;
     }
 
-    @Inject(force = false)
-    public static fq1 h() {
-        InterceptResult invokeV;
+    public final void d(@NonNull SwanAppActivity swanAppActivity, @NonNull EditText editText, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return new q34();
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppActivity, editText, i) == null) {
+            this.a = swanAppActivity;
+            this.b = editText;
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(swanAppActivity).inflate(R.layout.obfuscated_res_0x7f0d00b6, (ViewGroup) null);
+            this.d = swanAppActivity.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070152);
+            linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            GridView gridView = (GridView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091178);
+            gridView.setAdapter((ListAdapter) new ds2(swanAppActivity, this.c));
+            gn3.a0(new b(this, gridView, new a(this, i)));
+            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.close_btn);
+            imageView.setOnClickListener(new c(this));
+            imageView.setClickable(true);
+            setContentView(linearLayout);
+            setWidth(-1);
+            setHeight(this.d);
+            setBackgroundDrawable(new BitmapDrawable());
         }
-        return (fq1) invokeV.objValue;
     }
 
-    @Inject(force = false)
-    public static gq1 i() {
-        InterceptResult invokeV;
+    @Override // android.widget.PopupWindow
+    public void dismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return v44.a();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.dismiss();
+            d dVar = this.e;
+            if (dVar != null) {
+                dVar.a();
+            }
         }
-        return (gq1) invokeV.objValue;
     }
 
-    @Inject(force = false)
-    public static hq1 j() {
-        InterceptResult invokeV;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return p94.a();
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !isShowing()) {
+            showAtLocation(this.a.getWindow().getDecorView(), 80, 0, 0);
+            d dVar = this.e;
+            if (dVar != null) {
+                dVar.b(this.d);
+            }
         }
-        return (hq1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static iq1 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return new pb4();
-        }
-        return (iq1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static jq1 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return c64.a();
-        }
-        return (jq1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static lq1 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return ba4.a();
-        }
-        return (lq1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static mq1 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return s94.a();
-        }
-        return (mq1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static oq1 o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            return za4.a();
-        }
-        return (oq1) invokeV.objValue;
     }
 }

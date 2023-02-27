@@ -3,11 +3,9 @@ package com.baidu.android.pushservice.viproxy;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.pushservice.frequency.b;
-import com.baidu.android.pushservice.h.a.b;
-import com.baidu.android.pushservice.i.m;
+import com.baidu.android.pushservice.n.c;
+import com.baidu.android.pushservice.util.Utility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -61,10 +59,9 @@ public class ViPushMessageReceiver extends OpenClientPushMessageReceiver {
             intent.putExtra("vi_notification_msg_id", optString);
             intent.putExtra("vi_notification_pkg_content", optString3);
             intent.putExtra("extra_extra_custom_content", optString4);
-            m.a(intent, context.getApplicationContext());
-            b.a().a(context, false, 1, optString4);
-        } catch (Exception e) {
-            new b.c(context).a(Log.getStackTraceString(e)).a();
+            Utility.a(intent, context.getApplicationContext());
+            c.a().a(context, false, 1, optString4);
+        } catch (Exception unused) {
         }
     }
 

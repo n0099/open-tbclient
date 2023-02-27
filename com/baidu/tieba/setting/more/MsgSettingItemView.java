@@ -2,6 +2,7 @@ package com.baidu.tieba.setting.more;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -74,10 +75,10 @@ public class MsgSettingItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05c8, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091fa6);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091fa7);
-            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f091fa5);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05dc, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091feb);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091fec);
+            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f091fea);
             this.c = bdSwitchView;
             ej.b(context, bdSwitchView, 10, 10, 10, 10);
         }
@@ -172,11 +173,26 @@ public class MsgSettingItemView extends LinearLayout {
         }
     }
 
+    public void setTextStr(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && !TextUtils.isEmpty(str)) {
+            this.a.setText(str);
+        }
+    }
+
     public void setTipText(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && i != 0) {
+        if ((interceptable == null || interceptable.invokeI(1048589, this, i) == null) && i != 0) {
             this.b.setVisibility(0);
             this.b.setText(i);
+        }
+    }
+
+    public void setTipTextStr(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && !TextUtils.isEmpty(str)) {
+            this.b.setVisibility(0);
+            this.b.setText(str);
         }
     }
 }

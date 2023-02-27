@@ -41,7 +41,7 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0770 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0786 : invokeV.intValue;
     }
 
     public PolyNoticeDialog() {
@@ -62,7 +62,7 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.c.setVisibility(0);
-            this.c.startAnimation(AnimationUtils.loadAnimation(this.c.getContext(), R.anim.obfuscated_res_0x7f010098));
+            this.c.startAnimation(AnimationUtils.loadAnimation(this.c.getContext(), R.anim.obfuscated_res_0x7f01009f));
         }
     }
 
@@ -150,13 +150,13 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b22);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b21);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b1e);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b20);
-            this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b1c);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b1d);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b1f);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b63);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b62);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b5f);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b61);
+            this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b5d);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b5e);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b60);
             this.d.setOnClickListener(this);
             this.f.setOnClickListener(this);
             this.g.setOnClickListener(this);

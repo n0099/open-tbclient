@@ -1,19 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.tieba.f35;
 /* loaded from: classes5.dex */
-public interface j35 {
-    void a(Context context);
+public interface j35<T extends f35> {
+    void a(int i, boolean z, T t);
 
-    void b(Context context, int i);
-
-    void c(Context context, int i, boolean z);
-
-    Class<?> d();
-
-    void e(Context context, int i, boolean z);
-
-    String f();
-
-    int getCurrentTabType();
+    void b(int i, T t, boolean z);
 }

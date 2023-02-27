@@ -1,28 +1,29 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
+import android.app.Activity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.mm.opensdk.modelbase.BaseResp;
 /* loaded from: classes5.dex */
-public interface kb8 {
-    void c(boolean z);
+public class kb8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Activity a;
+    public BaseResp b;
 
-    void d(View.OnLongClickListener onLongClickListener);
-
-    void e(View.OnClickListener onClickListener);
-
-    void f(boolean z);
-
-    void k(View.OnClickListener onClickListener);
-
-    void l(int i);
-
-    void n(TbRichTextView.a0 a0Var);
-
-    void o(String str);
-
-    void q(boolean z);
-
-    void r(v98 v98Var);
-
-    void setFromCDN(boolean z);
+    public kb8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

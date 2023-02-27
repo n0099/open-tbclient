@@ -11,183 +11,101 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.widget.IAdImageView;
-import com.baidu.tieba.dc1;
-import com.baidu.tieba.ob1;
+import com.baidu.tieba.ic1;
+import com.baidu.tieba.nc1;
 import com.baidu.tieba.yb1;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class AdImageView extends AppCompatImageView implements IAdImageView {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final dc1 a;
+    public final nc1 a;
     public IAdImageView.ImageScaleType b;
     public final Path c;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AdImageView(@NonNull Context context) {
         this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public void g(String str) {
+        k(str, true);
+    }
+
+    public void m(String str) {
+        yb1.a().d(str);
+    }
+
+    public void setImageScaleType(IAdImageView.ImageScaleType imageScaleType) {
+        if (imageScaleType != null) {
+            if (this.b != imageScaleType) {
+                this.b = imageScaleType;
+                requestLayout();
+                invalidate();
+                return;
+            }
+            return;
+        }
+        throw null;
+    }
+
+    public void setPlaceHolderDrawable(Drawable drawable) {
+        this.a.b = drawable;
+    }
+
     public AdImageView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+    }
+
+    public void k(String str, boolean z) {
+        if (TextUtils.isEmpty(str)) {
+            setImageBitmap(null);
+        } else {
+            yb1.a().a(str, this, z);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public void setBorder(float f, @ColorInt int i) {
+        nc1.a aVar = this.a.d;
+        if (aVar == null) {
+            aVar = new nc1.a();
+        }
+        aVar.c = f;
+        aVar.d = i;
+        this.a.d = aVar;
+    }
+
     public AdImageView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = new dc1();
+        this.a = new nc1();
         this.c = new Path();
         n(attributeSet);
     }
 
     public void f(String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048576, this, str, i, i2) == null) {
-            ob1.a().b(str, this, i, i2);
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            k(str, true);
-        }
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            ob1.a().d(str);
-        }
-    }
-
-    public void setImageScaleType(IAdImageView.ImageScaleType imageScaleType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, imageScaleType) == null) {
-            if (imageScaleType != null) {
-                if (this.b != imageScaleType) {
-                    this.b = imageScaleType;
-                    requestLayout();
-                    invalidate();
-                    return;
-                }
-                return;
-            }
-            throw null;
-        }
-    }
-
-    public void setPlaceHolderDrawable(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, drawable) == null) {
-            this.a.b = drawable;
-        }
+        yb1.a().b(str, this, i, i2);
     }
 
     @NonNull
-    public dc1 getConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (dc1) invokeV.objValue;
+    public nc1 getConfig() {
+        return this.a;
     }
 
     public IAdImageView.ImageScaleType getImageScaleType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (IAdImageView.ImageScaleType) invokeV.objValue;
+        return this.b;
     }
 
     public void setCircle() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            dc1.a aVar = this.a.d;
-            if (aVar == null) {
-                aVar = new dc1.a();
-            }
-            aVar.a = true;
-            this.a.d = aVar;
+        nc1.a aVar = this.a.d;
+        if (aVar == null) {
+            aVar = new nc1.a();
         }
-    }
-
-    public void k(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) {
-            if (TextUtils.isEmpty(str)) {
-                setImageBitmap(null);
-            } else {
-                ob1.a().a(str, this, z);
-            }
-        }
+        aVar.a = true;
+        this.a.d = aVar;
     }
 
     public final void n(AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, attributeSet) != null) || attributeSet == null) {
+        if (attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, yb1.AdImageView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, ic1.AdImageView);
         int resourceId = obtainStyledAttributes.getResourceId(5, 0);
         if (resourceId != 0) {
             this.a.a = resourceId;
@@ -196,7 +114,7 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         if (resourceId2 != 0) {
             this.a.c = resourceId2;
         }
-        dc1.a aVar = new dc1.a();
+        nc1.a aVar = new nc1.a();
         if (obtainStyledAttributes.getBoolean(3, false)) {
             aVar.a = true;
         } else {
@@ -218,71 +136,52 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
-            dc1.a aVar = getConfig().d;
-            if (aVar == null) {
-                super.onDraw(canvas);
-                return;
-            }
-            int width = getWidth();
-            int height = getHeight();
-            if (aVar.a) {
-                this.c.addCircle(width / 2.0f, height / 2.0f, Math.min(width, height) / 2, Path.Direction.CCW);
-                canvas.clipPath(this.c);
-                super.onDraw(canvas);
-                return;
-            }
-            float[] fArr = aVar.b;
-            if (fArr == null) {
-                super.onDraw(canvas);
-                return;
-            }
-            float max = Math.max(fArr[0], fArr[2]) + Math.max(fArr[1], fArr[3]);
-            float max2 = Math.max(fArr[0], fArr[1]) + Math.max(fArr[2], fArr[3]);
-            float f = width;
-            if (f >= max) {
-                float f2 = height;
-                if (f2 > max2) {
-                    this.c.moveTo(fArr[0], 0.0f);
-                    this.c.lineTo(f - fArr[1], 0.0f);
-                    this.c.quadTo(f, 0.0f, f, fArr[1]);
-                    this.c.lineTo(f, f2 - fArr[3]);
-                    this.c.quadTo(f, f2, f - fArr[3], f2);
-                    this.c.lineTo(fArr[2], f2);
-                    this.c.quadTo(0.0f, f2, 0.0f, f2 - fArr[2]);
-                    this.c.lineTo(0.0f, fArr[0]);
-                    this.c.quadTo(0.0f, 0.0f, fArr[0], 0.0f);
-                    canvas.clipPath(this.c);
-                }
-            }
+        nc1.a aVar = getConfig().d;
+        if (aVar == null) {
             super.onDraw(canvas);
+            return;
         }
-    }
-
-    public void setBorder(float f, @ColorInt int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
-            dc1.a aVar = this.a.d;
-            if (aVar == null) {
-                aVar = new dc1.a();
+        int width = getWidth();
+        int height = getHeight();
+        if (aVar.a) {
+            this.c.addCircle(width / 2.0f, height / 2.0f, Math.min(width, height) / 2, Path.Direction.CCW);
+            canvas.clipPath(this.c);
+            super.onDraw(canvas);
+            return;
+        }
+        float[] fArr = aVar.b;
+        if (fArr == null) {
+            super.onDraw(canvas);
+            return;
+        }
+        float max = Math.max(fArr[0], fArr[2]) + Math.max(fArr[1], fArr[3]);
+        float max2 = Math.max(fArr[0], fArr[1]) + Math.max(fArr[2], fArr[3]);
+        float f = width;
+        if (f >= max) {
+            float f2 = height;
+            if (f2 > max2) {
+                this.c.moveTo(fArr[0], 0.0f);
+                this.c.lineTo(f - fArr[1], 0.0f);
+                this.c.quadTo(f, 0.0f, f, fArr[1]);
+                this.c.lineTo(f, f2 - fArr[3]);
+                this.c.quadTo(f, f2, f - fArr[3], f2);
+                this.c.lineTo(fArr[2], f2);
+                this.c.quadTo(0.0f, f2, 0.0f, f2 - fArr[2]);
+                this.c.lineTo(0.0f, fArr[0]);
+                this.c.quadTo(0.0f, 0.0f, fArr[0], 0.0f);
+                canvas.clipPath(this.c);
             }
-            aVar.c = f;
-            aVar.d = i;
-            this.a.d = aVar;
         }
+        super.onDraw(canvas);
     }
 
     public void setRadius(float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            dc1.a aVar = this.a.d;
-            if (aVar == null) {
-                aVar = new dc1.a();
-            }
-            aVar.a = false;
-            aVar.b = new float[]{f, f2, f3, f4};
-            this.a.d = aVar;
+        nc1.a aVar = this.a.d;
+        if (aVar == null) {
+            aVar = new nc1.a();
         }
+        aVar.a = false;
+        aVar.b = new float[]{f, f2, f3, f4};
+        this.a.d = aVar;
     }
 }

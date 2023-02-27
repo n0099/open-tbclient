@@ -19,7 +19,7 @@ public class ac extends bc<HttpMessage, HttpMessageTask, ob, HttpResponsedMessag
     public transient /* synthetic */ FieldHolder $fh;
     public HttpClient i;
 
-    public HttpMessage w(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+    public HttpMessage x(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, httpMessage, httpMessageTask)) == null) ? httpMessage : (HttpMessage) invokeLL.objValue;
@@ -71,13 +71,13 @@ public class ac extends bc<HttpMessage, HttpMessageTask, ob, HttpResponsedMessag
     @Override // com.baidu.tieba.bc
     public /* bridge */ /* synthetic */ HttpMessage m(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         HttpMessage httpMessage2 = httpMessage;
-        w(httpMessage2, httpMessageTask);
+        x(httpMessage2, httpMessageTask);
         return httpMessage2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.oa
-    /* renamed from: y */
+    /* renamed from: z */
     public void f(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, httpMessage, httpMessageTask) == null) {
@@ -88,7 +88,7 @@ public class ac extends bc<HttpMessage, HttpMessageTask, ob, HttpResponsedMessag
         }
     }
 
-    public void x(BdUniqueId bdUniqueId) {
+    public void y(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
             this.i.j(bdUniqueId);

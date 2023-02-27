@@ -1,35 +1,75 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes3.dex */
 public class aw4 {
     public static /* synthetic */ Interceptable $ic;
-    public static aw4 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public boolean d;
-    public int e;
+    public LinearLayout A;
+    public ImageView B;
+    public TextView C;
+    public LinearLayout D;
+    public ImageView E;
+    public TextView F;
+    public View G;
+    public View H;
+    public View I;
+    public final View a;
+    public final ThreadAchievementShareInfo.ParamBean b;
+    public final Context c;
+    public List<ThreadAchievementShareInfo.ThreadListBean> d;
+    public TextView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public View n;
+    public View o;
+    public View p;
+    public TextView q;
+    public TbImageView r;
+    public TbImageView s;
+    public TbImageView t;
+    public View u;
+    public View v;
+    public View w;
+    public LinearLayout x;
+    public ImageView y;
+    public TextView z;
 
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-        }
-    }
-
-    public aw4() {
+    public aw4(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, threadAchievementShareInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,125 +79,211 @@ public class aw4 {
                 return;
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.c = null;
-        this.d = true;
-        this.e = 0;
-    }
-
-    public static aw4 c() {
-        InterceptResult invokeV;
-        aw4 aw4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            aw4 aw4Var2 = f;
-            if (aw4Var2 == null) {
-                synchronized (aw4.class) {
-                    if (f == null) {
-                        f = new aw4();
-                    }
-                    aw4Var = f;
-                }
-                return aw4Var;
-            }
-            return aw4Var2;
+        this.c = context;
+        this.a = LayoutInflater.from(context).inflate(R.layout.hot_thread_rank_list, (ViewGroup) null);
+        ThreadAchievementShareInfo.ParamBean params = threadAchievementShareInfo.getParams();
+        this.b = params;
+        if (params != null) {
+            this.d = params.getThread_list();
         }
-        return (aw4) invokeV.objValue;
+        c();
+        b();
     }
 
-    public String a() {
+    public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public final void b() {
+        List<ThreadAchievementShareInfo.ThreadListBean> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            p35 m = p35.m();
-            int n = m.n(TbadkCoreApplication.getCurrentAccount() + "add_image_water", 2);
-            this.b = n;
-            return n;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int n = p35.m().n("image_quality", 0);
-            this.a = n;
-            return n;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = p35.m().n("image_quality", 0);
-            p35.m().n("new_abstract_state", 0);
-            this.e = p35.m().n("view_image_quality", 0);
-            boolean i = p35.m().i("show_images", true);
-            this.d = i;
-            if (!i) {
-                this.d = true;
-                p35.m().H("show_images");
-                p35.m().z("view_image_quality", 0);
-                this.e = 0;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b != null && (list = this.d) != null && list.size() >= 2) {
+            int rank = this.b.getRank();
+            if (rank == 0) {
+                ThreadAchievementShareInfo.ThreadListBean threadListBean = this.d.get(rank);
+                threadListBean.setDuration(500);
+                int i = rank + 1;
+                e(i, threadListBean);
+                f(rank + 2, this.d.get(i));
+                this.u.setVisibility(8);
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.w.getLayoutParams();
+                layoutParams.topMargin = 0;
+                layoutParams.bottomMargin = ej.g(this.c, R.dimen.tbds8);
+            } else if (rank == 1) {
+                d(rank, this.d.get(rank - 1));
+                f(rank + 1, this.d.get(rank));
+                this.v.setVisibility(4);
+                ((RelativeLayout.LayoutParams) this.u.getLayoutParams()).topMargin = ej.g(this.c, R.dimen.tbds5);
+                SkinManager.setBackgroundColor(this.k, R.color.CAM_X0310);
+                SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0310);
+                SkinManager.setBackgroundColor(this.p, R.color.cp_other_b_alpha20);
+            } else {
+                int i2 = rank - 1;
+                e(i2, this.d.get(rank - 2));
+                d(rank, this.d.get(i2));
+                ((RelativeLayout.LayoutParams) this.u.getLayoutParams()).topMargin = ej.g(this.c, R.dimen.tbds230);
+                this.w.setVisibility(4);
             }
         }
     }
 
-    public void h(String str) {
+    @SuppressLint({"CutPasteId"})
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.q = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0923a4);
+            this.e = (TextView) this.a.findViewById(R.id.first_rank_num);
+            this.f = (TextView) this.a.findViewById(R.id.first_thread_content);
+            this.r = (TbImageView) this.a.findViewById(R.id.first_thread_img);
+            this.g = (TextView) this.a.findViewById(R.id.first_heat_degree);
+            this.n = this.a.findViewById(R.id.first_heat_degree_bg);
+            this.h = (TextView) this.a.findViewById(R.id.second_rank_num);
+            this.i = (TextView) this.a.findViewById(R.id.second_thread_content);
+            this.s = (TbImageView) this.a.findViewById(R.id.second_thread_img);
+            this.j = (TextView) this.a.findViewById(R.id.second_heat_degree);
+            this.o = this.a.findViewById(R.id.second_heat_degree_bg);
+            this.k = (TextView) this.a.findViewById(R.id.current_rank_num);
+            this.l = (TextView) this.a.findViewById(R.id.current_thread_content);
+            this.t = (TbImageView) this.a.findViewById(R.id.current_thread_img);
+            this.m = (TextView) this.a.findViewById(R.id.current_heat_degree);
+            this.p = this.a.findViewById(R.id.current_heat_degree_bg);
+            this.v = this.a.findViewById(R.id.first_item_layout);
+            this.w = this.a.findViewById(R.id.second_item_layout);
+            this.u = this.a.findViewById(R.id.current_item_layout);
+            this.I = this.a.findViewById(R.id.first_thread_img_overlay);
+            this.H = this.a.findViewById(R.id.second_thread_img_overlay);
+            this.G = this.a.findViewById(R.id.current_thread_img_overlay);
+            this.x = (LinearLayout) this.a.findViewById(R.id.first_video_during_container);
+            this.y = (ImageView) this.a.findViewById(R.id.first_vidoe_play_iv);
+            this.z = (TextView) this.a.findViewById(R.id.first_video_during_tv);
+            this.A = (LinearLayout) this.a.findViewById(R.id.second_video_during_container);
+            this.B = (ImageView) this.a.findViewById(R.id.second_vidoe_play_iv);
+            this.C = (TextView) this.a.findViewById(R.id.second_video_during_tv);
+            this.D = (LinearLayout) this.a.findViewById(R.id.current_video_during_container);
+            this.E = (ImageView) this.a.findViewById(R.id.current_vidoe_play_iv);
+            this.F = (TextView) this.a.findViewById(R.id.current_video_during_tv);
+            this.r.setRadius(ej.g(this.c, R.dimen.tbds10));
+            this.r.setConrers(15);
+            this.r.setPlaceHolder(2);
+            this.s.setRadius(ej.g(this.c, R.dimen.tbds10));
+            this.s.setConrers(15);
+            this.s.setPlaceHolder(2);
+            this.t.setRadius(ej.g(this.c, R.dimen.tbds10));
+            this.t.setConrers(15);
+            this.t.setPlaceHolder(2);
+            this.f.setLineSpacing(ej.g(this.c, R.dimen.tbds13), 1.0f);
+            this.i.setLineSpacing(ej.g(this.c, R.dimen.tbds13), 1.0f);
+            this.l.setLineSpacing(ej.g(this.c, R.dimen.tbds13), 1.0f);
+            SkinManager.setViewTextColor(this.q, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this.e, R.drawable.cp_other_d_round_bg);
+            SkinManager.setBackgroundResource(this.n, R.drawable.cp_other_b_alpha20_round_bg);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0310);
+            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this.h, R.drawable.cp_link_tip_d_round_bg);
+            SkinManager.setBackgroundResource(this.o, R.drawable.cp_link_tip_d_alpha20_round_bg);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0305);
+            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this.k, R.drawable.cp_link_tip_d_round_bg);
+            SkinManager.setBackgroundResource(this.p, R.drawable.cp_link_tip_d_alpha20_round_bg);
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0305);
+            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
+            TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(0).setBgColor(SkinManager.getResourceId(R.color.CAM_X0201)).setShadowColor(SkinManager.getResourceId(R.color.CAM_X0806)).setShadowSide(4112).setShadowRadius(ej.g(this.c, R.dimen.tbds16)).setOffsetX(0).setOffsetY(ej.g(this.c, R.dimen.tbds5)).into(this.u);
+            this.y.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
+            this.B.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
+            this.E.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
+            SkinManager.setViewTextColor(this.z, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.C, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.F, (int) R.color.CAM_X0101);
         }
     }
 
-    public void k(int i) {
+    public final void d(int i, ThreadAchievementShareInfo.ThreadListBean threadListBean) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048585, this, i) != null) || this.e == i) {
-            return;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, threadListBean) == null) {
+            this.u.setVisibility(0);
+            this.k.setText(String.valueOf(i));
+            this.l.setText(threadListBean.getTitle());
+            if (!TextUtils.isEmpty(threadListBean.getHotvalue())) {
+                this.p.setVisibility(0);
+                TextView textView = this.m;
+                textView.setText("热度 " + StringHelper.numFormatOverWanNa(Long.parseLong(threadListBean.getHotvalue())));
+            }
+            if (threadListBean.getDuration() > 0) {
+                this.D.setVisibility(0);
+                this.G.setVisibility(0);
+                this.F.setText(StringUtils.translateSecondsToString(threadListBean.getDuration()));
+            }
+            if (!TextUtils.isEmpty(threadListBean.getImg())) {
+                this.t.setVisibility(0);
+                this.t.K(threadListBean.getImg(), 10, false);
+                return;
+            }
+            this.t.setVisibility(8);
+            this.D.setVisibility(8);
+            ((RelativeLayout.LayoutParams) this.l.getLayoutParams()).rightMargin = ej.g(this.c, R.dimen.tbds44);
         }
-        this.e = i;
-        p35.m().z("view_image_quality", i);
-        TbImageHelper.getInstance().updateFrsShowBigImage();
-        TbImageHelper.getInstance().updateUrlQuality();
     }
 
-    public void i(int i) {
+    public final void e(int i, ThreadAchievementShareInfo.ThreadListBean threadListBean) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048583, this, i) != null) || this.b == i) {
-            return;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, threadListBean) == null) {
+            this.v.setVisibility(0);
+            this.e.setText(String.valueOf(i));
+            this.f.setText(threadListBean.getTitle());
+            if (!TextUtils.isEmpty(threadListBean.getHotvalue())) {
+                this.n.setVisibility(0);
+                TextView textView = this.g;
+                textView.setText("热度 " + StringHelper.numFormatOverWanNa(Long.parseLong(threadListBean.getHotvalue())));
+            }
+            if (threadListBean.getDuration() > 0) {
+                this.x.setVisibility(0);
+                this.I.setVisibility(0);
+                this.z.setText(StringUtils.translateSecondsToString(threadListBean.getDuration()));
+            }
+            if (!TextUtils.isEmpty(threadListBean.getImg())) {
+                this.r.setVisibility(0);
+                this.r.K(threadListBean.getImg(), 10, false);
+                return;
+            }
+            this.r.setVisibility(8);
+            this.x.setVisibility(8);
+            ((RelativeLayout.LayoutParams) this.f.getLayoutParams()).rightMargin = ej.g(this.c, R.dimen.tbds44);
         }
-        this.b = i;
-        p35 m = p35.m();
-        m.z(TbadkCoreApplication.getCurrentAccount() + "add_image_water", i);
+    }
+
+    public final void f(int i, ThreadAchievementShareInfo.ThreadListBean threadListBean) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, threadListBean) == null) {
+            this.w.setVisibility(0);
+            this.h.setText(String.valueOf(i));
+            this.i.setText(threadListBean.getTitle());
+            if (!TextUtils.isEmpty(threadListBean.getHotvalue())) {
+                this.o.setVisibility(0);
+                TextView textView = this.j;
+                textView.setText("热度 " + StringHelper.numFormatOverWanNa(Long.parseLong(threadListBean.getHotvalue())));
+            }
+            if (threadListBean.getDuration() > 0) {
+                this.A.setVisibility(0);
+                this.H.setVisibility(0);
+                this.C.setText(StringUtils.translateSecondsToString(threadListBean.getDuration()));
+            }
+            if (!TextUtils.isEmpty(threadListBean.getImg())) {
+                this.s.setVisibility(0);
+                this.s.K(threadListBean.getImg(), 10, false);
+                return;
+            }
+            this.s.setVisibility(8);
+            this.A.setVisibility(8);
+            ((RelativeLayout.LayoutParams) this.i.getLayoutParams()).rightMargin = ej.g(this.c, R.dimen.tbds44);
+        }
     }
 }

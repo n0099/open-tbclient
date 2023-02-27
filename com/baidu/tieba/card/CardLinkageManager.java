@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b35;
 import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.hp5;
 import com.baidu.tieba.jo;
-import com.baidu.tieba.p15;
-import com.baidu.tieba.sw4;
-import com.baidu.tieba.tn5;
+import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class CardLinkageManager {
     public static final /* synthetic */ CardLinkageManager[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -89,8 +89,8 @@ public final class CardLinkageManager {
         if ((interceptable != null && interceptable.invokeLL(1048576, this, joVar, baseCardInfo) != null) || !baseCardInfo.isHighLight()) {
             return;
         }
-        if (baseCardInfo instanceof sw4) {
-            ((sw4) baseCardInfo).getThreadData().cancelHighLight();
+        if (baseCardInfo instanceof zx4) {
+            ((zx4) baseCardInfo).getThreadData().cancelHighLight();
         }
         if (joVar != null && joVar.getListAdapter() != null) {
             joVar.getListAdapter().notifyDataSetChanged();
@@ -139,17 +139,17 @@ public final class CardLinkageManager {
                     BaseCardInfo baseCardInfo2 = (BaseCardInfo) item2;
                     if (baseCardInfo.position == baseCardInfo2.position && (findViewByPosition = layoutManager.findViewByPosition(i3)) != null) {
                         if (baseCardInfo2.isSupportFull()) {
-                            p15 d = p15.d(findViewByPosition);
+                            b35 d = b35.d(findViewByPosition);
                             d.m(0);
                             d.n(R.string.J_X06);
                             d.f(i2);
                         } else if (baseCardInfo2.isSupportTop()) {
-                            p15 d2 = p15.d(findViewByPosition);
+                            b35 d2 = b35.d(findViewByPosition);
                             d2.m(1);
                             d2.n(R.string.J_X06);
                             d2.f(i2);
                         } else if (baseCardInfo2.isSupportBottom()) {
-                            p15 d3 = p15.d(findViewByPosition);
+                            b35 d3 = b35.d(findViewByPosition);
                             d3.m(2);
                             d3.n(R.string.J_X06);
                             d3.f(i2);
@@ -184,7 +184,7 @@ public final class CardLinkageManager {
         BaseCardInfo baseCardInfo = (BaseCardInfo) item;
         for (int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition(); firstVisiblePosition <= lastVisiblePosition; firstVisiblePosition++) {
             Object item2 = ListUtils.getItem(data, firstVisiblePosition - headerViewsCount);
-            if (!tn5.p(item2)) {
+            if (!hp5.p(item2)) {
                 if (!(item2 instanceof BaseCardInfo)) {
                     if ((item2 instanceof Cdo) && (findViewByPosition2 = layoutManager.findViewByPosition(firstVisiblePosition)) != null) {
                         findViewByPosition2.setTranslationY(f);

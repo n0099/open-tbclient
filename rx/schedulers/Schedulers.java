@@ -1,174 +1,24 @@
 package rx.schedulers;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.aea;
-import com.baidu.tieba.aga;
-import com.baidu.tieba.eia;
-import com.baidu.tieba.hia;
-import com.baidu.tieba.iia;
-import com.baidu.tieba.tfa;
-import com.baidu.tieba.ufa;
-import com.baidu.tieba.vfa;
-import com.baidu.tieba.yfa;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.cra;
+import com.baidu.tieba.dra;
+import com.baidu.tieba.ooa;
+import com.baidu.tieba.poa;
+import com.baidu.tieba.qoa;
+import com.baidu.tieba.toa;
+import com.baidu.tieba.vma;
+import com.baidu.tieba.voa;
+import com.baidu.tieba.zqa;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
 public final class Schedulers {
-    public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<Schedulers> d;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final aea a;
-    public final aea b;
-    public final aea c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1980950871, "Lrx/schedulers/Schedulers;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1980950871, "Lrx/schedulers/Schedulers;");
-                return;
-            }
-        }
-        d = new AtomicReference<>();
-    }
-
-    public static aea computation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return eia.f(a().a);
-        }
-        return (aea) invokeV.objValue;
-    }
-
-    public static aea immediate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return vfa.a;
-        }
-        return (aea) invokeV.objValue;
-    }
-
-    public static aea io() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return eia.k(a().b);
-        }
-        return (aea) invokeV.objValue;
-    }
-
-    public static aea newThread() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return eia.l(a().c);
-        }
-        return (aea) invokeV.objValue;
-    }
-
-    public static void reset() {
-        Schedulers andSet;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65544, null) == null) && (andSet = d.getAndSet(null)) != null) {
-            andSet.b();
-        }
-    }
-
-    public static void shutdown() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            Schedulers a = a();
-            a.b();
-            synchronized (a) {
-                ufa.d.shutdown();
-            }
-        }
-    }
-
-    public static void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            Schedulers a = a();
-            a.c();
-            synchronized (a) {
-                ufa.d.start();
-            }
-        }
-    }
-
-    public static TestScheduler test() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return new TestScheduler();
-        }
-        return (TestScheduler) invokeV.objValue;
-    }
-
-    public static aea trampoline() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return aga.a;
-        }
-        return (aea) invokeV.objValue;
-    }
-
-    public Schedulers() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        iia f = hia.c().f();
-        aea g = f.g();
-        if (g != null) {
-            this.a = g;
-        } else {
-            this.a = iia.a();
-        }
-        aea i3 = f.i();
-        if (i3 != null) {
-            this.b = i3;
-        } else {
-            this.b = iia.c();
-        }
-        aea j = f.j();
-        if (j != null) {
-            this.c = j;
-        } else {
-            this.c = iia.e();
-        }
-    }
+    public static final AtomicReference<Schedulers> d = new AtomicReference<>();
+    public final vma a;
+    public final vma b;
+    public final vma c;
 
     public static Schedulers a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
-            return (Schedulers) invokeV.objValue;
-        }
         while (true) {
             Schedulers schedulers = d.get();
             if (schedulers != null) {
@@ -182,46 +32,100 @@ public final class Schedulers {
         }
     }
 
+    public static vma computation() {
+        return zqa.f(a().a);
+    }
+
+    public static vma immediate() {
+        return qoa.a;
+    }
+
+    public static vma io() {
+        return zqa.k(a().b);
+    }
+
+    public static vma newThread() {
+        return zqa.l(a().c);
+    }
+
+    public static void reset() {
+        Schedulers andSet = d.getAndSet(null);
+        if (andSet != null) {
+            andSet.b();
+        }
+    }
+
+    public static void shutdown() {
+        Schedulers a = a();
+        a.b();
+        synchronized (a) {
+            poa.d.shutdown();
+        }
+    }
+
+    public static void start() {
+        Schedulers a = a();
+        a.c();
+        synchronized (a) {
+            poa.d.start();
+        }
+    }
+
+    public static TestScheduler test() {
+        return new TestScheduler();
+    }
+
+    public static vma trampoline() {
+        return voa.a;
+    }
+
     public synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                if (this.a instanceof yfa) {
-                    ((yfa) this.a).shutdown();
-                }
-                if (this.b instanceof yfa) {
-                    ((yfa) this.b).shutdown();
-                }
-                if (this.c instanceof yfa) {
-                    ((yfa) this.c).shutdown();
-                }
-            }
+        if (this.a instanceof toa) {
+            ((toa) this.a).shutdown();
+        }
+        if (this.b instanceof toa) {
+            ((toa) this.b).shutdown();
+        }
+        if (this.c instanceof toa) {
+            ((toa) this.c).shutdown();
         }
     }
 
     public synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                if (this.a instanceof yfa) {
-                    ((yfa) this.a).start();
-                }
-                if (this.b instanceof yfa) {
-                    ((yfa) this.b).start();
-                }
-                if (this.c instanceof yfa) {
-                    ((yfa) this.c).start();
-                }
-            }
+        if (this.a instanceof toa) {
+            ((toa) this.a).start();
+        }
+        if (this.b instanceof toa) {
+            ((toa) this.b).start();
+        }
+        if (this.c instanceof toa) {
+            ((toa) this.c).start();
         }
     }
 
-    public static aea from(Executor executor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, executor)) == null) {
-            return new tfa(executor);
+    public Schedulers() {
+        dra f = cra.c().f();
+        vma g = f.g();
+        if (g != null) {
+            this.a = g;
+        } else {
+            this.a = dra.a();
         }
-        return (aea) invokeL.objValue;
+        vma i = f.i();
+        if (i != null) {
+            this.b = i;
+        } else {
+            this.b = dra.c();
+        }
+        vma j = f.j();
+        if (j != null) {
+            this.c = j;
+        } else {
+            this.c = dra.e();
+        }
+    }
+
+    public static vma from(Executor executor) {
+        return new ooa(executor);
     }
 }

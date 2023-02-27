@@ -1,124 +1,35 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.location.BDLocation;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.util.Base64;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.Constants;
-import java.util.Iterator;
-import org.json.JSONArray;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class po4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public b b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
-    public String u;
+    public Context a;
 
-    /* loaded from: classes5.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public int e;
-        public String f;
-        public String g;
-        public int h;
-
-        public a(po4 po4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {po4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = "Android";
-            this.b = Build.VERSION.RELEASE;
-            this.c = Build.MANUFACTURER;
-            this.e = Build.VERSION.SDK_INT;
-            this.f = Build.MODEL;
-            Context appContext = AppRuntime.getAppContext();
-            WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
-            this.g = windowManager.getDefaultDisplay().getWidth() + "_" + windowManager.getDefaultDisplay().getHeight();
-            this.h = appContext.getResources().getDisplayMetrics().densityDpi;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        public b(po4 po4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {po4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = co4.g().u(AppRuntime.getAppContext());
-        }
-    }
-
-    public po4(String str) {
+    public po4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -128,165 +39,264 @@ public class po4 {
                 return;
             }
         }
-        this.a = new a(this);
-        this.b = new b(this);
-        this.i = to4.c();
-        this.o = "";
-        Context appContext = AppRuntime.getAppContext();
-        try {
-            PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
-            this.c = packageInfo.versionName;
-            this.e = packageInfo.packageName;
-        } catch (PackageManager.NameNotFoundException unused) {
-        }
-        TelephonyManager telephonyManager = (TelephonyManager) AppRuntime.getAppContext().getSystemService("phone");
-        if (telephonyManager != null && (Build.VERSION.SDK_INT < 23 || appContext.checkSelfPermission(com.kuaishou.weapon.p0.h.c) == 0)) {
-            this.j = telephonyManager.getSimOperator();
-        }
-        this.f = co4.g().getDeviceId(appContext);
-        this.g = co4.g().o(appContext);
-        this.h = co4.g().a();
-        this.n = co4.g().b();
-        this.q = co4.g().s();
-        this.r = str;
+        this.a = context;
     }
 
-    public static void a(JSONObject jSONObject) {
+    public final boolean a(ip4 ip4Var) {
+        InterceptResult invokeL;
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, jSONObject) == null) {
-            JSONObject e = new po4(jSONObject.optString("bizId")).e();
-            Iterator<String> keys = e.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!jSONObject.has(next)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ip4Var)) == null) {
+            File file = new File(this.a.getFilesDir() + File.separator + "ubcdir", "proc");
+            if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
+                for (File file2 : listFiles) {
+                    BufferedReader bufferedReader = null;
                     try {
-                        jSONObject.putOpt(next, e.opt(next));
-                    } catch (JSONException unused) {
+                        try {
+                            BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file2));
+                            long j = Long.MAX_VALUE;
+                            long j2 = 0;
+                            int i = 0;
+                            while (true) {
+                                try {
+                                    String readLine = bufferedReader2.readLine();
+                                    if (readLine == null) {
+                                        break;
+                                    }
+                                    JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
+                                    if (jSONObject.has("abtest")) {
+                                        ip4Var.f = "1";
+                                    }
+                                    long j3 = jSONObject.getLong("timestamp");
+                                    if (j3 > 0) {
+                                        if (j3 < j) {
+                                            j = j3;
+                                        }
+                                        if (j3 > j2) {
+                                            j2 = j3;
+                                        }
+                                    }
+                                    ip4Var.a(jSONObject);
+                                    i++;
+                                    if (i >= 10) {
+                                        break;
+                                    }
+                                } catch (Exception e) {
+                                    e = e;
+                                    bufferedReader = bufferedReader2;
+                                    e.printStackTrace();
+                                    qp4.d(bufferedReader);
+                                } catch (Throwable th) {
+                                    th = th;
+                                    bufferedReader = bufferedReader2;
+                                    qp4.d(bufferedReader);
+                                    throw th;
+                                }
+                            }
+                            ip4Var.g(j, j2);
+                            qp4.d(bufferedReader2);
+                        } catch (Exception e2) {
+                            e = e2;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void b(boolean z) {
+        String str;
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            File file = new File(this.a.getFilesDir(), "ubcdir");
+            if (!file.exists()) {
+                return;
+            }
+            if (z) {
+                str = "filereal";
+            } else {
+                str = "filedata";
+            }
+            File file2 = new File(file, str);
+            if (file2.exists()) {
+                file2.delete();
+            }
+            File file3 = new File(file, "proc");
+            if (file3.exists() && file3.isDirectory() && (listFiles = file3.listFiles()) != null && listFiles.length != 0) {
+                for (File file4 : listFiles) {
+                    if (file4.isFile()) {
+                        file4.delete();
                     }
                 }
             }
         }
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
+    public boolean c(ip4 ip4Var, boolean z) {
+        InterceptResult invokeLZ;
+        boolean z2;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (co4.g() == null) {
-                return str;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, ip4Var, z)) == null) {
+            File file = new File(this.a.getFilesDir(), "ubcdir");
+            if (!file.exists()) {
+                file.mkdir();
             }
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    jSONObject = new JSONObject();
-                } else {
-                    jSONObject = new JSONObject(str);
-                }
-                return c(jSONObject);
-            } catch (JSONException unused) {
-                return str;
+            if (!z) {
+                z2 = a(ip4Var);
+            } else {
+                z2 = false;
             }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            jo4 g = co4.g();
-            String str = "";
-            if (jSONObject == null || g == null) {
-                return "";
+            if (z) {
+                str = "filereal";
+            } else {
+                str = "filedata";
             }
-            try {
-                if (g.k() == 0) {
-                    str = "swan";
-                } else if (g.k() == 1) {
-                    str = SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME;
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.putOpt("smartAppId", g.getAppId());
-                jSONObject2.putOpt("smartAppVersion", g.getAppVersion());
-                jSONObject2.putOpt("swanCoreVersion", g.m());
-                jSONObject2.putOpt("swanNativeVersion", g.b());
-                jSONObject2.putOpt("swanType", str);
-                jSONObject.putOpt(DI.APP_INFO_NAME, jSONObject2);
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("source", g.getScene());
-                jSONObject.put("propagation", jSONObject3);
-                return jSONObject.toString();
-            } catch (JSONException unused) {
-                return jSONObject.toString();
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void d(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray) == null) && jSONArray != null && jSONArray.length() >= 1) {
-            for (int i = 0; i < jSONArray.length(); i++) {
+            File file2 = new File(file, str);
+            if (file2.exists()) {
+                BufferedReader bufferedReader = null;
                 try {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i);
-                    JSONObject jSONObject2 = jSONObject.getJSONObject("content");
-                    JSONObject jSONObject3 = jSONObject2.getJSONObject(DI.APP_INFO_NAME);
-                    Iterator<String> keys = jSONObject3.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        jSONObject.putOpt(next, jSONObject3.optString(next));
+                    BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file2));
+                    long j = Long.MAX_VALUE;
+                    long j2 = 0;
+                    while (true) {
+                        try {
+                            String readLine = bufferedReader2.readLine();
+                            if (readLine == null) {
+                                break;
+                            }
+                            JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
+                            if (jSONObject.has("abtest")) {
+                                ip4Var.f = "1";
+                            }
+                            long j3 = jSONObject.getLong("timestamp");
+                            if (j3 > 0) {
+                                if (j3 < j) {
+                                    j = j3;
+                                }
+                                if (j3 > j2) {
+                                    j2 = j3;
+                                }
+                            }
+                            ip4Var.a(jSONObject);
+                            z2 = true;
+                        } catch (Exception unused) {
+                            bufferedReader = bufferedReader2;
+                            qp4.d(bufferedReader);
+                            return z2;
+                        } catch (Throwable th) {
+                            th = th;
+                            bufferedReader = bufferedReader2;
+                            qp4.d(bufferedReader);
+                            throw th;
+                        }
                     }
-                    jSONObject2.remove(DI.APP_INFO_NAME);
-                } catch (JSONException unused) {
+                    ip4Var.g(j, j2);
+                    qp4.d(bufferedReader2);
+                } catch (Exception unused2) {
+                } catch (Throwable th2) {
+                    th = th2;
                 }
             }
+            return z2;
         }
+        return invokeLZ.booleanValue;
     }
 
-    public JSONObject e() {
-        InterceptResult invokeV;
+    public void d(wo4 wo4Var, boolean z) {
+        String str;
+        File file;
+        FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, wo4Var, z) == null) {
+            File file2 = new File(this.a.getFilesDir(), "ubcdir");
+            if (!file2.exists()) {
+                file2.mkdirs();
+            }
+            if (!TextUtils.isEmpty(wo4Var.k)) {
+                File file3 = new File(file2, "proc");
+                if (!file3.exists()) {
+                    file3.mkdirs();
+                }
+                file = new File(file3, wo4Var.k);
+            } else {
+                if (z) {
+                    str = "filereal";
+                } else {
+                    str = "filedata";
+                }
+                file = new File(file2, str);
+            }
             JSONObject jSONObject = new JSONObject();
             try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.putOpt("os", this.a.a);
-                jSONObject2.putOpt("osversion", this.a.b);
-                jSONObject2.putOpt("model", this.a.f);
-                jSONObject2.putOpt("deviceType", this.a.d);
-                jSONObject2.putOpt("sdk", this.a.e + "");
-                jSONObject2.putOpt(Constants.PHONE_BRAND, this.a.c);
-                jSONObject2.putOpt("screen", this.a.g);
-                jSONObject2.putOpt("density", this.a.h + "");
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.putOpt("passId", this.b.a);
-                jSONObject.putOpt("userInfo", jSONObject3);
-                jSONObject.putOpt(BDLocation.BDLOCATION_GNSS_PROVIDER_FROM_SYSTEM, jSONObject2);
-                jSONObject.putOpt("appVersion", this.c);
-                jSONObject.putOpt("appBranch", this.d);
-                jSONObject.putOpt("appPackageName", this.e);
-                jSONObject.putOpt("cuid", this.f);
-                jSONObject.putOpt("uuid", this.g);
-                jSONObject.putOpt("hostName", this.h);
-                jSONObject.putOpt("net", this.i);
-                jSONObject.putOpt("operator", this.j);
-                jSONObject.putOpt("smartAppId", this.k);
-                jSONObject.putOpt("smartAppVersion", this.l);
-                jSONObject.putOpt("swanCoreVersion", this.m);
-                jSONObject.putOpt("swanNativeVersion", this.n);
-                jSONObject.putOpt("swanType", this.o);
-                jSONObject.putOpt("swanId", this.p);
-                jSONObject.putOpt("bizId", this.r);
-                jSONObject.putOpt("eventType", this.s);
-                jSONObject.putOpt("eventName", this.t);
-                jSONObject.putOpt("content", this.u);
-                if (!TextUtils.isEmpty(this.q)) {
-                    jSONObject.putOpt("appClientId", this.q);
+                if (wo4Var.e != null) {
+                    JSONObject jSONObject2 = wo4Var.e;
+                    if (jSONObject2.has("bizId")) {
+                        try {
+                            JSONObject jSONObject3 = jSONObject2.getJSONObject("content");
+                            JSONObject jSONObject4 = jSONObject2.getJSONObject(DI.APP_INFO_NAME);
+                            if (jSONObject3 != null && jSONObject4 != null) {
+                                jSONObject3.put(DI.APP_INFO_NAME, jSONObject4);
+                                jSONObject2.remove(DI.APP_INFO_NAME);
+                            }
+                            jSONObject = jSONObject2;
+                        } catch (JSONException unused) {
+                            jSONObject = jSONObject2;
+                        }
+                    } else {
+                        jSONObject.put("content", jSONObject2);
+                    }
+                } else if (!TextUtils.isEmpty(wo4Var.d)) {
+                    jSONObject.put("content", wo4Var.d);
                 }
-            } catch (JSONException unused) {
+                jSONObject.put("bizId", wo4Var.a);
+                jSONObject.put("timestamp", wo4Var.f);
+                jSONObject.put("eventType", "0");
+                if (!TextUtils.isEmpty(wo4Var.h)) {
+                    jSONObject.put("abtest", wo4Var.h);
+                }
+                if (!TextUtils.isEmpty(wo4Var.i)) {
+                    jSONObject.put("c", wo4Var.i);
+                }
+                if (wo4Var.j) {
+                    jSONObject.put(MapBundleKey.MapObjKey.OBJ_OFFSET, "1");
+                }
+                jSONObject.put(Constant.ID_TYPE, ro4.g().j(wo4Var.a));
+            } catch (JSONException unused2) {
             }
-            return jSONObject;
+            byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                try {
+                    fileOutputStream = new FileOutputStream(file, true);
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                fileOutputStream.write(encode);
+                fileOutputStream.write("\n".getBytes());
+                fileOutputStream.flush();
+                qp4.d(fileOutputStream);
+            } catch (Exception e2) {
+                e = e2;
+                fileOutputStream2 = fileOutputStream;
+                e.printStackTrace();
+                qp4.d(fileOutputStream2);
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                qp4.d(fileOutputStream2);
+                throw th;
+            }
         }
-        return (JSONObject) invokeV.objValue;
     }
 }

@@ -9,7 +9,7 @@ import android.os.IBinder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sofire.a.b;
 import com.baidu.sofire.a.d;
-import com.baidu.sofire.k.p;
+import com.baidu.sofire.k.u;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,7 +85,7 @@ public class MyActivity extends Activity {
                 if ("a".equals(intent.getStringExtra("t"))) {
                     WeakReference weakReference = new WeakReference(this);
                     Context applicationContext = getApplicationContext();
-                    p.a(applicationContext).a(new d(intent, weakReference, applicationContext));
+                    u.a(applicationContext).a(new d(intent, weakReference, applicationContext));
                 }
                 super.onCreate(bundle);
             } catch (Throwable unused) {

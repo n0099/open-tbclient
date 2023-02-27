@@ -1,5 +1,8 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,13 +10,49 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
 public final class fea {
     public static /* synthetic */ Interceptable $ic;
-    public static final fea b;
+    public static final fea f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<gea> a;
+    public final int a;
+    public final int b;
+    public volatile Executor c;
+    public volatile ExecutorService d;
+    public final Object e;
+
+    /* loaded from: classes4.dex */
+    public static class a implements Executor {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.util.concurrent.Executor
+        public final void execute(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+                new Handler(Looper.getMainLooper()).post(runnable);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -28,7 +67,44 @@ public final class fea {
                 return;
             }
         }
-        b = new fea();
+        f = new fea();
+    }
+
+    public static Executor a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            fea feaVar = f;
+            if (feaVar.c == null) {
+                synchronized (feaVar.e) {
+                    if (feaVar.c == null) {
+                        feaVar.c = new a();
+                    }
+                }
+            }
+            return feaVar.c;
+        }
+        return (Executor) invokeV.objValue;
+    }
+
+    public static ExecutorService d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return f.c();
+        }
+        return (ExecutorService) invokeV.objValue;
+    }
+
+    public final ExecutorService c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(this.a, this.b, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+            threadPoolExecutor.allowCoreThreadTimeOut(true);
+            return threadPoolExecutor;
+        }
+        return (ExecutorService) invokeV.objValue;
     }
 
     public fea() {
@@ -44,27 +120,20 @@ public final class fea {
                 return;
             }
         }
-        this.a = new AtomicReference<>();
+        this.e = new Object();
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        this.a = availableProcessors + 1;
+        this.b = (availableProcessors * 2) + 1;
     }
 
-    public static fea a() {
-        InterceptResult invokeV;
+    public static void b(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (fea) invokeV.objValue;
-    }
-
-    public gea b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a.get() == null) {
-                this.a.compareAndSet(null, gea.a());
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+            if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
+                runnable.run();
+            } else {
+                a().execute(runnable);
             }
-            return this.a.get();
         }
-        return (gea) invokeV.objValue;
     }
 }

@@ -30,16 +30,7 @@ import androidx.annotation.RestrictTo;
 import androidx.collection.ArrayMap;
 import androidx.core.app.BundleCompat;
 import androidx.core.util.Pair;
-import androidx.core.view.InputDeviceCompat;
 import androidx.media.MediaSessionManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -49,8 +40,6 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class MediaBrowserServiceCompat extends Service {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final boolean DEBUG;
     public static final float EPSILON = 1.0E-5f;
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String KEY_MEDIA_ITEM = "media_item";
@@ -66,15 +55,15 @@ public abstract class MediaBrowserServiceCompat extends Service {
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final int RESULT_PROGRESS_UPDATE = 1;
     public static final String SERVICE_INTERFACE = "android.media.browse.MediaBrowserService";
-    public static final String TAG = "MBServiceCompat";
-    public transient /* synthetic */ FieldHolder $fh;
-    public final ConnectionRecord mConnectionFromFwk;
-    public final ArrayMap<IBinder, ConnectionRecord> mConnections;
     public ConnectionRecord mCurConnection;
-    public final ServiceHandler mHandler;
     public MediaBrowserServiceImpl mImpl;
-    public final ArrayList<ConnectionRecord> mPendingConnections;
     public MediaSessionCompat.Token mSession;
+    public static final String TAG = "MBServiceCompat";
+    public static final boolean DEBUG = Log.isLoggable(TAG, 3);
+    public final ConnectionRecord mConnectionFromFwk = new ConnectionRecord(MediaSessionManager.RemoteUserInfo.LEGACY_CONTROLLER, -1, -1, null, null);
+    public final ArrayList<ConnectionRecord> mPendingConnections = new ArrayList<>();
+    public final ArrayMap<IBinder, ConnectionRecord> mConnections = new ArrayMap<>();
+    public final ServiceHandler mHandler = new ServiceHandler();
 
     /* loaded from: classes.dex */
     public interface MediaBrowserServiceImpl {
@@ -106,9 +95,6 @@ public abstract class MediaBrowserServiceCompat extends Service {
 
     @Override // android.app.Service
     public void dump(FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, fileDescriptor, printWriter, strArr) == null) {
-        }
     }
 
     @Nullable
@@ -118,804 +104,393 @@ public abstract class MediaBrowserServiceCompat extends Service {
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void onSubscribe(String str, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048595, this, str, bundle) == null) {
-        }
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void onUnsubscribe(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-        }
     }
 
     @RequiresApi(21)
     /* loaded from: classes.dex */
     public class MediaBrowserServiceImplApi21 implements MediaBrowserServiceImpl {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public Messenger mMessenger;
-        public final List<Bundle> mRootExtrasList;
+        public final List<Bundle> mRootExtrasList = new ArrayList();
         public MediaBrowserService mServiceFwk;
-        public final /* synthetic */ MediaBrowserServiceCompat this$0;
 
         /* loaded from: classes.dex */
         public class MediaBrowserServiceApi21 extends MediaBrowserService {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ MediaBrowserServiceImplApi21 this$1;
-
-            public MediaBrowserServiceApi21(MediaBrowserServiceImplApi21 mediaBrowserServiceImplApi21, Context context) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {mediaBrowserServiceImplApi21, context};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$1 = mediaBrowserServiceImplApi21;
+            public MediaBrowserServiceApi21(Context context) {
                 attachBaseContext(context);
+            }
+
+            @Override // android.service.media.MediaBrowserService
+            public void onLoadChildren(String str, MediaBrowserService.Result<List<MediaBrowser.MediaItem>> result) {
+                MediaBrowserServiceImplApi21.this.onLoadChildren(str, new ResultWrapper<>(result));
             }
 
             @Override // android.service.media.MediaBrowserService
             @SuppressLint({"SyntheticAccessor"})
             public MediaBrowserService.BrowserRoot onGetRoot(String str, int i, Bundle bundle) {
-                InterceptResult invokeLIL;
                 Bundle bundle2;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, str, i, bundle)) == null) {
-                    MediaSessionCompat.ensureClassLoader(bundle);
-                    MediaBrowserServiceImplApi21 mediaBrowserServiceImplApi21 = this.this$1;
-                    if (bundle == null) {
-                        bundle2 = null;
-                    } else {
-                        bundle2 = new Bundle(bundle);
-                    }
-                    BrowserRoot onGetRoot = mediaBrowserServiceImplApi21.onGetRoot(str, i, bundle2);
-                    if (onGetRoot == null) {
-                        return null;
-                    }
-                    return new MediaBrowserService.BrowserRoot(onGetRoot.mRootId, onGetRoot.mExtras);
+                MediaSessionCompat.ensureClassLoader(bundle);
+                MediaBrowserServiceImplApi21 mediaBrowserServiceImplApi21 = MediaBrowserServiceImplApi21.this;
+                if (bundle == null) {
+                    bundle2 = null;
+                } else {
+                    bundle2 = new Bundle(bundle);
                 }
-                return (MediaBrowserService.BrowserRoot) invokeLIL.objValue;
-            }
-
-            @Override // android.service.media.MediaBrowserService
-            public void onLoadChildren(String str, MediaBrowserService.Result<List<MediaBrowser.MediaItem>> result) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, result) == null) {
-                    this.this$1.onLoadChildren(str, new ResultWrapper<>(result));
+                BrowserRoot onGetRoot = mediaBrowserServiceImplApi21.onGetRoot(str, i, bundle2);
+                if (onGetRoot == null) {
+                    return null;
                 }
+                return new MediaBrowserService.BrowserRoot(onGetRoot.mRootId, onGetRoot.mExtras);
             }
         }
 
-        public MediaBrowserServiceImplApi21(MediaBrowserServiceCompat mediaBrowserServiceCompat) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mediaBrowserServiceCompat};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+        public MediaBrowserServiceImplApi21() {
+        }
+
+        @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
+        public IBinder onBind(Intent intent) {
+            return this.mServiceFwk.onBind(intent);
+        }
+
+        @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
+        public void setSessionToken(final MediaSessionCompat.Token token) {
+            MediaBrowserServiceCompat.this.mHandler.postOrRun(new Runnable() { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi21.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    if (!MediaBrowserServiceImplApi21.this.mRootExtrasList.isEmpty()) {
+                        IMediaSession extraBinder = token.getExtraBinder();
+                        if (extraBinder != null) {
+                            for (Bundle bundle : MediaBrowserServiceImplApi21.this.mRootExtrasList) {
+                                BundleCompat.putBinder(bundle, MediaBrowserProtocol.EXTRA_SESSION_BINDER, extraBinder.asBinder());
+                            }
+                        }
+                        MediaBrowserServiceImplApi21.this.mRootExtrasList.clear();
+                    }
+                    MediaBrowserServiceImplApi21.this.mServiceFwk.setSessionToken((MediaSession.Token) token.getToken());
                 }
-            }
-            this.this$0 = mediaBrowserServiceCompat;
-            this.mRootExtrasList = new ArrayList();
+            });
         }
 
         @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
         public Bundle getBrowserRootHints() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.mMessenger == null) {
+            if (this.mMessenger == null) {
+                return null;
+            }
+            ConnectionRecord connectionRecord = MediaBrowserServiceCompat.this.mCurConnection;
+            if (connectionRecord != null) {
+                if (connectionRecord.rootHints == null) {
                     return null;
                 }
-                ConnectionRecord connectionRecord = this.this$0.mCurConnection;
-                if (connectionRecord != null) {
-                    if (connectionRecord.rootHints == null) {
-                        return null;
-                    }
-                    return new Bundle(this.this$0.mCurConnection.rootHints);
-                }
-                throw new IllegalStateException("This should be called inside of onGetRoot, onLoadChildren, onLoadItem, onSearch, or onCustomAction methods");
+                return new Bundle(MediaBrowserServiceCompat.this.mCurConnection.rootHints);
             }
-            return (Bundle) invokeV.objValue;
+            throw new IllegalStateException("This should be called inside of onGetRoot, onLoadChildren, onLoadItem, onSearch, or onCustomAction methods");
         }
 
         @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
         public MediaSessionManager.RemoteUserInfo getCurrentBrowserInfo() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                ConnectionRecord connectionRecord = this.this$0.mCurConnection;
-                if (connectionRecord != null) {
-                    return connectionRecord.browserInfo;
-                }
-                throw new IllegalStateException("This should be called inside of onGetRoot, onLoadChildren, onLoadItem, onSearch, or onCustomAction methods");
+            ConnectionRecord connectionRecord = MediaBrowserServiceCompat.this.mCurConnection;
+            if (connectionRecord != null) {
+                return connectionRecord.browserInfo;
             }
-            return (MediaSessionManager.RemoteUserInfo) invokeV.objValue;
+            throw new IllegalStateException("This should be called inside of onGetRoot, onLoadChildren, onLoadItem, onSearch, or onCustomAction methods");
         }
 
         @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
         public void onCreate() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                MediaBrowserServiceApi21 mediaBrowserServiceApi21 = new MediaBrowserServiceApi21(this, this.this$0);
-                this.mServiceFwk = mediaBrowserServiceApi21;
-                mediaBrowserServiceApi21.onCreate();
-            }
+            MediaBrowserServiceApi21 mediaBrowserServiceApi21 = new MediaBrowserServiceApi21(MediaBrowserServiceCompat.this);
+            this.mServiceFwk = mediaBrowserServiceApi21;
+            mediaBrowserServiceApi21.onCreate();
         }
 
         @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
         public void notifyChildrenChanged(MediaSessionManager.RemoteUserInfo remoteUserInfo, String str, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, remoteUserInfo, str, bundle) == null) {
-                notifyChildrenChangedForCompat(remoteUserInfo, str, bundle);
-            }
+            notifyChildrenChangedForCompat(remoteUserInfo, str, bundle);
         }
 
-        public void notifyChildrenChangedForCompat(MediaSessionManager.RemoteUserInfo remoteUserInfo, String str, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048580, this, remoteUserInfo, str, bundle) == null) {
-                this.this$0.mHandler.post(new Runnable(this, remoteUserInfo, str, bundle) { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi21.4
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MediaBrowserServiceImplApi21 this$1;
-                    public final /* synthetic */ Bundle val$options;
-                    public final /* synthetic */ String val$parentId;
-                    public final /* synthetic */ MediaSessionManager.RemoteUserInfo val$remoteUserInfo;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, remoteUserInfo, str, bundle};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$1 = this;
-                        this.val$remoteUserInfo = remoteUserInfo;
-                        this.val$parentId = str;
-                        this.val$options = bundle;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            for (int i = 0; i < this.this$1.this$0.mConnections.size(); i++) {
-                                ConnectionRecord valueAt = this.this$1.this$0.mConnections.valueAt(i);
-                                if (valueAt.browserInfo.equals(this.val$remoteUserInfo)) {
-                                    this.this$1.notifyChildrenChangedForCompatOnHandler(valueAt, this.val$parentId, this.val$options);
-                                }
-                            }
+        public void notifyChildrenChangedForCompat(final MediaSessionManager.RemoteUserInfo remoteUserInfo, final String str, final Bundle bundle) {
+            MediaBrowserServiceCompat.this.mHandler.post(new Runnable() { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi21.4
+                @Override // java.lang.Runnable
+                public void run() {
+                    for (int i = 0; i < MediaBrowserServiceCompat.this.mConnections.size(); i++) {
+                        ConnectionRecord valueAt = MediaBrowserServiceCompat.this.mConnections.valueAt(i);
+                        if (valueAt.browserInfo.equals(remoteUserInfo)) {
+                            MediaBrowserServiceImplApi21.this.notifyChildrenChangedForCompatOnHandler(valueAt, str, bundle);
                         }
                     }
-                });
+                }
+            });
+        }
+
+        public void notifyChildrenChangedForCompatOnHandler(ConnectionRecord connectionRecord, String str, Bundle bundle) {
+            List<Pair<IBinder, Bundle>> list = connectionRecord.subscriptions.get(str);
+            if (list != null) {
+                for (Pair<IBinder, Bundle> pair : list) {
+                    if (MediaBrowserCompatUtils.hasDuplicatedItems(bundle, pair.second)) {
+                        MediaBrowserServiceCompat.this.performLoadChildren(str, connectionRecord, pair.second, bundle);
+                    }
+                }
             }
         }
 
         @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
         public void notifyChildrenChanged(String str, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, str, bundle) == null) {
-                notifyChildrenChangedForFramework(str, bundle);
-                notifyChildrenChangedForCompat(str, bundle);
-            }
+            notifyChildrenChangedForFramework(str, bundle);
+            notifyChildrenChangedForCompat(str, bundle);
         }
 
-        public void notifyChildrenChangedForCompat(String str, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048581, this, str, bundle) == null) {
-                this.this$0.mHandler.post(new Runnable(this, str, bundle) { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi21.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MediaBrowserServiceImplApi21 this$1;
-                    public final /* synthetic */ Bundle val$options;
-                    public final /* synthetic */ String val$parentId;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, str, bundle};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$1 = this;
-                        this.val$parentId = str;
-                        this.val$options = bundle;
+        public void notifyChildrenChangedForCompat(final String str, final Bundle bundle) {
+            MediaBrowserServiceCompat.this.mHandler.post(new Runnable() { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi21.3
+                @Override // java.lang.Runnable
+                public void run() {
+                    for (IBinder iBinder : MediaBrowserServiceCompat.this.mConnections.keySet()) {
+                        ArrayMap<IBinder, ConnectionRecord> arrayMap = MediaBrowserServiceCompat.this.mConnections;
+                        MediaBrowserServiceImplApi21.this.notifyChildrenChangedForCompatOnHandler(arrayMap.get(iBinder), str, bundle);
                     }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            for (IBinder iBinder : this.this$1.this$0.mConnections.keySet()) {
-                                ArrayMap<IBinder, ConnectionRecord> arrayMap = this.this$1.this$0.mConnections;
-                                this.this$1.notifyChildrenChangedForCompatOnHandler(arrayMap.get(iBinder), this.val$parentId, this.val$options);
-                            }
-                        }
-                    }
-                });
-            }
+                }
+            });
         }
 
         public void notifyChildrenChangedForFramework(String str, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048583, this, str, bundle) == null) {
-                this.mServiceFwk.notifyChildrenChanged(str);
-            }
+            this.mServiceFwk.notifyChildrenChanged(str);
         }
 
-        public void onLoadChildren(String str, ResultWrapper<List<Parcel>> resultWrapper) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048587, this, str, resultWrapper) == null) {
-                Result<List<MediaBrowserCompat.MediaItem>> result = new Result<List<MediaBrowserCompat.MediaItem>>(this, str, resultWrapper) { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi21.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MediaBrowserServiceImplApi21 this$1;
-                    public final /* synthetic */ ResultWrapper val$resultWrapper;
-
-                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                    {
-                        super(str);
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, str, resultWrapper};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                super(newInitContext.callArgs[0]);
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$1 = this;
-                        this.val$resultWrapper = resultWrapper;
-                    }
-
-                    @Override // androidx.media.MediaBrowserServiceCompat.Result
-                    public void detach() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.val$resultWrapper.detach();
-                        }
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // androidx.media.MediaBrowserServiceCompat.Result
-                    public void onResultSent(List<MediaBrowserCompat.MediaItem> list) {
-                        ArrayList arrayList;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-                            if (list != null) {
-                                arrayList = new ArrayList();
-                                for (MediaBrowserCompat.MediaItem mediaItem : list) {
-                                    Parcel obtain = Parcel.obtain();
-                                    mediaItem.writeToParcel(obtain, 0);
-                                    arrayList.add(obtain);
-                                }
-                            } else {
-                                arrayList = null;
-                            }
-                            this.val$resultWrapper.sendResult(arrayList);
-                        }
-                    }
-                };
-                MediaBrowserServiceCompat mediaBrowserServiceCompat = this.this$0;
-                mediaBrowserServiceCompat.mCurConnection = mediaBrowserServiceCompat.mConnectionFromFwk;
-                mediaBrowserServiceCompat.onLoadChildren(str, result);
-                this.this$0.mCurConnection = null;
-            }
-        }
-
-        public void notifyChildrenChangedForCompatOnHandler(ConnectionRecord connectionRecord, String str, Bundle bundle) {
-            List<Pair<IBinder, Bundle>> list;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(1048582, this, connectionRecord, str, bundle) == null) && (list = connectionRecord.subscriptions.get(str)) != null) {
-                for (Pair<IBinder, Bundle> pair : list) {
-                    if (MediaBrowserCompatUtils.hasDuplicatedItems(bundle, pair.second)) {
-                        this.this$0.performLoadChildren(str, connectionRecord, pair.second, bundle);
-                    }
+        public void onLoadChildren(String str, final ResultWrapper<List<Parcel>> resultWrapper) {
+            Result<List<MediaBrowserCompat.MediaItem>> result = new Result<List<MediaBrowserCompat.MediaItem>>(str) { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi21.2
+                @Override // androidx.media.MediaBrowserServiceCompat.Result
+                public void detach() {
+                    resultWrapper.detach();
                 }
-            }
-        }
 
-        @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
-        public IBinder onBind(Intent intent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent)) == null) {
-                return this.mServiceFwk.onBind(intent);
-            }
-            return (IBinder) invokeL.objValue;
-        }
-
-        @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
-        public void setSessionToken(MediaSessionCompat.Token token) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048588, this, token) == null) {
-                this.this$0.mHandler.postOrRun(new Runnable(this, token) { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi21.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MediaBrowserServiceImplApi21 this$1;
-                    public final /* synthetic */ MediaSessionCompat.Token val$token;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, token};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // androidx.media.MediaBrowserServiceCompat.Result
+                public void onResultSent(List<MediaBrowserCompat.MediaItem> list) {
+                    ArrayList arrayList;
+                    if (list != null) {
+                        arrayList = new ArrayList();
+                        for (MediaBrowserCompat.MediaItem mediaItem : list) {
+                            Parcel obtain = Parcel.obtain();
+                            mediaItem.writeToParcel(obtain, 0);
+                            arrayList.add(obtain);
                         }
-                        this.this$1 = this;
-                        this.val$token = token;
+                    } else {
+                        arrayList = null;
                     }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            if (!this.this$1.mRootExtrasList.isEmpty()) {
-                                IMediaSession extraBinder = this.val$token.getExtraBinder();
-                                if (extraBinder != null) {
-                                    for (Bundle bundle : this.this$1.mRootExtrasList) {
-                                        BundleCompat.putBinder(bundle, MediaBrowserProtocol.EXTRA_SESSION_BINDER, extraBinder.asBinder());
-                                    }
-                                }
-                                this.this$1.mRootExtrasList.clear();
-                            }
-                            this.this$1.mServiceFwk.setSessionToken((MediaSession.Token) this.val$token.getToken());
-                        }
-                    }
-                });
-            }
+                    resultWrapper.sendResult(arrayList);
+                }
+            };
+            MediaBrowserServiceCompat mediaBrowserServiceCompat = MediaBrowserServiceCompat.this;
+            mediaBrowserServiceCompat.mCurConnection = mediaBrowserServiceCompat.mConnectionFromFwk;
+            mediaBrowserServiceCompat.onLoadChildren(str, result);
+            MediaBrowserServiceCompat.this.mCurConnection = null;
         }
 
         public BrowserRoot onGetRoot(String str, int i, Bundle bundle) {
-            InterceptResult invokeLIL;
             Bundle bundle2;
             int i2;
             IBinder asBinder;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048586, this, str, i, bundle)) == null) {
-                if (bundle != null && bundle.getInt(MediaBrowserProtocol.EXTRA_CLIENT_VERSION, 0) != 0) {
-                    bundle.remove(MediaBrowserProtocol.EXTRA_CLIENT_VERSION);
-                    this.mMessenger = new Messenger(this.this$0.mHandler);
-                    bundle2 = new Bundle();
-                    bundle2.putInt(MediaBrowserProtocol.EXTRA_SERVICE_VERSION, 2);
-                    BundleCompat.putBinder(bundle2, MediaBrowserProtocol.EXTRA_MESSENGER_BINDER, this.mMessenger.getBinder());
-                    MediaSessionCompat.Token token = this.this$0.mSession;
-                    if (token != null) {
-                        IMediaSession extraBinder = token.getExtraBinder();
-                        if (extraBinder == null) {
-                            asBinder = null;
-                        } else {
-                            asBinder = extraBinder.asBinder();
-                        }
-                        BundleCompat.putBinder(bundle2, MediaBrowserProtocol.EXTRA_SESSION_BINDER, asBinder);
+            if (bundle != null && bundle.getInt(MediaBrowserProtocol.EXTRA_CLIENT_VERSION, 0) != 0) {
+                bundle.remove(MediaBrowserProtocol.EXTRA_CLIENT_VERSION);
+                this.mMessenger = new Messenger(MediaBrowserServiceCompat.this.mHandler);
+                bundle2 = new Bundle();
+                bundle2.putInt(MediaBrowserProtocol.EXTRA_SERVICE_VERSION, 2);
+                BundleCompat.putBinder(bundle2, MediaBrowserProtocol.EXTRA_MESSENGER_BINDER, this.mMessenger.getBinder());
+                MediaSessionCompat.Token token = MediaBrowserServiceCompat.this.mSession;
+                if (token != null) {
+                    IMediaSession extraBinder = token.getExtraBinder();
+                    if (extraBinder == null) {
+                        asBinder = null;
                     } else {
-                        this.mRootExtrasList.add(bundle2);
+                        asBinder = extraBinder.asBinder();
                     }
-                    int i3 = bundle.getInt(MediaBrowserProtocol.EXTRA_CALLING_PID, -1);
-                    bundle.remove(MediaBrowserProtocol.EXTRA_CALLING_PID);
-                    i2 = i3;
+                    BundleCompat.putBinder(bundle2, MediaBrowserProtocol.EXTRA_SESSION_BINDER, asBinder);
                 } else {
-                    bundle2 = null;
-                    i2 = -1;
+                    this.mRootExtrasList.add(bundle2);
                 }
-                ConnectionRecord connectionRecord = new ConnectionRecord(this.this$0, str, i2, i, bundle, null);
-                MediaBrowserServiceCompat mediaBrowserServiceCompat = this.this$0;
-                mediaBrowserServiceCompat.mCurConnection = connectionRecord;
-                BrowserRoot onGetRoot = mediaBrowserServiceCompat.onGetRoot(str, i, bundle);
-                MediaBrowserServiceCompat mediaBrowserServiceCompat2 = this.this$0;
-                mediaBrowserServiceCompat2.mCurConnection = null;
-                if (onGetRoot == null) {
-                    return null;
-                }
-                if (this.mMessenger != null) {
-                    mediaBrowserServiceCompat2.mPendingConnections.add(connectionRecord);
-                }
-                if (bundle2 == null) {
-                    bundle2 = onGetRoot.getExtras();
-                } else if (onGetRoot.getExtras() != null) {
-                    bundle2.putAll(onGetRoot.getExtras());
-                }
-                return new BrowserRoot(onGetRoot.getRootId(), bundle2);
+                int i3 = bundle.getInt(MediaBrowserProtocol.EXTRA_CALLING_PID, -1);
+                bundle.remove(MediaBrowserProtocol.EXTRA_CALLING_PID);
+                i2 = i3;
+            } else {
+                bundle2 = null;
+                i2 = -1;
             }
-            return (BrowserRoot) invokeLIL.objValue;
+            ConnectionRecord connectionRecord = new ConnectionRecord(str, i2, i, bundle, null);
+            MediaBrowserServiceCompat mediaBrowserServiceCompat = MediaBrowserServiceCompat.this;
+            mediaBrowserServiceCompat.mCurConnection = connectionRecord;
+            BrowserRoot onGetRoot = mediaBrowserServiceCompat.onGetRoot(str, i, bundle);
+            MediaBrowserServiceCompat mediaBrowserServiceCompat2 = MediaBrowserServiceCompat.this;
+            mediaBrowserServiceCompat2.mCurConnection = null;
+            if (onGetRoot == null) {
+                return null;
+            }
+            if (this.mMessenger != null) {
+                mediaBrowserServiceCompat2.mPendingConnections.add(connectionRecord);
+            }
+            if (bundle2 == null) {
+                bundle2 = onGetRoot.getExtras();
+            } else if (onGetRoot.getExtras() != null) {
+                bundle2.putAll(onGetRoot.getExtras());
+            }
+            return new BrowserRoot(onGetRoot.getRootId(), bundle2);
         }
     }
 
     @RequiresApi(23)
     /* loaded from: classes.dex */
     public class MediaBrowserServiceImplApi23 extends MediaBrowserServiceImplApi21 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MediaBrowserServiceCompat this$0;
 
         /* loaded from: classes.dex */
         public class MediaBrowserServiceApi23 extends MediaBrowserServiceImplApi21.MediaBrowserServiceApi21 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ MediaBrowserServiceImplApi23 this$1;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public MediaBrowserServiceApi23(MediaBrowserServiceImplApi23 mediaBrowserServiceImplApi23, Context context) {
-                super(mediaBrowserServiceImplApi23, context);
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {mediaBrowserServiceImplApi23, context};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        Object[] objArr2 = newInitContext.callArgs;
-                        super((MediaBrowserServiceImplApi21) objArr2[0], (Context) objArr2[1]);
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$1 = mediaBrowserServiceImplApi23;
+            public MediaBrowserServiceApi23(Context context) {
+                super(context);
             }
 
             @Override // android.service.media.MediaBrowserService
             public void onLoadItem(String str, MediaBrowserService.Result<MediaBrowser.MediaItem> result) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048576, this, str, result) == null) {
-                    this.this$1.onLoadItem(str, new ResultWrapper<>(result));
-                }
+                MediaBrowserServiceImplApi23.this.onLoadItem(str, new ResultWrapper<>(result));
             }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MediaBrowserServiceImplApi23(MediaBrowserServiceCompat mediaBrowserServiceCompat) {
-            super(mediaBrowserServiceCompat);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mediaBrowserServiceCompat};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((MediaBrowserServiceCompat) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = mediaBrowserServiceCompat;
+        public MediaBrowserServiceImplApi23() {
+            super();
         }
 
         @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi21, androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
         public void onCreate() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MediaBrowserServiceApi23 mediaBrowserServiceApi23 = new MediaBrowserServiceApi23(this, this.this$0);
-                this.mServiceFwk = mediaBrowserServiceApi23;
-                mediaBrowserServiceApi23.onCreate();
-            }
+            MediaBrowserServiceApi23 mediaBrowserServiceApi23 = new MediaBrowserServiceApi23(MediaBrowserServiceCompat.this);
+            this.mServiceFwk = mediaBrowserServiceApi23;
+            mediaBrowserServiceApi23.onCreate();
         }
 
-        public void onLoadItem(String str, ResultWrapper<Parcel> resultWrapper) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, resultWrapper) == null) {
-                Result<MediaBrowserCompat.MediaItem> result = new Result<MediaBrowserCompat.MediaItem>(this, str, resultWrapper) { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi23.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MediaBrowserServiceImplApi23 this$1;
-                    public final /* synthetic */ ResultWrapper val$resultWrapper;
+        public void onLoadItem(String str, final ResultWrapper<Parcel> resultWrapper) {
+            Result<MediaBrowserCompat.MediaItem> result = new Result<MediaBrowserCompat.MediaItem>(str) { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi23.1
+                @Override // androidx.media.MediaBrowserServiceCompat.Result
+                public void detach() {
+                    resultWrapper.detach();
+                }
 
-                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                    {
-                        super(str);
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, str, resultWrapper};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                super(newInitContext.callArgs[0]);
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$1 = this;
-                        this.val$resultWrapper = resultWrapper;
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // androidx.media.MediaBrowserServiceCompat.Result
+                public void onResultSent(MediaBrowserCompat.MediaItem mediaItem) {
+                    if (mediaItem == null) {
+                        resultWrapper.sendResult(null);
+                        return;
                     }
-
-                    @Override // androidx.media.MediaBrowserServiceCompat.Result
-                    public void detach() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.val$resultWrapper.detach();
-                        }
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // androidx.media.MediaBrowserServiceCompat.Result
-                    public void onResultSent(MediaBrowserCompat.MediaItem mediaItem) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaItem) == null) {
-                            if (mediaItem == null) {
-                                this.val$resultWrapper.sendResult(null);
-                                return;
-                            }
-                            Parcel obtain = Parcel.obtain();
-                            mediaItem.writeToParcel(obtain, 0);
-                            this.val$resultWrapper.sendResult(obtain);
-                        }
-                    }
-                };
-                MediaBrowserServiceCompat mediaBrowserServiceCompat = this.this$0;
-                mediaBrowserServiceCompat.mCurConnection = mediaBrowserServiceCompat.mConnectionFromFwk;
-                mediaBrowserServiceCompat.onLoadItem(str, result);
-                this.this$0.mCurConnection = null;
-            }
+                    Parcel obtain = Parcel.obtain();
+                    mediaItem.writeToParcel(obtain, 0);
+                    resultWrapper.sendResult(obtain);
+                }
+            };
+            MediaBrowserServiceCompat mediaBrowserServiceCompat = MediaBrowserServiceCompat.this;
+            mediaBrowserServiceCompat.mCurConnection = mediaBrowserServiceCompat.mConnectionFromFwk;
+            mediaBrowserServiceCompat.onLoadItem(str, result);
+            MediaBrowserServiceCompat.this.mCurConnection = null;
         }
     }
 
     @RequiresApi(26)
     /* loaded from: classes.dex */
     public class MediaBrowserServiceImplApi26 extends MediaBrowserServiceImplApi23 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MediaBrowserServiceCompat this$0;
 
         /* loaded from: classes.dex */
         public class MediaBrowserServiceApi26 extends MediaBrowserServiceImplApi23.MediaBrowserServiceApi23 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ MediaBrowserServiceImplApi26 this$1;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public MediaBrowserServiceApi26(MediaBrowserServiceImplApi26 mediaBrowserServiceImplApi26, Context context) {
-                super(mediaBrowserServiceImplApi26, context);
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {mediaBrowserServiceImplApi26, context};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        Object[] objArr2 = newInitContext.callArgs;
-                        super((MediaBrowserServiceImplApi23) objArr2[0], (Context) objArr2[1]);
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$1 = mediaBrowserServiceImplApi26;
+            public MediaBrowserServiceApi26(Context context) {
+                super(context);
             }
 
             @Override // android.service.media.MediaBrowserService
             public void onLoadChildren(String str, MediaBrowserService.Result<List<MediaBrowser.MediaItem>> result, Bundle bundle) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLLL(1048576, this, str, result, bundle) == null) {
-                    MediaSessionCompat.ensureClassLoader(bundle);
-                    MediaBrowserServiceImplApi26 mediaBrowserServiceImplApi26 = this.this$1;
-                    MediaBrowserServiceCompat mediaBrowserServiceCompat = mediaBrowserServiceImplApi26.this$0;
-                    mediaBrowserServiceCompat.mCurConnection = mediaBrowserServiceCompat.mConnectionFromFwk;
-                    mediaBrowserServiceImplApi26.onLoadChildren(str, new ResultWrapper<>(result), bundle);
-                    this.this$1.this$0.mCurConnection = null;
-                }
+                MediaSessionCompat.ensureClassLoader(bundle);
+                MediaBrowserServiceImplApi26 mediaBrowserServiceImplApi26 = MediaBrowserServiceImplApi26.this;
+                MediaBrowserServiceCompat mediaBrowserServiceCompat = MediaBrowserServiceCompat.this;
+                mediaBrowserServiceCompat.mCurConnection = mediaBrowserServiceCompat.mConnectionFromFwk;
+                mediaBrowserServiceImplApi26.onLoadChildren(str, new ResultWrapper<>(result), bundle);
+                MediaBrowserServiceCompat.this.mCurConnection = null;
             }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MediaBrowserServiceImplApi26(MediaBrowserServiceCompat mediaBrowserServiceCompat) {
-            super(mediaBrowserServiceCompat);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mediaBrowserServiceCompat};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((MediaBrowserServiceCompat) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = mediaBrowserServiceCompat;
+        public MediaBrowserServiceImplApi26() {
+            super();
         }
 
         @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi21, androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
         public Bundle getBrowserRootHints() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                MediaBrowserServiceCompat mediaBrowserServiceCompat = this.this$0;
-                ConnectionRecord connectionRecord = mediaBrowserServiceCompat.mCurConnection;
-                if (connectionRecord != null) {
-                    if (connectionRecord == mediaBrowserServiceCompat.mConnectionFromFwk) {
-                        return this.mServiceFwk.getBrowserRootHints();
-                    }
-                    if (connectionRecord.rootHints == null) {
-                        return null;
-                    }
-                    return new Bundle(this.this$0.mCurConnection.rootHints);
+            MediaBrowserServiceCompat mediaBrowserServiceCompat = MediaBrowserServiceCompat.this;
+            ConnectionRecord connectionRecord = mediaBrowserServiceCompat.mCurConnection;
+            if (connectionRecord != null) {
+                if (connectionRecord == mediaBrowserServiceCompat.mConnectionFromFwk) {
+                    return this.mServiceFwk.getBrowserRootHints();
                 }
-                throw new IllegalStateException("This should be called inside of onGetRoot, onLoadChildren, onLoadItem, onSearch, or onCustomAction methods");
-            }
-            return (Bundle) invokeV.objValue;
-        }
-
-        @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi21
-        public void notifyChildrenChangedForFramework(String str, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bundle) == null) {
-                if (bundle != null) {
-                    this.mServiceFwk.notifyChildrenChanged(str, bundle);
-                } else {
-                    super.notifyChildrenChangedForFramework(str, bundle);
+                if (connectionRecord.rootHints == null) {
+                    return null;
                 }
+                return new Bundle(MediaBrowserServiceCompat.this.mCurConnection.rootHints);
             }
+            throw new IllegalStateException("This should be called inside of onGetRoot, onLoadChildren, onLoadItem, onSearch, or onCustomAction methods");
         }
 
         @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi23, androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi21, androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
         public void onCreate() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                MediaBrowserServiceApi26 mediaBrowserServiceApi26 = new MediaBrowserServiceApi26(this, this.this$0);
-                this.mServiceFwk = mediaBrowserServiceApi26;
-                mediaBrowserServiceApi26.onCreate();
+            MediaBrowserServiceApi26 mediaBrowserServiceApi26 = new MediaBrowserServiceApi26(MediaBrowserServiceCompat.this);
+            this.mServiceFwk = mediaBrowserServiceApi26;
+            mediaBrowserServiceApi26.onCreate();
+        }
+
+        @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi21
+        public void notifyChildrenChangedForFramework(String str, Bundle bundle) {
+            if (bundle != null) {
+                this.mServiceFwk.notifyChildrenChanged(str, bundle);
+            } else {
+                super.notifyChildrenChangedForFramework(str, bundle);
             }
         }
 
-        public void onLoadChildren(String str, ResultWrapper<List<Parcel>> resultWrapper, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, str, resultWrapper, bundle) == null) {
-                Result<List<MediaBrowserCompat.MediaItem>> result = new Result<List<MediaBrowserCompat.MediaItem>>(this, str, resultWrapper, bundle) { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi26.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MediaBrowserServiceImplApi26 this$1;
-                    public final /* synthetic */ Bundle val$options;
-                    public final /* synthetic */ ResultWrapper val$resultWrapper;
+        public void onLoadChildren(String str, final ResultWrapper<List<Parcel>> resultWrapper, final Bundle bundle) {
+            Result<List<MediaBrowserCompat.MediaItem>> result = new Result<List<MediaBrowserCompat.MediaItem>>(str) { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi26.1
+                @Override // androidx.media.MediaBrowserServiceCompat.Result
+                public void detach() {
+                    resultWrapper.detach();
+                }
 
-                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                    {
-                        super(str);
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, str, resultWrapper, bundle};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                super(newInitContext.callArgs[0]);
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$1 = this;
-                        this.val$resultWrapper = resultWrapper;
-                        this.val$options = bundle;
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // androidx.media.MediaBrowserServiceCompat.Result
+                public void onResultSent(List<MediaBrowserCompat.MediaItem> list) {
+                    if (list == null) {
+                        resultWrapper.sendResult(null);
+                        return;
                     }
-
-                    @Override // androidx.media.MediaBrowserServiceCompat.Result
-                    public void detach() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.val$resultWrapper.detach();
-                        }
+                    if ((getFlags() & 1) != 0) {
+                        list = MediaBrowserServiceCompat.this.applyOptions(list, bundle);
                     }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // androidx.media.MediaBrowserServiceCompat.Result
-                    public void onResultSent(List<MediaBrowserCompat.MediaItem> list) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-                            if (list == null) {
-                                this.val$resultWrapper.sendResult(null);
-                                return;
-                            }
-                            if ((getFlags() & 1) != 0) {
-                                list = this.this$1.this$0.applyOptions(list, this.val$options);
-                            }
-                            ArrayList arrayList = new ArrayList();
-                            for (MediaBrowserCompat.MediaItem mediaItem : list) {
-                                Parcel obtain = Parcel.obtain();
-                                mediaItem.writeToParcel(obtain, 0);
-                                arrayList.add(obtain);
-                            }
-                            this.val$resultWrapper.sendResult(arrayList);
-                        }
+                    ArrayList arrayList = new ArrayList();
+                    for (MediaBrowserCompat.MediaItem mediaItem : list) {
+                        Parcel obtain = Parcel.obtain();
+                        mediaItem.writeToParcel(obtain, 0);
+                        arrayList.add(obtain);
                     }
-                };
-                MediaBrowserServiceCompat mediaBrowserServiceCompat = this.this$0;
-                mediaBrowserServiceCompat.mCurConnection = mediaBrowserServiceCompat.mConnectionFromFwk;
-                mediaBrowserServiceCompat.onLoadChildren(str, result, bundle);
-                this.this$0.mCurConnection = null;
-            }
+                    resultWrapper.sendResult(arrayList);
+                }
+            };
+            MediaBrowserServiceCompat mediaBrowserServiceCompat = MediaBrowserServiceCompat.this;
+            mediaBrowserServiceCompat.mCurConnection = mediaBrowserServiceCompat.mConnectionFromFwk;
+            mediaBrowserServiceCompat.onLoadChildren(str, result, bundle);
+            MediaBrowserServiceCompat.this.mCurConnection = null;
         }
     }
 
     /* loaded from: classes.dex */
     public static final class BrowserRoot {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final String EXTRA_OFFLINE = "android.service.media.extra.OFFLINE";
         public static final String EXTRA_RECENT = "android.service.media.extra.RECENT";
         public static final String EXTRA_SUGGESTED = "android.service.media.extra.SUGGESTED";
         @Deprecated
         public static final String EXTRA_SUGGESTION_KEYWORDS = "android.service.media.extra.SUGGESTION_KEYWORDS";
-        public transient /* synthetic */ FieldHolder $fh;
         public final Bundle mExtras;
         public final String mRootId;
 
         public BrowserRoot(@NonNull String str, @Nullable Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             if (str != null) {
                 this.mRootId = str;
                 this.mExtras = bundle;
@@ -925,55 +500,26 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
 
         public Bundle getExtras() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.mExtras;
-            }
-            return (Bundle) invokeV.objValue;
+            return this.mExtras;
         }
 
         public String getRootId() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.mRootId;
-            }
-            return (String) invokeV.objValue;
+            return this.mRootId;
         }
     }
 
     /* loaded from: classes.dex */
     public class ConnectionRecord implements IBinder.DeathRecipient {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final MediaSessionManager.RemoteUserInfo browserInfo;
         public final ServiceCallbacks callbacks;
         public final int pid;
         public final String pkg;
         public BrowserRoot root;
         public final Bundle rootHints;
-        public final HashMap<String, List<Pair<IBinder, Bundle>>> subscriptions;
-        public final /* synthetic */ MediaBrowserServiceCompat this$0;
+        public final HashMap<String, List<Pair<IBinder, Bundle>>> subscriptions = new HashMap<>();
         public final int uid;
 
-        public ConnectionRecord(MediaBrowserServiceCompat mediaBrowserServiceCompat, String str, int i, int i2, Bundle bundle, ServiceCallbacks serviceCallbacks) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mediaBrowserServiceCompat, str, Integer.valueOf(i), Integer.valueOf(i2), bundle, serviceCallbacks};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = mediaBrowserServiceCompat;
-            this.subscriptions = new HashMap<>();
+        public ConnectionRecord(String str, int i, int i2, Bundle bundle, ServiceCallbacks serviceCallbacks) {
             this.pkg = str;
             this.pid = i;
             this.uid = i2;
@@ -984,329 +530,140 @@ public abstract class MediaBrowserServiceCompat extends Service {
 
         @Override // android.os.IBinder.DeathRecipient
         public void binderDied() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.this$0.mHandler.post(new Runnable(this) { // from class: androidx.media.MediaBrowserServiceCompat.ConnectionRecord.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ConnectionRecord this$1;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$1 = this;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            ConnectionRecord connectionRecord = this.this$1;
-                            connectionRecord.this$0.mConnections.remove(connectionRecord.callbacks.asBinder());
-                        }
-                    }
-                });
-            }
+            MediaBrowserServiceCompat.this.mHandler.post(new Runnable() { // from class: androidx.media.MediaBrowserServiceCompat.ConnectionRecord.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    ConnectionRecord connectionRecord = ConnectionRecord.this;
+                    MediaBrowserServiceCompat.this.mConnections.remove(connectionRecord.callbacks.asBinder());
+                }
+            });
         }
     }
 
     @RequiresApi(28)
     /* loaded from: classes.dex */
     public class MediaBrowserServiceImplApi28 extends MediaBrowserServiceImplApi26 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MediaBrowserServiceCompat this$0;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MediaBrowserServiceImplApi28(MediaBrowserServiceCompat mediaBrowserServiceCompat) {
-            super(mediaBrowserServiceCompat);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mediaBrowserServiceCompat};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((MediaBrowserServiceCompat) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = mediaBrowserServiceCompat;
+        public MediaBrowserServiceImplApi28() {
+            super();
         }
 
         @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi21, androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
         public MediaSessionManager.RemoteUserInfo getCurrentBrowserInfo() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                MediaBrowserServiceCompat mediaBrowserServiceCompat = this.this$0;
-                ConnectionRecord connectionRecord = mediaBrowserServiceCompat.mCurConnection;
-                if (connectionRecord != null) {
-                    if (connectionRecord == mediaBrowserServiceCompat.mConnectionFromFwk) {
-                        return new MediaSessionManager.RemoteUserInfo(this.mServiceFwk.getCurrentBrowserInfo());
-                    }
-                    return connectionRecord.browserInfo;
+            MediaBrowserServiceCompat mediaBrowserServiceCompat = MediaBrowserServiceCompat.this;
+            ConnectionRecord connectionRecord = mediaBrowserServiceCompat.mCurConnection;
+            if (connectionRecord != null) {
+                if (connectionRecord == mediaBrowserServiceCompat.mConnectionFromFwk) {
+                    return new MediaSessionManager.RemoteUserInfo(this.mServiceFwk.getCurrentBrowserInfo());
                 }
-                throw new IllegalStateException("This should be called inside of onGetRoot, onLoadChildren, onLoadItem, onSearch, or onCustomAction methods");
+                return connectionRecord.browserInfo;
             }
-            return (MediaSessionManager.RemoteUserInfo) invokeV.objValue;
+            throw new IllegalStateException("This should be called inside of onGetRoot, onLoadChildren, onLoadItem, onSearch, or onCustomAction methods");
         }
     }
 
     /* loaded from: classes.dex */
     public class MediaBrowserServiceImplBase implements MediaBrowserServiceImpl {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public Messenger mMessenger;
-        public final /* synthetic */ MediaBrowserServiceCompat this$0;
 
-        public MediaBrowserServiceImplBase(MediaBrowserServiceCompat mediaBrowserServiceCompat) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mediaBrowserServiceCompat};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = mediaBrowserServiceCompat;
+        public MediaBrowserServiceImplBase() {
         }
 
         @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
         public IBinder onBind(Intent intent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, intent)) == null) {
-                if (MediaBrowserServiceCompat.SERVICE_INTERFACE.equals(intent.getAction())) {
-                    return this.mMessenger.getBinder();
-                }
-                return null;
+            if (MediaBrowserServiceCompat.SERVICE_INTERFACE.equals(intent.getAction())) {
+                return this.mMessenger.getBinder();
             }
-            return (IBinder) invokeL.objValue;
+            return null;
         }
 
         @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
-        public void setSessionToken(MediaSessionCompat.Token token) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, token) == null) {
-                this.this$0.mHandler.post(new Runnable(this, token) { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplBase.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MediaBrowserServiceImplBase this$1;
-                    public final /* synthetic */ MediaSessionCompat.Token val$token;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, token};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$1 = this;
-                        this.val$token = token;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            Iterator<ConnectionRecord> it = this.this$1.this$0.mConnections.values().iterator();
-                            while (it.hasNext()) {
-                                ConnectionRecord next = it.next();
-                                try {
-                                    next.callbacks.onConnect(next.root.getRootId(), this.val$token, next.root.getExtras());
-                                } catch (RemoteException unused) {
-                                    Log.w(MediaBrowserServiceCompat.TAG, "Connection for " + next.pkg + " is no longer valid.");
-                                    it.remove();
-                                }
-                            }
+        public void setSessionToken(final MediaSessionCompat.Token token) {
+            MediaBrowserServiceCompat.this.mHandler.post(new Runnable() { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplBase.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    Iterator<ConnectionRecord> it = MediaBrowserServiceCompat.this.mConnections.values().iterator();
+                    while (it.hasNext()) {
+                        ConnectionRecord next = it.next();
+                        try {
+                            next.callbacks.onConnect(next.root.getRootId(), token, next.root.getExtras());
+                        } catch (RemoteException unused) {
+                            Log.w(MediaBrowserServiceCompat.TAG, "Connection for " + next.pkg + " is no longer valid.");
+                            it.remove();
                         }
                     }
-                });
-            }
+                }
+            });
         }
 
         @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
         public Bundle getBrowserRootHints() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ConnectionRecord connectionRecord = this.this$0.mCurConnection;
-                if (connectionRecord != null) {
-                    if (connectionRecord.rootHints == null) {
-                        return null;
-                    }
-                    return new Bundle(this.this$0.mCurConnection.rootHints);
+            ConnectionRecord connectionRecord = MediaBrowserServiceCompat.this.mCurConnection;
+            if (connectionRecord != null) {
+                if (connectionRecord.rootHints == null) {
+                    return null;
                 }
-                throw new IllegalStateException("This should be called inside of onLoadChildren, onLoadItem, onSearch, or onCustomAction methods");
+                return new Bundle(MediaBrowserServiceCompat.this.mCurConnection.rootHints);
             }
-            return (Bundle) invokeV.objValue;
+            throw new IllegalStateException("This should be called inside of onLoadChildren, onLoadItem, onSearch, or onCustomAction methods");
         }
 
         @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
         public MediaSessionManager.RemoteUserInfo getCurrentBrowserInfo() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                ConnectionRecord connectionRecord = this.this$0.mCurConnection;
-                if (connectionRecord != null) {
-                    return connectionRecord.browserInfo;
-                }
-                throw new IllegalStateException("This should be called inside of onLoadChildren, onLoadItem, onSearch, or onCustomAction methods");
+            ConnectionRecord connectionRecord = MediaBrowserServiceCompat.this.mCurConnection;
+            if (connectionRecord != null) {
+                return connectionRecord.browserInfo;
             }
-            return (MediaSessionManager.RemoteUserInfo) invokeV.objValue;
+            throw new IllegalStateException("This should be called inside of onLoadChildren, onLoadItem, onSearch, or onCustomAction methods");
         }
 
         @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
         public void onCreate() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                this.mMessenger = new Messenger(this.this$0.mHandler);
-            }
+            this.mMessenger = new Messenger(MediaBrowserServiceCompat.this.mHandler);
         }
 
         @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
-        public void notifyChildrenChanged(@NonNull MediaSessionManager.RemoteUserInfo remoteUserInfo, @NonNull String str, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, remoteUserInfo, str, bundle) == null) {
-                this.this$0.mHandler.post(new Runnable(this, remoteUserInfo, str, bundle) { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplBase.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MediaBrowserServiceImplBase this$1;
-                    public final /* synthetic */ Bundle val$options;
-                    public final /* synthetic */ String val$parentId;
-                    public final /* synthetic */ MediaSessionManager.RemoteUserInfo val$remoteUserInfo;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, remoteUserInfo, str, bundle};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$1 = this;
-                        this.val$remoteUserInfo = remoteUserInfo;
-                        this.val$parentId = str;
-                        this.val$options = bundle;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            for (int i = 0; i < this.this$1.this$0.mConnections.size(); i++) {
-                                ConnectionRecord valueAt = this.this$1.this$0.mConnections.valueAt(i);
-                                if (valueAt.browserInfo.equals(this.val$remoteUserInfo)) {
-                                    this.this$1.notifyChildrenChangedOnHandler(valueAt, this.val$parentId, this.val$options);
-                                    return;
-                                }
-                            }
+        public void notifyChildrenChanged(@NonNull final MediaSessionManager.RemoteUserInfo remoteUserInfo, @NonNull final String str, final Bundle bundle) {
+            MediaBrowserServiceCompat.this.mHandler.post(new Runnable() { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplBase.3
+                @Override // java.lang.Runnable
+                public void run() {
+                    for (int i = 0; i < MediaBrowserServiceCompat.this.mConnections.size(); i++) {
+                        ConnectionRecord valueAt = MediaBrowserServiceCompat.this.mConnections.valueAt(i);
+                        if (valueAt.browserInfo.equals(remoteUserInfo)) {
+                            MediaBrowserServiceImplBase.this.notifyChildrenChangedOnHandler(valueAt, str, bundle);
+                            return;
                         }
                     }
-                });
-            }
-        }
-
-        @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
-        public void notifyChildrenChanged(@NonNull String str, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, str, bundle) == null) {
-                this.this$0.mHandler.post(new Runnable(this, str, bundle) { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplBase.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MediaBrowserServiceImplBase this$1;
-                    public final /* synthetic */ Bundle val$options;
-                    public final /* synthetic */ String val$parentId;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, str, bundle};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$1 = this;
-                        this.val$parentId = str;
-                        this.val$options = bundle;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            for (IBinder iBinder : this.this$1.this$0.mConnections.keySet()) {
-                                ArrayMap<IBinder, ConnectionRecord> arrayMap = this.this$1.this$0.mConnections;
-                                this.this$1.notifyChildrenChangedOnHandler(arrayMap.get(iBinder), this.val$parentId, this.val$options);
-                            }
-                        }
-                    }
-                });
-            }
+                }
+            });
         }
 
         public void notifyChildrenChangedOnHandler(ConnectionRecord connectionRecord, String str, Bundle bundle) {
-            List<Pair<IBinder, Bundle>> list;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(1048580, this, connectionRecord, str, bundle) == null) && (list = connectionRecord.subscriptions.get(str)) != null) {
+            List<Pair<IBinder, Bundle>> list = connectionRecord.subscriptions.get(str);
+            if (list != null) {
                 for (Pair<IBinder, Bundle> pair : list) {
                     if (MediaBrowserCompatUtils.hasDuplicatedItems(bundle, pair.second)) {
-                        this.this$0.performLoadChildren(str, connectionRecord, pair.second, bundle);
+                        MediaBrowserServiceCompat.this.performLoadChildren(str, connectionRecord, pair.second, bundle);
                     }
                 }
             }
+        }
+
+        @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
+        public void notifyChildrenChanged(@NonNull final String str, final Bundle bundle) {
+            MediaBrowserServiceCompat.this.mHandler.post(new Runnable() { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplBase.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    for (IBinder iBinder : MediaBrowserServiceCompat.this.mConnections.keySet()) {
+                        ArrayMap<IBinder, ConnectionRecord> arrayMap = MediaBrowserServiceCompat.this.mConnections;
+                        MediaBrowserServiceImplBase.this.notifyChildrenChangedOnHandler(arrayMap.get(iBinder), str, bundle);
+                    }
+                }
+            });
         }
     }
 
     /* loaded from: classes.dex */
     public static class Result<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final Object mDebug;
         public boolean mDetachCalled;
         public int mFlags;
@@ -1314,53 +671,14 @@ public abstract class MediaBrowserServiceCompat extends Service {
         public boolean mSendResultCalled;
 
         public void onResultSent(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-            }
         }
 
         public Result(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {obj};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.mDebug = obj;
         }
 
-        public void onErrorSent(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
-                throw new UnsupportedOperationException("It is not supported to send an error for " + this.mDebug);
-            }
-        }
-
-        public void onProgressUpdateSent(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-                throw new UnsupportedOperationException("It is not supported to send an interim update for " + this.mDebug);
-            }
-        }
-
-        public void setFlags(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-                this.mFlags = i;
-            }
-        }
-
         private void checkExtraFields(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(65537, this, bundle) == null) && bundle != null && bundle.containsKey(MediaBrowserCompat.EXTRA_DOWNLOAD_PROGRESS)) {
+            if (bundle != null && bundle.containsKey(MediaBrowserCompat.EXTRA_DOWNLOAD_PROGRESS)) {
                 float f = bundle.getFloat(MediaBrowserCompat.EXTRA_DOWNLOAD_PROGRESS);
                 if (f < -1.0E-5f || f > 1.00001f) {
                     throw new IllegalArgumentException("The value of the EXTRA_DOWNLOAD_PROGRESS field must be a float number within [0.0, 1.0]");
@@ -1368,1389 +686,720 @@ public abstract class MediaBrowserServiceCompat extends Service {
             }
         }
 
+        public void onErrorSent(Bundle bundle) {
+            throw new UnsupportedOperationException("It is not supported to send an error for " + this.mDebug);
+        }
+
+        public void onProgressUpdateSent(Bundle bundle) {
+            throw new UnsupportedOperationException("It is not supported to send an interim update for " + this.mDebug);
+        }
+
         public void sendError(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-                if (!this.mSendResultCalled && !this.mSendErrorCalled) {
-                    this.mSendErrorCalled = true;
-                    onErrorSent(bundle);
-                    return;
-                }
-                throw new IllegalStateException("sendError() called when either sendResult() or sendError() had already been called for: " + this.mDebug);
+            if (!this.mSendResultCalled && !this.mSendErrorCalled) {
+                this.mSendErrorCalled = true;
+                onErrorSent(bundle);
+                return;
             }
+            throw new IllegalStateException("sendError() called when either sendResult() or sendError() had already been called for: " + this.mDebug);
         }
 
         public void sendProgressUpdate(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-                if (!this.mSendResultCalled && !this.mSendErrorCalled) {
-                    checkExtraFields(bundle);
-                    onProgressUpdateSent(bundle);
-                    return;
-                }
-                throw new IllegalStateException("sendProgressUpdate() called when either sendResult() or sendError() had already been called for: " + this.mDebug);
+            if (!this.mSendResultCalled && !this.mSendErrorCalled) {
+                checkExtraFields(bundle);
+                onProgressUpdateSent(bundle);
+                return;
             }
+            throw new IllegalStateException("sendProgressUpdate() called when either sendResult() or sendError() had already been called for: " + this.mDebug);
         }
 
         public void sendResult(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
-                if (!this.mSendResultCalled && !this.mSendErrorCalled) {
-                    this.mSendResultCalled = true;
-                    onResultSent(t);
-                    return;
-                }
-                throw new IllegalStateException("sendResult() called when either sendResult() or sendError() had already been called for: " + this.mDebug);
+            if (!this.mSendResultCalled && !this.mSendErrorCalled) {
+                this.mSendResultCalled = true;
+                onResultSent(t);
+                return;
             }
+            throw new IllegalStateException("sendResult() called when either sendResult() or sendError() had already been called for: " + this.mDebug);
+        }
+
+        public void setFlags(int i) {
+            this.mFlags = i;
         }
 
         public void detach() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.mDetachCalled) {
-                    if (!this.mSendResultCalled) {
-                        if (!this.mSendErrorCalled) {
-                            this.mDetachCalled = true;
-                            return;
-                        }
-                        throw new IllegalStateException("detach() called when sendError() had already been called for: " + this.mDebug);
+            if (!this.mDetachCalled) {
+                if (!this.mSendResultCalled) {
+                    if (!this.mSendErrorCalled) {
+                        this.mDetachCalled = true;
+                        return;
                     }
-                    throw new IllegalStateException("detach() called when sendResult() had already been called for: " + this.mDebug);
+                    throw new IllegalStateException("detach() called when sendError() had already been called for: " + this.mDebug);
                 }
-                throw new IllegalStateException("detach() called when detach() had already been called for: " + this.mDebug);
+                throw new IllegalStateException("detach() called when sendResult() had already been called for: " + this.mDebug);
             }
+            throw new IllegalStateException("detach() called when detach() had already been called for: " + this.mDebug);
         }
 
         public int getFlags() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.mFlags;
-            }
-            return invokeV.intValue;
+            return this.mFlags;
         }
 
         public boolean isDone() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (!this.mDetachCalled && !this.mSendResultCalled && !this.mSendErrorCalled) {
-                    return false;
-                }
-                return true;
+            if (!this.mDetachCalled && !this.mSendResultCalled && !this.mSendErrorCalled) {
+                return false;
             }
-            return invokeV.booleanValue;
+            return true;
         }
     }
 
     @RequiresApi(21)
     /* loaded from: classes.dex */
     public static class ResultWrapper<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public MediaBrowserService.Result mResultFwk;
 
         public ResultWrapper(MediaBrowserService.Result result) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {result};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.mResultFwk = result;
         }
 
-        public void detach() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.mResultFwk.detach();
-            }
-        }
-
         public List<MediaBrowser.MediaItem> parcelListToItemList(List<Parcel> list) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-                if (list == null) {
-                    return null;
-                }
-                ArrayList arrayList = new ArrayList();
-                for (Parcel parcel : list) {
-                    parcel.setDataPosition(0);
-                    arrayList.add((MediaBrowser.MediaItem) MediaBrowser.MediaItem.CREATOR.createFromParcel(parcel));
-                    parcel.recycle();
-                }
-                return arrayList;
+            if (list == null) {
+                return null;
             }
-            return (List) invokeL.objValue;
+            ArrayList arrayList = new ArrayList();
+            for (Parcel parcel : list) {
+                parcel.setDataPosition(0);
+                arrayList.add((MediaBrowser.MediaItem) MediaBrowser.MediaItem.CREATOR.createFromParcel(parcel));
+                parcel.recycle();
+            }
+            return arrayList;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: android.service.media.MediaBrowserService$Result */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: android.service.media.MediaBrowserService$Result */
         /* JADX WARN: Multi-variable type inference failed */
         public void sendResult(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                if (t instanceof List) {
-                    this.mResultFwk.sendResult(parcelListToItemList((List) t));
-                } else if (t instanceof Parcel) {
-                    Parcel parcel = (Parcel) t;
-                    parcel.setDataPosition(0);
-                    this.mResultFwk.sendResult(MediaBrowser.MediaItem.CREATOR.createFromParcel(parcel));
-                    parcel.recycle();
-                } else {
-                    this.mResultFwk.sendResult(null);
-                }
+            if (t instanceof List) {
+                this.mResultFwk.sendResult(parcelListToItemList((List) t));
+            } else if (t instanceof Parcel) {
+                Parcel parcel = (Parcel) t;
+                parcel.setDataPosition(0);
+                this.mResultFwk.sendResult(MediaBrowser.MediaItem.CREATOR.createFromParcel(parcel));
+                parcel.recycle();
+            } else {
+                this.mResultFwk.sendResult(null);
             }
+        }
+
+        public void detach() {
+            this.mResultFwk.detach();
         }
     }
 
     /* loaded from: classes.dex */
     public class ServiceBinderImpl {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MediaBrowserServiceCompat this$0;
+        public ServiceBinderImpl() {
+        }
 
-        public ServiceBinderImpl(MediaBrowserServiceCompat mediaBrowserServiceCompat) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mediaBrowserServiceCompat};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+        public void disconnect(final ServiceCallbacks serviceCallbacks) {
+            MediaBrowserServiceCompat.this.mHandler.postOrRun(new Runnable() { // from class: androidx.media.MediaBrowserServiceCompat.ServiceBinderImpl.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    ConnectionRecord remove = MediaBrowserServiceCompat.this.mConnections.remove(serviceCallbacks.asBinder());
+                    if (remove != null) {
+                        remove.callbacks.asBinder().unlinkToDeath(remove, 0);
+                    }
                 }
-            }
-            this.this$0 = mediaBrowserServiceCompat;
+            });
         }
 
-        public void disconnect(ServiceCallbacks serviceCallbacks) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, serviceCallbacks) == null) {
-                this.this$0.mHandler.postOrRun(new Runnable(this, serviceCallbacks) { // from class: androidx.media.MediaBrowserServiceCompat.ServiceBinderImpl.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ServiceBinderImpl this$1;
-                    public final /* synthetic */ ServiceCallbacks val$callbacks;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, serviceCallbacks};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$1 = this;
-                        this.val$callbacks = serviceCallbacks;
+        public void unregisterCallbacks(final ServiceCallbacks serviceCallbacks) {
+            MediaBrowserServiceCompat.this.mHandler.postOrRun(new Runnable() { // from class: androidx.media.MediaBrowserServiceCompat.ServiceBinderImpl.7
+                @Override // java.lang.Runnable
+                public void run() {
+                    IBinder asBinder = serviceCallbacks.asBinder();
+                    ConnectionRecord remove = MediaBrowserServiceCompat.this.mConnections.remove(asBinder);
+                    if (remove != null) {
+                        asBinder.unlinkToDeath(remove, 0);
                     }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            ConnectionRecord remove = this.this$1.this$0.mConnections.remove(this.val$callbacks.asBinder());
-                            if (remove != null) {
-                                remove.callbacks.asBinder().unlinkToDeath(remove, 0);
-                            }
-                        }
-                    }
-                });
-            }
-        }
-
-        public void unregisterCallbacks(ServiceCallbacks serviceCallbacks) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, serviceCallbacks) == null) {
-                this.this$0.mHandler.postOrRun(new Runnable(this, serviceCallbacks) { // from class: androidx.media.MediaBrowserServiceCompat.ServiceBinderImpl.7
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ServiceBinderImpl this$1;
-                    public final /* synthetic */ ServiceCallbacks val$callbacks;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, serviceCallbacks};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$1 = this;
-                        this.val$callbacks = serviceCallbacks;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        IBinder asBinder;
-                        ConnectionRecord remove;
-                        Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (remove = this.this$1.this$0.mConnections.remove((asBinder = this.val$callbacks.asBinder()))) != null) {
-                            asBinder.unlinkToDeath(remove, 0);
-                        }
-                    }
-                });
-            }
-        }
-
-        public void addSubscription(String str, IBinder iBinder, Bundle bundle, ServiceCallbacks serviceCallbacks) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, iBinder, bundle, serviceCallbacks) == null) {
-                this.this$0.mHandler.postOrRun(new Runnable(this, serviceCallbacks, str, iBinder, bundle) { // from class: androidx.media.MediaBrowserServiceCompat.ServiceBinderImpl.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ServiceBinderImpl this$1;
-                    public final /* synthetic */ ServiceCallbacks val$callbacks;
-                    public final /* synthetic */ String val$id;
-                    public final /* synthetic */ Bundle val$options;
-                    public final /* synthetic */ IBinder val$token;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, serviceCallbacks, str, iBinder, bundle};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$1 = this;
-                        this.val$callbacks = serviceCallbacks;
-                        this.val$id = str;
-                        this.val$token = iBinder;
-                        this.val$options = bundle;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            ConnectionRecord connectionRecord = this.this$1.this$0.mConnections.get(this.val$callbacks.asBinder());
-                            if (connectionRecord == null) {
-                                Log.w(MediaBrowserServiceCompat.TAG, "addSubscription for callback that isn't registered id=" + this.val$id);
-                                return;
-                            }
-                            this.this$1.this$0.addSubscription(this.val$id, connectionRecord, this.val$token, this.val$options);
-                        }
-                    }
-                });
-            }
-        }
-
-        public void search(String str, Bundle bundle, ResultReceiver resultReceiver, ServiceCallbacks serviceCallbacks) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLLL(1048582, this, str, bundle, resultReceiver, serviceCallbacks) == null) && !TextUtils.isEmpty(str) && resultReceiver != null) {
-                this.this$0.mHandler.postOrRun(new Runnable(this, serviceCallbacks, str, bundle, resultReceiver) { // from class: androidx.media.MediaBrowserServiceCompat.ServiceBinderImpl.8
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ServiceBinderImpl this$1;
-                    public final /* synthetic */ ServiceCallbacks val$callbacks;
-                    public final /* synthetic */ Bundle val$extras;
-                    public final /* synthetic */ String val$query;
-                    public final /* synthetic */ ResultReceiver val$receiver;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, serviceCallbacks, str, bundle, resultReceiver};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$1 = this;
-                        this.val$callbacks = serviceCallbacks;
-                        this.val$query = str;
-                        this.val$extras = bundle;
-                        this.val$receiver = resultReceiver;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            ConnectionRecord connectionRecord = this.this$1.this$0.mConnections.get(this.val$callbacks.asBinder());
-                            if (connectionRecord == null) {
-                                Log.w(MediaBrowserServiceCompat.TAG, "search for callback that isn't registered query=" + this.val$query);
-                                return;
-                            }
-                            this.this$1.this$0.performSearch(this.val$query, this.val$extras, connectionRecord, this.val$receiver);
-                        }
-                    }
-                });
-            }
-        }
-
-        public void sendCustomAction(String str, Bundle bundle, ResultReceiver resultReceiver, ServiceCallbacks serviceCallbacks) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLLL(1048583, this, str, bundle, resultReceiver, serviceCallbacks) == null) && !TextUtils.isEmpty(str) && resultReceiver != null) {
-                this.this$0.mHandler.postOrRun(new Runnable(this, serviceCallbacks, str, bundle, resultReceiver) { // from class: androidx.media.MediaBrowserServiceCompat.ServiceBinderImpl.9
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ServiceBinderImpl this$1;
-                    public final /* synthetic */ String val$action;
-                    public final /* synthetic */ ServiceCallbacks val$callbacks;
-                    public final /* synthetic */ Bundle val$extras;
-                    public final /* synthetic */ ResultReceiver val$receiver;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, serviceCallbacks, str, bundle, resultReceiver};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$1 = this;
-                        this.val$callbacks = serviceCallbacks;
-                        this.val$action = str;
-                        this.val$extras = bundle;
-                        this.val$receiver = resultReceiver;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            ConnectionRecord connectionRecord = this.this$1.this$0.mConnections.get(this.val$callbacks.asBinder());
-                            if (connectionRecord == null) {
-                                Log.w(MediaBrowserServiceCompat.TAG, "sendCustomAction for callback that isn't registered action=" + this.val$action + ", extras=" + this.val$extras);
-                                return;
-                            }
-                            this.this$1.this$0.performCustomAction(this.val$action, this.val$extras, connectionRecord, this.val$receiver);
-                        }
-                    }
-                });
-            }
-        }
-
-        public void connect(String str, int i, int i2, Bundle bundle, ServiceCallbacks serviceCallbacks) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), bundle, serviceCallbacks}) == null) {
-                if (this.this$0.isValidPackage(str, i2)) {
-                    this.this$0.mHandler.postOrRun(new Runnable(this, serviceCallbacks, str, i, i2, bundle) { // from class: androidx.media.MediaBrowserServiceCompat.ServiceBinderImpl.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ ServiceBinderImpl this$1;
-                        public final /* synthetic */ ServiceCallbacks val$callbacks;
-                        public final /* synthetic */ int val$pid;
-                        public final /* synthetic */ String val$pkg;
-                        public final /* synthetic */ Bundle val$rootHints;
-                        public final /* synthetic */ int val$uid;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, serviceCallbacks, str, Integer.valueOf(i), Integer.valueOf(i2), bundle};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$1 = this;
-                            this.val$callbacks = serviceCallbacks;
-                            this.val$pkg = str;
-                            this.val$pid = i;
-                            this.val$uid = i2;
-                            this.val$rootHints = bundle;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                IBinder asBinder = this.val$callbacks.asBinder();
-                                this.this$1.this$0.mConnections.remove(asBinder);
-                                ConnectionRecord connectionRecord = new ConnectionRecord(this.this$1.this$0, this.val$pkg, this.val$pid, this.val$uid, this.val$rootHints, this.val$callbacks);
-                                MediaBrowserServiceCompat mediaBrowserServiceCompat = this.this$1.this$0;
-                                mediaBrowserServiceCompat.mCurConnection = connectionRecord;
-                                BrowserRoot onGetRoot = mediaBrowserServiceCompat.onGetRoot(this.val$pkg, this.val$uid, this.val$rootHints);
-                                connectionRecord.root = onGetRoot;
-                                MediaBrowserServiceCompat mediaBrowserServiceCompat2 = this.this$1.this$0;
-                                mediaBrowserServiceCompat2.mCurConnection = null;
-                                if (onGetRoot == null) {
-                                    Log.i(MediaBrowserServiceCompat.TAG, "No root for client " + this.val$pkg + " from service " + AnonymousClass1.class.getName());
-                                    try {
-                                        this.val$callbacks.onConnectFailed();
-                                        return;
-                                    } catch (RemoteException unused) {
-                                        Log.w(MediaBrowserServiceCompat.TAG, "Calling onConnectFailed() failed. Ignoring. pkg=" + this.val$pkg);
-                                        return;
-                                    }
-                                }
-                                try {
-                                    mediaBrowserServiceCompat2.mConnections.put(asBinder, connectionRecord);
-                                    asBinder.linkToDeath(connectionRecord, 0);
-                                    if (this.this$1.this$0.mSession != null) {
-                                        this.val$callbacks.onConnect(connectionRecord.root.getRootId(), this.this$1.this$0.mSession, connectionRecord.root.getExtras());
-                                    }
-                                } catch (RemoteException unused2) {
-                                    Log.w(MediaBrowserServiceCompat.TAG, "Calling onConnect() failed. Dropping client. pkg=" + this.val$pkg);
-                                    this.this$1.this$0.mConnections.remove(asBinder);
-                                }
-                            }
-                        }
-                    });
-                    return;
                 }
-                throw new IllegalArgumentException("Package/uid mismatch: uid=" + i2 + " package=" + str);
-            }
+            });
         }
 
-        public void getMediaItem(String str, ResultReceiver resultReceiver, ServiceCallbacks serviceCallbacks) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(1048579, this, str, resultReceiver, serviceCallbacks) == null) && !TextUtils.isEmpty(str) && resultReceiver != null) {
-                this.this$0.mHandler.postOrRun(new Runnable(this, serviceCallbacks, str, resultReceiver) { // from class: androidx.media.MediaBrowserServiceCompat.ServiceBinderImpl.5
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ServiceBinderImpl this$1;
-                    public final /* synthetic */ ServiceCallbacks val$callbacks;
-                    public final /* synthetic */ String val$mediaId;
-                    public final /* synthetic */ ResultReceiver val$receiver;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, serviceCallbacks, str, resultReceiver};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$1 = this;
-                        this.val$callbacks = serviceCallbacks;
-                        this.val$mediaId = str;
-                        this.val$receiver = resultReceiver;
+        public void addSubscription(final String str, final IBinder iBinder, final Bundle bundle, final ServiceCallbacks serviceCallbacks) {
+            MediaBrowserServiceCompat.this.mHandler.postOrRun(new Runnable() { // from class: androidx.media.MediaBrowserServiceCompat.ServiceBinderImpl.3
+                @Override // java.lang.Runnable
+                public void run() {
+                    ConnectionRecord connectionRecord = MediaBrowserServiceCompat.this.mConnections.get(serviceCallbacks.asBinder());
+                    if (connectionRecord == null) {
+                        Log.w(MediaBrowserServiceCompat.TAG, "addSubscription for callback that isn't registered id=" + str);
+                        return;
                     }
+                    MediaBrowserServiceCompat.this.addSubscription(str, connectionRecord, iBinder, bundle);
+                }
+            });
+        }
 
+        public void search(final String str, final Bundle bundle, final ResultReceiver resultReceiver, final ServiceCallbacks serviceCallbacks) {
+            if (!TextUtils.isEmpty(str) && resultReceiver != null) {
+                MediaBrowserServiceCompat.this.mHandler.postOrRun(new Runnable() { // from class: androidx.media.MediaBrowserServiceCompat.ServiceBinderImpl.8
                     @Override // java.lang.Runnable
                     public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            ConnectionRecord connectionRecord = this.this$1.this$0.mConnections.get(this.val$callbacks.asBinder());
-                            if (connectionRecord == null) {
-                                Log.w(MediaBrowserServiceCompat.TAG, "getMediaItem for callback that isn't registered id=" + this.val$mediaId);
-                                return;
-                            }
-                            this.this$1.this$0.performLoadItem(this.val$mediaId, connectionRecord, this.val$receiver);
+                        ConnectionRecord connectionRecord = MediaBrowserServiceCompat.this.mConnections.get(serviceCallbacks.asBinder());
+                        if (connectionRecord == null) {
+                            Log.w(MediaBrowserServiceCompat.TAG, "search for callback that isn't registered query=" + str);
+                            return;
                         }
+                        MediaBrowserServiceCompat.this.performSearch(str, bundle, connectionRecord, resultReceiver);
                     }
                 });
             }
         }
 
-        public void removeSubscription(String str, IBinder iBinder, ServiceCallbacks serviceCallbacks) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048581, this, str, iBinder, serviceCallbacks) == null) {
-                this.this$0.mHandler.postOrRun(new Runnable(this, serviceCallbacks, str, iBinder) { // from class: androidx.media.MediaBrowserServiceCompat.ServiceBinderImpl.4
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ServiceBinderImpl this$1;
-                    public final /* synthetic */ ServiceCallbacks val$callbacks;
-                    public final /* synthetic */ String val$id;
-                    public final /* synthetic */ IBinder val$token;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, serviceCallbacks, str, iBinder};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$1 = this;
-                        this.val$callbacks = serviceCallbacks;
-                        this.val$id = str;
-                        this.val$token = iBinder;
-                    }
-
+        public void sendCustomAction(final String str, final Bundle bundle, final ResultReceiver resultReceiver, final ServiceCallbacks serviceCallbacks) {
+            if (!TextUtils.isEmpty(str) && resultReceiver != null) {
+                MediaBrowserServiceCompat.this.mHandler.postOrRun(new Runnable() { // from class: androidx.media.MediaBrowserServiceCompat.ServiceBinderImpl.9
                     @Override // java.lang.Runnable
                     public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            ConnectionRecord connectionRecord = this.this$1.this$0.mConnections.get(this.val$callbacks.asBinder());
-                            if (connectionRecord == null) {
-                                Log.w(MediaBrowserServiceCompat.TAG, "removeSubscription for callback that isn't registered id=" + this.val$id);
-                            } else if (!this.this$1.this$0.removeSubscription(this.val$id, connectionRecord, this.val$token)) {
-                                Log.w(MediaBrowserServiceCompat.TAG, "removeSubscription called for " + this.val$id + " which is not subscribed");
-                            }
+                        ConnectionRecord connectionRecord = MediaBrowserServiceCompat.this.mConnections.get(serviceCallbacks.asBinder());
+                        if (connectionRecord == null) {
+                            Log.w(MediaBrowserServiceCompat.TAG, "sendCustomAction for callback that isn't registered action=" + str + ", extras=" + bundle);
+                            return;
                         }
+                        MediaBrowserServiceCompat.this.performCustomAction(str, bundle, connectionRecord, resultReceiver);
                     }
                 });
             }
         }
 
-        public void registerCallbacks(ServiceCallbacks serviceCallbacks, String str, int i, int i2, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{serviceCallbacks, str, Integer.valueOf(i), Integer.valueOf(i2), bundle}) == null) {
-                this.this$0.mHandler.postOrRun(new Runnable(this, serviceCallbacks, i2, str, i, bundle) { // from class: androidx.media.MediaBrowserServiceCompat.ServiceBinderImpl.6
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ServiceBinderImpl this$1;
-                    public final /* synthetic */ ServiceCallbacks val$callbacks;
-                    public final /* synthetic */ int val$pid;
-                    public final /* synthetic */ String val$pkg;
-                    public final /* synthetic */ Bundle val$rootHints;
-                    public final /* synthetic */ int val$uid;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, serviceCallbacks, Integer.valueOf(i2), str, Integer.valueOf(i), bundle};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$1 = this;
-                        this.val$callbacks = serviceCallbacks;
-                        this.val$uid = i2;
-                        this.val$pkg = str;
-                        this.val$pid = i;
-                        this.val$rootHints = bundle;
-                    }
-
+        public void connect(final String str, final int i, final int i2, final Bundle bundle, final ServiceCallbacks serviceCallbacks) {
+            if (MediaBrowserServiceCompat.this.isValidPackage(str, i2)) {
+                MediaBrowserServiceCompat.this.mHandler.postOrRun(new Runnable() { // from class: androidx.media.MediaBrowserServiceCompat.ServiceBinderImpl.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            IBinder asBinder = this.val$callbacks.asBinder();
-                            this.this$1.this$0.mConnections.remove(asBinder);
-                            Iterator<ConnectionRecord> it = this.this$1.this$0.mPendingConnections.iterator();
-                            ConnectionRecord connectionRecord = null;
-                            while (it.hasNext()) {
-                                ConnectionRecord next = it.next();
-                                if (next.uid == this.val$uid) {
-                                    if (TextUtils.isEmpty(this.val$pkg) || this.val$pid <= 0) {
-                                        connectionRecord = new ConnectionRecord(this.this$1.this$0, next.pkg, next.pid, next.uid, this.val$rootHints, this.val$callbacks);
-                                    }
-                                    it.remove();
-                                }
-                            }
-                            if (connectionRecord == null) {
-                                connectionRecord = new ConnectionRecord(this.this$1.this$0, this.val$pkg, this.val$pid, this.val$uid, this.val$rootHints, this.val$callbacks);
-                            }
-                            this.this$1.this$0.mConnections.put(asBinder, connectionRecord);
+                        IBinder asBinder = serviceCallbacks.asBinder();
+                        MediaBrowserServiceCompat.this.mConnections.remove(asBinder);
+                        ConnectionRecord connectionRecord = new ConnectionRecord(str, i, i2, bundle, serviceCallbacks);
+                        MediaBrowserServiceCompat mediaBrowserServiceCompat = MediaBrowserServiceCompat.this;
+                        mediaBrowserServiceCompat.mCurConnection = connectionRecord;
+                        BrowserRoot onGetRoot = mediaBrowserServiceCompat.onGetRoot(str, i2, bundle);
+                        connectionRecord.root = onGetRoot;
+                        MediaBrowserServiceCompat mediaBrowserServiceCompat2 = MediaBrowserServiceCompat.this;
+                        mediaBrowserServiceCompat2.mCurConnection = null;
+                        if (onGetRoot == null) {
+                            Log.i(MediaBrowserServiceCompat.TAG, "No root for client " + str + " from service " + AnonymousClass1.class.getName());
                             try {
-                                asBinder.linkToDeath(connectionRecord, 0);
+                                serviceCallbacks.onConnectFailed();
+                                return;
                             } catch (RemoteException unused) {
-                                Log.w(MediaBrowserServiceCompat.TAG, "IBinder is already dead.");
+                                Log.w(MediaBrowserServiceCompat.TAG, "Calling onConnectFailed() failed. Ignoring. pkg=" + str);
+                                return;
                             }
+                        }
+                        try {
+                            mediaBrowserServiceCompat2.mConnections.put(asBinder, connectionRecord);
+                            asBinder.linkToDeath(connectionRecord, 0);
+                            if (MediaBrowserServiceCompat.this.mSession != null) {
+                                serviceCallbacks.onConnect(connectionRecord.root.getRootId(), MediaBrowserServiceCompat.this.mSession, connectionRecord.root.getExtras());
+                            }
+                        } catch (RemoteException unused2) {
+                            Log.w(MediaBrowserServiceCompat.TAG, "Calling onConnect() failed. Dropping client. pkg=" + str);
+                            MediaBrowserServiceCompat.this.mConnections.remove(asBinder);
                         }
                     }
                 });
+                return;
             }
+            throw new IllegalArgumentException("Package/uid mismatch: uid=" + i2 + " package=" + str);
+        }
+
+        public void getMediaItem(final String str, final ResultReceiver resultReceiver, final ServiceCallbacks serviceCallbacks) {
+            if (!TextUtils.isEmpty(str) && resultReceiver != null) {
+                MediaBrowserServiceCompat.this.mHandler.postOrRun(new Runnable() { // from class: androidx.media.MediaBrowserServiceCompat.ServiceBinderImpl.5
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        ConnectionRecord connectionRecord = MediaBrowserServiceCompat.this.mConnections.get(serviceCallbacks.asBinder());
+                        if (connectionRecord == null) {
+                            Log.w(MediaBrowserServiceCompat.TAG, "getMediaItem for callback that isn't registered id=" + str);
+                            return;
+                        }
+                        MediaBrowserServiceCompat.this.performLoadItem(str, connectionRecord, resultReceiver);
+                    }
+                });
+            }
+        }
+
+        public void removeSubscription(final String str, final IBinder iBinder, final ServiceCallbacks serviceCallbacks) {
+            MediaBrowserServiceCompat.this.mHandler.postOrRun(new Runnable() { // from class: androidx.media.MediaBrowserServiceCompat.ServiceBinderImpl.4
+                @Override // java.lang.Runnable
+                public void run() {
+                    ConnectionRecord connectionRecord = MediaBrowserServiceCompat.this.mConnections.get(serviceCallbacks.asBinder());
+                    if (connectionRecord == null) {
+                        Log.w(MediaBrowserServiceCompat.TAG, "removeSubscription for callback that isn't registered id=" + str);
+                    } else if (!MediaBrowserServiceCompat.this.removeSubscription(str, connectionRecord, iBinder)) {
+                        Log.w(MediaBrowserServiceCompat.TAG, "removeSubscription called for " + str + " which is not subscribed");
+                    }
+                }
+            });
+        }
+
+        public void registerCallbacks(final ServiceCallbacks serviceCallbacks, final String str, final int i, final int i2, final Bundle bundle) {
+            MediaBrowserServiceCompat.this.mHandler.postOrRun(new Runnable() { // from class: androidx.media.MediaBrowserServiceCompat.ServiceBinderImpl.6
+                @Override // java.lang.Runnable
+                public void run() {
+                    IBinder asBinder = serviceCallbacks.asBinder();
+                    MediaBrowserServiceCompat.this.mConnections.remove(asBinder);
+                    Iterator<ConnectionRecord> it = MediaBrowserServiceCompat.this.mPendingConnections.iterator();
+                    ConnectionRecord connectionRecord = null;
+                    while (it.hasNext()) {
+                        ConnectionRecord next = it.next();
+                        if (next.uid == i2) {
+                            if (TextUtils.isEmpty(str) || i <= 0) {
+                                connectionRecord = new ConnectionRecord(next.pkg, next.pid, next.uid, bundle, serviceCallbacks);
+                            }
+                            it.remove();
+                        }
+                    }
+                    if (connectionRecord == null) {
+                        connectionRecord = new ConnectionRecord(str, i, i2, bundle, serviceCallbacks);
+                    }
+                    MediaBrowserServiceCompat.this.mConnections.put(asBinder, connectionRecord);
+                    try {
+                        asBinder.linkToDeath(connectionRecord, 0);
+                    } catch (RemoteException unused) {
+                        Log.w(MediaBrowserServiceCompat.TAG, "IBinder is already dead.");
+                    }
+                }
+            });
         }
     }
 
     /* loaded from: classes.dex */
     public static class ServiceCallbacksCompat implements ServiceCallbacks {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final Messenger mCallbacks;
 
         public ServiceCallbacksCompat(Messenger messenger) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {messenger};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.mCallbacks = messenger;
         }
 
         private void sendRequest(int i, Bundle bundle) throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(65537, this, i, bundle) == null) {
-                Message obtain = Message.obtain();
-                obtain.what = i;
-                obtain.arg1 = 2;
-                obtain.setData(bundle);
-                this.mCallbacks.send(obtain);
-            }
+            Message obtain = Message.obtain();
+            obtain.what = i;
+            obtain.arg1 = 2;
+            obtain.setData(bundle);
+            this.mCallbacks.send(obtain);
         }
 
         @Override // androidx.media.MediaBrowserServiceCompat.ServiceCallbacks
         public IBinder asBinder() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.mCallbacks.getBinder();
-            }
-            return (IBinder) invokeV.objValue;
+            return this.mCallbacks.getBinder();
         }
 
         @Override // androidx.media.MediaBrowserServiceCompat.ServiceCallbacks
         public void onConnectFailed() throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                sendRequest(2, null);
-            }
+            sendRequest(2, null);
         }
 
         @Override // androidx.media.MediaBrowserServiceCompat.ServiceCallbacks
         public void onConnect(String str, MediaSessionCompat.Token token, Bundle bundle) throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, token, bundle) == null) {
-                if (bundle == null) {
-                    bundle = new Bundle();
-                }
-                bundle.putInt(MediaBrowserProtocol.EXTRA_SERVICE_VERSION, 2);
-                Bundle bundle2 = new Bundle();
-                bundle2.putString(MediaBrowserProtocol.DATA_MEDIA_ITEM_ID, str);
-                bundle2.putParcelable(MediaBrowserProtocol.DATA_MEDIA_SESSION_TOKEN, token);
-                bundle2.putBundle(MediaBrowserProtocol.DATA_ROOT_HINTS, bundle);
-                sendRequest(1, bundle2);
+            if (bundle == null) {
+                bundle = new Bundle();
             }
+            bundle.putInt(MediaBrowserProtocol.EXTRA_SERVICE_VERSION, 2);
+            Bundle bundle2 = new Bundle();
+            bundle2.putString(MediaBrowserProtocol.DATA_MEDIA_ITEM_ID, str);
+            bundle2.putParcelable(MediaBrowserProtocol.DATA_MEDIA_SESSION_TOKEN, token);
+            bundle2.putBundle(MediaBrowserProtocol.DATA_ROOT_HINTS, bundle);
+            sendRequest(1, bundle2);
         }
 
         @Override // androidx.media.MediaBrowserServiceCompat.ServiceCallbacks
         public void onLoadChildren(String str, List<MediaBrowserCompat.MediaItem> list, Bundle bundle, Bundle bundle2) throws RemoteException {
             ArrayList<? extends Parcelable> arrayList;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, list, bundle, bundle2) == null) {
-                Bundle bundle3 = new Bundle();
-                bundle3.putString(MediaBrowserProtocol.DATA_MEDIA_ITEM_ID, str);
-                bundle3.putBundle(MediaBrowserProtocol.DATA_OPTIONS, bundle);
-                bundle3.putBundle(MediaBrowserProtocol.DATA_NOTIFY_CHILDREN_CHANGED_OPTIONS, bundle2);
-                if (list != null) {
-                    if (list instanceof ArrayList) {
-                        arrayList = (ArrayList) list;
-                    } else {
-                        arrayList = new ArrayList<>(list);
-                    }
-                    bundle3.putParcelableArrayList(MediaBrowserProtocol.DATA_MEDIA_ITEM_LIST, arrayList);
+            Bundle bundle3 = new Bundle();
+            bundle3.putString(MediaBrowserProtocol.DATA_MEDIA_ITEM_ID, str);
+            bundle3.putBundle(MediaBrowserProtocol.DATA_OPTIONS, bundle);
+            bundle3.putBundle(MediaBrowserProtocol.DATA_NOTIFY_CHILDREN_CHANGED_OPTIONS, bundle2);
+            if (list != null) {
+                if (list instanceof ArrayList) {
+                    arrayList = (ArrayList) list;
+                } else {
+                    arrayList = new ArrayList<>(list);
                 }
-                sendRequest(3, bundle3);
+                bundle3.putParcelableArrayList(MediaBrowserProtocol.DATA_MEDIA_ITEM_LIST, arrayList);
             }
+            sendRequest(3, bundle3);
         }
     }
 
     /* loaded from: classes.dex */
     public final class ServiceHandler extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final ServiceBinderImpl mServiceBinderImpl;
-        public final /* synthetic */ MediaBrowserServiceCompat this$0;
 
-        public ServiceHandler(MediaBrowserServiceCompat mediaBrowserServiceCompat) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mediaBrowserServiceCompat};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+        public ServiceHandler() {
+            this.mServiceBinderImpl = new ServiceBinderImpl();
+        }
+
+        public void postOrRun(Runnable runnable) {
+            if (Thread.currentThread() == getLooper().getThread()) {
+                runnable.run();
+            } else {
+                post(runnable);
             }
-            this.this$0 = mediaBrowserServiceCompat;
-            this.mServiceBinderImpl = new ServiceBinderImpl(this.this$0);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                Bundle data = message.getData();
-                switch (message.what) {
-                    case 1:
-                        Bundle bundle = data.getBundle(MediaBrowserProtocol.DATA_ROOT_HINTS);
-                        MediaSessionCompat.ensureClassLoader(bundle);
-                        this.mServiceBinderImpl.connect(data.getString(MediaBrowserProtocol.DATA_PACKAGE_NAME), data.getInt("data_calling_pid"), data.getInt("data_calling_uid"), bundle, new ServiceCallbacksCompat(message.replyTo));
-                        return;
-                    case 2:
-                        this.mServiceBinderImpl.disconnect(new ServiceCallbacksCompat(message.replyTo));
-                        return;
-                    case 3:
-                        Bundle bundle2 = data.getBundle(MediaBrowserProtocol.DATA_OPTIONS);
-                        MediaSessionCompat.ensureClassLoader(bundle2);
-                        this.mServiceBinderImpl.addSubscription(data.getString(MediaBrowserProtocol.DATA_MEDIA_ITEM_ID), BundleCompat.getBinder(data, MediaBrowserProtocol.DATA_CALLBACK_TOKEN), bundle2, new ServiceCallbacksCompat(message.replyTo));
-                        return;
-                    case 4:
-                        this.mServiceBinderImpl.removeSubscription(data.getString(MediaBrowserProtocol.DATA_MEDIA_ITEM_ID), BundleCompat.getBinder(data, MediaBrowserProtocol.DATA_CALLBACK_TOKEN), new ServiceCallbacksCompat(message.replyTo));
-                        return;
-                    case 5:
-                        this.mServiceBinderImpl.getMediaItem(data.getString(MediaBrowserProtocol.DATA_MEDIA_ITEM_ID), (ResultReceiver) data.getParcelable(MediaBrowserProtocol.DATA_RESULT_RECEIVER), new ServiceCallbacksCompat(message.replyTo));
-                        return;
-                    case 6:
-                        Bundle bundle3 = data.getBundle(MediaBrowserProtocol.DATA_ROOT_HINTS);
-                        MediaSessionCompat.ensureClassLoader(bundle3);
-                        this.mServiceBinderImpl.registerCallbacks(new ServiceCallbacksCompat(message.replyTo), data.getString(MediaBrowserProtocol.DATA_PACKAGE_NAME), data.getInt("data_calling_pid"), data.getInt("data_calling_uid"), bundle3);
-                        return;
-                    case 7:
-                        this.mServiceBinderImpl.unregisterCallbacks(new ServiceCallbacksCompat(message.replyTo));
-                        return;
-                    case 8:
-                        Bundle bundle4 = data.getBundle(MediaBrowserProtocol.DATA_SEARCH_EXTRAS);
-                        MediaSessionCompat.ensureClassLoader(bundle4);
-                        this.mServiceBinderImpl.search(data.getString(MediaBrowserProtocol.DATA_SEARCH_QUERY), bundle4, (ResultReceiver) data.getParcelable(MediaBrowserProtocol.DATA_RESULT_RECEIVER), new ServiceCallbacksCompat(message.replyTo));
-                        return;
-                    case 9:
-                        Bundle bundle5 = data.getBundle(MediaBrowserProtocol.DATA_CUSTOM_ACTION_EXTRAS);
-                        MediaSessionCompat.ensureClassLoader(bundle5);
-                        this.mServiceBinderImpl.sendCustomAction(data.getString(MediaBrowserProtocol.DATA_CUSTOM_ACTION), bundle5, (ResultReceiver) data.getParcelable(MediaBrowserProtocol.DATA_RESULT_RECEIVER), new ServiceCallbacksCompat(message.replyTo));
-                        return;
-                    default:
-                        Log.w(MediaBrowserServiceCompat.TAG, "Unhandled message: " + message + "\n  Service version: 2\n  Client version: " + message.arg1);
-                        return;
-                }
-            }
-        }
-
-        public void postOrRun(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
-                if (Thread.currentThread() == getLooper().getThread()) {
-                    runnable.run();
-                } else {
-                    post(runnable);
-                }
+            Bundle data = message.getData();
+            switch (message.what) {
+                case 1:
+                    Bundle bundle = data.getBundle(MediaBrowserProtocol.DATA_ROOT_HINTS);
+                    MediaSessionCompat.ensureClassLoader(bundle);
+                    this.mServiceBinderImpl.connect(data.getString(MediaBrowserProtocol.DATA_PACKAGE_NAME), data.getInt("data_calling_pid"), data.getInt("data_calling_uid"), bundle, new ServiceCallbacksCompat(message.replyTo));
+                    return;
+                case 2:
+                    this.mServiceBinderImpl.disconnect(new ServiceCallbacksCompat(message.replyTo));
+                    return;
+                case 3:
+                    Bundle bundle2 = data.getBundle(MediaBrowserProtocol.DATA_OPTIONS);
+                    MediaSessionCompat.ensureClassLoader(bundle2);
+                    this.mServiceBinderImpl.addSubscription(data.getString(MediaBrowserProtocol.DATA_MEDIA_ITEM_ID), BundleCompat.getBinder(data, MediaBrowserProtocol.DATA_CALLBACK_TOKEN), bundle2, new ServiceCallbacksCompat(message.replyTo));
+                    return;
+                case 4:
+                    this.mServiceBinderImpl.removeSubscription(data.getString(MediaBrowserProtocol.DATA_MEDIA_ITEM_ID), BundleCompat.getBinder(data, MediaBrowserProtocol.DATA_CALLBACK_TOKEN), new ServiceCallbacksCompat(message.replyTo));
+                    return;
+                case 5:
+                    this.mServiceBinderImpl.getMediaItem(data.getString(MediaBrowserProtocol.DATA_MEDIA_ITEM_ID), (ResultReceiver) data.getParcelable(MediaBrowserProtocol.DATA_RESULT_RECEIVER), new ServiceCallbacksCompat(message.replyTo));
+                    return;
+                case 6:
+                    Bundle bundle3 = data.getBundle(MediaBrowserProtocol.DATA_ROOT_HINTS);
+                    MediaSessionCompat.ensureClassLoader(bundle3);
+                    this.mServiceBinderImpl.registerCallbacks(new ServiceCallbacksCompat(message.replyTo), data.getString(MediaBrowserProtocol.DATA_PACKAGE_NAME), data.getInt("data_calling_pid"), data.getInt("data_calling_uid"), bundle3);
+                    return;
+                case 7:
+                    this.mServiceBinderImpl.unregisterCallbacks(new ServiceCallbacksCompat(message.replyTo));
+                    return;
+                case 8:
+                    Bundle bundle4 = data.getBundle(MediaBrowserProtocol.DATA_SEARCH_EXTRAS);
+                    MediaSessionCompat.ensureClassLoader(bundle4);
+                    this.mServiceBinderImpl.search(data.getString(MediaBrowserProtocol.DATA_SEARCH_QUERY), bundle4, (ResultReceiver) data.getParcelable(MediaBrowserProtocol.DATA_RESULT_RECEIVER), new ServiceCallbacksCompat(message.replyTo));
+                    return;
+                case 9:
+                    Bundle bundle5 = data.getBundle(MediaBrowserProtocol.DATA_CUSTOM_ACTION_EXTRAS);
+                    MediaSessionCompat.ensureClassLoader(bundle5);
+                    this.mServiceBinderImpl.sendCustomAction(data.getString(MediaBrowserProtocol.DATA_CUSTOM_ACTION), bundle5, (ResultReceiver) data.getParcelable(MediaBrowserProtocol.DATA_RESULT_RECEIVER), new ServiceCallbacksCompat(message.replyTo));
+                    return;
+                default:
+                    Log.w(MediaBrowserServiceCompat.TAG, "Unhandled message: " + message + "\n  Service version: 2\n  Client version: " + message.arg1);
+                    return;
             }
         }
 
         @Override // android.os.Handler
         public boolean sendMessageAtTime(Message message, long j) {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, message, j)) == null) {
-                Bundle data = message.getData();
-                data.setClassLoader(MediaBrowserCompat.class.getClassLoader());
-                data.putInt("data_calling_uid", Binder.getCallingUid());
-                int callingPid = Binder.getCallingPid();
-                if (callingPid > 0) {
-                    data.putInt("data_calling_pid", callingPid);
-                } else if (!data.containsKey("data_calling_pid")) {
-                    data.putInt("data_calling_pid", -1);
-                }
-                return super.sendMessageAtTime(message, j);
+            Bundle data = message.getData();
+            data.setClassLoader(MediaBrowserCompat.class.getClassLoader());
+            data.putInt("data_calling_uid", Binder.getCallingUid());
+            int callingPid = Binder.getCallingPid();
+            if (callingPid > 0) {
+                data.putInt("data_calling_pid", callingPid);
+            } else if (!data.containsKey("data_calling_pid")) {
+                data.putInt("data_calling_pid", -1);
             }
-            return invokeLJ.booleanValue;
+            return super.sendMessageAtTime(message, j);
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1586189325, "Landroidx/media/MediaBrowserServiceCompat;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1586189325, "Landroidx/media/MediaBrowserServiceCompat;");
-                return;
-            }
-        }
-        DEBUG = Log.isLoggable(TAG, 3);
     }
 
     public final Bundle getBrowserRootHints() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mImpl.getBrowserRootHints();
-        }
-        return (Bundle) invokeV.objValue;
+        return this.mImpl.getBrowserRootHints();
     }
 
     @NonNull
     public final MediaSessionManager.RemoteUserInfo getCurrentBrowserInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mImpl.getCurrentBrowserInfo();
-        }
-        return (MediaSessionManager.RemoteUserInfo) invokeV.objValue;
+        return this.mImpl.getCurrentBrowserInfo();
     }
 
     @Nullable
     public MediaSessionCompat.Token getSessionToken() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.mSession;
-        }
-        return (MediaSessionCompat.Token) invokeV.objValue;
-    }
-
-    public MediaBrowserServiceCompat() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mConnectionFromFwk = new ConnectionRecord(this, MediaSessionManager.RemoteUserInfo.LEGACY_CONTROLLER, -1, -1, null, null);
-        this.mPendingConnections = new ArrayList<>();
-        this.mConnections = new ArrayMap<>();
-        this.mHandler = new ServiceHandler(this);
-    }
-
-    @Override // android.app.Service
-    public void onCreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            super.onCreate();
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 28) {
-                this.mImpl = new MediaBrowserServiceImplApi28(this);
-            } else if (i >= 26) {
-                this.mImpl = new MediaBrowserServiceImplApi26(this);
-            } else if (i >= 23) {
-                this.mImpl = new MediaBrowserServiceImplApi23(this);
-            } else if (i >= 21) {
-                this.mImpl = new MediaBrowserServiceImplApi21(this);
-            } else {
-                this.mImpl = new MediaBrowserServiceImplBase(this);
-            }
-            this.mImpl.onCreate();
-        }
+        return this.mSession;
     }
 
     public void addSubscription(String str, ConnectionRecord connectionRecord, IBinder iBinder, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, connectionRecord, iBinder, bundle) == null) {
-            List<Pair<IBinder, Bundle>> list = connectionRecord.subscriptions.get(str);
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            for (Pair<IBinder, Bundle> pair : list) {
-                if (iBinder == pair.first && MediaBrowserCompatUtils.areSameOptions(bundle, pair.second)) {
-                    return;
-                }
-            }
-            list.add(new Pair<>(iBinder, bundle));
-            connectionRecord.subscriptions.put(str, list);
-            performLoadChildren(str, connectionRecord, bundle, null);
-            this.mCurConnection = connectionRecord;
-            onSubscribe(str, bundle);
-            this.mCurConnection = null;
+        List<Pair<IBinder, Bundle>> list = connectionRecord.subscriptions.get(str);
+        if (list == null) {
+            list = new ArrayList<>();
         }
-    }
-
-    public void performLoadChildren(String str, ConnectionRecord connectionRecord, Bundle bundle, Bundle bundle2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048598, this, str, connectionRecord, bundle, bundle2) == null) {
-            Result<List<MediaBrowserCompat.MediaItem>> result = new Result<List<MediaBrowserCompat.MediaItem>>(this, str, connectionRecord, str, bundle, bundle2) { // from class: androidx.media.MediaBrowserServiceCompat.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaBrowserServiceCompat this$0;
-                public final /* synthetic */ ConnectionRecord val$connection;
-                public final /* synthetic */ Bundle val$notifyChildrenChangedOptions;
-                public final /* synthetic */ String val$parentId;
-                public final /* synthetic */ Bundle val$subscribeOptions;
-
-                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                {
-                    super(str);
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, connectionRecord, str, bundle, bundle2};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            super(newInitContext.callArgs[0]);
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$connection = connectionRecord;
-                    this.val$parentId = str;
-                    this.val$subscribeOptions = bundle;
-                    this.val$notifyChildrenChangedOptions = bundle2;
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // androidx.media.MediaBrowserServiceCompat.Result
-                public void onResultSent(List<MediaBrowserCompat.MediaItem> list) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                        if (this.this$0.mConnections.get(this.val$connection.callbacks.asBinder()) != this.val$connection) {
-                            if (MediaBrowserServiceCompat.DEBUG) {
-                                Log.d(MediaBrowserServiceCompat.TAG, "Not sending onLoadChildren result for connection that has been disconnected. pkg=" + this.val$connection.pkg + " id=" + this.val$parentId);
-                                return;
-                            }
-                            return;
-                        }
-                        if ((getFlags() & 1) != 0) {
-                            list = this.this$0.applyOptions(list, this.val$subscribeOptions);
-                        }
-                        try {
-                            this.val$connection.callbacks.onLoadChildren(this.val$parentId, list, this.val$subscribeOptions, this.val$notifyChildrenChangedOptions);
-                        } catch (RemoteException unused) {
-                            Log.w(MediaBrowserServiceCompat.TAG, "Calling onLoadChildren() failed for id=" + this.val$parentId + " package=" + this.val$connection.pkg);
-                        }
-                    }
-                }
-            };
-            this.mCurConnection = connectionRecord;
-            if (bundle == null) {
-                onLoadChildren(str, result);
-            } else {
-                onLoadChildren(str, result, bundle);
-            }
-            this.mCurConnection = null;
-            if (result.isDone()) {
+        for (Pair<IBinder, Bundle> pair : list) {
+            if (iBinder == pair.first && MediaBrowserCompatUtils.areSameOptions(bundle, pair.second)) {
                 return;
             }
-            throw new IllegalStateException("onLoadChildren must call detach() or sendResult() before returning for package=" + connectionRecord.pkg + " id=" + str);
         }
+        list.add(new Pair<>(iBinder, bundle));
+        connectionRecord.subscriptions.put(str, list);
+        performLoadChildren(str, connectionRecord, bundle, null);
+        this.mCurConnection = connectionRecord;
+        onSubscribe(str, bundle);
+        this.mCurConnection = null;
     }
 
     public List<MediaBrowserCompat.MediaItem> applyOptions(List<MediaBrowserCompat.MediaItem> list, Bundle bundle) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, bundle)) == null) {
-            if (list == null) {
-                return null;
-            }
-            int i = bundle.getInt(MediaBrowserCompat.EXTRA_PAGE, -1);
-            int i2 = bundle.getInt(MediaBrowserCompat.EXTRA_PAGE_SIZE, -1);
-            if (i == -1 && i2 == -1) {
-                return list;
-            }
-            int i3 = i2 * i;
-            int i4 = i3 + i2;
-            if (i >= 0 && i2 >= 1 && i3 < list.size()) {
-                if (i4 > list.size()) {
-                    i4 = list.size();
-                }
-                return list.subList(i3, i4);
-            }
-            return Collections.emptyList();
+        if (list == null) {
+            return null;
         }
-        return (List) invokeLL.objValue;
+        int i = bundle.getInt(MediaBrowserCompat.EXTRA_PAGE, -1);
+        int i2 = bundle.getInt(MediaBrowserCompat.EXTRA_PAGE_SIZE, -1);
+        if (i == -1 && i2 == -1) {
+            return list;
+        }
+        int i3 = i2 * i;
+        int i4 = i3 + i2;
+        if (i >= 0 && i2 >= 1 && i3 < list.size()) {
+            if (i4 > list.size()) {
+                i4 = list.size();
+            }
+            return list.subList(i3, i4);
+        }
+        return Collections.emptyList();
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void attachToBaseContext(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            attachBaseContext(context);
-        }
+        attachBaseContext(context);
     }
 
     public void notifyChildrenChanged(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            if (str != null) {
-                this.mImpl.notifyChildrenChanged(str, null);
-                return;
-            }
-            throw new IllegalArgumentException("parentId cannot be null in notifyChildrenChanged");
+        if (str != null) {
+            this.mImpl.notifyChildrenChanged(str, null);
+            return;
         }
+        throw new IllegalArgumentException("parentId cannot be null in notifyChildrenChanged");
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, intent)) == null) {
-            return this.mImpl.onBind(intent);
-        }
-        return (IBinder) invokeL.objValue;
+        return this.mImpl.onBind(intent);
     }
 
     public void setSessionToken(MediaSessionCompat.Token token) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, token) == null) {
-            if (token != null) {
-                if (this.mSession == null) {
-                    this.mSession = token;
-                    this.mImpl.setSessionToken(token);
-                    return;
-                }
-                throw new IllegalStateException("The session token has already been set");
+        if (token != null) {
+            if (this.mSession == null) {
+                this.mSession = token;
+                this.mImpl.setSessionToken(token);
+                return;
             }
-            throw new IllegalArgumentException("Session token may not be null");
+            throw new IllegalStateException("The session token has already been set");
         }
+        throw new IllegalArgumentException("Session token may not be null");
     }
 
     public boolean isValidPackage(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, str, i)) == null) {
-            if (str == null) {
-                return false;
-            }
-            for (String str2 : getPackageManager().getPackagesForUid(i)) {
-                if (str2.equals(str)) {
-                    return true;
-                }
-            }
+        if (str == null) {
             return false;
         }
-        return invokeLI.booleanValue;
+        for (String str2 : getPackageManager().getPackagesForUid(i)) {
+            if (str2.equals(str)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void notifyChildrenChanged(@NonNull String str, @NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, bundle) == null) {
+        if (str != null) {
+            if (bundle != null) {
+                this.mImpl.notifyChildrenChanged(str, bundle);
+                return;
+            }
+            throw new IllegalArgumentException("options cannot be null in notifyChildrenChanged");
+        }
+        throw new IllegalArgumentException("parentId cannot be null in notifyChildrenChanged");
+    }
+
+    public void onLoadItem(String str, @NonNull Result<MediaBrowserCompat.MediaItem> result) {
+        result.setFlags(2);
+        result.sendResult(null);
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void notifyChildrenChanged(@NonNull MediaSessionManager.RemoteUserInfo remoteUserInfo, @NonNull String str, @NonNull Bundle bundle) {
+        if (remoteUserInfo != null) {
             if (str != null) {
                 if (bundle != null) {
-                    this.mImpl.notifyChildrenChanged(str, bundle);
+                    this.mImpl.notifyChildrenChanged(remoteUserInfo, str, bundle);
                     return;
                 }
                 throw new IllegalArgumentException("options cannot be null in notifyChildrenChanged");
             }
             throw new IllegalArgumentException("parentId cannot be null in notifyChildrenChanged");
         }
-    }
-
-    public void onLoadItem(String str, @NonNull Result<MediaBrowserCompat.MediaItem> result) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, str, result) == null) {
-            result.setFlags(2);
-            result.sendResult(null);
-        }
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void notifyChildrenChanged(@NonNull MediaSessionManager.RemoteUserInfo remoteUserInfo, @NonNull String str, @NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, remoteUserInfo, str, bundle) == null) {
-            if (remoteUserInfo != null) {
-                if (str != null) {
-                    if (bundle != null) {
-                        this.mImpl.notifyChildrenChanged(remoteUserInfo, str, bundle);
-                        return;
-                    }
-                    throw new IllegalArgumentException("options cannot be null in notifyChildrenChanged");
-                }
-                throw new IllegalArgumentException("parentId cannot be null in notifyChildrenChanged");
-            }
-            throw new IllegalArgumentException("remoteUserInfo cannot be null in notifyChildrenChanged");
-        }
-    }
-
-    public void performLoadItem(String str, ConnectionRecord connectionRecord, ResultReceiver resultReceiver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048599, this, str, connectionRecord, resultReceiver) == null) {
-            Result<MediaBrowserCompat.MediaItem> result = new Result<MediaBrowserCompat.MediaItem>(this, str, resultReceiver) { // from class: androidx.media.MediaBrowserServiceCompat.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaBrowserServiceCompat this$0;
-                public final /* synthetic */ ResultReceiver val$receiver;
-
-                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                {
-                    super(str);
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, resultReceiver};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            super(newInitContext.callArgs[0]);
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$receiver = resultReceiver;
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // androidx.media.MediaBrowserServiceCompat.Result
-                public void onResultSent(MediaBrowserCompat.MediaItem mediaItem) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, mediaItem) == null) {
-                        if ((getFlags() & 2) != 0) {
-                            this.val$receiver.send(-1, null);
-                            return;
-                        }
-                        Bundle bundle = new Bundle();
-                        bundle.putParcelable(MediaBrowserServiceCompat.KEY_MEDIA_ITEM, mediaItem);
-                        this.val$receiver.send(0, bundle);
-                    }
-                }
-            };
-            this.mCurConnection = connectionRecord;
-            onLoadItem(str, result);
-            this.mCurConnection = null;
-            if (result.isDone()) {
-                return;
-            }
-            throw new IllegalStateException("onLoadItem must call detach() or sendResult() before returning for id=" + str);
-        }
+        throw new IllegalArgumentException("remoteUserInfo cannot be null in notifyChildrenChanged");
     }
 
     public void onCustomAction(@NonNull String str, Bundle bundle, @NonNull Result<Bundle> result) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048589, this, str, bundle, result) == null) {
-            result.sendError(null);
-        }
+        result.sendError(null);
     }
 
     public void onLoadChildren(@NonNull String str, @NonNull Result<List<MediaBrowserCompat.MediaItem>> result, @NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048592, this, str, result, bundle) == null) {
-            result.setFlags(1);
-            onLoadChildren(str, result);
-        }
+        result.setFlags(1);
+        onLoadChildren(str, result);
     }
 
     public void onSearch(@NonNull String str, Bundle bundle, @NonNull Result<List<MediaBrowserCompat.MediaItem>> result) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048594, this, str, bundle, result) == null) {
-            result.setFlags(4);
-            result.sendResult(null);
-        }
+        result.setFlags(4);
+        result.sendResult(null);
     }
 
-    public void performCustomAction(String str, Bundle bundle, ConnectionRecord connectionRecord, ResultReceiver resultReceiver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048597, this, str, bundle, connectionRecord, resultReceiver) == null) {
-            Result<Bundle> result = new Result<Bundle>(this, str, resultReceiver) { // from class: androidx.media.MediaBrowserServiceCompat.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaBrowserServiceCompat this$0;
-                public final /* synthetic */ ResultReceiver val$receiver;
-
-                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                {
-                    super(str);
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, resultReceiver};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            super(newInitContext.callArgs[0]);
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$receiver = resultReceiver;
+    public void performLoadItem(String str, ConnectionRecord connectionRecord, final ResultReceiver resultReceiver) {
+        Result<MediaBrowserCompat.MediaItem> result = new Result<MediaBrowserCompat.MediaItem>(str) { // from class: androidx.media.MediaBrowserServiceCompat.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // androidx.media.MediaBrowserServiceCompat.Result
+            public void onResultSent(MediaBrowserCompat.MediaItem mediaItem) {
+                if ((getFlags() & 2) != 0) {
+                    resultReceiver.send(-1, null);
+                    return;
                 }
-
-                @Override // androidx.media.MediaBrowserServiceCompat.Result
-                public void onErrorSent(Bundle bundle2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, bundle2) == null) {
-                        this.val$receiver.send(-1, bundle2);
-                    }
-                }
-
-                @Override // androidx.media.MediaBrowserServiceCompat.Result
-                public void onProgressUpdateSent(Bundle bundle2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle2) == null) {
-                        this.val$receiver.send(1, bundle2);
-                    }
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // androidx.media.MediaBrowserServiceCompat.Result
-                public void onResultSent(Bundle bundle2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle2) == null) {
-                        this.val$receiver.send(0, bundle2);
-                    }
-                }
-            };
-            this.mCurConnection = connectionRecord;
-            onCustomAction(str, bundle, result);
-            this.mCurConnection = null;
-            if (result.isDone()) {
-                return;
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(MediaBrowserServiceCompat.KEY_MEDIA_ITEM, mediaItem);
+                resultReceiver.send(0, bundle);
             }
-            throw new IllegalStateException("onCustomAction must call detach() or sendResult() or sendError() before returning for action=" + str + " extras=" + bundle);
+        };
+        this.mCurConnection = connectionRecord;
+        onLoadItem(str, result);
+        this.mCurConnection = null;
+        if (result.isDone()) {
+            return;
         }
+        throw new IllegalStateException("onLoadItem must call detach() or sendResult() before returning for id=" + str);
     }
 
-    public void performSearch(String str, Bundle bundle, ConnectionRecord connectionRecord, ResultReceiver resultReceiver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048600, this, str, bundle, connectionRecord, resultReceiver) == null) {
-            Result<List<MediaBrowserCompat.MediaItem>> result = new Result<List<MediaBrowserCompat.MediaItem>>(this, str, resultReceiver) { // from class: androidx.media.MediaBrowserServiceCompat.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaBrowserServiceCompat this$0;
-                public final /* synthetic */ ResultReceiver val$receiver;
-
-                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                {
-                    super(str);
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, resultReceiver};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            super(newInitContext.callArgs[0]);
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$receiver = resultReceiver;
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // androidx.media.MediaBrowserServiceCompat.Result
-                public void onResultSent(List<MediaBrowserCompat.MediaItem> list) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                        if ((getFlags() & 4) == 0 && list != null) {
-                            Bundle bundle2 = new Bundle();
-                            bundle2.putParcelableArray(MediaBrowserServiceCompat.KEY_SEARCH_RESULTS, (Parcelable[]) list.toArray(new MediaBrowserCompat.MediaItem[0]));
-                            this.val$receiver.send(0, bundle2);
-                            return;
-                        }
-                        this.val$receiver.send(-1, null);
-                    }
-                }
-            };
-            this.mCurConnection = connectionRecord;
-            onSearch(str, bundle, result);
-            this.mCurConnection = null;
-            if (result.isDone()) {
-                return;
-            }
-            throw new IllegalStateException("onSearch must call detach() or sendResult() before returning for query=" + str);
+    @Override // android.app.Service
+    public void onCreate() {
+        super.onCreate();
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 28) {
+            this.mImpl = new MediaBrowserServiceImplApi28();
+        } else if (i >= 26) {
+            this.mImpl = new MediaBrowserServiceImplApi26();
+        } else if (i >= 23) {
+            this.mImpl = new MediaBrowserServiceImplApi23();
+        } else if (i >= 21) {
+            this.mImpl = new MediaBrowserServiceImplApi21();
+        } else {
+            this.mImpl = new MediaBrowserServiceImplBase();
         }
+        this.mImpl.onCreate();
+    }
+
+    public void performCustomAction(String str, Bundle bundle, ConnectionRecord connectionRecord, final ResultReceiver resultReceiver) {
+        Result<Bundle> result = new Result<Bundle>(str) { // from class: androidx.media.MediaBrowserServiceCompat.4
+            @Override // androidx.media.MediaBrowserServiceCompat.Result
+            public void onErrorSent(Bundle bundle2) {
+                resultReceiver.send(-1, bundle2);
+            }
+
+            @Override // androidx.media.MediaBrowserServiceCompat.Result
+            public void onProgressUpdateSent(Bundle bundle2) {
+                resultReceiver.send(1, bundle2);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // androidx.media.MediaBrowserServiceCompat.Result
+            public void onResultSent(Bundle bundle2) {
+                resultReceiver.send(0, bundle2);
+            }
+        };
+        this.mCurConnection = connectionRecord;
+        onCustomAction(str, bundle, result);
+        this.mCurConnection = null;
+        if (result.isDone()) {
+            return;
+        }
+        throw new IllegalStateException("onCustomAction must call detach() or sendResult() or sendError() before returning for action=" + str + " extras=" + bundle);
+    }
+
+    public void performLoadChildren(final String str, final ConnectionRecord connectionRecord, final Bundle bundle, final Bundle bundle2) {
+        Result<List<MediaBrowserCompat.MediaItem>> result = new Result<List<MediaBrowserCompat.MediaItem>>(str) { // from class: androidx.media.MediaBrowserServiceCompat.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // androidx.media.MediaBrowserServiceCompat.Result
+            public void onResultSent(List<MediaBrowserCompat.MediaItem> list) {
+                if (MediaBrowserServiceCompat.this.mConnections.get(connectionRecord.callbacks.asBinder()) != connectionRecord) {
+                    if (MediaBrowserServiceCompat.DEBUG) {
+                        Log.d(MediaBrowserServiceCompat.TAG, "Not sending onLoadChildren result for connection that has been disconnected. pkg=" + connectionRecord.pkg + " id=" + str);
+                        return;
+                    }
+                    return;
+                }
+                if ((getFlags() & 1) != 0) {
+                    list = MediaBrowserServiceCompat.this.applyOptions(list, bundle);
+                }
+                try {
+                    connectionRecord.callbacks.onLoadChildren(str, list, bundle, bundle2);
+                } catch (RemoteException unused) {
+                    Log.w(MediaBrowserServiceCompat.TAG, "Calling onLoadChildren() failed for id=" + str + " package=" + connectionRecord.pkg);
+                }
+            }
+        };
+        this.mCurConnection = connectionRecord;
+        if (bundle == null) {
+            onLoadChildren(str, result);
+        } else {
+            onLoadChildren(str, result, bundle);
+        }
+        this.mCurConnection = null;
+        if (result.isDone()) {
+            return;
+        }
+        throw new IllegalStateException("onLoadChildren must call detach() or sendResult() before returning for package=" + connectionRecord.pkg + " id=" + str);
+    }
+
+    public void performSearch(String str, Bundle bundle, ConnectionRecord connectionRecord, final ResultReceiver resultReceiver) {
+        Result<List<MediaBrowserCompat.MediaItem>> result = new Result<List<MediaBrowserCompat.MediaItem>>(str) { // from class: androidx.media.MediaBrowserServiceCompat.3
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // androidx.media.MediaBrowserServiceCompat.Result
+            public void onResultSent(List<MediaBrowserCompat.MediaItem> list) {
+                if ((getFlags() & 4) == 0 && list != null) {
+                    Bundle bundle2 = new Bundle();
+                    bundle2.putParcelableArray(MediaBrowserServiceCompat.KEY_SEARCH_RESULTS, (Parcelable[]) list.toArray(new MediaBrowserCompat.MediaItem[0]));
+                    resultReceiver.send(0, bundle2);
+                    return;
+                }
+                resultReceiver.send(-1, null);
+            }
+        };
+        this.mCurConnection = connectionRecord;
+        onSearch(str, bundle, result);
+        this.mCurConnection = null;
+        if (result.isDone()) {
+            return;
+        }
+        throw new IllegalStateException("onSearch must call detach() or sendResult() before returning for query=" + str);
     }
 
     public boolean removeSubscription(String str, ConnectionRecord connectionRecord, IBinder iBinder) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048601, this, str, connectionRecord, iBinder)) == null) {
-            boolean z = true;
-            boolean z2 = false;
-            try {
-                if (iBinder == null) {
-                    if (connectionRecord.subscriptions.remove(str) == null) {
-                        z = false;
-                    }
-                    return z;
+        boolean z = true;
+        boolean z2 = false;
+        try {
+            if (iBinder == null) {
+                if (connectionRecord.subscriptions.remove(str) == null) {
+                    z = false;
                 }
-                List<Pair<IBinder, Bundle>> list = connectionRecord.subscriptions.get(str);
-                if (list != null) {
-                    Iterator<Pair<IBinder, Bundle>> it = list.iterator();
-                    while (it.hasNext()) {
-                        if (iBinder == it.next().first) {
-                            it.remove();
-                            z2 = true;
-                        }
-                    }
-                    if (list.size() == 0) {
-                        connectionRecord.subscriptions.remove(str);
-                    }
-                }
-                return z2;
-            } finally {
-                this.mCurConnection = connectionRecord;
-                onUnsubscribe(str);
-                this.mCurConnection = null;
+                return z;
             }
+            List<Pair<IBinder, Bundle>> list = connectionRecord.subscriptions.get(str);
+            if (list != null) {
+                Iterator<Pair<IBinder, Bundle>> it = list.iterator();
+                while (it.hasNext()) {
+                    if (iBinder == it.next().first) {
+                        it.remove();
+                        z2 = true;
+                    }
+                }
+                if (list.size() == 0) {
+                    connectionRecord.subscriptions.remove(str);
+                }
+            }
+            return z2;
+        } finally {
+            this.mCurConnection = connectionRecord;
+            onUnsubscribe(str);
+            this.mCurConnection = null;
         }
-        return invokeLLL.booleanValue;
     }
 }

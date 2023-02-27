@@ -1,12 +1,6 @@
 package com.baidu.searchbox.launch.stats;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class SpeedStatsStampTable {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int AD_CALL_SHOW_END_STAMP_KEY = 3308;
     public static final int AD_CALL_SHOW_START_STAMP_KEY = 3307;
     public static final int AD_LOAD_BEAR_END_STAMP_KEY = 3304;
@@ -163,19 +157,4 @@ public final class SpeedStatsStampTable {
     public static final int VIDEO_TAB_ON_CREATE_START_STAMP_KEY = 5032;
     public static final int VIDEO_TAB_ON_CREATE_VIEW_END_STAMP_KEY = 5035;
     public static final int VIDEO_TAB_ON_CREATE_VIEW_START_STAMP_KEY = 5034;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public SpeedStatsStampTable() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

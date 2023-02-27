@@ -2,27 +2,16 @@ package com.baidu.mapapi.search.route;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.core.RouteLine;
 import com.baidu.mapapi.search.core.RouteNode;
 import com.baidu.mapapi.search.core.RouteStep;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelable {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<DrivingRouteLine> CREATOR;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final Parcelable.Creator<DrivingRouteLine> CREATOR = new d();
     public boolean b;
     public List<RouteNode> c;
     public int d;
@@ -31,19 +20,12 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
 
     @Override // com.baidu.mapapi.search.core.RouteLine, android.os.Parcelable
     public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
+        return 0;
     }
 
     /* loaded from: classes2.dex */
     public static class DrivingStep extends RouteStep implements Parcelable {
-        public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<DrivingStep> CREATOR;
-        public transient /* synthetic */ FieldHolder $fh;
+        public static final Parcelable.Creator<DrivingStep> CREATOR = new e();
         public List<LatLng> d;
         public int[] e;
         public int f;
@@ -59,165 +41,62 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
 
         @Override // com.baidu.mapapi.search.core.RouteStep, android.os.Parcelable
         public int describeContents() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1497548652, "Lcom/baidu/mapapi/search/route/DrivingRouteLine$DrivingStep;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1497548652, "Lcom/baidu/mapapi/search/route/DrivingRouteLine$DrivingStep;");
-                    return;
-                }
-            }
-            CREATOR = new e();
+            return 0;
         }
 
         public DrivingStep() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
         }
 
         public int getDirection() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.f;
-            }
-            return invokeV.intValue;
+            return this.f;
         }
 
         public RouteNode getEntrance() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.g;
-            }
-            return (RouteNode) invokeV.objValue;
+            return this.g;
         }
 
         public String getEntranceInstructions() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.j;
-            }
-            return (String) invokeV.objValue;
+            return this.j;
         }
 
         public RouteNode getExit() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.h;
-            }
-            return (RouteNode) invokeV.objValue;
+            return this.h;
         }
 
         public String getExitInstructions() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return this.k;
-            }
-            return (String) invokeV.objValue;
+            return this.k;
         }
 
         public String getInstructions() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return this.l;
-            }
-            return (String) invokeV.objValue;
+            return this.l;
         }
 
         public int getNumTurns() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return this.m;
-            }
-            return invokeV.intValue;
+            return this.m;
         }
 
         public int getRoadLevel() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                return this.n;
-            }
-            return invokeV.intValue;
+            return this.n;
         }
 
         public String getRoadName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                return this.o;
-            }
-            return (String) invokeV.objValue;
+            return this.o;
         }
 
         public int[] getTrafficList() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                return this.e;
-            }
-            return (int[]) invokeV.objValue;
+            return this.e;
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep
         public List<LatLng> getWayPoints() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                if (this.mWayPoints == null) {
-                    this.mWayPoints = CoordUtil.decodeLocationList(this.i);
-                }
-                return this.d;
+            if (this.mWayPoints == null) {
+                this.mWayPoints = CoordUtil.decodeLocationList(this.i);
             }
-            return (List) invokeV.objValue;
+            return this.d;
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public DrivingStep(Parcel parcel) {
             super(parcel);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {parcel};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Parcel) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
             this.f = parcel.readInt();
             this.g = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
             this.h = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
@@ -233,205 +112,98 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
         }
 
         public void setDirection(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-                this.f = i;
-            }
+            this.f = i;
         }
 
         public void setEntrance(RouteNode routeNode) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048589, this, routeNode) == null) {
-                this.g = routeNode;
-            }
+            this.g = routeNode;
         }
 
         public void setEntranceInstructions(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-                this.j = str;
-            }
+            this.j = str;
         }
 
         public void setExit(RouteNode routeNode) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048591, this, routeNode) == null) {
-                this.h = routeNode;
-            }
+            this.h = routeNode;
         }
 
         public void setExitInstructions(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-                this.k = str;
-            }
+            this.k = str;
         }
 
         public void setInstructions(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-                this.l = str;
-            }
+            this.l = str;
         }
 
         public void setNumTurns(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-                this.m = i;
-            }
+            this.m = i;
         }
 
         public void setPathList(List<LatLng> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
-                this.d = list;
-            }
+            this.d = list;
         }
 
         public void setPathString(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-                this.i = str;
-            }
+            this.i = str;
         }
 
         public void setRoadLevel(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-                this.n = i;
-            }
+            this.n = i;
         }
 
         public void setRoadName(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
-                this.o = str;
-            }
+            this.o = str;
         }
 
         public void setTrafficList(int[] iArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048599, this, iArr) == null) {
-                this.e = iArr;
-            }
+            this.e = iArr;
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048600, this, parcel, i) == null) {
-                super.writeToParcel(parcel, i);
-                parcel.writeInt(this.f);
-                parcel.writeParcelable(this.g, 1);
-                parcel.writeParcelable(this.h, 1);
-                parcel.writeString(this.i);
-                parcel.writeString(this.j);
-                parcel.writeString(this.k);
-                parcel.writeString(this.l);
-                parcel.writeInt(this.m);
-                parcel.writeTypedList(this.d);
-                parcel.writeIntArray(this.e);
-                parcel.writeInt(this.n);
-                parcel.writeString(this.o);
-            }
+            super.writeToParcel(parcel, i);
+            parcel.writeInt(this.f);
+            parcel.writeParcelable(this.g, 1);
+            parcel.writeParcelable(this.h, 1);
+            parcel.writeString(this.i);
+            parcel.writeString(this.j);
+            parcel.writeString(this.k);
+            parcel.writeString(this.l);
+            parcel.writeInt(this.m);
+            parcel.writeTypedList(this.d);
+            parcel.writeIntArray(this.e);
+            parcel.writeInt(this.n);
+            parcel.writeString(this.o);
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-505512453, "Lcom/baidu/mapapi/search/route/DrivingRouteLine;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-505512453, "Lcom/baidu/mapapi/search/route/DrivingRouteLine;");
-                return;
-            }
-        }
-        CREATOR = new d();
     }
 
     public DrivingRouteLine() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
     }
 
     public int getCongestionDistance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
+        return this.d;
     }
 
     public int getLightNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
+        return this.e;
     }
 
     public int getToll() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
+        return this.f;
     }
 
     public List<RouteNode> getWayPoints() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (List) invokeV.objValue;
+        return this.c;
     }
 
     @Deprecated
     public boolean isSupportTraffic() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
+        return this.b;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DrivingRouteLine(Parcel parcel) {
         super(parcel);
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Parcel) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         if (parcel.readByte() != 0) {
             z = true;
         } else {
@@ -447,51 +219,33 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
     }
 
     public void setCongestionDistance(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.d = i;
-        }
+        this.d = i;
     }
 
     public void setLightNum(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.e = i;
-        }
+        this.e = i;
     }
 
     public void setSupportTraffic(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.b = z;
-        }
+        this.b = z;
     }
 
     public void setToll(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.f = i;
-        }
+        this.f = i;
     }
 
     public void setWayPoints(List<RouteNode> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
-            this.c = list;
-        }
+        this.c = list;
     }
 
     @Override // com.baidu.mapapi.search.core.RouteLine, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i) == null) {
-            super.setType(RouteLine.TYPE.DRIVESTEP);
-            super.writeToParcel(parcel, i);
-            parcel.writeByte(this.b ? (byte) 1 : (byte) 0);
-            parcel.writeList(this.c);
-            parcel.writeInt(this.d);
-            parcel.writeInt(this.e);
-            parcel.writeInt(this.f);
-        }
+        super.setType(RouteLine.TYPE.DRIVESTEP);
+        super.writeToParcel(parcel, i);
+        parcel.writeByte(this.b ? (byte) 1 : (byte) 0);
+        parcel.writeList(this.c);
+        parcel.writeInt(this.d);
+        parcel.writeInt(this.e);
+        parcel.writeInt(this.f);
     }
 }

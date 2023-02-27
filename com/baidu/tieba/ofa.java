@@ -1,92 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.aea;
-import com.baidu.tieba.bea;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.security.GeneralSecurityException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import javax.crypto.SecretKey;
 /* loaded from: classes5.dex */
-public final class ofa<T> implements bea.c<T> {
+public class ofa implements pfa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bea.c<T> a;
-    public final aea b;
+    public SecretKey a;
 
-    /* loaded from: classes5.dex */
-    public static final class a<T> extends cea<T> implements kea {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final cea<? super T> b;
-        public final aea.a c;
-        public T d;
-        public Throwable e;
-
-        public a(cea<? super T> ceaVar, aea.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ceaVar, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ceaVar;
-            this.c = aVar;
-        }
-
-        @Override // com.baidu.tieba.cea
-        public void b(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                this.e = th;
-                this.c.b(this);
-            }
-        }
-
-        @Override // com.baidu.tieba.cea
-        public void c(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-                this.d = t;
-                this.c.b(this);
-            }
-        }
-
-        @Override // com.baidu.tieba.kea
-        public void call() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                try {
-                    Throwable th = this.e;
-                    if (th != null) {
-                        this.e = null;
-                        this.b.b(th);
-                    } else {
-                        T t = this.d;
-                        this.d = null;
-                        this.b.c(t);
-                    }
-                } finally {
-                    this.c.unsubscribe();
-                }
-            }
-        }
-    }
-
-    public ofa(bea.c<T> cVar, aea aeaVar) {
+    public ofa(String str, String str2, String str3, String str4) throws InvalidKeySpecException, NoSuchAlgorithmException, IllegalArgumentException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar, aeaVar};
+            Object[] objArr = {str, str2, str3, str4};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -96,23 +31,26 @@ public final class ofa<T> implements bea.c<T> {
                 return;
             }
         }
-        this.a = cVar;
-        this.b = aeaVar;
-    }
-
-    public void call(cea<? super T> ceaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ceaVar) == null) {
-            aea.a createWorker = this.b.createWorker();
-            a aVar = new a(ceaVar, createWorker);
-            ceaVar.a(createWorker);
-            ceaVar.a(aVar);
-            this.a.call(aVar);
+        if (str == null || str2 == null || str3 == null || str4 == null) {
+            return;
         }
+        this.a = rfa.a(hfa.b(str), hfa.b(str2), hfa.b(str3), hfa.b(str4), 5000);
     }
 
-    @Override // com.baidu.tieba.bea.c, com.baidu.tieba.lea
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((cea) ((cea) obj));
+    @Override // com.baidu.tieba.pfa
+    public String a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (this.a == null) {
+                return str;
+            }
+            try {
+                return new String(rfa.b(this.a, hfa.b(str)), "UTF-8");
+            } catch (UnsupportedEncodingException | IllegalArgumentException | GeneralSecurityException unused) {
+                return str2;
+            }
+        }
+        return (String) invokeLL.objValue;
     }
 }

@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gv2 extends iv2 {
+public class gv2 implements dv2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String z;
+    @Nullable
+    public ug2 a;
 
     public gv2() {
         Interceptable interceptable = $ic;
@@ -25,31 +23,42 @@ public class gv2 extends iv2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.z = "";
     }
 
-    @Override // com.baidu.tieba.m42, com.baidu.tieba.vy2
-    public boolean isValid() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.dv2
+    public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return !TextUtils.isEmpty(this.z);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a();
+            ug2 ug2Var = this.a;
+            if (ug2Var != null) {
+                ug2Var.suspendTimer();
+            }
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.iv2, com.baidu.tieba.m42, com.baidu.tieba.vy2
-    public void a(JSONObject jSONObject) throws JSONException {
+    @Override // com.baidu.tieba.dv2
+    public void onResume() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a();
+            ug2 ug2Var = this.a;
+            if (ug2Var != null) {
+                ug2Var.continueTimer();
+            }
         }
-        super.a(jSONObject);
-        this.z = jSONObject.optString("cb");
-        jSONObject.optDouble("latitude");
-        jSONObject.optDouble("longitude");
+    }
+
+    public final void a() {
+        ib2 W;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ug2 ug2Var = this.a;
+            if ((ug2Var == null || ug2Var.isDestroyed()) && (W = gg2.U().W()) != null && (W.f() instanceof ug2)) {
+                this.a = (ug2) W.f();
+            }
+        }
     }
 }

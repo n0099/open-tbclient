@@ -1,11 +1,5 @@
 package okhttp3.internal.connection;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.net.ProtocolException;
@@ -22,93 +16,61 @@ import okhttp3.ConnectionSpec;
 import okhttp3.internal.Internal;
 /* loaded from: classes9.dex */
 public final class ConnectionSpecSelector {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final List<ConnectionSpec> connectionSpecs;
     public boolean isFallback;
     public boolean isFallbackPossible;
-    public int nextModeIndex;
+    public int nextModeIndex = 0;
 
     public ConnectionSpecSelector(List<ConnectionSpec> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.nextModeIndex = 0;
         this.connectionSpecs = list;
     }
 
     private boolean isFallbackPossible(SSLSocket sSLSocket) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, sSLSocket)) == null) {
-            for (int i = this.nextModeIndex; i < this.connectionSpecs.size(); i++) {
-                if (this.connectionSpecs.get(i).isCompatible(sSLSocket)) {
-                    return true;
-                }
+        for (int i = this.nextModeIndex; i < this.connectionSpecs.size(); i++) {
+            if (this.connectionSpecs.get(i).isCompatible(sSLSocket)) {
+                return true;
             }
-            return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public ConnectionSpec configureSecureSocket(SSLSocket sSLSocket) throws IOException {
-        InterceptResult invokeL;
-        ConnectionSpec connectionSpec;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sSLSocket)) == null) {
-            int i = this.nextModeIndex;
-            int size = this.connectionSpecs.size();
-            while (true) {
-                if (i < size) {
-                    connectionSpec = this.connectionSpecs.get(i);
-                    if (connectionSpec.isCompatible(sSLSocket)) {
-                        this.nextModeIndex = i + 1;
-                        break;
-                    }
-                    i++;
-                } else {
-                    connectionSpec = null;
-                    break;
-                }
-            }
-            if (connectionSpec != null) {
-                this.isFallbackPossible = isFallbackPossible(sSLSocket);
-                Internal.instance.apply(connectionSpec, sSLSocket, this.isFallback);
-                return connectionSpec;
-            }
-            throw new UnknownServiceException("Unable to find acceptable protocols. isFallback=" + this.isFallback + ", modes=" + this.connectionSpecs + ", supported protocols=" + Arrays.toString(sSLSocket.getEnabledProtocols()));
-        }
-        return (ConnectionSpec) invokeL.objValue;
+        return false;
     }
 
     public boolean connectionFailed(IOException iOException) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException)) == null) {
-            this.isFallback = true;
-            if (!this.isFallbackPossible || (iOException instanceof ProtocolException) || (iOException instanceof InterruptedIOException)) {
-                return false;
-            }
-            boolean z = iOException instanceof SSLHandshakeException;
-            if ((z && (iOException.getCause() instanceof CertificateException)) || (iOException instanceof SSLPeerUnverifiedException)) {
-                return false;
-            }
-            if (z || (iOException instanceof SSLProtocolException) || (iOException instanceof SSLException)) {
-                return true;
-            }
+        this.isFallback = true;
+        if (!this.isFallbackPossible || (iOException instanceof ProtocolException) || (iOException instanceof InterruptedIOException)) {
             return false;
         }
-        return invokeL.booleanValue;
+        boolean z = iOException instanceof SSLHandshakeException;
+        if ((z && (iOException.getCause() instanceof CertificateException)) || (iOException instanceof SSLPeerUnverifiedException)) {
+            return false;
+        }
+        if (z || (iOException instanceof SSLProtocolException) || (iOException instanceof SSLException)) {
+            return true;
+        }
+        return false;
+    }
+
+    public ConnectionSpec configureSecureSocket(SSLSocket sSLSocket) throws IOException {
+        ConnectionSpec connectionSpec;
+        int i = this.nextModeIndex;
+        int size = this.connectionSpecs.size();
+        while (true) {
+            if (i < size) {
+                connectionSpec = this.connectionSpecs.get(i);
+                if (connectionSpec.isCompatible(sSLSocket)) {
+                    this.nextModeIndex = i + 1;
+                    break;
+                }
+                i++;
+            } else {
+                connectionSpec = null;
+                break;
+            }
+        }
+        if (connectionSpec != null) {
+            this.isFallbackPossible = isFallbackPossible(sSLSocket);
+            Internal.instance.apply(connectionSpec, sSLSocket, this.isFallback);
+            return connectionSpec;
+        }
+        throw new UnknownServiceException("Unable to find acceptable protocols. isFallback=" + this.isFallback + ", modes=" + this.connectionSpecs + ", supported protocols=" + Arrays.toString(sSLSocket.getEnabledProtocols()));
     }
 }

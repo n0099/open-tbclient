@@ -121,21 +121,21 @@ public class ReportUserInfoModel extends BdBaseModel {
         this.b = new a(this, CmdConfigHttp.REPORT_USER_INFO);
     }
 
-    public void L(long j) {
+    public void S(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
             this.timeInterval = j;
         }
     }
 
-    public void M(b bVar) {
+    public void T(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
             this.a = bVar;
         }
     }
 
-    public boolean H() {
+    public boolean O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -147,7 +147,7 @@ public class ReportUserInfoModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void K() {
+    public void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             TbadkCoreApplication.getInst().setReporyUserInfoCurrentTime();
@@ -161,7 +161,7 @@ public class ReportUserInfoModel extends BdBaseModel {
         }
     }
 
-    public void I() {
+    public void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
@@ -172,7 +172,7 @@ public class ReportUserInfoModel extends BdBaseModel {
         }
     }
 
-    public void J(int i, float f, float f2) {
+    public void Q(int i, float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.REPORT_USER_INFO);

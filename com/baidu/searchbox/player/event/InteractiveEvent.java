@@ -1,14 +1,8 @@
 package com.baidu.searchbox.player.event;
 
 import com.baidu.searchbox.player.annotation.PublicMethod;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class InteractiveEvent extends VideoEvent {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_CALL_PHONE = "interactive_event_phone";
     public static final String ACTION_CUSTOM_NOTIFY = "interactive_event_custom";
     public static final String ACTION_EVENT_RESULT = "interactive_event_result";
@@ -39,29 +33,9 @@ public class InteractiveEvent extends VideoEvent {
     public static final int KEY_JUMP_LINK = 4;
     public static final int KEY_VIEW_CLICK = 1;
     public static final int KEY_VIEW_TOUCH_UP = 14;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public InteractiveEvent() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     @PublicMethod
     public static VideoEvent obtainEvent(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return VideoEvent.obtain(str, 8);
-        }
-        return (VideoEvent) invokeL.objValue;
+        return VideoEvent.obtain(str, 8);
     }
 }

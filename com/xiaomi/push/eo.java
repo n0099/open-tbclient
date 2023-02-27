@@ -1,135 +1,129 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.clientreport.data.EventClientReport;
-import com.xiaomi.clientreport.data.PerfClientReport;
-import com.xiaomi.clientreport.manager.ClientReportClient;
-import com.xiaomi.mipush.sdk.MiPushMessage;
+import android.widget.RemoteViews;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class eo {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile eo a;
-    public transient /* synthetic */ FieldHolder $fh;
+public class eo extends er {
+    public int a;
+    public Bitmap b;
+    public Bitmap c;
 
-    /* renamed from: a  reason: collision with other field name */
-    public Context f336a;
+    public eo(Context context, String str) {
+        super(context, str);
+        this.a = 16777216;
+    }
 
-    public eo(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    @Override // com.xiaomi.push.er
+    public eo a(Bitmap bitmap) {
+        if (m382b() && bitmap != null) {
+            if (bitmap.getWidth() != 984 || 184 > bitmap.getHeight() || bitmap.getHeight() > 1678) {
+                com.xiaomi.channel.commonutils.logger.b.m97a("colorful notification banner image resolution error, must belong to [984*184, 984*1678]");
+            } else {
+                this.b = bitmap;
             }
         }
-        this.f336a = context;
+        return this;
     }
 
-    public static eo a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (a == null) {
-                synchronized (eo.class) {
-                    if (a == null) {
-                        a = new eo(context);
-                    }
-                }
-            }
-            return a;
-        }
-        return (eo) invokeL.objValue;
-    }
-
-    private void a(com.xiaomi.clientreport.data.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, aVar) == null) {
-            if (aVar instanceof PerfClientReport) {
-                ClientReportClient.reportPerf(this.f336a, (PerfClientReport) aVar);
-            } else if (aVar instanceof EventClientReport) {
-                ClientReportClient.reportEvent(this.f336a, (EventClientReport) aVar);
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.ep.a(Ljava/lang/String;)I */
+    @Override // com.xiaomi.push.ep
+    /* renamed from: a */
+    public eo mo374a(String str) {
+        if (m382b() && !TextUtils.isEmpty(str)) {
+            try {
+                this.a = Color.parseColor(str);
+            } catch (Exception unused) {
+                com.xiaomi.channel.commonutils.logger.b.m97a("parse banner notification image text color error");
             }
         }
+        return this;
     }
 
-    public void a(String str, int i, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) || i < 0 || j2 < 0 || j <= 0) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.xiaomi.push.er, android.app.Notification.Builder
+    /* renamed from: a */
+    public er setLargeIcon(Bitmap bitmap) {
+        return this;
+    }
+
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.ep.a()Landroid/content/Context; */
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.ep.a()V */
+    @Override // com.xiaomi.push.er
+    /* renamed from: a */
+    public String mo379a() {
+        return "notification_banner";
+    }
+
+    @Override // com.xiaomi.push.er, com.xiaomi.push.ep
+    /* renamed from: a  reason: collision with other method in class */
+    public void mo372a() {
+        RemoteViews m378a;
+        Bitmap bitmap;
+        if (!m382b() || this.b == null) {
+            m381b();
             return;
         }
-        PerfClientReport a2 = en.a(this.f336a, i, j, j2);
-        a2.setAppPackageName(str);
-        a2.setSdkVersion("4_9_0");
-        a(a2);
+        super.mo372a();
+        Resources resources = a().getResources();
+        String packageName = a().getPackageName();
+        int a = a(resources, "bg", "id", packageName);
+        if (j.a(a()) >= 10) {
+            m378a = m378a();
+            bitmap = a(this.b, 30.0f);
+        } else {
+            m378a = m378a();
+            bitmap = this.b;
+        }
+        m378a.setImageViewBitmap(a, bitmap);
+        int a2 = a(resources, "icon", "id", packageName);
+        if (this.c != null) {
+            m378a().setImageViewBitmap(a2, this.c);
+        } else {
+            a(a2);
+        }
+        int a3 = a(resources, "title", "id", packageName);
+        m378a().setTextViewText(a3, ((er) this).f321a);
+        Map<String, String> map = ((er) this).f324a;
+        if (map != null && this.a == 16777216) {
+            mo374a(map.get("notification_image_text_color"));
+        }
+        RemoteViews m378a2 = m378a();
+        int i = this.a;
+        m378a2.setTextColor(a3, (i == 16777216 || !m380a(i)) ? -1 : -16777216);
+        setCustomContentView(m378a());
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("miui.customHeight", true);
+        addExtras(bundle);
     }
 
-    public void a(String str, Intent intent, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, intent, i, str2) == null) || intent == null) {
-            return;
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.ep.a()Landroid/content/Context; */
+    /* JADX DEBUG: Possible override for method com.xiaomi.push.ep.a()V */
+    @Override // com.xiaomi.push.er
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean mo373a() {
+        if (j.m627a()) {
+            Resources resources = a().getResources();
+            String packageName = a().getPackageName();
+            return (a(a().getResources(), "bg", "id", a().getPackageName()) == 0 || a(resources, "icon", "id", packageName) == 0 || a(resources, "title", "id", packageName) == 0 || j.a(a()) < 9) ? false : true;
         }
-        a(str, en.m376a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), i, System.currentTimeMillis(), str2);
+        return false;
     }
 
-    public void a(String str, Intent intent, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, intent, str2) == null) || intent == null) {
-            return;
+    public eo b(Bitmap bitmap) {
+        if (m382b() && bitmap != null) {
+            this.c = bitmap;
         }
-        a(str, en.m376a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), 5001, System.currentTimeMillis(), str2);
+        return this;
     }
 
-    public void a(String str, String str2, String str3, int i, long j, String str4) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, str3, Integer.valueOf(i), Long.valueOf(j), str4}) == null) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
-            return;
-        }
-        EventClientReport a2 = en.a(this.f336a, str2, str3, i, j, str4);
-        a2.setAppPackageName(str);
-        a2.setSdkVersion("4_9_0");
-        a(a2);
-    }
-
-    public void a(String str, String str2, String str3, int i, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, str3, Integer.valueOf(i), str4}) == null) {
-            a(str, str2, str3, i, System.currentTimeMillis(), str4);
-        }
-    }
-
-    public void a(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048581, this, str, str2, str3, str4) == null) {
-            a(str, str2, str3, 5002, System.currentTimeMillis(), str4);
-        }
-    }
-
-    public void b(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048582, this, str, str2, str3, str4) == null) {
-            a(str, str2, str3, 5001, System.currentTimeMillis(), str4);
-        }
-    }
-
-    public void c(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048583, this, str, str2, str3, str4) == null) {
-            a(str, str2, str3, 4002, System.currentTimeMillis(), str4);
-        }
+    @Override // com.xiaomi.push.er
+    public String b() {
+        return null;
     }
 }

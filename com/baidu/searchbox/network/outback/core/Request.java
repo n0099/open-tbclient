@@ -3,9 +3,6 @@ package com.baidu.searchbox.network.outback.core;
 import android.os.Handler;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.data.a;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.Cancelable;
 import com.baidu.searchbox.network.outback.ConnectManager;
 import com.baidu.searchbox.network.outback.EngineName;
@@ -20,11 +17,6 @@ import com.baidu.searchbox.network.outback.statistics.DoRecordManager;
 import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
 import com.baidu.searchbox.network.outback.statistics.RequestCallException;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URL;
 import java.util.Collections;
 import java.util.LinkedHashMap;
@@ -35,14 +27,12 @@ import java.util.concurrent.TimeUnit;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Request {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUESTFROM_FEED = 1;
     public static final int REQUESTFROM_FRESCO = 2;
     public static final int REQUESTFROM_NONE = 0;
     public static final int REQUESTFROM_UBC = 3;
-    public transient /* synthetic */ FieldHolder $fh;
     public String bdTraceId;
     @Nullable
     public final RequestBody body;
@@ -65,10 +55,8 @@ public class Request {
     public final UrlWrapper url;
     public int writeTimeout;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Builder<R extends Builder> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public String bdTraceId;
         @Nullable
         public RequestBody body;
@@ -94,20 +82,6 @@ public class Request {
 
         public Builder(Request request) {
             Map<Class<?>, Object> linkedHashMap;
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {request};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.connectionTimeout = -1;
             this.readTimeout = -1;
             this.followRedirects = true;
@@ -142,54 +116,7 @@ public class Request {
             this.bdTraceId = request.getBdTraceId();
         }
 
-        public R url(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, str)) == null) {
-                if (str != null) {
-                    if (str.regionMatches(true, 0, "ws:", 0, 3)) {
-                        str = UrlSchemaHelper.SCHEMA_TYPE_HTTP + str.substring(3);
-                    } else if (str.regionMatches(true, 0, "wss:", 0, 4)) {
-                        str = UrlSchemaHelper.SCHEMA_TYPE_HTTPS + str.substring(4);
-                    }
-                    UrlWrapper urlWrapper = this.url;
-                    try {
-                        if (urlWrapper == null) {
-                            try {
-                                this.url = new UrlWrapper(str);
-                            } catch (IllegalArgumentException unused) {
-                                IllegalArgumentException illegalArgumentException = new IllegalArgumentException("unexpected url: " + str);
-                                this.record.exception = illegalArgumentException;
-                                throw illegalArgumentException;
-                            }
-                        } else {
-                            urlWrapper.setUrl(str);
-                        }
-                        return this;
-                    } finally {
-                        DoRecordManager.getInstance().doRecord(this.record, DoRecordManager.FAILED_MSG);
-                    }
-                }
-                throw new NullPointerException("url == null");
-            }
-            return (R) invokeL.objValue;
-        }
-
         public Builder(Map<String, CallFactory> map) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {map};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             this.connectionTimeout = -1;
             this.readTimeout = -1;
             this.followRedirects = true;
@@ -209,499 +136,313 @@ public class Request {
         }
 
         public R addUrlParams(Map<String, String> map) {
-            InterceptResult invokeL;
             UrlWrapper urlWrapper;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, map)) == null) {
-                if (map != null && map.size() > 0 && (urlWrapper = this.url) != null) {
-                    HttpUrl.Builder newBuilder = urlWrapper.getHttpUrl().newBuilder();
-                    for (Map.Entry<String, String> entry : map.entrySet()) {
-                        newBuilder.addQueryParameter(entry.getKey(), entry.getValue());
-                    }
-                    this.url.setHttpUrl(newBuilder.build());
+            if (map != null && map.size() > 0 && (urlWrapper = this.url) != null) {
+                HttpUrl.Builder newBuilder = urlWrapper.getHttpUrl().newBuilder();
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    newBuilder.addQueryParameter(entry.getKey(), entry.getValue());
                 }
-                return this;
+                this.url.setHttpUrl(newBuilder.build());
             }
-            return (R) invokeL.objValue;
+            return this;
         }
 
         public R setUrlParams(Map<String, String> map) {
-            InterceptResult invokeL;
             UrlWrapper urlWrapper;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, map)) == null) {
-                if (map != null && map.size() > 0 && (urlWrapper = this.url) != null) {
-                    HttpUrl.Builder newBuilder = urlWrapper.getHttpUrl().newBuilder();
-                    for (Map.Entry<String, String> entry : map.entrySet()) {
-                        newBuilder.setQueryParameter(entry.getKey(), entry.getValue());
-                    }
-                    this.url.setHttpUrl(newBuilder.build());
+            if (map != null && map.size() > 0 && (urlWrapper = this.url) != null) {
+                HttpUrl.Builder newBuilder = urlWrapper.getHttpUrl().newBuilder();
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    newBuilder.setQueryParameter(entry.getKey(), entry.getValue());
                 }
-                return this;
+                this.url.setHttpUrl(newBuilder.build());
             }
-            return (R) invokeL.objValue;
+            return this;
         }
 
         public R addHeader(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-                this.headers.add(str, str2);
-                return this;
-            }
-            return (R) invokeLL.objValue;
+            this.headers.add(str, str2);
+            return this;
         }
 
         public R addUrlParam(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-                UrlWrapper urlWrapper = this.url;
-                if (urlWrapper != null) {
-                    HttpUrl.Builder newBuilder = urlWrapper.getHttpUrl().newBuilder();
-                    newBuilder.addQueryParameter(str, str2);
-                    this.url.setHttpUrl(newBuilder.build());
-                }
-                return this;
+            UrlWrapper urlWrapper = this.url;
+            if (urlWrapper != null) {
+                HttpUrl.Builder newBuilder = urlWrapper.getHttpUrl().newBuilder();
+                newBuilder.addQueryParameter(str, str2);
+                this.url.setHttpUrl(newBuilder.build());
             }
-            return (R) invokeLL.objValue;
+            return this;
         }
 
         public R header(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, str, str2)) == null) {
-                this.headers.set(str, str2);
-                return this;
-            }
-            return (R) invokeLL.objValue;
+            this.headers.set(str, str2);
+            return this;
         }
 
         public R setHeader(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, str, str2)) == null) {
-                return header(str, str2);
-            }
-            return (R) invokeLL.objValue;
+            return header(str, str2);
         }
 
         public R setUrlParam(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048606, this, str, str2)) == null) {
-                UrlWrapper urlWrapper = this.url;
-                if (urlWrapper != null) {
-                    HttpUrl.Builder newBuilder = urlWrapper.getHttpUrl().newBuilder();
-                    newBuilder.setQueryParameter(str, str2);
-                    this.url.setHttpUrl(newBuilder.build());
-                }
-                return this;
+            UrlWrapper urlWrapper = this.url;
+            if (urlWrapper != null) {
+                HttpUrl.Builder newBuilder = urlWrapper.getHttpUrl().newBuilder();
+                newBuilder.setQueryParameter(str, str2);
+                this.url.setHttpUrl(newBuilder.build());
             }
-            return (R) invokeLL.objValue;
-        }
-
-        public R addHeaders(Map<String, String> map) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-                if (map != null && !map.isEmpty()) {
-                    for (Map.Entry<String, String> entry : map.entrySet()) {
-                        this.headers.add(entry.getKey(), entry.getValue());
-                    }
-                }
-                return this;
-            }
-            return (R) invokeL.objValue;
-        }
-
-        public R headers(Map<String, String> map) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, map)) == null) {
-                if (map != null && !map.isEmpty()) {
-                    for (Map.Entry<String, String> entry : map.entrySet()) {
-                        this.headers.set(entry.getKey(), entry.getValue());
-                    }
-                }
-                return this;
-            }
-            return (R) invokeL.objValue;
-        }
-
-        public R removeUrlParams(List<String> list) {
-            InterceptResult invokeL;
-            UrlWrapper urlWrapper;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, list)) == null) {
-                if (list != null && list.size() > 0 && (urlWrapper = this.url) != null) {
-                    HttpUrl.Builder newBuilder = urlWrapper.getHttpUrl().newBuilder();
-                    for (String str : list) {
-                        newBuilder.removeAllQueryParameters(str);
-                    }
-                    this.url.setHttpUrl(newBuilder.build());
-                }
-                return this;
-            }
-            return (R) invokeL.objValue;
-        }
-
-        public R url(URL url) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, url)) == null) {
-                if (url != null) {
-                    UrlWrapper urlWrapper = this.url;
-                    if (urlWrapper == null) {
-                        this.url = new UrlWrapper(url.toString());
-                    } else {
-                        urlWrapper.setHttpUrl(null);
-                        this.url.setUrl(url.toString());
-                    }
-                    return url(this.url);
-                }
-                throw new NullPointerException("url == null");
-            }
-            return (R) invokeL.objValue;
-        }
-
-        public Request build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return new Request(this);
-            }
-            return (Request) invokeV.objValue;
-        }
-
-        public R delete() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return delete(Util.EMPTY_REQUEST);
-            }
-            return (R) invokeV.objValue;
-        }
-
-        public R enableBrotli() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                this.enableBrotli = true;
-                return this;
-            }
-            return (R) invokeV.objValue;
-        }
-
-        public R get() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-                return method("GET", null);
-            }
-            return (R) invokeV.objValue;
-        }
-
-        public R head() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-                return method("HEAD", null);
-            }
-            return (R) invokeV.objValue;
-        }
-
-        public R connectionTimeout(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-                this.connectionTimeout = Util.checkDuration(a.O, i, TimeUnit.MILLISECONDS);
-                return this;
-            }
-            return (R) invokeI.objValue;
-        }
-
-        public R cookieManager(CookieManager cookieManager) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, cookieManager)) == null) {
-                this.cookieManager = cookieManager;
-                return this;
-            }
-            return (R) invokeL.objValue;
-        }
-
-        public R delete(@Nullable RequestBody requestBody) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, requestBody)) == null) {
-                return method(HttpDelete.METHOD_NAME, requestBody);
-            }
-            return (R) invokeL.objValue;
-        }
-
-        public R extraUserLog(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, jSONObject)) == null) {
-                this.extraUserLog = jSONObject;
-                return this;
-            }
-            return (R) invokeL.objValue;
-        }
-
-        public R followRedirects(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
-                this.followRedirects = z;
-                return this;
-            }
-            return (R) invokeZ.objValue;
-        }
-
-        public R followSslRedirects(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
-                this.followSslRedirects = z;
-                return this;
-            }
-            return (R) invokeZ.objValue;
-        }
-
-        public R headers(Headers headers) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, headers)) == null) {
-                this.headers = headers.newBuilder();
-                return this;
-            }
-            return (R) invokeL.objValue;
-        }
-
-        public R patch(RequestBody requestBody) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, requestBody)) == null) {
-                return method("PATCH", requestBody);
-            }
-            return (R) invokeL.objValue;
-        }
-
-        public R post(RequestBody requestBody) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, requestBody)) == null) {
-                return method("POST", requestBody);
-            }
-            return (R) invokeL.objValue;
-        }
-
-        public R put(RequestBody requestBody) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, requestBody)) == null) {
-                return method(HttpPut.METHOD_NAME, requestBody);
-            }
-            return (R) invokeL.objValue;
-        }
-
-        public R readTimeout(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
-                this.readTimeout = Util.checkDuration(a.O, i, TimeUnit.MILLISECONDS);
-                return this;
-            }
-            return (R) invokeI.objValue;
-        }
-
-        public R removeHeader(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
-                this.headers.removeAll(str);
-                return this;
-            }
-            return (R) invokeL.objValue;
-        }
-
-        public R removeHeaders(List<String> list) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, list)) == null) {
-                if (list != null && list.size() > 0) {
-                    for (String str : list) {
-                        this.headers.removeAll(str);
-                    }
-                }
-                return this;
-            }
-            return (R) invokeL.objValue;
-        }
-
-        public R removeUrlParam(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
-                UrlWrapper urlWrapper = this.url;
-                if (urlWrapper != null) {
-                    HttpUrl.Builder newBuilder = urlWrapper.getHttpUrl().newBuilder();
-                    newBuilder.removeAllQueryParameters(str);
-                    this.url.setHttpUrl(newBuilder.build());
-                }
-                return this;
-            }
-            return (R) invokeL.objValue;
-        }
-
-        public R requestFrom(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i)) == null) {
-                this.requestFrom = i;
-                return this;
-            }
-            return (R) invokeI.objValue;
-        }
-
-        public R requestSubFrom(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i)) == null) {
-                this.requestSubFrom = i;
-                return this;
-            }
-            return (R) invokeI.objValue;
-        }
-
-        public R tag(@Nullable Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, obj)) == null) {
-                return tag(Object.class, obj);
-            }
-            return (R) invokeL.objValue;
-        }
-
-        public R url(HttpUrl httpUrl) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, httpUrl)) == null) {
-                if (httpUrl != null) {
-                    this.url = new UrlWrapper(httpUrl);
-                    return this;
-                }
-                throw new NullPointerException("url == null");
-            }
-            return (R) invokeL.objValue;
-        }
-
-        public R userAgent(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, str)) == null) {
-                if (!Util.isTextEmpty(str)) {
-                    this.headers.set("User-Agent", str);
-                }
-                return this;
-            }
-            return (R) invokeL.objValue;
-        }
-
-        public R wifiOnly(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048615, this, z)) == null) {
-                this.isWifiOnly = z;
-                return this;
-            }
-            return (R) invokeZ.objValue;
-        }
-
-        public R writeTimeout(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048616, this, i)) == null) {
-                this.writeTimeout = i;
-                return this;
-            }
-            return (R) invokeI.objValue;
-        }
-
-        public R method(String str, @Nullable RequestBody requestBody) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, str, requestBody)) == null) {
-                if (str != null) {
-                    if (str.length() != 0) {
-                        if (requestBody != null && !HttpMethod.permitsRequestBody(str)) {
-                            throw new IllegalArgumentException("method " + str + " must not have a request body.");
-                        } else if (requestBody == null && HttpMethod.requiresRequestBody(str)) {
-                            throw new IllegalArgumentException("method " + str + " must have a request body.");
-                        } else {
-                            this.method = str;
-                            this.body = requestBody;
-                            return this;
-                        }
-                    }
-                    throw new IllegalArgumentException("method.length() == 0");
-                }
-                throw new NullPointerException("method == null");
-            }
-            return (R) invokeLL.objValue;
+            return this;
         }
 
         public <T> R tag(Class<? super T> cls, @Nullable T t) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048608, this, cls, t)) == null) {
-                if (cls != null) {
-                    if (t == null) {
-                        this.tags.remove(cls);
-                    } else {
-                        if (this.tags.isEmpty()) {
-                            this.tags = new LinkedHashMap();
-                        }
-                        this.tags.put(cls, cls.cast(t));
+            if (cls != null) {
+                if (t == null) {
+                    this.tags.remove(cls);
+                } else {
+                    if (this.tags.isEmpty()) {
+                        this.tags = new LinkedHashMap();
                     }
-                    return this;
+                    this.tags.put(cls, cls.cast(t));
                 }
-                throw new NullPointerException("type == null");
+                return this;
             }
-            return (R) invokeLL.objValue;
+            throw new NullPointerException("type == null");
+        }
+
+        public R addHeaders(Map<String, String> map) {
+            if (map != null && !map.isEmpty()) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    this.headers.add(entry.getKey(), entry.getValue());
+                }
+            }
+            return this;
+        }
+
+        public R connectionTimeout(int i) {
+            this.connectionTimeout = Util.checkDuration("timeout", i, TimeUnit.MILLISECONDS);
+            return this;
+        }
+
+        public R cookieManager(CookieManager cookieManager) {
+            this.cookieManager = cookieManager;
+            return this;
+        }
+
+        public R delete(@Nullable RequestBody requestBody) {
+            return method(HttpDelete.METHOD_NAME, requestBody);
+        }
+
+        public R extraUserLog(JSONObject jSONObject) {
+            this.extraUserLog = jSONObject;
+            return this;
+        }
+
+        public R followRedirects(boolean z) {
+            this.followRedirects = z;
+            return this;
+        }
+
+        public R followSslRedirects(boolean z) {
+            this.followSslRedirects = z;
+            return this;
+        }
+
+        public R headers(Headers headers) {
+            this.headers = headers.newBuilder();
+            return this;
+        }
+
+        public R patch(RequestBody requestBody) {
+            return method("PATCH", requestBody);
+        }
+
+        public R post(RequestBody requestBody) {
+            return method("POST", requestBody);
+        }
+
+        public R put(RequestBody requestBody) {
+            return method(HttpPut.METHOD_NAME, requestBody);
+        }
+
+        public R readTimeout(int i) {
+            this.readTimeout = Util.checkDuration("timeout", i, TimeUnit.MILLISECONDS);
+            return this;
+        }
+
+        public R removeHeader(String str) {
+            this.headers.removeAll(str);
+            return this;
+        }
+
+        public R removeHeaders(List<String> list) {
+            if (list != null && list.size() > 0) {
+                for (String str : list) {
+                    this.headers.removeAll(str);
+                }
+            }
+            return this;
+        }
+
+        public R removeUrlParam(String str) {
+            UrlWrapper urlWrapper = this.url;
+            if (urlWrapper != null) {
+                HttpUrl.Builder newBuilder = urlWrapper.getHttpUrl().newBuilder();
+                newBuilder.removeAllQueryParameters(str);
+                this.url.setHttpUrl(newBuilder.build());
+            }
+            return this;
+        }
+
+        public R removeUrlParams(List<String> list) {
+            UrlWrapper urlWrapper;
+            if (list != null && list.size() > 0 && (urlWrapper = this.url) != null) {
+                HttpUrl.Builder newBuilder = urlWrapper.getHttpUrl().newBuilder();
+                for (String str : list) {
+                    newBuilder.removeAllQueryParameters(str);
+                }
+                this.url.setHttpUrl(newBuilder.build());
+            }
+            return this;
+        }
+
+        public R requestFrom(int i) {
+            this.requestFrom = i;
+            return this;
+        }
+
+        public R requestSubFrom(int i) {
+            this.requestSubFrom = i;
+            return this;
+        }
+
+        public R tag(@Nullable Object obj) {
+            return tag(Object.class, obj);
+        }
+
+        public R url(HttpUrl httpUrl) {
+            if (httpUrl != null) {
+                this.url = new UrlWrapper(httpUrl);
+                return this;
+            }
+            throw new NullPointerException("url == null");
+        }
+
+        public R userAgent(String str) {
+            if (!Util.isTextEmpty(str)) {
+                this.headers.set("User-Agent", str);
+            }
+            return this;
+        }
+
+        public R wifiOnly(boolean z) {
+            this.isWifiOnly = z;
+            return this;
+        }
+
+        public R writeTimeout(int i) {
+            this.writeTimeout = i;
+            return this;
+        }
+
+        public Request build() {
+            return new Request(this);
+        }
+
+        public R delete() {
+            return delete(Util.EMPTY_REQUEST);
+        }
+
+        public R enableBrotli() {
+            this.enableBrotli = true;
+            return this;
+        }
+
+        public R get() {
+            return method("GET", null);
+        }
+
+        public R head() {
+            return method("HEAD", null);
+        }
+
+        public R headers(Map<String, String> map) {
+            if (map != null && !map.isEmpty()) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    this.headers.set(entry.getKey(), entry.getValue());
+                }
+            }
+            return this;
         }
 
         public R url(UrlWrapper urlWrapper) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, urlWrapper)) == null) {
-                if (urlWrapper != null) {
-                    this.url = urlWrapper;
-                    return this;
-                }
-                throw new NullPointerException("url == null");
+            if (urlWrapper != null) {
+                this.url = urlWrapper;
+                return this;
             }
-            return (R) invokeL.objValue;
+            throw new NullPointerException("url == null");
+        }
+
+        public R method(String str, @Nullable RequestBody requestBody) {
+            if (str != null) {
+                if (str.length() != 0) {
+                    if (requestBody != null && !HttpMethod.permitsRequestBody(str)) {
+                        throw new IllegalArgumentException("method " + str + " must not have a request body.");
+                    } else if (requestBody == null && HttpMethod.requiresRequestBody(str)) {
+                        throw new IllegalArgumentException("method " + str + " must have a request body.");
+                    } else {
+                        this.method = str;
+                        this.body = requestBody;
+                        return this;
+                    }
+                }
+                throw new IllegalArgumentException("method.length() == 0");
+            }
+            throw new NullPointerException("method == null");
+        }
+
+        public R url(String str) {
+            if (str != null) {
+                if (str.regionMatches(true, 0, "ws:", 0, 3)) {
+                    str = UrlSchemaHelper.SCHEMA_TYPE_HTTP + str.substring(3);
+                } else if (str.regionMatches(true, 0, "wss:", 0, 4)) {
+                    str = UrlSchemaHelper.SCHEMA_TYPE_HTTPS + str.substring(4);
+                }
+                UrlWrapper urlWrapper = this.url;
+                if (urlWrapper == null) {
+                    try {
+                        try {
+                            this.url = new UrlWrapper(str);
+                        } catch (IllegalArgumentException unused) {
+                            IllegalArgumentException illegalArgumentException = new IllegalArgumentException("unexpected url: " + str);
+                            this.record.exception = illegalArgumentException;
+                            throw illegalArgumentException;
+                        }
+                    } finally {
+                        DoRecordManager.getInstance().doRecord(this.record, DoRecordManager.FAILED_MSG);
+                    }
+                } else {
+                    urlWrapper.setUrl(str);
+                }
+                return this;
+            }
+            throw new NullPointerException("url == null");
+        }
+
+        public R url(URL url) {
+            if (url != null) {
+                UrlWrapper urlWrapper = this.url;
+                if (urlWrapper == null) {
+                    this.url = new UrlWrapper(url.toString());
+                } else {
+                    urlWrapper.setHttpUrl(null);
+                    this.url.setUrl(url.toString());
+                }
+                return url(this.url);
+            }
+            throw new NullPointerException("url == null");
         }
     }
 
     public Request(Builder builder) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.connectionTimeout = 0;
         this.readTimeout = 0;
         this.writeTimeout = 0;
@@ -755,412 +496,217 @@ public class Request {
     }
 
     private String generateBdTraceId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            return UUID.randomUUID().toString().toLowerCase().replace("-", "");
-        }
-        return (String) invokeV.objValue;
+        return UUID.randomUUID().toString().toLowerCase().replace("-", "");
     }
 
     @Nullable
     public RequestBody body() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.body;
-        }
-        return (RequestBody) invokeV.objValue;
+        return this.body;
     }
 
     public Response executeStat() throws RequestCallException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return new RequestCall(this).executeStat();
-        }
-        return (Response) invokeV.objValue;
+        return new RequestCall(this).executeStat();
     }
 
     public Response executeSync() throws RequestCallException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return new RequestCall(this).executeSync();
-        }
-        return (Response) invokeV.objValue;
+        return new RequestCall(this).executeSync();
     }
 
     public String getBdTraceId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.bdTraceId;
-        }
-        return (String) invokeV.objValue;
+        return this.bdTraceId;
     }
 
     public int getConnectionTimeout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.connectionTimeout;
-        }
-        return invokeV.intValue;
+        return this.connectionTimeout;
     }
 
     public CookieManager getCookieManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.cookieManager;
-        }
-        return (CookieManager) invokeV.objValue;
+        return this.cookieManager;
     }
 
     public JSONObject getExtraUserLog() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.extraUserLog;
-        }
-        return (JSONObject) invokeV.objValue;
+        return this.extraUserLog;
     }
 
     public Headers getHeaders() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.headers;
-        }
-        return (Headers) invokeV.objValue;
+        return this.headers;
     }
 
     public NetworkStatRecord getNetworkStatRecord() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.record;
-        }
-        return (NetworkStatRecord) invokeV.objValue;
+        return this.record;
     }
 
     public int getReadTimeout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.readTimeout;
-        }
-        return invokeV.intValue;
+        return this.readTimeout;
     }
 
     public int getRequestFrom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.requestFrom;
-        }
-        return invokeV.intValue;
+        return this.requestFrom;
     }
 
     public int getRequestSubFrom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.requestSubFrom;
-        }
-        return invokeV.intValue;
+        return this.requestSubFrom;
     }
 
     public Map<Class<?>, Object> getTags() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.tags;
-        }
-        return (Map) invokeV.objValue;
+        return this.tags;
     }
 
     public int getWriteTimeout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.writeTimeout;
-        }
-        return invokeV.intValue;
+        return this.writeTimeout;
     }
 
     public Headers headers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.headers;
-        }
-        return (Headers) invokeV.objValue;
+        return this.headers;
     }
 
     public HttpUrl httpUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return this.url.getHttpUrl();
-        }
-        return (HttpUrl) invokeV.objValue;
+        return this.url.getHttpUrl();
     }
 
     public boolean isFollowRedirects() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.followRedirects;
-        }
-        return invokeV.booleanValue;
+        return this.followRedirects;
     }
 
     public boolean isFollowSslRedirects() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.followSslRedirects;
-        }
-        return invokeV.booleanValue;
+        return this.followSslRedirects;
     }
 
     public boolean isHttps() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return this.url.isHttps();
-        }
-        return invokeV.booleanValue;
+        return this.url.isHttps();
     }
 
     public RequestCall makeRequestCall() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            return new RequestCall(this);
-        }
-        return (RequestCall) invokeV.objValue;
+        return new RequestCall(this);
     }
 
     public String method() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            return this.method;
-        }
-        return (String) invokeV.objValue;
+        return this.method;
     }
 
     public Builder newBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            return new Builder(this);
-        }
-        return (Builder) invokeV.objValue;
+        return new Builder(this);
     }
 
     @Nullable
     public Object tag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            return tag(Object.class);
-        }
-        return invokeV.objValue;
+        return tag(Object.class);
+    }
+
+    public String toString() {
+        return "Request{method=" + this.method + ", url=" + this.url + ", tags=" + this.tags + '}';
     }
 
     public UrlWrapper url() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
-            return this.url;
-        }
-        return (UrlWrapper) invokeV.objValue;
+        return this.url;
     }
 
     public <T> Cancelable executeAsync(ResponseCallback<T> responseCallback) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseCallback)) == null) {
-            return new RequestCall(this).executeAsync(responseCallback);
-        }
-        return (Cancelable) invokeL.objValue;
+        return new RequestCall(this).executeAsync(responseCallback);
     }
 
     public <T> Cancelable executeAsyncOnUIBack(ResponseCallback<T> responseCallback) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, responseCallback)) == null) {
-            return new RequestCall(this).executeAsyncOnUIBack(responseCallback);
-        }
-        return (Cancelable) invokeL.objValue;
+        return new RequestCall(this).executeAsyncOnUIBack(responseCallback);
     }
 
     public <T> Cancelable executeStat(ResponseCallback<T> responseCallback) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, responseCallback)) == null) {
-            return new RequestCall(this).executeStat(responseCallback);
-        }
-        return (Cancelable) invokeL.objValue;
+        return new RequestCall(this).executeStat(responseCallback);
     }
 
     public <T> Cancelable executeStatUIBack(ResponseCallback<T> responseCallback) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, responseCallback)) == null) {
-            return new RequestCall(this).executeStatUIBack(responseCallback);
-        }
-        return (Cancelable) invokeL.objValue;
+        return new RequestCall(this).executeStatUIBack(responseCallback);
     }
 
     @Nullable
     public String header(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
-            return this.headers.get(str);
-        }
-        return (String) invokeL.objValue;
+        return this.headers.get(str);
     }
 
     public List<String> headers(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
-            return this.headers.values(str);
-        }
-        return (List) invokeL.objValue;
+        return this.headers.values(str);
     }
 
     public void onException4NetworkStatRecord(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, exc) == null) {
-            NetworkStatRecord networkStatRecord = this.record;
-            networkStatRecord.exception = exc;
-            networkStatRecord.failTs = System.currentTimeMillis();
-            if (TextUtils.isEmpty(this.record.clientIP)) {
-                this.record.clientIP = ConnectManager.getClientIP();
-            }
-        }
-    }
-
-    public void onFinishReadContent4NetworkStatRecord(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048610, this, j) == null) {
-            this.record.readOverTs = System.currentTimeMillis();
-            this.record.realResponseLength = j;
-        }
-    }
-
-    @Nullable
-    public <T> T tag(Class<? extends T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, cls)) == null) {
-            return cls.cast(this.tags.get(cls));
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public <T> Cancelable executeAsyncWithHandler(Handler handler, ResponseCallback<T> responseCallback) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, handler, responseCallback)) == null) {
-            return new RequestCall(this).executeAsyncWithHandler(handler, responseCallback);
-        }
-        return (Cancelable) invokeLL.objValue;
-    }
-
-    public <T> Cancelable executeStatWithHandler(Handler handler, ResponseCallback<T> responseCallback) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, handler, responseCallback)) == null) {
-            return new RequestCall(this).executeStatWithHandler(handler, responseCallback);
-        }
-        return (Cancelable) invokeLL.objValue;
-    }
-
-    public void onConnect4NetworkStatRecord(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048607, this, j, str) == null) {
-            NetworkStatRecord networkStatRecord = this.record;
-            networkStatRecord.connTs = j;
-            networkStatRecord.protocol = str;
-        }
-    }
-
-    public void onReceiveHeader4NetworkStatRecord(long j, Headers headers) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048611, this, j, headers) == null) {
-            this.record.receiveHeaderTs = j;
-            String str = headers.get("X-Bfe-Svbbrers");
-            if (!Util.isTextEmpty(str)) {
-                this.record.clientIP = str;
-                return;
-            }
+        NetworkStatRecord networkStatRecord = this.record;
+        networkStatRecord.exception = exc;
+        networkStatRecord.failTs = System.currentTimeMillis();
+        if (TextUtils.isEmpty(this.record.clientIP)) {
             this.record.clientIP = ConnectManager.getClientIP();
         }
     }
 
+    public void onFinishReadContent4NetworkStatRecord(long j) {
+        this.record.readOverTs = System.currentTimeMillis();
+        this.record.realResponseLength = j;
+    }
+
+    @Nullable
+    public <T> T tag(Class<? extends T> cls) {
+        return cls.cast(this.tags.get(cls));
+    }
+
+    public <T> Cancelable executeAsyncWithHandler(Handler handler, ResponseCallback<T> responseCallback) {
+        return new RequestCall(this).executeAsyncWithHandler(handler, responseCallback);
+    }
+
+    public <T> Cancelable executeStatWithHandler(Handler handler, ResponseCallback<T> responseCallback) {
+        return new RequestCall(this).executeStatWithHandler(handler, responseCallback);
+    }
+
+    public void onConnect4NetworkStatRecord(long j, String str) {
+        NetworkStatRecord networkStatRecord = this.record;
+        networkStatRecord.connTs = j;
+        networkStatRecord.protocol = str;
+    }
+
+    public void onReceiveHeader4NetworkStatRecord(long j, Headers headers) {
+        this.record.receiveHeaderTs = j;
+        String str = headers.get("X-Bfe-Svbbrers");
+        if (!Util.isTextEmpty(str)) {
+            this.record.clientIP = str;
+            return;
+        }
+        this.record.clientIP = ConnectManager.getClientIP();
+    }
+
     public Call newCall() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            Map<String, CallFactory> map = this.callFactoryMap;
-            if (map != null) {
-                Call call = null;
-                boolean z = true;
-                if (map.containsKey("CUSTOM")) {
-                    CallFactory callFactory = this.callFactoryMap.get("CUSTOM");
-                    if (this.callFactoryMap.size() == 1) {
-                        z = false;
-                    }
-                    call = callFactory.newCall(this, z);
-                } else if (this.callFactoryMap.containsKey(EngineName.DEFAULT_ENGINE)) {
-                    CallFactory callFactory2 = this.callFactoryMap.get(EngineName.DEFAULT_ENGINE);
-                    if (this.callFactoryMap.size() == 1) {
-                        z = false;
-                    }
-                    call = callFactory2.newCall(this, z);
+        Map<String, CallFactory> map = this.callFactoryMap;
+        if (map != null) {
+            Call call = null;
+            boolean z = true;
+            if (map.containsKey("CUSTOM")) {
+                CallFactory callFactory = this.callFactoryMap.get("CUSTOM");
+                if (this.callFactoryMap.size() == 1) {
+                    z = false;
                 }
-                if (call == null) {
-                    if (this.callFactoryMap.containsKey(EngineName.BACK_UP_ENGINE)) {
-                        return this.callFactoryMap.get(EngineName.BACK_UP_ENGINE).newCall(this, false);
-                    }
-                    if (this.callFactoryMap.containsKey(EngineName.DEFAULT_ENGINE)) {
-                        return this.callFactoryMap.get(EngineName.DEFAULT_ENGINE).newCall(this, false);
-                    }
-                    return call;
+                call = callFactory.newCall(this, z);
+            } else if (this.callFactoryMap.containsKey(EngineName.DEFAULT_ENGINE)) {
+                CallFactory callFactory2 = this.callFactoryMap.get(EngineName.DEFAULT_ENGINE);
+                if (this.callFactoryMap.size() == 1) {
+                    z = false;
+                }
+                call = callFactory2.newCall(this, z);
+            }
+            if (call == null) {
+                if (this.callFactoryMap.containsKey(EngineName.BACK_UP_ENGINE)) {
+                    return this.callFactoryMap.get(EngineName.BACK_UP_ENGINE).newCall(this, false);
+                }
+                if (this.callFactoryMap.containsKey(EngineName.DEFAULT_ENGINE)) {
+                    return this.callFactoryMap.get(EngineName.DEFAULT_ENGINE).newCall(this, false);
                 }
                 return call;
             }
-            throw new IllegalArgumentException("callFactory is not set");
+            return call;
         }
-        return (Call) invokeV.objValue;
+        throw new IllegalArgumentException("callFactory is not set");
     }
 
     public void onDnsParse4NetworkStatRecord(long j, long j2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), jSONObject}) == null) {
-            NetworkStatRecord networkStatRecord = this.record;
-            networkStatRecord.dnsStartTs = j;
-            networkStatRecord.dnsEndTs = j2;
-            if (jSONObject != null) {
-                networkStatRecord.dnsDetail = jSONObject;
-            }
+        NetworkStatRecord networkStatRecord = this.record;
+        networkStatRecord.dnsStartTs = j;
+        networkStatRecord.dnsEndTs = j2;
+        if (jSONObject != null) {
+            networkStatRecord.dnsDetail = jSONObject;
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
-            return "Request{method=" + this.method + ", url=" + this.url + ", tags=" + this.tags + '}';
-        }
-        return (String) invokeV.objValue;
     }
 }

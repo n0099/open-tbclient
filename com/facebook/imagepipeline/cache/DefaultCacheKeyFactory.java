@@ -1,14 +1,6 @@
 package com.facebook.imagepipeline.cache;
 
 import android.net.Uri;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.cache.common.SimpleCacheKey;
 import com.facebook.imagepipeline.request.ImageRequest;
@@ -16,109 +8,51 @@ import com.facebook.imagepipeline.request.Postprocessor;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class DefaultCacheKeyFactory implements CacheKeyFactory {
-    public static /* synthetic */ Interceptable $ic;
     public static DefaultCacheKeyFactory sInstance;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-101396351, "Lcom/facebook/imagepipeline/cache/DefaultCacheKeyFactory;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-101396351, "Lcom/facebook/imagepipeline/cache/DefaultCacheKeyFactory;");
-        }
-    }
 
     public Uri getCacheKeySourceUri(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) ? uri : (Uri) invokeL.objValue;
-    }
-
-    public DefaultCacheKeyFactory() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
+        return uri;
     }
 
     public static synchronized DefaultCacheKeyFactory getInstance() {
-        InterceptResult invokeV;
         DefaultCacheKeyFactory defaultCacheKeyFactory;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (DefaultCacheKeyFactory.class) {
-                if (sInstance == null) {
-                    sInstance = new DefaultCacheKeyFactory();
-                }
-                defaultCacheKeyFactory = sInstance;
+        synchronized (DefaultCacheKeyFactory.class) {
+            if (sInstance == null) {
+                sInstance = new DefaultCacheKeyFactory();
             }
-            return defaultCacheKeyFactory;
+            defaultCacheKeyFactory = sInstance;
         }
-        return (DefaultCacheKeyFactory) invokeV.objValue;
+        return defaultCacheKeyFactory;
     }
 
     @Override // com.facebook.imagepipeline.cache.CacheKeyFactory
     public CacheKey getBitmapCacheKey(ImageRequest imageRequest, @Nullable Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, imageRequest, obj)) == null) {
-            return new BitmapMemoryCacheKey(getCacheKeySourceUri(imageRequest.getSourceUri()).toString(), imageRequest.getResizeOptions(), imageRequest.getRotationOptions(), imageRequest.getImageDecodeOptions(), null, null, obj);
-        }
-        return (CacheKey) invokeLL.objValue;
-    }
-
-    @Override // com.facebook.imagepipeline.cache.CacheKeyFactory
-    public CacheKey getEncodedCacheKey(ImageRequest imageRequest, Uri uri, @Nullable Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, imageRequest, uri, obj)) == null) {
-            return new SimpleCacheKey(getCacheKeySourceUri(uri).toString());
-        }
-        return (CacheKey) invokeLLL.objValue;
+        return new BitmapMemoryCacheKey(getCacheKeySourceUri(imageRequest.getSourceUri()).toString(), imageRequest.getResizeOptions(), imageRequest.getRotationOptions(), imageRequest.getImageDecodeOptions(), null, null, obj);
     }
 
     @Override // com.facebook.imagepipeline.cache.CacheKeyFactory
     public CacheKey getEncodedCacheKey(ImageRequest imageRequest, @Nullable Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, imageRequest, obj)) == null) {
-            return getEncodedCacheKey(imageRequest, imageRequest.getSourceUri(), obj);
-        }
-        return (CacheKey) invokeLL.objValue;
+        return getEncodedCacheKey(imageRequest, imageRequest.getSourceUri(), obj);
+    }
+
+    @Override // com.facebook.imagepipeline.cache.CacheKeyFactory
+    public CacheKey getEncodedCacheKey(ImageRequest imageRequest, Uri uri, @Nullable Object obj) {
+        return new SimpleCacheKey(getCacheKeySourceUri(uri).toString());
     }
 
     @Override // com.facebook.imagepipeline.cache.CacheKeyFactory
     public CacheKey getPostprocessedBitmapCacheKey(ImageRequest imageRequest, @Nullable Object obj) {
-        InterceptResult invokeLL;
         CacheKey cacheKey;
         String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, imageRequest, obj)) == null) {
-            Postprocessor postprocessor = imageRequest.getPostprocessor();
-            if (postprocessor != null) {
-                CacheKey postprocessorCacheKey = postprocessor.getPostprocessorCacheKey();
-                str = postprocessor.getClass().getName();
-                cacheKey = postprocessorCacheKey;
-            } else {
-                cacheKey = null;
-                str = null;
-            }
-            return new BitmapMemoryCacheKey(getCacheKeySourceUri(imageRequest.getSourceUri()).toString(), imageRequest.getResizeOptions(), imageRequest.getRotationOptions(), imageRequest.getImageDecodeOptions(), cacheKey, str, obj);
+        Postprocessor postprocessor = imageRequest.getPostprocessor();
+        if (postprocessor != null) {
+            CacheKey postprocessorCacheKey = postprocessor.getPostprocessorCacheKey();
+            str = postprocessor.getClass().getName();
+            cacheKey = postprocessorCacheKey;
+        } else {
+            cacheKey = null;
+            str = null;
         }
-        return (CacheKey) invokeLL.objValue;
+        return new BitmapMemoryCacheKey(getCacheKeySourceUri(imageRequest.getSourceUri()).toString(), imageRequest.getResizeOptions(), imageRequest.getRotationOptions(), imageRequest.getImageDecodeOptions(), cacheKey, str, obj);
     }
 }

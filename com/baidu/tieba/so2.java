@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class so2 extends qm2<hp2> {
+public class so2 extends gn2<xp2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.qm2
+    @Override // com.baidu.tieba.gn2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setCameraFace" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableMicPhone" : (String) invokeV.objValue;
     }
 
     public so2() {
@@ -37,21 +36,16 @@ public class so2 extends qm2<hp2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qm2
+    @Override // com.baidu.tieba.gn2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull hp2 hp2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull xp2 xp2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, hp2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, xp2Var) == null) {
             String str = command.what;
-            d(hp2Var, str, "" + command.obj, true);
+            d(xp2Var, str, "" + command.obj, true);
             Object obj = command.obj;
-            if (obj instanceof String) {
-                String str2 = (String) obj;
-                if (TextUtils.equals(str2, com.alipay.sdk.widget.d.u)) {
-                    hp2Var.setCameraFace(false);
-                } else if (TextUtils.equals(str2, "front")) {
-                    hp2Var.setCameraFace(true);
-                }
+            if (obj instanceof Boolean) {
+                xp2Var.c0(((Boolean) obj).booleanValue());
             }
         }
     }

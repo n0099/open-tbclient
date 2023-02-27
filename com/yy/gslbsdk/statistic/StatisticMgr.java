@@ -1,15 +1,6 @@
 package com.yy.gslbsdk.statistic;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.thread.ThreadInfo;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -17,147 +8,74 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
 public class StatisticMgr {
-    public static /* synthetic */ Interceptable $ic;
     public static StatisticMgr sInstance;
-    public transient /* synthetic */ FieldHolder $fh;
-    public ScheduledThreadPoolExecutor mExecutor;
-    public Map<String, StatisticInfo> mMapStatistic;
-    public IGslbStatistic mStatistic;
+    public IGslbStatistic mStatistic = null;
+    public ScheduledThreadPoolExecutor mExecutor = new ScheduledThreadPoolExecutor(1);
+    public Map<String, StatisticInfo> mMapStatistic = new ConcurrentHashMap();
 
     /* loaded from: classes8.dex */
     public interface IGslbStatistic {
         void onStatistic(Map<String, String> map);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-176784344, "Lcom/yy/gslbsdk/statistic/StatisticMgr;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-176784344, "Lcom/yy/gslbsdk/statistic/StatisticMgr;");
-        }
-    }
-
-    public StatisticMgr() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mStatistic = null;
-        this.mExecutor = new ScheduledThreadPoolExecutor(1);
-        this.mMapStatistic = new ConcurrentHashMap();
-    }
-
     public static StatisticMgr getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (sInstance == null) {
-                sInstance = new StatisticMgr();
-            }
-            return sInstance;
+        if (sInstance == null) {
+            sInstance = new StatisticMgr();
         }
-        return (StatisticMgr) invokeV.objValue;
+        return sInstance;
     }
 
     public Map<String, StatisticInfo> getMapStatistic() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.mMapStatistic == null) {
-                this.mMapStatistic = new ConcurrentHashMap();
-            }
-            return this.mMapStatistic;
+        if (this.mMapStatistic == null) {
+            this.mMapStatistic = new ConcurrentHashMap();
         }
-        return (Map) invokeV.objValue;
+        return this.mMapStatistic;
     }
 
     public IGslbStatistic getStatistic() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mStatistic;
-        }
-        return (IGslbStatistic) invokeV.objValue;
+        return this.mStatistic;
     }
 
     public void addTask(ThreadInfo threadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, threadInfo) == null) {
-            this.mExecutor.execute(threadInfo);
-        }
+        this.mExecutor.execute(threadInfo);
     }
 
     public StatisticInfo getStatisticInfo(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new StatisticInfo();
-            }
-            StatisticInfo statisticInfo = getMapStatistic().get(str);
-            if (statisticInfo == null) {
-                return new StatisticInfo();
-            }
-            return statisticInfo;
+        if (TextUtils.isEmpty(str)) {
+            return new StatisticInfo();
         }
-        return (StatisticInfo) invokeL.objValue;
+        StatisticInfo statisticInfo = getMapStatistic().get(str);
+        if (statisticInfo == null) {
+            return new StatisticInfo();
+        }
+        return statisticInfo;
     }
 
     public void onStatistic(Map<String, String> map) {
-        IGslbStatistic iGslbStatistic;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, map) != null) || (iGslbStatistic = this.mStatistic) == null) {
+        IGslbStatistic iGslbStatistic = this.mStatistic;
+        if (iGslbStatistic == null) {
             return;
         }
         iGslbStatistic.onStatistic(map);
     }
 
     public void removeStatisticInfo(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            getMapStatistic().remove(str);
-        }
+        getMapStatistic().remove(str);
     }
 
     public void setStatistic(IGslbStatistic iGslbStatistic) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, iGslbStatistic) == null) {
-            this.mStatistic = iGslbStatistic;
-        }
+        this.mStatistic = iGslbStatistic;
     }
 
     public void addTask(ThreadInfo threadInfo, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo, j) == null) {
-            this.mExecutor.schedule(threadInfo, j, TimeUnit.MILLISECONDS);
-        }
+        this.mExecutor.schedule(threadInfo, j, TimeUnit.MILLISECONDS);
     }
 
     public boolean setStatisticInfo(String str, StatisticInfo statisticInfo) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, statisticInfo)) == null) {
-            if (TextUtils.isEmpty(str) || getMapStatistic().containsKey(str)) {
-                return false;
-            }
-            getMapStatistic().put(str, statisticInfo);
-            return true;
+        if (TextUtils.isEmpty(str) || getMapStatistic().containsKey(str)) {
+            return false;
         }
-        return invokeLL.booleanValue;
+        getMapStatistic().put(str, statisticInfo);
+        return true;
     }
 }

@@ -1,114 +1,147 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.util.Pair;
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.aop.annotation.DebugTrace;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.console.property.SwanAppPropertyWindow;
-import com.baidu.swan.apps.res.ui.FullScreenFloatView;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tieba.iu2;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes4.dex */
-public interface hu2 extends iu2.b {
-    ev1 A(String str);
+public class hu2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final int b;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, Integer> a;
 
-    View B(String str);
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final hu2 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    String C();
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-735237241, "Lcom/baidu/tieba/hu2$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-735237241, "Lcom/baidu/tieba/hu2$a;");
+                    return;
+                }
+            }
+            a = new hu2();
+        }
+    }
 
-    w83 D();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947836132, "Lcom/baidu/tieba/hu2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947836132, "Lcom/baidu/tieba/hu2;");
+                return;
+            }
+        }
+        boolean z = wp1.a;
+        ts2.g0().getSwitch("swan_pms_request_retry_count", 1);
+        b = 1;
+    }
 
-    void E(tt2 tt2Var, qr2 qr2Var);
+    public hu2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new ConcurrentHashMap();
+    }
 
-    kq1 F();
+    public static hu2 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a.a;
+        }
+        return (hu2) invokeV.objValue;
+    }
 
-    @NonNull
-    zg3 G();
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a.put(str, Integer.valueOf(c(str) + 1));
+        }
+    }
 
-    e82 H();
+    public final int c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            Integer num = this.a.get(str);
+            if (num == null) {
+                return 0;
+            }
+            return num.intValue();
+        }
+        return invokeL.intValue;
+    }
 
-    void I();
+    public boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (d() && c(str) < b) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 
-    SwanAppPropertyWindow J(Activity activity);
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a.remove(str);
+        }
+    }
 
-    void K(String str);
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = xg4.b().i().getInt("get_pkg_retry_switch", 0);
+            m62.i("GetPkgRetryController", "getServerRetrySwitch:" + i);
+            if (i != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
-    nq1 L();
-
-    SwanCoreVersion M();
-
-    boolean N();
-
-    void O();
-
-    nq1 P();
-
-    void a();
-
-    String b();
-
-    void c();
-
-    void d(tt2 tt2Var, qr2 qr2Var);
-
-    @NonNull
-    l93 e(String str, SwanAppConfigData swanAppConfigData, String str2);
-
-    void exit();
-
-    @NonNull
-    l93 f(String str);
-
-    String g();
-
-    SwanAppActivity getActivity();
-
-    dv1 i();
-
-    @NonNull
-    l93 j(String str);
-
-    boolean k();
-
-    void l(SwanAppActivity swanAppActivity);
-
-    void m(String str, wi2 wi2Var);
-
-    FullScreenFloatView n(Activity activity);
-
-    void o();
-
-    void p();
-
-    @DebugTrace
-    bv1 q();
-
-    @NonNull
-    Pair<Integer, Integer> r();
-
-    void registerReceiver(Context context);
-
-    SwanAppConfigData s();
-
-    void t(Intent intent);
-
-    void u(wi2 wi2Var);
-
-    void unregisterReceiver(Context context);
-
-    void v();
-
-    void w();
-
-    @NonNull
-    Pair<Integer, Integer> x();
-
-    void y(zi2 zi2Var, boolean z);
-
-    String z();
+    public String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            return str + "_" + str2;
+        }
+        return (String) invokeLL.objValue;
+    }
 }

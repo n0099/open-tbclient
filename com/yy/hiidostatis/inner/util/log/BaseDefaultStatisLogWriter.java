@@ -1,22 +1,14 @@
 package com.yy.hiidostatis.inner.util.log;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes8.dex */
 public class BaseDefaultStatisLogWriter implements IBaseStatisLogWriter {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_LEN = 4194304;
     public static final int MAX_LOG_SIZE = 33554432;
     public static final int MIN_LOG_SIZE = 262144;
-    public transient /* synthetic */ FieldHolder $fh;
     public FileWriter fileWriter;
     public boolean isFileExist;
     public AtomicLong length;
@@ -25,20 +17,6 @@ public class BaseDefaultStatisLogWriter implements IBaseStatisLogWriter {
     public final boolean mWriteDebugLog;
 
     public BaseDefaultStatisLogWriter(String str, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mLogMaxLen = 4194304;
         this.isFileExist = false;
         this.fileWriter = null;
@@ -50,114 +28,79 @@ public class BaseDefaultStatisLogWriter implements IBaseStatisLogWriter {
         this.mWriteDebugLog = z;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BaseDefaultStatisLogWriter(String str, boolean z) {
         this(str, 4194304, z);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Boolean) objArr2[2]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    private FileWriter getFileWriter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (this.fileWriter != null && this.length.get() < this.mLogMaxLen) {
-                return this.fileWriter;
-            }
-            synchronized (this) {
-                if (this.fileWriter != null && this.length.get() < this.mLogMaxLen) {
-                    return this.fileWriter;
-                }
-                if (this.fileWriter != null) {
-                    try {
-                        this.fileWriter.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-                try {
-                    File file = new File(this.mFilePath);
-                    if (file.length() > this.mLogMaxLen) {
-                        File file2 = new File(this.mFilePath + "_pre.txt");
-                        file2.delete();
-                        if (!file.renameTo(file2) && !file.delete()) {
-                            return null;
-                        }
-                        file = new File(this.mFilePath);
-                    }
-                    this.length.set(file.length());
-                    if (!file.getParentFile().exists()) {
-                        file.getParentFile().mkdirs();
-                    }
-                    if (!file.exists()) {
-                        file.createNewFile();
-                    }
-                    if (!file.canWrite()) {
-                        return null;
-                    }
-                    FileWriter fileWriter = new FileWriter(file, true);
-                    this.fileWriter = fileWriter;
-                    return fileWriter;
-                } catch (IOException unused) {
-                    return null;
-                }
-            }
-        }
-        return (FileWriter) invokeV.objValue;
-    }
-
-    private boolean writeLogOrThrow(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
-            if (str != null && str.length() != 0) {
-                try {
-                    FileWriter fileWriter = getFileWriter();
-                    this.fileWriter = fileWriter;
-                    if (fileWriter != null) {
-                        fileWriter.write(str);
-                        this.fileWriter.write("\n");
-                        this.length.addAndGet(str.length() + 1);
-                        this.fileWriter.flush();
-                    }
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.yy.hiidostatis.inner.util.log.IBaseStatisLogWriter
-    public boolean outputDebug() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mWriteDebugLog;
-        }
-        return invokeV.booleanValue;
     }
 
     @Override // com.yy.hiidostatis.inner.util.log.IBaseStatisLogWriter
     public void write(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            writeLogOrThrow(str);
+        writeLogOrThrow(str);
+    }
+
+    private FileWriter getFileWriter() {
+        if (this.fileWriter != null && this.length.get() < this.mLogMaxLen) {
+            return this.fileWriter;
         }
+        synchronized (this) {
+            if (this.fileWriter != null && this.length.get() < this.mLogMaxLen) {
+                return this.fileWriter;
+            }
+            if (this.fileWriter != null) {
+                try {
+                    this.fileWriter.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            try {
+                File file = new File(this.mFilePath);
+                if (file.length() > this.mLogMaxLen) {
+                    File file2 = new File(this.mFilePath + "_pre.txt");
+                    file2.delete();
+                    if (!file.renameTo(file2) && !file.delete()) {
+                        return null;
+                    }
+                    file = new File(this.mFilePath);
+                }
+                this.length.set(file.length());
+                if (!file.getParentFile().exists()) {
+                    file.getParentFile().mkdirs();
+                }
+                if (!file.exists()) {
+                    file.createNewFile();
+                }
+                if (!file.canWrite()) {
+                    return null;
+                }
+                FileWriter fileWriter = new FileWriter(file, true);
+                this.fileWriter = fileWriter;
+                return fileWriter;
+            } catch (IOException unused) {
+                return null;
+            }
+        }
+    }
+
+    private boolean writeLogOrThrow(String str) {
+        if (str != null && str.length() != 0) {
+            try {
+                FileWriter fileWriter = getFileWriter();
+                this.fileWriter = fileWriter;
+                if (fileWriter != null) {
+                    fileWriter.write(str);
+                    this.fileWriter.write("\n");
+                    this.length.addAndGet(str.length() + 1);
+                    this.fileWriter.flush();
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+        }
+        return true;
+    }
+
+    @Override // com.yy.hiidostatis.inner.util.log.IBaseStatisLogWriter
+    public boolean outputDebug() {
+        return this.mWriteDebugLog;
     }
 }

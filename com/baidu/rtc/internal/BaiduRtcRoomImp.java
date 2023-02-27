@@ -16,6 +16,7 @@ import android.view.Surface;
 import androidx.core.view.DisplayCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.rtc.BaiduRtcRoom;
 import com.baidu.rtc.CommonDefine;
@@ -43,8 +44,8 @@ import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.searchbox.fluency.utils.FpsConstants;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.e;
-import com.baidu.tieba.pda;
-import com.baidu.tieba.r10;
+import com.baidu.tieba.kma;
+import com.baidu.tieba.v10;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,7 +55,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.android.material.internal.ManufacturerUtils;
-import com.heytap.mcssdk.mode.CommandMessage;
+import com.heytap.mcssdk.constant.b;
+import com.huawei.hms.adapter.internal.CommonCode;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.math.BigInteger;
@@ -144,7 +146,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
     public RTCVideoView mLocalRender;
     public long mLoginSuccessTime;
     public RTCAudioSamples.RTCMixedSamplesReadyCallback mMixedSamplesCallback;
-    public r10 mOnMixedFrameUpdateListener;
+    public v10 mOnMixedFrameUpdateListener;
     public RtcParameterSettings mParamSettings;
     public IdentityHashMap<Long, RTCVideoExternalRender> mPendingRemoveRendererMap;
     public BigInteger mPublisherHandle;
@@ -995,7 +997,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
                 }
             }
         };
-        this.mOnMixedFrameUpdateListener = new r10(this) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.6
+        this.mOnMixedFrameUpdateListener = new v10(this) { // from class: com.baidu.rtc.internal.BaiduRtcRoomImp.6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BaiduRtcRoomImp this$0;
@@ -1018,7 +1020,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
                 this.this$0 = this;
             }
 
-            @Override // com.baidu.tieba.r10
+            @Override // com.baidu.tieba.v10
             public void onFilteredFrameUpdate(byte[] bArr, MediaCodec.BufferInfo bufferInfo) {
                 BaiduRtcRoomImp baiduRtcRoomImp;
                 RTCAudioSamples.RTCMixedSamplesReadyCallback rTCMixedSamplesReadyCallback;
@@ -1074,7 +1076,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
         this.mWebSocketChannel.setSDK(Constraints.sdkVersion());
         this.mAppId = str;
         this.mWebSocketChannel.setDelegate(this);
-        this.rootEglBase = pda.a();
+        this.rootEglBase = kma.a();
         int i3 = 0;
         while (true) {
             boolean[] zArr = this.mHasVideoView;
@@ -2113,6 +2115,35 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    public void reportRoomEventInfo(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65589, this, str) == null) {
+            if ((!this.mIsEnablePushQualityMonitor && !this.mIsEnablePullQualityMonitor) || this.mWebSocketChannel == null) {
+                return;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put(TbEnum.SystemMessage.KEY_USER_NAME, this.mDisplayName);
+                jSONObject2.put("eventDescription", str);
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("roomEvent", jSONObject2);
+                jSONObject.put("env", this.mQualityMonitorEnv);
+                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.mAppId);
+                if (this.mWebSocketChannel != null) {
+                    jSONObject.put("roomId", this.mWebSocketChannel.getRoomId());
+                }
+                jSONObject.put("timestamp", System.currentTimeMillis());
+                jSONObject.put("userId", this.mUserId);
+                jSONObject.put("message", jSONObject3);
+            } catch (JSONException e) {
+                Log.e(TAG, "Caught error on reportRoomEventInfo: " + e);
+            }
+            this.rtcLogReport.report(jSONObject.toString(), 1);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
     public VideoCapturer createVideoCapturer() {
         InterceptResult invokeV;
         VideoCapturer createCameraCapturer;
@@ -2344,35 +2375,6 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
                 }
                 this.mBaiduRtcRoomDelegate.onRoomEventUpdate(201, j, jSONObject.toString());
             }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void reportRoomEventInfo(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65589, this, str) == null) {
-            if ((!this.mIsEnablePushQualityMonitor && !this.mIsEnablePullQualityMonitor) || this.mWebSocketChannel == null) {
-                return;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put(TbEnum.SystemMessage.KEY_USER_NAME, this.mDisplayName);
-                jSONObject2.put("eventDescription", str);
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("roomEvent", jSONObject2);
-                jSONObject.put("env", this.mQualityMonitorEnv);
-                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.mAppId);
-                if (this.mWebSocketChannel != null) {
-                    jSONObject.put("roomId", this.mWebSocketChannel.getRoomId());
-                }
-                jSONObject.put("timestamp", System.currentTimeMillis());
-                jSONObject.put("userId", this.mUserId);
-                jSONObject.put("message", jSONObject3);
-            } catch (JSONException e) {
-                Log.e(TAG, "Caught error on reportRoomEventInfo: " + e);
-            }
-            this.rtcLogReport.report(jSONObject.toString(), 1);
         }
     }
 
@@ -2682,15 +2684,15 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
                     jSONObject4.put("cfps", hashMap.get("fps_s"));
                     jSONObject4.put(FpsConstants.REPORT_FPS, hashMap.get("fps_i"));
                     if (hUDStatistics2 == null) {
-                        jSONObject4.put("resolution", "");
+                        jSONObject4.put(CommonCode.MapKey.HAS_RESOLUTION, "");
                     } else {
-                        jSONObject4.put("resolution", hUDStatistics2.getSendResolution());
+                        jSONObject4.put(CommonCode.MapKey.HAS_RESOLUTION, hUDStatistics2.getSendResolution());
                     }
                 } else {
                     jSONObject4.put("bitrate", 0);
                     jSONObject4.put("packetloss", 0);
                     jSONObject4.put(FpsConstants.REPORT_FPS, 0);
-                    jSONObject4.put("resolution", "");
+                    jSONObject4.put(CommonCode.MapKey.HAS_RESOLUTION, "");
                 }
                 jSONObject2.put("senderQualityInfo", jSONObject4);
             }
@@ -2708,7 +2710,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
                             jSONObject5.put("bitrate", hashMap2.get("bitrate_r"));
                             jSONObject5.put("packetloss", hashMap2.get("packetloss_r"));
                             jSONObject5.put(FpsConstants.REPORT_FPS, hashMap2.get("fps_r"));
-                            jSONObject5.put("resolution", hUDStatistics.getRecvResolution());
+                            jSONObject5.put(CommonCode.MapKey.HAS_RESOLUTION, hUDStatistics.getRecvResolution());
                             jSONArray.put(jSONObject5);
                         }
                     }
@@ -2740,9 +2742,9 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
         JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put(CommandMessage.SDK_VERSION, Constraints.sdkVersion());
+            jSONObject2.put(b.C, Constraints.sdkVersion());
             jSONObject2.put("networkType", RtcLogReport.getNetworkType(this.mContext.get()));
-            jSONObject2.put("device", RtcLogReport.getDeviceModel());
+            jSONObject2.put(Config.DEVICE_PART, RtcLogReport.getDeviceModel());
             JSONObject jSONObject3 = new JSONObject();
             jSONObject3.put(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject2);
             jSONObject.put("env", this.mQualityMonitorEnv);

@@ -9,13 +9,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pc9;
+import com.baidu.tieba.fg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class VideoEffectButtonLayout extends LinearLayout implements View.OnClickListener, pc9.b {
+public class VideoEffectButtonLayout extends LinearLayout implements View.OnClickListener, fg9.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -133,14 +133,14 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
         b();
     }
 
-    @Override // com.baidu.tieba.pc9.b
+    @Override // com.baidu.tieba.fg9.b
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             if (i == 1) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b8f);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b93);
             } else {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b90);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b94);
             }
         }
     }
@@ -155,15 +155,15 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0533, this);
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091393);
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913a0);
-            this.g = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091369);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091381);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fe5);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ffa);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fb8);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fcd);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0545, this);
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913d4);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913e1);
+            this.g = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913aa);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913c2);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091026);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09103b);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff9);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f09100e);
             this.a.setOnClickListener(this);
             this.b.setOnClickListener(this);
             this.c.setOnClickListener(this);
@@ -180,16 +180,16 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
         int id = view2.getId();
         this.j = view2;
         StatisticItem statisticItem = new StatisticItem("c12495");
-        if (id == R.id.obfuscated_res_0x7f090fe5) {
+        if (id == R.id.obfuscated_res_0x7f091026) {
             this.i.A0();
             statisticItem.param("obj_type", 6);
-        } else if (id == R.id.obfuscated_res_0x7f090ffa) {
+        } else if (id == R.id.obfuscated_res_0x7f09103b) {
             this.i.u();
             statisticItem.param("obj_type", 4);
-        } else if (id == R.id.obfuscated_res_0x7f090fb8) {
+        } else if (id == R.id.obfuscated_res_0x7f090ff9) {
             this.i.i0();
             statisticItem.param("obj_type", 3);
-        } else if (id == R.id.obfuscated_res_0x7f090fcd) {
+        } else if (id == R.id.obfuscated_res_0x7f09100e) {
             this.i.S0();
             statisticItem.param("obj_type", 2);
         }

@@ -1,36 +1,14 @@
 package com.baidu.webkit.sdk.system;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebBackForwardList;
 import com.baidu.webkit.sdk.WebHistoryItem;
 import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
 public final class WebBackForwardListImpl extends WebBackForwardList implements Cloneable {
-    public static /* synthetic */ Interceptable $ic;
     public static Method cloneMethod;
-    public transient /* synthetic */ FieldHolder $fh;
     public final android.webkit.WebBackForwardList mList;
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-463272281, "Lcom/baidu/webkit/sdk/system/WebBackForwardListImpl;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-463272281, "Lcom/baidu/webkit/sdk/system/WebBackForwardListImpl;");
-                return;
-            }
-        }
         try {
             cloneMethod = android.webkit.WebBackForwardList.class.getDeclaredMethod("clone", null);
         } catch (Exception e) {
@@ -39,79 +17,47 @@ public final class WebBackForwardListImpl extends WebBackForwardList implements 
     }
 
     public WebBackForwardListImpl(android.webkit.WebBackForwardList webBackForwardList) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {webBackForwardList};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mList = webBackForwardList;
     }
 
     public static WebBackForwardList from(android.webkit.WebBackForwardList webBackForwardList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, webBackForwardList)) == null) {
-            if (webBackForwardList == null) {
-                return null;
-            }
-            return new WebBackForwardListImpl(webBackForwardList);
+        if (webBackForwardList == null) {
+            return null;
         }
-        return (WebBackForwardList) invokeL.objValue;
+        return new WebBackForwardListImpl(webBackForwardList);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.webkit.sdk.WebBackForwardList
     /* renamed from: clone */
     public final WebBackForwardList mo77clone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                if (cloneMethod != null && this.mList != null) {
-                    return from((android.webkit.WebBackForwardList) cloneMethod.invoke(this.mList, null));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+        try {
+            if (cloneMethod != null && this.mList != null) {
+                return from((android.webkit.WebBackForwardList) cloneMethod.invoke(this.mList, null));
             }
-            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return (WebBackForwardList) invokeV.objValue;
+        return null;
     }
 
     @Override // com.baidu.webkit.sdk.WebBackForwardList
     public final int getCurrentIndex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mList.getCurrentIndex() : invokeV.intValue;
+        return this.mList.getCurrentIndex();
     }
 
     @Override // com.baidu.webkit.sdk.WebBackForwardList
     public final WebHistoryItem getCurrentItem() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? WebHistoryItemImpl.from(this.mList.getCurrentItem()) : (WebHistoryItem) invokeV.objValue;
+        return WebHistoryItemImpl.from(this.mList.getCurrentItem());
     }
 
     @Override // com.baidu.webkit.sdk.WebBackForwardList
     public final WebHistoryItem getItemAtIndex(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? WebHistoryItemImpl.from(this.mList.getItemAtIndex(i)) : (WebHistoryItem) invokeI.objValue;
+        return WebHistoryItemImpl.from(this.mList.getItemAtIndex(i));
     }
 
     @Override // com.baidu.webkit.sdk.WebBackForwardList
     public final int getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mList.getSize() : invokeV.intValue;
+        return this.mList.getSize();
     }
 }

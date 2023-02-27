@@ -14,7 +14,7 @@ public class ForumBroadcastMajorResidueData extends OrmObject {
     public int a;
     public int b;
 
-    public void J(int i) {
+    public void Q(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
         }
@@ -34,7 +34,7 @@ public class ForumBroadcastMajorResidueData extends OrmObject {
         }
     }
 
-    public int G() {
+    public int N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -43,7 +43,7 @@ public class ForumBroadcastMajorResidueData extends OrmObject {
         return invokeV.intValue;
     }
 
-    public int H() {
+    public int O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -52,14 +52,14 @@ public class ForumBroadcastMajorResidueData extends OrmObject {
         return invokeV.intValue;
     }
 
-    public void I(int i) {
+    public void P(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             this.b = i;
         }
     }
 
-    public void K(int i) {
+    public void R(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.a = i;

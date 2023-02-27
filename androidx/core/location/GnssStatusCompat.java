@@ -8,17 +8,10 @@ import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes.dex */
 public abstract class GnssStatusCompat {
-    public static /* synthetic */ Interceptable $ic = null;
     @SuppressLint({"InlinedApi"})
     public static final int CONSTELLATION_BEIDOU = 5;
     @SuppressLint({"InlinedApi"})
@@ -35,7 +28,21 @@ public abstract class GnssStatusCompat {
     public static final int CONSTELLATION_SBAS = 2;
     @SuppressLint({"InlinedApi"})
     public static final int CONSTELLATION_UNKNOWN = 0;
-    public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes.dex */
+    public static abstract class Callback {
+        public void onFirstFix(@IntRange(from = 0) int i) {
+        }
+
+        public void onSatelliteStatusChanged(@NonNull GnssStatusCompat gnssStatusCompat) {
+        }
+
+        public void onStarted() {
+        }
+
+        public void onStopped() {
+        }
+    }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -76,83 +83,15 @@ public abstract class GnssStatusCompat {
 
     public abstract boolean usedInFix(@IntRange(from = 0) int i);
 
-    /* loaded from: classes.dex */
-    public static abstract class Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public void onFirstFix(@IntRange(from = 0) int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
-
-        public void onSatelliteStatusChanged(@NonNull GnssStatusCompat gnssStatusCompat) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gnssStatusCompat) == null) {
-            }
-        }
-
-        public void onStarted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        public void onStopped() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        public Callback() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public GnssStatusCompat() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @NonNull
     @RequiresApi(24)
     public static GnssStatusCompat wrap(@NonNull GnssStatus gnssStatus) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, gnssStatus)) == null) {
-            return new GnssStatusWrapper(gnssStatus);
-        }
-        return (GnssStatusCompat) invokeL.objValue;
+        return new GnssStatusWrapper(gnssStatus);
     }
 
     @NonNull
     @SuppressLint({"ReferencesDeprecated"})
     public static GnssStatusCompat wrap(@NonNull GpsStatus gpsStatus) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, gpsStatus)) == null) {
-            return new GpsStatusWrapper(gpsStatus);
-        }
-        return (GnssStatusCompat) invokeL.objValue;
+        return new GpsStatusWrapper(gpsStatus);
     }
 }

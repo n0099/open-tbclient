@@ -4,138 +4,73 @@ import android.graphics.Canvas;
 import android.graphics.SurfaceTexture;
 import android.util.Log;
 import android.view.Surface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class c {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "c";
-    public transient /* synthetic */ FieldHolder $fh;
     public SurfaceTexture dL;
-    public int gv;
-    public int gw;
     public Surface gx;
     public Canvas gy;
-    public boolean gz;
     public int mTextureId;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1109054371, "Lcom/baidu/ar/arplay/d/c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1109054371, "Lcom/baidu/ar/arplay/d/c;");
-        }
-    }
-
-    public c() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.gv = 500;
-        this.gw = 500;
-        this.gz = true;
-    }
+    public int gv = 500;
+    public int gw = 500;
+    public boolean gz = true;
 
     public Surface a(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i, i2, i3)) == null) {
-            this.mTextureId = i;
-            this.dL = new SurfaceTexture(i);
-            f(i2, i3);
-            Surface surface = new Surface(this.dL);
-            this.gx = surface;
-            return surface;
-        }
-        return (Surface) invokeIII.objValue;
+        this.mTextureId = i;
+        this.dL = new SurfaceTexture(i);
+        f(i2, i3);
+        Surface surface = new Surface(this.dL);
+        this.gx = surface;
+        return surface;
     }
 
     public void bo() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Canvas canvas = this.gy;
-            if (canvas != null) {
-                this.gx.unlockCanvasAndPost(canvas);
-            }
-            this.gy = null;
+        Canvas canvas = this.gy;
+        if (canvas != null) {
+            this.gx.unlockCanvasAndPost(canvas);
         }
+        this.gy = null;
     }
 
     public void f(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            this.gv = i;
-            this.gw = i2;
-            this.dL.setDefaultBufferSize(i, i2);
-        }
+        this.gv = i;
+        this.gw = i2;
+        this.dL.setDefaultBufferSize(i, i2);
     }
 
     public Canvas lockCanvas() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.gy = null;
-            Surface surface = this.gx;
-            if (surface != null) {
-                try {
-                    this.gy = surface.lockCanvas(null);
-                } catch (Exception e) {
-                    String str = TAG;
-                    Log.e(str, "error while rendering view to gl: " + e);
-                }
+        this.gy = null;
+        Surface surface = this.gx;
+        if (surface != null) {
+            try {
+                this.gy = surface.lockCanvas(null);
+            } catch (Exception e) {
+                String str = TAG;
+                Log.e(str, "error while rendering view to gl: " + e);
             }
-            return this.gy;
         }
-        return (Canvas) invokeV.objValue;
+        return this.gy;
     }
 
     public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Surface surface = this.gx;
-            if (surface != null) {
-                surface.release();
-            }
-            SurfaceTexture surfaceTexture = this.dL;
-            if (surfaceTexture != null) {
-                surfaceTexture.release();
-            }
-            this.gx = null;
-            this.dL = null;
+        Surface surface = this.gx;
+        if (surface != null) {
+            surface.release();
         }
+        SurfaceTexture surfaceTexture = this.dL;
+        if (surfaceTexture != null) {
+            surfaceTexture.release();
+        }
+        this.gx = null;
+        this.dL = null;
     }
 
     public void update() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            try {
-                this.dL.updateTexImage();
-            } catch (Exception e) {
-                String str = TAG;
-                Log.e(str, "error while update view to gl: " + e);
-            }
+        try {
+            this.dL.updateTexImage();
+        } catch (Exception e) {
+            String str = TAG;
+            Log.e(str, "error while update view to gl: " + e);
         }
     }
 }

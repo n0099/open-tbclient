@@ -1,189 +1,92 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.map.location.model.SelectedLocationInfo;
-import com.baidu.tieba.he4;
-import com.baidu.tieba.xd4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.RectF;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.MarkerOptions;
+import com.baidu.mapapi.map.OverlayOptions;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.gw2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class me4 extends id4<gv2> implements he4.b {
+public class me4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fv2 a;
-    public gv2 b;
 
-    /* loaded from: classes5.dex */
-    public class a implements xd4.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fv2 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ me4 c;
-
-        public a(me4 me4Var, fv2 fv2Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {me4Var, fv2Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static OverlayOptions a(we4 we4Var, ve4 ve4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, we4Var, ve4Var)) == null) {
+            m62.i("map", "createLabel start");
+            if (ve4Var == null) {
+                return null;
+            }
+            gw2 gw2Var = ve4Var.a;
+            if (gw2Var != null && gw2Var.j != null && gw2Var.b != null) {
+                Paint paint = new Paint();
+                paint.setAntiAlias(true);
+                paint.setStyle(Paint.Style.FILL_AND_STROKE);
+                paint.setColor(gw2Var.j.b);
+                paint.setTextSize(gw2Var.j.c);
+                gw2.c cVar = gw2Var.j;
+                float f = cVar.e;
+                float f2 = cVar.j;
+                Paint paint2 = new Paint();
+                paint2.setAntiAlias(true);
+                paint2.setStyle(Paint.Style.FILL_AND_STROKE);
+                paint2.setColor(gw2Var.j.d);
+                String str = gw2Var.j.a;
+                float f3 = f * 2.0f;
+                float measureText = paint.measureText(str) + f3;
+                float f4 = (paint.getFontMetrics().bottom - paint.getFontMetrics().top) + f3;
+                if (f4 > 0.0f && measureText > 0.0f) {
+                    float f5 = gw2Var.j.h;
+                    Bitmap createBitmap = Bitmap.createBitmap((int) (measureText + f5 + 0.5d), (int) (f4 + f5 + 0.5d), Bitmap.Config.ARGB_8888);
+                    createBitmap.eraseColor(Color.argb(0, 0, 0, 0));
+                    Canvas canvas = new Canvas(createBitmap);
+                    canvas.drawColor(0, PorterDuff.Mode.CLEAR);
+                    RectF rectF = new RectF();
+                    float f6 = f5 / 2.0f;
+                    rectF.left = f6;
+                    rectF.top = f6;
+                    rectF.bottom = f4 + f6;
+                    rectF.right = measureText + f6;
+                    canvas.drawRoundRect(rectF, f2, f2, paint2);
+                    if (f5 > 0.0f) {
+                        paint2.setStyle(Paint.Style.STROKE);
+                        paint2.setColor(gw2Var.j.i);
+                        paint2.setStrokeWidth(f5);
+                        canvas.drawRoundRect(rectF, f2, f2, paint2);
+                    }
+                    canvas.drawText(str, f + f6, (-paint.getFontMetrics().top) + f + f6, paint);
+                    ImageView imageView = new ImageView(AppRuntime.getAppContext());
+                    imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
+                    gw2.c cVar2 = gw2Var.j;
+                    imageView.setPadding((int) cVar2.f, (int) cVar2.g, 0, 0);
+                    imageView.setImageBitmap(createBitmap);
+                    BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(imageView);
+                    MarkerOptions markerOptions = new MarkerOptions();
+                    fw2 fw2Var = gw2Var.b;
+                    MarkerOptions zIndex = markerOptions.position(new LatLng(fw2Var.a, fw2Var.b)).icon(fromView).anchor(0.0f, 0.0f).zIndex(66);
+                    m62.i("map", "createLabel end");
+                    return zIndex;
                 }
+                m62.c("map", "label heigth or width is 0");
+                return null;
             }
-            this.c = me4Var;
-            this.a = fv2Var;
-            this.b = str;
+            m62.c("map", "marker data error");
+            return null;
         }
-
-        @Override // com.baidu.tieba.xd4.c
-        public void onFail() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                w52.o("map", "location permission fail");
-                this.a.b(this.b, 1003, "location permission fail");
-            }
-        }
-
-        @Override // com.baidu.tieba.xd4.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                w52.o("map", "location permission success");
-                this.c.g();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947969773, "Lcom/baidu/tieba/me4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947969773, "Lcom/baidu/tieba/me4;");
-                return;
-            }
-        }
-        boolean z = gp1.a;
-    }
-
-    public me4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static me4 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new me4();
-        }
-        return (me4) invokeV.objValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            he4 b3 = he4.b3(null);
-            b3.g3(this);
-            b3.i3();
-        }
-    }
-
-    @Override // com.baidu.tieba.he4.b
-    public void onCancel() {
-        gv2 gv2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            w52.i("map", "choose location cancel");
-            fv2 fv2Var = this.a;
-            if (fv2Var != null && (gv2Var = this.b) != null) {
-                fv2Var.b(gv2Var.z, 1002, "choose location canceled");
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.he4.b
-    public void onError() {
-        gv2 gv2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            w52.i("map", "choose location fail");
-            fv2 fv2Var = this.a;
-            if (fv2Var != null && (gv2Var = this.b) != null) {
-                fv2Var.b(gv2Var.z, 1007, "choose location failed");
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.he4.b
-    public void a(SelectedLocationInfo selectedLocationInfo) {
-        fv2 fv2Var;
-        gv2 gv2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, selectedLocationInfo) == null) && (fv2Var = this.a) != null && (gv2Var = this.b) != null) {
-            fv2Var.c(gv2Var.z, selectedLocationInfo.toJson());
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.id4
-    /* renamed from: f */
-    public boolean b(Context context, gv2 gv2Var, fv2 fv2Var, w83 w83Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, gv2Var, fv2Var, w83Var, jSONObject)) == null) {
-            return e(context, gv2Var, fv2Var, w83Var);
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final boolean e(Context context, gv2 gv2Var, fv2 fv2Var, w83 w83Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, gv2Var, fv2Var, w83Var)) == null) {
-            w52.i("map", "ChooseLocationAction start");
-            if (!gv2Var.isValid()) {
-                w52.c("map", "model is invalid");
-                return false;
-            }
-            String str = gv2Var.z;
-            if (TextUtils.isEmpty(str)) {
-                w52.c("map", "cb is empty");
-                return false;
-            }
-            this.a = fv2Var;
-            this.b = gv2Var;
-            xd4.b(context, new a(this, fv2Var, str));
-            w52.i("map", "ChooseLocationAction end");
-            return true;
-        }
-        return invokeLLLL.booleanValue;
+        return (OverlayOptions) invokeLL.objValue;
     }
 }

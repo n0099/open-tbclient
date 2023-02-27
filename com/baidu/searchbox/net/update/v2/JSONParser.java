@@ -1,44 +1,21 @@
 package com.baidu.searchbox.net.update.v2;
 
 import android.annotation.SuppressLint;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import java.io.IOException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class JSONParser {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.searchbox.net.update.v2.JSONParser$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1034731186, "Lcom/baidu/searchbox/net/update/v2/JSONParser$1;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1034731186, "Lcom/baidu/searchbox/net/update/v2/JSONParser$1;");
-                    return;
-                }
-            }
             int[] iArr = new int[JsonToken.values().length];
             $SwitchMap$com$google$gson$stream$JsonToken = iArr;
             try {
@@ -68,83 +45,54 @@ public class JSONParser {
         }
     }
 
-    public JSONParser() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static JSONArray readJSONArray(JsonReader jsonReader) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jsonReader)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            jsonReader.beginArray();
-            while (jsonReader.hasNext()) {
-                jSONArray.put(readObject(jsonReader));
-            }
-            jsonReader.endArray();
-            return jSONArray;
+        JSONArray jSONArray = new JSONArray();
+        jsonReader.beginArray();
+        while (jsonReader.hasNext()) {
+            jSONArray.put(readObject(jsonReader));
         }
-        return (JSONArray) invokeL.objValue;
+        jsonReader.endArray();
+        return jSONArray;
     }
 
     @SuppressLint({"BDThrowableCheck"})
     public static JSONObject readJSONObject(JsonReader jsonReader) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jsonReader)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jsonReader.beginObject();
-            while (jsonReader.hasNext()) {
-                try {
-                    jSONObject.put(jsonReader.nextName(), readObject(jsonReader));
-                } catch (JSONException e) {
-                    throw new IOException(e);
-                }
+        JSONObject jSONObject = new JSONObject();
+        jsonReader.beginObject();
+        while (jsonReader.hasNext()) {
+            try {
+                jSONObject.put(jsonReader.nextName(), readObject(jsonReader));
+            } catch (JSONException e) {
+                throw new IOException(e);
             }
-            jsonReader.endObject();
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
+        jsonReader.endObject();
+        return jSONObject;
     }
 
     @SuppressLint({"BDThrowableCheck"})
     public static Object readObject(JsonReader jsonReader) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jsonReader)) == null) {
-            switch (AnonymousClass1.$SwitchMap$com$google$gson$stream$JsonToken[jsonReader.peek().ordinal()]) {
-                case 1:
-                    return readJSONArray(jsonReader);
-                case 2:
-                    return readJSONObject(jsonReader);
-                case 3:
-                    return jsonReader.nextString();
-                case 4:
-                    double nextDouble = jsonReader.nextDouble();
-                    int i = (int) nextDouble;
-                    if (i == nextDouble) {
-                        return Integer.valueOf(i);
-                    }
-                    return Double.valueOf(nextDouble);
-                case 5:
-                    return Boolean.valueOf(jsonReader.nextBoolean());
-                case 6:
-                    jsonReader.nextNull();
-                    return null;
-                default:
-                    throw new IllegalStateException();
-            }
+        switch (AnonymousClass1.$SwitchMap$com$google$gson$stream$JsonToken[jsonReader.peek().ordinal()]) {
+            case 1:
+                return readJSONArray(jsonReader);
+            case 2:
+                return readJSONObject(jsonReader);
+            case 3:
+                return jsonReader.nextString();
+            case 4:
+                double nextDouble = jsonReader.nextDouble();
+                int i = (int) nextDouble;
+                if (i == nextDouble) {
+                    return Integer.valueOf(i);
+                }
+                return Double.valueOf(nextDouble);
+            case 5:
+                return Boolean.valueOf(jsonReader.nextBoolean());
+            case 6:
+                jsonReader.nextNull();
+                return null;
+            default:
+                throw new IllegalStateException();
         }
-        return invokeL.objValue;
     }
 }

@@ -1,47 +1,46 @@
 package com.baidu.tieba;
 
+import android.os.Build;
+import com.baidu.live.framework.usersecurity.LiveUserSecurityDeviceInfoManagerKt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class qc0 {
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes5.dex */
+public final class qc0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T> int a(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                return list.size();
-            }
-            return 0;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948086891, "Lcom/baidu/tieba/qc0;")) == null) {
+            return;
         }
-        return invokeL.intValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948086891, "Lcom/baidu/tieba/qc0;");
+        }
     }
 
-    public static <T> boolean c(List<T> list) {
-        InterceptResult invokeL;
+    @JvmStatic
+    public static final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            if (a(list) <= 0) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (LiveUserSecurityDeviceInfoManagerKt.d()) {
+                return LiveUserSecurityDeviceInfoManagerKt.b(null, 1, null);
             }
-            return false;
+            String str = Build.MANUFACTURER;
+            Intrinsics.checkExpressionValueIsNotNull(str, "Build.MANUFACTURER");
+            return str;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static <T> T b(List<T> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
-            if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
-                return null;
-            }
-            return list.get(i);
-        }
-        return (T) invokeLI.objValue;
+        return (String) invokeV.objValue;
     }
 }

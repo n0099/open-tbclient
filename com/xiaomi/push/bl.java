@@ -1,138 +1,184 @@
 package com.xiaomi.push;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.huawei.hms.common.internal.TransactionIdCreater;
 /* loaded from: classes8.dex */
 public class bl {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<a> a;
 
-    /* loaded from: classes8.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final bl a;
-        public transient /* synthetic */ FieldHolder $fh;
+    /* renamed from: a  reason: collision with other field name */
+    public static byte[] f148a;
+    public static final String a = System.getProperty("line.separator");
 
-        /* renamed from: a  reason: collision with other field name */
-        public int f166a;
+    /* renamed from: a  reason: collision with other field name */
+    public static char[] f149a = new char[64];
 
-        /* renamed from: a  reason: collision with other field name */
-        public Object f167a;
-
-        /* renamed from: a  reason: collision with other field name */
-        public String f168a;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1654750041, "Lcom/xiaomi/push/bl$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1654750041, "Lcom/xiaomi/push/bl$a;");
-                    return;
-                }
-            }
-            a = new bl();
+    static {
+        char c = 'A';
+        int i = 0;
+        while (c <= 'Z') {
+            f149a[i] = c;
+            c = (char) (c + 1);
+            i++;
         }
-
-        public a(int i, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), obj};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
+        char c2 = 'a';
+        while (c2 <= 'z') {
+            f149a[i] = c2;
+            c2 = (char) (c2 + 1);
+            i++;
+        }
+        char c3 = TransactionIdCreater.FILL_BYTE;
+        while (c3 <= '9') {
+            f149a[i] = c3;
+            c3 = (char) (c3 + 1);
+            i++;
+        }
+        char[] cArr = f149a;
+        cArr[i] = '+';
+        cArr[i + 1] = WebvttCueParser.CHAR_SLASH;
+        f148a = new byte[128];
+        int i2 = 0;
+        while (true) {
+            byte[] bArr = f148a;
+            if (i2 >= bArr.length) {
+                break;
             }
-            this.f166a = i;
-            this.f167a = obj;
+            bArr[i2] = -1;
+            i2++;
+        }
+        for (int i3 = 0; i3 < 64; i3++) {
+            f148a[f149a[i3]] = (byte) i3;
         }
     }
 
-    public bl() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new LinkedList<>();
-    }
-
-    public static bl a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (bl) invokeV.objValue;
+    public static String a(String str) {
+        return new String(a(str.getBytes()));
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m216a() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.a.size() <= 100) {
-            return;
-        }
-        this.a.removeFirst();
+    public static byte[] m213a(String str) {
+        return a(str.toCharArray());
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m217a() {
-        InterceptResult invokeV;
-        int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                size = this.a.size();
-            }
-            return size;
-        }
-        return invokeV.intValue;
+    public static byte[] a(char[] cArr) {
+        return a(cArr, 0, cArr.length);
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public synchronized LinkedList<a> m218a() {
-        InterceptResult invokeV;
-        LinkedList<a> linkedList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                linkedList = this.a;
-                this.a = new LinkedList<>();
+    public static byte[] a(char[] cArr, int i, int i2) {
+        int i3;
+        char c;
+        int i4;
+        char c2;
+        if (i2 % 4 == 0) {
+            while (i2 > 0 && cArr[(i + i2) - 1] == '=') {
+                i2--;
             }
-            return linkedList;
+            int i5 = (i2 * 3) / 4;
+            byte[] bArr = new byte[i5];
+            int i6 = i2 + i;
+            int i7 = 0;
+            while (i < i6) {
+                int i8 = i + 1;
+                char c3 = cArr[i];
+                int i9 = i8 + 1;
+                char c4 = cArr[i8];
+                if (i9 < i6) {
+                    i3 = i9 + 1;
+                    c = cArr[i9];
+                } else {
+                    i3 = i9;
+                    c = 'A';
+                }
+                if (i3 < i6) {
+                    i4 = i3 + 1;
+                    c2 = cArr[i3];
+                } else {
+                    i4 = i3;
+                    c2 = 'A';
+                }
+                if (c3 > 127 || c4 > 127 || c > 127 || c2 > 127) {
+                    throw new IllegalArgumentException("Illegal character in Base64 encoded data.");
+                }
+                byte[] bArr2 = f148a;
+                byte b = bArr2[c3];
+                byte b2 = bArr2[c4];
+                byte b3 = bArr2[c];
+                byte b4 = bArr2[c2];
+                if (b < 0 || b2 < 0 || b3 < 0 || b4 < 0) {
+                    throw new IllegalArgumentException("Illegal character in Base64 encoded data.");
+                }
+                int i10 = (b << 2) | (b2 >>> 4);
+                int i11 = ((b2 & 15) << 4) | (b3 >>> 2);
+                int i12 = ((b3 & 3) << 6) | b4;
+                int i13 = i7 + 1;
+                bArr[i7] = (byte) i10;
+                if (i13 < i5) {
+                    bArr[i13] = (byte) i11;
+                    i13++;
+                }
+                if (i13 < i5) {
+                    bArr[i13] = (byte) i12;
+                    i7 = i13 + 1;
+                } else {
+                    i7 = i13;
+                }
+                i = i4;
+            }
+            return bArr;
         }
-        return (LinkedList) invokeV.objValue;
+        throw new IllegalArgumentException("Length of Base64 encoded input string is not a multiple of 4.");
     }
 
-    public synchronized void a(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            synchronized (this) {
-                this.a.add(new a(0, obj));
-                m216a();
+    public static char[] a(byte[] bArr) {
+        return a(bArr, 0, bArr.length);
+    }
+
+    public static char[] a(byte[] bArr, int i, int i2) {
+        int i3;
+        int i4;
+        int i5;
+        int i6 = ((i2 * 4) + 2) / 3;
+        char[] cArr = new char[((i2 + 2) / 3) * 4];
+        int i7 = i2 + i;
+        int i8 = 0;
+        while (i < i7) {
+            int i9 = i + 1;
+            int i10 = bArr[i] & 255;
+            if (i9 < i7) {
+                i3 = i9 + 1;
+                i4 = bArr[i9] & 255;
+            } else {
+                i3 = i9;
+                i4 = 0;
             }
+            if (i3 < i7) {
+                i5 = bArr[i3] & 255;
+                i3++;
+            } else {
+                i5 = 0;
+            }
+            int i11 = i10 >>> 2;
+            int i12 = ((i10 & 3) << 4) | (i4 >>> 4);
+            int i13 = ((i4 & 15) << 2) | (i5 >>> 6);
+            int i14 = i5 & 63;
+            int i15 = i8 + 1;
+            char[] cArr2 = f149a;
+            cArr[i8] = cArr2[i11];
+            int i16 = i15 + 1;
+            cArr[i15] = cArr2[i12];
+            char c = '=';
+            cArr[i16] = i16 < i6 ? cArr2[i13] : '=';
+            int i17 = i16 + 1;
+            if (i17 < i6) {
+                c = f149a[i14];
+            }
+            cArr[i17] = c;
+            i8 = i17 + 1;
+            i = i3;
         }
+        return cArr;
+    }
+
+    public static String b(String str) {
+        return new String(m213a(str));
     }
 }

@@ -1,276 +1,187 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
-import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdRecyclerView;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.pageInfo.TbPageTag;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.filedownloader.FileDownloaderProxy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public abstract class as6<T, V extends TypeAdapter.ViewHolder> extends qn<T, V> {
+public final class as6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public FrsViewData b;
-    public TbPageContext<?> c;
-    public vr6 d;
-    public jo e;
-    public int f;
-    public yr6 g;
-    public boolean h;
-    public ld6 i;
-    public TbPageTag j;
-    public boolean k;
 
-    public void D(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+    /* loaded from: classes3.dex */
+    public static final class a implements ds6 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ DownloadData a;
+
+        @Override // com.baidu.tieba.ds6
+        public void a(DownloadData data) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
+                Intrinsics.checkNotNullParameter(data, "data");
+            }
         }
-    }
 
-    public void setFrom(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        @Override // com.baidu.tieba.ds6
+        public void b(DownloadData data) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
+                Intrinsics.checkNotNullParameter(data, "data");
+            }
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947625797, "Lcom/baidu/tieba/as6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        @Override // com.baidu.tieba.ds6
+        public void f(DownloadData data) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, data) == null) {
+                Intrinsics.checkNotNullParameter(data, "data");
+            }
+        }
+
+        public a(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {downloadData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947625797, "Lcom/baidu/tieba/as6;");
-                return;
+            this.a = downloadData;
+        }
+
+        @Override // com.baidu.tieba.ds6
+        public void c(DownloadData data) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
+                Intrinsics.checkNotNullParameter(data, "data");
+                dw4.c().b(TbadkCoreStatisticKey.FILE_DOWNLOAD_COMPLETION, String.valueOf(this.a.getSource()), this.a.getName(), this.a.getUrl());
             }
         }
-        Resources resources = TbadkCoreApplication.getInst().getContext().getResources();
-        resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070303);
-        resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be);
-        resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198);
+
+        @Override // com.baidu.tieba.ds6
+        public void d(DownloadData data) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, data) == null) {
+                Intrinsics.checkNotNullParameter(data, "data");
+                dw4.c().b(TbadkCoreStatisticKey.FILE_DOWNLOAD_PAUSE, String.valueOf(this.a.getSource()), this.a.getName(), this.a.getUrl());
+            }
+        }
+
+        @Override // com.baidu.tieba.ds6
+        public void e(DownloadData data) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, data) == null) {
+                Intrinsics.checkNotNullParameter(data, "data");
+                dw4.c().b(TbadkCoreStatisticKey.FILE_DOWNLOAD_DELETE, String.valueOf(this.a.getSource()), this.a.getName(), this.a.getUrl());
+            }
+        }
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public as6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(r1, bdUniqueId);
-        Activity pageActivity;
+    public as6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        if (tbPageContext == null) {
-            pageActivity = null;
-        } else {
-            pageActivity = tbPageContext.getPageActivity();
-        }
-        this.a = false;
-        this.j = null;
-        m(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
     }
 
-    public View s(ViewGroup viewGroup, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) {
-            if (viewGroup == null) {
-                return null;
-            }
-            if (viewGroup instanceof ListView) {
-                ListView listView = (ListView) viewGroup;
-                return listView.getChildAt(i - (listView.getFirstVisiblePosition() - listView.getHeaderViewsCount()));
-            } else if (viewGroup instanceof BdRecyclerView) {
-                BdRecyclerView bdRecyclerView = (BdRecyclerView) viewGroup;
-                return bdRecyclerView.findViewHolderForAdapterPosition(i - (bdRecyclerView.getFirstVisiblePosition() - bdRecyclerView.getHeaderViewsCount())).itemView;
-            } else if (!(viewGroup instanceof RecyclerView)) {
-                return null;
-            } else {
-                return ((RecyclerView) viewGroup).findViewHolderForAdapterPosition(i).itemView;
-            }
-        }
-        return (View) invokeLI.objValue;
-    }
-
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public as6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(r1, bdUniqueId, bdUniqueId2);
-        Activity pageActivity;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        if (tbPageContext == null) {
-            pageActivity = null;
-        } else {
-            pageActivity = tbPageContext.getPageActivity();
-        }
-        this.a = false;
-        this.j = null;
-        m(tbPageContext, bdUniqueId2);
-    }
-
-    public void A(jo joVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, joVar) == null) {
-            this.e = joVar;
-        }
-    }
-
-    public void B(ld6 ld6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ld6Var) == null) {
-            this.i = ld6Var;
-        }
-    }
-
-    public void C(TbPageTag tbPageTag) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbPageTag) == null) {
-            this.j = tbPageTag;
-        }
-    }
-
-    public void setFromCDN(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void w(yr6 yr6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, yr6Var) == null) {
-            this.g = yr6Var;
-        }
-    }
-
-    public void x(vr6 vr6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, vr6Var) == null) {
-            this.d = vr6Var;
-        }
-    }
-
-    public void y(FrsViewData frsViewData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, frsViewData) == null) {
-            this.b = frsViewData;
-        }
-    }
-
-    public void z(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.k = z;
-        }
-    }
-
-    public void m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, tbPageContext, bdUniqueId) == null) && tbPageContext != null) {
-            this.mContext = tbPageContext.getPageActivity();
-            this.c = tbPageContext;
-            this.mPageId = bdUniqueId;
-        }
-    }
-
-    @Override // com.baidu.tieba.qn
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
-            this.f = TbadkCoreApplication.getInst().getSkinType();
-            this.e = (jo) viewGroup;
-            if (t instanceof wz4) {
-                ((wz4) t).t.setResource(2);
-                return null;
-            }
-            return null;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public TbPageTag t() {
+    public final cs6 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return FileDownloaderProxy.b.a(1);
         }
-        return (TbPageTag) invokeV.objValue;
+        return (cs6) invokeV.objValue;
     }
 
-    public boolean u() {
-        InterceptResult invokeV;
+    public final void a(ds6 callback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.h;
+        if (interceptable == null || interceptable.invokeL(1048576, this, callback) == null) {
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            c().a(callback);
         }
-        return invokeV.booleanValue;
     }
 
-    public void v() {
+    public final void b(DownloadData data) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.mContext = null;
-            this.c = null;
-            this.d = null;
-            this.mAdapterItemClickListener = null;
-            this.mAdapterItemLongClickListener = null;
-            yr6 yr6Var = this.g;
-            if (yr6Var != null) {
-                yr6Var.a();
-                this.g = null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            c().c(data);
+        }
+    }
+
+    public final int d(DownloadData data) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, data)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            return c().f(data);
+        }
+        return invokeL.intValue;
+    }
+
+    public final int e(DownloadData data) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, data)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            return c().d(data);
+        }
+        return invokeL.intValue;
+    }
+
+    public final void f(DownloadData data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            c().e(data);
+        }
+    }
+
+    public final void g(ds6 callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, callback) == null) {
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            c().g(callback);
+        }
+    }
+
+    public final boolean h(DownloadData downloadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, downloadData)) == null) {
+            Intrinsics.checkNotNullParameter(downloadData, "downloadData");
+            int d = c().d(downloadData);
+            boolean b = c().b(downloadData, new a(downloadData));
+            if (b) {
+                if (d == 7) {
+                    dw4.c().b(TbadkCoreStatisticKey.FILE_DOWNLOAD_RESUME, String.valueOf(downloadData.getSource()), downloadData.getName(), downloadData.getUrl());
+                } else {
+                    dw4.c().b(TbadkCoreStatisticKey.FILE_DOWNLOAD_START, String.valueOf(downloadData.getSource()), downloadData.getName(), downloadData.getUrl());
+                }
             }
+            return b;
         }
+        return invokeL.booleanValue;
     }
 }

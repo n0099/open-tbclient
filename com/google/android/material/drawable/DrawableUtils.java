@@ -17,90 +17,55 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.XmlRes;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import org.xmlpull.v1.XmlPullParserException;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class DrawableUtils {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public DrawableUtils() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @NonNull
     public static AttributeSet parseDrawableXml(@NonNull Context context, @XmlRes int i, @NonNull CharSequence charSequence) {
         int next;
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, context, i, charSequence)) == null) {
-            try {
-                XmlResourceParser xml = context.getResources().getXml(i);
-                do {
-                    next = xml.next();
-                    if (next == 2) {
-                        break;
-                    }
-                } while (next != 1);
+        try {
+            XmlResourceParser xml = context.getResources().getXml(i);
+            do {
+                next = xml.next();
                 if (next == 2) {
-                    if (TextUtils.equals(xml.getName(), charSequence)) {
-                        return Xml.asAttributeSet(xml);
-                    }
-                    throw new XmlPullParserException("Must have a <" + ((Object) charSequence) + "> start tag");
+                    break;
                 }
-                throw new XmlPullParserException("No start tag found");
-            } catch (IOException | XmlPullParserException e) {
-                Resources.NotFoundException notFoundException = new Resources.NotFoundException("Can't load badge resource ID #0x" + Integer.toHexString(i));
-                notFoundException.initCause(e);
-                throw notFoundException;
+            } while (next != 1);
+            if (next == 2) {
+                if (TextUtils.equals(xml.getName(), charSequence)) {
+                    return Xml.asAttributeSet(xml);
+                }
+                throw new XmlPullParserException("Must have a <" + ((Object) charSequence) + "> start tag");
             }
+            throw new XmlPullParserException("No start tag found");
+        } catch (IOException | XmlPullParserException e) {
+            Resources.NotFoundException notFoundException = new Resources.NotFoundException("Can't load badge resource ID #0x" + Integer.toHexString(i));
+            notFoundException.initCause(e);
+            throw notFoundException;
         }
-        return (AttributeSet) invokeLIL.objValue;
     }
 
     @TargetApi(21)
     public static void setRippleDrawableRadius(@Nullable RippleDrawable rippleDrawable, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, rippleDrawable, i) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                rippleDrawable.setRadius(i);
-                return;
-            }
-            try {
-                RippleDrawable.class.getDeclaredMethod("setMaxRadius", Integer.TYPE).invoke(rippleDrawable, Integer.valueOf(i));
-            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
-                throw new IllegalStateException("Couldn't set RippleDrawable radius", e);
-            }
+        if (Build.VERSION.SDK_INT >= 23) {
+            rippleDrawable.setRadius(i);
+            return;
+        }
+        try {
+            RippleDrawable.class.getDeclaredMethod("setMaxRadius", Integer.TYPE).invoke(rippleDrawable, Integer.valueOf(i));
+        } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+            throw new IllegalStateException("Couldn't set RippleDrawable radius", e);
         }
     }
 
     @Nullable
     public static PorterDuffColorFilter updateTintFilter(@NonNull Drawable drawable, @Nullable ColorStateList colorStateList, @Nullable PorterDuff.Mode mode) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, drawable, colorStateList, mode)) == null) {
-            if (colorStateList != null && mode != null) {
-                return new PorterDuffColorFilter(colorStateList.getColorForState(drawable.getState(), 0), mode);
-            }
-            return null;
+        if (colorStateList != null && mode != null) {
+            return new PorterDuffColorFilter(colorStateList.getColorForState(drawable.getState(), 0), mode);
         }
-        return (PorterDuffColorFilter) invokeLLL.objValue;
+        return null;
     }
 }

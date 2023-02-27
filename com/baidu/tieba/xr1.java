@@ -1,23 +1,27 @@
 package com.baidu.tieba;
 
+import android.content.ContentValues;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class xr1 implements ku1 {
+import java.util.List;
+/* loaded from: classes6.dex */
+public class xr1 implements cu1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ku1
-    public boolean a() {
+    @Override // com.baidu.tieba.cu1
+    @Nullable
+    public List<ContentValues> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
+            return null;
         }
-        return invokeV.booleanValue;
+        return (List) invokeV.objValue;
     }
 
     public xr1() {

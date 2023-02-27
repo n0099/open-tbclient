@@ -8,98 +8,30 @@ import android.widget.ListView;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.widget.TintTypedArray;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public final class ExpandedMenuView extends ListView implements MenuBuilder.ItemInvoker, MenuView, AdapterView.OnItemClickListener {
-    public static /* synthetic */ Interceptable $ic;
-    public static final int[] TINT_ATTRS;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final int[] TINT_ATTRS = {16842964, 16843049};
     public int mAnimations;
     public MenuBuilder mMenu;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1075302478, "Landroidx/appcompat/view/menu/ExpandedMenuView;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1075302478, "Landroidx/appcompat/view/menu/ExpandedMenuView;");
-                return;
-            }
-        }
-        TINT_ATTRS = new int[]{16842964, 16843049};
-    }
-
     @Override // androidx.appcompat.view.menu.MenuView
     public int getWindowAnimations() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mAnimations;
-        }
-        return invokeV.intValue;
+        return this.mAnimations;
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onDetachedFromWindow();
-            setChildrenDrawingCacheEnabled(false);
-        }
+        super.onDetachedFromWindow();
+        setChildrenDrawingCacheEnabled(false);
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ExpandedMenuView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 16842868);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ExpandedMenuView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         setOnItemClickListener(this);
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, TINT_ATTRS, i, 0);
         if (obtainStyledAttributes.hasValue(0)) {
@@ -113,27 +45,16 @@ public final class ExpandedMenuView extends ListView implements MenuBuilder.Item
 
     @Override // androidx.appcompat.view.menu.MenuView
     public void initialize(MenuBuilder menuBuilder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder) == null) {
-            this.mMenu = menuBuilder;
-        }
+        this.mMenu = menuBuilder;
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder.ItemInvoker
     public boolean invokeItem(MenuItemImpl menuItemImpl) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, menuItemImpl)) == null) {
-            return this.mMenu.performItemAction(menuItemImpl, 0);
-        }
-        return invokeL.booleanValue;
+        return this.mMenu.performItemAction(menuItemImpl, 0);
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            invokeItem((MenuItemImpl) getAdapter().getItem(i));
-        }
+        invokeItem((MenuItemImpl) getAdapter().getItem(i));
     }
 }

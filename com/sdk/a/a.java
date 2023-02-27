@@ -2,6 +2,7 @@ package com.sdk.a;
 
 import android.net.ConnectivityManager;
 import android.net.Network;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,12 +38,19 @@ public class a extends ConnectivityManager.NetworkCallback {
 
     @Override // android.net.ConnectivityManager.NetworkCallback
     public void onAvailable(Network network) {
+        HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, network) == null) {
             b.c = network;
             try {
                 this.b.f = (HttpURLConnection) network.openConnection(this.a);
             } catch (IOException unused) {
+                String str = b.a;
+                StringBuilder sb = new StringBuilder();
+                sb.append("onAvailable: ");
+                httpURLConnection = this.b.f;
+                sb.append(httpURLConnection.getURL());
+                Log.d(str, sb.toString());
             }
         }
     }

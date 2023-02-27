@@ -10,19 +10,10 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class ContentFrameLayout extends FrameLayout {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public OnAttachListener mAttachListener;
     public final Rect mDecorPadding;
     public TypedValue mFixedHeightMajor;
@@ -39,192 +30,99 @@ public class ContentFrameLayout extends FrameLayout {
         void onDetachedFromWindow();
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ContentFrameLayout(@NonNull Context context) {
         this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ContentFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ContentFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mDecorPadding = new Rect();
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void dispatchFitSystemWindows(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, rect) == null) {
-            fitSystemWindows(rect);
-        }
+        fitSystemWindows(rect);
     }
 
     public void setAttachListener(OnAttachListener onAttachListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, onAttachListener) == null) {
-            this.mAttachListener = onAttachListener;
-        }
+        this.mAttachListener = onAttachListener;
+    }
+
+    public ContentFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+    }
+
+    public ContentFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.mDecorPadding = new Rect();
     }
 
     public TypedValue getFixedHeightMajor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.mFixedHeightMajor == null) {
-                this.mFixedHeightMajor = new TypedValue();
-            }
-            return this.mFixedHeightMajor;
+        if (this.mFixedHeightMajor == null) {
+            this.mFixedHeightMajor = new TypedValue();
         }
-        return (TypedValue) invokeV.objValue;
+        return this.mFixedHeightMajor;
     }
 
     public TypedValue getFixedHeightMinor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.mFixedHeightMinor == null) {
-                this.mFixedHeightMinor = new TypedValue();
-            }
-            return this.mFixedHeightMinor;
+        if (this.mFixedHeightMinor == null) {
+            this.mFixedHeightMinor = new TypedValue();
         }
-        return (TypedValue) invokeV.objValue;
+        return this.mFixedHeightMinor;
     }
 
     public TypedValue getFixedWidthMajor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.mFixedWidthMajor == null) {
-                this.mFixedWidthMajor = new TypedValue();
-            }
-            return this.mFixedWidthMajor;
+        if (this.mFixedWidthMajor == null) {
+            this.mFixedWidthMajor = new TypedValue();
         }
-        return (TypedValue) invokeV.objValue;
+        return this.mFixedWidthMajor;
     }
 
     public TypedValue getFixedWidthMinor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.mFixedWidthMinor == null) {
-                this.mFixedWidthMinor = new TypedValue();
-            }
-            return this.mFixedWidthMinor;
+        if (this.mFixedWidthMinor == null) {
+            this.mFixedWidthMinor = new TypedValue();
         }
-        return (TypedValue) invokeV.objValue;
+        return this.mFixedWidthMinor;
     }
 
     public TypedValue getMinWidthMajor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.mMinWidthMajor == null) {
-                this.mMinWidthMajor = new TypedValue();
-            }
-            return this.mMinWidthMajor;
+        if (this.mMinWidthMajor == null) {
+            this.mMinWidthMajor = new TypedValue();
         }
-        return (TypedValue) invokeV.objValue;
+        return this.mMinWidthMajor;
     }
 
     public TypedValue getMinWidthMinor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.mMinWidthMinor == null) {
-                this.mMinWidthMinor = new TypedValue();
-            }
-            return this.mMinWidthMinor;
+        if (this.mMinWidthMinor == null) {
+            this.mMinWidthMinor = new TypedValue();
         }
-        return (TypedValue) invokeV.objValue;
+        return this.mMinWidthMinor;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onAttachedToWindow();
-            OnAttachListener onAttachListener = this.mAttachListener;
-            if (onAttachListener != null) {
-                onAttachListener.onAttachedFromWindow();
-            }
+        super.onAttachedToWindow();
+        OnAttachListener onAttachListener = this.mAttachListener;
+        if (onAttachListener != null) {
+            onAttachListener.onAttachedFromWindow();
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.onDetachedFromWindow();
-            OnAttachListener onAttachListener = this.mAttachListener;
-            if (onAttachListener != null) {
-                onAttachListener.onDetachedFromWindow();
-            }
+        super.onDetachedFromWindow();
+        OnAttachListener onAttachListener = this.mAttachListener;
+        if (onAttachListener != null) {
+            onAttachListener.onDetachedFromWindow();
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:23:0x004e  */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0067  */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x008a  */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x00af  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x00b2  */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x00bc  */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x00c2  */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x00d0  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x00da  */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x00e2  */
-    /* JADX WARN: Removed duplicated region for block: B:66:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x004a  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0063  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0086  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00ab  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00ae  */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00b8  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x00be  */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x00cc  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x00d6  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x00de  */
+    /* JADX WARN: Removed duplicated region for block: B:61:? A[RETURN, SYNTHETIC] */
     @Override // android.widget.FrameLayout, android.view.View
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -245,139 +143,133 @@ public class ContentFrameLayout extends FrameLayout {
         int i7;
         int i8;
         float fraction3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
-            DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics();
-            boolean z3 = true;
-            if (displayMetrics.widthPixels < displayMetrics.heightPixels) {
-                z = true;
+        DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics();
+        boolean z3 = true;
+        if (displayMetrics.widthPixels < displayMetrics.heightPixels) {
+            z = true;
+        } else {
+            z = false;
+        }
+        int mode = View.MeasureSpec.getMode(i);
+        int mode2 = View.MeasureSpec.getMode(i2);
+        if (mode == Integer.MIN_VALUE) {
+            if (z) {
+                typedValue3 = this.mFixedWidthMinor;
             } else {
-                z = false;
+                typedValue3 = this.mFixedWidthMajor;
             }
-            int mode = View.MeasureSpec.getMode(i);
-            int mode2 = View.MeasureSpec.getMode(i2);
-            if (mode == Integer.MIN_VALUE) {
-                if (z) {
-                    typedValue3 = this.mFixedWidthMinor;
+            if (typedValue3 != null && (i7 = typedValue3.type) != 0) {
+                if (i7 == 5) {
+                    fraction3 = typedValue3.getDimension(displayMetrics);
+                } else if (i7 == 6) {
+                    int i9 = displayMetrics.widthPixels;
+                    fraction3 = typedValue3.getFraction(i9, i9);
                 } else {
-                    typedValue3 = this.mFixedWidthMajor;
-                }
-                if (typedValue3 != null && (i7 = typedValue3.type) != 0) {
-                    if (i7 == 5) {
-                        fraction3 = typedValue3.getDimension(displayMetrics);
-                    } else if (i7 == 6) {
-                        int i9 = displayMetrics.widthPixels;
-                        fraction3 = typedValue3.getFraction(i9, i9);
-                    } else {
-                        i8 = 0;
-                        if (i8 > 0) {
-                            Rect rect = this.mDecorPadding;
-                            i = View.MeasureSpec.makeMeasureSpec(Math.min(i8 - (rect.left + rect.right), View.MeasureSpec.getSize(i)), 1073741824);
-                            z2 = true;
-                            if (mode2 == Integer.MIN_VALUE) {
-                                if (z) {
-                                    typedValue2 = this.mFixedHeightMajor;
+                    i8 = 0;
+                    if (i8 > 0) {
+                        Rect rect = this.mDecorPadding;
+                        i = View.MeasureSpec.makeMeasureSpec(Math.min(i8 - (rect.left + rect.right), View.MeasureSpec.getSize(i)), 1073741824);
+                        z2 = true;
+                        if (mode2 == Integer.MIN_VALUE) {
+                            if (z) {
+                                typedValue2 = this.mFixedHeightMajor;
+                            } else {
+                                typedValue2 = this.mFixedHeightMinor;
+                            }
+                            if (typedValue2 != null && (i5 = typedValue2.type) != 0) {
+                                if (i5 == 5) {
+                                    fraction2 = typedValue2.getDimension(displayMetrics);
+                                } else if (i5 == 6) {
+                                    int i10 = displayMetrics.heightPixels;
+                                    fraction2 = typedValue2.getFraction(i10, i10);
                                 } else {
-                                    typedValue2 = this.mFixedHeightMinor;
-                                }
-                                if (typedValue2 != null && (i5 = typedValue2.type) != 0) {
-                                    if (i5 == 5) {
-                                        fraction2 = typedValue2.getDimension(displayMetrics);
-                                    } else if (i5 == 6) {
-                                        int i10 = displayMetrics.heightPixels;
-                                        fraction2 = typedValue2.getFraction(i10, i10);
-                                    } else {
-                                        i6 = 0;
-                                        if (i6 > 0) {
-                                            Rect rect2 = this.mDecorPadding;
-                                            i2 = View.MeasureSpec.makeMeasureSpec(Math.min(i6 - (rect2.top + rect2.bottom), View.MeasureSpec.getSize(i2)), 1073741824);
-                                        }
-                                    }
-                                    i6 = (int) fraction2;
+                                    i6 = 0;
                                     if (i6 > 0) {
+                                        Rect rect2 = this.mDecorPadding;
+                                        i2 = View.MeasureSpec.makeMeasureSpec(Math.min(i6 - (rect2.top + rect2.bottom), View.MeasureSpec.getSize(i2)), 1073741824);
                                     }
                                 }
-                            }
-                            super.onMeasure(i, i2);
-                            measuredWidth = getMeasuredWidth();
-                            int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824);
-                            if (!z2 && mode == Integer.MIN_VALUE) {
-                                if (!z) {
-                                    typedValue = this.mMinWidthMinor;
-                                } else {
-                                    typedValue = this.mMinWidthMajor;
+                                i6 = (int) fraction2;
+                                if (i6 > 0) {
                                 }
-                                if (typedValue != null && (i3 = typedValue.type) != 0) {
-                                    if (i3 != 5) {
-                                        fraction = typedValue.getDimension(displayMetrics);
-                                    } else if (i3 == 6) {
-                                        int i11 = displayMetrics.widthPixels;
-                                        fraction = typedValue.getFraction(i11, i11);
-                                    } else {
-                                        i4 = 0;
-                                        if (i4 > 0) {
-                                            Rect rect3 = this.mDecorPadding;
-                                            i4 -= rect3.left + rect3.right;
-                                        }
-                                        if (measuredWidth < i4) {
-                                            makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i4, 1073741824);
-                                            if (z3) {
-                                                super.onMeasure(makeMeasureSpec, i2);
-                                                return;
-                                            }
-                                            return;
-                                        }
-                                    }
-                                    i4 = (int) fraction;
-                                    if (i4 > 0) {
-                                    }
-                                    if (measuredWidth < i4) {
-                                    }
-                                }
-                            }
-                            z3 = false;
-                            if (z3) {
                             }
                         }
-                    }
-                    i8 = (int) fraction3;
-                    if (i8 > 0) {
+                        super.onMeasure(i, i2);
+                        measuredWidth = getMeasuredWidth();
+                        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824);
+                        if (!z2 && mode == Integer.MIN_VALUE) {
+                            if (!z) {
+                                typedValue = this.mMinWidthMinor;
+                            } else {
+                                typedValue = this.mMinWidthMajor;
+                            }
+                            if (typedValue != null && (i3 = typedValue.type) != 0) {
+                                if (i3 != 5) {
+                                    fraction = typedValue.getDimension(displayMetrics);
+                                } else if (i3 == 6) {
+                                    int i11 = displayMetrics.widthPixels;
+                                    fraction = typedValue.getFraction(i11, i11);
+                                } else {
+                                    i4 = 0;
+                                    if (i4 > 0) {
+                                        Rect rect3 = this.mDecorPadding;
+                                        i4 -= rect3.left + rect3.right;
+                                    }
+                                    if (measuredWidth < i4) {
+                                        makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i4, 1073741824);
+                                        if (z3) {
+                                            super.onMeasure(makeMeasureSpec, i2);
+                                            return;
+                                        }
+                                        return;
+                                    }
+                                }
+                                i4 = (int) fraction;
+                                if (i4 > 0) {
+                                }
+                                if (measuredWidth < i4) {
+                                }
+                            }
+                        }
+                        z3 = false;
+                        if (z3) {
+                        }
                     }
                 }
-            }
-            z2 = false;
-            if (mode2 == Integer.MIN_VALUE) {
-            }
-            super.onMeasure(i, i2);
-            measuredWidth = getMeasuredWidth();
-            int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824);
-            if (!z2) {
-                if (!z) {
-                }
-                if (typedValue != null) {
-                    if (i3 != 5) {
-                    }
-                    i4 = (int) fraction;
-                    if (i4 > 0) {
-                    }
-                    if (measuredWidth < i4) {
-                    }
+                i8 = (int) fraction3;
+                if (i8 > 0) {
                 }
             }
-            z3 = false;
-            if (z3) {
+        }
+        z2 = false;
+        if (mode2 == Integer.MIN_VALUE) {
+        }
+        super.onMeasure(i, i2);
+        measuredWidth = getMeasuredWidth();
+        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824);
+        if (!z2) {
+            if (!z) {
             }
+            if (typedValue != null) {
+                if (i3 != 5) {
+                }
+                i4 = (int) fraction;
+                if (i4 > 0) {
+                }
+                if (measuredWidth < i4) {
+                }
+            }
+        }
+        z3 = false;
+        if (z3) {
         }
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setDecorPadding(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048587, this, i, i2, i3, i4) == null) {
-            this.mDecorPadding.set(i, i2, i3, i4);
-            if (ViewCompat.isLaidOut(this)) {
-                requestLayout();
-            }
+        this.mDecorPadding.set(i, i2, i3, i4);
+        if (ViewCompat.isLaidOut(this)) {
+            requestLayout();
         }
     }
 }

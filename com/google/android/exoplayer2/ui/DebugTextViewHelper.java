@@ -2,14 +2,7 @@ package com.google.android.exoplayer2.ui;
 
 import android.annotation.SuppressLint;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
@@ -17,113 +10,81 @@ import com.google.android.exoplayer2.decoder.DecoderCounters;
 import java.util.Locale;
 /* loaded from: classes7.dex */
 public final class DebugTextViewHelper extends Player.DefaultEventListener implements Runnable {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int REFRESH_INTERVAL_MS = 1000;
-    public transient /* synthetic */ FieldHolder $fh;
     public final SimpleExoPlayer player;
     public boolean started;
     public final TextView textView;
 
     public DebugTextViewHelper(SimpleExoPlayer simpleExoPlayer, TextView textView) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {simpleExoPlayer, textView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.player = simpleExoPlayer;
         this.textView = textView;
     }
 
+    @Override // com.google.android.exoplayer2.Player.DefaultEventListener, com.google.android.exoplayer2.Player.EventListener
+    public void onPlayerStateChanged(boolean z, int i) {
+        updateAndPost();
+    }
+
     private String getAudioString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            Format audioFormat = this.player.getAudioFormat();
-            if (audioFormat == null) {
-                return "";
-            }
-            return "\n" + audioFormat.sampleMimeType + "(id:" + audioFormat.id + " hz:" + audioFormat.sampleRate + " ch:" + audioFormat.channelCount + getDecoderCountersBufferCountString(this.player.getAudioDecoderCounters()) + SmallTailInfo.EMOTION_SUFFIX;
+        Format audioFormat = this.player.getAudioFormat();
+        if (audioFormat == null) {
+            return "";
         }
-        return (String) invokeV.objValue;
+        return "\n" + audioFormat.sampleMimeType + "(id:" + audioFormat.id + " hz:" + audioFormat.sampleRate + " ch:" + audioFormat.channelCount + getDecoderCountersBufferCountString(this.player.getAudioDecoderCounters()) + SmallTailInfo.EMOTION_SUFFIX;
+    }
+
+    private String getVideoString() {
+        Format videoFormat = this.player.getVideoFormat();
+        if (videoFormat == null) {
+            return "";
+        }
+        return "\n" + videoFormat.sampleMimeType + "(id:" + videoFormat.id + " r:" + videoFormat.width + "x" + videoFormat.height + getPixelAspectRatioString(videoFormat.pixelWidthHeightRatio) + getDecoderCountersBufferCountString(this.player.getVideoDecoderCounters()) + SmallTailInfo.EMOTION_SUFFIX;
     }
 
     public static String getDecoderCountersBufferCountString(DecoderCounters decoderCounters) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, decoderCounters)) == null) {
-            if (decoderCounters == null) {
-                return "";
-            }
-            decoderCounters.ensureUpdated();
-            return " sib:" + decoderCounters.skippedInputBufferCount + " sb:" + decoderCounters.skippedOutputBufferCount + " rb:" + decoderCounters.renderedOutputBufferCount + " db:" + decoderCounters.droppedBufferCount + " mcdb:" + decoderCounters.maxConsecutiveDroppedBufferCount + " dk:" + decoderCounters.droppedToKeyframeCount;
+        if (decoderCounters == null) {
+            return "";
         }
-        return (String) invokeL.objValue;
+        decoderCounters.ensureUpdated();
+        return " sib:" + decoderCounters.skippedInputBufferCount + " sb:" + decoderCounters.skippedOutputBufferCount + " rb:" + decoderCounters.renderedOutputBufferCount + " db:" + decoderCounters.droppedBufferCount + " mcdb:" + decoderCounters.maxConsecutiveDroppedBufferCount + " dk:" + decoderCounters.droppedToKeyframeCount;
     }
 
     public static String getPixelAspectRatioString(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f)) == null) {
-            if (f != -1.0f && f != 1.0f) {
-                return " par:" + String.format(Locale.US, "%.02f", Float.valueOf(f));
-            }
-            return "";
+        if (f != -1.0f && f != 1.0f) {
+            return " par:" + String.format(Locale.US, "%.02f", Float.valueOf(f));
         }
-        return (String) invokeF.objValue;
+        return "";
     }
 
     private String getPlayerStateString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            String str = "playWhenReady:" + this.player.getPlayWhenReady() + " playbackState:";
-            int playbackState = this.player.getPlaybackState();
-            if (playbackState != 1) {
-                if (playbackState != 2) {
-                    if (playbackState != 3) {
-                        if (playbackState != 4) {
-                            return str + "unknown";
-                        }
-                        return str + "ended";
+        String str = "playWhenReady:" + this.player.getPlayWhenReady() + " playbackState:";
+        int playbackState = this.player.getPlaybackState();
+        if (playbackState != 1) {
+            if (playbackState != 2) {
+                if (playbackState != 3) {
+                    if (playbackState != 4) {
+                        return str + "unknown";
                     }
-                    return str + "ready";
+                    return str + "ended";
                 }
-                return str + "buffering";
+                return str + "ready";
             }
-            return str + "idle";
+            return str + "buffering";
         }
-        return (String) invokeV.objValue;
+        return str + "idle";
     }
 
     private String getPlayerWindowIndexString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            return " window:" + this.player.getCurrentWindowIndex();
-        }
-        return (String) invokeV.objValue;
+        return " window:" + this.player.getCurrentWindowIndex();
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            updateAndPost();
-        }
+        updateAndPost();
     }
 
     public void start() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.started) {
+        if (this.started) {
             return;
         }
         this.started = true;
@@ -132,8 +93,7 @@ public final class DebugTextViewHelper extends Player.DefaultEventListener imple
     }
 
     public void stop() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !this.started) {
+        if (!this.started) {
             return;
         }
         this.started = false;
@@ -141,43 +101,16 @@ public final class DebugTextViewHelper extends Player.DefaultEventListener imple
         this.textView.removeCallbacks(this);
     }
 
-    private String getVideoString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            Format videoFormat = this.player.getVideoFormat();
-            if (videoFormat == null) {
-                return "";
-            }
-            return "\n" + videoFormat.sampleMimeType + "(id:" + videoFormat.id + " r:" + videoFormat.width + "x" + videoFormat.height + getPixelAspectRatioString(videoFormat.pixelWidthHeightRatio) + getDecoderCountersBufferCountString(this.player.getVideoDecoderCounters()) + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
     @SuppressLint({"SetTextI18n"})
     private void updateAndPost() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            TextView textView = this.textView;
-            textView.setText(getPlayerStateString() + getPlayerWindowIndexString() + getVideoString() + getAudioString());
-            this.textView.removeCallbacks(this);
-            this.textView.postDelayed(this, 1000L);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.Player.DefaultEventListener, com.google.android.exoplayer2.Player.EventListener
-    public void onPlayerStateChanged(boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            updateAndPost();
-        }
+        TextView textView = this.textView;
+        textView.setText(getPlayerStateString() + getPlayerWindowIndexString() + getVideoString() + getAudioString());
+        this.textView.removeCallbacks(this);
+        this.textView.postDelayed(this, 1000L);
     }
 
     @Override // com.google.android.exoplayer2.Player.DefaultEventListener, com.google.android.exoplayer2.Player.EventListener
     public void onPositionDiscontinuity(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            updateAndPost();
-        }
+        updateAndPost();
     }
 }

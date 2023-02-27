@@ -94,7 +94,7 @@ public final class x extends com.vivo.push.o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.a == null) {
-                com.vivo.push.util.p.d("ReporterCommand", "reportParams is empty");
+                com.vivo.push.util.u.d("ReporterCommand", "reportParams is empty");
                 return;
             }
             StringBuilder sb = new StringBuilder("report message reportType:");
@@ -105,7 +105,7 @@ public final class x extends com.vivo.push.o {
                 str = this.a.get("message_id");
             }
             sb.append(str);
-            com.vivo.push.util.p.d("ReporterCommand", sb.toString());
+            com.vivo.push.util.u.d("ReporterCommand", sb.toString());
         }
     }
 }

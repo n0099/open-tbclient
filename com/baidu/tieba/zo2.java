@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes7.dex */
-public class zo2 extends qm2<hp2> {
+public class zo2 extends gn2<xp2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.qm2
+    @Override // com.baidu.tieba.gn2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "switchCamera" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "kickOutUser" : (String) invokeV.objValue;
     }
 
     public zo2() {
@@ -36,13 +36,16 @@ public class zo2 extends qm2<hp2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qm2
+    @Override // com.baidu.tieba.gn2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull hp2 hp2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull xp2 xp2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, hp2Var) == null) {
-            d(hp2Var, command.what, null, true);
-            hp2Var.d();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, xp2Var) == null) {
+            Object obj = command.obj;
+            if (obj instanceof Long) {
+                xp2Var.F(((Long) obj).longValue());
+            }
+            d(xp2Var, command.what, null, true);
         }
     }
 }

@@ -1,151 +1,121 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.content.Context;
+import android.graphics.Rect;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.util.ChatStatusManager;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.jk7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class mk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements jk7.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public static void a(eg6 eg6Var, StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, eg6Var, statisticItem) == null) && eg6Var != null && eg6Var.getThreadData() != null && statisticItem != null) {
+            if (eg6Var.getThreadData().getBaijiahaoData() != null) {
+                BaijiahaoData baijiahaoData = eg6Var.getThreadData().getBaijiahaoData();
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 3);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, baijiahaoData.oriUgcNid);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, baijiahaoData.oriUgcVid);
+                return;
             }
-        }
-
-        @Override // com.baidu.tieba.jk7.c
-        public boolean a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                boolean isOpen = ChatStatusManager.getInst().getIsOpen(0);
-                String curId = ChatStatusManager.getInst().getCurId(0);
-                if (TextUtils.isEmpty(str) || !isOpen || !str.equals(curId)) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeL.booleanValue;
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 1);
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class b implements jk7.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.jk7.a
-        public boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, chatMessage, imMessageCenterPojo)) == null) {
-                if (chatMessage != null && chatMessage.getMsgType() == 22) {
-                    if (eo7.w(chatMessage)) {
-                        return true;
-                    }
-                    long a = mk7.a(chatMessage);
-                    if (a > imMessageCenterPojo.getRead_msgId()) {
-                        imMessageCenterPojo.setRead_msgId(a);
-                    }
-                    return true;
-                }
+    public static boolean b(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadData)) == null) {
+            if (threadData == null || threadData.isShareThread) {
                 return false;
             }
-            return invokeLL.booleanValue;
+            int i = threadData.threadType;
+            if (i != 0 && i != 11 && i != 40 && !threadData.isUgcThreadType()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void c(zx4 zx4Var, Context context, int i, boolean z, Rect rect) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{zx4Var, context, Integer.valueOf(i), Boolean.valueOf(z), rect}) == null) && zx4Var != null && zx4Var.getThreadData() != null && context != null) {
+            ThreadData threadData = zx4Var.getThreadData();
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(threadData, null, "video_tab", 18003, true, false, false);
+            createFromThreadCfg.setForumId(String.valueOf(threadData.getFid()));
+            createFromThreadCfg.setFrom("from_video_tab");
+            createFromThreadCfg.setForumName(threadData.getForum_name());
+            createFromThreadCfg.setStartFrom(i);
+            createFromThreadCfg.setVideoOriginArea(rect);
+            if (zx4Var.getPbInputLocate() != null) {
+                createFromThreadCfg.addLocateParam(zx4Var.getPbInputLocate());
+            }
+            if (TbSingleton.getInstance().isPbPreloadSwitchOn() && b(threadData)) {
+                createFromThreadCfg.setNeedPreLoad(true);
+                av6.update(threadData);
+            }
+            createFromThreadCfg.setVideo_source("video_tab");
+            createFromThreadCfg.setJumpGodReply(z);
+            jf6.a(threadData.getTid());
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
         }
     }
 
-    public static long a(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
+    public static void d(eg6 eg6Var) {
+        StatisticItem r;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatMessage)) == null) {
-            if (chatMessage == null) {
-                return -1L;
-            }
-            if (chatMessage.getMsgType() == 22) {
-                try {
-                    String content = chatMessage.getContent();
-                    if (TextUtils.isEmpty(content)) {
-                        return -1L;
-                    }
-                    JSONObject jSONObject = new JSONObject(content);
-                    String optString = jSONObject.optString(TbEnum.SystemMessage.KEY_EVENT_ID);
-                    if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM)) == null || optJSONObject.optLong(TbEnum.SystemMessage.KEY_GROUP_ID) != pm7.j.longValue()) {
-                        return -1L;
-                    }
-                } catch (Exception unused) {
-                    return -1L;
-                }
-            }
-            return do7.a(optJSONObject.optLong("readMsgId"));
-        }
-        return invokeL.longValue;
-    }
-
-    public static void b(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, jk7.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
-            jk7.e(groupMsgData, imMessageCenterPojo, bVar, new a(), ChatStatusManager.getInst().getIsOpen(5), new b());
+        if ((interceptable == null || interceptable.invokeL(65539, null, eg6Var) == null) && eg6Var != null && (r = eg6Var.r("c13583", true)) != null) {
+            a(eg6Var, r);
+            TiebaStatic.log(r);
         }
     }
 
-    public static void c(GroupMsgData groupMsgData) {
-        LinkedList<ChatMessage> listMessage;
+    public static void e(eg6 eg6Var) {
+        StatisticItem r;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, groupMsgData) != null) || groupMsgData == null || (listMessage = groupMsgData.getListMessage()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, eg6Var) == null) && eg6Var != null && (r = eg6Var.r("c13584", true)) != null) {
+            a(eg6Var, r);
+            r.param(TiebaStatic.Params.OBJ_FLOOR, eg6Var.position + 1);
+            TiebaStatic.log(r);
         }
-        for (int i = 0; i < listMessage.size(); i++) {
-            try {
-                if (new JSONObject(listMessage.get(i).getContent()).optString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_CYBER_VIOLENCE)) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_CYBER_VIOLENCE_MESSAGE_RECEIVER_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()));
-                }
-            } catch (Exception unused) {
-            }
+    }
+
+    public static void f(eg6 eg6Var) {
+        StatisticItem r;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, eg6Var) == null) && eg6Var != null && (r = eg6Var.r("c13585", true)) != null) {
+            a(eg6Var, r);
+            TiebaStatic.log(r);
+        }
+    }
+
+    public static void g(eg6 eg6Var) {
+        StatisticItem r;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, eg6Var) == null) && eg6Var != null && (r = eg6Var.r("c13586", true)) != null) {
+            a(eg6Var, r);
+            TiebaStatic.log(r);
+        }
+    }
+
+    public static void h(eg6 eg6Var) {
+        StatisticItem r;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, null, eg6Var) == null) && eg6Var != null && (r = eg6Var.r("c13587", true)) != null) {
+            a(eg6Var, r);
+            TiebaStatic.log(r);
         }
     }
 }

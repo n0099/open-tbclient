@@ -4,22 +4,27 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.auth.FeatureCodes;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class CalendarConstraints implements Parcelable {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<CalendarConstraints> CREATOR;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final Parcelable.Creator<CalendarConstraints> CREATOR = new Parcelable.Creator<CalendarConstraints>() { // from class: com.google.android.material.datepicker.CalendarConstraints.1
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // android.os.Parcelable.Creator
+        @NonNull
+        public CalendarConstraints createFromParcel(@NonNull Parcel parcel) {
+            return new CalendarConstraints((Month) parcel.readParcelable(Month.class.getClassLoader()), (Month) parcel.readParcelable(Month.class.getClassLoader()), (Month) parcel.readParcelable(Month.class.getClassLoader()), (DateValidator) parcel.readParcelable(DateValidator.class.getClassLoader()));
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // android.os.Parcelable.Creator
+        @NonNull
+        public CalendarConstraints[] newArray(int i) {
+            return new CalendarConstraints[i];
+        }
+    };
     @NonNull
     public final Month end;
     public final int monthSpan;
@@ -30,83 +35,33 @@ public final class CalendarConstraints implements Parcelable {
     public final DateValidator validator;
     public final int yearSpan;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface DateValidator extends Parcelable {
         boolean isValid(long j);
     }
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
+        return 0;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final String DEEP_COPY_VALIDATOR_KEY = "DEEP_COPY_VALIDATOR_KEY";
-        public static final long DEFAULT_END;
-        public static final long DEFAULT_START;
-        public transient /* synthetic */ FieldHolder $fh;
         public long end;
         public Long openAt;
         public long start;
         public DateValidator validator;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-712237005, "Lcom/google/android/material/datepicker/CalendarConstraints$Builder;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-712237005, "Lcom/google/android/material/datepicker/CalendarConstraints$Builder;");
-                    return;
-                }
-            }
-            DEFAULT_START = UtcDates.canonicalYearMonthDay(Month.create(FeatureCodes.SKY_SEG, 0).timeInMillis);
-            DEFAULT_END = UtcDates.canonicalYearMonthDay(Month.create(2100, 11).timeInMillis);
-        }
+        public static final long DEFAULT_START = UtcDates.canonicalYearMonthDay(Month.create(FeatureCodes.SKY_SEG, 0).timeInMillis);
+        public static final long DEFAULT_END = UtcDates.canonicalYearMonthDay(Month.create(2100, 11).timeInMillis);
 
         public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             this.start = DEFAULT_START;
             this.end = DEFAULT_END;
             this.validator = DateValidatorPointForward.from(Long.MIN_VALUE);
         }
 
         public Builder(@NonNull CalendarConstraints calendarConstraints) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {calendarConstraints};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
             this.start = DEFAULT_START;
             this.end = DEFAULT_END;
             this.validator = DateValidatorPointForward.from(Long.MIN_VALUE);
@@ -118,208 +73,75 @@ public final class CalendarConstraints implements Parcelable {
 
         @NonNull
         public CalendarConstraints build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.openAt == null) {
-                    long thisMonthInUtcMilliseconds = MaterialDatePicker.thisMonthInUtcMilliseconds();
-                    if (this.start > thisMonthInUtcMilliseconds || thisMonthInUtcMilliseconds > this.end) {
-                        thisMonthInUtcMilliseconds = this.start;
-                    }
-                    this.openAt = Long.valueOf(thisMonthInUtcMilliseconds);
+            if (this.openAt == null) {
+                long thisMonthInUtcMilliseconds = MaterialDatePicker.thisMonthInUtcMilliseconds();
+                if (this.start > thisMonthInUtcMilliseconds || thisMonthInUtcMilliseconds > this.end) {
+                    thisMonthInUtcMilliseconds = this.start;
                 }
-                Bundle bundle = new Bundle();
-                bundle.putParcelable(DEEP_COPY_VALIDATOR_KEY, this.validator);
-                return new CalendarConstraints(Month.create(this.start), Month.create(this.end), Month.create(this.openAt.longValue()), (DateValidator) bundle.getParcelable(DEEP_COPY_VALIDATOR_KEY));
+                this.openAt = Long.valueOf(thisMonthInUtcMilliseconds);
             }
-            return (CalendarConstraints) invokeV.objValue;
+            Bundle bundle = new Bundle();
+            bundle.putParcelable(DEEP_COPY_VALIDATOR_KEY, this.validator);
+            return new CalendarConstraints(Month.create(this.start), Month.create(this.end), Month.create(this.openAt.longValue()), (DateValidator) bundle.getParcelable(DEEP_COPY_VALIDATOR_KEY));
         }
 
         @NonNull
         public Builder setEnd(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-                this.end = j;
-                return this;
-            }
-            return (Builder) invokeJ.objValue;
+            this.end = j;
+            return this;
         }
 
         @NonNull
         public Builder setOpenAt(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-                this.openAt = Long.valueOf(j);
-                return this;
-            }
-            return (Builder) invokeJ.objValue;
+            this.openAt = Long.valueOf(j);
+            return this;
         }
 
         @NonNull
         public Builder setStart(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
-                this.start = j;
-                return this;
-            }
-            return (Builder) invokeJ.objValue;
+            this.start = j;
+            return this;
         }
 
         @NonNull
         public Builder setValidator(DateValidator dateValidator) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, dateValidator)) == null) {
-                this.validator = dateValidator;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.validator = dateValidator;
+            return this;
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1299285206, "Lcom/google/android/material/datepicker/CalendarConstraints;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1299285206, "Lcom/google/android/material/datepicker/CalendarConstraints;");
-                return;
-            }
-        }
-        CREATOR = new Parcelable.Creator<CalendarConstraints>() { // from class: com.google.android.material.datepicker.CalendarConstraints.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.Creator
-            @NonNull
-            public CalendarConstraints createFromParcel(@NonNull Parcel parcel) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
-                    return new CalendarConstraints((Month) parcel.readParcelable(Month.class.getClassLoader()), (Month) parcel.readParcelable(Month.class.getClassLoader()), (Month) parcel.readParcelable(Month.class.getClassLoader()), (DateValidator) parcel.readParcelable(DateValidator.class.getClassLoader()));
-                }
-                return (CalendarConstraints) invokeL.objValue;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.Creator
-            @NonNull
-            public CalendarConstraints[] newArray(int i) {
-                InterceptResult invokeI;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                    return new CalendarConstraints[i];
-                }
-                return (CalendarConstraints[]) invokeI.objValue;
-            }
-        };
     }
 
     public DateValidator getDateValidator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.validator;
-        }
-        return (DateValidator) invokeV.objValue;
+        return this.validator;
     }
 
     @NonNull
     public Month getEnd() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.end;
-        }
-        return (Month) invokeV.objValue;
+        return this.end;
     }
 
     public int getMonthSpan() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.monthSpan;
-        }
-        return invokeV.intValue;
+        return this.monthSpan;
     }
 
     @NonNull
     public Month getOpenAt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.openAt;
-        }
-        return (Month) invokeV.objValue;
+        return this.openAt;
     }
 
     @NonNull
     public Month getStart() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.start;
-        }
-        return (Month) invokeV.objValue;
+        return this.start;
     }
 
     public int getYearSpan() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.yearSpan;
-        }
-        return invokeV.intValue;
+        return this.yearSpan;
     }
 
     public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return Arrays.hashCode(new Object[]{this.start, this.end, this.openAt, this.validator});
-        }
-        return invokeV.intValue;
+        return Arrays.hashCode(new Object[]{this.start, this.end, this.openAt, this.validator});
     }
 
     public CalendarConstraints(@NonNull Month month, @NonNull Month month2, @NonNull Month month3, DateValidator dateValidator) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {month, month2, month3, dateValidator};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.start = month;
         this.end = month2;
         this.openAt = month3;
@@ -336,62 +158,44 @@ public final class CalendarConstraints implements Parcelable {
     }
 
     public Month clamp(Month month) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, month)) == null) {
-            if (month.compareTo(this.start) < 0) {
-                return this.start;
-            }
-            if (month.compareTo(this.end) > 0) {
-                return this.end;
-            }
-            return month;
+        if (month.compareTo(this.start) < 0) {
+            return this.start;
         }
-        return (Month) invokeL.objValue;
+        if (month.compareTo(this.end) > 0) {
+            return this.end;
+        }
+        return month;
     }
 
     public boolean isWithinBounds(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
-            if (this.start.getDay(1) <= j) {
-                Month month = this.end;
-                if (j <= month.getDay(month.daysInMonth)) {
-                    return true;
-                }
+        if (this.start.getDay(1) <= j) {
+            Month month = this.end;
+            if (j <= month.getDay(month.daysInMonth)) {
+                return true;
             }
-            return false;
         }
-        return invokeJ.booleanValue;
+        return false;
     }
 
     public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (!(obj instanceof CalendarConstraints)) {
-                return false;
-            }
-            CalendarConstraints calendarConstraints = (CalendarConstraints) obj;
-            if (this.start.equals(calendarConstraints.start) && this.end.equals(calendarConstraints.end) && this.openAt.equals(calendarConstraints.openAt) && this.validator.equals(calendarConstraints.validator)) {
-                return true;
-            }
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof CalendarConstraints)) {
             return false;
         }
-        return invokeL.booleanValue;
+        CalendarConstraints calendarConstraints = (CalendarConstraints) obj;
+        if (this.start.equals(calendarConstraints.start) && this.end.equals(calendarConstraints.end) && this.openAt.equals(calendarConstraints.openAt) && this.validator.equals(calendarConstraints.validator)) {
+            return true;
+        }
+        return false;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i) == null) {
-            parcel.writeParcelable(this.start, 0);
-            parcel.writeParcelable(this.end, 0);
-            parcel.writeParcelable(this.openAt, 0);
-            parcel.writeParcelable(this.validator, 0);
-        }
+        parcel.writeParcelable(this.start, 0);
+        parcel.writeParcelable(this.end, 0);
+        parcel.writeParcelable(this.openAt, 0);
+        parcel.writeParcelable(this.validator, 0);
     }
 }

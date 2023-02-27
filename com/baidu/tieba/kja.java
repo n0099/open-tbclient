@@ -1,41 +1,32 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
-import android.os.Build;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
-import android.view.Display;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
+import org.brotli.dec.BrotliRuntimeException;
 /* loaded from: classes5.dex */
-public class kja {
+public final class kja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public final boolean c;
-    public final int d;
-    public final int e;
-    public final boolean f;
-    public final float g;
+    public final byte[] a;
+    public final int[] b;
+    public final rja c;
+    public InputStream d;
+    public boolean e;
+    public long f;
+    public int g;
+    public int h;
+    public int i;
 
-    public kja(Activity activity) {
-        boolean z;
+    public kja() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,183 +36,223 @@ public class kja {
                 return;
             }
         }
-        Resources resources = activity.getResources();
-        if (resources.getConfiguration().orientation == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.f = z;
-        this.g = h(activity);
-        this.a = c(resources, SapiSystemBarTintManager.SystemBarConfig.g);
-        this.b = b(activity);
-        this.d = e(activity);
-        this.e = g(activity);
-        this.c = this.d > 0;
+        this.a = new byte[4160];
+        this.b = new int[1040];
+        this.c = new rja();
+        this.i = 0;
     }
 
-    @TargetApi(14)
-    public static boolean j(Activity activity) {
-        InterceptResult invokeL;
+    public static void a(kja kjaVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            Display defaultDisplay = activity.getWindowManager().getDefaultDisplay();
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            if (Build.VERSION.SDK_INT >= 17) {
-                defaultDisplay.getRealMetrics(displayMetrics);
-            }
-            int i = displayMetrics.heightPixels;
-            int i2 = displayMetrics.widthPixels;
-            DisplayMetrics displayMetrics2 = new DisplayMetrics();
-            defaultDisplay.getMetrics(displayMetrics2);
-            int i3 = displayMetrics2.heightPixels;
-            if (i2 - displayMetrics2.widthPixels <= 0 && i - i3 <= 0) {
-                return false;
-            }
-            return true;
+        if ((interceptable != null && interceptable.invokeLZ(65537, null, kjaVar, z) != null) || !kjaVar.e) {
+            return;
         }
-        return invokeL.booleanValue;
+        int i = ((kjaVar.h << 2) + ((kjaVar.g + 7) >> 3)) - 8;
+        int i2 = kjaVar.i;
+        if (i <= i2) {
+            if (z && i != i2) {
+                throw new BrotliRuntimeException("Unused bytes after end");
+            }
+            return;
+        }
+        throw new BrotliRuntimeException("Read after end");
     }
 
-    @TargetApi(14)
-    public final int b(Context context) {
-        InterceptResult invokeL;
+    public static void e(kja kjaVar, InputStream inputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 14) {
-                TypedValue typedValue = new TypedValue();
-                context.getTheme().resolveAttribute(16843499, typedValue, true);
-                return TypedValue.complexToDimensionPixelSize(typedValue.data, context.getResources().getDisplayMetrics());
+        if (interceptable == null || interceptable.invokeLL(65541, null, kjaVar, inputStream) == null) {
+            if (kjaVar.d == null) {
+                rja.b(kjaVar.c, kjaVar.a, kjaVar.b);
+                kjaVar.d = inputStream;
+                kjaVar.f = 0L;
+                kjaVar.g = 64;
+                kjaVar.h = 1024;
+                kjaVar.e = false;
+                h(kjaVar);
+                return;
             }
-            return 0;
+            throw new IllegalStateException("Bit reader already has associated input stream");
         }
-        return invokeL.intValue;
     }
 
-    @TargetApi(14)
-    public final int e(Context context) {
-        InterceptResult invokeL;
-        String str;
+    public static void b(kja kjaVar) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            Resources resources = context.getResources();
-            if (Build.VERSION.SDK_INT >= 14 && j((Activity) context)) {
-                if (this.f) {
-                    str = SapiSystemBarTintManager.SystemBarConfig.h;
-                } else {
-                    str = SapiSystemBarTintManager.SystemBarConfig.i;
-                }
-                return c(resources, str);
+        if (interceptable == null || interceptable.invokeL(65538, null, kjaVar) == null) {
+            InputStream inputStream = kjaVar.d;
+            kjaVar.d = null;
+            if (inputStream != null) {
+                inputStream.close();
             }
-            return 0;
         }
-        return invokeL.intValue;
     }
 
-    @SuppressLint({"NewApi"})
-    public final float h(Activity activity) {
-        InterceptResult invokeL;
+    public static void d(kja kjaVar) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, activity)) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            if (Build.VERSION.SDK_INT >= 16) {
-                activity.getWindowManager().getDefaultDisplay().getRealMetrics(displayMetrics);
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, kjaVar) == null) && (i = kjaVar.g) >= 32) {
+            int[] iArr = kjaVar.b;
+            int i2 = kjaVar.h;
+            kjaVar.h = i2 + 1;
+            kjaVar.f = (iArr[i2] << 32) | (kjaVar.f >>> 32);
+            kjaVar.g = i - 32;
+        }
+    }
+
+    public static int f(kja kjaVar) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, kjaVar)) == null) {
+            if (kjaVar.e) {
+                i = (kjaVar.i + 3) >> 2;
             } else {
-                activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+                i = 1024;
             }
-            float f = displayMetrics.density;
-            return Math.min(displayMetrics.widthPixels / f, displayMetrics.heightPixels / f);
-        }
-        return invokeL.floatValue;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.g < 600.0f && !this.f) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final int c(Resources resources, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, resources, str)) == null) {
-            try {
-                Class<?> cls = Class.forName("com.android.internal.R$dimen");
-                int parseInt = Integer.parseInt(cls.getField(str).get(cls.newInstance()).toString());
-                if (parseInt <= 0) {
-                    return 0;
-                }
-                return resources.getDimensionPixelSize(parseInt);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0;
-            }
-        }
-        return invokeLL.intValue;
-    }
-
-    @TargetApi(14)
-    public final int g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            Resources resources = context.getResources();
-            if (Build.VERSION.SDK_INT >= 14 && j((Activity) context)) {
-                return c(resources, SapiSystemBarTintManager.SystemBarConfig.j);
-            }
-            return 0;
+            return i - kjaVar.h;
         }
         return invokeL.intValue;
+    }
+
+    public static void g(kja kjaVar) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, null, kjaVar) == null) && (i = (64 - kjaVar.g) & 7) != 0 && i(kjaVar, i) != 0) {
+            throw new BrotliRuntimeException("Corrupted padding bits");
+        }
+    }
+
+    public static void h(kja kjaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, kjaVar) == null) {
+            j(kjaVar);
+            a(kjaVar, false);
+            d(kjaVar);
+            d(kjaVar);
+        }
+    }
+
+    public static void k(kja kjaVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65547, null, kjaVar) == null) && kjaVar.g == 64) {
+            h(kjaVar);
+        }
+    }
+
+    public static void c(kja kjaVar, byte[] bArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(65539, null, kjaVar, bArr, i, i2) == null) {
+            if ((kjaVar.g & 7) == 0) {
+                while (true) {
+                    int i3 = kjaVar.g;
+                    if (i3 == 64 || i2 == 0) {
+                        break;
+                    }
+                    bArr[i] = (byte) (kjaVar.f >>> i3);
+                    kjaVar.g = i3 + 8;
+                    i2--;
+                    i++;
+                }
+                if (i2 == 0) {
+                    return;
+                }
+                int min = Math.min(f(kjaVar), i2 >> 2);
+                if (min > 0) {
+                    int i4 = min << 2;
+                    System.arraycopy(kjaVar.a, kjaVar.h << 2, bArr, i, i4);
+                    i += i4;
+                    i2 -= i4;
+                    kjaVar.h += min;
+                }
+                if (i2 == 0) {
+                    return;
+                }
+                if (f(kjaVar) > 0) {
+                    d(kjaVar);
+                    while (i2 != 0) {
+                        long j = kjaVar.f;
+                        int i5 = kjaVar.g;
+                        bArr[i] = (byte) (j >>> i5);
+                        kjaVar.g = i5 + 8;
+                        i2--;
+                        i++;
+                    }
+                    a(kjaVar, false);
+                    return;
+                }
+                while (i2 > 0) {
+                    try {
+                        int read = kjaVar.d.read(bArr, i, i2);
+                        if (read != -1) {
+                            i += read;
+                            i2 -= read;
+                        } else {
+                            throw new BrotliRuntimeException("Unexpected end of input");
+                        }
+                    } catch (IOException e) {
+                        throw new BrotliRuntimeException("Failed to read input", e);
+                    }
+                }
+                return;
+            }
+            throw new BrotliRuntimeException("Unaligned copyBytes");
+        }
+    }
+
+    public static int i(kja kjaVar, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, kjaVar, i)) == null) {
+            d(kjaVar);
+            long j = kjaVar.f;
+            int i2 = kjaVar.g;
+            int i3 = ((int) (j >>> i2)) & ((1 << i) - 1);
+            kjaVar.g = i2 + i;
+            return i3;
+        }
+        return invokeLI.intValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x003b, code lost:
+        r4.e = true;
+        r4.i = r1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0040, code lost:
+        r1 = r1 + 3;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void j(kja kjaVar) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65546, null, kjaVar) != null) || (i = kjaVar.h) <= 1015) {
+            return;
+        }
+        if (kjaVar.e) {
+            if (f(kjaVar) >= -2) {
+                return;
+            }
+            throw new BrotliRuntimeException("No more input");
+        }
+        int i2 = i << 2;
+        int i3 = 4096 - i2;
+        byte[] bArr = kjaVar.a;
+        System.arraycopy(bArr, i2, bArr, 0, i3);
+        kjaVar.h = 0;
+        while (true) {
+            if (i3 >= 4096) {
+                break;
+            }
+            try {
+                int read = kjaVar.d.read(kjaVar.a, i3, 4096 - i3);
+                if (read <= 0) {
+                    break;
+                }
+                i3 += read;
+            } catch (IOException e) {
+                throw new BrotliRuntimeException("Failed to read input", e);
+            }
+        }
+        rja.a(kjaVar.c, i3 >> 2);
     }
 }

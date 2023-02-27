@@ -1,14 +1,5 @@
 package okhttp3;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.Reference;
 import java.net.Socket;
 import java.util.ArrayDeque;
@@ -30,9 +21,7 @@ import okhttp3.internal.platform.Platform;
 /* loaded from: classes9.dex */
 public final class ConnectionPool {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
-    public static /* synthetic */ Interceptable $ic;
-    public static final Executor executor;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final Executor executor = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("OkHttp ConnectionPool", true));
     public final Runnable cleanupRunnable;
     public boolean cleanupRunning;
     public final Deque<RealConnection> connections;
@@ -40,114 +29,40 @@ public final class ConnectionPool {
     public final int maxIdleConnections;
     public final RouteDatabase routeDatabase;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-447202379, "Lokhttp3/ConnectionPool;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-447202379, "Lokhttp3/ConnectionPool;");
-                return;
-            }
-        }
-        executor = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("OkHttp ConnectionPool", true));
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ConnectionPool() {
         this(5, 5L, TimeUnit.MINUTES);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this(((Integer) objArr[0]).intValue(), ((Long) objArr[1]).longValue(), (TimeUnit) objArr[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
+    }
+
+    public synchronized int connectionCount() {
+        return this.connections.size();
     }
 
     public synchronized int idleConnectionCount() {
-        InterceptResult invokeV;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            synchronized (this) {
-                i = 0;
-                for (RealConnection realConnection : this.connections) {
-                    if (realConnection.allocations.isEmpty()) {
-                        i++;
-                    }
-                }
+        i = 0;
+        for (RealConnection realConnection : this.connections) {
+            if (realConnection.allocations.isEmpty()) {
+                i++;
             }
-            return i;
         }
-        return invokeV.intValue;
+        return i;
     }
 
     public ConnectionPool(int i, long j, TimeUnit timeUnit) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), timeUnit};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.cleanupRunnable = new Runnable(this) { // from class: okhttp3.ConnectionPool.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ConnectionPool this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
+        this.cleanupRunnable = new Runnable() { // from class: okhttp3.ConnectionPool.1
             @Override // java.lang.Runnable
             public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
-                    return;
-                }
                 while (true) {
-                    long cleanup = this.this$0.cleanup(System.nanoTime());
+                    long cleanup = ConnectionPool.this.cleanup(System.nanoTime());
                     if (cleanup == -1) {
                         return;
                     }
                     if (cleanup > 0) {
                         long j2 = cleanup / 1000000;
                         long j3 = cleanup - (1000000 * j2);
-                        synchronized (this.this$0) {
+                        synchronized (ConnectionPool.this) {
                             try {
-                                this.this$0.wait(j2, (int) j3);
+                                ConnectionPool.this.wait(j2, (int) j3);
                             } catch (InterruptedException unused) {
                             }
                         }
@@ -166,239 +81,167 @@ public final class ConnectionPool {
     }
 
     private int pruneAndGetAllocationCount(RealConnection realConnection, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, this, realConnection, j)) == null) {
-            List<Reference<StreamAllocation>> list = realConnection.allocations;
-            int i = 0;
-            while (i < list.size()) {
-                Reference<StreamAllocation> reference = list.get(i);
-                if (reference.get() != null) {
-                    i++;
-                } else {
-                    Platform.get().logCloseableLeak("A connection to " + realConnection.route().address().url() + " was leaked. Did you forget to close a response body?", ((StreamAllocation.StreamAllocationReference) reference).callStackTrace);
-                    list.remove(i);
-                    realConnection.noNewStreams = true;
-                    if (list.isEmpty()) {
-                        realConnection.idleAtNanos = j - this.keepAliveDurationNs;
-                        return 0;
-                    }
+        List<Reference<StreamAllocation>> list = realConnection.allocations;
+        int i = 0;
+        while (i < list.size()) {
+            Reference<StreamAllocation> reference = list.get(i);
+            if (reference.get() != null) {
+                i++;
+            } else {
+                Platform.get().logCloseableLeak("A connection to " + realConnection.route().address().url() + " was leaked. Did you forget to close a response body?", ((StreamAllocation.StreamAllocationReference) reference).callStackTrace);
+                list.remove(i);
+                realConnection.noNewStreams = true;
+                if (list.isEmpty()) {
+                    realConnection.idleAtNanos = j - this.keepAliveDurationNs;
+                    return 0;
                 }
             }
-            return list.size();
         }
-        return invokeLJ.intValue;
+        return list.size();
     }
 
     public long cleanup(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            synchronized (this) {
-                RealConnection realConnection = null;
-                long j2 = Long.MIN_VALUE;
-                int i = 0;
-                int i2 = 0;
-                for (RealConnection realConnection2 : this.connections) {
-                    if (pruneAndGetAllocationCount(realConnection2, j) > 0) {
-                        i2++;
-                    } else {
-                        i++;
-                        long j3 = j - realConnection2.idleAtNanos;
-                        if (j3 > j2) {
-                            realConnection = realConnection2;
-                            j2 = j3;
-                        }
+        synchronized (this) {
+            RealConnection realConnection = null;
+            long j2 = Long.MIN_VALUE;
+            int i = 0;
+            int i2 = 0;
+            for (RealConnection realConnection2 : this.connections) {
+                if (pruneAndGetAllocationCount(realConnection2, j) > 0) {
+                    i2++;
+                } else {
+                    i++;
+                    long j3 = j - realConnection2.idleAtNanos;
+                    if (j3 > j2) {
+                        realConnection = realConnection2;
+                        j2 = j3;
                     }
                 }
-                if (j2 < this.keepAliveDurationNs && i <= this.maxIdleConnections) {
-                    if (i > 0) {
-                        return this.keepAliveDurationNs - j2;
-                    }
-                    if (i2 > 0) {
-                        return this.keepAliveDurationNs;
-                    }
+            }
+            if (j2 < this.keepAliveDurationNs && i <= this.maxIdleConnections) {
+                if (i > 0) {
+                    return this.keepAliveDurationNs - j2;
+                } else if (i2 > 0) {
+                    return this.keepAliveDurationNs;
+                } else {
                     this.cleanupRunning = false;
                     return -1L;
                 }
-                this.connections.remove(realConnection);
-                Util.closeQuietly(realConnection.socket());
-                return 0L;
             }
+            this.connections.remove(realConnection);
+            Util.closeQuietly(realConnection.socket());
+            return 0L;
         }
-        return invokeJ.longValue;
     }
 
     public boolean connectionBecameIdle(RealConnection realConnection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, realConnection)) == null) {
-            if (!realConnection.noNewStreams && this.maxIdleConnections != 0) {
-                notifyAll();
-                return false;
-            }
-            this.connections.remove(realConnection);
-            return true;
+        if (!realConnection.noNewStreams && this.maxIdleConnections != 0) {
+            notifyAll();
+            return false;
         }
-        return invokeL.booleanValue;
+        this.connections.remove(realConnection);
+        return true;
     }
 
     public void put(RealConnection realConnection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, realConnection) == null) {
-            if (!this.cleanupRunning) {
-                this.cleanupRunning = true;
-                executor.execute(this.cleanupRunnable);
-            }
-            this.connections.add(realConnection);
+        if (!this.cleanupRunning) {
+            this.cleanupRunning = true;
+            executor.execute(this.cleanupRunnable);
         }
-    }
-
-    public synchronized int connectionCount() {
-        InterceptResult invokeV;
-        int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                size = this.connections.size();
-            }
-            return size;
-        }
-        return invokeV.intValue;
+        this.connections.add(realConnection);
     }
 
     public synchronized boolean connectionExist(String str, boolean z) {
-        InterceptResult invokeLZ;
         boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
-            synchronized (this) {
-                z2 = false;
-                Iterator<RealConnection> it = this.connections.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    RealConnection next = it.next();
-                    if (next != null && (!z || next.allocations.isEmpty())) {
-                        if (str.equals(next.route().address.url().host())) {
-                            z2 = true;
-                            break;
-                        }
-                    }
+        z2 = false;
+        Iterator<RealConnection> it = this.connections.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            }
+            RealConnection next = it.next();
+            if (next != null && (!z || next.allocations.isEmpty())) {
+                if (str.equals(next.route().address.url().host())) {
+                    z2 = true;
+                    break;
                 }
             }
-            return z2;
         }
-        return invokeLZ.booleanValue;
+        return z2;
     }
 
     public synchronized int connectionsCount(String str, boolean z) {
-        InterceptResult invokeLZ;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, str, z)) == null) {
-            synchronized (this) {
-                i = 0;
-                for (RealConnection realConnection : this.connections) {
-                    if (realConnection != null && (!z || realConnection.allocations.isEmpty())) {
-                        if (str.equals(realConnection.route().address.url().host())) {
-                            i++;
-                        }
-                    }
+        i = 0;
+        for (RealConnection realConnection : this.connections) {
+            if (realConnection != null && (!z || realConnection.allocations.isEmpty())) {
+                if (str.equals(realConnection.route().address.url().host())) {
+                    i++;
                 }
             }
-            return i;
         }
-        return invokeLZ.intValue;
+        return i;
     }
 
     @Nullable
     public Socket deduplicate(Address address, StreamAllocation streamAllocation) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, address, streamAllocation)) == null) {
-            for (RealConnection realConnection : this.connections) {
-                if (realConnection.isEligible(address, null, streamAllocation.getPreConnectNum()) && realConnection.isMultiplexed() && realConnection != streamAllocation.connection()) {
-                    return streamAllocation.releaseAndAcquire(realConnection);
-                }
+        for (RealConnection realConnection : this.connections) {
+            if (realConnection.isEligible(address, null, streamAllocation.getPreConnectNum()) && realConnection.isMultiplexed() && realConnection != streamAllocation.connection()) {
+                return streamAllocation.releaseAndAcquire(realConnection);
             }
-            return null;
         }
-        return (Socket) invokeLL.objValue;
+        return null;
     }
 
     public void evictAll() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            ArrayList<RealConnection> arrayList = new ArrayList();
-            synchronized (this) {
-                Iterator<RealConnection> it = this.connections.iterator();
-                while (it.hasNext()) {
-                    RealConnection next = it.next();
-                    if (next.allocations.isEmpty()) {
-                        next.noNewStreams = true;
-                        arrayList.add(next);
-                        it.remove();
-                    }
+        ArrayList<RealConnection> arrayList = new ArrayList();
+        synchronized (this) {
+            Iterator<RealConnection> it = this.connections.iterator();
+            while (it.hasNext()) {
+                RealConnection next = it.next();
+                if (next.allocations.isEmpty()) {
+                    next.noNewStreams = true;
+                    arrayList.add(next);
+                    it.remove();
                 }
             }
-            for (RealConnection realConnection : arrayList) {
-                Util.closeQuietly(realConnection.socket());
-            }
+        }
+        for (RealConnection realConnection : arrayList) {
+            Util.closeQuietly(realConnection.socket());
         }
     }
 
     @Nullable
     public RealConnection get(Address address, StreamAllocation streamAllocation, Route route) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, address, streamAllocation, route)) == null) {
-            for (RealConnection realConnection : this.connections) {
-                if (realConnection.isEligible(address, route, streamAllocation.getPreConnectNum())) {
-                    streamAllocation.acquire(realConnection, true);
-                    return realConnection;
-                }
+        for (RealConnection realConnection : this.connections) {
+            if (realConnection.isEligible(address, route, streamAllocation.getPreConnectNum())) {
+                streamAllocation.acquire(realConnection, true);
+                return realConnection;
             }
-            return null;
         }
-        return (RealConnection) invokeLLL.objValue;
+        return null;
     }
 
     public synchronized int getPreConnectAlive(Map<HttpUrl, Integer> map) {
-        InterceptResult invokeL;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, map)) == null) {
-            synchronized (this) {
-                i = 0;
-                for (Map.Entry<HttpUrl, Integer> entry : map.entrySet()) {
-                    int connectionsCount = connectionsCount(entry.getKey().host, false);
-                    if (connectionsCount > entry.getValue().intValue()) {
-                        i += entry.getValue().intValue();
-                    } else {
-                        i += connectionsCount;
-                    }
-                }
+        i = 0;
+        for (Map.Entry<HttpUrl, Integer> entry : map.entrySet()) {
+            int connectionsCount = connectionsCount(entry.getKey().host, false);
+            if (connectionsCount > entry.getValue().intValue()) {
+                i += entry.getValue().intValue();
+            } else {
+                i += connectionsCount;
             }
-            return i;
         }
-        return invokeL.intValue;
+        return i;
     }
 
     public synchronized boolean hostH2ConnectionExist(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            synchronized (this) {
-                for (RealConnection realConnection : this.connections) {
-                    if (realConnection != null && realConnection.route().address().url().host().equals(str) && realConnection.isMultiplexed()) {
-                        return true;
-                    }
-                }
-                return false;
+        for (RealConnection realConnection : this.connections) {
+            if (realConnection != null && realConnection.route().address().url().host().equals(str) && realConnection.isMultiplexed()) {
+                return true;
             }
         }
-        return invokeL.booleanValue;
+        return false;
     }
 }

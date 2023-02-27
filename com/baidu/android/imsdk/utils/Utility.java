@@ -27,8 +27,7 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.ubc.CaseUbc;
 import com.baidu.android.imsdk.ubc.ScreenUbc;
-import com.baidu.down.utils.Utils;
-import com.baidu.tieba.m80;
+import com.baidu.tieba.q80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,6 +35,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.heytap.mcssdk.constant.a;
+import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.io.File;
 import java.net.InetAddress;
 import java.security.MessageDigest;
@@ -140,10 +141,7 @@ public final class Utility {
     public static long getPaSyncDelay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65581, null)) == null) {
-            return 43200000L;
-        }
-        return invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65581, null)) == null) ? a.g : invokeV.longValue;
     }
 
     public static boolean isCategoryCorrect(int i) {
@@ -178,7 +176,7 @@ public final class Utility {
             }
         }
         mScreenMethodMap = new HashMap();
-        hexDigits = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        hexDigits = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
     public static boolean isPeakTime() {
@@ -587,7 +585,7 @@ public final class Utility {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
             } catch (PackageManager.NameNotFoundException e) {
-                LogUtils.e(Utils.TAG, "getAppVersionName NameNotFoundException", e);
+                LogUtils.e("Utils", "getAppVersionName NameNotFoundException", e);
                 return null;
             }
         }
@@ -954,7 +952,7 @@ public final class Utility {
         if (interceptable == null || interceptable.invokeL(65636, null, context) == null) {
             LogUtils.i("Utility", "--- Start IM Service ---");
             try {
-                m80.e(context).d(context, new Intent(context, m80.class));
+                q80.e(context).d(context, new Intent(context, q80.class));
             } catch (Exception e) {
                 LogUtils.e("Utility", "Exception ", e);
             }
@@ -1107,7 +1105,7 @@ public final class Utility {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, context, i)) == null) {
-            Intent intent = new Intent(context, m80.class);
+            Intent intent = new Intent(context, q80.class);
             intent.putExtra("method", i);
             intent.putExtra("service_id", 2);
             intent.setPackage(context.getPackageName());
@@ -1120,7 +1118,7 @@ public final class Utility {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, context, i)) == null) {
-            Intent intent = new Intent(context, m80.class);
+            Intent intent = new Intent(context, q80.class);
             intent.putExtra("method", i);
             intent.putExtra("service_id", 3);
             intent.setPackage(context.getPackageName());
@@ -1432,7 +1430,7 @@ public final class Utility {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, str);
             }
             try {
-                m80.e(context).d(context, creatMethodIntent);
+                q80.e(context).d(context, creatMethodIntent);
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(str);
                 LogUtils.e("Utility", "Exception ", e);

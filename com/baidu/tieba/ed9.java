@@ -1,29 +1,97 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
 /* loaded from: classes4.dex */
 public class ed9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ed9() {
+    public static boolean d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i == 1990059 : invokeI.booleanValue;
+    }
+
+    public static void a(d25 d25Var, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65536, null, d25Var, i) == null) && d25Var != null && i >= 0) {
+            int i2 = 1;
+            int i3 = i + 1;
+            boolean d = d25Var.d();
+            String valueOf = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
+            if (d) {
+                i2 = 2;
             }
+            TiebaStatic.log(new StatisticItem("c14633").param("uid", valueOf).param("obj_locate", i3).param("obj_type", i2));
         }
-        p35.m().n("nani_key_download_show_position", 3);
-        new HashSet();
+    }
+
+    public static boolean b(Activity activity, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, activity, i, str)) == null) {
+            if (d(i)) {
+                e(activity, str);
+                return true;
+            }
+            return false;
+        }
+        return invokeLIL.booleanValue;
+    }
+
+    public static void g(ViewGroup viewGroup, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(65542, null, viewGroup, str, z) == null) && viewGroup != null && !TextUtils.isEmpty(str)) {
+            BdTopToast bdTopToast = new BdTopToast(viewGroup.getContext());
+            bdTopToast.h(z);
+            bdTopToast.g(str);
+            bdTopToast.i(viewGroup);
+        }
+    }
+
+    public static String c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            if (view2 == null) {
+                return null;
+            }
+            Object tag = view2.getTag();
+            if (tag instanceof PostData) {
+                PostData postData = (PostData) tag;
+                if (postData.r() != null) {
+                    return postData.r().getUserId();
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void e(Activity activity, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, str) == null) && activity != null && !TextUtils.isEmpty(str)) {
+            g((ViewGroup) activity.findViewById(16908290), str, false);
+        }
+    }
+
+    public static void f(View view2, PostData postData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65541, null, view2, postData) != null) || view2 == null) {
+            return;
+        }
+        view2.setTag(postData);
     }
 }

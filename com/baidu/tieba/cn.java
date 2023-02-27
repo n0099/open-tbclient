@@ -4,11 +4,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.adp.titan.TitanDownloadService;
 import com.baidu.android.common.others.url.UrlUtil;
 import com.baidu.android.common.util.CommonParam;
@@ -31,12 +30,11 @@ import com.baidu.util.Base64Encoder;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class cn {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean q;
-    public static cn r;
-    public static HashMap<String, Integer> s;
+    public static cn q;
+    public static HashMap<String, Integer> r;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
@@ -68,18 +66,17 @@ public final class cn {
                 return;
             }
         }
-        q = ym.a;
         HashMap<String, Integer> hashMap = new HashMap<>();
-        s = hashMap;
+        r = hashMap;
         hashMap.put("WIFI", 1);
-        s.put("3GNET", 21);
-        s.put("3GWAP", 22);
-        s.put("CMNET", 31);
-        s.put("UNINET", 32);
-        s.put("CTNET", 33);
-        s.put("CMWAP", 41);
-        s.put("UNIWAP", 42);
-        s.put("CTWAP", 43);
+        r.put("3GNET", 21);
+        r.put("3GWAP", 22);
+        r.put("CMNET", 31);
+        r.put("UNINET", 32);
+        r.put("CTNET", 33);
+        r.put("CMWAP", 41);
+        r.put("UNIWAP", 42);
+        r.put("CTWAP", 43);
     }
 
     public String toString() {
@@ -123,31 +120,16 @@ public final class cn {
         }
     }
 
-    public final String l(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, context)) == null) {
-            if (q) {
-                Log.d(TitanDownloadService.TAG, "load tn from R.raw.tnconfig, tn = ");
-            }
-            if (!TextUtils.isEmpty("")) {
-                return "";
-            }
-            return "757b";
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static synchronized cn p() {
         InterceptResult invokeV;
         cn cnVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (cn.class) {
-                if (r == null) {
-                    r = new cn(AppRuntime.getAppContext());
+                if (q == null) {
+                    q = new cn(AppRuntime.getAppContext());
                 }
-                cnVar = r;
+                cnVar = q;
             }
             return cnVar;
         }
@@ -220,6 +202,18 @@ public final class cn {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
             return CommonParam.getCUID(context);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String l(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, context)) == null) {
+            if (!TextUtils.isEmpty("")) {
+                return "";
+            }
+            return "757b";
         }
         return (String) invokeL.objValue;
     }
@@ -350,20 +344,18 @@ public final class cn {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (q) {
-                SystemClock.uptimeMillis();
-            }
             ConnectManager connectManager = new ConnectManager(this.n);
             String netType = connectManager.getNetType();
             int subType = connectManager.getSubType();
+            Integer num = 5;
             if (!TextUtils.isEmpty(netType)) {
-                Integer num = s.get(netType.toUpperCase());
-                if (num == null) {
-                    num = 5;
+                Integer num2 = r.get(netType.toUpperCase());
+                if (num2 != null) {
+                    num = num2;
                 }
                 return num + "_" + subType;
             }
-            return ((Object) 5) + "_" + subType;
+            return num + "_" + subType;
         }
         return (String) invokeV.objValue;
     }
@@ -373,9 +365,7 @@ public final class cn {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             String str = this.g + "_" + this.i + "_" + Build.VERSION.SDK_INT + "_" + this.h;
-            if (q) {
-                Log.d(TitanDownloadService.TAG, "device info : " + str);
-            }
+            DefaultLog.getInstance().c(TitanDownloadService.TAG, "device info : " + str);
             return str;
         }
         return (String) invokeV.objValue;
@@ -388,19 +378,16 @@ public final class cn {
             String string = this.l.getString(BaiduIdentityManager.KEY_LAST_TN, "");
             String l = l(context);
             if (!(!TextUtils.equals(string, l)) && !TextUtils.isEmpty(string)) {
-                if (q) {
-                    Log.d(TitanDownloadService.TAG, "load tn from local, lastTn = " + string);
-                    return string;
-                }
+                r08 defaultLog = DefaultLog.getInstance();
+                defaultLog.c(TitanDownloadService.TAG, "load tn from local, lastTn = " + string);
                 return string;
             }
             SharedPreferences.Editor edit = this.l.edit();
             edit.putString(BaiduIdentityManager.KEY_LAST_TN, l);
             edit.apply();
             i(l);
-            if (q) {
-                Log.d(TitanDownloadService.TAG, "load tn from apk, lastTn = " + l);
-            }
+            r08 defaultLog2 = DefaultLog.getInstance();
+            defaultLog2.c(TitanDownloadService.TAG, "load tn from apk, lastTn = " + l);
             return l;
         }
         return (String) invokeL.objValue;
@@ -412,9 +399,7 @@ public final class cn {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, context)) == null) {
             int displayWidth = DeviceUtil.ScreenInfo.getDisplayWidth(context);
             String str = String.valueOf(displayWidth) + "_" + DeviceUtil.ScreenInfo.getDisplayHeight(context) + "_android_" + this.m + "_" + DeviceUtil.ScreenInfo.getDensityDpi(context);
-            if (q) {
-                Log.d(TitanDownloadService.TAG, "ua = " + str);
-            }
+            DefaultLog.getInstance().c(TitanDownloadService.TAG, "ua = " + str);
             return str;
         }
         return (String) invokeL.objValue;
@@ -426,16 +411,16 @@ public final class cn {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, context)) == null) {
             String string = this.l.getString("uid_v3", "");
             if (TextUtils.isEmpty(string)) {
-                string = k(context);
-                if (q) {
-                    Log.d(TitanDownloadService.TAG, "new generated uid " + string);
-                }
+                String k = k(context);
+                r08 defaultLog = DefaultLog.getInstance();
+                defaultLog.c(TitanDownloadService.TAG, "new generated uid " + k);
                 SharedPreferences.Editor edit = this.l.edit();
-                edit.putString("uid_v3", string);
+                edit.putString("uid_v3", k);
                 edit.apply();
-            } else if (q) {
-                Log.d(TitanDownloadService.TAG, "load uid from local " + string);
+                return k;
             }
+            r08 defaultLog2 = DefaultLog.getInstance();
+            defaultLog2.c(TitanDownloadService.TAG, "load uid from local " + string);
             return string;
         }
         return (String) invokeL.objValue;
@@ -455,8 +440,9 @@ public final class cn {
                 edit.putString("tnconfig", str);
                 edit.apply();
                 string = str;
-            } else if (q) {
-                Log.d(TitanDownloadService.TAG, "load tn from local, tn = " + string);
+            } else {
+                r08 defaultLog = DefaultLog.getInstance();
+                defaultLog.c(TitanDownloadService.TAG, "load tn from local, tn = " + string);
             }
             if (TextUtils.isEmpty(string)) {
                 return "757b";

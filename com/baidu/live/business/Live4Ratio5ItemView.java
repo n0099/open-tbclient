@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewStub;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.business.base.LiveBaseItemView;
 import com.baidu.live.business.model.data.LeftLableInfo;
@@ -22,19 +21,13 @@ import com.baidu.live.business.model.data.ThirdLabelInfo;
 import com.baidu.live.business.util.LiveBaseLottieView;
 import com.baidu.live.business.view.LiveStatusAnimView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bd0;
 import com.baidu.tieba.fd0;
-import com.baidu.tieba.oa0;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.jd0;
+import com.baidu.tieba.sa0;
 import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes2.dex */
 public class Live4Ratio5ItemView extends LiveBaseItemView {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public SimpleDraweeView h;
     public SimpleDraweeView i;
     public LiveStatusAnimView j;
@@ -54,48 +47,15 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
     public boolean x;
     public Context y;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public Live4Ratio5ItemView(Context context) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.s = false;
         this.x = false;
         d(context);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public Live4Ratio5ItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.s = false;
         this.x = false;
         d(context);
@@ -104,111 +64,96 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
     @Override // com.baidu.live.business.base.LiveBaseItemView
     public void a() {
         LiveBaseLottieView liveBaseLottieView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            if (this.s && this.j.b()) {
-                this.j.c();
-            }
-            View view2 = this.q;
-            if (view2 != null && view2.getVisibility() == 0 && (liveBaseLottieView = this.r) != null) {
-                liveBaseLottieView.playAnimation();
-            }
+        super.a();
+        if (this.s && this.j.b()) {
+            this.j.c();
+        }
+        View view2 = this.q;
+        if (view2 != null && view2.getVisibility() == 0 && (liveBaseLottieView = this.r) != null) {
+            liveBaseLottieView.playAnimation();
         }
     }
 
     @Override // com.baidu.live.business.base.LiveBaseItemView
     public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.b();
-            LiveStatusAnimView liveStatusAnimView = this.j;
-            if (liveStatusAnimView != null) {
-                liveStatusAnimView.d();
-            }
-            LiveBaseLottieView liveBaseLottieView = this.r;
-            if (liveBaseLottieView != null) {
-                liveBaseLottieView.cancelAnimation();
-            }
+        super.b();
+        LiveStatusAnimView liveStatusAnimView = this.j;
+        if (liveStatusAnimView != null) {
+            liveStatusAnimView.d();
+        }
+        LiveBaseLottieView liveBaseLottieView = this.r;
+        if (liveBaseLottieView != null) {
+            liveBaseLottieView.cancelAnimation();
         }
     }
 
     @Override // com.baidu.live.business.base.LiveBaseItemView
     public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.c();
-            LiveStatusAnimView liveStatusAnimView = this.j;
-            if (liveStatusAnimView != null) {
-                liveStatusAnimView.d();
-            }
-            LiveBaseLottieView liveBaseLottieView = this.r;
-            if (liveBaseLottieView != null) {
-                liveBaseLottieView.cancelAnimation();
-            }
+        super.c();
+        LiveStatusAnimView liveStatusAnimView = this.j;
+        if (liveStatusAnimView != null) {
+            liveStatusAnimView.d();
+        }
+        LiveBaseLottieView liveBaseLottieView = this.r;
+        if (liveBaseLottieView != null) {
+            liveBaseLottieView.cancelAnimation();
         }
     }
 
     public final void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            setNeedRatio(true);
-            setAspectRatio(1.25f);
-            this.y = context;
-            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0552, this);
-            this.h = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09144f);
-            this.p = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f09146c);
-            this.j = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f091453);
-            this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091458);
-            this.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09144b);
-            this.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091455);
-            this.i = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09144c);
-            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091454);
-            this.o = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091457);
-            this.t = inflate.findViewById(R.id.obfuscated_res_0x7f091441);
-            this.u = inflate.findViewById(R.id.obfuscated_res_0x7f0914c4);
-            this.v = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914c5);
-            this.w = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0914cc);
-        }
+        setNeedRatio(true);
+        setAspectRatio(1.25f);
+        this.y = context;
+        View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0567, this);
+        this.h = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091490);
+        this.p = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f0914ad);
+        this.j = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f091494);
+        this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091499);
+        this.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09148c);
+        this.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091496);
+        this.i = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09148d);
+        this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091495);
+        this.o = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091498);
+        this.t = inflate.findViewById(R.id.obfuscated_res_0x7f091482);
+        this.u = inflate.findViewById(R.id.obfuscated_res_0x7f091505);
+        this.v = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091506);
+        this.w = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09150d);
     }
 
     public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(fd0.f().a(getContext(), this.c, "color_white2"));
-            gradientDrawable.setCornerRadius(oa0.b(getContext(), 10.0f));
-            setBackgroundDrawable(gradientDrawable);
-            SimpleDraweeView simpleDraweeView = this.h;
-            if (simpleDraweeView != null) {
-                simpleDraweeView.getHierarchy().setPlaceholderImage(fd0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
-                this.h.getHierarchy().setFailureImage(fd0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
-            }
-            SimpleDraweeView simpleDraweeView2 = this.i;
-            if (simpleDraweeView2 != null) {
-                simpleDraweeView2.getHierarchy().setPlaceholderImage(fd0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
-                this.i.getHierarchy().setFailureImage(fd0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
-            }
-            TextView textView = this.k;
-            if (textView != null) {
-                textView.setTextColor(fd0.f().a(getContext(), this.c, "color_white3"));
-            }
-            TextView textView2 = this.n;
-            if (textView2 != null) {
-                textView2.setTextColor(fd0.f().a(getContext(), this.c, "color_white3"));
-            }
-            TextView textView3 = this.l;
-            if (textView3 != null) {
-                textView3.setTextColor(fd0.f().a(getContext(), this.c, "color_white3"));
-            }
-            TextView textView4 = this.m;
-            if (textView4 != null) {
-                textView4.setTextColor(fd0.f().a(getContext(), this.c, "color_white3"));
-            }
-            TextView textView5 = this.v;
-            if (textView5 != null) {
-                textView5.setTextColor(fd0.f().a(getContext(), this.c, "color_white3"));
-            }
+        GradientDrawable gradientDrawable = new GradientDrawable();
+        gradientDrawable.setColor(jd0.f().a(getContext(), this.c, "color_white2"));
+        gradientDrawable.setCornerRadius(sa0.b(getContext(), 10.0f));
+        setBackgroundDrawable(gradientDrawable);
+        SimpleDraweeView simpleDraweeView = this.h;
+        if (simpleDraweeView != null) {
+            simpleDraweeView.getHierarchy().setPlaceholderImage(jd0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
+            this.h.getHierarchy().setFailureImage(jd0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
+        }
+        SimpleDraweeView simpleDraweeView2 = this.i;
+        if (simpleDraweeView2 != null) {
+            simpleDraweeView2.getHierarchy().setPlaceholderImage(jd0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
+            this.i.getHierarchy().setFailureImage(jd0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
+        }
+        TextView textView = this.k;
+        if (textView != null) {
+            textView.setTextColor(jd0.f().a(getContext(), this.c, "color_white3"));
+        }
+        TextView textView2 = this.n;
+        if (textView2 != null) {
+            textView2.setTextColor(jd0.f().a(getContext(), this.c, "color_white3"));
+        }
+        TextView textView3 = this.l;
+        if (textView3 != null) {
+            textView3.setTextColor(jd0.f().a(getContext(), this.c, "color_white3"));
+        }
+        TextView textView4 = this.m;
+        if (textView4 != null) {
+            textView4.setTextColor(jd0.f().a(getContext(), this.c, "color_white3"));
+        }
+        TextView textView5 = this.v;
+        if (textView5 != null) {
+            textView5.setTextColor(jd0.f().a(getContext(), this.c, "color_white3"));
         }
     }
 
@@ -216,129 +161,123 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
     public void setData(LiveRoomEntity liveRoomEntity, int i) {
         LiveStatusAnimView liveStatusAnimView;
         LiveFeedConfig.AbSwitchConfig abSwitchConfig;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, liveRoomEntity, i) == null) {
-            this.j.setScene(this.c);
-            if (liveRoomEntity != null) {
-                this.h.setImageURI(liveRoomEntity.cover);
-                LeftLableInfo leftLableInfo = liveRoomEntity.leftLabel;
-                if (leftLableInfo != null && this.j != null && leftLableInfo.isRankTopStyle()) {
-                    this.j.setData(liveRoomEntity, true);
+        this.j.setScene(this.c);
+        if (liveRoomEntity != null) {
+            this.h.setImageURI(liveRoomEntity.cover);
+            LeftLableInfo leftLableInfo = liveRoomEntity.leftLabel;
+            if (leftLableInfo != null && this.j != null && leftLableInfo.isRankTopStyle()) {
+                this.j.setData(liveRoomEntity, true);
+                this.s = true;
+                this.j.setVisibility(0);
+            } else {
+                LeftLableInfo leftLableInfo2 = liveRoomEntity.leftLabel;
+                if (leftLableInfo2 != null && leftLableInfo2.canShowLabel() && (liveStatusAnimView = this.j) != null) {
+                    liveStatusAnimView.setData(liveRoomEntity, false);
                     this.s = true;
                     this.j.setVisibility(0);
                 } else {
-                    LeftLableInfo leftLableInfo2 = liveRoomEntity.leftLabel;
-                    if (leftLableInfo2 != null && leftLableInfo2.canShowLabel() && (liveStatusAnimView = this.j) != null) {
-                        liveStatusAnimView.setData(liveRoomEntity, false);
-                        this.s = true;
-                        this.j.setVisibility(0);
-                    } else {
-                        this.s = false;
-                        LiveStatusAnimView liveStatusAnimView2 = this.j;
-                        if (liveStatusAnimView2 != null) {
-                            liveStatusAnimView2.setVisibility(8);
-                        }
+                    this.s = false;
+                    LiveStatusAnimView liveStatusAnimView2 = this.j;
+                    if (liveStatusAnimView2 != null) {
+                        liveStatusAnimView2.setVisibility(8);
                     }
                 }
-                bd0.h(this.k, 1, 14.0f);
-                this.k.setText(liveRoomEntity.title);
-                bd0.h(this.n, 1, 14.0f);
-                LiveHostInfo liveHostInfo = liveRoomEntity.hostInfo;
-                if (liveHostInfo != null) {
-                    this.n.setText(liveHostInfo.name);
-                    this.i.setImageURI(liveRoomEntity.hostInfo.avatar);
-                }
-                bd0.h(this.l, 1, 10.0f);
-                bd0.h(this.m, 1, 10.0f);
-                if (liveRoomEntity.liveStatus == 0) {
-                    this.l.setVisibility(8);
-                    this.m.setVisibility(0);
-                    this.m.setText(liveRoomEntity.formatReserveStartTime());
-                } else {
-                    this.l.setText(oa0.a(this.y, liveRoomEntity.audienceCount));
-                    this.l.setVisibility(0);
-                    this.m.setVisibility(8);
-                }
-                this.t.getLayoutParams().height = oa0.b(getContext(), 61.0f);
-                this.t.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d60));
-                LiveFeedConfig liveFeedConfig = this.d;
-                if (liveFeedConfig != null && (abSwitchConfig = liveFeedConfig.abSwitchConfig) != null && abSwitchConfig.otherNewStyle) {
-                    this.x = true;
-                }
-                if (liveRoomEntity.showTpl == 1) {
-                    if (this.x) {
-                        this.i.setVisibility(8);
-                    } else {
-                        this.i.setVisibility(0);
-                    }
-                    this.k.setVisibility(0);
-                    this.n.setTypeface(Typeface.defaultFromStyle(0));
-                } else {
-                    this.i.setVisibility(8);
-                    this.k.setVisibility(8);
-                    this.n.setTypeface(Typeface.defaultFromStyle(1));
-                    this.t.getLayoutParams().height = oa0.b(getContext(), 35.0f);
-                    this.t.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d5a));
-                }
-                RightLableInfo rightLableInfo = liveRoomEntity.rightLabel;
-                if (rightLableInfo != null && rightLableInfo.canShowLabel()) {
-                    this.o.setImageURI(liveRoomEntity.rightLabel.iconUrl);
-                    this.o.setVisibility(0);
-                } else {
-                    this.o.setVisibility(8);
-                }
-                if (LiveFeedPageSdk.IMMERSION.equals(this.c) || "recommend".equals(this.c) || LiveFeedPageSdk.VIDEO_BAR.equals(this.c)) {
-                    this.h.getHierarchy().setUseGlobalColorFilter(false);
-                    this.i.getHierarchy().setUseGlobalColorFilter(false);
-                    this.o.getHierarchy().setUseGlobalColorFilter(false);
-                    this.w.getHierarchy().setUseGlobalColorFilter(false);
-                }
-                ThirdLabelInfo thirdLabelInfo = liveRoomEntity.thirdLabel;
-                if (thirdLabelInfo != null && thirdLabelInfo.canShowLabel()) {
-                    this.u.setVisibility(0);
-                    this.v.setText(liveRoomEntity.thirdLabel.text);
-                    if (!TextUtils.isEmpty(liveRoomEntity.thirdLabel.iconUrl)) {
-                        this.w.setImageURI(liveRoomEntity.thirdLabel.iconUrl);
-                        this.w.setVisibility(0);
-                    } else {
-                        this.w.setVisibility(8);
-                    }
-                    if (!TextUtils.isEmpty(liveRoomEntity.thirdLabel.startColor) && !TextUtils.isEmpty(liveRoomEntity.thirdLabel.endColor)) {
-                        try {
-                            ((GradientDrawable) this.u.getBackground()).setColors(new int[]{Color.parseColor(liveRoomEntity.thirdLabel.startColor), Color.parseColor(liveRoomEntity.thirdLabel.endColor)});
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                } else {
-                    this.u.setVisibility(8);
-                }
-                e("day");
             }
+            fd0.h(this.k, 1, 14.0f);
+            this.k.setText(liveRoomEntity.title);
+            fd0.h(this.n, 1, 14.0f);
+            LiveHostInfo liveHostInfo = liveRoomEntity.hostInfo;
+            if (liveHostInfo != null) {
+                this.n.setText(liveHostInfo.name);
+                this.i.setImageURI(liveRoomEntity.hostInfo.avatar);
+            }
+            fd0.h(this.l, 1, 10.0f);
+            fd0.h(this.m, 1, 10.0f);
+            if (liveRoomEntity.liveStatus == 0) {
+                this.l.setVisibility(8);
+                this.m.setVisibility(0);
+                this.m.setText(liveRoomEntity.formatReserveStartTime());
+            } else {
+                this.l.setText(sa0.a(this.y, liveRoomEntity.audienceCount));
+                this.l.setVisibility(0);
+                this.m.setVisibility(8);
+            }
+            this.t.getLayoutParams().height = sa0.b(getContext(), 61.0f);
+            this.t.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d63));
+            LiveFeedConfig liveFeedConfig = this.d;
+            if (liveFeedConfig != null && (abSwitchConfig = liveFeedConfig.abSwitchConfig) != null && abSwitchConfig.otherNewStyle) {
+                this.x = true;
+            }
+            if (liveRoomEntity.showTpl == 1) {
+                if (this.x) {
+                    this.i.setVisibility(8);
+                } else {
+                    this.i.setVisibility(0);
+                }
+                this.k.setVisibility(0);
+                this.n.setTypeface(Typeface.defaultFromStyle(0));
+            } else {
+                this.i.setVisibility(8);
+                this.k.setVisibility(8);
+                this.n.setTypeface(Typeface.defaultFromStyle(1));
+                this.t.getLayoutParams().height = sa0.b(getContext(), 35.0f);
+                this.t.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d5d));
+            }
+            RightLableInfo rightLableInfo = liveRoomEntity.rightLabel;
+            if (rightLableInfo != null && rightLableInfo.canShowLabel()) {
+                this.o.setImageURI(liveRoomEntity.rightLabel.iconUrl);
+                this.o.setVisibility(0);
+            } else {
+                this.o.setVisibility(8);
+            }
+            if (LiveFeedPageSdk.IMMERSION.equals(this.c) || "recommend".equals(this.c) || LiveFeedPageSdk.VIDEO_BAR.equals(this.c)) {
+                this.h.getHierarchy().setUseGlobalColorFilter(false);
+                this.i.getHierarchy().setUseGlobalColorFilter(false);
+                this.o.getHierarchy().setUseGlobalColorFilter(false);
+                this.w.getHierarchy().setUseGlobalColorFilter(false);
+            }
+            ThirdLabelInfo thirdLabelInfo = liveRoomEntity.thirdLabel;
+            if (thirdLabelInfo != null && thirdLabelInfo.canShowLabel()) {
+                this.u.setVisibility(0);
+                this.v.setText(liveRoomEntity.thirdLabel.text);
+                if (!TextUtils.isEmpty(liveRoomEntity.thirdLabel.iconUrl)) {
+                    this.w.setImageURI(liveRoomEntity.thirdLabel.iconUrl);
+                    this.w.setVisibility(0);
+                } else {
+                    this.w.setVisibility(8);
+                }
+                if (!TextUtils.isEmpty(liveRoomEntity.thirdLabel.startColor) && !TextUtils.isEmpty(liveRoomEntity.thirdLabel.endColor)) {
+                    try {
+                        ((GradientDrawable) this.u.getBackground()).setColors(new int[]{Color.parseColor(liveRoomEntity.thirdLabel.startColor), Color.parseColor(liveRoomEntity.thirdLabel.endColor)});
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            } else {
+                this.u.setVisibility(8);
+            }
+            e("day");
         }
     }
 
     @Override // com.baidu.live.business.base.LiveBaseItemView
     public void setIsCurViewing(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (z) {
-                View view2 = this.q;
-                if (view2 == null) {
-                    View inflate = this.p.inflate();
-                    this.q = inflate;
-                    LiveBaseLottieView liveBaseLottieView = (LiveBaseLottieView) inflate.findViewById(R.id.obfuscated_res_0x7f09146b);
-                    this.r = liveBaseLottieView;
-                    liveBaseLottieView.setRepeatCount(-1);
-                    this.r.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/android/liveshow_room_viewing.json");
-                } else {
-                    view2.setVisibility(0);
-                }
-                this.r.playAnimation();
-            } else if (this.q != null) {
-                this.r.cancelAnimation();
-                this.q.setVisibility(8);
+        if (z) {
+            View view2 = this.q;
+            if (view2 == null) {
+                View inflate = this.p.inflate();
+                this.q = inflate;
+                LiveBaseLottieView liveBaseLottieView = (LiveBaseLottieView) inflate.findViewById(R.id.obfuscated_res_0x7f0914ac);
+                this.r = liveBaseLottieView;
+                liveBaseLottieView.setRepeatCount(-1);
+                this.r.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/android/liveshow_room_viewing.json");
+            } else {
+                view2.setVisibility(0);
             }
+            this.r.playAnimation();
+        } else if (this.q != null) {
+            this.r.cancelAnimation();
+            this.q.setVisibility(8);
         }
     }
 }

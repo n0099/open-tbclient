@@ -17,10 +17,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.Statistics;
 import com.baidu.webkit.internal.monitor.MonitorType;
 import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import com.faceunity.gles.GeneratedTexture;
-import com.heytap.mcssdk.mode.CommandMessage;
+import com.heytap.mcssdk.constant.MessageConstant;
 import java.io.Writer;
 import java.lang.ref.WeakReference;
 import java.nio.IntBuffer;
@@ -45,7 +46,7 @@ public class f implements ah {
     public aq f;
     public boolean g;
     public e h;
-    public InterfaceC0141f i;
+    public InterfaceC0126f i;
     public g j;
     public k k;
     public int l;
@@ -59,7 +60,7 @@ public class f implements ah {
 
     /* renamed from: com.baidu.platform.comapi.map.f$f  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0141f {
+    public interface InterfaceC0126f {
         EGLContext a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig);
 
         void a(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext);
@@ -252,7 +253,7 @@ public class f implements ah {
     }
 
     /* loaded from: classes2.dex */
-    public class c implements InterfaceC0141f {
+    public class c implements InterfaceC0126f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f a;
@@ -281,7 +282,7 @@ public class f implements ah {
             this(fVar);
         }
 
-        @Override // com.baidu.platform.comapi.map.f.InterfaceC0141f
+        @Override // com.baidu.platform.comapi.map.f.InterfaceC0126f
         public EGLContext a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
@@ -296,7 +297,7 @@ public class f implements ah {
             return (EGLContext) invokeLLL.objValue;
         }
 
-        @Override // com.baidu.platform.comapi.map.f.InterfaceC0141f
+        @Override // com.baidu.platform.comapi.map.f.InterfaceC0126f
         public void a(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, egl10, eGLDisplay, eGLContext) == null) && !egl10.eglDestroyContext(eGLDisplay, eGLContext)) {
@@ -403,35 +404,35 @@ public class f implements ah {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
                 switch (i) {
-                    case CommandMessage.COMMAND_BASE /* 12288 */:
+                    case MessageConstant.CommandId.COMMAND_BASE /* 12288 */:
                         return "EGL_SUCCESS";
                     case 12289:
                         return "EGL_NOT_INITIALIZED";
-                    case CommandMessage.COMMAND_UNREGISTER /* 12290 */:
+                    case MessageConstant.CommandId.COMMAND_UNREGISTER /* 12290 */:
                         return "EGL_BAD_ACCESS";
-                    case CommandMessage.COMMAND_STATISTIC /* 12291 */:
+                    case MessageConstant.CommandId.COMMAND_STATISTIC /* 12291 */:
                         return OOMDeviceEventSceneSceneHandler.EGL_BAD_ALLOC;
-                    case CommandMessage.COMMAND_SET_ALIAS /* 12292 */:
+                    case MessageConstant.CommandId.COMMAND_SET_ALIAS /* 12292 */:
                         return "EGL_BAD_ATTRIBUTE";
-                    case CommandMessage.COMMAND_GET_ALIAS /* 12293 */:
+                    case 12293:
                         return "EGL_BAD_CONFIG";
-                    case CommandMessage.COMMAND_UNSET_ALIAS /* 12294 */:
+                    case 12294:
                         return "EGL_BAD_CONTEXT";
-                    case CommandMessage.COMMAND_SET_TAGS /* 12295 */:
+                    case 12295:
                         return "EGL_BAD_CURRENT_SURFACE";
-                    case CommandMessage.COMMAND_GET_TAGS /* 12296 */:
+                    case 12296:
                         return "EGL_BAD_DISPLAY";
-                    case CommandMessage.COMMAND_UNSET_TAGS /* 12297 */:
+                    case 12297:
                         return "EGL_BAD_MATCH";
-                    case CommandMessage.COMMAND_SET_PUSH_TIME /* 12298 */:
+                    case MessageConstant.CommandId.COMMAND_SET_PUSH_TIME /* 12298 */:
                         return "EGL_BAD_NATIVE_PIXMAP";
-                    case CommandMessage.COMMAND_PAUSE_PUSH /* 12299 */:
+                    case MessageConstant.CommandId.COMMAND_PAUSE_PUSH /* 12299 */:
                         return "EGL_BAD_NATIVE_WINDOW";
                     case 12300:
                         return "EGL_BAD_PARAMETER";
-                    case CommandMessage.COMMAND_SET_ACCOUNTS /* 12301 */:
+                    case 12301:
                         return "EGL_BAD_SURFACE";
-                    case 12302:
+                    case Statistics.kTypeWhiteScreen /* 12302 */:
                         return "EGL_CONTEXT_LOST";
                     default:
                         return b(i);
@@ -597,7 +598,7 @@ public class f implements ah {
                 if (!this.a.eglSwapBuffers(this.b, this.c)) {
                     return this.a.eglGetError();
                 }
-                return CommandMessage.COMMAND_BASE;
+                return MessageConstant.CommandId.COMMAND_BASE;
             }
             return invokeV.intValue;
         }
@@ -1614,11 +1615,11 @@ public class f implements ah {
         }
     }
 
-    public void a(InterfaceC0141f interfaceC0141f) {
+    public void a(InterfaceC0126f interfaceC0126f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0141f) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0126f) == null) {
             n();
-            this.i = interfaceC0141f;
+            this.i = interfaceC0126f;
         }
     }
 

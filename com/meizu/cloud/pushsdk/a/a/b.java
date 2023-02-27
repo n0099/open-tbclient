@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.meizu.cloud.pushinternal.DebugLogger;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,10 +26,8 @@ public class b {
     public static final String a = "b";
     public static final Object b = new Object();
     public static b c;
-    public Context d;
 
     public b(Context context) {
-        this.d = context;
         try {
             System.setProperty("sun.net.http.allowRestrictedHeaders", "true");
         } catch (Exception e) {
@@ -50,7 +49,7 @@ public class b {
 
     private Map<String, String> a(Map<String, String> map) {
         if (map == null) {
-            map = new HashMap<>();
+            map = new HashMap<>(2);
         }
         byte[] c2 = a.a().c();
         if (c2 == null || c2.length <= 0) {
@@ -130,31 +129,30 @@ public class b {
         return byteArrayOutputStream.toByteArray();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r0v10, resolved type: java.io.InputStream */
     /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.io.InputStream */
     /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.io.InputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: java.io.InputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v6, resolved type: boolean */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x0104, code lost:
-        if (r9 != null) goto L24;
+    /* JADX DEBUG: Multi-variable search result rejected for r8v7, resolved type: boolean */
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00ff, code lost:
+        if (r8 == null) goto L24;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x0106, code lost:
-        r9.disconnect();
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x0101, code lost:
+        r8.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x012f, code lost:
-        if (r9 == null) goto L68;
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x0126, code lost:
+        if (r8 != null) goto L25;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x00e8  */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x00eb A[Catch: Exception -> 0x00e6, all -> 0x0132, TryCatch #2 {all -> 0x0132, blocks: (B:19:0x00b5, B:21:0x00bb, B:22:0x00d6, B:25:0x00e2, B:30:0x00eb, B:31:0x00f7, B:43:0x010e), top: B:66:0x0088 }] */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x00f7 A[Catch: Exception -> 0x00e6, all -> 0x0132, TRY_LEAVE, TryCatch #2 {all -> 0x0132, blocks: (B:19:0x00b5, B:21:0x00bb, B:22:0x00d6, B:25:0x00e2, B:30:0x00eb, B:31:0x00f7, B:43:0x010e), top: B:66:0x0088 }] */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x013d  */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x0136 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x00ff A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x00b5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x00ea  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x00ed A[Catch: Exception -> 0x00e8, all -> 0x0129, TryCatch #4 {Exception -> 0x00e8, blocks: (B:21:0x00b7, B:23:0x00bd, B:24:0x00d8, B:27:0x00e4, B:32:0x00ed, B:33:0x00f9), top: B:62:0x00b7 }] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00f9 A[Catch: Exception -> 0x00e8, all -> 0x0129, TRY_LEAVE, TryCatch #4 {Exception -> 0x00e8, blocks: (B:21:0x00b7, B:23:0x00bd, B:24:0x00d8, B:27:0x00e4, B:32:0x00ed, B:33:0x00f9), top: B:62:0x00b7 }] */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x00b7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x008a A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private c b(String str, Map<String, String> map, String str2) throws Exception {
+        HttpURLConnection httpURLConnection;
         InputStream inputStream;
         byte[] a2;
         c cVar = null;
@@ -166,7 +164,7 @@ public class b {
             byte[] a3 = a.a().a(str2.getBytes());
             String str3 = a3 != null ? new String(Base64.encode(a3, 2)) : null;
             try {
-                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("http://norma-external-collect.meizu.com/push/android/external/add.do").openConnection();
+                httpURLConnection = (HttpURLConnection) new URL(PushConstants.URL_UPLOAD_DATA).openConnection();
                 httpURLConnection.setRequestMethod(str);
                 httpURLConnection.setDoInput(true);
                 httpURLConnection.setDoOutput(true);
@@ -179,101 +177,86 @@ public class b {
                 httpURLConnection.setRequestProperty("Content-Encoding", "gzip");
                 Map<String, String> map2 = map;
                 try {
-                    try {
-                        if (map != null) {
-                            int size = map.size();
-                            map2 = map;
-                            if (size > 0) {
-                                Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
-                                while (true) {
-                                    boolean hasNext = it.hasNext();
-                                    map2 = hasNext;
-                                    if (hasNext != 0) {
-                                        Map.Entry<String, String> next = it.next();
-                                        httpURLConnection.setRequestProperty(next.getKey(), next.getValue());
-                                    }
-                                }
-                                a(httpURLConnection, str3.getBytes());
-                                int responseCode = httpURLConnection.getResponseCode();
-                                DebugLogger.d(a, "code = " + responseCode);
-                                a(httpURLConnection);
-                                b(httpURLConnection);
-                                inputStream = httpURLConnection.getInputStream();
-                                if (inputStream == null) {
-                                    try {
-                                        a2 = a(inputStream);
-                                        if (a2 != null) {
-                                            String str4 = new String(a2);
-                                            DebugLogger.d(a, "body = " + str4);
-                                            try {
-                                                new JSONObject(str4).getInt("code");
-                                            } catch (JSONException e) {
-                                                e.printStackTrace();
-                                            }
-                                        }
-                                    } catch (Exception e2) {
-                                        e = e2;
-                                        DebugLogger.e(a, "realStringPartRequest error " + e.getMessage());
-                                        if (inputStream != null) {
-                                            try {
-                                                inputStream.close();
-                                            } catch (IOException unused) {
-                                            }
-                                        }
-                                    }
-                                } else {
-                                    a2 = null;
-                                }
-                                cVar = a2 == null ? new c(responseCode, new String(a2)) : new c(responseCode, null);
-                                if (inputStream != null) {
-                                    try {
-                                        inputStream.close();
-                                    } catch (IOException unused2) {
-                                    }
+                    if (map != null) {
+                        int size = map.size();
+                        map2 = map;
+                        if (size > 0) {
+                            Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
+                            while (true) {
+                                boolean hasNext = it.hasNext();
+                                map2 = hasNext;
+                                if (hasNext != 0) {
+                                    Map.Entry<String, String> next = it.next();
+                                    httpURLConnection.setRequestProperty(next.getKey(), next.getValue());
                                 }
                             }
-                        }
-                        a(httpURLConnection, str3.getBytes());
-                        int responseCode2 = httpURLConnection.getResponseCode();
-                        DebugLogger.d(a, "code = " + responseCode2);
-                        a(httpURLConnection);
-                        b(httpURLConnection);
-                        inputStream = httpURLConnection.getInputStream();
-                        if (inputStream == null) {
-                        }
-                        if (a2 == null) {
-                        }
-                        if (inputStream != null) {
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        inputStream2 = map2;
-                        if (inputStream2 != null) {
-                            try {
-                                inputStream2.close();
-                            } catch (IOException unused3) {
+                            if (str3 != null) {
+                                try {
+                                    a(httpURLConnection, str3.getBytes());
+                                } catch (Exception e) {
+                                    e = e;
+                                    inputStream = null;
+                                    DebugLogger.e(a, "realStringPartRequest error " + e.getMessage());
+                                } catch (Throwable th) {
+                                    th = th;
+                                    if (inputStream2 != null) {
+                                        try {
+                                            inputStream2.close();
+                                        } catch (IOException unused) {
+                                        }
+                                    }
+                                    httpURLConnection.disconnect();
+                                    throw th;
+                                }
                             }
+                            int responseCode = httpURLConnection.getResponseCode();
+                            DebugLogger.d(a, "code = " + responseCode);
+                            a(httpURLConnection);
+                            b(httpURLConnection);
+                            inputStream = httpURLConnection.getInputStream();
+                            if (inputStream == null) {
+                                try {
+                                    a2 = a(inputStream);
+                                    if (a2 != null) {
+                                        String str4 = new String(a2);
+                                        DebugLogger.d(a, "body = " + str4);
+                                        try {
+                                            new JSONObject(str4).getInt("code");
+                                        } catch (JSONException e2) {
+                                            e2.printStackTrace();
+                                        }
+                                    }
+                                } catch (Exception e3) {
+                                    e = e3;
+                                    DebugLogger.e(a, "realStringPartRequest error " + e.getMessage());
+                                }
+                            } else {
+                                a2 = null;
+                            }
+                            cVar = a2 == null ? new c(responseCode, new String(a2)) : new c(responseCode, null);
                         }
-                        if (httpURLConnection != null) {
-                            httpURLConnection.disconnect();
-                        }
-                        throw th;
                     }
-                } catch (Exception e3) {
-                    e = e3;
-                    inputStream = null;
+                    if (str3 != null) {
+                    }
+                    int responseCode2 = httpURLConnection.getResponseCode();
+                    DebugLogger.d(a, "code = " + responseCode2);
+                    a(httpURLConnection);
+                    b(httpURLConnection);
+                    inputStream = httpURLConnection.getInputStream();
+                    if (inputStream == null) {
+                    }
+                    if (a2 == null) {
+                    }
                 } catch (Throwable th2) {
                     th = th2;
-                    if (inputStream2 != null) {
-                    }
-                    if (httpURLConnection != null) {
-                    }
-                    throw th;
+                    inputStream2 = map2;
                 }
             } catch (MalformedURLException e4) {
                 e4.printStackTrace();
             }
         }
+        return cVar;
+        httpURLConnection.disconnect();
         return cVar;
     }
 

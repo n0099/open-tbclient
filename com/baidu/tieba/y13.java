@@ -1,12 +1,10 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,13 +12,107 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Locale;
+import java.security.InvalidParameterException;
+import java.util.HashMap;
+import java.util.Map;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class y13 implements pn3<HybridUbcFlow> {
+public class y13 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final String h;
+    public static final MediaType i;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public Map<String, String> b;
+    public Map<String, String> c;
+    public boolean d;
+    public JSONObject e;
+    public b f;
+    public ResponseCallback<JSONObject> g;
+
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(JSONObject jSONObject);
+
+        void onFail(String str);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a extends ResponseCallback<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y13 a;
+
+        public a(y13 y13Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y13Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y13Var;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                if (this.a.f == null) {
+                    m62.i("PayCheckRequest", "PayCheckRequestCallback is empty and paycheck request failed : \n" + Log.getStackTraceString(exc));
+                    return;
+                }
+                this.a.f.onFail(exc.getMessage());
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(JSONObject jSONObject, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
+                if (this.a.f == null) {
+                    m62.i("PayCheckRequest", "paycheck request success, but PayCheckRequestCallback is empty.");
+                } else if (jSONObject == null) {
+                    this.a.f.onFail("response is empty");
+                } else if (jSONObject.optInt("errno", -1) != 0) {
+                    String optString = jSONObject.optString("tipmsg", "");
+                    b bVar = this.a.f;
+                    if (TextUtils.isEmpty(optString)) {
+                        optString = "errno is non-zero";
+                    }
+                    bVar.onFail(optString);
+                } else {
+                    this.a.f.a(jSONObject.optJSONObject("data"));
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public JSONObject parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                if (response != null && response.body() != null) {
+                    return mm3.d(response.body().string());
+                }
+                return null;
+            }
+            return (JSONObject) invokeLI.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +127,9 @@ public class y13 implements pn3<HybridUbcFlow> {
                 return;
             }
         }
-        a = gp1.a;
+        boolean z = wp1.a;
+        h = String.format("%s/ma/pay_check", g62.b());
+        i = t03.a;
     }
 
     public y13() {
@@ -43,205 +137,99 @@ public class y13 implements pn3<HybridUbcFlow> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = h;
+        this.b = new HashMap();
+        this.c = new HashMap();
+        this.d = false;
+        this.e = new JSONObject();
+        this.g = new a(this);
+        e();
+        f();
+        g();
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            String O = l93.K().q().O();
+            try {
+                JSONObject jSONObject = this.e;
+                if (TextUtils.isEmpty(O)) {
+                    O = "";
+                }
+                jSONObject.put("appkey", O);
+            } catch (JSONException e) {
+                m62.i("PayCheckRequest", "set post data 'appkey' failed: \n" + Log.getStackTraceString(e));
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pn3
-    /* renamed from: b */
-    public void a(HybridUbcFlow hybridUbcFlow) {
+    public void d(@NonNull b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            c(hybridUbcFlow);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.f = bVar;
+            c(this.g);
         }
     }
 
-    @SuppressLint({"SwanDebugLog", "LogConditional"})
-    public void c(HybridUbcFlow hybridUbcFlow) {
-        long f;
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String str5;
-        boolean z;
-        boolean z2;
-        int i;
-        String str6;
-        String str7;
+    public void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
-            w83 M = w83.M();
-            if (hybridUbcFlow != null && !hybridUbcFlow.f.isEmpty() && a && M != null) {
-                HybridUbcFlow.SubmitStrategy i2 = hybridUbcFlow.i();
-                String str8 = "fe_route_start";
-                if (!hybridUbcFlow.d.contains("fe_route_start")) {
-                    str8 = "na_first_receive_action";
-                }
-                int i3 = 2;
-                char c = 1;
-                char c2 = 0;
-                if (i2 == HybridUbcFlow.SubmitStrategy.ROUTE) {
-                    f = hybridUbcFlow.f("fe_first_render_start", str8);
-                } else if (i2 == HybridUbcFlow.SubmitStrategy.ROUTE_NA) {
-                    f = hybridUbcFlow.f("na_push_page_end", str8);
-                } else {
-                    f = hybridUbcFlow.f("web_widget_first_screen_finish", str8);
-                }
-                if (f < 1) {
-                    f = 1;
-                }
-                String Z = M.Z();
-                String str9 = "";
-                if (TextUtils.isEmpty(Z)) {
-                    Z = "";
-                }
-                if (TextUtils.isEmpty(M.b)) {
-                    str = "";
-                } else {
-                    str = M.b;
-                }
-                if (M.Y() == null) {
-                    str2 = "";
-                } else {
-                    str2 = M.Y().V();
-                }
-                Log.i("RouteReporter", "\n\n  小程序路由性能报告: " + Z + " appID: " + str + " launchId ：" + str2 + " speedLog\n");
-                StringBuilder sb = new StringBuilder();
-                for (int i4 = 0; i4 < 100; i4++) {
-                    sb.append("&");
-                }
-                Log.i("RouteReporter", String.format("Delta [%s]  Cost Src  Total Action", sb.toString()));
-                long g = hybridUbcFlow.f.get(0).g();
-                Iterator<UbcFlowEvent> it = hybridUbcFlow.f.iterator();
-                long j = 0;
-                long j2 = 0;
-                while (it.hasNext()) {
-                    UbcFlowEvent next = it.next();
-                    String[] strArr = new String[i3];
-                    strArr[c2] = next.a;
-                    strArr[c] = str8;
-                    long f2 = hybridUbcFlow.f(strArr);
-                    if (f2 < j) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (f2 > f) {
-                        z2 = true;
-                    } else {
-                        z2 = false;
-                    }
-                    if (z) {
-                        f2 = j;
-                    }
-                    if (z2) {
-                        f2 = f;
-                    }
-                    long j3 = f2 - j2;
-                    boolean z3 = z2;
-                    if (j3 < j) {
-                        j3 = j;
-                    }
-                    long j4 = 100;
-                    int round = Math.round((float) ((f2 * j4) / f));
-                    if (round > 100) {
-                        round = 100;
-                    }
-                    int round2 = Math.round((float) ((j3 * j4) / f));
-                    if (round2 > 100) {
-                        i = 100;
-                    } else {
-                        i = round2;
-                    }
-                    StringBuilder sb2 = new StringBuilder();
-                    Iterator<UbcFlowEvent> it2 = it;
-                    sb2.append(String.format(Locale.getDefault(), "%5d ", Long.valueOf(j3)));
-                    if (z) {
-                        str6 = "<";
-                    } else {
-                        str6 = PreferencesUtil.LEFT_MOUNT;
-                    }
-                    sb2.append(str6);
-                    for (int i5 = 0; i5 < 100; i5++) {
-                        if (i5 > round) {
-                            sb2.append(".");
-                        } else if (i5 > i) {
-                            sb2.append("=");
-                        } else {
-                            sb2.append("#");
-                        }
-                    }
-                    if (z3) {
-                        str7 = ">";
-                    } else {
-                        str7 = PreferencesUtil.RIGHT_MOUNT;
-                    }
-                    sb2.append(str7);
-                    c = 1;
-                    sb2.append(String.format(Locale.getDefault(), " %5d", Long.valueOf(f2)));
-                    sb2.append(String.format("  %s", next.f()));
-                    sb2.append(String.format(Locale.getDefault(), " %6d ", Long.valueOf(next.g() - g)));
-                    sb2.append(next.a);
-                    if (next.b()) {
-                        sb2.append("(LocalRecord)");
-                    }
-                    Log.i("RouteReporter", sb2.toString());
-                    j2 = f2;
-                    it = it2;
-                    i3 = 2;
-                    c2 = 0;
-                    j = 0;
-                }
-                Log.i("RouteReporter", "Total  ： " + hybridUbcFlow.f.size());
-                StringBuilder sb3 = new StringBuilder();
-                sb3.append("\n\n小程序路由总时长：========> " + f);
-                String optString = hybridUbcFlow.m().optString("type");
-                String h = hybridUbcFlow.h("sub_state");
-                String h2 = hybridUbcFlow.h("preload");
-                String h3 = hybridUbcFlow.h("web_widget_state");
-                StringBuilder sb4 = new StringBuilder();
-                sb4.append("\nsub_state :");
-                if (TextUtils.equals(h, "0")) {
-                    str3 = "无需下载分包";
-                } else {
-                    str3 = "需要下载分包";
-                }
-                sb4.append(str3);
-                sb3.append(sb4.toString());
-                StringBuilder sb5 = new StringBuilder();
-                sb5.append("\npreload :");
-                if (TextUtils.equals(h2, "0")) {
-                    str4 = "未完成";
-                } else {
-                    str4 = "已完成";
-                }
-                sb5.append(str4);
-                sb3.append(sb5.toString());
-                StringBuilder sb6 = new StringBuilder();
-                sb6.append("\nhasWebViewWidget :");
-                if (TextUtils.equals(h3, "0")) {
-                    str5 = "无webview组件";
-                } else {
-                    str5 = "有webview组件";
-                }
-                sb6.append(str5);
-                sb3.append(sb6.toString());
-                StringBuilder sb7 = new StringBuilder();
-                sb7.append("\ntype ：");
-                if (!TextUtils.isEmpty(optString)) {
-                    str9 = optString;
-                }
-                sb7.append(str9);
-                sb3.append(sb7.toString());
-                Log.i("RouteReporter", "Report ： " + sb3.toString());
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, str2) != null) || TextUtils.isEmpty(str) || str2 == null) {
+            return;
+        }
+        this.b.put(str, str2);
+    }
+
+    public void c(@NonNull ResponseCallback<JSONObject> responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseCallback) == null) {
+            if (!this.d) {
+                responseCallback.onFail(new InvalidParameterException("error: invalid url"));
+                return;
             }
+            this.a = en3.b(this.a, this.c);
+            pg4 pg4Var = new pg4(this.a, RequestBody.create(i, this.e.toString()), responseCallback);
+            pg4Var.c = this.b;
+            pg4Var.g = true;
+            m62.b("PayCheckRequest", "start paycheck request : " + this.e);
+            qg4.g().e(pg4Var);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            String i2 = ui4.i(h);
+            this.a = i2;
+            this.a = i62.b(i2);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            b("Referer", tm3.b());
+        }
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.e.put("order_info", jSONObject);
+            this.d = true;
+        } catch (JSONException e) {
+            m62.i("PayCheckRequest", "set order info failed: \n" + Log.getStackTraceString(e));
         }
     }
 }

@@ -1,9 +1,36 @@
 package com.baidu.tieba;
 
-import java.io.IOException;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
+import org.json.JSONException;
 /* loaded from: classes5.dex */
-public interface ju9 {
-    void close() throws IOException;
+public class ju9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int write(byte[] bArr, int i, int i2) throws IOException;
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+        }
+    }
+
+    public static void a(uu9 uu9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, uu9Var) == null) && uu9Var != null && !uu9Var.y()) {
+            JSONArray n = uu9Var.n();
+            int length = n.length();
+            boolean B = uu9Var.B();
+            for (int i = 0; i < length; i++) {
+                try {
+                    if (B != pt9.o().e(n.getJSONObject(i).getString("id"))) {
+                        Log.w("UBCDebug", " data is " + B + "  content " + uu9Var.u().toString());
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }

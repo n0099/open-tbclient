@@ -23,17 +23,18 @@ public class MPushMessage implements Serializable {
     public Map<String, String> params = new HashMap();
 
     public static Map<String, String> getParamsMap(JSONObject jSONObject) {
-        HashMap hashMap = new HashMap();
         try {
+            HashMap hashMap = new HashMap(jSONObject.length());
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 hashMap.put(next, jSONObject.getString(next));
             }
+            return hashMap;
         } catch (JSONException e) {
             e.printStackTrace();
+            return null;
         }
-        return hashMap;
     }
 
     public static MPushMessage parsePushMessage(String str, String str2, String str3, String str4) {

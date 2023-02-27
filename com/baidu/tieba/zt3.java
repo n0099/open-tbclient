@@ -1,103 +1,94 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
-public interface zt3 {
-    String a(Context context);
+public class zt3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Method a;
+    public Object b;
 
-    String b(Context context);
-
-    String c(Context context);
-
-    String d(Context context);
-
-    String getDeviceId(Context context);
-
-    /* loaded from: classes7.dex */
-    public static class a implements zt3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final zt3 a;
-
-        @Override // com.baidu.tieba.zt3
-        public String a(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.a(context);
+    public zt3(Class<?> cls) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return (String) invokeL.objValue;
         }
-
-        @Override // com.baidu.tieba.zt3
-        public String b(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.b(context);
+        if (cls == null) {
+            return;
+        }
+        try {
+            this.b = qd4.m(cls);
+            Method i3 = qd4.i(cls, "perfEvent", Integer.TYPE, String.class, int[].class);
+            this.a = i3;
+            if (i3 != null) {
+                i3.setAccessible(true);
             }
-            return (String) invokeL.objValue;
+        } catch (Throwable unused) {
         }
+    }
 
-        @Override // com.baidu.tieba.zt3
-        public String c(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.c(context);
+    public static zt3 a(@NonNull Context context) {
+        Class<?> cls;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                cls = qd4.b("com.hisi.perfhub.PerfHub", true);
+            } catch (Throwable unused) {
+                cls = null;
             }
-            return (String) invokeL.objValue;
+            return new zt3(cls);
         }
+        return (zt3) invokeL.objValue;
+    }
 
-        @Override // com.baidu.tieba.zt3
-        public String d(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.d(context);
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b != null && this.a != null) {
+                return true;
             }
-            return (String) invokeL.objValue;
+            return false;
         }
+        return invokeV.booleanValue;
+    }
 
-        @Override // com.baidu.tieba.zt3
-        public String getDeviceId(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.getDeviceId(context);
+    public int c(int i, String str, int... iArr) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, iArr)) == null) {
+            if (!b()) {
+                return -1;
             }
-            return (String) invokeL.objValue;
-        }
-
-        public a(zt3 delegation) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {delegation};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            try {
+                Object invoke = this.a.invoke(this.b, Integer.valueOf(i), str, iArr);
+                if (invoke == null) {
+                    return -1;
                 }
+                return ((Integer) invoke).intValue();
+            } catch (Throwable unused) {
+                return -1;
             }
-            Intrinsics.checkNotNullParameter(delegation, "delegation");
-            this.a = delegation;
         }
+        return invokeILL.intValue;
     }
 }

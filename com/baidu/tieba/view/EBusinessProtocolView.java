@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a65;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.o45;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -301,7 +301,7 @@ public class EBusinessProtocolView extends Dialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EBusinessProtocolView(@NonNull Context context, WindowType windowType) {
-        super(context, R.style.obfuscated_res_0x7f1003b4);
+        super(context, R.style.obfuscated_res_0x7f1003b7);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -398,15 +398,15 @@ public class EBusinessProtocolView extends Dialog {
                     this.f.setVisibility(0);
                     this.e.setVisibility(0);
                     this.d.loadUrl(this.l);
-                    o45 o45Var = new o45();
-                    o45Var.q(R.color.CAM_X0107);
-                    this.e.setConfig(o45Var);
+                    a65 a65Var = new a65();
+                    a65Var.q(R.color.CAM_X0107);
+                    this.e.setConfig(a65Var);
                     this.e.setTextSize(R.dimen.tbds42);
                     this.e.setText(this.a.getResources().getString(R.string.protocol_cancel));
                     this.f.setTextSize(R.dimen.tbds42);
-                    o45 o45Var2 = new o45();
-                    o45Var2.q(R.color.CAM_X0302);
-                    this.f.setConfig(o45Var2);
+                    a65 a65Var2 = new a65();
+                    a65Var2.q(R.color.CAM_X0302);
+                    this.f.setConfig(a65Var2);
                     this.f.setTextSize(R.dimen.tbds42);
                     this.f.setText(this.a.getResources().getString(R.string.protocol_agree));
                     return;
@@ -418,10 +418,10 @@ public class EBusinessProtocolView extends Dialog {
             setCanceledOnTouchOutside(true);
             this.g.setText(this.k);
             this.h.setText(this.a.getResources().getString(R.string.tip_known));
-            o45 o45Var3 = new o45();
-            o45Var3.q(R.color.CAM_X0302);
+            a65 a65Var3 = new a65();
+            a65Var3.q(R.color.CAM_X0302);
             this.h.setTextSize(R.dimen.T_X08);
-            this.h.setConfig(o45Var3);
+            this.h.setConfig(a65Var3);
         }
     }
 

@@ -11,8 +11,9 @@ import android.util.Base64;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.sofire.a.b;
 import com.baidu.sofire.ac.F;
+import com.baidu.sofire.k.b;
+import com.baidu.sofire.k.c;
 import com.baidu.sofire.k.h;
 import com.baidu.sofire.k.j;
 import com.baidu.sofire.rp.receiver.Receiver;
@@ -32,7 +33,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public static long g;
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerC0188a a;
+    public HandlerC0176a a;
     public com.baidu.sofire.j.a b;
     public Context c;
     public com.baidu.sofire.h.a d;
@@ -41,13 +42,13 @@ public class a {
 
     /* renamed from: com.baidu.sofire.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class HandlerC0188a extends Handler {
+    public class HandlerC0176a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC0188a(a aVar, Looper looper) {
+        public HandlerC0176a(a aVar, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -67,16 +68,16 @@ public class a {
             this.a = aVar;
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:31:0x00af, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:31:0x00ae, code lost:
             if (r4 != null) goto L45;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:37:0x00b7, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:37:0x00b6, code lost:
             if (r4 == null) goto L34;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:38:0x00b9, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:38:0x00b8, code lost:
             r4.close();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:40:0x00bd, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:40:0x00bc, code lost:
             r3 = com.baidu.sofire.a.b.a;
          */
         @Override // android.os.Handler
@@ -102,7 +103,7 @@ public class a {
                             return;
                         case 2:
                             a.b(this.a);
-                            a.a(this.a, 0, com.baidu.sofire.k.a.f(this.a.c));
+                            a.a(this.a, 0, b.f(this.a.c));
                             return;
                         case 3:
                         default:
@@ -123,7 +124,7 @@ public class a {
                             a.a(this.a);
                             return;
                         case 6:
-                            int f2 = com.baidu.sofire.k.a.f(this.a.c);
+                            int f2 = b.f(this.a.c);
                             if (2 == f2) {
                                 a.a(this.a, 0, f2);
                                 return;
@@ -133,7 +134,7 @@ public class a {
                             }
                         case 7:
                             a.b(this.a);
-                            int f3 = com.baidu.sofire.k.a.f(this.a.c);
+                            int f3 = b.f(this.a.c);
                             if (2 == f3) {
                                 a.a(this.a, 0, f3);
                                 return;
@@ -143,7 +144,7 @@ public class a {
                             }
                         case 8:
                             a aVar = this.a;
-                            a.a(aVar, 3, com.baidu.sofire.k.a.f(aVar.c));
+                            a.a(aVar, 3, b.f(aVar.c));
                             return;
                         case 9:
                             a.a(this.a, 0, 2);
@@ -153,7 +154,7 @@ public class a {
                             a aVar2 = this.a;
                             if (currentTimeMillis - aVar2.f >= LiveFeedPageSdk.REFRESH_TIME) {
                                 aVar2.f = System.currentTimeMillis();
-                                f = com.baidu.sofire.k.a.f(this.a.c);
+                                f = b.f(this.a.c);
                                 if (2 == f) {
                                     com.baidu.sofire.f.a a3 = com.baidu.sofire.f.a.a(this.a.c);
                                     a3.getClass();
@@ -167,7 +168,7 @@ public class a {
                                             break;
                                         }
                                     } catch (Exception unused) {
-                                        int i2 = b.a;
+                                        int i2 = com.baidu.sofire.a.b.a;
                                         i = 0;
                                         break;
                                     }
@@ -182,7 +183,7 @@ public class a {
                             }
                         case 11:
                             String valueOf2 = String.valueOf(message.obj);
-                            JSONObject b = com.baidu.sofire.k.a.b(this.a.c, new JSONObject(valueOf2));
+                            JSONObject b = b.b(this.a.c, new JSONObject(valueOf2));
                             com.baidu.sofire.h.a aVar3 = this.a.d;
                             String jSONArray = new JSONArray().put(b).toString();
                             a aVar4 = this.a;
@@ -193,13 +194,13 @@ public class a {
                                 jSONObject2.optString("12", "");
                             }
                             if (!aVar3.a(jSONArray)) {
-                                com.baidu.sofire.k.a.a(this.a.c, valueOf2, false);
+                                b.a(this.a.c, valueOf2, false);
                                 return;
                             }
                             return;
                     }
                 } catch (Throwable unused2) {
-                    int i3 = b.a;
+                    int i3 = com.baidu.sofire.a.b.a;
                     return;
                 }
             } else {
@@ -230,7 +231,7 @@ public class a {
         }
         this.f = 0L;
         this.c = context.getApplicationContext();
-        this.a = new HandlerC0188a(this, h.a());
+        this.a = new HandlerC0176a(this, h.a());
         this.b = com.baidu.sofire.j.a.a(this.c);
         this.d = new com.baidu.sofire.h.a(this.c);
     }
@@ -243,23 +244,23 @@ public class a {
             long currentTimeMillis = System.currentTimeMillis() - a.e.getLong("re_last_ofline_time", 0L);
             long j = l * 3600000;
             if (currentTimeMillis >= j) {
-                com.baidu.sofire.k.b.a(aVar.c).a();
-                com.baidu.sofire.k.a.a(aVar.c, j);
+                c.a(aVar.c).a();
+                b.a(aVar.c, j);
                 a.f.putLong("re_last_ofline_time", System.currentTimeMillis());
                 a.f.commit();
                 return;
             }
-            com.baidu.sofire.k.a.a(aVar.c, j - currentTimeMillis);
+            b.a(aVar.c, j - currentTimeMillis);
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x00f1 */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00f1, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x00f0 */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x00f0, code lost:
         if (r6 != null) goto L63;
      */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:113:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x0139  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x0138  */
     /* JADX WARN: Type inference failed for: r7v0, types: [java.util.List] */
     /* JADX WARN: Type inference failed for: r7v1, types: [java.util.List] */
     /* JADX WARN: Type inference failed for: r7v2, types: [java.util.List] */
@@ -301,19 +302,19 @@ public class a {
                                             try {
                                                 string = new String(F.getInstance().ad(Base64.decode(string, 0), "xVOTuxgN3lkRN2v4".getBytes(IMAudioTransRequest.CHARSET)));
                                             } catch (Exception unused) {
-                                                int i3 = b.a;
+                                                int i3 = com.baidu.sofire.a.b.a;
                                             }
                                             aVar2.d = string;
                                             a.add(aVar2);
                                         } catch (Exception unused2) {
                                             cursor = cursor2;
-                                            int i4 = b.a;
+                                            int i4 = com.baidu.sofire.a.b.a;
                                             if (cursor != null) {
                                                 cursor2 = cursor;
                                                 try {
                                                     cursor2.close();
                                                 } catch (Exception unused3) {
-                                                    int i5 = b.a;
+                                                    int i5 = com.baidu.sofire.a.b.a;
                                                 }
                                             }
                                             if (a.size() <= 0) {
@@ -326,7 +327,7 @@ public class a {
                                             try {
                                                 cursor.close();
                                             } catch (Exception unused4) {
-                                                int i6 = b.a;
+                                                int i6 = com.baidu.sofire.a.b.a;
                                             }
                                         }
                                         throw th;
@@ -440,7 +441,7 @@ public class a {
                 String string2 = aVar3.e.getString("al_da" + str3, "");
                 String str4 = aVar.d;
                 long currentTimeMillis = System.currentTimeMillis();
-                String jSONObject = com.baidu.sofire.k.a.a(this.c, aVar, string2, true).toString();
+                String jSONObject = b.a(this.c, aVar, string2, true).toString();
                 com.baidu.sofire.f.a a = com.baidu.sofire.f.a.a(this.c);
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("b", str4);
@@ -454,7 +455,7 @@ public class a {
                 try {
                     jSONObject = Base64.encodeToString(F.getInstance().ae(jSONObject.getBytes(), "xVOTuxgN3lkRN2v4".getBytes(IMAudioTransRequest.CHARSET)), 0);
                 } catch (Exception unused) {
-                    int i = b.a;
+                    int i = com.baidu.sofire.a.b.a;
                 }
                 contentValues.put("h", jSONObject);
                 a.b.insert("r", null, contentValues);
@@ -477,15 +478,15 @@ public class a {
             int i3 = 0;
             for (com.baidu.sofire.g.a aVar : list) {
                 try {
-                    String jSONObject2 = com.baidu.sofire.k.a.b(this.c, new JSONObject(aVar.d)).toString();
+                    String jSONObject2 = b.b(this.c, new JSONObject(aVar.d)).toString();
                     try {
                         jSONObject = new JSONObject(jSONObject2);
                         length = jSONObject2.length() + i3;
                     } catch (Exception unused) {
-                        int i4 = b.a;
+                        int i4 = com.baidu.sofire.a.b.a;
                     }
                 } catch (Exception unused2) {
-                    int i5 = b.a;
+                    int i5 = com.baidu.sofire.a.b.a;
                 }
                 if (length >= 1048576 * i2) {
                     break;
@@ -553,7 +554,7 @@ public class a {
             try {
                 a.b.delete("r", "(d <= ? or (d < (" + currentTimeMillis + "-f*3600000) and f!= 0)) and b != '1001001'and i != 5 ", new String[]{String.valueOf(currentTimeMillis - i7)});
             } catch (Exception unused3) {
-                int i8 = b.a;
+                int i8 = com.baidu.sofire.a.b.a;
             }
             if (2 != i) {
                 com.baidu.sofire.j.a aVar2 = this.b;

@@ -1,27 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pb.chosen.PbChosenActivity;
-import com.baidu.tieba.pb.chosen.net.ChosenPbHttpResponse;
-import com.baidu.tieba.pb.chosen.net.ChosenPbNetMessage;
-import com.baidu.tieba.pb.chosen.net.ChosenPbSocketResponse;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import tbclient.ThreadInfo;
+import tbclient.VideoInfo;
 /* loaded from: classes4.dex */
-public class i98 {
+public class i98 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public int c;
+    public String d;
+    public int e;
+    public int f;
+    public boolean g;
+    public ThreadData h;
 
-    public i98() {
+    public i98(ThreadInfo threadInfo, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {threadInfo, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,49 +42,72 @@ public class i98 {
                 return;
             }
         }
-        b();
-        a();
+        b(threadInfo);
+        this.g = z;
     }
 
-    public final void b() {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ol5 ol5Var = new ol5(309093);
-            ol5Var.setResponsedClass(ChosenPbSocketResponse.class);
-            ol5Var.g(true);
-            ol5Var.h(false);
-            MessageManager.getInstance().registerTask(ol5Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return h98.a;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public final void b(ThreadInfo threadInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo) != null) || threadInfo == null) {
+            return;
+        }
+        ThreadData threadData = new ThreadData();
+        this.h = threadData;
+        threadData.parserProtobuf(threadInfo);
+        this.a = threadInfo.title;
+        this.b = threadInfo.reply_num.intValue();
+        this.c = threadInfo.agree_num.intValue();
+        if (!ListUtils.isEmpty(this.h.getMedias())) {
+            Iterator<MediaData> it = this.h.getMedias().iterator();
+            while (it.hasNext()) {
+                MediaData next = it.next();
+                if (next != null && next.getType() == 3) {
+                    String picUrl = next.getPicUrl();
+                    this.d = picUrl;
+                    if (StringUtils.isNull(picUrl)) {
+                        this.d = next.getSmallUrl();
+                    }
+                    if (StringUtils.isNull(this.d)) {
+                        this.d = next.getThumbnails_url();
+                    }
+                    if (StringUtils.isNull(this.d)) {
+                        this.d = next.getSrc_pic();
+                    }
+                    if (!StringUtils.isNull(this.d)) {
+                        break;
+                    }
+                }
+            }
+        }
+        VideoInfo videoInfo = threadInfo.video_info;
+        if (videoInfo != null) {
+            this.e = videoInfo.video_duration.intValue();
         }
     }
 
-    public final void a() {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FINE_PB, s19.a(TbConfig.FINE_PB_PAGE, 309093));
-            tbHttpMessageTask.setIsNeedLogin(false);
-            tbHttpMessageTask.setIsNeedTbs(false);
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
-            tbHttpMessageTask.setResponsedClass(ChosenPbHttpResponse.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void c(PbChosenActivity pbChosenActivity, long j, long j2, long j3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pbChosenActivity, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            ChosenPbNetMessage chosenPbNetMessage = new ChosenPbNetMessage();
-            int l = ej.l(pbChosenActivity.getPageContext().getPageActivity());
-            int j4 = ej.j(pbChosenActivity.getPageContext().getPageActivity());
-            float i = ej.i(pbChosenActivity.getPageContext().getPageActivity());
-            chosenPbNetMessage.setQ_type(45L);
-            chosenPbNetMessage.setScrH(j4);
-            chosenPbNetMessage.setScrW(l);
-            chosenPbNetMessage.setScr_dip(i);
-            chosenPbNetMessage.setExcId(j);
-            chosenPbNetMessage.setTagCode(j2);
-            chosenPbNetMessage.setThreadId(j3);
-            pbChosenActivity.sendMessage(chosenPbNetMessage);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.f = i;
         }
     }
 }

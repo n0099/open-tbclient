@@ -71,7 +71,6 @@ public class BdExpandImageView extends AppCompatImageView {
         int i3 = getResources().getDisplayMetrics().widthPixels;
         this.c = this.b + (this.a * 2.0f);
         this.h = new Paint();
-        getResources().getDisplayMetrics();
     }
 
     public final void f() {

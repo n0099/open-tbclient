@@ -11,8 +11,8 @@ import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
 import com.baidu.tieba.frs.gamerecommend.data.ScoreCardInfo;
-import com.baidu.tieba.xy6;
-import com.baidu.tieba.yy6;
+import com.baidu.tieba.w17;
+import com.baidu.tieba.x17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ import org.json.JSONObject;
 public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xy6 mData;
+    public w17 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaGameRecommendReponseMessage() {
@@ -44,13 +44,13 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public xy6 getData() {
+    public w17 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (xy6) invokeV.objValue;
+        return (w17) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -59,13 +59,13 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null && jSONObject.length() > 0) {
-                xy6 xy6Var = new xy6();
-                this.mData = xy6Var;
+                w17 w17Var = new w17();
+                this.mData = w17Var;
                 boolean z = true;
                 if (jSONObject.optInt("recom_has_more") != 1) {
                     z = false;
                 }
-                xy6Var.a = z;
+                w17Var.a = z;
                 this.mData.b = jSONObject.optInt("card_max_floor");
                 JSONArray optJSONArray = jSONObject.optJSONArray("recom_list");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -105,10 +105,10 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
                     for (int i5 = 0; i5 < optJSONArray4.length(); i5++) {
                         JSONObject optJSONObject5 = optJSONArray4.optJSONObject(i5);
                         if (optJSONObject5 != null) {
-                            yy6 yy6Var = new yy6();
-                            yy6Var.b = optJSONObject5.optString("title");
+                            x17 x17Var = new x17();
+                            x17Var.b = optJSONObject5.optString("title");
                             optJSONObject5.optInt("type");
-                            yy6Var.c = Integer.valueOf(optJSONObject5.optInt("floor"));
+                            x17Var.c = Integer.valueOf(optJSONObject5.optInt("floor"));
                             JSONArray optJSONArray5 = optJSONObject5.optJSONArray("sub_nodes");
                             if (optJSONArray5 != null && optJSONArray5.length() > 0) {
                                 for (int i6 = 0; i6 < optJSONArray5.length(); i6++) {
@@ -116,11 +116,11 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
                                     if (optJSONObject6 != null) {
                                         ThreadData threadData2 = new ThreadData();
                                         threadData2.parserJson(optJSONObject6);
-                                        yy6Var.a.add(threadData2);
+                                        x17Var.a.add(threadData2);
                                     }
                                 }
                             }
-                            this.mData.g.add(yy6Var);
+                            this.mData.g.add(x17Var);
                         }
                     }
                 }

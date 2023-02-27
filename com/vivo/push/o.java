@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.vivo.push.util.u;
 /* loaded from: classes8.dex */
 public abstract class o {
     public static /* synthetic */ Interceptable $ic;
@@ -67,7 +68,7 @@ public abstract class o {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
             a a = a.a(intent);
             if (a == null) {
-                com.vivo.push.util.p.b("PushCommand", "bundleWapper is null");
+                u.b("PushCommand", "bundleWapper is null");
                 return;
             }
             a(a);
@@ -83,7 +84,7 @@ public abstract class o {
         if (interceptable == null || interceptable.invokeL(1048581, this, intent) == null) {
             a a = a.a(intent);
             if (a == null) {
-                com.vivo.push.util.p.b("PushCommand", "bundleWapper is null");
+                u.b("PushCommand", "bundleWapper is null");
                 return;
             }
             a.a("method", this.a);
@@ -125,7 +126,7 @@ public abstract class o {
     public final void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            String a = p.a(this.a);
+            String a = q.a(this.a);
             if (a == null) {
                 a = "";
             }

@@ -1,12 +1,6 @@
 package com.baidu.searchbox.fluency.tracer;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -22,8 +16,6 @@ import kotlinx.coroutines.CoroutineScope;
 @DebugMetadata(c = "com.baidu.searchbox.fluency.tracer.FpsTracer$FpsCollector$doReplayInner$1", f = "FpsTracer.kt", i = {0}, l = {278}, m = "invokeSuspend", n = {"$this$launch"}, s = {"L$0"})
 /* loaded from: classes2.dex */
 public final class FpsTracer$FpsCollector$doReplayInner$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Ref.ObjectRef $item;
     public Object L$0;
     public int label;
@@ -32,70 +24,42 @@ public final class FpsTracer$FpsCollector$doReplayInner$1 extends SuspendLambda 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FpsTracer$FpsCollector$doReplayInner$1(Ref.ObjectRef objectRef, Continuation continuation) {
         super(2, continuation);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {objectRef, continuation};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.$item = objectRef;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Continuation<Unit> create(Object obj, Continuation<?> completion) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, completion)) == null) {
-            Intrinsics.checkNotNullParameter(completion, "completion");
-            FpsTracer$FpsCollector$doReplayInner$1 fpsTracer$FpsCollector$doReplayInner$1 = new FpsTracer$FpsCollector$doReplayInner$1(this.$item, completion);
-            fpsTracer$FpsCollector$doReplayInner$1.p$ = (CoroutineScope) obj;
-            return fpsTracer$FpsCollector$doReplayInner$1;
-        }
-        return (Continuation) invokeLL.objValue;
+        Intrinsics.checkNotNullParameter(completion, "completion");
+        FpsTracer$FpsCollector$doReplayInner$1 fpsTracer$FpsCollector$doReplayInner$1 = new FpsTracer$FpsCollector$doReplayInner$1(this.$item, completion);
+        fpsTracer$FpsCollector$doReplayInner$1.p$ = (CoroutineScope) obj;
+        return fpsTracer$FpsCollector$doReplayInner$1;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
     public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coroutineScope, continuation)) == null) ? ((FpsTracer$FpsCollector$doReplayInner$1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE) : invokeLL.objValue;
+        return ((FpsTracer$FpsCollector$doReplayInner$1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-            int i = this.label;
-            if (i != 0) {
-                if (i == 1) {
-                    CoroutineScope coroutineScope = (CoroutineScope) this.L$0;
-                    ResultKt.throwOnFailure(obj);
-                } else {
-                    throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
-                }
-            } else {
+        Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
+        int i = this.label;
+        if (i != 0) {
+            if (i == 1) {
+                CoroutineScope coroutineScope = (CoroutineScope) this.L$0;
                 ResultKt.throwOnFailure(obj);
-                this.L$0 = this.p$;
-                this.label = 1;
-                if (((FpsTracer.FrameCollectItem) this.$item.element).saveCsv(this) == coroutine_suspended) {
-                    return coroutine_suspended;
-                }
+            } else {
+                throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
             }
-            return Unit.INSTANCE;
+        } else {
+            ResultKt.throwOnFailure(obj);
+            this.L$0 = this.p$;
+            this.label = 1;
+            if (((FpsTracer.FrameCollectItem) this.$item.element).saveCsv(this) == coroutine_suspended) {
+                return coroutine_suspended;
+            }
         }
-        return invokeL.objValue;
+        return Unit.INSTANCE;
     }
 }

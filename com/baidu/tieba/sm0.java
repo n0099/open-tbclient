@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tieba.bn0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,73 +9,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public class sm0 {
+public class sm0 implements zm0, Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static um0 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948156083, "Lcom/baidu/tieba/sm0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948156083, "Lcom/baidu/tieba/sm0;");
-        }
-    }
+    public final ConcurrentLinkedQueue<bn0.b<?>> a;
+    public final AtomicBoolean b;
 
     /* loaded from: classes6.dex */
-    public static class a implements um0 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final sm0 a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.um0
-        public <T extends tm0> void a(@Nullable T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.um0
-        public <T extends tm0> void b(@NonNull Object obj, @NonNull wm0<T> wm0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, wm0Var) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.um0
-        public void unregister(@NonNull Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-427764330, "Lcom/baidu/tieba/sm0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-427764330, "Lcom/baidu/tieba/sm0$a;");
+                    return;
                 }
             }
-        }
-
-        @Override // com.baidu.tieba.um0
-        public <T extends tm0> void c(@NonNull Object obj, int i, @NonNull wm0<T> wm0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, obj, i, wm0Var) == null) {
-                b(obj, wm0Var);
-            }
+            a = new sm0();
         }
     }
 
@@ -85,32 +45,53 @@ public class sm0 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ConcurrentLinkedQueue<>();
+        this.b = new AtomicBoolean(false);
+    }
+
+    public static zm0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
+        }
+        return (zm0) invokeV.objValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+            return;
+        }
+        while (true) {
+            bn0.b<?> poll = this.a.poll();
+            if (poll != null) {
+                poll.a.onEvent(poll.b);
+            } else {
+                this.b.set(false);
+                return;
             }
         }
     }
 
-    public static um0 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.zm0
+    public <T extends xm0> void a(cn0 cn0Var, an0<T> an0Var, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (sm0.class) {
-                    if (a == null) {
-                        a = (um0) ServiceManager.getService(um0.a);
-                    }
-                    if (a == null) {
-                        a = new a();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, cn0Var, an0Var, t) == null) {
+            this.a.offer(new bn0.b<>(cn0Var, an0Var, t));
+            if (this.b.compareAndSet(false, true)) {
+                v31.c(this, "AsyncDeliver", 3);
             }
-            return a;
         }
-        return (um0) invokeV.objValue;
     }
 }

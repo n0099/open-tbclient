@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
-public interface vp0 extends mj0 {
-    hq0 b();
+public interface vp0 extends qj0 {
+    void a(String str, String str2);
 
-    void e(int i);
+    void c(String str, String str2, String str3);
 }

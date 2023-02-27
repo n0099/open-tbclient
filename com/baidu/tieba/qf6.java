@@ -1,126 +1,107 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import kotlin.Unit;
-/* loaded from: classes6.dex */
-public final class qf6 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes5.dex */
+public class qf6 {
     public static /* synthetic */ Interceptable $ic;
+    public static qf6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final Set<of6> b;
-    public int c;
+    public List<StatisticItem> a;
 
-    public qf6(int i) {
+    public qf6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = i;
-        this.b = new LinkedHashSet();
     }
 
-    public final of6 a(int i, int i2) {
-        InterceptResult invokeII;
-        of6 of6Var;
-        Object obj;
-        boolean z;
+    public static qf6 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            synchronized (this) {
-                Iterator<T> it = this.b.iterator();
-                while (true) {
-                    of6Var = null;
-                    if (it.hasNext()) {
-                        obj = it.next();
-                        of6 of6Var2 = (of6) obj;
-                        if (of6Var2.l() >= i && of6Var2.j() >= i2 && of6Var2.l() - i < 5 && of6Var2.j() - i2 < 5) {
-                            z = true;
-                            continue;
-                        } else {
-                            z = false;
-                            continue;
-                        }
-                        if (z) {
-                            break;
-                        }
-                    } else {
-                        obj = null;
-                        break;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (qf6.class) {
+                    if (b == null) {
+                        b = new qf6();
                     }
                 }
-                of6 of6Var3 = (of6) obj;
-                if (of6Var3 != null) {
-                    this.b.remove(of6Var3);
-                    this.c -= of6Var3.k();
-                    of6Var = of6Var3;
-                }
             }
-            return of6Var;
+            return b;
         }
-        return (of6) invokeII.objValue;
+        return (qf6) invokeV.objValue;
     }
 
-    public final void b() {
+    public void a(StatisticItem statisticItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                for (of6 of6Var : this.b) {
-                    of6Var.e();
-                }
-                this.b.clear();
-                this.c = 0;
-                Unit unit = Unit.INSTANCE;
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null) {
+            return;
         }
+        if (this.a == null) {
+            this.a = new ArrayList();
+        }
+        this.a.add(statisticItem);
     }
 
-    public final boolean c(of6 of6Var) {
-        InterceptResult invokeL;
-        pf6 g;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, of6Var)) == null) {
-            if (of6Var == null) {
-                g = null;
-            } else {
-                g = of6Var.g();
-            }
-            if (g == null) {
-                return true;
-            }
-            if (this.b.contains(of6Var)) {
-                return false;
-            }
-            if (of6Var.k() + this.c > this.a) {
-                BdLog.v("DrawingCache [Release][+] OOM Pool");
-                return false;
-            }
-            synchronized (this) {
-                this.b.add(of6Var);
-                of6Var.f();
-                this.c += of6Var.k();
-                Unit unit = Unit.INSTANCE;
-            }
-            return true;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || ListUtils.getCount(this.a) == 0) {
+            return;
         }
-        return invokeL.booleanValue;
+        for (StatisticItem statisticItem : this.a) {
+            if (statisticItem != null) {
+                TiebaStatic.log(statisticItem);
+            }
+        }
+        this.a.clear();
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || ListUtils.getCount(this.a) == 0) {
+            return;
+        }
+        int i = -1;
+        for (StatisticItem statisticItem : this.a) {
+            if (statisticItem != null && i != statisticItem.getPosition()) {
+                i = statisticItem.getPosition();
+                statisticItem.delete(TiebaStatic.Params.OBJ_PARAM2);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, z ? 1 : 0);
+                TiebaStatic.log(statisticItem);
+            }
+        }
+        this.a.clear();
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048579, this, z) != null) || ListUtils.getCount(this.a) == 0) {
+            return;
+        }
+        for (StatisticItem statisticItem : this.a) {
+            if (statisticItem != null) {
+                if (statisticItem.getKey() != null && !statisticItem.getKey().equals("c13756") && !statisticItem.getKey().equals("c13750") && !statisticItem.getKey().equals("c13751")) {
+                    statisticItem.param("obj_type", z ? 1 : 0);
+                }
+                TiebaStatic.log(statisticItem);
+            }
+        }
+        this.a.clear();
     }
 }

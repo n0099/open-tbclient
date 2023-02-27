@@ -1,19 +1,10 @@
 package com.baidu.mapapi.map;
 
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.common.SysOSUtil;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class InfoWindow {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public BitmapDescriptor b;
     public View c;
@@ -40,20 +31,6 @@ public class InfoWindow {
     }
 
     public InfoWindow(View view2, LatLng latLng, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, latLng, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.a = "";
         this.h = false;
         this.i = SysOSUtil.getDensityDpi();
@@ -71,20 +48,6 @@ public class InfoWindow {
     }
 
     public InfoWindow(View view2, LatLng latLng, int i, boolean z, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, latLng, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.a = "";
         this.h = false;
         this.i = SysOSUtil.getDensityDpi();
@@ -104,20 +67,6 @@ public class InfoWindow {
     }
 
     public InfoWindow(BitmapDescriptor bitmapDescriptor, LatLng latLng, int i, OnInfoWindowClickListener onInfoWindowClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bitmapDescriptor, latLng, Integer.valueOf(i), onInfoWindowClickListener};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.a = "";
         this.h = false;
         this.i = SysOSUtil.getDensityDpi();
@@ -136,53 +85,27 @@ public class InfoWindow {
     }
 
     public BitmapDescriptor getBitmapDescriptor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (BitmapDescriptor) invokeV.objValue;
+        return this.b;
     }
 
     public LatLng getPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (LatLng) invokeV.objValue;
+        return this.d;
     }
 
     public String getTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
+        return this.a;
     }
 
     public View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (View) invokeV.objValue;
+        return this.c;
     }
 
     public int getYOffset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
+        return this.g;
     }
 
     public void setBitmapDescriptor(BitmapDescriptor bitmapDescriptor) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, bitmapDescriptor) != null) || bitmapDescriptor == null) {
+        if (bitmapDescriptor == null) {
             return;
         }
         this.b = bitmapDescriptor;
@@ -190,8 +113,7 @@ public class InfoWindow {
     }
 
     public void setPosition(LatLng latLng) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, latLng) != null) || latLng == null) {
+        if (latLng == null) {
             return;
         }
         this.d = latLng;
@@ -199,15 +121,11 @@ public class InfoWindow {
     }
 
     public void setTag(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.a = str;
-        }
+        this.a = str;
     }
 
     public void setView(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) != null) || view2 == null) {
+        if (view2 == null) {
             return;
         }
         this.c = view2;
@@ -215,10 +133,7 @@ public class InfoWindow {
     }
 
     public void setYOffset(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.g = i;
-            this.f.b(this);
-        }
+        this.g = i;
+        this.f.b(this);
     }
 }

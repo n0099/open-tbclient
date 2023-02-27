@@ -1,11 +1,5 @@
 package com.baidu.ar.statistic.performance;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -14,138 +8,78 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public String xh;
     public double xi;
     public long xj;
     public long xk;
     public long xl;
-    public BlockingQueue<C0074a> xm;
+    public BlockingQueue<C0059a> xm = new LinkedBlockingQueue();
 
     /* renamed from: com.baidu.ar.statistic.performance.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0074a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static class C0059a {
         public int xn;
         public long xo;
         public long xp;
-        public BlockingQueue<C0075a> xq;
+        public BlockingQueue<C0060a> xq = new LinkedBlockingQueue();
 
         /* renamed from: com.baidu.ar.statistic.performance.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static class C0075a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        public static class C0060a {
             public int count;
             public String name;
             public String xr;
             public long xs;
-
-            public C0075a() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
         }
-
-        public C0074a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.xq = new LinkedBlockingQueue();
-        }
-    }
-
-    public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.xm = new LinkedBlockingQueue();
     }
 
     public JSONObject gt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("case_id", this.xh);
-                jSONObject.put("cpu_rate", String.valueOf(this.xi));
-                jSONObject.put("cpu_tc", String.valueOf(this.xj));
-                jSONObject.put("mem_total", String.valueOf(this.xk));
-                jSONObject.put("mem_used", String.valueOf(this.xl));
-                JSONArray jSONArray = new JSONArray();
-                for (C0074a c0074a : this.xm) {
-                    try {
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("frame_index", c0074a.xn);
-                        jSONObject2.put("frame_in", c0074a.xo);
-                        jSONObject2.put("frame_out", c0074a.xp);
-                        JSONArray jSONArray2 = new JSONArray();
-                        for (C0074a.C0075a c0075a : c0074a.xq) {
-                            try {
-                                JSONObject jSONObject3 = new JSONObject();
-                                jSONObject3.put("name", c0075a.name);
-                                jSONObject3.put(WebChromeClient.KEY_FUNCTION_NAME, c0075a.xr);
-                                jSONObject3.put("time_cost", c0075a.xs);
-                                jSONObject3.put("count", c0075a.count);
-                                jSONArray2.put(jSONObject3);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("case_id", this.xh);
+            jSONObject.put("cpu_rate", String.valueOf(this.xi));
+            jSONObject.put("cpu_tc", String.valueOf(this.xj));
+            jSONObject.put("mem_total", String.valueOf(this.xk));
+            jSONObject.put("mem_used", String.valueOf(this.xl));
+            JSONArray jSONArray = new JSONArray();
+            for (C0059a c0059a : this.xm) {
+                try {
+                    JSONObject jSONObject2 = new JSONObject();
+                    jSONObject2.put("frame_index", c0059a.xn);
+                    jSONObject2.put("frame_in", c0059a.xo);
+                    jSONObject2.put("frame_out", c0059a.xp);
+                    JSONArray jSONArray2 = new JSONArray();
+                    for (C0059a.C0060a c0060a : c0059a.xq) {
+                        try {
+                            JSONObject jSONObject3 = new JSONObject();
+                            jSONObject3.put("name", c0060a.name);
+                            jSONObject3.put(WebChromeClient.KEY_FUNCTION_NAME, c0060a.xr);
+                            jSONObject3.put("time_cost", c0060a.xs);
+                            jSONObject3.put("count", c0060a.count);
+                            jSONArray2.put(jSONObject3);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
-                        jSONObject2.put("algo_data", jSONArray2);
-                        jSONArray.put(jSONObject2);
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
                     }
+                    jSONObject2.put("algo_data", jSONArray2);
+                    jSONArray.put(jSONObject2);
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
                 }
-                jSONObject.put("frame_data", jSONArray);
-            } catch (JSONException e3) {
-                e3.printStackTrace();
             }
-            return jSONObject;
+            jSONObject.put("frame_data", jSONArray);
+        } catch (JSONException e3) {
+            e3.printStackTrace();
         }
-        return (JSONObject) invokeV.objValue;
+        return jSONObject;
     }
 
     public void gu() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.xh = null;
-            this.xi = 0.0d;
-            this.xj = 0L;
-            this.xk = 0L;
-            this.xl = 0L;
-            this.xm = new LinkedBlockingQueue();
-        }
+        this.xh = null;
+        this.xi = 0.0d;
+        this.xj = 0L;
+        this.xk = 0L;
+        this.xl = 0L;
+        this.xm = new LinkedBlockingQueue();
     }
 }

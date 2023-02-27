@@ -9,61 +9,33 @@ import android.widget.Toast;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class LoadingUtil {
-    public static /* synthetic */ Interceptable $ic;
     public static Toast mToast;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public LoadingUtil() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     public static void cancel() {
-        Toast toast;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (toast = mToast) != null) {
+        Toast toast = mToast;
+        if (toast != null) {
             toast.cancel();
         }
     }
 
     public static View createView(Context context, String str) {
-        InterceptResult invokeLL;
         View inflate;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            LayoutInflater from = LayoutInflater.from(context);
-            SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
-            if (confignation != null && (confignation.isDarkMode || confignation.isNightMode)) {
-                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d050b, (ViewGroup) null);
-            } else {
-                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d050a, (ViewGroup) null);
-            }
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ec2)).setText(str);
-            return inflate;
+        LayoutInflater from = LayoutInflater.from(context);
+        SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
+        if (confignation != null && (confignation.isDarkMode || confignation.isNightMode)) {
+            inflate = from.inflate(R.layout.obfuscated_res_0x7f0d051d, (ViewGroup) null);
+        } else {
+            inflate = from.inflate(R.layout.obfuscated_res_0x7f0d051c, (ViewGroup) null);
         }
-        return (View) invokeLL.objValue;
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f06)).setText(str);
+        return inflate;
     }
 
     public static void show(String str) {
-        SapiConfiguration confignation;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || (confignation = SapiAccountManager.getInstance().getConfignation()) == null) {
+        SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
+        if (confignation == null) {
             return;
         }
         Toast toast = mToast;

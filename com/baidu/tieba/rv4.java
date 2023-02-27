@@ -1,19 +1,28 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.NewErrorData;
-import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class rv4 {
+public class rv4 implements ee6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NetWork a;
-    public NewErrorData b;
+
+    @Override // com.baidu.tieba.ee6
+    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
+        de6.a(this, webView, str, jSONObject);
+    }
 
     public rv4() {
         Interceptable interceptable = $ic;
@@ -25,72 +34,46 @@ public class rv4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.a = new NetWork();
     }
 
-    public void b() {
-        NetWork netWork;
+    @Override // com.baidu.tieba.ee6
+    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (netWork = this.a) != null) {
-            netWork.cancelNetConnect();
-        }
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            NetWork netWork = this.a;
-            if (netWork != null) {
-                return netWork.getErrorString();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String postNetData = this.a.postNetData();
-            NewErrorData newErrorData = new NewErrorData();
-            this.b = newErrorData;
-            newErrorData.parserJson(postNetData);
-            return postNetData;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            NetWork netWork = this.a;
-            if (netWork != null) {
-                return netWork.getNetContext().getResponse().isRequestSuccess();
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (CommonTbJsBridge.IS_DISABLE_GO_BACK.equals(str2)) {
+                jsPromptResult.confirm(c(webView).a());
+                return false;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeLLLLL.booleanValue;
     }
 
-    public void a(String str, String str2) {
+    public n69 c(WebView webView) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            this.a.addPostData(str, str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
+            n69 n69Var = new n69();
+            Activity a = wd6.a(webView.getContext());
+            int i = 1;
+            if (a instanceof BaseWebViewActivity) {
+                ((BaseWebViewActivity) a).isDisableGoBack = true;
+            } else {
+                i = 0;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("resultCode", i);
+                n69Var.o(jSONObject.toString());
+                return n69Var;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return n69Var;
+            }
         }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a.setUrl(str);
-        }
+        return (n69) invokeL.objValue;
     }
 }

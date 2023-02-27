@@ -1,15 +1,6 @@
 package com.googlecode.mp4parser.boxes;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.gesture.GestureAR;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
@@ -26,7 +17,6 @@ import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
 /* loaded from: classes8.dex */
 public class DTSSpecificBox extends AbstractBox {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "ddts";
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
@@ -60,7 +50,6 @@ public class DTSSpecificBox extends AbstractBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_7 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_8 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_9 = null;
-    public transient /* synthetic */ FieldHolder $fh;
     public long DTSSamplingFrequency;
     public int LBRDurationMod;
     public long avgBitRate;
@@ -80,206 +69,95 @@ public class DTSSpecificBox extends AbstractBox {
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 20L;
-        }
-        return invokeV.longValue;
+        return 20L;
     }
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(767906529, "Lcom/googlecode/mp4parser/boxes/DTSSpecificBox;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(767906529, "Lcom/googlecode/mp4parser/boxes/DTSSpecificBox;");
-                return;
-            }
-        }
         ajc$preClinit();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DTSSpecificBox() {
         super(TYPE);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
     }
 
     public long getAvgBitRate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.avgBitRate;
-        }
-        return invokeV.longValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+        return this.avgBitRate;
     }
 
     public int getChannelLayout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_22, this, this));
-            return this.channelLayout;
-        }
-        return invokeV.intValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_22, this, this));
+        return this.channelLayout;
     }
 
     public int getCoreLFEPresent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_12, this, this));
-            return this.coreLFEPresent;
-        }
-        return invokeV.intValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_12, this, this));
+        return this.coreLFEPresent;
     }
 
     public int getCoreLayout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_14, this, this));
-            return this.coreLayout;
-        }
-        return invokeV.intValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_14, this, this));
+        return this.coreLayout;
     }
 
     public int getCoreSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_16, this, this));
-            return this.coreSize;
-        }
-        return invokeV.intValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_16, this, this));
+        return this.coreSize;
     }
 
     public long getDTSSamplingFrequency() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return this.DTSSamplingFrequency;
-        }
-        return invokeV.longValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+        return this.DTSSamplingFrequency;
     }
 
     public int getFrameDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this));
-            return this.frameDuration;
-        }
-        return invokeV.intValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this));
+        return this.frameDuration;
     }
 
     public int getLBRDurationMod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_26, this, this));
-            return this.LBRDurationMod;
-        }
-        return invokeV.intValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_26, this, this));
+        return this.LBRDurationMod;
     }
 
     public long getMaxBitRate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
-            return this.maxBitRate;
-        }
-        return invokeV.longValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
+        return this.maxBitRate;
     }
 
     public int getMultiAssetFlag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_24, this, this));
-            return this.multiAssetFlag;
-        }
-        return invokeV.intValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_24, this, this));
+        return this.multiAssetFlag;
     }
 
     public int getPcmSampleDepth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this));
-            return this.pcmSampleDepth;
-        }
-        return invokeV.intValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this));
+        return this.pcmSampleDepth;
     }
 
     public int getRepresentationType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_20, this, this));
-            return this.representationType;
-        }
-        return invokeV.intValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_20, this, this));
+        return this.representationType;
     }
 
     public int getReserved() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_28, this, this));
-            return this.reserved;
-        }
-        return invokeV.intValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_28, this, this));
+        return this.reserved;
     }
 
     public int getReservedBoxPresent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_30, this, this));
-            return this.reservedBoxPresent;
-        }
-        return invokeV.intValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_30, this, this));
+        return this.reservedBoxPresent;
     }
 
     public int getStereoDownmix() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_18, this, this));
-            return this.stereoDownmix;
-        }
-        return invokeV.intValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_18, this, this));
+        return this.stereoDownmix;
     }
 
     public int getStreamConstruction() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_10, this, this));
-            return this.streamConstruction;
-        }
-        return invokeV.intValue;
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_10, this, this));
+        return this.streamConstruction;
     }
 
     public static /* synthetic */ void ajc$preClinit() {
@@ -320,177 +198,123 @@ public class DTSSpecificBox extends AbstractBox {
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void _parseDetails(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
-            this.DTSSamplingFrequency = IsoTypeReader.readUInt32(byteBuffer);
-            this.maxBitRate = IsoTypeReader.readUInt32(byteBuffer);
-            this.avgBitRate = IsoTypeReader.readUInt32(byteBuffer);
-            this.pcmSampleDepth = IsoTypeReader.readUInt8(byteBuffer);
-            BitReaderBuffer bitReaderBuffer = new BitReaderBuffer(byteBuffer);
-            this.frameDuration = bitReaderBuffer.readBits(2);
-            this.streamConstruction = bitReaderBuffer.readBits(5);
-            this.coreLFEPresent = bitReaderBuffer.readBits(1);
-            this.coreLayout = bitReaderBuffer.readBits(6);
-            this.coreSize = bitReaderBuffer.readBits(14);
-            this.stereoDownmix = bitReaderBuffer.readBits(1);
-            this.representationType = bitReaderBuffer.readBits(3);
-            this.channelLayout = bitReaderBuffer.readBits(16);
-            this.multiAssetFlag = bitReaderBuffer.readBits(1);
-            this.LBRDurationMod = bitReaderBuffer.readBits(1);
-            this.reservedBoxPresent = bitReaderBuffer.readBits(1);
-            this.reserved = bitReaderBuffer.readBits(5);
-        }
+        this.DTSSamplingFrequency = IsoTypeReader.readUInt32(byteBuffer);
+        this.maxBitRate = IsoTypeReader.readUInt32(byteBuffer);
+        this.avgBitRate = IsoTypeReader.readUInt32(byteBuffer);
+        this.pcmSampleDepth = IsoTypeReader.readUInt8(byteBuffer);
+        BitReaderBuffer bitReaderBuffer = new BitReaderBuffer(byteBuffer);
+        this.frameDuration = bitReaderBuffer.readBits(2);
+        this.streamConstruction = bitReaderBuffer.readBits(5);
+        this.coreLFEPresent = bitReaderBuffer.readBits(1);
+        this.coreLayout = bitReaderBuffer.readBits(6);
+        this.coreSize = bitReaderBuffer.readBits(14);
+        this.stereoDownmix = bitReaderBuffer.readBits(1);
+        this.representationType = bitReaderBuffer.readBits(3);
+        this.channelLayout = bitReaderBuffer.readBits(16);
+        this.multiAssetFlag = bitReaderBuffer.readBits(1);
+        this.LBRDurationMod = bitReaderBuffer.readBits(1);
+        this.reservedBoxPresent = bitReaderBuffer.readBits(1);
+        this.reserved = bitReaderBuffer.readBits(5);
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void getContent(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) {
-            IsoTypeWriter.writeUInt32(byteBuffer, this.DTSSamplingFrequency);
-            IsoTypeWriter.writeUInt32(byteBuffer, this.maxBitRate);
-            IsoTypeWriter.writeUInt32(byteBuffer, this.avgBitRate);
-            IsoTypeWriter.writeUInt8(byteBuffer, this.pcmSampleDepth);
-            BitWriterBuffer bitWriterBuffer = new BitWriterBuffer(byteBuffer);
-            bitWriterBuffer.writeBits(this.frameDuration, 2);
-            bitWriterBuffer.writeBits(this.streamConstruction, 5);
-            bitWriterBuffer.writeBits(this.coreLFEPresent, 1);
-            bitWriterBuffer.writeBits(this.coreLayout, 6);
-            bitWriterBuffer.writeBits(this.coreSize, 14);
-            bitWriterBuffer.writeBits(this.stereoDownmix, 1);
-            bitWriterBuffer.writeBits(this.representationType, 3);
-            bitWriterBuffer.writeBits(this.channelLayout, 16);
-            bitWriterBuffer.writeBits(this.multiAssetFlag, 1);
-            bitWriterBuffer.writeBits(this.LBRDurationMod, 1);
-            bitWriterBuffer.writeBits(this.reservedBoxPresent, 1);
-            bitWriterBuffer.writeBits(this.reserved, 5);
-        }
+        IsoTypeWriter.writeUInt32(byteBuffer, this.DTSSamplingFrequency);
+        IsoTypeWriter.writeUInt32(byteBuffer, this.maxBitRate);
+        IsoTypeWriter.writeUInt32(byteBuffer, this.avgBitRate);
+        IsoTypeWriter.writeUInt8(byteBuffer, this.pcmSampleDepth);
+        BitWriterBuffer bitWriterBuffer = new BitWriterBuffer(byteBuffer);
+        bitWriterBuffer.writeBits(this.frameDuration, 2);
+        bitWriterBuffer.writeBits(this.streamConstruction, 5);
+        bitWriterBuffer.writeBits(this.coreLFEPresent, 1);
+        bitWriterBuffer.writeBits(this.coreLayout, 6);
+        bitWriterBuffer.writeBits(this.coreSize, 14);
+        bitWriterBuffer.writeBits(this.stereoDownmix, 1);
+        bitWriterBuffer.writeBits(this.representationType, 3);
+        bitWriterBuffer.writeBits(this.channelLayout, 16);
+        bitWriterBuffer.writeBits(this.multiAssetFlag, 1);
+        bitWriterBuffer.writeBits(this.LBRDurationMod, 1);
+        bitWriterBuffer.writeBits(this.reservedBoxPresent, 1);
+        bitWriterBuffer.writeBits(this.reserved, 5);
     }
 
     public void setAvgBitRate(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.longObject(j)));
-            this.avgBitRate = j;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.longObject(j)));
+        this.avgBitRate = j;
     }
 
     public void setChannelLayout(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_23, this, this, Conversions.intObject(i)));
-            this.channelLayout = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_23, this, this, Conversions.intObject(i)));
+        this.channelLayout = i;
     }
 
     public void setCoreLFEPresent(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_13, this, this, Conversions.intObject(i)));
-            this.coreLFEPresent = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_13, this, this, Conversions.intObject(i)));
+        this.coreLFEPresent = i;
     }
 
     public void setCoreLayout(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_15, this, this, Conversions.intObject(i)));
-            this.coreLayout = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_15, this, this, Conversions.intObject(i)));
+        this.coreLayout = i;
     }
 
     public void setCoreSize(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_17, this, this, Conversions.intObject(i)));
-            this.coreSize = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_17, this, this, Conversions.intObject(i)));
+        this.coreSize = i;
     }
 
     public void setDTSSamplingFrequency(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.longObject(j)));
-            this.DTSSamplingFrequency = j;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.longObject(j)));
+        this.DTSSamplingFrequency = j;
     }
 
     public void setFrameDuration(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_9, this, this, Conversions.intObject(i)));
-            this.frameDuration = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_9, this, this, Conversions.intObject(i)));
+        this.frameDuration = i;
     }
 
     public void setLBRDurationMod(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_27, this, this, Conversions.intObject(i)));
-            this.LBRDurationMod = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_27, this, this, Conversions.intObject(i)));
+        this.LBRDurationMod = i;
     }
 
     public void setMaxBitRate(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048603, this, j) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.longObject(j)));
-            this.maxBitRate = j;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.longObject(j)));
+        this.maxBitRate = j;
     }
 
     public void setMultiAssetFlag(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_25, this, this, Conversions.intObject(i)));
-            this.multiAssetFlag = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_25, this, this, Conversions.intObject(i)));
+        this.multiAssetFlag = i;
     }
 
     public void setPcmSampleDepth(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.intObject(i)));
-            this.pcmSampleDepth = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.intObject(i)));
+        this.pcmSampleDepth = i;
     }
 
     public void setRepresentationType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_21, this, this, Conversions.intObject(i)));
-            this.representationType = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_21, this, this, Conversions.intObject(i)));
+        this.representationType = i;
     }
 
     public void setReserved(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_29, this, this, Conversions.intObject(i)));
-            this.reserved = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_29, this, this, Conversions.intObject(i)));
+        this.reserved = i;
     }
 
     public void setReservedBoxPresent(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_31, this, this, Conversions.intObject(i)));
-            this.reservedBoxPresent = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_31, this, this, Conversions.intObject(i)));
+        this.reservedBoxPresent = i;
     }
 
     public void setStereoDownmix(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_19, this, this, Conversions.intObject(i)));
-            this.stereoDownmix = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_19, this, this, Conversions.intObject(i)));
+        this.stereoDownmix = i;
     }
 
     public void setStreamConstruction(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_11, this, this, Conversions.intObject(i)));
-            this.streamConstruction = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_11, this, this, Conversions.intObject(i)));
+        this.streamConstruction = i;
     }
 }

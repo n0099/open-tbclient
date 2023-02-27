@@ -8,8 +8,8 @@ import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lv7;
-import com.baidu.tieba.nv7;
+import com.baidu.tieba.qy7;
+import com.baidu.tieba.sy7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class HorRankCard extends BaseCardInfo {
     public final int position;
     public List<a> rankInfoList;
     public final double ratio;
-    public final lv7 rightText;
+    public final qy7 rightText;
     public final boolean scrollEnabled;
     public final boolean showLeft;
     public final boolean showSep;
@@ -51,8 +51,7 @@ public class HorRankCard extends BaseCardInfo {
         public String i;
         public String j;
         public int k;
-        public int l;
-        public HorRankCard m;
+        public HorRankCard l;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -92,8 +91,8 @@ public class HorRankCard extends BaseCardInfo {
                 return;
             }
         }
-        this.titleColor = nv7.b(jSONObject.optString("tColor", ""));
-        this.titleColorNight = nv7.b(jSONObject.optString("tColorNight", ""));
+        this.titleColor = sy7.b(jSONObject.optString("tColor", ""));
+        this.titleColorNight = sy7.b(jSONObject.optString("tColorNight", ""));
         this.displayNum = jSONObject.optDouble("displayNum", 5.0d);
         this.ratio = jSONObject.optDouble(MapBundleKey.OfflineMapKey.OFFLINE_RATION, 1.0d);
         int optInt = jSONObject.optInt("picType", 1);
@@ -147,13 +146,13 @@ public class HorRankCard extends BaseCardInfo {
             aVar.h = optJSONObject.optString("btnText");
             aVar.i = optJSONObject.optString("btnDone");
             aVar.j = optJSONObject.optString("picScheme");
-            aVar.k = nv7.b(optJSONObject.optString("bgColor", ""));
-            aVar.l = nv7.b(optJSONObject.optString("bgColorNight", ""));
+            aVar.k = sy7.b(optJSONObject.optString("bgColor", ""));
+            sy7.b(optJSONObject.optString("bgColorNight", ""));
             optJSONObject.optLong("resourceId");
-            aVar.m = this;
+            aVar.l = this;
             this.rankInfoList.add(aVar);
         }
-        this.rightText = lv7.a(jSONObject.optJSONObject("moreButton"));
+        this.rightText = qy7.a(jSONObject.optJSONObject("moreButton"));
     }
 
     public double getDisplayNum() {
@@ -211,13 +210,13 @@ public class HorRankCard extends BaseCardInfo {
         return invokeV.doubleValue;
     }
 
-    public lv7 getRightText() {
+    public qy7 getRightText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.rightText;
         }
-        return (lv7) invokeV.objValue;
+        return (qy7) invokeV.objValue;
     }
 
     public int getTitleColor() {

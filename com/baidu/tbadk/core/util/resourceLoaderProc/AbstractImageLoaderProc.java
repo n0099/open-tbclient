@@ -23,14 +23,14 @@ import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
-import com.baidu.tieba.aw4;
 import com.baidu.tieba.ch;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.gq5;
+import com.baidu.tieba.hx4;
 import com.baidu.tieba.on;
 import com.baidu.tieba.rc;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.so5;
 import com.baidu.tieba.vc;
 import com.baidu.tieba.wg;
 import com.baidu.tieba.xg;
@@ -99,7 +99,7 @@ public abstract class AbstractImageLoaderProc implements ah<on> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return aw4.c().g();
+            return hx4.c().g();
         }
         return invokeV.booleanValue;
     }
@@ -291,16 +291,16 @@ public abstract class AbstractImageLoaderProc implements ah<on> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            on t = TbImageMemoryCache.n().t(str);
+            on w = TbImageMemoryCache.p().w(str);
             if (z) {
-                if (t != null) {
+                if (w != null) {
                     z2 = true;
                 } else {
                     z2 = false;
                 }
                 wg.i(z2, System.currentTimeMillis() - currentTimeMillis);
             }
-            return t;
+            return w;
         }
         return (on) invokeCommon.objValue;
     }
@@ -370,8 +370,8 @@ public abstract class AbstractImageLoaderProc implements ah<on> {
             } else {
                 urlbyClientServerAddr = getUrlbyClientServerAddr(str, i9, i10);
             }
-            so5.e(isFromCDN, urlbyClientServerAddr, str);
-            Pair<Boolean, String> d = so5.d(urlbyClientServerAddr);
+            gq5.e(isFromCDN, urlbyClientServerAddr, str);
+            Pair<Boolean, String> d = gq5.d(urlbyClientServerAddr);
             if (((Boolean) d.first).booleanValue()) {
                 str3 = (String) d.second;
                 z = true;
@@ -473,7 +473,7 @@ public abstract class AbstractImageLoaderProc implements ah<on> {
                 ImageLogger.imagePerfNetLog(str, false, str4, Boolean.valueOf(z), webClient.mStat, "bytes<1", currentTimeMillis2, webClient.isMobileProxy(), getProcType());
             }
             byte[] bArr3 = bArr;
-            TbImageMemoryCache.n().l(TbConfig.getPbImageSize() + bArr3.length);
+            TbImageMemoryCache.p().m(TbConfig.getPbImageSize() + bArr3.length);
             if (getProcType() == 19) {
                 i8 = 1;
                 p = mo46decodeToResource(bArr3, rect).p();
@@ -484,7 +484,7 @@ public abstract class AbstractImageLoaderProc implements ah<on> {
                 p = decodeToResourceWithWH(bArr3, i7, i6).p();
             }
             if (z && p == null) {
-                so5.b(str4);
+                gq5.b(str4);
                 byte[] downloadImageBytes2 = webClient.downloadImageBytes(str5, !z5);
                 boolean needCache2 = webClient.needCache();
                 if (downloadImageBytes2 != null && webClient.IsRequestSuccess()) {
@@ -587,7 +587,7 @@ public abstract class AbstractImageLoaderProc implements ah<on> {
                 return null;
             }
             if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-                TbImageMemoryCache.n().l(BitmapHelper.getBitmapSize(bitmap) * 2);
+                TbImageMemoryCache.p().m(BitmapHelper.getBitmapSize(bitmap) * 2);
                 return BitmapHelper.resizeBitmap(bitmap, i, i2, true);
             }
             return bitmap;
@@ -603,7 +603,7 @@ public abstract class AbstractImageLoaderProc implements ah<on> {
             on onVar = (on) obj;
             onVar.A(i);
             onVar.z(i2);
-            TbImageMemoryCache.n().f(str, onVar);
+            TbImageMemoryCache.p().g(str, onVar);
             wg.l(true, System.currentTimeMillis() - currentTimeMillis);
         }
     }

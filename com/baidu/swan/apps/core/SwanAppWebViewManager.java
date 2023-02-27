@@ -26,8 +26,6 @@ import android.webkit.WebResourceResponse;
 import androidx.annotation.CallSuper;
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.BdSailor;
 import com.baidu.browser.sailor.BdSailorConfig;
 import com.baidu.browser.sailor.BdSailorWebChromeClient;
@@ -47,48 +45,41 @@ import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.swan.apps.core.container.view.SwanAppSelectPopView;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.ap4;
-import com.baidu.tieba.be3;
-import com.baidu.tieba.ds2;
-import com.baidu.tieba.ev1;
-import com.baidu.tieba.ft2;
-import com.baidu.tieba.gp1;
-import com.baidu.tieba.i73;
-import com.baidu.tieba.ja2;
-import com.baidu.tieba.k72;
-import com.baidu.tieba.mu2;
-import com.baidu.tieba.nm3;
-import com.baidu.tieba.p72;
-import com.baidu.tieba.p82;
-import com.baidu.tieba.p93;
+import com.baidu.tieba.a82;
+import com.baidu.tieba.cv2;
+import com.baidu.tieba.dn3;
+import com.baidu.tieba.f82;
+import com.baidu.tieba.f92;
+import com.baidu.tieba.fa3;
+import com.baidu.tieba.ff3;
+import com.baidu.tieba.fo3;
+import com.baidu.tieba.g43;
+import com.baidu.tieba.gn3;
+import com.baidu.tieba.ja3;
+import com.baidu.tieba.jj2;
+import com.baidu.tieba.ke3;
+import com.baidu.tieba.kj2;
+import com.baidu.tieba.l82;
+import com.baidu.tieba.l93;
+import com.baidu.tieba.ll3;
+import com.baidu.tieba.m62;
+import com.baidu.tieba.m82;
+import com.baidu.tieba.m93;
+import com.baidu.tieba.mr4;
+import com.baidu.tieba.n82;
+import com.baidu.tieba.o43;
+import com.baidu.tieba.od2;
+import com.baidu.tieba.p43;
 import com.baidu.tieba.pe3;
-import com.baidu.tieba.pn3;
-import com.baidu.tieba.q33;
-import com.baidu.tieba.qm3;
-import com.baidu.tieba.t93;
-import com.baidu.tieba.ti2;
-import com.baidu.tieba.ud3;
-import com.baidu.tieba.ui2;
-import com.baidu.tieba.v72;
-import com.baidu.tieba.v83;
-import com.baidu.tieba.vk3;
-import com.baidu.tieba.w52;
-import com.baidu.tieba.w72;
-import com.baidu.tieba.w83;
-import com.baidu.tieba.wq4;
-import com.baidu.tieba.x72;
-import com.baidu.tieba.y33;
-import com.baidu.tieba.yc2;
-import com.baidu.tieba.z33;
-import com.baidu.tieba.zd3;
-import com.baidu.tieba.zp2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.pq2;
+import com.baidu.tieba.qp4;
+import com.baidu.tieba.re3;
+import com.baidu.tieba.ts2;
+import com.baidu.tieba.uv1;
+import com.baidu.tieba.vt2;
+import com.baidu.tieba.wp1;
+import com.baidu.tieba.y73;
+import com.baidu.tieba.za2;
 import com.baidu.webkit.sdk.ClientCertRequest;
 import com.baidu.webkit.sdk.GeolocationPermissions;
 import com.baidu.webkit.sdk.HttpAuthHandler;
@@ -111,765 +102,498 @@ import java.util.List;
 import kotlin.jvm.functions.Function1;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public abstract class SwanAppWebViewManager implements ev1<NgWebView>, v72, w72, i73<NgWebView>, SwanAppSelectPopView.a {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean v;
-    public transient /* synthetic */ FieldHolder $fh;
+public abstract class SwanAppWebViewManager implements uv1<NgWebView>, l82, m82, y73<NgWebView>, SwanAppSelectPopView.a {
+    public static final boolean v = wp1.a;
     public MutableContextWrapper a;
     public NgWebView b;
     public BdSailorWebViewClient c;
     public BdSailorWebViewClientExt d;
     public BdSailorWebChromeClient e;
-    public p82 f;
+    public f92 f;
     public UnitedSchemeMainDispatcher g;
-    public t93 h;
-    public Handler i;
-    public k72 j;
-    public final d k;
-    public List<ja2> l;
-    public boolean m;
-    public Drawable n;
-    public Drawable o;
+    public ja3 h;
+    public a82 j;
     public String p;
-    public zp2 q;
+    public pq2 q;
     public String r;
     public String s;
-    public int t;
-    public ft2 u;
+    public Handler i = new Handler(Looper.getMainLooper());
+    public final d k = new d(this);
+    public List<za2> l = new ArrayList();
+    public boolean m = false;
+    public Drawable n = null;
+    public Drawable o = null;
+    public int t = -1;
+    public vt2 u = new vt2();
 
     public abstract void L0();
 
     public void U0(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, dVar) == null) {
-        }
     }
 
     public void V0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-        }
     }
 
-    @Override // com.baidu.tieba.ev1
+    @Override // com.baidu.tieba.uv1
     public abstract String a();
 
-    @Override // com.baidu.tieba.ev1
+    @Override // com.baidu.tieba.uv1
     public String b0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? "ai_apps" : (String) invokeV.objValue;
+        return "ai_apps";
     }
 
-    @Override // com.baidu.tieba.v72
+    @Override // com.baidu.tieba.l82
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, motionEvent)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
+        return false;
     }
 
-    @Override // com.baidu.tieba.ev1
+    @Override // com.baidu.tieba.uv1
     public void e0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
-        }
     }
 
     @Override // com.baidu.searchbox.unitedscheme.TypedCallbackHandler
     public int getInvokeSourceType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
+        return 0;
     }
 
-    @Override // com.baidu.tieba.w72
+    @Override // com.baidu.tieba.m82
     public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return false;
     }
 
-    @Override // com.baidu.tieba.ev1
+    @Override // com.baidu.tieba.uv1
     public void onJSLoaded() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
-        }
     }
 
-    @Override // com.baidu.tieba.v72
+    @Override // com.baidu.tieba.l82
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, motionEvent)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
+        return false;
     }
 
-    @Override // com.baidu.tieba.w72
+    @Override // com.baidu.tieba.m82
     public boolean u(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048633, this, z)) == null) ? z : invokeZ.booleanValue;
+        return z;
     }
 
     /* loaded from: classes3.dex */
     public class SwanAppWebChromeClient extends BdSailorWebChromeClient {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppWebViewManager this$0;
 
         /* loaded from: classes3.dex */
-        public class a implements p82.s {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        public class a implements f92.s {
             public final /* synthetic */ JsPromptResult a;
 
             public a(SwanAppWebChromeClient swanAppWebChromeClient, JsPromptResult jsPromptResult) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {swanAppWebChromeClient, jsPromptResult};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
                 this.a = jsPromptResult;
             }
 
-            @Override // com.baidu.tieba.p82.s
+            @Override // com.baidu.tieba.f92.s
             public void a() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.cancel();
-                }
+                this.a.cancel();
             }
 
-            @Override // com.baidu.tieba.p82.s
+            @Override // com.baidu.tieba.f92.s
             public void onCancel() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.a.cancel();
-                }
+                this.a.cancel();
             }
 
-            @Override // com.baidu.tieba.p82.s
+            @Override // com.baidu.tieba.f92.s
             public void b(String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                    this.a.confirm(str);
-                }
+                this.a.confirm(str);
             }
         }
 
         /* loaded from: classes3.dex */
-        public class b implements p82.s {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        public class b implements f92.s {
             public final /* synthetic */ JsResult a;
 
             public b(SwanAppWebChromeClient swanAppWebChromeClient, JsResult jsResult) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {swanAppWebChromeClient, jsResult};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
                 this.a = jsResult;
             }
 
-            @Override // com.baidu.tieba.p82.s
+            @Override // com.baidu.tieba.f92.s
             public void a() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.cancel();
-                }
+                this.a.cancel();
             }
 
-            @Override // com.baidu.tieba.p82.s
+            @Override // com.baidu.tieba.f92.s
             public void onCancel() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.a.cancel();
-                }
+                this.a.cancel();
             }
 
-            @Override // com.baidu.tieba.p82.s
+            @Override // com.baidu.tieba.f92.s
             public void b(String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                    this.a.confirm();
-                }
+                this.a.confirm();
             }
         }
 
         /* loaded from: classes3.dex */
-        public class c implements p82.s {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        public class c implements f92.s {
             public final /* synthetic */ JsResult a;
 
             public c(SwanAppWebChromeClient swanAppWebChromeClient, JsResult jsResult) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {swanAppWebChromeClient, jsResult};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
                 this.a = jsResult;
             }
 
-            @Override // com.baidu.tieba.p82.s
+            @Override // com.baidu.tieba.f92.s
             public void a() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.cancel();
-                }
+                this.a.cancel();
             }
 
-            @Override // com.baidu.tieba.p82.s
+            @Override // com.baidu.tieba.f92.s
             public void onCancel() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.a.cancel();
-                }
+                this.a.cancel();
             }
 
-            @Override // com.baidu.tieba.p82.s
+            @Override // com.baidu.tieba.f92.s
             public void b(String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                    this.a.confirm();
-                }
+                this.a.confirm();
             }
         }
 
         /* loaded from: classes3.dex */
-        public class d implements pn3<zd3<be3.e>> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        public class d implements fo3<pe3<re3.e>> {
             public final /* synthetic */ String a;
             public final /* synthetic */ GeolocationPermissions.Callback b;
-            public final /* synthetic */ SwanAppWebChromeClient c;
 
-            public d(SwanAppWebChromeClient swanAppWebChromeClient, String str, GeolocationPermissions.Callback callback) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {swanAppWebChromeClient, str, callback};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = swanAppWebChromeClient;
+            public d(String str, GeolocationPermissions.Callback callback) {
                 this.a = str;
                 this.b = callback;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.pn3
+            @Override // com.baidu.tieba.fo3
             /* renamed from: b */
-            public void a(zd3<be3.e> zd3Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zd3Var) == null) {
-                    if (ud3.h(zd3Var)) {
-                        this.c.this$0.I0(this.a, this.b);
-                    } else {
-                        this.c.this$0.W0(this.a, this.b);
-                    }
+            public void a(pe3<re3.e> pe3Var) {
+                if (ke3.h(pe3Var)) {
+                    SwanAppWebViewManager.this.I0(this.a, this.b);
+                } else {
+                    SwanAppWebViewManager.this.W0(this.a, this.b);
                 }
             }
         }
 
-        public SwanAppWebChromeClient(SwanAppWebViewManager swanAppWebViewManager) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppWebViewManager};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = swanAppWebViewManager;
+        public SwanAppWebChromeClient() {
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public void onCloseWindow(BdSailorWebView bdSailorWebView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bdSailorWebView) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onCloseWindow");
-                }
-                if (this.this$0.e != null) {
-                    this.this$0.e.onCloseWindow(bdSailorWebView);
-                } else {
-                    super.onCloseWindow(bdSailorWebView);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onCloseWindow");
+            }
+            if (SwanAppWebViewManager.this.e != null) {
+                SwanAppWebViewManager.this.e.onCloseWindow(bdSailorWebView);
+            } else {
+                super.onCloseWindow(bdSailorWebView);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public void onGeolocationPermissionsHidePrompt(BdSailorWebView bdSailorWebView) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, bdSailorWebView) == null) && SwanAppWebViewManager.v) {
+            if (SwanAppWebViewManager.v) {
                 Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onGeolocationPermissionsHidePrompt");
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
+        public boolean onJsTimeout(BdSailorWebView bdSailorWebView) {
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onJsTimeout  ");
+            }
+            if (SwanAppWebViewManager.this.e != null && SwanAppWebViewManager.this.e.onJsTimeout(bdSailorWebView)) {
+                return true;
+            }
+            return super.onJsTimeout(bdSailorWebView);
+        }
+
+        @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public void onRequestFocus(BdSailorWebView bdSailorWebView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048593, this, bdSailorWebView) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onRequestFocus");
-                }
-                if (this.this$0.e != null) {
-                    this.this$0.e.onRequestFocus(bdSailorWebView);
-                } else {
-                    super.onRequestFocus(bdSailorWebView);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onRequestFocus");
+            }
+            if (SwanAppWebViewManager.this.e != null) {
+                SwanAppWebViewManager.this.e.onRequestFocus(bdSailorWebView);
+            } else {
+                super.onRequestFocus(bdSailorWebView);
             }
         }
 
         public /* synthetic */ SwanAppWebChromeClient(SwanAppWebViewManager swanAppWebViewManager, a aVar) {
-            this(swanAppWebViewManager);
+            this();
+        }
+
+        @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
+        public boolean onConsoleMessage(BdSailorWebView bdSailorWebView, ConsoleMessage consoleMessage) {
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onConsoleMessage");
+            }
+            if (SwanAppWebViewManager.this.e != null && SwanAppWebViewManager.this.e.onConsoleMessage(bdSailorWebView, consoleMessage)) {
+                return true;
+            }
+            return super.onConsoleMessage(bdSailorWebView, consoleMessage);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public void onProgressChanged(BdSailorWebView bdSailorWebView, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048588, this, bdSailorWebView, i) == null) {
-                if (this.this$0.e != null) {
-                    this.this$0.e.onProgressChanged(bdSailorWebView, i);
-                } else {
-                    super.onProgressChanged(bdSailorWebView, i);
-                }
+            if (SwanAppWebViewManager.this.e != null) {
+                SwanAppWebViewManager.this.e.onProgressChanged(bdSailorWebView, i);
+            } else {
+                super.onProgressChanged(bdSailorWebView, i);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public void onReceivedIcon(BdSailorWebView bdSailorWebView, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048590, this, bdSailorWebView, bitmap) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onReachedMaxAppCacheSize");
-                }
-                if (this.this$0.e != null) {
-                    this.this$0.e.onReceivedIcon(bdSailorWebView, bitmap);
-                } else {
-                    super.onReceivedIcon(bdSailorWebView, bitmap);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onReachedMaxAppCacheSize");
+            }
+            if (SwanAppWebViewManager.this.e != null) {
+                SwanAppWebViewManager.this.e.onReceivedIcon(bdSailorWebView, bitmap);
+            } else {
+                super.onReceivedIcon(bdSailorWebView, bitmap);
+            }
+        }
+
+        @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
+        public void onReceivedTitle(BdSailorWebView bdSailorWebView, String str) {
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onReceivedTitleInFact : " + str);
+            }
+            if (SwanAppWebViewManager.this.e != null) {
+                SwanAppWebViewManager.this.e.onReceivedTitle(bdSailorWebView, str);
+            } else {
+                super.onReceivedTitle(bdSailorWebView, str);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public void openFileChooser(BdSailorWebView bdSailorWebView, ValueCallback valueCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048597, this, bdSailorWebView, valueCallback) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::openFileChooser");
-                }
-                if (this.this$0.e != null) {
-                    this.this$0.e.openFileChooser(bdSailorWebView, valueCallback);
-                } else {
-                    super.openFileChooser(bdSailorWebView, valueCallback);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::openFileChooser");
             }
-        }
-
-        @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
-        public boolean onConsoleMessage(BdSailorWebView bdSailorWebView, ConsoleMessage consoleMessage) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdSailorWebView, consoleMessage)) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onConsoleMessage");
-                }
-                if (this.this$0.e != null && this.this$0.e.onConsoleMessage(bdSailorWebView, consoleMessage)) {
-                    return true;
-                }
-                return super.onConsoleMessage(bdSailorWebView, consoleMessage);
-            }
-            return invokeLL.booleanValue;
-        }
-
-        @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
-        public void onReceivedTitle(BdSailorWebView bdSailorWebView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048591, this, bdSailorWebView, str) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onReceivedTitleInFact : " + str);
-                }
-                if (this.this$0.e != null) {
-                    this.this$0.e.onReceivedTitle(bdSailorWebView, str);
-                } else {
-                    super.onReceivedTitle(bdSailorWebView, str);
-                }
+            if (SwanAppWebViewManager.this.e != null) {
+                SwanAppWebViewManager.this.e.openFileChooser(bdSailorWebView, valueCallback);
+            } else {
+                super.openFileChooser(bdSailorWebView, valueCallback);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public boolean onCreateWindow(BdSailorWebView bdSailorWebView, boolean z, boolean z2, Message message) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bdSailorWebView, Boolean.valueOf(z), Boolean.valueOf(z2), message})) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onCreateWindow");
-                }
-                if (this.this$0.e != null && this.this$0.e.onCreateWindow(bdSailorWebView, z, z2, message)) {
-                    return true;
-                }
-                return super.onCreateWindow(bdSailorWebView, z, z2, message);
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onCreateWindow");
             }
-            return invokeCommon.booleanValue;
+            if (SwanAppWebViewManager.this.e != null && SwanAppWebViewManager.this.e.onCreateWindow(bdSailorWebView, z, z2, message)) {
+                return true;
+            }
+            return super.onCreateWindow(bdSailorWebView, z, z2, message);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
-        public boolean onJsBeforeUnload(BdSailorWebView bdSailorWebView, String str, String str2, JsResult jsResult) {
-            InterceptResult invokeLLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdSailorWebView, str, str2, jsResult)) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onJsBeforeUnload：" + str);
-                }
-                if (this.this$0.e != null && this.this$0.e.onJsBeforeUnload(bdSailorWebView, str, str2, jsResult)) {
-                    return true;
-                }
-                return super.onJsBeforeUnload(bdSailorWebView, str, str2, jsResult);
+        public boolean onJsAlert(BdSailorWebView bdSailorWebView, String str, String str2, JsResult jsResult) {
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onJsAlert");
             }
-            return invokeLLLL.booleanValue;
+            return SwanAppWebViewManager.this.f.l(str, str2, new b(this, jsResult));
+        }
+
+        @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
+        public boolean onJsConfirm(BdSailorWebView bdSailorWebView, String str, String str2, JsResult jsResult) {
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onJsConfirm");
+            }
+            return SwanAppWebViewManager.this.f.m(str, str2, new c(this, jsResult));
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public void onReachedMaxAppCacheSize(BdSailorWebView bdSailorWebView, long j, long j2, WebStorage.QuotaUpdater quotaUpdater) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{bdSailorWebView, Long.valueOf(j), Long.valueOf(j2), quotaUpdater}) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onReachedMaxAppCacheSize");
-                }
-                if (this.this$0.e != null) {
-                    this.this$0.e.onReachedMaxAppCacheSize(bdSailorWebView, j, j2, quotaUpdater);
-                } else {
-                    super.onReachedMaxAppCacheSize(bdSailorWebView, j, j2, quotaUpdater);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onReachedMaxAppCacheSize");
+            }
+            if (SwanAppWebViewManager.this.e != null) {
+                SwanAppWebViewManager.this.e.onReachedMaxAppCacheSize(bdSailorWebView, j, j2, quotaUpdater);
+            } else {
+                super.onReachedMaxAppCacheSize(bdSailorWebView, j, j2, quotaUpdater);
+            }
+        }
+
+        @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
+        public void openFileChooser(BdSailorWebView bdSailorWebView, ValueCallback valueCallback, String str, String str2) {
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::openFileChooser");
+            }
+            if (SwanAppWebViewManager.this.e != null) {
+                SwanAppWebViewManager.this.e.openFileChooser(bdSailorWebView, valueCallback, str, str2);
+            } else {
+                super.openFileChooser(bdSailorWebView, valueCallback, str, str2);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public void onExceededDatabaseQuota(BdSailorWebView bdSailorWebView, String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{bdSailorWebView, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onExceededDatabaseQuota");
-                }
-                if (this.this$0.e != null) {
-                    this.this$0.e.onExceededDatabaseQuota(bdSailorWebView, str, str2, j, j2, j3, quotaUpdater);
-                } else {
-                    super.onExceededDatabaseQuota(bdSailorWebView, str, str2, j, j2, j3, quotaUpdater);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onExceededDatabaseQuota");
+            }
+            if (SwanAppWebViewManager.this.e != null) {
+                SwanAppWebViewManager.this.e.onExceededDatabaseQuota(bdSailorWebView, str, str2, j, j2, j3, quotaUpdater);
+            } else {
+                super.onExceededDatabaseQuota(bdSailorWebView, str, str2, j, j2, j3, quotaUpdater);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public void onGeolocationPermissionsShowPrompt(BdSailorWebView bdSailorWebView, String str, GeolocationPermissions.Callback callback) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048581, this, bdSailorWebView, str, callback) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onGeolocationPermissionsShowPrompt");
-                }
-                w83 M = w83.M();
-                if (M == null || M.w() == null) {
-                    this.this$0.W0(str, callback);
-                } else {
-                    M.e0().g(M.w(), "mapp_location", new d(this, str, callback));
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onGeolocationPermissionsShowPrompt");
+            }
+            m93 M = m93.M();
+            if (M == null || M.w() == null) {
+                SwanAppWebViewManager.this.W0(str, callback);
+            } else {
+                M.e0().g(M.w(), "mapp_location", new d(str, callback));
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public boolean onHideCustomView(BdSailorWebView bdSailorWebView) {
-            InterceptResult invokeL;
             boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bdSailorWebView)) == null) {
-                if (this.this$0.e != null) {
-                    z = this.this$0.e.onHideCustomView(bdSailorWebView);
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    if (SwanAppWebViewManager.v) {
-                        Log.i("SwanAppWebViewManager", "SwanAppWebChromeClient::onHideCustomView by external client");
-                    }
-                    return true;
-                }
-                if (this.this$0.F0() != null) {
-                    this.this$0.F0().d();
-                }
+            if (SwanAppWebViewManager.this.e != null) {
+                z = SwanAppWebViewManager.this.e.onHideCustomView(bdSailorWebView);
+            } else {
+                z = false;
+            }
+            if (z) {
                 if (SwanAppWebViewManager.v) {
-                    Log.i("SwanAppWebViewManager", "SwanAppWebChromeClient::onHideCustomView");
+                    Log.i("SwanAppWebViewManager", "SwanAppWebChromeClient::onHideCustomView by external client");
                 }
                 return true;
             }
-            return invokeL.booleanValue;
+            if (SwanAppWebViewManager.this.F0() != null) {
+                SwanAppWebViewManager.this.F0().d();
+            }
+            if (SwanAppWebViewManager.v) {
+                Log.i("SwanAppWebViewManager", "SwanAppWebChromeClient::onHideCustomView");
+            }
+            return true;
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
-        public boolean onJsAlert(BdSailorWebView bdSailorWebView, String str, String str2, JsResult jsResult) {
-            InterceptResult invokeLLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, bdSailorWebView, str, str2, jsResult)) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onJsAlert");
-                }
-                return this.this$0.f.l(str, str2, new b(this, jsResult));
+        public boolean onJsBeforeUnload(BdSailorWebView bdSailorWebView, String str, String str2, JsResult jsResult) {
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onJsBeforeUnload：" + str);
             }
-            return invokeLLLL.booleanValue;
-        }
-
-        @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
-        public boolean onJsConfirm(BdSailorWebView bdSailorWebView, String str, String str2, JsResult jsResult) {
-            InterceptResult invokeLLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, bdSailorWebView, str, str2, jsResult)) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onJsConfirm");
-                }
-                return this.this$0.f.m(str, str2, new c(this, jsResult));
+            if (SwanAppWebViewManager.this.e != null && SwanAppWebViewManager.this.e.onJsBeforeUnload(bdSailorWebView, str, str2, jsResult)) {
+                return true;
             }
-            return invokeLLLL.booleanValue;
-        }
-
-        @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
-        public void openFileChooser(BdSailorWebView bdSailorWebView, ValueCallback valueCallback, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048599, this, bdSailorWebView, valueCallback, str, str2) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::openFileChooser");
-                }
-                if (this.this$0.e != null) {
-                    this.this$0.e.openFileChooser(bdSailorWebView, valueCallback, str, str2);
-                } else {
-                    super.openFileChooser(bdSailorWebView, valueCallback, str, str2);
-                }
-            }
+            return super.onJsBeforeUnload(bdSailorWebView, str, str2, jsResult);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public boolean onJsPrompt(BdSailorWebView bdSailorWebView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-            InterceptResult invokeLLLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048586, this, bdSailorWebView, str, str2, str3, jsPromptResult)) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onJsPrompt");
-                }
-                return this.this$0.f.n(str, str2, str3, new a(this, jsPromptResult));
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onJsPrompt");
             }
-            return invokeLLLLL.booleanValue;
-        }
-
-        @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
-        public boolean onJsTimeout(BdSailorWebView bdSailorWebView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bdSailorWebView)) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onJsTimeout  ");
-                }
-                if (this.this$0.e != null && this.this$0.e.onJsTimeout(bdSailorWebView)) {
-                    return true;
-                }
-                return super.onJsTimeout(bdSailorWebView);
-            }
-            return invokeL.booleanValue;
+            return SwanAppWebViewManager.this.f.n(str, str2, str3, new a(this, jsPromptResult));
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public void onReceivedTouchIconUrl(BdSailorWebView bdSailorWebView, String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLZ(1048592, this, bdSailorWebView, str, z) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onReceivedTouchIconUrl");
-                }
-                if (this.this$0.e != null) {
-                    this.this$0.e.onReceivedTouchIconUrl(bdSailorWebView, str, z);
-                } else {
-                    super.onReceivedTouchIconUrl(bdSailorWebView, str, z);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::onReceivedTouchIconUrl");
+            }
+            if (SwanAppWebViewManager.this.e != null) {
+                SwanAppWebViewManager.this.e.onReceivedTouchIconUrl(bdSailorWebView, str, z);
+            } else {
+                super.onReceivedTouchIconUrl(bdSailorWebView, str, z);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public boolean onShowFileChooser(BdSailorWebView bdSailorWebView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048596, this, bdSailorWebView, valueCallback, fileChooserParams)) == null) {
-                return super.onShowFileChooser(bdSailorWebView, valueCallback, fileChooserParams);
-            }
-            return invokeLLL.booleanValue;
+            return super.onShowFileChooser(bdSailorWebView, valueCallback, fileChooserParams);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public void openFileChooser(BdSailorWebView bdSailorWebView, ValueCallback valueCallback, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048598, this, bdSailorWebView, valueCallback, str) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::openFileChooser");
-                }
-                if (this.this$0.e != null) {
-                    this.this$0.e.openFileChooser(bdSailorWebView, valueCallback, str);
-                } else {
-                    super.openFileChooser(bdSailorWebView, valueCallback, str);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebChromeClient::openFileChooser");
+            }
+            if (SwanAppWebViewManager.this.e != null) {
+                SwanAppWebViewManager.this.e.openFileChooser(bdSailorWebView, valueCallback, str);
+            } else {
+                super.openFileChooser(bdSailorWebView, valueCallback, str);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public boolean onShowCustomView(BdSailorWebView bdSailorWebView, View view2, int i, WebChromeClient.CustomViewCallback customViewCallback) {
-            InterceptResult invokeLLIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048594, this, bdSailorWebView, view2, i, customViewCallback)) == null) {
-                this.this$0.t = -1;
+            SwanAppWebViewManager.this.t = -1;
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "CustomView orientation applied, set back to default [" + SwanAppWebViewManager.this.t + PreferencesUtil.RIGHT_MOUNT);
+            }
+            boolean z = false;
+            if (SwanAppWebViewManager.this.e != null) {
+                z = SwanAppWebViewManager.this.e.onShowCustomView(bdSailorWebView, view2, i, customViewCallback);
+            }
+            if (z) {
                 if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "CustomView orientation applied, set back to default [" + this.this$0.t + PreferencesUtil.RIGHT_MOUNT);
-                }
-                boolean z = false;
-                if (this.this$0.e != null) {
-                    z = this.this$0.e.onShowCustomView(bdSailorWebView, view2, i, customViewCallback);
-                }
-                if (z) {
-                    if (SwanAppWebViewManager.v) {
-                        Log.i("SwanAppWebViewManager", "SwanAppWebChromeClient::onShowCustomView by external client");
-                    }
-                    return true;
-                }
-                if (this.this$0.F0() != null) {
-                    this.this$0.F0().g(view2, i, null);
-                }
-                if (SwanAppWebViewManager.v) {
-                    Log.i("SwanAppWebViewManager", "SwanAppWebChromeClient::onShowCustomView : " + i);
+                    Log.i("SwanAppWebViewManager", "SwanAppWebChromeClient::onShowCustomView by external client");
                 }
                 return true;
             }
-            return invokeLLIL.booleanValue;
+            if (SwanAppWebViewManager.this.F0() != null) {
+                SwanAppWebViewManager.this.F0().g(view2, i, null);
+            }
+            if (SwanAppWebViewManager.v) {
+                Log.i("SwanAppWebViewManager", "SwanAppWebChromeClient::onShowCustomView : " + i);
+            }
+            return true;
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClient
         public boolean onShowCustomView(BdSailorWebView bdSailorWebView, View view2, WebChromeClient.CustomViewCallback customViewCallback) {
-            InterceptResult invokeLLL;
             boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048595, this, bdSailorWebView, view2, customViewCallback)) == null) {
-                int i = 0;
-                if (this.this$0.e != null) {
-                    z = this.this$0.e.onShowCustomView(bdSailorWebView, view2, customViewCallback);
-                } else {
-                    z = false;
+            int i = 0;
+            if (SwanAppWebViewManager.this.e != null) {
+                z = SwanAppWebViewManager.this.e.onShowCustomView(bdSailorWebView, view2, customViewCallback);
+            } else {
+                z = false;
+            }
+            if (z) {
+                if (SwanAppWebViewManager.v) {
+                    Log.i("SwanAppWebViewManager", "SwanAppWebChromeClient::onShowCustomView by external client");
                 }
-                if (z) {
-                    if (SwanAppWebViewManager.v) {
-                        Log.i("SwanAppWebViewManager", "SwanAppWebChromeClient::onShowCustomView by external client");
-                    }
-                    return true;
-                }
-                if (this.this$0.t != -1) {
-                    i = this.this$0.t;
-                } else {
-                    int i2 = v83.K().c;
-                    if (i2 >= 35 && i2 < 180) {
-                        i = 8;
-                    }
-                }
-                onShowCustomView(bdSailorWebView, view2, i, customViewCallback);
                 return true;
             }
-            return invokeLLL.booleanValue;
+            if (SwanAppWebViewManager.this.t != -1) {
+                i = SwanAppWebViewManager.this.t;
+            } else {
+                int i2 = l93.K().c;
+                if (i2 >= 35 && i2 < 180) {
+                    i = 8;
+                }
+            }
+            onShowCustomView(bdSailorWebView, view2, i, customViewCallback);
+            return true;
         }
     }
 
     /* loaded from: classes3.dex */
     public class SwanAppWebChromeClientExt extends BdSailorWebChromeClientExt {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public boolean mIsFirstTimeShow;
-        public final /* synthetic */ SwanAppWebViewManager this$0;
 
         /* loaded from: classes3.dex */
         public class a implements ValueCallback<String> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ SwanAppWebChromeClientExt a;
-
-            public a(SwanAppWebChromeClientExt swanAppWebChromeClientExt) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {swanAppWebChromeClientExt};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = swanAppWebChromeClientExt;
+            public a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.webkit.ValueCallback
             /* renamed from: a */
             public void onReceiveValue(String str) {
-                Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || TextUtils.isEmpty(str)) {
+                if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                w52.b("SwanAppWebViewManager", "onReceiveValue: " + str);
+                m62.b("SwanAppWebViewManager", "onReceiveValue: " + str);
                 JsonReader jsonReader = new JsonReader(new StringReader(str));
                 jsonReader.setLenient(true);
                 try {
@@ -877,7 +601,7 @@ public abstract class SwanAppWebViewManager implements ev1<NgWebView>, v72, w72,
                         if (jsonReader.peek() != JsonToken.NULL && jsonReader.peek() == JsonToken.STRING) {
                             String nextString = jsonReader.nextString();
                             if (!TextUtils.isEmpty(nextString)) {
-                                ds2.E0().b(this.a.this$0.b, nextString);
+                                ts2.E0().b(SwanAppWebViewManager.this.b, nextString);
                             }
                         }
                     } catch (IOException e) {
@@ -886,443 +610,303 @@ public abstract class SwanAppWebViewManager implements ev1<NgWebView>, v72, w72,
                         }
                     }
                 } finally {
-                    ap4.d(jsonReader);
+                    qp4.d(jsonReader);
                 }
             }
         }
 
-        public SwanAppWebChromeClientExt(SwanAppWebViewManager swanAppWebViewManager) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppWebViewManager};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = swanAppWebViewManager;
+        public SwanAppWebChromeClientExt() {
             this.mIsFirstTimeShow = true;
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClientExt
         public void hideSelectionActionDialogExt(BdSailorWebView bdSailorWebView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bdSailorWebView) == null) {
-                super.hideSelectionActionDialogExt(bdSailorWebView);
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "hideSelectionActionDialogExt: ");
-                }
-                this.this$0.b.hidePopWindow();
-                this.mIsFirstTimeShow = true;
+            super.hideSelectionActionDialogExt(bdSailorWebView);
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "hideSelectionActionDialogExt: ");
             }
+            SwanAppWebViewManager.this.b.hidePopWindow();
+            this.mIsFirstTimeShow = true;
         }
 
         public /* synthetic */ SwanAppWebChromeClientExt(SwanAppWebViewManager swanAppWebViewManager, a aVar) {
-            this(swanAppWebViewManager);
+            this();
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClientExt
         @SuppressLint({"DefaultLocale"})
         public void performLongClickExt(BdSailorWebView bdSailorWebView, WebView.HitTestResult hitTestResult, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdSailorWebView, hitTestResult, i, i2) == null) {
-                super.performLongClickExt(bdSailorWebView, hitTestResult, i, i2);
-                if (hitTestResult == null) {
-                    return;
-                }
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "performLongClickExt: " + hitTestResult.getType() + ZeusCrashHandler.NAME_SEPERATOR + i + ZeusCrashHandler.NAME_SEPERATOR + i2);
-                }
-                int type = hitTestResult.getType();
-                if (type == 10) {
-                    this.this$0.c1();
-                } else if (type == 5) {
-                    this.this$0.b.evaluateJavascript(String.format("javascript:(function(){return window.getImageSrcByCoordinate(%s,%s);})()", Integer.valueOf(nm3.O(i)), Integer.valueOf(nm3.O(i2))), new a(this));
-                }
+            super.performLongClickExt(bdSailorWebView, hitTestResult, i, i2);
+            if (hitTestResult == null) {
+                return;
+            }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "performLongClickExt: " + hitTestResult.getType() + ZeusCrashHandler.NAME_SEPERATOR + i + ZeusCrashHandler.NAME_SEPERATOR + i2);
+            }
+            int type = hitTestResult.getType();
+            if (type == 10) {
+                SwanAppWebViewManager.this.c1();
+            } else if (type == 5) {
+                SwanAppWebViewManager.this.b.evaluateJavascript(String.format("javascript:(function(){return window.getImageSrcByCoordinate(%s,%s);})()", Integer.valueOf(dn3.O(i)), Integer.valueOf(dn3.O(i2))), new a());
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebChromeClientExt
         public void showSelectionActionDialogExt(BdSailorWebView bdSailorWebView, int i, int i2, int i3, int i4, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bdSailorWebView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str}) == null) {
-                super.showSelectionActionDialogExt(bdSailorWebView, i, i2, i3, i4, str);
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "showSelectionActionDialogExt: " + i3 + ZeusCrashHandler.NAME_SEPERATOR + i4 + ZeusCrashHandler.NAME_SEPERATOR + i + ZeusCrashHandler.NAME_SEPERATOR + i2 + ZeusCrashHandler.NAME_SEPERATOR + str);
-                }
-                ds2.E0().c(this.this$0.b, i, i2, i3, i4, str, this.mIsFirstTimeShow);
-                this.mIsFirstTimeShow = false;
+            super.showSelectionActionDialogExt(bdSailorWebView, i, i2, i3, i4, str);
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "showSelectionActionDialogExt: " + i3 + ZeusCrashHandler.NAME_SEPERATOR + i4 + ZeusCrashHandler.NAME_SEPERATOR + i + ZeusCrashHandler.NAME_SEPERATOR + i2 + ZeusCrashHandler.NAME_SEPERATOR + str);
             }
+            ts2.E0().c(SwanAppWebViewManager.this.b, i, i2, i3, i4, str, this.mIsFirstTimeShow);
+            this.mIsFirstTimeShow = false;
         }
     }
 
     /* loaded from: classes3.dex */
     public class SwanAppWebViewClient extends BdSailorWebViewClient {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppWebViewManager this$0;
 
         /* loaded from: classes3.dex */
         public class a implements Function1<WebResourceResponse, com.baidu.webkit.sdk.WebResourceResponse> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
             public a(SwanAppWebViewClient swanAppWebViewClient) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {swanAppWebViewClient};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // kotlin.jvm.functions.Function1
             /* renamed from: a */
             public com.baidu.webkit.sdk.WebResourceResponse invoke(WebResourceResponse webResourceResponse) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, webResourceResponse)) == null) {
-                    if (webResourceResponse == null) {
-                        return null;
-                    }
-                    return new com.baidu.webkit.sdk.WebResourceResponse(false, webResourceResponse.getMimeType(), webResourceResponse.getEncoding(), webResourceResponse.getStatusCode(), webResourceResponse.getReasonPhrase(), webResourceResponse.getResponseHeaders(), webResourceResponse.getData());
+                if (webResourceResponse == null) {
+                    return null;
                 }
-                return (com.baidu.webkit.sdk.WebResourceResponse) invokeL.objValue;
+                return new com.baidu.webkit.sdk.WebResourceResponse(false, webResourceResponse.getMimeType(), webResourceResponse.getEncoding(), webResourceResponse.getStatusCode(), webResourceResponse.getReasonPhrase(), webResourceResponse.getResponseHeaders(), webResourceResponse.getData());
             }
         }
 
         /* loaded from: classes3.dex */
-        public class b implements p82.t {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        public class b implements f92.t {
             public final /* synthetic */ SslErrorHandler a;
             public final /* synthetic */ BdSailorWebView b;
             public final /* synthetic */ SslError c;
-            public final /* synthetic */ SwanAppWebViewClient d;
 
-            public b(SwanAppWebViewClient swanAppWebViewClient, SslErrorHandler sslErrorHandler, BdSailorWebView bdSailorWebView, SslError sslError) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {swanAppWebViewClient, sslErrorHandler, bdSailorWebView, sslError};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.d = swanAppWebViewClient;
+            public b(SslErrorHandler sslErrorHandler, BdSailorWebView bdSailorWebView, SslError sslError) {
                 this.a = sslErrorHandler;
                 this.b = bdSailorWebView;
                 this.c = sslError;
             }
 
-            @Override // com.baidu.tieba.p82.t
+            @Override // com.baidu.tieba.f92.t
             public void a() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.d.onReceivedSslError(this.b, this.a, this.c);
-                }
+                SwanAppWebViewClient.this.onReceivedSslError(this.b, this.a, this.c);
             }
 
-            @Override // com.baidu.tieba.p82.t
+            @Override // com.baidu.tieba.f92.t
             public void b() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.a.proceed();
-                }
+                this.a.proceed();
             }
 
-            @Override // com.baidu.tieba.p82.t
+            @Override // com.baidu.tieba.f92.t
             public void c() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.a.cancel();
-                }
+                this.a.cancel();
             }
         }
 
         /* loaded from: classes3.dex */
-        public class c implements p82.r {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        public class c implements f92.r {
             public final /* synthetic */ BdSailorWebView a;
             public final /* synthetic */ String b;
             public final /* synthetic */ String c;
             public final /* synthetic */ HttpAuthHandler d;
 
             public c(SwanAppWebViewClient swanAppWebViewClient, BdSailorWebView bdSailorWebView, String str, String str2, HttpAuthHandler httpAuthHandler) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {swanAppWebViewClient, bdSailorWebView, str, str2, httpAuthHandler};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
                 this.a = bdSailorWebView;
                 this.b = str;
                 this.c = str2;
                 this.d = httpAuthHandler;
             }
 
-            @Override // com.baidu.tieba.p82.r
+            @Override // com.baidu.tieba.f92.r
             public void a() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.d.cancel();
-                }
+                this.d.cancel();
             }
 
-            @Override // com.baidu.tieba.p82.r
+            @Override // com.baidu.tieba.f92.r
             public void b(String str, String str2) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-                    BdSailorWebView bdSailorWebView = this.a;
-                    if (bdSailorWebView != null) {
-                        bdSailorWebView.setHttpAuthUsernamePassword(this.b, this.c, str, str2);
-                    }
-                    this.d.proceed(str, str2);
+                BdSailorWebView bdSailorWebView = this.a;
+                if (bdSailorWebView != null) {
+                    bdSailorWebView.setHttpAuthUsernamePassword(this.b, this.c, str, str2);
                 }
+                this.d.proceed(str, str2);
             }
         }
 
-        public SwanAppWebViewClient(SwanAppWebViewManager swanAppWebViewManager) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppWebViewManager};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = swanAppWebViewManager;
+        public SwanAppWebViewClient() {
         }
 
         public /* synthetic */ SwanAppWebViewClient(SwanAppWebViewManager swanAppWebViewManager, a aVar) {
-            this(swanAppWebViewManager);
+            this();
+        }
+
+        @Override // com.baidu.browser.sailor.BdSailorWebViewClient
+        public void onLoadResource(BdSailorWebView bdSailorWebView, String str) {
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onLoadResource：" + str);
+            }
+            if (SwanAppWebViewManager.this.c != null) {
+                SwanAppWebViewManager.this.c.onLoadResource(bdSailorWebView, str);
+            } else {
+                super.onLoadResource(bdSailorWebView, str);
+            }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClient
         public void onReceivedClientCertRequest(BdSailorWebView bdSailorWebView, ClientCertRequest clientCertRequest) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048581, this, bdSailorWebView, clientCertRequest) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onReceivedClientCertRequest");
-                }
-                if (this.this$0.c != null) {
-                    this.this$0.c.onReceivedClientCertRequest(bdSailorWebView, clientCertRequest);
-                } else {
-                    super.onReceivedClientCertRequest(bdSailorWebView, clientCertRequest);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onReceivedClientCertRequest");
+            }
+            if (SwanAppWebViewManager.this.c != null) {
+                SwanAppWebViewManager.this.c.onReceivedClientCertRequest(bdSailorWebView, clientCertRequest);
+            } else {
+                super.onReceivedClientCertRequest(bdSailorWebView, clientCertRequest);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClient
         public void onUnhandledKeyEvent(BdSailorWebView bdSailorWebView, KeyEvent keyEvent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048588, this, bdSailorWebView, keyEvent) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onUnhandledKeyEvent");
-                }
-                if (this.this$0.c != null) {
-                    this.this$0.c.onUnhandledKeyEvent(bdSailorWebView, keyEvent);
-                } else {
-                    super.onUnhandledKeyEvent(bdSailorWebView, keyEvent);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onUnhandledKeyEvent");
             }
-        }
-
-        @Override // com.baidu.browser.sailor.BdSailorWebViewClient
-        public void doUpdateVisitedHistory(BdSailorWebView bdSailorWebView, String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLZ(1048576, this, bdSailorWebView, str, z) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::doUpdateVisitedHistory");
-                }
-                if (this.this$0.c != null) {
-                    this.this$0.c.doUpdateVisitedHistory(bdSailorWebView, str, z);
-                } else {
-                    super.doUpdateVisitedHistory(bdSailorWebView, str, z);
-                }
-            }
-        }
-
-        @Override // com.baidu.browser.sailor.BdSailorWebViewClient
-        public void onFormResubmission(BdSailorWebView bdSailorWebView, Message message, Message message2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdSailorWebView, message, message2) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onFormResubmission");
-                }
-                if (this.this$0.c != null) {
-                    this.this$0.c.onFormResubmission(bdSailorWebView, message, message2);
-                } else {
-                    super.onFormResubmission(bdSailorWebView, message, message2);
-                }
-            }
-        }
-
-        @Override // com.baidu.browser.sailor.BdSailorWebViewClient
-        public void onReceivedHttpError(BdSailorWebView bdSailorWebView, WebResourceRequest webResourceRequest, com.baidu.webkit.sdk.WebResourceResponse webResourceResponse) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdSailorWebView, webResourceRequest, webResourceResponse) == null) {
-                if (this.this$0.c != null) {
-                    this.this$0.c.onReceivedHttpError(bdSailorWebView, webResourceRequest, webResourceResponse);
-                } else {
-                    super.onReceivedHttpError(bdSailorWebView, webResourceRequest, webResourceResponse);
-                }
-            }
-        }
-
-        @Override // com.baidu.browser.sailor.BdSailorWebViewClient
-        public void onLoadResource(BdSailorWebView bdSailorWebView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bdSailorWebView, str) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onLoadResource：" + str);
-                }
-                if (this.this$0.c != null) {
-                    this.this$0.c.onLoadResource(bdSailorWebView, str);
-                } else {
-                    super.onLoadResource(bdSailorWebView, str);
-                }
+            if (SwanAppWebViewManager.this.c != null) {
+                SwanAppWebViewManager.this.c.onUnhandledKeyEvent(bdSailorWebView, keyEvent);
+            } else {
+                super.onUnhandledKeyEvent(bdSailorWebView, keyEvent);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClient
         public boolean shouldOverrideKeyEvent(BdSailorWebView bdSailorWebView, KeyEvent keyEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, bdSailorWebView, keyEvent)) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::shouldOverrideKeyEvent");
-                }
-                if (this.this$0.c != null && this.this$0.c.shouldOverrideKeyEvent(bdSailorWebView, keyEvent)) {
-                    return true;
-                }
-                return super.shouldOverrideKeyEvent(bdSailorWebView, keyEvent);
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::shouldOverrideKeyEvent");
             }
-            return invokeLL.booleanValue;
+            if (SwanAppWebViewManager.this.c != null && SwanAppWebViewManager.this.c.shouldOverrideKeyEvent(bdSailorWebView, keyEvent)) {
+                return true;
+            }
+            return super.shouldOverrideKeyEvent(bdSailorWebView, keyEvent);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClient
         public boolean shouldOverrideUrlLoading(BdSailorWebView bdSailorWebView, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, bdSailorWebView, str)) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::shouldOverrideUrlLoading url: " + str);
-                }
-                if (this.this$0.c != null) {
-                    return this.this$0.c.shouldOverrideUrlLoading(bdSailorWebView, str);
-                }
-                return true;
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::shouldOverrideUrlLoading url: " + str);
             }
-            return invokeLL.booleanValue;
+            if (SwanAppWebViewManager.this.c != null) {
+                return SwanAppWebViewManager.this.c.shouldOverrideUrlLoading(bdSailorWebView, str);
+            }
+            return true;
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClient
-        public void onPageFinished(BdSailorWebView bdSailorWebView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, bdSailorWebView, str) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onPageFinished url: " + str);
-                }
-                if (this.this$0.m) {
-                    WebView currentWebView = this.this$0.b.getCurrentWebView();
-                    if (currentWebView != null) {
-                        currentWebView.setBackground(this.this$0.n);
-                        this.this$0.m = false;
-                    }
-                    View webViewImpl = this.this$0.b.getWebViewImpl();
-                    if (webViewImpl != null) {
-                        webViewImpl.setBackground(this.this$0.o);
-                    }
-                }
-                if (this.this$0.j != null) {
-                    this.this$0.j.a(str);
-                }
-                if (this.this$0.c != null) {
-                    this.this$0.c.onPageFinished(bdSailorWebView, str);
-                } else {
-                    super.onPageFinished(bdSailorWebView, str);
-                }
+        public void doUpdateVisitedHistory(BdSailorWebView bdSailorWebView, String str, boolean z) {
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::doUpdateVisitedHistory");
+            }
+            if (SwanAppWebViewManager.this.c != null) {
+                SwanAppWebViewManager.this.c.doUpdateVisitedHistory(bdSailorWebView, str, z);
+            } else {
+                super.doUpdateVisitedHistory(bdSailorWebView, str, z);
+            }
+        }
+
+        @Override // com.baidu.browser.sailor.BdSailorWebViewClient
+        public void onFormResubmission(BdSailorWebView bdSailorWebView, Message message, Message message2) {
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onFormResubmission");
+            }
+            if (SwanAppWebViewManager.this.c != null) {
+                SwanAppWebViewManager.this.c.onFormResubmission(bdSailorWebView, message, message2);
+            } else {
+                super.onFormResubmission(bdSailorWebView, message, message2);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClient
         public void onPageStarted(BdSailorWebView bdSailorWebView, String str, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048580, this, bdSailorWebView, str, bitmap) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onPageStarted url: " + str);
-                }
-                if (this.this$0.c != null) {
-                    this.this$0.c.onPageStarted(bdSailorWebView, str, bitmap);
-                } else {
-                    super.onPageStarted(bdSailorWebView, str, bitmap);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onPageStarted url: " + str);
+            }
+            if (SwanAppWebViewManager.this.c != null) {
+                SwanAppWebViewManager.this.c.onPageStarted(bdSailorWebView, str, bitmap);
+            } else {
+                super.onPageStarted(bdSailorWebView, str, bitmap);
+            }
+        }
+
+        @Override // com.baidu.browser.sailor.BdSailorWebViewClient
+        public void onReceivedHttpError(BdSailorWebView bdSailorWebView, WebResourceRequest webResourceRequest, com.baidu.webkit.sdk.WebResourceResponse webResourceResponse) {
+            if (SwanAppWebViewManager.this.c != null) {
+                SwanAppWebViewManager.this.c.onReceivedHttpError(bdSailorWebView, webResourceRequest, webResourceResponse);
+            } else {
+                super.onReceivedHttpError(bdSailorWebView, webResourceRequest, webResourceResponse);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClient
         public void onReceivedSslError(BdSailorWebView bdSailorWebView, SslErrorHandler sslErrorHandler, SslError sslError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048586, this, bdSailorWebView, sslErrorHandler, sslError) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onReceivedSslError");
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onReceivedSslError");
+            }
+            if (SwanAppWebViewManager.this.b.isShown()) {
+                SwanAppWebViewManager.this.f.p(new b(sslErrorHandler, bdSailorWebView, sslError), sslErrorHandler, sslError);
+            } else {
+                sslErrorHandler.cancel();
+            }
+        }
+
+        @Override // com.baidu.browser.sailor.BdSailorWebViewClient
+        public void onScaleChanged(BdSailorWebView bdSailorWebView, float f, float f2) {
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onScaleChanged");
+            }
+            if (SwanAppWebViewManager.this.c != null) {
+                SwanAppWebViewManager.this.c.onScaleChanged(bdSailorWebView, f, f2);
+            } else {
+                super.onScaleChanged(bdSailorWebView, f, f2);
+            }
+        }
+
+        @Override // com.baidu.browser.sailor.BdSailorWebViewClient
+        public void onPageFinished(BdSailorWebView bdSailorWebView, String str) {
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onPageFinished url: " + str);
+            }
+            if (SwanAppWebViewManager.this.m) {
+                WebView currentWebView = SwanAppWebViewManager.this.b.getCurrentWebView();
+                if (currentWebView != null) {
+                    currentWebView.setBackground(SwanAppWebViewManager.this.n);
+                    SwanAppWebViewManager.this.m = false;
                 }
-                if (this.this$0.b.isShown()) {
-                    this.this$0.f.p(new b(this, sslErrorHandler, bdSailorWebView, sslError), sslErrorHandler, sslError);
-                } else {
-                    sslErrorHandler.cancel();
+                View webViewImpl = SwanAppWebViewManager.this.b.getWebViewImpl();
+                if (webViewImpl != null) {
+                    webViewImpl.setBackground(SwanAppWebViewManager.this.o);
                 }
+            }
+            if (SwanAppWebViewManager.this.j != null) {
+                SwanAppWebViewManager.this.j.a(str);
+            }
+            if (SwanAppWebViewManager.this.c != null) {
+                SwanAppWebViewManager.this.c.onPageFinished(bdSailorWebView, str);
+            } else {
+                super.onPageFinished(bdSailorWebView, str);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClient
         public void onReceivedError(BdSailorWebView bdSailorWebView, int i, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLILL(1048582, this, bdSailorWebView, i, str, str2) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onReceivedError errorCode: " + i + " ,failingUrl: " + str2);
-                }
-                if (this.this$0.c != null) {
-                    this.this$0.c.onReceivedError(bdSailorWebView, i, str, str2);
-                } else {
-                    super.onReceivedError(bdSailorWebView, i, str, str2);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onReceivedError errorCode: " + i + " ,failingUrl: " + str2);
+            }
+            if (SwanAppWebViewManager.this.c != null) {
+                SwanAppWebViewManager.this.c.onReceivedError(bdSailorWebView, i, str, str2);
+            } else {
+                super.onReceivedError(bdSailorWebView, i, str, str2);
             }
         }
 
@@ -1330,768 +914,750 @@ public abstract class SwanAppWebViewManager implements ev1<NgWebView>, v72, w72,
         public void onReceivedHttpAuthRequest(BdSailorWebView bdSailorWebView, HttpAuthHandler httpAuthHandler, String str, String str2) {
             String str3;
             String[] httpAuthUsernamePassword;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048583, this, bdSailorWebView, httpAuthHandler, str, str2) == null) {
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onReceivedHttpAuthRequest");
+            }
+            String str4 = null;
+            if (httpAuthHandler.useHttpAuthUsernamePassword() && bdSailorWebView != null && (httpAuthUsernamePassword = bdSailorWebView.getHttpAuthUsernamePassword(str, str2)) != null && httpAuthUsernamePassword.length == 2) {
+                str4 = httpAuthUsernamePassword[0];
+                str3 = httpAuthUsernamePassword[1];
+            } else {
+                str3 = null;
+            }
+            if (str4 != null && str3 != null) {
                 if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onReceivedHttpAuthRequest");
+                    Log.d("SwanAppWebViewManager", "OnReceivedHttpAuthRequest Reuse Http Auth Username & PassWord");
                 }
-                String str4 = null;
-                if (httpAuthHandler.useHttpAuthUsernamePassword() && bdSailorWebView != null && (httpAuthUsernamePassword = bdSailorWebView.getHttpAuthUsernamePassword(str, str2)) != null && httpAuthUsernamePassword.length == 2) {
-                    str4 = httpAuthUsernamePassword[0];
-                    str3 = httpAuthUsernamePassword[1];
-                } else {
-                    str3 = null;
+                httpAuthHandler.proceed(str4, str3);
+            } else if (SwanAppWebViewManager.this.b.isShown()) {
+                if (SwanAppWebViewManager.v) {
+                    Log.d("SwanAppWebViewManager", "OnReceivedHttpAuthRequest show Http Auth dialog ");
                 }
-                if (str4 != null && str3 != null) {
-                    if (SwanAppWebViewManager.v) {
-                        Log.d("SwanAppWebViewManager", "OnReceivedHttpAuthRequest Reuse Http Auth Username & PassWord");
-                    }
-                    httpAuthHandler.proceed(str4, str3);
-                } else if (this.this$0.b.isShown()) {
-                    if (SwanAppWebViewManager.v) {
-                        Log.d("SwanAppWebViewManager", "OnReceivedHttpAuthRequest show Http Auth dialog ");
-                    }
-                    this.this$0.f.k(new c(this, bdSailorWebView, str, str2, httpAuthHandler), str, str2);
-                } else {
-                    httpAuthHandler.cancel();
-                }
+                SwanAppWebViewManager.this.f.k(new c(this, bdSailorWebView, str, str2, httpAuthHandler), str, str2);
+            } else {
+                httpAuthHandler.cancel();
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClient
         public void onReceivedLoginRequest(BdSailorWebView bdSailorWebView, String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048585, this, bdSailorWebView, str, str2, str3) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onReceivedLoginRequest");
-                }
-                if (this.this$0.c != null) {
-                    this.this$0.c.onReceivedLoginRequest(bdSailorWebView, str, str2, str3);
-                } else {
-                    super.onReceivedLoginRequest(bdSailorWebView, str, str2, str3);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onReceivedLoginRequest");
             }
-        }
-
-        @Override // com.baidu.browser.sailor.BdSailorWebViewClient
-        public void onScaleChanged(BdSailorWebView bdSailorWebView, float f, float f2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{bdSailorWebView, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onScaleChanged");
-                }
-                if (this.this$0.c != null) {
-                    this.this$0.c.onScaleChanged(bdSailorWebView, f, f2);
-                } else {
-                    super.onScaleChanged(bdSailorWebView, f, f2);
-                }
+            if (SwanAppWebViewManager.this.c != null) {
+                SwanAppWebViewManager.this.c.onReceivedLoginRequest(bdSailorWebView, str, str2, str3);
+            } else {
+                super.onReceivedLoginRequest(bdSailorWebView, str, str2, str3);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClient
         public com.baidu.webkit.sdk.WebResourceResponse shouldInterceptRequest(BdSailorWebView bdSailorWebView, WebResourceRequest webResourceRequest) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, bdSailorWebView, webResourceRequest)) == null) {
-                if (webResourceRequest == null) {
-                    return super.shouldInterceptRequest(bdSailorWebView, webResourceRequest);
-                }
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::shouldInterceptRequest");
-                }
-                wq4 wq4Var = wq4.b;
-                com.baidu.webkit.sdk.WebResourceResponse webResourceResponse = (com.baidu.webkit.sdk.WebResourceResponse) wq4Var.c(wq4Var.b(webResourceRequest.getUrl()), new a(this));
-                if (webResourceResponse != null) {
-                    return webResourceResponse;
-                }
-                if (this.this$0.c != null) {
-                    webResourceResponse = this.this$0.c.shouldInterceptRequest(bdSailorWebView, webResourceRequest);
-                }
-                if (webResourceResponse == null) {
-                    webResourceResponse = yc2.b().c(webResourceRequest, true);
-                }
-                if (webResourceResponse == null) {
-                    return super.shouldInterceptRequest(bdSailorWebView, webResourceRequest);
-                }
+            if (webResourceRequest == null) {
+                return super.shouldInterceptRequest(bdSailorWebView, webResourceRequest);
+            }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::shouldInterceptRequest");
+            }
+            mr4 mr4Var = mr4.b;
+            com.baidu.webkit.sdk.WebResourceResponse webResourceResponse = (com.baidu.webkit.sdk.WebResourceResponse) mr4Var.c(mr4Var.b(webResourceRequest.getUrl()), new a(this));
+            if (webResourceResponse != null) {
                 return webResourceResponse;
             }
-            return (com.baidu.webkit.sdk.WebResourceResponse) invokeLL.objValue;
+            if (SwanAppWebViewManager.this.c != null) {
+                webResourceResponse = SwanAppWebViewManager.this.c.shouldInterceptRequest(bdSailorWebView, webResourceRequest);
+            }
+            if (webResourceResponse == null) {
+                webResourceResponse = od2.b().c(webResourceRequest, true);
+            }
+            if (webResourceResponse == null) {
+                return super.shouldInterceptRequest(bdSailorWebView, webResourceRequest);
+            }
+            return webResourceResponse;
         }
     }
 
     /* loaded from: classes3.dex */
     public class SwanAppWebViewClientExt extends BdSailorWebViewClientExt {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppWebViewManager this$0;
+        public SwanAppWebViewClientExt() {
+        }
 
-        public SwanAppWebViewClientExt(SwanAppWebViewManager swanAppWebViewManager) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppWebViewManager};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+        @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
+        public void onJsCodeCacheFinished(JsCodeCacheResult jsCodeCacheResult) {
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onJsCodeCachedFinished : " + jsCodeCacheResult);
             }
-            this.this$0 = swanAppWebViewManager;
+            if (SwanAppWebViewManager.this.d != null) {
+                SwanAppWebViewManager.this.d.onJsCodeCacheFinished(jsCodeCacheResult);
+            } else {
+                super.onJsCodeCacheFinished(jsCodeCacheResult);
+            }
         }
 
         public /* synthetic */ SwanAppWebViewClientExt(SwanAppWebViewManager swanAppWebViewManager, a aVar) {
-            this(swanAppWebViewManager);
+            this();
+        }
+
+        @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
+        public void onFirstContentfulPaintExt(BdSailorWebView bdSailorWebView, String str) {
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onFirstContentfulPaintExt");
+            }
+            g43.g().a(str);
+            if (SwanAppWebViewManager.this.d != null) {
+                SwanAppWebViewManager.this.d.onFirstContentfulPaintExt(bdSailorWebView, str);
+            } else {
+                super.onFirstContentfulPaintExt(bdSailorWebView, str);
+            }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstImagePaintExt(BdSailorWebView bdSailorWebView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdSailorWebView, str) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onFirstImagePaintExt");
-                }
-                if (this.this$0.d != null) {
-                    this.this$0.d.onFirstImagePaintExt(bdSailorWebView, str);
-                } else {
-                    super.onFirstImagePaintExt(bdSailorWebView, str);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onFirstImagePaintExt");
+            }
+            if (SwanAppWebViewManager.this.d != null) {
+                SwanAppWebViewManager.this.d.onFirstImagePaintExt(bdSailorWebView, str);
+            } else {
+                super.onFirstImagePaintExt(bdSailorWebView, str);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstLayoutDidExt(BdSailorWebView bdSailorWebView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bdSailorWebView, str) == null) {
-                if (this.this$0.d != null) {
-                    this.this$0.d.onFirstLayoutDidExt(bdSailorWebView, str);
-                } else {
-                    super.onFirstLayoutDidExt(bdSailorWebView, str);
-                }
+            if (SwanAppWebViewManager.this.d != null) {
+                SwanAppWebViewManager.this.d.onFirstLayoutDidExt(bdSailorWebView, str);
+            } else {
+                super.onFirstLayoutDidExt(bdSailorWebView, str);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstPaintDidExt(BdSailorWebView bdSailorWebView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, bdSailorWebView, str) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onFirstPaintDidEx");
-                }
-                if (this.this$0.d != null) {
-                    this.this$0.d.onFirstPaintDidExt(bdSailorWebView, str);
-                } else {
-                    super.onFirstPaintDidExt(bdSailorWebView, str);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onFirstPaintDidEx");
+            }
+            if (SwanAppWebViewManager.this.d != null) {
+                SwanAppWebViewManager.this.d.onFirstPaintDidExt(bdSailorWebView, str);
+            } else {
+                super.onFirstPaintDidExt(bdSailorWebView, str);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstScreenPaintFinishedExt(BdSailorWebView bdSailorWebView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, bdSailorWebView, str) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onFirstScreenPaintFinishedEx");
-                }
-                if (this.this$0.d != null) {
-                    this.this$0.d.onFirstScreenPaintFinishedExt(bdSailorWebView, str);
-                } else {
-                    super.onFirstScreenPaintFinishedExt(bdSailorWebView, str);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onFirstScreenPaintFinishedEx");
+            }
+            if (SwanAppWebViewManager.this.d != null) {
+                SwanAppWebViewManager.this.d.onFirstScreenPaintFinishedExt(bdSailorWebView, str);
+            } else {
+                super.onFirstScreenPaintFinishedExt(bdSailorWebView, str);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstTextPaintExt(BdSailorWebView bdSailorWebView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048581, this, bdSailorWebView, str) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onFirstTextPaintExt");
-                }
-                if (this.this$0.d != null) {
-                    this.this$0.d.onFirstTextPaintExt(bdSailorWebView, str);
-                } else {
-                    super.onFirstTextPaintExt(bdSailorWebView, str);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onFirstTextPaintExt");
+            }
+            if (SwanAppWebViewManager.this.d != null) {
+                SwanAppWebViewManager.this.d.onFirstTextPaintExt(bdSailorWebView, str);
+            } else {
+                super.onFirstTextPaintExt(bdSailorWebView, str);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onPageBackOrForwardExt(BdSailorWebView bdSailorWebView, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048586, this, bdSailorWebView, i) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onGoBackOrForwardEx");
-                }
-                if (this.this$0.d != null) {
-                    this.this$0.d.onPageBackOrForwardExt(bdSailorWebView, i);
-                } else {
-                    super.onPageBackOrForwardExt(bdSailorWebView, i);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onGoBackOrForwardEx");
+            }
+            if (SwanAppWebViewManager.this.d != null) {
+                SwanAppWebViewManager.this.d.onPageBackOrForwardExt(bdSailorWebView, i);
+            } else {
+                super.onPageBackOrForwardExt(bdSailorWebView, i);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onPageCanBeScaledExt(BdSailorWebView bdSailorWebView, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048587, this, bdSailorWebView, z) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onPageCanBeScaledEx");
-                }
-                if (this.this$0.d != null) {
-                    this.this$0.d.onPageCanBeScaledExt(bdSailorWebView, z);
-                } else {
-                    super.onPageCanBeScaledExt(bdSailorWebView, z);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onPageCanBeScaledEx");
             }
-        }
-
-        @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
-        public void onFirstContentfulPaintExt(BdSailorWebView bdSailorWebView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, bdSailorWebView, str) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onFirstContentfulPaintExt");
-                }
-                q33.g().a(str);
-                if (this.this$0.d != null) {
-                    this.this$0.d.onFirstContentfulPaintExt(bdSailorWebView, str);
-                } else {
-                    super.onFirstContentfulPaintExt(bdSailorWebView, str);
-                }
+            if (SwanAppWebViewManager.this.d != null) {
+                SwanAppWebViewManager.this.d.onPageCanBeScaledExt(bdSailorWebView, z);
+            } else {
+                super.onPageCanBeScaledExt(bdSailorWebView, z);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onPreloadUrlFoundExt(BdSailorWebView bdSailorWebView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048588, this, bdSailorWebView, str) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onPreloadUrlFoundEx：" + str);
-                }
-                if (this.this$0.d != null) {
-                    this.this$0.d.onPreloadUrlFoundExt(bdSailorWebView, str);
-                } else {
-                    super.onPreloadUrlFoundExt(bdSailorWebView, str);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onPreloadUrlFoundEx：" + str);
             }
-        }
-
-        @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
-        public boolean onSubFrameBeforeRequest(BdSailorWebView bdSailorWebView, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, bdSailorWebView, str)) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onSubFrameBeforeRequest url: " + str);
-                }
-                if (this.this$0.d != null) {
-                    return this.this$0.d.onSubFrameBeforeRequest(bdSailorWebView, str);
-                }
-                return super.onSubFrameBeforeRequest(bdSailorWebView, str);
+            if (SwanAppWebViewManager.this.d != null) {
+                SwanAppWebViewManager.this.d.onPreloadUrlFoundExt(bdSailorWebView, str);
+            } else {
+                super.onPreloadUrlFoundExt(bdSailorWebView, str);
             }
-            return invokeLL.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFullScreenModeExt(BdSailorWebView bdSailorWebView, boolean z, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{bdSailorWebView, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onFullScreenModeEx");
-                }
-                if (this.this$0.d != null) {
-                    this.this$0.d.onFullScreenModeExt(bdSailorWebView, z, i, i2);
-                } else {
-                    super.onFullScreenModeExt(bdSailorWebView, z, i, i2);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onFullScreenModeEx");
+            }
+            if (SwanAppWebViewManager.this.d != null) {
+                SwanAppWebViewManager.this.d.onFullScreenModeExt(bdSailorWebView, z, i, i2);
+            } else {
+                super.onFullScreenModeExt(bdSailorWebView, z, i, i2);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public String onGetErrorHtmlExt(BdSailorWebView bdSailorWebView, int i, String str, String str2) {
-            InterceptResult invokeLILL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048583, this, bdSailorWebView, i, str, str2)) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onGetErrorHtmlSailor");
-                }
-                if (this.this$0.d != null) {
-                    return this.this$0.d.onGetErrorHtmlExt(bdSailorWebView, i, str, str2);
-                }
-                return super.onGetErrorHtmlExt(bdSailorWebView, i, str, str2);
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onGetErrorHtmlSailor");
             }
-            return (String) invokeLILL.objValue;
-        }
-
-        @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
-        public void onJsCodeCacheFinished(JsCodeCacheResult jsCodeCacheResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsCodeCacheResult) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onJsCodeCachedFinished : " + jsCodeCacheResult);
-                }
-                if (this.this$0.d != null) {
-                    this.this$0.d.onJsCodeCacheFinished(jsCodeCacheResult);
-                } else {
-                    super.onJsCodeCacheFinished(jsCodeCacheResult);
-                }
+            if (SwanAppWebViewManager.this.d != null) {
+                return SwanAppWebViewManager.this.d.onGetErrorHtmlExt(bdSailorWebView, i, str, str2);
             }
+            return super.onGetErrorHtmlExt(bdSailorWebView, i, str, str2);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public boolean onKeywordExtensionExt(BdSailorWebView bdSailorWebView, String str, String str2) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, bdSailorWebView, str, str2)) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onKeywordExtensionEx");
-                }
-                if (this.this$0.d != null) {
-                    return this.this$0.d.onKeywordExtensionExt(bdSailorWebView, str, str2);
-                }
-                return super.onKeywordExtensionExt(bdSailorWebView, str, str2);
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onKeywordExtensionEx");
             }
-            return invokeLLL.booleanValue;
+            if (SwanAppWebViewManager.this.d != null) {
+                return SwanAppWebViewManager.this.d.onKeywordExtensionExt(bdSailorWebView, str, str2);
+            }
+            return super.onKeywordExtensionExt(bdSailorWebView, str, str2);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onSecurityCheckResultExt(BdSailorWebView bdSailorWebView, String str, WebViewClient.SecurityInfo securityInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048589, this, bdSailorWebView, str, securityInfo) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onSecurityCheckResultEx");
-                }
-                if (this.this$0.d != null) {
-                    this.this$0.d.onSecurityCheckResultExt(bdSailorWebView, str, securityInfo);
-                } else {
-                    super.onSecurityCheckResultExt(bdSailorWebView, str, securityInfo);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onSecurityCheckResultEx");
+            }
+            if (SwanAppWebViewManager.this.d != null) {
+                SwanAppWebViewManager.this.d.onSecurityCheckResultExt(bdSailorWebView, str, securityInfo);
+            } else {
+                super.onSecurityCheckResultExt(bdSailorWebView, str, securityInfo);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onUrlRedirectedExt(BdSailorWebView bdSailorWebView, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048591, this, bdSailorWebView, str, str2) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onUrlRedirected");
-                }
-                if (this.this$0.d != null) {
-                    this.this$0.d.onUrlRedirectedExt(bdSailorWebView, str, str2);
-                } else {
-                    super.onUrlRedirectedExt(bdSailorWebView, str, str2);
-                }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onUrlRedirected");
+            }
+            if (SwanAppWebViewManager.this.d != null) {
+                SwanAppWebViewManager.this.d.onUrlRedirectedExt(bdSailorWebView, str, str2);
+            } else {
+                super.onUrlRedirectedExt(bdSailorWebView, str, str2);
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
-        public boolean shouldHandleImageExt(BdSailorWebView bdSailorWebView, String str, String str2, String str3, boolean z) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{bdSailorWebView, str, str2, str3, Boolean.valueOf(z)})) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::canHandleImageEx");
-                }
-                if (this.this$0.d != null && this.this$0.d.shouldHandleImageExt(bdSailorWebView, str, str2, str3, z)) {
-                    return true;
-                }
-                return super.shouldHandleImageExt(bdSailorWebView, str, str2, str3, z);
+        public boolean onSubFrameBeforeRequest(BdSailorWebView bdSailorWebView, String str) {
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::onSubFrameBeforeRequest url: " + str);
             }
-            return invokeCommon.booleanValue;
+            if (SwanAppWebViewManager.this.d != null) {
+                return SwanAppWebViewManager.this.d.onSubFrameBeforeRequest(bdSailorWebView, str);
+            }
+            return super.onSubFrameBeforeRequest(bdSailorWebView, str);
+        }
+
+        @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
+        public boolean shouldHandleImageExt(BdSailorWebView bdSailorWebView, String str, String str2, String str3, boolean z) {
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::canHandleImageEx");
+            }
+            if (SwanAppWebViewManager.this.d != null && SwanAppWebViewManager.this.d.shouldHandleImageExt(bdSailorWebView, str, str2, str3, z)) {
+                return true;
+            }
+            return super.shouldHandleImageExt(bdSailorWebView, str, str2, str3, z);
         }
     }
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ SwanAppWebViewManager b;
 
-        public a(SwanAppWebViewManager swanAppWebViewManager, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppWebViewManager, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = swanAppWebViewManager;
+        public a(String str) {
             this.a = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = this.a;
-                if (!str.startsWith("javascript:")) {
-                    str = "javascript:" + str;
-                }
-                if (SwanAppWebViewManager.v) {
-                    Log.d("SwanAppWebViewManager", "webview load js:" + str);
-                }
-                this.b.b.evaluateJavascript(str, null);
+            String str = this.a;
+            if (!str.startsWith("javascript:")) {
+                str = "javascript:" + str;
             }
+            if (SwanAppWebViewManager.v) {
+                Log.d("SwanAppWebViewManager", "webview load js:" + str);
+            }
+            SwanAppWebViewManager.this.b.evaluateJavascript(str, null);
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b extends ui2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public class b extends kj2 {
         public final /* synthetic */ String c;
         public final /* synthetic */ String d;
         public final /* synthetic */ String e;
-        public final /* synthetic */ SwanAppWebViewManager f;
 
-        public b(SwanAppWebViewManager swanAppWebViewManager, String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppWebViewManager, str, str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = swanAppWebViewManager;
+        public b(String str, String str2, String str3) {
             this.c = str;
             this.d = str2;
             this.e = str3;
         }
 
-        @Override // com.baidu.tieba.ui2
+        @Override // com.baidu.tieba.kj2
         public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.f.E0(this.c, this.d, this.e);
+            SwanAppWebViewManager.this.E0(this.c, this.d, this.e);
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c implements z33 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public class c implements p43 {
         public final /* synthetic */ String a;
         public final /* synthetic */ GeolocationPermissions.Callback b;
-        public final /* synthetic */ SwanAppWebViewManager c;
 
-        public c(SwanAppWebViewManager swanAppWebViewManager, String str, GeolocationPermissions.Callback callback) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppWebViewManager, str, callback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = swanAppWebViewManager;
+        public c(String str, GeolocationPermissions.Callback callback) {
             this.a = str;
             this.b = callback;
         }
 
-        @Override // com.baidu.tieba.z33
+        @Override // com.baidu.tieba.p43
         public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.w("SwanAppWebViewManager", "#handleLocationAuthorized(success) msg=" + str);
-                }
-                this.c.B0(this.a, this.b);
+            if (SwanAppWebViewManager.v) {
+                Log.w("SwanAppWebViewManager", "#handleLocationAuthorized(success) msg=" + str);
             }
+            SwanAppWebViewManager.this.B0(this.a, this.b);
         }
 
-        @Override // com.baidu.tieba.z33
+        @Override // com.baidu.tieba.p43
         public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                if (SwanAppWebViewManager.v) {
-                    Log.e("SwanAppWebViewManager", "#handleLocationAuthorized(failed) msg=" + str);
-                }
-                this.c.W0(this.a, this.b);
+            if (SwanAppWebViewManager.v) {
+                Log.e("SwanAppWebViewManager", "#handleLocationAuthorized(failed) msg=" + str);
             }
+            SwanAppWebViewManager.this.W0(this.a, this.b);
         }
     }
 
     /* loaded from: classes3.dex */
     public class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
+        public boolean a = false;
+        public boolean b = false;
 
         public d(SwanAppWebViewManager swanAppWebViewManager) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppWebViewManager};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = false;
-            this.b = false;
         }
     }
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-79803046, "Lcom/baidu/swan/apps/core/SwanAppWebViewManager;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-79803046, "Lcom/baidu/swan/apps/core/SwanAppWebViewManager;");
-                return;
-            }
-        }
-        v = gp1.a;
-        pe3.c();
+        ff3.c();
         V8Engine.getInstance(0L);
     }
 
     public void D0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ds2.E0().a(this.b);
-        }
+        ts2.E0().a(this.b);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ev1
+    @Override // com.baidu.tieba.uv1
     /* renamed from: G0 */
     public NgWebView r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return (NgWebView) invokeV.objValue;
+        return this.b;
     }
 
     public void H0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b.goBack();
-        }
+        this.b.goBack();
     }
 
     @DebugTrace
     public final void J0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            U0(this.k);
-            N0();
-            Q0(this);
-            K0();
-            P0();
-            M0();
-            O0();
-            V0();
-            L0();
-        }
+        U0(this.k);
+        N0();
+        Q0(this);
+        K0();
+        P0();
+        M0();
+        O0();
+        V0();
+        L0();
     }
 
     public final void K0() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.g == null) {
+        if (this.g == null) {
             this.g = new UnitedSchemeMainDispatcher();
         }
     }
 
     public void M0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.u.e(this.b, this.a.getBaseContext(), this, this.g);
-        }
+        this.u.e(this.b, this.a.getBaseContext(), this, this.g);
     }
 
-    @Override // com.baidu.tieba.ev1
+    @Override // com.baidu.tieba.uv1
     @UiThread
     public void N() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.b.onPause();
-            this.b.pauseTimers();
-        }
+        this.b.onPause();
+        this.b.pauseTimers();
     }
 
     @SuppressLint({"BDThrowableCheck"})
     public void P0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            if (this.g == null) {
-                if (!v) {
-                    K0();
-                } else {
-                    throw new IllegalStateException("initSwanAppDispatcher() must be called after initDispatcher()");
-                }
+        if (this.g == null) {
+            if (!v) {
+                K0();
+            } else {
+                throw new IllegalStateException("initSwanAppDispatcher() must be called after initDispatcher()");
             }
-            this.h = p93.a(this.g);
         }
+        this.h = fa3.a(this.g);
     }
 
     @CallSuper
     public void S0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            mu2.a(this);
-        }
+        cv2.a(this);
     }
 
     @CallSuper
     public void T0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            this.s = null;
-            mu2.b(this);
-        }
+        this.s = null;
+        cv2.b(this);
     }
 
     public final void c1() {
-        ISailorWebViewExt webViewExt;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048610, this) == null) && (webViewExt = this.b.getWebViewExt()) != null) {
+        ISailorWebViewExt webViewExt = this.b.getWebViewExt();
+        if (webViewExt != null) {
             webViewExt.emulateShiftHeldOnNormalTextExt();
         }
     }
 
-    @Override // com.baidu.tieba.ev1
+    @Override // com.baidu.tieba.uv1
     public d d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            return this.k;
-        }
-        return (d) invokeV.objValue;
+        return this.k;
     }
 
-    @Override // com.baidu.tieba.ev1
+    @Override // com.baidu.tieba.uv1
     public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-            this.i.removeCallbacks(null);
-            this.b.destroy();
-            this.l.clear();
-            T0();
-        }
+        this.i.removeCallbacks(null);
+        this.b.destroy();
+        this.l.clear();
+        T0();
     }
 
     @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
     public String getCurrentPageUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
-            return r().getUrl();
-        }
-        return (String) invokeV.objValue;
+        return r().getUrl();
     }
 
-    @Override // com.baidu.tieba.ev1
+    @Override // com.baidu.tieba.uv1
     public String getUserAgent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
-            return this.p;
-        }
-        return (String) invokeV.objValue;
+        return this.p;
     }
 
-    @Override // com.baidu.tieba.ev1
+    @Override // com.baidu.tieba.uv1
     @CallSuper
     public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
-            this.b.onPause();
-            mu2.c(this);
-        }
+        this.b.onPause();
+        cv2.c(this);
     }
 
-    @Override // com.baidu.tieba.ev1
+    @Override // com.baidu.tieba.uv1
     @CallSuper
     public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
-            this.b.onResume();
-            mu2.d(this);
-        }
+        this.b.onResume();
+        cv2.d(this);
     }
 
-    @Override // com.baidu.tieba.ev1
+    @Override // com.baidu.tieba.uv1
     @UiThread
     public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048630, this) == null) {
-            this.b.onResume();
-            this.b.resumeTimers();
-        }
+        this.b.onResume();
+        this.b.resumeTimers();
     }
 
     public SwanAppWebViewManager(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.i = new Handler(Looper.getMainLooper());
-        this.k = new d(this);
-        this.l = new ArrayList();
-        this.m = false;
-        this.n = null;
-        this.o = null;
-        this.t = -1;
-        this.u = new ft2();
         this.a = new MutableContextWrapper(context);
-        x72.k().l();
+        n82.k().l();
         J0();
         S0();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.y73
+    /* renamed from: C0 */
+    public NgWebView S(Context context) {
+        this.a.setBaseContext(context);
+        if (this.b == null) {
+            N0();
+        }
+        return this.b;
+    }
+
+    public void Q0(SwanAppWebViewManager swanAppWebViewManager) {
+        this.u.f(this.a.getBaseContext(), this.b);
+    }
+
+    public void R0(String str) {
+        gn3.e0(new a(str));
+    }
+
+    @Override // com.baidu.tieba.uv1
+    public void U(za2 za2Var) {
+        if (za2Var != null && this.l.contains(za2Var)) {
+            this.l.remove(za2Var);
+        }
+    }
+
+    public final void X0(BdSailorWebChromeClient bdSailorWebChromeClient) {
+        this.e = bdSailorWebChromeClient;
+    }
+
+    public final void Y0(BdSailorWebViewClient bdSailorWebViewClient) {
+        this.c = bdSailorWebViewClient;
+    }
+
+    public final void Z0(BdSailorWebViewClientExt bdSailorWebViewClientExt) {
+        this.d = bdSailorWebViewClientExt;
+    }
+
+    public void a1(int i) {
+        this.t = i;
+        if (v) {
+            Log.d("SwanAppWebViewManager", "CustomView orientation has been set to [" + this.t + "] for once");
+        }
+    }
+
+    @Override // com.baidu.tieba.uv1
+    public void attachActivity(Activity activity) {
+        if (v) {
+            Log.i("SwanAppWebViewManager", "attachActivity");
+        }
+        if (activity == null) {
+            if (v) {
+                Log.e("SwanAppWebViewManager", "attachActivity null");
+                return;
+            }
+            return;
+        }
+        this.u.a(activity);
+        this.a.setBaseContext(activity);
+    }
+
+    @Override // com.baidu.tieba.uv1
+    public void b(a82 a82Var) {
+        this.j = a82Var;
+    }
+
+    @Override // com.baidu.swan.apps.core.container.view.SwanAppSelectPopView.a
+    public void doSelectionCopy(String str) {
+        D0();
+        ts2.E0().e(str, this.a.getBaseContext());
+    }
+
+    @Override // com.baidu.swan.apps.core.container.view.SwanAppSelectPopView.a
+    public void doSelectionSearch(String str) {
+        D0();
+        ts2.E0().d(str, this.a.getBaseContext());
+    }
+
+    @Override // com.baidu.tieba.uv1
+    public void t(za2 za2Var) {
+        if (za2Var != null && !this.l.contains(za2Var)) {
+            this.l.add(za2Var);
+        }
+    }
+
+    public final void B0(String str, GeolocationPermissions.Callback callback) {
+        if (v) {
+            Log.d("SwanAppWebViewManager", "allowGeoLocationOnce origin: " + str);
+        }
+        callback.invoke(str, true, false);
+    }
+
+    public final void I0(String str, GeolocationPermissions.Callback callback) {
+        o43.e(h.g, new String[]{h.g, h.h}, 0, l93.K().w(), new c(str, callback));
+    }
+
+    public final void W0(String str, GeolocationPermissions.Callback callback) {
+        if (v) {
+            Log.d("SwanAppWebViewManager", "rejectGeoLocationOnce origin: " + str);
+        }
+        callback.invoke(str, false, false);
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
+    public void handleSchemeDispatchCallback(String str, String str2) {
+        String quote;
+        if (TextUtils.isEmpty(str2)) {
+            quote = "";
+        } else {
+            quote = JSONObject.quote(str2);
+        }
+        jj2.b().c(new b(str, str2, quote), str);
+    }
+
+    @Override // com.baidu.tieba.l82
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        if (i == 4 && this.b.canGoBack()) {
+            H0();
+            return true;
+        }
+        return false;
+    }
+
+    @Override // com.baidu.tieba.l82
+    public void onScrollChanged(int i, int i2, int i3, int i4) {
+        List<za2> list = this.l;
+        if (list != null) {
+            for (za2 za2Var : list) {
+                if (za2Var != null) {
+                    za2Var.onScrollChanged(i, i2, i3, i4);
+                }
+            }
+        }
+    }
+
+    public final void E0(String str, String str2, String str3) {
+        if (v) {
+            Log.d("SwanAppWebViewManager", "handleSchemeDispatchCallback callback: " + str);
+            Log.d("SwanAppWebViewManager", "handleSchemeDispatchCallback params: " + str2);
+        }
+        if (this.b.isDestroyed()) {
+            if (v) {
+                Log.e("SwanAppWebViewManager", "handleSchemeDispatchCallback webview is destroyed.");
+                return;
+            }
+            return;
+        }
+        this.b.evaluateJavascript("javascript:" + str + "(" + str3 + SmallTailInfo.EMOTION_SUFFIX, null);
+    }
+
+    @Nullable
+    public synchronized pq2 F0() {
+        if (this.q == null) {
+            if (!l93.K().q().I()) {
+                return null;
+            }
+            SwanAppActivity w = l93.K().w();
+            if (w == null) {
+                return null;
+            }
+            this.q = new pq2(w, a());
+        }
+        return this.q;
+    }
+
+    public final void N0() {
+        if (ts2.g0().v()) {
+            this.b = new NgWebView(this.a);
+        } else {
+            this.b = new NgWebView(this.a.getBaseContext());
+        }
+        if (this.b.getCurrentWebView() != null) {
+            this.n = this.b.getCurrentWebView().getBackground();
+            View webViewImpl = this.b.getWebViewImpl();
+            if (webViewImpl != null) {
+                this.o = webViewImpl.getBackground();
+            }
+        }
+        if (this.k.a) {
+            this.b.setBackgroundColorForSwanApp(0);
+            if (!BdZeusUtil.isWebkitLoaded()) {
+                this.m = true;
+            }
+        }
+        this.b.setScrollBarStyle(0);
+        this.f = new f92(this.a.getBaseContext());
+        if (v) {
+            Log.d("SwanAppWebViewManager", "WebViewManager " + hashCode() + " initializing Clients");
+        }
+        this.b.setWebViewClient(new SwanAppWebViewClient(this, null));
+        this.b.setWebViewClientExt(new SwanAppWebViewClientExt(this, null));
+        this.b.setWebChromeClient(new SwanAppWebChromeClient(this, null));
+        this.b.setWebChromeClientExt(new SwanAppWebChromeClientExt(this, null));
+        this.b.setOverScrollMode(2);
+        this.b.setOnCommonEventHandler(this);
+        this.b.setWebViewManager(this);
+        this.b.getCurrentWebView().setLongClickable(true);
+        this.b.setSelectPopWindowListener(this);
+    }
+
+    @SuppressLint({"SetJavaScriptEnabled"})
+    public final void O0() {
+        BdSailorWebSettings settings = this.b.getSettings();
+        ISailorWebSettingsExt settingsExt = this.b.getSettingsExt();
+        settings.setWebViewFrameNameSailor(b0());
+        settings.setLightTouchEnabled(false);
+        settings.setNeedInitialFocus(false);
+        settings.setJavaScriptEnabled(true);
+        settings.setMixedContentMode(0);
+        settings.setZeusMutedEnable(true);
+        settings.setLoadsImagesAutomatically(true);
+        settings.setLoadWithOverviewMode(true);
+        settings.setUseWideViewPort(true);
+        settings.setSupportZoom(false);
+        settings.setBuiltInZoomControls(false);
+        settings.setSupportMultipleWindows(false);
+        settings.setMediaPlaybackRequiresUserGesture(false);
+        settings.setTextZoom(100);
+        settingsExt.setPlayVideoInFullScreenModeExt(false);
+        settingsExt.setUserSelectEnabled(true);
+        BdSailor.getInstance().enableFeature(BdSailorConfig.SAILOR_BASE_GEO);
+        BdSailor.getInstance().enableFeature(BdSailorConfig.SAILOR_EXT_ADBLOCK);
+        BdSailor.getInstance().disableFeature(BdSailorConfig.SAILOR_BASE_SSL);
+        settings.setDatabaseEnabled(true);
+        settings.setDomStorageEnabled(true);
+        settings.setAppCacheEnabled(true);
+        String path = this.a.getDir("databases", 0).getPath();
+        String path2 = this.a.getDir(NgWebView.APP_GEO_PATH, 0).getPath();
+        String path3 = this.a.getDir(NgWebView.APP_CACHE_PATH, 0).getPath();
+        settings.setGeolocationDatabasePath(path2);
+        settings.setDatabasePath(path);
+        settings.setAppCachePath(path3);
+        if (((ActivityManager) this.a.getSystemService("activity")).getMemoryClass() > 16) {
+            settings.setPageCacheCapacity(5);
+        } else {
+            settings.setPageCacheCapacity(1);
+        }
+        this.r = settings.getUserAgentString();
+        b1(this.s);
+        try {
+            settings.setPluginState(WebSettings.PluginState.ON_DEMAND);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } catch (NoClassDefFoundError e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public void b1(String str) {
+        this.s = str;
+        BdSailorWebSettings settings = this.b.getSettings();
+        String str2 = this.r;
+        if (!TextUtils.isEmpty(str)) {
+            str2 = String.format("%s %s", str2, str);
+        }
+        String b2 = ll3.b(str2);
+        if (!TextUtils.equals(b2, this.p)) {
+            this.p = b2;
+            settings.setUserAgentString(b2);
+            if (v) {
+                Log.i("SwanAppWebViewManager", "set ua:" + this.p);
+            }
+        }
+    }
+
     public final void d1(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048612, this, str) != null) || TextUtils.isEmpty(str)) {
+        if (TextUtils.isEmpty(str)) {
             return;
         }
         String path = Uri.parse(str).getPath();
@@ -2101,369 +1667,27 @@ public abstract class SwanAppWebViewManager implements ev1<NgWebView>, v72, w72,
         if (TextUtils.isEmpty(path)) {
             return;
         }
-        this.b.getSettings().setCodeCacheSetting(p72.a("appframe", new File(path).getParent()));
+        this.b.getSettings().setCodeCacheSetting(f82.a("appframe", new File(path).getParent()));
     }
 
-    @Override // com.baidu.tieba.ev1
+    @Override // com.baidu.tieba.uv1
     public void loadUrl(String str) {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
-            if (this.b.getCurrentWebView().getWebView() instanceof android.webkit.WebView) {
-                z = !((android.webkit.WebView) this.b.getCurrentWebView().getWebView()).getSettings().getAllowFileAccess();
-            } else {
-                z = false;
-            }
-            if (v) {
-                Log.d("SwanAppWebViewManager", "isUseWebCompatLoadUrl: " + z);
-            }
-            if (z && !BdZeusUtil.isWebkitLoaded()) {
-                String a2 = wq4.b.a(str);
-                d1(a2);
-                this.b.loadUrl(a2);
-                return;
-            }
-            d1(str);
-            this.b.loadUrl(str);
+        if (this.b.getCurrentWebView().getWebView() instanceof android.webkit.WebView) {
+            z = !((android.webkit.WebView) this.b.getCurrentWebView().getWebView()).getSettings().getAllowFileAccess();
+        } else {
+            z = false;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i73
-    /* renamed from: C0 */
-    public NgWebView S(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.a.setBaseContext(context);
-            if (this.b == null) {
-                N0();
-            }
-            return this.b;
+        if (v) {
+            Log.d("SwanAppWebViewManager", "isUseWebCompatLoadUrl: " + z);
         }
-        return (NgWebView) invokeL.objValue;
-    }
-
-    public void Q0(SwanAppWebViewManager swanAppWebViewManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, swanAppWebViewManager) == null) {
-            this.u.f(this.a.getBaseContext(), this.b);
+        if (z && !BdZeusUtil.isWebkitLoaded()) {
+            String a2 = mr4.b.a(str);
+            d1(a2);
+            this.b.loadUrl(a2);
+            return;
         }
-    }
-
-    public void R0(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            qm3.e0(new a(this, str));
-        }
-    }
-
-    @Override // com.baidu.tieba.ev1
-    public void U(ja2 ja2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048597, this, ja2Var) == null) && ja2Var != null && this.l.contains(ja2Var)) {
-            this.l.remove(ja2Var);
-        }
-    }
-
-    public final void X0(BdSailorWebChromeClient bdSailorWebChromeClient) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, bdSailorWebChromeClient) == null) {
-            this.e = bdSailorWebChromeClient;
-        }
-    }
-
-    public final void Y0(BdSailorWebViewClient bdSailorWebViewClient) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, bdSailorWebViewClient) == null) {
-            this.c = bdSailorWebViewClient;
-        }
-    }
-
-    public final void Z0(BdSailorWebViewClientExt bdSailorWebViewClientExt) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, bdSailorWebViewClientExt) == null) {
-            this.d = bdSailorWebViewClientExt;
-        }
-    }
-
-    @Override // com.baidu.tieba.ev1
-    public void attachActivity(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, activity) == null) {
-            if (v) {
-                Log.i("SwanAppWebViewManager", "attachActivity");
-            }
-            if (activity == null) {
-                if (v) {
-                    Log.e("SwanAppWebViewManager", "attachActivity null");
-                    return;
-                }
-                return;
-            }
-            this.u.a(activity);
-            this.a.setBaseContext(activity);
-        }
-    }
-
-    @Override // com.baidu.tieba.ev1
-    public void b(k72 k72Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, k72Var) == null) {
-            this.j = k72Var;
-        }
-    }
-
-    @Override // com.baidu.swan.apps.core.container.view.SwanAppSelectPopView.a
-    public void doSelectionCopy(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, str) == null) {
-            D0();
-            ds2.E0().e(str, this.a.getBaseContext());
-        }
-    }
-
-    @Override // com.baidu.swan.apps.core.container.view.SwanAppSelectPopView.a
-    public void doSelectionSearch(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
-            D0();
-            ds2.E0().d(str, this.a.getBaseContext());
-        }
-    }
-
-    @Override // com.baidu.tieba.ev1
-    public void t(ja2 ja2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048632, this, ja2Var) == null) && ja2Var != null && !this.l.contains(ja2Var)) {
-            this.l.add(ja2Var);
-        }
-    }
-
-    public final void B0(String str, GeolocationPermissions.Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, callback) == null) {
-            if (v) {
-                Log.d("SwanAppWebViewManager", "allowGeoLocationOnce origin: " + str);
-            }
-            callback.invoke(str, true, false);
-        }
-    }
-
-    public final void I0(String str, GeolocationPermissions.Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, callback) == null) {
-            y33.e(h.g, new String[]{h.g, h.h}, 0, v83.K().w(), new c(this, str, callback));
-        }
-    }
-
-    public final void W0(String str, GeolocationPermissions.Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048600, this, str, callback) == null) {
-            if (v) {
-                Log.d("SwanAppWebViewManager", "rejectGeoLocationOnce origin: " + str);
-            }
-            callback.invoke(str, false, false);
-        }
-    }
-
-    @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
-    public void handleSchemeDispatchCallback(String str, String str2) {
-        String quote;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048621, this, str, str2) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                quote = "";
-            } else {
-                quote = JSONObject.quote(str2);
-            }
-            ti2.b().c(new b(this, str, str2, quote), str);
-        }
-    }
-
-    @Override // com.baidu.tieba.v72
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048625, this, i, keyEvent)) == null) {
-            if (i == 4 && this.b.canGoBack()) {
-                H0();
-                return true;
-            }
-            return false;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.v72
-    public void onScrollChanged(int i, int i2, int i3, int i4) {
-        List<ja2> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(1048628, this, i, i2, i3, i4) == null) && (list = this.l) != null) {
-            for (ja2 ja2Var : list) {
-                if (ja2Var != null) {
-                    ja2Var.onScrollChanged(i, i2, i3, i4);
-                }
-            }
-        }
-    }
-
-    public final void E0(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
-            if (v) {
-                Log.d("SwanAppWebViewManager", "handleSchemeDispatchCallback callback: " + str);
-                Log.d("SwanAppWebViewManager", "handleSchemeDispatchCallback params: " + str2);
-            }
-            if (this.b.isDestroyed()) {
-                if (v) {
-                    Log.e("SwanAppWebViewManager", "handleSchemeDispatchCallback webview is destroyed.");
-                    return;
-                }
-                return;
-            }
-            this.b.evaluateJavascript("javascript:" + str + "(" + str3 + SmallTailInfo.EMOTION_SUFFIX, null);
-        }
-    }
-
-    @Nullable
-    public synchronized zp2 F0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                if (this.q == null) {
-                    if (!v83.K().q().I()) {
-                        return null;
-                    }
-                    SwanAppActivity w = v83.K().w();
-                    if (w == null) {
-                        return null;
-                    }
-                    this.q = new zp2(w, a());
-                }
-                return this.q;
-            }
-        }
-        return (zp2) invokeV.objValue;
-    }
-
-    public final void N0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (ds2.g0().v()) {
-                this.b = new NgWebView(this.a);
-            } else {
-                this.b = new NgWebView(this.a.getBaseContext());
-            }
-            if (this.b.getCurrentWebView() != null) {
-                this.n = this.b.getCurrentWebView().getBackground();
-                View webViewImpl = this.b.getWebViewImpl();
-                if (webViewImpl != null) {
-                    this.o = webViewImpl.getBackground();
-                }
-            }
-            if (this.k.a) {
-                this.b.setBackgroundColorForSwanApp(0);
-                if (!BdZeusUtil.isWebkitLoaded()) {
-                    this.m = true;
-                }
-            }
-            this.b.setScrollBarStyle(0);
-            this.f = new p82(this.a.getBaseContext());
-            if (v) {
-                Log.d("SwanAppWebViewManager", "WebViewManager " + hashCode() + " initializing Clients");
-            }
-            this.b.setWebViewClient(new SwanAppWebViewClient(this, null));
-            this.b.setWebViewClientExt(new SwanAppWebViewClientExt(this, null));
-            this.b.setWebChromeClient(new SwanAppWebChromeClient(this, null));
-            this.b.setWebChromeClientExt(new SwanAppWebChromeClientExt(this, null));
-            this.b.setOverScrollMode(2);
-            this.b.setOnCommonEventHandler(this);
-            this.b.setWebViewManager(this);
-            this.b.getCurrentWebView().setLongClickable(true);
-            this.b.setSelectPopWindowListener(this);
-        }
-    }
-
-    @SuppressLint({"SetJavaScriptEnabled"})
-    public final void O0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            BdSailorWebSettings settings = this.b.getSettings();
-            ISailorWebSettingsExt settingsExt = this.b.getSettingsExt();
-            settings.setWebViewFrameNameSailor(b0());
-            settings.setLightTouchEnabled(false);
-            settings.setNeedInitialFocus(false);
-            settings.setJavaScriptEnabled(true);
-            settings.setMixedContentMode(0);
-            settings.setZeusMutedEnable(true);
-            settings.setLoadsImagesAutomatically(true);
-            settings.setLoadWithOverviewMode(true);
-            settings.setUseWideViewPort(true);
-            settings.setSupportZoom(false);
-            settings.setBuiltInZoomControls(false);
-            settings.setSupportMultipleWindows(false);
-            settings.setMediaPlaybackRequiresUserGesture(false);
-            settings.setTextZoom(100);
-            settingsExt.setPlayVideoInFullScreenModeExt(false);
-            settingsExt.setUserSelectEnabled(true);
-            BdSailor.getInstance().enableFeature(BdSailorConfig.SAILOR_BASE_GEO);
-            BdSailor.getInstance().enableFeature(BdSailorConfig.SAILOR_EXT_ADBLOCK);
-            BdSailor.getInstance().disableFeature(BdSailorConfig.SAILOR_BASE_SSL);
-            settings.setDatabaseEnabled(true);
-            settings.setDomStorageEnabled(true);
-            settings.setAppCacheEnabled(true);
-            String path = this.a.getDir("databases", 0).getPath();
-            String path2 = this.a.getDir(NgWebView.APP_GEO_PATH, 0).getPath();
-            String path3 = this.a.getDir(NgWebView.APP_CACHE_PATH, 0).getPath();
-            settings.setGeolocationDatabasePath(path2);
-            settings.setDatabasePath(path);
-            settings.setAppCachePath(path3);
-            if (((ActivityManager) this.a.getSystemService("activity")).getMemoryClass() > 16) {
-                settings.setPageCacheCapacity(5);
-            } else {
-                settings.setPageCacheCapacity(1);
-            }
-            this.r = settings.getUserAgentString();
-            b1(this.s);
-            try {
-                settings.setPluginState(WebSettings.PluginState.ON_DEMAND);
-            } catch (Exception e) {
-                e.printStackTrace();
-            } catch (NoClassDefFoundError e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public void a1(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
-            this.t = i;
-            if (v) {
-                Log.d("SwanAppWebViewManager", "CustomView orientation has been set to [" + this.t + "] for once");
-            }
-        }
-    }
-
-    public void b1(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
-            this.s = str;
-            BdSailorWebSettings settings = this.b.getSettings();
-            String str2 = this.r;
-            if (!TextUtils.isEmpty(str)) {
-                str2 = String.format("%s %s", str2, str);
-            }
-            String b2 = vk3.b(str2);
-            if (!TextUtils.equals(b2, this.p)) {
-                this.p = b2;
-                settings.setUserAgentString(b2);
-                if (v) {
-                    Log.i("SwanAppWebViewManager", "set ua:" + this.p);
-                }
-            }
-        }
+        d1(str);
+        this.b.loadUrl(str);
     }
 }

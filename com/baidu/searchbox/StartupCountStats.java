@@ -5,348 +5,88 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.appframework.SimpleActivityLifeCycle;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class StartupCountStats extends SimpleActivityLifeCycle implements NoProGuard {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final boolean DEBUG;
     public static final String TAG = "StartupCountStats";
-    public static volatile String sAppStartSource;
-    public static long sBackgroundTimeStamp;
     public static Flow sFlow;
-    public static long sForegroundTimeStamp;
-    public static boolean sIsWarmBootApp;
-    public static PerfSampleManager sPerfSampleManager;
-    public static ExtDataCallBack sStartupCountExtCallBack;
-    public static StatsRule sStartupCountStatsRule;
     public static String sStartupCountStatsType;
-    public static String sStartupCountUploadId;
-    public static ExtDataCallBack sUseDurationExtCallBack;
-    public static StatsRule sUseDurationStatsRule;
     public static String sUseDurationStatsType;
-    public static String sUseDurationUploadId;
-    public static UBCManager ubc;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final boolean DEBUG = AppConfig.isDebug();
+    public static boolean sIsWarmBootApp = false;
+    public static volatile String sAppStartSource = "";
+    public static long sForegroundTimeStamp = -1;
+    public static long sBackgroundTimeStamp = -1;
+    public static StatsRule sStartupCountStatsRule = new StatsRule();
+    public static StatsRule sUseDurationStatsRule = new StatsRule();
+    public static ExtDataCallBack sStartupCountExtCallBack = new ExtDataCallBack();
+    public static ExtDataCallBack sUseDurationExtCallBack = new ExtDataCallBack();
+    public static String sStartupCountUploadId = StartupCountStatsUtils.DEFAULT_STARTUP_UBC_ID;
+    public static String sUseDurationUploadId = StartupCountStatsUtils.DEFAULT_USE_DURATION_UBC_ID;
+    public static PerfSampleManager sPerfSampleManager = new PerfSampleManager();
+    public static UBCManager ubc = null;
 
     /* loaded from: classes2.dex */
     public static class ExtDataCallBack {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
         @Nullable
         public JSONObject addData() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return null;
-            }
-            return (JSONObject) invokeV.objValue;
-        }
-
-        public ExtDataCallBack() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+            return null;
         }
     }
 
     /* loaded from: classes2.dex */
     public static class StatsRule {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
         @Nullable
         public boolean shouldStats(Activity activity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
+            return true;
         }
-
-        public StatsRule() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-928320696, "Lcom/baidu/searchbox/StartupCountStats;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-928320696, "Lcom/baidu/searchbox/StartupCountStats;");
-                return;
-            }
-        }
-        DEBUG = AppConfig.isDebug();
-        sIsWarmBootApp = false;
-        sAppStartSource = "";
-        sForegroundTimeStamp = -1L;
-        sBackgroundTimeStamp = -1L;
-        sStartupCountStatsRule = new StatsRule();
-        sUseDurationStatsRule = new StatsRule();
-        sStartupCountExtCallBack = new ExtDataCallBack();
-        sUseDurationExtCallBack = new ExtDataCallBack();
-        sStartupCountUploadId = StartupCountStatsUtils.DEFAULT_STARTUP_UBC_ID;
-        sUseDurationUploadId = StartupCountStatsUtils.DEFAULT_USE_DURATION_UBC_ID;
-        sPerfSampleManager = new PerfSampleManager();
-        ubc = null;
     }
 
     public static String generateValueJson() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            try {
-                JSONObject addData = sUseDurationExtCallBack.addData();
-                if (addData == null) {
-                    addData = new JSONObject();
-                }
-                String sampleFlag = sPerfSampleManager.getSampleFlag();
-                if (!TextUtils.isEmpty(sampleFlag)) {
-                    addData.put("pf", sampleFlag);
-                }
-                addData.put(StartupCountStatsUtils.SDK_FLAG_KEY, StartupCountStatsUtils.SDK_FLAG_VALUE);
-                if (!TextUtils.isEmpty(sUseDurationStatsType)) {
-                    addData.put(StartupCountStatsUtils.LAUNCH_SAMPLE, sUseDurationStatsType);
-                }
-                return addData.toString();
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
+        try {
+            JSONObject addData = sUseDurationExtCallBack.addData();
+            if (addData == null) {
+                addData = new JSONObject();
             }
+            String sampleFlag = sPerfSampleManager.getSampleFlag();
+            if (!TextUtils.isEmpty(sampleFlag)) {
+                addData.put("pf", sampleFlag);
+            }
+            addData.put(StartupCountStatsUtils.SDK_FLAG_KEY, StartupCountStatsUtils.SDK_FLAG_VALUE);
+            if (!TextUtils.isEmpty(sUseDurationStatsType)) {
+                addData.put(StartupCountStatsUtils.LAUNCH_SAMPLE, sUseDurationStatsType);
+            }
+            return addData.toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
         }
-        return (String) invokeV.objValue;
     }
 
     public static void startTiming() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            if (DEBUG) {
-                Log.d(TAG, "App使用时长统计开始：startTiming");
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("duration", "0");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (ubc == null) {
-                ubc = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            }
-            sFlow = ubc.beginFlow(sUseDurationUploadId, jSONObject.toString(), 4);
+        if (DEBUG) {
+            Log.d(TAG, "App使用时长统计开始：startTiming");
         }
-    }
-
-    public static void updateTiming() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65552, null) == null) && sFlow != null && sUseDurationStatsRule.shouldStats(null) && System.currentTimeMillis() - sFlow.getStartTime() > 300000) {
-            if (ubc == null) {
-                ubc = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            }
-            ubc.flowSetValueWithDuration(sFlow, generateValueJson());
-            if (DEBUG) {
-                Log.d(TAG, "App使用时长统计更新（最小间隔5分钟）：updateTiming");
-            }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("duration", "0");
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-    }
-
-    public StartupCountStats() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (ubc == null) {
+            ubc = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
         }
-    }
-
-    @NonNull
-    public static String getSampleFlag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return sPerfSampleManager.getSampleFlag();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void appStartupUpload(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", "research");
-                jSONObject.put("type", str);
-                if (!TextUtils.isEmpty(sAppStartSource)) {
-                    jSONObject.put("source", sAppStartSource);
-                    sAppStartSource = "";
-                }
-                JSONObject addData = sStartupCountExtCallBack.addData();
-                if (addData == null) {
-                    addData = new JSONObject();
-                }
-                addData.put("ftime", sForegroundTimeStamp);
-                addData.put(StartupCountStatsUtils.BACKGROUND_TIME_STAMP, sBackgroundTimeStamp);
-                if (!TextUtils.isEmpty(sStartupCountStatsType)) {
-                    addData.put(StartupCountStatsUtils.LAUNCH_SAMPLE, sStartupCountStatsType);
-                }
-                String sampleFlag = sPerfSampleManager.getSampleFlag();
-                if (!TextUtils.isEmpty(sampleFlag)) {
-                    addData.put("pf", sampleFlag);
-                }
-                addData.put(StartupCountStatsUtils.SDK_FLAG_KEY, StartupCountStatsUtils.SDK_FLAG_VALUE);
-                jSONObject.put("ext", addData);
-            } catch (JSONException e) {
-                if (DEBUG) {
-                    e.printStackTrace();
-                }
-            }
-            if (ubc == null) {
-                ubc = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            }
-            ubc.onEvent(sStartupCountUploadId, jSONObject);
-        }
-    }
-
-    @Nullable
-    public static void setStartSource(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            sAppStartSource = str;
-        }
-    }
-
-    @Nullable
-    public static void setStartupCountExtCallBack(ExtDataCallBack extDataCallBack) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, extDataCallBack) == null) {
-            sStartupCountExtCallBack = extDataCallBack;
-        }
-    }
-
-    @Nullable
-    public static void setStartupCountStatsRule(StatsRule statsRule) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, statsRule) == null) {
-            sStartupCountStatsRule = statsRule;
-        }
-    }
-
-    @Nullable
-    public static void setStartupCountStatsType(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            sStartupCountStatsType = str;
-        }
-    }
-
-    @Nullable
-    public static void setStartupCountUploadId(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            sStartupCountUploadId = str;
-        }
-    }
-
-    @Nullable
-    public static void setUseDurationExtCallBack(ExtDataCallBack extDataCallBack) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, extDataCallBack) == null) {
-            sUseDurationExtCallBack = extDataCallBack;
-        }
-    }
-
-    @Nullable
-    public static void setUseDurationStatsRule(StatsRule statsRule) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, statsRule) == null) {
-            sUseDurationStatsRule = statsRule;
-        }
-    }
-
-    @Nullable
-    public static void setUseDurationStatsType(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
-            sUseDurationStatsType = str;
-        }
-    }
-
-    @Nullable
-    public static void setUseDurationUploadId(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
-            sUseDurationUploadId = str;
-        }
-    }
-
-    @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
-    @Nullable
-    public void onActivityResumed(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            updateTiming();
-        }
-    }
-
-    @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
-    @Nullable
-    public void onForegroundToBackground(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            sBackgroundTimeStamp = System.currentTimeMillis();
-            if (sUseDurationStatsRule.shouldStats(activity)) {
-                stopTiming();
-            }
-        }
+        sFlow = ubc.beginFlow(sUseDurationUploadId, jSONObject.toString(), 4);
     }
 
     public static void stopTiming() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65551, null) == null) && sFlow != null) {
+        if (sFlow != null) {
             if (ubc == null) {
                 ubc = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
             }
@@ -359,27 +99,136 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
+    public static void updateTiming() {
+        if (sFlow != null && sUseDurationStatsRule.shouldStats(null) && System.currentTimeMillis() - sFlow.getStartTime() > 300000) {
+            if (ubc == null) {
+                ubc = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            }
+            ubc.flowSetValueWithDuration(sFlow, generateValueJson());
+            if (DEBUG) {
+                Log.d(TAG, "App使用时长统计更新（最小间隔5分钟）：updateTiming");
+            }
+        }
+    }
+
+    @NonNull
+    public static String getSampleFlag() {
+        return sPerfSampleManager.getSampleFlag();
+    }
+
+    public static void appStartupUpload(String str) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("from", "research");
+            jSONObject.put("type", str);
+            if (!TextUtils.isEmpty(sAppStartSource)) {
+                jSONObject.put("source", sAppStartSource);
+                sAppStartSource = "";
+            }
+            JSONObject addData = sStartupCountExtCallBack.addData();
+            if (addData == null) {
+                addData = new JSONObject();
+            }
+            addData.put("ftime", sForegroundTimeStamp);
+            addData.put(StartupCountStatsUtils.BACKGROUND_TIME_STAMP, sBackgroundTimeStamp);
+            if (!TextUtils.isEmpty(sStartupCountStatsType)) {
+                addData.put(StartupCountStatsUtils.LAUNCH_SAMPLE, sStartupCountStatsType);
+            }
+            String sampleFlag = sPerfSampleManager.getSampleFlag();
+            if (!TextUtils.isEmpty(sampleFlag)) {
+                addData.put("pf", sampleFlag);
+            }
+            addData.put(StartupCountStatsUtils.SDK_FLAG_KEY, StartupCountStatsUtils.SDK_FLAG_VALUE);
+            jSONObject.put("ext", addData);
+        } catch (JSONException e) {
+            if (DEBUG) {
+                e.printStackTrace();
+            }
+        }
+        if (ubc == null) {
+            ubc = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+        }
+        ubc.onEvent(sStartupCountUploadId, jSONObject);
+    }
+
+    @Nullable
+    public static void setStartSource(String str) {
+        sAppStartSource = str;
+    }
+
+    @Nullable
+    public static void setStartupCountExtCallBack(ExtDataCallBack extDataCallBack) {
+        sStartupCountExtCallBack = extDataCallBack;
+    }
+
+    @Nullable
+    public static void setStartupCountStatsRule(StatsRule statsRule) {
+        sStartupCountStatsRule = statsRule;
+    }
+
+    @Nullable
+    public static void setStartupCountStatsType(String str) {
+        sStartupCountStatsType = str;
+    }
+
+    @Nullable
+    public static void setStartupCountUploadId(String str) {
+        sStartupCountUploadId = str;
+    }
+
+    @Nullable
+    public static void setUseDurationExtCallBack(ExtDataCallBack extDataCallBack) {
+        sUseDurationExtCallBack = extDataCallBack;
+    }
+
+    @Nullable
+    public static void setUseDurationStatsRule(StatsRule statsRule) {
+        sUseDurationStatsRule = statsRule;
+    }
+
+    @Nullable
+    public static void setUseDurationStatsType(String str) {
+        sUseDurationStatsType = str;
+    }
+
+    @Nullable
+    public static void setUseDurationUploadId(String str) {
+        sUseDurationUploadId = str;
+    }
+
+    @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
+    @Nullable
+    public void onActivityResumed(Activity activity) {
+        updateTiming();
+    }
+
     @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
     @Nullable
     public void onBackgroundToForeground(Activity activity) {
         String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            if (sStartupCountStatsRule.shouldStats(activity)) {
-                sForegroundTimeStamp = System.currentTimeMillis();
-                if (sIsWarmBootApp) {
-                    str = "warm_start";
-                } else {
-                    str = "cold_start";
-                }
-                appStartupUpload(str);
+        if (sStartupCountStatsRule.shouldStats(activity)) {
+            sForegroundTimeStamp = System.currentTimeMillis();
+            if (sIsWarmBootApp) {
+                str = "warm_start";
+            } else {
+                str = "cold_start";
             }
-            if (sUseDurationStatsRule.shouldStats(activity)) {
-                startTiming();
-            }
-            if (!sIsWarmBootApp) {
-                sIsWarmBootApp = true;
-            }
+            appStartupUpload(str);
+        }
+        if (sUseDurationStatsRule.shouldStats(activity)) {
+            startTiming();
+        }
+        if (!sIsWarmBootApp) {
+            sIsWarmBootApp = true;
+        }
+    }
+
+    @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
+    @Nullable
+    public void onForegroundToBackground(Activity activity) {
+        sBackgroundTimeStamp = System.currentTimeMillis();
+        if (sUseDurationStatsRule.shouldStats(activity)) {
+            stopTiming();
         }
     }
 }

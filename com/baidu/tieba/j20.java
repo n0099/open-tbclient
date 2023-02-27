@@ -1,232 +1,268 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.os.SystemClock;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.common.config.AppIdentityManager;
+import com.baidu.android.util.connect.ConnectManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.searchbox.common.security.DeviceIdBag;
+import com.baidu.searchbox.common.security.DeviceInfoManager;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.logsystem.basic.upload.identity.NetworkParam;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.imagepipeline.backends.okhttp3.OkHttpNetworkFetcher;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.HashMap;
+import java.util.Locale;
 /* loaded from: classes5.dex */
 public class j20 {
     public static /* synthetic */ Interceptable $ic;
-    public static j20 g;
+    public static boolean g;
+    public static String h;
+    public static HashMap<String, Integer> i;
+    public static HashMap<String, Integer> j;
+    public static String k;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Map<String, String> b;
+    public Context a;
+    public boolean b;
     public String c;
     public String d;
-    public String e;
-    public k20 f;
+    public int e;
+    public int f;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947831265, "Lcom/baidu/tieba/j20;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947831265, "Lcom/baidu/tieba/j20;");
+                return;
+            }
+        }
+        g = AppConfig.isDebug();
+        h = "networkparam";
+        i = new HashMap<>();
+        j = new HashMap<>();
+        k = null;
+        i.put("WIFI", 1);
+        i.put("3GNET", 21);
+        i.put("3GWAP", 22);
+        i.put("CMNET", 31);
+        i.put("UNINET", 32);
+        i.put("CTNET", 33);
+        i.put("CMWAP", 41);
+        i.put("UNIWAP", 42);
+        i.put("CTWAP", 43);
+        j.put("46000", 1);
+        j.put("46001", 2);
+        j.put("46002", 1);
+        j.put("46003", 3);
+        j.put("46004", 1);
+        j.put("46005", 3);
+        j.put("46006", 2);
+        j.put("46007", 1);
+        j.put("46008", 1);
+        j.put("46009", 2);
+        j.put("46010", 2);
+        j.put("46011", 3);
+        j.put("46012", 3);
+    }
 
     public j20() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = " ";
-        this.c = null;
-        this.d = null;
-        this.b = new ConcurrentHashMap();
+        this.a = AppRuntime.getAppContext();
     }
 
-    public static j20 f() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (g == null) {
-                synchronized (j20.class) {
-                    if (g == null) {
-                        g = new j20();
-                    }
-                }
-            }
-            return g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        return (j20) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final String e() {
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    @Deprecated
+    public String a() {
+        InterceptResult invokeV;
+        long j2;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (g) {
+                j2 = SystemClock.uptimeMillis();
+            } else {
+                j2 = 0;
+            }
+            ConnectManager connectManager = new ConnectManager(this.a);
+            String netType = connectManager.getNetType();
+            int subType = connectManager.getSubType();
+            if (!TextUtils.isEmpty(netType)) {
+                netType = netType.toUpperCase(Locale.getDefault());
+                Integer num = i.get(netType);
+                if (num == null) {
+                    num = 5;
+                }
+                str = num + "_" + subType;
+            } else {
+                str = ((Object) 5) + "_" + subType;
+            }
+            if (g) {
+                long uptimeMillis = SystemClock.uptimeMillis();
+                Log.i(h, "getCurrentNetTypeId cost " + (uptimeMillis - j2) + "ms, current net type: " + netType + ", type id: " + str + ", subtype id: " + subType + ", subtype name: " + connectManager.getSubTypeName());
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (z10.d().d()) {
-                if (this.f == null) {
-                    this.f = new k20();
-                }
-                return this.f.a();
+            if (!d20.b().f() || this.b) {
+                return true;
             }
-            return null;
+            DeviceIdBag operator = DeviceInfoManager.INSTANCE.getOperator(AppRuntime.getAppContext(), "pub_param", "");
+            if (operator.errorCode != 3) {
+                return true;
+            }
+            return !f(operator.deviceId, this.f);
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public String g() {
-        InterceptResult invokeV;
+    public final boolean f(String str, int i2) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (TextUtils.isEmpty(this.e)) {
-                return OkHttpNetworkFetcher.DEFAULT_USER_AGENT;
-            }
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String a(String str, String str2) {
-        InterceptResult invokeLL;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str3 = "";
-            } else {
-                str3 = str + "/";
-            }
-            return str3 + str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public String c(String str, String... strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, strArr)) == null) {
-            if (str == null) {
-                return str;
-            }
-            j(str);
-            String str2 = str + strArr;
-            String str3 = this.b.get(str2);
-            if (str3 == null) {
-                str3 = d(AppRuntime.getAppContext(), str, strArr);
-            }
-            this.b.put(str2, str3);
-            return str3;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final String b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            try {
-                str2 = URLEncoder.encode(str2, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-            return a(str, str2);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final String d(Context context, String str, String... strArr) {
-        InterceptResult invokeLLL;
-        String sb;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, str, strArr)) == null) {
-            l20 d = z10.d();
-            String b = d.b();
-            StringBuilder sb2 = new StringBuilder();
-            if (TextUtils.isEmpty(this.c)) {
-                this.c = h(context);
-            }
-            sb2.append(str);
-            String e = e();
-            if (!TextUtils.isEmpty(e)) {
-                sb2.append(this.a);
-                sb2.append(e);
-            }
-            if (strArr != null && strArr.length > 0) {
-                for (String str2 : strArr) {
-                    if (!TextUtils.isEmpty(str2)) {
-                        sb2.append(this.a);
-                        sb2.append(str2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i2)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                Integer num = j.get(str);
+                if (num != null) {
+                    if (i2 > 30 && (i2 - num.intValue()) % 10 == 0) {
+                        return true;
                     }
+                    if ((i2 == 21 || i2 == 22) && num.intValue() == 2) {
+                        return true;
+                    }
+                } else {
+                    d20.b().g(new k20(3));
                 }
             }
-            if (!TextUtils.isEmpty(b)) {
-                sb2.append(this.a);
-                sb2.append(b);
-            }
-            if (d.c()) {
-                if (TextUtils.isEmpty(this.d)) {
-                    this.d = i();
-                }
-                sb2.append(this.a);
-                sb2.append(this.d);
-            }
-            try {
-                sb = sb2.toString().replaceFirst("(^.*$)", "$1 " + this.c);
-            } catch (Exception unused) {
-                sb2.append(this.a);
-                sb2.append(this.c);
-                sb = sb2.toString();
-            }
-            d.a(sb, strArr);
-            return sb;
+            d20.b().g(new k20(2));
+            return false;
         }
-        return (String) invokeLLL.objValue;
+        return invokeLI.booleanValue;
     }
 
-    public final String h(Context context) {
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            ConnectManager connectManager = new ConnectManager(this.a);
+            String netType = connectManager.getNetType();
+            int subType = connectManager.getSubType();
+            if (!TextUtils.isEmpty(netType)) {
+                String upperCase = netType.toUpperCase(Locale.getDefault());
+                if (i.get(upperCase) == null) {
+                    this.f = 5;
+                    d20.b().g(new k20(4));
+                } else {
+                    this.f = i.get(upperCase).intValue();
+                }
+                this.c = this.f + "_" + subType;
+                this.d = h(this.f, subType);
+            } else {
+                this.f = 5;
+                String str = this.f + "_" + subType;
+                this.c = str;
+                this.d = str;
+            }
+            this.e = subType;
+            int i2 = this.f;
+            if (i2 != 5 && i2 != 1) {
+                this.b = false;
+            } else {
+                this.b = true;
+            }
+            if (z) {
+                this.c = i(this.c);
+            }
+        }
+    }
+
+    public final String h(int i2, int i3) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048583, this, i2, i3)) == null) {
+            if (i2 != 21 && i2 != 22 && i2 != 42) {
+                if (i2 == 41) {
+                    i2 = 31;
+                } else if (i2 == 43) {
+                    i2 = 33;
+                }
+            } else {
+                i2 = 32;
+            }
+            return i2 + "_" + i3;
+        }
+        return (String) invokeII.objValue;
+    }
+
+    public String i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            String b = b(null, AppIdentityManager.getInstance().getUserAgentIdentity());
-            String c = new h20().c(context);
-            String e = new b20().e();
-            return a(b, c + " (Baidu; P1 " + e + SmallTailInfo.EMOTION_SUFFIX);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (TextUtils.equals(str, NetworkParam.NET_TYPE_ID_DISCONNECT)) {
+                if (!TextUtils.isEmpty(k)) {
+                    return k;
+                }
+                return str;
+            }
+            if (!TextUtils.isEmpty(str) && !TextUtils.equals(str, NetworkParam.NET_TYPE_ID_DISCONNECT)) {
+                k = str;
+            }
+            return str;
         }
         return (String) invokeL.objValue;
-    }
-
-    public final String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            String appName = AppIdentityManager.getInstance().getAppName();
-            String schemeHeader = z10.d().getSchemeHeader();
-            StringBuilder sb = new StringBuilder();
-            sb.append("bdapp/1.0");
-            sb.append(this.a);
-            sb.append("(");
-            sb.append(appName);
-            if (!TextUtils.isEmpty(schemeHeader)) {
-                sb.append(";");
-                sb.append(this.a);
-                sb.append(schemeHeader);
-            }
-            sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void j(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && TextUtils.isEmpty(this.e) && !TextUtils.isEmpty(str)) {
-            this.e = str;
-        }
     }
 }

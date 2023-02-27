@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.vivo.push.util.u;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
@@ -53,7 +54,7 @@ public final class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
             String str2 = null;
             if (intent == null) {
-                com.vivo.push.util.p.a("BundleWapper", "create error : intent is null");
+                u.a("BundleWapper", "create error : intent is null");
                 return null;
             }
             Bundle extras = intent.getExtras();
@@ -62,7 +63,7 @@ public final class a {
             }
             str = null;
             if (TextUtils.isEmpty(str)) {
-                com.vivo.push.util.p.b("BundleWapper", "create warning: pkgName is null");
+                u.b("BundleWapper", "create warning: pkgName is null");
             }
             String str3 = intent.getPackage();
             if (TextUtils.isEmpty(str3)) {
@@ -70,7 +71,7 @@ public final class a {
                     str2 = intent.getComponent().getPackageName();
                 }
                 if (TextUtils.isEmpty(str2)) {
-                    com.vivo.push.util.p.b("BundleWapper", "create warning: targetPkgName is null");
+                    u.b("BundleWapper", "create warning: targetPkgName is null");
                 }
                 str3 = str2;
             }

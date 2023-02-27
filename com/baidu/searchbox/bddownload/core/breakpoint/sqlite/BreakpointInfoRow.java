@@ -1,18 +1,10 @@
 package com.baidu.searchbox.bddownload.core.breakpoint.sqlite;
 
 import android.database.Cursor;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.breakpoint.BreakpointInfo;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class BreakpointInfoRow {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final boolean chunked;
     public final String etag;
     public final String filename;
@@ -24,20 +16,6 @@ public class BreakpointInfoRow {
 
     public BreakpointInfoRow(Cursor cursor) {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cursor};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.id = cursor.getInt(cursor.getColumnIndex("id"));
         this.url = cursor.getString(cursor.getColumnIndex("url"));
         this.etag = cursor.getString(cursor.getColumnIndex("etag"));
@@ -54,78 +32,38 @@ public class BreakpointInfoRow {
     }
 
     public String getEtag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.etag;
-        }
-        return (String) invokeV.objValue;
+        return this.etag;
     }
 
     public String getFilename() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.filename;
-        }
-        return (String) invokeV.objValue;
+        return this.filename;
     }
 
     public int getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.id;
-        }
-        return invokeV.intValue;
+        return this.id;
     }
 
     public String getParentPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.parentPath;
-        }
-        return (String) invokeV.objValue;
+        return this.parentPath;
     }
 
     public String getUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.url;
-        }
-        return (String) invokeV.objValue;
+        return this.url;
     }
 
     public boolean isChunked() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.chunked;
-        }
-        return invokeV.booleanValue;
+        return this.chunked;
     }
 
     public boolean isTaskOnlyProvidedParentPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.taskOnlyProvidedParentPath;
-        }
-        return invokeV.booleanValue;
+        return this.taskOnlyProvidedParentPath;
     }
 
     public BreakpointInfo toInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            BreakpointInfo breakpointInfo = new BreakpointInfo(this.id, this.url, new File(this.parentPath), this.filename, this.taskOnlyProvidedParentPath);
-            breakpointInfo.setEtag(this.etag);
-            breakpointInfo.setChunked(this.chunked);
-            breakpointInfo.setMimeType(this.mimeType);
-            return breakpointInfo;
-        }
-        return (BreakpointInfo) invokeV.objValue;
+        BreakpointInfo breakpointInfo = new BreakpointInfo(this.id, this.url, new File(this.parentPath), this.filename, this.taskOnlyProvidedParentPath);
+        breakpointInfo.setEtag(this.etag);
+        breakpointInfo.setChunked(this.chunked);
+        breakpointInfo.setMimeType(this.mimeType);
+        return breakpointInfo;
     }
 }

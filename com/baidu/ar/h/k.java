@@ -1,11 +1,7 @@
 package com.baidu.ar.h;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import com.google.zxing.client.result.ResultParser;
 import java.io.Closeable;
 import java.io.File;
@@ -17,69 +13,52 @@ import java.io.OutputStream;
 import java.io.StringWriter;
 /* loaded from: classes.dex */
 public class k {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     public static String a(InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, inputStream)) == null) ? a(inputStream, (String) null) : (String) invokeL.objValue;
+        return a(inputStream, (String) null);
     }
 
     public static String a(InputStream inputStream, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, inputStream, str)) == null) {
-            if (inputStream != null) {
-                if (TextUtils.isEmpty(str)) {
-                    str = System.getProperty("file.encoding", IMAudioTransRequest.CHARSET);
-                }
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, str);
-                StringWriter stringWriter = new StringWriter();
-                char[] cArr = new char[4096];
-                while (true) {
-                    int read = inputStreamReader.read(cArr);
-                    if (read <= 0) {
-                        break;
-                    }
-                    stringWriter.write(cArr, 0, read);
-                }
-                String stringWriter2 = stringWriter.toString();
-                inputStreamReader.close();
-                stringWriter.close();
-                return (IMAudioTransRequest.CHARSET.equalsIgnoreCase(str) && stringWriter2.startsWith(ResultParser.BYTE_ORDER_MARK)) ? stringWriter2.substring(1) : stringWriter2;
+        if (inputStream != null) {
+            if (TextUtils.isEmpty(str)) {
+                str = System.getProperty("file.encoding", IMAudioTransRequest.CHARSET);
             }
-            throw new IllegalArgumentException("stream may not be null.");
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, str);
+            StringWriter stringWriter = new StringWriter();
+            char[] cArr = new char[4096];
+            while (true) {
+                int read = inputStreamReader.read(cArr);
+                if (read <= 0) {
+                    break;
+                }
+                stringWriter.write(cArr, 0, read);
+            }
+            String stringWriter2 = stringWriter.toString();
+            inputStreamReader.close();
+            stringWriter.close();
+            return (IMAudioTransRequest.CHARSET.equalsIgnoreCase(str) && stringWriter2.startsWith(ResultParser.BYTE_ORDER_MARK)) ? stringWriter2.substring(1) : stringWriter2;
         }
-        return (String) invokeLL.objValue;
+        throw new IllegalArgumentException("stream may not be null.");
     }
 
     public static void a(InputStream inputStream, File file) {
         FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, inputStream, file) == null) {
-            try {
-                fileOutputStream = i.e(file);
-            } catch (Throwable th) {
-                th = th;
-                fileOutputStream = null;
-            }
+        try {
+            fileOutputStream = i.e(file);
             try {
                 a(inputStream, fileOutputStream);
                 closeQuietly(fileOutputStream);
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th) {
+                th = th;
                 closeQuietly(fileOutputStream);
                 throw th;
             }
+        } catch (Throwable th2) {
+            th = th2;
+            fileOutputStream = null;
         }
     }
 
     public static void a(InputStream inputStream, OutputStream outputStream) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(65539, null, inputStream, outputStream) != null) {
-            return;
-        }
         byte[] bArr = new byte[8192];
         while (true) {
             int read = inputStream.read(bArr);
@@ -91,14 +70,12 @@ public class k {
     }
 
     public static void closeQuietly(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

@@ -14,15 +14,6 @@ import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.core.content.res.FontResourcesParserCompat;
 import androidx.core.provider.FontsContractCompat;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -34,7 +25,6 @@ import java.lang.reflect.Method;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ADD_FONT_WEIGHT_STYLE_METHOD = "addFontWeightStyle";
     public static final String CREATE_FROM_FAMILIES_WITH_DEFAULT_METHOD = "createFromFamiliesWithDefault";
     public static final String FONT_FAMILY_CLASS = "android.graphics.FontFamily";
@@ -44,134 +34,52 @@ public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
     public static Class<?> sFontFamily;
     public static Constructor<?> sFontFamilyCtor;
     public static boolean sHasInitBeenCalled;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1843172201, "Landroidx/core/graphics/TypefaceCompatApi21Impl;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1843172201, "Landroidx/core/graphics/TypefaceCompatApi21Impl;");
-        }
-    }
-
-    public TypefaceCompatApi21Impl() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
 
     public static Object newFamily() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            init();
-            try {
-                return sFontFamilyCtor.newInstance(new Object[0]);
-            } catch (IllegalAccessException | InstantiationException | InvocationTargetException e) {
-                throw new RuntimeException(e);
-            }
+        init();
+        try {
+            return sFontFamilyCtor.newInstance(new Object[0]);
+        } catch (IllegalAccessException | InstantiationException | InvocationTargetException e) {
+            throw new RuntimeException(e);
         }
-        return invokeV.objValue;
     }
 
     public static boolean addFontWeightStyle(Object obj, String str, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{obj, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            init();
-            try {
-                return ((Boolean) sAddFontWeightStyle.invoke(obj, str, Integer.valueOf(i), Boolean.valueOf(z))).booleanValue();
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                throw new RuntimeException(e);
-            }
+        init();
+        try {
+            return ((Boolean) sAddFontWeightStyle.invoke(obj, str, Integer.valueOf(i), Boolean.valueOf(z))).booleanValue();
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            throw new RuntimeException(e);
         }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // androidx.core.graphics.TypefaceCompatBaseImpl
-    public Typeface createFromFontFamilyFilesResourceEntry(Context context, FontResourcesParserCompat.FontFamilyFilesResourceEntry fontFamilyFilesResourceEntry, Resources resources, int i) {
-        InterceptResult invokeLLLI;
-        FontResourcesParserCompat.FontFileResourceEntry[] entries;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048576, this, context, fontFamilyFilesResourceEntry, resources, i)) == null) {
-            Object newFamily = newFamily();
-            for (FontResourcesParserCompat.FontFileResourceEntry fontFileResourceEntry : fontFamilyFilesResourceEntry.getEntries()) {
-                File tempFile = TypefaceCompatUtil.getTempFile(context);
-                if (tempFile == null) {
-                    return null;
-                }
-                try {
-                    if (!TypefaceCompatUtil.copyToFile(tempFile, resources, fontFileResourceEntry.getResourceId())) {
-                        return null;
-                    }
-                    if (!addFontWeightStyle(newFamily, tempFile.getPath(), fontFileResourceEntry.getWeight(), fontFileResourceEntry.isItalic())) {
-                        return null;
-                    }
-                    tempFile.delete();
-                } catch (RuntimeException unused) {
-                    return null;
-                } finally {
-                    tempFile.delete();
-                }
-            }
-            return createFromFamiliesWithDefault(newFamily);
-        }
-        return (Typeface) invokeLLLI.objValue;
     }
 
     public static Typeface createFromFamiliesWithDefault(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
-            init();
-            try {
-                Object newInstance = Array.newInstance(sFontFamily, 1);
-                Array.set(newInstance, 0, obj);
-                return (Typeface) sCreateFromFamiliesWithDefault.invoke(null, newInstance);
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                throw new RuntimeException(e);
-            }
+        init();
+        try {
+            Object newInstance = Array.newInstance(sFontFamily, 1);
+            Array.set(newInstance, 0, obj);
+            return (Typeface) sCreateFromFamiliesWithDefault.invoke(null, newInstance);
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            throw new RuntimeException(e);
         }
-        return (Typeface) invokeL.objValue;
     }
 
     private File getFile(@NonNull ParcelFileDescriptor parcelFileDescriptor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, parcelFileDescriptor)) == null) {
-            try {
-                String readlink = Os.readlink("/proc/self/fd/" + parcelFileDescriptor.getFd());
-                if (OsConstants.S_ISREG(Os.stat(readlink).st_mode)) {
-                    return new File(readlink);
-                }
-            } catch (ErrnoException unused) {
+        try {
+            String readlink = Os.readlink("/proc/self/fd/" + parcelFileDescriptor.getFd());
+            if (OsConstants.S_ISREG(Os.stat(readlink).st_mode)) {
+                return new File(readlink);
             }
-            return null;
+        } catch (ErrnoException unused) {
         }
-        return (File) invokeL.objValue;
+        return null;
     }
 
     public static void init() {
         Method method;
         Class<?> cls;
         Method method2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65541, null) != null) || sHasInitBeenCalled) {
+        if (sHasInitBeenCalled) {
             return;
         }
         sHasInitBeenCalled = true;
@@ -195,49 +103,71 @@ public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
     }
 
     @Override // androidx.core.graphics.TypefaceCompatBaseImpl
-    public Typeface createFromFontInfo(Context context, CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i) {
-        InterceptResult invokeLLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cancellationSignal, fontInfoArr, i)) == null) {
-            if (fontInfoArr.length < 1) {
+    public Typeface createFromFontFamilyFilesResourceEntry(Context context, FontResourcesParserCompat.FontFamilyFilesResourceEntry fontFamilyFilesResourceEntry, Resources resources, int i) {
+        FontResourcesParserCompat.FontFileResourceEntry[] entries;
+        Object newFamily = newFamily();
+        for (FontResourcesParserCompat.FontFileResourceEntry fontFileResourceEntry : fontFamilyFilesResourceEntry.getEntries()) {
+            File tempFile = TypefaceCompatUtil.getTempFile(context);
+            if (tempFile == null) {
                 return null;
             }
             try {
-                ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo(fontInfoArr, i).getUri(), "r", cancellationSignal);
-                if (openFileDescriptor == null) {
-                    if (openFileDescriptor != null) {
-                        openFileDescriptor.close();
-                    }
+                if (!TypefaceCompatUtil.copyToFile(tempFile, resources, fontFileResourceEntry.getResourceId())) {
                     return null;
                 }
-                File file = getFile(openFileDescriptor);
-                if (file != null && file.canRead()) {
-                    Typeface createFromFile = Typeface.createFromFile(file);
-                    if (openFileDescriptor != null) {
-                        openFileDescriptor.close();
-                    }
-                    return createFromFile;
+                if (!addFontWeightStyle(newFamily, tempFile.getPath(), fontFileResourceEntry.getWeight(), fontFileResourceEntry.isItalic())) {
+                    return null;
                 }
-                FileInputStream fileInputStream = new FileInputStream(openFileDescriptor.getFileDescriptor());
-                try {
-                    Typeface createFromInputStream = super.createFromInputStream(context, fileInputStream);
-                    fileInputStream.close();
-                    if (openFileDescriptor != null) {
-                        openFileDescriptor.close();
-                    }
-                    return createFromInputStream;
-                } catch (Throwable th) {
-                    try {
-                        fileInputStream.close();
-                    } catch (Throwable th2) {
-                        th.addSuppressed(th2);
-                    }
-                    throw th;
-                }
-            } catch (IOException unused) {
+                tempFile.delete();
+            } catch (RuntimeException unused) {
                 return null;
+            } finally {
+                tempFile.delete();
             }
         }
-        return (Typeface) invokeLLLI.objValue;
+        return createFromFamiliesWithDefault(newFamily);
+    }
+
+    @Override // androidx.core.graphics.TypefaceCompatBaseImpl
+    public Typeface createFromFontInfo(Context context, CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i) {
+        if (fontInfoArr.length < 1) {
+            return null;
+        }
+        FontsContractCompat.FontInfo findBestInfo = findBestInfo(fontInfoArr, i);
+        try {
+            ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo.getUri(), "r", cancellationSignal);
+            if (openFileDescriptor == null) {
+                if (openFileDescriptor != null) {
+                    openFileDescriptor.close();
+                }
+                return null;
+            }
+            File file = getFile(openFileDescriptor);
+            if (file != null && file.canRead()) {
+                Typeface createFromFile = Typeface.createFromFile(file);
+                if (openFileDescriptor != null) {
+                    openFileDescriptor.close();
+                }
+                return createFromFile;
+            }
+            FileInputStream fileInputStream = new FileInputStream(openFileDescriptor.getFileDescriptor());
+            try {
+                Typeface createFromInputStream = super.createFromInputStream(context, fileInputStream);
+                fileInputStream.close();
+                if (openFileDescriptor != null) {
+                    openFileDescriptor.close();
+                }
+                return createFromInputStream;
+            } catch (Throwable th) {
+                try {
+                    fileInputStream.close();
+                } catch (Throwable th2) {
+                    th.addSuppressed(th2);
+                }
+                throw th;
+            }
+        } catch (IOException unused) {
+            return null;
+        }
     }
 }

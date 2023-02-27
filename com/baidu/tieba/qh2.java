@@ -1,63 +1,53 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class qh2 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public abstract class qh2 implements rh2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948091758, "Lcom/baidu/tieba/qh2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948091758, "Lcom/baidu/tieba/qh2;");
-                return;
-            }
+    @Override // com.baidu.tieba.rh2
+    @Nullable
+    public V8EngineConfiguration.CodeCacheSetting b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
         }
-        a = gp1.a;
+        return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
     }
 
-    public static String a(int i, String str) {
-        InterceptResult invokeIL;
+    @Override // com.baidu.tieba.rh2
+    public void c(ug2 ug2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
-            return "frame_type_" + i + "_" + str;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ug2Var) == null) {
         }
-        return (String) invokeIL.objValue;
     }
 
-    public static long b(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.rh2
+    public void d(ug2 ug2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            long j = kh3.a().getLong(a(i, "launch_time"), 0L);
-            if (a) {
-                Log.d("LaunchRecorder", "frame_type : " + i + " , launch time : " + j);
-            }
-            return j;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ug2Var) == null) {
         }
-        return invokeI.longValue;
     }
 
-    public static void c(int i) {
+    public qh2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            String a2 = a(i, "launch_time");
-            long currentTimeMillis = System.currentTimeMillis();
-            kh3.a().putLong(a2, currentTimeMillis);
-            if (a) {
-                Log.d("LaunchRecorder", "frame_type : " + i + " , launch time : " + currentTimeMillis);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }

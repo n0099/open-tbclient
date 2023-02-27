@@ -8,7 +8,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.pushservice.i.m;
+import com.baidu.android.pushservice.util.Utility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -161,15 +161,18 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
             if (Build.VERSION.SDK_INT >= 21 && (i = this.mColor) != 0) {
                 builder.setColor(i);
             }
-            if (m.B(context)) {
+            if (Utility.E(context)) {
                 if (TextUtils.isEmpty(this.mChannelId)) {
                     this.mChannelId = "com.baidu.android.pushservice.push";
                 }
                 if (TextUtils.isEmpty(this.mChannelName)) {
                     this.mChannelName = "云推送";
                 }
-                com.baidu.android.pushservice.i.h.a(context, this.mChannelId, this.mChannelName);
+                com.baidu.android.pushservice.a0.h.a(context, this.mChannelId, this.mChannelName);
                 builder.setChannelId(this.mChannelId);
+            }
+            if (!TextUtils.isEmpty(this.mGroup) && Build.VERSION.SDK_INT >= 24) {
+                builder.setGroup(this.mGroup);
             }
             Notification build = Build.VERSION.SDK_INT >= 16 ? builder.build() : builder.getNotification();
             int i5 = this.mNotificationFlags;

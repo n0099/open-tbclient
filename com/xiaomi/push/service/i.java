@@ -1,21 +1,16 @@
 package com.xiaomi.push.service;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.xiaomi.push.ii;
+import com.xiaomi.push.ig;
 /* loaded from: classes8.dex */
 public class i {
-    public static /* synthetic */ Interceptable $ic;
     public static a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static b f1004a;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static b f981a;
 
     /* loaded from: classes8.dex */
     public interface a {
-        boolean a(ii iiVar);
+        boolean a(ig igVar);
     }
 
     /* loaded from: classes8.dex */
@@ -23,27 +18,19 @@ public class i {
     }
 
     public static void a(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, bVar) == null) {
-            f1004a = bVar;
-        }
+        f981a = bVar;
     }
 
-    public static boolean a(ii iiVar) {
-        InterceptResult invokeL;
+    public static boolean a(ig igVar) {
         String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iiVar)) == null) {
-            if (a == null || iiVar == null) {
-                str = "rc params is null, not cpra";
-            } else if (com.xiaomi.push.m.m637a(com.xiaomi.push.v.m763a())) {
-                return a.a(iiVar);
-            } else {
-                str = "rc app not permission to cpra";
-            }
-            com.xiaomi.channel.commonutils.logger.b.m105a(str);
-            return false;
+        if (a == null || igVar == null) {
+            str = "rc params is null, not cpra";
+        } else if (com.xiaomi.push.j.m628a(com.xiaomi.push.s.m639a())) {
+            return a.a(igVar);
+        } else {
+            str = "rc app not permission to cpra";
         }
-        return invokeL.booleanValue;
+        com.xiaomi.channel.commonutils.logger.b.m97a(str);
+        return false;
     }
 }

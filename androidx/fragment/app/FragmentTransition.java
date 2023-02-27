@@ -9,27 +9,17 @@ import androidx.annotation.NonNull;
 import androidx.collection.ArrayMap;
 import androidx.core.app.SharedElementCallback;
 import androidx.core.os.CancellationSignal;
-import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.OneShotPreDrawListener;
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.FragmentTransaction;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 /* loaded from: classes.dex */
 public class FragmentTransition {
-    public static /* synthetic */ Interceptable $ic;
-    public static final int[] INVERSE_OPS;
+    public static final int[] INVERSE_OPS = {0, 3, 0, 1, 5, 4, 7, 6, 9, 8, 10};
     public static final FragmentTransitionImpl PLATFORM_IMPL;
     public static final FragmentTransitionImpl SUPPORT_IMPL;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public interface Callback {
@@ -40,45 +30,16 @@ public class FragmentTransition {
 
     /* loaded from: classes.dex */
     public static class FragmentContainerTransition {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public Fragment firstOut;
         public boolean firstOutIsPop;
         public BackStackRecord firstOutTransaction;
         public Fragment lastIn;
         public boolean lastInIsPop;
         public BackStackRecord lastInTransaction;
-
-        public FragmentContainerTransition() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     static {
-        InterceptResult invokeClinit;
         FragmentTransitionCompat21 fragmentTransitionCompat21;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-679676957, "Landroidx/fragment/app/FragmentTransition;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-679676957, "Landroidx/fragment/app/FragmentTransition;");
-                return;
-            }
-        }
-        INVERSE_OPS = new int[]{0, 3, 0, 1, 5, 4, 7, 6, 9, 8, 10};
         if (Build.VERSION.SDK_INT >= 21) {
             fragmentTransitionCompat21 = new FragmentTransitionCompat21();
         } else {
@@ -88,139 +49,102 @@ public class FragmentTransition {
         SUPPORT_IMPL = resolveSupportImpl();
     }
 
-    public FragmentTransition() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
     public static FragmentTransitionImpl resolveSupportImpl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
-            try {
-                return (FragmentTransitionImpl) Class.forName("androidx.transition.FragmentTransitionSupport").getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
-            } catch (Exception unused) {
-                return null;
-            }
+        try {
+            return (FragmentTransitionImpl) Class.forName("androidx.transition.FragmentTransitionSupport").getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
+        } catch (Exception unused) {
+            return null;
         }
-        return (FragmentTransitionImpl) invokeV.objValue;
     }
 
     public static boolean supportsTransition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
-            if (PLATFORM_IMPL == null && SUPPORT_IMPL == null) {
-                return false;
-            }
-            return true;
+        if (PLATFORM_IMPL == null && SUPPORT_IMPL == null) {
+            return false;
         }
-        return invokeV.booleanValue;
+        return true;
     }
 
     public static void addSharedElementsWithMatchingNames(ArrayList<View> arrayList, ArrayMap<String, View> arrayMap, Collection<String> collection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, arrayList, arrayMap, collection) == null) {
-            for (int size = arrayMap.size() - 1; size >= 0; size--) {
-                View valueAt = arrayMap.valueAt(size);
-                if (collection.contains(ViewCompat.getTransitionName(valueAt))) {
-                    arrayList.add(valueAt);
-                }
+        for (int size = arrayMap.size() - 1; size >= 0; size--) {
+            View valueAt = arrayMap.valueAt(size);
+            if (collection.contains(ViewCompat.getTransitionName(valueAt))) {
+                arrayList.add(valueAt);
             }
         }
     }
 
     public static void calculateFragments(BackStackRecord backStackRecord, SparseArray<FragmentContainerTransition> sparseArray, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, backStackRecord, sparseArray, z) == null) {
-            int size = backStackRecord.mOps.size();
-            for (int i = 0; i < size; i++) {
-                addToFirstInLastOut(backStackRecord, backStackRecord.mOps.get(i), sparseArray, false, z);
-            }
+        int size = backStackRecord.mOps.size();
+        for (int i = 0; i < size; i++) {
+            addToFirstInLastOut(backStackRecord, backStackRecord.mOps.get(i), sparseArray, false, z);
+        }
+    }
+
+    public static void calculatePopFragments(BackStackRecord backStackRecord, SparseArray<FragmentContainerTransition> sparseArray, boolean z) {
+        if (!backStackRecord.mManager.mContainer.onHasView()) {
+            return;
+        }
+        for (int size = backStackRecord.mOps.size() - 1; size >= 0; size--) {
+            addToFirstInLastOut(backStackRecord, backStackRecord.mOps.get(size), sparseArray, true, z);
         }
     }
 
     public static FragmentContainerTransition ensureContainer(FragmentContainerTransition fragmentContainerTransition, SparseArray<FragmentContainerTransition> sparseArray, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65553, null, fragmentContainerTransition, sparseArray, i)) == null) {
-            if (fragmentContainerTransition == null) {
-                FragmentContainerTransition fragmentContainerTransition2 = new FragmentContainerTransition();
-                sparseArray.put(i, fragmentContainerTransition2);
-                return fragmentContainerTransition2;
-            }
-            return fragmentContainerTransition;
+        if (fragmentContainerTransition == null) {
+            FragmentContainerTransition fragmentContainerTransition2 = new FragmentContainerTransition();
+            sparseArray.put(i, fragmentContainerTransition2);
+            return fragmentContainerTransition2;
         }
-        return (FragmentContainerTransition) invokeLLI.objValue;
+        return fragmentContainerTransition;
     }
 
     public static Object getEnterTransition(FragmentTransitionImpl fragmentTransitionImpl, Fragment fragment, boolean z) {
-        InterceptResult invokeLLZ;
         Object enterTransition;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65555, null, fragmentTransitionImpl, fragment, z)) == null) {
-            if (fragment == null) {
-                return null;
-            }
-            if (z) {
-                enterTransition = fragment.getReenterTransition();
-            } else {
-                enterTransition = fragment.getEnterTransition();
-            }
-            return fragmentTransitionImpl.cloneTransition(enterTransition);
+        if (fragment == null) {
+            return null;
         }
-        return invokeLLZ.objValue;
+        if (z) {
+            enterTransition = fragment.getReenterTransition();
+        } else {
+            enterTransition = fragment.getEnterTransition();
+        }
+        return fragmentTransitionImpl.cloneTransition(enterTransition);
     }
 
     public static Object getExitTransition(FragmentTransitionImpl fragmentTransitionImpl, Fragment fragment, boolean z) {
-        InterceptResult invokeLLZ;
         Object exitTransition;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65556, null, fragmentTransitionImpl, fragment, z)) == null) {
-            if (fragment == null) {
-                return null;
-            }
-            if (z) {
-                exitTransition = fragment.getReturnTransition();
-            } else {
-                exitTransition = fragment.getExitTransition();
-            }
-            return fragmentTransitionImpl.cloneTransition(exitTransition);
+        if (fragment == null) {
+            return null;
         }
-        return invokeLLZ.objValue;
+        if (z) {
+            exitTransition = fragment.getReturnTransition();
+        } else {
+            exitTransition = fragment.getExitTransition();
+        }
+        return fragmentTransitionImpl.cloneTransition(exitTransition);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x003d, code lost:
-        if (r0.mAdded != false) goto L66;
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0039, code lost:
+        if (r0.mAdded != false) goto L64;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:58:0x0072, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x006e, code lost:
         r9 = true;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:71:0x008e, code lost:
-        if (r0.mHidden == false) goto L66;
+    /* JADX WARN: Code restructure failed: missing block: B:69:0x008a, code lost:
+        if (r0.mHidden == false) goto L64;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:72:0x0090, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:70:0x008c, code lost:
         r9 = true;
      */
-    /* JADX WARN: Removed duplicated region for block: B:107:? A[ADDED_TO_REGION, RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x009e  */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x00ab A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:93:0x00cb A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x00dd A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:102:? A[ADDED_TO_REGION, RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x009a  */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x00a7 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:91:0x00c7 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:96:0x00d9 A[ADDED_TO_REGION] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void addToFirstInLastOut(BackStackRecord backStackRecord, FragmentTransaction.Op op, SparseArray<FragmentContainerTransition> sparseArray, boolean z, boolean z2) {
-        Fragment fragment;
         int i;
         int i2;
         boolean z3;
@@ -229,8 +153,8 @@ public class FragmentTransition {
         boolean z6;
         FragmentContainerTransition fragmentContainerTransition;
         FragmentManager fragmentManager;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{backStackRecord, op, sparseArray, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || (fragment = op.mFragment) == null || (i = fragment.mContainerId) == 0) {
+        Fragment fragment = op.mFragment;
+        if (fragment == null || (i = fragment.mContainerId) == 0) {
             return;
         }
         if (z) {
@@ -394,130 +318,98 @@ public class FragmentTransition {
     }
 
     public static ArrayMap<String, String> calculateNameOverrides(int i, ArrayList<BackStackRecord> arrayList, ArrayList<Boolean> arrayList2, int i2, int i3) {
-        InterceptResult invokeCommon;
         ArrayList<String> arrayList3;
         ArrayList<String> arrayList4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), arrayList, arrayList2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            ArrayMap<String, String> arrayMap = new ArrayMap<>();
-            for (int i4 = i3 - 1; i4 >= i2; i4--) {
-                BackStackRecord backStackRecord = arrayList.get(i4);
-                if (backStackRecord.interactsWith(i)) {
-                    boolean booleanValue = arrayList2.get(i4).booleanValue();
-                    ArrayList<String> arrayList5 = backStackRecord.mSharedElementSourceNames;
-                    if (arrayList5 != null) {
-                        int size = arrayList5.size();
-                        if (booleanValue) {
-                            arrayList3 = backStackRecord.mSharedElementSourceNames;
-                            arrayList4 = backStackRecord.mSharedElementTargetNames;
+        ArrayMap<String, String> arrayMap = new ArrayMap<>();
+        for (int i4 = i3 - 1; i4 >= i2; i4--) {
+            BackStackRecord backStackRecord = arrayList.get(i4);
+            if (backStackRecord.interactsWith(i)) {
+                boolean booleanValue = arrayList2.get(i4).booleanValue();
+                ArrayList<String> arrayList5 = backStackRecord.mSharedElementSourceNames;
+                if (arrayList5 != null) {
+                    int size = arrayList5.size();
+                    if (booleanValue) {
+                        arrayList3 = backStackRecord.mSharedElementSourceNames;
+                        arrayList4 = backStackRecord.mSharedElementTargetNames;
+                    } else {
+                        ArrayList<String> arrayList6 = backStackRecord.mSharedElementSourceNames;
+                        arrayList3 = backStackRecord.mSharedElementTargetNames;
+                        arrayList4 = arrayList6;
+                    }
+                    for (int i5 = 0; i5 < size; i5++) {
+                        String str = arrayList4.get(i5);
+                        String str2 = arrayList3.get(i5);
+                        String remove = arrayMap.remove(str2);
+                        if (remove != null) {
+                            arrayMap.put(str, remove);
                         } else {
-                            ArrayList<String> arrayList6 = backStackRecord.mSharedElementSourceNames;
-                            arrayList3 = backStackRecord.mSharedElementTargetNames;
-                            arrayList4 = arrayList6;
-                        }
-                        for (int i5 = 0; i5 < size; i5++) {
-                            String str = arrayList4.get(i5);
-                            String str2 = arrayList3.get(i5);
-                            String remove = arrayMap.remove(str2);
-                            if (remove != null) {
-                                arrayMap.put(str, remove);
-                            } else {
-                                arrayMap.put(str, str2);
-                            }
+                            arrayMap.put(str, str2);
                         }
                     }
                 }
             }
-            return arrayMap;
         }
-        return (ArrayMap) invokeCommon.objValue;
+        return arrayMap;
     }
 
     public static void callSharedElementStartEnd(Fragment fragment, Fragment fragment2, boolean z, ArrayMap<String, View> arrayMap, boolean z2) {
         SharedElementCallback enterTransitionCallback;
         int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{fragment, fragment2, Boolean.valueOf(z), arrayMap, Boolean.valueOf(z2)}) == null) {
-            if (z) {
-                enterTransitionCallback = fragment2.getEnterTransitionCallback();
+        if (z) {
+            enterTransitionCallback = fragment2.getEnterTransitionCallback();
+        } else {
+            enterTransitionCallback = fragment.getEnterTransitionCallback();
+        }
+        if (enterTransitionCallback != null) {
+            ArrayList arrayList = new ArrayList();
+            ArrayList arrayList2 = new ArrayList();
+            if (arrayMap == null) {
+                size = 0;
             } else {
-                enterTransitionCallback = fragment.getEnterTransitionCallback();
+                size = arrayMap.size();
             }
-            if (enterTransitionCallback != null) {
-                ArrayList arrayList = new ArrayList();
-                ArrayList arrayList2 = new ArrayList();
-                if (arrayMap == null) {
-                    size = 0;
-                } else {
-                    size = arrayMap.size();
-                }
-                for (int i = 0; i < size; i++) {
-                    arrayList2.add(arrayMap.keyAt(i));
-                    arrayList.add(arrayMap.valueAt(i));
-                }
-                if (z2) {
-                    enterTransitionCallback.onSharedElementStart(arrayList2, arrayList, null);
-                } else {
-                    enterTransitionCallback.onSharedElementEnd(arrayList2, arrayList, null);
-                }
+            for (int i = 0; i < size; i++) {
+                arrayList2.add(arrayMap.keyAt(i));
+                arrayList.add(arrayMap.valueAt(i));
             }
-        }
-    }
-
-    public static void calculatePopFragments(BackStackRecord backStackRecord, SparseArray<FragmentContainerTransition> sparseArray, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(65542, null, backStackRecord, sparseArray, z) != null) || !backStackRecord.mManager.mContainer.onHasView()) {
-            return;
-        }
-        for (int size = backStackRecord.mOps.size() - 1; size >= 0; size--) {
-            addToFirstInLastOut(backStackRecord, backStackRecord.mOps.get(size), sparseArray, true, z);
+            if (z2) {
+                enterTransitionCallback.onSharedElementStart(arrayList2, arrayList, null);
+            } else {
+                enterTransitionCallback.onSharedElementEnd(arrayList2, arrayList, null);
+            }
         }
     }
 
     public static boolean canHandleAll(FragmentTransitionImpl fragmentTransitionImpl, List<Object> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, fragmentTransitionImpl, list)) == null) {
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                if (!fragmentTransitionImpl.canHandle(list.get(i))) {
-                    return false;
-                }
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            if (!fragmentTransitionImpl.canHandle(list.get(i))) {
+                return false;
             }
-            return true;
         }
-        return invokeLL.booleanValue;
+        return true;
     }
 
     public static String findKeyForValue(ArrayMap<String, String> arrayMap, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, arrayMap, str)) == null) {
-            int size = arrayMap.size();
-            for (int i = 0; i < size; i++) {
-                if (str.equals(arrayMap.valueAt(i))) {
-                    return arrayMap.keyAt(i);
-                }
+        int size = arrayMap.size();
+        for (int i = 0; i < size; i++) {
+            if (str.equals(arrayMap.valueAt(i))) {
+                return arrayMap.keyAt(i);
             }
-            return null;
         }
-        return (String) invokeLL.objValue;
+        return null;
     }
 
     public static void retainValues(ArrayMap<String, String> arrayMap, ArrayMap<String, View> arrayMap2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65562, null, arrayMap, arrayMap2) == null) {
-            for (int size = arrayMap.size() - 1; size >= 0; size--) {
-                if (!arrayMap2.containsKey(arrayMap.valueAt(size))) {
-                    arrayMap.removeAt(size);
-                }
+        for (int size = arrayMap.size() - 1; size >= 0; size--) {
+            if (!arrayMap2.containsKey(arrayMap.valueAt(size))) {
+                arrayMap.removeAt(size);
             }
         }
     }
 
     public static void setViewVisibility(ArrayList<View> arrayList, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65565, null, arrayList, i) != null) || arrayList == null) {
+        if (arrayList == null) {
             return;
         }
         for (int size = arrayList.size() - 1; size >= 0; size--) {
@@ -526,676 +418,458 @@ public class FragmentTransition {
     }
 
     public static ArrayMap<String, View> captureInSharedElements(FragmentTransitionImpl fragmentTransitionImpl, ArrayMap<String, String> arrayMap, Object obj, FragmentContainerTransition fragmentContainerTransition) {
-        InterceptResult invokeLLLL;
         SharedElementCallback enterTransitionCallback;
         ArrayList<String> arrayList;
         String findKeyForValue;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65545, null, fragmentTransitionImpl, arrayMap, obj, fragmentContainerTransition)) == null) {
-            Fragment fragment = fragmentContainerTransition.lastIn;
-            View view2 = fragment.getView();
-            if (!arrayMap.isEmpty() && obj != null && view2 != null) {
-                ArrayMap<String, View> arrayMap2 = new ArrayMap<>();
-                fragmentTransitionImpl.findNamedViews(arrayMap2, view2);
-                BackStackRecord backStackRecord = fragmentContainerTransition.lastInTransaction;
-                if (fragmentContainerTransition.lastInIsPop) {
-                    enterTransitionCallback = fragment.getExitTransitionCallback();
-                    arrayList = backStackRecord.mSharedElementSourceNames;
-                } else {
-                    enterTransitionCallback = fragment.getEnterTransitionCallback();
-                    arrayList = backStackRecord.mSharedElementTargetNames;
-                }
-                if (arrayList != null) {
-                    arrayMap2.retainAll(arrayList);
-                    arrayMap2.retainAll(arrayMap.values());
-                }
-                if (enterTransitionCallback != null) {
-                    enterTransitionCallback.onMapSharedElements(arrayList, arrayMap2);
-                    for (int size = arrayList.size() - 1; size >= 0; size--) {
-                        String str = arrayList.get(size);
-                        View view3 = arrayMap2.get(str);
-                        if (view3 == null) {
-                            String findKeyForValue2 = findKeyForValue(arrayMap, str);
-                            if (findKeyForValue2 != null) {
-                                arrayMap.remove(findKeyForValue2);
-                            }
-                        } else if (!str.equals(ViewCompat.getTransitionName(view3)) && (findKeyForValue = findKeyForValue(arrayMap, str)) != null) {
-                            arrayMap.put(findKeyForValue, ViewCompat.getTransitionName(view3));
-                        }
-                    }
-                } else {
-                    retainValues(arrayMap, arrayMap2);
-                }
-                return arrayMap2;
+        Fragment fragment = fragmentContainerTransition.lastIn;
+        View view2 = fragment.getView();
+        if (!arrayMap.isEmpty() && obj != null && view2 != null) {
+            ArrayMap<String, View> arrayMap2 = new ArrayMap<>();
+            fragmentTransitionImpl.findNamedViews(arrayMap2, view2);
+            BackStackRecord backStackRecord = fragmentContainerTransition.lastInTransaction;
+            if (fragmentContainerTransition.lastInIsPop) {
+                enterTransitionCallback = fragment.getExitTransitionCallback();
+                arrayList = backStackRecord.mSharedElementSourceNames;
+            } else {
+                enterTransitionCallback = fragment.getEnterTransitionCallback();
+                arrayList = backStackRecord.mSharedElementTargetNames;
             }
-            arrayMap.clear();
-            return null;
+            if (arrayList != null) {
+                arrayMap2.retainAll(arrayList);
+                arrayMap2.retainAll(arrayMap.values());
+            }
+            if (enterTransitionCallback != null) {
+                enterTransitionCallback.onMapSharedElements(arrayList, arrayMap2);
+                for (int size = arrayList.size() - 1; size >= 0; size--) {
+                    String str = arrayList.get(size);
+                    View view3 = arrayMap2.get(str);
+                    if (view3 == null) {
+                        String findKeyForValue2 = findKeyForValue(arrayMap, str);
+                        if (findKeyForValue2 != null) {
+                            arrayMap.remove(findKeyForValue2);
+                        }
+                    } else if (!str.equals(ViewCompat.getTransitionName(view3)) && (findKeyForValue = findKeyForValue(arrayMap, str)) != null) {
+                        arrayMap.put(findKeyForValue, ViewCompat.getTransitionName(view3));
+                    }
+                }
+            } else {
+                retainValues(arrayMap, arrayMap2);
+            }
+            return arrayMap2;
         }
-        return (ArrayMap) invokeLLLL.objValue;
+        arrayMap.clear();
+        return null;
     }
 
     public static ArrayMap<String, View> captureOutSharedElements(FragmentTransitionImpl fragmentTransitionImpl, ArrayMap<String, String> arrayMap, Object obj, FragmentContainerTransition fragmentContainerTransition) {
-        InterceptResult invokeLLLL;
         SharedElementCallback exitTransitionCallback;
         ArrayList<String> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65546, null, fragmentTransitionImpl, arrayMap, obj, fragmentContainerTransition)) == null) {
-            if (!arrayMap.isEmpty() && obj != null) {
-                Fragment fragment = fragmentContainerTransition.firstOut;
-                ArrayMap<String, View> arrayMap2 = new ArrayMap<>();
-                fragmentTransitionImpl.findNamedViews(arrayMap2, fragment.requireView());
-                BackStackRecord backStackRecord = fragmentContainerTransition.firstOutTransaction;
-                if (fragmentContainerTransition.firstOutIsPop) {
-                    exitTransitionCallback = fragment.getEnterTransitionCallback();
-                    arrayList = backStackRecord.mSharedElementTargetNames;
-                } else {
-                    exitTransitionCallback = fragment.getExitTransitionCallback();
-                    arrayList = backStackRecord.mSharedElementSourceNames;
-                }
-                if (arrayList != null) {
-                    arrayMap2.retainAll(arrayList);
-                }
-                if (exitTransitionCallback != null) {
-                    exitTransitionCallback.onMapSharedElements(arrayList, arrayMap2);
-                    for (int size = arrayList.size() - 1; size >= 0; size--) {
-                        String str = arrayList.get(size);
-                        View view2 = arrayMap2.get(str);
-                        if (view2 == null) {
-                            arrayMap.remove(str);
-                        } else if (!str.equals(ViewCompat.getTransitionName(view2))) {
-                            arrayMap.put(ViewCompat.getTransitionName(view2), arrayMap.remove(str));
-                        }
-                    }
-                } else {
-                    arrayMap.retainAll(arrayMap2.keySet());
-                }
-                return arrayMap2;
+        if (!arrayMap.isEmpty() && obj != null) {
+            Fragment fragment = fragmentContainerTransition.firstOut;
+            ArrayMap<String, View> arrayMap2 = new ArrayMap<>();
+            fragmentTransitionImpl.findNamedViews(arrayMap2, fragment.requireView());
+            BackStackRecord backStackRecord = fragmentContainerTransition.firstOutTransaction;
+            if (fragmentContainerTransition.firstOutIsPop) {
+                exitTransitionCallback = fragment.getEnterTransitionCallback();
+                arrayList = backStackRecord.mSharedElementTargetNames;
+            } else {
+                exitTransitionCallback = fragment.getExitTransitionCallback();
+                arrayList = backStackRecord.mSharedElementSourceNames;
             }
-            arrayMap.clear();
-            return null;
+            if (arrayList != null) {
+                arrayMap2.retainAll(arrayList);
+            }
+            if (exitTransitionCallback != null) {
+                exitTransitionCallback.onMapSharedElements(arrayList, arrayMap2);
+                for (int size = arrayList.size() - 1; size >= 0; size--) {
+                    String str = arrayList.get(size);
+                    View view2 = arrayMap2.get(str);
+                    if (view2 == null) {
+                        arrayMap.remove(str);
+                    } else if (!str.equals(ViewCompat.getTransitionName(view2))) {
+                        arrayMap.put(ViewCompat.getTransitionName(view2), arrayMap.remove(str));
+                    }
+                }
+            } else {
+                arrayMap.retainAll(arrayMap2.keySet());
+            }
+            return arrayMap2;
         }
-        return (ArrayMap) invokeLLLL.objValue;
+        arrayMap.clear();
+        return null;
     }
 
     public static FragmentTransitionImpl chooseImpl(Fragment fragment, Fragment fragment2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, fragment, fragment2)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (fragment != null) {
-                Object exitTransition = fragment.getExitTransition();
-                if (exitTransition != null) {
-                    arrayList.add(exitTransition);
-                }
-                Object returnTransition = fragment.getReturnTransition();
-                if (returnTransition != null) {
-                    arrayList.add(returnTransition);
-                }
-                Object sharedElementReturnTransition = fragment.getSharedElementReturnTransition();
-                if (sharedElementReturnTransition != null) {
-                    arrayList.add(sharedElementReturnTransition);
-                }
+        ArrayList arrayList = new ArrayList();
+        if (fragment != null) {
+            Object exitTransition = fragment.getExitTransition();
+            if (exitTransition != null) {
+                arrayList.add(exitTransition);
             }
-            if (fragment2 != null) {
-                Object enterTransition = fragment2.getEnterTransition();
-                if (enterTransition != null) {
-                    arrayList.add(enterTransition);
-                }
-                Object reenterTransition = fragment2.getReenterTransition();
-                if (reenterTransition != null) {
-                    arrayList.add(reenterTransition);
-                }
-                Object sharedElementEnterTransition = fragment2.getSharedElementEnterTransition();
-                if (sharedElementEnterTransition != null) {
-                    arrayList.add(sharedElementEnterTransition);
-                }
+            Object returnTransition = fragment.getReturnTransition();
+            if (returnTransition != null) {
+                arrayList.add(returnTransition);
             }
-            if (arrayList.isEmpty()) {
-                return null;
+            Object sharedElementReturnTransition = fragment.getSharedElementReturnTransition();
+            if (sharedElementReturnTransition != null) {
+                arrayList.add(sharedElementReturnTransition);
             }
-            FragmentTransitionImpl fragmentTransitionImpl = PLATFORM_IMPL;
-            if (fragmentTransitionImpl != null && canHandleAll(fragmentTransitionImpl, arrayList)) {
-                return PLATFORM_IMPL;
-            }
-            FragmentTransitionImpl fragmentTransitionImpl2 = SUPPORT_IMPL;
-            if (fragmentTransitionImpl2 != null && canHandleAll(fragmentTransitionImpl2, arrayList)) {
-                return SUPPORT_IMPL;
-            }
-            if (PLATFORM_IMPL == null && SUPPORT_IMPL == null) {
-                return null;
-            }
-            throw new IllegalArgumentException("Invalid Transition types");
         }
-        return (FragmentTransitionImpl) invokeLL.objValue;
+        if (fragment2 != null) {
+            Object enterTransition = fragment2.getEnterTransition();
+            if (enterTransition != null) {
+                arrayList.add(enterTransition);
+            }
+            Object reenterTransition = fragment2.getReenterTransition();
+            if (reenterTransition != null) {
+                arrayList.add(reenterTransition);
+            }
+            Object sharedElementEnterTransition = fragment2.getSharedElementEnterTransition();
+            if (sharedElementEnterTransition != null) {
+                arrayList.add(sharedElementEnterTransition);
+            }
+        }
+        if (arrayList.isEmpty()) {
+            return null;
+        }
+        FragmentTransitionImpl fragmentTransitionImpl = PLATFORM_IMPL;
+        if (fragmentTransitionImpl != null && canHandleAll(fragmentTransitionImpl, arrayList)) {
+            return PLATFORM_IMPL;
+        }
+        FragmentTransitionImpl fragmentTransitionImpl2 = SUPPORT_IMPL;
+        if (fragmentTransitionImpl2 != null && canHandleAll(fragmentTransitionImpl2, arrayList)) {
+            return SUPPORT_IMPL;
+        }
+        if (PLATFORM_IMPL == null && SUPPORT_IMPL == null) {
+            return null;
+        }
+        throw new IllegalArgumentException("Invalid Transition types");
     }
 
     public static ArrayList<View> configureEnteringExitingViews(FragmentTransitionImpl fragmentTransitionImpl, Object obj, Fragment fragment, ArrayList<View> arrayList, View view2) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65548, null, fragmentTransitionImpl, obj, fragment, arrayList, view2)) == null) {
-            if (obj != null) {
-                ArrayList<View> arrayList2 = new ArrayList<>();
-                View view3 = fragment.getView();
-                if (view3 != null) {
-                    fragmentTransitionImpl.captureTransitioningViews(arrayList2, view3);
-                }
-                if (arrayList != null) {
-                    arrayList2.removeAll(arrayList);
-                }
-                if (!arrayList2.isEmpty()) {
-                    arrayList2.add(view2);
-                    fragmentTransitionImpl.addTargets(obj, arrayList2);
-                    return arrayList2;
-                }
+        if (obj != null) {
+            ArrayList<View> arrayList2 = new ArrayList<>();
+            View view3 = fragment.getView();
+            if (view3 != null) {
+                fragmentTransitionImpl.captureTransitioningViews(arrayList2, view3);
+            }
+            if (arrayList != null) {
+                arrayList2.removeAll(arrayList);
+            }
+            if (!arrayList2.isEmpty()) {
+                arrayList2.add(view2);
+                fragmentTransitionImpl.addTargets(obj, arrayList2);
                 return arrayList2;
             }
-            return null;
+            return arrayList2;
         }
-        return (ArrayList) invokeLLLLL.objValue;
+        return null;
     }
 
-    public static Object configureSharedElementsOrdered(FragmentTransitionImpl fragmentTransitionImpl, ViewGroup viewGroup, View view2, ArrayMap<String, String> arrayMap, FragmentContainerTransition fragmentContainerTransition, ArrayList<View> arrayList, ArrayList<View> arrayList2, Object obj, Object obj2) {
-        InterceptResult invokeCommon;
+    public static Object configureSharedElementsOrdered(final FragmentTransitionImpl fragmentTransitionImpl, ViewGroup viewGroup, final View view2, final ArrayMap<String, String> arrayMap, final FragmentContainerTransition fragmentContainerTransition, final ArrayList<View> arrayList, final ArrayList<View> arrayList2, final Object obj, Object obj2) {
         Object sharedElementTransition;
         ArrayMap<String, String> arrayMap2;
         Object obj3;
         Rect rect;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{fragmentTransitionImpl, viewGroup, view2, arrayMap, fragmentContainerTransition, arrayList, arrayList2, obj, obj2})) == null) {
-            Fragment fragment = fragmentContainerTransition.lastIn;
-            Fragment fragment2 = fragmentContainerTransition.firstOut;
-            if (fragment == null || fragment2 == null) {
-                return null;
-            }
-            boolean z = fragmentContainerTransition.lastInIsPop;
-            if (arrayMap.isEmpty()) {
-                arrayMap2 = arrayMap;
-                sharedElementTransition = null;
-            } else {
-                sharedElementTransition = getSharedElementTransition(fragmentTransitionImpl, fragment, fragment2, z);
-                arrayMap2 = arrayMap;
-            }
-            ArrayMap<String, View> captureOutSharedElements = captureOutSharedElements(fragmentTransitionImpl, arrayMap2, sharedElementTransition, fragmentContainerTransition);
-            if (arrayMap.isEmpty()) {
-                obj3 = null;
-            } else {
-                arrayList.addAll(captureOutSharedElements.values());
-                obj3 = sharedElementTransition;
-            }
-            if (obj == null && obj2 == null && obj3 == null) {
-                return null;
-            }
-            callSharedElementStartEnd(fragment, fragment2, z, captureOutSharedElements, true);
-            if (obj3 != null) {
-                rect = new Rect();
-                fragmentTransitionImpl.setSharedElementTargets(obj3, view2, arrayList);
-                setOutEpicenter(fragmentTransitionImpl, obj3, obj2, captureOutSharedElements, fragmentContainerTransition.firstOutIsPop, fragmentContainerTransition.firstOutTransaction);
-                if (obj != null) {
-                    fragmentTransitionImpl.setEpicenter(obj, rect);
-                }
-            } else {
-                rect = null;
-            }
-            OneShotPreDrawListener.add(viewGroup, new Runnable(fragmentTransitionImpl, arrayMap, obj3, fragmentContainerTransition, arrayList2, view2, fragment, fragment2, z, arrayList, obj, rect) { // from class: androidx.fragment.app.FragmentTransition.6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Object val$enterTransition;
-                public final /* synthetic */ Object val$finalSharedElementTransition;
-                public final /* synthetic */ FragmentContainerTransition val$fragments;
-                public final /* synthetic */ FragmentTransitionImpl val$impl;
-                public final /* synthetic */ Rect val$inEpicenter;
-                public final /* synthetic */ Fragment val$inFragment;
-                public final /* synthetic */ boolean val$inIsPop;
-                public final /* synthetic */ ArrayMap val$nameOverrides;
-                public final /* synthetic */ View val$nonExistentView;
-                public final /* synthetic */ Fragment val$outFragment;
-                public final /* synthetic */ ArrayList val$sharedElementsIn;
-                public final /* synthetic */ ArrayList val$sharedElementsOut;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r3;
-                        Object[] objArr = {fragmentTransitionImpl, arrayMap, obj3, fragmentContainerTransition, arrayList2, view2, fragment, fragment2, Boolean.valueOf(z), arrayList, obj, rect};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$impl = fragmentTransitionImpl;
-                    this.val$nameOverrides = arrayMap;
-                    this.val$finalSharedElementTransition = obj3;
-                    this.val$fragments = fragmentContainerTransition;
-                    this.val$sharedElementsIn = arrayList2;
-                    this.val$nonExistentView = view2;
-                    this.val$inFragment = fragment;
-                    this.val$outFragment = fragment2;
-                    this.val$inIsPop = z;
-                    this.val$sharedElementsOut = arrayList;
-                    this.val$enterTransition = obj;
-                    this.val$inEpicenter = rect;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ArrayMap<String, View> captureInSharedElements = FragmentTransition.captureInSharedElements(this.val$impl, this.val$nameOverrides, this.val$finalSharedElementTransition, this.val$fragments);
-                        if (captureInSharedElements != null) {
-                            this.val$sharedElementsIn.addAll(captureInSharedElements.values());
-                            this.val$sharedElementsIn.add(this.val$nonExistentView);
-                        }
-                        FragmentTransition.callSharedElementStartEnd(this.val$inFragment, this.val$outFragment, this.val$inIsPop, captureInSharedElements, false);
-                        Object obj4 = this.val$finalSharedElementTransition;
-                        if (obj4 != null) {
-                            this.val$impl.swapSharedElementTargets(obj4, this.val$sharedElementsOut, this.val$sharedElementsIn);
-                            View inEpicenterView = FragmentTransition.getInEpicenterView(captureInSharedElements, this.val$fragments, this.val$enterTransition, this.val$inIsPop);
-                            if (inEpicenterView != null) {
-                                this.val$impl.getBoundsOnScreen(inEpicenterView, this.val$inEpicenter);
-                            }
-                        }
-                    }
-                }
-            });
-            return obj3;
+        final Fragment fragment = fragmentContainerTransition.lastIn;
+        final Fragment fragment2 = fragmentContainerTransition.firstOut;
+        if (fragment == null || fragment2 == null) {
+            return null;
         }
-        return invokeCommon.objValue;
+        final boolean z = fragmentContainerTransition.lastInIsPop;
+        if (arrayMap.isEmpty()) {
+            arrayMap2 = arrayMap;
+            sharedElementTransition = null;
+        } else {
+            sharedElementTransition = getSharedElementTransition(fragmentTransitionImpl, fragment, fragment2, z);
+            arrayMap2 = arrayMap;
+        }
+        ArrayMap<String, View> captureOutSharedElements = captureOutSharedElements(fragmentTransitionImpl, arrayMap2, sharedElementTransition, fragmentContainerTransition);
+        if (arrayMap.isEmpty()) {
+            obj3 = null;
+        } else {
+            arrayList.addAll(captureOutSharedElements.values());
+            obj3 = sharedElementTransition;
+        }
+        if (obj == null && obj2 == null && obj3 == null) {
+            return null;
+        }
+        callSharedElementStartEnd(fragment, fragment2, z, captureOutSharedElements, true);
+        if (obj3 != null) {
+            rect = new Rect();
+            fragmentTransitionImpl.setSharedElementTargets(obj3, view2, arrayList);
+            setOutEpicenter(fragmentTransitionImpl, obj3, obj2, captureOutSharedElements, fragmentContainerTransition.firstOutIsPop, fragmentContainerTransition.firstOutTransaction);
+            if (obj != null) {
+                fragmentTransitionImpl.setEpicenter(obj, rect);
+            }
+        } else {
+            rect = null;
+        }
+        final Object obj4 = obj3;
+        final Rect rect2 = rect;
+        OneShotPreDrawListener.add(viewGroup, new Runnable() { // from class: androidx.fragment.app.FragmentTransition.6
+            @Override // java.lang.Runnable
+            public void run() {
+                ArrayMap<String, View> captureInSharedElements = FragmentTransition.captureInSharedElements(FragmentTransitionImpl.this, arrayMap, obj4, fragmentContainerTransition);
+                if (captureInSharedElements != null) {
+                    arrayList2.addAll(captureInSharedElements.values());
+                    arrayList2.add(view2);
+                }
+                FragmentTransition.callSharedElementStartEnd(fragment, fragment2, z, captureInSharedElements, false);
+                Object obj5 = obj4;
+                if (obj5 != null) {
+                    FragmentTransitionImpl.this.swapSharedElementTargets(obj5, arrayList, arrayList2);
+                    View inEpicenterView = FragmentTransition.getInEpicenterView(captureInSharedElements, fragmentContainerTransition, obj, z);
+                    if (inEpicenterView != null) {
+                        FragmentTransitionImpl.this.getBoundsOnScreen(inEpicenterView, rect2);
+                    }
+                }
+            }
+        });
+        return obj3;
     }
 
-    public static Object configureSharedElementsReordered(FragmentTransitionImpl fragmentTransitionImpl, ViewGroup viewGroup, View view2, ArrayMap<String, String> arrayMap, FragmentContainerTransition fragmentContainerTransition, ArrayList<View> arrayList, ArrayList<View> arrayList2, Object obj, Object obj2) {
-        InterceptResult invokeCommon;
+    public static Object configureSharedElementsReordered(final FragmentTransitionImpl fragmentTransitionImpl, ViewGroup viewGroup, View view2, ArrayMap<String, String> arrayMap, FragmentContainerTransition fragmentContainerTransition, ArrayList<View> arrayList, ArrayList<View> arrayList2, Object obj, Object obj2) {
         Object sharedElementTransition;
         Object obj3;
-        View view3;
-        Rect rect;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{fragmentTransitionImpl, viewGroup, view2, arrayMap, fragmentContainerTransition, arrayList, arrayList2, obj, obj2})) == null) {
-            Fragment fragment = fragmentContainerTransition.lastIn;
-            Fragment fragment2 = fragmentContainerTransition.firstOut;
-            if (fragment != null) {
-                fragment.requireView().setVisibility(0);
-            }
-            if (fragment == null || fragment2 == null) {
-                return null;
-            }
-            boolean z = fragmentContainerTransition.lastInIsPop;
-            if (arrayMap.isEmpty()) {
-                sharedElementTransition = null;
-            } else {
-                sharedElementTransition = getSharedElementTransition(fragmentTransitionImpl, fragment, fragment2, z);
-            }
-            ArrayMap<String, View> captureOutSharedElements = captureOutSharedElements(fragmentTransitionImpl, arrayMap, sharedElementTransition, fragmentContainerTransition);
-            ArrayMap<String, View> captureInSharedElements = captureInSharedElements(fragmentTransitionImpl, arrayMap, sharedElementTransition, fragmentContainerTransition);
-            if (arrayMap.isEmpty()) {
-                if (captureOutSharedElements != null) {
-                    captureOutSharedElements.clear();
-                }
-                if (captureInSharedElements != null) {
-                    captureInSharedElements.clear();
-                }
-                obj3 = null;
-            } else {
-                addSharedElementsWithMatchingNames(arrayList, captureOutSharedElements, arrayMap.keySet());
-                addSharedElementsWithMatchingNames(arrayList2, captureInSharedElements, arrayMap.values());
-                obj3 = sharedElementTransition;
-            }
-            if (obj == null && obj2 == null && obj3 == null) {
-                return null;
-            }
-            callSharedElementStartEnd(fragment, fragment2, z, captureOutSharedElements, true);
-            if (obj3 != null) {
-                arrayList2.add(view2);
-                fragmentTransitionImpl.setSharedElementTargets(obj3, view2, arrayList);
-                setOutEpicenter(fragmentTransitionImpl, obj3, obj2, captureOutSharedElements, fragmentContainerTransition.firstOutIsPop, fragmentContainerTransition.firstOutTransaction);
-                Rect rect2 = new Rect();
-                View inEpicenterView = getInEpicenterView(captureInSharedElements, fragmentContainerTransition, obj, z);
-                if (inEpicenterView != null) {
-                    fragmentTransitionImpl.setEpicenter(obj, rect2);
-                }
-                rect = rect2;
-                view3 = inEpicenterView;
-            } else {
-                view3 = null;
-                rect = null;
-            }
-            OneShotPreDrawListener.add(viewGroup, new Runnable(fragment, fragment2, z, captureInSharedElements, view3, fragmentTransitionImpl, rect) { // from class: androidx.fragment.app.FragmentTransition.5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Rect val$epicenter;
-                public final /* synthetic */ View val$epicenterView;
-                public final /* synthetic */ FragmentTransitionImpl val$impl;
-                public final /* synthetic */ Fragment val$inFragment;
-                public final /* synthetic */ boolean val$inIsPop;
-                public final /* synthetic */ ArrayMap val$inSharedElements;
-                public final /* synthetic */ Fragment val$outFragment;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {fragment, fragment2, Boolean.valueOf(z), captureInSharedElements, view3, fragmentTransitionImpl, rect};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$inFragment = fragment;
-                    this.val$outFragment = fragment2;
-                    this.val$inIsPop = z;
-                    this.val$inSharedElements = captureInSharedElements;
-                    this.val$epicenterView = view3;
-                    this.val$impl = fragmentTransitionImpl;
-                    this.val$epicenter = rect;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        FragmentTransition.callSharedElementStartEnd(this.val$inFragment, this.val$outFragment, this.val$inIsPop, this.val$inSharedElements, false);
-                        View view4 = this.val$epicenterView;
-                        if (view4 != null) {
-                            this.val$impl.getBoundsOnScreen(view4, this.val$epicenter);
-                        }
-                    }
-                }
-            });
-            return obj3;
+        final View view3;
+        final Rect rect;
+        final Fragment fragment = fragmentContainerTransition.lastIn;
+        final Fragment fragment2 = fragmentContainerTransition.firstOut;
+        if (fragment != null) {
+            fragment.requireView().setVisibility(0);
         }
-        return invokeCommon.objValue;
+        if (fragment == null || fragment2 == null) {
+            return null;
+        }
+        final boolean z = fragmentContainerTransition.lastInIsPop;
+        if (arrayMap.isEmpty()) {
+            sharedElementTransition = null;
+        } else {
+            sharedElementTransition = getSharedElementTransition(fragmentTransitionImpl, fragment, fragment2, z);
+        }
+        ArrayMap<String, View> captureOutSharedElements = captureOutSharedElements(fragmentTransitionImpl, arrayMap, sharedElementTransition, fragmentContainerTransition);
+        final ArrayMap<String, View> captureInSharedElements = captureInSharedElements(fragmentTransitionImpl, arrayMap, sharedElementTransition, fragmentContainerTransition);
+        if (arrayMap.isEmpty()) {
+            if (captureOutSharedElements != null) {
+                captureOutSharedElements.clear();
+            }
+            if (captureInSharedElements != null) {
+                captureInSharedElements.clear();
+            }
+            obj3 = null;
+        } else {
+            addSharedElementsWithMatchingNames(arrayList, captureOutSharedElements, arrayMap.keySet());
+            addSharedElementsWithMatchingNames(arrayList2, captureInSharedElements, arrayMap.values());
+            obj3 = sharedElementTransition;
+        }
+        if (obj == null && obj2 == null && obj3 == null) {
+            return null;
+        }
+        callSharedElementStartEnd(fragment, fragment2, z, captureOutSharedElements, true);
+        if (obj3 != null) {
+            arrayList2.add(view2);
+            fragmentTransitionImpl.setSharedElementTargets(obj3, view2, arrayList);
+            setOutEpicenter(fragmentTransitionImpl, obj3, obj2, captureOutSharedElements, fragmentContainerTransition.firstOutIsPop, fragmentContainerTransition.firstOutTransaction);
+            Rect rect2 = new Rect();
+            View inEpicenterView = getInEpicenterView(captureInSharedElements, fragmentContainerTransition, obj, z);
+            if (inEpicenterView != null) {
+                fragmentTransitionImpl.setEpicenter(obj, rect2);
+            }
+            rect = rect2;
+            view3 = inEpicenterView;
+        } else {
+            view3 = null;
+            rect = null;
+        }
+        OneShotPreDrawListener.add(viewGroup, new Runnable() { // from class: androidx.fragment.app.FragmentTransition.5
+            @Override // java.lang.Runnable
+            public void run() {
+                FragmentTransition.callSharedElementStartEnd(Fragment.this, fragment2, z, captureInSharedElements, false);
+                View view4 = view3;
+                if (view4 != null) {
+                    fragmentTransitionImpl.getBoundsOnScreen(view4, rect);
+                }
+            }
+        });
+        return obj3;
     }
 
-    public static void configureTransitionsOrdered(FragmentManager fragmentManager, int i, FragmentContainerTransition fragmentContainerTransition, View view2, ArrayMap<String, String> arrayMap, Callback callback) {
+    public static void configureTransitionsOrdered(FragmentManager fragmentManager, int i, FragmentContainerTransition fragmentContainerTransition, View view2, ArrayMap<String, String> arrayMap, final Callback callback) {
         ViewGroup viewGroup;
         Fragment fragment;
-        Fragment fragment2;
+        final Fragment fragment2;
         FragmentTransitionImpl chooseImpl;
         Object obj;
         Object obj2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{fragmentManager, Integer.valueOf(i), fragmentContainerTransition, view2, arrayMap, callback}) == null) {
-            if (fragmentManager.mContainer.onHasView()) {
-                viewGroup = (ViewGroup) fragmentManager.mContainer.onFindViewById(i);
-            } else {
-                viewGroup = null;
-            }
-            if (viewGroup == null || (chooseImpl = chooseImpl((fragment2 = fragmentContainerTransition.firstOut), (fragment = fragmentContainerTransition.lastIn))) == null) {
+        if (fragmentManager.mContainer.onHasView()) {
+            viewGroup = (ViewGroup) fragmentManager.mContainer.onFindViewById(i);
+        } else {
+            viewGroup = null;
+        }
+        if (viewGroup == null || (chooseImpl = chooseImpl((fragment2 = fragmentContainerTransition.firstOut), (fragment = fragmentContainerTransition.lastIn))) == null) {
+            return;
+        }
+        boolean z = fragmentContainerTransition.lastInIsPop;
+        boolean z2 = fragmentContainerTransition.firstOutIsPop;
+        Object enterTransition = getEnterTransition(chooseImpl, fragment, z);
+        Object exitTransition = getExitTransition(chooseImpl, fragment2, z2);
+        ArrayList arrayList = new ArrayList();
+        ArrayList<View> arrayList2 = new ArrayList<>();
+        Object configureSharedElementsOrdered = configureSharedElementsOrdered(chooseImpl, viewGroup, view2, arrayMap, fragmentContainerTransition, arrayList, arrayList2, enterTransition, exitTransition);
+        if (enterTransition == null && configureSharedElementsOrdered == null) {
+            obj = exitTransition;
+            if (obj == null) {
                 return;
             }
-            boolean z = fragmentContainerTransition.lastInIsPop;
-            boolean z2 = fragmentContainerTransition.firstOutIsPop;
-            Object enterTransition = getEnterTransition(chooseImpl, fragment, z);
-            Object exitTransition = getExitTransition(chooseImpl, fragment2, z2);
-            ArrayList arrayList = new ArrayList();
-            ArrayList<View> arrayList2 = new ArrayList<>();
-            Object configureSharedElementsOrdered = configureSharedElementsOrdered(chooseImpl, viewGroup, view2, arrayMap, fragmentContainerTransition, arrayList, arrayList2, enterTransition, exitTransition);
-            if (enterTransition == null && configureSharedElementsOrdered == null) {
-                obj = exitTransition;
-                if (obj == null) {
-                    return;
+        } else {
+            obj = exitTransition;
+        }
+        ArrayList<View> configureEnteringExitingViews = configureEnteringExitingViews(chooseImpl, obj, fragment2, arrayList, view2);
+        if (configureEnteringExitingViews != null && !configureEnteringExitingViews.isEmpty()) {
+            obj2 = obj;
+        } else {
+            obj2 = null;
+        }
+        chooseImpl.addTarget(enterTransition, view2);
+        Object mergeTransitions = mergeTransitions(chooseImpl, enterTransition, obj2, configureSharedElementsOrdered, fragment, fragmentContainerTransition.lastInIsPop);
+        if (fragment2 != null && configureEnteringExitingViews != null && (configureEnteringExitingViews.size() > 0 || arrayList.size() > 0)) {
+            final CancellationSignal cancellationSignal = new CancellationSignal();
+            callback.onStart(fragment2, cancellationSignal);
+            chooseImpl.setListenerForTransitionEnd(fragment2, mergeTransitions, cancellationSignal, new Runnable() { // from class: androidx.fragment.app.FragmentTransition.3
+                @Override // java.lang.Runnable
+                public void run() {
+                    Callback.this.onComplete(fragment2, cancellationSignal);
                 }
-            } else {
-                obj = exitTransition;
-            }
-            ArrayList<View> configureEnteringExitingViews = configureEnteringExitingViews(chooseImpl, obj, fragment2, arrayList, view2);
-            if (configureEnteringExitingViews != null && !configureEnteringExitingViews.isEmpty()) {
-                obj2 = obj;
-            } else {
-                obj2 = null;
-            }
-            chooseImpl.addTarget(enterTransition, view2);
-            Object mergeTransitions = mergeTransitions(chooseImpl, enterTransition, obj2, configureSharedElementsOrdered, fragment, fragmentContainerTransition.lastInIsPop);
-            if (fragment2 != null && configureEnteringExitingViews != null && (configureEnteringExitingViews.size() > 0 || arrayList.size() > 0)) {
-                CancellationSignal cancellationSignal = new CancellationSignal();
-                callback.onStart(fragment2, cancellationSignal);
-                chooseImpl.setListenerForTransitionEnd(fragment2, mergeTransitions, cancellationSignal, new Runnable(callback, fragment2, cancellationSignal) { // from class: androidx.fragment.app.FragmentTransition.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ Callback val$callback;
-                    public final /* synthetic */ Fragment val$outFragment;
-                    public final /* synthetic */ CancellationSignal val$signal;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {callback, fragment2, cancellationSignal};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.val$callback = callback;
-                        this.val$outFragment = fragment2;
-                        this.val$signal = cancellationSignal;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.val$callback.onComplete(this.val$outFragment, this.val$signal);
-                        }
-                    }
-                });
-            }
-            if (mergeTransitions != null) {
-                ArrayList<View> arrayList3 = new ArrayList<>();
-                chooseImpl.scheduleRemoveTargets(mergeTransitions, enterTransition, arrayList3, obj2, configureEnteringExitingViews, configureSharedElementsOrdered, arrayList2);
-                scheduleTargetChange(chooseImpl, viewGroup, fragment, view2, arrayList2, enterTransition, arrayList3, obj2, configureEnteringExitingViews);
-                chooseImpl.setNameOverridesOrdered(viewGroup, arrayList2, arrayMap);
-                chooseImpl.beginDelayedTransition(viewGroup, mergeTransitions);
-                chooseImpl.scheduleNameReset(viewGroup, arrayList2, arrayMap);
-            }
+            });
+        }
+        if (mergeTransitions != null) {
+            ArrayList<View> arrayList3 = new ArrayList<>();
+            chooseImpl.scheduleRemoveTargets(mergeTransitions, enterTransition, arrayList3, obj2, configureEnteringExitingViews, configureSharedElementsOrdered, arrayList2);
+            scheduleTargetChange(chooseImpl, viewGroup, fragment, view2, arrayList2, enterTransition, arrayList3, obj2, configureEnteringExitingViews);
+            chooseImpl.setNameOverridesOrdered(viewGroup, arrayList2, arrayMap);
+            chooseImpl.beginDelayedTransition(viewGroup, mergeTransitions);
+            chooseImpl.scheduleNameReset(viewGroup, arrayList2, arrayMap);
         }
     }
 
-    public static void configureTransitionsReordered(FragmentManager fragmentManager, int i, FragmentContainerTransition fragmentContainerTransition, View view2, ArrayMap<String, String> arrayMap, Callback callback) {
+    public static void configureTransitionsReordered(FragmentManager fragmentManager, int i, FragmentContainerTransition fragmentContainerTransition, View view2, ArrayMap<String, String> arrayMap, final Callback callback) {
         ViewGroup viewGroup;
         Fragment fragment;
-        Fragment fragment2;
+        final Fragment fragment2;
         FragmentTransitionImpl chooseImpl;
         Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{fragmentManager, Integer.valueOf(i), fragmentContainerTransition, view2, arrayMap, callback}) == null) {
-            if (fragmentManager.mContainer.onHasView()) {
-                viewGroup = (ViewGroup) fragmentManager.mContainer.onFindViewById(i);
-            } else {
-                viewGroup = null;
-            }
-            ViewGroup viewGroup2 = viewGroup;
-            if (viewGroup2 == null || (chooseImpl = chooseImpl((fragment2 = fragmentContainerTransition.firstOut), (fragment = fragmentContainerTransition.lastIn))) == null) {
+        if (fragmentManager.mContainer.onHasView()) {
+            viewGroup = (ViewGroup) fragmentManager.mContainer.onFindViewById(i);
+        } else {
+            viewGroup = null;
+        }
+        ViewGroup viewGroup2 = viewGroup;
+        if (viewGroup2 == null || (chooseImpl = chooseImpl((fragment2 = fragmentContainerTransition.firstOut), (fragment = fragmentContainerTransition.lastIn))) == null) {
+            return;
+        }
+        boolean z = fragmentContainerTransition.lastInIsPop;
+        boolean z2 = fragmentContainerTransition.firstOutIsPop;
+        ArrayList<View> arrayList = new ArrayList<>();
+        ArrayList<View> arrayList2 = new ArrayList<>();
+        Object enterTransition = getEnterTransition(chooseImpl, fragment, z);
+        Object exitTransition = getExitTransition(chooseImpl, fragment2, z2);
+        Object configureSharedElementsReordered = configureSharedElementsReordered(chooseImpl, viewGroup2, view2, arrayMap, fragmentContainerTransition, arrayList2, arrayList, enterTransition, exitTransition);
+        if (enterTransition == null && configureSharedElementsReordered == null) {
+            obj = exitTransition;
+            if (obj == null) {
                 return;
             }
-            boolean z = fragmentContainerTransition.lastInIsPop;
-            boolean z2 = fragmentContainerTransition.firstOutIsPop;
-            ArrayList<View> arrayList = new ArrayList<>();
-            ArrayList<View> arrayList2 = new ArrayList<>();
-            Object enterTransition = getEnterTransition(chooseImpl, fragment, z);
-            Object exitTransition = getExitTransition(chooseImpl, fragment2, z2);
-            Object configureSharedElementsReordered = configureSharedElementsReordered(chooseImpl, viewGroup2, view2, arrayMap, fragmentContainerTransition, arrayList2, arrayList, enterTransition, exitTransition);
-            if (enterTransition == null && configureSharedElementsReordered == null) {
-                obj = exitTransition;
-                if (obj == null) {
-                    return;
+        } else {
+            obj = exitTransition;
+        }
+        ArrayList<View> configureEnteringExitingViews = configureEnteringExitingViews(chooseImpl, obj, fragment2, arrayList2, view2);
+        ArrayList<View> configureEnteringExitingViews2 = configureEnteringExitingViews(chooseImpl, enterTransition, fragment, arrayList, view2);
+        setViewVisibility(configureEnteringExitingViews2, 4);
+        Object mergeTransitions = mergeTransitions(chooseImpl, enterTransition, obj, configureSharedElementsReordered, fragment, z);
+        if (fragment2 != null && configureEnteringExitingViews != null && (configureEnteringExitingViews.size() > 0 || arrayList2.size() > 0)) {
+            final CancellationSignal cancellationSignal = new CancellationSignal();
+            callback.onStart(fragment2, cancellationSignal);
+            chooseImpl.setListenerForTransitionEnd(fragment2, mergeTransitions, cancellationSignal, new Runnable() { // from class: androidx.fragment.app.FragmentTransition.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    Callback.this.onComplete(fragment2, cancellationSignal);
                 }
-            } else {
-                obj = exitTransition;
-            }
-            ArrayList<View> configureEnteringExitingViews = configureEnteringExitingViews(chooseImpl, obj, fragment2, arrayList2, view2);
-            ArrayList<View> configureEnteringExitingViews2 = configureEnteringExitingViews(chooseImpl, enterTransition, fragment, arrayList, view2);
-            setViewVisibility(configureEnteringExitingViews2, 4);
-            Object mergeTransitions = mergeTransitions(chooseImpl, enterTransition, obj, configureSharedElementsReordered, fragment, z);
-            if (fragment2 != null && configureEnteringExitingViews != null && (configureEnteringExitingViews.size() > 0 || arrayList2.size() > 0)) {
-                CancellationSignal cancellationSignal = new CancellationSignal();
-                callback.onStart(fragment2, cancellationSignal);
-                chooseImpl.setListenerForTransitionEnd(fragment2, mergeTransitions, cancellationSignal, new Runnable(callback, fragment2, cancellationSignal) { // from class: androidx.fragment.app.FragmentTransition.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ Callback val$callback;
-                    public final /* synthetic */ Fragment val$outFragment;
-                    public final /* synthetic */ CancellationSignal val$signal;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {callback, fragment2, cancellationSignal};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.val$callback = callback;
-                        this.val$outFragment = fragment2;
-                        this.val$signal = cancellationSignal;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.val$callback.onComplete(this.val$outFragment, this.val$signal);
-                        }
-                    }
-                });
-            }
-            if (mergeTransitions != null) {
-                replaceHide(chooseImpl, obj, fragment2, configureEnteringExitingViews);
-                ArrayList<String> prepareSetNameOverridesReordered = chooseImpl.prepareSetNameOverridesReordered(arrayList);
-                chooseImpl.scheduleRemoveTargets(mergeTransitions, enterTransition, configureEnteringExitingViews2, obj, configureEnteringExitingViews, configureSharedElementsReordered, arrayList);
-                chooseImpl.beginDelayedTransition(viewGroup2, mergeTransitions);
-                chooseImpl.setNameOverridesReordered(viewGroup2, arrayList2, arrayList, prepareSetNameOverridesReordered, arrayMap);
-                setViewVisibility(configureEnteringExitingViews2, 0);
-                chooseImpl.swapSharedElementTargets(configureSharedElementsReordered, arrayList2, arrayList);
-            }
+            });
+        }
+        if (mergeTransitions != null) {
+            replaceHide(chooseImpl, obj, fragment2, configureEnteringExitingViews);
+            ArrayList<String> prepareSetNameOverridesReordered = chooseImpl.prepareSetNameOverridesReordered(arrayList);
+            chooseImpl.scheduleRemoveTargets(mergeTransitions, enterTransition, configureEnteringExitingViews2, obj, configureEnteringExitingViews, configureSharedElementsReordered, arrayList);
+            chooseImpl.beginDelayedTransition(viewGroup2, mergeTransitions);
+            chooseImpl.setNameOverridesReordered(viewGroup2, arrayList2, arrayList, prepareSetNameOverridesReordered, arrayMap);
+            setViewVisibility(configureEnteringExitingViews2, 0);
+            chooseImpl.swapSharedElementTargets(configureSharedElementsReordered, arrayList2, arrayList);
         }
     }
 
     public static View getInEpicenterView(ArrayMap<String, View> arrayMap, FragmentContainerTransition fragmentContainerTransition, Object obj, boolean z) {
-        InterceptResult invokeCommon;
         ArrayList<String> arrayList;
         String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{arrayMap, fragmentContainerTransition, obj, Boolean.valueOf(z)})) == null) {
-            BackStackRecord backStackRecord = fragmentContainerTransition.lastInTransaction;
-            if (obj != null && arrayMap != null && (arrayList = backStackRecord.mSharedElementSourceNames) != null && !arrayList.isEmpty()) {
-                if (z) {
-                    str = backStackRecord.mSharedElementSourceNames.get(0);
-                } else {
-                    str = backStackRecord.mSharedElementTargetNames.get(0);
-                }
-                return arrayMap.get(str);
+        BackStackRecord backStackRecord = fragmentContainerTransition.lastInTransaction;
+        if (obj != null && arrayMap != null && (arrayList = backStackRecord.mSharedElementSourceNames) != null && !arrayList.isEmpty()) {
+            if (z) {
+                str = backStackRecord.mSharedElementSourceNames.get(0);
+            } else {
+                str = backStackRecord.mSharedElementTargetNames.get(0);
             }
-            return null;
+            return arrayMap.get(str);
         }
-        return (View) invokeCommon.objValue;
+        return null;
     }
 
     public static Object getSharedElementTransition(FragmentTransitionImpl fragmentTransitionImpl, Fragment fragment, Fragment fragment2, boolean z) {
-        InterceptResult invokeCommon;
         Object sharedElementEnterTransition;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65558, null, new Object[]{fragmentTransitionImpl, fragment, fragment2, Boolean.valueOf(z)})) == null) {
-            if (fragment != null && fragment2 != null) {
-                if (z) {
-                    sharedElementEnterTransition = fragment2.getSharedElementReturnTransition();
-                } else {
-                    sharedElementEnterTransition = fragment.getSharedElementEnterTransition();
-                }
-                return fragmentTransitionImpl.wrapTransitionInSet(fragmentTransitionImpl.cloneTransition(sharedElementEnterTransition));
+        if (fragment != null && fragment2 != null) {
+            if (z) {
+                sharedElementEnterTransition = fragment2.getSharedElementReturnTransition();
+            } else {
+                sharedElementEnterTransition = fragment.getSharedElementEnterTransition();
             }
-            return null;
+            return fragmentTransitionImpl.wrapTransitionInSet(fragmentTransitionImpl.cloneTransition(sharedElementEnterTransition));
         }
-        return invokeCommon.objValue;
+        return null;
     }
 
-    public static void replaceHide(FragmentTransitionImpl fragmentTransitionImpl, Object obj, Fragment fragment, ArrayList<View> arrayList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65560, null, fragmentTransitionImpl, obj, fragment, arrayList) == null) && fragment != null && obj != null && fragment.mAdded && fragment.mHidden && fragment.mHiddenChanged) {
+    public static void replaceHide(FragmentTransitionImpl fragmentTransitionImpl, Object obj, Fragment fragment, final ArrayList<View> arrayList) {
+        if (fragment != null && obj != null && fragment.mAdded && fragment.mHidden && fragment.mHiddenChanged) {
             fragment.setHideReplaced(true);
             fragmentTransitionImpl.scheduleHideFragmentView(obj, fragment.getView(), arrayList);
-            OneShotPreDrawListener.add(fragment.mContainer, new Runnable(arrayList) { // from class: androidx.fragment.app.FragmentTransition.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ArrayList val$exitingViews;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {arrayList};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$exitingViews = arrayList;
-                }
-
+            OneShotPreDrawListener.add(fragment.mContainer, new Runnable() { // from class: androidx.fragment.app.FragmentTransition.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        FragmentTransition.setViewVisibility(this.val$exitingViews, 4);
-                    }
+                    FragmentTransition.setViewVisibility(arrayList, 4);
                 }
             });
         }
     }
 
     public static Object mergeTransitions(FragmentTransitionImpl fragmentTransitionImpl, Object obj, Object obj2, Object obj3, Fragment fragment, boolean z) {
-        InterceptResult invokeCommon;
         boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, null, new Object[]{fragmentTransitionImpl, obj, obj2, obj3, fragment, Boolean.valueOf(z)})) == null) {
-            if (obj != null && obj2 != null && fragment != null) {
-                if (z) {
-                    z2 = fragment.getAllowReturnTransitionOverlap();
-                } else {
-                    z2 = fragment.getAllowEnterTransitionOverlap();
-                }
+        if (obj != null && obj2 != null && fragment != null) {
+            if (z) {
+                z2 = fragment.getAllowReturnTransitionOverlap();
             } else {
-                z2 = true;
+                z2 = fragment.getAllowEnterTransitionOverlap();
             }
-            if (z2) {
-                return fragmentTransitionImpl.mergeTransitionsTogether(obj2, obj, obj3);
-            }
-            return fragmentTransitionImpl.mergeTransitionsInSequence(obj2, obj, obj3);
+        } else {
+            z2 = true;
         }
-        return invokeCommon.objValue;
+        if (z2) {
+            return fragmentTransitionImpl.mergeTransitionsTogether(obj2, obj, obj3);
+        }
+        return fragmentTransitionImpl.mergeTransitionsInSequence(obj2, obj, obj3);
     }
 
     public static void setOutEpicenter(FragmentTransitionImpl fragmentTransitionImpl, Object obj, Object obj2, ArrayMap<String, View> arrayMap, boolean z, BackStackRecord backStackRecord) {
-        ArrayList<String> arrayList;
         String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65564, null, new Object[]{fragmentTransitionImpl, obj, obj2, arrayMap, Boolean.valueOf(z), backStackRecord}) == null) && (arrayList = backStackRecord.mSharedElementSourceNames) != null && !arrayList.isEmpty()) {
+        ArrayList<String> arrayList = backStackRecord.mSharedElementSourceNames;
+        if (arrayList != null && !arrayList.isEmpty()) {
             if (z) {
                 str = backStackRecord.mSharedElementTargetNames.get(0);
             } else {
@@ -1209,73 +883,30 @@ public class FragmentTransition {
         }
     }
 
-    public static void scheduleTargetChange(FragmentTransitionImpl fragmentTransitionImpl, ViewGroup viewGroup, Fragment fragment, View view2, ArrayList<View> arrayList, Object obj, ArrayList<View> arrayList2, Object obj2, ArrayList<View> arrayList3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65563, null, new Object[]{fragmentTransitionImpl, viewGroup, fragment, view2, arrayList, obj, arrayList2, obj2, arrayList3}) == null) {
-            OneShotPreDrawListener.add(viewGroup, new Runnable(obj, fragmentTransitionImpl, view2, fragment, arrayList, arrayList2, arrayList3, obj2) { // from class: androidx.fragment.app.FragmentTransition.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Object val$enterTransition;
-                public final /* synthetic */ ArrayList val$enteringViews;
-                public final /* synthetic */ Object val$exitTransition;
-                public final /* synthetic */ ArrayList val$exitingViews;
-                public final /* synthetic */ FragmentTransitionImpl val$impl;
-                public final /* synthetic */ Fragment val$inFragment;
-                public final /* synthetic */ View val$nonExistentView;
-                public final /* synthetic */ ArrayList val$sharedElementsIn;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {obj, fragmentTransitionImpl, view2, fragment, arrayList, arrayList2, arrayList3, obj2};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$enterTransition = obj;
-                    this.val$impl = fragmentTransitionImpl;
-                    this.val$nonExistentView = view2;
-                    this.val$inFragment = fragment;
-                    this.val$sharedElementsIn = arrayList;
-                    this.val$enteringViews = arrayList2;
-                    this.val$exitingViews = arrayList3;
-                    this.val$exitTransition = obj2;
+    public static void scheduleTargetChange(final FragmentTransitionImpl fragmentTransitionImpl, ViewGroup viewGroup, final Fragment fragment, final View view2, final ArrayList<View> arrayList, final Object obj, final ArrayList<View> arrayList2, final Object obj2, final ArrayList<View> arrayList3) {
+        OneShotPreDrawListener.add(viewGroup, new Runnable() { // from class: androidx.fragment.app.FragmentTransition.4
+            @Override // java.lang.Runnable
+            public void run() {
+                Object obj3 = obj;
+                if (obj3 != null) {
+                    fragmentTransitionImpl.removeTarget(obj3, view2);
+                    arrayList2.addAll(FragmentTransition.configureEnteringExitingViews(fragmentTransitionImpl, obj, fragment, arrayList, view2));
                 }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        Object obj3 = this.val$enterTransition;
-                        if (obj3 != null) {
-                            this.val$impl.removeTarget(obj3, this.val$nonExistentView);
-                            this.val$enteringViews.addAll(FragmentTransition.configureEnteringExitingViews(this.val$impl, this.val$enterTransition, this.val$inFragment, this.val$sharedElementsIn, this.val$nonExistentView));
-                        }
-                        if (this.val$exitingViews != null) {
-                            if (this.val$exitTransition != null) {
-                                ArrayList<View> arrayList4 = new ArrayList<>();
-                                arrayList4.add(this.val$nonExistentView);
-                                this.val$impl.replaceTargets(this.val$exitTransition, this.val$exitingViews, arrayList4);
-                            }
-                            this.val$exitingViews.clear();
-                            this.val$exitingViews.add(this.val$nonExistentView);
-                        }
+                if (arrayList3 != null) {
+                    if (obj2 != null) {
+                        ArrayList<View> arrayList4 = new ArrayList<>();
+                        arrayList4.add(view2);
+                        fragmentTransitionImpl.replaceTargets(obj2, arrayList3, arrayList4);
                     }
+                    arrayList3.clear();
+                    arrayList3.add(view2);
                 }
-            });
-        }
+            }
+        });
     }
 
     public static void startTransitions(FragmentManager fragmentManager, ArrayList<BackStackRecord> arrayList, ArrayList<Boolean> arrayList2, int i, int i2, boolean z, Callback callback) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65566, null, new Object[]{fragmentManager, arrayList, arrayList2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), callback}) != null) || fragmentManager.mCurState < 1) {
+        if (fragmentManager.mCurState < 1) {
             return;
         }
         SparseArray sparseArray = new SparseArray();

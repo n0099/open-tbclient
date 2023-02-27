@@ -1,23 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.browser.core.webview.scroll.NestedScrollWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: NestedScrollWebView.java */
 /* loaded from: classes5.dex */
-public final /* synthetic */ class kb6 {
+public class kb6 implements gna<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ gna a;
 
-    public static void a(NestedScrollWebView.a aVar, int i, int i2, int i3, int i4) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gna
+    public void call(Boolean bool) {
+        gna gnaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{aVar, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-        }
-    }
-
-    public static void b(NestedScrollWebView.a aVar, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{aVar, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bool) == null) && (gnaVar = this.a) != null) {
+            gnaVar.call(bool);
         }
     }
 }

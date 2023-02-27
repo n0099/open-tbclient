@@ -1,18 +1,19 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 /* loaded from: classes5.dex */
 public class j75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<k75> a;
+    public String a;
+    public String b;
+    public int c;
+    public String d;
 
     public j75() {
         Interceptable interceptable = $ic;
@@ -24,44 +25,102 @@ public class j75 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = null;
+        this.b = null;
+        this.c = 0;
+        this.d = null;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            switch (i) {
+                case 1:
+                    return wj.a(R.string.voice_cache_error_internal);
+                case 2:
+                    return wj.a(R.string.voice_cache_error_no_space);
+                case 3:
+                    return wj.a(R.string.obfuscated_res_0x7f0f0d11);
+                case 4:
+                    return wj.a(R.string.voice_cache_error_no_file);
+                case 5:
+                    return wj.a(R.string.voice_cache_error_md5);
+                case 6:
+                    return wj.a(R.string.voice_cache_error_no_input);
+                case 7:
+                    return wj.a(R.string.voice_cache_error_no_dir);
+                default:
+                    return "";
+            }
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.c = i;
         }
     }
 
-    public void a(JSONArray jSONArray) {
-        boolean z;
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-            this.a = new ArrayList();
-            try {
-                if (jSONArray == null) {
-                    p35.m().B("key_index_tab_info_list", "[]");
-                    return;
-                }
-                JSONArray jSONArray2 = new JSONArray(p35.m().s("key_index_tab_info_list", "[]"));
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    k75 k75Var = new k75();
-                    k75 k75Var2 = new k75();
-                    k75Var.h(jSONArray.getJSONObject(i));
-                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                        k75Var2.h(jSONArray2.getJSONObject(i2));
-                        if (k75Var.c != null && k75Var.c.equals(k75Var2.c)) {
-                            if (!TextUtils.isEmpty(k75Var2.e) && k75Var2.e.equals(k75Var.e)) {
-                                z = false;
-                                k75Var.f = z;
-                            }
-                            z = true;
-                            k75Var.f = z;
-                        }
-                    }
-                    if (!k75Var.e()) {
-                        this.a.add(k75Var);
-                    }
-                }
-                p35.m().B("key_index_tab_info_list", jSONArray.toString());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
         }
     }
 }

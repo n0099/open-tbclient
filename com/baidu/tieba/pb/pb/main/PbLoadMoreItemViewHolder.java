@@ -100,7 +100,7 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         this.e = (ImageView) this.a.findViewById(R.id.no_data_image);
         this.h = ej.g(this.a.getContext(), R.dimen.tbds156);
         this.f = this.a.findViewById(R.id.empty_view);
-        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091bd5);
+        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091c06);
         this.b.setVisibility(0);
         this.i.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.i);
@@ -132,7 +132,7 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.d.setVisibility(0);
-            this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0af0));
+            this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0af9));
         }
     }
 

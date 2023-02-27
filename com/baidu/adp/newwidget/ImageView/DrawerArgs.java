@@ -1,7 +1,7 @@
 package com.baidu.adp.newwidget.ImageView;
 
 import android.graphics.Matrix;
-import com.baidu.tieba.fl;
+import com.baidu.tieba.gl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -114,7 +114,7 @@ public class DrawerArgs {
         this.f = SkinType.DAY;
         this.h = false;
         this.i = true;
-        this.j = fl.a;
+        this.j = gl.a;
         this.k = 1.0f;
         this.o = false;
     }

@@ -5,13 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.ad.feed.FeedDownloadActivityProxy;
 import com.kwad.components.core.c.a.a;
 import com.kwad.components.core.page.AdWebViewActivityProxy;
@@ -22,98 +16,69 @@ import com.kwad.sdk.widget.RatioFrameLayout;
 import java.util.List;
 /* loaded from: classes8.dex */
 public final class i extends a implements View.OnClickListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public KsLogoView bq;
     public TextView de;
     public ImageView df;
     public ImageView dg;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(@NonNull Context context) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
     }
 
     @Override // com.kwad.components.core.widget.b
     public final void bg() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f09117f)).setRatio(0.56f);
-            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f09113e);
-            this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f091144);
-            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f091140);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0911ab);
-        }
+        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911c0)).setRatio(0.56f);
+        this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f09117f);
+        this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f091185);
+        this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f091181);
+        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0911ec);
     }
 
     @Override // com.kwad.components.core.widget.b
     public final void c(@NonNull AdTemplate adTemplate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate) == null) {
-            super.c((i) adTemplate);
-            this.de.setText(com.kwad.components.ad.feed.f.d(this.mAdTemplate));
-            List<String> aA = com.kwad.sdk.core.response.a.a.aA(this.mAdInfo);
-            this.bq.T(adTemplate);
-            if (aA.size() > 0) {
-                KSImageLoader.loadFeeImage(this.df, aA.get(0), this.mAdTemplate);
-            } else {
-                com.kwad.sdk.core.e.b.e("FeedTextImmerseImageView", "getImageUrlList size less than one");
-            }
-            com.kwad.sdk.b.kwai.a.a(this, this.de, this.df, this.dg);
-            setOnClickListener(this);
-            if (com.kwad.sdk.core.response.a.a.am(this.mAdInfo)) {
-                bf();
-            }
+        super.c((i) adTemplate);
+        this.de.setText(com.kwad.components.ad.feed.f.d(this.mAdTemplate));
+        List<String> aA = com.kwad.sdk.core.response.a.a.aA(this.mAdInfo);
+        this.bq.T(adTemplate);
+        if (aA.size() > 0) {
+            KSImageLoader.loadFeeImage(this.df, aA.get(0), this.mAdTemplate);
+        } else {
+            com.kwad.sdk.core.e.b.e("FeedTextImmerseImageView", "getImageUrlList size less than one");
+        }
+        com.kwad.sdk.b.kwai.a.a(this, this.de, this.df, this.dg);
+        setOnClickListener(this);
+        if (com.kwad.sdk.core.response.a.a.am(this.mAdInfo)) {
+            bf();
         }
     }
 
     @Override // com.kwad.components.core.widget.b
     public final int getLayoutId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0440 : invokeV.intValue;
+        return R.layout.obfuscated_res_0x7f0d0450;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            if (view2 == this.dg) {
-                pX();
-                return;
-            }
-            int i = 35;
-            if (view2 == this.de) {
-                i = 25;
-            } else if (view2 == this.df) {
-                i = 100;
-            }
-            if (com.kwad.components.core.c.a.d.a(new a.C0598a(getContext()).L(this.mAdTemplate), 1) == 1) {
-                aq(i);
-                return;
-            }
-            boolean am = com.kwad.sdk.core.response.a.a.am(this.mAdInfo);
+        if (view2 == this.dg) {
+            pX();
+            return;
+        }
+        int i = 35;
+        if (view2 == this.de) {
+            i = 25;
+        } else if (view2 == this.df) {
+            i = 100;
+        }
+        if (com.kwad.components.core.c.a.d.a(new a.C0588a(getContext()).L(this.mAdTemplate), 1) == 1) {
             aq(i);
-            if (am) {
-                FeedDownloadActivityProxy.launch(this.mContext, this.mAdTemplate, this.lp);
-            } else {
-                AdWebViewActivityProxy.launch(getContext(), this.mAdTemplate);
-            }
+            return;
+        }
+        boolean am = com.kwad.sdk.core.response.a.a.am(this.mAdInfo);
+        aq(i);
+        if (am) {
+            FeedDownloadActivityProxy.launch(this.mContext, this.mAdTemplate, this.lp);
+        } else {
+            AdWebViewActivityProxy.launch(getContext(), this.mAdTemplate);
         }
     }
 }

@@ -111,7 +111,7 @@ public class PbNextVideoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) && threadData != null && threadData.getThreadVideoInfo() != null) {
             this.b.K(threadData.getThreadVideoInfo().thumbnail_url, 10, false);
-            this.c.setText(R.string.obfuscated_res_0x7f0f0ecc);
+            this.c.setText(R.string.obfuscated_res_0x7f0f0ed6);
             this.d.setText(threadData.getTitle());
             this.f.setProgress(0);
         }
@@ -278,12 +278,12 @@ public class PbNextVideoLayout extends RelativeLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d070c, this);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09196e);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091971);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091970);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09196d);
-            this.f = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09196f);
+            RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0722, this);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0919af);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0919b2);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0919b1);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919ae);
+            this.f = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0919b0);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0622, null);
         }
     }
@@ -292,7 +292,7 @@ public class PbNextVideoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.g = true;
-            this.c.setText(R.string.obfuscated_res_0x7f0f0ecc);
+            this.c.setText(R.string.obfuscated_res_0x7f0f0ed6);
             a aVar = this.i;
             if (aVar != null) {
                 aVar.cancel();
@@ -311,7 +311,7 @@ public class PbNextVideoLayout extends RelativeLayout {
             if (aVar != null) {
                 aVar.cancel();
             }
-            this.c.setText(R.string.obfuscated_res_0x7f0f0ecd);
+            this.c.setText(R.string.obfuscated_res_0x7f0f0ed7);
             this.f.setProgress(0);
         }
     }

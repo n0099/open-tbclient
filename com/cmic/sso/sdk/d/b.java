@@ -41,25 +41,25 @@ public class b {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65538, null, aVar, aVar2) == null) && aVar != null && aVar2 != null) {
             aVar.b(aVar2.b("appid", ""));
-            aVar.f(m.a());
-            aVar.i(aVar2.b("interfaceType", ""));
-            aVar.h(aVar2.b("interfaceCode", ""));
-            aVar.g(aVar2.b("interfaceElasped", ""));
-            aVar.l(aVar2.b("timeOut"));
-            aVar.s(aVar2.b("traceId"));
-            aVar.v(aVar2.b("networkClass"));
-            aVar.n(aVar2.b("simCardNum"));
-            aVar.o(aVar2.b("operatortype"));
-            aVar.p(m.b());
-            aVar.q(m.c());
-            aVar.y(String.valueOf(aVar2.b("networktype", 0)));
-            aVar.t(aVar2.b(LaunchedTaskSpeedStats.KEY_START_TIME));
-            aVar.w(aVar2.b("endtime"));
-            aVar.m(String.valueOf(aVar2.b("systemEndTime", 0L) - aVar2.b("systemStartTime", 0L)));
-            aVar.d(aVar2.b("imsiState"));
-            aVar.z(k.b("AID", ""));
-            aVar.A(aVar2.b("operatortype"));
-            aVar.B(aVar2.b("scripType"));
+            aVar.e(m.a());
+            aVar.h(aVar2.b("interfaceType", ""));
+            aVar.g(aVar2.b("interfaceCode", ""));
+            aVar.f(aVar2.b("interfaceElasped", ""));
+            aVar.k(aVar2.b("timeOut"));
+            aVar.r(aVar2.b("traceId"));
+            aVar.m(aVar2.b("simCardNum"));
+            aVar.n(aVar2.b("operatortype"));
+            aVar.o(m.b());
+            aVar.p(m.c());
+            aVar.w(String.valueOf(aVar2.b("networktype", 0)));
+            aVar.s(aVar2.b(LaunchedTaskSpeedStats.KEY_START_TIME));
+            aVar.t(aVar2.b("endtime"));
+            aVar.l(String.valueOf(aVar2.b("systemEndTime", 0L) - aVar2.b("systemStartTime", 0L)));
+            aVar.c(aVar2.b("imsiState"));
+            aVar.x(k.b("AID", ""));
+            aVar.y(aVar2.b("operatortype"));
+            aVar.z(aVar2.b("scripType"));
+            aVar.A(aVar2.b("networkTypeByAPI"));
             c.a("SendLog", "traceId" + aVar2.b("traceId"));
         }
     }
@@ -126,32 +126,25 @@ public class b {
     }
 
     public void a(Context context, String str, com.cmic.sso.sdk.a aVar) {
-        String str2;
         StackTraceElement[] stackTrace;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, str, aVar) == null) {
-            String str3 = "";
+            String str2 = "";
             try {
                 a a = aVar.a();
                 String b = f.b(context);
-                a.e(str);
-                a.x(aVar.b("loginMethod", ""));
+                a.d(str);
+                a.u(aVar.b("loginMethod", ""));
                 if (aVar.b("isCacheScrip", false)) {
-                    a.r("scrip");
+                    a.q("scrip");
                 } else {
-                    a.r("pgw");
+                    a.q("pgw");
                 }
-                a.j(f.a(context));
+                a.i(f.a(context));
                 if (!TextUtils.isEmpty(b)) {
-                    str3 = b;
+                    str2 = b;
                 }
-                a.k(str3);
-                if (aVar.b("hsaReadPhoneStatePermission", false)) {
-                    str2 = "1";
-                } else {
-                    str2 = "0";
-                }
-                a.c(str2);
+                a.j(str2);
                 a(a, aVar);
                 JSONArray jSONArray = null;
                 if (a.a.size() > 0) {

@@ -1,22 +1,22 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tieba.sr2;
+import android.annotation.SuppressLint;
+import androidx.annotation.IntRange;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class d62 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
+    public static final boolean b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
+    public int[] a;
 
     static {
         InterceptResult invokeClinit;
@@ -31,89 +31,132 @@ public class d62 {
                 return;
             }
         }
-        a = "__localDebug__" + File.separator + "master.js";
-        b = "__localDebug__" + File.separator + "main.js";
-        c = "__localDebug__" + File.separator + "slave.js";
+        b = wp1.a;
+        c = 5;
     }
 
-    public static sr2.g a(tt2 tt2Var) {
-        InterceptResult invokeL;
+    public d62(@IntRange(from = 1) int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tt2Var)) == null) {
-            File d = d();
-            f62.e().f("unzipstart");
-            sr2.M(b(), d, tt2Var);
-            f62.e().f("unzipend");
-            sr2.g gVar = new sr2.g();
-            File file = new File(d, "app.json");
-            SwanAppConfigData b2 = i93.b(d.getAbsolutePath());
-            gVar.a = d.getPath() + File.separator;
-            gVar.b = b2;
-            w52.k("LocalDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.a);
-            return gVar;
-        }
-        return (sr2.g) invokeL.objValue;
-    }
-
-    public static File b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new File(c(), "local_debug.swan");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug_zip");
-            if (!file.exists()) {
-                file.mkdirs();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return file;
         }
-        return (File) invokeV.objValue;
+        c(i, false);
     }
 
-    public static File d() {
-        InterceptResult invokeV;
+    public d62(@IntRange(from = 1) int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug");
-            if (!file.exists()) {
-                file.mkdirs();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            return file;
         }
-        return (File) invokeV.objValue;
+        c(i, z);
     }
 
-    public static String e() {
-        InterceptResult invokeV;
+    public final int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return d() + File.separator + a;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return i >> c;
         }
-        return (String) invokeV.objValue;
+        return invokeI.intValue;
     }
 
-    public static String f() {
-        InterceptResult invokeV;
+    @SuppressLint({"BDThrowableCheck"})
+    public boolean b(@IntRange(from = 0) int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return d() + File.separator + c;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i < 0) {
+                m62.c("Component-DiffBitMap", "diff < 0: " + i);
+                if (!b) {
+                    return false;
+                }
+                throw new IndexOutOfBoundsException("diff < 0: " + i);
+            }
+            int[] iArr = this.a;
+            int length = (iArr.length << c) - 1;
+            if (i > length) {
+                String str = "diff > " + length + ": " + i;
+                m62.c("Component-DiffBitMap", str);
+                if (!b) {
+                    return false;
+                }
+                throw new IndexOutOfBoundsException(str);
+            } else if (((1 << i) & iArr[a(i)]) == 0) {
+                return false;
+            } else {
+                return true;
+            }
         }
-        return (String) invokeV.objValue;
+        return invokeI.booleanValue;
     }
 
-    public static boolean g() {
-        InterceptResult invokeV;
+    @SuppressLint({"BDThrowableCheck"})
+    public void d(@IntRange(from = 0) int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug").exists();
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (i < 0) {
+                m62.c("Component-DiffBitMap", "diff < 0: " + i);
+                if (!b) {
+                    return;
+                }
+                throw new IndexOutOfBoundsException("diff < 0: " + i);
+            }
+            int[] iArr = this.a;
+            int length = (iArr.length << c) - 1;
+            if (i > length) {
+                String str = "diff > " + length + ": " + i;
+                m62.c("Component-DiffBitMap", str);
+                if (!b) {
+                    return;
+                }
+                throw new IndexOutOfBoundsException(str);
+            }
+            int a = a(i);
+            iArr[a] = (1 << i) | iArr[a];
         }
-        return invokeV.booleanValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public final void c(@IntRange(from = 1) int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            if (i <= 0) {
+                String str = "number <= 0: " + i;
+                m62.c("Component-DiffBitMap", str);
+                if (!b) {
+                    i = 500;
+                } else {
+                    throw new NegativeArraySizeException(str);
+                }
+            }
+            int[] iArr = new int[a(i - 1) + 1];
+            this.a = iArr;
+            int length = iArr.length;
+            if (z) {
+                for (int i2 = 0; i2 < length; i2++) {
+                    this.a[i2] = -1;
+                }
+            }
+        }
     }
 }

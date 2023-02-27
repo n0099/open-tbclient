@@ -2,126 +2,85 @@ package com.xiaomi.clientreport.processor;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.PerformerBox;
 import com.xiaomi.clientreport.data.PerfClientReport;
-import com.xiaomi.push.bt;
+import com.xiaomi.push.bs;
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class b implements IPerfProcessor {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f55a;
+    public HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f32a;
 
     public b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.a = context;
     }
 
     public static String a(com.xiaomi.clientreport.data.a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aVar)) == null) {
-            return String.valueOf(aVar.production) + "#" + aVar.clientInterfaceId;
-        }
-        return (String) invokeL.objValue;
+        return String.valueOf(aVar.production) + "#" + aVar.clientInterfaceId;
     }
 
     private String b(com.xiaomi.clientreport.data.a aVar) {
-        InterceptResult invokeL;
         String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, aVar)) == null) {
-            int i = aVar.production;
-            String str2 = aVar.clientInterfaceId;
-            if (i <= 0 || TextUtils.isEmpty(str2)) {
-                str = "";
-            } else {
-                str = String.valueOf(i) + "#" + str2;
-            }
-            File externalFilesDir = this.a.getExternalFilesDir(PerformerBox.TYPE);
-            if (externalFilesDir == null) {
-                com.xiaomi.channel.commonutils.logger.b.d("cannot get folder when to write perf");
-                return null;
-            }
-            if (!externalFilesDir.exists()) {
-                externalFilesDir.mkdirs();
-            }
-            return new File(externalFilesDir, str).getAbsolutePath();
+        int i = aVar.production;
+        String str2 = aVar.clientInterfaceId;
+        if (i <= 0 || TextUtils.isEmpty(str2)) {
+            str = "";
+        } else {
+            str = String.valueOf(i) + "#" + str2;
         }
-        return (String) invokeL.objValue;
+        File externalFilesDir = this.a.getExternalFilesDir(PerformerBox.TYPE);
+        if (externalFilesDir == null) {
+            com.xiaomi.channel.commonutils.logger.b.d("cannot get folder when to write perf");
+            return null;
+        }
+        if (!externalFilesDir.exists()) {
+            externalFilesDir.mkdirs();
+        }
+        return new File(externalFilesDir, str).getAbsolutePath();
     }
 
     private String c(com.xiaomi.clientreport.data.a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, aVar)) == null) {
-            String b = b(aVar);
-            if (TextUtils.isEmpty(b)) {
-                return null;
-            }
-            for (int i = 0; i < 20; i++) {
-                String str = b + i;
-                if (bt.m226a(this.a, str)) {
-                    return str;
-                }
-            }
+        String b = b(aVar);
+        if (TextUtils.isEmpty(b)) {
             return null;
         }
-        return (String) invokeL.objValue;
+        for (int i = 0; i < 20; i++) {
+            String str = b + i;
+            if (bs.m219a(this.a, str)) {
+                return str;
+            }
+        }
+        return null;
     }
 
     @Override // com.xiaomi.clientreport.processor.c
     public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            bt.a(this.a, PerformerBox.TYPE, "perfUploading");
-            File[] m227a = bt.m227a(this.a, "perfUploading");
-            if (m227a == null || m227a.length <= 0) {
-                return;
-            }
-            for (File file : m227a) {
-                if (file != null) {
-                    List<String> a = e.a(this.a, file.getAbsolutePath());
-                    file.delete();
-                    a(a);
-                }
+        bs.a(this.a, PerformerBox.TYPE, "perfUploading");
+        File[] m220a = bs.m220a(this.a, "perfUploading");
+        if (m220a == null || m220a.length <= 0) {
+            return;
+        }
+        for (File file : m220a) {
+            if (file != null) {
+                List<String> a = e.a(this.a, file.getAbsolutePath());
+                file.delete();
+                a(a);
             }
         }
     }
 
     @Override // com.xiaomi.clientreport.processor.d
     /* renamed from: a */
-    public void mo113a(com.xiaomi.clientreport.data.a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && (aVar instanceof PerfClientReport) && this.f55a != null) {
+    public void mo105a(com.xiaomi.clientreport.data.a aVar) {
+        if ((aVar instanceof PerfClientReport) && this.f32a != null) {
             PerfClientReport perfClientReport = (PerfClientReport) aVar;
             String a = a((com.xiaomi.clientreport.data.a) perfClientReport);
             String a2 = e.a(perfClientReport);
-            HashMap<String, com.xiaomi.clientreport.data.a> hashMap = this.f55a.get(a);
+            HashMap<String, com.xiaomi.clientreport.data.a> hashMap = this.f32a.get(a);
             if (hashMap == null) {
                 hashMap = new HashMap<>();
             }
@@ -131,38 +90,31 @@ public class b implements IPerfProcessor {
                 perfClientReport.perfLatencies += perfClientReport2.perfLatencies;
             }
             hashMap.put(a2, perfClientReport);
-            this.f55a.put(a, hashMap);
+            this.f32a.put(a, hashMap);
         }
     }
 
     public void a(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            bt.a(this.a, list);
-        }
+        bs.a(this.a, list);
     }
 
     public void a(com.xiaomi.clientreport.data.a[] aVarArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVarArr) == null) {
-            String c = c(aVarArr[0]);
-            if (TextUtils.isEmpty(c)) {
-                return;
-            }
-            e.a(c, aVarArr);
+        String c = c(aVarArr[0]);
+        if (TextUtils.isEmpty(c)) {
+            return;
         }
+        e.a(c, aVarArr);
     }
 
     @Override // com.xiaomi.clientreport.processor.d
     public void b() {
-        HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> hashMap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (hashMap = this.f55a) == null) {
+        HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> hashMap = this.f32a;
+        if (hashMap == null) {
             return;
         }
         if (hashMap.size() > 0) {
-            for (String str : this.f55a.keySet()) {
-                HashMap<String, com.xiaomi.clientreport.data.a> hashMap2 = this.f55a.get(str);
+            for (String str : this.f32a.keySet()) {
+                HashMap<String, com.xiaomi.clientreport.data.a> hashMap2 = this.f32a.get(str);
                 if (hashMap2 != null && hashMap2.size() > 0) {
                     com.xiaomi.clientreport.data.a[] aVarArr = new com.xiaomi.clientreport.data.a[hashMap2.size()];
                     hashMap2.values().toArray(aVarArr);
@@ -170,14 +122,11 @@ public class b implements IPerfProcessor {
                 }
             }
         }
-        this.f55a.clear();
+        this.f32a.clear();
     }
 
     @Override // com.xiaomi.clientreport.processor.IPerfProcessor
     public void setPerfMap(HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, hashMap) == null) {
-            this.f55a = hashMap;
-        }
+        this.f32a = hashMap;
     }
 }

@@ -1,74 +1,38 @@
 package okhttp3.internal.http;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.net.Proxy;
 import okhttp3.HttpUrl;
 import okhttp3.Request;
+import org.apache.commons.codec.net.RFC1522Codec;
 /* loaded from: classes9.dex */
 public final class RequestLine {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public RequestLine() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static String get(Request request, Proxy.Type type) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, request, type)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(request.method());
-            sb.append(WebvttCueParser.CHAR_SPACE);
-            if (includeAuthorityInRequestLine(request, type)) {
-                sb.append(request.url());
-            } else {
-                sb.append(requestPath(request.url()));
-            }
-            sb.append(" HTTP/1.1");
-            return sb.toString();
+        StringBuilder sb = new StringBuilder();
+        sb.append(request.method());
+        sb.append(WebvttCueParser.CHAR_SPACE);
+        if (includeAuthorityInRequestLine(request, type)) {
+            sb.append(request.url());
+        } else {
+            sb.append(requestPath(request.url()));
         }
-        return (String) invokeLL.objValue;
+        sb.append(" HTTP/1.1");
+        return sb.toString();
     }
 
     public static boolean includeAuthorityInRequestLine(Request request, Proxy.Type type) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, request, type)) == null) {
-            if (!request.isHttps() && type == Proxy.Type.HTTP) {
-                return true;
-            }
-            return false;
+        if (!request.isHttps() && type == Proxy.Type.HTTP) {
+            return true;
         }
-        return invokeLL.booleanValue;
+        return false;
     }
 
     public static String requestPath(HttpUrl httpUrl) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, httpUrl)) == null) {
-            String encodedPath = httpUrl.encodedPath();
-            String encodedQuery = httpUrl.encodedQuery();
-            if (encodedQuery != null) {
-                return encodedPath + '?' + encodedQuery;
-            }
-            return encodedPath;
+        String encodedPath = httpUrl.encodedPath();
+        String encodedQuery = httpUrl.encodedQuery();
+        if (encodedQuery != null) {
+            return encodedPath + RFC1522Codec.SEP + encodedQuery;
         }
-        return (String) invokeL.objValue;
+        return encodedPath;
     }
 }

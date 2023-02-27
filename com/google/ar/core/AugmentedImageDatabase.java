@@ -1,12 +1,8 @@
 package com.google.ar.core;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import java.nio.ByteBuffer;
 /* loaded from: classes8.dex */
 public class AugmentedImageDatabase {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     private native int nativeAddImage(long j, long j2, String str, ByteBuffer byteBuffer, int i, int i2, int i3);
@@ -24,13 +20,10 @@ public class AugmentedImageDatabase {
     private native ByteBuffer nativeSerialize(long j, long j2);
 
     public void finalize() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.a;
-            if (j != 0) {
-                nativeReleaseDatabase(j);
-            }
-            super.finalize();
+        long j = this.a;
+        if (j != 0) {
+            nativeReleaseDatabase(j);
         }
+        super.finalize();
     }
 }

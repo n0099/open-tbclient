@@ -1,179 +1,242 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.exceptions.InvalidFrameException;
-import org.java_websocket.framing.Framedata;
+import com.fun.ad.sdk.internal.api.http.GetRequest;
+import com.fun.ad.sdk.internal.api.http.RequestParams;
+import com.fun.ad.sdk.internal.api.http.Response;
+import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.qq.e.comm.constants.Constants;
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Random;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class lba extends nba {
+public class lba {
     public static /* synthetic */ Interceptable $ic;
+    public static final q5a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int h;
-    public String i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lba() {
-        super(Framedata.Opcode.CLOSING);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Framedata.Opcode) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947938494, "Lcom/baidu/tieba/lba;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947938494, "Lcom/baidu/tieba/lba;");
                 return;
             }
         }
-        r("");
-        q(1000);
+        a = new q5a();
+        HandlerThread handlerThread = new HandlerThread("pull_pid_cpm");
+        handlerThread.start();
+        new a(handlerThread.getLooper());
     }
 
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            byte[] f = gca.f(this.i);
-            ByteBuffer allocate = ByteBuffer.allocate(4);
-            allocate.putInt(this.h);
-            allocate.position(2);
-            ByteBuffer allocate2 = ByteBuffer.allocate(f.length + 2);
-            allocate2.put(allocate);
-            allocate2.put(f);
-            allocate2.rewind();
-            super.j(allocate2);
-        }
-    }
+    /* loaded from: classes5.dex */
+    public static class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pba, org.java_websocket.framing.Framedata
-    public ByteBuffer a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.h == 1005) {
-                return fca.a();
-            }
-            return super.a();
-        }
-        return (ByteBuffer) invokeV.objValue;
-    }
-
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pba
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return super.toString() + "code: " + this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.nba, com.baidu.tieba.pba
-    public void h() throws InvalidDataException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.h();
-            if (this.h == 1007 && this.i == null) {
-                throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
-            }
-            if (this.h == 1005 && this.i.length() > 0) {
-                throw new InvalidDataException(1002, "A close frame must have a closecode if it has a reason");
-            }
-            int i = this.h;
-            if (i > 1015 && i < 3000) {
-                throw new InvalidDataException(1002, "Trying to send an illegal close code!");
-            }
-            int i2 = this.h;
-            if (i2 != 1006 && i2 != 1015 && i2 != 1005 && i2 <= 4999 && i2 >= 1000 && i2 != 1004) {
-                return;
-            }
-            throw new InvalidFrameException("closecode must not be sent over the wire: " + this.h);
-        }
-    }
-
-    @Override // com.baidu.tieba.pba
-    public void j(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
-            this.h = 1005;
-            this.i = "";
-            byteBuffer.mark();
-            if (byteBuffer.remaining() == 0) {
-                this.h = 1000;
-            } else if (byteBuffer.remaining() == 1) {
-                this.h = 1002;
-            } else {
-                if (byteBuffer.remaining() >= 2) {
-                    ByteBuffer allocate = ByteBuffer.allocate(4);
-                    allocate.position(2);
-                    allocate.putShort(byteBuffer.getShort());
-                    allocate.position(0);
-                    this.h = allocate.getInt();
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                byteBuffer.reset();
-                try {
-                    int position = byteBuffer.position();
-                    try {
-                        byteBuffer.position(byteBuffer.position() + 2);
-                        this.i = gca.e(byteBuffer);
-                        byteBuffer.position(position);
-                    } catch (IllegalArgumentException unused) {
-                        throw new InvalidDataException(1007);
+            }
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:53:0x011d  */
+        /* JADX WARN: Removed duplicated region for block: B:61:0x014c  */
+        @Override // android.os.Handler
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void handleMessage(@NonNull Message message) {
+            boolean z;
+            long j;
+            double d;
+            int i;
+            Response perform;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i2 = message.what;
+                long j2 = 0;
+                boolean z2 = false;
+                if (i2 != 100) {
+                    if (i2 == 101) {
+                        q5a q5aVar = lba.a;
+                        synchronized (q5aVar) {
+                            LogPrinter.d("new dey", new Object[0]);
+                            double a = i6a.a();
+                            i6a.b.clear().apply();
+                            q5aVar.a.clear();
+                            if (a > 0.0d) {
+                                g6a.d(g6a.m() + a);
+                            }
+                        }
+                        Calendar calendar = Calendar.getInstance();
+                        long timeInMillis = calendar.getTimeInMillis();
+                        calendar.add(6, 1);
+                        calendar.set(11, 0);
+                        calendar.set(12, 0);
+                        calendar.set(13, 0);
+                        long timeInMillis2 = calendar.getTimeInMillis() - timeInMillis;
+                        if (timeInMillis2 >= 0) {
+                            j2 = timeInMillis2;
+                        }
+                        sendEmptyMessageDelayed(101, j2);
+                        return;
                     }
-                } catch (InvalidDataException unused2) {
-                    this.h = 1007;
-                    this.i = null;
+                    return;
+                }
+                HashMap hashMap = new HashMap();
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    HostAppInfo.fillReqParams(jSONObject);
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        hashMap.put(next, jSONObject.get(next));
+                    }
+                } catch (JSONException unused) {
+                }
+                try {
+                    perform = new GetRequest("https://cd.xdplt.com/v2/pr", new RequestParams(hashMap)).perform();
+                } catch (IOException | JSONException e) {
+                    LogPrinter.d("cpm exception:" + e, new Object[0]);
+                    LogPrinter.e(e);
+                }
+                if (perform != null && perform.getResponseCode() == 200) {
+                    JSONObject jSONObject2 = new JSONObject(perform.getContent());
+                    if (jSONObject2.getInt(Constants.KEYS.RET) == 200) {
+                        i6a.a.edit().putLong("key_cpm_update_date", Calendar.getInstance().getTimeInMillis()).putString("key_ad_cpmcfg", jSONObject2.getJSONObject("data").getJSONArray("cpm").toString()).apply();
+                        z = true;
+                        if (!z) {
+                        }
+                    } else {
+                        z = false;
+                        if (!z) {
+                            int i3 = message.arg1;
+                            LogPrinter.d("ad cpm config pull times = %1s", Integer.valueOf(i3));
+                            if (i3 == 0) {
+                                i = 10;
+                            } else if (i3 <= 2) {
+                                i = i3 * 5 * 60;
+                            } else {
+                                i = 3600;
+                            }
+                            Message obtainMessage = obtainMessage(100);
+                            obtainMessage.arg1 = i3 + 1;
+                            sendMessageDelayed(obtainMessage, i * 1000);
+                            return;
+                        }
+                        q5a q5aVar2 = lba.a;
+                        synchronized (q5aVar2) {
+                            q5aVar2.a.clear();
+                            try {
+                                JSONArray jSONArray = new JSONArray(i6a.a.getString("key_ad_cpmcfg", ""));
+                                if (jSONArray.length() >= 1) {
+                                    double m = g6a.m();
+                                    double a2 = i6a.a();
+                                    HashMap hashMap2 = new HashMap();
+                                    boolean z3 = false;
+                                    for (int i4 = 0; i4 < jSONArray.length(); i4++) {
+                                        JSONObject jSONObject3 = jSONArray.getJSONObject(i4);
+                                        String string = jSONObject3.getString("aid");
+                                        double d2 = jSONObject3.getDouble("cpm");
+                                        LogPrinter.d("update Cpm:" + string, new Object[0]);
+                                        hashMap2.put(string, Double.valueOf(d2));
+                                        int i5 = i6a.a.getInt(string, 0);
+                                        LogPrinter.d("need adjust aid count:" + i5, new Object[0]);
+                                        if (i5 != 0) {
+                                            a2 -= i6a.b(string);
+                                            m += i5 * d2;
+                                            i6a.b.remove(string).remove(string + "_");
+                                            z3 = true;
+                                        }
+                                    }
+                                    q5aVar2.a.putAll(hashMap2);
+                                    if (z3) {
+                                        LogPrinter.d("update totalPrice&totalPriceByBasePrice", new Object[0]);
+                                        if (a2 < 0.0d) {
+                                            d = 0.0d;
+                                        } else {
+                                            d = a2;
+                                        }
+                                        SharedPreferences.Editor editor = i6a.b;
+                                        editor.putLong("key_price_by_baseprice", Double.doubleToRawLongBits(d));
+                                        editor.apply();
+                                        g6a.d(m);
+                                    }
+                                }
+                            } catch (JSONException unused2) {
+                                q5aVar2.a.clear();
+                            }
+                        }
+                        Calendar calendar2 = Calendar.getInstance();
+                        Random random = new Random();
+                        long timeInMillis3 = calendar2.getTimeInMillis();
+                        int nextInt = random.nextInt(30);
+                        calendar2.set(11, 1);
+                        calendar2.set(12, nextInt);
+                        Calendar calendar3 = Calendar.getInstance();
+                        int i6 = calendar3.get(6);
+                        int i7 = calendar3.get(1);
+                        calendar3.setTimeInMillis(i6a.a.getLong("key_cpm_update_date", 0L));
+                        int i8 = calendar3.get(6);
+                        if (i7 == calendar3.get(1) && i6 == i8) {
+                            z2 = true;
+                        }
+                        if (z2) {
+                            calendar2.add(6, 1);
+                        }
+                        long timeInMillis4 = calendar2.getTimeInMillis() - timeInMillis3;
+                        if (timeInMillis4 < 0) {
+                            j = 0;
+                        } else {
+                            j = timeInMillis4;
+                        }
+                        sendEmptyMessageDelayed(100, j);
+                        return;
+                    }
+                }
+                LogPrinter.d("cpm fail:", new Object[0]);
+                z = false;
+                if (!z) {
                 }
             }
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.h = i;
-            if (i == 1015) {
-                this.h = 1005;
-                this.i = "";
-            }
-            s();
-        }
-    }
-
-    public void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            if (str == null) {
-                str = "";
-            }
-            this.i = str;
-            s();
         }
     }
 }

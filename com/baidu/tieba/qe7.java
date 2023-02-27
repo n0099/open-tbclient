@@ -1,115 +1,118 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import tbclient.App;
-import tbclient.BannerList;
-import tbclient.Personalized.DataRes;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class qe7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public List<qn> b;
+    public jo c;
+    public pe7 d;
+    public ue7 e;
+    public oe7 f;
+    public se7 g;
+    public re7 h;
+    public te7 i;
+    public ve7 j;
 
-    public static void a(String str, List<Cdo> list) {
-        i29 i29Var;
+    public qe7(TbPageContext tbPageContext, jo joVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, str, list) == null) && list != null && list.size() > 0 && !TextUtils.isEmpty(str)) {
-            Iterator<Cdo> it = list.iterator();
-            int i = 0;
-            AdvertAppInfo advertAppInfo = null;
-            int i2 = 0;
-            int i3 = 0;
-            while (it.hasNext()) {
-                i++;
-                Cdo next = it.next();
-                if ((i2 + 1 == i || i3 + 1 == i) && (next instanceof sx5)) {
-                    it.remove();
-                }
-                if (next instanceof wd7) {
-                    advertAppInfo = ((wd7) next).c();
-                } else if (next instanceof iy4) {
-                    iy4 iy4Var = (iy4) next;
-                    if (iy4Var.c() instanceof AdvertAppInfo.ILegoAdvert) {
-                        advertAppInfo = ((AdvertAppInfo.ILegoAdvert) iy4Var.c()).getAdvertAppInfo();
-                    }
-                } else if ((next instanceof ThreadData) && (i29Var = ((ThreadData) next).funAdData) != null && i29Var.i()) {
-                    it.remove();
-                    i3 = i;
-                }
-                if (advertAppInfo != null && str.equals(advertAppInfo.a)) {
-                    it.remove();
-                    advertAppInfo = null;
-                    i2 = i;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, joVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = tbPageContext;
+        this.c = joVar;
+        a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = new ArrayList();
+            pe7 pe7Var = new pe7(this.a);
+            this.d = pe7Var;
+            pe7Var.v(this.c);
+            this.b.add(this.d);
+            ue7 ue7Var = new ue7(this.a);
+            this.e = ue7Var;
+            ue7Var.v(this.c);
+            this.b.add(this.e);
+            oe7 oe7Var = new oe7(this.a);
+            this.f = oe7Var;
+            oe7Var.v(this.c);
+            this.b.add(this.f);
+            se7 se7Var = new se7(this.a);
+            this.g = se7Var;
+            se7Var.v(this.c);
+            this.b.add(this.g);
+            re7 re7Var = new re7(this.a);
+            this.h = re7Var;
+            re7Var.v(this.c);
+            this.b.add(this.h);
+            te7 te7Var = new te7(this.a);
+            this.i = te7Var;
+            te7Var.v(this.c);
+            this.b.add(this.i);
+            ve7 ve7Var = new ve7(this.a);
+            this.j = ve7Var;
+            ve7Var.v(this.c);
+            this.b.add(this.j);
+            this.c.a(this.b);
+        }
+    }
+
+    public void b() {
+        jo joVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (joVar = this.c) != null) {
+            joVar.getListAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public void c(List<Cdo> list) {
+        jo joVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (joVar = this.c) != null) {
+            joVar.setData(list);
+            b();
+        }
+    }
+
+    public void d(pw4 pw4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, pw4Var) == null) {
+            for (qn qnVar : this.b) {
+                if (qnVar instanceof ne7) {
+                    ((ne7) qnVar).u(pw4Var);
                 }
             }
         }
     }
 
-    public static void b(List<Cdo> list, DataRes.Builder builder, ic7 ic7Var, td7 td7Var) {
-        i29 i29Var;
+    public void e(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, list, builder, ic7Var, td7Var) == null) {
-            if (list != null && list.size() > 0) {
-                Iterator<Cdo> it = list.iterator();
-                while (it.hasNext()) {
-                    Cdo next = it.next();
-                    if (!(next instanceof wd7) && !(next instanceof iy4) && !(next instanceof sx5)) {
-                        if ((next instanceof ThreadData) && (i29Var = ((ThreadData) next).funAdData) != null) {
-                            i29Var.p(true);
-                            it.remove();
-                        }
-                    } else {
-                        it.remove();
-                    }
-                }
-            }
-            if (builder != null && ListUtils.getCount(builder.thread_list) > 0) {
-                BannerList.Builder builder2 = new BannerList.Builder(builder.banner_list);
-                List<App> list2 = builder2.app;
-                if (list2 != null) {
-                    list2.clear();
-                }
-                builder.banner_list = builder2.build(false);
-                DataRes.Builder builder3 = new DataRes.Builder(builder.build(true));
-                builder3.banner_list = builder2.build(true);
-                if (ic7Var != null) {
-                    ic7Var.a(builder3);
-                }
-            }
-            if (td7Var != null) {
-                td7Var.y(list);
-            }
-        }
-    }
-
-    public static void c(String str, DataRes.Builder builder, ic7 ic7Var) {
-        BannerList bannerList;
-        List<App> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, builder, ic7Var) == null) && !TextUtils.isEmpty(str) && builder != null && (bannerList = builder.banner_list) != null && (list = bannerList.app) != null && list.size() > 0) {
-            ArrayList arrayList = new ArrayList();
-            for (App app : builder.banner_list.app) {
-                if (app != null && str.equals(vr8.a(app))) {
-                    arrayList.add(app);
-                }
-            }
-            BannerList.Builder builder2 = new BannerList.Builder(builder.banner_list);
-            List<App> list2 = builder2.app;
-            if (list2 != null) {
-                list2.removeAll(arrayList);
-            }
-            builder.banner_list = builder2.build(false);
-            DataRes.Builder builder3 = new DataRes.Builder(builder.build(true));
-            builder3.banner_list = builder2.build(true);
-            if (ic7Var != null) {
-                ic7Var.a(builder3);
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
+            for (qn qnVar : this.b) {
+                qnVar.setPageId(bdUniqueId);
             }
         }
     }

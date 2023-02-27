@@ -1,36 +1,56 @@
 package com.xiaomi.push;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FilenameFilter;
+import android.content.Context;
+import android.content.SharedPreferences;
 /* loaded from: classes8.dex */
-public final class bv implements FilenameFilter {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public class bv {
+    public static volatile bv a;
 
-    public bv() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* renamed from: a  reason: collision with other field name */
+    public Context f151a;
+
+    public bv(Context context) {
+        this.f151a = context;
     }
 
-    @Override // java.io.FilenameFilter
-    public boolean accept(File file, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) ? (TextUtils.isEmpty(str) || str.toLowerCase().endsWith(".lock")) ? false : true : invokeLL.booleanValue;
+    public static bv a(Context context) {
+        if (a == null) {
+            synchronized (bv.class) {
+                if (a == null) {
+                    a = new bv(context);
+                }
+            }
+        }
+        return a;
+    }
+
+    public synchronized long a(String str, String str2, long j) {
+        try {
+        } catch (Throwable unused) {
+            return j;
+        }
+        return this.f151a.getSharedPreferences(str, 4).getLong(str2, j);
+    }
+
+    public synchronized String a(String str, String str2, String str3) {
+        try {
+        } catch (Throwable unused) {
+            return str3;
+        }
+        return this.f151a.getSharedPreferences(str, 4).getString(str2, str3);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized void m221a(String str, String str2, long j) {
+        SharedPreferences.Editor edit = this.f151a.getSharedPreferences(str, 4).edit();
+        edit.putLong(str2, j);
+        edit.commit();
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized void m222a(String str, String str2, String str3) {
+        SharedPreferences.Editor edit = this.f151a.getSharedPreferences(str, 4).edit();
+        edit.putString(str2, str3);
+        edit.commit();
     }
 }

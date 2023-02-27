@@ -1,125 +1,135 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
+import java.net.URISyntaxException;
+import java.util.List;
+import java.util.Set;
 /* loaded from: classes3.dex */
-public final class ah6 {
+public class ah6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Bitmap a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947615226, "Lcom/baidu/tieba/ah6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947615226, "Lcom/baidu/tieba/ah6;");
-                return;
-            }
-        }
-        Bitmap createBitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
-        Intrinsics.checkNotNullExpressionValue(createBitmap, "createBitmap(1, 1, Bitmap.Config.ARGB_8888)");
-        a = createBitmap;
-    }
-
-    public static final Bitmap b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
-        }
-        return (Bitmap) invokeV.objValue;
-    }
-
-    public static final boolean a(sf6 sf6Var, sf6 sf6Var2, sh6 sh6Var, long j, long j2) {
+    @Nullable
+    public static Intent a(Context context, String str, String str2, boolean z, zg6 zg6Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{sf6Var, sf6Var2, sh6Var, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            int width = sh6Var.getWidth();
-            float q = sf6Var.f().q();
-            float q2 = sf6Var2.f().q();
-            long j3 = j - sf6Var.j();
-            float f = width;
-            float f2 = (float) j2;
-            if (f - ((q2 + f) * (((float) (j - sf6Var2.j())) / f2)) < (f - ((f + q) * (((float) j3) / f2))) + q) {
-                return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, str, str2, Boolean.valueOf(z), zg6Var})) == null) {
+            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            int i = 0;
+            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+            while (true) {
+                if (i >= queryIntentActivities.size()) {
+                    break;
+                }
+                String str3 = queryIntentActivities.get(i).activityInfo.packageName;
+                if (TextUtils.equals(str3, str2)) {
+                    intent.setPackage(str3);
+                    break;
+                }
+                i++;
             }
-            return false;
+            if (z && !TextUtils.isEmpty(str2) && TextUtils.isEmpty(intent.getPackage())) {
+                if (zg6Var != null) {
+                    zg6Var.onFailed(-104);
+                    return null;
+                }
+                return null;
+            }
+            return intent;
         }
-        return invokeCommon.booleanValue;
+        return (Intent) invokeCommon.objValue;
     }
 
-    public static final boolean c(sf6 sf6Var, long j) {
-        InterceptResult invokeLJ;
+    public static Intent b(@NonNull Context context, String str, String str2, boolean z, @Nullable zg6 zg6Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, sf6Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(sf6Var, "<this>");
-            if (j - sf6Var.j() < 0) {
-                return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, str2, Boolean.valueOf(z), zg6Var})) == null) {
+            if (!d(str) && !e(str)) {
+                return a(context, str, str2, z, zg6Var);
             }
-            return false;
+            return c(context, str, str2, zg6Var);
         }
-        return invokeLJ.booleanValue;
+        return (Intent) invokeCommon.objValue;
     }
 
-    public static final boolean d(sf6 sf6Var, long j) {
-        InterceptResult invokeLJ;
+    @Nullable
+    public static Intent c(Context context, String str, String str2, zg6 zg6Var) {
+        InterceptResult invokeLLLL;
+        List<ResolveInfo> queryIntentActivities;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, sf6Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(sf6Var, "<this>");
-            if (!e(sf6Var, j) && !c(sf6Var, j)) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, str, str2, zg6Var)) == null) {
+            Intent intent = null;
+            try {
+                Intent parseUri = Intent.parseUri(str, 1);
+                if (parseUri == null) {
+                    if (zg6Var != null) {
+                        zg6Var.onFailed(-103);
+                    }
+                    return null;
+                }
+                String str3 = parseUri.getPackage();
+                if (str3 != null && !TextUtils.isEmpty(str3)) {
+                    parseUri.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+                    Set<String> categories = parseUri.getCategories();
+                    if (categories == null || categories.isEmpty()) {
+                        parseUri.addCategory("android.intent.category.LAUNCHER");
+                    }
+                    if (parseUri.getComponent() == null && (queryIntentActivities = context.getPackageManager().queryIntentActivities(parseUri, 0)) != null && queryIntentActivities.size() > 0) {
+                        parseUri.setComponent(new ComponentName(str3, queryIntentActivities.iterator().next().activityInfo.name));
+                    }
+                    return parseUri;
+                }
+                return context.getPackageManager().getLaunchIntentForPackage(str2);
+            } catch (URISyntaxException unused) {
+                if (!TextUtils.isEmpty(str2)) {
+                    intent = context.getPackageManager().getLaunchIntentForPackage(str2);
+                }
+                if (intent == null && zg6Var != null) {
+                    zg6Var.onFailed(-102);
+                }
+                return intent;
+            }
+        }
+        return (Intent) invokeLLLL.objValue;
+    }
+
+    public static boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return str.startsWith("android-app:");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if (!str.startsWith("intent:") && !str.startsWith("#Intent;")) {
                 return false;
             }
             return true;
         }
-        return invokeLJ.booleanValue;
-    }
-
-    public static final boolean e(sf6 sf6Var, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, sf6Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(sf6Var, "<this>");
-            if (j - sf6Var.j() > sf6Var.g()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public static final boolean f(sf6 sf6Var, sf6 danmaku, sh6 displayer, long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{sf6Var, danmaku, displayer, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            Intrinsics.checkNotNullParameter(sf6Var, "<this>");
-            Intrinsics.checkNotNullParameter(danmaku, "danmaku");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            if (d(sf6Var, j)) {
-                return false;
-            }
-            long j3 = danmaku.j() - sf6Var.j();
-            if (j3 <= 0) {
-                return true;
-            }
-            if (Math.abs(j3) >= j2 || e(sf6Var, j) || e(danmaku, j)) {
-                return false;
-            }
-            if (sf6Var.e().j() != 5 && sf6Var.e().j() != 4 && !a(sf6Var, danmaku, displayer, j, j2) && !a(sf6Var, danmaku, displayer, j + j2, j2)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeCommon.booleanValue;
+        return invokeL.booleanValue;
     }
 }

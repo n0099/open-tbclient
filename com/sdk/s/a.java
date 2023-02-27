@@ -1,72 +1,59 @@
 package com.sdk.s;
 
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.sdk.f.g;
-import com.sdk.q.f;
-import java.util.Map;
-import java.util.TreeMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sdk.q.b;
+import com.sdk.r.e;
 /* loaded from: classes8.dex */
-public class a extends com.sdk.i.a {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String TAG = "com.sdk.s.a";
-    public static boolean isDebug;
+public class a {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1592780059, "Lcom/sdk/s/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1592780059, "Lcom/sdk/s/a;");
-                return;
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        isDebug = g.b;
     }
 
-    public static String a(String str, String str2, TreeMap<String, Object> treeMap) {
+    public String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? e.a(str) : (String) invokeL.objValue;
+    }
+
+    public String a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) ? b.b(str, str2) : (String) invokeLL.objValue;
+    }
+
+    public String a(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, treeMap)) == null) {
-            if (treeMap == null) {
-                return null;
-            }
-            try {
-                StringBuffer stringBuffer = new StringBuffer();
-                stringBuffer.append(str);
-                stringBuffer.append(str2);
-                stringBuffer.append('?');
-                for (Map.Entry<String, Object> entry : treeMap.entrySet()) {
-                    String key = entry.getKey();
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(entry.getValue());
-                    sb.append("");
-                    String sb2 = sb.toString();
-                    if (entry.getValue() != null && sb2.length() > 0 && !StringUtil.NULL_STRING.equals(sb2) && !"sign".equals(key) && !key.startsWith("_") && !"file".equals(key)) {
-                        stringBuffer.append(key);
-                        stringBuffer.append(com.alipay.sdk.encrypt.a.h);
-                        stringBuffer.append(entry.getValue());
-                        stringBuffer.append('&');
-                    }
-                }
-                if (stringBuffer.charAt(stringBuffer.length() - 1) == '&') {
-                    stringBuffer.deleteCharAt(stringBuffer.length() - 1);
-                }
-                return f.a().b.a(stringBuffer.toString());
-            } catch (Exception e) {
-                com.sdk.n.a.a(TAG, e.getMessage(), Boolean.valueOf(isDebug));
-                return null;
-            }
-        }
-        return (String) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3)) == null) ? com.sdk.r.a.b(str3, str, str2) : (String) invokeLLL.objValue;
+    }
+
+    public String a(String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, str, str2, str3, str4)) == null) ? b.a(str3, str) : (String) invokeLLLL.objValue;
+    }
+
+    public String b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) ? com.sdk.r.a.a(str2, str.substring(0, 16), str.substring(16)) : (String) invokeLL.objValue;
     }
 }

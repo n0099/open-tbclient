@@ -1,12 +1,6 @@
 package com.baidu.searchbox.crius.constants;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class NativeConstants {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVE = "active";
     public static final String AGREE_NUM = "data-agree-num";
     public static final String ALS_STAT = "data-als-stat";
@@ -129,19 +123,4 @@ public class NativeConstants {
     public static final String VIDEO_DURATION = "data-video-duration";
     public static final String VISITED = "visited";
     public static final String VOTE_STYLE = "vote-style";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public NativeConstants() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

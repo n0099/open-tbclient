@@ -1,13 +1,11 @@
 package com.cmic.sso.sdk.b;
 
-import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.telephony.SubscriptionManager;
-import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,17 +16,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.cmic.sso.sdk.e.c;
-import com.cmic.sso.sdk.e.g;
 import com.cmic.sso.sdk.e.m;
-import com.kuaishou.weapon.p0.h;
-import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
     public static long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public C0536a c;
+    public C0522a c;
 
     static {
         InterceptResult invokeClinit;
@@ -47,13 +42,13 @@ public class a {
 
     /* renamed from: com.cmic.sso.sdk.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0536a {
+    public static class C0522a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
         public int b;
 
-        public C0536a() {
+        public C0522a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,32 +103,29 @@ public class a {
         return (a) invokeV.objValue;
     }
 
-    public C0536a b() {
+    public C0522a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            C0536a c0536a = this.c;
-            if (c0536a == null) {
-                return new C0536a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            C0522a c0522a = this.c;
+            if (c0522a == null) {
+                return new C0522a();
             }
-            return c0536a;
+            return c0522a;
         }
-        return (C0536a) invokeV.objValue;
+        return (C0522a) invokeV.objValue;
     }
 
-    private void a(Context context, boolean z) {
+    private void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65539, this, context, z) == null) {
+        if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
             if (Build.VERSION.SDK_INT >= 22) {
                 SubscriptionManager from = SubscriptionManager.from(context.getApplicationContext());
                 if (from != null) {
                     try {
                         if (this.c.a == -1 && Build.VERSION.SDK_INT >= 24) {
                             this.c.b = SubscriptionManager.getDefaultDataSubscriptionId();
-                            StringBuilder sb = new StringBuilder();
-                            sb.append("android 7.0及以上手机getDefaultDataSubscriptionId适配成功: dataSubId = ");
-                            sb.append(this.c.b);
-                            c.b("UMCTelephonyManagement", sb.toString());
+                            c.b("UMCTelephonyManagement", "android 7.0及以上手机getDefaultDataSubscriptionId适配成功: dataSubId = " + this.c.b);
                             return;
                         }
                     } catch (Exception unused) {
@@ -143,10 +135,7 @@ public class a {
                         Object invoke = from.getClass().getMethod("getDefaultDataSubId", new Class[0]).invoke(from, new Object[0]);
                         if ((invoke instanceof Integer) || (invoke instanceof Long)) {
                             this.c.b = ((Integer) invoke).intValue();
-                            StringBuilder sb2 = new StringBuilder();
-                            sb2.append("android 7.0以下手机getDefaultDataSubId适配成功: dataSubId = ");
-                            sb2.append(this.c.b);
-                            c.b("UMCTelephonyManagement", sb2.toString());
+                            c.b("UMCTelephonyManagement", "android 7.0以下手机getDefaultDataSubId适配成功: dataSubId = " + this.c.b);
                             return;
                         }
                     } catch (Exception unused2) {
@@ -156,10 +145,7 @@ public class a {
                         Object invoke2 = from.getClass().getMethod("getDefaultDataSubscriptionId", new Class[0]).invoke(from, new Object[0]);
                         if ((invoke2 instanceof Integer) || (invoke2 instanceof Long)) {
                             this.c.b = ((Integer) invoke2).intValue();
-                            StringBuilder sb3 = new StringBuilder();
-                            sb3.append("反射getDefaultDataSubscriptionId适配成功: dataSubId = ");
-                            sb3.append(this.c.b);
-                            c.b("UMCTelephonyManagement", sb3.toString());
+                            c.b("UMCTelephonyManagement", "反射getDefaultDataSubscriptionId适配成功: dataSubId = " + this.c.b);
                             return;
                         }
                         return;
@@ -175,19 +161,19 @@ public class a {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0084, code lost:
-        if (r11 != null) goto L33;
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0084, code lost:
+        if (r11 != null) goto L31;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x008e, code lost:
-        if (r11 == null) goto L30;
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x008c, code lost:
+        if (r11 == null) goto L28;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0090, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x008e, code lost:
         r11.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x0093, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0091, code lost:
         com.cmic.sso.sdk.e.c.b("UMCTelephonyManagement", "readSimInfoDbEnd");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x0098, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0096, code lost:
         return;
      */
     /*
@@ -209,10 +195,7 @@ public class a {
                             int i2 = cursor.getInt(cursor.getColumnIndex("_id"));
                             if (this.c.a == -1 && this.c.b != -1 && this.c.b == i2) {
                                 this.c.a = i;
-                                StringBuilder sb = new StringBuilder();
-                                sb.append("通过读取sim db获取数据流量卡的卡槽值：");
-                                sb.append(i);
-                                c.b("UMCTelephonyManagement", sb.toString());
+                                c.b("UMCTelephonyManagement", "通过读取sim db获取数据流量卡的卡槽值：" + i);
                             }
                             if (this.c.a == i) {
                                 this.c.b = i2;
@@ -231,100 +214,24 @@ public class a {
         }
     }
 
-    @SuppressLint({"MissingPermission"})
-    private int c(Context context) {
-        InterceptResult invokeL;
-        TelephonyManager telephonyManager;
+    public void a(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
-            if (!g.a(context, h.c) || (telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService("phone")) == null) {
-                return -1;
-            }
-            if (m.d()) {
-                try {
-                    Method method = telephonyManager.getClass().getMethod("getDataNetworkType", Integer.TYPE);
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("data dataNetworkType defaultDataSubId = ");
-                    sb.append(this.c.b);
-                    c.b("UMCTelephonyManagement", sb.toString());
-                    int intValue = ((Integer) method.invoke(telephonyManager, Integer.valueOf(this.c.b))).intValue();
-                    StringBuilder sb2 = new StringBuilder();
-                    sb2.append("data dataNetworkType ---------");
-                    sb2.append(intValue);
-                    c.b("UMCTelephonyManagement", sb2.toString());
-                    if (intValue == 0 && Build.VERSION.SDK_INT >= 24) {
-                        StringBuilder sb3 = new StringBuilder();
-                        sb3.append("data dataNetworkType ---->=N ");
-                        sb3.append(intValue);
-                        c.b("UMCTelephonyManagement", sb3.toString());
-                        return telephonyManager.getDataNetworkType();
-                    }
-                    return intValue;
-                } catch (Exception e) {
-                    c.a("UMCTelephonyManagement", "data dataNetworkType ----反射出错-----");
-                    e.printStackTrace();
-                    return -1;
-                }
-            }
-            return telephonyManager.getDataNetworkType();
-        }
-        return invokeL.intValue;
-    }
-
-    public String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            switch (c(context)) {
-                case 1:
-                case 2:
-                case 4:
-                case 7:
-                case 11:
-                case 16:
-                    return "1";
-                case 3:
-                case 5:
-                case 6:
-                case 8:
-                case 9:
-                case 10:
-                case 12:
-                case 14:
-                case 15:
-                case 17:
-                    return "2";
-                case 13:
-                case 18:
-                case 19:
-                    return "3";
-                case 20:
-                    return "4";
-                default:
-                    return "0";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void a(Context context, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
             long currentTimeMillis = System.currentTimeMillis() - b;
             if (currentTimeMillis < 5000 && currentTimeMillis > 0) {
                 return;
             }
-            this.c = new C0536a();
-            if (!z2) {
+            this.c = new C0522a();
+            if (!z) {
                 return;
             }
-            a(context, z);
+            a(context);
             if (m.e() && m.d()) {
                 c.b("UMCTelephonyManagement", "华为手机兼容性处理");
                 if (this.c.b == 0 || this.c.b == 1) {
                     if (this.c.a == -1) {
-                        C0536a c0536a = this.c;
-                        c0536a.a = c0536a.b;
+                        C0522a c0522a = this.c;
+                        c0522a.a = c0522a.b;
                     }
                     this.c.b = -1;
                 }

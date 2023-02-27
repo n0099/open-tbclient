@@ -1,91 +1,142 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class rk4 extends fk4 {
+public class rk4 extends sk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String d;
+    public String e;
+    public int f;
+    public String g;
+    public String h;
+    public int i;
 
-    public rk4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rk4(String str, int i, String str2, int i2) {
+        super(i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), str2, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.i = -1;
+        this.d = str;
+        this.e = str2;
+        this.f = i;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rk4(String str, String str2, String str3, int i) {
+        super(i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.i = -1;
+        this.d = str;
+        this.e = str3;
+        try {
+            this.f = Integer.valueOf(str2).intValue();
+        } catch (NumberFormatException unused) {
+            this.f = 0;
         }
     }
 
-    @Override // com.baidu.tieba.fk4
-    public JSONObject d() {
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("version", uk4.b().d());
-                jSONObject.put("tipmsgs", jSONObject2);
-                JSONObject jSONObject3 = new JSONObject();
-                el4.b();
-                jSONObject3.put("version", el4.c());
-                jSONObject.put("web_degrade_strategy", jSONObject3);
-                JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put("version", al4.a().b());
-                jSONObject.put("pkg_preload", jSONObject4);
-                JSONObject jSONObject5 = new JSONObject();
-                jSONObject5.put("version", qk4.b().c());
-                jSONObject.put("pkg_clean_strategy", jSONObject5);
-                JSONObject jSONObject6 = new JSONObject();
-                jSONObject6.put("version", tk4.a().b());
-                jSONObject.put("getpkg_retry_switch", jSONObject6);
-                JSONObject jSONObject7 = new JSONObject();
-                jSONObject7.put("version", gl4.d());
-                jSONObject.put("update_expire_time", jSONObject7);
-                JSONObject jSONObject8 = new JSONObject();
-                jSONObject8.put("version", yk4.f().h());
-                jSONObject.put("page_tips", jSONObject8);
-                if (cl4.a) {
-                    JSONObject jSONObject9 = new JSONObject();
-                    jSONObject9.put("version", cl4.b);
-                    jSONObject.put("heartbeat", jSONObject9);
-                }
-                JSONObject jSONObject10 = new JSONObject();
-                jSONObject10.put("version", vk4.a().b());
-                jSONObject.put("local_debug", jSONObject10);
-                JSONObject jSONObject11 = new JSONObject();
-                jSONObject11.put("version", hg4.a().a());
-                jSONObject.put(hg4.a().c(), jSONObject11);
-                if (dl4.b()) {
-                    JSONObject jSONObject12 = new JSONObject();
-                    jSONObject12.put("version", dl4.a());
-                    jSONObject.put("api_description", jSONObject12);
-                }
-                JSONObject jSONObject13 = new JSONObject();
-                jSONObject13.put("version", fl4.b().c());
-                jSONObject.put("tts", jSONObject13);
-                new JSONObject().put("version", wk4.a().c());
-                jSONObject.put("no_history_apps", jSONObject13);
-                JSONObject jSONObject14 = new JSONObject();
-                jSONObject14.put("version", il4.d());
-                jSONObject.put("app_inner_preload", jSONObject14);
-                JSONObject jSONObject15 = new JSONObject();
-                jSONObject15.put("version", bl4.a().b());
-                jSONObject.put("simple_control_item", jSONObject15);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+            return this.d;
         }
-        return (JSONObject) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.h = str;
+        }
+    }
+
+    public rk4 m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            this.g = str;
+            return this;
+        }
+        return (rk4) invokeL.objValue;
     }
 }

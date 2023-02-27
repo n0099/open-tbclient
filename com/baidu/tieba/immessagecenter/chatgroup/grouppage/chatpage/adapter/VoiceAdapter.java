@@ -1,6 +1,7 @@
 package com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,30 +12,33 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dh;
+import com.baidu.tieba.ft7;
+import com.baidu.tieba.i75;
 import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.VoiceMsg;
-import com.baidu.tieba.mq7;
-import com.baidu.tieba.w55;
+import com.baidu.tieba.lt7;
+import com.baidu.tieba.mt7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VoiceManager g;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ViewHolder extends BaseViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,10 +83,55 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
-        public void d(@NonNull mq7 mq7Var) {
+        public void d(@NonNull lt7 lt7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mq7Var) == null) {
-                super.d(mq7Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lt7Var) == null) {
+                super.d(lt7Var);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements ft7 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ VoiceMsg b;
+        public final /* synthetic */ VoiceAdapter c;
+
+        public a(VoiceAdapter voiceAdapter, ViewGroup viewGroup, VoiceMsg voiceMsg) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {voiceAdapter, viewGroup, voiceMsg};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = voiceAdapter;
+            this.a = viewGroup;
+            this.b = voiceMsg;
+        }
+
+        @Override // com.baidu.tieba.ft7
+        public void a(Drawable drawable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
+                this.a.setBackground(drawable);
+            }
+        }
+
+        @Override // com.baidu.tieba.ft7
+        public void onFailed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.c.V(this.a, this.b);
             }
         }
     }
@@ -108,7 +157,7 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
         }
     }
 
-    public final ChatVoiceView O(@NonNull Context context, boolean z) {
+    public final ChatVoiceView P(@NonNull Context context, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, context, z)) == null) {
@@ -116,7 +165,7 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 16;
             chatVoiceView.setLayoutParams(layoutParams);
-            chatVoiceView.setId(R.id.obfuscated_res_0x7f090dd1);
+            chatVoiceView.setId(R.id.obfuscated_res_0x7f090e12);
             chatVoiceView.setVoiceManager(this.g);
             chatVoiceView.setOnClickListener(chatVoiceView);
             return chatVoiceView;
@@ -127,12 +176,12 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
     @NonNull
-    /* renamed from: Q */
+    /* renamed from: R */
     public ViewHolder B(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            return new ViewHolder(O(viewGroup.getContext(), true));
+            return new ViewHolder(P(viewGroup.getContext(), true));
         }
         return (ViewHolder) invokeL.objValue;
     }
@@ -140,17 +189,17 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
     @NonNull
-    /* renamed from: R */
+    /* renamed from: S */
     public ViewHolder D(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
-            return new ViewHolder(O(viewGroup.getContext(), false));
+            return new ViewHolder(P(viewGroup.getContext(), false));
         }
         return (ViewHolder) invokeL.objValue;
     }
 
-    public void T(VoiceManager voiceManager) {
+    public void U(VoiceManager voiceManager) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, voiceManager) == null) {
             this.g = voiceManager;
@@ -158,7 +207,7 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
     }
 
     @NonNull
-    public final VoiceData.VoiceModel P(@NonNull VoiceMsg voiceMsg) {
+    public final VoiceData.VoiceModel Q(@NonNull VoiceMsg voiceMsg) {
         InterceptResult invokeL;
         Uri parse;
         Interceptable interceptable = $ic;
@@ -169,7 +218,7 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
             VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
             voiceMsg.setVoiceModel(voiceModel);
             voiceModel.setDuration(dh.e(voiceMsg.getDuring(), 0));
-            if (w55.b(voiceMsg.getVid()) == null && voiceMsg.getVoiceUrl() != null && (parse = Uri.parse(voiceMsg.getVoiceUrl())) != null) {
+            if (i75.b(voiceMsg.getVid()) == null && voiceMsg.getVoiceUrl() != null && (parse = Uri.parse(voiceMsg.getVoiceUrl())) != null) {
                 voiceMsg.setVid(parse.getLastPathSegment());
             }
             voiceModel.setVoiceId(voiceMsg.getVid());
@@ -184,21 +233,29 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
-    /* renamed from: S */
+    /* renamed from: T */
     public void J(int i, @NonNull ViewGroup viewGroup, @NonNull VoiceMsg voiceMsg, @NonNull ViewHolder viewHolder, @NonNull List<Object> list, int i2) {
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), viewGroup, voiceMsg, viewHolder, list, Integer.valueOf(i2)}) == null) {
-            if (voiceMsg.isLeft()) {
-                i3 = R.drawable.selector_msg_text_bubble_other;
-            } else {
-                i3 = R.drawable.selector_msg_text_bubble_me;
-            }
-            SkinManager.setBackgroundResource(viewGroup, i3);
+            mt7.i(this.mType, voiceMsg, viewGroup, new a(this, viewGroup, voiceMsg));
             ChatVoiceView chatVoiceView = (ChatVoiceView) viewHolder.getView();
-            VoiceData.VoiceModel P = P(voiceMsg);
+            VoiceData.VoiceModel Q = Q(voiceMsg);
             chatVoiceView.f("");
-            chatVoiceView.setData(P);
+            chatVoiceView.setData(Q);
+        }
+    }
+
+    public final void V(@NonNull ViewGroup viewGroup, @NonNull VoiceMsg voiceMsg) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, viewGroup, voiceMsg) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (voiceMsg.isLeft()) {
+                i = R.drawable.selector_msg_text_bubble_other;
+            } else {
+                i = R.drawable.selector_msg_text_bubble_me;
+            }
+            viewGroup.setBackground(SkinManager.getDrawable(skinType, i));
         }
     }
 }

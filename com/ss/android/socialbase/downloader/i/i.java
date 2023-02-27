@@ -1,6 +1,7 @@
 package com.ss.android.socialbase.downloader.i;
 
 import kotlin.text.Typography;
+import org.apache.commons.codec.net.RFC1522Codec;
 /* loaded from: classes8.dex */
 public class i {
     public static String a(String str, String str2, String[] strArr) {
@@ -29,7 +30,7 @@ public class i {
 
     public static StringBuilder b(StringBuilder sb, String[] strArr) {
         for (int i = 0; i < strArr.length; i++) {
-            a(sb, strArr[i]).append("=?");
+            a(sb, strArr[i]).append(RFC1522Codec.PREFIX);
             if (i < strArr.length - 1) {
                 sb.append(',');
             }
@@ -66,7 +67,7 @@ public class i {
             if (i2 < i - 1) {
                 sb.append("?,");
             } else {
-                sb.append('?');
+                sb.append(RFC1522Codec.SEP);
             }
         }
         return sb;
@@ -89,7 +90,7 @@ public class i {
 
     public static StringBuilder a(StringBuilder sb, String str, String[] strArr) {
         for (int i = 0; i < strArr.length; i++) {
-            a(sb, str, strArr[i]).append("=?");
+            a(sb, str, strArr[i]).append(RFC1522Codec.PREFIX);
             if (i < strArr.length - 1) {
                 sb.append(',');
             }

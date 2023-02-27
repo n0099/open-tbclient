@@ -19,11 +19,11 @@ import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.ac.F;
 import com.baidu.sofire.ac.U;
-import com.baidu.sofire.b.k;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.k.i;
 import com.baidu.sofire.k.j;
-import com.baidu.sofire.k.l;
+import com.baidu.sofire.k.p;
+import com.baidu.sofire.k.t;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,9 +32,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.net.URLEncoder;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.security.cert.Certificate;
 import java.util.ArrayList;
 import java.util.Date;
@@ -45,9 +46,6 @@ import java.util.Random;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.zip.GZIPOutputStream;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -57,11 +55,11 @@ public class a {
 
     /* renamed from: com.baidu.sofire.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0177a extends Callback {
+    public static class C0163a extends Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0177a() {
+        public C0163a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,18 +89,19 @@ public class a {
         byte[] bytes;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            String[] p = com.baidu.sofire.k.a.p(context);
-            String str3 = p[0];
-            String str4 = p[1];
+            String[] o = com.baidu.sofire.k.b.o(context);
+            String str3 = o[0];
+            String str4 = o[1];
             if ("com.baidu.input_huawei".equals(context.getPackageName()) && !com.baidu.sofire.j.a.a(context).b()) {
                 throw new NetworkErrorException("conn is blocked");
             }
             String valueOf = String.valueOf(new Date().getTime() / 1000);
             String a = j.a(str3 + valueOf + str4);
+            Random random = t.a;
             char[] charArray = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
             char[] cArr = new char[16];
             for (int i = 0; i < 16; i++) {
-                cArr[i] = charArray[new Random().nextInt(62)];
+                cArr[i] = charArray[t.a.nextInt(62)];
             }
             byte[] bytes2 = new String(cArr).getBytes();
             String str5 = "";
@@ -129,7 +128,7 @@ public class a {
             } else {
                 bytes = "".getBytes();
             }
-            byte[] bytes3 = j.a(com.baidu.sofire.k.c.a(context)).getBytes();
+            byte[] bytes3 = j.a(com.baidu.sofire.k.d.a(context)).getBytes();
             String encodeToString = Base64.encodeToString(F.getInstance().re(bytes2, bytes3), 0);
             StringBuilder sb = new StringBuilder();
             sb.append(str);
@@ -162,7 +161,7 @@ public class a {
                     }
                     if (currentTimeMillis - j > 86400000) {
                         HashMap hashMap = new HashMap();
-                        if (com.baidu.sofire.k.a.m(context)) {
+                        if (com.baidu.sofire.k.b.l(context)) {
                             hashMap.put("0", Integer.valueOf(a2.k() + 1));
                             hashMap.put("1", Integer.valueOf(a2.j()));
                         } else {
@@ -175,8 +174,8 @@ public class a {
                         a2.b.commit();
                         a2.b.putLong("pu_cl_fd", System.currentTimeMillis());
                         a2.b.commit();
-                        com.baidu.sofire.k.a.a(context, "1003112", (Map<String, Object>) hashMap, false);
-                    } else if (com.baidu.sofire.k.a.m(context)) {
+                        com.baidu.sofire.k.b.a(context, "1003112", (Map<String, Object>) hashMap, false);
+                    } else if (com.baidu.sofire.k.b.l(context)) {
                         a2.c(a2.k() + 1);
                     } else {
                         a2.b(a2.j() + 1);
@@ -208,7 +207,7 @@ public class a {
                         a3.b.commit();
                         a3.b.putLong("se_ae_fd", System.currentTimeMillis());
                         a3.b.commit();
-                        com.baidu.sofire.k.a.a(context, "1003119", (Map<String, Object>) hashMap2, false);
+                        com.baidu.sofire.k.b.a(context, "1003119", (Map<String, Object>) hashMap2, false);
                     } else {
                         a3.b.putInt("mo_ae_fa_ct", a3.a.getInt("mo_ae_fa_ct", 0) + 1);
                         a3.b.commit();
@@ -230,13 +229,13 @@ public class a {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, Boolean.valueOf(z), sb, bArr})) == null) {
             try {
                 if (z) {
-                    if (l.a(context)) {
-                        a = new l(context).a(sb.toString());
+                    if (p.a(context)) {
+                        a = new p(context).a(sb.toString());
                     } else {
                         a = new i(context).a(sb.toString());
                     }
-                } else if (l.a(context)) {
-                    a = new l(context).b(sb.toString(), bArr);
+                } else if (p.a(context)) {
+                    a = new p(context).b(sb.toString(), bArr);
                 } else {
                     a = new i(context).a(sb.toString(), bArr);
                 }
@@ -249,39 +248,10 @@ public class a {
         return (String) invokeCommon.objValue;
     }
 
-    public static String a(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, bArr, z)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                byte[] digest = messageDigest.digest();
-                StringBuilder sb = new StringBuilder();
-                for (byte b : digest) {
-                    String hexString = Integer.toHexString(b & 255);
-                    if (z) {
-                        hexString = hexString.toUpperCase();
-                    }
-                    if (hexString.length() == 1) {
-                        sb.append("0");
-                    }
-                    sb.append(hexString);
-                    sb.append("");
-                }
-                return sb.toString();
-            } catch (NoSuchAlgorithmException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return (String) invokeLZ.objValue;
-    }
-
     @SuppressLint({"NewApi"})
     public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 15) {
                     TrafficStats.clearThreadStatsTag();
@@ -295,7 +265,7 @@ public class a {
     @SuppressLint({"NewApi"})
     public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 15) {
                     TrafficStats.setThreadStatsTag(155648);
@@ -308,10 +278,10 @@ public class a {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
             try {
                 com.baidu.sofire.c.a a = com.baidu.sofire.c.a.a(context);
-                com.baidu.sofire.b.d a2 = com.baidu.sofire.b.d.a(context);
+                com.baidu.sofire.b.b a2 = com.baidu.sofire.b.b.a(context);
                 Iterator it = ((ArrayList) a.b()).iterator();
                 while (it.hasNext()) {
                     ApkInfo apkInfo = (ApkInfo) it.next();
@@ -331,7 +301,7 @@ public class a {
         PendingIntent service;
         long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             try {
                 AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
                 Intent intent = new Intent("com.baidu.action.SOFIRE.VIEW");
@@ -343,7 +313,7 @@ public class a {
                 intent.putExtra("target_class", U.class.getCanonicalName());
                 intent.putExtra("target_method", "handleWork");
                 intent.putExtra("from", 2);
-                if (com.baidu.sofire.k.a.i(context)) {
+                if (com.baidu.sofire.k.b.h(context)) {
                     service = PendingIntent.getService(context, 1001, intent, 201326592);
                 } else {
                     service = PendingIntent.getService(context, 1001, intent, 134217728);
@@ -381,10 +351,10 @@ public class a {
 
     public static void a(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, context, intent) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, intent) == null) {
             try {
-                String[] p = com.baidu.sofire.k.a.p(context);
-                com.baidu.sofire.b.e.a(context, 0, p[0], p[1], 100028);
+                String[] o = com.baidu.sofire.k.b.o(context);
+                com.baidu.sofire.b.c.a(context, 0, o[0], o[1], 100028);
                 int i = 0;
                 while (true) {
                     Thread.sleep(500L);
@@ -392,16 +362,16 @@ public class a {
                     if (i > 60) {
                         HashMap hashMap = new HashMap();
                         hashMap.put("0", "152");
-                        hashMap.put("1", p[0]);
-                        com.baidu.sofire.k.a.a(context.getApplicationContext(), "1014115", (Map<String, Object>) hashMap, false);
+                        hashMap.put("1", o[0]);
+                        com.baidu.sofire.k.b.a(context.getApplicationContext(), "1014115", (Map<String, Object>) hashMap, false);
                         break;
                     }
-                    k kVar = k.f;
-                    if (kVar != null && kVar.b("com.baidu.sofire.x24") != null) {
+                    com.baidu.sofire.b.i iVar = com.baidu.sofire.b.i.g;
+                    if (iVar != null && iVar.b("com.baidu.sofire.x24") != null) {
                         break;
                     }
                 }
-                com.baidu.sofire.b.e.a(100028, "onReceiveAwakeMessage", new C0177a(), new Class[]{Context.class, Intent.class}, context, intent);
+                com.baidu.sofire.b.c.a(100028, "onReceiveAwakeMessage", new C0163a(), new Class[]{Context.class, Intent.class}, context, intent);
             } catch (Throwable unused) {
                 int i2 = b.a;
             }
@@ -418,7 +388,7 @@ public class a {
         boolean z6;
         boolean z7;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65543, null, context, jSONObject) != null) || context == null) {
+        if ((interceptable != null && interceptable.invokeLL(65542, null, context, jSONObject) != null) || context == null) {
             return;
         }
         try {
@@ -542,7 +512,7 @@ public class a {
         long currentTimeMillis;
         long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65544, null, context, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65543, null, context, z) == null) {
             try {
                 com.baidu.sofire.j.a a = com.baidu.sofire.j.a.a(context);
                 long j2 = a.a.getInt("appal_te", 24) * 3600000;
@@ -556,7 +526,7 @@ public class a {
                 intent.putExtra("target_class", U.class.getCanonicalName());
                 intent.putExtra("target_method", "handleWork");
                 intent.putExtra("from", 6);
-                if (com.baidu.sofire.k.a.i(context)) {
+                if (com.baidu.sofire.k.b.h(context)) {
                     service = PendingIntent.getService(context, 1000, intent, 201326592);
                 } else {
                     service = PendingIntent.getService(context, 1000, intent, 134217728);
@@ -589,23 +559,86 @@ public class a {
         }
     }
 
-    public static byte[] a(String str, String str2, byte[] bArr) throws Exception {
-        InterceptResult invokeLLL;
+    public static void a(File file, File file2) {
+        FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, str, str2, bArr)) == null) {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
-            return cipher.doFinal(bArr);
+        if ((interceptable != null && interceptable.invokeLL(65544, null, file, file2) != null) || !com.baidu.sofire.k.b.a(file)) {
+            return;
         }
-        return (byte[]) invokeLLL.objValue;
+        if (file2.exists()) {
+            file2.delete();
+        }
+        FileInputStream fileInputStream = null;
+        try {
+            FileInputStream fileInputStream2 = new FileInputStream(file);
+            try {
+                fileOutputStream = new FileOutputStream(file2);
+            } catch (Throwable unused) {
+                fileOutputStream = null;
+            }
+            try {
+                byte[] bArr = new byte[8192];
+                while (true) {
+                    int read = fileInputStream2.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    fileOutputStream.write(bArr, 0, read);
+                }
+                fileOutputStream.flush();
+                try {
+                    fileInputStream2.close();
+                } catch (Throwable unused2) {
+                    int i = b.a;
+                }
+            } catch (Throwable unused3) {
+                fileInputStream = fileInputStream2;
+                try {
+                    int i2 = b.a;
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (Throwable unused4) {
+                            int i3 = b.a;
+                        }
+                    }
+                    if (fileOutputStream == null) {
+                        return;
+                    }
+                    fileOutputStream.close();
+                } catch (Throwable th) {
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (Throwable unused5) {
+                            int i4 = b.a;
+                        }
+                    }
+                    if (fileOutputStream != null) {
+                        try {
+                            fileOutputStream.close();
+                        } catch (Throwable unused6) {
+                            int i5 = b.a;
+                        }
+                    }
+                    throw th;
+                }
+            }
+        } catch (Throwable unused7) {
+            fileOutputStream = null;
+        }
+        try {
+            fileOutputStream.close();
+        } catch (Throwable unused8) {
+            int i6 = b.a;
+        }
     }
 
     public static Certificate[] a(JarFile jarFile, JarEntry jarEntry, byte[] bArr) {
         InterceptResult invokeLLL;
         BufferedInputStream bufferedInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, jarFile, jarEntry, bArr)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, jarFile, jarEntry, bArr)) == null) {
             try {
                 bufferedInputStream = new BufferedInputStream(jarFile.getInputStream(jarEntry));
                 while (bufferedInputStream.read(bArr, 0, bArr.length) != -1) {

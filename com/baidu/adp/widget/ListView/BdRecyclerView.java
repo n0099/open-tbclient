@@ -19,12 +19,12 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.ca;
 import com.baidu.tieba.da;
-import com.baidu.tieba.do5;
 import com.baidu.tieba.eo;
 import com.baidu.tieba.fo;
 import com.baidu.tieba.ho;
-import com.baidu.tieba.ll;
+import com.baidu.tieba.ml;
 import com.baidu.tieba.rn;
+import com.baidu.tieba.rp5;
 import com.baidu.tieba.tn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -299,8 +299,8 @@ public class BdRecyclerView extends RecyclerView implements fo<BdRecyclerView> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null) {
                 return;
             }
-            if (view2 instanceof ll) {
-                ((ll) view2).refresh();
+            if (view2 instanceof ml) {
+                ((ml) view2).refresh();
             }
             if (view2 instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view2;
@@ -709,7 +709,7 @@ public class BdRecyclerView extends RecyclerView implements fo<BdRecyclerView> {
             try {
                 super.removeViewAt(i2);
             } catch (NullPointerException e2) {
-                do5.a(this, i2, e2);
+                rp5.a(this, i2, e2);
                 throw e2;
             }
         }

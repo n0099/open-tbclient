@@ -1,80 +1,61 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.BaseAdapter;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.gz;
-import com.baidu.tieba.vy;
+import com.baidu.tbadk.core.atomData.AvatarPendantActivityConfig;
+import com.baidu.tbadk.core.atomData.BubbleGroupActivityConfig;
+import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.memberCenter.memberpay.MemberPayResult;
+import com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class p58 extends j58<wz4, ThreadCardViewHolder<ThreadData>> {
+public class p58 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId c;
-    public TbPageContext<?> d;
-    public jo e;
-    public ld6<ThreadData> f;
+    public List<MemberPayResult.VipPayPrivilegeData> a;
+    public LayoutInflater b;
+    public Context c;
+    public b d;
 
     /* loaded from: classes5.dex */
-    public class a extends ld6<ThreadData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p58 b;
-
-        public a(p58 p58Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p58Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = p58Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ld6
-        /* renamed from: d */
-        public void a(View view2, ThreadData threadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                ed6.b().d(true);
-                this.b.z(view2, threadData);
-            }
-        }
+    public interface b {
+        void a(String str);
     }
 
     /* loaded from: classes5.dex */
-    public class b implements no {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p58 a;
+        public final /* synthetic */ MemberPayResult.VipPayPrivilegeData a;
+        public final /* synthetic */ c b;
+        public final /* synthetic */ u08 c;
+        public final /* synthetic */ p58 d;
 
-        public b(p58 p58Var) {
+        public a(p58 p58Var, MemberPayResult.VipPayPrivilegeData vipPayPrivilegeData, c cVar, u08 u08Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {p58Var};
+                Object[] objArr = {p58Var, vipPayPrivilegeData, cVar, u08Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -84,109 +65,214 @@ public class p58 extends j58<wz4, ThreadCardViewHolder<ThreadData>> {
                     return;
                 }
             }
-            this.a = p58Var;
+            this.d = p58Var;
+            this.a = vipPayPrivilegeData;
+            this.b = cVar;
+            this.c = u08Var;
         }
 
-        @Override // com.baidu.tieba.no
-        public void b(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            String str;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (cdo instanceof wz4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                ThreadData threadData = ((wz4) cdo).t;
-                threadData.objType = 1;
-                if (this.a.f != null) {
-                    this.a.f.a(threadCardViewHolder.getView(), threadData);
-                }
-                Context context = view2.getContext();
-                String y1 = this.a.b.getOrignalPage().y1();
-                if (this.a.s()) {
-                    str = "3";
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                String str = this.a.mLinkUrl;
+                if (!str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_POST_BUBBLE) && !str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PENDANT_LIST) && !str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_BG) && !str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_CARD_DETAIL) && !str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_ONE_KEY_SIGN)) {
+                    zu4.s(this.d.b.getContext(), str);
                 } else {
-                    str = "2";
+                    if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_POST_BUBBLE)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BubbleGroupActivityConfig(this.d.c)));
+                    }
+                    if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PENDANT_LIST)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AvatarPendantActivityConfig(this.d.c)));
+                    }
+                    if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_BG) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_CARD_DETAIL)) {
+                        MemberCenterStatic.a((TbPageContext) da.a(this.d.c), new String[]{str});
+                    }
+                    if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_ONE_KEY_SIGN)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SignAllForumActivityConfig(this.d.c)));
+                    }
                 }
-                ThreadCardUtils.jumpToPB(threadData, context, 17, false, y1, str);
-                threadCardViewHolder.a().p(new gz.a(1));
+                if (this.d.d != null) {
+                    this.d.d.a(this.a.mEquityId);
+                }
+                if (!TextUtils.equals("click", this.a.getDynamicDisappear())) {
+                    return;
+                }
+                this.d.e(this.b.d, this.c);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p58(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId);
+    /* loaded from: classes5.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TbImageView a;
+        public TextView b;
+        public RelativeLayout c;
+        public final TextView d;
+
+        public c(p58 p58Var, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p58Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091637);
+            this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09163b);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09163a);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091639);
+        }
+    }
+
+    public p58(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new a(this);
-        this.d = tbPageContext;
-        this.c = bdUniqueId2;
-    }
-
-    public void A(jo joVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, joVar) == null) {
-            this.e = joVar;
-        }
+        this.b = LayoutInflater.from(context);
+        this.c = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: x */
-    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // android.widget.Adapter
+    /* renamed from: f */
+    public MemberPayResult.VipPayPrivilegeData getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            vy.b bVar = new vy.b(this.d.getPageActivity(), false);
-            bVar.h(new rx(this.d.getPageActivity()));
-            vy k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.e);
-            k.s(17);
-            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.i(this.c);
-            setOnAdapterItemClickListener(new b(this));
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: y */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, wz4 wz4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        ThreadData threadData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wz4Var, threadCardViewHolder})) == null) {
-            if (wz4Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = wz4Var.t) != null) {
-                threadData.statFloor = getPositionByType(i) + 1;
-                threadCardViewHolder.a().r(i);
-                threadCardViewHolder.e(wz4Var.t);
-                threadCardViewHolder.a().onChangeSkinType(this.d, TbadkCoreApplication.getInst().getSkinType());
-                threadCardViewHolder.a().q(this.f);
-                g58.c(this, wz4Var);
-                return threadCardViewHolder.getView();
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            List<MemberPayResult.VipPayPrivilegeData> list = this.a;
+            if (list == null) {
+                return null;
             }
-            return null;
+            return list.get(i);
         }
-        return (View) invokeCommon.objValue;
+        return (MemberPayResult.VipPayPrivilegeData) invokeI.objValue;
     }
 
-    public final void z(View view2, ThreadData threadData) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, view2, threadData) == null) {
-            g58.b(this, threadData);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (this.a == null) {
+                return 0L;
+            }
+            return i;
         }
+        return invokeI.longValue;
+    }
+
+    public void h(List<MemberPayResult.VipPayPrivilegeData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+            this.a = list;
+        }
+    }
+
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
+            this.d = bVar;
+        }
+    }
+
+    public final void e(View view2, u08 u08Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, u08Var) == null) {
+            if (view2 != null) {
+                view2.setVisibility(8);
+            }
+            if (u08Var != null) {
+                u08Var.i();
+            }
+        }
+    }
+
+    public final void g(MemberPayResult.VipPayPrivilegeData vipPayPrivilegeData, c cVar) {
+        u08 u08Var;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, vipPayPrivilegeData, cVar) != null) || vipPayPrivilegeData == null) {
+            return;
+        }
+        cVar.b.setText(vipPayPrivilegeData.mTitle);
+        SkinManager.setViewTextColor(cVar.b, (int) R.color.CAM_X0105);
+        t08 t08Var = null;
+        if (TextUtils.equals("click", vipPayPrivilegeData.getDynamicDisappear())) {
+            u08 u08Var2 = new u08("pay_panel_member_privilege_bubble_" + vipPayPrivilegeData.mTitle);
+            t08 t08Var2 = new t08("pay_panel_member_privilege_bubble_" + vipPayPrivilegeData.mTitle);
+            z = u08Var2.g(t08Var2.f(vipPayPrivilegeData.getDynamicText()));
+            t08Var = t08Var2;
+            u08Var = u08Var2;
+        } else {
+            u08Var = null;
+            z = false;
+        }
+        if (!TextUtils.isEmpty(vipPayPrivilegeData.getDynamicText()) && !z) {
+            cVar.d.setText(vipPayPrivilegeData.getDynamicText());
+            if (t08Var != null) {
+                t08Var.update(vipPayPrivilegeData.getDynamicText());
+            }
+            cVar.d.setTextColor(SkinManager.getColor(R.color.CAM_X0101));
+            b35 d = b35.d(cVar.d);
+            d.l(R.dimen.tbds3);
+            d.k(R.color.CAM_X0402);
+            d.n(R.string.J_X01);
+            d.g(vipPayPrivilegeData.getDynamicColor());
+            cVar.d.setVisibility(0);
+        } else {
+            cVar.d.setVisibility(8);
+        }
+        cVar.a.K(vipPayPrivilegeData.mIconUrl, 10, false);
+        cVar.c.setOnClickListener(new a(this, vipPayPrivilegeData, cVar, u08Var));
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<MemberPayResult.VipPayPrivilegeData> list = this.a;
+            if (list == null) {
+                return 0;
+            }
+            return list.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d05b5, (ViewGroup) null);
+                view2.setTag(new c(this, view2));
+            }
+            g(getItem(i), (c) view2.getTag());
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

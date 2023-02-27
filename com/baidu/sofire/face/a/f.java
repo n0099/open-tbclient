@@ -111,7 +111,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
     public int k;
     public int l;
     public IFaceProcessInfo m;
-    public com.baidu.sofire.face.b.d n;
+    public com.baidu.sofire.face.b.e n;
     public volatile boolean o;
     public boolean p;
     public int q;
@@ -143,12 +143,12 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
 
         /* renamed from: com.baidu.sofire.face.a.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0185a implements Runnable {
+        public class RunnableC0173a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0185a(a aVar) {
+            public RunnableC0173a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -300,7 +300,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                     com.baidu.sofire.face.b.b.a(fVar6.a, fVar6.r, 1, 0, null);
                     f fVar7 = this.a;
                     if (fVar7.d != null && (activity3 = fVar7.b) != null) {
-                        activity3.runOnUiThread(new RunnableC0185a(this));
+                        activity3.runOnUiThread(new RunnableC0173a(this));
                     }
                     if (!FH.isInitSuc(1) && this.a.n.a()) {
                         this.a.a(-15);
@@ -870,12 +870,12 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
 
     /* renamed from: com.baidu.sofire.face.a.f$f  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0186f implements Runnable {
+    public class RunnableC0174f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f a;
 
-        public RunnableC0186f(f fVar) {
+        public RunnableC0174f(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1077,7 +1077,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                                 f.b(fVar2, hashMap, hashMap2);
                                 this.a.d.onCollectCompletion(faceStatusNewEnum, str, hashMap, hashMap2, -1);
                             }
-                            if (com.baidu.sofire.face.b.e.a().a(new l(this.a)) != 1) {
+                            if (com.baidu.sofire.face.b.f.a().a(new l(this.a)) != 1) {
                                 this.a.a(-7);
                             }
                         } else if (faceStatusNewEnum == FaceStatusNewEnum.DetectRemindCodeTimeout) {
@@ -1147,7 +1147,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                                 this.a.d.onCollectCompletion(faceStatusNewEnum, str, hashMap, hashMap2, i);
                             }
                             f.c(this.a);
-                            if (com.baidu.sofire.face.b.e.a().a(new l(this.a)) != 1) {
+                            if (com.baidu.sofire.face.b.f.a().a(new l(this.a)) != 1) {
                                 this.a.a(-7);
                             }
                         } else if (faceStatusNewEnum == FaceStatusNewEnum.DetectRemindCodeTimeout) {
@@ -1301,7 +1301,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         }
         this.d = faceProcessCallback;
         this.q = i2;
-        com.baidu.sofire.face.b.d a2 = com.baidu.sofire.face.b.d.a(this.a);
+        com.baidu.sofire.face.b.e a2 = com.baidu.sofire.face.b.e.a(this.a);
         this.n = a2;
         this.Z = a2.c();
         this.m = iFaceProcessInfo;
@@ -2056,7 +2056,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
             try {
                 Activity activity = this.b;
                 if (activity != null) {
-                    activity.runOnUiThread(new RunnableC0186f(this));
+                    activity.runOnUiThread(new RunnableC0174f(this));
                 }
             } catch (Throwable unused) {
             }
@@ -2067,10 +2067,10 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             try {
-                if (com.baidu.sofire.face.b.e.a().a(new a(this)) != 1) {
+                if (com.baidu.sofire.face.b.f.a().a(new a(this)) != 1) {
                     a(-7);
                 }
-                com.baidu.sofire.face.b.e.a().a(new b(this));
+                com.baidu.sofire.face.b.f.a().a(new b(this));
             } catch (Throwable unused) {
             }
         }

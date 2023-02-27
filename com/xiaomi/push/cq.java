@@ -1,102 +1,296 @@
 package com.xiaomi.push;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.text.TextUtils;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class cq {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f202a;
+    public long f183a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f203a;
-    public long b;
-    public long c;
+    public String f184a;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public cq() {
-        this(0, 0L, 0L, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this(((Integer) objArr[0]).intValue(), ((Long) objArr[1]).longValue(), ((Long) objArr[2]).longValue(), (Exception) objArr[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* renamed from: b  reason: collision with other field name */
+    public String f186b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+
+    /* renamed from: a  reason: collision with other field name */
+    public ArrayList<cz> f185a = new ArrayList<>();
+    public double a = 0.1d;
+    public String j = "s.mi1.cc";
+    public long b = 86400000;
+
+    public cq(String str) {
+        this.f184a = "";
+        if (TextUtils.isEmpty(str)) {
+            throw new IllegalArgumentException("the host is empty");
+        }
+        this.f183a = System.currentTimeMillis();
+        this.f185a.add(new cz(str, -1));
+        this.f184a = cu.m261a();
+        this.f186b = str;
+    }
+
+    private synchronized void c(String str) {
+        Iterator<cz> it = this.f185a.iterator();
+        while (it.hasNext()) {
+            if (TextUtils.equals(it.next().f202a, str)) {
+                it.remove();
             }
         }
     }
 
-    public cq(int i, long j, long j2, Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), exc};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+    public synchronized cq a(JSONObject jSONObject) {
+        this.f184a = jSONObject.optString("net");
+        this.b = jSONObject.getLong("ttl");
+        this.a = jSONObject.getDouble("pct");
+        this.f183a = jSONObject.getLong("ts");
+        this.d = jSONObject.optString("city");
+        this.c = jSONObject.optString("prv");
+        this.g = jSONObject.optString(MapBundleKey.OfflineMapKey.OFFLINE_CITY_TYPE);
+        this.e = jSONObject.optString("isp");
+        this.f = jSONObject.optString("ip");
+        this.f186b = jSONObject.optString("host");
+        this.h = jSONObject.optString("xf");
+        JSONArray jSONArray = jSONObject.getJSONArray("fbs");
+        for (int i = 0; i < jSONArray.length(); i++) {
+            a(new cz().a(jSONArray.getJSONObject(i)));
         }
-        this.a = i;
-        this.f202a = j;
-        this.c = j2;
-        this.b = System.currentTimeMillis();
-        if (exc != null) {
-            this.f203a = exc.getClass().getSimpleName();
-        }
+        return this;
     }
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public cq a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            this.f202a = jSONObject.getLong("cost");
-            this.c = jSONObject.getLong("size");
-            this.b = jSONObject.getLong("ts");
-            this.a = jSONObject.getInt("wt");
-            this.f203a = jSONObject.optString("expt");
-            return this;
+    public synchronized String a() {
+        if (!TextUtils.isEmpty(this.i)) {
+            return this.i;
+        } else if (TextUtils.isEmpty(this.e)) {
+            return "hardcode_isp";
+        } else {
+            String a = bo.a(new String[]{this.e, this.c, this.d, this.g, this.f}, "_");
+            this.i = a;
+            return a;
         }
-        return (cq) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public JSONObject m258a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("cost", this.f202a);
-            jSONObject.put("size", this.c);
-            jSONObject.put("ts", this.b);
-            jSONObject.put("wt", this.a);
-            jSONObject.put("expt", this.f203a);
-            return jSONObject;
+    public synchronized ArrayList<String> m252a() {
+        return a(false);
+    }
+
+    public ArrayList<String> a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            throw new IllegalArgumentException("the url is empty.");
         }
-        return (JSONObject) invokeV.objValue;
+        URL url = new URL(str);
+        if (TextUtils.equals(url.getHost(), this.f186b)) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            Iterator<String> it = a(true).iterator();
+            while (it.hasNext()) {
+                cs a = cs.a(it.next(), url.getPort());
+                arrayList.add(new URL(url.getProtocol(), a.m260a(), a.a(), url.getFile()).toString());
+            }
+            return arrayList;
+        }
+        throw new IllegalArgumentException("the url is not supported by the fallback");
+    }
+
+    public synchronized ArrayList<String> a(boolean z) {
+        ArrayList<String> arrayList;
+        String substring;
+        int size = this.f185a.size();
+        cz[] czVarArr = new cz[size];
+        this.f185a.toArray(czVarArr);
+        Arrays.sort(czVarArr);
+        arrayList = new ArrayList<>();
+        for (int i = 0; i < size; i++) {
+            cz czVar = czVarArr[i];
+            if (z) {
+                substring = czVar.f202a;
+            } else {
+                int indexOf = czVar.f202a.indexOf(":");
+                substring = indexOf != -1 ? czVar.f202a.substring(0, indexOf) : czVar.f202a;
+            }
+            arrayList.add(substring);
+        }
+        return arrayList;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized JSONObject m253a() {
+        JSONObject jSONObject;
+        jSONObject = new JSONObject();
+        jSONObject.put("net", this.f184a);
+        jSONObject.put("ttl", this.b);
+        jSONObject.put("pct", this.a);
+        jSONObject.put("ts", this.f183a);
+        jSONObject.put("city", this.d);
+        jSONObject.put("prv", this.c);
+        jSONObject.put(MapBundleKey.OfflineMapKey.OFFLINE_CITY_TYPE, this.g);
+        jSONObject.put("isp", this.e);
+        jSONObject.put("ip", this.f);
+        jSONObject.put("host", this.f186b);
+        jSONObject.put("xf", this.h);
+        JSONArray jSONArray = new JSONArray();
+        Iterator<cz> it = this.f185a.iterator();
+        while (it.hasNext()) {
+            jSONArray.put(it.next().a());
+        }
+        jSONObject.put("fbs", jSONArray);
+        return jSONObject;
+    }
+
+    public void a(double d) {
+        this.a = d;
+    }
+
+    public void a(long j) {
+        if (j > 0) {
+            this.b = j;
+            return;
+        }
+        throw new IllegalArgumentException("the duration is invalid " + j);
+    }
+
+    public synchronized void a(cz czVar) {
+        c(czVar.f202a);
+        this.f185a.add(czVar);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized void m254a(String str) {
+        a(new cz(str));
+    }
+
+    public void a(String str, int i, long j, long j2, Exception exc) {
+        a(str, new cp(i, j, j2, exc));
+    }
+
+    public void a(String str, long j, long j2) {
+        try {
+            b(new URL(str).getHost(), j, j2);
+        } catch (MalformedURLException unused) {
+        }
+    }
+
+    public void a(String str, long j, long j2, Exception exc) {
+        try {
+            b(new URL(str).getHost(), j, j2, exc);
+        } catch (MalformedURLException unused) {
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:8:0x001b, code lost:
+        r1.a(r5);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public synchronized void a(String str, cp cpVar) {
+        Iterator<cz> it = this.f185a.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            }
+            cz next = it.next();
+            if (TextUtils.equals(str, next.f202a)) {
+                break;
+            }
+        }
+    }
+
+    public synchronized void a(String[] strArr) {
+        int i;
+        int size = this.f185a.size() - 1;
+        while (true) {
+            i = 0;
+            if (size < 0) {
+                break;
+            }
+            int length = strArr.length;
+            while (true) {
+                if (i < length) {
+                    if (TextUtils.equals(this.f185a.get(size).f202a, strArr[i])) {
+                        this.f185a.remove(size);
+                        break;
+                    }
+                    i++;
+                }
+            }
+            size--;
+        }
+        Iterator<cz> it = this.f185a.iterator();
+        int i2 = 0;
+        while (it.hasNext()) {
+            cz next = it.next();
+            if (next.a > i2) {
+                i2 = next.a;
+            }
+        }
+        while (i < strArr.length) {
+            a(new cz(strArr[i], (strArr.length + i2) - i));
+            i++;
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m255a() {
+        return TextUtils.equals(this.f184a, cu.m261a());
+    }
+
+    public boolean a(cq cqVar) {
+        return TextUtils.equals(this.f184a, cqVar.f184a);
+    }
+
+    public void b(String str) {
+        this.j = str;
+    }
+
+    public void b(String str, long j, long j2) {
+        a(str, 0, j, j2, null);
+    }
+
+    public void b(String str, long j, long j2, Exception exc) {
+        a(str, -1, j, j2, exc);
+    }
+
+    public boolean b() {
+        return System.currentTimeMillis() - this.f183a < this.b;
+    }
+
+    public boolean c() {
+        long j = this.b;
+        if (864000000 >= j) {
+            j = 864000000;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        long j2 = this.f183a;
+        return currentTimeMillis - j2 > j || (currentTimeMillis - j2 > this.b && this.f184a.startsWith("WIFI-"));
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.f184a);
+        sb.append("\n");
+        sb.append(a());
+        Iterator<cz> it = this.f185a.iterator();
+        while (it.hasNext()) {
+            sb.append("\n");
+            sb.append(it.next().toString());
+        }
+        sb.append("\n");
+        return sb.toString();
     }
 }

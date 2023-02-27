@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sofire.a.b;
 import com.baidu.sofire.a.f;
 import com.baidu.sofire.ac.Callback;
-import com.baidu.sofire.k.p;
+import com.baidu.sofire.k.u;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -109,14 +109,14 @@ public class MyReceiver extends BroadcastReceiver {
                 return;
             }
             if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
-                if (System.currentTimeMillis() - this.c >= 100 && com.baidu.sofire.k.a.l(context)) {
+                if (System.currentTimeMillis() - this.c >= 100 && com.baidu.sofire.k.b.k(context)) {
                     this.c = System.currentTimeMillis();
                 } else {
                     return;
                 }
             }
             Context applicationContext = context.getApplicationContext();
-            p.a(applicationContext).a(new f(intent, applicationContext, this.a));
+            u.a(applicationContext).a(new f(intent, applicationContext, this.a));
         } catch (Throwable unused) {
             int i = b.a;
         }

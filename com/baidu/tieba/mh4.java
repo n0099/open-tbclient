@@ -1,139 +1,107 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.DatabaseErrorHandler;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class mh4 extends SQLiteOpenHelper {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static volatile mh4 b = null;
-    public static final int c = 12;
+public abstract class mh4<T> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<Class<?>, eh4> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947972656, "Lcom/baidu/tieba/mh4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947972656, "Lcom/baidu/tieba/mh4;");
-        }
-    }
+    public abstract ContentValues c(T t);
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public abstract T d(Cursor cursor) throws SQLException;
+
+    public abstract List<T> e(Cursor cursor) throws SQLException;
+
     public mh4() {
-        this("ai_apps_pms.db", c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((String) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        c();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mh4(String str, int i) {
-        super(AppRuntime.getAppContext(), str, null, i, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue(), (DatabaseErrorHandler) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static mh4 a() {
-        InterceptResult invokeV;
+    public ContentValues a(ki4 ki4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (mh4.class) {
-                    if (b == null) {
-                        b = new mh4();
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ki4Var)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("bundle_id", ki4Var.g);
+            contentValues.put("category", Integer.valueOf(ki4Var.h));
+            contentValues.put("version_name", ki4Var.j);
+            contentValues.put("version_code", Long.valueOf(ki4Var.i));
+            contentValues.put("size", Long.valueOf(ki4Var.k));
+            contentValues.put(PackageTable.MD5, ki4Var.l);
+            contentValues.put("sign", ki4Var.m);
+            contentValues.put(TTDownloadField.TT_DOWNLOAD_URL, ki4Var.n);
+            contentValues.put(PackageTable.FILE_PATH, ki4Var.a);
+            contentValues.put(PackageTable.CURRENT_SIZE, Long.valueOf(ki4Var.b));
+            contentValues.put("create_time", Long.valueOf(ki4Var.c));
+            contentValues.put("update_time", Long.valueOf(ki4Var.d));
+            contentValues.put("state", Integer.valueOf(ki4Var.e));
+            return contentValues;
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    public boolean b(Cursor cursor, ki4 ki4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor, ki4Var)) == null) {
+            if (cursor != null) {
+                int columnIndex = cursor.getColumnIndex("bundle_id");
+                int columnIndex2 = cursor.getColumnIndex("category");
+                int columnIndex3 = cursor.getColumnIndex("version_name");
+                int columnIndex4 = cursor.getColumnIndex("version_code");
+                int columnIndex5 = cursor.getColumnIndex("size");
+                int columnIndex6 = cursor.getColumnIndex(PackageTable.MD5);
+                int columnIndex7 = cursor.getColumnIndex("sign");
+                int columnIndex8 = cursor.getColumnIndex(TTDownloadField.TT_DOWNLOAD_URL);
+                int columnIndex9 = cursor.getColumnIndex("_id");
+                int columnIndex10 = cursor.getColumnIndex(PackageTable.FILE_PATH);
+                int columnIndex11 = cursor.getColumnIndex(PackageTable.CURRENT_SIZE);
+                int columnIndex12 = cursor.getColumnIndex("create_time");
+                int columnIndex13 = cursor.getColumnIndex("update_time");
+                int columnIndex14 = cursor.getColumnIndex("state");
+                String string = cursor.getString(columnIndex);
+                if (TextUtils.isEmpty(string)) {
+                    return false;
                 }
+                ki4Var.g = string;
+                ki4Var.h = cursor.getInt(columnIndex2);
+                ki4Var.j = cursor.getString(columnIndex3);
+                ki4Var.i = cursor.getLong(columnIndex4);
+                ki4Var.k = cursor.getLong(columnIndex5);
+                ki4Var.l = cursor.getString(columnIndex6);
+                ki4Var.m = cursor.getString(columnIndex7);
+                ki4Var.n = cursor.getString(columnIndex8);
+                ki4Var.a = cursor.getString(columnIndex10);
+                ki4Var.b = cursor.getLong(columnIndex11);
+                ki4Var.c = cursor.getLong(columnIndex12);
+                ki4Var.d = cursor.getLong(columnIndex13);
+                ki4Var.f = cursor.getLong(columnIndex9);
+                ki4Var.e = cursor.getInt(columnIndex14);
+                return true;
             }
-            return b;
+            return false;
         }
-        return (mh4) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b = null;
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ConcurrentHashMap<Class<?>, eh4> concurrentHashMap = new ConcurrentHashMap<>();
-            this.a = concurrentHashMap;
-            concurrentHashMap.put(vh4.class, new ih4());
-            this.a.put(wh4.class, new jh4());
-            this.a.put(PMSAppInfo.class, new fh4());
-            this.a.put(th4.class, new hh4());
-            this.a.put(rh4.class, new gh4());
-            this.a.put(xh4.class, new kh4());
-            this.a.put(yh4.class, new lh4());
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
-            for (eh4 eh4Var : this.a.values()) {
-                eh4Var.a(sQLiteDatabase);
-            }
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
-            for (eh4 eh4Var : this.a.values()) {
-                eh4Var.onUpgrade(sQLiteDatabase, i, i2);
-            }
-        }
+        return invokeLL.booleanValue;
     }
 }

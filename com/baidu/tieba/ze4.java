@@ -1,76 +1,80 @@
 package com.baidu.tieba;
 
-import android.animation.ObjectAnimator;
-import android.view.View;
-import android.view.animation.LinearInterpolator;
-import androidx.constraintlayout.motion.widget.Key;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.menu.BaseMenuView;
+import com.baidu.mapapi.search.core.PoiInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class ze4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public PoiInfo a;
+    public boolean b;
+    public boolean c;
 
-    public static long a(BaseMenuView baseMenuView) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ze4(PoiInfo poiInfo) {
+        this(poiInfo, false, false);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, baseMenuView)) == null) {
-            if (baseMenuView.a()) {
-                return 240L;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {poiInfo};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((PoiInfo) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Boolean) objArr2[2]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return 200L;
         }
-        return invokeL.longValue;
     }
 
-    public static ObjectAnimator c(View view2) {
+    public static List<ze4> a(List<PoiInfo> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 0.0f);
-            ofFloat.setDuration(160L);
-            ofFloat.setInterpolator(new LinearInterpolator());
-            return ofFloat;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            if (list != null && list.size() > 0) {
+                ArrayList arrayList = new ArrayList(list.size());
+                for (PoiInfo poiInfo : list) {
+                    if (poiInfo.location != null) {
+                        arrayList.add(new ze4(poiInfo));
+                    }
+                }
+                return arrayList;
+            }
+            return new ArrayList();
         }
-        return (ObjectAnimator) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public static ObjectAnimator b(BaseMenuView baseMenuView) {
-        InterceptResult invokeL;
+    public ze4(PoiInfo poiInfo, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseMenuView)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, Key.TRANSLATION_Y, 0.0f);
-            ofFloat.setDuration(a(baseMenuView));
-            ofFloat.setInterpolator(new af4(0.32f, 0.6f, 0.1f, 1.0f));
-            return ofFloat;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {poiInfo, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (ObjectAnimator) invokeL.objValue;
-    }
-
-    public static ObjectAnimator e(BaseMenuView baseMenuView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, baseMenuView)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, Key.TRANSLATION_Y, baseMenuView.getHeight());
-            ofFloat.setDuration(160L);
-            ofFloat.setInterpolator(new af4(0.32f, 0.6f, 0.1f, 1.0f));
-            return ofFloat;
+        if (poiInfo == null) {
+            this.a = new PoiInfo();
         }
-        return (ObjectAnimator) invokeL.objValue;
-    }
-
-    public static ObjectAnimator d(View view2, BaseMenuView baseMenuView) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, view2, baseMenuView)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f);
-            ofFloat.setDuration(a(baseMenuView));
-            ofFloat.setInterpolator(new LinearInterpolator());
-            return ofFloat;
-        }
-        return (ObjectAnimator) invokeLL.objValue;
+        this.a = poiInfo;
+        this.b = z;
+        this.c = z2;
     }
 }

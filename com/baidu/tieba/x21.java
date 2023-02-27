@@ -1,81 +1,95 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.sweetsqlite.BooleanColumn;
-import com.baidu.nadcore.sweetsqlite.Column;
-import com.baidu.nadcore.sweetsqlite.IntegerColumn;
-import com.baidu.nadcore.sweetsqlite.LongColumn;
-import com.baidu.nadcore.sweetsqlite.StringColumn;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class x21 {
+public class x21 implements a31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final String b;
-    public final int c;
-    public final int d;
-    public final String e;
+    public final StringBuilder a;
 
-    public x21(int i, String str, String str2, int i2, int i3) {
+    @Override // com.baidu.tieba.a31
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    public x21() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = str;
-        this.e = str2;
-        this.c = i2;
-        this.d = i3;
+        this.a = new StringBuilder();
     }
 
-    public static boolean a(Column column) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.a31
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, column)) == null) {
-            return ((BooleanColumn) column).getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.toString();
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static int b(Column column) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.a31
+    public <T extends a31> T b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, column)) == null) {
-            return ((IntegerColumn) column).getValue();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            return (T) d(str, str2);
         }
-        return invokeL.intValue;
+        return (T) invokeLL.objValue;
     }
 
-    public static long c(Column column) {
-        InterceptResult invokeL;
+    public <T extends a31> T c(String str, Object obj) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, column)) == null) {
-            return ((LongColumn) column).getValue();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj)) == null) {
+            return (T) d(str, obj);
         }
-        return invokeL.longValue;
+        return (T) invokeLL.objValue;
     }
 
-    public static String d(Column column) {
-        InterceptResult invokeL;
+    public <T extends a31> T d(String str, Object obj) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, column)) == null) {
-            return ((StringColumn) column).getValue();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return this;
+            }
+            if (obj != null) {
+                try {
+                    if (!TextUtils.isEmpty(String.valueOf(obj))) {
+                        if (this.a.length() > 0) {
+                            this.a.append('&');
+                        }
+                        StringBuilder sb = this.a;
+                        sb.append(str);
+                        sb.append('=');
+                        sb.append(obj);
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            return this;
         }
-        return (String) invokeL.objValue;
+        return (T) invokeLL.objValue;
     }
 }

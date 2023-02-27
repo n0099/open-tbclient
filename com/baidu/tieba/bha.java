@@ -1,31 +1,85 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.AsyncTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
 /* loaded from: classes3.dex */
-public abstract class bha<E> extends eha<E> {
-    public static /* synthetic */ Interceptable $ic;
+public class bha {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "SecureX509SingleInstance";
+    public static volatile cha b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bha(int i) {
-        super(i);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947646350, "Lcom/baidu/tieba/bha;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947646350, "Lcom/baidu/tieba/bha;");
+        }
+    }
+
+    public bha() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    @SuppressLint({"NewApi"})
+    public static cha a(Context context) throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (context != null) {
+                iha.b(context);
+                if (b == null) {
+                    synchronized (bha.class) {
+                        if (b == null) {
+                            InputStream n = gha.n(context);
+                            if (n == null) {
+                                lha.e(a, "get assets bks");
+                                n = context.getAssets().open("hmsrootcas.bks");
+                            } else {
+                                lha.e(a, "get files bks");
+                            }
+                            b = new cha(n, "");
+                            new jha().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, context);
+                        }
+                    }
+                }
+                String str = a;
+                lha.b(str, "SecureX509TrustManager getInstance: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+                return b;
+            }
+            throw new NullPointerException("context is null");
+        }
+        return (cha) invokeL.objValue;
     }
 }

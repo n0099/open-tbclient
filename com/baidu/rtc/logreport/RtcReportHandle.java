@@ -8,6 +8,7 @@ import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.rtc.PeerConnectionClient;
 import com.baidu.rtc.config.Constraints;
 import com.baidu.rtc.utils.CommonUtils;
@@ -21,7 +22,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.mode.CommandMessage;
+import com.heytap.mcssdk.constant.b;
+import com.huawei.hms.adapter.internal.CommonCode;
 import java.lang.ref.WeakReference;
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -334,15 +336,15 @@ public class RtcReportHandle {
                         jSONObject4.put("cfps", hashMap.get("fps_s"));
                         jSONObject4.put(FpsConstants.REPORT_FPS, hashMap.get("fps_i"));
                         if (hUDStatistics2 == null) {
-                            jSONObject4.put("resolution", "");
+                            jSONObject4.put(CommonCode.MapKey.HAS_RESOLUTION, "");
                         } else {
-                            jSONObject4.put("resolution", hUDStatistics2.getSendResolution());
+                            jSONObject4.put(CommonCode.MapKey.HAS_RESOLUTION, hUDStatistics2.getSendResolution());
                         }
                     } else {
                         jSONObject4.put("bitrate", 0);
                         jSONObject4.put("packetloss", 0);
                         jSONObject4.put(FpsConstants.REPORT_FPS, 0);
-                        jSONObject4.put("resolution", "");
+                        jSONObject4.put(CommonCode.MapKey.HAS_RESOLUTION, "");
                     }
                     jSONObject2.put("senderQualityInfo", jSONObject4);
                 }
@@ -358,7 +360,7 @@ public class RtcReportHandle {
                                 jSONObject5.put("bitrate", hashMap2.get("bitrate_r"));
                                 jSONObject5.put("packetloss", hashMap2.get("packetloss_r"));
                                 jSONObject5.put(FpsConstants.REPORT_FPS, hashMap2.get("fps_r"));
-                                jSONObject5.put("resolution", hUDStatistics.getRecvResolution());
+                                jSONObject5.put(CommonCode.MapKey.HAS_RESOLUTION, hUDStatistics.getRecvResolution());
                                 jSONArray.put(jSONObject5);
                             }
                         }
@@ -491,9 +493,9 @@ public class RtcReportHandle {
             JSONObject jSONObject = new JSONObject();
             try {
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put(CommandMessage.SDK_VERSION, Constraints.sdkVersion());
+                jSONObject2.put(b.C, Constraints.sdkVersion());
                 jSONObject2.put("networkType", RtcLogReport.getNetworkType(this.mContext.get()));
-                jSONObject2.put("device", RtcLogReport.getDeviceModel());
+                jSONObject2.put(Config.DEVICE_PART, RtcLogReport.getDeviceModel());
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject2);
                 jSONObject.put("env", this.mQualityMonitorEnv);

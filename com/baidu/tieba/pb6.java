@@ -1,74 +1,79 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.content.ContextWrapper;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.UiThread;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.browser.core.cache.prerender.LRUCache;
+import com.baidu.tieba.browser.core.webview.base.BaseWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.mm.opensdk.utils.Log;
 /* loaded from: classes5.dex */
-public final class pb6 {
+public class pb6 extends LRUCache<String, BaseWebView> {
     public static /* synthetic */ Interceptable $ic;
-    public static Application a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Activity a(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pb6() {
+        super(8);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @UiThread
+    public synchronized BaseWebView d(String str) {
         InterceptResult invokeL;
+        BaseWebView baseWebView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context instanceof Activity) {
-                return (Activity) context;
-            }
-            while (context instanceof ContextWrapper) {
-                if (context instanceof Activity) {
-                    return (Activity) context;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            synchronized (this) {
+                baseWebView = null;
+                if (!TextUtils.isEmpty(str) && jb6.g(str)) {
+                    baseWebView = (BaseWebView) super.b(str);
                 }
-                context = ((ContextWrapper) context).getBaseContext();
-            }
-            return null;
-        }
-        return (Activity) invokeL.objValue;
-    }
-
-    public static void b(Application application) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, application) == null) {
-            a = application;
-        }
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            try {
-                ConnectivityManager connectivityManager = (ConnectivityManager) a.getSystemService("connectivity");
-                if (connectivityManager != null) {
-                    NetworkInfo[] allNetworkInfo = connectivityManager.getAllNetworkInfo();
-                    if (allNetworkInfo.length > 0) {
-                        for (NetworkInfo networkInfo : allNetworkInfo) {
-                            if (networkInfo.getState() == NetworkInfo.State.CONNECTED) {
-                                return true;
-                            }
-                        }
-                    }
+                if (baseWebView != null) {
+                    baseWebView.d();
                 }
-            } catch (Exception unused) {
             }
-            return false;
+            return baseWebView;
         }
-        return invokeV.booleanValue;
+        return (BaseWebView) invokeL.objValue;
     }
 
-    public static Context getContext() {
-        InterceptResult invokeV;
+    @UiThread
+    public synchronized BaseWebView e(String str, @NonNull BaseWebView baseWebView) {
+        InterceptResult invokeLL;
+        BaseWebView baseWebView2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, baseWebView)) == null) {
+            synchronized (this) {
+                baseWebView2 = (BaseWebView) super.c(str, baseWebView);
+                Log.e("lt-log", "recycle:" + str + "，instance=" + baseWebView2);
+                if (baseWebView2 == null) {
+                    baseWebView.c();
+                    baseWebView.setPrerender(true);
+                } else {
+                    baseWebView2.c();
+                    baseWebView2.setPrerender(false);
+                }
+            }
+            return baseWebView2;
         }
-        return (Context) invokeV.objValue;
+        return (BaseWebView) invokeLL.objValue;
     }
 }

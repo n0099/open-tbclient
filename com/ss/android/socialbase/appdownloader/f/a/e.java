@@ -7,7 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.heytap.mcssdk.PushManager;
+import com.heytap.mcssdk.PushService;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Enumeration;
@@ -200,9 +200,9 @@ public class e {
                             String str2 = null;
                             String str3 = null;
                             for (int i = 0; i != e; i++) {
-                                if (PushManager.APP_VERSION_NAME.equals(aVar2.a(i))) {
+                                if (PushService.APP_VERSION_NAME.equals(aVar2.a(i))) {
                                     str2 = a(aVar2, i);
-                                } else if (PushManager.APP_VERSION_CODE.equals(aVar2.a(i))) {
+                                } else if (PushService.APP_VERSION_CODE.equals(aVar2.a(i))) {
                                     str = a(aVar2, i);
                                 } else if ("package".equals(aVar2.a(i))) {
                                     str3 = a(aVar2, i);

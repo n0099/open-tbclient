@@ -3,13 +3,7 @@ package com.bumptech.glide.load.model;
 import android.os.ParcelFileDescriptor;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.Options;
@@ -23,9 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes7.dex */
 public class FileLoader<Data> implements ModelLoader<File, Data> {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FileLoader";
-    public transient /* synthetic */ FieldHolder $fh;
     public final FileOpener<Data> fileOpener;
 
     /* loaded from: classes7.dex */
@@ -40,168 +32,87 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public boolean handles(@NonNull File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
+        return true;
     }
 
     /* loaded from: classes7.dex */
     public static class Factory<Data> implements ModelLoaderFactory<File, Data> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final FileOpener<Data> opener;
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
         public final void teardown() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
         }
 
         public Factory(FileOpener<Data> fileOpener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fileOpener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.opener = fileOpener;
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
         @NonNull
         public final ModelLoader<File, Data> build(@NonNull MultiModelLoaderFactory multiModelLoaderFactory) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) {
-                return new FileLoader(this.opener);
-            }
-            return (ModelLoader) invokeL.objValue;
+            return new FileLoader(this.opener);
         }
     }
 
     /* loaded from: classes7.dex */
     public static class FileDescriptorFactory extends Factory<ParcelFileDescriptor> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public FileDescriptorFactory() {
             super(new FileOpener<ParcelFileDescriptor>() { // from class: com.bumptech.glide.load.model.FileLoader.FileDescriptorFactory.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                        }
-                    }
-                }
-
                 @Override // com.bumptech.glide.load.model.FileLoader.FileOpener
                 public Class<ParcelFileDescriptor> getDataClass() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                        return ParcelFileDescriptor.class;
-                    }
-                    return (Class) invokeV.objValue;
+                    return ParcelFileDescriptor.class;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.bumptech.glide.load.model.FileLoader.FileOpener
                 public void close(ParcelFileDescriptor parcelFileDescriptor) throws IOException {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeL(1048576, this, parcelFileDescriptor) == null) {
-                        parcelFileDescriptor.close();
-                    }
+                    parcelFileDescriptor.close();
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.bumptech.glide.load.model.FileLoader.FileOpener
                 public ParcelFileDescriptor open(File file) throws FileNotFoundException {
-                    InterceptResult invokeL;
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, file)) == null) {
-                        return ParcelFileDescriptor.open(file, LaunchTaskConstants.OTHER_PROCESS);
-                    }
-                    return (ParcelFileDescriptor) invokeL.objValue;
+                    return ParcelFileDescriptor.open(file, LaunchTaskConstants.OTHER_PROCESS);
                 }
             });
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((FileOpener) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
         }
     }
 
     /* loaded from: classes7.dex */
     public static final class FileFetcher<Data> implements DataFetcher<Data> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public Data data;
         public final File file;
         public final FileOpener<Data> opener;
 
         @Override // com.bumptech.glide.load.data.DataFetcher
         public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
         }
 
         public FileFetcher(File file, FileOpener<Data> fileOpener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {file, fileOpener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.file = file;
             this.opener = fileOpener;
         }
 
+        /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Object, Data] */
+        @Override // com.bumptech.glide.load.data.DataFetcher
+        public void loadData(@NonNull Priority priority, @NonNull DataFetcher.DataCallback<? super Data> dataCallback) {
+            try {
+                Data open = this.opener.open(this.file);
+                this.data = open;
+                dataCallback.onDataReady(open);
+            } catch (FileNotFoundException e) {
+                if (Log.isLoggable(FileLoader.TAG, 3)) {
+                    Log.d(FileLoader.TAG, "Failed to open file", e);
+                }
+                dataCallback.onLoadFailed(e);
+            }
+        }
+
         @Override // com.bumptech.glide.load.data.DataFetcher
         public void cleanup() {
-            Data data;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (data = this.data) != null) {
+            Data data = this.data;
+            if (data != null) {
                 try {
                     this.opener.close(data);
                 } catch (IOException unused) {
@@ -212,142 +123,48 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         @Override // com.bumptech.glide.load.data.DataFetcher
         @NonNull
         public Class<Data> getDataClass() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.opener.getDataClass();
-            }
-            return (Class) invokeV.objValue;
+            return this.opener.getDataClass();
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
         @NonNull
         public DataSource getDataSource() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return DataSource.LOCAL;
-            }
-            return (DataSource) invokeV.objValue;
-        }
-
-        /* JADX WARN: Type inference failed for: r5v3, types: [java.lang.Object, Data] */
-        @Override // com.bumptech.glide.load.data.DataFetcher
-        public void loadData(@NonNull Priority priority, @NonNull DataFetcher.DataCallback<? super Data> dataCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, priority, dataCallback) == null) {
-                try {
-                    Data open = this.opener.open(this.file);
-                    this.data = open;
-                    dataCallback.onDataReady(open);
-                } catch (FileNotFoundException e) {
-                    if (Log.isLoggable(FileLoader.TAG, 3)) {
-                        Log.d(FileLoader.TAG, "Failed to open file", e);
-                    }
-                    dataCallback.onLoadFailed(e);
-                }
-            }
+            return DataSource.LOCAL;
         }
     }
 
     /* loaded from: classes7.dex */
     public static class StreamFactory extends Factory<InputStream> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public StreamFactory() {
             super(new FileOpener<InputStream>() { // from class: com.bumptech.glide.load.model.FileLoader.StreamFactory.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                        }
-                    }
-                }
-
                 @Override // com.bumptech.glide.load.model.FileLoader.FileOpener
                 public Class<InputStream> getDataClass() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                        return InputStream.class;
-                    }
-                    return (Class) invokeV.objValue;
+                    return InputStream.class;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.bumptech.glide.load.model.FileLoader.FileOpener
                 public void close(InputStream inputStream) throws IOException {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeL(1048576, this, inputStream) == null) {
-                        inputStream.close();
-                    }
+                    inputStream.close();
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.bumptech.glide.load.model.FileLoader.FileOpener
                 public InputStream open(File file) throws FileNotFoundException {
-                    InterceptResult invokeL;
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, file)) == null) {
-                        return new FileInputStream(file);
-                    }
-                    return (InputStream) invokeL.objValue;
+                    return new FileInputStream(file);
                 }
             });
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((FileOpener) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
         }
     }
 
     public FileLoader(FileOpener<Data> fileOpener) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fileOpener};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.fileOpener = fileOpener;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
     public ModelLoader.LoadData<Data> buildLoadData(@NonNull File file, int i, int i2, @NonNull Options options) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
-            return new ModelLoader.LoadData<>(new ObjectKey(file), new FileFetcher(file, this.fileOpener));
-        }
-        return (ModelLoader.LoadData) invokeCommon.objValue;
+        return new ModelLoader.LoadData<>(new ObjectKey(file), new FileFetcher(file, this.fileOpener));
     }
 }

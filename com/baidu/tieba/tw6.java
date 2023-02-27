@@ -1,16 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.data.GodUserData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface tw6 {
-    x47 a(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout);
+public class tw6 implements vk7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public MetaData a;
 
-    rw6 b(FrsFragment frsFragment, jo joVar, boolean z);
-
-    uw6 c();
-
-    vw6 d(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout);
-
-    n57 e(String str, FrsFragment frsFragment, int i);
+    public tw6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        MetaData metaData = new MetaData();
+        this.a = metaData;
+        if (metaData.getGodUserData() == null) {
+            this.a.setGodUserData(new GodUserData());
+        }
+    }
 }

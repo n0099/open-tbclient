@@ -2,9 +2,9 @@ package com.kwad.sdk.core.a;
 
 import android.text.TextUtils;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.nio.charset.Charset;
 import java.util.Arrays;
-import org.apache.commons.codec.binary4util.BaseNCodec;
 import org.aspectj.runtime.reflect.SignatureImpl;
 /* loaded from: classes8.dex */
 public final class c {
@@ -191,8 +191,8 @@ public final class c {
     public static class b {
         public static final b Xv = new b(false, null, -1, true);
         public static final b Xw = new b(true, null, -1, false);
-        public static final char[] Xx = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', WebvttCueParser.CHAR_SLASH};
-        public static final char[] Xy = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', SignatureImpl.SEP, '_'};
+        public static final char[] Xx = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', WebvttCueParser.CHAR_SLASH};
+        public static final char[] Xy = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', SignatureImpl.SEP, '_'};
         public final boolean XB;
         public final boolean Xt;
         public final byte[] Xz = null;
@@ -269,9 +269,9 @@ public final class c {
                     bArr2[i22] = (byte) cArr[(i21 << 4) & 63];
                     if (this.XB) {
                         int i24 = i23 + 1;
-                        bArr2[i23] = BaseNCodec.PAD_DEFAULT;
+                        bArr2[i23] = 61;
                         int i25 = i24 + 1;
-                        bArr2[i24] = BaseNCodec.PAD_DEFAULT;
+                        bArr2[i24] = 61;
                         return i25;
                     }
                     return i23;
@@ -283,7 +283,7 @@ public final class c {
                 bArr2[i27] = (byte) cArr[(i26 << 2) & 63];
                 if (this.XB) {
                     int i29 = i28 + 1;
-                    bArr2[i28] = BaseNCodec.PAD_DEFAULT;
+                    bArr2[i28] = 61;
                     return i29;
                 }
                 return i28;

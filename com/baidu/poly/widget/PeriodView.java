@@ -14,9 +14,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.entitiy.InstallmentEntity;
 import com.baidu.poly.widget.entitiy.PayChannelExtInfoEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hh1;
-import com.baidu.tieba.kh1;
-import com.baidu.tieba.li1;
+import com.baidu.tieba.sh1;
+import com.baidu.tieba.vh1;
+import com.baidu.tieba.wi1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ public class PeriodView extends FrameLayout {
     public TextView i;
     public TextView j;
     public PayChannelEntity k;
-    public li1 l;
+    public wi1 l;
     public InstallmentEntity m;
     public String n;
 
@@ -165,7 +165,7 @@ public class PeriodView extends FrameLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.e != null) {
-                this.a.e.b(com.alipay.sdk.widget.d.u);
+                this.a.e.b("back");
             }
         }
     }
@@ -228,26 +228,26 @@ public class PeriodView extends FrameLayout {
     public final void e(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0724, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d073a, (ViewGroup) this, true);
             this.c = (PolyFrameLayout) findViewById(R.id.root_layout);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0919d6);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090660);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091a17);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09069e);
             this.h = findViewById;
             findViewById.setOnTouchListener(new a(this));
             this.h.setOnClickListener(new b(this));
             View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090319);
             this.f = findViewById2;
             findViewById2.setOnClickListener(new c(this));
-            this.g = (ListView) findViewById(R.id.obfuscated_res_0x7f0919d7);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091038);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0906cf);
-            li1 li1Var = new li1(getContext());
-            this.l = li1Var;
-            this.g.setAdapter((ListAdapter) li1Var);
+            this.g = (ListView) findViewById(R.id.obfuscated_res_0x7f091a18);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091079);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09070c);
+            wi1 wi1Var = new wi1(getContext());
+            this.l = wi1Var;
+            this.g.setAdapter((ListAdapter) wi1Var);
             setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            hh1 hh1Var = new hh1("10");
-            hh1Var.a("type", this.n);
-            kh1.e(hh1Var);
+            sh1 sh1Var = new sh1("10");
+            sh1Var.a("type", this.n);
+            vh1.e(sh1Var);
         }
     }
 
@@ -257,7 +257,7 @@ public class PeriodView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (!this.b && this.a && (dVar = this.e) != null) {
-                dVar.b(com.alipay.sdk.widget.d.u);
+                dVar.b("back");
             }
             return true;
         }

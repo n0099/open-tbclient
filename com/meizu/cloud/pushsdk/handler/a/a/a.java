@@ -1,89 +1,120 @@
 package com.meizu.cloud.pushsdk.handler.a.a;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Environment;
-import android.text.TextUtils;
+import android.os.Build;
 import com.meizu.cloud.pushinternal.DebugLogger;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.handler.a.b.g;
-import com.meizu.cloud.pushsdk.notification.c;
-import com.meizu.cloud.pushsdk.util.d;
-import java.io.File;
+import com.meizu.cloud.pushsdk.handler.MessageV3;
+import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
+import com.meizu.cloud.pushsdk.notification.model.AdvanceSettingEx;
 /* loaded from: classes8.dex */
-public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
-    public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
-        super(context, aVar);
+public class a {
+    public Context a;
+    public com.meizu.cloud.pushsdk.b.a.a b;
+    public int c;
+    public Notification d;
+
+    public a(Context context) {
+        this.a = context;
     }
 
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public int a() {
-        return 65536;
+    private void a(int i, Notification notification) {
+        this.c = i;
+        this.d = notification;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: a */
-    public void b(g gVar) {
-        d.c(c(), c().getPackageName(), gVar.d().b().d(), gVar.d().b().a(), gVar.d().b().e(), gVar.d().b().b());
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    public void a(g gVar, c cVar) {
-        String message;
-        DebugLogger.flush();
-        String str = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdktmp/" + gVar.d().b().a() + "_" + gVar.d().b().d() + ".zip";
-        File file = null;
+    private void b() {
+        this.c = 0;
+        this.d = null;
+        com.meizu.cloud.pushsdk.b.a.a aVar = this.b;
         try {
-            new b(str).a(gVar.c());
-            File file2 = new File(str);
-            message = null;
-            file = file2;
-        } catch (Exception e) {
-            message = e.getMessage();
-            DebugLogger.e("AbstractMessageHandler", "zip error message " + message);
+            if (aVar != null) {
+                try {
+                    aVar.b();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        } finally {
+            this.b = null;
         }
-        if (file != null && file.length() / 1024 > gVar.a()) {
-            message = "the upload file exceeds the max size";
-        } else if (gVar.b() && !com.meizu.cloud.pushsdk.util.a.b(c())) {
-            message = "current network not allowed upload log file";
-        }
-        com.meizu.cloud.pushsdk.b.a.c<String> a = com.meizu.cloud.pushsdk.platform.a.b.a(c()).a(gVar.d().b().a(), gVar.d().b().d(), message, file);
-        if (a == null || !a.b()) {
-            DebugLogger.i("AbstractMessageHandler", "upload error code " + a.c() + a.a());
+    }
+
+    private void b(int i) {
+        if (i <= 0) {
             return;
         }
-        if (file != null) {
-            file.delete();
-        }
-        DebugLogger.e("AbstractMessageHandler", "upload success " + a.a());
-    }
-
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public boolean a(Intent intent) {
-        int i;
-        DebugLogger.i("AbstractMessageHandler", "start LogUploadMessageHandler match");
-        String stringExtra = intent.getStringExtra(PushConstants.MZ_PUSH_CONTROL_MESSAGE);
-        if (!TextUtils.isEmpty(stringExtra)) {
-            com.meizu.cloud.pushsdk.handler.a.b.b a = com.meizu.cloud.pushsdk.handler.a.b.b.a(stringExtra);
-            if (a.a() != null) {
-                i = a.a().a();
-                return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && "2".equals(String.valueOf(i));
+        com.meizu.cloud.pushsdk.b.a.a aVar = this.b;
+        if (aVar != null) {
+            try {
+                try {
+                    aVar.b();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } finally {
+                this.b = null;
             }
         }
-        i = 0;
-        if (PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction())) {
-            return false;
-        }
+        com.meizu.cloud.pushsdk.b.a.a aVar2 = new com.meizu.cloud.pushsdk.b.a.a(this.a, new Runnable() { // from class: com.meizu.cloud.pushsdk.handler.a.a.a.1
+            @Override // java.lang.Runnable
+            public void run() {
+                DebugLogger.d("AdNotification", "ad priority valid time out");
+                a.this.a();
+            }
+        }, i * 60 * 1000);
+        this.b = aVar2;
+        aVar2.a();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: j */
-    public g c(Intent intent) {
-        String stringExtra = intent.getStringExtra(PushConstants.MZ_PUSH_CONTROL_MESSAGE);
-        String stringExtra2 = intent.getStringExtra(PushConstants.EXTRA_APP_PUSH_SEQ_ID);
-        return new g(intent.getStringExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE), stringExtra, intent.getStringExtra(PushConstants.MZ_PUSH_MESSAGE_STATISTICS_IMEI_KEY), stringExtra2);
+    public void a() {
+        if (this.c <= 0 || this.d == null) {
+            return;
+        }
+        try {
+            ((NotificationManager) this.a.getSystemService("notification")).notify(this.c, this.d);
+            DebugLogger.d("AdNotification", "again show old ad notification, notifyId:" + this.c);
+        } catch (Exception e) {
+            e.printStackTrace();
+            DebugLogger.e("AdNotification", "again show old ad notification error:" + e.getMessage());
+        }
+        b();
+    }
+
+    public void a(int i) {
+        int i2;
+        if (i <= 0 || (i2 = this.c) <= 0 || i != i2) {
+            return;
+        }
+        b();
+        DebugLogger.d("AdNotification", "clean ad notification, notifyId:" + i);
+    }
+
+    public void a(int i, Notification notification, int i2) {
+        if (i <= 0 || notification == null) {
+            return;
+        }
+        a(i, notification);
+        b(i2);
+        DebugLogger.d("AdNotification", "save ad notification, notifyId:" + i);
+    }
+
+    public void a(MessageV3 messageV3) {
+        AdvanceSetting advanceSetting = messageV3.getAdvanceSetting();
+        if (advanceSetting != null) {
+            advanceSetting.getNotifyType().setSound(false);
+            advanceSetting.getNotifyType().setLights(false);
+            advanceSetting.getNotifyType().setVibrate(false);
+        }
+        AdvanceSettingEx advanceSettingEx = messageV3.getAdvanceSettingEx();
+        if (advanceSettingEx != null) {
+            advanceSettingEx.setSoundTitle(null);
+            if (Build.VERSION.SDK_INT < 29 || advanceSetting == null || !advanceSetting.isHeadUpNotification()) {
+                advanceSettingEx.setPriorityDisplay(0);
+            } else {
+                advanceSettingEx.setPriorityDisplay(1);
+            }
+        }
     }
 }

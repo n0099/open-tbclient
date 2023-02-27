@@ -15,465 +15,305 @@ import androidx.annotation.RestrictTo;
 import androidx.core.app.BundleCompat;
 import androidx.core.app.NotificationBuilderWithBuilderAccessor;
 import androidx.core.app.NotificationCompat;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class NotificationCompat {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public static class DecoratedMediaCustomViewStyle extends MediaStyle {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
         @Override // androidx.media.app.NotificationCompat.MediaStyle
         public int getBigContentViewLayoutResource(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i <= 3 ? R.layout.obfuscated_res_0x7f0d06a1 : R.layout.obfuscated_res_0x7f0d069f : invokeI.intValue;
-        }
-
-        public DecoratedMediaCustomViewStyle() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+            return i <= 3 ? R.layout.obfuscated_res_0x7f0d06b7 : R.layout.obfuscated_res_0x7f0d06b5;
         }
 
         @Override // androidx.media.app.NotificationCompat.MediaStyle
         public int getContentViewLayoutResource() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.mBuilder.getContentView() != null) {
-                    return R.layout.obfuscated_res_0x7f0d06a6;
-                }
-                return super.getContentViewLayoutResource();
+            if (this.mBuilder.getContentView() != null) {
+                return R.layout.obfuscated_res_0x7f0d06bc;
             }
-            return invokeV.intValue;
+            return super.getContentViewLayoutResource();
         }
 
         private void setBackgroundColor(RemoteViews remoteViews) {
             int color;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65537, this, remoteViews) == null) {
-                if (this.mBuilder.getColor() != 0) {
-                    color = this.mBuilder.getColor();
-                } else {
-                    color = this.mBuilder.mContext.getResources().getColor(R.color.obfuscated_res_0x7f0608d9);
-                }
-                remoteViews.setInt(R.id.obfuscated_res_0x7f0920d0, "setBackgroundColor", color);
+            if (this.mBuilder.getColor() != 0) {
+                color = this.mBuilder.getColor();
+            } else {
+                color = this.mBuilder.mContext.getResources().getColor(R.color.obfuscated_res_0x7f06076c);
+            }
+            remoteViews.setInt(R.id.obfuscated_res_0x7f092115, "setBackgroundColor", color);
+        }
+
+        @Override // androidx.media.app.NotificationCompat.MediaStyle, androidx.core.app.NotificationCompat.Style
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
+        public void apply(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                notificationBuilderWithBuilderAccessor.getBuilder().setStyle(fillInMediaStyle(new Notification.DecoratedMediaCustomViewStyle()));
+            } else {
+                super.apply(notificationBuilderWithBuilderAccessor);
             }
         }
 
         @Override // androidx.media.app.NotificationCompat.MediaStyle, androidx.core.app.NotificationCompat.Style
         @RestrictTo({RestrictTo.Scope.LIBRARY})
         public RemoteViews makeBigContentView(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
-            InterceptResult invokeL;
             RemoteViews contentView;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, notificationBuilderWithBuilderAccessor)) == null) {
-                if (Build.VERSION.SDK_INT >= 24) {
-                    return null;
-                }
-                if (this.mBuilder.getBigContentView() != null) {
-                    contentView = this.mBuilder.getBigContentView();
-                } else {
-                    contentView = this.mBuilder.getContentView();
-                }
-                if (contentView == null) {
-                    return null;
-                }
-                RemoteViews generateBigContentView = generateBigContentView();
-                buildIntoRemoteViews(generateBigContentView, contentView);
-                if (Build.VERSION.SDK_INT >= 21) {
-                    setBackgroundColor(generateBigContentView);
-                }
-                return generateBigContentView;
+            if (Build.VERSION.SDK_INT >= 24) {
+                return null;
             }
-            return (RemoteViews) invokeL.objValue;
+            if (this.mBuilder.getBigContentView() != null) {
+                contentView = this.mBuilder.getBigContentView();
+            } else {
+                contentView = this.mBuilder.getContentView();
+            }
+            if (contentView == null) {
+                return null;
+            }
+            RemoteViews generateBigContentView = generateBigContentView();
+            buildIntoRemoteViews(generateBigContentView, contentView);
+            if (Build.VERSION.SDK_INT >= 21) {
+                setBackgroundColor(generateBigContentView);
+            }
+            return generateBigContentView;
         }
 
         @Override // androidx.core.app.NotificationCompat.Style
         @RestrictTo({RestrictTo.Scope.LIBRARY})
         public RemoteViews makeHeadsUpContentView(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
-            InterceptResult invokeL;
             RemoteViews contentView;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, notificationBuilderWithBuilderAccessor)) == null) {
-                if (Build.VERSION.SDK_INT >= 24) {
-                    return null;
-                }
-                if (this.mBuilder.getHeadsUpContentView() != null) {
-                    contentView = this.mBuilder.getHeadsUpContentView();
-                } else {
-                    contentView = this.mBuilder.getContentView();
-                }
-                if (contentView == null) {
-                    return null;
-                }
-                RemoteViews generateBigContentView = generateBigContentView();
-                buildIntoRemoteViews(generateBigContentView, contentView);
-                if (Build.VERSION.SDK_INT >= 21) {
-                    setBackgroundColor(generateBigContentView);
-                }
-                return generateBigContentView;
+            if (Build.VERSION.SDK_INT >= 24) {
+                return null;
             }
-            return (RemoteViews) invokeL.objValue;
-        }
-
-        @Override // androidx.media.app.NotificationCompat.MediaStyle, androidx.core.app.NotificationCompat.Style
-        @RestrictTo({RestrictTo.Scope.LIBRARY})
-        public void apply(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, notificationBuilderWithBuilderAccessor) == null) {
-                if (Build.VERSION.SDK_INT >= 24) {
-                    notificationBuilderWithBuilderAccessor.getBuilder().setStyle(fillInMediaStyle(new Notification.DecoratedMediaCustomViewStyle()));
-                } else {
-                    super.apply(notificationBuilderWithBuilderAccessor);
-                }
+            if (this.mBuilder.getHeadsUpContentView() != null) {
+                contentView = this.mBuilder.getHeadsUpContentView();
+            } else {
+                contentView = this.mBuilder.getContentView();
             }
+            if (contentView == null) {
+                return null;
+            }
+            RemoteViews generateBigContentView = generateBigContentView();
+            buildIntoRemoteViews(generateBigContentView, contentView);
+            if (Build.VERSION.SDK_INT >= 21) {
+                setBackgroundColor(generateBigContentView);
+            }
+            return generateBigContentView;
         }
 
         @Override // androidx.media.app.NotificationCompat.MediaStyle, androidx.core.app.NotificationCompat.Style
         @RestrictTo({RestrictTo.Scope.LIBRARY})
         public RemoteViews makeContentView(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
-            InterceptResult invokeL;
             boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, notificationBuilderWithBuilderAccessor)) == null) {
-                if (Build.VERSION.SDK_INT >= 24) {
-                    return null;
-                }
-                boolean z2 = true;
-                if (this.mBuilder.getContentView() != null) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (Build.VERSION.SDK_INT >= 21) {
-                    if (!z && this.mBuilder.getBigContentView() == null) {
-                        z2 = false;
-                    }
-                    if (z2) {
-                        RemoteViews generateContentView = generateContentView();
-                        if (z) {
-                            buildIntoRemoteViews(generateContentView, this.mBuilder.getContentView());
-                        }
-                        setBackgroundColor(generateContentView);
-                        return generateContentView;
-                    }
-                } else {
-                    RemoteViews generateContentView2 = generateContentView();
-                    if (z) {
-                        buildIntoRemoteViews(generateContentView2, this.mBuilder.getContentView());
-                        return generateContentView2;
-                    }
-                }
+            if (Build.VERSION.SDK_INT >= 24) {
                 return null;
             }
-            return (RemoteViews) invokeL.objValue;
+            boolean z2 = true;
+            if (this.mBuilder.getContentView() != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (Build.VERSION.SDK_INT >= 21) {
+                if (!z && this.mBuilder.getBigContentView() == null) {
+                    z2 = false;
+                }
+                if (z2) {
+                    RemoteViews generateContentView = generateContentView();
+                    if (z) {
+                        buildIntoRemoteViews(generateContentView, this.mBuilder.getContentView());
+                    }
+                    setBackgroundColor(generateContentView);
+                    return generateContentView;
+                }
+            } else {
+                RemoteViews generateContentView2 = generateContentView();
+                if (z) {
+                    buildIntoRemoteViews(generateContentView2, this.mBuilder.getContentView());
+                    return generateContentView2;
+                }
+            }
+            return null;
         }
     }
 
     /* loaded from: classes.dex */
     public static class MediaStyle extends NotificationCompat.Style {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final int MAX_MEDIA_BUTTONS = 5;
         public static final int MAX_MEDIA_BUTTONS_IN_COMPACT = 3;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int[] mActionsToShowInCompact;
+        public int[] mActionsToShowInCompact = null;
         public PendingIntent mCancelButtonIntent;
         public boolean mShowCancelButton;
         public MediaSessionCompat.Token mToken;
 
         public int getBigContentViewLayoutResource(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i <= 3 ? R.layout.obfuscated_res_0x7f0d06a0 : R.layout.obfuscated_res_0x7f0d069e : invokeI.intValue;
+            return i <= 3 ? R.layout.obfuscated_res_0x7f0d06b6 : R.layout.obfuscated_res_0x7f0d06b4;
         }
 
         public int getContentViewLayoutResource() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.layout.obfuscated_res_0x7f0d06a5 : invokeV.intValue;
+            return R.layout.obfuscated_res_0x7f0d06bb;
         }
 
         public MediaStyle() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.mActionsToShowInCompact = null;
         }
 
         public MediaStyle(NotificationCompat.Builder builder) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {builder};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.mActionsToShowInCompact = null;
             setBuilder(builder);
-        }
-
-        private RemoteViews generateMediaActionButton(NotificationCompat.Action action) {
-            InterceptResult invokeL;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, action)) == null) {
-                if (action.getActionIntent() == null) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                RemoteViews remoteViews = new RemoteViews(this.mBuilder.mContext.getPackageName(), (int) R.layout.obfuscated_res_0x7f0d069c);
-                remoteViews.setImageViewResource(R.id.obfuscated_res_0x7f09005a, action.getIcon());
-                if (!z) {
-                    remoteViews.setOnClickPendingIntent(R.id.obfuscated_res_0x7f09005a, action.getActionIntent());
-                }
-                if (Build.VERSION.SDK_INT >= 15) {
-                    remoteViews.setContentDescription(R.id.obfuscated_res_0x7f09005a, action.getTitle());
-                }
-                return remoteViews;
-            }
-            return (RemoteViews) invokeL.objValue;
-        }
-
-        public static MediaSessionCompat.Token getMediaSession(Notification notification) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, notification)) == null) {
-                Bundle extras = androidx.core.app.NotificationCompat.getExtras(notification);
-                if (extras != null) {
-                    if (Build.VERSION.SDK_INT >= 21) {
-                        Parcelable parcelable = extras.getParcelable(androidx.core.app.NotificationCompat.EXTRA_MEDIA_SESSION);
-                        if (parcelable != null) {
-                            return MediaSessionCompat.Token.fromToken(parcelable);
-                        }
-                        return null;
-                    }
-                    IBinder binder = BundleCompat.getBinder(extras, androidx.core.app.NotificationCompat.EXTRA_MEDIA_SESSION);
-                    if (binder != null) {
-                        Parcel obtain = Parcel.obtain();
-                        obtain.writeStrongBinder(binder);
-                        obtain.setDataPosition(0);
-                        MediaSessionCompat.Token createFromParcel = MediaSessionCompat.Token.CREATOR.createFromParcel(obtain);
-                        obtain.recycle();
-                        return createFromParcel;
-                    }
-                    return null;
-                }
-                return null;
-            }
-            return (MediaSessionCompat.Token) invokeL.objValue;
         }
 
         @Override // androidx.core.app.NotificationCompat.Style
         @RestrictTo({RestrictTo.Scope.LIBRARY})
         public void apply(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, notificationBuilderWithBuilderAccessor) == null) {
-                if (Build.VERSION.SDK_INT >= 21) {
-                    notificationBuilderWithBuilderAccessor.getBuilder().setStyle(fillInMediaStyle(new Notification.MediaStyle()));
-                } else if (this.mShowCancelButton) {
-                    notificationBuilderWithBuilderAccessor.getBuilder().setOngoing(true);
-                }
+            if (Build.VERSION.SDK_INT >= 21) {
+                notificationBuilderWithBuilderAccessor.getBuilder().setStyle(fillInMediaStyle(new Notification.MediaStyle()));
+            } else if (this.mShowCancelButton) {
+                notificationBuilderWithBuilderAccessor.getBuilder().setOngoing(true);
             }
         }
 
         @RequiresApi(21)
         public Notification.MediaStyle fillInMediaStyle(Notification.MediaStyle mediaStyle) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaStyle)) == null) {
-                int[] iArr = this.mActionsToShowInCompact;
-                if (iArr != null) {
-                    mediaStyle.setShowActionsInCompactView(iArr);
-                }
-                MediaSessionCompat.Token token = this.mToken;
-                if (token != null) {
-                    mediaStyle.setMediaSession((MediaSession.Token) token.getToken());
-                }
-                return mediaStyle;
+            int[] iArr = this.mActionsToShowInCompact;
+            if (iArr != null) {
+                mediaStyle.setShowActionsInCompactView(iArr);
             }
-            return (Notification.MediaStyle) invokeL.objValue;
+            MediaSessionCompat.Token token = this.mToken;
+            if (token != null) {
+                mediaStyle.setMediaSession((MediaSession.Token) token.getToken());
+            }
+            return mediaStyle;
         }
 
         @Override // androidx.core.app.NotificationCompat.Style
         @RestrictTo({RestrictTo.Scope.LIBRARY})
         public RemoteViews makeBigContentView(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, notificationBuilderWithBuilderAccessor)) == null) {
-                if (Build.VERSION.SDK_INT >= 21) {
-                    return null;
-                }
-                return generateBigContentView();
+            if (Build.VERSION.SDK_INT >= 21) {
+                return null;
             }
-            return (RemoteViews) invokeL.objValue;
+            return generateBigContentView();
         }
 
         @Override // androidx.core.app.NotificationCompat.Style
         @RestrictTo({RestrictTo.Scope.LIBRARY})
         public RemoteViews makeContentView(NotificationBuilderWithBuilderAccessor notificationBuilderWithBuilderAccessor) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, notificationBuilderWithBuilderAccessor)) == null) {
-                if (Build.VERSION.SDK_INT >= 21) {
-                    return null;
-                }
-                return generateContentView();
+            if (Build.VERSION.SDK_INT >= 21) {
+                return null;
             }
-            return (RemoteViews) invokeL.objValue;
+            return generateContentView();
         }
 
         public MediaStyle setCancelButtonIntent(PendingIntent pendingIntent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pendingIntent)) == null) {
-                this.mCancelButtonIntent = pendingIntent;
-                return this;
-            }
-            return (MediaStyle) invokeL.objValue;
+            this.mCancelButtonIntent = pendingIntent;
+            return this;
         }
 
         public MediaStyle setMediaSession(MediaSessionCompat.Token token) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, token)) == null) {
-                this.mToken = token;
-                return this;
-            }
-            return (MediaStyle) invokeL.objValue;
+            this.mToken = token;
+            return this;
         }
 
         public MediaStyle setShowActionsInCompactView(int... iArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, iArr)) == null) {
-                this.mActionsToShowInCompact = iArr;
-                return this;
-            }
-            return (MediaStyle) invokeL.objValue;
+            this.mActionsToShowInCompact = iArr;
+            return this;
         }
 
         public MediaStyle setShowCancelButton(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
-                if (Build.VERSION.SDK_INT < 21) {
-                    this.mShowCancelButton = z;
-                }
-                return this;
+            if (Build.VERSION.SDK_INT < 21) {
+                this.mShowCancelButton = z;
             }
-            return (MediaStyle) invokeZ.objValue;
+            return this;
+        }
+
+        private RemoteViews generateMediaActionButton(NotificationCompat.Action action) {
+            boolean z;
+            if (action.getActionIntent() == null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            RemoteViews remoteViews = new RemoteViews(this.mBuilder.mContext.getPackageName(), (int) R.layout.obfuscated_res_0x7f0d06b2);
+            remoteViews.setImageViewResource(R.id.obfuscated_res_0x7f09005a, action.getIcon());
+            if (!z) {
+                remoteViews.setOnClickPendingIntent(R.id.obfuscated_res_0x7f09005a, action.getActionIntent());
+            }
+            if (Build.VERSION.SDK_INT >= 15) {
+                remoteViews.setContentDescription(R.id.obfuscated_res_0x7f09005a, action.getTitle());
+            }
+            return remoteViews;
+        }
+
+        public static MediaSessionCompat.Token getMediaSession(Notification notification) {
+            Bundle extras = androidx.core.app.NotificationCompat.getExtras(notification);
+            if (extras != null) {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    Parcelable parcelable = extras.getParcelable(androidx.core.app.NotificationCompat.EXTRA_MEDIA_SESSION);
+                    if (parcelable != null) {
+                        return MediaSessionCompat.Token.fromToken(parcelable);
+                    }
+                    return null;
+                }
+                IBinder binder = BundleCompat.getBinder(extras, androidx.core.app.NotificationCompat.EXTRA_MEDIA_SESSION);
+                if (binder != null) {
+                    Parcel obtain = Parcel.obtain();
+                    obtain.writeStrongBinder(binder);
+                    obtain.setDataPosition(0);
+                    MediaSessionCompat.Token createFromParcel = MediaSessionCompat.Token.CREATOR.createFromParcel(obtain);
+                    obtain.recycle();
+                    return createFromParcel;
+                }
+                return null;
+            }
+            return null;
         }
 
         public RemoteViews generateBigContentView() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int min = Math.min(this.mBuilder.mActions.size(), 5);
-                RemoteViews applyStandardTemplate = applyStandardTemplate(false, getBigContentViewLayoutResource(min), false);
-                applyStandardTemplate.removeAllViews(R.id.obfuscated_res_0x7f0915d2);
-                if (min > 0) {
-                    for (int i = 0; i < min; i++) {
-                        applyStandardTemplate.addView(R.id.obfuscated_res_0x7f0915d2, generateMediaActionButton(this.mBuilder.mActions.get(i)));
-                    }
+            int min = Math.min(this.mBuilder.mActions.size(), 5);
+            RemoteViews applyStandardTemplate = applyStandardTemplate(false, getBigContentViewLayoutResource(min), false);
+            applyStandardTemplate.removeAllViews(R.id.obfuscated_res_0x7f091613);
+            if (min > 0) {
+                for (int i = 0; i < min; i++) {
+                    applyStandardTemplate.addView(R.id.obfuscated_res_0x7f091613, generateMediaActionButton(this.mBuilder.mActions.get(i)));
                 }
-                if (this.mShowCancelButton) {
-                    applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f0904b9, 0);
-                    applyStandardTemplate.setInt(R.id.obfuscated_res_0x7f0904b9, "setAlpha", this.mBuilder.mContext.getResources().getInteger(R.integer.obfuscated_res_0x7f0a0008));
-                    applyStandardTemplate.setOnClickPendingIntent(R.id.obfuscated_res_0x7f0904b9, this.mCancelButtonIntent);
-                } else {
-                    applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f0904b9, 8);
-                }
-                return applyStandardTemplate;
             }
-            return (RemoteViews) invokeV.objValue;
+            if (this.mShowCancelButton) {
+                applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f0904f7, 0);
+                applyStandardTemplate.setInt(R.id.obfuscated_res_0x7f0904f7, "setAlpha", this.mBuilder.mContext.getResources().getInteger(R.integer.obfuscated_res_0x7f0a0008));
+                applyStandardTemplate.setOnClickPendingIntent(R.id.obfuscated_res_0x7f0904f7, this.mCancelButtonIntent);
+            } else {
+                applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f0904f7, 8);
+            }
+            return applyStandardTemplate;
         }
 
         public RemoteViews generateContentView() {
-            InterceptResult invokeV;
             int min;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                RemoteViews applyStandardTemplate = applyStandardTemplate(false, getContentViewLayoutResource(), true);
-                int size = this.mBuilder.mActions.size();
-                int[] iArr = this.mActionsToShowInCompact;
-                if (iArr == null) {
-                    min = 0;
-                } else {
-                    min = Math.min(iArr.length, 3);
-                }
-                applyStandardTemplate.removeAllViews(R.id.obfuscated_res_0x7f0915d2);
-                if (min > 0) {
-                    for (int i = 0; i < min; i++) {
-                        if (i < size) {
-                            applyStandardTemplate.addView(R.id.obfuscated_res_0x7f0915d2, generateMediaActionButton(this.mBuilder.mActions.get(this.mActionsToShowInCompact[i])));
-                        } else {
-                            throw new IllegalArgumentException(String.format("setShowActionsInCompactView: action %d out of bounds (max %d)", Integer.valueOf(i), Integer.valueOf(size - 1)));
-                        }
+            RemoteViews applyStandardTemplate = applyStandardTemplate(false, getContentViewLayoutResource(), true);
+            int size = this.mBuilder.mActions.size();
+            int[] iArr = this.mActionsToShowInCompact;
+            if (iArr == null) {
+                min = 0;
+            } else {
+                min = Math.min(iArr.length, 3);
+            }
+            applyStandardTemplate.removeAllViews(R.id.obfuscated_res_0x7f091613);
+            if (min > 0) {
+                for (int i = 0; i < min; i++) {
+                    if (i < size) {
+                        applyStandardTemplate.addView(R.id.obfuscated_res_0x7f091613, generateMediaActionButton(this.mBuilder.mActions.get(this.mActionsToShowInCompact[i])));
+                    } else {
+                        throw new IllegalArgumentException(String.format("setShowActionsInCompactView: action %d out of bounds (max %d)", Integer.valueOf(i), Integer.valueOf(size - 1)));
                     }
                 }
-                if (this.mShowCancelButton) {
-                    applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f090952, 8);
-                    applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f0904b9, 0);
-                    applyStandardTemplate.setOnClickPendingIntent(R.id.obfuscated_res_0x7f0904b9, this.mCancelButtonIntent);
-                    applyStandardTemplate.setInt(R.id.obfuscated_res_0x7f0904b9, "setAlpha", this.mBuilder.mContext.getResources().getInteger(R.integer.obfuscated_res_0x7f0a0008));
-                } else {
-                    applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f090952, 0);
-                    applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f0904b9, 8);
-                }
-                return applyStandardTemplate;
             }
-            return (RemoteViews) invokeV.objValue;
-        }
-    }
-
-    public NotificationCompat() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if (this.mShowCancelButton) {
+                applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f09098e, 8);
+                applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f0904f7, 0);
+                applyStandardTemplate.setOnClickPendingIntent(R.id.obfuscated_res_0x7f0904f7, this.mCancelButtonIntent);
+                applyStandardTemplate.setInt(R.id.obfuscated_res_0x7f0904f7, "setAlpha", this.mBuilder.mContext.getResources().getInteger(R.integer.obfuscated_res_0x7f0a0008));
+            } else {
+                applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f09098e, 0);
+                applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f0904f7, 8);
             }
+            return applyStandardTemplate;
         }
     }
 }

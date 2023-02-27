@@ -1,446 +1,244 @@
 package com.google.gson;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.internal.C$Gson$Preconditions;
 import com.google.gson.internal.LazilyParsedNumber;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 /* loaded from: classes8.dex */
 public final class JsonPrimitive extends JsonElement {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Class<?>[] PRIMITIVE_TYPES;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final Class<?>[] PRIMITIVE_TYPES = {Integer.TYPE, Long.TYPE, Short.TYPE, Float.TYPE, Double.TYPE, Byte.TYPE, Boolean.TYPE, Character.TYPE, Integer.class, Long.class, Short.class, Float.class, Double.class, Byte.class, Boolean.class, Character.class};
     public Object value;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.JsonElement
     public JsonPrimitive deepCopy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (JsonPrimitive) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1215079908, "Lcom/google/gson/JsonPrimitive;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1215079908, "Lcom/google/gson/JsonPrimitive;");
-                return;
-            }
-        }
-        PRIMITIVE_TYPES = new Class[]{Integer.TYPE, Long.TYPE, Short.TYPE, Float.TYPE, Double.TYPE, Byte.TYPE, Boolean.TYPE, Character.TYPE, Integer.class, Long.class, Short.class, Float.class, Double.class, Byte.class, Boolean.class, Character.class};
+        return this;
     }
 
     public JsonPrimitive(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bool};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         setValue(bool);
     }
 
     public static boolean isIntegral(JsonPrimitive jsonPrimitive) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, jsonPrimitive)) == null) {
-            Object obj = jsonPrimitive.value;
-            if (!(obj instanceof Number)) {
-                return false;
-            }
-            Number number = (Number) obj;
-            if (!(number instanceof BigInteger) && !(number instanceof Long) && !(number instanceof Integer) && !(number instanceof Short) && !(number instanceof Byte)) {
-                return false;
-            }
-            return true;
+        Object obj = jsonPrimitive.value;
+        if (!(obj instanceof Number)) {
+            return false;
         }
-        return invokeL.booleanValue;
+        Number number = (Number) obj;
+        if (!(number instanceof BigInteger) && !(number instanceof Long) && !(number instanceof Integer) && !(number instanceof Short) && !(number instanceof Byte)) {
+            return false;
+        }
+        return true;
     }
 
     public static boolean isPrimitiveOrString(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) {
-            if (obj instanceof String) {
+        if (obj instanceof String) {
+            return true;
+        }
+        Class<?> cls = obj.getClass();
+        for (Class<?> cls2 : PRIMITIVE_TYPES) {
+            if (cls2.isAssignableFrom(cls)) {
                 return true;
             }
-            Class<?> cls = obj.getClass();
-            for (Class<?> cls2 : PRIMITIVE_TYPES) {
-                if (cls2.isAssignableFrom(cls)) {
-                    return true;
-                }
-            }
-            return false;
         }
-        return invokeL.booleanValue;
+        return false;
+    }
+
+    public void setValue(Object obj) {
+        boolean z;
+        if (obj instanceof Character) {
+            this.value = String.valueOf(((Character) obj).charValue());
+            return;
+        }
+        if (!(obj instanceof Number) && !isPrimitiveOrString(obj)) {
+            z = false;
+        } else {
+            z = true;
+        }
+        C$Gson$Preconditions.checkArgument(z);
+        this.value = obj;
     }
 
     public JsonPrimitive(Character ch) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ch};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         setValue(ch);
     }
 
     public JsonPrimitive(Number number) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {number};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
         setValue(number);
     }
 
     public JsonPrimitive(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {obj};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
         setValue(obj);
     }
 
     public JsonPrimitive(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65541, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65541, newInitContext);
-                return;
-            }
-        }
         setValue(str);
     }
 
     @Override // com.google.gson.JsonElement
     public BigDecimal getAsBigDecimal() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Object obj = this.value;
-            if (obj instanceof BigDecimal) {
-                return (BigDecimal) obj;
-            }
-            return new BigDecimal(this.value.toString());
+        Object obj = this.value;
+        if (obj instanceof BigDecimal) {
+            return (BigDecimal) obj;
         }
-        return (BigDecimal) invokeV.objValue;
+        return new BigDecimal(this.value.toString());
     }
 
     @Override // com.google.gson.JsonElement
     public BigInteger getAsBigInteger() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Object obj = this.value;
-            if (obj instanceof BigInteger) {
-                return (BigInteger) obj;
-            }
-            return new BigInteger(this.value.toString());
+        Object obj = this.value;
+        if (obj instanceof BigInteger) {
+            return (BigInteger) obj;
         }
-        return (BigInteger) invokeV.objValue;
+        return new BigInteger(this.value.toString());
     }
 
     @Override // com.google.gson.JsonElement
     public boolean getAsBoolean() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (isBoolean()) {
-                return getAsBooleanWrapper().booleanValue();
-            }
-            return Boolean.parseBoolean(getAsString());
+        if (isBoolean()) {
+            return getAsBooleanWrapper().booleanValue();
         }
-        return invokeV.booleanValue;
+        return Boolean.parseBoolean(getAsString());
     }
 
     @Override // com.google.gson.JsonElement
     public Boolean getAsBooleanWrapper() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return (Boolean) this.value;
-        }
-        return (Boolean) invokeV.objValue;
+        return (Boolean) this.value;
     }
 
     @Override // com.google.gson.JsonElement
     public byte getAsByte() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (isNumber()) {
-                return getAsNumber().byteValue();
-            }
-            return Byte.parseByte(getAsString());
+        if (isNumber()) {
+            return getAsNumber().byteValue();
         }
-        return invokeV.byteValue;
+        return Byte.parseByte(getAsString());
     }
 
     @Override // com.google.gson.JsonElement
     public char getAsCharacter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return getAsString().charAt(0);
-        }
-        return invokeV.charValue;
+        return getAsString().charAt(0);
     }
 
     @Override // com.google.gson.JsonElement
     public double getAsDouble() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (isNumber()) {
-                return getAsNumber().doubleValue();
-            }
-            return Double.parseDouble(getAsString());
+        if (isNumber()) {
+            return getAsNumber().doubleValue();
         }
-        return invokeV.doubleValue;
+        return Double.parseDouble(getAsString());
     }
 
     @Override // com.google.gson.JsonElement
     public float getAsFloat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (isNumber()) {
-                return getAsNumber().floatValue();
-            }
-            return Float.parseFloat(getAsString());
+        if (isNumber()) {
+            return getAsNumber().floatValue();
         }
-        return invokeV.floatValue;
+        return Float.parseFloat(getAsString());
     }
 
     @Override // com.google.gson.JsonElement
     public int getAsInt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (isNumber()) {
-                return getAsNumber().intValue();
-            }
-            return Integer.parseInt(getAsString());
+        if (isNumber()) {
+            return getAsNumber().intValue();
         }
-        return invokeV.intValue;
+        return Integer.parseInt(getAsString());
     }
 
     @Override // com.google.gson.JsonElement
     public long getAsLong() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (isNumber()) {
-                return getAsNumber().longValue();
-            }
-            return Long.parseLong(getAsString());
+        if (isNumber()) {
+            return getAsNumber().longValue();
         }
-        return invokeV.longValue;
+        return Long.parseLong(getAsString());
     }
 
     @Override // com.google.gson.JsonElement
     public Number getAsNumber() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            Object obj = this.value;
-            if (obj instanceof String) {
-                return new LazilyParsedNumber((String) this.value);
-            }
-            return (Number) obj;
+        Object obj = this.value;
+        if (obj instanceof String) {
+            return new LazilyParsedNumber((String) this.value);
         }
-        return (Number) invokeV.objValue;
+        return (Number) obj;
     }
 
     @Override // com.google.gson.JsonElement
     public short getAsShort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (isNumber()) {
-                return getAsNumber().shortValue();
-            }
-            return Short.parseShort(getAsString());
+        if (isNumber()) {
+            return getAsNumber().shortValue();
         }
-        return invokeV.shortValue;
-    }
-
-    public boolean isBoolean() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.value instanceof Boolean;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isNumber() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.value instanceof Number;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.value instanceof String;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || JsonPrimitive.class != obj.getClass()) {
-                return false;
-            }
-            JsonPrimitive jsonPrimitive = (JsonPrimitive) obj;
-            if (this.value == null) {
-                if (jsonPrimitive.value == null) {
-                    return true;
-                }
-                return false;
-            } else if (isIntegral(this) && isIntegral(jsonPrimitive)) {
-                if (getAsNumber().longValue() == jsonPrimitive.getAsNumber().longValue()) {
-                    return true;
-                }
-                return false;
-            } else if ((this.value instanceof Number) && (jsonPrimitive.value instanceof Number)) {
-                double doubleValue = getAsNumber().doubleValue();
-                double doubleValue2 = jsonPrimitive.getAsNumber().doubleValue();
-                if (doubleValue == doubleValue2) {
-                    return true;
-                }
-                if (Double.isNaN(doubleValue) && Double.isNaN(doubleValue2)) {
-                    return true;
-                }
-                return false;
-            } else {
-                return this.value.equals(jsonPrimitive.value);
-            }
-        }
-        return invokeL.booleanValue;
+        return Short.parseShort(getAsString());
     }
 
     @Override // com.google.gson.JsonElement
     public String getAsString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (isNumber()) {
-                return getAsNumber().toString();
-            }
-            if (isBoolean()) {
-                return getAsBooleanWrapper().toString();
-            }
-            return (String) this.value;
+        if (isNumber()) {
+            return getAsNumber().toString();
         }
-        return (String) invokeV.objValue;
+        if (isBoolean()) {
+            return getAsBooleanWrapper().toString();
+        }
+        return (String) this.value;
+    }
+
+    public boolean isBoolean() {
+        return this.value instanceof Boolean;
+    }
+
+    public boolean isNumber() {
+        return this.value instanceof Number;
+    }
+
+    public boolean isString() {
+        return this.value instanceof String;
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || JsonPrimitive.class != obj.getClass()) {
+            return false;
+        }
+        JsonPrimitive jsonPrimitive = (JsonPrimitive) obj;
+        if (this.value == null) {
+            if (jsonPrimitive.value == null) {
+                return true;
+            }
+            return false;
+        } else if (isIntegral(this) && isIntegral(jsonPrimitive)) {
+            if (getAsNumber().longValue() == jsonPrimitive.getAsNumber().longValue()) {
+                return true;
+            }
+            return false;
+        } else if ((this.value instanceof Number) && (jsonPrimitive.value instanceof Number)) {
+            double doubleValue = getAsNumber().doubleValue();
+            double doubleValue2 = jsonPrimitive.getAsNumber().doubleValue();
+            if (doubleValue == doubleValue2) {
+                return true;
+            }
+            if (Double.isNaN(doubleValue) && Double.isNaN(doubleValue2)) {
+                return true;
+            }
+            return false;
+        } else {
+            return this.value.equals(jsonPrimitive.value);
+        }
     }
 
     public int hashCode() {
-        InterceptResult invokeV;
         long doubleToLongBits;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (this.value == null) {
-                return 31;
-            }
-            if (isIntegral(this)) {
-                doubleToLongBits = getAsNumber().longValue();
-            } else {
-                Object obj = this.value;
-                if (obj instanceof Number) {
-                    doubleToLongBits = Double.doubleToLongBits(getAsNumber().doubleValue());
-                } else {
-                    return obj.hashCode();
-                }
-            }
-            return (int) ((doubleToLongBits >>> 32) ^ doubleToLongBits);
+        if (this.value == null) {
+            return 31;
         }
-        return invokeV.intValue;
-    }
-
-    public void setValue(Object obj) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, obj) == null) {
-            if (obj instanceof Character) {
-                this.value = String.valueOf(((Character) obj).charValue());
-                return;
-            }
-            if (!(obj instanceof Number) && !isPrimitiveOrString(obj)) {
-                z = false;
+        if (isIntegral(this)) {
+            doubleToLongBits = getAsNumber().longValue();
+        } else {
+            Object obj = this.value;
+            if (obj instanceof Number) {
+                doubleToLongBits = Double.doubleToLongBits(getAsNumber().doubleValue());
             } else {
-                z = true;
+                return obj.hashCode();
             }
-            C$Gson$Preconditions.checkArgument(z);
-            this.value = obj;
         }
+        return (int) ((doubleToLongBits >>> 32) ^ doubleToLongBits);
     }
 }

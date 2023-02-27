@@ -1,49 +1,52 @@
 package com.baidu.sofire.c;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
+import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sofire.a.b;
-import com.baidu.sofire.b.k;
+import com.baidu.sofire.b.i;
 import com.baidu.sofire.core.ApkInfo;
+import com.baidu.sofire.jni.Asc;
+import com.baidu.sofire.k.f;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.p0.i1;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import com.meizu.cloud.pushsdk.notification.model.AdvertisementOption;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+@SuppressLint({"Range"})
 /* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public C0178a a;
+    public C0166a a;
     public SQLiteDatabase b;
     public Context c;
 
     /* renamed from: com.baidu.sofire.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0178a extends SQLiteOpenHelper {
+    public class C0166a extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0178a(a aVar, Context context) {
+        public C0166a(a aVar, Context context) {
             super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.a(aVar));
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -70,7 +73,7 @@ public class a {
             if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
                 try {
                     this.a.getClass();
-                    sQLiteDatabase.execSQL("create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)");
+                    sQLiteDatabase.execSQL("create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,pe TEXT,a TEXT)");
                 } catch (Throwable unused) {
                     int i = b.a;
                 }
@@ -96,6 +99,9 @@ public class a {
                         return;
                     }
                 }
+                if (i < 4 && i2 >= 4) {
+                    sQLiteDatabase.execSQL("drop table if exists tbch");
+                }
                 if (i < 5 && i2 >= 5) {
                     sQLiteDatabase.beginTransaction();
                     try {
@@ -106,8 +112,15 @@ public class a {
                     }
                     sQLiteDatabase.endTransaction();
                 }
-                if (i < 4 && i2 >= 4) {
-                    sQLiteDatabase.execSQL("drop table if exists tbch");
+                if (i < 6 && i2 >= 6) {
+                    sQLiteDatabase.beginTransaction();
+                    try {
+                        sQLiteDatabase.execSQL("ALTER TABLE pgn ADD COLUMN pe TEXT");
+                        sQLiteDatabase.setTransactionSuccessful();
+                    } catch (Throwable unused4) {
+                        int i6 = b.a;
+                    }
+                    sQLiteDatabase.endTransaction();
                 }
             }
         }
@@ -129,18 +142,18 @@ public class a {
             }
         }
         this.c = context.getApplicationContext();
-        C0178a c0178a = new C0178a(this, context.getApplicationContext());
-        this.a = c0178a;
+        C0166a c0166a = new C0166a(this, context.getApplicationContext());
+        this.a = c0166a;
         try {
-            this.b = c0178a.getWritableDatabase();
+            this.b = c0166a.getWritableDatabase();
         } catch (Throwable th) {
-            com.baidu.sofire.k.a.a(th);
+            com.baidu.sofire.k.b.a(th);
         }
     }
 
     public static /* synthetic */ int a(a aVar) {
         aVar.getClass();
-        return 5;
+        return 6;
     }
 
     public static synchronized a a(Context context) {
@@ -159,19 +172,11 @@ public class a {
         return (a) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x00e8 A[Catch: all -> 0x0114, TRY_ENTER, TRY_LEAVE, TryCatch #2 {all -> 0x0114, blocks: (B:42:0x00e8, B:45:0x0105), top: B:54:0x00e6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x0103  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public long a(ApkInfo apkInfo) {
         InterceptResult invokeL;
-        ByteArrayOutputStream byteArrayOutputStream;
-        ObjectOutputStream objectOutputStream;
-        byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, apkInfo)) == null) {
-            long j = 0;
+            String str = "";
             if (apkInfo == null) {
                 return 0L;
             }
@@ -182,99 +187,108 @@ public class a {
             contentValues.put("l", apkInfo.libPath);
             contentValues.put("v", apkInfo.versionName);
             contentValues.put("apk", apkInfo.dexPath);
-            contentValues.put("ap", Integer.valueOf(apkInfo.apkParseSuc));
+            contentValues.put(AdvertisementOption.AD_PACKAGE, Integer.valueOf(apkInfo.apkParseSuc));
             contentValues.put("cl", apkInfo.className);
             contentValues.put("st", Long.valueOf(apkInfo.startTime));
             contentValues.put("du", Integer.valueOf(apkInfo.duration));
             contentValues.put("m5", apkInfo.apkMD5);
             contentValues.put("th", Integer.valueOf(apkInfo.applicationTheme));
             contentValues.put("pr", Integer.valueOf(apkInfo.priority));
-            ActivityInfo[] activityInfoArr = apkInfo.activities;
-            ObjectOutputStream objectOutputStream2 = null;
-            if (activityInfoArr != null) {
-                com.baidu.sofire.b.a aVar = new com.baidu.sofire.b.a(activityInfoArr);
-                try {
-                    byteArrayOutputStream = new ByteArrayOutputStream();
-                    try {
-                        objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-                    } catch (IOException unused) {
-                        objectOutputStream = null;
-                    } catch (Throwable th) {
-                        th = th;
-                    }
-                } catch (IOException unused2) {
-                    byteArrayOutputStream = null;
-                    objectOutputStream = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    byteArrayOutputStream = null;
-                }
-                try {
-                    objectOutputStream.writeObject(aVar.a);
-                    objectOutputStream.close();
-                    byteArrayOutputStream.close();
-                    bArr = byteArrayOutputStream.toByteArray();
-                    try {
-                        objectOutputStream.close();
-                        byteArrayOutputStream.close();
-                    } catch (IOException unused3) {
-                        int i = b.a;
-                        contentValues.put("ac", bArr);
-                        if (!g(apkInfo.key)) {
-                        }
-                        return j;
-                    }
-                } catch (IOException unused4) {
-                    if (objectOutputStream != null) {
-                        try {
-                            objectOutputStream.close();
-                        } catch (IOException unused5) {
-                            bArr = null;
-                            int i2 = b.a;
-                            contentValues.put("ac", bArr);
-                            if (!g(apkInfo.key)) {
-                            }
-                            return j;
-                        }
-                    }
-                    if (byteArrayOutputStream != null) {
-                        byteArrayOutputStream.close();
-                    }
-                    bArr = null;
-                    contentValues.put("ac", bArr);
-                    if (!g(apkInfo.key)) {
-                    }
-                    return j;
-                } catch (Throwable th3) {
-                    th = th3;
-                    objectOutputStream2 = objectOutputStream;
-                    if (objectOutputStream2 != null) {
-                        try {
-                            objectOutputStream2.close();
-                        } catch (IOException unused6) {
-                            int i3 = b.a;
-                            throw th;
-                        }
-                    }
-                    if (byteArrayOutputStream != null) {
-                        byteArrayOutputStream.close();
-                    }
-                    throw th;
-                }
-                contentValues.put("ac", bArr);
-            }
+            String str2 = apkInfo.es;
+            Asc asc = f.a;
             try {
-                if (!g(apkInfo.key)) {
-                    j = this.b.update("pgn", contentValues, "k=" + apkInfo.key, null);
-                } else {
-                    contentValues.put("k", Integer.valueOf(apkInfo.key));
-                    j = this.b.insert("pgn", null, contentValues);
+                if (!TextUtils.isEmpty(str2)) {
+                    str = Base64.encodeToString(f.b(f.a(24), str2.getBytes("UTF-8"), true), 10);
                 }
-            } catch (Throwable unused7) {
+            } catch (Throwable unused) {
+                int i = b.a;
             }
-            return j;
+            contentValues.put("pe", str);
+            try {
+                if (f(apkInfo.key)) {
+                    SQLiteDatabase sQLiteDatabase = this.b;
+                    return sQLiteDatabase.update("pgn", contentValues, "k=" + apkInfo.key, null);
+                }
+                contentValues.put("k", Integer.valueOf(apkInfo.key));
+                return this.b.insert("pgn", null, contentValues);
+            } catch (Throwable unused2) {
+                return 0L;
+            }
         }
         return invokeL.longValue;
+    }
+
+    public ApkInfo b(int i) {
+        InterceptResult invokeI;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            ApkInfo apkInfo = null;
+            try {
+                try {
+                    cursor = this.b.query("pgn", null, "k=" + i, null, null, null, null);
+                    if (cursor != null) {
+                        try {
+                            if (cursor.moveToFirst()) {
+                                ApkInfo apkInfo2 = new ApkInfo();
+                                try {
+                                    apkInfo2.key = i;
+                                    apkInfo2.initStatus = cursor.getInt(cursor.getColumnIndex("n"));
+                                    apkInfo2.packageName = cursor.getString(cursor.getColumnIndex("p"));
+                                    apkInfo2.pkgPath = cursor.getString(cursor.getColumnIndex("a"));
+                                    apkInfo2.libPath = cursor.getString(cursor.getColumnIndex("l"));
+                                    apkInfo2.versionName = cursor.getString(cursor.getColumnIndex("v"));
+                                    apkInfo2.dexPath = cursor.getString(cursor.getColumnIndex("apk"));
+                                    apkInfo2.apkParseSuc = cursor.getInt(cursor.getColumnIndex(AdvertisementOption.AD_PACKAGE));
+                                    apkInfo2.className = cursor.getString(cursor.getColumnIndex("cl"));
+                                    apkInfo2.applicationTheme = cursor.getInt(cursor.getColumnIndex("th"));
+                                    apkInfo2.startTime = cursor.getLong(cursor.getColumnIndex("st"));
+                                    apkInfo2.duration = cursor.getInt(cursor.getColumnIndex("du"));
+                                    apkInfo2.apkMD5 = cursor.getString(cursor.getColumnIndex("m5"));
+                                    apkInfo2.priority = cursor.getInt(cursor.getColumnIndex("pr"));
+                                    apkInfo2.es = f.a(cursor.getString(cursor.getColumnIndex("pe")), 24);
+                                    apkInfo = apkInfo2;
+                                } catch (Throwable unused) {
+                                    apkInfo = apkInfo2;
+                                    try {
+                                        int i2 = b.a;
+                                        if (cursor != null) {
+                                            if (!cursor.isClosed()) {
+                                                cursor.close();
+                                            }
+                                        }
+                                        return apkInfo;
+                                    } catch (Throwable th) {
+                                        if (cursor != null) {
+                                            try {
+                                                if (!cursor.isClosed()) {
+                                                    cursor.close();
+                                                }
+                                            } catch (Throwable unused2) {
+                                                int i3 = b.a;
+                                            }
+                                        }
+                                        throw th;
+                                    }
+                                }
+                            }
+                        } catch (Throwable unused3) {
+                        }
+                    }
+                } catch (Throwable unused4) {
+                    int i4 = b.a;
+                }
+            } catch (Throwable unused5) {
+                cursor = null;
+            }
+            if (cursor != null) {
+                if (!cursor.isClosed()) {
+                    cursor.close();
+                }
+            }
+            return apkInfo;
+        }
+        return (ApkInfo) invokeI.objValue;
     }
 
     public void a() {
@@ -286,23 +300,28 @@ public class a {
                 Iterator it = ((ArrayList) b()).iterator();
                 while (it.hasNext()) {
                     ApkInfo apkInfo = (ApkInfo) it.next();
-                    if (!com.baidu.sofire.k.a.d(apkInfo.pkgPath) && (list = k.i) != null && !list.contains(Integer.valueOf(apkInfo.key))) {
+                    if (!com.baidu.sofire.k.b.e(apkInfo.pkgPath) && (list = i.j) != null && !list.contains(Integer.valueOf(apkInfo.key))) {
                         arrayList.add(apkInfo);
                     }
                 }
-                k kVar = k.f;
+                i iVar = i.g;
                 Iterator it2 = arrayList.iterator();
                 while (it2.hasNext()) {
                     ApkInfo apkInfo2 = (ApkInfo) it2.next();
-                    if (kVar != null) {
-                        kVar.d(apkInfo2.packageName);
+                    if (iVar != null) {
+                        iVar.d(apkInfo2.packageName);
+                    }
+                    File parentFile = new File(apkInfo2.pkgPath).getParentFile();
+                    if (parentFile.exists()) {
+                        com.baidu.sofire.k.b.d(parentFile.getAbsolutePath());
                     }
                     SQLiteDatabase sQLiteDatabase = this.b;
                     sQLiteDatabase.delete("pgn", "k=" + apkInfo2.key, null);
-                    com.baidu.sofire.k.a.c(this.c.getFilesDir().getCanonicalPath() + i1.j + apkInfo2.key);
+                    String canonicalPath = new File(this.c.getFilesDir(), "sofire_tmp").getCanonicalPath();
+                    com.baidu.sofire.k.b.d(canonicalPath + i1.j + apkInfo2.key);
                     Context context = this.c;
                     if (context != null) {
-                        com.baidu.sofire.k.a.c(context.getFileStreamPath(apkInfo2.packageName).getAbsolutePath());
+                        com.baidu.sofire.k.b.d(context.getFileStreamPath(apkInfo2.packageName).getAbsolutePath());
                     }
                 }
             } catch (Throwable unused) {
@@ -315,7 +334,7 @@ public class a {
         InterceptResult invokeV;
         Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             ArrayList arrayList = new ArrayList();
             try {
                 try {
@@ -325,13 +344,20 @@ public class a {
                             try {
                                 ApkInfo apkInfo = new ApkInfo();
                                 apkInfo.key = cursor.getInt(cursor.getColumnIndex("k"));
+                                apkInfo.initStatus = cursor.getInt(cursor.getColumnIndex("n"));
                                 apkInfo.packageName = cursor.getString(cursor.getColumnIndex("p"));
                                 apkInfo.pkgPath = cursor.getString(cursor.getColumnIndex("a"));
                                 apkInfo.libPath = cursor.getString(cursor.getColumnIndex("l"));
                                 apkInfo.versionName = cursor.getString(cursor.getColumnIndex("v"));
+                                apkInfo.dexPath = cursor.getString(cursor.getColumnIndex("apk"));
+                                apkInfo.apkParseSuc = cursor.getInt(cursor.getColumnIndex(AdvertisementOption.AD_PACKAGE));
+                                apkInfo.className = cursor.getString(cursor.getColumnIndex("cl"));
+                                apkInfo.applicationTheme = cursor.getInt(cursor.getColumnIndex("th"));
                                 apkInfo.startTime = cursor.getLong(cursor.getColumnIndex("st"));
                                 apkInfo.duration = cursor.getInt(cursor.getColumnIndex("du"));
+                                apkInfo.apkMD5 = cursor.getString(cursor.getColumnIndex("m5"));
                                 apkInfo.priority = cursor.getInt(cursor.getColumnIndex("pr"));
+                                apkInfo.es = f.a(cursor.getString(cursor.getColumnIndex("pe")), 24);
                                 arrayList.add(apkInfo);
                             } catch (Throwable unused) {
                                 try {
@@ -400,21 +426,9 @@ public class a {
         }
     }
 
-    public void a(int i, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) && i > 0 && !TextUtils.isEmpty(str)) {
-            try {
-                SQLiteDatabase sQLiteDatabase = this.b;
-                sQLiteDatabase.delete("pgn", "k=" + i + " and v=?", new String[]{str});
-            } catch (Throwable unused) {
-                int i2 = b.a;
-            }
-        }
-    }
-
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -424,166 +438,11 @@ public class a {
         }
     }
 
-    public int b(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048582, this, i, i2)) == null) {
-            try {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("u", Integer.valueOf(i2));
-                SQLiteDatabase sQLiteDatabase = this.b;
-                return sQLiteDatabase.update("pgn", contentValues, "k=" + i, null);
-            } catch (Throwable unused) {
-                return 0;
-            }
-        }
-        return invokeII.intValue;
-    }
-
-    public void c(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("pdld", Integer.valueOf(i2));
-            try {
-                SQLiteDatabase sQLiteDatabase = this.b;
-                sQLiteDatabase.update("pgn", contentValues, "k=" + i, null);
-            } catch (Throwable unused) {
-                int i3 = b.a;
-            }
-        }
-    }
-
-    public void d(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048591, this, i, i2) == null) {
-            try {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("n", Integer.valueOf(i2));
-                SQLiteDatabase sQLiteDatabase = this.b;
-                sQLiteDatabase.update("pgn", contentValues, "k=" + i, null);
-            } catch (Throwable unused) {
-                int i3 = b.a;
-            }
-        }
-    }
-
-    public void e(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) {
-            try {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("pr", Integer.valueOf(i2));
-                SQLiteDatabase sQLiteDatabase = this.b;
-                sQLiteDatabase.update("pgn", contentValues, "k=" + i, null);
-            } catch (Throwable unused) {
-                int i3 = b.a;
-            }
-        }
-    }
-
-    public ApkInfo b(int i) {
-        InterceptResult invokeI;
-        Cursor cursor;
-        ArrayList<com.baidu.sofire.b.b> a;
-        int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            ApkInfo apkInfo = null;
-            try {
-                try {
-                    cursor = this.b.query("pgn", null, "k=" + i, null, null, null, null);
-                    if (cursor != null) {
-                        try {
-                            if (cursor.moveToFirst()) {
-                                ApkInfo apkInfo2 = new ApkInfo();
-                                try {
-                                    apkInfo2.key = i;
-                                    apkInfo2.initStatus = cursor.getInt(cursor.getColumnIndex("n"));
-                                    apkInfo2.packageName = cursor.getString(cursor.getColumnIndex("p"));
-                                    apkInfo2.pkgPath = cursor.getString(cursor.getColumnIndex("a"));
-                                    apkInfo2.libPath = cursor.getString(cursor.getColumnIndex("l"));
-                                    apkInfo2.versionName = cursor.getString(cursor.getColumnIndex("v"));
-                                    apkInfo2.dexPath = cursor.getString(cursor.getColumnIndex("apk"));
-                                    apkInfo2.apkParseSuc = cursor.getInt(cursor.getColumnIndex("ap"));
-                                    apkInfo2.className = cursor.getString(cursor.getColumnIndex("cl"));
-                                    apkInfo2.applicationTheme = cursor.getInt(cursor.getColumnIndex("th"));
-                                    apkInfo2.startTime = cursor.getLong(cursor.getColumnIndex("st"));
-                                    apkInfo2.duration = cursor.getInt(cursor.getColumnIndex("du"));
-                                    apkInfo2.apkMD5 = cursor.getString(cursor.getColumnIndex("m5"));
-                                    apkInfo2.priority = cursor.getInt(cursor.getColumnIndex("pr"));
-                                    byte[] blob = cursor.getBlob(cursor.getColumnIndex("ac"));
-                                    if (blob != null && (a = com.baidu.sofire.b.a.a(blob)) != null && (size = a.size()) > 0) {
-                                        apkInfo2.activities = new ActivityInfo[size];
-                                        for (int i2 = 0; i2 < size; i2++) {
-                                            ActivityInfo activityInfo = new ActivityInfo();
-                                            activityInfo.theme = a.get(i2).a;
-                                            activityInfo.name = a.get(i2).j;
-                                            activityInfo.configChanges = a.get(i2).h;
-                                            activityInfo.flags = a.get(i2).f;
-                                            activityInfo.labelRes = a.get(i2).l;
-                                            activityInfo.launchMode = a.get(i2).b;
-                                            activityInfo.nonLocalizedLabel = a.get(i2).m;
-                                            activityInfo.packageName = a.get(i2).k;
-                                            activityInfo.permission = a.get(i2).c;
-                                            activityInfo.screenOrientation = a.get(i2).g;
-                                            activityInfo.softInputMode = a.get(i2).i;
-                                            activityInfo.targetActivity = a.get(i2).e;
-                                            activityInfo.taskAffinity = a.get(i2).d;
-                                            apkInfo2.activities[i2] = activityInfo;
-                                        }
-                                    }
-                                    apkInfo = apkInfo2;
-                                } catch (Throwable unused) {
-                                    apkInfo = apkInfo2;
-                                    try {
-                                        int i3 = b.a;
-                                        if (cursor != null) {
-                                            if (!cursor.isClosed()) {
-                                                cursor.close();
-                                            }
-                                        }
-                                        return apkInfo;
-                                    } catch (Throwable th) {
-                                        if (cursor != null) {
-                                            try {
-                                                if (!cursor.isClosed()) {
-                                                    cursor.close();
-                                                }
-                                            } catch (Throwable unused2) {
-                                                int i4 = b.a;
-                                            }
-                                        }
-                                        throw th;
-                                    }
-                                }
-                            }
-                        } catch (Throwable unused3) {
-                        }
-                    }
-                } catch (Throwable unused4) {
-                    int i5 = b.a;
-                }
-            } catch (Throwable unused5) {
-                cursor = null;
-            }
-            if (cursor != null) {
-                if (!cursor.isClosed()) {
-                    cursor.close();
-                }
-            }
-            return apkInfo;
-        }
-        return (ApkInfo) invokeI.objValue;
-    }
-
     public ApkInfo b(String str) {
         InterceptResult invokeL;
         Cursor cursor;
-        ArrayList<com.baidu.sofire.b.b> a;
-        int size;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
             ApkInfo apkInfo = null;
             try {
             } catch (Throwable unused) {
@@ -606,39 +465,19 @@ public class a {
                                 apkInfo2.libPath = cursor.getString(cursor.getColumnIndex("l"));
                                 apkInfo2.versionName = cursor.getString(cursor.getColumnIndex("v"));
                                 apkInfo2.dexPath = cursor.getString(cursor.getColumnIndex("apk"));
-                                apkInfo2.apkParseSuc = cursor.getInt(cursor.getColumnIndex("ap"));
+                                apkInfo2.apkParseSuc = cursor.getInt(cursor.getColumnIndex(AdvertisementOption.AD_PACKAGE));
                                 apkInfo2.className = cursor.getString(cursor.getColumnIndex("cl"));
                                 apkInfo2.applicationTheme = cursor.getInt(cursor.getColumnIndex("th"));
                                 apkInfo2.startTime = cursor.getLong(cursor.getColumnIndex("st"));
                                 apkInfo2.duration = cursor.getInt(cursor.getColumnIndex("du"));
                                 apkInfo2.apkMD5 = cursor.getString(cursor.getColumnIndex("m5"));
                                 apkInfo2.priority = cursor.getInt(cursor.getColumnIndex("pr"));
-                                byte[] blob = cursor.getBlob(cursor.getColumnIndex("ac"));
-                                if (blob != null && (a = com.baidu.sofire.b.a.a(blob)) != null && (size = a.size()) > 0) {
-                                    apkInfo2.activities = new ActivityInfo[size];
-                                    for (int i2 = 0; i2 < size; i2++) {
-                                        ActivityInfo activityInfo = new ActivityInfo();
-                                        activityInfo.theme = a.get(i2).a;
-                                        activityInfo.name = a.get(i2).j;
-                                        activityInfo.configChanges = a.get(i2).h;
-                                        activityInfo.flags = a.get(i2).f;
-                                        activityInfo.labelRes = a.get(i2).l;
-                                        activityInfo.launchMode = a.get(i2).b;
-                                        activityInfo.nonLocalizedLabel = a.get(i2).m;
-                                        activityInfo.packageName = a.get(i2).k;
-                                        activityInfo.permission = a.get(i2).c;
-                                        activityInfo.screenOrientation = a.get(i2).g;
-                                        activityInfo.softInputMode = a.get(i2).i;
-                                        activityInfo.targetActivity = a.get(i2).e;
-                                        activityInfo.taskAffinity = a.get(i2).d;
-                                        apkInfo2.activities[i2] = activityInfo;
-                                    }
-                                }
+                                apkInfo2.es = f.a(cursor.getString(cursor.getColumnIndex("pe")), 24);
                                 apkInfo = apkInfo2;
                             } catch (Throwable unused2) {
                                 apkInfo = apkInfo2;
                                 try {
-                                    int i3 = b.a;
+                                    int i2 = b.a;
                                     if (cursor != null) {
                                         if (!cursor.isClosed()) {
                                             cursor.close();
@@ -652,7 +491,7 @@ public class a {
                                                 cursor.close();
                                             }
                                         } catch (Throwable unused3) {
-                                            int i4 = b.a;
+                                            int i3 = b.a;
                                         }
                                     }
                                     throw th;
@@ -675,11 +514,53 @@ public class a {
         return (ApkInfo) invokeL.objValue;
     }
 
+    public void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("pdld", Integer.valueOf(i2));
+            try {
+                SQLiteDatabase sQLiteDatabase = this.b;
+                sQLiteDatabase.update("pgn", contentValues, "k=" + i, null);
+            } catch (Throwable unused) {
+                int i3 = b.a;
+            }
+        }
+    }
+
+    public void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
+            try {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("n", Integer.valueOf(i2));
+                SQLiteDatabase sQLiteDatabase = this.b;
+                sQLiteDatabase.update("pgn", contentValues, "k=" + i, null);
+            } catch (Throwable unused) {
+                int i3 = b.a;
+            }
+        }
+    }
+
+    public void d(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) {
+            try {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("pr", Integer.valueOf(i2));
+                SQLiteDatabase sQLiteDatabase = this.b;
+                sQLiteDatabase.update("pgn", contentValues, "k=" + i, null);
+            } catch (Throwable unused) {
+                int i3 = b.a;
+            }
+        }
+    }
+
     public int c(int i) {
         InterceptResult invokeI;
         Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
             int i2 = 0;
             try {
                 try {
@@ -733,7 +614,7 @@ public class a {
         InterceptResult invokeI;
         Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
             int i2 = 0;
             try {
                 try {
@@ -787,63 +668,7 @@ public class a {
         InterceptResult invokeI;
         Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
-            boolean z = false;
-            try {
-                try {
-                    SQLiteDatabase sQLiteDatabase = this.b;
-                    cursor = sQLiteDatabase.query("pgn", new String[]{"u"}, "k=" + i, null, null, null, null);
-                    if (cursor != null) {
-                        try {
-                            if (cursor.moveToFirst()) {
-                                if (cursor.getInt(cursor.getColumnIndex("u")) == 1) {
-                                    z = true;
-                                }
-                            }
-                        } catch (Throwable unused) {
-                            try {
-                                int i2 = b.a;
-                                if (cursor != null) {
-                                    if (!cursor.isClosed()) {
-                                        cursor.close();
-                                    }
-                                }
-                                return z;
-                            } catch (Throwable th) {
-                                if (cursor != null) {
-                                    try {
-                                        if (!cursor.isClosed()) {
-                                            cursor.close();
-                                        }
-                                    } catch (Throwable unused2) {
-                                        int i3 = b.a;
-                                    }
-                                }
-                                throw th;
-                            }
-                        }
-                    }
-                } catch (Throwable unused3) {
-                    int i4 = b.a;
-                }
-            } catch (Throwable unused4) {
-                cursor = null;
-            }
-            if (cursor != null) {
-                if (!cursor.isClosed()) {
-                    cursor.close();
-                }
-            }
-            return z;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public boolean f(int i) {
-        InterceptResult invokeI;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
             boolean z = false;
             try {
                 try {
@@ -895,11 +720,11 @@ public class a {
         return invokeI.booleanValue;
     }
 
-    public boolean g(int i) {
+    public boolean f(int i) {
         InterceptResult invokeI;
         Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
             boolean z = false;
             try {
                 try {
@@ -952,7 +777,7 @@ public class a {
         InterceptResult invokeV;
         Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             HashMap hashMap = new HashMap();
             try {
                 try {
@@ -1008,7 +833,7 @@ public class a {
         InterceptResult invokeV;
         Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             HashMap hashMap = new HashMap();
             try {
                 try {

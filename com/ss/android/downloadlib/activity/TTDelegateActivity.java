@@ -13,7 +13,6 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.google.protobuf.CodedInputStream;
@@ -203,7 +202,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         intent.putExtra("type", 12);
         intent.putExtra("package_name", str);
         intent.putExtra("model_id", j);
-        intent.putExtra(Constants.EXTRA_PARAM, str2);
+        intent.putExtra("param", str2);
         intent.putExtra("ext_json", jSONObject.toString());
         if (j.getContext() != null) {
             j.getContext().startActivity(intent);
@@ -373,7 +372,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                     b(this.a.getStringExtra("package_name"));
                     break;
                 case 12:
-                    h.a(this, this.a.getStringExtra("package_name"), this.a.getLongExtra("model_id", 0L), this.a.getStringExtra(Constants.EXTRA_PARAM), this.a.getStringExtra("ext_json"));
+                    h.a(this, this.a.getStringExtra("package_name"), this.a.getLongExtra("model_id", 0L), this.a.getStringExtra("param"), this.a.getStringExtra("ext_json"));
                     c.a((Activity) this);
                     break;
             }
@@ -398,22 +397,22 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
             N = d2.N();
         }
         objArr[0] = N;
-        c.b(a.b(String.format("%1$s已安装完成，是否立即打开？", objArr)).c("打开").d(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL).a(false).a(l.c(this, d2.e())).a(new b.InterfaceC0680b() { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.2
-            @Override // com.ss.android.download.api.model.b.InterfaceC0680b
+        c.b(a.b(String.format("%1$s已安装完成，是否立即打开？", objArr)).c("打开").d(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL).a(false).a(l.c(this, d2.e())).a(new b.InterfaceC0673b() { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.2
+            @Override // com.ss.android.download.api.model.b.InterfaceC0673b
             public void a(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.b.a.b(d2);
                 dialogInterface.dismiss();
                 c.a((Activity) TTDelegateActivity.this);
             }
 
-            @Override // com.ss.android.download.api.model.b.InterfaceC0680b
+            @Override // com.ss.android.download.api.model.b.InterfaceC0673b
             public void b(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.d.a.a().b("market_openapp_cancel", d2);
                 dialogInterface.dismiss();
                 c.a((Activity) TTDelegateActivity.this);
             }
 
-            @Override // com.ss.android.download.api.model.b.InterfaceC0680b
+            @Override // com.ss.android.download.api.model.b.InterfaceC0673b
             public void c(DialogInterface dialogInterface) {
                 c.a((Activity) TTDelegateActivity.this);
             }

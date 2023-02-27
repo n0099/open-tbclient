@@ -1,9 +1,5 @@
 package okhttp3.internal;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.Socket;
 import javax.annotation.Nullable;
@@ -23,9 +19,7 @@ import okhttp3.internal.connection.RouteDatabase;
 import okhttp3.internal.connection.StreamAllocation;
 /* loaded from: classes9.dex */
 public abstract class Internal {
-    public static /* synthetic */ Interceptable $ic;
     public static Internal instance;
-    public transient /* synthetic */ FieldHolder $fh;
 
     public abstract void addLenient(Headers.Builder builder, String str);
 
@@ -58,24 +52,7 @@ public abstract class Internal {
     @Nullable
     public abstract IOException timeoutExit(Call call, @Nullable IOException iOException);
 
-    public Internal() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static void initializeInstanceForTests() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            new OkHttpClient();
-        }
+        new OkHttpClient();
     }
 }

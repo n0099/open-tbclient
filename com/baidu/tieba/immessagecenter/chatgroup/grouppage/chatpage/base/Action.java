@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.client.methods.HttpDelete;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class Action {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,13 +23,13 @@ public class Action {
     @Nullable
     public final a d;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a<Msg extends BaseMsg> {
         void a(@NonNull Op op, @Nullable Msg msg);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class Op {
         public static final /* synthetic */ Op[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

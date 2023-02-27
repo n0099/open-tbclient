@@ -1,13 +1,6 @@
 package com.tencent.mm.opensdk.constants;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public final class Build {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int CHECK_TOKEN_SDK_INT = 620824064;
     public static final int CHOOSE_INVOICE_TILE_SUPPORT_SDK_INT = 620822528;
     public static final int EMOJI_SUPPORTED_SDK_INT = 553844737;
@@ -41,39 +34,16 @@ public final class Build {
     public static final int TIMELINE_SUPPORTED_SDK_INT = 553779201;
     public static final int VIDEO_FILE_SUPPORTED_SDK_INT = 620756996;
     public static final int WEISHI_MINIPROGRAM_SUPPORTED_SDK_INT = 620953856;
-    public transient /* synthetic */ FieldHolder $fh;
 
     public Build() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         throw new RuntimeException(Build.class.getSimpleName() + " should not be instantiated");
     }
 
     public static int getMajorVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return 6;
-        }
-        return invokeV.intValue;
+        return 6;
     }
 
     public static int getMinorVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return 6;
-        }
-        return invokeV.intValue;
+        return 6;
     }
 }

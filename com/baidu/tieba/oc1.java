@@ -1,25 +1,18 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class oc1 extends pc1 {
+public class oc1 {
     public static /* synthetic */ Interceptable $ic;
+    public static oc1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView t;
-
-    @Override // com.baidu.tieba.pc1, com.baidu.tieba.nc1
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.nad_bubble_tip_d20 : invokeV.intValue;
-    }
+    public List<String> a;
 
     public oc1() {
         Interceptable interceptable = $ic;
@@ -31,49 +24,35 @@ public class oc1 extends pc1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        new ArrayList();
+        this.a = new ArrayList();
     }
 
-    public void F() {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (imageView = this.t) == null) {
-            return;
-        }
-        imageView.setBackground(pb1.a().getResources().getDrawable(R.drawable.nad_bubble_jump_arrow_selector));
-        this.t.setVisibility(0);
-    }
-
-    @Override // com.baidu.tieba.pc1, com.baidu.tieba.nc1
-    public boolean g() {
+    public static oc1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (super.g()) {
-                this.t = (ImageView) this.b.findViewById(R.id.bubble_jump_arrow);
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (oc1.class) {
+                    if (b == null) {
+                        b = new oc1();
+                    }
+                }
             }
-            return false;
+            return b;
         }
-        return invokeV.booleanValue;
+        return (oc1) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pc1, com.baidu.tieba.nc1
-    public void n() {
+    public synchronized void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.n();
-            this.t = null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            synchronized (this) {
+                e21.b(this.a, str);
+            }
         }
-    }
-
-    public void G(View.OnClickListener onClickListener) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) != null) || (imageView = this.t) == null) {
-            return;
-        }
-        imageView.setOnClickListener(onClickListener);
     }
 }

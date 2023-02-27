@@ -1,18 +1,10 @@
 package com.baidu.searchbox.network.outback.core;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.cookie.CookieManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.ProxySelector;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CallFactoryParams {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public CookieManager cookieManager;
     public int mConnectTimeoutMs;
     public long mConnectionPoolKeepAliveDurationNs;
@@ -22,127 +14,55 @@ public class CallFactoryParams {
     public int mReadTimeoutMs;
     public int mWriteTimeoutMs;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public CookieManager cookieManager;
-        public int mConnectTimeoutMs;
-        public long mConnectionPoolKeepAliveDurationNs;
-        public int mConnectionPoolMaxIdleConnections;
-        public TimeUnit mConnectionPoolTimeUnit;
         public ProxySelector mProxySelector;
-        public int mReadTimeoutMs;
-        public int mWriteTimeoutMs;
+        public int mConnectTimeoutMs = 30000;
+        public int mReadTimeoutMs = 30000;
+        public int mWriteTimeoutMs = 30000;
+        public int mConnectionPoolMaxIdleConnections = -1;
+        public long mConnectionPoolKeepAliveDurationNs = -1;
+        public TimeUnit mConnectionPoolTimeUnit = TimeUnit.MINUTES;
 
-        public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.mConnectTimeoutMs = 30000;
-            this.mReadTimeoutMs = 30000;
-            this.mWriteTimeoutMs = 30000;
-            this.mConnectionPoolMaxIdleConnections = -1;
-            this.mConnectionPoolKeepAliveDurationNs = -1L;
-            this.mConnectionPoolTimeUnit = TimeUnit.MINUTES;
+        public CallFactoryParams build() {
+            return new CallFactoryParams(this);
         }
 
         public Builder setConnectTimeoutMs(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-                this.mConnectTimeoutMs = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
+            this.mConnectTimeoutMs = i;
+            return this;
         }
 
         public Builder setCookieManager(CookieManager cookieManager) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cookieManager)) == null) {
-                this.cookieManager = cookieManager;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.cookieManager = cookieManager;
+            return this;
         }
 
         public Builder setProxySelector(ProxySelector proxySelector) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, proxySelector)) == null) {
-                this.mProxySelector = proxySelector;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mProxySelector = proxySelector;
+            return this;
         }
 
         public Builder setReadTimeoutMs(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-                this.mReadTimeoutMs = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
+            this.mReadTimeoutMs = i;
+            return this;
         }
 
         public Builder setWriteTimeoutMs(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-                this.mWriteTimeoutMs = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
-        }
-
-        public CallFactoryParams build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new CallFactoryParams(this);
-            }
-            return (CallFactoryParams) invokeV.objValue;
+            this.mWriteTimeoutMs = i;
+            return this;
         }
 
         public Builder setOkHttpConnectionPool(int i, long j, TimeUnit timeUnit) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), timeUnit})) == null) {
-                this.mConnectionPoolMaxIdleConnections = i;
-                this.mConnectionPoolKeepAliveDurationNs = j;
-                this.mConnectionPoolTimeUnit = timeUnit;
-                return this;
-            }
-            return (Builder) invokeCommon.objValue;
+            this.mConnectionPoolMaxIdleConnections = i;
+            this.mConnectionPoolKeepAliveDurationNs = j;
+            this.mConnectionPoolTimeUnit = timeUnit;
+            return this;
         }
     }
 
     public CallFactoryParams(Builder builder) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mConnectTimeoutMs = 30000;
         this.mReadTimeoutMs = 30000;
         this.mWriteTimeoutMs = 30000;
@@ -160,74 +80,34 @@ public class CallFactoryParams {
     }
 
     public int getConnectTimeoutMs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mConnectTimeoutMs;
-        }
-        return invokeV.intValue;
+        return this.mConnectTimeoutMs;
     }
 
     public long getConnectionPoolKeepAliveDurationNs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mConnectionPoolKeepAliveDurationNs;
-        }
-        return invokeV.longValue;
+        return this.mConnectionPoolKeepAliveDurationNs;
     }
 
     public int getConnectionPoolMaxIdleConnections() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mConnectionPoolMaxIdleConnections;
-        }
-        return invokeV.intValue;
+        return this.mConnectionPoolMaxIdleConnections;
     }
 
     public TimeUnit getConnectionPoolTimeUnit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mConnectionPoolTimeUnit;
-        }
-        return (TimeUnit) invokeV.objValue;
+        return this.mConnectionPoolTimeUnit;
     }
 
     public CookieManager getCookieManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.cookieManager;
-        }
-        return (CookieManager) invokeV.objValue;
+        return this.cookieManager;
     }
 
     public ProxySelector getProxySelector() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mProxySelector;
-        }
-        return (ProxySelector) invokeV.objValue;
+        return this.mProxySelector;
     }
 
     public int getReadTimeoutMs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.mReadTimeoutMs;
-        }
-        return invokeV.intValue;
+        return this.mReadTimeoutMs;
     }
 
     public int getWriteTimeoutMs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.mWriteTimeoutMs;
-        }
-        return invokeV.intValue;
+        return this.mWriteTimeoutMs;
     }
 }

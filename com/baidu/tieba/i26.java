@@ -1,158 +1,75 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.AlaUserInfoData;
-import com.baidu.tbadk.core.data.YyExtData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.YYLiveUtil;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Map;
+@Singleton
+@Service
 /* loaded from: classes4.dex */
-public class i26 {
+public class i26 implements cv3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j26 a;
-    public k26 b;
-    public o26 c;
-    public n26 d;
-    public l26 e;
-    public m26 f;
-    public List<qn> g;
 
-    /* loaded from: classes4.dex */
-    public class a implements c36 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ String b;
-
-        public a(i26 i26Var, TbPageContext tbPageContext, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i26Var, tbPageContext, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-            this.b = str;
-        }
-
-        @Override // com.baidu.tieba.c36
-        public void a(q16 q16Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, q16Var) == null) && q16Var != null && q16Var.getThreadData() != null) {
-                if (q16Var.getThreadData().getThreadAlaInfo() != null && q16Var.getThreadData().getThreadAlaInfo().mYyExtData != null) {
-                    AlaInfoData threadAlaInfo = q16Var.getThreadData().getThreadAlaInfo();
-                    TbPageContext tbPageContext = this.a;
-                    YyExtData yyExtData = threadAlaInfo.mYyExtData;
-                    String str = yyExtData.mSid;
-                    String str2 = yyExtData.mSsid;
-                    String str3 = yyExtData.mTemplateId;
-                    YYLiveUtil.jumpToYYLiveRoom(tbPageContext, str, str2, str3, "" + threadAlaInfo.roomId, threadAlaInfo.mYyExtData.streamInfo, YYLiveUtil.SOURCE_HOME_LIVE_TAB_FOLLOW_CARD);
-                    AlaUserInfoData alaUserInfoData = threadAlaInfo.user_info;
-                    if (alaUserInfoData != null) {
-                        StatisticItem.make("c14719").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_id", alaUserInfoData.ala_id).param("obj_locate", od6.f(this.b)).eventStat();
-                        return;
-                    }
-                    return;
-                }
-                u16.h(this.a.getPageActivity(), q16Var.getThreadData());
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements c36 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-
-        public b(i26 i26Var, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i26Var, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-        }
-
-        @Override // com.baidu.tieba.c36
-        public void a(q16 q16Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, q16Var) == null) && q16Var != null && q16Var.getThreadData() != null && q16Var.getThreadData().getThreadAlaInfo() != null && q16Var.getThreadData().getThreadAlaInfo().mYyExtData != null) {
-                AlaInfoData threadAlaInfo = q16Var.getThreadData().getThreadAlaInfo();
-                TbPageContext tbPageContext = this.a;
-                YyExtData yyExtData = threadAlaInfo.mYyExtData;
-                String str = yyExtData.mSid;
-                String str2 = yyExtData.mSsid;
-                String str3 = yyExtData.mTemplateId;
-                YYLiveUtil.jumpToYYLiveRoom(tbPageContext, str, str2, str3, "" + threadAlaInfo.roomId, YYLiveUtil.SOURCE_HOME_LIVE_TAB_FOLLOW_HEAD);
-            }
-        }
-    }
-
-    public i26(TbPageContext tbPageContext, String str) {
+    public i26() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.g = new LinkedList();
-        this.a = new j26(tbPageContext);
-        this.b = new k26(tbPageContext, str);
-        this.c = new o26(tbPageContext);
-        this.d = new n26(tbPageContext);
-        this.e = new l26(tbPageContext);
-        this.f = new m26(tbPageContext);
-        this.b.u(new a(this, tbPageContext, str));
-        this.d.u(new b(this, tbPageContext));
-        this.g.add(this.a);
-        this.g.add(this.b);
-        this.g.add(this.c);
-        this.g.add(this.d);
-        this.g.add(this.e);
-        this.g.add(this.f);
     }
 
-    public List<qn> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ev3
+    public void a(ja3 ja3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, ja3Var) == null) && ja3Var != null) {
+            ja3Var.b(new k26(ja3Var));
+            ja3Var.b(new d26(ja3Var));
+            ja3Var.b(new cr3(ja3Var));
+            ja3Var.b(new er3(ja3Var));
+            ja3Var.b(new gr3(ja3Var));
+            ja3Var.b(new ac3(ja3Var));
+            ja3Var.b(new bc3(ja3Var));
+            ja3Var.b(new be3(ja3Var));
+            ja3Var.b(new hr3(ja3Var));
+            ja3Var.b(new ew1(ja3Var));
+            ja3Var.b(new h26(ja3Var));
         }
-        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ev3
+    @Nullable
+    public Map<String, Object> b(@NonNull nx1 nx1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nx1Var)) == null) {
+            return SwanApi$$ModulesProvider.getV8ApiModules(nx1Var);
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ev3
+    @Nullable
+    public Map<String, Object> c(@NonNull nx1 nx1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nx1Var)) == null) {
+            return SwanApi$$ModulesProvider.getWebviewApiModules(nx1Var);
+        }
+        return (Map) invokeL.objValue;
     }
 }

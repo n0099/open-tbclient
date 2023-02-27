@@ -6,7 +6,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.messages.DuPaBInfoMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.common.SysOSUtil;
-import com.baidu.mobstat.Config;
 import com.baidu.platform.comapi.basestruct.Point;
 import com.baidu.platform.comjni.map.favorite.NAFavorite;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -55,12 +54,12 @@ public class a {
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.favrite.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0126a implements Comparator<String> {
+    public class C0111a implements Comparator<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0126a(a aVar) {
+        public C0111a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -391,7 +390,7 @@ public class a {
                         JSONObject jSONObject2 = new JSONObject();
                         jSONObject2.put("x", favSyncPoi.c.getDoubleX());
                         jSONObject2.put("y", favSyncPoi.c.getDoubleY());
-                        jSONObject.put(Config.PLATFORM_TYPE, jSONObject2);
+                        jSONObject.put("pt", jSONObject2);
                         jSONObject.put("ncityid", favSyncPoi.e);
                         jSONObject.put("npoitype", favSyncPoi.g);
                         jSONObject.put("uspoiuid", favSyncPoi.f);
@@ -455,7 +454,7 @@ public class a {
                         JSONObject optJSONObject = jSONObject.optJSONObject("Fav_Sync");
                         String optString = jSONObject.optString("Fav_Content");
                         favSyncPoi.b = optJSONObject.optString("uspoiname");
-                        JSONObject optJSONObject2 = optJSONObject.optJSONObject(Config.PLATFORM_TYPE);
+                        JSONObject optJSONObject2 = optJSONObject.optJSONObject("pt");
                         favSyncPoi.c = new Point(optJSONObject2.optInt("x"), optJSONObject2.optInt("y"));
                         favSyncPoi.e = optJSONObject.optString("ncityid");
                         favSyncPoi.f = optJSONObject.optString("uspoiuid");
@@ -496,7 +495,7 @@ public class a {
                         JSONObject jSONObject2 = new JSONObject();
                         jSONObject2.put("x", favSyncPoi.c.getDoubleX());
                         jSONObject2.put("y", favSyncPoi.c.getDoubleY());
-                        jSONObject.put(Config.PLATFORM_TYPE, jSONObject2);
+                        jSONObject.put("pt", jSONObject2);
                         jSONObject.put("ncityid", favSyncPoi.e);
                         jSONObject.put("npoitype", favSyncPoi.g);
                         jSONObject.put("uspoiuid", favSyncPoi.f);
@@ -565,7 +564,7 @@ public class a {
                     }
                     if (this.f.size() > 0) {
                         try {
-                            Collections.sort(this.f, new C0126a(this));
+                            Collections.sort(this.f, new C0111a(this));
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -613,7 +612,7 @@ public class a {
                     }
                     if (this.e.size() > 0) {
                         try {
-                            Collections.sort(this.e, new C0126a(this));
+                            Collections.sort(this.e, new C0111a(this));
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

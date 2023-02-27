@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.e;
 import com.vivo.push.model.UnvarnishedMessage;
 import com.vivo.push.util.ContextDelegate;
-import com.vivo.push.util.p;
-import com.vivo.push.util.t;
+import com.vivo.push.util.aa;
+import com.vivo.push.util.u;
 import java.util.List;
 /* loaded from: classes8.dex */
 public abstract class BasePushMessageReceiver extends BroadcastReceiver implements PushMessageCallback {
@@ -114,21 +114,21 @@ public abstract class BasePushMessageReceiver extends BroadcastReceiver implemen
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             if (context == null) {
-                p.a("PushMessageReceiver", "isAllowNet sContext is null");
+                u.a("PushMessageReceiver", "isAllowNet sContext is null");
                 return false;
             }
             String packageName = context.getPackageName();
             if (TextUtils.isEmpty(packageName)) {
-                p.a("PushMessageReceiver", "isAllowNet pkgName is null");
+                u.a("PushMessageReceiver", "isAllowNet pkgName is null");
                 return false;
             }
             Intent intent = new Intent("com.vivo.pushservice.action.PUSH_SERVICE");
             intent.setPackage(packageName);
             List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(intent, 576);
             if (queryIntentServices != null && queryIntentServices.size() > 0) {
-                return t.a(context, packageName);
+                return aa.a(context, packageName);
             }
-            p.a("PushMessageReceiver", "this is client sdk");
+            u.a("PushMessageReceiver", "this is client sdk");
             return true;
         }
         return invokeL.booleanValue;
@@ -138,10 +138,10 @@ public abstract class BasePushMessageReceiver extends BroadcastReceiver implemen
     public final void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, context, intent) == null) {
-            Context applicationContext = ContextDelegate.getContext(context).getApplicationContext();
-            e.a().a(applicationContext);
+            Context context2 = ContextDelegate.getContext(context);
+            e.a().a(context2);
             String stringExtra = intent.getStringExtra("req_id");
-            p.d("PushMessageReceiver", "PushMessageReceiver " + applicationContext.getPackageName() + " ; requestId = " + stringExtra);
+            u.d("PushMessageReceiver", "PushMessageReceiver " + context2.getPackageName() + " ; requestId = " + stringExtra);
             try {
                 e.a().a(intent, this);
             } catch (Exception e) {

@@ -15,13 +15,12 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.k85;
-import com.baidu.tieba.m85;
+import com.baidu.tieba.w95;
 import com.baidu.tieba.wj;
+import com.baidu.tieba.y95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -127,7 +126,7 @@ public class NotificationHelper {
             return;
         }
         try {
-            ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancelAll();
+            ((NotificationManager) context.getSystemService("notification")).cancelAll();
         } catch (Exception e) {
             BdLog.e(e);
         }
@@ -141,7 +140,7 @@ public class NotificationHelper {
                 return false;
             }
             try {
-                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(context.getPackageName(), i);
+                ((NotificationManager) context.getSystemService("notification")).cancel(context.getPackageName(), i);
                 return true;
             } catch (Exception unused) {
                 return false;
@@ -156,7 +155,7 @@ public class NotificationHelper {
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, context, i, i2)) == null) {
             if (context != null && i != i2) {
                 try {
-                    ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(context.getPackageName(), i);
+                    ((NotificationManager) context.getSystemService("notification")).cancel(context.getPackageName(), i);
                     return true;
                 } catch (Exception unused) {
                 }
@@ -173,7 +172,7 @@ public class NotificationHelper {
                 NotificationChannel notificationChannel = new NotificationChannel(OPPO_IM_CHANNEL, wj.a(R.string.notify_channel_primary_oppo), 4);
                 notificationChannel.setDescription(wj.a(R.string.notify_channel_primary_oppo_desc));
                 notificationChannel.enableLights(true);
-                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(notificationChannel);
+                ((NotificationManager) context.getSystemService("notification")).createNotificationChannel(notificationChannel);
             }
         }
     }
@@ -239,7 +238,7 @@ public class NotificationHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             SwitchData switchData = new SwitchData();
-            if (!k85.L() && k85.R()) {
+            if (!w95.L() && w95.R()) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= 5000) {
                     AudioManager audioManager = (AudioManager) context.getSystemService("audio");
@@ -253,13 +252,13 @@ public class NotificationHelper {
                     } else {
                         z2 = false;
                     }
-                    if (m85.d().A()) {
+                    if (y95.d().A()) {
                         switchData.isSound = true;
                         if (z || z2) {
                             switchData.isSound = false;
                         }
                     }
-                    if (m85.d().B()) {
+                    if (y95.d().B()) {
                         switchData.isVibrate = true;
                         if (z) {
                             switchData.isVibrate = false;
@@ -271,7 +270,7 @@ public class NotificationHelper {
                     TbadkCoreApplication.getInst().setLastNotifyTime(currentTimeMillis);
                 }
             }
-            if (m85.d().w()) {
+            if (y95.d().w()) {
                 switchData.isLight = true;
             }
             return switchData;
@@ -284,7 +283,7 @@ public class NotificationHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65547, null, context, i, notification)) == null) {
             try {
-                NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
+                NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
                 if (Build.VERSION.SDK_INT >= 26) {
                     NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_2, wj.a(R.string.notify_channel_primary), 3);
                     notificationChannel.setLightColor(-16776961);
@@ -324,7 +323,7 @@ public class NotificationHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65549, null, context, i, notification, switchData)) == null) {
             try {
-                NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
+                NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
                 if (Build.VERSION.SDK_INT >= 26) {
                     if (switchData.isSound) {
                         str = PRIMARY_CHANNEL_3;

@@ -3,318 +3,173 @@ package com.baidu.searchbox.devicescore;
 import android.content.Context;
 import android.os.Looper;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.aideviceperformanceboxproxy.device.DevicePortraitManagerSingleton;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.config.QuickPersistConfig;
 import com.baidu.searchbox.devicescore.dynamic.DynamicScoreFactory;
 import com.baidu.searchbox.devicescore.dynamic.IDynamicScoreManager;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 /* loaded from: classes2.dex */
 public class DeviceScoreManager implements IDeviceScore, IScoreMetaDataCollect, IDeviceScoreConfig {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final boolean DEBUG;
     public static final String SP_KEY_FINAL_DYNAMIC_SCORE = "device_store_final_dynamic_score_float";
     public static final String SP_KEY_FINAL_SCORE_FLOAT = "device_store_final_score_float";
     public static final String TAG = "DeviceScoreManager";
-    public static volatile DeviceScoreManager sInstance;
-    public transient /* synthetic */ FieldHolder $fh;
-    public float mDynamicScore;
-    public float mFloatFinalScore;
-    public float mStaticScore;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(388849981, "Lcom/baidu/searchbox/devicescore/DeviceScoreManager;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(388849981, "Lcom/baidu/searchbox/devicescore/DeviceScoreManager;");
-                return;
-            }
-        }
-        DEBUG = AppConfig.isDebug();
-        sInstance = null;
-    }
-
-    public DeviceScoreManager() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mStaticScore = -1.0f;
-        this.mDynamicScore = -1.0f;
-        this.mFloatFinalScore = -1.0f;
-    }
+    public static final boolean DEBUG = AppConfig.isDebug();
+    public static volatile DeviceScoreManager sInstance = null;
+    public float mStaticScore = -1.0f;
+    public float mDynamicScore = -1.0f;
+    public float mFloatFinalScore = -1.0f;
 
     public static DeviceScoreManager getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (sInstance == null) {
-                synchronized (DeviceScoreManager.class) {
-                    if (sInstance == null) {
-                        sInstance = new DeviceScoreManager();
-                    }
+        if (sInstance == null) {
+            synchronized (DeviceScoreManager.class) {
+                if (sInstance == null) {
+                    sInstance = new DeviceScoreManager();
                 }
             }
-            return sInstance;
         }
-        return (DeviceScoreManager) invokeV.objValue;
+        return sInstance;
+    }
+
+    @Override // com.baidu.searchbox.devicescore.IDeviceScore
+    public float getDynamicScoreByType(Context context, String str) {
+        float f;
+        IDynamicScoreManager dynamicScoreManager = DynamicScoreFactory.getDynamicScoreManager(str);
+        if (dynamicScoreManager != null) {
+            f = dynamicScoreManager.getScore(context);
+        } else {
+            f = -1.0f;
+        }
+        if (DEBUG) {
+            Log.d(TAG, "getDynamicScoreByType type:" + str + " score:" + f);
+        }
+        return f;
     }
 
     @Override // com.baidu.searchbox.devicescore.IScoreMetaDataCollect
     public void putScoreMetaData(Context context, ScoreMetaData scoreMetaData) {
         IDynamicScoreManager dynamicScoreManager;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, context, scoreMetaData) == null) && scoreMetaData != null && (dynamicScoreManager = DynamicScoreFactory.getDynamicScoreManager(scoreMetaData.type)) != null) {
+        if (scoreMetaData != null && (dynamicScoreManager = DynamicScoreFactory.getDynamicScoreManager(scoreMetaData.type)) != null) {
             dynamicScoreManager.putMetaData(context, scoreMetaData);
         }
     }
 
     private float getStaticScoreFloat(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
-            float staticDeviceScore = DevicePortraitManagerSingleton.getInstance().getStaticDeviceScore(context);
-            if (Float.compare(staticDeviceScore, 0.0f) >= 0) {
-                float floatValue = new BigDecimal(String.valueOf(staticDeviceScore)).setScale(4, RoundingMode.DOWN).floatValue();
-                if (DEBUG) {
-                    Log.d(TAG, "getStaticScoreFloat: " + staticDeviceScore + " float: " + floatValue);
-                }
-                return floatValue;
-            }
-            Log.e(TAG, "getStaticScoreFloat error!");
-            return -1.0f;
-        }
-        return invokeL.floatValue;
-    }
-
-    @Override // com.baidu.searchbox.devicescore.IDeviceScore
-    public float getStaticScore(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            float f = this.mStaticScore;
-            if (f >= 0.0f) {
-                return f;
-            }
-            float staticScoreFloat = getStaticScoreFloat(context);
-            this.mStaticScore = staticScoreFloat;
+        float staticDeviceScore = DevicePortraitManagerSingleton.getInstance().getStaticDeviceScore(context);
+        if (Float.compare(staticDeviceScore, 0.0f) >= 0) {
+            float floatValue = new BigDecimal(String.valueOf(staticDeviceScore)).setScale(4, RoundingMode.DOWN).floatValue();
             if (DEBUG) {
-                if (Float.compare(staticScoreFloat, 0.0f) < 0) {
-                    Log.e(TAG, "getStaticScore failed!");
-                }
-                Log.d(TAG, "getStaticScore:" + this.mStaticScore);
+                Log.d(TAG, "getStaticScoreFloat: " + staticDeviceScore + " float: " + floatValue);
             }
-            return this.mStaticScore;
+            return floatValue;
         }
-        return invokeL.floatValue;
+        Log.e(TAG, "getStaticScoreFloat error!");
+        return -1.0f;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void innerUpdateScore(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
-            float staticScoreFloat = getStaticScoreFloat(context);
-            if (Float.compare(staticScoreFloat, 0.0f) >= 0) {
-                QuickPersistConfig.getInstance().putFloat(SP_KEY_FINAL_SCORE_FLOAT, staticScoreFloat);
-            }
+        float staticScoreFloat = getStaticScoreFloat(context);
+        if (Float.compare(staticScoreFloat, 0.0f) >= 0) {
+            QuickPersistConfig.getInstance().putFloat(SP_KEY_FINAL_SCORE_FLOAT, staticScoreFloat);
         }
     }
 
     @Override // com.baidu.searchbox.devicescore.IDeviceScore
     public float getDynamicScore(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            float f = this.mDynamicScore;
-            if (f >= 0.0f) {
-                return f;
-            }
-            float f2 = QuickPersistConfig.getInstance().getFloat(SP_KEY_FINAL_DYNAMIC_SCORE, -1.0f);
-            this.mDynamicScore = f2;
-            return f2;
-        }
-        return invokeL.floatValue;
-    }
-
-    @Override // com.baidu.searchbox.devicescore.IDeviceScoreConfig
-    public void updateConfig(DeviceScoreConfig deviceScoreConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, deviceScoreConfig) == null) {
-            if (Looper.myLooper() == Looper.getMainLooper()) {
-                ExecutorUtilsExt.postOnElastic(new Runnable(this, deviceScoreConfig) { // from class: com.baidu.searchbox.devicescore.DeviceScoreManager.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ DeviceScoreManager this$0;
-                    public final /* synthetic */ DeviceScoreConfig val$config;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, deviceScoreConfig};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$config = deviceScoreConfig;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            if (DeviceScoreManager.DEBUG) {
-                                Log.d(DeviceScoreManager.TAG, "updateConfig:" + this.val$config);
-                            }
-                            DeviceScoreStrategy.updateStrategy(this.val$config);
-                        }
-                    }
-                }, "updateConfig", 3);
-            } else {
-                DeviceScoreStrategy.updateStrategy(deviceScoreConfig);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.devicescore.IDeviceScore
-    public void updateScore(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            if (Looper.myLooper() == Looper.getMainLooper()) {
-                ExecutorUtilsExt.postOnElastic(new Runnable(this, context) { // from class: com.baidu.searchbox.devicescore.DeviceScoreManager.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ DeviceScoreManager this$0;
-                    public final /* synthetic */ Context val$c;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, context};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$c = context;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.this$0.innerUpdateScore(this.val$c);
-                        }
-                    }
-                }, "updateScore", 3);
-            } else {
-                innerUpdateScore(context);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.devicescore.IDeviceScore
-    public float getDynamicScoreByType(Context context, String str) {
-        InterceptResult invokeLL;
-        float f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            IDynamicScoreManager dynamicScoreManager = DynamicScoreFactory.getDynamicScoreManager(str);
-            if (dynamicScoreManager != null) {
-                f = dynamicScoreManager.getScore(context);
-            } else {
-                f = -1.0f;
-            }
-            if (DEBUG) {
-                Log.d(TAG, "getDynamicScoreByType type:" + str + " score:" + f);
-            }
+        float f = this.mDynamicScore;
+        if (f >= 0.0f) {
             return f;
         }
-        return invokeLL.floatValue;
-    }
-
-    @Override // com.baidu.searchbox.devicescore.IDeviceScore
-    public float getFinalScore(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            if (Float.compare(this.mFloatFinalScore, 0.0f) >= 0) {
-                if (DEBUG) {
-                    Log.d(TAG, "getFloatFinalScore from mem:" + this.mFloatFinalScore);
-                }
-                return this.mFloatFinalScore;
-            }
-            float f = QuickPersistConfig.getInstance().getFloat(SP_KEY_FINAL_SCORE_FLOAT, -1.0f);
-            this.mFloatFinalScore = f;
-            if (Float.compare(f, 0.0f) >= 0) {
-                if (DEBUG) {
-                    Log.d(TAG, "getFloatFinalScore from sp:" + this.mFloatFinalScore);
-                }
-                return this.mFloatFinalScore;
-            }
-            this.mFloatFinalScore = getStaticScoreFloat(context);
-            if (DEBUG) {
-                Log.d(TAG, "getFloatFinalScore:" + this.mFloatFinalScore);
-            }
-            updateScore(context);
-            return this.mFloatFinalScore;
-        }
-        return invokeL.floatValue;
+        float f2 = QuickPersistConfig.getInstance().getFloat(SP_KEY_FINAL_DYNAMIC_SCORE, -1.0f);
+        this.mDynamicScore = f2;
+        return f2;
     }
 
     @Override // com.baidu.searchbox.devicescore.IDeviceScore
     public int getScoreLevel(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            float finalScore = getFinalScore(context);
-            float lowThreshold = DeviceScoreStrategy.getLowThreshold();
-            if (Float.compare(finalScore, lowThreshold) <= 0) {
-                return 1;
-            }
-            if (Float.compare(finalScore, lowThreshold) > 0 && Float.compare(finalScore, DeviceScoreStrategy.getMidThreshold()) <= 0) {
-                return 2;
-            }
-            return 3;
+        float finalScore = getFinalScore(context);
+        float lowThreshold = DeviceScoreStrategy.getLowThreshold();
+        if (Float.compare(finalScore, lowThreshold) <= 0) {
+            return 1;
         }
-        return invokeL.intValue;
+        if (Float.compare(finalScore, lowThreshold) > 0 && Float.compare(finalScore, DeviceScoreStrategy.getMidThreshold()) <= 0) {
+            return 2;
+        }
+        return 3;
+    }
+
+    @Override // com.baidu.searchbox.devicescore.IDeviceScoreConfig
+    public void updateConfig(final DeviceScoreConfig deviceScoreConfig) {
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.searchbox.devicescore.DeviceScoreManager.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    if (DeviceScoreManager.DEBUG) {
+                        Log.d(DeviceScoreManager.TAG, "updateConfig:" + deviceScoreConfig);
+                    }
+                    DeviceScoreStrategy.updateStrategy(deviceScoreConfig);
+                }
+            }, "updateConfig", 3);
+        } else {
+            DeviceScoreStrategy.updateStrategy(deviceScoreConfig);
+        }
+    }
+
+    @Override // com.baidu.searchbox.devicescore.IDeviceScore
+    public void updateScore(final Context context) {
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.searchbox.devicescore.DeviceScoreManager.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    DeviceScoreManager.this.innerUpdateScore(context);
+                }
+            }, "updateScore", 3);
+        } else {
+            innerUpdateScore(context);
+        }
+    }
+
+    @Override // com.baidu.searchbox.devicescore.IDeviceScore
+    public float getFinalScore(Context context) {
+        if (Float.compare(this.mFloatFinalScore, 0.0f) >= 0) {
+            if (DEBUG) {
+                Log.d(TAG, "getFloatFinalScore from mem:" + this.mFloatFinalScore);
+            }
+            return this.mFloatFinalScore;
+        }
+        float f = QuickPersistConfig.getInstance().getFloat(SP_KEY_FINAL_SCORE_FLOAT, -1.0f);
+        this.mFloatFinalScore = f;
+        if (Float.compare(f, 0.0f) >= 0) {
+            if (DEBUG) {
+                Log.d(TAG, "getFloatFinalScore from sp:" + this.mFloatFinalScore);
+            }
+            return this.mFloatFinalScore;
+        }
+        this.mFloatFinalScore = getStaticScoreFloat(context);
+        if (DEBUG) {
+            Log.d(TAG, "getFloatFinalScore:" + this.mFloatFinalScore);
+        }
+        updateScore(context);
+        return this.mFloatFinalScore;
+    }
+
+    @Override // com.baidu.searchbox.devicescore.IDeviceScore
+    public float getStaticScore(Context context) {
+        float f = this.mStaticScore;
+        if (f >= 0.0f) {
+            return f;
+        }
+        float staticScoreFloat = getStaticScoreFloat(context);
+        this.mStaticScore = staticScoreFloat;
+        if (DEBUG) {
+            if (Float.compare(staticScoreFloat, 0.0f) < 0) {
+                Log.e(TAG, "getStaticScore failed!");
+            }
+            Log.d(TAG, "getStaticScore:" + this.mStaticScore);
+        }
+        return this.mStaticScore;
     }
 }

@@ -1,12 +1,6 @@
 package com.baidu.ar.arplay.core.message;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class ARPMessageType {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_ALL = 0;
     public static final int MSG_CASE_DESTROY_COMPLETED = 9;
     public static final int MSG_CASE_INIT_COMPLETED = 8;
@@ -77,64 +71,17 @@ public class ARPMessageType {
     public static final int MSG_TYPE_VIDEO_STOP_RES = 1028;
     public static final int MSG_TYPE_WAIT_SLAM_DATA = 4101;
     public static final int MSG_USR_INTERACTION_CONFIG = 11;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public static class ARPLuaSdkBridgeMessageType {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_TYPE_SDK_LUA_GAME_CONFIG = 1001;
         public static final int MSG_TYPE_WEBVIEW_OPERATION = 10800;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public ARPLuaSdkBridgeMessageType() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes.dex */
     public static class ARPMessageParamKeys {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final String MAP_NPC_KEY_NAME = "script";
         public static final String MODEL_COLOR_KEY = "model_color";
         public static final String MODEL_TYPE_KEY = "model_type";
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public ARPMessageParamKeys() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public ARPMessageType() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
     }
 }

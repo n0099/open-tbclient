@@ -9,122 +9,45 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cl0;
-import com.baidu.tieba.vl0;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.gl0;
+import com.baidu.tieba.zl0;
 /* loaded from: classes2.dex */
-public class DefaultDownloadViewLP extends FrameLayout implements vl0<DefaultDownloadViewLP> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public class DefaultDownloadViewLP extends FrameLayout implements zl0<DefaultDownloadViewLP> {
     public BannerDownloadView a;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vl0
+    @Override // com.baidu.tieba.zl0
     @NonNull
     public DefaultDownloadViewLP getRealView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this : (DefaultDownloadViewLP) invokeV.objValue;
+        return this;
     }
 
     public void setAbsorbColor(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-        }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DefaultDownloadViewLP(@NonNull Context context) {
         this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DefaultDownloadViewLP(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DefaultDownloadViewLP(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        c(context);
     }
 
     private void setProgress(float f) {
-        BannerDownloadView bannerDownloadView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(65539, this, f) == null) && (bannerDownloadView = this.a) != null) {
+        BannerDownloadView bannerDownloadView = this.a;
+        if (bannerDownloadView != null) {
             bannerDownloadView.setProgress(f);
         }
     }
 
     private void setText(String str) {
-        BannerDownloadView bannerDownloadView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) && (bannerDownloadView = this.a) != null) {
+        BannerDownloadView bannerDownloadView = this.a;
+        if (bannerDownloadView != null) {
             bannerDownloadView.setText(str);
         }
     }
 
-    @Override // com.baidu.tieba.vl0
+    @Override // com.baidu.tieba.zl0
     public void b(@NonNull ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, viewGroup) != null) || !(viewGroup instanceof RelativeLayout)) {
+        if (!(viewGroup instanceof RelativeLayout)) {
             return;
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
@@ -135,19 +58,15 @@ public class DefaultDownloadViewLP extends FrameLayout implements vl0<DefaultDow
     }
 
     public void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.nad_download_lp_view, this);
-            setBackgroundResource(R.color.nad_white);
-            this.a = (BannerDownloadView) findViewById(R.id.lp_download_btn);
-        }
+        LayoutInflater.from(context).inflate(R.layout.nad_download_lp_view, this);
+        setBackgroundResource(R.color.nad_white);
+        this.a = (BannerDownloadView) findViewById(R.id.lp_download_btn);
     }
 
     public void d(boolean z) {
-        View findViewById;
         int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || (findViewById = findViewById(R.id.nad_download_lp_safe_tip)) == null) {
+        View findViewById = findViewById(R.id.nad_download_lp_safe_tip);
+        if (findViewById == null) {
             return;
         }
         if (z) {
@@ -158,18 +77,24 @@ public class DefaultDownloadViewLP extends FrameLayout implements vl0<DefaultDow
         findViewById.setVisibility(i);
     }
 
-    @Override // com.baidu.tieba.vl0
-    public void update(String str, @NonNull cl0 cl0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, cl0Var) == null) {
-            if (cl0Var.c == AdDownloadStatus.DOWNLOADING) {
-                str = getResources().getString(R.string.nad_download_progress_text) + str;
-                setProgress(cl0Var.i);
-            } else {
-                setProgress(0.0f);
-            }
-            setText(str);
-            postInvalidate();
+    public DefaultDownloadViewLP(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+    }
+
+    @Override // com.baidu.tieba.zl0
+    public void update(String str, @NonNull gl0 gl0Var) {
+        if (gl0Var.c == AdDownloadStatus.DOWNLOADING) {
+            str = getResources().getString(R.string.nad_download_progress_text) + str;
+            setProgress(gl0Var.i);
+        } else {
+            setProgress(0.0f);
         }
+        setText(str);
+        postInvalidate();
+    }
+
+    public DefaultDownloadViewLP(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        c(context);
     }
 }

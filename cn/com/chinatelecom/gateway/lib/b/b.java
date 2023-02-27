@@ -16,6 +16,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import org.apache.commons.codec.language.bm.Rule;
+import org.apache.commons.codec.net.QCodec;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -37,7 +39,7 @@ public class b {
                 return;
             }
         }
-        a = new byte[]{15, 31, 94, 10, 90, 15, 91, 24, 10, 30, 88, 7, 89, 10, 95, 30};
+        a = new byte[]{15, 31, 94, 10, 90, 15, 91, 24, 10, 30, 88, 7, 89, 10, QCodec.UNDERSCORE, 30};
     }
 
     public b() {
@@ -61,7 +63,7 @@ public class b {
             int hashCode = str.hashCode();
             int i = 0;
             if (hashCode == 64897) {
-                if (str.equals("ALL")) {
+                if (str.equals(Rule.ALL)) {
                     c = 0;
                 }
                 c = 65535;
@@ -155,7 +157,6 @@ public class b {
 
     public static String b(Context context, Queue queue) {
         InterceptResult invokeLL;
-        String a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, queue)) == null) {
             JSONArray jSONArray = new JSONArray();
@@ -176,17 +177,9 @@ public class b {
             String jSONArray3 = jSONArray.toString();
             if (!TextUtils.isEmpty(jSONArray3)) {
                 try {
-                    a2 = cn.com.chinatelecom.gateway.lib.a.b.a(cn.com.chinatelecom.gateway.lib.a.a.b(jSONArray3, cn.com.chinatelecom.gateway.lib.a.f.a(a)));
+                    jSONArray2 = URLEncoder.encode(cn.com.chinatelecom.gateway.lib.a.b.a(cn.com.chinatelecom.gateway.lib.a.a.b(jSONArray3, cn.com.chinatelecom.gateway.lib.a.f.a(a))), "UTF-8");
                 } catch (Exception e2) {
-                    e = e2;
-                }
-                try {
-                    jSONArray2 = URLEncoder.encode(a2, "UTF-8");
-                } catch (Exception e3) {
-                    e = e3;
-                    jSONArray2 = a2;
-                    e.printStackTrace();
-                    return a.a("https://api-e189.21cn.com/gw/client/accountMsg.do", jSONArray2);
+                    e2.printStackTrace();
                 }
             }
             return a.a("https://api-e189.21cn.com/gw/client/accountMsg.do", jSONArray2);

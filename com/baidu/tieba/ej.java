@@ -22,6 +22,7 @@ import android.view.TouchDelegate;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.URLUtil;
 import android.widget.Toast;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -819,6 +820,19 @@ public class ej {
                 if (str.indexOf("?") < 0) {
                     str = str + "?";
                 } else if (!str.endsWith("?") && !str.endsWith("&")) {
+                    if ((URLUtil.isHttpUrl(str) || URLUtil.isHttpsUrl(str)) && str.contains("#")) {
+                        String[] split = str.split("#");
+                        StringBuilder sb = new StringBuilder();
+                        for (int i2 = 0; i2 < split.length; i2++) {
+                            if (i2 == 0) {
+                                sb = new StringBuilder(split[0] + "&" + str2);
+                            } else {
+                                sb.append("#");
+                                sb.append(split[i2]);
+                            }
+                        }
+                        return sb.toString();
+                    }
                     str = str + "&";
                 }
                 return str + str2;

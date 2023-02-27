@@ -1,17 +1,9 @@
 package com.baidu.searchbox.datacollector.growth.model;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class ClipBoardData {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public String mDownChannel;
     public JSONObject mExtend;
     public String mLaunchChannel;
@@ -20,114 +12,51 @@ public class ClipBoardData {
 
     /* loaded from: classes2.dex */
     public static class Builder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String downChannel;
         public JSONObject extend;
-        public String launchChannel;
-        public String schema;
-        public String source;
-
-        public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.source = "";
-            this.launchChannel = "";
-            this.downChannel = "";
-            this.schema = "";
-        }
+        public String source = "";
+        public String launchChannel = "";
+        public String downChannel = "";
+        public String schema = "";
 
         public ClipBoardData build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new ClipBoardData(this);
-            }
-            return (ClipBoardData) invokeV.objValue;
+            return new ClipBoardData(this);
         }
 
         public Builder setDownChannel(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                if (!TextUtils.isEmpty(str)) {
-                    this.downChannel = str;
-                }
-                return this;
+            if (!TextUtils.isEmpty(str)) {
+                this.downChannel = str;
             }
-            return (Builder) invokeL.objValue;
+            return this;
         }
 
         public Builder setExtend(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-                this.extend = jSONObject;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.extend = jSONObject;
+            return this;
         }
 
         public Builder setLaunchChannel(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                if (!TextUtils.isEmpty(str)) {
-                    this.launchChannel = str;
-                }
-                return this;
+            if (!TextUtils.isEmpty(str)) {
+                this.launchChannel = str;
             }
-            return (Builder) invokeL.objValue;
+            return this;
         }
 
         public Builder setSchema(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                if (!TextUtils.isEmpty(str)) {
-                    this.schema = str;
-                }
-                return this;
+            if (!TextUtils.isEmpty(str)) {
+                this.schema = str;
             }
-            return (Builder) invokeL.objValue;
+            return this;
         }
 
         public Builder setSource(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                if (!TextUtils.isEmpty(str)) {
-                    this.source = str;
-                }
-                return this;
+            if (!TextUtils.isEmpty(str)) {
+                this.source = str;
             }
-            return (Builder) invokeL.objValue;
+            return this;
         }
     }
 
     public ClipBoardData() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mSource = "";
         this.mLaunchChannel = "";
         this.mDownChannel = "";
@@ -135,65 +64,26 @@ public class ClipBoardData {
     }
 
     public String getDownChannel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mDownChannel;
-        }
-        return (String) invokeV.objValue;
+        return this.mDownChannel;
     }
 
     public JSONObject getExtend() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mExtend;
-        }
-        return (JSONObject) invokeV.objValue;
+        return this.mExtend;
     }
 
     public String getLaunchChanel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mLaunchChannel;
-        }
-        return (String) invokeV.objValue;
+        return this.mLaunchChannel;
     }
 
     public String getSchema() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mSchema;
-        }
-        return (String) invokeV.objValue;
+        return this.mSchema;
     }
 
     public String getSource() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mSource;
-        }
-        return (String) invokeV.objValue;
+        return this.mSource;
     }
 
     public ClipBoardData(Builder builder) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mSource = builder.source;
         this.mLaunchChannel = builder.launchChannel;
         this.mDownChannel = builder.downChannel;

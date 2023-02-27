@@ -1,57 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class bi5 implements fh5<MissionEvent> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface bi5 {
+    @NonNull
+    public static final ServiceReference a = new ServiceReference("HotTopic", "HotTopicRequest");
 
-    public bi5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes3.dex */
+    public interface a {
+        void a();
+
+        void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fh5
-    /* renamed from: a */
-    public boolean onEvent(MissionEvent missionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, missionEvent)) == null) {
-            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-                return false;
-            }
-            int i = missionEvent.pageId;
-            int i2 = missionEvent.pageType;
-            long j = missionEvent.tid;
-            String str = missionEvent.actionType;
-            if ("onResume".equals(str)) {
-                cr4.w().K(i, j);
-                cr4.w().P(i2, j);
-            } else if (MissionEvent.MESSAGE_PAUSE.equals(str)) {
-                cr4.w().E();
-            } else if (MissionEvent.MESSAGE_TOUCH.equals(str)) {
-                cr4.w().F();
-            } else if (MissionEvent.MESSAGE_ACTIVITY.equals(str)) {
-                cr4.w().K(i, j);
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
+    bi5 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str);
+
+    void b(int i, a05 a05Var, long j);
+
+    void c(@Nullable a aVar);
 }

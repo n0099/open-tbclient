@@ -19,14 +19,14 @@ import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.e75;
+import com.baidu.tieba.dq6;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.en6;
-import com.baidu.tieba.fn6;
-import com.baidu.tieba.lb5;
-import com.baidu.tieba.ph9;
-import com.baidu.tieba.qp5;
-import com.baidu.tieba.xb5;
+import com.baidu.tieba.eq6;
+import com.baidu.tieba.er5;
+import com.baidu.tieba.kd5;
+import com.baidu.tieba.ll9;
+import com.baidu.tieba.q85;
+import com.baidu.tieba.yc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 /* loaded from: classes3.dex */
-public class InputView extends SpanGroupEditText implements xb5 {
+public class InputView extends SpanGroupEditText implements kd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditorTools e;
@@ -50,7 +50,7 @@ public class InputView extends SpanGroupEditText implements xb5 {
     public int n;
     public Context o;
 
-    @Override // com.baidu.tieba.xb5
+    @Override // com.baidu.tieba.kd5
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -65,12 +65,12 @@ public class InputView extends SpanGroupEditText implements xb5 {
 
         /* renamed from: com.baidu.tbadk.editortools.inputtool.InputView$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0213a implements fn6.i {
+        public class C0201a implements eq6.i {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0213a(a aVar) {
+            public C0201a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,7 +88,7 @@ public class InputView extends SpanGroupEditText implements xb5 {
                 this.a = aVar;
             }
 
-            @Override // com.baidu.tieba.fn6.i
+            @Override // com.baidu.tieba.eq6.i
             public void a(SpannableStringBuilder spannableStringBuilder) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -122,13 +122,13 @@ public class InputView extends SpanGroupEditText implements xb5 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, editable) == null) && editable != null && editable.toString().trim() != null) {
                 String obj = editable.toString();
-                if (qp5.a.d(editable.toString()) > this.a.m) {
-                    String a = qp5.a.a(obj, this.a.m, "");
+                if (er5.a.d(editable.toString()) > this.a.m) {
+                    String a = er5.a.a(obj, this.a.m, "");
                     if (!dj.isEquals(editable.toString(), a)) {
-                        fn6.g(this.a.getContext(), a, new C0213a(this));
+                        eq6.g(this.a.getContext(), a, new C0201a(this));
                     }
                 }
-                this.a.J(new lb5(4, -1, editable.toString()));
+                this.a.J(new yc5(4, -1, editable.toString()));
             }
         }
 
@@ -136,7 +136,7 @@ public class InputView extends SpanGroupEditText implements xb5 {
         public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) && charSequence != null && !StringUtils.isNull(charSequence.toString())) {
-                this.a.n = qp5.a.d(charSequence.toString());
+                this.a.n = er5.a.d(charSequence.toString());
             }
         }
 
@@ -187,9 +187,9 @@ public class InputView extends SpanGroupEditText implements xb5 {
                     return true;
                 }
                 if (motionEvent.getAction() == 1) {
-                    this.a.J(new lb5(5, -1, null));
+                    this.a.J(new yc5(5, -1, null));
                     this.a.setCursorVisible(true);
-                    this.a.J(new lb5(64, -1, null));
+                    this.a.J(new yc5(64, -1, null));
                     this.a.requestFocus();
                 }
                 return false;
@@ -199,7 +199,7 @@ public class InputView extends SpanGroupEditText implements xb5 {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements fn6.i {
+    public class c implements eq6.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ InputView a;
@@ -222,14 +222,14 @@ public class InputView extends SpanGroupEditText implements xb5 {
             this.a = inputView;
         }
 
-        @Override // com.baidu.tieba.fn6.i
+        @Override // com.baidu.tieba.eq6.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
                 this.a.setText(spannableStringBuilder);
                 InputView inputView = this.a;
                 inputView.setSelection(inputView.getText().length());
-                this.a.J(new lb5(5, -1, null));
+                this.a.J(new yc5(5, -1, null));
                 this.a.requestFocus();
             }
         }
@@ -268,7 +268,7 @@ public class InputView extends SpanGroupEditText implements xb5 {
         if (z) {
             setHint(context.getString(R.string.im_msg_input_hint));
         }
-        ph9.l(this, R.drawable.edittext_cursor);
+        ll9.l(this, R.drawable.edittext_cursor);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.M_W_X006);
         int dimensionPixelSize2 = context.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
         setPadding(dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2);
@@ -284,43 +284,43 @@ public class InputView extends SpanGroupEditText implements xb5 {
         }
     }
 
-    @Override // com.baidu.tieba.xb5
-    public void J(lb5 lb5Var) {
+    @Override // com.baidu.tieba.kd5
+    public void J(yc5 yc5Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lb5Var) == null) && (editorTools = this.e) != null) {
-            editorTools.C(lb5Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yc5Var) == null) && (editorTools = this.e) != null) {
+            editorTools.C(yc5Var);
         }
     }
 
-    @Override // com.baidu.tieba.xb5
+    @Override // com.baidu.tieba.kd5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             SkinManager.setViewTextColor(this, R.color.CAM_X0105, 2, i);
             if (i == 0) {
-                ph9.l(this, R.drawable.edittext_cursor);
+                ll9.l(this, R.drawable.edittext_cursor);
             } else {
-                ph9.l(this, R.drawable.edittext_cursor_1);
+                ll9.l(this, R.drawable.edittext_cursor_2);
             }
             setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
         }
     }
 
-    public final void s(lb5 lb5Var) {
+    public final void s(yc5 yc5Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, lb5Var) == null) && lb5Var != null && (obj = lb5Var.c) != null && (obj instanceof e75)) {
-            e75 e75Var = (e75) obj;
-            if (e75Var.getType() == EmotionGroupType.NET_SUG) {
-                u(e75Var);
+        if ((interceptable == null || interceptable.invokeL(1048585, this, yc5Var) == null) && yc5Var != null && (obj = yc5Var.c) != null && (obj instanceof q85)) {
+            q85 q85Var = (q85) obj;
+            if (q85Var.getType() == EmotionGroupType.NET_SUG) {
+                u(q85Var);
             } else {
-                t(e75Var);
+                t(q85Var);
             }
         }
     }
 
-    @Override // com.baidu.tieba.xb5
+    @Override // com.baidu.tieba.kd5
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, editorTools) == null) {
@@ -342,7 +342,7 @@ public class InputView extends SpanGroupEditText implements xb5 {
         }
     }
 
-    @Override // com.baidu.tieba.xb5
+    @Override // com.baidu.tieba.kd5
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
@@ -350,15 +350,15 @@ public class InputView extends SpanGroupEditText implements xb5 {
         }
     }
 
-    @Override // com.baidu.tieba.mb5
-    public void A(lb5 lb5Var) {
+    @Override // com.baidu.tieba.zc5
+    public void A(yc5 yc5Var) {
         Context context;
         Context context2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, lb5Var) != null) || lb5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, yc5Var) != null) || yc5Var == null) {
             return;
         }
-        int i = lb5Var.a;
+        int i = yc5Var.a;
         if (i != 3) {
             if (i != 6) {
                 if (i != 9) {
@@ -367,7 +367,7 @@ public class InputView extends SpanGroupEditText implements xb5 {
                             if (i != 44) {
                                 switch (i) {
                                     case 71:
-                                        Object obj = lb5Var.c;
+                                        Object obj = yc5Var.c;
                                         if (obj == null) {
                                             if (this.k && (context2 = this.o) != null) {
                                                 setHint(context2.getString(R.string.im_msg_input_hint));
@@ -378,22 +378,22 @@ public class InputView extends SpanGroupEditText implements xb5 {
                                                     setHint(context.getString(R.string.im_msg_input_hint));
                                                 }
                                             } else {
-                                                Object obj2 = lb5Var.c;
+                                                Object obj2 = yc5Var.c;
                                                 if (obj2 instanceof String) {
                                                     setHint((String) obj2);
                                                 }
                                             }
                                         }
-                                        s(lb5Var);
+                                        s(yc5Var);
                                         return;
                                     case 72:
-                                        boolean booleanValue = ((Boolean) lb5Var.c).booleanValue();
+                                        boolean booleanValue = ((Boolean) yc5Var.c).booleanValue();
                                         this.l = booleanValue;
                                         setCursorVisible(booleanValue);
                                         return;
                                     case 73:
-                                        if (((Integer) lb5Var.c).intValue() != 0) {
-                                            setMaxTextCount(((Integer) lb5Var.c).intValue());
+                                        if (((Integer) yc5Var.c).intValue() != 0) {
+                                            setMaxTextCount(((Integer) yc5Var.c).intValue());
                                             return;
                                         }
                                         return;
@@ -401,20 +401,20 @@ public class InputView extends SpanGroupEditText implements xb5 {
                                         return;
                                 }
                             }
-                            Object obj3 = lb5Var.c;
+                            Object obj3 = yc5Var.c;
                             if (obj3 != null && (obj3 instanceof String)) {
                                 r((String) obj3);
                                 return;
                             }
                             return;
                         }
-                        s(lb5Var);
+                        s(yc5Var);
                         return;
                     }
-                    Object obj4 = lb5Var.c;
+                    Object obj4 = yc5Var.c;
                     if (obj4 != null && (obj4 instanceof ArrayList)) {
                         ArrayList<AtSelectData> arrayList = (ArrayList) obj4;
-                        if (this.n + qp5.a.c(arrayList) <= this.m) {
+                        if (this.n + er5.a.c(arrayList) <= this.m) {
                             q(arrayList);
                             return;
                         }
@@ -426,26 +426,26 @@ public class InputView extends SpanGroupEditText implements xb5 {
                         return;
                     }
                     return;
-                } else if (((Boolean) lb5Var.c).booleanValue()) {
+                } else if (((Boolean) yc5Var.c).booleanValue()) {
                     setText((CharSequence) null);
                     return;
                 } else {
                     return;
                 }
             }
-            Object obj5 = lb5Var.c;
+            Object obj5 = yc5Var.c;
             if (obj5 == null) {
                 setText((CharSequence) null);
             } else if (obj5 instanceof String) {
                 if (TextUtils.isEmpty((String) obj5)) {
                     setText((CharSequence) null);
                 } else {
-                    fn6.g(getContext(), (String) lb5Var.c, new c(this));
+                    eq6.g(getContext(), (String) yc5Var.c, new c(this));
                 }
             }
         } else if (getSelectionStart() > 0) {
             String substring = getText().toString().substring(0, getSelectionStart());
-            Matcher matcher = en6.b.matcher(substring);
+            Matcher matcher = dq6.b.matcher(substring);
             if (matcher.find()) {
                 getText().delete(getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getSelectionStart());
             } else {
@@ -454,7 +454,7 @@ public class InputView extends SpanGroupEditText implements xb5 {
         }
     }
 
-    @Override // com.baidu.tieba.xb5
+    @Override // com.baidu.tieba.kd5
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -462,7 +462,7 @@ public class InputView extends SpanGroupEditText implements xb5 {
         }
     }
 
-    @Override // com.baidu.tieba.xb5
+    @Override // com.baidu.tieba.kd5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -472,7 +472,7 @@ public class InputView extends SpanGroupEditText implements xb5 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.xb5
+    @Override // com.baidu.tieba.kd5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -498,29 +498,29 @@ public class InputView extends SpanGroupEditText implements xb5 {
         }
     }
 
-    public final void t(e75 e75Var) {
+    public final void t(q85 q85Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, e75Var) == null) {
-            if (this.g && e75Var.getType() != EmotionGroupType.LOCAL) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, q85Var) == null) {
+            if (this.g && q85Var.getType() != EmotionGroupType.LOCAL) {
                 return;
             }
             String obj = getText().toString();
-            if (this.h && en6.a(obj) >= 10 && getContext() != null) {
+            if (this.h && dq6.a(obj) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
             } else {
-                fn6.b(getContext(), e75Var, this);
+                eq6.b(getContext(), q85Var, this);
             }
         }
     }
 
-    public final void u(e75 e75Var) {
+    public final void u(q85 q85Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, e75Var) == null) && e75Var != null && !TextUtils.isEmpty(e75Var.d()) && !TextUtils.isEmpty(e75Var.g())) {
+        if ((interceptable == null || interceptable.invokeL(1048591, this, q85Var) == null) && q85Var != null && !TextUtils.isEmpty(q85Var.d()) && !TextUtils.isEmpty(q85Var.g())) {
             String obj = getText().toString();
-            if (this.h && en6.a(obj) >= 10 && getContext() != null) {
+            if (this.h && dq6.a(obj) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
             } else {
-                fn6.c(getContext(), e75Var, this);
+                eq6.c(getContext(), q85Var, this);
             }
         }
     }

@@ -3,6 +3,7 @@ package com.kwai.sodler.lib.d;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes8.dex */
@@ -18,7 +19,7 @@ public final class b {
             for (byte b : bArr) {
                 String hexString = Integer.toHexString(b & 255);
                 if (hexString.length() == 1) {
-                    sb.append('0');
+                    sb.append(TransactionIdCreater.FILL_BYTE);
                 }
                 sb.append(hexString);
             }

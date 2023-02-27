@@ -229,7 +229,7 @@ public class ActionJsonData {
             actionJsonData.setSignIn(jSONObject.optInt(TAG_SIGN_IN));
             try {
                 JSONObject jSONObject2 = new JSONObject(jSONObject.optString("link"));
-                String optString = jSONObject2.optString(TAG_NOTIFICATION);
+                String optString = jSONObject2.optString("notification");
                 if (optString != null) {
                     JSONObject jSONObject3 = new JSONObject(optString);
                     Notification notification = new Notification();

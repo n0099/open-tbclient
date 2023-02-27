@@ -1,157 +1,147 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
-import com.baidu.tieba.ae2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Patterns;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class fe2 {
+public final class fe2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final ne2 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ String c;
-
-        public a(String str, boolean z, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Boolean.valueOf(z), str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    /* JADX WARN: Removed duplicated region for block: B:39:0x00b7  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00cd  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x0115  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static be2 a(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        String str2;
+        String str3;
+        InputStream inputStream;
+        int i;
+        HttpURLConnection httpURLConnection;
+        String scheme;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, map)) == null) {
+            String str4 = null;
+            if (TextUtils.isEmpty(str) || !Patterns.WEB_URL.matcher(str).matches()) {
+                return null;
+            }
+            String scheme2 = Uri.parse(str).getScheme();
+            int i2 = 200;
+            HttpURLConnection httpURLConnection2 = null;
+            while (true) {
+                try {
+                    httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+                    try {
+                        httpURLConnection.setRequestMethod("GET");
+                        if (map != null) {
+                            for (Map.Entry<String, String> entry : map.entrySet()) {
+                                httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+                            }
+                        }
+                        httpURLConnection.setUseCaches(false);
+                        httpURLConnection.setDoInput(true);
+                        httpURLConnection.setConnectTimeout(rd2.a().e());
+                        httpURLConnection.setReadTimeout(rd2.a().h());
+                        String headerField = httpURLConnection.getHeaderField("Location");
+                        if (headerField == null) {
+                            scheme = null;
+                        } else {
+                            scheme = Uri.parse(headerField).getScheme();
+                        }
+                        if (headerField == null || (scheme != null && scheme.equals(scheme2))) {
+                            break;
+                        }
+                        scheme2 = scheme;
+                        httpURLConnection2 = httpURLConnection;
+                        str = headerField;
+                    } catch (Exception e) {
+                        e = e;
+                        httpURLConnection2 = httpURLConnection;
+                        str2 = null;
+                        if (vd2.a) {
+                            Log.e("HybridIntercept", Log.getStackTraceString(e));
+                        }
+                        str3 = str2;
+                        inputStream = null;
+                        i = i2;
+                        httpURLConnection = httpURLConnection2;
+                        HashMap hashMap = new HashMap();
+                        String str5 = "UTF-8";
+                        if (httpURLConnection != null) {
+                        }
+                        String str6 = str5;
+                        String str7 = str4;
+                        if (TextUtils.isEmpty(str3)) {
+                        }
+                        return new be2(i, str3, inputStream, hashMap, str6, str7);
+                    }
+                } catch (Exception e2) {
+                    e = e2;
                 }
             }
-            this.a = str;
-            this.b = z;
-            this.c = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            long j;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (fe2.a) {
-                    j = System.currentTimeMillis();
-                } else {
-                    j = 0;
+            i2 = httpURLConnection.getResponseCode();
+            str3 = httpURLConnection.getResponseMessage();
+            try {
+                inputStream = httpURLConnection.getInputStream();
+                i = i2;
+            } catch (Exception e3) {
+                httpURLConnection2 = httpURLConnection;
+                str2 = str3;
+                e = e3;
+                if (vd2.a) {
                 }
-                Set<String> m = ge2.k().m(this.a, true);
-                if (m != null && m.size() > 0) {
-                    if (fe2.a) {
-                        Log.d("SwanPreLinkWhenPreload", "start prelink, swan is already launched - " + this.b);
-                    }
-                    for (String str : m) {
-                        boolean b = fe2.b(this.c, this.a, str);
-                        zd2 d = zd2.d();
-                        String str2 = this.c;
-                        ae2.b a = ae2.a();
-                        a.h(RecordType.PREFETCH_PRELINK);
-                        a.f(str);
-                        a.g(b);
-                        d.f(str2, a.e());
-                        if (b) {
-                            ge2.k().s(this.a, str);
-                            fe2.d(this.a, str);
+                str3 = str2;
+                inputStream = null;
+                i = i2;
+                httpURLConnection = httpURLConnection2;
+                HashMap hashMap2 = new HashMap();
+                String str52 = "UTF-8";
+                if (httpURLConnection != null) {
+                }
+                String str62 = str52;
+                String str72 = str4;
+                if (TextUtils.isEmpty(str3)) {
+                }
+                return new be2(i, str3, inputStream, hashMap2, str62, str72);
+            }
+            HashMap hashMap22 = new HashMap();
+            String str522 = "UTF-8";
+            if (httpURLConnection != null) {
+                if (httpURLConnection.getContentEncoding() != null) {
+                    str522 = httpURLConnection.getContentEncoding();
+                }
+                str4 = httpURLConnection.getContentType();
+                Map<String, List<String>> headerFields = httpURLConnection.getHeaderFields();
+                if (headerFields != null) {
+                    for (Map.Entry<String, List<String>> entry2 : headerFields.entrySet()) {
+                        List<String> value = entry2.getValue();
+                        if (!value.isEmpty()) {
+                            hashMap22.put(entry2.getKey(), value.get(0));
                         }
                     }
-                    if (fe2.a) {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        Log.d("SwanPreLinkWhenPreload", " prelink - " + this.a + ", cost - " + (currentTimeMillis - j) + "ms");
-                    }
                 }
             }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947761174, "Lcom/baidu/tieba/fe2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947761174, "Lcom/baidu/tieba/fe2;");
-                return;
-            }
-        }
-        a = gp1.a;
-        b = pe2.a();
-    }
-
-    public static boolean b(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+            String str622 = str522;
+            String str722 = str4;
             if (TextUtils.isEmpty(str3)) {
-                return false;
+                str3 = DnsModel.MSG_OK;
             }
-            return b.c(str, str2, str3);
+            return new be2(i, str3, inputStream, hashMap22, str622, str722);
         }
-        return invokeLLL.booleanValue;
-    }
-
-    public static void e(String str, @NonNull String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65541, null, str, str2, z) == null) {
-            ExecutorUtilsExt.postOnSerial(new a(str2, z, str), "SwanPreLinkWhenPreload");
-        }
-    }
-
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            if (!b.b()) {
-                if (a) {
-                    Log.d("SwanPreLinkWhenPreload", "prelink by preload ab is off");
-                }
-            } else if (TextUtils.isEmpty(str2)) {
-                if (a) {
-                    Log.d("SwanPreLinkWhenPreload", "prelink by preload appId is empty");
-                }
-            } else {
-                w83 q = v83.K().q();
-                if (q == null) {
-                    if (a) {
-                        Log.d("SwanPreLinkWhenPreload", "prelink by preload swanApp is null");
-                    }
-                } else if (TextUtils.equals(q.b, str2)) {
-                    e(str, str2, q.I());
-                }
-            }
-        }
-    }
-
-    public static void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && b.a() != null) {
-            b.a().b(str, str2, true);
-        }
+        return (be2) invokeLL.objValue;
     }
 }

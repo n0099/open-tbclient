@@ -1,453 +1,179 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.LinkedList;
+import com.baidu.ugc.editvideo.record.RecordConstants;
 /* loaded from: classes5.dex */
 public class kz9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public lz9 a;
-    public long b;
-    public int c;
-    public long d;
-    public LinkedList<jz9> e;
-    public ArrayList<String> f;
 
     /* loaded from: classes5.dex */
-    public class a implements Comparator<jz9> {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public final int b;
 
-        public a(kz9 kz9Var) {
+        public a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kz9Var};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = i;
+            this.b = i2;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(jz9 jz9Var, jz9 jz9Var2) {
-            InterceptResult invokeLL;
+        public int a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jz9Var, jz9Var2)) == null) {
-                int h = jz9Var2.h() - jz9Var.h();
-                if (h == 0) {
-                    return (int) (jz9Var2.i() - jz9Var.i());
-                }
-                return h;
-            }
-            return invokeLL.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        }
+
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947930527, "Lcom/baidu/tieba/kz9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947930527, "Lcom/baidu/tieba/kz9;");
-                return;
-            }
-        }
-        g = AppConfig.isDebug();
-    }
-
-    public final void d() {
-        lz9 lz9Var;
+    public static int[] a(float f, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (lz9Var = this.a) != null) {
-            lz9Var.a();
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.e.size() > 0) {
-            Collections.sort(this.e, new a(this));
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.b = System.currentTimeMillis();
-            if (g) {
-                Log.d("VoyagerTaskModel", "update check task time: " + this.b);
-            }
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.c++;
-        }
-    }
-
-    public kz9(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = lz9.f(context);
-        j(z);
-    }
-
-    public void a(jz9 jz9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jz9Var) == null) {
-            if (jz9Var != null) {
-                if (this.e.size() == 0) {
-                    this.e.addFirst(jz9Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
+            int[] iArr = new int[2];
+            if (f > 1.0f) {
+                iArr[0] = i;
+                iArr[1] = (int) (i * f);
+                int i2 = iArr[1] % 16;
+                if (i2 > 8) {
+                    iArr[1] = iArr[1] + (16 - i2);
                 } else {
-                    int i = 0;
-                    Iterator<jz9> it = this.e.iterator();
-                    while (it.hasNext() && jz9Var.h() < it.next().h()) {
-                        i++;
-                    }
-                    this.e.add(i, jz9Var);
+                    iArr[1] = iArr[1] - i2;
                 }
-            }
-            if (g) {
-                Log.d("VoyagerTaskModel", "count: " + this.e.size());
-            }
-        }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.c < az9.f().m()) {
-                if (g) {
-                    Log.d("VoyagerTaskModel", "current count: " + this.c + ", max: " + az9.f().m());
-                }
-                return true;
-            }
-            this.c = 0;
-            if (System.currentTimeMillis() - this.b > az9.f().l()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            d();
-            sz9.b(cz9.g().h());
-            LinkedList<jz9> linkedList = this.e;
-            if (linkedList != null && linkedList.size() > 0) {
-                this.e.clear();
-            }
-            ArrayList<String> arrayList = this.f;
-            if (arrayList != null && arrayList.size() > 0) {
-                this.f.clear();
-            }
-            this.b = 0L;
-            this.c = 0;
-            this.d = 0L;
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.g(this.f, this.e);
-            if (this.f.size() > 0) {
-                Iterator<String> it = this.f.iterator();
-                while (it.hasNext()) {
-                    sz9.d(cz9.g().h(), it.next());
-                    it.remove();
-                }
-            }
-        }
-    }
-
-    public jz9 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            LinkedList<jz9> linkedList = this.e;
-            if (linkedList != null && linkedList.size() != 0) {
-                return this.e.getFirst();
-            }
-            if (g) {
-                Log.d("VoyagerTaskModel", "have no task in list");
-            }
-            this.c = 0;
-            return null;
-        }
-        return (jz9) invokeV.objValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LinkedList<jz9> linkedList = this.e;
-            if (linkedList != null && linkedList.size() != 0) {
-                long h = az9.f().h();
-                File h2 = cz9.g().h();
-                Iterator<jz9> it = this.e.iterator();
-                while (it.hasNext()) {
-                    jz9 next = it.next();
-                    File file = new File(h2, next.j());
-                    if (this.d < h) {
-                        if (file.exists()) {
-                            this.d += file.length();
-                        }
-                    } else {
-                        next.r(false);
-                        next.q(System.currentTimeMillis());
-                        n(next);
-                        file.delete();
-                    }
-                }
-                if (g) {
-                    Log.d("VoyagerTaskModel", "task count after delete exceed task: " + this.e.size());
-                }
-                int g2 = az9.f().g();
-                int size = this.e.size();
-                if (size <= g2) {
-                    return;
-                }
-                int i = size - g2;
-                for (int i2 = i; i2 > 0; i2--) {
-                    jz9 removeLast = this.e.removeLast();
-                    removeLast.r(false);
-                    removeLast.q(System.currentTimeMillis());
-                    n(removeLast);
-                    sz9.d(cz9.g().h(), removeLast.j());
-                }
-                if (g) {
-                    Log.d("VoyagerTaskModel", "delete count: " + i);
-                }
-            } else if (g) {
-                Log.d("VoyagerTaskModel", "task list length 0");
-            }
-        }
-    }
-
-    public final void g() {
-        ArrayList<File> f;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (f = cz9.g().f()) != null && f.size() != 0) {
-            Iterator<File> it = f.iterator();
-            while (it.hasNext()) {
-                String name = it.next().getName();
-                Iterator<jz9> it2 = this.e.iterator();
-                while (it2.hasNext() && !TextUtils.equals(name, it2.next().j())) {
-                }
-                it.remove();
-            }
-            if (g) {
-                Log.d("VoyagerTaskModel", "unreference file count: " + f.size());
-            }
-            if (f.size() > 0) {
-                sz9.c(f);
-            }
-        }
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        LinkedList<jz9> linkedList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.a == null || (linkedList = this.e) == null || linkedList.size() == 0) {
-                return false;
-            }
-            String c = this.a.c();
-            jz9 jz9Var = null;
-            Iterator<jz9> it = this.e.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                jz9 next = it.next();
-                if (TextUtils.equals(c, next.j())) {
-                    jz9Var = next;
-                    break;
-                }
-            }
-            if (jz9Var != null) {
-                this.e.remove(jz9Var);
-            }
-            File file = new File(cz9.g().h(), c);
-            if (file.exists()) {
-                file.delete();
-                this.d -= file.length();
-                return true;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            if (z) {
-                c();
-                return;
-            }
-            this.e = new LinkedList<>();
-            this.f = new ArrayList<>();
-            this.b = 0L;
-            this.c = 0;
-            this.d = 0L;
-            f();
-            g();
-            e();
-            l();
-        }
-    }
-
-    public void k(jz9 jz9Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, jz9Var) == null) && jz9Var != null) {
-            this.a.h(jz9Var);
-        }
-    }
-
-    public void n(jz9 jz9Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, jz9Var) == null) && jz9Var != null) {
-            this.a.i(jz9Var);
-        }
-    }
-
-    public void o(jz9 jz9Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, jz9Var) == null) && jz9Var != null) {
-            this.a.j(jz9Var);
-        }
-    }
-
-    public void q(jz9 jz9Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048592, this, jz9Var) == null) && jz9Var != null) {
-            this.e.remove(jz9Var);
-            this.e.addLast(jz9Var);
-        }
-    }
-
-    public void m(boolean z, jz9 jz9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048588, this, z, jz9Var) == null) {
-            jz9Var.r(false);
-            jz9Var.q(System.currentTimeMillis());
-            n(jz9Var);
-            if (z) {
-                this.e.remove(jz9Var);
-            }
-        }
-    }
-
-    public void u(boolean z, jz9 jz9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048596, this, z, jz9Var) == null) {
-            jz9Var.r(false);
-            jz9Var.q(System.currentTimeMillis());
-            o(jz9Var);
-            if (z) {
-                q(jz9Var);
             } else {
-                a(jz9Var);
+                iArr[1] = i;
+                iArr[0] = (int) (i * (1.0f / f));
+                int i3 = iArr[0] % 16;
+                if (i3 > 8) {
+                    iArr[0] = iArr[0] + (16 - i3);
+                } else {
+                    iArr[0] = iArr[0] - i3;
+                }
             }
+            return iArr;
         }
+        return (int[]) invokeCommon.objValue;
     }
 
-    public void s(boolean z, jz9 jz9Var, long j) {
+    public static int[] b(float f, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), jz9Var, Long.valueOf(j)}) == null) {
-            jz9Var.r(false);
-            jz9Var.s(jz9Var.k() + 1);
-            jz9Var.q(System.currentTimeMillis());
-            if (z) {
-                if (g) {
-                    Log.d("VoyagerTaskModel", "max upload count: " + jz9Var.d() + ", has uploaded " + jz9Var.k());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int[] iArr = new int[2];
+            if (i > i2) {
+                int i3 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
+                if (i3 == 0) {
+                    iArr[0] = c(i);
+                    iArr[1] = c(i);
+                    return iArr;
                 }
-                if (jz9Var.k() < jz9Var.d()) {
-                    o(jz9Var);
-                    q(jz9Var);
-                    return;
+                if (i3 > 0) {
+                    iArr[1] = i;
+                    iArr[0] = (int) (i * (1.0f / f));
+                } else {
+                    iArr[1] = i2;
+                    iArr[0] = (int) (i2 * (1.0f / f));
                 }
-                n(jz9Var);
-                this.e.remove(jz9Var);
-                return;
-            }
-            o(jz9Var);
-            a(jz9Var);
-            if (g) {
-                Log.d("VoyagerTaskModel", "add task " + jz9Var.j() + " to list");
-            }
-            this.d += j;
-            while (this.d > az9.f().h()) {
-                if (!h()) {
-                    this.d = 0L;
-                    return;
+                iArr[0] = c(iArr[0]);
+            } else {
+                int i4 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
+                if (i4 == 0) {
+                    iArr[0] = c(i2);
+                    iArr[1] = c(i2);
+                    return iArr;
                 }
+                if (i4 > 0) {
+                    iArr[0] = i;
+                    iArr[1] = (int) (i * f);
+                } else {
+                    iArr[0] = i2;
+                    iArr[1] = (int) (i2 * f);
+                }
+                iArr[1] = c(iArr[1]);
             }
+            return iArr;
         }
+        return (int[]) invokeCommon.objValue;
     }
 
-    public void t(boolean z, jz9 jz9Var, long j, String str) {
+    public static int c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Boolean.valueOf(z), jz9Var, Long.valueOf(j), str}) == null) {
-            jz9Var.r(true);
-            jz9Var.q(System.currentTimeMillis());
-            jz9Var.p(str);
-            n(jz9Var);
-            if (z) {
-                this.e.remove(jz9Var);
-                this.d -= j;
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            int i2 = i % 16;
+            return i2 > 8 ? i + (16 - i2) : i - i2;
         }
+        return invokeI.intValue;
+    }
+
+    public static a d(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
+            if (i > 1920 || i2 > 1920) {
+                int[] a2 = a(i2 / i, RecordConstants.VIDEO_CONSTANT_WIDTH);
+                return new a(a2[0], a2[1]);
+            }
+            return new a(i, i2);
+        }
+        return (a) invokeII.objValue;
+    }
+
+    public static a e(float f, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
+            if (f <= 0.0f) {
+                return new a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
+            }
+            int[] a2 = a(f, i);
+            return new a(a2[0], a2[1]);
+        }
+        return (a) invokeCommon.objValue;
+    }
+
+    public static a f(float f, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (f <= 0.0f) {
+                return new a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
+            }
+            int[] b = b(f, i, i2);
+            return new a(b[0], b[1]);
+        }
+        return (a) invokeCommon.objValue;
+    }
+
+    public static boolean g(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) ? i > 1920 || i2 > 1920 : invokeII.booleanValue;
     }
 }

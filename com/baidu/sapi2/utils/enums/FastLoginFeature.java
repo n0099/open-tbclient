@@ -1,31 +1,20 @@
 package com.baidu.sapi2.utils.enums;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes2.dex */
-public final class FastLoginFeature {
-    public static final /* synthetic */ FastLoginFeature[] $VALUES;
-    public static /* synthetic */ Interceptable $ic;
-    public static final FastLoginFeature CF_SSO;
-    public static final FastLoginFeature HONOR_LOGIN;
-    public static final FastLoginFeature HUAWEI_LOGIN;
-    public static final FastLoginFeature MEIZU_SSO;
-    public static final FastLoginFeature QR_LOGIN;
-    public static final FastLoginFeature SINA_WEIBO_SSO;
-    public static final FastLoginFeature SINA_WEIBO_WEBVIEW;
-    public static final FastLoginFeature TX_QQ_SSO;
-    public static final FastLoginFeature TX_WEIXIN_SSO;
-    public static final FastLoginFeature XIAOMI_SSO;
-    public static final FastLoginFeature YY_SSO;
-    public transient /* synthetic */ FieldHolder $fh;
+public enum FastLoginFeature {
+    TX_WEIXIN_SSO(SSOLoginType.WEIXIN),
+    SINA_WEIBO_SSO(SSOLoginType.SINA_SSO),
+    SINA_WEIBO_WEBVIEW("tsina"),
+    TX_QQ_SSO(SSOLoginType.QQ),
+    QR_LOGIN(SSOLoginType.QR_APP_LOGIN),
+    HUAWEI_LOGIN(SSOLoginType.HUAWEI),
+    HONOR_LOGIN(SSOLoginType.HONOR),
+    MEIZU_SSO(SSOLoginType.MEIZU),
+    XIAOMI_SSO(SSOLoginType.XIAOMI),
+    YY_SSO("yy"),
+    CF_SSO(SSOLoginType.CF);
+    
     public String mStrValue;
 
     /* loaded from: classes2.dex */
@@ -43,106 +32,28 @@ public final class FastLoginFeature {
         public static final String YY = "yy";
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2014550597, "Lcom/baidu/sapi2/utils/enums/FastLoginFeature;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(2014550597, "Lcom/baidu/sapi2/utils/enums/FastLoginFeature;");
-                return;
-            }
-        }
-        TX_WEIXIN_SSO = new FastLoginFeature("TX_WEIXIN_SSO", 0, SSOLoginType.WEIXIN);
-        SINA_WEIBO_SSO = new FastLoginFeature("SINA_WEIBO_SSO", 1, SSOLoginType.SINA_SSO);
-        SINA_WEIBO_WEBVIEW = new FastLoginFeature("SINA_WEIBO_WEBVIEW", 2, "tsina");
-        TX_QQ_SSO = new FastLoginFeature("TX_QQ_SSO", 3, SSOLoginType.QQ);
-        QR_LOGIN = new FastLoginFeature("QR_LOGIN", 4, SSOLoginType.QR_APP_LOGIN);
-        HUAWEI_LOGIN = new FastLoginFeature("HUAWEI_LOGIN", 5, SSOLoginType.HUAWEI);
-        HONOR_LOGIN = new FastLoginFeature("HONOR_LOGIN", 6, SSOLoginType.HONOR);
-        MEIZU_SSO = new FastLoginFeature("MEIZU_SSO", 7, SSOLoginType.MEIZU);
-        XIAOMI_SSO = new FastLoginFeature("XIAOMI_SSO", 8, SSOLoginType.XIAOMI);
-        YY_SSO = new FastLoginFeature("YY_SSO", 9, "yy");
-        FastLoginFeature fastLoginFeature = new FastLoginFeature("CF_SSO", 10, SSOLoginType.CF);
-        CF_SSO = fastLoginFeature;
-        $VALUES = new FastLoginFeature[]{TX_WEIXIN_SSO, SINA_WEIBO_SSO, SINA_WEIBO_WEBVIEW, TX_QQ_SSO, QR_LOGIN, HUAWEI_LOGIN, HONOR_LOGIN, MEIZU_SSO, XIAOMI_SSO, YY_SSO, fastLoginFeature};
-    }
-
-    public FastLoginFeature(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                String str3 = (String) objArr2[0];
-                ((Integer) objArr2[1]).intValue();
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mStrValue = str2;
+    FastLoginFeature(String str) {
+        this.mStrValue = str;
     }
 
     public static FastLoginFeature getDefault() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return SINA_WEIBO_SSO;
-        }
-        return (FastLoginFeature) invokeV.objValue;
-    }
-
-    public static FastLoginFeature[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return (FastLoginFeature[]) $VALUES.clone();
-        }
-        return (FastLoginFeature[]) invokeV.objValue;
+        return SINA_WEIBO_SSO;
     }
 
     public String getStrValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mStrValue;
-        }
-        return (String) invokeV.objValue;
+        return this.mStrValue;
     }
 
     public static FastLoginFeature mapStrToValue(String str) {
-        InterceptResult invokeL;
         FastLoginFeature[] values;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return getDefault();
-            }
-            for (FastLoginFeature fastLoginFeature : values()) {
-                if (str.equals(fastLoginFeature.getStrValue())) {
-                    return fastLoginFeature;
-                }
-            }
+        if (TextUtils.isEmpty(str)) {
             return getDefault();
         }
-        return (FastLoginFeature) invokeL.objValue;
-    }
-
-    public static FastLoginFeature valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return (FastLoginFeature) Enum.valueOf(FastLoginFeature.class, str);
+        for (FastLoginFeature fastLoginFeature : values()) {
+            if (str.equals(fastLoginFeature.getStrValue())) {
+                return fastLoginFeature;
+            }
         }
-        return (FastLoginFeature) invokeL.objValue;
+        return getDefault();
     }
 }

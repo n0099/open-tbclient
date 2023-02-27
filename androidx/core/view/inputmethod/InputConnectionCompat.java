@@ -12,14 +12,8 @@ import android.view.inputmethod.InputConnectionWrapper;
 import android.view.inputmethod.InputContentInfo;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class InputConnectionCompat {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String COMMIT_CONTENT_ACTION = "androidx.core.view.inputmethod.InputConnectionCompat.COMMIT_CONTENT";
     public static final String COMMIT_CONTENT_CONTENT_URI_INTEROP_KEY = "android.support.v13.view.inputmethod.InputConnectionCompat.CONTENT_URI";
     public static final String COMMIT_CONTENT_CONTENT_URI_KEY = "androidx.core.view.inputmethod.InputConnectionCompat.CONTENT_URI";
@@ -35,30 +29,13 @@ public final class InputConnectionCompat {
     public static final String COMMIT_CONTENT_RESULT_INTEROP_RECEIVER_KEY = "android.support.v13.view.inputmethod.InputConnectionCompat.CONTENT_RESULT_RECEIVER";
     public static final String COMMIT_CONTENT_RESULT_RECEIVER_KEY = "androidx.core.view.inputmethod.InputConnectionCompat.CONTENT_RESULT_RECEIVER";
     public static final int INPUT_CONTENT_GRANT_READ_URI_PERMISSION = 1;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public interface OnCommitContentListener {
         boolean onCommitContent(InputContentInfoCompat inputContentInfoCompat, int i, Bundle bundle);
     }
 
-    @Deprecated
-    public InputConnectionCompat() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static boolean commitContent(@NonNull InputConnection inputConnection, @NonNull EditorInfo editorInfo, @NonNull InputContentInfoCompat inputContentInfoCompat, int i, @Nullable Bundle bundle) {
-        InterceptResult invokeCommon;
         boolean z;
         String str;
         String str2;
@@ -66,194 +43,122 @@ public final class InputConnectionCompat {
         String str4;
         String str5;
         String str6;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{inputConnection, editorInfo, inputContentInfoCompat, Integer.valueOf(i), bundle})) == null) {
-            ClipDescription description = inputContentInfoCompat.getDescription();
-            String[] contentMimeTypes = EditorInfoCompat.getContentMimeTypes(editorInfo);
-            int length = contentMimeTypes.length;
-            boolean z2 = false;
-            int i2 = 0;
-            while (true) {
-                if (i2 < length) {
-                    if (description.hasMimeType(contentMimeTypes[i2])) {
-                        z = true;
-                        break;
-                    }
-                    i2++;
-                } else {
-                    z = false;
+        ClipDescription description = inputContentInfoCompat.getDescription();
+        String[] contentMimeTypes = EditorInfoCompat.getContentMimeTypes(editorInfo);
+        int length = contentMimeTypes.length;
+        boolean z2 = false;
+        int i2 = 0;
+        while (true) {
+            if (i2 < length) {
+                if (description.hasMimeType(contentMimeTypes[i2])) {
+                    z = true;
                     break;
                 }
+                i2++;
+            } else {
+                z = false;
+                break;
             }
-            if (!z) {
+        }
+        if (!z) {
+            return false;
+        }
+        if (Build.VERSION.SDK_INT >= 25) {
+            return inputConnection.commitContent((InputContentInfo) inputContentInfoCompat.unwrap(), i, bundle);
+        }
+        int protocol = EditorInfoCompat.getProtocol(editorInfo);
+        if (protocol != 2) {
+            if (protocol != 3 && protocol != 4) {
                 return false;
             }
-            if (Build.VERSION.SDK_INT >= 25) {
-                return inputConnection.commitContent((InputContentInfo) inputContentInfoCompat.unwrap(), i, bundle);
-            }
-            int protocol = EditorInfoCompat.getProtocol(editorInfo);
-            if (protocol != 2) {
-                if (protocol != 3 && protocol != 4) {
-                    return false;
-                }
-            } else {
-                z2 = true;
-            }
-            Bundle bundle2 = new Bundle();
-            if (z2) {
-                str = COMMIT_CONTENT_CONTENT_URI_INTEROP_KEY;
-            } else {
-                str = COMMIT_CONTENT_CONTENT_URI_KEY;
-            }
-            bundle2.putParcelable(str, inputContentInfoCompat.getContentUri());
-            if (z2) {
-                str2 = COMMIT_CONTENT_DESCRIPTION_INTEROP_KEY;
-            } else {
-                str2 = COMMIT_CONTENT_DESCRIPTION_KEY;
-            }
-            bundle2.putParcelable(str2, inputContentInfoCompat.getDescription());
-            if (z2) {
-                str3 = COMMIT_CONTENT_LINK_URI_INTEROP_KEY;
-            } else {
-                str3 = COMMIT_CONTENT_LINK_URI_KEY;
-            }
-            bundle2.putParcelable(str3, inputContentInfoCompat.getLinkUri());
-            if (z2) {
-                str4 = COMMIT_CONTENT_FLAGS_INTEROP_KEY;
-            } else {
-                str4 = COMMIT_CONTENT_FLAGS_KEY;
-            }
-            bundle2.putInt(str4, i);
-            if (z2) {
-                str5 = COMMIT_CONTENT_OPTS_INTEROP_KEY;
-            } else {
-                str5 = COMMIT_CONTENT_OPTS_KEY;
-            }
-            bundle2.putParcelable(str5, bundle);
-            if (z2) {
-                str6 = COMMIT_CONTENT_INTEROP_ACTION;
-            } else {
-                str6 = COMMIT_CONTENT_ACTION;
-            }
-            return inputConnection.performPrivateCommand(str6, bundle2);
+        } else {
+            z2 = true;
         }
-        return invokeCommon.booleanValue;
+        Bundle bundle2 = new Bundle();
+        if (z2) {
+            str = COMMIT_CONTENT_CONTENT_URI_INTEROP_KEY;
+        } else {
+            str = COMMIT_CONTENT_CONTENT_URI_KEY;
+        }
+        bundle2.putParcelable(str, inputContentInfoCompat.getContentUri());
+        if (z2) {
+            str2 = COMMIT_CONTENT_DESCRIPTION_INTEROP_KEY;
+        } else {
+            str2 = COMMIT_CONTENT_DESCRIPTION_KEY;
+        }
+        bundle2.putParcelable(str2, inputContentInfoCompat.getDescription());
+        if (z2) {
+            str3 = COMMIT_CONTENT_LINK_URI_INTEROP_KEY;
+        } else {
+            str3 = COMMIT_CONTENT_LINK_URI_KEY;
+        }
+        bundle2.putParcelable(str3, inputContentInfoCompat.getLinkUri());
+        if (z2) {
+            str4 = COMMIT_CONTENT_FLAGS_INTEROP_KEY;
+        } else {
+            str4 = COMMIT_CONTENT_FLAGS_KEY;
+        }
+        bundle2.putInt(str4, i);
+        if (z2) {
+            str5 = COMMIT_CONTENT_OPTS_INTEROP_KEY;
+        } else {
+            str5 = COMMIT_CONTENT_OPTS_KEY;
+        }
+        bundle2.putParcelable(str5, bundle);
+        if (z2) {
+            str6 = COMMIT_CONTENT_INTEROP_ACTION;
+        } else {
+            str6 = COMMIT_CONTENT_ACTION;
+        }
+        return inputConnection.performPrivateCommand(str6, bundle2);
     }
 
     @NonNull
-    public static InputConnection createWrapper(@NonNull InputConnection inputConnection, @NonNull EditorInfo editorInfo, @NonNull OnCommitContentListener onCommitContentListener) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, inputConnection, editorInfo, onCommitContentListener)) == null) {
-            if (inputConnection != null) {
-                if (editorInfo != null) {
-                    if (onCommitContentListener != null) {
-                        if (Build.VERSION.SDK_INT >= 25) {
-                            return new InputConnectionWrapper(inputConnection, false, onCommitContentListener) { // from class: androidx.core.view.inputmethod.InputConnectionCompat.1
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ OnCommitContentListener val$listener;
-
-                                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                                {
-                                    super(inputConnection, r9);
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {inputConnection, Boolean.valueOf(r9), onCommitContentListener};
-                                        interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i = newInitContext.flag;
-                                        if ((i & 1) != 0) {
-                                            int i2 = i & 2;
-                                            Object[] objArr2 = newInitContext.callArgs;
-                                            super((InputConnection) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
-                                            newInitContext.thisArg = this;
-                                            interceptable2.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.val$listener = onCommitContentListener;
-                                }
-
-                                @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
-                                public boolean commitContent(InputContentInfo inputContentInfo, int i, Bundle bundle) {
-                                    InterceptResult invokeLIL;
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048576, this, inputContentInfo, i, bundle)) == null) {
-                                        if (this.val$listener.onCommitContent(InputContentInfoCompat.wrap(inputContentInfo), i, bundle)) {
-                                            return true;
-                                        }
-                                        return super.commitContent(inputContentInfo, i, bundle);
-                                    }
-                                    return invokeLIL.booleanValue;
-                                }
-                            };
-                        }
-                        if (EditorInfoCompat.getContentMimeTypes(editorInfo).length == 0) {
-                            return inputConnection;
-                        }
-                        return new InputConnectionWrapper(inputConnection, false, onCommitContentListener) { // from class: androidx.core.view.inputmethod.InputConnectionCompat.2
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ OnCommitContentListener val$listener;
-
-                            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                            {
-                                super(inputConnection, r9);
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {inputConnection, Boolean.valueOf(r9), onCommitContentListener};
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i = newInitContext.flag;
-                                    if ((i & 1) != 0) {
-                                        int i2 = i & 2;
-                                        Object[] objArr2 = newInitContext.callArgs;
-                                        super((InputConnection) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.val$listener = onCommitContentListener;
-                            }
-
+    public static InputConnection createWrapper(@NonNull InputConnection inputConnection, @NonNull EditorInfo editorInfo, @NonNull final OnCommitContentListener onCommitContentListener) {
+        if (inputConnection != null) {
+            if (editorInfo != null) {
+                if (onCommitContentListener != null) {
+                    if (Build.VERSION.SDK_INT >= 25) {
+                        return new InputConnectionWrapper(inputConnection, false) { // from class: androidx.core.view.inputmethod.InputConnectionCompat.1
                             @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
-                            public boolean performPrivateCommand(String str, Bundle bundle) {
-                                InterceptResult invokeLL;
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, bundle)) == null) {
-                                    if (InputConnectionCompat.handlePerformPrivateCommand(str, bundle, this.val$listener)) {
-                                        return true;
-                                    }
-                                    return super.performPrivateCommand(str, bundle);
+                            public boolean commitContent(InputContentInfo inputContentInfo, int i, Bundle bundle) {
+                                if (onCommitContentListener.onCommitContent(InputContentInfoCompat.wrap(inputContentInfo), i, bundle)) {
+                                    return true;
                                 }
-                                return invokeLL.booleanValue;
+                                return super.commitContent(inputContentInfo, i, bundle);
                             }
                         };
                     }
-                    throw new IllegalArgumentException("onCommitContentListener must be non-null");
+                    if (EditorInfoCompat.getContentMimeTypes(editorInfo).length == 0) {
+                        return inputConnection;
+                    }
+                    return new InputConnectionWrapper(inputConnection, false) { // from class: androidx.core.view.inputmethod.InputConnectionCompat.2
+                        @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
+                        public boolean performPrivateCommand(String str, Bundle bundle) {
+                            if (InputConnectionCompat.handlePerformPrivateCommand(str, bundle, onCommitContentListener)) {
+                                return true;
+                            }
+                            return super.performPrivateCommand(str, bundle);
+                        }
+                    };
                 }
-                throw new IllegalArgumentException("editorInfo must be non-null");
+                throw new IllegalArgumentException("onCommitContentListener must be non-null");
             }
-            throw new IllegalArgumentException("inputConnection must be non-null");
+            throw new IllegalArgumentException("editorInfo must be non-null");
         }
-        return (InputConnection) invokeLLL.objValue;
+        throw new IllegalArgumentException("inputConnection must be non-null");
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x007b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0077 */
     /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: android.os.ResultReceiver */
     /* JADX DEBUG: Multi-variable search result rejected for r2v3, resolved type: android.os.ResultReceiver */
     /* JADX DEBUG: Multi-variable search result rejected for r2v5, resolved type: android.os.ResultReceiver */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v2 */
-    /* JADX WARN: Type inference failed for: r0v5, types: [int, boolean] */
-    /* JADX WARN: Type inference failed for: r0v7 */
-    /* JADX WARN: Type inference failed for: r0v8 */
+    /* JADX WARN: Type inference failed for: r0v0 */
+    /* JADX WARN: Type inference failed for: r0v3, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r0v5 */
+    /* JADX WARN: Type inference failed for: r0v6 */
     public static boolean handlePerformPrivateCommand(@Nullable String str, @NonNull Bundle bundle, @NonNull OnCommitContentListener onCommitContentListener) {
-        InterceptResult invokeLLL;
         boolean z;
         String str2;
         ResultReceiver resultReceiver;
@@ -262,78 +167,73 @@ public final class InputConnectionCompat {
         String str5;
         String str6;
         String str7;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, bundle, onCommitContentListener)) == null) {
-            ?? r0 = 0;
-            r0 = 0;
-            if (bundle == null) {
-                return false;
-            }
-            if (TextUtils.equals(COMMIT_CONTENT_ACTION, str)) {
-                z = false;
-            } else if (!TextUtils.equals(COMMIT_CONTENT_INTEROP_ACTION, str)) {
-                return false;
-            } else {
-                z = true;
-            }
+        ?? r0 = 0;
+        r0 = 0;
+        if (bundle == null) {
+            return false;
+        }
+        if (TextUtils.equals(COMMIT_CONTENT_ACTION, str)) {
+            z = false;
+        } else if (!TextUtils.equals(COMMIT_CONTENT_INTEROP_ACTION, str)) {
+            return false;
+        } else {
+            z = true;
+        }
+        if (z) {
+            str2 = COMMIT_CONTENT_RESULT_INTEROP_RECEIVER_KEY;
+        } else {
+            str2 = COMMIT_CONTENT_RESULT_RECEIVER_KEY;
+        }
+        try {
+            resultReceiver = (ResultReceiver) bundle.getParcelable(str2);
             if (z) {
-                str2 = COMMIT_CONTENT_RESULT_INTEROP_RECEIVER_KEY;
+                str3 = COMMIT_CONTENT_CONTENT_URI_INTEROP_KEY;
             } else {
-                str2 = COMMIT_CONTENT_RESULT_RECEIVER_KEY;
+                str3 = COMMIT_CONTENT_CONTENT_URI_KEY;
             }
             try {
-                resultReceiver = (ResultReceiver) bundle.getParcelable(str2);
+                Uri uri = (Uri) bundle.getParcelable(str3);
                 if (z) {
-                    str3 = COMMIT_CONTENT_CONTENT_URI_INTEROP_KEY;
+                    str4 = COMMIT_CONTENT_DESCRIPTION_INTEROP_KEY;
                 } else {
-                    str3 = COMMIT_CONTENT_CONTENT_URI_KEY;
+                    str4 = COMMIT_CONTENT_DESCRIPTION_KEY;
                 }
-                try {
-                    Uri uri = (Uri) bundle.getParcelable(str3);
-                    if (z) {
-                        str4 = COMMIT_CONTENT_DESCRIPTION_INTEROP_KEY;
-                    } else {
-                        str4 = COMMIT_CONTENT_DESCRIPTION_KEY;
-                    }
-                    ClipDescription clipDescription = (ClipDescription) bundle.getParcelable(str4);
-                    if (z) {
-                        str5 = COMMIT_CONTENT_LINK_URI_INTEROP_KEY;
-                    } else {
-                        str5 = COMMIT_CONTENT_LINK_URI_KEY;
-                    }
-                    Uri uri2 = (Uri) bundle.getParcelable(str5);
-                    if (z) {
-                        str6 = COMMIT_CONTENT_FLAGS_INTEROP_KEY;
-                    } else {
-                        str6 = COMMIT_CONTENT_FLAGS_KEY;
-                    }
-                    int i = bundle.getInt(str6);
-                    if (z) {
-                        str7 = COMMIT_CONTENT_OPTS_INTEROP_KEY;
-                    } else {
-                        str7 = COMMIT_CONTENT_OPTS_KEY;
-                    }
-                    Bundle bundle2 = (Bundle) bundle.getParcelable(str7);
-                    if (uri != null && clipDescription != null) {
-                        r0 = onCommitContentListener.onCommitContent(new InputContentInfoCompat(uri, clipDescription, uri2), i, bundle2);
-                    }
-                    if (resultReceiver != 0) {
-                        resultReceiver.send(r0, null);
-                    }
-                    return r0;
-                } catch (Throwable th) {
-                    th = th;
-                    if (resultReceiver != 0) {
-                        resultReceiver.send(0, null);
-                    }
-                    throw th;
+                ClipDescription clipDescription = (ClipDescription) bundle.getParcelable(str4);
+                if (z) {
+                    str5 = COMMIT_CONTENT_LINK_URI_INTEROP_KEY;
+                } else {
+                    str5 = COMMIT_CONTENT_LINK_URI_KEY;
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                resultReceiver = 0;
+                Uri uri2 = (Uri) bundle.getParcelable(str5);
+                if (z) {
+                    str6 = COMMIT_CONTENT_FLAGS_INTEROP_KEY;
+                } else {
+                    str6 = COMMIT_CONTENT_FLAGS_KEY;
+                }
+                int i = bundle.getInt(str6);
+                if (z) {
+                    str7 = COMMIT_CONTENT_OPTS_INTEROP_KEY;
+                } else {
+                    str7 = COMMIT_CONTENT_OPTS_KEY;
+                }
+                Bundle bundle2 = (Bundle) bundle.getParcelable(str7);
+                if (uri != null && clipDescription != null) {
+                    r0 = onCommitContentListener.onCommitContent(new InputContentInfoCompat(uri, clipDescription, uri2), i, bundle2);
+                }
+                if (resultReceiver != 0) {
+                    resultReceiver.send(r0, null);
+                }
+                return r0;
+            } catch (Throwable th) {
+                th = th;
+                if (resultReceiver != 0) {
+                    resultReceiver.send(0, null);
+                }
+                throw th;
             }
-        } else {
-            return invokeLLL.booleanValue;
+        } catch (Throwable th2) {
+            th = th2;
+            resultReceiver = 0;
         }
     }
 }

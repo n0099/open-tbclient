@@ -18,7 +18,6 @@ import android.view.Surface;
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import androidx.media2.common.MediaItem;
 import androidx.media2.common.MediaMetadata;
 import androidx.media2.common.MediaParcelUtils;
@@ -31,26 +30,13 @@ import androidx.media2.session.IMediaSessionService;
 import androidx.media2.session.MediaController;
 import androidx.media2.session.MediaSession;
 import androidx.media2.session.SequencedFutureManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.util.concurrent.ListenableFuture;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes.dex */
 public class MediaControllerImplBase implements MediaController.MediaControllerImpl {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final boolean DEBUG;
-    public static final SessionResult RESULT_WHEN_CLOSED;
-    public static final String TAG = "MC2ImplBase";
     public static final boolean THROW_EXCEPTION_FOR_NULL_RESULT = true;
-    public transient /* synthetic */ FieldHolder $fh;
     @GuardedBy("mLock")
     public SessionCommandGroup mAllowedCommands;
     @GuardedBy("mLock")
@@ -63,17 +49,12 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
     public final MediaControllerStub mControllerStub;
     @GuardedBy("mLock")
     public MediaItem mCurrentMediaItem;
-    @GuardedBy("mLock")
-    public int mCurrentMediaItemIndex;
     public final IBinder.DeathRecipient mDeathRecipient;
     @GuardedBy("mLock")
     public volatile IMediaSession mISession;
     public final MediaController mInstance;
     @GuardedBy("mLock")
     public boolean mIsReleased;
-    public final Object mLock;
-    @GuardedBy("mLock")
-    public int mNextMediaItemIndex;
     @GuardedBy("mLock")
     public MediaController.PlaybackInfo mPlaybackInfo;
     @GuardedBy("mLock")
@@ -89,11 +70,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
     @GuardedBy("mLock")
     public long mPositionMs;
     @GuardedBy("mLock")
-    public int mPreviousMediaItemIndex;
-    @GuardedBy("mLock")
     public int mRepeatMode;
-    @GuardedBy("mLock")
-    public SparseArray<SessionPlayer.TrackInfo> mSelectedTracks;
     public final SequencedFutureManager mSequencedFutureManager;
     @GuardedBy("mLock")
     public SessionServiceConnection mServiceConnection;
@@ -102,10 +79,22 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
     @GuardedBy("mLock")
     public int mShuffleMode;
     public final SessionToken mToken;
+    public static final SessionResult RESULT_WHEN_CLOSED = new SessionResult(1);
+    public static final String TAG = "MC2ImplBase";
+    public static final boolean DEBUG = Log.isLoggable(TAG, 3);
+    public final Object mLock = new Object();
     @GuardedBy("mLock")
-    public List<SessionPlayer.TrackInfo> mTracks;
+    public int mCurrentMediaItemIndex = -1;
     @GuardedBy("mLock")
-    public VideoSize mVideoSize;
+    public int mPreviousMediaItemIndex = -1;
+    @GuardedBy("mLock")
+    public int mNextMediaItemIndex = -1;
+    @GuardedBy("mLock")
+    public VideoSize mVideoSize = new VideoSize(0, 0);
+    @GuardedBy("mLock")
+    public List<SessionPlayer.TrackInfo> mTracks = Collections.emptyList();
+    @GuardedBy("mLock")
+    public SparseArray<SessionPlayer.TrackInfo> mSelectedTracks = new SparseArray<>();
 
     @FunctionalInterface
     /* loaded from: classes.dex */
@@ -116,819 +105,369 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     @Nullable
     public MediaBrowserCompat getBrowserCompat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return null;
-        }
-        return (MediaBrowserCompat) invokeV.objValue;
+        return null;
     }
 
     /* loaded from: classes.dex */
     public class SessionServiceConnection implements ServiceConnection {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final Bundle mConnectionHints;
-        public final /* synthetic */ MediaControllerImplBase this$0;
 
-        public SessionServiceConnection(@Nullable MediaControllerImplBase mediaControllerImplBase, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mediaControllerImplBase, bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = mediaControllerImplBase;
+        public SessionServiceConnection(@Nullable Bundle bundle) {
             this.mConnectionHints = bundle;
         }
 
         @Override // android.content.ServiceConnection
         public void onBindingDied(ComponentName componentName) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, componentName) == null) {
-                this.this$0.mInstance.close();
-            }
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
-                try {
-                    if (MediaControllerImplBase.DEBUG) {
-                        Log.d(MediaControllerImplBase.TAG, "onServiceConnected " + componentName + " " + this);
-                    }
-                    if (!this.this$0.mToken.getPackageName().equals(componentName.getPackageName())) {
-                        Log.wtf(MediaControllerImplBase.TAG, "Expected connection to " + this.this$0.mToken.getPackageName() + " but is connected to " + componentName);
-                        return;
-                    }
-                    IMediaSessionService asInterface = IMediaSessionService.Stub.asInterface(iBinder);
-                    if (asInterface == null) {
-                        Log.wtf(MediaControllerImplBase.TAG, "Service interface is missing.");
-                        return;
-                    }
-                    asInterface.connect(this.this$0.mControllerStub, MediaParcelUtils.toParcelable(new ConnectionRequest(this.this$0.getContext().getPackageName(), Process.myPid(), this.mConnectionHints)));
-                } catch (RemoteException unused) {
-                    Log.w(MediaControllerImplBase.TAG, "Service " + componentName + " has died prematurely");
-                } finally {
-                    this.this$0.mInstance.close();
-                }
-            }
+            MediaControllerImplBase.this.mInstance.close();
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, componentName) == null) {
-                if (MediaControllerImplBase.DEBUG) {
-                    Log.w(MediaControllerImplBase.TAG, "Session service " + componentName + " is disconnected.");
-                }
-                this.this$0.mInstance.close();
+            if (MediaControllerImplBase.DEBUG) {
+                Log.w(MediaControllerImplBase.TAG, "Session service " + componentName + " is disconnected.");
             }
+            MediaControllerImplBase.this.mInstance.close();
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1860728138, "Landroidx/media2/session/MediaControllerImplBase;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1860728138, "Landroidx/media2/session/MediaControllerImplBase;");
-                return;
+        @Override // android.content.ServiceConnection
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            try {
+                if (MediaControllerImplBase.DEBUG) {
+                    Log.d(MediaControllerImplBase.TAG, "onServiceConnected " + componentName + " " + this);
+                }
+                if (!MediaControllerImplBase.this.mToken.getPackageName().equals(componentName.getPackageName())) {
+                    Log.wtf(MediaControllerImplBase.TAG, "Expected connection to " + MediaControllerImplBase.this.mToken.getPackageName() + " but is connected to " + componentName);
+                    return;
+                }
+                IMediaSessionService asInterface = IMediaSessionService.Stub.asInterface(iBinder);
+                if (asInterface == null) {
+                    Log.wtf(MediaControllerImplBase.TAG, "Service interface is missing.");
+                    return;
+                }
+                asInterface.connect(MediaControllerImplBase.this.mControllerStub, MediaParcelUtils.toParcelable(new ConnectionRequest(MediaControllerImplBase.this.getContext().getPackageName(), Process.myPid(), this.mConnectionHints)));
+            } catch (RemoteException unused) {
+                Log.w(MediaControllerImplBase.TAG, "Service " + componentName + " has died prematurely");
+            } finally {
+                MediaControllerImplBase.this.mInstance.close();
             }
         }
-        RESULT_WHEN_CLOSED = new SessionResult(1);
-        DEBUG = Log.isLoggable(TAG, 3);
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public ListenableFuture<SessionResult> fastForward() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_SESSION_FAST_FORWARD, new RemoteSessionTask(this) { // from class: androidx.media2.session.MediaControllerImplBase.6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i) == null) {
-                        iMediaSession.fastForward(this.this$0.mControllerStub, i);
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeV.objValue;
+        return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_SESSION_FAST_FORWARD, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.6
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i) throws RemoteException {
+                iMediaSession.fastForward(MediaControllerImplBase.this.mControllerStub, i);
+            }
+        });
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public SessionCommandGroup getAllowedCommands() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this.mLock) {
-                if (this.mISession == null) {
-                    Log.w(TAG, "Session isn't active", new IllegalStateException());
-                    return null;
-                }
-                return this.mAllowedCommands;
+        synchronized (this.mLock) {
+            if (this.mISession == null) {
+                Log.w(TAG, "Session isn't active", new IllegalStateException());
+                return null;
             }
+            return this.mAllowedCommands;
         }
-        return (SessionCommandGroup) invokeV.objValue;
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public long getBufferedPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this.mLock) {
-                if (this.mISession == null) {
-                    Log.w(TAG, "Session isn't active", new IllegalStateException());
-                    return Long.MIN_VALUE;
-                }
-                return this.mBufferedPositionMs;
+        synchronized (this.mLock) {
+            if (this.mISession == null) {
+                Log.w(TAG, "Session isn't active", new IllegalStateException());
+                return Long.MIN_VALUE;
             }
+            return this.mBufferedPositionMs;
         }
-        return invokeV.longValue;
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public int getBufferingState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            synchronized (this.mLock) {
-                if (this.mISession == null) {
-                    Log.w(TAG, "Session isn't active", new IllegalStateException());
-                    return 0;
-                }
-                return this.mBufferingState;
+        synchronized (this.mLock) {
+            if (this.mISession == null) {
+                Log.w(TAG, "Session isn't active", new IllegalStateException());
+                return 0;
             }
+            return this.mBufferingState;
         }
-        return invokeV.intValue;
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public SessionToken getConnectedToken() {
-        InterceptResult invokeV;
         SessionToken sessionToken;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            synchronized (this.mLock) {
-                if (isConnected()) {
-                    sessionToken = this.mConnectedToken;
-                } else {
-                    sessionToken = null;
-                }
+        synchronized (this.mLock) {
+            if (isConnected()) {
+                sessionToken = this.mConnectedToken;
+            } else {
+                sessionToken = null;
             }
-            return sessionToken;
         }
-        return (SessionToken) invokeV.objValue;
+        return sessionToken;
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     @NonNull
     public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.mContext;
-        }
-        return (Context) invokeV.objValue;
+        return this.mContext;
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public MediaItem getCurrentMediaItem() {
-        InterceptResult invokeV;
         MediaItem mediaItem;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            synchronized (this.mLock) {
-                mediaItem = this.mCurrentMediaItem;
-            }
-            return mediaItem;
+        synchronized (this.mLock) {
+            mediaItem = this.mCurrentMediaItem;
         }
-        return (MediaItem) invokeV.objValue;
+        return mediaItem;
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public int getCurrentMediaItemIndex() {
-        InterceptResult invokeV;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            synchronized (this.mLock) {
-                i = this.mCurrentMediaItemIndex;
-            }
-            return i;
+        synchronized (this.mLock) {
+            i = this.mCurrentMediaItemIndex;
         }
-        return invokeV.intValue;
+        return i;
+    }
+
+    @Override // androidx.media2.session.MediaController.MediaControllerImpl
+    public long getDuration() {
+        MediaMetadata metadata;
+        synchronized (this.mLock) {
+            if (this.mCurrentMediaItem == null) {
+                metadata = null;
+            } else {
+                metadata = this.mCurrentMediaItem.getMetadata();
+            }
+            if (metadata != null && metadata.containsKey("android.media.metadata.DURATION")) {
+                return metadata.getLong("android.media.metadata.DURATION");
+            }
+            return Long.MIN_VALUE;
+        }
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public int getNextMediaItemIndex() {
-        InterceptResult invokeV;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            synchronized (this.mLock) {
-                i = this.mNextMediaItemIndex;
-            }
-            return i;
+        synchronized (this.mLock) {
+            i = this.mNextMediaItemIndex;
         }
-        return invokeV.intValue;
+        return i;
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public MediaController.PlaybackInfo getPlaybackInfo() {
-        InterceptResult invokeV;
         MediaController.PlaybackInfo playbackInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            synchronized (this.mLock) {
-                playbackInfo = this.mPlaybackInfo;
-            }
-            return playbackInfo;
+        synchronized (this.mLock) {
+            playbackInfo = this.mPlaybackInfo;
         }
-        return (MediaController.PlaybackInfo) invokeV.objValue;
+        return playbackInfo;
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public float getPlaybackSpeed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            synchronized (this.mLock) {
-                if (this.mISession == null) {
-                    Log.w(TAG, "Session isn't active", new IllegalStateException());
-                    return 0.0f;
-                }
-                return this.mPlaybackSpeed;
+        synchronized (this.mLock) {
+            if (this.mISession == null) {
+                Log.w(TAG, "Session isn't active", new IllegalStateException());
+                return 0.0f;
             }
+            return this.mPlaybackSpeed;
         }
-        return invokeV.floatValue;
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public int getPlayerState() {
-        InterceptResult invokeV;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            synchronized (this.mLock) {
-                i = this.mPlayerState;
-            }
-            return i;
+        synchronized (this.mLock) {
+            i = this.mPlayerState;
         }
-        return invokeV.intValue;
+        return i;
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public List<MediaItem> getPlaylist() {
-        InterceptResult invokeV;
         ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            synchronized (this.mLock) {
-                arrayList = new ArrayList(this.mPlaylist);
-            }
-            return arrayList;
+        synchronized (this.mLock) {
+            arrayList = new ArrayList(this.mPlaylist);
         }
-        return (List) invokeV.objValue;
+        return arrayList;
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public MediaMetadata getPlaylistMetadata() {
-        InterceptResult invokeV;
         MediaMetadata mediaMetadata;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            synchronized (this.mLock) {
-                mediaMetadata = this.mPlaylistMetadata;
-            }
-            return mediaMetadata;
+        synchronized (this.mLock) {
+            mediaMetadata = this.mPlaylistMetadata;
         }
-        return (MediaMetadata) invokeV.objValue;
+        return mediaMetadata;
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public int getPreviousMediaItemIndex() {
-        InterceptResult invokeV;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            synchronized (this.mLock) {
-                i = this.mPreviousMediaItemIndex;
-            }
-            return i;
+        synchronized (this.mLock) {
+            i = this.mPreviousMediaItemIndex;
         }
-        return invokeV.intValue;
+        return i;
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public int getRepeatMode() {
-        InterceptResult invokeV;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            synchronized (this.mLock) {
-                i = this.mRepeatMode;
-            }
-            return i;
+        synchronized (this.mLock) {
+            i = this.mRepeatMode;
         }
-        return invokeV.intValue;
+        return i;
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public PendingIntent getSessionActivity() {
-        InterceptResult invokeV;
         PendingIntent pendingIntent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            synchronized (this.mLock) {
-                pendingIntent = this.mSessionActivity;
-            }
-            return pendingIntent;
+        synchronized (this.mLock) {
+            pendingIntent = this.mSessionActivity;
         }
-        return (PendingIntent) invokeV.objValue;
+        return pendingIntent;
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public int getShuffleMode() {
-        InterceptResult invokeV;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            synchronized (this.mLock) {
-                i = this.mShuffleMode;
-            }
-            return i;
+        synchronized (this.mLock) {
+            i = this.mShuffleMode;
         }
-        return invokeV.intValue;
+        return i;
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     @NonNull
     public List<SessionPlayer.TrackInfo> getTracks() {
-        InterceptResult invokeV;
         List<SessionPlayer.TrackInfo> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            synchronized (this.mLock) {
-                list = this.mTracks;
-            }
-            return list;
+        synchronized (this.mLock) {
+            list = this.mTracks;
         }
-        return (List) invokeV.objValue;
+        return list;
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     @NonNull
     public VideoSize getVideoSize() {
-        InterceptResult invokeV;
         VideoSize videoSize;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            synchronized (this.mLock) {
-                videoSize = this.mVideoSize;
-            }
-            return videoSize;
+        synchronized (this.mLock) {
+            videoSize = this.mVideoSize;
         }
-        return (VideoSize) invokeV.objValue;
+        return videoSize;
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public boolean isConnected() {
-        InterceptResult invokeV;
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            synchronized (this.mLock) {
-                if (this.mISession != null) {
-                    z = true;
-                } else {
-                    z = false;
-                }
+        synchronized (this.mLock) {
+            if (this.mISession != null) {
+                z = true;
+            } else {
+                z = false;
             }
-            return z;
         }
-        return invokeV.booleanValue;
+        return z;
     }
 
     public void notifyPlaybackCompleted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable(this) { // from class: androidx.media2.session.MediaControllerImplBase.41
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
+        this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable() { // from class: androidx.media2.session.MediaControllerImplBase.41
+            @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
+            public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
+                if (!MediaControllerImplBase.this.mInstance.isConnected()) {
+                    return;
                 }
-
-                @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
-                        return;
-                    }
-                    controllerCallback.onPlaybackCompleted(this.this$0.mInstance);
-                }
-            });
-        }
+                controllerCallback.onPlaybackCompleted(MediaControllerImplBase.this.mInstance);
+            }
+        });
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public ListenableFuture<SessionResult> pause() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
-            return dispatchRemoteSessionTask(10001, new RemoteSessionTask(this) { // from class: androidx.media2.session.MediaControllerImplBase.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i) == null) {
-                        iMediaSession.pause(this.this$0.mControllerStub, i);
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeV.objValue;
+        return dispatchRemoteSessionTask(10001, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.4
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i) throws RemoteException {
+                iMediaSession.pause(MediaControllerImplBase.this.mControllerStub, i);
+            }
+        });
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public ListenableFuture<SessionResult> play() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
-            return dispatchRemoteSessionTask(10000, new RemoteSessionTask(this) { // from class: androidx.media2.session.MediaControllerImplBase.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i) == null) {
-                        iMediaSession.play(this.this$0.mControllerStub, i);
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeV.objValue;
+        return dispatchRemoteSessionTask(10000, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.3
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i) throws RemoteException {
+                iMediaSession.play(MediaControllerImplBase.this.mControllerStub, i);
+            }
+        });
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public ListenableFuture<SessionResult> prepare() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
-            return dispatchRemoteSessionTask(10002, new RemoteSessionTask(this) { // from class: androidx.media2.session.MediaControllerImplBase.5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i) == null) {
-                        iMediaSession.prepare(this.this$0.mControllerStub, i);
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeV.objValue;
+        return dispatchRemoteSessionTask(10002, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.5
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i) throws RemoteException {
+                iMediaSession.prepare(MediaControllerImplBase.this.mControllerStub, i);
+            }
+        });
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public ListenableFuture<SessionResult> rewind() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
-            return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_SESSION_REWIND, new RemoteSessionTask(this) { // from class: androidx.media2.session.MediaControllerImplBase.7
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i) == null) {
-                        iMediaSession.rewind(this.this$0.mControllerStub, i);
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeV.objValue;
+        return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_SESSION_REWIND, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.7
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i) throws RemoteException {
+                iMediaSession.rewind(MediaControllerImplBase.this.mControllerStub, i);
+            }
+        });
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public ListenableFuture<SessionResult> skipBackward() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) {
-            return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_SESSION_SKIP_BACKWARD, new RemoteSessionTask(this) { // from class: androidx.media2.session.MediaControllerImplBase.9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i) == null) {
-                        iMediaSession.skipBackward(this.this$0.mControllerStub, i);
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeV.objValue;
+        return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_SESSION_SKIP_BACKWARD, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.9
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i) throws RemoteException {
+                iMediaSession.skipBackward(MediaControllerImplBase.this.mControllerStub, i);
+            }
+        });
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public ListenableFuture<SessionResult> skipForward() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048648, this)) == null) {
-            return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_SESSION_SKIP_FORWARD, new RemoteSessionTask(this) { // from class: androidx.media2.session.MediaControllerImplBase.8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i) == null) {
-                        iMediaSession.skipForward(this.this$0.mControllerStub, i);
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeV.objValue;
+        return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_SESSION_SKIP_FORWARD, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.8
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i) throws RemoteException {
+                iMediaSession.skipForward(MediaControllerImplBase.this.mControllerStub, i);
+            }
+        });
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public ListenableFuture<SessionResult> skipToNextItem() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048649, this)) == null) {
-            return dispatchRemoteSessionTask(10009, new RemoteSessionTask(this) { // from class: androidx.media2.session.MediaControllerImplBase.25
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i) == null) {
-                        iMediaSession.skipToNextItem(this.this$0.mControllerStub, i);
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeV.objValue;
+        return dispatchRemoteSessionTask(10009, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.25
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i) throws RemoteException {
+                iMediaSession.skipToNextItem(MediaControllerImplBase.this.mControllerStub, i);
+            }
+        });
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public ListenableFuture<SessionResult> skipToPreviousItem() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048651, this)) == null) {
-            return dispatchRemoteSessionTask(10008, new RemoteSessionTask(this) { // from class: androidx.media2.session.MediaControllerImplBase.24
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i) == null) {
-                        iMediaSession.skipToPreviousItem(this.this$0.mControllerStub, i);
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeV.objValue;
+        return dispatchRemoteSessionTask(10008, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.24
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i) throws RemoteException {
+                iMediaSession.skipToPreviousItem(MediaControllerImplBase.this.mControllerStub, i);
+            }
+        });
     }
 
     public MediaControllerImplBase(Context context, MediaController mediaController, SessionToken sessionToken, @Nullable Bundle bundle) {
         boolean requestConnectToService;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, mediaController, sessionToken, bundle};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mLock = new Object();
-        this.mCurrentMediaItemIndex = -1;
-        this.mPreviousMediaItemIndex = -1;
-        this.mNextMediaItemIndex = -1;
-        this.mVideoSize = new VideoSize(0, 0);
-        this.mTracks = Collections.emptyList();
-        this.mSelectedTracks = new SparseArray<>();
         this.mInstance = mediaController;
         if (context != null) {
             if (sessionToken != null) {
@@ -936,42 +475,17 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
                 this.mSequencedFutureManager = new SequencedFutureManager();
                 this.mControllerStub = new MediaControllerStub(this, this.mSequencedFutureManager);
                 this.mToken = sessionToken;
-                this.mDeathRecipient = new IBinder.DeathRecipient(this) { // from class: androidx.media2.session.MediaControllerImplBase.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MediaControllerImplBase this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext2 = TitanRuntime.newInitContext();
-                            newInitContext2.initArgs = r2;
-                            Object[] objArr2 = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext2);
-                            int i3 = newInitContext2.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
-                                newInitContext2.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext2);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
+                this.mDeathRecipient = new IBinder.DeathRecipient() { // from class: androidx.media2.session.MediaControllerImplBase.1
                     @Override // android.os.IBinder.DeathRecipient
                     public void binderDied() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.this$0.mInstance.close();
-                        }
+                        MediaControllerImplBase.this.mInstance.close();
                     }
                 };
                 if (this.mToken.getType() == 0) {
                     this.mServiceConnection = null;
                     requestConnectToService = requestConnectToSession(bundle);
                 } else {
-                    this.mServiceConnection = new SessionServiceConnection(this, bundle);
+                    this.mServiceConnection = new SessionServiceConnection(bundle);
                     requestConnectToService = requestConnectToService();
                 }
                 if (!requestConnectToService) {
@@ -986,2041 +500,730 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
     }
 
     private ListenableFuture<SessionResult> dispatchRemoteSessionTask(int i, RemoteSessionTask remoteSessionTask) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, this, i, remoteSessionTask)) == null) {
-            return dispatchRemoteSessionTaskInternal(i, null, remoteSessionTask);
-        }
-        return (ListenableFuture) invokeIL.objValue;
+        return dispatchRemoteSessionTaskInternal(i, null, remoteSessionTask);
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> addPlaylistItem(int i, @NonNull String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
-            return dispatchRemoteSessionTask(10013, new RemoteSessionTask(this, i, str) { // from class: androidx.media2.session.MediaControllerImplBase.20
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ int val$index;
-                public final /* synthetic */ String val$mediaId;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i), str};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$index = i;
-                    this.val$mediaId = str;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i2) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i2) == null) {
-                        iMediaSession.addPlaylistItem(this.this$0.mControllerStub, i2, this.val$index, this.val$mediaId);
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeIL.objValue;
-    }
-
-    @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> adjustVolume(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
-            return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_VOLUME_ADJUST_VOLUME, new RemoteSessionTask(this, i, i2) { // from class: androidx.media2.session.MediaControllerImplBase.12
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ int val$direction;
-                public final /* synthetic */ int val$flags;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i), Integer.valueOf(i2)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$direction = i;
-                    this.val$flags = i2;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i3) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i3) == null) {
-                        iMediaSession.adjustVolume(this.this$0.mControllerStub, i3, this.val$direction, this.val$flags);
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeII.objValue;
-    }
-
-    @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> movePlaylistItem(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048607, this, i, i2)) == null) {
-            return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_PLAYER_MOVE_PLAYLIST_ITEM, new RemoteSessionTask(this, i, i2) { // from class: androidx.media2.session.MediaControllerImplBase.23
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ int val$fromIndex;
-                public final /* synthetic */ int val$toIndex;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i), Integer.valueOf(i2)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$fromIndex = i;
-                    this.val$toIndex = i2;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i3) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i3) == null) {
-                        iMediaSession.movePlaylistItem(this.this$0.mControllerStub, i3, this.val$fromIndex, this.val$toIndex);
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeII.objValue;
-    }
-
-    public void notifyTrackDeselected(int i, SessionPlayer.TrackInfo trackInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048620, this, i, trackInfo) == null) {
-            synchronized (this.mLock) {
-                this.mSelectedTracks.remove(trackInfo.getTrackType());
+    public ListenableFuture<SessionResult> addPlaylistItem(final int i, @NonNull final String str) {
+        return dispatchRemoteSessionTask(10013, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.20
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i2) throws RemoteException {
+                iMediaSession.addPlaylistItem(MediaControllerImplBase.this.mControllerStub, i2, i, str);
             }
-            this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable(this, trackInfo) { // from class: androidx.media2.session.MediaControllerImplBase.46
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ SessionPlayer.TrackInfo val$trackInfo;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, trackInfo};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$trackInfo = trackInfo;
-                }
-
-                @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
-                        return;
-                    }
-                    controllerCallback.onTrackDeselected(this.this$0.mInstance, this.val$trackInfo);
-                }
-            });
-        }
-    }
-
-    public void notifyTrackSelected(int i, SessionPlayer.TrackInfo trackInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048621, this, i, trackInfo) == null) {
-            synchronized (this.mLock) {
-                this.mSelectedTracks.put(trackInfo.getTrackType(), trackInfo);
-            }
-            this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable(this, trackInfo) { // from class: androidx.media2.session.MediaControllerImplBase.45
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ SessionPlayer.TrackInfo val$trackInfo;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, trackInfo};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$trackInfo = trackInfo;
-                }
-
-                @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
-                        return;
-                    }
-                    controllerCallback.onTrackSelected(this.this$0.mInstance, this.val$trackInfo);
-                }
-            });
-        }
-    }
-
-    public void onSetCustomLayout(int i, List<MediaSession.CommandButton> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048627, this, i, list) == null) {
-            this.mInstance.notifyPrimaryControllerCallback(new MediaController.ControllerCallbackRunnable(this, list, i) { // from class: androidx.media2.session.MediaControllerImplBase.51
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ List val$layout;
-                public final /* synthetic */ int val$seq;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, list, Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$layout = list;
-                    this.val$seq = i;
-                }
-
-                @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, controllerCallback) == null) {
-                        this.this$0.sendControllerResult(this.val$seq, new SessionResult(controllerCallback.onSetCustomLayout(this.this$0.mInstance, this.val$layout)));
-                    }
-                }
-            });
-        }
+        });
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> replacePlaylistItem(int i, @NonNull String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048632, this, i, str)) == null) {
-            return dispatchRemoteSessionTask(10015, new RemoteSessionTask(this, i, str) { // from class: androidx.media2.session.MediaControllerImplBase.22
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ int val$index;
-                public final /* synthetic */ String val$mediaId;
+    public ListenableFuture<SessionResult> adjustVolume(final int i, final int i2) {
+        return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_VOLUME_ADJUST_VOLUME, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.12
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i3) throws RemoteException {
+                iMediaSession.adjustVolume(MediaControllerImplBase.this.mControllerStub, i3, i, i2);
+            }
+        });
+    }
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i), str};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$index = i;
-                    this.val$mediaId = str;
-                }
+    @Override // androidx.media2.session.MediaController.MediaControllerImpl
+    public ListenableFuture<SessionResult> movePlaylistItem(final int i, final int i2) {
+        return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_PLAYER_MOVE_PLAYLIST_ITEM, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.23
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i3) throws RemoteException {
+                iMediaSession.movePlaylistItem(MediaControllerImplBase.this.mControllerStub, i3, i, i2);
+            }
+        });
+    }
 
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i2) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i2) == null) {
-                        iMediaSession.replacePlaylistItem(this.this$0.mControllerStub, i2, this.val$index, this.val$mediaId);
-                    }
-                }
-            });
+    public void notifyTrackDeselected(int i, final SessionPlayer.TrackInfo trackInfo) {
+        synchronized (this.mLock) {
+            this.mSelectedTracks.remove(trackInfo.getTrackType());
         }
-        return (ListenableFuture) invokeIL.objValue;
+        this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable() { // from class: androidx.media2.session.MediaControllerImplBase.46
+            @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
+            public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
+                if (!MediaControllerImplBase.this.mInstance.isConnected()) {
+                    return;
+                }
+                controllerCallback.onTrackDeselected(MediaControllerImplBase.this.mInstance, trackInfo);
+            }
+        });
+    }
+
+    public void notifyTrackSelected(int i, final SessionPlayer.TrackInfo trackInfo) {
+        synchronized (this.mLock) {
+            this.mSelectedTracks.put(trackInfo.getTrackType(), trackInfo);
+        }
+        this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable() { // from class: androidx.media2.session.MediaControllerImplBase.45
+            @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
+            public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
+                if (!MediaControllerImplBase.this.mInstance.isConnected()) {
+                    return;
+                }
+                controllerCallback.onTrackSelected(MediaControllerImplBase.this.mInstance, trackInfo);
+            }
+        });
+    }
+
+    public void onSetCustomLayout(final int i, final List<MediaSession.CommandButton> list) {
+        this.mInstance.notifyPrimaryControllerCallback(new MediaController.ControllerCallbackRunnable() { // from class: androidx.media2.session.MediaControllerImplBase.51
+            @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
+            public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
+                MediaControllerImplBase.this.sendControllerResult(i, new SessionResult(controllerCallback.onSetCustomLayout(MediaControllerImplBase.this.mInstance, list)));
+            }
+        });
+    }
+
+    @Override // androidx.media2.session.MediaController.MediaControllerImpl
+    public ListenableFuture<SessionResult> replacePlaylistItem(final int i, @NonNull final String str) {
+        return dispatchRemoteSessionTask(10015, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.22
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i2) throws RemoteException {
+                iMediaSession.replacePlaylistItem(MediaControllerImplBase.this.mControllerStub, i2, i, str);
+            }
+        });
     }
 
     public void sendControllerResult(int i, @NonNull SessionResult sessionResult) {
         IMediaSession iMediaSession;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048636, this, i, sessionResult) == null) {
-            synchronized (this.mLock) {
-                iMediaSession = this.mISession;
+        synchronized (this.mLock) {
+            iMediaSession = this.mISession;
+        }
+        if (iMediaSession == null) {
+            return;
+        }
+        try {
+            iMediaSession.onControllerResult(this.mControllerStub, i, MediaParcelUtils.toParcelable(sessionResult));
+        } catch (RemoteException unused) {
+            Log.w(TAG, "Error in sending");
+        }
+    }
+
+    @Override // androidx.media2.session.MediaController.MediaControllerImpl
+    public ListenableFuture<SessionResult> sendCustomCommand(@NonNull final SessionCommand sessionCommand, @Nullable final Bundle bundle) {
+        return dispatchRemoteSessionTask(sessionCommand, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.15
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i) throws RemoteException {
+                iMediaSession.onCustomCommand(MediaControllerImplBase.this.mControllerStub, i, MediaParcelUtils.toParcelable(sessionCommand), bundle);
             }
-            if (iMediaSession == null) {
-                return;
+        });
+    }
+
+    @Override // androidx.media2.session.MediaController.MediaControllerImpl
+    public ListenableFuture<SessionResult> setMediaUri(@NonNull final Uri uri, @Nullable final Bundle bundle) {
+        return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_SESSION_SET_MEDIA_URI, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.18
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i) throws RemoteException {
+                iMediaSession.setMediaUri(MediaControllerImplBase.this.mControllerStub, i, uri, bundle);
             }
-            try {
-                iMediaSession.onControllerResult(this.mControllerStub, i, MediaParcelUtils.toParcelable(sessionResult));
-            } catch (RemoteException unused) {
-                Log.w(TAG, "Error in sending");
+        });
+    }
+
+    @Override // androidx.media2.session.MediaController.MediaControllerImpl
+    public ListenableFuture<SessionResult> setPlaylist(@NonNull final List<String> list, @Nullable final MediaMetadata mediaMetadata) {
+        return dispatchRemoteSessionTask(10006, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.16
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i) throws RemoteException {
+                iMediaSession.setPlaylist(MediaControllerImplBase.this.mControllerStub, i, list, MediaParcelUtils.toParcelable(mediaMetadata));
             }
-        }
+        });
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> sendCustomCommand(@NonNull SessionCommand sessionCommand, @Nullable Bundle bundle) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048637, this, sessionCommand, bundle)) == null) {
-            return dispatchRemoteSessionTask(sessionCommand, new RemoteSessionTask(this, sessionCommand, bundle) { // from class: androidx.media2.session.MediaControllerImplBase.15
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ Bundle val$args;
-                public final /* synthetic */ SessionCommand val$command;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, sessionCommand, bundle};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$command = sessionCommand;
-                    this.val$args = bundle;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i) == null) {
-                        iMediaSession.onCustomCommand(this.this$0.mControllerStub, i, MediaParcelUtils.toParcelable(this.val$command), this.val$args);
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeLL.objValue;
+    public ListenableFuture<SessionResult> setRating(@NonNull final String str, @NonNull final Rating rating) {
+        return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_SESSION_SET_RATING, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.14
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i) throws RemoteException {
+                iMediaSession.setRating(MediaControllerImplBase.this.mControllerStub, i, str, MediaParcelUtils.toParcelable(rating));
+            }
+        });
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> setMediaUri(@NonNull Uri uri, @Nullable Bundle bundle) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048639, this, uri, bundle)) == null) {
-            return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_SESSION_SET_MEDIA_URI, new RemoteSessionTask(this, uri, bundle) { // from class: androidx.media2.session.MediaControllerImplBase.18
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ Bundle val$extras;
-                public final /* synthetic */ Uri val$uri;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, uri, bundle};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$uri = uri;
-                    this.val$extras = bundle;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i) == null) {
-                        iMediaSession.setMediaUri(this.this$0.mControllerStub, i, this.val$uri, this.val$extras);
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeLL.objValue;
-    }
-
-    @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> setPlaylist(@NonNull List<String> list, @Nullable MediaMetadata mediaMetadata) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048641, this, list, mediaMetadata)) == null) {
-            return dispatchRemoteSessionTask(10006, new RemoteSessionTask(this, list, mediaMetadata) { // from class: androidx.media2.session.MediaControllerImplBase.16
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ List val$list;
-                public final /* synthetic */ MediaMetadata val$metadata;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, list, mediaMetadata};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$list = list;
-                    this.val$metadata = mediaMetadata;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i) == null) {
-                        iMediaSession.setPlaylist(this.this$0.mControllerStub, i, this.val$list, MediaParcelUtils.toParcelable(this.val$metadata));
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeLL.objValue;
-    }
-
-    @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> setRating(@NonNull String str, @NonNull Rating rating) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048642, this, str, rating)) == null) {
-            return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_SESSION_SET_RATING, new RemoteSessionTask(this, str, rating) { // from class: androidx.media2.session.MediaControllerImplBase.14
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ String val$mediaId;
-                public final /* synthetic */ Rating val$rating;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, rating};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$mediaId = str;
-                    this.val$rating = rating;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i) == null) {
-                        iMediaSession.setRating(this.this$0.mControllerStub, i, this.val$mediaId, MediaParcelUtils.toParcelable(this.val$rating));
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeLL.objValue;
-    }
-
-    @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> setVolumeTo(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048646, this, i, i2)) == null) {
-            return dispatchRemoteSessionTask(30000, new RemoteSessionTask(this, i, i2) { // from class: androidx.media2.session.MediaControllerImplBase.11
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ int val$flags;
-                public final /* synthetic */ int val$value;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i), Integer.valueOf(i2)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$value = i;
-                    this.val$flags = i2;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i3) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i3) == null) {
-                        iMediaSession.setVolumeTo(this.this$0.mControllerStub, i3, this.val$value, this.val$flags);
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeII.objValue;
+    public ListenableFuture<SessionResult> setVolumeTo(final int i, final int i2) {
+        return dispatchRemoteSessionTask(30000, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.11
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i3) throws RemoteException {
+                iMediaSession.setVolumeTo(MediaControllerImplBase.this.mControllerStub, i3, i, i2);
+            }
+        });
     }
 
     private ListenableFuture<SessionResult> dispatchRemoteSessionTask(SessionCommand sessionCommand, RemoteSessionTask remoteSessionTask) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, sessionCommand, remoteSessionTask)) == null) {
-            return dispatchRemoteSessionTaskInternal(0, sessionCommand, remoteSessionTask);
-        }
-        return (ListenableFuture) invokeLL.objValue;
+        return dispatchRemoteSessionTaskInternal(0, sessionCommand, remoteSessionTask);
     }
 
     private ListenableFuture<SessionResult> dispatchRemoteSessionTaskInternal(int i, SessionCommand sessionCommand, RemoteSessionTask remoteSessionTask) {
-        InterceptResult invokeILL;
         IMediaSession sessionInterfaceIfAble;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TRACKBALL, this, i, sessionCommand, remoteSessionTask)) == null) {
-            if (sessionCommand != null) {
-                sessionInterfaceIfAble = getSessionInterfaceIfAble(sessionCommand);
-            } else {
-                sessionInterfaceIfAble = getSessionInterfaceIfAble(i);
-            }
-            if (sessionInterfaceIfAble != null) {
-                SequencedFutureManager.SequencedFuture createSequencedFuture = this.mSequencedFutureManager.createSequencedFuture(RESULT_WHEN_CLOSED);
-                try {
-                    remoteSessionTask.run(sessionInterfaceIfAble, createSequencedFuture.getSequenceNumber());
-                } catch (RemoteException e) {
-                    Log.w(TAG, "Cannot connect to the service or the session is gone", e);
-                    createSequencedFuture.set(new SessionResult(-100));
-                }
-                return createSequencedFuture;
-            }
-            return SessionResult.createFutureWithResult(-4);
+        if (sessionCommand != null) {
+            sessionInterfaceIfAble = getSessionInterfaceIfAble(sessionCommand);
+        } else {
+            sessionInterfaceIfAble = getSessionInterfaceIfAble(i);
         }
-        return (ListenableFuture) invokeILL.objValue;
+        if (sessionInterfaceIfAble != null) {
+            SequencedFutureManager.SequencedFuture createSequencedFuture = this.mSequencedFutureManager.createSequencedFuture(RESULT_WHEN_CLOSED);
+            try {
+                remoteSessionTask.run(sessionInterfaceIfAble, createSequencedFuture.getSequenceNumber());
+            } catch (RemoteException e) {
+                Log.w(TAG, "Cannot connect to the service or the session is gone", e);
+                createSequencedFuture.set(new SessionResult(-100));
+            }
+            return createSequencedFuture;
+        }
+        return SessionResult.createFutureWithResult(-4);
     }
 
     private boolean requestConnectToService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            Intent intent = new Intent(MediaSessionService.SERVICE_INTERFACE);
-            intent.setClassName(this.mToken.getPackageName(), this.mToken.getServiceName());
-            synchronized (this.mLock) {
-                if (!this.mContext.bindService(intent, this.mServiceConnection, 1)) {
-                    Log.w(TAG, "bind to " + this.mToken + " failed");
-                    return false;
-                }
-                if (DEBUG) {
-                    Log.d(TAG, "bind to " + this.mToken + " succeeded");
-                }
-                return true;
+        Intent intent = new Intent(MediaSessionService.SERVICE_INTERFACE);
+        intent.setClassName(this.mToken.getPackageName(), this.mToken.getServiceName());
+        synchronized (this.mLock) {
+            if (!this.mContext.bindService(intent, this.mServiceConnection, 1)) {
+                Log.w(TAG, "bind to " + this.mToken + " failed");
+                return false;
             }
+            if (DEBUG) {
+                Log.d(TAG, "bind to " + this.mToken + " succeeded");
+            }
+            return true;
         }
-        return invokeV.booleanValue;
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (DEBUG) {
-                Log.d(TAG, "release from " + this.mToken);
+        if (DEBUG) {
+            Log.d(TAG, "release from " + this.mToken);
+        }
+        synchronized (this.mLock) {
+            IMediaSession iMediaSession = this.mISession;
+            if (this.mIsReleased) {
+                return;
             }
-            synchronized (this.mLock) {
-                IMediaSession iMediaSession = this.mISession;
-                if (this.mIsReleased) {
-                    return;
-                }
-                this.mIsReleased = true;
-                if (this.mServiceConnection != null) {
-                    this.mContext.unbindService(this.mServiceConnection);
-                    this.mServiceConnection = null;
-                }
-                this.mISession = null;
-                this.mControllerStub.destroy();
-                if (iMediaSession != null) {
-                    int obtainNextSequenceNumber = this.mSequencedFutureManager.obtainNextSequenceNumber();
-                    try {
-                        iMediaSession.asBinder().unlinkToDeath(this.mDeathRecipient, 0);
-                        iMediaSession.release(this.mControllerStub, obtainNextSequenceNumber);
-                    } catch (RemoteException unused) {
-                    }
-                }
-                this.mSequencedFutureManager.close();
-                this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable(this) { // from class: androidx.media2.session.MediaControllerImplBase.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MediaControllerImplBase this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                    public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, controllerCallback) == null) {
-                            controllerCallback.onDisconnected(this.this$0.mInstance);
-                        }
-                    }
-                });
+            this.mIsReleased = true;
+            if (this.mServiceConnection != null) {
+                this.mContext.unbindService(this.mServiceConnection);
+                this.mServiceConnection = null;
             }
+            this.mISession = null;
+            this.mControllerStub.destroy();
+            if (iMediaSession != null) {
+                int obtainNextSequenceNumber = this.mSequencedFutureManager.obtainNextSequenceNumber();
+                try {
+                    iMediaSession.asBinder().unlinkToDeath(this.mDeathRecipient, 0);
+                    iMediaSession.release(this.mControllerStub, obtainNextSequenceNumber);
+                } catch (RemoteException unused) {
+                }
+            }
+            this.mSequencedFutureManager.close();
+            this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable() { // from class: androidx.media2.session.MediaControllerImplBase.2
+                @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
+                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
+                    controllerCallback.onDisconnected(MediaControllerImplBase.this.mInstance);
+                }
+            });
         }
     }
 
     private boolean requestConnectToSession(@Nullable Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, bundle)) == null) {
-            try {
-                IMediaSession.Stub.asInterface((IBinder) this.mToken.getBinder()).connect(this.mControllerStub, this.mSequencedFutureManager.obtainNextSequenceNumber(), MediaParcelUtils.toParcelable(new ConnectionRequest(this.mContext.getPackageName(), Process.myPid(), bundle)));
-                return true;
-            } catch (RemoteException e) {
-                Log.w(TAG, "Failed to call connection request.", e);
-                return false;
-            }
+        try {
+            IMediaSession.Stub.asInterface((IBinder) this.mToken.getBinder()).connect(this.mControllerStub, this.mSequencedFutureManager.obtainNextSequenceNumber(), MediaParcelUtils.toParcelable(new ConnectionRequest(this.mContext.getPackageName(), Process.myPid(), bundle)));
+            return true;
+        } catch (RemoteException e) {
+            Log.w(TAG, "Failed to call connection request.", e);
+            return false;
         }
-        return invokeL.booleanValue;
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     @NonNull
-    public ListenableFuture<SessionResult> deselectTrack(@NonNull SessionPlayer.TrackInfo trackInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, trackInfo)) == null) {
-            return dispatchRemoteSessionTask(11002, new RemoteSessionTask(this, trackInfo) { // from class: androidx.media2.session.MediaControllerImplBase.30
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ SessionPlayer.TrackInfo val$trackInfo;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, trackInfo};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$trackInfo = trackInfo;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i) == null) {
-                        iMediaSession.deselectTrack(this.this$0.mControllerStub, i, MediaParcelUtils.toParcelable(this.val$trackInfo));
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeL.objValue;
+    public ListenableFuture<SessionResult> deselectTrack(@NonNull final SessionPlayer.TrackInfo trackInfo) {
+        return dispatchRemoteSessionTask(11002, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.30
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i) throws RemoteException {
+                iMediaSession.deselectTrack(MediaControllerImplBase.this.mControllerStub, i, MediaParcelUtils.toParcelable(trackInfo));
+            }
+        });
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     @Nullable
     public SessionPlayer.TrackInfo getSelectedTrack(int i) {
-        InterceptResult invokeI;
         SessionPlayer.TrackInfo trackInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
-            synchronized (this.mLock) {
-                trackInfo = this.mSelectedTracks.get(i);
-            }
-            return trackInfo;
+        synchronized (this.mLock) {
+            trackInfo = this.mSelectedTracks.get(i);
         }
-        return (SessionPlayer.TrackInfo) invokeI.objValue;
+        return trackInfo;
     }
 
-    public void notifyPlaybackInfoChanges(MediaController.PlaybackInfo playbackInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, playbackInfo) == null) {
-            synchronized (this.mLock) {
-                this.mPlaybackInfo = playbackInfo;
+    public IMediaSession getSessionInterfaceIfAble(int i) {
+        synchronized (this.mLock) {
+            if (!this.mAllowedCommands.hasCommand(i)) {
+                Log.w(TAG, "Controller isn't allowed to call command, commandCode=" + i);
+                return null;
             }
-            this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable(this, playbackInfo) { // from class: androidx.media2.session.MediaControllerImplBase.38
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ MediaController.PlaybackInfo val$info;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, playbackInfo};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$info = playbackInfo;
-                }
-
-                @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
-                        return;
-                    }
-                    controllerCallback.onPlaybackInfoChanged(this.this$0.mInstance, this.val$info);
-                }
-            });
+            return this.mISession;
         }
     }
 
-    public void notifyPlaylistMetadataChanges(MediaMetadata mediaMetadata) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, mediaMetadata) == null) {
-            synchronized (this.mLock) {
-                this.mPlaylistMetadata = mediaMetadata;
-            }
-            this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable(this, mediaMetadata) { // from class: androidx.media2.session.MediaControllerImplBase.37
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ MediaMetadata val$metadata;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, mediaMetadata};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$metadata = mediaMetadata;
-                }
-
-                @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
-                        return;
-                    }
-                    controllerCallback.onPlaylistMetadataChanged(this.this$0.mInstance, this.val$metadata);
-                }
-            });
+    public void notifyPlaybackInfoChanges(final MediaController.PlaybackInfo playbackInfo) {
+        synchronized (this.mLock) {
+            this.mPlaybackInfo = playbackInfo;
         }
+        this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable() { // from class: androidx.media2.session.MediaControllerImplBase.38
+            @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
+            public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
+                if (!MediaControllerImplBase.this.mInstance.isConnected()) {
+                    return;
+                }
+                controllerCallback.onPlaybackInfoChanged(MediaControllerImplBase.this.mInstance, playbackInfo);
+            }
+        });
     }
 
-    public void notifyVideoSizeChanged(VideoSize videoSize) {
-        MediaItem mediaItem;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, videoSize) == null) {
-            synchronized (this.mLock) {
-                this.mVideoSize = videoSize;
-                mediaItem = this.mCurrentMediaItem;
-            }
-            this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable(this, mediaItem, videoSize) { // from class: androidx.media2.session.MediaControllerImplBase.43
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ MediaItem val$currentItem;
-                public final /* synthetic */ VideoSize val$videoSize;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, mediaItem, videoSize};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$currentItem = mediaItem;
-                    this.val$videoSize = videoSize;
-                }
-
-                @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
-                        return;
-                    }
-                    MediaItem mediaItem2 = this.val$currentItem;
-                    if (mediaItem2 != null) {
-                        controllerCallback.onVideoSizeChanged(this.this$0.mInstance, mediaItem2, this.val$videoSize);
-                    }
-                    controllerCallback.onVideoSizeChanged(this.this$0.mInstance, this.val$videoSize);
-                }
-            });
+    public void notifyPlaylistMetadataChanges(final MediaMetadata mediaMetadata) {
+        synchronized (this.mLock) {
+            this.mPlaylistMetadata = mediaMetadata;
         }
+        this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable() { // from class: androidx.media2.session.MediaControllerImplBase.37
+            @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
+            public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
+                if (!MediaControllerImplBase.this.mInstance.isConnected()) {
+                    return;
+                }
+                controllerCallback.onPlaylistMetadataChanged(MediaControllerImplBase.this.mInstance, mediaMetadata);
+            }
+        });
     }
 
-    public void onAllowedCommandsChanged(SessionCommandGroup sessionCommandGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, sessionCommandGroup) == null) {
-            synchronized (this.mLock) {
-                this.mAllowedCommands = sessionCommandGroup;
-            }
-            this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable(this, sessionCommandGroup) { // from class: androidx.media2.session.MediaControllerImplBase.50
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ SessionCommandGroup val$commands;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, sessionCommandGroup};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$commands = sessionCommandGroup;
-                }
-
-                @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, controllerCallback) == null) {
-                        controllerCallback.onAllowedCommandsChanged(this.this$0.mInstance, this.val$commands);
-                    }
-                }
-            });
+    public void notifyVideoSizeChanged(final VideoSize videoSize) {
+        final MediaItem mediaItem;
+        synchronized (this.mLock) {
+            this.mVideoSize = videoSize;
+            mediaItem = this.mCurrentMediaItem;
         }
+        this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable() { // from class: androidx.media2.session.MediaControllerImplBase.43
+            @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
+            public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
+                if (!MediaControllerImplBase.this.mInstance.isConnected()) {
+                    return;
+                }
+                MediaItem mediaItem2 = mediaItem;
+                if (mediaItem2 != null) {
+                    controllerCallback.onVideoSizeChanged(MediaControllerImplBase.this.mInstance, mediaItem2, videoSize);
+                }
+                controllerCallback.onVideoSizeChanged(MediaControllerImplBase.this.mInstance, videoSize);
+            }
+        });
+    }
+
+    public void onAllowedCommandsChanged(final SessionCommandGroup sessionCommandGroup) {
+        synchronized (this.mLock) {
+            this.mAllowedCommands = sessionCommandGroup;
+        }
+        this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable() { // from class: androidx.media2.session.MediaControllerImplBase.50
+            @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
+            public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
+                controllerCallback.onAllowedCommandsChanged(MediaControllerImplBase.this.mInstance, sessionCommandGroup);
+            }
+        });
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> removePlaylistItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048631, this, i)) == null) {
-            return dispatchRemoteSessionTask(10014, new RemoteSessionTask(this, i) { // from class: androidx.media2.session.MediaControllerImplBase.21
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ int val$index;
+    public ListenableFuture<SessionResult> removePlaylistItem(final int i) {
+        return dispatchRemoteSessionTask(10014, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.21
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i2) throws RemoteException {
+                iMediaSession.removePlaylistItem(MediaControllerImplBase.this.mControllerStub, i2, i);
+            }
+        });
+    }
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$index = i;
-                }
-
+    @Override // androidx.media2.session.MediaController.MediaControllerImpl
+    public ListenableFuture<SessionResult> seekTo(final long j) {
+        if (j >= 0) {
+            return dispatchRemoteSessionTask(10003, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.10
                 @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i2) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i2) == null) {
-                        iMediaSession.removePlaylistItem(this.this$0.mControllerStub, i2, this.val$index);
-                    }
+                public void run(IMediaSession iMediaSession, int i) throws RemoteException {
+                    iMediaSession.seekTo(MediaControllerImplBase.this.mControllerStub, i, j);
                 }
             });
         }
-        return (ListenableFuture) invokeI.objValue;
-    }
-
-    @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> seekTo(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048634, this, j)) == null) {
-            if (j >= 0) {
-                return dispatchRemoteSessionTask(10003, new RemoteSessionTask(this, j) { // from class: androidx.media2.session.MediaControllerImplBase.10
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MediaControllerImplBase this$0;
-                    public final /* synthetic */ long val$pos;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Long.valueOf(j)};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$pos = j;
-                    }
-
-                    @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                    public void run(IMediaSession iMediaSession, int i) throws RemoteException {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i) == null) {
-                            iMediaSession.seekTo(this.this$0.mControllerStub, i, this.val$pos);
-                        }
-                    }
-                });
-            }
-            throw new IllegalArgumentException("position shouldn't be negative");
-        }
-        return (ListenableFuture) invokeJ.objValue;
+        throw new IllegalArgumentException("position shouldn't be negative");
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     @NonNull
-    public ListenableFuture<SessionResult> selectTrack(@NonNull SessionPlayer.TrackInfo trackInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048635, this, trackInfo)) == null) {
-            return dispatchRemoteSessionTask(11001, new RemoteSessionTask(this, trackInfo) { // from class: androidx.media2.session.MediaControllerImplBase.29
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ SessionPlayer.TrackInfo val$trackInfo;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, trackInfo};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$trackInfo = trackInfo;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i) == null) {
-                        iMediaSession.selectTrack(this.this$0.mControllerStub, i, MediaParcelUtils.toParcelable(this.val$trackInfo));
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeL.objValue;
+    public ListenableFuture<SessionResult> selectTrack(@NonNull final SessionPlayer.TrackInfo trackInfo) {
+        return dispatchRemoteSessionTask(11001, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.29
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i) throws RemoteException {
+                iMediaSession.selectTrack(MediaControllerImplBase.this.mControllerStub, i, MediaParcelUtils.toParcelable(trackInfo));
+            }
+        });
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> setMediaItem(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, str)) == null) {
-            return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_PLAYER_SET_MEDIA_ITEM, new RemoteSessionTask(this, str) { // from class: androidx.media2.session.MediaControllerImplBase.17
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ String val$mediaId;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$mediaId = str;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i) == null) {
-                        iMediaSession.setMediaItem(this.this$0.mControllerStub, i, this.val$mediaId);
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeL.objValue;
+    public ListenableFuture<SessionResult> setMediaItem(@NonNull final String str) {
+        return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_PLAYER_SET_MEDIA_ITEM, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.17
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i) throws RemoteException {
+                iMediaSession.setMediaItem(MediaControllerImplBase.this.mControllerStub, i, str);
+            }
+        });
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> setPlaybackSpeed(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048640, this, f)) == null) {
-            return dispatchRemoteSessionTask(10004, new RemoteSessionTask(this, f) { // from class: androidx.media2.session.MediaControllerImplBase.13
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ float val$speed;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Float.valueOf(f)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$speed = f;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i) == null) {
-                        iMediaSession.setPlaybackSpeed(this.this$0.mControllerStub, i, this.val$speed);
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeF.objValue;
+    public ListenableFuture<SessionResult> setPlaybackSpeed(final float f) {
+        return dispatchRemoteSessionTask(10004, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.13
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i) throws RemoteException {
+                iMediaSession.setPlaybackSpeed(MediaControllerImplBase.this.mControllerStub, i, f);
+            }
+        });
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> setRepeatMode(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048643, this, i)) == null) {
-            return dispatchRemoteSessionTask(10011, new RemoteSessionTask(this, i) { // from class: androidx.media2.session.MediaControllerImplBase.27
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ int val$repeatMode;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$repeatMode = i;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i2) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i2) == null) {
-                        iMediaSession.setRepeatMode(this.this$0.mControllerStub, i2, this.val$repeatMode);
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeI.objValue;
+    public ListenableFuture<SessionResult> setRepeatMode(final int i) {
+        return dispatchRemoteSessionTask(10011, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.27
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i2) throws RemoteException {
+                iMediaSession.setRepeatMode(MediaControllerImplBase.this.mControllerStub, i2, i);
+            }
+        });
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> setShuffleMode(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048644, this, i)) == null) {
-            return dispatchRemoteSessionTask(10010, new RemoteSessionTask(this, i) { // from class: androidx.media2.session.MediaControllerImplBase.28
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ int val$shuffleMode;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$shuffleMode = i;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i2) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i2) == null) {
-                        iMediaSession.setShuffleMode(this.this$0.mControllerStub, i2, this.val$shuffleMode);
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeI.objValue;
+    public ListenableFuture<SessionResult> setShuffleMode(final int i) {
+        return dispatchRemoteSessionTask(10010, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.28
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i2) throws RemoteException {
+                iMediaSession.setShuffleMode(MediaControllerImplBase.this.mControllerStub, i2, i);
+            }
+        });
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> setSurface(@Nullable Surface surface) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048645, this, surface)) == null) {
-            return dispatchRemoteSessionTask(11000, new RemoteSessionTask(this, surface) { // from class: androidx.media2.session.MediaControllerImplBase.31
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ Surface val$surface;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, surface};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$surface = surface;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i) == null) {
-                        iMediaSession.setSurface(this.this$0.mControllerStub, i, this.val$surface);
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeL.objValue;
+    public ListenableFuture<SessionResult> setSurface(@Nullable final Surface surface) {
+        return dispatchRemoteSessionTask(11000, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.31
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i) throws RemoteException {
+                iMediaSession.setSurface(MediaControllerImplBase.this.mControllerStub, i, surface);
+            }
+        });
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> skipToPlaylistItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048650, this, i)) == null) {
-            return dispatchRemoteSessionTask(10007, new RemoteSessionTask(this, i) { // from class: androidx.media2.session.MediaControllerImplBase.26
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ int val$index;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$index = i;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i2) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i2) == null) {
-                        iMediaSession.skipToPlaylistItem(this.this$0.mControllerStub, i2, this.val$index);
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeI.objValue;
+    public ListenableFuture<SessionResult> skipToPlaylistItem(final int i) {
+        return dispatchRemoteSessionTask(10007, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.26
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i2) throws RemoteException {
+                iMediaSession.skipToPlaylistItem(MediaControllerImplBase.this.mControllerStub, i2, i);
+            }
+        });
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> updatePlaylistMetadata(@Nullable MediaMetadata mediaMetadata) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048652, this, mediaMetadata)) == null) {
-            return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_PLAYER_UPDATE_LIST_METADATA, new RemoteSessionTask(this, mediaMetadata) { // from class: androidx.media2.session.MediaControllerImplBase.19
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ MediaMetadata val$metadata;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, mediaMetadata};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$metadata = mediaMetadata;
-                }
-
-                @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
-                public void run(IMediaSession iMediaSession, int i) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iMediaSession, i) == null) {
-                        iMediaSession.updatePlaylistMetadata(this.this$0.mControllerStub, i, MediaParcelUtils.toParcelable(this.val$metadata));
-                    }
-                }
-            });
-        }
-        return (ListenableFuture) invokeL.objValue;
+    public ListenableFuture<SessionResult> updatePlaylistMetadata(@Nullable final MediaMetadata mediaMetadata) {
+        return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_PLAYER_UPDATE_LIST_METADATA, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.19
+            @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
+            public void run(IMediaSession iMediaSession, int i) throws RemoteException {
+                iMediaSession.updatePlaylistMetadata(MediaControllerImplBase.this.mControllerStub, i, MediaParcelUtils.toParcelable(mediaMetadata));
+            }
+        });
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public long getCurrentPosition() {
-        InterceptResult invokeV;
         long elapsedRealtime;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            synchronized (this.mLock) {
-                if (this.mISession == null) {
-                    Log.w(TAG, "Session isn't active", new IllegalStateException());
-                    return Long.MIN_VALUE;
-                } else if (this.mPlayerState == 2 && this.mBufferingState != 2) {
-                    if (this.mInstance.mTimeDiff != null) {
-                        elapsedRealtime = this.mInstance.mTimeDiff.longValue();
-                    } else {
-                        elapsedRealtime = SystemClock.elapsedRealtime() - this.mPositionEventTimeMs;
-                    }
-                    return Math.max(0L, this.mPositionMs + (this.mPlaybackSpeed * ((float) elapsedRealtime)));
-                } else {
-                    return this.mPositionMs;
-                }
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public long getDuration() {
-        InterceptResult invokeV;
-        MediaMetadata metadata;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            synchronized (this.mLock) {
-                if (this.mCurrentMediaItem == null) {
-                    metadata = null;
-                } else {
-                    metadata = this.mCurrentMediaItem.getMetadata();
-                }
-                if (metadata != null && metadata.containsKey("android.media.metadata.DURATION")) {
-                    return metadata.getLong("android.media.metadata.DURATION");
-                }
+        synchronized (this.mLock) {
+            if (this.mISession == null) {
+                Log.w(TAG, "Session isn't active", new IllegalStateException());
                 return Long.MIN_VALUE;
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public IMediaSession getSessionInterfaceIfAble(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) {
-            synchronized (this.mLock) {
-                if (!this.mAllowedCommands.hasCommand(i)) {
-                    Log.w(TAG, "Controller isn't allowed to call command, commandCode=" + i);
-                    return null;
+            } else if (this.mPlayerState == 2 && this.mBufferingState != 2) {
+                if (this.mInstance.mTimeDiff != null) {
+                    elapsedRealtime = this.mInstance.mTimeDiff.longValue();
+                } else {
+                    elapsedRealtime = SystemClock.elapsedRealtime() - this.mPositionEventTimeMs;
                 }
-                return this.mISession;
+                return Math.max(0L, this.mPositionMs + (this.mPlaybackSpeed * ((float) elapsedRealtime)));
+            } else {
+                return this.mPositionMs;
             }
         }
-        return (IMediaSession) invokeI.objValue;
     }
 
     public IMediaSession getSessionInterfaceIfAble(SessionCommand sessionCommand) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, sessionCommand)) == null) {
-            synchronized (this.mLock) {
-                if (!this.mAllowedCommands.hasCommand(sessionCommand)) {
-                    Log.w(TAG, "Controller isn't allowed to call command, command=" + sessionCommand);
-                    return null;
-                }
-                return this.mISession;
+        synchronized (this.mLock) {
+            if (!this.mAllowedCommands.hasCommand(sessionCommand)) {
+                Log.w(TAG, "Controller isn't allowed to call command, command=" + sessionCommand);
+                return null;
             }
-        }
-        return (IMediaSession) invokeL.objValue;
-    }
-
-    public void notifyBufferingStateChanged(MediaItem mediaItem, int i, long j, long j2, long j3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{mediaItem, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            synchronized (this.mLock) {
-                this.mBufferingState = i;
-                this.mBufferedPositionMs = j;
-                this.mPositionEventTimeMs = j2;
-                this.mPositionMs = j3;
-            }
-            this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable(this, mediaItem, i) { // from class: androidx.media2.session.MediaControllerImplBase.35
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ MediaItem val$item;
-                public final /* synthetic */ int val$state;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, mediaItem, Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$item = mediaItem;
-                    this.val$state = i;
-                }
-
-                @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
-                        return;
-                    }
-                    controllerCallback.onBufferingStateChanged(this.this$0.mInstance, this.val$item, this.val$state);
-                }
-            });
+            return this.mISession;
         }
     }
 
-    public void notifyPlaylistChanges(List<MediaItem> list, MediaMetadata mediaMetadata, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{list, mediaMetadata, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            synchronized (this.mLock) {
-                this.mPlaylist = list;
-                this.mPlaylistMetadata = mediaMetadata;
-                this.mCurrentMediaItemIndex = i;
-                this.mPreviousMediaItemIndex = i2;
-                this.mNextMediaItemIndex = i3;
-                if (i >= 0 && list != null && i < list.size()) {
-                    this.mCurrentMediaItem = list.get(i);
-                }
-            }
-            this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable(this, list, mediaMetadata) { // from class: androidx.media2.session.MediaControllerImplBase.36
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ MediaMetadata val$metadata;
-                public final /* synthetic */ List val$playlist;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, list, mediaMetadata};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$playlist = list;
-                    this.val$metadata = mediaMetadata;
-                }
-
-                @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
-                        return;
-                    }
-                    controllerCallback.onPlaylistChanged(this.this$0.mInstance, this.val$playlist, this.val$metadata);
-                }
-            });
+    public void notifyBufferingStateChanged(final MediaItem mediaItem, final int i, long j, long j2, long j3) {
+        synchronized (this.mLock) {
+            this.mBufferingState = i;
+            this.mBufferedPositionMs = j;
+            this.mPositionEventTimeMs = j2;
+            this.mPositionMs = j3;
         }
+        this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable() { // from class: androidx.media2.session.MediaControllerImplBase.35
+            @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
+            public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
+                if (!MediaControllerImplBase.this.mInstance.isConnected()) {
+                    return;
+                }
+                controllerCallback.onBufferingStateChanged(MediaControllerImplBase.this.mInstance, mediaItem, i);
+            }
+        });
     }
 
-    public void notifyCurrentMediaItemChanged(MediaItem mediaItem, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048609, this, mediaItem, i, i2, i3) == null) {
-            synchronized (this.mLock) {
-                this.mCurrentMediaItem = mediaItem;
-                this.mCurrentMediaItemIndex = i;
-                this.mPreviousMediaItemIndex = i2;
-                this.mNextMediaItemIndex = i3;
-                if (this.mPlaylist != null && i >= 0 && i < this.mPlaylist.size()) {
-                    this.mPlaylist.set(i, mediaItem);
-                }
+    public void notifyPlaylistChanges(final List<MediaItem> list, final MediaMetadata mediaMetadata, int i, int i2, int i3) {
+        synchronized (this.mLock) {
+            this.mPlaylist = list;
+            this.mPlaylistMetadata = mediaMetadata;
+            this.mCurrentMediaItemIndex = i;
+            this.mPreviousMediaItemIndex = i2;
+            this.mNextMediaItemIndex = i3;
+            if (i >= 0 && list != null && i < list.size()) {
+                this.mCurrentMediaItem = list.get(i);
             }
-            this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable(this, mediaItem) { // from class: androidx.media2.session.MediaControllerImplBase.32
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ MediaItem val$item;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, mediaItem};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$item = mediaItem;
-                }
-
-                @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
-                        return;
-                    }
-                    controllerCallback.onCurrentMediaItemChanged(this.this$0.mInstance, this.val$item);
-                }
-            });
         }
+        this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable() { // from class: androidx.media2.session.MediaControllerImplBase.36
+            @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
+            public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
+                if (!MediaControllerImplBase.this.mInstance.isConnected()) {
+                    return;
+                }
+                controllerCallback.onPlaylistChanged(MediaControllerImplBase.this.mInstance, list, mediaMetadata);
+            }
+        });
     }
 
-    public void notifyPlaybackSpeedChanges(long j, long j2, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Float.valueOf(f)}) == null) {
-            synchronized (this.mLock) {
-                this.mPositionEventTimeMs = j;
-                this.mPositionMs = j2;
-                this.mPlaybackSpeed = f;
+    public void notifyCurrentMediaItemChanged(final MediaItem mediaItem, int i, int i2, int i3) {
+        synchronized (this.mLock) {
+            this.mCurrentMediaItem = mediaItem;
+            this.mCurrentMediaItemIndex = i;
+            this.mPreviousMediaItemIndex = i2;
+            this.mNextMediaItemIndex = i3;
+            if (this.mPlaylist != null && i >= 0 && i < this.mPlaylist.size()) {
+                this.mPlaylist.set(i, mediaItem);
             }
-            this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable(this, f) { // from class: androidx.media2.session.MediaControllerImplBase.34
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ float val$speed;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Float.valueOf(f)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$speed = f;
-                }
-
-                @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
-                        return;
-                    }
-                    controllerCallback.onPlaybackSpeedChanged(this.this$0.mInstance, this.val$speed);
-                }
-            });
         }
+        this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable() { // from class: androidx.media2.session.MediaControllerImplBase.32
+            @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
+            public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
+                if (!MediaControllerImplBase.this.mInstance.isConnected()) {
+                    return;
+                }
+                controllerCallback.onCurrentMediaItemChanged(MediaControllerImplBase.this.mInstance, mediaItem);
+            }
+        });
     }
 
-    public void notifyPlayerStateChanges(long j, long j2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
-            synchronized (this.mLock) {
-                this.mPositionEventTimeMs = j;
-                this.mPositionMs = j2;
-                this.mPlayerState = i;
-            }
-            this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable(this, i) { // from class: androidx.media2.session.MediaControllerImplBase.33
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ int val$state;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$state = i;
-                }
-
-                @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
-                        return;
-                    }
-                    controllerCallback.onPlayerStateChanged(this.this$0.mInstance, this.val$state);
-                }
-            });
+    public void notifyRepeatModeChanges(final int i, int i2, int i3, int i4) {
+        synchronized (this.mLock) {
+            this.mRepeatMode = i;
+            this.mCurrentMediaItemIndex = i2;
+            this.mPreviousMediaItemIndex = i3;
+            this.mNextMediaItemIndex = i4;
         }
+        this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable() { // from class: androidx.media2.session.MediaControllerImplBase.39
+            @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
+            public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
+                if (!MediaControllerImplBase.this.mInstance.isConnected()) {
+                    return;
+                }
+                controllerCallback.onRepeatModeChanged(MediaControllerImplBase.this.mInstance, i);
+            }
+        });
     }
 
-    public void notifySeekCompleted(long j, long j2, long j3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            synchronized (this.mLock) {
-                this.mPositionEventTimeMs = j;
-                this.mPositionMs = j2;
-            }
-            this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable(this, j3) { // from class: androidx.media2.session.MediaControllerImplBase.42
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ long val$seekPositionMs;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Long.valueOf(j3)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$seekPositionMs = j3;
-                }
-
-                @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
-                        return;
-                    }
-                    controllerCallback.onSeekCompleted(this.this$0.mInstance, this.val$seekPositionMs);
-                }
-            });
+    public void notifyShuffleModeChanges(final int i, int i2, int i3, int i4) {
+        synchronized (this.mLock) {
+            this.mShuffleMode = i;
+            this.mCurrentMediaItemIndex = i2;
+            this.mPreviousMediaItemIndex = i3;
+            this.mNextMediaItemIndex = i4;
         }
+        this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable() { // from class: androidx.media2.session.MediaControllerImplBase.40
+            @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
+            public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
+                if (!MediaControllerImplBase.this.mInstance.isConnected()) {
+                    return;
+                }
+                controllerCallback.onShuffleModeChanged(MediaControllerImplBase.this.mInstance, i);
+            }
+        });
     }
 
-    public void onCustomCommand(int i, SessionCommand sessionCommand, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048626, this, i, sessionCommand, bundle) == null) {
-            if (DEBUG) {
-                Log.d(TAG, "onCustomCommand cmd=" + sessionCommand.getCustomAction());
-            }
-            this.mInstance.notifyPrimaryControllerCallback(new MediaController.ControllerCallbackRunnable(this, sessionCommand, bundle, i) { // from class: androidx.media2.session.MediaControllerImplBase.49
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ Bundle val$args;
-                public final /* synthetic */ SessionCommand val$command;
-                public final /* synthetic */ int val$seq;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, sessionCommand, bundle, Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$command = sessionCommand;
-                    this.val$args = bundle;
-                    this.val$seq = i;
-                }
-
-                @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, controllerCallback) == null) {
-                        SessionResult onCustomCommand = controllerCallback.onCustomCommand(this.this$0.mInstance, this.val$command, this.val$args);
-                        if (onCustomCommand != null) {
-                            this.this$0.sendControllerResult(this.val$seq, onCustomCommand);
-                            return;
-                        }
-                        throw new RuntimeException("ControllerCallback#onCustomCommand() has returned null, command=" + this.val$command.getCustomAction());
-                    }
-                }
-            });
+    public void notifyPlaybackSpeedChanges(long j, long j2, final float f) {
+        synchronized (this.mLock) {
+            this.mPositionEventTimeMs = j;
+            this.mPositionMs = j2;
+            this.mPlaybackSpeed = f;
         }
+        this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable() { // from class: androidx.media2.session.MediaControllerImplBase.34
+            @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
+            public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
+                if (!MediaControllerImplBase.this.mInstance.isConnected()) {
+                    return;
+                }
+                controllerCallback.onPlaybackSpeedChanged(MediaControllerImplBase.this.mInstance, f);
+            }
+        });
     }
 
-    public void notifyRepeatModeChanges(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048616, this, i, i2, i3, i4) == null) {
-            synchronized (this.mLock) {
-                this.mRepeatMode = i;
-                this.mCurrentMediaItemIndex = i2;
-                this.mPreviousMediaItemIndex = i3;
-                this.mNextMediaItemIndex = i4;
-            }
-            this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable(this, i) { // from class: androidx.media2.session.MediaControllerImplBase.39
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ int val$repeatMode;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i5 = newInitContext.flag;
-                        if ((i5 & 1) != 0) {
-                            int i6 = i5 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$repeatMode = i;
-                }
-
-                @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
-                        return;
-                    }
-                    controllerCallback.onRepeatModeChanged(this.this$0.mInstance, this.val$repeatMode);
-                }
-            });
+    public void notifyPlayerStateChanges(long j, long j2, final int i) {
+        synchronized (this.mLock) {
+            this.mPositionEventTimeMs = j;
+            this.mPositionMs = j2;
+            this.mPlayerState = i;
         }
+        this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable() { // from class: androidx.media2.session.MediaControllerImplBase.33
+            @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
+            public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
+                if (!MediaControllerImplBase.this.mInstance.isConnected()) {
+                    return;
+                }
+                controllerCallback.onPlayerStateChanged(MediaControllerImplBase.this.mInstance, i);
+            }
+        });
     }
 
-    public void notifyShuffleModeChanges(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048618, this, i, i2, i3, i4) == null) {
-            synchronized (this.mLock) {
-                this.mShuffleMode = i;
-                this.mCurrentMediaItemIndex = i2;
-                this.mPreviousMediaItemIndex = i3;
-                this.mNextMediaItemIndex = i4;
-            }
-            this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable(this, i) { // from class: androidx.media2.session.MediaControllerImplBase.40
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ int val$shuffleMode;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i5 = newInitContext.flag;
-                        if ((i5 & 1) != 0) {
-                            int i6 = i5 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$shuffleMode = i;
-                }
-
-                @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
-                        return;
-                    }
-                    controllerCallback.onShuffleModeChanged(this.this$0.mInstance, this.val$shuffleMode);
-                }
-            });
+    public void notifySeekCompleted(long j, long j2, final long j3) {
+        synchronized (this.mLock) {
+            this.mPositionEventTimeMs = j;
+            this.mPositionMs = j2;
         }
+        this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable() { // from class: androidx.media2.session.MediaControllerImplBase.42
+            @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
+            public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
+                if (!MediaControllerImplBase.this.mInstance.isConnected()) {
+                    return;
+                }
+                controllerCallback.onSeekCompleted(MediaControllerImplBase.this.mInstance, j3);
+            }
+        });
     }
 
-    public void notifySubtitleData(MediaItem mediaItem, SessionPlayer.TrackInfo trackInfo, SubtitleData subtitleData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048619, this, mediaItem, trackInfo, subtitleData) == null) {
-            this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable(this, mediaItem, trackInfo, subtitleData) { // from class: androidx.media2.session.MediaControllerImplBase.47
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ SubtitleData val$data;
-                public final /* synthetic */ MediaItem val$item;
-                public final /* synthetic */ SessionPlayer.TrackInfo val$track;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, mediaItem, trackInfo, subtitleData};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$item = mediaItem;
-                    this.val$track = trackInfo;
-                    this.val$data = subtitleData;
+    public void notifySubtitleData(final MediaItem mediaItem, final SessionPlayer.TrackInfo trackInfo, final SubtitleData subtitleData) {
+        this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable() { // from class: androidx.media2.session.MediaControllerImplBase.47
+            @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
+            public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
+                if (!MediaControllerImplBase.this.mInstance.isConnected()) {
+                    return;
                 }
-
-                @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
-                        return;
-                    }
-                    controllerCallback.onSubtitleData(this.this$0.mInstance, this.val$item, this.val$track, this.val$data);
-                }
-            });
-        }
+                controllerCallback.onSubtitleData(MediaControllerImplBase.this.mInstance, mediaItem, trackInfo, subtitleData);
+            }
+        });
     }
 
-    public void notifyTracksChanged(int i, List<SessionPlayer.TrackInfo> list, SessionPlayer.TrackInfo trackInfo, SessionPlayer.TrackInfo trackInfo2, SessionPlayer.TrackInfo trackInfo3, SessionPlayer.TrackInfo trackInfo4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Integer.valueOf(i), list, trackInfo, trackInfo2, trackInfo3, trackInfo4}) == null) {
-            synchronized (this.mLock) {
-                this.mTracks = list;
-                this.mSelectedTracks.put(1, trackInfo);
-                this.mSelectedTracks.put(2, trackInfo2);
-                this.mSelectedTracks.put(4, trackInfo3);
-                this.mSelectedTracks.put(5, trackInfo4);
-            }
-            this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable(this, list) { // from class: androidx.media2.session.MediaControllerImplBase.44
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaControllerImplBase this$0;
-                public final /* synthetic */ List val$tracks;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, list};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$tracks = list;
-                }
-
-                @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
-                        return;
-                    }
-                    controllerCallback.onTracksChanged(this.this$0.mInstance, this.val$tracks);
-                }
-            });
+    public void onCustomCommand(final int i, final SessionCommand sessionCommand, final Bundle bundle) {
+        if (DEBUG) {
+            Log.d(TAG, "onCustomCommand cmd=" + sessionCommand.getCustomAction());
         }
+        this.mInstance.notifyPrimaryControllerCallback(new MediaController.ControllerCallbackRunnable() { // from class: androidx.media2.session.MediaControllerImplBase.49
+            @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
+            public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
+                SessionResult onCustomCommand = controllerCallback.onCustomCommand(MediaControllerImplBase.this.mInstance, sessionCommand, bundle);
+                if (onCustomCommand != null) {
+                    MediaControllerImplBase.this.sendControllerResult(i, onCustomCommand);
+                    return;
+                }
+                throw new RuntimeException("ControllerCallback#onCustomCommand() has returned null, command=" + sessionCommand.getCustomAction());
+            }
+        });
     }
 
-    public void onConnectedNotLocked(int i, IMediaSession iMediaSession, SessionCommandGroup sessionCommandGroup, int i2, MediaItem mediaItem, long j, long j2, float f, long j3, MediaController.PlaybackInfo playbackInfo, int i3, int i4, List<MediaItem> list, PendingIntent pendingIntent, int i5, int i6, int i7, Bundle bundle, VideoSize videoSize, List<SessionPlayer.TrackInfo> list2, SessionPlayer.TrackInfo trackInfo, SessionPlayer.TrackInfo trackInfo2, SessionPlayer.TrackInfo trackInfo3, SessionPlayer.TrackInfo trackInfo4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048625, this, new Object[]{Integer.valueOf(i), iMediaSession, sessionCommandGroup, Integer.valueOf(i2), mediaItem, Long.valueOf(j), Long.valueOf(j2), Float.valueOf(f), Long.valueOf(j3), playbackInfo, Integer.valueOf(i3), Integer.valueOf(i4), list, pendingIntent, Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), bundle, videoSize, list2, trackInfo, trackInfo2, trackInfo3, trackInfo4}) == null) {
-            if (DEBUG) {
-                Log.d(TAG, "onConnectedNotLocked sessionBinder=" + iMediaSession + ", allowedCommands=" + sessionCommandGroup);
+    public void notifyTracksChanged(int i, final List<SessionPlayer.TrackInfo> list, SessionPlayer.TrackInfo trackInfo, SessionPlayer.TrackInfo trackInfo2, SessionPlayer.TrackInfo trackInfo3, SessionPlayer.TrackInfo trackInfo4) {
+        synchronized (this.mLock) {
+            this.mTracks = list;
+            this.mSelectedTracks.put(1, trackInfo);
+            this.mSelectedTracks.put(2, trackInfo2);
+            this.mSelectedTracks.put(4, trackInfo3);
+            this.mSelectedTracks.put(5, trackInfo4);
+        }
+        this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable() { // from class: androidx.media2.session.MediaControllerImplBase.44
+            @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
+            public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
+                if (!MediaControllerImplBase.this.mInstance.isConnected()) {
+                    return;
+                }
+                controllerCallback.onTracksChanged(MediaControllerImplBase.this.mInstance, list);
             }
-            if (iMediaSession != null && sessionCommandGroup != null) {
-                try {
-                    synchronized (this.mLock) {
+        });
+    }
+
+    public void onConnectedNotLocked(int i, IMediaSession iMediaSession, final SessionCommandGroup sessionCommandGroup, int i2, MediaItem mediaItem, long j, long j2, float f, long j3, MediaController.PlaybackInfo playbackInfo, int i3, int i4, List<MediaItem> list, PendingIntent pendingIntent, int i5, int i6, int i7, Bundle bundle, VideoSize videoSize, List<SessionPlayer.TrackInfo> list2, SessionPlayer.TrackInfo trackInfo, SessionPlayer.TrackInfo trackInfo2, SessionPlayer.TrackInfo trackInfo3, SessionPlayer.TrackInfo trackInfo4) {
+        if (DEBUG) {
+            Log.d(TAG, "onConnectedNotLocked sessionBinder=" + iMediaSession + ", allowedCommands=" + sessionCommandGroup);
+        }
+        if (iMediaSession != null && sessionCommandGroup != null) {
+            try {
+                synchronized (this.mLock) {
+                    try {
+                        if (this.mIsReleased) {
+                            return;
+                        }
                         try {
-                            if (this.mIsReleased) {
+                            if (this.mISession != null) {
+                                Log.e(TAG, "Cannot be notified about the connection result many times. Probably a bug or malicious app.");
+                                this.mInstance.close();
                                 return;
                             }
+                            this.mAllowedCommands = sessionCommandGroup;
+                            this.mPlayerState = i2;
+                            this.mCurrentMediaItem = mediaItem;
+                            this.mPositionEventTimeMs = j;
+                            this.mPositionMs = j2;
+                            this.mPlaybackSpeed = f;
+                            this.mBufferedPositionMs = j3;
+                            this.mPlaybackInfo = playbackInfo;
+                            this.mRepeatMode = i3;
+                            this.mShuffleMode = i4;
+                            this.mPlaylist = list;
+                            this.mSessionActivity = pendingIntent;
+                            this.mISession = iMediaSession;
+                            this.mCurrentMediaItemIndex = i5;
+                            this.mPreviousMediaItemIndex = i6;
+                            this.mNextMediaItemIndex = i7;
+                            this.mVideoSize = videoSize;
+                            this.mTracks = list2;
+                            this.mSelectedTracks.put(1, trackInfo);
+                            this.mSelectedTracks.put(2, trackInfo2);
+                            this.mSelectedTracks.put(4, trackInfo3);
+                            this.mSelectedTracks.put(5, trackInfo4);
                             try {
-                                if (this.mISession != null) {
-                                    Log.e(TAG, "Cannot be notified about the connection result many times. Probably a bug or malicious app.");
-                                    this.mInstance.close();
-                                    return;
-                                }
-                                this.mAllowedCommands = sessionCommandGroup;
-                                this.mPlayerState = i2;
-                                this.mCurrentMediaItem = mediaItem;
-                                this.mPositionEventTimeMs = j;
-                                this.mPositionMs = j2;
-                                this.mPlaybackSpeed = f;
-                                this.mBufferedPositionMs = j3;
-                                this.mPlaybackInfo = playbackInfo;
-                                this.mRepeatMode = i3;
-                                this.mShuffleMode = i4;
-                                this.mPlaylist = list;
-                                this.mSessionActivity = pendingIntent;
-                                this.mISession = iMediaSession;
-                                this.mCurrentMediaItemIndex = i5;
-                                this.mPreviousMediaItemIndex = i6;
-                                this.mNextMediaItemIndex = i7;
-                                this.mVideoSize = videoSize;
-                                this.mTracks = list2;
-                                this.mSelectedTracks.put(1, trackInfo);
-                                this.mSelectedTracks.put(2, trackInfo2);
-                                this.mSelectedTracks.put(4, trackInfo3);
-                                this.mSelectedTracks.put(5, trackInfo4);
-                                try {
-                                    this.mISession.asBinder().linkToDeath(this.mDeathRecipient, 0);
-                                    this.mConnectedToken = new SessionToken(new SessionTokenImplBase(this.mToken.getUid(), 0, this.mToken.getPackageName(), iMediaSession, bundle));
-                                    this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable(this, sessionCommandGroup) { // from class: androidx.media2.session.MediaControllerImplBase.48
-                                        public static /* synthetic */ Interceptable $ic;
-                                        public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ MediaControllerImplBase this$0;
-                                        public final /* synthetic */ SessionCommandGroup val$allowedCommands;
-
-                                        {
-                                            Interceptable interceptable2 = $ic;
-                                            if (interceptable2 != null) {
-                                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                                newInitContext.initArgs = r2;
-                                                Object[] objArr = {this, sessionCommandGroup};
-                                                interceptable2.invokeUnInit(65536, newInitContext);
-                                                int i8 = newInitContext.flag;
-                                                if ((i8 & 1) != 0) {
-                                                    int i9 = i8 & 2;
-                                                    newInitContext.thisArg = this;
-                                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                                    return;
-                                                }
-                                            }
-                                            this.this$0 = this;
-                                            this.val$allowedCommands = sessionCommandGroup;
-                                        }
-
-                                        @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                                        public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
-                                            Interceptable interceptable2 = $ic;
-                                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, controllerCallback) == null) {
-                                                controllerCallback.onConnected(this.this$0.mInstance, this.val$allowedCommands);
-                                            }
-                                        }
-                                    });
-                                } catch (RemoteException e) {
-                                    if (DEBUG) {
-                                        Log.d(TAG, "Session died too early.", e);
+                                this.mISession.asBinder().linkToDeath(this.mDeathRecipient, 0);
+                                this.mConnectedToken = new SessionToken(new SessionTokenImplBase(this.mToken.getUid(), 0, this.mToken.getPackageName(), iMediaSession, bundle));
+                                this.mInstance.notifyAllControllerCallbacks(new MediaController.ControllerCallbackRunnable() { // from class: androidx.media2.session.MediaControllerImplBase.48
+                                    @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
+                                    public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
+                                        controllerCallback.onConnected(MediaControllerImplBase.this.mInstance, sessionCommandGroup);
                                     }
-                                    this.mInstance.close();
+                                });
+                            } catch (RemoteException e) {
+                                if (DEBUG) {
+                                    Log.d(TAG, "Session died too early.", e);
                                 }
-                            } catch (Throwable th) {
-                                th = th;
-                                throw th;
+                                this.mInstance.close();
                             }
-                        } catch (Throwable th2) {
-                            th = th2;
+                        } catch (Throwable th) {
+                            th = th;
+                            throw th;
                         }
+                    } catch (Throwable th2) {
+                        th = th2;
                     }
-                } catch (Throwable th3) {
-                    if (0 != 0) {
-                        this.mInstance.close();
-                    }
-                    throw th3;
                 }
-            } else {
-                this.mInstance.close();
+            } catch (Throwable th3) {
+                if (0 != 0) {
+                    this.mInstance.close();
+                }
+                throw th3;
             }
+        } else {
+            this.mInstance.close();
         }
     }
 }

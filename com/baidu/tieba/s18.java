@@ -1,79 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetVipInfo.VipSpecialItem;
-import tbclient.GetVipInfo.VipSpecialList;
+import tbclient.Item;
+import tbclient.RecommendForumInfo;
+import tbclient.SearchSug.DataRes;
+import tbclient.SugLiveInfo;
+import tbclient.SugRankingInfo;
 /* loaded from: classes6.dex */
-public class s18 implements Cdo {
+public class s18 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public i18 a;
-    public List<t18> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948098671, "Lcom/baidu/tieba/s18;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948098671, "Lcom/baidu/tieba/s18;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-    }
-
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static List<Cdo> a(DataRes dataRes, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public s18(VipSpecialList vipSpecialList) {
-        List<VipSpecialItem> list;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipSpecialList};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dataRes, str)) == null) {
+            if (dataRes == null) {
+                return null;
             }
-        }
-        if (vipSpecialList != null && (list = vipSpecialList.item) != null && list.size() > 0) {
-            String str = vipSpecialList.card_id;
-            i18 i18Var = new i18();
-            this.a = i18Var;
-            i18Var.e(1);
-            this.a.d(vipSpecialList.class_name);
-            this.a.f(vipSpecialList.class_url_name);
-            this.a.g(vipSpecialList.class_url);
-            this.b = new ArrayList();
-            for (VipSpecialItem vipSpecialItem : vipSpecialList.item) {
-                this.b.add(new t18(vipSpecialItem));
+            ArrayList arrayList = new ArrayList();
+            RecommendForumInfo recommendForumInfo = dataRes.forum_card;
+            if (recommendForumInfo != null) {
+                o18 o18Var = new o18();
+                o18Var.i(recommendForumInfo);
+                arrayList.add(o18Var);
             }
+            Item item = dataRes.item_card;
+            if (item != null) {
+                p18 p18Var = new p18();
+                p18Var.i(item);
+                arrayList.add(p18Var);
+            }
+            for (SugLiveInfo sugLiveInfo : dataRes.live_card) {
+                q18 q18Var = new q18();
+                q18Var.n(str);
+                q18Var.m(sugLiveInfo);
+                arrayList.add(q18Var);
+            }
+            SugRankingInfo sugRankingInfo = dataRes.ranking_card;
+            if (sugRankingInfo != null) {
+                r18 r18Var = new r18();
+                r18Var.h(str);
+                r18Var.g(sugRankingInfo);
+                arrayList.add(r18Var);
+            }
+            int size = arrayList.size();
+            for (String str2 : dataRes.list) {
+                n18 n18Var = new n18();
+                n18Var.c(str);
+                n18Var.f(str2);
+                if (!StringUtils.isNull(str2) && !StringUtils.isNull(str) && str2.trim().equals(str.trim())) {
+                    arrayList.add(size, n18Var);
+                } else {
+                    arrayList.add(n18Var);
+                }
+            }
+            return arrayList;
         }
+        return (List) invokeLL.objValue;
     }
 }

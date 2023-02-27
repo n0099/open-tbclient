@@ -7,6 +7,8 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.security.SecureRandom;
 import java.util.UUID;
 /* loaded from: classes7.dex */
@@ -28,7 +30,7 @@ public class q {
                 return;
             }
         }
-        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        a = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
     public static String a(byte[] bArr) {
@@ -59,7 +61,7 @@ public class q {
                 aVar.a("interfaceType", str);
                 return;
             }
-            aVar.a("interfaceType", aVar.b("interfaceType") + ";" + str);
+            aVar.a("interfaceType", aVar.b("interfaceType") + ParamableElem.DIVIDE_PARAM + str);
         }
     }
 
@@ -70,7 +72,7 @@ public class q {
                 aVar.a("interfaceCode", str);
                 return;
             }
-            aVar.a("interfaceCode", aVar.b("interfaceCode") + ";" + str);
+            aVar.a("interfaceCode", aVar.b("interfaceCode") + ParamableElem.DIVIDE_PARAM + str);
         }
     }
 
@@ -81,7 +83,7 @@ public class q {
                 aVar.a("interfaceElasped", str);
                 return;
             }
-            aVar.a("interfaceElasped", aVar.b("interfaceElasped") + ";" + str);
+            aVar.a("interfaceElasped", aVar.b("interfaceElasped") + ParamableElem.DIVIDE_PARAM + str);
         }
     }
 

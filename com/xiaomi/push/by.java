@@ -1,60 +1,33 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.al;
+import com.xiaomi.push.aj;
+import java.lang.ref.WeakReference;
 /* loaded from: classes8.dex */
-public class by extends al.a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ bx a;
+public class by extends aj.a {
+    public final /* synthetic */ bw a;
 
-    public by(bx bxVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bxVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = bxVar;
+    public by(bw bwVar) {
+        this.a = bwVar;
     }
 
-    @Override // com.xiaomi.push.al.a
+    @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo224a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "10052" : (String) invokeV.objValue;
+    public String mo217a() {
+        return "10054";
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        cn cnVar;
-        cn cnVar2;
+        String c;
         Context context;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            com.xiaomi.channel.commonutils.logger.b.c("exec== mUploadJob");
-            cnVar = this.a.f176a;
-            if (cnVar != null) {
-                cnVar2 = this.a.f176a;
-                context = this.a.f173a;
-                cnVar2.a(context);
-                this.a.b("upload_time");
-            }
-        }
+        Context context2;
+        com.xiaomi.channel.commonutils.logger.b.c("exec== DbSizeControlJob");
+        c = this.a.c();
+        context = this.a.f152a;
+        cb cbVar = new cb(c, new WeakReference(context));
+        context2 = this.a.f152a;
+        ci.a(context2).a(cbVar);
+        this.a.b("check_time");
     }
 }

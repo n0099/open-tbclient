@@ -1,123 +1,101 @@
 package com.baidu.tieba;
 
+import android.text.Selection;
+import android.text.SpanWatcher;
+import android.text.Spannable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class v65 {
+public class v65 implements SpanWatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
+    public SpanGroupManager a;
+    public int b;
+    public int c;
 
-    public v65() {
+    @Override // android.text.SpanWatcher
+    public void onSpanAdded(Spannable spannable, Object obj, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(1048576, this, spannable, obj, i, i2) == null) {
+        }
+    }
+
+    public v65(@NonNull SpanGroupManager spanGroupManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {spanGroupManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = spanGroupManager;
+    }
+
+    @Override // android.text.SpanWatcher
+    public void onSpanChanged(Spannable spannable, Object obj, int i, int i2, int i3, int i4) {
+        SpanGroupManager spanGroupManager;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{spannable, obj, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) != null) || (spanGroupManager = this.a) == null) {
+            return;
+        }
+        if (obj == Selection.SELECTION_END && this.c != i3) {
+            this.c = i3;
+            t65 D = spanGroupManager.D(i3);
+            if (D != null) {
+                int f = D.f();
+                int c = D.c();
+                if (Math.abs(this.c - c) <= Math.abs(this.c - f)) {
+                    f = c;
+                }
+                int selectionStart = Selection.getSelectionStart(spannable);
+                if (selectionStart > spannable.length()) {
+                    selectionStart = spannable.length();
+                }
+                if (f > spannable.length()) {
+                    f = spannable.length();
+                }
+                Selection.setSelection(spannable, selectionStart, f);
+            }
+        }
+        if (obj == Selection.SELECTION_START && this.b != i3) {
+            this.b = i3;
+            t65 D2 = this.a.D(i3);
+            if (D2 != null) {
+                int f2 = D2.f();
+                int c2 = D2.c();
+                if (Math.abs(this.b - c2) <= Math.abs(this.b - f2)) {
+                    f2 = c2;
+                }
+                int selectionEnd = Selection.getSelectionEnd(spannable);
+                if (selectionEnd > spannable.length()) {
+                    selectionEnd = spannable.length();
+                }
+                if (f2 > spannable.length()) {
+                    f2 = spannable.length();
+                }
+                Selection.setSelection(spannable, f2, selectionEnd);
             }
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    @Override // android.text.SpanWatcher
+    public void onSpanRemoved(Spannable spannable, Object obj, int i, int i2) {
+        SpanGroupManager spanGroupManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            jSONObject.optString("splash_bear_sid_ios", "");
-            jSONObject.optString("homepage_bear_sid_ios", "");
-            jSONObject.optString("frs_bear_sid_ios", "");
-            jSONObject.optString("pb_banner_bear_sid_ios", "");
-            jSONObject.optString("pb_comment_bear_sid_ios", "");
-            jSONObject.optString("picpage_bear_sid_ios", "");
-            jSONObject.optString("videoflow_bear_sid_ios", "");
-            this.a = jSONObject.optString("splash_bear_sid_android", "");
-            this.b = jSONObject.optString("homepage_bear_sid_android", "");
-            this.c = jSONObject.optString("frs_bear_sid_android", "");
-            this.d = jSONObject.optString("pb_banner_bear_sid_android", "");
-            this.e = jSONObject.optString("pb_comment_bear_sid_android", "");
-            this.f = jSONObject.optString("picpage_bear_sid_android", "");
-            this.g = jSONObject.optString("videoflow_bear_sid_android", "");
-        } catch (Exception e) {
-            e.printStackTrace();
+        if ((interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, spannable, obj, i, i2) == null) && (spanGroupManager = this.a) != null && this.b != this.c) {
+            spanGroupManager.r();
         }
     }
 }

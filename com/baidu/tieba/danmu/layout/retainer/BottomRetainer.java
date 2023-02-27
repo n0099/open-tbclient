@@ -4,13 +4,13 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.face.platform.utils.FileUtils;
 import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.tieba.ah6;
 import com.baidu.tieba.danmu.data.state.DrawState;
 import com.baidu.tieba.danmu.layout.retainer.BottomRetainer;
-import com.baidu.tieba.mf6;
-import com.baidu.tieba.nh6;
-import com.baidu.tieba.sf6;
-import com.baidu.tieba.sh6;
+import com.baidu.tieba.ei6;
+import com.baidu.tieba.ek6;
+import com.baidu.tieba.mj6;
+import com.baidu.tieba.yh6;
+import com.baidu.tieba.zj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,23 +34,23 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.IntRange;
 import kotlin.sequences.SequencesKt__SequenceBuilderKt;
 import kotlin.sequences.SequencesKt___SequencesKt;
-@Metadata(d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0004\b\u0000\u0018\u00002\u00020\u0001:\u0002!\"B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010\u0010\u001a\u00020\u0011H\u0016J(\u0010\u0012\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u00162\u0006\u0010\u0017\u001a\u00020\u00182\u0006\u0010\u0019\u001a\u00020\u001aH\u0016J\u0010\u0010\u001b\u001a\u00020\u00112\u0006\u0010\u001c\u001a\u00020\u0014H\u0016J\u0018\u0010\u001d\u001a\u00020\u00112\u0006\u0010\u001e\u001a\u00020\u001f2\u0006\u0010 \u001a\u00020\u001fH\u0016R\u001b\u0010\u0005\u001a\u00020\u00068BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\t\u0010\n\u001a\u0004\b\u0007\u0010\bR\u001b\u0010\u000b\u001a\u00020\f8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000f\u0010\n\u001a\u0004\b\r\u0010\u000e¨\u0006#"}, d2 = {"Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer;", "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer;", "endRatio", "", "(F)V", "akRetainer", "Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer$AkRetainer;", "getAkRetainer", "()Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer$AkRetainer;", "akRetainer$delegate", "Lkotlin/Lazy;", "bilibiliRetainer", "Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer$BilibiliRetainer;", "getBilibiliRetainer", "()Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer$BilibiliRetainer;", "bilibiliRetainer$delegate", "clear", "", TtmlNode.TAG_LAYOUT, "drawItem", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "currentTimeMills", "", "displayer", "Lcom/baidu/tieba/danmu/ui/DanmakuDisplayer;", "config", "Lcom/baidu/tieba/danmu/DanmakuConfig;", "remove", "item", StickerDataChangeType.UPDATE, "start", "", "end", "AkRetainer", "BilibiliRetainer", "danmu_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+@Metadata(d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0004\b\u0000\u0018\u00002\u00020\u0001:\u0002!\"B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010\u0010\u001a\u00020\u0011H\u0016J(\u0010\u0012\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u00162\u0006\u0010\u0017\u001a\u00020\u00182\u0006\u0010\u0019\u001a\u00020\u001aH\u0016J\u0010\u0010\u001b\u001a\u00020\u00112\u0006\u0010\u001c\u001a\u00020\u0014H\u0016J\u0018\u0010\u001d\u001a\u00020\u00112\u0006\u0010\u001e\u001a\u00020\u001f2\u0006\u0010 \u001a\u00020\u001fH\u0016R\u001b\u0010\u0005\u001a\u00020\u00068BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\t\u0010\n\u001a\u0004\b\u0007\u0010\bR\u001b\u0010\u000b\u001a\u00020\f8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000f\u0010\n\u001a\u0004\b\r\u0010\u000e¨\u0006#"}, d2 = {"Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer;", "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer;", "endRatio", "", "(F)V", "akRetainer", "Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer$AkRetainer;", "getAkRetainer", "()Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer$AkRetainer;", "akRetainer$delegate", "Lkotlin/Lazy;", "bilibiliRetainer", "Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer$BilibiliRetainer;", "getBilibiliRetainer", "()Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer$BilibiliRetainer;", "bilibiliRetainer$delegate", "clear", "", TtmlNode.TAG_LAYOUT, "drawItem", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "currentTimeMills", "", "displayer", "Lcom/baidu/tieba/danmu/ui/DanmakuDisplayer;", "config", "Lcom/baidu/tieba/danmu/DanmakuConfig;", "remove", "item", StickerDataChangeType.UPDATE, "start", "", "end", "AkRetainer", "BilibiliRetainer", "danmu_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes4.dex */
-public final class BottomRetainer implements nh6 {
+public final class BottomRetainer implements zj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Lazy a;
     public final Lazy b;
 
-    @Metadata(d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0002\b\u0002\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010\f\u001a\u00020\rH\u0016J(\u0010\u000e\u001a\u00020\u00032\u0006\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u0016H\u0016J\u0010\u0010\u0017\u001a\u00020\r2\u0006\u0010\u0018\u001a\u00020\u0010H\u0016J\u0018\u0010\u0019\u001a\u00020\r2\u0006\u0010\u001a\u001a\u00020\u001b2\u0006\u0010\u001c\u001a\u00020\u001bH\u0016R\u001c\u0010\u0005\u001a\u0010\u0012\f\u0012\n \b*\u0004\u0018\u00010\u00070\u00070\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010\u0002\u001a\u00020\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\t\u0010\n\"\u0004\b\u000b\u0010\u0004¨\u0006\u001d"}, d2 = {"Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer$AkRetainer;", "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer;", MapBundleKey.OfflineMapKey.OFFLINE_RATION, "", "(F)V", "lastVisibleEntities", "Ljava/util/TreeSet;", "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer$SpaceHolder;", "kotlin.jvm.PlatformType", "getRatio", "()F", "setRatio", "clear", "", TtmlNode.TAG_LAYOUT, "drawItem", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "currentTimeMills", "", "displayer", "Lcom/baidu/tieba/danmu/ui/DanmakuDisplayer;", "config", "Lcom/baidu/tieba/danmu/DanmakuConfig;", "remove", "item", StickerDataChangeType.UPDATE, "start", "", "end", "danmu_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+    @Metadata(d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0002\b\u0002\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010\f\u001a\u00020\rH\u0016J(\u0010\u000e\u001a\u00020\u00032\u0006\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u0016H\u0016J\u0010\u0010\u0017\u001a\u00020\r2\u0006\u0010\u0018\u001a\u00020\u0010H\u0016J\u0018\u0010\u0019\u001a\u00020\r2\u0006\u0010\u001a\u001a\u00020\u001b2\u0006\u0010\u001c\u001a\u00020\u001bH\u0016R\u001c\u0010\u0005\u001a\u0010\u0012\f\u0012\n \b*\u0004\u0018\u00010\u00070\u00070\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010\u0002\u001a\u00020\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\t\u0010\n\"\u0004\b\u000b\u0010\u0004¨\u0006\u001d"}, d2 = {"Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer$AkRetainer;", "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer;", MapBundleKey.OfflineMapKey.OFFLINE_RATION, "", "(F)V", "lastVisibleEntities", "Ljava/util/TreeSet;", "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer$SpaceHolder;", "kotlin.jvm.PlatformType", "getRatio", "()F", "setRatio", "clear", "", TtmlNode.TAG_LAYOUT, "drawItem", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "currentTimeMills", "", "displayer", "Lcom/baidu/tieba/danmu/ui/DanmakuDisplayer;", "config", "Lcom/baidu/tieba/danmu/DanmakuConfig;", "remove", "item", StickerDataChangeType.UPDATE, "start", "", "end", "danmu_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes4.dex */
-    public static final class AkRetainer implements nh6 {
+    public static final class AkRetainer implements zj6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float a;
-        public final TreeSet<nh6.d> b;
+        public final TreeSet<zj6.d> b;
 
-        @Override // com.baidu.tieba.nh6
+        @Override // com.baidu.tieba.zj6
         public void update(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
@@ -73,19 +73,19 @@ public final class BottomRetainer implements nh6 {
                 }
             }
             this.a = f;
-            this.b = new TreeSet<>(new nh6.e());
+            this.b = new TreeSet<>(new zj6.e());
         }
 
-        @Override // com.baidu.tieba.nh6
-        public void b(final sf6 item) {
+        @Override // com.baidu.tieba.zj6
+        public void b(final ei6 item) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
                 Intrinsics.checkNotNullParameter(item, "item");
                 synchronized (this.b) {
-                    CollectionsKt__MutableCollectionsKt.removeAll(this.b, new Function1<nh6.d, Boolean>(item) { // from class: com.baidu.tieba.danmu.layout.retainer.BottomRetainer$AkRetainer$remove$1$1
+                    CollectionsKt__MutableCollectionsKt.removeAll(this.b, new Function1<zj6.d, Boolean>(item) { // from class: com.baidu.tieba.danmu.layout.retainer.BottomRetainer$AkRetainer$remove$1$1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ sf6 $item;
+                        public final /* synthetic */ ei6 $item;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
@@ -110,7 +110,7 @@ public final class BottomRetainer implements nh6 {
 
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // kotlin.jvm.functions.Function1
-                        public final Boolean invoke(nh6.d dVar) {
+                        public final Boolean invoke(zj6.d dVar) {
                             InterceptResult invokeL;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, dVar)) == null) {
@@ -123,40 +123,39 @@ public final class BottomRetainer implements nh6 {
             }
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:49:0x0124  */
-        /* JADX WARN: Removed duplicated region for block: B:54:0x012b A[LOOP:0: B:34:0x00d7->B:54:0x012b, LOOP_END] */
-        /* JADX WARN: Removed duplicated region for block: B:97:0x012a A[SYNTHETIC] */
-        @Override // com.baidu.tieba.nh6
+        /* JADX WARN: Removed duplicated region for block: B:48:0x0123  */
+        /* JADX WARN: Removed duplicated region for block: B:53:0x012a A[LOOP:0: B:34:0x00d7->B:53:0x012a, LOOP_END] */
+        /* JADX WARN: Removed duplicated region for block: B:92:0x0129 A[SYNTHETIC] */
+        @Override // com.baidu.tieba.zj6
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public float a(sf6 drawItem, long j, sh6 displayer, mf6 config) {
+        public float a(ei6 drawItem, long j, ek6 displayer, yh6 config) {
             InterceptResult invokeCommon;
             boolean z;
             DrawState drawState;
-            nh6.d dVar;
+            zj6.d dVar;
             Pair pair;
             boolean z2;
             boolean z3;
             Object obj;
-            Integer valueOf;
-            int intValue;
+            int size;
             Pair pair2;
             boolean z4;
-            sf6 d;
             boolean z5;
+            ei6 d;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{drawItem, Long.valueOf(j), displayer, config})) == null) {
                 Intrinsics.checkNotNullParameter(drawItem, "drawItem");
                 Intrinsics.checkNotNullParameter(displayer, "displayer");
                 Intrinsics.checkNotNullParameter(config, "config");
                 DrawState f = drawItem.f();
-                if (ah6.d(drawItem, j)) {
+                if (mj6.d(drawItem, j)) {
                     b(drawItem);
                     return -1.0f;
                 }
-                nh6.d dVar2 = r13;
-                nh6.d dVar3 = new nh6.d(drawItem, drawItem.j(), (int) f.h(), (int) f.g(), (int) f.q(), (int) f.d(), 0, 0, 0L, FileUtils.S_IRWXU, null);
+                zj6.d dVar2 = r13;
+                zj6.d dVar3 = new zj6.d(drawItem, drawItem.j(), (int) f.h(), (int) f.g(), (int) f.q(), (int) f.d(), 0, 0, 0L, FileUtils.S_IRWXU, null);
                 synchronized (this.b) {
                     if (f.p() && f.e() == config.o()) {
                         z = true;
@@ -164,9 +163,9 @@ public final class BottomRetainer implements nh6 {
                         z = false;
                     }
                     if (!z) {
-                        TreeSet<nh6.d> treeSet = this.b;
+                        TreeSet<zj6.d> treeSet = this.b;
                         if (!(treeSet instanceof Collection) || !treeSet.isEmpty()) {
-                            for (nh6.d dVar4 : treeSet) {
+                            for (zj6.d dVar4 : treeSet) {
                                 dVar = dVar2;
                                 if (Intrinsics.areEqual(dVar4, dVar)) {
                                     z3 = true;
@@ -185,12 +184,12 @@ public final class BottomRetainer implements nh6 {
                             while (true) {
                                 if (it.hasNext()) {
                                     obj = it.next();
-                                    nh6.b bVar = (nh6.b) obj;
+                                    zj6.b bVar = (zj6.b) obj;
                                     if (dVar.b() < bVar.b().getLast() - bVar.b().getFirst()) {
-                                        nh6.d a = bVar.a();
+                                        zj6.d a = bVar.a();
                                         if (a != null && (d = a.d()) != null) {
                                             drawState = f;
-                                            if (ah6.f(d, dVar.d(), displayer, j, config.k())) {
+                                            if (mj6.f(d, dVar.d(), displayer, j, config.k())) {
                                                 z5 = true;
                                                 if (!z5) {
                                                     z4 = true;
@@ -200,11 +199,9 @@ public final class BottomRetainer implements nh6 {
                                                     f = drawState;
                                                 }
                                             }
-                                            z5 = false;
-                                            if (!z5) {
-                                            }
+                                        } else {
+                                            drawState = f;
                                         }
-                                        drawState = f;
                                         z5 = false;
                                         if (!z5) {
                                         }
@@ -220,7 +217,7 @@ public final class BottomRetainer implements nh6 {
                                     break;
                                 }
                             }
-                            nh6.b bVar2 = (nh6.b) obj;
+                            zj6.b bVar2 = (zj6.b) obj;
                             if (bVar2 == null) {
                                 BdLog.v("DanmakuEngine [Retainer] no room for this");
                                 drawState.y(config.o());
@@ -229,23 +226,18 @@ public final class BottomRetainer implements nh6 {
                             }
                             dVar.i(bVar2.b().getLast() - dVar.b());
                             BdLog.v("DanmakuEngine [Retainer] range: " + new IntRange(dVar.g(), dVar.a()) + " with targetHolder " + bVar2.b());
-                            nh6.d a2 = bVar2.a();
+                            zj6.d a2 = bVar2.a();
                             if (a2 != null) {
                                 this.b.remove(a2);
                             }
-                            Float valueOf2 = Float.valueOf(dVar.g());
-                            nh6.d a3 = bVar2.a();
-                            if (a3 == null) {
-                                valueOf = null;
+                            Float valueOf = Float.valueOf(dVar.g());
+                            zj6.d a3 = bVar2.a();
+                            if (a3 != null) {
+                                size = a3.c();
                             } else {
-                                valueOf = Integer.valueOf(a3.c());
+                                size = this.b.size() + 1;
                             }
-                            if (valueOf == null) {
-                                intValue = this.b.size() + 1;
-                            } else {
-                                intValue = valueOf.intValue();
-                            }
-                            pair2 = TuplesKt.to(valueOf2, Integer.valueOf(intValue));
+                            pair2 = TuplesKt.to(valueOf, Integer.valueOf(size));
                         }
                         pair = TuplesKt.to(Float.valueOf(((Number) pair2.component1()).floatValue()), Integer.valueOf(((Number) pair2.component2()).intValue()));
                     } else {
@@ -272,7 +264,7 @@ public final class BottomRetainer implements nh6 {
             return invokeCommon.floatValue;
         }
 
-        @Override // com.baidu.tieba.nh6
+        @Override // com.baidu.tieba.zj6
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -290,15 +282,15 @@ public final class BottomRetainer implements nh6 {
         }
     }
 
-    @Metadata(d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u0007\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0002\b\u0002\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\b\u0010\t\u001a\u00020\nH\u0016J(\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\u0014H\u0016J\u0010\u0010\u0015\u001a\u00020\n2\u0006\u0010\u0016\u001a\u00020\u000eH\u0016J\u0018\u0010\u0017\u001a\u00020\n2\u0006\u0010\u0018\u001a\u00020\u00192\u0006\u0010\u001a\u001a\u00020\u0019H\u0016R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u001c\u0010\u0005\u001a\u0010\u0012\f\u0012\n \b*\u0004\u0018\u00010\u00070\u00070\u0006X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001b"}, d2 = {"Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer$BilibiliRetainer;", "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer;", "()V", "cancelFlag", "", "lastVisibleEntities", "Ljava/util/TreeSet;", "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer$SpaceHolder;", "kotlin.jvm.PlatformType", "clear", "", TtmlNode.TAG_LAYOUT, "", "drawItem", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "currentTimeMills", "", "displayer", "Lcom/baidu/tieba/danmu/ui/DanmakuDisplayer;", "config", "Lcom/baidu/tieba/danmu/DanmakuConfig;", "remove", "item", StickerDataChangeType.UPDATE, "start", "", "end", "danmu_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+    @Metadata(d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u0007\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0002\b\u0002\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\b\u0010\t\u001a\u00020\nH\u0016J(\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\u0014H\u0016J\u0010\u0010\u0015\u001a\u00020\n2\u0006\u0010\u0016\u001a\u00020\u000eH\u0016J\u0018\u0010\u0017\u001a\u00020\n2\u0006\u0010\u0018\u001a\u00020\u00192\u0006\u0010\u001a\u001a\u00020\u0019H\u0016R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u001c\u0010\u0005\u001a\u0010\u0012\f\u0012\n \b*\u0004\u0018\u00010\u00070\u00070\u0006X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001b"}, d2 = {"Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer$BilibiliRetainer;", "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer;", "()V", "cancelFlag", "", "lastVisibleEntities", "Ljava/util/TreeSet;", "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer$SpaceHolder;", "kotlin.jvm.PlatformType", "clear", "", TtmlNode.TAG_LAYOUT, "", "drawItem", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "currentTimeMills", "", "displayer", "Lcom/baidu/tieba/danmu/ui/DanmakuDisplayer;", "config", "Lcom/baidu/tieba/danmu/DanmakuConfig;", "remove", "item", StickerDataChangeType.UPDATE, "start", "", "end", "danmu_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes4.dex */
-    public static final class BilibiliRetainer implements nh6 {
+    public static final class BilibiliRetainer implements zj6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
-        public final TreeSet<nh6.d> b;
+        public final TreeSet<zj6.d> b;
 
-        @Override // com.baidu.tieba.nh6
+        @Override // com.baidu.tieba.zj6
         public void update(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
@@ -318,10 +310,10 @@ public final class BottomRetainer implements nh6 {
                     return;
                 }
             }
-            this.b = new TreeSet<>(new nh6.e());
+            this.b = new TreeSet<>(new zj6.e());
         }
 
-        @Override // com.baidu.tieba.nh6
+        @Override // com.baidu.tieba.zj6
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -330,15 +322,15 @@ public final class BottomRetainer implements nh6 {
             }
         }
 
-        @Override // com.baidu.tieba.nh6
-        public void b(final sf6 item) {
+        @Override // com.baidu.tieba.zj6
+        public void b(final ei6 item) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
                 Intrinsics.checkNotNullParameter(item, "item");
-                CollectionsKt__MutableCollectionsKt.removeAll(this.b, new Function1<nh6.d, Boolean>(item) { // from class: com.baidu.tieba.danmu.layout.retainer.BottomRetainer$BilibiliRetainer$remove$1
+                CollectionsKt__MutableCollectionsKt.removeAll(this.b, new Function1<zj6.d, Boolean>(item) { // from class: com.baidu.tieba.danmu.layout.retainer.BottomRetainer$BilibiliRetainer$remove$1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ sf6 $item;
+                    public final /* synthetic */ ei6 $item;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -363,7 +355,7 @@ public final class BottomRetainer implements nh6 {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // kotlin.jvm.functions.Function1
-                    public final Boolean invoke(nh6.d dVar) {
+                    public final Boolean invoke(zj6.d dVar) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, dVar)) == null) {
@@ -377,31 +369,31 @@ public final class BottomRetainer implements nh6 {
 
         /* JADX WARN: Removed duplicated region for block: B:55:0x016e  */
         /* JADX WARN: Removed duplicated region for block: B:56:0x0182  */
-        @Override // com.baidu.tieba.nh6
+        @Override // com.baidu.tieba.zj6
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public float a(sf6 drawItem, long j, sh6 displayer, mf6 config) {
+        public float a(ei6 drawItem, long j, ek6 displayer, yh6 config) {
             InterceptResult invokeCommon;
             boolean z;
             float height;
-            nh6.d dVar;
+            zj6.d dVar;
             boolean z2;
             boolean z3;
             boolean z4;
-            nh6.d dVar2;
+            zj6.d dVar2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{drawItem, Long.valueOf(j), displayer, config})) == null) {
                 Intrinsics.checkNotNullParameter(drawItem, "drawItem");
                 Intrinsics.checkNotNullParameter(displayer, "displayer");
                 Intrinsics.checkNotNullParameter(config, "config");
                 DrawState f = drawItem.f();
-                if (ah6.d(drawItem, j)) {
+                if (mj6.d(drawItem, j)) {
                     b(drawItem);
                     return -1.0f;
                 }
-                nh6.d dVar3 = r12;
-                nh6.d dVar4 = new nh6.d(drawItem, drawItem.j(), (int) f.h(), (int) f.g(), (int) f.q(), (int) f.d(), 0, 0, 0L, FileUtils.S_IRWXU, null);
+                zj6.d dVar3 = r12;
+                zj6.d dVar4 = new zj6.d(drawItem, drawItem.j(), (int) f.h(), (int) f.g(), (int) f.q(), (int) f.d(), 0, 0, 0L, FileUtils.S_IRWXU, null);
                 boolean z5 = true;
                 if (f.p() && f.e() == config.o()) {
                     z = true;
@@ -413,14 +405,14 @@ public final class BottomRetainer implements nh6 {
                 } else {
                     height = displayer.getHeight() - f.d();
                 }
-                final nh6.c cVar = new nh6.c(0, null, null, null, null, null, false, false, false, false, 1023, null);
+                final zj6.c cVar = new zj6.c(0, null, null, null, null, null, false, false, false, false, 1023, null);
                 if (!z) {
                     this.a = false;
                     float f2 = height;
-                    for (nh6.d dVar5 : SequencesKt___SequencesKt.takeWhile(CollectionsKt___CollectionsKt.asSequence(this.b), new Function1<nh6.d, Boolean>(this, cVar) { // from class: com.baidu.tieba.danmu.layout.retainer.BottomRetainer$BilibiliRetainer$layout$1
+                    for (zj6.d dVar5 : SequencesKt___SequencesKt.takeWhile(CollectionsKt___CollectionsKt.asSequence(this.b), new Function1<zj6.d, Boolean>(this, cVar) { // from class: com.baidu.tieba.danmu.layout.retainer.BottomRetainer$BilibiliRetainer$layout$1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ nh6.c $state;
+                        public final /* synthetic */ zj6.c $state;
                         public final /* synthetic */ BottomRetainer.BilibiliRetainer this$0;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -447,7 +439,7 @@ public final class BottomRetainer implements nh6 {
 
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // kotlin.jvm.functions.Function1
-                        public final Boolean invoke(nh6.d dVar6) {
+                        public final Boolean invoke(zj6.d dVar6) {
                             InterceptResult invokeL;
                             boolean z6;
                             boolean z7;
@@ -465,7 +457,7 @@ public final class BottomRetainer implements nh6 {
                         }
                     })) {
                         cVar.g(cVar.c() + 1);
-                        nh6.d dVar6 = dVar3;
+                        zj6.d dVar6 = dVar3;
                         if (Intrinsics.areEqual(dVar6, dVar5)) {
                             cVar.h(null);
                             cVar.f(true);
@@ -481,7 +473,7 @@ public final class BottomRetainer implements nh6 {
                                 cVar.f(true);
                             } else {
                                 dVar2 = dVar6;
-                                if (!ah6.f(dVar5.d(), dVar5.d(), displayer, j, config.k())) {
+                                if (!mj6.f(dVar5.d(), dVar5.d(), displayer, j, config.k())) {
                                     cVar.h(dVar5);
                                     cVar.f(true);
                                 } else {
@@ -495,11 +487,11 @@ public final class BottomRetainer implements nh6 {
                     }
                     dVar = dVar3;
                     if (f2 >= displayer.e()) {
-                        nh6.d a = cVar.a();
-                        if (a == null || a.a() != displayer.getHeight()) {
-                            z4 = false;
-                        } else {
+                        zj6.d a = cVar.a();
+                        if (a != null && a.a() == displayer.getHeight()) {
                             z4 = true;
+                        } else {
+                            z4 = false;
                         }
                         if (z4) {
                             z3 = false;
@@ -531,7 +523,7 @@ public final class BottomRetainer implements nh6 {
                     clear();
                 }
                 if (!z) {
-                    nh6.d d = cVar.d();
+                    zj6.d d = cVar.d();
                     if (d != null) {
                         this.b.remove(d);
                     }
@@ -600,8 +592,8 @@ public final class BottomRetainer implements nh6 {
         });
     }
 
-    @Override // com.baidu.tieba.nh6
-    public float a(sf6 drawItem, long j, sh6 displayer, mf6 config) {
+    @Override // com.baidu.tieba.zj6
+    public float a(ei6 drawItem, long j, ek6 displayer, yh6 config) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{drawItem, Long.valueOf(j), displayer, config})) == null) {
@@ -616,8 +608,8 @@ public final class BottomRetainer implements nh6 {
         return invokeCommon.floatValue;
     }
 
-    @Override // com.baidu.tieba.nh6
-    public void b(sf6 item) {
+    @Override // com.baidu.tieba.zj6
+    public void b(ei6 item) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
@@ -635,7 +627,7 @@ public final class BottomRetainer implements nh6 {
         return (AkRetainer) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.nh6
+    @Override // com.baidu.tieba.zj6
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -653,7 +645,7 @@ public final class BottomRetainer implements nh6 {
         return (BilibiliRetainer) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.nh6
+    @Override // com.baidu.tieba.zj6
     public void update(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {

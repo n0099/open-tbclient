@@ -1,115 +1,58 @@
 package com.meizu.cloud.pushsdk.c.e;
 
-import android.content.Context;
-import android.location.Location;
-import android.os.Build;
-import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.kuaishou.weapon.p0.u;
-import com.meizu.cloud.pushsdk.c.f.e;
-import java.util.HashMap;
-import java.util.Map;
+import com.meizu.cloud.pushsdk.c.c.g;
+import com.meizu.cloud.pushsdk.c.c.j;
+import com.meizu.cloud.pushsdk.c.g.f;
+import com.meizu.cloud.pushsdk.c.g.l;
+import java.io.IOException;
 /* loaded from: classes8.dex */
-public class b {
-    public static String a = "b";
-    public HashMap<String, String> b;
-    public HashMap<String, Object> c;
-    public HashMap<String, String> d;
+public class b extends j {
+    public final j a;
+    public com.meizu.cloud.pushsdk.c.g.c b;
+    public d c;
 
-    /* loaded from: classes8.dex */
-    public static class a {
-        public Context a = null;
-
-        public a a(Context context) {
-            this.a = context;
-            return this;
-        }
-
-        public b a() {
-            return new b(this);
+    public b(j jVar, com.meizu.cloud.pushsdk.c.d.a aVar) {
+        this.a = jVar;
+        if (aVar != null) {
+            this.c = new d(aVar);
         }
     }
 
-    public b(a aVar) {
-        this.b = new HashMap<>();
-        this.c = new HashMap<>();
-        this.d = new HashMap<>();
-        d();
-        e();
-        f();
-        g();
-        if (aVar.a != null) {
-            a(aVar.a);
+    private l a(l lVar) {
+        return new f(lVar) { // from class: com.meizu.cloud.pushsdk.c.e.b.1
+            public long a = 0;
+            public long b = 0;
+
+            @Override // com.meizu.cloud.pushsdk.c.g.f, com.meizu.cloud.pushsdk.c.g.l
+            public void a(com.meizu.cloud.pushsdk.c.g.b bVar, long j) throws IOException {
+                super.a(bVar, j);
+                if (this.b == 0) {
+                    this.b = b.this.b();
+                }
+                this.a += j;
+                if (b.this.c != null) {
+                    b.this.c.obtainMessage(1, new com.meizu.cloud.pushsdk.c.f.a(this.a, this.b)).sendToTarget();
+                }
+            }
+        };
+    }
+
+    @Override // com.meizu.cloud.pushsdk.c.c.j
+    public g a() {
+        return this.a.a();
+    }
+
+    @Override // com.meizu.cloud.pushsdk.c.c.j
+    public void a(com.meizu.cloud.pushsdk.c.g.c cVar) throws IOException {
+        if (this.b == null) {
+            this.b = com.meizu.cloud.pushsdk.c.g.g.a(a((l) cVar));
         }
-        com.meizu.cloud.pushsdk.c.f.c.c(a, "Subject created successfully.", new Object[0]);
+        this.a.a(this.b);
+        this.b.flush();
     }
 
-    private void a(String str, Object obj) {
-        if ((str == null || obj == null || str.isEmpty()) && (!(obj instanceof String) || ((String) obj).isEmpty())) {
-            return;
-        }
-        this.c.put(str, obj);
-    }
-
-    private void a(String str, String str2) {
-        if (str == null || str2 == null || str.isEmpty() || str2.isEmpty()) {
-            return;
-        }
-        this.d.put(str, str2);
-    }
-
-    private void d() {
-        a("ot", "android-" + Build.VERSION.RELEASE);
-    }
-
-    private void e() {
-        a("ov", Build.DISPLAY);
-    }
-
-    private void f() {
-        a(u.A, Build.MODEL);
-    }
-
-    private void g() {
-        a("df", Build.MANUFACTURER);
-    }
-
-    public Map<String, Object> a() {
-        return this.c;
-    }
-
-    public void a(Context context) {
-        b(context);
-        c(context);
-    }
-
-    public Map<String, String> b() {
-        return this.d;
-    }
-
-    public void b(Context context) {
-        Location c = e.c(context);
-        if (c == null) {
-            com.meizu.cloud.pushsdk.c.f.c.a(a, "Location information not available.", new Object[0]);
-            return;
-        }
-        a(MultiRatePlayUrlHelper.ABBR_FLV_AVC_LIST, Double.valueOf(c.getLatitude()));
-        a(WebvttCueParser.ENTITY_LESS_THAN, Double.valueOf(c.getLongitude()));
-        a("al", Double.valueOf(c.getAltitude()));
-        a("lla", Float.valueOf(c.getAccuracy()));
-        a("speed", Float.valueOf(c.getSpeed()));
-        a(TtmlNode.TAG_BR, Float.valueOf(c.getBearing()));
-    }
-
-    public Map<String, String> c() {
-        return this.b;
-    }
-
-    public void c(Context context) {
-        String b = e.b(context);
-        if (b != null) {
-            a("ca", b);
-        }
+    @Override // com.meizu.cloud.pushsdk.c.c.j
+    public long b() throws IOException {
+        return this.a.b();
     }
 }

@@ -1,20 +1,29 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class lk5 extends qk5 {
+public abstract class lk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kk5 b;
-    public boolean c;
-    public boolean d;
+    public List<jk5> eventDelegates;
+    public boolean isDispatchMvcEventing;
+    public BdUniqueId uniqueId;
+
+    public void onBeforeDispatchMvcEvent(kk5 kk5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kk5Var) == null) {
+        }
+    }
 
     public lk5() {
         Interceptable interceptable = $ic;
@@ -26,51 +35,86 @@ public class lk5 extends qk5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.isDispatchMvcEventing = false;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public void addEventDelegate(jk5 jk5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            kk5 kk5Var = this.b;
-            if (kk5Var != null) {
-                return kk5Var.b();
+        if (interceptable == null || interceptable.invokeL(1048576, this, jk5Var) == null) {
+            if (this.eventDelegates == null) {
+                this.eventDelegates = new ArrayList();
             }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public void c() {
-        kk5 kk5Var;
-        vk5 vk5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.d && (kk5Var = this.b) != null && kk5Var.b() >= 0 && (vk5Var = (vk5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) != null) {
-            vk5Var.e(this);
-            this.d = true;
+            if (this.eventDelegates.contains(jk5Var)) {
+                return;
+            }
+            if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
+                throw new RuntimeException("can not add event delegate on dispatch mvcevent");
+            }
+            this.eventDelegates.add(jk5Var);
         }
     }
 
-    public void e() {
-        kk5 kk5Var;
+    public void removeEventDelegate(jk5 jk5Var) {
+        List<jk5> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && Build.VERSION.SDK_INT >= 16 && (kk5Var = this.b) != null) {
-            kk5Var.d();
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jk5Var) != null) || (list = this.eventDelegates) == null || !list.contains(jk5Var)) {
+            return;
         }
+        if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
+            throw new RuntimeException("can not add event delegate on dispatch mvcevent");
+        }
+        this.eventDelegates.remove(jk5Var);
     }
 
-    public void d() {
+    public boolean dispatchMvcEvent(kk5 kk5Var) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.c && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            this.c = true;
-            if (Build.VERSION.SDK_INT >= 16) {
-                if (this.b == null) {
-                    this.b = new kk5();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kk5Var)) == null) {
+            if (kk5Var == null) {
+                return false;
+            }
+            if (kk5Var.e() == null) {
+                kk5Var.i(this.uniqueId);
+            }
+            if (this.eventDelegates == null) {
+                return false;
+            }
+            try {
+                this.isDispatchMvcEventing = true;
+                onBeforeDispatchMvcEvent(kk5Var);
+                int size = this.eventDelegates.size();
+                z = false;
+                for (int i = 0; i < size; i++) {
+                    try {
+                        jk5 jk5Var = this.eventDelegates.get(i);
+                        if (jk5Var != null && ((!jk5Var.a1() || (jk5Var.a1() && kk5Var.e() == jk5Var.getUniqueId())) && (z = jk5Var.w0(kk5Var)) && kk5Var.f())) {
+                            return true;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        try {
+                            BdLog.e(th);
+                            if (TbadkCoreApplication.getInst().isDebugMode()) {
+                                throw new RuntimeException(th);
+                            }
+                            this.isDispatchMvcEventing = false;
+                            return z;
+                        } finally {
+                            this.isDispatchMvcEventing = false;
+                        }
+                    }
                 }
-                this.b.c();
+            } catch (Throwable th2) {
+                th = th2;
+                z = false;
             }
+            this.isDispatchMvcEventing = false;
+            return z;
         }
+        return invokeL.booleanValue;
     }
 }

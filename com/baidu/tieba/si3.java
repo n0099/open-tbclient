@@ -1,70 +1,96 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.pi3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class si3 extends ri3 {
+public class si3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static JSONObject b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public si3(t93 t93Var) {
-        super(t93Var, "/swanAPI/getBatteryInfoSync");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t93Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((t93) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948152332, "Lcom/baidu/tieba/si3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948152332, "Lcom/baidu/tieba/si3;");
                 return;
+            }
+        }
+        a = wp1.a;
+    }
+
+    public static JSONObject b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("abTestSwitch", a());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public static synchronized void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            synchronized (si3.class) {
+                if (a) {
+                    Log.d("SwanCoreConfigHelper", "release cache ab obj ");
+                }
+                b = null;
             }
         }
     }
 
-    @Override // com.baidu.tieba.ta3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, w83 w83Var) {
-        InterceptResult invokeLLLL;
+    public static synchronized JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, w83Var)) == null) {
-            if (!j(context, w83Var, unitedSchemeEntity)) {
-                return false;
-            }
-            pi3.a a = pi3.a(context);
-            if (a == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sticky broadcast receive error");
-                return false;
-            }
-            if (ta3.b) {
-                Log.d("battery", "/swanAPI/getBatteryInfoSync = level: " + a.a + " ; plugged: " + a.b);
-            }
-            JSONObject k = k(a);
-            if (k == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Json error");
-                if (ta3.b) {
-                    Log.d("SwanAppAction", "getBatteryInfoSync --- json error");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (si3.class) {
+                if (b != null) {
+                    if (a) {
+                        Log.d("SwanCoreConfigHelper", "return cache obj : " + b.toString());
+                    }
+                    return b;
                 }
-                return false;
+                JSONObject rawSwitch = ts2.g0().getRawSwitch();
+                if (rawSwitch == null) {
+                    b = new JSONObject();
+                    if (a) {
+                        Log.d("SwanCoreConfigHelper", "raw switch is null, return empty obj");
+                    }
+                    return b;
+                }
+                Iterator<String> keys = rawSwitch.keys();
+                while (keys.hasNext()) {
+                    if (!keys.next().startsWith("swanswitch")) {
+                        keys.remove();
+                    }
+                }
+                b = rawSwitch;
+                if (a) {
+                    Log.d("SwanCoreConfigHelper", "return new obj : " + b.toString());
+                }
+                return b;
             }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(k, 0);
-            return true;
         }
-        return invokeLLLL.booleanValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

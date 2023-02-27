@@ -3,9 +3,9 @@ package com.weibo.ssosdk;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.baa;
-import com.baidu.tieba.caa;
-import com.baidu.tieba.daa;
+import com.baidu.tieba.wia;
+import com.baidu.tieba.xia;
+import com.baidu.tieba.yia;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +31,7 @@ import org.json.JSONObject;
 public class WeiboSsoSdk {
     public static /* synthetic */ Interceptable $ic;
     public static WeiboSsoSdk e;
-    public static daa f;
+    public static yia f;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile ReentrantLock a;
     public boolean b;
@@ -136,15 +136,15 @@ public class WeiboSsoSdk {
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ caa a;
+        public final /* synthetic */ xia a;
         public final /* synthetic */ WeiboSsoSdk b;
 
-        public c(WeiboSsoSdk weiboSsoSdk, caa caaVar) {
+        public c(WeiboSsoSdk weiboSsoSdk, xia xiaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {weiboSsoSdk, caaVar};
+                Object[] objArr = {weiboSsoSdk, xiaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -155,7 +155,7 @@ public class WeiboSsoSdk {
                 }
             }
             this.b = weiboSsoSdk;
-            this.a = caaVar;
+            this.a = xiaVar;
         }
 
         @Override // java.lang.Runnable
@@ -287,8 +287,8 @@ public class WeiboSsoSdk {
         }
         this.a = new ReentrantLock(true);
         this.b = true;
-        daa daaVar = f;
-        if (daaVar != null && daaVar.n()) {
+        yia yiaVar = f;
+        if (yiaVar != null && yiaVar.n()) {
             this.d = 0;
             new Thread(new a(this)).start();
             new Thread(new b(this)).start();
@@ -297,23 +297,23 @@ public class WeiboSsoSdk {
         throw new Exception("config error");
     }
 
-    public static synchronized boolean j(daa daaVar) {
+    public static synchronized boolean j(yia yiaVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, daaVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, yiaVar)) == null) {
             synchronized (WeiboSsoSdk.class) {
-                if (daaVar == null) {
+                if (yiaVar == null) {
                     return false;
                 }
-                if (!daaVar.n()) {
+                if (!yiaVar.n()) {
                     return false;
                 }
                 if (f != null) {
                     return false;
                 }
-                daa daaVar2 = (daa) daaVar.clone();
-                f = daaVar2;
-                baa.w(daaVar2.b());
+                yia yiaVar2 = (yia) yiaVar.clone();
+                f = yiaVar2;
+                wia.w(yiaVar2.b());
                 return true;
             }
         }
@@ -371,14 +371,14 @@ public class WeiboSsoSdk {
         return (File) invokeI.objValue;
     }
 
-    public void m(caa caaVar) {
+    public void m(xia xiaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, caaVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, xiaVar) == null) {
             d dVar = this.c;
             if (dVar != null && !TextUtils.isEmpty(dVar.a()) && !TextUtils.isEmpty(this.c.b())) {
-                caaVar.handler(this.c);
+                xiaVar.handler(this.c);
             } else {
-                Executors.newSingleThreadExecutor().execute(new c(this, caaVar));
+                Executors.newSingleThreadExecutor().execute(new c(this, xiaVar));
             }
         }
     }
@@ -481,7 +481,7 @@ public class WeiboSsoSdk {
             return;
         }
         this.b = false;
-        String n = baa.n(f.b());
+        String n = wia.n(f.b());
         try {
             str2 = URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
         } catch (UnsupportedEncodingException unused) {

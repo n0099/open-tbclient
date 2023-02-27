@@ -1,11 +1,5 @@
 package com.facebook.drawee.backends.pipeline;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.ImmutableList;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.Supplier;
@@ -17,8 +11,6 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class DraweeConfig {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public final ImmutableList<DrawableFactory> mCustomDrawableFactories;
     public final Supplier<Boolean> mDebugOverlayEnabledSupplier;
@@ -27,117 +19,50 @@ public class DraweeConfig {
     @Nullable
     public final PipelineDraweeControllerFactory mPipelineDraweeControllerFactory;
 
-    /* renamed from: com.facebook.drawee.backends.pipeline.DraweeConfig$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
     /* loaded from: classes7.dex */
     public static class Builder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public List<DrawableFactory> mCustomDrawableFactories;
         public Supplier<Boolean> mDebugOverlayEnabledSupplier;
         @Nullable
         public ImagePerfDataListener mImagePerfDataListener;
         public PipelineDraweeControllerFactory mPipelineDraweeControllerFactory;
 
-        public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
         public DraweeConfig build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return new DraweeConfig(this, null);
-            }
-            return (DraweeConfig) invokeV.objValue;
+            return new DraweeConfig(this);
         }
 
         public Builder addCustomDrawableFactory(DrawableFactory drawableFactory) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, drawableFactory)) == null) {
-                if (this.mCustomDrawableFactories == null) {
-                    this.mCustomDrawableFactories = new ArrayList();
-                }
-                this.mCustomDrawableFactories.add(drawableFactory);
-                return this;
+            if (this.mCustomDrawableFactories == null) {
+                this.mCustomDrawableFactories = new ArrayList();
             }
-            return (Builder) invokeL.objValue;
+            this.mCustomDrawableFactories.add(drawableFactory);
+            return this;
         }
 
         public Builder setDebugOverlayEnabledSupplier(Supplier<Boolean> supplier) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, supplier)) == null) {
-                Preconditions.checkNotNull(supplier);
-                this.mDebugOverlayEnabledSupplier = supplier;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            Preconditions.checkNotNull(supplier);
+            this.mDebugOverlayEnabledSupplier = supplier;
+            return this;
         }
 
         public Builder setDrawDebugOverlay(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-                return setDebugOverlayEnabledSupplier(Suppliers.of(Boolean.valueOf(z)));
-            }
-            return (Builder) invokeZ.objValue;
+            return setDebugOverlayEnabledSupplier(Suppliers.of(Boolean.valueOf(z)));
         }
 
         public Builder setImagePerfDataListener(@Nullable ImagePerfDataListener imagePerfDataListener) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, imagePerfDataListener)) == null) {
-                this.mImagePerfDataListener = imagePerfDataListener;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mImagePerfDataListener = imagePerfDataListener;
+            return this;
         }
 
         public Builder setPipelineDraweeControllerFactory(PipelineDraweeControllerFactory pipelineDraweeControllerFactory) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, pipelineDraweeControllerFactory)) == null) {
-                this.mPipelineDraweeControllerFactory = pipelineDraweeControllerFactory;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mPipelineDraweeControllerFactory = pipelineDraweeControllerFactory;
+            return this;
         }
     }
 
     public DraweeConfig(Builder builder) {
         ImmutableList<DrawableFactory> immutableList;
         Supplier<Boolean> of;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         if (builder.mCustomDrawableFactories != null) {
             immutableList = ImmutableList.copyOf(builder.mCustomDrawableFactories);
         } else {
@@ -154,55 +79,26 @@ public class DraweeConfig {
         this.mImagePerfDataListener = builder.mImagePerfDataListener;
     }
 
-    public /* synthetic */ DraweeConfig(Builder builder, AnonymousClass1 anonymousClass1) {
-        this(builder);
-    }
-
     public static Builder newBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new Builder();
-        }
-        return (Builder) invokeV.objValue;
+        return new Builder();
     }
 
     @Nullable
     public ImmutableList<DrawableFactory> getCustomDrawableFactories() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mCustomDrawableFactories;
-        }
-        return (ImmutableList) invokeV.objValue;
+        return this.mCustomDrawableFactories;
     }
 
     public Supplier<Boolean> getDebugOverlayEnabledSupplier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mDebugOverlayEnabledSupplier;
-        }
-        return (Supplier) invokeV.objValue;
+        return this.mDebugOverlayEnabledSupplier;
     }
 
     @Nullable
     public ImagePerfDataListener getImagePerfDataListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mImagePerfDataListener;
-        }
-        return (ImagePerfDataListener) invokeV.objValue;
+        return this.mImagePerfDataListener;
     }
 
     @Nullable
     public PipelineDraweeControllerFactory getPipelineDraweeControllerFactory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mPipelineDraweeControllerFactory;
-        }
-        return (PipelineDraweeControllerFactory) invokeV.objValue;
+        return this.mPipelineDraweeControllerFactory;
     }
 }

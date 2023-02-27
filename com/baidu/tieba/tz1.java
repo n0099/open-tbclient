@@ -1,74 +1,205 @@
 package com.baidu.tieba;
 
-import android.app.Application;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.collection.ArrayMap;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.ui.TaskUIData;
+import com.baidu.tieba.px1;
+import com.baidu.tieba.yi3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class tz1 extends qz1 {
+public class tz1 extends sz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public tz1() {
+    @Override // com.baidu.tieba.px1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "AccelerometerApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements px1.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tz1 a;
+
+        /* renamed from: com.baidu.tieba.tz1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0430a implements yi3.a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ e02 b;
+            public final /* synthetic */ a c;
+
+            public C0430a(a aVar, String str, e02 e02Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, str, e02Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = aVar;
+                this.a = str;
+                this.b = e02Var;
+            }
+
+            @Override // com.baidu.tieba.yi3.a
+            public void a(double[] dArr) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, dArr) == null) {
+                    if (dArr != null && dArr.length == 3) {
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            jSONObject.put("x", dArr[0]);
+                            jSONObject.put("y", dArr[1]);
+                            jSONObject.put("z", dArr[2]);
+                            this.b.d(this.c.a, jSONObject);
+                            return;
+                        } catch (JSONException e) {
+                            this.c.a.p("json put data fail", e, true);
+                            this.b.f(this.c.a, "json put data fail");
+                            return;
+                        }
+                    }
+                    this.c.a.p("illegal accelerometers", null, true);
+                    this.c.a.d(this.a, new m12(1001));
+                }
+            }
+        }
+
+        public a(tz1 tz1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tz1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tz1Var;
+        }
+
+        @Override // com.baidu.tieba.px1.a
+        public m12 a(m93 m93Var, JSONObject jSONObject, @Nullable String str) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, m93Var, jSONObject, str)) == null) {
+                e02 e02Var = new e02("accelerometerChange", jSONObject, str);
+                yi3 a = yi3.a();
+                a.b(this.a.getContext(), b.a(jSONObject.optString("interval")));
+                a.e(new C0430a(this, str, e02Var));
+                a.f();
+                e02Var.b(this.a);
+                return m12.f();
+            }
+            return (m12) invokeLLL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static ArrayMap<String, Integer> a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-387099584, "Lcom/baidu/tieba/tz1$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-387099584, "Lcom/baidu/tieba/tz1$b;");
+                    return;
+                }
+            }
+            ArrayMap<String, Integer> arrayMap = new ArrayMap<>(3);
+            a = arrayMap;
+            arrayMap.put(TaskUIData.key, 60);
+            a.put("game", 20);
+            a.put("normal", 200);
+        }
+
+        public static int a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                Integer num = a.get(str);
+                if (num != null) {
+                    return num.intValue();
+                }
+                return 200;
+            }
+            return invokeL.intValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tz1(@NonNull nx1 nx1Var) {
+        super(nx1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {nx1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((nx1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.qz1
-    public w02 c(@NonNull c82 c82Var) {
+    public m12 A(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c82Var)) == null) {
-            return e();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            q("#startAccelerometer", false);
+            return l(str, true, new a(this));
         }
-        return (w02) invokeL.objValue;
+        return (m12) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.qz1
-    public w02 d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return e();
-        }
-        return (w02) invokeI.objValue;
-    }
-
-    public w02 e() {
+    public m12 B() {
         InterceptResult invokeV;
-        w02 w02Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Application c = ds2.c();
-            int i = (int) 28.4d;
-            int P = (int) nm3.P(nm3.o(c) - c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700ef));
-            int i2 = P - ((int) 75.53d);
-            int P2 = ((int) (nm3.P(nm3.t()) + 0.5f)) + ((38 - i) / 2);
-            try {
-                w02Var = new w02(0, b(i2, P2, P, i + P2));
-            } catch (JSONException e) {
-                if (qz1.a) {
-                    e.printStackTrace();
-                }
-                w02Var = new w02(1001, "result JSONException");
-            }
-            w52.k("AbsMenuButtonHandle", "getMenuButtonBoundingClientRect call success, param valid, get param abnormally, result = " + w02Var);
-            return w02Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#stopAccelerometer", true);
+            yi3.a().g();
+            return m12.f();
         }
-        return (w02) invokeV.objValue;
+        return (m12) invokeV.objValue;
     }
 }

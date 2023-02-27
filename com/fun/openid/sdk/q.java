@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import com.vivo.identifier.IdentifierIdClient;
 /* loaded from: classes7.dex */
 public class q {
@@ -92,7 +93,7 @@ public class q {
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             try {
                 try {
-                    Class<?> cls = Class.forName("android.os.SystemProperties");
+                    Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
                     str = (String) cls.getMethod("get", String.class, String.class).invoke(cls, IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "unknown");
                 } catch (Exception e2) {
                     e2.printStackTrace();

@@ -7,15 +7,6 @@ import android.os.SystemClock;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.engine.cache.MemoryCache;
@@ -27,15 +18,11 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
 public final class BitmapPreFillRunner implements Runnable {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int BACKOFF_RATIO = 4;
-    public static final Clock DEFAULT_CLOCK;
     public static final long INITIAL_BACKOFF_MS = 40;
-    public static final long MAX_BACKOFF_MS;
     public static final long MAX_DURATION_MS = 32;
     @VisibleForTesting
     public static final String TAG = "PreFillRunner";
-    public transient /* synthetic */ FieldHolder $fh;
     public final BitmapPool bitmapPool;
     public final Clock clock;
     public long currentDelay;
@@ -44,154 +31,52 @@ public final class BitmapPreFillRunner implements Runnable {
     public final MemoryCache memoryCache;
     public final Set<PreFillType> seenTypes;
     public final PreFillQueue toPrefill;
+    public static final Clock DEFAULT_CLOCK = new Clock();
+    public static final long MAX_BACKOFF_MS = TimeUnit.SECONDS.toMillis(1);
 
     @VisibleForTesting
     /* loaded from: classes7.dex */
     public static class Clock {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public Clock() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
         public long now() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return SystemClock.currentThreadTimeMillis();
-            }
-            return invokeV.longValue;
+            return SystemClock.currentThreadTimeMillis();
+        }
+    }
+
+    private long getFreeMemoryCacheBytes() {
+        return this.memoryCache.getMaxSize() - this.memoryCache.getCurrentSize();
+    }
+
+    private long getNextDelay() {
+        long j = this.currentDelay;
+        this.currentDelay = Math.min(4 * j, MAX_BACKOFF_MS);
+        return j;
+    }
+
+    public void cancel() {
+        this.isCancelled = true;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        if (allocate()) {
+            this.handler.postDelayed(this, getNextDelay());
         }
     }
 
     /* loaded from: classes7.dex */
     public static final class UniqueKey implements Key {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public UniqueKey() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
         @Override // com.bumptech.glide.load.Key
         public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, messageDigest) == null) {
-                throw new UnsupportedOperationException();
-            }
+            throw new UnsupportedOperationException();
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1988852524, "Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1988852524, "Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;");
-                return;
-            }
-        }
-        DEFAULT_CLOCK = new Clock();
-        MAX_BACKOFF_MS = TimeUnit.SECONDS.toMillis(1L);
-    }
-
-    private long getFreeMemoryCacheBytes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            return this.memoryCache.getMaxSize() - this.memoryCache.getCurrentSize();
-        }
-        return invokeV.longValue;
-    }
-
-    private long getNextDelay() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            long j = this.currentDelay;
-            this.currentDelay = Math.min(4 * j, MAX_BACKOFF_MS);
-            return j;
-        }
-        return invokeV.longValue;
-    }
-
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.isCancelled = true;
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && allocate()) {
-            this.handler.postDelayed(this, getNextDelay());
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BitmapPreFillRunner(BitmapPool bitmapPool, MemoryCache memoryCache, PreFillQueue preFillQueue) {
         this(bitmapPool, memoryCache, preFillQueue, DEFAULT_CLOCK, new Handler(Looper.getMainLooper()));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bitmapPool, memoryCache, preFillQueue};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((BitmapPool) objArr2[0], (MemoryCache) objArr2[1], (PreFillQueue) objArr2[2], (Clock) objArr2[3], (Handler) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
     }
 
     @VisibleForTesting
     public BitmapPreFillRunner(BitmapPool bitmapPool, MemoryCache memoryCache, PreFillQueue preFillQueue, Clock clock, Handler handler) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bitmapPool, memoryCache, preFillQueue, clock, handler};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.seenTypes = new HashSet();
         this.currentDelay = 40L;
         this.bitmapPool = bitmapPool;
@@ -202,47 +87,37 @@ public final class BitmapPreFillRunner implements Runnable {
     }
 
     private boolean isGcDetected(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, this, j)) == null) {
-            if (this.clock.now() - j >= 32) {
-                return true;
-            }
-            return false;
+        if (this.clock.now() - j >= 32) {
+            return true;
         }
-        return invokeJ.booleanValue;
+        return false;
     }
 
     @VisibleForTesting
     public boolean allocate() {
-        InterceptResult invokeV;
         Bitmap createBitmap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long now = this.clock.now();
-            while (!this.toPrefill.isEmpty() && !isGcDetected(now)) {
-                PreFillType remove = this.toPrefill.remove();
-                if (!this.seenTypes.contains(remove)) {
-                    this.seenTypes.add(remove);
-                    createBitmap = this.bitmapPool.getDirty(remove.getWidth(), remove.getHeight(), remove.getConfig());
-                } else {
-                    createBitmap = Bitmap.createBitmap(remove.getWidth(), remove.getHeight(), remove.getConfig());
-                }
-                int bitmapByteSize = Util.getBitmapByteSize(createBitmap);
-                if (getFreeMemoryCacheBytes() >= bitmapByteSize) {
-                    this.memoryCache.put(new UniqueKey(), BitmapResource.obtain(createBitmap, this.bitmapPool));
-                } else {
-                    this.bitmapPool.put(createBitmap);
-                }
-                if (Log.isLoggable(TAG, 3)) {
-                    Log.d(TAG, "allocated [" + remove.getWidth() + "x" + remove.getHeight() + "] " + remove.getConfig() + " size: " + bitmapByteSize);
-                }
+        long now = this.clock.now();
+        while (!this.toPrefill.isEmpty() && !isGcDetected(now)) {
+            PreFillType remove = this.toPrefill.remove();
+            if (!this.seenTypes.contains(remove)) {
+                this.seenTypes.add(remove);
+                createBitmap = this.bitmapPool.getDirty(remove.getWidth(), remove.getHeight(), remove.getConfig());
+            } else {
+                createBitmap = Bitmap.createBitmap(remove.getWidth(), remove.getHeight(), remove.getConfig());
             }
-            if (!this.isCancelled && !this.toPrefill.isEmpty()) {
-                return true;
+            int bitmapByteSize = Util.getBitmapByteSize(createBitmap);
+            if (getFreeMemoryCacheBytes() >= bitmapByteSize) {
+                this.memoryCache.put(new UniqueKey(), BitmapResource.obtain(createBitmap, this.bitmapPool));
+            } else {
+                this.bitmapPool.put(createBitmap);
             }
-            return false;
+            if (Log.isLoggable(TAG, 3)) {
+                Log.d(TAG, "allocated [" + remove.getWidth() + "x" + remove.getHeight() + "] " + remove.getConfig() + " size: " + bitmapByteSize);
+            }
         }
-        return invokeV.booleanValue;
+        if (!this.isCancelled && !this.toPrefill.isEmpty()) {
+            return true;
+        }
+        return false;
     }
 }

@@ -5,19 +5,12 @@ import android.util.SparseArray;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.IdentifiedTask;
 import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.searchbox.bddownload.core.breakpoint.BreakpointInfo;
 import com.baidu.searchbox.bddownload.core.download.DownloadStrategy;
 import com.baidu.searchbox.bddownload.core.listener.DownloadListener;
 import com.baidu.searchbox.bddownload.core.priority.PriorityStrategy;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,8 +19,6 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes2.dex */
 public class DownloadTask extends IdentifiedTask implements Comparable<DownloadTask> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final boolean autoCallbackToUIThread;
     @Nullable
     public final Integer connectionCount;
@@ -44,7 +35,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
     @Nullable
     public final Boolean isPreAllocateLength;
     public volatile SparseArray<Object> keyTagMap;
-    public final AtomicLong lastCallbackProcessTimestamp;
+    public final AtomicLong lastCallbackProcessTimestamp = new AtomicLong();
     public volatile DownloadListener listener;
     public final int minIntervalMillisCallbackProcess;
     public final boolean passIfAlreadyCompleted;
@@ -67,7 +58,6 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
 
     /* loaded from: classes2.dex */
     public static class Builder {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final boolean DEFAULT_AUTO_CALLBACK_TO_UI_THREAD = true;
         public static final int DEFAULT_FLUSH_BUFFER_SIZE = 16384;
         public static final boolean DEFAULT_IS_WIFI_REQUIRED = false;
@@ -76,7 +66,6 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         public static final int DEFAULT_READ_BUFFER_SIZE = 4096;
         public static final int DEFAULT_SYNC_BUFFER_INTERVAL_MILLIS = 2000;
         public static final int DEFAULT_SYNC_BUFFER_SIZE = 65536;
-        public transient /* synthetic */ FieldHolder $fh;
         public boolean autoCallbackToUIThread;
         public Integer connectionCount;
         public String filename;
@@ -97,20 +86,6 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         public final String url;
 
         public Builder(@NonNull String str, @NonNull Uri uri) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, uri};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.priority = PriorityStrategy.Priority.DEFAULT;
             this.readBufferSize = 4096;
             this.flushBufferSize = 16384;
@@ -128,20 +103,6 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         }
 
         public Builder(@NonNull String str, @NonNull File file) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, file};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             this.priority = PriorityStrategy.Priority.DEFAULT;
             this.readBufferSize = 4096;
             this.flushBufferSize = 16384;
@@ -155,25 +116,20 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
             this.uri = Uri.fromFile(file);
         }
 
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public synchronized void addHeader(String str, String str2) {
+            if (this.headerMapFields == null) {
+                this.headerMapFields = new HashMap();
+            }
+            List<String> list = this.headerMapFields.get(str);
+            if (list == null) {
+                list = new ArrayList<>();
+                this.headerMapFields.put(str, list);
+            }
+            list.add(str2);
+        }
+
         public Builder(@NonNull String str, @NonNull String str2, @Nullable String str3) {
             this(str, Uri.fromFile(new File(str2)));
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this((String) objArr2[0], (Uri) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
             if (Util.isEmpty(str3)) {
                 this.isFilenameFromResponse = Boolean.TRUE;
             } else {
@@ -181,192 +137,98 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
             }
         }
 
-        public synchronized void addHeader(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-                synchronized (this) {
-                    if (this.headerMapFields == null) {
-                        this.headerMapFields = new HashMap();
-                    }
-                    List<String> list = this.headerMapFields.get(str);
-                    if (list == null) {
-                        list = new ArrayList<>();
-                        this.headerMapFields.put(str, list);
-                    }
-                    list.add(str2);
-                }
-            }
-        }
-
         public DownloadTask build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return new DownloadTask(this.url, this.uri, this.priority, this.readBufferSize, this.flushBufferSize, this.syncBufferSize, this.syncBufferIntervalMillis, this.autoCallbackToUIThread, this.minIntervalMillisCallbackProcess, this.headerMapFields, this.filename, this.passIfAlreadyCompleted, this.isWifiRequired, this.isFilenameFromResponse, this.connectionCount, this.isPreAllocateLength);
-            }
-            return (DownloadTask) invokeV.objValue;
+            return new DownloadTask(this.url, this.uri, this.priority, this.readBufferSize, this.flushBufferSize, this.syncBufferSize, this.syncBufferIntervalMillis, this.autoCallbackToUIThread, this.minIntervalMillisCallbackProcess, this.headerMapFields, this.filename, this.passIfAlreadyCompleted, this.isWifiRequired, this.isFilenameFromResponse, this.connectionCount, this.isPreAllocateLength);
         }
 
         public Builder setAutoCallbackToUIThread(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.autoCallbackToUIThread = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.autoCallbackToUIThread = z;
+            return this;
         }
 
         public Builder setConnectionCount(@IntRange(from = 1) int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-                this.connectionCount = Integer.valueOf(i);
-                return this;
-            }
-            return (Builder) invokeI.objValue;
+            this.connectionCount = Integer.valueOf(i);
+            return this;
         }
 
         public Builder setFilename(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.filename = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.filename = str;
+            return this;
         }
 
         public Builder setFilenameFromResponse(@Nullable Boolean bool) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bool)) == null) {
-                if (Util.isUriFileScheme(this.uri)) {
-                    this.isFilenameFromResponse = bool;
-                    return this;
-                }
-                throw new IllegalArgumentException("Uri isn't file scheme we can't let filename from response");
+            if (Util.isUriFileScheme(this.uri)) {
+                this.isFilenameFromResponse = bool;
+                return this;
             }
-            return (Builder) invokeL.objValue;
+            throw new IllegalArgumentException("Uri isn't file scheme we can't let filename from response");
         }
 
         public Builder setFlushBufferSize(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-                if (i >= 0) {
-                    this.flushBufferSize = i;
-                    return this;
-                }
-                throw new IllegalArgumentException("Value must be positive!");
+            if (i >= 0) {
+                this.flushBufferSize = i;
+                return this;
             }
-            return (Builder) invokeI.objValue;
+            throw new IllegalArgumentException("Value must be positive!");
         }
 
         public Builder setHeaderMapFields(Map<String, List<String>> map) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, map)) == null) {
-                this.headerMapFields = map;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.headerMapFields = map;
+            return this;
         }
 
         public Builder setMinIntervalMillisCallbackProcess(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-                this.minIntervalMillisCallbackProcess = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
+            this.minIntervalMillisCallbackProcess = i;
+            return this;
         }
 
         public Builder setPassIfAlreadyCompleted(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-                this.passIfAlreadyCompleted = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.passIfAlreadyCompleted = z;
+            return this;
         }
 
         public Builder setPreAllocateLength(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-                this.isPreAllocateLength = Boolean.valueOf(z);
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.isPreAllocateLength = Boolean.valueOf(z);
+            return this;
         }
 
         public Builder setPriority(PriorityStrategy.Priority priority) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, priority)) == null) {
-                this.priority = priority;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.priority = priority;
+            return this;
         }
 
         public Builder setReadBufferSize(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-                if (i >= 0) {
-                    this.readBufferSize = i;
-                    return this;
-                }
-                throw new IllegalArgumentException("Value must be positive!");
+            if (i >= 0) {
+                this.readBufferSize = i;
+                return this;
             }
-            return (Builder) invokeI.objValue;
+            throw new IllegalArgumentException("Value must be positive!");
         }
 
         public Builder setSyncBufferIntervalMillis(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-                if (i >= 0) {
-                    this.syncBufferIntervalMillis = i;
-                    return this;
-                }
-                throw new IllegalArgumentException("Value must be positive!");
+            if (i >= 0) {
+                this.syncBufferIntervalMillis = i;
+                return this;
             }
-            return (Builder) invokeI.objValue;
+            throw new IllegalArgumentException("Value must be positive!");
         }
 
         public Builder setSyncBufferSize(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
-                if (i >= 0) {
-                    this.syncBufferSize = i;
-                    return this;
-                }
-                throw new IllegalArgumentException("Value must be positive!");
+            if (i >= 0) {
+                this.syncBufferSize = i;
+                return this;
             }
-            return (Builder) invokeI.objValue;
+            throw new IllegalArgumentException("Value must be positive!");
         }
 
         public Builder setWifiRequired(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
-                this.isWifiRequired = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.isWifiRequired = z;
+            return this;
         }
     }
 
     /* loaded from: classes2.dex */
     public static class MockTaskForCompare extends IdentifiedTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         @Nullable
         public final String filename;
         public final int id;
@@ -378,20 +240,6 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         public final String url;
 
         public MockTaskForCompare(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.id = i;
             this.url = "";
             File file = IdentifiedTask.EMPTY_FILE;
@@ -401,20 +249,6 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         }
 
         public MockTaskForCompare(int i, @NonNull DownloadTask downloadTask) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), downloadTask};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             this.id = i;
             this.url = downloadTask.url;
             this.parentFile = downloadTask.getParentFile();
@@ -425,124 +259,35 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         @Override // com.baidu.searchbox.bddownload.core.IdentifiedTask
         @Nullable
         public String getFilename() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.filename;
-            }
-            return (String) invokeV.objValue;
+            return this.filename;
         }
 
         @Override // com.baidu.searchbox.bddownload.core.IdentifiedTask
         public int getId() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.id;
-            }
-            return invokeV.intValue;
+            return this.id;
         }
 
         @Override // com.baidu.searchbox.bddownload.core.IdentifiedTask
         @NonNull
         public File getParentFile() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.parentFile;
-            }
-            return (File) invokeV.objValue;
+            return this.parentFile;
         }
 
         @Override // com.baidu.searchbox.bddownload.core.IdentifiedTask
         @NonNull
         public File getProvidedPathFile() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.providedPathFile;
-            }
-            return (File) invokeV.objValue;
+            return this.providedPathFile;
         }
 
         @Override // com.baidu.searchbox.bddownload.core.IdentifiedTask
         @NonNull
         public String getUrl() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.url;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public static class TaskHideWrapper {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public TaskHideWrapper() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static long getLastCallbackProcessTs(DownloadTask downloadTask) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, downloadTask)) == null) {
-                return downloadTask.getLastCallbackProcessTs();
-            }
-            return invokeL.longValue;
-        }
-
-        public static void setBreakpointInfo(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65538, null, downloadTask, breakpointInfo) == null) {
-                downloadTask.setBreakpointInfo(breakpointInfo);
-            }
-        }
-
-        public static void setLastCallbackProcessTs(DownloadTask downloadTask, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(65539, null, downloadTask, j) == null) {
-                downloadTask.setLastCallbackProcessTs(j);
-            }
-        }
-
-        public static void setSpeedIncreaseBytes(DownloadTask downloadTask, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, downloadTask, j) == null) {
-                downloadTask.setSpeedIncreaseBytes(j);
-            }
+            return this.url;
         }
     }
 
     public DownloadTask(String str, Uri uri, PriorityStrategy.Priority priority, int i, int i2, int i3, int i4, boolean z, int i5, Map<String, List<String>> map, @Nullable String str2, boolean z2, boolean z3, Boolean bool, @Nullable Integer num, @Nullable Boolean bool2) {
         Boolean bool3;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, uri, priority, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), Integer.valueOf(i5), map, str2, Boolean.valueOf(z2), Boolean.valueOf(z3), bool, num, bool2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         String str3 = str2;
         this.url = str;
         this.uri = uri;
@@ -554,7 +299,6 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         this.autoCallbackToUIThread = z;
         this.minIntervalMillisCallbackProcess = i5;
         this.headerMapFields = map;
-        this.lastCallbackProcessTimestamp = new AtomicLong();
         this.passIfAlreadyCompleted = z2;
         this.wifiRequired = z3;
         this.connectionCount = num;
@@ -616,520 +360,303 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         this.id = BdDownload.with().breakpointStore().findOrCreateId(this);
     }
 
-    public static void cancel(DownloadTask[] downloadTaskArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, downloadTaskArr) == null) {
-            BdDownload.with().downloadDispatcher().cancel(downloadTaskArr);
+    /* loaded from: classes2.dex */
+    public static class TaskHideWrapper {
+        public static long getLastCallbackProcessTs(DownloadTask downloadTask) {
+            return downloadTask.getLastCallbackProcessTs();
+        }
+
+        public static void setBreakpointInfo(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo) {
+            downloadTask.setBreakpointInfo(breakpointInfo);
+        }
+
+        public static void setLastCallbackProcessTs(DownloadTask downloadTask, long j) {
+            downloadTask.setLastCallbackProcessTs(j);
+        }
+
+        public static void setSpeedIncreaseBytes(DownloadTask downloadTask, long j) {
+            downloadTask.setSpeedIncreaseBytes(j);
         }
     }
 
+    public static void cancel(DownloadTask[] downloadTaskArr) {
+        BdDownload.with().downloadDispatcher().cancel(downloadTaskArr);
+    }
+
     public static MockTaskForCompare mockTaskForCompare(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            return new MockTaskForCompare(i);
-        }
-        return (MockTaskForCompare) invokeI.objValue;
+        return new MockTaskForCompare(i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     public int compareTo(@NonNull DownloadTask downloadTask) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadTask)) == null) {
-            return PriorityStrategy.compareTaskPriority(downloadTask, this);
-        }
-        return invokeL.intValue;
+        return PriorityStrategy.compareTaskPriority(downloadTask, this);
     }
 
     public void enqueue(DownloadListener downloadListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, downloadListener) == null) {
-            this.listener = downloadListener;
-            BdDownload.with().downloadDispatcher().enqueue(this);
-        }
+        this.listener = downloadListener;
+        BdDownload.with().downloadDispatcher().enqueue(this);
     }
 
     public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (super.equals(obj)) {
+        if (super.equals(obj)) {
+            return true;
+        }
+        if (obj instanceof DownloadTask) {
+            DownloadTask downloadTask = (DownloadTask) obj;
+            if (downloadTask.id == this.id) {
                 return true;
             }
-            if (obj instanceof DownloadTask) {
-                DownloadTask downloadTask = (DownloadTask) obj;
-                if (downloadTask.id == this.id) {
-                    return true;
-                }
-                return compareIgnoreId(downloadTask);
-            }
-            return false;
+            return compareIgnoreId(downloadTask);
         }
-        return invokeL.booleanValue;
+        return false;
     }
 
     public void execute(DownloadListener downloadListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, downloadListener) == null) {
-            this.listener = downloadListener;
-            BdDownload.with().downloadDispatcher().execute(this);
-        }
+        this.listener = downloadListener;
+        BdDownload.with().downloadDispatcher().execute(this);
     }
 
     public Object getTag(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i)) == null) {
-            if (this.keyTagMap == null) {
-                return null;
-            }
-            return this.keyTagMap.get(i);
+        if (this.keyTagMap == null) {
+            return null;
         }
-        return invokeI.objValue;
+        return this.keyTagMap.get(i);
     }
 
     @NonNull
     public MockTaskForCompare mock(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i)) == null) {
-            return new MockTaskForCompare(i, this);
-        }
-        return (MockTaskForCompare) invokeI.objValue;
+        return new MockTaskForCompare(i, this);
     }
 
     public synchronized void removeTag(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
-            synchronized (this) {
-                if (this.keyTagMap != null) {
-                    this.keyTagMap.remove(i);
-                }
-            }
+        if (this.keyTagMap != null) {
+            this.keyTagMap.remove(i);
         }
     }
 
     public void replaceListener(@NonNull DownloadListener downloadListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, downloadListener) == null) {
-            this.listener = downloadListener;
-        }
+        this.listener = downloadListener;
     }
 
     public void setBreakpointInfo(@NonNull BreakpointInfo breakpointInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, breakpointInfo) == null) {
-            this.info = breakpointInfo;
-        }
+        this.info = breakpointInfo;
     }
 
     public void setLastCallbackProcessTs(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048618, this, j) == null) {
-            this.lastCallbackProcessTimestamp.set(j);
-        }
+        this.lastCallbackProcessTimestamp.set(j);
     }
 
     public void setRedirectLocation(@Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
-            this.redirectLocation = str;
-        }
+        this.redirectLocation = str;
     }
 
     public void setSpeedIncreaseBytes(long j) {
-        SpeedCalculator speedCalculator;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048620, this, j) == null) && (speedCalculator = this.speedCalculator) != null) {
+        SpeedCalculator speedCalculator = this.speedCalculator;
+        if (speedCalculator != null) {
             speedCalculator.downloading(j);
         }
     }
 
     public void setTag(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, obj) == null) {
-            this.tag = obj;
-        }
+        this.tag = obj;
     }
 
     public void setTags(DownloadTask downloadTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, downloadTask) == null) {
-            this.tag = downloadTask.tag;
-            this.keyTagMap = downloadTask.keyTagMap;
-        }
+        this.tag = downloadTask.tag;
+        this.keyTagMap = downloadTask.keyTagMap;
     }
 
     public static void enqueue(DownloadTask[] downloadTaskArr, DownloadListener downloadListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, downloadTaskArr, downloadListener) == null) {
-            for (DownloadTask downloadTask : downloadTaskArr) {
-                downloadTask.listener = downloadListener;
-            }
-            BdDownload.with().downloadDispatcher().enqueue(downloadTaskArr);
+        for (DownloadTask downloadTask : downloadTaskArr) {
+            downloadTask.listener = downloadListener;
         }
+        BdDownload.with().downloadDispatcher().enqueue(downloadTaskArr);
     }
 
     public synchronized DownloadTask addTag(int i, Object obj) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, obj)) == null) {
+        if (this.keyTagMap == null) {
             synchronized (this) {
                 if (this.keyTagMap == null) {
-                    synchronized (this) {
-                        if (this.keyTagMap == null) {
-                            this.keyTagMap = new SparseArray<>();
-                        }
-                    }
+                    this.keyTagMap = new SparseArray<>();
                 }
-                this.keyTagMap.put(i, obj);
             }
-            return this;
         }
-        return (DownloadTask) invokeIL.objValue;
+        this.keyTagMap.put(i, obj);
+        return this;
     }
 
     public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            BdDownload.with().downloadDispatcher().cancel(this);
-        }
+        BdDownload.with().downloadDispatcher().cancel(this);
     }
 
     public int getConnectionCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            BreakpointInfo breakpointInfo = this.info;
-            if (breakpointInfo == null) {
-                return 0;
-            }
-            return breakpointInfo.getBlockCount();
+        BreakpointInfo breakpointInfo = this.info;
+        if (breakpointInfo == null) {
+            return 0;
         }
-        return invokeV.intValue;
+        return breakpointInfo.getBlockCount();
     }
 
     @Nullable
     public File getFile() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            String str = this.filenameHolder.get();
-            if (str == null) {
-                return null;
-            }
-            if (this.targetFile == null) {
-                this.targetFile = new File(this.directoryFile, str);
-            }
-            return this.targetFile;
+        String str = this.filenameHolder.get();
+        if (str == null) {
+            return null;
         }
-        return (File) invokeV.objValue;
+        if (this.targetFile == null) {
+            this.targetFile = new File(this.directoryFile, str);
+        }
+        return this.targetFile;
     }
 
     @Override // com.baidu.searchbox.bddownload.core.IdentifiedTask
     @Nullable
     public String getFilename() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.filenameHolder.get();
-        }
-        return (String) invokeV.objValue;
+        return this.filenameHolder.get();
     }
 
     public DownloadStrategy.FilenameHolder getFilenameHolder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.filenameHolder;
-        }
-        return (DownloadStrategy.FilenameHolder) invokeV.objValue;
+        return this.filenameHolder;
     }
 
     public int getFlushBufferSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.flushBufferSize;
-        }
-        return invokeV.intValue;
+        return this.flushBufferSize;
     }
 
     @Nullable
     public Map<String, List<String>> getHeaderMapFields() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.headerMapFields;
-        }
-        return (Map) invokeV.objValue;
+        return this.headerMapFields;
     }
 
     @Override // com.baidu.searchbox.bddownload.core.IdentifiedTask
     public int getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.id;
-        }
-        return invokeV.intValue;
+        return this.id;
     }
 
     @Nullable
     public BreakpointInfo getInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (this.info == null) {
-                this.info = BdDownload.with().breakpointStore().get(this.id);
-            }
-            return this.info;
+        if (this.info == null) {
+            this.info = BdDownload.with().breakpointStore().get(this.id);
         }
-        return (BreakpointInfo) invokeV.objValue;
+        return this.info;
     }
 
     public long getLastCallbackProcessTs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.lastCallbackProcessTimestamp.get();
-        }
-        return invokeV.longValue;
+        return this.lastCallbackProcessTimestamp.get();
     }
 
     public long getLastSeconds() {
-        InterceptResult invokeV;
         BreakpointInfo breakpointInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            long instantBytesPerSecondAndFlush = this.speedCalculator.getInstantBytesPerSecondAndFlush();
-            if (instantBytesPerSecondAndFlush <= 0 || (breakpointInfo = this.info) == null) {
-                return -1L;
-            }
-            return breakpointInfo.getLastLength() / instantBytesPerSecondAndFlush;
+        long instantBytesPerSecondAndFlush = this.speedCalculator.getInstantBytesPerSecondAndFlush();
+        if (instantBytesPerSecondAndFlush <= 0 || (breakpointInfo = this.info) == null) {
+            return -1L;
         }
-        return invokeV.longValue;
+        return breakpointInfo.getLastLength() / instantBytesPerSecondAndFlush;
     }
 
     public DownloadListener getListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.listener;
-        }
-        return (DownloadListener) invokeV.objValue;
+        return this.listener;
     }
 
     public int getMinIntervalMillisCallbackProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.minIntervalMillisCallbackProcess;
-        }
-        return invokeV.intValue;
+        return this.minIntervalMillisCallbackProcess;
     }
 
     @Override // com.baidu.searchbox.bddownload.core.IdentifiedTask
     @NonNull
     public File getParentFile() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.directoryFile;
-        }
-        return (File) invokeV.objValue;
+        return this.directoryFile;
     }
 
     public int getPriority() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.priority.ordinal();
-        }
-        return invokeV.intValue;
+        return this.priority.ordinal();
     }
 
     @Override // com.baidu.searchbox.bddownload.core.IdentifiedTask
     @NonNull
     public File getProvidedPathFile() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.providedPathFile;
-        }
-        return (File) invokeV.objValue;
+        return this.providedPathFile;
     }
 
     public int getReadBufferSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return this.readBufferSize;
-        }
-        return invokeV.intValue;
+        return this.readBufferSize;
     }
 
     @Nullable
     public String getRedirectLocation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return this.redirectLocation;
-        }
-        return (String) invokeV.objValue;
+        return this.redirectLocation;
     }
 
     @Nullable
     public Integer getSetConnectionCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.connectionCount;
-        }
-        return (Integer) invokeV.objValue;
+        return this.connectionCount;
     }
 
     @Nullable
     public Boolean getSetPreAllocateLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.isPreAllocateLength;
-        }
-        return (Boolean) invokeV.objValue;
+        return this.isPreAllocateLength;
     }
 
     public int getSyncBufferIntervalMills() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return this.syncBufferIntervalMills;
-        }
-        return invokeV.intValue;
+        return this.syncBufferIntervalMills;
     }
 
     public int getSyncBufferSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            return this.syncBufferSize;
-        }
-        return invokeV.intValue;
+        return this.syncBufferSize;
     }
 
     public Object getTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            return this.tag;
-        }
-        return invokeV.objValue;
+        return this.tag;
     }
 
     public Uri getUri() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            return this.uri;
-        }
-        return (Uri) invokeV.objValue;
+        return this.uri;
     }
 
     @Override // com.baidu.searchbox.bddownload.core.IdentifiedTask
     @NonNull
     public String getUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            return this.url;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean isAutoCallbackToUIThread() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            return this.autoCallbackToUIThread;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isFilenameFromResponse() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            return this.filenameFromResponse;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isPassIfAlreadyCompleted() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            return this.passIfAlreadyCompleted;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isWifiRequired() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            return this.wifiRequired;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized void removeTag() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            synchronized (this) {
-                this.tag = null;
-            }
-        }
-    }
-
-    public Builder toBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
-            return toBuilder(this.url, this.uri);
-        }
-        return (Builder) invokeV.objValue;
+        return this.url;
     }
 
     public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            return (this.url + this.providedPathFile.toString() + this.filenameHolder.get()).hashCode();
-        }
-        return invokeV.intValue;
+        return (this.url + this.providedPathFile.toString() + this.filenameHolder.get()).hashCode();
+    }
+
+    public boolean isAutoCallbackToUIThread() {
+        return this.autoCallbackToUIThread;
+    }
+
+    public boolean isFilenameFromResponse() {
+        return this.filenameFromResponse;
+    }
+
+    public boolean isPassIfAlreadyCompleted() {
+        return this.passIfAlreadyCompleted;
+    }
+
+    public boolean isWifiRequired() {
+        return this.wifiRequired;
+    }
+
+    public synchronized void removeTag() {
+        this.tag = null;
+    }
+
+    public Builder toBuilder() {
+        return toBuilder(this.url, this.uri);
     }
 
     public Builder toBuilder(String str, Uri uri) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048624, this, str, uri)) == null) {
-            Builder passIfAlreadyCompleted = new Builder(str, uri).setPriority(this.priority).setReadBufferSize(this.readBufferSize).setFlushBufferSize(this.flushBufferSize).setSyncBufferSize(this.syncBufferSize).setConnectionCount(1).setSyncBufferIntervalMillis(this.syncBufferIntervalMills).setAutoCallbackToUIThread(this.autoCallbackToUIThread).setMinIntervalMillisCallbackProcess(this.minIntervalMillisCallbackProcess).setHeaderMapFields(this.headerMapFields).setPassIfAlreadyCompleted(this.passIfAlreadyCompleted);
-            if (Util.isUriFileScheme(uri) && !new File(uri.getPath()).isFile() && Util.isUriFileScheme(this.uri) && this.filenameHolder.get() != null && !new File(this.uri.getPath()).getName().equals(this.filenameHolder.get())) {
-                passIfAlreadyCompleted.setFilename(this.filenameHolder.get());
-            }
-            return passIfAlreadyCompleted;
+        Builder passIfAlreadyCompleted = new Builder(str, uri).setPriority(this.priority).setReadBufferSize(this.readBufferSize).setFlushBufferSize(this.flushBufferSize).setSyncBufferSize(this.syncBufferSize).setConnectionCount(1).setSyncBufferIntervalMillis(this.syncBufferIntervalMills).setAutoCallbackToUIThread(this.autoCallbackToUIThread).setMinIntervalMillisCallbackProcess(this.minIntervalMillisCallbackProcess).setHeaderMapFields(this.headerMapFields).setPassIfAlreadyCompleted(this.passIfAlreadyCompleted);
+        if (Util.isUriFileScheme(uri) && !new File(uri.getPath()).isFile() && Util.isUriFileScheme(this.uri) && this.filenameHolder.get() != null && !new File(this.uri.getPath()).getName().equals(this.filenameHolder.get())) {
+            passIfAlreadyCompleted.setFilename(this.filenameHolder.get());
         }
-        return (Builder) invokeLL.objValue;
+        return passIfAlreadyCompleted;
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
-            return super.toString() + "@" + this.id + "@" + this.url + "@" + this.directoryFile.toString() + "/" + this.filenameHolder.get();
-        }
-        return (String) invokeV.objValue;
+        return super.toString() + "@" + this.id + "@" + this.url + "@" + this.directoryFile.toString() + "/" + this.filenameHolder.get();
     }
 }

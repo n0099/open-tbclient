@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface ct {
-    void a();
+    at a();
 
-    void b();
+    bt b();
 }

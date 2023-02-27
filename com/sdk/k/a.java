@@ -1,21 +1,21 @@
 package com.sdk.k;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.sdk.base.framework.bean.KInfo;
-import com.sdk.f.g;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.sdk.f.f;
+@SuppressLint({"ApplySharedPref"})
 /* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.k.a";
-    public static final boolean b;
+    public static final Boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,52 +31,78 @@ public class a {
                 return;
             }
         }
-        b = g.b;
+        b = Boolean.valueOf(f.a);
     }
 
-    public static String a(Object obj) {
-        InterceptResult invokeL;
+    public static void a(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) {
-            try {
-                Field[] declaredFields = Class.forName(obj.getClass().getName()).getDeclaredFields();
-                JSONObject jSONObject = new JSONObject();
-                for (Field field : declaredFields) {
-                    field.setAccessible(true);
-                    String name = field.getName();
-                    if (!"serialVersionUID".equals(name)) {
-                        Object obj2 = field.get(obj);
-                        if (field.getType().equals(ArrayList.class)) {
-                            JSONArray jSONArray = new JSONArray();
-                            ArrayList arrayList = (ArrayList) obj2;
-                            if (arrayList != null) {
-                                for (int i = 0; i < arrayList.size(); i++) {
-                                    Object obj3 = arrayList.get(i);
-                                    Class<?> cls = obj3.getClass();
-                                    if (cls.equals(KInfo.class)) {
-                                        Field[] declaredFields2 = cls.getDeclaredFields();
-                                        JSONObject jSONObject2 = new JSONObject();
-                                        for (Field field2 : declaredFields2) {
-                                            field2.setAccessible(true);
-                                            jSONObject2.put(field2.getName(), field2.get(obj3));
-                                        }
-                                        jSONArray.put(jSONObject2);
-                                    } else {
-                                        jSONArray.put(obj3);
-                                    }
-                                }
-                            }
-                            obj2 = jSONArray;
-                        }
-                        jSONObject.put(name, obj2);
-                    }
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
+            SharedPreferences sharedPreferences = context.getSharedPreferences("ZzxCache", 0);
+            SharedPreferences.Editor edit = sharedPreferences.edit();
+            for (String str2 : sharedPreferences.getAll().keySet()) {
+                if (str2.startsWith(str)) {
+                    edit.remove(str2);
                 }
-                return jSONObject.toString();
+            }
+            edit.commit();
+        }
+    }
+
+    public static void a(Context context, String str, Long l) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, context, str, l) == null) {
+            try {
+                SharedPreferences.Editor edit = context.getSharedPreferences("ZzxCache", 0).edit();
+                edit.putLong(str, l.longValue());
+                edit.commit();
             } catch (Exception e) {
-                com.sdk.n.a.a(a, e.getMessage(), Boolean.valueOf(b));
-                return null;
+                com.sdk.o.a.a(a, e.getMessage(), b);
             }
         }
-        return (String) invokeL.objValue;
+    }
+
+    public static boolean a(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) {
+            try {
+                SharedPreferences.Editor edit = context.getSharedPreferences("ZzxCache", 0).edit();
+                edit.putString(str, str2);
+                return edit.commit();
+            } catch (Exception e) {
+                com.sdk.o.a.a(a, e.getMessage(), b);
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static Long b(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            long j = 0;
+            try {
+                j = context.getSharedPreferences("ZzxCache", 0).getLong(str, 0L);
+            } catch (Exception e) {
+                com.sdk.o.a.a(a, e.getMessage(), b);
+            }
+            return Long.valueOf(j);
+        }
+        return (Long) invokeLL.objValue;
+    }
+
+    public static String c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
+            try {
+                return context.getSharedPreferences("ZzxCache", 0).getString(str, "");
+            } catch (Exception e) {
+                com.sdk.o.a.a(a, e.getMessage(), b);
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
     }
 }

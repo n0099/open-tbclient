@@ -1,25 +1,70 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.framework.cmdRouter.MultiDexHelper;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.TiebaStaticClassesArray;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Field;
 /* loaded from: classes5.dex */
 public class o35 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "com.baidu.tieba";
-    public static String b = "com.baidu.tieba:remote";
-    public static String c = "com.baidu.tieba:bdservice_v1";
-    public static String d = "com.baidu.tieba:pluginInstaller";
-    public static String e = "com.baidu.tieba:daemon";
-    public static String f = "com.baidu.tieba:cdnTachometer";
-    public static String g = "plugininstaller_settings";
-    public static String h = "daemon_settings";
-    public static String i = "cdnTachometer_settings";
-    public static final String[] j;
-    public static final String[] k;
+    public static /* synthetic */ Interceptable $ic;
+    public static String[] a;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ TiebaStaticClassesArray b;
+
+        public a(boolean z, TiebaStaticClassesArray tiebaStaticClassesArray) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z), tiebaStaticClassesArray};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z;
+            this.b = tiebaStaticClassesArray;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a) {
+                        MultiDexHelper.loadClass(BdBaseApplication.getInst());
+                        return;
+                    }
+                    Log.e("TiebaStaticClassesArray", "load from dex fail ");
+                    if (!this.b.loadStaticClasses()) {
+                        MultiDexHelper.loadStaticClass(BdBaseApplication.getInst());
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +79,62 @@ public class o35 {
                 return;
             }
         }
-        j = new String[]{"skin_", "from_id", "bd_loc_crash_count", "webview_crash_count", "bd_loc_switcher", "install_other_app_file_name", "cuid", "new_cuid", "new_cuid_galaxy2", "gpu_open", "client_id", "keepalive_wifi", "keepalive_nonwifi", "networkcore_type", "socket_reconn_strategy", "image_quality", "capable_of_webp_format", "webp_failure_count", "log_stat_upload_time ", "log_stat_debug_time", "log_stat_switch_data", "log_stat_error_time", "is_motu_forbidden", "cdn_iplist_cache_key_three", "report_user_info_time_key", "image_viewer_tip", "location_lat", "location_lng", "location_pos", "location_on", "xiaoying_crash_count", "plugin_patch_hook_failed_count", "page_stay_duration_switch", "page_stay_max_cost", "applist_intalled_apk_ids", "applist_intalled_apk_ids_timestamp", "KEY_UPLOAD_LOG_INTERVAL", "KEY_LOG_REAL_TIME_UPLOAD_SWITCH", "smart_app_tid", "smart_app_id", "smart_app_name", "key_ai_app_guide_display", "AD_SNIFF_RESULT_KEY", "key_baiduid_for_anti", "key_secret_is_show_new", "key_qq_share_h5_enable", "key_wechat_small_app_to_h5", "key_launch_up_speed", "fun_ad_big_image_floor", "fun_ad_big_image_density", "fun_ad_big_image_size", "fun_ad_big_image_switch", "key_post_thread_has_request_location", "key_sync_extra_field", "key_member_auto_ban_renewal_show", "key_server_picpage_bear_sid", "key_live_bubble_remind_show_count", "key_live_top_float_remind_show_count", "key_hot_event_tip_show_time", "switch_immersive_sticky_status", "key_live_bubble_icon_cache_key", "key_live_gif_load_library_key", "key_big_imagecache_optimize_scale"};
-        k = new String[0];
+        a = new String[]{"com.baidu.tieba.livesdk.AlaLiveSdkStatic", "com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic", "com.baidu.tieba.ad.browser.AdStatic", "com.baidu.tieba.recapp.lego.RecAppLegoStatic", "com.baidu.tieba.recapp.RecAppStatic", "com.baidu.tieba.lego.activity.LegoListActivityStatic", "com.baidu.tbadk.core.LaunchStatic", "com.baidu.tieba.wallet.PayStatic", "com.baidu.tieba.image.ImageViewerActivityStatic", "com.baidu.tieba.im.TiebaIMActivityStatic", "com.baidu.tieba.immessagecenter.im.chat.notify.ImMessageCenterDelegateStatic", "com.baidu.tieba.enterForum.home.EnterForumDelegateStatic", "com.baidu.tieba.videoplay.fragment.VideoChannelDelegateStatic", "com.baidu.tieba.emotion.editortool.EmotionIntefaceStatic", "com.baidu.tieba.homepage.framework.RecommendFrsDelegateStatic", "com.baidu.tieba.personCenter.PersonInfoDelegateStatic", "com.baidu.tieba.write.bottomButton.WriteThreadDelegateStatic", "com.baidu.tieba.ala.livecard.Static", "com.baidu.tieba.flutter.FlutterStatic", "com.baidu.tieba.flutter.FlutterPluginStatic", "com.baidu.tieba.homepage.topic.TopicStatic", "com.baidu.tieba.quickWebView.QuickWebViewStatic", "com.baidu.tbadk.core.util.schemeaction.SchemeActionStatic", "com.baidu.tieba.hottopic.controller.HotTopicStatic", "com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic", "com.baidu.tieba.sharesdk.ShareStatic"};
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            try {
+                TiebaStaticClassesArray tiebaStaticClassesArray = new TiebaStaticClassesArray();
+                boolean z = true;
+                try {
+                    Class<?> cls = Class.forName("com.baidu.tbadk.core.util.TiebaStaticArray");
+                    Object newInstance = cls.newInstance();
+                    Field declaredField = cls.getDeclaredField("staticClassesArray");
+                    declaredField.setAccessible(true);
+                    tiebaStaticClassesArray.staticClassesArray = (String[]) declaredField.get(newInstance);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                Log.e("staticClassesArray: ", "" + tiebaStaticClassesArray.staticClassesArray.length);
+                if (b55.m().n("static_opt_open", 0) <= 0) {
+                    z = false;
+                }
+                b = z;
+                long currentTimeMillis = System.currentTimeMillis();
+                if (b) {
+                    nc.b().a("MultiDexHelper", new a(b(), tiebaStaticClassesArray));
+                } else if (!tiebaStaticClassesArray.loadStaticClasses()) {
+                    MultiDexHelper.loadStaticClass(BdBaseApplication.getInst());
+                }
+                Log.e("Tasks", "load from dex coast time " + (System.currentTimeMillis() - currentTimeMillis));
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String[] strArr = a;
+            try {
+                if (strArr.length <= 0) {
+                    return false;
+                }
+                for (String str : strArr) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    Class.forName(str);
+                    Log.e("TiebaStaticClassesArray", str + " " + (System.currentTimeMillis() - currentTimeMillis));
+                }
+                return true;
+            } catch (Throwable th) {
+                BdLog.e(th, true);
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
     }
 }

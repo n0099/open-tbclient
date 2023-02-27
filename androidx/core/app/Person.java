@@ -9,23 +9,14 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.core.graphics.drawable.IconCompat;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class Person {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ICON_KEY = "icon";
     public static final String IS_BOT_KEY = "isBot";
     public static final String IS_IMPORTANT_KEY = "isImportant";
     public static final String KEY_KEY = "key";
     public static final String NAME_KEY = "name";
     public static final String URI_KEY = "uri";
-    public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public IconCompat mIcon;
     public boolean mIsBot;
@@ -39,8 +30,6 @@ public class Person {
 
     /* loaded from: classes.dex */
     public static class Builder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         @Nullable
         public IconCompat mIcon;
         public boolean mIsBot;
@@ -53,44 +42,14 @@ public class Person {
         public String mUri;
 
         public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
         }
 
         @NonNull
         public Person build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new Person(this);
-            }
-            return (Person) invokeV.objValue;
+            return new Person(this);
         }
 
         public Builder(Person person) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {person};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             this.mName = person.mName;
             this.mIcon = person.mIcon;
             this.mUri = person.mUri;
@@ -101,86 +60,42 @@ public class Person {
 
         @NonNull
         public Builder setBot(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.mIsBot = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.mIsBot = z;
+            return this;
         }
 
         @NonNull
         public Builder setIcon(@Nullable IconCompat iconCompat) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iconCompat)) == null) {
-                this.mIcon = iconCompat;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mIcon = iconCompat;
+            return this;
         }
 
         @NonNull
         public Builder setImportant(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-                this.mIsImportant = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.mIsImportant = z;
+            return this;
         }
 
         @NonNull
         public Builder setKey(@Nullable String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.mKey = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mKey = str;
+            return this;
         }
 
         @NonNull
         public Builder setName(@Nullable CharSequence charSequence) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, charSequence)) == null) {
-                this.mName = charSequence;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mName = charSequence;
+            return this;
         }
 
         @NonNull
         public Builder setUri(@Nullable String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.mUri = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mUri = str;
+            return this;
         }
     }
 
     public Person(Builder builder) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mName = builder.mName;
         this.mIcon = builder.mIcon;
         this.mUri = builder.mUri;
@@ -193,202 +108,132 @@ public class Person {
     @RequiresApi(28)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static Person fromAndroidPerson(@NonNull android.app.Person person) {
-        InterceptResult invokeL;
         IconCompat iconCompat;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, person)) == null) {
-            Builder name = new Builder().setName(person.getName());
-            if (person.getIcon() != null) {
-                iconCompat = IconCompat.createFromIcon(person.getIcon());
-            } else {
-                iconCompat = null;
-            }
-            return name.setIcon(iconCompat).setUri(person.getUri()).setKey(person.getKey()).setBot(person.isBot()).setImportant(person.isImportant()).build();
+        Builder name = new Builder().setName(person.getName());
+        if (person.getIcon() != null) {
+            iconCompat = IconCompat.createFromIcon(person.getIcon());
+        } else {
+            iconCompat = null;
         }
-        return (Person) invokeL.objValue;
-    }
-
-    @NonNull
-    public static Person fromBundle(@NonNull Bundle bundle) {
-        InterceptResult invokeL;
-        IconCompat iconCompat;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bundle)) == null) {
-            Bundle bundle2 = bundle.getBundle("icon");
-            Builder name = new Builder().setName(bundle.getCharSequence("name"));
-            if (bundle2 != null) {
-                iconCompat = IconCompat.createFromBundle(bundle2);
-            } else {
-                iconCompat = null;
-            }
-            return name.setIcon(iconCompat).setUri(bundle.getString("uri")).setKey(bundle.getString("key")).setBot(bundle.getBoolean(IS_BOT_KEY)).setImportant(bundle.getBoolean(IS_IMPORTANT_KEY)).build();
-        }
-        return (Person) invokeL.objValue;
+        return name.setIcon(iconCompat).setUri(person.getUri()).setKey(person.getKey()).setBot(person.isBot()).setImportant(person.isImportant()).build();
     }
 
     @NonNull
     @RequiresApi(22)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static Person fromPersistableBundle(@NonNull PersistableBundle persistableBundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, persistableBundle)) == null) {
-            return new Builder().setName(persistableBundle.getString("name")).setUri(persistableBundle.getString("uri")).setKey(persistableBundle.getString("key")).setBot(persistableBundle.getBoolean(IS_BOT_KEY)).setImportant(persistableBundle.getBoolean(IS_IMPORTANT_KEY)).build();
+        return new Builder().setName(persistableBundle.getString("name")).setUri(persistableBundle.getString("uri")).setKey(persistableBundle.getString("key")).setBot(persistableBundle.getBoolean(IS_BOT_KEY)).setImportant(persistableBundle.getBoolean(IS_IMPORTANT_KEY)).build();
+    }
+
+    @NonNull
+    public static Person fromBundle(@NonNull Bundle bundle) {
+        IconCompat iconCompat;
+        Bundle bundle2 = bundle.getBundle("icon");
+        Builder name = new Builder().setName(bundle.getCharSequence("name"));
+        if (bundle2 != null) {
+            iconCompat = IconCompat.createFromBundle(bundle2);
+        } else {
+            iconCompat = null;
         }
-        return (Person) invokeL.objValue;
+        return name.setIcon(iconCompat).setUri(bundle.getString("uri")).setKey(bundle.getString("key")).setBot(bundle.getBoolean(IS_BOT_KEY)).setImportant(bundle.getBoolean(IS_IMPORTANT_KEY)).build();
     }
 
     @Nullable
     public IconCompat getIcon() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mIcon;
-        }
-        return (IconCompat) invokeV.objValue;
+        return this.mIcon;
     }
 
     @Nullable
     public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mKey;
-        }
-        return (String) invokeV.objValue;
+        return this.mKey;
     }
 
     @Nullable
     public CharSequence getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mName;
-        }
-        return (CharSequence) invokeV.objValue;
+        return this.mName;
     }
 
     @Nullable
     public String getUri() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mUri;
-        }
-        return (String) invokeV.objValue;
+        return this.mUri;
     }
 
     public boolean isBot() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mIsBot;
-        }
-        return invokeV.booleanValue;
+        return this.mIsBot;
     }
 
     public boolean isImportant() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mIsImportant;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @NonNull
-    public Builder toBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return new Builder(this);
-        }
-        return (Builder) invokeV.objValue;
+        return this.mIsImportant;
     }
 
     @NonNull
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public String resolveToLegacyUri() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String str = this.mUri;
-            if (str != null) {
-                return str;
-            }
-            if (this.mName != null) {
-                return "name:" + ((Object) this.mName);
-            }
-            return "";
+        String str = this.mUri;
+        if (str != null) {
+            return str;
         }
-        return (String) invokeV.objValue;
+        if (this.mName != null) {
+            return "name:" + ((Object) this.mName);
+        }
+        return "";
+    }
+
+    @NonNull
+    public Builder toBuilder() {
+        return new Builder(this);
     }
 
     @NonNull
     @RequiresApi(22)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public PersistableBundle toPersistableBundle() {
-        InterceptResult invokeV;
         String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            PersistableBundle persistableBundle = new PersistableBundle();
-            CharSequence charSequence = this.mName;
-            if (charSequence != null) {
-                str = charSequence.toString();
-            } else {
-                str = null;
-            }
-            persistableBundle.putString("name", str);
-            persistableBundle.putString("uri", this.mUri);
-            persistableBundle.putString("key", this.mKey);
-            persistableBundle.putBoolean(IS_BOT_KEY, this.mIsBot);
-            persistableBundle.putBoolean(IS_IMPORTANT_KEY, this.mIsImportant);
-            return persistableBundle;
+        PersistableBundle persistableBundle = new PersistableBundle();
+        CharSequence charSequence = this.mName;
+        if (charSequence != null) {
+            str = charSequence.toString();
+        } else {
+            str = null;
         }
-        return (PersistableBundle) invokeV.objValue;
+        persistableBundle.putString("name", str);
+        persistableBundle.putString("uri", this.mUri);
+        persistableBundle.putString("key", this.mKey);
+        persistableBundle.putBoolean(IS_BOT_KEY, this.mIsBot);
+        persistableBundle.putBoolean(IS_IMPORTANT_KEY, this.mIsImportant);
+        return persistableBundle;
     }
 
     @NonNull
     @RequiresApi(28)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public android.app.Person toAndroidPerson() {
-        InterceptResult invokeV;
         Icon icon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Person.Builder name = new Person.Builder().setName(getName());
-            if (getIcon() != null) {
-                icon = getIcon().toIcon();
-            } else {
-                icon = null;
-            }
-            return name.setIcon(icon).setUri(getUri()).setKey(getKey()).setBot(isBot()).setImportant(isImportant()).build();
+        Person.Builder name = new Person.Builder().setName(getName());
+        if (getIcon() != null) {
+            icon = getIcon().toIcon();
+        } else {
+            icon = null;
         }
-        return (android.app.Person) invokeV.objValue;
+        return name.setIcon(icon).setUri(getUri()).setKey(getKey()).setBot(isBot()).setImportant(isImportant()).build();
     }
 
     @NonNull
     public Bundle toBundle() {
-        InterceptResult invokeV;
         Bundle bundle;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            Bundle bundle2 = new Bundle();
-            bundle2.putCharSequence("name", this.mName);
-            IconCompat iconCompat = this.mIcon;
-            if (iconCompat != null) {
-                bundle = iconCompat.toBundle();
-            } else {
-                bundle = null;
-            }
-            bundle2.putBundle("icon", bundle);
-            bundle2.putString("uri", this.mUri);
-            bundle2.putString("key", this.mKey);
-            bundle2.putBoolean(IS_BOT_KEY, this.mIsBot);
-            bundle2.putBoolean(IS_IMPORTANT_KEY, this.mIsImportant);
-            return bundle2;
+        Bundle bundle2 = new Bundle();
+        bundle2.putCharSequence("name", this.mName);
+        IconCompat iconCompat = this.mIcon;
+        if (iconCompat != null) {
+            bundle = iconCompat.toBundle();
+        } else {
+            bundle = null;
         }
-        return (Bundle) invokeV.objValue;
+        bundle2.putBundle("icon", bundle);
+        bundle2.putString("uri", this.mUri);
+        bundle2.putString("key", this.mKey);
+        bundle2.putBoolean(IS_BOT_KEY, this.mIsBot);
+        bundle2.putBoolean(IS_IMPORTANT_KEY, this.mIsImportant);
+        return bundle2;
     }
 }

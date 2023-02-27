@@ -1,12 +1,6 @@
 package com.baidu.searchbox.perfframe.ioc;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Constant {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_APP_VERSION = "appversion";
     public static final String KEY_BUSINESS = "business";
     public static final String KEY_CONTENT = "content";
@@ -51,19 +45,4 @@ public class Constant {
     public static final String PAGE_TRACE_TAG = "tag";
     public static final String PAGE_TRACE_TIME = "time";
     public static final String PAGE_TRACE_TYPE = "type";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public Constant() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

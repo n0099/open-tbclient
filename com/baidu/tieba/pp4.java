@@ -1,95 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.provider.Settings;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pp4 implements kp4<String> {
+public class pp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public pp4(Context context) {
+    public static String a(JSONObject jSONObject, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, jSONObject, str, str2)) == null) {
+            if (jSONObject != null) {
+                return jSONObject.optString(str, str2);
             }
+            return str2;
         }
-        this.a = context.getApplicationContext();
+        return (String) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.kp4
-    public boolean a() {
-        InterceptResult invokeV;
+    public static JSONObject b(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return TextUtils.isEmpty(get());
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kp4
-    /* renamed from: b */
-    public String get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return c();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!sp4.a(this.a, "android.permission.WRITE_SETTINGS")) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, jSONObject)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "NA";
+            }
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
             }
             try {
-                return ApiReplaceUtil.getString(this.a.getContentResolver(), "com.baidu.uuid");
-            } catch (Exception unused) {
-                return null;
+                if (TextUtils.isEmpty(a(jSONObject, "pre_source", null))) {
+                    jSONObject.put("pre_source", str);
+                }
+                if (TextUtils.isEmpty(a(jSONObject, "pre_appid", null))) {
+                    jSONObject.put("pre_appid", "NA");
+                }
+            } catch (JSONException unused) {
             }
+            return jSONObject;
         }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kp4
-    /* renamed from: d */
-    public void put(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            e(str);
-        }
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || !sp4.a(this.a, "android.permission.WRITE_SETTINGS")) {
-            return;
-        }
-        try {
-            Settings.System.putString(this.a.getContentResolver(), "com.baidu.uuid", str);
-        } catch (Exception unused) {
-        }
+        return (JSONObject) invokeLL.objValue;
     }
 }

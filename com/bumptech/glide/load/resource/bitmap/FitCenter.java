@@ -2,89 +2,31 @@ package com.bumptech.glide.load.resource.bitmap;
 
 import android.graphics.Bitmap;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import java.security.MessageDigest;
 /* loaded from: classes7.dex */
 public class FitCenter extends BitmapTransformation {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ID = "com.bumptech.glide.load.resource.bitmap.FitCenter";
-    public static final byte[] ID_BYTES;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final byte[] ID_BYTES = ID.getBytes(Key.CHARSET);
 
     @Override // com.bumptech.glide.load.Key
     public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 1572326941;
-        }
-        return invokeV.intValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1481864042, "Lcom/bumptech/glide/load/resource/bitmap/FitCenter;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1481864042, "Lcom/bumptech/glide/load/resource/bitmap/FitCenter;");
-                return;
-            }
-        }
-        ID_BYTES = ID.getBytes(Key.CHARSET);
-    }
-
-    public FitCenter() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
+        return 1572326941;
     }
 
     @Override // com.bumptech.glide.load.Key
     public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            return obj instanceof FitCenter;
-        }
-        return invokeL.booleanValue;
+        return obj instanceof FitCenter;
     }
 
     @Override // com.bumptech.glide.load.Key
     public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, messageDigest) == null) {
-            messageDigest.update(ID_BYTES);
-        }
+        messageDigest.update(ID_BYTES);
     }
 
     @Override // com.bumptech.glide.load.resource.bitmap.BitmapTransformation
     public Bitmap transform(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, bitmapPool, bitmap, i, i2)) == null) {
-            return TransformationUtils.fitCenter(bitmapPool, bitmap, i, i2);
-        }
-        return (Bitmap) invokeLLII.objValue;
+        return TransformationUtils.fitCenter(bitmapPool, bitmap, i, i2);
     }
 }

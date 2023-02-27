@@ -26,16 +26,18 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.browser.TbChannelJsInterface;
+import com.baidu.tbadk.core.log.HybridLog;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b35;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.i69;
 import com.baidu.tieba.ih;
-import com.baidu.tieba.p15;
-import com.baidu.tieba.qu4;
-import com.baidu.tieba.w29;
-import com.baidu.tieba.y29;
+import com.baidu.tieba.k69;
+import com.baidu.tieba.r08;
+import com.baidu.tieba.zu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,16 +49,17 @@ import java.util.Map;
 /* loaded from: classes3.dex */
 public class BaseWebView extends WebView {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String TAG = "BaseWebView";
     public static final String TB_NA_CHANNEL = "__tb_channel__";
     public static final String USER_SKIN_OVERLAY = "user_skin_overlay=1";
     public transient /* synthetic */ FieldHolder $fh;
     public long initFinishedTime;
     public final long initStartTime;
-    public y29 jsCallback;
+    public k69 jsCallback;
     public CommonTbJsBridge mCommonJsBridge;
     public Context mContext;
     public boolean mIsLoaded;
-    public w29 mJsBridge;
+    public i69 mJsBridge;
     public c mOnLoadUrlListener;
     public d mOnPageFinishedListener;
     public e mOnPageStartedListener;
@@ -112,7 +115,7 @@ public class BaseWebView extends WebView {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements y29 {
+    public class a implements k69 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseWebView a;
@@ -135,15 +138,15 @@ public class BaseWebView extends WebView {
             this.a = baseWebView;
         }
 
-        @Override // com.baidu.tieba.y29
+        @Override // com.baidu.tieba.k69
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
                 BaseWebView baseWebView = this.a;
-                w29 w29Var = baseWebView.mJsBridge;
-                if (w29Var != null) {
-                    return w29Var.c(baseWebView.getWebView(), str, jsPromptResult);
+                i69 i69Var = baseWebView.mJsBridge;
+                if (i69Var != null) {
+                    return i69Var.c(baseWebView.getWebView(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -184,23 +187,11 @@ public class BaseWebView extends WebView {
         }
 
         @Override // android.webkit.WebViewClient
-        public void onPageFinished(WebView webView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
-                super.onPageFinished(webView, str);
-                this.a.mIsLoaded = true;
-                if (this.a.mOnPageFinishedListener != null) {
-                    this.a.mOnPageFinishedListener.onPageFinished(webView, str);
-                }
-            }
-        }
-
-        @Override // android.webkit.WebViewClient
         public boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, renderProcessGoneDetail)) == null) {
-                qu4.a("BaseWebView", webView);
+                hv4.a(BaseWebView.TAG, webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -230,6 +221,20 @@ public class BaseWebView extends WebView {
         }
 
         @Override // android.webkit.WebViewClient
+        public void onPageFinished(WebView webView, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
+                super.onPageFinished(webView, str);
+                this.a.mIsLoaded = true;
+                if (this.a.mOnPageFinishedListener != null) {
+                    this.a.mOnPageFinishedListener.onPageFinished(webView, str);
+                }
+                r08 hybridLog = HybridLog.getInstance();
+                hybridLog.c(BaseWebView.TAG, "onPageFinished:" + str);
+            }
+        }
+
+        @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
@@ -237,6 +242,19 @@ public class BaseWebView extends WebView {
                 if (this.a.mOnPageStartedListener != null) {
                     this.a.mOnPageStartedListener.d(webView, str);
                 }
+            }
+        }
+
+        @Override // android.webkit.WebViewClient
+        public void onReceivedError(WebView webView, int i, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLILL(1048579, this, webView, i, str, str2) == null) {
+                super.onReceivedError(webView, i, str, str2);
+                if (this.a.mOnReceivedErrorListener != null) {
+                    this.a.mOnReceivedErrorListener.a(webView, i, str, str2);
+                }
+                r08 hybridLog = HybridLog.getInstance();
+                hybridLog.b(BaseWebView.TAG, "onReceivedError errorCode:" + i + " description:" + str + " failingUrl:" + str2);
             }
         }
 
@@ -251,17 +269,8 @@ public class BaseWebView extends WebView {
                 if (this.a.mOnReceivedSslErrorListener != null) {
                     this.a.mOnReceivedSslErrorListener.a(webView, sslErrorHandler, sslError);
                 }
-            }
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onReceivedError(WebView webView, int i, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLILL(1048579, this, webView, i, str, str2) == null) {
-                super.onReceivedError(webView, i, str, str2);
-                if (this.a.mOnReceivedErrorListener != null) {
-                    this.a.mOnReceivedErrorListener.a(webView, i, str, str2);
-                }
+                r08 hybridLog = HybridLog.getInstance();
+                hybridLog.b(BaseWebView.TAG, "onReceivedSslError error:" + sslError);
             }
         }
     }
@@ -472,18 +481,6 @@ public class BaseWebView extends WebView {
         }
     }
 
-    @Override // android.webkit.WebView
-    public void loadUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            TbChannelJsInterface tbChannelJsInterface = this.tbChannelJsInterface;
-            if (tbChannelJsInterface != null) {
-                tbChannelJsInterface.startLoadUrl(str);
-            }
-            super.loadUrl(str);
-        }
-    }
-
     public final void registerPerformanceTracker(@NonNull TbChannelJsInterface tbChannelJsInterface) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, tbChannelJsInterface) == null) && tbChannelJsInterface != null) {
@@ -512,10 +509,10 @@ public class BaseWebView extends WebView {
         }
     }
 
-    public void setOnJsPromptCallback(y29 y29Var) {
+    public void setOnJsPromptCallback(k69 k69Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, y29Var) == null) {
-            this.jsCallback = y29Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, k69Var) == null) {
+            this.jsCallback = k69Var;
         }
     }
 
@@ -595,23 +592,11 @@ public class BaseWebView extends WebView {
         }
     }
 
-    @Override // android.webkit.WebView
-    public void loadUrl(String str, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, map) == null) {
-            TbChannelJsInterface tbChannelJsInterface = this.tbChannelJsInterface;
-            if (tbChannelJsInterface != null) {
-                tbChannelJsInterface.startLoadUrl(str);
-            }
-            super.loadUrl(str, map);
-        }
-    }
-
     public void sendNotification(String str, HashMap hashMap) {
-        w29 w29Var;
+        i69 i69Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, hashMap) == null) && (w29Var = this.mJsBridge) != null) {
-            w29Var.i(getWebView(), str, hashMap);
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, hashMap) == null) && (i69Var = this.mJsBridge) != null) {
+            i69Var.i(getWebView(), str, hashMap);
         }
     }
 
@@ -628,7 +613,7 @@ public class BaseWebView extends WebView {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65552, this) == null) && (view2 = this.skinOverlayView) != null) {
             view2.setVisibility(0);
-            p15.d(this.skinOverlayView).f(R.color.CAM_X0503);
+            b35.d(this.skinOverlayView).f(R.color.CAM_X0503);
         }
     }
 
@@ -664,10 +649,10 @@ public class BaseWebView extends WebView {
     }
 
     public void reshow() {
-        w29 w29Var;
+        i69 i69Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (w29Var = this.mJsBridge) != null) {
-            w29Var.i(getWebView(), CommonTbJsBridge.RE_SHOW, null);
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (i69Var = this.mJsBridge) != null) {
+            i69Var.i(getWebView(), CommonTbJsBridge.RE_SHOW, null);
         }
     }
 
@@ -678,10 +663,10 @@ public class BaseWebView extends WebView {
             getSettings().setCacheMode(2);
             getSettings().setUseWideViewPort(true);
             getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + SkinManager.getCurrentSkinTypeString());
-            BrowserHelper.a(getSettings());
+            zu4.a(getSettings());
             this.mWebViewClient = new b(this);
             this.mWebChromeClient = new j(this, null);
-            this.mJsBridge = new w29();
+            this.mJsBridge = new i69();
             setWebViewClient(this.mWebViewClient);
             setWebChromeClient(this.mWebChromeClient);
             if (Build.VERSION.SDK_INT >= 11) {
@@ -689,7 +674,7 @@ public class BaseWebView extends WebView {
                 removeJavascriptInterface("accessibility");
                 removeJavascriptInterface("accessibilityTraversal");
             }
-            BrowserHelper.h(getContext());
+            zu4.j(getContext());
             if (Build.VERSION.SDK_INT >= 21) {
                 setAcceptThirdPartyCookies(true);
                 getSettings().setMixedContentMode(0);
@@ -721,8 +706,36 @@ public class BaseWebView extends WebView {
             }
             View view2 = this.skinOverlayView;
             if (view2 != null) {
-                p15.d(view2).f(R.color.CAM_X0503);
+                b35.d(view2).f(R.color.CAM_X0503);
             }
+        }
+    }
+
+    @Override // android.webkit.WebView
+    public void loadUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            TbChannelJsInterface tbChannelJsInterface = this.tbChannelJsInterface;
+            if (tbChannelJsInterface != null) {
+                tbChannelJsInterface.startLoadUrl(str);
+            }
+            r08 hybridLog = HybridLog.getInstance();
+            hybridLog.c(TAG, "loadUrl:" + str);
+            super.loadUrl(str);
+        }
+    }
+
+    @Override // android.webkit.WebView
+    public void loadUrl(String str, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, map) == null) {
+            TbChannelJsInterface tbChannelJsInterface = this.tbChannelJsInterface;
+            if (tbChannelJsInterface != null) {
+                tbChannelJsInterface.startLoadUrl(str);
+            }
+            r08 hybridLog = HybridLog.getInstance();
+            hybridLog.c(TAG, "loadUrl:" + str + " additionalHttpHeaders:" + map);
+            super.loadUrl(str, map);
         }
     }
 

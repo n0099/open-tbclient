@@ -12,9 +12,7 @@ public final class b extends c {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public String c;
-    public String d;
-    public boolean e;
+    public boolean c;
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
@@ -44,7 +42,7 @@ public final class b extends c {
         } else {
             i = 2007;
         }
-        this.e = false;
+        this.c = false;
     }
 
     @Override // com.vivo.push.b.c, com.vivo.push.o
@@ -53,36 +51,18 @@ public final class b extends c {
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
             aVar.a("sdk_clients", this.a);
-            aVar.a("sdk_version", 323L);
-            aVar.a("BaseAppCommand.EXTRA_APPID", this.c);
-            aVar.a("BaseAppCommand.EXTRA_APPKEY", this.b);
-            aVar.a("PUSH_REGID", this.d);
+            aVar.a("sdk_version", 334L);
+            aVar.a("PUSH_REGID", this.b);
         }
     }
 
     @Override // com.vivo.push.b.c, com.vivo.push.o
     public final void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             super.d(aVar);
             this.a = aVar.a("sdk_clients");
-            this.c = aVar.a("BaseAppCommand.EXTRA_APPID");
-            this.b = aVar.a("BaseAppCommand.EXTRA_APPKEY");
-            this.d = aVar.a("PUSH_REGID");
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = null;
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = null;
+            this.b = aVar.a("PUSH_REGID");
         }
     }
 
@@ -90,7 +70,7 @@ public final class b extends c {
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return "AppCommand:" + b();
         }
         return (String) invokeV.objValue;

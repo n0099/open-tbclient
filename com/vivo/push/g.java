@@ -5,19 +5,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.e;
+import com.vivo.push.util.u;
 /* loaded from: classes8.dex */
 public final class g implements IPushActionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ e.a a;
-    public final /* synthetic */ e b;
+    public final /* synthetic */ String b;
+    public final /* synthetic */ String c;
+    public final /* synthetic */ e d;
 
-    public g(e eVar, e.a aVar) {
+    public g(e eVar, e.a aVar, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {eVar, aVar};
+            Object[] objArr = {eVar, aVar, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,28 +30,29 @@ public final class g implements IPushActionListener {
                 return;
             }
         }
-        this.b = eVar;
+        this.d = eVar;
         this.a = aVar;
+        this.b = str;
+        this.c = str2;
     }
 
     @Override // com.vivo.push.IPushActionListener
     public final void onStateChanged(int i) {
-        com.vivo.push.util.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             if (i == 0) {
                 Object[] b = this.a.b();
                 if (b != null && b.length != 0) {
-                    this.b.a((String) this.a.b()[0]);
-                    return;
-                } else {
-                    com.vivo.push.util.p.a("PushClientManager", "bind app result is null");
+                    this.d.a((String) this.a.b()[0]);
+                    com.vivo.push.d.a.a().e().a(this.b);
+                    com.vivo.push.d.a.a().e().b(this.c);
                     return;
                 }
+                u.a("PushClientManager", "bind app result is null");
+                return;
             }
-            this.b.k = null;
-            bVar = this.b.j;
-            bVar.b("APP_TOKEN");
+            this.d.j = null;
+            com.vivo.push.d.a.a().e().h();
         }
     }
 }

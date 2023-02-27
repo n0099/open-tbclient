@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.RewardMaterial;
 /* loaded from: classes6.dex */
 public class w05 {
     public static /* synthetic */ Interceptable $ic;
@@ -13,7 +14,7 @@ public class w05 {
     public String a;
     public String b;
     public boolean c;
-    public String d;
+    public boolean d;
 
     public w05() {
         Interceptable interceptable = $ic;
@@ -33,7 +34,7 @@ public class w05 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.a;
         }
         return (String) invokeV.objValue;
     }
@@ -42,94 +43,53 @@ public class w05 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public String c() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+            return this.c;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
+            return this.d;
         }
         return invokeV.booleanValue;
     }
 
-    public w05(String str, String str2, boolean z) {
+    public static w05 e(RewardMaterial rewardMaterial) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, rewardMaterial)) == null) {
+            if (rewardMaterial == null) {
+                return null;
             }
-        }
-        this.a = str;
-        this.b = str2;
-        this.c = z;
-    }
-
-    public w05(String str, String str2, boolean z, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Boolean.valueOf(z), str3};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+            w05 w05Var = new w05();
+            w05Var.a = rewardMaterial.icon;
+            w05Var.b = rewardMaterial.unlock_level;
+            boolean z2 = false;
+            if (rewardMaterial.is_matched.intValue() == 1) {
+                z = true;
+            } else {
+                z = false;
             }
-        }
-        this.a = str;
-        this.b = str2;
-        this.c = z;
-        this.d = str3;
-    }
-
-    public w05(String str, boolean z, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z), str2};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
+            w05Var.c = z;
+            if (rewardMaterial.is_newest_matched_level.intValue() == 1) {
+                z2 = true;
             }
+            w05Var.d = z2;
+            return w05Var;
         }
-        this.a = str;
-        this.c = z;
-        this.d = str2;
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.c = z;
-        }
+        return (w05) invokeL.objValue;
     }
 }

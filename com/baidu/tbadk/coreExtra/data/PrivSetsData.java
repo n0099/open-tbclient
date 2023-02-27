@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.data;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
-import com.baidu.tieba.ix4;
+import com.baidu.tieba.py4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PrivSets;
 /* loaded from: classes3.dex */
-public class PrivSetsData extends ix4 implements Serializable {
+public class PrivSetsData extends py4 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int bazhuShowInside;
@@ -58,7 +58,7 @@ public class PrivSetsData extends ix4 implements Serializable {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ix4
+    @Override // com.baidu.tieba.py4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {

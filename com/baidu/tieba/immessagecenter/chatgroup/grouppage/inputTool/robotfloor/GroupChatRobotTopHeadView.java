@@ -14,12 +14,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p15;
+import com.baidu.tieba.b35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GroupChatRobotTopHeadView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,12 +32,12 @@ public class GroupChatRobotTopHeadView extends RelativeLayout {
     public ImageView g;
     public b h;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void onCloseEvent();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,10 +94,10 @@ public class GroupChatRobotTopHeadView extends RelativeLayout {
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            p15 d = p15.d(this.b);
+            b35 d = b35.d(this.b);
             d.n(R.string.J_X18);
             d.f(R.color.CAM_X0207);
-            p15 d2 = p15.d(this.e);
+            b35 d2 = b35.d(this.e);
             d2.v(R.color.CAM_X0107);
             d2.z(R.dimen.T_X06);
         }
@@ -170,16 +170,16 @@ public class GroupChatRobotTopHeadView extends RelativeLayout {
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (context = this.a) == null) {
             return;
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0394, (ViewGroup) this, true);
-        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092043);
-        this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092040);
-        HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092041);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03a2, (ViewGroup) this, true);
+        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092088);
+        this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092085);
+        HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092086);
         this.d = headImageView;
         headImageView.setIsRound(true);
         this.d.setIsBigV(false);
-        this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092042);
-        this.f = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09203f);
-        this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09203e);
+        this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092087);
+        this.f = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092084);
+        this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092083);
         d(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -188,7 +188,7 @@ public class GroupChatRobotTopHeadView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
             if (TextUtils.isEmpty(str)) {
-                this.d.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f8c), 24, false);
+                this.d.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f93), 24, false);
             } else {
                 this.d.K(str, 12, false);
             }

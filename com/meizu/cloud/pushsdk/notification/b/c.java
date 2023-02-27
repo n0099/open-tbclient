@@ -29,7 +29,7 @@ public class c extends com.meizu.cloud.pushsdk.notification.a {
 
     public void a(RemoteViews remoteViews, MessageV3 messageV3) {
         Bitmap a;
-        if (messageV3.getmAppIconSetting() == null || a() || messageV3.getmAppIconSetting().isDefaultLargeIcon() || (a = a(messageV3.getmAppIconSetting().getLargeIconUrl())) == null) {
+        if (messageV3.getAppIconSetting() == null || a() || messageV3.getAppIconSetting().isDefaultLargeIcon() || (a = a(messageV3.getAppIconSetting().getLargeIconUrl())) == null) {
             remoteViews.setImageViewBitmap(com.meizu.cloud.pushsdk.notification.c.c.k(this.a), a(this.a, messageV3.getUploadDataPackageName()));
         } else {
             remoteViews.setImageViewBitmap(com.meizu.cloud.pushsdk.notification.c.c.k(this.a), a);

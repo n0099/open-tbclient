@@ -1,51 +1,39 @@
 package com.xiaomi.push;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.text.TextUtils;
+import com.xiaomi.mipush.sdk.MiPushClient;
 /* loaded from: classes8.dex */
-public class ex extends ev {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 3600000;
-    public transient /* synthetic */ FieldHolder $fh;
+public enum ex {
+    COMMAND_REGISTER(MiPushClient.COMMAND_REGISTER),
+    COMMAND_UNREGISTER(MiPushClient.COMMAND_UNREGISTER),
+    COMMAND_SET_ALIAS(MiPushClient.COMMAND_SET_ALIAS),
+    COMMAND_UNSET_ALIAS(MiPushClient.COMMAND_UNSET_ALIAS),
+    COMMAND_SET_ACCOUNT(MiPushClient.COMMAND_SET_ACCOUNT),
+    COMMAND_UNSET_ACCOUNT(MiPushClient.COMMAND_UNSET_ACCOUNT),
+    COMMAND_SUBSCRIBE_TOPIC(MiPushClient.COMMAND_SUBSCRIBE_TOPIC),
+    COMMAND_UNSUBSCRIBE_TOPIC(MiPushClient.COMMAND_UNSUBSCRIBE_TOPIC),
+    COMMAND_SET_ACCEPT_TIME(MiPushClient.COMMAND_SET_ACCEPT_TIME),
+    COMMAND_CHK_VDEVID("check-vdeviceid");
+    
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-56375315, "Lcom/xiaomi/push/ex;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-56375315, "Lcom/xiaomi/push/ex;");
-        }
+    /* renamed from: a  reason: collision with other field name */
+    public final String f336a;
+
+    ex(String str) {
+        this.f336a = str;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ex(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+    public static int a(String str) {
+        ex[] values;
+        int i = -1;
+        if (TextUtils.isEmpty(str)) {
+            return -1;
+        }
+        for (ex exVar : values()) {
+            if (exVar.f336a.equals(str)) {
+                i = em.a(exVar);
             }
         }
+        return i;
     }
 }

@@ -1,93 +1,34 @@
 package com.baidu.searchbox.taskmanager;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.IdleLaunchTask;
 import com.baidu.searchbox.launch.SmartLaunchScheduler;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class IdleTaskRegister {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, IdleLaunchTask> mTaskMap;
+    public final Map<String, IdleLaunchTask> mTaskMap = new HashMap();
 
-    public IdleTaskRegister() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    public void registerIdleTask(String str, final Runnable runnable) {
+        this.mTaskMap.put(str, new IdleLaunchTask(str) { // from class: com.baidu.searchbox.taskmanager.IdleTaskRegister.1
+            @Override // com.baidu.searchbox.launch.SmartLaunchTask
+            public void execute() {
+                runnable.run();
             }
-        }
-        this.mTaskMap = new HashMap();
-    }
-
-    public void registerIdleTask(String str, Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, runnable) == null) {
-            this.mTaskMap.put(str, new IdleLaunchTask(this, str, runnable) { // from class: com.baidu.searchbox.taskmanager.IdleTaskRegister.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ IdleTaskRegister this$0;
-                public final /* synthetic */ Runnable val$runnable;
-
-                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                {
-                    super(str);
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, runnable};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            super((String) newInitContext.callArgs[0]);
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$runnable = runnable;
-                }
-
-                @Override // com.baidu.searchbox.launch.SmartLaunchTask
-                public void execute() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.val$runnable.run();
-                    }
-                }
-            });
-        }
+        });
     }
 
     public void scheduleIdleTask(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            for (Map.Entry<String, IdleLaunchTask> entry : this.mTaskMap.entrySet()) {
-                entry.getKey();
-                IdleLaunchTask value = entry.getValue();
-                if (z) {
-                    SmartLaunchScheduler.getInstance().register(value);
-                } else if (!value.isExecuted()) {
-                    value.run();
-                }
+        for (Map.Entry<String, IdleLaunchTask> entry : this.mTaskMap.entrySet()) {
+            entry.getKey();
+            IdleLaunchTask value = entry.getValue();
+            if (z) {
+                SmartLaunchScheduler.getInstance().register(value);
+            } else if (!value.isExecuted()) {
+                value.run();
             }
-            if (!z) {
-                this.mTaskMap.clear();
-            }
+        }
+        if (!z) {
+            this.mTaskMap.clear();
         }
     }
 }

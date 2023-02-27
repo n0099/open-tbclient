@@ -1,16 +1,6 @@
 package com.baidu.livesdk.api.im;
-
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class IMConnectParams {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public int accountType;
     public String appId;
     public String bduss;
@@ -23,193 +13,91 @@ public class IMConnectParams {
     public String uid;
     public String versionName;
 
-    public IMConnectParams() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public int getAccountType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.accountType;
-        }
-        return invokeV.intValue;
+        return this.accountType;
     }
 
     public String getAppId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.appId;
-        }
-        return (String) invokeV.objValue;
+        return this.appId;
     }
 
     public String getBduss() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.bduss;
-        }
-        return (String) invokeV.objValue;
+        return this.bduss;
     }
 
     public String getFrom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.from;
-        }
-        return (String) invokeV.objValue;
+        return this.from;
     }
 
     public Object getOther() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.other;
-        }
-        return invokeV.objValue;
+        return this.other;
     }
 
     public int getPl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.pl;
-        }
-        return invokeV.intValue;
+        return this.pl;
     }
 
     public String getUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.uid;
-        }
-        return (String) invokeV.objValue;
+        return this.uid;
     }
 
     public String getVersionName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.versionName;
-        }
-        return (String) invokeV.objValue;
+        return this.versionName;
     }
 
     public String getcUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.cUid;
-        }
-        return (String) invokeV.objValue;
+        return this.cUid;
     }
 
     public String getcfrom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.cfrom;
-        }
-        return (String) invokeV.objValue;
+        return this.cfrom;
     }
 
     public boolean isLogin() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.isLogin;
-        }
-        return invokeV.booleanValue;
+        return this.isLogin;
     }
 
     public void setAccountType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.accountType = i;
-        }
+        this.accountType = i;
     }
 
     public void setAppId(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.appId = str;
-        }
+        this.appId = str;
     }
 
     public void setBduss(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.bduss = str;
-        }
+        this.bduss = str;
     }
 
     public void setFrom(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.from = str;
-        }
+        this.from = str;
     }
 
     public void setLogin(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.isLogin = z;
-        }
+        this.isLogin = z;
     }
 
     public void setOther(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, obj) == null) {
-            this.other = obj;
-        }
+        this.other = obj;
     }
 
     public void setPl(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.pl = i;
-        }
+        this.pl = i;
     }
 
     public void setUid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.uid = str;
-        }
+        this.uid = str;
     }
 
     public void setVersionName(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.versionName = str;
-        }
+        this.versionName = str;
     }
 
     public void setcUid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.cUid = str;
-        }
+        this.cUid = str;
     }
 
     public void setcfrom(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.cfrom = str;
-        }
+        this.cfrom = str;
     }
 }

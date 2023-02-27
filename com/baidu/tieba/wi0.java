@@ -1,90 +1,84 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.MotionEvent;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class wi0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final vi0 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int[] a;
+    public final int[] b;
+    public int c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
+    public long h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948271403, "Lcom/baidu/tieba/wi0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948271403, "Lcom/baidu/tieba/wi0;");
+    public wi0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new vi0();
+        this.a = new int[]{0, 0};
+        this.b = new int[]{0, 0};
+        this.c = 0;
+        this.h = 0L;
     }
 
-    public static boolean a(@NonNull Context context, @NonNull bj0 bj0Var, @Nullable Map<String, Object> map, @Nullable fj0 fj0Var) {
-        InterceptResult invokeLLLL;
+    public void a(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, context, bj0Var, map, fj0Var)) == null) {
-            return a.a(context, bj0Var, map, fj0Var);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return c(str, null);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(String str, @Nullable Context context) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, context)) == null) {
-            return d(str, context, null);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean d(String str, @Nullable Context context, @Nullable Map<String, Object> map) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, context, map)) == null) {
-            return e(str, context, map, null);
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static boolean e(String str, @Nullable Context context, @Nullable Map<String, Object> map, @Nullable fj0 fj0Var) {
-        InterceptResult invokeLLLL;
-        l41 l41Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, str, context, map, fj0Var)) == null) {
-            if (i41.a && (l41Var = (l41) h41.a().a(l41.class)) != null) {
-                l41Var.a(str);
+        if (interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) {
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action == 2) {
+                        this.c++;
+                        return;
+                    }
+                    return;
+                }
+                this.c = 0;
+                this.e = System.currentTimeMillis();
+                this.b[0] = (int) motionEvent.getRawX();
+                this.b[1] = (int) motionEvent.getRawY();
+                if (Math.max(Math.abs(this.b[0] - this.a[0]), Math.abs(this.b[1] - this.a[1])) > 10) {
+                    this.g++;
+                    this.f += Math.max(0L, this.e - this.d);
+                    return;
+                }
+                return;
             }
-            if (!kj0.o(str)) {
-                kj0.d(fj0Var, str, 201, false);
-                return false;
+            long currentTimeMillis = System.currentTimeMillis();
+            this.d = currentTimeMillis;
+            if (this.h == 0) {
+                this.h = currentTimeMillis;
             }
-            if (context == null) {
-                context = nj0.b();
-            }
-            return a(context, new bj0(str), map, fj0Var);
+            this.a[0] = (int) motionEvent.getRawX();
+            this.a[1] = (int) motionEvent.getRawY();
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public int[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int[] iArr = this.b;
+            return new int[]{iArr[0], iArr[1]};
+        }
+        return (int[]) invokeV.objValue;
     }
 }

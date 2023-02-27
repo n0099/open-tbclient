@@ -4,46 +4,20 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.graphics.drawable.NinePatchDrawable;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class ImageLoadingResult {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final Bitmap bitmap;
     public final NinePatchChunk chunk;
 
     public ImageLoadingResult(Bitmap bitmap, NinePatchChunk ninePatchChunk) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bitmap, ninePatchChunk};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.bitmap = bitmap;
         this.chunk = ninePatchChunk;
     }
 
     public NinePatchDrawable getNinePatchDrawable(Resources resources, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, resources, str)) == null) {
-            if (this.bitmap == null) {
-                return null;
-            }
-            return this.chunk == null ? new NinePatchDrawable(resources, this.bitmap, null, new Rect(), str) : new NinePatchDrawable(resources, this.bitmap, this.chunk.toBytes(), this.chunk.padding, str);
+        if (this.bitmap == null) {
+            return null;
         }
-        return (NinePatchDrawable) invokeLL.objValue;
+        return this.chunk == null ? new NinePatchDrawable(resources, this.bitmap, null, new Rect(), str) : new NinePatchDrawable(resources, this.bitmap, this.chunk.toBytes(), this.chunk.padding, str);
     }
 }

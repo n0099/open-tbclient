@@ -1,160 +1,72 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.rule.TaskRuleData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class nu extends rr implements pu {
+public class nu extends eu<TaskRuleData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ps d;
-    public final rs e;
-    public final vs f;
-    public final ys g;
-    public final ts h;
-    public final os i;
-    public final us j;
-    public final qu k;
-    public final yu l;
 
-    public nu(ps psVar, rs rsVar, vs vsVar, ys ysVar, ts tsVar, os osVar, us usVar, qu quVar, yu yuVar) {
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "rule" : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nu(gu guVar) {
+        super(guVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {psVar, rsVar, vsVar, ysVar, tsVar, osVar, usVar, quVar, yuVar};
+            Object[] objArr = {guVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((gu) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = psVar;
-        this.e = rsVar;
-        this.f = vsVar;
-        this.g = ysVar;
-        this.h = tsVar;
-        this.i = osVar;
-        this.j = usVar;
-        this.k = quVar;
-        this.l = yuVar;
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ nu(ps psVar, rs rsVar, vs vsVar, ys ysVar, ts tsVar, os osVar, us usVar, qu quVar, yu yuVar, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(psVar, rsVar, vsVar, ysVar, tsVar, osVar, usVar, r10, r11);
-        ru ruVar;
-        av avVar;
-        if ((i & 128) != 0) {
-            ruVar = new ru();
-        } else {
-            ruVar = quVar;
-        }
-        if ((i & 256) != 0) {
-            avVar = new av();
-        } else {
-            avVar = yuVar;
-        }
-    }
-
-    @Override // com.baidu.tieba.qr
-    public us a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.eu
+    /* renamed from: c */
+    public TaskRuleData a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.j;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String version = jSONObject.optString("ver");
+                String upgrade = jSONObject.optString("url");
+                long optLong = jSONObject.optLong("expire");
+                int optInt = jSONObject.optInt("stay", Integer.MAX_VALUE);
+                int optInt2 = jSONObject.optInt("repeat", Integer.MAX_VALUE);
+                boolean optBoolean = jSONObject.optBoolean(TaskRuleData.keyUniq);
+                boolean optBoolean2 = jSONObject.optBoolean(TaskRuleData.keyPersist);
+                int optInt3 = jSONObject.optInt(TaskRuleData.keyNoClickTimes, -1);
+                boolean optBoolean3 = jSONObject.optBoolean("auto", true);
+                int optInt4 = jSONObject.optInt(TaskRuleData.keyPersistOnFail, 0);
+                Intrinsics.checkExpressionValueIsNotNull(version, "version");
+                Intrinsics.checkExpressionValueIsNotNull(upgrade, "upgrade");
+                return new TaskRuleData(version, upgrade, optLong, optInt, optInt2, optBoolean, optBoolean2, optBoolean3, optInt3, optInt4);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
         }
-        return (us) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qr
-    public vs b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return (vs) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qr
-    public os c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.i;
-        }
-        return (os) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pu
-    public qu d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.k;
-        }
-        return (qu) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qr
-    public ys e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return (ys) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pu
-    public yu f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.l;
-        }
-        return (yu) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qr
-    public rs g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (rs) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qr
-    public ps h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
-        }
-        return (ps) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qr
-    public ts i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.h;
-        }
-        return (ts) invokeV.objValue;
+        return (TaskRuleData) invokeL.objValue;
     }
 }

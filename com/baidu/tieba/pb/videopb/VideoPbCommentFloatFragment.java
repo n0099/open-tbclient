@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.PbCommentFloatActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zi6;
+import com.baidu.tieba.pl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class VideoPbCommentFloatFragment extends AbsVideoPbFragment {
     public int Y3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d0917 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d0938 : invokeV.intValue;
     }
 
     public VideoPbCommentFloatFragment() {
@@ -64,9 +64,9 @@ public class VideoPbCommentFloatFragment extends AbsVideoPbFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.E4();
-            zi6 zi6Var = this.L0;
-            if (zi6Var != null) {
-                zi6Var.i(null);
+            pl6 pl6Var = this.J0;
+            if (pl6Var != null) {
+                pl6Var.i(null);
             }
         }
     }

@@ -1,63 +1,73 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.payui.model.PayFinishInfo;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.IYYPayResultView;
-import tv.athena.revenue.payui.view.IYYPayWayView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
-import tv.athena.revenue.payui.view.WindowParams;
-import tv.athena.revenue.payui.view.dialog.CancelType;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.java_websocket.WebSocket;
+import org.java_websocket.drafts.Draft;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes7.dex */
-public interface yja {
-    void a(Activity activity, qla qlaVar, List<PayWayInfo> list, String str, PaySplitOrderViewSource paySplitOrderViewSource, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+public abstract class yja implements aka {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(Activity activity, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
+    @Override // com.baidu.tieba.aka
+    public void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, oka okaVar, vka vkaVar) throws InvalidDataException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, webSocket, okaVar, vkaVar) == null) {
+        }
+    }
 
-    void c(int i, String str, PayCallBackBean payCallBackBean);
+    @Override // com.baidu.tieba.aka
+    public void onWebsocketHandshakeSentAsClient(WebSocket webSocket, oka okaVar) throws InvalidDataException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webSocket, okaVar) == null) {
+        }
+    }
 
-    void d(CancelType cancelType, AbsViewEventHandler absViewEventHandler);
+    @Deprecated
+    public abstract void onWebsocketMessageFragment(WebSocket webSocket, Framedata framedata);
 
-    bka e();
+    @Override // com.baidu.tieba.aka
+    public void onWebsocketPong(WebSocket webSocket, Framedata framedata) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, webSocket, framedata) == null) {
+        }
+    }
 
-    void f(Activity activity, tla tlaVar, qla qlaVar, Dialog dialog, IYYPayWayView iYYPayWayView, AppCustomExpand appCustomExpand, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
+    public yja() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void g(Activity activity, IPayCallback<CurrencyChargeMessage> iPayCallback, IYYPayAmountView.ViewParams viewParams);
+    @Override // com.baidu.tieba.aka
+    public wka onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, oka okaVar) throws InvalidDataException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webSocket, draft, okaVar)) == null) {
+            return new ska();
+        }
+        return (wka) invokeLLL.objValue;
+    }
 
-    void j(PayFinishInfo payFinishInfo);
-
-    void k(AbsViewEventHandler absViewEventHandler, PayDialogType payDialogType);
-
-    void l(Activity activity, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void m(Activity activity, qla qlaVar, tla tlaVar, Dialog dialog, IYYPayWayView iYYPayWayView, AppCustomExpand appCustomExpand, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void n();
-
-    void o(Activity activity, String str);
-
-    boolean p(Activity activity, IYYPayResultView iYYPayResultView, AbsViewEventHandler absViewEventHandler);
-
-    void q(uma umaVar, Dialog dialog);
-
-    void refreshWindow(WindowParams windowParams);
-
-    void release();
-
-    boolean s(Activity activity, IYYPayWayView iYYPayWayView, AbsViewEventHandler absViewEventHandler);
-
-    void t(Activity activity, qla qlaVar, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void u(Activity activity);
-
-    PayDialogType v();
+    @Override // com.baidu.tieba.aka
+    public void onWebsocketPing(WebSocket webSocket, Framedata framedata) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, webSocket, framedata) == null) {
+            webSocket.sendFrame(new mka((lka) framedata));
+        }
+    }
 }

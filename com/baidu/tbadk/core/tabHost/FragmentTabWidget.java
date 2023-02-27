@@ -10,7 +10,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -21,9 +20,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b49;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.p09;
-import com.baidu.tieba.vf5;
+import com.baidu.tieba.ih5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +38,7 @@ public class FragmentTabWidget extends LinearLayout {
     public String B;
     public HashMap<Integer, View> C;
     public int D;
-    public vf5 E;
+    public ih5 E;
     public final Rect a;
     public final Rect b;
     public final Rect c;
@@ -201,21 +200,6 @@ public class FragmentTabWidget extends LinearLayout {
         }
     }
 
-    private void setNavigationBarBg(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65541, this, i) == null) {
-            Context context = getContext();
-            if (context instanceof Activity) {
-                int color = SkinManager.getColor(i);
-                String dynamicStyleNavBarColor = getDynamicStyleNavBarColor();
-                if (StringUtils.isNotNull(dynamicStyleNavBarColor)) {
-                    color = p09.f(dynamicStyleNavBarColor);
-                }
-                UtilHelper.setNavigationBarBg((Activity) context, color);
-            }
-        }
-    }
-
     @Override // android.view.ViewGroup
     public void addView(View view2) {
         Interceptable interceptable = $ic;
@@ -278,10 +262,10 @@ public class FragmentTabWidget extends LinearLayout {
         }
     }
 
-    public void setDynamicStyleData(vf5 vf5Var) {
+    public void setDynamicStyleData(ih5 ih5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, vf5Var) == null) {
-            this.E = vf5Var;
+        if (interceptable == null || interceptable.invokeL(1048600, this, ih5Var) == null) {
+            this.E = ih5Var;
         }
     }
 
@@ -332,9 +316,6 @@ public class FragmentTabWidget extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             if (this.E != null) {
-                if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                    return this.E.f();
-                }
                 if (TbadkCoreApplication.getInst().getSkinType() == 4) {
                     return this.E.d();
                 }
@@ -343,6 +324,67 @@ public class FragmentTabWidget extends LinearLayout {
             return null;
         }
         return (String) invokeV.objValue;
+    }
+
+    public View getWriteView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.A;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            removeAllViews();
+            this.f = -1;
+            this.C.clear();
+            this.D = 0;
+        }
+    }
+
+    private void setNavigationBarBg(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65541, this, i) == null) {
+            Context context = getContext();
+            if (context instanceof Activity) {
+                int color = SkinManager.getColor(i);
+                String dynamicStyleNavBarColor = getDynamicStyleNavBarColor();
+                if (this.E != null && ((color = b49.f(dynamicStyleNavBarColor)) == 0 || color == Integer.MAX_VALUE)) {
+                    color = SkinManager.getColor(R.color.CAM_X0205);
+                }
+                UtilHelper.setNavigationBarBg((Activity) context, color);
+            }
+        }
+    }
+
+    public final void f(View view2) {
+        LinearLayout.LayoutParams layoutParams;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
+            if (this.y) {
+                layoutParams = new LinearLayout.LayoutParams(0, -1, 1.0f);
+            } else {
+                layoutParams = new LinearLayout.LayoutParams(-2, -1, 1.0f);
+            }
+            layoutParams.setMargins(0, 0, 0, 0);
+            if (this.w) {
+                view2.setPadding(0, 0, 0, this.x);
+            }
+            view2.setLayoutParams(layoutParams);
+            view2.setFocusable(true);
+            view2.setClickable(true);
+        }
+    }
+
+    public final void m(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048590, this, i) != null) || this.B == null) {
+            return;
+        }
+        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FRS_BOTTOM_BAR_TAB_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.B).param("obj_param1", i));
     }
 
     public void c(View view2, int i, boolean z) {
@@ -437,33 +479,6 @@ public class FragmentTabWidget extends LinearLayout {
         }
     }
 
-    public final void f(View view2) {
-        LinearLayout.LayoutParams layoutParams;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
-            if (this.y) {
-                layoutParams = new LinearLayout.LayoutParams(0, -1, 1.0f);
-            } else {
-                layoutParams = new LinearLayout.LayoutParams(-2, -1, 1.0f);
-            }
-            layoutParams.setMargins(0, 0, 0, 0);
-            if (this.w) {
-                view2.setPadding(0, 0, 0, this.x);
-            }
-            view2.setLayoutParams(layoutParams);
-            view2.setFocusable(true);
-            view2.setClickable(true);
-        }
-    }
-
-    public final void m(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048590, this, i) != null) || this.B == null) {
-            return;
-        }
-        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FRS_BOTTOM_BAR_TAB_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.B).param("obj_param1", i));
-    }
-
     public void g(View view2, boolean z) {
         LinearLayout.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
@@ -480,25 +495,6 @@ public class FragmentTabWidget extends LinearLayout {
             view2.setLayoutParams(layoutParams);
             view2.setFocusable(true);
             view2.setClickable(true);
-        }
-    }
-
-    public View getWriteView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.A;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            removeAllViews();
-            this.f = -1;
-            this.C.clear();
-            this.D = 0;
         }
     }
 

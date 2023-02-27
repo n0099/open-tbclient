@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
@@ -67,7 +66,7 @@ public class c extends com.baidu.platform.base.e {
                 if (i != 2) {
                     return "";
                 }
-                return AdvanceSetting.CLEAR_NOTIFICATION;
+                return "cn";
             }
             return "en";
         }

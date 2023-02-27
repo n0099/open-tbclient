@@ -10,15 +10,15 @@ public class b {
     public static String a(String str) {
         try {
             byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
-            StringBuffer stringBuffer = new StringBuffer();
+            StringBuilder sb = new StringBuilder();
             for (byte b : digest) {
                 int i = b & 255;
                 if (i < 16) {
-                    stringBuffer.append(0);
+                    sb.append(0);
                 }
-                stringBuffer.append(Integer.toHexString(i));
+                sb.append(Integer.toHexString(i));
             }
-            return stringBuffer.toString();
+            return sb.toString();
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             return null;

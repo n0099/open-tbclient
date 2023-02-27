@@ -8,22 +8,15 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class SwipeDismissTouchListener implements View.OnTouchListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
     public int c;
     public long d;
     public View e;
     public DismissCallbacks f;
-    public int g;
+    public int g = 1;
     public float h;
     public float i;
     public boolean j;
@@ -44,21 +37,6 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
     }
 
     public SwipeDismissTouchListener(View view2, Object obj, DismissCallbacks dismissCallbacks) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, obj, dismissCallbacks};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.g = 1;
         ViewConfiguration viewConfiguration = ViewConfiguration.get(view2.getContext());
         this.a = viewConfiguration.getScaledTouchSlop();
         this.b = viewConfiguration.getScaledMinimumFlingVelocity();
@@ -73,21 +51,17 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
     /* JADX INFO: Access modifiers changed from: private */
     @TargetApi(11)
     public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            ViewGroup.LayoutParams layoutParams = this.e.getLayoutParams();
-            int height = this.e.getHeight();
-            ValueAnimator duration = ValueAnimator.ofInt(height, 1).setDuration(this.d);
-            duration.addListener(new x(this, layoutParams, height));
-            duration.addUpdateListener(new y(this, layoutParams));
-            duration.start();
-        }
+        ViewGroup.LayoutParams layoutParams = this.e.getLayoutParams();
+        int height = this.e.getHeight();
+        ValueAnimator duration = ValueAnimator.ofInt(height, 1).setDuration(this.d);
+        duration.addListener(new x(this, layoutParams, height));
+        duration.addUpdateListener(new y(this, layoutParams));
+        duration.start();
     }
 
     @Override // android.view.View.OnTouchListener
     @TargetApi(12)
     public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
         boolean z;
         int i;
         boolean z2;
@@ -95,134 +69,130 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
         boolean z4;
         int i2;
         int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-            motionEvent.offsetLocation(this.n, 0.0f);
-            if (this.g < 2) {
-                this.g = this.e.getWidth();
-            }
-            int actionMasked = motionEvent.getActionMasked();
-            boolean z5 = true;
-            if (actionMasked != 0) {
-                if (actionMasked != 1) {
-                    if (actionMasked != 2) {
-                        if (actionMasked == 3 && this.m != null) {
-                            this.e.animate().translationX(0.0f).setDuration(this.d).setListener(null);
-                            this.m.recycle();
-                            this.m = null;
-                            this.n = 0.0f;
-                            this.h = 0.0f;
-                            this.i = 0.0f;
-                            this.j = false;
-                        }
-                    } else {
-                        VelocityTracker velocityTracker = this.m;
-                        if (velocityTracker != null) {
-                            velocityTracker.addMovement(motionEvent);
-                            float rawX = motionEvent.getRawX() - this.h;
-                            float rawY = motionEvent.getRawY() - this.i;
-                            if (Math.abs(rawX) > this.a && Math.abs(rawY) < Math.abs(rawX) / 2.0f) {
-                                this.j = true;
-                                if (rawX > 0.0f) {
-                                    i3 = this.a;
-                                } else {
-                                    i3 = -this.a;
-                                }
-                                this.k = i3;
-                                this.e.getParent().requestDisallowInterceptTouchEvent(true);
-                                if (!this.o) {
-                                    this.o = true;
+        motionEvent.offsetLocation(this.n, 0.0f);
+        if (this.g < 2) {
+            this.g = this.e.getWidth();
+        }
+        int actionMasked = motionEvent.getActionMasked();
+        boolean z5 = true;
+        if (actionMasked != 0) {
+            if (actionMasked != 1) {
+                if (actionMasked != 2) {
+                    if (actionMasked == 3 && this.m != null) {
+                        this.e.animate().translationX(0.0f).setDuration(this.d).setListener(null);
+                        this.m.recycle();
+                        this.m = null;
+                        this.n = 0.0f;
+                        this.h = 0.0f;
+                        this.i = 0.0f;
+                        this.j = false;
+                    }
+                } else {
+                    VelocityTracker velocityTracker = this.m;
+                    if (velocityTracker != null) {
+                        velocityTracker.addMovement(motionEvent);
+                        float rawX = motionEvent.getRawX() - this.h;
+                        float rawY = motionEvent.getRawY() - this.i;
+                        if (Math.abs(rawX) > this.a && Math.abs(rawY) < Math.abs(rawX) / 2.0f) {
+                            this.j = true;
+                            if (rawX > 0.0f) {
+                                i3 = this.a;
+                            } else {
+                                i3 = -this.a;
+                            }
+                            this.k = i3;
+                            this.e.getParent().requestDisallowInterceptTouchEvent(true);
+                            if (!this.o) {
+                                this.o = true;
+                                this.f.onNotify();
+                            }
+                            if (Math.abs(rawX) > this.g / 3) {
+                                if (!this.p) {
+                                    this.p = true;
                                     this.f.onNotify();
                                 }
-                                if (Math.abs(rawX) > this.g / 3) {
-                                    if (!this.p) {
-                                        this.p = true;
-                                        this.f.onNotify();
-                                    }
-                                } else {
-                                    this.p = false;
-                                }
-                                MotionEvent obtain = MotionEvent.obtain(motionEvent);
-                                obtain.setAction((motionEvent.getActionIndex() << 8) | 3);
-                                this.e.onTouchEvent(obtain);
-                                obtain.recycle();
+                            } else {
+                                this.p = false;
                             }
-                            if (this.j) {
-                                this.n = rawX;
-                                this.e.setTranslationX(rawX - this.k);
-                                return true;
-                            }
+                            MotionEvent obtain = MotionEvent.obtain(motionEvent);
+                            obtain.setAction((motionEvent.getActionIndex() << 8) | 3);
+                            this.e.onTouchEvent(obtain);
+                            obtain.recycle();
+                        }
+                        if (this.j) {
+                            this.n = rawX;
+                            this.e.setTranslationX(rawX - this.k);
+                            return true;
                         }
                     }
-                } else if (this.m != null) {
-                    float rawX2 = motionEvent.getRawX() - this.h;
-                    this.m.addMovement(motionEvent);
-                    this.m.computeCurrentVelocity(1000);
-                    float xVelocity = this.m.getXVelocity();
-                    float abs = Math.abs(xVelocity);
-                    float abs2 = Math.abs(this.m.getYVelocity());
-                    if (Math.abs(rawX2) > this.g / 3 && this.j) {
-                        if (rawX2 > 0.0f) {
-                            z = true;
-                        } else {
-                            z = false;
-                        }
-                    } else if (this.b <= abs && abs <= this.c && abs2 < abs && i < 0 && this.j) {
-                        if (xVelocity < 0.0f) {
-                            z2 = true;
-                        } else {
-                            z2 = false;
-                        }
-                        if (rawX2 < 0.0f) {
-                            z3 = true;
-                        } else {
-                            z3 = false;
-                        }
-                        if (z2 == z3) {
-                            z4 = true;
-                        } else {
-                            z4 = false;
-                        }
-                        if (this.m.getXVelocity() <= 0.0f) {
-                            z5 = false;
-                        }
-                        boolean z6 = z5;
-                        z5 = z4;
-                        z = z6;
+                }
+            } else if (this.m != null) {
+                float rawX2 = motionEvent.getRawX() - this.h;
+                this.m.addMovement(motionEvent);
+                this.m.computeCurrentVelocity(1000);
+                float xVelocity = this.m.getXVelocity();
+                float abs = Math.abs(xVelocity);
+                float abs2 = Math.abs(this.m.getYVelocity());
+                if (Math.abs(rawX2) > this.g / 3 && this.j) {
+                    if (rawX2 > 0.0f) {
+                        z = true;
                     } else {
                         z = false;
+                    }
+                } else if (this.b <= abs && abs <= this.c && abs2 < abs && i < 0 && this.j) {
+                    if (xVelocity < 0.0f) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    if (rawX2 < 0.0f) {
+                        z3 = true;
+                    } else {
+                        z3 = false;
+                    }
+                    if (z2 == z3) {
+                        z4 = true;
+                    } else {
+                        z4 = false;
+                    }
+                    if (this.m.getXVelocity() <= 0.0f) {
                         z5 = false;
                     }
-                    if (z5) {
-                        ViewPropertyAnimator animate = this.e.animate();
-                        if (z) {
-                            i2 = this.g;
-                        } else {
-                            i2 = -this.g;
-                        }
-                        animate.translationX(i2).setDuration(this.d).setListener(new w(this));
-                    } else if (this.j) {
-                        this.e.animate().translationX(0.0f).setDuration(this.d).setListener(null);
-                    }
-                    this.m.recycle();
-                    this.m = null;
-                    this.n = 0.0f;
-                    this.h = 0.0f;
-                    this.i = 0.0f;
-                    this.j = false;
+                    boolean z6 = z5;
+                    z5 = z4;
+                    z = z6;
+                } else {
+                    z = false;
+                    z5 = false;
                 }
-                return false;
+                if (z5) {
+                    ViewPropertyAnimator animate = this.e.animate();
+                    if (z) {
+                        i2 = this.g;
+                    } else {
+                        i2 = -this.g;
+                    }
+                    animate.translationX(i2).setDuration(this.d).setListener(new w(this));
+                } else if (this.j) {
+                    this.e.animate().translationX(0.0f).setDuration(this.d).setListener(null);
+                }
+                this.m.recycle();
+                this.m = null;
+                this.n = 0.0f;
+                this.h = 0.0f;
+                this.i = 0.0f;
+                this.j = false;
             }
-            this.h = motionEvent.getRawX();
-            this.i = motionEvent.getRawY();
-            if (this.f.canDismiss(this.l)) {
-                this.o = false;
-                VelocityTracker obtain2 = VelocityTracker.obtain();
-                this.m = obtain2;
-                obtain2.addMovement(motionEvent);
-            }
-            return true;
+            return false;
         }
-        return invokeLL.booleanValue;
+        this.h = motionEvent.getRawX();
+        this.i = motionEvent.getRawY();
+        if (this.f.canDismiss(this.l)) {
+            this.o = false;
+            VelocityTracker obtain2 = VelocityTracker.obtain();
+            this.m = obtain2;
+            obtain2.addMovement(motionEvent);
+        }
+        return true;
     }
 }

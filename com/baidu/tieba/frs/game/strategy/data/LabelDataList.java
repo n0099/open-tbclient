@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.game.strategy.data;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.yx6;
+import com.baidu.tieba.x07;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 import tbclient.ForumSubLabel;
 /* loaded from: classes4.dex */
-public class LabelDataList extends ArrayList<yx6> {
+public class LabelDataList extends ArrayList<x07> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,9 +35,9 @@ public class LabelDataList extends ArrayList<yx6> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            Iterator<yx6> it = iterator();
+            Iterator<x07> it = iterator();
             while (it.hasNext()) {
-                yx6 next = it.next();
+                x07 next = it.next();
                 if (next != null && next.a == i) {
                     return next.b;
                 }
@@ -51,19 +51,19 @@ public class LabelDataList extends ArrayList<yx6> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Iterator<yx6> it = iterator();
+            Iterator<x07> it = iterator();
             while (it.hasNext()) {
-                yx6 next = it.next();
+                x07 next = it.next();
                 if (next != null && next.c) {
                     return next.a;
                 }
             }
-            yx6 yx6Var = (yx6) ListUtils.getItem(this, 0);
-            if (yx6Var == null) {
+            x07 x07Var = (x07) ListUtils.getItem(this, 0);
+            if (x07Var == null) {
                 return 0;
             }
-            yx6Var.c = true;
-            return yx6Var.a;
+            x07Var.c = true;
+            return x07Var.a;
         }
         return invokeV.intValue;
     }
@@ -77,10 +77,10 @@ public class LabelDataList extends ArrayList<yx6> {
             }
             for (ForumSubLabel forumSubLabel : list) {
                 if (forumSubLabel != null) {
-                    yx6 yx6Var = new yx6();
-                    yx6Var.a = forumSubLabel.id.intValue();
-                    yx6Var.b = forumSubLabel.sub_label_name;
-                    add(yx6Var);
+                    x07 x07Var = new x07();
+                    x07Var.a = forumSubLabel.id.intValue();
+                    x07Var.b = forumSubLabel.sub_label_name;
+                    add(x07Var);
                 }
             }
             if (!isEmpty()) {
@@ -90,14 +90,14 @@ public class LabelDataList extends ArrayList<yx6> {
     }
 
     public void setSelectedIndex(int i) {
-        yx6 yx6Var;
+        x07 x07Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (yx6Var = (yx6) ListUtils.getItem(this, i)) != null) {
-            yx6Var.c = true;
-            Iterator<yx6> it = iterator();
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (x07Var = (x07) ListUtils.getItem(this, i)) != null) {
+            x07Var.c = true;
+            Iterator<x07> it = iterator();
             while (it.hasNext()) {
-                yx6 next = it.next();
-                if (next != null && next != yx6Var) {
+                x07 next = it.next();
+                if (next != null && next != x07Var) {
                     next.c = false;
                 }
             }

@@ -1,14 +1,5 @@
 package com.baidu.ar.statistic;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
@@ -16,55 +7,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class a implements Cloneable {
-    public static /* synthetic */ Interceptable $ic;
     public static volatile boolean sL;
-    public static final Object wk;
+    public static final Object wk = new Object();
     public static a wl;
     public static int wm;
-    public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject wi;
-    public a wj;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2090663273, "Lcom/baidu/ar/statistic/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(2090663273, "Lcom/baidu/ar/statistic/a;");
-                return;
-            }
-        }
-        wk = new Object();
-    }
+    public a wj = null;
+    public JSONObject wi = new JSONObject();
 
     public a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.wj = null;
-        this.wi = new JSONObject();
         aA(str);
         setTimestamp(System.currentTimeMillis());
     }
 
     public static void a(a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, aVar) == null) || sL) {
+        if (sL) {
             return;
         }
         synchronized (wk) {
@@ -73,8 +29,7 @@ public final class a implements Cloneable {
     }
 
     public static void a(a... aVarArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, aVarArr) == null) || sL) {
+        if (sL) {
             return;
         }
         synchronized (wk) {
@@ -87,78 +42,59 @@ public final class a implements Cloneable {
     }
 
     public static a aG(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str != null && !str.isEmpty()) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str.trim());
-                    a az = az(jSONObject.getString("event_id"));
-                    az.wi = jSONObject;
-                    return az;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+        if (str != null && !str.isEmpty()) {
+            try {
+                JSONObject jSONObject = new JSONObject(str.trim());
+                a az = az(jSONObject.getString("event_id"));
+                az.wi = jSONObject;
+                return az;
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return null;
         }
-        return (a) invokeL.objValue;
+        return null;
     }
 
     public static a az(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!sL) {
-                synchronized (wk) {
-                    if (wl != null) {
-                        a aVar = wl;
-                        wl = aVar.wj;
-                        aVar.wj = null;
-                        wm--;
-                        if (aVar.wi == null) {
-                            aVar.wi = new JSONObject();
-                        }
-                        aVar.aA(str);
-                        aVar.setTimestamp(System.currentTimeMillis());
-                        return aVar;
+        if (!sL) {
+            synchronized (wk) {
+                if (wl != null) {
+                    a aVar = wl;
+                    wl = aVar.wj;
+                    aVar.wj = null;
+                    wm--;
+                    if (aVar.wi == null) {
+                        aVar.wi = new JSONObject();
                     }
+                    aVar.aA(str);
+                    aVar.setTimestamp(System.currentTimeMillis());
+                    return aVar;
                 }
             }
-            return new a(str);
         }
-        return (a) invokeL.objValue;
+        return new a(str);
     }
 
     public static String b(a aVar) {
-        InterceptResult invokeL;
         JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, aVar)) == null) {
-            if (aVar == null || (jSONObject = aVar.wi) == null) {
-                return null;
-            }
-            return jSONObject.toString();
+        if (aVar == null || (jSONObject = aVar.wi) == null) {
+            return null;
         }
-        return (String) invokeL.objValue;
+        return jSONObject.toString();
     }
 
     private void ge() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.wi = null;
-            int i = wm;
-            if (i < 500) {
-                this.wj = wl;
-                wl = this;
-                wm = i + 1;
-            }
+        this.wi = null;
+        int i = wm;
+        if (i < 500) {
+            this.wj = wl;
+            wl = this;
+            wm = i + 1;
         }
     }
 
     public static void release() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || sL) {
+        if (sL) {
             return;
         }
         synchronized (wk) {
@@ -169,37 +105,29 @@ public final class a implements Cloneable {
     }
 
     public JSONObject a(Collection<String> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, collection)) == null) ? a(null, collection) : (JSONObject) invokeL.objValue;
+        return a(null, collection);
     }
 
     public JSONObject a(JSONObject jSONObject, Collection<String> collection) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, collection)) == null) {
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            try {
-                Iterator<String> keys = this.wi.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    if (collection == null || !collection.contains(next)) {
-                        jSONObject.put(next, this.wi.get(next));
-                    }
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
+        if (jSONObject == null) {
+            jSONObject = new JSONObject();
         }
-        return (JSONObject) invokeLL.objValue;
+        try {
+            Iterator<String> keys = this.wi.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                if (collection == null || !collection.contains(next)) {
+                    jSONObject.put(next, this.wi.get(next));
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return jSONObject;
     }
 
     public void a(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) || map == null || map.isEmpty()) {
+        if (map == null || map.isEmpty()) {
             return;
         }
         try {
@@ -212,127 +140,86 @@ public final class a implements Cloneable {
     }
 
     public void aA(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            try {
-                this.wi.putOpt("event_id", str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        try {
+            this.wi.putOpt("event_id", str);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
     public String aB(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.wi.optString(str) : (String) invokeL.objValue;
+        return this.wi.optString(str);
     }
 
     public Object aC(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.wi.opt(str) : invokeL.objValue;
+        return this.wi.opt(str);
     }
 
     public long aD(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            Object aC = aC(str);
-            if (aC instanceof Number) {
-                return ((Number) aC).longValue();
-            }
-            return 0L;
+        Object aC = aC(str);
+        if (aC instanceof Number) {
+            return ((Number) aC).longValue();
         }
-        return invokeL.longValue;
+        return 0L;
     }
 
     public boolean aE(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? this.wi.has(str) : invokeL.booleanValue;
+        return this.wi.has(str);
     }
 
     public void aF(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.wi.remove(str);
-        }
+        this.wi.remove(str);
     }
 
     public void b(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, obj) == null) {
-            try {
-                this.wi.putOpt(str, obj);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        try {
+            this.wi.putOpt(str, obj);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
     public long getTimestamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.wi.optLong("time") : invokeV.longValue;
+        return this.wi.optLong("time");
     }
 
     public String gf() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.wi.optString("event_id") : (String) invokeV.objValue;
+        return this.wi.optString("event_id");
     }
 
     public String gg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            String b = b(this);
-            if (b == null) {
-                return null;
-            }
-            return com.baidu.ar.h.l.aT(b);
+        String b = b(this);
+        if (b == null) {
+            return null;
         }
-        return (String) invokeV.objValue;
+        return com.baidu.ar.h.l.aT(b);
     }
 
     public JSONObject gh() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? a(null, null) : (JSONObject) invokeV.objValue;
+        return a(null, null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: gi */
     public a clone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            a az = az("");
-            try {
-                az.wi = new JSONObject(this.wi.toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return az;
+        a az = az("");
+        try {
+            az.wi = new JSONObject(this.wi.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        return (a) invokeV.objValue;
+        return az;
     }
 
     public Iterator<String> keys() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.wi.keys() : (Iterator) invokeV.objValue;
+        return this.wi.keys();
     }
 
     public void setTimestamp(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
-            try {
-                this.wi.putOpt("time", Long.valueOf(j));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        try {
+            this.wi.putOpt("time", Long.valueOf(j));
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

@@ -1,431 +1,326 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.Direction;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public class p15 {
+public class p15 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
+    public static p15 a;
+    public static ConcurrentHashMap<String, Integer> b;
+    public static ArrayList<String> c;
+    public static ConcurrentHashMap<String, jf<byte[]>> d;
+    public static ConcurrentHashMap<String, jf<String>> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public Drawable b;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ p15 b;
 
-        public a(p15 p15Var, int i) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p15Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = p15Var;
-            this.a = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                p15 p15Var = this.b;
-                p15Var.b = n15.D(p15Var.b, this.a, this.b.a.getMeasuredHeight());
-                this.b.a.setBackgroundDrawable(this.b.b);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001012));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ p15 c;
-
-        public b(p15 p15Var, int i, int i2) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948009205, "Lcom/baidu/tieba/p15;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p15Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = p15Var;
-            this.a = i;
-            this.b = i2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                p15 p15Var = this.c;
-                p15Var.b = n15.E(p15Var.b, this.a, this.b, this.c.a.getMeasuredHeight());
-                this.c.a.setBackgroundDrawable(this.c.b);
-            }
-        }
-    }
-
-    public p15(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948009205, "Lcom/baidu/tieba/p15;");
                 return;
             }
         }
-        this.a = view2;
-        this.b = n15.e(view2);
+        ConcurrentHashMap<String, Integer> concurrentHashMap = new ConcurrentHashMap<>();
+        b = concurrentHashMap;
+        concurrentHashMap.put("tb.pb_mark", 50);
+        b.put("tb.pb_history", 300);
+        b.put("tb.pb_normal", 1);
+        b.put("tb.pb_editor", 50);
+        b.put("tb.live_hotlist", 20);
+        b.put("tb.live_hotlist", 20);
+        b.put("tb.my_pages", 5);
+        b.put("tb.my_forums", 3);
+        b.put("tb.my_bookmarks", 3);
+        b.put("tb.my_posts", 3);
+        b.put("tb.eva_posts", 50);
+        b.put("tb.im_frsgroup", 50);
+        b.put("tb.im_hotgroup", 30);
+        b.put("tb.im_groupinfo", 50);
+        b.put("tb.im_groupactivity", 50);
+        b.put("tb.im_entergroup", 10);
+        b.put("tb.im_enterforum_groupinfo", 10);
+        b.put("tb.im_group_setting", 3);
+        b.put("tb.im_personal_chat_setting", 3);
+        b.put("tb.im_official_chat_setting", 3);
+        b.put("tb.im_official_history", 50);
+        b.put("tb.im_recommend_detail", 10);
+        b.put("tb.square", 1);
+        b.put("tb.first_dir", 1);
+        b.put("tb.forum_rank", 20);
+        b.put("tb.pic_gif", 50);
+        b.put("tb.official_bar_menu", 1000);
+        b.put("tb.friend_feed", 20);
+        b.put("net_err_record", 30);
+        b.put("tb_face_package", 30);
+        b.put("tb.recommend_friend", 10);
+        b.put("tb.searchperson_history", 5);
+        b.put("tb.game_center_home", 20);
+        b.put("tb.game_center_list", 20);
+        b.put("tb.person_wallet_new", 10);
+        b.put("tb.frs_hottopic", 100);
+        ArrayList<String> arrayList = new ArrayList<>();
+        c = arrayList;
+        arrayList.add("tb.dialog_strategies_data");
+        c.add("tb.ala.gift_list");
+        c.add("tb.square");
+        c.add("tb.first_dir");
+        c.add("tb.forum_rank");
+        c.add("tb.im_group_setting");
+        c.add("tb.im_personal_chat_setting");
+        c.add("tb.im_official_chat_setting");
+        c.add("net_err_record");
+        c.add("tb_user_profile");
+        c.add("tb_forum_recommend");
+        c.add("tb.ad_killer_tags");
+        c.add("tb.manga.settings");
+        c.add("tb.share_add_experienced");
+        c.add("tb.write_privacy_state_space");
+        c.add("tb.concern_page_all");
+        c.add("tb.im_group_chat_http");
+        e = new ConcurrentHashMap<>();
+        d = new ConcurrentHashMap<>();
+        nc.b().a("cmd2001012", new a());
     }
 
-    public p15 w(int i) {
-        InterceptResult invokeI;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p15() {
+        super(2000998);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
-            View view2 = this.a;
-            if (view2 instanceof EMTextView) {
-                ((EMTextView) view2).setLineSpacing(n15.n(i), ((EMTextView) this.a).getLineSpacingMultiplier());
-                return this;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            throw new ClassCastException("When setting line spacing, use EMTextView to ensure UI effect.");
         }
-        return (p15) invokeI.objValue;
+        MessageManager.getInstance().registerListenerFromBackground(this);
     }
 
-    public p15 y(int i) {
-        InterceptResult invokeI;
+    public static synchronized void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
-            if (!(this.a instanceof TextView)) {
-                return this;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            synchronized (p15.class) {
+                if (str == null) {
+                    return;
+                }
+                if (str2 != null) {
+                    str = str + str2;
+                }
+                jf<byte[]> jfVar = d.get(str);
+                if (jfVar != null) {
+                    BdCacheService.n().k(jfVar, true);
+                    d.remove(str);
+                }
             }
-            float[] C = n15.C(i);
-            ((TextView) this.a).setShadowLayer(C[1], C[2], C[3], (int) C[0]);
-            return this;
         }
-        return (p15) invokeI.objValue;
     }
 
-    public static p15 d(View view2) {
+    public static synchronized jf<byte[]> b(String str) {
         InterceptResult invokeL;
+        jf<byte[]> c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) {
-            return new p15(view2);
-        }
-        return (p15) invokeL.objValue;
-    }
-
-    public p15 A(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            View view2 = this.a;
-            if (!(view2 instanceof TextView)) {
-                return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            synchronized (p15.class) {
+                c2 = c(str, null);
             }
-            ((TextView) view2).setTypeface(n15.I(n15.F(i)));
-            return this;
+            return c2;
         }
-        return (p15) invokeI.objValue;
+        return (jf) invokeL.objValue;
     }
 
-    public p15 e(int i) {
-        InterceptResult invokeI;
+    public static synchronized jf<String> e(String str) {
+        InterceptResult invokeL;
+        jf<String> f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (this.a == null) {
-                return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            synchronized (p15.class) {
+                f = f(str, null);
             }
-            this.b = n15.c(this.b, i);
-            return this;
+            return f;
         }
-        return (p15) invokeI.objValue;
+        return (jf) invokeL.objValue;
     }
 
-    public void f(int i) {
-        Drawable j;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || this.a == null || (j = n15.j(this.b, i)) == null) {
-            return;
-        }
-        this.b = j;
-        this.a.setBackgroundDrawable(j);
-    }
-
-    public void g(int i) {
-        Drawable x;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.a == null || (x = n15.x(this.b, i)) == null) {
-            return;
-        }
-        this.b = x;
-        this.a.setBackgroundDrawable(x);
-    }
-
-    public void h(int i) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048580, this, i) != null) || (view2 = this.a) == null) {
-            return;
-        }
-        view2.post(new a(this, i));
-    }
-
-    public p15 j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (this.a == null) {
-                return this;
+        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+            synchronized (p15.class) {
+                d.clear();
+                e.clear();
             }
-            Drawable f = n15.f(this.b, i);
-            if (f == null) {
-                return this;
-            }
-            this.b = f;
-            this.a.setBackgroundDrawable(f);
-            return this;
         }
-        return (p15) invokeI.objValue;
     }
 
-    public p15 k(int i) {
-        InterceptResult invokeI;
+    public static synchronized jf<byte[]> c(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            if (this.a == null) {
-                return this;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            synchronized (p15.class) {
+                if (str == null) {
+                    return null;
+                }
+                if (str2 != null) {
+                    str3 = str + str2;
+                } else {
+                    str3 = str;
+                }
+                jf<byte[]> jfVar = d.get(str3);
+                if (jfVar != null && (jfVar instanceof jf)) {
+                    return jfVar;
+                }
+                BdCacheService n = BdCacheService.n();
+                Integer num = b.get(str);
+                num = (num == null || num.intValue() == 0) ? 20 : 20;
+                BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
+                if (c.contains(str)) {
+                    cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
+                }
+                try {
+                    jfVar = n.b(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
+                } catch (Exception e2) {
+                    BdLog.detailException(e2);
+                }
+                d.put(str3, jfVar);
+                return jfVar;
             }
-            Drawable g = n15.g(this.b, i);
-            if (g == null) {
-                return this;
-            }
-            this.b = g;
-            this.a.setBackgroundDrawable(g);
-            return this;
         }
-        return (p15) invokeI.objValue;
+        return (jf) invokeLL.objValue;
     }
 
-    public p15 l(int i) {
-        InterceptResult invokeI;
+    public static synchronized jf<String> f(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            if (this.a == null) {
-                return this;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) {
+            synchronized (p15.class) {
+                if (str == null) {
+                    return null;
+                }
+                if (str2 != null) {
+                    str3 = str + str2;
+                } else {
+                    str3 = str;
+                }
+                jf<String> jfVar = e.get(str3);
+                BdCacheService n = BdCacheService.n();
+                Integer num = b.get(str);
+                num = (num == null || num.intValue() == 0) ? 20 : 20;
+                BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
+                if (c.contains(str)) {
+                    cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
+                }
+                try {
+                    jfVar = n.d(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
+                } catch (Exception e2) {
+                    BdLog.detailException(e2);
+                }
+                return jfVar;
             }
-            this.b = n15.h(this.b, i);
-            return this;
         }
-        return (p15) invokeI.objValue;
+        return (jf) invokeLL.objValue;
     }
 
-    public p15 m(int i) {
-        InterceptResult invokeI;
+    @Deprecated
+    public static synchronized p15 d() {
+        InterceptResult invokeV;
+        p15 p15Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            if (this.a == null) {
-                return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            synchronized (p15.class) {
+                if (a == null) {
+                    a = new p15();
+                }
+                p15Var = a;
             }
-            this.b = n15.m(this.b, i);
-            return this;
+            return p15Var;
         }
-        return (p15) invokeI.objValue;
+        return (p15) invokeV.objValue;
     }
 
-    public p15 n(int i) {
-        InterceptResult invokeI;
+    public static synchronized jf<String> g(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        String str4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            if (this.a == null) {
-                return this;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, str, str2, str3)) == null) {
+            synchronized (p15.class) {
+                if (str != null && str3 != null) {
+                    if (str2 != null) {
+                        str4 = str + str2;
+                    } else {
+                        str4 = str;
+                    }
+                    jf<String> jfVar = e.get(str4);
+                    BdCacheService j = BdCacheService.j(str3);
+                    Integer num = b.get(str);
+                    num = (num == null || num.intValue() == 0) ? 20 : 20;
+                    BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
+                    if (c.contains(str)) {
+                        cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
+                    }
+                    try {
+                        jfVar = j.d(str4, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
+                    } catch (Exception e2) {
+                        BdLog.detailException(e2);
+                    }
+                    return jfVar;
+                }
+                return null;
             }
-            this.b = n15.l(this.b, i);
-            return this;
         }
-        return (p15) invokeI.objValue;
-    }
-
-    public void o(int[] iArr) {
-        Drawable q;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, iArr) != null) || this.a == null || (q = n15.q(this.b, Direction.BOTTOM, iArr)) == null) {
-            return;
-        }
-        this.b = q;
-        this.a.setBackgroundDrawable(q);
-    }
-
-    public p15 q(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            View view2 = this.a;
-            if (view2 == null) {
-                return this;
-            }
-            view2.setLayerType(i, null);
-            return this;
-        }
-        return (p15) invokeI.objValue;
-    }
-
-    public p15 r(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
-            View view2 = this.a;
-            if (!(view2 instanceof TextView)) {
-                return this;
-            }
-            ((TextView) view2).setLinkTextColor(n15.i(i));
-            return this;
-        }
-        return (p15) invokeI.objValue;
-    }
-
-    public void s(int i) {
-        Drawable u;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048591, this, i) != null) || this.a == null || (u = n15.u(this.b, n15.G(i))) == null) {
-            return;
-        }
-        this.b = u;
-        this.a.setBackgroundDrawable(u);
-    }
-
-    public p15 t(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            if (this.a == null) {
-                return this;
-            }
-            Drawable w = n15.w(this.b, i);
-            if (w == null) {
-                return this;
-            }
-            this.b = w;
-            this.a.setBackgroundDrawable(w);
-            return this;
-        }
-        return (p15) invokeI.objValue;
-    }
-
-    public p15 u(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
-            View view2 = this.a;
-            if (view2 == null) {
-                return this;
-            }
-            Drawable B = n15.B(view2, this.b, n15.G(i));
-            if (B == null) {
-                return this;
-            }
-            this.b = B;
-            this.a.setBackgroundDrawable(B);
-            q(1);
-            return this;
-        }
-        return (p15) invokeI.objValue;
-    }
-
-    public p15 v(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
-            View view2 = this.a;
-            if (!(view2 instanceof TextView)) {
-                return this;
-            }
-            ((TextView) view2).setTextColor(n15.i(i));
-            return this;
-        }
-        return (p15) invokeI.objValue;
-    }
-
-    public p15 x(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
-            View view2 = this.a;
-            if (!(view2 instanceof TextView)) {
-                return this;
-            }
-            ((TextView) view2).setTextColor(n15.H(i));
-            return this;
-        }
-        return (p15) invokeI.objValue;
-    }
-
-    public p15 z(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
-            View view2 = this.a;
-            if (!(view2 instanceof TextView)) {
-                return this;
-            }
-            ((TextView) view2).setTextSize(0, n15.n(i));
-            return this;
-        }
-        return (p15) invokeI.objValue;
-    }
-
-    public void i(int i, int i2) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeII(1048581, this, i, i2) != null) || (view2 = this.a) == null) {
-            return;
-        }
-        view2.post(new b(this, i, i2));
-    }
-
-    public void p(int[] iArr, Direction direction) {
-        Drawable q;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048588, this, iArr, direction) != null) || this.a == null || (q = n15.q(this.b, direction, iArr)) == null) {
-            return;
-        }
-        this.b = q;
-        this.a.setBackgroundDrawable(q);
+        return (jf) invokeLLL.objValue;
     }
 }

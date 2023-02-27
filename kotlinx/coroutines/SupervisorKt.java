@@ -21,8 +21,8 @@ public final class SupervisorKt {
         return SupervisorJob(job);
     }
 
-    /* renamed from: SupervisorJob$default */
-    public static /* synthetic */ Job m2198SupervisorJob$default(Job job, int i, Object obj) {
+    /* renamed from: SupervisorJob$default  reason: collision with other method in class */
+    public static /* synthetic */ Job m2191SupervisorJob$default(Job job, int i, Object obj) {
         if ((i & 1) != 0) {
             job = null;
         }

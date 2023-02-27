@@ -1,90 +1,58 @@
 package com.google.zxing.datamatrix.encoder;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.common.internal.TransactionIdCreater;
 /* loaded from: classes8.dex */
 public final class TextEncoder extends C40Encoder {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     @Override // com.google.zxing.datamatrix.encoder.C40Encoder, com.google.zxing.datamatrix.encoder.Encoder
     public int getEncodingMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    public TextEncoder() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+        return 2;
     }
 
     @Override // com.google.zxing.datamatrix.encoder.C40Encoder
     public int encodeChar(char c, StringBuilder sb) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c), sb})) == null) {
-            if (c == ' ') {
-                sb.append((char) 3);
-                return 1;
-            } else if (c >= '0' && c <= '9') {
-                sb.append((char) ((c - '0') + 4));
-                return 1;
-            } else if (c >= 'a' && c <= 'z') {
-                sb.append((char) ((c - 'a') + 14));
-                return 1;
-            } else if (c >= 0 && c <= 31) {
-                sb.append((char) 0);
-                sb.append(c);
-                return 2;
-            } else if (c >= '!' && c <= '/') {
-                sb.append((char) 1);
-                sb.append((char) (c - '!'));
-                return 2;
-            } else if (c >= ':' && c <= '@') {
-                sb.append((char) 1);
-                sb.append((char) ((c - ':') + 15));
-                return 2;
-            } else if (c >= '[' && c <= '_') {
-                sb.append((char) 1);
-                sb.append((char) ((c - '[') + 22));
-                return 2;
-            } else if (c == '`') {
-                sb.append((char) 2);
-                sb.append((char) (c - '`'));
-                return 2;
-            } else if (c >= 'A' && c <= 'Z') {
-                sb.append((char) 2);
-                sb.append((char) ((c - 'A') + 1));
-                return 2;
-            } else if (c >= '{' && c <= 127) {
-                sb.append((char) 2);
-                sb.append((char) ((c - '{') + 27));
-                return 2;
-            } else if (c >= 128) {
-                sb.append("\u0001\u001e");
-                return encodeChar((char) (c - 128), sb) + 2;
-            } else {
-                HighLevelEncoder.illegalCharacter(c);
-                return -1;
-            }
+        if (c == ' ') {
+            sb.append((char) 3);
+            return 1;
+        } else if (c >= '0' && c <= '9') {
+            sb.append((char) ((c - TransactionIdCreater.FILL_BYTE) + 4));
+            return 1;
+        } else if (c >= 'a' && c <= 'z') {
+            sb.append((char) ((c - 'a') + 14));
+            return 1;
+        } else if (c >= 0 && c <= 31) {
+            sb.append((char) 0);
+            sb.append(c);
+            return 2;
+        } else if (c >= '!' && c <= '/') {
+            sb.append((char) 1);
+            sb.append((char) (c - '!'));
+            return 2;
+        } else if (c >= ':' && c <= '@') {
+            sb.append((char) 1);
+            sb.append((char) ((c - ':') + 15));
+            return 2;
+        } else if (c >= '[' && c <= '_') {
+            sb.append((char) 1);
+            sb.append((char) ((c - '[') + 22));
+            return 2;
+        } else if (c == '`') {
+            sb.append((char) 2);
+            sb.append((char) (c - '`'));
+            return 2;
+        } else if (c >= 'A' && c <= 'Z') {
+            sb.append((char) 2);
+            sb.append((char) ((c - 'A') + 1));
+            return 2;
+        } else if (c >= '{' && c <= 127) {
+            sb.append((char) 2);
+            sb.append((char) ((c - '{') + 27));
+            return 2;
+        } else if (c >= 128) {
+            sb.append("\u0001\u001e");
+            return encodeChar((char) (c - 128), sb) + 2;
+        } else {
+            HighLevelEncoder.illegalCharacter(c);
+            return -1;
         }
-        return invokeCommon.intValue;
     }
 }

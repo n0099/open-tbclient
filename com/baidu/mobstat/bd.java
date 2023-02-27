@@ -7,11 +7,6 @@ import android.text.TextUtils;
 import android.view.View;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.mobstat.bj;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Map;
@@ -19,86 +14,58 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class bd implements bj.b {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public bd() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     private String a(Activity activity, View view2) {
-        InterceptResult invokeLL;
         View a;
         View o;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, activity, view2)) == null) {
-            if (activity == null || view2 == null || (o = bi.o((a = bi.a(view2, activity)))) == null) {
-                return "";
-            }
-            String a2 = as.a().a(activity, a, o);
-            if (TextUtils.isEmpty(a2)) {
-                return "";
-            }
-            return a2;
+        if (activity == null || view2 == null || (o = bi.o((a = bi.a(view2, activity)))) == null) {
+            return "";
         }
-        return (String) invokeLL.objValue;
+        String a2 = as.a().a(activity, a, o);
+        if (TextUtils.isEmpty(a2)) {
+            return "";
+        }
+        return a2;
     }
 
     private JSONObject a(Activity activity, View view2, PointF pointF) {
-        InterceptResult invokeLLL;
         int[] iArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, activity, view2, pointF)) == null) {
-            if (pointF == null) {
-                return null;
-            }
-            view2.getLocationOnScreen(new int[2]);
-            float f = pointF.x - iArr[0];
-            float f2 = pointF.y - iArr[1];
-            if (f < 0.0f) {
-                f = 0.0f;
-            }
-            if (f2 < 0.0f) {
-                f2 = 0.0f;
-            }
-            float b = ag.b(activity, f);
-            float b2 = ag.b(activity, f2);
-            float a = ag.a(activity, bi.p(view2));
-            float a2 = ag.a(activity, bi.q(view2));
-            if (a == 0.0f || a2 == 0.0f) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                DecimalFormat decimalFormat = new DecimalFormat("0.0");
-                DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
-                decimalFormatSymbols.setDecimalSeparator(IStringUtil.EXTENSION_SEPARATOR);
-                decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);
-                jSONObject.put("x", decimalFormat.format(b));
-                jSONObject.put("y", decimalFormat.format(b2));
-                jSONObject.put(Config.EVENT_HEAT_XP, decimalFormat.format((b * 100.0f) / a));
-                jSONObject.put(Config.EVENT_HEAT_YP, decimalFormat.format((b2 * 100.0f) / a2));
-            } catch (Exception unused) {
-            }
-            return jSONObject;
+        if (pointF == null) {
+            return null;
         }
-        return (JSONObject) invokeLLL.objValue;
+        view2.getLocationOnScreen(new int[2]);
+        float f = pointF.x - iArr[0];
+        float f2 = pointF.y - iArr[1];
+        if (f < 0.0f) {
+            f = 0.0f;
+        }
+        if (f2 < 0.0f) {
+            f2 = 0.0f;
+        }
+        float b = ag.b(activity, f);
+        float b2 = ag.b(activity, f2);
+        float a = ag.a(activity, bi.p(view2));
+        float a2 = ag.a(activity, bi.q(view2));
+        if (a == 0.0f || a2 == 0.0f) {
+            return null;
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            DecimalFormat decimalFormat = new DecimalFormat("0.0");
+            DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
+            decimalFormatSymbols.setDecimalSeparator(IStringUtil.EXTENSION_SEPARATOR);
+            decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);
+            jSONObject.put("x", decimalFormat.format(b));
+            jSONObject.put("y", decimalFormat.format(b2));
+            jSONObject.put(Config.EVENT_HEAT_XP, decimalFormat.format((b * 100.0f) / a));
+            jSONObject.put(Config.EVENT_HEAT_YP, decimalFormat.format((b2 * 100.0f) / a2));
+        } catch (Exception unused) {
+        }
+        return jSONObject;
     }
 
     @Override // com.baidu.mobstat.bj.b
     public void a(View view2, boolean z, Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), activity}) == null) && activity != null && view2 != null) {
+        if (activity != null && view2 != null) {
             aq.a(view2, activity);
             if (bc.c().b() && z) {
                 bc c = bc.c();

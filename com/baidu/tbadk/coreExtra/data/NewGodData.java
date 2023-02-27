@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ix4;
+import com.baidu.tieba.py4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.NewGodInfo;
 /* loaded from: classes3.dex */
-public class NewGodData extends ix4 implements Serializable {
+public class NewGodData extends py4 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -107269285489960303L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +137,7 @@ public class NewGodData extends ix4 implements Serializable {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ix4
+    @Override // com.baidu.tieba.py4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048585, this, jSONObject) != null) || jSONObject == null) {

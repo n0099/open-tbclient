@@ -1,92 +1,54 @@
 package com.baidu.ar.h;
-
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class h<T> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public volatile T xY;
-    public volatile int xZ;
+    public volatile int xZ = 0;
     public String ya;
 
     public h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.xZ = 0;
         this.ya = str;
     }
 
     public T gA() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.xY != null) {
-                return this.xY;
-            }
-            if (isAvailable()) {
-                synchronized (this) {
-                    if (this.xY == null) {
-                        this.xY = (T) n.aV(this.ya);
-                    }
-                }
-            }
+        if (this.xY != null) {
             return this.xY;
         }
-        return (T) invokeV.objValue;
+        if (isAvailable()) {
+            synchronized (this) {
+                if (this.xY == null) {
+                    this.xY = (T) n.aV(this.ya);
+                }
+            }
+        }
+        return this.xY;
     }
 
     public T gB() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.xY : (T) invokeV.objValue;
+        return this.xY;
     }
 
     public boolean isAvailable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.xZ == 1) {
-                return true;
-            }
-            boolean z = false;
-            if (this.xZ == -1) {
-                return false;
-            }
-            try {
-                Class.forName(this.ya);
-                z = true;
-            } catch (ClassNotFoundException unused) {
-            }
-            synchronized (this) {
-                this.xZ = z ? 1 : -1;
-            }
-            return z;
+        if (this.xZ == 1) {
+            return true;
         }
-        return invokeV.booleanValue;
+        boolean z = false;
+        if (this.xZ == -1) {
+            return false;
+        }
+        try {
+            Class.forName(this.ya);
+            z = true;
+        } catch (ClassNotFoundException unused) {
+        }
+        synchronized (this) {
+            this.xZ = z ? 1 : -1;
+        }
+        return z;
     }
 
     public void release() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.xY == null) {
-            return;
+        if (this.xY != null) {
+            this.xY = null;
         }
-        this.xY = null;
     }
 }

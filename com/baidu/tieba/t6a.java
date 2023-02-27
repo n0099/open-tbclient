@@ -1,61 +1,63 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.u6a;
-import com.baidu.tieba.x1a;
+import com.baidu.tieba.s6a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.util.HashMap;
+import com.fun.ad.sdk.FunSplashAdInteractionListener;
 /* loaded from: classes6.dex */
-public class t6a implements u6a.a<u1a> {
+public class t6a extends s6a.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ u6a a;
+    public final /* synthetic */ c7a f;
 
-    public t6a(u6a u6aVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t6a(s6a s6aVar, w7a w7aVar, String str, c7a c7aVar) {
+        super(s6aVar, w7aVar, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {u6aVar};
+            Object[] objArr = {s6aVar, w7aVar, str, c7aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((s6a) objArr2[0], (w7a) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = u6aVar;
+        this.f = c7aVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.u6a.a
-    public void a(u1a u1aVar) {
+    @Override // com.baidu.tieba.s6a.b, com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
+    public void onAdClicked(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, u1aVar) == null) {
-            LogPrinter.v("SerialSlotId:%s is totally same with oldOne", u1aVar.a);
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+            super.onAdClicked(view2, i);
+            c7a c7aVar = this.f;
+            String str = this.b;
+            FunSplashAdInteractionListener funSplashAdInteractionListener = c7aVar.j;
+            if (funSplashAdInteractionListener != null) {
+                funSplashAdInteractionListener.onAdClicked(str);
+            }
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.u6a.a
-    public void b(u1a u1aVar) {
+    @Override // com.baidu.tieba.s6a.b, com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
+    public void onAdShow(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u1aVar) == null) {
-            u1a u1aVar2 = u1aVar;
-            LogPrinter.v("Update SerialSlotId:%s", u1aVar2.a);
-            HashMap<String, z1a> hashMap = this.a.c;
-            String str = u1aVar2.a;
-            hashMap.put(str, new z1a(str, new g2a(this, u1aVar2)));
-            x1a x1aVar = this.a.b;
-            synchronized (x1aVar.a) {
-                x1aVar.a(u1aVar2.a).add(new x1a.b(u1aVar2));
-            }
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
+            super.onAdShow(view2, i);
+            c7a c7aVar = this.f;
+            c7aVar.g = c7aVar.b.getWidth();
+            c7aVar.h = c7aVar.b.getHeight();
         }
     }
 }

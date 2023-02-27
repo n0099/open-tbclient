@@ -9,12 +9,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes.dex */
 public class PushSocket {
     public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = false;
-    public static byte[] b = null;
-    public static int c = 0;
-    public static String d = "PushSocket";
-    public static int e = 36;
-    public static int f = 32;
+    public static String a = "PushSocket";
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -36,8 +32,8 @@ public class PushSocket {
             }
         }
         try {
-            System.loadLibrary("bdpush_V3_5");
-            a = true;
+            System.loadLibrary("bdpush_V3_6");
+            b = true;
         } catch (Throwable unused) {
         }
     }
@@ -46,15 +42,15 @@ public class PushSocket {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (!a) {
+            if (!b) {
                 try {
-                    System.loadLibrary("bdpush_V3_5");
-                    a = true;
+                    System.loadLibrary("bdpush_V3_6");
+                    b = true;
                 } catch (Throwable unused) {
-                    Log.e("BDPushSDK-" + d, "Native library not found! Please copy libbdpush_V3_5.so into your project!");
+                    Log.e("BDPushSDK-" + a, "Native library not found! Please copy libbdpush_V3_6.so into your project!");
                 }
             }
-            return a;
+            return b;
         }
         return invokeV.booleanValue;
     }

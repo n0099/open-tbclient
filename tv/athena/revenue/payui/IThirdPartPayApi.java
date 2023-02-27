@@ -1,7 +1,7 @@
 package tv.athena.revenue.payui;
 
 import androidx.annotation.Keep;
-import com.baidu.tieba.eka;
+import com.baidu.tieba.zsa;
 import tv.athena.revenue.payui.model.ThirdPartPayDialogParams;
 import tv.athena.revenue.payui.model.ThirdPartPayParams;
 @Keep
@@ -9,9 +9,9 @@ import tv.athena.revenue.payui.model.ThirdPartPayParams;
 public interface IThirdPartPayApi {
     void release();
 
-    void startPayDialog(ThirdPartPayDialogParams thirdPartPayDialogParams, eka ekaVar);
+    void startPayDialog(ThirdPartPayDialogParams thirdPartPayDialogParams, zsa zsaVar);
 
-    void startPayDialogV2(ThirdPartPayDialogParams thirdPartPayDialogParams, eka ekaVar);
+    void startPayDialogV2(ThirdPartPayDialogParams thirdPartPayDialogParams, zsa zsaVar);
 
-    void startPlay(ThirdPartPayParams thirdPartPayParams, eka ekaVar);
+    void startPlay(ThirdPartPayParams thirdPartPayParams, zsa zsaVar);
 }

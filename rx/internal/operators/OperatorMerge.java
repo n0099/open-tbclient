@@ -1,25 +1,16 @@
 package rx.internal.operators;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dea;
-import com.baidu.tieba.gga;
-import com.baidu.tieba.gha;
-import com.baidu.tieba.lga;
-import com.baidu.tieba.oga;
-import com.baidu.tieba.ria;
-import com.baidu.tieba.sea;
-import com.baidu.tieba.uha;
-import com.baidu.tieba.xda;
-import com.baidu.tieba.xga;
-import com.baidu.tieba.zda;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.bpa;
+import com.baidu.tieba.bqa;
+import com.baidu.tieba.gpa;
+import com.baidu.tieba.jpa;
+import com.baidu.tieba.mra;
+import com.baidu.tieba.nna;
+import com.baidu.tieba.pqa;
+import com.baidu.tieba.sma;
+import com.baidu.tieba.spa;
+import com.baidu.tieba.uma;
+import com.baidu.tieba.yma;
 import java.util.ArrayList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -30,326 +21,216 @@ import rx.exceptions.OnErrorThrowable;
 import rx.internal.util.ScalarSynchronousObservable;
 import rx.internal.util.atomic.SpscExactAtomicArrayQueue;
 /* loaded from: classes9.dex */
-public final class OperatorMerge<T> implements xda.b<T, xda<? extends T>> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public final class OperatorMerge<T> implements sma.b<T, sma<? extends T>> {
     public final boolean a;
     public final int b;
 
     /* loaded from: classes9.dex */
-    public static final class MergeProducer<T> extends AtomicLong implements zda {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final long serialVersionUID = -1214379189873595503L;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final d<T> subscriber;
-
-        public MergeProducer(d<T> dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.subscriber = dVar;
-        }
-
-        public long produced(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                return addAndGet(-i);
-            }
-            return invokeI.longValue;
-        }
-
-        @Override // com.baidu.tieba.zda
-        public void request(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-                if (i > 0) {
-                    if (get() == Long.MAX_VALUE) {
-                        return;
-                    }
-                    sea.b(this, j);
-                    this.subscriber.i();
-                } else if (i >= 0) {
-                } else {
-                    throw new IllegalArgumentException("n >= 0 required");
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
     public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final OperatorMerge<Object> a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2050911969, "Lrx/internal/operators/OperatorMerge$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-2050911969, "Lrx/internal/operators/OperatorMerge$a;");
-                    return;
-                }
-            }
-            a = new OperatorMerge<>(true, Integer.MAX_VALUE);
-        }
+        public static final OperatorMerge<Object> a = new OperatorMerge<>(true, Integer.MAX_VALUE);
     }
 
     /* loaded from: classes9.dex */
     public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final OperatorMerge<Object> a;
-        public transient /* synthetic */ FieldHolder $fh;
+        public static final OperatorMerge<Object> a = new OperatorMerge<>(false, Integer.MAX_VALUE);
+    }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2050911938, "Lrx/internal/operators/OperatorMerge$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-2050911938, "Lrx/internal/operators/OperatorMerge$b;");
+    /* loaded from: classes9.dex */
+    public static final class MergeProducer<T> extends AtomicLong implements uma {
+        public static final long serialVersionUID = -1214379189873595503L;
+        public final d<T> subscriber;
+
+        public MergeProducer(d<T> dVar) {
+            this.subscriber = dVar;
+        }
+
+        public long produced(int i) {
+            return addAndGet(-i);
+        }
+
+        @Override // com.baidu.tieba.uma
+        public void request(long j) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i > 0) {
+                if (get() == Long.MAX_VALUE) {
                     return;
                 }
+                nna.b(this, j);
+                this.subscriber.i();
+            } else if (i >= 0) {
+            } else {
+                throw new IllegalArgumentException("n >= 0 required");
             }
-            a = new OperatorMerge<>(false, Integer.MAX_VALUE);
         }
     }
 
     /* loaded from: classes9.dex */
-    public static final class c<T> extends dea<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public static final int j;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static final class c<T> extends yma<T> {
+        public static final int j = bpa.c / 4;
         public final d<T> e;
         public final long f;
         public volatile boolean g;
-        public volatile gga h;
+        public volatile bpa h;
         public int i;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2050911907, "Lrx/internal/operators/OperatorMerge$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-2050911907, "Lrx/internal/operators/OperatorMerge$c;");
-                    return;
-                }
-            }
-            j = gga.c / 4;
-        }
-
-        @Override // com.baidu.tieba.dea
+        @Override // com.baidu.tieba.yma
         public void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i = gga.c;
-                this.i = i;
-                e(i);
-            }
+            int i = bpa.c;
+            this.i = i;
+            e(i);
         }
 
-        @Override // com.baidu.tieba.yda
+        @Override // com.baidu.tieba.tma
         public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.g = true;
-                this.e.i();
-            }
+            this.g = true;
+            this.e.i();
         }
 
         public c(d<T> dVar, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar, Long.valueOf(j2)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
             this.e = dVar;
             this.f = j2;
         }
 
         public void g(long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                int i = this.i - ((int) j2);
-                if (i > j) {
-                    this.i = i;
-                    return;
-                }
-                int i2 = gga.c;
-                this.i = i2;
-                int i3 = i2 - i;
-                if (i3 > 0) {
-                    e(i3);
-                }
+            int i = this.i - ((int) j2);
+            if (i > j) {
+                this.i = i;
+                return;
+            }
+            int i2 = bpa.c;
+            this.i = i2;
+            int i3 = i2 - i;
+            if (i3 > 0) {
+                e(i3);
             }
         }
 
-        @Override // com.baidu.tieba.yda
+        @Override // com.baidu.tieba.tma
         public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.g = true;
-                this.e.o().offer(th);
-                this.e.i();
-            }
+            this.g = true;
+            this.e.o().offer(th);
+            this.e.i();
         }
 
-        @Override // com.baidu.tieba.yda
+        @Override // com.baidu.tieba.tma
         public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                this.e.w(this, t);
-            }
+            this.e.w(this, t);
         }
     }
 
     /* loaded from: classes9.dex */
-    public static final class d<T> extends dea<xda<? extends T>> {
-        public static /* synthetic */ Interceptable $ic;
-        public static final c<?>[] v;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final dea<? super T> e;
+    public static final class d<T> extends yma<sma<? extends T>> {
+        public static final c<?>[] v = new c[0];
+        public final yma<? super T> e;
         public final boolean f;
         public final int g;
         public MergeProducer<T> h;
         public volatile Queue<Object> i;
-        public volatile ria j;
+        public volatile mra j;
         public volatile ConcurrentLinkedQueue<Throwable> k;
         public volatile boolean l;
         public boolean m;
         public boolean n;
-        public final Object o;
-        public volatile c<?>[] p;
+        public final Object o = new Object();
+        public volatile c<?>[] p = v;
         public long q;
         public long r;
         public int s;
         public final int t;
         public int u;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2050911876, "Lrx/internal/operators/OperatorMerge$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-2050911876, "Lrx/internal/operators/OperatorMerge$d;");
-                    return;
+        public boolean h() {
+            if (this.e.isUnsubscribed()) {
+                return true;
+            }
+            ConcurrentLinkedQueue<Throwable> concurrentLinkedQueue = this.k;
+            if (!this.f && concurrentLinkedQueue != null && !concurrentLinkedQueue.isEmpty()) {
+                try {
+                    t();
+                    return true;
+                } finally {
+                    unsubscribe();
                 }
             }
-            v = new c[0];
+            return false;
         }
 
         public void i() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                synchronized (this) {
-                    if (this.m) {
-                        this.n = true;
-                        return;
-                    }
-                    this.m = true;
-                    k();
+            synchronized (this) {
+                if (this.m) {
+                    this.n = true;
+                    return;
                 }
+                this.m = true;
+                k();
             }
         }
 
         public void j() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                int i = this.u + 1;
-                if (i == this.t) {
-                    this.u = 0;
-                    u(i);
-                    return;
-                }
-                this.u = i;
+            int i = this.u + 1;
+            if (i == this.t) {
+                this.u = 0;
+                u(i);
+                return;
             }
+            this.u = i;
+        }
+
+        public mra n() {
+            mra mraVar;
+            mra mraVar2 = this.j;
+            if (mraVar2 == null) {
+                boolean z = false;
+                synchronized (this) {
+                    mraVar = this.j;
+                    if (mraVar == null) {
+                        mra mraVar3 = new mra();
+                        this.j = mraVar3;
+                        mraVar = mraVar3;
+                        z = true;
+                    }
+                }
+                if (z) {
+                    b(mraVar);
+                }
+                return mraVar;
+            }
+            return mraVar2;
         }
 
         public Queue<Throwable> o() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                ConcurrentLinkedQueue<Throwable> concurrentLinkedQueue = this.k;
-                if (concurrentLinkedQueue == null) {
-                    synchronized (this) {
-                        concurrentLinkedQueue = this.k;
-                        if (concurrentLinkedQueue == null) {
-                            concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
-                            this.k = concurrentLinkedQueue;
-                        }
+            ConcurrentLinkedQueue<Throwable> concurrentLinkedQueue = this.k;
+            if (concurrentLinkedQueue == null) {
+                synchronized (this) {
+                    concurrentLinkedQueue = this.k;
+                    if (concurrentLinkedQueue == null) {
+                        concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
+                        this.k = concurrentLinkedQueue;
                     }
                 }
-                return concurrentLinkedQueue;
             }
-            return (Queue) invokeV.objValue;
+            return concurrentLinkedQueue;
         }
 
-        @Override // com.baidu.tieba.yda
+        @Override // com.baidu.tieba.tma
         public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                this.l = true;
-                i();
+            this.l = true;
+            i();
+        }
+
+        public final void t() {
+            ArrayList arrayList = new ArrayList(this.k);
+            if (arrayList.size() == 1) {
+                this.e.onError((Throwable) arrayList.get(0));
+            } else {
+                this.e.onError(new CompositeException(arrayList));
             }
         }
 
-        public d(dea<? super T> deaVar, boolean z, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {deaVar, Boolean.valueOf(z), Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.e = deaVar;
+        public d(yma<? super T> ymaVar, boolean z, int i) {
+            this.e = ymaVar;
             this.f = z;
             this.g = i;
-            this.o = new Object();
-            this.p = v;
             if (i == Integer.MAX_VALUE) {
                 this.t = Integer.MAX_VALUE;
                 e(Long.MAX_VALUE);
@@ -359,121 +240,52 @@ public final class OperatorMerge<T> implements xda.b<T, xda<? extends T>> {
             e(i);
         }
 
-        public void m(c<T> cVar, T t, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{cVar, t, Long.valueOf(j)}) == null) {
-                try {
-                    this.e.onNext(t);
-                    if (j != Long.MAX_VALUE) {
-                        this.h.produced(1);
-                    }
-                    cVar.g(1L);
-                    synchronized (this) {
-                        try {
-                            if (!this.n) {
-                                this.m = false;
-                                return;
-                            }
-                            this.n = false;
-                            k();
-                        }
-                    }
-                }
-            }
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: rx.internal.operators.OperatorMerge$c<?>[] */
+        /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: rx.internal.operators.OperatorMerge$c<?>[] */
         /* JADX WARN: Multi-variable type inference failed */
         public void g(c<T> cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-                n().a(cVar);
-                synchronized (this.o) {
-                    c<?>[] cVarArr = this.p;
-                    int length = cVarArr.length;
-                    c<?>[] cVarArr2 = new c[length + 1];
-                    System.arraycopy(cVarArr, 0, cVarArr2, 0, length);
-                    cVarArr2[length] = cVar;
-                    this.p = cVarArr2;
-                }
+            n().a(cVar);
+            synchronized (this.o) {
+                c<?>[] cVarArr = this.p;
+                int length = cVarArr.length;
+                c<?>[] cVarArr2 = new c[length + 1];
+                System.arraycopy(cVarArr, 0, cVarArr2, 0, length);
+                cVarArr2[length] = cVar;
+                this.p = cVarArr2;
             }
         }
 
-        @Override // com.baidu.tieba.yda
+        @Override // com.baidu.tieba.tma
         public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, th) == null) {
-                o().offer(th);
-                this.l = true;
+            o().offer(th);
+            this.l = true;
+            i();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: rx.internal.operators.OperatorMerge$d<T> */
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // com.baidu.tieba.tma
+        /* renamed from: p */
+        public void onNext(sma<? extends T> smaVar) {
+            if (smaVar == null) {
+                return;
+            }
+            if (smaVar == sma.c()) {
+                j();
+            } else if (smaVar instanceof ScalarSynchronousObservable) {
+                v(((ScalarSynchronousObservable) smaVar).E());
+            } else {
+                long j = this.q;
+                this.q = 1 + j;
+                c cVar = new c(this, j);
+                g(cVar);
+                smaVar.B(cVar);
                 i();
             }
         }
 
         public void u(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
-                e(j);
-            }
-        }
-
-        public boolean h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.e.isUnsubscribed()) {
-                    return true;
-                }
-                ConcurrentLinkedQueue<Throwable> concurrentLinkedQueue = this.k;
-                if (!this.f && concurrentLinkedQueue != null && !concurrentLinkedQueue.isEmpty()) {
-                    try {
-                        t();
-                        return true;
-                    } finally {
-                        unsubscribe();
-                    }
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public ria n() {
-            InterceptResult invokeV;
-            ria riaVar;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                ria riaVar2 = this.j;
-                if (riaVar2 == null) {
-                    boolean z = false;
-                    synchronized (this) {
-                        riaVar = this.j;
-                        if (riaVar == null) {
-                            ria riaVar3 = new ria();
-                            this.j = riaVar3;
-                            riaVar = riaVar3;
-                            z = true;
-                        }
-                    }
-                    if (z) {
-                        b(riaVar);
-                    }
-                    return riaVar;
-                }
-                return riaVar2;
-            }
-            return (ria) invokeV.objValue;
-        }
-
-        public final void t() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-                ArrayList arrayList = new ArrayList(this.k);
-                if (arrayList.size() == 1) {
-                    this.e.onError((Throwable) arrayList.get(0));
-                } else {
-                    this.e.onError(new CompositeException(arrayList));
-                }
-            }
+            e(j);
         }
 
         public void k() {
@@ -483,138 +295,79 @@ public final class OperatorMerge<T> implements xda.b<T, xda<? extends T>> {
             int i;
             boolean z3;
             int i2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                try {
-                    dea<? super T> deaVar = this.e;
-                    while (!h()) {
-                        Queue<Object> queue = this.i;
-                        long j2 = this.h.get();
-                        if (j2 == Long.MAX_VALUE) {
-                            z2 = true;
-                        } else {
-                            z2 = false;
-                        }
-                        if (queue != null) {
-                            int i3 = 0;
+            try {
+                yma<? super T> ymaVar = this.e;
+                while (!h()) {
+                    Queue<Object> queue = this.i;
+                    long j2 = this.h.get();
+                    if (j2 == Long.MAX_VALUE) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    if (queue != null) {
+                        int i3 = 0;
+                        while (true) {
+                            j = j2;
+                            int i4 = 0;
+                            i = i3;
+                            Object obj = null;
                             while (true) {
-                                j = j2;
-                                int i4 = 0;
-                                i = i3;
-                                Object obj = null;
-                                while (true) {
-                                    if (j <= 0) {
-                                        break;
-                                    }
-                                    Object poll = queue.poll();
-                                    if (h()) {
-                                        return;
-                                    }
-                                    if (poll == null) {
-                                        obj = poll;
-                                        break;
-                                    }
-                                    deaVar.onNext((Object) NotificationLite.e(poll));
-                                    i++;
-                                    i4++;
-                                    j--;
-                                    obj = poll;
-                                }
-                                if (i4 > 0) {
-                                    if (z2) {
-                                        j = Long.MAX_VALUE;
-                                    } else {
-                                        j = this.h.produced(i4);
-                                    }
-                                }
-                                if (j == 0 || obj == null) {
+                                if (j <= 0) {
                                     break;
                                 }
-                                i3 = i;
-                                j2 = j;
-                            }
-                        } else {
-                            j = j2;
-                            i = 0;
-                        }
-                        boolean z4 = this.l;
-                        Queue<Object> queue2 = this.i;
-                        c<?>[] cVarArr = this.p;
-                        int length = cVarArr.length;
-                        if (z4 && ((queue2 == null || queue2.isEmpty()) && length == 0)) {
-                            ConcurrentLinkedQueue<Throwable> concurrentLinkedQueue = this.k;
-                            if (concurrentLinkedQueue != null && !concurrentLinkedQueue.isEmpty()) {
-                                t();
-                                return;
-                            }
-                            deaVar.onCompleted();
-                            return;
-                        }
-                        if (length > 0) {
-                            long j3 = this.r;
-                            int i5 = this.s;
-                            if (length <= i5 || cVarArr[i5].f != j3) {
-                                if (length <= i5) {
-                                    i5 = 0;
-                                }
-                                for (int i6 = 0; i6 < length && cVarArr[i5].f != j3; i6++) {
-                                    i5++;
-                                    if (i5 == length) {
-                                        i5 = 0;
-                                    }
-                                }
-                                this.s = i5;
-                                this.r = cVarArr[i5].f;
-                            }
-                            z3 = false;
-                            for (int i7 = 0; i7 < length; i7++) {
+                                Object poll = queue.poll();
                                 if (h()) {
                                     return;
                                 }
-                                c<?> cVar = cVarArr[i5];
-                                Object obj2 = null;
-                                do {
-                                    int i8 = 0;
-                                    while (j > 0) {
-                                        if (h()) {
-                                            return;
-                                        }
-                                        gga ggaVar = cVar.h;
-                                        if (ggaVar == null || (obj2 = ggaVar.i()) == null) {
-                                            break;
-                                        }
-                                        try {
-                                            deaVar.onNext((Object) NotificationLite.e(obj2));
-                                            j--;
-                                            i8++;
-                                        }
-                                    }
-                                    if (i8 > 0) {
-                                        if (!z2) {
-                                            j = this.h.produced(i8);
-                                        } else {
-                                            j = Long.MAX_VALUE;
-                                        }
-                                        cVar.g(i8);
-                                    }
-                                    i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-                                    if (i2 == 0) {
-                                        break;
-                                    }
-                                } while (obj2 != null);
-                                boolean z5 = cVar.g;
-                                gga ggaVar2 = cVar.h;
-                                if (z5 && (ggaVar2 == null || ggaVar2.e())) {
-                                    s(cVar);
-                                    if (h()) {
-                                        return;
-                                    }
-                                    i++;
-                                    z3 = true;
-                                }
-                                if (i2 == 0) {
+                                if (poll == null) {
+                                    obj = poll;
                                     break;
                                 }
+                                ymaVar.onNext((Object) NotificationLite.e(poll));
+                                i++;
+                                i4++;
+                                j--;
+                                obj = poll;
+                            }
+                            if (i4 > 0) {
+                                if (z2) {
+                                    j = Long.MAX_VALUE;
+                                } else {
+                                    j = this.h.produced(i4);
+                                }
+                            }
+                            if (j == 0 || obj == null) {
+                                break;
+                            }
+                            i3 = i;
+                            j2 = j;
+                        }
+                    } else {
+                        j = j2;
+                        i = 0;
+                    }
+                    boolean z4 = this.l;
+                    Queue<Object> queue2 = this.i;
+                    c<?>[] cVarArr = this.p;
+                    int length = cVarArr.length;
+                    if (z4 && ((queue2 == null || queue2.isEmpty()) && length == 0)) {
+                        ConcurrentLinkedQueue<Throwable> concurrentLinkedQueue = this.k;
+                        if (concurrentLinkedQueue != null && !concurrentLinkedQueue.isEmpty()) {
+                            t();
+                            return;
+                        }
+                        ymaVar.onCompleted();
+                        return;
+                    }
+                    if (length > 0) {
+                        long j3 = this.r;
+                        int i5 = this.s;
+                        if (length <= i5 || cVarArr[i5].f != j3) {
+                            if (length <= i5) {
+                                i5 = 0;
+                            }
+                            for (int i6 = 0; i6 < length && cVarArr[i5].f != j3; i6++) {
                                 i5++;
                                 if (i5 == length) {
                                     i5 = 0;
@@ -622,309 +375,319 @@ public final class OperatorMerge<T> implements xda.b<T, xda<? extends T>> {
                             }
                             this.s = i5;
                             this.r = cVarArr[i5].f;
-                        } else {
-                            z3 = false;
                         }
-                        if (i > 0) {
-                            e(i);
-                        }
-                        if (!z3) {
-                            synchronized (this) {
-                                try {
-                                    if (!this.n) {
-                                        try {
-                                            this.m = false;
-                                            return;
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            z = true;
-                                            while (true) {
-                                                try {
-                                                    break;
-                                                } catch (Throwable th2) {
-                                                    th = th2;
-                                                }
-                                            }
-                                            throw th;
-                                        }
-                                    }
-                                    this.n = false;
-                                } catch (Throwable th3) {
-                                    th = th3;
-                                    z = false;
-                                }
+                        z3 = false;
+                        for (int i7 = 0; i7 < length; i7++) {
+                            if (h()) {
+                                return;
                             }
-                            try {
+                            c<?> cVar = cVarArr[i5];
+                            Object obj2 = null;
+                            do {
+                                int i8 = 0;
+                                while (j > 0) {
+                                    if (h()) {
+                                        return;
+                                    }
+                                    bpa bpaVar = cVar.h;
+                                    if (bpaVar == null || (obj2 = bpaVar.i()) == null) {
+                                        break;
+                                    }
+                                    try {
+                                        ymaVar.onNext((Object) NotificationLite.e(obj2));
+                                        j--;
+                                        i8++;
+                                    }
+                                }
+                                if (i8 > 0) {
+                                    if (!z2) {
+                                        j = this.h.produced(i8);
+                                    } else {
+                                        j = Long.MAX_VALUE;
+                                    }
+                                    cVar.g(i8);
+                                }
+                                i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                                if (i2 == 0) {
+                                    break;
+                                }
+                            } while (obj2 != null);
+                            boolean z5 = cVar.g;
+                            bpa bpaVar2 = cVar.h;
+                            if (z5 && (bpaVar2 == null || bpaVar2.e())) {
+                                s(cVar);
+                                if (h()) {
+                                    return;
+                                }
+                                i++;
+                                z3 = true;
+                            }
+                            if (i2 == 0) {
                                 break;
-                                throw th;
-                            } catch (Throwable th4) {
-                                th = th4;
-                                if (!z) {
-                                    synchronized (this) {
+                            }
+                            i5++;
+                            if (i5 == length) {
+                                i5 = 0;
+                            }
+                        }
+                        this.s = i5;
+                        this.r = cVarArr[i5].f;
+                    } else {
+                        z3 = false;
+                    }
+                    if (i > 0) {
+                        e(i);
+                    }
+                    if (!z3) {
+                        synchronized (this) {
+                            try {
+                                if (!this.n) {
+                                    try {
                                         this.m = false;
+                                        return;
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        z = true;
+                                        while (true) {
+                                            try {
+                                                break;
+                                            } catch (Throwable th2) {
+                                                th = th2;
+                                            }
+                                        }
+                                        throw th;
                                     }
                                 }
-                                throw th;
+                                this.n = false;
+                            } catch (Throwable th3) {
+                                th = th3;
+                                z = false;
                             }
+                        }
+                        try {
+                            break;
+                            throw th;
+                        } catch (Throwable th4) {
+                            th = th4;
+                            if (!z) {
+                                synchronized (this) {
+                                    this.m = false;
+                                }
+                            }
+                            throw th;
                         }
                     }
-                } catch (Throwable th5) {
-                    th = th5;
-                    z = false;
                 }
+            } catch (Throwable th5) {
+                th = th5;
+                z = false;
             }
         }
 
         public void l(T t, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048581, this, t, j) == null) {
-                try {
-                    this.e.onNext(t);
-                    if (j != Long.MAX_VALUE) {
-                        this.h.produced(1);
-                    }
-                    int i = this.u + 1;
-                    if (i == this.t) {
-                        this.u = 0;
-                        u(i);
-                    } else {
-                        this.u = i;
-                    }
-                    synchronized (this) {
-                        try {
-                            if (!this.n) {
-                                this.m = false;
-                                return;
-                            }
-                            this.n = false;
-                            k();
+            try {
+                this.e.onNext(t);
+                if (j != Long.MAX_VALUE) {
+                    this.h.produced(1);
+                }
+                int i = this.u + 1;
+                if (i == this.t) {
+                    this.u = 0;
+                    u(i);
+                } else {
+                    this.u = i;
+                }
+                synchronized (this) {
+                    try {
+                        if (!this.n) {
+                            this.m = false;
+                            return;
                         }
+                        this.n = false;
+                        k();
                     }
                 }
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: rx.internal.operators.OperatorMerge$d<T> */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.baidu.tieba.yda
-        /* renamed from: p */
-        public void onNext(xda<? extends T> xdaVar) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048588, this, xdaVar) != null) || xdaVar == null) {
-                return;
-            }
-            if (xdaVar == xda.c()) {
-                j();
-            } else if (xdaVar instanceof ScalarSynchronousObservable) {
-                v(((ScalarSynchronousObservable) xdaVar).E());
-            } else {
-                long j = this.q;
-                this.q = 1 + j;
-                c cVar = new c(this, j);
-                g(cVar);
-                xdaVar.B(cVar);
-                i();
+        public void m(c<T> cVar, T t, long j) {
+            try {
+                this.e.onNext(t);
+                if (j != Long.MAX_VALUE) {
+                    this.h.produced(1);
+                }
+                cVar.g(1L);
+                synchronized (this) {
+                    try {
+                        if (!this.n) {
+                            this.m = false;
+                            return;
+                        }
+                        this.n = false;
+                        k();
+                    }
+                }
             }
         }
 
         public void q(T t) {
             Queue<Object> spscExactAtomicArrayQueue;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048589, this, t) == null) {
-                Queue<Object> queue = this.i;
-                if (queue == null) {
-                    int i = this.g;
-                    if (i == Integer.MAX_VALUE) {
-                        queue = new oga<>(gga.c);
+            Queue<Object> queue = this.i;
+            if (queue == null) {
+                int i = this.g;
+                if (i == Integer.MAX_VALUE) {
+                    queue = new jpa<>(bpa.c);
+                } else {
+                    if (spa.a(i)) {
+                        if (pqa.b()) {
+                            spscExactAtomicArrayQueue = new bqa<>(i);
+                        } else {
+                            spscExactAtomicArrayQueue = new gpa<>(i);
+                        }
                     } else {
-                        if (xga.a(i)) {
-                            if (uha.b()) {
-                                spscExactAtomicArrayQueue = new gha<>(i);
-                            } else {
-                                spscExactAtomicArrayQueue = new lga<>(i);
-                            }
-                        } else {
-                            spscExactAtomicArrayQueue = new SpscExactAtomicArrayQueue<>(i);
-                        }
-                        queue = spscExactAtomicArrayQueue;
+                        spscExactAtomicArrayQueue = new SpscExactAtomicArrayQueue<>(i);
                     }
-                    this.i = queue;
+                    queue = spscExactAtomicArrayQueue;
                 }
-                if (!queue.offer(NotificationLite.h(t))) {
-                    unsubscribe();
-                    onError(OnErrorThrowable.addValueAsLastCause(new MissingBackpressureException(), t));
-                }
+                this.i = queue;
             }
-        }
-
-        public void s(c<T> cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048591, this, cVar) == null) {
-                gga ggaVar = cVar.h;
-                if (ggaVar != null) {
-                    ggaVar.j();
-                }
-                this.j.b(cVar);
-                synchronized (this.o) {
-                    c<?>[] cVarArr = this.p;
-                    int length = cVarArr.length;
-                    int i = -1;
-                    int i2 = 0;
-                    while (true) {
-                        if (i2 >= length) {
-                            break;
-                        } else if (cVar.equals(cVarArr[i2])) {
-                            i = i2;
-                            break;
-                        } else {
-                            i2++;
-                        }
-                    }
-                    if (i < 0) {
-                        return;
-                    }
-                    if (length == 1) {
-                        this.p = v;
-                        return;
-                    }
-                    c<?>[] cVarArr2 = new c[length - 1];
-                    System.arraycopy(cVarArr, 0, cVarArr2, 0, i);
-                    System.arraycopy(cVarArr, i + 1, cVarArr2, i, (length - i) - 1);
-                    this.p = cVarArr2;
-                }
-            }
-        }
-
-        public void v(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048594, this, t) == null) {
-                long j = this.h.get();
-                boolean z = false;
-                if (j != 0) {
-                    synchronized (this) {
-                        j = this.h.get();
-                        if (!this.m && j != 0) {
-                            this.m = true;
-                            z = true;
-                        }
-                    }
-                }
-                if (z) {
-                    Queue<Object> queue = this.i;
-                    if (queue != null && !queue.isEmpty()) {
-                        q(t);
-                        k();
-                        return;
-                    }
-                    l(t, j);
-                    return;
-                }
-                q(t);
-                i();
+            if (!queue.offer(NotificationLite.h(t))) {
+                unsubscribe();
+                onError(OnErrorThrowable.addValueAsLastCause(new MissingBackpressureException(), t));
             }
         }
 
         public void r(c<T> cVar, T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048590, this, cVar, t) == null) {
-                gga ggaVar = cVar.h;
-                if (ggaVar == null) {
-                    ggaVar = gga.b();
-                    cVar.b(ggaVar);
-                    cVar.h = ggaVar;
-                }
-                try {
-                    ggaVar.g(NotificationLite.h(t));
-                } catch (IllegalStateException e) {
-                    if (!cVar.isUnsubscribed()) {
-                        cVar.unsubscribe();
-                        cVar.onError(e);
-                    }
-                } catch (MissingBackpressureException e2) {
+            bpa bpaVar = cVar.h;
+            if (bpaVar == null) {
+                bpaVar = bpa.b();
+                cVar.b(bpaVar);
+                cVar.h = bpaVar;
+            }
+            try {
+                bpaVar.g(NotificationLite.h(t));
+            } catch (IllegalStateException e) {
+                if (!cVar.isUnsubscribed()) {
                     cVar.unsubscribe();
-                    cVar.onError(e2);
+                    cVar.onError(e);
                 }
+            } catch (MissingBackpressureException e2) {
+                cVar.unsubscribe();
+                cVar.onError(e2);
             }
         }
 
-        public void w(c<T> cVar, T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048595, this, cVar, t) == null) {
-                long j = this.h.get();
-                boolean z = false;
-                if (j != 0) {
-                    synchronized (this) {
-                        j = this.h.get();
-                        if (!this.m && j != 0) {
-                            this.m = true;
-                            z = true;
-                        }
+        public void s(c<T> cVar) {
+            bpa bpaVar = cVar.h;
+            if (bpaVar != null) {
+                bpaVar.j();
+            }
+            this.j.b(cVar);
+            synchronized (this.o) {
+                c<?>[] cVarArr = this.p;
+                int length = cVarArr.length;
+                int i = -1;
+                int i2 = 0;
+                while (true) {
+                    if (i2 >= length) {
+                        break;
+                    } else if (cVar.equals(cVarArr[i2])) {
+                        i = i2;
+                        break;
+                    } else {
+                        i2++;
                     }
                 }
-                if (z) {
-                    gga ggaVar = cVar.h;
-                    if (ggaVar != null && !ggaVar.e()) {
-                        r(cVar, t);
-                        k();
-                        return;
-                    }
-                    m(cVar, t, j);
+                if (i < 0) {
                     return;
                 }
-                r(cVar, t);
-                i();
+                if (length == 1) {
+                    this.p = v;
+                    return;
+                }
+                c<?>[] cVarArr2 = new c[length - 1];
+                System.arraycopy(cVarArr, 0, cVarArr2, 0, i);
+                System.arraycopy(cVarArr, i + 1, cVarArr2, i, (length - i) - 1);
+                this.p = cVarArr2;
             }
+        }
+
+        public void v(T t) {
+            long j = this.h.get();
+            boolean z = false;
+            if (j != 0) {
+                synchronized (this) {
+                    j = this.h.get();
+                    if (!this.m && j != 0) {
+                        this.m = true;
+                        z = true;
+                    }
+                }
+            }
+            if (z) {
+                Queue<Object> queue = this.i;
+                if (queue != null && !queue.isEmpty()) {
+                    q(t);
+                    k();
+                    return;
+                }
+                l(t, j);
+                return;
+            }
+            q(t);
+            i();
+        }
+
+        public void w(c<T> cVar, T t) {
+            long j = this.h.get();
+            boolean z = false;
+            if (j != 0) {
+                synchronized (this) {
+                    j = this.h.get();
+                    if (!this.m && j != 0) {
+                        this.m = true;
+                        z = true;
+                    }
+                }
+            }
+            if (z) {
+                bpa bpaVar = cVar.h;
+                if (bpaVar != null && !bpaVar.e()) {
+                    r(cVar, t);
+                    k();
+                    return;
+                }
+                m(cVar, t, j);
+                return;
+            }
+            r(cVar, t);
+            i();
         }
     }
 
     public OperatorMerge(boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.a = z;
         this.b = i;
     }
 
     public static <T> OperatorMerge<T> a(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
-            if (z) {
-                return (OperatorMerge<T>) a.a;
-            }
-            return (OperatorMerge<T>) b.a;
+        if (z) {
+            return (OperatorMerge<T>) a.a;
         }
-        return (OperatorMerge) invokeZ.objValue;
+        return (OperatorMerge<T>) b.a;
     }
 
-    public dea<xda<? extends T>> call(dea<? super T> deaVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, deaVar)) == null) {
-            d dVar = new d(deaVar, this.a, this.b);
-            MergeProducer<T> mergeProducer = new MergeProducer<>(dVar);
-            dVar.h = mergeProducer;
-            deaVar.b(dVar);
-            deaVar.f(mergeProducer);
-            return dVar;
-        }
-        return (dea) invokeL.objValue;
+    public yma<sma<? extends T>> call(yma<? super T> ymaVar) {
+        d dVar = new d(ymaVar, this.a, this.b);
+        MergeProducer<T> mergeProducer = new MergeProducer<>(dVar);
+        dVar.h = mergeProducer;
+        ymaVar.b(dVar);
+        ymaVar.f(mergeProducer);
+        return dVar;
     }
 
-    @Override // com.baidu.tieba.xda.b, com.baidu.tieba.pea
+    @Override // com.baidu.tieba.sma.b, com.baidu.tieba.kna
     public /* bridge */ /* synthetic */ Object call(Object obj) {
-        return call((dea) ((dea) obj));
+        return call((yma) ((yma) obj));
     }
 }

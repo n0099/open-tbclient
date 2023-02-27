@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.Cdo;
 import com.baidu.tieba.frs.gamerecommend.message.AlaGameRecommendReponseMessage;
-import com.baidu.tieba.xy6;
-import com.baidu.tieba.zy6;
+import com.baidu.tieba.w17;
+import com.baidu.tieba.y17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
     public BdUniqueId e;
     public HttpMessageListener f;
     public b g;
-    public zy6 h;
+    public y17 h;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -86,13 +86,13 @@ public class AlaGameRecommendModel extends BdBaseModel {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003401 && (httpResponsedMessage instanceof AlaGameRecommendReponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.e) {
                 AlaGameRecommendReponseMessage alaGameRecommendReponseMessage = (AlaGameRecommendReponseMessage) httpResponsedMessage;
                 if (!alaGameRecommendReponseMessage.hasError() && alaGameRecommendReponseMessage.getError() == 0) {
-                    xy6 data = alaGameRecommendReponseMessage.getData();
+                    w17 data = alaGameRecommendReponseMessage.getData();
                     if (data == null) {
                         return;
                     }
                     this.a.c = data.a;
                     if (this.a.d) {
-                        AlaGameRecommendModel.N(this.a);
+                        AlaGameRecommendModel.U(this.a);
                     }
                     this.a.h.c(this.a.b, data);
                     if (this.a.g != null) {
@@ -124,18 +124,18 @@ public class AlaGameRecommendModel extends BdBaseModel {
         this.a = str;
         this.g = bVar;
         this.e = BdUniqueId.gen();
-        this.h = new zy6();
-        P();
+        this.h = new y17();
+        W();
         registerListener();
     }
 
-    public static /* synthetic */ int N(AlaGameRecommendModel alaGameRecommendModel) {
+    public static /* synthetic */ int U(AlaGameRecommendModel alaGameRecommendModel) {
         int i = alaGameRecommendModel.b;
         alaGameRecommendModel.b = i + 1;
         return i;
     }
 
-    public final void P() {
+    public final void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO, TbConfig.SERVER_ADDRESS + "c/f/game/gameForumRecomTab");

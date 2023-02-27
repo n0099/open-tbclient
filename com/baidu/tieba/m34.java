@@ -1,113 +1,152 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class m34 extends xi2 {
+public class m34 implements l34 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public String e;
-    public String f;
+    public HashMap<String, n34> a;
+    public HashMap<String, ArrayList<l34>> b;
+    public String c;
+    public t74 d;
+    public final Object e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m34(@NonNull String str, String str2, String str3, String str4) {
-        super(str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947921723, "Lcom/baidu/tieba/m34;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947921723, "Lcom/baidu/tieba/m34;");
+                return;
+            }
+        }
+        f = wp1.a;
+    }
+
+    public m34(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.e = new Object();
+        this.c = str;
     }
 
-    public static xi2 t(String str, String str2) {
-        InterceptResult invokeLL;
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return new m34("sconsole_console", "%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, str2);
-        }
-        return (xi2) invokeLL.objValue;
-    }
-
-    public static xi2 v(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            return new m34("sconsole_system", "%s.message = { type:'log',logType:'%s',logs:[%s] };", str, str2);
-        }
-        return (xi2) invokeLL.objValue;
-    }
-
-    public static xi2 u(boolean z) {
-        InterceptResult invokeZ;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            if (z) {
-                str = "show";
-            } else {
-                str = "hide";
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (f) {
+                Log.d("AudioDownloadManager", "AudioDownloader SwanGamePreloadManager url:" + str);
             }
-            return new m34("sconsole_entirety", "%s.message = { type:'act',act:'%s' };", null, str);
+            if (this.d == null) {
+                this.d = t74.b();
+            }
+            n34 n34Var = new n34(this.d, this.c, str, this);
+            this.a.put(str, n34Var);
+            n34Var.e();
         }
-        return (xi2) invokeZ.objValue;
     }
 
-    @Override // com.baidu.tieba.wi2
-    public String o(String str) {
+    @Override // com.baidu.tieba.l34
+    public void a(String str, String str2) {
+        ArrayList<l34> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            synchronized (this.e) {
+                if (d(str) && (arrayList = this.b.get(str)) != null) {
+                    int size = arrayList.size();
+                    for (int i = 0; i < size; i++) {
+                        arrayList.get(i).a(str, str2);
+                        if (f) {
+                            Log.e("AudioDownloadManager", i + " load success url = " + str + " path = " + str2);
+                        }
+                    }
+                    this.a.remove(str);
+                }
+            }
+        }
+    }
+
+    public void e(String str, l34 l34Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, l34Var) == null) {
+            synchronized (this.e) {
+                if (!d(str)) {
+                    if (f) {
+                        Log.e("AudioDownloadManager", "start load url = " + str);
+                    }
+                    c(str);
+                } else if (f) {
+                    Log.e("AudioDownloadManager", "re load url = " + str);
+                }
+                b(str, l34Var);
+            }
+        }
+    }
+
+    public final void b(String str, l34 l34Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, l34Var) == null) {
+            if (this.b.containsKey(str)) {
+                this.b.get(str).add(l34Var);
+                return;
+            }
+            ArrayList<l34> arrayList = new ArrayList<>();
+            arrayList.add(l34Var);
+            this.b.put(str, arrayList);
+        }
+    }
+
+    public final boolean d(String str) {
         InterceptResult invokeL;
-        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str2 = this.d;
-            int hashCode = str2.hashCode();
-            if (hashCode != -2011830027) {
-                if (hashCode != -774049378) {
-                    if (hashCode == 2080164540 && str2.equals("%s.message = { type:'log',logType:'%s',logs:[%s] };")) {
-                        c = 1;
-                    }
-                    c = 65535;
-                } else {
-                    if (str2.equals("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };")) {
-                        c = 0;
-                    }
-                    c = 65535;
-                }
-            } else {
-                if (str2.equals("%s.message = { type:'act',act:'%s' };")) {
-                    c = 2;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        return "";
-                    }
-                    return String.format("%s.message = { type:'act',act:'%s' };", str, this.f);
-                }
-                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.e, JSONObject.quote(this.f));
-            }
-            return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.e, JSONObject.quote(kl3.b(kl3.a(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.f));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return this.a.containsKey(str);
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.l34
+    public void fail(int i, String str) {
+        ArrayList<l34> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
+            synchronized (this.e) {
+                if (d(str) && (arrayList = this.b.get(str)) != null) {
+                    int size = arrayList.size();
+                    for (int i2 = 0; i2 < size; i2++) {
+                        arrayList.get(i2).fail(i, str);
+                    }
+                    this.a.remove(str);
+                }
+            }
+        }
     }
 }

@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.platform.a;
 
 import android.content.Context;
-import com.meizu.cloud.pushsdk.b.a.c;
+import com.meizu.cloud.pushsdk.c.a.c;
 import com.meizu.cloud.pushsdk.platform.b.d;
 import com.meizu.cloud.pushsdk.platform.b.e;
 import com.meizu.cloud.pushsdk.platform.b.f;
@@ -12,35 +12,32 @@ import java.util.concurrent.ScheduledExecutorService;
 public class b {
     public static b a;
     public ScheduledExecutorService b;
-    public Context c;
-    public a d;
-    public com.meizu.cloud.pushsdk.platform.b.b e;
-    public g f;
-    public f g;
-    public e h;
-    public d i;
-    public com.meizu.cloud.pushsdk.platform.b.a j;
-    public boolean k;
+    public final Context c;
+    public final a d;
+    public final com.meizu.cloud.pushsdk.platform.b.b e;
+    public final g f;
+    public final f g;
+    public final e h;
+    public final d i;
+    public final boolean j;
 
     public b(Context context, boolean z) {
         this(context, z, true);
     }
 
     public b(Context context, boolean z, boolean z2) {
-        this.k = true;
         Context applicationContext = context.getApplicationContext();
         this.c = applicationContext;
         this.d = new a(applicationContext);
         if (z) {
-            this.b = (ScheduledExecutorService) com.meizu.cloud.pushsdk.c.b.a.b.a();
+            this.b = (ScheduledExecutorService) com.meizu.cloud.pushsdk.d.b.a.b.a();
         }
-        this.k = z2;
+        this.j = z2;
         this.e = new com.meizu.cloud.pushsdk.platform.b.b(this.c, this.d, this.b, z2);
         this.f = new g(this.c, this.d, this.b, z2);
         this.g = new f(this.c, this.d, this.b, z2);
         this.h = new e(this.c, this.d, this.b, z2);
         this.i = new d(this.c, this.d, this.b, z2);
-        this.j = new com.meizu.cloud.pushsdk.platform.b.a(this.c, this.b, z2);
     }
 
     public static b a(Context context) {
@@ -67,14 +64,14 @@ public class b {
     }
 
     public boolean a(String str) {
-        com.meizu.cloud.pushsdk.platform.b.a aVar = new com.meizu.cloud.pushsdk.platform.b.a(this.c, this.b, this.k);
+        com.meizu.cloud.pushsdk.platform.b.a aVar = new com.meizu.cloud.pushsdk.platform.b.a(this.c, this.b, this.j);
         aVar.a(0);
         aVar.d(str);
         return aVar.m();
     }
 
     public boolean a(String str, String str2) {
-        com.meizu.cloud.pushsdk.platform.b.a aVar = new com.meizu.cloud.pushsdk.platform.b.a(this.c, this.b, this.k);
+        com.meizu.cloud.pushsdk.platform.b.a aVar = new com.meizu.cloud.pushsdk.platform.b.a(this.c, this.b, this.j);
         aVar.a(2);
         aVar.a(str2);
         aVar.d(str);
@@ -128,7 +125,7 @@ public class b {
     }
 
     public boolean a(String str, int... iArr) {
-        com.meizu.cloud.pushsdk.platform.b.a aVar = new com.meizu.cloud.pushsdk.platform.b.a(this.c, this.b, this.k);
+        com.meizu.cloud.pushsdk.platform.b.a aVar = new com.meizu.cloud.pushsdk.platform.b.a(this.c, this.b, this.j);
         aVar.a(iArr);
         aVar.d(str);
         aVar.a(1);

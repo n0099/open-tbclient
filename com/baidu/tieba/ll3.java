@@ -1,41 +1,33 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.tieba.km3;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class ll3 {
+public final class ll3 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    public static File a() {
+    public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            List<km3.a> d = ot2.d();
-            if (d != null && d.size() > 0) {
-                File file = new File(d.get(0).a, "/debug/");
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                return file;
+            if (TextUtils.isEmpty(a)) {
+                a = ml3.c();
             }
-            return null;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new File(ot2.d().get(0).a, "/debug/").getAbsolutePath();
+            return a;
         }
         return (String) invokeV.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return String.format("%s %s", str, a());
+        }
+        return (String) invokeL.objValue;
     }
 }

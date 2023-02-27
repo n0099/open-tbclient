@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.io.UnsupportedEncodingException;
 import java.net.IDN;
 import java.net.URLEncoder;
@@ -33,7 +34,7 @@ public class HttpUrlHelperUtil {
                 }
                 return (c - c2) + 10;
             }
-            return c - '0';
+            return c - TransactionIdCreater.FILL_BYTE;
         }
         return invokeCommon.intValue;
     }

@@ -18,7 +18,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
-import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.ss.android.socialbase.appdownloader.c.j;
@@ -32,6 +31,7 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.codec.language.Caverphone1;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -321,16 +321,16 @@ public class c {
     public static String b(@NonNull Context context) {
         try {
             if (b == null) {
-                NotificationChannel notificationChannel = new NotificationChannel("111111", "channel_appdownloader", 3);
+                NotificationChannel notificationChannel = new NotificationChannel(Caverphone1.SIX_1, "channel_appdownloader", 3);
                 b = notificationChannel;
                 notificationChannel.setSound(null, null);
                 b.setShowBadge(false);
-                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(b);
+                ((NotificationManager) context.getSystemService("notification")).createNotificationChannel(b);
             }
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        return "111111";
+        return Caverphone1.SIX_1;
     }
 
     public static String a(long j, long j2, String str) {

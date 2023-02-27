@@ -1,124 +1,96 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.websocket.WebSocketManager;
-import com.baidu.searchbox.websocket.WebSocketTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.util.Log;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashSet;
+import java.util.Iterator;
 import java.util.Set;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class i03 {
+public class i03 extends g03 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile Set<String> a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947799645, "Lcom/baidu/tieba/i03;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947799645, "Lcom/baidu/tieba/i03;");
-        }
-    }
 
     public i03() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final synchronized boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.g03
+    public boolean a(Bitmap bitmap, Rect rect) {
+        InterceptResult invokeLL;
         boolean z;
-        int i;
+        Set<Integer> set;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                Set<String> set = this.a;
-                z = false;
-                if (set != null) {
-                    i = set.size();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
+            if (g03.c) {
+                Log.d("SimpleErrorPageParser", "SimpleErrorPageParser: start error page parse");
+            }
+            if (bitmap == null) {
+                return false;
+            }
+            if (!b(bitmap, rect)) {
+                rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            }
+            try {
+                int pixel = bitmap.getPixel(rect.left + 1, rect.top + 1);
+                if (pixel != -1 && pixel != -657931) {
+                    z = false;
                 } else {
-                    i = 0;
-                }
-                if (i < 5) {
                     z = true;
                 }
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final synchronized void b(WebSocketTask task) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, task) == null) {
-            synchronized (this) {
-                Intrinsics.checkNotNullParameter(task, "task");
-                if (this.a == null) {
-                    this.a = new LinkedHashSet();
-                }
-                Set<String> set = this.a;
-                if (set != null) {
-                    set.add(task.getTaskId());
-                }
-            }
-        }
-    }
-
-    public final synchronized void c(String taskId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskId) == null) {
-            synchronized (this) {
-                Intrinsics.checkNotNullParameter(taskId, "taskId");
-                Set<String> set = this.a;
-                if (set != null) {
-                    set.remove(taskId);
-                }
-            }
-        }
-    }
-
-    public final synchronized void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                Set<String> set = this.a;
-                if (set != null) {
-                    for (String str : set) {
-                        try {
-                            WebSocketManager.INSTANCE.close(str, 1001, "aiapp terminate");
-                        } catch (Exception e) {
-                            e.printStackTrace();
+                if (!z && (set = this.b) != null) {
+                    Iterator<Integer> it = set.iterator();
+                    while (true) {
+                        if (it.hasNext()) {
+                            if (it.next().intValue() == pixel) {
+                                z = true;
+                                break;
+                            }
+                        } else {
+                            break;
                         }
                     }
                 }
-                Set<String> set2 = this.a;
-                if (set2 != null) {
-                    set2.clear();
+                if (!z) {
+                    return false;
                 }
+                for (int i = rect.left + 1; i < rect.right - 1; i++) {
+                    for (int i2 = rect.top + 1; i2 < rect.bottom - 1; i2++) {
+                        if (pixel != bitmap.getPixel(i, i2)) {
+                            if (wp1.a) {
+                                Log.d("SimpleErrorPageParser", "非白屏, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i + "," + i2 + SmallTailInfo.EMOTION_SUFFIX);
+                            }
+                            return false;
+                        }
+                    }
+                }
+                if (g03.c) {
+                    Log.d("SimpleErrorPageParser", "白屏, 图片大小 " + rect.width() + " x " + rect.height());
+                }
+                return true;
+            } catch (IllegalArgumentException e) {
+                if (g03.c) {
+                    Log.d("SimpleErrorPageParser", "W:" + bitmap.getWidth() + "; H:" + bitmap.getHeight());
+                    e.printStackTrace();
+                }
+                return false;
             }
         }
+        return invokeLL.booleanValue;
     }
 }

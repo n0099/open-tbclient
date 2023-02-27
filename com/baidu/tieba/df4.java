@@ -1,13 +1,41 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
-import androidx.annotation.Nullable;
+import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.menu.PopupWindow;
-import com.baidu.tieba.ye4;
+import com.baidu.location.Address;
+import com.baidu.mapapi.CoordType;
+import com.baidu.mapapi.SDKInitializer;
+import com.baidu.mapapi.search.core.PoiInfo;
+import com.baidu.mapapi.search.core.SearchResult;
+import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
+import com.baidu.mapapi.search.poi.PoiCitySearchOption;
+import com.baidu.mapapi.search.poi.PoiDetailResult;
+import com.baidu.mapapi.search.poi.PoiDetailSearchResult;
+import com.baidu.mapapi.search.poi.PoiIndoorResult;
+import com.baidu.mapapi.search.poi.PoiResult;
+import com.baidu.mapapi.search.poi.PoiSearch;
+import com.baidu.swan.map.location.LocationDetailAdapter;
+import com.baidu.swan.map.location.LocationFooterViewHolder;
+import com.baidu.swan.map.location.LocationItemDecoration;
+import com.baidu.swan.map.location.model.SelectedLocationInfo;
+import com.baidu.tieba.v82;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,44 +43,117 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class df4 implements bf4, if4, View.OnKeyListener {
+public class df4 extends s82 implements ye4, OnGetPoiSearchResultListener, View.OnKeyListener, View.OnFocusChangeListener, TextWatcher, View.OnTouchListener, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public Context c;
-    public int d;
-    public ff4 e;
-    public List<ef4> f;
-    public List<ef4> g;
-    public List<List<ef4>> h;
-    public bf4 i;
-    public if4 j;
-    public View.OnKeyListener k;
-    public c l;
-    public ye4 m;
-    public boolean n;
-    public int o;
-    public boolean p;
+    public EditText G0;
+    public View H0;
+    public TextView I0;
+    public RecyclerView J0;
+    public LocationDetailAdapter K0;
+    public LinearLayoutManager L0;
+    public List<ze4> M0;
+    public PoiSearch N0;
+    public InputMethodManager O0;
+    public int P0;
+    public int Q0;
+    public String R0;
+    public boolean S0;
+    public boolean T0;
+    public String U0;
 
-    /* loaded from: classes4.dex */
-    public interface c {
-        void a(df4 df4Var, boolean z);
+    @Override // com.baidu.tieba.s82
+    public boolean J() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    public final boolean q(ef4 ef4Var) {
+    @Override // com.baidu.tieba.s82
+    public void U1(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+        }
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence, i, i2, i3) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.s82
+    public boolean c2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.s82
+    public boolean e2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.s82, com.baidu.searchbox.widget.SlideInterceptor
+    public boolean isSlidable(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, ef4Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, motionEvent)) == null) {
             return true;
         }
         return invokeL.booleanValue;
     }
 
+    @Override // com.baidu.tieba.s82
+    public void j2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener
+    public void onGetPoiDetailResult(PoiDetailResult poiDetailResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, poiDetailResult) == null) {
+        }
+    }
+
+    @Override // com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener
+    public void onGetPoiDetailResult(PoiDetailSearchResult poiDetailSearchResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, poiDetailSearchResult) == null) {
+        }
+    }
+
+    @Override // com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener
+    public void onGetPoiIndoorResult(PoiIndoorResult poiIndoorResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, poiIndoorResult) == null) {
+        }
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048604, this, charSequence, i, i2, i3) == null) {
+        }
+    }
+
     /* loaded from: classes4.dex */
-    public class a implements PopupWindow.b {
+    public class a extends RecyclerView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ df4 a;
@@ -75,19 +176,21 @@ public class df4 implements bf4, if4, View.OnKeyListener {
             this.a = df4Var;
         }
 
-        @Override // com.baidu.swan.menu.PopupWindow.b
-        public void onDismiss() {
-            df4 df4Var;
-            c cVar;
+        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
+        public void onScrollStateChanged(RecyclerView recyclerView, int i) {
+            int Z2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (cVar = (df4Var = this.a).l) != null) {
-                cVar.a(df4Var, false);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
+                super.onScrollStateChanged(recyclerView, i);
+                if (i == 0 && (Z2 = this.a.Z2()) >= 0 && Z2 + 1 == this.a.K0.getItemCount()) {
+                    this.a.a3();
+                }
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements ye4.a {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ df4 a;
@@ -110,279 +213,316 @@ public class df4 implements bf4, if4, View.OnKeyListener {
             this.a = df4Var;
         }
 
-        @Override // com.baidu.tieba.ye4.a
-        public void a(int i) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                df4 df4Var = this.a;
+                df4Var.g3(df4Var.G0, true);
             }
-            this.a.k(i);
         }
     }
 
-    public df4(Context context, View view2, int i, ye4 ye4Var, @Nullable xe4 xe4Var) {
+    public df4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2, Integer.valueOf(i), ye4Var, xe4Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.b = 0;
-        this.f = new ArrayList();
-        this.g = new ArrayList();
-        this.h = new ArrayList();
-        this.o = -1;
-        this.p = false;
-        if (i < 0) {
-            return;
-        }
-        this.c = context;
-        this.d = i;
-        this.m = ye4Var;
-        this.p = ye4Var.a();
-        List<ef4> b2 = gf4.b(this.d);
-        this.f = b2;
-        this.m.d(this.d, b2);
-        this.m.e(this.d, this.f);
-        if (this.m.a()) {
-            this.m.c(this.d, this.f);
-        }
-        ff4 ff4Var = new ff4(this.c, view2, xe4Var);
-        this.e = ff4Var;
-        ff4Var.J(new a(this));
+        this.N0 = null;
+        this.P0 = 0;
+        this.Q0 = 0;
+        this.U0 = Address.Builder.BEI_JING;
     }
 
-    public final ef4 A(ef4 ef4Var, boolean z) {
-        InterceptResult invokeLZ;
-        int i;
-        int i2;
+    public final void X2() {
+        Activity activity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, ef4Var, z)) == null) {
-            if (ef4Var == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (activity = this.c0) != null) {
+            activity.onBackPressed();
+        }
+    }
+
+    public final View Y2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int Z2 = Z2();
+            if (Z2 == -1) {
                 return null;
             }
-            if (z) {
-                i = R.string.obfuscated_res_0x7f0f00fb;
-            } else {
-                i = R.string.obfuscated_res_0x7f0f00fe;
-            }
-            ef4Var.q(i);
-            if (z) {
-                i2 = R.drawable.obfuscated_res_0x7f0800e2;
-            } else {
-                i2 = R.drawable.obfuscated_res_0x7f0800f5;
-            }
-            ef4Var.m(i2);
-            return ef4Var;
+            return this.L0.findViewByPosition(Z2);
         }
-        return (ef4) invokeLZ.objValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bf4
-    public boolean b(View view2, ef4 ef4Var) {
+    public final int Z2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            LinearLayoutManager linearLayoutManager = this.L0;
+            if (linearLayoutManager != null) {
+                return linearLayoutManager.findLastVisibleItemPosition();
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public void a3() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.S0) {
+            return;
+        }
+        if (this.P0 < this.Q0) {
+            j3(this.R0);
+            this.S0 = true;
+            return;
+        }
+        d3();
+    }
+
+    public final void d3() {
+        View Y2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (Y2 = Y2()) == null) {
+            return;
+        }
+        RecyclerView.ViewHolder childViewHolder = this.J0.getChildViewHolder(Y2);
+        if (childViewHolder instanceof LocationFooterViewHolder) {
+            ((LocationFooterViewHolder) childViewHolder).b(false);
+        }
+    }
+
+    public final void e3() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048589, this) != null) || TextUtils.isEmpty(this.R0)) {
+            return;
+        }
+        this.P0 = 0;
+        j3(this.R0);
+        g3(this.G0, false);
+    }
+
+    public void i3() {
+        v82 V;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (V = zu2.U().V()) != null) {
+            v82.b i = V.i("navigateTo");
+            i.n(v82.g, v82.i);
+            i.j(this);
+            i.b();
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void y0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+            super.y0();
+            this.N0.destroy();
+        }
+    }
+
+    public static df4 c3(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle)) == null) {
+            df4 df4Var = new df4();
+            if (bundle != null) {
+                df4Var.j1(bundle);
+            }
+            return df4Var;
+        }
+        return (df4) invokeL.objValue;
+    }
+
+    public final void f3(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048590, this, intent) != null) || N() == null) {
+            return;
+        }
+        N().q0(P(), 0, intent);
+    }
+
+    public void h3(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            View view2 = this.H0;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            view2.setVisibility(i);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048597, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0904ff) {
+            X2();
+        }
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, editable) == null) {
+            if (editable != null && editable.length() > 0) {
+                this.T0 = false;
+                this.P0 = 0;
+                this.Q0 = 0;
+                String obj = editable.toString();
+                this.R0 = obj;
+                j3(obj);
+                return;
+            }
+            this.M0.clear();
+            this.K0.setData(this.M0);
+            this.R0 = "";
+            this.P0 = 0;
+            this.Q0 = 0;
+            this.T0 = true;
+        }
+    }
+
+    @Override // com.baidu.tieba.ye4
+    public void e(ze4 ze4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, ze4Var) == null) {
+            Intent intent = new Intent();
+            PoiInfo poiInfo = ze4Var.a;
+            if (poiInfo != null && poiInfo.location != null) {
+                intent.putExtra(SelectedLocationInfo.LOCATION_KEY, new SelectedLocationInfo(poiInfo.name, poiInfo.address, poiInfo.location));
+            }
+            f3(intent);
+            X2();
+        }
+    }
+
+    public final void j3(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            this.N0.searchInCity(new PoiCitySearchOption().cityLimit(false).scope(2).city(this.U0).keyword(str).pageCapacity(13).pageNum(this.P0));
+        }
+    }
+
+    @SuppressLint({"ClickableViewAccessibility"})
+    public final void b3(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
+            this.M0 = new ArrayList(11);
+            if (p() != null) {
+                String string = p().getString("city");
+                if (TextUtils.isEmpty(string)) {
+                    string = Address.Builder.BEI_JING;
+                }
+                this.U0 = string;
+            }
+            this.G0 = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f091f8a);
+            this.J0 = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091570);
+            this.H0 = view2.findViewById(R.id.obfuscated_res_0x7f09182d);
+            this.I0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904ff);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(zu2.U().getActivity());
+            this.L0 = linearLayoutManager;
+            this.J0.setLayoutManager(linearLayoutManager);
+            LocationDetailAdapter locationDetailAdapter = new LocationDetailAdapter(zu2.U().getActivity(), this.J0, this);
+            this.K0 = locationDetailAdapter;
+            this.J0.setAdapter(locationDetailAdapter);
+            this.J0.addItemDecoration(new LocationItemDecoration(zu2.U().getActivity()));
+            this.J0.setOnTouchListener(this);
+            this.I0.setOnClickListener(this);
+            PoiSearch newInstance = PoiSearch.newInstance();
+            this.N0 = newInstance;
+            newInstance.setOnGetPoiSearchResultListener(this);
+            this.G0.addTextChangedListener(this);
+            this.G0.setOnFocusChangeListener(this);
+            this.G0.setOnKeyListener(this);
+            this.G0.requestFocus();
+            this.J0.addOnScrollListener(new a(this));
+            this.G0.postDelayed(new b(this), 100L);
+        }
+    }
+
+    public void g3(View view2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048591, this, view2, z) == null) {
+            if (this.O0 == null) {
+                this.O0 = (InputMethodManager) zu2.U().getActivity().getApplicationContext().getSystemService("input_method");
+            }
+            InputMethodManager inputMethodManager = this.O0;
+            if (inputMethodManager == null) {
+                return;
+            }
+            if (z) {
+                inputMethodManager.showSoftInput(view2, 0);
+            } else {
+                inputMethodManager.hideSoftInputFromWindow(view2.getWindowToken(), 0);
+            }
+        }
+    }
+
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048598, this, view2, z) == null) {
+            g3(this.G0, z);
+        }
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, ef4Var)) == null) {
-            if (!ef4Var.i()) {
-                return true;
-            }
-            if (q(ef4Var)) {
-                g(true);
-            }
-            bf4 bf4Var = this.i;
-            if (bf4Var == null) {
-                return false;
-            }
-            return bf4Var.b(view2, ef4Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, view2, motionEvent)) == null) {
+            g3(this.G0, false);
+            return false;
         }
         return invokeLL.booleanValue;
     }
 
-    public void t(boolean z, int i) {
+    @Override // com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener
+    public void onGetPoiResult(PoiResult poiResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            u(z, i, null, false);
-        }
-    }
-
-    public void B(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            A(h(5), z);
-            v();
-            this.e.S();
-            j();
-        }
-    }
-
-    @Override // com.baidu.tieba.if4
-    public boolean a(ef4 ef4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ef4Var)) == null) {
-            if (q(ef4Var) && !this.a) {
-                g(true);
-            }
-            if4 if4Var = this.j;
-            if (if4Var == null) {
-                return false;
-            }
-            return if4Var.a(ef4Var);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.e.T(z);
-            c cVar = this.l;
-            if (cVar != null) {
-                cVar.a(this, false);
-            }
-        }
-    }
-
-    public final void k(int i) {
-        ef4 h;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048587, this, i) == null) && (h = h(i)) != null && h.j()) {
-            this.g.add(h);
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.e.W(i);
-        }
-    }
-
-    public void n(bf4 bf4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, bf4Var) == null) {
-            this.i = bf4Var;
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.n = z;
-        }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            t(z, 0);
-        }
-    }
-
-    public void d(int i, int i2) {
-        ef4 a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, poiResult) == null) {
             boolean z = false;
-            for (ef4 ef4Var : this.f) {
-                if (ef4Var.c() == i) {
-                    z = true;
-                }
-            }
-            if (z || (a2 = gf4.a(i)) == null) {
+            this.S0 = false;
+            if (this.T0) {
                 return;
             }
-            int size = this.f.size();
-            if (i2 <= 0) {
-                i2 = 0;
-            } else if (i2 >= size) {
-                i2 = size;
-            }
-            this.f.add(i2, a2);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            g(true);
-        }
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            ff4 ff4Var = this.e;
-            if (ff4Var != null && ff4Var.x()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void j() {
-        ff4 ff4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (ff4Var = this.e) != null) {
-            ff4Var.V();
-        }
-    }
-
-    public ef4 h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            for (int i2 = 0; i2 < this.f.size(); i2++) {
-                ef4 ef4Var = this.f.get(i2);
-                if (ef4Var != null && ef4Var.c() == i) {
-                    ef4Var.n(0L);
-                    ef4Var.p(this);
-                    return ef4Var;
+            if (poiResult.error == SearchResult.ERRORNO.NO_ERROR) {
+                this.Q0 = poiResult.getTotalPageNum();
+                if (this.P0 == 0) {
+                    this.M0.clear();
                 }
+                this.M0.addAll(ze4.a(poiResult.getAllPoi()));
+                this.K0.g(this.M0, this.R0);
+                this.P0++;
+            } else {
+                if (this.P0 == 0) {
+                    this.Q0 = 0;
+                    this.M0.clear();
+                    this.K0.setData(this.M0);
+                }
+                d3();
             }
-            return null;
-        }
-        return (ef4) invokeI.objValue;
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048588, this, i) != null) || this.f == null) {
-            return;
-        }
-        int i2 = -1;
-        for (int i3 = 0; i3 < this.f.size(); i3++) {
-            if (this.f.get(i3).c() == i) {
-                i2 = i3;
+            if (this.P0 == 0 && this.M0.size() == 0) {
+                z = true;
             }
-        }
-        if (i2 > -1) {
-            this.f.remove(i2);
+            h3(z);
+            if (this.M0.size() <= 0) {
+                d3();
+            }
         }
     }
 
@@ -390,188 +530,31 @@ public class df4 implements bf4, if4, View.OnKeyListener {
     public boolean onKey(View view2, int i, KeyEvent keyEvent) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048592, this, view2, i, keyEvent)) == null) {
-            View.OnKeyListener onKeyListener = this.k;
-            if (onKeyListener != null) {
-                return onKeyListener.onKey(view2, i, keyEvent);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048603, this, view2, i, keyEvent)) == null) {
+            if (i == 66) {
+                e3();
+                return true;
             }
             return false;
         }
         return invokeLIL.booleanValue;
     }
 
-    public void u(boolean z, int i, View view2, boolean z2) {
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public View x0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), view2, Boolean.valueOf(z2)}) == null) {
-            if (i()) {
-                g(true);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048606, this, layoutInflater, viewGroup, bundle)) == null) {
+            td4.a();
+            SDKInitializer.setCoordType(CoordType.GCJ02);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0088, viewGroup, false);
+            b3(inflate);
+            if (T1()) {
+                inflate = W1(inflate);
+                w1(-1);
             }
-            x(z, i);
-            v();
-            this.e.X(this.h, view2, z2, this.b);
-            c cVar = this.l;
-            if (cVar != null) {
-                cVar.a(this, true);
-            }
+            return D1(inflate, this);
         }
-    }
-
-    public final void v() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.h.clear();
-            if (this.m.a()) {
-                this.h.add(this.g);
-                return;
-            }
-            int size = this.g.size();
-            int i2 = 5;
-            if (size > 0 && size <= 5) {
-                this.h.add(this.g);
-            } else if (size > 5 && size <= 10) {
-                if (!this.a) {
-                    i2 = this.o;
-                }
-                this.h.add(this.g.subList(0, i2));
-                this.h.add(this.g.subList(i2, size));
-            } else if (size > 10) {
-                if (this.a) {
-                    i = (int) Math.ceil(size / 2.0f);
-                } else {
-                    i = this.o;
-                }
-                this.h.add(this.g.subList(0, i));
-                this.h.add(this.g.subList(i, size));
-            }
-        }
-    }
-
-    public final ef4 w(ef4 ef4Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048599, this, ef4Var, i)) == null) {
-            if (ef4Var == null) {
-                return null;
-            }
-            if (i == 2) {
-                ef4Var.q(R.string.obfuscated_res_0x7f0f00fa);
-                ef4Var.m(R.drawable.obfuscated_res_0x7f0800dc);
-                return ef4Var;
-            } else if (i == 1) {
-                ef4Var.q(R.string.obfuscated_res_0x7f0f00fc);
-                ef4Var.m(R.drawable.obfuscated_res_0x7f0800d4);
-                return ef4Var;
-            } else if (i == 0) {
-                return null;
-            } else {
-                return ef4Var;
-            }
-        }
-        return (ef4) invokeLI.objValue;
-    }
-
-    public final void x(boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048600, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) != null) || this.f == null) {
-            return;
-        }
-        this.g.clear();
-        k(41);
-        ef4 w = w(h(38), i);
-        if (w != null && w.j()) {
-            this.g.add(w);
-        }
-        k(48);
-        k(45);
-        k(4);
-        k(101);
-        ef4 h = h(35);
-        if (h != null && h.j()) {
-            this.g.add(h);
-        }
-        k(39);
-        k(42);
-        k(9);
-        if (!this.a) {
-            this.o = this.g.size() - 1;
-        }
-        k(37);
-        if (this.n) {
-            k(43);
-        }
-        ef4 A = A(h(5), z);
-        if (A != null && A.j()) {
-            this.g.add(A);
-        }
-        k(46);
-        k(47);
-        k(51);
-        k(49);
-        k(50);
-        ye4 ye4Var = this.m;
-        if (ye4Var != null) {
-            ye4Var.f(this.d, this.f, new b(this));
-        }
-    }
-
-    public void y() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048601, this) != null) || this.m == null) {
-            return;
-        }
-        this.f.clear();
-        List<ef4> b2 = gf4.b(this.d);
-        this.f = b2;
-        this.m.d(this.d, b2);
-        this.m.e(this.d, this.f);
-        if (this.m.a()) {
-            this.m.c(this.d, this.f);
-        }
-        v();
-        j();
-    }
-
-    public void z(JSONObject jSONObject) {
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, jSONObject) == null) {
-            int optInt = jSONObject.optInt(Constants.EXTRA_PA_TYPE);
-            Long valueOf = Long.valueOf(jSONObject.optLong("pa_unread_sums"));
-            if (optInt != 7) {
-                if (optInt != 666) {
-                    if (optInt != 888) {
-                        if (optInt != 999) {
-                            i = -1;
-                        } else {
-                            i = 48;
-                        }
-                    } else {
-                        i = 47;
-                    }
-                } else {
-                    i = 46;
-                }
-            } else {
-                i = 45;
-            }
-            if (i < 0) {
-                return;
-            }
-            for (ef4 ef4Var : this.g) {
-                if (ef4Var.c() == i) {
-                    valueOf = Long.valueOf(valueOf.longValue() + ef4Var.e());
-                    if (valueOf.longValue() > 0) {
-                        i2 = 1;
-                    } else {
-                        i2 = 0;
-                    }
-                    ef4Var.o(i2);
-                    ef4Var.n(valueOf.longValue());
-                }
-            }
-        }
+        return (View) invokeLLL.objValue;
     }
 }

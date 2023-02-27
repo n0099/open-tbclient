@@ -30,14 +30,14 @@ import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aw4;
+import com.baidu.tieba.b15;
+import com.baidu.tieba.dy;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ld6;
+import com.baidu.tieba.hx4;
 import com.baidu.tieba.on;
-import com.baidu.tieba.sw4;
-import com.baidu.tieba.uz4;
+import com.baidu.tieba.xf6;
 import com.baidu.tieba.zg;
-import com.baidu.tieba.zx;
+import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,13 +45,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes2.dex */
-public class InterviewLiveLayout extends FrameLayout implements zx<sw4> {
+public class InterviewLiveLayout extends FrameLayout implements dy<zx4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public ld6<sw4> c;
-    public sw4 d;
+    public xf6<zx4> c;
+    public zx4 d;
     public TbImageView e;
     public LinearLayout f;
     public ImageView g;
@@ -187,11 +187,11 @@ public class InterviewLiveLayout extends FrameLayout implements zx<sw4> {
                 } else {
                     i = 14;
                 }
-                on t = TbImageMemoryCache.n().t(zg.h().g(tbImageView.getUrl(), i));
+                on w = TbImageMemoryCache.p().w(zg.h().g(tbImageView.getUrl(), i));
                 int i3 = 0;
-                if (t != null) {
-                    i3 = t.r();
-                    i2 = t.m();
+                if (w != null) {
+                    i3 = w.r();
+                    i2 = w.m();
                 } else {
                     i2 = 0;
                 }
@@ -305,10 +305,10 @@ public class InterviewLiveLayout extends FrameLayout implements zx<sw4> {
         }
     }
 
-    public void setSubClickListener(ld6<sw4> ld6Var) {
+    public void setSubClickListener(xf6<zx4> xf6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ld6Var) == null) {
-            this.c = ld6Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, xf6Var) == null) {
+            this.c = xf6Var;
         }
     }
 
@@ -329,16 +329,16 @@ public class InterviewLiveLayout extends FrameLayout implements zx<sw4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zx
+    @Override // com.baidu.tieba.dy
     /* renamed from: k */
-    public void a(sw4 sw4Var) {
+    public void a(zx4 zx4Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sw4Var) == null) {
-            this.d = sw4Var;
-            if (sw4Var != null && this.e != null) {
-                ThreadData threadData = sw4Var.getThreadData();
-                uz4 taskInfoData = threadData.getTaskInfoData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zx4Var) == null) {
+            this.d = zx4Var;
+            if (zx4Var != null && this.e != null) {
+                ThreadData threadData = zx4Var.getThreadData();
+                b15 taskInfoData = threadData.getTaskInfoData();
                 if (taskInfoData == null) {
                     setVisibility(8);
                     return;
@@ -346,7 +346,7 @@ public class InterviewLiveLayout extends FrameLayout implements zx<sw4> {
                 this.j = threadData;
                 this.k = threadData.getFid();
                 this.l = taskInfoData.g();
-                if (aw4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.k())) {
+                if (hx4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.k())) {
                     this.i.clear();
                     this.i.add(taskInfoData.k());
                     setVisibility(0);

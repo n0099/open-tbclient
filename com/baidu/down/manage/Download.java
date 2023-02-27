@@ -3,7 +3,6 @@ package com.baidu.down.manage;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.devices.RomUtils;
 import com.baidu.down.common.DownDetail;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -86,7 +85,7 @@ public class Download {
             FAILED = new DownloadState("FAILED", 3);
             CANCEL = new DownloadState("CANCEL", 4);
             FINISH = new DownloadState("FINISH", 5);
-            DownloadState downloadState = new DownloadState(RomUtils.UNKNOWN, 6);
+            DownloadState downloadState = new DownloadState("UNKNOWN", 6);
             UNKNOWN = downloadState;
             $VALUES = new DownloadState[]{WAITING, DOWNLOADING, PAUSE, FAILED, CANCEL, FINISH, downloadState};
         }

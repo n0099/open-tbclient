@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.adp.titan.TitanDownloadService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -63,8 +63,9 @@ public class fn extends RequestParams.Channel {
             @Override // com.baidu.tieba.en
             public void onResult(String str, int i, String str2) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) && ym.a) {
-                    Log.d(TitanDownloadService.TAG, "install " + str + " result: " + i);
+                if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
+                    r08 defaultLog = DefaultLog.getInstance();
+                    defaultLog.c(TitanDownloadService.TAG, "install " + str + " result: " + i);
                 }
             }
         }
@@ -91,6 +92,8 @@ public class fn extends RequestParams.Channel {
         public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, packageInfo, errorInfo) == null) {
+                r08 defaultLog = DefaultLog.getInstance();
+                defaultLog.b(TitanDownloadService.TAG, "onDownloadError PackageInfo:" + packageInfo + " errorInfo:" + errorInfo);
                 super.onDownloadError(packageInfo, errorInfo);
             }
         }
@@ -100,6 +103,8 @@ public class fn extends RequestParams.Channel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) {
                 super.onDownloadSuccess(packageInfo, errorInfo);
+                r08 defaultLog = DefaultLog.getInstance();
+                defaultLog.c(TitanDownloadService.TAG, "onDownloadSuccess PackageInfo:" + packageInfo + " errorInfo:" + errorInfo);
                 in.b(AppRuntime.getAppContext(), new a(this), packageInfo, false);
             }
         }
@@ -141,7 +146,7 @@ public class fn extends RequestParams.Channel {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                Log.d(TitanDownloadService.TAG, "get upload data");
+                DefaultLog.getInstance().c(TitanDownloadService.TAG, "get upload data");
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
@@ -157,6 +162,8 @@ public class fn extends RequestParams.Channel {
                 }
                 try {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("com.baidu.titan.patch");
+                    r08 defaultLog = DefaultLog.getInstance();
+                    defaultLog.c(TitanDownloadService.TAG, "onReceiveData:" + jSONObject2);
                     PackageInfo parsePkgItem = ParseUtils.parsePkgItem("132", "com.baidu.titan.patch", jSONObject2);
                     CheckData checkData = new CheckData();
                     JSONObject jSONObject3 = new JSONObject();

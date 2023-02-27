@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseChatMsg<SdkMsg extends ChatMsg> extends BaseMsg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,6 +21,15 @@ public abstract class BaseChatMsg<SdkMsg extends ChatMsg> extends BaseMsg {
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.Cdo
     public abstract /* synthetic */ BdUniqueId getType();
+
+    public boolean needBubbleInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     public BaseChatMsg() {
         Interceptable interceptable = $ic;
@@ -49,7 +58,7 @@ public abstract class BaseChatMsg<SdkMsg extends ChatMsg> extends BaseMsg {
 
     public void setMockSenderInfo(long j, @NonNull String str, @NonNull String str2, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             CommonMsgField create = CommonMsgField.create();
             create.setUserId(j);
             create.setUserName(str);

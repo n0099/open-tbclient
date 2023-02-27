@@ -1,62 +1,83 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.HttpMessage;
+import android.annotation.SuppressLint;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.livesdk.api.share.Share;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.share.ImplicitShareMessage;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class v06 extends ActivityDelegation {
+public class v06 extends zk1<fj1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    public JSONObject a;
 
     /* loaded from: classes6.dex */
-    public class a implements DialogInterface.OnCancelListener {
+    public class a implements fj1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v06 a;
+        public final /* synthetic */ v06 c;
+
+        @Override // com.baidu.tieba.fj1
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1099a" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.fj1
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return 120;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.fj1
+        @SuppressLint({"ResourceType"})
+        public int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.drawable.pic_splash_logo : invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.fj1
+        @NonNull
+        public String e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "1481698145541" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.fj1
+        public String from() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "1099a" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.fj1
+        @SuppressLint({"ResourceType"})
+        public int g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? R.drawable.obfuscated_res_0x7f080252 : invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.fj1
+        @SuppressLint({"ResourceType"})
+        public int h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? R.drawable.obfuscated_res_0x7f080253 : invokeV.intValue;
+        }
 
         public a(v06 v06Var) {
             Interceptable interceptable = $ic;
@@ -73,79 +94,44 @@ public class v06 extends ActivityDelegation {
                     return;
                 }
             }
-            this.a = v06Var;
+            this.c = v06Var;
         }
 
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
+        @Override // com.baidu.tieba.fj1
+        public JSONObject d() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, dialogInterface) != null) {
-                return;
-            }
-            this.a.f(true);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements DialogInterface.OnCancelListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v06 a;
-
-        public b(v06 v06Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v06Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.c.a == null) {
+                    this.c.a = new JSONObject();
+                    try {
+                        boolean z = true;
+                        this.c.a.put("query_response_thread", 1);
+                        this.c.a.put("query_unite_pid", "1640058553813");
+                        this.c.a.put("nad_splash_query_download_opt", ln0.b().a().a("nad_splash_query_download_opt", 0));
+                        boolean i = b55.m().i("key_splash_shake_ad_open", true);
+                        JSONObject jSONObject = this.c.a;
+                        if (i) {
+                            z = false;
+                        }
+                        jSONObject.put("is_block_shake_gesture", z);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
+                return this.c.a;
             }
-            this.a = v06Var;
+            return (JSONObject) invokeV.objValue;
         }
 
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
+        @Override // com.baidu.tieba.fj1
+        public int f() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, dialogInterface) != null) {
-                return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return hp5.l();
             }
-            this.a.f(false);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-            }
-        }
-
-        public c(v06 v06Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v06Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+            return invokeV.intValue;
         }
     }
 
@@ -163,107 +149,15 @@ public class v06 extends ActivityDelegation {
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public void onAttachedToWindow() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zk1
+    /* renamed from: c */
+    public fj1 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            e();
-            g(getAgent(), this.mParams.getString("options"));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public void onSelfFinish() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            h();
-        }
-    }
-
-    public final int d(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
-            if (str.equals(Share.WEIXIN_FRIEND)) {
-                return 3;
-            }
-            if (str.equals(Share.WEIXIN_TIMELINE)) {
-                return 2;
-            }
-            if (str.equals(Share.QQFRIEND)) {
-                return 8;
-            }
-            if (str.equals(Share.QQDENGLU)) {
-                return 4;
-            }
-            if (str.equals(Share.SINAWEIBO)) {
-                return 6;
-            }
-            return i;
-        }
-        return invokeIL.intValue;
-    }
-
-    public final void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.mResult.putBoolean("share_result", z);
-            h();
-            finish();
-        }
-    }
-
-    public final void g(Activity activity, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, activity, str) == null) {
-            if (activity == null) {
-                f(false);
-                return;
-            }
-            u06 u06Var = new u06();
-            try {
-                u06Var.q(new JSONObject(str));
-                TbadkCoreApplication.getInst().setCurAiAppid(u06Var.x0);
-                if (!TextUtils.isEmpty(u06Var.o())) {
-                    int d = d(-1, u06Var.o());
-                    if (!TextUtils.isEmpty(u06Var.n()) && !TextUtils.isEmpty(u06Var.m())) {
-                        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE);
-                        httpMessage.addParam("scheme", u06Var.n());
-                        httpMessage.setExtra(new kw4(u06Var, activity, d, new a(this)));
-                        MessageManager.getInstance().sendMessage(httpMessage);
-                        return;
-                    }
-                    MessageManager.getInstance().sendMessage(new ImplicitShareMessage(activity, d, u06Var, true));
-                    f(a95.b(activity, d));
-                    return;
-                }
-                TiebaStatic.log(new StatisticItem("c13530").param("obj_id", u06Var.x0).param("obj_type", u06Var.y0).param("obj_source", u06Var.z0));
-                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(activity, u06Var, false);
-                shareDialogConfig.onCancelListener = new b(this);
-                shareDialogConfig.onDismissListener = new c(this);
-                JSONArray p = u06Var.p();
-                if (p != null && !TextUtils.isEmpty(u06Var.n()) && !TextUtils.isEmpty(u06Var.m())) {
-                    ArrayList arrayList = new ArrayList();
-                    for (int i = 0; i < p.length(); i++) {
-                        try {
-                            arrayList.add(Integer.valueOf(d(-1, p.getString(i))));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    if (!ListUtils.isEmpty(arrayList)) {
-                        u06Var.i(arrayList);
-                    }
-                    HttpMessage httpMessage2 = new HttpMessage(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE);
-                    httpMessage2.addParam("scheme", u06Var.n());
-                    httpMessage2.setExtra(new kw4(u06Var, activity, shareDialogConfig.onCancelListener));
-                    MessageManager.getInstance().sendMessage(httpMessage2);
-                    return;
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
-            } catch (JSONException unused) {
-                f(false);
-            }
-        }
+        return (fj1) invokeV.objValue;
     }
 }

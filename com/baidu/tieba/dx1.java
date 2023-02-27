@@ -1,96 +1,87 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.CookieManager;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class dx1 extends bx1 {
+public final class dx1 extends jb3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.zw1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CheckSessionApi" : (String) invokeV.objValue;
-    }
-
     /* loaded from: classes4.dex */
-    public class a implements pn3<zd3<JSONObject>> {
+    public static final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
+        public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hq1 a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ String c;
 
-        public a(dx1 dx1Var, hq1 hq1Var, CallbackHandler callbackHandler, String str) {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-847013073, "Lcom/baidu/tieba/dx1$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-847013073, "Lcom/baidu/tieba/dx1$a;");
+                    return;
+                }
+            }
+            a = new a();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dx1Var, hq1Var, callbackHandler, str};
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
-            this.a = hq1Var;
-            this.b = callbackHandler;
-            this.c = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pn3
-        /* renamed from: b */
-        public void a(zd3<JSONObject> zd3Var) {
-            JSONObject wrapCallbackParams;
+        @Override // java.lang.Runnable
+        public final void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zd3Var) == null) {
-                if (zd3Var.c() && dx1.y(zd3Var.a)) {
-                    JSONObject optJSONObject = zd3Var.a.optJSONObject("data");
-                    if (optJSONObject != null && optJSONObject.optBoolean("result")) {
-                        wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(optJSONObject, 0);
-                        pf3.T("checkSession", "success");
-                    } else {
-                        wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "session key expired");
-                        pf3.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "session key expired");
-                    }
-                } else {
-                    wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(zd3Var.b());
-                    this.a.g(this.b, wrapCallbackParams.toString());
-                    pf3.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "result failed");
-                }
-                this.b.handleSchemeDispatchCallback(this.c, wrapCallbackParams.toString());
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                a92.Y2();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dx1(@NonNull xw1 xw1Var) {
-        super(xw1Var);
+    public dx1(ja3 ja3Var) {
+        super(ja3Var, "/swanAPI/setTplBdussSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xw1Var};
+            Object[] objArr = {ja3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((xw1) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -98,63 +89,69 @@ public class dx1 extends bx1 {
         }
     }
 
-    public static boolean y(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.jb3
+    public boolean d(Context context, UnitedSchemeEntity entity, CallbackHandler callbackHandler, m93 m93Var) {
+        InterceptResult invokeLLLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject != null && TextUtils.equals(jSONObject.optString("errno"), "0")) {
-                return true;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, entity, callbackHandler, m93Var)) == null) {
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(entity);
+            SwanAppAllianceLoginHelper.d.l(true);
+            if (optParamsAsJo == null) {
+                yp1 d = SwanAppAllianceLoginHelper.d.d();
+                if (d != null) {
+                    d.onResult(-1);
+                }
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                SwanAppAllianceLoginHelper.d.a(zw1.d(), zw1.a());
+                return false;
             }
-            return false;
+            int optInt = optParamsAsJo.optInt("errno");
+            JSONObject optJSONObject = optParamsAsJo.optJSONObject("data");
+            gn3.a0(a.a);
+            if (optInt != 0) {
+                yp1 d2 = SwanAppAllianceLoginHelper.d.d();
+                if (d2 != null) {
+                    d2.onResult(-1);
+                }
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "error number is " + optInt);
+                SwanAppAllianceLoginHelper.d.a(zw1.d(), zw1.a());
+                return false;
+            } else if (optJSONObject != null) {
+                Map<String, String> c = vp4.c(CookieManager.getInstance().getCookie(".baidu.com"));
+                Intrinsics.checkNotNullExpressionValue(c, "SwanAppUrlUtils.parseCookie(cookieString)");
+                String str = c.get("OPENBDUSS");
+                if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
+                    ax1.b.c(optInt, optJSONObject);
+                    uw1.b(context, str);
+                    SwanAppAllianceLoginHelper.d.j(true);
+                    yp1 d3 = SwanAppAllianceLoginHelper.d.d();
+                    if (d3 != null) {
+                        d3.onResult(0);
+                    }
+                    UnitedSchemeUtility.callCallback(callbackHandler, entity, 0);
+                    SwanAppAllianceLoginHelper.d.a(zw1.f(), zw1.c());
+                    return true;
+                }
+                yp1 d4 = SwanAppAllianceLoginHelper.d.d();
+                if (d4 != null) {
+                    d4.onResult(-1);
+                }
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "bduss is null");
+                SwanAppAllianceLoginHelper.d.a(zw1.d(), zw1.a());
+                return false;
+            } else {
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "json data is null");
+                SwanAppAllianceLoginHelper.d.a(zw1.d(), zw1.a());
+                return false;
+            }
         }
-        return invokeL.booleanValue;
-    }
-
-    public w02 x(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#checkSession", false);
-            pf3.T("checkSession", "create");
-            hq1 j = es2.j();
-            CallbackHandler g = a().g();
-            w83 b0 = w83.b0();
-            if (b0 == null) {
-                j.g(g, UnitedSchemeUtility.wrapCallbackParams(1001, "swan app is null").toString());
-                pf3.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "empty swanApp");
-                return new w02(1001, "swan app is null");
-            }
-            String O = b0.O();
-            if (TextUtils.isEmpty(O)) {
-                j.g(g, UnitedSchemeUtility.wrapCallbackParams(1001, "empty app key").toString());
-                pf3.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "empty app key");
-                return new w02(1001, "empty app key");
-            }
-            JSONObject r = zw1.r(str);
-            if (r == null) {
-                j.g(g, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
-                pf3.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "empty joParams");
-                return new w02(201, "empty joParams");
-            }
-            String optString = r.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                j.g(g, UnitedSchemeUtility.wrapCallbackParams(201, "cb is empty").toString());
-                pf3.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "empty cb");
-                return new w02(201, "cb is empty");
-            }
-            Context context = getContext();
-            if (!b0.N().e(context)) {
-                j.g(g, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
-                pf3.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "account not login");
-                return new w02(10004, "user not logged in");
-            }
-            pf3.T("checkSession", "checkSession");
-            ce3 g2 = v83.K().x().a().b().g(context, O);
-            g2.q("checkSession");
-            g2.o(new a(this, j, g, optString));
-            g2.call();
-            return new w02(0);
-        }
-        return (w02) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

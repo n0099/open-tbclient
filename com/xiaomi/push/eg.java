@@ -1,10 +1,12 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.content.Intent;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
 public interface eg {
-    void a(Context context, Intent intent, String str);
+    void a(Context context, HashMap<String, String> hashMap);
 
-    void a(Context context, ec ecVar);
+    void b(Context context, HashMap<String, String> hashMap);
+
+    void c(Context context, HashMap<String, String> hashMap);
 }

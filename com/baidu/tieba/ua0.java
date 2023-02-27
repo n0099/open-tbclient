@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,109 +11,131 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class ua0 {
+public class ua0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ua0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948204133, "Lcom/baidu/tieba/ua0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends wa0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* loaded from: classes6.dex */
+        public static final class a {
+            public static /* synthetic */ Interceptable $ic;
+            public static final b a;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1634106166, "Lcom/baidu/tieba/ua0$b$a;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(-1634106166, "Lcom/baidu/tieba/ua0$b$a;");
+                        return;
+                    }
+                }
+                a = new b(LiveFeedPageSdk.getInstance().getApplication(), "live_feed_page_sp", null);
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(Context context, String str) {
+            super(context, str);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948204133, "Lcom/baidu/tieba/ua0;");
-                return;
-            }
-        }
-        a = new ua0();
-    }
-
-    public ua0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (String) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
         }
-    }
 
-    public final Drawable a(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColors(new int[]{fd0.f().a(context, str, "color_gradient_1"), fd0.f().a(context, str, "color_gradient_2")});
-            gradientDrawable.setGradientType(0);
-            gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
-            return gradientDrawable;
+        public /* synthetic */ b(Context context, String str, a aVar) {
+            this(context, str);
         }
-        return (Drawable) invokeLLL.objValue;
-    }
 
-    public final Drawable d(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, str, str2)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColors(new int[]{fd0.f().a(context, str, "color_gradient_2"), fd0.f().a(context, str, "color_gradient_1")});
-            gradientDrawable.setGradientType(0);
-            gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
-            return gradientDrawable;
+        public static b h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return a.a;
+            }
+            return (b) invokeV.objValue;
         }
-        return (Drawable) invokeLLL.objValue;
     }
 
-    public final Drawable b(Context context, String str) {
+    public static boolean a(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, str, z)) == null) {
+            return b.h().getBoolean(str, z);
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public static String b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            float b = oa0.b(context, 7.0f);
-            gradientDrawable.setCornerRadii(new float[]{b, b, b, b, b, b, b, b});
-            gradientDrawable.setColors(new int[]{fd0.f().a(context, str, "color_F5F5F53"), fd0.f().a(context, str, "color_F5F5F53")});
-            gradientDrawable.setGradientType(0);
-            gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
-            return gradientDrawable;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return b.h().getString(str, str2);
         }
-        return (Drawable) invokeLL.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public final Drawable c(Context context, String str) {
-        InterceptResult invokeLL;
+    public static long c(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            float b = oa0.b(context, 18.0f);
-            gradientDrawable.setCornerRadii(new float[]{0.0f, 0.0f, 0.0f, 0.0f, b, b, b, b});
-            gradientDrawable.setColors(new int[]{fd0.f().a(context, str, "color_main_bg"), fd0.f().a(context, str, "color_main_bg")});
-            gradientDrawable.setGradientType(0);
-            gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
-            return gradientDrawable;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
+            return b.h().getLong(str, j);
         }
-        return (Drawable) invokeLL.objValue;
+        return invokeLJ.longValue;
     }
 
-    public final Drawable e(Context context, String str) {
-        InterceptResult invokeLL;
+    public static void d(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, str)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            float b = oa0.b(context, 7.0f);
-            gradientDrawable.setCornerRadii(new float[]{b, b, b, b, b, b, b, b});
-            gradientDrawable.setColors(new int[]{fd0.f().a(context, str, "color_FF33552"), fd0.f().a(context, str, "color_FF33552")});
-            gradientDrawable.setGradientType(0);
-            gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
-            return gradientDrawable;
+        if (interceptable == null || interceptable.invokeLZ(65539, null, str, z) == null) {
+            b.h().d(str, z);
         }
-        return (Drawable) invokeLL.objValue;
+    }
+
+    public static void e(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j) == null) {
+            b.h().e(str, j);
+        }
+    }
+
+    public static void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            b.h().f(str, str2);
+        }
+    }
+
+    public static void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            b.h().g(str);
+        }
     }
 }

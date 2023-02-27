@@ -1,154 +1,114 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
-import com.baidu.adp.lib.util.StringUtils;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
+import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mcn.McnVideoAdView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class se0 {
+public class se0 extends ne0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public McnVideoAdView a;
-    public McnVideoAdView.c b;
+    public Surface l;
 
-    /* loaded from: classes6.dex */
-    public class a implements McnVideoAdView.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(se0 se0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {se0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948148395, "Lcom/baidu/tieba/se0;")) == null) {
+            return;
         }
-
-        @Override // com.baidu.mcn.McnVideoAdView.c
-        public void a(qe0 qe0Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, qe0Var) == null) && qe0Var != null && !StringUtils.isNull(qe0Var.d)) {
-                re0.b().c(qe0Var.d);
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        @Override // com.baidu.mcn.McnVideoAdView.c
-        public void b(qe0 qe0Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qe0Var) != null) || qe0Var == null) {
-                return;
-            }
-            StatisticItem statisticItem = new StatisticItem("c13405");
-            statisticItem.param("tid", qe0Var.e);
-            statisticItem.param("fid", qe0Var.f);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_locate", qe0Var.g);
-            TiebaStatic.log(statisticItem);
-        }
-
-        @Override // com.baidu.mcn.McnVideoAdView.c
-        public void c(qe0 qe0Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qe0Var) != null) || qe0Var == null) {
-                return;
-            }
-            StatisticItem statisticItem = new StatisticItem("c13404");
-            statisticItem.param("tid", qe0Var.e);
-            statisticItem.param("fid", qe0Var.f);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_locate", qe0Var.g);
-            TiebaStatic.log(statisticItem);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948148395, "Lcom/baidu/tieba/se0;");
         }
     }
 
-    public se0(Context context) {
+    public se0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = new a(this);
-        McnVideoAdView mcnVideoAdView = new McnVideoAdView(context);
-        this.a = mcnVideoAdView;
-        mcnVideoAdView.setIMcnStatListener(this.b);
     }
 
-    public void a() {
-        McnVideoAdView mcnVideoAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (mcnVideoAdView = this.a) != null) {
-            mcnVideoAdView.f();
-        }
-    }
-
-    public void b() {
-        McnVideoAdView mcnVideoAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (mcnVideoAdView = this.a) != null) {
-            mcnVideoAdView.g();
-        }
-    }
-
-    public boolean c() {
+    public Surface k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            McnVideoAdView mcnVideoAdView = this.a;
-            if (mcnVideoAdView != null) {
-                return mcnVideoAdView.i();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.l;
+        }
+        return (Surface) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ne0
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.h == 0) {
+                this.h = this.e.presentationTimeUs;
+                ne0.j = 0L;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d() {
-        McnVideoAdView mcnVideoAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (mcnVideoAdView = this.a) != null) {
-            mcnVideoAdView.k();
+            MediaCodec.BufferInfo bufferInfo = this.e;
+            long j = bufferInfo.presentationTimeUs - this.h;
+            bufferInfo.presentationTimeUs = j;
+            ne0.j = j;
+            ie0.x().V(ne0.j / 1000);
         }
     }
 
-    public void e(qe0 qe0Var, ViewGroup viewGroup) {
-        McnVideoAdView mcnVideoAdView;
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0060  */
+    /* JADX WARN: Removed duplicated region for block: B:22:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void l(pe0 pe0Var, qe0 qe0Var) {
+        oe0 oe0Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, qe0Var, viewGroup) == null) && (mcnVideoAdView = this.a) != null) {
-            mcnVideoAdView.l(qe0Var, viewGroup);
-        }
-    }
-
-    public void f(qe0 qe0Var, ViewGroup viewGroup) {
-        McnVideoAdView mcnVideoAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, qe0Var, viewGroup) == null) && (mcnVideoAdView = this.a) != null) {
-            mcnVideoAdView.m(qe0Var, viewGroup);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, pe0Var, qe0Var) == null) {
+            boolean z = true;
+            if (pe0Var != null && qe0Var != null) {
+                this.c = qe0Var;
+                MediaFormat createVideoFormat = MediaFormat.createVideoFormat(pe0Var.j(), pe0Var.n(), pe0Var.l());
+                createVideoFormat.setInteger("color-format", 2130708361);
+                createVideoFormat.setInteger("bitrate", pe0Var.i());
+                createVideoFormat.setInteger("frame-rate", pe0Var.k());
+                createVideoFormat.setInteger("i-frame-interval", pe0Var.m());
+                try {
+                    MediaCodec createEncoderByType = MediaCodec.createEncoderByType(pe0Var.j());
+                    this.d = createEncoderByType;
+                    createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
+                    this.l = this.d.createInputSurface();
+                    this.g = true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                oe0Var = this.f;
+                if (oe0Var == null) {
+                    oe0Var.b(z);
+                    return;
+                }
+                return;
+            }
+            z = false;
+            oe0Var = this.f;
+            if (oe0Var == null) {
+            }
         }
     }
 }

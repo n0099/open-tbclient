@@ -1,21 +1,20 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class zk2 {
+public class zk2 extends yk2<tk2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, al2> a;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public zk2() {
+        super(new tk2());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,64 +22,43 @@ public class zk2 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((vk2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
     }
 
-    public void b() {
+    @Override // com.baidu.tieba.yk2
+    public boolean k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.clear();
-        }
-    }
-
-    public void a(al2 al2Var, String... strArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, al2Var, strArr) == null) && strArr != null && strArr.length != 0) {
-            for (String str : strArr) {
-                if (!TextUtils.isEmpty(str)) {
-                    this.a.put(str, al2Var);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (r(h().extensionCorePath) && !super.k()) {
+                return false;
             }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    public ArrayList<al2> c(String... strArr) {
+    public static boolean r(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-            ArrayList<al2> arrayList = null;
-            if (strArr != null && strArr.length != 0) {
-                for (String str : strArr) {
-                    if (!TextUtils.isEmpty(str)) {
-                        for (String str2 : this.a.keySet()) {
-                            if (str2.startsWith(str) || str.startsWith(str2)) {
-                                if (arrayList == null) {
-                                    arrayList = new ArrayList<>();
-                                }
-                                arrayList.add(this.a.get(str2));
-                            }
-                        }
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            m62.k("ExtCore-SwanAppPresetControl", "isExtensionFileAvailable extensionPath:" + str);
+            boolean z = false;
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public void d(al2 al2Var, String... strArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, al2Var, strArr) == null) && strArr != null && strArr.length != 0) {
-            for (String str : strArr) {
-                if (!TextUtils.isEmpty(str) && this.a.get(str) == al2Var) {
-                    this.a.remove(str);
-                }
+            File file = new File(str, "extension.js");
+            if (file.exists() && file.length() > 0) {
+                z = true;
             }
+            m62.k("ExtCore-SwanAppPresetControl", "isExtensionFileAvailable: " + z);
+            return z;
         }
+        return invokeL.booleanValue;
     }
 }

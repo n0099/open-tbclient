@@ -1,39 +1,114 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class xu2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    @Inject(force = false)
-    public ck1<vu2> a;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Pair;
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.aop.annotation.DebugTrace;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.console.property.SwanAppPropertyWindow;
+import com.baidu.swan.apps.res.ui.FullScreenFloatView;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.tieba.yu2;
+/* loaded from: classes6.dex */
+public interface xu2 extends yu2.b {
+    uv1 A(String str);
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ak1 b = ak1.b();
-            this.a = b;
-            b.a(new wu2());
-        }
-    }
+    View B(String str);
 
-    public xu2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        a();
-    }
+    String C();
+
+    m93 D();
+
+    void E(ju2 ju2Var, gs2 gs2Var);
+
+    ar1 F();
+
+    @NonNull
+    ph3 G();
+
+    u82 H();
+
+    void I();
+
+    SwanAppPropertyWindow J(Activity activity);
+
+    void K(String str);
+
+    dr1 L();
+
+    SwanCoreVersion M();
+
+    boolean N();
+
+    void O();
+
+    dr1 P();
+
+    void a();
+
+    String b();
+
+    void c();
+
+    void d(ju2 ju2Var, gs2 gs2Var);
+
+    @NonNull
+    ba3 e(String str, SwanAppConfigData swanAppConfigData, String str2);
+
+    void exit();
+
+    @NonNull
+    ba3 f(String str);
+
+    String g();
+
+    SwanAppActivity getActivity();
+
+    tv1 i();
+
+    @NonNull
+    ba3 j(String str);
+
+    boolean k();
+
+    void l(SwanAppActivity swanAppActivity);
+
+    void m(String str, mj2 mj2Var);
+
+    FullScreenFloatView n(Activity activity);
+
+    void o();
+
+    void p();
+
+    @DebugTrace
+    rv1 q();
+
+    @NonNull
+    Pair<Integer, Integer> r();
+
+    void registerReceiver(Context context);
+
+    SwanAppConfigData s();
+
+    void t(Intent intent);
+
+    void u(mj2 mj2Var);
+
+    void unregisterReceiver(Context context);
+
+    void v();
+
+    void w();
+
+    @NonNull
+    Pair<Integer, Integer> x();
+
+    void y(pj2 pj2Var, boolean z);
+
+    String z();
 }

@@ -1,165 +1,69 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.data.VideoEasterEggData;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
+import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
+import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Date;
 /* loaded from: classes6.dex */
-public class xc9 implements wc9 {
+public class xc9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public VideoEasterEggData a;
 
-    public xc9() {
+    public static void a(ga5 ga5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.wc9
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getPopText();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wc9
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getActivityID();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wc9
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getShareTitle();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wc9
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getShareUrl();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wc9
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getPopImageUrl();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wc9
-    public String getVideoUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getVideoUrl();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wc9
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getShareImageUrl();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wc9
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getShareContent();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wc9
-    public void b(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) != null) || intent == null) {
+        if ((interceptable != null && interceptable.invokeL(65536, null, ga5Var) != null) || ga5Var == null) {
             return;
         }
-        intent.getStringExtra("from");
-        if (intent.hasExtra(IntentConfig.VIDEO_EASTER_EGG_DATA)) {
-            this.a = (VideoEasterEggData) intent.getSerializableExtra(IntentConfig.VIDEO_EASTER_EGG_DATA);
+        VersionData u = ga5Var.u();
+        TbadkCoreApplication.getInst().setVersionData(u);
+        TbadkCoreApplication.getInst().refreshNewVersion(true);
+        if (u.forceUpdate()) {
+            if (ga5Var.k() != null && TbadkCoreApplication.getInst().getResumeNum() > 0) {
+                TbSingleton.getInstance();
+                TbSingleton.setExceptInsertAdDiaShow(true);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), u, ga5Var.j())));
+                return;
+            }
+            return;
+        }
+        Long valueOf = Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime());
+        Long valueOf2 = Long.valueOf(new Date().getTime());
+        if (valueOf2.longValue() - valueOf.longValue() > 86400000 && u.getStrategy() == 0 && ga5Var.k() != null && TbadkCoreApplication.getInst().getResumeNum() > 0) {
+            TbSingleton.getInstance().setSyncModel(ga5Var);
+            if (TbSingleton.getInstance().hasPerformedFirstLoginTest()) {
+                TbSingleton.getInstance();
+                TbSingleton.setExceptInsertAdDiaShow(true);
+                xx5.d();
+            }
+            TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf2.longValue());
         }
     }
 
-    @Override // com.baidu.tieba.wc9
-    public void e(BdUniqueId bdUniqueId) {
+    public static void b(VersionData versionData, ClientUpdateInfo clientUpdateInfo, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) && !dj.isEmpty(g())) {
-            zg.h().m(g(), 10, null, bdUniqueId);
+        if ((interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{versionData, clientUpdateInfo, str, Boolean.valueOf(z)}) != null) || versionData == null) {
+            return;
+        }
+        TbadkCoreApplication.getInst().setVersionData(versionData);
+        TbadkCoreApplication.getInst().refreshNewVersion(true);
+        if (TbadkCoreApplication.getInst().getResumeNum() > 0) {
+            if (versionData.forceUpdate()) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), clientUpdateInfo, str)));
+                return;
+            }
+            Long valueOf = Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime());
+            Long valueOf2 = Long.valueOf(new Date().getTime());
+            if ((valueOf2.longValue() - valueOf.longValue() > 86400000 || z) && versionData.getStrategy() == 0) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), clientUpdateInfo, str)));
+                TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf2.longValue());
+            }
         }
     }
 }

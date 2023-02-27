@@ -2,7 +2,6 @@ package com.baidu.android.imsdk.media.request;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.core.net.MailTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
@@ -112,7 +111,7 @@ public class IMBCSessionDelMsg extends Message {
                 jSONObject.put("method", Constants.METHOD_IM_DEL_BUSINESS_SESSION_MSG);
                 jSONObject.put("appid", this.mAppid);
                 jSONObject.put("uk", this.mUk);
-                jSONObject.put(MailTo.TO, this.mContacterUK);
+                jSONObject.put("to", this.mContacterUK);
                 jSONObject.put("user_type", 0);
                 jSONObject.put("business_type", this.mBusinessType);
                 jSONObject.put("session_type", this.mSessionType);

@@ -10,14 +10,6 @@ import android.content.res.Configuration;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.PluginClassLoader;
 import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.ZeusApplication;
@@ -31,6 +23,7 @@ import com.bytedance.pangle.res.PluginResources;
 import com.bytedance.pangle.transform.ZeusTransformUtils;
 import com.bytedance.pangle.util.MethodUtils;
 import com.bytedance.pangle.wrapper.PluginApplicationWrapper;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import dalvik.system.BaseDexClassLoader;
 import java.io.File;
 import java.util.HashSet;
@@ -38,76 +31,40 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class c {
-    public static /* synthetic */ Interceptable $ic;
-    public static final g a;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(10032742, "Lcom/bytedance/pangle/plugin/c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(10032742, "Lcom/bytedance/pangle/plugin/c;");
-                return;
-            }
-        }
-        a = g.a();
-    }
-
-    public c() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    public static final g a = g.a();
 
     public static void a(String str, int i, @NonNull String str2, int i2, long j, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), Long.valueOf(j), str3}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                jSONObject.putOpt("status_code", com.bytedance.pangle.log.c.a(Integer.valueOf(i)));
-                jSONObject.putOpt("plugin_package_name", com.bytedance.pangle.log.c.a(str2));
-                jSONObject.putOpt("version_code", com.bytedance.pangle.log.c.a(Integer.valueOf(i2)));
-                jSONObject3.putOpt("duration", Integer.valueOf(com.bytedance.pangle.log.c.b(Long.valueOf(j))));
-                jSONObject2.putOpt("message", com.bytedance.pangle.log.c.a(str3));
-                jSONObject2.putOpt("timestamp", com.bytedance.pangle.log.c.a(Long.valueOf(System.currentTimeMillis())));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            com.bytedance.pangle.b.b.a().a(str, jSONObject, jSONObject3, jSONObject2);
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        JSONObject jSONObject3 = new JSONObject();
+        try {
+            jSONObject.putOpt("status_code", com.bytedance.pangle.log.c.a(Integer.valueOf(i)));
+            jSONObject.putOpt("plugin_package_name", com.bytedance.pangle.log.c.a(str2));
+            jSONObject.putOpt("version_code", com.bytedance.pangle.log.c.a(Integer.valueOf(i2)));
+            jSONObject3.putOpt("duration", Integer.valueOf(com.bytedance.pangle.log.c.b(Long.valueOf(j))));
+            jSONObject2.putOpt("message", com.bytedance.pangle.log.c.a(str3));
+            jSONObject2.putOpt("timestamp", com.bytedance.pangle.log.c.a(Long.valueOf(System.currentTimeMillis())));
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+        com.bytedance.pangle.b.b.a().a(str, jSONObject, jSONObject3, jSONObject2);
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(62:27|(1:186)|31|(1:185)|35|(1:37)|38|(1:184)|42|(43:49|50|(2:52|53)(1:182)|54|(1:56)|57|(1:181)|61|(1:180)|65|(1:67)|68|(1:70)|71|(1:179)|75|(1:178)|79|(3:81|(5:83|(3:88|89|90)|91|92|90)|93)|94|(3:96|(5:98|(3:103|104|105)|106|107|105)|108)|109|(1:177)|113|(3:115|(5:117|(3:122|123|124)|125|126|124)|127)|128|(1:176)|132|(3:134|(5:136|(3:141|142|143)|144|145|143)|146)|147|(1:175)|151|(1:155)|156|(1:174)|160|(1:162)|163|(1:173)|167|168|169|170)|183|50|(0)(0)|54|(0)|57|(1:59)|181|61|(1:63)|180|65|(0)|68|(0)|71|(1:73)|179|75|(1:77)|178|79|(0)|94|(0)|109|(1:111)|177|113|(0)|128|(1:130)|176|132|(0)|147|(1:149)|175|151|(2:153|155)|156|(1:158)|174|160|(0)|163|(1:165)|173|167|168|169|170) */
-    /* JADX WARN: Removed duplicated region for block: B:105:0x02d9 A[Catch: all -> 0x045b, TryCatch #3 {all -> 0x045b, blocks: (B:7:0x000e, B:9:0x0022, B:12:0x0041, B:14:0x0047, B:17:0x0066, B:22:0x0085, B:24:0x009a, B:27:0x00b9, B:32:0x00d4, B:37:0x00fe, B:39:0x010f, B:40:0x0112, B:45:0x012d, B:47:0x0134, B:49:0x013a, B:56:0x0145, B:62:0x019b, B:64:0x019f, B:65:0x01a9, B:70:0x01c6, B:75:0x01f1, B:77:0x0230, B:78:0x0234, B:80:0x023e, B:81:0x0242, B:86:0x025f, B:91:0x0291, B:93:0x02a1, B:95:0x02a5, B:97:0x02af, B:100:0x02ba, B:102:0x02cb, B:101:0x02c7, B:103:0x02d5, B:105:0x02d9, B:107:0x02dd, B:109:0x02e7, B:112:0x02f2, B:114:0x0303, B:113:0x02ff, B:115:0x030d, B:120:0x032a, B:122:0x032e, B:124:0x0332, B:126:0x033c, B:129:0x0347, B:131:0x0358, B:130:0x0354, B:132:0x0362, B:137:0x037f, B:139:0x0383, B:141:0x0387, B:143:0x0391, B:146:0x039c, B:148:0x03ad, B:147:0x03a9, B:149:0x03b7, B:154:0x03d4, B:156:0x03d8, B:158:0x03e0, B:159:0x03ed, B:164:0x040a, B:166:0x0414, B:167:0x042d, B:171:0x043d, B:163:0x03fd, B:153:0x03c7, B:136:0x0372, B:119:0x031d, B:90:0x0284, B:85:0x0252, B:74:0x01e4, B:69:0x01b9, B:61:0x018c, B:44:0x0120, B:36:0x00f1, B:31:0x00c7, B:21:0x0078, B:57:0x0156), top: B:191:0x000e }] */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x032e A[Catch: all -> 0x045b, TryCatch #3 {all -> 0x045b, blocks: (B:7:0x000e, B:9:0x0022, B:12:0x0041, B:14:0x0047, B:17:0x0066, B:22:0x0085, B:24:0x009a, B:27:0x00b9, B:32:0x00d4, B:37:0x00fe, B:39:0x010f, B:40:0x0112, B:45:0x012d, B:47:0x0134, B:49:0x013a, B:56:0x0145, B:62:0x019b, B:64:0x019f, B:65:0x01a9, B:70:0x01c6, B:75:0x01f1, B:77:0x0230, B:78:0x0234, B:80:0x023e, B:81:0x0242, B:86:0x025f, B:91:0x0291, B:93:0x02a1, B:95:0x02a5, B:97:0x02af, B:100:0x02ba, B:102:0x02cb, B:101:0x02c7, B:103:0x02d5, B:105:0x02d9, B:107:0x02dd, B:109:0x02e7, B:112:0x02f2, B:114:0x0303, B:113:0x02ff, B:115:0x030d, B:120:0x032a, B:122:0x032e, B:124:0x0332, B:126:0x033c, B:129:0x0347, B:131:0x0358, B:130:0x0354, B:132:0x0362, B:137:0x037f, B:139:0x0383, B:141:0x0387, B:143:0x0391, B:146:0x039c, B:148:0x03ad, B:147:0x03a9, B:149:0x03b7, B:154:0x03d4, B:156:0x03d8, B:158:0x03e0, B:159:0x03ed, B:164:0x040a, B:166:0x0414, B:167:0x042d, B:171:0x043d, B:163:0x03fd, B:153:0x03c7, B:136:0x0372, B:119:0x031d, B:90:0x0284, B:85:0x0252, B:74:0x01e4, B:69:0x01b9, B:61:0x018c, B:44:0x0120, B:36:0x00f1, B:31:0x00c7, B:21:0x0078, B:57:0x0156), top: B:191:0x000e }] */
-    /* JADX WARN: Removed duplicated region for block: B:139:0x0383 A[Catch: all -> 0x045b, TryCatch #3 {all -> 0x045b, blocks: (B:7:0x000e, B:9:0x0022, B:12:0x0041, B:14:0x0047, B:17:0x0066, B:22:0x0085, B:24:0x009a, B:27:0x00b9, B:32:0x00d4, B:37:0x00fe, B:39:0x010f, B:40:0x0112, B:45:0x012d, B:47:0x0134, B:49:0x013a, B:56:0x0145, B:62:0x019b, B:64:0x019f, B:65:0x01a9, B:70:0x01c6, B:75:0x01f1, B:77:0x0230, B:78:0x0234, B:80:0x023e, B:81:0x0242, B:86:0x025f, B:91:0x0291, B:93:0x02a1, B:95:0x02a5, B:97:0x02af, B:100:0x02ba, B:102:0x02cb, B:101:0x02c7, B:103:0x02d5, B:105:0x02d9, B:107:0x02dd, B:109:0x02e7, B:112:0x02f2, B:114:0x0303, B:113:0x02ff, B:115:0x030d, B:120:0x032a, B:122:0x032e, B:124:0x0332, B:126:0x033c, B:129:0x0347, B:131:0x0358, B:130:0x0354, B:132:0x0362, B:137:0x037f, B:139:0x0383, B:141:0x0387, B:143:0x0391, B:146:0x039c, B:148:0x03ad, B:147:0x03a9, B:149:0x03b7, B:154:0x03d4, B:156:0x03d8, B:158:0x03e0, B:159:0x03ed, B:164:0x040a, B:166:0x0414, B:167:0x042d, B:171:0x043d, B:163:0x03fd, B:153:0x03c7, B:136:0x0372, B:119:0x031d, B:90:0x0284, B:85:0x0252, B:74:0x01e4, B:69:0x01b9, B:61:0x018c, B:44:0x0120, B:36:0x00f1, B:31:0x00c7, B:21:0x0078, B:57:0x0156), top: B:191:0x000e }] */
-    /* JADX WARN: Removed duplicated region for block: B:166:0x0414 A[Catch: all -> 0x045b, TryCatch #3 {all -> 0x045b, blocks: (B:7:0x000e, B:9:0x0022, B:12:0x0041, B:14:0x0047, B:17:0x0066, B:22:0x0085, B:24:0x009a, B:27:0x00b9, B:32:0x00d4, B:37:0x00fe, B:39:0x010f, B:40:0x0112, B:45:0x012d, B:47:0x0134, B:49:0x013a, B:56:0x0145, B:62:0x019b, B:64:0x019f, B:65:0x01a9, B:70:0x01c6, B:75:0x01f1, B:77:0x0230, B:78:0x0234, B:80:0x023e, B:81:0x0242, B:86:0x025f, B:91:0x0291, B:93:0x02a1, B:95:0x02a5, B:97:0x02af, B:100:0x02ba, B:102:0x02cb, B:101:0x02c7, B:103:0x02d5, B:105:0x02d9, B:107:0x02dd, B:109:0x02e7, B:112:0x02f2, B:114:0x0303, B:113:0x02ff, B:115:0x030d, B:120:0x032a, B:122:0x032e, B:124:0x0332, B:126:0x033c, B:129:0x0347, B:131:0x0358, B:130:0x0354, B:132:0x0362, B:137:0x037f, B:139:0x0383, B:141:0x0387, B:143:0x0391, B:146:0x039c, B:148:0x03ad, B:147:0x03a9, B:149:0x03b7, B:154:0x03d4, B:156:0x03d8, B:158:0x03e0, B:159:0x03ed, B:164:0x040a, B:166:0x0414, B:167:0x042d, B:171:0x043d, B:163:0x03fd, B:153:0x03c7, B:136:0x0372, B:119:0x031d, B:90:0x0284, B:85:0x0252, B:74:0x01e4, B:69:0x01b9, B:61:0x018c, B:44:0x0120, B:36:0x00f1, B:31:0x00c7, B:21:0x0078, B:57:0x0156), top: B:191:0x000e }] */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x0145 A[Catch: all -> 0x045b, TRY_LEAVE, TryCatch #3 {all -> 0x045b, blocks: (B:7:0x000e, B:9:0x0022, B:12:0x0041, B:14:0x0047, B:17:0x0066, B:22:0x0085, B:24:0x009a, B:27:0x00b9, B:32:0x00d4, B:37:0x00fe, B:39:0x010f, B:40:0x0112, B:45:0x012d, B:47:0x0134, B:49:0x013a, B:56:0x0145, B:62:0x019b, B:64:0x019f, B:65:0x01a9, B:70:0x01c6, B:75:0x01f1, B:77:0x0230, B:78:0x0234, B:80:0x023e, B:81:0x0242, B:86:0x025f, B:91:0x0291, B:93:0x02a1, B:95:0x02a5, B:97:0x02af, B:100:0x02ba, B:102:0x02cb, B:101:0x02c7, B:103:0x02d5, B:105:0x02d9, B:107:0x02dd, B:109:0x02e7, B:112:0x02f2, B:114:0x0303, B:113:0x02ff, B:115:0x030d, B:120:0x032a, B:122:0x032e, B:124:0x0332, B:126:0x033c, B:129:0x0347, B:131:0x0358, B:130:0x0354, B:132:0x0362, B:137:0x037f, B:139:0x0383, B:141:0x0387, B:143:0x0391, B:146:0x039c, B:148:0x03ad, B:147:0x03a9, B:149:0x03b7, B:154:0x03d4, B:156:0x03d8, B:158:0x03e0, B:159:0x03ed, B:164:0x040a, B:166:0x0414, B:167:0x042d, B:171:0x043d, B:163:0x03fd, B:153:0x03c7, B:136:0x0372, B:119:0x031d, B:90:0x0284, B:85:0x0252, B:74:0x01e4, B:69:0x01b9, B:61:0x018c, B:44:0x0120, B:36:0x00f1, B:31:0x00c7, B:21:0x0078, B:57:0x0156), top: B:191:0x000e }] */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x018c A[Catch: all -> 0x045b, TryCatch #3 {all -> 0x045b, blocks: (B:7:0x000e, B:9:0x0022, B:12:0x0041, B:14:0x0047, B:17:0x0066, B:22:0x0085, B:24:0x009a, B:27:0x00b9, B:32:0x00d4, B:37:0x00fe, B:39:0x010f, B:40:0x0112, B:45:0x012d, B:47:0x0134, B:49:0x013a, B:56:0x0145, B:62:0x019b, B:64:0x019f, B:65:0x01a9, B:70:0x01c6, B:75:0x01f1, B:77:0x0230, B:78:0x0234, B:80:0x023e, B:81:0x0242, B:86:0x025f, B:91:0x0291, B:93:0x02a1, B:95:0x02a5, B:97:0x02af, B:100:0x02ba, B:102:0x02cb, B:101:0x02c7, B:103:0x02d5, B:105:0x02d9, B:107:0x02dd, B:109:0x02e7, B:112:0x02f2, B:114:0x0303, B:113:0x02ff, B:115:0x030d, B:120:0x032a, B:122:0x032e, B:124:0x0332, B:126:0x033c, B:129:0x0347, B:131:0x0358, B:130:0x0354, B:132:0x0362, B:137:0x037f, B:139:0x0383, B:141:0x0387, B:143:0x0391, B:146:0x039c, B:148:0x03ad, B:147:0x03a9, B:149:0x03b7, B:154:0x03d4, B:156:0x03d8, B:158:0x03e0, B:159:0x03ed, B:164:0x040a, B:166:0x0414, B:167:0x042d, B:171:0x043d, B:163:0x03fd, B:153:0x03c7, B:136:0x0372, B:119:0x031d, B:90:0x0284, B:85:0x0252, B:74:0x01e4, B:69:0x01b9, B:61:0x018c, B:44:0x0120, B:36:0x00f1, B:31:0x00c7, B:21:0x0078, B:57:0x0156), top: B:191:0x000e }] */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x019f A[Catch: all -> 0x045b, TryCatch #3 {all -> 0x045b, blocks: (B:7:0x000e, B:9:0x0022, B:12:0x0041, B:14:0x0047, B:17:0x0066, B:22:0x0085, B:24:0x009a, B:27:0x00b9, B:32:0x00d4, B:37:0x00fe, B:39:0x010f, B:40:0x0112, B:45:0x012d, B:47:0x0134, B:49:0x013a, B:56:0x0145, B:62:0x019b, B:64:0x019f, B:65:0x01a9, B:70:0x01c6, B:75:0x01f1, B:77:0x0230, B:78:0x0234, B:80:0x023e, B:81:0x0242, B:86:0x025f, B:91:0x0291, B:93:0x02a1, B:95:0x02a5, B:97:0x02af, B:100:0x02ba, B:102:0x02cb, B:101:0x02c7, B:103:0x02d5, B:105:0x02d9, B:107:0x02dd, B:109:0x02e7, B:112:0x02f2, B:114:0x0303, B:113:0x02ff, B:115:0x030d, B:120:0x032a, B:122:0x032e, B:124:0x0332, B:126:0x033c, B:129:0x0347, B:131:0x0358, B:130:0x0354, B:132:0x0362, B:137:0x037f, B:139:0x0383, B:141:0x0387, B:143:0x0391, B:146:0x039c, B:148:0x03ad, B:147:0x03a9, B:149:0x03b7, B:154:0x03d4, B:156:0x03d8, B:158:0x03e0, B:159:0x03ed, B:164:0x040a, B:166:0x0414, B:167:0x042d, B:171:0x043d, B:163:0x03fd, B:153:0x03c7, B:136:0x0372, B:119:0x031d, B:90:0x0284, B:85:0x0252, B:74:0x01e4, B:69:0x01b9, B:61:0x018c, B:44:0x0120, B:36:0x00f1, B:31:0x00c7, B:21:0x0078, B:57:0x0156), top: B:191:0x000e }] */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x0230 A[Catch: all -> 0x045b, TryCatch #3 {all -> 0x045b, blocks: (B:7:0x000e, B:9:0x0022, B:12:0x0041, B:14:0x0047, B:17:0x0066, B:22:0x0085, B:24:0x009a, B:27:0x00b9, B:32:0x00d4, B:37:0x00fe, B:39:0x010f, B:40:0x0112, B:45:0x012d, B:47:0x0134, B:49:0x013a, B:56:0x0145, B:62:0x019b, B:64:0x019f, B:65:0x01a9, B:70:0x01c6, B:75:0x01f1, B:77:0x0230, B:78:0x0234, B:80:0x023e, B:81:0x0242, B:86:0x025f, B:91:0x0291, B:93:0x02a1, B:95:0x02a5, B:97:0x02af, B:100:0x02ba, B:102:0x02cb, B:101:0x02c7, B:103:0x02d5, B:105:0x02d9, B:107:0x02dd, B:109:0x02e7, B:112:0x02f2, B:114:0x0303, B:113:0x02ff, B:115:0x030d, B:120:0x032a, B:122:0x032e, B:124:0x0332, B:126:0x033c, B:129:0x0347, B:131:0x0358, B:130:0x0354, B:132:0x0362, B:137:0x037f, B:139:0x0383, B:141:0x0387, B:143:0x0391, B:146:0x039c, B:148:0x03ad, B:147:0x03a9, B:149:0x03b7, B:154:0x03d4, B:156:0x03d8, B:158:0x03e0, B:159:0x03ed, B:164:0x040a, B:166:0x0414, B:167:0x042d, B:171:0x043d, B:163:0x03fd, B:153:0x03c7, B:136:0x0372, B:119:0x031d, B:90:0x0284, B:85:0x0252, B:74:0x01e4, B:69:0x01b9, B:61:0x018c, B:44:0x0120, B:36:0x00f1, B:31:0x00c7, B:21:0x0078, B:57:0x0156), top: B:191:0x000e }] */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x023e A[Catch: all -> 0x045b, TryCatch #3 {all -> 0x045b, blocks: (B:7:0x000e, B:9:0x0022, B:12:0x0041, B:14:0x0047, B:17:0x0066, B:22:0x0085, B:24:0x009a, B:27:0x00b9, B:32:0x00d4, B:37:0x00fe, B:39:0x010f, B:40:0x0112, B:45:0x012d, B:47:0x0134, B:49:0x013a, B:56:0x0145, B:62:0x019b, B:64:0x019f, B:65:0x01a9, B:70:0x01c6, B:75:0x01f1, B:77:0x0230, B:78:0x0234, B:80:0x023e, B:81:0x0242, B:86:0x025f, B:91:0x0291, B:93:0x02a1, B:95:0x02a5, B:97:0x02af, B:100:0x02ba, B:102:0x02cb, B:101:0x02c7, B:103:0x02d5, B:105:0x02d9, B:107:0x02dd, B:109:0x02e7, B:112:0x02f2, B:114:0x0303, B:113:0x02ff, B:115:0x030d, B:120:0x032a, B:122:0x032e, B:124:0x0332, B:126:0x033c, B:129:0x0347, B:131:0x0358, B:130:0x0354, B:132:0x0362, B:137:0x037f, B:139:0x0383, B:141:0x0387, B:143:0x0391, B:146:0x039c, B:148:0x03ad, B:147:0x03a9, B:149:0x03b7, B:154:0x03d4, B:156:0x03d8, B:158:0x03e0, B:159:0x03ed, B:164:0x040a, B:166:0x0414, B:167:0x042d, B:171:0x043d, B:163:0x03fd, B:153:0x03c7, B:136:0x0372, B:119:0x031d, B:90:0x0284, B:85:0x0252, B:74:0x01e4, B:69:0x01b9, B:61:0x018c, B:44:0x0120, B:36:0x00f1, B:31:0x00c7, B:21:0x0078, B:57:0x0156), top: B:191:0x000e }] */
-    /* JADX WARN: Removed duplicated region for block: B:93:0x02a1 A[Catch: all -> 0x045b, TryCatch #3 {all -> 0x045b, blocks: (B:7:0x000e, B:9:0x0022, B:12:0x0041, B:14:0x0047, B:17:0x0066, B:22:0x0085, B:24:0x009a, B:27:0x00b9, B:32:0x00d4, B:37:0x00fe, B:39:0x010f, B:40:0x0112, B:45:0x012d, B:47:0x0134, B:49:0x013a, B:56:0x0145, B:62:0x019b, B:64:0x019f, B:65:0x01a9, B:70:0x01c6, B:75:0x01f1, B:77:0x0230, B:78:0x0234, B:80:0x023e, B:81:0x0242, B:86:0x025f, B:91:0x0291, B:93:0x02a1, B:95:0x02a5, B:97:0x02af, B:100:0x02ba, B:102:0x02cb, B:101:0x02c7, B:103:0x02d5, B:105:0x02d9, B:107:0x02dd, B:109:0x02e7, B:112:0x02f2, B:114:0x0303, B:113:0x02ff, B:115:0x030d, B:120:0x032a, B:122:0x032e, B:124:0x0332, B:126:0x033c, B:129:0x0347, B:131:0x0358, B:130:0x0354, B:132:0x0362, B:137:0x037f, B:139:0x0383, B:141:0x0387, B:143:0x0391, B:146:0x039c, B:148:0x03ad, B:147:0x03a9, B:149:0x03b7, B:154:0x03d4, B:156:0x03d8, B:158:0x03e0, B:159:0x03ed, B:164:0x040a, B:166:0x0414, B:167:0x042d, B:171:0x043d, B:163:0x03fd, B:153:0x03c7, B:136:0x0372, B:119:0x031d, B:90:0x0284, B:85:0x0252, B:74:0x01e4, B:69:0x01b9, B:61:0x018c, B:44:0x0120, B:36:0x00f1, B:31:0x00c7, B:21:0x0078, B:57:0x0156), top: B:191:0x000e }] */
+    /* JADX WARN: Can't wrap try/catch for region: R(62:25|(1:184)|29|(1:183)|33|(1:35)|36|(1:182)|40|(43:47|48|(2:50|51)(1:180)|52|(1:54)|55|(1:179)|59|(1:178)|63|(1:65)|66|(1:68)|69|(1:177)|73|(1:176)|77|(3:79|(5:81|(3:86|87|88)|89|90|88)|91)|92|(3:94|(5:96|(3:101|102|103)|104|105|103)|106)|107|(1:175)|111|(3:113|(5:115|(3:120|121|122)|123|124|122)|125)|126|(1:174)|130|(3:132|(5:134|(3:139|140|141)|142|143|141)|144)|145|(1:173)|149|(1:153)|154|(1:172)|158|(1:160)|161|(1:171)|165|166|167|168)|181|48|(0)(0)|52|(0)|55|(1:57)|179|59|(1:61)|178|63|(0)|66|(0)|69|(1:71)|177|73|(1:75)|176|77|(0)|92|(0)|107|(1:109)|175|111|(0)|126|(1:128)|174|130|(0)|145|(1:147)|173|149|(2:151|153)|154|(1:156)|172|158|(0)|161|(1:163)|171|165|166|167|168) */
+    /* JADX WARN: Removed duplicated region for block: B:103:0x02d5 A[Catch: all -> 0x0457, TryCatch #3 {all -> 0x0457, blocks: (B:5:0x000a, B:7:0x001e, B:10:0x003d, B:12:0x0043, B:15:0x0062, B:20:0x0081, B:22:0x0096, B:25:0x00b5, B:30:0x00d0, B:35:0x00fa, B:37:0x010b, B:38:0x010e, B:43:0x0129, B:45:0x0130, B:47:0x0136, B:54:0x0141, B:60:0x0197, B:62:0x019b, B:63:0x01a5, B:68:0x01c2, B:73:0x01ed, B:75:0x022c, B:76:0x0230, B:78:0x023a, B:79:0x023e, B:84:0x025b, B:89:0x028d, B:91:0x029d, B:93:0x02a1, B:95:0x02ab, B:98:0x02b6, B:100:0x02c7, B:99:0x02c3, B:101:0x02d1, B:103:0x02d5, B:105:0x02d9, B:107:0x02e3, B:110:0x02ee, B:112:0x02ff, B:111:0x02fb, B:113:0x0309, B:118:0x0326, B:120:0x032a, B:122:0x032e, B:124:0x0338, B:127:0x0343, B:129:0x0354, B:128:0x0350, B:130:0x035e, B:135:0x037b, B:137:0x037f, B:139:0x0383, B:141:0x038d, B:144:0x0398, B:146:0x03a9, B:145:0x03a5, B:147:0x03b3, B:152:0x03d0, B:154:0x03d4, B:156:0x03dc, B:157:0x03e9, B:162:0x0406, B:164:0x0410, B:165:0x0429, B:169:0x0439, B:161:0x03f9, B:151:0x03c3, B:134:0x036e, B:117:0x0319, B:88:0x0280, B:83:0x024e, B:72:0x01e0, B:67:0x01b5, B:59:0x0188, B:42:0x011c, B:34:0x00ed, B:29:0x00c3, B:19:0x0074, B:55:0x0152), top: B:185:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:120:0x032a A[Catch: all -> 0x0457, TryCatch #3 {all -> 0x0457, blocks: (B:5:0x000a, B:7:0x001e, B:10:0x003d, B:12:0x0043, B:15:0x0062, B:20:0x0081, B:22:0x0096, B:25:0x00b5, B:30:0x00d0, B:35:0x00fa, B:37:0x010b, B:38:0x010e, B:43:0x0129, B:45:0x0130, B:47:0x0136, B:54:0x0141, B:60:0x0197, B:62:0x019b, B:63:0x01a5, B:68:0x01c2, B:73:0x01ed, B:75:0x022c, B:76:0x0230, B:78:0x023a, B:79:0x023e, B:84:0x025b, B:89:0x028d, B:91:0x029d, B:93:0x02a1, B:95:0x02ab, B:98:0x02b6, B:100:0x02c7, B:99:0x02c3, B:101:0x02d1, B:103:0x02d5, B:105:0x02d9, B:107:0x02e3, B:110:0x02ee, B:112:0x02ff, B:111:0x02fb, B:113:0x0309, B:118:0x0326, B:120:0x032a, B:122:0x032e, B:124:0x0338, B:127:0x0343, B:129:0x0354, B:128:0x0350, B:130:0x035e, B:135:0x037b, B:137:0x037f, B:139:0x0383, B:141:0x038d, B:144:0x0398, B:146:0x03a9, B:145:0x03a5, B:147:0x03b3, B:152:0x03d0, B:154:0x03d4, B:156:0x03dc, B:157:0x03e9, B:162:0x0406, B:164:0x0410, B:165:0x0429, B:169:0x0439, B:161:0x03f9, B:151:0x03c3, B:134:0x036e, B:117:0x0319, B:88:0x0280, B:83:0x024e, B:72:0x01e0, B:67:0x01b5, B:59:0x0188, B:42:0x011c, B:34:0x00ed, B:29:0x00c3, B:19:0x0074, B:55:0x0152), top: B:185:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:137:0x037f A[Catch: all -> 0x0457, TryCatch #3 {all -> 0x0457, blocks: (B:5:0x000a, B:7:0x001e, B:10:0x003d, B:12:0x0043, B:15:0x0062, B:20:0x0081, B:22:0x0096, B:25:0x00b5, B:30:0x00d0, B:35:0x00fa, B:37:0x010b, B:38:0x010e, B:43:0x0129, B:45:0x0130, B:47:0x0136, B:54:0x0141, B:60:0x0197, B:62:0x019b, B:63:0x01a5, B:68:0x01c2, B:73:0x01ed, B:75:0x022c, B:76:0x0230, B:78:0x023a, B:79:0x023e, B:84:0x025b, B:89:0x028d, B:91:0x029d, B:93:0x02a1, B:95:0x02ab, B:98:0x02b6, B:100:0x02c7, B:99:0x02c3, B:101:0x02d1, B:103:0x02d5, B:105:0x02d9, B:107:0x02e3, B:110:0x02ee, B:112:0x02ff, B:111:0x02fb, B:113:0x0309, B:118:0x0326, B:120:0x032a, B:122:0x032e, B:124:0x0338, B:127:0x0343, B:129:0x0354, B:128:0x0350, B:130:0x035e, B:135:0x037b, B:137:0x037f, B:139:0x0383, B:141:0x038d, B:144:0x0398, B:146:0x03a9, B:145:0x03a5, B:147:0x03b3, B:152:0x03d0, B:154:0x03d4, B:156:0x03dc, B:157:0x03e9, B:162:0x0406, B:164:0x0410, B:165:0x0429, B:169:0x0439, B:161:0x03f9, B:151:0x03c3, B:134:0x036e, B:117:0x0319, B:88:0x0280, B:83:0x024e, B:72:0x01e0, B:67:0x01b5, B:59:0x0188, B:42:0x011c, B:34:0x00ed, B:29:0x00c3, B:19:0x0074, B:55:0x0152), top: B:185:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:164:0x0410 A[Catch: all -> 0x0457, TryCatch #3 {all -> 0x0457, blocks: (B:5:0x000a, B:7:0x001e, B:10:0x003d, B:12:0x0043, B:15:0x0062, B:20:0x0081, B:22:0x0096, B:25:0x00b5, B:30:0x00d0, B:35:0x00fa, B:37:0x010b, B:38:0x010e, B:43:0x0129, B:45:0x0130, B:47:0x0136, B:54:0x0141, B:60:0x0197, B:62:0x019b, B:63:0x01a5, B:68:0x01c2, B:73:0x01ed, B:75:0x022c, B:76:0x0230, B:78:0x023a, B:79:0x023e, B:84:0x025b, B:89:0x028d, B:91:0x029d, B:93:0x02a1, B:95:0x02ab, B:98:0x02b6, B:100:0x02c7, B:99:0x02c3, B:101:0x02d1, B:103:0x02d5, B:105:0x02d9, B:107:0x02e3, B:110:0x02ee, B:112:0x02ff, B:111:0x02fb, B:113:0x0309, B:118:0x0326, B:120:0x032a, B:122:0x032e, B:124:0x0338, B:127:0x0343, B:129:0x0354, B:128:0x0350, B:130:0x035e, B:135:0x037b, B:137:0x037f, B:139:0x0383, B:141:0x038d, B:144:0x0398, B:146:0x03a9, B:145:0x03a5, B:147:0x03b3, B:152:0x03d0, B:154:0x03d4, B:156:0x03dc, B:157:0x03e9, B:162:0x0406, B:164:0x0410, B:165:0x0429, B:169:0x0439, B:161:0x03f9, B:151:0x03c3, B:134:0x036e, B:117:0x0319, B:88:0x0280, B:83:0x024e, B:72:0x01e0, B:67:0x01b5, B:59:0x0188, B:42:0x011c, B:34:0x00ed, B:29:0x00c3, B:19:0x0074, B:55:0x0152), top: B:185:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x0141 A[Catch: all -> 0x0457, TRY_LEAVE, TryCatch #3 {all -> 0x0457, blocks: (B:5:0x000a, B:7:0x001e, B:10:0x003d, B:12:0x0043, B:15:0x0062, B:20:0x0081, B:22:0x0096, B:25:0x00b5, B:30:0x00d0, B:35:0x00fa, B:37:0x010b, B:38:0x010e, B:43:0x0129, B:45:0x0130, B:47:0x0136, B:54:0x0141, B:60:0x0197, B:62:0x019b, B:63:0x01a5, B:68:0x01c2, B:73:0x01ed, B:75:0x022c, B:76:0x0230, B:78:0x023a, B:79:0x023e, B:84:0x025b, B:89:0x028d, B:91:0x029d, B:93:0x02a1, B:95:0x02ab, B:98:0x02b6, B:100:0x02c7, B:99:0x02c3, B:101:0x02d1, B:103:0x02d5, B:105:0x02d9, B:107:0x02e3, B:110:0x02ee, B:112:0x02ff, B:111:0x02fb, B:113:0x0309, B:118:0x0326, B:120:0x032a, B:122:0x032e, B:124:0x0338, B:127:0x0343, B:129:0x0354, B:128:0x0350, B:130:0x035e, B:135:0x037b, B:137:0x037f, B:139:0x0383, B:141:0x038d, B:144:0x0398, B:146:0x03a9, B:145:0x03a5, B:147:0x03b3, B:152:0x03d0, B:154:0x03d4, B:156:0x03dc, B:157:0x03e9, B:162:0x0406, B:164:0x0410, B:165:0x0429, B:169:0x0439, B:161:0x03f9, B:151:0x03c3, B:134:0x036e, B:117:0x0319, B:88:0x0280, B:83:0x024e, B:72:0x01e0, B:67:0x01b5, B:59:0x0188, B:42:0x011c, B:34:0x00ed, B:29:0x00c3, B:19:0x0074, B:55:0x0152), top: B:185:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x0188 A[Catch: all -> 0x0457, TryCatch #3 {all -> 0x0457, blocks: (B:5:0x000a, B:7:0x001e, B:10:0x003d, B:12:0x0043, B:15:0x0062, B:20:0x0081, B:22:0x0096, B:25:0x00b5, B:30:0x00d0, B:35:0x00fa, B:37:0x010b, B:38:0x010e, B:43:0x0129, B:45:0x0130, B:47:0x0136, B:54:0x0141, B:60:0x0197, B:62:0x019b, B:63:0x01a5, B:68:0x01c2, B:73:0x01ed, B:75:0x022c, B:76:0x0230, B:78:0x023a, B:79:0x023e, B:84:0x025b, B:89:0x028d, B:91:0x029d, B:93:0x02a1, B:95:0x02ab, B:98:0x02b6, B:100:0x02c7, B:99:0x02c3, B:101:0x02d1, B:103:0x02d5, B:105:0x02d9, B:107:0x02e3, B:110:0x02ee, B:112:0x02ff, B:111:0x02fb, B:113:0x0309, B:118:0x0326, B:120:0x032a, B:122:0x032e, B:124:0x0338, B:127:0x0343, B:129:0x0354, B:128:0x0350, B:130:0x035e, B:135:0x037b, B:137:0x037f, B:139:0x0383, B:141:0x038d, B:144:0x0398, B:146:0x03a9, B:145:0x03a5, B:147:0x03b3, B:152:0x03d0, B:154:0x03d4, B:156:0x03dc, B:157:0x03e9, B:162:0x0406, B:164:0x0410, B:165:0x0429, B:169:0x0439, B:161:0x03f9, B:151:0x03c3, B:134:0x036e, B:117:0x0319, B:88:0x0280, B:83:0x024e, B:72:0x01e0, B:67:0x01b5, B:59:0x0188, B:42:0x011c, B:34:0x00ed, B:29:0x00c3, B:19:0x0074, B:55:0x0152), top: B:185:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x019b A[Catch: all -> 0x0457, TryCatch #3 {all -> 0x0457, blocks: (B:5:0x000a, B:7:0x001e, B:10:0x003d, B:12:0x0043, B:15:0x0062, B:20:0x0081, B:22:0x0096, B:25:0x00b5, B:30:0x00d0, B:35:0x00fa, B:37:0x010b, B:38:0x010e, B:43:0x0129, B:45:0x0130, B:47:0x0136, B:54:0x0141, B:60:0x0197, B:62:0x019b, B:63:0x01a5, B:68:0x01c2, B:73:0x01ed, B:75:0x022c, B:76:0x0230, B:78:0x023a, B:79:0x023e, B:84:0x025b, B:89:0x028d, B:91:0x029d, B:93:0x02a1, B:95:0x02ab, B:98:0x02b6, B:100:0x02c7, B:99:0x02c3, B:101:0x02d1, B:103:0x02d5, B:105:0x02d9, B:107:0x02e3, B:110:0x02ee, B:112:0x02ff, B:111:0x02fb, B:113:0x0309, B:118:0x0326, B:120:0x032a, B:122:0x032e, B:124:0x0338, B:127:0x0343, B:129:0x0354, B:128:0x0350, B:130:0x035e, B:135:0x037b, B:137:0x037f, B:139:0x0383, B:141:0x038d, B:144:0x0398, B:146:0x03a9, B:145:0x03a5, B:147:0x03b3, B:152:0x03d0, B:154:0x03d4, B:156:0x03dc, B:157:0x03e9, B:162:0x0406, B:164:0x0410, B:165:0x0429, B:169:0x0439, B:161:0x03f9, B:151:0x03c3, B:134:0x036e, B:117:0x0319, B:88:0x0280, B:83:0x024e, B:72:0x01e0, B:67:0x01b5, B:59:0x0188, B:42:0x011c, B:34:0x00ed, B:29:0x00c3, B:19:0x0074, B:55:0x0152), top: B:185:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x022c A[Catch: all -> 0x0457, TryCatch #3 {all -> 0x0457, blocks: (B:5:0x000a, B:7:0x001e, B:10:0x003d, B:12:0x0043, B:15:0x0062, B:20:0x0081, B:22:0x0096, B:25:0x00b5, B:30:0x00d0, B:35:0x00fa, B:37:0x010b, B:38:0x010e, B:43:0x0129, B:45:0x0130, B:47:0x0136, B:54:0x0141, B:60:0x0197, B:62:0x019b, B:63:0x01a5, B:68:0x01c2, B:73:0x01ed, B:75:0x022c, B:76:0x0230, B:78:0x023a, B:79:0x023e, B:84:0x025b, B:89:0x028d, B:91:0x029d, B:93:0x02a1, B:95:0x02ab, B:98:0x02b6, B:100:0x02c7, B:99:0x02c3, B:101:0x02d1, B:103:0x02d5, B:105:0x02d9, B:107:0x02e3, B:110:0x02ee, B:112:0x02ff, B:111:0x02fb, B:113:0x0309, B:118:0x0326, B:120:0x032a, B:122:0x032e, B:124:0x0338, B:127:0x0343, B:129:0x0354, B:128:0x0350, B:130:0x035e, B:135:0x037b, B:137:0x037f, B:139:0x0383, B:141:0x038d, B:144:0x0398, B:146:0x03a9, B:145:0x03a5, B:147:0x03b3, B:152:0x03d0, B:154:0x03d4, B:156:0x03dc, B:157:0x03e9, B:162:0x0406, B:164:0x0410, B:165:0x0429, B:169:0x0439, B:161:0x03f9, B:151:0x03c3, B:134:0x036e, B:117:0x0319, B:88:0x0280, B:83:0x024e, B:72:0x01e0, B:67:0x01b5, B:59:0x0188, B:42:0x011c, B:34:0x00ed, B:29:0x00c3, B:19:0x0074, B:55:0x0152), top: B:185:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x023a A[Catch: all -> 0x0457, TryCatch #3 {all -> 0x0457, blocks: (B:5:0x000a, B:7:0x001e, B:10:0x003d, B:12:0x0043, B:15:0x0062, B:20:0x0081, B:22:0x0096, B:25:0x00b5, B:30:0x00d0, B:35:0x00fa, B:37:0x010b, B:38:0x010e, B:43:0x0129, B:45:0x0130, B:47:0x0136, B:54:0x0141, B:60:0x0197, B:62:0x019b, B:63:0x01a5, B:68:0x01c2, B:73:0x01ed, B:75:0x022c, B:76:0x0230, B:78:0x023a, B:79:0x023e, B:84:0x025b, B:89:0x028d, B:91:0x029d, B:93:0x02a1, B:95:0x02ab, B:98:0x02b6, B:100:0x02c7, B:99:0x02c3, B:101:0x02d1, B:103:0x02d5, B:105:0x02d9, B:107:0x02e3, B:110:0x02ee, B:112:0x02ff, B:111:0x02fb, B:113:0x0309, B:118:0x0326, B:120:0x032a, B:122:0x032e, B:124:0x0338, B:127:0x0343, B:129:0x0354, B:128:0x0350, B:130:0x035e, B:135:0x037b, B:137:0x037f, B:139:0x0383, B:141:0x038d, B:144:0x0398, B:146:0x03a9, B:145:0x03a5, B:147:0x03b3, B:152:0x03d0, B:154:0x03d4, B:156:0x03dc, B:157:0x03e9, B:162:0x0406, B:164:0x0410, B:165:0x0429, B:169:0x0439, B:161:0x03f9, B:151:0x03c3, B:134:0x036e, B:117:0x0319, B:88:0x0280, B:83:0x024e, B:72:0x01e0, B:67:0x01b5, B:59:0x0188, B:42:0x011c, B:34:0x00ed, B:29:0x00c3, B:19:0x0074, B:55:0x0152), top: B:185:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:91:0x029d A[Catch: all -> 0x0457, TryCatch #3 {all -> 0x0457, blocks: (B:5:0x000a, B:7:0x001e, B:10:0x003d, B:12:0x0043, B:15:0x0062, B:20:0x0081, B:22:0x0096, B:25:0x00b5, B:30:0x00d0, B:35:0x00fa, B:37:0x010b, B:38:0x010e, B:43:0x0129, B:45:0x0130, B:47:0x0136, B:54:0x0141, B:60:0x0197, B:62:0x019b, B:63:0x01a5, B:68:0x01c2, B:73:0x01ed, B:75:0x022c, B:76:0x0230, B:78:0x023a, B:79:0x023e, B:84:0x025b, B:89:0x028d, B:91:0x029d, B:93:0x02a1, B:95:0x02ab, B:98:0x02b6, B:100:0x02c7, B:99:0x02c3, B:101:0x02d1, B:103:0x02d5, B:105:0x02d9, B:107:0x02e3, B:110:0x02ee, B:112:0x02ff, B:111:0x02fb, B:113:0x0309, B:118:0x0326, B:120:0x032a, B:122:0x032e, B:124:0x0338, B:127:0x0343, B:129:0x0354, B:128:0x0350, B:130:0x035e, B:135:0x037b, B:137:0x037f, B:139:0x0383, B:141:0x038d, B:144:0x0398, B:146:0x03a9, B:145:0x03a5, B:147:0x03b3, B:152:0x03d0, B:154:0x03d4, B:156:0x03dc, B:157:0x03e9, B:162:0x0406, B:164:0x0410, B:165:0x0429, B:169:0x0439, B:161:0x03f9, B:151:0x03c3, B:134:0x036e, B:117:0x0319, B:88:0x0280, B:83:0x024e, B:72:0x01e0, B:67:0x01b5, B:59:0x0188, B:42:0x011c, B:34:0x00ed, B:29:0x00c3, B:19:0x0074, B:55:0x0152), top: B:185:0x000a }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized boolean a(String str, Plugin plugin, StringBuilder sb) {
-        InterceptResult invokeLLL;
+    public static synchronized boolean a(String str, final Plugin plugin, StringBuilder sb) {
         boolean z;
         long a2;
         PackageInfo packageArchiveInfo;
@@ -123,449 +80,357 @@ public final class c {
         long a8;
         long a9;
         long a10;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, plugin, sb)) == null) {
-            synchronized (c.class) {
-                try {
-                    com.bytedance.pangle.log.b a11 = com.bytedance.pangle.log.b.a(ZeusLogger.TAG_LOAD, "PluginLoader", "load:".concat(String.valueOf(str)));
-                    if (plugin == null) {
-                        sb.append("loadPluginInternal, plugin == null;");
-                        ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginLoader loadPluginInternal, plugin[" + str + "] not exist !!!", str);
+        synchronized (c.class) {
+            try {
+                com.bytedance.pangle.log.b a11 = com.bytedance.pangle.log.b.a(ZeusLogger.TAG_LOAD, "PluginLoader", "load:".concat(String.valueOf(str)));
+                if (plugin == null) {
+                    sb.append("loadPluginInternal, plugin == null;");
+                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginLoader loadPluginInternal, plugin[" + str + "] not exist !!!", str);
+                    return false;
+                } else if (!plugin.isInstalled()) {
+                    sb.append("loadPluginInternal, !plugin.isInstalled();");
+                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginLoader loadPluginInternal, plugin[" + str + "] not installed !!!", str);
+                    return false;
+                } else {
+                    long a12 = a11.a("isInstalled");
+                    if (a12 > 20 || a12 < 0) {
+                        sb.append("isInstall cost:");
+                        sb.append(a12);
+                        sb.append(ParamableElem.DIVIDE_PARAM);
+                    }
+                    String b = com.bytedance.pangle.c.c.b(plugin.mPkgName, plugin.getVersion());
+                    if (!new File(b).exists()) {
+                        sb.append("loadPluginInternal, sourceApk not exist;");
+                        ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginLoader loadPluginInternal, plugin[" + str + "] file not exist !!!", str);
                         return false;
-                    } else if (!plugin.isInstalled()) {
-                        sb.append("loadPluginInternal, !plugin.isInstalled();");
-                        ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginLoader loadPluginInternal, plugin[" + str + "] not installed !!!", str);
-                        return false;
-                    } else {
-                        long a12 = a11.a("isInstalled");
-                        if (a12 > 20 || a12 < 0) {
-                            sb.append("isInstall cost:");
-                            sb.append(a12);
-                            sb.append(";");
+                    }
+                    long a13 = a11.a("getSourceFile");
+                    if (a13 > 20 || a13 < 0) {
+                        sb.append("getSourceFile cost:");
+                        sb.append(a13);
+                        sb.append(ParamableElem.DIVIDE_PARAM);
+                    }
+                    File file = new File(com.bytedance.pangle.c.c.d(plugin.mPkgName, plugin.getVersion()));
+                    long a14 = a11.a("getNativeLibraryDir");
+                    if (a14 > 20 || a14 < 0) {
+                        sb.append("getNativeLibraryDir cost:");
+                        sb.append(a14);
+                        sb.append(ParamableElem.DIVIDE_PARAM);
+                    }
+                    File file2 = new File(file.getParentFile(), "dalvik-cache");
+                    if (!file2.exists()) {
+                        file2.mkdirs();
+                    }
+                    long a15 = a11.a("dalvikCacheDir");
+                    if (a15 > 20 || a15 < 0) {
+                        sb.append("dalvikCacheDirTime cost:");
+                        sb.append(a15);
+                        sb.append(ParamableElem.DIVIDE_PARAM);
+                    }
+                    if (Build.VERSION.SDK_INT < 31 && (Build.VERSION.SDK_INT != 30 || Build.VERSION.PREVIEW_SDK_INT <= 0)) {
+                        z = false;
+                        if (!z) {
+                            PluginClassLoader pluginClassLoader = new PluginClassLoader("", file2.getPath(), file.getAbsolutePath(), null);
+                            plugin.mClassLoader = pluginClassLoader;
+                            MethodUtils.getAccessibleMethod(BaseDexClassLoader.class, "addDexPath", String.class).invoke(pluginClassLoader, b);
+                            ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginLoader createPluginClassLoader#addDexPath success >>>".concat(String.valueOf(b)));
+                        } else {
+                            plugin.mClassLoader = new PluginClassLoader(b, file2.getPath(), file.getAbsolutePath(), null);
                         }
-                        String b = com.bytedance.pangle.c.c.b(plugin.mPkgName, plugin.getVersion());
-                        if (!new File(b).exists()) {
-                            sb.append("loadPluginInternal, sourceApk not exist;");
-                            ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginLoader loadPluginInternal, plugin[" + str + "] file not exist !!!", str);
-                            return false;
-                        }
-                        long a13 = a11.a("getSourceFile");
-                        if (a13 > 20 || a13 < 0) {
-                            sb.append("getSourceFile cost:");
-                            sb.append(a13);
-                            sb.append(";");
-                        }
-                        File file = new File(com.bytedance.pangle.c.c.d(plugin.mPkgName, plugin.getVersion()));
-                        long a14 = a11.a("getNativeLibraryDir");
-                        if (a14 > 20 || a14 < 0) {
-                            sb.append("getNativeLibraryDir cost:");
-                            sb.append(a14);
-                            sb.append(";");
-                        }
-                        File file2 = new File(file.getParentFile(), "dalvik-cache");
-                        if (!file2.exists()) {
-                            file2.mkdirs();
-                        }
-                        long a15 = a11.a("dalvikCacheDir");
-                        if (a15 > 20 || a15 < 0) {
-                            sb.append("dalvikCacheDirTime cost:");
-                            sb.append(a15);
-                            sb.append(";");
-                        }
-                        if (Build.VERSION.SDK_INT < 31 && (Build.VERSION.SDK_INT != 30 || Build.VERSION.PREVIEW_SDK_INT <= 0)) {
-                            z = false;
-                            if (!z) {
-                                PluginClassLoader pluginClassLoader = new PluginClassLoader("", file2.getPath(), file.getAbsolutePath(), null);
-                                plugin.mClassLoader = pluginClassLoader;
-                                MethodUtils.getAccessibleMethod(BaseDexClassLoader.class, "addDexPath", String.class).invoke(pluginClassLoader, b);
-                                ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginLoader createPluginClassLoader#addDexPath success >>>".concat(String.valueOf(b)));
-                            } else {
-                                plugin.mClassLoader = new PluginClassLoader(b, file2.getPath(), file.getAbsolutePath(), null);
-                            }
-                            if (plugin.mOpenLoadClassOpt) {
-                                e.a.execute(new Runnable(plugin) { // from class: com.bytedance.pangle.plugin.c.1
-                                    public static /* synthetic */ Interceptable $ic;
-                                    public transient /* synthetic */ FieldHolder $fh;
-                                    public final /* synthetic */ Plugin a;
-
-                                    {
-                                        Interceptable interceptable2 = $ic;
-                                        if (interceptable2 != null) {
-                                            InitContext newInitContext = TitanRuntime.newInitContext();
-                                            newInitContext.initArgs = r2;
-                                            Object[] objArr = {plugin};
-                                            interceptable2.invokeUnInit(65536, newInitContext);
-                                            int i = newInitContext.flag;
-                                            if ((i & 1) != 0) {
-                                                int i2 = i & 2;
-                                                newInitContext.thisArg = this;
-                                                interceptable2.invokeInitBody(65536, newInitContext);
-                                                return;
-                                            }
-                                        }
-                                        this.a = plugin;
-                                    }
-
-                                    @Override // java.lang.Runnable
-                                    public final void run() {
-                                        Interceptable interceptable2 = $ic;
-                                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                            try {
-                                                this.a.mClassLoader.setAllPluginClasses((HashSet) MethodUtils.invokeStaticMethod(this.a.mClassLoader.loadClass("com.volcengine.PluginClassHolder"), "getPluginClasses", new Object[0]));
-                                            } catch (Throwable unused) {
-                                            }
-                                        }
-                                    }
-                                });
-                            }
-                            a2 = a11.a("classloader");
-                            if (a2 <= 20 || a2 < 0) {
-                                sb.append("classloader cost:");
-                                sb.append(a2);
-                                sb.append(";");
-                            }
-                            packageArchiveInfo = Zeus.getAppApplication().getPackageManager().getPackageArchiveInfo(b, 15);
-                            a3 = a11.a("getPackageInfo");
-                            if (a3 <= 20 || a3 < 0) {
-                                sb.append("getPackageInfo cost:");
-                                sb.append(a3);
-                                sb.append(";");
-                            }
-                            plugin.mHostApplication = (PluginApplicationWrapper) ZeusTransformUtils.wrapperContext2Application(Zeus.getAppApplication(), plugin.mPkgName);
-                            ApplicationInfo applicationInfo = new ApplicationInfo(Zeus.getAppApplication().getApplicationInfo());
-                            plugin.mHostApplicationInfoHookSomeField = applicationInfo;
-                            applicationInfo.nativeLibraryDir = file.getAbsolutePath();
-                            plugin.mHostApplicationInfoHookSomeField.dataDir = plugin.mHostApplication.getDataDir().getAbsolutePath();
-                            plugin.mHostApplicationInfoHookSomeField.sourceDir = b;
-                            if (TextUtils.isEmpty(packageArchiveInfo.applicationInfo.sourceDir)) {
-                                packageArchiveInfo.applicationInfo.sourceDir = b;
-                            }
-                            if (TextUtils.isEmpty(packageArchiveInfo.applicationInfo.publicSourceDir)) {
-                                packageArchiveInfo.applicationInfo.publicSourceDir = b;
-                            }
-                            a4 = a11.a("setApplication");
-                            if (a4 <= 20 || a4 < 0) {
-                                sb.append("setApplication cost:");
-                                sb.append(a4);
-                                sb.append(";");
-                            }
-                            plugin.mResources = new PluginResources(Zeus.getAppApplication().getPackageManager().getResourcesForApplication(packageArchiveInfo.applicationInfo), str);
-                            a5 = a11.a("makeResources");
-                            if (a5 <= 20 || a5 < 0) {
-                                sb.append("makeResources cost:");
-                                sb.append(a5);
-                                sb.append(";");
-                            }
-                            Zeus.getAppApplication().registerComponentCallbacks(new ComponentCallbacks(plugin) { // from class: com.bytedance.pangle.plugin.c.2
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ Plugin a;
-
-                                @Override // android.content.ComponentCallbacks
-                                public final void onLowMemory() {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                                    }
-                                }
-
-                                {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {plugin};
-                                        interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i = newInitContext.flag;
-                                        if ((i & 1) != 0) {
-                                            int i2 = i & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable2.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.a = plugin;
-                                }
-
-                                @Override // android.content.ComponentCallbacks
-                                public final void onConfigurationChanged(Configuration configuration) {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, configuration) == null) {
-                                        this.a.mResources.updateConfiguration(configuration, Zeus.getAppApplication().getResources().getDisplayMetrics());
+                        if (plugin.mOpenLoadClassOpt) {
+                            e.a.execute(new Runnable() { // from class: com.bytedance.pangle.plugin.c.1
+                                @Override // java.lang.Runnable
+                                public final void run() {
+                                    try {
+                                        Plugin.this.mClassLoader.setAllPluginClasses((HashSet) MethodUtils.invokeStaticMethod(Plugin.this.mClassLoader.loadClass("com.volcengine.PluginClassHolder"), "getPluginClasses", new Object[0]));
+                                    } catch (Throwable unused) {
                                     }
                                 }
                             });
-                            activityInfoArr = packageArchiveInfo.activities;
-                            if (activityInfoArr != null) {
-                                for (ActivityInfo activityInfo : activityInfoArr) {
-                                    if (!TextUtils.isEmpty(activityInfo.processName) && activityInfo.processName.contains(":")) {
-                                        activityInfo.processName = activityInfo.processName.split(":")[1];
-                                        plugin.pluginActivities.put(activityInfo.name, activityInfo);
-                                    }
-                                    activityInfo.processName = "main";
-                                    plugin.pluginActivities.put(activityInfo.name, activityInfo);
-                                }
-                            }
-                            serviceInfoArr = packageArchiveInfo.services;
-                            if (serviceInfoArr != null) {
-                                for (ServiceInfo serviceInfo : serviceInfoArr) {
-                                    if (!TextUtils.isEmpty(serviceInfo.processName) && serviceInfo.processName.contains(":")) {
-                                        serviceInfo.processName = serviceInfo.processName.split(":")[1];
-                                        plugin.pluginServices.put(serviceInfo.name, serviceInfo);
-                                    }
-                                    serviceInfo.processName = "main";
-                                    plugin.pluginServices.put(serviceInfo.name, serviceInfo);
-                                }
-                            }
-                            a6 = a11.a("resolveActivityServices");
-                            if (a6 <= 20 || a6 < 0) {
-                                sb.append("resolveActivityServices cost:");
-                                sb.append(a6);
-                                sb.append(";");
-                            }
-                            activityInfoArr2 = packageArchiveInfo.receivers;
-                            if (activityInfoArr2 != null) {
-                                for (ActivityInfo activityInfo2 : activityInfoArr2) {
-                                    if (!TextUtils.isEmpty(activityInfo2.processName) && activityInfo2.processName.contains(":")) {
-                                        activityInfo2.processName = activityInfo2.processName.split(":")[1];
-                                        plugin.pluginReceiver.put(activityInfo2.name, activityInfo2);
-                                    }
-                                    activityInfo2.processName = "main";
-                                    plugin.pluginReceiver.put(activityInfo2.name, activityInfo2);
-                                }
-                            }
-                            a7 = a11.a("resolveReceiver");
-                            if (a7 <= 20 || a7 < 0) {
-                                sb.append("resolveReceiver cost:");
-                                sb.append(a7);
-                                sb.append(";");
-                            }
-                            providerInfoArr = packageArchiveInfo.providers;
-                            if (providerInfoArr != null) {
-                                for (ProviderInfo providerInfo : providerInfoArr) {
-                                    if (!TextUtils.isEmpty(providerInfo.processName) && providerInfo.processName.contains(":")) {
-                                        providerInfo.processName = providerInfo.processName.split(":")[1];
-                                        plugin.pluginProvider.put(providerInfo.name, providerInfo);
-                                    }
-                                    providerInfo.processName = "main";
-                                    plugin.pluginProvider.put(providerInfo.name, providerInfo);
-                                }
-                            }
-                            a8 = a11.a("resolveProvider");
-                            if (a8 <= 20 || a8 < 0) {
-                                sb.append("resolveProvider cost:");
-                                sb.append(a8);
-                                sb.append(";");
-                            }
-                            if (plugin.pluginProvider != null && plugin.pluginProvider.size() > 0) {
-                                ContentProviderManager.getInstance().installContentProviders(plugin.pluginProvider.values(), plugin);
-                            }
-                            a9 = a11.a("installProvider");
-                            if (a9 <= 20 || a9 < 0) {
-                                sb.append("installProvider cost:");
-                                sb.append(a9);
-                                sb.append(";");
-                            }
-                            if (!TextUtils.isEmpty(packageArchiveInfo.applicationInfo.className)) {
-                                ZeusApplication zeusApplication = (ZeusApplication) plugin.mClassLoader.loadClass(packageArchiveInfo.applicationInfo.className).newInstance();
-                                plugin.mApplication = zeusApplication;
-                                zeusApplication.attach(plugin, Zeus.getAppApplication());
-                            }
-                            a10 = a11.a("makeApplication");
-                            if (a10 <= 20 || a10 < 0) {
-                                sb.append("makeApplication cost:");
-                                sb.append(a10);
-                                sb.append(";");
-                            }
-                            MethodUtils.invokeStaticMethod(plugin.mClassLoader.loadClass("com.volcengine.StubConfig"), "config", new Object[0]);
-                            return true;
-                        }
-                        z = true;
-                        if (!z) {
-                        }
-                        if (plugin.mOpenLoadClassOpt) {
                         }
                         a2 = a11.a("classloader");
-                        if (a2 <= 20) {
+                        if (a2 <= 20 || a2 < 0) {
+                            sb.append("classloader cost:");
+                            sb.append(a2);
+                            sb.append(ParamableElem.DIVIDE_PARAM);
                         }
-                        sb.append("classloader cost:");
-                        sb.append(a2);
-                        sb.append(";");
                         packageArchiveInfo = Zeus.getAppApplication().getPackageManager().getPackageArchiveInfo(b, 15);
                         a3 = a11.a("getPackageInfo");
-                        if (a3 <= 20) {
+                        if (a3 <= 20 || a3 < 0) {
+                            sb.append("getPackageInfo cost:");
+                            sb.append(a3);
+                            sb.append(ParamableElem.DIVIDE_PARAM);
                         }
-                        sb.append("getPackageInfo cost:");
-                        sb.append(a3);
-                        sb.append(";");
                         plugin.mHostApplication = (PluginApplicationWrapper) ZeusTransformUtils.wrapperContext2Application(Zeus.getAppApplication(), plugin.mPkgName);
-                        ApplicationInfo applicationInfo2 = new ApplicationInfo(Zeus.getAppApplication().getApplicationInfo());
-                        plugin.mHostApplicationInfoHookSomeField = applicationInfo2;
-                        applicationInfo2.nativeLibraryDir = file.getAbsolutePath();
+                        ApplicationInfo applicationInfo = new ApplicationInfo(Zeus.getAppApplication().getApplicationInfo());
+                        plugin.mHostApplicationInfoHookSomeField = applicationInfo;
+                        applicationInfo.nativeLibraryDir = file.getAbsolutePath();
                         plugin.mHostApplicationInfoHookSomeField.dataDir = plugin.mHostApplication.getDataDir().getAbsolutePath();
                         plugin.mHostApplicationInfoHookSomeField.sourceDir = b;
                         if (TextUtils.isEmpty(packageArchiveInfo.applicationInfo.sourceDir)) {
+                            packageArchiveInfo.applicationInfo.sourceDir = b;
                         }
                         if (TextUtils.isEmpty(packageArchiveInfo.applicationInfo.publicSourceDir)) {
+                            packageArchiveInfo.applicationInfo.publicSourceDir = b;
                         }
                         a4 = a11.a("setApplication");
-                        if (a4 <= 20) {
+                        if (a4 <= 20 || a4 < 0) {
+                            sb.append("setApplication cost:");
+                            sb.append(a4);
+                            sb.append(ParamableElem.DIVIDE_PARAM);
                         }
-                        sb.append("setApplication cost:");
-                        sb.append(a4);
-                        sb.append(";");
                         plugin.mResources = new PluginResources(Zeus.getAppApplication().getPackageManager().getResourcesForApplication(packageArchiveInfo.applicationInfo), str);
                         a5 = a11.a("makeResources");
-                        if (a5 <= 20) {
+                        if (a5 <= 20 || a5 < 0) {
+                            sb.append("makeResources cost:");
+                            sb.append(a5);
+                            sb.append(ParamableElem.DIVIDE_PARAM);
                         }
-                        sb.append("makeResources cost:");
-                        sb.append(a5);
-                        sb.append(";");
-                        Zeus.getAppApplication().registerComponentCallbacks(new ComponentCallbacks(plugin) { // from class: com.bytedance.pangle.plugin.c.2
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ Plugin a;
-
+                        Zeus.getAppApplication().registerComponentCallbacks(new ComponentCallbacks() { // from class: com.bytedance.pangle.plugin.c.2
                             @Override // android.content.ComponentCallbacks
                             public final void onLowMemory() {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                                }
-                            }
-
-                            {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = objArr;
-                                    Object[] objArr = {plugin};
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i = newInitContext.flag;
-                                    if ((i & 1) != 0) {
-                                        int i2 = i & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.a = plugin;
                             }
 
                             @Override // android.content.ComponentCallbacks
                             public final void onConfigurationChanged(Configuration configuration) {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeL(1048576, this, configuration) == null) {
-                                    this.a.mResources.updateConfiguration(configuration, Zeus.getAppApplication().getResources().getDisplayMetrics());
-                                }
+                                Plugin.this.mResources.updateConfiguration(configuration, Zeus.getAppApplication().getResources().getDisplayMetrics());
                             }
                         });
                         activityInfoArr = packageArchiveInfo.activities;
                         if (activityInfoArr != null) {
+                            for (ActivityInfo activityInfo : activityInfoArr) {
+                                if (!TextUtils.isEmpty(activityInfo.processName) && activityInfo.processName.contains(":")) {
+                                    activityInfo.processName = activityInfo.processName.split(":")[1];
+                                    plugin.pluginActivities.put(activityInfo.name, activityInfo);
+                                }
+                                activityInfo.processName = "main";
+                                plugin.pluginActivities.put(activityInfo.name, activityInfo);
+                            }
                         }
                         serviceInfoArr = packageArchiveInfo.services;
                         if (serviceInfoArr != null) {
+                            for (ServiceInfo serviceInfo : serviceInfoArr) {
+                                if (!TextUtils.isEmpty(serviceInfo.processName) && serviceInfo.processName.contains(":")) {
+                                    serviceInfo.processName = serviceInfo.processName.split(":")[1];
+                                    plugin.pluginServices.put(serviceInfo.name, serviceInfo);
+                                }
+                                serviceInfo.processName = "main";
+                                plugin.pluginServices.put(serviceInfo.name, serviceInfo);
+                            }
                         }
                         a6 = a11.a("resolveActivityServices");
-                        if (a6 <= 20) {
+                        if (a6 <= 20 || a6 < 0) {
+                            sb.append("resolveActivityServices cost:");
+                            sb.append(a6);
+                            sb.append(ParamableElem.DIVIDE_PARAM);
                         }
-                        sb.append("resolveActivityServices cost:");
-                        sb.append(a6);
-                        sb.append(";");
                         activityInfoArr2 = packageArchiveInfo.receivers;
                         if (activityInfoArr2 != null) {
+                            for (ActivityInfo activityInfo2 : activityInfoArr2) {
+                                if (!TextUtils.isEmpty(activityInfo2.processName) && activityInfo2.processName.contains(":")) {
+                                    activityInfo2.processName = activityInfo2.processName.split(":")[1];
+                                    plugin.pluginReceiver.put(activityInfo2.name, activityInfo2);
+                                }
+                                activityInfo2.processName = "main";
+                                plugin.pluginReceiver.put(activityInfo2.name, activityInfo2);
+                            }
                         }
                         a7 = a11.a("resolveReceiver");
-                        if (a7 <= 20) {
+                        if (a7 <= 20 || a7 < 0) {
+                            sb.append("resolveReceiver cost:");
+                            sb.append(a7);
+                            sb.append(ParamableElem.DIVIDE_PARAM);
                         }
-                        sb.append("resolveReceiver cost:");
-                        sb.append(a7);
-                        sb.append(";");
                         providerInfoArr = packageArchiveInfo.providers;
                         if (providerInfoArr != null) {
+                            for (ProviderInfo providerInfo : providerInfoArr) {
+                                if (!TextUtils.isEmpty(providerInfo.processName) && providerInfo.processName.contains(":")) {
+                                    providerInfo.processName = providerInfo.processName.split(":")[1];
+                                    plugin.pluginProvider.put(providerInfo.name, providerInfo);
+                                }
+                                providerInfo.processName = "main";
+                                plugin.pluginProvider.put(providerInfo.name, providerInfo);
+                            }
                         }
                         a8 = a11.a("resolveProvider");
-                        if (a8 <= 20) {
+                        if (a8 <= 20 || a8 < 0) {
+                            sb.append("resolveProvider cost:");
+                            sb.append(a8);
+                            sb.append(ParamableElem.DIVIDE_PARAM);
                         }
-                        sb.append("resolveProvider cost:");
-                        sb.append(a8);
-                        sb.append(";");
-                        if (plugin.pluginProvider != null) {
+                        if (plugin.pluginProvider != null && plugin.pluginProvider.size() > 0) {
                             ContentProviderManager.getInstance().installContentProviders(plugin.pluginProvider.values(), plugin);
                         }
                         a9 = a11.a("installProvider");
-                        if (a9 <= 20) {
+                        if (a9 <= 20 || a9 < 0) {
+                            sb.append("installProvider cost:");
+                            sb.append(a9);
+                            sb.append(ParamableElem.DIVIDE_PARAM);
                         }
-                        sb.append("installProvider cost:");
-                        sb.append(a9);
-                        sb.append(";");
                         if (!TextUtils.isEmpty(packageArchiveInfo.applicationInfo.className)) {
+                            ZeusApplication zeusApplication = (ZeusApplication) plugin.mClassLoader.loadClass(packageArchiveInfo.applicationInfo.className).newInstance();
+                            plugin.mApplication = zeusApplication;
+                            zeusApplication.attach(plugin, Zeus.getAppApplication());
                         }
                         a10 = a11.a("makeApplication");
-                        if (a10 <= 20) {
+                        if (a10 <= 20 || a10 < 0) {
+                            sb.append("makeApplication cost:");
+                            sb.append(a10);
+                            sb.append(ParamableElem.DIVIDE_PARAM);
                         }
-                        sb.append("makeApplication cost:");
-                        sb.append(a10);
-                        sb.append(";");
                         MethodUtils.invokeStaticMethod(plugin.mClassLoader.loadClass("com.volcengine.StubConfig"), "config", new Object[0]);
                         return true;
                     }
-                } catch (Throwable th) {
-                    sb.append("loadPluginInternal ");
-                    sb.append(th.getMessage());
-                    sb.append(";");
-                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginLoader loadPluginInternal, plugin[" + str + "] ", str, th);
-                    return false;
+                    z = true;
+                    if (!z) {
+                    }
+                    if (plugin.mOpenLoadClassOpt) {
+                    }
+                    a2 = a11.a("classloader");
+                    if (a2 <= 20) {
+                    }
+                    sb.append("classloader cost:");
+                    sb.append(a2);
+                    sb.append(ParamableElem.DIVIDE_PARAM);
+                    packageArchiveInfo = Zeus.getAppApplication().getPackageManager().getPackageArchiveInfo(b, 15);
+                    a3 = a11.a("getPackageInfo");
+                    if (a3 <= 20) {
+                    }
+                    sb.append("getPackageInfo cost:");
+                    sb.append(a3);
+                    sb.append(ParamableElem.DIVIDE_PARAM);
+                    plugin.mHostApplication = (PluginApplicationWrapper) ZeusTransformUtils.wrapperContext2Application(Zeus.getAppApplication(), plugin.mPkgName);
+                    ApplicationInfo applicationInfo2 = new ApplicationInfo(Zeus.getAppApplication().getApplicationInfo());
+                    plugin.mHostApplicationInfoHookSomeField = applicationInfo2;
+                    applicationInfo2.nativeLibraryDir = file.getAbsolutePath();
+                    plugin.mHostApplicationInfoHookSomeField.dataDir = plugin.mHostApplication.getDataDir().getAbsolutePath();
+                    plugin.mHostApplicationInfoHookSomeField.sourceDir = b;
+                    if (TextUtils.isEmpty(packageArchiveInfo.applicationInfo.sourceDir)) {
+                    }
+                    if (TextUtils.isEmpty(packageArchiveInfo.applicationInfo.publicSourceDir)) {
+                    }
+                    a4 = a11.a("setApplication");
+                    if (a4 <= 20) {
+                    }
+                    sb.append("setApplication cost:");
+                    sb.append(a4);
+                    sb.append(ParamableElem.DIVIDE_PARAM);
+                    plugin.mResources = new PluginResources(Zeus.getAppApplication().getPackageManager().getResourcesForApplication(packageArchiveInfo.applicationInfo), str);
+                    a5 = a11.a("makeResources");
+                    if (a5 <= 20) {
+                    }
+                    sb.append("makeResources cost:");
+                    sb.append(a5);
+                    sb.append(ParamableElem.DIVIDE_PARAM);
+                    Zeus.getAppApplication().registerComponentCallbacks(new ComponentCallbacks() { // from class: com.bytedance.pangle.plugin.c.2
+                        @Override // android.content.ComponentCallbacks
+                        public final void onLowMemory() {
+                        }
+
+                        @Override // android.content.ComponentCallbacks
+                        public final void onConfigurationChanged(Configuration configuration) {
+                            Plugin.this.mResources.updateConfiguration(configuration, Zeus.getAppApplication().getResources().getDisplayMetrics());
+                        }
+                    });
+                    activityInfoArr = packageArchiveInfo.activities;
+                    if (activityInfoArr != null) {
+                    }
+                    serviceInfoArr = packageArchiveInfo.services;
+                    if (serviceInfoArr != null) {
+                    }
+                    a6 = a11.a("resolveActivityServices");
+                    if (a6 <= 20) {
+                    }
+                    sb.append("resolveActivityServices cost:");
+                    sb.append(a6);
+                    sb.append(ParamableElem.DIVIDE_PARAM);
+                    activityInfoArr2 = packageArchiveInfo.receivers;
+                    if (activityInfoArr2 != null) {
+                    }
+                    a7 = a11.a("resolveReceiver");
+                    if (a7 <= 20) {
+                    }
+                    sb.append("resolveReceiver cost:");
+                    sb.append(a7);
+                    sb.append(ParamableElem.DIVIDE_PARAM);
+                    providerInfoArr = packageArchiveInfo.providers;
+                    if (providerInfoArr != null) {
+                    }
+                    a8 = a11.a("resolveProvider");
+                    if (a8 <= 20) {
+                    }
+                    sb.append("resolveProvider cost:");
+                    sb.append(a8);
+                    sb.append(ParamableElem.DIVIDE_PARAM);
+                    if (plugin.pluginProvider != null) {
+                        ContentProviderManager.getInstance().installContentProviders(plugin.pluginProvider.values(), plugin);
+                    }
+                    a9 = a11.a("installProvider");
+                    if (a9 <= 20) {
+                    }
+                    sb.append("installProvider cost:");
+                    sb.append(a9);
+                    sb.append(ParamableElem.DIVIDE_PARAM);
+                    if (!TextUtils.isEmpty(packageArchiveInfo.applicationInfo.className)) {
+                    }
+                    a10 = a11.a("makeApplication");
+                    if (a10 <= 20) {
+                    }
+                    sb.append("makeApplication cost:");
+                    sb.append(a10);
+                    sb.append(ParamableElem.DIVIDE_PARAM);
+                    MethodUtils.invokeStaticMethod(plugin.mClassLoader.loadClass("com.volcengine.StubConfig"), "config", new Object[0]);
+                    return true;
                 }
+            } catch (Throwable th) {
+                sb.append("loadPluginInternal ");
+                sb.append(th.getMessage());
+                sb.append(ParamableElem.DIVIDE_PARAM);
+                ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginLoader loadPluginInternal, plugin[" + str + "] ", str, th);
+                return false;
             }
         }
-        return invokeLLL.booleanValue;
     }
 
     public final synchronized boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            synchronized (this) {
-                Plugin plugin = PluginManager.getInstance().getPlugin(str);
-                if (plugin == null) {
-                    ZeusLogger.w(ZeusLogger.TAG_LOAD, "PluginLoader loadPlugin, plugin == null, pkg = ".concat(String.valueOf(str)));
-                    return false;
-                } else if (!plugin.isInstalled()) {
-                    ZeusLogger.w(ZeusLogger.TAG_LOAD, "PluginLoader loadPlugin, UN_INSTALLED, ".concat(String.valueOf(str)));
-                    return false;
-                } else if (plugin.isLoaded()) {
-                    return true;
-                } else {
-                    a.a(2000, 0, plugin.mPkgName, plugin.getVersion(), null);
-                    com.bytedance.pangle.log.b a2 = com.bytedance.pangle.log.b.a(ZeusLogger.TAG_LOAD, "PluginLoader", "loadPlugin:".concat(String.valueOf(str)));
-                    a(com.bytedance.pangle.b.b.g, b.a.x, plugin.mPkgName, plugin.getVersion(), -1L, null);
-                    ZeusPluginStateListener.postStateChange(str, 8, new Object[0]);
-                    StringBuilder sb = new StringBuilder();
-                    boolean a3 = a(str, plugin, sb);
-                    a2.b("loadPluginInternal:".concat(String.valueOf(a3)));
-                    if (a3) {
-                        plugin.setLifeCycle(3);
-                        a(com.bytedance.pangle.b.b.h, b.a.y, plugin.mPkgName, plugin.getVersion(), a2.a(), sb.toString());
-                        ZeusPluginStateListener.postStateChange(str, 9, new Object[0]);
-                        a.a(2100, 0, plugin.mPkgName, plugin.getVersion(), null);
-                    } else {
-                        sb.append("plugin:");
-                        sb.append(plugin.mPkgName);
-                        sb.append(" versionCode:");
-                        sb.append(plugin.getVersion());
-                        sb.append("load failed;");
-                        a(com.bytedance.pangle.b.b.h, b.a.z, plugin.mPkgName, plugin.getVersion(), -1L, sb.toString());
-                        ZeusPluginStateListener.postStateChange(str, 10, new Object[0]);
-                        a.a(2100, -1, plugin.mPkgName, plugin.getVersion(), null);
-                    }
-                    ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginLoader loadFinished, ".concat(String.valueOf(plugin)));
-                    if (!plugin.isLoaded()) {
-                        return false;
-                    }
-                    ZeusLogger.d(ZeusLogger.TAG_LOAD, "PluginLoader postResult, LOADED " + plugin.mPkgName);
-                    return true;
-                }
+        Plugin plugin = PluginManager.getInstance().getPlugin(str);
+        if (plugin == null) {
+            ZeusLogger.w(ZeusLogger.TAG_LOAD, "PluginLoader loadPlugin, plugin == null, pkg = ".concat(String.valueOf(str)));
+            return false;
+        } else if (!plugin.isInstalled()) {
+            ZeusLogger.w(ZeusLogger.TAG_LOAD, "PluginLoader loadPlugin, UN_INSTALLED, ".concat(String.valueOf(str)));
+            return false;
+        } else if (plugin.isLoaded()) {
+            return true;
+        } else {
+            a.a(2000, 0, plugin.mPkgName, plugin.getVersion(), null);
+            com.bytedance.pangle.log.b a2 = com.bytedance.pangle.log.b.a(ZeusLogger.TAG_LOAD, "PluginLoader", "loadPlugin:".concat(String.valueOf(str)));
+            a(com.bytedance.pangle.b.b.g, b.a.x, plugin.mPkgName, plugin.getVersion(), -1L, null);
+            ZeusPluginStateListener.postStateChange(str, 8, new Object[0]);
+            StringBuilder sb = new StringBuilder();
+            boolean a3 = a(str, plugin, sb);
+            a2.b("loadPluginInternal:".concat(String.valueOf(a3)));
+            if (a3) {
+                plugin.setLifeCycle(3);
+                a(com.bytedance.pangle.b.b.h, b.a.y, plugin.mPkgName, plugin.getVersion(), a2.a(), sb.toString());
+                ZeusPluginStateListener.postStateChange(str, 9, new Object[0]);
+                a.a(2100, 0, plugin.mPkgName, plugin.getVersion(), null);
+            } else {
+                sb.append("plugin:");
+                sb.append(plugin.mPkgName);
+                sb.append(" versionCode:");
+                sb.append(plugin.getVersion());
+                sb.append("load failed;");
+                a(com.bytedance.pangle.b.b.h, b.a.z, plugin.mPkgName, plugin.getVersion(), -1L, sb.toString());
+                ZeusPluginStateListener.postStateChange(str, 10, new Object[0]);
+                a.a(2100, -1, plugin.mPkgName, plugin.getVersion(), null);
             }
+            ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginLoader loadFinished, ".concat(String.valueOf(plugin)));
+            if (!plugin.isLoaded()) {
+                return false;
+            }
+            ZeusLogger.d(ZeusLogger.TAG_LOAD, "PluginLoader postResult, LOADED " + plugin.mPkgName);
+            return true;
         }
-        return invokeL.booleanValue;
     }
 }

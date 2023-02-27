@@ -6,8 +6,8 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.oz4;
-import com.baidu.tieba.pz4;
+import com.baidu.tieba.v05;
+import com.baidu.tieba.w05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,18 +39,18 @@ public class HeadlinesAgreeRewardContainer extends LinearLayout {
         }
     }
 
-    public void setData(oz4 oz4Var) {
+    public void setData(v05 v05Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oz4Var) != null) || oz4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v05Var) != null) || v05Var == null) {
             return;
         }
         removeAllViews();
-        List<pz4> j = oz4Var.j();
+        List<w05> j = v05Var.j();
         if (ListUtils.isEmpty(j)) {
             return;
         }
-        for (pz4 pz4Var : j) {
-            a(pz4Var);
+        for (w05 w05Var : j) {
+            a(w05Var);
         }
     }
 
@@ -97,15 +97,15 @@ public class HeadlinesAgreeRewardContainer extends LinearLayout {
         b(context);
     }
 
-    public final void a(pz4 pz4Var) {
+    public final void a(w05 w05Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, pz4Var) != null) || pz4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, w05Var) != null) || w05Var == null) {
             return;
         }
         HeadlinesAgreeRewardItemView headlinesAgreeRewardItemView = new HeadlinesAgreeRewardItemView(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         layoutParams.weight = 1.0f;
-        headlinesAgreeRewardItemView.setData(pz4Var);
+        headlinesAgreeRewardItemView.setData(w05Var);
         addView(headlinesAgreeRewardItemView, layoutParams);
     }
 

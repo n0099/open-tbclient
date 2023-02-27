@@ -1,143 +1,117 @@
 package rx.internal.producers;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dea;
-import com.baidu.tieba.jea;
-import com.baidu.tieba.nga;
-import com.baidu.tieba.nha;
-import com.baidu.tieba.sea;
-import com.baidu.tieba.uha;
-import com.baidu.tieba.yda;
-import com.baidu.tieba.zda;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.ena;
+import com.baidu.tieba.ipa;
+import com.baidu.tieba.iqa;
+import com.baidu.tieba.nna;
+import com.baidu.tieba.pqa;
+import com.baidu.tieba.tma;
+import com.baidu.tieba.uma;
+import com.baidu.tieba.yma;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes9.dex */
-public final class QueuedProducer<T> extends AtomicLong implements zda, yda<T> {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final Object NULL_SENTINEL;
+public final class QueuedProducer<T> extends AtomicLong implements uma, tma<T> {
+    public static final Object NULL_SENTINEL = new Object();
     public static final long serialVersionUID = 7277121710709137047L;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final dea<? super T> child;
+    public final yma<? super T> child;
     public volatile boolean done;
     public Throwable error;
     public final Queue<Object> queue;
     public final AtomicInteger wip;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(156276339, "Lrx/internal/producers/QueuedProducer;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(156276339, "Lrx/internal/producers/QueuedProducer;");
-                return;
-            }
-        }
-        NULL_SENTINEL = new Object();
-    }
-
-    @Override // com.baidu.tieba.yda
+    @Override // com.baidu.tieba.tma
     public void onCompleted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.done = true;
-            drain();
-        }
+        this.done = true;
+        drain();
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public QueuedProducer(dea<? super T> deaVar) {
-        this(deaVar, r0);
-        Queue ngaVar;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {deaVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((dea) objArr2[0], (Queue) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        if (uha.b()) {
-            ngaVar = new nha();
+    public QueuedProducer(yma<? super T> ymaVar) {
+        this(ymaVar, r0);
+        Queue ipaVar;
+        if (pqa.b()) {
+            ipaVar = new iqa();
         } else {
-            ngaVar = new nga();
+            ipaVar = new ipa();
         }
     }
 
-    public QueuedProducer(dea<? super T> deaVar, Queue<Object> queue) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {deaVar, queue};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+    public boolean offer(T t) {
+        if (t == null) {
+            if (!this.queue.offer(NULL_SENTINEL)) {
+                return false;
+            }
+        } else if (!this.queue.offer(t)) {
+            return false;
+        }
+        drain();
+        return true;
+    }
+
+    @Override // com.baidu.tieba.tma
+    public void onError(Throwable th) {
+        this.error = th;
+        this.done = true;
+        drain();
+    }
+
+    @Override // com.baidu.tieba.tma
+    public void onNext(T t) {
+        if (!offer(t)) {
+            onError(new MissingBackpressureException());
+        }
+    }
+
+    @Override // com.baidu.tieba.uma
+    public void request(long j) {
+        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i >= 0) {
+            if (i > 0) {
+                nna.b(this, j);
+                drain();
                 return;
             }
+            return;
         }
-        this.child = deaVar;
+        throw new IllegalArgumentException("n >= 0 required");
+    }
+
+    public QueuedProducer(yma<? super T> ymaVar, Queue<Object> queue) {
+        this.child = ymaVar;
         this.queue = queue;
         this.wip = new AtomicInteger();
     }
 
     private boolean checkTerminated(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (this.child.isUnsubscribed()) {
-                return true;
-            }
-            if (z) {
-                Throwable th = this.error;
-                if (th != null) {
-                    this.queue.clear();
-                    this.child.onError(th);
-                    return true;
-                } else if (z2) {
-                    this.child.onCompleted();
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-            return false;
+        if (this.child.isUnsubscribed()) {
+            return true;
         }
-        return invokeCommon.booleanValue;
+        if (z) {
+            Throwable th = this.error;
+            if (th != null) {
+                this.queue.clear();
+                this.child.onError(th);
+                return true;
+            } else if (z2) {
+                this.child.onCompleted();
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
     }
 
     private void drain() {
         boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.wip.getAndIncrement() == 0) {
-            dea<? super T> deaVar = this.child;
+        if (this.wip.getAndIncrement() == 0) {
+            yma<? super T> ymaVar = this.child;
             Queue<Object> queue = this.queue;
             while (!checkTerminated(this.done, queue.isEmpty())) {
                 this.wip.lazySet(1);
@@ -159,9 +133,9 @@ public final class QueuedProducer<T> extends AtomicLong implements zda, yda<T> {
                     }
                     try {
                         if (poll == NULL_SENTINEL) {
-                            deaVar.onNext(null);
+                            ymaVar.onNext(null);
                         } else {
-                            deaVar.onNext(poll);
+                            ymaVar.onNext(poll);
                         }
                         j--;
                         j2++;
@@ -169,7 +143,7 @@ public final class QueuedProducer<T> extends AtomicLong implements zda, yda<T> {
                         if (poll == NULL_SENTINEL) {
                             poll = null;
                         }
-                        jea.g(th, deaVar, poll);
+                        ena.g(th, ymaVar, poll);
                         return;
                     }
                 }
@@ -180,58 +154,6 @@ public final class QueuedProducer<T> extends AtomicLong implements zda, yda<T> {
                     return;
                 }
             }
-        }
-    }
-
-    public boolean offer(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-            if (t == null) {
-                if (!this.queue.offer(NULL_SENTINEL)) {
-                    return false;
-                }
-            } else if (!this.queue.offer(t)) {
-                return false;
-            }
-            drain();
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yda
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            this.error = th;
-            this.done = true;
-            drain();
-        }
-    }
-
-    @Override // com.baidu.tieba.yda
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && !offer(t)) {
-            onError(new MissingBackpressureException());
-        }
-    }
-
-    @Override // com.baidu.tieba.zda
-    public void request(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i >= 0) {
-                if (i > 0) {
-                    sea.b(this, j);
-                    drain();
-                    return;
-                }
-                return;
-            }
-            throw new IllegalArgumentException("n >= 0 required");
         }
     }
 }

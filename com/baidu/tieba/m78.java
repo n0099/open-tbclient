@@ -1,30 +1,27 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class m78 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public List<s78> a;
-    public Integer b;
-    public String c;
-    public String d;
+public interface m78 {
+    void a(long j, long j2, long j3);
 
-    public m78() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(boolean z);
+
+    void c(boolean z, boolean z2);
+
+    boolean d(String str, String str2);
+
+    String e(String str, String str2);
+
+    void f();
+
+    void g(long j, int i);
+
+    void h(int i);
+
+    void i(int i);
+
+    void j();
+
+    void k(String str, String str2);
+
+    void l(int i);
 }

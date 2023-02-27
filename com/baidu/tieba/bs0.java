@@ -6,9 +6,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public class bs0 {
+public final class bs0 {
     public static /* synthetic */ Interceptable $ic;
-    public static fs0 a;
+    public static final as0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -24,15 +24,6 @@ public class bs0 {
                 return;
             }
         }
-        a = fs0.a;
-    }
-
-    public static fs0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
-        }
-        return (fs0) invokeV.objValue;
+        a = new fs0();
     }
 }

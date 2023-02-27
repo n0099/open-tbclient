@@ -1,15 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.MotionEvent;
+import com.baidu.swan.videoplayer.media.video.view.MediaGestureMode;
 /* loaded from: classes3.dex */
-public class ar4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ar4 {
+    boolean a(MotionEvent motionEvent);
 
-    public static void a(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, obj) == null) {
-        }
-    }
+    boolean b(MotionEvent motionEvent, MediaGestureMode mediaGestureMode);
+
+    boolean c(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2);
+
+    boolean d(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2);
+
+    boolean e(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2);
+
+    boolean onDoubleTap(MotionEvent motionEvent);
+
+    boolean onDown(MotionEvent motionEvent);
 }

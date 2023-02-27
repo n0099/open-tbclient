@@ -5,8 +5,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.pixel.PixelRotation;
 import com.baidu.ar.arrender.c;
@@ -17,11 +15,6 @@ import com.baidu.ar.d.k;
 import com.baidu.ar.imu.i;
 import com.baidu.ar.lua.LuaMsgListener;
 import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -30,19 +23,13 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class c implements c.a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public com.baidu.ar.filter.a B;
     public a C;
     public String L;
     public JSONObject M;
     public HashMap<String, com.baidu.ar.d.e> N;
-    public List<k> O;
-    public boolean P;
-    public List<String> Q;
     public c.b R;
     public int S;
-    public boolean T;
     public com.baidu.ar.mdl.b e;
     public com.baidu.ar.lua.b f;
     public com.baidu.ar.arrender.c g;
@@ -52,9 +39,13 @@ public abstract class c implements c.a {
     public Handler mHandler;
     public int mInputHeight;
     public int mInputWidth;
-    public boolean mIsFrontCamera;
     public int mOutputHeight;
     public int mOutputWidth;
+    public List<k> O = new ArrayList();
+    public boolean P = false;
+    public List<String> Q = new CopyOnWriteArrayList();
+    public boolean T = true;
+    public boolean mIsFrontCamera = true;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -63,302 +54,201 @@ public abstract class c implements c.a {
         boolean a(String str, com.baidu.ar.d.e eVar, HashMap<String, Object> hashMap);
     }
 
-    public c() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.O = new ArrayList();
-        this.P = false;
-        this.Q = new CopyOnWriteArrayList();
-        this.T = true;
-        this.mIsFrontCamera = true;
-    }
-
     private boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            com.baidu.ar.arrender.c cVar = this.g;
-            if (cVar == null || cVar.bt() == null) {
-                return false;
-            }
-            return this.g.bt().isSyncInputContent();
+        com.baidu.ar.arrender.c cVar = this.g;
+        if (cVar == null || cVar.bt() == null) {
+            return false;
         }
-        return invokeV.booleanValue;
+        return this.g.bt().isSyncInputContent();
     }
 
     public void a(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-        }
     }
 
     public void a(Context context, Looper looper) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, looper) == null) {
-            this.mContext = context;
-            this.mHandler = new Handler(looper);
-        }
+        this.mContext = context;
+        this.mHandler = new Handler(looper);
     }
 
     public void a(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.C = aVar;
-        }
+        this.C = aVar;
     }
 
     public void a(g gVar, com.baidu.ar.arrender.c cVar, com.baidu.ar.filter.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, gVar, cVar, aVar) == null) {
-            this.h = gVar;
-            this.g = cVar;
-            this.B = aVar;
-            this.mInputWidth = cVar.bt().getInputWidth();
-            this.mInputHeight = cVar.bt().getInputHeight();
-            this.mOutputWidth = cVar.bu().getOutputWidth();
-            this.mOutputHeight = cVar.bu().getOutputHeight();
-            this.S = cVar.bt().getInputDegree();
-            this.T = cVar.bt().isCameraInput();
-            this.mIsFrontCamera = cVar.bt().isFrontCamera();
-            c.b bVar = new c.b(this) { // from class: com.baidu.ar.c.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ c U;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.U = this;
-                }
-
-                @Override // com.baidu.ar.arrender.c.b
-                public void a(int i, int i2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeII(1048576, this, i, i2) == null) {
-                        c cVar2 = this.U;
-                        cVar2.mOutputWidth = i;
-                        cVar2.mOutputHeight = i2;
-                    }
-                }
-            };
-            this.R = bVar;
-            cVar.a(bVar);
-            cVar.a(this);
-            if (v()) {
-                this.P = true;
+        this.h = gVar;
+        this.g = cVar;
+        this.B = aVar;
+        this.mInputWidth = cVar.bt().getInputWidth();
+        this.mInputHeight = cVar.bt().getInputHeight();
+        this.mOutputWidth = cVar.bu().getOutputWidth();
+        this.mOutputHeight = cVar.bu().getOutputHeight();
+        this.S = cVar.bt().getInputDegree();
+        this.T = cVar.bt().isCameraInput();
+        this.mIsFrontCamera = cVar.bt().isFrontCamera();
+        c.b bVar = new c.b() { // from class: com.baidu.ar.c.1
+            @Override // com.baidu.ar.arrender.c.b
+            public void a(int i, int i2) {
+                c cVar2 = c.this;
+                cVar2.mOutputWidth = i;
+                cVar2.mOutputHeight = i2;
             }
+        };
+        this.R = bVar;
+        cVar.a(bVar);
+        cVar.a(this);
+        if (v()) {
+            this.P = true;
         }
     }
 
     public final void a(k kVar) {
         com.baidu.ar.arrender.c cVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, kVar) == null) {
-            if (kVar == null) {
-                com.baidu.ar.h.b.b("AbstractAR", "removeDetector error!!! detector is null!!!");
-                return;
-            }
-            if ((kVar instanceof j) && (cVar = this.g) != null) {
-                j jVar = (j) kVar;
-                cVar.destroyPixelReader(jVar.di(), jVar);
-            }
-            g gVar = this.h;
-            if (gVar != null) {
-                gVar.a(kVar);
-            }
-            List<k> list = this.O;
-            if (list != null) {
-                list.remove(kVar);
-            }
+        if (kVar == null) {
+            com.baidu.ar.h.b.b("AbstractAR", "removeDetector error!!! detector is null!!!");
+            return;
+        }
+        if ((kVar instanceof j) && (cVar = this.g) != null) {
+            j jVar = (j) kVar;
+            cVar.destroyPixelReader(jVar.di(), jVar);
+        }
+        g gVar = this.h;
+        if (gVar != null) {
+            gVar.a(kVar);
+        }
+        List<k> list = this.O;
+        if (list != null) {
+            list.remove(kVar);
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x0050, code lost:
-        if (r2 != 270) goto L19;
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x004c, code lost:
+        if (r2 != 270) goto L17;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final void a(k kVar, com.baidu.ar.d.e eVar) {
         PixelRotation pixelRotation;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, kVar, eVar) == null) {
-            if (kVar == null) {
-                com.baidu.ar.h.b.b("AbstractAR", "addDetector error!!! detector is null!!!");
-                return;
-            }
-            if ((kVar instanceof j) && this.g != null) {
-                this.O.add(kVar);
-                j jVar = (j) kVar;
-                jVar.a(this.mHandler);
-                jVar.b(this.P);
-                PixelReadParams di = jVar.di();
-                if (this.T && di.getIsPortrait()) {
-                    if (!this.mIsFrontCamera) {
-                        pixelRotation = PixelRotation.RotateRight;
-                        di.setPixelRotate(pixelRotation);
-                        this.g.createPixelReader(di, jVar);
-                    }
-                    pixelRotation = PixelRotation.RotateRightFlipHorizontal;
+        if (kVar == null) {
+            com.baidu.ar.h.b.b("AbstractAR", "addDetector error!!! detector is null!!!");
+            return;
+        }
+        if ((kVar instanceof j) && this.g != null) {
+            this.O.add(kVar);
+            j jVar = (j) kVar;
+            jVar.a(this.mHandler);
+            jVar.b(this.P);
+            PixelReadParams di = jVar.di();
+            if (this.T && di.getIsPortrait()) {
+                if (!this.mIsFrontCamera) {
+                    pixelRotation = PixelRotation.RotateRight;
                     di.setPixelRotate(pixelRotation);
                     this.g.createPixelReader(di, jVar);
-                } else {
-                    if (!this.T) {
-                        int i = this.S;
-                        if (i == 0) {
-                            pixelRotation = PixelRotation.FlipVertical;
-                        } else if (i == 90) {
-                            pixelRotation = PixelRotation.RotateRightFlipVertical;
-                        } else if (i == 180) {
-                            pixelRotation = PixelRotation.FlipHorizontal;
-                        }
-                        di.setPixelRotate(pixelRotation);
-                    }
-                    this.g.createPixelReader(di, jVar);
                 }
+                pixelRotation = PixelRotation.RotateRightFlipHorizontal;
+                di.setPixelRotate(pixelRotation);
+                this.g.createPixelReader(di, jVar);
+            } else {
+                if (!this.T) {
+                    int i = this.S;
+                    if (i == 0) {
+                        pixelRotation = PixelRotation.FlipVertical;
+                    } else if (i == 90) {
+                        pixelRotation = PixelRotation.RotateRightFlipVertical;
+                    } else if (i == 180) {
+                        pixelRotation = PixelRotation.FlipHorizontal;
+                    }
+                    di.setPixelRotate(pixelRotation);
+                }
+                this.g.createPixelReader(di, jVar);
             }
-            g gVar = this.h;
-            if (gVar != null) {
-                gVar.a(kVar, eVar);
-            }
+        }
+        g gVar = this.h;
+        if (gVar != null) {
+            gVar.a(kVar, eVar);
         }
     }
 
     public void a(com.baidu.ar.imu.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            this.i = cVar;
-        }
+        this.i = cVar;
     }
 
     public final void a(com.baidu.ar.imu.g gVar) {
-        com.baidu.ar.imu.c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, gVar) == null) || (cVar = this.i) == null) {
-            return;
+        com.baidu.ar.imu.c cVar = this.i;
+        if (cVar != null) {
+            cVar.stop(gVar);
         }
-        cVar.stop(gVar);
     }
 
     public final void a(LuaMsgListener luaMsgListener) {
-        com.baidu.ar.lua.b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, luaMsgListener) == null) || (bVar = this.f) == null || bVar.fk() == null) {
+        com.baidu.ar.lua.b bVar = this.f;
+        if (bVar == null || bVar.fk() == null) {
             return;
         }
         this.f.fk().addLuaMsgListener(luaMsgListener);
     }
 
     public void a(com.baidu.ar.lua.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
-            this.f = bVar;
-        }
+        this.f = bVar;
     }
 
     public final void a(com.baidu.ar.lua.c cVar) {
-        com.baidu.ar.lua.b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) || (bVar = this.f) == null) {
-            return;
+        com.baidu.ar.lua.b bVar = this.f;
+        if (bVar != null) {
+            bVar.c(cVar);
         }
-        bVar.c(cVar);
     }
 
     public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, jSONObject) == null) {
-            this.M = jSONObject;
-        }
+        this.M = jSONObject;
     }
 
     public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.mIsFrontCamera = z;
-            for (k kVar : this.O) {
-                if ((kVar instanceof j) && this.g != null) {
-                    PixelReadParams di = ((j) kVar).di();
-                    if (this.T && di.getIsPortrait()) {
-                        PixelRotation pixelRotation = z ? PixelRotation.RotateRightFlipHorizontal : PixelRotation.RotateRight;
-                        di.setPixelRotate(pixelRotation);
-                        this.g.updatePixelReader(di, pixelRotation);
-                    }
+        this.mIsFrontCamera = z;
+        for (k kVar : this.O) {
+            if ((kVar instanceof j) && this.g != null) {
+                PixelReadParams di = ((j) kVar).di();
+                if (this.T && di.getIsPortrait()) {
+                    PixelRotation pixelRotation = z ? PixelRotation.RotateRightFlipHorizontal : PixelRotation.RotateRight;
+                    di.setPixelRotate(pixelRotation);
+                    this.g.updatePixelReader(di, pixelRotation);
                 }
             }
         }
     }
 
     public final boolean a(i iVar, com.baidu.ar.imu.g gVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, iVar, gVar)) == null) {
-            com.baidu.ar.imu.c cVar = this.i;
-            if (cVar != null) {
-                return cVar.start(iVar, gVar);
-            }
-            return false;
+        com.baidu.ar.imu.c cVar = this.i;
+        if (cVar != null) {
+            return cVar.start(iVar, gVar);
         }
-        return invokeLL.booleanValue;
+        return false;
     }
 
     public final boolean a(String str, com.baidu.ar.d.e eVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, eVar)) == null) {
-            if (this.C == null || TextUtils.isEmpty(str) || eVar == null) {
-                return false;
-            }
-            HashMap<String, com.baidu.ar.d.e> hashMap = this.N;
-            if (hashMap != null) {
-                hashMap.remove(str);
-            }
-            return this.C.a(str, eVar);
+        if (this.C == null || TextUtils.isEmpty(str) || eVar == null) {
+            return false;
         }
-        return invokeLL.booleanValue;
+        HashMap<String, com.baidu.ar.d.e> hashMap = this.N;
+        if (hashMap != null) {
+            hashMap.remove(str);
+        }
+        return this.C.a(str, eVar);
     }
 
     public final boolean a(String str, com.baidu.ar.d.e eVar, HashMap<String, Object> hashMap) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, str, eVar, hashMap)) == null) {
-            if (this.C == null || TextUtils.isEmpty(str) || eVar == null) {
-                return false;
-            }
-            if (this.N == null) {
-                this.N = new HashMap<>();
-            }
-            this.N.put(str, eVar);
-            return this.C.a(str, eVar, hashMap);
+        if (this.C == null || TextUtils.isEmpty(str) || eVar == null) {
+            return false;
         }
-        return invokeLLL.booleanValue;
+        if (this.N == null) {
+            this.N = new HashMap<>();
+        }
+        this.N.put(str, eVar);
+        return this.C.a(str, eVar, hashMap);
     }
 
     public void adjust(HashMap<String, Object> hashMap) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, hashMap) == null) || hashMap == null) {
+        if (hashMap == null) {
             return;
         }
         String str = (String) hashMap.get("detect_sync");
@@ -387,35 +277,29 @@ public abstract class c implements c.a {
     }
 
     public final void b(int i, HashMap<String, Object> hashMap) {
-        com.baidu.ar.lua.b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048593, this, i, hashMap) == null) || (bVar = this.f) == null) {
-            return;
+        com.baidu.ar.lua.b bVar = this.f;
+        if (bVar != null) {
+            bVar.b(i, hashMap);
         }
-        bVar.b(i, hashMap);
     }
 
     public final void b(LuaMsgListener luaMsgListener) {
-        com.baidu.ar.lua.b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, luaMsgListener) == null) || (bVar = this.f) == null || bVar.fk() == null) {
+        com.baidu.ar.lua.b bVar = this.f;
+        if (bVar == null || bVar.fk() == null) {
             return;
         }
         this.f.fk().removeLuaMsgListener(luaMsgListener);
     }
 
     public final void b(com.baidu.ar.lua.c cVar) {
-        com.baidu.ar.lua.b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, cVar) == null) || (bVar = this.f) == null) {
-            return;
+        com.baidu.ar.lua.b bVar = this.f;
+        if (bVar != null) {
+            bVar.d(cVar);
         }
-        bVar.d(cVar);
     }
 
     public void b(String str, com.baidu.ar.d.e eVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048596, this, str, eVar) == null) || this.O == null || TextUtils.isEmpty(str) || eVar == null) {
+        if (this.O == null || TextUtils.isEmpty(str) || eVar == null) {
             return;
         }
         for (k kVar : this.O) {
@@ -426,8 +310,7 @@ public abstract class c implements c.a {
     }
 
     public void b(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, list) == null) || list == null || list.size() <= 0) {
+        if (list == null || list.size() <= 0) {
             return;
         }
         for (String str : list) {
@@ -439,33 +322,29 @@ public abstract class c implements c.a {
     }
 
     public final void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            if (v()) {
-                z = true;
+        if (v()) {
+            z = true;
+        }
+        if (z != this.P) {
+            this.P = z;
+            List<k> list = this.O;
+            if (list == null) {
+                return;
             }
-            if (z != this.P) {
-                this.P = z;
-                List<k> list = this.O;
-                if (list == null) {
-                    return;
+            for (k kVar : list) {
+                if (kVar != null && (kVar instanceof j)) {
+                    ((j) kVar).b(this.P);
                 }
-                for (k kVar : list) {
-                    if (kVar != null && (kVar instanceof j)) {
-                        ((j) kVar).b(this.P);
-                    }
-                    g gVar = this.h;
-                    if (gVar != null) {
-                        gVar.a((j) kVar);
-                    }
+                g gVar = this.h;
+                if (gVar != null) {
+                    gVar.a((j) kVar);
                 }
             }
         }
     }
 
     public void c(String str, com.baidu.ar.d.e eVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048599, this, str, eVar) == null) || this.O == null || TextUtils.isEmpty(str) || eVar == null) {
+        if (this.O == null || TextUtils.isEmpty(str) || eVar == null) {
             return;
         }
         for (k kVar : this.O) {
@@ -476,84 +355,61 @@ public abstract class c implements c.a {
     }
 
     public final void d(HashMap<String, Object> hashMap) {
-        com.baidu.ar.lua.b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048600, this, hashMap) == null) || (bVar = this.f) == null) {
-            return;
+        com.baidu.ar.lua.b bVar = this.f;
+        if (bVar != null) {
+            bVar.b(1902, hashMap);
         }
-        bVar.b(1902, hashMap);
     }
 
     public final Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.mContext : (Context) invokeV.objValue;
+        return this.mContext;
     }
 
     public String getFaceModelPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.L : (String) invokeV.objValue;
+        return this.L;
     }
 
     public SparseArray<com.baidu.ar.mdl.a> getMdlConfigs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            com.baidu.ar.mdl.b bVar = this.e;
-            if (bVar == null) {
-                com.baidu.ar.h.b.b("AbstractAR", "mMdlConfigParams is null.");
-                return new SparseArray<>();
-            }
-            return bVar.fm();
+        com.baidu.ar.mdl.b bVar = this.e;
+        if (bVar == null) {
+            com.baidu.ar.h.b.b("AbstractAR", "mMdlConfigParams is null.");
+            return new SparseArray<>();
         }
-        return (SparseArray) invokeV.objValue;
+        return bVar.fm();
     }
 
     public void i(String str) {
-        List<String> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048604, this, str) == null) || (list = this.Q) == null || list.contains(str)) {
+        List<String> list = this.Q;
+        if (list == null || list.contains(str)) {
             return;
         }
         this.Q.add(str);
     }
 
     public void j(String str) {
-        List<String> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048605, this, str) == null) || (list = this.Q) == null) {
-            return;
+        List<String> list = this.Q;
+        if (list != null) {
+            list.remove(str);
         }
-        list.remove(str);
     }
 
     public void o() {
-        List<String> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048606, this) == null) || (list = this.Q) == null) {
-            return;
+        List<String> list = this.Q;
+        if (list != null) {
+            list.clear();
         }
-        list.clear();
     }
 
     public void onCaseCreate(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
-        }
     }
 
     public void onCaseDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-        }
     }
 
     @Override // com.baidu.ar.arrender.c.a
     public void onInputSizeChange(int i, int i2) {
-        com.baidu.ar.arrender.c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048609, this, i, i2) == null) || (cVar = this.g) == null) {
+        com.baidu.ar.arrender.c cVar = this.g;
+        if (cVar == null) {
             return;
         }
         this.mInputWidth = cVar.bt().getInputWidth();
@@ -561,100 +417,73 @@ public abstract class c implements c.a {
     }
 
     public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            List<String> list = this.Q;
-            if (list == null || list.size() <= 0) {
-                for (k kVar : this.O) {
-                    if (kVar != null && (kVar instanceof com.baidu.ar.d.a) && ((com.baidu.ar.d.a) kVar).db()) {
-                        return false;
-                    }
+        List<String> list = this.Q;
+        if (list == null || list.size() <= 0) {
+            for (k kVar : this.O) {
+                if (kVar != null && (kVar instanceof com.baidu.ar.d.a) && ((com.baidu.ar.d.a) kVar).db()) {
+                    return false;
                 }
-                return true;
             }
-            return false;
+            return true;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public void pause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
-        }
     }
 
     public final List<String> q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.Q : (List) invokeV.objValue;
+        return this.Q;
     }
 
     public final l r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.g : (l) invokeV.objValue;
+        return this.g;
     }
 
     public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            HashMap<String, com.baidu.ar.d.e> hashMap = this.N;
-            if (hashMap != null) {
-                for (Map.Entry<String, com.baidu.ar.d.e> entry : hashMap.entrySet()) {
-                    a(entry.getKey(), entry.getValue());
-                }
-                this.N.clear();
-                this.N = null;
+        HashMap<String, com.baidu.ar.d.e> hashMap = this.N;
+        if (hashMap != null) {
+            for (Map.Entry<String, com.baidu.ar.d.e> entry : hashMap.entrySet()) {
+                a(entry.getKey(), entry.getValue());
             }
-            int size = this.O.size();
-            k[] kVarArr = new k[size];
-            this.O.toArray(kVarArr);
-            for (int i = 0; i < size; i++) {
-                a(kVarArr[i]);
-            }
-            this.O.clear();
-            this.O = null;
-            this.h = null;
-            this.i = null;
-            this.g = null;
-            this.B = null;
-            this.f = null;
-            this.M = null;
-            this.mHandler = null;
-            this.mContext = null;
+            this.N.clear();
+            this.N = null;
         }
+        int size = this.O.size();
+        k[] kVarArr = new k[size];
+        this.O.toArray(kVarArr);
+        for (int i = 0; i < size; i++) {
+            a(kVarArr[i]);
+        }
+        this.O.clear();
+        this.O = null;
+        this.h = null;
+        this.i = null;
+        this.g = null;
+        this.B = null;
+        this.f = null;
+        this.M = null;
+        this.mHandler = null;
+        this.mContext = null;
     }
 
     public void resume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-        }
     }
 
     public final com.baidu.ar.filter.a s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.B : (com.baidu.ar.filter.a) invokeV.objValue;
+        return this.B;
     }
 
     public void setFaceModelPath(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
-            this.L = str;
-        }
+        this.L = str;
     }
 
     public void setMdlConfigParams(com.baidu.ar.mdl.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, bVar) == null) {
-            this.e = bVar;
-        }
+        this.e = bVar;
     }
 
     public void setup(HashMap<String, Object> hashMap) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048619, this, hashMap) == null) || hashMap == null) {
+        if (hashMap == null) {
             return;
         }
         String str = (String) hashMap.get("detect_sync");
@@ -667,18 +496,11 @@ public abstract class c implements c.a {
     }
 
     public JSONObject t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.M : (JSONObject) invokeV.objValue;
+        return this.M;
     }
 
     public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
-            com.baidu.ar.arrender.c cVar = this.g;
-            return (cVar == null || cVar.bt() == null || this.g.bt().getInputTexture() == null) ? false : true;
-        }
-        return invokeV.booleanValue;
+        com.baidu.ar.arrender.c cVar = this.g;
+        return (cVar == null || cVar.bt() == null || this.g.bt().getInputTexture() == null) ? false : true;
     }
 }

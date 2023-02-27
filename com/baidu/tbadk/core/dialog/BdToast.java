@@ -10,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.ColorInt;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -70,7 +69,7 @@ public class BdToast {
                     return;
                 }
             }
-            SUCCESS = new ToastIcon(c.p, 0, R.drawable.icon_pure_toast_succeed40_svg, true);
+            SUCCESS = new ToastIcon("SUCCESS", 0, R.drawable.icon_pure_toast_succeed40_svg, true);
             FAILURE = new ToastIcon("FAILURE", 1, R.drawable.icon_pure_toast_mistake40_svg, true);
             ToastIcon toastIcon = new ToastIcon("NOT", 2, 0, false);
             NOT = toastIcon;

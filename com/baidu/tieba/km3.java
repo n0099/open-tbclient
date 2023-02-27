@@ -1,12 +1,21 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import android.os.StatFs;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.drawable.Drawable;
+import android.media.ExifInterface;
+import android.net.Uri;
+import android.opengl.GLES10;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.StorageUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.face.platform.utils.BitmapUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,18 +23,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.io.OutputStream;
+import java.lang.reflect.Field;
+import javax.microedition.khronos.egl.EGL10;
+import javax.microedition.khronos.egl.EGLConfig;
+import javax.microedition.khronos.egl.EGLContext;
+import javax.microedition.khronos.egl.EGLDisplay;
+import javax.microedition.khronos.egl.EGLSurface;
+import org.webrtc.EglBase10;
 /* loaded from: classes5.dex */
 public final class km3 {
     public static /* synthetic */ Interceptable $ic;
@@ -33,17 +43,19 @@ public final class km3 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public static class a implements ho3<OutputStream, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
+        public final /* synthetic */ Bitmap a;
+        public final /* synthetic */ Bitmap.CompressFormat b;
+        public final /* synthetic */ int c;
 
-        public a(String str, boolean z, boolean z2, int i) {
+        public a(Bitmap bitmap, Bitmap.CompressFormat compressFormat, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)};
+                Object[] objArr = {bitmap, compressFormat, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -53,7 +65,34 @@ public final class km3 {
                     return;
                 }
             }
-            this.a = str;
+            this.a = bitmap;
+            this.b = compressFormat;
+            this.c = i;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ho3
+        /* renamed from: b */
+        public Boolean a(OutputStream outputStream) {
+            InterceptResult invokeL;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, outputStream)) == null) {
+                Bitmap bitmap = this.a;
+                if (bitmap != null) {
+                    Bitmap.CompressFormat compressFormat = this.b;
+                    if (compressFormat == null) {
+                        compressFormat = Bitmap.CompressFormat.JPEG;
+                    }
+                    if (bitmap.compress(compressFormat, this.c, outputStream)) {
+                        z = true;
+                        return Boolean.valueOf(z);
+                    }
+                }
+                z = false;
+                return Boolean.valueOf(z);
+            }
+            return (Boolean) invokeL.objValue;
         }
     }
 
@@ -70,236 +109,548 @@ public final class km3 {
                 return;
             }
         }
-        a = gp1.a;
+        a = wp1.a;
     }
 
-    public static int a() {
-        InterceptResult invokeV;
+    public static Bitmap a(Bitmap bitmap, long j, boolean z) {
+        InterceptResult invokeCommon;
+        byte[] byteArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b()) {
-                return (int) (new StatFs(Environment.getExternalStorageDirectory().getPath()).getTotalBytes() / 1024);
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return Environment.getExternalStorageState().equals("mounted");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static long c() {
-        InterceptResult invokeV;
-        long blockSize;
-        long availableBlocks;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b()) {
-                StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-                if (dl3.d()) {
-                    blockSize = statFs.getBlockSizeLong();
-                    availableBlocks = statFs.getAvailableBlocksLong();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{bitmap, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            if (bitmap != null && j > 0) {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                int i = 100;
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+                if (byteArrayOutputStream.size() <= j) {
+                    byteArray = byteArrayOutputStream.toByteArray();
                 } else {
-                    blockSize = statFs.getBlockSize();
-                    availableBlocks = statFs.getAvailableBlocks();
+                    byteArrayOutputStream.reset();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 0, byteArrayOutputStream);
+                    if (byteArrayOutputStream.size() >= j) {
+                        byteArray = byteArrayOutputStream.toByteArray();
+                    } else {
+                        int i2 = 0;
+                        int i3 = 0;
+                        while (i2 < i) {
+                            i3 = (i2 + i) / 2;
+                            byteArrayOutputStream.reset();
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, i3, byteArrayOutputStream);
+                            int i4 = (byteArrayOutputStream.size() > j ? 1 : (byteArrayOutputStream.size() == j ? 0 : -1));
+                            if (i4 == 0) {
+                                break;
+                            } else if (i4 > 0) {
+                                i = i3 - 1;
+                            } else {
+                                i2 = i3 + 1;
+                            }
+                        }
+                        if (i == i3 - 1) {
+                            byteArrayOutputStream.reset();
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream);
+                        }
+                        byteArray = byteArrayOutputStream.toByteArray();
+                    }
                 }
-                return availableBlocks * blockSize;
+                if (z && !bitmap.isRecycled()) {
+                    bitmap.recycle();
+                }
+                return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
             }
-            return -1L;
+            return null;
         }
-        return invokeV.longValue;
+        return (Bitmap) invokeCommon.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:108:0x01d3  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static List<a> d() {
-        InterceptResult invokeV;
-        String path;
-        boolean z;
-        HashSet hashSet;
-        BufferedReader bufferedReader;
-        String str;
-        int i;
+    public static boolean b(File file, File file2, int i) {
+        InterceptResult invokeLLI;
+        FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            HashMap hashMap = new HashMap();
-            ArrayList arrayList = new ArrayList();
-            BufferedReader bufferedReader2 = null;
-            File externalFilesDir = AppRuntime.getAppContext().getExternalFilesDir(null);
-            if (externalFilesDir == null) {
-                path = null;
-            } else {
-                path = externalFilesDir.getPath();
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, file, file2, i)) == null) {
+            if (a) {
+                Log.d(BitmapUtils.TAG, "压缩图片");
             }
-            int i2 = 1;
-            boolean z2 = false;
-            boolean z3 = dl3.b() ? !Environment.isExternalStorageRemovable() : false;
-            String externalStorageState = Environment.getExternalStorageState();
-            if (!externalStorageState.equals("mounted") && !externalStorageState.equals("mounted_ro")) {
-                z = false;
-            } else {
-                z = true;
-            }
-            boolean equals = Environment.getExternalStorageState().equals("mounted_ro");
-            try {
+            if (file2 == null) {
+                if (a) {
+                    Log.e(BitmapUtils.TAG, "dest file is null");
+                }
+                return false;
+            } else if (i >= 0 && i <= 100) {
+                Bitmap decodeFile = BitmapFactory.decodeFile(file.getAbsolutePath());
+                if (decodeFile == null) {
+                    if (a) {
+                        Log.e(BitmapUtils.TAG, "compress image，but decode bitmap is null");
+                    }
+                    return false;
+                }
+                FileOutputStream fileOutputStream2 = null;
                 try {
-                    hashSet = new HashSet();
-                    bufferedReader = new BufferedReader(new FileReader("/proc/mounts"));
+                    try {
+                        fileOutputStream = new FileOutputStream(file2);
+                    } catch (FileNotFoundException e) {
+                        e = e;
+                    }
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (FileNotFoundException e) {
-                e = e;
-                bufferedReader2 = null;
-            } catch (IOException e2) {
-                e = e2;
-                bufferedReader2 = null;
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedReader2 = null;
-            }
-            try {
-                if (a) {
-                    Log.d(StorageUtils.TAG, "/proc/mounts");
-                }
-                while (true) {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine == null) {
-                        break;
-                    }
+                try {
+                    decodeFile.compress(Bitmap.CompressFormat.JPEG, i, fileOutputStream);
+                    qp4.d(fileOutputStream);
+                    return true;
+                } catch (FileNotFoundException e2) {
+                    e = e2;
+                    fileOutputStream2 = fileOutputStream;
                     if (a) {
-                        Log.d(StorageUtils.TAG, readLine);
+                        Log.e(BitmapUtils.TAG, "压缩图片失败", e);
                     }
-                    StringTokenizer stringTokenizer = new StringTokenizer(readLine, " ");
-                    String nextToken = stringTokenizer.nextToken();
-                    String nextToken2 = stringTokenizer.nextToken();
-                    if (!hashSet.contains(nextToken2)) {
-                        stringTokenizer.nextToken();
-                        boolean contains = Arrays.asList(stringTokenizer.nextToken().split(",")).contains("ro");
-                        if (!readLine.contains("vfat") && !readLine.contains("/mnt")) {
-                            if (e(nextToken, nextToken2)) {
-                                hashSet.add(nextToken2);
-                                if (f(nextToken2)) {
-                                    i = i2 + 1;
-                                    arrayList.add(new a(nextToken2, z2, contains, i2));
-                                    i2 = i;
-                                }
-                            }
-                            z2 = false;
-                        }
-                        if (nextToken2.equals(path)) {
-                            hashSet.add(path);
-                            hashMap.put(nextToken, new a(path, z3, contains, -1));
-                        } else if (readLine.contains("/dev/block/vold")) {
-                            if (!readLine.contains("/mnt/secure") && !readLine.contains("/mnt/asec") && !readLine.contains("/mnt/obb") && !readLine.contains("/dev/mapper") && !readLine.contains("tmpfs")) {
-                                hashSet.add(nextToken2);
-                                if (!hashMap.containsKey(nextToken)) {
-                                    i = i2 + 1;
-                                    hashMap.put(nextToken, new a(nextToken2, z2, contains, i2));
-                                    i2 = i;
-                                }
-                            }
-                        } else if (hashSet.contains(nextToken)) {
-                            Iterator it = hashMap.keySet().iterator();
-                            while (true) {
-                                if (it.hasNext()) {
-                                    str = (String) it.next();
-                                    if (TextUtils.equals(((a) hashMap.get(str)).a, nextToken)) {
-                                        break;
-                                    }
-                                } else {
-                                    str = null;
-                                    break;
-                                }
-                            }
-                            hashMap.remove(str);
-                            hashSet.add(nextToken2);
-                            if (!hashMap.containsKey(nextToken)) {
-                                hashMap.put(nextToken, new a(nextToken2, false, contains, i2));
-                                i2++;
-                            }
-                        }
-                        z2 = false;
-                    }
+                    qp4.d(fileOutputStream2);
+                    return false;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileOutputStream2 = fileOutputStream;
+                    qp4.d(fileOutputStream2);
+                    throw th;
                 }
-                for (a aVar : hashMap.values()) {
-                    if (f(aVar.a)) {
-                        arrayList.add(aVar);
-                    }
-                }
-                if (!hashSet.contains(path) && z) {
-                    arrayList.add(0, new a(path, z3, equals, -1));
-                }
-                ap4.d(bufferedReader);
-            } catch (FileNotFoundException e3) {
-                e = e3;
-                bufferedReader2 = bufferedReader;
+            } else {
                 if (a) {
-                    e.printStackTrace();
+                    Log.e(BitmapUtils.TAG, "quality must be 0..100");
                 }
-                ap4.d(bufferedReader2);
-                if (arrayList.isEmpty()) {
-                }
-                return arrayList;
-            } catch (IOException e4) {
-                e = e4;
-                bufferedReader2 = bufferedReader;
-                if (a) {
-                    e.printStackTrace();
-                }
-                ap4.d(bufferedReader2);
-                if (arrayList.isEmpty()) {
-                }
-                return arrayList;
-            } catch (Throwable th3) {
-                th = th3;
-                bufferedReader2 = bufferedReader;
-                ap4.d(bufferedReader2);
-                throw th;
+                return false;
             }
-            if (arrayList.isEmpty()) {
-                arrayList.add(new a(path, z3, equals, -1));
-            }
-            return arrayList;
         }
-        return (List) invokeV.objValue;
+        return invokeLLI.booleanValue;
     }
 
-    public static boolean e(String str, String str2) {
-        InterceptResult invokeLL;
+    public static boolean c(String str, String str2, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (str == null || !str.contains("/dev/fuse") || str2 == null || str2.startsWith("/storage/emulated/legacy") || str2.contains("/Android/obb")) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, str, str2, i)) == null) {
+            try {
+                if (a) {
+                    Log.d(BitmapUtils.TAG, "copyJpegExif oldFilePath:" + str + "，newFilePath：" + str2 + ",quality:" + i);
+                }
+                ExifInterface i2 = i(str);
+                ExifInterface i3 = i(str2);
+                if (i2 != null && i3 != null) {
+                    Field[] fields = ExifInterface.class.getFields();
+                    for (int i4 = 0; i4 < fields.length; i4++) {
+                        String name = fields[i4].getName();
+                        if (!TextUtils.isEmpty(name) && name.startsWith("TAG")) {
+                            String obj = fields[i4].get(ExifInterface.class).toString();
+                            String attribute = i2.getAttribute(obj);
+                            if (a) {
+                                Log.d(BitmapUtils.TAG, "fields name:" + obj + "，value：" + attribute);
+                            }
+                            if (!TextUtils.isEmpty(obj) && !TextUtils.equals(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, obj)) {
+                                if (i < 100) {
+                                    char c = 65535;
+                                    switch (obj.hashCode()) {
+                                        case -2093253645:
+                                            if (obj.equals(androidx.exifinterface.media.ExifInterface.TAG_PIXEL_Y_DIMENSION)) {
+                                                c = 3;
+                                                break;
+                                            }
+                                            break;
+                                        case -1896740140:
+                                            if (obj.equals(androidx.exifinterface.media.ExifInterface.TAG_PIXEL_X_DIMENSION)) {
+                                                c = 1;
+                                                break;
+                                            }
+                                            break;
+                                        case -666122239:
+                                            if (obj.equals(androidx.exifinterface.media.ExifInterface.TAG_IMAGE_LENGTH)) {
+                                                c = 2;
+                                                break;
+                                            }
+                                            break;
+                                        case 542970187:
+                                            if (obj.equals(androidx.exifinterface.media.ExifInterface.TAG_IMAGE_WIDTH)) {
+                                                c = 0;
+                                                break;
+                                            }
+                                            break;
+                                    }
+                                    if (c != 0) {
+                                        if (c != 1) {
+                                            if (c != 2) {
+                                                if (c == 3) {
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                if (attribute != null) {
+                                    i3.setAttribute(obj, attribute);
+                                }
+                            }
+                        }
+                    }
+                    i3.saveAttributes();
+                    return true;
+                }
+                return false;
+            } catch (Exception e) {
+                e.printStackTrace();
                 return false;
             }
-            if (str2.startsWith("/storage/")) {
-                return true;
+        }
+        return invokeLLI.booleanValue;
+    }
+
+    public static boolean n(File file, File file2, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65550, null, file, file2, i)) == null) {
+            if (a) {
+                Log.d(BitmapUtils.TAG, "rotateAndCompressImage");
             }
-            if (!dl3.e() || str2.startsWith("/mnt/") || str2.startsWith("/data/")) {
+            if (file2 != null && file != null && file.exists() && file2.exists()) {
+                if (i >= 0 && i <= 100) {
+                    FileOutputStream fileOutputStream = null;
+                    try {
+                        try {
+                            Bitmap decodeFile = BitmapFactory.decodeFile(file.getAbsolutePath());
+                            if (decodeFile != null && decodeFile.getWidth() != 0 && decodeFile.getHeight() != 0) {
+                                int f = f(file.getAbsolutePath());
+                                if (f != 0) {
+                                    Matrix matrix = new Matrix();
+                                    matrix.postRotate(f);
+                                    decodeFile = Bitmap.createBitmap(decodeFile, 0, 0, decodeFile.getWidth(), decodeFile.getHeight(), matrix, true);
+                                }
+                                FileOutputStream fileOutputStream2 = new FileOutputStream(file2);
+                                try {
+                                    decodeFile.compress(Bitmap.CompressFormat.JPEG, i, fileOutputStream2);
+                                    qp4.d(fileOutputStream2);
+                                    c(file.getAbsolutePath(), file2.getAbsolutePath(), i);
+                                    return true;
+                                } catch (Exception e) {
+                                    e = e;
+                                    fileOutputStream = fileOutputStream2;
+                                    if (a) {
+                                        Log.e(BitmapUtils.TAG, "rotateAndCompressImage fail:", e);
+                                    }
+                                    qp4.d(fileOutputStream);
+                                    return false;
+                                } catch (OutOfMemoryError e2) {
+                                    e = e2;
+                                    fileOutputStream = fileOutputStream2;
+                                    if (a) {
+                                        Log.e(BitmapUtils.TAG, "rotateAndCompressImage fail:", e);
+                                    }
+                                    qp4.d(fileOutputStream);
+                                    return false;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    fileOutputStream = fileOutputStream2;
+                                    qp4.d(fileOutputStream);
+                                    throw th;
+                                }
+                            }
+                            if (a) {
+                                Log.e(BitmapUtils.TAG, "compress image，but decode bitmap is null");
+                            }
+                            qp4.d(null);
+                            return false;
+                        } catch (Throwable th2) {
+                            th = th2;
+                        }
+                    } catch (Exception e3) {
+                        e = e3;
+                    } catch (OutOfMemoryError e4) {
+                        e = e4;
+                    }
+                } else {
+                    if (a) {
+                        Log.e(BitmapUtils.TAG, "quality must be 0..100");
+                    }
+                    return false;
+                }
+            } else {
+                if (a) {
+                    Log.e(BitmapUtils.TAG, "dest file or sourceFile is null");
+                }
                 return false;
+            }
+        } else {
+            return invokeLLI.booleanValue;
+        }
+    }
+
+    public static boolean d(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
+            if (!file.getParentFile().exists()) {
+                return file.getParentFile().mkdirs();
             }
             return true;
         }
-        return invokeLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public static boolean f(String str) {
+    public static Bitmap e(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                return new File(str).canRead();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
+            if (uri == null) {
+                return null;
             }
-            return false;
+            try {
+                return MediaStore.Images.Media.getBitmap(l93.K().getContentResolver(), uri);
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
         }
-        return invokeL.booleanValue;
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public static Bitmap g(Drawable drawable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, drawable)) == null) {
+            if (drawable == null) {
+                return null;
+            }
+            return h(drawable, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public static ExifInterface i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                return new ExifInterface(str);
+            } catch (IOException unused) {
+                return null;
+            }
+        }
+        return (ExifInterface) invokeL.objValue;
+    }
+
+    public static File k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            return l(zu2.U().G().k(), str);
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public static int f(String str) {
+        InterceptResult invokeL;
+        ExifInterface i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (TextUtils.isEmpty(str) || (i = i(str)) == null) {
+                return 0;
+            }
+            int attributeInt = i.getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
+            if (attributeInt != 3) {
+                if (attributeInt != 6) {
+                    if (attributeInt != 8) {
+                        return 0;
+                    }
+                    return 270;
+                }
+                return 90;
+            }
+            return 180;
+        }
+        return invokeL.intValue;
+    }
+
+    public static Bitmap h(Drawable drawable, int i, int i2) {
+        InterceptResult invokeLII;
+        Bitmap.Config config;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65544, null, drawable, i, i2)) == null) {
+            Bitmap bitmap = null;
+            if (drawable != null && i > 0 && i2 > 0) {
+                if (drawable.getOpacity() != -1) {
+                    config = Bitmap.Config.ARGB_8888;
+                } else {
+                    config = Bitmap.Config.RGB_565;
+                }
+                try {
+                    bitmap = Bitmap.createBitmap(i, i2, config);
+                    if (bitmap != null) {
+                        Canvas canvas = new Canvas(bitmap);
+                        drawable.setBounds(0, 0, i, i2);
+                        drawable.draw(canvas);
+                    }
+                } catch (Exception | OutOfMemoryError e) {
+                    e.printStackTrace();
+                }
+            }
+            return bitmap;
+        }
+        return (Bitmap) invokeLII.objValue;
+    }
+
+    public static int[] j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            int[] iArr = new int[1];
+            GLES10.glGetIntegerv(3379, iArr, 0);
+            if (iArr[0] != 0) {
+                return iArr;
+            }
+            EGL10 egl10 = (EGL10) EGLContext.getEGL();
+            EGLDisplay eglGetDisplay = egl10.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
+            egl10.eglInitialize(eglGetDisplay, new int[2]);
+            EGLConfig[] eGLConfigArr = new EGLConfig[1];
+            egl10.eglChooseConfig(eglGetDisplay, new int[]{12351, 12430, 12329, 0, 12339, 1, 12344}, eGLConfigArr, 1, new int[1]);
+            EGLConfig eGLConfig = eGLConfigArr[0];
+            EGLSurface eglCreatePbufferSurface = egl10.eglCreatePbufferSurface(eglGetDisplay, eGLConfig, new int[]{12375, 64, 12374, 64, 12344});
+            EGLContext eglCreateContext = egl10.eglCreateContext(eglGetDisplay, eGLConfig, EGL10.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 1, 12344});
+            egl10.eglMakeCurrent(eglGetDisplay, eglCreatePbufferSurface, eglCreatePbufferSurface, eglCreateContext);
+            GLES10.glGetIntegerv(3379, iArr, 0);
+            EGLSurface eGLSurface = EGL10.EGL_NO_SURFACE;
+            egl10.eglMakeCurrent(eglGetDisplay, eGLSurface, eGLSurface, EGL10.EGL_NO_CONTEXT);
+            egl10.eglDestroySurface(eglGetDisplay, eglCreatePbufferSurface);
+            egl10.eglDestroyContext(eglGetDisplay, eglCreateContext);
+            egl10.eglTerminate(eglGetDisplay);
+            return iArr;
+        }
+        return (int[]) invokeV.objValue;
+    }
+
+    public static File l(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
+            if (a) {
+                Log.d(BitmapUtils.TAG, "获取temp路径");
+            }
+            String str3 = "swan_tmp_" + System.currentTimeMillis() + "_" + str2;
+            File file = null;
+            if (!TextUtils.isEmpty(str)) {
+                File file2 = new File(str);
+                if (file2.exists()) {
+                    file = new File(file2, str3);
+                } else if (file2.mkdirs()) {
+                    file = new File(file2, str3);
+                }
+                if (file != null && !file.exists()) {
+                    try {
+                        file.createNewFile();
+                    } catch (IOException e) {
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+            if (a && file != null) {
+                Log.e(BitmapUtils.TAG, "temp路径:" + file.getAbsolutePath());
+            }
+            return file;
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    public static Uri m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            if (!str.startsWith("http://") && !str.startsWith("https://") && !str.startsWith("file://") && !str.startsWith("content://")) {
+                if (!str.startsWith("/")) {
+                    return null;
+                }
+                return Uri.fromFile(new File(str));
+            }
+            return Uri.parse(str);
+        }
+        return (Uri) invokeL.objValue;
+    }
+
+    public static boolean o(Bitmap bitmap, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65551, null, bitmap, str, i)) == null) {
+            return p(bitmap, str, i, Bitmap.CompressFormat.JPEG);
+        }
+        return invokeLLI.booleanValue;
+    }
+
+    public static boolean p(Bitmap bitmap, String str, int i, Bitmap.CompressFormat compressFormat) {
+        InterceptResult invokeLLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65552, null, bitmap, str, i, compressFormat)) == null) {
+            return q(str, new a(bitmap, compressFormat, i));
+        }
+        return invokeLLIL.booleanValue;
+    }
+
+    public static boolean q(String str, ho3<OutputStream, Boolean> ho3Var) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, str, ho3Var)) == null) {
+            boolean z = false;
+            if (!qp4.w()) {
+                return false;
+            }
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                try {
+                    File file = new File(str);
+                    if (ho3Var != null && d(file)) {
+                        fileOutputStream = new FileOutputStream(file);
+                        try {
+                            if (ho3Var.a(fileOutputStream).booleanValue()) {
+                                z = true;
+                                qp4.d(fileOutputStream);
+                                return z;
+                            }
+                            fileOutputStream2 = fileOutputStream;
+                        } catch (FileNotFoundException e) {
+                            e = e;
+                            fileOutputStream2 = fileOutputStream;
+                            if (a) {
+                                Log.e(BitmapUtils.TAG, "保存图片失败", e);
+                            }
+                            qp4.d(fileOutputStream2);
+                            return false;
+                        } catch (Throwable th) {
+                            th = th;
+                            fileOutputStream2 = fileOutputStream;
+                            qp4.d(fileOutputStream2);
+                            throw th;
+                        }
+                    }
+                    fileOutputStream = fileOutputStream2;
+                    qp4.d(fileOutputStream);
+                    return z;
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            } catch (FileNotFoundException e2) {
+                e = e2;
+            }
+        } else {
+            return invokeLL.booleanValue;
+        }
+    }
+
+    public static void r(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65554, null, context, str) == null) && str != null && context != null) {
+            File file = new File(str);
+            Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
+            intent.setData(Uri.fromFile(file));
+            context.sendBroadcast(intent);
+        }
     }
 }

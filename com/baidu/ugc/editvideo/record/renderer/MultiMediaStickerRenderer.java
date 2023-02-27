@@ -2,19 +2,12 @@ package com.baidu.ugc.editvideo.record.renderer;
 
 import android.opengl.GLES20;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.plugin.capture.bean.FaceItem;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tieba.lx9;
-import com.baidu.tieba.pg0;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.i1a;
+import com.baidu.tieba.tg0;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.data.MultiMediaDataTrack;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
@@ -27,30 +20,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public long mCurrentPos;
     public MultiMediaDataTrack mMultiMediaDataTrack;
     public MediaTrack mSubtitleAndStickerTrack;
     public List<a> mTempStickerItemList;
 
-    public MultiMediaStickerRenderer() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     private void checkDataChange() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.mMultiMediaDataTrack == null || this.mSubtitleAndStickerTrack == null) {
+        if (this.mMultiMediaDataTrack == null || this.mSubtitleAndStickerTrack == null) {
             return;
         }
         if (this.mTempStickerItemList == null) {
@@ -73,8 +49,7 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
     }
 
     private void releaseTempStickerItemList() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || lx9.e(this.mTempStickerItemList)) {
+        if (i1a.e(this.mTempStickerItemList)) {
             return;
         }
         for (a aVar : this.mTempStickerItemList) {
@@ -84,47 +59,40 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
     }
 
     public void cancelStickerSelected() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mCurrentStickerDataChangeType = "init";
-            this.mCurrentItem = null;
-        }
+        this.mCurrentStickerDataChangeType = "init";
+        this.mCurrentItem = null;
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MultiMediaEditBaseRenderer
     public void deleteTexture() {
         List<MultiMediaData> list;
         List<MediaSegment> list2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.deleteTexture();
-            MediaTrack mediaTrack = this.mSubtitleAndStickerTrack;
-            if (mediaTrack != null && (list2 = mediaTrack.mediaSegments) != null) {
-                for (MediaSegment mediaSegment : list2) {
-                    MultiDataSourceUtil.glDeleteTextures(mediaSegment.textureId);
-                    mediaSegment.textureId = 0;
-                }
+        super.deleteTexture();
+        MediaTrack mediaTrack = this.mSubtitleAndStickerTrack;
+        if (mediaTrack != null && (list2 = mediaTrack.mediaSegments) != null) {
+            for (MediaSegment mediaSegment : list2) {
+                MultiDataSourceUtil.glDeleteTextures(mediaSegment.textureId);
+                mediaSegment.textureId = 0;
             }
-            MultiMediaDataTrack multiMediaDataTrack = this.mMultiMediaDataTrack;
-            if (multiMediaDataTrack != null && (list = multiMediaDataTrack.multiMediaDataList) != null) {
-                for (MultiMediaData multiMediaData : list) {
-                    MultiDataSourceUtil.glDeleteTextures(multiMediaData);
-                }
-            }
-            releaseTempStickerItemList();
         }
+        MultiMediaDataTrack multiMediaDataTrack = this.mMultiMediaDataTrack;
+        if (multiMediaDataTrack != null && (list = multiMediaDataTrack.multiMediaDataList) != null) {
+            for (MultiMediaData multiMediaData : list) {
+                MultiDataSourceUtil.glDeleteTextures(multiMediaData);
+            }
+        }
+        releaseTempStickerItemList();
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(pg0 pg0Var, int i, float[] fArr) {
+    public void onDrawFrame(tg0 tg0Var, int i, float[] fArr) {
         MediaTrack mediaTrack;
         MultiMediaDataTrack multiMediaDataTrack;
         List<MediaSegment> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, pg0Var, i, fArr) == null) || pg0Var == null || (mediaTrack = this.mSubtitleAndStickerTrack) == null || (multiMediaDataTrack = this.mMultiMediaDataTrack) == null || (list = mediaTrack.mediaSegments) == null || multiMediaDataTrack.multiMediaDataList == null || this.mStickerItems == null || list.size() != this.mMultiMediaDataTrack.multiMediaDataList.size() || this.mStickerItems.size() == 0 || this.mStickerItems.size() != this.mMultiMediaDataTrack.multiMediaDataList.size()) {
+        if (tg0Var == null || (mediaTrack = this.mSubtitleAndStickerTrack) == null || (multiMediaDataTrack = this.mMultiMediaDataTrack) == null || (list = mediaTrack.mediaSegments) == null || multiMediaDataTrack.multiMediaDataList == null || this.mStickerItems == null || list.size() != this.mMultiMediaDataTrack.multiMediaDataList.size() || this.mStickerItems.size() == 0 || this.mStickerItems.size() != this.mMultiMediaDataTrack.multiMediaDataList.size()) {
             return;
         }
-        this.mCurrentPos = pg0Var.a();
+        this.mCurrentPos = tg0Var.b();
         releaseTempStickerItemList();
         GLViewPortLocation gLViewPortLocation = this.mGLViewPortLocation;
         float f = this.mScaleX;
@@ -143,9 +111,9 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
             MultiMediaData multiMediaData = this.mMultiMediaDataTrack.multiMediaDataList.get(i8);
             if (mediaSegment != null && multiMediaData != null) {
                 long j = mediaSegment.start;
-                if (j == 0 || j <= pg0Var.a()) {
+                if (j == 0 || j <= tg0Var.b()) {
                     long j2 = mediaSegment.end;
-                    if ((j2 == 0 || j2 >= pg0Var.a()) && multiMediaData.textureId != 0) {
+                    if ((j2 == 0 || j2 >= tg0Var.b()) && multiMediaData.textureId != 0) {
                         a aVar = this.mStickerItems.get(i8);
                         if (checkForSubline()) {
                             MultiMediaData checkForInitBtn = checkForInitBtn(this.mSublineData, "video_dotted_line");
@@ -171,9 +139,9 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
                             GLES20.glClear(16640);
                             aVar.a(this.mFullScreen2D, this.mFullScreenEXT);
                             GLES20.glBindFramebuffer(36160, 0);
-                            int h = pg0Var.h(mediaSegment, aVar.b[0], null);
+                            int i9 = tg0Var.i(mediaSegment, aVar.b[0], null);
                             GLES20.glViewport(i3, i5, i6, i7);
-                            this.mFullScreen2D.drawFrame(h, fArr);
+                            this.mFullScreen2D.drawFrame(i9, fArr);
                         }
                         if (TextUtils.equals(this.mEditTrackType, mediaSegment.type) && this.mCurrentItem != null && this.mCurrentItem.equals(aVar)) {
                             createButtonTexture();
@@ -194,71 +162,62 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MultiMediaEditBaseRenderer, com.baidu.ugc.editvideo.record.preview.OnMediaPreviewTouchEventListener
     public boolean onTouchDown(float f, float f2, float f3, float f4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            if (this.mSubtitleAndStickerTrack == null) {
-                return false;
+        if (this.mSubtitleAndStickerTrack == null) {
+            return false;
+        }
+        this.mVisibleStickerItems.clear();
+        for (int i = 0; i < this.mSubtitleAndStickerTrack.mediaSegments.size(); i++) {
+            MediaSegment mediaSegment = this.mSubtitleAndStickerTrack.mediaSegments.get(i);
+            if (i >= this.mMultiMediaDataTrack.multiMediaDataList.size()) {
+                return super.onTouchDown(f, f2, f3, f4);
             }
-            this.mVisibleStickerItems.clear();
-            for (int i = 0; i < this.mSubtitleAndStickerTrack.mediaSegments.size(); i++) {
-                MediaSegment mediaSegment = this.mSubtitleAndStickerTrack.mediaSegments.get(i);
-                if (i >= this.mMultiMediaDataTrack.multiMediaDataList.size()) {
-                    return super.onTouchDown(f, f2, f3, f4);
-                }
-                MultiMediaData multiMediaData = this.mMultiMediaDataTrack.multiMediaDataList.get(i);
-                if (mediaSegment != null && multiMediaData != null) {
-                    long j = mediaSegment.start;
-                    if (j == 0 || j <= this.mCurrentPos) {
-                        long j2 = mediaSegment.end;
-                        if ((j2 == 0 || j2 >= this.mCurrentPos) && multiMediaData.textureId != 0 && TextUtils.equals(this.mEditTrackType, mediaSegment.type)) {
-                            this.mVisibleStickerItems.add((a) lx9.c(this.mStickerItems, i));
-                        }
+            MultiMediaData multiMediaData = this.mMultiMediaDataTrack.multiMediaDataList.get(i);
+            if (mediaSegment != null && multiMediaData != null) {
+                long j = mediaSegment.start;
+                if (j == 0 || j <= this.mCurrentPos) {
+                    long j2 = mediaSegment.end;
+                    if ((j2 == 0 || j2 >= this.mCurrentPos) && multiMediaData.textureId != 0 && TextUtils.equals(this.mEditTrackType, mediaSegment.type)) {
+                        this.mVisibleStickerItems.add((a) i1a.c(this.mStickerItems, i));
                     }
                 }
             }
-            return super.onTouchDown(f, f2, f3, f4);
         }
-        return invokeCommon.booleanValue;
+        return super.onTouchDown(f, f2, f3, f4);
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MultiMediaEditBaseRenderer
     public void setCurrentItem(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            boolean z = aVar != this.mCurrentItem;
-            super.setCurrentItem(aVar);
-            List<a> list = this.mStickerItems;
-            int indexOf = list.indexOf(aVar);
-            lx9.h(list, indexOf, list.size() - 1);
-            MultiMediaDataTrack multiMediaDataTrack = this.mMultiMediaDataTrack;
-            if (multiMediaDataTrack != null) {
-                List<MultiMediaData> list2 = multiMediaDataTrack.multiMediaDataList;
-                lx9.h(list2, indexOf, list2.size() - 1);
-            }
-            MediaTrack mediaTrack = this.mSubtitleAndStickerTrack;
-            if (mediaTrack != null) {
-                List<MediaSegment> list3 = mediaTrack.mediaSegments;
-                lx9.h(list3, indexOf, list3.size() - 1);
-            }
-            if (z) {
-                notifyStickerDataChange(StickerDataChangeType.SWAP);
-            }
+        boolean z = aVar != this.mCurrentItem;
+        super.setCurrentItem(aVar);
+        List<a> list = this.mStickerItems;
+        int indexOf = list.indexOf(aVar);
+        i1a.h(list, indexOf, list.size() - 1);
+        MultiMediaDataTrack multiMediaDataTrack = this.mMultiMediaDataTrack;
+        if (multiMediaDataTrack != null) {
+            List<MultiMediaData> list2 = multiMediaDataTrack.multiMediaDataList;
+            i1a.h(list2, indexOf, list2.size() - 1);
+        }
+        MediaTrack mediaTrack = this.mSubtitleAndStickerTrack;
+        if (mediaTrack != null) {
+            List<MediaSegment> list3 = mediaTrack.mediaSegments;
+            i1a.h(list3, indexOf, list3.size() - 1);
+        }
+        if (z) {
+            notifyStickerDataChange(StickerDataChangeType.SWAP);
         }
     }
 
     public void setCurrentStickerData(int i, String str) {
         MediaSegment mediaSegment;
         int indexOf;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) || TextUtils.isEmpty(str)) {
+        if (TextUtils.isEmpty(str)) {
             return;
         }
         List<MediaSegment> stickerSegmentsDataByType = MultiDataSourceUtil.getStickerSegmentsDataByType(this.mSubtitleAndStickerTrack, str);
-        if (lx9.e(stickerSegmentsDataByType) || (mediaSegment = (MediaSegment) lx9.c(stickerSegmentsDataByType, i)) == null || (indexOf = this.mSubtitleAndStickerTrack.mediaSegments.indexOf(mediaSegment)) < 0) {
+        if (i1a.e(stickerSegmentsDataByType) || (mediaSegment = (MediaSegment) i1a.c(stickerSegmentsDataByType, i)) == null || (indexOf = this.mSubtitleAndStickerTrack.mediaSegments.indexOf(mediaSegment)) < 0) {
             return;
         }
-        a aVar = (a) lx9.c(this.mStickerItems, indexOf);
+        a aVar = (a) i1a.c(this.mStickerItems, indexOf);
         if (aVar != null) {
             setCurrentItem(aVar);
         }
@@ -269,136 +228,93 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
     }
 
     public void setData(MediaTrack mediaTrack, MultiMediaDataTrack multiMediaDataTrack) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, mediaTrack, multiMediaDataTrack) == null) {
-            this.mSubtitleAndStickerTrack = mediaTrack;
-            this.mMultiMediaDataTrack = multiMediaDataTrack;
-            checkDataChange();
-        }
+        this.mSubtitleAndStickerTrack = mediaTrack;
+        this.mMultiMediaDataTrack = multiMediaDataTrack;
+        checkDataChange();
     }
 
-    public void setOnChangeStickerListener(OnChangeStickerListener onChangeStickerListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onChangeStickerListener) == null) {
-            setInnerOnChangeStickerListener(new OnChangeStickerListener(this, onChangeStickerListener) { // from class: com.baidu.ugc.editvideo.record.renderer.MultiMediaStickerRenderer.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MultiMediaStickerRenderer this$0;
-                public final /* synthetic */ OnChangeStickerListener val$onChangeStickerListener;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, onChangeStickerListener};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$onChangeStickerListener = onChangeStickerListener;
-                }
-
-                @Override // com.baidu.ugc.editvideo.sticker.OnChangeStickerListener
-                public void onAutoAdjust(String str) {
-                    OnChangeStickerListener onChangeStickerListener2;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) || (onChangeStickerListener2 = this.val$onChangeStickerListener) == null) {
-                        return;
-                    }
+    public void setOnChangeStickerListener(final OnChangeStickerListener onChangeStickerListener) {
+        setInnerOnChangeStickerListener(new OnChangeStickerListener() { // from class: com.baidu.ugc.editvideo.record.renderer.MultiMediaStickerRenderer.1
+            @Override // com.baidu.ugc.editvideo.sticker.OnChangeStickerListener
+            public void onAutoAdjust(String str) {
+                OnChangeStickerListener onChangeStickerListener2 = onChangeStickerListener;
+                if (onChangeStickerListener2 != null) {
                     onChangeStickerListener2.onAutoAdjust(str);
                 }
+            }
 
-                @Override // com.baidu.ugc.editvideo.sticker.OnChangeStickerListener
-                public void onChangeSticker(int i, MultiMediaData multiMediaData, String str) {
-                    OnChangeStickerListener onChangeStickerListener2;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, multiMediaData, str) == null) || (onChangeStickerListener2 = this.val$onChangeStickerListener) == null) {
-                        return;
-                    }
+            @Override // com.baidu.ugc.editvideo.sticker.OnChangeStickerListener
+            public void onChangeSticker(int i, MultiMediaData multiMediaData, String str) {
+                OnChangeStickerListener onChangeStickerListener2 = onChangeStickerListener;
+                if (onChangeStickerListener2 != null) {
                     onChangeStickerListener2.onChangeSticker(i, multiMediaData, str);
                 }
+            }
 
-                @Override // com.baidu.ugc.editvideo.sticker.OnChangeStickerListener
-                public void onClickSticker(MultiMediaData multiMediaData, String str, boolean z) {
-                    OnChangeStickerListener onChangeStickerListener2;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, multiMediaData, str, z) == null) || (onChangeStickerListener2 = this.val$onChangeStickerListener) == null) {
-                        return;
-                    }
+            @Override // com.baidu.ugc.editvideo.sticker.OnChangeStickerListener
+            public void onClickSticker(MultiMediaData multiMediaData, String str, boolean z) {
+                OnChangeStickerListener onChangeStickerListener2 = onChangeStickerListener;
+                if (onChangeStickerListener2 != null) {
                     onChangeStickerListener2.onClickSticker(multiMediaData, str, z);
                 }
+            }
 
-                @Override // com.baidu.ugc.editvideo.sticker.OnChangeStickerListener
-                public void onClickStickerOutside(String str) {
-                    OnChangeStickerListener onChangeStickerListener2;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048579, this, str) == null) || (onChangeStickerListener2 = this.val$onChangeStickerListener) == null) {
-                        return;
-                    }
+            @Override // com.baidu.ugc.editvideo.sticker.OnChangeStickerListener
+            public void onClickStickerOutside(String str) {
+                OnChangeStickerListener onChangeStickerListener2 = onChangeStickerListener;
+                if (onChangeStickerListener2 != null) {
                     onChangeStickerListener2.onClickStickerOutside(str);
                 }
+            }
 
-                @Override // com.baidu.ugc.editvideo.sticker.OnChangeStickerListener
-                public void onDeleteSticker(MultiMediaData multiMediaData, int i, String str, boolean z) {
-                    int indexOf;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048580, this, new Object[]{multiMediaData, Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) || this.this$0.mMultiMediaDataTrack == null || this.this$0.mSubtitleAndStickerTrack == null) {
-                        return;
-                    }
-                    if (TextUtils.equals(SubtitleLog.TAG, this.this$0.mEditTrackType)) {
-                        OnChangeStickerListener onChangeStickerListener2 = this.val$onChangeStickerListener;
-                        if (onChangeStickerListener2 != null) {
-                            onChangeStickerListener2.onDeleteSticker(multiMediaData, i, str, z);
-                        }
-                        if (z) {
-                            return;
-                        }
-                    } else {
-                        MediaSegment mediaSegment = this.this$0.mSubtitleAndStickerTrack.mediaSegments.get(i);
-                        List<MediaSegment> stickerSegmentsDataByType = MultiDataSourceUtil.getStickerSegmentsDataByType(this.this$0.mSubtitleAndStickerTrack, this.this$0.mEditTrackType);
-                        if (stickerSegmentsDataByType == null || (indexOf = stickerSegmentsDataByType.indexOf(mediaSegment)) < 0) {
-                            return;
-                        }
-                        this.this$0.mMultiMediaDataTrack.multiMediaDataList.remove(i);
-                        this.this$0.mSubtitleAndStickerTrack.mediaSegments.remove(i);
-                        OnChangeStickerListener onChangeStickerListener3 = this.val$onChangeStickerListener;
-                        if (onChangeStickerListener3 != null) {
-                            onChangeStickerListener3.onDeleteSticker(multiMediaData, indexOf, str, z);
-                        }
-                        if (z) {
-                            return;
-                        }
-                    }
-                    this.this$0.notifyStickerDataChange("delete");
+            @Override // com.baidu.ugc.editvideo.sticker.OnChangeStickerListener
+            public void onDeleteSticker(MultiMediaData multiMediaData, int i, String str, boolean z) {
+                int indexOf;
+                if (MultiMediaStickerRenderer.this.mMultiMediaDataTrack == null || MultiMediaStickerRenderer.this.mSubtitleAndStickerTrack == null) {
+                    return;
                 }
-
-                @Override // com.baidu.ugc.editvideo.sticker.OnChangeStickerListener
-                public void onEditSticker(MultiMediaData multiMediaData, String str) {
-                    OnChangeStickerListener onChangeStickerListener2;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLL(1048581, this, multiMediaData, str) == null) || (onChangeStickerListener2 = this.val$onChangeStickerListener) == null) {
+                if (TextUtils.equals(SubtitleLog.TAG, MultiMediaStickerRenderer.this.mEditTrackType)) {
+                    OnChangeStickerListener onChangeStickerListener2 = onChangeStickerListener;
+                    if (onChangeStickerListener2 != null) {
+                        onChangeStickerListener2.onDeleteSticker(multiMediaData, i, str, z);
+                    }
+                    if (z) {
                         return;
                     }
+                } else {
+                    MediaSegment mediaSegment = MultiMediaStickerRenderer.this.mSubtitleAndStickerTrack.mediaSegments.get(i);
+                    List<MediaSegment> stickerSegmentsDataByType = MultiDataSourceUtil.getStickerSegmentsDataByType(MultiMediaStickerRenderer.this.mSubtitleAndStickerTrack, MultiMediaStickerRenderer.this.mEditTrackType);
+                    if (stickerSegmentsDataByType == null || (indexOf = stickerSegmentsDataByType.indexOf(mediaSegment)) < 0) {
+                        return;
+                    }
+                    MultiMediaStickerRenderer.this.mMultiMediaDataTrack.multiMediaDataList.remove(i);
+                    MultiMediaStickerRenderer.this.mSubtitleAndStickerTrack.mediaSegments.remove(i);
+                    OnChangeStickerListener onChangeStickerListener3 = onChangeStickerListener;
+                    if (onChangeStickerListener3 != null) {
+                        onChangeStickerListener3.onDeleteSticker(multiMediaData, indexOf, str, z);
+                    }
+                    if (z) {
+                        return;
+                    }
+                }
+                MultiMediaStickerRenderer.this.notifyStickerDataChange("delete");
+            }
+
+            @Override // com.baidu.ugc.editvideo.sticker.OnChangeStickerListener
+            public void onEditSticker(MultiMediaData multiMediaData, String str) {
+                OnChangeStickerListener onChangeStickerListener2 = onChangeStickerListener;
+                if (onChangeStickerListener2 != null) {
                     onChangeStickerListener2.onEditSticker(multiMediaData, str);
                 }
+            }
 
-                @Override // com.baidu.ugc.editvideo.sticker.OnChangeStickerListener
-                public void onStickerDataChanged(String str, MultiMediaData multiMediaData, String str2) {
-                    OnChangeStickerListener onChangeStickerListener2;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLLL(1048582, this, str, multiMediaData, str2) == null) || (onChangeStickerListener2 = this.val$onChangeStickerListener) == null) {
-                        return;
-                    }
+            @Override // com.baidu.ugc.editvideo.sticker.OnChangeStickerListener
+            public void onStickerDataChanged(String str, MultiMediaData multiMediaData, String str2) {
+                OnChangeStickerListener onChangeStickerListener2 = onChangeStickerListener;
+                if (onChangeStickerListener2 != null) {
                     onChangeStickerListener2.onStickerDataChanged(str, multiMediaData, str2);
                 }
-            });
-        }
+            }
+        });
     }
 }

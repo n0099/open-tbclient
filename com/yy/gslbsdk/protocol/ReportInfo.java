@@ -1,56 +1,27 @@
 package com.yy.gslbsdk.protocol;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.device.NetStatusInfo;
 import java.util.HashMap;
 import java.util.LinkedList;
 /* loaded from: classes8.dex */
 public class ReportInfo {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int ct;
-    public int fc;
     public LinkedList<HijackInfo> hijack;
-    public String host;
-    public int lc;
-    public NetStatusInfo netInfo;
-    public StatsInfo stats0;
     public HashMap<String, StatsInfo> stats1;
     public HashMap<String, StatsInfo> stats15;
-    public int tt;
+    public String host = null;
 
     /* renamed from: view  reason: collision with root package name */
-    public String f1116view;
+    public String f1089view = null;
+    public NetStatusInfo netInfo = null;
+    public StatsInfo stats0 = null;
+    public int ct = -1;
+    public int tt = -1;
+    public int fc = -1;
+    public int lc = -1;
 
     public ReportInfo() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.host = null;
-        this.f1116view = null;
-        this.netInfo = null;
-        this.stats0 = null;
         this.stats1 = null;
         this.stats15 = null;
-        this.ct = -1;
-        this.tt = -1;
-        this.fc = -1;
-        this.lc = -1;
         this.hijack = null;
         this.stats1 = new HashMap<>();
         this.stats15 = new HashMap<>();
@@ -58,178 +29,90 @@ public class ReportInfo {
     }
 
     public int getCt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.ct;
-        }
-        return invokeV.intValue;
+        return this.ct;
     }
 
     public int getFc() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.fc;
-        }
-        return invokeV.intValue;
+        return this.fc;
     }
 
     public LinkedList<HijackInfo> getHijack() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.hijack;
-        }
-        return (LinkedList) invokeV.objValue;
+        return this.hijack;
     }
 
     public String getHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.host;
-        }
-        return (String) invokeV.objValue;
+        return this.host;
     }
 
     public int getLc() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.lc;
-        }
-        return invokeV.intValue;
+        return this.lc;
     }
 
     public NetStatusInfo getNetInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.netInfo;
-        }
-        return (NetStatusInfo) invokeV.objValue;
+        return this.netInfo;
     }
 
     public StatsInfo getStats0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.stats0;
-        }
-        return (StatsInfo) invokeV.objValue;
+        return this.stats0;
     }
 
     public HashMap<String, StatsInfo> getStats1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.stats1;
-        }
-        return (HashMap) invokeV.objValue;
+        return this.stats1;
     }
 
     public HashMap<String, StatsInfo> getStats15() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.stats15;
-        }
-        return (HashMap) invokeV.objValue;
+        return this.stats15;
     }
 
     public int getTt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.tt;
-        }
-        return invokeV.intValue;
+        return this.tt;
     }
 
     public String getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.f1116view;
-        }
-        return (String) invokeV.objValue;
+        return this.f1089view;
     }
 
     public void setCt(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.ct = i;
-        }
+        this.ct = i;
     }
 
     public void setFc(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.fc = i;
-        }
+        this.fc = i;
     }
 
     public void setHijack(LinkedList<HijackInfo> linkedList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, linkedList) == null) {
-            this.hijack = linkedList;
-        }
+        this.hijack = linkedList;
     }
 
     public void setHost(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.host = str;
-        }
+        this.host = str;
     }
 
     public void setLc(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.lc = i;
-        }
+        this.lc = i;
     }
 
     public void setNetInfo(NetStatusInfo netStatusInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, netStatusInfo) == null) {
-            this.netInfo = netStatusInfo;
-        }
+        this.netInfo = netStatusInfo;
     }
 
     public void setStats0(StatsInfo statsInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, statsInfo) == null) {
-            this.stats0 = statsInfo;
-        }
+        this.stats0 = statsInfo;
     }
 
     public void setStats1(HashMap<String, StatsInfo> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, hashMap) == null) {
-            this.stats1 = hashMap;
-        }
+        this.stats1 = hashMap;
     }
 
     public void setStats15(HashMap<String, StatsInfo> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, hashMap) == null) {
-            this.stats15 = hashMap;
-        }
+        this.stats15 = hashMap;
     }
 
     public void setTt(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            this.tt = i;
-        }
+        this.tt = i;
     }
 
     public void setView(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.f1116view = str;
-        }
+        this.f1089view = str;
     }
 }

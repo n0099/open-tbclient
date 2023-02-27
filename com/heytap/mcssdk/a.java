@@ -1,31 +1,70 @@
 package com.heytap.mcssdk;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import com.heytap.msp.push.callback.ICallBackResultService;
+import com.heytap.msp.push.callback.IGetAppNotificationCallBackService;
+import com.heytap.msp.push.callback.ISetAppNotificationCallBackService;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class a {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final boolean a = false;
-    public static final String b = "com.heytap.mcssdk";
-    public static final String c = "release";
-    public static final String d = "";
-    public static final int e = 2002;
-    public static final String f = "2.0.2";
-    public transient /* synthetic */ FieldHolder $fh;
+public interface a {
+    @Deprecated
+    void clearNotificationType();
 
-    public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    @Deprecated
+    void clearNotificationType(JSONObject jSONObject);
+
+    void clearNotifications();
+
+    void clearNotifications(JSONObject jSONObject);
+
+    void disableAppNotificationSwitch(ISetAppNotificationCallBackService iSetAppNotificationCallBackService);
+
+    void enableAppNotificationSwitch(ISetAppNotificationCallBackService iSetAppNotificationCallBackService);
+
+    void getAppNotificationSwitch(IGetAppNotificationCallBackService iGetAppNotificationCallBackService);
+
+    void getNotificationStatus();
+
+    void getNotificationStatus(JSONObject jSONObject);
+
+    void getRegister();
+
+    void getRegister(JSONObject jSONObject);
+
+    String getRegisterID();
+
+    void openNotificationSettings();
+
+    void openNotificationSettings(JSONObject jSONObject);
+
+    void pausePush();
+
+    void pausePush(JSONObject jSONObject);
+
+    void register(Context context, String str, String str2, ICallBackResultService iCallBackResultService);
+
+    void register(Context context, String str, String str2, JSONObject jSONObject, ICallBackResultService iCallBackResultService);
+
+    void requestNotificationPermission();
+
+    void resumePush();
+
+    void resumePush(JSONObject jSONObject);
+
+    @Deprecated
+    void setNotificationType(int i);
+
+    @Deprecated
+    void setNotificationType(int i, JSONObject jSONObject);
+
+    void setPushTime(List<Integer> list, int i, int i2, int i3, int i4);
+
+    void setPushTime(List<Integer> list, int i, int i2, int i3, int i4, JSONObject jSONObject);
+
+    void setRegisterID(String str);
+
+    void unRegister();
+
+    void unRegister(JSONObject jSONObject);
 }

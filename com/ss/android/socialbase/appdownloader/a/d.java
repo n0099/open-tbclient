@@ -2,6 +2,8 @@ package com.ss.android.socialbase.appdownloader.a;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
+import com.facebook.cache.disk.DefaultDiskStorage;
 import com.ss.android.socialbase.downloader.depend.IDownloadFileUriProvider;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
@@ -22,7 +24,7 @@ public class d {
         if (str.equals("v1")) {
             return new j(context, a, downloadInfo.getTargetFilePath());
         }
-        if (str.equals("v2")) {
+        if (str.equals(DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX)) {
             return new k(context, a, file.getAbsolutePath());
         }
         if (str.equals("v3")) {
@@ -40,7 +42,7 @@ public class d {
                 return null;
             }
             return new i(context, a, file.getAbsolutePath(), dBJsonString, downloadInfo.getName());
-        } else if (str.equals("custom")) {
+        } else if (str.equals(ExceptionHandlerImpl.KEY_CUSTOM)) {
             return new c(context, a, file.getAbsolutePath(), jSONObject);
         } else {
             if (!str.equals("vbi")) {
@@ -63,7 +65,7 @@ public class d {
         }
         if (com.ss.android.socialbase.appdownloader.f.d.c() && str.equals("v1")) {
             aVar2 = new j(context, aVar, b);
-        } else if (com.ss.android.socialbase.appdownloader.f.d.c() && str.equals("v2")) {
+        } else if (com.ss.android.socialbase.appdownloader.f.d.c() && str.equals(DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX)) {
             aVar2 = new k(context, aVar, b);
         } else if (com.ss.android.socialbase.appdownloader.f.d.c() && str.equals("v3")) {
             aVar2 = new l(context, aVar, b);
@@ -73,7 +75,7 @@ public class d {
             aVar2 = new h(context, aVar, b);
         } else if (com.ss.android.socialbase.appdownloader.f.d.d() && str.equals("o3")) {
             aVar2 = new i(context, aVar, b, b, b);
-        } else if (com.ss.android.socialbase.appdownloader.f.d.c() && str.equals("custom")) {
+        } else if (com.ss.android.socialbase.appdownloader.f.d.c() && str.equals(ExceptionHandlerImpl.KEY_CUSTOM)) {
             aVar2 = new c(context, aVar, b, jSONObject);
         } else if (com.ss.android.socialbase.appdownloader.f.d.c() && str.equals("vbi")) {
             aVar2 = new m(context, aVar, b);

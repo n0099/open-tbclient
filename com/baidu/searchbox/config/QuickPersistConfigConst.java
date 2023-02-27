@@ -1,12 +1,6 @@
 package com.baidu.searchbox.config;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class QuickPersistConfigConst {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String CRASH_LOGGER_SYNC_SWITCHER = "crash_upload_sync_switcher";
     public static final String CRASH_NATIVE_LOGGER_SYNC_SWITCHER = "crash_native_upload_sync_switcher";
     public static final String KEY_ACTIVE_EXP_ID = "active_optimize_exp_id";
@@ -62,19 +56,4 @@ public class QuickPersistConfigConst {
     public static final boolean SEARCHBOX_SERVER_USE_HTTPS_DEFAULT = true;
     public static final int TMP_USE_HTTP_DEAFULT = 0;
     public static final boolean USE_SYS_WEBKIT_DEFAULT = false;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public QuickPersistConfigConst() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

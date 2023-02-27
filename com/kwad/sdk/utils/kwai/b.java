@@ -2,6 +2,7 @@ package com.kwad.sdk.utils.kwai;
 
 import java.nio.charset.Charset;
 import kotlin.jvm.internal.ByteCompanionObject;
+import org.apache.commons.codec.net.RFC1522Codec;
 /* loaded from: classes8.dex */
 public final class b {
     public static final Charset UTF_8 = Charset.forName("UTF-8");
@@ -172,14 +173,14 @@ public final class b {
                 int i4 = i + 1;
                 bArr[i] = (byte) ((charAt >>> 6) | 192);
                 i = i4 + 1;
-                bArr[i4] = (byte) ((charAt & '?') | 128);
+                bArr[i4] = (byte) ((charAt & RFC1522Codec.SEP) | 128);
                 i2 = i3;
             } else if (charAt < 55296 || charAt > 57343) {
                 int i5 = i + 1;
                 bArr[i] = (byte) ((charAt >>> '\f') | 224);
                 int i6 = i5 + 1;
                 bArr[i5] = (byte) (((charAt >>> 6) & 63) | 128);
-                bArr[i6] = (byte) ((charAt & '?') | 128);
+                bArr[i6] = (byte) ((charAt & RFC1522Codec.SEP) | 128);
                 i2 = i3;
                 i = i6 + 1;
             } else {
@@ -215,14 +216,14 @@ public final class b {
                 int i4 = i2 + 1;
                 bArr[i2] = (byte) ((charAt >>> 6) | 192);
                 i2 = i4 + 1;
-                bArr[i4] = (byte) ((charAt & '?') | 128);
+                bArr[i4] = (byte) ((charAt & RFC1522Codec.SEP) | 128);
                 i = i3;
             } else if (charAt < 55296 || charAt > 57343) {
                 int i5 = i2 + 1;
                 bArr[i2] = (byte) ((charAt >>> '\f') | 224);
                 int i6 = i5 + 1;
                 bArr[i5] = (byte) (((charAt >>> 6) & 63) | 128);
-                bArr[i6] = (byte) ((charAt & '?') | 128);
+                bArr[i6] = (byte) ((charAt & RFC1522Codec.SEP) | 128);
                 i = i3;
                 i2 = i6 + 1;
             } else {
@@ -291,7 +292,7 @@ public final class b {
     }
 
     private int s(int i, int i2) {
-        while ((i2 & com.alipay.sdk.encrypt.a.g) != 0) {
+        while ((i2 & (-128)) != 0) {
             this.apw[i] = (byte) ((i2 & 127) | 128);
             i2 >>>= 7;
             i++;

@@ -7,13 +7,13 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.Cdo;
-import com.baidu.tieba.ds6;
-import com.baidu.tieba.lq6;
-import com.baidu.tieba.lt6;
-import com.baidu.tieba.rt6;
-import com.baidu.tieba.wt6;
-import com.baidu.tieba.y35;
-import com.baidu.tieba.zp6;
+import com.baidu.tieba.cv6;
+import com.baidu.tieba.k55;
+import com.baidu.tieba.kt6;
+import com.baidu.tieba.kw6;
+import com.baidu.tieba.qw6;
+import com.baidu.tieba.vw6;
+import com.baidu.tieba.ys6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,20 +22,20 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements y35.g {
+public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements k55.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rt6 a;
+    public qw6 a;
     public String b;
     public String c;
     public List<Cdo> d;
-    public lq6 e;
-    public zp6 f;
-    public lt6 g;
+    public kt6 e;
+    public ys6 f;
+    public kw6 g;
     public NoNetworkView.b h;
 
     /* loaded from: classes4.dex */
-    public class a implements lt6 {
+    public class a implements kw6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumMemberActivity a;
@@ -58,16 +58,16 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             this.a = forumMemberActivity;
         }
 
-        @Override // com.baidu.tieba.lt6
-        public void a(int i, int i2, wt6 wt6Var, ArrayList<Cdo> arrayList) {
+        @Override // com.baidu.tieba.kw6
+        public void a(int i, int i2, vw6 vw6Var, ArrayList<Cdo> arrayList) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), wt6Var, arrayList}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), vw6Var, arrayList}) == null) {
                 this.a.e.d();
                 this.a.e.c();
                 if (arrayList != null) {
                     Iterator<Cdo> it = arrayList.iterator();
                     while (it.hasNext()) {
-                        if (it.next() instanceof ds6) {
+                        if (it.next() instanceof cv6) {
                             it.remove();
                         }
                     }
@@ -76,8 +76,8 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                     this.a.e.e();
                     this.a.d = arrayList;
                     this.a.e.f(this.a.d);
-                } else if (ListUtils.isEmpty(this.a.d) && wt6Var != null) {
-                    this.a.e.l(wt6Var.f);
+                } else if (ListUtils.isEmpty(this.a.d) && vw6Var != null) {
+                    this.a.e.l(vw6Var.f);
                 }
             }
         }
@@ -141,11 +141,11 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         this.h = new b(this);
     }
 
-    @Override // com.baidu.tieba.y35.g
+    @Override // com.baidu.tieba.k55.g
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f.z(3, 0, this.a);
+            this.f.D(3, 0, this.a);
         }
     }
 
@@ -181,10 +181,10 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                 this.c = bundle.getString("forum_id", "");
                 this.b = bundle.getString("forum_name", "");
             }
-            rt6 rt6Var = new rt6();
-            this.a = rt6Var;
-            rt6Var.b = this.c;
-            rt6Var.a = this.b;
+            qw6 qw6Var = new qw6();
+            this.a = qw6Var;
+            qw6Var.b = this.c;
+            qw6Var.a = this.b;
         }
     }
 
@@ -192,7 +192,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.e.k();
-            this.f.z(3, 0, this.a);
+            this.f.D(3, 0, this.a);
         }
     }
 
@@ -201,10 +201,10 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            this.f.k();
-            lq6 lq6Var = this.e;
-            if (lq6Var != null) {
-                lq6Var.i();
+            this.f.l();
+            kt6 kt6Var = this.e;
+            if (kt6Var != null) {
+                kt6Var.i();
             }
         }
     }
@@ -224,14 +224,14 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             A1(bundle);
-            lq6 lq6Var = new lq6(this);
-            this.e = lq6Var;
-            lq6Var.j(this.h);
-            zp6 zp6Var = new zp6();
-            this.f = zp6Var;
-            zp6Var.E(getUniqueId());
+            kt6 kt6Var = new kt6(this);
+            this.e = kt6Var;
+            kt6Var.j(this.h);
+            ys6 ys6Var = new ys6();
+            this.f = ys6Var;
+            ys6Var.C(getUniqueId());
             this.f.init();
-            this.f.D(this.g);
+            this.f.K(this.g);
             C1();
         }
     }

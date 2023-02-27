@@ -1,34 +1,27 @@
 package com.baidu.swan.apps.optimization.quotasaver;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.optimization.quotasaver.QuotaSaver$optSwitcher$2;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.tieba.a93;
-import com.baidu.tieba.b93;
-import com.baidu.tieba.i53;
-import com.baidu.tieba.pn3;
-import com.baidu.tieba.t83;
-import com.baidu.tieba.tu2;
-import com.baidu.tieba.v83;
-import com.baidu.tieba.w52;
-import com.baidu.tieba.zt2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.fo3;
+import com.baidu.tieba.j93;
+import com.baidu.tieba.jv2;
+import com.baidu.tieba.l93;
+import com.baidu.tieba.m62;
+import com.baidu.tieba.pu2;
+import com.baidu.tieba.q93;
+import com.baidu.tieba.r93;
+import com.baidu.tieba.ts2;
+import com.baidu.tieba.y53;
+import java.util.concurrent.TimeUnit;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
+import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000F\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\t\n\u0002\b\u001b\bÆ\u0002\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b>\u0010\bJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\r\u0010\u0007\u001a\u00020\u0004¢\u0006\u0004\b\u0007\u0010\bJ\u0019\u0010\t\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\t\u0010\u0006J\u0015\u0010\f\u001a\u00020\u00042\u0006\u0010\u000b\u001a\u00020\n¢\u0006\u0004\b\f\u0010\rR\u001d\u0010\u0013\u001a\u00020\u000e8F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u000f\u0010\u0010\u001a\u0004\b\u0011\u0010\u0012R\u001d\u0010\u0018\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u0015\u0010\u0010\u001a\u0004\b\u0016\u0010\u0017R%\u0010\u001e\u001a\n \u001a*\u0004\u0018\u00010\u00190\u00198B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001b\u0010\u0010\u001a\u0004\b\u001c\u0010\u001dR\u001d\u0010#\u001a\u00020\u001f8F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b \u0010\u0010\u001a\u0004\b!\u0010\"R\u001d\u0010(\u001a\u00020$8F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b%\u0010\u0010\u001a\u0004\b&\u0010'R\u001d\u0010+\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b)\u0010\u0010\u001a\u0004\b*\u0010\u0017R\u001d\u0010.\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b,\u0010\u0010\u001a\u0004\b-\u0010\u0017R\u001d\u00101\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b/\u0010\u0010\u001a\u0004\b0\u0010\u0017R\u001d\u00104\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b2\u0010\u0010\u001a\u0004\b3\u0010\u0017R\u001d\u00107\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b5\u0010\u0010\u001a\u0004\b6\u0010\u0017R\u001d\u0010:\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b8\u0010\u0010\u001a\u0004\b9\u0010\u0017R\u001d\u0010=\u001a\u00020$8F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b;\u0010\u0010\u001a\u0004\b<\u0010'¨\u0006?"}, d2 = {"Lcom/baidu/swan/apps/optimization/quotasaver/QuotaSaver;", "Lcom/baidu/tieba/pn3;", "Lcom/baidu/swan/apps/runtime/SwanEvent$Impl;", "msg", "", "handleKillMsgOnSwanProcess", "(Lcom/baidu/swan/apps/runtime/SwanEvent$Impl;)V", "killAllSwanProcess", "()V", "onCallback", "Lcom/baidu/swan/apps/runtime/SwanImpl;", "swanImpl", "regEventSubscriberOn", "(Lcom/baidu/swan/apps/runtime/SwanImpl;)V", "Lcom/baidu/swan/apps/launch/model/property/Properties$Impl;", "config$delegate", "Lkotlin/Lazy;", "getConfig", "()Lcom/baidu/swan/apps/launch/model/property/Properties$Impl;", "config", "", "enableSuspend$delegate", "getEnableSuspend", "()Z", "enableSuspend", "Lcom/baidu/swan/apps/runtime/EventSubscriber;", "kotlin.jvm.PlatformType", "eventSubscriber$delegate", "getEventSubscriber", "()Lcom/baidu/swan/apps/runtime/EventSubscriber;", "eventSubscriber", "Lcom/baidu/swan/apps/lifecycle/backstage/switcher/IOptSwitcher;", "optSwitcher$delegate", "getOptSwitcher", "()Lcom/baidu/swan/apps/lifecycle/backstage/switcher/IOptSwitcher;", "optSwitcher", "", "rescueRefractoryPeriod$delegate", "getRescueRefractoryPeriod", "()J", "rescueRefractoryPeriod", "shouldSuspendAll$delegate", "getShouldSuspendAll", "shouldSuspendAll", "shouldSuspendAnything$delegate", "getShouldSuspendAnything", "shouldSuspendAnything", "shouldSuspendMasterTimer$delegate", "getShouldSuspendMasterTimer", "shouldSuspendMasterTimer", "shouldSuspendSlaveTimer$delegate", "getShouldSuspendSlaveTimer", "shouldSuspendSlaveTimer", "shouldSuspendV8Timer$delegate", "getShouldSuspendV8Timer", "shouldSuspendV8Timer", "shouldSuspendWebViewTimer$delegate", "getShouldSuspendWebViewTimer", "shouldSuspendWebViewTimer", "suspendDelayTime$delegate", "getSuspendDelayTime", "suspendDelayTime", "<init>", "core_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000F\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\t\n\u0002\b\u001b\bÆ\u0002\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b>\u0010\bJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\r\u0010\u0007\u001a\u00020\u0004¢\u0006\u0004\b\u0007\u0010\bJ\u0019\u0010\t\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\t\u0010\u0006J\u0015\u0010\f\u001a\u00020\u00042\u0006\u0010\u000b\u001a\u00020\n¢\u0006\u0004\b\f\u0010\rR\u001d\u0010\u0013\u001a\u00020\u000e8F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u000f\u0010\u0010\u001a\u0004\b\u0011\u0010\u0012R\u001d\u0010\u0018\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u0015\u0010\u0010\u001a\u0004\b\u0016\u0010\u0017R%\u0010\u001e\u001a\n \u001a*\u0004\u0018\u00010\u00190\u00198B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001b\u0010\u0010\u001a\u0004\b\u001c\u0010\u001dR\u001d\u0010#\u001a\u00020\u001f8F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b \u0010\u0010\u001a\u0004\b!\u0010\"R\u001d\u0010(\u001a\u00020$8F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b%\u0010\u0010\u001a\u0004\b&\u0010'R\u001d\u0010+\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b)\u0010\u0010\u001a\u0004\b*\u0010\u0017R\u001d\u0010.\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b,\u0010\u0010\u001a\u0004\b-\u0010\u0017R\u001d\u00101\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b/\u0010\u0010\u001a\u0004\b0\u0010\u0017R\u001d\u00104\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b2\u0010\u0010\u001a\u0004\b3\u0010\u0017R\u001d\u00107\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b5\u0010\u0010\u001a\u0004\b6\u0010\u0017R\u001d\u0010:\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b8\u0010\u0010\u001a\u0004\b9\u0010\u0017R\u001d\u0010=\u001a\u00020$8F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b;\u0010\u0010\u001a\u0004\b<\u0010'¨\u0006?"}, d2 = {"Lcom/baidu/swan/apps/optimization/quotasaver/QuotaSaver;", "Lcom/baidu/tieba/fo3;", "Lcom/baidu/swan/apps/runtime/SwanEvent$Impl;", "msg", "", "handleKillMsgOnSwanProcess", "(Lcom/baidu/swan/apps/runtime/SwanEvent$Impl;)V", "killAllSwanProcess", "()V", "onCallback", "Lcom/baidu/swan/apps/runtime/SwanImpl;", "swanImpl", "regEventSubscriberOn", "(Lcom/baidu/swan/apps/runtime/SwanImpl;)V", "Lcom/baidu/swan/apps/launch/model/property/Properties$Impl;", "config$delegate", "Lkotlin/Lazy;", "getConfig", "()Lcom/baidu/swan/apps/launch/model/property/Properties$Impl;", "config", "", "enableSuspend$delegate", "getEnableSuspend", "()Z", "enableSuspend", "Lcom/baidu/swan/apps/runtime/EventSubscriber;", "kotlin.jvm.PlatformType", "eventSubscriber$delegate", "getEventSubscriber", "()Lcom/baidu/swan/apps/runtime/EventSubscriber;", "eventSubscriber", "Lcom/baidu/swan/apps/lifecycle/backstage/switcher/IOptSwitcher;", "optSwitcher$delegate", "getOptSwitcher", "()Lcom/baidu/swan/apps/lifecycle/backstage/switcher/IOptSwitcher;", "optSwitcher", "", "rescueRefractoryPeriod$delegate", "getRescueRefractoryPeriod", "()J", "rescueRefractoryPeriod", "shouldSuspendAll$delegate", "getShouldSuspendAll", "shouldSuspendAll", "shouldSuspendAnything$delegate", "getShouldSuspendAnything", "shouldSuspendAnything", "shouldSuspendMasterTimer$delegate", "getShouldSuspendMasterTimer", "shouldSuspendMasterTimer", "shouldSuspendSlaveTimer$delegate", "getShouldSuspendSlaveTimer", "shouldSuspendSlaveTimer", "shouldSuspendV8Timer$delegate", "getShouldSuspendV8Timer", "shouldSuspendV8Timer", "shouldSuspendWebViewTimer$delegate", "getShouldSuspendWebViewTimer", "shouldSuspendWebViewTimer", "suspendDelayTime$delegate", "getSuspendDelayTime", "suspendDelayTime", "<init>", "core_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
-public final class QuotaSaver implements pn3<a93.a> {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Lazy a;
+public final class QuotaSaver implements fo3<q93.a> {
     public static final Lazy b;
     public static final Lazy c;
     public static final Lazy d;
@@ -39,173 +32,311 @@ public final class QuotaSaver implements pn3<a93.a> {
     public static final Lazy i;
     public static final Lazy j;
     public static final Lazy k;
-    public static final QuotaSaver l;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final QuotaSaver l = new QuotaSaver();
+    public static final Lazy a = LazyKt__LazyJVMKt.lazy(new Function0<pu2.a>() { // from class: com.baidu.swan.apps.optimization.quotasaver.QuotaSaver$config$2
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // kotlin.jvm.functions.Function0
+        public final pu2.a invoke() {
+            pu2.a aVar = new pu2.a();
+            ts2.H0().a(aVar);
+            return new pu2.a(aVar.D());
+        }
+    });
 
-    public final zt2.a b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (zt2.a) a.getValue() : (zt2.a) invokeV.objValue;
+    public final pu2.a b() {
+        return (pu2.a) a.getValue();
     }
 
     public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((Boolean) i.getValue()).booleanValue() : invokeV.booleanValue;
+        return ((Boolean) i.getValue()).booleanValue();
     }
 
-    public final t83 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (t83) k.getValue() : (t83) invokeV.objValue;
+    public final j93 d() {
+        return (j93) k.getValue();
     }
 
-    public final tu2 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (tu2) j.getValue() : (tu2) invokeV.objValue;
+    public final jv2 e() {
+        return (jv2) j.getValue();
     }
 
     public final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ((Boolean) c.getValue()).booleanValue() : invokeV.booleanValue;
+        return ((Boolean) c.getValue()).booleanValue();
     }
 
     public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? ((Boolean) h.getValue()).booleanValue() : invokeV.booleanValue;
+        return ((Boolean) h.getValue()).booleanValue();
     }
 
     public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? ((Boolean) f.getValue()).booleanValue() : invokeV.booleanValue;
+        return ((Boolean) f.getValue()).booleanValue();
     }
 
     public final boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? ((Boolean) g.getValue()).booleanValue() : invokeV.booleanValue;
+        return ((Boolean) g.getValue()).booleanValue();
     }
 
     public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? ((Boolean) d.getValue()).booleanValue() : invokeV.booleanValue;
+        return ((Boolean) d.getValue()).booleanValue();
     }
 
     public final boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? ((Boolean) e.getValue()).booleanValue() : invokeV.booleanValue;
+        return ((Boolean) e.getValue()).booleanValue();
     }
 
     public final long l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? ((Number) b.getValue()).longValue() : invokeV.longValue;
+        return ((Number) b.getValue()).longValue();
     }
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2079141631, "Lcom/baidu/swan/apps/optimization/quotasaver/QuotaSaver;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        LazyKt__LazyJVMKt.lazy(new Function0<Long>() { // from class: com.baidu.swan.apps.optimization.quotasaver.QuotaSaver$rescueRefractoryPeriod$2
+            /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final long invoke2() {
+                return QuotaSaver.l.b().l("rescue_refractory_period", 0L);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-2079141631, "Lcom/baidu/swan/apps/optimization/quotasaver/QuotaSaver;");
-                return;
-            }
-        }
-        l = new QuotaSaver();
-        a = LazyKt__LazyJVMKt.lazy(QuotaSaver$config$2.INSTANCE);
-        LazyKt__LazyJVMKt.lazy(QuotaSaver$rescueRefractoryPeriod$2.INSTANCE);
-        b = LazyKt__LazyJVMKt.lazy(QuotaSaver$suspendDelayTime$2.INSTANCE);
-        c = LazyKt__LazyJVMKt.lazy(QuotaSaver$shouldSuspendAll$2.INSTANCE);
-        d = LazyKt__LazyJVMKt.lazy(QuotaSaver$shouldSuspendV8Timer$2.INSTANCE);
-        e = LazyKt__LazyJVMKt.lazy(QuotaSaver$shouldSuspendWebViewTimer$2.INSTANCE);
-        f = LazyKt__LazyJVMKt.lazy(QuotaSaver$shouldSuspendMasterTimer$2.INSTANCE);
-        g = LazyKt__LazyJVMKt.lazy(QuotaSaver$shouldSuspendSlaveTimer$2.INSTANCE);
-        h = LazyKt__LazyJVMKt.lazy(QuotaSaver$shouldSuspendAnything$2.INSTANCE);
-        i = LazyKt__LazyJVMKt.lazy(QuotaSaver$enableSuspend$2.INSTANCE);
-        j = LazyKt__LazyJVMKt.lazy(QuotaSaver$optSwitcher$2.INSTANCE);
-        k = LazyKt__LazyJVMKt.lazy(QuotaSaver$eventSubscriber$2.INSTANCE);
-    }
 
-    public QuotaSaver() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function0
+            public /* bridge */ /* synthetic */ Long invoke() {
+                return Long.valueOf(invoke2());
             }
-        }
+        });
+        b = LazyKt__LazyJVMKt.lazy(new Function0<Long>() { // from class: com.baidu.swan.apps.optimization.quotasaver.QuotaSaver$suspendDelayTime$2
+            /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final long invoke2() {
+                return QuotaSaver.l.b().l("suspend_delay_time", -1L);
+            }
+
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function0
+            public /* bridge */ /* synthetic */ Long invoke() {
+                return Long.valueOf(invoke2());
+            }
+        });
+        c = LazyKt__LazyJVMKt.lazy(new Function0<Boolean>() { // from class: com.baidu.swan.apps.optimization.quotasaver.QuotaSaver$shouldSuspendAll$2
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function0
+            public /* bridge */ /* synthetic */ Boolean invoke() {
+                return Boolean.valueOf(invoke2());
+            }
+
+            /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final boolean invoke2() {
+                return QuotaSaver.l.b().e("should_suspend_all", false);
+            }
+        });
+        d = LazyKt__LazyJVMKt.lazy(new Function0<Boolean>() { // from class: com.baidu.swan.apps.optimization.quotasaver.QuotaSaver$shouldSuspendV8Timer$2
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function0
+            public /* bridge */ /* synthetic */ Boolean invoke() {
+                return Boolean.valueOf(invoke2());
+            }
+
+            /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final boolean invoke2() {
+                if (!QuotaSaver.l.f() && !QuotaSaver.l.b().e("should_suspend_v8_timer", false)) {
+                    return false;
+                }
+                return true;
+            }
+        });
+        e = LazyKt__LazyJVMKt.lazy(new Function0<Boolean>() { // from class: com.baidu.swan.apps.optimization.quotasaver.QuotaSaver$shouldSuspendWebViewTimer$2
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function0
+            public /* bridge */ /* synthetic */ Boolean invoke() {
+                return Boolean.valueOf(invoke2());
+            }
+
+            /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final boolean invoke2() {
+                if (!QuotaSaver.l.f() && !QuotaSaver.l.b().e("should_suspend_web_view_timer", false)) {
+                    return false;
+                }
+                return true;
+            }
+        });
+        f = LazyKt__LazyJVMKt.lazy(new Function0<Boolean>() { // from class: com.baidu.swan.apps.optimization.quotasaver.QuotaSaver$shouldSuspendMasterTimer$2
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function0
+            public /* bridge */ /* synthetic */ Boolean invoke() {
+                return Boolean.valueOf(invoke2());
+            }
+
+            /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final boolean invoke2() {
+                if (!QuotaSaver.l.f() && !QuotaSaver.l.b().e("should_suspend_master_timer", false)) {
+                    return false;
+                }
+                return true;
+            }
+        });
+        g = LazyKt__LazyJVMKt.lazy(new Function0<Boolean>() { // from class: com.baidu.swan.apps.optimization.quotasaver.QuotaSaver$shouldSuspendSlaveTimer$2
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function0
+            public /* bridge */ /* synthetic */ Boolean invoke() {
+                return Boolean.valueOf(invoke2());
+            }
+
+            /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final boolean invoke2() {
+                if (!QuotaSaver.l.f() && !QuotaSaver.l.b().e("should_suspend_slave_timer", false)) {
+                    return false;
+                }
+                return true;
+            }
+        });
+        h = LazyKt__LazyJVMKt.lazy(new Function0<Boolean>() { // from class: com.baidu.swan.apps.optimization.quotasaver.QuotaSaver$shouldSuspendAnything$2
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function0
+            public /* bridge */ /* synthetic */ Boolean invoke() {
+                return Boolean.valueOf(invoke2());
+            }
+
+            /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final boolean invoke2() {
+                if (!QuotaSaver.l.f() && !QuotaSaver.l.j() && !QuotaSaver.l.k() && !QuotaSaver.l.h() && !QuotaSaver.l.i()) {
+                    return false;
+                }
+                return true;
+            }
+        });
+        i = LazyKt__LazyJVMKt.lazy(new Function0<Boolean>() { // from class: com.baidu.swan.apps.optimization.quotasaver.QuotaSaver$enableSuspend$2
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            @Override // kotlin.jvm.functions.Function0
+            public /* bridge */ /* synthetic */ Boolean invoke() {
+                return Boolean.valueOf(invoke2());
+            }
+
+            /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
+            /* renamed from: invoke  reason: avoid collision after fix types in other method */
+            public final boolean invoke2() {
+                if (QuotaSaver.l.l() >= 0 && QuotaSaver.l.g()) {
+                    return true;
+                }
+                return false;
+            }
+        });
+        j = LazyKt__LazyJVMKt.lazy(new Function0<QuotaSaver$optSwitcher$2.a>() { // from class: com.baidu.swan.apps.optimization.quotasaver.QuotaSaver$optSwitcher$2
+
+            /* loaded from: classes3.dex */
+            public static final class a implements jv2 {
+                @Override // com.baidu.tieba.jv2
+                public int a() {
+                    if (QuotaSaver.l.l() > 0) {
+                        return (int) TimeUnit.MILLISECONDS.toSeconds(QuotaSaver.l.l());
+                    }
+                    return -1;
+                }
+
+                @Override // com.baidu.tieba.jv2
+                public boolean b() {
+                    if (QuotaSaver.l.c() && QuotaSaver.l.h() && QuotaSaver.l.k()) {
+                        return true;
+                    }
+                    return false;
+                }
+
+                @Override // com.baidu.tieba.jv2
+                public boolean c() {
+                    if (QuotaSaver.l.c() && QuotaSaver.l.i()) {
+                        return true;
+                    }
+                    return false;
+                }
+
+                @Override // com.baidu.tieba.jv2
+                public boolean d() {
+                    if (QuotaSaver.l.c() && QuotaSaver.l.j()) {
+                        return true;
+                    }
+                    return false;
+                }
+
+                @Override // com.baidu.tieba.jv2
+                public boolean e() {
+                    if (QuotaSaver.l.c() && QuotaSaver.l.k()) {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // kotlin.jvm.functions.Function0
+            public final a invoke() {
+                return new a();
+            }
+        });
+        k = LazyKt__LazyJVMKt.lazy(new Function0<j93>() { // from class: com.baidu.swan.apps.optimization.quotasaver.QuotaSaver$eventSubscriber$2
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // kotlin.jvm.functions.Function0
+            public final j93 invoke() {
+                j93 j93Var = new j93();
+                j93Var.f(QuotaSaver.l, "event_messenger_call");
+                return j93Var;
+            }
+        });
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pn3
+    @Override // com.baidu.tieba.fo3
     /* renamed from: n */
-    public void a(a93.a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) && aVar != null) {
+    public void a(q93.a aVar) {
+        if (aVar != null) {
             l.m(aVar);
         }
     }
 
-    public final void o(b93 swanImpl) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, swanImpl) == null) {
-            Intrinsics.checkNotNullParameter(swanImpl, "swanImpl");
-            swanImpl.u(d());
-        }
+    public final void o(r93 swanImpl) {
+        Intrinsics.checkNotNullParameter(swanImpl, "swanImpl");
+        swanImpl.u(d());
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x002b, code lost:
-        if (com.baidu.tieba.nm3.E(true) != false) goto L11;
+    /* JADX WARN: Code restructure failed: missing block: B:9:0x0026, code lost:
+        if (com.baidu.tieba.dn3.E(true) != false) goto L9;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void m(a93.a aVar) {
-        a93.a aVar2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
-            boolean z = true;
-            if (i53.J(aVar.D(), "quota_saver_killing") && !ProcessUtils.isMainProcess()) {
-                SwanAppProcessInfo current = SwanAppProcessInfo.current();
-                Intrinsics.checkNotNullExpressionValue(current, "SwanAppProcessInfo.current()");
-                if (current.isSwanAppProcess()) {
-                }
+    public final void m(q93.a aVar) {
+        q93.a aVar2;
+        boolean z = true;
+        if (y53.J(aVar.D(), "quota_saver_killing") && !ProcessUtils.isMainProcess()) {
+            SwanAppProcessInfo current = SwanAppProcessInfo.current();
+            Intrinsics.checkNotNullExpressionValue(current, "SwanAppProcessInfo.current()");
+            if (current.isSwanAppProcess()) {
             }
-            z = false;
-            if (z) {
-                aVar2 = aVar;
-            } else {
-                aVar2 = null;
-            }
-            if (aVar2 != null) {
-                String n = aVar2.n("quota_saver_action");
-                w52.i("QuotaSaver", "handleKillMsgOnSwanProcess: on action=" + n);
-                if (n != null) {
-                    int hashCode = n.hashCode();
-                    if (hashCode != -1120856297) {
-                        if (hashCode == -527012810 && n.equals("quota_saver_action_bye")) {
-                            w52.i("QuotaSaver", "handleKillMsgOnSwanProcess: kill do by bye");
-                            v83.K().G();
-                        }
-                    } else if (n.equals("quota_saver_action_will_done")) {
-                        w52.i("QuotaSaver", "handleKillMsgOnSwanProcess: callback bye by WILL_DONE");
-                        v83.K().n("flag_finish_activity", "flag_remove_task");
-                        i53.Z(aVar.D()).z("quota_saver_action", "quota_saver_action_bye").call();
+        }
+        z = false;
+        if (z) {
+            aVar2 = aVar;
+        } else {
+            aVar2 = null;
+        }
+        if (aVar2 != null) {
+            String n = aVar2.n("quota_saver_action");
+            m62.i("QuotaSaver", "handleKillMsgOnSwanProcess: on action=" + n);
+            if (n != null) {
+                int hashCode = n.hashCode();
+                if (hashCode != -1120856297) {
+                    if (hashCode == -527012810 && n.equals("quota_saver_action_bye")) {
+                        m62.i("QuotaSaver", "handleKillMsgOnSwanProcess: kill do by bye");
+                        l93.K().G();
                     }
+                } else if (n.equals("quota_saver_action_will_done")) {
+                    m62.i("QuotaSaver", "handleKillMsgOnSwanProcess: callback bye by WILL_DONE");
+                    l93.K().n("flag_finish_activity", "flag_remove_task");
+                    y53.Z(aVar.D()).z("quota_saver_action", "quota_saver_action_bye").call();
                 }
             }
         }

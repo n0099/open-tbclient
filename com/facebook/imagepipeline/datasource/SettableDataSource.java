@@ -1,11 +1,5 @@
 package com.facebook.imagepipeline.datasource;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.AbstractDataSource;
 import javax.annotation.Nullable;
@@ -13,77 +7,32 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes7.dex */
 public final class SettableDataSource<T> extends AbstractDataSource<CloseableReference<T>> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public SettableDataSource() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static <V> SettableDataSource<V> create() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new SettableDataSource<>();
-        }
-        return (SettableDataSource) invokeV.objValue;
+        return new SettableDataSource<>();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.DataSource
     @Nullable
     public CloseableReference<T> getResult() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return CloseableReference.cloneOrNull((CloseableReference) super.getResult());
-        }
-        return (CloseableReference) invokeV.objValue;
+        return CloseableReference.cloneOrNull((CloseableReference) super.getResult());
     }
 
     public void closeResult(@Nullable CloseableReference<T> closeableReference) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, closeableReference) == null) {
-            CloseableReference.closeSafely((CloseableReference<?>) closeableReference);
-        }
+        CloseableReference.closeSafely((CloseableReference<?>) closeableReference);
     }
 
     public boolean set(@Nullable CloseableReference<T> closeableReference) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, closeableReference)) == null) {
-            return super.setResult(CloseableReference.cloneOrNull(closeableReference), true, null);
-        }
-        return invokeL.booleanValue;
+        return super.setResult(CloseableReference.cloneOrNull(closeableReference), true, null);
     }
 
     public boolean setException(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, th)) == null) {
-            return super.setFailure(th);
-        }
-        return invokeL.booleanValue;
+        return super.setFailure(th);
     }
 
     @Override // com.facebook.datasource.AbstractDataSource
     public boolean setProgress(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
-            return super.setProgress(f);
-        }
-        return invokeF.booleanValue;
+        return super.setProgress(f);
     }
 
     @Override // com.facebook.datasource.AbstractDataSource

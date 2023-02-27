@@ -8,14 +8,13 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.pushservice.a0.i;
+import com.baidu.android.pushservice.a0.m;
 import com.baidu.android.pushservice.e;
 import com.baidu.android.pushservice.f;
-import com.baidu.android.pushservice.h.a.b;
-import com.baidu.android.pushservice.i.i;
-import com.baidu.android.pushservice.i.l;
-import com.baidu.android.pushservice.i.m;
+import com.baidu.android.pushservice.util.Utility;
+import com.baidu.android.pushservice.z.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,13 +28,48 @@ public class PushJobService extends JobService {
     public Handler a;
 
     /* loaded from: classes.dex */
-    public static class a extends Handler {
+    public class a extends c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Intent c;
+        public final /* synthetic */ PushJobService d;
+
+        public a(PushJobService pushJobService, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pushJobService, intent};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = pushJobService;
+            this.c = intent;
+        }
+
+        @Override // com.baidu.android.pushservice.z.c
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                f.a(this.d.getApplicationContext()).a(this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final JobService a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(JobService jobService) {
+        public b(JobService jobService) {
             super(jobService.getMainLooper());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -62,13 +96,12 @@ public class PushJobService extends JobService {
                 JobParameters jobParameters = (JobParameters) message.obj;
                 try {
                     this.a.jobFinished(jobParameters, true);
-                    int b = i.b(this.a.getApplicationContext(), "key_push_launch_task_level", 0);
-                    if (jobParameters.getJobId() != 1 || b == 1) {
+                    int a = i.a(this.a.getApplicationContext(), "key_push_launch_task_level", 0);
+                    if (jobParameters.getJobId() != 1 || a == 1) {
                         return;
                     }
-                    com.baidu.android.pushservice.job.a.a(this.a, false, 0);
-                } catch (Throwable th) {
-                    new b.c(this.a.getApplicationContext()).a(Log.getStackTraceString(th)).a();
+                    com.baidu.android.pushservice.s.a.a(this.a, false);
+                } catch (Throwable unused) {
                 }
             }
         }
@@ -93,6 +126,7 @@ public class PushJobService extends JobService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onCreate();
+            com.baidu.android.pushservice.t.a.a(getApplicationContext()).a(0);
         }
     }
 
@@ -109,20 +143,18 @@ public class PushJobService extends JobService {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jobParameters)) == null) {
-            int i = jobParameters.getExtras().getInt("push_start_source");
-            if (m.B(getApplicationContext()) || !l.a(getApplicationContext(), (Intent) null, i)) {
+            if (Utility.E(getApplicationContext()) || !m.a(getApplicationContext(), (Intent) null)) {
                 try {
-                    Intent a2 = e.a(getApplicationContext());
-                    if (Build.VERSION.SDK_INT >= 28 && m.u(getApplicationContext())) {
-                        a2.putExtra("disable_alarm", true);
+                    Intent j = e.j(getApplicationContext());
+                    if (Build.VERSION.SDK_INT >= 28 && Utility.Q(getApplicationContext())) {
+                        j.putExtra("disable_alarm", true);
                     }
-                    a2.putExtra("push_start_source", i);
-                    f.a(getApplicationContext()).a(a2);
+                    com.baidu.android.pushservice.z.e.a().a(new a(this, j));
                 } catch (Exception unused) {
                 }
             }
             if (this.a == null) {
-                this.a = new a(this);
+                this.a = new b(this);
             }
             Handler handler = this.a;
             handler.sendMessageDelayed(Message.obtain(handler, 1, jobParameters), 2000L);

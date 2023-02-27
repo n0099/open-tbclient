@@ -2,14 +2,8 @@ package com.baidu.searchbox.player.event;
 
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PlayerEvent extends VideoEvent {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_BUFFER_UPDATE = "player_event_buffer_update";
     public static final String ACTION_GO_BACK_OR_FOREGROUND = "player_event_go_back_or_foreground";
     public static final String ACTION_KERNEL_LAYER_DETACH = "player_event_kernel_layer_detach";
@@ -32,29 +26,9 @@ public class PlayerEvent extends VideoEvent {
     public static final int KEY_RESULT = 7;
     public static final int KEY_WHAT = 1;
     public static final int KEY_WIDTH = 5;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public PlayerEvent() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     @PublicMethod
     public static VideoEvent obtainEvent(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return VideoEvent.obtain(str, 4);
-        }
-        return (VideoEvent) invokeL.objValue;
+        return VideoEvent.obtain(str, 4);
     }
 }

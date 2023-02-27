@@ -32,12 +32,12 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a65;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.he5;
-import com.baidu.tieba.o45;
+import com.baidu.tieba.nd9;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
+import com.baidu.tieba.uf5;
 import com.baidu.tieba.view.GuideScrollView;
-import com.baidu.tieba.x99;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -227,8 +227,8 @@ public class GuidePopupWindow extends Dialog {
                 hashMap.put("swipeback", Boolean.FALSE);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a.a, "BarBroadcastEditPage", hashMap)));
                 StatisticItem statisticItem = new StatisticItem("c13887");
-                if (he5.d() != null && he5.d().e() != null) {
-                    statisticItem.param("uid", he5.d().e().getUserId());
+                if (uf5.d() != null && uf5.d().e() != null) {
+                    statisticItem.param("uid", uf5.d().e().getUserId());
                 }
                 statisticItem.param("fid", this.a.C);
                 statisticItem.param("obj_locate", 1);
@@ -269,8 +269,8 @@ public class GuidePopupWindow extends Dialog {
                 hashMap.put("forum_id", this.a.C);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a.a, "RecommendHistoryPage", hashMap)));
                 StatisticItem statisticItem = new StatisticItem("c13887");
-                if (he5.d() != null && he5.d().e() != null) {
-                    statisticItem.param("uid", he5.d().e().getUserId());
+                if (uf5.d() != null && uf5.d().e() != null) {
+                    statisticItem.param("uid", uf5.d().e().getUserId());
                 }
                 statisticItem.param("fid", this.a.C);
                 statisticItem.param("obj_locate", 4);
@@ -311,8 +311,8 @@ public class GuidePopupWindow extends Dialog {
                 hashMap.put("forum_id", this.a.C);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a.a, "DataCenterPage", hashMap)));
                 StatisticItem statisticItem = new StatisticItem("c13887");
-                if (he5.d() != null && he5.d().e() != null) {
-                    statisticItem.param("uid", he5.d().e().getUserId());
+                if (uf5.d() != null && uf5.d().e() != null) {
+                    statisticItem.param("uid", uf5.d().e().getUserId());
                 }
                 statisticItem.param("fid", this.a.C);
                 statisticItem.param("obj_locate", 3);
@@ -353,8 +353,8 @@ public class GuidePopupWindow extends Dialog {
                 hashMap.put("forum_id", this.a.C);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a.a, "ForumSectionPage", hashMap)));
                 StatisticItem statisticItem = new StatisticItem("c13887");
-                if (he5.d() != null && he5.d().e() != null) {
-                    statisticItem.param("uid", he5.d().e().getUserId());
+                if (uf5.d() != null && uf5.d().e() != null) {
+                    statisticItem.param("uid", uf5.d().e().getUserId());
                 }
                 statisticItem.param("fid", this.a.C);
                 statisticItem.param("obj_locate", 2);
@@ -395,8 +395,8 @@ public class GuidePopupWindow extends Dialog {
                 hashMap.put("forum_id", this.a.C);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a.a, "ForumDetailPage", hashMap)));
                 StatisticItem statisticItem = new StatisticItem("c13887");
-                if (he5.d() != null && he5.d().e() != null) {
-                    statisticItem.param("uid", he5.d().e().getUserId());
+                if (uf5.d() != null && uf5.d().e() != null) {
+                    statisticItem.param("uid", uf5.d().e().getUserId());
                 }
                 statisticItem.param("fid", this.a.C);
                 statisticItem.param("obj_locate", 6);
@@ -435,8 +435,8 @@ public class GuidePopupWindow extends Dialog {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.dismiss();
                 StatisticItem statisticItem = new StatisticItem("c13887");
-                if (he5.d() != null && he5.d().e() != null) {
-                    statisticItem.param("uid", he5.d().e().getUserId());
+                if (uf5.d() != null && uf5.d().e() != null) {
+                    statisticItem.param("uid", uf5.d().e().getUserId());
                 }
                 statisticItem.param("fid", this.a.C);
                 statisticItem.param("obj_locate", 5);
@@ -515,7 +515,7 @@ public class GuidePopupWindow extends Dialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GuidePopupWindow(Context context) {
-        super(context, R.style.obfuscated_res_0x7f1003ad);
+        super(context, R.style.obfuscated_res_0x7f1003b0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -634,7 +634,7 @@ public class GuidePopupWindow extends Dialog {
             super.onCreate(bundle);
             setContentView(this.b);
             getWindow().setLayout(-1, -1);
-            x99.b(1, getWindow().getAttributes(), getWindow());
+            nd9.b(1, getWindow().getAttributes(), getWindow());
             GreyUtil.grey(this);
         }
     }
@@ -690,14 +690,14 @@ public class GuidePopupWindow extends Dialog {
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.b.findViewById(R.id.btn_go_away);
             this.v = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds42);
-            o45 o45Var = new o45();
-            o45Var.q(R.color.CAM_X0302);
-            this.v.setConfig(o45Var);
+            a65 a65Var = new a65();
+            a65Var.q(R.color.CAM_X0302);
+            this.v.setConfig(a65Var);
             this.v.setText(this.a.getResources().getString(R.string.guide_popup_window_go_away));
             this.w = (TBSpecificationBtn) this.b.findViewById(R.id.btn_known);
-            o45 o45Var2 = new o45();
-            o45Var2.q(R.color.CAM_X0618);
-            this.w.setConfig(o45Var2);
+            a65 a65Var2 = new a65();
+            a65Var2.q(R.color.CAM_X0618);
+            this.w.setConfig(a65Var2);
             this.w.setTextSize(R.dimen.tbds42);
             this.w.setText(this.a.getResources().getString(R.string.guide_popup_window_known));
             View findViewById = this.b.findViewById(R.id.shadow_top);
@@ -770,15 +770,15 @@ public class GuidePopupWindow extends Dialog {
 
     public void q() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && he5.d() != null && he5.d().e() != null) {
-            this.c.o(he5.d().e());
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && uf5.d() != null && uf5.d().e() != null) {
+            this.c.o(uf5.d().e());
         }
     }
 
     public void t() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && he5.d() != null && he5.d().e() != null) {
-            this.e.setText(he5.d().e().getName_show());
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && uf5.d() != null && uf5.d().e() != null) {
+            this.e.setText(uf5.d().e().getName_show());
         }
     }
 

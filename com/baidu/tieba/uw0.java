@@ -1,8 +1,7 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface uw0 {
-    @NonNull
-    vw0 a();
+    boolean b(String str);
+
+    void c(bw0 bw0Var);
 }

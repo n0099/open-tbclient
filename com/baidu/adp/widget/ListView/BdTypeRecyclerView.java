@@ -306,7 +306,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements jo<BdTypeRecyc
                         qn qnVar = this.u.get(cdo.getType());
                         if (qnVar.getHeaderId() != null) {
                             wn wnVar = new wn();
-                            wnVar.h(qnVar.getHeaderId());
+                            wnVar.g(qnVar.getHeaderId());
                             if (cdo instanceof BaseCardInfo) {
                                 wnVar.position = ((BaseCardInfo) cdo).position;
                                 wnVar.setSupportType(BaseCardInfo.SupportType.TOP);
@@ -316,7 +316,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements jo<BdTypeRecyc
                         }
                         if (qnVar.getContentId() != null) {
                             wn wnVar2 = new wn();
-                            wnVar2.h(qnVar.getContentId());
+                            wnVar2.g(qnVar.getContentId());
                             if (cdo instanceof BaseCardInfo) {
                                 wnVar2.position = ((BaseCardInfo) cdo).position;
                                 wnVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
@@ -326,7 +326,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements jo<BdTypeRecyc
                         }
                         if (qnVar.getExtendId() != null) {
                             wn wnVar3 = new wn();
-                            wnVar3.h(qnVar.getExtendId());
+                            wnVar3.g(qnVar.getExtendId());
                             if (cdo instanceof BaseCardInfo) {
                                 wnVar3.position = ((BaseCardInfo) cdo).position;
                                 wnVar3.setSupportType(BaseCardInfo.SupportType.EXTEND);
@@ -336,7 +336,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements jo<BdTypeRecyc
                         }
                         if (qnVar.getBottomId() != null) {
                             wn wnVar4 = new wn();
-                            wnVar4.h(qnVar.getBottomId());
+                            wnVar4.g(qnVar.getBottomId());
                             if (cdo instanceof BaseCardInfo) {
                                 wnVar4.position = ((BaseCardInfo) cdo).position;
                                 wnVar4.setSupportType(BaseCardInfo.SupportType.BOTTOM);

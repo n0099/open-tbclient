@@ -1,12 +1,6 @@
 package com.google.android.exoplayer2.util;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.sampleentry.AudioSampleEntry;
 import com.coremedia.iso.boxes.sampleentry.VisualSampleEntry;
 import com.google.android.exoplayer2.mediacodec.MediaCodecUtil;
@@ -14,7 +8,6 @@ import com.googlecode.mp4parser.boxes.AC3SpecificBox;
 import com.googlecode.mp4parser.boxes.EC3SpecificBox;
 /* loaded from: classes7.dex */
 public final class MimeTypes {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String APPLICATION_CAMERA_MOTION = "application/x-camera-motion";
     public static final String APPLICATION_CEA608 = "application/cea-608";
     public static final String APPLICATION_CEA708 = "application/cea-708";
@@ -74,186 +67,121 @@ public final class MimeTypes {
     public static final String VIDEO_VP8 = "video/x-vnd.on2.vp8";
     public static final String VIDEO_VP9 = "video/x-vnd.on2.vp9";
     public static final String VIDEO_WEBM = "video/webm";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public MimeTypes() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     public static String getAudioMediaMimeType(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            for (String str2 : str.split(",")) {
-                String mediaMimeType = getMediaMimeType(str2);
-                if (mediaMimeType != null && isAudio(mediaMimeType)) {
-                    return mediaMimeType;
-                }
-            }
+        if (str == null) {
             return null;
         }
-        return (String) invokeL.objValue;
+        for (String str2 : str.split(",")) {
+            String mediaMimeType = getMediaMimeType(str2);
+            if (mediaMimeType != null && isAudio(mediaMimeType)) {
+                return mediaMimeType;
+            }
+        }
+        return null;
     }
 
     public static String getTopLevelType(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            int indexOf = str.indexOf(47);
-            if (indexOf != -1) {
-                return str.substring(0, indexOf);
-            }
-            throw new IllegalArgumentException("Invalid mime type: " + str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String getVideoMediaMimeType(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            for (String str2 : str.split(",")) {
-                String mediaMimeType = getMediaMimeType(str2);
-                if (mediaMimeType != null && isVideo(mediaMimeType)) {
-                    return mediaMimeType;
-                }
-            }
+        if (str == null) {
             return null;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String getMediaMimeType(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            String trim = str.trim();
-            if (!trim.startsWith("avc1") && !trim.startsWith(VisualSampleEntry.TYPE4)) {
-                if (!trim.startsWith(MediaCodecUtil.CODEC_ID_HEV1) && !trim.startsWith(MediaCodecUtil.CODEC_ID_HVC1)) {
-                    if (!trim.startsWith("vp9") && !trim.startsWith("vp09")) {
-                        if (!trim.startsWith("vp8") && !trim.startsWith("vp08")) {
-                            if (trim.startsWith(AudioSampleEntry.TYPE3)) {
-                                return "audio/mp4a-latm";
-                            }
-                            if (!trim.startsWith(AudioSampleEntry.TYPE8) && !trim.startsWith(AC3SpecificBox.TYPE)) {
-                                if (!trim.startsWith(AudioSampleEntry.TYPE9) && !trim.startsWith(EC3SpecificBox.TYPE)) {
-                                    if (!trim.startsWith("dtsc") && !trim.startsWith(AudioSampleEntry.TYPE13)) {
-                                        if (!trim.startsWith(AudioSampleEntry.TYPE12) && !trim.startsWith(AudioSampleEntry.TYPE11)) {
-                                            if (trim.startsWith("opus")) {
-                                                return AUDIO_OPUS;
-                                            }
-                                            if (!trim.startsWith("vorbis")) {
-                                                return null;
-                                            }
-                                            return AUDIO_VORBIS;
-                                        }
-                                        return AUDIO_DTS_HD;
-                                    }
-                                    return AUDIO_DTS;
-                                }
-                                return AUDIO_E_AC3;
-                            }
-                            return AUDIO_AC3;
-                        }
-                        return "video/x-vnd.on2.vp8";
-                    }
-                    return "video/x-vnd.on2.vp9";
-                }
-                return VIDEO_H265;
-            }
-            return "video/avc";
+        int indexOf = str.indexOf(47);
+        if (indexOf != -1) {
+            return str.substring(0, indexOf);
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static int getTrackType(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return -1;
-            }
-            if (isAudio(str)) {
-                return 1;
-            }
-            if (isVideo(str)) {
-                return 2;
-            }
-            if (!isText(str) && !APPLICATION_CEA608.equals(str) && !APPLICATION_CEA708.equals(str) && !APPLICATION_MP4CEA608.equals(str) && !APPLICATION_SUBRIP.equals(str) && !APPLICATION_TTML.equals(str) && !APPLICATION_TX3G.equals(str) && !APPLICATION_MP4VTT.equals(str) && !APPLICATION_RAWCC.equals(str) && !APPLICATION_VOBSUB.equals(str) && !APPLICATION_PGS.equals(str) && !APPLICATION_DVBSUBS.equals(str)) {
-                if (!APPLICATION_ID3.equals(str) && !APPLICATION_EMSG.equals(str) && !APPLICATION_SCTE35.equals(str) && !APPLICATION_CAMERA_MOTION.equals(str)) {
-                    return -1;
-                }
-                return 4;
-            }
-            return 3;
-        }
-        return invokeL.intValue;
+        throw new IllegalArgumentException("Invalid mime type: " + str);
     }
 
     public static int getTrackTypeOfCodec(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            return getTrackType(getMediaMimeType(str));
+        return getTrackType(getMediaMimeType(str));
+    }
+
+    public static String getVideoMediaMimeType(String str) {
+        if (str == null) {
+            return null;
         }
-        return invokeL.intValue;
+        for (String str2 : str.split(",")) {
+            String mediaMimeType = getMediaMimeType(str2);
+            if (mediaMimeType != null && isVideo(mediaMimeType)) {
+                return mediaMimeType;
+            }
+        }
+        return null;
     }
 
     public static boolean isApplication(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            return BASE_TYPE_APPLICATION.equals(getTopLevelType(str));
-        }
-        return invokeL.booleanValue;
+        return BASE_TYPE_APPLICATION.equals(getTopLevelType(str));
     }
 
     public static boolean isAudio(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            return "audio".equals(getTopLevelType(str));
-        }
-        return invokeL.booleanValue;
+        return "audio".equals(getTopLevelType(str));
     }
 
     public static boolean isText(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            return "text".equals(getTopLevelType(str));
-        }
-        return invokeL.booleanValue;
+        return "text".equals(getTopLevelType(str));
     }
 
     public static boolean isVideo(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            return "video".equals(getTopLevelType(str));
+        return "video".equals(getTopLevelType(str));
+    }
+
+    public static String getMediaMimeType(String str) {
+        if (str == null) {
+            return null;
         }
-        return invokeL.booleanValue;
+        String trim = str.trim();
+        if (!trim.startsWith("avc1") && !trim.startsWith(VisualSampleEntry.TYPE4)) {
+            if (!trim.startsWith(MediaCodecUtil.CODEC_ID_HEV1) && !trim.startsWith(MediaCodecUtil.CODEC_ID_HVC1)) {
+                if (!trim.startsWith("vp9") && !trim.startsWith("vp09")) {
+                    if (!trim.startsWith("vp8") && !trim.startsWith("vp08")) {
+                        if (trim.startsWith(AudioSampleEntry.TYPE3)) {
+                            return "audio/mp4a-latm";
+                        }
+                        if (!trim.startsWith(AudioSampleEntry.TYPE8) && !trim.startsWith(AC3SpecificBox.TYPE)) {
+                            if (!trim.startsWith(AudioSampleEntry.TYPE9) && !trim.startsWith(EC3SpecificBox.TYPE)) {
+                                if (!trim.startsWith("dtsc") && !trim.startsWith(AudioSampleEntry.TYPE13)) {
+                                    if (!trim.startsWith(AudioSampleEntry.TYPE12) && !trim.startsWith(AudioSampleEntry.TYPE11)) {
+                                        if (trim.startsWith("opus")) {
+                                            return AUDIO_OPUS;
+                                        }
+                                        if (!trim.startsWith("vorbis")) {
+                                            return null;
+                                        }
+                                        return AUDIO_VORBIS;
+                                    }
+                                    return AUDIO_DTS_HD;
+                                }
+                                return AUDIO_DTS;
+                            }
+                            return AUDIO_E_AC3;
+                        }
+                        return AUDIO_AC3;
+                    }
+                    return "video/x-vnd.on2.vp8";
+                }
+                return "video/x-vnd.on2.vp9";
+            }
+            return VIDEO_H265;
+        }
+        return "video/avc";
+    }
+
+    public static int getTrackType(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return -1;
+        }
+        if (isAudio(str)) {
+            return 1;
+        }
+        if (isVideo(str)) {
+            return 2;
+        }
+        if (!isText(str) && !APPLICATION_CEA608.equals(str) && !APPLICATION_CEA708.equals(str) && !APPLICATION_MP4CEA608.equals(str) && !APPLICATION_SUBRIP.equals(str) && !APPLICATION_TTML.equals(str) && !APPLICATION_TX3G.equals(str) && !APPLICATION_MP4VTT.equals(str) && !APPLICATION_RAWCC.equals(str) && !APPLICATION_VOBSUB.equals(str) && !APPLICATION_PGS.equals(str) && !APPLICATION_DVBSUBS.equals(str)) {
+            if (!APPLICATION_ID3.equals(str) && !APPLICATION_EMSG.equals(str) && !APPLICATION_SCTE35.equals(str) && !APPLICATION_CAMERA_MOTION.equals(str)) {
+                return -1;
+            }
+            return 4;
+        }
+        return 3;
     }
 }

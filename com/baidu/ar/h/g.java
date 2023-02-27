@@ -5,34 +5,13 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.util.UUID;
 /* loaded from: classes.dex */
 public final class g {
-    public static /* synthetic */ Interceptable $ic;
     public static UUID uuid;
-    public transient /* synthetic */ FieldHolder $fh;
 
     public g(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         if (uuid == null) {
             synchronized (g.class) {
                 if (uuid == null) {
@@ -59,8 +38,6 @@ public final class g {
     }
 
     public UUID gz() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? uuid : (UUID) invokeV.objValue;
+        return uuid;
     }
 }

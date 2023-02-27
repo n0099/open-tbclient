@@ -1,29 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.db.TableDefine;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.postsearch.PostSearchActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import java.util.ArrayList;
+/* loaded from: classes4.dex */
 public class iu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final Context b;
-    public final ViewGroup c;
+    public PostSearchActivity a;
+    public View b;
+    public cu8 c;
+    public eu8 d;
+    public hu8 e;
 
-    public iu8(Context context, ViewGroup viewGroup) {
+    public iu8(PostSearchActivity postSearchActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, viewGroup};
+            Object[] objArr = {postSearchActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,59 +36,131 @@ public class iu8 {
                 return;
             }
         }
-        this.a = 0;
-        this.b = context;
-        this.c = viewGroup;
+        this.a = postSearchActivity;
     }
 
-    public final boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if ("apk_download".equals(str)) {
-                return "apk_download".equals(str2);
-            }
-            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str)) {
-                return TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str2);
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.c.j(i);
+            this.d.j(i);
+            this.e.g(i);
+            wm5.a(this.a.getPageContext(), this.b);
         }
-        return invokeLL.booleanValue;
     }
 
-    public ju8 b(tt8 tt8Var, ju8 ju8Var) {
-        InterceptResult invokeLL;
+    public void i(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tt8Var, ju8Var)) == null) {
-            if (tt8Var == null) {
-                return ju8Var;
-            }
-            String str = tt8Var.a;
-            if (str == null) {
-                return ju8Var;
-            }
-            if (ju8Var != null && a(str, ju8Var.a)) {
-                return ju8Var;
-            }
-            ViewGroup viewGroup = this.c;
-            if (viewGroup == null) {
-                return null;
-            }
-            viewGroup.removeAllViews();
-            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(tt8Var.a)) {
-                if (this.a == 2) {
-                    return new hu8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d090a, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-                }
-                return new fu8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0893, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-            } else if (!"apk_download".equals(tt8Var.a)) {
-                return null;
-            } else {
-                if (this.a == 2) {
-                    return new gu8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0909, this.c, true), "apk_download");
-                }
-                return new eu8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0892, this.c, true), "apk_download");
-            }
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
+            this.e.j(false);
+            this.d.k(arrayList);
         }
-        return (ju8) invokeLL.objValue;
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.c.l(str);
+        }
+    }
+
+    public void l(ViewPager.OnPageChangeListener onPageChangeListener) {
+        hu8 hu8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, onPageChangeListener) == null) && (hu8Var = this.e) != null) {
+            hu8Var.i(onPageChangeListener);
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.c.g();
+            d();
+            this.c.f();
+            this.e.j(true);
+            this.e.k(i);
+        }
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e.d();
+        }
+        return invokeV.intValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d.e();
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.d.f();
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c.h();
+        }
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d.i();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void h() {
+        cu8 cu8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (cu8Var = this.c) != null) {
+            cu8Var.k();
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.d.m();
+            this.d.g();
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.d.p();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.setContentView(R.layout.obfuscated_res_0x7f0d0790);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091f83);
+            this.b = findViewById;
+            this.c = new cu8(this.a, findViewById);
+            this.d = new eu8(this.a, this.b);
+            this.e = new hu8(this.a, this.b);
+        }
+    }
+
+    public void j(int i, du8 du8Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), du8Var, Boolean.valueOf(z)}) == null) {
+            this.e.h(i, du8Var, z);
+        }
     }
 }

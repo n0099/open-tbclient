@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.diskcache.a;
 
+import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes8.dex */
@@ -22,7 +23,7 @@ public final class d {
         for (byte b : bArr) {
             String hexString = Integer.toHexString(b & 255);
             if (hexString.length() == 1) {
-                sb.append('0');
+                sb.append(TransactionIdCreater.FILL_BYTE);
             }
             sb.append(hexString);
         }

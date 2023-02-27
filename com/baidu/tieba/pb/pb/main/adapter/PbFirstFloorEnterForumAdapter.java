@@ -21,19 +21,19 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.j49;
-import com.baidu.tieba.n45;
+import com.baidu.tieba.hl5;
+import com.baidu.tieba.jd8;
+import com.baidu.tieba.jj8;
 import com.baidu.tieba.qn;
-import com.baidu.tieba.uj5;
-import com.baidu.tieba.x98;
-import com.baidu.tieba.xf8;
+import com.baidu.tieba.v79;
+import com.baidu.tieba.z55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PbFirstFloorEnterForumAdapter extends qn<x98, PbFirstFloorEnterForumViewHolder> {
+public class PbFirstFloorEnterForumAdapter extends qn<jd8, PbFirstFloorEnterForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BaseFragment a;
@@ -49,7 +49,7 @@ public class PbFirstFloorEnterForumAdapter extends qn<x98, PbFirstFloorEnterForu
         public View b;
         public View c;
         public ImageView d;
-        public x98 e;
+        public jd8 e;
         public TBSpecificationBtn f;
         public String g;
         public String h;
@@ -88,10 +88,10 @@ public class PbFirstFloorEnterForumAdapter extends qn<x98, PbFirstFloorEnterForu
 
         public final void d(String str) {
             TbPageTag l;
-            x98 x98Var;
+            jd8 jd8Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (l = uj5.l(this.i.a.getContext())) != null && (x98Var = this.e) != null) {
-                xf8.a(str, x98Var.f, x98Var.g, TbadkCoreApplication.getCurrentAccount(), l.locatePage);
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (l = hl5.l(this.i.a.getContext())) != null && (jd8Var = this.e) != null) {
+                jj8.a(str, jd8Var.f, jd8Var.g, TbadkCoreApplication.getCurrentAccount(), l.locatePage);
             }
         }
 
@@ -105,20 +105,20 @@ public class PbFirstFloorEnterForumAdapter extends qn<x98, PbFirstFloorEnterForu
             }
         }
 
-        public void c(x98 x98Var) {
+        public void c(jd8 jd8Var) {
             int i;
             int i2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x98Var) == null) {
-                if (x98Var != null) {
-                    this.e = x98Var;
-                    this.g = x98Var.f;
-                    this.h = x98Var.a;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jd8Var) == null) {
+                if (jd8Var != null) {
+                    this.e = jd8Var;
+                    this.g = jd8Var.f;
+                    this.h = jd8Var.a;
                     if (!this.i.c) {
-                        this.i.c = x98Var.h;
+                        this.i.c = jd8Var.h;
                     }
                     View view2 = this.c;
-                    if (x98Var.e) {
+                    if (jd8Var.e) {
                         i = 0;
                     } else {
                         i = 8;
@@ -126,14 +126,14 @@ public class PbFirstFloorEnterForumAdapter extends qn<x98, PbFirstFloorEnterForu
                     view2.setVisibility(i);
                     if (getView() != null) {
                         View view3 = getView();
-                        if (x98Var.e) {
+                        if (jd8Var.e) {
                             i2 = ej.g(this.i.mContext, R.dimen.tbds42);
                         } else {
                             i2 = 0;
                         }
                         view3.setPadding(0, 0, 0, i2);
                     }
-                    this.a.setData(x98Var.a, x98Var.b, x98Var.c, x98Var.d);
+                    this.a.setData(jd8Var.a, jd8Var.b, jd8Var.c, jd8Var.d);
                 }
                 if (this.f != null && !this.i.c) {
                     this.d.setVisibility(4);
@@ -150,9 +150,9 @@ public class PbFirstFloorEnterForumAdapter extends qn<x98, PbFirstFloorEnterForu
                 return;
             }
             if (this.i.c) {
-                this.f.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06a1));
+                this.f.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06a5));
                 this.f.setClickable(false);
-                ((n45) this.f.getStyleConfig()).v(R.color.CAM_X0109);
+                ((z55) this.f.getStyleConfig()).v(R.color.CAM_X0109);
                 return;
             }
             this.f.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f02ba));
@@ -198,7 +198,7 @@ public class PbFirstFloorEnterForumAdapter extends qn<x98, PbFirstFloorEnterForu
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof j49) || !((j49) customResponsedMessage.getData()).b) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof v79) || !((v79) customResponsedMessage.getData()).b) {
                 return;
             }
             this.a.c = true;
@@ -233,8 +233,8 @@ public class PbFirstFloorEnterForumAdapter extends qn<x98, PbFirstFloorEnterForu
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
     @Override // com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, x98 x98Var, PbFirstFloorEnterForumViewHolder pbFirstFloorEnterForumViewHolder) {
-        y(i, view2, viewGroup, x98Var, pbFirstFloorEnterForumViewHolder);
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, jd8 jd8Var, PbFirstFloorEnterForumViewHolder pbFirstFloorEnterForumViewHolder) {
+        y(i, view2, viewGroup, jd8Var, pbFirstFloorEnterForumViewHolder);
         return view2;
     }
 
@@ -276,12 +276,12 @@ public class PbFirstFloorEnterForumAdapter extends qn<x98, PbFirstFloorEnterForu
         return (PbFirstFloorEnterForumViewHolder) invokeL.objValue;
     }
 
-    public View y(int i, View view2, ViewGroup viewGroup, x98 x98Var, PbFirstFloorEnterForumViewHolder pbFirstFloorEnterForumViewHolder) {
+    public View y(int i, View view2, ViewGroup viewGroup, jd8 jd8Var, PbFirstFloorEnterForumViewHolder pbFirstFloorEnterForumViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, x98Var, pbFirstFloorEnterForumViewHolder})) == null) {
-            if (x98Var != null) {
-                pbFirstFloorEnterForumViewHolder.c(x98Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jd8Var, pbFirstFloorEnterForumViewHolder})) == null) {
+            if (jd8Var != null) {
+                pbFirstFloorEnterForumViewHolder.c(jd8Var);
             }
             pbFirstFloorEnterForumViewHolder.b();
             return view2;

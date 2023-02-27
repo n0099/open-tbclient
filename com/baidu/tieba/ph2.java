@@ -1,15 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
+import android.annotation.SuppressLint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes5.dex */
-public class ph2 extends kh2 {
+public class ph2 implements xg2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,13 +25,27 @@ public class ph2 extends kh2 {
         }
     }
 
-    @Override // com.baidu.tieba.vu2
-    public LifecycleProcessType b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xg2
+    @SuppressLint({"BDThrowableCheck"})
+    public ch2 a(bh2 bh2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return LifecycleProcessType.SWAN;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bh2Var)) == null) {
+            int type = bh2Var.getType();
+            if (type != 1) {
+                if (type != 2) {
+                    if (type != 3) {
+                        if (!wp1.a) {
+                            return new sh2();
+                        }
+                        throw new IllegalArgumentException("invalid model object:" + bh2Var);
+                    }
+                    return new gb2();
+                }
+                return us2.b();
+            }
+            return new sh2();
         }
-        return (LifecycleProcessType) invokeV.objValue;
+        return (ch2) invokeL.objValue;
     }
 }

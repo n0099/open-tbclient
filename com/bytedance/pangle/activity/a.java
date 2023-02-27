@@ -3,36 +3,16 @@ package com.bytedance.pangle.activity;
 import android.app.Activity;
 import android.view.View;
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
 public final class a implements View.OnClickListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final Activity a;
     public final String b;
     public final int c;
     public Method d;
 
     public a(@NonNull Activity activity, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.a = activity;
         this.b = str;
         this.c = i;
@@ -40,25 +20,22 @@ public final class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public final void onClick(@NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            if (this.d == null) {
-                try {
-                    Method method = this.a.getClass().getMethod(this.b, View.class);
-                    if (method != null) {
-                        this.d = method;
-                    }
-                } catch (NoSuchMethodException unused) {
-                }
-                throw new IllegalStateException("Could not find method " + this.b + "(View) in a parent or ancestor Context for android:onClick attribute defined on view " + this.c);
-            }
+        if (this.d == null) {
             try {
-                this.d.invoke(this.a, view2);
-            } catch (IllegalAccessException e) {
-                throw new IllegalStateException("Could not execute non-public method for android:onClick", e);
-            } catch (InvocationTargetException e2) {
-                throw new IllegalStateException("Could not execute method for android:onClick", e2);
+                Method method = this.a.getClass().getMethod(this.b, View.class);
+                if (method != null) {
+                    this.d = method;
+                }
+            } catch (NoSuchMethodException unused) {
             }
+            throw new IllegalStateException("Could not find method " + this.b + "(View) in a parent or ancestor Context for android:onClick attribute defined on view " + this.c);
+        }
+        try {
+            this.d.invoke(this.a, view2);
+        } catch (IllegalAccessException e) {
+            throw new IllegalStateException("Could not execute non-public method for android:onClick", e);
+        } catch (InvocationTargetException e2) {
+            throw new IllegalStateException("Could not execute method for android:onClick", e2);
         }
     }
 }

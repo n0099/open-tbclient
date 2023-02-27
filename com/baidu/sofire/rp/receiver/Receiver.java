@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sofire.j.a;
 import com.baidu.sofire.k.b;
+import com.baidu.sofire.k.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,8 +37,8 @@ public class Receiver extends BroadcastReceiver {
             return;
         }
         a a = a.a(context);
-        com.baidu.sofire.k.a.a(context, a.l() * 3600000);
-        b.a(context).a();
+        b.a(context, a.l() * 3600000);
+        c.a(context).a();
         a.f.putLong("re_last_ofline_time", System.currentTimeMillis());
         a.f.commit();
     }

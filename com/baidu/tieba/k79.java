@@ -1,47 +1,35 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.bf6;
-import com.baidu.tieba.person.ProfileVirtualImageInfo;
-import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.tieba.z05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public class k79 extends z05 {
+public class k79 extends j79 {
     public static /* synthetic */ Interceptable $ic;
-    public static String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final z49 c;
-    public final MainTabActivity d;
-    public final String e;
-    public String f;
-    @NonNull
-    public ze6 g;
+    public volatile m79 g;
+    public volatile boolean h;
+    public int i;
 
     /* loaded from: classes5.dex */
-    public class a implements bf6.e {
+    public class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k79 a;
+        public int a;
 
         public a(k79 k79Var) {
             Interceptable interceptable = $ic;
@@ -58,318 +46,162 @@ public class k79 extends z05 {
                     return;
                 }
             }
-            this.a = k79Var;
+            this.a = 0;
         }
 
-        @Override // com.baidu.tieba.bf6.e
-        public void onDismiss() {
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                Thread thread = new Thread(runnable);
+                thread.setName("VideoUploadThread@" + this.a);
+                this.a = this.a + 1;
+                return thread;
             }
+            return (Thread) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ k79 b;
+        public final /* synthetic */ RandomAccessFile a;
+        public final /* synthetic */ ArrayList b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ int f;
+        public final /* synthetic */ CountDownLatch g;
+        public final /* synthetic */ k79 h;
 
-        public b(k79 k79Var, String str) {
+        public b(k79 k79Var, RandomAccessFile randomAccessFile, ArrayList arrayList, int i, int i2, String str, int i3, CountDownLatch countDownLatch) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k79Var, str};
+                Object[] objArr = {k79Var, randomAccessFile, arrayList, Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), countDownLatch};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = k79Var;
-            this.a = str;
+            this.h = k79Var;
+            this.a = randomAccessFile;
+            this.b = arrayList;
+            this.c = i;
+            this.d = i2;
+            this.e = str;
+            this.f = i3;
+            this.g = countDownLatch;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            String str;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                try {
-                    if (!StringUtils.isNull(this.a)) {
-                        if ("source_from_virtual_image".equals(this.b.e)) {
-                            int skinType = TbadkCoreApplication.getInst().getSkinType();
-                            if (skinType == 4) {
-                                str = "&skin=dart";
-                            } else if (skinType == 1) {
-                                str = "&skin=night";
-                            } else {
-                                str = "";
-                            }
-                            UrlManager.getInstance().dealOneLink(this.b.d.getPageContext(), new String[]{this.a + str + "&from=2"});
-                        } else if ("source_from_theme".equals(this.b.e)) {
-                            UrlManager.getInstance().dealOneLink(this.b.d.getPageContext(), new String[]{this.a});
-                            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_DRESS_UP_BUNDLE_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_id", this.b.f));
-                        }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                m79 h = this.h.h(this.a, ((Integer) this.b.get(this.c)).intValue(), this.d, this.e);
+                if (h != null) {
+                    if (h.b != 0) {
+                        this.h.g.b = h.b;
+                        this.h.g.c = h.c;
                     }
-                } catch (Exception e) {
-                    BdLog.e("openPageByUrl fail:" + e.toString());
+                    if (!StringUtils.isNull(h.a)) {
+                        this.h.g.a = h.a;
+                    }
+                    synchronized (this.h) {
+                        k79.k(this.h);
+                        this.h.d((int) (((this.h.i * 50.0f) / this.f) + 30.0f));
+                    }
                 }
+                this.g.countDown();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k79(@NonNull MainTabActivity mainTabActivity, @NonNull z49 z49Var, @NonNull String str) {
-        super(mainTabActivity);
+    public k79(String str, int i, int i2, long j, String str2) {
+        super(str, i, i2, j, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, z49Var, str};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), (String) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = z49Var;
-        this.d = mainTabActivity;
-        this.e = str;
+        this.g = new m79();
     }
 
-    public static HashMap<String, String> i(String str) {
-        InterceptResult invokeL;
-        char c;
-        String string;
-        q75 q75Var;
-        String str2;
-        String str3;
-        String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            HashMap<String, String> hashMap = new HashMap<>();
-            int hashCode = str.hashCode();
-            if (hashCode != -867211368) {
-                if (hashCode != 525854610) {
-                    if (hashCode == 1522674166 && str.equals("source_from_virtual_image")) {
-                        c = 1;
-                    }
-                    c = 65535;
-                } else {
-                    if (str.equals("source_from_help")) {
-                        c = 0;
-                    }
-                    c = 65535;
-                }
-            } else {
-                if (str.equals("source_from_theme")) {
-                    c = 2;
-                }
-                c = 65535;
-            }
-            String str5 = "";
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        string = "";
-                    } else {
-                        string = TbadkCoreApplication.getInst().getString(R.string.set_theme);
-                    }
-                } else {
-                    string = TbadkCoreApplication.getInst().getString(R.string.set_virtual_image);
-                }
-            } else {
-                string = TbadkApplication.getInst().getString(R.string.send_for_help_tips);
-            }
-            p75 mainTabPopConfig = TbSingleton.getInstance().getMainTabPopConfig();
-            if (mainTabPopConfig != null) {
-                q75Var = mainTabPopConfig.b(str);
-            } else {
-                q75Var = null;
-            }
-            if (q75Var == null) {
-                return null;
-            }
-            if (!StringUtils.isNull(q75Var.d())) {
-                string = q75Var.d();
-            }
-            if (StringUtils.isNull(q75Var.b())) {
-                str2 = "";
-            } else {
-                str2 = q75Var.b();
-            }
-            if (!StringUtils.isNull(q75Var.a())) {
-                str5 = q75Var.a();
-            }
-            if (!StringUtils.isNull(q75Var.e())) {
-                str3 = q75Var.e();
-            } else {
-                str3 = "3000";
-            }
-            if (!StringUtils.isNull(q75Var.c())) {
-                str4 = q75Var.c();
-            } else {
-                str4 = "1";
-            }
-            hashMap.put("pop_params_key_text", string);
-            hashMap.put("pop_params_key_link", str2);
-            hashMap.put("pop_params_key_img", str5);
-            hashMap.put("pop_params_key_time", str3);
-            hashMap.put("pop_params_key_max", str4);
-            hashMap.put("pop_params_key_source", str);
-            return hashMap;
-        }
-        return (HashMap) invokeL.objValue;
+    public static /* synthetic */ int k(k79 k79Var) {
+        int i = k79Var.i;
+        k79Var.i = i + 1;
+        return i;
     }
 
-    @Override // com.baidu.tieba.z05
-    public void b() {
-        ze6 ze6Var;
+    @Override // com.baidu.tieba.j79
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ze6Var = this.g) != null) {
-            ze6Var.h();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.h = true;
         }
     }
 
-    @Override // com.baidu.tieba.z05
-    public void d(z05.a aVar) {
+    @Override // com.baidu.tieba.j79
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            z49 z49Var = this.c;
-            if (z49Var != null && z49Var.y() != null) {
-                FragmentTabWidget fragmentTabWidget = this.c.y().getFragmentTabWidget();
-                if ("source_from_help".equals(this.e)) {
-                    j(aVar, i(this.e), fragmentTabWidget);
-                    return;
-                } else if ("source_from_virtual_image".equals(this.e) || "source_from_theme".equals(this.e)) {
-                    k(aVar, i(this.e), fragmentTabWidget);
-                    return;
-                } else {
-                    return;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!this.h && this.g.b == 0 && StringUtils.isNull(this.g.a)) {
+                return false;
             }
-            aVar.a(false);
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.z05
-    public void e() {
+    @Override // com.baidu.tieba.j79
+    public m79 g(ArrayList<Integer> arrayList, String str, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ze6 ze6Var = this.g;
-            if (ze6Var == null) {
-                c();
-                return;
-            }
-            ze6Var.z(new a(this));
-            this.g.W(this.f, h, true, false);
-            if ("source_from_theme".equals(this.e)) {
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_DRESS_UP_BUNDLE_SHOW).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_id", this.f));
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, arrayList, str, i)) == null) {
+            int size = arrayList.size();
+            CountDownLatch countDownLatch = new CountDownLatch(size);
+            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 3, 2L, TimeUnit.SECONDS, new LinkedBlockingDeque(), new a(this));
+            try {
+                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.b), "r");
+                for (int i2 = 0; i2 < size; i2++) {
+                    threadPoolExecutor.execute(new b(this, randomAccessFile, arrayList, i2, i, str, size, countDownLatch));
+                }
+                try {
+                    countDownLatch.await();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                threadPoolExecutor.shutdown();
+                try {
+                    randomAccessFile.close();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                }
+                return this.g;
+            } catch (FileNotFoundException unused) {
+                return this.g;
             }
         }
-    }
-
-    public void j(z05.a aVar, HashMap<String, String> hashMap, FragmentTabWidget fragmentTabWidget) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, aVar, hashMap, fragmentTabWidget) == null) {
-            h = "SendHelpTipTask";
-            if (hashMap == null) {
-                aVar.a(false);
-                return;
-            }
-            if (fragmentTabWidget != null && fragmentTabWidget.getChildCount() > 2) {
-                ze6 ze6Var = new ze6(this.d.getPageContext(), fragmentTabWidget.getChildAt(2), this.e, hashMap);
-                this.g = ze6Var;
-                ze6Var.s(false);
-                this.g.t(true);
-                this.g.L(R.drawable.bg_tip_blue_dropdown);
-                this.g.l(2);
-                this.g.o(32);
-                this.g.N(true);
-                this.g.R(-ej.g(this.b, R.dimen.tbds10));
-                this.g.Q(-ej.g(this.b, R.dimen.tbds60));
-                this.g.C(R.color.CAM_X0101);
-                this.g.J(R.dimen.T_X09);
-                this.g.w(Integer.valueOf(hashMap.get("pop_params_key_max")).intValue());
-                this.g.n(Integer.valueOf(hashMap.get("pop_params_key_time")).intValue());
-                this.g.q(R.dimen.tbds90);
-                this.f = hashMap.get("pop_params_key_text");
-                int g = ej.g(this.b, R.dimen.obfuscated_res_0x7f07027a);
-                this.g.E(g, 0, g, ej.g(this.b, R.dimen.obfuscated_res_0x7f0702f7));
-                this.g.A(h);
-            }
-            ze6 ze6Var2 = this.g;
-            if (ze6Var2 == null) {
-                aVar.a(false);
-            } else if (!ze6Var2.d()) {
-                aVar.a(false);
-            } else {
-                this.g.c(this.f, h, true, false, aVar);
-            }
-        }
-    }
-
-    public void k(z05.a aVar, HashMap<String, String> hashMap, FragmentTabWidget fragmentTabWidget) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, aVar, hashMap, fragmentTabWidget) == null) {
-            if ("source_from_virtual_image".equals(this.e)) {
-                h = "setVirtualImage";
-            } else {
-                h = "setThemeSuit";
-            }
-            if (hashMap == null) {
-                aVar.a(false);
-            } else if (fragmentTabWidget != null && fragmentTabWidget.getChildCount() >= 4) {
-                if (!ProfileVirtualImageInfo.getInstance().isNetDataRespond() && "source_from_virtual_image".equals(this.e)) {
-                    aVar.a(false);
-                    return;
-                }
-                ze6 ze6Var = new ze6(this.d.getPageContext(), fragmentTabWidget.getChildAt(4), this.e, hashMap);
-                this.g = ze6Var;
-                ze6Var.L(R.drawable.bg_tip_blue_dropdown_right);
-                this.g.l(2);
-                this.g.o(48);
-                this.g.s(false);
-                boolean z = true;
-                this.g.N(true);
-                this.g.Q(-ej.g(this.b, R.dimen.tbds62));
-                this.g.C(R.color.CAM_X0101);
-                this.g.J(R.dimen.T_X09);
-                this.g.w(Integer.valueOf(hashMap.get("pop_params_key_max")).intValue());
-                this.g.n(Integer.valueOf(hashMap.get("pop_params_key_time")).intValue());
-                this.g.A(h);
-                this.f = hashMap.get("pop_params_key_text");
-                if (StringUtils.isNull(hashMap.get("pop_params_key_img"))) {
-                    this.g.q(R.dimen.tbds90);
-                    int g = ej.g(this.b, R.dimen.obfuscated_res_0x7f07027a);
-                    this.g.E(g, 0, g, ej.g(this.b, R.dimen.obfuscated_res_0x7f0702f7));
-                }
-                this.g.m(new b(this, hashMap.get("pop_params_key_link")));
-                if ("source_from_virtual_image".equals(this.e)) {
-                    if (ProfileVirtualImageInfo.getInstance().getIsSetVirtualImage() == 1) {
-                        z = false;
-                    }
-                    boolean d = this.g.d();
-                    if (!z || !d) {
-                        aVar.a(false);
-                        return;
-                    }
-                }
-                this.g.c(this.f, h, true, false, aVar);
-            } else {
-                aVar.a(false);
-            }
-        }
+        return (m79) invokeLLI.objValue;
     }
 }

@@ -1,36 +1,7 @@
 package com.googlecode.mp4parser.util;
-
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class Math {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public Math() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static int gcd(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeII = interceptable.invokeII(65537, null, i, i2)) != null) {
-            return invokeII.intValue;
-        }
         while (true) {
             int i3 = i2;
             int i4 = i;
@@ -43,20 +14,10 @@ public class Math {
     }
 
     public static int lcm(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
-            return i * (i2 / gcd(i, i2));
-        }
-        return invokeII.intValue;
+        return i * (i2 / gcd(i, i2));
     }
 
     public static long gcd(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) != null) {
-            return invokeCommon.longValue;
-        }
         while (true) {
             long j3 = j;
             j = j2;
@@ -68,11 +29,6 @@ public class Math {
     }
 
     public static long lcm(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return j * (j2 / gcd(j, j2));
-        }
-        return invokeCommon.longValue;
+        return j * (j2 / gcd(j, j2));
     }
 }

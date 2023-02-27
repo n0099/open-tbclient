@@ -1,13 +1,5 @@
 package com.google.zxing.oned;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
@@ -15,84 +7,41 @@ import com.google.zxing.common.BitMatrix;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public final class ITFWriter extends OneDimensionalCodeWriter {
-    public static /* synthetic */ Interceptable $ic;
-    public static final int[] END_PATTERN;
-    public static final int[] START_PATTERN;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(758550455, "Lcom/google/zxing/oned/ITFWriter;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(758550455, "Lcom/google/zxing/oned/ITFWriter;");
-                return;
-            }
-        }
-        START_PATTERN = new int[]{1, 1, 1, 1};
-        END_PATTERN = new int[]{3, 1, 1};
-    }
-
-    public ITFWriter() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    public static final int[] START_PATTERN = {1, 1, 1, 1};
+    public static final int[] END_PATTERN = {3, 1, 1};
 
     @Override // com.google.zxing.oned.OneDimensionalCodeWriter, com.google.zxing.Writer
     public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) throws WriterException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, barcodeFormat, Integer.valueOf(i), Integer.valueOf(i2), map})) == null) {
-            if (barcodeFormat == BarcodeFormat.ITF) {
-                return super.encode(str, barcodeFormat, i, i2, map);
-            }
-            throw new IllegalArgumentException("Can only encode ITF, but got " + barcodeFormat);
+        if (barcodeFormat == BarcodeFormat.ITF) {
+            return super.encode(str, barcodeFormat, i, i2, map);
         }
-        return (BitMatrix) invokeCommon.objValue;
+        throw new IllegalArgumentException("Can only encode ITF, but got " + barcodeFormat);
     }
 
     @Override // com.google.zxing.oned.OneDimensionalCodeWriter
     public boolean[] encode(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            int length = str.length();
-            if (length % 2 == 0) {
-                if (length <= 80) {
-                    boolean[] zArr = new boolean[(length * 9) + 9];
-                    int appendPattern = OneDimensionalCodeWriter.appendPattern(zArr, 0, START_PATTERN, true);
-                    for (int i = 0; i < length; i += 2) {
-                        int digit = Character.digit(str.charAt(i), 10);
-                        int digit2 = Character.digit(str.charAt(i + 1), 10);
-                        int[] iArr = new int[18];
-                        for (int i2 = 0; i2 < 5; i2++) {
-                            int i3 = i2 * 2;
-                            int[][] iArr2 = ITFReader.PATTERNS;
-                            iArr[i3] = iArr2[digit][i2];
-                            iArr[i3 + 1] = iArr2[digit2][i2];
-                        }
-                        appendPattern += OneDimensionalCodeWriter.appendPattern(zArr, appendPattern, iArr, true);
+        int length = str.length();
+        if (length % 2 == 0) {
+            if (length <= 80) {
+                boolean[] zArr = new boolean[(length * 9) + 9];
+                int appendPattern = OneDimensionalCodeWriter.appendPattern(zArr, 0, START_PATTERN, true);
+                for (int i = 0; i < length; i += 2) {
+                    int digit = Character.digit(str.charAt(i), 10);
+                    int digit2 = Character.digit(str.charAt(i + 1), 10);
+                    int[] iArr = new int[18];
+                    for (int i2 = 0; i2 < 5; i2++) {
+                        int i3 = i2 * 2;
+                        int[][] iArr2 = ITFReader.PATTERNS;
+                        iArr[i3] = iArr2[digit][i2];
+                        iArr[i3 + 1] = iArr2[digit2][i2];
                     }
-                    OneDimensionalCodeWriter.appendPattern(zArr, appendPattern, END_PATTERN, true);
-                    return zArr;
+                    appendPattern += OneDimensionalCodeWriter.appendPattern(zArr, appendPattern, iArr, true);
                 }
-                throw new IllegalArgumentException("Requested contents should be less than 80 digits long, but got " + length);
+                OneDimensionalCodeWriter.appendPattern(zArr, appendPattern, END_PATTERN, true);
+                return zArr;
             }
-            throw new IllegalArgumentException("The length of the input should be even");
+            throw new IllegalArgumentException("Requested contents should be less than 80 digits long, but got " + length);
         }
-        return (boolean[]) invokeL.objValue;
+        throw new IllegalArgumentException("The length of the input should be even");
     }
 }

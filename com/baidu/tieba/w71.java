@@ -1,30 +1,44 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import android.app.Activity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class w71 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface w71 {
+    public static final w71 a = new a();
 
-    public static void a(ClogBuilder.LogType logType, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, logType, str, str2, str3) == null) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(logType);
-            clogBuilder.u(ClogBuilder.Page.NAVIDEO_POP_WEB_PANEL);
-            if (!TextUtils.isEmpty(str)) {
-                clogBuilder.k(str);
+    v71 a(Activity activity);
+
+    /* loaded from: classes6.dex */
+    public static class a implements w71 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if (!TextUtils.isEmpty(str3)) {
-                clogBuilder.p(str3);
+        }
+
+        @Override // com.baidu.tieba.w71
+        public v71 a(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+                return new r71(activity);
             }
-            if (!TextUtils.isEmpty(str2)) {
-                clogBuilder.j(str2);
-            }
-            n21.b(clogBuilder);
+            return (v71) invokeL.objValue;
         }
     }
 }

@@ -1,12 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PayUIEventType {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String failpagecallnum = "failpagecallnum";
     public static final String failpageclose = "failpageclose";
     public static final String failpageshow = "failpageshow";
@@ -26,19 +20,4 @@ public class PayUIEventType {
     public static final String walletclickdetail = "walletclickdetail";
     public static final String walletshow = "walletshow";
     public static final String walletshowhelp = "walletshowhelp";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public PayUIEventType() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

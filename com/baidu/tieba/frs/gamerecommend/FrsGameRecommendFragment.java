@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.az6;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.frs.gamerecommend.model.AlaGameRecommendModel;
-import com.baidu.tieba.jt6;
-import com.baidu.tieba.y35;
+import com.baidu.tieba.iw6;
+import com.baidu.tieba.k55;
+import com.baidu.tieba.z17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,16 +27,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class FrsGameRecommendFragment extends BaseFragment implements jt6 {
+public class FrsGameRecommendFragment extends BaseFragment implements iw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public az6 a;
+    public z17 a;
     public AlaGameRecommendModel b;
     public String c;
     public String d;
     public CustomMessageListener e;
     public AlaGameRecommendModel.b f;
-    public y35.g g;
+    public k55.g g;
     public BdListView.p h;
 
     /* loaded from: classes4.dex */
@@ -133,7 +133,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements jt6 {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements y35.g {
+    public class c implements k55.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsGameRecommendFragment a;
@@ -156,12 +156,12 @@ public class FrsGameRecommendFragment extends BaseFragment implements jt6 {
             this.a = frsGameRecommendFragment;
         }
 
-        @Override // com.baidu.tieba.y35.g
+        @Override // com.baidu.tieba.k55.g
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0d11);
                     this.a.a.b();
                 } else if (this.a.b != null) {
                     this.a.b.loadData();
@@ -241,10 +241,10 @@ public class FrsGameRecommendFragment extends BaseFragment implements jt6 {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        az6 az6Var;
+        z17 z17Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (az6Var = this.a) != null) {
-            az6Var.i(i);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (z17Var = this.a) != null) {
+            z17Var.i(i);
         }
     }
 
@@ -269,7 +269,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements jt6 {
         }
     }
 
-    @Override // com.baidu.tieba.jt6
+    @Override // com.baidu.tieba.iw6
     public NavigationBar S0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -284,9 +284,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements jt6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            az6 az6Var = this.a;
-            if (az6Var != null) {
-                az6Var.j();
+            z17 z17Var = this.a;
+            if (z17Var != null) {
+                z17Var.j();
             }
             AlaGameRecommendModel alaGameRecommendModel = this.b;
             if (alaGameRecommendModel != null) {
@@ -318,9 +318,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements jt6 {
             }
             this.c = arguments.getString("forum_id");
             this.d = arguments.getString("forum_name");
-            az6 az6Var = new az6(getPageContext(), this.c, this.d);
-            this.a = az6Var;
-            az6Var.l(this.g);
+            z17 z17Var = new z17(getPageContext(), this.c, this.d);
+            this.a = z17Var;
+            z17Var.l(this.g);
             this.a.n(this.h);
             MessageManager.getInstance().registerListener(2001446, this.e);
             this.b = new AlaGameRecommendModel(this.c, this.f);

@@ -11,196 +11,128 @@ import android.view.Window;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class KeyEventDispatcher {
-    public static /* synthetic */ Interceptable $ic;
     public static boolean sActionBarFieldsFetched;
     public static Method sActionBarOnMenuKeyMethod;
     public static boolean sDialogFieldsFetched;
     public static Field sDialogKeyListenerField;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public interface Component {
         boolean superDispatchKeyEvent(KeyEvent keyEvent);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1177354629, "Landroidx/core/view/KeyEventDispatcher;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1177354629, "Landroidx/core/view/KeyEventDispatcher;");
-        }
-    }
-
-    public KeyEventDispatcher() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
     public static boolean actionBarOnMenuKeyEventPre28(ActionBar actionBar, KeyEvent keyEvent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, actionBar, keyEvent)) == null) {
-            if (!sActionBarFieldsFetched) {
-                try {
-                    sActionBarOnMenuKeyMethod = actionBar.getClass().getMethod("onMenuKeyEvent", KeyEvent.class);
-                } catch (NoSuchMethodException unused) {
-                }
-                sActionBarFieldsFetched = true;
+        if (!sActionBarFieldsFetched) {
+            try {
+                sActionBarOnMenuKeyMethod = actionBar.getClass().getMethod("onMenuKeyEvent", KeyEvent.class);
+            } catch (NoSuchMethodException unused) {
             }
-            Method method = sActionBarOnMenuKeyMethod;
-            if (method != null) {
-                try {
-                    return ((Boolean) method.invoke(actionBar, keyEvent)).booleanValue();
-                } catch (IllegalAccessException | InvocationTargetException unused2) {
-                }
-            }
-            return false;
+            sActionBarFieldsFetched = true;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean activitySuperDispatchKeyEventPre28(Activity activity, KeyEvent keyEvent) {
-        InterceptResult invokeLL;
-        KeyEvent.DispatcherState dispatcherState;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, activity, keyEvent)) == null) {
-            activity.onUserInteraction();
-            Window window = activity.getWindow();
-            if (window.hasFeature(8)) {
-                ActionBar actionBar = activity.getActionBar();
-                if (keyEvent.getKeyCode() == 82 && actionBar != null && actionBarOnMenuKeyEventPre28(actionBar, keyEvent)) {
-                    return true;
-                }
+        Method method = sActionBarOnMenuKeyMethod;
+        if (method != null) {
+            try {
+                return ((Boolean) method.invoke(actionBar, keyEvent)).booleanValue();
+            } catch (IllegalAccessException | InvocationTargetException unused2) {
             }
-            if (window.superDispatchKeyEvent(keyEvent)) {
-                return true;
-            }
-            View decorView = window.getDecorView();
-            if (ViewCompat.dispatchUnhandledKeyEventBeforeCallback(decorView, keyEvent)) {
-                return true;
-            }
-            if (decorView != null) {
-                dispatcherState = decorView.getKeyDispatcherState();
-            } else {
-                dispatcherState = null;
-            }
-            return keyEvent.dispatch(activity, dispatcherState, activity);
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean dialogSuperDispatchKeyEventPre28(Dialog dialog, KeyEvent keyEvent) {
-        InterceptResult invokeLL;
-        KeyEvent.DispatcherState dispatcherState;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, dialog, keyEvent)) == null) {
-            DialogInterface.OnKeyListener dialogKeyListenerPre28 = getDialogKeyListenerPre28(dialog);
-            if (dialogKeyListenerPre28 != null && dialogKeyListenerPre28.onKey(dialog, keyEvent.getKeyCode(), keyEvent)) {
-                return true;
-            }
-            Window window = dialog.getWindow();
-            if (window.superDispatchKeyEvent(keyEvent)) {
-                return true;
-            }
-            View decorView = window.getDecorView();
-            if (ViewCompat.dispatchUnhandledKeyEventBeforeCallback(decorView, keyEvent)) {
-                return true;
-            }
-            if (decorView != null) {
-                dispatcherState = decorView.getKeyDispatcherState();
-            } else {
-                dispatcherState = null;
-            }
-            return keyEvent.dispatch(dialog, dispatcherState, dialog);
-        }
-        return invokeLL.booleanValue;
+        return false;
     }
 
     public static boolean dispatchBeforeHierarchy(@NonNull View view2, @NonNull KeyEvent keyEvent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, keyEvent)) == null) {
-            return ViewCompat.dispatchUnhandledKeyEventBeforeHierarchy(view2, keyEvent);
+        return ViewCompat.dispatchUnhandledKeyEventBeforeHierarchy(view2, keyEvent);
+    }
+
+    public static boolean activitySuperDispatchKeyEventPre28(Activity activity, KeyEvent keyEvent) {
+        KeyEvent.DispatcherState dispatcherState;
+        activity.onUserInteraction();
+        Window window = activity.getWindow();
+        if (window.hasFeature(8)) {
+            ActionBar actionBar = activity.getActionBar();
+            if (keyEvent.getKeyCode() == 82 && actionBar != null && actionBarOnMenuKeyEventPre28(actionBar, keyEvent)) {
+                return true;
+            }
         }
-        return invokeLL.booleanValue;
+        if (window.superDispatchKeyEvent(keyEvent)) {
+            return true;
+        }
+        View decorView = window.getDecorView();
+        if (ViewCompat.dispatchUnhandledKeyEventBeforeCallback(decorView, keyEvent)) {
+            return true;
+        }
+        if (decorView != null) {
+            dispatcherState = decorView.getKeyDispatcherState();
+        } else {
+            dispatcherState = null;
+        }
+        return keyEvent.dispatch(activity, dispatcherState, activity);
+    }
+
+    public static boolean dialogSuperDispatchKeyEventPre28(Dialog dialog, KeyEvent keyEvent) {
+        KeyEvent.DispatcherState dispatcherState;
+        DialogInterface.OnKeyListener dialogKeyListenerPre28 = getDialogKeyListenerPre28(dialog);
+        if (dialogKeyListenerPre28 != null && dialogKeyListenerPre28.onKey(dialog, keyEvent.getKeyCode(), keyEvent)) {
+            return true;
+        }
+        Window window = dialog.getWindow();
+        if (window.superDispatchKeyEvent(keyEvent)) {
+            return true;
+        }
+        View decorView = window.getDecorView();
+        if (ViewCompat.dispatchUnhandledKeyEventBeforeCallback(decorView, keyEvent)) {
+            return true;
+        }
+        if (decorView != null) {
+            dispatcherState = decorView.getKeyDispatcherState();
+        } else {
+            dispatcherState = null;
+        }
+        return keyEvent.dispatch(dialog, dispatcherState, dialog);
     }
 
     public static boolean dispatchKeyEvent(@NonNull Component component, @Nullable View view2, @Nullable Window.Callback callback, @NonNull KeyEvent keyEvent) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, component, view2, callback, keyEvent)) == null) {
-            if (component == null) {
-                return false;
-            }
-            if (Build.VERSION.SDK_INT >= 28) {
-                return component.superDispatchKeyEvent(keyEvent);
-            }
-            if (callback instanceof Activity) {
-                return activitySuperDispatchKeyEventPre28((Activity) callback, keyEvent);
-            }
-            if (callback instanceof Dialog) {
-                return dialogSuperDispatchKeyEventPre28((Dialog) callback, keyEvent);
-            }
-            if ((view2 == null || !ViewCompat.dispatchUnhandledKeyEventBeforeCallback(view2, keyEvent)) && !component.superDispatchKeyEvent(keyEvent)) {
-                return false;
-            }
-            return true;
+        if (component == null) {
+            return false;
         }
-        return invokeLLLL.booleanValue;
+        if (Build.VERSION.SDK_INT >= 28) {
+            return component.superDispatchKeyEvent(keyEvent);
+        }
+        if (callback instanceof Activity) {
+            return activitySuperDispatchKeyEventPre28((Activity) callback, keyEvent);
+        }
+        if (callback instanceof Dialog) {
+            return dialogSuperDispatchKeyEventPre28((Dialog) callback, keyEvent);
+        }
+        if ((view2 == null || !ViewCompat.dispatchUnhandledKeyEventBeforeCallback(view2, keyEvent)) && !component.superDispatchKeyEvent(keyEvent)) {
+            return false;
+        }
+        return true;
     }
 
     public static DialogInterface.OnKeyListener getDialogKeyListenerPre28(Dialog dialog) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, dialog)) == null) {
-            if (!sDialogFieldsFetched) {
-                try {
-                    Field declaredField = Dialog.class.getDeclaredField("mOnKeyListener");
-                    sDialogKeyListenerField = declaredField;
-                    declaredField.setAccessible(true);
-                } catch (NoSuchFieldException unused) {
-                }
-                sDialogFieldsFetched = true;
+        if (!sDialogFieldsFetched) {
+            try {
+                Field declaredField = Dialog.class.getDeclaredField("mOnKeyListener");
+                sDialogKeyListenerField = declaredField;
+                declaredField.setAccessible(true);
+            } catch (NoSuchFieldException unused) {
             }
-            Field field = sDialogKeyListenerField;
-            if (field != null) {
-                try {
-                    return (DialogInterface.OnKeyListener) field.get(dialog);
-                } catch (IllegalAccessException unused2) {
-                    return null;
-                }
-            }
-            return null;
+            sDialogFieldsFetched = true;
         }
-        return (DialogInterface.OnKeyListener) invokeL.objValue;
+        Field field = sDialogKeyListenerField;
+        if (field != null) {
+            try {
+                return (DialogInterface.OnKeyListener) field.get(dialog);
+            } catch (IllegalAccessException unused2) {
+                return null;
+            }
+        }
+        return null;
     }
 }

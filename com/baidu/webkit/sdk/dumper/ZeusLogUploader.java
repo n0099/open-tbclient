@@ -1,13 +1,5 @@
 package com.baidu.webkit.sdk.dumper;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.RC4;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebViewFactory;
@@ -37,7 +29,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class ZeusLogUploader {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String ADD_UPLOAD_FILE_FLAG = "uploadfailed";
     public static final int BUFF_SIZE = 4096;
     public static final String CRASH_IMEI = "imei";
@@ -58,92 +49,50 @@ public final class ZeusLogUploader {
     public static final int UploadStatus_Success = 0;
     public static final int UploadStatus_UploadFailed = 3;
     public static final String VIDEO_LOG = "videolog";
-    public static final BigInteger exponent;
     public static String mEncryptKey;
-    public static boolean mUploadCrashLogFailedEncrypt;
-    public static boolean sIsEnabled;
-    public transient /* synthetic */ FieldHolder $fh;
     public String mCuid;
     public String mType;
     public boolean mUseHttps;
+    public static final BigInteger exponent = new BigInteger("65537");
+    public static boolean sIsEnabled = true;
+    public static boolean mUploadCrashLogFailedEncrypt = true;
 
     /* loaded from: classes7.dex */
     public static class LogFilter implements FilenameFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public String mLogType;
 
         public LogFilter(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.mLogType = str;
         }
 
         @Override // java.io.FilenameFilter
         public boolean accept(File file, String str) {
-            InterceptResult invokeLL;
             String str2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) {
-                if ("crashlog".equals(this.mLogType) || "recordlog".equals(this.mLogType)) {
-                    str2 = ".bdmp";
-                } else if ("videolog".equals(this.mLogType)) {
-                    str2 = ".log";
-                } else if (!"nrlog".equals(this.mLogType)) {
-                    return false;
-                } else {
-                    str2 = ".nr";
-                }
-                return str.endsWith(str2);
+            if ("crashlog".equals(this.mLogType) || "recordlog".equals(this.mLogType)) {
+                str2 = ".bdmp";
+            } else if ("videolog".equals(this.mLogType)) {
+                str2 = ".log";
+            } else if (!"nrlog".equals(this.mLogType)) {
+                return false;
+            } else {
+                str2 = ".nr";
             }
-            return invokeLL.booleanValue;
+            return str.endsWith(str2);
         }
     }
 
     /* loaded from: classes7.dex */
     public class MyRunner implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public String cuid;
         public boolean deletAfterUpload;
         public String[] files;
         public OnFinishedListener listener;
         public String logType;
-        public StringBuffer msg;
-        public int status;
-        public final /* synthetic */ ZeusLogUploader this$0;
         public boolean useHttps;
+        public int status = 0;
+        public StringBuffer msg = new StringBuffer("");
 
-        public MyRunner(ZeusLogUploader zeusLogUploader, String str, String str2, String str3, boolean z, boolean z2, OnFinishedListener onFinishedListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zeusLogUploader, str, str2, str3, Boolean.valueOf(z), Boolean.valueOf(z2), onFinishedListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = zeusLogUploader;
-            this.status = 0;
-            this.msg = new StringBuffer("");
+        public MyRunner(String str, String str2, String str3, boolean z, boolean z2, OnFinishedListener onFinishedListener) {
             this.files = new String[]{str};
             this.deletAfterUpload = z2;
             this.listener = onFinishedListener;
@@ -152,27 +101,10 @@ public final class ZeusLogUploader {
             this.useHttps = z;
         }
 
-        public MyRunner(ZeusLogUploader zeusLogUploader, File[] fileArr, String str, String str2, boolean z, boolean z2, OnFinishedListener onFinishedListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zeusLogUploader, fileArr, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), onFinishedListener};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = zeusLogUploader;
-            this.status = 0;
-            this.msg = new StringBuffer("");
+        public MyRunner(File[] fileArr, String str, String str2, boolean z, boolean z2, OnFinishedListener onFinishedListener) {
             this.files = new String[fileArr.length];
-            for (int i3 = 0; i3 < fileArr.length; i3++) {
-                this.files[i3] = fileArr[i3].getPath();
+            for (int i = 0; i < fileArr.length; i++) {
+                this.files[i] = fileArr[i].getPath();
             }
             this.deletAfterUpload = z2;
             this.listener = onFinishedListener;
@@ -181,10 +113,10 @@ public final class ZeusLogUploader {
             this.useHttps = z;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:52:0x00bf  */
-        /* JADX WARN: Removed duplicated region for block: B:62:0x00dd  */
-        /* JADX WARN: Removed duplicated region for block: B:72:0x00b0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:78:0x00e8 A[SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:50:0x00bb  */
+        /* JADX WARN: Removed duplicated region for block: B:60:0x00d9  */
+        /* JADX WARN: Removed duplicated region for block: B:63:0x00ac A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:73:0x00e4 A[SYNTHETIC] */
         @Override // java.lang.Runnable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -199,86 +131,83 @@ public final class ZeusLogUploader {
             OnFinishedListener onFinishedListener;
             byte[] bArr;
             int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (String str : this.files) {
-                    try {
-                        fileInputStream = new FileInputStream(str);
+            for (String str : this.files) {
+                try {
+                    fileInputStream = new FileInputStream(str);
+                } catch (Exception e2) {
+                    z = false;
+                    exc = e2;
+                    fileInputStream = null;
+                }
+                try {
+                    int available = fileInputStream.available();
+                    if (this.cuid == null || this.logType.equals("crashlog")) {
+                        bArr = new byte[available];
+                        i = 0;
+                    } else {
+                        i = this.cuid.getBytes().length;
+                        bArr = new byte[available + i];
+                        System.arraycopy(this.cuid.getBytes(), 0, bArr, 0, this.cuid.getBytes().length);
+                    }
+                    do {
+                        i += fileInputStream.read(bArr, i, available);
+                        available = fileInputStream.available();
+                    } while (available > 0);
+                    z2 = ZeusLogUploader.uploadFileEncryptJudge(bArr);
+                } catch (Exception e3) {
+                    e = e3;
+                    z = false;
+                    this.status = 5;
+                    e.printStackTrace();
+                    if (fileInputStream != null) {
                         try {
-                            int available = fileInputStream.available();
-                            if (this.cuid == null || this.logType.equals("crashlog")) {
-                                bArr = new byte[available];
-                                i = 0;
-                            } else {
-                                i = this.cuid.getBytes().length;
-                                bArr = new byte[available + i];
-                                System.arraycopy(this.cuid.getBytes(), 0, bArr, 0, this.cuid.getBytes().length);
-                            }
-                            do {
-                                i += fileInputStream.read(bArr, i, available);
-                                available = fileInputStream.available();
-                            } while (available > 0);
-                            z2 = ZeusLogUploader.uploadFileEncryptJudge(bArr);
-                        } catch (Exception e2) {
-                            e = e2;
-                            z = false;
-                            this.status = 5;
-                            e.printStackTrace();
-                            if (fileInputStream != null) {
-                                try {
-                                    fileInputStream.close();
-                                } catch (Exception e3) {
-                                    e3.printStackTrace();
-                                }
-                            }
-                            z2 = z;
-                            if (ZeusLogUploader.mUploadCrashLogFailedEncrypt) {
-                                this.status = 2;
-                            }
-                            onFinishedListener = this.listener;
-                            if (onFinishedListener != null) {
-                            }
-                        }
-                        try {
-                            if (this.logType.equals("crashlog") && z2 && (bArr = this.this$0.doEncryptUploadFailedFile(bArr, bArr.length - 12, false)) == null) {
-                                this.status = 8;
-                            }
-                            byte[] doCompress = ZeusLogUploader.doCompress(bArr, bArr.length, this.msg);
-                            if (doCompress == null) {
-                                this.status = 1;
-                            } else if (!ZeusLogUploader.doUpload(doCompress, this.logType, this.useHttps, str, this.msg)) {
-                                this.status = 3;
-                            } else if (this.deletAfterUpload && !ZeusLogUploader.doDelete(str, this.msg)) {
-                                this.status = 4;
-                            }
                             fileInputStream.close();
                         } catch (Exception e4) {
-                            exc = e4;
-                            z = z2;
-                            e = exc;
-                            this.status = 5;
-                            e.printStackTrace();
-                            if (fileInputStream != null) {
-                            }
-                            z2 = z;
-                            if (ZeusLogUploader.mUploadCrashLogFailedEncrypt) {
-                            }
-                            onFinishedListener = this.listener;
-                            if (onFinishedListener != null) {
-                            }
+                            e4.printStackTrace();
                         }
-                    } catch (Exception e5) {
-                        z = false;
-                        exc = e5;
-                        fileInputStream = null;
                     }
-                    if (ZeusLogUploader.mUploadCrashLogFailedEncrypt && this.status != 0 && this.logType.equals("crashlog") && !z2 && this.this$0.encryptUploadFailedFile(str, true) != 6) {
+                    z2 = z;
+                    if (ZeusLogUploader.mUploadCrashLogFailedEncrypt) {
                         this.status = 2;
                     }
                     onFinishedListener = this.listener;
                     if (onFinishedListener != null) {
-                        onFinishedListener.onFinished(str, this.status, this.msg.toString());
                     }
+                }
+                try {
+                    if (this.logType.equals("crashlog") && z2 && (bArr = ZeusLogUploader.this.doEncryptUploadFailedFile(bArr, bArr.length - 12, false)) == null) {
+                        this.status = 8;
+                    }
+                    byte[] doCompress = ZeusLogUploader.doCompress(bArr, bArr.length, this.msg);
+                    if (doCompress == null) {
+                        this.status = 1;
+                    } else if (!ZeusLogUploader.doUpload(doCompress, this.logType, this.useHttps, str, this.msg)) {
+                        this.status = 3;
+                    } else if (this.deletAfterUpload && !ZeusLogUploader.doDelete(str, this.msg)) {
+                        this.status = 4;
+                    }
+                    fileInputStream.close();
+                } catch (Exception e5) {
+                    exc = e5;
+                    z = z2;
+                    e = exc;
+                    this.status = 5;
+                    e.printStackTrace();
+                    if (fileInputStream != null) {
+                    }
+                    z2 = z;
+                    if (ZeusLogUploader.mUploadCrashLogFailedEncrypt) {
+                    }
+                    onFinishedListener = this.listener;
+                    if (onFinishedListener != null) {
+                    }
+                }
+                if (ZeusLogUploader.mUploadCrashLogFailedEncrypt && this.status != 0 && this.logType.equals("crashlog") && !z2 && ZeusLogUploader.this.encryptUploadFailedFile(str, true) != 6) {
+                    this.status = 2;
+                }
+                onFinishedListener = this.listener;
+                if (onFinishedListener != null) {
+                    onFinishedListener.onFinished(str, this.status, this.msg.toString());
                 }
             }
         }
@@ -289,39 +218,7 @@ public final class ZeusLogUploader {
         void onFinished(String str, int i, String str2);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1855203252, "Lcom/baidu/webkit/sdk/dumper/ZeusLogUploader;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1855203252, "Lcom/baidu/webkit/sdk/dumper/ZeusLogUploader;");
-                return;
-            }
-        }
-        exponent = new BigInteger("65537");
-        sIsEnabled = true;
-        mUploadCrashLogFailedEncrypt = true;
-    }
-
     public ZeusLogUploader(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mType = str;
         this.mUseHttps = z;
         JSONObject jSONObject = new JSONObject();
@@ -336,25 +233,16 @@ public final class ZeusLogUploader {
     }
 
     public static boolean UploadLogDirectory(String str, String str2, boolean z, OnFinishedListener onFinishedListener) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, str2, Boolean.valueOf(z), onFinishedListener})) == null) ? new ZeusLogUploader(str2, null, true).uploadLogDirectory(str, z, onFinishedListener) : invokeCommon.booleanValue;
+        return new ZeusLogUploader(str2, null, true).uploadLogDirectory(str, z, onFinishedListener);
     }
 
     public static boolean UploadLogFile(String str, String str2, boolean z, OnFinishedListener onFinishedListener) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, str2, Boolean.valueOf(z), onFinishedListener})) == null) ? new ZeusLogUploader(str2, null, true).uploadLogFile(str, z, onFinishedListener) : invokeCommon.booleanValue;
+        return new ZeusLogUploader(str2, null, true).uploadLogFile(str, z, onFinishedListener);
     }
 
     public static byte[] doCompress(byte[] bArr, int i, StringBuffer stringBuffer) {
-        InterceptResult invokeLIL;
         GZIPOutputStream gZIPOutputStream;
         ByteArrayInputStream byteArrayInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLIL = interceptable.invokeLIL(65543, null, bArr, i, stringBuffer)) != null) {
-            return (byte[]) invokeLIL.objValue;
-        }
         if (bArr == null || i <= 0) {
             stringBuffer.append("doCompress Failed, source is null; ");
             return null;
@@ -409,63 +297,49 @@ public final class ZeusLogUploader {
     }
 
     public static boolean doDelete(String str, StringBuffer stringBuffer) {
-        InterceptResult invokeLL;
         String concat;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, stringBuffer)) == null) {
-            if (str == null || str.isEmpty()) {
-                concat = "Failed to remove empty file:".concat(String.valueOf(str));
-            } else {
-                File file = new File(str);
-                if (file.isFile() && file.delete()) {
-                    Log.d(TAG, "CRASHPAD  dodelete sucess return true file=".concat(String.valueOf(str)));
-                    return true;
-                }
-                concat = "Failed to remove file:" + file.getName();
+        if (str == null || str.isEmpty()) {
+            concat = "Failed to remove empty file:".concat(String.valueOf(str));
+        } else {
+            File file = new File(str);
+            if (file.isFile() && file.delete()) {
+                Log.d(TAG, "CRASHPAD  dodelete sucess return true file=".concat(String.valueOf(str)));
+                return true;
             }
-            stringBuffer.append(concat);
-            return false;
+            concat = "Failed to remove file:" + file.getName();
         }
-        return invokeLL.booleanValue;
+        stringBuffer.append(concat);
+        return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public byte[] doEncryptUploadFailedFile(byte[] bArr, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, this, new Object[]{bArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (bArr == null || bArr.length <= 0 || i <= 0 || mEncryptKey == null) {
-                return null;
-            }
-            if (i > bArr.length) {
-                i = bArr.length;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            byte[] bArr2 = new byte[i];
-            System.arraycopy(bArr, 0, bArr2, 0, i);
-            RC4 rc4 = new RC4(mEncryptKey);
-            byte[] encrypt = z ? rc4.encrypt(bArr2) : rc4.decrypt(bArr2);
-            long currentTimeMillis2 = System.currentTimeMillis();
-            Object[] objArr = new Object[2];
-            objArr[0] = z ? "encrypt" : "decrypt";
-            objArr[1] = Long.valueOf(currentTimeMillis2 - currentTimeMillis);
-            Log.d(TAG, "%s upload file run time: %d (ms)", objArr);
-            return encrypt;
+        if (bArr == null || bArr.length <= 0 || i <= 0 || mEncryptKey == null) {
+            return null;
         }
-        return (byte[]) invokeCommon.objValue;
+        if (i > bArr.length) {
+            i = bArr.length;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        byte[] bArr2 = new byte[i];
+        System.arraycopy(bArr, 0, bArr2, 0, i);
+        RC4 rc4 = new RC4(mEncryptKey);
+        byte[] encrypt = z ? rc4.encrypt(bArr2) : rc4.decrypt(bArr2);
+        long currentTimeMillis2 = System.currentTimeMillis();
+        Object[] objArr = new Object[2];
+        objArr[0] = z ? "encrypt" : "decrypt";
+        objArr[1] = Long.valueOf(currentTimeMillis2 - currentTimeMillis);
+        Log.d(TAG, "%s upload file run time: %d (ms)", objArr);
+        return encrypt;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x00da: ARRAY_LENGTH  (r7v2 int A[REMOVE]) = (r9v0 byte[]))] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x00d7: ARRAY_LENGTH  (r7v2 int A[REMOVE]) = (r9v0 byte[]))] */
     public static boolean doUpload(byte[] bArr, String str, boolean z, String str2, StringBuffer stringBuffer) {
-        InterceptResult invokeCommon;
         String str3;
         String str4;
         OutputStream outputStream;
         HttpsURLConnection httpsURLConnection;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{bArr, str, Boolean.valueOf(z), str2, stringBuffer})) != null) {
-            return invokeCommon.booleanValue;
-        }
+        ByteArrayInputStream byteArrayInputStream;
         String substring = str2.substring(str2.lastIndexOf(47) + 1);
         if (bArr == null || substring == null || substring.isEmpty()) {
             if (bArr == null) {
@@ -503,7 +377,7 @@ public final class ZeusLogUploader {
         byte[] bArr2 = new byte[4096];
         HttpsURLConnection httpsURLConnection2 = null;
         r5 = null;
-        ByteArrayInputStream byteArrayInputStream = null;
+        ByteArrayInputStream byteArrayInputStream2 = null;
         try {
             if (!z) {
                 stringBuffer.append("doUpload Failed, HTTP is never supported!");
@@ -535,60 +409,60 @@ public final class ZeusLogUploader {
                         httpsURLConnection.setRequestProperty("LogType", str);
                         httpsURLConnection.setFixedLengthStreamingMode(bArr.length);
                         httpsURLConnection.connect();
-                        ByteArrayInputStream byteArrayInputStream2 = new ByteArrayInputStream(bArr);
-                        try {
-                            OutputStream outputStream2 = httpsURLConnection.getOutputStream();
-                            while (true) {
-                                int read = byteArrayInputStream2.read(bArr2);
-                                if (read == -1) {
-                                    break;
-                                }
-                                outputStream2.write(bArr2, 0, read);
-                            }
-                            byteArrayInputStream2.close();
-                            outputStream2.flush();
-                            outputStream2.close();
-                            int responseCode = httpsURLConnection.getResponseCode();
-                            Log.i(TAG, "CRASHPAD finish send the reqeust , responseCode = ".concat(String.valueOf(responseCode)));
-                            if (responseCode == 200) {
-                                stringBuffer.append("Upload Success; The server has responed 200 . ");
-                                httpsURLConnection.disconnect();
-                                return true;
-                            }
-                            stringBuffer.append("doUpload Failed, The server has responsed Code ".concat(String.valueOf(responseCode)));
-                            httpsURLConnection.disconnect();
-                            return false;
-                        } catch (Exception e2) {
-                            e = e2;
-                            byteArrayInputStream = byteArrayInputStream2;
-                            outputStream = null;
-                            stringBuffer.append(e.getMessage());
-                            e.printStackTrace();
-                            if (byteArrayInputStream != null) {
-                                try {
-                                    byteArrayInputStream.close();
-                                } catch (Exception unused) {
-                                    Log.d(TAG, "failed http.");
-                                    httpsURLConnection.disconnect();
-                                    return false;
-                                }
-                            }
-                            if (outputStream != null) {
-                                outputStream.close();
-                            }
-                            Log.d(TAG, "failed http.");
-                            httpsURLConnection.disconnect();
-                            return false;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        httpsURLConnection2 = httpsURLConnection;
-                        httpsURLConnection2.disconnect();
-                        throw th;
+                        byteArrayInputStream = new ByteArrayInputStream(bArr);
+                    } catch (Exception e2) {
+                        e = e2;
+                        outputStream = null;
                     }
-                } catch (Exception e3) {
-                    e = e3;
-                    outputStream = null;
+                    try {
+                        OutputStream outputStream2 = httpsURLConnection.getOutputStream();
+                        while (true) {
+                            int read = byteArrayInputStream.read(bArr2);
+                            if (read == -1) {
+                                break;
+                            }
+                            outputStream2.write(bArr2, 0, read);
+                        }
+                        byteArrayInputStream.close();
+                        outputStream2.flush();
+                        outputStream2.close();
+                        int responseCode = httpsURLConnection.getResponseCode();
+                        Log.i(TAG, "CRASHPAD finish send the reqeust , responseCode = ".concat(String.valueOf(responseCode)));
+                        if (responseCode == 200) {
+                            stringBuffer.append("Upload Success; The server has responed 200 . ");
+                            httpsURLConnection.disconnect();
+                            return true;
+                        }
+                        stringBuffer.append("doUpload Failed, The server has responsed Code ".concat(String.valueOf(responseCode)));
+                        httpsURLConnection.disconnect();
+                        return false;
+                    } catch (Exception e3) {
+                        e = e3;
+                        byteArrayInputStream2 = byteArrayInputStream;
+                        outputStream = null;
+                        stringBuffer.append(e.getMessage());
+                        e.printStackTrace();
+                        if (byteArrayInputStream2 != null) {
+                            try {
+                                byteArrayInputStream2.close();
+                            } catch (Exception unused) {
+                                Log.d(TAG, "failed http.");
+                                httpsURLConnection.disconnect();
+                                return false;
+                            }
+                        }
+                        if (outputStream != null) {
+                            outputStream.close();
+                        }
+                        Log.d(TAG, "failed http.");
+                        httpsURLConnection.disconnect();
+                        return false;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    httpsURLConnection2 = httpsURLConnection;
+                    httpsURLConnection2.disconnect();
+                    throw th;
                 }
             } catch (Throwable th2) {
                 th2.printStackTrace();
@@ -606,37 +480,26 @@ public final class ZeusLogUploader {
     }
 
     public static void setEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
-            sIsEnabled = z;
-        }
+        sIsEnabled = z;
     }
 
     public static void setEncryptKey(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
-            mEncryptKey = str;
-        }
+        mEncryptKey = str;
     }
 
     public static void setUploadCrashLogFailedEncrypt(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65549, null, z) == null) {
-            mUploadCrashLogFailedEncrypt = z;
-        }
+        mUploadCrashLogFailedEncrypt = z;
     }
 
     public static boolean uploadFileEncryptJudge(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, bArr)) == null) ? 12 < bArr.length && "uploadfailed".equals(new String(bArr, bArr.length - 12, 12)) : invokeL.booleanValue;
+        return 12 < bArr.length && "uploadfailed".equals(new String(bArr, bArr.length - 12, 12));
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:70:0x0076 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:83:0x0027 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:64:0x0072 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:71:0x0023 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x0088  */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0089 A[Catch: Exception -> 0x00ab, TRY_LEAVE, TryCatch #1 {Exception -> 0x00ab, blocks: (B:49:0x0079, B:52:0x0089), top: B:74:0x0079 }] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0084  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x0085 A[Catch: Exception -> 0x00a7, TRY_LEAVE, TryCatch #9 {Exception -> 0x00a7, blocks: (B:47:0x0075, B:50:0x0085), top: B:75:0x0075 }] */
     /* JADX WARN: Type inference failed for: r3v0, types: [boolean] */
     /* JADX WARN: Type inference failed for: r3v1 */
     /* JADX WARN: Type inference failed for: r3v10 */
@@ -648,15 +511,9 @@ public final class ZeusLogUploader {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final int encryptUploadFailedFile(String str, boolean z) {
-        InterceptResult invokeLZ;
         ByteArrayOutputStream byteArrayOutputStream;
         byte[] doEncryptUploadFailedFile;
         DataInputStream dataInputStream;
-        ByteArrayOutputStream byteArrayOutputStream2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) != null) {
-            return invokeLZ.intValue;
-        }
         Log.d(TAG, "CRASHPAD encryptUploadFailedFile 1 file=".concat(String.valueOf(str)));
         if (str == null) {
             return 5;
@@ -666,67 +523,67 @@ public final class ZeusLogUploader {
         ?? exists = file.exists();
         FileOutputStream fileOutputStream = null;
         r5 = null;
-        ByteArrayOutputStream byteArrayOutputStream3 = null;
+        ByteArrayOutputStream byteArrayOutputStream2 = null;
         try {
             if (exists != 0) {
                 try {
                     dataInputStream = new DataInputStream(new FileInputStream(file));
                     try {
-                        byteArrayOutputStream2 = new ByteArrayOutputStream();
-                    } catch (Exception unused) {
-                        exists = 0;
-                    } catch (Throwable th) {
-                        th = th;
-                    }
-                    try {
-                        byte[] bArr = new byte[1024];
-                        while (true) {
-                            int read = dataInputStream.read(bArr);
-                            if (read != -1) {
-                                byteArrayOutputStream2.write(bArr, 0, read);
-                            } else {
-                                try {
-                                    break;
-                                } catch (Exception unused2) {
-                                    i = 5;
+                        ByteArrayOutputStream byteArrayOutputStream3 = new ByteArrayOutputStream();
+                        try {
+                            byte[] bArr = new byte[1024];
+                            while (true) {
+                                int read = dataInputStream.read(bArr);
+                                if (read != -1) {
+                                    byteArrayOutputStream3.write(bArr, 0, read);
+                                } else {
+                                    try {
+                                        break;
+                                    } catch (Exception unused) {
+                                        i = 5;
+                                    }
                                 }
                             }
-                        }
-                        byteArrayOutputStream2.close();
-                        dataInputStream.close();
-                        byteArrayOutputStream = byteArrayOutputStream2;
-                    } catch (Exception unused3) {
-                        exists = byteArrayOutputStream2;
-                        if (exists != 0) {
-                            try {
-                                exists.close();
-                            } catch (Exception unused4) {
-                            }
-                        }
-                        if (dataInputStream != null) {
+                            byteArrayOutputStream3.close();
                             dataInputStream.close();
+                            byteArrayOutputStream = byteArrayOutputStream3;
+                        } catch (Exception unused2) {
+                            exists = byteArrayOutputStream3;
+                            if (exists != 0) {
+                                try {
+                                    exists.close();
+                                } catch (Exception unused3) {
+                                }
+                            }
+                            if (dataInputStream != null) {
+                                dataInputStream.close();
+                            }
+                            i = 5;
+                            byteArrayOutputStream = exists;
+                            doEncryptUploadFailedFile = doEncryptUploadFailedFile(byteArrayOutputStream.toByteArray(), byteArrayOutputStream.toByteArray().length, z);
+                            if (doEncryptUploadFailedFile != null) {
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            byteArrayOutputStream2 = byteArrayOutputStream3;
+                            if (byteArrayOutputStream2 != null) {
+                                try {
+                                    byteArrayOutputStream2.close();
+                                } catch (Exception unused4) {
+                                }
+                            }
+                            if (dataInputStream != null) {
+                                try {
+                                    dataInputStream.close();
+                                } catch (Exception unused5) {
+                                }
+                            }
+                            throw th;
                         }
-                        i = 5;
-                        byteArrayOutputStream = exists;
-                        doEncryptUploadFailedFile = doEncryptUploadFailedFile(byteArrayOutputStream.toByteArray(), byteArrayOutputStream.toByteArray().length, z);
-                        if (doEncryptUploadFailedFile != null) {
-                        }
+                    } catch (Exception unused6) {
+                        exists = 0;
                     } catch (Throwable th2) {
                         th = th2;
-                        byteArrayOutputStream3 = byteArrayOutputStream2;
-                        if (byteArrayOutputStream3 != null) {
-                            try {
-                                byteArrayOutputStream3.close();
-                            } catch (Exception unused5) {
-                            }
-                        }
-                        if (dataInputStream != null) {
-                            try {
-                                dataInputStream.close();
-                            } catch (Exception unused6) {
-                            }
-                        }
-                        throw th;
                     }
                 } catch (Exception unused7) {
                     dataInputStream = null;
@@ -772,38 +629,28 @@ public final class ZeusLogUploader {
     }
 
     public final boolean uploadLogDirectory(String str, boolean z, OnFinishedListener onFinishedListener) {
-        InterceptResult invokeCommon;
         File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Boolean.valueOf(z), onFinishedListener})) == null) {
-            Log.d(TAG, "CRASHPAD  uploadlogdirectory dir=".concat(String.valueOf(str)));
-            if (sIsEnabled && str != null && !str.isEmpty()) {
-                File file = new File(str);
-                if (file.exists() && (listFiles = file.listFiles(new LogFilter(this.mType))) != null && listFiles.length != 0) {
-                    Thread thread = new Thread(new MyRunner(this, listFiles, this.mType, this.mCuid, this.mUseHttps, z, onFinishedListener));
-                    thread.setName("T7@ZeusLogDir1");
-                    thread.start();
-                    return true;
-                }
+        Log.d(TAG, "CRASHPAD  uploadlogdirectory dir=".concat(String.valueOf(str)));
+        if (sIsEnabled && str != null && !str.isEmpty()) {
+            File file = new File(str);
+            if (file.exists() && (listFiles = file.listFiles(new LogFilter(this.mType))) != null && listFiles.length != 0) {
+                Thread thread = new Thread(new MyRunner(listFiles, this.mType, this.mCuid, this.mUseHttps, z, onFinishedListener));
+                thread.setName("T7@ZeusLogDir1");
+                thread.start();
+                return true;
             }
-            return false;
         }
-        return invokeCommon.booleanValue;
+        return false;
     }
 
     public final boolean uploadLogFile(String str, boolean z, OnFinishedListener onFinishedListener) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Boolean.valueOf(z), onFinishedListener})) == null) {
-            Log.d(TAG, "CRASHPAD  uploadlogfile  filePath=".concat(String.valueOf(str)));
-            if (!sIsEnabled || str == null || str.isEmpty() || !new File(str).exists()) {
-                return false;
-            }
-            Thread thread = new Thread(new MyRunner(this, str, this.mType, this.mCuid, this.mUseHttps, z, onFinishedListener));
-            thread.setName("T7@ZeusLogFile1");
-            thread.start();
-            return true;
+        Log.d(TAG, "CRASHPAD  uploadlogfile  filePath=".concat(String.valueOf(str)));
+        if (!sIsEnabled || str == null || str.isEmpty() || !new File(str).exists()) {
+            return false;
         }
-        return invokeCommon.booleanValue;
+        Thread thread = new Thread(new MyRunner(str, this.mType, this.mCuid, this.mUseHttps, z, onFinishedListener));
+        thread.setName("T7@ZeusLogFile1");
+        thread.start();
+        return true;
     }
 }

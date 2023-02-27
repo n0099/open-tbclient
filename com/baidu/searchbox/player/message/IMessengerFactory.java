@@ -1,5 +1,5 @@
 package com.baidu.searchbox.player.message;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface IMessengerFactory {
     IMessenger createMessenger();
 }

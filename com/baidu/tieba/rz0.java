@@ -8,12 +8,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class rz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public int e;
-    public int f;
+    public int a;
+    public int b;
 
     public rz0() {
         Interceptable interceptable = $ic;
@@ -25,12 +21,7 @@ public class rz0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = "";
-        this.d = 0;
-        this.e = 0;
-        this.f = 0;
     }
 }

@@ -1,18 +1,32 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class f54 {
+public class f54 extends e54 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public eg2 a;
+
+    @Override // com.baidu.tieba.vk2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "key_cur_preset_games_extension_core_ver" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vk2
+    @NonNull
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "key_cur_preset_games_extension_core_ver_name" : (String) invokeV.objValue;
+    }
 
     public f54() {
         Interceptable interceptable = $ic;
@@ -25,54 +39,6 @@ public final class f54 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public boolean a(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            eg2 eg2Var = this.a;
-            boolean z = false;
-            if (eg2Var == null) {
-                return false;
-            }
-            boolean f = g54.f(eg2Var.n());
-            boolean f2 = g54.f(this.a.x());
-            JSEvent jSEvent = null;
-            if (f || f2) {
-                jSEvent = g54.j(motionEvent);
-            }
-            if (f) {
-                z = this.a.dispatchEvent(jSEvent);
-            }
-            if (f2 && this.a.u0()) {
-                this.a.x().dispatchEvent(jSEvent);
-            }
-            g54.g(true);
-            return z;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void b(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            g54.m(i, i2);
-        }
-    }
-
-    public void d(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            g54.l(i, i2);
-        }
-    }
-
-    public void c(eg2 eg2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eg2Var) == null) {
-            this.a = eg2Var;
         }
     }
 }

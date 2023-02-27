@@ -1,43 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.TimerTask;
 /* loaded from: classes4.dex */
-public class h83 {
+public final class h83 extends TimerTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public CharSequence b;
-    public Drawable c;
-    public boolean d;
-    public long e;
-    public int f;
-    public a g;
-    public Context h;
+    public int a;
+    public int b;
+    public int c;
+    public final WheelView3d d;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(h83 h83Var);
-    }
-
-    public void g(g83 g83Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, g83Var) == null) {
-        }
-    }
-
-    public h83(Context context, int i, CharSequence charSequence, Drawable drawable) {
+    public h83(WheelView3d wheelView3d, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), charSequence, drawable};
+            Object[] objArr = {wheelView3d, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -47,83 +30,49 @@ public class h83 {
                 return;
             }
         }
-        this.d = true;
-        this.e = 0L;
-        this.f = 0;
-        this.h = context;
-        this.a = i;
-        this.b = charSequence;
-        this.c = drawable;
+        this.d = wheelView3d;
+        this.c = i;
+        this.a = Integer.MAX_VALUE;
+        this.b = 0;
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return invokeV.longValue;
-    }
-
-    public Drawable b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Drawable drawable = this.c;
-            if (drawable != null) {
-                return drawable;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.a == Integer.MAX_VALUE) {
+                this.a = this.c;
             }
-            if (this.f != 0) {
-                Drawable drawable2 = this.h.getResources().getDrawable(this.f);
-                this.f = 0;
-                this.c = drawable2;
-                return drawable2;
+            int i = this.a;
+            int i2 = (int) (i * 0.1f);
+            this.b = i2;
+            if (i2 == 0) {
+                if (i < 0) {
+                    this.b = -1;
+                } else {
+                    this.b = 1;
+                }
             }
-            return null;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public a d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public CharSequence e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (CharSequence) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void h(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.g = aVar;
+            if (Math.abs(this.a) <= 1) {
+                this.d.b();
+                this.d.getHandler().sendEmptyMessage(3000);
+                return;
+            }
+            WheelView3d wheelView3d = this.d;
+            wheelView3d.setTotalScrollY(wheelView3d.getTotalScrollY() + this.b);
+            if (!this.d.i()) {
+                float itemHeight = this.d.getItemHeight();
+                float itemsCount = ((this.d.getItemsCount() - 1) - this.d.getInitPosition()) * itemHeight;
+                if (this.d.getTotalScrollY() <= (-this.d.getInitPosition()) * itemHeight || this.d.getTotalScrollY() >= itemsCount) {
+                    WheelView3d wheelView3d2 = this.d;
+                    wheelView3d2.setTotalScrollY(wheelView3d2.getTotalScrollY() - this.b);
+                    this.d.b();
+                    this.d.getHandler().sendEmptyMessage(3000);
+                    return;
+                }
+            }
+            this.d.getHandler().sendEmptyMessage(1000);
+            this.a -= this.b;
         }
     }
 }

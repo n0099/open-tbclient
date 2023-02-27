@@ -1,43 +1,16 @@
 package com.baidu.searchbox.retrieve.inter.upload;
 
 import com.baidu.searchbox.retrieve.debug.provider.DebugActiveUploadResult;
-import com.baidu.tieba.oo9;
-import com.baidu.tieba.yj1;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.jk1;
+import com.baidu.tieba.ls9;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
-public class IActiveUploadResult_ActiveUploadObserver_ListProvider implements yj1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public IActiveUploadResult_ActiveUploadObserver_ListProvider() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.yj1
+/* loaded from: classes2.dex */
+public class IActiveUploadResult_ActiveUploadObserver_ListProvider implements jk1 {
+    @Override // com.baidu.tieba.jk1
     public Object get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new DebugActiveUploadResult());
-            arrayList.add(new oo9());
-            return arrayList;
-        }
-        return invokeV.objValue;
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(new DebugActiveUploadResult());
+        arrayList.add(new ls9());
+        return arrayList;
     }
 }

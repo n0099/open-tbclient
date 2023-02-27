@@ -1,60 +1,77 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sso.p.a;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wo1 implements ServiceConnection {
-    public static /* synthetic */ Interceptable $ic;
+public final class wo1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public uo1 a;
 
-    public wo1(uo1 uo1Var) {
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uo1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+            } catch (Throwable th) {
+                vo1.d(th);
             }
+            if (!TextUtils.isEmpty(a)) {
+                return a;
+            }
+            a = fn1.g(context).F();
+            return a;
         }
-        this.a = uo1Var;
+        return (String) invokeL.objValue;
     }
 
-    @Override // android.content.ServiceConnection
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            this.a.a = a.AbstractBinderC0191a.a(iBinder);
-            ro1 ro1Var = this.a.e;
-            if (ro1Var != null) {
-                ro1Var.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                if (!TextUtils.isEmpty(b)) {
+                    return b;
+                }
+                String c = c(context);
+                b = c;
+                if (!TextUtils.isEmpty(c)) {
+                    return b;
+                }
+                String a2 = new in1(context).a();
+                b = a2;
+                if (!TextUtils.isEmpty(a2)) {
+                    return b;
+                }
+                return "";
+            } catch (Throwable th) {
+                vo1.d(th);
+                return "";
             }
         }
+        return (String) invokeL.objValue;
     }
 
-    @Override // android.content.ServiceConnection
-    public void onServiceDisconnected(ComponentName componentName) {
+    public static String c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            uo1 uo1Var = this.a;
-            uo1Var.a = null;
-            ro1 ro1Var = uo1Var.e;
-            if (ro1Var != null) {
-                ro1Var.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                Class<?> cls = Class.forName("com.baidu.sofire.ac.F");
+                Object invoke = cls.getDeclaredMethod("getInstance", new Class[0]).invoke(cls, new Object[0]);
+                if (invoke == null) {
+                    return "";
+                }
+                return (String) cls.getDeclaredMethod("gzd", Context.class).invoke(invoke, context);
+            } catch (Throwable th) {
+                vo1.d(th);
+                return "";
             }
         }
+        return (String) invokeL.objValue;
     }
 }

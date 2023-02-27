@@ -1,80 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.AppConfig;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-@Singleton
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class w20 extends v20 {
+public class w20 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public w20() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public t20 d() {
+    public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new u20();
-        }
-        return (t20) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.v20
-    public String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String c = c();
-            if (!new File(c).exists()) {
-                return null;
-            }
-            return d().a(c + File.separator + str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.v20
-    public void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            String c = c();
-            File file = new File(c);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            d().b(c + File.separator + str, str2);
-        }
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (AppConfig.isDebug() && m9.b() && m9.c()) {
-                return m9.a().getAbsolutePath();
-            }
-            return AppRuntime.getAppContext().getApplicationInfo().dataDir + File.separator + "abjson";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return v20.a().a("expInfo.txt");
         }
         return (String) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return v20.a().a("sapFile.txt");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return v20.a().a("v1_.txt");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return v20.a().a("v2_.txt");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            return v20.a().a("v3_" + i + "_" + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, jSONObject) == null) && jSONObject != null) {
+            v20.a().b("expInfo.txt", jSONObject.toString());
+        }
+    }
+
+    public static void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, jSONObject) == null) && jSONObject != null) {
+            v20.a().b("sapFile.txt", jSONObject.toString());
+        }
+    }
+
+    public static void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, null, jSONObject) == null) && jSONObject != null) {
+            v20.a().b("v1_.txt", jSONObject.toString());
+        }
+    }
+
+    public static void i(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65544, null, jSONObject) == null) && jSONObject != null) {
+            v20.a().b("v2_.txt", jSONObject.toString());
+        }
+    }
+
+    public static void j(JSONObject jSONObject, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65545, null, jSONObject, i) == null) && jSONObject != null) {
+            z20 a = v20.a();
+            a.b("v3_" + i + "_" + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION, jSONObject.toString());
+        }
     }
 }

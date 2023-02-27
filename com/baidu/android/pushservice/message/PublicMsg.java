@@ -10,11 +10,13 @@ import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.pushservice.h.a.b;
-import com.baidu.android.pushservice.i.m;
+import com.baidu.android.pushservice.g;
+import com.baidu.android.pushservice.j;
+import com.baidu.android.pushservice.util.Utility;
+import com.baidu.android.pushservice.z.c;
+import com.baidu.android.pushservice.z.e;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -49,8 +51,11 @@ public class PublicMsg implements Parcelable {
     public String mAdvertiseSmallIconUrl;
     public int mAdvertiseStyle;
     public String mAppId;
+    public String mBuilderRes;
     public String mCustomContent;
     public String mDescription;
+    public String mGroup;
+    public int mGroupNotifyId;
     public String mImgUrl;
     public boolean mIsSupportApp;
     public String mMsgId;
@@ -61,10 +66,103 @@ public class PublicMsg implements Parcelable {
     public String mPkgContent;
     public String mPkgName;
     public int mPkgVercode;
+    public String mSummary;
     public String mSupportAppname;
     public String mTitle;
     public String mUrl;
     public int mUserConfirm;
+
+    /* loaded from: classes.dex */
+    public class a extends c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ String f;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(PublicMsg publicMsg, String str, short s, Context context, String str2, String str3, String str4) {
+            super(str, s);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {publicMsg, str, Short.valueOf(s), context, str2, str3, str4};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], ((Short) objArr2[1]).shortValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = context;
+            this.d = str2;
+            this.e = str3;
+            this.f = str4;
+        }
+
+        @Override // com.baidu.android.pushservice.z.c
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    HashMap hashMap = new HashMap();
+                    com.baidu.android.pushservice.p.b.a(this.c, hashMap);
+                    hashMap.put("method", "linkhit");
+                    hashMap.put("channel_token", this.d);
+                    hashMap.put("data", this.e);
+                    if (com.baidu.android.pushservice.q.c.a(this.c, g.a() + this.f, "POST", hashMap).a() == 200) {
+                        com.baidu.android.pushservice.u.a.c(PublicMsg.TAG, "<<< public msg send result return OK!", this.c.getApplicationContext());
+                    }
+                } catch (Exception e) {
+                    com.baidu.android.pushservice.u.a.b(PublicMsg.TAG, "error : " + e.getMessage(), this.c.getApplicationContext());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static class b implements Parcelable.Creator<PublicMsg> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public PublicMsg createFromParcel(Parcel parcel) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new PublicMsg(parcel) : (PublicMsg) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public PublicMsg[] newArray(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new PublicMsg[i] : (PublicMsg[]) invokeI.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -79,42 +177,7 @@ public class PublicMsg implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<PublicMsg>() { // from class: com.baidu.android.pushservice.message.PublicMsg.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.os.Parcelable.Creator
-            /* renamed from: a */
-            public PublicMsg createFromParcel(Parcel parcel) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new PublicMsg(parcel) : (PublicMsg) invokeL.objValue;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.os.Parcelable.Creator
-            /* renamed from: a */
-            public PublicMsg[] newArray(int i) {
-                InterceptResult invokeI;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new PublicMsg[i] : (PublicMsg[]) invokeI.objValue;
-            }
-        };
+        CREATOR = new b();
     }
 
     public PublicMsg() {
@@ -167,6 +230,8 @@ public class PublicMsg implements Parcelable {
         this.mDescription = parcel.readString();
         this.mUrl = parcel.readString();
         this.mImgUrl = parcel.readString();
+        this.mSummary = parcel.readString();
+        this.mBuilderRes = parcel.readString();
         this.mPkgName = parcel.readString();
         this.mPkgVercode = parcel.readInt();
         this.mNotificationBuilder = parcel.readInt();
@@ -185,6 +250,8 @@ public class PublicMsg implements Parcelable {
         this.mAdvertiseDetailClickUrl = parcel.readString();
         this.mAdvertiseBigPictureTitle = parcel.readString();
         this.mAdvertiseBigPictureContent = parcel.readString();
+        this.mGroup = parcel.readString();
+        this.mGroupNotifyId = parcel.readInt();
     }
 
     private void addCustomContentToIntent(Context context, Intent intent) {
@@ -200,84 +267,28 @@ public class PublicMsg implements Parcelable {
                 intent.putExtra(next, jSONObject.getString(next));
             }
             intent.putExtra("extra_extra_custom_content", this.mCustomContent);
-        } catch (JSONException e) {
-            new b.c(context).a(Log.getStackTraceString(e)).a();
+        } catch (JSONException unused) {
         }
     }
 
     private void sendResult(Context context, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, this, context, str, i) == null) {
-            String a = com.baidu.android.pushservice.j.a(context).a();
-            String b = com.baidu.android.pushservice.j.a(context).b();
-            if (TextUtils.isEmpty(a) || TextUtils.isEmpty(b)) {
-                com.baidu.android.pushservice.f.a.b(TAG, "Fail Send Public msg result. Token invalid!", context.getApplicationContext());
+            String a2 = j.a(context).a();
+            String b2 = j.a(context).b();
+            if (TextUtils.isEmpty(a2) || TextUtils.isEmpty(b2)) {
+                com.baidu.android.pushservice.u.a.b(TAG, "Fail Send Public msg result. Token invalid!", context.getApplicationContext());
                 return;
             }
-            com.baidu.android.pushservice.f.a.a(TAG, "Send Linkhit, msgId = " + str + ", resultCode = " + i, context.getApplicationContext());
+            com.baidu.android.pushservice.u.a.a(TAG, "Send Linkhit, msgId = " + str + ", resultCode = " + i, context.getApplicationContext());
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("msgid", str);
                 jSONObject.put("result_code", i);
             } catch (JSONException e) {
-                com.baidu.android.pushservice.f.a.b(TAG, e.getMessage(), context.getApplicationContext());
-                new b.c(context).a(Log.getStackTraceString(e)).a();
+                com.baidu.android.pushservice.u.a.b(TAG, e.getMessage(), context.getApplicationContext());
             }
-            com.baidu.android.pushservice.g.e.a().a(new com.baidu.android.pushservice.g.c(this, "PushService-linkhit", (short) 90, context, b, jSONObject.toString(), a) { // from class: com.baidu.android.pushservice.message.PublicMsg.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Context a;
-                public final /* synthetic */ String b;
-                public final /* synthetic */ String c;
-                public final /* synthetic */ String d;
-                public final /* synthetic */ PublicMsg e;
-
-                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                {
-                    super(r9, r10);
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, r9, Short.valueOf(r10), context, b, r13, a};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            Object[] objArr2 = newInitContext.callArgs;
-                            super((String) objArr2[0], ((Short) objArr2[1]).shortValue());
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.e = this;
-                    this.a = context;
-                    this.b = b;
-                    this.c = r13;
-                    this.d = a;
-                }
-
-                @Override // com.baidu.android.pushservice.g.c
-                public void a() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        try {
-                            HashMap hashMap = new HashMap();
-                            com.baidu.android.pushservice.httpapi.b.a(this.a, hashMap);
-                            hashMap.put("method", "linkhit");
-                            hashMap.put("channel_token", this.b);
-                            hashMap.put("data", this.c);
-                            if (com.baidu.android.pushservice.d.c.a(this.a, com.baidu.android.pushservice.g.e() + this.d, "POST", hashMap).b() == 200) {
-                                com.baidu.android.pushservice.f.a.c(PublicMsg.TAG, "<<< public msg send result return OK!", this.a.getApplicationContext());
-                            }
-                        } catch (Exception e2) {
-                            com.baidu.android.pushservice.f.a.b(PublicMsg.TAG, "error : " + e2.getMessage(), this.a.getApplicationContext());
-                            new b.c(this.a).a(Log.getStackTraceString(e2)).a();
-                        }
-                    }
-                }
-            });
+            e.a().a(new a(this, "PushService-linkhit", (short) 90, context, b2, jSONObject.toString(), a2));
         }
     }
 
@@ -295,8 +306,7 @@ public class PublicMsg implements Parcelable {
                     context.startActivity(parseUri);
                 }
             } catch (URISyntaxException e) {
-                com.baidu.android.pushservice.f.a.b(TAG, "error " + e.getMessage(), context.getApplicationContext());
-                new b.c(context).a(Log.getStackTraceString(e)).a();
+                com.baidu.android.pushservice.u.a.b(TAG, "error " + e.getMessage(), context.getApplicationContext());
             }
         }
     }
@@ -330,18 +340,18 @@ public class PublicMsg implements Parcelable {
         return (String) invokeLL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:27:0x00ce  */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x009f  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void handle(Context context, String str, String str2) {
-        b.c cVar;
-        PackageManager.NameNotFoundException nameNotFoundException;
+        StringBuilder sb;
+        String message;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2) == null) {
-            com.baidu.android.pushservice.f.a.a(TAG, "--handle--", context.getApplicationContext());
+            com.baidu.android.pushservice.u.a.a(TAG, "--handle--", context.getApplicationContext());
             if ("com.baidu.pushservice.action.publicmsg.DELETE_V2".equals(str)) {
-                com.baidu.android.pushservice.f.a.a(TAG, "Public msg deleted by user", context.getApplicationContext());
+                com.baidu.android.pushservice.u.a.a(TAG, "Public msg deleted by user", context.getApplicationContext());
                 sendResult(context, str2, 2);
                 return;
             }
@@ -360,26 +370,29 @@ public class PublicMsg implements Parcelable {
                     i = 1;
                 }
             } catch (PackageManager.NameNotFoundException e) {
-                com.baidu.android.pushservice.f.a.b(TAG, "package not exist \r\n" + e.getMessage(), context);
-                cVar = new b.c(context);
-                nameNotFoundException = e;
-                cVar.a(Log.getStackTraceString(nameNotFoundException)).a();
+                sb = new StringBuilder();
+                sb.append("package not exist \r\n");
+                message = e.getMessage();
+                sb.append(message);
+                com.baidu.android.pushservice.u.a.b(TAG, sb.toString(), context);
                 if (i == 0) {
                 }
                 sendResult(context, str2, i);
             } catch (URISyntaxException e2) {
-                com.baidu.android.pushservice.f.a.b(TAG, "uri to intent fail \r\n" + e2.getMessage(), context);
-                cVar = new b.c(context);
-                nameNotFoundException = e2;
-                cVar.a(Log.getStackTraceString(nameNotFoundException)).a();
+                sb = new StringBuilder();
+                sb.append("uri to intent fail \r\n");
+                message = e2.getMessage();
+                sb.append(message);
+                com.baidu.android.pushservice.u.a.b(TAG, sb.toString(), context);
                 if (i == 0) {
                 }
                 sendResult(context, str2, i);
             } catch (Exception e3) {
-                com.baidu.android.pushservice.f.a.b(TAG, "parse customize action error\r\n" + e3.getMessage(), context);
-                cVar = new b.c(context);
-                nameNotFoundException = e3;
-                cVar.a(Log.getStackTraceString(nameNotFoundException)).a();
+                sb = new StringBuilder();
+                sb.append("parse customize action error\r\n");
+                message = e3.getMessage();
+                sb.append(message);
+                com.baidu.android.pushservice.u.a.b(TAG, sb.toString(), context);
                 if (i == 0) {
                 }
                 sendResult(context, str2, i);
@@ -391,23 +404,20 @@ public class PublicMsg implements Parcelable {
                 try {
                     context.startActivity(intent);
                 } catch (ActivityNotFoundException e4) {
-                    com.baidu.android.pushservice.f.a.b(TAG, ">>> Url cann't be deal! \r\n" + e4.getMessage(), context);
-                    new b.c(context).a(Log.getStackTraceString(e4)).a();
+                    com.baidu.android.pushservice.u.a.b(TAG, ">>> Url cann't be deal! \r\n" + e4.getMessage(), context);
                 }
             }
             sendResult(context, str2, i);
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r9v5, resolved type: android.content.pm.PackageManager$NameNotFoundException */
-    /* JADX WARN: Multi-variable type inference failed */
-    public void handlePrivateNotification(Context context, String str, String str2, String str3, byte[] bArr, byte[] bArr2) {
-        b.c cVar;
-        URISyntaxException uRISyntaxException;
+    public void handlePrivateNotification(Context context, String str, String str2, String str3, byte[] bArr, byte[] bArr2, int i, String str4) {
+        StringBuilder sb;
+        String message;
         ActivityInfo activityInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, str2, str3, bArr, bArr2}) == null) {
-            com.baidu.android.pushservice.f.a.a(TAG, "=== Handle private notification: " + str, context);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, str2, str3, bArr, bArr2, Integer.valueOf(i), str4}) == null) {
+            com.baidu.android.pushservice.u.a.a(TAG, "=== Handle private notification: " + str, context);
             if ("com.baidu.android.pushservice.action.privatenotification.DELETE".equals(str)) {
                 return;
             }
@@ -422,8 +432,10 @@ public class PublicMsg implements Parcelable {
                     intent.putExtra("baidu_message_secur_info", bArr);
                     intent.putExtra("baidu_message_body", bArr2);
                     intent.putExtra("extra_extra_custom_content", this.mCustomContent);
-                    com.baidu.android.pushservice.frequency.b.a().a(context, false, 0, intent.getStringExtra("extra_extra_custom_content"));
-                    m.b(context, intent, "com.baidu.android.pushservice.action.notification.CLICK", this.mPkgName);
+                    intent.putExtra("notification_log_ext", str4);
+                    intent.putExtra("float_window_show_type", i);
+                    com.baidu.android.pushservice.n.c.a().a(context, false, 0, " ", intent.getStringExtra("extra_extra_custom_content"), str4);
+                    Utility.c(context, intent, "com.baidu.android.pushservice.action.notification.CLICK", this.mPkgName);
                     if (this.mOpenType == 1 && this.mUrl != null) {
                         Intent intent2 = new Intent();
                         intent2.setAction("android.intent.action.VIEW");
@@ -454,16 +466,21 @@ public class PublicMsg implements Parcelable {
                     }
                 }
             } catch (PackageManager.NameNotFoundException e) {
-                com.baidu.android.pushservice.f.a.b(TAG, "package not exist \r\n" + e.getMessage(), context);
-                cVar = new b.c(context);
-                uRISyntaxException = e;
-                cVar.a(Log.getStackTraceString(uRISyntaxException)).a();
+                sb = new StringBuilder();
+                sb.append("package not exist \r\n");
+                message = e.getMessage();
+                sb.append(message);
+                com.baidu.android.pushservice.u.a.b(TAG, sb.toString(), context);
+                com.baidu.android.pushservice.v.c.a().d(context);
             } catch (URISyntaxException e2) {
-                com.baidu.android.pushservice.f.a.b(TAG, "uri to intent fail \r\n" + e2.getMessage(), context);
-                cVar = new b.c(context);
-                uRISyntaxException = e2;
-                cVar.a(Log.getStackTraceString(uRISyntaxException)).a();
+                sb = new StringBuilder();
+                sb.append("uri to intent fail \r\n");
+                message = e2.getMessage();
+                sb.append(message);
+                com.baidu.android.pushservice.u.a.b(TAG, sb.toString(), context);
+                com.baidu.android.pushservice.v.c.a().d(context);
             }
+            com.baidu.android.pushservice.v.c.a().d(context);
         }
     }
 
@@ -471,7 +488,7 @@ public class PublicMsg implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "\r\n mMsgId = " + this.mMsgId + "\r\n mAppId = " + this.mAppId + "\r\n mTitle = " + this.mTitle + "\r\n mDescription = " + this.mDescription + "\r\n mUrl = " + this.mUrl + "\r\n mNetType = " + this.mNetType + "\r\n mSupportAppname = " + this.mSupportAppname + "\r\n mIsSupportApp = " + this.mIsSupportApp + "\r\n mPkgName = " + this.mPkgName + "\r\n mPlgVercode = " + this.mPkgVercode + "\r\n mNotificationBuilder = " + this.mNotificationBuilder + "\r\n mNotificationBasicStyle = " + this.mNotificationBasicStyle + "\r\n mOpenType = " + this.mOpenType + "\r\n mCustomContent = " + this.mCustomContent + "\r\n mIntent = " + this.mPkgContent + "\r\n";
+            return "\r\n mMsgId = " + this.mMsgId + "\r\n mAppId = " + this.mAppId + "\r\n mTitle = " + this.mTitle + "\r\n mDescription = " + this.mDescription + "\r\n mUrl = " + this.mUrl + "\r\n mNetType = " + this.mNetType + "\r\n mSupportAppname = " + this.mSupportAppname + "\r\n mIsSupportApp = " + this.mIsSupportApp + "\r\n mPkgName = " + this.mPkgName + "\r\n mPlgVercode = " + this.mPkgVercode + "\r\n mNotificationBuilder = " + this.mNotificationBuilder + "\r\n mNotificationBasicStyle = " + this.mNotificationBasicStyle + "\r\n mOpenType = " + this.mOpenType + "\r\n mCustomContent = " + this.mCustomContent + "\r\n mIntent = " + this.mPkgContent + "\r\nmResBuilder = " + this.mBuilderRes + "\r\nmGroup = " + this.mGroup + "\r\nmSummaryNotifyId = " + this.mGroupNotifyId;
         }
         return (String) invokeV.objValue;
     }
@@ -486,6 +503,8 @@ public class PublicMsg implements Parcelable {
             parcel.writeString(this.mDescription);
             parcel.writeString(this.mUrl);
             parcel.writeString(this.mImgUrl);
+            parcel.writeString(this.mSummary);
+            parcel.writeString(this.mBuilderRes);
             parcel.writeString(this.mPkgName);
             parcel.writeInt(this.mPkgVercode);
             parcel.writeInt(this.mNotificationBuilder);
@@ -504,6 +523,8 @@ public class PublicMsg implements Parcelable {
             parcel.writeString(this.mAdvertiseDetailClickUrl);
             parcel.writeString(this.mAdvertiseBigPictureTitle);
             parcel.writeString(this.mAdvertiseBigPictureContent);
+            parcel.writeString(this.mGroup);
+            parcel.writeInt(this.mGroupNotifyId);
         }
     }
 }

@@ -26,7 +26,7 @@ public class FrsVideoTabModel extends BdBaseModel {
         void a();
     }
 
-    public void I(int i) {
+    public void P(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
         }
@@ -119,14 +119,14 @@ public class FrsVideoTabModel extends BdBaseModel {
         registerListener(this.c);
     }
 
-    public final void H(int i) {
+    public final void O(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921629));
         }
     }
 
-    public void J(b bVar) {
+    public void Q(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.a = bVar;
@@ -139,7 +139,7 @@ public class FrsVideoTabModel extends BdBaseModel {
             if (this.b < 2) {
                 this.b = 2;
             }
-            H(2);
+            O(2);
         }
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.a.e;
-import com.sdk.f.g;
+import com.sdk.f.f;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -32,7 +32,7 @@ public class c {
                 return;
             }
         }
-        a = Boolean.valueOf(g.b);
+        a = Boolean.valueOf(f.a);
     }
 
     public c() {
@@ -108,7 +108,7 @@ public class c {
                                     } catch (Exception e) {
                                         e = e;
                                         sb = sb2;
-                                        com.sdk.n.a.a("StringDownloadHandler", e.getMessage(), a);
+                                        com.sdk.o.a.a("StringDownloadHandler", e.getMessage(), a);
                                         if (sb != null) {
                                         }
                                     }

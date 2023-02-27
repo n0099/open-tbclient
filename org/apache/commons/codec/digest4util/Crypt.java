@@ -1,76 +1,33 @@
 package org.apache.commons.codec.digest4util;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.base.Charsets;
 /* loaded from: classes9.dex */
 public class Crypt {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public Crypt() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static String crypt(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return crypt(str, (String) null);
-        }
-        return (String) invokeL.objValue;
+        return crypt(str, (String) null);
     }
 
     public static String crypt(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            return crypt(str.getBytes(Charsets.UTF_8), str2);
-        }
-        return (String) invokeLL.objValue;
+        return crypt(str.getBytes(Charsets.UTF_8), str2);
     }
 
     public static String crypt(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            return crypt(bArr, (String) null);
-        }
-        return (String) invokeL.objValue;
+        return crypt(bArr, (String) null);
     }
 
     public static String crypt(byte[] bArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str)) == null) {
-            if (str == null) {
-                return Sha2Crypt.sha512Crypt(bArr);
-            }
-            if (str.startsWith(Sha2Crypt.SHA512_PREFIX)) {
-                return Sha2Crypt.sha512Crypt(bArr, str);
-            }
-            if (str.startsWith(Sha2Crypt.SHA256_PREFIX)) {
-                return Sha2Crypt.sha256Crypt(bArr, str);
-            }
-            if (str.startsWith(Md5Crypt.MD5_PREFIX)) {
-                return Md5Crypt.md5Crypt(bArr, str);
-            }
-            return UnixCrypt.crypt(bArr, str);
+        if (str == null) {
+            return Sha2Crypt.sha512Crypt(bArr);
         }
-        return (String) invokeLL.objValue;
+        if (str.startsWith(Sha2Crypt.SHA512_PREFIX)) {
+            return Sha2Crypt.sha512Crypt(bArr, str);
+        }
+        if (str.startsWith(Sha2Crypt.SHA256_PREFIX)) {
+            return Sha2Crypt.sha256Crypt(bArr, str);
+        }
+        if (str.startsWith(Md5Crypt.MD5_PREFIX)) {
+            return Md5Crypt.md5Crypt(bArr, str);
+        }
+        return UnixCrypt.crypt(bArr, str);
     }
 }

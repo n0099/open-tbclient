@@ -1,65 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
+import android.content.Context;
+import androidx.core.app.NotificationManagerCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class pm5<T> extends qm5<T> {
+public class pm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract List<sw4> e();
-
-    public abstract List<ThreadData> f();
-
-    public void g(om5 om5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, om5Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.sm5
-    public mm5 getPageInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (mm5) invokeV.objValue;
-    }
-
-    public void h(List<ThreadData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-        }
-    }
-
-    public abstract List<Cdo> i(List<? extends Cdo> list);
-
-    public pm5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public final List<Cdo> d(List<? extends Cdo> list) {
+    public static boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            return i(list);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+                return NotificationManagerCompat.from(context.getApplicationContext()).areNotificationsEnabled();
+            } catch (Exception unused) {
+                return false;
+            }
         }
-        return (List) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

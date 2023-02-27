@@ -126,7 +126,7 @@ public class OfficialAccountPushModel extends BdBaseModel {
         registerListener(aVar);
     }
 
-    public void H() {
+    public void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             sendMessage(new OfficialAccountPushRequestMessage());

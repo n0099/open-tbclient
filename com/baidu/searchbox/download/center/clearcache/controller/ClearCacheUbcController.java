@@ -9,9 +9,7 @@ import android.system.Os;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.bdutil.cuid.sdk.AppCuidManager;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.StorageUtils;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.android.util.io.FileUtils;
@@ -28,13 +26,6 @@ import com.baidu.searchbox.download.center.clearcache.DiskManager;
 import com.baidu.searchbox.download.center.clearcache.DiskUtilKt;
 import com.baidu.searchbox.download.center.clearcache.util.ClearCacheUtils;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -44,7 +35,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class ClearCacheUbcController {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String BOS_BIZ_TYPE = "basis-functions";
     public static final String CLEAN = "clean";
     public static final String CLEAN_CONFIRM = "clean_confirm";
@@ -75,287 +65,198 @@ public class ClearCacheUbcController {
     public static final String VALUE_DOWNLOADED_FILE = "downloaded_file";
     public static final String VALUE_FEEDBACK = "feedback";
     public static volatile boolean sClearTargetDirDone = true;
-    public transient /* synthetic */ FieldHolder $fh;
     public JSONObject mExtObject;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(2080387844, "Lcom/baidu/searchbox/download/center/clearcache/controller/ClearCacheUbcController;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(2080387844, "Lcom/baidu/searchbox/download/center/clearcache/controller/ClearCacheUbcController;");
-        }
-    }
-
-    public ClearCacheUbcController() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
     public static void resetLocalDiskDirData() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            PreferenceUtils.setString(DiskDirToolListener.DISK_DIR_TOOL_DATA, "");
-            sClearTargetDirDone = true;
-        }
+        PreferenceUtils.setString(DiskDirToolListener.DISK_DIR_TOOL_DATA, "");
+        sClearTargetDirDone = true;
     }
 
     public static boolean clearFileRule(String str) {
-        InterceptResult invokeL;
         String str2;
         String str3;
         String str4;
         String str5;
         String str6;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
+        try {
+            if (AppConfig.isDebug()) {
+                Log.d(TAG, "clearFileRule: ");
+            }
+            if (TextUtils.isEmpty(str)) {
                 if (AppConfig.isDebug()) {
-                    Log.d(TAG, "clearFileRule: ");
+                    Log.d(TAG, "fail: targetFilePath is null");
                 }
-                if (TextUtils.isEmpty(str)) {
-                    if (AppConfig.isDebug()) {
-                        Log.d(TAG, "fail: targetFilePath is null");
-                    }
-                    return false;
-                }
-                if (AppConfig.isDebug()) {
-                    Log.d(TAG, "targetFilePath: " + str);
-                }
-                File filesDir = AppRuntime.getAppContext().getFilesDir();
-                if (filesDir != null) {
-                    filesDir = filesDir.getParentFile();
-                }
-                String str7 = "";
-                if (filesDir == null || !filesDir.exists()) {
-                    str2 = "";
-                } else {
-                    str2 = filesDir.getAbsolutePath();
-                }
-                if (AppConfig.isDebug()) {
-                    Log.d(TAG, "dataFilePath: " + str2);
-                }
-                File externalFilesDir = AppRuntime.getAppContext().getExternalFilesDir(null);
-                if (externalFilesDir != null) {
-                    externalFilesDir = externalFilesDir.getParentFile();
-                }
-                if (externalFilesDir == null || !externalFilesDir.exists()) {
-                    str3 = "";
-                } else {
-                    str3 = externalFilesDir.getAbsolutePath();
-                }
-                if (AppConfig.isDebug()) {
-                    Log.d(TAG, "externalFilePath: " + str3);
-                }
-                if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                    if (!str.startsWith(str2) && !str.startsWith(str3)) {
-                        if (AppConfig.isDebug()) {
-                            Log.d(TAG, "fail: targetFilePath must not be data/data or 外置sd私有目录");
-                        }
-                        return false;
-                    }
-                    for (File file : DiskUtilKt.getUserAssetFileList()) {
-                        if (str.startsWith(file.getAbsolutePath())) {
-                            if (AppConfig.isDebug()) {
-                                Log.d(TAG, "fail: targetFilePath must not be userAssetDir");
-                            }
-                            return false;
-                        }
-                    }
-                    File file2 = new File(str);
-                    if (!file2.exists()) {
-                        if (AppConfig.isDebug()) {
-                            Log.d(TAG, "fail: targetFilePath is not exist");
-                        }
-                        return false;
-                    }
-                    File filesDir2 = AppRuntime.getAppContext().getFilesDir();
-                    if (filesDir2 == null || !filesDir2.exists()) {
-                        str4 = "";
-                    } else {
-                        str4 = filesDir2.getAbsolutePath();
-                    }
-                    File cacheDir = AppRuntime.getAppContext().getCacheDir();
-                    if (cacheDir == null || !cacheDir.exists()) {
-                        str5 = "";
-                    } else {
-                        str5 = cacheDir.getAbsolutePath();
-                    }
-                    File externalFilesDir2 = AppRuntime.getAppContext().getExternalFilesDir(null);
-                    if (externalFilesDir2 == null || !externalFilesDir2.exists()) {
-                        str6 = "";
-                    } else {
-                        str6 = externalFilesDir2.getAbsolutePath();
-                    }
-                    File externalCacheDir = AppRuntime.getAppContext().getExternalCacheDir();
-                    if (externalCacheDir != null && externalCacheDir.exists()) {
-                        str7 = externalCacheDir.getAbsolutePath();
-                    }
-                    String absolutePath = file2.getAbsolutePath();
-                    if (!TextUtils.equals(absolutePath, str2) && !TextUtils.equals(absolutePath, str3) && !TextUtils.equals(absolutePath, str4) && !TextUtils.equals(absolutePath, str5) && !TextUtils.equals(absolutePath, str6) && !TextUtils.equals(absolutePath, str7)) {
-                        if (AppConfig.isDebug()) {
-                            Log.d(TAG, "success: targetFilePath can be deleted");
-                            return true;
-                        }
-                        return true;
-                    }
-                    if (AppConfig.isDebug()) {
-                        Log.d(TAG, "fail: targetFilePath must not be files/cache directly");
-                    }
-                    return false;
-                }
-                if (AppConfig.isDebug()) {
-                    Log.d(TAG, "fail: dataFilePath or externalFilePath is null");
-                }
-                return false;
-            } catch (Throwable th) {
-                if (AppConfig.isDebug()) {
-                    Log.d(TAG, "Throwable: msg = " + th.getMessage());
-                }
-                th.printStackTrace();
                 return false;
             }
+            if (AppConfig.isDebug()) {
+                Log.d(TAG, "targetFilePath: " + str);
+            }
+            File filesDir = AppRuntime.getAppContext().getFilesDir();
+            if (filesDir != null) {
+                filesDir = filesDir.getParentFile();
+            }
+            String str7 = "";
+            if (filesDir == null || !filesDir.exists()) {
+                str2 = "";
+            } else {
+                str2 = filesDir.getAbsolutePath();
+            }
+            if (AppConfig.isDebug()) {
+                Log.d(TAG, "dataFilePath: " + str2);
+            }
+            File externalFilesDir = AppRuntime.getAppContext().getExternalFilesDir(null);
+            if (externalFilesDir != null) {
+                externalFilesDir = externalFilesDir.getParentFile();
+            }
+            if (externalFilesDir == null || !externalFilesDir.exists()) {
+                str3 = "";
+            } else {
+                str3 = externalFilesDir.getAbsolutePath();
+            }
+            if (AppConfig.isDebug()) {
+                Log.d(TAG, "externalFilePath: " + str3);
+            }
+            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                if (!str.startsWith(str2) && !str.startsWith(str3)) {
+                    if (AppConfig.isDebug()) {
+                        Log.d(TAG, "fail: targetFilePath must not be data/data or 外置sd私有目录");
+                    }
+                    return false;
+                }
+                for (File file : DiskUtilKt.getUserAssetFileList()) {
+                    if (str.startsWith(file.getAbsolutePath())) {
+                        if (AppConfig.isDebug()) {
+                            Log.d(TAG, "fail: targetFilePath must not be userAssetDir");
+                        }
+                        return false;
+                    }
+                }
+                File file2 = new File(str);
+                if (!file2.exists()) {
+                    if (AppConfig.isDebug()) {
+                        Log.d(TAG, "fail: targetFilePath is not exist");
+                    }
+                    return false;
+                }
+                File filesDir2 = AppRuntime.getAppContext().getFilesDir();
+                if (filesDir2 == null || !filesDir2.exists()) {
+                    str4 = "";
+                } else {
+                    str4 = filesDir2.getAbsolutePath();
+                }
+                File cacheDir = AppRuntime.getAppContext().getCacheDir();
+                if (cacheDir == null || !cacheDir.exists()) {
+                    str5 = "";
+                } else {
+                    str5 = cacheDir.getAbsolutePath();
+                }
+                File externalFilesDir2 = AppRuntime.getAppContext().getExternalFilesDir(null);
+                if (externalFilesDir2 == null || !externalFilesDir2.exists()) {
+                    str6 = "";
+                } else {
+                    str6 = externalFilesDir2.getAbsolutePath();
+                }
+                File externalCacheDir = AppRuntime.getAppContext().getExternalCacheDir();
+                if (externalCacheDir != null && externalCacheDir.exists()) {
+                    str7 = externalCacheDir.getAbsolutePath();
+                }
+                String absolutePath = file2.getAbsolutePath();
+                if (!TextUtils.equals(absolutePath, str2) && !TextUtils.equals(absolutePath, str3) && !TextUtils.equals(absolutePath, str4) && !TextUtils.equals(absolutePath, str5) && !TextUtils.equals(absolutePath, str6) && !TextUtils.equals(absolutePath, str7)) {
+                    if (AppConfig.isDebug()) {
+                        Log.d(TAG, "success: targetFilePath can be deleted");
+                        return true;
+                    }
+                    return true;
+                }
+                if (AppConfig.isDebug()) {
+                    Log.d(TAG, "fail: targetFilePath must not be files/cache directly");
+                }
+                return false;
+            }
+            if (AppConfig.isDebug()) {
+                Log.d(TAG, "fail: dataFilePath or externalFilePath is null");
+            }
+            return false;
+        } catch (Throwable th) {
+            if (AppConfig.isDebug()) {
+                Log.d(TAG, "Throwable: msg = " + th.getMessage());
+            }
+            th.printStackTrace();
+            return false;
         }
-        return invokeL.booleanValue;
     }
 
     public static void clearTargetDir() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            Log.d(TAG, "clearTargetDir: ");
-            try {
-                if (!sClearTargetDirDone) {
-                    return;
-                }
-                sClearTargetDirDone = false;
-                String string = PreferenceUtils.getString(DiskDirToolListener.DISK_DIR_TOOL_DATA, "");
-                boolean z = true;
-                if (TextUtils.isEmpty(string)) {
-                    sClearTargetDirDone = true;
-                    return;
-                }
-                Log.d(TAG, "targetFileJson: " + string);
-                JSONArray optJSONArray = new JSONObject(string).optJSONArray(MapBundleKey.MapObjKey.OBJ_DIR);
-                if (optJSONArray != null && optJSONArray.length() != 0) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        String optString = optJSONArray.optString(i);
-                        if (!TextUtils.isEmpty(optString) && !clearFileRule(optString)) {
-                            z = false;
-                        }
-                    }
-                    if (!z) {
-                        resetLocalDiskDirData();
-                        return;
-                    } else {
-                        ExecutorUtilsExt.postOnElastic(new Runnable(optJSONArray) { // from class: com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController.2
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ JSONArray val$targetFiles;
-
-                            {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {optJSONArray};
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.val$targetFiles = optJSONArray;
-                            }
-
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                StringBuilder sb;
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    for (int i2 = 0; i2 < this.val$targetFiles.length(); i2++) {
-                                        try {
-                                            String optString2 = this.val$targetFiles.optString(i2);
-                                            if (!TextUtils.isEmpty(optString2)) {
-                                                if (FileUtils.deleteFile(optString2)) {
-                                                    sb = new StringBuilder();
-                                                    sb.append(optString2);
-                                                    sb.append(" deleted success");
-                                                } else {
-                                                    sb = new StringBuilder();
-                                                    sb.append(optString2);
-                                                    sb.append(" deleted failed");
-                                                }
-                                                Log.d(ClearCacheUbcController.TAG, sb.toString());
-                                            }
-                                        } catch (Throwable th) {
-                                            th.printStackTrace();
-                                        }
-                                    }
-                                    ClearCacheUbcController.resetLocalDiskDirData();
-                                }
-                            }
-                        }, "CLEAR_TARGET_DIRS", 3);
-                        return;
-                    }
-                }
-                resetLocalDiskDirData();
-            } catch (Throwable th) {
-                th.printStackTrace();
+        Log.d(TAG, "clearTargetDir: ");
+        try {
+            if (!sClearTargetDirDone) {
+                return;
             }
+            sClearTargetDirDone = false;
+            String string = PreferenceUtils.getString(DiskDirToolListener.DISK_DIR_TOOL_DATA, "");
+            boolean z = true;
+            if (TextUtils.isEmpty(string)) {
+                sClearTargetDirDone = true;
+                return;
+            }
+            Log.d(TAG, "targetFileJson: " + string);
+            final JSONArray optJSONArray = new JSONObject(string).optJSONArray(MapBundleKey.MapObjKey.OBJ_DIR);
+            if (optJSONArray != null && optJSONArray.length() != 0) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    String optString = optJSONArray.optString(i);
+                    if (!TextUtils.isEmpty(optString) && !clearFileRule(optString)) {
+                        z = false;
+                    }
+                }
+                if (!z) {
+                    resetLocalDiskDirData();
+                    return;
+                } else {
+                    ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController.2
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            StringBuilder sb;
+                            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                                try {
+                                    String optString2 = optJSONArray.optString(i2);
+                                    if (!TextUtils.isEmpty(optString2)) {
+                                        if (FileUtils.deleteFile(optString2)) {
+                                            sb = new StringBuilder();
+                                            sb.append(optString2);
+                                            sb.append(" deleted success");
+                                        } else {
+                                            sb = new StringBuilder();
+                                            sb.append(optString2);
+                                            sb.append(" deleted failed");
+                                        }
+                                        Log.d(ClearCacheUbcController.TAG, sb.toString());
+                                    }
+                                } catch (Throwable th) {
+                                    th.printStackTrace();
+                                }
+                            }
+                            ClearCacheUbcController.resetLocalDiskDirData();
+                        }
+                    }, "CLEAR_TARGET_DIRS", 3);
+                    return;
+                }
+            }
+            resetLocalDiskDirData();
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
     }
 
     @SuppressLint({"DefaultLocale"})
-    public static void reportBaiduFile(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65541, null, str) != null) || TextUtils.isEmpty(str)) {
+    public static void reportBaiduFile(final String str) {
+        if (TextUtils.isEmpty(str)) {
             return;
         }
         if (AppConfig.isDebug()) {
             Log.d(TAG, "reportBaiduFile type : " + str);
         }
-        ExecutorUtilsExt.postOnElastic(new Runnable(str) { // from class: com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ String val$type;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {str};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.val$type = str;
-            }
-
-            /* JADX WARN: Removed duplicated region for block: B:112:0x02ab  */
+        ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController.1
+            /* JADX WARN: Removed duplicated region for block: B:110:0x02a7  */
             @Override // java.lang.Runnable
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
@@ -368,436 +269,354 @@ public class ClearCacheUbcController {
                 File file;
                 File file2;
                 long j;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    String str5 = "tree_";
+                String str5 = "tree_";
+                try {
+                    File filesDir = AppRuntime.getAppContext().getFilesDir();
+                    if (filesDir == null) {
+                        return;
+                    }
+                    File file3 = new File(filesDir, "tree_" + str);
+                    FileOutputStream fileOutputStream2 = new FileOutputStream(file3);
                     try {
-                        File filesDir = AppRuntime.getAppContext().getFilesDir();
-                        if (filesDir == null) {
+                        String appVersionName = ClearCacheUtils.getAppVersionName(AppRuntime.getAppContext());
+                        String cuid = AppCuidManager.getInstance().getCuid();
+                        if (!TextUtils.isEmpty(cuid) && !TextUtils.isEmpty(appVersionName)) {
+                            int i = 4;
+                            fileOutputStream2.write(String.format("android,%s,%s,%s,%s,%s,%s,%s\n", appVersionName, cuid, String.valueOf(StorageUtils.getTotalExternalMemorySize()), String.valueOf(StorageUtils.getAvailableExternalMemorySize()), String.valueOf(Build.VERSION.SDK_INT), "_", DiskManager.INSTANCE.getDiskLevel().toString().toLowerCase()).getBytes());
+                            StringBuilder sb = new StringBuilder();
+                            LinkedList linkedList = new LinkedList();
+                            File filesDir2 = AppRuntime.getAppContext().getFilesDir();
+                            if (filesDir2 != null) {
+                                filesDir2 = filesDir2.getParentFile();
+                            }
+                            String str6 = "";
+                            if (filesDir2 == null || !filesDir2.exists()) {
+                                str2 = "";
+                            } else {
+                                str2 = filesDir2.getAbsolutePath();
+                                linkedList.offer(filesDir2);
+                            }
+                            File externalFilesDir = AppRuntime.getAppContext().getExternalFilesDir(null);
+                            if (externalFilesDir != null) {
+                                externalFilesDir = externalFilesDir.getParentFile();
+                            }
+                            if (externalFilesDir != null && externalFilesDir.exists()) {
+                                str6 = externalFilesDir.getAbsolutePath();
+                                linkedList.offer(externalFilesDir);
+                            }
+                            while (true) {
+                                File file4 = (File) linkedList.poll();
+                                if (file4 == null) {
+                                    break;
+                                } else if (file4.exists()) {
+                                    String absolutePath = file4.getAbsolutePath();
+                                    if (!TextUtils.isEmpty(str2)) {
+                                        absolutePath = absolutePath.replace(str2, "0");
+                                    }
+                                    if (!TextUtils.isEmpty(str6)) {
+                                        absolutePath = absolutePath.replace(str6, "1");
+                                    }
+                                    if (file4.isDirectory()) {
+                                        File[] listFiles = file4.listFiles();
+                                        if (listFiles != null) {
+                                            int length = listFiles.length;
+                                            int i2 = 0;
+                                            while (i2 < length) {
+                                                String str7 = str5;
+                                                File file5 = listFiles[i2];
+                                                if (file5 != null && file5.exists()) {
+                                                    linkedList.offer(file5);
+                                                }
+                                                i2++;
+                                                str5 = str7;
+                                            }
+                                        }
+                                        str4 = str5;
+                                        file = filesDir;
+                                        file2 = file3;
+                                    } else {
+                                        str4 = str5;
+                                        sb.append(absolutePath);
+                                        sb.append(",");
+                                        file = filesDir;
+                                        file2 = file3;
+                                        sb.append(file4.length());
+                                        sb.append(",");
+                                        if (!TextUtils.equals(str, ClearCacheUbcController.REPORT_FILE_TYPE_FISHING_BACK) && !TextUtils.equals(str, "feedback")) {
+                                            if (TextUtils.equals(str, ClearCacheUbcController.REPORT_FILE_TYPE_COLD_START)) {
+                                                if (Build.VERSION.SDK_INT >= 21) {
+                                                    j = Os.lstat(file4.getAbsolutePath()).st_atime;
+                                                } else {
+                                                    j = 0;
+                                                }
+                                                sb.append(j);
+                                                sb.append(",");
+                                            }
+                                        }
+                                        sb.append(file4.lastModified());
+                                        sb.append(",");
+                                    }
+                                    if (sb.length() >= 1024) {
+                                        fileOutputStream2.write(sb.toString().getBytes());
+                                        sb = new StringBuilder();
+                                    }
+                                    filesDir = file;
+                                    file3 = file2;
+                                    str5 = str4;
+                                    i = 4;
+                                }
+                            }
+                            fileOutputStream2.flush();
+                            File file6 = new File(filesDir, str5 + str + ".zip");
+                            ZipUtils.zip(file3.getAbsolutePath(), file6.getAbsolutePath());
+                            file3.delete();
+                            if (AppConfig.isDebug()) {
+                                new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController.1.1
+                                    @Override // java.lang.Runnable
+                                    public void run() {
+                                        Toast.makeText(AppRuntime.getAppContext(), "开始上传文件目录", 0).show();
+                                    }
+                                });
+                            }
+                            String valueOf = String.valueOf(System.currentTimeMillis());
+                            Object[] objArr = new Object[i];
+                            objArr[0] = str;
+                            objArr[1] = appVersionName;
+                            objArr[2] = cuid;
+                            objArr[3] = valueOf;
+                            String format = String.format("disk/%s/%s/%s/%s.zip", objArr);
+                            final BOSResponseEntity uploadFileSync = BOSUploader.getInstance().uploadFileSync(ClearCacheUbcController.BOS_BIZ_TYPE, format, file6);
+                            if (AppConfig.isDebug()) {
+                                Log.d(ClearCacheUbcController.TAG, "reportBaiduFile bos fileid : " + format);
+                                if (uploadFileSync != null && uploadFileSync.isSuccess()) {
+                                    Log.d(ClearCacheUbcController.TAG, "reportBaiduFile success");
+                                } else {
+                                    StringBuilder sb2 = new StringBuilder();
+                                    sb2.append("reportBaiduFile error : ");
+                                    if (uploadFileSync != null) {
+                                        str3 = uploadFileSync.getMessage();
+                                    } else {
+                                        str3 = "entry is null";
+                                    }
+                                    sb2.append(str3);
+                                    Log.d(ClearCacheUbcController.TAG, sb2.toString());
+                                }
+                                new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController.1.2
+                                    @Override // java.lang.Runnable
+                                    public void run() {
+                                        String str8;
+                                        Context appContext = AppRuntime.getAppContext();
+                                        StringBuilder sb3 = new StringBuilder();
+                                        sb3.append("上传文件目录");
+                                        BOSResponseEntity bOSResponseEntity = uploadFileSync;
+                                        if (bOSResponseEntity != null && bOSResponseEntity.isSuccess()) {
+                                            str8 = "成功";
+                                        } else {
+                                            str8 = "失败";
+                                        }
+                                        sb3.append(str8);
+                                        Toast.makeText(appContext, sb3.toString(), 0).show();
+                                    }
+                                });
+                            }
+                            file6.delete();
+                            Closeables.closeSafely(fileOutputStream2);
                             return;
                         }
-                        File file3 = new File(filesDir, "tree_" + this.val$type);
-                        FileOutputStream fileOutputStream2 = new FileOutputStream(file3);
+                        if (AppConfig.isDebug()) {
+                            Log.d(ClearCacheUbcController.TAG, "cuid or appVersion is null! cancel");
+                        }
+                        Closeables.closeSafely(fileOutputStream2);
+                    } catch (Exception e) {
+                        e = e;
+                        fileOutputStream = fileOutputStream2;
                         try {
-                            String appVersionName = ClearCacheUtils.getAppVersionName(AppRuntime.getAppContext());
-                            String cuid = AppCuidManager.getInstance().getCuid();
-                            if (!TextUtils.isEmpty(cuid) && !TextUtils.isEmpty(appVersionName)) {
-                                int i = 4;
-                                fileOutputStream2.write(String.format("android,%s,%s,%s,%s,%s,%s,%s\n", appVersionName, cuid, String.valueOf(StorageUtils.getTotalExternalMemorySize()), String.valueOf(StorageUtils.getAvailableExternalMemorySize()), String.valueOf(Build.VERSION.SDK_INT), "_", DiskManager.INSTANCE.getDiskLevel().toString().toLowerCase()).getBytes());
-                                StringBuilder sb = new StringBuilder();
-                                LinkedList linkedList = new LinkedList();
-                                File filesDir2 = AppRuntime.getAppContext().getFilesDir();
-                                if (filesDir2 != null) {
-                                    filesDir2 = filesDir2.getParentFile();
-                                }
-                                String str6 = "";
-                                if (filesDir2 == null || !filesDir2.exists()) {
-                                    str2 = "";
-                                } else {
-                                    str2 = filesDir2.getAbsolutePath();
-                                    linkedList.offer(filesDir2);
-                                }
-                                File externalFilesDir = AppRuntime.getAppContext().getExternalFilesDir(null);
-                                if (externalFilesDir != null) {
-                                    externalFilesDir = externalFilesDir.getParentFile();
-                                }
-                                if (externalFilesDir != null && externalFilesDir.exists()) {
-                                    str6 = externalFilesDir.getAbsolutePath();
-                                    linkedList.offer(externalFilesDir);
-                                }
-                                while (true) {
-                                    File file4 = (File) linkedList.poll();
-                                    if (file4 == null) {
-                                        break;
-                                    } else if (file4.exists()) {
-                                        String absolutePath = file4.getAbsolutePath();
-                                        if (!TextUtils.isEmpty(str2)) {
-                                            absolutePath = absolutePath.replace(str2, "0");
-                                        }
-                                        if (!TextUtils.isEmpty(str6)) {
-                                            absolutePath = absolutePath.replace(str6, "1");
-                                        }
-                                        if (file4.isDirectory()) {
-                                            File[] listFiles = file4.listFiles();
-                                            if (listFiles != null) {
-                                                int length = listFiles.length;
-                                                int i2 = 0;
-                                                while (i2 < length) {
-                                                    String str7 = str5;
-                                                    File file5 = listFiles[i2];
-                                                    if (file5 != null && file5.exists()) {
-                                                        linkedList.offer(file5);
-                                                    }
-                                                    i2++;
-                                                    str5 = str7;
-                                                }
-                                            }
-                                            str4 = str5;
-                                            file = filesDir;
-                                            file2 = file3;
-                                        } else {
-                                            str4 = str5;
-                                            sb.append(absolutePath);
-                                            sb.append(",");
-                                            file = filesDir;
-                                            file2 = file3;
-                                            sb.append(file4.length());
-                                            sb.append(",");
-                                            if (!TextUtils.equals(this.val$type, ClearCacheUbcController.REPORT_FILE_TYPE_FISHING_BACK) && !TextUtils.equals(this.val$type, "feedback")) {
-                                                if (TextUtils.equals(this.val$type, ClearCacheUbcController.REPORT_FILE_TYPE_COLD_START)) {
-                                                    if (Build.VERSION.SDK_INT >= 21) {
-                                                        j = Os.lstat(file4.getAbsolutePath()).st_atime;
-                                                    } else {
-                                                        j = 0;
-                                                    }
-                                                    sb.append(j);
-                                                    sb.append(",");
-                                                }
-                                            }
-                                            sb.append(file4.lastModified());
-                                            sb.append(",");
-                                        }
-                                        if (sb.length() >= 1024) {
-                                            fileOutputStream2.write(sb.toString().getBytes());
-                                            sb = new StringBuilder();
-                                        }
-                                        filesDir = file;
-                                        file3 = file2;
-                                        str5 = str4;
-                                        i = 4;
-                                    }
-                                }
-                                fileOutputStream2.flush();
-                                File file6 = new File(filesDir, str5 + this.val$type + ".zip");
-                                ZipUtils.zip(file3.getAbsolutePath(), file6.getAbsolutePath());
-                                file3.delete();
-                                if (AppConfig.isDebug()) {
-                                    new Handler(Looper.getMainLooper()).post(new Runnable(this) { // from class: com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController.1.1
-                                        public static /* synthetic */ Interceptable $ic;
-                                        public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ AnonymousClass1 this$0;
-
-                                        {
-                                            Interceptable interceptable3 = $ic;
-                                            if (interceptable3 != null) {
-                                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                                newInitContext.initArgs = r2;
-                                                Object[] objArr = {this};
-                                                interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i3 = newInitContext.flag;
-                                                if ((i3 & 1) != 0) {
-                                                    int i4 = i3 & 2;
-                                                    newInitContext.thisArg = this;
-                                                    interceptable3.invokeInitBody(65536, newInitContext);
-                                                    return;
-                                                }
-                                            }
-                                            this.this$0 = this;
-                                        }
-
-                                        @Override // java.lang.Runnable
-                                        public void run() {
-                                            Interceptable interceptable3 = $ic;
-                                            if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                Toast.makeText(AppRuntime.getAppContext(), "开始上传文件目录", 0).show();
-                                            }
-                                        }
-                                    });
-                                }
-                                String valueOf = String.valueOf(System.currentTimeMillis());
-                                Object[] objArr = new Object[i];
-                                objArr[0] = this.val$type;
-                                objArr[1] = appVersionName;
-                                objArr[2] = cuid;
-                                objArr[3] = valueOf;
-                                String format = String.format("disk/%s/%s/%s/%s.zip", objArr);
-                                BOSResponseEntity uploadFileSync = BOSUploader.getInstance().uploadFileSync(ClearCacheUbcController.BOS_BIZ_TYPE, format, file6);
-                                if (AppConfig.isDebug()) {
-                                    Log.d(ClearCacheUbcController.TAG, "reportBaiduFile bos fileid : " + format);
-                                    if (uploadFileSync != null && uploadFileSync.isSuccess()) {
-                                        Log.d(ClearCacheUbcController.TAG, "reportBaiduFile success");
-                                    } else {
-                                        StringBuilder sb2 = new StringBuilder();
-                                        sb2.append("reportBaiduFile error : ");
-                                        if (uploadFileSync != null) {
-                                            str3 = uploadFileSync.getMessage();
-                                        } else {
-                                            str3 = "entry is null";
-                                        }
-                                        sb2.append(str3);
-                                        Log.d(ClearCacheUbcController.TAG, sb2.toString());
-                                    }
-                                    new Handler(Looper.getMainLooper()).post(new Runnable(this, uploadFileSync) { // from class: com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController.1.2
-                                        public static /* synthetic */ Interceptable $ic;
-                                        public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ AnonymousClass1 this$0;
-                                        public final /* synthetic */ BOSResponseEntity val$entity;
-
-                                        {
-                                            Interceptable interceptable3 = $ic;
-                                            if (interceptable3 != null) {
-                                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                                newInitContext.initArgs = r2;
-                                                Object[] objArr2 = {this, uploadFileSync};
-                                                interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i3 = newInitContext.flag;
-                                                if ((i3 & 1) != 0) {
-                                                    int i4 = i3 & 2;
-                                                    newInitContext.thisArg = this;
-                                                    interceptable3.invokeInitBody(65536, newInitContext);
-                                                    return;
-                                                }
-                                            }
-                                            this.this$0 = this;
-                                            this.val$entity = uploadFileSync;
-                                        }
-
-                                        @Override // java.lang.Runnable
-                                        public void run() {
-                                            String str8;
-                                            Interceptable interceptable3 = $ic;
-                                            if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                Context appContext = AppRuntime.getAppContext();
-                                                StringBuilder sb3 = new StringBuilder();
-                                                sb3.append("上传文件目录");
-                                                BOSResponseEntity bOSResponseEntity = this.val$entity;
-                                                if (bOSResponseEntity != null && bOSResponseEntity.isSuccess()) {
-                                                    str8 = "成功";
-                                                } else {
-                                                    str8 = "失败";
-                                                }
-                                                sb3.append(str8);
-                                                Toast.makeText(appContext, sb3.toString(), 0).show();
-                                            }
-                                        }
-                                    });
-                                }
-                                file6.delete();
-                                Closeables.closeSafely(fileOutputStream2);
-                                return;
-                            }
                             if (AppConfig.isDebug()) {
-                                Log.d(ClearCacheUbcController.TAG, "cuid or appVersion is null! cancel");
+                                e.printStackTrace();
                             }
-                            Closeables.closeSafely(fileOutputStream2);
-                        } catch (Exception e) {
-                            e = e;
-                            fileOutputStream = fileOutputStream2;
-                            try {
-                                if (AppConfig.isDebug()) {
-                                    e.printStackTrace();
-                                }
-                                if (fileOutputStream != null) {
-                                    Closeables.closeSafely(fileOutputStream);
-                                }
-                            } catch (Throwable th) {
-                                th = th;
-                                if (fileOutputStream != null) {
-                                    Closeables.closeSafely(fileOutputStream);
-                                }
-                                throw th;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            fileOutputStream = fileOutputStream2;
                             if (fileOutputStream != null) {
+                                Closeables.closeSafely(fileOutputStream);
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            if (fileOutputStream != null) {
+                                Closeables.closeSafely(fileOutputStream);
                             }
                             throw th;
                         }
-                    } catch (Exception e2) {
-                        e = e2;
-                        fileOutputStream = null;
-                    } catch (Throwable th3) {
-                        th = th3;
-                        fileOutputStream = null;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        fileOutputStream = fileOutputStream2;
+                        if (fileOutputStream != null) {
+                        }
+                        throw th;
                     }
+                } catch (Exception e2) {
+                    e = e2;
+                    fileOutputStream = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    fileOutputStream = null;
                 }
             }
         }, SCAN_BAIDU_FILE_TASK_NAME, 3);
     }
 
     public static void toDownloadCenterToUBC(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65543, null, j, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject.put("from", FROM_VALUE);
-                jSONObject.put("type", "click");
-                jSONObject.put("value", VALUE_DOWNLOADED_FILE);
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put("source", str);
-                }
-                jSONObject2.put(DOCUMENT, j / 1024);
-                jSONObject.putOpt("ext", jSONObject2);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            jSONObject.put("from", FROM_VALUE);
+            jSONObject.put("type", "click");
+            jSONObject.put("value", VALUE_DOWNLOADED_FILE);
+            if (!TextUtils.isEmpty(str)) {
+                jSONObject.put("source", str);
             }
-            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_CLEAN_CACHE, jSONObject);
+            jSONObject2.put(DOCUMENT, j / 1024);
+            jSONObject.putOpt("ext", jSONObject2);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+        ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_CLEAN_CACHE, jSONObject);
     }
 
     public static void toFeedBackToUBC(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", FROM_VALUE);
-                jSONObject.put("type", "click");
-                jSONObject.put("value", "feedback");
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put("source", str);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("from", FROM_VALUE);
+            jSONObject.put("type", "click");
+            jSONObject.put("value", "feedback");
+            if (!TextUtils.isEmpty(str)) {
+                jSONObject.put("source", str);
             }
-            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_CLEAN_CACHE, jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+        ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_CLEAN_CACHE, jSONObject);
     }
 
     public static void ubc(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("from", FROM_VALUE);
-                jSONObject.put("type", str);
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("total", StorageUtils.getTotalExternalMemorySize());
-                jSONObject2.put("free", StorageUtils.getAvailableExternalMemorySize());
-                jSONObject.putOpt("ext", jSONObject2);
-                if (AppConfig.isDebug()) {
-                    Log.d(TAG, jSONObject.toString());
-                }
-                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_CLEAN_CACHE, jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("from", FROM_VALUE);
+            jSONObject.put("type", str);
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("total", StorageUtils.getTotalExternalMemorySize());
+            jSONObject2.put("free", StorageUtils.getAvailableExternalMemorySize());
+            jSONObject.putOpt("ext", jSONObject2);
+            if (AppConfig.isDebug()) {
+                Log.d(TAG, jSONObject.toString());
             }
-        }
-    }
-
-    public void cleanConfirmToUBC(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("from", FROM_VALUE);
-                jSONObject.put("type", CLEAN_CONFIRM);
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put("source", str);
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("total", StorageUtils.getTotalExternalMemorySize());
-                jSONObject2.put("free", StorageUtils.getAvailableExternalMemorySize());
-                jSONObject.putOpt("ext", jSONObject2);
-                if (AppConfig.isDebug()) {
-                    Log.d(TAG, jSONObject.toString());
-                }
-                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_CLEAN_CACHE, jSONObject);
-            } catch (JSONException e) {
-                if (AppConfig.isDebug()) {
-                    e.printStackTrace();
-                }
-            }
+            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_CLEAN_CACHE, jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
     public void showToUBC(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("from", FROM_VALUE);
-                jSONObject.put("type", "show");
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put("source", str);
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("total", StorageUtils.getTotalExternalMemorySize());
-                jSONObject2.put("free", StorageUtils.getAvailableExternalMemorySize());
-                jSONObject.putOpt("ext", jSONObject2);
-                if (AppConfig.isDebug()) {
-                    Log.d(TAG, jSONObject.toString());
-                }
-                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_CLEAN_CACHE, jSONObject);
-            } catch (JSONException e) {
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("from", FROM_VALUE);
+            jSONObject.put("type", "show");
+            if (!TextUtils.isEmpty(str)) {
+                jSONObject.put("source", str);
+            }
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("total", StorageUtils.getTotalExternalMemorySize());
+            jSONObject2.put("free", StorageUtils.getAvailableExternalMemorySize());
+            jSONObject.putOpt("ext", jSONObject2);
+            if (AppConfig.isDebug()) {
+                Log.d(TAG, jSONObject.toString());
+            }
+            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_CLEAN_CACHE, jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void cleanConfirmToUBC(String str) {
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("from", FROM_VALUE);
+            jSONObject.put("type", CLEAN_CONFIRM);
+            if (!TextUtils.isEmpty(str)) {
+                jSONObject.put("source", str);
+            }
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("total", StorageUtils.getTotalExternalMemorySize());
+            jSONObject2.put("free", StorageUtils.getAvailableExternalMemorySize());
+            jSONObject.putOpt("ext", jSONObject2);
+            if (AppConfig.isDebug()) {
+                Log.d(TAG, jSONObject.toString());
+            }
+            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_CLEAN_CACHE, jSONObject);
+        } catch (JSONException e) {
+            if (AppConfig.isDebug()) {
                 e.printStackTrace();
             }
         }
     }
 
     public void clearCacheTOUBC(String str, long j, JSONObject jSONObject, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j), jSONObject, str2}) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("from", FROM_VALUE);
-                jSONObject2.put("type", str);
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject2.put("source", str2);
-                }
-                if (TextUtils.equals(str, "clean")) {
-                    if (this.mExtObject != null) {
-                        this.mExtObject.put(DOCUMENT, j / 1024);
-                        this.mExtObject.put("total", StorageUtils.getTotalExternalMemorySize());
-                        this.mExtObject.put("free", StorageUtils.getAvailableExternalMemorySize());
-                    }
-                    jSONObject2.putOpt("ext", jSONObject);
-                }
-                if (AppConfig.isDebug()) {
-                    Log.d(TAG, jSONObject2.toString());
-                }
-                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_CLEAN_CACHE, jSONObject2);
-                this.mExtObject = null;
-            } catch (JSONException e) {
-                e.printStackTrace();
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            jSONObject2.put("from", FROM_VALUE);
+            jSONObject2.put("type", str);
+            if (!TextUtils.isEmpty(str2)) {
+                jSONObject2.put("source", str2);
             }
+            if (TextUtils.equals(str, "clean")) {
+                if (this.mExtObject != null) {
+                    this.mExtObject.put(DOCUMENT, j / 1024);
+                    this.mExtObject.put("total", StorageUtils.getTotalExternalMemorySize());
+                    this.mExtObject.put("free", StorageUtils.getAvailableExternalMemorySize());
+                }
+                jSONObject2.putOpt("ext", jSONObject);
+            }
+            if (AppConfig.isDebug()) {
+                Log.d(TAG, jSONObject2.toString());
+            }
+            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_CLEAN_CACHE, jSONObject2);
+            this.mExtObject = null;
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
     public void putExtObject(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) {
-            if (this.mExtObject == null) {
-                this.mExtObject = new JSONObject();
-            }
-            try {
-                this.mExtObject.put(str, j);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        if (this.mExtObject == null) {
+            this.mExtObject = new JSONObject();
+        }
+        try {
+            this.mExtObject.put(str, j);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
     public void reportCleanCacheToUBC(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048579, this, j, str) == null) {
-            clearCacheTOUBC("clean", j, this.mExtObject, str);
-        }
+        clearCacheTOUBC("clean", j, this.mExtObject, str);
     }
 
     public void scanToUBC(JSONObject jSONObject, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, jSONObject, str) == null) {
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("from", FROM_VALUE);
-                jSONObject2.put("type", SCAN);
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject2.put("source", str);
-                }
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("total", StorageUtils.getTotalExternalMemorySize());
-                jSONObject3.put("free", StorageUtils.getAvailableExternalMemorySize());
-                jSONObject3.put("items", jSONObject);
-                jSONObject2.putOpt("ext", jSONObject3);
-                if (AppConfig.isDebug()) {
-                    Log.d(TAG, jSONObject2.toString());
-                }
-                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_CLEAN_CACHE, jSONObject2);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        try {
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("from", FROM_VALUE);
+            jSONObject2.put("type", SCAN);
+            if (!TextUtils.isEmpty(str)) {
+                jSONObject2.put("source", str);
             }
+            JSONObject jSONObject3 = new JSONObject();
+            jSONObject3.put("total", StorageUtils.getTotalExternalMemorySize());
+            jSONObject3.put("free", StorageUtils.getAvailableExternalMemorySize());
+            jSONObject3.put("items", jSONObject);
+            jSONObject2.putOpt("ext", jSONObject3);
+            if (AppConfig.isDebug()) {
+                Log.d(TAG, jSONObject2.toString());
+            }
+            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_CLEAN_CACHE, jSONObject2);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

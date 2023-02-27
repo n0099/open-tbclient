@@ -1,18 +1,9 @@
 package com.baidu.searchbox.perfframe.impl;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PerfExpInfo {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public String mBusiness;
     public String mException;
     public boolean mIsNeedDynamicperf;
@@ -28,20 +19,6 @@ public class PerfExpInfo {
     public String mUbcId;
 
     public PerfExpInfo(String str, String str2, long j, long j2, String str3, String str4, String str5) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Long.valueOf(j), Long.valueOf(j2), str3, str4, str5};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mUbcId = str;
         this.mType = str2;
         this.mTime = j;
@@ -52,228 +29,114 @@ public class PerfExpInfo {
     }
 
     public String getBusiness() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mBusiness;
-        }
-        return (String) invokeV.objValue;
+        return this.mBusiness;
     }
 
     public String getException() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mException;
-        }
-        return (String) invokeV.objValue;
+        return this.mException;
     }
 
     public long getLaunchTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mLaunchTime;
-        }
-        return invokeV.longValue;
+        return this.mLaunchTime;
     }
 
     public String getLogId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mLogId;
-        }
-        return (String) invokeV.objValue;
+        return this.mLogId;
     }
 
     public String getPage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mPage;
-        }
-        return (String) invokeV.objValue;
+        return this.mPage;
     }
 
     public String getProcessDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return String.valueOf(getTime() - getLaunchTime());
-        }
-        return (String) invokeV.objValue;
+        return String.valueOf(getTime() - getLaunchTime());
     }
 
     public long getTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.mTime;
-        }
-        return invokeV.longValue;
+        return this.mTime;
     }
 
     public LinkedList<TrackUI> getTrackUIs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.mTrackUIs;
-        }
-        return (LinkedList) invokeV.objValue;
+        return this.mTrackUIs;
     }
 
     public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.mType;
-        }
-        return (String) invokeV.objValue;
+        return this.mType;
     }
 
     public String getUbcId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.mUbcId;
-        }
-        return (String) invokeV.objValue;
+        return this.mUbcId;
     }
 
     public boolean isNeedDynamicperf() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.mIsNeedDynamicperf;
-        }
-        return invokeV.booleanValue;
+        return this.mIsNeedDynamicperf;
     }
 
     public boolean isNeedMainStackTrace() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.mIsNeedMainStackTrace;
-        }
-        return invokeV.booleanValue;
+        return this.mIsNeedMainStackTrace;
     }
 
     public boolean isNeedPageTrace() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.mIsNeedPageTrace;
-        }
-        return invokeV.booleanValue;
+        return this.mIsNeedPageTrace;
     }
 
     public boolean isNeedStaticperf() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.mIsNeedStaticperf;
-        }
-        return invokeV.booleanValue;
+        return this.mIsNeedStaticperf;
     }
 
     public void setBusiness(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.mBusiness = str;
-        }
+        this.mBusiness = str;
     }
 
     public void setException(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.mException = str;
-        }
+        this.mException = str;
     }
 
     public void setLaunchTime(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.mLaunchTime = j;
-        }
+        this.mLaunchTime = j;
     }
 
     public void setLogId(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.mLogId = str;
-        }
+        this.mLogId = str;
     }
 
     public void setNeedDynamicperf(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.mIsNeedDynamicperf = z;
-        }
+        this.mIsNeedDynamicperf = z;
     }
 
     public void setNeedMainStackTrace(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.mIsNeedMainStackTrace = z;
-        }
+        this.mIsNeedMainStackTrace = z;
     }
 
     public void setNeedPageTrace(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.mIsNeedPageTrace = z;
-        }
+        this.mIsNeedPageTrace = z;
     }
 
     public void setNeedStaticperf(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
-            this.mIsNeedStaticperf = z;
-        }
+        this.mIsNeedStaticperf = z;
     }
 
     public void setPage(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
-            this.mPage = str;
-        }
+        this.mPage = str;
     }
 
     public void setTime(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
-            this.mTime = j;
-        }
+        this.mTime = j;
     }
 
     public void setTrackUIs(LinkedList<TrackUI> linkedList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, linkedList) == null) {
-            this.mTrackUIs = linkedList;
-        }
+        this.mTrackUIs = linkedList;
     }
 
     public void setType(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
-            this.mType = str;
-        }
+        this.mType = str;
     }
 
     public void setUbcId(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            this.mUbcId = str;
-        }
+        this.mUbcId = str;
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            return "PerfExpInfo{mUbcId='" + this.mUbcId + "', mType='" + this.mType + "', mLogId='" + this.mLogId + "', mTime=" + this.mTime + ", mException='" + this.mException + "', mPage='" + this.mPage + "', mLaunchTime=" + this.mLaunchTime + ", mBusiness='" + this.mBusiness + "', mTrackUIs=" + this.mTrackUIs + ", mIsNeedPageTrace=" + this.mIsNeedPageTrace + ", mIsNeedDynamicperf=" + this.mIsNeedDynamicperf + ", mIsNeedStaticperf=" + this.mIsNeedStaticperf + ", mIsNeedMainStackTrace=" + this.mIsNeedMainStackTrace + '}';
-        }
-        return (String) invokeV.objValue;
+        return "PerfExpInfo{mUbcId='" + this.mUbcId + "', mType='" + this.mType + "', mLogId='" + this.mLogId + "', mTime=" + this.mTime + ", mException='" + this.mException + "', mPage='" + this.mPage + "', mLaunchTime=" + this.mLaunchTime + ", mBusiness='" + this.mBusiness + "', mTrackUIs=" + this.mTrackUIs + ", mIsNeedPageTrace=" + this.mIsNeedPageTrace + ", mIsNeedDynamicperf=" + this.mIsNeedDynamicperf + ", mIsNeedStaticperf=" + this.mIsNeedStaticperf + ", mIsNeedMainStackTrace=" + this.mIsNeedMainStackTrace + '}';
     }
 }

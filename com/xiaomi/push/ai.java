@@ -1,51 +1,30 @@
 package com.xiaomi.push;
 
+import android.app.KeyguardManager;
 import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.Intent;
+import android.content.IntentFilter;
 /* loaded from: classes8.dex */
 public class ai {
-    public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56379624, "Lcom/xiaomi/push/ai;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-56379624, "Lcom/xiaomi/push/ai;");
-                return;
-            }
-        }
-        a = "0123456789ABCDEF".toCharArray();
-    }
-
-    public static String a(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, bArr, i, i2)) == null) {
-            StringBuilder sb = new StringBuilder(i2 * 2);
-            for (int i3 = 0; i3 < i2; i3++) {
-                int i4 = bArr[i + i3] & 255;
-                sb.append(a[i4 >> 4]);
-                sb.append(a[i4 & 15]);
-            }
-            return sb.toString();
-        }
-        return (String) invokeLII.objValue;
-    }
-
     public static boolean a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? ah.f118a : invokeL.booleanValue;
+        try {
+            return ((KeyguardManager) context.getSystemService("keyguard")).inKeyguardRestrictedInputMode();
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+            return false;
+        }
+    }
+
+    public static boolean b(Context context) {
+        Intent intent = null;
+        try {
+            intent = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        } catch (Exception unused) {
+        }
+        if (intent == null) {
+            return false;
+        }
+        int intExtra = intent.getIntExtra("status", -1);
+        return intExtra == 2 || intExtra == 5;
     }
 }

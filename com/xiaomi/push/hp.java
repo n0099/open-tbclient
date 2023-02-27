@@ -1,97 +1,225 @@
 package com.xiaomi.push;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import java.io.Serializable;
+import java.util.BitSet;
 /* loaded from: classes8.dex */
-public final class hp {
-    public static /* synthetic */ Interceptable $ic;
-    public static final hp a;
+public class hp implements is<hp, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ hp[] f514a;
-    public static final hp b;
-    public transient /* synthetic */ FieldHolder $fh;
+    public long f498a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f515a;
+    public hj f499a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56372680, "Lcom/xiaomi/push/hp;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-56372680, "Lcom/xiaomi/push/hp;");
-                return;
-            }
-        }
-        a = new hp("MISC_CONFIG", 0, 1);
-        hp hpVar = new hp("PLUGIN_CONFIG", 1, 2);
-        b = hpVar;
-        f514a = new hp[]{a, hpVar};
-    }
+    /* renamed from: a  reason: collision with other field name */
+    public String f500a;
 
-    public hp(String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                String str2 = (String) objArr2[0];
-                ((Integer) objArr2[1]).intValue();
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f515a = i2;
-    }
+    /* renamed from: a  reason: collision with other field name */
+    public BitSet f501a = new BitSet(1);
 
-    public static hp a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    return null;
+    /* renamed from: a  reason: collision with other field name */
+    public static final ji f497a = new ji("DataCollectionItem");
+    public static final ja a = new ja("", (byte) 10, 1);
+    public static final ja b = new ja("", (byte) 8, 2);
+    public static final ja c = new ja("", Constants.GZIP_CAST_TYPE, 3);
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(hp hpVar) {
+        int a2;
+        int a3;
+        int a4;
+        if (hp.class.equals(hpVar.getClass())) {
+            int compareTo = Boolean.valueOf(m480a()).compareTo(Boolean.valueOf(hpVar.m480a()));
+            if (compareTo != 0) {
+                return compareTo;
+            }
+            if (!m480a() || (a4 = it.a(this.f498a, hpVar.f498a)) == 0) {
+                int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(hpVar.b()));
+                if (compareTo2 != 0) {
+                    return compareTo2;
                 }
-                return b;
+                if (!b() || (a3 = it.a(this.f499a, hpVar.f499a)) == 0) {
+                    int compareTo3 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(hpVar.c()));
+                    if (compareTo3 != 0) {
+                        return compareTo3;
+                    }
+                    if (!c() || (a2 = it.a(this.f500a, hpVar.f500a)) == 0) {
+                        return 0;
+                    }
+                    return a2;
+                }
+                return a3;
             }
-            return a;
+            return a4;
         }
-        return (hp) invokeI.objValue;
+        return hp.class.getName().compareTo(hpVar.getClass().getName());
     }
 
-    public static hp valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (hp) Enum.valueOf(hp.class, str) : (hp) invokeL.objValue;
+    public hp a(long j) {
+        this.f498a = j;
+        a(true);
+        return this;
     }
 
-    public static hp[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hp[]) f514a.clone() : (hp[]) invokeV.objValue;
+    public hp a(hj hjVar) {
+        this.f499a = hjVar;
+        return this;
     }
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f515a : invokeV.intValue;
+    public hp a(String str) {
+        this.f500a = str;
+        return this;
+    }
+
+    public String a() {
+        return this.f500a;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public void m479a() {
+        if (this.f499a == null) {
+            throw new je("Required field 'collectionType' was not present! Struct: " + toString());
+        } else if (this.f500a != null) {
+        } else {
+            throw new je("Required field 'content' was not present! Struct: " + toString());
+        }
+    }
+
+    @Override // com.xiaomi.push.is
+    public void a(jd jdVar) {
+        jdVar.mo617a();
+        while (true) {
+            ja mo613a = jdVar.mo613a();
+            byte b2 = mo613a.a;
+            if (b2 == 0) {
+                break;
+            }
+            short s = mo613a.f813a;
+            if (s == 1) {
+                if (b2 == 10) {
+                    this.f498a = jdVar.mo612a();
+                    a(true);
+                    jdVar.g();
+                }
+                jg.a(jdVar, b2);
+                jdVar.g();
+            } else if (s != 2) {
+                if (s == 3 && b2 == 11) {
+                    this.f500a = jdVar.mo618a();
+                    jdVar.g();
+                }
+                jg.a(jdVar, b2);
+                jdVar.g();
+            } else {
+                if (b2 == 8) {
+                    this.f499a = hj.a(jdVar.mo611a());
+                    jdVar.g();
+                }
+                jg.a(jdVar, b2);
+                jdVar.g();
+            }
+        }
+        jdVar.f();
+        if (m480a()) {
+            m479a();
+            return;
+        }
+        throw new je("Required field 'collectedAt' was not found in serialized data! Struct: " + toString());
+    }
+
+    public void a(boolean z) {
+        this.f501a.set(0, z);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m480a() {
+        return this.f501a.get(0);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m481a(hp hpVar) {
+        if (hpVar != null && this.f498a == hpVar.f498a) {
+            boolean b2 = b();
+            boolean b3 = hpVar.b();
+            if ((b2 || b3) && !(b2 && b3 && this.f499a.equals(hpVar.f499a))) {
+                return false;
+            }
+            boolean c2 = c();
+            boolean c3 = hpVar.c();
+            if (c2 || c3) {
+                return c2 && c3 && this.f500a.equals(hpVar.f500a);
+            }
+            return true;
+        }
+        return false;
+    }
+
+    @Override // com.xiaomi.push.is
+    public void b(jd jdVar) {
+        m479a();
+        jdVar.a(f497a);
+        jdVar.a(a);
+        jdVar.a(this.f498a);
+        jdVar.b();
+        if (this.f499a != null) {
+            jdVar.a(b);
+            jdVar.mo622a(this.f499a.a());
+            jdVar.b();
+        }
+        if (this.f500a != null) {
+            jdVar.a(c);
+            jdVar.a(this.f500a);
+            jdVar.b();
+        }
+        jdVar.c();
+        jdVar.mo621a();
+    }
+
+    public boolean b() {
+        return this.f499a != null;
+    }
+
+    public boolean c() {
+        return this.f500a != null;
+    }
+
+    public boolean equals(Object obj) {
+        if (obj != null && (obj instanceof hp)) {
+            return m481a((hp) obj);
+        }
+        return false;
+    }
+
+    public int hashCode() {
+        return 0;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder("DataCollectionItem(");
+        sb.append("collectedAt:");
+        sb.append(this.f498a);
+        sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+        sb.append("collectionType:");
+        hj hjVar = this.f499a;
+        if (hjVar == null) {
+            sb.append(StringUtil.NULL_STRING);
+        } else {
+            sb.append(hjVar);
+        }
+        sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+        sb.append("content:");
+        String str = this.f500a;
+        if (str == null) {
+            sb.append(StringUtil.NULL_STRING);
+        } else {
+            sb.append(str);
+        }
+        sb.append(SmallTailInfo.EMOTION_SUFFIX);
+        return sb.toString();
     }
 }

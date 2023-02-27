@@ -1,39 +1,144 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class cq7 {
+/* loaded from: classes3.dex */
+public class cq7 extends fq7<ForumData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BotsDTO.BotListDTO.UserDTO a;
-    public BotsDTO.BotListDTO.SkillDTO b;
-    public List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> c;
+    public final Context m;
+    public LinearLayout n;
+    public BarImageView o;
+    public TextView p;
+    public EMTextView q;
+    public EMTextView r;
+    public EMTextView s;
 
-    public cq7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cq7(@NonNull Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.m = context;
+        q(context);
+    }
+
+    @Override // com.baidu.tieba.zp7
+    public void a(String str) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            ForumData forumData = (ForumData) this.j;
+            long userIdLong = this.k.getUserIdLong();
+            String userName = this.k.getUserName();
+            String name_show = this.k.getName_show();
+            String portrait = this.k.getPortrait();
+            if (this.k.getIsMyFriend() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            er7.a(forumData, str, userIdLong, userName, name_show, portrait, z);
+            p(1, 0, 3, String.valueOf(this.k.getUserIdLong()));
         }
     }
 
-    public void a() {
+    @Override // com.baidu.tieba.zp7
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-            this.b = null;
-            this.c = null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            er7.e(str, this.k.groupData, (ForumData) this.j);
+        }
+    }
+
+    @Override // com.baidu.tieba.fq7
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.g();
+            b35 d = b35.d(this.n);
+            d.n(R.string.J_X05);
+            d.f(R.color.CAM_X0207);
+            b35 d2 = b35.d(this.p);
+            d2.v(R.color.CAM_X0105);
+            d2.A(R.string.F_X02);
+            b35.d(this.q).v(R.color.CAM_X0107);
+            b35.d(this.r).v(R.color.CAM_X0109);
+            b35.d(this.s).v(R.color.CAM_X0109);
+            this.o.setStrokeColorResId(R.color.CAM_X0401);
+        }
+    }
+
+    public final void q(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.im_share_dialog_forum, i());
+            this.n = (LinearLayout) inflate.findViewById(R.id.im_share_forum_info_container);
+            BarImageView barImageView = (BarImageView) inflate.findViewById(R.id.im_share_forum_info_head);
+            this.o = barImageView;
+            barImageView.setPlaceHolder(1);
+            this.o.setShowOval(true);
+            this.o.setAutoChangeStyle(true);
+            this.o.setShowInnerBorder(true);
+            this.o.setStrokeWith(ej.g(TbadkCoreApplication.getInst(), R.dimen.L_X01));
+            this.o.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.p = (TextView) inflate.findViewById(R.id.im_share_forum_info_title);
+            this.q = (EMTextView) inflate.findViewById(R.id.im_share_forum_info_brief);
+            this.r = (EMTextView) inflate.findViewById(R.id.im_share_forum_info_attention_count);
+            this.s = (EMTextView) inflate.findViewById(R.id.im_share_forum_info_thread_count);
+            g();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fq7
+    /* renamed from: r */
+    public void o(ForumData forumData, MetaData metaData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, forumData, metaData) == null) {
+            super.o(forumData, metaData);
+            if (forumData != null && !TextUtils.isEmpty(forumData.getId())) {
+                this.o.K(forumData.getImage_url(), 10, false);
+                this.p.setText("" + forumData.getName() + this.m.getResources().getString(R.string.obfuscated_res_0x7f0f06ba));
+                if (!TextUtils.isEmpty(forumData.getSlogan())) {
+                    this.q.setVisibility(0);
+                    this.q.setText(forumData.getSlogan());
+                } else {
+                    this.q.setVisibility(8);
+                }
+                this.r.setText(String.format(this.m.getString(R.string.obfuscated_res_0x7f0f044e), StringHelper.numberUniformFormatExtra(forumData.getMember_num())));
+                this.s.setText(String.format(this.m.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtra(forumData.getThread_num())));
+            }
         }
     }
 }

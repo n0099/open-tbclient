@@ -10,20 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.util.Preconditions;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class NotificationChannelCompat {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_CHANNEL_ID = "miscellaneous";
     public static final int DEFAULT_LIGHT_COLOR = 0;
     public static final boolean DEFAULT_SHOW_BADGE = true;
-    public transient /* synthetic */ FieldHolder $fh;
     public AudioAttributes mAudioAttributes;
     public boolean mBypassDnd;
     public boolean mCanBubble;
@@ -46,194 +37,101 @@ public class NotificationChannelCompat {
 
     /* loaded from: classes.dex */
     public static class Builder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final NotificationChannelCompat mChannel;
 
         public Builder(@NonNull String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.mChannel = new NotificationChannelCompat(str, i);
         }
 
         @NonNull
-        public NotificationChannelCompat build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.mChannel;
-            }
-            return (NotificationChannelCompat) invokeV.objValue;
-        }
-
-        @NonNull
         public Builder setConversationId(@NonNull String str, @NonNull String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-                if (Build.VERSION.SDK_INT >= 30) {
-                    NotificationChannelCompat notificationChannelCompat = this.mChannel;
-                    notificationChannelCompat.mParentId = str;
-                    notificationChannelCompat.mConversationId = str2;
-                }
-                return this;
+            if (Build.VERSION.SDK_INT >= 30) {
+                NotificationChannelCompat notificationChannelCompat = this.mChannel;
+                notificationChannelCompat.mParentId = str;
+                notificationChannelCompat.mConversationId = str2;
             }
-            return (Builder) invokeLL.objValue;
+            return this;
         }
 
         @NonNull
         public Builder setSound(@Nullable Uri uri, @Nullable AudioAttributes audioAttributes) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, uri, audioAttributes)) == null) {
-                NotificationChannelCompat notificationChannelCompat = this.mChannel;
-                notificationChannelCompat.mSound = uri;
-                notificationChannelCompat.mAudioAttributes = audioAttributes;
-                return this;
-            }
-            return (Builder) invokeLL.objValue;
+            NotificationChannelCompat notificationChannelCompat = this.mChannel;
+            notificationChannelCompat.mSound = uri;
+            notificationChannelCompat.mAudioAttributes = audioAttributes;
+            return this;
+        }
+
+        @NonNull
+        public NotificationChannelCompat build() {
+            return this.mChannel;
         }
 
         @NonNull
         public Builder setDescription(@Nullable String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.mChannel.mDescription = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mChannel.mDescription = str;
+            return this;
         }
 
         @NonNull
         public Builder setGroup(@Nullable String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.mChannel.mGroupId = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mChannel.mGroupId = str;
+            return this;
         }
 
         @NonNull
         public Builder setImportance(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                this.mChannel.mImportance = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
+            this.mChannel.mImportance = i;
+            return this;
         }
 
         @NonNull
         public Builder setLightColor(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-                this.mChannel.mLightColor = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
+            this.mChannel.mLightColor = i;
+            return this;
         }
 
         @NonNull
         public Builder setLightsEnabled(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-                this.mChannel.mLights = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.mChannel.mLights = z;
+            return this;
         }
 
         @NonNull
         public Builder setName(@Nullable CharSequence charSequence) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, charSequence)) == null) {
-                this.mChannel.mName = charSequence;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mChannel.mName = charSequence;
+            return this;
         }
 
         @NonNull
         public Builder setShowBadge(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-                this.mChannel.mShowBadge = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.mChannel.mShowBadge = z;
+            return this;
         }
 
         @NonNull
         public Builder setVibrationEnabled(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-                this.mChannel.mVibrationEnabled = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
+            this.mChannel.mVibrationEnabled = z;
+            return this;
         }
 
         @NonNull
         public Builder setVibrationPattern(@Nullable long[] jArr) {
-            InterceptResult invokeL;
             boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, jArr)) == null) {
-                NotificationChannelCompat notificationChannelCompat = this.mChannel;
-                if (jArr != null && jArr.length > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                notificationChannelCompat.mVibrationEnabled = z;
-                this.mChannel.mVibrationPattern = jArr;
-                return this;
+            NotificationChannelCompat notificationChannelCompat = this.mChannel;
+            if (jArr != null && jArr.length > 0) {
+                z = true;
+            } else {
+                z = false;
             }
-            return (Builder) invokeL.objValue;
+            notificationChannelCompat.mVibrationEnabled = z;
+            this.mChannel.mVibrationPattern = jArr;
+            return this;
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @RequiresApi(26)
     public NotificationChannelCompat(@NonNull NotificationChannel notificationChannel) {
         this(notificationChannel.getId(), notificationChannel.getImportance());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {notificationChannel};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mName = notificationChannel.getName();
         this.mDescription = notificationChannel.getDescription();
         this.mGroupId = notificationChannel.getGroup();
@@ -259,20 +157,6 @@ public class NotificationChannelCompat {
     }
 
     public NotificationChannelCompat(@NonNull String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mShowBadge = true;
         this.mSound = Settings.System.DEFAULT_NOTIFICATION_URI;
         this.mLightColor = 0;
@@ -284,209 +168,109 @@ public class NotificationChannelCompat {
     }
 
     public boolean canBubble() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mCanBubble;
-        }
-        return invokeV.booleanValue;
+        return this.mCanBubble;
     }
 
     public boolean canBypassDnd() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mBypassDnd;
-        }
-        return invokeV.booleanValue;
+        return this.mBypassDnd;
     }
 
     public boolean canShowBadge() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mShowBadge;
-        }
-        return invokeV.booleanValue;
+        return this.mShowBadge;
     }
 
     @Nullable
     public AudioAttributes getAudioAttributes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mAudioAttributes;
-        }
-        return (AudioAttributes) invokeV.objValue;
+        return this.mAudioAttributes;
     }
 
     @Nullable
     public String getConversationId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.mConversationId;
-        }
-        return (String) invokeV.objValue;
+        return this.mConversationId;
     }
 
     @Nullable
     public String getDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.mDescription;
-        }
-        return (String) invokeV.objValue;
+        return this.mDescription;
     }
 
     @Nullable
     public String getGroup() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.mGroupId;
-        }
-        return (String) invokeV.objValue;
+        return this.mGroupId;
     }
 
     @NonNull
     public String getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.mId;
-        }
-        return (String) invokeV.objValue;
+        return this.mId;
     }
 
     public int getImportance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.mImportance;
-        }
-        return invokeV.intValue;
+        return this.mImportance;
     }
 
     public int getLightColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.mLightColor;
-        }
-        return invokeV.intValue;
+        return this.mLightColor;
     }
 
     public int getLockscreenVisibility() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.mLockscreenVisibility;
-        }
-        return invokeV.intValue;
+        return this.mLockscreenVisibility;
     }
 
     @Nullable
     public CharSequence getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.mName;
-        }
-        return (CharSequence) invokeV.objValue;
+        return this.mName;
     }
 
     @Nullable
     public String getParentChannelId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.mParentId;
-        }
-        return (String) invokeV.objValue;
+        return this.mParentId;
     }
 
     @Nullable
     public Uri getSound() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.mSound;
-        }
-        return (Uri) invokeV.objValue;
+        return this.mSound;
     }
 
     @Nullable
     public long[] getVibrationPattern() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.mVibrationPattern;
-        }
-        return (long[]) invokeV.objValue;
+        return this.mVibrationPattern;
     }
 
     public boolean isImportantConversation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.mImportantConversation;
-        }
-        return invokeV.booleanValue;
+        return this.mImportantConversation;
     }
 
     public boolean shouldShowLights() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.mLights;
-        }
-        return invokeV.booleanValue;
+        return this.mLights;
     }
 
     public boolean shouldVibrate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.mVibrationEnabled;
-        }
-        return invokeV.booleanValue;
+        return this.mVibrationEnabled;
     }
 
     public NotificationChannel getNotificationChannel() {
-        InterceptResult invokeV;
         String str;
         String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (Build.VERSION.SDK_INT < 26) {
-                return null;
-            }
-            NotificationChannel notificationChannel = new NotificationChannel(this.mId, this.mName, this.mImportance);
-            notificationChannel.setDescription(this.mDescription);
-            notificationChannel.setGroup(this.mGroupId);
-            notificationChannel.setShowBadge(this.mShowBadge);
-            notificationChannel.setSound(this.mSound, this.mAudioAttributes);
-            notificationChannel.enableLights(this.mLights);
-            notificationChannel.setLightColor(this.mLightColor);
-            notificationChannel.setVibrationPattern(this.mVibrationPattern);
-            notificationChannel.enableVibration(this.mVibrationEnabled);
-            if (Build.VERSION.SDK_INT >= 30 && (str = this.mParentId) != null && (str2 = this.mConversationId) != null) {
-                notificationChannel.setConversationId(str, str2);
-            }
-            return notificationChannel;
+        if (Build.VERSION.SDK_INT < 26) {
+            return null;
         }
-        return (NotificationChannel) invokeV.objValue;
+        NotificationChannel notificationChannel = new NotificationChannel(this.mId, this.mName, this.mImportance);
+        notificationChannel.setDescription(this.mDescription);
+        notificationChannel.setGroup(this.mGroupId);
+        notificationChannel.setShowBadge(this.mShowBadge);
+        notificationChannel.setSound(this.mSound, this.mAudioAttributes);
+        notificationChannel.enableLights(this.mLights);
+        notificationChannel.setLightColor(this.mLightColor);
+        notificationChannel.setVibrationPattern(this.mVibrationPattern);
+        notificationChannel.enableVibration(this.mVibrationEnabled);
+        if (Build.VERSION.SDK_INT >= 30 && (str = this.mParentId) != null && (str2 = this.mConversationId) != null) {
+            notificationChannel.setConversationId(str, str2);
+        }
+        return notificationChannel;
     }
 
     @NonNull
     public Builder toBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return new Builder(this.mId, this.mImportance).setName(this.mName).setDescription(this.mDescription).setGroup(this.mGroupId).setShowBadge(this.mShowBadge).setSound(this.mSound, this.mAudioAttributes).setLightsEnabled(this.mLights).setLightColor(this.mLightColor).setVibrationEnabled(this.mVibrationEnabled).setVibrationPattern(this.mVibrationPattern).setConversationId(this.mParentId, this.mConversationId);
-        }
-        return (Builder) invokeV.objValue;
+        return new Builder(this.mId, this.mImportance).setName(this.mName).setDescription(this.mDescription).setGroup(this.mGroupId).setShowBadge(this.mShowBadge).setSound(this.mSound, this.mAudioAttributes).setLightsEnabled(this.mLights).setLightColor(this.mLightColor).setVibrationEnabled(this.mVibrationEnabled).setVibrationPattern(this.mVibrationPattern).setConversationId(this.mParentId, this.mConversationId);
     }
 }

@@ -1,9 +1,12 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,19 +14,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class vx1 extends px1 {
+public class vx1 extends rx1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.zw1
+    @Override // com.baidu.tieba.px1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PullDownRefreshApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "OpenIdApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements fo3<pe3<JSONObject>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -48,70 +52,98 @@ public class vx1 extends px1 {
             this.a = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fo3
+        /* renamed from: b */
+        public void a(pe3<JSONObject> pe3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                f82 V = ju2.U().V();
-                if (V == null) {
-                    w52.c("PullDownRefreshApi", "manager is null");
-                    this.b.d(this.a, new w02(1001));
-                } else if (!(V.m() instanceof e82)) {
-                    w52.c("PullDownRefreshApi", "top fragment error");
-                    this.b.d(this.a, new w02(1001));
-                } else {
-                    e82 e82Var = (e82) V.m();
-                    if (e82Var.h0() == null) {
-                        w52.c("PullDownRefreshApi", "view is null");
-                        this.b.d(this.a, new w02(1001));
-                        return;
-                    }
-                    e82Var.h0().w(false);
-                    w52.i("PullDownRefreshApi", "refresh complete");
-                    this.b.d(this.a, new w02(0));
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pe3Var) == null) {
+                m12 m12Var = new m12();
+                String z = this.b.z(pe3Var);
+                if (TextUtils.isEmpty(z)) {
+                    m12Var.b = 1001;
+                    m12Var.c = "openid is empty";
+                    this.b.d(this.a, m12Var);
+                    return;
                 }
+                m12Var.g("openid", z);
+                m12Var.b = 0;
+                this.b.d(this.a, m12Var);
             }
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948256058, "Lcom/baidu/tieba/vx1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948256058, "Lcom/baidu/tieba/vx1;");
+                return;
+            }
+        }
+        f = wp1.a;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vx1(@NonNull xw1 xw1Var) {
-        super(xw1Var);
+    public vx1(@NonNull nx1 nx1Var) {
+        super(nx1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xw1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {nx1Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((xw1) newInitContext.callArgs[0]);
+                super((nx1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    public w02 x(String str) {
+    public m12 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#stopPullDownRefresh", false);
-            Pair<w02, JSONObject> s = s(str);
-            w02 w02Var = (w02) s.first;
-            if (!w02Var.isSuccess()) {
-                return w02Var;
+            q("#getOpenId", false);
+            if (f) {
+                Log.d("OpenIdApi", "#getOpenId params = " + str);
+            }
+            Pair<m12, JSONObject> s = s(str);
+            if (!((m12) s.first).isSuccess()) {
+                return (m12) s.first;
             }
             String optString = ((JSONObject) s.second).optString("cb");
             if (TextUtils.isEmpty(optString)) {
-                p("cb is empty", null, true);
-                return new w02(1001, "cb is empty");
+                return new m12(202, "cb is empty");
             }
-            qm3.e0(new a(this, optString));
-            return w02.f();
+            te3 f2 = l93.K().x().a().b().f(l93.K());
+            f2.o(new a(this, optString));
+            f2.call();
+            return m12.f();
         }
-        return (w02) invokeL.objValue;
+        return (m12) invokeL.objValue;
+    }
+
+    public final String z(pe3<JSONObject> pe3Var) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pe3Var)) == null) {
+            if (pe3Var.c() && (jSONObject = pe3Var.a) != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+                return optJSONObject.optString("openid");
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
     }
 }

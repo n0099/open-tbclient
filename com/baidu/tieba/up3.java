@@ -1,27 +1,40 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class up3 {
+public class up3 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile tp3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized tp3 a() {
-        InterceptResult invokeV;
-        tp3 tp3Var;
+    public up3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (up3.class) {
-                if (a == null) {
-                    a = new tp3();
-                }
-                tp3Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return tp3Var;
         }
-        return (tp3) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            Bundle bundle2 = new Bundle();
+            bundle2.putString("result", np3.x(getAgent().getContext()));
+            return bundle2;
+        }
+        return (Bundle) invokeL.objValue;
     }
 }

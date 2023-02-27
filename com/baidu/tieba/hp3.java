@@ -1,53 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hp3 extends ActivityDelegation implements ip1 {
+public class hp3 {
     public static /* synthetic */ Interceptable $ic;
+    public static jp3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public hp3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
+    @NonNull
+    public static jp3 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.mParams.getBoolean("key_login_force", false) && xo3.E(getAgent())) {
-                this.mResult.putInt("result_code", 0);
-                finish();
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (a == null) {
+                a = new jp3("0");
             }
-            xo3.L(getAgent(), this.mParams.getBundle("key_login_params"), this);
-            return false;
+            return a;
         }
-        return invokeV.booleanValue;
+        return (jp3) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ip1
-    public void onResult(int i) {
+    public static void b(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.mResult.putInt("result_code", i);
-            finish();
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            jp3 jp3Var = a;
+            if (jp3Var == null) {
+                a = new jp3(str);
+            } else {
+                jp3Var.n(str);
+            }
         }
     }
 }

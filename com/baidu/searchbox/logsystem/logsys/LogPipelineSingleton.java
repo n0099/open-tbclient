@@ -3,154 +3,87 @@ package com.baidu.searchbox.logsystem.logsys;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.java.Supplier;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.logsystem.logsys.CrashUtil;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LogPipelineSingleton {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String CRASH_PAD_DIR = "crashpad";
     public static final String TAG = "LogPipelineSingleton";
     public static volatile LogPipelineSingleton sInstance;
-    public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public LogSystemConfig mLogSystemConfig;
 
     public LogPipelineSingleton(@NonNull LogSystemConfig logSystemConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {logSystemConfig};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mLogSystemConfig = logSystemConfig;
     }
 
     public static synchronized void initialize(@NonNull LogSystemConfig logSystemConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, logSystemConfig) == null) {
-            synchronized (LogPipelineSingleton.class) {
-                sInstance = new LogPipelineSingleton(logSystemConfig);
-            }
+        synchronized (LogPipelineSingleton.class) {
+            sInstance = new LogPipelineSingleton(logSystemConfig);
         }
+    }
+
+    public static File obtainFileDirWithProcessName(@NonNull String str) {
+        File file = getInstance().getLogStoreDirSupplier().get();
+        if (TextUtils.isEmpty(str)) {
+            return file;
+        }
+        return new File(file, str.replace(":", "_"));
     }
 
     @Nullable
     public File getProcessCrashpadDir(@NonNull CrashUtil.CrashTAG crashTAG) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, crashTAG)) == null) {
-            String crashTAG2 = CrashUtil.CrashTAG.getCrashTAG(crashTAG);
-            if (!TextUtils.isEmpty(crashTAG2)) {
-                return new File(getCrashRootDir(), crashTAG2);
-            }
-            return null;
+        String crashTAG2 = CrashUtil.CrashTAG.getCrashTAG(crashTAG);
+        if (!TextUtils.isEmpty(crashTAG2)) {
+            return new File(getCrashRootDir(), crashTAG2);
         }
-        return (File) invokeL.objValue;
+        return null;
     }
 
     @NonNull
     public static LogPipelineSingleton getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (sInstance == null) {
-                synchronized (LogPipelineSingleton.class) {
-                    if (sInstance == null) {
-                        initialize();
-                    }
+        if (sInstance == null) {
+            synchronized (LogPipelineSingleton.class) {
+                if (sInstance == null) {
+                    initialize();
                 }
             }
-            return sInstance;
         }
-        return (LogPipelineSingleton) invokeV.objValue;
+        return sInstance;
     }
 
     public static void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            LogSystemConfig.init();
-        }
+        LogSystemConfig.init();
     }
 
     public static synchronized void initialize() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            synchronized (LogPipelineSingleton.class) {
-                initialize(LogSystemConfig.newBuilder(AppRuntime.getAppContext()).build());
-            }
+        synchronized (LogPipelineSingleton.class) {
+            initialize(LogSystemConfig.newBuilder(AppRuntime.getAppContext()).build());
         }
     }
 
     public File getCrashRootDir() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new File(getLogStoreDirSupplier().get(), CRASH_PAD_DIR);
-        }
-        return (File) invokeV.objValue;
+        return new File(getLogStoreDirSupplier().get(), CRASH_PAD_DIR);
     }
 
     @NonNull
     public Supplier<File> getLogStoreDirSupplier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mLogSystemConfig.getLogDiskStoreConfig().getLogStoreRootDirSupplier();
-        }
-        return (Supplier) invokeV.objValue;
+        return this.mLogSystemConfig.getLogDiskStoreConfig().getLogStoreRootDirSupplier();
     }
 
     @NonNull
     public File getProcessCrashpadDir() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new File(getCrashRootDir(), CrashUtil.getCrashTAG());
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File obtainFileDirWithProcessName(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            File file = getInstance().getLogStoreDirSupplier().get();
-            if (TextUtils.isEmpty(str)) {
-                return file;
-            }
-            return new File(file, str.replace(":", "_"));
-        }
-        return (File) invokeL.objValue;
+        return new File(getCrashRootDir(), CrashUtil.getCrashTAG());
     }
 
     @Nullable
     public File getProcessCrashpadDir(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            CrashUtil.CrashTAG crashTAG = CrashUtil.CrashTAG.getCrashTAG(str);
-            if (crashTAG != null) {
-                return getProcessCrashpadDir(crashTAG);
-            }
-            return null;
+        CrashUtil.CrashTAG crashTAG = CrashUtil.CrashTAG.getCrashTAG(str);
+        if (crashTAG != null) {
+            return getProcessCrashpadDir(crashTAG);
         }
-        return (File) invokeL.objValue;
+        return null;
     }
 }

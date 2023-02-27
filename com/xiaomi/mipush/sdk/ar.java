@@ -3,36 +3,15 @@ package com.xiaomi.mipush.sdk;
 import android.content.Context;
 import android.database.ContentObserver;
 import android.os.Handler;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.push.bj;
+import com.xiaomi.push.bi;
 import com.xiaomi.push.service.bn;
 /* loaded from: classes8.dex */
 public class ar extends ContentObserver {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ ao a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ar(ao aoVar, Handler handler) {
         super(handler);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aoVar, handler};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Handler) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.a = aoVar;
     }
 
@@ -42,19 +21,16 @@ public class ar extends ContentObserver {
         Integer num;
         Context context2;
         Context context3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            ao aoVar = this.a;
-            context = aoVar.f80a;
-            aoVar.f84a = Integer.valueOf(bn.a(context).a());
-            num = this.a.f84a;
-            if (num.intValue() != 0) {
-                context2 = this.a.f80a;
-                context2.getContentResolver().unregisterContentObserver(this);
-                context3 = this.a.f80a;
-                if (bj.b(context3)) {
-                    this.a.m144c();
-                }
+        ao aoVar = this.a;
+        context = aoVar.f58a;
+        aoVar.f62a = Integer.valueOf(bn.a(context).a());
+        num = this.a.f62a;
+        if (num.intValue() != 0) {
+            context2 = this.a.f58a;
+            context2.getContentResolver().unregisterContentObserver(this);
+            context3 = this.a.f58a;
+            if (bi.b(context3)) {
+                this.a.m138c();
             }
         }
     }

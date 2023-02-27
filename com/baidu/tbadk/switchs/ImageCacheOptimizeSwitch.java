@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.p35;
+import com.baidu.tieba.b55;
 import com.baidu.tieba.qf;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-@Metadata(d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0011\n\u0002\u0010\u000e\n\u0002\b\u0007\u0018\u0000 \u000f2\u00020\u0001:\u0001\u000fB\u0005¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0014J\u0017\u0010\u0007\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010\t\u0018\u00010\bH\u0014¢\u0006\u0002\u0010\nJ\b\u0010\u000b\u001a\u00020\u0006H\u0014J\b\u0010\f\u001a\u00020\u0006H\u0014J\b\u0010\r\u001a\u00020\tH\u0014J\b\u0010\u000e\u001a\u00020\u0006H\u0014¨\u0006\u0010"}, d2 = {"Lcom/baidu/tbadk/switchs/ImageCacheOptimizeSwitch;", "Lcom/baidu/adp/lib/featureSwitch/AbstractSwitch;", "()V", "changeSettingByType", "", "type", "", "getCrashKeys", "", "", "()[Ljava/lang/String;", "getDefaultType", "getMaxCrashTimes", "getName", "getOffType", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+@Metadata(d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0011\n\u0002\u0010\u000e\n\u0002\b\u0007\u0018\u0000 \u000f2\u00020\u0001:\u0001\u000fB\u0005¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0014J\u0017\u0010\u0007\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010\t\u0018\u00010\bH\u0014¢\u0006\u0002\u0010\nJ\b\u0010\u000b\u001a\u00020\u0006H\u0014J\b\u0010\f\u001a\u00020\u0006H\u0014J\b\u0010\r\u001a\u00020\tH\u0014J\b\u0010\u000e\u001a\u00020\u0006H\u0014¨\u0006\u0010"}, d2 = {"Lcom/baidu/tbadk/switchs/ImageCacheOptimizeSwitch;", "Lcom/baidu/adp/lib/featureSwitch/AbstractSwitch;", "()V", "changeSettingByType", "", "type", "", "getCrashKeys", "", "", "()[Ljava/lang/String;", "getDefaultType", "getMaxCrashTimes", "getName", "getOffType", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes3.dex */
 public final class ImageCacheOptimizeSwitch extends qf {
     public static /* synthetic */ Interceptable $ic = null;
@@ -84,7 +84,7 @@ public final class ImageCacheOptimizeSwitch extends qf {
         return invokeV.intValue;
     }
 
-    @Metadata(d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0002\b\u0006\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\b\u0010\u000b\u001a\u00020\u0006H\u0007R\u000e\u0010\u0003\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u001a\u0010\u0005\u001a\u00020\u0006X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0007\u0010\b\"\u0004\b\t\u0010\n¨\u0006\f"}, d2 = {"Lcom/baidu/tbadk/switchs/ImageCacheOptimizeSwitch$Companion;", "", "()V", "KEY", "", "resultCachesize", "", "getResultCachesize", "()I", "setResultCachesize", "(I)V", "cacheSize", "tbadkcore_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+    @Metadata(d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0002\b\u0006\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\b\u0010\u000b\u001a\u00020\u0006H\u0007R\u000e\u0010\u0003\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u001a\u0010\u0005\u001a\u00020\u0006X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0007\u0010\b\"\u0004\b\t\u0010\n¨\u0006\f"}, d2 = {"Lcom/baidu/tbadk/switchs/ImageCacheOptimizeSwitch$Companion;", "", "()V", "KEY", "", "resultCachesize", "", "getResultCachesize", "()I", "setResultCachesize", "(I)V", "cacheSize", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes3.dex */
     public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
@@ -114,7 +114,7 @@ public final class ImageCacheOptimizeSwitch extends qf {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (getResultCachesize() == -1) {
-                    setResultCachesize(p35.m().n(ImageCacheOptimizeSwitch.KEY, 0));
+                    setResultCachesize(b55.m().n(ImageCacheOptimizeSwitch.KEY, 0));
                 }
                 return getResultCachesize();
             }

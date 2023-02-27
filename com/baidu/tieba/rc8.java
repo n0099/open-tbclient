@@ -1,147 +1,52 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewConfiguration;
-import android.view.ViewStub;
-import android.webkit.WebView;
-import android.widget.LinearLayout;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.pb.view.PbGiftListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.ExcPbPage.ExcContent;
+import tbclient.ExcPbPage.ExcellentPbThreadInfo;
+import tbclient.ExcPbPage.UserInfo;
+import tbclient.Post;
+import tbclient.User;
 /* loaded from: classes6.dex */
-public class rc8 {
+public class rc8 implements tc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ViewStub b;
-    public PbGiftListView c;
-    public ViewStub d;
-    public LinearLayout e;
-    public View f;
-    public BaseWebView g;
+    public UserInfo a;
+    public ExcellentPbThreadInfo b;
+    public List<Post> c;
+    public List<User> d;
 
-    public void f(int i) {
+    @Override // com.baidu.tieba.tc8
+    public int getErroCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
         }
+        return invokeV.intValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class a implements BaseWebView.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
-        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
+    @Override // com.baidu.tieba.tc8
+    public String getErrorText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
-
-        public a(rc8 rc8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rc8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        return (String) invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements BaseWebView.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(rc8 rc8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rc8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
-        public void onPageFinished(WebView webView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                webView.loadUrl("javascript:(function(){var iframe=document.getElementsByClassName(\"video_iframe\");if(iframe&&iframe.length>0){for(var i=iframe.length-1;i>=0;i--){iframe[i].contentWindow.document.getElementsByClassName(\"tvp_fullscreen_button\")[0].style.display=\"none\"}}})();");
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rc8 a;
-
-        public c(rc8 rc8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rc8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rc8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a.g != null) {
-                        this.a.g.destroy();
-                        this.a.g = null;
-                    }
-                } catch (Throwable th) {
-                    BdLog.e(th);
-                }
-            }
-        }
-    }
-
-    public rc8(View view2) {
+    public rc8(UserInfo userInfo, ExcellentPbThreadInfo excellentPbThreadInfo, List<Post> list, List<User> list2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {userInfo, excellentPbThreadInfo, list, list2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -151,101 +56,64 @@ public class rc8 {
                 return;
             }
         }
-        this.a = view2;
-        this.b = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f090d5a);
-        this.d = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f091419);
+        this.a = userInfo;
+        this.b = excellentPbThreadInfo;
+        this.c = list;
+        this.d = list2;
     }
 
-    public void a() {
-        BaseWebView baseWebView;
+    @Override // com.baidu.tieba.tc8
+    public List<Post> getPostList() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (baseWebView = this.g) != null) {
-            baseWebView.removeAllViews();
-            this.g.getSettings().setBuiltInZoomControls(true);
-            this.g.setVisibility(8);
-            gh.a().postDelayed(new c(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
+        return (List) invokeV.objValue;
     }
 
-    public void b(vy4 vy4Var, String str, String str2, long j, long j2, long j3) {
-        ViewStub viewStub;
+    @Override // com.baidu.tieba.tc8
+    public ExcellentPbThreadInfo getThreadInfo() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{vy4Var, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            if (vy4Var != null && !ListUtils.isEmpty(vy4Var.a()) && (viewStub = this.b) != null) {
-                if (this.c == null) {
-                    this.c = (PbGiftListView) viewStub.inflate();
-                }
-                this.c.setVisibility(0);
-                this.c.g(vy4Var, str, str2, j, j2, j3);
-                this.c.i();
-                return;
-            }
-            PbGiftListView pbGiftListView = this.c;
-            if (pbGiftListView != null) {
-                pbGiftListView.setVisibility(8);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
         }
+        return (ExcellentPbThreadInfo) invokeV.objValue;
     }
 
-    public void c(ky4 ky4Var) {
+    @Override // com.baidu.tieba.tc8
+    public UserInfo getUserInfo() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ky4Var) == null) && ky4Var != null && !dj.isEmpty(ky4Var.e())) {
-            BaseWebView baseWebView = this.g;
-            if ((baseWebView == null || !baseWebView.getIsLoaded()) && ky4Var.c() == ky4.g && this.d != null) {
-                if (ky4Var.f()) {
-                    LinearLayout linearLayout = this.e;
-                    if (linearLayout != null) {
-                        linearLayout.setVisibility(8);
-                        return;
-                    }
-                    return;
-                }
-                if (this.e == null) {
-                    LinearLayout linearLayout2 = (LinearLayout) this.d.inflate();
-                    this.e = linearLayout2;
-                    this.f = linearLayout2.findViewById(R.id.obfuscated_res_0x7f091414);
-                    this.g = (BaseWebView) this.e.findViewById(R.id.obfuscated_res_0x7f09141a);
-                }
-                this.f.setVisibility(0);
-                SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
-                this.g.setVisibility(0);
-                this.g.setFocusable(false);
-                this.g.setBackgroundColor(0);
-                this.g.getSettings().setCacheMode(-1);
-                this.g.setVerticalScrollBarEnabled(false);
-                this.g.setHorizontalScrollBarEnabled(false);
-                this.g.getSettings().setAllowFileAccess(true);
-                this.g.getSettings().setAppCacheEnabled(true);
-                this.g.getSettings().setDomStorageEnabled(true);
-                this.g.getSettings().setDatabaseEnabled(true);
-                this.g.setOnLoadUrlListener(new a(this));
-                this.g.setOnPageFinishedListener(new b(this));
-                this.g.loadUrl(ky4Var.e());
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
         }
+        return (UserInfo) invokeV.objValue;
     }
 
-    public void d() {
-        BaseWebView baseWebView;
+    @Override // com.baidu.tieba.tc8
+    public List<User> getUserList() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (baseWebView = this.g) != null) {
-            try {
-                baseWebView.onPause();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
         }
+        return (List) invokeV.objValue;
     }
 
-    public void e() {
-        BaseWebView baseWebView;
+    @Override // com.baidu.tieba.tc8
+    public boolean isEmpty() {
+        InterceptResult invokeV;
+        List<ExcContent> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (baseWebView = this.g) != null) {
-            try {
-                baseWebView.onResume();
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ExcellentPbThreadInfo excellentPbThreadInfo = this.b;
+            if (excellentPbThreadInfo == null || (list = excellentPbThreadInfo.content) == null || list.size() <= 0) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 }

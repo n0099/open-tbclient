@@ -24,9 +24,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class WebViewActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String FROM_SCHEMA = "isFromSchema";
     public static final String PAGE_TYPE = "page=";
+    public static final String TAG_ADD_PARMAS = "isAddParam";
     public static final String TAG_AD_DEEPLINK_URL = "tag_ad_deeplink_url";
     public static final String TAG_AD_EXT_INFO = "tag_ad_ext_info";
+    public static final String TAG_AUTO_PLAY_VIDEO = "isAutoPlay";
     public static final String TAG_BUNDLE = "tag_bundle";
     public static final String TAG_COOKIE = "tag_cookie";
     public static final String TAG_CUSTOM_MORE_JUMP = "tag_custom_more_jump";
@@ -141,107 +144,114 @@ public class WebViewActivityConfig extends IntentConfig {
         }
     }
 
+    public void setAutoPlay(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && getIntent() != null) {
+            getIntent().putExtra(TAG_AUTO_PLAY_VIDEO, z);
+        }
+    }
+
     public void setBundle(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_BUNDLE, bundle);
         }
     }
 
     public void setCustomMoreHelp(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_CUSTOM_MORE_JUMP, z);
         }
     }
 
     public void setFixTitle(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_FIX_TITLE, z);
         }
     }
 
     public void setLoadType(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_LOAD_BY_WEB_CLIENT, z);
         }
     }
 
     public void setLoadingStyle(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_LOADING_STYLE, i);
         }
     }
 
     public void setLoadingSwitch(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_SHOW_LOADING_SWITCH, i);
         }
     }
 
     public void setNeedImmerSiveSticky(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_NEED_STYLE_IMMERSIVE_STICKY, z);
         }
     }
 
     public void setNoClose(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048587, this, z) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_NO_CLOSE, z);
         }
     }
 
     public void setNoHelp(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048587, this, z) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048588, this, z) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_NO_HELP, z);
         }
     }
 
     public void setNoMenu(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048588, this, z) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048589, this, z) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_NO_MENU, z);
         }
     }
 
     public void setNoShare(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048589, this, z) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048590, this, z) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_NO_SHARE, z);
         }
     }
 
     public void setPageTranslucent(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048591, this, str) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_PAGE_TRANSLUCENT, str);
         }
     }
 
     public void setTextAutoSize(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048591, this, z) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048592, this, z) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_TEXT_AUTO_SIZE, z);
         }
     }
 
     public void setTranslucentAutoClose(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048592, this, z) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048593, this, z) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_TRANSLUCENT_AUTO_CLOSE, z);
         }
     }
 
     public void setWebDialogName(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048594, this, str) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_WEB_DIALOG_NAME, str);
         }
     }

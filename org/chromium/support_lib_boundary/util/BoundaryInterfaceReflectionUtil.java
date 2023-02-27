@@ -3,15 +3,6 @@ package org.chromium.support_lib_boundary.util;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -22,191 +13,89 @@ import java.util.Collection;
 /* loaded from: classes9.dex */
 public class BoundaryInterfaceReflectionUtil {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1413741229, "Lorg/chromium/support_lib_boundary/util/BoundaryInterfaceReflectionUtil;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1413741229, "Lorg/chromium/support_lib_boundary/util/BoundaryInterfaceReflectionUtil;");
-        }
-    }
 
     @TargetApi(19)
     /* loaded from: classes9.dex */
     public static class InvocationHandlerWithDelegateGetter implements InvocationHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final Object mDelegate;
 
         public InvocationHandlerWithDelegateGetter(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {obj};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.mDelegate = obj;
         }
 
         public Object getDelegate() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.mDelegate;
-            }
-            return invokeV.objValue;
+            return this.mDelegate;
         }
 
         @Override // java.lang.reflect.InvocationHandler
         public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, method, objArr)) == null) {
-                try {
-                    return BoundaryInterfaceReflectionUtil.dupeMethod(method, this.mDelegate.getClass().getClassLoader()).invoke(this.mDelegate, objArr);
-                } catch (InvocationTargetException e) {
-                    throw e.getTargetException();
-                } catch (ReflectiveOperationException e2) {
-                    throw new RuntimeException("Reflection failed for method " + method, e2);
-                }
-            }
-            return invokeLLL.objValue;
-        }
-    }
-
-    public BoundaryInterfaceReflectionUtil() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            try {
+                return BoundaryInterfaceReflectionUtil.dupeMethod(method, this.mDelegate.getClass().getClassLoader()).invoke(this.mDelegate, objArr);
+            } catch (InvocationTargetException e) {
+                throw e.getTargetException();
+            } catch (ReflectiveOperationException e2) {
+                throw new RuntimeException("Reflection failed for method " + method, e2);
             }
         }
     }
 
     public static boolean isDebuggable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (!"eng".equals(Build.TYPE) && !"userdebug".equals(Build.TYPE)) {
-                return false;
-            }
-            return true;
+        if (!"eng".equals(Build.TYPE) && !"userdebug".equals(Build.TYPE)) {
+            return false;
         }
-        return invokeV.booleanValue;
+        return true;
     }
 
     public static <T> T castToSuppLibClass(Class<T> cls, InvocationHandler invocationHandler) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, invocationHandler)) == null) {
-            return cls.cast(Proxy.newProxyInstance(BoundaryInterfaceReflectionUtil.class.getClassLoader(), new Class[]{cls}, invocationHandler));
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public static boolean containsFeature(String[] strArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr, str)) == null) {
-            return containsFeature(Arrays.asList(strArr), str);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static Method dupeMethod(Method method, ClassLoader classLoader) throws ClassNotFoundException, NoSuchMethodException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, method, classLoader)) == null) {
-            return Class.forName(method.getDeclaringClass().getName(), true, classLoader).getDeclaredMethod(method.getName(), method.getParameterTypes());
-        }
-        return (Method) invokeLL.objValue;
-    }
-
-    public static boolean instanceOfInOwnClassLoader(Object obj, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, obj, str)) == null) {
-            try {
-                return Class.forName(str, false, obj.getClass().getClassLoader()).isInstance(obj);
-            } catch (ClassNotFoundException unused) {
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
+        return cls.cast(Proxy.newProxyInstance(BoundaryInterfaceReflectionUtil.class.getClassLoader(), new Class[]{cls}, invocationHandler));
     }
 
     public static boolean containsFeature(Collection<String> collection, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, collection, str)) == null) {
-            if (!collection.contains(str)) {
-                if (isDebuggable()) {
-                    if (collection.contains(str + Features.DEV_SUFFIX)) {
-                    }
+        if (!collection.contains(str)) {
+            if (isDebuggable()) {
+                if (collection.contains(str + Features.DEV_SUFFIX)) {
                 }
-                return false;
             }
-            return true;
+            return false;
         }
-        return invokeLL.booleanValue;
+        return true;
+    }
+
+    public static Method dupeMethod(Method method, ClassLoader classLoader) throws ClassNotFoundException, NoSuchMethodException {
+        return Class.forName(method.getDeclaringClass().getName(), true, classLoader).getDeclaredMethod(method.getName(), method.getParameterTypes());
+    }
+
+    public static boolean instanceOfInOwnClassLoader(Object obj, String str) {
+        try {
+            return Class.forName(str, false, obj.getClass().getClassLoader()).isInstance(obj);
+        } catch (ClassNotFoundException unused) {
+            return false;
+        }
+    }
+
+    public static boolean containsFeature(String[] strArr, String str) {
+        return containsFeature(Arrays.asList(strArr), str);
     }
 
     @TargetApi(19)
     public static InvocationHandler createInvocationHandlerFor(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) {
-            return new InvocationHandlerWithDelegateGetter(obj);
-        }
-        return (InvocationHandler) invokeL.objValue;
+        return new InvocationHandlerWithDelegateGetter(obj);
     }
 
     @TargetApi(19)
     public static InvocationHandler[] createInvocationHandlersForArray(Object[] objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, objArr)) == null) {
-            if (objArr == null) {
-                return null;
-            }
-            int length = objArr.length;
-            InvocationHandler[] invocationHandlerArr = new InvocationHandler[length];
-            for (int i = 0; i < length; i++) {
-                invocationHandlerArr[i] = createInvocationHandlerFor(objArr[i]);
-            }
-            return invocationHandlerArr;
+        if (objArr == null) {
+            return null;
         }
-        return (InvocationHandler[]) invokeL.objValue;
+        int length = objArr.length;
+        InvocationHandler[] invocationHandlerArr = new InvocationHandler[length];
+        for (int i = 0; i < length; i++) {
+            invocationHandlerArr[i] = createInvocationHandlerFor(objArr[i]);
+        }
+        return invocationHandlerArr;
     }
 
     public static Object getDelegateFromInvocationHandler(InvocationHandler invocationHandler) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, invocationHandler)) == null) {
-            return ((InvocationHandlerWithDelegateGetter) invocationHandler).getDelegate();
-        }
-        return invokeL.objValue;
+        return ((InvocationHandlerWithDelegateGetter) invocationHandler).getDelegate();
     }
 }

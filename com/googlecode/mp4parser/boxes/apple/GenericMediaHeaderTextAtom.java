@@ -1,14 +1,5 @@
 package com.googlecode.mp4parser.boxes.apple;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.googlecode.mp4parser.AbstractBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
@@ -17,7 +8,6 @@ import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
 /* loaded from: classes8.dex */
 public class GenericMediaHeaderTextAtom extends AbstractBox {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "text";
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
@@ -37,7 +27,6 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_7 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_8 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_9 = null;
-    public transient /* synthetic */ FieldHolder $fh;
     public int unknown_1;
     public int unknown_2;
     public int unknown_3;
@@ -50,139 +39,63 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 36L;
-        }
-        return invokeV.longValue;
+        return 36L;
     }
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1412126922, "Lcom/googlecode/mp4parser/boxes/apple/GenericMediaHeaderTextAtom;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1412126922, "Lcom/googlecode/mp4parser/boxes/apple/GenericMediaHeaderTextAtom;");
-                return;
-            }
-        }
         ajc$preClinit();
     }
 
-    public int getUnknown_1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.unknown_1;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getUnknown_2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return this.unknown_2;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getUnknown_3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
-            return this.unknown_3;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getUnknown_4() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this));
-            return this.unknown_4;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getUnknown_5() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this));
-            return this.unknown_5;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getUnknown_6() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_10, this, this));
-            return this.unknown_6;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getUnknown_7() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_12, this, this));
-            return this.unknown_7;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getUnknown_8() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_14, this, this));
-            return this.unknown_8;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getUnknown_9() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_16, this, this));
-            return this.unknown_9;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GenericMediaHeaderTextAtom() {
         super("text");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.unknown_1 = 65536;
         this.unknown_5 = 65536;
         this.unknown_9 = 1073741824;
+    }
+
+    public int getUnknown_1() {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+        return this.unknown_1;
+    }
+
+    public int getUnknown_2() {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+        return this.unknown_2;
+    }
+
+    public int getUnknown_3() {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
+        return this.unknown_3;
+    }
+
+    public int getUnknown_4() {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this));
+        return this.unknown_4;
+    }
+
+    public int getUnknown_5() {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this));
+        return this.unknown_5;
+    }
+
+    public int getUnknown_6() {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_10, this, this));
+        return this.unknown_6;
+    }
+
+    public int getUnknown_7() {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_12, this, this));
+        return this.unknown_7;
+    }
+
+    public int getUnknown_8() {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_14, this, this));
+        return this.unknown_8;
+    }
+
+    public int getUnknown_9() {
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_16, this, this));
+        return this.unknown_9;
     }
 
     public static /* synthetic */ void ajc$preClinit() {
@@ -209,105 +122,72 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void _parseDetails(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
-            this.unknown_1 = byteBuffer.getInt();
-            this.unknown_2 = byteBuffer.getInt();
-            this.unknown_3 = byteBuffer.getInt();
-            this.unknown_4 = byteBuffer.getInt();
-            this.unknown_5 = byteBuffer.getInt();
-            this.unknown_6 = byteBuffer.getInt();
-            this.unknown_7 = byteBuffer.getInt();
-            this.unknown_8 = byteBuffer.getInt();
-            this.unknown_9 = byteBuffer.getInt();
-        }
+        this.unknown_1 = byteBuffer.getInt();
+        this.unknown_2 = byteBuffer.getInt();
+        this.unknown_3 = byteBuffer.getInt();
+        this.unknown_4 = byteBuffer.getInt();
+        this.unknown_5 = byteBuffer.getInt();
+        this.unknown_6 = byteBuffer.getInt();
+        this.unknown_7 = byteBuffer.getInt();
+        this.unknown_8 = byteBuffer.getInt();
+        this.unknown_9 = byteBuffer.getInt();
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void getContent(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
-            byteBuffer.putInt(this.unknown_1);
-            byteBuffer.putInt(this.unknown_2);
-            byteBuffer.putInt(this.unknown_3);
-            byteBuffer.putInt(this.unknown_4);
-            byteBuffer.putInt(this.unknown_5);
-            byteBuffer.putInt(this.unknown_6);
-            byteBuffer.putInt(this.unknown_7);
-            byteBuffer.putInt(this.unknown_8);
-            byteBuffer.putInt(this.unknown_9);
-        }
+        byteBuffer.putInt(this.unknown_1);
+        byteBuffer.putInt(this.unknown_2);
+        byteBuffer.putInt(this.unknown_3);
+        byteBuffer.putInt(this.unknown_4);
+        byteBuffer.putInt(this.unknown_5);
+        byteBuffer.putInt(this.unknown_6);
+        byteBuffer.putInt(this.unknown_7);
+        byteBuffer.putInt(this.unknown_8);
+        byteBuffer.putInt(this.unknown_9);
     }
 
     public void setUnknown_1(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i)));
-            this.unknown_1 = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i)));
+        this.unknown_1 = i;
     }
 
     public void setUnknown_2(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i)));
-            this.unknown_2 = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i)));
+        this.unknown_2 = i;
     }
 
     public void setUnknown_3(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.intObject(i)));
-            this.unknown_3 = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.intObject(i)));
+        this.unknown_3 = i;
     }
 
     public void setUnknown_4(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.intObject(i)));
-            this.unknown_4 = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.intObject(i)));
+        this.unknown_4 = i;
     }
 
     public void setUnknown_5(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_9, this, this, Conversions.intObject(i)));
-            this.unknown_5 = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_9, this, this, Conversions.intObject(i)));
+        this.unknown_5 = i;
     }
 
     public void setUnknown_6(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_11, this, this, Conversions.intObject(i)));
-            this.unknown_6 = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_11, this, this, Conversions.intObject(i)));
+        this.unknown_6 = i;
     }
 
     public void setUnknown_7(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_13, this, this, Conversions.intObject(i)));
-            this.unknown_7 = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_13, this, this, Conversions.intObject(i)));
+        this.unknown_7 = i;
     }
 
     public void setUnknown_8(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_15, this, this, Conversions.intObject(i)));
-            this.unknown_8 = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_15, this, this, Conversions.intObject(i)));
+        this.unknown_8 = i;
     }
 
     public void setUnknown_9(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_17, this, this, Conversions.intObject(i)));
-            this.unknown_9 = i;
-        }
+        RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_17, this, this, Conversions.intObject(i)));
+        this.unknown_9 = i;
     }
 }

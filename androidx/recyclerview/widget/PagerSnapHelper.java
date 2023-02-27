@@ -1,323 +1,206 @@
 package androidx.recyclerview.widget;
 
-import android.content.Context;
 import android.graphics.PointF;
 import android.util.DisplayMetrics;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class PagerSnapHelper extends SnapHelper {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SCROLL_ON_FLING_DURATION = 100;
-    public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public OrientationHelper mHorizontalHelper;
     @Nullable
     public OrientationHelper mVerticalHelper;
 
-    public PagerSnapHelper() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     private int distanceToCenter(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view2, OrientationHelper orientationHelper) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, layoutManager, view2, orientationHelper)) == null) {
-            return (orientationHelper.getDecoratedStart(view2) + (orientationHelper.getDecoratedMeasurement(view2) / 2)) - (orientationHelper.getStartAfterPadding() + (orientationHelper.getTotalSpace() / 2));
-        }
-        return invokeLLL.intValue;
+        return (orientationHelper.getDecoratedStart(view2) + (orientationHelper.getDecoratedMeasurement(view2) / 2)) - (orientationHelper.getStartAfterPadding() + (orientationHelper.getTotalSpace() / 2));
     }
 
     private boolean isForwardFling(RecyclerView.LayoutManager layoutManager, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, this, layoutManager, i, i2)) == null) {
-            if (layoutManager.canScrollHorizontally()) {
-                if (i > 0) {
-                    return true;
-                }
-                return false;
-            } else if (i2 > 0) {
+        if (layoutManager.canScrollHorizontally()) {
+            if (i > 0) {
                 return true;
-            } else {
-                return false;
             }
+            return false;
+        } else if (i2 > 0) {
+            return true;
+        } else {
+            return false;
         }
-        return invokeLII.booleanValue;
     }
 
     @Nullable
     private View findCenterView(RecyclerView.LayoutManager layoutManager, OrientationHelper orientationHelper) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, layoutManager, orientationHelper)) == null) {
-            int childCount = layoutManager.getChildCount();
-            View view2 = null;
-            if (childCount == 0) {
-                return null;
-            }
-            int startAfterPadding = orientationHelper.getStartAfterPadding() + (orientationHelper.getTotalSpace() / 2);
-            int i = Integer.MAX_VALUE;
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = layoutManager.getChildAt(i2);
-                int abs = Math.abs((orientationHelper.getDecoratedStart(childAt) + (orientationHelper.getDecoratedMeasurement(childAt) / 2)) - startAfterPadding);
-                if (abs < i) {
-                    view2 = childAt;
-                    i = abs;
-                }
-            }
-            return view2;
+        int childCount = layoutManager.getChildCount();
+        View view2 = null;
+        if (childCount == 0) {
+            return null;
         }
-        return (View) invokeLL.objValue;
+        int startAfterPadding = orientationHelper.getStartAfterPadding() + (orientationHelper.getTotalSpace() / 2);
+        int i = Integer.MAX_VALUE;
+        for (int i2 = 0; i2 < childCount; i2++) {
+            View childAt = layoutManager.getChildAt(i2);
+            int abs = Math.abs((orientationHelper.getDecoratedStart(childAt) + (orientationHelper.getDecoratedMeasurement(childAt) / 2)) - startAfterPadding);
+            if (abs < i) {
+                view2 = childAt;
+                i = abs;
+            }
+        }
+        return view2;
     }
 
     @NonNull
     private OrientationHelper getHorizontalHelper(@NonNull RecyclerView.LayoutManager layoutManager) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, layoutManager)) == null) {
-            OrientationHelper orientationHelper = this.mHorizontalHelper;
-            if (orientationHelper == null || orientationHelper.mLayoutManager != layoutManager) {
-                this.mHorizontalHelper = OrientationHelper.createHorizontalHelper(layoutManager);
-            }
-            return this.mHorizontalHelper;
+        OrientationHelper orientationHelper = this.mHorizontalHelper;
+        if (orientationHelper == null || orientationHelper.mLayoutManager != layoutManager) {
+            this.mHorizontalHelper = OrientationHelper.createHorizontalHelper(layoutManager);
         }
-        return (OrientationHelper) invokeL.objValue;
+        return this.mHorizontalHelper;
     }
 
     @Nullable
     private OrientationHelper getOrientationHelper(RecyclerView.LayoutManager layoutManager) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, layoutManager)) == null) {
-            if (layoutManager.canScrollVertically()) {
-                return getVerticalHelper(layoutManager);
-            }
-            if (layoutManager.canScrollHorizontally()) {
-                return getHorizontalHelper(layoutManager);
-            }
-            return null;
+        if (layoutManager.canScrollVertically()) {
+            return getVerticalHelper(layoutManager);
         }
-        return (OrientationHelper) invokeL.objValue;
+        if (layoutManager.canScrollHorizontally()) {
+            return getHorizontalHelper(layoutManager);
+        }
+        return null;
     }
 
     @NonNull
     private OrientationHelper getVerticalHelper(@NonNull RecyclerView.LayoutManager layoutManager) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, layoutManager)) == null) {
-            OrientationHelper orientationHelper = this.mVerticalHelper;
-            if (orientationHelper == null || orientationHelper.mLayoutManager != layoutManager) {
-                this.mVerticalHelper = OrientationHelper.createVerticalHelper(layoutManager);
-            }
-            return this.mVerticalHelper;
+        OrientationHelper orientationHelper = this.mVerticalHelper;
+        if (orientationHelper == null || orientationHelper.mLayoutManager != layoutManager) {
+            this.mVerticalHelper = OrientationHelper.createVerticalHelper(layoutManager);
         }
-        return (OrientationHelper) invokeL.objValue;
+        return this.mVerticalHelper;
+    }
+
+    private boolean isReverseLayout(RecyclerView.LayoutManager layoutManager) {
+        PointF computeScrollVectorForPosition;
+        int itemCount = layoutManager.getItemCount();
+        if (!(layoutManager instanceof RecyclerView.SmoothScroller.ScrollVectorProvider) || (computeScrollVectorForPosition = ((RecyclerView.SmoothScroller.ScrollVectorProvider) layoutManager).computeScrollVectorForPosition(itemCount - 1)) == null) {
+            return false;
+        }
+        if (computeScrollVectorForPosition.x >= 0.0f && computeScrollVectorForPosition.y >= 0.0f) {
+            return false;
+        }
+        return true;
     }
 
     @Override // androidx.recyclerview.widget.SnapHelper
     public LinearSmoothScroller createSnapScroller(RecyclerView.LayoutManager layoutManager) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutManager)) == null) {
-            if (!(layoutManager instanceof RecyclerView.SmoothScroller.ScrollVectorProvider)) {
-                return null;
-            }
-            return new LinearSmoothScroller(this, this.mRecyclerView.getContext()) { // from class: androidx.recyclerview.widget.PagerSnapHelper.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ PagerSnapHelper this$0;
-
-                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                {
-                    super(r8);
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, r8};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            super((Context) newInitContext.callArgs[0]);
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // androidx.recyclerview.widget.LinearSmoothScroller
-                public float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
-                    InterceptResult invokeL2;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, displayMetrics)) == null) {
-                        return 100.0f / displayMetrics.densityDpi;
-                    }
-                    return invokeL2.floatValue;
-                }
-
-                @Override // androidx.recyclerview.widget.LinearSmoothScroller
-                public int calculateTimeForScrolling(int i) {
-                    InterceptResult invokeI;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-                        return Math.min(100, super.calculateTimeForScrolling(i));
-                    }
-                    return invokeI.intValue;
-                }
-
-                @Override // androidx.recyclerview.widget.LinearSmoothScroller, androidx.recyclerview.widget.RecyclerView.SmoothScroller
-                public void onTargetFound(View view2, RecyclerView.State state, RecyclerView.SmoothScroller.Action action) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, view2, state, action) == null) {
-                        PagerSnapHelper pagerSnapHelper = this.this$0;
-                        int[] calculateDistanceToFinalSnap = pagerSnapHelper.calculateDistanceToFinalSnap(pagerSnapHelper.mRecyclerView.getLayoutManager(), view2);
-                        int i = calculateDistanceToFinalSnap[0];
-                        int i2 = calculateDistanceToFinalSnap[1];
-                        int calculateTimeForDeceleration = calculateTimeForDeceleration(Math.max(Math.abs(i), Math.abs(i2)));
-                        if (calculateTimeForDeceleration > 0) {
-                            action.update(i, i2, calculateTimeForDeceleration, this.mDecelerateInterpolator);
-                        }
-                    }
-                }
-            };
+        if (!(layoutManager instanceof RecyclerView.SmoothScroller.ScrollVectorProvider)) {
+            return null;
         }
-        return (LinearSmoothScroller) invokeL.objValue;
-    }
+        return new LinearSmoothScroller(this.mRecyclerView.getContext()) { // from class: androidx.recyclerview.widget.PagerSnapHelper.1
+            @Override // androidx.recyclerview.widget.LinearSmoothScroller
+            public float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
+                return 100.0f / displayMetrics.densityDpi;
+            }
 
-    private boolean isReverseLayout(RecyclerView.LayoutManager layoutManager) {
-        InterceptResult invokeL;
-        PointF computeScrollVectorForPosition;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, layoutManager)) == null) {
-            int itemCount = layoutManager.getItemCount();
-            if (!(layoutManager instanceof RecyclerView.SmoothScroller.ScrollVectorProvider) || (computeScrollVectorForPosition = ((RecyclerView.SmoothScroller.ScrollVectorProvider) layoutManager).computeScrollVectorForPosition(itemCount - 1)) == null) {
-                return false;
+            @Override // androidx.recyclerview.widget.LinearSmoothScroller
+            public int calculateTimeForScrolling(int i) {
+                return Math.min(100, super.calculateTimeForScrolling(i));
             }
-            if (computeScrollVectorForPosition.x >= 0.0f && computeScrollVectorForPosition.y >= 0.0f) {
-                return false;
+
+            @Override // androidx.recyclerview.widget.LinearSmoothScroller, androidx.recyclerview.widget.RecyclerView.SmoothScroller
+            public void onTargetFound(View view2, RecyclerView.State state, RecyclerView.SmoothScroller.Action action) {
+                PagerSnapHelper pagerSnapHelper = PagerSnapHelper.this;
+                int[] calculateDistanceToFinalSnap = pagerSnapHelper.calculateDistanceToFinalSnap(pagerSnapHelper.mRecyclerView.getLayoutManager(), view2);
+                int i = calculateDistanceToFinalSnap[0];
+                int i2 = calculateDistanceToFinalSnap[1];
+                int calculateTimeForDeceleration = calculateTimeForDeceleration(Math.max(Math.abs(i), Math.abs(i2)));
+                if (calculateTimeForDeceleration > 0) {
+                    action.update(i, i2, calculateTimeForDeceleration, this.mDecelerateInterpolator);
+                }
             }
-            return true;
-        }
-        return invokeL.booleanValue;
+        };
     }
 
     @Override // androidx.recyclerview.widget.SnapHelper
     @Nullable
     public View findSnapView(RecyclerView.LayoutManager layoutManager) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutManager)) == null) {
-            if (layoutManager.canScrollVertically()) {
-                return findCenterView(layoutManager, getVerticalHelper(layoutManager));
-            }
-            if (layoutManager.canScrollHorizontally()) {
-                return findCenterView(layoutManager, getHorizontalHelper(layoutManager));
-            }
-            return null;
+        if (layoutManager.canScrollVertically()) {
+            return findCenterView(layoutManager, getVerticalHelper(layoutManager));
         }
-        return (View) invokeL.objValue;
+        if (layoutManager.canScrollHorizontally()) {
+            return findCenterView(layoutManager, getHorizontalHelper(layoutManager));
+        }
+        return null;
     }
 
     @Override // androidx.recyclerview.widget.SnapHelper
     @Nullable
     public int[] calculateDistanceToFinalSnap(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, layoutManager, view2)) == null) {
-            int[] iArr = new int[2];
-            if (layoutManager.canScrollHorizontally()) {
-                iArr[0] = distanceToCenter(layoutManager, view2, getHorizontalHelper(layoutManager));
-            } else {
-                iArr[0] = 0;
-            }
-            if (layoutManager.canScrollVertically()) {
-                iArr[1] = distanceToCenter(layoutManager, view2, getVerticalHelper(layoutManager));
-            } else {
-                iArr[1] = 0;
-            }
-            return iArr;
+        int[] iArr = new int[2];
+        if (layoutManager.canScrollHorizontally()) {
+            iArr[0] = distanceToCenter(layoutManager, view2, getHorizontalHelper(layoutManager));
+        } else {
+            iArr[0] = 0;
         }
-        return (int[]) invokeLL.objValue;
+        if (layoutManager.canScrollVertically()) {
+            iArr[1] = distanceToCenter(layoutManager, view2, getVerticalHelper(layoutManager));
+        } else {
+            iArr[1] = 0;
+        }
+        return iArr;
     }
 
     @Override // androidx.recyclerview.widget.SnapHelper
     public int findTargetSnapPosition(RecyclerView.LayoutManager layoutManager, int i, int i2) {
-        InterceptResult invokeLII;
         OrientationHelper orientationHelper;
         int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, layoutManager, i, i2)) == null) {
-            int itemCount = layoutManager.getItemCount();
-            if (itemCount == 0 || (orientationHelper = getOrientationHelper(layoutManager)) == null) {
-                return -1;
-            }
-            int i4 = Integer.MIN_VALUE;
-            int i5 = Integer.MAX_VALUE;
-            int childCount = layoutManager.getChildCount();
-            View view2 = null;
-            View view3 = null;
-            for (int i6 = 0; i6 < childCount; i6++) {
-                View childAt = layoutManager.getChildAt(i6);
-                if (childAt != null) {
-                    int distanceToCenter = distanceToCenter(layoutManager, childAt, orientationHelper);
-                    if (distanceToCenter <= 0 && distanceToCenter > i4) {
-                        view3 = childAt;
-                        i4 = distanceToCenter;
-                    }
-                    if (distanceToCenter >= 0 && distanceToCenter < i5) {
-                        view2 = childAt;
-                        i5 = distanceToCenter;
-                    }
+        int itemCount = layoutManager.getItemCount();
+        if (itemCount == 0 || (orientationHelper = getOrientationHelper(layoutManager)) == null) {
+            return -1;
+        }
+        int i4 = Integer.MIN_VALUE;
+        int i5 = Integer.MAX_VALUE;
+        int childCount = layoutManager.getChildCount();
+        View view2 = null;
+        View view3 = null;
+        for (int i6 = 0; i6 < childCount; i6++) {
+            View childAt = layoutManager.getChildAt(i6);
+            if (childAt != null) {
+                int distanceToCenter = distanceToCenter(layoutManager, childAt, orientationHelper);
+                if (distanceToCenter <= 0 && distanceToCenter > i4) {
+                    view3 = childAt;
+                    i4 = distanceToCenter;
+                }
+                if (distanceToCenter >= 0 && distanceToCenter < i5) {
+                    view2 = childAt;
+                    i5 = distanceToCenter;
                 }
             }
-            boolean isForwardFling = isForwardFling(layoutManager, i, i2);
-            if (isForwardFling && view2 != null) {
-                return layoutManager.getPosition(view2);
-            }
-            if (!isForwardFling && view3 != null) {
-                return layoutManager.getPosition(view3);
-            }
-            if (isForwardFling) {
-                view2 = view3;
-            }
-            if (view2 == null) {
-                return -1;
-            }
-            int position = layoutManager.getPosition(view2);
-            if (isReverseLayout(layoutManager) == isForwardFling) {
-                i3 = -1;
-            } else {
-                i3 = 1;
-            }
-            int i7 = position + i3;
-            if (i7 < 0 || i7 >= itemCount) {
-                return -1;
-            }
-            return i7;
         }
-        return invokeLII.intValue;
+        boolean isForwardFling = isForwardFling(layoutManager, i, i2);
+        if (isForwardFling && view2 != null) {
+            return layoutManager.getPosition(view2);
+        }
+        if (!isForwardFling && view3 != null) {
+            return layoutManager.getPosition(view3);
+        }
+        if (isForwardFling) {
+            view2 = view3;
+        }
+        if (view2 == null) {
+            return -1;
+        }
+        int position = layoutManager.getPosition(view2);
+        if (isReverseLayout(layoutManager) == isForwardFling) {
+            i3 = -1;
+        } else {
+            i3 = 1;
+        }
+        int i7 = position + i3;
+        if (i7 < 0 || i7 >= itemCount) {
+            return -1;
+        }
+        return i7;
     }
 }

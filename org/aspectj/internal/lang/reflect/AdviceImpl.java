@@ -1,13 +1,5 @@
 package org.aspectj.internal.lang.reflect;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import org.aspectj.lang.annotation.AdviceName;
@@ -18,9 +10,7 @@ import org.aspectj.lang.reflect.AjTypeSystem;
 import org.aspectj.lang.reflect.PointcutExpression;
 /* loaded from: classes9.dex */
 public class AdviceImpl implements Advice {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String AJC_INTERNAL = "org.aspectj.runtime.internal";
-    public transient /* synthetic */ FieldHolder $fh;
     public final Method adviceMethod;
     public AjType[] exceptionTypes;
     public Type[] genericParameterTypes;
@@ -33,22 +23,8 @@ public class AdviceImpl implements Advice {
     /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$aspectj$lang$reflect$AdviceKind;
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(44733281, "Lorg/aspectj/internal/lang/reflect/AdviceImpl$1;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(44733281, "Lorg/aspectj/internal/lang/reflect/AdviceImpl$1;");
-                    return;
-                }
-            }
             int[] iArr = new int[AdviceKind.values().length];
             $SwitchMap$org$aspectj$lang$reflect$AdviceKind = iArr;
             try {
@@ -75,208 +51,136 @@ public class AdviceImpl implements Advice {
     }
 
     public AdviceImpl(Method method, String str, AdviceKind adviceKind) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {method, str, adviceKind};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.hasExtraParam = false;
         this.kind = adviceKind;
         this.adviceMethod = method;
         this.pointcutExpression = new PointcutExpressionImpl(str);
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AdviceImpl(Method method, String str, AdviceKind adviceKind, String str2) {
         this(method, str, adviceKind);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {method, str, adviceKind, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Method) objArr2[0], (String) objArr2[1], (AdviceKind) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.hasExtraParam = true;
     }
 
     @Override // org.aspectj.lang.reflect.Advice
     public AjType getDeclaringType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return AjTypeSystem.getAjType(this.adviceMethod.getDeclaringClass());
-        }
-        return (AjType) invokeV.objValue;
-    }
-
-    @Override // org.aspectj.lang.reflect.Advice
-    public AdviceKind getKind() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.kind;
-        }
-        return (AdviceKind) invokeV.objValue;
-    }
-
-    @Override // org.aspectj.lang.reflect.Advice
-    public PointcutExpression getPointcutExpression() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.pointcutExpression;
-        }
-        return (PointcutExpression) invokeV.objValue;
+        return AjTypeSystem.getAjType(this.adviceMethod.getDeclaringClass());
     }
 
     @Override // org.aspectj.lang.reflect.Advice
     public AjType<?>[] getExceptionTypes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.exceptionTypes == null) {
-                Class<?>[] exceptionTypes = this.adviceMethod.getExceptionTypes();
-                this.exceptionTypes = new AjType[exceptionTypes.length];
-                for (int i = 0; i < exceptionTypes.length; i++) {
-                    this.exceptionTypes[i] = AjTypeSystem.getAjType(exceptionTypes[i]);
-                }
+        if (this.exceptionTypes == null) {
+            Class<?>[] exceptionTypes = this.adviceMethod.getExceptionTypes();
+            this.exceptionTypes = new AjType[exceptionTypes.length];
+            for (int i = 0; i < exceptionTypes.length; i++) {
+                this.exceptionTypes[i] = AjTypeSystem.getAjType(exceptionTypes[i]);
             }
-            return this.exceptionTypes;
         }
-        return (AjType[]) invokeV.objValue;
+        return this.exceptionTypes;
+    }
+
+    @Override // org.aspectj.lang.reflect.Advice
+    public AdviceKind getKind() {
+        return this.kind;
     }
 
     @Override // org.aspectj.lang.reflect.Advice
     public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String name = this.adviceMethod.getName();
-            if (name.startsWith(AjTypeImpl.ajcMagic)) {
-                AdviceName adviceName = (AdviceName) this.adviceMethod.getAnnotation(AdviceName.class);
-                if (adviceName != null) {
-                    return adviceName.value();
-                }
-                return "";
+        String name = this.adviceMethod.getName();
+        if (name.startsWith(AjTypeImpl.ajcMagic)) {
+            AdviceName adviceName = (AdviceName) this.adviceMethod.getAnnotation(AdviceName.class);
+            if (adviceName != null) {
+                return adviceName.value();
             }
-            return name;
+            return "";
         }
-        return (String) invokeV.objValue;
+        return name;
+    }
+
+    @Override // org.aspectj.lang.reflect.Advice
+    public PointcutExpression getPointcutExpression() {
+        return this.pointcutExpression;
     }
 
     @Override // org.aspectj.lang.reflect.Advice
     public Type[] getGenericParameterTypes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.genericParameterTypes == null) {
-                Type[] genericParameterTypes = this.adviceMethod.getGenericParameterTypes();
-                int i = 0;
-                int i2 = 0;
-                for (Type type : genericParameterTypes) {
-                    if ((type instanceof Class) && ((Class) type).getPackage().getName().equals(AJC_INTERNAL)) {
-                        i2++;
-                    }
-                }
-                this.genericParameterTypes = new Type[genericParameterTypes.length - i2];
-                while (true) {
-                    Type[] typeArr = this.genericParameterTypes;
-                    if (i >= typeArr.length) {
-                        break;
-                    }
-                    if (genericParameterTypes[i] instanceof Class) {
-                        typeArr[i] = AjTypeSystem.getAjType((Class) genericParameterTypes[i]);
-                    } else {
-                        typeArr[i] = genericParameterTypes[i];
-                    }
-                    i++;
+        if (this.genericParameterTypes == null) {
+            Type[] genericParameterTypes = this.adviceMethod.getGenericParameterTypes();
+            int i = 0;
+            int i2 = 0;
+            for (Type type : genericParameterTypes) {
+                if ((type instanceof Class) && ((Class) type).getPackage().getName().equals(AJC_INTERNAL)) {
+                    i2++;
                 }
             }
-            return this.genericParameterTypes;
+            this.genericParameterTypes = new Type[genericParameterTypes.length - i2];
+            while (true) {
+                Type[] typeArr = this.genericParameterTypes;
+                if (i >= typeArr.length) {
+                    break;
+                }
+                if (genericParameterTypes[i] instanceof Class) {
+                    typeArr[i] = AjTypeSystem.getAjType((Class) genericParameterTypes[i]);
+                } else {
+                    typeArr[i] = genericParameterTypes[i];
+                }
+                i++;
+            }
         }
-        return (Type[]) invokeV.objValue;
+        return this.genericParameterTypes;
     }
 
     @Override // org.aspectj.lang.reflect.Advice
     public AjType<?>[] getParameterTypes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.parameterTypes == null) {
-                Class<?>[] parameterTypes = this.adviceMethod.getParameterTypes();
-                int i = 0;
-                int i2 = 0;
-                for (Class<?> cls : parameterTypes) {
-                    if (cls.getPackage().getName().equals(AJC_INTERNAL)) {
-                        i2++;
-                    }
-                }
-                this.parameterTypes = new AjType[parameterTypes.length - i2];
-                while (true) {
-                    AjType[] ajTypeArr = this.parameterTypes;
-                    if (i >= ajTypeArr.length) {
-                        break;
-                    }
-                    ajTypeArr[i] = AjTypeSystem.getAjType(parameterTypes[i]);
-                    i++;
+        if (this.parameterTypes == null) {
+            Class<?>[] parameterTypes = this.adviceMethod.getParameterTypes();
+            int i = 0;
+            int i2 = 0;
+            for (Class<?> cls : parameterTypes) {
+                if (cls.getPackage().getName().equals(AJC_INTERNAL)) {
+                    i2++;
                 }
             }
-            return this.parameterTypes;
+            this.parameterTypes = new AjType[parameterTypes.length - i2];
+            while (true) {
+                AjType[] ajTypeArr = this.parameterTypes;
+                if (i >= ajTypeArr.length) {
+                    break;
+                }
+                ajTypeArr[i] = AjTypeSystem.getAjType(parameterTypes[i]);
+                i++;
+            }
         }
-        return (AjType[]) invokeV.objValue;
+        return this.parameterTypes;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x00aa, code lost:
-        if (r10 != 3) goto L38;
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x00a6, code lost:
+        if (r10 != 3) goto L36;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            if (getName().length() > 0) {
-                stringBuffer.append("@AdviceName(\"");
-                stringBuffer.append(getName());
-                stringBuffer.append("\") ");
-            }
-            if (getKind() == AdviceKind.AROUND) {
-                stringBuffer.append(this.adviceMethod.getGenericReturnType().toString());
-                stringBuffer.append(" ");
-            }
-            int i = AnonymousClass1.$SwitchMap$org$aspectj$lang$reflect$AdviceKind[getKind().ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i == 5) {
-                                stringBuffer.append("before(");
-                            }
-                        } else {
-                            stringBuffer.append("around(");
+        StringBuffer stringBuffer = new StringBuffer();
+        if (getName().length() > 0) {
+            stringBuffer.append("@AdviceName(\"");
+            stringBuffer.append(getName());
+            stringBuffer.append("\") ");
+        }
+        if (getKind() == AdviceKind.AROUND) {
+            stringBuffer.append(this.adviceMethod.getGenericReturnType().toString());
+            stringBuffer.append(" ");
+        }
+        int i = AnonymousClass1.$SwitchMap$org$aspectj$lang$reflect$AdviceKind[getKind().ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 4) {
+                        if (i == 5) {
+                            stringBuffer.append("before(");
                         }
                     } else {
-                        stringBuffer.append("after(");
+                        stringBuffer.append("around(");
                     }
                 } else {
                     stringBuffer.append("after(");
@@ -284,52 +188,53 @@ public class AdviceImpl implements Advice {
             } else {
                 stringBuffer.append("after(");
             }
-            AjType<?>[] parameterTypes = getParameterTypes();
-            int length = parameterTypes.length;
-            if (this.hasExtraParam) {
-                length--;
+        } else {
+            stringBuffer.append("after(");
+        }
+        AjType<?>[] parameterTypes = getParameterTypes();
+        int length = parameterTypes.length;
+        if (this.hasExtraParam) {
+            length--;
+        }
+        int i2 = 0;
+        int i3 = 0;
+        while (i3 < length) {
+            stringBuffer.append(parameterTypes[i3].getName());
+            i3++;
+            if (i3 < length) {
+                stringBuffer.append(",");
             }
-            int i2 = 0;
-            int i3 = 0;
-            while (i3 < length) {
-                stringBuffer.append(parameterTypes[i3].getName());
-                i3++;
-                if (i3 < length) {
-                    stringBuffer.append(",");
-                }
-            }
-            stringBuffer.append(") ");
-            int i4 = AnonymousClass1.$SwitchMap$org$aspectj$lang$reflect$AdviceKind[getKind().ordinal()];
-            if (i4 == 2) {
-                stringBuffer.append("returning");
-                if (this.hasExtraParam) {
-                    stringBuffer.append("(");
-                    stringBuffer.append(parameterTypes[length - 1].getName());
-                    stringBuffer.append(") ");
-                }
-            }
-            stringBuffer.append("throwing");
+        }
+        stringBuffer.append(") ");
+        int i4 = AnonymousClass1.$SwitchMap$org$aspectj$lang$reflect$AdviceKind[getKind().ordinal()];
+        if (i4 == 2) {
+            stringBuffer.append("returning");
             if (this.hasExtraParam) {
                 stringBuffer.append("(");
                 stringBuffer.append(parameterTypes[length - 1].getName());
                 stringBuffer.append(") ");
             }
-            AjType<?>[] exceptionTypes = getExceptionTypes();
-            if (exceptionTypes.length > 0) {
-                stringBuffer.append("throws ");
-                while (i2 < exceptionTypes.length) {
-                    stringBuffer.append(exceptionTypes[i2].getName());
-                    i2++;
-                    if (i2 < exceptionTypes.length) {
-                        stringBuffer.append(",");
-                    }
-                }
-                stringBuffer.append(" ");
-            }
-            stringBuffer.append(": ");
-            stringBuffer.append(getPointcutExpression().asString());
-            return stringBuffer.toString();
         }
-        return (String) invokeV.objValue;
+        stringBuffer.append("throwing");
+        if (this.hasExtraParam) {
+            stringBuffer.append("(");
+            stringBuffer.append(parameterTypes[length - 1].getName());
+            stringBuffer.append(") ");
+        }
+        AjType<?>[] exceptionTypes = getExceptionTypes();
+        if (exceptionTypes.length > 0) {
+            stringBuffer.append("throws ");
+            while (i2 < exceptionTypes.length) {
+                stringBuffer.append(exceptionTypes[i2].getName());
+                i2++;
+                if (i2 < exceptionTypes.length) {
+                    stringBuffer.append(",");
+                }
+            }
+            stringBuffer.append(" ");
+        }
+        stringBuffer.append(": ");
+        stringBuffer.append(getPointcutExpression().asString());
+        return stringBuffer.toString();
     }
 }

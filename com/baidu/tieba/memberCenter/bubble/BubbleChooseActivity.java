@@ -15,17 +15,17 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a18;
-import com.baidu.tieba.b18;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.k48;
+import com.baidu.tieba.l48;
+import com.baidu.tieba.m48;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.tieba.memberCenter.bubble.BubbleListModel;
-import com.baidu.tieba.z08;
+import com.baidu.tieba.zu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -35,12 +35,12 @@ import java.util.List;
 public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a18 a;
+    public l48 a;
     public BubbleListModel b;
     public BubbleListModel.c c;
     public BubbleListModel.d d;
-    public b18.e e;
-    public b18.e f;
+    public m48.e e;
+    public m48.e f;
     public CustomMessageListener g;
 
     /* loaded from: classes5.dex */
@@ -79,14 +79,14 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
                             this.a.showToast(bubbleListData.getError_msg());
                             return;
                         } else {
-                            this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f0d11);
                             return;
                         }
                     }
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0d11);
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0d11);
             }
         }
 
@@ -99,18 +99,18 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
                 if (bubbleListData == null) {
                     return;
                 }
-                this.a.a.p(bubbleListData.getB_info(), BubbleListModel.I(bubbleListData.getB_info()));
-                if (this.a.b.K() > 0 && (b_info = bubbleListData.getB_info()) != null && b_info.size() != 0) {
+                this.a.a.p(bubbleListData.getB_info(), BubbleListModel.P(bubbleListData.getB_info()));
+                if (this.a.b.R() > 0 && (b_info = bubbleListData.getB_info()) != null && b_info.size() != 0) {
                     for (BubbleListData.BubbleData bubbleData : b_info) {
-                        if (bubbleData != null && bubbleData.getBcode() == this.a.b.K()) {
+                        if (bubbleData != null && bubbleData.getBcode() == this.a.b.R()) {
                             if (!bubbleData.canUse() && !bubbleData.isFree()) {
                                 break;
                             }
-                            this.a.b.Q(this.a.b.K());
-                            this.a.b.P(this.a.b.K(), ej.l(this.a.getPageContext().getPageActivity()), ej.j(this.a.getPageContext().getPageActivity()));
+                            this.a.b.X(this.a.b.R());
+                            this.a.b.W(this.a.b.R(), ej.l(this.a.getPageContext().getPageActivity()), ej.j(this.a.getPageContext().getPageActivity()));
                         }
                     }
-                    this.a.b.R(-1);
+                    this.a.b.Y(-1);
                 }
             }
         }
@@ -145,9 +145,9 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, setBubbleResultData) == null) {
                 this.a.a.o();
-                int J = this.a.b.J();
-                z08 k = this.a.a.k();
-                if (J == 0) {
+                int Q = this.a.b.Q();
+                k48 k = this.a.a.k();
+                if (Q == 0) {
                     k.d(true);
                     for (BubbleListData.BubbleData bubbleData : k.b()) {
                         if (bubbleData.getBcode() != 0 && bubbleData.isDef()) {
@@ -157,7 +157,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
                     k.notifyDataSetChanged();
                 } else if (setBubbleResultData.getB_info().canUser()) {
                     for (BubbleListData.BubbleData bubbleData2 : k.b()) {
-                        if (bubbleData2.getBcode() == J) {
+                        if (bubbleData2.getBcode() == Q) {
                             bubbleData2.setIs_def(1);
                         } else if (bubbleData2.isDef()) {
                             bubbleData2.setIs_def(0);
@@ -182,25 +182,25 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
                             this.a.showToast(setBubbleResultData.getError_msg());
                             return;
                         } else {
-                            this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f0d11);
                             return;
                         }
                     }
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0d11);
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0d11);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements b18.e {
+    public class c implements m48.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BubbleChooseActivity a;
 
-        @Override // com.baidu.tieba.b18.e
+        @Override // com.baidu.tieba.m48.e
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -225,24 +225,24 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             this.a = bubbleChooseActivity;
         }
 
-        @Override // com.baidu.tieba.b18.e
+        @Override // com.baidu.tieba.m48.e
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
                 return;
             }
-            this.a.D1(i);
+            this.a.C1(i);
             this.a.a.q();
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements b18.e {
+    public class d implements m48.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BubbleChooseActivity a;
 
-        @Override // com.baidu.tieba.b18.e
+        @Override // com.baidu.tieba.m48.e
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -267,12 +267,12 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             this.a = bubbleChooseActivity;
         }
 
-        @Override // com.baidu.tieba.b18.e
+        @Override // com.baidu.tieba.m48.e
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
                 TiebaStatic.eventStat(this.a.getPageContext().getPageActivity(), "consume_19", "click");
-                this.a.b.R(i);
+                this.a.b.Y(i);
                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.a.getPageContext().getPageActivity(), true, 23004, "pop_unable", 7);
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_ALL_BUBBLE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
@@ -337,11 +337,11 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
         this.g = new e(this, 2010040);
     }
 
-    public final void D1(int i) {
+    public final void C1(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b.P(i, ej.l(getPageContext().getPageActivity()), ej.j(getPageContext().getPageActivity()));
-            this.b.Q(i);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.b.W(i, ej.l(getPageContext().getPageActivity()), ej.j(getPageContext().getPageActivity()));
+            this.b.X(i);
         }
     }
 
@@ -360,7 +360,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
             initData();
-            A1();
+            initView();
             a();
         }
     }
@@ -368,37 +368,37 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
     public final void A1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a18 a18Var = new a18(getPageContext());
-            this.a = a18Var;
-            a18Var.m().setOnItemClickListener(this);
-            this.a.q();
-        }
-    }
-
-    public final void C1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.L();
-            this.b.M();
+            this.b.S();
+            this.b.T();
         }
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.O(0, 50, ej.l(getPageContext().getPageActivity()), ej.j(getPageContext().getPageActivity()));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.V(0, 50, ej.l(getPageContext().getPageActivity()), ej.j(getPageContext().getPageActivity()));
         }
     }
 
     public final void initData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             BubbleListModel bubbleListModel = new BubbleListModel(getPageContext());
             this.b = bubbleListModel;
-            bubbleListModel.S(this.c);
-            this.b.T(this.d);
-            this.b.N(this.g);
-            C1();
+            bubbleListModel.Z(this.c);
+            this.b.a0(this.d);
+            this.b.U(this.g);
+            A1();
+        }
+    }
+
+    public final void initView() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            l48 l48Var = new l48(getPageContext());
+            this.a = l48Var;
+            l48Var.m().setOnItemClickListener(this);
+            this.a.q();
         }
     }
 
@@ -410,7 +410,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             BubbleListModel bubbleListModel = this.b;
             if (bubbleListModel != null) {
                 bubbleListModel.unRegisterListener();
-                this.b.U(this.g);
+                this.b.b0(this.g);
             }
         }
     }
@@ -433,8 +433,8 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             super.onClick(view2);
             if (view2 == this.a.l()) {
                 Activity pageActivity = getPageContext().getPageActivity();
-                String string = getPageContext().getString(R.string.obfuscated_res_0x7f0f16c0);
-                BrowserHelper.t(pageActivity, string, TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/tbeanrights?type=1&_client_version=" + TbConfig.getVersion(), true, true, true);
+                String string = getPageContext().getString(R.string.obfuscated_res_0x7f0f16c5);
+                zu4.x(pageActivity, string, TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/tbeanrights?type=1&_client_version=" + TbConfig.getVersion(), true, true, true);
             }
         }
     }
@@ -448,14 +448,14 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             if (adapterView == this.a.m() && view2 != null && (view2 instanceof BubbleView) && (n = this.a.n(i)) != null) {
                 if (n.getBcode() != 0 && !n.canUse()) {
                     if (n.isFree()) {
-                        b18.a(getPageContext(), n, this.e);
+                        m48.a(getPageContext(), n, this.e);
                         return;
                     } else {
-                        b18.b(getPageContext(), n, this.f);
+                        m48.b(getPageContext(), n, this.f);
                         return;
                     }
                 }
-                D1(n.getBcode());
+                C1(n.getBcode());
                 this.a.q();
             }
         }

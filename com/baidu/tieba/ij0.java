@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class ij0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ij0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "cmd");
+    public static final ij0 b = new hj0();
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            return cj0.a().d(context, str);
-        }
-        return invokeLL.booleanValue;
-    }
+    boolean a(Context context, String str, @Nullable Map<String, Object> map, @Nullable jj0 jj0Var);
+
+    void b(String str, String str2, lj0 lj0Var);
+
+    String[] c();
+
+    boolean d(Context context, String str);
 }

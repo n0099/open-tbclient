@@ -1,62 +1,86 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.widget.EditText;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.videoplay.editor.VideoPlayInputContainer;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tieba.jf0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class pd9 extends wb5 {
+public class pd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EditText t;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pd9(Context context) {
-        super(context, (String) null, 28);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes5.dex */
+    public static class a implements jf0.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wd9 a;
+
+        @Override // com.baidu.tieba.jf0.a
+        public void onProgress(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             }
         }
-        this.o = false;
-        this.n = 3;
-        VideoPlayInputContainer videoPlayInputContainer = new VideoPlayInputContainer(context);
-        this.m = videoPlayInputContainer;
-        this.t = videoPlayInputContainer.getInputView();
-        this.p = new int[]{4, 24, 3, 9, 6};
+
+        public a(wd9 wd9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wd9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wd9Var;
+        }
+
+        @Override // com.baidu.tieba.jf0.a
+        public void onResult(boolean z, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
+                if (z) {
+                    this.a.a();
+                } else {
+                    this.a.b();
+                }
+            }
+        }
     }
 
-    public EditText g() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.t;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return jf0.n();
         }
-        return (EditText) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public VideoPlayInputContainer h() {
-        InterceptResult invokeV;
+    public static void b(Context context, wd9 wd9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (VideoPlayInputContainer) this.m;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, wd9Var) == null) {
+            c(context);
+            jf0.p(new a(wd9Var));
         }
-        return (VideoPlayInputContainer) invokeV.objValue;
+    }
+
+    public static void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            new gg0(context).a("cover_style", FileHelper.CreateFileIfNotFound(".cover_style"));
+            FileHelper.makeDirectory(".stickers");
+            FileHelper.makeDirectory(".filters");
+        }
     }
 }

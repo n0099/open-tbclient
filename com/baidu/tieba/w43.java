@@ -1,82 +1,100 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class w43 {
+public class w43 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bundle a;
-    public int b;
+    public String a;
+    public String b;
     public String c;
-    public Bundle d;
-
-    public abstract void b(@NonNull Bundle bundle);
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948220563, "Lcom/baidu/tieba/w43;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948220563, "Lcom/baidu/tieba/w43;");
-                return;
-            }
-        }
-        e = gp1.a;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d(this.d);
-        }
-    }
+    public String d;
+    public String e;
+    public String f;
+    public JSONObject g;
+    public String h;
+    public m12 i;
 
     public w43() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new Bundle();
-        this.c = "";
-        this.d = new Bundle();
     }
 
-    public void d(@Nullable Bundle bundle) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            if (e) {
-                Log.d("MDelegate-Delegation", "messenger delegation finish");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            m12 m12Var = this.i;
+            if (m12Var != null && !m12Var.isSuccess()) {
+                return true;
             }
-            if (!e53.a(this.c)) {
-                if (e) {
-                    Log.d("MDelegate-Delegation", "messenger delegation finish with send result to client: " + this.b + " observer: " + this.c);
-                }
-                x43.c(this.b, this.c, bundle);
-            }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.d) && !TextUtils.isEmpty(this.f) && !TextUtils.isEmpty(this.e)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        String a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("SwanPluginFunPageModel{providerAppKey='");
+            sb.append(this.a);
+            sb.append('\'');
+            sb.append(", providerRootPath='");
+            sb.append(this.c);
+            sb.append('\'');
+            sb.append(", providerVersion='");
+            sb.append(this.d);
+            sb.append('\'');
+            sb.append(", componentId='");
+            sb.append(this.f);
+            sb.append('\'');
+            sb.append(", cb='");
+            sb.append(this.h);
+            sb.append('\'');
+            sb.append(", pageParams=");
+            sb.append(this.g);
+            sb.append(", swanApiResult=");
+            m12 m12Var = this.i;
+            if (m12Var == null) {
+                a = null;
+            } else {
+                a = m12Var.a();
+            }
+            sb.append(a);
+            sb.append('}');
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

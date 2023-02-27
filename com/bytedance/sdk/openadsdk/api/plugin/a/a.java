@@ -1,7 +1,6 @@
 package com.bytedance.sdk.openadsdk.api.plugin.a;
 
 import com.baidu.android.common.others.IStringUtil;
-import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.security.cert.CertificateParsingException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
@@ -112,7 +111,7 @@ public final class a implements HostnameVerifier {
             i++;
             z = true;
         }
-        if (z || (a2 = new b(x509Certificate.getSubjectX500Principal()).a(AdvanceSetting.CLEAR_NOTIFICATION)) == null) {
+        if (z || (a2 = new b(x509Certificate.getSubjectX500Principal()).a("cn")) == null) {
             return false;
         }
         return a(lowerCase, a2);

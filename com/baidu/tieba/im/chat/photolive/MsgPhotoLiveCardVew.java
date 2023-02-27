@@ -21,11 +21,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ik7;
+import com.baidu.tieba.en7;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.k39;
-import com.baidu.tieba.mj7;
+import com.baidu.tieba.im7;
+import com.baidu.tieba.w69;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLDecoder;
 /* loaded from: classes4.dex */
-public class MsgPhotoLiveCardVew extends mj7 {
+public class MsgPhotoLiveCardVew extends im7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long G;
@@ -78,7 +78,7 @@ public class MsgPhotoLiveCardVew extends mj7 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.G > 0) {
-                k39 photoLiveReadThreadHistory = TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory();
+                w69 photoLiveReadThreadHistory = TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory();
                 if (this.a.I == 1) {
                     TiebaStatic.log(TbadkCoreStatisticKey.PHOTO_LIVE_GREATCALL_MSG);
                     if (photoLiveReadThreadHistory != null && photoLiveReadThreadHistory.f(String.valueOf(this.a.G)) > 0) {
@@ -134,7 +134,7 @@ public class MsgPhotoLiveCardVew extends mj7 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgPhotoLiveCardVew(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d05c5);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d05d9);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -210,15 +210,15 @@ public class MsgPhotoLiveCardVew extends mj7 {
     public final void h0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.J = (LinearLayout) k(R.id.obfuscated_res_0x7f09168b);
+            this.J = (LinearLayout) k(R.id.obfuscated_res_0x7f0916cc);
             this.K = (ClickableHeaderImageView) k(R.id.obfuscated_res_0x7f0902fc);
             this.L = (TextView) k(R.id.author_name);
-            this.M = (TextView) k(R.id.obfuscated_res_0x7f0904b2);
-            this.N = (TextView) k(R.id.obfuscated_res_0x7f0904af);
-            this.O = (TextView) k(R.id.obfuscated_res_0x7f0904b1);
+            this.M = (TextView) k(R.id.obfuscated_res_0x7f0904f0);
+            this.N = (TextView) k(R.id.obfuscated_res_0x7f0904ed);
+            this.O = (TextView) k(R.id.obfuscated_res_0x7f0904ef);
             this.Q = (LinearLayout) k(R.id.obfuscated_res_0x7f0902f0);
-            this.P = (TextView) k(R.id.obfuscated_res_0x7f091cf0);
-            this.R = (TextView) k(R.id.obfuscated_res_0x7f0904f3);
+            this.P = (TextView) k(R.id.obfuscated_res_0x7f091d34);
+            this.R = (TextView) k(R.id.obfuscated_res_0x7f090531);
             this.J.setOnClickListener(new a(this));
         }
     }
@@ -230,7 +230,7 @@ public class MsgPhotoLiveCardVew extends mj7 {
         if ((interceptable != null && interceptable.invokeLLL(1048581, this, tbPageContext, chatMessage, view2) != null) || chatMessage == null) {
             return;
         }
-        ik7.a a2 = ik7.a(chatMessage.getContent());
+        en7.a a2 = en7.a(chatMessage.getContent());
         if (a2 == null) {
             this.G = 0L;
             return;

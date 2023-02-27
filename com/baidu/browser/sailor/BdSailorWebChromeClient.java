@@ -24,7 +24,7 @@ import com.baidu.webkit.sdk.JsResult;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebStorage;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BdSailorWebChromeClient implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

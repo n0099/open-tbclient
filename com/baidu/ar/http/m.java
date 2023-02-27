@@ -1,13 +1,7 @@
 package com.baidu.ar.http;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,128 +12,86 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class m implements k {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public Charset qI;
-    public StringBuilder qJ;
-    public String rm;
-    public Map<String, String> rn;
-    public Map<String, byte[]> ro;
-    public int rp;
-
-    public m() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.rp = 0;
-        this.rm = d.MULTIPART_BOUNDARY;
-        this.qJ = new StringBuilder();
-        this.ro = new HashMap();
-        this.rn = new HashMap();
-    }
+    public int rp = 0;
+    public String rm = d.MULTIPART_BOUNDARY;
+    public StringBuilder qJ = new StringBuilder();
+    public Map<String, byte[]> ro = new HashMap();
+    public Map<String, String> rn = new HashMap();
 
     private InputStream a(String str, String str2, String str3, String str4, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{str, str2, str3, str4, Boolean.valueOf(z)})) == null) {
-            StringBuilder sb = new StringBuilder();
-            String format = String.format("Content-Disposition: form-data; name=\"%s\"; filename=\"%s\"", j.a(str2, this.qI), j.a(str3, this.qI));
-            sb.append(str);
-            sb.append("--");
-            sb.append(this.rm);
-            sb.append("\r\n");
-            sb.append(format);
-            sb.append("\r\n");
-            sb.append("Content-Type:");
-            sb.append(str4);
-            sb.append(";");
-            if (z) {
-                sb.append("charset=");
-                sb.append(this.qI.name());
-            }
-            sb.append("\r\n");
-            sb.append("\r\n");
-            return new ByteArrayInputStream(sb.toString().getBytes(this.qI));
+        StringBuilder sb = new StringBuilder();
+        String format = String.format("Content-Disposition: form-data; name=\"%s\"; filename=\"%s\"", j.a(str2, this.qI), j.a(str3, this.qI));
+        sb.append(str);
+        sb.append("--");
+        sb.append(this.rm);
+        sb.append("\r\n");
+        sb.append(format);
+        sb.append("\r\n");
+        sb.append("Content-Type:");
+        sb.append(str4);
+        sb.append(ParamableElem.DIVIDE_PARAM);
+        if (z) {
+            sb.append("charset=");
+            sb.append(this.qI.name());
         }
-        return (InputStream) invokeCommon.objValue;
+        sb.append("\r\n");
+        sb.append("\r\n");
+        return new ByteArrayInputStream(sb.toString().getBytes(this.qI));
     }
 
     public void a(String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, bArr) == null) {
-            if (bArr != null) {
-                this.rp += bArr.length;
-            }
-            this.ro.put(str, bArr);
+        if (bArr != null) {
+            this.rp += bArr.length;
         }
+        this.ro.put(str, bArr);
     }
 
     @Override // com.baidu.ar.http.k
     public void a(Charset charset) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charset) == null) {
-            this.qI = charset;
-        }
+        this.qI = charset;
     }
 
     public void at(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.rm = str;
-        }
+        this.rm = str;
     }
 
     @Override // com.baidu.ar.http.k
     public InputStream[] eI() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (this.qJ.length() > 0) {
-                arrayList.add(new ByteArrayInputStream(this.qJ.toString().getBytes(this.qI)));
-            }
-            String str = "";
-            if (!this.rn.isEmpty()) {
-                String str2 = "";
-                for (Map.Entry<String, String> entry : this.rn.entrySet()) {
-                    arrayList.add(a(str2, entry.getKey(), new File(entry.getValue()).getName(), j.ar(entry.getValue()), false));
-                    arrayList.add(new FileInputStream(entry.getValue()));
-                    str2 = "\r\n";
-                }
-                str = str2;
-            }
-            if (!this.ro.isEmpty()) {
-                String valueOf = String.valueOf(System.currentTimeMillis());
-                int i = 1;
-                String str3 = str;
-                for (Map.Entry<String, byte[]> entry2 : this.ro.entrySet()) {
-                    arrayList.add(a(str3, entry2.getKey(), valueOf + i + ".jpg", "application/octet-stream", true));
-                    arrayList.add(new ByteArrayInputStream(entry2.getValue()));
-                    str3 = "\r\n";
-                    i++;
-                }
-                str = str3;
-            }
-            if (!this.rn.isEmpty() || !this.ro.isEmpty()) {
-                arrayList.add(new ByteArrayInputStream((str + "--" + this.rm + "--\r\n").getBytes(this.qI)));
-            }
-            return (InputStream[]) arrayList.toArray(new InputStream[arrayList.size()]);
+        ArrayList arrayList = new ArrayList();
+        if (this.qJ.length() > 0) {
+            arrayList.add(new ByteArrayInputStream(this.qJ.toString().getBytes(this.qI)));
         }
-        return (InputStream[]) invokeV.objValue;
+        String str = "";
+        if (!this.rn.isEmpty()) {
+            String str2 = "";
+            for (Map.Entry<String, String> entry : this.rn.entrySet()) {
+                arrayList.add(a(str2, entry.getKey(), new File(entry.getValue()).getName(), j.ar(entry.getValue()), false));
+                arrayList.add(new FileInputStream(entry.getValue()));
+                str2 = "\r\n";
+            }
+            str = str2;
+        }
+        if (!this.ro.isEmpty()) {
+            String valueOf = String.valueOf(System.currentTimeMillis());
+            int i = 1;
+            String str3 = str;
+            for (Map.Entry<String, byte[]> entry2 : this.ro.entrySet()) {
+                arrayList.add(a(str3, entry2.getKey(), valueOf + i + ".jpg", "application/octet-stream", true));
+                arrayList.add(new ByteArrayInputStream(entry2.getValue()));
+                str3 = "\r\n";
+                i++;
+            }
+            str = str3;
+        }
+        if (!this.rn.isEmpty() || !this.ro.isEmpty()) {
+            arrayList.add(new ByteArrayInputStream((str + "--" + this.rm + "--\r\n").getBytes(this.qI)));
+        }
+        return (InputStream[]) arrayList.toArray(new InputStream[arrayList.size()]);
     }
 
     public void g(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) || TextUtils.isEmpty(str) || str2 == null) {
+        if (TextUtils.isEmpty(str) || str2 == null) {
             return;
         }
         StringBuilder sb = this.qJ;
@@ -156,42 +108,28 @@ public class m implements k {
     }
 
     public String getBoundary() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.rm : (String) invokeV.objValue;
+        return this.rm;
     }
 
     @Override // com.baidu.ar.http.k
     public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "multipart/form-data;boundary=" + getBoundary();
-        }
-        return (String) invokeV.objValue;
+        return "multipart/form-data;boundary=" + getBoundary();
     }
 
     @Override // com.baidu.ar.http.k
     public int getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.rp : invokeV.intValue;
+        return this.rp;
     }
 
     public void h(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
-            File file = new File(str2);
-            if (file.exists()) {
-                this.rp = (int) (this.rp + file.length());
-            }
-            this.rn.put(str, str2);
+        File file = new File(str2);
+        if (file.exists()) {
+            this.rp = (int) (this.rp + file.length());
         }
+        this.rn.put(str, str2);
     }
 
     public boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.qJ.length() == 0 && this.ro.isEmpty() && this.rn.isEmpty() : invokeV.booleanValue;
+        return this.qJ.length() == 0 && this.ro.isEmpty() && this.rn.isEmpty();
     }
 }

@@ -1,289 +1,82 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class pq9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile pq9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public Context a;
+    public Bitmap b;
+    public Rect c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948070833, "Lcom/baidu/tieba/pq9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948070833, "Lcom/baidu/tieba/pq9;");
-                return;
-            }
-        }
-        b = nq9.m();
-    }
-
-    public pq9() {
+    public pq9(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = dk1.g();
+        this.a = context;
+        this.c = new Rect();
     }
 
-    public static pq9 a() {
-        InterceptResult invokeV;
+    public boolean b(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (pq9.class) {
-                    if (c == null) {
-                        c = new pq9();
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            if (motionEvent == null) {
+                return false;
             }
-            return c;
+            Rect rect = this.c;
+            int i = rect.left;
+            int i2 = rect.right;
+            int i3 = rect.top;
+            int i4 = rect.bottom;
+            if (motionEvent.getX(0) < i || motionEvent.getX(0) > i2 || motionEvent.getY(0) < i3 || motionEvent.getY(0) > i4) {
+                return false;
+            }
+            return true;
         }
-        return (pq9) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void b(String str, int i, String str2) {
+    public void a(Canvas canvas, float f, float f2) {
+        Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(1048576, this, str, i, str2) != null) || !this.a || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || i == 0) {
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2)}) != null) || (bitmap = this.b) == null) {
             return;
         }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
-            jSONObject.put("dbOverNum", i);
-            jSONObject.put("tableName", str2);
-            c("logDiscard", "database", jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        this.c.left = (int) (f - (bitmap.getWidth() / 2));
+        this.c.right = (int) (f + (this.b.getWidth() / 2));
+        this.c.top = (int) (f2 - (this.b.getHeight() / 2));
+        this.c.bottom = (int) (f2 + (this.b.getHeight() / 2));
+        canvas.drawBitmap(this.b, (Rect) null, this.c, (Paint) null);
     }
 
-    public void l(String str, String str2, String str3) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048586, this, str, str2, str3) == null) && this.a && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str)) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str2);
-                jSONObject.put("size", str3);
-                c("logSize", str, jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public final void c(String str, String str2, JSONObject jSONObject) {
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            if (b) {
-                if (jSONObject != null) {
-                    str3 = jSONObject.toString();
-                } else {
-                    str3 = "";
-                }
-                Log.d("UBCQualityStatics", "Quality event: type=" + str + ", value=" + str2 + ",ext=" + str3);
-            }
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject2.put("type", str);
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject2.put("value", str2);
-                }
-                if (jSONObject != null) {
-                    jSONObject2.put("ext", jSONObject);
-                }
-                uBCManager.onEvent("1876", jSONObject2);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void d(String str, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) != null) || !this.a || TextUtils.isEmpty(str) || i == 0) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
-            jSONObject.put("fileNum", i);
-            c("logDiscard", "fileNum", jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void e(String str, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIII(1048579, this, str, i, i2, i3) != null) || !this.a || TextUtils.isEmpty(str)) {
-            return;
-        }
-        if (i == 0 && i2 == 0 && i3 == 0) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
-            if (i != 0) {
-                jSONObject.put("flowExpired", i);
-            }
-            if (i2 != 0) {
-                jSONObject.put("eventExpired", i2);
-            }
-            if (i3 != 0) {
-                jSONObject.put("flowInterrupt", i3);
-            }
-            c("logDiscard", "timeExpired", jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || !this.a || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
-            c("logDiscard", "realLog", jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || !this.a || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("exception", str);
-            c("sqlError", null, jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) != null) || !this.a || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("exception", str);
-            c("sendFail", "bodyError", jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048585, this, i) != null) || !this.a) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("errno", i);
-            c("sendFail", "backend", jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void g(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, str3) == null) && this.a && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
-                jSONObject.put("size", str2);
-                jSONObject.put("logId", str3);
-                c("logSize", "single", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048583, this, str, str2) != null) || !this.a) {
-            return;
-        }
-        if (TextUtils.isEmpty(str2) && TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            if (!TextUtils.isEmpty(str)) {
-                jSONObject.put("msg", str);
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                jSONObject.put("exception", str2);
-            }
-            c("sendFail", "requestError", jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void m(boolean z, long j) {
-        int q;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            if (z) {
-                q = sp9.o().r();
-            } else {
-                q = sp9.o().q();
-            }
-            if (z) {
-                str = "uploadReal";
-            } else {
-                str = "uploadNonReal";
-            }
-            if (j > q) {
-                l(str, String.valueOf(q), String.valueOf(j));
-            }
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = BitmapHelper.getResBitmap(this.a, i);
         }
     }
 }

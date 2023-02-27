@@ -18,7 +18,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -362,7 +361,7 @@ public class p0 {
                 if (a6) {
                     jSONObject.put("4", a6 ? 1 : 0);
                 }
-                boolean a7 = a(FileOutputStream.class, AlbumActivityConfig.FROM_WRITE, byte[].class);
+                boolean a7 = a(FileOutputStream.class, "write", byte[].class);
                 if (a7) {
                     jSONObject.put("5", a7 ? 1 : 0);
                 }

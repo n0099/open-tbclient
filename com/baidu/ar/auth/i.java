@@ -1,194 +1,88 @@
 package com.baidu.ar.auth;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class i {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public volatile a jV;
+    public volatile a jV = a.RUNNING;
     public volatile List<Integer> jW;
     public String jX;
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final a jY;
-        public static final a jZ;
-        public static final a ka;
-        public static final /* synthetic */ a[] kb;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1104547892, "Lcom/baidu/ar/auth/i$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1104547892, "Lcom/baidu/ar/auth/i$a;");
-                    return;
-                }
-            }
-            jY = new a(TornadoLiteRuntime.STATE_RUNNING, 0);
-            jZ = new a("PASS", 1);
-            a aVar = new a("FAIL", 2);
-            ka = aVar;
-            kb = new a[]{jY, jZ, aVar};
-        }
-
-        public a(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public static a valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (a) Enum.valueOf(a.class, str) : (a) invokeL.objValue;
-        }
-
-        public static a[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) kb.clone() : (a[]) invokeV.objValue;
-        }
+    public enum a {
+        RUNNING,
+        PASS,
+        FAIL
     }
 
     public i(List<Integer> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.jW = list;
-        this.jV = a.jY;
         cC();
     }
 
     public void U(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            synchronized (this) {
-                this.jV = a.ka;
-                this.jX = str;
-            }
-            b(null);
+        synchronized (this) {
+            this.jV = a.FAIL;
+            this.jX = str;
         }
+        b(null);
     }
 
     public void b(Set<Integer> set) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, set) == null) {
-            synchronized (this) {
-                if (this.jW == null) {
-                    this.jW = new ArrayList();
-                }
-                this.jW.clear();
-                if (set != null && !set.isEmpty()) {
-                    this.jW.addAll(set);
-                }
-                cC();
+        synchronized (this) {
+            if (this.jW == null) {
+                this.jW = new ArrayList();
             }
+            this.jW.clear();
+            if (set != null && !set.isEmpty()) {
+                this.jW.addAll(set);
+            }
+            cC();
         }
     }
 
     public void cA() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.jV = a.jZ;
-            }
+        synchronized (this) {
+            this.jV = a.PASS;
         }
     }
 
     public String cB() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.jX : (String) invokeV.objValue;
+        return this.jX;
     }
 
     public final void cC() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.jW == null) {
-            return;
+        if (this.jW != null) {
+            int[] iArr = new int[this.jW.size()];
+            int size = this.jW.size();
+            for (int i = 0; i < size; i++) {
+                iArr[i] = this.jW.get(i).intValue();
+            }
+            AuthJni.setGrantedFeatures(iArr);
         }
-        int[] iArr = new int[this.jW.size()];
-        int size = this.jW.size();
-        for (int i = 0; i < size; i++) {
-            iArr[i] = this.jW.get(i).intValue();
-        }
-        AuthJni.setGrantedFeatures(iArr);
     }
 
     public List<Integer> cD() {
-        InterceptResult invokeV;
         ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                arrayList = new ArrayList();
-                if (this.jW != null) {
-                    arrayList.addAll(this.jW);
-                }
+        synchronized (this) {
+            arrayList = new ArrayList();
+            if (this.jW != null) {
+                arrayList.addAll(this.jW);
             }
-            return arrayList;
         }
-        return (List) invokeV.objValue;
+        return arrayList;
     }
 
     public boolean isFailed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.jV == a.ka : invokeV.booleanValue;
+        return this.jV == a.FAIL;
     }
 
     public boolean isRunning() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.jV == a.jY : invokeV.booleanValue;
+        return this.jV == a.RUNNING;
     }
 
     public boolean v(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? (isFailed() || this.jW == null || !this.jW.contains(Integer.valueOf(i))) ? false : true : invokeI.booleanValue;
+        return (isFailed() || this.jW == null || !this.jW.contains(Integer.valueOf(i))) ? false : true;
     }
 }

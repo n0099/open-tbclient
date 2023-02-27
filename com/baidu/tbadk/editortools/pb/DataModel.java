@@ -16,7 +16,7 @@ public abstract class DataModel<T> extends BdBaseModel<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public int H() {
+    public int O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -25,23 +25,23 @@ public abstract class DataModel<T> extends BdBaseModel<T> {
         return invokeV.intValue;
     }
 
-    public abstract String I();
+    public abstract String P();
 
-    public abstract String J();
+    public abstract String Q();
 
-    public abstract String K();
+    public abstract String R();
 
-    public abstract String L();
+    public abstract String S();
 
-    public abstract String M();
+    public abstract String T();
 
-    public abstract WriteData N(String str);
+    public abstract WriteData U(String str);
 
-    public abstract boolean P();
+    public abstract boolean W();
 
-    public abstract boolean Q();
+    public abstract boolean X();
 
-    public abstract boolean R();
+    public abstract boolean Y();
 
     public abstract String getForumId();
 
@@ -68,7 +68,7 @@ public abstract class DataModel<T> extends BdBaseModel<T> {
     }
 
     @Nullable
-    public String G() {
+    public String N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -77,11 +77,11 @@ public abstract class DataModel<T> extends BdBaseModel<T> {
         return (String) invokeV.objValue;
     }
 
-    public boolean O() {
+    public boolean V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (!P() && !Q()) {
+            if (!W() && !X()) {
                 return false;
             }
             return true;

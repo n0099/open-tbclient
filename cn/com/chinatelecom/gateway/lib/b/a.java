@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import com.meizu.cloud.pushsdk.notification.model.AdvertisementOption;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
 import java.io.BufferedOutputStream;
@@ -198,10 +198,16 @@ public class a {
         return (String) invokeL.objValue;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:36:0x00b2 A[Catch: Exception -> 0x009c, TRY_ENTER, TryCatch #1 {Exception -> 0x009c, blocks: (B:24:0x0098, B:28:0x00a0, B:36:0x00b2, B:38:0x00b7), top: B:56:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00b7 A[Catch: Exception -> 0x009c, TRY_LEAVE, TryCatch #1 {Exception -> 0x009c, blocks: (B:24:0x0098, B:28:0x00a0, B:36:0x00b2, B:38:0x00b7), top: B:56:0x0009 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static String a(String str, String str2) {
         InterceptResult invokeLL;
-        Throwable th;
         InputStream inputStream;
+        Throwable th;
+        InputStream inputStream2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             String str3 = "";
@@ -226,10 +232,10 @@ public class a {
                         dataOutputStream.close();
                     }
                     if (httpURLConnection.getResponseCode() == 200) {
-                        inputStream = httpURLConnection.getInputStream();
+                        inputStream2 = httpURLConnection.getInputStream();
                         try {
                             StringBuilder sb = new StringBuilder();
-                            BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(inputStream));
+                            BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(inputStream2));
                             while (true) {
                                 try {
                                     String readLine = bufferedReader2.readLine();
@@ -244,10 +250,8 @@ public class a {
                                     try {
                                         th.printStackTrace();
                                         if (bufferedReader != null) {
-                                            bufferedReader.close();
                                         }
-                                        if (inputStream != null) {
-                                            inputStream.close();
+                                        if (inputStream2 != null) {
                                         }
                                         return str3;
                                     } catch (Throwable th3) {
@@ -259,8 +263,8 @@ public class a {
                                                 throw th3;
                                             }
                                         }
-                                        if (inputStream != null) {
-                                            inputStream.close();
+                                        if (inputStream2 != null) {
+                                            inputStream2.close();
                                         }
                                         throw th3;
                                     }
@@ -269,23 +273,35 @@ public class a {
                             str3 = sb.toString();
                             bufferedReader = bufferedReader2;
                         } catch (Throwable th4) {
+                            inputStream = inputStream2;
                             th = th4;
+                            InputStream inputStream3 = inputStream;
+                            th = th;
+                            inputStream2 = inputStream3;
+                            th.printStackTrace();
+                            if (bufferedReader != null) {
+                                bufferedReader.close();
+                            }
+                            if (inputStream2 != null) {
+                                inputStream2.close();
+                            }
+                            return str3;
                         }
                     } else {
-                        inputStream = null;
+                        inputStream2 = null;
                     }
                     if (bufferedReader != null) {
                         bufferedReader.close();
                     }
-                    if (inputStream != null) {
-                        inputStream.close();
+                    if (inputStream2 != null) {
+                        inputStream2.close();
                     }
-                } catch (Throwable th5) {
-                    th = th5;
-                    inputStream = null;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Throwable th5) {
+                th = th5;
+                inputStream = null;
             }
             return str3;
         }
@@ -524,10 +540,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
             if (context != null) {
                 try {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(context.getFilesDir());
-                    sb.append("/eAccount/Log/");
-                    File file = new File(sb.toString());
+                    File file = new File(context.getFilesDir() + "/eAccount/Log/");
                     if (!file.exists()) {
                         file.mkdirs();
                     }
@@ -553,10 +566,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
             if (context != null) {
                 try {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(context.getFilesDir());
-                    sb.append("/eAccount/Log/");
-                    File file = new File(sb.toString());
+                    File file = new File(context.getFilesDir() + "/eAccount/Log/");
                     if (file.exists()) {
                         File file2 = new File(file, "ipa_ol.ds");
                         if (file2.exists()) {
@@ -768,7 +778,7 @@ public class a {
                 jSONObject.put(CacheDeviceInfo.JSON_KEY_ANDROID_ID, this.d);
                 jSONObject.put(AppIconSetting.DEFAULT_LARGE_ICON, this.e);
                 jSONObject.put(NotificationStyle.NOTIFICATION_STYLE, this.f);
-                jSONObject.put(TtmlNode.TAG_BR, this.g);
+                jSONObject.put("br", this.g);
                 jSONObject.put("ml", this.h);
                 jSONObject.put("os", this.i);
                 jSONObject.put("ov", this.j);
@@ -782,7 +792,7 @@ public class a {
                 jSONObject.put("tt", this.r);
                 jSONObject.put("ot", this.s);
                 jSONObject.put("ep", this.t.toString());
-                jSONObject.put("aip", this.w);
+                jSONObject.put(AdvertisementOption.AD_INSTALL_PACKAGE, this.w);
                 return jSONObject.toString();
             } catch (Throwable th) {
                 th.printStackTrace();

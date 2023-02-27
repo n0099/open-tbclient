@@ -1,75 +1,170 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
+import android.app.Activity;
+import android.os.Bundle;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ala.alasquare.live_tab.view.OfficialRecommendLiveViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class w16 extends qn<a26, OfficialRecommendLiveViewHolder> {
+public class w16 extends ActivityDelegation implements yp1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public e36 b;
+    public BdUniqueId a;
+    public z16 b;
+    public Activity c;
+    public Map<String, String> d;
+    public CustomMessageListener e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w16(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), a26.b);
+    /* loaded from: classes6.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w16 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(w16 w16Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w16Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w16Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
+                Object data = customResponsedMessage.getData();
+                if (!(data instanceof ul5)) {
+                    return;
+                }
+                ul5 ul5Var = (ul5) data;
+                if (getTag() != ul5Var.a && !ul5Var.g) {
+                    return;
+                }
+                this.a.mResult.putInt("result_code", ul5Var.b);
+                this.a.mResult.putString("result_msg", ul5Var.c);
+                if (this.a.b != null) {
+                    this.a.b.a(this.a.mResult);
+                }
+                this.a.finish();
+            }
+        }
+    }
+
+    public w16() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.a = BdUniqueId.gen();
+        this.e = new a(this, 2921393);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: s */
-    public OfficialRecommendLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public void finish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.b = new e36(this.a, viewGroup);
-            return new OfficialRecommendLiveViewHolder(this.b);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = null;
+            MessageManager.getInstance().unRegisterListener(this.e);
+            super.finish();
         }
-        return (OfficialRecommendLiveViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, a26 a26Var, OfficialRecommendLiveViewHolder officialRecommendLiveViewHolder) {
-        InterceptResult invokeCommon;
-        e36 e36Var;
+    public void d(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, a26Var, officialRecommendLiveViewHolder})) == null) {
-            if (officialRecommendLiveViewHolder != null && (e36Var = officialRecommendLiveViewHolder.a) != null) {
-                e36Var.i(a26Var);
-                officialRecommendLiveViewHolder.a.j(this.a, TbadkCoreApplication.getInst().getSkinType());
-                return officialRecommendLiveViewHolder.getView();
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            this.c = activity;
+        }
+    }
+
+    public void e(z16 z16Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z16Var) == null) {
+            this.b = z16Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.yp1
+    public void onResult(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mResult.putInt("result_code", i);
+            this.mResult.putString("result_msg", "");
+            finish();
+        }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            this.e.setTag(this.a);
+            MessageManager.getInstance().registerListener(this.e);
+            int i = this.mParams.getInt("type");
+            String string = this.mParams.getString("orderInfo");
+            ul5 ul5Var = new ul5();
+            ul5Var.a = this.a;
+            ul5Var.b = i;
+            ul5Var.c = string;
+            ul5Var.e = (Map) this.mParams.getSerializable("params");
+            ul5Var.f = this.d;
+            if (getAgent() != null) {
+                ul5Var.d = getAgent();
+            } else {
+                Activity activity = this.c;
+                if (activity != null) {
+                    ul5Var.d = activity;
+                } else {
+                    ul5Var.d = TbadkCoreApplication.getInst().getCurrentActivity();
+                }
             }
-            return null;
+            CustomMessage customMessage = new CustomMessage(2921393, ul5Var);
+            customMessage.setTag(this.a);
+            boolean sendMessage = MessageManager.getInstance().sendMessage(customMessage);
+            Bundle bundle = this.mResult;
+            int i2 = 1;
+            if (sendMessage) {
+                i2 = 0;
+            }
+            bundle.putInt("result_code", i2);
+            Bundle bundle2 = this.mResult;
+            bundle2.putString("result_msg", "" + sendMessage);
+            return false;
         }
-        return (View) invokeCommon.objValue;
+        return invokeV.booleanValue;
     }
 }

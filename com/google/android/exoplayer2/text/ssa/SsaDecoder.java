@@ -2,15 +2,6 @@ package com.google.android.exoplayer2.text.ssa;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.text.Cue;
 import com.google.android.exoplayer2.text.SimpleSubtitleDecoder;
@@ -24,70 +15,22 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
 public final class SsaDecoder extends SimpleSubtitleDecoder {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String DIALOGUE_LINE_PREFIX = "Dialogue: ";
     public static final String FORMAT_LINE_PREFIX = "Format: ";
-    public static final Pattern SSA_TIMECODE_PATTERN;
+    public static final Pattern SSA_TIMECODE_PATTERN = Pattern.compile("(?:(\\d+):)?(\\d+):(\\d+)(?::|\\.)(\\d+)");
     public static final String TAG = "SsaDecoder";
-    public transient /* synthetic */ FieldHolder $fh;
     public int formatEndIndex;
     public int formatKeyCount;
     public int formatStartIndex;
     public int formatTextIndex;
     public final boolean haveInitializationData;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(675250598, "Lcom/google/android/exoplayer2/text/ssa/SsaDecoder;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(675250598, "Lcom/google/android/exoplayer2/text/ssa/SsaDecoder;");
-                return;
-            }
-        }
-        SSA_TIMECODE_PATTERN = Pattern.compile("(?:(\\d+):)?(\\d+):(\\d+)(?::|\\.)(\\d+)");
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SsaDecoder() {
         this(null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((List) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SsaDecoder(List<byte[]> list) {
         super(TAG);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         if (list != null && !list.isEmpty()) {
             this.haveInitializationData = true;
             String str = new String(list.get(0));
@@ -99,89 +42,37 @@ public final class SsaDecoder extends SimpleSubtitleDecoder {
         this.haveInitializationData = false;
     }
 
-    private void parseFormatLine(String str) {
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, str) == null) {
-            String[] split = TextUtils.split(str.substring(8), ",");
-            this.formatKeyCount = split.length;
-            this.formatStartIndex = -1;
-            this.formatEndIndex = -1;
-            this.formatTextIndex = -1;
-            for (int i = 0; i < this.formatKeyCount; i++) {
-                String lowerInvariant = Util.toLowerInvariant(split[i].trim());
-                int hashCode = lowerInvariant.hashCode();
-                if (hashCode != 100571) {
-                    if (hashCode != 3556653) {
-                        if (hashCode == 109757538 && lowerInvariant.equals("start")) {
-                            c = 0;
-                        }
-                        c = 65535;
-                    } else {
-                        if (lowerInvariant.equals("text")) {
-                            c = 2;
-                        }
-                        c = 65535;
-                    }
-                } else {
-                    if (lowerInvariant.equals("end")) {
-                        c = 1;
-                    }
-                    c = 65535;
-                }
-                if (c != 0) {
-                    if (c != 1) {
-                        if (c == 2) {
-                            this.formatTextIndex = i;
-                        }
-                    } else {
-                        this.formatEndIndex = i;
-                    }
-                } else {
-                    this.formatStartIndex = i;
-                }
-            }
-        }
-    }
-
     private void parseDialogueLine(String str, List<Cue> list, LongArray longArray) {
         long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, this, str, list, longArray) == null) {
-            if (this.formatKeyCount == 0) {
-                Log.w(TAG, "Skipping dialogue line before format: " + str);
-                return;
-            }
-            String[] split = str.substring(10).split(",", this.formatKeyCount);
-            long parseTimecodeUs = parseTimecodeUs(split[this.formatStartIndex]);
-            if (parseTimecodeUs == C.TIME_UNSET) {
+        if (this.formatKeyCount == 0) {
+            Log.w(TAG, "Skipping dialogue line before format: " + str);
+            return;
+        }
+        String[] split = str.substring(10).split(",", this.formatKeyCount);
+        long parseTimecodeUs = parseTimecodeUs(split[this.formatStartIndex]);
+        if (parseTimecodeUs == C.TIME_UNSET) {
+            Log.w(TAG, "Skipping invalid timing: " + str);
+            return;
+        }
+        String str2 = split[this.formatEndIndex];
+        if (!str2.trim().isEmpty()) {
+            j = parseTimecodeUs(str2);
+            if (j == C.TIME_UNSET) {
                 Log.w(TAG, "Skipping invalid timing: " + str);
                 return;
             }
-            String str2 = split[this.formatEndIndex];
-            if (!str2.trim().isEmpty()) {
-                j = parseTimecodeUs(str2);
-                if (j == C.TIME_UNSET) {
-                    Log.w(TAG, "Skipping invalid timing: " + str);
-                    return;
-                }
-            } else {
-                j = -9223372036854775807L;
-            }
-            list.add(new Cue(split[this.formatTextIndex].replaceAll("\\{.*?\\}", "").replaceAll("\\\\N", "\n").replaceAll("\\\\n", "\n")));
-            longArray.add(parseTimecodeUs);
-            if (j != C.TIME_UNSET) {
-                list.add(null);
-                longArray.add(j);
-            }
+        } else {
+            j = -9223372036854775807L;
+        }
+        list.add(new Cue(split[this.formatTextIndex].replaceAll("\\{.*?\\}", "").replaceAll("\\\\N", "\n").replaceAll("\\\\n", "\n")));
+        longArray.add(parseTimecodeUs);
+        if (j != C.TIME_UNSET) {
+            list.add(null);
+            longArray.add(j);
         }
     }
 
     private void parseEventBody(ParsableByteArray parsableByteArray, List<Cue> list, LongArray longArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, parsableByteArray, list, longArray) != null) {
-            return;
-        }
         while (true) {
             String readLine = parsableByteArray.readLine();
             if (readLine != null) {
@@ -196,49 +87,78 @@ public final class SsaDecoder extends SimpleSubtitleDecoder {
         }
     }
 
-    private void parseHeader(ParsableByteArray parsableByteArray) {
-        String readLine;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, parsableByteArray) == null) {
-            do {
-                readLine = parsableByteArray.readLine();
-                if (readLine == null) {
-                    return;
+    private void parseFormatLine(String str) {
+        char c;
+        String[] split = TextUtils.split(str.substring(8), ",");
+        this.formatKeyCount = split.length;
+        this.formatStartIndex = -1;
+        this.formatEndIndex = -1;
+        this.formatTextIndex = -1;
+        for (int i = 0; i < this.formatKeyCount; i++) {
+            String lowerInvariant = Util.toLowerInvariant(split[i].trim());
+            int hashCode = lowerInvariant.hashCode();
+            if (hashCode != 100571) {
+                if (hashCode != 3556653) {
+                    if (hashCode == 109757538 && lowerInvariant.equals("start")) {
+                        c = 0;
+                    }
+                    c = 65535;
+                } else {
+                    if (lowerInvariant.equals("text")) {
+                        c = 2;
+                    }
+                    c = 65535;
                 }
-            } while (!readLine.startsWith("[Events]"));
+            } else {
+                if (lowerInvariant.equals("end")) {
+                    c = 1;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        this.formatTextIndex = i;
+                    }
+                } else {
+                    this.formatEndIndex = i;
+                }
+            } else {
+                this.formatStartIndex = i;
+            }
         }
     }
 
-    public static long parseTimecodeUs(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            Matcher matcher = SSA_TIMECODE_PATTERN.matcher(str);
-            if (!matcher.matches()) {
-                return C.TIME_UNSET;
+    private void parseHeader(ParsableByteArray parsableByteArray) {
+        String readLine;
+        do {
+            readLine = parsableByteArray.readLine();
+            if (readLine == null) {
+                return;
             }
-            return (Long.parseLong(matcher.group(1)) * 60 * 60 * 1000000) + (Long.parseLong(matcher.group(2)) * 60 * 1000000) + (Long.parseLong(matcher.group(3)) * 1000000) + (Long.parseLong(matcher.group(4)) * 10000);
+        } while (!readLine.startsWith("[Events]"));
+    }
+
+    public static long parseTimecodeUs(String str) {
+        Matcher matcher = SSA_TIMECODE_PATTERN.matcher(str);
+        if (!matcher.matches()) {
+            return C.TIME_UNSET;
         }
-        return invokeL.longValue;
+        return (Long.parseLong(matcher.group(1)) * 60 * 60 * 1000000) + (Long.parseLong(matcher.group(2)) * 60 * 1000000) + (Long.parseLong(matcher.group(3)) * 1000000) + (Long.parseLong(matcher.group(4)) * 10000);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.text.SimpleSubtitleDecoder
     public SsaSubtitle decode(byte[] bArr, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            ArrayList arrayList = new ArrayList();
-            LongArray longArray = new LongArray();
-            ParsableByteArray parsableByteArray = new ParsableByteArray(bArr, i);
-            if (!this.haveInitializationData) {
-                parseHeader(parsableByteArray);
-            }
-            parseEventBody(parsableByteArray, arrayList, longArray);
-            Cue[] cueArr = new Cue[arrayList.size()];
-            arrayList.toArray(cueArr);
-            return new SsaSubtitle(cueArr, longArray.toArray());
+        ArrayList arrayList = new ArrayList();
+        LongArray longArray = new LongArray();
+        ParsableByteArray parsableByteArray = new ParsableByteArray(bArr, i);
+        if (!this.haveInitializationData) {
+            parseHeader(parsableByteArray);
         }
-        return (SsaSubtitle) invokeCommon.objValue;
+        parseEventBody(parsableByteArray, arrayList, longArray);
+        Cue[] cueArr = new Cue[arrayList.size()];
+        arrayList.toArray(cueArr);
+        return new SsaSubtitle(cueArr, longArray.toArray());
     }
 }

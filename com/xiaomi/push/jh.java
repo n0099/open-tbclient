@@ -1,7 +1,17 @@
 package com.xiaomi.push;
-
-import java.io.Serializable;
 /* loaded from: classes8.dex */
-public interface jh extends Serializable {
-    jf a(jp jpVar);
+public final class jh {
+    public final byte a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final int f816a;
+
+    public jh() {
+        this((byte) 0, 0);
+    }
+
+    public jh(byte b, int i) {
+        this.a = b;
+        this.f816a = i;
+    }
 }

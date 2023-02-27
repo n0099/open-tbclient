@@ -1,146 +1,120 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.pm.ActivityInfo;
-import android.content.res.TypedArray;
-import android.os.Build;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes5.dex */
 public class q51 {
     public static /* synthetic */ Interceptable $ic;
+    public static final long a;
+    public static final long b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull Activity activity, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65536, null, activity, i) == null) && i != -1 && Build.VERSION.SDK_INT == 26 && activity.getApplicationInfo().targetSdkVersion > 26 && c(activity) && !b(activity)) {
-            try {
-                Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
-                declaredField.setAccessible(true);
-                Object obj = declaredField.get(activity);
-                Field declaredField2 = ActivityInfo.class.getDeclaredField("screenOrientation");
-                declaredField2.setAccessible(true);
-                if (declaredField2.getInt(obj) == -1) {
-                    declaredField2.setInt(obj, i);
-                }
-            } catch (IllegalAccessException | NoSuchFieldException unused) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948042716, "Lcom/baidu/tieba/q51;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948042716, "Lcom/baidu/tieba/q51;");
+                return;
+            }
+        }
+        a = TimeUnit.DAYS.toMillis(1L);
+        TimeUnit.HOURS.toMillis(1L);
+        b = TimeUnit.MINUTES.toMillis(1L);
+        TimeUnit.SECONDS.toMillis(1L);
+    }
+
+    public static int a(@NonNull String str, @NonNull String str2, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, str, str2, i)) == null) {
+            String b2 = b(str, str2);
+            if (TextUtils.isEmpty(b2)) {
+                return i;
+            }
+            try {
+                return Integer.parseInt(b2);
+            } catch (NumberFormatException unused) {
+                return i;
+            }
+        }
+        return invokeLLI.intValue;
+    }
+
+    public static void e(@NonNull String str, @NonNull String str2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65541, null, str, str2, i) == null) {
+            f(str, str2, String.valueOf(i));
         }
     }
 
-    @SuppressLint({"SoonBlockedPrivateApi"})
-    public static boolean b(@NonNull Activity activity) {
-        InterceptResult invokeL;
+    @Nullable
+    public static String b(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        int indexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            try {
-                Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
-                declaredField.setAccessible(true);
-                Object obj = declaredField.get(activity);
-                Method declaredMethod = ActivityInfo.class.getDeclaredMethod("isFixedOrientation", new Class[0]);
-                declaredMethod.setAccessible(true);
-                return ((Boolean) declaredMethod.invoke(obj, new Object[0])).booleanValue();
-            } catch (IllegalAccessException | NoSuchFieldException | NoSuchMethodException | InvocationTargetException unused) {
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            String string = r21.a().b(str).getString(str2, null);
+            if (TextUtils.isEmpty(string) || (indexOf = string.indexOf("-")) == -1 || indexOf >= string.length() || !d(string.substring(0, indexOf), System.currentTimeMillis())) {
+                return null;
             }
+            return string.substring(indexOf + 1);
         }
-        return invokeL.booleanValue;
+        return (String) invokeLL.objValue;
     }
 
-    @SuppressLint({"PrivateApi"})
-    public static boolean c(@NonNull Activity activity) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        boolean z3;
+    public static boolean c(long j, long j2, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            try {
-                Class<?> cls = Class.forName("com.android.internal.R$styleable");
-                Field declaredField = cls.getDeclaredField("Window");
-                declaredField.setAccessible(true);
-                TypedArray obtainStyledAttributes = activity.obtainStyledAttributes((int[]) declaredField.get(null));
-                Field declaredField2 = cls.getDeclaredField("Window_windowIsTranslucent");
-                declaredField2.setAccessible(true);
-                Field declaredField3 = cls.getDeclaredField("Window_windowSwipeToDismiss");
-                declaredField3.setAccessible(true);
-                Field declaredField4 = cls.getDeclaredField("Window_windowIsFloating");
-                declaredField4.setAccessible(true);
-                Object obj = declaredField2.get(null);
-                Object obj2 = declaredField3.get(null);
-                if (obj instanceof Integer) {
-                    z2 = obtainStyledAttributes.getBoolean(((Integer) obj).intValue(), false);
-                    if ((obj2 instanceof Integer) && !obtainStyledAttributes.hasValue(((Integer) obj).intValue()) && obtainStyledAttributes.getBoolean(((Integer) obj2).intValue(), false)) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                } else {
-                    z = false;
-                    z2 = false;
-                }
-                Object obj3 = declaredField4.get(null);
-                if (obj3 instanceof Integer) {
-                    z3 = obtainStyledAttributes.getBoolean(((Integer) obj3).intValue(), false);
-                } else {
-                    z3 = false;
-                }
-                obtainStyledAttributes.recycle();
-                if (!z3 && !z2 && !z) {
-                    return false;
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)})) == null) {
+            if (j - j2 > i * b) {
                 return true;
-            } catch (ClassNotFoundException | IllegalAccessException | NoSuchFieldException unused) {
-                return false;
             }
+            return false;
         }
-        return invokeL.booleanValue;
+        return invokeCommon.booleanValue;
     }
 
-    public static int d(@NonNull Activity activity) {
-        InterceptResult invokeL;
+    public static void f(@NonNull String str, @NonNull String str2, @NonNull String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
-            int i = -1;
-            if (Build.VERSION.SDK_INT != 26 || activity.getApplicationInfo().targetSdkVersion <= 26 || !c(activity) || !b(activity)) {
-                return -1;
-            }
-            try {
-                Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
-                declaredField.setAccessible(true);
-                Object obj = declaredField.get(activity);
-                Field declaredField2 = ActivityInfo.class.getDeclaredField("screenOrientation");
-                declaredField2.setAccessible(true);
-                int i2 = declaredField2.getInt(obj);
-                if (i2 != -1) {
-                    try {
-                        declaredField2.setInt(obj, -1);
-                    } catch (IllegalAccessException e) {
-                        e = e;
-                        i = i2;
-                        e.printStackTrace();
-                        return i;
-                    } catch (NoSuchFieldException e2) {
-                        e = e2;
-                        i = i2;
-                        e.printStackTrace();
-                        return i;
-                    }
-                }
-                return i2;
-            } catch (IllegalAccessException e3) {
-                e = e3;
-            } catch (NoSuchFieldException e4) {
-                e = e4;
-            }
-        } else {
-            return invokeL.intValue;
+        if (interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) {
+            SharedPreferences.Editor edit = r21.a().b(str).edit();
+            edit.putString(str2, System.currentTimeMillis() + "-" + str3);
+            edit.apply();
         }
+    }
+
+    public static boolean d(@Nullable String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            long j2 = 0;
+            try {
+                j2 = Long.parseLong(str);
+            } catch (NumberFormatException unused) {
+            }
+            long j3 = a;
+            if (j2 / j3 != j / j3) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLJ.booleanValue;
     }
 }

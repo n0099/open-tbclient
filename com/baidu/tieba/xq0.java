@@ -1,167 +1,139 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.nr0;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.model.ParseError;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class xq0 extends br0 {
+/* loaded from: classes6.dex */
+public final class xq0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final JSONObject A;
-    public final pr0 B;
-    public final nr0 r;
-    public final hr0 s;
-    public final fr0 t;
-    public final boolean u;
-    public final boolean v;
-    public final String w;
-    public final String x;
-    public final lr0 y;
-    public final JSONObject z;
+    @NonNull
+    public final AdBaseModel.STYLE a;
+    @NonNull
+    public final String b;
+    @NonNull
+    public String c;
+    @NonNull
+    public final String d;
+    @NonNull
+    public final String e;
+    @NonNull
+    public final String f;
+    @NonNull
+    public final String g;
+    @NonNull
+    public final String h;
+    @NonNull
+    public final String i;
+    @NonNull
+    public final List<String> j;
+    @NonNull
+    public final List<qq0> k;
+    @NonNull
+    public final String l;
+    @NonNull
+    public final String m;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xq0(tq0 common2, JSONObject root) {
-        super(common2, root, true);
+    public xq0(@NonNull AdBaseModel.STYLE style, @NonNull String str, int i, @NonNull JSONObject jSONObject, @NonNull JSONObject jSONObject2, @NonNull String str2) {
+        int length;
+        int length2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {common2, root};
+            Object[] objArr = {style, str, Integer.valueOf(i), jSONObject, jSONObject2, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((tq0) objArr2[0], (JSONObject) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(common2, "common");
-        Intrinsics.checkNotNullParameter(root, "root");
-        nr0.a aVar = nr0.A;
-        JSONObject optJSONObject = root.optJSONObject("reward");
-        this.r = aVar.a(optJSONObject == null ? new JSONObject() : optJSONObject);
-        this.s = hr0.e.a(root.optJSONObject("image_info"));
-        this.t = fr0.n.a(root.optJSONObject("cmd_policy"));
-        this.u = Intrinsics.areEqual(root.optString("type"), "detail");
-        this.v = Intrinsics.areEqual(root.optString("type"), "download");
-        String optString = root.optString("panel_cmd");
-        Intrinsics.checkNotNullExpressionValue(optString, "root.optString(\"panel_cmd\")");
-        this.w = optString;
-        String optString2 = root.optString("lp_real_url");
-        Intrinsics.checkNotNullExpressionValue(optString2, "root.optString(\"lp_real_url\")");
-        this.x = optString2;
-        this.y = lr0.i.a(root.optJSONObject("sliding_tag"));
-        this.z = root.optJSONObject("sv_title");
-        this.A = root.optJSONObject("sv_button");
-        this.B = new pr0(false, false, 0, false, false, false, 63, null);
+        this.a = style;
+        this.b = jSONObject2.optString("id");
+        this.c = jSONObject2.optString("scheme");
+        if (!TextUtils.isEmpty(str2)) {
+            this.d = str2;
+        } else {
+            this.d = jSONObject2.optString("ext_info");
+        }
+        this.e = jSONObject2.optString("user_name");
+        this.f = jSONObject2.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
+        this.g = jSONObject2.optString("title");
+        if (jSONObject2.optInt("title_lines", 0) > 0) {
+        }
+        this.h = jSONObject2.optString("tag", "广告");
+        this.i = jSONObject2.optString("recommend_reason");
+        this.j = new ArrayList();
+        JSONArray optJSONArray = jSONObject2.optJSONArray("recommend_reason");
+        if (optJSONArray == null) {
+            length = 0;
+        } else {
+            length = optJSONArray.length();
+        }
+        for (int i4 = 0; i4 < length; i4++) {
+            String optString = optJSONArray.optString(i4);
+            if (!TextUtils.isEmpty(optString)) {
+                e21.b(this.j, optString);
+            }
+        }
+        this.k = new ArrayList();
+        JSONArray optJSONArray2 = jSONObject2.optJSONArray("pic_list");
+        if (optJSONArray2 == null) {
+            length2 = 0;
+        } else {
+            length2 = optJSONArray2.length();
+        }
+        for (int i5 = 0; i5 < length2; i5++) {
+            JSONObject optJSONObject = optJSONArray2.optJSONObject(i5);
+            if (optJSONObject != null) {
+                e21.b(this.k, qq0.a(optJSONObject));
+            }
+        }
+        pr0.a(jSONObject2.optJSONArray("lottie_list"));
+        this.l = jSONObject2.optString("refer_url");
+        this.m = jSONObject2.optString("prerender_scheme");
     }
 
-    public final fr0 b() {
-        InterceptResult invokeV;
+    public static xq0 a(String str, int i, JSONObject jSONObject, JSONObject jSONObject2, String str2) throws ParseError {
+        InterceptResult invokeCommon;
+        AdBaseModel.STYLE style;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.t;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), jSONObject, jSONObject2, str2})) == null) {
+            try {
+                style = AdBaseModel.STYLE.from(jSONObject2.optString(MapBundleKey.MapObjKey.OBJ_AD_STYLE, "hidden"));
+            } catch (Throwable unused) {
+                style = null;
+            }
+            AdBaseModel.STYLE style2 = style;
+            if (style2 != null) {
+                return new xq0(style2, str, i, jSONObject, jSONObject2, str2);
+            }
+            throw ParseError.contentError(24, jSONObject2.optString(MapBundleKey.MapObjKey.OBJ_AD_STYLE));
         }
-        return (fr0) invokeV.objValue;
+        return (xq0) invokeCommon.objValue;
     }
 
-    public final hr0 c() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.s;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (qq0 qq0Var : this.k) {
+                qq0Var.b();
+            }
         }
-        return (hr0) invokeV.objValue;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.x;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.w;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final nr0 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.r;
-        }
-        return (nr0) invokeV.objValue;
-    }
-
-    public final pr0 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.B;
-        }
-        return (pr0) invokeV.objValue;
-    }
-
-    public final lr0 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.y;
-        }
-        return (lr0) invokeV.objValue;
-    }
-
-    public final JSONObject i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.A;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public final JSONObject j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.z;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public final boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.u;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.v;
-        }
-        return invokeV.booleanValue;
     }
 }

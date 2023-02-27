@@ -1,154 +1,100 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.data.ThreadRecommendInfoData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.HotThreadList.DataRes;
-import tbclient.HotThreadList.HotThreadListResIdl;
-import tbclient.ThreadInfo;
 /* loaded from: classes6.dex */
 public class ta7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<ThreadData> a;
+    public k88 b;
 
-    public static List<Cdo> a(List<ThreadData> list) {
-        InterceptResult invokeL;
+    public ta7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+    }
+
+    public List<ThreadData> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<ThreadData> list = this.a;
             if (list == null) {
-                return null;
+                return false;
+            }
+            return !ListUtils.isEmpty(list);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void a(xi7 xi7Var) {
+        k88 k88Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, xi7Var) == null) && (k88Var = this.b) != null && !ListUtils.isEmpty(k88Var.b)) {
+            xi7Var.a.add(0, this.b);
+        }
+    }
+
+    public xi7 b(int i, boolean z, sa7 sa7Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), sa7Var})) == null) {
+            xi7 xi7Var = new xi7();
+            xi7Var.c = sa7Var.f();
+            xi7Var.e = sa7Var.a();
+            xi7Var.f = sa7Var.b();
+            ArrayList<ThreadData> e = sa7Var.e();
+            if (z) {
+                this.b = sa7Var.d();
+                if (!ListUtils.isEmpty(e)) {
+                    this.a.clear();
+                    this.a.addAll(e);
+                    xi7Var.d = 1;
+                }
+            } else if (!ListUtils.isEmpty(e)) {
+                this.a.addAll(e);
+                xi7Var.d = i + 1;
             }
             ArrayList arrayList = new ArrayList();
-            int i = 0;
-            for (ThreadData threadData : list) {
-                int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
-                if (threadData.getType() == ThreadData.TYPE_NORMAL) {
-                    threadData.position = i;
-                    wz4 wz4Var = new wz4();
-                    wz4Var.t = threadData;
-                    wz4Var.position = i;
-                    wz4Var.r = true;
-                    wz4Var.setSupportType(BaseCardInfo.SupportType.TOP);
-                    arrayList.add(wz4Var);
-                    wz4 wz4Var2 = new wz4();
-                    wz4Var2.t = threadData;
-                    wz4Var2.position = i;
-                    if (threadData.isBJHNormalThreadType()) {
-                        wz4Var2.f = true;
-                    } else if (threadData.picCount() == 1) {
-                        wz4Var2.d = true;
-                        wz4Var2.u = imageWidthAndHeight[0];
-                        wz4Var2.v = imageWidthAndHeight[1];
-                    } else if (threadData.picCount() >= 2) {
-                        wz4Var2.e = true;
-                    } else {
-                        wz4Var2.b = true;
-                    }
-                    wz4Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                    arrayList.add(wz4Var2);
-                    d(threadData, arrayList, i);
-                    wz4 wz4Var3 = new wz4();
-                    wz4Var3.g = true;
-                    wz4Var3.t = threadData;
-                    wz4Var3.position = i;
-                    wz4Var3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                    arrayList.add(wz4Var3);
-                } else if (threadData.getType() == ThreadData.TYPE_VIDEO) {
-                    threadData.position = i;
-                    wz4 wz4Var4 = new wz4();
-                    wz4Var4.t = threadData;
-                    wz4Var4.position = i;
-                    wz4Var4.r = true;
-                    wz4Var4.setSupportType(BaseCardInfo.SupportType.TOP);
-                    arrayList.add(wz4Var4);
-                    wz4 wz4Var5 = new wz4();
-                    wz4Var5.t = threadData;
-                    wz4Var5.position = i;
-                    wz4Var5.i = true;
-                    wz4Var5.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                    arrayList.add(wz4Var5);
-                    d(threadData, arrayList, i);
-                    wz4 wz4Var6 = new wz4();
-                    wz4Var6.g = true;
-                    wz4Var6.t = threadData;
-                    wz4Var6.position = i;
-                    wz4Var6.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                    arrayList.add(wz4Var6);
-                } else {
-                    threadData.setSupportType(BaseCardInfo.SupportType.TOP);
-                }
-                i++;
-                threadData.setSupportType(BaseCardInfo.SupportType.TOP);
+            arrayList.addAll(this.a);
+            uh7.e(true, arrayList, sa7Var.c());
+            xi7Var.a = uh7.c(arrayList);
+            a(xi7Var);
+            k88 k88Var = this.b;
+            if (k88Var != null && k88Var.a && TbSingleton.getInstance().isShouldShowHomeLocalCompleteInfoCard()) {
+                xi7Var.a.add(0, new ui7());
             }
-            return arrayList;
+            return xi7Var;
         }
-        return (List) invokeL.objValue;
-    }
-
-    public static List<Cdo> b(List<ThreadInfo> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (list == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (ThreadInfo threadInfo : list) {
-                ThreadData threadData = new ThreadData();
-                threadData.isFromHotRankTab = true;
-                threadData.parserProtobuf(threadInfo);
-                e(threadData);
-                arrayList.add(threadData);
-            }
-            return a(arrayList);
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static List<Cdo> c(HotThreadListResIdl hotThreadListResIdl) {
-        InterceptResult invokeL;
-        DataRes dataRes;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hotThreadListResIdl)) == null) {
-            if (hotThreadListResIdl != null && (dataRes = hotThreadListResIdl.data) != null && !ListUtils.isEmpty(dataRes.thread_info)) {
-                return b(hotThreadListResIdl.data.thread_info);
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static void d(ThreadData threadData, ArrayList<Cdo> arrayList, int i) {
-        ThreadRecommendInfoData threadRecommendInfoData;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65539, null, threadData, arrayList, i) == null) && threadData != null && arrayList != null && (threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(threadData.getThreadRecommendInfoDataList(), 0)) != null && !TextUtils.isEmpty(threadRecommendInfoData.recommendReason)) {
-            wz4 wz4Var = new wz4();
-            wz4Var.s = true;
-            wz4Var.t = threadData;
-            wz4Var.position = i;
-            wz4Var.setSupportType(BaseCardInfo.SupportType.EXTEND);
-            arrayList.add(wz4Var);
-        }
-    }
-
-    public static void e(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData) == null) {
-            String lengthLimitName = threadData.getLengthLimitName();
-            String formatTimeForHomeC = StringHelper.getFormatTimeForHomeC(threadData.getLast_time_int() * 1000);
-            if (!TextUtils.isEmpty(lengthLimitName) && !TextUtils.isEmpty(formatTimeForHomeC)) {
-                lengthLimitName = lengthLimitName + "   " + formatTimeForHomeC;
-            }
-            threadData.setThreadExtendInfo(lengthLimitName);
-        }
+        return (xi7) invokeCommon.objValue;
     }
 }

@@ -1,62 +1,371 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.imageManager.TbImageMemoryCache;
+import com.baidu.tieba.face.data.EmotionImageData;
+import com.baidu.tieba.newfaceshop.facemake.PickEmotionView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes3.dex */
-public class aa8 {
+public class aa8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
+    public Context a;
+    public List<EmotionImageData> b;
+    public Set<String> c;
+    public LinkedHashMap<String, EmotionImageData> d;
+    public y98 e;
+    public int f;
+    public int g;
+    public int h;
+    public final Runnable i;
 
-    public aa8() {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes3.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PickEmotionView a;
+        public final /* synthetic */ aa8 b;
+
+        public a(aa8 aa8Var, PickEmotionView pickEmotionView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aa8Var, pickEmotionView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = aa8Var;
+            this.a = pickEmotionView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Object tag;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (tag = view2.getTag(view2.getId())) != null && (tag instanceof EmotionImageData)) {
+                EmotionImageData emotionImageData = (EmotionImageData) tag;
+                if (this.b.d.containsKey(emotionImageData.getPicUrl())) {
+                    this.b.d.remove(emotionImageData.getPicUrl());
+                    this.a.setChoosed(false);
+                    if (this.b.e != null) {
+                        this.b.e.p();
+                    }
+                } else if (this.b.e != null) {
+                    if (this.b.e.s()) {
+                        this.b.d.put(emotionImageData.getPicUrl(), emotionImageData);
+                        this.a.setChoosed(true);
+                        this.b.e.D();
+                        return;
+                    }
+                    BdToast.b(this.b.a, this.b.a.getText(R.string.obfuscated_res_0x7f0f063f)).k();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ aa8 a;
+
+        public b(aa8 aa8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aa8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aa8Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.c == null) {
+                return;
+            }
+            HashSet hashSet = new HashSet();
+            Iterator it = this.a.d.entrySet().iterator();
+            while (it.hasNext()) {
+                hashSet.add(((EmotionImageData) ((Map.Entry) it.next()).getValue()).getThumbUrl() + this.a.h);
+            }
+            for (String str : this.a.c) {
+                if (!TextUtils.isEmpty(str) && !hashSet.contains(str)) {
+                    TbImageMemoryCache.p().l(str);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public PickEmotionView a;
+        public PickEmotionView b;
+        public PickEmotionView c;
+        public PickEmotionView d;
+        public final /* synthetic */ aa8 e;
+
+        public c(aa8 aa8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aa8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = aa8Var;
+        }
+
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.e.j(this.a);
+            this.e.j(this.b);
+            this.e.j(this.c);
+            this.e.j(this.d);
+        }
+    }
+
+    public aa8(List<EmotionImageData> list, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.i = new b(this);
+        this.a = BdBaseApplication.getInst().getApp();
+        this.b = list;
+        this.h = i;
+        this.c = new HashSet();
+        this.d = new LinkedHashMap<>();
+        this.g = ej.g(this.a, R.dimen.obfuscated_res_0x7f07023a);
+        this.f = (int) (((ej.l(this.a) - ej.g(this.a, R.dimen.obfuscated_res_0x7f070253)) - (this.g * 4)) * 0.333d);
     }
 
-    public static aa8 a(String str) {
-        InterceptResult invokeL;
+    public void g(Map<String, EmotionImageData> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                aa8 aa8Var = new aa8();
-                aa8Var.a = jSONObject.optBoolean("show", false);
-                aa8Var.b = jSONObject.optInt(CriusAttrConstants.POSITION, -1);
-                return aa8Var;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            this.d.putAll(map);
         }
-        return (aa8) invokeL.objValue;
     }
 
-    public String toString() {
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            List<EmotionImageData> list = this.b;
+            if (list != null && i <= list.size() - 1) {
+                return this.b.get(i);
+            }
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    public final void j(PickEmotionView pickEmotionView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, pickEmotionView) != null) || pickEmotionView == null) {
+            return;
+        }
+        pickEmotionView.getEmotionView().setOnClickListener(new a(this, pickEmotionView));
+    }
+
+    public void l(y98 y98Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, y98Var) == null) {
+            this.e = y98Var;
+        }
+    }
+
+    public final void m(PickEmotionView pickEmotionView, EmotionImageData emotionImageData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, pickEmotionView, emotionImageData) == null) {
+            if (this.d.containsKey(emotionImageData.getPicUrl())) {
+                pickEmotionView.setChoosed(true);
+            } else {
+                pickEmotionView.setChoosed(false);
+            }
+        }
+    }
+
+    public final void n(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048587, this, view2, i) == null) && view2 != null && view2.getLayoutParams() != null) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
+            marginLayoutParams.leftMargin = i;
+            view2.setLayoutParams(marginLayoutParams);
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "{\"show\":" + this.a + ",\"position\":" + this.b + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            List<EmotionImageData> list = this.b;
+            if (list != null) {
+                if (list.size() % 4 == 0) {
+                    return this.b.size() / 4;
+                }
+                return (this.b.size() / 4) + 1;
+            }
+            return 0;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        c cVar;
+        EmotionImageData emotionImageData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                c cVar2 = new c(this);
+                View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d055d, (ViewGroup) null);
+                cVar2.a = (PickEmotionView) inflate.findViewById(R.id.obfuscated_res_0x7f090970);
+                cVar2.b = (PickEmotionView) inflate.findViewById(R.id.obfuscated_res_0x7f090971);
+                cVar2.c = (PickEmotionView) inflate.findViewById(R.id.obfuscated_res_0x7f090972);
+                cVar2.d = (PickEmotionView) inflate.findViewById(R.id.obfuscated_res_0x7f090973);
+                cVar2.a();
+                n(cVar2.b, this.f);
+                n(cVar2.c, this.f);
+                n(cVar2.d, this.f);
+                inflate.setTag(cVar2);
+                cVar = cVar2;
+                view2 = inflate;
+            } else {
+                cVar = (c) view2.getTag();
+            }
+            int i2 = i * 4;
+            int i3 = i2 + 4;
+            int min = Math.min(i3, this.b.size() - 1);
+            for (int i4 = i2; i4 < i3; i4++) {
+                if (i4 <= min) {
+                    emotionImageData = this.b.get(i4);
+                } else {
+                    emotionImageData = null;
+                }
+                int i5 = i4 - i2;
+                if (i5 != 0) {
+                    if (i5 != 1) {
+                        if (i5 != 2) {
+                            if (i5 == 3) {
+                                h(cVar.d, emotionImageData);
+                            }
+                        } else {
+                            h(cVar.c, emotionImageData);
+                        }
+                    } else {
+                        h(cVar.b, emotionImageData);
+                    }
+                } else {
+                    h(cVar.a, emotionImageData);
+                }
+            }
+            return view2;
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    public final void h(PickEmotionView pickEmotionView, EmotionImageData emotionImageData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048581, this, pickEmotionView, emotionImageData) != null) || pickEmotionView == null) {
+            return;
+        }
+        if (emotionImageData == null) {
+            pickEmotionView.setVisibility(4);
+            return;
+        }
+        pickEmotionView.getEmotionView().setTag(pickEmotionView.getEmotionView().getId(), emotionImageData);
+        pickEmotionView.setData(emotionImageData, this.h);
+        m(pickEmotionView, emotionImageData);
+        if (this.c != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
+            Set<String> set = this.c;
+            set.add(emotionImageData.getThumbUrl() + pickEmotionView.getLoadType());
+        }
+    }
+
+    public LinkedHashMap<String, EmotionImageData> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return (LinkedHashMap) invokeV.objValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            new Thread(this.i).start();
+        }
     }
 }

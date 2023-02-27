@@ -9,13 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class y36 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<x36> a;
+    public h36 a;
+    public h36 b;
+    public boolean c;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +31,7 @@ public class y36 extends BaseCardInfo {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        d = BdUniqueId.gen();
     }
 
     public y36() {
@@ -43,8 +44,10 @@ public class y36 extends BaseCardInfo {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.c = false;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
@@ -52,7 +55,7 @@ public class y36 extends BaseCardInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+            return d;
         }
         return (BdUniqueId) invokeV.objValue;
     }

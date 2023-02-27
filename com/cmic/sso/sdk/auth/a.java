@@ -93,100 +93,94 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00a4  */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x00d7  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x00a8  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00fb  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void a(com.cmic.sso.sdk.a aVar, b bVar, String str, String str2, JSONObject jSONObject) {
         String b;
+        JSONException jSONException;
         String str3;
         JSONObject jSONObject2;
         String str4;
         String str5;
         String str6;
-        JSONObject jSONObject3;
-        String optString;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, aVar, bVar, str, str2, jSONObject) == null) {
             if ("103000".equals(str)) {
-                String optString2 = jSONObject.optString("resultdata");
-                if (TextUtils.isEmpty(optString2)) {
+                String optString = jSONObject.optString("resultdata");
+                if (TextUtils.isEmpty(optString)) {
                     b = jSONObject.toString();
                 } else {
-                    b = com.cmic.sso.sdk.e.a.b(aVar.a(b.a.a), optString2, aVar.a(b.a.b));
+                    b = com.cmic.sso.sdk.e.a.b(aVar.a(b.a.a), optString, aVar.a(b.a.b));
                 }
                 String str7 = null;
                 try {
-                    jSONObject3 = new JSONObject(b);
+                    jSONObject2 = new JSONObject(b);
                     try {
-                        optString = jSONObject3.optString("phonescrip");
-                    } catch (JSONException e) {
-                        e = e;
+                        String optString2 = jSONObject2.optString("phonescrip");
+                        try {
+                            str4 = jSONObject2.optString("securityphone");
+                            try {
+                                str7 = jSONObject2.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID);
+                                if (TextUtils.isEmpty(str7)) {
+                                    str7 = jSONObject2.optString("pcid");
+                                }
+                                k.a("securityphone", str4);
+                                str5 = str4;
+                                str6 = optString2;
+                            } catch (JSONException e) {
+                                jSONException = e;
+                                str3 = str7;
+                                str7 = optString2;
+                                jSONException.printStackTrace();
+                                String str8 = str7;
+                                str7 = str3;
+                                str5 = str4;
+                                str6 = str8;
+                                com.cmic.sso.sdk.e.c.b("AuthnBusiness", "securityPhone  = " + str5);
+                                aVar.a(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID, str7);
+                                aVar.a("phonescrip", str6);
+                                aVar.a("securityphone", str5);
+                                if (jSONObject2 == null) {
+                                }
+                            }
+                        } catch (JSONException e2) {
+                            str4 = null;
+                            str7 = optString2;
+                            jSONException = e2;
+                            str3 = null;
+                        }
+                    } catch (JSONException e3) {
+                        jSONException = e3;
+                        str3 = null;
                         str4 = null;
                     }
-                } catch (JSONException e2) {
-                    e = e2;
+                } catch (JSONException e4) {
+                    jSONException = e4;
                     str3 = null;
                     jSONObject2 = null;
                     str4 = null;
-                }
-                try {
-                    str4 = jSONObject3.optString("securityphone");
-                    try {
-                        str7 = jSONObject3.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID);
-                        if (TextUtils.isEmpty(str7)) {
-                            str7 = jSONObject3.optString("pcid");
-                        }
-                        k.a("securityphone", str4);
-                        str5 = str4;
-                        str6 = optString;
-                    } catch (JSONException e3) {
-                        e = e3;
-                        str3 = str7;
-                        str7 = optString;
-                        jSONObject2 = jSONObject3;
-                        e.printStackTrace();
-                        str5 = str4;
-                        str6 = str7;
-                        str7 = str3;
-                        jSONObject3 = jSONObject2;
-                        com.cmic.sso.sdk.e.c.b("AuthnBusiness", "securityPhone  = " + str5);
-                        aVar.a(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID, str7);
-                        aVar.a("phonescrip", str6);
-                        aVar.a("securityphone", str5);
-                        if (jSONObject3 != null) {
-                        }
-                    }
-                } catch (JSONException e4) {
-                    e = e4;
-                    str4 = null;
-                    str7 = optString;
-                    jSONObject2 = jSONObject3;
-                    str3 = str4;
-                    e.printStackTrace();
-                    str5 = str4;
-                    str6 = str7;
-                    str7 = str3;
-                    jSONObject3 = jSONObject2;
-                    com.cmic.sso.sdk.e.c.b("AuthnBusiness", "securityPhone  = " + str5);
-                    aVar.a(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID, str7);
-                    aVar.a("phonescrip", str6);
-                    aVar.a("securityphone", str5);
-                    if (jSONObject3 != null) {
-                    }
                 }
                 com.cmic.sso.sdk.e.c.b("AuthnBusiness", "securityPhone  = " + str5);
                 aVar.a(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID, str7);
                 aVar.a("phonescrip", str6);
                 aVar.a("securityphone", str5);
-                if (jSONObject3 != null) {
-                    h.a(this.b, str6, Long.parseLong(jSONObject3.optString("scripExpiresIn", "0")), aVar.b("scripKey", ""), aVar.b("scripType", ""));
+                if (jSONObject2 == null) {
+                    if (!aVar.b("isRisk", false)) {
+                        h.a(this.b, str6, Long.parseLong(jSONObject2.optString("scripExpiresIn", "0")), aVar.b("scripKey", ""), aVar.b("scripType", ""));
+                    }
                     if (aVar.c("logintype") == 3) {
                         bVar.a(str, "true", aVar, c.a(str5));
                         return;
+                    } else if (aVar.b("isRisk", false)) {
+                        aVar.a("isRisk", false);
+                        aVar.a("isGotScrip", true);
+                        b(aVar, bVar);
+                        return;
                     } else {
-                        bVar.a(str, str2, aVar, jSONObject3);
+                        bVar.a(str, str2, aVar, jSONObject2);
                         return;
                     }
                 }
@@ -226,14 +220,21 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, this, aVar, bVar) == null) {
             com.cmic.sso.sdk.e.c.b("AuthnBusiness", "getScripAndToken start");
-            a(aVar);
-            if (!aVar.b("isCacheScrip", false)) {
-                b(aVar);
-            }
-            if (aVar.c("logintype") == 1) {
-                aVar.a("userCapaid", BasicPushStatus.SUCCESS_CODE);
-            } else if (aVar.c("logintype") == 0) {
-                aVar.a("userCapaid", PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK);
+            boolean b = aVar.b("isGotScrip", false);
+            com.cmic.sso.sdk.e.c.b("AuthnBusiness", "isGotScrip = " + b);
+            if (!b) {
+                a(aVar);
+                if (!aVar.b("isCacheScrip", false)) {
+                    b(aVar);
+                    if (aVar.c("networktype") == 3 && aVar.c("logintype") != 3) {
+                        aVar.a("isRisk", true);
+                    }
+                }
+                if (aVar.c("logintype") == 1) {
+                    aVar.a("userCapaid", BasicPushStatus.SUCCESS_CODE);
+                } else if (aVar.c("logintype") == 0) {
+                    aVar.a("userCapaid", PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK);
+                }
             }
             this.a.a(aVar, new com.cmic.sso.sdk.c.c.d(this, aVar, bVar) { // from class: com.cmic.sso.sdk.auth.a.1
                 public static /* synthetic */ Interceptable $ic;

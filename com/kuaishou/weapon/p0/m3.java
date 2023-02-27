@@ -3,7 +3,6 @@ package com.kuaishou.weapon.p0;
 import android.content.Context;
 import android.os.Build;
 import android.os.Process;
-import com.baidu.android.util.devices.RomUtils;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -41,7 +40,7 @@ public final class m3 {
                     return;
                 }
             }
-            a = new a(RomUtils.UNKNOWN, 0);
+            a = new a("UNKNOWN", 0);
             b = new a("ARMEABI_V7A", 1);
             a aVar = new a("ARM64_V8A", 2);
             c = aVar;

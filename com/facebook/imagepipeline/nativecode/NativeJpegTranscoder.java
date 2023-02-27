@@ -1,12 +1,5 @@
 package com.facebook.imagepipeline.nativecode;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Closeables;
 import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
@@ -27,9 +20,7 @@ import javax.annotation.Nullable;
 @DoNotStrip
 /* loaded from: classes7.dex */
 public class NativeJpegTranscoder implements ImageTranscoder {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NativeJpegTranscoder";
-    public transient /* synthetic */ FieldHolder $fh;
     public int mMaxBitmapSize;
     public boolean mResizingEnabled;
     public boolean mUseDownsamplingRatio;
@@ -42,26 +33,10 @@ public class NativeJpegTranscoder implements ImageTranscoder {
 
     @Override // com.facebook.imagepipeline.transcoder.ImageTranscoder
     public String getIdentifier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TAG : (String) invokeV.objValue;
+        return TAG;
     }
 
     public NativeJpegTranscoder(boolean z, int i, boolean z2, boolean z3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2), Boolean.valueOf(z3)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.mResizingEnabled = z;
         this.mMaxBitmapSize = i;
         this.mUseDownsamplingRatio = z2;
@@ -76,38 +51,35 @@ public class NativeJpegTranscoder implements ImageTranscoder {
         boolean z2;
         boolean z3;
         boolean z4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{inputStream, outputStream, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            NativeJpegTranscoderSoLoader.ensure();
-            boolean z5 = false;
-            if (i2 >= 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            Preconditions.checkArgument(z);
-            if (i2 <= 16) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            Preconditions.checkArgument(z2);
-            if (i3 >= 0) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            Preconditions.checkArgument(z3);
-            if (i3 <= 100) {
-                z4 = true;
-            } else {
-                z4 = false;
-            }
-            Preconditions.checkArgument(z4);
-            Preconditions.checkArgument(JpegTranscoderUtils.isRotationAngleAllowed(i));
-            Preconditions.checkArgument((i2 == 8 && i == 0) ? true : true, "no transformation requested");
-            nativeTranscodeJpeg((InputStream) Preconditions.checkNotNull(inputStream), (OutputStream) Preconditions.checkNotNull(outputStream), i, i2, i3);
+        NativeJpegTranscoderSoLoader.ensure();
+        boolean z5 = false;
+        if (i2 >= 1) {
+            z = true;
+        } else {
+            z = false;
         }
+        Preconditions.checkArgument(z);
+        if (i2 <= 16) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        Preconditions.checkArgument(z2);
+        if (i3 >= 0) {
+            z3 = true;
+        } else {
+            z3 = false;
+        }
+        Preconditions.checkArgument(z3);
+        if (i3 <= 100) {
+            z4 = true;
+        } else {
+            z4 = false;
+        }
+        Preconditions.checkArgument(z4);
+        Preconditions.checkArgument(JpegTranscoderUtils.isRotationAngleAllowed(i));
+        Preconditions.checkArgument((i2 == 8 && i == 0) ? true : true, "no transformation requested");
+        nativeTranscodeJpeg((InputStream) Preconditions.checkNotNull(inputStream), (OutputStream) Preconditions.checkNotNull(outputStream), i, i2, i3);
     }
 
     @VisibleForTesting
@@ -116,104 +88,86 @@ public class NativeJpegTranscoder implements ImageTranscoder {
         boolean z2;
         boolean z3;
         boolean z4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{inputStream, outputStream, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            NativeJpegTranscoderSoLoader.ensure();
-            boolean z5 = false;
-            if (i2 >= 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            Preconditions.checkArgument(z);
-            if (i2 <= 16) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            Preconditions.checkArgument(z2);
-            if (i3 >= 0) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            Preconditions.checkArgument(z3);
-            if (i3 <= 100) {
-                z4 = true;
-            } else {
-                z4 = false;
-            }
-            Preconditions.checkArgument(z4);
-            Preconditions.checkArgument(JpegTranscoderUtils.isExifOrientationAllowed(i));
-            Preconditions.checkArgument((i2 == 8 && i == 1) ? true : true, "no transformation requested");
-            nativeTranscodeJpegWithExifOrientation((InputStream) Preconditions.checkNotNull(inputStream), (OutputStream) Preconditions.checkNotNull(outputStream), i, i2, i3);
+        NativeJpegTranscoderSoLoader.ensure();
+        boolean z5 = false;
+        if (i2 >= 1) {
+            z = true;
+        } else {
+            z = false;
         }
+        Preconditions.checkArgument(z);
+        if (i2 <= 16) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        Preconditions.checkArgument(z2);
+        if (i3 >= 0) {
+            z3 = true;
+        } else {
+            z3 = false;
+        }
+        Preconditions.checkArgument(z3);
+        if (i3 <= 100) {
+            z4 = true;
+        } else {
+            z4 = false;
+        }
+        Preconditions.checkArgument(z4);
+        Preconditions.checkArgument(JpegTranscoderUtils.isExifOrientationAllowed(i));
+        Preconditions.checkArgument((i2 == 8 && i == 1) ? true : true, "no transformation requested");
+        nativeTranscodeJpegWithExifOrientation((InputStream) Preconditions.checkNotNull(inputStream), (OutputStream) Preconditions.checkNotNull(outputStream), i, i2, i3);
     }
 
     @Override // com.facebook.imagepipeline.transcoder.ImageTranscoder
     public boolean canResize(EncodedImage encodedImage, @Nullable RotationOptions rotationOptions, @Nullable ResizeOptions resizeOptions) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, encodedImage, rotationOptions, resizeOptions)) == null) {
-            if (rotationOptions == null) {
-                rotationOptions = RotationOptions.autoRotate();
-            }
-            if (JpegTranscoderUtils.getSoftwareNumerator(rotationOptions, resizeOptions, encodedImage, this.mResizingEnabled) < 8) {
-                return true;
-            }
-            return false;
+        if (rotationOptions == null) {
+            rotationOptions = RotationOptions.autoRotate();
         }
-        return invokeLLL.booleanValue;
+        if (JpegTranscoderUtils.getSoftwareNumerator(rotationOptions, resizeOptions, encodedImage, this.mResizingEnabled) < 8) {
+            return true;
+        }
+        return false;
     }
 
     @Override // com.facebook.imagepipeline.transcoder.ImageTranscoder
     public boolean canTranscode(ImageFormat imageFormat) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFormat)) == null) {
-            if (imageFormat == DefaultImageFormats.JPEG) {
-                return true;
-            }
-            return false;
+        if (imageFormat == DefaultImageFormats.JPEG) {
+            return true;
         }
-        return invokeL.booleanValue;
+        return false;
     }
 
     @Override // com.facebook.imagepipeline.transcoder.ImageTranscoder
     public ImageTranscodeResult transcode(EncodedImage encodedImage, OutputStream outputStream, @Nullable RotationOptions rotationOptions, @Nullable ResizeOptions resizeOptions, @Nullable ImageFormat imageFormat, @Nullable Integer num) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{encodedImage, outputStream, rotationOptions, resizeOptions, imageFormat, num})) == null) {
-            if (num == null) {
-                num = 85;
-            }
-            if (rotationOptions == null) {
-                rotationOptions = RotationOptions.autoRotate();
-            }
-            int determineSampleSize = DownsampleUtil.determineSampleSize(rotationOptions, resizeOptions, encodedImage, this.mMaxBitmapSize);
-            try {
-                int softwareNumerator = JpegTranscoderUtils.getSoftwareNumerator(rotationOptions, resizeOptions, encodedImage, this.mResizingEnabled);
-                int calculateDownsampleNumerator = JpegTranscoderUtils.calculateDownsampleNumerator(determineSampleSize);
-                if (this.mUseDownsamplingRatio) {
-                    softwareNumerator = calculateDownsampleNumerator;
-                }
-                InputStream inputStream = encodedImage.getInputStream();
-                if (JpegTranscoderUtils.INVERTED_EXIF_ORIENTATIONS.contains(Integer.valueOf(encodedImage.getExifOrientation()))) {
-                    transcodeJpegWithExifOrientation(inputStream, outputStream, JpegTranscoderUtils.getForceRotatedInvertedExifOrientation(rotationOptions, encodedImage), softwareNumerator, num.intValue());
-                } else {
-                    transcodeJpeg(inputStream, outputStream, JpegTranscoderUtils.getRotationAngle(rotationOptions, encodedImage), softwareNumerator, num.intValue());
-                }
-                Closeables.closeQuietly(inputStream);
-                int i = 1;
-                if (determineSampleSize != 1) {
-                    i = 0;
-                }
-                return new ImageTranscodeResult(i);
-            } catch (Throwable th) {
-                Closeables.closeQuietly((InputStream) null);
-                throw th;
-            }
+        if (num == null) {
+            num = 85;
         }
-        return (ImageTranscodeResult) invokeCommon.objValue;
+        if (rotationOptions == null) {
+            rotationOptions = RotationOptions.autoRotate();
+        }
+        int determineSampleSize = DownsampleUtil.determineSampleSize(rotationOptions, resizeOptions, encodedImage, this.mMaxBitmapSize);
+        try {
+            int softwareNumerator = JpegTranscoderUtils.getSoftwareNumerator(rotationOptions, resizeOptions, encodedImage, this.mResizingEnabled);
+            int calculateDownsampleNumerator = JpegTranscoderUtils.calculateDownsampleNumerator(determineSampleSize);
+            if (this.mUseDownsamplingRatio) {
+                softwareNumerator = calculateDownsampleNumerator;
+            }
+            InputStream inputStream = encodedImage.getInputStream();
+            if (JpegTranscoderUtils.INVERTED_EXIF_ORIENTATIONS.contains(Integer.valueOf(encodedImage.getExifOrientation()))) {
+                transcodeJpegWithExifOrientation(inputStream, outputStream, JpegTranscoderUtils.getForceRotatedInvertedExifOrientation(rotationOptions, encodedImage), softwareNumerator, num.intValue());
+            } else {
+                transcodeJpeg(inputStream, outputStream, JpegTranscoderUtils.getRotationAngle(rotationOptions, encodedImage), softwareNumerator, num.intValue());
+            }
+            Closeables.closeQuietly(inputStream);
+            int i = 1;
+            if (determineSampleSize != 1) {
+                i = 0;
+            }
+            return new ImageTranscodeResult(i);
+        } catch (Throwable th) {
+            Closeables.closeQuietly((InputStream) null);
+            throw th;
+        }
     }
 }

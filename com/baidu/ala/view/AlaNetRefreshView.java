@@ -8,16 +8,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ef5;
+import com.baidu.tieba.rg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class AlaNetRefreshView extends ef5 {
+public class AlaNetRefreshView extends rg5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mNetFailTipView;
@@ -27,7 +26,7 @@ public class AlaNetRefreshView extends ef5 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaNetRefreshView(Context context) {
-        super(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00fc, (ViewGroup) null));
+        super(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00fd, (ViewGroup) null));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,17 +64,9 @@ public class AlaNetRefreshView extends ef5 {
                 SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0106);
                 SkinManager.setBackgroundResource(this.mNetRefreshBtn, R.drawable.obfuscated_res_0x7f0801e0);
             }
-            boolean z = true;
-            if (TbadkApplication.getInst().getSkinType() != 1) {
-                z = false;
-            }
             ImageView imageView = this.mNetRefreshImg;
             if (imageView != null) {
-                if (z) {
-                    imageView.setAlpha(0.4f);
-                } else {
-                    imageView.setAlpha(1.0f);
-                }
+                imageView.setAlpha(1.0f);
             }
         }
     }

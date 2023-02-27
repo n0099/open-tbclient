@@ -1,185 +1,78 @@
 package com.baidu.tieba;
 
+import android.animation.Keyframe;
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
+import androidx.annotation.UiThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dc4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@UiThread
 /* loaded from: classes6.dex */
-public class tc4 implements ec4 {
+public class tc4 implements uc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ec4 a;
+    public Context a;
+    public bd4 b;
+    public b c;
+    public Handler d;
+    public ViewGroup e;
+    public int f;
+    public boolean g;
+    public ObjectAnimator h;
+    public wc4 i;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ gc4 b;
-        public final /* synthetic */ dc4.b c;
-        public final /* synthetic */ tc4 d;
+    public interface b {
+        void b();
 
-        public a(tc4 tc4Var, int i, gc4 gc4Var, dc4.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tc4Var, Integer.valueOf(i), gc4Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = tc4Var;
-            this.a = i;
-            this.b = gc4Var;
-            this.c = bVar;
-        }
+        void o();
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Context b = qb4.b();
-                if (b == null) {
-                    w52.c("RecommendButton", "context is null.");
-                    return;
-                }
-                this.d.a = dc4.c(this.a, b, this.b);
-                this.d.a.t(this.c);
-            }
+        void u(int i);
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 5000;
         }
+        return invokeV.intValue;
     }
 
     /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lc4 a;
-        public final /* synthetic */ tc4 b;
-
-        public b(tc4 tc4Var, lc4 lc4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tc4Var, lc4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = tc4Var;
-            this.a = lc4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                this.b.a.d(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dc4.b a;
-        public final /* synthetic */ tc4 b;
-
-        public c(tc4 tc4Var, dc4.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tc4Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = tc4Var;
-            this.a = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                this.b.a.t(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ tc4 b;
-
-        public d(tc4 tc4Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tc4Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = tc4Var;
-            this.a = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                this.b.a.m(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e implements Runnable {
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ tc4 a;
 
-        public e(tc4 tc4Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(tc4 tc4Var, Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tc4Var};
+                Object[] objArr = {tc4Var, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -188,185 +81,191 @@ public class tc4 implements ec4 {
             this.a = tc4Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
-                this.a.a.show();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class f implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tc4 a;
-
-        public f(tc4 tc4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tc4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
+                int f = this.a.f();
+                if (f > 0 && this.a.g) {
+                    this.a.d.sendEmptyMessageDelayed(1, f);
                 }
-            }
-            this.a = tc4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
-                this.a.a.hide();
+                this.a.k();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class g implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tc4 a;
-
-        public g(tc4 tc4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tc4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tc4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
-                this.a.a.destroy();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class h implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tc4 a;
-
-        public h(tc4 tc4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tc4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tc4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
-                this.a.a.update();
-            }
-        }
-    }
-
-    public tc4(int i, @NonNull gc4 gc4Var, dc4.b bVar) {
+    public tc4(@NonNull Context context, @NonNull wc4 wc4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), gc4Var, bVar};
+            Object[] objArr = {context, wc4Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        qm3.e0(new a(this, i, gc4Var, bVar));
+        this.a = context;
+        this.i = wc4Var;
+        j(i());
+        h();
+        b();
     }
 
-    @Override // com.baidu.tieba.ec4
-    public void d(lc4 lc4Var) {
+    @Override // com.baidu.tieba.uc4
+    public void d(bd4 bd4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lc4Var) == null) {
-            qm3.e0(new b(this, lc4Var));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bd4Var) == null) {
+            this.b = bd4Var;
         }
     }
 
-    @Override // com.baidu.tieba.ec4
+    @Override // com.baidu.tieba.uc4
     public void m(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            qm3.e0(new d(this, z));
+        if ((interceptable == null || interceptable.invokeZ(1048587, this, z) == null) && this.g) {
+            this.d.removeMessages(1);
+            if (z) {
+                this.d.sendEmptyMessage(1);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.ec4
-    public void t(dc4.b bVar) {
+    @Override // com.baidu.tieba.uc4
+    public void t(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            qm3.e0(new c(this, bVar));
+        if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
+            this.c = bVar;
         }
     }
 
-    @Override // com.baidu.tieba.cc4
+    @NonNull
+    public static tc4 c(int i, @NonNull Context context, @NonNull wc4 wc4Var) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65538, null, i, context, wc4Var)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    return new yc4(context, wc4Var);
+                }
+                return new ad4(context, wc4Var);
+            }
+            return new yc4(context, wc4Var);
+        }
+        return (tc4) invokeILL.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e.setVisibility(8);
+            gc4.a(this.e, g());
+        }
+    }
+
+    @Override // com.baidu.tieba.sc4
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            qm3.e0(new g(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.cc4
-    public void hide() {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            qm3.e0(new f(this));
+            this.g = false;
+            this.d.removeCallbacksAndMessages(null);
+            gc4.d(this.e);
         }
     }
 
-    @Override // com.baidu.tieba.cc4
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            qm3.e0(new e(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.ec4
-    public void update() {
+    public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            qm3.e0(new h(this));
+            this.h = e();
+            this.d = new a(this, Looper.getMainLooper());
+        }
+    }
+
+    @Override // com.baidu.tieba.sc4
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.g = false;
+            this.d.removeMessages(1);
+            this.e.setVisibility(8);
+        }
+    }
+
+    @SuppressLint({"InflateParams"})
+    public View i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0896, (ViewGroup) null);
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.h.start();
+        }
+    }
+
+    @Override // com.baidu.tieba.sc4
+    public void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.g = true;
+            this.e.setVisibility(0);
+            this.d.removeMessages(1);
+            this.d.sendEmptyMessage(1);
+        }
+    }
+
+    @Override // com.baidu.tieba.uc4
+    public void update() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            gc4.f(this.e, g());
+        }
+    }
+
+    public final ObjectAnimator e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.e, PropertyValuesHolder.ofKeyframe(View.ROTATION, Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(0.2f, 6.0f), Keyframe.ofFloat(0.4f, -6.0f), Keyframe.ofFloat(0.6f, 6.0f), Keyframe.ofFloat(0.8f, -6.0f), Keyframe.ofFloat(1.0f, 0.0f)));
+            ofPropertyValuesHolder.setDuration(600L);
+            return ofPropertyValuesHolder;
+        }
+        return (ObjectAnimator) invokeV.objValue;
+    }
+
+    public final sz2 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            sz2 sz2Var = new sz2();
+            sz2Var.l(cc4.a(this.i.left) - this.f);
+            sz2Var.m(cc4.a(this.i.top) - this.f);
+            sz2Var.n(-2);
+            sz2Var.j(-2);
+            return sz2Var;
+        }
+        return (sz2) invokeV.objValue;
+    }
+
+    public final void j(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            this.f = (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070722);
+            this.e = new FrameLayout(this.a);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(cc4.a(this.i.width), cc4.a(this.i.height));
+            int i = this.f;
+            layoutParams.setMargins(i, i, i, i);
+            this.e.setBackgroundColor(0);
+            this.e.addView(view2, layoutParams);
         }
     }
 }

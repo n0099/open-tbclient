@@ -10,6 +10,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.ByteArrayInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -32,7 +34,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-                char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+                char[] cArr = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
                 StringBuilder sb = new StringBuilder(bArr.length * 2);
                 for (int i = 0; i < bArr.length; i++) {
                     sb.append(cArr[(bArr[i] & 240) >> 4]);
@@ -56,7 +58,7 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             String packageName = context.getPackageName();
             String a2 = a(context, packageName);
-            return a2 + ";" + packageName;
+            return a2 + ParamableElem.DIVIDE_PARAM + packageName;
         }
         return (String) invokeL.objValue;
     }
@@ -169,7 +171,7 @@ public class b {
             int length = b.length;
             String[] strArr = new String[length];
             for (int i = 0; i < length; i++) {
-                strArr[i] = b[i] + ";" + packageName;
+                strArr[i] = b[i] + ParamableElem.DIVIDE_PARAM + packageName;
                 if (com.baidu.lbsapi.auth.a.a) {
                     com.baidu.lbsapi.auth.a.a("mcode" + strArr[i]);
                 }

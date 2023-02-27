@@ -44,16 +44,16 @@ public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            on w = TbImageMemoryCache.n().w(str);
+            on A = TbImageMemoryCache.p().A(str);
             if (z) {
-                if (w != null) {
+                if (A != null) {
                     z2 = true;
                 } else {
                     z2 = false;
                 }
                 wg.i(z2, System.currentTimeMillis() - currentTimeMillis);
             }
-            return w;
+            return A;
         }
         return (on) invokeCommon.objValue;
     }
@@ -67,7 +67,7 @@ public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
                 long currentTimeMillis = System.currentTimeMillis();
                 onVar.A(i);
                 onVar.z(i2);
-                TbImageMemoryCache.n().g(str, onVar);
+                TbImageMemoryCache.p().i(str, onVar);
                 wg.l(true, System.currentTimeMillis() - currentTimeMillis);
             }
         }

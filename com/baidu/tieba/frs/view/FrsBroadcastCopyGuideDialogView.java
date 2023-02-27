@@ -51,15 +51,15 @@ public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0306, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0314, this);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.frs_broadcast_guide_main);
             this.a = linearLayout;
-            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090b9a);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090b98);
-            this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090de7);
+            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090bdb);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090bd9);
+            this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090e28);
             this.f = (TextView) this.a.findViewById(R.id.to_next_tv);
-            this.c.setText(R.string.obfuscated_res_0x7f0f06b9);
-            this.d.setText(R.string.obfuscated_res_0x7f0f06b8);
+            this.c.setText(R.string.obfuscated_res_0x7f0f06bd);
+            this.d.setText(R.string.obfuscated_res_0x7f0f06bc);
             this.f.setText(R.string.obfuscated_res_0x7f0f0436);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);

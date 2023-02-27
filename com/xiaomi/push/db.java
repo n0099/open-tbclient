@@ -1,152 +1,58 @@
 package com.xiaomi.push;
-
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public class db {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public /* synthetic */ class db {
+    public static final /* synthetic */ int[] a;
 
-    public static int a(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
-            int a = hb.a(context);
-            if (-1 == a) {
-                return -1;
-            }
-            return (i * (a == 0 ? 13 : 11)) / 10;
-        }
-        return invokeLI.intValue;
-    }
-
-    public static int a(hj hjVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hjVar)) == null) ? en.a(hjVar.a()) : invokeL.intValue;
-    }
-
-    public static int a(iu iuVar, hj hjVar) {
-        InterceptResult invokeLL;
-        int a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, iuVar, hjVar)) == null) {
-            switch (dc.a[hjVar.ordinal()]) {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                    return en.a(hjVar.a());
-                case 11:
-                    a = en.a(hjVar.a());
-                    if (iuVar != null) {
-                        try {
-                            if (iuVar instanceof ia) {
-                                String str = ((ia) iuVar).f614d;
-                                if (!TextUtils.isEmpty(str) && en.a(en.m375a(str)) != -1) {
-                                    a = en.a(en.m375a(str));
-                                    break;
-                                }
-                            } else if (iuVar instanceof ii) {
-                                String str2 = ((ii) iuVar).f673d;
-                                if (!TextUtils.isEmpty(str2)) {
-                                    if (en.a(en.m375a(str2)) != -1) {
-                                        a = en.a(en.m375a(str2));
-                                    }
-                                    if (ht.B.equals(en.m375a(str2))) {
-                                        return -1;
-                                    }
-                                }
-                            }
-                        } catch (Exception unused) {
-                            com.xiaomi.channel.commonutils.logger.b.d("PERF_ERROR : parse Notification type error");
-                            return a;
-                        }
-                    }
-                    break;
-                case 12:
-                    a = en.a(hjVar.a());
-                    if (iuVar != null) {
-                        try {
-                            if (iuVar instanceof ie) {
-                                String b = ((ie) iuVar).b();
-                                if (!TextUtils.isEmpty(b) && ey.a(b) != -1) {
-                                    a = ey.a(b);
-                                    break;
-                                }
-                            } else if (iuVar instanceof id) {
-                                String a2 = ((id) iuVar).a();
-                                if (!TextUtils.isEmpty(a2) && ey.a(a2) != -1) {
-                                    return ey.a(a2);
-                                }
-                            }
-                        } catch (Exception unused2) {
-                            com.xiaomi.channel.commonutils.logger.b.d("PERF_ERROR : parse Command type error");
-                            break;
-                        }
-                    }
-                    break;
-                default:
-                    return -1;
-            }
-            return a;
-        }
-        return invokeLL.intValue;
-    }
-
-    public static void a(String str, Context context, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLII(65539, null, str, context, i, i2) == null) || i <= 0 || i2 <= 0) {
-            return;
-        }
-        int a = a(context, i2);
-        if (i != en.a(ht.B)) {
-            eo.a(context.getApplicationContext()).a(str, i, 1L, a);
-        }
-    }
-
-    public static void a(String str, Context context, Cif cif, int i) {
-        hj a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, context, cif, i) == null) || context == null || cif == null || (a = cif.a()) == null) {
-            return;
-        }
-        int a2 = a(a);
-        if (i <= 0) {
-            byte[] a3 = it.a(cif);
-            i = a3 != null ? a3.length : 0;
-        }
-        a(str, context, a2, i);
-    }
-
-    public static void a(String str, Context context, iu iuVar, hj hjVar, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, context, iuVar, hjVar, Integer.valueOf(i)}) == null) {
-            a(str, context, a(iuVar, hjVar), i);
-        }
-    }
-
-    public static void a(String str, Context context, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65542, null, str, context, bArr) == null) || context == null || bArr == null || bArr.length <= 0) {
-            return;
-        }
-        Cif cif = new Cif();
+    static {
+        int[] iArr = new int[hh.values().length];
+        a = iArr;
         try {
-            it.a(cif, bArr);
-            a(str, context, cif, bArr.length);
-        } catch (iz unused) {
-            com.xiaomi.channel.commonutils.logger.b.m105a("fail to convert bytes to container");
+            iArr[hh.Registration.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
+        }
+        try {
+            a[hh.UnRegistration.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
+        }
+        try {
+            a[hh.Subscription.ordinal()] = 3;
+        } catch (NoSuchFieldError unused3) {
+        }
+        try {
+            a[hh.UnSubscription.ordinal()] = 4;
+        } catch (NoSuchFieldError unused4) {
+        }
+        try {
+            a[hh.SendMessage.ordinal()] = 5;
+        } catch (NoSuchFieldError unused5) {
+        }
+        try {
+            a[hh.AckMessage.ordinal()] = 6;
+        } catch (NoSuchFieldError unused6) {
+        }
+        try {
+            a[hh.SetConfig.ordinal()] = 7;
+        } catch (NoSuchFieldError unused7) {
+        }
+        try {
+            a[hh.ReportFeedback.ordinal()] = 8;
+        } catch (NoSuchFieldError unused8) {
+        }
+        try {
+            a[hh.MultiConnectionBroadcast.ordinal()] = 9;
+        } catch (NoSuchFieldError unused9) {
+        }
+        try {
+            a[hh.MultiConnectionResult.ordinal()] = 10;
+        } catch (NoSuchFieldError unused10) {
+        }
+        try {
+            a[hh.Notification.ordinal()] = 11;
+        } catch (NoSuchFieldError unused11) {
+        }
+        try {
+            a[hh.Command.ordinal()] = 12;
+        } catch (NoSuchFieldError unused12) {
         }
     }
 }

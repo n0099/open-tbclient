@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.view.KeyEventDealContainerView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.ih;
-import com.baidu.tieba.qv4;
+import com.baidu.tieba.xw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -124,17 +124,19 @@ public class MorePopupWindow extends PopupWindow {
         this.mIsIntercepted = false;
     }
 
-    private void applaySkin(qv4 qv4Var, int i, Drawable drawable) {
+    private void applaySkin(xw4 xw4Var, int i, Drawable drawable) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(65539, this, qv4Var, i, drawable) == null) && this.mContentView != null) {
+        if ((interceptable == null || interceptable.invokeLIL(65539, this, xw4Var, i, drawable) == null) && this.mContentView != null) {
             setBackgroundDrawable(drawable);
-            boolean z = true;
-            if (i != 1) {
+            if (i == 4) {
+                z = true;
+            } else {
                 z = false;
             }
-            qv4Var.l(z);
+            xw4Var.l(z);
             try {
-                qv4Var.k(this.mContentView);
+                xw4Var.k(this.mContentView);
             } catch (IllegalArgumentException e) {
                 BdLog.e(e.toString());
             }
@@ -215,10 +217,10 @@ public class MorePopupWindow extends PopupWindow {
         }
     }
 
-    public void onChangeSkinType(qv4 qv4Var, int i, Drawable drawable) {
+    public void onChangeSkinType(xw4 xw4Var, int i, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, qv4Var, i, drawable) == null) {
-            applaySkin(qv4Var, i, drawable);
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, xw4Var, i, drawable) == null) {
+            applaySkin(xw4Var, i, drawable);
         }
     }
 
@@ -298,7 +300,7 @@ public class MorePopupWindow extends PopupWindow {
     public void showWindowInLeftCenterOfHost(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048587, this, view2, z) == null) {
-            setAnimationStyle(R.style.obfuscated_res_0x7f1003dc);
+            setAnimationStyle(R.style.obfuscated_res_0x7f1003df);
             setFocusable(z);
             int i = this.mShowLeftCenterXOff;
             int i2 = this.mWindowHeight;

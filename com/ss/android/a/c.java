@@ -1,12 +1,14 @@
 package com.ss.android.a;
 
 import android.support.v4.media.session.PlaybackStateCompat;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.File;
 import java.io.IOException;
 import java.security.MessageDigest;
 /* loaded from: classes8.dex */
 public class c {
-    public static final char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] a = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     /* loaded from: classes8.dex */
     public static class a {
@@ -90,7 +92,7 @@ public class c {
         if (!str.startsWith("ttmd5:")) {
             return null;
         }
-        String[] split = str.split(";");
+        String[] split = str.split(ParamableElem.DIVIDE_PARAM);
         String[] split2 = split[0].split(":");
         a aVar = new a();
         aVar.a = Integer.parseInt(split2[1]);
@@ -157,7 +159,7 @@ public class c {
                 if (i2 != 1 && j2 == a3) {
                     return a2;
                 }
-                String str = a(i2, j2) + ";" + a2;
+                String str = a(i2, j2) + ParamableElem.DIVIDE_PARAM + a2;
                 bVar.b();
                 return str;
             }
@@ -173,7 +175,7 @@ public class c {
             a2 = a(messageDigest.digest());
             if (i2 != 1) {
             }
-            String str2 = a(i2, j2) + ";" + a2;
+            String str2 = a(i2, j2) + ParamableElem.DIVIDE_PARAM + a2;
             bVar.b();
             return str2;
         } finally {

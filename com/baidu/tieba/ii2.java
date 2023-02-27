@@ -1,63 +1,90 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Bundle;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class ii2 extends di2 {
+public class ii2 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ii2(@NonNull ci2 ci2Var) {
-        super(ci2Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947854391, "Lcom/baidu/tieba/ii2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947854391, "Lcom/baidu/tieba/ii2;");
+                return;
+            }
+        }
+        ts2.g0().getSwitch("swan_recovery_enable", true);
+        a = true;
+    }
+
+    public ii2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ci2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ci2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.di2
-    public void e() {
+    public static void c(si2 si2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d();
-            h();
-            g();
+        if ((interceptable != null && interceptable.invokeL(65538, null, si2Var) != null) || !a || si2Var == null) {
+            return;
         }
+        if (ProcessUtils.isMainProcess()) {
+            ji2.a(si2Var).b();
+            ri2.b().a(si2Var.a);
+            return;
+        }
+        Bundle bundle = new Bundle();
+        bundle.putInt("recovery_level", si2Var.a);
+        bundle.putStringArrayList("recovery_app_list", si2Var.b);
+        DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), ii2.class, bundle);
     }
 
-    public final void g() {
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            fj2.f(0).f().c();
-            fj2.f(0).e().f();
-            nk2.i(0, true);
-            ap4.M(gk2.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            if (!a) {
+                return null;
+            }
+            int i = bundle.getInt("recovery_level", -1);
+            ArrayList<String> stringArrayList = bundle.getStringArrayList("recovery_app_list");
+            si2 si2Var = new si2();
+            si2Var.a = i;
+            if (stringArrayList != null) {
+                si2Var.b = stringArrayList;
+            }
+            ji2.a(si2Var).b();
+            ri2.b().a(si2Var.a);
+            return null;
         }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            gi3.b(0);
-            ei3.b(0);
-            ei3.v(true, 0);
-            ap4.L(bi3.d(0));
-        }
+        return (Bundle) invokeL.objValue;
     }
 }

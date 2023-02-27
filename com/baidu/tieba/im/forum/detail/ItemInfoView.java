@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.qv4;
+import com.baidu.tieba.xw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,9 +77,9 @@ public class ItemInfoView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ae, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02bc, (ViewGroup) this, true);
             setVisibility(8);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091017);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091058);
         }
     }
 
@@ -88,8 +88,8 @@ public class ItemInfoView extends LinearLayout {
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumDetailActivity, i) == null) {
             boolean z = true;
             SkinManager.setViewTextColor(this.a, R.color.common_color_10177, 1);
-            qv4 layoutMode = forumDetailActivity.getLayoutMode();
-            if (i != 1) {
+            xw4 layoutMode = forumDetailActivity.getLayoutMode();
+            if (i != 4) {
                 z = false;
             }
             layoutMode.l(z);
@@ -132,7 +132,7 @@ public class ItemInfoView extends LinearLayout {
             if ((recommendForumInfo != null && (list = recommendForumInfo.content) != null && list.size() > 0) || (recommendForumInfo != null && !dj.isEmpty(recommendForumInfo.slogan))) {
                 this.a.setText(c(recommendForumInfo.content, recommendForumInfo.slogan));
             } else {
-                this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06c6));
+                this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06ca));
             }
             setVisibility(0);
         }

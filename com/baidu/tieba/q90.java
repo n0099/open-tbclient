@@ -1,176 +1,243 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.websocket.WebSocketRequest;
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import com.baidu.lcp.sdk.pb.LcmPb$LcmResponse;
+import com.baidu.lcp.sdk.pb.LcmPb$RpcData;
+import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcMeta;
+import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcNotifyMeta;
+import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcRequestMeta;
+import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcResponseMeta;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.gslbsdk.db.ProbeTB;
-import java.util.Map;
-import org.apache.http.cookie.ClientCookie;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class q90 extends p90 {
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.zip.GZIPInputStream;
+/* loaded from: classes5.dex */
+public class q90 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a b;
-    public int c;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(String str, int i);
-
-        void b(int i, String str, int i2);
-    }
-
-    @Override // com.baidu.tieba.r90.b
-    public Map<String, String> getHeaders() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.r90.b
-    public String getMediaType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "application/json" : (String) invokeV.objValue;
-    }
-
-    public q90(Context context, a aVar, int i) {
+    public q90() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, aVar, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = context;
-        this.b = aVar;
-        this.c = i;
     }
 
-    @Override // com.baidu.tieba.r90.b
-    public String getHost() {
-        InterceptResult invokeV;
+    public final h90 a(h90 h90Var, byte[] bArr) throws Exception {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int a2 = v90.a(this.a);
-            if (a2 == 1) {
-                return "http://rd-im-server.bcc-szth.baidu.com:8089/rest/5.0/generate_lcm_token";
-            } else if (a2 == 2) {
-                return "http://sz-shaheenv-al-b.bcc-szwg.baidu.com:8911/rest/5.0/generate_lcm_token";
-            } else if (v90.b(this.a)) {
-                return "http://rd-im-server.bcc-szth.baidu.com:8089/rest/5.0/generate_lcm_token";
-            } else {
-                return "https://pim.baidu.com/rest/5.0/generate_lcm_token";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.r90.b
-    public byte[] getRequestParameter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            try {
-                JSONObject jSONObject = (JSONObject) u90.c(this.a, true);
-                if (jSONObject != null) {
-                    return jSONObject.toString().getBytes();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, h90Var, bArr)) == null) {
+            LcmPb$RpcData parseFrom = LcmPb$RpcData.parseFrom(bArr);
+            if (parseFrom.hasLcmResponse()) {
+                LcmPb$LcmResponse lcmResponse = parseFrom.getLcmResponse();
+                aa0.a("PbProcessor", "methodId ：" + h90Var.j + ", logId :" + lcmResponse.getLogId() + ", errMsg :" + lcmResponse.getErrorMsg() + ", errCode :" + lcmResponse.getErrorCode() + ", pingMS :" + lcmResponse.getNextIntervalMs());
+                if (lcmResponse.getErrorCode() == 0) {
+                    long j = h90Var.j;
+                    if (j == 1) {
+                        h90Var.k = 0;
+                        h90Var.h = lcmResponse.getNextIntervalMs();
+                    } else if (j == 2) {
+                        h90Var.k = -1;
+                    } else if (j == 3) {
+                        h90Var.h = lcmResponse.getNextIntervalMs();
+                    } else if (j == 4) {
+                        aa0.a("PbProcessor", "parseLcmResponse notify");
+                    }
+                } else {
+                    h90Var.d = lcmResponse.getErrorCode();
+                    h90Var.e = lcmResponse.getErrorMsg();
+                    h90Var.k = -1;
                 }
-                return new byte[0];
-            } catch (Exception unused) {
-                return new byte[0];
+            } else if (parseFrom.hasLcmNotify()) {
+                aa0.a("PbProcessor", "lcmpb hasLcmNotify");
+            } else if (parseFrom.hasLcmRequest()) {
+                h90Var.o = parseFrom.getLcmRequest().getLogId();
             }
+            return h90Var;
         }
-        return (byte[]) invokeV.objValue;
+        return (h90) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.r90.d
-    public void onFailure(int i, String str) {
+    public h90 b(InputStream inputStream) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
-            this.b.b(i, str, this.c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream)) == null) {
+            h90 h90Var = new h90();
+            if (inputStream instanceof ByteArrayInputStream) {
+                aa0.a("PbProcessor", "parseResponse quic");
+            } else if (inputStream instanceof DataInputStream) {
+                DataInputStream dataInputStream = (DataInputStream) inputStream;
+                byte readByte = dataInputStream.readByte();
+                byte readByte2 = dataInputStream.readByte();
+                byte readByte3 = dataInputStream.readByte();
+                byte readByte4 = dataInputStream.readByte();
+                int readInt = dataInputStream.readInt();
+                int readInt2 = dataInputStream.readInt();
+                if (readInt <= 1048576 && readInt2 <= 1048576) {
+                    byte[] bArr = new byte[readInt2];
+                    dataInputStream.readFully(bArr);
+                    int i = readInt - readInt2;
+                    byte[] bArr2 = new byte[i];
+                    dataInputStream.readFully(bArr2);
+                    aa0.e("PbProcessor", "l :" + ((int) readByte) + ", c :" + ((int) readByte2) + ", p :" + ((int) readByte3) + ", v :" + ((int) readByte4) + ",data : " + readInt + ", rpc :" + readInt2 + ", payload :" + i);
+                    c(h90Var, bArr, bArr2);
+                    return h90Var;
+                }
+                aa0.b("PbProcessor", "l :" + ((int) readByte) + ", c :" + ((int) readByte2) + ", p :" + ((int) readByte3) + ", v :" + ((int) readByte4) + ",data : " + readInt + ", rpc :" + readInt2);
+                throw new Exception(" Failed to allocate a larger byte allocation, data length = " + readInt);
+            }
+            return h90Var;
         }
+        return (h90) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.r90.d
-    public void onSuccess(byte[] bArr) {
-        JSONObject jSONObject;
+    public final h90 c(h90 h90Var, byte[] bArr, byte[] bArr2) throws Exception {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bArr) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, h90Var, bArr, bArr2)) == null) {
+            RpcMetaPb$RpcMeta parseFrom = RpcMetaPb$RpcMeta.parseFrom(bArr);
+            if (parseFrom.getCompressType() == 1) {
+                bArr2 = d(bArr2);
+                aa0.a("PbProcessor", "payload is gzip compressed，length : " + bArr2.length);
+            }
+            h90Var.g = bArr2;
+            int i = 0;
+            if (parseFrom.hasNotify()) {
+                RpcMetaPb$RpcNotifyMeta notify = parseFrom.getNotify();
+                h90Var.d = 0;
+                h90Var.e = "notify";
+                h90Var.i = notify.getServiceId();
+                h90Var.j = notify.getMethodId();
+                h90Var.o = notify.getLogId();
+                h90Var.f = true;
+                h90Var.q.clear();
+                while (i < notify.getEventListCount()) {
+                    h90Var.q.add(new c90(notify.getEventList(i).getEvent(), notify.getEventList(i).getTimestampMs()));
+                    i++;
+                }
+                h90Var.q.add(new c90("CLCPNotify", System.currentTimeMillis()));
+            } else if (parseFrom.hasResponse()) {
+                RpcMetaPb$RpcResponseMeta response = parseFrom.getResponse();
+                h90Var.d = response.getErrorCode();
+                h90Var.e = response.getErrorText();
+                h90Var.i = response.getServiceId();
+                h90Var.j = response.getMethodId();
+                h90Var.o = response.getLogId();
+                h90Var.f = false;
+                h90Var.q.clear();
+                while (i < response.getEventListCount()) {
+                    h90Var.q.add(new c90(response.getEventList(i).getEvent(), response.getEventList(i).getTimestampMs()));
+                    i++;
+                }
+                if (h90Var.d == 0 && h90Var.i == 1) {
+                    a(h90Var, bArr2);
+                    return h90Var;
+                }
+            } else if (parseFrom.hasRequest()) {
+                RpcMetaPb$RpcRequestMeta request = parseFrom.getRequest();
+                h90Var.i = request.getServiceId();
+                h90Var.j = request.getMethodId();
+                aa0.a("PbProcessor", "parseRpcMeta requestMeta");
+                a(h90Var, bArr2);
+            }
+            return h90Var;
+        }
+        return (h90) invokeLLL.objValue;
+    }
+
+    /* JADX WARN: Not initialized variable reg: 5, insn: 0x003b: MOVE  (r4 I:??[OBJECT, ARRAY]) = (r5 I:??[OBJECT, ARRAY]), block:B:18:0x003b */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x005d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final byte[] d(byte[] bArr) {
+        InterceptResult invokeL;
+        GZIPInputStream gZIPInputStream;
+        IOException e;
+        GZIPInputStream gZIPInputStream2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            GZIPInputStream gZIPInputStream3 = null;
             try {
-                JSONObject jSONObject2 = new JSONObject(new String(bArr));
-                w90.a("GetTokenRequest", "onSuccess :" + jSONObject2.toString());
-                int optInt = jSONObject2.optInt("error_code", -1);
-                String optString = jSONObject2.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-                p80 g = o80.h(this.a).g(601110);
-                g.c("token_end", System.currentTimeMillis());
-                g.b("connect_state", 1);
-                g.d("P2", jSONObject2.toString());
-                g.d("con_err_code", "P2");
-                if (optInt == 0) {
-                    x90.q(this.a, jSONObject2.optBoolean("bddns_enable", false));
-                    String optString2 = jSONObject2.optString("token");
-                    JSONArray jSONArray = jSONObject2.getJSONArray(WebSocketRequest.PARAM_KEY_PROTOCOLS);
-                    if (!TextUtils.isEmpty(optString2) && jSONArray != null && jSONArray.length() >= 1) {
-                        x90.w(this.a, jSONArray.length());
-                        for (int i = 0; i < jSONArray.length(); i++) {
-                            JSONObject jSONObject3 = (JSONObject) jSONArray.get(i);
-                            x90.v(this.a, jSONObject3.optString(ProbeTB.PROTOCOL) + ":" + jSONObject3.optString("domain") + ":" + jSONObject3.optString(ClientCookie.PORT_ATTR), i);
-                        }
-                        x90.s(this.a, jSONObject2.optInt("ipv6_strategy", 3));
-                        x90.x(this.a, optString2);
-                        this.b.a(optString2, this.c);
-                        try {
-                            String optString3 = jSONObject2.optString("client_log_config", "");
-                            if (!TextUtils.isEmpty(optString3)) {
-                                JSONObject jSONObject4 = new JSONObject(optString3);
-                                t80.j(this.a, jSONObject4.optInt("client_upload_log_switch", 0));
-                                JSONArray jSONArray2 = jSONObject4.getJSONArray("realtime_log_switch");
-                                if (jSONArray2 != null && jSONArray2.length() > 0) {
-                                    for (int i2 = 0; i2 < jSONArray2.length() && (jSONObject = jSONArray2.getJSONObject(i2)) != null; i2++) {
-                                        t80.i(this.a, jSONObject.optInt("id", 0), jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0));
-                                    }
-                                    return;
-                                }
-                                return;
+                try {
+                    gZIPInputStream = new GZIPInputStream(byteArrayInputStream);
+                    try {
+                        byte[] bArr2 = new byte[1024];
+                        while (true) {
+                            int read = gZIPInputStream.read(bArr2);
+                            if (read < 0) {
+                                break;
                             }
-                            return;
-                        } catch (Exception e) {
-                            a aVar = this.b;
-                            aVar.b(10001, "Json Exception" + e, this.c);
-                            w90.b("GetTokenRequest", "Json Exception");
-                            return;
+                            byteArrayOutputStream.write(bArr2, 0, read);
+                        }
+                        byte[] byteArray = byteArrayOutputStream.toByteArray();
+                        try {
+                            gZIPInputStream.close();
+                            byteArrayInputStream.close();
+                            byteArrayOutputStream.close();
+                        } catch (Exception e2) {
+                            aa0.c("SocketTransceiver", "Exception ", e2);
+                        }
+                        return byteArray;
+                    } catch (IOException e3) {
+                        e = e3;
+                        aa0.c("SocketTransceiver", "unzip exception :", e);
+                        if (gZIPInputStream != null) {
+                            try {
+                                gZIPInputStream.close();
+                            } catch (Exception e4) {
+                                aa0.c("SocketTransceiver", "Exception ", e4);
+                                return bArr;
+                            }
+                        }
+                        byteArrayInputStream.close();
+                        byteArrayOutputStream.close();
+                        return bArr;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    gZIPInputStream3 = gZIPInputStream2;
+                    if (gZIPInputStream3 != null) {
+                        try {
+                            gZIPInputStream3.close();
+                        } catch (Exception e5) {
+                            aa0.c("SocketTransceiver", "Exception ", e5);
+                            throw th;
                         }
                     }
-                    this.b.b(10002, "token or protocol is empty", this.c);
-                    return;
+                    byteArrayInputStream.close();
+                    byteArrayOutputStream.close();
+                    throw th;
                 }
-                this.b.b(optInt, optString, this.c);
-            } catch (JSONException e2) {
-                a aVar2 = this.b;
-                aVar2.b(10001, "parse response exception ：" + e2, this.c);
+            } catch (IOException e6) {
+                gZIPInputStream = null;
+                e = e6;
+            } catch (Throwable th2) {
+                th = th2;
+                if (gZIPInputStream3 != null) {
+                }
+                byteArrayInputStream.close();
+                byteArrayOutputStream.close();
+                throw th;
             }
+        } else {
+            return (byte[]) invokeL.objValue;
         }
     }
 }

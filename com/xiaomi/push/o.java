@@ -1,126 +1,79 @@
 package com.xiaomi.push;
 
-import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Handler;
-import android.os.HandlerThread;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.os.Looper;
+import android.text.TextUtils;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
 public class o {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile Handler a;
+    public static volatile o a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Object f843a;
-    public static volatile Handler b;
-    public transient /* synthetic */ FieldHolder $fh;
+    public Context f823a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1664386297, "Lcom/xiaomi/push/o;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1664386297, "Lcom/xiaomi/push/o;");
-                return;
-            }
-        }
-        f843a = new Object();
+    /* renamed from: a  reason: collision with other field name */
+    public Handler f824a = new Handler(Looper.getMainLooper());
+
+    /* renamed from: a  reason: collision with other field name */
+    public Map<String, Map<String, String>> f825a = new HashMap();
+
+    public o(Context context) {
+        this.f823a = context;
     }
 
-    public o() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static Intent a(Context context, BroadcastReceiver broadcastReceiver, IntentFilter intentFilter) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, broadcastReceiver, intentFilter)) == null) ? a(context, broadcastReceiver, intentFilter, null) : (Intent) invokeLLL.objValue;
-    }
-
-    public static Intent a(Context context, BroadcastReceiver broadcastReceiver, IntentFilter intentFilter, String str) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, context, broadcastReceiver, intentFilter, str)) == null) {
-            if (context == null || broadcastReceiver == null || intentFilter == null) {
-                return null;
-            }
-            return context.registerReceiver(broadcastReceiver, intentFilter, str, b());
-        }
-        return (Intent) invokeLLLL.objValue;
-    }
-
-    public static Handler a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (b == null) {
-                synchronized (f843a) {
-                    if (b == null) {
-                        HandlerThread handlerThread = new HandlerThread("receiver_task");
-                        handlerThread.start();
-                        b = new Handler(handlerThread.getLooper());
-                    }
+    public static o a(Context context) {
+        if (a == null) {
+            synchronized (o.class) {
+                if (a == null) {
+                    a = new o(context);
                 }
             }
-            return b;
         }
-        return (Handler) invokeV.objValue;
+        return a;
     }
 
-    public static void a(Context context, ComponentName componentName) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, componentName) == null) {
-            b().post(new p(context, componentName));
-        }
-    }
-
-    public static void a(Context context, Class<?> cls) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, null, context, cls) == null) || context == null || cls == null) {
-            return;
-        }
-        a(context, new ComponentName(context, cls));
-    }
-
-    public static Handler b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (a == null) {
-                synchronized (o.class) {
-                    if (a == null) {
-                        HandlerThread handlerThread = new HandlerThread("handle_receiver");
-                        handlerThread.start();
-                        a = new Handler(handlerThread.getLooper());
+    private synchronized String a(String str, String str2) {
+        if (this.f825a != null && !TextUtils.isEmpty(str)) {
+            if (!TextUtils.isEmpty(str2)) {
+                try {
+                    Map<String, String> map = this.f825a.get(str);
+                    if (map != null) {
+                        return map.get(str2);
                     }
+                    return "";
+                } catch (Throwable unused) {
+                    return "";
                 }
             }
-            return a;
         }
-        return (Handler) invokeV.objValue;
+        return "";
+    }
+
+    private synchronized void b(String str, String str2, String str3) {
+        if (this.f825a == null) {
+            this.f825a = new HashMap();
+        }
+        Map<String, String> map = this.f825a.get(str);
+        if (map == null) {
+            map = new HashMap<>();
+        }
+        map.put(str2, str3);
+        this.f825a.put(str, map);
+    }
+
+    public synchronized String a(String str, String str2, String str3) {
+        String a2 = a(str, str2);
+        if (TextUtils.isEmpty(a2)) {
+            return this.f823a.getSharedPreferences(str, 4).getString(str2, str3);
+        }
+        return a2;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized void m638a(String str, String str2, String str3) {
+        b(str, str2, str3);
+        this.f824a.post(new p(this, str, str2, str3));
     }
 }

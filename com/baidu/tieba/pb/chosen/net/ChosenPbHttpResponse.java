@@ -3,9 +3,9 @@ package com.baidu.tieba.pb.chosen.net;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h98;
-import com.baidu.tieba.i05;
 import com.baidu.tieba.jf;
+import com.baidu.tieba.p15;
+import com.baidu.tieba.tc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import tbclient.ExcPbPage.UserInfo;
 import tbclient.Post;
 import tbclient.User;
 /* loaded from: classes5.dex */
-public class ChosenPbHttpResponse extends HttpResponsedMessage implements h98 {
+public class ChosenPbHttpResponse extends HttpResponsedMessage implements tc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<Post> postList;
@@ -57,8 +57,8 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements h98 {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
             if (bArr != null && bArr.length > 0) {
-                i05.d();
-                jf<byte[]> b = i05.b("tb.pb_normal");
+                p15.d();
+                jf<byte[]> b = p15.b("tb.pb_normal");
                 b.remove("chosen_pb_page_cache");
                 b.g("chosen_pb_page_cache", bArr);
             }
@@ -88,7 +88,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements h98 {
         this.userList = dataRes.user_list;
     }
 
-    @Override // com.baidu.tieba.h98
+    @Override // com.baidu.tieba.tc8
     public int getErroCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements h98 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.h98
+    @Override // com.baidu.tieba.tc8
     public String getErrorText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements h98 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.h98
+    @Override // com.baidu.tieba.tc8
     public List<Post> getPostList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -118,7 +118,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements h98 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.h98
+    @Override // com.baidu.tieba.tc8
     public ExcellentPbThreadInfo getThreadInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -128,7 +128,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements h98 {
         return (ExcellentPbThreadInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.h98
+    @Override // com.baidu.tieba.tc8
     public UserInfo getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -138,7 +138,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements h98 {
         return (UserInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.h98
+    @Override // com.baidu.tieba.tc8
     public List<User> getUserList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -148,7 +148,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements h98 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.h98
+    @Override // com.baidu.tieba.tc8
     public boolean isEmpty() {
         InterceptResult invokeV;
         List<ExcContent> list;

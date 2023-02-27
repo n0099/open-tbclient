@@ -1,57 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.aea;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zfa implements kea {
+public abstract class zfa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final kea a;
-    public final aea.a b;
-    public final long c;
 
-    public zfa(kea keaVar, aea.a aVar, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {keaVar, aVar, Long.valueOf(j)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = keaVar;
-        this.b = aVar;
-        this.c = j;
-    }
+    public abstract boolean a();
 
-    @Override // com.baidu.tieba.kea
-    public void call() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.isUnsubscribed()) {
-            return;
-        }
-        long a = this.c - this.b.a();
-        if (a > 0) {
-            try {
-                Thread.sleep(a);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                jea.c(e);
-                throw null;
-            }
-        }
-        if (this.b.isUnsubscribed()) {
-            return;
-        }
-        this.a.call();
-    }
+    public abstract zfa b(Runnable runnable);
 }

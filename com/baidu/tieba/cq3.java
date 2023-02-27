@@ -1,27 +1,33 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public class cq3 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
+public class cq3 extends se3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile bq3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized bq3 a() {
-        InterceptResult invokeV;
-        bq3 bq3Var;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cq3(Context context, String str) {
+        super(context, str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (cq3.class) {
-                if (a == null) {
-                    a = new bq3();
-                }
-                bq3Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return bq3Var;
         }
-        return (bq3) invokeV.objValue;
     }
 }

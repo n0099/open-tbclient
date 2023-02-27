@@ -4,48 +4,26 @@ import android.opengl.GLES20;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tieba.pg0;
-import com.baidu.tieba.xg0;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.bh0;
+import com.baidu.tieba.tg0;
 import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
 /* loaded from: classes7.dex */
 public class BackgroundRenderer extends MediaBaseRenderer {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public BackgroundRenderer() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(pg0 pg0Var, int i, float[] fArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, pg0Var, i, fArr) == null) || pg0Var == null || pg0Var.l() == null) {
+    public void onDrawFrame(tg0 tg0Var, int i, float[] fArr) {
+        if (tg0Var == null || tg0Var.l() == null) {
             return;
         }
-        for (int i2 = 1; i2 < pg0Var.l().size(); i2++) {
-            MediaTrack mediaTrack = pg0Var.l().get(i2);
-            if (mediaTrack != null && xg0.m(mediaTrack, "only_background")) {
-                long a = pg0Var.a();
+        for (int i2 = 1; i2 < tg0Var.l().size(); i2++) {
+            MediaTrack mediaTrack = tg0Var.l().get(i2);
+            if (mediaTrack != null && bh0.m(mediaTrack, "only_background")) {
+                long b = tg0Var.b();
                 for (MediaSegment mediaSegment : mediaTrack.mediaSegments) {
                     if (mediaSegment.start != 0 || mediaSegment.end != 0) {
                         long j = mediaSegment.start;
                         long j2 = mediaSegment.end;
-                        if (j != j2 && a >= j && a <= j2) {
+                        if (j != j2 && b >= j && b <= j2) {
                         }
                     }
                     GLViewPortLocation gLViewPortLocation = this.mGLViewPortLocation;

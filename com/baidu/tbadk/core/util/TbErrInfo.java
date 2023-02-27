@@ -201,9 +201,9 @@ public class TbErrInfo {
                             return resources.getString(R.string.tb_err_unknown);
                         }
                     }
-                    return resources.getString(R.string.obfuscated_res_0x7f0f0d08);
+                    return resources.getString(R.string.obfuscated_res_0x7f0f0d11);
                 }
-                return resources.getString(R.string.obfuscated_res_0x7f0f168f);
+                return resources.getString(R.string.obfuscated_res_0x7f0f1694);
             }
             return resources.getString(R.string.tb_err_location_failed);
         }

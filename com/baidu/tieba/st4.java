@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.img.ImageFileInfo;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
 public interface st4 {
-    void a(List<pt4> list, List<ImageFileInfo> list2, String str);
+    void a(Object obj, HashMap<String, String> hashMap, String str, w9 w9Var);
 
-    void onPreLoad();
+    ut4 b(Object obj, HashMap<String, String> hashMap, String str);
 }

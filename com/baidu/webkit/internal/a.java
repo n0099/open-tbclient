@@ -4,15 +4,6 @@ import android.annotation.SuppressLint;
 import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebView;
@@ -24,54 +15,18 @@ import java.util.HashSet;
 import org.json.JSONException;
 /* loaded from: classes7.dex */
 public final class a {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final String a = WebChromeClient.MSG_PROMPT_HEADER.toLowerCase();
     public HashMap<String, Object> b;
     public WebView c;
     public String d;
-    @SuppressLint({"SdCardPath"})
-    public String e;
-    public boolean f;
     public String g;
-    public boolean h;
-    public boolean i;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1520748685, "Lcom/baidu/webkit/internal/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1520748685, "Lcom/baidu/webkit/internal/a;");
-                return;
-            }
-        }
-        a = WebChromeClient.MSG_PROMPT_HEADER.toLowerCase();
-    }
+    @SuppressLint({"SdCardPath"})
+    public String e = "/data/data/";
+    public boolean f = true;
+    public boolean h = true;
+    public boolean i = true;
 
     public a(WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {webView};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.e = "/data/data/";
-        this.f = true;
-        this.h = true;
-        this.i = true;
         this.c = webView;
         try {
             this.e += webView.getContext().getPackageName();
@@ -82,8 +37,7 @@ public final class a {
 
     @SuppressLint({"NewApi"})
     public static void a(StringBuilder sb, Object obj, String str) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65539, null, sb, obj, str) == null) || obj == null || TextUtils.isEmpty(str)) {
+        if (obj == null || TextUtils.isEmpty(str)) {
             return;
         }
         Class<?> cls = obj.getClass();
@@ -129,14 +83,11 @@ public final class a {
     }
 
     public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Build.VERSION.SDK_INT >= 17 : invokeV.booleanValue;
+        return Build.VERSION.SDK_INT >= 17;
     }
 
     public final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || !this.i || str == null || str.startsWith("javascript")) {
+        if (!this.i || str == null || str.startsWith("javascript")) {
             return;
         }
         this.g = str;
@@ -162,8 +113,7 @@ public final class a {
     }
 
     public final void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || z == this.f) {
+        if (z == this.f) {
             return;
         }
         if (z) {
@@ -181,27 +131,19 @@ public final class a {
     }
 
     public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f && (g() ^ true) : invokeV.booleanValue;
+        return this.f && (g() ^ true);
     }
 
     public final void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.h = z;
-        }
+        this.h = z;
     }
 
     public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : invokeV.booleanValue;
+        return this.h;
     }
 
     public final void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.h && a()) {
+        if (this.h && a()) {
             String str = this.d;
             if (str != null) {
                 this.c.execJavaScript(str);
@@ -224,71 +166,35 @@ public final class a {
     }
 
     public final HashMap<String, Object> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.b == null) {
-                this.b = new HashMap<>();
-            }
-            return this.b;
+        if (this.b == null) {
+            this.b = new HashMap<>();
         }
-        return (HashMap) invokeV.objValue;
+        return this.b;
     }
 
     public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (g()) {
-                return false;
-            }
-            this.c.removeJavascriptInterface("searchBoxJavaBridge_");
-            return true;
+        if (g()) {
+            return false;
         }
-        return invokeV.booleanValue;
+        this.c.removeJavascriptInterface("searchBoxJavaBridge_");
+        return true;
     }
 
     public final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && e()) {
-            new Thread(new Runnable(this) { // from class: com.baidu.webkit.internal.a.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ a a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
-                }
-
+        if (e()) {
+            new Thread(new Runnable() { // from class: com.baidu.webkit.internal.a.1
                 @Override // java.lang.Runnable
                 public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        for (int i = 0; i < 100; i++) {
-                            try {
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                            if (this.a.c != null && !this.a.c.isDestroyed()) {
-                                this.a.e();
-                                Thread.sleep(20L);
-                            }
-                            return;
+                    for (int i = 0; i < 100; i++) {
+                        try {
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
+                        if (a.this.c != null && !a.this.c.isDestroyed()) {
+                            a.this.e();
+                            Thread.sleep(20L);
+                        }
+                        return;
                     }
                 }
             }, "T7@removeSearchBoxImpl").start();

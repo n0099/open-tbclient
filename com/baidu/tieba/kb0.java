@@ -1,16 +1,25 @@
 package com.baidu.tieba;
 
+import android.os.Build;
+import android.widget.EditText;
+import android.widget.TextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.reflect.Field;
 /* loaded from: classes5.dex */
 public class kb0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(boolean z, boolean z2, boolean z3) {
-        InterceptResult invokeCommon;
+    public static void a(EditText editText, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) ? z || (z2 && !z3) : invokeCommon.booleanValue;
+        if ((interceptable == null || interceptable.invokeLI(65536, null, editText, i) == null) && Build.VERSION.SDK_INT < 29) {
+            try {
+                Field declaredField = TextView.class.getDeclaredField("mCursorDrawableRes");
+                declaredField.setAccessible(true);
+                declaredField.set(editText, Integer.valueOf(i));
+            } catch (Exception unused) {
+            }
+        }
     }
 }

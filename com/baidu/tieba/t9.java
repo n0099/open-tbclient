@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -356,7 +357,7 @@ public final class t9 {
                             str3 = activity.getClass().getSimpleName();
                         }
                         if (!StringUtils.isNull(str3)) {
-                            sb.append(str3 + ";");
+                            sb.append(str3 + ParamableElem.DIVIDE_PARAM);
                         }
                     }
                 }
@@ -380,7 +381,7 @@ public final class t9 {
                             str = str2 + "&numbers:" + runningTaskInfo.numActivities;
                         }
                         if (!StringUtils.isNull(str)) {
-                            sb2.append(str + ";");
+                            sb2.append(str + ParamableElem.DIVIDE_PARAM);
                         }
                     }
                     return sb2.toString();

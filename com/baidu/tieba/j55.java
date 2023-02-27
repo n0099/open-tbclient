@@ -1,36 +1,38 @@
 package com.baidu.tieba;
 
-import android.text.Selection;
-import android.text.SpanWatcher;
-import android.text.Spannable;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
+import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class j55 implements SpanWatcher {
+public class j55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SpanGroupManager a;
-    public int b;
-    public int c;
+    @NonNull
+    public Activity a;
+    public AlertDialog b;
+    public boolean c;
+    public boolean d;
+    public String e;
 
-    @Override // android.text.SpanWatcher
-    public void onSpanAdded(Spannable spannable, Object obj, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048576, this, spannable, obj, i, i2) == null) {
-        }
-    }
-
-    public j55(@NonNull SpanGroupManager spanGroupManager) {
+    public j55(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {spanGroupManager};
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,62 +42,68 @@ public class j55 implements SpanWatcher {
                 return;
             }
         }
-        this.a = spanGroupManager;
+        this.c = true;
+        this.d = true;
+        this.a = activity;
     }
 
-    @Override // android.text.SpanWatcher
-    public void onSpanChanged(Spannable spannable, Object obj, int i, int i2, int i3, int i4) {
-        SpanGroupManager spanGroupManager;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{spannable, obj, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) != null) || (spanGroupManager = this.a) == null) {
-            return;
-        }
-        if (obj == Selection.SELECTION_END && this.c != i3) {
-            this.c = i3;
-            h55 D = spanGroupManager.D(i3);
-            if (D != null) {
-                int f = D.f();
-                int c = D.c();
-                if (Math.abs(this.c - c) <= Math.abs(this.c - f)) {
-                    f = c;
-                }
-                int selectionStart = Selection.getSelectionStart(spannable);
-                if (selectionStart > spannable.length()) {
-                    selectionStart = spannable.length();
-                }
-                if (f > spannable.length()) {
-                    f = spannable.length();
-                }
-                Selection.setSelection(spannable, selectionStart, f);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            AlertDialog create = new AlertDialog.Builder(this.a).create();
+            this.b = create;
+            GreyUtil.grey(create);
+            ih.i(this.b, this.a);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.small_blue_progress_dialog, (ViewGroup) null);
+            TextView textView = (TextView) inflate.findViewById(R.id.custom_loading_text);
+            if (!TextUtils.isEmpty(this.e)) {
+                textView.setText(this.e);
             }
-        }
-        if (obj == Selection.SELECTION_START && this.b != i3) {
-            this.b = i3;
-            h55 D2 = this.a.D(i3);
-            if (D2 != null) {
-                int f2 = D2.f();
-                int c2 = D2.c();
-                if (Math.abs(this.b - c2) <= Math.abs(this.b - f2)) {
-                    f2 = c2;
-                }
-                int selectionEnd = Selection.getSelectionEnd(spannable);
-                if (selectionEnd > spannable.length()) {
-                    selectionEnd = spannable.length();
-                }
-                if (f2 > spannable.length()) {
-                    f2 = spannable.length();
-                }
-                Selection.setSelection(spannable, f2, selectionEnd);
+            this.b.setCancelable(this.d);
+            this.b.setCanceledOnTouchOutside(this.d);
+            Window window = this.b.getWindow();
+            window.setContentView(inflate);
+            if (!this.c) {
+                window.setDimAmount(0.0f);
             }
         }
     }
 
-    @Override // android.text.SpanWatcher
-    public void onSpanRemoved(Spannable spannable, Object obj, int i, int i2) {
-        SpanGroupManager spanGroupManager;
+    public void b() {
+        AlertDialog alertDialog;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, spannable, obj, i, i2) == null) && (spanGroupManager = this.a) != null && this.b != this.c) {
-            spanGroupManager.r();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (alertDialog = this.b) != null) {
+            alertDialog.dismiss();
         }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.b == null) {
+                a();
+            }
+            this.b.show();
+        }
+    }
+
+    public j55 c(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            this.c = z;
+            return this;
+        }
+        return (j55) invokeZ.objValue;
+    }
+
+    public j55 d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.e = str;
+            return this;
+        }
+        return (j55) invokeL.objValue;
     }
 }

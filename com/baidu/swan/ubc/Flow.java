@@ -5,23 +5,14 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.RemoteException;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tieba.co4;
-import com.baidu.tieba.dk1;
-import com.baidu.tieba.jo4;
-import com.baidu.tieba.lo4;
-import com.baidu.tieba.po4;
-import com.baidu.tieba.wo4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.bp4;
+import com.baidu.tieba.fp4;
+import com.baidu.tieba.mp4;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.so4;
+import com.baidu.tieba.zo4;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -31,186 +22,80 @@ import org.json.JSONObject;
 @SuppressLint({"SyntheticAccessor"})
 /* loaded from: classes3.dex */
 public class Flow implements Parcelable {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<Flow> CREATOR;
+    public static final Parcelable.Creator<Flow> CREATOR = new a();
     public static final boolean DEBUG = false;
     public static final int INVALID_HANDLE = -1;
     public static final String TAG = "UBCFlow";
-    public transient /* synthetic */ FieldHolder $fh;
     public int mHandle;
     public String mId;
     public boolean mIsSampled;
     public int mOption;
     public HashMap<String, Slot> mSlotMaps;
     public long mStartTime;
-    public jo4 mUbcContext;
+    public zo4 mUbcContext;
     public boolean mValid;
 
     @Override // android.os.Parcelable
     public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes3.dex */
-    public static class a implements Parcelable.Creator<Flow> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: a */
-        public Flow createFromParcel(Parcel parcel) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
-                return new Flow(parcel, null);
-            }
-            return (Flow) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: b */
-        public Flow[] newArray(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-                return new Flow[i];
-            }
-            return (Flow[]) invokeI.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(746337380, "Lcom/baidu/swan/ubc/Flow;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(746337380, "Lcom/baidu/swan/ubc/Flow;");
-                return;
-            }
-        }
-        CREATOR = new a();
-    }
-
-    public int getHandle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.mHandle;
-        }
-        return invokeV.intValue;
-    }
-
-    public String getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.mId;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int getOption() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.mOption;
-        }
-        return invokeV.intValue;
-    }
-
-    public long getStartTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.mStartTime;
-        }
-        return invokeV.longValue;
-    }
-
-    public boolean getValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.mValid;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isSampled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.mIsSampled;
-        }
-        return invokeV.booleanValue;
+        return 0;
     }
 
     public Flow() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mValid = true;
         this.mSlotMaps = new HashMap<>();
-        this.mUbcContext = co4.g();
+        this.mUbcContext = so4.g();
         this.mId = "";
         this.mHandle = -1;
         this.mOption = 0;
         this.mStartTime = System.currentTimeMillis();
     }
 
+    public int getHandle() {
+        return this.mHandle;
+    }
+
+    public String getId() {
+        return this.mId;
+    }
+
+    public int getOption() {
+        return this.mOption;
+    }
+
+    public long getStartTime() {
+        return this.mStartTime;
+    }
+
+    public boolean getValid() {
+        return this.mValid;
+    }
+
+    public boolean isSampled() {
+        return this.mIsSampled;
+    }
+
+    /* loaded from: classes3.dex */
+    public static class a implements Parcelable.Creator<Flow> {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public Flow createFromParcel(Parcel parcel) {
+            return new Flow(parcel, null);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: b */
+        public Flow[] newArray(int i) {
+            return new Flow[i];
+        }
+    }
+
     public Flow(Parcel parcel) {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.mValid = true;
         this.mSlotMaps = new HashMap<>();
-        this.mUbcContext = co4.g();
+        this.mUbcContext = so4.g();
         this.mId = parcel.readString();
         this.mHandle = parcel.readInt();
         this.mOption = parcel.readInt();
@@ -229,24 +114,32 @@ public class Flow implements Parcelable {
         this(parcel);
     }
 
-    public Flow(String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+    public final void startSlot(String str, JSONObject jSONObject) {
+        if (this.mValid && !TextUtils.isEmpty(str)) {
+            Slot slot = this.mSlotMaps.get(str);
+            if (slot == null) {
+                this.mSlotMaps.put(str, new Slot(str, System.currentTimeMillis(), jSONObject));
                 return;
             }
+            slot.setOption(jSONObject);
         }
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(this.mId);
+        parcel.writeInt(this.mHandle);
+        parcel.writeInt(this.mOption);
+        parcel.writeLong(this.mStartTime);
+        parcel.writeByte(this.mValid ? (byte) 1 : (byte) 0);
+        parcel.writeByte(this.mIsSampled ? (byte) 1 : (byte) 0);
+        parcel.writeMap(this.mSlotMaps);
+    }
+
+    public Flow(String str, int i, int i2) {
         this.mValid = true;
         this.mSlotMaps = new HashMap<>();
-        this.mUbcContext = co4.g();
+        this.mUbcContext = so4.g();
         this.mId = str;
         this.mHandle = i;
         this.mOption = i2;
@@ -254,101 +147,107 @@ public class Flow implements Parcelable {
     }
 
     public final void addEvent(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            addEvent(str, null);
+        addEvent(str, null);
+    }
+
+    public final void endSlot(String str) {
+        Slot slot;
+        if (this.mValid && !TextUtils.isEmpty(str) && (slot = this.mSlotMaps.get(str)) != null && slot.isBegin()) {
+            slot.setEnd(System.currentTimeMillis());
+            slot.clean();
         }
     }
 
     public void setSampled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.mIsSampled = z;
-        }
+        this.mIsSampled = z;
     }
 
     public void setValid(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.mValid = z;
+        this.mValid = z;
+    }
+
+    public void setValue(Map<String, String> map) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                jSONObject.put(entry.getKey(), entry.getValue());
+            }
+        } catch (JSONException unused) {
         }
+        setValue(jSONObject.toString());
     }
 
     public final void addEvent(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) != null) || !this.mValid) {
+        if (!this.mValid) {
             return;
         }
-        if (dk1.g()) {
-            if (wo4.a()) {
-                lo4.f().m(this.mId, str, this.mHandle, str2, this.mOption);
+        if (ok1.g()) {
+            if (mp4.a()) {
+                bp4.f().m(this.mId, str, this.mHandle, str2, this.mOption);
             }
-            jo4 jo4Var = this.mUbcContext;
-            if (jo4Var != null && !this.mIsSampled) {
-                jo4Var.g(this.mId, str, this.mHandle, str2, this.mOption);
+            zo4 zo4Var = this.mUbcContext;
+            if (zo4Var != null && !this.mIsSampled) {
+                zo4Var.g(this.mId, str, this.mHandle, str2, this.mOption);
                 return;
             }
             return;
         }
         try {
-            co4.f().flowAddEvent(this, str, str2);
+            so4.f().flowAddEvent(this, str, str2);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
     public final void addEvent(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) != null) || !this.mValid) {
+        if (!this.mValid) {
             return;
         }
-        if (dk1.g()) {
-            if (wo4.a()) {
-                lo4.f().n(this.mId, str, this.mHandle, str2, j, this.mOption);
+        if (ok1.g()) {
+            if (mp4.a()) {
+                bp4.f().n(this.mId, str, this.mHandle, str2, j, this.mOption);
             }
-            jo4 jo4Var = this.mUbcContext;
-            if (jo4Var != null && !this.mIsSampled) {
-                jo4Var.n(this.mId, str, this.mHandle, str2, j, this.mOption);
+            zo4 zo4Var = this.mUbcContext;
+            if (zo4Var != null && !this.mIsSampled) {
+                zo4Var.n(this.mId, str, this.mHandle, str2, j, this.mOption);
                 return;
             }
             return;
         }
         try {
-            co4.f().flowAddEventWithTime(this, str, str2, j);
+            so4.f().flowAddEventWithTime(this, str, str2, j);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
     public final void cancel() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || !this.mValid) {
+        if (!this.mValid) {
             return;
         }
-        if (dk1.g()) {
-            if (wo4.a()) {
-                lo4.f().c(this.mId, this.mHandle);
+        if (ok1.g()) {
+            if (mp4.a()) {
+                bp4.f().c(this.mId, this.mHandle);
             }
-            jo4 jo4Var = this.mUbcContext;
-            if (jo4Var != null && !this.mIsSampled) {
-                jo4Var.f(this.mId, this.mHandle);
+            zo4 zo4Var = this.mUbcContext;
+            if (zo4Var != null && !this.mIsSampled) {
+                zo4Var.f(this.mId, this.mHandle);
                 return;
             }
             return;
         }
         try {
-            co4.f().flowCancel(this);
+            so4.f().flowCancel(this);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
     public final void end() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || !this.mValid) {
+        if (!this.mValid) {
             return;
         }
-        if (dk1.g()) {
+        if (ok1.g()) {
             JSONArray jSONArray = new JSONArray();
             HashMap<String, Slot> hashMap = this.mSlotMaps;
             if (hashMap != null && (r1 = hashMap.entrySet().iterator()) != null) {
@@ -363,75 +262,50 @@ public class Flow implements Parcelable {
                     }
                 }
             }
-            if (wo4.a()) {
-                lo4.f().e(this.mId, this.mHandle, jSONArray);
+            if (mp4.a()) {
+                bp4.f().e(this.mId, this.mHandle, jSONArray);
             }
-            jo4 jo4Var = this.mUbcContext;
-            if (jo4Var != null && !this.mIsSampled) {
-                jo4Var.e(this.mId, this.mHandle, jSONArray);
+            zo4 zo4Var = this.mUbcContext;
+            if (zo4Var != null && !this.mIsSampled) {
+                zo4Var.e(this.mId, this.mHandle, jSONArray);
                 return;
             }
             return;
         }
         try {
-            co4.f().flowEnd(this);
+            so4.f().flowEnd(this);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
-    public final void endSlot(String str) {
-        Slot slot;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && this.mValid && !TextUtils.isEmpty(str) && (slot = this.mSlotMaps.get(str)) != null && slot.isBegin()) {
-            slot.setEnd(System.currentTimeMillis());
-            slot.clean();
-        }
-    }
-
-    public void setValue(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, map) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                }
-            } catch (JSONException unused) {
-            }
-            setValue(jSONObject.toString());
-        }
-    }
-
     public final void setValue(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048591, this, str) != null) || !this.mValid) {
+        if (!this.mValid) {
             return;
         }
-        if (dk1.g()) {
-            if (wo4.a()) {
-                lo4.f().p(this.mId, this.mHandle, str);
+        if (ok1.g()) {
+            if (mp4.a()) {
+                bp4.f().p(this.mId, this.mHandle, str);
             }
-            jo4 jo4Var = this.mUbcContext;
-            if (jo4Var != null && !this.mIsSampled) {
-                jo4Var.i(this.mId, this.mHandle, str);
+            zo4 zo4Var = this.mUbcContext;
+            if (zo4Var != null && !this.mIsSampled) {
+                zo4Var.i(this.mId, this.mHandle, str);
                 return;
             }
             return;
         }
         try {
-            co4.f().flowSetValue(this, po4.b(str));
+            so4.f().flowSetValue(this, fp4.b(str));
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
     public void setValueWithDuration(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048593, this, str) != null) || !this.mValid) {
+        if (!this.mValid) {
             return;
         }
-        if (dk1.g()) {
+        if (ok1.g()) {
             JSONObject jSONObject = new JSONObject();
             try {
                 float currentTimeMillis = ((float) (System.currentTimeMillis() - this.mStartTime)) / 1000.0f;
@@ -450,46 +324,20 @@ public class Flow implements Parcelable {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            if (wo4.a()) {
-                lo4.f().p(this.mId, this.mHandle, jSONObject.toString());
+            if (mp4.a()) {
+                bp4.f().p(this.mId, this.mHandle, jSONObject.toString());
             }
-            jo4 jo4Var = this.mUbcContext;
-            if (jo4Var != null && !this.mIsSampled) {
-                jo4Var.i(this.mId, this.mHandle, jSONObject.toString());
+            zo4 zo4Var = this.mUbcContext;
+            if (zo4Var != null && !this.mIsSampled) {
+                zo4Var.i(this.mId, this.mHandle, jSONObject.toString());
                 return;
             }
             return;
         }
         try {
-            co4.f().flowSetValueWithDuration(this, po4.b(str));
+            so4.f().flowSetValueWithDuration(this, fp4.b(str));
         } catch (RemoteException e2) {
             e2.printStackTrace();
-        }
-    }
-
-    public final void startSlot(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048594, this, str, jSONObject) == null) && this.mValid && !TextUtils.isEmpty(str)) {
-            Slot slot = this.mSlotMaps.get(str);
-            if (slot == null) {
-                this.mSlotMaps.put(str, new Slot(str, System.currentTimeMillis(), jSONObject));
-                return;
-            }
-            slot.setOption(jSONObject);
-        }
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048595, this, parcel, i) == null) {
-            parcel.writeString(this.mId);
-            parcel.writeInt(this.mHandle);
-            parcel.writeInt(this.mOption);
-            parcel.writeLong(this.mStartTime);
-            parcel.writeByte(this.mValid ? (byte) 1 : (byte) 0);
-            parcel.writeByte(this.mIsSampled ? (byte) 1 : (byte) 0);
-            parcel.writeMap(this.mSlotMaps);
         }
     }
 }

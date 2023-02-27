@@ -1,75 +1,26 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.ar.pose.PoseAR;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class dz {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public final class dz implements Runnable {
+    public final /* synthetic */ int a;
 
-    public static void a(Context context, String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65536, null, context, str, i, str2) == null) {
-            al.a(context).a(new ea(context, str, i, str2));
-        }
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ Context f302a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ String f303a;
+    public final /* synthetic */ String b;
+
+    public dz(Context context, String str, int i, String str2) {
+        this.f302a = context;
+        this.f303a = str;
+        this.a = i;
+        this.b = str2;
     }
 
-    public static void a(Context context, HashMap<String, String> hashMap) {
-        eh m373a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, hashMap) == null) || (m373a = ed.a(context).m373a()) == null) {
-            return;
-        }
-        m373a.a(context, hashMap);
-    }
-
-    public static void b(Context context, HashMap<String, String> hashMap) {
-        eh m373a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, hashMap) == null) || (m373a = ed.a(context).m373a()) == null) {
-            return;
-        }
-        m373a.c(context, hashMap);
-    }
-
-    public static void c(Context context, String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, i, str2) == null) || context == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            HashMap hashMap = new HashMap();
-            hashMap.put("awake_info", str);
-            hashMap.put(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, String.valueOf(i));
-            hashMap.put("description", str2);
-            int a = ed.a(context).a();
-            if (a != 1) {
-                if (a != 2) {
-                    if (a == 3) {
-                        a(context, hashMap);
-                    }
-                }
-                c(context, hashMap);
-            } else {
-                a(context, hashMap);
-            }
-            b(context, hashMap);
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-        }
-    }
-
-    public static void c(Context context, HashMap<String, String> hashMap) {
-        eh m373a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, hashMap) == null) || (m373a = ed.a(context).m373a()) == null) {
-            return;
-        }
-        m373a.b(context, hashMap);
+    @Override // java.lang.Runnable
+    public void run() {
+        dy.c(this.f302a, this.f303a, this.a, this.b);
     }
 }

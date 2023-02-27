@@ -1,41 +1,18 @@
 package com.facebook.imagepipeline.cache;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.logging.FLog;
 import com.facebook.common.memory.MemoryTrimType;
 import com.facebook.imagepipeline.cache.MemoryCache;
 /* loaded from: classes7.dex */
 public class NativeMemoryCacheTrimStrategy implements MemoryCache.CacheTrimStrategy {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NativeMemoryCacheTrimStrategy";
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.imagepipeline.cache.NativeMemoryCacheTrimStrategy$1  reason: invalid class name */
     /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$common$memory$MemoryTrimType;
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1269295395, "Lcom/facebook/imagepipeline/cache/NativeMemoryCacheTrimStrategy$1;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1269295395, "Lcom/facebook/imagepipeline/cache/NativeMemoryCacheTrimStrategy$1;");
-                    return;
-                }
-            }
             int[] iArr = new int[MemoryTrimType.values().length];
             $SwitchMap$com$facebook$common$memory$MemoryTrimType = iArr;
             try {
@@ -61,35 +38,16 @@ public class NativeMemoryCacheTrimStrategy implements MemoryCache.CacheTrimStrat
         }
     }
 
-    public NativeMemoryCacheTrimStrategy() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // com.facebook.imagepipeline.cache.MemoryCache.CacheTrimStrategy
     public double getTrimRatio(MemoryTrimType memoryTrimType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, memoryTrimType)) == null) {
-            int i = AnonymousClass1.$SwitchMap$com$facebook$common$memory$MemoryTrimType[memoryTrimType.ordinal()];
-            if (i == 1) {
-                return 0.0d;
-            }
-            if (i != 2 && i != 3 && i != 4 && i != 5) {
-                FLog.wtf(TAG, "unknown trim type: %s", memoryTrimType);
-                return 0.0d;
-            }
-            return 1.0d;
+        int i = AnonymousClass1.$SwitchMap$com$facebook$common$memory$MemoryTrimType[memoryTrimType.ordinal()];
+        if (i == 1) {
+            return 0.0d;
         }
-        return invokeL.doubleValue;
+        if (i != 2 && i != 3 && i != 4 && i != 5) {
+            FLog.wtf(TAG, "unknown trim type: %s", memoryTrimType);
+            return 0.0d;
+        }
+        return 1.0d;
     }
 }

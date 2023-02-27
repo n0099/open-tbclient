@@ -1,11 +1,5 @@
 package com.yy.hiidostatis.inner.util;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.api.ExecutorProvider;
 import com.yy.hiidostatis.inner.util.log.L;
 import com.yy.mobile.perf.taskexecutor.IQueueTaskExecutor;
@@ -20,139 +14,43 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
 public class ThreadPool {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String HIIDO_FIXED_THREAD_NAME = "hiido_fixed_thread";
     public static final String HIIDO_SCHEDULED_THREAD_NAME = "hiido_scheduled_thread";
     public static final String HIIDO_SINGLE_THREAD_NAME = "hiido_single_thread";
     public static ThreadPool pool;
-    public transient /* synthetic */ FieldHolder $fh;
     public ExecutorService executorService;
     public ScheduledExecutorService scheduledExecutorService;
     public ExecutorService singleExecutorService;
     public IQueueTaskExecutor singleTaskExecutor;
     public ScheduledExecutorService spareExecutor;
     public IYYTaskExecutor taskExecutor;
-    public SharedThreadTimer timer;
+    public SharedThreadTimer timer = new SharedThreadTimer();
 
     public ThreadPool() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.timer = new SharedThreadTimer();
         if (ExecutorProvider.getIyyTaskExecutor() == null) {
-            this.executorService = Executors.newFixedThreadPool(5, new ThreadFactory(this) { // from class: com.yy.hiidostatis.inner.util.ThreadPool.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ThreadPool this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext2 = TitanRuntime.newInitContext();
-                        newInitContext2.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i3 = newInitContext2.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext2.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext2);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
+            this.executorService = Executors.newFixedThreadPool(5, new ThreadFactory() { // from class: com.yy.hiidostatis.inner.util.ThreadPool.1
                 @Override // java.util.concurrent.ThreadFactory
                 public Thread newThread(Runnable runnable) {
-                    InterceptResult invokeL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, runnable)) == null) {
-                        Thread thread = new Thread(runnable);
-                        thread.setName(ThreadPool.HIIDO_FIXED_THREAD_NAME);
-                        return thread;
-                    }
-                    return (Thread) invokeL.objValue;
+                    Thread thread = new Thread(runnable);
+                    thread.setName(ThreadPool.HIIDO_FIXED_THREAD_NAME);
+                    return thread;
                 }
             });
-            this.singleExecutorService = Executors.newSingleThreadExecutor(new ThreadFactory(this) { // from class: com.yy.hiidostatis.inner.util.ThreadPool.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ThreadPool this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext2 = TitanRuntime.newInitContext();
-                        newInitContext2.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i3 = newInitContext2.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext2.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext2);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
+            this.singleExecutorService = Executors.newSingleThreadExecutor(new ThreadFactory() { // from class: com.yy.hiidostatis.inner.util.ThreadPool.2
                 @Override // java.util.concurrent.ThreadFactory
                 public Thread newThread(Runnable runnable) {
-                    InterceptResult invokeL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, runnable)) == null) {
-                        Thread thread = new Thread(runnable);
-                        thread.setName(ThreadPool.HIIDO_SINGLE_THREAD_NAME);
-                        return thread;
-                    }
-                    return (Thread) invokeL.objValue;
+                    Thread thread = new Thread(runnable);
+                    thread.setName(ThreadPool.HIIDO_SINGLE_THREAD_NAME);
+                    return thread;
                 }
             });
-            this.scheduledExecutorService = Executors.newScheduledThreadPool(1, new ThreadFactory(this) { // from class: com.yy.hiidostatis.inner.util.ThreadPool.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ThreadPool this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext2 = TitanRuntime.newInitContext();
-                        newInitContext2.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i3 = newInitContext2.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext2.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext2);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
+            this.scheduledExecutorService = Executors.newScheduledThreadPool(1, new ThreadFactory() { // from class: com.yy.hiidostatis.inner.util.ThreadPool.3
                 @Override // java.util.concurrent.ThreadFactory
                 public Thread newThread(Runnable runnable) {
-                    InterceptResult invokeL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, runnable)) == null) {
-                        Thread thread = new Thread(runnable);
-                        thread.setName(ThreadPool.HIIDO_SCHEDULED_THREAD_NAME);
-                        thread.setPriority(1);
-                        return thread;
-                    }
-                    return (Thread) invokeL.objValue;
+                    Thread thread = new Thread(runnable);
+                    thread.setName(ThreadPool.HIIDO_SCHEDULED_THREAD_NAME);
+                    thread.setPriority(1);
+                    return thread;
                 }
             });
             return;
@@ -167,164 +65,124 @@ public class ThreadPool {
     }
 
     public static ThreadPool getPool() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (pool == null) {
-                synchronized (ThreadPool.class) {
-                    if (pool == null) {
-                        pool = new ThreadPool();
-                    }
+        if (pool == null) {
+            synchronized (ThreadPool.class) {
+                if (pool == null) {
+                    pool = new ThreadPool();
                 }
             }
-            return pool;
         }
-        return (ThreadPool) invokeV.objValue;
+        return pool;
     }
 
     private ScheduledExecutorService getSpareExecutor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            ScheduledExecutorService scheduledExecutorService = this.spareExecutor;
-            if (scheduledExecutorService != null) {
-                return scheduledExecutorService;
-            }
-            synchronized (this) {
-                if (this.spareExecutor != null) {
-                    return this.spareExecutor;
-                }
-                ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1);
-                this.spareExecutor = newScheduledThreadPool;
-                return newScheduledThreadPool;
-            }
+        ScheduledExecutorService scheduledExecutorService = this.spareExecutor;
+        if (scheduledExecutorService != null) {
+            return scheduledExecutorService;
         }
-        return (ScheduledExecutorService) invokeV.objValue;
+        synchronized (this) {
+            if (this.spareExecutor != null) {
+                return this.spareExecutor;
+            }
+            ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1);
+            this.spareExecutor = newScheduledThreadPool;
+            return newScheduledThreadPool;
+        }
     }
 
     public SharedThreadTimer getTimer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.timer;
-        }
-        return (SharedThreadTimer) invokeV.objValue;
+        return this.timer;
     }
 
     public void shutdown() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ExecutorService executorService = this.executorService;
-            if (executorService != null) {
-                executorService.shutdown();
-            }
-            ExecutorService executorService2 = this.singleExecutorService;
-            if (executorService2 != null) {
-                executorService2.shutdown();
-            }
-            ScheduledExecutorService scheduledExecutorService = this.scheduledExecutorService;
-            if (scheduledExecutorService != null) {
-                scheduledExecutorService.shutdown();
-            }
-            ScheduledExecutorService scheduledExecutorService2 = this.spareExecutor;
-            if (scheduledExecutorService2 != null) {
-                scheduledExecutorService2.shutdown();
-                this.spareExecutor = null;
-            }
+        ExecutorService executorService = this.executorService;
+        if (executorService != null) {
+            executorService.shutdown();
+        }
+        ExecutorService executorService2 = this.singleExecutorService;
+        if (executorService2 != null) {
+            executorService2.shutdown();
+        }
+        ScheduledExecutorService scheduledExecutorService = this.scheduledExecutorService;
+        if (scheduledExecutorService != null) {
+            scheduledExecutorService.shutdown();
+        }
+        ScheduledExecutorService scheduledExecutorService2 = this.spareExecutor;
+        if (scheduledExecutorService2 != null) {
+            scheduledExecutorService2.shutdown();
+            this.spareExecutor = null;
         }
     }
 
     public void shutdownNow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ExecutorService executorService = this.executorService;
-            if (executorService != null) {
-                executorService.shutdownNow();
-            }
-            ExecutorService executorService2 = this.singleExecutorService;
-            if (executorService2 != null) {
-                executorService2.shutdownNow();
-            }
-            ScheduledExecutorService scheduledExecutorService = this.scheduledExecutorService;
-            if (scheduledExecutorService != null) {
-                scheduledExecutorService.shutdownNow();
-            }
-            ScheduledExecutorService scheduledExecutorService2 = this.spareExecutor;
-            if (scheduledExecutorService2 != null) {
-                scheduledExecutorService2.shutdownNow();
-                this.spareExecutor = null;
-            }
+        ExecutorService executorService = this.executorService;
+        if (executorService != null) {
+            executorService.shutdownNow();
+        }
+        ExecutorService executorService2 = this.singleExecutorService;
+        if (executorService2 != null) {
+            executorService2.shutdownNow();
+        }
+        ScheduledExecutorService scheduledExecutorService = this.scheduledExecutorService;
+        if (scheduledExecutorService != null) {
+            scheduledExecutorService.shutdownNow();
+        }
+        ScheduledExecutorService scheduledExecutorService2 = this.spareExecutor;
+        if (scheduledExecutorService2 != null) {
+            scheduledExecutorService2.shutdownNow();
+            this.spareExecutor = null;
         }
     }
 
     public void execute(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            IYYTaskExecutor iYYTaskExecutor = this.taskExecutor;
-            if (iYYTaskExecutor != null) {
-                try {
-                    iYYTaskExecutor.execute(runnable, 0L);
-                    return;
-                } catch (Throwable unused) {
-                    getSpareExecutor().execute(runnable);
-                    return;
-                }
+        IYYTaskExecutor iYYTaskExecutor = this.taskExecutor;
+        if (iYYTaskExecutor != null) {
+            try {
+                iYYTaskExecutor.execute(runnable, 0L);
+                return;
+            } catch (Throwable unused) {
+                getSpareExecutor().execute(runnable);
+                return;
             }
-            this.executorService.execute(runnable);
         }
+        this.executorService.execute(runnable);
     }
 
     public void executeQueue(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
-            IQueueTaskExecutor iQueueTaskExecutor = this.singleTaskExecutor;
-            if (iQueueTaskExecutor != null) {
-                try {
-                    iQueueTaskExecutor.execute(runnable, 0L);
-                    return;
-                } catch (Throwable unused) {
-                    getSpareExecutor().execute(runnable);
-                    return;
-                }
+        IQueueTaskExecutor iQueueTaskExecutor = this.singleTaskExecutor;
+        if (iQueueTaskExecutor != null) {
+            try {
+                iQueueTaskExecutor.execute(runnable, 0L);
+                return;
+            } catch (Throwable unused) {
+                getSpareExecutor().execute(runnable);
+                return;
             }
-            this.singleExecutorService.execute(runnable);
         }
+        this.singleExecutorService.execute(runnable);
     }
 
     public <T> Future<T> submit(Callable<T> callable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, callable)) == null) {
-            FutureTask futureTask = new FutureTask(callable);
-            execute(futureTask);
-            return futureTask;
-        }
-        return (Future) invokeL.objValue;
+        FutureTask futureTask = new FutureTask(callable);
+        execute(futureTask);
+        return futureTask;
     }
 
     public <T> Future<T> submitQueue(Callable<T> callable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, callable)) == null) {
-            FutureTask futureTask = new FutureTask(callable);
-            executeQueue(futureTask);
-            return futureTask;
-        }
-        return (Future) invokeL.objValue;
+        FutureTask futureTask = new FutureTask(callable);
+        executeQueue(futureTask);
+        return futureTask;
     }
 
     public void execute(Runnable runnable, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, j) == null) {
-            try {
-                if (this.taskExecutor != null) {
-                    this.taskExecutor.execute(runnable, j);
-                } else {
-                    this.scheduledExecutorService.schedule(runnable, j, TimeUnit.MILLISECONDS);
-                }
-            } catch (Throwable th) {
-                L.debug(this, th.getMessage(), new Object[0]);
+        try {
+            if (this.taskExecutor != null) {
+                this.taskExecutor.execute(runnable, j);
+            } else {
+                this.scheduledExecutorService.schedule(runnable, j, TimeUnit.MILLISECONDS);
             }
+        } catch (Throwable th) {
+            L.debug(this, th.getMessage(), new Object[0]);
         }
     }
 }

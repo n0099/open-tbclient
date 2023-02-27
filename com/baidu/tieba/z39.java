@@ -1,93 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.graphics.drawable.Animatable;
+import android.view.View;
+import android.view.animation.Animation;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes7.dex */
-public class z39 extends x39 {
+public class z39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z39(String str, int i, int i2, long j, String str2) {
-        super(str, i, i2, j, str2);
+    public static final TbPageContext a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), (String) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context != null && (context instanceof TbPageContextSupport)) {
+                return ((TbPageContextSupport) context).getPageContext();
             }
+            return null;
+        }
+        return (TbPageContext) invokeL.objValue;
+    }
+
+    public static final void b(TbPageContextSupport tbPageContextSupport, Animatable animatable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, tbPageContextSupport, animatable) == null) && tbPageContextSupport != null) {
+            tbPageContextSupport.getPageContext().startAnimatable(animatable);
         }
     }
 
-    @Override // com.baidu.tieba.x39
-    public void a() {
+    public static final void c(TbPageContextSupport tbPageContextSupport, View view2, Animation animation, Animation.AnimationListener animationListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g = true;
+        if ((interceptable == null || interceptable.invokeLLLL(65538, null, tbPageContextSupport, view2, animation, animationListener) == null) && tbPageContextSupport != null) {
+            tbPageContextSupport.getPageContext().startAnimation(view2, animation, animationListener);
         }
-    }
-
-    @Override // com.baidu.tieba.x39
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.x39
-    public a49 g(ArrayList<Integer> arrayList, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, arrayList, str, i)) == null) {
-            a49 a49Var = new a49();
-            try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.b), "r");
-                int i2 = 0;
-                int size = arrayList.size();
-                Iterator<Integer> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    int i3 = i2 + 1;
-                    a49 h = h(randomAccessFile, it.next().intValue(), i, str);
-                    if (h == null) {
-                        return null;
-                    }
-                    d((int) (((i3 * 50.0f) / size) + 30.0f));
-                    if (!StringUtils.isNull(h.a)) {
-                        return h;
-                    }
-                    if (h.b != 0) {
-                        return h;
-                    }
-                    i2 = i3;
-                    a49Var = h;
-                }
-            } catch (FileNotFoundException unused) {
-            }
-            return a49Var;
-        }
-        return (a49) invokeLLI.objValue;
     }
 }

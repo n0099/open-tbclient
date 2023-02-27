@@ -1,88 +1,17 @@
 package com.bumptech.glide;
-
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes7.dex */
-public final class MemoryCategory {
-    public static final /* synthetic */ MemoryCategory[] $VALUES;
-    public static /* synthetic */ Interceptable $ic;
-    public static final MemoryCategory HIGH;
-    public static final MemoryCategory LOW;
-    public static final MemoryCategory NORMAL;
-    public transient /* synthetic */ FieldHolder $fh;
+public enum MemoryCategory {
+    LOW(0.5f),
+    NORMAL(1.0f),
+    HIGH(1.5f);
+    
     public final float multiplier;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1669312265, "Lcom/bumptech/glide/MemoryCategory;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1669312265, "Lcom/bumptech/glide/MemoryCategory;");
-                return;
-            }
-        }
-        LOW = new MemoryCategory("LOW", 0, 0.5f);
-        NORMAL = new MemoryCategory("NORMAL", 1, 1.0f);
-        MemoryCategory memoryCategory = new MemoryCategory("HIGH", 2, 1.5f);
-        HIGH = memoryCategory;
-        $VALUES = new MemoryCategory[]{LOW, NORMAL, memoryCategory};
-    }
-
-    public MemoryCategory(String str, int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Float.valueOf(f)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                String str2 = (String) objArr2[0];
-                ((Integer) objArr2[1]).intValue();
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
+    MemoryCategory(float f) {
         this.multiplier = f;
     }
 
-    public static MemoryCategory valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return (MemoryCategory) Enum.valueOf(MemoryCategory.class, str);
-        }
-        return (MemoryCategory) invokeL.objValue;
-    }
-
-    public static MemoryCategory[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return (MemoryCategory[]) $VALUES.clone();
-        }
-        return (MemoryCategory[]) invokeV.objValue;
-    }
-
     public float getMultiplier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.multiplier;
-        }
-        return invokeV.floatValue;
+        return this.multiplier;
     }
 }

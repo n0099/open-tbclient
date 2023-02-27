@@ -21,6 +21,11 @@ public final class BuildersKt {
         return BuildersKt__BuildersKt.runBlocking$default(coroutineContext, function2, i, obj);
     }
 
+    /* JADX DEBUG: Method not inlined, still used in: [androidx.lifecycle.LifecycleCoroutineScopeImpl.register():void] */
+    public static /* synthetic */ Job launch$default(CoroutineScope coroutineScope, CoroutineContext coroutineContext, CoroutineStart coroutineStart, Function2 function2, int i, Object obj) {
+        return BuildersKt__Builders_commonKt.launch$default(coroutineScope, coroutineContext, coroutineStart, function2, i, obj);
+    }
+
     @ExperimentalCoroutinesApi
     public static final <T> Object invoke(CoroutineDispatcher coroutineDispatcher, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
         return BuildersKt__Builders_commonKt.invoke(coroutineDispatcher, function2, continuation);

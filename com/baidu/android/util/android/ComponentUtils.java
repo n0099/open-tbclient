@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.codec.language.bm.Rule;
 /* loaded from: classes.dex */
 public final class ComponentUtils {
     public static /* synthetic */ Interceptable $ic = null;
@@ -89,7 +90,7 @@ public final class ComponentUtils {
                     return;
                 }
             }
-            ALL = new ComponentType("ALL", 0);
+            ALL = new ComponentType(Rule.ALL, 0);
             ACTIVITY = new ComponentType("ACTIVITY", 1);
             SERVICE = new ComponentType("SERVICE", 2);
             RECEIVER = new ComponentType("RECEIVER", 3);

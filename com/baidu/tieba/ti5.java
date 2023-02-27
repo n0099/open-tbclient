@@ -1,4 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
-public interface ti5 extends si5, vi5 {
+public interface ti5 {
+    void a(ri5 ri5Var);
 }
